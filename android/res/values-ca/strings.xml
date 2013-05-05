@@ -2,7 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="tts_settings_label" msgid="2696301846672491410">"Configuració d\'eSpeak TTS"</string>
   <string name="setting_default_pitch" msgid="2063082697363767286">"To predeterminat"</string>
-  <string name="setting_default_gender" msgid="8721577045178419807">"Gènere de veu"</string>
   <string name="setting_default_rate" msgid="3255750767876184606">"Multiplicador de velocitat de la veu"</string>
   <string name="installing_voice_data" msgid="1199950160686799120">"S\'estan instal·lant les dades de veu..."</string>
   <string name="set_default_message" msgid="651325122612558377">"eSpeak no s\'ha definit com a motor de text a veu predeterminat."</string>

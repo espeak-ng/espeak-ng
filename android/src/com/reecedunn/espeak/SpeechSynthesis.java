@@ -173,13 +173,13 @@ public class SpeechSynthesis {
         return voices;
     }
 
-    public void setVoice(Voice voice, String variant, int gender, int age) {
+    public void setVoice(Voice voice, VoiceVariant variant) {
         // NOTE: espeak_SetVoiceByProperties does not support specifying the
         // voice variant (e.g. klatt), but espeak_SetVoiceByName does.
-        if (variant == null) {
-            nativeSetVoiceByProperties(voice.name, gender, age);
+        if (variant.variant == null) {
+            nativeSetVoiceByProperties(voice.name, variant.gender, variant.age);
         } else {
-            nativeSetVoiceByName(voice.identifier + "+" + variant);
+            nativeSetVoiceByName(voice.identifier + "+" + variant.variant);
         }
     }
 
@@ -343,6 +343,59 @@ public class SpeechSynthesis {
         void onSynthDataReady(byte[] audioData);
 
         void onSynthDataComplete();
+    }
+
+    public static class VoiceVariant {
+        public final String variant;
+        public final int gender;
+        public final int age;
+
+        protected VoiceVariant(String variant, int age) {
+            if (variant.equals("male")) {
+                this.variant = null;
+                this.gender = GENDER_MALE;
+            } else if (variant.equals("female")) {
+                this.variant = null;
+                this.gender = GENDER_FEMALE;
+            } else {
+                this.variant = variant;
+                this.gender = GENDER_UNSPECIFIED;
+            }
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            final String ret;
+            if (gender == GENDER_MALE) {
+                ret = "male";
+            } else if (gender == GENDER_FEMALE) {
+                ret = "female";
+            } else {
+                ret = variant;
+            }
+            if (age == AGE_YOUNG) {
+                return ret + "-young";
+            } else if (age == AGE_OLD) {
+                return ret + "-old";
+            }
+            return ret;
+        }
+    }
+
+    public static VoiceVariant parseVoiceVariant(String value) {
+        String[] parts = value.split("-");
+        int age = AGE_ANY;
+        switch (parts.length) {
+        case 1: // variant
+            break;
+        case 2: // variant-age
+            age = parts[1].equals("young") ? AGE_YOUNG : AGE_OLD;
+            break;
+        default:
+            return null;
+        }
+        return new VoiceVariant(parts[0], age);
     }
 
     public class Voice {

@@ -196,24 +196,36 @@ public class TtsService extends TextToSpeechService {
         if (text == null)
             return;
 
-        final int gender = getPreferenceValue("default_gender", 0);
-        final Bundle params = request.getParams();
-
-        int rate = getPreferenceValue("espeak_rate", Integer.MIN_VALUE);
-        if (rate == Integer.MIN_VALUE) {
-            // Try the old eyes-free setting:
-            rate = (getPreferenceValue("default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final String variantString = prefs.getString("espeak_variant", null);
+        final SpeechSynthesis.VoiceVariant variant;
+        if (variantString == null) {
+            final int gender = getPreferenceValue(prefs, "default_gender", SpeechSynthesis.GENDER_MALE);
+            if (gender == SpeechSynthesis.GENDER_FEMALE) {
+                variant = SpeechSynthesis.parseVoiceVariant("default-female");
+            } else {
+                variant = SpeechSynthesis.parseVoiceVariant("default-male");
+            }
+        } else {
+            variant = SpeechSynthesis.parseVoiceVariant(variantString);
         }
 
-        int pitch = getPreferenceValue("espeak_pitch", Integer.MIN_VALUE);
+        int rate = getPreferenceValue(prefs, "espeak_rate", Integer.MIN_VALUE);
+        if (rate == Integer.MIN_VALUE) {
+            // Try the old eyes-free setting:
+            rate = (getPreferenceValue(prefs, "default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
+        }
+
+        int pitch = getPreferenceValue(prefs, "espeak_pitch", Integer.MIN_VALUE);
         if (pitch == Integer.MIN_VALUE) {
             // Try the old eyes-free setting:
-            pitch = getPreferenceValue("default_pitch", 100) / 2;
+            pitch = getPreferenceValue(prefs, "default_pitch", 100) / 2;
         }
 
         if (DEBUG) {
             Log.i(TAG, "Received synthesis request: {language=\"" + mMatchingVoice.name + "\"}");
 
+            final Bundle params = request.getParams();
             for (String key : params.keySet()) {
                 Log.v(TAG,
                         "Synthesis request contained param {" + key + ", " + params.get(key) + "}");
@@ -231,16 +243,15 @@ public class TtsService extends TextToSpeechService {
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(),
                 mEngine.getChannelCount());
 
-        mEngine.setVoice(mMatchingVoice, null, gender, SpeechSynthesis.AGE_ANY);
+        mEngine.setVoice(mMatchingVoice, variant);
         mEngine.Rate.setValue(rate, request.getSpeechRate());
         mEngine.Pitch.setValue(pitch, request.getPitch());
-        mEngine.PitchRange.setValue(getPreferenceValue("espeak_pitch_range", mEngine.PitchRange.getDefaultValue()));
-        mEngine.Volume.setValue(getPreferenceValue("espeak_volume", mEngine.Volume.getDefaultValue()));
+        mEngine.PitchRange.setValue(getPreferenceValue(prefs, "espeak_pitch_range", mEngine.PitchRange.getDefaultValue()));
+        mEngine.Volume.setValue(getPreferenceValue(prefs, "espeak_volume", mEngine.Volume.getDefaultValue()));
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
-    private int getPreferenceValue(String preference, int defaultValue) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    private int getPreferenceValue(SharedPreferences prefs, String preference, int defaultValue) {
         final String prefString = prefs.getString(preference, null);
         if (prefString == null) {
             return defaultValue;

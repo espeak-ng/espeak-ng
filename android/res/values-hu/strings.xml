@@ -2,7 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak -- A szövegfelismerő beállításai"</string>
   <string name="setting_default_pitch" msgid="2063082697363767286">"Alapértelmezett hangszín"</string>
-  <string name="setting_default_gender" msgid="8721577045178419807">"Szövegfelolvasó neme"</string>
   <string name="setting_default_rate" msgid="3255750767876184606">"Beszédsebesség gyorsítása"</string>
   <string name="installing_voice_data" msgid="1199950160686799120">"Hangadatok telepítése..."</string>
   <string name="set_default_message" msgid="651325122612558377">"Nem az eSpeak az alapértelmezett szövegfelolvasó motor."</string>
