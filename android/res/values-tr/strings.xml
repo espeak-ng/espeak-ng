@@ -45,4 +45,10 @@
         Description: Labels for possible voice variant/gender/age values.-->
   <!--Source: Rate preference labels.
         Description: Labels for possible rate multiplier values.-->
+  <string name="status">Durum</string>
+  <string name="tts_version">eSpeak versiyonu</string>
+  <string name="speak">Konuş</string>
+  <string name="synthesis_demo">Konuşulacak metni girin:</string>
+  <string name="espeak_volume">Ses</string>
+  <string name="resetToDefault">Varsayılana ayarla</string>
 </resources>
