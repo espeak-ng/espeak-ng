@@ -2,6 +2,7 @@
 <resources>
   <!--Source: App icon label.
         Description: The name of the application.-->
+  <string name="app_name" translatable="false">eSpeak</string>
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
   <string name="tts_settings_label">Настройки eSpeak</string>
@@ -43,6 +44,44 @@
   <string name="sample_text"></string>
   <!--Source: Variant preference labels.
         Description: Labels for possible voice variant/gender/age values.-->
+  <string-array name="default_variant_entries">
+    <item>Male</item>
+    <item>Male (Variant 1)</item>
+    <item>Male (Variant 2)</item>
+    <item>Male (Variant 3)</item>
+    <item>Male (Variant 4)</item>
+    <item>Male (Variant 5)</item>
+    <item>Male (Variant 6)</item>
+    <item>Male (Variant 7)</item>
+    <item>Female</item>
+    <item>Female (Variant 1)</item>
+    <item>Female (Variant 2)</item>
+    <item>Female (Variant 3)</item>
+    <item>Female (Variant 4)</item>
+    <item>Female (Variant 5)</item>
+    <item>Klatt (Variant 1)</item>
+    <item>Klatt (Variant 2)</item>
+    <item>Klatt (Variant 3)</item>
+    <item>Klatt (Variant 4)</item>
+    <item>Хриплый (Мужской)</item>
+    <item>Шёпот (Мужской)</item>
+    <item>Шёпот (Женский)</item>
+    <item>Юный (Мужской)</item>
+    <item>Юный (Женский)</item>
+    <item>Пожилой (Мужской)</item>
+    <item>Пожилой (Женский)</item>
+  </string-array>
   <!--Source: Rate preference labels.
         Description: Labels for possible rate multiplier values.-->
+  <string name="status">Статус</string>
+  <string name="tts_version">Версия eSpeak</string>
+  <string name="speak">Речь</string>
+  <string name="ssml">Загрузить шаблон SSML </string>
+  <string name="synthesis_demo">Введите озвучиваемый текст:</string>
+  <string name="espeak_volume">Громкость</string>
+  <string name="formatter_wpm">%s СВМ</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Сброс</string>
+  <string name="espeak_pitch_range">Шаг изменения</string>
+  <string name="espeak_variant">Вариант голоса</string>
 </resources>
