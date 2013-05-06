@@ -213,7 +213,12 @@ public class TtsService extends TextToSpeechService {
         int rate = getPreferenceValue(prefs, "espeak_rate", Integer.MIN_VALUE);
         if (rate == Integer.MIN_VALUE) {
             // Try the old eyes-free setting:
-            rate = (getPreferenceValue(prefs, "default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
+            int defaultValue = mEngine.Rate.getDefaultValue();
+            int maxValue = mEngine.Rate.getMaxValue();
+
+            rate = (getPreferenceValue(prefs, "default_rate", 100) / 100) * defaultValue;
+            if (rate < defaultValue) rate = defaultValue;
+            if (rate > maxValue) rate = maxValue;
         }
 
         int pitch = getPreferenceValue(prefs, "espeak_pitch", Integer.MIN_VALUE);
