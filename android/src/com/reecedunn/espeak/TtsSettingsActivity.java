@@ -52,8 +52,13 @@ public class TtsSettingsActivity extends PreferenceActivity {
         if (rate == null) {
             // Try the old eyes-free setting:
             SpeechSynthesis engine = new SpeechSynthesis(this, null);
+            int defaultValue = engine.Rate.getDefaultValue();
+            int maxValue = engine.Rate.getMaxValue();
+
             rate = prefs.getString("default_rate", "100");
-            int rateValue = (Integer.parseInt(rate) / 100) * engine.Rate.getDefaultValue();
+            int rateValue = (Integer.parseInt(rate) / 100) * defaultValue;
+            if (rateValue < defaultValue) rateValue = defaultValue;
+            if (rateValue > maxValue) rateValue = maxValue;
             editor.putString("espeak_rate", Integer.toString(rateValue));
         }
 
