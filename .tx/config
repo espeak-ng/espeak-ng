@@ -7,6 +7,7 @@ source_lang = en
 trans.en_GB = android/res/values-en-rGB/strings.xml
 trans.es_419 = android/res/values-es-rUS/strings.xml
 trans.he = android/res/values-iw/strings.xml
+trans.pt_BR = android/res/values-pt-rBR/strings.xml
 trans.pt_PT = android/res/values-pt-rPT/strings.xml
 trans.zh_CN = android/res/values-zh-rCN/strings.xml
 trans.zh_TW = android/res/values-zh-rTW/strings.xml
