@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+  <!--
+        Source: App icon label.
+        Description: The name of the application.
+    -->
+  <string name="app_name" translatable="false">eSpeak</string>
+    
     <string-array name="default_variant_values">
         <item>male</item>
         <item>m1</item>

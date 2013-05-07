@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!--
-        Source: App icon label.
-        Description: The name of the application.
-    -->
-  <string name="app_name" translatable="false">eSpeak</string>
-  <!--
         Source: Activity title.
         Description: Title for the Settings activity.
     -->
