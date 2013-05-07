@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <!--Source: App icon label.
-        Description: The name of the application.-->
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
   <string name="tts_settings_label">Impostazioni di sintesi vocale eSpeak</string>
@@ -40,7 +38,7 @@
   <string name="loading">Caricamento, attendere...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
-  <string name="sample_text"/>
+  <string name="sample_text">Questo è un esempio di testo parlato in %s</string>
   <!--Source: Variant preference labels.
         Description: Labels for possible voice variant/gender/age values.-->
   <string-array name="default_variant_entries">

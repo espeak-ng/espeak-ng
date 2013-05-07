@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <!--Source: App icon label.
-        Description: The name of the application.-->
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
   <string name="tts_settings_label">eSpeak -- A szövegfelismerő beállításai</string>
@@ -40,7 +38,7 @@
   <string name="loading">Betöltés folyamatban -- kérjük, várjon...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
-  <string name="sample_text"/>
+  <string name="sample_text">Ez egy %s nyelven felolvasott szöveg mintája.</string>
   <!--Source: Variant preference labels.
         Description: Labels for possible voice variant/gender/age values.-->
   <!--Source: Rate preference labels.
