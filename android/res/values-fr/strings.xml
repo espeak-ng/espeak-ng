@@ -16,10 +16,10 @@
   <string name="installing_voice_data">Installation des données vocales en cours…</string>
   <!--Source: Dialog message.
         Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">eSpeak n\\'est pas votre moteur de synthèse vocale par défaut.</string>
+  <string name="set_default_message">eSpeak n\'est pas votre moteur de synthèse vocale par défaut.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">Échec de l\\'installation des données vocales par eSpeak. Veuillez vérifier votre carte SD.</string>
+  <string name="voice_data_failed_message">Échec de l\'installation des données vocales par eSpeak. Veuillez vérifier votre carte SD.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that an unknown error has occurred.-->
   <string name="error_message">Désolé, impossible de lancer eSpeak.</string>

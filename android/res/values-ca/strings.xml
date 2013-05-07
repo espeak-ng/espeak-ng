@@ -4,7 +4,7 @@
         Description: The name of the application.-->
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
-  <string name="tts_settings_label">Configuració d\\'eSpeak TTS</string>
+  <string name="tts_settings_label">Configuració d\'eSpeak TTS</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default voice pitch.-->
   <string name="setting_default_pitch">To predeterminat</string>
@@ -13,16 +13,16 @@
   <string name="setting_default_rate">Multiplicador de velocitat de la veu</string>
   <!--Source: Dialog text.
         Description: Status message shown when installing voice data.-->
-  <string name="installing_voice_data">S\\'estan instal·lant les dades de veu...</string>
+  <string name="installing_voice_data">S\'estan instal·lant les dades de veu...</string>
   <!--Source: Dialog message.
         Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">eSpeak no s\\'ha definit com a motor de text a veu predeterminat.</string>
+  <string name="set_default_message">eSpeak no s\'ha definit com a motor de text a veu predeterminat.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that voice data installation failed.-->
   <string name="voice_data_failed_message">eSpeak no ha pogut instal·lar dades de veu. Comprova la targeta SD.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">No s\\'ha pogut iniciar eSpeak.</string>
+  <string name="error_message">No s\'ha pogut iniciar eSpeak.</string>
   <!--Source: Label text.
         Description: Label informing the user of the current text-to-speech language.-->
   <string name="current_tts_locale">Veu predeterminada</string>
@@ -34,10 +34,10 @@
   <string name="tts_settings">Configuració general de TTS</string>
   <!--Source: Button label.
         Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Configuració d\\'eSpeak TTS</string>
+  <string name="engine_settings">Configuració d\'eSpeak TTS</string>
   <!--Source: Label text.
         Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">S\\'està carregant; espera...</string>
+  <string name="loading">S\'està carregant; espera...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text"></string>
