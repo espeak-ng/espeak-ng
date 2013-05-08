@@ -127,7 +127,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
+  if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
   native_data_t *nat = new native_data_t;
 
   if (nat == NULL) {
@@ -151,12 +151,15 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
     JNIEnv *env, jobject object) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
+  if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
+
   native_data_t *nat = getNativeData(env, object);
-
-  env->DeleteWeakGlobalRef(nat->object);
-
-  delete nat;
+  if (nat) {
+    env->DeleteWeakGlobalRef(nat->object);
+    delete nat;
+  } else {
+    env->DeleteWeakGlobalRef(object);
+  }
 
   return JNI_TRUE;
 }
