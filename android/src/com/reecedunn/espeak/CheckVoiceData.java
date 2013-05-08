@@ -107,8 +107,11 @@ public class CheckVoiceData extends Activity {
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
-        if (!hasBaseResources(this) || canUpgradeResources(this)) {
-            unavailableLanguages.add(Locale.ENGLISH.toString());
+        boolean haveBaseResources = hasBaseResources(this);
+        if (!haveBaseResources || canUpgradeResources(this)) {
+            if (!haveBaseResources) {
+                unavailableLanguages.add(Locale.ENGLISH.toString());
+            }
             returnResults(Engine.CHECK_VOICE_DATA_MISSING_DATA, dataPath, availableLanguages,
                           unavailableLanguages);
             return;
