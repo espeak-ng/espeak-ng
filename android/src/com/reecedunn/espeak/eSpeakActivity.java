@@ -18,10 +18,7 @@
 package com.reecedunn.espeak;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -61,7 +58,6 @@ public class eSpeakActivity extends Activity {
     }
 
     private State mState;
-    private boolean mDownloadedVoiceData;
     private ArrayList<String> mVoices;
     private TextToSpeech mTts;
     private List<Pair<String,String>> mInformation;
@@ -168,17 +164,6 @@ public class eSpeakActivity extends Activity {
     }
 
     /**
-     * Launches the voice data installer.
-     */
-    private void downloadVoiceData() {
-        final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-        registerReceiver(mDownloadReceiver, filter);
-
-        final Intent checkIntent = new Intent(this, DownloadVoiceData.class);
-        startActivity(checkIntent);
-    }
-
-    /**
      * Initializes the TTS engine.
      */
     private void initializeEngine() {
@@ -240,17 +225,11 @@ public class eSpeakActivity extends Activity {
      */
     private void onDataChecked(int resultCode, Intent data) {
         if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-            if (mDownloadedVoiceData) {
-            	Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
-                setState(State.ERROR);
-                populateInformationView();
-            } else {
-                downloadVoiceData();
-            }
-            return;
+            Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
+            setState(State.ERROR);
+        } else {
+            mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
         }
-
-        mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
 
         initializeEngine();
         populateInformationView();
@@ -329,12 +308,4 @@ public class eSpeakActivity extends Activity {
         }
         startActivityForResult(intent, REQUEST_DEFAULT);
     }
-
-    private final BroadcastReceiver mDownloadReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            mDownloadedVoiceData = true;
-            checkVoiceData();
-        }
-    };
 }
