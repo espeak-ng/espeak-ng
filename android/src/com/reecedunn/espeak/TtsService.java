@@ -76,6 +76,14 @@ public class TtsService extends TextToSpeechService {
         super.onCreate();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mBroadcastReceiver != null) {
+            unregisterReceiver(mBroadcastReceiver);
+        }
+    }
+
     /**
      * Sets up the native eSpeak engine.
      */
@@ -100,8 +108,17 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
         if (!CheckVoiceData.hasBaseResources(this) || CheckVoiceData.canUpgradeResources(this)) {
-            final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-            registerReceiver(mBroadcastReceiver, filter);
+            if (mBroadcastReceiver == null) {
+                mBroadcastReceiver = new BroadcastReceiver() {
+                    @Override
+                    public void onReceive(Context context, Intent intent) {
+                        initializeTtsEngine();
+                    }
+                };
+
+                final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
+                registerReceiver(mBroadcastReceiver, filter);
+            }
 
             final Intent intent = new Intent(this, DownloadVoiceData.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -295,10 +312,5 @@ public class TtsService extends TextToSpeechService {
     /**
      * Listens for language update broadcasts and initializes the eSpeak engine.
      */
-    private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            initializeTtsEngine();
-        }
-    };
+    private BroadcastReceiver mBroadcastReceiver = null;
 }
