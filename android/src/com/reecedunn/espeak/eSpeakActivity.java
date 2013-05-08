@@ -18,7 +18,10 @@
 package com.reecedunn.espeak;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,7 +49,6 @@ public class eSpeakActivity extends Activity {
     private static final int TTS_INITIALIZED = 1;
 
     private static final int REQUEST_CHECK = 1;
-    private static final int REQUEST_DOWNLOAD = 2;
     private static final int REQUEST_DEFAULT = 3;
 
 	private static final String TAG = "eSpeakActivity";
@@ -169,9 +171,11 @@ public class eSpeakActivity extends Activity {
      * Launches the voice data installer.
      */
     private void downloadVoiceData() {
-        final Intent checkIntent = new Intent(this, DownloadVoiceData.class);
+        final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
+        registerReceiver(mDownloadReceiver, filter);
 
-        startActivityForResult(checkIntent, REQUEST_DOWNLOAD);
+        final Intent checkIntent = new Intent(this, DownloadVoiceData.class);
+        startActivity(checkIntent);
     }
 
     /**
@@ -253,24 +257,6 @@ public class eSpeakActivity extends Activity {
     }
 
     /**
-     * Handles the result of voice data installation. Either shows a failure
-     * dialog or launches the voice data verifier.
-     *
-     * @param resultCode
-     */
-    private void onDataDownloaded(int resultCode) {
-        if (resultCode != RESULT_OK) {
-        	Log.e(TAG, "Voice data download failed.");
-            setState(State.DOWNLOAD_FAILED);
-            return;
-        }
-
-        mDownloadedVoiceData = true;
-
-        checkVoiceData();
-    }
-
-    /**
      * Handles the result of TTS engine initialization. Either displays an error
      * dialog or populates the activity's UI.
      *
@@ -292,9 +278,6 @@ public class eSpeakActivity extends Activity {
         switch (requestCode) {
             case REQUEST_CHECK:
                 onDataChecked(resultCode, data);
-                break;
-            case REQUEST_DOWNLOAD:
-                onDataDownloaded(resultCode);
                 break;
             case REQUEST_DEFAULT:
                 initializeEngine();
@@ -346,4 +329,12 @@ public class eSpeakActivity extends Activity {
         }
         startActivityForResult(intent, REQUEST_DEFAULT);
     }
+
+    private final BroadcastReceiver mDownloadReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            mDownloadedVoiceData = true;
+            checkVoiceData();
+        }
+    };
 }
