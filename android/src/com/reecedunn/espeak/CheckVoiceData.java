@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2009 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,8 +47,6 @@ import java.util.Set;
 
 public class CheckVoiceData extends Activity {
     private static final String TAG = "eSpeakTTS";
-
-    private static final int REQUEST_DOWNLOAD = 1;
 
     /** Resources required for eSpeak to run correctly. */
     private static final String[] BASE_RESOURCES = {
@@ -104,33 +102,15 @@ public class CheckVoiceData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        checkForVoices(false);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_DOWNLOAD:
-                checkForVoices(true);
-                break;
-        }
-    }
-
-    private void checkForVoices(boolean attemptedInstall) {
         final File dataPath = getDataPath(this);
 
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
         if (!hasBaseResources(this) || canUpgradeResources(this)) {
-            if (!attemptedInstall) {
-                downloadVoiceData();
-                return;
-            }
-            // No base resource, can't load available voices.
             unavailableLanguages.add(Locale.ENGLISH.toString());
             returnResults(Engine.CHECK_VOICE_DATA_MISSING_DATA, dataPath, availableLanguages,
-                    unavailableLanguages);
+                          unavailableLanguages);
             return;
         }
 
@@ -152,16 +132,7 @@ public class CheckVoiceData extends Activity {
         }
 
         returnResults(Engine.CHECK_VOICE_DATA_PASS, dataPath, availableLanguages,
-                unavailableLanguages);
-    }
-
-    /**
-     * Launches the voice data installer.
-     */
-    private void downloadVoiceData() {
-        final Intent checkIntent = new Intent(this, DownloadVoiceData.class);
-
-        startActivityForResult(checkIntent, REQUEST_DOWNLOAD);
+                      unavailableLanguages);
     }
 
     private void returnResults(int result, File dataPath, ArrayList<String> availableLanguages,
