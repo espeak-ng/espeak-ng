@@ -66,6 +66,8 @@ public class TtsService extends TextToSpeechService {
     private List<Voice> mAvailableVoices;
     private Voice mMatchingVoice = null;
 
+    private BroadcastReceiver mOnLanguagesDownloaded = null;
+
     private String mLanguage = DEFAULT_LANGUAGE;
     private String mCountry = DEFAULT_COUNTRY;
     private String mVariant = DEFAULT_VARIANT;
@@ -79,8 +81,8 @@ public class TtsService extends TextToSpeechService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mBroadcastReceiver != null) {
-            unregisterReceiver(mBroadcastReceiver);
+        if (mOnLanguagesDownloaded != null) {
+            unregisterReceiver(mOnLanguagesDownloaded);
         }
     }
 
@@ -108,8 +110,8 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
         if (!CheckVoiceData.hasBaseResources(this) || CheckVoiceData.canUpgradeResources(this)) {
-            if (mBroadcastReceiver == null) {
-                mBroadcastReceiver = new BroadcastReceiver() {
+            if (mOnLanguagesDownloaded == null) {
+                mOnLanguagesDownloaded = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
                         initializeTtsEngine();
@@ -117,7 +119,7 @@ public class TtsService extends TextToSpeechService {
                 };
 
                 final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-                registerReceiver(mBroadcastReceiver, filter);
+                registerReceiver(mOnLanguagesDownloaded, filter);
             }
 
             final Intent intent = new Intent(this, DownloadVoiceData.class);
@@ -308,9 +310,4 @@ public class TtsService extends TextToSpeechService {
             mCallback.done();
         }
     };
-
-    /**
-     * Listens for language update broadcasts and initializes the eSpeak engine.
-     */
-    private BroadcastReceiver mBroadcastReceiver = null;
 }
