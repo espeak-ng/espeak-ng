@@ -66,7 +66,6 @@ public class TtsService extends TextToSpeechService {
     private Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
-    private BroadcastReceiver mOnSystemLocaleChanged = null;
 
     private String mLanguage = DEFAULT_LANGUAGE;
     private String mCountry = DEFAULT_COUNTRY;
@@ -76,18 +75,6 @@ public class TtsService extends TextToSpeechService {
     public void onCreate() {
         initializeTtsEngine();
         super.onCreate();
-
-        mOnSystemLocaleChanged = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Locale locale = Locale.getDefault();
-                int ret = onLoadLanguage(locale.getISO3Language(), locale.getISO3Country(), locale.getVariant());
-                Log.i("LocaleChange", "Locale = " + locale + "; status = " + ret);
-            }
-        };
-
-        final IntentFilter filter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
-        registerReceiver(mOnSystemLocaleChanged, filter);
     }
 
     @Override
@@ -95,9 +82,6 @@ public class TtsService extends TextToSpeechService {
         super.onDestroy();
         if (mOnLanguagesDownloaded != null) {
             unregisterReceiver(mOnLanguagesDownloaded);
-        }
-        if (mOnSystemLocaleChanged != null) {
-            unregisterReceiver(mOnSystemLocaleChanged);
         }
     }
 
