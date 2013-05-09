@@ -236,9 +236,9 @@ public class TtsService extends TextToSpeechService {
         if (variantString == null) {
             final int gender = getPreferenceValue(prefs, "default_gender", SpeechSynthesis.GENDER_MALE);
             if (gender == SpeechSynthesis.GENDER_FEMALE) {
-                variant = VoiceVariant.parseVoiceVariant("default-female");
+                variant = VoiceVariant.parseVoiceVariant("female");
             } else {
-                variant = VoiceVariant.parseVoiceVariant("default-male");
+                variant = VoiceVariant.parseVoiceVariant("male");
             }
         } else {
             variant = VoiceVariant.parseVoiceVariant(variantString);
