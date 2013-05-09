@@ -91,6 +91,7 @@ public class TextToSpeechTest extends AndroidTestCase
 
         for (VoiceData.Voice data : VoiceData.voices)
         {
+            String context = null;
             try
             {
                 // Skip the voice if the language code is not supported by Android:
@@ -104,36 +105,42 @@ public class TextToSpeechTest extends AndroidTestCase
                 final Locale java2 = new Locale(data.javaLanguage, data.javaCountry, "test");
                 final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
+                context = "iana1";
                 assertThat(mEngine.isLanguageAvailable(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(mEngine.setLanguage(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(mEngine.getLanguage().getVariant(), is(data.variant));
 
+                context = "iana2";
                 assertThat(mEngine.isLanguageAvailable(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(mEngine.setLanguage(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(mEngine.getLanguage().getVariant(), is(""));
 
+                context = "iana3";
                 assertThat(mEngine.isLanguageAvailable(iana3), is(TextToSpeech.LANG_AVAILABLE));
                 assertThat(mEngine.setLanguage(iana3), is(TextToSpeech.LANG_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(mEngine.getLanguage().getCountry(), is(""));
                 assertThat(mEngine.getLanguage().getVariant(), is(""));
 
+                context = "java1";
                 assertThat(mEngine.isLanguageAvailable(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(mEngine.setLanguage(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(mEngine.getLanguage().getVariant(), is(data.variant));
 
+                context = "java2";
                 assertThat(mEngine.isLanguageAvailable(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(mEngine.setLanguage(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(mEngine.getLanguage().getVariant(), is(""));
 
+                context = "java3";
                 assertThat(mEngine.isLanguageAvailable(java3), is(TextToSpeech.LANG_AVAILABLE));
                 assertThat(mEngine.setLanguage(java3), is(TextToSpeech.LANG_AVAILABLE));
                 assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
@@ -142,7 +149,7 @@ public class TextToSpeechTest extends AndroidTestCase
             }
             catch (AssertionError e)
             {
-                throw new VoiceData.Exception(data, null, e);
+                throw new VoiceData.Exception(data, context, e);
             }
         }
     }
