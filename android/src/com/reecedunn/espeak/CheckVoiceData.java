@@ -32,7 +32,6 @@ import android.speech.tts.TextToSpeech.Engine;
 import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
-import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -27,7 +27,6 @@ package com.reecedunn.espeak;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.speech.tts.TextToSpeech;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -343,51 +342,6 @@ public class SpeechSynthesis {
         void onSynthDataReady(byte[] audioData);
 
         void onSynthDataComplete();
-    }
-
-    public class Voice {
-        public final String name;
-        public final String identifier;
-        public final int gender;
-        public final int age;
-        public final Locale locale;
-
-        public Voice(String name, String identifier, int gender, int age, Locale locale) {
-            this.name = name;
-            this.identifier = identifier;
-            this.gender = gender;
-            this.age = age;
-            this.locale = locale;
-        }
-
-        /**
-         * Attempts a partial match against a query locale.
-         *
-         * @param query The locale to match.
-         * @return A text-to-speech availability code. One of:
-         *         <ul>
-         *         <li>{@link TextToSpeech#LANG_NOT_SUPPORTED}
-         *         <li>{@link TextToSpeech#LANG_AVAILABLE}
-         *         <li>{@link TextToSpeech#LANG_COUNTRY_AVAILABLE}
-         *         <li>{@link TextToSpeech#LANG_COUNTRY_VAR_AVAILABLE}
-         *         </ul>
-         */
-        public int match(Locale query) {
-            if (!locale.getISO3Language().equals(query.getISO3Language())) {
-                return TextToSpeech.LANG_NOT_SUPPORTED;
-            } else if (!locale.getISO3Country().equals(query.getISO3Country())) {
-                return TextToSpeech.LANG_AVAILABLE;
-            } else if (!locale.getVariant().equals(query.getVariant())) {
-                return TextToSpeech.LANG_COUNTRY_AVAILABLE;
-            } else {
-                return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
-            }
-        }
-
-        @Override
-        public String toString() {
-            return locale.toString().replace('_', '-');
-        }
     }
 
     private static String getIanaLocaleCode(String code, final Map<String, String> javaToIana) {

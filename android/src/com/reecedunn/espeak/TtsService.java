@@ -40,7 +40,6 @@ import android.speech.tts.TextToSpeechService;
 import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
-import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
 import java.util.List;
 import java.util.Locale;

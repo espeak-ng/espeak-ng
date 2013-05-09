@@ -23,7 +23,7 @@ import java.util.Locale;
 import java.util.Set;
 
 import com.reecedunn.espeak.SpeechSynthesis;
-import com.reecedunn.espeak.SpeechSynthesis.Voice;
+import com.reecedunn.espeak.Voice;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
