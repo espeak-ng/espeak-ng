@@ -217,16 +217,16 @@ public class TtsService extends TextToSpeechService {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final String variantString = prefs.getString("espeak_variant", null);
-        final SpeechSynthesis.VoiceVariant variant;
+        final VoiceVariant variant;
         if (variantString == null) {
             final int gender = getPreferenceValue(prefs, "default_gender", SpeechSynthesis.GENDER_MALE);
             if (gender == SpeechSynthesis.GENDER_FEMALE) {
-                variant = SpeechSynthesis.parseVoiceVariant("default-female");
+                variant = VoiceVariant.parseVoiceVariant("default-female");
             } else {
-                variant = SpeechSynthesis.parseVoiceVariant("default-male");
+                variant = VoiceVariant.parseVoiceVariant("default-male");
             }
         } else {
-            variant = SpeechSynthesis.parseVoiceVariant(variantString);
+            variant = VoiceVariant.parseVoiceVariant(variantString);
         }
 
         int rate = getPreferenceValue(prefs, "espeak_rate", Integer.MIN_VALUE);
