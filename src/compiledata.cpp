@@ -3672,6 +3672,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
         LoadVoice(voice_name2,0);
 
 	CompileReport();
+	if(gui_flag != 0)
 	report_dict = CompileAllDictionaries();
 #ifdef MAKE_ENVELOPES
 	DrawEnvelopes();
