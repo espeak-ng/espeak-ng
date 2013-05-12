@@ -64,17 +64,17 @@ endif
 endif
 endif
 
-CXXFLAGS = -O2 -Wall -c
-CPPFLAGS = -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
+CXXFLAGS ?= -O2 -Wall
+CPPFLAGS  = -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -I. $(CPPFLAGS) $<
+	$(CXX) -c $(CXXFLAGS) $(USE_AUDIO) -I. $(CPPFLAGS) $<
 
 e_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(espeakedit_CXXFLAGS) $(USE_AUDIO) $(CPPFLAGS) -I. $< -o e_$*.o
+	$(CXX) -c $(CXXFLAGS) $(espeakedit_CXXFLAGS) $(USE_AUDIO) $(CPPFLAGS) -I. $< -o e_$*.o
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
+	$(CXX) -c $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
 	-I. -D LIBRARY $(CPPFLAGS) $< -o x_$*.o
 
 all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK) $(ESPEAKEDIT)
