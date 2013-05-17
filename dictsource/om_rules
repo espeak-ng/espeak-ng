@@ -1,0 +1,144 @@
+// Oromo translation rules
+
+.group a
+          a          a
+          aa         a:
+
+
+.group b
+          b          b
+          bb         b:
+
+
+.group c
+          c          tS'
+
+
+.group d
+          d          d
+          dd         d:
+
+
+.group e
+          e          e
+          ee         e:
+
+.group f
+          f          f
+
+
+.group g
+          g          g
+          gg         g:
+
+
+.group h
+          h          h
+
+
+.group i
+          i          i
+          ii         i:
+
+
+.group j
+          j          dZ
+
+
+.group k
+          k          k
+          kk         k:
+
+
+.group l
+          l          l
+          ll         l:
+
+
+.group m
+          m          m
+          mm         m:
+
+
+.group n
+          n          n
+          nn         n:
+
+.group o
+          o          o
+          oo         o:
+ 
+
+
+
+.group p
+          p          p
+          pp         p:
+
+
+.group q
+          q          k
+          qq         k:
+
+
+.group r
+          r          r
+          rr         r:
+
+.group s
+          s          s
+          ss         s:
+
+
+.group t
+          t          t
+          tt         t:
+
+
+.group u
+          u          u
+          uu         u:
+ 
+
+.group v
+          v          v
+
+
+.group w
+          w          v
+
+
+.group x
+          x          t`
+          xx         t`:
+
+
+.group y
+          y          y
+          yy         y:
+  
+
+
+.group z
+          z          ts
+          zz         ts     
+
+
+.group ch
+          ch          tS
+          
+                    
+.group sh
+          sh          S
+          ssh         S:
+
+.group ph
+          ph          p`
+          
+
+.group dh
+          dh           d` // http://en.wikipedia.org/wiki/Voiced_alveolar_implosive
+  
+
+.group ny
+          ny          n^
