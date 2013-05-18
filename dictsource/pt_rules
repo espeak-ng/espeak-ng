@@ -30,7 +30,6 @@
         a          a
      &) a (_       =&        // in final unstressed syllable
      &) a (s_      =&
-     &) a (_a      =&/       // ?? elide final a before a
    A_l) a (_       &
      &) a (_à      =&/
 ?1      a (_       =&        // in final unstressed syllable
@@ -191,7 +190,7 @@
         e (bL02_   E
 
         e (cL04_   E
-
+@c) e (L07_   e
         e (chL04_  E
 
      r) e (cho_    e
@@ -261,9 +260,8 @@
      m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
-   gaz) e (ta_     e
-
-        e (vL04_   E
+qu) e (ta_   e
+          e (vL04_   E
      t) e (ve_     e
 
         e (rrAs_   E
@@ -388,8 +386,7 @@ respond) e (L05_   e
   diss) e (L06_    E         // contra-
      m) e (L07_    e         // comeste, etc.
     eb) e (L07_    e         // recebeste, etc.
-    ec) e (L07_    e         // pareceram, etc.
-    eg) e (L07_    e         // elegeste, etc.
+        eg) e (L07_    e         // elegeste, etc.
    _cr) e (L07_    e
    _do) e (L07_    e
    _mo) e (L07_    e
@@ -397,8 +394,7 @@ respond) e (L05_   e
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
    end) e (L07_    e         // vendeste, etc.
-   esc) e (L07_    e         // cresceste, etc.
-   met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
+      met) e (L07_    e         // meteste, cometeste, etc.
    mex) e (L07_    e
    mov) e (L07_    e         // re- co-
    olv) e (L07_    e         // devolveste, etc.
@@ -410,9 +406,6 @@ respond) e (L05_   e
   _coz) e (L07_    e
   colh) e (L07_    e         // & es-
   ench) e (L07_    e         // pre-
-  nasc) e (L07_    e         // re-
-  torc) e (L07_    e         // con-
-  venc) e (L07_    e         // con-
   vert) e (L07_    e         // in- re- con-
  _ergu) e (L07_    e
  _mord) e (L07_    e
@@ -429,6 +422,8 @@ _troux) e (L07_    E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
   _cel) e (brL04_  E
+  _dilac) e (rL04_   E
+  _encarc) e (rL04_   E
  _boch) e (chL04_  e
    _ex) e (crL04_  E
   _enr) e (dL01_   E
@@ -461,6 +456,7 @@ _enver) e (dL03_   E
    _op) e (rL04_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
+  _ent) e (sL04_   E
   _enc) e (rL04_   E
   _imp) e (rL04_   E
   _min) e (rL04_   E
@@ -530,6 +526,7 @@ _embel) e (zL04_   E
      p) e (çL03_   E
     _m) e (çL03_   E
 _entorp) e (çL03_  e
+_caC) e (lo_   e
 //endsort
 
 
@@ -914,7 +911,7 @@ _remem) o (rL04_   O
      f) o (rmL03_  O
      c) o (rrL01_  o         // incorra, corra, etc.
     _m) o (rrL01_  o
-     p) o (rtL03_  O         // im- trans- de- re- com- a- ex-
+     @p) o (rtL03_  O         // importo, etc.
      t) o (rçL03_  o         // con-
     _r) o (snL04_  O
     _c) o (spL02_  O
@@ -1015,7 +1012,8 @@ _remem) o (rL04_   O
         r (_       r
         r (C       *@-
      A) r (A       *
-     A) r (_A      *
+     r (_A      *
+ ?2 r (_h   *
      C) r (A       R
         rr         x
      _) r          x

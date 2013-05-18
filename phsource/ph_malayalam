@@ -15,7 +15,7 @@ phoneme y  // epenthetic vowel
   unstressed
   ipa ɨ
   length 80
-  FMT(vowel/u#_4, 80)
+  FMT(vowel/u#_4, 120)
 endphoneme
 
 

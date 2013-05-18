@@ -690,6 +690,20 @@ _твое) г (о_  	v
 // (This is now done automatically by the eSpeak program)
 
 .group
+	// other cyrillic letters
+	ђ	dZ;
+	ј	j   // U+458
+	љ	lj
+	ћ	tS;
+	џ	dZ
+	ќ	kj
+	ѓ	dZ;
+	ґ	g
+	є	jE
+	і	i
+	ї	ji
+	ў	w
+
    	$      	dolar
 
 

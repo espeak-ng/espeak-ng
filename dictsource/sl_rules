@@ -4,6 +4,7 @@
 
 .L01 b d g j l m n v z ž   // voiced consonants
 
+.L03 a e
 .L04 l v
 
 
@@ -12,6 +13,8 @@
         a (X$w_alt3+  'a
 
         a (č_    'a:
+        a (l_    'a:
+        
 
 .group b
         b        b
@@ -34,6 +37,7 @@
 .group e
         e        e:
         e (X$w_alt3+  'E
+        ee       i:
         
      @) e (n_    E#
     @C) e (r_    E#
@@ -60,8 +64,10 @@
         i (X$w_alt3+  'i
         i (A     j
         
-     @) i (ja_   =i
-     r) i (ja_   i:
+     @) i (jL03_   =i
+     r) i (jL03_   i:
+     z) i (jL03_   i:
+        i (l_    'i:
 
 .group j
         j        j
@@ -110,6 +116,8 @@
         o (L04+  o:
 
         o (č_    'o:
+        o (l_    'o:
+        oo	u:
         
 .group p
         p        p
@@ -153,7 +161,7 @@
         v (-A+   v    // preposition 'v' before a vowel
      A) v (K     w
      K) v (K     %u
-     K) v (r     v
+        v (r     v
    L01) v (A     v#
 
 

@@ -3,6 +3,7 @@
 
 // $alt2, remove s from plural, remove en from plural
 // Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
+// Use $alt4 for stressed final syllable ( es )
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
@@ -24,7 +25,7 @@ n	En
 p	pe:
 q	ky
 r	Er
-s	Es
+//s	Es    // 's morgens
 t	te:
 v	fe:
 w	ve:
@@ -34,6 +35,7 @@ z	zEt
 
 _s	Es
 _t	te:
+
 
 _cap	h'o:fdlEt@r
 _sub	s'8pskrIpt||
@@ -406,7 +408,7 @@ baster		$alt
 beender		$alt
 belemmer	$alt
 beter		$alt
-beirer		$alt
+beier		$alt
 bibber		$alt
 bitter		$alt
 bladder		$alt
@@ -432,8 +434,9 @@ consuminder	$alt
 counter		$alt
 cover		k8v@r $alt
 dabber		$alt
+dapper		$alt
 daver		$alt
-deemstar	$alt
+deemster	$alt
 dender  	$alt
 dobber  	$alt
 dokter  	$alt
@@ -441,11 +444,9 @@ donder		$alt
 donker  	$alt
 dotter  	$alt
 duister		$alt
-dwater		$alt
 eergister  	$alt
 eier		$alt
 emmer  		$alt
-ender		$alt
 enter  		$alt
 erger  		$alt
 etter  		$alt
@@ -502,7 +503,6 @@ kamfer		$alt
 kanker		$alt
 kaper		$alt
 kaver		$alt
-keilder		$alt
 kenter		$alt
 keper		$alt
 kerker		$alt
@@ -554,7 +554,6 @@ leger		$alt
 lekker		$alt
 lemmer		$alt
 lepper		$alt
-ler		$alt
 letter		$alt
 leuter		$alt
 lever		$alt
@@ -564,6 +563,7 @@ lodder		$alt
 lommer		$alt
 louter		$alt
 lubber		$alt
+luguber		$alt
 luier		$alt
 luimer		$alt
 luister		$alt
@@ -585,6 +585,7 @@ monster		$alt
 mopper		$alt
 nader		$alt
 neder		$alt
+nijver		$alt
 nuchter		$alt
 nummer		$alt
 ober		$alt
@@ -600,6 +601,7 @@ peiger		$alt
 peper		$alt
 peuter		$alt
 pieker		$alt
+pienter		$alt
 pieter		$alt
 pinkster	$alt
 pleister	$alt
@@ -610,6 +612,8 @@ poeder		$alt
 poeier		$alt
 poker		$alt
 polder		$alt
+pover		$alt
+proper		$alt
 puber		$alt
 pulver		$alt
 purper		$alt
@@ -630,6 +634,8 @@ schilder	$alt
 schipper	$alt
 schitter	$alt
 schouder	$alt
+schrander	$alt
+schuchter	$alt
 schutter	$alt
 sidder		$alt
 sjacher		$alt
@@ -642,10 +648,12 @@ slinger		$alt
 slobber		$alt
 slodder		$alt
 sloeber		$alt
+slommer		$alt
 sluier		$alt
 sluimer		$alt
 snater		$alt
 snipper		$alt
+snugger		$alt
 snotter		$alt
 snuister	$alt
 sober		$alt
@@ -667,6 +675,7 @@ tater		$alt
 teder		$alt
 teister		$alt
 temper		$alt
+tenger		$alt
 tetter		$alt
 teuter		$alt
 timmer		$alt
@@ -714,6 +723,7 @@ Vlaander	$alt
 
 // -s is not a suffix
 as		$alt
+bordes		$alt4
 bres		$alt
 chaos		$alt $1
 es		$alt
@@ -1433,9 +1443,11 @@ berin		bI:r'In
 beste		bEst@
 bevend		be:v@nd
 bijziend	$2	// bijziendheid
+binnenshuis	bIn@nsh'Wys
 blitzkrieg	blItskri:g
 boudoir		budw'a:r
 bourgondier	burx'o:ndi:@r
+buitenshuis	bWyt@nsh'Wys
 cafe		ka:f'e:
 circuit		sIrku'i
 chalet		Sa:lE
@@ -1462,6 +1474,7 @@ diner		din'e:
 //discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
+doelmatig	$2 $alt2
 doordat		$2
 dynastie	$3
 eensgelijks	e:nsQ@l'EIks
@@ -1482,6 +1495,7 @@ gefrituurd	$3
 hysterie	hIstI:r'i
 impregnering    Impr,EQn'e:IN
 inductie	$2
+informatieve	InfOrma:t'iv@
 ingewikkeld	$3
 ingrijpend	$2
 ingeval		$3
@@ -1491,6 +1505,7 @@ ingenieur	Inzj@nj'Y:r
 informatie	$3
 invasie		$2
 januari		$3
+jury		Zyri
 kadaster	$2
 leesregel	le:sre:Q@l
 lunch		l8nS
@@ -1539,6 +1554,7 @@ ongerieflijk	$3
 //ongrondwettig	$3
 partijvoorzitters $2
 periferie	pI:rifI:r'i
+perron		$2
 pistache	pist'AS
 privilege	privil'e:Z@ $alt2
 proces		$2
@@ -1548,6 +1564,7 @@ reservoir	re:zErvw'a:r
 revanche	r@vA~nS
 regime		$2
 roman		$2
+romance		ro:m'A~s@  $alt2
 rubriek		rybr'ik
 sacristie	$3
 saint		_^_FR
@@ -1557,6 +1574,8 @@ september	$2
 serie		sI:ri
 sms'jes		EsEm'Es_j@s
 spektakel	$2
+sportief	$2
+sportieve	$2
 tegennatuur	$4
 tralie		$1
 travestie	$3
@@ -1576,6 +1595,7 @@ wanluidend	$2
 wanschapen	$2
 wantrouwend	$2
 weliswaar	v#ElIsw'a:r
+werktuigelijk	$2
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 
