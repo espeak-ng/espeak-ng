@@ -143,7 +143,7 @@ endphoneme
 phoneme A:
   vowel  starttype #a  endtype #a
   length 200
-  IF nextPh(r) THEN
+  IF nextPhW(r) THEN
     FMT(vwl_en_us/ar)
   ENDIF
   FMT(vowel/aa_8)
@@ -183,7 +183,7 @@ phoneme O:
   vowel  starttype #o  endtype #o
   length 200
   ChangeIfDiminished(@)
-  IF nextPh(r) THEN
+  IF nextPhW(r) THEN
     FMT(vwl_en_us/oor)
   ENDIF
   FMT(vowel/0_3)

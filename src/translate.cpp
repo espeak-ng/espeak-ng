@@ -1735,7 +1735,8 @@ int SetTranslator2(const char *new_language)
 			translator2->phoneme_tab_ix = new_phoneme_tab;
 		}
 	}
-	translator2->phonemes_repeat[0] = 0;
+	if(translator2 != NULL)
+		translator2->phonemes_repeat[0] = 0;
 	return(new_phoneme_tab);
 }  // end of SetTranslator2
 

@@ -659,6 +659,7 @@ adore		$alt
 adorno		$alt  $verb
 aeroporto	$alt2
 aeroportos	$alt
+aflore		$alt
 alcateia	$alt
 alcova		$alt2
 alegro		$alt2 $noun
@@ -670,6 +671,7 @@ amuleto		$alt2
 ampere		$alt
 ampola		$alt2
 ampulheta	$alt2
+anchova		$alt2
 andorra		$alt2
 antonieta	$alt2
 apego		$alt2 $noun
@@ -694,14 +696,14 @@ axé		aSE
 azeda		$alt $verb
 azedo		$alt $verb
 bairro		b'aIxU
-baqueta		$alt2
-banqueta	$alt2
 banquete	$alt2
 bastonete	$alt2
 beco		$alt2
 besta		$alt2
 bilhete		$alt2
 bissulfeto	$alt2
+blazer	bl'eIzer
+blazers		bl'eIzers
 boca		$alt2
 boceta		$alt2
 bofe		$alt
@@ -719,7 +721,6 @@ boxe		$alt
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
-cabelo		$alt2
 cabresto	$alt2
 cacete		$alt2
 cachorra	$alt2
@@ -729,7 +730,6 @@ cãibra		k'&~IbR&
 caibro		k'aIbRU
 caixeta		$alt2
 camelha		$alt
-camelo		$alt2
 camiseta	$alt2
 canaleta	$alt2
 canhoto		$alt2
@@ -757,6 +757,7 @@ chamego		$alt2 $verb
 chaveta		$alt2
 chefe		$alt
 checam		$alt
+choça		$alt
 choro		$alt2 $noun
 chovesse	$alt2
 chupeta		$alt2
@@ -773,6 +774,8 @@ colher		$alt $noun
 colheres	$alt $noun
 colmeia		$alt
 colore		$alt
+colosso		$alt2
+colostro		$alt2
 começo		$alt $verb
 comodo		$alt2
 concerto	$alt2 $noun
@@ -832,16 +835,18 @@ diego		$alt2
 diogo		$alt2
 discordo	$alt
 dissabores	$alt2
-dispneia	dZIspyn'EI&
+?2  dispneia	dZIspyn'EI&
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
+dorminhoco		$alt2
 doutora		$alt2
 doze		$alt2
 dueto		$alt2
 elixir		eliSir
 emprego		$alt2
 emprego		$alt2 $noun
+encasqueta		$alt
 encosto		$alt  $verb
 endereço	$alt  $verb
 enforco		$alt
@@ -870,7 +875,6 @@ esgoto		$alt2
 esgoto		$alt $verb
 esperma		$alt
 espeto		$alt2 $noun
-espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
@@ -881,10 +885,10 @@ estrela		$alt2
 estrofe		$alt
 estrogonofe	$alt
 eta		$alt2
-etiqueta	$alt2
 europa		$alt
 europeia	$alt
 exagero		$alt $verb
+exorto	$alt
 explore		$alt
 faceta		$alt2
 falangeta	$alt2
@@ -896,6 +900,7 @@ fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
 flerte		$alt2 $noun
+flexora		$alt2
 foda		$alt2 $verb
 fodo		$alt2
 fogo		$alt2
@@ -918,6 +923,7 @@ galeto		$alt2
 galhofa		$alt
 galileia	$alt
 gangorra	$alt2
+gazeta		$alt2
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -929,6 +935,7 @@ gol		gow
 golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
+gosma		$alt
 gosto		$alt $verb
 gota		$alt2
 governo		$alt2
@@ -957,6 +964,8 @@ jogos		$alt
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
+laser	l'eIzer
+lasers	l'eIzers
 lebre		$alt
 leitora		$alt2
 lembrete	$alt2
@@ -970,9 +979,11 @@ logro		$alt
 lopes		$alt
 macete		$alt2
 maior		$alt
+major	$alt
 maleta		$alt2
 maniçoba	$alt
 marieta		$alt2
+mariposa		$alt2
 marreta		$alt2
 megera		$alt
 melhor		$alt
@@ -1025,6 +1036,7 @@ paella		pa'el^&
 palacete	$alt2
 paleta		$alt2
 palheta		$alt2
+palhoça		$alt
 panfleto	$alt2
 pangeia		$alt
 pantera		$alt
@@ -1046,7 +1058,6 @@ pintora		$alt2
 pior		$alt
 pipoco		$alt2 $noun
 pirueta		$alt2
-plaqueta	$alt2
 plateia		$alt
 plebeia		$alt
 polca		$alt
@@ -1056,7 +1067,7 @@ porque		$alt2
 porra		$alt2
 porreta		$alt2
 porrete		$alt2
-porto		$alt2
+porto		$alt $verb
 portos		$alt
 pose		$alt2
 povos		$alt
@@ -1134,13 +1145,15 @@ sulfeto		$alt2
 sulfureto	$alt2
 super		s'Uper
 suporto		$alt
-suor		swOr
+suor		suOr
 sutiã		sutSi'&~N
+tabefe		$alt
 tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
 terrores	$alt2
+teses	$alt
 teta		$alt2
 togo		$alt2
 topo		$alt2 $noun
@@ -1198,7 +1211,11 @@ blind      bl'aind
 ?1 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
+?2 design     dez'aIn
+?2   designer	dez'aIner
+?2   designers	dez'aIners
 ?1 dj         d,i:dZ'eI
+?2   diesel	dZ'izEU
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
 ?2 download		daUNl'owd
@@ -1271,6 +1288,7 @@ símbolo	s'imbolU
 ?1 sporting   sp'Ort,ing
  tab        t'aby
  tablet  t'ablet
+ taser	t'eIzer
 ?1 telemóvel  t,El,Em'OvEl
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p

@@ -1958,6 +1958,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	fseek(f_out,4,SEEK_SET);
 	Write4Bytes(f_out,offset_rules);
 	fclose(f_out);
+	fflush(f_log);
 
 	LoadDictionary(translator, dict_name, 0);
 

@@ -12,23 +12,23 @@ b	b@
 c	ts@
 č	tS@
 d	d@
-e	e
+e	e:
 f	f@
 g	g@
-_h	h@
+h	x@ $atend
 j	j@
-_k	k@
+k	k@ $atend
 l	l@
 m	m@
 n	n@
-_o	o
+o	o: $atend
 p	p@
 r	R@
-_s	s@
+s	s@ $atend
 š	S@
 t	t@
-_v	v@
-_z	z@
+v	v@ $atend
+z	z@ $atend
 ž	Z@
 
 q	ku
@@ -42,10 +42,13 @@ y	'ipsilon
 ë	$accent
 ö	$accent
 ü	$accent
+ß	'o:stri||s'@
 
-// accent names  (please fix)
-_dia	prEgl'asa
+// accent names
+_dia	sprEgl'asom
 
+// languages
+_cyr	tsiR'i:litSno
 
 // numbers
 _0	n'i:tS
@@ -66,7 +69,7 @@ _14	St'i:Rinajst
 _15	p'e:tnajst
 _16	S'e:stnajst
 _17	s'e:d@mnajst
-_18	'o@s@mnajst
+_18	'o:s@mnajst
 _19	d'Ev'e:tnajst
 _2X	dv#'a:jsEt
 _3X	tR'i:dEsEt
@@ -114,9 +117,9 @@ s	s
 v	w	$combine
 z	z	$combine
 
-a	a	$atend
+a	a:	$atend
 k	k@	$atend    // letter-k
-o	o	$atend    // letter-o
+o	o:	$atend    // letter-o
 s	s@	$atend
 v	v@	$atend
 z	z@	$atend

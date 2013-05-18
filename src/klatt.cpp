@@ -1090,7 +1090,7 @@ int Wavegen_Klatt(int resume)
 		}
 		for(ix=1; ix < 7; ix++)
 		{
-			kt_frame.Ap[ix] = 0;
+			kt_frame.Ap[ix] = peaks[ix].ap;
 		}
 
 		kt_frame.AVdb = klattp[KLATT_AV];
@@ -1333,12 +1333,12 @@ if(option_log_frames)
 		{
 			peaks[ix].bp1 = fr1->klatt_bp[ix] * 4;  // parallel bandwidth
 			peaks[ix].bp = (int)peaks[ix].bp1;
-			next = fr2->klatt_bp[ix] * 2;
+			next = fr2->klatt_bp[ix] * 4;
 			peaks[ix].bp_inc =  ((next - peaks[ix].bp1) * STEPSIZE) / length;
 
 			peaks[ix].ap1 = fr1->klatt_ap[ix];   // parallal amplitude
 			peaks[ix].ap = (int)peaks[ix].ap1;
-			next = fr2->klatt_ap[ix] * 2;
+			next = fr2->klatt_ap[ix];
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
 		}
 	}
