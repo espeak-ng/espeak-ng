@@ -14,6 +14,7 @@
              aa           a:
              aai          a:j
              ae           a:
+             ai           Aj
              au           VU
              auw          VU
              ay           a:j
@@ -31,6 +32,12 @@
           @) ace (_       e:s       // ?? interface
           m) ach (in      %a:S
           _) actie (@P5   'Aksi
+          @) achtig (_S6   Axt@Q   // not -ig sufix
+         Km) acht (ig+     Axt  // not -achtig
+         kr) acht (ig+     Axt
+          
+          _) a (dress+++    a:
+          _) adres (@P5   a:dr'Es
           _) af (C@P2     'Af
           _) affich       %AfiS
              age (_       'a:Z@
@@ -74,6 +81,7 @@
           _) bijeen       bEI'e:n
           _) binnen (P6   b'In@n
           _) boek (@P4    b'uk
+          _) boek (je     b'uk
           _) boven (P5    b'o:v@n
           _) braille (@P7 br'Aj@
           _) brand        br'And
@@ -124,6 +132,7 @@
              ck           k
              
              ces (_       s'Es
+             ce (s_$p_alt1 s@
              coach        ko:tS
           _) computer (@P8 kOmpj'ut@r 
           _) congres      kOnQr'Es
@@ -177,6 +186,8 @@
           _) dj           dZ
              dj           tj
 
+         _) doel (@P4     d'ul
+
 
 .group e
              e            e#  // [e:] but change to [@] in unstressed syllables
@@ -195,10 +206,11 @@
 
          &C) e (_S1qd     @
         KAC) e (_S1e      @   // remove 'e' and double the vowel
+          c) e (_++       @
         KAj) e (_S1       @
          el) e (_+S1qd    @
          er) e (_+S1qd    @
-         ig) e (_+S1qd    @
+         ig) e (_+S1qdm   @
 
              ea (_        'e:a:
              eau          'o: //words with French origin
@@ -214,6 +226,7 @@
           @) e (renden_   'I
          it) eit (_       'EIt
           @) el (_        'El
+        app) el (_         @l
           &) eld (_       @ld
           &) ele (_       'e:l@
 
@@ -232,52 +245,11 @@
           &) elijks       @l@ks
           &) em (_        @m
           &) e (ment      @
-          &) e (nissen_   @
-
-          &) en (_S2qd    @n
-        KAC) en (_S2e     @n   // flag 'e' means double the previous vowel
-        KAj) en (_S2      @n
-        and) en (_S2      @n
-         el) en (_+S2qd   @n
-         er) en (_+S2qd   @n
-
-          &) en (e_$p_altS3e  =@n@   // flag 'e' means double the previous vowel
-          &) en (en_$p_altS4e =@n@n
-          &) en (t_$p_altS3e  =@nt
-
-          &) ens (_S3q    @ns
-         ll) en (_S3      @n
-          &) end (_       @nd
-          &) ende (_S1    @
-          &) enden (_S2   @n
              eden (_        e:d@n  // ?? 
-          @) ent (_       'Ent
-          @) ent (e_      'Ent
-          @) ent (en_     'Ent
-          @) ent (er_     'Ent
-          @) ent (ere_    'Ent
-          @) ent (st_     'Ent
-          @) ent (ste_    'Ent
-         ag) ent          'Ent
-          X) es (_        Es
-         @j) es (_S1       s
-         @z) es (_S1      s  
-          @) es (_S2qd    'Es   // double the previous vowel
-          @) es (_$w_alt2S1 s   // just remove 's'
+             
 	  @) e (s_$p_alt2+S1 s
-        KAC) es (_S2e     @s
-         mb) es (_S1      s
-         nd) es (_S1      s
-         rd) es (_S1      s
-         gt) es (_S1      s
-         wt) es (_S1      s
-             es (ie_      e:z
-          @) essen (_S5qd 'Es@n
-          @) eres (_S4qd  @r'Es
-          @) eressen (_S7sq @r'Es@n
+
           @) etten (_S3   @n 
-          @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
-          @) esisch      'e:zis
              
              euille       @'y
              eum (_$w_alt 'e:8m
@@ -296,6 +268,7 @@
           i) euzere (_    'Y:z@r@
           i) eust (_      'Y:st
           i) euste (_     'Y:st@
+             exe (_       'Eks@
 
        proc) e (du        e:
           s) e (cuur      @   // secure
@@ -304,6 +277,35 @@
           _) expositie    Ekspo:z'itsi
              e (rtsD      E
 
+.group en
+          &) en (issen_   @n
+
+          &) en (_S2qd    @n
+        KAC) en (_S2e     @n   // flag 'e' means double the previous vowel
+        KAj) en (_S2      @n
+        and) en (_S2      @n
+         el) en (_+S2qd   @n
+         er) en (_+S2qd   @n
+
+          &) en (e_$p_altS3e  =@n@   // flag 'e' means double the previous vowel
+          &) en (en_$p_altS4e =@n@n
+          &) en (t_$p_altS3e  =@nt
+
+          &) ens (_S3q    @ns
+         ll) en (_S3      @n
+          &) end (_       @nd
+          &) ende (_S1    @
+          &) enden (_S2   @n
+          @) ent (_       'Ent
+          @) ent (e_      'Ent
+          @) ent (en_     'Ent
+          @) ent (er_     'Ent
+          @) ent (ere_    'Ent
+          @) ent (st_     'Ent
+          @) ent (ste_    'Ent
+         ag) ent          'Ent
+
+         
 .group er
           @) er (ing_     'I:r
           @) er (ingen_   'I:r
@@ -314,16 +316,24 @@
           &) er (d_$p_alt  =@r
           &) er (de_$p_alt =@r
           &) er (den_$p_alt =@r
+          &) er (der_$p_alt =@r
           &) er (end_$p_alt =@r
           &) er (ende_$p_alt =@r
           &) er (ing_$p_alt =@r
           &) er (ingen_$p_alt =@r
+          &) er (st_$p_alt  =@r
+          &) er (ste_$p_alt  =@r
           _) er (@P2      Er
           &) er (_        @r
           &) ere (_       @r@
           &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
+             erend (_     'I:r@nd
+          @) eres (_S4qd  @r'Es
+          @) eressen (_S7sq @r'Es@n
 
+//          @) erder (_     @rd@r
+          
              erie (_      @r'i
              er (ij_      @r
         tol) er (abel     @r
@@ -333,13 +343,38 @@
           &) era (_       @ra:
           @) er (aar_     @r
           &) er (C@       E2r
+          
+.group es
+             es (_$w_alt4+ 'Es
+          X) es (_        Es
+         @j) es (_S1       s
+         @z) es (_S1      s  
+          @) es (_S2qd    'Es   // double the previous vowel
+          @) es (_$w_alt2S1 s   // just remove 's'
+        KAC) es (_S2e     @s
+         mb) es (_S1      s
+         fd) es (_S1      s
+         nd) es (_S1      s
+         rd) es (_S1      s
+         gt) es (_S1      s
+         nt) es (_S1      s
+         wt) es (_S1      s
+             es (ie_      e:z
+          @) essen (_S5qd 'Es@n
+          @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
+          @) esisch      'e:zis
 
+          
 .group ê
              ê            E
 
 .group f
              f            f
           f) f
+             f (b         v
+             f (d         v
+             
+          _) familie (@P7 fa:m'ili
 
 
 .group g
@@ -347,10 +382,18 @@
              gg           Q
           s) g            x
           
+             g (é         Z
+             g (ee_       Z
+        _lo) g (eer       Z
+        _lo) g (eren      Z
+     collee) g            Z  // college
           @) gi (eus      Z
           @) gi (euz      Z
        reli) gi (eu       Qij
           _) goog (el     gu:g
+       ener) g (ie        Z
+       
+         si) gn (a       n^
 
        
 .group ge
@@ -359,8 +402,10 @@
           _) gebruikers (@P10 Q@br'Wyk@rs
           _) gee          Qe:
           _) gei          QEI
+          _) ge (kC       QE
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
+          _) gemeente (@P8 Q@m'e:nt@
           _) ge (lC       QE
           _) ge (rC       QE
           _) ge (lenL02   Qe:
@@ -373,19 +418,20 @@
 
              ge (sprek    Q@  // in compounds
 
-
              
 
 .group h
              h            h
           C) h (K
 
+          _) handicap     hEndikEp
           _) her (@P3     hEr
           _) her (en      hI:r
           _) herinn       h%ErIn   // herinneren
           _) hersen       h'Ers@n
           &) heid (_S4    hEIt
           _) honden (@P6  h'Ond@n
+          _) hoogte (@P6  h'o:xt@
           _) hulp (@@P4   h'8lp
 
 
@@ -417,6 +463,8 @@
           &) ici (_       =isi
           &) ico (_       =iko:
           &) icus (_      =ik8s
+          r) ice (_       'is@
+          r) ices (_      'is@s
              i (che_      i
              ie (X        'i
              ie (Ce_      'i
@@ -432,7 +480,7 @@
        CAns) ie (_        =i
        CAss) ie (_        =i
           @) ig (_S2dq    =@x
-          @) ige (_S3dq   =@Q@
+          @) ige (_S1m     @
           @) igen (_      =@Q@n
           @) iger (_      =@Q@r
           @) igere (_     =@Q@r@
@@ -445,10 +493,13 @@
              ij (en       'EI
           &) ika (_       =ika:
           &) iko (_       =iko:
+        fam) i (lie       'i
           _) in (C@P2     'In
-          _) in (do       In
+          _) in (do        In
+          _) in (forma     In
              ine (_       'in@
              ines (_      'in@s
+          _) informatie (@P10 InfOrm'a:tsi
           _) inn (@P2 'I    // ?? inneren
           _) inter        Int@r
              io (nage     iO
@@ -556,6 +607,7 @@
           _) natuur       na:t'yr
              na (tur      n%a:
              na (vig      n%a:
+          _) navigatie (@P9 na:viQ'a:tsi
           _) na (vr       na:
           _) na (volg@    n%a:
           _) nieuws (@P6  n'iws
@@ -588,6 +640,8 @@
           c) oi (ffu      v#A
          pr) o (gram      o:
              omgeving     OmQ'e:vIN
+             on (_        'On
+             onen (_      'On@n
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
              oo (C_       'o:
@@ -676,6 +730,7 @@
           _) re (ceptief  re:
           _) re (ces      r@
           _) re (clam     r@
+          _) redactie (P8   r@d'Aksi
           _) register     r@Q'Ist@r
              reme (die    r@m'e:
           _) re (serve_   r@
@@ -714,11 +769,13 @@
           &) sel (_       =s@l
           &) selen (_     =s@l@n
              service      s8v@s
+             sh (op       S
           @) si (o        S
           A) si (o        Z
           @) ssi (o       S
         CAr) sie (_       =zi
 
+          _) sport (@P5   sp'Ort
           _) stads (@P5   st'Ats
           _) stage (@P5   st'a:Z@
           _) standaard (@P9 st'Anda:rt
@@ -813,8 +870,7 @@
           _) ver (sie_    vEr
           _) verder       vErd@r
           _) verkeers (@P8 v@rk'I:rs
-//          _) verge (@P5   vErg@
-//          _) verge (le    v@rQ'e:
+          _) voor         v'O:r
           _) voorjaars (@P9 v'O:rja:rs
           _) voort (@P5   v'O:rt
           _) vrijwilligers (@P13 vrEIv#'Il@Q@rs
@@ -842,6 +898,7 @@
           _) weg (en      v#e:Q
           _) weg (e_      v#e:Q  // bewegelijk
           _) werk (@P4    v#'Erk
+          _) werk (el     v#'Erk
           _) west (@P4    v#Est
           _) woon (@P4    v#'o:n
           _) wr (@        vr
@@ -865,7 +922,7 @@
 
              zele (_S4   ze:l@ // common suffix for cities.
           @) zelf (_S4   s'Elf
-          _) zoge (@P4    z,og@
+          _) zoge (@P4    z,oQ@
           _) zuid (@P4    zWyt
 
 

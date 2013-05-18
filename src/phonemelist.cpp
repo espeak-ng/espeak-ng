@@ -509,9 +509,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		if((plist3+1)->synthflags & SFLAG_LENGTHEN)
 		{
 			static char types_double[] = {phFRICATIVE,phVFRICATIVE,phNASAL,phLIQUID,0};
-			if(strchr(types_double,next->type))
+			if((j > 0) && (strchr(types_double,next->type)))
 			{
 				// lengthen this consonant by doubling it
+				// BUT, can't insert a phoneme at position plist3[0] because it crashes PrevPh()
 				insert_ph = next->code;
 				(plist3+1)->synthflags ^= SFLAG_LENGTHEN;
 			}

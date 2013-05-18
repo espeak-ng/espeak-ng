@@ -50,6 +50,9 @@
 	ھ (_	H:
 ھ (l01	H
 
+.group ٰ
+	ٰ	a:
+
 .group ا
 	ا	a:
 	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
@@ -84,7 +87,6 @@ _) ای	e:
 	_) ایمان	i:m'a:n
 	_) اعت	'e:tI
 	_) اضاف	Iz'a:f
-	_) اختلاف	,IxtIl'a:f
 	_) اسمبلی	as'ambli:
 	_) اٹھت	'Ut.#t
 	_) اٹھن	'Ut.#n
@@ -112,7 +114,11 @@ _) ای	e:
 	استعف	Ist'i:f
 	@) ات (_S2	'a:t
 	_) انتظ	'Int,Iz.
-	احمق	,EHm'aq
+	_) اخت (L02	,IxtI
+	_) اقت (L02	,IqtI
+	_) اح (L02	'EH
+	_) است (L02	,IstI
+	_) ارت (L02	,IRtI
 
 .group آ
 	آ	a:
@@ -129,10 +135,11 @@ _) ای	e:
 	عنوان	Unv'a:n
 	_) عمر	'UmR
 	L02) عی (_	'ai:
+	علیحد	'alEHd
 
 .group و
 	و	o:
-	وُ	u:
+	وُ	vU
 	وٗ	u:
 	و (L01	v
 	_) و	vV
@@ -202,7 +209,6 @@ _) ای	e:
 	_) بدل (L02	bad'al
 	بوڑھ	b'u:r.h
 	_) بے (P2	b'e:
-	_) بھوت	b#'u:t
 
 
 .group پ
@@ -219,7 +225,6 @@ _) ای	e:
 	پوچھ	p'u:c#
 	پیچھ	p'i:c#
 	پھونک	p#'u:nk
-	_) پور (L01	p'u:R
 
 .group ت
 	ت	tV
@@ -248,8 +253,6 @@ _) ای	e:
 	ٹریفک	t.R'e:fIk
 	_) ٹکڑ	t.'Ukr.
 	_) ٹہ (L02	t.'EH
-	ٹس(_	t.s
-	_) ٹیم	t.'i:m
 
 
 .group ث
@@ -274,8 +277,6 @@ _) ای	e:
 	_) جمل	J'Uml
 	_) جہ (L02	J'EH
 	_) جدا	J'Uda:
-	_) جزب	J'azb
-	_) جذب	J'aDb
 
 .group چ
 	چ	cV
@@ -286,8 +287,8 @@ _) ای	e:
 	چّ (L01	cc
 	_) چکا	c'Uka:
 	_) چہ (L02	c'EH
-	_) چوم	c'u:m
 	_) چیز	c'i:z
+	_) چوم	c'u:m
 
 .group ح
 	ح	HV
@@ -325,13 +326,13 @@ _) ای	e:
 	دیا(_	d'i:;a:
 	درج	d'aRJ
 	دیوا	d'i:va:
-	_) دوسر	d'u:sR
 	دفاع	d'Ifa:
 	_) دہ (L02	d'EH
 	دنیا	dUn'i:;a:
 	دہشت	d'EHS'at
 	دلچسپ	d,Ilc'asp
 	دھیم	d#'i:m
+	_) دوسر	d'u:sR
 
 .group ڈ
 	ڈ	d.V
@@ -341,7 +342,7 @@ _) ای	e:
 	ڈّ	d.d.V
 	ڈّ (L01	d.d.
 	ڈھونڈ	d.#'u:nd.
-	ڈز(_	d.z
+	@) ڈز (_	d.z
 
 .group ذ
 	ذ	DV
@@ -408,7 +409,6 @@ _) ای	e:
 	سیدھ	s'i:d#
 	سیاست	sja:s'at
 	سرگرم	s,aRg'aRm
-	ستہ(_	st,a
 
 .group ش
 	ش	SV
@@ -552,7 +552,6 @@ _) ای	e:
 	مخبر	m'Uxb,IR
 	ملحق	m'UlH,Iq
 	مذہب	m,aDH'ab
-	مرحل	m,aRH'al
 
 .group ن
 	ن	nV
@@ -581,6 +580,8 @@ _) ای	e:
 	نھ	nH
 	_) نکت	n'Ukt
 	_) نوا	n'ava:
+	_) نما	n'Uma:
+	_) نماز	nam'a:z
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -629,4 +630,5 @@ _) ای	e:
 	0xe0a4  _^_NE  // switch to Nepali voice
 .group 0xe0a5  // devanagari
 	0xe0a5  _^_NE
+
 
