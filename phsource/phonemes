@@ -1949,3 +1949,6 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
+
+phonemetable om base
+include ph_oromiffa

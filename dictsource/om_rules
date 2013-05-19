@@ -109,8 +109,8 @@
 
 
 .group x
-          x          t`
-          xx         t`:
+          x          t'
+          xx         t':
 
 
 .group y
@@ -130,14 +130,13 @@
                     
 .group sh
           sh          S
-          ssh         S:
 
 .group ph
-          ph          p`
+          ph          p'
           
 
 .group dh
-          dh           d` // http://en.wikipedia.org/wiki/Voiced_alveolar_implosive
+          dh           d' // http://en.wikipedia.org/wiki/Voiced_alveolar_implosive
   
 
 .group ny
