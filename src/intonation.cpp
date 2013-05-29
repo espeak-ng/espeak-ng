@@ -1247,9 +1247,23 @@ void CalcPitches(Translator *tr, int clause_type)
 
 			count_pitch_vowels(st_start, ix, n_st);
 			if((ix < n_st) || (clause_type == 0))
+			{
+				calc_pitches(option, st_start, ix, group_tone);   // split into > 1 tone groups
+
+				if((clause_type==1) || (clause_type==2))
+					group_tone = tr->langopts.tunes[1];  // , or ?  remainder has comma-tone
+				else
+					group_tone = tr->langopts.tunes[0];  // . or !  remainder has statement tone
+			}
+			else
+				calc_pitches(option, st_start, ix, group_tone);
+
+#ifdef deleted
+			if((ix < n_st) || (clause_type == 0))
 				calc_pitches(option, st_start, ix, group_tone_emph);   // split into > 1 tone groups, use emphatic tone
 			else
 				calc_pitches(option, st_start, ix, group_tone);
+#endif
 
 			st_start = ix;
 		}

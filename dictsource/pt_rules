@@ -20,7 +20,7 @@
 .L03 a am o
 .L04 a am e em o ue uem
 .L05 r ra ram re rem rde rmo
-.L06 ra ram ste re rem rmo
+.L06 r ra ram ste sse ssem re rem rmo
 .L07 sse ssem ste
 
 
@@ -37,11 +37,7 @@
 ?1      a (_a      =&/       // ?? elide final a before a
 ?1      a (_à      =&/
 
-        a (C_      &
-        a (r_      'a
 ?1   p) a (d_      =E
-        a (CC_     &
-        a (h_      a
 ?1      a (l_      'A        // eg: Portugal, capital, etc.
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
@@ -60,10 +56,7 @@
         an (K+     &~N
         anh (A     &~n^
         am (_      =&U~
-        a (t_      a
-        a (ts_     a
-        a (x_      a
-        a (z_      'a        //eg: paz, rapaz, capaz, etc...
+
 ?1   C) acç        'a's      // eg: selecção, etc...
 
         ai         aI
@@ -74,23 +67,23 @@
         ao (_      aU
         au         aU
         au (s      aU
-        a (uCK     a
-    âB) a (CA_     &
-   âBC) a (CA_     &
-    êC) a (CA_     &
-   êCC) a (CA_     &
-    ôB) a (CA_     &
-   ôBC) a (CA_     &
-    áC) a (CA_     &
-   áCC) a (CA_     &
-    éC) a (CA_     &
+        au (CK     aU
+    âB) a (C@      &
+   âBC) a (C@      &
+    êC) a (C@      &
+   êCC) a (C@      &
+    ôB) a (C@      &
+   ôBC) a (C@      &
+    áC) a (C@      &
+   áCC) a (C@      &
+    éC) a (C@      &
      í) a (CA_     &
-    íC) a (CA_     &
-   íCC) a (CA_     &
-    óC) a (CA_     &
-   óCC) a (CA_     &
-    óC) a (CCA_    &
-    úC) a (CA_     &
+    íC) a (C@      &
+   íCC) a (C@      &
+    óC) a (C@      &
+   óCC) a (C@      &
+    úC) a (C@      &
+   úCC) a (C@      &
         ation (_   'eIS&~N
 
 
@@ -186,11 +179,9 @@
         e (lh+     e
         e (ll+     E
 
-
         e (bL02_   E
-
         e (cL04_   E
-@c) e (L07_   e
+    @c) e (L07_    e
         e (chL04_  E
 
      r) e (cho_    e
@@ -209,10 +200,9 @@
 
      h) e (gL04_   e
 
-        e (guL02_  E
-
         e (lL04_   E
-
+     C) e (pL04_   E
+        e (ptL04_  E
      i) e (r_      E
 
     qu) e (r_      E
@@ -229,7 +219,7 @@
     sp) e (rL04_   E
 
      f) e (rL04_   E
-
+        e (rdL04_  E
         e (quL02_  E
         e (rbL04_  E
         e (rgL04_  E
@@ -260,8 +250,8 @@
      m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
-qu) e (ta_   e
-          e (vL04_   E
+     u) e (ta_     e
+        e (vL04_   E
      t) e (ve_     e
 
         e (rrAs_   E
@@ -347,65 +337,60 @@ qu) e (ta_   e
     ef) e (tuL02_  e
      t) e (tra     E
 
-    âC) e (CA_     e
-   âCC) e (CA_     e
-    êC) e (CA_     e
-   êCC) e (CA_     e
-    ôC) e (CA_     e
-    áC) e (CA_     e
-   áCC) e (CA_     e
-    íC) e (CA_     e
-   íCC) e (CA_     e
-    óC) e (Ca_     e
-   óCC) e (CA_     e
-    úC) e (CA_     e
+    âC) e (C@      e
+   âCC) e (C@      e
+    êC) e (C@      e
+   êCC) e (C@      e
+    ôC) e (C@      e
+    áC) e (C@      e
+   áCC) e (C@      e
+  éCCC) e (C@      e
+    íC) el (_      eU
+    íC) e (C@      e
+   íCC) e (C@      e
+    óC) e (C@      e
+   óCC) e (C@      e
+    úC) e (C@      e
     úC) el (_      eU
         ection (_  'EkS&~N
 
 //sort
     _d) e (L05_    E
-    em) e (L05_    e         // temeram, etc.
     rd) e (L05_    e         // perderam, etc.
    _vi) e (L05_    E
-   end) e (L05_    e         // entenderam, etc.
    fiz) e (L05_    E
+   oub) e (L05_    E         // soubeste, etc.
    tiv) e (L05_    E         // es-
-   viv) e (L05_    e
-  _com) e (L05_    e
-  _cos) e (L05_    e
   _pud) e (L05_    E
- _coub) e (L05_    E
  _exag) e (L05_    E
- _houv) e (L05_    E
  _mulh) e (L05_    E
- _soub) e (L05_    E
  _talh) e (L05_    E
-_escond) e (L05_   e
 _troux) e (L05_    E
-respond) e (L05_   e
+    @m) e (L06_    e         // temeram, etc.
+   end) e (L06_    e         // entenderam, etc.
+   viv) e (L06_    e
+  _cos) e (L06_    e
   diss) e (L06_    E         // contra-
-     m) e (L07_    e         // comeste, etc.
+ _houv) e (L06_    E
+_escond) e (L06_   e
+respond) e (L06_   e
     eb) e (L07_    e         // recebeste, etc.
-        eg) e (L07_    e         // elegeste, etc.
+    eg) e (L07_    e         // elegeste, etc.
+   _@o) e (L07_    e         // doeste, etc.
    _cr) e (L07_    e
-   _do) e (L07_    e
-   _mo) e (L07_    e
-   _ro) e (L07_    e
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
-   end) e (L07_    e         // vendeste, etc.
-      met) e (L07_    e         // meteste, cometeste, etc.
+   met) e (L07_    e         // meteste, cometeste, etc.
    mex) e (L07_    e
    mov) e (L07_    e         // re- co-
    olv) e (L07_    e         // devolveste, etc.
    ond) e (L07_    e         // escondeste, etc.
    orr) e (L07_    e         // correste, etc.
-   viv) e (L07_    e         // re-
   _ard) e (L07_    e
-  _cos) e (L07_    e
   _coz) e (L07_    e
   colh) e (L07_    e         // & es-
   ench) e (L07_    e         // pre-
+  romp) e (L07_    e         // cor- inter-
   vert) e (L07_    e         // in- re- con-
  _ergu) e (L07_    e
  _mord) e (L07_    e
@@ -415,15 +400,12 @@ respond) e (L05_   e
  screv) e (L07_    e         // e- in- ree- pre- de-
 _atrev) e (L07_    e
 _corro) e (L07_    e
-_interromp) e (L07_ e
 _troux) e (L07_    E
   _ens) e (bL03_   E
-    _v) e (lhL03_  E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
-  _cel) e (brL04_  E
-  _dilac) e (rL04_   E
-  _encarc) e (rL04_   E
+   cel) e (brL04_  E
+    _C) e (bre_    E
  _boch) e (chL04_  e
    _ex) e (crL04_  E
   _enr) e (dL01_   E
@@ -439,10 +421,9 @@ _enver) e (dL03_   E
   estr) ei (L04_   EI
     _r) e (jL03_   E
   _inv) e (jL04_   E
+    _v) e (lhL03_  E
+  _caC) e (lo_     e
 ?2      el (ton_   'EU
-    tr) e (pL04_   E         // es-
-  _dec) e (pL04_   E
-   _in) e (ptL03_  E
     ad) e (quL04_  E
   _dig) e (rL02_   E
   _ing) e (rL02_   E
@@ -456,7 +437,6 @@ _enver) e (dL03_   E
    _op) e (rL04_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
-  _ent) e (sL04_   E
   _enc) e (rL04_   E
   _imp) e (rL04_   E
   _min) e (rL04_   E
@@ -471,6 +451,8 @@ _enver) e (dL03_   E
  _exub) e (rL04_   E
  _temp) e (rL04_   E
 _adult) e (rL04_   E
+_dilac) e (rL04_   E
+_encarc) e (rL04_  E
 _incin) e (rL04_   E
 _persev) e (rL04_  E
 _recup) e (rL04_   E
@@ -478,10 +460,7 @@ _refrig) e (rL04_  E
     _c) e (rcL02_  E
    _ex) e (rcL02_  E
  _alic) e (rcL02_  E
-    _p) e (rdL02_  E
-    _l) e (rdL03_  E
-    _h) e (rdL04_  E
-  _des) e (rdL04_  E
+ _esqu) e (rdL03_  e
 s_colh) e (res_    E
      _) e (rgL03_  e
    _re) e (rgL03_  e
@@ -493,6 +472,8 @@ s_colh) e (res_    E
  _alic) e (rçL03_  E
     _p) e (sL01_   E
     _l) e (sL03_   E
+ _repr) e (sL03_   E
+  _ent) e (sL04_   E
  _refr) e (scL01_  E
     _d) e (scL02_  E
    _cr) e (scL02_  E
@@ -502,6 +483,7 @@ s_colh) e (res_    E
     _p) e (squL02_ E
  _refr) e (squL02_ E
     _l) e (ssL02_  e
+   _ac) e (ssL02_  E
   _esp) e (ssL03_  e
     _c) e (stL03_  e
    _pr) e (tL03_   e
@@ -509,6 +491,8 @@ s_colh) e (res_    E
   _rem) e (tL03_   e
  _derr) e (tL03_   e
 _obsol) e (tL03_   e
+  _Cal) e (ta_     e
+  _caC) e (ta_     e
   _sol) e (trL03_  E
   _pen) e (trL04_  E
     _n) eu (trL03_ 'eU
@@ -517,8 +501,7 @@ _obsol) e (tL03_   e
   _atr) e (vL03_   e
      m) e (xL03_   e
     _r) e (zL04_   E
-   _pr) e (zL04_   E
-   spr) e (zL04_   E
+    pr) e (zL04_   E         // des-
   _enf) e (zL04_   E
   _rev) e (zL04_   E
 _embel) e (zL04_   E
@@ -526,7 +509,6 @@ _embel) e (zL04_   E
      p) e (çL03_   E
     _m) e (çL03_   E
 _entorp) e (çL03_  e
-_caC) e (lo_   e
 //endsort
 
 
@@ -553,7 +535,7 @@ _caC) e (lo_   e
         êm (C      ''eIm
         ên (K      ''eIN
         ênh        ''en^
-        êm (_      ''eIN
+        êu         ''eU
 
 
 .group f
@@ -610,6 +592,8 @@ _caC) e (lo_   e
         i (e       i
         i (ã       i
         i (õ       i
+        i (á       i
+        i (ó       i
         i (ú       i
         i (o       i
     Cr) i          i
@@ -628,9 +612,7 @@ _caC) e (lo_   e
         in (k      iN
         inh        in^
 
-        i (A_      'i
-        i (am_     'i
-        i (em_     'i
+        i (L04_    'i
 
         io (_      iU
         io (s_     iU
@@ -661,6 +643,7 @@ _caC) e (lo_   e
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
 ?2      i (rton_   'i
+?2      ight (_    'aIt
 ?1      ight (_    _^_EN
 ?1      ights (_   _^_EN
 
@@ -782,9 +765,8 @@ _caC) e (lo_   e
 
         o (lvL02_  O
 
-        o (sA_     O
+        o (sL04_   O
         o (so_N    o         // not for osos_
-        o (sAm_    O
 
         o (ssL04_  O
 
@@ -832,12 +814,15 @@ _caC) e (lo_   e
         o (ze_     O
         o (rL04_   O
      c) o (re_     o
-     d) o (re_     o
+    @d) o (ra_     o
+    @d) o (re_     o
+    ri) o (re_     o
      l) o (re_     o
-     t) o (re_     o
+     s) o (ra_     o
+     s) o (re_     o
+    @t) o (ra_     o
+    @t) o (re_     o
      v) o (re_     o
-
-    @@) o (rA_     o
      b) o (rL04_   O
         o (p_      O
 ?1   _) o (C       O         // eg: olá, orla, opção, etc...
@@ -848,26 +833,27 @@ _caC) e (lo_   e
 ?1  _s) o (lu      u         // solução, soluções.
 ?1 interr) o (g       u         // eg: interrogação
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
-?1   v) o (lt      O
         o (luem_   o
         o (ssuem_  o
-    êC) o (CA_     o
-   êCC) o (CA_     o
-    ôC) o (CA_     o
-    áC) o (CA_     o
-
-    éC) o (CA_     o
-   éCC) o (CA_     o
-     í) o (CA_     U
-    íC) o (CA_     o
-   íCC) o (CA_     o
-    óC) o (CA_     o
-   óCC) o (CA_     o
-    úC) o (CA_     o
-   úCC) o (CA_     o
+   âBC) o (C@      o
+    êC) o (C@      o
+   êCC) o (C@      o
+    ôC) o (C@      o
+    áC) o (C@      o
+   áCC) o (C@      o
+    éC) o (C@      o
+   éCC) o (C@      o
+     í) o (CA      U
+    íC) o (C@      o
+   íCC) o (C@      o
+    óC) o (C@      o
+   óCC) o (C@      o
+    úC) o (C@      o
+   úCC) o (C@      o
 
 //sort
     _f) o (L05_    o
+  _red) o (L05_    O
 _pormen) o (L05_   O
     _f) o (L07_    o
     _s) o (bL02_   O
@@ -888,6 +874,7 @@ _pormen) o (L05_   O
   _emp) o (lgL04_  O
      _) o (lhL04_  O
      m) o (lhL04_  O
+   emb) o (lsL02_  O
   _env) o (ltL03_  o
    ent) o (pL02_   O
     _c) o (pL03_   O
@@ -900,28 +887,30 @@ _pormen) o (L05_   O
      _) o (ptL04_  O
      p) o (rL02_   o
   _dev) o (rL02_   O
+ _apav) o (rL02_   O
  _defl) o (rL02_   O
  _impl) o (rL02_   O
- _inod) o (rL03_   O
-_inson) o (rL03_   O
-_comem) o (rL04    O
- _enam) o (rL04_   O
-_aprim) o (rL04_   O
-_remem) o (rL04_   O
+   _ad) o (rL04_   O
+  _ma@) o (r_      O
+  _@um) o (re_     o
      f) o (rmL03_  O
      c) o (rrL01_  o         // incorra, corra, etc.
     _m) o (rrL01_  o
-     @p) o (rtL03_  O         // importo, etc.
+ _Cach) o (rra_    o
+    @p) o (rtL03_  O         // importo, etc.
+        ortos (_   O*@-t=Us# // tortos, mortos, etc.ortos (_  'O*@-tUs
      t) o (rçL03_  o         // con-
     _r) o (snL04_  O
     _c) o (spL02_  O
   _enr) o (squL02_ O
-     p) ostos (_   Ost=Us#   // dispostos etc.
+        ossos (_   Os=Us#    // nossos, grossos, etc.
+     p) ostos (_   Ost=Us#   // dispostos etc.ortos (_  'O*@-tUs
   _gar) o (tL03_   o
   _mar) o (tL03_   o
  _escr) o (tL03_   o
    _ch) o (vL01_   o
     pr) o (vL03_   O
+        ovos (_    Ov=Us#    novos, povos, etc.
     _g) o (zL04_   O
   _esb) o (çL01_   O
     _r) o (çL03_   O
@@ -963,6 +952,8 @@ _remem) o (rL04_   O
 ?3      p (t       p
 ?3      p (_C      p_
         ph         f
+        play       pl'eI
+?2   _) práxis (_  pR'aksis
 
 
 .group q
@@ -974,6 +965,8 @@ _remem) o (rL04_   O
         qu (Y      k
         qu (K      ku
      _) que (_     ky
+?2 por_) que (_     ke
+?2 por_) que (_é    ky
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
@@ -1012,8 +1005,8 @@ _remem) o (rL04_   O
         r (_       r
         r (C       *@-
      A) r (A       *
-     r (_A      *
- ?2 r (_h   *
+        r (_A      *
+        r (_h      *
      C) r (A       R
         rr         x
      _) r          x
@@ -1157,9 +1150,11 @@ _remem) o (rL04_   O
      a) x (ar      S
      a) x (ei      S
     xA) x (A       S
+_abaca) x (i       S
    ale) x (a       S
    bau) x (A       S
    brA) x (A       S
+   _bu) x (o_      S
     bY) x (A       S
    _ca) x (A       S
    _co) x (A       S

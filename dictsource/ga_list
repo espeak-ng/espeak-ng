@@ -1,7 +1,7 @@
 // Irish Gaeilge dictionary
 // written by Ronan McGuirk
 //  2013
-// version 2.6.1
+// version 2.7
 // Please send comments and suggestions to espeak.gaeilge@gmail.com
 
 // This file is UTF8 encoded
@@ -29,7 +29,7 @@ _o	oU
 p	pi:
 q	kju:
 r	ar
-s	Es
+_s	Es
 t	ti: $atend
 u	ju:
 v	vi:
@@ -142,6 +142,7 @@ abhaile @w'0l;E
 ach	0x		$u
 ag Eg $verbf $u
 anall	@n'aUl
+anam	'0n@m
 aige @g'E
 air Er
 acu 0k'U
@@ -149,13 +150,13 @@ ar Er		$u
 arsa	@rs@
 agaibh	0g@Iv
 agus	0g@s
+aisfhilleadh	,aS'Il;@
 amach	@m'0x
 amárach	@m'A:r@x
 amuigh	@mu1'I
 amháin @w'A:in
 am aUm
 anaithnid	'0nah@nIdZ
-anois	@nIS
 anonn @naUn
 ann aUn
 anseo	@nS'O
@@ -183,6 +184,7 @@ chlainne	xl'InE
 chun	xUn		$u
 crainn kri:n
 chrainn	xri:n
+cúlslais	ku:lslaS
 de	dE		$u+
 des	dEs		$u
 
@@ -240,10 +242,10 @@ os	o:s
 rabh	raU
 raibh rEv
 raidió	r'adi:o:
-réamhrá r'e:@vr,a:
 réidh	re:
-'s	s
-samhain saUIn
+rímhaith	R'i:w0
+(s é)	S'e:
+(s í)	S'i:
 	  san s@n
 	  seo S@_
 	tabhair t'u:@r

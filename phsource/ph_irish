@@ -1,4 +1,6 @@
-// Version 2.4 January 2013
+// Irish Phonemes
+//Please contact espeak.gaeilge@gmail.com
+// Version 2.7  2013
 
 // short vowels
 
@@ -19,6 +21,11 @@ phoneme @    //  Schwa, but always unstressed
     Length 80
     FMT(vwl_af/r@)
   ENDIF
+  IF prevPh(i:) THEN
+    Length 60
+    FMT(vwl_af/r@)
+  ENDIF
+  
   FMT(vwl_af/@)
 endphoneme
 
@@ -66,8 +73,10 @@ phoneme I
   FMT(vowel/ii_2)
 endphoneme
 
+
 phoneme i   // non syllabic i for end of words
   vowel  starttype #i  endtype #i
+  unstressed
   ipa iU+032F
   length 45
   FMT(vowel/ii_7)

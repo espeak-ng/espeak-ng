@@ -3,7 +3,7 @@
 0  r/ NULL   0  r
 0  r- NULL   0  r
 0  l- NULL   0  l
-0  w/ NULL   0  w
+0  w/ NULL   0  v
 0  j/ NULL   0  j
 0  ;  NULL   0  NULL
 0  g- NULL   0  NULL
@@ -40,16 +40,25 @@
 0  u~ NULL   60  uu n
 
 0  H  NULL   0  h
+0  p# NULL   0  ph
+0  b# NULL   0  bh
+0  t# NULL   0  th
+0  d# NULL   0  dh
 0  t. NULL   0  T
-0  t.h NULL  0  Th
+0  t.# NULL  0  Th
 0  d. NULL   0  D
-0  d.h NULL  0  Dh
+0  d.# NULL  0  Dh
+0  c# NULL   0  ch
 0  J  NULL   0  j
-0  Jh NULL   0  jh
+0  J# NULL   0  jh
+0  k# NULL   0  kh
+0  g# NULL   0  gh
 0  n. NULL   0  N
 0  n^ NULL   0  N
 0  j  NULL   0  y
 0  S  NULL   0  sh
 0  s. NULL   0  sh
 0  l. NULL   0  l
+0  w  NULL   0  v
+
 

@@ -6,7 +6,7 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  Tone(40, 5, envelope/p_level, NULL) // similar Hue dialect tone
+  Tone(10 ,60, envelope/p_level, NULL) // 40 5 similar Hue dialect tone
 endphoneme
 
 
@@ -76,11 +76,23 @@ endphoneme
 phoneme O
  CALL vi/O
  length 150
- FMT(vowel/0)
+ FMT(vowel/oo_3)
 endphoneme
 
 phoneme Oi
  CALL vi/Oi
  length 100
  FMT(vdiph/ooi_2)
+endphoneme
+
+// Redefine consonants
+
+phoneme n
+import_phoneme vi/n
+Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=5 brk len=15
+endphoneme
+
+phoneme @:I
+ CALL vi/@:I
+  FMT(vdiph/y#y)
 endphoneme

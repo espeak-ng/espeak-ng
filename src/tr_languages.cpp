@@ -965,7 +965,8 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_hy[8] = {250, 200,  250, 250,  0, 0,  250, 250};
 			static const char hy_vowels[] = {0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0};
 			static const char hy_consonants[] = {0x32,0x33,0x34,0x36,0x39,0x3a,0x3c,0x3d,0x3e,0x3f,
-				0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+				0x40,0x41,0x42,0x43,0x44,   0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+			static const char hy_consonants2[] = {0x45,0};
 
 			SetupTranslator(tr,stress_lengths_hy,NULL);
 			tr->langopts.stress_rule = STRESSPOSN_1R;  // default stress on final syllable
@@ -974,7 +975,9 @@ SetLengthMods(tr,3);  // all equal
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,hy_vowels);
 			SetLetterBits(tr,LETTERGP_VOWEL2,hy_vowels);
+			SetLetterBits(tr,LETTERGP_B,hy_consonants);    // not including 'j'
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
+			SetLetterBits(tr,LETTERGP_C,hy_consonants2);   // add 'j'
 			tr->langopts.max_initial_consonants = 6;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED;
 		//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
