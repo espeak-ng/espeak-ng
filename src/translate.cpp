@@ -2559,6 +2559,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int dict_flags = 0;        // returned from dictionary lookup
 	int word_flags;        // set here
 	int next_word_flags;
+	int new_sentence2;
 	int embedded_count = 0;
 	int letter_count = 0;
 	int space_inserted = 0;
@@ -2639,16 +2640,19 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		if(clause_pause < 0)
 			clause_pause = 0;
 
-		terminator &= ~CLAUSE_BIT_SENTENCE;  // clear sentence bit
+		if(new_sentence)
+			terminator |= CLAUSE_BIT_SENTENCE;  // carry forward an end-of-sentence indicator
 		max_clause_pause += clause_pause;
+		new_sentence2 = 0;
 	}
 	else
 	{
 		max_clause_pause = clause_pause;
+		new_sentence2 = new_sentence;
 	}
 	tr->clause_terminator = terminator;
 
-	if(new_sentence)
+	if(new_sentence2)
 	{
 		count_sentences++;
 		if(skip_sentences > 0)
@@ -3459,7 +3463,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		clause_pause = 10;
 	}
 
-	MakePhonemeList(tr, clause_pause, new_sentence);
+	MakePhonemeList(tr, clause_pause, new_sentence2);
 	phoneme_list[N_PHONEME_LIST].ph = NULL;   // recognize end of phoneme_list array, in Generate()
 	phoneme_list[N_PHONEME_LIST].sourceix = 1;
 

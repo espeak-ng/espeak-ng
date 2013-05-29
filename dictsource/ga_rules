@@ -2,7 +2,7 @@
 // translation rules for Irish Gaeilge
 // This file is UTF-8 encoded
 // written by Ronan McGuirk  2013
-// Version 2.6.1
+// Version 2.7
 // Please send comments and suggestions to espeak.gaeilge@gmail.com
 
 
@@ -11,10 +11,10 @@
 
 .L01 e i é í // slender vowels
 .L02 c ch d g gh n  s // following ea gets ; sounds
-.L03 b bh mb  c ch f m mh dh   // used for words likemuir or cuid
+.L03 b bh mb  c ch f m mh dh p ph   // used for words likemuir or cuid
 .L04 b bh mb    // for words like beag
 .L05 nn nna nnas dh r s ntas nach nas nais dar mar rtha nta mh chas chais cht  chta nnach ntach llach d l  ll             // word endings where @ is to repleace ea or a
-.L06 aidh idh aí á eá eadh adh ad adsa imid aimid imis aimis  ainn inn idís aidís éin      // word endings where f changes to h
+.L06 aidh idh aí á eá eadh adh ad ead  adsaeadsa  imid aimid imis aimis  ainn ainnse inn innse idís aidís éin      // word endings where f changes to h
 .L07 b c g ch bh gh mb
 .L08 lc ll nt bhse       // for words like cailc
 .L09 cl cr chr  f
@@ -24,12 +24,12 @@
 .L13 oc omb
 .L14 río dún gnío        // followed with mh
 .L15 c ch  f bhf  m d dh g gc  gh mh // aoi following
-.L16 b c bh ch gr ghr    // for inn word ending
+.L16 b c bh ch gr ghr t th    // for inn word ending
 .L17 l le li niste nn
 .L18 n nt nte neann neadh ntear nim nfear nfinn nfidh nfidis neamar
 .L19 na nea ra rea la llea arga     // word endings with silent dh
 .L20 eo eoir eá eabh io iu iú               // slender m
-.L21 ll nn ndán nntán
+.L21 ll nn nna nnta ndán nntán nntáin
 .L22  eadh eag eaga eagán eagáinín eo  io iu iú eall eabh ealtaine eann
 .L23 ea eo i
 .L24 b mb bh g gh p ph bp m mh
@@ -41,6 +41,7 @@
         adh (C     aI
         abht       aU#t[
         amhr       aUr       //	words like amhras
+        amha       aU@
      K) amhl       aUl
         abh (C     aU        //	words like slabhra
         aghaidh    aIg
@@ -56,6 +57,7 @@
      X) a (nn_     aU#
      X) a (ll_     aU#
         abha       aU@
+        abhai      aU@
         am (pla    aUm
         ama (_     aU#m@
         athair     'ah@r
@@ -64,7 +66,7 @@
         agh (d     aI
         agh (s     aI
      _) ath        0h
-
+        a (rraige  a
         ai (m_     @
         aí         i:
         aoi        @i:
@@ -83,6 +85,7 @@
         amhna (_   aUn@
         arraing    arIng
      _) ath (@@P3  ,0_
+     _) athr       '0hr
 
 .group á
         á          A:
@@ -99,16 +102,17 @@
         ai         a#
    L04) ai (L17    0#
         aile (_    '0l;E     // words like baile
-    Xc) ai (l      '0#
-    ch) ai (l      '0#
+    Xc) ai (lA     '0#
+    ch) ai (lA     '0#
      m) ai (n      0#
      c) ai (th     0#
     ch) ai (th     0#
+        ai (lleach 0#
         ai (tín    0#
         ai (d      0#
      p) ai (l      0#
      @) ai (L11_   I
-        ai (L08+   aI#
+        ai (L08++  aI#
      c) ai (l_     I
         ai (msi    'aI       // words like aimsir
   _L04) ai (L18_++ u1'I//words like bain
@@ -118,7 +122,9 @@
      X) aigh       'aI
         aigh       aI#       L04)	aill	(_	wi:l
         aing (_    Ing
-        ai (llimh  '0        // words like Gaillimh
+        ailleach   '0l;@x
+        ai (llimh++ '0       // words like Gaillimh
+        aidhm      aIm
 
 
 .group b
@@ -190,7 +196,8 @@
         deirfiúr   d;r@f'u:r
         dheirfiúr  g;r@f'u:r
      _) do (Ch@@P2 d[,U_
-     _) dí (@@P2   d,i:
+     _) dí (C@@P2  d,i:
+        dícheall   d;'i:Ca#l
 
 .group e
         e          E#
@@ -206,12 +213,15 @@
 
         eo         o:
         eoi        o:
+        eoi (CC_   o:I
+        eoi (g     o:I
         eogha      o:
         eoghai     o:
      d) eo (ch     O#
     dh) eo (ch     O#
      _) eo (ch     O#
      s) eo (_      @
+
 
 
 .group é
@@ -251,8 +261,12 @@
         fh (éin_   h
         fh (L22    ;         // slender
      @) f (L06_    h
+        fios       fIs
+        fhios      Is
      _) fo (C@@P2  f,U
      _) fogh       f'aU
+     _) forb       f'Orb
+     _) foc (@++   fOk
 ?1 _bh_) f (@ 
 ?1 _bh_) f (L22     ;
 
@@ -284,6 +298,7 @@
         i          I
      _) i          I
         ia         i@
+        iu         U
         ia (tha    i:
         io         O#
         io (dá     I
@@ -319,8 +334,9 @@
         ll (L23    l;
         l (g       l@
         l (b       l@
+        ll (b      l
      _) lorg (@@P4 l,Or@g
-     _) lán (C@@P3 l,A:n
+     _) lán (@@P3  l,A:n
 
 .group m
         m          m         // broad
@@ -344,14 +360,15 @@
 ?1   _) n (_L01    n;
      _) nd         n         // urú
      _) nd (L01    n;        // urú slender
-     _) ng         n
-     _) ng (L01    n;
+     _) ng         N
+     _) ng (L01    N;
 ?1   _) n (_d      n         // urú
 ?1   _) n (_dL01   n;        // urú slender
-?1   _) n (_g      n
-?1   _) n (_gL01   n;
+?1   _) n (_g      N
+?1   _) n (_gL01   N;
         nn         n
-        nn (L01    n;        // slender
+        nn (L01    nj        // slender
+     i) nn (_      N
         n (b       n@
         n (m       n@
         n (bh      n@
@@ -394,6 +411,8 @@
   _L15) oi (+      @'I
      _) oi (b      I
         oi (de     I
+        oi (di     I
+        oi (c_     I
      h) oi (b      I
      _) oi (r      I
      r) oi         I
@@ -406,12 +425,14 @@
         oi (nnío   @
         oi (mis    @
         ois (++    O#S
+     n) ois (_++   IS
         oill       w'i:l
      _) oi (leá    'I
         oidh       aI
         oir (_     'ERR
    _sc) oi (r      O
         oigh (ea   aI
+        oighn      aIXn
 
 
 .group p
@@ -435,13 +456,14 @@
         r (bh      r@
      s) r (A       R
      _) ramh       raU
+     _) réamh (@P5 r,e:v
 
 
 .group s
         s          s         // broad
    L01) s          S         // slender
         s (L01     S         // slender
-        s (cL01    S
+        s (CL01    S
         s (CCL01   S         // slender
         s (pCé     s         // broad
 ?1 _t_) s (@ 
@@ -482,10 +504,10 @@
         uai        u@
         uai (g     ui
         uai (d     ui
+        uainn      u:iN
         uá         u:'A:
         ui         I
-        ui (s      U
-        ui (sce_   I
+
         uinn (_    'i:n
         uinti      U#'i:ntI
     _b) uí         wi:
@@ -506,7 +528,10 @@
         ú          u:
         únmh       u:nv
 
-        úi (r      u:
+        úi         u:
+        úinn (_    u:IN
+        úibh (_    u:Iv
+
 
 
 // words which contain j k q v w x y z, speak as English
@@ -521,6 +546,7 @@
 
 .group v
         v          _^_EN
+        véarsa     ve:rs@
 
 .group w
         w          _^_EN

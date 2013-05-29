@@ -1596,6 +1596,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	wchar_t *name;
 	wchar_t *age;
 	wchar_t *variant;
+	int value;
 	const char *new_voice_id;
 	SSML_STACK *ssml_sp;
 
@@ -1641,7 +1642,9 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 
 		attrcopy_utf8(ssml_sp->language,lang,sizeof(ssml_sp->language));
 		attrcopy_utf8(ssml_sp->voice_name,name,sizeof(ssml_sp->voice_name));
-		ssml_sp->voice_variant_number = attrnumber(variant,1,0)-1;
+		if((value = attrnumber(variant,1,0)) > 0)
+			value--;    // variant='0' and variant='1' the same
+		ssml_sp->voice_variant_number = value;
 		ssml_sp->voice_age = attrnumber(age,0,0);
 		ssml_sp->voice_gender = attrlookup(gender,mnem_gender);
 		ssml_sp->tag_type = tag_type;
@@ -2288,7 +2291,7 @@ f_input = f_in;  // for GetC etc
 				return(CLAUSE_EOF);
 			}
 
-			if((skip_characters > 0) && (count_characters > skip_characters))
+			if((skip_characters > 0) && (count_characters >= skip_characters))
 			{
 				// reached the specified start position
 				// don't break a word

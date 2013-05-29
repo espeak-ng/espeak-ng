@@ -5,6 +5,7 @@
 // $alt1  open vowel [E] or [O] in the stressed syllable
 // $alt2  open vowel [o] or [o] in the stressed syllable
 // $alt3  short stress on final syllable
+// $alt4  final 'e' is schwa
 
  
 // letter names
@@ -44,11 +45,81 @@ y	'ipsilon
 ü	$accent
 ß	'o:stri||s'@
 
+а	a:
+б	b@
+в	v@
+г	g@
+д	d@
+е	e:
+ё	jo:
+ж	Z@
+з	z@
+и	i:
+й	,ik@-*'atkOji
+к	k@
+л	l@
+м	m@
+н	n@
+о	o:
+п	p@
+р	R@
+с	s@
+т	t@
+у	u:
+ф	f@
+х	x@
+ц	ts@
+ч	tS@
+ш	S@
+щ	StS@
+э	E:
+ю	ju:
+я	ja:
+ћ	tS;@
+ђ	dj@
+ќ	kj@
+
+
 // accent names
-_dia	sprEgl'asom
+_dia	spREgl'asom
 
 // languages
-_cyr	tsiR'i:litSno
+_cyr	tsiR'i:litSni
+
+// symbols
+
+@	'a:fna
+#	l'e:stvitsa
+$	d'o:laR
+%	Otst'o:tOw
+&	'i:n
+*	zv'e:ditsa
++	plu:s
+=	En'akO
+/	pOS'e:wnitsa
+\	l'e:va||pOS'e:wnitsa
+_.	p'i:ka
+_!	klic'a:j
+_?	upRaS'a:j
+_"	naREkOv'a:j
+_'	En'o:jni||naREkOv'a:j
+_`	OstR'i:vEts
+_,	v'e:jitsa
+_-	pOS'e:wnitsa
+_:	dv#'o:p'i:tSjE
+_;	p'Odp'i:tSjE
+_(	OklEp'a:j
+_)	zaklEp'a:j
+_[	Og;'a:ti||OklEp'a:j
+_]	Og;'a:ti||zaklEp'a:j
+_{	zav'i:ti||OklEp'a:j
+_}	zav'i:ti||zaklEp'a:j
+_…	El'i:psa
+__	pOttS@Rt'a:j
+_<	jE||m'a:njSe
+_>	jE||v'etSjE
+_|	nawp'i:tSna||tS'@Rta
+
 
 // numbers
 _0	n'i:tS
@@ -154,12 +225,19 @@ bili	$u
 // exceptions
 // (these are just a few example exceptions)
 
-deset	$2
-devet	$2
-dim	$alt3
-ena	$alt1
-oba	$2
-šel	S@w
-tisoč	$1
-žena	$alt1
+deset		$2
+devet		$2
+dim		$alt3
+ena		$alt1
+oba		$2
+osem		$alt4
+poševnica	$2
+sedem		$alt4
+šel		S@w
+tisoč		$1
+žena		$alt1
 
+
+// names
+estonija	$2
+slovenija	$2
