@@ -177,7 +177,7 @@ static MNEM_TAB keyword_tab[] = {
 
 #define N_VOICE_VARIANTS   12
 const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
-const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,0};
+const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,6,7,0};
 const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
 const char *variant_lists[3] = {variants_either, variants_male, variants_female};
 
@@ -300,7 +300,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	espeak_VOICE *voice_data;
 	int priority;
 	int age;
-	int n_variants = 3;    // default, number of variants of this voice before using another voice
+	int n_variants = 4;    // default, number of variants of this voice before using another voice
 	int gender;
 
 #ifdef PLATFORM_WINDOWS
@@ -1067,6 +1067,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		if((ix = SelectPhonemeTableName(phonemes_name)) < 0)
 		{
 			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
+			ix = 0;
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;

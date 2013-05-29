@@ -82,13 +82,55 @@ phoneme o+   // doesn't reduce to [O]
 phoneme O
   vowel starttype #o endtype #o
   length 170
-  FMT(vowel/0_2)
+  IF thisPh(isStressed) THEN
+    FMT(vowel/0_2)
+  ENDIF
+  FMT(vowel/oo_4)
 endphoneme
 
 
 
 phoneme v
   import_phoneme base/v#
+endphoneme
+
+
+phoneme t
+  vls dnt stop
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) AND prevPhW(isVowel) THEN
+    WAV(ustop/t_dnt, 40)
+  ENDIF
+  WAV(ustop/t_dnt, 60)
+endphoneme
+
+
+phoneme k
+  vls vel stop
+  voicingswitch g
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
+  ENDIF
+
+  IF nextPh(isPause2) AND prevPhW(isVowel) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/kr)
+  ELIF nextPh(#i) OR nextPh(;) THEN
+    WAV(ustop/ki)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/k_unasp, 70)
+  ENDIF
+  WAV(ustop/k)
 endphoneme
 
 

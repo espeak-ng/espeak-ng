@@ -1949,3 +1949,7 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
+
+
+//phonemetable en2 en
+//include ph_english_test
