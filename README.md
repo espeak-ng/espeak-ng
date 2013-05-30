@@ -21,22 +21,17 @@ If you are building on the command line, you will also need:
 
 1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution)
 
-## Fetching the Sources
-
-The Android port uses the `ucd-tools` submodule. You can fetch this by running:
-
-    $ git submodule init
-    $ git submodule update
-
 ## Building eSpeak
 
+1.  Generate the build files and get the required git submodules by running:
+
+        $ ./autogen.sh
 1.  Build the `libttsespeak.so` file by running:
 
         $ cd android
         $ ndk-build
 2.  Build the `android/res/raw/espeakdata.zip` file by running:
 
-        $ ./autogen.sh
         $ ./configure --prefix=/usr
         $ make android
 
