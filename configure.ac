@@ -17,6 +17,11 @@ AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
+AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
+if test x"$NDKBUILD_CHECK" != xyes ; then
+    AC_MSG_ERROR([Please ensure that the Android NDK is installed and ndk-build is usable from the command line.])
+fi
+
 dnl ================================================================
 dnl getopt checks.
 dnl ================================================================

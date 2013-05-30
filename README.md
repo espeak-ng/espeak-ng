@@ -23,17 +23,12 @@ If you are building on the command line, you will also need:
 
 ## Building eSpeak
 
-1.  Generate the build files and get the required git submodules by running:
+The eSpeak language data file and the JNI bindings needed for the Android
+APK can be build using the following commands:
 
-        $ ./autogen.sh
-1.  Build the `libttsespeak.so` file by running:
-
-        $ cd android
-        $ ndk-build
-2.  Build the `android/res/raw/espeakdata.zip` file by running:
-
-        $ ./configure --prefix=/usr
-        $ make android
+    $ ./autogen.sh
+    $ ./configure --prefix=/usr
+    $ make android
 
 ## Building the APK with Eclipse
 

@@ -6,7 +6,7 @@ DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
 
-.PHONY: all clean distclean espeak-phoneme-data
+.PHONY: android all clean distclean espeak-phoneme-data
 
 EXTRA_DIST=
 
@@ -118,7 +118,10 @@ espeak-data/phsource/dir.stamp: phsource/ph_* phsource/phonemes phsource/intonat
 espeak-data/phontab: src/espeakedit espeak-data/dictsource/dir.stamp espeak-data/phsource/dir.stamp
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile
 
-##### android language data packs:
+##### android targets:
+
+jni:
+	cd android && ndk-build
 
 android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 	mkdir -pv android/res/raw
@@ -130,7 +133,10 @@ android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
 	sha1sum $< | awk '{ print $$1 }' > $@
 
-android: android/res/raw/espeakdata.zip android/res/raw/espeakdata_version
+android: \
+	jni \
+	android/res/raw/espeakdata.zip \
+	android/res/raw/espeakdata_version
 
 ##### dictionaries:
 
