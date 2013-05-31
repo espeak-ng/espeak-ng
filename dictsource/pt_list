@@ -340,7 +340,7 @@ elas	$u+	$verbf
 me	$u	$verbf	// reflexive
 te	$u	$verbf
 nos	$u	$nounf
-vos	vus	$u
+vos	$u
 la	$u
 lo	lU	$u
 las	$u
@@ -1060,6 +1060,7 @@ proveta		$alt2
 quarteto	$alt2
 queda		$alt
 quede		$alt2
+quimera		$alt
 quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
@@ -1069,7 +1070,8 @@ reconstroem	$alt
 recordo		$alt
 recorto		$alt
 rede		$alt2
-reembolso	$alt  $verb
+reembolso	$alt2
+reembolso	$alt $verb
 reforço		$alt  $verb
 reforços	$alt
 refresco	$alt  $verb
@@ -1111,6 +1113,7 @@ sinopse		$alt
 soco		$alt2
 soco		$alt $verb
 sogra		$alt
+sopa		$alt2
 sopro		$alt2 $noun
 soro		$alt2
 sorvete		$alt2

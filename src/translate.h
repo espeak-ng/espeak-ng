@@ -581,7 +581,6 @@ typedef struct
 	const char *transpose_map;
 	char dictionary_name[40];
 
-	char phon_out[500];
 	char phonemes_repeat[20];
 	int  phonemes_repeat_count;
 	int  phoneme_tab_ix;
@@ -723,7 +722,7 @@ int iswlower2(int c);
 int iswupper2(int c);
 int towlower2(unsigned int c);
 int towupper2(unsigned int c);
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode);
+const char *GetTranslatedPhonemeString(int phoneme_mode);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 ALPHABET *AlphabetFromName(const char *name);

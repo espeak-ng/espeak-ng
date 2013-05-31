@@ -38,8 +38,12 @@
 .group e
         e        e:
         e (X$w_alt3+  'E
-        ee       i:
         
+        ee       i:
+    _n) ee       E:E
+    _r) ee       E:E
+   _pr) ee       E:E
+
         e (X$w_alt4 @
      @) e (n_    E#
     @C) e (r_    E#
@@ -119,7 +123,8 @@
         o (č_    'o:
         o (j_    'o:
         o (l_    'o:
-        oo	u:
+        o (oč    o:
+
         
 .group p
         p        p

@@ -406,6 +406,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	int translate_text = 0;
 	char buf[1000];
 	char phon_out[N_PH_LIST*2];
+	const char *phon_out2;
 	int clause_tone;
 	int clause_count;
 	int use_ipa = 0;
@@ -495,11 +496,11 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			CalcPitches(translator,clause_tone);
 			CalcLengths(translator);
 
-			GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
+			phon_out2 = GetTranslatedPhonemeString(use_ipa);
 			if(clause_count++ > 0)
 				strcat(phon_out," ||");
-			strcat(phon_out,translator->phon_out);
-			t_phonetic->SetValue(wxString(translator->phon_out,wxConvUTF8));
+			strcat(phon_out, phon_out2);
+			t_phonetic->SetValue(wxString(phon_out2, wxConvUTF8));
 
 			if((n_ph_list + n_phoneme_list) >= N_PH_LIST)
 			{

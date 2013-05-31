@@ -210,7 +210,6 @@
     ib) e (rL04_   E
      d) e (rL04_   E
     ed) e (rL04_   e
-     m) e (rL04_   E
     iv) e (rL04_   E
    pod) e (rA_     e
 
@@ -343,13 +342,14 @@
    êCC) e (C@      e
     ôC) e (C@      e
     áC) e (C@      e
-   áCC) e (C@      e
+   áCC) e (CA_     e
+   éCC) e (CA_     e
   éCCC) e (C@      e
     íC) el (_      eU
     íC) e (C@      e
    íCC) e (C@      e
     óC) e (C@      e
-   óCC) e (C@      e
+   óCC) e (CA_     e
     úC) e (C@      e
     úC) el (_      eU
         ection (_  'EkS&~N
@@ -427,6 +427,7 @@ _enver) e (dL03_   E
     ad) e (quL04_  E
   _dig) e (rL02_   E
   _ing) e (rL02_   E
+    _m) e (rL03_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
@@ -438,6 +439,8 @@ _enver) e (dL03_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
   _enc) e (rL04_   E
+  _esm) e (rL04_   E
+  _esm) e (rL04_   E
   _imp) e (rL04_   E
   _min) e (rL04_   E
   _sug) e (rL04_   E
@@ -448,9 +451,11 @@ _enver) e (dL03_   E
   eson) e (rL04_   E
  _apod) e (rL04_   E
  _coop) e (rL04_   E
+ _enum) e (rL04_   E
  _exub) e (rL04_   E
  _temp) e (rL04_   E
 _adult) e (rL04_   E
+_aglom) e (rL04_   E
 _dilac) e (rL04_   E
 _encarc) e (rL04_  E
 _incin) e (rL04_   E
@@ -510,7 +515,6 @@ _embel) e (zL04_   E
     _m) e (çL03_   E
 _entorp) e (çL03_  e
 //endsort
-
 
 
 .group é
@@ -727,6 +731,9 @@ _entorp) e (çL03_  e
 ?2   _) os (_      Us
 ?2   _) os (_A     Uz
 ?2   _) os (_G     Uz
+?2  _v) os (_      us
+?2  _v) os (_A     uz
+?2  _v) os (_G     uz
         ou         ow
         oi         oI
         oi ($w_alt OI
@@ -825,6 +832,7 @@ _entorp) e (çL03_  e
      v) o (re_     o
      b) o (rL04_   O
         o (p_      O
+     C) o (pL04_   O
 ?1   _) o (C       O         // eg: olá, orla, opção, etc...
 ?1  _C) o (CACAC   u         // Documento, documentação, localizar, etc.
 ?1   f) o (rmat    u         // formatar, formato.
@@ -862,6 +870,7 @@ _pormen) o (L05_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
      _) o (cL03_   o
+ _barr) o (cL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
    _af) o (fL04_   O
@@ -874,13 +883,8 @@ _pormen) o (L05_   O
   _emp) o (lgL04_  O
      _) o (lhL04_  O
      m) o (lhL04_  O
-   emb) o (lsL02_  O
+   emb) o (lsL04_  O
   _env) o (ltL03_  o
-   ent) o (pL02_   O
-    _c) o (pL03_   O
-    _t) o (pL04_   O
-  _ens) o (pL04_   O
-  _gal) o (pL04_   O
     _s) o (prL04_  O
    _al) o (prL04_  O
   _ass) o (prL04_  O
