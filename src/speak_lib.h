@@ -484,13 +484,9 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream);
 #ifdef __cplusplus
 extern "C"
 #endif
-ESPEAK_API void espeak_TextToPhonemes(const void *text, char *buffer, int size, int textmode, int phonememode);
+ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode);
 /* Translates text into phonemes.  Call espeak_SetVoiceByName() first, to select a language.
    text: The text to translate, terminated by a zero character.
-
-   buffer: Output buffer for the phoneme translation.
-
-   size: Size of the output buffer in bytes.
 
    textmode: Type of character codes, one of:
          espeakCHARS_UTF8     UTF8 encoding
