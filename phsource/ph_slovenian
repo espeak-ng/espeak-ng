@@ -119,7 +119,9 @@ phoneme k
     Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
   ENDIF
 
-  IF nextPh(isPause2) AND prevPhW(isVowel) THEN
+  IF thisPh(isWordEnd) THEN
+    WAV(ustop/k)
+  ELIF nextPh(isPause2) THEN
     WAV(ustop/k_)
   ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
     WAV(ustop/kr)

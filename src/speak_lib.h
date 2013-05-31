@@ -34,7 +34,7 @@
 #define ESPEAK_API
 #endif
 
-#define ESPEAK_API_REVISION  7
+#define ESPEAK_API_REVISION  9
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -57,6 +57,9 @@ Revision 7  24.Dec.2011
 
 Revision 8  26.Apr.2013
   Added function espeak_TextToPhonemes().
+
+Revision 9  30.May.2013
+  Changed function espeak_TextToPhonemes().
 
 */
          /********************/

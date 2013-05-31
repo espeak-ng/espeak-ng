@@ -1164,14 +1164,15 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 }   //  end of espeak_SetPhonemes
 
 
-ESPEAK_API void espeak_TextToPhonemes(const void *text, char *buffer, int size, int textmode, int phonememode)
-{//==============================================================================================================
+ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
+{//=================================================================================================
 	/* phoneme_mode  bits 0-3: 0=only phoneme names, 1=ties, 2=ZWJ, 3=underscore separator
 	                 bits 4-7:   0=eSpeak phoneme names, 1=IPA
 	*/
+
 	option_multibyte = textmode & 7;
-	TranslateClause(translator, NULL, text, NULL, NULL);
-	GetTranslatedPhonemeString(buffer, size, phonememode);
+	*textptr = TranslateClause(translator, NULL, *textptr, NULL, NULL);
+	return(GetTranslatedPhonemeString(phonememode));
 }
 
 

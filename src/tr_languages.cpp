@@ -1484,7 +1484,7 @@ SetLengthMods(tr,3);  // all equal
 			if(name2 == L('m','l'))
 			{
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
-				tr->langopts.numbers = NUM_OMIT_1_THOUSAND;
+				tr->langopts.numbers = NUM_OMIT_1_THOUSAND | NUM_OMIT_1_HUNDRED;
 				tr->langopts.numbers2 = NUM2_OMIT_1_HUNDRED_ONLY;
 			}
 			else

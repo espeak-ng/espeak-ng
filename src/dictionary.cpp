@@ -526,6 +526,10 @@ unsigned short ipa1[96] = {
 	0x70,0x71,0x72,0x73,0x74,0x75,0x76,0x77,0x78,0x79,0x7a,0x7b,0x7c,0x7d,0x303,0x7f
 };
 
+#define N_PHON_OUT  500
+static char *phon_out_buf = NULL;
+static int phon_out_size = 0;
+
 
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
 {//===================================================================================================
@@ -629,8 +633,8 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 
 
 
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode)
-{//===============================================================================
+const char *GetTranslatedPhonemeString(int phoneme_mode)
+{//=======================================================
 	/* Called after a clause has been translated into phonemes, in order
 	   to display the clause in phoneme mnemonic form.
 
@@ -640,7 +644,6 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode
 
 	int  ix;
 	unsigned int  len;
-	unsigned int  max_len;
 	int  phon_out_ix=0;
 	int  stress;
 	int c;
@@ -668,108 +671,107 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode
 		use_tie = 0;
 	}
 
-	if(phon_out != NULL)
+	for(ix=1; ix<(n_phoneme_list-2); ix++)
 	{
-		for(ix=1; ix<(n_phoneme_list-2); ix++)
+		buf = phon_buf;
+
+		plist = &phoneme_list[ix];
+
+		WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
+		if(plist->newword)
+			*buf++ = ' ';
+		else
 		{
-			buf = phon_buf;
-
-			plist = &phoneme_list[ix];
-
-			WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
-			if(plist->newword)
-				*buf++ = ' ';
-			else
+			if((separate_phonemes != 0) && (ix > 1))
 			{
-				if((separate_phonemes != 0) && (ix > 1))
+				utf8_in(&c, phon_buf2);
+				if((c < 0x2b0) || (c > 0x36f))  // not if the phoneme starts with a superscript letter
 				{
-					utf8_in(&c, phon_buf2);
-					if((c < 0x2b0) || (c > 0x36f))  // not if the phoneme starts with a superscript letter
-					{
-						*buf++ = separate_phonemes;
-					}
+					*buf++ = separate_phonemes;
 				}
-			}
-
-			if(plist->synthflags & SFLAG_SYLLABLE)
-			{
-				if((stress = plist->stresslevel) > 1)
-				{
-					c = 0;
-					if(stress > 5) stress = 5;
-
-					if(use_ipa)
-					{
-						c = 0x2cc;  // ipa, secondary stress
-						if(stress > 3)
-							c = 0x02c8;  // ipa, primary stress
-					}
-					else
-					{
-						c = stress_chars[stress];
-					}
-
-					if(c != 0)
-					{
-						buf += utf8_out(c, buf);
-//						if(separate_phonemes)
-//							*buf++ = separate_phonemes;
-					}
-				}
-			}
-
-			flags = 0;
-			count = 0;
-			for(p=phon_buf2; *p != 0;)
-			{
-				p += utf8_in(&c, p);
-				if(use_tie > 0)
-				{
-					// look for non-inital alphabetic character, but not diacritic, superscript etc.
-					if((count>0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c))
-					{
-						buf += utf8_out(char_tie[use_tie-1], buf);
-					}
-				}
-				buf += utf8_out(c, buf);
-				count++;
-			}
-
-			if(plist->ph->code != phonSWITCH)
-			{
-				if(plist->synthflags & SFLAG_LENGTHEN)
-				{
-					buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa, NULL);
-				}
-				if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
-				{
-					// syllablic consonant
-					buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa, NULL);
-				}
-				if(plist->tone_ph > 0)
-				{
-					buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa, NULL);
-				}
-			}
-
-			len = buf - phon_buf;
-			max_len = (n_phon_out - phon_out_ix - 5);   // allow for " ..." and zero byte terminator
-			if(len > max_len)
-			{
-				strcpy(&phon_buf[max_len], " ...");
-				len = max_len + 4;
-			}
-			phon_buf[len] = 0;
-			strcpy(&phon_out[phon_out_ix], phon_buf);
-			phon_out_ix += len;
-
-			if(len > max_len)
-			{
-				break;
 			}
 		}
-		phon_out[phon_out_ix] = 0;
+
+		if(plist->synthflags & SFLAG_SYLLABLE)
+		{
+			if((stress = plist->stresslevel) > 1)
+			{
+				c = 0;
+				if(stress > 5) stress = 5;
+
+				if(use_ipa)
+				{
+					c = 0x2cc;  // ipa, secondary stress
+					if(stress > 3)
+						c = 0x02c8;  // ipa, primary stress
+				}
+				else
+				{
+					c = stress_chars[stress];
+				}
+
+				if(c != 0)
+				{
+					buf += utf8_out(c, buf);
+//						if(separate_phonemes)
+//							*buf++ = separate_phonemes;
+				}
+			}
+		}
+
+		flags = 0;
+		count = 0;
+		for(p=phon_buf2; *p != 0;)
+		{
+			p += utf8_in(&c, p);
+			if(use_tie > 0)
+			{
+				// look for non-inital alphabetic character, but not diacritic, superscript etc.
+				if((count>0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c))
+				{
+					buf += utf8_out(char_tie[use_tie-1], buf);
+				}
+			}
+			buf += utf8_out(c, buf);
+			count++;
+		}
+
+		if(plist->ph->code != phonSWITCH)
+		{
+			if(plist->synthflags & SFLAG_LENGTHEN)
+			{
+				buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa, NULL);
+			}
+			if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
+			{
+				// syllablic consonant
+				buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa, NULL);
+			}
+			if(plist->tone_ph > 0)
+			{
+				buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa, NULL);
+			}
+		}
+
+		len = buf - phon_buf;
+		if((phon_out_ix + len) >= phon_out_size)
+		{
+			// enlarge the phoneme buffer
+			phon_out_size = phon_out_ix + len + N_PHON_OUT;
+			if((phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size)) == NULL)
+			{
+				phon_out_size = 0;
+				return("");
+			}
+		}
+
+		phon_buf[len] = 0;
+		strcpy(&phon_out_buf[phon_out_ix], phon_buf);
+		phon_out_ix += len;
 	}
+	phon_out_buf[phon_out_ix] = 0;
+
+	return(phon_out_buf);
 }  // end of GetTranslatedPhonemeString
 
 

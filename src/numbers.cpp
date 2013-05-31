@@ -1831,17 +1831,24 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			}
 			else
 			{
-				if((!found) && (tensunits == 0))
+				if((hundreds==1) && (tr->langopts.numbers2 & NUM2_OMIT_1_HUNDRED_ONLY) && ((control & 1)==0))
 				{
-					// is there a special pronunciation for exactly n00 ?
-					sprintf(string,"_%dC0",hundreds);
-					found = Lookup(tr, string, ph_digits);
+					// only look for special 100 if there are previous thousands
 				}
-
-				if(!found)
+				else
 				{
-					sprintf(string,"_%dC",hundreds);
-					found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+					if((!found) && (tensunits == 0))
+					{
+						// is there a special pronunciation for exactly n00 ?
+						sprintf(string,"_%dC0",hundreds);
+						found = Lookup(tr, string, ph_digits);
+					}
+
+					if(!found)
+					{
+						sprintf(string,"_%dC",hundreds);
+						found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+					}
 				}
 
 				if(found)
@@ -1854,9 +1861,6 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 					if(hundreds == 1)
 					{
 						if((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) != 0)
-							say_one_hundred = 0;
-
-						if(((tr->langopts.numbers2 & NUM2_OMIT_1_HUNDRED_ONLY) != 0) && ((control & 1)==0))
 							say_one_hundred = 0;
 					}
 
