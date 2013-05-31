@@ -682,7 +682,7 @@ accouchement	a#ku:SmO~
 accusation	akju:z'eIS@n
 acer		eIs3
 acetylene	a#sEt@li:n
-accurate	akjUr@t
+accurate	$alt2
 accursed	a#k3:sI#d
 ?5 accursed	a#kVRsI#d
 achille		a#kIli:
@@ -837,6 +837,7 @@ apparatus	ap@r'eIt@s
 apprentice	a#prEnt2Is
 approximate	a#pr0ksIm@t   $only
 approximate	a#pr0ksImeIt  $verb
+approximately	a#pr0ksIm@tli
 aqueduct	akwI#dVkt
 arab		ar@b
 arabic		$1
@@ -1129,6 +1130,7 @@ chimera		kaIm'i@r@
 chimpanzee	$3
 chipotle	tSI2poUtleI
 chisel		tSIz@L
+chivalrous	SIv@Lr@s
 chloroplast	$1
 chocolate	tS0kl@t
 cholera		k0l@r@
@@ -1185,7 +1187,6 @@ coliseum	k0l@s'i:@m
 collage		k0l'A:Z
 collarbone	k0l3boUn
 college		k0lI2dZ
-collegiate	k@li:dZI@t
 colloquial	k@loUkwI@L
 colon		koUl@n
 color		kVl3
@@ -1276,7 +1277,7 @@ coronet		k0r@nEt
 corolla		k@roUl@
 corollary	$2
 corporal	kO@pr@L
-corporate	kO@p@r@t
+corporate	$alt2
 corps		kO@           $only
 corral		k@r'al
 corsage		kO@s'A:Z
@@ -1348,8 +1349,8 @@ deity		deI@ti
 ?3 deity	di:@t2i
 deja		deIZA:        $only
 deli		dElI
-deliberate	dI2lIb@r@t
-delicate	dElI2k@t
+deliberate	$alt2
+delicate	$alt2
 delimit		dI2lImIt     // delimited
 delivery	$alt2
 demolish	dI2m0lIS
@@ -1587,6 +1588,7 @@ fetus		fi:t@s
 fi		f,aI		// as in "hi-fi"
 fiasco		fi:'askoU
 fiat		fi:@t
+ficus		fIk@s
 fiery		faI3rI
 ?3 fillet	fI2leI
 finagle		fI#neIg@L
@@ -1625,7 +1627,7 @@ foyer		fOIeI
 freelance	fri:laans
 freon		fri:0n
 fricassee	frIka#seI
-frigate		frIg@t
+frigate		$alt2
 fringer		frIndZ3	// infringer
 fringing	frIndZIN
 frisson		fri:s'O~
@@ -1691,7 +1693,7 @@ gossamer	g0s@m3
 goto		goUtu:
 gourmand	gU@mA:nd
 gourmet		gU@meI
-graduate	gradju:@t
+graduate	$alt2
 graduate	gradju:eIt      $verb
 graffiti	$alt3
 grandson	gr'andsVn
@@ -1708,7 +1710,7 @@ guinea		gIni
 gurus		gu:ru:z
 
 habitual	$alt3
-hacienda	hasI'End@
+hacienda	hA:sI'End@
 haggis		hagIs
 haha		hA:h'A:
 halation	$alt3  // in-
@@ -1811,20 +1813,20 @@ impi		$1
 impinging	Imp'IndZIN
 implacable	Impl'ak@b@L
 imprecise	ImprIs'aIs
-inanimate	In'anIm@t
-inappropriate	,Ina#proUpri@t
+inanimate	$alt2
+inappropriate	Ina#pr'oUpri@t
 incense		Ins'Ens       $verb
 incoming	InkVmIN
 increase	Inkr'i:s      $verb
 indefine	$3
-indeterminate	IndI2t'3:mI2n@t
+indeterminate	$alt2
 indicative	$2
 indices		IndI2si:z
 indict		Ind'aIt
 indie		Indi
 indirect	$3
 ?3 indirect	Ind3r'Ekt
-indiscriminate	IndI2skr'ImI2n@t
+indiscriminate	$alt2
 indo		IndoU
 indoor		$1           $only
 industry	IndVstrI
@@ -1882,7 +1884,6 @@ iris		aIrIs
 iron		aI3n
 irony		aIr@nI
 isosceles	aIs'0s@li:z
-itinerary	aIt'In@r@rI
 
 ja		jA:
 jagged		dZagI#d
@@ -1928,7 +1929,9 @@ labored		leIb@d
 laborer		leIb@r3
 laborious	$alt3
 labyrinth	lab3rInT
+lascivious	$alt3
 lager		lA:g3
+lagoon		$alt3
 laity		leI@ti
 landowner	l'and,oUn3
 lapel		$alt3
@@ -2077,7 +2080,7 @@ mercedes	m3:s'eIdi:z
 //mercenary	m3:s@n@rI
 merest		mi@r@st
 meringue	m@raN
-merlot		me@l'oU
+merlot		m3:l'oU
 mesa		meIs@
 meson		mi:z0n
 metabolic	mEt@b'0lIk
@@ -2214,7 +2217,7 @@ obelisk		0b@lI2sk
 obesity		oUb'i:s@ti
 obey		oUb'eI
 obituary	0b'ItSU@i
-?3 obituary	oUb'ItSUe@i
+?3 obituary	oUb'ItSu:e@i
 object		$1 $onlys
 object		$verb
 obsolete	0bs@li:t
@@ -2251,6 +2254,7 @@ oregano		0rIg'A:noU
 orion		0r'aI@n
 ornate		$2
 orphan		O@f@n          // orphaned
+ottoman		0t@m@n
 outage		aUtI2dZ
 outback		$1
 outcome		$1
@@ -2796,6 +2800,7 @@ spinal		spaIn@L
 spoonfed	spu:nfEd
 squirrel	skwIr@L
 staccato	$alt3
+stasis		steIsI#s
 standby		standbaI
 stagnate	$2
 ?3 stalagmite	$alt3
@@ -2894,7 +2899,7 @@ testes		tEsti:z
 telephon	tElI2foUn     // for telephoning
 temperature	tEmprI2tS3
 ?!3 temporary	tEmpr@rI
-?3 template	tEmpl@t
+?3 template	$alt2
 tetanus		tEt@n@s
 therefore	$1
 thereof		De@r'0v
@@ -3209,6 +3214,7 @@ Aires		aIrIz
 Alamo		al@moU
 Albuquerque	alb@k3:ki
 Algiers		$2
+Altura		O:lt'U@r@
 Amman		a#m'A:n
 Andes		andi:z
 Angeles		andZ@li:s
@@ -3394,6 +3400,7 @@ Montana		m0nt'an@
 Monte		m0nt2i
 Munich		mju:nIk
 Myanmar		mjA:nmA@
+Niagara		naI'agr@
 Nairobi		naIr'oUbi
 Naples		neIp@Lz
 Nauru		naUru:
@@ -4016,7 +4023,7 @@ unto             ,VntU
 upon             @p0n		$u2
 from             fr0m		$u
 ?3 from          frVm		$u
-(from the)       fr,VmD@
+(from the)       %frVmD@2
 (from where)     %frVm||w'e@	$pause
 (from which)     %frVm||w'ItS	$pause
 up               ,Vp		$strend2

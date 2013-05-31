@@ -3041,7 +3041,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					c = ' ';
 					pre_pause_add = 4;
 				}
-				else if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
+				else if((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in))
 				{
 					// insert extra space between a word + space + hyphen, to distinguish 'a -2' from 'a-2'
 					sbuf[ix++] = ' ';
@@ -3139,7 +3139,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 								decimal_sep_count = 1;
 							}
 						}
-						else if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
+						else if((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in))
 						{
 							// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
 							sbuf[ix++] = ' ';
