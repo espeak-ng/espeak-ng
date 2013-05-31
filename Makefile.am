@@ -23,7 +23,7 @@ EXTRA_DIST += ChangeLog
 
 ##### standard build actions:
 
-all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
+all: jni espeakdata apk-release
 
 install:
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
@@ -31,6 +31,7 @@ install:
 
 clean:
 	cd src && rm -f *.o *~ && cd ..
+	cd android && gradle clean
 
 distclean: clean
 	cd src && rm -f libespeak.a libespeak.so.* speak espeak espeakedit && cd ..
@@ -123,6 +124,12 @@ espeak-data/phontab: src/espeakedit espeak-data/dictsource/dir.stamp espeak-data
 jni:
 	cd android && ndk-build
 
+apk-release:
+	cd android && gradle assembleRelease
+
+apk-debug:
+	cd android && gradle assembleDebug
+
 android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 	mkdir -pv android/res/raw
 	rm -f $@
@@ -133,8 +140,7 @@ android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
 	sha1sum $< | awk '{ print $$1 }' > $@
 
-android: \
-	jni \
+espeakdata: \
 	android/res/raw/espeakdata.zip \
 	android/res/raw/espeakdata_version
 

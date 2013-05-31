@@ -1,0 +1,27 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:0.4.2'
+	}
+}
+
+apply plugin: 'android'
+
+android {
+	buildToolsVersion '17.0'
+	compileSdkVersion 17
+
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs = ['src']
+			res.srcDirs = ['res']
+		}
+	}
+}
+
+tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+	pkgTask -> pkgTask.jniDir new File(projectDir, 'libs')
+}

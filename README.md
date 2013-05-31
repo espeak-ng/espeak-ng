@@ -17,40 +17,59 @@ If you are building with Eclipse, you will also need:
 1.  Eclipse
 2.  Android Developer Tools (ADT) for Eclipse
 
-If you are building on the command line, you will also need:
+If you are building on the command line, you will also need either:
 
-1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution)
+1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution), or
+2.  gradle 1.6, which can be installed from the
+    [Ubuntu PPA](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle_1.6-0ubuntu1_all.deb)
+    debian file (including on Debian systems)
 
-## Building eSpeak
+## Building with Gradle
 
-The eSpeak language data file and the JNI bindings needed for the Android
-APK can be build using the following commands:
+1.  Set the location of the Android SDK:
 
-    $ ./autogen.sh
-    $ ./configure --prefix=/usr
-    $ make android
+        $ export ANDROID_HOME=<path-to-sdk>
+2.  Build the project:
 
-## Building the APK with Eclipse
+        $ ./autogen.sh
+        $ ./configure
+        $ make
 
-1.  Open Eclipse.
-2.  Create a new workspace.
-3.  Import the espeak folder as an exising Android project.
-4.  Build the espeak apk within Eclipse.
+This will create an `android/build/apk/espeak-release-unsigned.apk` file.
+
+## Building with Eclipse
+
+1.  Build the JNI binding and espeak data file by running:
+
+        $ ./autogen.sh
+        $ ./configure
+        $ make jni espeakdata
+2.  Open Eclipse.
+3.  Create a new workspace.
+4.  Import the espeak folder as an exising Android project.
+5.  Build the espeak apk within Eclipse.
 
 The generated `eSpeakActivity.apk` can be installed like any other apk build
 via eclipse, such as by using the `Run` menu option.
 
-## Building the APK from the Command Line
+## Building with Ant
 
-1.  Update the project using the Android utility which is part of the SDK:
+1.  Build the JNI binding and espeak data file by running:
+
+        $ ./autogen.sh
+        $ ./configure
+        $ make jni espeakdata
+2.  Update the project using the Android utility which is part of the SDK:
 
         $ cd android
         $ android update project -s -t 1 -p .
-2.  Build the package.
+3.  Build the package.
 
         $ ant release
 
-In order to install the built `bin/eSpeakActivity-release-unsigned.apk` APK,
+## Signing the APK
+
+In order to install the built APK (e.g. `bin/eSpeakActivity-release-unsigned.apk`)
 you need to self-sign the package. You can do this by:
 
 1.  Creating a certificate, if you do not already have one:
@@ -65,6 +84,8 @@ you need to self-sign the package. You can do this by:
 
         $ zipalign 4 bin/eSpeakActivity-release-unsigned.apk \
           bin/eSpeakActivity-release-signed.apk
+
+## Installing the APK
 
 Now, you can install the APK using the `adb` tool:
 
