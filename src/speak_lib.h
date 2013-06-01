@@ -486,7 +486,13 @@ extern "C"
 #endif
 ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode);
 /* Translates text into phonemes.  Call espeak_SetVoiceByName() first, to select a language.
-   text: The text to translate, terminated by a zero character.
+
+   It returns a pointer to a character string which contains the phonemes for the text up to
+   end of a sentence, or comma, semicolon, colon, or similar punctuation.
+
+   textptr: The address of a pointer to the input text which is terminated by a zero character.
+      On return, the pointer has been advanced past the text which has been translated, or else set
+      to NULL to indicate that the end of the text has been reached.
 
    textmode: Type of character codes, one of:
          espeakCHARS_UTF8     UTF8 encoding
