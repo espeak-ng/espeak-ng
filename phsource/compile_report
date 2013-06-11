@@ -56,9 +56,9 @@ consonants  11  119
       sv  22  129
       no  28  134
       is  42  141
-      vi  57  150
-  vi-hue  17  150
-  vi-sgn  18  150
+      vi  57  151
+  vi-hue  17  151
+  vi-sgn  18  151
      zhy  41  138
       zh  64  155
       sw   9  110
@@ -1063,7 +1063,6 @@ ustop/tsh       [tS] base
                 [tS] tn
 ustop/tsh_      [tS] base
                 [c] hi
-                [tS] bn
                 [tS#] bn
                 [c] zhy
                 [tS] tn
@@ -1080,9 +1079,9 @@ ustop/tsh_pzd   [tS;h] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
 ustop/tsh_unasp  [c] hi
-                [tS] bn
                 [tS] hy
                 [tS`] am
+ustop/tsh_unasp2  [tS] bn
 ustop/ts_pzd    [tS;] base
                 [J#] hi
                 [J#] ml
@@ -1160,6 +1159,7 @@ vdiph2/oa       [Oa] ro
                 [ua] zh
 vdiph2/o_oo     [o@] en-wi
                 [O:] is
+                [O] vi
                 [o] zh
 vdiph2/u@       [u@] ga
 vdiph2/u#@      [U@] en-sc
@@ -1358,14 +1358,14 @@ vdiph/ooi       [OI] en
                 [oi] mt
 vdiph/ooi_2     [OI] af
                 [oI] eo
-                [OI] vi
                 [Oi] vi-hue
                 [Oi] vi-sgn
 vdiph/ooi_3     [OI] en-us
                 [OI] en-rp
                 [aI] en-wm
                 [Oi] vi
-vdiph/ooi_4     [OI] sq
+vdiph/ooi_4     [OI] vi
+                [OI] sq
 vdiph/oou       [oU] cs
                 [OU] grc
 vdiph/ou        [ou] fi
@@ -1427,7 +1427,7 @@ vdiph/y#y_3     [Y:] nl
 vietnam/a       [a:] vi-sgn
 vietnam/_c      [kh] vi
 vietnam/ch      [c] vi
-vietnam/dd      [d] vi
+vietnam/dd      [d_] vi
 vietnam/ie_2    [iE] vi
 vietnam/oe      [o&] vi
 vietnam/th      [t] vi
@@ -1471,6 +1471,7 @@ vnasal/&u_n     [O#] vi
 vnasal/u_n      [U~] hi
                 [u~] hi
                 [u~] pt
+                [u] vi
                 [u] zh
 vnasal/V_n      [V~] hi
 vnasal/W_n      [E~] fr
@@ -2306,7 +2307,6 @@ vowel/oo_1      [O:] en-n
 vowel/oo_2      [0] en-sc
                 [O] cy
                 [o] cs
-                [O] vi
                 [0] da
                 [?0] da
                 [O] ak
@@ -2392,7 +2392,6 @@ vowel/u#_4      [U] en-sc
                 [y] ml
                 [y] vi-sgn
 vowel/u_5       [U1] et
-                [u] vi
                 [u] sw
                 [u] nso
                 [u] tn

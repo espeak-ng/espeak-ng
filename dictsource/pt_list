@@ -83,25 +83,41 @@ _#9	tab
 %	pors'eINtU	$max3
 &	_'e_
 @	ax'ob&
-¤	'eU*U
 €	'eU*U
 £	l'ibR&
-§	p&*'agRafU
+¥	j'eNy
+¢	seNt'avUs#
+§	ses'&U~
 
-
-_!	,eskl&mas'&U~
+_!	Skl&mas'&U~
 _"	'asp&s#
 
 ?1   _#	k,ardin'al
 ?2   _#	k,ardZin'aU
 _$	s,ifR'&U~
 _&	'e
-?1   _'	ap'Ostr,ofy
-?2   _'	&p'OstRofU
+?1   _'	ap'OStr,ofy
+?2   _'	ap'OstRofU
 _(	,abRipa*'eINtezy
+?1   ¶	pa*'agr&fU
+?2   ¶	pa*'agR&fU
+●	s'i*@-kulU
+■	b'ax&ve*@-tSik'aUko*@-tad&
+?1  ÷	divid'idUp'or
+?2  ÷	dZividZ'idUp'or
+?1  ×	v'ezyS
+?2  ×	v'ezys
+?1 µ	m'ikrU
+?2 µ	m'ikRU
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
 _−	m'enUs
+¼	u~Nku'a*@-tU
+½	m'eIU
+¾	treSkw'a*@-tUs#
+®	xeZistR'adU
+?1  ™	m'a*@-k&xeZiSt'ad&
+?2  ™	m'a*@-k&xeZistR'ad&
 
 _,	v'irgul&
 _-	'ifeIN
@@ -347,8 +363,8 @@ las	$u
 los	$u
 se	$u
 
-?2	este	$u+	$nounf	'estSi       // this
-?2	estes	$u+	$nounf	'estSis       // these
+?2	este	$u+	$nounf	'estSy       // this
+?2	estes	$u+	$nounf       // these
 ?2	esta	'Est& $u+	$nounf
 ?2	nesta	$u+	$nounf
 ?2	neste	$u+	$nounf	n'estSi      //in this
@@ -376,13 +392,16 @@ seu	$u+	$nounf
 sua	$u+	$nounf
 ?2	nosso	$u+ $nounf //	n'OsU
 ?2	nossa	$u+ $nounf	n'Os&
-?2	nossos	$u+ $nounf	n'OsUs
-?2	nossas	$u+ $nounf	n'Os&s
+?2	nossos	$u+ $nounf
+?2	nossas	$u+ $nounf
 dele	dely	$u1+
 dela	$u+
-deles	delys	$u1+
+deles	$u1+
 delas	$u+
 nele	nely	$u1+
+nela	$u+
+neles	$u1+
+nelas	$u+
 
 // prepositions
 de	$u	$nounf // of,from
@@ -411,8 +430,7 @@ ao	$u	$nounf
 à	,a:
 à	$atend $atstart $accent
 aos	$u	$nounf
-às	,a:s	$nounf
-
+às	$u	$nounf
 para	$u		// for,to
 pro	pRU	$u	$nounf
 pra	$u	$nounf
@@ -539,7 +557,7 @@ estive	$u
 ?2 esteve	estevy	$u2
 estivemos	$u
 estiveram	$u
-estiver	$u	estSiv'Er
+estiver	$u
 
 estarei	$u
 estará	$u
@@ -715,6 +733,7 @@ borra		$alt2 $noun
 bosque		$alt
 boto		$alt2 $noun
 boxe		$alt
+bracelete		$alt2
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
@@ -734,7 +753,6 @@ caractere	$alt
 carbureto	$alt2
 caroços		$alt
 carrapeta	$alt2
-carreta		$alt2
 carroça		$alt
 casebre		$alt
 cateto		$alt2
@@ -751,8 +769,10 @@ chamego		$alt2 $verb
 chaveta		$alt2
 chefe		$alt
 checam		$alt
-chofer		$alt
+choco		$alt2 $noun
 choça		$alt
+chofer		$alt
+
 choro		$alt2 $noun
 chovesse	$alt2
 chupeta		$alt2
@@ -762,7 +782,6 @@ cloreto		$alt2
 coche		$alt2
 coco		$alt2
 cofre		$alt
-coice		$alt2
 colete		$alt2
 colchete	$alt2
 colher		$alt $noun
@@ -786,6 +805,8 @@ controles	$alt2
 controles	$alt $verb
 controlo	$alt2 $noun
 coreia		$alt
+cores	$alt2
+cores	$alt $verb
 coreto		$alt2
 corneta		$alt2
 cornos		$alt
@@ -801,12 +822,15 @@ cotovelo	$alt2
 cratera		$alt
 crede		$alt2
 credo		$alt
-decore		$alt
 decoro		$alt2 $noun
 degelo		$alt2
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2 $noun
+desassossego		$alt2 $noun
+desconfortos	$alt2
+desconsolo		$alt2 $noun
+descontrole		$alt2 $noun
 descordo	$alt
 desemprego	$alt2
 desemprego	$alt $verb
@@ -837,6 +861,7 @@ dissabores	$alt2
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
+dores	$alt2
 dorminhoco	$alt2
 dorminhocos	$alt
 doze		$alt2
@@ -852,6 +877,7 @@ enforco		$alt
 engordo		$alt
 enredo		$alt  $verb
 enrosco		$alt  $verb
+ensosso		$alt2
 enterro		$alt2 $noun
 entorto		$alt
 entroso		$alt
@@ -864,7 +890,7 @@ erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
-escore		$alt
+
 escova		$alt2
 escova		$alt $verb
 escovo		$alt
@@ -879,6 +905,7 @@ esposa		$alt2
 esqueleto	$alt2
 ester		$alt
 estilete	$alt2
+estojo		$alt2
 estorno		$alt  $verb
 estorvo		$alt  $verb
 estrela		$alt2
@@ -890,10 +917,10 @@ europeia	$alt
 exagero		$alt $verb
 exorto		$alt
 explore		$alt
-faceta		$alt2
 falangeta	$alt2
 farofa		$alt
 farolete	$alt2
+felisteia		$alt
 fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
@@ -904,8 +931,9 @@ fodo		$alt2
 fogo		$alt2
 fogos		$alt
 foguete		$alt2
-foice		$alt2
+folclore	$alt
 folheto		$alt2
+fonseca		$alt2
 fora		$alt
 fora		$alt2 $verb
 forca		$alt2
@@ -914,14 +942,15 @@ força		$alt $verb
 forço		$alt
 formos		$alt2
 forro		$alt $verb
+frescores	$alt2
 frevo		$alt2
 fulgores	$alt2
+gafanhoto		$alt2
 galera		$alt
 galeto		$alt2
 galhofa		$alt
 galileia	$alt
 gangorra	$alt2
-gazeta		$alt2
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -940,13 +969,13 @@ governo		$alt2
 governo		$alt $verb
 gozo		$alt2 $noun
 graveto		$alt2
-grelha		$alt
 groselha	$alt
 grosso		$alt2
 groso		$alt
 gueto		$alt2
 hemorroida	$alt
 hoje		$alt2
+homero	$alt
 horrores	$alt2
 ideia		$alt
 inovo		$alt
@@ -967,6 +996,7 @@ lembrete	$alt2
 lepra		$alt
 leste		$alt2 $verb
 ?2   lhe	l^y
+licores	$alt2
 lisboeta	$alt2
 livreto		$alt2
 lodo		$alt2
@@ -976,7 +1006,6 @@ macete		$alt2
 maniçoba	$alt
 marieta		$alt2
 mariposa	$alt2
-marreta		$alt2
 megera		$alt
 melhor		$alt
 menor		$alt
@@ -992,10 +1021,11 @@ moem		$alt
 mofo		$alt $verb
 molho		$alt2 $noun
 monera		$alt
+mor	$alt
 morcego		$alt2
 morda		$alt2
 moreia		$alt
-mui		mwi
+mui		m'UI
 muleta		$alt2
 mureta		$alt2
 mutreta		$alt2
@@ -1015,6 +1045,8 @@ opereta		$alt2
 ordens		$alt
 osso		$alt2
 ostra		$alt2
+outorgo	$alt
+pacheco		$alt2
 paexa		paeSa
 paella		pa'el^&
 palacete	$alt2
@@ -1025,6 +1057,7 @@ pangeia		$alt
 pantera		$alt
 papoco		$alt2 $noun
 parede		$alt2
+pateta		$alt
 peba		$alt
 pedra		$alt
 pela		$alt2
@@ -1034,6 +1067,7 @@ perda		$alt2
 pereba		$alt
 peres		$alt
 peroba		$alt
+pesadelo		$alt2
 peses		$alt
 peseta		$alt2
 peso		$alt $verb
@@ -1058,12 +1092,14 @@ proso		$alt
 prosopopeia	$alt
 proveta		$alt2
 quarteto	$alt2
+quatorze	$alt2
 queda		$alt
 quede		$alt2
 quimera		$alt
 quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
+rancores	$alt2
 raposa		$alt2
 recomeço	$alt $verb
 reconstroem	$alt
@@ -1076,7 +1112,8 @@ reforço		$alt  $verb
 reforços	$alt
 refresco	$alt  $verb
 rego		$alt2 $noun
-relevo		$alt2 $noun
+relevo		$alt2
+relevo		$alt $verb
 remoem		$alt
 remorso		$alt
 renovo		$alt $verb
@@ -1085,12 +1122,14 @@ retorno		$alt $verb
 reuva		x'EUv&
 rigores		$alt2
 risoto		$alt2
+robson	$alt
 rock		$alt
 roem		$alt
 rola		$alt2 $noun
 roleta		$alt2
 rolete		$alt2
 rolo		$alt2 $noun
+roseta		$alt2
 rota		$alt2
 rota		$alt $noun
 rubores		$alt2
@@ -1115,7 +1154,6 @@ soco		$alt $verb
 sogra		$alt
 sopa		$alt2
 sopro		$alt2 $noun
-soro		$alt2
 sorvete		$alt2
 sossego     	$alt2 $noun
 suborno		$alt  $verb
@@ -1128,14 +1166,18 @@ suporto		$alt
 suor		suOr
 sutiã		sutSi'&~N
 tabefe		$alt
+tambores	$alt2
 tapera		$alt
 tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
+test		$alt
 terrores	$alt2
 teses		$alt
 teta		$alt2
+tijolo	$alt2
+tijolos	$alt
 togo		$alt2
 topo		$alt2 $noun
 torno		$alt  $verb
@@ -1159,8 +1201,7 @@ vareta		$alt2
 vera		$alt
 verbete		$alt2
 verde		$alt2
-violeta		$alt2
-violoncelo	$alt
+vileta		$alt2
 voga		$alt
 xarope		$alt
 xereta		$alt2
@@ -1173,9 +1214,12 @@ zorra		$alt2
 ?1 alt        'alt
 ?2        agosto        ag'ostU
 ?1 back       b'Ek
+?2   bahamas	bax'&~m&s
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
 bad  bEd
+bank	beINk
+bacon	b'eIkoN
 beatle  b'itow
 beatles  b'itows
 black  blEk
@@ -1184,10 +1228,10 @@ blind      bl'aind
 ?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
+?2 center	s'eNter
 ?1 com        kom
 ?1 ctrl       k'oNt:r,Ol
-?1   dat       d'at
-?1 doc        d'Ok
+doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
 ?2 design     dez'aIn
@@ -1195,6 +1239,7 @@ blind      bl'aind
 ?2   designers	dez'aIners
 ?1 dj         d,i:dZ'eI
 ?2   diesel	dZ'izEU
+?2   doha	d'ox&
 ?1 down       d'a,wn
 ?2   down   d'aUN
 ?1 download   d'a,wnl'oud
@@ -1202,9 +1247,8 @@ blind      bl'aind
 ?2 downloads		daUNl'owds
 ?3 download        dau~Nl'owd
 drive	dR'aIv
-driver	dR'aIver
-drivers  dR'aIveRs
 ?1 end        'end
+?2 enter	'eNter
 ?2 esc     'Esk
 ?3 esc     'EskI
 ?1 explorer   ,ekspl'O:*&r-
@@ -1214,6 +1258,7 @@ drivers  dR'aIveRs
 flash	flES
 ?1 frame      fr'eImy
 ?2 frame      fR'eImi
+funk	f&~Nk
 game	g'eImy
 ?1 gmail      g,em'eIl
 ?2 Gmail      Zem'eIl
@@ -1233,8 +1278,8 @@ happy  x'Epy
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
 left	$alt
-laptop lEptOp
-laptops lEptOps
+laptop	lEpt'Op
+?2 laptops	lEpt'Ops
 ?1 line       l'ain
    layout     l'eI,aUt
    ?2   login  logiN
@@ -1252,7 +1297,8 @@ next       n'Ekst
 ?1 ovo        'ovu
 ?1 pause      p'au:z
    page       p'eIdZ
-   pizza  p'its&
+   ?1   podcast	pOdkEst
+?2  podcast	pOdyk'Est
 python     p'aIT&~N
 ?1 readme     r'i:dmi:
 right   r'aIt
@@ -1265,9 +1311,11 @@ shake	S'eIk
 ?1 site       s'aIt
 ?2 site       s'aItSi
 ?2   shampoo  S&mpu
-?1   software   s'Oft,w'Er-
+?2 shoping	S'OpiN
+?2 slide		zl'aIdZy
 símbolo	s'imbolU
 ?4 símbolo	s'iNbolU
+?1   software   s'Oft,w'Er-
 ?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?2 space      sp'eIs
@@ -1299,6 +1347,8 @@ louis       _^_FR
 ?1 adobe       &d'Oby
    android &NdR'Oid
 apple  'Epow
+outdoor	aUtd'Or
+?2  outdoors	aUtd'Ors
 baby	b'eIby
 chrome  kR'owmi
    debian      d'Ebj&~N
@@ -1338,6 +1388,7 @@ mac  mEk
 ?2   playstation	pleIst'eIS&~N
  point       p'oint
 ?1 power       p'aU&r-
+?2 power	p'aUEr
 ?1 product     p:r'&d&kt
 ?1 Publisher   p'&bl,iS&r-
 ?1 reader      r'id,&r-
@@ -1406,7 +1457,7 @@ von           f%On
 // foreign common names/surnames
 ?1   alison       &l'is&N
 anderson  '&ndersoN
-antonio	&~nt'onIU
+antonio	&~Nt'onIU
 ?1   cleverson    kl'Evyrs&N
 ?2   cleverson    kl'EversoN
 ?1   elton        'Elt&N

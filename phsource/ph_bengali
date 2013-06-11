@@ -91,9 +91,9 @@ phoneme tS
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
 
   IF nextPh(isPause2) THEN
-    WAV(ustop/tsh_)
+    WAV(ustop/tsh_unasp2)
   ENDIF
-  WAV(ustop/tsh_unasp)
+  WAV(ustop/tsh_unasp2)
 endphoneme
 
 

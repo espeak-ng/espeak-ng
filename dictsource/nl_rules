@@ -239,6 +239,8 @@
           &) el (end_$p_alt =@l
           &) el (ing_$p_alt =@l
           &) el (ingen_$p_alt =@l
+          &) el (ig_$p_alt  =@l
+          &) el (ige_$p_alt =@l
 
           @) elen (_      'e:l@n
           @) el (en_$p_alt2 @L
@@ -321,6 +323,8 @@
           &) er (ende_$p_alt =@r
           &) er (ing_$p_alt =@r
           &) er (ingen_$p_alt =@r
+          &) er (ig_$p_alt =@r
+          &) er (ige_$p_alt =@r
           &) er (st_$p_alt  =@r
           &) er (ste_$p_alt  =@r
           _) er (@P2      Er
@@ -357,6 +361,8 @@
          nd) es (_S1      s
          rd) es (_S1      s
          gt) es (_S1      s
+         lt) es (_S1      s
+         mt) es (_S1      s
          nt) es (_S1      s
          wt) es (_S1      s
              es (ie_      e:z
@@ -479,7 +485,7 @@
              iën (_       'i@n
        CAns) ie (_        =i
        CAss) ie (_        =i
-          @) ig (_S2dq    =@x
+          @) ig (_S2dq    =@Q
           @) ige (_S1m     @
           @) igen (_      =@Q@n
           @) iger (_      =@Q@r
@@ -524,6 +530,7 @@
 .group k
              k            k
           k) k
+             k (d         g
 
          _) kale (nde     ka:l'E
          _) kantoor (@P7  kAnt'o:r
@@ -551,6 +558,7 @@
           &) laan (_S4    la:n
           _) lange (@P5   laN@
           _) liefdes (@P7 l'ifd@s
+      detai) ll
           @) loog (_      lo:x
           @) loos (_S4    lo:s
           @) loze (_S4    lo:z@
@@ -922,7 +930,7 @@
 
              zele (_S4   ze:l@ // common suffix for cities.
           @) zelf (_S4   s'Elf
-          _) zoge (@P4    z,oQ@
+          _) zoge (@P4    z,o:Q@
           _) zuid (@P4    zWyt
 
 

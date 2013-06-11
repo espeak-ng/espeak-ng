@@ -375,6 +375,7 @@
             ad (on       ad
          _) ad (ri@      ad
             ad (ula      ad
+?3          adu (la      adZ@
          _) ad (um       ad
             ad (vent     ad
             ad (ventu    a#d
@@ -678,7 +679,6 @@
       @erd) am (_        am
 ?!3     &h) am (_N       @m
         &s) am (_        @m
-?3      @r) am (a_       'am
          _) am (al       a#m
             amateur      am@t3
 ?3          amateur      am@tS3
@@ -1736,6 +1736,7 @@
             de (mise     dI2
             demo (bi     dI2moU
             de (mocrac   dI2
+            de (mocratiL06 dI2
          _) dem (oni     di:m
             de (mor      dI2
             de (mot      dI2
@@ -1962,6 +1963,7 @@
          _) equi (@      ,i:kwI#
          _) equ (in@     Ekw
          _) equi (p      %IkwI
+         _) equ (it@     Ekw
             equiv (@     %IkwIv
          h) e (sion_     'i:
         @)  e (tio       i:
@@ -2626,6 +2628,7 @@
         _m) et (e        i:t
         _p) et (e        i:t
             et (itor     'Et
+         _) et (r        I2t
          m) etre         i:t3
          m) etry (_        =@tr%I
          &) ett (_       I2t
@@ -2792,6 +2795,7 @@
         er) g (et        dZ
        for) ge (t        gE
         bo) g (Ey        g
+        oo) g (ey        g
          _) gia (@@      dZa#
          _) g (iant      dZ
          &) gia (_       dZ@
@@ -3336,7 +3340,6 @@
          _) in (spir     In
          _) in (stag     In
          _) in (stan     In
-         _) instant      Inst@nt
          _) in (sti      In
          _) in (stil     %In
          _) in (strum    In
@@ -3485,7 +3488,6 @@
          m) ir (ac       Ir
         sp) iral         aI3r@L
          @) ir (ation    @r
-            ir (ate      =i@r
      consp) ira (t       Ir@
             ire          aI3
             ir (ee       aI3
@@ -3505,7 +3507,7 @@
             ir (i_       'i@r
        asp) ir (i        r
          _) ir (ish      aIr
-            ir (o        I2r
+            ir (o        Ir
          g) ir (o        aIr
         _C) ir (o_       aIr
          @) ir (o_       'i@r
@@ -3592,6 +3594,7 @@
          &) it (e_       It
          &) it (e_N      aIt
          &) ites (_      aIts
+            ites (_$w_alt2S1 s
        pos) ites (_      Its
          c) it (e_       aIt
          c) it (er_      aIt
@@ -3672,6 +3675,7 @@
 
             jokull (_S6  j3:ku:th
             jökull (_S6  j3:ku:th
+         _) judeo        dZu:'deIoU
          _) juan         hwA:n
             juan         w'A:n
 
@@ -3792,6 +3796,7 @@
          _) mac (dP3     m@k
          _) mac (lP3     m@k
          _) mac (mP3     m@k
+         _) machia       maki@
          _) mal (fP3     m,al
          _) mal (i       m@l
          _) mal (ev      m@l
@@ -4020,6 +4025,7 @@
          l) o (cat       %oU
          _) o (ccasi     @
          _) o (cclu      @
+            ocean        oUS@n
          X) o (ct        0
             occur        @k3:
 ?5          occur        @kVR
@@ -4389,6 +4395,7 @@
         em) ort (_       O@
          p) or (t        o@
             or (A        o@r
+            orama (_     @r'am@
          &) or (ate      3r
 //       @@C) or (_S2de    3                // suffix
          &) or (_        3
@@ -4501,6 +4508,7 @@
          c) os (ec       oUs
          c) os (ine_     oUs
             osis (_      'oUsIs
+       rph) osis (_      =@sIs
          p) os (itio     @z
             os (ity      '0s
             os (ive      'oUs
@@ -4952,6 +4960,7 @@
             q (q
             qu           kw
             qu (C        kw@
+         _) qua (f       kw0
          s) qua (B       kw0
             quas (A      kweIz
             quasi        kweIzaI
@@ -5580,6 +5589,7 @@
          _) ultra (@     ,Ultra
             u (lul       V
          @) u (lum       =jU
+         @) u (lus_      =jU
          b) ul (w        Ul
             u (ly        u:
          d) u (ly        ju:

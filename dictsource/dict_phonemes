@@ -58,7 +58,7 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-04-30
+Dictionary bn_dict  2013-06-10
 
 &    a    a~   e    e~   i    i:   i~   
 l-   o    O    o:   O~   o~   r-   u    
@@ -109,7 +109,7 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2013-04-12
+Dictionary da_dict  2013-06-10
 
 &    &#   0    3    ?&   ?&#  ?0   ?A   
 ?e   ?E   ?i   ?o   ?O   ?u   ?V   ?W   
@@ -148,7 +148,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-05-31
+Dictionary en_dict  2013-06-11
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -273,7 +273,7 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2013-04-29
+Dictionary hi_dict  2013-06-10
 
 @    @-   a    a:   aI   aU   a~   e    
 E    e:   E:   e~   E~   i    I    i:   
@@ -288,7 +288,7 @@ Q    q    r    r.   s    S    s.   t
 t#   t.   t.#  v    w    x    z    
 
 
-Dictionary hu_dict  2013-04-18
+Dictionary hu_dict  2013-06-10
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
@@ -513,7 +513,7 @@ r    r.   s    S    s.   t    t#   t.
 t.#  v    w    x    z    
 
 
-Dictionary nl_dict  2013-05-16
+Dictionary nl_dict  2013-06-11
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -575,7 +575,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-05-31
+Dictionary pt_dict  2013-06-11
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -643,7 +643,7 @@ s    S    t    t;   tS   ts   v    w
 x    z    Z    
 
 
-Dictionary sl_dict  2013-05-31
+Dictionary sl_dict  2013-06-10
 
 @    @-   a    e    E    E#   i    o    
 O    o+   u    y    
@@ -679,7 +679,7 @@ k    l    m    n    N    p    R    s
 S    s.   S;   sx   t    v    w    z    
 
 
-Dictionary sw_dict  2013-03-23
+Dictionary sw_dict  2013-06-04
 
 @-   a    a/   e    i    m-   n-   N-   
 o    u    
@@ -741,7 +741,7 @@ s    S    s.   t    T    t#   t.   t.#
 v    w    x    z    Z    z.   
 
 
-Dictionary vi_dict  2013-05-18
+Dictionary vi_dict  2013-06-10
 
 @    @-   @:   @:I  @:U  @I   @U   a    
 a:   a:I  a:U  aI   aU   e    E    eU   
@@ -749,10 +749,11 @@ EU   i    i@   iE   iU   o    O    o#
 O#   o&   O-   o@   OI   oI   Oi   u    
 u-   u@   uI   y    y@   yI   
 
-b    c    cr   d    D    f    g    h    
-j    J    J^   k    kh   l    m    n    
-N    n^   p    Q    s    s.   t    t[   
-tS   tS;  v    w    x    z    Z    z.   
+b    c    cr   d    D    d_   f    g    
+h    j    J    J^   k    kh   l    m    
+n    N    n^   p    Q    s    s.   t    
+t[   tS   tS;  v    w    x    z    Z    
+z.   
 
 
 Dictionary zh_dict  2013-01-25
