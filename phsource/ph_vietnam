@@ -6,44 +6,44 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  Tone(28,32, envelope/p_level, NULL) // 28 29
+  Tone(34,36, envelope/p_level, NULL) // 28 29
 endphoneme
 
 
 phoneme 2   //  huyền tone: low falling
   stress
-  Tone(20, 8, envelope/p_fall, NULL) //20 8
+  Tone(30, 8, envelope/p_fall, NULL) //20 8
 endphoneme
 
 
 phoneme 3   //  sắc Tone(rising
   stress
-  Tone(20, 80, envelope/p_rise, NULL) // 30 60
+  Tone(30, 60, envelope/p_rise, NULL) // 30 60
 endphoneme
 
 
 phoneme 4   //  hỏi Tone(curve (dipping rising)
   stress
-  Tone(30, 5, envelope/p_fallrise, NULL) //33 31
+  Tone(10, 55, envelope/p_fallrise, NULL) //33 31
 endphoneme
 
 
 phoneme 5   //  ngã tone: broken (creaking rising)
   stress
-  Tone(28,58, envelope/p_214, envelope/vi_5amp) // 28,58
+  Tone(28,58,envelope/p_214, envelope/vi_5amp) // 28,58 20 80
 endphoneme
 
 
 phoneme 6   //  nặng Tone(drop  (constricted)
   stress
   //length 150 // ignore because it make too short sound 75  // reduce the length of the vowel
-  Tone(33, 21, envelope/p_512, envelope/vi_6amp) //40 20
+  Tone(25, 60, envelope/p_512, envelope/vi_6amp) //40 20
 endphoneme
 
 
 phoneme 7   //  Tone(1 (ngang) at end of clause
   stress
-  Tone(40,  20, envelope/p_fall, NULL)
+  Tone(40,  35, envelope/p_fall, NULL) //40 20
 endphoneme
 
 
@@ -63,7 +63,7 @@ phoneme a:
   IF nextPh(n^) OR nextPh(c) THEN
   length 100
   ELSE
-  length 170 //280
+  length 140 //280
   ENDIF
     FMT(vowel/a_8)
 endphoneme
@@ -71,7 +71,7 @@ endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 200
+  length 140
   FMT(vowel/e_e)   //ee_3)
 endphoneme
 
@@ -92,7 +92,7 @@ phoneme i
   length 100
   FMT(vnasal/ii_n)
   ELSE
-  length 240
+  length 140
 FMT(vowel/i_4)
 ENDIF
 endphoneme
@@ -101,11 +101,11 @@ endphoneme
 phoneme O
   vowel starttype #o endtype #o
     IF nextPh(kh) OR nextPh(N) THEN 
-	length 110
+	length 80
 	ELSE
-	length 200
+	length 140
 	ENDIF
-    FMT(vowel/oo_2)
+    FMT(vdiph2/o_oo) //vowel/oo)
 endphoneme
 
 phoneme o
@@ -113,7 +113,7 @@ phoneme o
   IF nextPh(kh) OR nextPh(N) THEN
 	length 110
 	ELSE
-	length 200
+	length 140
 	ENDIF
   FMT(vowel/o)  // o_2)
 endphoneme
@@ -124,9 +124,9 @@ phoneme u
   IF nextPh(kh) OR nextPh(N) THEN // hear as ung sound
 	length 120
 	ELSE
-	length 240
+	length 140
 	ENDIF
-  FMT(vowel/u_5)
+  FMT(vnasal/u_n,60) //vowel/u_5)
 endphoneme
 
 phoneme y
@@ -146,7 +146,7 @@ phoneme @
  IF nextPh(kh) OR nextPh(N) OR nextPh(n^) OR nextPh(c) THEN
 	length 120
 	ELSE
-	length 170
+	length 140
 	ENDIF
   FMT(vowel/V)   //vowel/@_2)
 endphoneme
@@ -154,7 +154,7 @@ endphoneme
 
 phoneme @:
   vowel  starttype #@  endtype #@
-  length 200
+  length 140
   FMT(vowel/@_2)
 endphoneme
 
@@ -207,8 +207,8 @@ endphoneme
 
 phoneme OI
   vowel starttype #o endtype #i
-  length 150
-  FMT(vdiph/ooi_2)
+  length 200
+  FMT(vdiph/ooi_4)
 endphoneme
 
 
@@ -401,10 +401,10 @@ phoneme cr
   WAV(vietnam/tr,10)
 endphoneme
 
-phoneme d
+phoneme d_
   vcd alv stop
     //	lengthmod 5
-	
+	ipa ɗ
  Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=15
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
 WAV(vietnam/dd)

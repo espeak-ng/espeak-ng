@@ -106,6 +106,8 @@
 
 .group w
         w        w
+     j) w        %u
+    ny) w        %u
 
 .group x
         x        ks
