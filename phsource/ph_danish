@@ -8,193 +8,405 @@
 // AC + @- OR V: Long "pile" [pi:l@-]
 // AC[i]: Long "smidig" [smi:Di]
 
+//         Vowel length changed by eSpeak
+// Between two voiced consonants
+// After [l/3]
+// Before [l/3]
+// After an "r" sound
+// Before [N]
+// Before voiced consonant + [i]
+
+//        PROCEDURES
+
 // Change the length of SHORT vowels (?+vowel)
 procedure ShortVowelLength
-// "endelig", "ånder" - Short initial vowel sounds too short TEST
+// "endelig", "ånder", "ynde" - Short initial vowel sounds too short TEST
 	IF thisPh(isWordStart) AND nextPhW(n) THEN
 		IF next2PhW(@-) OR next2PhW(V) THEN
-			length 160
+			IF next2PhW(isWordEnd) THEN // NOT "ondeste"
+				length 170
+				RETURN
+			ENDIF
+		ENDIF
+	ENDIF
+
+// "blod" "slutte", "løn" l/3 makes the vowel too long
+// NOT "mel'oner"
+	IF prevPhW(l/3) AND thisPh(isFirstVowel) THEN
+		IF thisPh(isStressed)  THEN
+			length 100
+			IF nextPhW(N) THEN // [N] makes it even longer - "længden"
+				LengthAdd -20
+			ENDIF
+		// Don't shorten it further if it comes after an "r" sound
+		// Exit the procedure		
+			RETURN
+		ENDIF
+		// "transplantation" - the second a - between 2 voiced consonants
+		IF nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+			length 100
 			RETURN
 		ENDIF
 	ENDIF
-// "slutte" t/d + @- makes the vowel too long
-// Problem with compounds like "spildedamp"
-	IF next2PhW(@-) OR next2PhW(V) THEN
-		IF nextPhW(t) OR nextPhW(d) THEN
-//	length 100
-			LengthAdd -45
-	  // Don't shorten it further if it comes after an "r" sound
-	  // Exit the procedure
-			RETURN
-		ENDIF
-	ENDIF
-// "bygget", "byggede" - consonant + [@-D] makes the vowel too long
-	IF next2PhW(@-) THEN
-		IF next3PhW(t) OR next3PhW(d) OR next3PhW(D) THEN
-			IF thisPh(isFirstVowel) THEN // NOT "cellof'anet"
-				IF NOT thisPh(?V) THEN // NOT "fjollet"
-					LengthAdd -40
-	    // Don't shorten it further if it comes after an "r" sound ("brygget")
-	    // Exit the procedure
+	
+// "bygge", "bygget", "byggede" - consonant + [@-] makes the vowel too long
+	IF NOT thisPh(?V) THEN // NOT "fjollet"
+		IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN
+			IF next2PhW(@-) THEN //AND next3PhW(D) THEN
+				IF thisPh(isFirstVowel) THEN // NOT "cellof'anet"
+					length 100
 					RETURN
 				ENDIF
 			ENDIF
 		ENDIF
 	ENDIF
-// "bygger" - consonant + [V] makes the vowel too long
-	IF nextPhW(isNotVowel) AND next2PhW(V) THEN
-		IF NOT thisPh(isWordStart) THEN // NOT "eller"
-//	  LengthAdd -45
-	  // Don't shorten it further if it comes after an "r" sound ("brygger")
-	  // Exit the procedure
+
+// "byttet", "lyttet", "flyttet"
+	IF prevPhW(isVoiced) AND prevPhW(isNotVowel) THEN
+		IF nextPhW(isNotVowel) AND next2PhW(@-) AND next3PhW(D) THEN
+			length 100
+		ENDIF
+	ENDIF
+	
+// "firmaet", "politiet - 140 sounds too short
+	IF nextPhW(@-) AND next2PhW(D) AND next2PhW(isWordEnd) THEN
+		length 180
+	ENDIF
+	
+// "forsøgte" stressed second vowel too long TEST
+	IF thisPh(isMaxStress) AND thisPh(isSecondVowel) THEN
+		IF nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN // NOT "papirer"
+			// 2 voiced consonants seem to add further length ([gd] in "forsøgte")		
+			IF next2PhW(isVoiced) AND next2PhW(isNotVowel) THEN // NOT "moral"
+				length 110
+				RETURN
+			ENDIF
+		ENDIF
+	ENDIF
+	
+// "bygge", "forbandelse", "lynlås", "centralen" vowel between 2 voiced consonants - too long
+	IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN // voiced
+		IF prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN // consonants
+			IF NOT nextPhW(isWordEnd) THEN // NOT "smil"
+				IF NOT next2PhW(j) AND NOT prevPhW(R) THEN // NOT "vilje", "krympe"
+					IF NOT nextPhW(r) AND NOT nextPhW(3-) THEN // NOT "moderne" - vowel + r/3-
+						IF thisPh(isStressed) THEN // NOT [W] in "f'indelønnen"
+							IF thisPh(isFirstVowel) THEN
+//								IF NOT nextPhW(@-) THEN // NOT "væbne"
+								IF NOT nextPhW(isNotVowel) AND NOT next2PhW(isNotVowel) THEN // NOT "væbne"
+									length 110 
+									RETURN
+								ENDIF
+							ENDIF
+						ENDIF
+					ENDIF
+				ENDIF
+				IF prevPhW(R) THEN // "krympe" R makes the vowel longer than other voiced consonants
+					// NOT [o] in "rod'eo", NOT [æ] in "trængte"
+					IF thisPh(isMaxStress) AND NOT nextPhW(N) THEN 
+						length 90
+						RETURN
+					ENDIF
+					// "trængte" - [N] after the vowel makes it even longer
+					IF thisPh(isMaxStress) AND nextPhW(N) THEN
+						length 75
+						RETURN
+					ENDIF
+				ENDIF
+			ENDIF
+		ENDIF
+	ENDIF
+
+// "buske"	- only sg/sk? TEST
+	IF prevPhW(isNotVowel) AND nextPhW(s) AND next2PhW(isNotVowel) AND next3PhW(@-) THEN
+		length 100
+	ENDIF
+	
+// "projektet"
+	IF prevPhW(S) AND nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+		length 100
+	ENDIF
+	
+// "rigtigt", "fred", "frem", "frikvarter" - R makes the vowel too long
+	IF prevPhW(R) OR prevPhW(3-) OR prevPhW(r) THEN
+		IF nextPhW(isNotVowel) THEN // NOT "krigen"
+			IF thisPh(isFirstVowel) THEN // NOT the a in "moral"
+				length 110
+				RETURN
+			ENDIF
+		ENDIF
+		
+		// R makes the vowel too long
+		IF thisPh(isWordEnd) THEN // "maleri"
+			length 120
+			RETURN
+		ENDIF
+		
+		// "forbrydelse" between 2 voiced consonants
+		IF nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+			length 110
 			RETURN
 		ENDIF
 	ENDIF
-// "rigtigt", "fred", "frem", "centralen" - R makes the vowel too long
-	IF prevPhW(R) OR prevPhW(3-) OR prevPhW(r) THEN
-//     length 100
-		LengthAdd -40
-		RETURN
+	
+// "ring", "ringe", "fængsel", "spinkel", "vindspejl", "enke"
+	IF nextPhW(N) THEN
+			length 100
 	ENDIF
-// "ring", "ringe", "fængsel", "spinkel", "vindspejl"
-	IF nextPhW(isNasal) THEN
-//    length 100
-		LengthAdd -30
-		RETURN
-	ENDIF
-// "sigte", "bælte", "henter" t/d + @-/V makes the vowel too long
+	
+// "sigte", "henter" t/d + @-/V makes the vowel too long
+// ?? is this just between 2 voiced consonants ??
+// ?? does [h] act as a voiced consonant ??
 	IF nextPhW(isNotVowel) AND next2PhW(t) OR next2PhW(d) THEN
-		IF next3PhW(@-) OR next3PhW(V) THEN
+		IF next3PhW(@-) OR next3PhW(V) OR next3PhW(?V) THEN
 			IF thisPh(isFirstVowel) THEN // NOT [i] in "forsp'ildte"
-//		length 100
-				LengthAdd -30
+				length 110
+				RETURN
 			ENDIF
 		ENDIF	
 	ENDIF
-// "forbandelse" [n@-] makes the vowel too long?
-// nasal eg:   m, n, N
-	IF nextPhW(isNasal) AND next2PhW(@-) THEN
-		IF NOT thisPh(isFirstVowel) AND thisPh(isStressed) THEN
-	// NOT LengthAdd since [R] might have shortend the vowel above
-			length 100
-		ENDIF	
-	ENDIF
-// "himlen" l/3 makes the vowel too long
+	
+// "himlen", "pøblen" l/3 makes the vowel too long
 	IF nextPhW(isNotVowel) AND next2PhW(l/3) AND next3PhW(@-) OR next3PhW(V) THEN
-		length 100
+		length 110
 	ENDIF
-// "lænkerne" l/3 makes the vowel too long
-	IF prevPh(l/3) AND nextPhW(isNotVowel) AND next3PhW(V) THEN
-		length 120
+	
+// "filmen"	vowel + l/3 makes the vowel too long
+// Probably due to 2 voiced consonants (lm) - Change the condition?
+	IF nextPhW(l/3) AND next3PhW(@-) THEN
+		IF NOT next2PhW(j) THEN // NOT "vilje"
+			IF next2PhW(isVoiced) THEN // NOT [e] in "folkevogn"
+				length 100
+			ENDIF
+		ENDIF
 	ENDIF
-//"musikken" consonant + [@-n] makes the vowel too long
-//  Probably wrong. Only k?
-	IF nextPhW(k) AND next2PhW(@-) AND next3PhW(n) THEN
-		length 100
+	
+//"musikken", "piggen", "trafikken" consonant + [@-] makes the vowel too long
+//  Probably wrong. Only k and g? Only [i]?
+// Could this be due to an English word like "physique" [fIz'i:k]?
+	IF nextPhW(k) OR nextPhW(g)AND next2PhW(@-) THEN
+		IF thisPh(?i) THEN
+			length 100
+			RETURN
+		ENDIF
 	ENDIF
-//"svælge" [svElj@-] vowel + 2 consonants but length 100 is too short
-	IF nextPhW(isNotVowel) AND next2PhW(j) THEN
-		length 140
+
+// "rodeo", lianen" abnormal stress sounds too short	
+	IF thisPh(isMaxStress) AND NOT thisPh(isFirstVowel) THEN
+		IF NOT nextPhW(k) AND NOT nextPhW(g) THEN // NOT "ant'ikt" - Like "physique" above?
+			IF NOT nextPhW(N) AND NOT next2PhW(isNotVowel) THEN // NOT "omkr'ing", "eks'empel"
+				IF NOT nextPhW(isVoiced) AND NOT next2PhW(isVoiced) THEN // NOT "bestemme" TEST
+					length 170
+				ENDIF
+			ENDIF
+		ENDIF
 	ENDIF
 endprocedure
+
+//--------------------------------------------------------------------
 
 // Change the length of NORMAL vowels (without ? in front of them)
 procedure LongVowelLength
 // "guldmine" [ul/3] makes the vowel extremely short
-	IF prevVowel(u) AND prev2PhW(l/3) THEN
+	IF prevVowel(l/3) AND prev2PhW(u) THEN
 		length 350
 		RETURN
 	ENDIF
+	
 // "guldur" [ul/3] makes the vowel extremely short
-	IF prevVowel(u) AND prevPhW(l/3) THEN
+	IF prev2PhW(u) AND prevPhW(l/3) THEN
 		IF NOT thisPh(isWordEnd) THEN // NOT "umulig"
-			length 325
+			IF NOT nextPhW(t) AND NOT nextPhW(d) THEN // NOT "umuligt"
+				IF NOT nextPhW(s) AND NOT nextPhW(S) THEN // NOT Drakulas, spekulationer ???
+					length 325
+					RETURN
+				ENDIF
+			ENDIF
+		ENDIF
+	ENDIF
+	
+// "dage", "dagevis", fødselsdage" STRANGE BEHAVIOUR - too short at 240
+	IF prevPhW(d) AND nextPhW(@-) THEN
+		IF NOT next2PhW(D) THEN
+			length 350
 			RETURN
 		ENDIF
 	ENDIF
+	
+// "tjeneste" TEST
+	IF prevPhW(tS) AND nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+		length 180
+		RETURN
+	ENDIF	
+	
+// "havet", "lavet"	
+	IF nextPhW(isVoiced) AND next2PhW(@-) AND next3PhW(D) THEN
+		length 180
+		RETURN
+	ENDIF
+
+// "videre"	
+	IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN // voiced
+		IF prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN // consonants
+			IF NOT prevPhW(R) AND NOT prevPhW(r) AND NOT prevPhW(3-) THEN
+				length 180
+				RETURN
+			ELSE // [A] in "begravelse" - "r" adds extra length
+				length 120
+				RETURN
+			ENDIF
+		ENDIF
+	ENDIF
+	
 // "alene" - Short initial vowel sounds too short at length 140
 	IF thisPh(isWordStart) THEN
 		length 160
-// "ønske" The vowel should have been made short becauce og 2 x consonant.
-// Take care of it here
+		// "år? [O] - The word is only 1 vowel: make it long
+		IF thisPh(isWordEnd) THEN
+			length 180
+		ENDIF
+	// "ønske" The vowel should have been made short becauce of 3 x consonant.
+	// Take care of it here
 		IF nextPhW(isNotVowel) AND next2PhW(isNotVowel) AND next3PhW(isNotVowel) THEN
 			length 140
 		ENDIF
-// "ære"
+	// "ære"
 		IF nextPhW(V) AND nextPhW(isFinalVowel) THEN
 			length 240
 		ENDIF
-		RETURN
+	// "øge", "øgede"
+	IF nextPhW(isNotVowel) AND next2PhW(@-) THEN
+		length 225
 	ENDIF
+//		RETURN
+	ENDIF
+	
+// "døre" vowel + vowel: long
+	IF nextPhW(@-) OR nextPhW(?V) THEN
+		length 225
+	ENDIF
+
+// "pæne" vowel + consonant + [@-]: long
+	IF nextPhW(isNotVowel) AND next2PhW(@-) THEN
+		IF thisPh(isFirstVowel) THEN
+			IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN // "vide"
+				length 180
+			ELSE // "pæne"
+				length 225
+			ENDIF
+		RETURN
+		ENDIF
+		// Stressed second syllable in words with initial be- and for-
+		IF NOT thisPh(isSecondVowel) AND thisPh(isMaxStress) THEN // "beb'ude", "form'ode"
+			length 140
+			RETURN
+		ENDIF
+	ENDIF
+	
+// "vildrede"
+	IF nextPhW(D) AND next2PhW(@-) THEN
+		IF NOT thisPh(isMaxStress) THEN
+			length 225
+			RETURN
+		ENDIF
+	ENDIF
+
+// "guderne", "møde"		
+	IF nextPhW(isNotVowel) AND next2PhW(?V) OR next2PhW(V) OR next2PhW(@-) THEN
+		length 225
+	ENDIF
+		
+// "mødes", "vred", "møve", "mene", "dele" - vowel too long between 2 voiced consonants
+	IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN
+			IF prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN
+				IF NOT prevPhW(R) AND NOT prevPhW(r) AND NOT prevPhW(3-) AND NOT prevPhW(l/3) THEN
+					IF NOT next2PhW(isVoiced) THEN // NOT "bælte", "bomben"
+						length 180 // mødes, dele
+						RETURN
+					ENDIF
+					IF next2PhW(isNotVowel) THEN // bælte, svælge
+						length 120
+					ENDIF
+				ELIF NOT prevPhW(l/3) AND thisPh(isMaxStress) THEN 
+					IF NOT prevPhW(R) AND NOT prevPhW(r) AND NOT prevPhW(3-) THEN
+						length 120 // "vred", "vrede"
+						RETURN
+					ENDIF
+				ENDIF
+				IF prevPhW(R) AND prevPhW(isWordStart) THEN // "råderet"
+					length 180
+					RETURN
+				ENDIF
+			ENDIF
+	ENDIF
+	
 // "huske" - hACC@- vowel too long
+// 2 consonants - should have been short in da_rules
+// 140 too long because of [h]??
 	IF prevPhW(h) AND nextPhW(isNotVowel) AND next2PhW(isNotVowel) AND next3PhW(@-) THEN
 		length 110
 		RETURN
 	ENDIF
+	
 // PB long vowel followed by [@-] or [V](vowel+vowel) - "pigen" [p'i@-n]
 	IF nextPhW(@-) OR nextPhW(V) THEN
-		length 225
+		IF thisPh(isFirstVowel) THEN // NOT "best'yrelse", "geb'yrer"
+			length 225
+		ENDIF
 	ENDIF
+
+	// "lydig"
+	IF prevPhW(l/3) AND nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+			length 180
+			RETURN
+	ENDIF
+	
 // PB "enig", "enige", "evig", "stædig" - vowel+consolant+[i]
 	IF nextPhW(isNotVowel) AND next2PhW(i) THEN
 		length 225
-	ENDIF
-// "dele", "mene", "møve"
-	IF nextPhW(isNotVowel) AND next2PhW(@-) OR next2PhW(3) OR next3PhW(@-) THEN
-		length 225
-	ENDIF
-// "sveder", "deler"
-	IF nextPhW(isNotVowel) AND next2PhW(V) THEN
-		length 225
-	ENDIF
-// "maskinen" consonant + [@-n]: vowel too long
-	IF nextPhW(isNotVowel) AND next2PhW(@-) AND next3PhW(n) THEN
-		length 160
-	ENDIF
-// "vilje", "nedladende" [n'eDl&D@-n@-], "delte" - short followed by 2 consonants
-	IF nextPhW(isNotVowel) AND next2PhW(isNotVowel) THEN
-  // Don't make "møve" [m'Ww_!@-_!] short
-		IF NOT next2PhW(_!) THEN
-			length 140
-		ENDIF
-	ENDIF
-// "bryde", "bryder", "strålen", "henrivende" R makes the vowel too long
-	IF prevPhW(R) OR prevPhW(3-) OR prevPhW(r) THEN
-		IF NOT thisPh(V) AND next2PhW(@-) OR next2PhW(V) THEN
-			length 140
-		ENDIF
-	ENDIF
-// "føden"
-	IF nextPhW(D) AND next2PhW(@-) AND next3PhW(n) THEN
-		length 180
-	ENDIF
-// "glimrende", "glemte" [l/3] makes the following vowel too long
-// LengthAdd doesn't work here. The length could be 225 or 140 - 30
-	IF prev2PhW(g) AND prevPhW(l/3) AND nextPhW(isNotVowel) AND next2PhW(isNotVowel) THEN
-		length 110
 		RETURN
 	ENDIF
-// l/3 makes the vowel too long (+ voiced?)
-// isVoiced =  b, d, g, v, z
-	IF prevPhW(l/3) AND nextPhW(isVoiced) THEN
-   // "klub", "klud"
+	
+// "føden"
+	IF nextPhW(D) AND next2PhW(@-) AND next3PhW(n) THEN
+		IF thisPh(isFirstVowel) THEN
+			length 180
+		ENDIF
+	ENDIF
+
+// l/3 + vowel makes the vowel too long
+	IF prevPhW(l/3) AND nextPhW(isNotVowel) THEN
+   // "klub", "klud", "slut"
    // The vowel should have been short but we fix it here 
-		IF NOT next2PhW(@-) AND NOT next2PhW(V) THEN
+		IF NOT next2PhW(@-) AND NOT next2PhW(V) AND NOT next2PhW(?V) THEN // NOT "slæde"
 			length 100
 		ELSE
-	// "slæde", "lader"
+	// "slæde", "lader", "forlader"
 			length 160
 		ENDIF
 	ENDIF
+	
+// l/3 + vowel + voiced consonant makes the vowel too long
+		IF prevPhW(l/3) AND nextPhW(isVoiced) AND nextPhW(isNotVowel) THEN
+			length 130
+		ENDIF
+
+// "fryser", "rige"		
+		IF prevPhW(r) OR prevPhW(R) OR prevPhW(3-) THEN
+			length 130
+			IF nextPhW(@-) THEN // "rige" [@-] seems to cancel the "r" effect
+				length 240
+			ENDIF
+		ENDIF
+					
 // "længe" - short - 2 consonants => 1 consonant (ng => [N])
-	IF nextPhW(isNasal) THEN
+// Don't use isNasal here!
+	IF nextPhW(N) THEN
 		IF NOT prevPhW(R) AND NOT prevPhW(r) AND NOT prevPhW(3-) THEN
 			length 140
-	// "omkring", "ring" - both prev. N and next R
-		ELIF prevPhW(R) OR prevPhW(r) OR prevPhW(3-) THEN
-			length 110
 		ENDIF
 	ENDIF
+	
 // "buskene", "krøbling" The vowel should have been made short becauce og 2 x consonant.
 // Take care of it here
 	IF nextPhW(isNotVowel) AND next2PhW(isNotVowel) THEN
@@ -204,24 +416,17 @@ procedure LongVowelLength
 			ENDIF
 		ENDIF
 	ENDIF
-// "barnet" - consonant + [@-D]: too long vowel
-	IF nextPhW(isNotVowel) AND next2PhW(@-) AND next3PhW(D) THEN
-		length 160
-	ENDIF
-// "trin", "trit", "ring" - vowel too long
-//	IF prevPhW(isRhotic) THEN
-	IF prevPhW(R) OR prevPhW(r) OR prevPhW(3-) THEN
-		IF nextPhW(isNotVowel) AND nextPhW(isWordEnd) THEN
-			length 110
-		ENDIF
-	ENDIF
 endprocedure
+//----------------------------------------------------------------------
+
+//                 PHONEMES
 
 // A bit longer than [@-]
 phoneme @
   vowel starttype #@ endtype #@
   unstressed
   length 60
+  IfNextVowelAppend(_!)
   FMT(vowel/@_3)
 endphoneme
 
@@ -244,6 +449,9 @@ ENDIF
 IF prevPhW(i) AND thisPh(isWordEnd) THEN
 	length 15
 ENDIF
+  IF nextPhW(isVowel) THEN
+	ChangePhoneme(@)
+  ENDIF
   FMT(vowel/@-)
 endphoneme
 
@@ -277,7 +485,8 @@ phoneme ?i
   vowel starttype #i endtype #i
   length 140
   CALL ShortVowelLength
-  IfNextVowelAppend(;)
+// Don't link with the next vowel with [;] - vowel too short
+//  IfNextVowelAppend(;)
   FMT(vowel/i_4)
 endphoneme
 
@@ -293,7 +502,6 @@ phoneme e
   vowel starttype #e endtype #e
   length 140 
   CALL LongVowelLength
-//  CALL ShortVowelLength
   FMT(vowel/e)
 endphoneme
 
@@ -347,7 +555,7 @@ phoneme &
 // but NOT "hinanden"
 IF nextPhW(isNotVowel) AND next2PhW(@-) OR next2PhW(@) THEN
   IF NOT next3PhW(n) THEN
-  	length 225
+ 	length 225
   ENDIF
 ENDIF
 // ThisPh + V or @-
@@ -376,7 +584,6 @@ phoneme &#
     length 140
 	ipa a
 	CALL LongVowelLength
-//	CALL ShortVowelLength
 	FMT(vowel/&)
 endphoneme
 
@@ -385,13 +592,14 @@ endphoneme
 phoneme ?&#
   vowel starttype  #e endtype #e
   ipa ?a
-    length 140
-	CALL ShortVowelLength
-		FMT(vowel/&)
+  length 140
+  CALL ShortVowelLength
+  FMT(vowel/&)
 endphoneme
 
 phoneme A // PB changed to a_8
   vowel starttype #a endtype #a
+  ipa ɑ
   length 140 
 CALL LongVowelLength
 // "fare" [f'A:A]
@@ -401,10 +609,11 @@ ENDIF
   FMT(vowel/a_8)
 endphoneme
 
-// PB short A
+// Short A
 // "krabbe" vs. "drabelig"
 phoneme ?A
   vowel starttype #a endtype #a
+  ipa ?ɑ
   length 140
 CALL ShortVowelLength
   FMT(vowel/a_8)
@@ -417,7 +626,9 @@ phoneme u
 IF nextPhW(@-) OR nextPhW(V) OR next2PhW(@-) OR next2PhW(V)THEN
 	length 225
 ENDIF
-CALL LongVowelLength
+IF NOT thisPh(isWordStart) THEN // NOT "undøvendig"
+	CALL LongVowelLength
+ENDIF
   FMT(vowel/u_bck)
 endphoneme
 
@@ -433,10 +644,6 @@ endphoneme
 phoneme o
   vowel starttype #o endtype #o
   length 140 
-// "bore", "borer" [boV] o + V
-IF nextPhW(V) OR nextPhW(@-) THEN
-	length 225
-ENDIF
 // "kone", "koner" o + consonant + V or @-
 IF next2PhW(V) OR next2PhW(@-) THEN
 	length 225
@@ -450,6 +657,7 @@ endphoneme
 phoneme ?o
   vowel starttype #o endtype #o
   length 140
+  CALL ShortVowelLength   
   FMT(vowel/o_2)
 endphoneme
 
@@ -457,14 +665,6 @@ phoneme O
   vowel starttype #o endtype #o
   length 140
   ipa ɒ // changed from ɔ - Den Danske Ordbog: ɒ
-// "sove", "sover" - consonant + @ or V: long
-IF next2PhW(@-) OR next2PhW(V) THEN
-//	length 225
-ENDIF
-// PB "gået" - ThisPh + V or @-
-IF nextPhW(V) OR nextPhW(@-) THEN
-//	length 225
-ENDIF
 // "såre", "sårede"  [s'O:?OD@-]
 IF nextPhW(O) OR nextPhW(?O) THEN
 	length 225
@@ -477,6 +677,7 @@ endphoneme
 // "toget" vs. "tåget"
 phoneme ?O
   vowel starttype #o endtype #o
+   ipa ɒ // changed from ɔ - Den Danske Ordbog: ɒ
   length 140
   CALL ShortVowelLength 
   FMT(vowel/o_5)
@@ -502,6 +703,7 @@ phoneme 0
   vowel starttype #o endtype #o
   length 140 
   ipa ɔ
+  CALL LongVowelLength
   FMT(vowel/oo_2)
 endphoneme
 
@@ -533,9 +735,10 @@ endphoneme
 phoneme Y
   vowel starttype #i endtype #i
   length 140
-IF nextPhW(V) OR nextPhW(@-) THEN
-	length 225
-ENDIF
+	IF nextPhW(V) OR nextPhW(@-) THEN
+		length 225
+	ENDIF
+  CALL LongVowelLength
   FMT(vowel/yy)
 endphoneme
 
@@ -612,6 +815,7 @@ endphoneme
 phoneme l/3    // Replacement for [l/]
   liquid
   lengthmod 7
+  length 80
   FMT(l/l_)
 endphoneme
 
@@ -628,9 +832,24 @@ phoneme r    // used for 'r' after a vowel (to create a diphthong)
   IF nextPhW(isVowel) AND NOT nextPhW(?V) AND NOT nextPhW(V) AND NOT nextPhW(@-) THEN
     ChangePhoneme(R)
   ENDIF
-// "generer" [Sen'e:Vr], "mysterier" - delete the r
-  IF prevPhW(V) AND thisPh(isWordEnd) THEN
-	ChangePhoneme(NULL)
+	// "generer" [Sen'e:Vr], "mysterier" - delete the r
+  IF prevPhW(V) OR prevPhW(?V) AND thisPh(isWordEnd) THEN
+		ChangePhoneme(_!)
+  ENDIF
+  // "plamagers" [pl&m'&SVrs] - delete the r
+  IF prevPhW(V) OR prevPhW(?V) AND nextPhW(s) AND nextPhW(isWordEnd) THEN
+		ChangePhoneme(NULL)
+  ENDIF
+   // "plamagerne" [pl&m'&SVrn@-] - delete the r
+  IF prevPhW(V) OR prevPhW(?V) AND nextPhW(n) AND next2PhW(@-) THEN
+		ChangePhoneme(NULL)
+  ENDIF
+	// "kreaturer"  [kR,?E?&t'ur?V] - delete the r
+	// Previous vowel stressed by $alt rule
+  IF nextPhW(V) OR nextPhW(?V) AND nextPh(isWordEnd) THEN
+	IF prevPhW(isMaxStress) THEN
+		ChangePhoneme(NULL)
+	ENDIF
   ENDIF
   FMT(r/a_)
 endphoneme
@@ -704,11 +923,11 @@ IF thisPh(isWordEnd) THEN
 ENDIF
   IF nextPhW(isVowel) THEN
     NextVowelStarts
-      VowelStart(j/j@,-45) // jøderne
+      VowelStart(j/j@) // jøderne
       VowelStart(j/ja)
-      VowelStart(j/je,-35)
+      VowelStart(j/je)
       VowelStart(j/ji)
-      VowelStart(j/jo,-65) // "kjole"
+      VowelStart(j/jo) // "kjole"
       VowelStart(j/ju)
     EndSwitch
 Vowelout len=70
@@ -723,4 +942,3 @@ Vowelout len=70
     FMT(j/j_)
   ENDIF
 endphoneme
-

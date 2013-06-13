@@ -3,7 +3,7 @@
 // This file is UTF-8 encoded
  
 // $alt1  open vowel [E] or [O] in the stressed syllable
-// $alt2  open vowel [o] or [o] in the stressed syllable
+// $alt2  close vowel [o] or [o] in the stressed syllable
 // $alt3  short stress on final syllable
 // $alt4  final 'e' is schwa
 
@@ -237,11 +237,14 @@ bili	$u
 deset		$2
 devet		$2
 dim		$alt3
+koš		$alt3
 ena		$alt1
+izhod		$alt3
 oba		$2
 osem		$alt4
 poševnica	$2
 sedem		$alt4
+še		$alt3
 šel		S@w
 tisoč		$1
 žena		$alt1

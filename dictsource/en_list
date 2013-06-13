@@ -564,6 +564,7 @@ ibmtts	$abbrev
 id	$abbrev
 ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
+iiuc	$abbrev
 imo	$abbrev
 inlb	$abbrev
 ios	$abbrev
@@ -856,6 +857,7 @@ aries		e@ri:z
 arithmetic	a#rITm@tIk $onlys
 arise		a#raIz
 arisen		@rIz@n
+aright		$alt3
 armslength	,A@mzl'ENT
 aroma		a#roUm@
 arouse		a#raUz
@@ -965,6 +967,7 @@ biped		baIpEd
 bipedal		baIp'i:d@L
 biscuit		bIskIt
 bison		baIs@n
+bitecha		baItS@
 ?!3 bitumen	bItSu:m@n
 bizarre		bI#z'A@
 bizzare		bI#z'A@
@@ -1058,6 +1061,7 @@ canoe		k@nu:
 canoes		k@nu:z
 canon		kan@n
 ?3 cantaloupe	kant@loUp
+cantilever	kantI#li:v3
 canton		kant0n
 canvas		kanv@s
 capita		kapIt@
@@ -1373,6 +1377,7 @@ desert		dI2z3:t       $verb
 desolate	dEs@l@t
 desperate	dEsp@r@t
 ?3 detail       $2
+detante		deIt'0nt
 detente		deIt'0nt
 détente		deIt'0nt
 detritus	dI2traIt@s
@@ -1382,6 +1387,8 @@ devotee		dEvoUt'i:
 (déjà vu)	deIZA:||v'u:
 di		d,I $only
 diabetes	daI@b'i:ti:z
+diablo		di:'A:bloU
+diabolo		daI'ab@loU
 diagnose	$3
 ?3 dialog	daI|@lO:g
 diameter	daI'amI2t3
@@ -1396,6 +1403,7 @@ dilatory	dIl@t@rI
 dilemma		daIl'Em@
 ?3 dilemma	dI#l'Em@
 digest		daIdZEst $noun
+?3 diminutive	dI#mInju:tIv
 dinghy		dINgi
 dingy		dIndZI
 dinosaur	daIn@sO@
@@ -1569,6 +1577,7 @@ fajita		fa#hi:t@
 fallible	fal@b@L
 familiar	f@mIli@3
 famine		famIn
+faraway		fA@r@w'eI
 farewell	$2
 fasten		faas@n
 fatigue		$alt3
@@ -1588,7 +1597,7 @@ fetus		fi:t@s
 fi		f,aI		// as in "hi-fi"
 fiasco		fi:'askoU
 fiat		fi:@t
-ficus		fIk@s
+ficus		faIk@s
 fiery		faI3rI
 ?3 fillet	fI2leI
 finagle		fI#neIg@L
@@ -1795,6 +1804,7 @@ huzzah		h@z'A:
 hydrangea	haIdr'eIndZ@
 hyperbola	haIp'3:b@l@
 hyperbole	haIp'3:b@li
+hypocrites	$alt2
 hypoxia		haIp'0ksi@
 ?3 hyundai	hVndeI
 
@@ -1965,6 +1975,7 @@ leona		li:'oUn@
 leopard		lEp3d
 leprechaun	lEpr@kO:n
 lesion		li:Z@n
+(les misérables)	leImIzEr'A:bl@-
 lethal		li:T@L
 liaison		li:'eIz0n
 libre		li:br@
@@ -2223,7 +2234,7 @@ object		$verb
 obsolete	0bs@li:t
 obstacle	0bst@k@L
 occupier	0kju:paI|3
-ocean		oUS@n
+occult		$alt3
 oceanic		oUSI'anIk
 ocelot		0s@l0t
 ochre		oUk3 
@@ -2255,6 +2266,7 @@ orion		0r'aI@n
 ornate		$2
 orphan		O@f@n          // orphaned
 ottoman		0t@m@n
+ouija		wi:dZ@
 outage		aUtI2dZ
 outback		$1
 outcome		$1
@@ -2538,6 +2550,7 @@ recess		ri:sEs
 recipe		rEsI2pi:
 reciprocal	rI2sIpr@k@L
 recital		rI2saIt@L
+recluses	rI2klu:sI#z
 recommend	r,Ek@mEnd
 recommendation	rEk@mEnd'eIS@n
 recompense	rEk@mpEns
@@ -2628,6 +2641,7 @@ risen		rIz@n
 robust		roUb'Vst
 robusta		$2
 romance		roUm'ans
+rosary		roUz@ri
 rotate		$2
 rotund		roUt'Vnd
 roundtable	$alt1
@@ -2650,6 +2664,7 @@ sachet		saSeI
 sacred		seIkr@d
 sacrifice	sakrI2faIs
 sadistic	$alt3
+safari		$alt3
 safety		seIfti
 saga		sA:g@
 sahara		$alt3
@@ -2911,6 +2926,7 @@ tho		DoU $only
 throughout	$2
 thursday	T3:zdeI
 ?5 thursday	TVRzdeI
+thyme		taIm
 tidal		taId@L
 tidy		taIdi
 tierra		tI'e@r@
@@ -3290,6 +3306,7 @@ Delhi		dEli
 Dhabi		dA:bi
 Djibouti	dZIb'u:ti
 Donegal		d0nI2g'O:l
+Dubrovnik	du:br'0vnIk
 Durham		dVr@m
 Egyptia		IdZ'IpS@
 Egyptian	IdZ'IpS@n
@@ -3795,6 +3812,7 @@ Rachael		reItS@L
 Rachel		reItS@L
 Rae		reI
 Rafael		rA:faI'El
+?3 Raphael	rA:faI'El
 Rashid		rA:S'i:d
 Raul		raU'u:l
 Rees		ri:s
@@ -3885,6 +3903,7 @@ Dolce		d0ltSeI
 Dulles		dVl@s
 Dvorak		d@-vo@Zak
 Emory		Em3ri
+Ferguson	f3:g@s@n
 Fleming		flEmIN
 Folger		foUldZ3
 Genghis		dZENgIs
