@@ -164,7 +164,6 @@ dictionaries: \
 	espeak-data/ne_dict \
 	espeak-data/nl_dict \
 	espeak-data/no_dict \
-	espeak-data/om_dict \
 	espeak-data/pa_dict \
 	espeak-data/pap_dict \
 	espeak-data/pl_dict \
@@ -442,12 +441,6 @@ dictsource/no_extra:
 	touch dictsource/no_extra
 espeak-data/no_dict: src/espeak espeak-data/phontab dictsource/no_list dictsource/no_rules dictsource/no_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) ../src/espeak --compile=no && cd ..
-
-om: espeak-data/om_dict
-dictsource/om_extra:
-	touch dictsource/om_extra
-espeak-data/om_dict: src/espeak espeak-data/phontab dictsource/om_list dictsource/om_rules dictsource/om_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) ../src/espeak --compile=om && cd ..
 
 pa: espeak-data/pa_dict
 dictsource/pa_extra:

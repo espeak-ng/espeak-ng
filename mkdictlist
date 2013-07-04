@@ -16,6 +16,9 @@ special_voices = {
 	'zh-yue': 'zhy',
 }
 
+# The 'om' voice file intimitently crashes when compiling on some platforms.
+exclude_voices = ['om']
+
 def find_voices(path):
 	for filename in os.listdir(path):
 		voice_path = os.path.join(path, filename)
@@ -25,7 +28,7 @@ def find_voices(path):
 		else:
 			if filename in special_voices.keys():
 				voices.add(special_voices[filename])
-			else:
+			elif filename not in exclude_voices:
 				voices.add(filename)
 
 find_voices('espeak-data/voices')
