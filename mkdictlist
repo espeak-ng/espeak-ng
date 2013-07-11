@@ -57,7 +57,7 @@ def write_dictionary_make_rules(f):
 		f.write('dictsource/%s_extra:\n' % name)
 		f.write('\ttouch dictsource/%s_extra\n' % name)
 		f.write('espeak-data/%s_dict: src/espeak espeak-data/phontab %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
-		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) ../src/espeak --compile=%s && cd ..\n' % name)
+		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=%s && cd ..\n' % name)
 
 try:
 	filename = sys.argv[1]
