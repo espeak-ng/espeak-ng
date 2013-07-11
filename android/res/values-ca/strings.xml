@@ -2,7 +2,7 @@
 <resources>
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
-  <string name="tts_settings_label">Configuració d\'eSpeak TTS</string>
+  <string name="tts_settings_label">Configuració de l\'eSpeak TTS</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default voice pitch.-->
   <string name="setting_default_pitch">To predeterminat</string>
@@ -14,13 +14,13 @@
   <string name="installing_voice_data">S\'estan instal·lant les dades de veu...</string>
   <!--Source: Dialog message.
         Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
-  <string name="set_default_message">eSpeak no s\'ha definit com a motor de text a veu predeterminat.</string>
+  <string name="set_default_message">No teniu definit l\'eSpeak com a motor de text a veu predeterminat.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">eSpeak no ha pogut instal·lar dades de veu. Comprova la targeta SD.</string>
+  <string name="voice_data_failed_message">L\'eSpeak no ha pogut instal·lar dades de veu. Comproveu la targeta SD.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">No s\'ha pogut iniciar eSpeak.</string>
+  <string name="error_message">No s\'ha pogut iniciar l\'eSpeak.</string>
   <!--Source: Label text.
         Description: Label informing the user of the current text-to-speech language.-->
   <string name="current_tts_locale">Veu predeterminada</string>
@@ -32,15 +32,53 @@
   <string name="tts_settings">Configuració general de TTS</string>
   <!--Source: Button label.
         Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Configuració d\'eSpeak TTS</string>
+  <string name="engine_settings">Configuració de l\'eSpeak TTS</string>
   <!--Source: Label text.
         Description: Label informing the user that eSpeak is loading resources.-->
-  <string name="loading">S\'està carregant; espera...</string>
+  <string name="loading">S\'està carregant; espereu...</string>
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
-  <string name="sample_text">Aquesta és una mostra de text dit en veu alta en %s</string>
+  <string name="sample_text">Aquesta és una mostra de text llegit en veu alta en %s</string>
   <!--Source: Variant preference labels.
         Description: Labels for possible voice variant/gender/age values.-->
+  <string-array name="default_variant_entries">
+    <item>Masculina</item>
+    <item>Masculina (variant 1)</item>
+    <item>Masculina (variant 2)</item>
+    <item>Masculina (variant 3)</item>
+    <item>Masculina (variant 4)</item>
+    <item>Masculina (variant 5)</item>
+    <item>Masculina (variant 6)</item>
+    <item>Masculina (variant 7)</item>
+    <item>Femenina</item>
+    <item>Femenina (variant 1)</item>
+    <item>Femenina (variant 2)</item>
+    <item>Femenina (variant 3)</item>
+    <item>Femenina (variant 4)</item>
+    <item>Femenina (variant 5)</item>
+    <item>Klatt (variant 1)</item>
+    <item>Klatt (variant 2)</item>
+    <item>Klatt (variant 3)</item>
+    <item>Klatt (variant 4)</item>
+    <item>Croak (masculina)</item>
+    <item>Xixiuejant (masculina)</item>
+    <item>Xixiuejant (femenina)</item>
+    <item>Jove (masculina)</item>
+    <item>Jove (femenina)</item>
+    <item>Persona gran (masculina)</item>
+    <item>Persona gran (femenina)</item>
+  </string-array>
   <!--Source: Rate preference labels.
         Description: Labels for possible rate multiplier values.-->
+  <string name="status">Estat</string>
+  <string name="tts_version">Versió de l\'eSpeak</string>
+  <string name="speak">Parla</string>
+  <string name="ssml">Carrega la plantilla SSML</string>
+  <string name="synthesis_demo">Introduïu el text a reproduir:</string>
+  <string name="espeak_volume">Volum</string>
+  <string name="formatter_wpm">%s WPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Estableix com a predeterminat</string>
+  <string name="espeak_pitch_range">Escolliu una variació</string>
+  <string name="espeak_variant">Variant de veu</string>
 </resources>
