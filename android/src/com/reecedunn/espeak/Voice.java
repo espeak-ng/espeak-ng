@@ -18,6 +18,7 @@
 package com.reecedunn.espeak;
 
 import java.util.Locale;
+import java.util.MissingResourceException;
 
 import android.speech.tts.TextToSpeech;
 
@@ -51,13 +52,18 @@ public class Voice {
     public int match(Locale query) {
         if (!locale.getISO3Language().equals(query.getISO3Language())) {
             return TextToSpeech.LANG_NOT_SUPPORTED;
-        } else if (!locale.getISO3Country().equals(query.getISO3Country())) {
-            return TextToSpeech.LANG_AVAILABLE;
-        } else if (!locale.getVariant().equals(query.getVariant())) {
-            return TextToSpeech.LANG_COUNTRY_AVAILABLE;
-        } else {
-            return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
         }
+        try {
+            if (!locale.getISO3Country().equals(query.getISO3Country())) {
+                return TextToSpeech.LANG_AVAILABLE;
+            }
+        } catch (MissingResourceException e) {
+            return TextToSpeech.LANG_AVAILABLE;
+        }
+        if (!locale.getVariant().equals(query.getVariant())) {
+            return TextToSpeech.LANG_COUNTRY_AVAILABLE;
+        }
+        return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
     }
 
     @Override

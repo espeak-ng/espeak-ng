@@ -166,13 +166,18 @@ public class SpeechSynthesis {
 
             try {
                 if (locale != null && !locale.getISO3Language().equals("")) {
+                    // This will throw a MissingResourceException on Android 4.3,
+                    // so check here to avoid the exception in the Android
+                    // TextToSpeech class.
+                    String country = locale.getISO3Country();
+
                     final Voice voice = new Voice(name, identifier, gender, age, locale);
                     voices.add(voice);
                 }
             } catch (MissingResourceException e) {
                 // Android 4.3 throws this exception if the 3-letter language
-                // code is missing for a locale (e.g. nci). Earlier versions
-                // of Android return an empty string.
+                // (e.g. nci) or country (e.g. 021) code is missing for a locale.
+                // Earlier versions of Android return an empty string.
             }
         }
 
