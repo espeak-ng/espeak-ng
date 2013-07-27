@@ -130,12 +130,6 @@ public class CheckVoiceData extends Activity {
         final Intent returnData = new Intent();
         returnData.putStringArrayListExtra(Engine.EXTRA_AVAILABLE_VOICES, availableLanguages);
         returnData.putStringArrayListExtra(Engine.EXTRA_UNAVAILABLE_VOICES, unavailableLanguages);
-
-        // Don't bother returning Engine.EXTRA_VOICE_DATA_FILES,
-        // Engine.EXTRA_VOICE_DATA_FILES_INFO, or
-        // Engine.EXTRA_VOICE_DATA_ROOT_DIRECTORY
-        // because they're don't seem necessary.
-
         setResult(result, returnData);
         finish();
     }
