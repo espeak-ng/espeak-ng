@@ -13,6 +13,11 @@ android {
 	buildToolsVersion '18.0'
 	compileSdkVersion 18
 
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 18
+    }
+
 	sourceSets {
 		main {
 			manifest.srcFile 'AndroidManifest.xml'
