@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,7 @@ public class GetSampleText extends Activity {
 
         final int result = TextToSpeech.LANG_AVAILABLE;
         final Intent returnData = new Intent();
-        returnData.putExtra("sampleText", text);
+        returnData.putExtra(TextToSpeech.Engine.EXTRA_SAMPLE_TEXT, text);
         setResult(result, returnData);
         finish();
     }
