@@ -27,7 +27,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.Engine;
 import android.util.Log;
 
@@ -39,7 +38,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -121,16 +119,6 @@ public class CheckVoiceData extends Activity {
 
         for (Voice voice : voices) {
             availableLanguages.add(voice.toString());
-        }
-
-        final ArrayList<String> checkFor = getIntent().getStringArrayListExtra(
-                TextToSpeech.Engine.EXTRA_CHECK_VOICE_DATA_FOR);
-
-        if (checkFor != null && !checkFor.isEmpty()) {
-            final Set<String> checkForSet = new HashSet<String>(checkFor);
-
-            availableLanguages = filter(availableLanguages, checkForSet);
-            unavailableLanguages = filter(unavailableLanguages, checkForSet);
         }
 
         returnResults(Engine.CHECK_VOICE_DATA_PASS, dataPath, availableLanguages,
