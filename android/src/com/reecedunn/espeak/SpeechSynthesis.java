@@ -36,6 +36,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.MissingResourceException;
 
 public class SpeechSynthesis {
     private static final String TAG = SpeechSynthesis.class.getSimpleName();
@@ -163,9 +164,15 @@ public class SpeechSynthesis {
                 }
             }
 
-            if (locale != null && !locale.getISO3Language().equals("")) {
-                final Voice voice = new Voice(name, identifier, gender, age, locale);
-                voices.add(voice);
+            try {
+                if (locale != null && !locale.getISO3Language().equals("")) {
+                    final Voice voice = new Voice(name, identifier, gender, age, locale);
+                    voices.add(voice);
+                }
+            } catch (MissingResourceException e) {
+                // Android 4.3 throws this exception if the 3-letter language
+                // code is missing for a locale (e.g. nci). Earlier versions
+                // of Android return an empty string.
             }
         }
 
