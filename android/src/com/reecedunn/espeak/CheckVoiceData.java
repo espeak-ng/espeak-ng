@@ -111,7 +111,7 @@ public class CheckVoiceData extends Activity {
             if (!haveBaseResources) {
                 unavailableLanguages.add(Locale.ENGLISH.toString());
             }
-            returnResults(Engine.CHECK_VOICE_DATA_MISSING_DATA, dataPath, availableLanguages,
+            returnResults(Engine.CHECK_VOICE_DATA_FAIL, dataPath, availableLanguages,
                           unavailableLanguages);
             return;
         }
