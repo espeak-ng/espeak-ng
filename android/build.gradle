@@ -9,6 +9,14 @@ buildscript {
 
 apply plugin: 'android'
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    instrumentTestCompile 'org.hamcrest:hamcrest-all:1.3'
+}
+
 android {
     buildToolsVersion '18.0'
     compileSdkVersion 18
@@ -23,6 +31,10 @@ android {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             res.srcDirs = ['res']
+        }
+        instrumentTest.setRoot('eSpeakTests')
+        instrumentTest {
+            java.srcDirs = ['eSpeakTests/src']
         }
     }
 }
