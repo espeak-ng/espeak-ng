@@ -23,7 +23,9 @@ local.properties
 # android gradle output:
 
 .gradle/
+.idea/
 build/
+espeak.iml
 
 # autotools
 
