@@ -3,8 +3,9 @@
 // This file is UTF-8 encoded
  
 // $alt1  open vowel [E] or [O] in the stressed syllable
-// $alt2  open vowel [o] or [o] in the stressed syllable
+// $alt2  close vowel [o] or [o] in the stressed syllable
 // $alt3  short stress on final syllable
+// $alt4  final 'e' is schwa
 
  
 // letter names
@@ -12,23 +13,23 @@ b	b@
 c	ts@
 č	tS@
 d	d@
-e	e
+e	e:
 f	f@
 g	g@
-_h	h@
+h	x@ $atend
 j	j@
-_k	k@
+k	k@ $atend
 l	l@
 m	m@
 n	n@
-_o	o
+o	o: $atend
 p	p@
 r	R@
-_s	s@
+s	s@ $atend
 š	S@
 t	t@
-_v	v@
-_z	z@
+v	v@ $atend
+z	z@ $atend
 ž	Z@
 
 q	ku
@@ -42,9 +43,82 @@ y	'ipsilon
 ë	$accent
 ö	$accent
 ü	$accent
+ß	'o:stri||s'@
 
-// accent names  (please fix)
-_dia	prEgl'asa
+а	a:
+б	b@
+в	v@
+г	g@
+д	d@
+е	e:
+ё	jo:
+ж	Z@
+з	z@
+и	i:
+й	,ik@-*'atkOji
+к	k@
+л	l@
+м	m@
+н	n@
+о	o:
+п	p@
+р	R@
+с	s@
+т	t@
+у	u:
+ф	f@
+х	x@
+ц	ts@
+ч	tS@
+ш	S@
+щ	StS@
+э	E:
+ю	ju:
+я	ja:
+ћ	tS;@
+ђ	dj@
+ќ	kj@
+
+
+// accent names
+_dia	spREgl'asom
+
+// languages
+_cyr	tsiR'i:litSni
+
+// symbols
+
+@	'a:fna
+#	l'e:stvitsa
+$	d'o:laR
+%	Otst'o:tOw
+&	'i:n
+*	zv'e:ditsa
++	plu:s
+=	En'akO
+/	pOS'e:wnitsa
+\	l'e:va||pOS'e:wnitsa
+_.	p'i:ka
+_!	klic'a:j
+_?	upRaS'a:j
+_"	naREkOv'a:j
+_'	En'o:jni||naREkOv'a:j
+_`	OstR'i:vEts
+_,	v'e:jitsa
+_-	pOS'e:wnitsa
+_:	dv#'o:p'i:tSjE
+_;	p'Odp'i:tSjE
+_(	OklEp'a:j
+_)	zaklEp'a:j
+_[	Og;'a:ti||OklEp'a:j
+_]	Og;'a:ti||zaklEp'a:j
+_{	zav'i:ti||OklEp'a:j
+_}	zav'i:ti||zaklEp'a:j
+_…	El'i:psa
+__	pOttS@Rt'a:j
+_<	jE||m'a:njSe
+_>	jE||v'etSjE
+_|	nawp'i:tSna||tS'@Rta
 
 
 // numbers
@@ -66,7 +140,7 @@ _14	St'i:Rinajst
 _15	p'e:tnajst
 _16	S'e:stnajst
 _17	s'e:d@mnajst
-_18	'o@s@mnajst
+_18	'o:s@mnajst
 _19	d'Ev'e:tnajst
 _2X	dv#'a:jsEt
 _3X	tR'i:dEsEt
@@ -114,9 +188,9 @@ s	s
 v	w	$combine
 z	z	$combine
 
-a	a	$atend
+a	a:	$atend
 k	k@	$atend    // letter-k
-o	o	$atend    // letter-o
+o	o:	$atend    // letter-o
 s	s@	$atend
 v	v@	$atend
 z	z@	$atend
@@ -131,6 +205,15 @@ bom	bo+m $u   // example of unstressed [o]
 // prepositions
 skozi	sko+zi $u+
 za	$u+
+
+le	lE
+
+
+// conjunctions
+če	tSE	$u
+ker	kER
+ter	tER	$u+
+vseeno	us'E:Eno
 
 
 // verb: to be
@@ -151,12 +234,22 @@ bili	$u
 // exceptions
 // (these are just a few example exceptions)
 
-deset	$2
-devet	$2
-dim	$alt3
-ena	$alt1
-oba	$2
-šel	S@w
-tisoč	$1
-žena	$alt1
+deset		$2
+devet		$2
+dim		$alt3
+koš		$alt3
+ena		$alt1
+izhod		$alt3
+oba		$2
+osem		$alt4
+poševnica	$2
+sedem		$alt4
+še		$alt3
+šel		S@w
+tisoč		$1
+žena		$alt1
 
+
+// names
+estonija	$2
+slovenija	$2

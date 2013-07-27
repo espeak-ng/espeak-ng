@@ -773,7 +773,7 @@ void SpectSeq::InterpolateAdjacent(void)
 		p->pkfreq = p1->pkfreq + int((p2->pkfreq - p1->pkfreq)*ratio);
 		p->pkheight=p1->pkheight+int((p2->pkheight-p1->pkheight)*ratio);
 		p->pkwidth = p1->pkwidth + int((p2->pkwidth - p1->pkwidth)*ratio);
-		p->pkright =p1->pkright + int((p2->pkright - p2->pkright)*ratio);
+		p->pkright =p1->pkright + int((p2->pkright - p1->pkright)*ratio);
 	}
 	frames[select]->keyframe = 1;
 	formantdlg->ShowFrame(this,select,1,0xff);

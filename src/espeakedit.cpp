@@ -144,7 +144,6 @@ if(argc > 1)
 
 	if(strcmp(param,"--compile")==0)
 	{
-	    LoadPhData(NULL);
         samplerate_native = samplerate = 22050;
 		CompilePhonemeData();
 		CompileIntonation();

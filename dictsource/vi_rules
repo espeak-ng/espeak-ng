@@ -77,10 +77,10 @@ ỵ	ỵ
 //================================
 //  Consonants
 //================================
-.L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve ge
-.L02 n
+.L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve ge r
+.L02 n a
 .L03 t ch nh
-
+.L04 a u ă â o ô á à ả ã ạ ù ú ủ ũ ụ ắ ằ ẳ ẵ ặ ấ ầ ẩ ẫ ậ ó ò ỏ õ ọ ố ồ ổ ỗ ộ ư ứ ừ ử ữ ự ơ ớ ờ ở ỡ ợ
 .group b
         b          b
      _) b          _b
@@ -89,6 +89,7 @@ ỵ	ỵ
 
 .group c
         c          g         //k
+        c (C       _^_EN
         c (_       kh
      _) ch         tS;       // try [tS;] [tS] [c] c     
 ?2   _) ch         c
@@ -101,15 +102,18 @@ ỵ	ỵ
          
 
 .group d
-        d          J^        // try [z] [J] [dZ] [dZ;] [J^]
+        d          z         // try [z] [J] [dZ] [dZ;] [J^]
+?2      d          J^
+?1      d          J^
+         
         d (_       _^_EN
          
          
          
 
 .group đ
-        đ          d
-     _) đ          _d
+      //  đ          d
+     _) đ          d_
          
          
          
@@ -122,21 +126,49 @@ ỵ	ỵ
          
 
 .group g
-        g          Q         // try [g] [Q]
+        g (L04     Q         // try [g] [Q]
         gh         Q         // or [g]  [Q]
-        //g (i       J^       // try [D] [z] [j] [J^] [z;] [J] [dZ]
-        //g (ì       J^
-        //g (í       J^
-        //g (ỉ       J^
-        //g (ĩ       J^
-	//g (ị       J^
-        gi         J^
+        gi         z         // try [D] [z] [j] [J^] [z;] [J] [dZ]
+        g (ì       z
+        g (í       z
+        g (ỉ       z
+        g (ĩ       z
+        g (ị       z
+     _) g          _^_EN
+?1      g (ì       J^
+?1      g (í       J^
+?1      g (ỉ       J^
+?1      g (ĩ       J^
+?1      g (ị       J^        
+         
+?2      g (ì       J^
+?2      g (í       J^
+?2      g (ỉ       J^
+?2      g (ĩ       J^
+?2      g (ị       J^        
+         
+?1      gi         J^
+?2      gi         J^        
 ?1      giết       J^'iE3g
-        giết       J^'iE3t[
-        giếc       J^'iE3kh
+?2      giết       J^'iE3g
+?1      giếng      J^'iE3N
+?1      giềng      J^'iE2N
+?2      giếng      J^'iE3N
+?1      giêng      J^'iE1N
+?2      giêng      J^'iE1N
+?2      giềng      J^'iE2N
+        giết       z'iE3t[
+        giếc       z'iE3kh
+        giêng      z'iE1N
+        giềng      z'iE2N
+        giếng      z'iE3N
+        giểng      z'iE4N
+        giễng      z'iE5N
+        giệng      z'iE6N
+         
 ?1      giệt       J^'iE6g
-        giệt       J^'iE6t[
-        giệc       J^'iE6kh
+        giệt       z'iE6t[
+        giệc       z'iE6kh
      _) gol        _^_EN
      _) gat        _^_EN     
         ght (_     _^_EN     
@@ -145,7 +177,7 @@ ỵ	ỵ
 
 .group h
         h          h
-         
+?2      hu         w         
          
 
 .group j
@@ -154,9 +186,9 @@ ỵ	ỵ
          
 
 .group k
-        k          k
-        //k (_       kh
-        kh         x
+     _) k          k
+     _) kh         x
+        //kh         x
         k (_       _^_EN
          
          
@@ -164,7 +196,8 @@ ỵ	ỵ
 .group l
         l          l
         l (_       _^_EN
-        le (_      _^_EN
+     C) le         _^_EN
+	   //le (A      _^_EN 
          
          
 
@@ -180,6 +213,7 @@ ỵ	ỵ
         ng         N
         ngh        N
         nh         n^
+?2 L02) nh         n         
         nd (_      _^_EN
          
          
@@ -190,7 +224,8 @@ ỵ	ỵ
          
 
 .group p
-        p          p
+        p (C       _^_EN
+        p          p         
         ph         f
          
          
@@ -213,10 +248,10 @@ ỵ	ỵ
 
 .group s
         s          s.        // try [s.] [s] [S]
+         
      _) sh         _^_EN
         s (_       _^_EN
         st (_      _^_EN
-        se (_      _^_EN
          
          
 
@@ -229,7 +264,6 @@ ỵ	ỵ
 ?1      tr         cr        
 ?2      tr         c         
         ts (_      _^_EN
-        te (_      _^_EN
         th (_      _^_EN
         tt (_      _^_EN
          
@@ -238,7 +272,7 @@ ỵ	ỵ
 .group v
         v          v
 ?2      v          J^        
-        ve (_      _^_EN     
+        ve (A      _^_EN     
          
          
 
@@ -278,7 +312,7 @@ ỵ	ỵ
         ay         aI
 ?2      ay         a:I       
          
-        aỳ         aI2
+         
         aý         aI3
         aỷ         aI4
         aỹ         aI5
@@ -298,7 +332,7 @@ ỵ	ỵ
         aụ         aU6
         a (L01     _^_EN
         ai (L02    _^_EN
-         
+        a (@       _^_EN
          
 
 .group à
@@ -448,7 +482,7 @@ ỵ	ỵ
         eọ         EU6
         e (L01     _^_EN
         ey (_      _^_EN
-         
+        e (@       _^_EN     
          
 
 .group è
@@ -559,6 +593,7 @@ ỵ	ỵ
         iễu        iU5
         iệu        iU6
         i (L01     _^_EN
+        i (@       _^_EN
 ?2      i (L03     @         
 ?1      i (L03     @
 ?2      i (L02     @         
@@ -616,6 +651,12 @@ ỵ	ỵ
 .group o
         o          O
         oa         o@        // modify oa sound  example: hoa,khoa // o (A       w
+        oà         o@2
+        oá         o@3
+        oả         o@4
+        oã         o@5
+        oạ         o@6
+        oo         o@
         oi         OI
         oì         OI2
         oí         OI3
@@ -624,14 +665,19 @@ ỵ	ỵ
         oị         OI6
         ong        O#
         oe         o&        // Adding  oe sound  example: lóe sáng,toét mắt
-        o (L01     _^_EN
         oai        Oi        // oai sound
+        o (@       _^_EN
         oại        Oi6
         oài        Oi2
         oái        Oi3
         oải        Oi4
         oãi        Oi5
-         
+        oă         o@1
+        oằ         o@2
+        oắ         o@3
+        oẳ         o@4
+        oẵ         o@5
+        oặ         o@6
 
 .group ò
         ò          O2
@@ -727,7 +773,7 @@ ỵ	ỵ
 .group ộ
         ộ          o6
         ội         oI6
-        ộng        o#6
+   //     ộng        o#6
 ?2      ội         O-6       
          
          
@@ -814,8 +860,8 @@ ỵ	ỵ
         uội        u@j6
         //ung        u#
         u (L01     _^_EN
-        ui (L01    _^_EN
-        ua (L01    _^_EN
+        u (@       _^_EN
+       // ua (L01    _^_EN
 ?2      u          u-        
          
 
@@ -901,7 +947,7 @@ ỵ	ỵ
         ừ          y2
         ừi         yI2
         ừa         y@2
-        ừu         yw2
+        ừu         y2w2
          
          
          
@@ -910,7 +956,7 @@ ỵ	ỵ
         ứ          y3
         ứi         yI3
         ứa         y@3
-        ứu         yw3
+        ứu         y3w3
          
          
          
@@ -919,7 +965,7 @@ ỵ	ỵ
         ử          y4
         ửi         yI4
         ửa         y@4
-        ửu         yw4
+        ửu         y4w4
          
          
          
@@ -928,7 +974,7 @@ ỵ	ỵ
         ữ          y5
         ữi         yI5
         ữa         y@5
-        ữu         yw5
+        ữu         y5w5
          
          
          
@@ -937,7 +983,7 @@ ỵ	ỵ
         ự          y6
         ựi         yI6
         ựa         y@6
-        ựu         yw6
+        ựu         y6w6
          
          
 //=============================
@@ -958,10 +1004,9 @@ ỵ	ỵ
         yể         i@4
         yễ         i@5
         yệ         i@6
-      //  yêu        i@U
-         
+      //  yêu        i@U        
         y (L01     _^_EN
-         
+    bu) y          _^_EN
 
 .group ỳ
         ỳ          i2
@@ -1073,4 +1118,4 @@ ỵ	ỵ
         . (.       _:
     \.) .          
          
-         
+

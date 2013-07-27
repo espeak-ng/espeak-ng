@@ -36,7 +36,7 @@ The <strong>language</strong> attribute is mandatory.  All the other attributes 
 <dt>
 <strong>language &nbsp;&lt;language code&gt; [&lt;priority&gt;]</strong><br>
 <dd>This attribute should appear before the other attributes which are listed below.<p>
-It selectes the default behaviour and characteristics for the language, and sets default values for
+It selects the default behaviour and characteristics for the language, and sets default values for
 "phonemes", "dictionary" and other attributes. The &lt;language code&gt; should be a two-letter ISO 639-1 language code.  One or more language variant codes may be appended, separated by hyphens.  (eg.  en-uk-north).<p>
 The optional &lt;priority&gt; value gives the preference of this voice compared with others for the specified language.  A low value indicates a more preferred voice.  The default value is 5.<p>
 More than one <strong>language</strong> line may be present.  A voice may be selected for other related languages (variants which have the same initial 2 letter language code as the specified language), but it will be less preferred for these.  Different language variants may be specified by additional <strong>language</strong> lines in order to indicate that this is a preferred voice for them also.  Eg.<pre>

@@ -510,6 +510,7 @@ typedef struct {
 #define NUM2_MYRIADS            0x4000
 #define NUM2_ENGLISH_NUMERALS   0x8000
 #define NUM2_PERCENT_BEFORE     0x10000
+#define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
@@ -519,6 +520,7 @@ typedef struct {
 	// bit14=(LANG=ko)  use myriads (groups of 4 digits) not thousands (groups of 3)
 	// bit15=(LANG=ne)  speak (non-replaced) English numerals in English
 	// bit16=(LANG=si)  say "%" before the number
+	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248
@@ -579,7 +581,6 @@ typedef struct
 	const char *transpose_map;
 	char dictionary_name[40];
 
-	char phon_out[500];
 	char phonemes_repeat[20];
 	int  phonemes_repeat_count;
 	int  phoneme_tab_ix;
@@ -721,7 +722,7 @@ int iswlower2(int c);
 int iswupper2(int c);
 int towlower2(unsigned int c);
 int towupper2(unsigned int c);
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode);
+const char *GetTranslatedPhonemeString(int phoneme_mode);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 ALPHABET *AlphabetFromName(const char *name);

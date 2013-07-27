@@ -1865,6 +1865,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	char *voice_change;
 	static FILE *f_text=NULL;
 	static const void *p_text=NULL;
+	const char *phon_out;
 
 	if(control == 4)
 	{
@@ -1957,14 +1958,14 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		if(option_phonemes >= 3)
 			phoneme_mode = 0x10 + option_phonemes-3;   // 0x10=ipa, 0x11=ipa with tie, 0x12=ipa with ZWJ, 0x13=ipa with separators
 
-		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), phoneme_mode);
+		phon_out = GetTranslatedPhonemeString(phoneme_mode);
 		if(option_phonemes > 0)
 		{
-			fprintf(f_trans,"%s\n",translator->phon_out);
+			fprintf(f_trans,"%s\n",phon_out);
 		}
 		if(phoneme_callback != NULL)
 		{
-			phoneme_callback(translator->phon_out);
+			phoneme_callback(phon_out);
 		}
 	}
 

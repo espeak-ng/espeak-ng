@@ -3,6 +3,7 @@
 
 // $alt2, remove s from plural, remove en from plural
 // Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
+// Use $alt4 for stressed final syllable ( es )
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
@@ -24,7 +25,7 @@ n	En
 p	pe:
 q	ky
 r	Er
-s	Es
+//s	Es    // 's morgens
 t	te:
 v	fe:
 w	ve:
@@ -34,6 +35,7 @@ z	zEt
 
 _s	Es
 _t	te:
+
 
 _cap	h'o:fdlEt@r
 _sub	s'8pskrIpt||
@@ -155,6 +157,12 @@ het	h@t	$only
 een	@n	$only
 ən	@-n   // char.replacement for 'n
 ət	t   // char.replacement for 't
+een	e:n	$atend
+(de een)	d@||e:n
+(het een)	h@t||e:n
+(een of)	e:n||Of
+(een van)	e:n||vAn
+
 
 // pronouns  (may have -zelf suffix)
 ik		%Ik
@@ -394,31 +402,50 @@ zeten		$alt
 
 // words where -er is not a stressed verb ending
 
+diller		$alt	// bediller
+schepper	$alt 	// opschepper
+steller		$alt	// aansteller
+zitter		$alt	// bezitter
+
+betweter	bEtv#'e:t@r
+dikdoener	$alt
+gelijkhebber	$alt
+muggenzifter	$alt
+
 achter		$alt
 achterkleinkinder	$alt
 ader		$alt
 ander		$alt
 anker		$alt
+artistieker	$alt
 badder		$alt
 bagger		$alt
 baker		$alt
 baster		$alt
 beender		$alt
+beier		$alt
 belemmer	$alt
 beter		$alt
-beirer		$alt
 bibber		$alt
 bitter		$alt
 bladder		$alt
 blader		$alt
 blaker		$alt
 blikker		$alt
+bloeder		$alt 
 blubber		$alt
+blubber		$alt 
+bluffer		$alt 
 blunder		$alt
 bolder		$alt
 bolster		$alt
+bonker		$alt 
 boter		$alt
+braller		$alt 
+brander		$alt 
 broeder		$alt
+broeier		$alt 
+brommer		$alt 
 buffer		$alt
 bulder		$alt
 bulldozer	$alt
@@ -432,28 +459,43 @@ consuminder	$alt
 counter		$alt
 cover		k8v@r $alt
 dabber		$alt
+dapper		$alt
 daver		$alt
-deemstar	$alt
+deemster	$alt
+deller		$alt 
 dender  	$alt
 dobber  	$alt
 dokter  	$alt
 donder		$alt
 donker  	$alt
 dotter  	$alt
+draaier		$alt 
+drader		$alt 
+drammer		$alt 
+dreiner		$alt 
+drekker		$alt 
+drenzer		$alt 
+dromer		$alt 
+druiler		$alt 
 duister		$alt
-dwater		$alt
+dweper		$alt 
+dwinger		$alt 
+eelter		$alt 
 eergister  	$alt
 eier		$alt
 emmer  		$alt
-ender		$alt
 enter  		$alt
 erger  		$alt
 etter  		$alt
+fatter		$alt 
 filter		$alt
 fladder		$alt
 flakker		$alt
+flemer		$alt 
 flikker		$alt
+flinter		$alt 
 flipper		$alt
+flirter		fl8rt@r $alt
 flodder		$alt
 flonker		$alt
 flotter		$alt
@@ -461,28 +503,48 @@ fluister	$alt
 foeter		$alt
 folder		$alt
 folter		$alt
+frikker		$alt 
 gabber		$alt
 gader		$alt
+gaper		$alt 
 geester		$alt
+geeuwer		QeU@r $alt 
 gemoeder	$alt
 gibber		$alt
+giller		$alt 
 gister		$alt
 glibber		$alt
 glimmer		$alt
 glinster	$alt
 glitter		$alt
+gloeier		$alt 
+gluiper		$alt 
 glunder		$alt
 goeder		$alt
+grater		$alt 
+griener		$alt 
+grieper		$alt 
+gronder		$alt 
+haker		$alt 
 halter 		$alt
 hamer		$alt
 hamster 	$alt
+hanger		$alt 
 haper		$alt
+harker		$alt 
+hebber		$alt 
 helder		$alt
 herinner	$alt
 herover		$alt
+hijger		$alt 
+hikker		$alt 
 hinder		$alt
 hoender		$alt
+hokker		$alt 
 honger		$alt
+horker		$alt 
+houter		$alt 
+huiler		$alt 
 huiver		$alt
 hunker		$alt
 ijver		$alt
@@ -492,17 +554,20 @@ inburger	$alt
 inkader		$alt
 jakker		$alt
 jammer		$alt
+janker		$alt 
+jeuker		$alt 
 joeker		$alt
 jonger		$alt
 kader		$alt
 kaffer		$alt
+kakker		$alt 
 kalefater	$alt
 kalver		$alt
 kamfer		$alt
 kanker		$alt
 kaper		$alt
+katter		$alt 
 kaver		$alt
-keilder		$alt
 kenter		$alt
 keper		$alt
 kerker		$alt
@@ -511,42 +576,69 @@ keuter		$alt
 kicker		$alt
 kieper		$alt
 kinder		$alt
+kitscher	$alt //  [k’iS@r]
 kladder		$alt
+klager		$alt 
 klapper		$alt
 klater		$alt
 klauter		$alt
 klaver		$alt
 kledder		$alt
+kleffer		$alt 
 klepper		$alt
+kletser		$alt 
 kletter		$alt
+kleumer		$alt 
 kleuter		$alt
+klever		$alt 
 klieder		$alt
 klinker		$alt
 klodder		$alt
+klonter		$alt 
+kloter		$alt 
 kluister	$alt
+kluiter		$alt 
 knapper		$alt
 knetter		$alt
 kneuter		$alt
+kniezer		$alt 
+knijper		$alt 
 knikker		$alt
 knipper		$alt
 knisper		$alt
 knister		$alt
+knoeier		$alt 
+knoester	$alt 
 koekeloer	$alt
 koester		$alt
 koeter		$alt
 koffer		$alt
 koker		$alt
 kolder		$alt
+komieker	$alt 
 kommer		$alt
 koper		$alt
+korster		$alt 
+kraaier		$alt 
+kraker		$alt 
+krasser		$alt 
+krenger		$alt 
+krenter		$alt 
+kruiper		$alt 
+kruller		$alt 
 kuier		$alt
+kwaster		$alt 
 kwetter		$alt
+kwijler		$alt 
 labber		$alt
+lacher		$alt 
 lager		$alt
 lammer		$alt
+lander		$alt 
 laser		$alt
 laster		$alt
 lauwer		$alt
+lawaaier	$alt 
 lazer		$alt
 lebber		$alt
 leder		$alt  // gelederen
@@ -554,20 +646,24 @@ leger		$alt
 lekker		$alt
 lemmer		$alt
 lepper		$alt
-ler		$alt
 letter		$alt
 leuter		$alt
 lever		$alt
 lieder		$alt
+lijmer		$alt 
 lobber		$alt
 lodder		$alt
+lodder		$alt 
 lommer		$alt
+loper		$alt 
 louter		$alt
 lubber		$alt
+luguber		$alt
 luier		$alt
 luimer		$alt
 luister		$alt
 mager		$alt
+malloter	$alt 
 marmer		$alt
 meander		$alt
 meerder		$alt
@@ -575,6 +671,7 @@ meester		$alt
 meier		$alt
 mekker		$alt
 mieter		$alt
+miezer		$alt 
 mijmer		$alt
 millimeter	$alt
 minder		$alt
@@ -583,8 +680,12 @@ moeder		$alt
 moker		$alt
 monster		$alt
 mopper		$alt
+mopper		$alt 
+motter		$alt 
 nader		$alt
 neder		$alt
+nichter		$alt
+nijver		$alt
 nuchter		$alt
 nummer		$alt
 ober		$alt
@@ -593,30 +694,62 @@ onder		$alt
 orber		$alt
 ouder		$alt
 over		$alt
+paffer		$alt 
 palaver		$alt
+panieker	$alt 
 pantser		$alt
+papper		$alt 
+patser		$alt 
 pauper		$alt
 peiger		$alt
 peper		$alt
+pester		$alt 
 peuter		$alt
 pieker		$alt
+pienter		$alt
+pieper		$alt 
+pietepeuter	$alt 
 pieter		$alt
+pikker		$alt 
 pinkster	$alt
+plager		$alt 
+plakker		$alt 
 pleister	$alt
 pletter		$alt
+ploerter	$alt 
 ploeter		$alt
+pluizer		$alt 
 plunder		$alt
+pocher		pOx@r $alt
 poeder		$alt
 poeier		$alt
+poener		$alt  
 poker		$alt
+pokker		$alt 
 polder		$alt
+popper		$alt 
+pover		$alt
+praler		$alt 
+preker		$alt 
+pronker		$alt 
+proper		$alt
+propper		$alt 
+protser		$alt 
+pruiler		$alt 
+pruller		$alt 
+prutser		$alt 
 puber		$alt
+puffer		$alt 
+puister		$alt 
 pulver		$alt
 purper		$alt
 rader		$alt
 raster		$alt
 redder		$alt
+reller		$alt 
 ridder		$alt
+riller		$alt 
+roker		$alt 
 rooster		$alt
 rubber		$alt
 ruiter		$alt
@@ -626,94 +759,160 @@ schamper	$alt
 schater		$alt
 schemer		$alt
 schetter	$alt
+schijter	$alt 
 schilder	$alt
+schilfer	$alt 
 schipper	$alt
 schitter	$alt
+schofter	$alt 
+schokker	$alt 
 schouder	$alt
+schrander	$alt
+schraper	$alt 
+schreeuwer	$alt 
+schrikker	$alt 
+schroeier	$alt 
+schrokker	$alt 
+schuchter	$alt
 schutter	$alt
 sidder		$alt
 sjacher		$alt
+sjokker		$alt 
 skeeler		$alt
 skelter		$alt
+slaper		$alt 
 slechter	$alt
 slenter		$alt
+slibber		$alt 
 slidder		$alt
+slijker		$alt 
+slijmer		$alt 
+slikker		$alt 
 slinger		$alt
 slobber		$alt
 slodder		$alt
+slodder		$alt 
 sloeber		$alt
+slokker		$alt 
+slommer		$alt
+slover		$alt 
 sluier		$alt
 sluimer		$alt
+smeker		$alt 
+smelter		$alt 
+snaker		$alt 
 snater		$alt
+snauwer		$alt 
 snipper		$alt
+snoeper		$alt 
+snoever		$alt 
 snotter		$alt
+snugger		$alt
 snuister	$alt
 sober		$alt
 sodemieter	$alt
+soeper		$alt 
+soezer		$alt 
 somber		$alt
+sopper		$alt 
+spatter		$alt 
 spetter		$alt
 spijker		$alt
 splinter	$alt
+spoker		$alt 
+springer	$alt 
+sproeter	$alt 
 sputter		$alt
+staker		$alt 
+stakker		$alt 
 steiger		$alt
 stekker		$alt
+stoffer		$alt 
+stokker		$alt 
+stoter		$alt 
 stotter		$alt
+streper		$alt 
+stroper		$alt 
 stuiter		$alt
 stumper		$alt
 sudder		$alt
+suffer		$alt 
 suiker		$alt
 supporter	$alt
 tater		$alt
 teder		$alt
 teister		$alt
 temper		$alt
+tenger		$alt
 tetter		$alt
 teuter		$alt
 timmer		$alt
+tobber		$alt 
 tover		$alt
 treiter		$alt
+trekker		$alt 
+triller		$alt 
 trompetter	$alt
 tuier		$alt
 tutter		$alt
 twitter		$alt
 uier		$alt
 vinger		$alt
+vitter		$alt 
+Vlaander	$alt
+vleier		$alt 
+vlekker		$alt 
 vlieger		$alt
 vlinder		$alt
+vlokker		$alt 
 vlotter		$alt
 voeder		$alt
 volker		$alt
 vorder		$alt
+vrijer		$alt 
+waaghalzer	$alt 
 waaier		$alt
 wakker		$alt
 wapper		$alt
 water		$alt
 wedijver	$alt
+weelder		$alt 
 wegwijzer	$alt
 weiger		$alt
 wester		$alt
 wijder		$alt
 wilder		$alt
+winder		$alt 
 winter		$alt
 wipper		$alt
 woeker		$alt
 wonder		$alt
+zakker		$alt 
+zander		$alt 
+zanger		$alt 
+zeiker		$alt 
 zeker		$alt
+zeper		$alt 
+zeurder		$alt 
 zever		$alt
 zilver		$alt
 zinder		$alt
+zoener		$alt 
 zolder		$alt
 zomer		$alt
 zonder		$alt
 zuiver		$alt
 zwabber		$alt
 zwakker		$alt
+zwammer		$alt 
 zwanger		$alt
-Vlaander	$alt
+zweter		$alt 
+zwever		$alt 
 
 
 // -s is not a suffix
 as		$alt
+bordes		$alt4
 bres		$alt
 chaos		$alt $1
 es		$alt
@@ -917,23 +1116,31 @@ tabel		$2
 // also words ending in er. etc.
 
 	// adjectives
+akel		$alt
 edel		$alt
 enkel		$alt
 gammel		$alt
+groezel		$alt
 heikel		$alt
 ijdel		$alt
 jofel		$alt
+korzel		$alt
 kregel		$alt
+kriegel		$alt
 kreupel		$alt
 luttel		$alt
 nobel		$alt
 nozel		$alt
+poezel		$alt
 schamel		$alt
 simpel		$alt
 sjofel		$alt
 soepel		$alt
 troebel		$alt
 metel		$alt  // vermetel
+
+hoogdrempel	$alt
+laagdrempel	$alt
 
 	// nouns
 amandel		$alt
@@ -1433,9 +1640,11 @@ berin		bI:r'In
 beste		bEst@
 bevend		be:v@nd
 bijziend	$2	// bijziendheid
+binnenshuis	bIn@nsh'Wys
 blitzkrieg	blItskri:g
 boudoir		budw'a:r
 bourgondier	burx'o:ndi:@r
+buitenshuis	bWyt@nsh'Wys
 cafe		ka:f'e:
 circuit		sIrku'i
 chalet		Sa:lE
@@ -1456,12 +1665,14 @@ crèches		krES@s
 damascering     damA;s'e:rIN
 december	$2
 desillusie	dEsIlyzi
+detail		de:t'Aj
 dieet		$2
 diesel		diz@l
 diner		din'e:
 //discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
+doelmatig	$2 $alt2
 doordat		$2
 dynastie	$3
 eensgelijks	e:nsQ@l'EIks
@@ -1477,11 +1688,13 @@ fiche		fiS@
 franchise	frA'Si:z@
 gamasche	Qa:m'AS
 gazet		$2
+gelig		Qe:l@Q
 gouache		Qu'AS
 gefrituurd	$3
 hysterie	hIstI:r'i
 impregnering    Impr,EQn'e:IN
 inductie	$2
+informatieve	InfOrma:t'iv@
 ingewikkeld	$3
 ingrijpend	$2
 ingeval		$3
@@ -1491,8 +1704,11 @@ ingenieur	Inzj@nj'Y:r
 informatie	$3
 invasie		$2
 januari		$3
+jury		Zyri
 kadaster	$2
+kleinzerig	klEInz'e:r@Q
 leesregel	le:sre:Q@l
+levendig	le:v@nd@Q
 lunch		l8nS
 lunches		l8nS@s
 mangat		$alt3
@@ -1539,6 +1755,7 @@ ongerieflijk	$3
 //ongrondwettig	$3
 partijvoorzitters $2
 periferie	pI:rifI:r'i
+perron		$2
 pistache	pist'AS
 privilege	privil'e:Z@ $alt2
 proces		$2
@@ -1548,6 +1765,7 @@ reservoir	re:zErvw'a:r
 revanche	r@vA~nS
 regime		$2
 roman		$2
+romance		ro:m'A~s@  $alt2
 rubriek		rybr'ik
 sacristie	$3
 saint		_^_FR
@@ -1557,6 +1775,8 @@ september	$2
 serie		sI:ri
 sms'jes		EsEm'Es_j@s
 spektakel	$2
+sportief	$2
+sportieve	$2
 tegennatuur	$4
 tralie		$1
 travestie	$3
@@ -1576,6 +1796,7 @@ wanluidend	$2
 wanschapen	$2
 wantrouwend	$2
 weliswaar	v#ElIsw'a:r
+werktuigelijk	$2
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 

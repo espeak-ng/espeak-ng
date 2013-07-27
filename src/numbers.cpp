@@ -1418,6 +1418,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 // control bit 4: speak zero tens
 // control bit 5: variant of ordinal number (lang=hu)
 //         bit 8   followed by decimal fraction
+//         bit 9: use #f form for both tens and units (lang=ml)
 
 	int found;
 	int ix;
@@ -1462,9 +1463,13 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 			// is there a special pronunciation for this 2-digit number
 			if(control & 8)
 			{
-				// is there a feminine form?
-				sprintf(string,"_%df",value);
-				found = Lookup(tr, string, ph_digits);
+				// is there a feminine or thousands-variant form?
+				sprintf(string,"_%dfx",value);
+				if((found = Lookup(tr, string, ph_digits)) == 0)
+				{
+					sprintf(string,"_%df",value);
+					found = Lookup(tr, string, ph_digits);
+				}
 			}
 			else if(is_ordinal)
 			{
@@ -1553,7 +1558,10 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 				}
 				if(found_ordinal == 0)
 				{
-					sprintf(string,"_%dX", tens);
+					if(control & 0x200)
+						sprintf(string, "_%dXf", tens);
+					else
+						sprintf(string,"_%dX", tens);
 					Lookup(tr, string, ph_tens);
 				}
 
@@ -1708,6 +1716,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int ordinal;
 	int tplex;
 	int say_zero_hundred=0;
+	int say_one_hundred;
 	char string[12];  // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
@@ -1776,6 +1785,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				x = 0;
 				if(tr->langopts.numbers2 & (1 << tplex))
 					x = 8;   // use variant (feminine) for before thousands and millions
+				if(tr->translator_name == L('m','l'))
+					x = 0x208;
 				LookupNum2(tr, hundreds/10, x, ph_digits);
 			}
 
@@ -1788,6 +1799,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			if((hundreds == 0) && (say_zero_hundred == 0))
 				ph_100[0] = 0;
 			suppress_null = 1;
+			control |= 1;
 		}
 
 		ph_digits[0] = 0;
@@ -1823,17 +1835,24 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			}
 			else
 			{
-				if((!found) && (tensunits == 0))
+				if((hundreds==1) && (tr->langopts.numbers2 & NUM2_OMIT_1_HUNDRED_ONLY) && ((control & 1)==0))
 				{
-					// is there a special pronunciation for exactly n00 ?
-					sprintf(string,"_%dC0",hundreds);
-					found = Lookup(tr, string, ph_digits);
+					// only look for special 100 if there are previous thousands
 				}
-
-				if(!found)
+				else
 				{
-					sprintf(string,"_%dC",hundreds);
-					found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+					if((!found) && (tensunits == 0))
+					{
+						// is there a special pronunciation for exactly n00 ?
+						sprintf(string,"_%dC0",hundreds);
+						found = Lookup(tr, string, ph_digits);
+					}
+
+					if(!found)
+					{
+						sprintf(string,"_%dC",hundreds);
+						found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+					}
 				}
 
 				if(found)
@@ -1842,7 +1861,14 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				}
 				else
 				{
-					if((hundreds > 1) || ((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) == 0))
+					say_one_hundred = 1;
+					if(hundreds == 1)
+					{
+						if((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) != 0)
+							say_one_hundred = 0;
+					}
+
+					if(say_one_hundred != 0)
 					{
 						LookupNum2(tr, hundreds, 0, ph_digits);
 					}
@@ -1896,6 +1922,11 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		{
 			if(tr->langopts.numbers2 & (1 << thousandplex))
 				x = 8;   // use variant (feminine) for before thousands and millions
+		}
+
+		if((tr->translator_name == L('m','l')) && (thousandplex == 1))
+		{
+			x |= 0x208;  // use #f form for both tens and units
 		}
 
 		if(LookupNum2(tr, tensunits, x | (control & 0x100), buf2) != 0)
