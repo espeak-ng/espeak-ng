@@ -19,6 +19,9 @@ package com.reecedunn.espeak.test;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.test.AndroidTestCase;
+import android.util.Log;
+
+import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -44,7 +47,8 @@ public class TextToSpeechTestCase extends AndroidTestCase
     {
         try
         {
-            // Wait until the text-to-speech engine is initialised:
+            // Wait until the text-to-speech engine is initialised (max: 5 seconds):
+
             mEngine = new TextToSpeech(getContext(), mInitCallback);
             for (int count = 0; !mInitialised && count < 20; ++count)
             {
@@ -54,6 +58,19 @@ public class TextToSpeechTestCase extends AndroidTestCase
             assertThat(mInitialised, is(true));
             assertThat(mStatus, is(TextToSpeech.SUCCESS));
             assertThat(mEngine.getDefaultEngine(), is("com.reecedunn.espeak"));
+
+            // Ensure that the voice data is installed (max: 20 seconds):
+
+            Locale en = new Locale("en");
+            int available = mEngine.isLanguageAvailable(en);
+            for (int count = 0; available != TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE && count < (4 * 20); ++count)
+            {
+                Thread.sleep(250);
+                available = mEngine.isLanguageAvailable(en);
+                Log.d("TextToSpeechTestCase", "setUp: available = " + available);
+            }
+
+            assertThat(available, is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         }
         catch (Exception e)
         {
