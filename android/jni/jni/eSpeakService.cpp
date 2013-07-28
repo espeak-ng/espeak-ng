@@ -176,7 +176,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetSampleRate(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
-  return (jint) nat->sampleRate;
+  return (jint)(nat ? nat->sampleRate : 0);
 }
 
 JNIEXPORT jint
