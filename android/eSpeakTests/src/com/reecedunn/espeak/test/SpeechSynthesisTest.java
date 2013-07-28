@@ -31,14 +31,13 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
-import android.test.AndroidTestCase;
 import android.util.Log;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AnyOf.anyOf;
 
-public class SpeechSynthesisTest extends AndroidTestCase
+public class SpeechSynthesisTest extends TextToSpeechTestCase
 {
     public static final Locale af = new Locale("af"); // Afrikaans
     public static final Locale afr = new Locale("afr"); // Afrikaans

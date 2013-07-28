@@ -19,75 +19,26 @@ package com.reecedunn.espeak.test;
 import java.util.Locale;
 
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
-import android.test.AndroidTestCase;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class TextToSpeechTest extends AndroidTestCase
+public class TextToSpeechTest extends TextToSpeechTestCase
 {
-    private TextToSpeech mEngine = null;
-    private boolean mInitialised = false;
-    private int mStatus = TextToSpeech.ERROR;
-
-    private OnInitListener mInitCallback = new OnInitListener()
-    {
-        @Override
-        public void onInit(int status)
-        {
-            mStatus = status;
-            mInitialised = true;
-        }
-    };
-
-    @Override
-    public void setUp() throws Exception
-    {
-        try
-        {
-            // Wait until the text-to-speech engine is initialised:
-            mEngine = new TextToSpeech(getContext(), mInitCallback);
-            for (int count = 0; !mInitialised && count < 20; ++count)
-            {
-                Thread.sleep(250);
-            }
-
-            assertThat(mInitialised, is(true));
-            assertThat(mStatus, is(TextToSpeech.SUCCESS));
-            assertThat(mEngine.getDefaultEngine(), is("com.reecedunn.espeak"));
-        }
-        catch (Exception e)
-        {
-            tearDown();
-            throw e;
-        }
-    }
-
-    @Override
-    public void tearDown()
-    {
-        if (mEngine != null)
-        {
-            mEngine.shutdown();
-            mEngine = null;
-        }
-    }
-
     public void testUnsupportedLanguage()
     {
-        assertThat(mEngine, is(notNullValue()));
+        assertThat(getEngine(), is(notNullValue()));
 
-        Locale initialLocale = mEngine.getLanguage();
-        assertThat(mEngine.isLanguageAvailable(new Locale("cel")), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(mEngine.getLanguage().getLanguage(), is(initialLocale.getLanguage()));
-        assertThat(mEngine.getLanguage().getCountry(), is(initialLocale.getCountry()));
-        assertThat(mEngine.getLanguage().getVariant(), is(initialLocale.getVariant()));
+        Locale initialLocale = getEngine().getLanguage();
+        assertThat(getEngine().isLanguageAvailable(new Locale("cel")), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(getEngine().getLanguage().getLanguage(), is(initialLocale.getLanguage()));
+        assertThat(getEngine().getLanguage().getCountry(), is(initialLocale.getCountry()));
+        assertThat(getEngine().getLanguage().getVariant(), is(initialLocale.getVariant()));
     }
 
     public void testLanguages()
     {
-        assertThat(mEngine, is(notNullValue()));
+        assertThat(getEngine(), is(notNullValue()));
 
         for (VoiceData.Voice data : VoiceData.voices)
         {
@@ -106,46 +57,46 @@ public class TextToSpeechTest extends AndroidTestCase
                 final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
                 context = "iana1";
-                assertThat(mEngine.isLanguageAvailable(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(mEngine.setLanguage(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
-                assertThat(mEngine.getLanguage().getVariant(), is(data.variant));
+                assertThat(getEngine().isLanguageAvailable(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
+                assertThat(getEngine().getLanguage().getVariant(), is(data.variant));
 
                 context = "iana2";
-                assertThat(mEngine.isLanguageAvailable(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(mEngine.setLanguage(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
-                assertThat(mEngine.getLanguage().getVariant(), is(""));
+                assertThat(getEngine().isLanguageAvailable(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
+                assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "iana3";
-                assertThat(mEngine.isLanguageAvailable(iana3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(mEngine.setLanguage(iana3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(""));
-                assertThat(mEngine.getLanguage().getVariant(), is(""));
+                assertThat(getEngine().isLanguageAvailable(iana3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(""));
+                assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "java1";
-                assertThat(mEngine.isLanguageAvailable(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(mEngine.setLanguage(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
-                assertThat(mEngine.getLanguage().getVariant(), is(data.variant));
+                assertThat(getEngine().isLanguageAvailable(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().setLanguage(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
+                assertThat(getEngine().getLanguage().getVariant(), is(data.variant));
 
                 context = "java2";
-                assertThat(mEngine.isLanguageAvailable(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(mEngine.setLanguage(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(data.javaCountry));
-                assertThat(mEngine.getLanguage().getVariant(), is(""));
+                assertThat(getEngine().isLanguageAvailable(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().setLanguage(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
+                assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "java3";
-                assertThat(mEngine.isLanguageAvailable(java3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(mEngine.setLanguage(java3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(mEngine.getLanguage().getLanguage(), is(data.javaLanguage));
-                assertThat(mEngine.getLanguage().getCountry(), is(""));
-                assertThat(mEngine.getLanguage().getVariant(), is(""));
+                assertThat(getEngine().isLanguageAvailable(java3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().setLanguage(java3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
+                assertThat(getEngine().getLanguage().getCountry(), is(""));
+                assertThat(getEngine().getLanguage().getVariant(), is(""));
             }
             catch (AssertionError e)
             {
