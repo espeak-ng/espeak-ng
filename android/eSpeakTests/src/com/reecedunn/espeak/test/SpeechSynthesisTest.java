@@ -36,6 +36,7 @@ import android.util.Log;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.AnyOf.anyOf;
 
 public class SpeechSynthesisTest extends AndroidTestCase
 {
@@ -365,7 +366,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
             {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 context = "[iana:sample-text]";
-                assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), is(data.sampleText));
+                assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), anyOf(equalTo(data.sampleText), equalTo(data.sampleTextAlt)));
                 context = "[iana:resource-locale]";
                 assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
 
@@ -373,7 +374,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
                 {
                     final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
                     context = "[java:sample-text]";
-                    assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), is(data.sampleText));
+                    assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), anyOf(equalTo(data.sampleText), equalTo(data.sampleTextAlt)));
                     context = "[java:resource-locale]";
                     assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
                 }

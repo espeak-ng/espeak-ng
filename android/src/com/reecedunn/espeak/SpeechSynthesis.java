@@ -117,8 +117,10 @@ public class SpeechSynthesis {
             if (name.equals("fa-pin")) {
                 // Android locales do not support scripts, so fa-Latn is not possible for Farsi Pinglish:
                 locale = null;
-            }
-            else if (name.equals("en-sc")) {
+            } else if (name.equals("om")) {
+                // This is an experimental voice that is not currently well tested to be used.
+                locale = null;
+            } else if (name.equals("en-sc")) {
                 // 'SC' is not a country code.
                 locale = new Locale("en", "GB", "scotland");
             } else if (name.equals("en-wi")) {
