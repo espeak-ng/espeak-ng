@@ -124,11 +124,13 @@ public class SpeechSynthesis {
                 // 'SC' is not a country code.
                 locale = new Locale("en", "GB", "scotland");
             } else if (name.equals("en-wi")) {
-                // 'WI' is not a country code.
-                locale = new Locale("en", "029");
+                // 'WI' is not a country code. Also, territory code 029 (Caribbean)
+                // is not supported by Android.
+                locale = new Locale("en", "JM");
             } else if (name.equals("es-la")) {
-                // 'LA' is the country code for Laos, not Latin America.
-                locale = new Locale("es", "419");
+                // 'LA' is the country code for Laos, not Latin America. Also, territory code 419
+                // (Latin America) is not supported by Android.
+                locale = new Locale("es", "MX");
             } else if (name.equals("hy-west")) {
                 // 'west' is not a country code.
                 locale = new Locale("hy", "", "arevmda");
@@ -168,11 +170,6 @@ public class SpeechSynthesis {
 
             try {
                 if (locale != null && !locale.getISO3Language().equals("")) {
-                    // This will throw a MissingResourceException on Android 4.3,
-                    // so check here to avoid the exception in the Android
-                    // TextToSpeech class.
-                    String country = locale.getISO3Country();
-
                     final Voice voice = new Voice(name, identifier, gender, age, locale);
                     voices.add(voice);
                 }
@@ -438,8 +435,8 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("zho", "zh");
         mJavaToIanaLanguageCode.put("yue", "zh");
 
-        mJavaToIanaCountryCode.put("029", "");   // Locale.getCountry() does not map numeric country codes.
-        mJavaToIanaCountryCode.put("419", "");   // Locale.getCountry() does not map numeric country codes.
+        mJavaToIanaCountryCode.put("JAM", "JM");
+        mJavaToIanaCountryCode.put("MEX", "MX");
         mJavaToIanaCountryCode.put("BEL", "BE");
         mJavaToIanaCountryCode.put("BRA", "BR");
         mJavaToIanaCountryCode.put("FRA", "FR");

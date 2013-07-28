@@ -47,10 +47,10 @@ public class TextToSpeechTestCase extends AndroidTestCase
     {
         try
         {
-            // Wait until the text-to-speech engine is initialised (max: 5 seconds):
+            // Wait until the text-to-speech engine is initialised (max: 20 seconds):
 
             mEngine = new TextToSpeech(getContext(), mInitCallback);
-            for (int count = 0; !mInitialised && count < 20; ++count)
+            for (int count = 0; !mInitialised && count < (4 * 20); ++count)
             {
                 Thread.sleep(250);
             }
