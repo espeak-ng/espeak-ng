@@ -39,6 +39,8 @@ distclean: clean
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
 	cd espeak-data && rm -f *_dict && cd ..
 
+check: apk-check
+
 ##### build targets:
 
 common_SOURCE = \
@@ -129,6 +131,9 @@ apk-release:
 
 apk-debug:
 	cd android && gradle assembleDebug
+
+apk-check:
+	cd android && gradle connectedCheck
 
 android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 	mkdir -pv android/res/raw
