@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -769,6 +770,10 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		strcpy(&phon_out_buf[phon_out_ix], phon_buf);
 		phon_out_ix += len;
 	}
+
+	if (!phon_out_buf)
+		return("");
+
 	phon_out_buf[phon_out_ix] = 0;
 
 	return(phon_out_buf);
