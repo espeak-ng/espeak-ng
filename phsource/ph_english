@@ -250,7 +250,7 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
-  ipa ɪ
+  ipa i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/ii_7)
