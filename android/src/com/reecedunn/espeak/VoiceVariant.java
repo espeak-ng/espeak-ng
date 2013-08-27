@@ -16,7 +16,11 @@
 
 package com.reecedunn.espeak;
 
+import java.util.regex.Pattern;
+
 public class VoiceVariant {
+    private static final Pattern mVariantPattern = Pattern.compile("-");
+
     public final String variant;
     public final int gender;
     public final int age;
@@ -54,7 +58,7 @@ public class VoiceVariant {
     }
 
     public static VoiceVariant parseVoiceVariant(String value) {
-        String[] parts = value.split("-");
+        String[] parts = mVariantPattern.split(value);
         int age = SpeechSynthesis.AGE_ANY;
         switch (parts.length) {
         case 1: // variant
