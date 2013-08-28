@@ -19,9 +19,8 @@ The espeak and espeakedit programs, along with the espeak voices, can
 be built via the standard autotools commands:
 
 	$ ./autogen.sh
-	$ ./configure
+	$ ./configure --prefix=/usr
 	$ make
-	$ sudo make install
 
 __NOTE:__ The configure command detects various platform differences that
 the espeak makefiles don't cater for (e.g. different wxWidgets version)
@@ -31,11 +30,57 @@ and detect the available audio setup to use automatically.
 
 Before installing, you can test the built espeak using the following command:
 
-    $ ESPEAK_DATA_PATH=`pwd` src/espeak hello
+    $ ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak ...
 
 The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak data from
 the source tree. Otherwise, espeak will look in `$(HOME)` or
 `/usr/share/espeak-data`.
+
+The `LD_LIBRARY_PATH` is set as `espeak` uses the `libespeak.so` shared
+library. This ensures that `espeak` uses the built shared library in the
+`src` directory and not the one on the system (which could be an older
+version).
+
+## Installing
+
+You can install eSpeak by running the following command:
+
+    $ sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
+
+The `LIBDIR` path may be different to the one on your system (the above
+is for 64-bit Debian/Ubuntu releases that use the multi-arch package
+structure -- that is, Debian Wheezy or later).
+
+You can find out where espeak is installed to on your system if you
+already have an espeak install by running:
+
+    $ find /usr/lib | grep libespeak
+
+## Voices
+
+If you are modifying a language's phoneme, voice or dictionary files, you
+can just build that voice by running:
+
+    $ make <lang-code>
+
+For example, if you add entries in the `dictsource/en_extra` file, you can
+run:
+
+    $ make en
+
+to build an English voice file with those changes in without rebuilding
+all the voices. This will make it easier to spot errors.
+
+### Adding New Voices
+
+Once you have added the necessary files to eSpeak to support the new voice,
+you can then run:
+
+    $ ./mkdictlist Makefile.am
+
+This will update the build system so that `make` will build the new voice
+in addition to building everything else, and add a `<lang-code>` target
+for building just that voice.
 
 ## Historical Releases
 
