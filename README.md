@@ -20,8 +20,8 @@ If you are building with Eclipse, you will also need:
 If you are building on the command line, you will also need either:
 
 1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution), or
-2.  gradle 1.6, which can be installed from the
-    [Ubuntu PPA](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle_1.6-0ubuntu1_all.deb)
+2.  gradle 1.7, which can be installed from the
+    [Ubuntu PPA](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb)
     debian file (including on Debian systems)
 
 ## Building with Gradle
