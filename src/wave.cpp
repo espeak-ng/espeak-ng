@@ -31,7 +31,6 @@
 #include <sys/time.h>
 #include <time.h>
 
-#include "portaudio.h"
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif
@@ -43,6 +42,7 @@
 enum {ONE_BILLION=1000000000};
 
 #ifdef USE_PORTAUDIO
+#include "portaudio.h"
 
 #undef USE_PORTAUDIO
 // determine portaudio version by looking for a #define which is not in V18

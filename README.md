@@ -28,7 +28,6 @@ If you are building on the command line, you will also need either:
 
 1.  Set the location of the Android SDK:
 
-        $ export ANDROID_HOME=<path-to-sdk>
 2.  Build the project:
 
         $ ./autogen.sh
