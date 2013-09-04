@@ -111,4 +111,14 @@
   <string name="resetToDefault">Set to default</string>
   <string name="espeak_pitch_range">Pitch variation</string>
   <string name="espeak_variant">Voice variant</string>
+  <string name="espeak_punctuation_level">Punctuation level</string>
+  <!--
+          Source: Punctuation level preference labels.
+          Description: Labels for possible punctuation level values.
+  -->
+  <string-array name="punctuation_level_entries">
+    <item>None</item>
+    <item>All</item>
+    <item>Some</item>
+  </string-array>
 </resources>

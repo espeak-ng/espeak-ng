@@ -240,6 +240,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.Pitch.setValue(settings.getPitch(), request.getPitch());
         mEngine.PitchRange.setValue(settings.getPitchRange());
         mEngine.Volume.setValue(settings.getVolume());
+        mEngine.Punctuation.setValue(settings.getPunctuationLevel());
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 

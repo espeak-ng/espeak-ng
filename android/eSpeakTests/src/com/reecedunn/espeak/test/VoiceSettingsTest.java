@@ -56,6 +56,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     // Old Settings
@@ -75,6 +76,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testDefaultGenderFemale()
@@ -92,6 +94,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void defaultRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -108,6 +111,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testDefaultRate()
@@ -134,6 +138,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(settingValue));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testDefaultPitch()
@@ -164,6 +169,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void espeakRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -180,6 +186,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakRate()
@@ -207,6 +214,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(settingValue));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakPitch()
@@ -233,6 +241,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(settingValue));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakPitchRange()
@@ -259,6 +268,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(settingValue));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakVolume()
@@ -269,6 +279,33 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         espeakVolumeTest(100, 100, synth); // default value
         espeakVolumeTest( 50,  50, synth);
         espeakVolumeTest( -5,   0, synth); // clamped to minimum value
+    }
+
+    public void espeakPunctuationLevelTest(int prefValue, int settingValue, SpeechSynthesis synth)
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.putString("espeak_punctuation_level", Integer.toString(prefValue));
+        editor.commit();
+
+        VoiceSettings settings = new VoiceSettings(prefs, synth);
+        assertThat(settings.getVoiceVariant().toString(), is("male"));
+        assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
+        assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
+        assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(settingValue));
+    }
+
+    public void testEspeakPunctuationLevel()
+    {
+        SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
+        espeakPunctuationLevelTest( 3, SpeechSynthesis.PUNCT_SOME, synth); // clamped to maximum value
+        espeakPunctuationLevelTest( 2, SpeechSynthesis.PUNCT_SOME, synth);
+        espeakPunctuationLevelTest( 1, SpeechSynthesis.PUNCT_ALL,  synth);
+        espeakPunctuationLevelTest( 0, SpeechSynthesis.PUNCT_NONE, synth);
+        espeakPunctuationLevelTest(-1, SpeechSynthesis.PUNCT_NONE, synth); // clamped to minimum value
     }
 
     // Mixed (Old and New) Settings
@@ -289,6 +326,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakRateWithDefaultRate()
@@ -307,6 +345,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 
     public void testEspeakPitchWithDefaultPitch()
@@ -325,5 +364,6 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitch(), is(75));
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+        assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
     }
 }
