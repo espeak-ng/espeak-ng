@@ -21,15 +21,18 @@ import java.util.regex.Pattern;
 public class VoiceVariant {
     private static final Pattern mVariantPattern = Pattern.compile("-");
 
+    public static final String MALE = "male";
+    public static final String FEMALE = "female";
+
     public final String variant;
     public final int gender;
     public final int age;
 
     protected VoiceVariant(String variant, int age) {
-        if (variant.equals("male")) {
+        if (variant.equals(MALE)) {
             this.variant = null;
             this.gender = SpeechSynthesis.GENDER_MALE;
-        } else if (variant.equals("female")) {
+        } else if (variant.equals(FEMALE)) {
             this.variant = null;
             this.gender = SpeechSynthesis.GENDER_FEMALE;
         } else {
@@ -43,9 +46,9 @@ public class VoiceVariant {
     public String toString() {
         final String ret;
         if (gender == SpeechSynthesis.GENDER_MALE) {
-            ret = "male";
+            ret = MALE;
         } else if (gender == SpeechSynthesis.GENDER_FEMALE) {
-            ret = "female";
+            ret = FEMALE;
         } else {
             ret = variant;
         }

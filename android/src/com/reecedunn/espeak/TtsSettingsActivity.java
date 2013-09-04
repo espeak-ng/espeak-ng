@@ -66,9 +66,9 @@ public class TtsSettingsActivity extends PreferenceActivity {
         if (variant == null) {
             String gender = prefs.getString("default_gender", "0");
             if (gender.equals("2")) {
-                editor.putString("espeak_variant", "female");
+                editor.putString("espeak_variant", VoiceVariant.FEMALE);
             } else {
-                editor.putString("espeak_variant", "male");
+                editor.putString("espeak_variant", VoiceVariant.MALE);
             }
         }
 
