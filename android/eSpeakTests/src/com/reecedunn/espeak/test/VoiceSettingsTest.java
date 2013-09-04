@@ -308,4 +308,22 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
     }
+
+    public void testEspeakPitchWithDefaultPitch()
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.putString("default_pitch", Integer.toString(50));
+        editor.putString("espeak_pitch", Integer.toString(75));
+        editor.commit();
+
+        SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
+        VoiceSettings settings = new VoiceSettings(prefs, synth);
+        assertThat(settings.getVoiceVariant().toString(), is("male"));
+        assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
+        assertThat(settings.getPitch(), is(75));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
+        assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
+    }
 }
