@@ -31,6 +31,7 @@ public class VoiceSettings {
     public static final String PREF_PITCH_RANGE = "espeak_pitch_range";
     public static final String PREF_VOLUME = "espeak_volume";
     public static final String PREF_PUNCTUATION_LEVEL = "espeak_punctuation_level";
+    public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
 
     public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
@@ -105,6 +106,10 @@ public class VoiceSettings {
         if (level > max) level = max;
         if (level < min) level = min;
         return level;
+    }
+
+    public String getPunctuationCharacters() {
+        return mPreferences.getString(PREF_PUNCTUATION_CHARACTERS, null);
     }
 
     private int getPreferenceValue(String preference, int defaultValue) {
