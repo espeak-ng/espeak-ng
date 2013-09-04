@@ -214,37 +214,6 @@ public class TtsService extends TextToSpeechService {
         if (text == null)
             return;
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final String variantString = prefs.getString("espeak_variant", null);
-        final VoiceVariant variant;
-        if (variantString == null) {
-            final int gender = getPreferenceValue(prefs, "default_gender", SpeechSynthesis.GENDER_MALE);
-            if (gender == SpeechSynthesis.GENDER_FEMALE) {
-                variant = VoiceVariant.parseVoiceVariant(VoiceVariant.FEMALE);
-            } else {
-                variant = VoiceVariant.parseVoiceVariant(VoiceVariant.MALE);
-            }
-        } else {
-            variant = VoiceVariant.parseVoiceVariant(variantString);
-        }
-
-        int rate = getPreferenceValue(prefs, "espeak_rate", Integer.MIN_VALUE);
-        if (rate == Integer.MIN_VALUE) {
-            // Try the old eyes-free setting:
-            int defaultValue = mEngine.Rate.getDefaultValue();
-            int maxValue = mEngine.Rate.getMaxValue();
-
-            rate = (getPreferenceValue(prefs, "default_rate", 100) / 100) * defaultValue;
-            if (rate < defaultValue) rate = defaultValue;
-            if (rate > maxValue) rate = maxValue;
-        }
-
-        int pitch = getPreferenceValue(prefs, "espeak_pitch", Integer.MIN_VALUE);
-        if (pitch == Integer.MIN_VALUE) {
-            // Try the old eyes-free setting:
-            pitch = getPreferenceValue(prefs, "default_pitch", 100) / 2;
-        }
-
         if (DEBUG) {
             Log.i(TAG, "Received synthesis request: {language=\"" + mMatchingVoice.name + "\"}");
 
@@ -263,23 +232,15 @@ public class TtsService extends TextToSpeechService {
         }
 
         mCallback = callback;
-        mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(),
-                mEngine.getChannelCount());
+        mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(), mEngine.getChannelCount());
 
-        mEngine.setVoice(mMatchingVoice, variant);
-        mEngine.Rate.setValue(rate, request.getSpeechRate());
-        mEngine.Pitch.setValue(pitch, request.getPitch());
-        mEngine.PitchRange.setValue(getPreferenceValue(prefs, "espeak_pitch_range", mEngine.PitchRange.getDefaultValue()));
-        mEngine.Volume.setValue(getPreferenceValue(prefs, "espeak_volume", mEngine.Volume.getDefaultValue()));
+        final VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(this), mEngine);
+        mEngine.setVoice(mMatchingVoice, settings.getVoiceVariant());
+        mEngine.Rate.setValue(settings.getRate(), request.getSpeechRate());
+        mEngine.Pitch.setValue(settings.getPitch(), request.getPitch());
+        mEngine.PitchRange.setValue(settings.getPitchRange());
+        mEngine.Volume.setValue(settings.getVolume());
         mEngine.synthesize(text, text.startsWith("<speak"));
-    }
-
-    private int getPreferenceValue(SharedPreferences prefs, String preference, int defaultValue) {
-        final String prefString = prefs.getString(preference, null);
-        if (prefString == null) {
-            return defaultValue;
-        }
-        return Integer.parseInt(prefString);
     }
 
     /**
