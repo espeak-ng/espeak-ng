@@ -29,6 +29,7 @@ public class VoiceSettings {
     public static final String PREF_DEFAULT_PITCH = "default_pitch";
     public static final String PREF_PITCH = "espeak_pitch";
     public static final String PREF_PITCH_RANGE = "espeak_pitch_range";
+    public static final String PREF_VOLUME = "espeak_volume";
 
     public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
@@ -80,6 +81,16 @@ public class VoiceSettings {
         int max = mEngine.PitchRange.getMaxValue();
 
         int range = getPreferenceValue(PREF_PITCH_RANGE, mEngine.PitchRange.getDefaultValue());
+        if (range > max) range = max;
+        if (range < min) range = min;
+        return range;
+    }
+
+    public int getVolume() {
+        int min = mEngine.Volume.getMinValue();
+        int max = mEngine.Volume.getMaxValue();
+
+        int range = getPreferenceValue(PREF_VOLUME, mEngine.Volume.getDefaultValue());
         if (range > max) range = max;
         if (range < min) range = min;
         return range;
