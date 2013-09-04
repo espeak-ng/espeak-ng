@@ -54,6 +54,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     // Old Settings
@@ -71,6 +72,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testDefaultGenderFemale()
@@ -86,6 +88,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("female"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void defaultRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -100,6 +103,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(settingValue));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testDefaultRate()
@@ -124,6 +128,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(settingValue));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testDefaultPitch()
@@ -152,6 +157,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("klatt2-old"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void espeakRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -166,6 +172,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(settingValue));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testEspeakRate()
@@ -191,6 +198,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(settingValue));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testEspeakPitch()
@@ -201,6 +209,31 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         espeakPitchTest( 50,  50, synth); // default value
         espeakPitchTest( 10,  10, synth);
         espeakPitchTest( -5,   0, synth); // clamped to minimum value
+    }
+
+    public void espeakPitchRangeTest(int prefValue, int settingValue, SpeechSynthesis synth)
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.putString("espeak_pitch_range", Integer.toString(prefValue));
+        editor.commit();
+
+        VoiceSettings settings = new VoiceSettings(prefs, synth);
+        assertThat(settings.getVoiceVariant().toString(), is("male"));
+        assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
+        assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(settingValue));
+    }
+
+    public void testEspeakPitchRange()
+    {
+        SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
+        espeakPitchRangeTest(110, 100, synth); // clamped to maximum value
+        espeakPitchRangeTest(100, 100, synth);
+        espeakPitchRangeTest( 50,  50, synth); // default value
+        espeakPitchRangeTest( 10,  10, synth);
+        espeakPitchRangeTest( -5,   0, synth); // clamped to minimum value
     }
 
     // Mixed (Old and New) Settings
@@ -219,6 +252,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("klatt4"));
         assertThat(settings.getRate(), is(synth.Rate.getDefaultValue()));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 
     public void testEspeakRateWithDefaultRate()
@@ -235,5 +269,6 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVoiceVariant().toString(), is("male"));
         assertThat(settings.getRate(), is(200));
         assertThat(settings.getPitch(), is(synth.Pitch.getDefaultValue()));
+        assertThat(settings.getPitchRange(), is(synth.PitchRange.getDefaultValue()));
     }
 }
