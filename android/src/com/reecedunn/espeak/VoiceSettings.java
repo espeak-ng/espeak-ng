@@ -26,6 +26,8 @@ public class VoiceSettings {
     public static final String PREF_VARIANT = "espeak_variant";
     public static final String PREF_DEFAULT_RATE = "default_rate";
     public static final String PREF_RATE = "espeak_rate";
+    public static final String PREF_DEFAULT_PITCH = "default_pitch";
+    public static final String PREF_PITCH = "espeak_pitch";
 
     public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
@@ -56,6 +58,20 @@ public class VoiceSettings {
         if (rate > max) rate = max;
         if (rate < min) rate = min;
         return rate;
+    }
+
+    public int getPitch() {
+        int min = mEngine.Pitch.getMinValue();
+        int max = mEngine.Pitch.getMaxValue();
+
+        int pitch = getPreferenceValue(PREF_PITCH, Integer.MIN_VALUE);
+        if (pitch == Integer.MIN_VALUE) {
+            pitch = getPreferenceValue(PREF_DEFAULT_PITCH, 100) / 2;
+        }
+
+        if (pitch > max) pitch = max;
+        if (pitch < min) pitch = min;
+        return pitch;
     }
 
     private int getPreferenceValue(String preference, int defaultValue) {
