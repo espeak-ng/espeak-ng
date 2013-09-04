@@ -20,12 +20,16 @@ import android.content.SharedPreferences;
 
 public class VoiceSettings {
     private final SharedPreferences mPreferences;
+    private final SpeechSynthesis mEngine;
 
     public static final String PREF_DEFAULT_GENDER = "default_gender";
     public static final String PREF_VARIANT = "espeak_variant";
+    public static final String PREF_DEFAULT_RATE = "default_rate";
+    public static final String PREF_RATE = "espeak_rate";
 
-    public VoiceSettings(SharedPreferences preferences) {
+    public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
+        mEngine = engine;
     }
 
     public VoiceVariant getVoiceVariant() {
@@ -38,6 +42,20 @@ public class VoiceSettings {
             return VoiceVariant.parseVoiceVariant(VoiceVariant.MALE);
         }
         return VoiceVariant.parseVoiceVariant(variant);
+    }
+
+    public int getRate() {
+        int min = mEngine.Rate.getMinValue();
+        int max = mEngine.Rate.getMaxValue();
+
+        int rate = getPreferenceValue(PREF_RATE, Integer.MIN_VALUE);
+        if (rate == Integer.MIN_VALUE) {
+            rate = (int)((float)getPreferenceValue(PREF_DEFAULT_RATE, 100) / 100 * (float)mEngine.Rate.getDefaultValue());
+        }
+
+        if (rate > max) rate = max;
+        if (rate < min) rate = min;
+        return rate;
     }
 
     private int getPreferenceValue(String preference, int defaultValue) {
