@@ -97,6 +97,18 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
     }
 
+    private static Preference createSpeakPunctuationPreference(Context context, SpeechSynthesis engine, int titleRes) {
+        final String title = context.getString(titleRes);
+
+        final SpeakPunctuationPreference pref = new SpeakPunctuationPreference(context);
+        pref.setTitle(title);
+        pref.setDialogTitle(title);
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        pref.setPersistent(true);
+        pref.setVoiceSettings(new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(context), engine));
+        return pref;
+    }
+
     private static Preference createPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
         final String title = context.getString(titleRes);
         final int defaultValue = parameter.getDefaultValue();
@@ -165,6 +177,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
 
+        group.addPreference(createSpeakPunctuationPreference(context, engine, R.string.espeak_speak_punctuation));
         group.addPreference(createPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
         group.addPreference(createPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
         group.addPreference(createPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
@@ -189,6 +202,8 @@ public class TtsSettingsActivity extends PreferenceActivity {
                             final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
                             String formatter = seekBarPreference.getFormatter();
                             summary = String.format(formatter, (String)newValue);
+                        } else {
+                            summary = (String)newValue;
                         }
                         preference.setSummary(summary);
                     }

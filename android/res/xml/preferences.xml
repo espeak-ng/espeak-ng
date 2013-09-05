@@ -9,12 +9,4 @@
         android:summary="%s"
         android:title="@string/espeak_variant" />
 
-    <ListPreference
-        android:defaultValue="0"
-        android:entries="@array/punctuation_level_entries"
-        android:entryValues="@array/punctuation_level_values"
-        android:key="espeak_punctuation_level"
-        android:summary="%s"
-        android:title="@string/espeak_punctuation_level" />
-
 </PreferenceScreen>

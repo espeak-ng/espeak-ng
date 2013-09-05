@@ -31,6 +31,77 @@
 #include <TtsEngine.h>
 #include <Log.h>
 
+/** @name  Java to Wide String Helpers
+  * @brief These are helpers for converting a jstring to wchar_t*.
+  *
+  * This assumes that wchar_t is a 32-bit (UTF-32) value.
+  */
+//@{
+
+const char *utf8_read(const char *in, wchar_t &c)
+{
+	if (uint8_t(*in) < 0x80)
+		c = *in++;
+	else switch (uint8_t(*in) & 0xF0)
+	{
+	default:
+		c = uint8_t(*in++) & 0x1F;
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		break;
+	case 0xE0:
+		c = uint8_t(*in++) & 0x0F;
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		break;
+	case 0xF0:
+		c = uint8_t(*in++) & 0x07;
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		break;
+	}
+	return in;
+}
+
+class unicode_string
+{
+  static_assert(sizeof(wchar_t) == 4, "wchar_t is not UTF-32");
+public:
+  unicode_string(JNIEnv *env, jstring str);
+  ~unicode_string();
+
+  const wchar_t *c_str() const { return mString; }
+private:
+  wchar_t *mString;
+};
+
+unicode_string::unicode_string(JNIEnv *env, jstring str)
+  : mString(NULL)
+{
+  if (str == NULL) return;
+
+  const char *utf8 = env->GetStringUTFChars(str, NULL);
+  mString = (wchar_t *)malloc(strlen(utf8) + 1);
+
+  const char *utf8_current = utf8;
+  wchar_t *utf32_current = mString;
+  while (*utf8_current)
+  {
+    utf8_current = utf8_read(utf8_current, *utf32_current);
+    ++utf32_current;
+  }
+  *utf32_current = 0;
+
+  env->ReleaseStringUTFChars(str, utf8);
+}
+
+unicode_string::~unicode_string()
+{
+  if (mString) free(mString);
+}
+
+//@}
+
 #define LOG_TAG "eSpeakService"
 #define DEBUG true
 
@@ -312,6 +383,23 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetParameter(
     JNIEnv *env, jobject object, jint parameter, jint current) {
   if (DEBUG) LOGV("%s(parameter=%d, pitch=%d)", __FUNCTION__, parameter, current);
   return espeak_GetParameter((espeak_PARAMETER)parameter, (int)current);
+}
+
+JNIEXPORT jboolean
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPunctuationCharacters(
+    JNIEnv *env, jobject object, jstring characters) {
+  if (DEBUG) LOGV("%s)", __FUNCTION__);
+
+  unicode_string list(env, characters);
+  const espeak_ERROR result = espeak_SetPunctuationList(list.c_str());
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetPunctuationList: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetPunctuationList: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetPunctuationList: not found."); break;
+  }
+
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean

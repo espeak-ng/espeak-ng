@@ -193,14 +193,18 @@ public class SpeechSynthesis {
         }
     }
 
+    public void setPunctuationCharacters(String characters) {
+        nativeSetPunctuationCharacters(characters);
+    }
+
     /** Don't announce any punctuation characters. */
-    public static int PUNCT_NONE = 0;
+    public static final int PUNCT_NONE = 0;
 
     /** Announce every punctuation character. */
-    public static int PUNCT_ALL = 1;
+    public static final int PUNCT_ALL = 1;
 
     /** Announce some of the punctuation characters. */
-    public static int PUNCT_SOME = 2;
+    public static final int PUNCT_SOME = 2;
 
     public enum UnitType {
         Percentage,
@@ -344,6 +348,8 @@ public class SpeechSynthesis {
     private native final boolean nativeSetParameter(int parameter, int value);
 
     private native final int nativeGetParameter(int parameter, int current);
+
+    private native final boolean nativeSetPunctuationCharacters(String characters);
 
     private native final boolean nativeSynthesize(String text, boolean isSsml);
 

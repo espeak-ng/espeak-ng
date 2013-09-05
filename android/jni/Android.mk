@@ -1,6 +1,8 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
+LOCAL_CFLAGS = -std=c++11
+
 # ucd-tools wide-character compatibility support:
 
 UCDTOOLS_SRC_PATH  := ../../ucd-tools/src
