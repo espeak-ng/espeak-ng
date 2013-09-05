@@ -5,7 +5,7 @@ name Lee
 gender Male
 
 
-;echo 230 30
+#echo 230 30
 
 pitch 85 110
 

@@ -5,7 +5,7 @@ name Linda
 gender female
 
 
-;echo 130 15
+#echo 130 15
 
 pitch 200 247  
 

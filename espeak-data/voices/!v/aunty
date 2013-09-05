@@ -5,7 +5,7 @@ name Auntie
 gender female
 
 
-:echo 130 15
+#echo 130 15
 
 pitch 204 176
 
