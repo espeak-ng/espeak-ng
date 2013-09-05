@@ -109,7 +109,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         return pref;
     }
 
-    private static Preference createPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
+    private static Preference createSeekBarPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
         final String title = context.getString(titleRes);
         final int defaultValue = parameter.getDefaultValue();
 
@@ -178,10 +178,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
 
         group.addPreference(createSpeakPunctuationPreference(context, engine, R.string.espeak_speak_punctuation));
-        group.addPreference(createPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
-        group.addPreference(createPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
-        group.addPreference(createPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
-        group.addPreference(createPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
+        group.addPreference(createSeekBarPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
+        group.addPreference(createSeekBarPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
+        group.addPreference(createSeekBarPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
+        group.addPreference(createSeekBarPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
     }
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
