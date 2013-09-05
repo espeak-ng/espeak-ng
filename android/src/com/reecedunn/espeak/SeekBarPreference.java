@@ -91,6 +91,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     {
         super(context, attrs, defStyle);
         setDialogLayoutResource(R.layout.seekbar_preference);
+        setLayoutResource(R.layout.information_view);
         setPositiveButtonText(android.R.string.ok);
         setNegativeButtonText(android.R.string.cancel);
     }

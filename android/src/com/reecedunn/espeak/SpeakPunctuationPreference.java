@@ -39,6 +39,7 @@ public class SpeakPunctuationPreference extends DialogPreference {
     public SpeakPunctuationPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setDialogLayoutResource(R.layout.speak_punctuation_preference);
+        setLayoutResource(R.layout.information_view);
         setPositiveButtonText(android.R.string.ok);
         setNegativeButtonText(android.R.string.cancel);
     }
