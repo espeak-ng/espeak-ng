@@ -8,7 +8,7 @@
     android:padding="6dp" >
 
     <TextView
-        android:id="@+id/title"
+        android:id="@android:id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
@@ -17,7 +17,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/summary"
+        android:id="@android:id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="4"

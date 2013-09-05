@@ -52,8 +52,8 @@ public class InformationListAdapter extends ArrayAdapter<Pair<String,String>>
         {
             convertView = inflater.inflate(R.layout.information_view, parent, false);
             holder = new ViewHolder();
-            holder.title = (TextView)convertView.findViewById(R.id.title);
-            holder.summary = (TextView)convertView.findViewById(R.id.summary);
+            holder.title = (TextView)convertView.findViewById(android.R.id.title);
+            holder.summary = (TextView)convertView.findViewById(android.R.id.summary);
             convertView.setTag(holder);
         }
         else
