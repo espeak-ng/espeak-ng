@@ -58,7 +58,17 @@ if test "$with_portaudio" = "no"; then
 else
     AC_CHECK_HEADERS([portaudio.h],
         [
-            have_portaudio=yes
+            AC_CHECK_LIB([portaudio], [Pa_IsStreamActive],
+                [
+                    have_portaudio=19
+                ],[
+                    AC_CHECK_LIB([portaudio], [Pa_StreamActive],
+                        [
+                            have_portaudio=18
+                        ],[
+                            have_portaudio=no
+                        ])
+                ])
         ],[
             have_portaudio=no
         ])
@@ -68,7 +78,7 @@ dnl ================================================================
 dnl Audio checks.
 dnl ================================================================
 
-if test "$have_portaudio" = yes ; then
+if test "$have_portaudio" = 18 -o "$have_portaudio" = 19 ; then
     if test "$have_pulseaudio" = yes ; then
         PKG_CHECK_MODULES(PULSEAUDIO_SIMPLE, [libpulse-simple >= 0.9],
             [
