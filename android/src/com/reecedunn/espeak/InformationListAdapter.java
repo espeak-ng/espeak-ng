@@ -28,7 +28,6 @@ import android.widget.TextView;
 
 public class InformationListAdapter extends ArrayAdapter<Pair<String,String>>
 {
-    private final List<Pair<String,String>> information;
     private final LayoutInflater inflater;
 
     static class ViewHolder
@@ -41,7 +40,6 @@ public class InformationListAdapter extends ArrayAdapter<Pair<String,String>>
     {
         super(context, R.layout.information_view, information);
         this.inflater = context.getLayoutInflater();
-        this.information = information;
     }
 
     @Override
@@ -61,7 +59,7 @@ public class InformationListAdapter extends ArrayAdapter<Pair<String,String>>
             holder = (ViewHolder)convertView.getTag();
         }
 
-        Pair<String,String> info = information.get(position);
+        Pair<String,String> info = getItem(position);
         holder.title.setText(info.first);
         holder.summary.setText(info.second);
         return convertView;
