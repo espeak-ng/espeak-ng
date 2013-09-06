@@ -6,32 +6,7 @@
     -->
   <string name="app_name" translatable="false">eSpeak</string>
 
-    <string-array name="default_variant_values">
-        <item>male</item>
-        <item>m1</item>
-        <item>m2</item>
-        <item>m3</item>
-        <item>m4</item>
-        <item>m5</item>
-        <item>m6</item>
-        <item>m7</item>
-        <item>female</item>
-        <item>f1</item>
-        <item>f2</item>
-        <item>f3</item>
-        <item>f4</item>
-        <item>f5</item>
-        <item>klatt</item>
-        <item>klatt2</item>
-        <item>klatt3</item>
-        <item>klatt4</item>
-        <item>croak</item>
-        <item>whisper</item>
-        <item>whisperf</item>
-        <item>male-young</item>
-        <item>female-young</item>
-        <item>male-old</item>
-        <item>female-old</item>
-    </string-array>
+  <!-- Voice Variants that are people's names. -->
+  <string name="variant_klatt">Klatt</string>
 
 </resources>

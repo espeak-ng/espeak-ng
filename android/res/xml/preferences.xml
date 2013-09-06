@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <ListPreference
-        android:defaultValue="1"
-        android:entries="@array/default_variant_entries"
-        android:entryValues="@array/default_variant_values"
-        android:key="espeak_variant"
-        android:summary="%s"
-        android:title="@string/espeak_variant" />
-
 </PreferenceScreen>

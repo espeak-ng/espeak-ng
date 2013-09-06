@@ -60,6 +60,17 @@ public class VoiceVariant {
         return ret;
     }
 
+    public boolean equals(Object o) {
+        if (o instanceof VoiceVariant) {
+            VoiceVariant other = (VoiceVariant)o;
+            if (variant == null || other.variant == null) {
+                return other.variant == null && variant == null && other.gender == gender && other.age == age;
+            }
+            return other.variant.equals(variant) && other.gender == gender && other.age == age;
+        }
+        return false;
+    }
+
     public static VoiceVariant parseVoiceVariant(String value) {
         String[] parts = mVariantPattern.split(value);
         int age = SpeechSynthesis.AGE_ANY;

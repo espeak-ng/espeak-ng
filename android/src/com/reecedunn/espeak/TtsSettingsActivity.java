@@ -97,7 +97,19 @@ public class TtsSettingsActivity extends PreferenceActivity {
         }
     }
 
-    private static Preference createSpeakPunctuationPreference(Context context, SpeechSynthesis engine, int titleRes) {
+    private static Preference createVoiceVariantPreference(Context context, VoiceSettings settings, int titleRes) {
+        final String title = context.getString(titleRes);
+
+        final VoiceVariantPreference pref = new VoiceVariantPreference(context);
+        pref.setTitle(title);
+        pref.setDialogTitle(title);
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        pref.setPersistent(true);
+        pref.setVoiceVariant(settings.getVoiceVariant());
+        return pref;
+    }
+
+    private static Preference createSpeakPunctuationPreference(Context context, VoiceSettings settings, int titleRes) {
         final String title = context.getString(titleRes);
 
         final SpeakPunctuationPreference pref = new SpeakPunctuationPreference(context);
@@ -105,7 +117,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setDialogTitle(title);
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
-        pref.setVoiceSettings(new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(context), engine));
+        pref.setVoiceSettings(settings);
         return pref;
     }
 
@@ -153,31 +165,11 @@ public class TtsSettingsActivity extends PreferenceActivity {
      * summary with the current entry value.
      */
     private static void createPreferences(Context context, PreferenceGroup group) {
-        if (group == null) {
-            return;
-        }
-
-        final int count = group.getPreferenceCount();
-
-        for (int i = 0; i < count; i++) {
-            final Preference preference = group.getPreference(i);
-
-            if (preference instanceof PreferenceGroup) {
-                createPreferences(null, (PreferenceGroup) preference);
-            } else if (preference instanceof ListPreference) {
-                preference.setOnPreferenceChangeListener(mOnPreferenceChanged);
-            }
-        }
-
-        if (context == null) {
-            return;
-        }
-
-        // Bind eSpeak parameters to preference settings:
-
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
+        VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(context), engine);
 
-        group.addPreference(createSpeakPunctuationPreference(context, engine, R.string.espeak_speak_punctuation));
+        group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
+        group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
         group.addPreference(createSeekBarPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
         group.addPreference(createSeekBarPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
         group.addPreference(createSeekBarPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
