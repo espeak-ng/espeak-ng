@@ -203,7 +203,7 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected synchronized void onSynthesizeText(
             SynthesisRequest request, SynthesisCallback callback) {
-        final int result = onLoadLanguage(mLanguage, mCountry, mVariant);
+        final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
         switch (result) {
         case TextToSpeech.LANG_MISSING_DATA:
         case TextToSpeech.LANG_NOT_SUPPORTED:
