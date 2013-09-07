@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -723,7 +724,7 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 	my_unique_identifier = 0;
 	my_user_data = NULL;
 
-	wcsncpy(option_punctlist, punctlist, N_PUNCTLIST);
+	wcsncpy(option_punctlist, punctlist ? punctlist : L"", N_PUNCTLIST);
 	option_punctlist[N_PUNCTLIST-1] = 0;
 }  //  end of sync_espeak_SetPunctuationList
 

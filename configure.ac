@@ -63,11 +63,19 @@ if test "$with_portaudio" = "no"; then
 else
     AC_CHECK_HEADERS([portaudio.h],
         [
-            AC_CHECK_LIB([portaudio], [Pa_IsStreamActive],
+            # Check the portaudio library.
+            AC_CHECK_LIB([portaudio], [Pa_IsStreamActive]) # portaudio 19
+            AC_CHECK_LIB([portaudio], [Pa_StreamActive])   # portaudio 18
+
+            # Then use the headers to determine the portaudio version.
+            # This is because on some systems with both libportaudio0 and
+            # libportaudio2 installed, portaudio.h and -lportaudio refer
+            # to different versions.
+            AC_CHECK_FUNC([Pa_IsStreamActive],
                 [
                     have_portaudio=19
                 ],[
-                    AC_CHECK_LIB([portaudio], [Pa_StreamActive],
+                    AC_CHECK_FUNC([Pa_StreamActive],
                         [
                             have_portaudio=18
                         ],[
