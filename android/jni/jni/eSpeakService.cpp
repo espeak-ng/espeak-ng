@@ -28,7 +28,6 @@
 #include <jni.h>
 
 #include <speak_lib.h>
-#include <TtsEngine.h>
 #include <Log.h>
 
 /** @name  Java to Wide String Helpers
