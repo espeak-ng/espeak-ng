@@ -32,6 +32,7 @@ import android.widget.TextView;
 public class SpeakPunctuationPreference extends DialogPreference {
     private RadioButton mAll;
     private RadioButton mCustom;
+    private RadioButton mNone;
     private EditText mPunctuationCharacters;
 
     private VoiceSettings mSettings;
@@ -80,6 +81,7 @@ public class SpeakPunctuationPreference extends DialogPreference {
         View root = super.onCreateDialogView();
         mAll = (RadioButton)root.findViewById(R.id.all);
         mCustom = (RadioButton)root.findViewById(R.id.custom);
+        mNone = (RadioButton)root.findViewById(R.id.none);
         mPunctuationCharacters = (EditText)root.findViewById(R.id.punctuation_characters);
         return root;
     }
@@ -88,10 +90,16 @@ public class SpeakPunctuationPreference extends DialogPreference {
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
 
-        if (mSettings.getPunctuationLevel() == SpeechSynthesis.PUNCT_ALL) {
-            mAll.toggle();
-        } else {
-            mCustom.toggle();
+        switch (mSettings.getPunctuationLevel()) {
+            case SpeechSynthesis.PUNCT_ALL:
+                mAll.toggle();
+                break;
+            case SpeechSynthesis.PUNCT_SOME:
+                mCustom.toggle();
+                break;
+            case SpeechSynthesis.PUNCT_NONE:
+                mNone.toggle();
+                break;
         }
 
         mPunctuationCharacters.setText(mSettings.getPunctuationCharacters());
@@ -107,7 +115,10 @@ public class SpeakPunctuationPreference extends DialogPreference {
                 if (text != null) {
                     characters = text.toString();
                 }
-                if (characters == null || characters.isEmpty()) {
+
+                if (mNone.isChecked()) {
+                    level = SpeechSynthesis.PUNCT_NONE;
+                } else if (characters == null || characters.isEmpty()) {
                     level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_NONE;
                 } else {
                     level = mAll.isChecked() ? SpeechSynthesis.PUNCT_ALL : SpeechSynthesis.PUNCT_SOME;
