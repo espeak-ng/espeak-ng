@@ -33,7 +33,7 @@ clean:
 	cd src && rm -f *.o *~ && cd ..
 
 distclean: clean
-	cd src && rm -f libespeak.a libespeak.so.* speak espeak espeakedit && cd ..
+	cd src && make distclean && cd ..
 	cd platforms/$(PLATFORM) && rm -f espeak-phoneme-data && cd ../..
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
 	cd espeak-data && rm -f *_dict && cd ..
