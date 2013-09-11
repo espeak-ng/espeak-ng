@@ -32,12 +32,15 @@ EXTRA_DIST += ChangeLog
 
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
-install:
+install-data-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
+	$(MKDIR) $(DESTDIR)$(DATADIR)
+	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
+
+install-exec-hook:
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
-	$(MKDIR) $(DESTDIR)$(DATADIR)
 	$(INSTALL) -m 755 src/espeak $(DESTDIR)$(BINDIR)
 	$(INSTALL) -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 	$(INSTALL) -m 755 src/libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)
@@ -45,7 +48,6 @@ install:
 	$(LN_SF) libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)/libespeak.so.$(LIB_VERSION)
 	$(LN_SF) libespeak.so.$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/libespeak.so
 	$(INSTALL) -pm 644 src/speak_lib.h $(DESTDIR)$(INCDIR)
-	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
 clean:
 	cd src && rm -f *.o *~ && cd ..
