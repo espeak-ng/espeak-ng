@@ -123,28 +123,3 @@ espeakedit_LIBS=-lstdc++ $(LIB_AUDIO)
 espeakedit_CXXFLAGS = ${WX_CXXFLAGS} -D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 $(ESPEAKEDIT): $(espeakedit_OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $(espeakedit_OBJS) $(espeakedit_LIBS) ${WX_LIBS}
-
-clean:
-	rm -f *.o *.a *~
-
-distclean: clean
-	rm -f $(SPEAK)
-	rm -f $(ESPEAK)
-	rm -f $(LIBESPEAK)*
-	rm -f $(STATIC_LIBESPEAK)
-	rm -f $(ESPEAKEDIT)
-
-install:
-	rm -rf $(DESTDIR)$(DATADIR)
-	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(MKDIR) $(DESTDIR)$(LIBDIR)
-	$(MKDIR) $(DESTDIR)$(INCDIR)
-	$(MKDIR) $(DESTDIR)$(DATADIR)
-	$(INSTALL) -m 755 $(ESPEAK) $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 755 $(LIBESPEAK).$(LIBTAG) $(DESTDIR)$(LIBDIR)
-	$(INSTALL) -m 755 $(STATIC_LIBESPEAK) $(DESTDIR)$(LIBDIR)
-	$(LN_SF) $(LIBESPEAK).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIBESPEAK).$(LIB_VERSION)
-	$(LN_SF) $(LIBESPEAK).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIBESPEAK)
-	$(INSTALL) -pm 644 speak_lib.h $(DESTDIR)$(INCDIR)
-	cp -prf ../espeak-data/* $(DESTDIR)$(DATADIR)
-

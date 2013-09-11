@@ -5,6 +5,13 @@ LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
+RELEASE=1.47
+LIB_VERSION=1
+LIBTAG=$(LIB_VERSION).$(RELEASE)
+
+INSTALL=install
+LN_SF=/bin/ln -sf
+MKDIR=mkdir -p
 
 .PHONY: all clean distclean espeak-phoneme-data
 
@@ -26,17 +33,31 @@ EXTRA_DIST += ChangeLog
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
 install:
-	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
-	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
+	rm -rf $(DESTDIR)$(DATADIR)
+	$(MKDIR) $(DESTDIR)$(BINDIR)
+	$(MKDIR) $(DESTDIR)$(LIBDIR)
+	$(MKDIR) $(DESTDIR)$(INCDIR)
+	$(MKDIR) $(DESTDIR)$(DATADIR)
+	$(INSTALL) -m 755 src/espeak $(DESTDIR)$(BINDIR)
+	$(INSTALL) -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
+	$(INSTALL) -m 755 src/libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)
+	$(INSTALL) -m 755 src/libespeak.a $(DESTDIR)$(LIBDIR)
+	$(LN_SF) libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)/libespeak.so.$(LIB_VERSION)
+	$(LN_SF) libespeak.so.$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/libespeak.so
+	$(INSTALL) -pm 644 src/speak_lib.h $(DESTDIR)$(INCDIR)
+	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
 clean:
 	cd src && rm -f *.o *~ && cd ..
 
 distclean: clean
-	cd src && make distclean && cd ..
+	rm -f src/speak
+	rm -f src/espeak
+	rm -f src/espeakedit
+	rm -f src/libespeak.*
 	cd platforms/$(PLATFORM) && rm -f espeak-phoneme-data && cd ../..
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
-	cd espeak-data && rm -f *_dict && cd ..
+	rm -f espeak-data/*_dict
 
 ##### build targets:
 
