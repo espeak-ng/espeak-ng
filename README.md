@@ -1,5 +1,14 @@
 # eSpeak Text-to-Speech
 
+- [Building](#building)
+- [Testing](#testing)
+- [Installing](#installing)
+- [Building Voices](#building-voices)
+- [Adding New Voices](#adding-new-voices)
+- [Historical Releases](#historical-releases)
+
+----------
+
 This branch contains changes to eSpeak to support building on a POSIX system
 by using autotools.
 
@@ -56,7 +65,7 @@ already have an espeak install by running:
 
     $ find /usr/lib | grep libespeak
 
-## Voices
+## Building Voices
 
 If you are modifying a language's phoneme, voice or dictionary files, you
 can just build that voice by running:
@@ -71,7 +80,7 @@ run:
 to build an English voice file with those changes in without rebuilding
 all the voices. This will make it easier to spot errors.
 
-### Adding New Voices
+## Adding New Voices
 
 Once you have added the necessary files to eSpeak to support the new voice,
 you can then run:
