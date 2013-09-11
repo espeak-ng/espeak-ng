@@ -4,7 +4,6 @@ INCDIR=@includedir@/espeak
 LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
-PLATFORM=big_endian
 RELEASE=1.47
 LIB_VERSION=1
 LIBTAG=$(LIB_VERSION).$(RELEASE)
@@ -12,8 +11,6 @@ LIBTAG=$(LIB_VERSION).$(RELEASE)
 INSTALL=install
 LN_SF=/bin/ln -sf
 MKDIR=mkdir -p
-
-.PHONY: all clean distclean espeak-phoneme-data
 
 EXTRA_DIST=
 
@@ -63,7 +60,6 @@ distclean-local:
 	rm -f src/espeak
 	rm -f src/espeakedit
 	rm -f src/libespeak.*
-	cd platforms/$(PLATFORM) && rm -f espeak-phoneme-data && cd ../..
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
 	rm -f espeak-data/*_dict
 
@@ -134,9 +130,6 @@ src/espeak: src/libespeak.so src/espeak.cpp
 
 src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
 	cd src && make espeakedit && cd ..
-
-espeak-phoneme-data:
-	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
 
 espeak-data/phontab: src/espeakedit
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile
