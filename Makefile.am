@@ -48,14 +48,12 @@ install-data-hook:
 install-exec-hook:
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
-	$(MKDIR) $(DESTDIR)$(INCDIR)
 	$(INSTALL) -m 755 src/espeak $(DESTDIR)$(BINDIR)
 	$(INSTALL) -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 	$(INSTALL) -m 755 src/libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)
 	$(INSTALL) -m 755 src/libespeak.a $(DESTDIR)$(LIBDIR)
 	$(LN_SF) libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)/libespeak.so.$(LIB_VERSION)
 	$(LN_SF) libespeak.so.$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/libespeak.so
-	$(INSTALL) -pm 644 src/speak_lib.h $(DESTDIR)$(INCDIR)
 
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
@@ -70,6 +68,10 @@ distclean-local:
 	rm -f espeak-data/*_dict
 
 ##### build targets:
+
+libespeak_includedir = $(includedir)/espeak
+libespeak_include_HEADERS = \
+	src/speak_lib.h
 
 common_SOURCE = \
 	src/compiledict.cpp \
