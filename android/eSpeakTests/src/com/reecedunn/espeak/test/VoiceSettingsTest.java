@@ -22,6 +22,9 @@ import android.preference.PreferenceManager;
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.VoiceSettings;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -58,6 +61,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     // Old Settings
@@ -79,6 +101,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testDefaultGenderFemale()
@@ -98,6 +139,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("female"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void defaultRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -116,6 +176,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testDefaultRate()
@@ -144,6 +223,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testDefaultPitch()
@@ -176,6 +274,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("klatt2-old"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void espeakRateTest(int prefValue, int settingValue, SpeechSynthesis synth)
@@ -194,6 +311,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakRate()
@@ -223,6 +359,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakPitch()
@@ -251,6 +406,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakPitchRange()
@@ -279,6 +453,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(settingValue));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(settingValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakVolume()
@@ -291,7 +484,7 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         espeakVolumeTest( -5,   0, synth); // clamped to minimum value
     }
 
-    public void espeakPunctuationLevelTest(int prefValue, int settingValue, SpeechSynthesis synth)
+    public void espeakPunctuationLevelTest(int prefValue, int settingValue, String jsonValue, SpeechSynthesis synth)
     {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
@@ -307,16 +500,35 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(settingValue));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(jsonValue));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakPunctuationLevel()
     {
         SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-        espeakPunctuationLevelTest( 3, SpeechSynthesis.PUNCT_SOME, synth); // clamped to maximum value
-        espeakPunctuationLevelTest( 2, SpeechSynthesis.PUNCT_SOME, synth);
-        espeakPunctuationLevelTest( 1, SpeechSynthesis.PUNCT_ALL,  synth);
-        espeakPunctuationLevelTest( 0, SpeechSynthesis.PUNCT_NONE, synth);
-        espeakPunctuationLevelTest(-1, SpeechSynthesis.PUNCT_NONE, synth); // clamped to minimum value
+        espeakPunctuationLevelTest( 3, SpeechSynthesis.PUNCT_SOME, "some", synth); // clamped to maximum value
+        espeakPunctuationLevelTest( 2, SpeechSynthesis.PUNCT_SOME, "some", synth);
+        espeakPunctuationLevelTest( 1, SpeechSynthesis.PUNCT_ALL,  "all",  synth);
+        espeakPunctuationLevelTest( 0, SpeechSynthesis.PUNCT_NONE, "none", synth);
+        espeakPunctuationLevelTest(-1, SpeechSynthesis.PUNCT_NONE, "none", synth); // clamped to minimum value
     }
 
     public void testEspeakPunctuationCharacters()
@@ -336,6 +548,26 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(".?!"));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(".?!"));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     // Mixed (Old and New) Settings
@@ -358,6 +590,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("klatt4"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakRateWithDefaultRate()
@@ -378,6 +629,25 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(200));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(synth.Pitch.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 
     public void testEspeakPitchWithDefaultPitch()
@@ -398,5 +668,24 @@ public class VoiceSettingsTest extends TextToSpeechTestCase
         assertThat(settings.getVolume(), is(synth.Volume.getDefaultValue()));
         assertThat(settings.getPunctuationLevel(), is(SpeechSynthesis.PUNCT_NONE));
         assertThat(settings.getPunctuationCharacters(), is(nullValue()));
+
+        try {
+            JSONObject json = settings.toJSON();
+            assertThat(json.opt(VoiceSettings.PRESET_VARIANT), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_VARIANT), is("male"));
+            assertThat(json.opt(VoiceSettings.PRESET_RATE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_RATE), is(synth.Rate.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH), is(75));
+            assertThat(json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_PITCH_RANGE), is(synth.PitchRange.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_VOLUME), is(instanceOf(Integer.class)));
+            assertThat((Integer)json.opt(VoiceSettings.PRESET_VOLUME), is(synth.Volume.getDefaultValue()));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is(instanceOf(String.class)));
+            assertThat((String)json.opt(VoiceSettings.PRESET_PUNCTUATION_LEVEL), is("none"));
+            assertThat(json.opt(VoiceSettings.PRESET_PUNCTUATION_CHARACTERS), is(nullValue()));
+        } catch (JSONException e) {
+            assertThat(e.toString(), is(nullValue())); // This will be false; used to report exception.
+        }
     }
 }

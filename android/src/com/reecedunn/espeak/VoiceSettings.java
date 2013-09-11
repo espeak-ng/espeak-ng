@@ -18,6 +18,9 @@ package com.reecedunn.espeak;
 
 import android.content.SharedPreferences;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class VoiceSettings {
     private final SharedPreferences mPreferences;
     private final SpeechSynthesis mEngine;
@@ -32,6 +35,18 @@ public class VoiceSettings {
     public static final String PREF_VOLUME = "espeak_volume";
     public static final String PREF_PUNCTUATION_LEVEL = "espeak_punctuation_level";
     public static final String PREF_PUNCTUATION_CHARACTERS = "espeak_punctuation_characters";
+
+    public static final String PRESET_VARIANT = "variant";
+    public static final String PRESET_RATE = "rate";
+    public static final String PRESET_PITCH = "pitch";
+    public static final String PRESET_PITCH_RANGE = "pitch-range";
+    public static final String PRESET_VOLUME = "volume";
+    public static final String PRESET_PUNCTUATION_LEVEL = "punctuation-level";
+    public static final String PRESET_PUNCTUATION_CHARACTERS = "punctuation-characters";
+
+    public static final String PUNCTUATION_NONE = "none";
+    public static final String PUNCTUATION_SOME = "some";
+    public static final String PUNCTUATION_ALL = "all";
 
     public VoiceSettings(SharedPreferences preferences, SpeechSynthesis engine) {
         mPreferences = preferences;
@@ -118,5 +133,27 @@ public class VoiceSettings {
             return defaultValue;
         }
         return Integer.parseInt(prefString);
+    }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject settings = new JSONObject();
+        settings.put(PRESET_VARIANT, getVoiceVariant().toString());
+        settings.put(PRESET_RATE, getRate());
+        settings.put(PRESET_PITCH, getPitch());
+        settings.put(PRESET_PITCH_RANGE, getPitchRange());
+        settings.put(PRESET_VOLUME, getVolume());
+        settings.put(PRESET_PUNCTUATION_CHARACTERS, getPunctuationCharacters());
+        switch (getPunctuationLevel()) {
+            case SpeechSynthesis.PUNCT_NONE:
+                settings.put(PRESET_PUNCTUATION_LEVEL, PUNCTUATION_NONE);
+                break;
+            case SpeechSynthesis.PUNCT_SOME:
+                settings.put(PRESET_PUNCTUATION_LEVEL, PUNCTUATION_SOME);
+                break;
+            case SpeechSynthesis.PUNCT_ALL:
+                settings.put(PRESET_PUNCTUATION_LEVEL, PUNCTUATION_ALL);
+                break;
+        }
+        return settings;
     }
 }
