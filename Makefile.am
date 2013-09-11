@@ -138,12 +138,7 @@ src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
 
-espeak-data/phsource/dir.stamp: phsource/ph_* phsource/phonemes phsource/intonation
-	rm -rf espeak-data/phsource
-	./shadowdir $(PWD)/phsource $(PWD)/espeak-data/phsource
-	touch espeak-data/phsource/dir.stamp
-
-espeak-data/phontab: src/espeakedit espeak-data/phsource/dir.stamp
+espeak-data/phontab: src/espeakedit
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile
 
 ##### dictionaries:
