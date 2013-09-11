@@ -30,7 +30,15 @@ EXTRA_DIST += ChangeLog
 
 ##### standard build actions:
 
-all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
+all-local: \
+	src/speak \
+	src/libespeak.so \
+	src/libespeak.a \
+	src/espeak \
+	src/espeakedit \
+	espeak-data/phontab \
+	docs/speak_lib.h \
+	dictionaries
 
 install-data-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
@@ -49,10 +57,10 @@ install-exec-hook:
 	$(LN_SF) libespeak.so.$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/libespeak.so
 	$(INSTALL) -pm 644 src/speak_lib.h $(DESTDIR)$(INCDIR)
 
-clean:
+clean-local:
 	cd src && rm -f *.o *~ && cd ..
 
-distclean: clean
+distclean-local:
 	rm -f src/speak
 	rm -f src/espeak
 	rm -f src/espeakedit
