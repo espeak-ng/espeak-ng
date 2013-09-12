@@ -6,13 +6,8 @@ INCDIR=@includedir@/espeak
 LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
-RELEASE=1.47
-LIB_VERSION=1
-LIBTAG=$(LIB_VERSION).$(RELEASE)
 SHARED_VERSION=2:47:1 # = *.so.1.1.47
 
-INSTALL=install
-LN_SF=/bin/ln -sf
 MKDIR=mkdir -p
 
 AM_CXXFLAGS = -Wall
