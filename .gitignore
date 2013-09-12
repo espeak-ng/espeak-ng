@@ -5,6 +5,7 @@
 # intermediate build output:
 
 *.o
+*.lo
 
 # autotools
 
@@ -13,24 +14,30 @@ INSTALL
 NEWS
 README
 
+.deps/
+.libs/
+
 Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache/
 config.*
 configure
+depcomp
 install-sh
 libtool
 ltmain.sh
 m4/
 missing
 stamp-h1
+.dirstamp
 
 # libraries
 
 docs/speak_lib.h
 
 libespeak.a
+libespeak.la
 libespeak.so*
 
 # programs

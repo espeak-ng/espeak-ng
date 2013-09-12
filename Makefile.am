@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS = subdir-objects
+
 PREFIX=@prefix@
 BINDIR=@bindir@
 INCDIR=@includedir@/espeak
@@ -7,12 +9,18 @@ DATADIR=$(PREFIX)/share/espeak-data
 RELEASE=1.47
 LIB_VERSION=1
 LIBTAG=$(LIB_VERSION).$(RELEASE)
+SHARED_VERSION=2:47:1 # = *.so.1.1.47
 
 INSTALL=install
 LN_SF=/bin/ln -sf
 MKDIR=mkdir -p
 
+AM_CXXFLAGS = -Wall
+
 EXTRA_DIST=
+
+bin_PROGRAMS =
+lib_LTLIBRARIES =
 
 ##### ChangeLog:
 
@@ -28,11 +36,6 @@ EXTRA_DIST += ChangeLog
 ##### standard build actions:
 
 all-local: \
-	src/speak \
-	src/libespeak.so \
-	src/libespeak.a \
-	src/espeak \
-	src/espeakedit \
 	espeak-data/phontab \
 	docs/speak_lib.h \
 	dictionaries
@@ -42,24 +45,10 @@ install-data-hook:
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
-install-exec-hook:
-	$(MKDIR) $(DESTDIR)$(BINDIR)
-	$(MKDIR) $(DESTDIR)$(LIBDIR)
-	$(INSTALL) -m 755 src/espeak $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
-	$(INSTALL) -m 755 src/libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)
-	$(INSTALL) -m 755 src/libespeak.a $(DESTDIR)$(LIBDIR)
-	$(LN_SF) libespeak.so.$(LIBTAG) $(DESTDIR)$(LIBDIR)/libespeak.so.$(LIB_VERSION)
-	$(LN_SF) libespeak.so.$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/libespeak.so
-
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
 
 distclean-local:
-	rm -f src/speak
-	rm -f src/espeak
-	rm -f src/espeakedit
-	rm -f src/libespeak.*
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
 	rm -f espeak-data/*_dict
 
@@ -93,9 +82,6 @@ libespeak_SOURCE = \
 	src/espeak_command.cpp \
 	src/event.cpp \
 	src/fifo.cpp \
-	src/wave.cpp \
-	src/wave_pulse.cpp \
-	src/wave_sada.cpp \
 	src/debug.cpp
 
 espeakedit_SOURCE = \
@@ -113,23 +99,59 @@ espeakedit_SOURCE = \
 	src/voicedlg.cpp \
 	src/vowelchart.cpp
 
+if AUDIO_RUNTIME
+wave_SOURCE = src/wave.cpp src/wave_pulse.cpp
+wave_LIBS   = -lpulse -lpulse-simple -lportaudio
+wave_FLAGS  = -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+else
+if AUDIO_PULSEAUDIO
+wave_SOURCE = src/wave_pulse.cpp
+wave_LIBS   = -lpulse
+wave_FLAGS  = -DUSE_PULSEAUDIO
+else
+if AUDIO_PORTAUDIO
+wave_SOURCE = src/wave.cpp
+wave_LIBS   = -lportaudio
+wave_FLAGS  = -DUSE_PORTAUDIO
+else
+if AUDIO_SADA
+wave_SOURCE = wave_sada.cpp
+wave_FLAGS  = -DUSE_SADA
+else
+wave_SOURCE = src/wave.cpp
+endif
+endif
+endif
+endif
+
 docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
-src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.a && cd ..
+lib_LTLIBRARIES += src/libespeak.la
 
-src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.so && cd ..
+src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
+src_libespeak_la_CXXFLAGS = $(wave_FLAGS) \
+	-fpic -fvisibility=hidden -D LIBRARY \
+	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
+src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 
-src/speak: $(common_SOURCE) src/speak.cpp
-	cd src && make speak && cd ..
+bin_PROGRAMS += src/speak
 
-src/espeak: src/libespeak.so src/espeak.cpp
-	cd src && make espeak && cd ..
+src_speak_LDFLAGS  = $(wave_LIBS) -lpthread
+src_speak_CXXFLAGS = $(wave_FLAGS)
+src_speak_SOURCES  = src/speak.cpp $(common_SOURCE) $(wave_SOURCE)
 
-src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
-	cd src && make espeakedit && cd ..
+bin_PROGRAMS += src/espeak
+
+src_espeak_LDADD   = src/libespeak.la
+src_espeak_SOURCES = src/espeak.cpp
+
+bin_PROGRAMS += src/espeakedit
+
+src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
+src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(wave_FLAGS) \
+	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
+src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
 espeak-data/phontab: src/espeakedit
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile
