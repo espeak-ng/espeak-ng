@@ -46,7 +46,7 @@ clean-local:
 	cd src && rm -f *.o *~ && cd ..
 
 distclean-local:
-	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
+	rm -rf espeak-data/phondata-manifest
 	rm -f espeak-data/*_dict
 
 ##### build targets:
