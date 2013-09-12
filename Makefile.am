@@ -40,8 +40,10 @@ all-local: \
 	docs/speak_lib.h \
 	dictionaries
 
-install-data-hook:
+uninstall-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
+
+install-data-hook: uninstall-hook
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
