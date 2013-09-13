@@ -1,14 +1,21 @@
+AUTOMAKE_OPTIONS = subdir-objects
+
 PREFIX=@prefix@
 BINDIR=@bindir@
 INCDIR=@includedir@/espeak
 LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
-PLATFORM=big_endian
+SHARED_VERSION=2:47:1 # = *.so.1.1.47
 
-.PHONY: android all clean distclean espeak-phoneme-data
+MKDIR=mkdir -p
+
+AM_CXXFLAGS = -Wall
 
 EXTRA_DIST=
+
+bin_PROGRAMS =
+lib_LTLIBRARIES =
 
 ##### ChangeLog:
 
@@ -25,23 +32,28 @@ EXTRA_DIST += ChangeLog
 
 all: jni espeakdata apk-release
 
-install:
-	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
-	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
+uninstall-hook:
+	rm -rf $(DESTDIR)$(DATADIR)
 
-clean:
+install-data-hook: uninstall-hook
+	$(MKDIR) $(DESTDIR)$(DATADIR)
+	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
+
+clean-local:
 	cd src && rm -f *.o *~ && cd ..
 	cd android && gradle clean
 
-distclean: clean
-	cd src && rm -f libespeak.a libespeak.so.* speak espeak espeakedit && cd ..
-	cd platforms/$(PLATFORM) && rm -f espeak-phoneme-data && cd ../..
-	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
-	cd espeak-data && rm -f *_dict && cd ..
+distclean-local:
+	rm -rf espeak-data/phondata-manifest
+	rm -f espeak-data/*_dict
 
 check: apk-check
 
 ##### build targets:
+
+libespeak_includedir = $(includedir)/espeak
+libespeak_include_HEADERS = \
+	src/speak_lib.h
 
 common_SOURCE = \
 	src/compiledict.cpp \
@@ -67,9 +79,6 @@ libespeak_SOURCE = \
 	src/espeak_command.cpp \
 	src/event.cpp \
 	src/fifo.cpp \
-	src/wave.cpp \
-	src/wave_pulse.cpp \
-	src/wave_sada.cpp \
 	src/debug.cpp
 
 espeakedit_SOURCE = \
@@ -87,38 +96,61 @@ espeakedit_SOURCE = \
 	src/voicedlg.cpp \
 	src/vowelchart.cpp
 
+if AUDIO_RUNTIME
+wave_SOURCE = src/wave.cpp src/wave_pulse.cpp
+wave_LIBS   = -lpulse -lpulse-simple -lportaudio
+wave_FLAGS  = -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+else
+if AUDIO_PULSEAUDIO
+wave_SOURCE = src/wave_pulse.cpp
+wave_LIBS   = -lpulse
+wave_FLAGS  = -DUSE_PULSEAUDIO
+else
+if AUDIO_PORTAUDIO
+wave_SOURCE = src/wave.cpp
+wave_LIBS   = -lportaudio
+wave_FLAGS  = -DUSE_PORTAUDIO
+else
+if AUDIO_SADA
+wave_SOURCE = wave_sada.cpp
+wave_FLAGS  = -DUSE_SADA
+else
+wave_SOURCE = src/wave.cpp
+endif
+endif
+endif
+endif
+
 docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
-src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.a && cd ..
+lib_LTLIBRARIES += src/libespeak.la
 
-src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.so && cd ..
+src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
+src_libespeak_la_CXXFLAGS = $(wave_FLAGS) \
+	-fpic -fvisibility=hidden -D LIBRARY \
+	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
+src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 
-src/speak: $(common_SOURCE) src/speak.cpp
-	cd src && make speak && cd ..
+bin_PROGRAMS += src/speak
 
-src/espeak: src/libespeak.so src/espeak.cpp
-	cd src && make espeak && cd ..
+src_speak_LDFLAGS  = $(wave_LIBS) -lpthread
+src_speak_CXXFLAGS = $(wave_FLAGS)
+src_speak_SOURCES  = src/speak.cpp $(common_SOURCE) $(wave_SOURCE)
 
-src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
-	cd src && make espeakedit && cd ..
+bin_PROGRAMS += src/espeak
 
-espeak-phoneme-data:
-	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
+src_espeak_LDADD   = src/libespeak.la
+src_espeak_SOURCES = src/espeak.cpp
 
-espeak-data/dictsource/dir.stamp: dictsource/*
-	rm -rf espeak-data/dictsource
-	./shadowdir $(PWD)/dictsource $(PWD)/espeak-data/dictsource
-	touch espeak-data/dictsource/dir.stamp
+bin_PROGRAMS += src/espeakedit
 
-espeak-data/phsource/dir.stamp: phsource/ph_* phsource/phonemes phsource/intonation
-	rm -rf espeak-data/phsource
-	./shadowdir $(PWD)/phsource $(PWD)/espeak-data/phsource
-	touch espeak-data/phsource/dir.stamp
+src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
+src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(wave_FLAGS) \
+	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
+src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
-espeak-data/phontab: src/espeakedit espeak-data/dictsource/dir.stamp espeak-data/phsource/dir.stamp
+espeak-data/phontab: src/espeakedit
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile
 
 ##### android targets:

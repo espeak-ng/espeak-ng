@@ -1,5 +1,15 @@
 # Android Port of eSpeak Text-to-Speech
 
+- [Prerequisites](#prerequisites)
+- [Building with Gradle](#building-with-gradle)
+- [Building with Eclipse](#building-with-eclipse)
+- [Building with Ant](#building-with-ant)
+- [Signing the APK](#signing-the-apk)
+- [Installing the APK](#installing-the-apk)
+- [Enabling eSpeak on the Device](#enabling-espeak-on-the-device)
+
+----------
+
 This branch contains the files needed to build espeak on the android platform.
 It is derived from the eyes-free project.
 

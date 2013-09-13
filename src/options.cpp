@@ -167,12 +167,12 @@ void ConfigInit(bool use_defaults)
 	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
 	if (use_defaults)
 	{
-		path_spectload = basedir + _T("/phsource");
-		path_spectload2 = basedir + _T("/phsource");
+		path_spectload = basedir + _T("/../phsource");
+		path_spectload2 = basedir + _T("/../phsource");
 		path_pitches = basedir + _T("/pitch");
-		path_phsource = basedir + _T("/phsource");
+		path_phsource = basedir + _T("/../phsource");
 		path_phfile = path_phsource + _T("/phonemes");
-		path_dictsource = basedir + _T("/dictsource");
+		path_dictsource = basedir + _T("/../dictsource");
 		path_modifiervoice = basedir;
 		path_dir1 = basedir;
 	}

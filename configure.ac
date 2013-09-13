@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak], [1.46], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
+AC_INIT([eSpeak], [1.47], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
@@ -91,6 +91,16 @@ dnl ================================================================
 dnl Audio checks.
 dnl ================================================================
 
+AC_ARG_WITH([sada],
+    [AS_HELP_STRING([--with-sada], [use the Solaris SADA audio API @<:@default=no@:>@])],
+    [])
+
+if test "$with_sada" = "yes" ; then
+	have_sada=yes
+else
+	have_sada=no
+fi
+
 if test "$have_portaudio" = 18 -o "$have_portaudio" = 19 ; then
     if test "$have_pulseaudio" = yes ; then
         PKG_CHECK_MODULES(PULSEAUDIO_SIMPLE, [libpulse-simple >= 0.9],
@@ -106,6 +116,8 @@ if test "$have_portaudio" = 18 -o "$have_portaudio" = 19 ; then
     fi
 elif test "$have_pulseaudio" = yes ; then
     AUDIO=pulseaudio
+elif test "$have_sada" = yes ; then
+    AUDIO=sada
 else
     AUDIO=disabled
 fi
@@ -115,8 +127,6 @@ AC_SUBST(AUDIO)
 AM_CONDITIONAL(AUDIO_RUNTIME,    [test x"$AUDIO" = xruntime])
 AM_CONDITIONAL(AUDIO_PULSEAUDIO, [test x"$AUDIO" = xpulseaudio])
 AM_CONDITIONAL(AUDIO_PORTAUDIO,  [test x"$AUDIO" = xportaudio])
-AM_CONDITIONAL(AUDIO_PORTAUDIO0, [test x"$AUDIO" = xportaudio0])
-AM_CONDITIONAL(AUDIO_PORTAUDIO2, [test x"$AUDIO" = xportaudio2])
 AM_CONDITIONAL(AUDIO_SADA,       [test x"$AUDIO" = xsada])
 
 dnl ================================================================
@@ -139,7 +149,7 @@ dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
 AC_MSG_NOTICE([
@@ -154,5 +164,6 @@ AC_MSG_NOTICE([
         wxWidgets:                     ${WX_VERSION}
 	pulseaudio:                    ${have_pulseaudio}
 	portaudio:                     ${have_portaudio}
+	sada:                          ${have_sada}
 	audio configuration:           ${AUDIO}
 ])
