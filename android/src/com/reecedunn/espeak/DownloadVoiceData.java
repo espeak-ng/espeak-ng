@@ -78,22 +78,6 @@ public class DownloadVoiceData extends Activity {
         mAsyncExtract.cancel(true);
     }
 
-    private static void clearContents(File directory) {
-        if (!directory.exists() || !directory.isDirectory()) {
-            return;
-        }
-
-        final File[] children = directory.listFiles();
-
-        for (File child : children) {
-            if (child.isDirectory()) {
-                clearContents(child);
-            }
-
-            child.delete();
-        }
-    }
-
     private static class AsyncExtract extends AsyncTask<Void, Void, Integer> {
         private final LinkedList<File> mExtractedFiles = new LinkedList<File>();
 
@@ -195,6 +179,22 @@ public class DownloadVoiceData extends Activity {
                 Runtime.getRuntime().exec("/system/bin/chmod 755 " + file.getAbsolutePath());
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+
+        private static void clearContents(File directory) {
+            if (!directory.exists() || !directory.isDirectory()) {
+                return;
+            }
+
+            final File[] children = directory.listFiles();
+
+            for (File child : children) {
+                if (child.isDirectory()) {
+                    clearContents(child);
+                }
+
+                child.delete();
             }
         }
     }
