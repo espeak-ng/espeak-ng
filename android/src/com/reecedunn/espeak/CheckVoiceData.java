@@ -99,8 +99,6 @@ public class CheckVoiceData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final File dataPath = getDataPath(this);
-
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
@@ -109,8 +107,7 @@ public class CheckVoiceData extends Activity {
             if (!haveBaseResources) {
                 unavailableLanguages.add(Locale.ENGLISH.toString());
             }
-            returnResults(Engine.CHECK_VOICE_DATA_FAIL, dataPath, availableLanguages,
-                          unavailableLanguages);
+            returnResults(Engine.CHECK_VOICE_DATA_FAIL, availableLanguages, unavailableLanguages);
             return;
         }
 
@@ -121,12 +118,10 @@ public class CheckVoiceData extends Activity {
             availableLanguages.add(voice.toString());
         }
 
-        returnResults(Engine.CHECK_VOICE_DATA_PASS, dataPath, availableLanguages,
-                      unavailableLanguages);
+        returnResults(Engine.CHECK_VOICE_DATA_PASS, availableLanguages, unavailableLanguages);
     }
 
-    private void returnResults(int result, File dataPath, ArrayList<String> availableLanguages,
-            ArrayList<String> unavailableLanguages) {
+    private void returnResults(int result, ArrayList<String> availableLanguages, ArrayList<String> unavailableLanguages) {
         final Intent returnData = new Intent();
         returnData.putStringArrayListExtra(Engine.EXTRA_AVAILABLE_VOICES, availableLanguages);
         returnData.putStringArrayListExtra(Engine.EXTRA_UNAVAILABLE_VOICES, unavailableLanguages);
