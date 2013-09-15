@@ -49,7 +49,18 @@ public class DownloadVoiceData extends Activity {
         mAsyncExtract = new AsyncExtract(this, R.raw.espeakdata, dataPath) {
             @Override
             protected void onPostExecute(Integer result) {
-                onLanguagesInstalled(result);
+                switch (result) {
+                    case RESULT_OK:
+                        final Intent intent = new Intent(BROADCAST_LANGUAGES_UPDATED);
+                        sendBroadcast(intent);
+                        break;
+                    case RESULT_CANCELED:
+                        // Do nothing?
+                        break;
+                }
+
+                setResult(result);
+                finish();
             }
         };
 
@@ -65,21 +76,6 @@ public class DownloadVoiceData extends Activity {
         super.onDestroy();
 
         mAsyncExtract.cancel(true);
-    }
-
-    private void onLanguagesInstalled(int resultCode) {
-        switch (resultCode) {
-            case RESULT_OK:
-                final Intent intent = new Intent(BROADCAST_LANGUAGES_UPDATED);
-                sendBroadcast(intent);
-                break;
-            case RESULT_CANCELED:
-                // Do nothing?
-                break;
-        }
-
-        setResult(resultCode);
-        finish();
     }
 
     private static void clearContents(File directory) {
