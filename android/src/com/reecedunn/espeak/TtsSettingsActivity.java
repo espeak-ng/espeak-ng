@@ -40,35 +40,35 @@ public class TtsSettingsActivity extends PreferenceActivity {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = prefs.edit();
 
-        String pitch = prefs.getString("espeak_pitch", null);
+        String pitch = prefs.getString(VoiceSettings.PREF_PITCH, null);
         if (pitch == null) {
             // Try the old eyes-free setting:
-            pitch = prefs.getString("default_pitch", "100");
+            pitch = prefs.getString(VoiceSettings.PREF_DEFAULT_PITCH, "100");
             int pitchValue = Integer.parseInt(pitch) / 2;
-            editor.putString("espeak_pitch", Integer.toString(pitchValue));
+            editor.putString(VoiceSettings.PREF_PITCH, Integer.toString(pitchValue));
         }
 
-        String rate = prefs.getString("espeak_rate", null);
+        String rate = prefs.getString(VoiceSettings.PREF_RATE, null);
         if (rate == null) {
             // Try the old eyes-free setting:
             SpeechSynthesis engine = new SpeechSynthesis(this, null);
             int defaultValue = engine.Rate.getDefaultValue();
             int maxValue = engine.Rate.getMaxValue();
 
-            rate = prefs.getString("default_rate", "100");
+            rate = prefs.getString(VoiceSettings.PREF_DEFAULT_RATE, "100");
             int rateValue = (Integer.parseInt(rate) / 100) * defaultValue;
             if (rateValue < defaultValue) rateValue = defaultValue;
             if (rateValue > maxValue) rateValue = maxValue;
-            editor.putString("espeak_rate", Integer.toString(rateValue));
+            editor.putString(VoiceSettings.PREF_RATE, Integer.toString(rateValue));
         }
 
-        String variant = prefs.getString("espeak_variant", null);
+        String variant = prefs.getString(VoiceSettings.PREF_VARIANT, null);
         if (variant == null) {
-            String gender = prefs.getString("default_gender", "0");
+            String gender = prefs.getString(VoiceSettings.PREF_DEFAULT_GENDER, "0");
             if (gender.equals("2")) {
-                editor.putString("espeak_variant", VoiceVariant.FEMALE);
+                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.FEMALE);
             } else {
-                editor.putString("espeak_variant", VoiceVariant.MALE);
+                editor.putString(VoiceSettings.PREF_VARIANT, VoiceVariant.MALE);
             }
         }
 
@@ -170,10 +170,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
-        group.addPreference(createSeekBarPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
-        group.addPreference(createSeekBarPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
-        group.addPreference(createSeekBarPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
-        group.addPreference(createSeekBarPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
+        group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
+        group.addPreference(createSeekBarPreference(context, engine.Pitch, VoiceSettings.PREF_PITCH, R.string.setting_default_pitch));
+        group.addPreference(createSeekBarPreference(context, engine.PitchRange, VoiceSettings.PREF_PITCH_RANGE, R.string.espeak_pitch_range));
+        group.addPreference(createSeekBarPreference(context, engine.Volume, VoiceSettings.PREF_VOLUME, R.string.espeak_volume));
     }
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
