@@ -134,22 +134,6 @@ public class CheckVoiceData extends Activity {
         finish();
     }
 
-    /**
-     * Filters a given array list, maintaining only elements that are in the
-     * constraint. Returns a new list containing only the filtered elements.
-     */
-    private ArrayList<String> filter(ArrayList<String> in, Set<String> constraint) {
-        final ArrayList<String> out = new ArrayList<String>(constraint.size());
-
-        for (String s : in) {
-            if (constraint.contains(s)) {
-                out.add(s);
-            }
-        }
-
-        return out;
-    }
-
     private final SynthReadyCallback mSynthReadyCallback = new SynthReadyCallback() {
         @Override
         public void onSynthDataReady(byte[] audioData) {
