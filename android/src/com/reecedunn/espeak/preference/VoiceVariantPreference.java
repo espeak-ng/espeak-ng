@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reecedunn.espeak;
+package com.reecedunn.espeak.preference;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,6 +33,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.reecedunn.espeak.R;
+import com.reecedunn.espeak.ResourceIdListAdapter;
+import com.reecedunn.espeak.VoiceSettings;
+import com.reecedunn.espeak.VoiceVariant;
 
 import java.util.List;
 

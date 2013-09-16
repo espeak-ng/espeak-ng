@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reecedunn.espeak;
+package com.reecedunn.espeak.preference;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,6 +28,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.reecedunn.espeak.R;
+import com.reecedunn.espeak.SpeechSynthesis;
+import com.reecedunn.espeak.VoiceSettings;
 
 public class SpeakPunctuationPreference extends DialogPreference {
     private RadioButton mAll;

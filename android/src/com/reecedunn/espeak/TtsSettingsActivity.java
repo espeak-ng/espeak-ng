@@ -29,6 +29,10 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 
+import com.reecedunn.espeak.preference.SeekBarPreference;
+import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
+import com.reecedunn.espeak.preference.VoiceVariantPreference;
+
 public class TtsSettingsActivity extends PreferenceActivity {
     @Override
     @SuppressWarnings("deprecation")

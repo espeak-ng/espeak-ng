@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reecedunn.espeak;
+package com.reecedunn.espeak.preference;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,6 +25,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.reecedunn.espeak.R;
 
 public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener
 {
