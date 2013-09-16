@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,11 +23,6 @@
 
 #include <sys/types.h>
 
-// conditional compilation options
-#define INCLUDE_KLATT
-#define INCLUDE_MBROLA
-#define INCLUDE_SONIC
-
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 #define ARCH_BIG
 #endif
@@ -46,12 +42,7 @@
 #define __cdecl 
 //#define ESPEAK_API  extern "C"
 
-#ifdef LIBRARY
-#define USE_ASYNC
-#endif
-
 #ifdef _ESPEAKEDIT
-#define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif
 

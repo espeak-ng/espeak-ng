@@ -1,7 +1,7 @@
-
 /***************************************************************************
  *   Copyright (C) 2008 by Jonathan Duddington                             *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   Based on a re-implementation by:                                      *
  *   (c) 1993,94 Jon Iles and Nick Ing-Simmons                             *
@@ -37,8 +37,6 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
-
-#ifdef INCLUDE_KLATT    // conditional compilation for the whole file
 
 extern unsigned char *out_ptr;   // **JSD
 extern unsigned char *out_start;
@@ -1409,5 +1407,3 @@ for(ix=0; ix<256; ix++)
 	kt_frame.AVpdb = 0;
 	kt_frame.Gain0 = 62;   // 60
 }  // end of KlattInit
-
-#endif  // INCLUDE_KLATT

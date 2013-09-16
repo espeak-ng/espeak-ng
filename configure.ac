@@ -130,6 +130,55 @@ AM_CONDITIONAL(AUDIO_PORTAUDIO,  [test x"$AUDIO" = xportaudio])
 AM_CONDITIONAL(AUDIO_SADA,       [test x"$AUDIO" = xsada])
 
 dnl ================================================================
+dnl Optional compilation checks.
+dnl ================================================================
+
+AC_ARG_WITH([klatt],
+    [AS_HELP_STRING([--with-klatt], [enable the Klatt formant synthesizer @<:@default=yes@:>@])],
+    [])
+
+if test "$with_klatt" = "no" ; then
+	have_klatt=no
+else
+	have_klatt=yes
+fi
+
+AC_ARG_WITH([mbrola],
+    [AS_HELP_STRING([--with-mbrola], [enable the MBROLA speech synthesizer @<:@default=yes@:>@])],
+    [])
+
+if test "$with_mbrola" = "no" ; then
+	have_mbrola=no
+else
+	have_mbrola=yes
+fi
+
+AC_ARG_WITH([sonic],
+    [AS_HELP_STRING([--with-sonic], [enable the sonic library to speed up the audio @<:@default=yes@:>@])],
+    [])
+
+if test "$with_sonic" = "no" ; then
+	have_sonic=no
+else
+	have_sonic=yes
+fi
+
+AC_ARG_WITH([async],
+    [AS_HELP_STRING([--with-async], [enable support for async command processing @<:@default=yes@:>@])],
+    [])
+
+if test "$with_async" = "no" ; then
+	have_async=no
+else
+	have_async=yes
+fi
+
+AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
+AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
+AM_CONDITIONAL(OPT_SONIC,  [test x"$have_sonic"  = xyes])
+AM_CONDITIONAL(OPT_ASYNC,  [test x"$have_async"  = xyes])
+
+dnl ================================================================
 dnl wxWidgets checks.
 dnl ================================================================
 
@@ -166,4 +215,9 @@ AC_MSG_NOTICE([
 	portaudio:                     ${have_portaudio}
 	sada:                          ${have_sada}
 	audio configuration:           ${AUDIO}
+
+	Klatt:                         ${have_klatt}
+	MBROLA:                        ${have_mbrola}
+	Sonic:                         ${have_sonic}
+	Async:                         ${have_async}
 ])
