@@ -148,8 +148,19 @@ else
 	have_mbrola=yes
 fi
 
+AC_ARG_WITH([sonic],
+    [AS_HELP_STRING([--with-sonic], [enable the sonic library to speed up the audio @<:@default=yes@:>@])],
+    [])
+
+if test "$with_sonic" = "no" ; then
+	have_sonic=no
+else
+	have_sonic=yes
+fi
+
 AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
 AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
+AM_CONDITIONAL(OPT_SONIC,  [test x"$have_sonic"  = xyes])
 
 dnl ================================================================
 dnl wxWidgets checks.
@@ -191,4 +202,5 @@ AC_MSG_NOTICE([
 
 	Klatt:                         ${have_klatt}
 	MBROLA:                        ${have_mbrola}
+	Sonic:                         ${have_sonic}
 ])

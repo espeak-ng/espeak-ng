@@ -64,7 +64,6 @@ common_SOURCE = \
 	src/readclause.cpp \
 	src/phonemelist.cpp \
 	src/setlengths.cpp \
-	src/sonic.cpp \
 	src/synthdata.cpp \
 	src/synthesize.cpp \
 	src/synth_mbrola.cpp \
@@ -103,6 +102,11 @@ endif
 if OPT_MBROLA
 common_FLAGS  += -DINCLUDE_MBROLA
 common_SOURCE += src/mbrowrap.cpp
+endif
+
+if OPT_SONIC
+common_FLAGS  += -DINCLUDE_SONIC
+common_SOURCE += src/sonic.cpp
 endif
 
 if AUDIO_RUNTIME
