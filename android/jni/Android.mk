@@ -13,27 +13,32 @@ LOCAL_SRC_FILES += $(UCDTOOLS_SRC_FILES)
 
 # eSpeak (minus command line apps and espeakedit)
 
-BLACKLIST_SRC_FILES := \
-  %/compiledata.cpp \
-  %/espeak.cpp \
-  %/espeakedit.cpp \
-  %/extras.cpp \
-  %/formantdlg.cpp \
-  %/menus.cpp \
-  %/options.cpp \
-  %/prosodydisplay.cpp \
-  %/speak.cpp \
-  %/spect.cpp \
-  %/spectdisplay.cpp \
-  %/spectseq.cpp \
-  %/transldlg.cpp \
-  %/voicedlg.cpp \
-  %/vowelchart.cpp
+ESPEAK_SOURCES := \
+  src/compiledict.cpp \
+  src/debug.cpp \
+  src/dictionary.cpp \
+  src/intonation.cpp \
+  src/klatt.cpp \
+  src/numbers.cpp \
+  src/readclause.cpp \
+  src/phonemelist.cpp \
+  src/setlengths.cpp \
+  src/sonic.cpp \
+  src/speak_lib.cpp \
+  src/synthdata.cpp \
+  src/synthesize.cpp \
+  src/synth_mbrola.cpp \
+  src/translate.cpp \
+  src/tr_languages.cpp \
+  src/voices.cpp \
+  src/wavegen.cpp \
+  src/wave.cpp
 
 ESPEAK_SRC_PATH  := ../../src
 ESPEAK_SRC_FILES := \
-  $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))
+  $(subst src/,$(ESPEAK_SRC_PATH)/,$(ESPEAK_SOURCES))
 
+LOCAL_CFLAGS    += -DINCLUDE_KLATT -DINCLUDE_SONIC
 LOCAL_SRC_FILES += \
   $(filter-out $(BLACKLIST_SRC_FILES),$(ESPEAK_SRC_FILES))
 
