@@ -3,6 +3,7 @@
  * providing a subset of the API from the Windows mbrola DLL.
  *
  * Copyright (C) 2010 by Nicolas Pitre <nico@fluxnic.net>
+ * Copyright (C) 2013 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +17,6 @@
  */
 
 #include "speech.h"
-#ifdef INCLUDE_MBROLA
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -609,5 +609,3 @@ void resetError_MBR(void)
 {
 	mbr_errorbuf[0] = 0;
 }
-
-#endif  // INCLUDE_MBROLA

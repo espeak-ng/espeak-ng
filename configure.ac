@@ -138,7 +138,18 @@ else
 	have_klatt=yes
 fi
 
-AM_CONDITIONAL(OPT_KLATT, [test x"$have_klatt" = xyes])
+AC_ARG_WITH([mbrola],
+    [AS_HELP_STRING([--with-mbrola], [enable the MBROLA speech synthesizer @<:@default=yes@:>@])],
+    [])
+
+if test "$with_mbrola" = "no" ; then
+	have_mbrola=no
+else
+	have_mbrola=yes
+fi
+
+AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
+AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
 
 dnl ================================================================
 dnl wxWidgets checks.
@@ -179,4 +190,5 @@ AC_MSG_NOTICE([
 	audio configuration:           ${AUDIO}
 
 	Klatt:                         ${have_klatt}
+	MBROLA:                        ${have_mbrola}
 ])

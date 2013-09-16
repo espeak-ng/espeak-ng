@@ -60,7 +60,6 @@ common_SOURCE = \
 	src/compiledict.cpp \
 	src/dictionary.cpp \
 	src/intonation.cpp \
-	src/mbrowrap.cpp \
 	src/numbers.cpp \
 	src/readclause.cpp \
 	src/phonemelist.cpp \
@@ -99,6 +98,11 @@ espeakedit_SOURCE = \
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT
 common_SOURCE += src/klatt.cpp
+endif
+
+if OPT_MBROLA
+common_FLAGS  += -DINCLUDE_MBROLA
+common_SOURCE += src/mbrowrap.cpp
 endif
 
 if AUDIO_RUNTIME

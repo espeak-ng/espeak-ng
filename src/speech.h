@@ -24,7 +24,6 @@
 #include <sys/types.h>
 
 // conditional compilation options
-#define INCLUDE_MBROLA
 #define INCLUDE_SONIC
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
