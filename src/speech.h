@@ -42,12 +42,7 @@
 #define __cdecl 
 //#define ESPEAK_API  extern "C"
 
-#ifdef LIBRARY
-#define USE_ASYNC
-#endif
-
 #ifdef _ESPEAKEDIT
-#define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif
 

@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,9 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "speech.h"
-
-#ifdef USE_ASYNC
 // This source file is only used for asynchronious modes
 
 
@@ -33,6 +31,7 @@
 #include <sys/time.h>
 #include <errno.h>
 
+#include "speech.h"
 #include "speak_lib.h"
 #include "event.h"
 #include "wave.h"
@@ -723,7 +722,4 @@ ENTER("event_terminate");
 		init(); // purge event
 	}
 }
-
-#endif
 //>
-

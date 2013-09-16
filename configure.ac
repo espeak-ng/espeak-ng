@@ -158,9 +158,20 @@ else
 	have_sonic=yes
 fi
 
+AC_ARG_WITH([async],
+    [AS_HELP_STRING([--with-async], [enable support for async command processing @<:@default=yes@:>@])],
+    [])
+
+if test "$with_async" = "no" ; then
+	have_async=no
+else
+	have_async=yes
+fi
+
 AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
 AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
 AM_CONDITIONAL(OPT_SONIC,  [test x"$have_sonic"  = xyes])
+AM_CONDITIONAL(OPT_ASYNC,  [test x"$have_async"  = xyes])
 
 dnl ================================================================
 dnl wxWidgets checks.
@@ -203,4 +214,5 @@ AC_MSG_NOTICE([
 	Klatt:                         ${have_klatt}
 	MBROLA:                        ${have_mbrola}
 	Sonic:                         ${have_sonic}
+	Async:                         ${have_async}
 ])

@@ -72,11 +72,9 @@ common_SOURCE = \
 	src/voices.cpp \
 	src/wavegen.cpp 
 
+libespeak_FLAGS  =
 libespeak_SOURCE = \
 	src/speak_lib.cpp \
-	src/espeak_command.cpp \
-	src/event.cpp \
-	src/fifo.cpp \
 	src/debug.cpp
 
 espeakedit_SOURCE = \
@@ -107,6 +105,14 @@ endif
 if OPT_SONIC
 common_FLAGS  += -DINCLUDE_SONIC
 common_SOURCE += src/sonic.cpp
+endif
+
+if OPT_ASYNC
+libespeak_FLAGS  += -DUSE_ASYNC
+libespeak_SOURCE += \
+	src/espeak_command.cpp \
+	src/event.cpp \
+	src/fifo.cpp
 endif
 
 if AUDIO_RUNTIME
@@ -140,7 +146,7 @@ docs/speak_lib.h: src/speak_lib.h
 lib_LTLIBRARIES += src/libespeak.la
 
 src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
-src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(wave_FLAGS) \
+src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-fpic -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
@@ -159,7 +165,7 @@ src_espeak_SOURCES = src/espeak.cpp
 bin_PROGRAMS += src/espeakedit
 
 src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
-src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(wave_FLAGS) \
+src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
