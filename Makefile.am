@@ -55,11 +55,11 @@ libespeak_includedir = $(includedir)/espeak
 libespeak_include_HEADERS = \
 	src/speak_lib.h
 
+common_FLAGS  =
 common_SOURCE = \
 	src/compiledict.cpp \
 	src/dictionary.cpp \
 	src/intonation.cpp \
-	src/klatt.cpp \
 	src/mbrowrap.cpp \
 	src/numbers.cpp \
 	src/readclause.cpp \
@@ -96,6 +96,11 @@ espeakedit_SOURCE = \
 	src/voicedlg.cpp \
 	src/vowelchart.cpp
 
+if OPT_KLATT
+common_FLAGS  += -DINCLUDE_KLATT
+common_SOURCE += src/klatt.cpp
+endif
+
 if AUDIO_RUNTIME
 wave_SOURCE = src/wave.cpp src/wave_pulse.cpp
 wave_LIBS   = -lpulse -lpulse-simple -lportaudio
@@ -127,7 +132,7 @@ docs/speak_lib.h: src/speak_lib.h
 lib_LTLIBRARIES += src/libespeak.la
 
 src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
-src_libespeak_la_CXXFLAGS = $(wave_FLAGS) \
+src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(wave_FLAGS) \
 	-fpic -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
@@ -135,7 +140,7 @@ src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 bin_PROGRAMS += src/speak
 
 src_speak_LDFLAGS  = $(wave_LIBS) -lpthread
-src_speak_CXXFLAGS = $(wave_FLAGS)
+src_speak_CXXFLAGS = $(common_FLAGS) $(wave_FLAGS)
 src_speak_SOURCES  = src/speak.cpp $(common_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/espeak
@@ -146,7 +151,7 @@ src_espeak_SOURCES = src/espeak.cpp
 bin_PROGRAMS += src/espeakedit
 
 src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
-src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(wave_FLAGS) \
+src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 

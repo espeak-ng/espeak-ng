@@ -125,6 +125,22 @@ AM_CONDITIONAL(AUDIO_PORTAUDIO,  [test x"$AUDIO" = xportaudio])
 AM_CONDITIONAL(AUDIO_SADA,       [test x"$AUDIO" = xsada])
 
 dnl ================================================================
+dnl Optional compilation checks.
+dnl ================================================================
+
+AC_ARG_WITH([klatt],
+    [AS_HELP_STRING([--with-klatt], [enable the Klatt formant synthesizer @<:@default=yes@:>@])],
+    [])
+
+if test "$with_klatt" = "no" ; then
+	have_klatt=no
+else
+	have_klatt=yes
+fi
+
+AM_CONDITIONAL(OPT_KLATT, [test x"$have_klatt" = xyes])
+
+dnl ================================================================
 dnl wxWidgets checks.
 dnl ================================================================
 
@@ -161,4 +177,6 @@ AC_MSG_NOTICE([
 	portaudio:                     ${have_portaudio}
 	sada:                          ${have_sada}
 	audio configuration:           ${AUDIO}
+
+	Klatt:                         ${have_klatt}
 ])

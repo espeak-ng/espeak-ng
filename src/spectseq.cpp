@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -35,13 +36,15 @@
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 
 
+#ifdef INCLUDE_KLATT
 extern void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
 extern int Wavegen_Klatt(int resume);
+extern void KlattReset(int control);
+#endif
 
 extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 extern int Wavegen();
 extern void CloseWaveFile2();
-extern void KlattReset(int control);
 extern FILE *f_wave;
 
 static int frame_width;
@@ -115,9 +118,11 @@ void MakeWaveFile(int synthesis_method)
 		out_ptr = out_start = wav_outbuf;
 		out_end = &wav_outbuf[sizeof(wav_outbuf)];
 
+#ifdef INCLUDE_KLATT
 		if(synthesis_method == 1)
 			result = Wavegen_Klatt(resume);
 		else
+#endif
 			result = Wavegen();
 
 		if(f_wave != NULL)
@@ -972,7 +977,9 @@ static void SetSynth_mS(int length_mS, SpectFrame *sp1, SpectFrame *sp2, peak_t 
 
 	if(voice->klattv[0])
 	{
+#ifdef INCLUDE_KLATT
 		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
+#endif
 	}
 	else
 	{
@@ -1004,7 +1011,9 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	if(voice->klattv[0])
 	{
 		synthesizer_type = 1;
+#ifdef INCLUDE_KLATT
 		KlattReset(2);
+#endif
 	}
 
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
@@ -1120,7 +1129,9 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	if(voice->klattv[0])
 	{
 		synthesizer_type = 1;
+#ifdef INCLUDE_KLATT
 		KlattReset(2);
+#endif
 	}
 
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
