@@ -40,7 +40,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 public class CheckVoiceData extends Activity {
     private static final String TAG = "eSpeakTTS";

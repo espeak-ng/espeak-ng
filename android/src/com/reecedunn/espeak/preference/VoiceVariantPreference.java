@@ -21,16 +21,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.preference.DialogPreference;
-import android.text.Editable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -38,8 +34,6 @@ import com.reecedunn.espeak.R;
 import com.reecedunn.espeak.ResourceIdListAdapter;
 import com.reecedunn.espeak.VoiceSettings;
 import com.reecedunn.espeak.VoiceVariant;
-
-import java.util.List;
 
 public class VoiceVariantPreference extends DialogPreference {
     private Spinner mCategory;

@@ -23,11 +23,8 @@ import android.preference.DialogPreference;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import com.reecedunn.espeak.R;
 import com.reecedunn.espeak.SpeechSynthesis;
