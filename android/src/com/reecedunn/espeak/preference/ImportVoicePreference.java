@@ -91,23 +91,28 @@ public class ImportVoicePreference extends DialogPreference {
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                new AsyncTask<Object,Object,Object>() {
+                new AsyncTask<Object,Object,File>() {
                     @Override
-                    protected Object doInBackground(Object... objects) {
+                    protected File doInBackground(Object... objects) {
                         File source = (File)mDictionaries.getSelectedItem();
-                        File destination = new File(CheckVoiceData.getDataPath(getContext()), source.getName());
-                        try {
-                            byte[] data = FileUtils.readBinary(source);
-                            FileUtils.write(destination, data);
-                        } catch (IOException e) {
+                        if (source != null) {
+                            File destination = new File(CheckVoiceData.getDataPath(getContext()), source.getName());
+                            try {
+                                byte[] data = FileUtils.readBinary(source);
+                                FileUtils.write(destination, data);
+                                return source;
+                            } catch (IOException e) {
+                            }
                         }
                         return null;
                     }
 
                     @Override
-                    protected void onPostExecute(Object object) {
-                        final Intent intent = new Intent(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-                        getContext().sendBroadcast(intent);
+                    protected void onPostExecute(File file) {
+                        if (file != null) {
+                            final Intent intent = new Intent(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
+                            getContext().sendBroadcast(intent);
+                        }
                     }
                 }.execute();
                 break;
