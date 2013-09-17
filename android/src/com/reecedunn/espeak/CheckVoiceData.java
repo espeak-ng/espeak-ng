@@ -73,21 +73,10 @@ public class CheckVoiceData extends Activity {
         return true;
     }
 
-    public static String readContent(InputStream stream) throws IOException {
-        ByteArrayOutputStream content = new ByteArrayOutputStream();
-        int c = stream.read();
-        while (c != -1)
-        {
-            content.write((byte)c);
-            c = stream.read();
-        }
-        return content.toString();
-    }
-
     public static boolean canUpgradeResources(Context context) {
         try {
-            final String version = readContent(context.getResources().openRawResource(R.raw.espeakdata_version));
-            final String installedVersion = readContent(new FileInputStream(new File(getDataPath(context), "version")));
+            final String version = FileUtils.read(context.getResources().openRawResource(R.raw.espeakdata_version));
+            final String installedVersion = FileUtils.read(new FileInputStream(new File(getDataPath(context), "version")));
             return !version.equals(installedVersion);
         } catch (Exception e) {
             return false;

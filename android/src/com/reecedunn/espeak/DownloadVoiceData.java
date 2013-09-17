@@ -93,7 +93,7 @@ public class DownloadVoiceData extends Activity {
 
         @Override
         protected Integer doInBackground(Void... params) {
-            clearContents(CheckVoiceData.getDataPath(mContext));
+            FileUtils.rmdir(CheckVoiceData.getDataPath(mContext));
 
             final InputStream stream = mContext.getResources().openRawResource(mRawResId);
             final ZipInputStream zipStream = new ZipInputStream(new BufferedInputStream(stream));
@@ -134,7 +134,7 @@ public class DownloadVoiceData extends Activity {
 
                 if (entry.isDirectory()) {
                     outputFile.mkdirs();
-                    doChmod(outputFile);
+                    FileUtils.chmod(outputFile);
                     continue;
                 }
 
@@ -142,26 +142,24 @@ public class DownloadVoiceData extends Activity {
                 outputFile.getParentFile().mkdirs();
 
                 final FileOutputStream outputStream = new FileOutputStream(outputFile);
-
-                while (!isCancelled() && ((bytesRead = zipStream.read(buffer)) != -1)) {
-                    outputStream.write(buffer, 0, bytesRead);
+                try {
+                    while (!isCancelled() && ((bytesRead = zipStream.read(buffer)) != -1)) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                } finally {
+                    outputStream.close();
                 }
-
-                outputStream.close();
                 zipStream.closeEntry();
 
                 // Make sure the output file is readable.
-                doChmod(outputFile);
+                FileUtils.chmod(outputFile);
             }
 
-            final String version = CheckVoiceData.readContent(mContext.getResources().openRawResource(R.raw.espeakdata_version));
+            final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
             final File outputFile = new File(mOutput, "espeak-data/version");
             mExtractedFiles.add(outputFile);
 
-            final FileOutputStream outputStream = new FileOutputStream(outputFile);
-            outputStream.write(version.getBytes(), 0, version.length());
-            outputStream.close();
-            doChmod(outputFile);
+            FileUtils.write(outputFile, version);
         }
 
         private void removeExtractedFiles() {
@@ -172,30 +170,6 @@ public class DownloadVoiceData extends Activity {
             }
 
             mExtractedFiles.clear();
-        }
-
-        private static void doChmod(File file) {
-            try {
-                Runtime.getRuntime().exec("/system/bin/chmod 755 " + file.getAbsolutePath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        private static void clearContents(File directory) {
-            if (!directory.exists() || !directory.isDirectory()) {
-                return;
-            }
-
-            final File[] children = directory.listFiles();
-
-            for (File child : children) {
-                if (child.isDirectory()) {
-                    clearContents(child);
-                }
-
-                child.delete();
-            }
         }
     }
 }
