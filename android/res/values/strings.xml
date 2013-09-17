@@ -92,4 +92,6 @@
   <string name="variant_old">Old</string>
   <string name="variant_croak">Croak</string>
   <string name="variant_whisper">Whisper</string>
+  <string name="import_voice_title">Import eSpeak dictionary</string>
+  <string name="import_voice_description">Import an eSpeak voice dictionary file from the SD card.</string>
 </resources>

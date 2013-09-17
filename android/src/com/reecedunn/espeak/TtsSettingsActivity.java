@@ -29,6 +29,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 
+import com.reecedunn.espeak.preference.ImportVoicePreference;
 import com.reecedunn.espeak.preference.SeekBarPreference;
 import com.reecedunn.espeak.preference.SpeakPunctuationPreference;
 import com.reecedunn.espeak.preference.VoiceVariantPreference;
@@ -99,6 +100,17 @@ public class TtsSettingsActivity extends PreferenceActivity {
             addPreferencesFromResource(R.xml.preferences);
             createPreferences(getActivity(), getPreferenceScreen());
         }
+    }
+
+    private static Preference createImportVoicePreference(Context context) {
+        final String title = context.getString(R.string.import_voice_title);
+
+        final ImportVoicePreference pref = new ImportVoicePreference(context);
+        pref.setTitle(title);
+        pref.setDialogTitle(title);
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        pref.setDescription(R.string.import_voice_description);
+        return pref;
     }
 
     private static Preference createVoiceVariantPreference(Context context, VoiceSettings settings, int titleRes) {
@@ -172,6 +184,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
         VoiceSettings settings = new VoiceSettings(PreferenceManager.getDefaultSharedPreferences(context), engine);
 
+        group.addPreference(createImportVoicePreference(context));
         group.addPreference(createVoiceVariantPreference(context, settings, R.string.espeak_variant));
         group.addPreference(createSpeakPunctuationPreference(context, settings, R.string.espeak_speak_punctuation));
         group.addPreference(createSeekBarPreference(context, engine.Rate, VoiceSettings.PREF_RATE, R.string.setting_default_rate));
