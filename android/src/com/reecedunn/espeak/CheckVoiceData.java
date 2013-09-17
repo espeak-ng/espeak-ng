@@ -76,7 +76,7 @@ public class CheckVoiceData extends Activity {
     public static boolean canUpgradeResources(Context context) {
         try {
             final String version = FileUtils.read(context.getResources().openRawResource(R.raw.espeakdata_version));
-            final String installedVersion = FileUtils.read(new FileInputStream(new File(getDataPath(context), "version")));
+            final String installedVersion = FileUtils.read(new File(getDataPath(context), "version"));
             return !version.equals(installedVersion);
         } catch (Exception e) {
             return false;

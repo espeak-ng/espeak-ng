@@ -19,13 +19,22 @@ package com.reecedunn.espeak;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class FileUtils {
+    public static String read(File file) throws IOException {
+        return read(new FileInputStream(file), (int)file.length());
+    }
+
     public static String read(InputStream stream) throws IOException {
-        ByteArrayOutputStream content = new ByteArrayOutputStream();
+        return read(stream, stream.available());
+    }
+
+    public static String read(InputStream stream, int length) throws IOException {
+        ByteArrayOutputStream content = new ByteArrayOutputStream(length);
         int c = stream.read();
         while (c != -1)
         {
