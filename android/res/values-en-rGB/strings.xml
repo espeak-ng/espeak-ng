@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">This is a sample of text spoken in %s</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Male</item>
-    <item>Male (Variant 1)</item>
-    <item>Male (Variant 2)</item>
-    <item>Male (Variant 3)</item>
-    <item>Male (Variant 4)</item>
-    <item>Male (Variant 5)</item>
-    <item>Male (Variant 6)</item>
-    <item>Male (Variant 7)</item>
-    <item>Female</item>
-    <item>Female (Variant 1)</item>
-    <item>Female (Variant 2)</item>
-    <item>Female (Variant 3)</item>
-    <item>Female (Variant 4)</item>
-    <item>Female (Variant 5)</item>
-    <item>Klatt (Variant 1)</item>
-    <item>Klatt (Variant 2)</item>
-    <item>Klatt (Variant 3)</item>
-    <item>Klatt (Variant 4)</item>
-    <item>Croak (Male)</item>
-    <item>Whisper (Male)</item>
-    <item>Whisper (Female)</item>
-    <item>Young (Male)</item>
-    <item>Young (Female)</item>
-    <item>Old (Male)</item>
-    <item>Old (Female)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Status</string>
   <string name="tts_version">eSpeak version</string>
   <string name="speak">Speak</string>

@@ -39,8 +39,4 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">ይሄ በ%s ላይ የተነገረ ጽሑፍ ናሙና ነው።</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
 </resources>

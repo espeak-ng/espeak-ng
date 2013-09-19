@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Questo è un esempio di testo parlato in %s</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Maschio</item>
-    <item>Maschio (Variante 1)</item>
-    <item>Maschio (Variante 2)</item>
-    <item>Maschio (Variante 3)</item>
-    <item>Maschio (Variante 4)</item>
-    <item>Maschio (Variante 5)</item>
-    <item>Maschio (Variante 6)</item>
-    <item>Maschio (Variante 7)</item>
-    <item>Femmina</item>
-    <item>Femmina (Variante 1)</item>
-    <item>Femmina (Variante 2)</item>
-    <item>Femmina (Variante 3)</item>
-    <item>Femmina (Variante 4)</item>
-    <item>Femmina (Variante 5)</item>
-    <item>Klatt (Variante 1)</item>
-    <item>Klatt (Variante 2)</item>
-    <item>Klatt (Variante 3)</item>
-    <item>Klatt (Variante 4)</item>
-    <item>Gracchiato (Maschio)</item>
-    <item>Sussurrato (Maschio)</item>
-    <item>Sussurrato (Femmina)</item>
-    <item>Giovane (Maschio)</item>
-    <item>Giovane (Femmina)</item>
-    <item>Anziano (Maschio)</item>
-    <item>Anziana (Femmina)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">stato</string>
   <string name="tts_version">Versione Espeak</string>
   <string name="speak">Parla</string>

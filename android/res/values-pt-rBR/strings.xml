@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Esta é uma amostra de texto falado em %s</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Masculino</item>
-    <item>Masculino (Variante 1)</item>
-    <item>Masculino (Variante 2)</item>
-    <item>Masculino (Variante 3)</item>
-    <item>Masculino (Variante 4)</item>
-    <item>Masculino (Variante 5)</item>
-    <item>Masculino (Variante 6)</item>
-    <item>Masculino (Variante 7)</item>
-    <item>Feminino</item>
-    <item>Feminino (Variante 1)</item>
-    <item>Feminino (Variante 2)</item>
-    <item>Feminino (Variante 3)</item>
-    <item>Feminino (Variante 4)</item>
-    <item>Feminino (Variante 5)</item>
-    <item>Klatt (Variante 1)</item>
-    <item>Klatt (Variante 2)</item>
-    <item>Klatt (Variante 3)</item>
-    <item>Klatt (Variante 4)</item>
-    <item>Rouco (Masculino)</item>
-    <item>Sussurrado (Masculino)</item>
-    <item>Sussurrado (Feminino)</item>
-    <item>Jovem (Masculino)</item>
-    <item>Jovem (Feminino)</item>
-    <item>Idoso (Masculino)</item>
-    <item>Idoso (Feminino)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Status</string>
   <string name="tts_version">Versão de eSpeak</string>
   <string name="speak">Speak</string>

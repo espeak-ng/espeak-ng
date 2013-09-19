@@ -39,10 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Bu, %s dilinde seslendirilen örnek bir metindir</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Durum</string>
   <string name="tts_version">eSpeak versiyonu</string>
   <string name="speak">Konuş</string>

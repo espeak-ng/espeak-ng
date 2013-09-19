@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Так синтезатор речи озвучивает %s текст</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Мужской</item>
-    <item>Мужской (Вариант 1)</item>
-    <item>Мужской (Вариант 2)</item>
-    <item>Мужской (Вариант 3)</item>
-    <item>Мужской (Вариант 4)</item>
-    <item>Мужской (Вариант 5)</item>
-    <item>Мужской (Вариант 6)</item>
-    <item>Мужской (Вариант 7)</item>
-    <item>Женский</item>
-    <item>Женский (Вариант 1)</item>
-    <item>Женский (Вариант 2)</item>
-    <item>Женский (Вариант 3)</item>
-    <item>Женский (Вариант 4)</item>
-    <item>Женский (Вариант 5)</item>
-    <item>Сиплый (Вариант 1)</item>
-    <item>Сиплый (Вариант 2)</item>
-    <item>Сиплый (Вариант 3)</item>
-    <item>Сиплый (Вариант 4)</item>
-    <item>Хриплый (Мужской)</item>
-    <item>Шёпот (Мужской)</item>
-    <item>Шёпот (Женский)</item>
-    <item>Юный (Мужской)</item>
-    <item>Юный (Женский)</item>
-    <item>Пожилой (Мужской)</item>
-    <item>Пожилой (Женский)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Статус</string>
   <string name="tts_version">Версия eSpeak</string>
   <string name="speak">Речь</string>

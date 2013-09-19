@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Este es un ejemplo de texto hablado en %s.</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Masculino</item>
-    <item>Masculino (variante 1)</item>
-    <item>Masculino (variante 2)</item>
-    <item>Masculino (variante 3)</item>
-    <item>Masculino (variante 4)</item>
-    <item>Masculino (variante 5)</item>
-    <item>Masculino (variante 6)</item>
-    <item>Masculino (variante 7)</item>
-    <item>Femenina</item>
-    <item>Femenina (variante 1)</item>
-    <item>Femenina (variante 2)</item>
-    <item>Femenina (variante 3)</item>
-    <item>Femenina (variante 4)</item>
-    <item>Femenina (variante 5)</item>
-    <item>Klatt (Variante 1)</item>
-    <item>Klatt (Variante 2)</item>
-    <item>Klatt (Variante 3)</item>
-    <item>Klatt (Variante 4)</item>
-    <item>Carraspera (Masculino)</item>
-    <item>Secretos (Masculino)</item>
-    <item>Secretos (Femenina)</item>
-    <item>Jóven (masculino)</item>
-    <item>Jóven (femenina)</item>
-    <item>Anciano (masculino)</item>
-    <item>Anciana (femenina)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Estado</string>
   <string name="tts_version">Versión de eSpeak</string>
   <string name="speak">Hablar</string>
