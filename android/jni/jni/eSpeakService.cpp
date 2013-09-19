@@ -80,7 +80,7 @@ unicode_string::unicode_string(JNIEnv *env, jstring str)
   if (str == NULL) return;
 
   const char *utf8 = env->GetStringUTFChars(str, NULL);
-  mString = (wchar_t *)malloc(strlen(utf8) + 1);
+  mString = (wchar_t *)malloc((strlen(utf8) + 1) * sizeof(wchar_t));
 
   const char *utf8_current = utf8;
   wchar_t *utf32_current = mString;
