@@ -39,37 +39,6 @@
   <!--Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Aquesta és una mostra de text llegit en veu alta en %s</string>
-  <!--Source: Variant preference labels.
-        Description: Labels for possible voice variant/gender/age values.-->
-  <string-array name="default_variant_entries">
-    <item>Masculina</item>
-    <item>Masculina (variant 1)</item>
-    <item>Masculina (variant 2)</item>
-    <item>Masculina (variant 3)</item>
-    <item>Masculina (variant 4)</item>
-    <item>Masculina (variant 5)</item>
-    <item>Masculina (variant 6)</item>
-    <item>Masculina (variant 7)</item>
-    <item>Femenina</item>
-    <item>Femenina (variant 1)</item>
-    <item>Femenina (variant 2)</item>
-    <item>Femenina (variant 3)</item>
-    <item>Femenina (variant 4)</item>
-    <item>Femenina (variant 5)</item>
-    <item>Klatt (variant 1)</item>
-    <item>Klatt (variant 2)</item>
-    <item>Klatt (variant 3)</item>
-    <item>Klatt (variant 4)</item>
-    <item>Croak (masculina)</item>
-    <item>Xixiuejant (masculina)</item>
-    <item>Xixiuejant (femenina)</item>
-    <item>Jove (masculina)</item>
-    <item>Jove (femenina)</item>
-    <item>Persona gran (masculina)</item>
-    <item>Persona gran (femenina)</item>
-  </string-array>
-  <!--Source: Rate preference labels.
-        Description: Labels for possible rate multiplier values.-->
   <string name="status">Estat</string>
   <string name="tts_version">Versió de l\'eSpeak</string>
   <string name="speak">Parla</string>
@@ -81,4 +50,20 @@
   <string name="resetToDefault">Estableix com a predeterminat</string>
   <string name="espeak_pitch_range">Escolliu una variació</string>
   <string name="espeak_variant">Variant de veu</string>
+  <string name="punctuation_all">Totes</string>
+  <string name="punctuation_custom">Personalitzada</string>
+  <string name="punctuation_custom_fmt">Personalitzada: %s</string>
+  <string name="punctuation_none">Cap</string>
+  <string name="punctuation_characters">Signes de puntuació</string>
+  <string name="category">Categoria</string>
+  <string name="variant">Variant</string>
+  <string name="variant_male">Masculina</string>
+  <string name="variant_female">Femenina</string>
+  <string name="variant_default">Predeterminada</string>
+  <string name="variant_n">Variant %d</string>
+  <string name="variant_young">Jove</string>
+  <string name="variant_old">Vell</string>
+  <string name="variant_whisper">Xiuxiuejant</string>
+  <string name="import_voice_title">Importa el diccionari eSpeak</string>
+  <string name="import_voice_description">Importa un fitxer de diccioanri de veu de l\'eSpeak de la targeta SD.</string>
 </resources>
