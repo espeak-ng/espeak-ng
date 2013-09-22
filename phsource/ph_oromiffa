@@ -32,7 +32,6 @@ phoneme y
   FMT(vowel/ii#_2)
 endphoneme
 
-
 phoneme a
   vowel starttype #a endtype #a
   length 220
@@ -41,7 +40,6 @@ phoneme a
   ENDIF
   FMT(vowel/a_6)
 endphoneme
-
 
 phoneme @
   vowel starttype #@ endtype #@
@@ -52,13 +50,11 @@ phoneme @
   FMT(vowel/@_3)
 endphoneme
 
-
 phoneme o
   vowel starttype #o endtype #o
   length 220
   FMT(vowel/o-_4)
 endphoneme
-
 
 phoneme u
   vowel starttype #u endtype #u
@@ -66,30 +62,17 @@ phoneme u
   FMT(vowel/u_2)
 endphoneme
 
-
 phoneme r
   import_phoneme base/R2
 endphoneme
 
-
-phoneme p'
-  vls blb stop
+phoneme k`
+  vls vel stop
   lengthmod 2
-  voicingswitch b
-  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 gpaus
-  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
-  WAV(ustop/p_unasp)
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
 endphoneme
-
-
-phoneme b
-  vcd blb stop
-  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    ChangePhoneme(B)
-  ENDIF
-  CALL base/b
-endphoneme
-
 
 phoneme t`
   vls alv stop
@@ -103,7 +86,6 @@ phoneme t`
   WAV(ustop/t_hi, 70)
 endphoneme
 
-
 phoneme tS`
   vls pla afr sibilant
   voicingswitch dZ
@@ -116,22 +98,20 @@ phoneme tS`
   WAV(ustop/tsh_unasp, 80)
 endphoneme
 
-
-phoneme k`
-  vls vel stop
-  lengthmod 2
-  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
-  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
-  WAV(ustop/k_ejc, 60)
+phoneme p'
+ vcd blb stop
+  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(P)
+  ENDIF
+  CALL base/b
 endphoneme
 
-
-phoneme x
-  vls vel frc
-  lengthmod 3
-  IF prevPhW(#i) THEN
-    ChangePhoneme(C)
-  ELSE
-    CALL base/x
+phoneme D
+  vcd alv stop
+  lengthmod 6
+  voicingswitch d
+  CALL base/D
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh, 35)   // weaker 
   ENDIF
 endphoneme

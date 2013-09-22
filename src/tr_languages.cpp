@@ -510,6 +510,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 
+
+
 	case L('a','r'):   // Arabic
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
@@ -1251,7 +1253,7 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-	case L('o','m'):
+	case L('o','m'): // Oromo
 		{
 			static const unsigned char stress_amps_om[] = {18,15, 20,20, 20,22, 22,22 };
 			static const short stress_lengths_om[8] = {200,200, 200,200, 0,0, 200,200};
@@ -1259,6 +1261,8 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
+			tr->langopts.numbers2 = 0x200;  // say "thousands" before its number
 		}
 		break;
 
