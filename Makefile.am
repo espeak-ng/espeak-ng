@@ -178,6 +178,7 @@ dictionaries: \
 	espeak-data/af_dict \
 	espeak-data/am_dict \
 	espeak-data/an_dict \
+	espeak-data/as_dict \
 	espeak-data/az_dict \
 	espeak-data/bg_dict \
 	espeak-data/bn_dict \
@@ -196,6 +197,7 @@ dictionaries: \
 	espeak-data/fr_dict \
 	espeak-data/ga_dict \
 	espeak-data/grc_dict \
+	espeak-data/gu_dict \
 	espeak-data/hi_dict \
 	espeak-data/hu_dict \
 	espeak-data/hy_dict \
@@ -256,6 +258,12 @@ dictsource/an_extra:
 	touch dictsource/an_extra
 espeak-data/an_dict: src/espeak espeak-data/phontab dictsource/an_list dictsource/an_rules dictsource/an_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=an && cd ..
+
+as: espeak-data/as_dict
+dictsource/as_extra:
+	touch dictsource/as_extra
+espeak-data/as_dict: src/espeak espeak-data/phontab dictsource/as_list dictsource/as_rules dictsource/as_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=as && cd ..
 
 az: espeak-data/az_dict
 dictsource/az_extra:
@@ -364,6 +372,12 @@ dictsource/grc_extra:
 	touch dictsource/grc_extra
 espeak-data/grc_dict: src/espeak espeak-data/phontab dictsource/grc_list dictsource/grc_rules dictsource/grc_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=grc && cd ..
+
+gu: espeak-data/gu_dict
+dictsource/gu_extra:
+	touch dictsource/gu_extra
+espeak-data/gu_dict: src/espeak espeak-data/phontab dictsource/gu_list dictsource/gu_rules dictsource/gu_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=gu && cd ..
 
 hi: espeak-data/hi_dict
 dictsource/hi_extra:
