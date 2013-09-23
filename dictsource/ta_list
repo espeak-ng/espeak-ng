@@ -85,8 +85,8 @@ _;	a:raIb||pul.l.i	// ஆரைப் புள்ளி
 _:	mukka:l||pul.l.i	// முக்கால் புள்ளி
 _(	id.V||piRaI	// இட பிறை
 _)	vVlV||piRaI       // வல பிறை
-_[	id.V||sadUrVm	// இட சதுரம்
-_]	vVlV||sadUrVm	// வல சதுரம்
+_[	id.VppVgVrVm	// இடப்பகரம்  
+_]	vVlVppVgVrVm	// வலப்பகரம். 
 _{	id.V||gVn.Vm	// இட கணம்
 _}	vVlV||gVn.Vm	// வல கணம்
 <	kuRaIvU		// குறைவு
@@ -385,6 +385,8 @@ tamil	தமிழ்	$text
 புசு 	$alt
 புஸு	$alt
 பாதிக்காம	$alt
+பனியா	$alt
+பாம்	$alt
 
 
 	// initial த as [d]
@@ -452,6 +454,7 @@ tamil	தமிழ்	$text
 தாயம்	$alt
 திமு	$alt
 தாவா	$alt
+துருவா	$alt
 
 
 	// initial ட

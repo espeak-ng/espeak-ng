@@ -227,6 +227,7 @@ bainskloof  beInsklo@f
 bangladesj  baNglad'ES
 barcelona   bars@l'o@na
 barkly      _^_EN
+batavië     bat'A:vi@
 bellevue    b&lvju:
 bermuda     $2
 bethlehem   bEt_liEm
@@ -260,7 +261,7 @@ denemarke   de@n@mark@
 djakarta    dZak'arta
 doebaai     $2
 duitswes    dYytsv'Es
-eastgate    _^_EN
+	eastgate    _^_EN
 efese       e@f@s@
 ermelo      &rm@lo@
 florida     flOrida
@@ -344,7 +345,6 @@ rhône       _^_FR
 richardsbaai ritS@dsb'AI
 riviersonderend r@fi:rsOn@r_'Ent
 robertson   _^_EN
-saldanha    sald'ana
 salvador    salvadO:r
 santiago    santi;'A:gu
 secunda     s@kunda
@@ -387,8 +387,10 @@ zulu        zulu // Kwazulu-Natal
 abdullah    abd'ula
 Abiméleg    abin'e@lEx2
 abraham     A:bram
+achilles    ak'il@s
 ackerman    ak@rman
 adam        adam
+adonis      ad'o@n@s
 adriaan     A:drijan
 adrie       A:dri
 agnes       _^_EN
@@ -628,6 +630,7 @@ lucretia    lukr'i:Sja
 lucas       lukas
 lukas       lukas
 lulu        lulu
+lydia       lIdia
 mabalêl     mabal'&l
 mabel       _^_EN
 macgill     m@gjil
@@ -693,6 +696,7 @@ oedipus     o@dipWs
 ogden       _^_EN
 olga        Olga
 ontong      OntON
+pamela      _^_EN
 patrick     _^_EN
 petoors     p@to@rs
 phillips    fIl@ps
@@ -984,6 +988,67 @@ dis		$u
 (nie waar nie)	n,i||v,A:r||n'i
 (sy aan sy)	s,eI||an||s'eI
 
+// Latin terms
+ab            _^_LA
+actio         _^_LA
+ad            _^_LA
+alterius      _^_LA
+amico         _^_LA
+amicus        _^_LA
+beneficium    _^_LA
+bona          _^_LA
+bono          _^_LA
+contestatio   _^_LA
+cum           _^_LA
+curiae        _^_LA
+(de facto)    _^_LA
+(de jure)     _^_LA
+delicti       _^_LA
+delicto       _^_LA
+deo           _^_LA
+directus      _^_LA
+divisionis    _^_LA
+dolus         _^_LA
+domicilium    _^_LA
+eventualis    _^_LA
+exclusio      _^_LA
+executandi    _^_LA
+excussionis   _^_LA
+extremis      _^_LA
+facto          _^_LA
+factum        _^_LA
+fide          _^_LA
+fides         _^_LA
+forma         _^_LA
+grata         _^_LA
+habitatio     _^_LA
+inclusio      _^_LA
+(in debiti)   _^_LA
+(in absentia) _^_LA	
+(in extremis) _^_LA	
+initio       _^_LA
+inter         _^_LA	
+ipsa       _^_LA
+jus           _^_LA
+laude         _^_LA
+litis         _^_LA
+loquitur      _^_LA
+luna          _^_LA
+mercatrix     _^_LA
+mutandi       _^_LA
+mutatis       _^_LA
+nisi          _^_LA
+pauperis      _^_LA
+persona       _^_LA
+publica       _^_LA
+restitutio    _^_LA
+sine          _^_LA
+unius         _^_LA
+usufruct      _^_LA
+usufructus    _^_LA
+usus          _^_LA
+vivendi       _^_LA
+vivos         _^_LA
 
 // main word list
 
@@ -1029,6 +1094,7 @@ aversie       av'&rsi
 
 babelaas      bab@lA:s
 barrikade     $3
+bedewete      be@d@ve@t@	
 beide         beId@
 bekaf         b&kaf
 belangriker   b@laNr@k,Ir
@@ -1039,6 +1105,7 @@ bestes        bEst@s
 beta          be@ta $only
 betlehemster  bEtli:Emst&r
 bewe          be@v@
+bewebeen      be@v@be@n
 bewend        be@v@nt
 bewering      b@ve@rIN
 biopsie       bi'Opsi
@@ -1076,6 +1143,7 @@ crèche        krES
 dadelik       dA:d@lIk
 dagorde       dax2_Ord@
 dagster       dax2st&r
+dagure        dax2_yr@
 daisy         deIzi
 darem         dar@m
 dawidster     dA:v@tst&r
@@ -1150,6 +1218,7 @@ genesis       x2e@n@s@s
 //gesamentlik   x2@sA:m@ntl@k
 gentleman     _^_EN
 germolene     dZI:m@l'i:n
+geseling      x2e@s@l@N
 gevallene     x2@fal@n@
 gewellys      x2e@v@lleIs
 gladiator     x2ladi'A:tOr
@@ -1159,6 +1228,7 @@ gooi          x2OI
 gomorra       x2@mOra
 graffiti      graf'iti
 gratis        x2r'A:t@s
+groepeer      $2
 grondys       x2rO:nt_eIs
 
 hallo         h'Il,@U
@@ -1233,6 +1303,7 @@ kritiek       krIt'ik
 kulture       $2
 kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
+kweekwal      kwe@kval
 
 lasagne       las'anj@
 legaat        l@x2A:t
@@ -1251,6 +1322,7 @@ macaroni      makar'o@ni
 macho         matS@U
 madame        mad'A:m
 madamoiselle  _^_FR
+manalleen     man_ale@n
 maskering     mask'e@r@N $only
 massaal       $2
 massale       $2
@@ -1287,6 +1359,8 @@ namate        $2
 negeer        n@x2e@r
 negering      n@x2e@r@N
 negester      ne@x2@st&r
+nekaar        n&k_A:r
+nekare        n&k_A:r@
 netjies       nE:icis
 netjiese      nEicis@
 netsowel      nEtso@v&l
@@ -1493,6 +1567,7 @@ verregaande f&r@x2'A:nd@
 verreweg      f&r@v&x2
 verse         f&:rs@
 vers          f&:rs
+versene       f&rs@n@
 versindaba    f&:rs_@ndA:ba
 verste        f&rst@
 verte         f&rt@
@@ -1506,6 +1581,7 @@ volspoed      $1
 volswanger    $1
 volte         $1
 voluit        fOl_Yyt
+	voorbene      fo@rbe@n@
 voorgee       fo@rx2e@
 voorkeer      $1
 voorkom       $2 $only
@@ -1530,6 +1606,7 @@ watwou        vatv@U
 weergalm      $2
 weerklink     $2
 weervoorspelling $1
+wegeb         v&x2_Eb
 weggewens     v&x2@v'E:ns
 welaf         v&l_af
 weleer        v&l_'e@r

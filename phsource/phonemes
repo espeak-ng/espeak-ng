@@ -1928,6 +1928,15 @@ include ph_telugu
 phonemetable si hi
 include ph_sinhala
 
+phonemetable gu hi
+include ph_gujarati
+
+phonemetable as bn
+include ph_assamese
+
+
+
+
 phonemetable tn base
 include ph_setswana
 

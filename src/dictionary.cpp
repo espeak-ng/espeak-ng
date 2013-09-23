@@ -526,7 +526,7 @@ unsigned short ipa1[96] = {
 	0x70,0x71,0x72,0x73,0x74,0x75,0x76,0x77,0x78,0x79,0x7a,0x7b,0x7c,0x7d,0x303,0x7f
 };
 
-#define N_PHON_OUT  500
+#define N_PHON_OUT  500  // realloc increment
 static char *phon_out_buf = NULL;
 static int phon_out_size = 0;
 
@@ -965,7 +965,7 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 
 
 
-static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int &vowel_count, int &stressed_syllable, int control)
+static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control)
 {//=================================================================================================================================================
 // control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
@@ -992,7 +992,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 			{
 				/* primary stress on preceeding vowel */
 				j = count - 1;
-				while((j > 0) && (stressed_syllable == 0) && (vowel_stress[j] < 4))
+				while((j > 0) && (*stressed_syllable == 0) && (vowel_stress[j] < 4))
 				{
 					if((vowel_stress[j] != 0) && (vowel_stress[j] != 1))
 					{
@@ -1018,7 +1018,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 			}
 			else
 			{
-				if((ph->std_length < 4) || (stressed_syllable == 0))
+				if((ph->std_length < 4) || (*stressed_syllable == 0))
 				{
 					stress = ph->std_length;
 
@@ -1058,14 +1058,14 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 	*ph_out = 0;
 
 	/* has the position of the primary stress been specified by $1, $2, etc? */
-	if(stressed_syllable > 0)
+	if(*stressed_syllable > 0)
 	{
-		if(stressed_syllable >= count)
-			stressed_syllable = count-1;   // the final syllable
+		if(*stressed_syllable >= count)
+			*stressed_syllable = count-1;   // the final syllable
 
-		vowel_stress[stressed_syllable] = 4;
+		vowel_stress[*stressed_syllable] = 4;
 		max_stress = 4;
-		primary_posn = stressed_syllable;
+		primary_posn = *stressed_syllable;
 	}
 
 	if(max_stress == 5)
@@ -1090,8 +1090,8 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 		max_stress = 4;
 	}
 
-	stressed_syllable = primary_posn;
-	vowel_count = count;
+	*stressed_syllable = primary_posn;
+	*vowel_count = count;
 	return(max_stress);
 }  // end of GetVowelStress
 
@@ -1113,7 +1113,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	signed char vowel_stress[N_WORD_PHONEMES/2];
 
 	strcpy((char *)phonetic,word);
-	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 0);
+	max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 0);
 
 	if(new_stress >= 4)
 	{
@@ -1240,7 +1240,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		unstressed_word = 1;
 	}
 
-	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
+	max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 1);
 	if((max_stress < 0) && dictionary_flags)
 	{
 		max_stress = 0;
@@ -1541,6 +1541,17 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		}
 		vowel_stress[stressed_syllable] = 4;
 		max_stress = 4;
+		break;
+
+	case 13:  // LANG=ml, 1st unless 1st vowel is short and 2nd is long
+		if(stressed_syllable == 0)
+		{
+			stressed_syllable = 1;
+			if((vowel_length[1] == 0) && (vowel_count > 2) && (vowel_length[2] > 0))
+				stressed_syllable = 2;
+			vowel_stress[stressed_syllable] = 4;
+			max_stress = 4;
+		}
 		break;
 	}
 
@@ -3040,7 +3051,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	if(tr->transpose_min > 0)
 	{
 		strncpy0(word_buf,word, N_WORD_BYTES);
-		wlen = TransposeAlphabet(tr, word_buf);
+		wlen = TransposeAlphabet(tr, word_buf);  // bit 6 indicates compressed characters
 		word = word_buf;
 	}
 	else

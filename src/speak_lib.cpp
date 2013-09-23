@@ -765,10 +765,11 @@ ENTER("espeak_Initialize");
 #ifdef PLATFORM_RISCOS
 	setlocale(LC_CTYPE,"ISO8859-1");
 #else
-	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
+	if(setlocale(LC_CTYPE,"C.UTF-8") == NULL)
 	{
 		if(setlocale(LC_CTYPE,"UTF-8") == NULL)
-			setlocale(LC_CTYPE,"");
+			if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
+				setlocale(LC_CTYPE,"");
 	}
 #endif
 

@@ -39,6 +39,7 @@
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
 #define L_jbo  0x6a626f   // jbo  Lojban
+#define L_mni  0x6d6e69   // mni  Manipuri
 #define L_pap  0x706170   // pap  Papiamento]
 #define L_qvi  0x717669   // qvi  Kichwa
 #define L_shs  0x736873   // shs  Shuswap / Secwepemctsin
@@ -81,7 +82,7 @@ ALPHABET alphabets [] = {
     {"_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f,L('h','i'), AL_WORDS},
     {"_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b','n'), AL_WORDS},
     {"_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  L('p','a'), AL_WORDS},
-    {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  0, 0},
+    {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  L('g','u'), AL_WORDS},
     {"_or",    OFFSET_ORIYA,    0xb00, 0xb7f,  0, 0},
     {"_ta",    OFFSET_TAMIL,    0xb80, 0xbff,  L('t','a'), AL_WORDS},
     {"_te",    OFFSET_TELUGU,   0xc00, 0xc7f,  L('t','e'), 0},
@@ -460,7 +461,7 @@ Translator *SelectTranslator(const char *name)
 	Translator *tr;
 
 	static const short stress_lengths_equal[8] = {230, 230,  230, 230,  0, 0,  230, 230};
-	static const unsigned char stress_amps_equal[8] = {18,18, 18,18, 18,18, 18,18 };
+	static const unsigned char stress_amps_equal[8] = {19,19, 19,19, 19,19, 19,19 };
 
 	static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
 	static const unsigned char stress_amps_fr[8] = {18,16, 18,18, 18,18, 18,18 };
@@ -531,6 +532,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('b','n'):  // Bengali
+	case L('a','s'):  // Assamese
+	case L_mni:  // Manipuri  (temporary placement - it's not indo-european)
 		{
 			static const short stress_lengths_bn[8] = {180, 180,  210, 210,  0, 0,  230, 240};
 			static const unsigned char stress_amps_bn[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -852,6 +855,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
+	case L('o','r'):    // Oriya
 	case L('p','a'):    // Punjabi
 	case L('g','u'):    // Gujarati
 		{
@@ -886,6 +890,11 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 				tr->langopts.break_numbers = 0x2aaaa8;
 				tr->langopts.max_digits = 22;
 				tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
+			}
+			else
+			if(name2 == L('o','r'))
+			{
+				tr->letter_bits_offset = OFFSET_ORIYA;
 			}
 			SetIndicLetters(tr);
 		}
@@ -1455,8 +1464,8 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('t','a'):  // Tamil
-	case L('m','l'):  // Malayalam
 	case L('k','n'):  // Kannada
+	case L('m','l'):  // Malayalam
 	case L('m','r'):  // Marathi
 	case L('t','e'):  // Telugu
 		{
@@ -1464,7 +1473,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;   // use 'diminished' for unstressed final syllable
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.break_numbers = 0x14a8;  // 1000, 100,000  10,000,000
 
@@ -1483,9 +1492,12 @@ SetLengthMods(tr,3);  // all equal
 			else
 			if(name2 == L('m','l'))
 			{
+				static const short stress_lengths_ml[8] = {180, 160,  240, 240,  0, 0,  260, 260};
+				SetupTranslator(tr,stress_lengths_ml, stress_amps_equal);
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
 				tr->langopts.numbers = NUM_OMIT_1_THOUSAND | NUM_OMIT_1_HUNDRED;
 				tr->langopts.numbers2 = NUM2_OMIT_1_HUNDRED_ONLY;
+				tr->langopts.stress_rule = 13;   // 1st syllable, unless 1st vowel is short and 2nd is long
 			}
 			else
 			if(name2 == L('k','n'))
