@@ -675,7 +675,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case '[':   // width--
-		pk->pkright -= 1;
+		pk->pkright -= 10;
 		if(pk->pkright < 0)
 			pk->pkright = 0;
 		display = 1;
@@ -683,7 +683,21 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case ']':   // width++
-		pk->pkright += 1;
+		pk->pkright += 10;
+		display = 1;
+		field = 4;
+		break;
+
+	case '{':   // width--
+		pk->pkright -= 2;
+		if(pk->pkright < 0)
+			pk->pkright = 0;
+		display = 1;
+		field = 4;
+		break;
+
+	case '}':   // width++
+		pk->pkright += 2;
 		display = 1;
 		field = 4;
 		break;

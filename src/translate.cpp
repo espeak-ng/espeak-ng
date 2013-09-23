@@ -457,6 +457,8 @@ int IsSpace(unsigned int c)
 		return(0);
 	if((c >= 0x2500) && (c < 0x25a0))
 		return(1);  // box drawing characters
+	if((c >= 0xfff9) && (c <= 0xffff))
+		return(1);  // unicode specials
 //	if(wcschr(chars_space,c))
 //		return(1);
 	return(iswspace(c));
@@ -859,6 +861,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int wflags;
 	int wmark;
 	int was_unpronouncable = 0;
+	int loopcount;
 	WORD_TAB wtab_null[8];
 
 	// translate these to get pronunciations of plural 's' suffix (different forms depending on
@@ -1194,7 +1197,7 @@ if(end_type & SUFX_UNPRON)
 
 			found = 0;
 			confirm_prefix = 1;
-			for (int loopcount = 0; (loopcount < 50) && (end_type & SUFX_P); loopcount++)
+			for (loopcount = 0; (loopcount < 50) && (end_type & SUFX_P); loopcount++)
 			{
 				// Found a standard prefix, remove it and retranslate
 				// loopcount guards against an endless loop
@@ -1726,7 +1729,7 @@ int SetTranslator2(const char *new_language)
 			translator2 = SelectTranslator(new_language);
 			strcpy(translator2_language,new_language);
 
-			if(LoadDictionary(translator2, new_language, 0) != 0)
+			if(LoadDictionary(translator2, translator2->dictionary_name, 0) != 0)
 			{
 				SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 				new_phoneme_tab = -1;
@@ -2048,7 +2051,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			pre_pause = 1;
 	}
 
-	plist2 = &ph_list2[n_ph_list2];
 	stress = 0;
 	next_stress = 1;
 	srcix = 0;
@@ -2076,6 +2078,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		tr->prev_dict_flags[0] = 0;
 		tr->prev_dict_flags[1] = 0;
 	}
+	plist2 = &ph_list2[n_ph_list2];
 
 	if((option_capitals==1) && (word_flags & FLAG_FIRST_UPPER))
 	{
@@ -2292,8 +2295,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 
 
-static int EmbeddedCommand(unsigned int &source_index)
-{//===================================================
+static int EmbeddedCommand(unsigned int *source_index_out)
+{//=======================================================
 	// An embedded command to change the pitch, volume, etc.
 	// returns number of commands added to embedded_list
 
@@ -2304,6 +2307,7 @@ static int EmbeddedCommand(unsigned int &source_index)
 	unsigned char c;
 	char *p;
 	int cmd;
+	int source_index = *source_index_out;
 
 	c = source[source_index];
 	if(c == '+')
@@ -2351,6 +2355,7 @@ static int EmbeddedCommand(unsigned int &source_index)
 	}
 
 	embedded_list[embedded_ix++] = cmd + sign + (value << 8);
+	*source_index_out = source_index;
 	return(1);
 }  //  end of EmbeddedCommand
 
@@ -2758,7 +2763,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			}
 			else
 			{
-				embedded_count += EmbeddedCommand(source_index);
+				embedded_count += EmbeddedCommand(&source_index);
 				prev_in_save = prev_in;
 				// replace the embedded command by spaces
 				memset(&source[srcix],' ',source_index-srcix);
@@ -2928,19 +2933,25 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 				}
 
-				letter_count++;
-
-				if(tr->letter_bits_offset > 0)
+				if(c != ' ')
 				{
-					if(((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
-							((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
+					letter_count++;
+
+					if(tr->letter_bits_offset > 0)
 					{
-						// Don't mix native and Latin characters in the same word
-						// Break into separate words
-						c = ' ';
-						space_inserted = 1;
-						word_flags |= FLAG_HYPHEN_AFTER;
-						next_word_flags |= FLAG_HYPHEN;
+						if(((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
+								((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
+						{
+							// Don't mix native and Latin characters in the same word
+							// Break into separate words
+							if(IsAlpha(prev_out))
+							{
+								c = ' ';
+								space_inserted = 1;
+								word_flags |= FLAG_HYPHEN_AFTER;
+								next_word_flags |= FLAG_HYPHEN;
+							}
+						}
 					}
 				}
 
@@ -2979,6 +2990,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						{
 							int next2_in;
 							utf8_in(&next2_in,&source[source_index + next_in_nbytes]);
+
+							if((tr->translator_name == L('n','l')) && (letter_count==2) && (c == 'j') && (prev_in == 'I'))
+							{
+								// Dutch words may capitalise initial IJ, don't split
+							}
+							else
 							if(IsAlpha(next2_in))
 							{
 								// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters

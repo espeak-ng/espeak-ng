@@ -600,7 +600,7 @@
          b) al (d+       O:l
          b) al (k        O:l
          f) al (k        0l
-            alkali       ak@laI
+            alkali       alk@laI
          b) all (K       O:l
         &b) all (er_     O:l
         _c) al (e        al
@@ -1093,7 +1093,7 @@
          _) as (trolog   a#s
          _) as (trono    a#s
          &) as (ty_      a#s
-            ass (ym      as
+         _) as (ym       eIs
      purch) as (e        Is
         ph) ase (_       eIz
          r) ase (_       eIz
@@ -1330,6 +1330,7 @@
             be (see      bI2
             be (sie      bI2
          _) be (sto      bI2
+         _) bestse (ll   bEsts'E
          _) beta         b,i:t@
 ?3       _) beta         b,eIt@
          _) be (th       bE
@@ -1514,7 +1515,7 @@
        _ta) ch           k
         ta) ch           tS
        sta) ch           S
-         e) ch (o        k
+        _e) ch (o        k
       bron) ch           k
             ch (ute      S
             ch (ure      S
@@ -1527,6 +1528,8 @@
          _) co (con      k,oU
          _) co (eCP2     k,oU
          _) coe (l       si:
+         _) co (g        k0
+         _) cogno        k0gn@
             co (hab      k%oU 
             co (llab     k@
             co (llap     k@
@@ -1744,6 +1747,7 @@
          _) deni (a      dI2naI
             deni (tri    d%i:naI
          _) de (no       dI2
+         _) de (nu       dI2
          _) de (o        d%i:
          _) de (p@       dI2
             de (per      d%i:
@@ -1757,6 +1761,7 @@
             de (reg      d%i:
             de (rel      dE
             de (riC      dI2
+         _) de (rAX      dE
             de (rog      dI2
             de (rACatio  dE
          _) des (@       dI2s
@@ -2260,11 +2265,14 @@
          &) ency (_      @ns%i
             ency (cli    %EnsI
          k) en (d_       En
+         t) en (d_       En
             en (dA_      'En
          _) en (d        En
          _) en (da       %En
         eg) en (d        @n
             en (dea      %En
+            en (der      En
+       cal) en (der      @n
             en (dous     En
          _) endo         EndoU
          @) en (do_      'En
@@ -2307,6 +2315,7 @@
             en (ter      En
             en (tert     ,En
             enthra (l    %EnTrO:
+            en (tia_+    'En
          &) entice       %EntaIs
          _) en (ti       %En
         _c) enti         EntI
@@ -2407,6 +2416,7 @@
         mb) er (_        3
        lin) er (_S1      3
        lin) ers (_S2     3z
+        nc) er (_S1      3
             er           3:
             er (A        3:r
          _) er (A        I2r
@@ -2560,7 +2570,8 @@
          _) es (pl       Es
          _) es (tab      I2s
             es (tate     I2s
-         @) esc (enC     'Es
+         @) esc (ent_    'Es
+         @) esc (ence_   'Es
         pr) es (ent      Ez
             es (iA       i:z
             es (ian_     'i:z
@@ -3024,6 +3035,7 @@
          &) ia (_N       =i|@
          &) ia (_        =i@
         @@) ia (_        =i@
+         @) iae (_       =Ii:
          @) ian (cy      I|@n
          l) iais         I|eIz
          p) ia (no       Ia
@@ -3307,6 +3319,7 @@
          _) in (flo      In
          _) in (flu      In
          _) in (fo_      In
+         _) info (t      ,InfoU
          _) infra (P5    ,Infr@
          _) infra (c     %Infra
             in (ga_      'IN
@@ -3604,6 +3617,7 @@
        _sp) it (e        aIt
         cr) it (e_       It
         wr) ite          aIt
+            it (ee_      aIt
         _s) it (e        aIt
         _t) it (an       aIt
          x) ite (_       aIt
@@ -3994,6 +4008,7 @@
         br) oa (d        O:
             oar          o@
             oar (_       o@
+        _h) o            0
         cr) o (at        oU
          X) o (ba        oU
          t) o (bacc      @
@@ -4443,7 +4458,7 @@
             or (ig       0r
             or (ix       'O@r
          &) ored (_      3d
-         h) ored (_S1    d
+         &) ored (_$w_alt1S1    d
         _f) ore (C       O@
          f) ore (clo     %o@
          f) ore (st      0rI
@@ -4537,6 +4552,7 @@
        hyp) ost          0st
             osure        'oUZ3
          X) os (y        oUz
+         @) os (y_       @s
 
 .group ou
             ou           aU
@@ -5005,6 +5021,7 @@
             rrhea        r'i@
             rrhoea       r'i@
          _) ru (bL01     ru:
+         _) rule (@      ru:l   
          _) run (a       rVn
          _) run (o       rVn
       &ant) ry (_S2      r%I
@@ -5214,6 +5231,7 @@
          A) sh (A_       =S
          &) ship (_S4    SIp
          &) ships (_S5   SIps
+         &) shipe (_     SIp
          &) shire (_S5   S3
 //?3       &) shire (_S5   Si@
             sia (_       =zi@
@@ -5238,6 +5256,7 @@
          u) sin (_       z@n
          A) s (itiv      z
          _) size (C@     saIz
+            s (mK        z
          a) s (m         z
          o) s (m         z
        L07) s (mAn_      z
@@ -5446,8 +5465,9 @@
         &s) tian (_      tS@n
          _) tian         tjan
          &) tial         S@L
-        &s) tial         tj@L 
+         s) tial         tj@L 
          &) ti (ali      SI
+         s) ti (ali      tI
          i) tia (liL06   S@
          &) tien         S@n
          &) tience       S@ns
@@ -5691,6 +5711,7 @@
          _) un (A_       ju:n
          _) unn          %Vnn
          @) un (al       'ju:n
+            un (A_       'u:n
             une (_       ju:n
 ?3       d) une (_       u:n
          j) un (A        u:n
@@ -5711,7 +5732,7 @@
          _) uni          ju:nI
          _) un (ide      ,Vn
          _) un (inP2     ,Vn
-         _) un (il       ,ju:n
+         _) uni (l       ,ju:nI
          _) un (io       ju:n
          _) un (iq       %ju:n
             unit (e      ju:n'aIt
@@ -5803,6 +5824,7 @@
          _) vehem        vi@m
          _) vibra (t     v%aIbreI
 ?3       _) vibra (t     v'aIbreI
+            video        vIdI2oU
             vivi (@      vIvI
             viv (_       vaIv
 
@@ -6185,6 +6207,7 @@
 	ä	E
 	ë	E
 	ï	i:
+	ó (n	'0
 	ö	3:
 	ör      3:
 	ü	u:

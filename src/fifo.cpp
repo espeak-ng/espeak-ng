@@ -43,7 +43,7 @@
 //>
 //<decls and function prototypes
 
-// my_mutex: protects my_thread_is_talking, 
+// my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
 static pthread_mutex_t my_mutex;
 static int my_command_is_running = 0;
@@ -51,7 +51,7 @@ static int my_stop_is_required = 0;
 // + fifo
 //
 
-// my_thread: reads commands from the fifo, and runs them. 
+// my_thread: reads commands from the fifo, and runs them.
 static pthread_t my_thread;
 static sem_t my_sem_start_is_required;
 static sem_t my_sem_stop_is_acknowledged;
@@ -80,12 +80,12 @@ void fifo_init()
   assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
   assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
 
-  pthread_attr_t a_attrib;    
+  pthread_attr_t a_attrib;
   if (pthread_attr_init (& a_attrib)
       || pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE)
-      || pthread_create( &my_thread, 
-			 & a_attrib, 
-			 say_thread, 
+      || pthread_create( &my_thread,
+			 & a_attrib,
+			 say_thread,
 			 (void*)NULL))
     {
       assert(0);
@@ -107,8 +107,8 @@ void fifo_init()
 espeak_ERROR fifo_add_command (t_espeak_command* the_command)
 {
   ENTER("fifo_add_command");
-	  
-  int a_status = pthread_mutex_lock(&my_mutex); 
+
+  int a_status = pthread_mutex_lock(&my_mutex);
   espeak_ERROR a_error = EE_OK;
 
   if (!a_status)
@@ -121,12 +121,12 @@ espeak_ERROR fifo_add_command (t_espeak_command* the_command)
 
   if (!a_status && !my_command_is_running && (a_error == EE_OK))
     {
-      // quit when command is actually started 
+      // quit when command is actually started
       // (for possible forthcoming 'end of command' checks)
       SHOW_TIME("fifo_add_command > post my_sem_start_is_required\n");
       sem_post(&my_sem_start_is_required);
       int val=1;
-      while (val)
+      while (val > 0)
 	{
 	  usleep(50000); // TBD: event?
 	  sem_getvalue(&my_sem_start_is_required, &val);
@@ -148,8 +148,8 @@ espeak_ERROR fifo_add_command (t_espeak_command* the_command)
 espeak_ERROR fifo_add_commands (t_espeak_command* command1, t_espeak_command* command2)
 {
   ENTER("fifo_add_command");
-	  
-  int a_status = pthread_mutex_lock(&my_mutex); 
+
+  int a_status = pthread_mutex_lock(&my_mutex);
   espeak_ERROR a_error = EE_OK;
 
   if (!a_status)
@@ -172,12 +172,12 @@ espeak_ERROR fifo_add_commands (t_espeak_command* command1, t_espeak_command* co
 
   if (!a_status && !my_command_is_running && (a_error == EE_OK))
     {
-      // quit when one command is actually started 
+      // quit when one command is actually started
       // (for possible forthcoming 'end of command' checks)
       SHOW_TIME("fifo_add_command > post my_sem_start_is_required\n");
       sem_post(&my_sem_start_is_required);
       int val=1;
-      while (val)
+      while (val > 0)
 	{
 	  usleep(50000); // TBD: event?
 	  sem_getvalue(&my_sem_start_is_required, &val);
@@ -275,9 +275,9 @@ static int sleep_until_start_request_or_inactivity()
   int a_start_is_required=0;
 
   // Wait for the start request (my_sem_start_is_required).
-  // Besides this, if the audio stream is still busy, 
-  // check from time to time its end. 
-  // The end of the stream is confirmed by several checks 
+  // Besides this, if the audio stream is still busy,
+  // check from time to time its end.
+  // The end of the stream is confirmed by several checks
   // for filtering underflow.
   //
   int i=0;
@@ -306,18 +306,18 @@ static int sleep_until_start_request_or_inactivity()
 
 		add_time_in_ms( &ts, INACTIVITY_TIMEOUT);
 
-		SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n", 
+		SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n",
 			to.tv_sec, to.tv_nsec,
 			ts.tv_sec, ts.tv_nsec);
 
-		while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1 
+		while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1
 			&& errno == EINTR)
 		{
 			continue;
 		}
 
 		assert (gettimeofday(&tv, NULL) != -1);
-		SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err, 
+		SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err,
 			tv.tv_sec, tv.tv_usec*1000);
 
 		if (err==0)
@@ -336,8 +336,8 @@ static void close_stream()
 {
   SHOW_TIME("fifo > close_stream > ENTER\n");
 
-  // Warning: a wave_close can be already required by 
-  // an external command (espeak_Cancel + fifo_stop), if so: 
+  // Warning: a wave_close can be already required by
+  // an external command (espeak_Cancel + fifo_stop), if so:
   // my_stop_is_required = 1;
 
   int a_status = pthread_mutex_lock(&my_mutex);
@@ -359,7 +359,7 @@ static void close_stream()
 
       a_stop_is_required = my_stop_is_required;
       a_status = pthread_mutex_unlock(&my_mutex);
-      
+
       if (a_stop_is_required)
 	{
 	  // acknowledge the stop request
@@ -438,7 +438,7 @@ static void* say_thread(void*)
 		};
 
 	      if (my_stop_is_required)
-		{ 
+		{
 		  SHOW_TIME("say_thread > my_command_is_running = 0\n");
 		  my_command_is_running = 0;
 		}
@@ -454,7 +454,7 @@ static void* say_thread(void*)
 	}
 
       if (my_stop_is_required)
-	{ 
+	{
 	  // no mutex required since the stop command is synchronous
 	  // and waiting for my_sem_stop_is_acknowledged
 	  init(1);
@@ -464,16 +464,16 @@ static void* say_thread(void*)
 	  while(0==sem_trywait(&my_sem_start_is_required))
 	    {
 	    };
-	  
+
 	  // acknowledge the stop request
 	  SHOW_TIME("say_thread > post my_sem_stop_is_acknowledged\n");
 	  int a_status = sem_post(&my_sem_stop_is_acknowledged);
 	  assert( a_status != -1);
 	}
       // and wait for the next start
-      SHOW_TIME("say_thread > wait for my_sem_start_is_required\n");      
+      SHOW_TIME("say_thread > wait for my_sem_start_is_required\n");
     }
-    
+
   return NULL;
 }
 
@@ -517,7 +517,7 @@ static espeak_ERROR push(t_espeak_command* the_command)
     {
       return EE_INTERNAL_ERROR;
     }
-  
+
   if (head == NULL)
     {
       head = n;
@@ -528,7 +528,7 @@ static espeak_ERROR push(t_espeak_command* the_command)
       tail->next = n;
       tail = n;
     }
-  
+
   tail->next = NULL;
   tail->data = the_command;
 
@@ -564,7 +564,7 @@ static t_espeak_command* pop()
     }
 
   display_espeak_command(the_command);
- 
+
   return the_command;
 }
 

@@ -40,6 +40,7 @@
           _) adres (@P5   a:dr'Es
           _) af (C@P2     'Af
           _) affich       %AfiS
+          _) af (rika     a:f
              age (_       'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
@@ -55,6 +56,7 @@
           @) ant (e_      'Ant
           @) ant (en_     'Ant
           @) ant (er_     'Ant
+             ao (_        'VU   // cacao
           @) ares (_      a:r'Es
              aris (_      'a:rIs
              arissen (_   'a:rIs@n
@@ -211,6 +213,7 @@
          el) e (_+S1qd    @
          er) e (_+S1qd    @
          ig) e (_+S1qdm   @
+       lijk) e (_S1m      @
 
              ea (_        'e:a:
              eau          'o: //words with French origin
@@ -218,6 +221,7 @@
           @) ee (_        'e:
           @) ee (X_       'e:
           @) ee (r_       'I
+          h) ee (r_       I:
           @) ee (rt_      'I
           @) ee (rd_      'I
           @) ee (rde_     'I
@@ -244,8 +248,12 @@
 
           @) elen (_      'e:l@n
           @) el (en_$p_alt2 @L
+          @) elds (_      @lts
           &) elijks       @l@ks
+          
           &) em (_        @m
+          &) emen (_$w_alt @m@n
+      waarn) em           e:m
           &) e (ment      @
              eden (_        e:d@n  // ?? 
              
@@ -285,7 +293,9 @@
           &) en (_S2qd    @n
         KAC) en (_S2e     @n   // flag 'e' means double the previous vowel
         KAj) en (_S2      @n
+        KAx) en (_S2      @n
         and) en (_S2      @n
+         ie) en (_S2      @n
          el) en (_+S2qd   @n
          er) en (_+S2qd   @n
 
@@ -313,7 +323,7 @@
           @) er (ingen_   'I:r
           &) er (_$p_alt   =@r
           &) er (e_$p_alt  =@r
-          &) er (en_$p_alt =@r
+          &) er (en_$p_alt =@r     // where 'eren' is not a verb ending
           &) er (t_$p_alt  =@r
           &) er (d_$p_alt  =@r
           &) er (de_$p_alt =@r
@@ -330,7 +340,6 @@
           _) er (@P2      Er
           &) er (_        @r
           &) ere (_       @r@
-          &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
              erend (_     'I:r@nd
           @) eres (_S4qd  @r'Es
@@ -388,6 +397,8 @@
              gg           Q
           s) g            x
           
+          _) gast (@      Q'Ast
+          _) gasten (@P6  Q'Ast@n
              g (é         Z
              g (ee_       Z
         _lo) g (eer       Z
@@ -412,6 +423,7 @@
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
           _) gemeente (@P8 Q@m'e:nt@
+             genre        ZA~r@
           _) ge (lC       QE
           _) ge (rC       QE
           _) ge (lenL02   Qe:
@@ -430,9 +442,13 @@
              h            h
           C) h (K
 
+          C) hand (_S4    h'Ant
           _) handicap     hEndikEp
           _) her (@P3     hEr
+          _) her (der     hEr
+          _) her (ds      hEr
           _) her (en      hI:r
+          _) herfst (@P6  h'Erfst
           _) herinn       h%ErIn   // herinneren
           _) hersen       h'Ers@n
           &) heid (_S4    hEIt
@@ -487,6 +503,7 @@
        CAss) ie (_        =i
           @) ig (_S2dq    =@Q
           @) ige (_S1m     @
+          _) ige (_       @Q@   // when a prefix is removed, eg "herfstige"
           @) igen (_      =@Q@n
           @) iger (_      =@Q@r
           @) igere (_     =@Q@r@
@@ -501,12 +518,14 @@
           &) iko (_       =iko:
         fam) i (lie       'i
           _) in (C@P2     'In
+          _) ing (eC_      IN   // bewerkingen
           _) in (do        In
           _) in (forma     In
              ine (_       'in@
              ines (_      'in@s
           _) informatie (@P10 InfOrm'a:tsi
-          _) inn (@P2 'I    // ?? inneren
+          _) inn (er      'In    // ?? inneren
+          _) inn (ig       In
           _) inter        Int@r
              io (nage     iO
              io (de_       i'o:
@@ -518,10 +537,12 @@
           @) isme (_      'Ism@
           @) ist (_       'Ist
           @) isten (_     'Ist@n
+         Ar) ia (_        =ia:
+         Ar) ium (_       =i8m
 
 .group j
              j            j
-             
+         
           _) jaar (@P4    j'a:r
              jaar (lijk   ja:r
              jou (rna     Zu
@@ -539,13 +560,13 @@
             kokkerel      kOk@r'El 
          _) koning        k'o:nIN  // in compounds
          _) koningin      ko:nIQ'In
+         _) krediet (@P7  kr@d'it
 
 
 .group l
              l            l
           l) l
           &) lijk (_S4    l@k
-          &) lijke (_S5   l@k@
           &) lijken (_S6  l@k@n
           &) lijker (_S6  l@k@r
           &) lijkere (_S7  l@k@r@
@@ -557,6 +578,9 @@
 
           &) laan (_S4    la:n
           _) lange (@P5   laN@
+          _) land (@P4    l'And
+          _) land (e      l'And
+          _) lente (@P5   l'Ent@
           _) liefdes (@P7 l'ifd@s
       detai) ll
           @) loog (_      lo:x
@@ -575,6 +599,7 @@
          _) mee (rC       mI:
             menu (_       m@ny
          _) mi (cro       mi
+         _) milieu        mIlj'Y:
          _) mi (s@        m%I
          _) mis (anC      miz
          _) mis (commP3   m'Is
@@ -659,6 +684,7 @@
           _) op (enen+    'o:p
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
+          _) opper        Op@r
           _) op (tion     Op
              os (_        Os
              ou (che_     u
@@ -760,6 +786,7 @@
              sch          sx
              sch (_       s
              sch (e_      s
+             sch (er_     s
           _) sch (n       S
           _) sh           S
              sh (K        S
@@ -825,6 +852,7 @@
           _) trans (@P5   tr,Ans
 
 .group te
+          _) tege (lijk   t@Q@
           _) tegen (P5    t'e:Q@n
           _) terug (P5    t@r'8x
           _) te (gelijkP2   t@
@@ -871,6 +899,7 @@
              v            v
           s) v            f
 
+          _) vakantie (@P8 va:k'Antsi
           _) van (@P3     v%An
           _) vanzelf (@P7 vAnz,Elf
           _) vang         vAN
@@ -905,9 +934,14 @@
           _) weg (@P3     v#'EQ
           _) weg (en      v#e:Q
           _) weg (e_      v#e:Q  // bewegelijk
+          _) weg (ing     v#e:Q  // bewegingen
+          _) wereld (@P6  v#'I:r@lt
           _) werk (@P4    v#'Erk
           _) werk (el     v#'Erk
+          _) werk (ing    v#'Erk
           _) west (@P4    v#Est
+          _) wets (@P4    v#'Ets
+          _) winter (@P6  v#'Int@r
           _) woon (@P4    v#'o:n
           _) wr (@        vr
 
@@ -928,9 +962,12 @@
              z (z
           s) z
 
+          _) zee (@P3     z'e:
+          _) zeeuw        zeU
              zele (_S4   ze:l@ // common suffix for cities.
           @) zelf (_S4   s'Elf
           _) zoge (@P4    z,o:Q@
+          _) zomer (@P5   z'o:m@r
           _) zuid (@P4    zWyt
 
 

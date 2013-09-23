@@ -177,7 +177,7 @@ static MNEM_TAB keyword_tab[] = {
 
 #define N_VOICE_VARIANTS   12
 const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
-const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,6,7,0};
+const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,6,0};
 const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
 const char *variant_lists[3] = {variants_either, variants_male, variants_female};
 
@@ -248,11 +248,11 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 		height2 = tone_pts[pt+1];
 		if((freq2 - freq1) > 0)
 		{
-			rate = double(height2-height1)/(freq2-freq1);
+			rate = (double)(height2-height1)/(freq2-freq1);
 
 			for(ix=freq1; ix<freq2; ix++)
 			{
-				y = height1 + int(rate * (ix-freq1));
+				y = height1 + (int)(rate * (ix-freq1));
 				if(y > 255)
 					y = 255;
 				voice->tone_adjust[ix] = y;
@@ -488,11 +488,11 @@ static void VoiceFormant(char *p)
 		return;
 
 	if(freq >= 0)
-		voice->freq[formant] = int(freq * 2.56001);
+		voice->freq[formant] = (int)(freq * 2.56001);
 	if(height >= 0)
-		voice->height[formant] = int(height * 2.56001);
+		voice->height[formant] = (int)(height * 2.56001);
 	if(width >= 0)
-		voice->width[formant] = int(width * 2.56001);
+		voice->width[formant] = (int)(width * 2.56001);
 	voice->freqadd[formant] = freqadd;
 }
 
@@ -804,7 +804,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			n = sscanf(p,"%d %d",&pitch1,&pitch2);
 			voice->pitch_base = (pitch1 - 9) << 12;
 			voice->pitch_range = (pitch2 - pitch1) * 108;
-			factor = double(pitch1 - 82)/82;
+			factor = (double)(pitch1 - 82)/82;
 			voice->formant_factor = (int)((1+factor/4) * 256);  // nominal formant shift for a different voice pitch
 		}
 		break;
@@ -1067,7 +1067,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		if((ix = SelectPhonemeTableName(phonemes_name)) < 0)
 		{
 			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
-			ix = 0;
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;
@@ -1586,6 +1585,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 		vp = voices[ix];
 		// is the main voice the required gender?
 		skip=0;
+
 		if((gender != 0) && (vp->gender != gender))
 		{
 			skip=1;
@@ -1594,6 +1594,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 		{
 			skip=1;
 		}
+
 		if(skip==0)
 		{
 			voices2[ix2++] = vp;
@@ -1868,7 +1869,8 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 
 void FreeVoiceList()
 {//=================
-	for(int ix=0; ix<n_voices_list; ix++)
+	int ix;
+	for(ix=0; ix<n_voices_list; ix++)
 	{
 		if(voices_list[ix] != NULL)
 		{

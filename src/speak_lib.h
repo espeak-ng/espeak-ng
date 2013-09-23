@@ -314,10 +314,13 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text,
       espeakENDPAUSE  If set then a sentence pause is added at the end of the text.  If not set then
          this pause is suppressed.
 
-   unique_identifier: message identifier; helpful for identifying later
-     data supplied to the callback.
+   unique_identifier: This must be either NULL, or point to an integer variable to
+       which eSpeak writes a message identifier number.
+       eSpeak includes this number in espeak_EVENT messages which are the result of
+       this call of espeak_Synth().
 
-   user_data: pointer which will be passed to the callback function.
+   user_data: a pointer (or NULL) which will be passed to the callback function in
+       espeak_EVENT messages.
 
    Return: EE_OK: operation achieved
            EE_BUFFER_FULL: the command can not be buffered;
