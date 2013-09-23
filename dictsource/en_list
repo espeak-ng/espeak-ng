@@ -16,7 +16,7 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
-// $alt1   use strong ending (-an, -ance, -ative, -table, -inal, -ier)
+// $alt1   use strong ending (-an, -ance, -ative, -table, -inal, -ier -ored)
 // $alt2   use weak ending (ard, ate, ery, ess, ile, men, on)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
 // $alt4   separate 'h', not 'th'
@@ -422,6 +422,8 @@ _zh	tS'aIni:z
 ֹ	o
 ֻ	u
 ּ	d'agES
+U+5c1	SInd0t_
+U+5c2	sInd0t_
 
 
 // phonetic modifiers
@@ -520,6 +522,7 @@ _90o	n'aInti@
 // ABBREVIATIONS
 //**************
 
+aaa	$abbrev $allcaps
 abc	$abbrev
 ac	$abbrev
 adf	$abbrev
@@ -717,6 +720,7 @@ adware		'adw,e@
 adze		adz
 aegis		i:dZIs
 aerate		e@r'eIt
+aerogel		e@roUdZEl
 aether		i:T@
 afar		a#fA@
 affirmation	af3m'eIS@n
@@ -835,6 +839,7 @@ apropos		apr@p'oU
 appal		a#pO:l
 apparatus	ap@r'eIt@s
 ?3 apparatus	ap@r'at@s
+appellate	a#pEl@t
 apprentice	a#prEnt2Is
 approximate	a#pr0ksIm@t   $only
 approximate	a#pr0ksImeIt  $verb
@@ -849,6 +854,7 @@ arcane		$2
 arch		A@tS
 arches		A@tSI#z
 archimedes	A@kIm'i:di:z
+archiso		A@tS'aIsoU
 archway		$1
 arena		a#ri:n@
 argon		A@g0n
@@ -979,6 +985,7 @@ bleh		blEh
 blockade	bl0k'eId
 blouse		blaUz
 bluest		blu:@st
+bluish		blu:IS
 blurry		bl3:rI
 ?5 blurry	blVRrI
 boing		bOIN
@@ -1142,6 +1149,7 @@ cholesterol	k@lEst@r0l
 chorizo		tSOr'i:zoU
 christmas	krIsm@s
 chromosome	kroUm@soUm
+chrysalis	krIs@lIs
 ciao		tSaU
 cigar		sI2gA@
 cigarette	sIg@'rEt
@@ -1159,7 +1167,8 @@ cleanse		klEnz
 cleanser	klEnz3
 ?!3 clerk	klA@k
 cliche		kli:SeI
-?3 cliche		kli:S'eI
+cliched		kli:S'eId
+?3 cliche	kli:S'eI
 clientele	$2
 clitoris	klIt3rI#s
 close		kloUs         $only
@@ -1248,6 +1257,7 @@ consort		$verb
 constitute	$1
 construct	$1     $onlys
 construct	$verb
+consummate	$1
 contemplative 	$2
 content		$1       $onlys
 content		$verb $past
@@ -1272,7 +1282,7 @@ convict		$2 $verb
 convolute	k0nv@l'u:t
 coop		ku:p
 cooper		ku:p3
-coordinate	koU'O:dI2neIt   $verb
+coordinate	koU'O@dI2neIt   $verb
 copier		k0pi@3
 copilot		koUpaIl@t
 coral		k0r@L
@@ -1342,7 +1352,7 @@ declaration	dEkl@'reIS@n
 decolletage	deIk0lt'A:Z
 decor		deIkO@
 ?3 decor	deIk'O@
-decorative	dEkr@tIv
+decorative	dEk@r@tIv
 decoy		di:kOI
 decry		dI2kraI
 defect		di:fEkt
@@ -1395,6 +1405,7 @@ diameter	daI'amI2t3
 diaper		daIp3
 diaphanous	daI'af@n@s
 diaspora	daI'asp@r@
+dieback		daIbak
 diehard		daIhA@d
 dielectric	daI@l'EktrIk
 diesel		di:z@L
@@ -1547,6 +1558,7 @@ evenings	i:vnINz
 evit		EvI2t          // inevitable
 exalt		Egz'0lt
 execute		EksI2kju:t      // not $2
+executable	$3
 exile		$1
 exodus		Eks@d@s
 expedite	Eksp@daIt    // expedited
@@ -1815,6 +1827,7 @@ iconbar		aIk0nbA@
 idly		aIdlI
 ignoramus	Igno@r'eIm@s
 illiterate	$alt2
+imagery		ImIdZri
 imagine		I2madZI2n
 impedance	Imp'i:d@ns
 imperative	Imp'Er@tIv
@@ -1894,6 +1907,7 @@ iris		aIrIs
 iron		aI3n
 irony		aIr@nI
 isosceles	aIs'0s@li:z
+?3 issuance	ISu:@ns
 
 ja		jA:
 jagged		dZagI#d
@@ -1931,6 +1945,7 @@ kosher		koUS3
 kowtow		kaUt2aU
 
 la		,la           $only
+la		$abbrev $allcaps
 (la vie)	la||v'i:
 laboratory	la#b'0r@trI
 ?3 laboratory	labr@tO:ri
@@ -2022,6 +2037,7 @@ lunatic		lu:n@tIk
 lunchroom	lVntS||ru:m
 luxury		lVkS3ri
 lychee		li:tSi:
+lyin		laIIn
 
 macabre		m@kA:br@
 macadamia	mak@d'eImi@
@@ -2376,6 +2392,7 @@ philistine	fIlI2staIn
 phoenix		fi:nIks
 photographer	f@t'0gr@f@
 photography	f@t'0gr@fi
+photolysis	foUt'0l@sIs
 piano		pI'anoU
 pecan		pI#kA:n
 piecemeal	p'i:sm,i:l
@@ -2585,6 +2602,7 @@ reining		reInIN
 reindeer	reIndi@3
 rekey		r,i:k'i:
 relative	rEl@tIv
+relay		ri:leI
 relic		rElIk
 relish		rElI2S
 rely		rI2laI
@@ -2706,9 +2724,12 @@ seabed		si:bEd
 sealion		si:laI@n
 seance		seI0ns
 secant		si:k@nt
-seconded	sEk'0ndI#d
+seconded	s@k0ndI#d
+secondment	s@k0ndm@nt
 secrecy		si:kr@si
 secret		si:kr@t
+secrete		sI2kri:t
+secretion	sI2kri:S@n
 secretive	si:kr@tIv
 secretary	sEkr@trI
 sedan		sI2dan
@@ -2717,6 +2738,7 @@ sega		seIg@
 segue		sEgweI
 separate	sEp@-r@t
 separate	sEp3reIt      $verb
+semaphored	$alt1
 semen		si:m@n
 ?3 semi		sEmaI
 semibreve	$1
@@ -2739,6 +2761,7 @@ severely	sI2v'i@3lI      $verbf
 sewn		soUn
 sex		sEks		// sexism
 several		sEvr@L
+severest	s@vi@r@st
 shallow		SaloU
 shampoo		$2
 shepherd	SEp@d
@@ -2772,6 +2795,7 @@ singly		sINglI        $verbf
 sincerest	sIns'i@r@st
 sinew		sInju:
 sinus		saIn@s
+siphon		$alt2
 sir		s,3: $only
 ?5 sir		s,VR $only
 site		saIt          // for sited
@@ -2806,7 +2830,6 @@ souvenir	su:v@n'i@3
 sorbet		sO@beI
 soyabean	sOI@bi:n
 spaghetti	spa#gEti
-spasm		spas@m
 specific	sp@sIfIk
 specimen	spEsI2m@n
 spraycan	spreIkan
@@ -2980,6 +3003,7 @@ trophy		troUfi
 troubadour	tru:b@do@
 truely		tru:lI       $verbf
 truest		tru:@st
+tryin		traIIn
 tryst		trIst
 tudor		tju:d3
 turntable	$alt1
@@ -3003,6 +3027,7 @@ unable		Vn'eIb@L
 unaware		Vn@w'e@
 uncle		VNk@L
 undeny		VndIn'aI
+undercarriage	$1
 underground	$1 $noun
 underling	$1
 underlings	Vnd3lINz
@@ -3082,7 +3107,10 @@ viola		vaI'oUl@
 violin		$2
 viral		vaI3r@L
 virginal	$alt1
+(vis à vis)	vi:za#v'i:
+(vis a vis)	vi:za#v'i:
 visa		vi:z@
+vitalis		vaIt'alI#s
 vitamin		vIt@mI#n
 ?3 vitamin	vaIt@mI#n
 vitriol		vItri:@l
@@ -3231,6 +3259,7 @@ Alamo		al@moU
 Albuquerque	alb@k3:ki
 Algiers		$2
 Altura		O:lt'U@r@
+?3 Amazon	ama#z0n
 Amman		a#m'A:n
 Andes		andi:z
 Angeles		andZ@li:s
@@ -3273,6 +3302,7 @@ Budapest	bu:d@p'Est
 Buenos		bweIn0s
 Burundi		bUr'Undi
 Brazil		$alt3
+Brunei		bru:n'aI
 Cadiz		$alt3
 Cairo		kaIroU
 Calcutta	$2
@@ -3426,6 +3456,7 @@ Nepal		nEp'O:l
 Nevada		nI2vA:d@
 ?3 Nevada	nI2vad@
 Newfoundland	nju:f@ndla#nd
+Nineveh		nInIv@
 Noumea		nu:m'eI@
 Oahu		oU'A:hu:
 Oklahoma	oUkla#h'oUm@
@@ -3445,6 +3476,7 @@ Persia		p3:Z@
 Peru		p@ru:
 Philippine	fIlI2pi:n
 Philipine	fIlI2pi:n        // misspell
+Phnom		pn0m
 Polish		poUlIS        $capital $only
 Portugal	po@tS@g@L
 Portuguese	po@tS@g'i:z
@@ -3508,6 +3540,7 @@ Ural		ju:@r@L
 Utah		ju:t2A:
 ?3 Utah		ju:t2O
 Utrecht		ju:trECt
+Valencia	$alt3
 Vancouver	$2
 Vegas		veIg@s
 Vermont		$2
@@ -3563,7 +3596,7 @@ Angela		andZ@l@
 Angelika	$2
 Anita		$alt3
 Annamaria	an@ma#r'i:@
-Anthony		ant@ni
+?!3 Anthony	ant@ni
 Anton		ant0n
 Aoife		i:f@
 Aoiffe		i:f@
@@ -3616,9 +3649,11 @@ Connell		k0n@l
 Connie		k0ni
 Connor		k0n3
 Conrad		$1
+Corinne		k@ri:n
 Crichton	kraIt@n
 Curtis		k3:tI#s
 ?5 Curtis	kVRtI#s
+Cyrus		saIr@s
 Dana		deIn@
 Daphne		dafni
 Darryl		dar@L
@@ -3775,6 +3810,7 @@ Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
 Mildred		mIldrI2d
+Mimi		mi:mi
 Mindy		mIndi
 Minerva		mI2n3:v@
 Mirabel		mIr@bEl
@@ -3906,6 +3942,7 @@ Emory		Em3ri
 Ferguson	f3:g@s@n
 Fleming		flEmIN
 Folger		foUldZ3
+Gallagher	gal@g3
 Genghis		dZENgIs
 Gibson		gIbs@n
 Guinness	gInIs

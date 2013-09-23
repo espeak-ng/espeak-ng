@@ -1639,6 +1639,12 @@ int LoadSpect(const char *path, int control)
 	}
 	spectseq->Load(stream);
 
+	if(spectseq->frames == NULL)
+	{
+		error("Bad vowel file, no frames: '%s'",path);
+		return(0);
+	}
+
 	// do we need additional klatt data ?
 	for(frame=0; frame < spectseq->numframes; frame++)
 	{
@@ -3615,6 +3621,11 @@ make_envs();
 "#  Address  Data file\n"
 "#  -------  ---------\n");
 
+
+	fprintf(f_errors, "Source data path = '%s'\n", path_source);
+	strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
+	fprintf(f_errors, "Master phonemes file = '%s'\n", fname);
+	fprintf(f_errors, "Output to '%s/'\n\n", path_home);
 
 	sprintf(fname,"%s/%s",path_home,"phondata");
 	f_phdata = fopen_log(f_errors,fname,"wb");

@@ -847,47 +847,50 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 			// speak in the language for this alphabet (or English)
 			ph_buf[2] = SetTranslator2(WordToString2(language));
 
-			if(((code = letter - 0xac00) >= 0) && (letter <= 0xd7af))
+			if(translator2 != NULL)
 			{
-				// Special case for Korean letters.
-				// break a syllable hangul into 2 or 3 individual jamo
-
-				hangul_buf[0] = ' ';
-				p3 = &hangul_buf[1];
-				if((initial = (code/28)/21) != 11)
+				if(((code = letter - 0xac00) >= 0) && (letter <= 0xd7af))
 				{
-					p3 += utf8_out(initial + 0x1100, p3);
+					// Special case for Korean letters.
+					// break a syllable hangul into 2 or 3 individual jamo
+
+					hangul_buf[0] = ' ';
+					p3 = &hangul_buf[1];
+					if((initial = (code/28)/21) != 11)
+					{
+						p3 += utf8_out(initial + 0x1100, p3);
+					}
+					utf8_out(((code/28) % 21) + 0x1161, p3);  // medial
+					utf8_out((code % 28) + 0x11a7, &p3[3]);   // final
+					p3[6] = ' ';
+					p3[7] = 0;
+					ph_buf[3] = 0;
+					TranslateRules(translator2, &hangul_buf[1], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
+					SetWordStress(translator2, &ph_buf[3], NULL, -1, 0);
 				}
-				utf8_out(((code/28) % 21) + 0x1161, p3);  // medial
-				utf8_out((code % 28) + 0x11a7, &p3[3]);   // final
-				p3[6] = ' ';
-				p3[7] = 0;
-				ph_buf[3] = 0;
-				TranslateRules(translator2, &hangul_buf[1], &ph_buf[3], sizeof(ph_buf)-3, NULL, 0, NULL);
-				SetWordStress(translator2, &ph_buf[3], NULL, -1, 0);
-			}
-			else
-			{
-				LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
-			}
+				else
+				{
+					LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+				}
 
-			if(ph_buf[3] == phonSWITCH)
-			{
-				// another level of language change
-				ph_buf[2] = SetTranslator2(&ph_buf[4]);
-				LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
-			}
+				if(ph_buf[3] == phonSWITCH)
+				{
+					// another level of language change
+					ph_buf[2] = SetTranslator2(&ph_buf[4]);
+					LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+				}
 
-			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+				SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 
-			if(ph_buf[3] != 0)
-			{
-				ph_buf[0] = phonPAUSE;
-				ph_buf[1] = phonSWITCH;
-				len = strlen(&ph_buf[3]) + 3;
-				ph_buf[len] = phonSWITCH;  // switch back
-				ph_buf[len+1] = tr->phoneme_tab_ix;
-				ph_buf[len+2] = 0;
+				if(ph_buf[3] != 0)
+				{
+					ph_buf[0] = phonPAUSE;
+					ph_buf[1] = phonSWITCH;
+					len = strlen(&ph_buf[3]) + 3;
+					ph_buf[len] = phonSWITCH;  // switch back
+					ph_buf[len+1] = tr->phoneme_tab_ix;
+					ph_buf[len+2] = 0;
+				}
 			}
 		}
 	}

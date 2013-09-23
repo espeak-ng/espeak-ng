@@ -156,7 +156,7 @@ de	d@
 het	h@t	$only
 een	@n	$only
 ən	@-n   // char.replacement for 'n
-ət	t   // char.replacement for 't
+ət	@t   // char.replacement for 't
 een	e:n	$atend
 (de een)	d@||e:n
 (het een)	h@t||e:n
@@ -399,8 +399,14 @@ zegen		$alt
 trokken		$alt
 zeten		$alt
 
+// -emen is not a stressed ending
+boezemen	$alt
+ademen		$alt
+bliksemen	$alt
+wasemen		$alt
 
 // words where -er is not a stressed verb ending
+
 
 diller		$alt	// bediller
 schepper	$alt 	// opschepper
@@ -875,7 +881,7 @@ waaier		$alt
 wakker		$alt
 wapper		$alt
 water		$alt
-wedijver	$alt
+wedijver	v#Ed'EIv@r $alt
 weelder		$alt 
 wegwijzer	$alt
 weiger		$alt
@@ -1622,6 +1628,7 @@ aldus		Ald'8s
 alles		Al@s
 amino		$1
 amnestie	$3
+antenne		$2 $alt2
 april		a:pr'Il
 armand		_^_FR
 augustus	VUQ'8st8s
@@ -1665,6 +1672,7 @@ crèches		krES@s
 damascering     damA;s'e:rIN
 december	$2
 desillusie	dEsIlyzi
+desondanks	dEsOnd'ANks
 detail		de:t'Aj
 dieet		$2
 diesel		diz@l
@@ -1681,8 +1689,10 @@ embouchuur	A~buS'yr   // embouchure
 enorm		$2
 enquête		A~k'Et@ $alt2
 erosie		e:r'o:zi
+evangelie	e:vANQ'e:li
 eucharistie	$4
 explosie	$2
+extern		Ekst'Ern
 februari	fe:bry'a:ri
 fiche		fiS@
 franchise	frA'Si:z@
@@ -1692,6 +1702,9 @@ gelig		Qe:l@Q
 gouache		Qu'AS
 gefrituurd	$3
 hysterie	hIstI:r'i
+ideaal		ide:j'a:l
+ideale		ide:j'a:l@
+immens		Im'Ens
 impregnering    Impr,EQn'e:IN
 inductie	$2
 informatieve	InfOrma:t'iv@
@@ -1702,11 +1715,13 @@ ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 informatie	$3
+intern		Int'Ern
 invasie		$2
 januari		$3
 jury		Zyri
 kadaster	$2
 kleinzerig	klEInz'e:r@Q
+kredietwaardig	$3
 leesregel	le:sre:Q@l
 levendig	le:v@nd@Q
 lunch		l8nS
@@ -1742,7 +1757,10 @@ miszit		$1
 mysterie	mIst'I:ri
 nabij		nab'EI
 new		nyU
+noordelijk	no:rd@l@k
 november	$2
+oceaan		o:se:j'a:n
+oceanen		o:se:j'a:n@n
 oktober		$2
 oliesel		o:lis@l
 omver		o:mv'Er
@@ -1753,10 +1771,12 @@ ongemakkelijk	$3
 //ongelukkig	$3
 ongerieflijk	$3
 //ongrondwettig	$3
+oostelijk	o:st@l@k
 partijvoorzitters $2
 periferie	pI:rifI:r'i
 perron		$2
 pistache	pist'AS
+premie		$1
 privilege	privil'e:Z@ $alt2
 proces		$2
 projectielen    $3
@@ -1777,6 +1797,7 @@ sms'jes		EsEm'Es_j@s
 spektakel	$2
 sportief	$2
 sportieve	$2
+stream		stri:m
 tegennatuur	$4
 tralie		$1
 travestie	$3
@@ -1784,6 +1805,7 @@ verderop	$3
 vergezicht	vErQ@zIxt
 verre		vEr@
 verrekijker	vEr@kEIk@r
+versa		vErs'a:
 verste		vErst@
 verte		vErt@
 volledig	$2
@@ -1796,8 +1818,13 @@ wanluidend	$2
 wanschapen	$2
 wantrouwend	$2
 weliswaar	v#ElIsw'a:r
+werelden	v#I:r@ld@n
 werktuigelijk	$2
+westelijk	v#Est@l@k
+zeeën		ze:@n
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
+zuiden		zWyd@n
+zuidelijk	zWyd@l@k
 
 
 
@@ -1834,6 +1861,7 @@ google          gu:g@l
 alexandrië	$3
 Benin		be:n'in
 canada		kAna:da:
+Genua		Qe:nyv#a:
 Kinshasa	kInS'a:sa:
 Nairobi		nAjr'o:bi
 Napel		$alt

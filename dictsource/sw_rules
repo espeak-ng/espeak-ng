@@ -5,8 +5,7 @@
 
 .group a
         a        a
-        aa       a:
-
+   
 .group b
         b        b
 
@@ -20,8 +19,7 @@
 
 .group e
         e        e
-        ee       e:
-
+ 
 .group f
         f        f
 
@@ -35,17 +33,19 @@
 
 .group i
         i        i
-        ii       i:
-
+      
 .group j
         j        J
+	    j (w     J
 
 .group k
         k        k
+     K) k (@@    _|k
         kh       x
 
 .group l
         l        l
+
 
 .group m
         m        m
@@ -54,7 +54,7 @@
      K) m (@@    _|m
      K) m (C     m-
      K) m (b@@   _|m
-     K) m (v@@   _|m
+     K) m (v@   _|m
      K) m (w@@   _|m
 
 .group n
@@ -63,19 +63,19 @@
         n (A     n
         n (@@    n
         ny       n^
-        n (ch    n^
+        n (ch    n-
         n (j     n^
-        ng'      N
+        ng ('      N
         n (k     N
      _) n (k     N-
      _) n (k@@   N-
         n (g     N
-     K) n (g     N-
-     _) n (g@@   N-
+
+
 
 .group o
         o        o
-        oo       o:
+    
 
 .group p
         p        p
@@ -99,15 +99,16 @@
 
 .group u
         u        u
-        uu       u:
+		
+	
 
 .group v
         v        v
 
 .group w
         w        w
-     j) w        %u
-    ny) w        %u
+	 j) w     %u
+    ny) w     %u
 
 .group x
         x        ks

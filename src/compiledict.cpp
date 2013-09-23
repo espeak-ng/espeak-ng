@@ -919,8 +919,8 @@ int isHexDigit(int c)
 }
 
 
-static void copy_rule_string(char *string, int &state)
-{//===================================================
+static void copy_rule_string(char *string, int *state_out)
+{//=======================================================
 // state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
 	static char *outbuf[5] = {rule_cond, rule_pre, rule_match, rule_post, rule_phonemes};
 	static int next_state[5] = {2,2,4,4,4};
@@ -934,6 +934,7 @@ static void copy_rule_string(char *string, int &state)
 	int  value;
 	int  literal;
 	int  hexdigit_input = 0;
+	int state = *state_out;
 	MNEM_TAB *mr;
 
 	if(string[0] == 0) return;
@@ -1174,7 +1175,7 @@ static void copy_rule_string(char *string, int &state)
 		if(c == 0) break;
 	}
 
-	state = next_state[state];
+	*state_out = next_state[state];
 }  //  end of copy_rule_string
 
 
@@ -1213,14 +1214,14 @@ static char *compile_rule(char *input)
 		case ')':		// end of prefix section
 			*p = 0;
 			state = 1;
-			copy_rule_string(buf,state);
+			copy_rule_string(buf,&state);
 			p = buf;
 			break;
 
 		case '(':		// start of suffix section
 			*p = 0;
 			state = 2;
-			copy_rule_string(buf,state);
+			copy_rule_string(buf,&state);
 			state = 3;
 			p = buf;
 			if(input[ix+1] == ' ')
@@ -1234,14 +1235,14 @@ static char *compile_rule(char *input)
 		case '\r':
 		case 0:			// end of line
 			*p = 0;
-			copy_rule_string(buf,state);
+			copy_rule_string(buf,&state);
 			finish=1;
 			break;
 
 		case '\t':		// end of section section
 		case ' ':
 			*p = 0;
-			copy_rule_string(buf,state);
+			copy_rule_string(buf,&state);
 			p = buf;
 			break;
 
