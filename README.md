@@ -1,5 +1,7 @@
 # eSpeak Text-to-Speech
 
+- [Build Dependencies](#build-dependencies)
+  - [Debian](#debian)
 - [Building](#building)
 - [Testing](#testing)
 - [Installing](#installing)
@@ -21,6 +23,31 @@ This does the following things:
 
 This branch also contains some bug fixes and improvements that get
 sent back upstream.
+
+## Build Dependencies
+
+In order to build eSpeak, you need:
+
+1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
+    and `pkg-config`);
+2.  a functional c++ compiler;
+3.  wxWidgets development libraries (needed to build and run espeakedit
+    to compile the phoneme data).
+
+Optionally, you need:
+
+1.  the pulseaudio development library to enable pulseaudio output;
+2.  the portaudio development library to enable portaudio output.
+
+### Debian
+
+| Dependency    | Install                                                          |
+|---------------|------------------------------------------------------------------|
+| autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
+| c++ compiler  | `sudo apt-get install gcc g++`                                   |
+| wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
+| pulseaudio    | `sudo apt-get install libpulse-dev`                              |
+| portaudio     | `sudo apt-get install libportaudio-dev`                          |
 
 ## Building
 
