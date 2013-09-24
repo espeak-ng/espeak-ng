@@ -8,6 +8,8 @@
 - [Building Voices](#building-voices)
 - [Adding New Voices](#adding-new-voices)
 - [Historical Releases](#historical-releases)
+- [Bugs](#bugs)
+- [License Information](#license-information)
 
 ----------
 
@@ -134,3 +136,12 @@ __NOTE:__ The source releases contain the big_endian, espeak-edit, praat-mod,
 riskos, windows_dll and windows_sapi folders. These do not appear in the
 source repository until later releases, so have been excluded from the
 historical commits to align them better with the 1.24.02 source commit.
+
+## Bugs
+
+Report bugs to the [espeak issues](https://github.com/rhdunn/espeak/issues)
+page on GitHub.
+
+## License Information
+
+eSpeak Text-to-Speech is released under the GPL version 3 or later license.
