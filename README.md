@@ -123,3 +123,6 @@ page on GitHub.
 ## License Information
 
 eSpeak Text-to-Speech is released under the GPL version 3 or later license.
+
+The eSpeak Android APK code in the `android` folder is released under the
+Apache 2.0 license.
