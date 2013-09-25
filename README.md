@@ -1,4 +1,6 @@
-# eSpeak Text-to-Speech for Android
+# eSpeak Text-to-Speech for Android™
+
+[![eSpeak for Android on Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_45.png "eSpeak for Android on Google Play")](https://play.google.com/store/apps/details?id=com.reecedunn.espeak)
 
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
@@ -126,3 +128,7 @@ eSpeak Text-to-Speech is released under the GPL version 3 or later license.
 
 The eSpeak Android APK code in the `android` folder is released under the
 Apache 2.0 license.
+
+Android and Google Play are registered trademarks of Google Inc.
+
+All trademarks are property of their respective owners.
