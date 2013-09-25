@@ -2,12 +2,12 @@
 
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
-- [Building with Gradle](#building-with-gradle)
-- [Building with Eclipse](#building-with-eclipse)
-- [Building with Ant](#building-with-ant)
-- [Signing the APK](#signing-the-apk)
-- [Installing the APK](#installing-the-apk)
-- [Enabling eSpeak on the Device](#enabling-espeak-on-the-device)
+- [Building](#building)
+  - [Building with Gradle](#building-with-gradle)
+  - [Building with Eclipse](#building-with-eclipse)
+  - [Signing the APK](#signing-the-apk)
+- [Installing](#installing)
+  - [Enabling eSpeak on the Device](#enabling-espeak-on-the-device)
 - [Bugs](#bugs)
 - [License Information](#license-information)
 
@@ -50,7 +50,9 @@ In order to use Eclipse, you will also need:
 | wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
 | gradle        | [gradle-1.7_1.0-0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb) |
 
-## Building with Gradle
+## Building
+
+### Building with Gradle
 
 1.  Set the location of the Android SDK:
 
@@ -62,7 +64,7 @@ In order to use Eclipse, you will also need:
 
 This will create an `android/build/apk/espeak-release-unsigned.apk` file.
 
-## Building with Eclipse
+### Building with Eclipse
 
 1.  Build the JNI binding and espeak data file by running:
 
@@ -77,22 +79,7 @@ This will create an `android/build/apk/espeak-release-unsigned.apk` file.
 The generated `eSpeakActivity.apk` can be installed like any other apk build
 via eclipse, such as by using the `Run` menu option.
 
-## Building with Ant
-
-1.  Build the JNI binding and espeak data file by running:
-
-        $ ./autogen.sh
-        $ ./configure
-        $ make jni espeakdata
-2.  Update the project using the Android utility which is part of the SDK:
-
-        $ cd android
-        $ android update project -s -t 1 -p .
-3.  Build the package.
-
-        $ ant release
-
-## Signing the APK
+### Signing the APK
 
 In order to install the built APK (e.g. `bin/eSpeakActivity-release-unsigned.apk`)
 you need to self-sign the package. You can do this by:
@@ -110,13 +97,13 @@ you need to self-sign the package. You can do this by:
         $ zipalign 4 bin/eSpeakActivity-release-unsigned.apk \
           bin/eSpeakActivity-release-signed.apk
 
-## Installing the APK
+## Installing
 
 Now, you can install the APK using the `adb` tool:
 
     $ adb install -r bin/eSpeakActivity-release-signed.apk
 
-## Enabling eSpeak on the Device
+### Enabling eSpeak on the Device
 
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
