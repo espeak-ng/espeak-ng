@@ -16,27 +16,6 @@
 This branch contains the files needed to build espeak on the android platform.
 It is derived from the eyes-free project.
 
-## Prerequisits
-
-To build eSpeak for Android, you need to have the following installed and
-configured correctly:
-
-1.  Android SDK
-2.  Android NDK
-3.  wxWidgets 2.8 (for espeakedit when building `android/res/raw/espeakdata.zip`)
-
-If you are building with Eclipse, you will also need:
-
-1.  Eclipse
-2.  Android Developer Tools (ADT) for Eclipse
-
-If you are building on the command line, you will also need either:
-
-1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution), or
-2.  gradle 1.7, which can be installed from the
-    [Ubuntu PPA](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb)
-    debian file (including on Debian systems)
-
 ## Build Dependencies
 
 In order to build eSpeak, you need:
@@ -47,10 +26,20 @@ In order to build eSpeak, you need:
 3.  wxWidgets development libraries (needed to build and run espeakedit
     to compile the phoneme data).
 
-Optionally, you need:
+In order to build the APK, you need:
 
-1.  the pulseaudio development library to enable pulseaudio output;
-2.  the portaudio development library to enable portaudio output.
+1.  the [Android SDK](http://developer.android.com/sdk/index.html);
+2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
+3.  Gradle 1.7.
+
+In order to use Android Studio, you will also need:
+
+1.  [Android Studio](http://developer.android.com/sdk/installing/studio.html).
+
+In order to use Eclipse, you will also need:
+
+1.  Eclipse;
+2.  the [Android Developer Tools](http://developer.android.com/tools/sdk/eclipse-adt.html) (ADT) for Eclipse.
 
 ### Debian
 
@@ -59,6 +48,7 @@ Optionally, you need:
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c++ compiler  | `sudo apt-get install gcc g++`                                   |
 | wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
+| gradle        | [gradle-1.7_1.0-0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb) |
 
 ## Building with Gradle
 
