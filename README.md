@@ -1,12 +1,15 @@
-# Android Port of eSpeak Text-to-Speech
+# eSpeak Text-to-Speech for Android
 
-- [Prerequisites](#prerequisites)
+- [Build Dependencies](#build-dependencies)
+  - [Debian](#debian)
 - [Building with Gradle](#building-with-gradle)
 - [Building with Eclipse](#building-with-eclipse)
 - [Building with Ant](#building-with-ant)
 - [Signing the APK](#signing-the-apk)
 - [Installing the APK](#installing-the-apk)
 - [Enabling eSpeak on the Device](#enabling-espeak-on-the-device)
+- [Bugs](#bugs)
+- [License Information](#license-information)
 
 ----------
 
@@ -33,6 +36,29 @@ If you are building on the command line, you will also need either:
 2.  gradle 1.7, which can be installed from the
     [Ubuntu PPA](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb)
     debian file (including on Debian systems)
+
+## Build Dependencies
+
+In order to build eSpeak, you need:
+
+1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
+    and `pkg-config`);
+2.  a functional c++ compiler;
+3.  wxWidgets development libraries (needed to build and run espeakedit
+    to compile the phoneme data).
+
+Optionally, you need:
+
+1.  the pulseaudio development library to enable pulseaudio output;
+2.  the portaudio development library to enable portaudio output.
+
+### Debian
+
+| Dependency    | Install                                                          |
+|---------------|------------------------------------------------------------------|
+| autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
+| c++ compiler  | `sudo apt-get install gcc g++`                                   |
+| wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
 
 ## Building with Gradle
 
@@ -111,3 +137,12 @@ To enable eSpeak, you need to:
 2.  enable `eSpeak TTS` in the `Engines` section;
 3.  select `eSpeak TTS` as the default engine;
 4.  use the `Listen to an example` option to check if everything is working.
+
+## Bugs
+
+Report bugs to the [espeak issues](https://github.com/rhdunn/espeak/issues)
+page on GitHub.
+
+## License Information
+
+eSpeak Text-to-Speech is released under the GPL version 3 or later license.

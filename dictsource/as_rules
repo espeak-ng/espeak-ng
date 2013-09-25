@@ -1,0 +1,388 @@
+﻿
+// This file is UTF8 encoded 
+
+// letter groups:
+// A   vowel letters and vowel signs
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
+
+
+
+.replace
+ ০	0
+ ১	1
+ ২	2
+ ৩	3
+ ৪	4
+ ৫	5
+ ৬	6
+ ৭	7
+ ৮	8
+ ৯	9
+
+
+// Vowels
+
+
+.group অ
+       অ        V
+       অঁ        O~
+       অ্যা       &          // V,ja in [æmiba]
+      
+
+.group আ
+       আ        a
+       আঁ        a~
+
+.group ই
+        ই        i
+        ইঁ        i~
+
+
+.group ঈ
+        ঈ        i
+        ঈঁ        i~
+
+
+.group উ
+        উ        u
+        উঁ        u~
+
+        
+.group ঊ
+        ঊ        u
+        ঊঁ        u~
+
+.group ঋ
+        ঋ        ri
+        ঋঁ        ri~
+
+.group ঌ
+       ঌ         l-
+       
+       
+.group এ
+        এ        &
+        এঁ        &~
+
+        
+.group ঐ
+        ঐ        oj
+        ঐঁ        o~j
+
+        
+.group এ
+        এ        e
+        এঁ        e~
+        
+        এ্যা       &    // e,ja  [ækademi]
+
+
+.group ও
+        ও        o
+        ওঁ        o~
+
+        
+.group ঔ
+        ঔ        ow
+        ঔঁ        o~w
+
+.group ও //??
+        ও        o:
+
+
+        
+
+// Vowel Signs
+
+.group া
+       া         a
+       াঁ        a~
+       
+.group ি
+       ি         i
+       িঁ        i~
+    
+.group ী
+       ী         i
+       ীঁ        i~
+
+.group ূ
+       ূ         u
+       ূঁ        u~
+
+.group ু
+       ু         u
+       ুঁ        u~
+     
+.group ৃ
+       ৃ         ri
+       ৃঁ        ri~
+
+       
+.group ে
+       ে        e
+       েঁ       e~
+       েউ       ew
+
+
+.group ৈ
+       ৈ        oj
+       ৈঁ       o~j
+    
+.group ো
+       ো        o
+       োঁ       o~
+  
+.group ৌ
+       ৌ        ow
+       ৌঁ       o~w
+  
+        
+// Consonants
+
+.group ক
+        ক        kV
+        ক (B     k
+
+        
+.group খ
+        খ        k#V
+        খ (B     k#
+        
+        
+.group গ
+        গ        gV
+        গ (B     g
+
+
+.group ঘ
+        ঘ        g#V
+        ঘ (B     g#
+
+        
+.group ঙ
+        ঙ        NV
+        ঙ্ (B     N
+
+
+.group চ
+        চ        tSV
+        চ (B     tS
+
+
+.group ছ
+        ছ        tS#V
+        ছ  (B    tS#
+
+        
+.group জ
+        জ        JV
+        জ (B     J
+        
+        জ্ব        JV
+        জ্ব (B     J
+        জ্ঞ        ggo~
+        জ্ঞ (B     gg
+
+
+.group ঝ
+        ঝ        J#V
+        ঝ (B     J#
+
+        
+.group ঞ
+        ঞ        nV
+        ঞ্ (B     n
+ 
+
+.group ট
+        ট         t.V
+        ট (B      t.
+
+
+.group ঠ
+        ঠ        t.#V
+        ঠ (B     t.#
+       
+
+.group ড
+        ড        d.V
+        ড (B     d.
+
+        ড়        r.V     // nukta
+        ড় (B     r.
+
+        
+.group ঢ
+        ঢ        d.#V
+        ঢ (B     d.#
+
+        ঢ়        hr.V
+        ঢ় (B     hr.
+       
+       
+.group ণ
+        ণ        nV   // should be [n.] if adjacent to t. or d. ?
+        ণ (B     n
+
+
+
+.group ত
+        ত        tV
+        ত (B     t
+
+        
+.group থ
+        থ        t#V
+        থ (B     t#
+
+
+.group দ
+        দ        dV
+        দ (B     d
+
+
+.group ধ
+        ধ        d#V
+        ধ (B     d#
+
+
+.group ন
+        ন        nV
+        ন (B     n
+
+        
+.group প
+        প        pV
+        প (B     p
+
+  
+.group ফ
+        ফ        fV    // or [p#] ?
+        ফ (B     f
+  
+
+.group ব
+        ব        bV
+        ব (B     b
+
+        
+.group ভ
+        ভ        b#V
+        ভ (B     b#
+
+        
+.group ম
+        ম        mV
+        ম (B     m
+
+        
+.group য়
+        য়       jV
+        য় (B    j    
+
+        
+.group য
+        য       dZV
+        য (B    dZ
+        
+        য়	jV   // nukta
+        য় (B	j
+
+     ্) য (C    &   //  ব্যস্ত  [bæsto]
+     ্) যা      &    // ব্যাকরণ [bækɔron] 
+
+
+.group র
+        র        rV
+        র (B     r
+
+    
+.group ল
+        ল        lV
+        ল  (B    l
+
+
+
+.group শ
+        শ        SV  // or [s] ?
+        শ (B     S
+        
+        
+        শ (্ল   s
+
+        
+.group ষ
+        ষ        SV   
+        ষ (B     S
+
+     
+.group স
+        স        SV  // or [s] ??
+        স (B     S
+        
+        স (্থ   s
+        স (্ত   s
+        
+     _) স্ব        SV   // shb
+     _) স্ব (B     S
+
+        
+.group হ
+        হ        hV  
+        হ (B     h
+
+        
+.group হ্ব
+        হ্ব       vV
+        হ্ব (B    v
+
+        
+.group ৎ
+        ৎ        t
+
+
+.group ড়         // can be ড plus nukta
+        ড়        r.V
+        ড় (B     r.
+
+       
+.group ঢ়         // can be ঢ plus nukta
+        ঢ়        hr.V
+        ঢ় (B     hr.
+        
+
+
+.group ঁ
+	ঁ	 O~     // candrabindu, nasalize the previous vowel
+
+.group ং
+       ং        N     //  anusvara/onushshor
+
+.group ঃ              // visarga/bishorgo
+        ঃ             // doubles the following consonant
+        ঃ (_      H
+
+.group ্		// virama/hoshonto
+	্
+
+.group ়
+	়		// nukta, modifies a consonant
+
+
+
+.group
+       // obsolete letters
+        ঋ        r-
+        ৠ        r-
+        ঌ        l-
+        ৡ        l-
+        ৃ        r-
+        ৄ        r-
+        ৢ        l-
+        ৣ        l-
+
+    __) - (_D    bij'og
+    D_) - (_D    bij'og

@@ -16,8 +16,7 @@ special_voices = {
 	'zh-yue': 'zhy',
 }
 
-# The 'om' voice file intimitently crashes when compiling on some platforms.
-exclude_voices = ['om']
+exclude_voices = []
 
 def find_voices(path):
 	for filename in os.listdir(path):

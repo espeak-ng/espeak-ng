@@ -114,6 +114,7 @@ static const char *help_text =
 "--split=\"<minutes>\"\n"
 "\t   Starts a new WAV file every <minutes>.  Used with -w\n"
 "--stdout   Write speech output to stdout\n"
+"--version  Shows version number and date, and location of espeak-data\n"
 "--voices=<language>\n"
 "\t   List the available voices for the specified language.\n"
 "\t   If <language> is omitted, then list all voices.\n";

@@ -1,13 +1,13 @@
 // Irish Gaeilge dictionary
 // written by Ronan McGuirk
 //  2013
-// version 2.7
+// version 2.8.2
 // Please send comments and suggestions to espeak.gaeilge@gmail.com
 
 // This file is UTF8 encoded
 
 // letters
-// letter names, as they are spoken as a single character in text
+// letter namesd, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
 
 _a	eI
@@ -135,9 +135,25 @@ _dpt	pO#nk
 
 //delete
 
+// old script
+ċur x'Ur
+ḃ	b,i:b'u:ltS@
 
+ċ s,i:b'u:ltS@
+ḋ	d,i:b'u:ltS@
+ḟ	,Efb'u:ltS@
+ġ	dZ,i:b'u:ltS@
+ṁ	,Emb'ultS@
+ṗ	p,i:b'u:ltS@
+ṫ	t,i:b'u:ltS@
+
+
+
+
+ 
 // words 
 a	@
+ab	@b
 abhaile @w'0l;E
 ach	0x		$u
 ag Eg $verbf $u
@@ -146,15 +162,17 @@ anam	'0n@m
 aige @g'E
 air Er
 acu 0k'U
-ar Er		$u
+ar Er		
 arsa	@rs@
 agaibh	0g@Iv
-agus	0g@s
+agus	0g@s $u
 aisfhilleadh	,aS'Il;@
 amach	@m'0x
 amárach	@m'A:r@x
 amuigh	@mu1'I
 amháin @w'A:in
+hamháin	h@w'A:in
+
 am aUm
 anaithnid	'0nah@nIdZ
 anonn @naUn
@@ -172,6 +190,8 @@ aschurtha	'0sxUrh@
 atá	@t['A:		$u
 baill	bu1'i:l
 bhaill	vu1'i:l
+beadh	b;'@X
+bheadh	v;'@X
 beidh	bEg
 bhfuil w'Il
 bheas	v'e:@s
@@ -201,6 +221,7 @@ faic f@ak
 faigh	faIg
   feadh fag
 fear	f'ar
+féin	h'e:n
 gcathair	g0h@r
 gan	g0n		$u
   gheall jaUl
@@ -212,7 +233,9 @@ in	In		$u
 ina	In@		$u
 ins	Ins		$u
     inniu Inj'u:v
-	irish	_^_EN
+iontach	'i:nt[@x
+hiontach	h'i:nt[@x
+ 	irish	_^_EN
     is  'Is		$u
   (is ea) IS'a
   isteach	IstS'0x
@@ -227,12 +250,14 @@ mhuigh	vu1'i:
 mhama	w'0m@
 maith m'0
 mhaith w'0
+mhaithe	w'0h;E
+
 	   mbeadh m;O#X
 mo	mO#		$u
 mura	mUr@		$u
 ná	nA:		$u
 	   nigh ni:
-	   níorbh ni:rv
+	   níorbh ni:@r@vv $u
 	   nó nu:		$u
   nollag n@l@g
   nolaig nO#lig
@@ -247,7 +272,10 @@ rímhaith	R'i:w0
 (s é)	S'e:
 (s í)	S'i:
 	  san s@n
-	  seo S@_
+	  san	s'an $capital
+seo SU_ $u
+(sinn féin)	S'In||f'e:n
+
 	tabhair t'u:@r
 	(tiocfaidh ár lá)	tSO#ki:|'A:r|l'A:
 	

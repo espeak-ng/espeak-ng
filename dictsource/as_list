@@ -1,0 +1,323 @@
+﻿// Translation rules for Bengali
+// This file is UTF8 encoded
+
+// Numbers
+// Bengali numbers are changed to latin characters before translation
+_0	S'unjO
+_1	'&k
+_2	d'uj
+_3	t'in
+_4	tS'ar
+_5	p'a~tS
+_6	tS#'Oj
+_7	S'at
+_8	'at.#
+_9	n'Oj
+
+_2a	d'u     // with hundreds etc.
+_6a	tS#'a
+_9a	n'O
+
+
+_10	d'OS
+_11	'&garo
+_12	b'arO
+_13	t'erO
+_14	tS'oddO
+_15	p'OnerO
+_16	S'olO
+_17	S'OterO
+_18	'at.#arO 
+_19	'uniS
+
+_20	k'uri    // or b'iS   ??
+_21	ek'uS
+_22	b'ajS
+_23	t'ejS
+_24	tS'ObbiS
+_25	p'O~tSiS
+_26	tSh'abbiS
+_27	Sat'aS
+_28	'at.#aS
+_29	unOtr'iS
+
+_30	tr'iS
+_31	ekOtr'iS
+_32	bOtr'iS
+_33	tetr'iS
+_34	tSowtr'iS
+_35	pO~jtr'iS
+_36	tS#'Otr'iS
+_37	Sa~itr'iS
+_38	at.tr'iS
+_39	'unOtSOll'iS
+
+_40	tSOll'iS
+_41	ektSOll'iS
+_42	biall'iS
+_43	tetall'iS
+_44	tSoall'iS
+_45	pO~jtall'iS
+_46	tSetSOll'iS
+_47	SatSOll'is
+_48	atSOll'iS
+_49	unOpO~tSaS
+
+_50	pO~tS'aS
+_51	&kann'o
+_52	bajann'o
+_53	tepann'o
+_54	tSujann'o
+_55	pontSann'o
+_56	tS#apann'o
+_57	Satann'o
+_58	at.ann'o
+_59	unOS'at.
+
+
+_60	s'at.
+_61	ekSOt.t.'i
+_62	baSOt.t.'i
+_63	teSOt.t.'i
+_64	tSowSOt.t.'i
+_65	pojSOt.t.'i
+_66	SeSOt.t.'i
+_67	SatSOt.t.'i
+_68	at.SOt.t.'i
+_6X	sat.t.'i
+_69	unOSOtt'ur
+
+_70	SOtt'Or
+_71	ekatt'Or
+_72	bahatt'Or
+_73	tehatt'Or
+_74	tSuhatt'Or
+_75	pOtSatt'Or
+_76	tS#ijatt'Or
+_77	Satatt'Or
+_78	at.att'Or
+_79	unOaS'i
+
+_80	aS'i
+_81	&kaS'i
+_82	beraS'i
+_83	teraS'i
+_84	tSuraS'i
+_85	po~tSaS'i
+_86	tS#ijaS'i
+_87	SataS'i
+_88	at.aS'i
+_89	,unOnObb'oj
+
+_90	nObb'oj
+_91	&kanObb'oj
+_92	beranObb'oj
+_93	teranObb'oj
+_94	tSuranObb'oj
+_95	pOtSanObb'oj
+_96	tS#ijanObb'oj
+_97	SatanObb'oj
+_98	at.anObb'oj
+_99	niranObb'oj
+
+_0C	S'o
+_0M1	h'ajar
+_0M2	l'ak#
+_0M3	k'ot.i
+_0M4	'Orbud
+_dpt	_d'Osomik_
+
+
+// Single consonants
+ক	kO
+খ	k#O
+গ	gO
+ঘ	g#O
+ঙ	'uNO~
+চ	tSO
+ছ	tShO    // [h] to distinguish from [tS]
+জ	JO
+ঝ	J#O
+ঞ	'iNO~
+ট	t.O
+ঠ	t.#O
+ড	d.O
+ঢ	d.#O
+ণ	m,odd#en.n.'O
+ত	tO
+থ	t#O
+দ	dO
+ধ	d#O
+ন	d,ontenn'O
+প	pO
+ফ	fO      // or [p#O] ?
+ব	bO
+ভ	b#O
+ম	mO
+য়	Oj
+য	,ontostedZ'O
+র	rO
+ড়       r.O
+ড়	r.O     // (d. + nukta)
+ঢ়	hr.O
+ঢ়	hr.O    // (d#. + nukta)
+ল	lO
+শ	t,aleboS:'O
+ষ	m,ud#en:oS:'O
+স	d,onteS:'O
+হ	hO
+ৎ	kh,Ond.ot'O
+ক্ষ	k,ojmud#en:oS:'O
+
+
+// full vowels
+অ	O
+আ	a
+ই	hrOS:o'i
+ঈ	dirg#o'i
+উ	hrOS:o'u
+ঊ	dirg#o'u
+ঋ	ri
+ঔ	ow
+
+এ	e  $u+   // word 'it'
+ঐ	oj $u+   // word 'that'
+ও	o  $u+ $brk  // 'and'
+_এ	e
+_ঐ	oj
+_ও	o
+
+
+// combining vowel signs
+া	'akar
+ি	r'oS:ikar
+ী	d'irg#ikar
+ূ	r'oS:ukar
+ু	d'irg#ukar
+ৃ	r'ikar
+ে	'ekar
+ৈ	'ojkar
+ো	'okar
+ৌ	'owkar
+
+// signs
+্	h'OSonto
+ং	'OnuSSOr
+ঃ	b'iSOrgo
+ঁ	tS'Ondrobindu
+়	b'indu
+
+$	d.Olar
+%	SOtk'Ora
++	jOg
+=	SOman
+
+
+
+// Punctuation
+।	dVn.d.V
+_,	koma
+_?	pr'oSnOtSihnO
+
+// Pronouns
+আমি 	$u	// main: I
+আমায়	$u
+আমার 	$u
+
+আমরা 	$u	// we
+আমাদের	$u
+
+আপনি	$u	// you(formal)
+আপনাকে	$u
+আপনার 	$u
+
+তুমি	$u	// you (informal)
+তোমায় 	$u
+তোমার 	$u
+তোমাদের 	$u
+
+তুই	$u	// you (informal)
+তোকে 	$u
+তোর 	$u
+
+এ	$u	// he/she/it
+আপনি	$u
+এটার 	$u
+এর 	$u
+
+ইনি	$u	// they
+এনাকে	$u
+এনার 	$u
+
+ও	$u	// he/she/it
+সে 	$u
+ওর 	$u
+তার 	$u
+
+ওরা	$u	// they
+তারা	$u
+ওদের	$u	// unheṃ: them 
+তাদের	$u
+
+এই	$u	// e:I this/it
+এটা 	$u	// e:ta: this/it
+এটার 	$u	// e:ta:'r  this/it
+এর 	$u	// e:r  this/it
+
+ওটা	$u	// o:ta: that
+ওটাকে 	$u	// o:ta:ke: to that
+ওটার 	$u	// o:ta:'r  of that
+
+ওগুলো	$u	// o:gu:lo: those
+ওগুলোকে $u	// o:gu:lo:ke: to those
+ওগুলোর 	$u	// o:gu:lo:'r  of those
+
+
+
+// Prepositions/Postpositions
+মধ্যে	$u	// moddhe  in
+উপর	$u	// upor    on, above
+নীচে	$u	// niche   below
+
+পূর্ব্বে	$u	// purbe   before, prior
+পর্য্যন্ত 	$u	// parjonto  till
+অব্দি	$u 	// abdi      till
+বিনা	$u	// bina      without
+
+
+
+// Questions
+কেন	$u $pause	// kano why  interrogative particle
+কি	$u $pause	// ki  what
+কোথায়	$u $pause	// kothaay  where
+কখন	$u $pause	// kakhon   when
+কে	$u $pause	// ke       who
+
+// Conjunctions
+
+এবং	$u $pause	// ebong: and
+আর	$u $pause	// aar: and
+অথবা	$u $pause	// athoba: or
+কিন্তু	$u $pause	// kintu: but
+যদি	$pause	// jodi: if
+তবু	$pause	// tobu: still, yet
+তবে	$pause	// tabe: if...then
+অথচ	$u	// athacho: yet
+
+
+// Verbs
+
+হয়	$u
+
+
+ছিল	$u	// chilo: past aux
+ছিলেন 	$u	// chilen
+
+
+করছি 	$u	// korchi: continuous
+করছিলাম	$u	// korchilam: past indefinite
+করেছি 	$u	// korechi: past
+
+
+// Exceptions
+এত	&to

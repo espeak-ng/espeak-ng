@@ -39,7 +39,7 @@
 //#define USE_PORTAUDIO
 //#define USE_PULSEAUDIO
 #define USE_NANOSLEEP
-#define __cdecl 
+#define __cdecl
 //#define ESPEAK_API  extern "C"
 
 #ifdef _ESPEAKEDIT

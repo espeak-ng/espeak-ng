@@ -3,7 +3,7 @@
 // Preliminary character substitution:
 //   Convert tonos, oxia and perispomeni to varia
 //   Remove psili (soft breathing)
-//   Convert dasia accent to a separate prefix character ("h")
+//   Convert dasia accent to a separate prefix character ("ɦ") NOTE: using U+0266 because it's above eSpeak's Latin character limit of 0x250.
 //   Remove iota subscripts
 //   Replace Latin characters by same-shape Greek characters
 
@@ -61,32 +61,32 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ᾷ	ᾲ
 
 ἀ	α
-ἁ	hα
+ἁ	ɦα
 ἂ	ὰ
-ἃ	hὰ
+ἃ	ɦὰ
 ἄ	ὰ
-ἅ	hὰ
+ἅ	ɦὰ
 ἆ	ὰ
-ἇ	hὰ
+ἇ	ɦὰ
 
 ᾀ	ᾳ
-ᾁ	hᾳ
+ᾁ	ɦᾳ
 ᾂ	ᾲ
-ᾃ	hᾲ
+ᾃ	ɦᾲ
 ᾄ	ᾲ
-ᾅ	hᾲ
+ᾅ	ɦᾲ
 ᾆ	ᾲ
-ᾇ	hᾲ
+ᾇ	ɦᾲ
 
 // epsilon
 έ	ὲ
 έ	ὲ
 ἐ	ε
-ἑ	hε
+ἑ	ɦε
 ἒ	ὲ
-ἓ	hὲ
+ἓ	ɦὲ
 ἔ	ὲ
-ἕ	hὲ
+ἕ	ɦὲ
 
 // eta
 ή	ὴ
@@ -96,22 +96,22 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ῇ	ῂ
 
 ἠ	η
-ἡ	hη
+ἡ	ɦη
 ἢ	ὴ
-ἣ	hὴ
+ἣ	ɦὴ
 ἤ	ὴ
-ἥ	hὴ
+ἥ	ɦὴ
 ἦ	ὴ
-ἧ	hὴ
+ἧ	ɦὴ
 
 ᾐ	ῃ
-ᾑ	hῃ
+ᾑ	ɦῃ
 ᾒ	ῂ
-ᾓ	hῂ
+ᾓ	ɦῂ
 ᾔ	ῂ
-ᾕ	hῂ
+ᾕ	ɦῂ
 ᾖ	ῂ
-ᾗ	hῂ
+ᾗ	ɦῂ
 
 //iota
 ί	ὶ
@@ -119,13 +119,13 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ῖ	ὶ
 
 ἰ	ι
-ἱ	hι
+ἱ	ɦι
 ἲ	ὶ
-ἳ	hὶ
+ἳ	ɦὶ
 ἴ	ὶ
-ἵ	hὶ
+ἵ	ɦὶ
 ἶ	ὶ
-ἷ	hὶ
+ἷ	ɦὶ
 
 ΐ	ῒ
 ῗ	ῒ
@@ -134,11 +134,11 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ό	ὸ
 ό	ὸ
 ὀ	ο
-ὁ	hο
+ὁ	ɦο
 ὂ	ὸ
-ὃ	hὸ
+ὃ	ɦὸ
 ὄ	ὸ
-ὅ	hὸ
+ὅ	ɦὸ
 
 // upsilon
 ύ	ὺ
@@ -146,13 +146,13 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ῦ	ὺ
 
 ὐ	υ
-ὑ	hυ
+ὑ	ɦυ
 ὒ	ὺ
-ὓ	hὺ
+ὓ	ɦὺ
 ὔ	ὺ
-ὕ	hὺ
+ὕ	ɦὺ
 ὖ	ὺ
-ὗ	hὺ
+ὗ	ɦὺ
 
 ΰ	ῢ
 ῧ	ῢ
@@ -165,26 +165,26 @@ w	ω // (long o; not standard transliteration but may be easier to type
 ῷ	ῲ
 
 ὠ	ω
-ὡ	hω
+ὡ	ɦω
 ὢ	ὼ
-ὣ	hὼ
+ὣ	ɦὼ
 ὤ	ὼ
-ὥ	hὼ
+ὥ	ɦὼ
 ὦ	ὼ
-ὧ	hὼ
+ὧ	ɦὼ
 
 ᾠ	ῳ
-ᾡ	hῳ
+ᾡ	ɦῳ
 ᾢ	ῲ
-ᾣ	hῲ
+ᾣ	ɦῲ
 ᾤ	ῲ
-ᾥ	hῲ
+ᾥ	ɦῲ
 ᾦ	ῲ
-ᾧ	hῲ
+ᾧ	ɦῲ
 
 // rho
 ῤ	ρ
-ῥ	hρ
+ῥ	ɦρ
 
 
 .group α
@@ -193,10 +193,10 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	αὶ      'aI
 	αυ       aU
 	αὺ      'aU
-	αhι      haI
-	αhὶ     'haI
-	αhυ      haU
-	αhὺ     'haU
+	αɦι      haI
+	αɦὶ     'haI
+	αɦυ      haU
+	αɦὺ     'haU
 
 .group β
 	β        b
@@ -216,10 +216,10 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	εὶ      'e:
 	ευ       eU
 	εὺ      'eU
-	εhι      he:
-	εhὶ     'he:
-	εhυ      heU
-	εhὺ     'heU
+	εɦι      he:
+	εɦὶ     'he:
+	εɦυ      heU
+	εɦὺ     'heU
 
 .group ζ
 	ζ        z
@@ -231,10 +231,10 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	ηὶ      'EI:
 	ηυ       EU:
 	ηὺ      'EU:
-	ηhι      hEI:
-	ηhὶ     'hEI:
-	ηhυ      hEU:
-	ηhὺ     'hEU:
+	ηɦι      hEI:
+	ηɦὶ     'hEI:
+	ηɦυ      hEU:
+	ηɦὺ     'hEU:
 
 .group θ
 	θ        T
@@ -274,10 +274,10 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	οὶ      'oI
 	ου       u:
 	οὺ      'u:
-	οhι      hoI
-	οhὶ     'hoI
-	οhυ      hu:
-	οhὺ     'hu:
+	οɦι      hoI
+	οɦὶ     'hoI
+	οɦυ      hu:
+	οɦὺ     'hu:
 
 .group π
 	π        p
@@ -303,15 +303,15 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	υ        y
 	υι       yI
 	υὶ      'yI
-	υhι      hyI
-	υhὶ     'hyI
+	υɦι      hyI
+	υɦὶ     'hyI
 
 .group ϋ
 	ϋ        y
 	ϋι       yI
 	ϋὶ      'yI
-	ϋhι      hyI
-	ϋhὶ     'hyI
+	ϋɦι      hyI
+	ϋɦὶ     'hyI
 
 .group φ
 	φ        f
@@ -331,15 +331,15 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	ωὶ      'OI:
 	ωυ       OU:
 	ωὺ      'OU:
-	ωhι      hOI:
-	ωhὶ     'hOI:
-	ωhυ      hOU:
-	ωhὺ     'hOU:
+	ωɦι      hOI:
+	ωɦὶ     'hOI:
+	ωɦυ      hOU:
+	ωɦὺ     'hOU:
 
 
 
-.group h   // dasia (rough breathing)
-	h        h
+.group ɦ   // dasia (rough breathing)
+	ɦ        h
 
 
 // Latin letters to equivalent Greek sounds (plus 'q = η' 'w = ω'
@@ -365,6 +365,9 @@ w	ω // (long o; not standard transliteration but may be easier to type
 .group g
 	g	g
 	gg	Ng
+
+.group h
+	h	h
 
 .group i
 	i	i

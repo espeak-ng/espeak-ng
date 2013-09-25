@@ -25,8 +25,6 @@ y	jai
 z	zedi
 
 
-
-
 // numbers
 _0      sif'uRi
 _1      m'oJa
@@ -150,7 +148,7 @@ kwao    $pause        // by means of which
 kwavyo  $pause        // by means of which
 kwaye   $pause        // by means of which
 
-kwa     $u $brk       // with
+kwa     $u      // with
 mwenye  $u $brk       // with
 wenye   $u $brk       // with
 yenye   $u $brk       // with
@@ -158,6 +156,8 @@ yenye   $u $brk       // with
 chenye   $u $brk      // with
 vyenye   $u $brk      // with
 zenye   $u $brk       // with
+malipo  $unstressend
+
 
 
 // conjunctions
@@ -178,12 +178,12 @@ ijapokuwa $pause      // although
 ingawa    $pause      // although
 iwapo     $pause      // when
 japo      $pause
-(juu ya)  J,u:ja/  $pause  // as for
+(juu ya)  J,u:ja  $pause  // as for
 kama      $u+ $pause   // if,like
 kisha     $pause      // moreover
 kusudi    $pause      // in order to
 kuwa      $u $pause   // that
-(kwa kuwa) kwa||k,uwa/ $pause  // becuse
+(kwa kuwa) kwa||k,uwa $pause  // becuse
 kwamba    $u $pause   // that
 lakini    $pause      // however
 walakini  $pause      // however
@@ -194,6 +194,11 @@ taraa     $u+ $pause   // if
 wala      $pause      // either,neither
 yaani     $pause      // i.e.
 
+
+// exceptions
+
+mantiki  ma_|nt'iki $u1+
+zanzibar  $3
 
 
 

@@ -336,7 +336,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE2;
 		q[1] = length | (wav_length << 16);   // length in samples
-		q[2] = long64(&wavefile_data[index]);
+		q[2] = (long64)(&wavefile_data[index]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 		return(length);
@@ -357,7 +357,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_WAVE;
 	q[1] = x;   // length in samples
-	q[2] = long64(&wavefile_data[index]);
+	q[2] = (long64)(&wavefile_data[index]);
 	q[3] = wav_scale + (amp << 8);
 	WcmdqInc();
 
@@ -372,7 +372,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE;
 		q[1] = len4*2;   // length in samples
-		q[2] = long64(&wavefile_data[index+x]);
+		q[2] = (long64)(&wavefile_data[index+x]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 
@@ -388,7 +388,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE;
 		q[1] = length;   // length in samples
-		q[2] = long64(&wavefile_data[index+x]);
+		q[2] = (long64)(&wavefile_data[index+x]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 	}
@@ -613,7 +613,7 @@ static int VowelCloseness(frame_t *fr)
 }
 
 
-int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
 {//==============================================================================================================================
 	int ix;
 	int formant;
@@ -639,7 +639,7 @@ static short vcolouring[N_VCOLOUR][5] = {
 
 	frame_t *fr = NULL;
 
-	if(n_frames < 2)
+	if(*n_frames < 2)
 		return(0);
 
 	len = (data1 & 0x3f) * 2;
@@ -714,8 +714,8 @@ if(voice->klattv[0])
 
 			if(flags & 8)
 			{
-				fr = CopyFrame(seq[n_frames-1].frame,0);
-				seq[n_frames-1].frame = fr;
+				fr = CopyFrame(seq[*n_frames-1].frame,0);
+				seq[*n_frames-1].frame = fr;
 				rms = RMS_GLOTTAL1;
 
 				// degree of glottal-stop effect depends on closeness of vowel (indicated by f1 freq)
@@ -723,7 +723,7 @@ if(voice->klattv[0])
 			}
 			else
 			{
-				fr = DuplicateLastFrame(seq,n_frames++,len);
+				fr = DuplicateLastFrame(seq,(*n_frames)++,len);
 				if(len > 36)
 					seq_len_adjust += (len - 36);
 
@@ -737,7 +737,7 @@ if(voice->klattv[0])
 
 			if((vcolour > 0) && (vcolour <= N_VCOLOUR))
 			{
-				for(ix=0; ix<n_frames; ix++)
+				for(ix=0; ix < *n_frames; ix++)
 				{
 					fr = CopyFrame(seq[ix].frame,0);
 					seq[ix].frame = fr;
