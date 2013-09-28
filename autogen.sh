@@ -3,7 +3,7 @@
 mkdir -p m4
 touch AUTHORS
 touch NEWS
-ln -sv README.md README
+ln -svf README.md README
 
 aclocal -I m4 || exit 1
 
