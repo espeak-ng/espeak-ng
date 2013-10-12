@@ -198,6 +198,7 @@ dictionaries: \
 	espeak-data/ga_dict \
 	espeak-data/grc_dict \
 	espeak-data/gu_dict \
+	espeak-data/hbs_dict \
 	espeak-data/hi_dict \
 	espeak-data/hu_dict \
 	espeak-data/hy_dict \
@@ -378,6 +379,12 @@ dictsource/gu_extra:
 	touch dictsource/gu_extra
 espeak-data/gu_dict: src/espeak espeak-data/phontab dictsource/gu_list dictsource/gu_rules dictsource/gu_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=gu && cd ..
+
+hbs: espeak-data/hbs_dict
+dictsource/hbs_extra:
+	touch dictsource/hbs_extra
+espeak-data/hbs_dict: src/espeak espeak-data/phontab dictsource/hbs_list dictsource/hbs_rules dictsource/hbs_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=hbs && cd ..
 
 hi: espeak-data/hi_dict
 dictsource/hi_extra:
