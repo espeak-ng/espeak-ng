@@ -13,6 +13,8 @@ dictionaries = {}
 
 # Map voice names to dictionaries when these do not match.
 special_voices = {
+	'bs': 'hbs',
+	'hr': 'hbs',
 	'zh-yue': 'zhy',
 }
 
