@@ -18,7 +18,10 @@
 package com.reecedunn.espeak;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -58,11 +61,17 @@ public class eSpeakActivity extends Activity {
     }
 
     private State mState;
-    private ArrayList<String> mVoices;
     private TextToSpeech mTts;
     private List<Pair<String,String>> mInformation;
     private InformationListAdapter mInformationView;
     private EditText mText;
+
+    private final BroadcastReceiver mOnEspeakInitialized = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            populateInformationView();
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +83,9 @@ public class eSpeakActivity extends Activity {
         mInformationView = new InformationListAdapter(this, mInformation);
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
         mText = (EditText)findViewById(R.id.editText1);
+
+        final IntentFilter filter = new IntentFilter(TtsService.ESPEAK_INITIALIZED);
+        registerReceiver(mOnEspeakInitialized, filter);
 
         setState(State.LOADING);
         checkVoiceData();
@@ -101,6 +113,8 @@ public class eSpeakActivity extends Activity {
     @Override
     public void onStop() {
         super.onStop();
+
+        unregisterReceiver(mOnEspeakInitialized);
 
         if (mTts != null) {
             mTts.shutdown();
@@ -182,11 +196,7 @@ public class eSpeakActivity extends Activity {
         }
 
         final String availableVoices = getString(R.string.available_voices);
-        if (mVoices == null) {
-            mInformation.add(new Pair<String,String>(availableVoices, "0"));
-        } else {
-            mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(mVoices.size())));
-        }
+        mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(SpeechSynthesis.getVoiceCount())));
 
         final String version = getString(R.string.tts_version);
         mInformation.add(new Pair<String,String>(version, SpeechSynthesis.getVersion()));
@@ -227,12 +237,9 @@ public class eSpeakActivity extends Activity {
         if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
             Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
             setState(State.ERROR);
-        } else {
-            mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
         }
 
         initializeEngine();
-        populateInformationView();
     }
 
     /**

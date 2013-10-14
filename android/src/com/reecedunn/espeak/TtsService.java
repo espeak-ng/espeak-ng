@@ -51,6 +51,8 @@ import java.util.Locale;
  */
 @SuppressLint("NewApi")
 public class TtsService extends TextToSpeechService {
+    public static final String ESPEAK_INITIALIZED = "com.reecedunn.espeak.ESPEAK_INITIALIZED";
+
     private static final String TAG = TtsService.class.getSimpleName();
     private static final boolean DEBUG = false;
 
@@ -95,6 +97,9 @@ public class TtsService extends TextToSpeechService {
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
         mAvailableVoices = mEngine.getAvailableVoices();
+
+        final Intent intent = new Intent(ESPEAK_INITIALIZED);
+        sendBroadcast(intent);
     }
 
     @Override

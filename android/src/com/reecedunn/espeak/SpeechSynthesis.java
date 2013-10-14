@@ -60,6 +60,7 @@ public class SpeechSynthesis {
     private final String mDatapath;
 
     private boolean mInitialized = false;
+    private static int mVoiceCount = 0;
 
     public SpeechSynthesis(Context context, SynthReadyCallback callback) {
         // First, ensure the data directory exists, otherwise init will crash.
@@ -86,6 +87,10 @@ public class SpeechSynthesis {
         return nativeGetVersion();
     }
 
+    public static int getVoiceCount() {
+        return mVoiceCount;
+    }
+
     public int getSampleRate() {
         return nativeGetSampleRate();
     }
@@ -107,6 +112,7 @@ public class SpeechSynthesis {
     public List<Voice> getAvailableVoices() {
         final List<Voice> voices = new LinkedList<Voice>();
         final String[] results = nativeGetAvailableVoices();
+        mVoiceCount = results.length / 4;
 
         for (int i = 0; i < results.length; i += 4) {
             final String name = results[i];
