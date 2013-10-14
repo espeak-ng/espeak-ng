@@ -66,4 +66,6 @@
   <string name="variant_old">Starší</string>
   <string name="variant_croak">Hundranie</string>
   <string name="variant_whisper">Šepot</string>
+  <string name="import_voice_title">Import slovníka eSpeak</string>
+  <string name="import_voice_description">Import súbor slovníka eSpeak z pamäťovej karty.</string>
 </resources>
