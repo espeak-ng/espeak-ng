@@ -84,9 +84,6 @@ public class eSpeakActivity extends Activity {
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
         mText = (EditText)findViewById(R.id.editText1);
 
-        final IntentFilter filter = new IntentFilter(TtsService.ESPEAK_INITIALIZED);
-        registerReceiver(mOnEspeakInitialized, filter);
-
         setState(State.LOADING);
         checkVoiceData();
 
@@ -108,6 +105,14 @@ public class eSpeakActivity extends Activity {
                 mText.setText(ssml);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        final IntentFilter filter = new IntentFilter(TtsService.ESPEAK_INITIALIZED);
+        registerReceiver(mOnEspeakInitialized, filter);
     }
 
     @Override
