@@ -27,7 +27,7 @@
 
 using namespace ucd;
 
-// Unicode Character Data 6.2.0
+// Unicode Character Data 6.3.0
 
 static const uint8_t categories_Cn[256] =
 {
@@ -232,7 +232,7 @@ static const uint8_t categories_000500[256] =
 static const uint8_t categories_000600[256] =
 {
 	/* 00 */ Cf, Cf, Cf, Cf, Cf, Cn, Sm, Sm, Sm, Po, Po, Sc, Po, Po, So, So,
-	/* 10 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Po, Cn, Cn, Po, Po,
+	/* 10 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Po, Cf, Cn, Po, Po,
 	/* 20 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 30 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 40 */ Lm, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Mn, Mn, Mn, Mn, Mn,
@@ -551,7 +551,7 @@ static const uint8_t categories_001700[256] =
 
 static const uint8_t categories_001800[256] =
 {
-	/* 00 */ Po, Po, Po, Po, Po, Po, Pd, Po, Po, Po, Po, Mn, Mn, Mn, Zs, Cn,
+	/* 00 */ Po, Po, Po, Po, Po, Po, Pd, Po, Po, Po, Po, Mn, Mn, Mn, Cf, Cn,
 	/* 10 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 20 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 30 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -592,7 +592,7 @@ static const uint8_t categories_001900[256] =
 static const uint8_t categories_001A00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
-	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Mn, Mn, Mc, Mc, Mc, Cn, Cn, Po, Po,
+	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Mn, Mn, Mc, Mc, Mn, Cn, Cn, Po, Po,
 	/* 20 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 30 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 40 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -717,7 +717,7 @@ static const uint8_t categories_002000[256] =
 	/* 30 */ Po, Po, Po, Po, Po, Po, Po, Po, Po, Pi, Pf, Po, Po, Po, Po, Pc,
 	/* 40 */ Pc, Po, Po, Po, Sm, Ps, Pe, Po, Po, Po, Po, Po, Po, Po, Po, Po,
 	/* 50 */ Po, Po, Sm, Po, Pc, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Zs,
-	/* 60 */ Cf, Cf, Cf, Cf, Cf, Cn, Cn, Cn, Cn, Cn, Cf, Cf, Cf, Cf, Cf, Cf,
+	/* 60 */ Cf, Cf, Cf, Cf, Cf, Cn, Cf, Cf, Cf, Cf, Cf, Cf, Cf, Cf, Cf, Cf,
 	/* 70 */ No, Lm, Cn, Cn, No, No, No, No, No, No, Sm, Sm, Sm, Ps, Pe, Lm,
 	/* 80 */ No, No, No, No, No, No, No, No, No, No, Sm, Sm, Sm, Ps, Pe, Cn,
 	/* 90 */ Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Cn, Cn, Cn,
@@ -751,7 +751,7 @@ static const uint8_t categories_002100[256] =
 
 static const uint8_t categories_002300[256] =
 {
-	/* 00 */ So, So, So, So, So, So, So, So, Sm, Sm, Sm, Sm, So, So, So, So,
+	/* 00 */ So, So, So, So, So, So, So, So, Ps, Pe, Ps, Pe, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 20 */ Sm, Sm, So, So, So, So, So, So, So, Ps, Pe, So, So, So, So, So,
 	/* 30 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,

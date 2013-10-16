@@ -27,7 +27,7 @@
 
 using namespace ucd;
 
-// Unicode Character Data 6.2.0
+// Unicode Character Data 6.3.0
 
 static const uint8_t scripts_Latn[256] =
 {
@@ -392,7 +392,7 @@ static const uint8_t scripts_000500[256] =
 static const uint8_t scripts_000600[256] =
 {
 	/* 00 */ Arab, Arab, Arab, Arab, Arab, Zzzz, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Arab, Arab, Arab,
-	/* 10 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Zzzz, Zzzz, Arab, Zyyy,
+	/* 10 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Arab, Zzzz, Arab, Zyyy,
 	/* 20 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 30 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 40 */ Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -837,7 +837,7 @@ static const uint8_t scripts_002000[256] =
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 70 */ Zyyy, Latn, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Latn,
 	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
 	/* 90 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zzzz, Zzzz, Zzzz,
@@ -1243,7 +1243,7 @@ static const uint8_t scripts_00A900[256] =
 	/* 90 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java,
 	/* A0 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java,
 	/* B0 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java,
-	/* C0 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Zzzz, Java,
+	/* C0 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Zzzz, Zyyy,
 	/* D0 */ Java, Java, Java, Java, Java, Java, Java, Java, Java, Java, Zzzz, Zzzz, Zzzz, Zzzz, Java, Java,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
