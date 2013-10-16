@@ -31,7 +31,6 @@ AC_MSG_NOTICE([
     Configuration for Unicode Character Data Tools complete.
 
         Source code location:          ${srcdir}
-        XDG data location:             ${XDGDATADIR}
 
         Compiler:                      ${CXX}
         Compiler flags:                ${CXXFLAGS}
