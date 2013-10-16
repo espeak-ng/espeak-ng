@@ -1,4 +1,6 @@
 # Code Point ; Script ; General Category ; Name ; Okrand Transliteration
+#
+# Reference: http://www.evertype.com/standards/csur/klingon.html
 
 F8D0;Qaak;Lo;KLINGON LETTER A;a
 F8D1;Qaak;Lo;KLINGON LETTER B;a
