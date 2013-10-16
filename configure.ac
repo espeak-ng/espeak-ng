@@ -20,6 +20,18 @@ AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
 dnl ================================================================
+dnl UCD data configuration.
+dnl ================================================================
+
+AC_ARG_WITH([unicode-version],
+    [AS_HELP_STRING([--unicode-version], [Unicode version to support @<:@default=6.2.0@:>@])],
+    [AS_IF([test x"$withval" != x],
+           [UCD_VERSION="$withval"])],
+    [UCD_VERSION="6.2.0"])
+
+AC_SUBST(UCD_VERSION)
+
+dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
@@ -34,4 +46,6 @@ AC_MSG_NOTICE([
 
         Compiler:                      ${CXX}
         Compiler flags:                ${CXXFLAGS}
+
+        Unicode version:               ${UCD_VERSION}
 ])

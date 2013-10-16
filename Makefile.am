@@ -54,7 +54,7 @@ EXTRA_DIST += ChangeLog
 
 ############################# Unicode Character Database ######################
 
-UCD_VERSION=6.2.0
+UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
 
 data/language-subtag-registry:
