@@ -88,14 +88,10 @@ tools/scripts.py: tools/ucd.py \
 	supplemental/Klingon.txt \
 	data/ucd/Scripts.txt
 
-src/case.cpp: tools/case.py
-	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
-
-src/categories.cpp: tools/categories.py
-	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
-
-src/scripts.cpp: tools/scripts.py
-	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
+ucd-update: tools/case.py tools/categories.py tools/scripts.py
+	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/case.cpp
+	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/categories.cpp
+	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/scripts.cpp
 
 libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \
