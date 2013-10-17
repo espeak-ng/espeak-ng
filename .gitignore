@@ -22,6 +22,10 @@ tests/*.expected
 tests/*.actual
 tests/*.diff
 
+# documentation output:
+
+docs/html/
+
 # autotools output:
 
 INSTALL

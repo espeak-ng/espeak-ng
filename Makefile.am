@@ -73,6 +73,11 @@ data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
 	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/UnicodeData.txt
 
+############################# documentation ###################################
+
+html:
+	doxygen docs/ucd-tools.conf
+
 ############################# libucd ##########################################
 
 tools/ucd.py: data/language-subtag-registry
