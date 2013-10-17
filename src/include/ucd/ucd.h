@@ -254,7 +254,7 @@ namespace ucd
 
 	/** @brief Get a string representation of the script enumeration value.
 	  *
-	  * @param c The value to get the string representation for.
+	  * @param s The value to get the string representation for.
 	  *
 	  * @return The string representation, or "----" if the value is not recognized.
 	  */
