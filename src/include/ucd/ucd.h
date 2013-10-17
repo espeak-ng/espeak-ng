@@ -31,11 +31,6 @@ namespace ucd
 	  */
 	typedef uint32_t codepoint_t;
 
-	/** @name  Unicode General Category
-	  * @brief These functions query the General Category property of Unicode codepoints.
-	  */
-	//@{
-
 	/** @brief Unicode General Category Groups
 	  * @see   http://www.unicode.org/reports/tr44/
 	  */
@@ -132,14 +127,6 @@ namespace ucd
 	  * @return  The General Category of the Unicode codepoint.
 	  */
 	category lookup_category(codepoint_t c);
-
-
-	//@}
-	/** @name  Unicode Script
-	  * @brief These functions query the Script property of Unicode codepoints.
-	  */
-	//@{
-
 
 	/** @brief Unicode Script
 	  * @see   http://www.iana.org/assignments/language-subtag-registry
@@ -267,14 +254,6 @@ namespace ucd
 	  */
 	script lookup_script(codepoint_t c);
 
-
-	//@}
-	/** @name  ctype-style APIs
-	  * @brief These functions provide wctype compatible functions using the UCD data.
-	  */
-	//@{
-
-
 	/** @brief Is the codepoint an alpha-numeric character?
 	  *
 	  * @param c The Unicode codepoint to check.
@@ -345,14 +324,6 @@ namespace ucd
 	  */
 	int isupper(codepoint_t c);
 
-
-	//@}
-	/** @name  Case Conversion APIs
-	  * @brief These functions convert Unicode codepoints between lower, upper and title case.
-	  */
-	//@{
-
-
 	/** @brief Convert the Unicode codepoint to upper-case.
 	  *
 	  * This function only uses the simple case mapping present in the
@@ -388,9 +359,6 @@ namespace ucd
 	  *          this codepoint if there is no upper-case codepoint.
 	  */
 	codepoint_t totitle(codepoint_t c);
-
-
-	//@}
 }
 
 #endif
