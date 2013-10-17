@@ -19,13 +19,6 @@
 
 import os
 
-def read_data(path, split_char=':'):
-	with open(path) as f:
-		for line in f:
-			line = line.replace('\n', '')
-			if not line.startswith('#'):
-				yield line.split(split_char)
-
 def fold_lines(path):
 	next_line = None
 	with open(path) as f:
