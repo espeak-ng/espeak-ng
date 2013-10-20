@@ -1,21 +1,97 @@
 
 //====================================================
-//  Oromiffa 
+//  Oromo
 //====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 160
+endphoneme
 
 
 phoneme i
   vowel starttype #i endtype #i
-  length 200
+  length 140
   IfNextVowelAppend(;)
-  FMT(vowel/ii_5)
+  ChangeIfUnstressed(I)
+  FMT(vowel/i_4)
 endphoneme
+
+phoneme I
+  vowel starttype #i endtype #i
+  length 140
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+
 
 phoneme e
   vowel starttype #e endtype #e
-  length 220
+  length 150
   FMT(vowel/e_mid2)
 endphoneme
+
+phoneme &
+  vowel starttype #a endtype #a
+  length 150
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 170
+//  ChangeIfUnstressed(a2)
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme a2
+  vowel starttype #a endtype #a
+  length 170
+  FMT(vowel/aa#)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 155
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme Y
+  vowel starttype #@ endtype #@
+  length 155
+  FMT(vowel/y#)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u1    // TEST
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme U    // TEST
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/uu_4)
+endphoneme
+
+
+
+phoneme y
+  vowel starttype #u endtype #u
+  length 150
+  FMT(vowel/y)
+endphoneme
+
 
 phoneme y
   vowel starttype #@ endtype #@
@@ -32,14 +108,6 @@ phoneme y
   FMT(vowel/ii#_2)
 endphoneme
 
-phoneme a
-  vowel starttype #a endtype #a
-  length 220
-  IF nextPhW(isPalatal) THEN
-    FMT(vdiph/ai_5)
-  ENDIF
-  FMT(vowel/a_6)
-endphoneme
 
 phoneme @
   vowel starttype #@ endtype #@
@@ -50,17 +118,7 @@ phoneme @
   FMT(vowel/@_3)
 endphoneme
 
-phoneme o
-  vowel starttype #o endtype #o
-  length 220
-  FMT(vowel/o-_4)
-endphoneme
-
-phoneme u
-  vowel starttype #u endtype #u
-  length 220
-  FMT(vowel/u_2)
-endphoneme
+// CONSONANTS
 
 phoneme r
   import_phoneme base/R2
@@ -98,13 +156,15 @@ phoneme tS`
   WAV(ustop/tsh_unasp, 80)
 endphoneme
 
-phoneme p'
- vcd blb stop
-  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    ChangePhoneme(P)
-  ENDIF
-  CALL base/b
+phoneme P
+  vls blb stop
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 gpaus
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  WAV(ustop/p_unasp)
 endphoneme
+
 
 phoneme D
   vcd alv stop
