@@ -67,8 +67,8 @@ phsource/compile_prog_log
 phsource/compile_report
 phsource/error_intonation
 phsource/error_log
+phsource/phonemes.stamp
 
-espeak-data/dir.stamp
 espeak-data/config
 espeak-data/dictsource
 espeak-data/phsource
