@@ -60,7 +60,7 @@ def write_phoneme_data_rules(f):
 	f.write('espeak-data/intonations: phsource/phonemes.stamp\n')
 	f.write('\n')
 	f.write('phsource/phonemes.stamp: \\\n')
-	for phonfile in phoneme_data:
+	for phonfile in sorted(phoneme_data):
 		f.write('\t%s \\\n' % phonfile)
 	f.write('\tphsource/phonemes\n')
 	f.write('\tESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile && touch $@\n')
