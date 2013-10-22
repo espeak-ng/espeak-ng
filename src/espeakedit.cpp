@@ -726,6 +726,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	int debug_flag=0;
 	char fname_log[sizeof(path_dsource)+12];
 	char err_fname[sizeof(path_home)+15];
+	static const char utf8_bom[] = {0xef,0xbb,0xbf,0};
 
 	switch(event.GetId())
 	{
@@ -776,6 +777,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	case MENU_COMPILE_DICT:
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 		log = fopen(fname_log,"w");
+		if(log != NULL)
+		{
+			fprintf(log, "%s", utf8_bom);
+		}
 
 		LoadDictionary(translator, translator->dictionary_name, 0);
 		if((err = CompileDictionary(path_dsource,translator->dictionary_name,log,err_fname,debug_flag)) < 0)

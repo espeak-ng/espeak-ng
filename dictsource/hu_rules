@@ -175,37 +175,37 @@ udvaron) c (ser    ts
  licen) ccs        ts|tS
   nyol) c (csat    ts
  pokró) c (sá      ts
- barká) cs (zen    tS
-kalapá) cs (zon    tS
-_kapol) cs         tS
-   lán) c (sor     ts
-  daró) c (cs      ts
-oroszlán) cs (or   tS
-harmin) c (sor     ts
-    he) cc (sajt   ts
-        ccsz       ts|s
- ifjon) c (csap    ts
-  kapo) cs (zár    tS
- ketre) c (cs      ts
- ketre) c (so      ts
-   kul) cs (zen    tS
-   lán) c (seb     ts
- lidér) c (cs      ts
-  mala) c (cs      ts
- matra) c (sor     ts
-  nyol) c (sark    ts
-  nyol) c (sej     ts
-  nyol) c (sug     ts
- párdu) c (cs      ts
-   kar) c (sor     ts
-szendvi) cs (zab   tS
-   tán) cs (i      tS
- tanon) c (cs      ts
- titán) cs         tS
- torná) c (sor     ts
-ujjper) c (cs      ts
-        ccsz       ts|s
-   _ér) c (saru    ts
+barká) cs (zen tS
+kalapá) cs (zon tS
+_kapol) cs tS
+lán) c (sor ts
+daró) c (cs ts
+oroszlán) cs (or tS
+harmin) c (sor ts
+he) cc (sajt ts
+ccsz ts|s
+ifjon) c (csap ts
+kapo) cs (zár tS
+ketre) c (cs ts
+ketre) c (so ts
+kul) cs (zen tS
+lán) c (seb ts
+lidér) c (cs ts
+mala) c (cs ts
+matra) c (sor ts
+nyol) c (sark ts
+nyol) c (sej ts
+nyol) c (sug ts
+párdu) c (cs ts
+kar) c (sor ts
+szendvi) cs (zab tS
+tán) cs (i tS
+tanon) c (cs ts
+titán) cs tS
+torná) c (sor ts
+ujjper) c (cs ts
+ccsz ts|s
+_ér) c (saru ts
 
 .group ch
   anar) ch (i      h
@@ -243,36 +243,36 @@ diszti) ch (on     h
 almana) ch         h
 kronoszti) ch (on  h
   arca) ch (on     h
-   sza) ch (arid   h
-  szto) ch (aszti  h
-     a) ch (aem    h
-     a) ch (át     h
-     a) ch (illes  h
-    ti) ch (on     h
-  arca) ch (on     h
-    ba) ch         h
-blaskovi) ch       tS
-?1      chip       tSip
-?1 damjani) ch        tS
-    eu) ch (arisz  h
-  eunu) ch         h
-    fa) ch         h
-   fis) ch (er 
- forgá) ch         tS
-grassalkovi) ch    tS
-    ri) ch (ter    C
-jurisi) chcs       tS:
-jurisi) ch         tS
-keglevi) ch        tS
-     s) ch (illing 
-    le) ch (ner    h
-  mala) ch (it     h
-metterni) ch       C
-    pé) ch (y      tS
-pejacsevi) ch      tS
-   kra) ch         h
-   tri) ch (in     h
-     e) ch (ó      h
+sza) ch (arid h
+szto) ch (aszti h
+a) ch (aem h
+a) ch (át h
+a) ch (illes h
+ti) ch (on h
+arca) ch (on h
+ba) ch h
+blaskovi) ch tS
+?1 chip tSip
+?1 damjani) ch tS
+eu) ch (arisz h
+eunu) ch h
+fa) ch h
+fis) ch (er
+forgá) ch tS
+grassalkovi) ch tS
+ri) ch (ter C
+jurisi) chcs tS:
+jurisi) ch tS
+keglevi) ch tS
+s) ch (illing
+le) ch (ner h
+mala) ch (it h
+metterni) ch C
+ pé) ch (y tS
+pejacsevi) ch tS
+kra) ch h
+tri) ch (in h
+e) ch (ó h
 
 .group d
         d          d
@@ -524,31 +524,31 @@ shetlan) d (szige  d
    své) d (zseb    d
  csalá) d (szer    d
  szaba) d (sajt    d
-szomszé) d (jog    d
-   elő) d (szerv   d
-  árká) d (szerű   d
- csalá) d (sztor   d
-harminca) d (sze   d
-   hol) d (szond   d
-    kó) d (szöve   d
-  lipi) d (szint   d
-  máso) d (szava   d
-   _ná) d (szeg    d
- nyárá) d (szere   d
-    rú) d (szerű   d
-  tize) d (szed    d
-   _va) d (szerb   d
-    va) d (tyúk    d
- bőrön) d (sze     d
- stran) d (szett   d
-    pa) d (szomszé d
- akkor) d (játsz   d
- harma) d (szándék d
- rekor) d (szer    d
- rekor) d (szezo   d
-    va) d (szállí  d
-   cső) d (szerű   d
-   hol) d (szputnyik d
+szomszé) d (jog d
+elő) d (szerv d
+árká) d (szerű d
+csalá) d (sztor d
+harminca) d (sze d
+hol) d (szond d
+kó) d (szöve d
+lipi) d (szint d
+máso) d (szava d
+_ná) d (szeg d
+nyárá) d (szere d
+rú) d (szerű d
+tize) d (szed d
+_va) d (szerb d
+va) d (tyúk d
+bőrön) d (sze d
+stran) d (szett d
+pa) d (szomszé d
+akkor) d (játsz d
+harma) d (szándék d
+rekor) d (szer d
+rekor) d (szezo d
+va) d (szállí d
+cső) d (szerű d
+hol) d (szputnyik d
 
 .group dz
   fogó) dz (kod    ts
@@ -605,8 +605,8 @@ burkoló) dz        z
  000_-) el (_      REl       // double R for 1000-el
 000000_-) el (_    El        // ... but not 1000000-el
      _) ehhez      EhEz
-        egyezség   EJ:ESSe:g
-        egyezségg  EJ:ESSe:g:
+     egyezség   EJ:ESSe:g
+     egyezségg  EJ:ESSe:g:
 
 .group é
         é          e:
@@ -672,7 +672,7 @@ burkoló) dz        z
     fo) g (gyűrű   g
     fo) g (gyö     g
 kuplun) g (gyár    g
- bélye) g (gy      g
+ bélye) g (gy   g
     jo) g (gyakor  g
     dö) g (gyapjú  g
     fo) g (gyalu   g
@@ -737,72 +737,72 @@ doppin) g (gy      g
 baromsá) g (gy     g
 tehetsé) g (gy     g
   bete) g (gy      g
- egysé) g (gy      g
-  átla) g (gy      g
-szőnye) g (gy      g
-  hűsé) g (gy      g
-   _ma) g (gyűjt   g
-népessé) g (gy     g
-öröksé) g (gy      g
-  _sze) g (gyár    g
-   szö) g (gyors   g
-tisztsé) g (gy     g
-szúnyo) g (gy      g
- szala) g (gyakor  g
- szala) g (gyűjt   g
-azonossá) g (gy    g
-barlan) g (gy      g
-betegsé) g (gy     g
-bizottsá) g (gy    g
-boldogsá) g (gy    g
-bumerán) g (gy     g
-szövetsé) g (gy    g
-    cé) g (gyil    g
-    cé) g (gyűr    g
-cukisá) g (gy      g
-    me) ggy (önte  J:
-    dö) g (gyár    g
-dömpin) g (gy      g
-dramatur) g (gy    g
-egyvele) g (gy     g
-ellensé) g (gy     g
-érdekessé) g (gy   g
-  fére) g (gy      g
-feszültsé) g (gy   g
- gyalo) g (gy      g
-  sere) g (gy      g
-hangszala) g (gy   g
- haran) g (gy      g
-híressé) g (gy     g
- hólya) g (gy      g
-  horo) g (gy      g
-hülyesé) g (gy     g
-    in) g (gyár    g
-    jé) g (gyűr    g
-    jo) g (gyűjt   g
-    jo) g (gyüm    g
-közönsé) g (gy     g
-    lé) g (gyár    g
-    ma) g (gyár    g
-    vé) g (gyant   g
- mássá) g (gy      g
-    me) ggy (asz   J:
-    me) ggy (ill   J:
-    me) ggy (ültet J:
- szala) g (gyár    g
-  anya) g (gy      g
-nemzetsé) g (gy    g
-  ördö) g (gy      g
-részle) g (gy      g
-  réte) g (gy      g
-    ru) g (gyant   g
-sebessé) g (gy     g
- szlen) g (gy      g
-    ta) g (gyül    g
-tisztasá) g (gy    g
-  újsá) g (gy      g
- végta) g (gy      g
-   ele) ggy (el    J:
+egysé) g (gy g
+átla) g (gy g
+szőnye) g (gy g
+hűsé) g (gy g
+_ma) g (gyűjt g
+népessé) g (gy g
+öröksé) g (gy g
+_sze) g (gyár g
+szö) g (gyors g
+tisztsé) g (gy g
+szúnyo) g (gy g
+szala) g (gyakor g
+szala) g (gyűjt g
+azonossá) g (gy g
+barlan) g (gy g
+betegsé) g (gy g
+bizottsá) g (gy g
+boldogsá) g (gy g
+bumerán) g (gy g
+szövetsé) g (gy g
+cé) g (gyil g
+cé) g (gyűr g
+cukisá) g (gy g
+me) ggy (önte J:
+dö) g (gyár g
+dömpin) g (gy g
+dramatur) g (gy g
+egyvele) g (gy g
+ellensé) g (gy g
+érdekessé) g (gy g
+fére) g (gy g
+feszültsé) g (gy g
+gyalo) g (gy g
+sere) g (gy g
+hangszala) g (gy g
+haran) g (gy g
+híressé) g (gy g
+hólya) g (gy g
+horo) g (gy g
+hülyesé) g (gy g
+in) g (gyár g
+jé) g (gyűr g
+jo) g (gyűjt g
+jo) g (gyüm g
+közönsé) g (gy g
+lé) g (gyár g
+ma) g (gyár g
+vé) g (gyant g
+mássá) g (gy g
+me) ggy (asz J:
+me) ggy (ill J:
+me) ggy (ültet J:
+szala) g (gyár g
+anya) g (gy g
+nemzetsé) g (gy g
+ördö) g (gy g
+részle) g (gy g
+réte) g (gy g
+ru) g (gyant g
+sebessé) g (gy g
+szlen) g (gy g
+ta) g (gyül g
+tisztasá) g (gy g
+újsá) g (gy g
+végta) g (gy g
+ele) ggy (el J:
 
 .group gy
         gy         J
@@ -928,8 +928,8 @@ _huszone) gy (e    J:
  száze) gy (edik   J:
  védje) gy (straté J
     na) gy (sor    J
-     e) gy (esít   J:
-    ve) gy (érték  J
+e) gy (esít J:
+ve) gy (érték J
 
 .group h
         h          h
@@ -985,8 +985,8 @@ progressz) í (ve   i:
     sz) í (verő    i:
     sz) í (vevő    i:
 expressz) í (v     i:
-recessz) í (ve     i:
-     v) í (zener   i:
+recessz) í (ve i:
+v) í (zener i:
 
 .group j
         j          j
@@ -1039,7 +1039,7 @@ recessz) í (ve     i:
         k (-k      k:        //for example marok-körző word need cut one k letter and need spokening k: phoneme only
     k-) k                    //silent with second k phoneme
  _játé) kk (liens  k:        //exceptiof for kk (L01 rule
-        községg    kYS:e:g:
+községg kYS:e:g:
 
 
 .group l
@@ -1091,9 +1091,9 @@ keresztü) l (j     l
         lly (-L01  j         //if have consonants after - character, need spokening one j letter with first part
         ll (-L01   l
 bagate) ll (iz     l
-    fü) l (lyuk    l
-  levé) l (lyuk    l
-   nyé) l (lyuk    l
+fü) l (lyuk l
+levé) l (lyuk l
+nyé) l (lyuk l
 
 .group m
         m          m
@@ -1205,50 +1205,50 @@ teljesítmé) ny (j  n^
 
         n'Em       _!'Ellt,e:,ES
 porcelá) n (ny     n
-részvé) ny (jegy   n^
-  agyo) n (játsz   n
-kölcsö) n (nyak    n
-  dohá) ny (jöv    n^
-elektro) n (ny     n
-  magá) n (nyar    n
-   igé) ny (jog    n^
-   szé) n (nyom    n
- verse) ny (játsz  n^
-    ár) ny (játé   n^
-  arzé) n ((ny     n
-    bá) n (nyíre   n
- benzi) n (ny      n
-        nny (elv   n|n^
-    kö) nny (elv   n^:
+részvé) ny (jegy n^
+agyo) n (játsz n
+kölcsö) n (nyak n
+dohá) ny (jöv n^
+elektro) n (ny n
+magá) n (nyar n
+igé) ny (jog n^
+szé) n (nyom n
+verse) ny (játsz n^
+ár) ny (játé n^
+arzé) n ((ny n
+bá) n (nyíre n
+benzi) n (ny n
+nny (elv n|n^
+kö) nny (elv n^:
 
-elektro) n (ny     n
-   szé) n (nyom    n
- haszo) n (ny      n
-ingatla) n (nyil   n
-    io) n (ny      n
- karbo) n (ny      n
-  kazá) n (ny      n
- kokai) n (ny      n
-kölcsö) n (ny      n
-  kupo) n (ny      n
- vászo) n (ny      n
-marato) n (ny      n
- mediá) n (ny      n
-telefo) n (ny      n
- morfi) n (ny      n
- mikro) n (ny      n
-neutro) n (ny      n
- oxigé) n (ny      n
-    _ö) n (nyug    n
-panteo) n (ny      n
- sablo) n (ny      n
-skanze) n (ny      n
-szentivá) n (ny    n
-   szé) n (nyom    n
-    ta) n (nyomd   n
- vagyo) n (ny      n
-  külö) n (jára    n
-   szí) n (jeles   n
+elektro) n (ny n
+szé) n (nyom n
+haszo) n (ny n
+ingatla) n (nyil n
+io) n (ny n
+karbo) n (ny n
+kazá) n (ny n
+kokai) n (ny n
+kölcsö) n (ny n
+kupo) n (ny n
+vászo) n (ny n
+marato) n  (ny n
+mediá) n (ny n
+telefo) n (ny n
+morfi) n (ny n
+mikro) n (ny n
+neutro) n (ny n
+oxigé) n (ny n
+_ö) n (nyug n
+panteo) n (ny n
+sablo) n (ny n
+skanze) n (ny n
+szentivá) n (ny n
+szé) n (nyom n
+ta) n (nyomd n
+vagyo) n (ny n
+külö) n (jára n
+szí) n (jeles n
 
 .group o
         o          o
@@ -1394,29 +1394,29 @@ feldolgozá) s      S
    _ki) s (szín    S
  kérdé) s          S
  végzé) s          S
-  blue) s (zen     S
-  fúvó) s (zené    S
-települé) s (zón   S
-  _adá) s (zár     S
-basszu) s (zen     S
-  blue) s (zon     S
-egyene) s (zár     S
-  fázi) s (zár     S
-konfliktu) s (zón  S
-kortár) s (zen     S
-  kóru) s (zen     S
-mikulá) s (zacs    S
-mulató) s (zen     S
-  orvo) s (zseb    S
-     ő) s (száj    S
-     ő) s (szám    S
-     ő) s (szava   S
-     ő) s (szent   S
-     ő) s (szó     S
-  rugó) s (zárj    S
- szeku) s (zen     S
-  töré) s (zón     S
-verbunko) s (zen   S
+blue) s (zen S
+fúvó) s (zené S
+települé) s (zón S
+_adá) s (zár S
+basszu) s (zen S
+blue) s (zon S
+egyene) s (zár S
+fázi) s (zár S
+konfliktu) s (zón S
+kortár) s (zen S
+kóru) s (zen S
+mikulá) s (zacs S
+mulató) s (zen S
+orvo) s (zseb S
+ő) s (száj S
+ő) s (szám S
+ő) s (szava S
+ő) s (szent S
+ő) s (szó S
+rugó) s (zárj S
+szeku) s (zen S
+töré) s (zón S
+verbunko) s (zen S
 
 .group ss
         ssz        ss2
@@ -1936,7 +1936,7 @@ kattintá) ssz      Ss
 közlekedé) ssz     Ss
   laká) ssz        Ss
  légzé) ssz        Ss
-    le) ssz (ab    Ss
+   le) ssz (ab    Ss
 meglepeté) ssz     Ss
  nyila) ssz        Ss
 pszichológu) ssz   Ss
@@ -1976,317 +1976,318 @@ születé) ssz (ám   S|s
 zsarolá) ssz (er   S|s
   dőlé) ssz (ab    S|s
 települé) ssz (isz Ss
- vallá) ssz        Ss
- folyá) ssz (er    Ss
-_katyva) ssz       s:
-mitugrá) ssz (al   s:
-basszu) ssz        Ss
-  buká) ssz        Ss
-erőlködé) ssz      Ss
-szarva) ssz        Ss
-ricinu) ssz        Ss
-települé) ssz      Ss
- utalá) ssz        Ss
-erősíté) ssz       Ss
-  fázi) ssz        Ss
-fejleszté) ssz     Ss
-  fúvó) ssz        Ss
-  autó) ssz        Ss
- nyomá) ssz        Ss
-  hatá) ssz        Ss
-effektu) ssz       Ss
- pulzu) ssz        Ss
-jelenté) ssz       Ss
- váltá) ssz        Ss
- mondá) ssz        Ss
-  fázá) ssz        Ss
-    ve) ssz (ők    s:
-    _ő) ssz (láv   Ss
-periódu) ssz       Ss
-  pólu) ssz        Ss
-  rová) ssz        Ss
-utasítá) ssz       Ss
-  tudá) ssz        Ss
-turizmu) ssz       Ss
-  hajó) ssz (leng  Ss
-vezeté) ssz        Ss
- _vonó) ssz (iv    Ss
-   ülé) ssz        Ss
-motoro) ssz        Ss
-   adá) ssz        Ss
-   adó) ssz        Ss
-aktivitá) ssz      Ss
-akusztiku) ssz     Ss
-  arco) ssz        Ss
-alkotá) ssz        Ss
-állomá) ssz        Ss
-  típu) ssz        Ss
-analízi) ssz       Ss
-  anyó) ssz        Ss
-áramlá) ssz        Ss
-emelkedé) ssz      Ss
-  árré) ssz        Ss
-árveré) ssz        Ss
-áttöré) ssz        Ss
-autizmu) ssz       Ss
-autoritá) ssz      Ss
-metszé) ssz        Ss
-mutatkozá) ssz     Ss
-  blue) ssz (al    s:
-  blue) ssz        Ss
-bombázá) ssz       Ss
-bukfencezé) ssz    Ss
- bunyó) ssz        Ss
-büfögé) ssz        Ss
- carie) ssz        Ss
- ciklu) ssz        Ss
- cipru) ssz        Ss
-ciripelé) ssz      Ss
- citru) ssz        Ss
-csevegé) ssz       Ss
-csicsergé) ssz     Ss
-diakónu) ssz       Ss
-díjszabá) ssz      Ss
-dinamiku) ssz      Ss
-dobolá) ssz        Ss
-  dózi) ssz        Ss
-dzsidá) ssz        Ss
- egymá) ssz        Ss
-elbeszélé) ssz     Ss
-elektroniku) ssz   Ss
-ellátá) ssz        Ss
-eltolá) ssz        Ss
-emigrán) ssz       Ss
- éneke) ssz        Ss
-epilógu) ssz       Ss
- építé) ssz (ab    Ss
-erőforrá) ssz      Ss
-erszénye) ssz      Ss
-érvelé) ssz        Ss
-   esé) ssz        Ss
-észlelé) ssz       Ss
- evező) ssz        Ss
-evolven) ssz       Ss
- fagyá) ssz        Ss
-    fá) ssz (er    Ss
- dísze) ssz        Ss
-fejlődé) ssz       Ss
-fékezé) ssz        Ss
-lángolá) ssz       Ss
-feltevé) ssz       Ss
-felvoná) ssz       Ss
-  féti) ssz        Ss
-  foga) ssz        Ss
-fordítá) ssz       Ss
-  fotó) ssz        Ss
-földmíve) ssz      Ss
-földműve) ssz      Ss
- rengé) ssz        Ss
-  főzé) ssz        Ss
-fuvaro) ssz        Ss
-    hú) ssz (er    Ss
-gerjeszté) ssz     Ss
-gesztu) ssz        Ss
- szűré) ssz        Ss
- gulyá) ssz        Ss
-gyártá) ssz        Ss
-gyülekezé) ssz     Ss
- gyűlé) ssz        Ss
- hajtá) ssz        Ss
-hangzá) ssz        Ss
-hányado) ssz       Ss
-háztartá) ssz      Ss
- hente) ssz        Ss
-hitelesíté) ssz    Ss
-hivatá) ssz        Ss
- horga) ssz        Ss
-horkolá) ssz       Ss
-    hú) ssz (ál    Ss
-    hú) ssz (ekt   Ss
-    hú) ssz (eml   Ss
-    hú) ssz (int   Ss
-    hú) ssz (örny  Ss
-    hú) ssz (üksé  Ss
-  hűté) ssz        Ss
-identitá) ssz      Ss
-igazgatá) ssz      Ss
-inciden) ssz       Ss
-indítá) ssz        Ss
-intriku) ssz       Ss
-   írá) ssz        Ss
-játéko) ssz        Ss
-jelölé) ssz        Ss
-  jézu) ssz        Ss
-  júdá) ssz        Ss
-  kaka) ssz        Ss
-kántálá) ssz       Ss
-kapacitá) ssz      Ss
-kapitalizmu) ssz   Ss
-karbantartá) ssz   Ss
-kárpito) ssz       Ss
-   ver) ssz (er    Ss
-kerékpáro) ssz     Ss
-  döfé) ssz        Ss
-    ké) ssz (án    Ss
-    ké) ssz (ár    Ss
-    ké) ssz (er    Ss
- kette) ssz        Ss
-kézműve) ssz       Ss
-kidolgozá) ssz     Ss
-kifejezé) ssz      Ss
-    ki) ssz (eke   Ss
-    ro) ssz (abb   s:
-konfliktu) ssz     Ss
-konstan) ssz       Ss
-kontinen) ssz      Ss
-  kóro) ssz (en    Ss
-kortár) ssz        Ss
-  kóru) ssz        Ss
-   _ko) ssz (er    Ss
-  köle) ssz        Ss
-könyve) ssz (é     s:
-könyvtáro) ssz     Ss
-  körö) ssz (e     Ss
-  kőrö) ssz (eg    Ss
-kreativitá) ssz    Ss
- krízi) ssz        Ss
-kubiko) ssz        Ss
-kulturáli) ssz     Ss
- kurzu) ssz        Ss
-kutatá) ssz        Ss
-labirintu) ssz     Ss
-lakato) ssz        Ss
- lángo) ssz        Ss
-  ömlé) ssz        Ss
-lebegé) ssz        Ss
-leképezé) ssz      Ss
- nyúlá) ssz        Ss
-rohaná) ssz        Ss
-levelezé) ssz      Ss
-    fo) ssz (ín    Ss
-libbené) ssz       Ss
-likviditá) ssz     Ss
-lobbaná) ssz       Ss
-  lövé) ssz (ám    Ss
-lövöldözé) ssz     Ss
-  maga) ssz (int   Ss
-magatartá) ssz     Ss
-  mágu) ssz        Ss
-  érzé) ssz        Ss
-jegyzé) ssz (er    Ss
-  lepé) ssz (er    Ss
-művelé) ssz        Ss
-megoldá) ssz       Ss
-rendelé) ssz       Ss
-megtorlá) ssz      Ss
- méhka) ssz (er    Ss
-mellka) ssz        Ss
- mentő) ssz        Ss
-mérgezé) ssz       Ss
-mestersége) ssz    Ss
-meteorológu) ssz   Ss
-  mósu) ssz (er    Ss
- mután) ssz        Ss
-működé) ssz        Ss
-  náda) ssz        Ss
- négye) ssz        Ss
-nyaralá) ssz       Ss
- nyögé) ssz        Ss
-oktatá) ssz        Ss
-olvasá) ssz        Ss
-   órá) ssz        Ss
-orgazmu) ssz       Ss
-gyilko) ssz        Ss
-  orvo) ssz        Ss
- ölelé) ssz        Ss
-ellenőrzé) ssz     Ss
-önkénte) ssz       Ss
-öntözé) ssz        Ss
-összeomlá) ssz     Ss
-  ötvö) ssz        Ss
-  pálo) ssz (en    Ss
- lámpá) ssz        Ss
-pazarlá) ssz       Ss
-pedagógu) ssz      Ss
- pesti) ssz        Ss
-pirami) ssz        Ss
- postá) ssz        Ss
-pörsené) ssz       Ss
-   pré) ssz (ak    Ss
- prímá) ssz        Ss
-prioritá) ssz      Ss
-próbálkozá) ssz    Ss
-    ré) ssz (ele   Ss
-részesedé) ssz     Ss
-reziden) ssz       Ss
-  rítu) ssz        Ss
-robbaná) ssz       Ss
-robbantá) ssz      Ss
-röfögé) ssz        Ss
-rögtönzé) ssz      Ss
-  rugó) ssz        Ss
-sakkozá) ssz       Ss
-    sa) ssz (ikl   Ss
-    sa) ssz (imb   Ss
-    sa) ssz (obr   Ss
-    sa) ssz (obor  Ss
-sercegé) ssz       Ss
-  _sor) ssz (ab    Ss
- sörha) ssz        Ss
- száza) ssz        Ss
- szedé) ssz        Ss
- széle) ssz        Ss
-játszá) ssz        Ss
-szintetiku) ssz    Ss
-dobbaná) ssz       Ss
-szociáli) ssz      Ss
-szolgáltatá) ssz   Ss
- szövé) ssz        Ss
- taktu) ssz        Ss
-tanulá) ssz        Ss
-tapsolá) ssz       Ss
-társulá) ssz       Ss
- teknő) ssz        Ss
- telje) ssz        Ss
-teremté) ssz       Ss
- terhe) ssz        Ss
- termé) ssz        Ss
-tervezé) ssz       Ss
-tetoválá) ssz      Ss
- textu) ssz        Ss
-tizede) ssz        Ss
- tölté) ssz        Ss
-  töré) ssz        Ss
-trombitálá) ssz    Ss
- trónu) ssz        Ss
-  tűré) ssz        Ss
-tüsszögé) ssz      Ss
-unikorni) ssz      Ss
-   uta) ssz        Ss
-uzsorá) ssz        Ss
-űrhajó) ssz        Ss
-ütközé) ssz        Ss
-  vágá) ssz        Ss
-   ütő) ssz        Ss
-választá) ssz      Ss
-vállalkozá) ssz    Ss
- varrá) ssz        Ss
-esztergályo) ssz   Ss
-verbunko) ssz      Ss
-versengé) ssz      Ss
-villámlá) ssz      Ss
-  vívá) ssz        Ss
- bizto) ssz        Ss
-vonaglá) ssz       Ss
-  voná) ssz        Ss
-zaklatá) ssz       Ss
-zászló) ssz        Ss
-zöldsége) ssz      Ss
-  emlő) ssz (erű   Ss
-  kapá) ssz (őlő   Ss
-  kuva) ssz (al    s:
+vallá) ssz Ss
+folyá) ssz (er Ss
+_katyva) ssz s:
+mitugrá) ssz (al s:
+basszu) ssz Ss
+buká) ssz Ss
+erőlködé) ssz Ss
+szarva) ssz Ss
+ricinu) ssz Ss
+települé) ssz Ss
+utalá) ssz Ss
+erősíté) ssz Ss
+fázi) ssz Ss
+fejleszté) ssz Ss
+fúvó) ssz Ss
+autó) ssz Ss
+nyomá) ssz Ss
+hatá) ssz Ss
+effektu) ssz Ss
+pulzu) ssz Ss
+jelenté) ssz Ss
+váltá) ssz Ss
+mondá) ssz Ss
+fázá) ssz Ss
+ve) ssz (ők s:
+_ő) ssz (láv Ss
+periódu) ssz Ss
+pólu) ssz Ss
+rová) ssz Ss
+utasítá) ssz Ss
+tudá) ssz Ss
+turizmu) ssz Ss
+hajó) ssz (leng Ss
+vezeté) ssz Ss
+_vonó) ssz (iv Ss
+ülé) ssz Ss
+motoro) ssz Ss
+adá) ssz Ss
+adó) ssz Ss
+aktivitá) ssz Ss
+akusztiku) ssz Ss
+arco) ssz Ss
+alkotá) ssz Ss
+állomá) ssz Ss
+típu) ssz Ss
+analízi) ssz Ss
+anyó) ssz Ss
+áramlá) ssz Ss
+emelkedé) ssz Ss
+árré) ssz Ss
+árveré) ssz Ss
+áttöré) ssz Ss
+autizmu) ssz Ss
+autoritá) ssz Ss
+metszé) ssz Ss
+mutatkozá) ssz Ss
+blue) ssz (al s:
+blue) ssz Ss
+bombázá) ssz Ss
+bukfencezé) ssz Ss
+bunyó) ssz Ss
+büfögé) ssz Ss
+carie) ssz Ss
+ciklu) ssz Ss
+cipru) ssz Ss
+ciripelé) ssz Ss
+citru) ssz Ss
+csevegé) ssz Ss
+csicsergé) ssz Ss
+diakónu) ssz Ss
+díjszabá) ssz Ss
+dinamiku) ssz Ss
+dobolá) ssz Ss
+dózi) ssz Ss
+dzsidá) ssz Ss
+egymá) ssz Ss
+elbeszélé) ssz Ss
+elektroniku) ssz Ss
+ellátá) ssz Ss
+eltolá) ssz Ss
+emigrán) ssz Ss
+éneke) ssz Ss
+epilógu) ssz Ss
+építé) ssz (ab Ss
+erőforrá) ssz Ss
+erszénye) ssz Ss
+érvelé) ssz Ss
+esé) ssz Ss
+észlelé) ssz Ss
+evező) ssz Ss
+evolven) ssz Ss
+fagyá) ssz Ss
+fá) ssz (er Ss
+dísze) ssz Ss
+fejlődé) ssz Ss
+fékezé) ssz Ss
+lángolá) ssz Ss
+feltevé) ssz Ss
+felvoná) ssz Ss
+féti) ssz Ss
+foga) ssz Ss
+fordítá) ssz Ss
+fotó) ssz Ss
+földmíve) ssz Ss
+földműve) ssz Ss
+rengé) ssz Ss
+főzé) ssz Ss
+fuvaro) ssz Ss
+hú) ssz (er Ss
+gerjeszté) ssz Ss
+gesztu) ssz Ss
+szűré) ssz Ss
+gulyá) ssz Ss
+gyártá) ssz Ss
+gyülekezé) ssz Ss
+gyűlé) ssz Ss
+hajtá) ssz Ss
+hangzá) ssz Ss
+hányado) ssz Ss
+háztartá) ssz Ss
+hente) ssz Ss
+hitelesíté) ssz Ss
+hivatá) ssz Ss
+horga) ssz Ss
+horkolá) ssz Ss
+hú) ssz (ál Ss
+hú) ssz (ekt Ss
+hú) ssz (eml Ss
+hú) ssz (int Ss
+hú) ssz (örny Ss
+hú) ssz (üksé Ss
+hűté) ssz Ss
+identitá) ssz Ss
+igazgatá) ssz Ss
+inciden) ssz Ss
+indítá) ssz Ss
+intriku) ssz Ss
+írá) ssz Ss
+játéko) ssz Ss
+jelölé) ssz Ss
+jézu) ssz Ss
+júdá) ssz Ss
+kaka) ssz Ss
+kántálá) ssz Ss
+kapacitá) ssz Ss
+kapitalizmu) ssz Ss
+karbantartá) ssz Ss
+kárpito) ssz Ss
+ver) ssz (er Ss
+kerékpáro) ssz Ss
+döfé) ssz Ss
+ké) ssz (án Ss
+ké) ssz (ár Ss
+ké) ssz (er Ss
+kette) ssz Ss
+kézműve) ssz Ss
+kidolgozá) ssz Ss
+kifejezé) ssz Ss
+ki) ssz (eke Ss
+ro) ssz (abb s:
+konfliktu) ssz Ss
+konstan) ssz Ss
+kontinen) ssz Ss
+kóro) ssz (en Ss
+kortár) ssz Ss
+kóru) ssz Ss
+_ko) ssz (er Ss
+köle) ssz Ss
+könyve) ssz (é s:
+könyvtáro) ssz Ss
+körö) ssz (e Ss
+kőrö) ssz (eg Ss
+kreativitá) ssz Ss
+krízi) ssz Ss
+kubiko) ssz Ss
+kulturáli) ssz Ss
+kurzu) ssz Ss
+kutatá) ssz Ss
+labirintu) ssz Ss
+lakato) ssz Ss
+lángo) ssz Ss
+ömlé) ssz Ss
+lebegé) ssz Ss
+leképezé) ssz Ss
+nyúlá) ssz Ss
+rohaná) ssz Ss
+levelezé) ssz Ss
+fo) ssz (ín Ss
+libbené) ssz Ss
+likviditá) ssz Ss
+lobbaná) ssz Ss
+lövé) ssz (ám Ss
+lövöldözé) ssz Ss
+maga) ssz (int Ss
+magatartá) ssz Ss
+mágu) ssz Ss
+érzé) ssz Ss
+jegyzé) ssz (er Ss
+lepé) ssz (er Ss
+művelé) ssz Ss
+megoldá) ssz Ss
+rendelé) ssz Ss
+megtorlá) ssz Ss
+méhka) ssz (er Ss
+mellka) ssz Ss
+mentő) ssz Ss
+mérgezé) ssz Ss
+mestersége) ssz Ss
+meteorológu) ssz Ss
+mósu) ssz (er Ss
+mután) ssz Ss
+működé) ssz Ss
+náda) ssz Ss
+négye) ssz Ss
+nyaralá) ssz Ss
+nyögé) ssz Ss
+oktatá) ssz Ss
+olvasá) ssz Ss
+órá) ssz Ss
+orgazmu) ssz Ss
+gyilko) ssz Ss
+orvo) ssz Ss
+ölelé) ssz Ss
+ellenőrzé) ssz Ss
+önkénte) ssz Ss
+öntözé) ssz Ss
+összeomlá) ssz Ss
+ötvö) ssz Ss
+pálo) ssz (en Ss
+lámpá) ssz Ss
+pazarlá) ssz Ss
+pedagógu) ssz Ss
+pesti) ssz Ss
+pirami) ssz Ss
+postá) ssz Ss
+pörsené) ssz Ss
+pré) ssz (ak Ss
+prímá) ssz Ss
+prioritá) ssz Ss
+próbálkozá) ssz Ss
+ré) ssz (ele Ss
+részesedé) ssz Ss
+reziden) ssz Ss
+rítu) ssz Ss
+robbaná) ssz Ss
+robbantá) ssz Ss
+röfögé) ssz Ss
+rögtönzé) ssz Ss
+rugó) ssz Ss
+sakkozá) ssz Ss
+sa) ssz (ikl Ss
+sa) ssz (imb Ss
+sa) ssz (obr Ss
+sa) ssz (obor Ss
+sercegé) ssz Ss
+_sor) ssz (ab Ss
+sörha) ssz Ss
+száza) ssz Ss
+szedé) ssz Ss
+széle) ssz Ss
+játszá) ssz Ss
+szintetiku) ssz Ss
+dobbaná) ssz Ss
+szociáli) ssz Ss
+szolgáltatá) ssz Ss
+szövé) ssz Ss
+taktu) ssz Ss
+tanulá) ssz Ss
+tapsolá) ssz Ss
+társulá) ssz Ss
+teknő) ssz  Ss
+telje) ssz  Ss
+teremté) ssz Ss
+terhe) ssz Ss
+termé) ssz Ss
+tervezé) ssz Ss
+tetoválá) ssz Ss
+textu) ssz Ss
+tizede) ssz Ss
+tölté) ssz Ss
+töré) ssz Ss
+trombitálá) ssz Ss
+trónu) ssz Ss
+tűré) ssz Ss
+tüsszögé) ssz Ss
+unikorni) ssz Ss
+uta) ssz Ss
+uzsorá) ssz Ss
+űrhajó) ssz Ss
+ütközé) ssz Ss
+vágá) ssz Ss
+ütő) ssz Ss
+választá) ssz Ss
+vállalkozá) ssz Ss
+varrá) ssz Ss
+esztergályo) ssz Ss
+verbunko) ssz Ss
+versengé) ssz Ss
+villámlá) ssz Ss
+vívá) ssz Ss
+bizto) ssz Ss
+vonaglá) ssz Ss
+voná) ssz Ss
+zaklatá) ssz Ss
+zászló) ssz Ss
+zöldsége) ssz Ss
+emlő) ssz (erű Ss
+kapá) ssz (őlő Ss
+kuva) ssz (al s:
 szertartá) ssz (erű Ss
-csipogá) ssz       Ss
+csipogá) ssz Ss
+vadá) ssz s:
 
 .group sz
         sz         s
@@ -2349,16 +2350,16 @@ ellenállá) sz (ón  Sz
     ré) sz (árás   Sz
    _te) szts (or   st|S
  serté) szs (ir    S|Z
-  tava) sz (áról   s
-    te) sztsz (ezon st|s
- balla) szts (úly  st|S
-  kere) sztsz (ala st|s
-  para) szts (alá  st|S
-  para) szts (ere  st|S
-  para) szts (orb  st|S
- csömö) sz (öl     s
- enyve) szs (in    S|Z
-    li) sztsz (emek st|s
+tava) sz (áról s
+te) sztsz (ezon st|s
+balla) szts (úly st|S
+kere) sztsz (ala st|s
+para) szts (alá st|S
+para) szts (ere st|S
+para) szts (orb st|S
+csömö) sz (öl s
+enyve) szs (in S|Z
+li) sztsz (emek st|s
 
 .group t
         t          t
@@ -2507,34 +2508,34 @@ szögle) t (szob    t
   álla) t (cirk    t
   szen) t (szob    t
 koncer) t (jeg     t
-  tesz) t (cikl    t
-  tesz) t (járm    t
-  tesz) t (játék   t
-interne) t (jog    t
-     á) tsz (orzás t|s
-  bará) t (szeren  t
-    bi) t (széles  t
-  spor) t (sér     t
-   sej) t (szinte  t
-  cson) t (sová    t
- direk) t (szorza  t
-   ese) t (szétvá  t
-gondola) t (szond  t
- karsz) t (járat   t
-klariné) t (sz     t
-látsza) t (jóin    t
-metsze) t (sor     t
- mosza) t (sejt    t
-   sej) t (sűrű    t
-vilaje) t (szék    t
-csopor) t (sorsol  t
-   saj) t (salát   t
-  kama) t (jövedel t
+tesz) t (cikl t
+tesz) t (járm t
+tesz) t (játék t
+interne) t (jog t
+á) tsz (orzás t|s
+bará) t (szeren t
+bi) t (széles t
+spor) t (sér t
+sej) t (szinte t
+cson) t (sová t
+direk) t (szorza t
+ese) t (szétvá t
+gondola) t (szond t
+karsz) t (járat t
+klariné) t (sz t
+látsza) t (jóin t
+metsze) t (sor t
+mosza) t (sejt t
+sej) t (sűrű t
+vilaje) t (szék t
+csopor) t (sorsol t
+saj) t (salát t
+kama) t (jövedel t
 tisztele) t (jeggy t
- épüle) t (szobrá  t
+épüle) t (szobrá t
 eszkor) t (szolgál t
 foszfá) t (jövedel t
- gráni) t (szob    t
+gráni) t (szob t
 
 .group tj
      C) tj         c
@@ -2625,7 +2626,7 @@ közérze) tj (aví   tj
     ké) tj (átszm  tj
 szavaza) tj (og    tj
 szavaza) tj (eg    tj
-  vona) tj (eggy   tj
+vona) tj (eggy tj
 billentyűze) tj (áté tj
 
 .group ts
@@ -2866,8 +2867,8 @@ keresz) tt (űz     t:
 bennszülö) tt (jelmez t
  krike) tt (ját    t
    szé) tt (rancsír t:
-elláto) tt (jog    t
- felnő) tt (játszó t
+elláto) tt (jog t
+felnő) tt (játszó t
 
 .group ty
 mindszen) ty       t|i
@@ -2971,7 +2972,7 @@ lefeje) z (ték     s
    _ré) zs (ó      zS
      ő) zs (uta    zS
    _vá) zs (or     zS
- szára) zs (ág     SS
+szára) zs (ág     SS
  _nehé) zs (ely    zS
      _) zürich     tsyR2i    C
     tí) zsz (er    s:
@@ -3115,34 +3116,34 @@ csatlako) z (tok   s
    _tí) z (shill   z
   topá) z          z
    dör) zsz (ör    Z|z
-   raj) z (sa      z
-    tí) z (seb     z
+   raj) z (sa    z
+tí) z (seb z
 egészségkö) z (pont s
-  leme) z (slá     z
-   raj) z (sor     z
-    ri) zs (zab    Z
-    vá) z (sér     z
-    ví) z          z
-  leme) z          z
- eszkö) z          z
-    gá) z (zsám    z
-    gá) z (seb     z
-    gá) z (ster    z
-    gá) z (súr     z
-    gá) z (sűr     z
-    gá) z (süt     z
-    gá) z (sát     z
- halma) z          z
-    gá) z (síp     z
-masszá) zs (zuh    Z
-     ő) z (salát   z
-     ő) z (sírá    z
-   raj) z (skic    z
-   raj) z (st      z
-    ré) z (zsan    z
-    tí) z (sch     z
-    ví) z (zsák    z
-    ví) z (zsong   z
+leme) z (slá z
+raj) z (sor z
+ri) zs (zab Z
+vá) z (sér z
+ví) z z
+leme) z z
+eszkö) z z
+gá) z (zsám z
+gá) z (seb z
+gá) z (ster z
+gá) z (súr z
+gá) z (sűr z
+gá)z (süt z
+gá) z (sát z
+halma) z z
+gá) z (síp z
+masszá) zs (zuh Z
+ő) z (salát z
+ő) z (sírá z
+raj) z (skic z
+raj) z (st z
+ré) z (zsan z
+tí) z (sch z
+ví) z (zsák z
+ví) z (zsong z
 
 .group
         $          dolla:R2

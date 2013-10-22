@@ -359,11 +359,13 @@ phoneme t
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
 
-  IF nextPhW(isVowel) AND nextPh(isUnstressed) AND NOT next2PhW(n) THEN
-    IF prevPhW(isVowel) THEN
-      ChangePhoneme(t#)
-    ELIF prevPhW(n) THEN
-      WAV(ustop/t, 60)
+  IF nextPhW(isVowel) AND nextPh(isUnstressed) THEN
+    IF NOT next2PhW(n) OR nextPhW(3:) THEN
+      IF prevPhW(isVowel) AND NOT prevPhW(aI@) THEN
+        ChangePhoneme(t#)
+      ELIF prevPhW(n) THEN
+        WAV(ustop/t, 60)
+      ENDIF
     ENDIF
   ENDIF
 

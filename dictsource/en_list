@@ -1,4 +1,4 @@
-﻿
+
 // You can use the en_extra file, rather than this one
 // to add your own pronunciation definitions.
 
@@ -16,11 +16,12 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
-// $alt1   use strong ending (-an, -ance, -ative, -table, -inal, -ier -ored)
-// $alt2   use weak ending (ard, ate, ery, ess, ile, men, on)
+// $alt1   use strong ending (-an, -ance, -ative, -table, -eria, -inal, -ier -or -ored, -s)
+// $alt2   use weak ending (ace, ard, ate, ery, ess, ile, men, on, ot)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
-// $alt4   separate 'h', not 'th'
-// $alt6   'to'
+// $alt4   separate 'h', not 'th' 'ph';  [t2] not [t]
+// $alt5   remove only 's' from plural (-ies)
+// $alt6   use strong first vowel (e->[i:], i->[aI])
 
 
 // letter names, as they are spoken as a single character in text
@@ -526,11 +527,13 @@ aaa	$abbrev $allcaps
 abc	$abbrev
 ac	$abbrev
 adf	$abbrev
+adhd	$abbrev
 afk	$abbrev
 (a . k . a .)	aka#_!
 agpl	$abbrev
 agm	$abbrev 
 ai	$abbrev
+aitb	$abbrev
 amd	$abbrev
 aol	$abbrev
 aph	$abbrev
@@ -539,8 +542,10 @@ apr	apr@
 asap	$abbrev
 ati	$abbrev
 atm	$abbrev
+avc	$abbrev
 awol	eIw0l
 bvld	bUl@vA@d
+byod	$abbrev
 ceo     $abbrev
 cet	$abbrev
 cia	$abbrev
@@ -551,12 +556,17 @@ diy	$abbrev
 dmca	$abbrev
 dow	daU
 edt	$abbrev
+eff	$abbrev
 eg	fO@Egz'aamp@L	$only
 (e . g .) fO@Egz'aamp@L
+ept	$abbrev
+espn	$abbrev
 est	$abbrev
 etc	Et'sEtr@
 eu	$abbrev
 eur	jU@	$only
+exe	$abbrev
+ftaa	$abbrev
 fyi	$abbrev
 ghz	gIg@h3:ts
 hmm	h@m
@@ -584,7 +594,9 @@ lotr	$abbrev
 ltd	lImI2tI2d
 //mc	m@k  $combine   // combine with the following word
 mhz	mEg@h3:ts
+motd	$abbrev
 mpaa	$abbrev
+msaa	$abbrev
 mya	$abbrev
 nato	neItoU
 ncis	$abbrev
@@ -594,19 +606,23 @@ nypsd	$abbrev
 nyse	$abbrev
 nyt	$abbrev
 ocr	$abbrev
+odf	$abbrev
 oecd	$abbrev
 oem	$abbrev
 ok	$abbrev
+olpc	$abbrev
 omg	$abbrev
 os	$abbrev
 osx	$abbrev
 otoh    $abbrev
 pcie	$abbrev
 pcmcia	$abbrev
+psu	$abbrev
 riaa	$abbrev
 riscos	rIskoUEs
 rnib	$abbrev
 sae	$abbrev
+sla	$abbrev
 scsi	skVzi
 ssip	$abbrev
 st	s@nt
@@ -623,10 +639,12 @@ unhcr	$abbrev
 upnp	$abbrev
 url	$abbrev
 usa	$abbrev
+usaf	$abbrev
 usb	$abbrev
 usda	$abbrev
 ussr	$abbrev
 utc     $abbrev
+uucp	$abbrev
 uv	$abbrev
 VI      $abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
@@ -669,6 +687,7 @@ ablest		eIbl@st
 ability		a#bIl@ti
 ablaut		ablaUt
 aborigine	ab@r'IdZ@ni
+abra		abr@
 abracadabra	abr@k@d'abr@
 absentee	$3
 absent		abs'Ent       $verb
@@ -689,6 +708,7 @@ acetylene	a#sEt@li:n
 accurate	$alt2
 accursed	a#k3:sI#d
 ?5 accursed	a#kVRsI#d
+ached		eIkt
 achille		a#kIli:
 aching		eIkIN
 achy		eIki
@@ -721,6 +741,7 @@ adze		adz
 aegis		i:dZIs
 aerate		e@r'eIt
 aerogel		e@roUdZEl
+?3 aesthetic	EsT'EtIk
 aether		i:T@
 afar		a#fA@
 affirmation	af3m'eIS@n
@@ -751,7 +772,10 @@ ajax		eIdZaks
 aka		aka#
 alas		a#l'as
 albeit		O:lb'i:It
+?3 albino	alb'aInoU
+alcatel		alka#tEl
 alfalfa		alf'alf@
+alfredo		alfr'eIdoU
 algebra		aldZI2br@
 alias		eIli@s
 alibi		al@baI
@@ -804,6 +828,7 @@ anew		a#nju:
 anime		anImeI
 anise		anIs
 anniversary	anIv'3:s@ri
+anomaly		a#n0m@li
 anon		a#n0n
 anonymous	a#n0n@m@s
 another		a#nVD3
@@ -894,6 +919,7 @@ augmentation O:gmEnt'eIS@n
 august		O:g@st
 aurora		$2
 aussie		0zi
+?3 aussie	0si
 austere		O:st'i@3
 authority	a#T0rI2ti
 authoritative	O:T'0rI2t@tIv
@@ -906,12 +932,14 @@ automobile	O:t@m@bi@l
 automaton	O:t'0m@t@n
 autopsy		O:t20psi
 avalanche	av@laanS
+avatar		ava#tA@
 average		av@-rI2dZ
 aviary		eIvi@ri
 awry		a#raI
 axes		aksI#z
 axon		aks0n
 ayuh		a#j'@
+ayup		a#jVp
 
 backend		bak'End
 backstory	baksto@ri
@@ -933,6 +961,7 @@ banquet		baNkwI2t
 barbeque	bA@b@kju:
 barbiturate	bA@b'ItSU@r@t
 barometer	b@r0mI2t3
+baroque		$alt3
 barrack		bar@k
 ?3 barrack	bEr@k
 barrage		barA:Z
@@ -988,6 +1017,7 @@ bluest		blu:@st
 bluish		blu:IS
 blurry		bl3:rI
 ?5 blurry	blVRrI
+boardmember	$1
 boing		bOIN
 bolognese	b0l@n'eIz
 bombard		$2
@@ -1001,6 +1031,7 @@ boogie		bu:gi
 ?3 boogie	bUgi
 bosun		boUs@n
 boutique	bu:t'i:k
+boutonniere	bu:?n'i@3
 bourgeois	bU@ZwA:
 bourgeoise	bU@ZwA:z
 bourgeoisie	bU@ZwA:z'i:
@@ -1032,6 +1063,7 @@ bus		bVs
 buses		bVsI#z
 busily		bIzI2lI        $verbf
 buxom		bVks@m
+?3 byzantine	$1
 
 cabal		$alt3
 cabaret		kab@reI
@@ -1041,6 +1073,7 @@ cabriolet	kabri:@l'eI
 cach		kaS         // cached
 cachet		kaSeI
 cacti		kaktaI
+cadabra		$alt3
 cadet		$alt3
 cadre		kA:d3
 caesar		si:z3
@@ -1056,6 +1089,7 @@ calv		kA:v          // for calved, calving
 ?3 calv		kav          // for calved, calving
 calve		kA:v
 ?3 calve	kav
+calzone		kalz'oUni
 camaraderie	kam@r'A:d@ri
 cameo		kamIoU
 camouflage	kam@flA:Z
@@ -1067,10 +1101,12 @@ canine		keInaIn
 canoe		k@nu:
 canoes		k@nu:z
 canon		kan@n
+canonical	$alt3
 ?3 cantaloupe	kant@loUp
 cantilever	kantI#li:v3
 canton		kant0n
 canvas		kanv@s
+capish		ka#pi:S
 capita		kapIt@
 capitol		kapIt@L
 capri		ka#pri:
@@ -1080,8 +1116,10 @@ carafe		ka#raf
 caravan		kar@van
 carburetor	kA@b@r'Et3
 ?3 carburetor	kA@b@reIt3
-career		k@r'i@3
+careen		$alt3
+career		$alt3
 caress		k@rEs
+carole		kar@L
 carousel	kar@s'El
 carpel		kA@p@l
 cascade		$alt3
@@ -1109,6 +1147,7 @@ celidh		keIli
 ceilidh		keIli
 celebre		sEl'Ebr@
 censure		sEnS3
+centurion	sEntS'U@ri@n
 ceres		si@ri:z
 certificate	s3tIfIk@t
 c'est		seI $u
@@ -1137,6 +1176,7 @@ chevrolet	SEvr@l'eI
 chic		Si:k
 chiffron	SIfr0n
 chihuahua	tSI2wA:w@
+chilies		$alt5
 chimera		kaIm'i@r@
 chimpanzee	$3
 chipotle	tSI2poUtleI
@@ -1160,6 +1200,7 @@ circumstance	$alt1
 circumvent	s3:k@mvEnt
 ?5 circumvent	sIRk@mvEnt
 citadel		sIt@dEl
+citation	saIt'eIS@n
 clandestine	$2
 clarinet	klar@n'Et
 cleanliness	klEnlIn@s
@@ -1202,6 +1243,7 @@ collarbone	k0l3boUn
 college		k0lI2dZ
 colloquial	k@loUkwI@L
 colon		koUl@n
+colonoscopy	koUl@n'0sk@pi
 color		kVl3
 colored		kVl3d
 colonel		k3:n@L
@@ -1212,6 +1254,7 @@ combat		k0mbat       // combating
 ?3 combative	k@mbatIv
 combo		k0mboU
 comely		kVmlI    // comeliness
+comeuppance	kVm'Vp@ns
 comer		kVm3
 comet		k0mI2t
 commandant	$alt1
@@ -1251,10 +1294,10 @@ conflict	$verb
 conger		k0Ng3
 congressional	k@ngrES@n@L
 conker		$1
+conquistador	k0nk'i:st@do@
 conscience	k0nS@ns
 consort		$1
 consort		$verb
-constitute	$1
 construct	$1     $onlys
 construct	$verb
 consummate	$1
@@ -1263,6 +1306,7 @@ content		$1       $onlys
 content		$verb $past
 contest		k0nt2Est       $onlys
 contest		$verb
+context		$1
 contract	$1      $onlys
 contract	$verb
 contralto	k@ntr'altoU
@@ -1352,7 +1396,6 @@ declaration	dEkl@'reIS@n
 decolletage	deIk0lt'A:Z
 decor		deIkO@
 ?3 decor	deIk'O@
-decorative	dEk@r@tIv
 decoy		di:kOI
 decry		dI2kraI
 defect		di:fEkt
@@ -1385,14 +1428,16 @@ desert		dI2z3:t
 desert		dEs3t         $only
 desert		dI2z3:t       $verb
 desolate	dEs@l@t
-desperate	dEsp@r@t
+desperate	$alt2
 ?3 detail       $2
 detante		deIt'0nt
 detente		deIt'0nt
 détente		deIt'0nt
+detour		di:t2U@
 detritus	dI2traIt@s
 deus		deIUs
 deva		di:v@
+deviled		dEv@Ld
 devotee		dEvoUt'i:
 (déjà vu)	deIZA:||v'u:
 di		d,I $only
@@ -1440,7 +1485,6 @@ divan		dI2van
 doable		du:@b@L
 doctrine	d0ktrI2n
 doctrinal	$alt1
-doer		du:3
 dogged		d0gI#d
 dogmatic	d0gm'atIk
 doin		du:In
@@ -1469,8 +1513,8 @@ dynamo		$1
 earlobe		i@3loUb
 early		3:lI
 eavesdrop	i:vzdr0p
-ebay		i:beI
-ebook		i:bUk
+ebay		$alt6
+ebook		$alt6
 echelon		ES@l0n
 ecommerce	'i:k,0m3:s
 eden		i:d@n
@@ -1479,12 +1523,13 @@ edit		EdIt
 edition		I2dIS@n
 educe		I2dju:s
 edwardian	Edw'O@di@n
-efile		i:faIl
+efile		$alt6
 egg		Eg	// egging 
 egregious	Igr'i:dZ@s
 ?!3 egret	i:gr@t
 eh		eI
 eid		i:d
+eke		i:k
 el		,El $only
 electricity	I2lEktr'IsI2ti
 electrode	I2lEktroUd
@@ -1492,13 +1537,16 @@ electron	I2lEktr0n
 electrocute	$2
 elicit		I2lIsI2t
 élite		Il'i:t
+elixir		I2lIks3
 embed		Emb'Ed
 ember		Emb3
+embole		$1  // embolism
 emphasis	Emf@sIs   $only
 empire		$1
 emu		i:mju:
 (en masse)	0n||m'as
 (en route)	0n||r'u:t
+?3 enclave	0nkleIv
 enroute		0nr'u:t
 ensemble	0ns'0mb@L
 entendre	0nt'0ndr@-
@@ -1517,7 +1565,7 @@ epaulet		Ep@l'Et
 epiphany	I2pIf@nI
 epistle		I2pIs@L
 epitome		I2pIt@mI
-epub		i:pVb
+epub		$alt6
 equal		i:kw@L
 equation	I2kweIZ@n
 equipage	EkwIpIdZ
@@ -1526,6 +1574,7 @@ erase		I2reIz        // erasing erases
 eraser		I2reIz3
 ?3 erase	I2reIs        // erasing erases
 ?3 eraser	I2reIs3
+errata		I2rA:t@
 ere		e@            $only
 eros		i@r0s
 err		3:
@@ -1535,6 +1584,7 @@ escallop	Esk'A:l@p
 escapism	Esk'eIpI2z@m
 escargot	I2sk'A@goU
 eschelon	ES@l0n
+eschew		I2stSu:
 escort		Esk'O@t       $verb
 escutcheon	$2
 eskimo		$1
@@ -1552,7 +1602,7 @@ europa		jU@r'oUp@
 everything	EvrI2TIN
 evildoers	i:v@Ldu:3z
 ewe		ju:
-eweek		i:wi:k
+eweek		$alt6
 evening		i:vnIN
 evenings	i:vnINz
 evit		EvI2t          // inevitable
@@ -1564,6 +1614,8 @@ exodus		Eks@d@s
 expedite	Eksp@daIt    // expedited
 expert		Eksp3:t
 expertise	Eksp3t'i:z
+expletive	Ekspl'i:tIv
+?3 expletive	EksplI#tIv
 exploit		$1 $onlys
 exploit		$verb
 expo		$1
@@ -1594,6 +1646,7 @@ farewell	$2
 fasten		faas@n
 fatigue		$alt3
 fathom		faD@m
+faux		foU
 (faux pas)	f,oU||p'A:
 favorite	feIv@-rI2t	// sp.
 favourite	feIv@-rI2t
@@ -1604,6 +1657,7 @@ feisty		faIsti
 feline		fi:laIn
 felon		$alt2
 feminine	fEm@nIn
+ferrari		$alt3
 fete		feIt
 fetus		fi:t@s
 fi		f,aI		// as in "hi-fi"
@@ -1611,8 +1665,8 @@ fiasco		fi:'askoU
 fiat		fi:@t
 ficus		faIk@s
 fiery		faI3rI
+?3 filet	fI2leI
 ?3 fillet	fI2leI
-finagle		fI#neIg@L
 finale		fI2nA:li
 finance		faInans       $only
 finance		$verb
@@ -1646,6 +1700,7 @@ fortune		fO@tSu:n
 ?3 fortune	fO@tS@n
 foyer		fOIeI
 freelance	fri:laans
+freer		fri:3
 freon		fri:0n
 fricassee	frIka#seI
 frigate		$alt2
@@ -1656,6 +1711,7 @@ frontend	fr'Vnt,End
 frontier	frVnti@3
 ?3 frontier	frVnt'i@3
 frontpage	fr'Vntp,eIdZ
+frother		fr0T3
 fruition	fru:'IS@n
 frustrate	$2
 fuchsia		fju:S@
@@ -1667,11 +1723,15 @@ fuselage	fju:z@lA:Z
 futon		fu:t0n
 
 gala		gA:l@
+galactic	$alt3
+galaga		gal@g@
 galaxy		gala#ksi
 galileo		galI2l'eIoU 
 galore		$alt3
+galleria	$alt1
 gallivant	$alt1
 ?3 garage	ga#rA:Z
+gargantuan	$2
 garish		ge@rIS
 garote		ga#r0t
 garotte		ga#r0t
@@ -1680,7 +1740,9 @@ gases		gasI#z
 gauche		goUS
 gauge		geIdZ
 gavel		gav@L
+gazebo		$alt3
 geese		gi:s
+geezer		gi:z3
 gemini		dZEmI2naI
 generic		dZ@nErIk
 geni		dZi:ni
@@ -1700,8 +1762,10 @@ gilead		g'IlIad
 gimme		gImi
 giraffe		dZI2raaf
 github		gIthVb
+giveaway	gIva#weI
 glacier		gleIS3
 goatee		$2
+goddam		g0dam
 ?3 goddess	$alt2
 goin		,goUI2n $only // for goin'
 gonna		g,@n@
@@ -1718,6 +1782,7 @@ graduate	$alt2
 graduate	gradju:eIt      $verb
 graffiti	$alt3
 grandson	gr'andsVn
+gratis		$alt1
 gredient	gri:di@nt	// ingredient
 grenade		gr@neId
 griffon		grIf@n
@@ -1734,6 +1799,7 @@ habitual	$alt3
 hacienda	hA:sI'End@
 haggis		hagIs
 haha		hA:h'A:
+haiku		haIku:
 halation	$alt3  // in-
 halberdier	$alt1
 halleluiah	halI2'lu:j@
@@ -1748,6 +1814,8 @@ hasty		heIstI
 hatred		heItrI#d
 hazardous	haz3d@s
 headfirst	$2
+hearsay		hi@3seI
+heebiejeeby     hi:bi:dZ'i:bi
 heh		hEh $only
 hehe		hi:h'i:
 heifer		hEf3
@@ -1778,6 +1846,7 @@ herpes		h3:pi:z
 hiatus		haI'eIt@s
 hideout		haIdaUt
 hindus		hIndu:z
+hiphop		$alt4
 hiya		haIa#
 hmmm		h'@m
 hmpf		h'@mpf
@@ -1791,6 +1860,7 @@ hominem		h0mInEm
 ?3 hominem	h0m@n@m
 hooah		h'u:'A:
 hopi		hoUpi:
+horizon		h@raIz@n
 horizontal	$3
 hormonal	ho@m'oUn@L
 (hors d'oeuvres) O@'d3:vz
@@ -1806,6 +1876,7 @@ hubris		hu:brIs
 hula		hu:l@
 humane		$2
 hunger		hVNg3
+hungover	$2
 hurrah		h@rA:
 hurray		h@reI
 hurricane	hVrI2keIn
@@ -1824,6 +1895,7 @@ hypoxia		haIp'0ksi@
 ibid		IbI#d
 icon		aIk0n
 iconbar		aIk0nbA@
+idevice		$alt6
 idly		aIdlI
 ignoramus	Igno@r'eIm@s
 illiterate	$alt2
@@ -1838,6 +1910,7 @@ implacable	Impl'ak@b@L
 imprecise	ImprIs'aIs
 inanimate	$alt2
 inappropriate	Ina#pr'oUpri@t
+inca		INk@
 incense		Ins'Ens       $verb
 incoming	InkVmIN
 increase	Inkr'i:s      $verb
@@ -1854,10 +1927,12 @@ indo		IndoU
 indoor		$1           $only
 industry	IndVstrI
 indy		Indi
-infamous	Inf@m@s
+infancy		Inf@nsi
+infantile	Inf@ntaIl
 infer		Inf'3:
 inference	Inf@r@ns
 influenza	Influ:'Enz@
+infomercial	InfoUm'3:S@L
 infrastructure	$1 
 ingenuity	IndZI2n'ju:I2ti
 inherit		Inh'ErIt	// inherited
@@ -1900,16 +1975,17 @@ interven	Int3v'i:n	// for intervening
 intray		IntreI
 intro		$1
 ?3 investigative Inv,EstI2g'eItIv
-ipad		aIpad
-iphone		aIfoUn
+ipad		$alt6
+iphone		$alt6
+iplayer		$alt6
 irate		aIr'eIt
-iris		aIrIs
+iris		$alt6
 iron		aI3n
-irony		aIr@nI
 isosceles	aIs'0s@li:z
 ?3 issuance	ISu:@ns
 
 ja		jA:
+jacuzzi		dZ@ku:zi
 jagged		dZagI#d
 jaguar		dZagwA@
 jalapeno	hA:l@p'eIn;oU
@@ -1920,12 +1996,14 @@ jehovah		dZ@hoUv@
 jesus		dZi:z@s
 joie		ZwA:
 jour		ZU@  // french
+journal		dZ3:n@L  // journing
 jukebox		dZu:kb0ks
 july		dZu:l'aI
 
 kaput		$alt3
 karaoke		karI'oUki
 karate		k@rA:ti
+kayak		kaIak
 kebab		k@bab
 ?3 kebab	k@bA:b
 kefir		ki:f3
@@ -1933,6 +2011,7 @@ kefir		ki:f3
 kilo		ki:loU
 kilometer	kIl'0mI2t3
 kilter		kIlt3
+kinect		kI2nEkt
 kinetic		kI#nEtIk
 kiosk		ki:0sk
 kiwi		ki:wi:
@@ -1971,7 +2050,6 @@ lasso		las'u:
 latrine		$alt3
 latte		lA:t2eI
 ?3 launch	lA:ntS
-lawyer		lOI3
 lava		lA:v@
 le		l@_|            $only
 lead		li:d
@@ -1985,6 +2063,7 @@ leisure		lEZ3
 ?3 leisure	li:Z3
 lemme		lEmi       // let me
 lemonade	$3
+lense		lEnz  // lenses
 leo		li:oU
 leona		li:'oUn@
 leopard		lEp3d
@@ -1993,7 +2072,6 @@ lesion		li:Z@n
 (les misérables)	leImIzEr'A:bl@-
 lethal		li:T@L
 liaison		li:'eIz0n
-libre		li:br@
 lichen		laIk@n
 lien		li:@n
 lier		laI3         // outlier
@@ -2004,6 +2082,7 @@ lily		lIli
 limit		lImI2t        // limited
 limo		lImoU
 limousine	lIm@zi:n
+lineage		lInI;I#dZ
 lingerie	l0nZ@ri
 ?3 lingerie	l0nZ@r'eI
 linen		lInI2n
@@ -2041,6 +2120,7 @@ lyin		laIIn
 
 macabre		m@kA:br@
 macadamia	mak@d'eImi@
+mach		mA:k
 machete		ma#SEti
 machismo	ma#tSIzmoU
 madame		mad@m
@@ -2084,11 +2164,14 @@ marshall	mA@S@L
 martinet	$3
 massage		masA:Z
 ?3 massage	ma#sA:Z
+matinee		mat@neI
+metropolis	m@tr0p@lIs  // +pl.
 mausoleum	mO:s@'li:@m
 mayhem		meIhEm
 meant		mEnt
 meadow		mEdoU
 medallion	$alt3
+medevac		mEdIvak  // medevaced
 mediaeval	mEdI'i:v@L
 medicine	mEds@n
 ?3 medicine	mEd@s@n
@@ -2134,6 +2217,7 @@ minuet		mInju:'Et
 minus		maIn@s
 minute		mInIt        $onlys
 minut		mInIt	// minuted
+mir		mi@3
 mirage		mIrA:Z
 ?3 mirage	m3rA:Z
 mischief	mIstSI#f
@@ -2191,6 +2275,7 @@ myriad		mIrIad
 myrrh		m3:
 ?5 myrrh	mVR
 myrtle		m3:t@L
+myspace		maIspeIs
 
 naif		naI'i:f
 naïve		naI'i:v
@@ -2204,17 +2289,21 @@ natural		natS@r@L
 nauseam		nO:zi@m
 navajo		nA:v@hoU
 nazi		nA:tsI
+neanderthal	ni:'and3TA:l
 nearby		$2 $atend
 necklace	nEkl@s
 necktie		nEktaI
 negate		nI2geIt
+negation	nI2geIS@n
 neglect		nI2glEkt
 negligee	nEglIZeI
 nemesis		nEm@sI#s
 neon		ni:0n
 nepenthe	nI2pEnTi
 nescience	nEsI@ns
+newage		$alt1 $2
 nicety		naIs@ti
+nighttable	naI?teIb@L
 nikon		naIk0n
 ninja		nIndZ@
 nitrous		naItr@s
@@ -2261,6 +2350,7 @@ oeuvre		3:vr@
 offer		0f3
 offers		0f3z
 okay		oUk'eI
+oldtimer	oUldt'aIm3
 oled		oUlEd     // abbrev
 omega		oUm'eIg@
 omelet		0ml@t
@@ -2318,7 +2408,6 @@ overtly		oUv'3:tlI
 overtime	$1
 overture	$1
 oxen		0ks@n
-oxymoron	$3
 
 ?3 pablo	pA:bloU
 padre		pA:dreI
@@ -2331,6 +2420,7 @@ papal		peIp@L
 pagan		peIg@n
 pageant		padZ@nt
 pajama		$alt3
+palladium	$alt3
 paltry		pO:ltrI
 panacea		pana#s'i:@
 panache		$alt3
@@ -2360,6 +2450,7 @@ patio		patIoU
 pavilion	$alt3
 paypal		peIpal
 pear		pe@
+pearly		p3:li
 pecan		pi:k@n
 peculiar	pI2kju:lI3
 pedalo		pEd@loU
@@ -2367,6 +2458,7 @@ pedestal	pEdI2st@L
 pedestrian	$alt3
 pegasus		pEg@s@s
 pejorative	p@dZ0r@tIv
+pekinese	pi:kI#n'i:z
 penal		pi:n@L
 penchant	p0nS0n
 ?3 penchant	pEnS@nt
@@ -2384,6 +2476,7 @@ perus		p@ru:z
 peruse		p@ru:z
 petit		p@ti:
 petite		p@ti:t
+petition	$alt3
 petroleum	p@troUli:@m
 ?3 petulant	pEtS@l@nt
 petunia		$alt3
@@ -2417,8 +2510,10 @@ pirate		paIr@t
 pisces		paIsi:z
 piteous		pIti@s
 pituitary	$2
-pizzeria	pi:ts@r'i@
+pizzeria	$alt1
 plaguing	pleIgIN
+?3 plateau	$2
+platoon		$alt3
 playtest	pleItEst
 plaza		plA:z@
 plebeian	pl@b'i:@n
@@ -2484,6 +2579,7 @@ proceed		$verb
 proceed		$only
 produce		pr0dju:s      $noun
 progeny		pr0dZ@ni
+?3 programmable	$2
 progress	proUgrEs      $only
 ?3 progress	pr0grEs       $only
 progress	$verb
@@ -2511,6 +2607,8 @@ puny		pju:ni
 purist		pju:r-Ist
 purport		$2
 purportedly	$2
+puree		pjU@reI
+?3 puree	pju:r'eI
 puttin		pUt#n-
 pyjama		p@dZA:m@
 pyrites		paIr'aIti:z
@@ -2538,6 +2636,7 @@ raiment		reIm@nt
 rainforest	r'eInf,0rI2st
 (raison d'être)	reIz0n||d'Etr@-
 rajah		rA:dZA:
+ramadan		rama#dA:n
 rapier		reIpi@3
 rapport		rap'o@
 rarity		re@r@ti
@@ -2567,7 +2666,9 @@ recess		ri:sEs
 recipe		rEsI2pi:
 reciprocal	rI2sIpr@k@L
 recital		rI2saIt@L
+?3 recluse	rEklu:s
 recluses	rI2klu:sI#z
+?3 recluses	rEklu:sI#z
 recommend	r,Ek@mEnd
 recommendation	rEk@mEnd'eIS@n
 recompense	rEk@mpEns
@@ -2626,6 +2727,8 @@ reprisal	rI2praIz@L
 reputable	rEpju:t@b@L
 reputation	rEpju:t'eIS@n
 requiem		rEkwI2Em
+resale		ri:seIl
+resell		ri:s'El
 reservation	rEz3v'eIS@n
 reservoir	rEz3vwA@
 resin		rEzIn
@@ -2635,6 +2738,7 @@ respiration	rEspI#r'eIS@n
 respiratory	rI2spIr@t@rI
 ?3 respiratory	rEspr@to:ri
 respite		rEspaIt
+?3 respite	rEspIt
 rest		rEst          // for rested
 restaurant	rEstr0nt
 restful		rEstf@L
@@ -2662,7 +2766,7 @@ romance		roUm'ans
 rosary		roUz@ri
 rotate		$2
 rotund		roUt'Vnd
-roundtable	$alt1
+roundtable	$alt1 $2
 rouse		raUz
 rout		raUt          // for routed
 routine		$2
@@ -2715,11 +2819,13 @@ scenario	s@nA@rioU
 scepter		sEpt3
 sceptre		sEpt3
 ?3 schematic	sk@matIk
+sci		saI
 sciatica	saI'atIk@
 sclera		skli@r
 scourge		sk3:dZ
 ?5 scourge	skVRdZ
 scrotum		skroUt@m
+scuba		sku:b@
 seabed		si:bEd
 sealion		si:laI@n
 seance		seI0ns
@@ -2740,6 +2846,7 @@ separate	sEp@-r@t
 separate	sEp3reIt      $verb
 semaphored	$alt1
 semen		si:m@n
+semester	$alt3
 ?3 semi		sEmaI
 semibreve	$1
 semicircle	$1
@@ -2747,23 +2854,27 @@ semicolon	sEmIk'oUl@n
 semitone	$1
 senator		sEn@t3
 sens		sEns               // for sensible
-sentient	sEnti@nt
+!?3 sentient	sEnti@nt  // ??
+sepia		$alt6
 sequester	$2
 sequine		si:kwI2n
 series		si@3riz
-serenade	sErI2n'eId
+serenade	$3
 serene		s@ri:n
 sergeant	sA@dZ@nt
 sesame		sEsa#mi
 settee		$2
 severe		sI2v'i@3        $only
 severely	sI2v'i@3lI      $verbf
+severity	$alt3
 sewn		soUn
 sex		sEks		// sexism
 several		sEvr@L
 severest	s@vi@r@st
 shallow		SaloU
 shampoo		$2
+shareable	Se@@b@L
+shenanigan	SI#nanIg@n
 shepherd	SEp@d
 sheriff		S'ErI2f
 shew		SoU
@@ -2804,6 +2915,7 @@ skies		skaIz
 skied		ski:d
 skua		sku:@
 skyrocket	sk'aIr,0kIt
+slaver		slav3	$verb
 slavish		sleIvIS
 snooker		snu:k3
 sofa		soUf@
@@ -2841,6 +2953,7 @@ staccato	$alt3
 stasis		steIsI#s
 standby		standbaI
 stagnate	$2
+?3 stalactite	$alt3
 ?3 stalagmite	$alt3
 stampede	$2
 starboard	stA@b3d
@@ -2854,6 +2967,7 @@ storytell	stO:rItEl
 stripy		straIpI
 stygian		stIdZi@n
 suave		swA:v
+subcategory	$2  // U.S ?
 subject		sVbdZ'Ekt $verb
 sublime		$2
 subordinate	$2
@@ -2872,9 +2986,8 @@ suntan		sVntan
 suite		swi:t         $onlys
 superb		su:p'3:b
 superfluous	su:p'3:flu:@s
-superintendent	su:p3Int'End@nt
-superman	su:p3man
-supervision 	$3
+supernal	su:p'3:n@L
+superstructure	$1
 supplier	s@plaI3
 suppose		$2
 suprise		$2                       // misspell
@@ -2889,12 +3002,14 @@ suse		su:s@
 sushi		su:Si
 suspect		sVspEkt       $onlys
 suspect		$verb
+swahili		swA:h'i:li
 swath		sw0T
 symbol		sImb@L
 sync		sINk
 syntax		sInt2aks
 syphilis	sIf@lI#s
 
+tabasco		$alt3
 tableau		tabloU
 tablet		tabl@t
 taboo		$2
@@ -2910,6 +3025,7 @@ taoiseach	ti:S@x
 tapestry	tap@strI
 tarantula	t@rantjUl@
 tariff		tarIf
+tase		teIz
 taskforce	t'askf,o@s
 tatar		tA:t3
 tattoo		$2
@@ -2921,7 +3037,9 @@ tear		te@           $verb
 (tear apart)	t,e@||a#pA@t
 (tear off)	t'e@||'0f
 teargas		ti@3gas
+techs		tEks
 teddybear	t'EdIb,e@
+teetotal	ti:t2oUt@L
 tejano		tI#hA:noU
 telemetry	t@lEm@tri
 telepathy	t@lEp@Ti
@@ -2939,6 +3057,7 @@ temperature	tEmprI2tS3
 ?!3 temporary	tEmpr@rI
 ?3 template	$alt2
 tetanus		tEt@n@s
+thereabout	$3
 therefore	$1
 thereof		De@r'0v
 thermos		T3:m@s
@@ -2965,19 +3084,23 @@ tis		tIz $only
 toboggan	t@b0g@n
 today		t@deI
 todo		t@du:
+tofu		toUfu:
 ?3 tomato	t@meItoU
 ton		tVn           $onlys
 tonage		tVnIdZ
 tone		toUn
 tonight		t@naIt
 tonne		tVn
+tophat		$alt4
 torment		$1
 torment		$2            $verb
 tornado		tO@n'eIdoU
 torrential	t@rEnS@L
 tortilla	tO@t'i:a#
+total		toUt@L  // totaled
 touche		tu:SeI        $only
 toupee		tu:peI
+?3 tourniquet	t3:nI#kI#t
 transcript	$1 $onlys
 transfer	$1 $onlys
 transfer	$verb
@@ -2998,7 +3121,6 @@ trilogy		trIl@dZi
 trio		tri:oU
 trisquel	trIsk'El
 trois		twA:
-trojan		troUdZ@n
 trophy		troUfi
 troubadour	tru:b@do@
 truely		tru:lI       $verbf
@@ -3083,13 +3205,15 @@ variety		v@raI@ti
 ?!3 vase	vA:z
 vaseline	vas@li:n
 veg		vEdZ
-vegetable	vEdZI2t@b@L
 vehicle		vi@k@L
 vega		vi:g@
 vegetative	$alt1
+veggie		vEdZI
 veggy		vEdZI
 vengeance	vEndZ@ns
 ventriloquist	$2
+venu		vEnju:
+venue		vEnju:
 venus		vi:n@s
 versus		v3:sI2z
 vertices	v3:tIsi:z
@@ -3098,6 +3222,8 @@ vex		vEks        // for vexed
 viagra		vaI'agr@
 vibrato		vI2brA:toU
 vicar		vIk3
+videoconference	v'Idi:oU||k'0nfr@ns
+videotape	v'Idi:oUt2,eIp
 vigilante	vIdZI2l'anti
 vignette	vInj'Et
 villi		vIlaI
@@ -3124,6 +3250,7 @@ vulcan		vVlk@n
 (wall st)	w'O:lstr,i:t
 wannabe		w0na#bi:
 warring		wO@rIN
+warthog		$alt4
 wastage		weIstI2dZ
 wast		weIst         // wasted
 watershed	wO:t3SEd
@@ -3134,6 +3261,7 @@ wehrmacht	ve@maxt
 website		wEbsaIt
 weekend		$2
 wheelbarrow	w'i:l_b,aroU
+wherewithal	we@wIDO:l
 whew		fju:
 whichever	$2
 whitish		waItIS
@@ -3188,6 +3316,7 @@ yoghurt		j0g3t
 yoyo		joUjoU
 
 zavala		$alt3
+zealot		$alt2
 ?3 zebra	zi:br@
 zulus		zu:lu:z
 
@@ -3203,6 +3332,7 @@ Bacup		beIk@p
 Berwick		bErIk
 Betws   	bEtUs
 Cambridge	keImbrIdZ
+Chatham		tSat@m
 Cheadle		tSi:d@L
 Cheshire	tSES3
 Chiswick	tSIzIk
@@ -3233,6 +3363,7 @@ Malvern		mO:lv3n
 Morecambe	mo@k@m
 Norfolk		nO@f@k
 Norwich		n0rI2tS
+Penzance	$alt1 $2
 Piccadilly	$3
 Plymouth	plIm@T
 Regis		ri:dZI2s
@@ -3271,10 +3402,12 @@ Antigua		ant'i:g@
 Antilles	ant'Ili:z
 Apennine	ap@naIn
 Arabia		$alt3
+Arapahoe	$alt3
 Armageddon	A@ma#g'Ed@n
 Arkansas	A@k@nsO:
 Atlantis	atl'antIs
 Athens		aTI2nz
+Audubon		O:d@b0n
 Augusta		$2
 Baja		bA:hA:
 Bahrain		$2
@@ -3290,6 +3423,7 @@ Belize		bEl'i:z
 Bengal		b,Eng'O:l
 Benin		bEnIn
 Berkeley	b3:kli
+Bethesda	$alt3
 Bhutan		bu:t'an
 Bideford	bIdIf@d
 Bogota		b0g@t'A:
@@ -3308,13 +3442,14 @@ Cairo		kaIroU
 Calcutta	$2
 Canada		kan@d@
 Canberra	kanb@r@
+Cancun		kank'u:n
 Carolina	kar@l'aIn@
 Caribbean	kar@b'i@n
 Ceylon		$2
 Chesapeake	tSEs@pi:k
 Cheyenne	SaI'an
 Chile		tSIli
-Chinese		$2
+?3 Chilean	tSIl'i:@n
 Cincinnati	sInsIn'ati
 Cologne		k@loUn
 Colorado	k0l3r'A:doU
@@ -3323,6 +3458,7 @@ Columbus	$alt3
 Congo		k0NgoU
 Connecticut	k@nEtI2k@t
 Copenhagen	koUp@nh'eIg@n
+Cozumel		k0z@m'El
 Cruz		kru:z
 Cyprus		saIpr@s
 Dahomey		$alt3
@@ -3355,6 +3491,7 @@ Geneva		dZ@ni:v@
 Gdansk		g@-dansk
 Gibraltar	$2
 Gomera		goUm'e@r@
+(grand saline)  gr'ands@l'i:n
 Gurmukhi	gU@mUki
 Harare		ha#rA:ri
 Hanoi		han'OI
@@ -3365,6 +3502,7 @@ Hawai'i		h@w'aIi:
 Hawaiian	h@w'aI@n
 Hebrew		hi:bru:
 Hebrides	hEbr@di:z
+Hispaniola	hIsp@nj'oUl@
 Honduras	h0nd'jU@r@s
 Honolulu	$3
 Houston		hju:st@n
@@ -3380,6 +3518,8 @@ Istanbul	,Ist,anb'Ul
 Italia		It'alI2@  // Italian(s)
 Ithaca		IT@k@
 Jakarta		$alt3
+Janeiro		Za#ne@roU
+Jericho		dZErIkoU
 Jerusalem	dZ@ru:s@l@m
 Johannesburg	$2
 Kalgoorlie	kalgU@li
@@ -3388,6 +3528,7 @@ Kansas		kanz@s
 Karachi		ka#rA@tSi
 Kentucky	$2
 Kiev		ki:Ef
+Kihei		$2
 Khmer		kmi@3
 Korea		kOr'i:@
 Korean		kOr'i:@n
@@ -3397,6 +3538,7 @@ Kosovo		k0s@voU
 Kuala		kwA:la#
 Kyrgyz		k3:rgIz
 Kyrgyzstan	k3:rgIst'A:n
+(La jolla)	la#hOI@
 Lagos		leIg0s
 Lahore		$alt3
 Lebanon		lEb@n0n
@@ -3405,13 +3547,14 @@ Leone		li:'oUn
 Lesotho		l@s'u:tu:
 Levant		l@vant
 Liberia		laIb'i@ri:@
+Liechtenstein	lIxt@nstaIn
 Lima		li:ma#
 Ljubljana	lju:blj'A:n@
 Lorraine	$alt3
 Louisiana	lu:,i:zi:'an@
 Luxembourg	lVks@mb3:g
-Lvov		l@-v0v
 ?5 Luxembourg	lVks@mbVRg
+Lvov		l@-v0v
 Madagascar	mad@g'ask3
 Madras		m@draas
 Madrid		m@drId
@@ -3444,9 +3587,11 @@ Montreal	m0ntrI'O:l
 Morocco		m@r0koU
 Moroccan	m@r0k@n
 Montana		m0nt'an@
+Monterey	m0nt@r'eI
 Monte		m0nt2i
 Munich		mju:nIk
 Myanmar		mjA:nmA@
+Nepalese	nEp@l'i:z
 Niagara		naI'agr@
 Nairobi		naIr'oUbi
 Naples		neIp@Lz
@@ -3466,12 +3611,14 @@ Omagh		oUmA:
 Omaha		oUma#hA:
 Oman		oUm'an
 Oregon		0rI2g@n
+Ottawa		0ta#w@
 Pacific		$alt3
 Palestine	pal@staIn 
 Palestinia	pal@st'Ini:@
 Panama		pan@mA:
 Paris		parIs
 Peking		pi:k'IN
+Penobscot	$alt3
 Persia		p3:Z@
 Peru		p@ru:
 Philippine	fIlI2pi:n
@@ -3491,12 +3638,14 @@ Québec		kwI2bEk
 Raleigh		rA:li
 Reno		ri:noU
 Rio		ri:oU
+Sabattus	$alt3
 Sahel		sA:h'El
 Saigon		saIg'0n
 Santiago	santI'A:goU
 Savannah	$alt3
 Savoy		$alt3
 Seattle		si:'at@L
+Sebastopol	$alt3
 Seoul		soUl
 Seville		s@vIl
 Seychelle	seIS'El
@@ -3506,6 +3655,7 @@ Shreveport	Sri:vpo@t
 Siam		saI'am
 Sicily		sIsI2li
 Sinai		saInaI
+Siracusa	si@3@kj'u:s@
 Slovak		sloUvak
 Soweto		s@wEtoU
 Spokane		spoUk'an
@@ -3515,6 +3665,8 @@ Suez		su:I2z
 Sulawesi	su:la#w'eIsi
 Sumatran	su:m'A:tr@n
 Suriname	sU@rIn'am
+Tagus		teIg@s
+Tahoe		tA:hoU
 Taipei		t,aIp'eI
 Taiwan		taI'wA:n
 Taiwanese	taIw@n'i:z
@@ -3543,6 +3695,7 @@ Utrecht		ju:trECt
 Valencia	$alt3
 Vancouver	$2
 Vegas		veIg@s
+Ventura		vEnt'U@@
 Vermont		$2
 Vienna		vI'En@
 Viennese	vi:@n'i:z
@@ -3587,6 +3740,7 @@ Allyson		alIs@n
 Alycen		alIs@n
 Alyssa		a#lIs@
 Amanda		$alt3
+Amando		$alt3
 Amos		eIm0s
 Amy		eImi
 Andre		0ndreI
@@ -3633,12 +3787,14 @@ Catherine	kaTrI2n
 Cecil		sEs@L
 Cecile		sEsi:l
 Cecilia		sI2si:li@
+Cesar		seIz'A@
 Circe		s3:si
 Charlotte	SA@l@t
 Cher		Se@
 Cheri		Se@r'i:
 Cherie		Se@r'i:
 Cheryl		SEr@L
+Chevelle	$alt3
 Chloe		kloUi
 Chris		krIs
 Cleo		kli:oU
@@ -3648,6 +3804,7 @@ Conan		koUn@n
 Connell		k0n@l
 Connie		k0ni
 Connor		k0n3
+Conor		k0n3
 Conrad		$1
 Corinne		k@ri:n
 Crichton	kraIt@n
@@ -3659,6 +3816,7 @@ Daphne		dafni
 Darryl		dar@L
 Davie		deIvi
 Davis		deIvIs
+Deborah		dEb@r@
 Declan		dEkla#n
 Delia		di:li@
 Denise		d@ni:s
@@ -3715,6 +3873,7 @@ Gladys		gladIs
 Glynn		glIn
 Giordino	dZO@d'i:noU
 Giovanni	dZ@v'A:ni
+Godfried	g0dfri:d
 Graeme		greI@m
 Graham		greI@m
 Gruffydd	grIfIT
@@ -3724,12 +3883,14 @@ Hadrian		heIdri:@n
 Hamish		heImIS
 Harold		har@Ld
 Harriet		hari@t
+Harris		$alt1
 Harvey		hA@vi
 Heidi		haIdi
 Hecate		hEk@teI
 Hekate		hEk@teI
 Hermann		h3:m@n
 Hiram		haIr@m
+Horace		$alt2
 Huw		hju:
 Iain		i:@n
 Ian		i:@n
@@ -3744,11 +3905,15 @@ Isla		aIl@
 Isiah		aIz'aI@
 Jacob		dZeIk@b
 Jacques		Zak
+Jamal		dZa#m0l
 Jamie		dZeImi
 Jared		dZar@d
 Jarrad		dZar@d
+Jerald		dZe@r@Ld
+Jesse		dZEsi
 Jesus		dZi:z@s
 Jonah		dZoUn@
+Jorge		ho@heI
 José		hoUs'eI
 Jose		hoUs'eI
 Judy		dZu:di
@@ -3791,12 +3956,15 @@ Makenna		m@kEn@
 Malachi		mal@kaI
 Malcolm		malk@m
 Manuel		manw'El
+Marcella	mA@s'El@
 Maria		ma#ri:@
 Marie		ma#ri:
 Marian		mari@n
 ?3 Mario	mA@rIoU
 Margaret	mA@gr@t
 Marilyn		mar@lI2n
+Martinez	mA@t'i:nEz
+Mateo		ma#teIoU
 Matilda		$alt3
 Matthew		maTju:
 Maurice		m0rIs
@@ -3806,6 +3974,7 @@ Mellisa		$alt3
 Mellissa	$alt3
 Melissa		$alt3
 Meredith	mEr@dIT
+Micah		maIk@
 Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
@@ -3825,6 +3994,7 @@ Montgomery	m0ntg'0m@ri
 Nadia		nA:dj@
 Nadine		neId'i:n
 Nadja		nA:dj@
+Naomi		neI'oUmi
 Natalie		nata#li
 Natasha		$alt3
 Nathan		neIT@n
@@ -3837,17 +4007,21 @@ Nigel		naIdZ@L
 Nguyen		nu:jEn
 Omar		oUmA@
 Oscar		0sk3
-Ottawa		0ta#w@
 Pamela		pam@l@
 Pandora		$2
 Patricia	pa#trIS@
 Penelope	p@nEl@pi
 Persephone	p3s'Ef@ni
+Philippe	fI2li:p
 Phoebe		fi:bi:
 Rachael		reItS@L
 Rachel		reItS@L
 Rae		reI
 Rafael		rA:faI'El
+Rafaella	rA:faI'El@
+Rajiv		rA:dZi:v
+Ramon		ra#moUn
+Ramona		ra#moUn@
 ?3 Raphael	rA:faI'El
 Rashid		rA:S'i:d
 Raul		raU'u:l
@@ -3860,6 +4034,7 @@ Rhys		ri:s
 Rihanna		rI'A:n@
 Roderick	r0drIk
 Roni		r0ni
+Rosalie		roUza#li
 Rosario		roUz'A@rIoU
 Russell		rVs@L
 Sabina		$alt3 //sa#bi:n@
@@ -3886,10 +4061,12 @@ Stewart		stju:3t
 ?3 Stewart	stu:3t
 Stuart		stju:3t
 ?3 Stuart	stu:3t
+Susannah	$2
 Susanne		$2
 Suzy		su:zi
 Tatiana		tatI'A:n@
 ?3 Tatiana	tA:tj'A:n@
+Theodore	$1
 Terese		t@reIz
 Theresa		t@ri:z@
 Therese		t@ri:z
@@ -3898,10 +4075,12 @@ Timothy		tIm@Ti
 Tina		ti:n@
 Titania		tIt'A:ni@
 Titus		taIt@s
+Tobias		t@baI@s
 Tracy		treIsi
 Triani		tri:'ani
 Trina		tri:n@
 Tricia		trIS@
+Trudy		tru:di
 Vanessa		$alt3
 Wallace		w0lI#s
 Wally		w0li
@@ -3911,12 +4090,16 @@ Yves		i:v
 Yvonne		$2
 Zoe		zoUi
 
+Acura		akjUr@
 Andromeda	andr'0mId@
-Bach		bA:x
+Assad		a#sA:d
+Atropos		atr@p0s
+Avery		eIv3i
 Bede		bi:d
 Beethoven	beIt2oUv@n
 Beowulf		beI@wUlf
 Bogart		boUgA@t
+Borell		b@rEl
 Boswell		b0zwEl
 Buchanan	bju:k'an@n
 Cabrillo	ka#bri:oU
@@ -3928,58 +4111,85 @@ Connolly	$1
 Cortez		$2
 Cthulhu		k@-Tu:l#u:
 Chrysler	kraIsl3
+?3 Daimler	daIml3
 (da vinci)	da#vIntSi
 Dante		dA:nt2eI
+?3 Datsun	dA:ts@n
 Deslauriers	dI2lo@rIeI
 Deveraux	dEv3roU
 Digiorno	dI#Zo@noU
 Disney		dIzni
 ?3 Dolby	doUlbi
 Dolce		d0ltSeI
+Donatello	d0n@t'EloU
 Dulles		dVl@s
 Dvorak		d@-vo@Zak
 Emory		Em3ri
 Ferguson	f3:g@s@n
 Fleming		flEmIN
 Folger		foUldZ3
+Foushee		fu:S'eI
 Gallagher	gal@g3
 Genghis		dZENgIs
 Gibson		gIbs@n
+Goliath		$alt3
 Guinness	gInIs
 Gutierrez	gu:tj'ErEz
 Hades		heIdi:z
 Hamilton	ham@Lt@n
 Heinz		haInz
+Hormel		ho@m'El
 Hoosier		hu:Z3
+Iscariot	$2
 Jacobi		dZa#koUbi
+Jimenez		hIm'EnEz
+Kawasaki	kaU|@s'A:ki
 Kendell		kEnd@L
 Khrushchev	kru:StSEf
+Klein		klaIn
+Kroger		kroUg3
 Kyocera		kaI|@s'i@r@
 Lamaze		la#mA:z
 Laurell		$2
 Mackenna	m@kEn@
 Mackenzie	m@kEnzi
-Medusa		m@du:s@
+Maguire		m@gwaI3
+Medusa		$alt3
 Michelangelo	maIk@L'andZ@loU
+Monet		moUn'eI
 Montague	m0nt2@gju:
 Mozart		moUtsA@t
+Navasca		$alt3
+Nichol		nIk@L
 Nietzsche	ni:tSi
 Niro		ni@roU
+Otis		oUtIs
 Patel		$alt3
 Perez		p3rEz
+Perrier		pErI'eI
+Pokemon		poUkeIm0n
+Porsche		po@S
+Presley		prEsli
 Primavera	pri:m@v'e@r@
 Prentice	prEnt2Is
+Quijote		ki:'hoUteI
 Rameses		ram@si:z
 Ramirez		ra#mi@3rEz
 Reagan		reIg@n
 Reid		ri:d
+Reinhold	raInhoUld
 Remi		r@mi:
 Reuter		rOIt3
 Rivera		rI2ve@r@
 Rizzoli		rI2zoUli
 Rodrigues	r0dr'i:gEz
+Rojas		roUhA:s
+Roosevelt	roUz@vElt
+Ruiz		ru:'i:z
 Sanchez		santSEz
 Shakur		Sa#kU@
+Subaru		su:b3u:
+Thoreau		$alt3
 Tzu		tsu:
 Versace		v3sA:tSi
 Volkswagen	v'oUlksv,A:g@n
@@ -3991,6 +4201,8 @@ Younge		jVN
 zeus		zju:s
 ?3 zeus		zu:s
 zhivago		ZI2vA:goU
+zoltán		$1
+zune		zu:n
 
 
 
@@ -4042,7 +4254,7 @@ for              fO@		$u
 (for a while)    f@@||w'aIl
 (for one)        fO@w0n		$2 $atend
 
-to               t@5		$verbf $alt6   // @ change to U before vowel
+to               t@5		$verbf  // @ change to U before vowel
 (to be)          t@b%i		$pastf
 (to be)          t@||'bi:	$atend
 (to to)          %tU_t@5	$verbf
@@ -4471,7 +4683,7 @@ mobile		$alt2
 ?3 missile	mIs@L
 projectile	$alt2
 puerile		$alt2
-senile		$alt2
+// senile		$alt2 ??
 sterile		$alt2
 tensile		$alt2
 virile		$alt2

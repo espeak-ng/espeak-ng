@@ -1,131 +1,133 @@
-﻿// Translation rules for Bengali
+
+// Translation rules for Assamese
+// input  by .
 // This file is UTF8 encoded
 
 // Numbers
-// Bengali numbers are changed to latin characters before translation
-_0	S'unjO
-_1	'&k
+// Numbers are changed to latin characters before translation
+_0	X'unjO
+_1	'ek
 _2	d'uj
-_3	t'in
-_4	tS'ar
+_3	t'ini
+_4	tS#'ar'i
 _5	p'a~tS
 _6	tS#'Oj
-_7	S'at
-_8	'at.#
+_7	X'at
+_8	a~t.#
 _9	n'Oj
 
 _2a	d'u     // with hundreds etc.
-_6a	tS#'a
+_6a	tS#'O
 _9a	n'O
 
 
-_10	d'OS
-_11	'&garo
+_10	d@h
+_11	Ig#'a:ro
 _12	b'arO
 _13	t'erO
-_14	tS'oddO
+_14	tS#au'ddO
 _15	p'OnerO
-_16	S'olO
-_17	S'OterO
+_16	X'olO
+_17	X'OterO
 _18	'at.#arO 
-_19	'uniS
+_19	'un'niS
 
-_20	k'uri    // or b'iS   ??
+_20	b'iS
 _21	ek'uS
 _22	b'ajS
 _23	t'ejS
 _24	tS'ObbiS
 _25	p'O~tSiS
 _26	tSh'abbiS
-_27	Sat'aS
+_27	X'at'aS
 _28	'at.#aS
-_29	unOtr'iS
+_29	'unOtr'iS
 
 _30	tr'iS
-_31	ekOtr'iS
-_32	bOtr'iS
-_33	tetr'iS
-_34	tSowtr'iS
-_35	pO~jtr'iS
+_31	'ek'Otr'iS
+_32	b'Otr'iS
+_33	t'etr'iS
+_34	tS'owtr'iS
+_35	p'O~jtr'iS
 _36	tS#'Otr'iS
-_37	Sa~itr'iS
-_38	at.tr'iS
+_37	X'a~i'tr'iS
+_38	'a~t.tr'iS
 _39	'unOtSOll'iS
 
 _40	tSOll'iS
-_41	ektSOll'iS
-_42	biall'iS
-_43	tetall'iS
-_44	tSoall'iS
-_45	pO~jtall'iS
-_46	tSetSOll'iS
-_47	SatSOll'is
-_48	atSOll'iS
-_49	unOpO~tSaS
+_41	'ektSOll'iS
+_42	b'iall'iS
+_43	t'etall'iS
+_44	tS'oall'iS
+_45	p'O~jtall'iS
+_46	tS'etSO'll'iS
+_47	X'atSOll'is
+_48	'a~'tSOll'iS
+_49	'unOpO~tSaS
 
-_50	pO~tS'aS
-_51	&kann'o
-_52	bajann'o
-_53	tepann'o
-_54	tSujann'o
-_55	pontSann'o
-_56	tS#apann'o
-_57	Satann'o
-_58	at.ann'o
-_59	unOS'at.
+_50	p'O~tS'aS
+_51	I'kann'o
+_52	b'ajann'o
+_53	t'epann'o
+_54	tS'ujann'o
+_55	p'ontSann'o
+_56	tS#'apann'o
+_57	X'atann'o
+_58	'at.ann'o
+_59	'unO'Xa:t.
 
 
-_60	s'at.
-_61	ekSOt.t.'i
-_62	baSOt.t.'i
-_63	teSOt.t.'i
-_64	tSowSOt.t.'i
-_65	pojSOt.t.'i
-_66	SeSOt.t.'i
-_67	SatSOt.t.'i
-_68	at.SOt.t.'i
-_6X	sat.t.'i
-_69	unOSOtt'ur
+_60	sa:t.
+_61	'ek'XO't.t.'i
+_62	b'aXO't.t.'i
+_63	t'eXO't.t.'i
+_64	tS'ow'XO't.t.'i
+_65	p'oj'XO't.t.'i
+_66	S'eSOt.t.'i
+_67	Sa:tSOt'ti
+_68	'a~t.SOt.t.'i
+_6X	s'at.t.'i
+_69	'unO'X'Ott'Or
 
-_70	SOtt'Or
-_71	ekatt'Or
-_72	bahatt'Or
-_73	tehatt'Or
-_74	tSuhatt'Or
-_75	pOtSatt'Or
-_76	tS#ijatt'Or
-_77	Satatt'Or
-_78	at.att'Or
-_79	unOaS'i
+_70	X'Ott'Or
+_71	I'k#'Ott'Or
+_72	b'ahatt'Or
+_73	t'iatt'Or
+_74	tS'uhatt'Or
+_75	p'OX'at.t'Or
+_76	tS#'ijatt'Or
+_77	S'atatt'Or
+_78	'a~t.att'Or
+_79	'unOa'X'i
 
-_80	aS'i
-_81	&kaS'i
-_82	beraS'i
-_83	teraS'i
-_84	tSuraS'i
-_85	po~tSaS'i
-_86	tS#ijaS'i
-_87	SataS'i
-_88	at.aS'i
-_89	,unOnObb'oj
+_80	a:X'i
+_81	I'ka'X'i
+_82	b'ira'X'i
+_83	t'ira'X'i
+_84	tS'ura'X'i
+_85	p'o~tSa'X'i
+_86	tS#'ija'X'i
+_87	S'ataS'i
+_88	X'ata'S'i
+_89	'unOnObb'oj
 
 _90	nObb'oj
-_91	&kanObb'oj
-_92	beranObb'oj
-_93	teranObb'oj
-_94	tSuranObb'oj
-_95	pOtSanObb'oj
-_96	tS#ijanObb'oj
-_97	SatanObb'oj
-_98	at.anObb'oj
-_99	niranObb'oj
+_91	I'kanObb'oj
+_92	b'ira'nObb'oj
+_93	t'ira:nObb'oj
+_94	tS'uranObb'oj
+_95	p'OtSanObb'oj
+_96	tS#'ijanObb'oj
+_97	X'atanObb'oj
+_98	'a~t.anObb'oj
+_99	n'iranObb'oj
 
-_0C	S'o
+_0C	e'X'o
 _0M1	h'ajar
 _0M2	l'ak#
 _0M3	k'ot.i
 _0M4	'Orbud
-_dpt	_d'Osomik_
+_dpt	_d'OX'omik_
 
 
 // Single consonants
@@ -133,7 +135,7 @@ _dpt	_d'Osomik_
 খ	k#O
 গ	gO
 ঘ	g#O
-ঙ	'uNO~
+ঙ	'uNgO~
 চ	tSO
 ছ	tShO    // [h] to distinguish from [tS]
 জ	JO
@@ -154,46 +156,46 @@ _dpt	_d'Osomik_
 ব	bO
 ভ	b#O
 ম	mO
-য়	Oj
 য	,ontostedZ'O
-র	rO
-ড়       r.O
-ড়	r.O     // (d. + nukta)
-ঢ়	hr.O
-ঢ়	hr.O    // (d#. + nukta)
+ৰ	rO
 ল	lO
+ৱ	wO
 শ	t,aleboS:'O
 ষ	m,ud#en:oS:'O
-স	d,onteS:'O
+স	d,onte'X:'O
 হ	hO
-ৎ	kh,Ond.ot'O
 ক্ষ	k,ojmud#en:oS:'O
+ড়	dOerO     // (d. + nukta)
+ঢ়	d#e hr.O    // (d#. + nukta)
+য়	,ontosteOj
+ৎ	kh,Ond.ot'O
+
 
 
 // full vowels
 অ	O
 আ	a
 ই	hrOS:o'i
-ঈ	dirg#o'i
+ঈ	d'i:rg#o'i
 উ	hrOS:o'u
-ঊ	dirg#o'u
+ঊ	d'i:rg#o'u
 ঋ	ri
+ও	o
 ঔ	ow
-
 এ	e  $u+   // word 'it'
 ঐ	oj $u+   // word 'that'
 ও	o  $u+ $brk  // 'and'
 _এ	e
 _ঐ	oj
-_ও	o
+
 
 
 // combining vowel signs
 া	'akar
-ি	r'oS:ikar
-ী	d'irg#ikar
-ূ	r'oS:ukar
-ু	d'irg#ukar
+ি	hrOS:o'ikar
+ী	d'i:rg#ikar
+ূ	hrOS:o'ukar
+ু	d'i:rg#ukar
 ৃ	r'ikar
 ে	'ekar
 ৈ	'ojkar
@@ -208,116 +210,53 @@ _ও	o
 ়	b'indu
 
 $	d.Olar
-%	SOtk'Ora
+%	X'Otk'Ora
 +	jOg
-=	SOman
+=	X'Oman
 
 
 
 // Punctuation
-।	dVn.d.V
+।	dVn.ri
 _,	koma
 _?	pr'oSnOtSihnO
 
 // Pronouns
-আমি 	$u	// main: I
-আমায়	$u
-আমার 	$u
 
-আমরা 	$u	// we
-আমাদের	$u
+ময	$u	// I, me 
+আমি 	$u	// us 
+আমার 	$u	// our
 
 আপনি	$u	// you(formal)
-আপনাকে	$u
-আপনার 	$u
+আপনাক	$u
 
 তুমি	$u	// you (informal)
-তোমায় 	$u
-তোমার 	$u
-তোমাদের 	$u
-
-তুই	$u	// you (informal)
-তোকে 	$u
+তোমাক 	$u
+তয়	$u	// you (informal)
+তোক 	$u
 তোর 	$u
 
-এ	$u	// he/she/it
-আপনি	$u
-এটার 	$u
-এর 	$u
-
-ইনি	$u	// they
-এনাকে	$u
-এনার 	$u
-
-ও	$u	// he/she/it
-সে 	$u
-ওর 	$u
-তার 	$u
-
-ওরা	$u	// they
-তারা	$u
-ওদের	$u	// unheṃ: them 
-তাদের	$u
-
-এই	$u	// e:I this/it
-এটা 	$u	// e:ta: this/it
-এটার 	$u	// e:ta:'r  this/it
-এর 	$u	// e:r  this/it
-
-ওটা	$u	// o:ta: that
-ওটাকে 	$u	// o:ta:ke: to that
-ওটার 	$u	// o:ta:'r  of that
-
-ওগুলো	$u	// o:gu:lo: those
-ওগুলোকে $u	// o:gu:lo:ke: to those
-ওগুলোর 	$u	// o:gu:lo:'r  of those
+সি	$u	// he
+তাই	$u	// she
 
 
-
-// Prepositions/Postpositions
-মধ্যে	$u	// moddhe  in
-উপর	$u	// upor    on, above
-নীচে	$u	// niche   below
-
-পূর্ব্বে	$u	// purbe   before, prior
-পর্য্যন্ত 	$u	// parjonto  till
-অব্দি	$u 	// abdi      till
-বিনা	$u	// bina      without
-
-
-
-// Questions
-কেন	$u $pause	// kano why  interrogative particle
-কি	$u $pause	// ki  what
-কোথায়	$u $pause	// kothaay  where
-কখন	$u $pause	// kakhon   when
-কে	$u $pause	// ke       who
+কিয়	$u $pause	// kio  why  interrogative particle
+কি	$u $pause	// ki   what
+কোত	$u $pause	// kot  where
+কেতিয়া	$u $pause	// ketia    when
+কোন	$u $pause	// kon        who
 
 // Conjunctions
 
-এবং	$u $pause	// ebong: and
-আর	$u $pause	// aar: and
-অথবা	$u $pause	// athoba: or
+এরং	$u $pause	// ebong: and
+আরু	$u $pause	// aaru : and
+অথরা	$u $pause	// athoba: or
 কিন্তু	$u $pause	// kintu: but
 যদি	$pause	// jodi: if
-তবু	$pause	// tobu: still, yet
-তবে	$pause	// tabe: if...then
+তেতিয়া	$pause	// then
 অথচ	$u	// athacho: yet
 
 
-// Verbs
-
-হয়	$u
-
-
-ছিল	$u	// chilo: past aux
-ছিলেন 	$u	// chilen
-
-
-করছি 	$u	// korchi: continuous
-করছিলাম	$u	// korchilam: past indefinite
-করেছি 	$u	// korechi: past
-
 
 // Exceptions
-এত	&to
+এটা	&ta 	// one piece, one 

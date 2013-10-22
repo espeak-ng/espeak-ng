@@ -511,6 +511,7 @@ typedef struct {
 #define NUM2_ENGLISH_NUMERALS   0x8000
 #define NUM2_PERCENT_BEFORE     0x10000
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
+#define NUM2_ORDINAL_AND_THOUSANDS 0x40000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
@@ -521,6 +522,7 @@ typedef struct {
 	// bit15=(LANG=ne)  speak (non-replaced) English numerals in English
 	// bit16=(LANG=si)  say "%" before the number
 	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
+	// bit18=(LANG=ta)  same variant for ordinals and thousands (#o = #a)
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248

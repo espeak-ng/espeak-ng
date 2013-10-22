@@ -990,6 +990,10 @@ static wxString CompileAllDictionaries()
 
 	sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 	log = fopen(fname_log,"w");
+	if(log != 0)
+	{
+		fprintf(log, "%s", utf8_bom);
+	}
 	sprintf(fname_log,"%s%s",path_dsource,"dict_phonemes");
 	f_phused = fopen(fname_log,"w");
 
@@ -2407,6 +2411,9 @@ int CompileIf(int elif)
 		else
 		{
 			error("Unexpected keyword '%s'",item_string);
+
+			if((strcmp(item_string, "phoneme") == 0) || (strcmp(item_string, "endphoneme") == 0))
+				return(-1);
 		}
 
 		// output the word

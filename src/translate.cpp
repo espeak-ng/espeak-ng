@@ -1310,7 +1310,7 @@ if(end_type & SUFX_UNPRON)
 					prefix_flags = 1;
 				if(found == 0)
 				{
-					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
+					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags & FLAG_HYPHEN_AFTER, dictionary_flags);
 
 					if(phonemes[0] == phonSWITCH)
 					{
@@ -1768,7 +1768,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int ix;
 	int sylimit;        // max. number of syllables in a word to be combined with a preceding preposition
 	const char *new_language;
-	unsigned char bad_phoneme[4];
+	int bad_phoneme;
 	int word_flags;
 	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
@@ -1874,7 +1874,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 		else
 		{
-			EncodePhonemes(word,word_phonemes,bad_phoneme);
+			EncodePhonemes(word,word_phonemes,&bad_phoneme);
 		}
 		flags = FLAG_FOUND;
 	}
