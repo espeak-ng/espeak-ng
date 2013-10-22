@@ -286,3 +286,11 @@ phoneme z
   CALL base/z
 endphoneme
 
+
+phoneme l
+  import_phoneme en/l
+endphoneme
+
+phoneme x2
+  import_phoneme af/x2
+endphoneme

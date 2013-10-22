@@ -347,8 +347,8 @@ int HashDictionary(const char *string)
 
 
 
-const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phoneme)
-/***************************************************************************/
+const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
+/******************************************************************/
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
@@ -365,7 +365,7 @@ const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phone
 	unsigned int  mnemonic_word;
 
 	if(bad_phoneme != NULL)
-		bad_phoneme[0] = 0;
+		*bad_phoneme = 0;
 
 	// skip initial blanks
 	while(isspace(*p))
@@ -427,8 +427,7 @@ const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phone
 				// not recognised, report and ignore
 				if(bad_phoneme != NULL)
 				{
-					bad_phoneme[0] = *p;
-					bad_phoneme[1] = 0;
+					utf8_in(bad_phoneme, p);
 				}
 				*outptr++ = 0;
 				return(p+1);

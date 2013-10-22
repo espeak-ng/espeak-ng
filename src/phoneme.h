@@ -49,7 +49,7 @@
 #define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 
-#define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
+#define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position
 #define phLONG         0x200000
 #define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
 #define phRHOTIC       0x800000  // bit 23
@@ -113,7 +113,7 @@ typedef struct {
 	unsigned char  end_type;
 	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
 	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
-	
+
 } PHONEME_TAB;
 
 
@@ -155,13 +155,13 @@ typedef struct {
 
 
 
-#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name
 #define PH3(c1,c2,c3) (c3<<16)+(c2<<8)+c1
 #define PhonemeCode2(c1,c2)  PhonemeCode((c2<<8)+c1)
 int LookupPhonemeString(const char *string);
 int PhonemeCode(unsigned int mnem);
 
-const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phoneme);
+const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 
 extern const char *WordToString(unsigned int word);

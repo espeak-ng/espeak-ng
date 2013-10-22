@@ -1506,7 +1506,10 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 				else
 				{
 					// followed by hundreds or thousands etc
-					sprintf(string,"_%da",value);
+					if(tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS)
+						sprintf(string, "_%do", value);
+					else
+						sprintf(string, "_%da", value);
 					found = Lookup(tr, string, ph_digits);
 				}
 
@@ -1612,7 +1615,10 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 							else if(((control & 2) == 0) || ((tr->langopts.numbers & NUM_SWAP_TENS) != 0))
 							{
 								// followed by hundreds or thousands (or tens)
-								sprintf(string,"_%da",units);
+								if(tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS)
+									sprintf(string, "_%do", units);
+								else
+									sprintf(string, "_%da", units);
 								found = Lookup(tr, string, ph_digits);
 							}
 						}

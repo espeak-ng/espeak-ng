@@ -1,229 +1,6 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary af_dict  2013-09-22
-
-&    &:   3:   @    @-   @L   @U   a    
-A:   aI   AI   aU   A~   E    e:   e@   
-eI   e~   i    I    iu   O    O:   o@   
-OI   oI   o~   u    uI   W    y    Y@   
-Yy   
-
--    :    ;    ?    b    c    d    dZ   
-f    g    h    j    k    l    l#   m    
-n    N    n^   p    r    s    S    t    
-T    tS   v    w    x    x2   z    Z    
-
-
-Dictionary am_dict  2011-11-22
-
-@    a    e    i    o    u    y    
-
-:    ?    b    B    d    dZ   f    g    
-h    j    k    k`   l    m    n    N    
-n^   p    p`   r    s    S    t    t`   
-tS   tS`  v    w    x    z    Z    
-
-
-Dictionary an_dict  2013-04-04
-
-a    aI   aU   e    E    eI   eU   i    
-o    O    oI   u    U    
-
-b    B    d    D    dZ   f    g    j    
-J^   k    l    l^   m    n    n^   p    
-Q    r    R    R2   s    S    t    T    
-t#   tS   w    x    
-
-
-Dictionary az_dict  2013-04-25
-
-&    @    @-   a    aI   e    E    i    
-o    u    W    y    
-
-*    :    ;    b    c    C    d    dZ   
-f    g    h    j    J    k    l    L    
-m    n    p    Q    r    R    s    S    
-t    tS   ts   v    w    x    z    Z    
-
-
-Dictionary bg_dict  2013-03-16
-
-@    a    e    i    o    u    
-
-:    ;    b    C    d    d;   dZ   dz   
-f    g    g;   h    j    k    l    L    
-l^   m    n    n^   p    r    s    S    
-s;   t    t;   tS   ts   v    x    z    
-Z    z;   
-
-
-Dictionary bn_dict  2013-06-10
-
-&    a    a~   e    e~   i    i:   i~   
-l-   o    O    o:   O~   o~   r-   u    
-u~   V    
-
-:    b    b#   d    d#   d.   d.#  dZ   
-f    g    g#   h    H    j    J    J#   
-k    k#   l    m    n    N    n.   p    
-r    r.   s    S    t    t#   t.   t.#  
-tS   tS#  v    w    ~    
-
-
-Dictionary ca_dict  2010-07-27
-
-@    a    a#   aI   e    E    E2   i    
-o    O    u    U    
-
-*    **   :    ;    b    B    d    D    
-dZ;  f    g    j    J    J^   k    l    
-l^   m    n    N    n^   p    Q    R    
-R2   s    S;   t    T    ts   tS;  v    
-v#   w    z    Z    Z;   
-
-
-Dictionary cs_dict  2011-05-18
-
-@-   a    a:   aU   e    e:   eI   eU   
-i    i:   l-   o    o:   oU   r-   u    
-u:   
-
-*    ;    b    c    d    dZ   dz   f    
-g    h    j    J    k    l    l^   m    
-n    N    n^   p    r    R    R^   R^/  
-s    S    t    tS   ts   v    x    z    
-Z    
-
-
-Dictionary cy_dict  2012-10-10
-
-@    @-   @I   @Y   a    A:   aI   aU   
-AY   aY   E    e:   eU   I    i:   Iu   
-O    o:   OI   OY   U    u:   uY   V    
-Y    y:   Yu   
-
-:    b    C    d    D    dZ   f    g    
-h    j    k    l    l#   m    n    N    
-p    r    s    S    t    T    v    w    
-x    z    
-
-
-Dictionary da_dict  2013-06-10
-
-&    &#   0    3    ?&   ?&#  ?0   ?A   
-?e   ?E   ?i   ?o   ?O   ?u   ?V   ?W   
-?W#  ?y   @    @-   a    A    aI   e    
-E    i    I    n-   o    O    u    V    
-W    W#   y    Y    
-
-*    -    3-   :    ;    ?    b    B    
-d    D    dZ   f    g    h    j    J    
-k    l    l/2  l/3  m    n    N    p    
-r    R    R3   s    S    t    T    tS   
-v    w    x    z    Z    
-
-
-Dictionary de_dict  2013-09-22
-
-3    @    @-   a    A    A:   aI   aU   
-A~   E    E2   E:   e:   EI   i    I    
-i2   i:   n-   o    O    o:   OY   U    
-u:   W    y    y:   Y:   
-
-*    :    ;    b    C    d    D    dZ   
-f    g    g#   h    j    k    l    l2   
-m    n    N    p    pF   r    R    s    
-S    t    tS   ts   v    w    x    z    
-Z    
-
-
-Dictionary el_dict  2011-05-19
-
-a    aI   e    i    o    oI   u    
-
-;    b    c    C    d    D    f    g    
-j    k    l    l^   m    n    N    n^   
-p    Q    r    R    s    s;   t    T    
-ts   v    x    z    
-
-
-Dictionary en_dict  2013-09-08
-
-0    0#   3    3:   @    @-   @2   @5   
-@L   a    a#   A:   A@   aa   aI   aI3  
-aI@  aU   aU@  A~   e    E    e:   e@   
-eI   i    I    I#   I2   i:   i@   i@3  
-IR   n-   o    O    O:   o:   O@   o@   
-OI   oU   O~   u    U    u:   U@   V    
-VR   
-
-*    :    ;    ?    b    C    d    D    
-d#   dZ   f    g    h    j    k    l    
-l#   l/   m    n    N    n^   p    Q    
-q    Q"   r    R    r-   R2   s    S    
-t    T    t#   t2   tS   tS;  v    w    
-x    z    Z    z#   z.   
-
-
-Dictionary eo_dict  2013-03-08
-
-@-   a    aI   aU   e    eI   eU   i    
-o    oI   u    uI   
-
-*    -    b    d    dZ   f    g    h    
-j    k    l    m    n    p    r    R    
-s    S    t    T    tS   ts   v    w    
-x    z    Z    
-
-
-Dictionary es_dict  2013-04-22
-
-@    a    aI   aU   e    E    eI   eU   
-i    o    O    oI   u    
-
-:    b    B    d    D    dZ   f    g    
-h    j    J    J^   k    l    l^   m    
-n    N    n^   p    Q    r    R    R2   
-s    S    t    T    tS   ts   w    x    
-z    
-
-
-Dictionary et_dict  2012-06-12
-
-&    &:   &i   8    8:   a    A1   a:   
-e    E1   e:   i    I1   i1   i:   o    
-O1   o:   u    U1   u:   Y    y    Y:   
-y:   Yi   yi   
-
-:    b    d    d^   f    g    h    j    
-k    l    l.   l^   m    n    N    n^   
-p    r    R    s    S    s2   s^   t    
-t^   tS   v    w    z    Z    
-
-
-Dictionary fa_dict  2013-04-10
-
-a    A    e    i    o    u    
-
--    :    ?    b    d    dZ   f    g    
-h    j    k    l    m    n    p    q    
-r    R    s    S    t    tS   v    w    
-x    z    Z    
-
-
-Dictionary fi_dict  2011-10-14
-
-&    &i   &y   a    ai   au   e    ei   
-eu   ey   i    I    ie   iu   iy   o    
-oi   ou   u    ui   uo   Y    y    Yi   
-yi   Yy   yY   
-
-:    b    d    f    g    h    j    k    
-l    m    n    N    p    r    R    s    
-S    s2   t    v    w    Z    
-
-
 Dictionary fr_dict  2013-04-04
 
 @    @-   a    a-   A~   e    E    e-   
@@ -236,59 +13,16 @@ p2   r    r2   s    S    t    t2   t3
 tS   v    z    Z    z2   z3   
 
 
-Dictionary ga_dict  2013-09-21
+Dictionary nci_dict  2010-01-20
 
-0    0#   @    a    a#   A:   aI   aI#  
-aU   aU#  e    E    E#   e:   eI   i    
-I    i:   i@   o    O    O#   o:   u    
-U    U#   u1   u:   u@   
+a    e    i    o    O    
 
-:    ;    b    c    C    d    d[   dZ   
-f    g    h    j    k    l    m    n    
-N    p    Q    Q"   r    R    s    S    
-t    t[   tS   v    w    x    X    z    
-Z    
+:    ?    b    c    d    f    g    j    
+k    l    m    n    p    R    s    S    
+t    tS   v    w    x    
 
 
-Dictionary grc_dict  2013-07-25
-
-a    aI   aU   e    E    EI   eU   EU   
-i    o    O    oI   OI   OU   u    y    
-yI   
-
-:    b    d    f    g    h    j    k    
-l    m    n    N    p    R    s    t    
-T    v    x    z    
-
-
-Dictionary hbs_dict  2013-03-29
-
-&    @    @2   a    A    a:   aI   aU   
-e    E    e:   i    I    i:   l-   o    
-O    o:   oU   r*   r-   u    U    u:   
-
-*    ;    b    d    dZ   dz   dZ;  f    
-g    h    j    k    l    l^   m    n    
-N    n^   p    r    R    R2   s    S    
-t    tS   ts   tS;  v    x    z    Z    
-
-
-Dictionary hi_dict  2013-06-10
-
-@    @-   a    a:   aI   aU   a~   e    
-E    e:   E:   e~   E~   i    I    i:   
-i~   l-   o    O    o:   O:   O~   o~   
-r-   u    U    u:   u~   V    
-
-#X1  #X2  *    -    :    b    b#   c    
-c#   d    d#   d.   d.#  f    g    g#   
-h    H    j    J    J#   k    k#   l    
-l.   m    n    N    n.   n^   p    p#   
-Q    q    r    r.   s    S    s.   t    
-t#   t.   t.#  v    w    x    z    
-
-
-Dictionary hu_dict  2013-09-21
+Dictionary hu_dict  2013-10-15
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
@@ -312,6 +46,34 @@ t    t#   tS   ts   ts#  tS#  v    w
 X    z    Z    
 
 
+Dictionary zh_dict  2013-01-25
+
+@    @r   a    A    ai   Au   E    ei   
+i    i.   i[   iA   iE   io   iou  N-   
+o    o-   ong  ou   u    u@   ua   uai  
+uei  uo   y    y&   y@   yE   yi   yu   
+
+;    C    f    h    j    J^   k    kh   
+l    l#   m    n    N    p    ph   Q    
+q    Q"   Q^   r    R    R2   R3   s    
+s.   S;   t    th   ts   ts.  ts.h tS;  
+tS;h tsh  v    w    x    X    z.   
+
+
+Dictionary ga_dict  2013-09-21
+
+0    0#   @    a    a#   A:   aI   aI#  
+aU   aU#  e    E    E#   e:   eI   i    
+I    i:   i@   o    O    O#   o:   u    
+U    U#   u1   u:   u@   
+
+:    ;    b    c    C    d    d[   dZ   
+f    g    h    j    k    l    m    n    
+N    p    Q    Q"   r    R    s    S    
+t    t[   tS   v    w    x    X    z    
+Z    
+
+
 Dictionary id_dict  2011-02-21
 
 @    a    aI   aU   e    E    E2   i    
@@ -323,18 +85,45 @@ p    r    R    R2   s    S    t    tS
 v    w    x    X    z    
 
 
-Dictionary is_dict  2010-04-05
+Dictionary en_dict  2013-10-22
 
-@-   a    a:   aI   aI:  aU   aU:  E    
-E:   eI   eI:  i    I    i:   I:   O    
-O:   OI   oU   oU:  u    u:   W    W:   
-y    y:   yI   Yy   Yy:  
+0    0#   3    3:   @    @-   @2   @5   
+@L   a    a#   A:   A@   aa   aI   aI3  
+aI@  aU   aU@  A~   e    E    e:   e@   
+eI   i    I    I#   I2   i:   i@   i@3  
+IR   n-   o    O    O:   o:   O@   o@   
+OI   oU   O~   u    U    u:   U@   V    
+VR   
 
-*    **   :    ;    b    c    C    d    
-D    f    g    h    j    J    k    l    
-l#   m    m#   n    N    n#   N#   n^   
-n^#  p    Q    r    R    r#   R2   s    
-S    s2   t    T    tl#  v    x    z    
+*    :    ;    ?    b    C    d    D    
+d#   dZ   f    g    h    j    k    l    
+l#   l/   m    n    N    n^   p    Q    
+q    Q"   r    R    r-   R2   s    S    
+t    T    t#   t2   tS   tS;  v    w    
+x    z    Z    z#   z.   
+
+
+Dictionary cs_dict  2011-05-18
+
+@-   a    a:   aU   e    e:   eI   eU   
+i    i:   l-   o    o:   oU   r-   u    
+u:   
+
+*    ;    b    c    d    dZ   dz   f    
+g    h    j    J    k    l    l^   m    
+n    N    n^   p    r    R    R^   R^/  
+s    S    t    tS   ts   v    x    z    
+Z    
+
+
+Dictionary ko_dict  2013-03-26
+
+@    a    e    E    i    o    u    u-   
+
+*    ;    b    d    d-   dZ;  g    h    
+j    k    k-   kh   l    L    m    n    
+N    p    p-   ph   q    q-   r    R    
+s    s-   t    t-   tS   tS;  tS;- w    
 
 
 Dictionary it_dict  2013-03-29
@@ -348,153 +137,75 @@ n^   p    r    R    s    S    t    tS
 ts   v    w    w2   z    
 
 
-Dictionary jbo_dict  2010-02-16
+Dictionary sk_dict  2013-10-19
 
-@    a    aI   aU   e    eI   i    l-   
-n-   o    oI   r-   u    
+&    @-   a    a:   e    e:   i    i:   
+l-   l:   o    o:   oU   r-   r:   u    
+u:   
 
-b    d    dZ   f    g    h    j    k    
-l    m    n    N    p    R    s    S    
-t    tS   v    w    x    z    Z    
-
-
-Dictionary ka_dict  2013-03-08
-
-@    @-   a    e    i    o    u    
-
-:    ?    b    c    d    dZ   dz   f    
-g    h    j    k    k#   l    m    n    
-p    p#   Q    q    r    s    S    t    
-t#   tS   ts   ts#  v    w    x    z    
-Z    
+*    ;    b    c    d    d;   dZ   dz   
+f    g    h    j    k    l    l^   m    
+n    N    n^   p    r    R    R^   R^/  
+s    S    t    t;   tS   ts   v    w    
+x    z    Z    
 
 
-Dictionary kl_dict  2013-03-18
+Dictionary ur_dict  2013-05-09
 
-&    3    @    @-   a    aI   e    E    
-i    o    O    u    V    W    y    
+@    a    a:   aI   aU   e    E    e:   
+i    I    i:   O    o:   u    U    u:   
+V    
 
-*    :    b    C    d    D    f    g    
-h    j    k    l    l#   m    n    N    
-p    Q    q    r    R    s    t    tl#  
-ts   tS;  v    w    x    X    z    
-
-
-Dictionary kn_dict  2013-03-16
-
-a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   r-   u    u:   
-
-#X1  #X2  :    b    b#   c    c#   d    
-d#   d.   d.#  dZ   f    g    g#   h    
-j    J    J#   k    k#   l    l.   m    
-n    N    n.   n^   p    p#   r    s    
-S    s.   S;   t    t#   t.   t.#  tS   
-v    w    z    
+:    ;    b    b#   c    c#   d    D    
+d#   d.   d.#  f    g    g#   h    H    
+j    J    J#   k    k#   l    m    n    
+N    p    p#   Q    q    r    R    r.   
+s    S    s.   t    T    t#   t.   t.#  
+v    w    x    z    Z    z.   
 
 
-Dictionary ko_dict  2013-03-26
+Dictionary fa_dict  2013-04-10
 
-@    a    e    E    i    o    u    u-   
+a    A    e    i    o    u    
 
-*    ;    b    d    d-   dZ;  g    h    
-j    k    k-   kh   l    L    m    n    
-N    p    p-   ph   q    q-   r    R    
-s    s-   t    t-   tS   tS;  tS;- w    
-
-
-Dictionary ku_dict  2008-04-14
-
-8    a    e    E    E#   eI   eU   i    
-I    o    u    U    y    
-
-*    :    b    c    d    dZ   f    g    
-h    j    J    k    l    m    n    p    
-q    r    R    s    S    t    tS   v    
-w    x    z    Z    
+-    :    ?    b    d    dZ   f    g    
+h    j    k    l    m    n    p    q    
+r    R    s    S    t    tS   v    w    
+x    z    Z    
 
 
-Dictionary la_dict  2008-01-15
+Dictionary bg_dict  2013-03-16
 
-@-   a    a:   aI   aU   E    e:   EU   
-I    i:   O    o:   OI   U    u:   y    
-y:   
+@    a    e    i    o    u    
 
-*    :    ;    <h>  ?    b    d    f    
-g    h    j    k    l    m    n    N    
-p    r    R    s    t    w    z    
-
-
-Dictionary lt_dict  2012-08-18
-
-a    A    a:   ai   au   aU   e    E    
-eA   ee   ei   i    I    i:   ie   l    
-o    O    o:   u    U    u:   ui   uo   
-w    
-
-;    b    d    d;   dZ   dZ;  f    g    
-h    j    k    l;   m    n    N    n;   
-p    r    s    S    s;   S;   t    t;   
-tS   ts   tS;  v    x    z    Z    z;   
-Z;   
+:    ;    b    C    d    d;   dZ   dz   
+f    g    g;   h    j    k    l    L    
+l^   m    n    n^   p    r    s    S    
+s;   t    t;   tS   ts   v    x    z    
+Z    z;   
 
 
-Dictionary lv_dict  2010-03-12
+Dictionary sw_dict  2013-06-22
 
-a    a:   ai   au   e    e:   ei   i    
-i:   ie   iu   o    o:   u    u:   ui   
-uo   
+@-   a    e    i    m-   n-   N-   o    
+u    
 
-:    b    c    d    dZ   f    g    h    
-j    J    k    l    l^   m    n    N    
-n^   p    r    R    R2   s    S    t    
-tS   ts   v    z    Z    
-
-
-Dictionary mk_dict  2007-12-19
-
-&    @    @-   @2   a    A    a:   e    
-E    e:   i    I    i:   l-   o    o:   
-oU   r-   u    u:   
-
-*    b    d    dZ   dz   dZ;  f    g    
-h    j    k    k^   l    l^   m    n    
-N    n^   p    r    R    s    S    t    
-tS   ts   tS;  v    x    z    Z    
+*    :    b    d    D    f    g    h    
+j    J    k    l    m    n    N    n^   
+p    Q    R    s    S    t    T    tS   
+v    w    x    z    
 
 
-Dictionary ml_dict  2013-05-30
+Dictionary fi_dict  2011-10-14
 
-@    a    a#   a:   aI   aU   e    E    
-e:   i    I    i:   o    o:   r-   u    
-u:   V    y    
+&    &i   &y   a    ai   au   e    ei   
+eu   ey   i    I    ie   iu   iy   o    
+oi   ou   u    ui   uo   Y    y    Yi   
+yi   Yy   yY   
 
-#X1  #X2  :    ;    b    b#   c    c#   
-d    d#   d.   d.#  d2   dZ   f    g    
-g#   h    j    J    J#   k    k#   l    
-l.   m    n    N    n.   n^   p    p#   
-r    R    r.   R2   s    s.   S;   t    
-t#   t.   t.#  tS   v    w    z    
-
-
-Dictionary ms_dict  2010-10-14
-
-@    a    aI   aU   e    E    E2   eI   
-i    o    O    u    
-
-*    :    ?    b    c    d    dZ   f    
-g    h    j    k    l    m    n    N    
-n^   p    r    R    R2   s    S    t    
-tS   v    w    x    z    
-
-
-Dictionary nci_dict  2010-01-20
-
-a    e    i    o    O    
-
-:    ?    b    c    d    f    g    j    
-k    l    m    n    p    R    s    S    
-t    tS   v    w    x    
+:    b    d    f    g    h    j    k    
+l    m    n    N    p    r    R    s    
+S    s2   t    v    w    Z    
 
 
 Dictionary ne_dict  2013-04-28
@@ -513,56 +224,6 @@ r    r.   s    S    s.   t    t#   t.
 t.#  v    w    x    z    
 
 
-Dictionary nl_dict  2013-09-23
-
-8    @    @-   a    A    a:   A~   e    
-E    e#   E2   e:   EI   eU   i    I    
-o    O    O:   o:   O~   u    VU   Wy   
-y    Y:   yU   
-
-*    :    ;    b    d    D    dZ   f    
-g    h    j    k    l    L    m    n    
-N    n^   p    Q    r    s    S    t    
-tS   v    v#   w    x    z    Z    
-
-
-Dictionary no_dict  2011-03-07
-
-@    a    A    a#   a:   A:   AI   aI   
-aU   E    E:   e:   I    i:   O    o:   
-OI   U    u-   u-:  u-I  u:   W    y    
-y:   Y:   Yy   
-
-:    ;    b    d    f    g    h    j    
-k    l    m    n    N    p    r    R    
-s    S    s;   t    v    w    x    z    
-
-
-Dictionary pap_dict  2010-07-27
-
-a    a/   aI   e    E    eI   i    o    
-O    u    y    Y    
-
-:    ?    b    d    dZ   f    g    h    
-j    k    l    m    n    N    n^   p    
-R    s    S    t    tS   v    w    x    
-z    Z    
-
-
-Dictionary pa_dict  2013-04-24
-
-@    a    a~   e    E    e~   E~   i    
-I    i~   I~   o    O    o:   O~   o~   
-r-   u    U    U~   u~   V    V~   
-
-:    ;    b    b#   c    c#   d    d#   
-d.   d.#  f    g    g#   h    H    j    
-J    J#   k    k#   l    l.   m    n    
-N    n.   n^   p    p#   Q    r    R    
-r.   R2   s    S    t    t#   t.   t.#  
-v    x    z    
-
-
 Dictionary pl_dict  2013-05-03
 
 a    E    E#   E~   i    O    O~   u    
@@ -575,18 +236,19 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-06-11
+Dictionary vi_dict  2013-06-10
 
-&    &/   &U~  &~   @    @-   a    A    
-aI   aU   e    E    eI   EI   eU   EU   
-i    I    i/   iU   i~   o    O    oI   
-OI   o~   u    U    uI   u~   y    
+@    @-   @:   @:I  @:U  @I   @U   a    
+a:   a:I  a:U  aI   aU   e    E    eU   
+EU   i    i@   iE   iU   o    O    o#   
+O#   o&   O-   o@   OI   oI   Oi   u    
+u-   u@   uI   y    y@   yI   
 
-*    :    ;    b    C    d    dZ   f    
-g    h    j    k    l    l^   m    n    
-N    n^   p    Q    r    R    r-   s    
-S    s#   s;   t    T    tS   ts   v    
-w    x    z    Z    
+b    c    cr   d    D    d_   f    g    
+h    j    J    J^   k    kh   l    m    
+n    N    n^   p    Q    s    s.   t    
+t[   tS   tS;  v    w    x    z    Z    
+z.   
 
 
 Dictionary ro_dict  2013-03-04
@@ -604,68 +266,97 @@ ts;  v    v;   w    w2   x    z    Z
 z;   Z;   
 
 
-Dictionary ru_dict  2013-05-16
+Dictionary lv_dict  2010-03-12
 
-8    @-   a    A    e    E    E#   E%   
-E2   i    I    I#   I3   I^   ja   ju   
-o    O    u    u"   u#   V    y    Y    
+a    a:   ai   au   e    e:   ei   i    
+i:   ie   iu   o    o:   u    u:   ui   
+uo   
 
-*    ;    b    d    d;   dZ   dZ;  f    
-g    j    k    l    l^   m    m;   n    
-n_   p    r    R    s    S    s;   S;   
-t    t;   ts   tS;  v    w    x    z    
-Z    z;   Z;   
-
-
-Dictionary si_dict  2013-04-30
-
-&    &:   @    a    a:   aI   aU   e    
-e:   i    i:   o    o:   u    u:   
-
-#@   #X1  #X2  :    b    b#   d    d#   
-d.   d.#  dZ   f    g    g#   h    j    
-k    k#   l    l.   m    m#   n    N    
-n#   N#   n.   n.#  n^   n^#  p    p#   
-r    s    S    s.   t    t#   t.   t.#  
-tS   v    w    
+:    b    c    d    dZ   f    g    h    
+j    J    k    l    l^   m    n    N    
+n^   p    r    R    R2   s    S    t    
+tS   ts   v    z    Z    
 
 
-Dictionary sk_dict  2013-04-26
+Dictionary pt_dict  2013-06-11
 
-&    @-   a    a:   e    e:   i    i:   
-l-   l:   o    o:   oU   r-   r:   u    
-u:   
+&    &/   &U~  &~   @    @-   a    A    
+aI   aU   e    E    eI   EI   eU   EU   
+i    I    i/   iU   i~   o    O    oI   
+OI   o~   u    U    uI   u~   y    
 
-*    ;    b    c    d    d;   dZ   dz   
-f    g    h    j    k    l    l^   m    
-n    N    n^   p    r    R    R^   R^/  
-s    S    t    t;   tS   ts   v    w    
-x    z    Z    
-
-
-Dictionary sl_dict  2013-07-02
-
-@    @-   a    e    E    E#   i    o    
-O    o+   u    y    
-
-*    :    ;    b    c    d    dZ   dz   
-f    g    h    j    k    l    l^   m    
-n    N    n^   p    r    R    R^   s    
-S    t    tS   ts   tS;  v    v#   w    
-x    z    Z    
+*    :    ;    b    C    d    dZ   f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    Q    r    R    r-   s    
+S    s#   s;   t    T    tS   ts   v    
+w    x    z    Z    
 
 
-Dictionary sq_dict  2008-12-22
+Dictionary tr_dict  2013-04-25
 
-@    @/   a    A    a/   aI   e    E    
-eI   i    I    I#   O    OI   u    V    
-y    yE   
+@    a    e    E    i    I    o    O    
+u    U    W    y    Y    
 
-**   :    ;    b    c    d    D    dZ   
-dz   dZ;  f    g    h    j    k    l    
-L    ll   m    n    n^   p    r    R    
-R2   s    S    t    T    tS   ts   v    
-w    z    Z    
+*    :    b    c    d    dZ   f    g    
+G    h    j    J    k    l    L    m    
+n    p    Q    r    R    s    S    t    
+tS   v    w    z    Z    
+
+
+Dictionary kn_dict  2013-10-21
+
+a    a:   aI   aU   e    E    e:   i    
+I    i:   o    o:   r-   u    u:   
+
+#X1  #X2  :    b    b#   c    c#   d    
+d#   d.   d.#  dZ   f    g    g#   h    
+j    J    J#   k    k#   l    l.   m    
+n    N    n.   n^   p    p#   r    s    
+S    s.   S;   t    t#   t.   t.#  tS   
+v    w    z    
+
+
+Dictionary is_dict  2010-04-05
+
+@-   a    a:   aI   aI:  aU   aU:  E    
+E:   eI   eI:  i    I    i:   I:   O    
+O:   OI   oU   oU:  u    u:   W    W:   
+y    y:   yI   Yy   Yy:  
+
+*    **   :    ;    b    c    C    d    
+D    f    g    h    j    J    k    l    
+l#   m    m#   n    N    n#   N#   n^   
+n^#  p    Q    r    R    r#   R2   s    
+S    s2   t    T    tl#  v    x    z    
+
+
+Dictionary da_dict  2013-06-10
+
+&    &#   0    3    ?&   ?&#  ?0   ?A   
+?e   ?E   ?i   ?o   ?O   ?u   ?V   ?W   
+?W#  ?y   @    @-   a    A    aI   e    
+E    i    I    n-   o    O    u    V    
+W    W#   y    Y    
+
+*    -    3-   :    ;    ?    b    B    
+d    D    dZ   f    g    h    j    J    
+k    l    l/2  l/3  m    n    N    p    
+r    R    R3   s    S    t    T    tS   
+v    w    x    z    Z    
+
+
+Dictionary de_dict  2013-10-03
+
+3    @    @-   a    A    A:   aI   aU   
+A~   E    E2   E:   e:   EI   i    I    
+i2   i:   n-   o    O    o:   OY   U    
+u:   W    y    y:   Y:   
+
+*    :    ;    b    C    d    D    dZ   
+f    g    g#   h    j    k    l    l2   
+m    n    N    p    pF   r    R    s    
+S    t    tS   ts   v    w    x    z    
+Z    
 
 
 Dictionary sv_dict  2011-05-19
@@ -679,18 +370,31 @@ k    l    m    n    N    p    R    s
 S    s.   S;   sx   t    v    w    z    
 
 
-Dictionary sw_dict  2013-06-22
+Dictionary la_dict  2008-01-15
 
-@-   a    e    i    m-   n-   N-   o    
-u    
+@-   a    a:   aI   aU   E    e:   EU   
+I    i:   O    o:   OI   U    u:   y    
+y:   
 
-*    :    b    d    D    f    g    h    
-j    J    k    l    m    n    N    n^   
-p    Q    R    s    S    t    T    tS   
-v    w    x    z    
+*    :    ;    <h>  ?    b    d    f    
+g    h    j    k    l    m    n    N    
+p    r    R    s    t    w    z    
 
 
-Dictionary ta_dict  2013-09-23
+Dictionary bn_dict  2013-06-10
+
+&    a    a~   e    e~   i    i:   i~   
+l-   o    O    o:   O~   o~   r-   u    
+u~   V    
+
+:    b    b#   d    d#   d.   d.#  dZ   
+f    g    g#   h    H    j    J    J#   
+k    k#   l    m    n    N    n.   p    
+r    r.   s    S    t    t#   t.   t.#  
+tS   tS#  v    w    ~    
+
+
+Dictionary ta_dict  2013-10-22
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -716,58 +420,17 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary tr_dict  2013-04-25
+Dictionary nl_dict  2013-10-03
 
-@    a    e    E    i    I    o    O    
-u    U    W    y    Y    
+8    @    @-   a    A    a:   A~   e    
+E    e#   E2   e:   EI   eU   i    I    
+o    O    O:   o:   O~   u    VU   Wy   
+y    Y:   yU   
 
-*    :    b    c    d    dZ   f    g    
-G    h    j    J    k    l    L    m    
-n    p    Q    r    R    s    S    t    
-tS   v    w    z    Z    
-
-
-Dictionary ur_dict  2013-05-09
-
-@    a    a:   aI   aU   e    E    e:   
-i    I    i:   O    o:   u    U    u:   
-V    
-
-:    ;    b    b#   c    c#   d    D    
-d#   d.   d.#  f    g    g#   h    H    
-j    J    J#   k    k#   l    m    n    
-N    p    p#   Q    q    r    R    r.   
-s    S    s.   t    T    t#   t.   t.#  
-v    w    x    z    Z    z.   
-
-
-Dictionary vi_dict  2013-06-10
-
-@    @-   @:   @:I  @:U  @I   @U   a    
-a:   a:I  a:U  aI   aU   e    E    eU   
-EU   i    i@   iE   iU   o    O    o#   
-O#   o&   O-   o@   OI   oI   Oi   u    
-u-   u@   uI   y    y@   yI   
-
-b    c    cr   d    D    d_   f    g    
-h    j    J    J^   k    kh   l    m    
-n    N    n^   p    Q    s    s.   t    
-t[   tS   tS;  v    w    x    z    Z    
-z.   
-
-
-Dictionary zh_dict  2013-01-25
-
-@    @r   a    A    ai   Au   E    ei   
-i    i.   i[   iA   iE   io   iou  N-   
-o    o-   ong  ou   u    u@   ua   uai  
-uei  uo   y    y&   y@   yE   yi   yu   
-
-;    C    f    h    j    J^   k    kh   
-l    l#   m    n    N    p    ph   Q    
-q    Q"   Q^   r    R    R2   R3   s    
-s.   S;   t    th   ts   ts.  ts.h tS;  
-tS;h tsh  v    w    x    X    z.   
+*    :    ;    b    d    D    dZ   f    
+g    h    j    k    l    L    m    n    
+N    n^   p    Q    r    s    S    t    
+tS   v    v#   w    x    z    Z    
 
 
 Dictionary zhy_dict  2013-03-25
@@ -781,17 +444,354 @@ l    m    n    N    p    r    s    t
 tS   v    w    z    
 
 
-Dictionary as_dict  2013-09-21
+Dictionary pap_dict  2010-07-27
 
-&    a    a~   e    e~   i    i~   l-   
-o    O    o:   O~   o~   r-   u    u~   
-V    
+a    a/   aI   e    E    eI   i    o    
+O    u    y    Y    
+
+:    ?    b    d    dZ   f    g    h    
+j    k    l    m    n    N    n^   p    
+R    s    S    t    tS   v    w    x    
+z    Z    
+
+
+Dictionary ca_dict  2010-07-27
+
+@    a    a#   aI   e    E    E2   i    
+o    O    u    U    
+
+*    **   :    ;    b    B    d    D    
+dZ;  f    g    j    J    J^   k    l    
+l^   m    n    N    n^   p    Q    R    
+R2   s    S;   t    T    ts   tS;  v    
+v#   w    z    Z    Z;   
+
+
+Dictionary af_dict  2013-09-22
+
+&    &:   3:   @    @-   @L   @U   a    
+A:   aI   AI   aU   A~   E    e:   e@   
+eI   e~   i    I    iu   O    O:   o@   
+OI   oI   o~   u    uI   W    y    Y@   
+Yy   
+
+-    :    ;    ?    b    c    d    dZ   
+f    g    h    j    k    l    l#   m    
+n    N    n^   p    r    s    S    t    
+T    tS   v    w    x    x2   z    Z    
+
+
+Dictionary ka_dict  2013-03-08
+
+@    @-   a    e    i    o    u    
+
+:    ?    b    c    d    dZ   dz   f    
+g    h    j    k    k#   l    m    n    
+p    p#   Q    q    r    s    S    t    
+t#   tS   ts   ts#  v    w    x    z    
+Z    
+
+
+Dictionary an_dict  2013-10-22
+
+a    aI   aU   e    E    e#   eI   eU   
+i    o    O    oI   u    U    
+
+b    B    d    D    dZ   f    g    j    
+J^   k    l    l^   m    n    n^   p    
+Q    r    R    R2   s    S    t    T    
+t#   tS   w    x    
+
+
+Dictionary el_dict  2011-05-19
+
+a    aI   e    i    o    oI   u    
+
+;    b    c    C    d    D    f    g    
+j    k    l    l^   m    n    N    n^   
+p    Q    r    R    s    s;   t    T    
+ts   v    x    z    
+
+
+Dictionary et_dict  2012-06-12
+
+&    &:   &i   8    8:   a    A1   a:   
+e    E1   e:   i    I1   i1   i:   o    
+O1   o:   u    U1   u:   Y    y    Y:   
+y:   Yi   yi   
+
+:    b    d    d^   f    g    h    j    
+k    l    l.   l^   m    n    N    n^   
+p    r    R    s    S    s2   s^   t    
+t^   tS   v    w    z    Z    
+
+
+Dictionary ml_dict  2013-05-30
+
+@    a    a#   a:   aI   aU   e    E    
+e:   i    I    i:   o    o:   r-   u    
+u:   V    y    
+
+#X1  #X2  :    ;    b    b#   c    c#   
+d    d#   d.   d.#  d2   dZ   f    g    
+g#   h    j    J    J#   k    k#   l    
+l.   m    n    N    n.   n^   p    p#   
+r    R    r.   R2   s    s.   S;   t    
+t#   t.   t.#  tS   v    w    z    
+
+
+Dictionary jbo_dict  2010-02-16
+
+@    a    aI   aU   e    eI   i    l-   
+n-   o    oI   r-   u    
+
+b    d    dZ   f    g    h    j    k    
+l    m    n    N    p    R    s    S    
+t    tS   v    w    x    z    Z    
+
+
+Dictionary az_dict  2013-04-25
+
+&    @    @-   a    aI   e    E    i    
+o    u    W    y    
+
+*    :    ;    b    c    C    d    dZ   
+f    g    h    j    J    k    l    L    
+m    n    p    Q    r    R    s    S    
+t    tS   ts   v    w    x    z    Z    
+
+
+Dictionary grc_dict  2013-07-25
+
+a    aI   aU   e    E    EI   eU   EU   
+i    o    O    oI   OI   OU   u    y    
+yI   
+
+:    b    d    f    g    h    j    k    
+l    m    n    N    p    R    s    t    
+T    v    x    z    
+
+
+Dictionary cy_dict  2012-10-10
+
+@    @-   @I   @Y   a    A:   aI   aU   
+AY   aY   E    e:   eU   I    i:   Iu   
+O    o:   OI   OY   U    u:   uY   V    
+Y    y:   Yu   
+
+:    b    C    d    D    dZ   f    g    
+h    j    k    l    l#   m    n    N    
+p    r    s    S    t    T    v    w    
+x    z    
+
+
+Dictionary si_dict  2013-04-30
+
+&    &:   @    a    a:   aI   aU   e    
+e:   i    i:   o    o:   u    u:   
+
+#@   #X1  #X2  :    b    b#   d    d#   
+d.   d.#  dZ   f    g    g#   h    j    
+k    k#   l    l.   m    m#   n    N    
+n#   N#   n.   n.#  n^   n^#  p    p#   
+r    s    S    s.   t    t#   t.   t.#  
+tS   v    w    
+
+
+Dictionary hbs_dict  2013-03-29
+
+&    @    @2   a    A    a:   aI   aU   
+e    E    e:   i    I    i:   l-   o    
+O    o:   oU   r*   r-   u    U    u:   
+
+*    ;    b    d    dZ   dz   dZ;  f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    r    R    R2   s    S    
+t    tS   ts   tS;  v    x    z    Z    
+
+
+Dictionary ku_dict  2008-04-14
+
+8    a    e    E    E#   eI   eU   i    
+I    o    u    U    y    
+
+*    :    b    c    d    dZ   f    g    
+h    j    J    k    l    m    n    p    
+q    r    R    s    S    t    tS   v    
+w    x    z    Z    
+
+
+Dictionary sq_dict  2008-12-22
+
+@    @/   a    A    a/   aI   e    E    
+eI   i    I    I#   O    OI   u    V    
+y    yE   
+
+**   :    ;    b    c    d    D    dZ   
+dz   dZ;  f    g    h    j    k    l    
+L    ll   m    n    n^   p    r    R    
+R2   s    S    t    T    tS   ts   v    
+w    z    Z    
+
+
+Dictionary no_dict  2011-03-07
+
+@    a    A    a#   a:   A:   AI   aI   
+aU   E    E:   e:   I    i:   O    o:   
+OI   U    u-   u-:  u-I  u:   W    y    
+y:   Y:   Yy   
+
+:    ;    b    d    f    g    h    j    
+k    l    m    n    N    p    r    R    
+s    S    s;   t    v    w    x    z    
+
+
+Dictionary lt_dict  2012-08-18
+
+a    A    a:   ai   au   aU   e    E    
+eA   ee   ei   i    I    i:   ie   l    
+o    O    o:   u    U    u:   ui   uo   
+w    
+
+;    b    d    d;   dZ   dZ;  f    g    
+h    j    k    l;   m    n    N    n;   
+p    r    s    S    s;   S;   t    t;   
+tS   ts   tS;  v    x    z    Z    z;   
+Z;   
+
+
+Dictionary ru_dict  2013-05-16
+
+8    @-   a    A    e    E    E#   E%   
+E2   i    I    I#   I3   I^   ja   ju   
+o    O    u    u"   u#   V    y    Y    
+
+*    ;    b    d    d;   dZ   dZ;  f    
+g    j    k    l    l^   m    m;   n    
+n_   p    r    R    s    S    s;   S;   
+t    t;   ts   tS;  v    w    x    z    
+Z    z;   Z;   
+
+
+Dictionary am_dict  2011-11-22
+
+@    a    e    i    o    u    y    
+
+:    ?    b    B    d    dZ   f    g    
+h    j    k    k`   l    m    n    N    
+n^   p    p`   r    s    S    t    t`   
+tS   tS`  v    w    x    z    Z    
+
+
+Dictionary eo_dict  2013-03-08
+
+@-   a    aI   aU   e    eI   eU   i    
+o    oI   u    uI   
+
+*    -    b    d    dZ   f    g    h    
+j    k    l    m    n    p    r    R    
+s    S    t    T    tS   ts   v    w    
+x    z    Z    
+
+
+Dictionary kl_dict  2013-03-18
+
+&    3    @    @-   a    aI   e    E    
+i    o    O    u    V    W    y    
+
+*    :    b    C    d    D    f    g    
+h    j    k    l    l#   m    n    N    
+p    Q    q    r    R    s    t    tl#  
+ts   tS;  v    w    x    X    z    
+
+
+Dictionary mk_dict  2007-12-19
+
+&    @    @-   @2   a    A    a:   e    
+E    e:   i    I    i:   l-   o    o:   
+oU   r-   u    u:   
+
+*    b    d    dZ   dz   dZ;  f    g    
+h    j    k    k^   l    l^   m    n    
+N    n^   p    r    R    s    S    t    
+tS   ts   tS;  v    x    z    Z    
+
+
+Dictionary es_dict  2013-04-22
+
+@    a    aI   aU   e    E    eI   eU   
+i    o    O    oI   u    
+
+:    b    B    d    D    dZ   f    g    
+h    j    J    J^   k    l    l^   m    
+n    N    n^   p    Q    r    R    R2   
+s    S    t    T    tS   ts   w    x    
+z    
+
+
+Dictionary sl_dict  2013-07-02
+
+@    @-   a    e    E    E#   i    o    
+O    o+   u    y    
+
+*    :    ;    b    c    d    dZ   dz   
+f    g    h    j    k    l    l^   m    
+n    N    n^   p    r    R    R^   s    
+S    t    tS   ts   tS;  v    v#   w    
+x    z    Z    
+
+
+Dictionary ms_dict  2010-10-14
+
+@    a    aI   aU   e    E    E2   eI   
+i    o    O    u    
+
+*    :    ?    b    c    d    dZ   f    
+g    h    j    k    l    m    n    N    
+n^   p    r    R    R2   s    S    t    
+tS   v    w    x    z    
+
+
+Dictionary pa_dict  2013-04-24
+
+@    a    a~   e    E    e~   E~   i    
+I    i~   I~   o    O    o:   O~   o~   
+r-   u    U    U~   u~   V    V~   
+
+:    ;    b    b#   c    c#   d    d#   
+d.   d.#  f    g    g#   h    H    j    
+J    J#   k    k#   l    l.   m    n    
+N    n.   n^   p    p#   Q    r    R    
+r.   R2   s    S    t    t#   t.   t.#  
+v    x    z    
+
+
+Dictionary hi_dict  2013-06-10
+
+@    @-   a    a:   aI   aU   a~   e    
+E    e:   E:   e~   E~   i    I    i:   
+i~   l-   o    O    o:   O:   O~   o~   
+r-   u    U    u:   u~   V    
+
+#X1  #X2  *    -    :    b    b#   c    
+c#   d    d#   d.   d.#  f    g    g#   
+h    H    j    J    J#   k    k#   l    
+l.   m    n    N    n.   n^   p    p#   
+Q    q    r    r.   s    S    s.   t    
+t#   t.   t.#  v    w    x    z    
+
+
+Dictionary as_dict  2013-10-04
+
+&    @    a    a:   a~   e    e~   i    
+I    i:   i~   o    O    o:   O~   o~   
+u    u~   V    
 
 :    b    b#   d    d#   d.   d.#  dZ   
 f    g    g#   h    H    j    J    J#   
 k    k#   l    m    n    N    n.   p    
 r    r.   s    S    t    t#   t.   t.#  
-tS   tS#  v    w    ~    
+tS   tS#  v    w    X    ~    
 
 
 Dictionary gu_dict  2013-09-17

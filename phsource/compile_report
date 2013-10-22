@@ -1,5 +1,5 @@
 
-91 phoneme tables
+93 phoneme tables
           new total
     base 109  109
 consonants  11  119
@@ -22,7 +22,7 @@ consonants  11  119
       et  40  135
       fr  64  146
    fr-ca  11  146
-      nl  35  130
+      nl  37  131
       hi  58  149
       bn  12  152
       ne  18  157
@@ -30,7 +30,7 @@ consonants  11  119
       pa  15  151
       ta  24  153
       kn  17  149
-      ml  27  152
+      ml  30  152
       hu  25  124
       lt  44  139
       lv  29  127
@@ -47,7 +47,7 @@ consonants  11  119
       es  15  125
    es-la   1  125
       ca  11  127
-      an   4  125
+      an   5  126
       pt  29  140
    pt-pt  20  140
       ro  36  148
@@ -85,6 +85,8 @@ consonants  11  119
       si  24  155
       gu   1  149
       as  12  152
+      or  12  152
+     mni  11  152
       tn  27  121
       mt  32  129
       bo  10  153
@@ -1090,11 +1092,15 @@ ustop/ts2       [ts] lv
 ustop/tsh       [tS] base
                 [tS#] bn
                 [c] zhy
+                [tS#] or
+                [tS#] mni
                 [tS] tn
 ustop/tsh_      [tS] base
                 [c] hi
                 [tS#] bn
                 [c] zhy
+                [tS#] or
+                [tS#] mni
                 [tS] tn
 ustop/tsh2      [tS] hr
                 [dZ] hr
@@ -1112,6 +1118,8 @@ ustop/tsh_unasp  [c] hi
                 [tS] hy
                 [tS`] am
 ustop/tsh_unasp2  [tS] bn
+                [tS] or
+                [tS] mni
 ustop/ts_pzd    [tS;] base
                 [J#] hi
                 [J#] ml
@@ -1637,6 +1645,8 @@ vowel/@_2       [@:] vi
                 [V] tt
 vowel/&_2       [&] bn
                 [&] as
+                [&] or
+                [&] mni
 vowel/@_3       [@#] en
                 [@] en-sc
                 [I] en-sc
@@ -1731,6 +1741,8 @@ vowel/a#_2      [A] nl
                 [a] nso
                 [a] te
                 [a] si
+                [a] or
+                [a] mni
 vowel/a_3       [a] en-sc
                 [a/] en-sc
                 [A:] en-sc
@@ -1749,6 +1761,8 @@ vowel/a_3       [a] en-sc
                 [a] ka
                 [a:] si
                 [a] as
+                [a] or
+                [a] mni
 vowel/a#_3      [a#] en
                 [a#] en-n
                 [a#] en-us
@@ -1888,6 +1902,8 @@ vowel/e         [e] base
                 [e:] dv
                 [e:] te
                 [e] as
+                [e] or
+                [e] mni
                 [E] kl
 vowel/e#        [I] en-sc
                 [e] et
@@ -2107,6 +2123,8 @@ vowel/i_6       [i] bn
                 [i] te
                 [i] si
                 [i] as
+                [i] or
+                [i] mni
 vowel/i#_6      [i.] zh
 vowel/i_7       [i:] et
                 [i] pl
@@ -2246,6 +2264,8 @@ vowel/o         [o] base2
                 [o] te
                 [o:] te
                 [o] as
+                [o] or
+                [o] mni
                 [o] bo
                 [o] kl
 vowel/o_2       [o:] cy
@@ -2363,6 +2383,8 @@ vowel/oo_5      [O] bn
                 [O] is
                 [O] sq
                 [O] as
+                [O] or
+                [O] mni
 vowel/oo_en     [O] en
                 [O:] en
                 [O@] en
@@ -2405,6 +2427,8 @@ vowel/u         [u] base
                 [u] ak
                 [u:] wo
                 [u] as
+                [u] or
+                [u] mni
                 [u] bo
                 [u] tt
 vowel/u#        [u:] en-sc
