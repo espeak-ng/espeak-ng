@@ -32,13 +32,24 @@
 #include <time.h>
 
 #include "portaudio.h"
-#ifndef PLATFORM_WINDOWS
+#ifdef PLATFORM_WINDOWS
+#include <windows.h>
+#else
 #include <unistd.h>
 #endif
 #include "wave.h"
 #include "debug.h"
 
 //<Definitions
+
+#ifdef NEED_STRUCT_TIMESPEC
+#define HAVE_STRUCT_TIMESPEC 1
+struct timespec {
+        long tv_sec;
+        long tv_nsec;
+};
+#endif /* HAVE_STRUCT_TIMESPEC */
+
 
 enum {ONE_BILLION=1000000000};
 
@@ -53,8 +64,8 @@ enum {ONE_BILLION=1000000000};
 #endif
 
 
- 
- 
+
+
 #ifdef USE_PULSEAUDIO
 // create some wrappers for runtime detection
 
@@ -203,8 +214,8 @@ static t_wave_callback* my_callback_is_output_enabled=NULL;
 #define BUFFER_LENGTH (MAX_SAMPLE_RATE*2*sizeof(uint16_t))
 //#define THRESHOLD (BUFFER_LENGTH/5)
 static char myBuffer[BUFFER_LENGTH];
-static char* myRead=NULL; 
-static char* myWrite=NULL; 
+static char* myRead=NULL;
+static char* myWrite=NULL;
 static int out_channels=1;
 static int my_stream_could_start=0;
 static int wave_samplerate;
@@ -223,7 +234,7 @@ static PaError pa_init_err=0;
 
 // time measurement
 // The read and write position audio stream in the audio stream are measured in ms.
-// 
+//
 // * When the stream is opened, myReadPosition and myWritePosition are cleared.
 // * myWritePosition is updated in wave_write.
 // * myReadPosition is updated in pa_callback (+ sample delay).
@@ -275,12 +286,12 @@ static void start_stream()
   PaError err;
   SHOW_TIME("start_stream");
 
-  my_stream_could_start=0;  
+  my_stream_could_start=0;
   mInCallbackFinishedState = false;
 
   err = Pa_StartStream(pa_stream);
   SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
-  
+
 #if USE_PORTAUDIO == 19
   if(err == paStreamIsNotStopped)
     {
@@ -337,7 +348,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 				memcpy(outputBuffer, myRead, aUsedMem);
 			}
 			char* p = (char*)outputBuffer + aUsedMem;
-			memset(p, 0, n - aUsedMem); 
+			memset(p, 0, n - aUsedMem);
 			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
 			myRead = aWrite;
 		}
@@ -367,7 +378,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 			myRead = myBuffer + aRest;
 		}
 		else
-		{ 
+		{
 			SHOW_TIME("pa_callback > underflow");
 			aResult=1; // paComplete;
 
@@ -387,7 +398,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 
 			size_t aUsedMem = aTopMem + aRest;
 			char* p = (char*)outputBuffer + aUsedMem;
-			memset(p, 0, n - aUsedMem); 
+			memset(p, 0, n - aUsedMem);
 			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
 			myRead = aWrite;
 		}
@@ -498,8 +509,8 @@ static int wave_open_sound()
 				//paClipOff | paDitherOff,
 				paNoFlag,
 				pa_callback, (void *)userdata);
-   
-      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d (%s)\n",err, Pa_GetErrorText(err));      
+
+      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d (%s)\n",err, Pa_GetErrorText(err));
 
       if(err == paInvalidChannelCount)
 	{
@@ -544,7 +555,7 @@ static int wave_open_sound()
 			  //			  paClipOff | paDitherOff,
 			  pa_callback,
 			  (void *)userdata);
-      if ((err!=paNoError) 
+      if ((err!=paNoError)
 	  && (err!=paInvalidChannelCount)) //err==paUnanticipatedHostError
 	{
 	  fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d (%s)\n",err,Pa_GetErrorText(err));
@@ -600,7 +611,7 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
   myOutputParameters.channelCount = 1;
   myOutputParameters.sampleFormat = paInt16;
 
-  // Latency greater than 100ms for avoiding glitches 
+  // Latency greater than 100ms for avoiding glitches
   // (e.g. when moving a window in a graphical desktop)
   //  deviceInfo = Pa_GetDeviceInfo(selectedDevice);
   if (deviceInfo)
@@ -654,15 +665,15 @@ static void select_device(const char* the_api)
 		for( i=0; i<numDevices; i++ )
 		{
 		deviceInfo = Pa_GetDeviceInfo( i );
-	
+
 			if (deviceInfo == NULL)
 			{
 				break;
 			}
 			const PaHostApiInfo *hostInfo = Pa_GetHostApiInfo( deviceInfo->hostApi );
-	
+
 			if (hostInfo && hostInfo->type == paALSA)
-			{ 
+			{
 				// Check (once) the default output device
 				if (defaultAlsaIndex == numDevices)
 				{
@@ -671,23 +682,23 @@ static void select_device(const char* the_api)
 					update_output_parameters(defaultAlsaIndex, deviceInfo);
 					if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0)
 					{
-						SHOW( "select_device > ALSA (default), name=%s (#%d)\n", deviceInfo->name, defaultAlsaIndex);		  
+						SHOW( "select_device > ALSA (default), name=%s (#%d)\n", deviceInfo->name, defaultAlsaIndex);
 						selectedIndex = defaultAlsaIndex;
 						selectedDeviceInfo = deviceInfo;
 						break;
 					}
 				}
-	
-				// if the default output device does not match, 
-				// look for the device with the highest number of output channels 
+
+				// if the default output device does not match,
+				// look for the device with the highest number of output channels
 				SHOW( "select_device > ALSA, i=%d (numDevices=%d)\n", i, numDevices);
-	
+
 				update_output_parameters(i, deviceInfo);
-	
+
 				if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0)
 				{
 					SHOW( "select_device > ALSA, name=%s (#%d)\n", deviceInfo->name, i);
-	
+
 					if (!selectedDeviceInfo
 						|| (selectedDeviceInfo->maxOutputChannels < deviceInfo->maxOutputChannels))
 					{
@@ -703,14 +714,14 @@ static void select_device(const char* the_api)
 	{
 		update_output_parameters(selectedIndex, selectedDeviceInfo);
 	}
-	else 
+	else
 	{
 		i = Pa_GetDefaultOutputDevice();
 		deviceInfo = Pa_GetDeviceInfo( i );
 		update_output_parameters(i, deviceInfo);
 	}
 
-#endif    
+#endif
 }
 
 //>
@@ -798,18 +809,18 @@ void* wave_open(const char* the_api)
 //<copyBuffer
 
 
-static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes) 
-{ 
+static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes)
+{
 	size_t bytes_written = 0;
 	unsigned int i = 0;
 	uint16_t* a_dest = NULL;
 	uint16_t* a_src = NULL;
- 
+
 	if ((src != NULL) && dest != NULL)
-	{ 
+	{
 		// copy for one channel (mono)?
 		if(out_channels==1)
-		{ 
+		{
 			SHOW("copyBuffer > 1 channel > memcpy %x (%d bytes)\n", (int)myWrite, theSizeInBytes);
 			memcpy(dest, src, theSizeInBytes);
 			bytes_written = theSizeInBytes;
@@ -820,7 +831,7 @@ static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes)
 			i = 0;
 			a_dest = (uint16_t* )dest;
 			a_src = (uint16_t* )src;
- 
+
 			for(i=0; i<theSizeInBytes/2; i++)
 			{
 				a_dest[2*i] = a_src[i];
@@ -829,8 +840,8 @@ static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes)
 			bytes_written = 2*theSizeInBytes;
 		} // end if(out_channels==1)
 	} // end if ((src != NULL) && dest != NULL)
- 
-	return bytes_written; 
+
+	return bytes_written;
 }
 
 //>
@@ -843,7 +854,7 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 	// space in ringbuffer for the sample needed: 1x mono channel but 2x for 1 stereo channel
 	size_t bytes_to_write = (out_channels==1) ? theSize : theSize*2;
 	my_stream_could_start = 0;
- 
+
 	if(pa_stream == NULL)
 	{
 		SHOW_TIME("wave_write > wave_open_sound\n");
@@ -859,16 +870,16 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 		my_stream_could_start = 1;
 	}
 	assert(BUFFER_LENGTH >= bytes_to_write);
- 
+
 	if (myWrite >= myBuffer + BUFFER_LENGTH)
 	{
 		myWrite = myBuffer;
 	} // end if (myWrite >= myBuffer + BUFFER_LENGTH)
- 
+
 	size_t aTotalFreeMem=0;
 	char* aRead = myRead;
 	SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
- 
+
 	while (1)
 	{
 		if (my_callback_is_output_enabled && (0==my_callback_is_output_enabled()))
@@ -876,9 +887,9 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 			SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
 			return 0;
 		}
- 
+
 		aRead = myRead;
- 
+
 		// write pointer is before read pointer?
 		if (myWrite >= aRead)
 		{
@@ -888,27 +899,27 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 		{
 			aTotalFreeMem = aRead - myWrite;
 		} // end if (myWrite >= aRead)
- 
+
 		if (aTotalFreeMem>1)
 		{
 			// -1 because myWrite must be different of aRead
 			// otherwise buffer would be considered as empty
 			aTotalFreeMem -= 1;
 		} // end if (aTotalFreeMem>1)
- 
+
 		if (aTotalFreeMem >= bytes_to_write)
 		{
 			break;
 		} // end if (aTotalFreeMem >= bytes_to_write)
-		
+
 		//SHOW_TIME("wave_write > wait");
 		SHOW("wave_write > wait: aTotalFreeMem=%d\n", aTotalFreeMem);
 		SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
 		usleep(10000);
 	} // end while (1)
- 
+
 	aRead = myRead;
- 
+
 	// write pointer is ahead the read pointer?
 	if (myWrite >= aRead)
 	{
@@ -945,17 +956,17 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 		SHOW_TIME("wave_write > myWrite <= aRead");
 		myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer, theSize);
 	} // end if (myWrite >= aRead)
- 
+
 	bytes_written = bytes_to_write;
 	myWritePosition += theSize/sizeof(uint16_t); // add number of samples
- 
+
 	if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
 	{
 		start_stream();
 	} // end if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
- 
+
 	SHOW_TIME("wave_write > LEAVE");
- 
+
 	return bytes_written;
 }
 
@@ -974,7 +985,7 @@ int wave_close(void* theHandler)
       SHOW_TIME("wave_close > LEAVE (NULL stream)");
       return 0;
     }
-      
+
   if( Pa_IsStreamStopped( pa_stream ) )
     {
       SHOW_TIME("wave_close > LEAVE (stopped)");
@@ -986,7 +997,7 @@ int wave_close(void* theHandler)
       SHOW_TIME("wave_close > LEAVE (NULL stream)");
       return 0;
     }
-  
+
   if( Pa_StreamActive( pa_stream ) == false && mInCallbackFinishedState == false )
     {
       SHOW_TIME("wave_close > LEAVE (not active)");
@@ -1002,20 +1013,20 @@ int wave_close(void* theHandler)
       SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
       return 0;
     }
-  
-  // Comment from Audacity-1.2.4b adapted to the eSpeak context. 
+
+  // Comment from Audacity-1.2.4b adapted to the eSpeak context.
   //
   // We got here in one of two ways:
   //
-  // 1. The calling program calls the espeak_Cancel function and we 
-  //    therefore want to stop as quickly as possible.  
+  // 1. The calling program calls the espeak_Cancel function and we
+  //    therefore want to stop as quickly as possible.
   //    So we use AbortStream().  If this is
   //    the case the portaudio stream is still in the Running state
   //    (see PortAudio state machine docs).
   //
   // 2. The callback told PortAudio to stop the stream since it had
-  //    reached the end of the selection.  
-  //    The event polling thread discovered this by noticing that 
+  //    reached the end of the selection.
+  //    The event polling thread discovered this by noticing that
   //    wave_is_busy() returned false.
   //    wave_is_busy() (which calls Pa_GetStreamActive()) will not return
   //    false until all buffers have finished playing, so we can call
@@ -1030,7 +1041,7 @@ int wave_close(void* theHandler)
   // call StopStream if the callback brought us here, and AbortStream
   // if the user brought us here.
   //
-  
+
 #if (USE_PORTAUDIO == 19)
   if (pa_stream)
     {
@@ -1114,14 +1125,14 @@ int wave_is_busy(void* theHandler)
   if (pa_stream)
     {
 #if USE_PORTAUDIO == 18
-      active = Pa_StreamActive(pa_stream) 
+      active = Pa_StreamActive(pa_stream)
 	&& (mInCallbackFinishedState == false);
 #else
       active = Pa_IsStreamActive(pa_stream)
 	&& (mInCallbackFinishedState == false);
 #endif
     }
-  
+
   SHOW("wave_is_busy: %d\n",active);
 
 
@@ -1160,7 +1171,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 
   if (!time || !pa_stream)
     {
-      SHOW("event get_remaining_time> %s\n","audio device not available");	  
+      SHOW("event get_remaining_time> %s\n","audio device not available");
       return -1;
     }
 
@@ -1246,7 +1257,7 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
     {
       SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
       ts->tv_sec += 1;
-      t_ns -= ONE_BILLION;	  
+      t_ns -= ONE_BILLION;
     }
   ts->tv_nsec = (long int)t_ns;
 }

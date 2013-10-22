@@ -1934,6 +1934,11 @@ include ph_gujarati
 phonemetable as bn
 include ph_assamese
 
+phonemetable or bn
+include ph_oriya
+
+phonemetable mni bn
+include ph_manipuri
 
 
 

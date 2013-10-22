@@ -24,7 +24,9 @@
 
 
 //<includes
+#ifndef PLATFORM_WINDOWS
 #include <unistd.h>
+#endif
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
@@ -48,6 +50,7 @@ static sem_t my_sem_stop_is_required;
 static sem_t my_sem_stop_is_acknowledged;
 // my_thread: polls the audio duration and compares it to the duration of the first event.
 static pthread_t my_thread;
+static bool thread_inited;
 
 static t_espeak_callback* my_callback = NULL;
 static int my_event_is_running=0;
@@ -95,16 +98,16 @@ void event_init(void)
   assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
 
   pthread_attr_t a_attrib;
-  if (pthread_attr_init (& a_attrib)
-      || pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE)
-      || pthread_create( &my_thread,
-			 & a_attrib,
-			 polling_thread,
-			 (void*)NULL))
-    {
-      assert(0);
-    }
 
+  if (pthread_attr_init (&a_attrib) == 0
+      && pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE) == 0)
+  {
+    thread_inited = (0 == pthread_create(&my_thread,
+      &a_attrib,
+      polling_thread,
+      (void*)NULL));
+  }
+  assert(thread_inited);
   pthread_attr_destroy(&a_attrib);
 }
 //>
@@ -127,7 +130,10 @@ ENTER("event_display");
 		"MARK",
 		"PLAY",
 		"END",
-		"MSG_TERMINATED"
+		"MSG_TERMINATED",
+		"PHONEME",
+		"SAMPLERATE",
+		"??"
 		};
 
 		SHOW("event_display > event=0x%x\n",event);
@@ -712,7 +718,7 @@ void event_terminate()
 {
 ENTER("event_terminate");
 
-	if (my_thread)
+	if (thread_inited)
 	{
 		pthread_cancel(my_thread);
 		pthread_join(my_thread,NULL);
@@ -721,6 +727,7 @@ ENTER("event_terminate");
 		sem_destroy(&my_sem_stop_is_required);
 		sem_destroy(&my_sem_stop_is_acknowledged);
 		init(); // purge event
+		thread_inited = 0;
 	}
 }
 

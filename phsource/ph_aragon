@@ -15,6 +15,12 @@ phoneme E
   FMT(vowel/ee_1)
 endphoneme
 
+phoneme e#
+  vowel starttype #e endtype #e
+  length 200
+  ChangeIfStressed(e)
+  ChangePhoneme(NULL)
+endphoneme
 
 phoneme O
   vowel starttype #o endtype #o

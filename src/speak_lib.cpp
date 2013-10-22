@@ -31,7 +31,12 @@
 #include "speech.h"
 
 #include <sys/stat.h>
-#ifndef PLATFORM_WINDOWS
+#ifdef PLATFORM_WINDOWS
+#include <fcntl.h>
+#include <io.h>
+#include <windows.h>
+#include <winreg.h>
+#else  /* PLATFORM_POSIX */
 #include <unistd.h>
 #endif
 
@@ -551,7 +556,11 @@ static const char* label[] = {
   "SENTENCE",
   "MARK",
   "PLAY",
-  "END"};
+  "END",
+  "MSG_TERMINATED",
+  "PHONEME",
+  "SAMPLERATE",
+  "??" };
 #endif
 
 

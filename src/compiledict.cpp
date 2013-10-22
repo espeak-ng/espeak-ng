@@ -425,7 +425,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	char *mnemptr;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
-	unsigned char bad_phoneme[4];
+	char bad_phoneme_str[4];
+	int bad_phoneme;
 	static char nullstring[] = {0};
 
 	text_not_phonemes = 0;
@@ -660,17 +661,18 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	}
 	else
 	{
-		EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
+		EncodePhonemes(phonetic,encoded_ph,&bad_phoneme);
 		if(strchr(encoded_ph,phonSWITCH) != 0)
 		{
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
 		}
 
 		// check for errors in the phonemes codes
-		if(bad_phoneme[0] != 0)
+		if(bad_phoneme != 0)
 		{
 			// unrecognised phoneme, report error
-			fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
+			bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
+			fprintf(f_log,"%5d: Bad phoneme [%s] (U+%x) in: %s  %s\n",linenum,bad_phoneme_str,bad_phoneme,word,phonetic);
 			error_count++;
 		}
 	}
@@ -1194,7 +1196,8 @@ static char *compile_rule(char *input)
 	int finish=0;
 	char buf[80];
 	char output[150];
-	unsigned char bad_phoneme[4];
+	int bad_phoneme;
+	char bad_phoneme_str[4];
 
 	buf[0]=0;
 	rule_cond[0]=0;
@@ -1272,10 +1275,11 @@ static char *compile_rule(char *input)
 		return(NULL);
 	}
 
-	EncodePhonemes(rule_phonemes,buf,bad_phoneme);
-	if(bad_phoneme[0] != 0)
+	EncodePhonemes(rule_phonemes,buf,&bad_phoneme);
+	if(bad_phoneme != 0)
 	{
-		fprintf(f_log,"%5d: Bad phoneme [%c] in %s\n",linenum,bad_phoneme[0],input);
+		bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
+		fprintf(f_log,"%5d: Bad phoneme [%s] (U+%x) in: %s\n",linenum,bad_phoneme_str,bad_phoneme,input);
 		error_count++;
 	}
 	strcpy(output,buf);

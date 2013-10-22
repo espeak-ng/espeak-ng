@@ -6,7 +6,7 @@
 .L03 f h j s y z r      // allow [B] [D] [Q] before these consonants
 .L04 b v f p      // labials, nasals are [m]
 .L05 g k          // velars, nasals are [N]
-
+.L06 a e o
 
 .group a
         a          a
@@ -75,6 +75,8 @@
      i) e          E
      u) e          E
      y) e          E
+     
+  L06_) e          e#   // unstressed 'e' silent at start of word after a,e,o
 
      _) ent' (AP4  ent
      _) enta'      ,ent%a
@@ -199,6 +201,10 @@ q        k
      &) s (_S1     s
 
      _) s' (AP2    s
+     _) s (C@      %es
+     _) s (hA      s
+     _) s (y       s
+    A_) s (C       s
 
 
 .group t

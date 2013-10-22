@@ -1482,6 +1482,7 @@ SetLengthMods(tr,3);  // all equal
 				SetupTranslator(tr,stress_lengths_ta, NULL);
 				tr->letter_bits_offset = OFFSET_TAMIL;
 				tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+				tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
 				tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			}
 			else
@@ -1578,6 +1579,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('u','r'):   // Urdu
+	case L('s','d'):   // Sindhi
 		{
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words

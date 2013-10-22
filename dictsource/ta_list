@@ -206,7 +206,7 @@ _1M3	orUko:d.ie:
 
 _dpt	_pul.l.i
 
-// drop final [U] when followed by an ordinal suffix
+// drop final [U] when followed by an ordinal suffix or thousands
 _1o	onR
 _2o	irVn.d.
 _3o	mu:nR
@@ -239,17 +239,29 @@ _6Co	aRUnu:R
 _7Co	;ez.Unu:R
 _8Co	;en.n.u:R
 
+
+
 _#ம்	a:m  // ordinal suffix
 _#ல்	il
 _#வது	a:vVdU
 _#வதும்	a:vVdUm
 _#வதுமாக a:vVdUma:gV
 
+_#ஆம்	a:m  // including ஆ
+_#ஆவது	a:vVdU
+_#ஆவதும்	a:vVdUm
+_#ஆவதுமாக a:vVdUma:gV
+
 _#-ம்	a:m  // ordinal suffix with hyphen
 _#-ல்	il
 _#-வது	a:vVdU
 _#-வதும்	a:vVdUm
 _#-வதுமாக a:vVdUma:gV
+
+_#-ஆம்	a:m  // including ஆ
+_#-ஆவது	a:vVdU
+_#-ஆவதும்	a:vVdUm
+_#-ஆவதுமாக a:vVdUma:gV
 
 // English words
 tamil	தமிழ்	$text
@@ -387,6 +399,7 @@ tamil	தமிழ்	$text
 பாதிக்காம	$alt
 பனியா	$alt
 பாம்	$alt
+போத 	$alt
 
 
 	// initial த as [d]
@@ -548,7 +561,6 @@ tamil	தமிழ்	$text
 போன்	fo:n
 போனில்	fo:nil
 //பைலை 	faIlaI
-பாதர்	fa:dVr
 பாதரிடம்	fa:dVrid.Vm
 பாதருடன்	fa:dVrUd.Vn
 பாதரில்லாமல்	fa:dVrilla:mVl
