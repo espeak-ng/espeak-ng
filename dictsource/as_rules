@@ -1,4 +1,4 @@
-﻿
+// Pronounciation rule for Assamese.
 // This file is UTF8 encoded 
 
 // letter groups:
@@ -6,8 +6,6 @@
 // B   vowel signs and virama ्
 // C   consonants
 // Y   vowel letters and vowel signs
-
-
 
 .replace
  ০	0
@@ -21,368 +19,328 @@
  ৮	8
  ৯	9
 
-
 // Vowels
 
-
 .group অ
-       অ        V
-       অঁ        O~
-       অ্যা       &          // V,ja in [æmiba]
+       অ		V
+       অঁ		O~
+       অ্যা		&          // V,ja in [æmiba]
       
 
 .group আ
-       আ        a
-       আঁ        a~
+       আ		a
+       আঁ		a~
 
 .group ই
-        ই        i
-        ইঁ        i~
+        ই		i
+        ইঁ		i~
 
 
 .group ঈ
-        ঈ        i
-        ঈঁ        i~
+        ঈ		i
+        ঈঁ		i~
 
 
 .group উ
-        উ        u
-        উঁ        u~
-
+        উ		u
+        উঁ		u~
         
 .group ঊ
-        ঊ        u
-        ঊঁ        u~
-
+        ঊ		u
+        ঊঁ		u~
 .group ঋ
-        ঋ        ri
-        ঋঁ        ri~
-
-.group ঌ
-       ঌ         l-
-       
+        ঋ		ri
        
 .group এ
-        এ        &
-        এঁ        &~
-
+        এ		&
+        এঁ		&~
         
 .group ঐ
-        ঐ        oj
-        ঐঁ        o~j
-
+        ঐ		oj
+        ঐঁ		o~j
         
 .group এ
-        এ        e
-        এঁ        e~
+        এ		e
+        এঁ		e~
         
-        এ্যা       &    // e,ja  [ækademi]
-
+        এ্যা		&    // e,ja  [ækademi]
 
 .group ও
-        ও        o
-        ওঁ        o~
-
+        ও		o
+        ওঁ		o~
         
 .group ঔ
-        ঔ        ow
-        ঔঁ        o~w
+        ঔ		ow
+        ঔঁ		o~w
 
 .group ও //??
-        ও        o:
-
-
-        
+         ও		o:
+       
 
 // Vowel Signs
 
 .group া
-       া         a
-       াঁ        a~
-       
+     C) া	a
+     C) াঁ	a~
+
 .group ি
-       ি         i
-       িঁ        i~
-    
+     C) ি	i
+     C) িঁ	i~
+
 .group ী
-       ী         i
-       ীঁ        i~
+     C) ী	i
+     C) ীঁ	i~
 
 .group ূ
-       ূ         u
-       ূঁ        u~
+     C) ূ	u
+     C) ূঁ	u~
 
 .group ু
-       ু         u
-       ুঁ        u~
-     
+     C) ু	u
+     C) ুঁ	u~
+
 .group ৃ
-       ৃ         ri
-       ৃঁ        ri~
+     C) ৃ	r'i
 
-       
 .group ে
-       ে        e
-       েঁ       e~
-       েউ       ew
-
+     C) ে	e
+     C) েঁ	e~
+     C) েউ	ew
 
 .group ৈ
-       ৈ        oj
-       ৈঁ       o~j
-    
+     C) ৈ	oj
+     C) ৈঁ	o~j
+
 .group ো
-       ো        o
-       োঁ       o~
-  
+     C) ো	o
+     C) োঁ	o~
+
 .group ৌ
-       ৌ        ow
-       ৌঁ       o~w
-  
-        
+     C) ৌ	ow
+     C) ৌঁ	o~w
+
+       
 // Consonants
 
 .group ক
-        ক        kV
-        ক (B     k
+        ক		kV
+        ক (B	k       
 
-        
+
 .group খ
-        খ        k#V
-        খ (B     k#
+        খ		k#V
+        খ (B	k#
         
         
 .group গ
-        গ        gV
-        গ (B     g
+        গ		gV
+        গ (B	g
 
 
 .group ঘ
-        ঘ        g#V
-        ঘ (B     g#
+        ঘ		g#V
+        ঘ (B	g#
 
         
 .group ঙ
-        ঙ        NV
-        ঙ্ (B     N
+        ঙ		NV
+        ঙ (B	N
 
 
 .group চ
-        চ        tSV
-        চ (B     tS
+        চ		tSV
+        চ (B	tS
 
 
 .group ছ
-        ছ        tS#V
-        ছ  (B    tS#
+        ছ 		tS#V
+        ছ  (B	tS#
 
         
 .group জ
-        জ        JV
-        জ (B     J
+        জ		JV
+        জ (B	J
         
-        জ্ব        JV
-        জ্ব (B     J
-        জ্ঞ        ggo~
-        জ্ঞ (B     gg
+        জ্ব		JV
+        জ্ব (B	J
+        জ্ঞ		ggo~
+        জ্ঞ (B	gg
 
 
 .group ঝ
-        ঝ        J#V
-        ঝ (B     J#
+        ঝ		J#V
+        ঝ (B	J#
 
         
 .group ঞ
-        ঞ        nV
-        ঞ্ (B     n
+        ঞ		nV
+        ঞ (B	n
  
 
 .group ট
-        ট         t.V
-        ট (B      t.
+        ট		t.V
+        ট (B	t.
 
 
 .group ঠ
-        ঠ        t.#V
-        ঠ (B     t.#
-       
+        ঠ		t.#V
+        ঠ (B	t.#       
 
 .group ড
-        ড        d.V
-        ড (B     d.
+        ড		d.V
+        ড (B	d.
 
-        ড়        r.V     // nukta
-        ড় (B     r.
-
-        
 .group ঢ
-        ঢ        d.#V
-        ঢ (B     d.#
+        ঢ		d.#V
+        ঢ (B	d.#
 
-        ঢ়        hr.V
-        ঢ় (B     hr.
-       
-       
+      
 .group ণ
-        ণ        nV   // should be [n.] if adjacent to t. or d. ?
-        ণ (B     n
-
+        ণ		nV   // should be [n.] if adjacent to t. or d. ?
+        ণ (B	n
 
 
 .group ত
-        ত        tV
-        ত (B     t
+        ত		tV
+        ত (B	t
+        ত (_	to
 
         
 .group থ
-        থ        t#V
-        থ (B     t#
+        থ		t#V
+        থ (B	t#
 
 
 .group দ
-        দ        dV
-        দ (B     d
+        দ		dV
+        দ (B	d
 
 
 .group ধ
-        ধ        d#V
-        ধ (B     d#
+        ধ		d#V
+        ধ (B	d#
 
 
 .group ন
-        ন        nV
-        ন (B     n
+        ন		nV
+        ন (B	n
 
         
 .group প
-        প        pV
-        প (B     p
+        প		pV
+        প (B	p
 
   
 .group ফ
-        ফ        fV    // or [p#] ?
-        ফ (B     f
+        ফ		fV    // or [p#] ?
+        ফ (B	f
   
 
 .group ব
-        ব        bV
-        ব (B     b
+        ব		bV
+        ব (B	b
 
         
 .group ভ
-        ভ        b#V
-        ভ (B     b#
+        ভ		b#V
+        ভ (B	b#
 
         
 .group ম
-        ম        mV
-        ম (B     m
-
-        
-.group য়
-        য়       jV
-        য় (B    j    
+        ম		mV
+        ম (B	m
 
         
 .group য
-        য       dZV
-        য (B    dZ
-        
-        য়	jV   // nukta
-        য় (B	j
-
-     ্) য (C    &   //  ব্যস্ত  [bæsto]
-     ্) যা      &    // ব্যাকরণ [bækɔron] 
+        য		dZV
+        য (B	dZ
+     ্) য (_	:O   // double the previous consonant
+     ্) য (B_	:        
+     ্) য (C	&   //  ব্যস্ত  [bæsto]
+     ্) যা	&    // ব্যাকরণ [bækɔron] 
 
 
-.group র
-        র        rV
-        র (B     r
+.group ৰ
+        ৰ		rV
+        ৰ	(B	r
 
     
 .group ল
-        ল        lV
-        ল  (B    l
+        ল		lV
+        ল  (B	l
 
+.group ৱ
+        ৱ		waV
+        ৱ (B	wO
 
 
 .group শ
-        শ        SV  // or [s] ?
-        শ (B     S
+        শ		SV  // or [s] ?
+        শ (B	S
         
         
-        শ (্ল   s
+        শ (্ল	s
 
         
 .group ষ
-        ষ        SV   
-        ষ (B     S
+        ষ		SV   
+        ষ (B	S
 
      
 .group স
-        স        SV  // or [s] ??
-        স (B     S
-        
-        স (্থ   s
-        স (্ত   s
-        
-     _) স্ব        SV   // shb
+        স		X@  // or [s] ??
+        স (B	X        
+        স (্থ	s
+        স (্ত	s        
+        স (্য	s  // সমস্যা        
+     _) স্ব	SV   // shb
      _) স্ব (B     S
 
         
 .group হ
-        হ        hV  
-        হ (B     h
+        হ		hV  
+        হ (B	h
+        হ (_	ho
+
+.group ক্ষ
+        ক্ষ		k#k#V   // or [k#:] ?
+        ক্ষ (B	k#k#
+
+.group ড়
+       ড়		r.V     //  can be ড plus nukta
+       ড় (B	r.
+
+.group ঢ়
+        ঢ়		hr.V	// can be ঢ plus nukta
+        ঢ় (B	hr.
+
+.group য়
+        য়		jV
+    _) য় (B	j    
+        য় (B        // used to separate 2 vowels
 
         
 .group হ্ব
-        হ্ব       vV
-        হ্ব (B    v
+        হ্ব		vV
+        হ্ব (B	v
 
         
 .group ৎ
-        ৎ        t
-
-
-.group ড়         // can be ড plus nukta
-        ড়        r.V
-        ড় (B     r.
-
-       
-.group ঢ়         // can be ঢ plus nukta
-        ঢ়        hr.V
-        ঢ় (B     hr.
-        
-
+        ৎ		t
 
 .group ঁ
-	ঁ	 O~     // candrabindu, nasalize the previous vowel
+    C) ঁ	 O~     // candrabindu, nasalize the previous vowel/Consonants
 
 .group ং
-       ং        N     //  anusvara/onushshor
-
+    A) ং	N     //  anusvara/onushshor
+    C) ং	N    
+   
 .group ঃ              // visarga/bishorgo
         ঃ             // doubles the following consonant
-        ঃ (_      H
+      ঃ (_	H
 
 .group ্		// virama/hoshonto
-	্
-
-.group ়
-	়		// nukta, modifies a consonant
+   
 
 
-
-.group
-       // obsolete letters
-        ঋ        r-
-        ৠ        r-
-        ঌ        l-
-        ৡ        l-
-        ৃ        r-
-        ৄ        r-
-        ৢ        l-
-        ৣ        l-
-
-    __) - (_D    bij'og
-    D_) - (_D    bij'og
+//    D_) - (_D    bij'og

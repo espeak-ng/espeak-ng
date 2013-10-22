@@ -1,0 +1,105 @@
+
+//====================================================
+//  Oriya, inherits from Bengali
+//====================================================
+
+
+phoneme V  // inherent vowel, can be [O] or [o]
+  vowel flag1 starttype #o  endtype #o
+  length 200
+
+  IF thisPh(isWordEnd) AND prevPhW(isNotVowel) THEN
+    ChangePhoneme(O)
+  ENDIF
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 225
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    FMT(vowel/a#_2)
+  ENDIF
+  FMT(vowel/a_3)
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 210
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 210
+  FMT(vowel/u)
+endphoneme
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme &
+  vowel starttype #a endtype #a
+  length 210
+  FMT(vowel/&_2)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 210
+  IF nextPhW(w) THEN
+    length 170
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 200
+  FMT(vowel/oo_5)
+endphoneme
+
+
+phoneme tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_unasp2)
+  ENDIF
+  WAV(ustop/tsh_unasp2)
+endphoneme
+
+
+phoneme tS#
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
+
+
+
+
+
+
+phoneme ~
+  virtual
+endphoneme
+
