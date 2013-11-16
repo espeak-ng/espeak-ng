@@ -111,10 +111,6 @@ extern wchar_t ipa1[256];
 
 
 
-extern wxFont FONT_SMALL;
-extern wxFont FONT_MEDIUM;
-extern wxFont FONT_NORMAL;
-
 enum {
 	MENU_QUIT = 1,
 	MENU_SPECTRUM,
