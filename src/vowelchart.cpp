@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -36,6 +37,10 @@
 #include "spect.h"
 #include "translate.h"
 #include "options.h"
+
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#endif
 
 /* Read a file of vowel symbols and f1,f2 formants, and produce a vowel diagram
 */

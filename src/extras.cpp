@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2006 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,6 +35,10 @@
 #include "spect.h"
 #include "translate.h"
 #include "options.h"
+
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#endif
 
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 extern int __cdecl string_sorter(char **a, char **b);

@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -38,6 +39,13 @@
 #include "translate.h"
 #include "spect.h"
 #include "options.h"
+
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#define wxSAVE wxFD_SAVE
+#define WXK_PRIOR WXK_PAGEUP
+#define WXK_NEXT WXK_PAGEDOWN
+#endif
 
 extern MyFrame *frame ;
 #define SCROLLUNITS  20

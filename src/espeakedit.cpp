@@ -43,7 +43,10 @@
 #include "translate.h"
 #include "prosodydisplay.h"
 
-
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#define wxSAVE wxFD_SAVE
+#endif
 
 static const char *about_string2 = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2009\n\n"
 "Licensed under GNU General Public License version 3\n"
@@ -123,7 +126,7 @@ bool MyApp::OnInit(void)
 {//=====================
 
 int j;
-wxChar *p;
+const wxChar *p;
 char param[80];
 
 

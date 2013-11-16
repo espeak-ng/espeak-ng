@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -42,6 +43,11 @@
 #include "wx/checkbox.h"
 #include "wx/filename.h"
 #include "wx/sound.h"
+
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#define wxSAVE wxFD_SAVE
+#endif
 
 #define T_SOURCE    501
 #define T_PHONETIC  502
