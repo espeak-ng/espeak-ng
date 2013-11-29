@@ -7,8 +7,10 @@
 - [Installing](#installing)
 - [Building Voices](#building-voices)
 - [Adding New Voices](#adding-new-voices)
-- [Praat Modifications](#praat-modifications)
-- [Historical Releases](#historical-releases)
+- [Changes from Upstream](#changes-from-upstream)
+  - [Development Branch](#development-branch)
+  - [Praat Modifications](#praat-modifications)
+  - [Historical Releases](#historical-releases)
 - [Bugs](#bugs)
 - [License Information](#license-information)
 
@@ -26,6 +28,9 @@ systems using autotools. It contains the following branches:
    not contained in the subversion codebase;
 *  *android* — the source code of
    [eSpeak for Android](http://reecedunn.co.uk/espeak-for-android).
+
+See the [Changes from Upstream](#changes-from-upstream) section on what has been
+changed from the upstream version of eSpeak.
 
 ## Build Dependencies
 
@@ -121,7 +126,81 @@ This will update the build system so that `make` will build the new voice
 in addition to building everything else, and add a `<lang-code>` target
 for building just that voice.
 
-## Praat Modifications
+## Changes from Upstream
+
+The *upstream* branch contains the unmodified eSpeak sources imported from
+subversion using the `git svn` command. These changes are merged into the
+*development* branch.
+
+### Development Branch
+
+The *development* branch replaces the code from subversion with the code
+from [http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html).
+It combines the *eSpeak* and *espeakedit* zip files containing the Linux
+binaries with source code to match the subversion code.
+
+The motivation for using these development releases is that the source
+code from the subversion repositories is often incomplete -- either
+missing several files, or not including certain changes. This is also
+why the *master* branch pulls changes from *development*, not *upstream*.
+
+The following changes are performed when merging the two zip files:
+
+1.  the `src/Makefile` in the *espeakedit* code has been renamed to
+    `src/Makefile.espeakedit` to match the name in subversion;
+
+2.  the *espeakedit* files have been merged into the *eSpeak* files
+    as the subversion repository does not split out the two;
+
+3.  the `platforms/riscos/Makefile,fe1` file is moved to `platforms/riscos/Makefile`;
+
+4.  the `platforms/riscos/copysource,feb` file is moved to `platforms/riscos/copysource`;
+
+5.  the `phsource/vnasal/.directory` file is removed — this is used by the
+    `Dolphin` file browser and should not be included in the sources;
+
+6.  the `docs` folder contains an older version of the documentation, so these
+    changes are reverted;
+
+7.  the `espeak-data/voices/asia/ko` file is missing from the development
+    sources, but none of the other related Korean voice files have been removed
+    so the file is restored to the upstream version;
+
+8.  the executable bit is removed from the source files — this is because
+    there are no files that need to be executable in the source tree.
+
+The following files are removed (excluded via `.gitignore`) from the sources:
+
+1.  the Linux binaries (including the voice/phoneme data) — these are not
+    part of the source code;
+
+2.  generated files such as `dictsource/dict_phonemes` — these are not part
+    of the source code;
+
+3.  `praat-mod` — this is not included as part of the subversion code (see
+    [Praat Modifications](#praat-modifications) for where to get these
+    changes);
+
+4.  `Makefile` — this is a copy of `src/Makefile`;
+
+5.  `ReadMe` — this is not provided in the subversion codebase, instead a
+    more informative version is located in this `README.md` file;
+
+6.  `ChangeLog.txt` — this is not provided in the subversion codebase, is
+    incomplete and there is a more detailed change log available in the
+    subversion and git repositories;
+
+7.  `License.txt` — this is a copy of the GPLv3 license; it is not provided
+    in the subversion repository; for this git mirror, the GPLv3 license is
+    located in the `COPYING` file as per GNU guidelines.
+
+**NOTE:** The generated files `phsource/compile_report` and
+`dictsource/dict_phonemes` are included in the subversion repository. They
+have been removed from the git repository as well as being added to the
+`.gitignore` file; as such, they will cause merge conflicts when merging
+from *upstream* to *development*.
+
+### Praat Modifications
 
 The eSpeak sources from
 [http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html)
@@ -134,7 +213,7 @@ the changes to the `praat` program the modifications are included in the
 *espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror. This
 mirror currently includes support upto version 5.3.23 of praat.
 
-## Historical Releases
+### Historical Releases
 
 1.24.02 is the first version of eSpeak to appear in the subversion
 repository, but releases from 1.05 to 1.24 are available on the
