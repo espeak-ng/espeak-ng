@@ -13,18 +13,18 @@
 
 ----------
 
-This branch contains changes to eSpeak to support building on a POSIX system
-by using autotools.
+This is a mirror of the eSpeak sources with changes to make it build on POSIX
+systems using autotools. It contains the following branches:
 
-This does the following things:
-
-1.  compile the libespeak library;
-2.  compile the speak and espeak command-line applications;
-3.  compile the espeakedit application;
-4.  compile the voice data, creating an espeak-data directory.
-
-This branch also contains some bug fixes and improvements that get
-sent back upstream.
+*  *upstream* — a mirror of the eSpeak subversion repository using `git svn`;
+*  *development* — the eSpeak sources from
+   [http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html);
+*  *master* — build system changes and bug fixes;
+*  *historical* — historical eSpeak releases from
+   [http://sourceforge.net/projects/espeak/files/espeak/](http://sourceforge.net/projects/espeak/files/espeak/)
+   not contained in the subversion codebase;
+*  *android* — the source code of
+   [eSpeak for Android](http://reecedunn.co.uk/espeak-for-android).
 
 ## Build Dependencies
 
