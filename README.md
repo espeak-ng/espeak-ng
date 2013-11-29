@@ -22,11 +22,16 @@
 
 ----------
 
+The [eSpeak Text-to-Speech](http://espeak.sourceforge.net/) program is an open
+source speech synthesizer that supports over 70 languages. It uses spectral
+formant synthesis by default which sounds robotic, but can be configured to
+use Klatt formant synthesis or MBROLA to give it a more natural sound.
+
 This is a mirror of the eSpeak sources with the following improvements on the
 *master* branch:
 
 1.  An autotools-based build system that supports building the phoneme data and
-    language dictionaries from source.
+    language dictionaries from source on POSIX systems.
 
 2.  Detection of the supported audio APIs via the `configure` script — no need to
     modify the build files.
