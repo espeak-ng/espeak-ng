@@ -1,8 +1,13 @@
-name ir-mbrola-1
+// Persian (Farsi) Mbrola voice need ir1 diphone file.
+name Farsi-mb-ir1
 language fa
-
 gender male
-
 phonemes fa
-
 mbrola ir1 ir1_phtrans
+// "speed 82" adjust default speed of "mb-ir1" with eSpeak "fa". 
+speed 82
+// Please don't change this value. It's result of several tests.
+
+// "dictrules 1" read English text as Pinglish (Persian text that written with English alphabets). 
+// dictrules 1
+// If you want use Pinglish instead of English for reading, just delete // from start of above line. 
