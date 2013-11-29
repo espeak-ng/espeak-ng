@@ -9,6 +9,9 @@
 - [Adding New Voices](#adding-new-voices)
 - [Changes from Upstream](#changes-from-upstream)
   - [Development Branch](#development-branch)
+  - [Build System](#build-system)
+  - [espeakedit](#espeakedit)
+  - [Bug Fixes](#bug-fixes)
   - [Praat Modifications](#praat-modifications)
   - [Historical Releases](#historical-releases)
 - [Bugs](#bugs)
@@ -16,8 +19,21 @@
 
 ----------
 
-This is a mirror of the eSpeak sources with changes to make it build on POSIX
-systems using autotools. It contains the following branches:
+This is a mirror of the eSpeak sources with the following improvements:
+
+1.  An autotools-based build system that supports building the phoneme data and
+    language dictionaries from source.
+
+2.  Detection of the supported audio APIs via the `configure` script — no need to
+    modify the build files.
+
+3.  The NVDA voice variants are included in the `espeak-data/voices/!v` directory.
+
+4.  Add support for the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
+
+5.  Support for wxWidgets 3.0.
+
+It contains the following branches:
 
 *  *upstream* — a mirror of the eSpeak subversion repository using `git svn`;
 *  *development* — the eSpeak sources from
@@ -199,6 +215,72 @@ The following files are removed (excluded via `.gitignore`) from the sources:
 have been removed from the git repository as well as being added to the
 `.gitignore` file; as such, they will cause merge conflicts when merging
 from *upstream* to *development*.
+
+### Build System
+
+The build system for eSpeak has been changed on the *master* branch to use
+autotools and to support building the phoneme data and language dictionaries
+on POSIX systems.
+
+1.  Use autotools (`autoconf`, `automake` and `libtool`) to build espeak.
+
+2.  Use the portaudio header on the build machine, not the one in espeak. This
+    avoids the need to link to the correct portaudio header file.
+
+3.  Detect wxWidgets using `wx-config`.
+
+4.  Add `configure` options and detection for the `pulse`, `portaudio`,
+    `runtime` and `sada` audio API modes.
+
+5.  Allow `CXXFLAGS` to be overwritten from the environment. This is based
+    on the patch for Debian bug #707925 by Jason White.
+
+6.  *Klatt*, *MBROLA*, *libsonic* and asynchronous command support was made
+    optional. This covers:
+    *  adding an option to the `configure` script;
+    *  only building the source files that are enabled;
+    *  removing the guards around the relevant source files;
+    *  removing the relevant conditional compilation defines from `speech.h`;
+    *  fixing the sources if needed to build without support for the feature.
+
+7.  Fixes for building with wxWidgets 3.0, while still supporting wxWidgets 2.8.
+
+### espeakedit
+
+The following changes have been made to `espeakedit` to make it usable from
+the command line, especially for use in the build process:
+
+1.  Build the intonation data as well as the phoneme data when the `--compile`
+    option is passed.
+
+2.  Don't compile the dictionaries when using the `--compile` command.
+
+3.  Only call `DrawEnvelopes` if `MAKE_ENVELOPES` is defined. This prevents the
+    `phsource/envelopes.png` file being updated every build.
+
+4.  Don't load the phoneme data before compiling it, as the phoneme data may
+    not exist.
+
+5.  Use the path set by `ESPEAK_DATA_PATH` if that environment variable exists,
+    otherwise use the `HOME` environment variable.
+
+6.  Don't use the paths from the configuration file when running the `--compile`
+    command.
+
+### Bug Fixes
+
+The following bugs have been fixed on the *master* branch:
+
+*  [`c1196192e5`](https://github.com/rhdunn/espeak/commit/c1196192e5950a80d37073135780441cc782c127)
+   — don't crash when `espeak_SetPunctuationList` is called with a null pointer.
+
+*  [`304d265f46`](https://github.com/rhdunn/espeak/commit/304d265f462fa4854c7d1f953131c69937a2fe74)
+   — fix a segfault when running `espeak -x "[[]]"`
+
+*  [`c098e8b891`](https://github.com/rhdunn/espeak/commit/c098e8b8910c1bffdd878198095fee803d8bd73a)
+   — change the IPA transcription of the `/i/` phoneme to `i`.
+
+These have been sent upstream for inclusion in the upstream version of eSpeak.
 
 ### Praat Modifications
 
