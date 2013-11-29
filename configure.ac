@@ -206,13 +206,13 @@ AC_MSG_NOTICE([
         Compiler flags:                ${CXXFLAGS}
 
         wxWidgets:                     ${WX_VERSION}
-	pulseaudio:                    ${have_pulseaudio}
-	portaudio:                     ${have_portaudio}
-	sada:                          ${have_sada}
-	audio configuration:           ${AUDIO}
+        pulseaudio:                    ${have_pulseaudio}
+        portaudio:                     ${have_portaudio}
+        sada:                          ${have_sada}
+        audio configuration:           ${AUDIO}
 
-	Klatt:                         ${have_klatt}
-	MBROLA:                        ${have_mbrola}
-	Sonic:                         ${have_sonic}
-	Async:                         ${have_async}
+        Klatt:                         ${have_klatt}
+        MBROLA:                        ${have_mbrola}
+        Sonic:                         ${have_sonic}
+        Async:                         ${have_async}
 ])
