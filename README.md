@@ -3,6 +3,9 @@
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
+  - [Audio Output Configuration](#audio-output-configuration)
+  - [eSpeak Feature Configuration](#espeak-feature-configuration)
+  - [Extended Dictionary Configuration](#extended-dictionary-configuration)
 - [Testing](#testing)
 - [Installing](#installing)
 - [Building Voices](#building-voices)
@@ -82,6 +85,48 @@ be built via the standard autotools commands:
 __NOTE:__ The configure command detects various platform differences that
 the espeak makefiles don't cater for (e.g. different wxWidgets version)
 and detect the available audio setup to use automatically.
+
+### Audio Output Configuration
+
+The following `configure` options control which audio interfaces to use:
+
+| Option              | Audio Interfaces | Default |
+|---------------------|------------------|---------|
+| `--with-pulseaudio` | PulseAudio       | yes     |
+| `--with-portaudio`  | PortAudio        | yes     |
+| `--with-sada`       | SADA (Solaris)   | no      |
+
+If pulseaudio and portaudio are both enabled and available, eSpeak will choose
+which one to use at runtime, trying pulseaudio first before falling back to
+portaudio.
+
+### eSpeak Feature Configuration
+
+The following `configure` options control which eSpeak features are enabled:
+
+| Option          | Description                                  | Default |
+|-----------------|----------------------------------------------|---------|
+| `--with-klatt`  | Enable Klatt formant synthesis.              | yes     |
+| `--with-mbrola` | Enable MBROLA voice support.                 | yes     |
+| `--with-sonic`  | Use the sonic library to support higher WPM. | yes     |
+| `--with-async`  | Enable asynchronous commands.                | yes     |
+
+### Extended Dictionary Configuration
+
+The following `configure` options control which of the extended dictionary files
+to build:
+
+| Option               | Extended Dictionary | Default |
+|----------------------|---------------------|---------|
+| `--with-extdict-ru`  | Russian             | no      |
+| `--with-extdict-zh`  | Mandarin Chinese    | no      |
+| `--with-extdict-zhy` | Cantonese           | no      |
+
+If the option has the value `no`, the extended dictionary is not built; instead,
+the version from upstream espeak is build. If the option has the value `yes`,
+the extended dictionary is built; that is, the extra data from
+[http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/)
+is used.
 
 ## Testing
 
