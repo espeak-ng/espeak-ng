@@ -9,10 +9,10 @@
 - [Adding New Voices](#adding-new-voices)
 - [Changes from Upstream](#changes-from-upstream)
   - [Development Branch](#development-branch)
+    - [Praat Modifications](#praat-modifications)
   - [Build System](#build-system)
   - [espeakedit](#espeakedit)
   - [Bug Fixes](#bug-fixes)
-  - [Praat Modifications](#praat-modifications)
   - [Historical Releases](#historical-releases)
 - [Bugs](#bugs)
 - [License Information](#license-information)
@@ -216,6 +216,17 @@ have been removed from the git repository as well as being added to the
 `.gitignore` file; as such, they will cause merge conflicts when merging
 from *upstream* to *development*.
 
+#### Praat Modifications
+
+The `praat-mod` directory in the development zip files provides modifications
+of the `praat` program to support generating spectral data for use with
+espeakedit. This is not available in the subversion releases.
+
+Instead of adding the `praat-mod` folder to the sources here, to better track
+the changes to the `praat` program the modifications are included in the
+*espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror. This
+mirror currently includes support upto version 5.3.23 of praat.
+
 ### Build System
 
 The build system for eSpeak has been changed on the *master* branch to use
@@ -281,19 +292,6 @@ The following bugs have been fixed on the *master* branch:
    — change the IPA transcription of the `/i/` phoneme to `i`.
 
 These have been sent upstream for inclusion in the upstream version of eSpeak.
-
-### Praat Modifications
-
-The eSpeak sources from
-[http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html)
-contains a `praat-mod` folder. This provides modifications of the `praat` program
-to support generating spectral data for use with espeakedit. This is not
-available in the subversion releases.
-
-Instead of adding the `praat-mod` folder to the sources here, to better track
-the changes to the `praat` program the modifications are included in the
-*espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror. This
-mirror currently includes support upto version 5.3.23 of praat.
 
 ### Historical Releases
 
