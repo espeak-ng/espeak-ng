@@ -7,6 +7,7 @@
 - [Installing](#installing)
 - [Building Voices](#building-voices)
 - [Adding New Voices](#adding-new-voices)
+- [Praat Modifications](#praat-modifications)
 - [Historical Releases](#historical-releases)
 - [Bugs](#bugs)
 - [License Information](#license-information)
@@ -119,6 +120,19 @@ you can then run:
 This will update the build system so that `make` will build the new voice
 in addition to building everything else, and add a `<lang-code>` target
 for building just that voice.
+
+## Praat Modifications
+
+The eSpeak sources from
+[http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html)
+contains a `praat-mod` folder. This provides modifications of the `praat` program
+to support generating spectral data for use with espeakedit. This is not
+available in the subversion releases.
+
+Instead of adding the `praat-mod` folder to the sources here, to better track
+the changes to the `praat` program the modifications are included in the
+*espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror. This
+mirror currently includes support upto version 5.3.23 of praat.
 
 ## Historical Releases
 
