@@ -110,7 +110,6 @@ extern TranslDlg *transldlg;
 extern wchar_t ipa1[256];
 
 
-
 enum {
 	MENU_QUIT = 1,
 	MENU_SPECTRUM,
@@ -179,5 +178,11 @@ enum {
 };
 
 
-
+// wxWidgets 3 name changes
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#define wxSAVE wxFD_SAVE
+#define WXK_PRIOR WXK_PAGEUP
+#define WXK_NEXT WXK_PAGEDOWN
+#endif
 

@@ -93,7 +93,7 @@ _13	tr'eTe
 _14	kat'OrTe
 _15	k'inTe
 _20	b'eInte
-_2X	b'eInt
+_2X	beInt
 _3X	tr'eInta
 _4X	kwar'Enta
 _5X	Tinkw'Enta
@@ -101,11 +101,16 @@ _6X	sEs'Enta
 _7X	sEt'Enta
 _8X	OtS'Enta
 _9X	nOB'Enta
-_0C	Tj'EntOs
+// _0C	Tj'EntOs
 _1C0	Tj'en         // exactly one hundred
 _1C	Tj'ento
+_2C	dosTj'entos
+_3C	tresTj'entos
+_4C	kwatroTj'entos
 _5C	kinj'EntOs
+_6C	seIsTj'entos
 _7C	s,eteTj'EntOs
+_8C	otSoTj'entos
 _9C	n,OBeTj'EntOs
 _0M1	m'il
 _0M2	miJ^'ones
@@ -164,16 +169,11 @@ vi	bi	// not a Roman number
 
 // unstressed words
 // articles
-el           $u
-el	$atend
-los          $u
-los	$atend
-la           $u
-la	$atend
-las          $u
-las	$atend
-lo           $u
-lo	$atend
+el           $u+
+los          $u+
+la           $u+
+las          $u+
+lo           $u+
 
 
 
@@ -183,123 +183,70 @@ lo	$atend
 
 // pronouns
 
-me      $u $only // reflexive pronouns
-me	$atend
-te      $u
-te	$atend
-le        $u
-le	$atend
-les         $u
-les	$atend
-se	$u
-se	$atend
-nos     $u
-nos	$atend
-os      $u
-os	$atend
+me      $u+ $only // reflexive pronouns
+te      $u+
+le        $u+
+les         $u+
+se	$u+
+nos     $u+
+os      $u+
 
 
 // possessives
-mi $u
-mi	$atend
-mis	$u
-mis	$atend
-tu      $u
-tu	$atend
-tus     $u
-tus	$atend
-su	$u
-su	$atend
-sus	$u
-sus	$atend
-nuestro   $u
-nuestro	$atend
-nuestros  $u
-nuestros	$atend
-nuestra   $u
-nuestra	$atend
-nuestras  $u
-nuestras	$atend
-vuestro   $u
-vuestro	$atend
-vuestros  $u
-vuestros	$atend
-vuestra   $u
-vuestra	$atend
-vuestras  $u
-vuestras	$atend
+mi $u+
+mis	$u+
+tu      $u+
+tus     $u+
+su	$u+
+sus	$u+
+nuestro   $u+
+nuestros  $u+
+nuestra   $u+
+nuestras  $u+
+vuestro   $u+
+vuestros  $u+
+vuestra   $u+
+vuestras  $u+
 // prepositions
-a            $u     // at
-a	$atend
-al           $u
-al	$atend
-de           $u           // of,from
-de	$atend
-del          $u
-del	$atend
-en           $u
-en	$atend
-con          $u     // with
-con	$atend
-sin       $u
-sin	$atend
-por          $u     // for,through,along,via
-por	$atend
-tras          $u
-tras	$atend
-ante	$u	$only
-ante	$atend
-para         $u     // for,in order,by
-para	$atend
-entre        $u 
-entre	$atend
-sobre	$u
-sobre	$atend
-bajo	$u
-bajo	$atend
-desde        $u       // from,since
-desde	$atend
-hasta         $u
-hasta	$atend
-hacia         $u
-hacia	$atend
+a            $u+     // at
+al           $u+
+de           $u+           // of,from
+del          $u+
+en           $u+
+con          $u+     // with
+sin       $u+
+por          $u+     // for,through,along,via
+tras          $u+
+ante	$u+	$only
+para         $u+     // for,in order,by
+entre        $u+ 
+sobre	$u+
+bajo	$u+	$only
+desde        $u+       // from,since
+hasta         $u+
+hacia         $u+
 
 
-e         $u       $only
-e	$atend
+e         $u+       $only
 y            %i     // and
-o            $u     // or
-o	$atend
-u	$u
-u	$atend
+o            $u+     // or
+u	$u+
 
 
-aunque       $u     // although
-aunque	$atend
-pero       $u
-pero	$atend
-porque       $u       // because
-porque	$atend
+aunque       $u+     // although
+pero       $u+
+porque       $u+       // because
 
 
-que          $u    // what
-que	$atend
-cuando       $u
-cuando	$atend
-cuanto	$u
-cuanto	$atend
-donde       $u
-donde	$atend
-como        $u
-como	$atend
-quien	$u
-quien	$atend
-quienes	$u
-quienes	$atend
-mientras         $u
-mientras	$atend
-si       $u
-si	$atend
+que          $u+    // that
+cuando       $u+
+cuanto	$u+
+donde       $u+
+como        $u+
+quien	$u+
+quienes	$u+
+mientras         $u+
+si       $u+
 
 
 
@@ -312,39 +259,37 @@ si	$atend
 b	be
 c	Te
 d	de
-f	_|Efe
+f	Efe
 g	xe
 h	atSe
 j	xOta
 k	ka
-l	_|Ele
-m	_|Eme
-n	_|Ene
-ñ	_|En^e
+l	Ele
+m	Eme
+n	Ene
+ñ	En^e
 p	pe
 q	ku
-r	_|Ere
-s	_|Ese
+r	Ere
+s	Ese
 t	te
-v	_|uBe
+v	uBe
 w	uBe||d'OBle
-x	_|Ekis
+x	Ekis
 z	TEta
 
 _a	a
 _e	e
 _o	o
 _y	igri'eQa
-y	igri'eQa	$atend
 ch	tSe
 ll	'El^e
 á	'a||aTEntw'aDa
 é	'e||aTEntw'aDa
 í	'i||aTEntw'aDa
 _ó	'o||aTEntw'aDa
-ó	'o||aTEntw'aDa $atend
 ú	'u||aTEntw'aDa
-ü	,uDj'ErEsis
+ü	'u||kon||dj'ErEsis
 
 
 
@@ -379,8 +324,7 @@ Uds	ustedes		$text $capital $dot
 
 linux        $1
 méxico       m'Exiko
-mexicano     mExikano
-
+vietnam $2
 spanish      sp'aniS
 english ínglish      $text
 firefox	f'aIrfoks
@@ -394,8 +338,8 @@ facebook f'eIsbuk
 twitter	tw'iter
 twit	tw'it
 mozilla	moT'ila
-espeak	isp'ik
-(e speak) isp'ik
+espeak	'isp'ik
+(e speak) 'isp'ik
 eloquence	'elokwens
 speech	sp'itS
 platform	pl'atfom

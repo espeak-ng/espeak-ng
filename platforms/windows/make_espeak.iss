@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.47.09
+AppVerName=eSpeak version 1.47.14
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -183,10 +183,13 @@ begin
   $41: Result := 'sw';
   //$44: Result := 'tt';
   $46: Result := 'pa';
+  //$48: Result := 'or';
   $49: Result := 'ta';
   $46: Result := 'pa';
+  $4a: Result := 'te';
   $4b: Result := 'kn';
   $4c: Result := 'ml';
+  //$4d: Result := 'as';
   //$50: Result := 'mn';
   $52: Result := 'cy';
   //$5e: Result := 'am';
@@ -231,6 +234,7 @@ begin
   'af': value := $436;
   'am': value := $45e;
   'an': value := $40a;   // Aragon, use code for Spanish
+  'as': value := $44d;
   'az': value := $42c;
   'bg': value := $402;
   'bn': value := $445;
@@ -274,6 +278,7 @@ begin
   'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
+  'or': value := $448;
   'pa': value := $446;
   'pl': value := $415;
   'pt': value := $416;
@@ -312,6 +317,7 @@ begin
   '-hu': value := $40e;
   '-ic': value := $40f;
   '-in': value := $439;
+  '-ir': value := $429;
   '-it': value := $410;
   '-mx': value := $80a;
   '-nl': value := $413;

@@ -76,7 +76,8 @@
      u) e          E
      y) e          E
      
-  L06_) e          e#   // unstressed 'e' silent at start of word after a,e,o
+  L06_) e (CC          e#   // unstressed 'e' silent at start of word after a,e,o
+  L06_h) e (CC          e#   // unstressed 'e' silent at start of word after a,e,o
 
      _) ent' (AP4  ent
      _) enta'      ,ent%a
@@ -107,8 +108,8 @@
 
 .group h
         h                    // silent
-        hu (e      gw
-        hu (i      gw
+        hu (Y      gw
+       
 
 .group i
         i          i
@@ -233,9 +234,16 @@ q        k
         u (i       u
      r) uix        uS
      r) u (A       u
+	 A) u (Y    gw
         u (A       w
+		_) u (u       u
      _) u (A       gw
+	 //Ar) u (Y    gw
+	 _des) u (Y    gw
+	 _es) u (Y    gw
 
+_cir) ue (ll       gwe
+_esquir) ue (l     gwe
 
 .group v   // same as 'b'
         v          b
@@ -258,6 +266,7 @@ q        k
         x          ks
      _) x          S
      i) x          S
+	 C) x        S
 
 .group y
         y          j

@@ -409,7 +409,7 @@ int IsAlpha(unsigned int c)
 	if(c == 0x0605)
 		return(1);
 
-	if((c >= 0x64b)  && (c <= 0x65e))
+	if((c == 0x670) || ((c >= 0x64b) && (c <= 0x65e)))
 		return(1);   // arabic vowel marks
 
 	if((c >= 0x300) && (c <= 0x36f))
@@ -1714,8 +1714,26 @@ int SetTranslator2(const char *new_language)
 {//=========================================
 // Set translator2 to a second language
 	int new_phoneme_tab;
+	const char *new_phtab_name;
+	int bitmap;
+	int dialect = 0;
 
-	if((new_phoneme_tab = SelectPhonemeTableName(new_language)) >= 0)
+	new_phtab_name = new_language;
+	if((bitmap = translator->langopts.dict_dialect) != 0)
+	{
+		if((bitmap & (1 << DICTDIALECT_EN_US)) && (strcmp(new_language, "en") == 0))
+		{
+			new_phtab_name = "en-us";
+			dialect = DICTDIALECT_EN_US;
+		}
+		if((bitmap & (1 << DICTDIALECT_ES_LA)) && (strcmp(new_language, "es") == 0))
+		{
+			new_phtab_name = "es-la";
+			dialect = DICTDIALECT_ES_LA;
+		}
+	}
+
+	if((new_phoneme_tab = SelectPhonemeTableName(new_phtab_name)) >= 0)
 	{
 		if((translator2 != NULL) && (strcmp(new_language,translator2_language) != 0))
 		{
@@ -1734,6 +1752,19 @@ int SetTranslator2(const char *new_language)
 				SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 				new_phoneme_tab = -1;
 				translator2_language[0] = 0;
+			}
+			else
+			{
+				if(dialect == DICTDIALECT_EN_US)
+				{
+					// en-us
+					translator2->dict_condition = 0x48;  // bits 3, 6
+					translator2->langopts.param[LOPT_REDUCE_T] = 1;
+				}
+				if(dialect == DICTDIALECT_ES_LA)
+				{
+					translator2->dict_condition = 0x04;  // bit 2
+				}
 			}
 			translator2->phoneme_tab_ix = new_phoneme_tab;
 		}

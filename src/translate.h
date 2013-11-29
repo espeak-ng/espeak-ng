@@ -558,6 +558,10 @@ typedef struct {
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
+
+#define DICTDIALECT_EN_US  1  // bit number
+#define DICTDIALECT_ES_LA  2
+	int dict_dialect;         // bitmap, use a dialect for foreign words
 } LANGUAGE_OPTIONS;
 
 

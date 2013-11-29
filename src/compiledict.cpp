@@ -235,6 +235,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	unsigned char rb;
 	unsigned char c;
 	char *p;
+	char *p_end;
 	int  ix;
 	int  match_type;
 	int  finished=0;
@@ -245,10 +246,10 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	int  condition_num=0;
 	int  at_start = 0;
 	const char *name;
-	char buf[60];
-	char buf_pre[60];
+	char buf[200];
+	char buf_pre[200];
 	char suffix[20];
-	static char output[60];
+	static char output[80];
 
 	static char symbols[] =
 		{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
@@ -367,6 +368,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	*p = 0;
 
 	p = output;
+	p_end = p + sizeof(output) - 1;
+
 	if(linenum > 0)
 	{
 		sprintf(p,"%5d:\t",linenum);
@@ -381,12 +384,14 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	{
 		if(at_start)
 			*p++ = '_';
-		while(--ix >= 0)
+		while((--ix >= 0) && (p < p_end-3))
 			*p++ = buf_pre[ix];
 		*p++ = ')';
 		*p++ = ' ';
 	}
 	*p = 0;
+
+	buf[p_end - p] = 0;  // prevent overflow in output[]
 	strcat(p,buf);
 	ix = strlen(output);
 	while(ix < 8)
