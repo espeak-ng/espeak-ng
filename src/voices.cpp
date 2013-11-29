@@ -110,6 +110,7 @@ enum {
 	V_SPEED,
 	V_DICTMIN,
 	V_ALPHABET2,
+	V_DICTDIALECT,
 
 // these need a phoneme table to have been specified
 	V_REPLACE,
@@ -162,6 +163,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"speed",      V_SPEED},
 	{"dict_min",   V_DICTMIN},
 	{"alphabet2",  V_ALPHABET2},
+	{"dictdialect",   V_DICTDIALECT},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -174,6 +176,13 @@ static MNEM_TAB keyword_tab[] = {
 	{"apostrophe", 0x100+LOPT_APOSTROPHE},
 	{NULL,   0}
 };
+
+static MNEM_TAB dict_dialects[] = {
+	{"en-us",   DICTDIALECT_EN_US},
+	{"es-la",   DICTDIALECT_ES_LA},
+	{NULL,   0}
+};
+
 
 #define N_VOICE_VARIANTS   12
 const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
@@ -1024,6 +1033,21 @@ voice_t *LoadVoice(const char *vname, int control)
 				else
 				{
 					fprintf(stderr,"alphabet name '%s' not found\n", name1);
+				}
+			}
+			break;
+
+		case V_DICTDIALECT:
+			// specify a dialect to use for foreign words, eg, en-us for _^_EN
+			if(sscanf(p, "%s", name1) == 1)
+			{
+				if((ix = LookupMnem(dict_dialects, name1)) > 0)
+				{
+					langopts->dict_dialect |= (1 << ix);
+				}
+				else
+				{
+					fprintf(stderr, "dictdialect name '%s' not recognized\n", name1);
 				}
 			}
 			break;

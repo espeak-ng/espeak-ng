@@ -212,6 +212,17 @@ phoneme E
 endphoneme
 
 
+phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
+  vowel  starttype #e  endtype #e
+
+  IF thisPh(isUnstressed) AND nextVowel(isVowel) AND nextVowel(isStressed) THEN
+    ChangePhoneme(@)
+  ENDIF
+
+  ChangePhoneme(E)
+endphoneme
+
+
 phoneme I
   vowel  starttype #i  endtype #i
   length 130
@@ -250,7 +261,7 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
-  ipa ɪ
+  ipa i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/ii_7)

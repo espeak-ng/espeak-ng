@@ -7,6 +7,17 @@ nucleus0 fall 64 8
 nucleus  fall 70 18 24 12
 endtune
 
+tune s_ml
+prehead   46 57
+headenv   fall 16
+head       3 40 60 15 30
+headextend 0 63 38 13 0
+nucleus0 fall 64 8
+nucleus  fall 70 18 24 12
+endtune
+
+
+
 tune c1
 prehead   46 57
 headenv   fall 16
@@ -130,5 +141,47 @@ head       3 90 50 -9 0
 headextend 16 82 50 32 16
 nucleus0 fall  92 8
 nucleus  fall  92 80 76 8
+endtune
+
+
+// italian (by  llajta@gmx.us)
+
+tune s4
+prehead   46 57
+headenv   fall 16
+head       4 80 50 -8 -5
+headextend 0 63 38 13 0
+nucleus0 fall 64 8
+nucleus  fall 70 18 24 12
+endtune
+
+tune c4
+prehead   46 57
+headenv   fall 16
+head       4 76 42 -8 -5
+headextend 0 63 38 13 0
+nucleus0 fall-rise  77 25
+nucleus  fall-rise2 78 25 24 52
+endtune
+
+tune q4
+prehead   47 58
+headenv   fall 16
+head       5 75 53 -7 1
+headextend 0 60 55 45 60
+onset 60 48 62
+headlast 60 44 40
+nucleus0 fall-rise  95 29
+nucleus  fall-rise2 92 21 34 79
+endtune
+
+tune e4
+prehead   46 57
+headenv   fall 16
+head       5 77 53 -7 0
+headextend 40 80 75 70 67
+headlast 80 72 60
+nucleus0 fall  92 8
+nucleus  fall  88 77 75 10
 endtune
 

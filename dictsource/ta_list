@@ -478,6 +478,7 @@ tamil	தமிழ்	$text
 	// initial ச as [tS]
 சீ		$alt
 சே		$alt
+சே	s'e:	$hasdot
 சீசீ	tSi:tSi: 
 சீச்சீ 		$alt
 சிட்டாய் 		$alt

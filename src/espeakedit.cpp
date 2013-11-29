@@ -92,10 +92,6 @@ int frame_x, frame_y, frame_w, frame_h;
 
 int adding_page = 0;   // fix for wxWidgets (2,8,7) bug, adding first page to a wxNotebook gives emptystring for GetPageTex() in Notebook_Page_Changed event.
 
-wxFont FONT_SMALL(8,wxSWISS,wxNORMAL,wxNORMAL);
-wxFont FONT_MEDIUM(9,wxSWISS,wxNORMAL,wxNORMAL);
-wxFont FONT_NORMAL(10,wxSWISS,wxNORMAL,wxNORMAL);
-
 IMPLEMENT_APP(MyApp)
 
 wxString AppName = _T("espeakedit");

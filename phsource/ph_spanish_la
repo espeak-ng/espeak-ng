@@ -3,4 +3,8 @@
 //  Latin American Spanish  - based on Spanish
 //====================================================
 
+phoneme T
+  vls alv frc sibilant
+  ChangePhoneme(s)
+endphoneme
 

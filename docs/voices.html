@@ -255,6 +255,20 @@ Used to specify a language to be used to speak words which are written in a non-
 Alphabets names include: latin, cyr (cyrillic), ar (arabic).  The default language for latin alphabet is English.
 </dd>
 <p>
+<dt>
+<strong>dictdialect &nbsp;&lt;dialect&gt;</strong><br>
+<dd>
+Words can be marked in the *_list or *_rules file to be spoken using a foreign voice.  This <b>dictdialect</b> attribute
+can be used to specify which dialect of the foreign language should be used, instead of the default dialect.
+The currently available dialects are:<br>
+<b>en-us</b> (US English)<br>
+<b>es-la</b> (Latin American Spanish).<br>
+eg.
+<pre> dictdialect en-us
+</pre>
+This means that any words or rules which are maked with _^_EN will be spoken with the US English voice instead of the default UK English voice.
+</dd>
+<p>
 Additional attributes are available to set various internal options which control how language is processed.  These would normally be set in the program code rather than in a voice file.
 </ul>
 <hr>
