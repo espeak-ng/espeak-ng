@@ -659,7 +659,13 @@ espeak-data/ro_dict: src/espeak phsource/phonemes.stamp dictsource/ro_list dicts
 ru: espeak-data/ru_dict
 dictsource/ru_extra:
 	touch dictsource/ru_extra
+dictsource/ru_listx:
+	ln -svf extra/ru_listx dictsource/
+if HAVE_RU_EXTENDED_DICTIONARY
+espeak-data/ru_dict: src/espeak phsource/phonemes.stamp dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_listx
+else
 espeak-data/ru_dict: src/espeak phsource/phonemes.stamp dictsource/ru_list dictsource/ru_rules dictsource/ru_extra
+endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=ru && cd ..
 
 si: espeak-data/si_dict
@@ -731,11 +737,23 @@ espeak-data/vi_dict: src/espeak phsource/phonemes.stamp dictsource/vi_list dicts
 zh: espeak-data/zh_dict
 dictsource/zh_extra:
 	touch dictsource/zh_extra
+dictsource/zh_listx:
+	ln -svf extra/zh_listx dictsource/
+if HAVE_ZH_EXTENDED_DICTIONARY
+espeak-data/zh_dict: src/espeak phsource/phonemes.stamp dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_listx
+else
 espeak-data/zh_dict: src/espeak phsource/phonemes.stamp dictsource/zh_list dictsource/zh_rules dictsource/zh_extra
+endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=zh && cd ..
 
 zhy: espeak-data/zhy_dict
 dictsource/zhy_extra:
 	touch dictsource/zhy_extra
+dictsource/zhy_list:
+	ln -svf extra/zhy_list dictsource/
+if HAVE_ZHY_EXTENDED_DICTIONARY
+espeak-data/zhy_dict: src/espeak phsource/phonemes.stamp dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list
+else
 espeak-data/zhy_dict: src/espeak phsource/phonemes.stamp dictsource/zhy_rules dictsource/zhy_extra
+endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=zhy && cd ..

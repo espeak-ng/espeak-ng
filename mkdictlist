@@ -19,6 +19,13 @@ special_voices = {
 	'zh-yue': 'zhy',
 }
 
+# Support for extended dictionaries.
+extended_dictionaries = {
+	'ru':  'ru_listx',
+	'zh':  'zh_listx',
+	'zhy': 'zhy_list',
+}
+
 exclude_voices = []
 
 def find_voices(path):
@@ -43,7 +50,7 @@ find_voices('espeak-data/voices')
 find_phoneme_data('phsource')
 
 for filename in os.listdir('dictsource'):
-	if filename.endswith('_rules') or filename.endswith('_list') or filename.endswith('_listx'):
+	if filename.endswith('_rules') or filename.endswith('_list') or filename in ['bg_listx', 'it_listx']:
 		dic, cat = filename.split('_')
 		if dic in voices:
 			if not dic in dictionaries.keys():
@@ -81,7 +88,16 @@ def write_dictionary_make_rules(f):
 		f.write('%s: espeak-data/%s_dict\n' % (name, name))
 		f.write('dictsource/%s_extra:\n' % name)
 		f.write('\ttouch dictsource/%s_extra\n' % name)
+		if name in extended_dictionaries.keys():
+			ext = extended_dictionaries[name]
+			f.write('dictsource/%s:\n' % ext)
+			f.write('\tln -svf extra/%s dictsource/\n' % ext)
+			f.write('if HAVE_%s_EXTENDED_DICTIONARY\n' % name.upper())
+			f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra dictsource/%s\n' % (name, ' '.join(sorted(files)), name, ext))
+			f.write('else\n')
 		f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
+		if name in extended_dictionaries.keys():
+			f.write('endif\n')
 		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=%s && cd ..\n' % name)
 
 try:

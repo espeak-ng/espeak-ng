@@ -33,14 +33,17 @@ This is a mirror of the eSpeak sources with the following improvements on the
 1.  An autotools-based build system that supports building the phoneme data and
     language dictionaries from source on POSIX systems.
 
-2.  Detection of the supported audio APIs via the `configure` script — no need to
+2.  Optional support for the extended Russian and Chinese dictionaries from
+    [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/).
+
+3.  Detection of the supported audio APIs via the `configure` script — no need to
     modify the build files.
 
-3.  The NVDA voice variants are included in the `espeak-data/voices/!v` directory.
+4.  The NVDA voice variants are included in the `espeak-data/voices/!v` directory.
 
-4.  Add support for the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
+5.  Add support for the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
 
-5.  Support for wxWidgets 3.0.
+6.  Support for wxWidgets 3.0.
 
 ## Build Dependencies
 
@@ -238,6 +241,10 @@ fixes detailed in the sections below. In addition, it:
 1.  includes the NVDA voice variants in the `espeak-data/voices/!v` directory;
 
 2.  supports the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
+
+3.  Optional support for the extended Russian (`ru`), Mandarin Chinese (`zh`)
+    and Cantonese Chinese (`zhy`) dictionaries from
+    [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/).
 
 #### Build System
 

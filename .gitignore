@@ -62,6 +62,9 @@ Makefile
 dictsource/*_extra
 dictsource/dict_log
 dictsource/dict_phonemes
+dictsource/ru_listx
+dictsource/zh_listx
+dictsource/zhy_list
 
 phsource/compile_prog_log
 phsource/compile_report
