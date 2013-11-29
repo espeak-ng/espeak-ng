@@ -7,19 +7,23 @@
 - [Installing](#installing)
 - [Building Voices](#building-voices)
 - [Adding New Voices](#adding-new-voices)
-- [Changes from Upstream](#changes-from-upstream)
-  - [Development Branch](#development-branch)
+- [Branching Structure and Changes](#branching-structure-and-changes)
+  - [upstream](#upstream)
+  - [development](#development)
     - [Praat Modifications](#praat-modifications)
-  - [Build System](#build-system)
-  - [espeakedit](#espeakedit)
-  - [Bug Fixes](#bug-fixes)
-  - [Historical Releases](#historical-releases)
+  - [master](#master)
+    - [Build System](#build-system)
+    - [espeakedit](#espeakedit)
+    - [Bug Fixes](#bug-fixes)
+  - [android](#android)
+  - [historical](#historical)
 - [Bugs](#bugs)
 - [License Information](#license-information)
 
 ----------
 
-This is a mirror of the eSpeak sources with the following improvements:
+This is a mirror of the eSpeak sources with the following improvements on the
+*master* branch:
 
 1.  An autotools-based build system that supports building the phoneme data and
     language dictionaries from source.
@@ -32,21 +36,6 @@ This is a mirror of the eSpeak sources with the following improvements:
 4.  Add support for the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
 
 5.  Support for wxWidgets 3.0.
-
-It contains the following branches:
-
-*  *upstream* — a mirror of the eSpeak subversion repository using `git svn`;
-*  *development* — the eSpeak sources from
-   [http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html);
-*  *master* — build system changes and bug fixes;
-*  *historical* — historical eSpeak releases from
-   [http://sourceforge.net/projects/espeak/files/espeak/](http://sourceforge.net/projects/espeak/files/espeak/)
-   not contained in the subversion codebase;
-*  *android* — the source code of
-   [eSpeak for Android](http://reecedunn.co.uk/espeak-for-android).
-
-See the [Changes from Upstream](#changes-from-upstream) section on what has been
-changed from the upstream version of eSpeak.
 
 ## Build Dependencies
 
@@ -142,13 +131,22 @@ This will update the build system so that `make` will build the new voice
 in addition to building everything else, and add a `<lang-code>` target
 for building just that voice.
 
-## Changes from Upstream
+## Branching Structure and Changes
+
+The following sections describe the different branches in this repository,
+what they are used for and how they relate to the upstream version of eSpeak
+(including details of any changes made to eSpeak).
+
+Changes are merged in the following order:
+
+    upstream => development => master => android
+
+### upstream
 
 The *upstream* branch contains the unmodified eSpeak sources imported from
-subversion using the `git svn` command. These changes are merged into the
-*development* branch.
+the [espeak]() subversion repository using the `git svn` command.
 
-### Development Branch
+### development
 
 The *development* branch replaces the code from subversion with the code
 from [http://espeak.sourceforge.net/test/latest.html](http://espeak.sourceforge.net/test/latest.html).
@@ -227,7 +225,16 @@ the changes to the `praat` program the modifications are included in the
 *espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror. This
 mirror currently includes support upto version 5.3.23 of praat.
 
-### Build System
+### master
+
+The *master* branch contains changes to the build system, espeakedit and bug
+fixes detailed in the sections below. In addition, it:
+
+1.  includes the NVDA voice variants in the `espeak-data/voices/!v` directory;
+
+2.  supports the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
+
+#### Build System
 
 The build system for eSpeak has been changed on the *master* branch to use
 autotools and to support building the phoneme data and language dictionaries
@@ -256,7 +263,7 @@ on POSIX systems.
 
 7.  Fixes for building with wxWidgets 3.0, while still supporting wxWidgets 2.8.
 
-### espeakedit
+#### espeakedit
 
 The following changes have been made to `espeakedit` to make it usable from
 the command line, especially for use in the build process:
@@ -278,7 +285,7 @@ the command line, especially for use in the build process:
 6.  Don't use the paths from the configuration file when running the `--compile`
     command.
 
-### Bug Fixes
+#### Bug Fixes
 
 The following bugs have been fixed on the *master* branch:
 
@@ -293,11 +300,20 @@ The following bugs have been fixed on the *master* branch:
 
 These have been sent upstream for inclusion in the upstream version of eSpeak.
 
-### Historical Releases
+### android
+
+The *android* branch contains the sources for the
+[eSpeak for Android](http://reecedunn.co.uk/espeak-for-android) program, based
+on the eyes-free port of eSpeak to Android.
+
+### historical
+
+The *historical* branch contains the available older releases of eSpeak that
+are not contained in the subversion repository.
 
 1.24.02 is the first version of eSpeak to appear in the subversion
-repository, but releases from 1.05 to 1.24 are available on the
-sourceforge website at http://sourceforge.net/projects/espeak/files/espeak/.
+repository, but releases from 1.05 to 1.24 are available at
+[http://sourceforge.net/projects/espeak/files/espeak/](http://sourceforge.net/projects/espeak/files/espeak/).
 
 These early releases have been checked into the historical branch,
 with the 1.24.02 release as the last entry. This makes it possible
@@ -305,10 +321,11 @@ to use the replace functionality of git to see the earlier history:
 
 	$ git replace 8d59235f 63c1c019
 
-__NOTE:__ The source releases contain the big_endian, espeak-edit, praat-mod,
-riskos, windows_dll and windows_sapi folders. These do not appear in the
-source repository until later releases, so have been excluded from the
-historical commits to align them better with the 1.24.02 source commit.
+__NOTE:__ The source releases contain the `big_endian`, `espeak-edit`,
+`praat-mod`, `riskos`, `windows_dll` and `windows_sapi` folders. These
+do not appear in the source repository until later releases, so have
+been excluded from the historical commits to align them better with
+the 1.24.02 source commit.
 
 ## Bugs
 
