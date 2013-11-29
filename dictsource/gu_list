@@ -1,0 +1,201 @@
+﻿// This gu_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+
+// This file is UTF8 encoded
+
+// Numbers
+// Gujarati  numbers are changed to latin characters before translation
+
+_0         S'u:nj@-
+_1         'e:k
+_2         b'e:
+_3         tr'@2n.
+_4         c'a:r
+_5         p'a:n^c
+_6         c#'@3
+_7         s'a:t
+_8         'a:t.#
+_9          n'Vu
+?3  _9    n'aU
+
+_10        d'Vs
+_11        ,VgIj'a:r
+_12        b'a:r
+_13         t'e:r
+_14        c'O:d
+_15        p@nd'Vr
+_16         s'o:r.
+_17        s@tt'Vr
+_18          Vd.#'@r
+_19        ,o:gn.'i:s
+
+_20        w'i:s
+_21        ,e:kv'i:s
+_22         b'a:w'i:s
+_23        te:v'i:s
+_24        co:v'i:s
+_25        p@cc'i:s
+_26        c#@3v'i:s
+_27         s,@t:e:a:v'i:s
+_28         ,Vt.#:e:a:v'i:s
+_29        ,o:g@n.tr'i:s
+_30        tr'i:s
+
+_31         ,e:k@t:r'i:s
+_32         b,@t:r'i:s
+_33         t'e:tr'i:s
+_34         c'o~tr'i:s
+_35         p'V~tr'i:s
+_36        c#@3tr'i:s
+_37          s,a:r.atr'i:s
+_38         ,a:r.atr'i:s
+_39        ,o:g@n.ca:l'i:s
+
+_40        ca:l'i:s
+_41       ,e:kta:l'i:s
+_42       b,e:ta:l'i:s
+_43       t,e:ta:l'i:s
+_44       c,u~ma:l'i:s
+_45       p,Ista:l'i:s
+_46       c#,e:ta:l'i:s
+_47        s,ur.ta:l'i:s
+_48        ,Vr.ta:l'i:s
+_49       ,o:g@n.,@pc'a:s
+
+_50       p@c'a:s
+_51       e:k'aUn
+_52       b'aUn
+_53        tre:p'Vn
+_54       co:p'Vn
+_55       p@n^c'aUn
+_56       c#@3p:'Vn
+_57       s@t:'aUn
+_58       Vt.#:'aUn
+_59         ,o:g@n.sa:'i~t.#
+
+_60        sa:H'i~t.#
+_61        ,e:ks'Vt.#
+_62       ba:s'Vt.#
+_63        tre:s'Vt.#
+_64       co:s'Vt.#
+_65       pV~s'Vt.#
+_66        c#V~s'Vt.#
+_67        s,@r.@s'Vt.#
+_68        ,Vr.@s'Vt.#
+_69        ,o:g@n.sIt:'e:*
+
+_70       sIt:'e:*
+_71        ,e:ko:t'e:r
+_72        bo~t'e:r
+_73         to~t'e:r
+_74        c,Imo:t'e:r
+_75        p,Inco:t'e:r
+_76        c#o~t'e:r
+_77        s,It:o:t'e:r
+_78        ,It.#:o:t'e:r
+_79        ,o:gn.ja:'e~:sI
+
+_80       'e~:sI
+_81       ,e:kj'a:si
+_82        bj'V~si
+_83        t:j'V~si
+_84        c,urI;'a:si
+_85        pInc'a:si
+_86        c#e:'V~si
+_87        s@t:j'a:si
+_88        ,Vt.#j'a:si
+_89        nIvj'a:si
+
+_90       n'e:vu~
+_91       e:k'a:n.u~
+_92       b'a:n.u~
+_93        tr'a:n.u~
+_94       co:r'a:n.u~
+_95       p@nc'a:n.u~
+_96       c#'Vnnu~
+_97       s@t:'a:n.u~
+_98       Vt.#:'a:n.u~
+_99       n@vv'a:n.u~
+
+_0C	s'O:
+_0M1	h@J,a:r
+_0M2	l'a:kh
+_0M3	k@ro:r.V
+_0M4	 Vb'VJ
+_0M5	kh'Vr@b
+_dpt      _d@s@ml'o:_        
+
+
+// Single consonants
+ક      k@
+ક઼      q@
+ખ      kh@
+ખ઼      x@
+ગ      g@
+ગ઼      Q@
+ઘ      gh@
+ઙ      N@
+ચ      c@
+છ      ch@
+જ      J@
+જ઼      z@
+ઝ      Jh@
+ઞ      n^@
+ટ      t.@
+ઠ      t.#@
+ડ      d.@
+ડ઼      r.@
+ઢ      d.#@
+ણ      n.@   // retroflex n.@
+ત      t@
+થ      th@
+દ      d@
+ધ      dh@
+ન      n@
+પ      p@
+ફ      ph@
+ફ઼      f@
+બ      b@
+ભ      bh@
+મ      m@
+ય      j@
+ર      r@
+
+લ      l@
+ળ      l.@
+વ      v@
+શ      S@
+ષ      s.@   //  retroflex [S]
+સ      s@
+હ      H@
+
+// combining vowel signs
+ા	#X2a:
+િ	#X1I
+ી	#X2i:
+ુ	#X1U
+ૂ	#X2u:
+ૃ	#X1ru
+ૄ	#X1ru
+ૅ	#X1E
+ે	#X2e:
+ૈ	#X2aI
+?2 ૈ	#X2aI
+ૉ	#X1O
+ો	#X2o:
+ૌ	#X2aU
+?3 ૌ 	#X2aU
+ૢ 	#X1l-
+ૣ	#X2l-:
+ૐ	#X1o~m
+
+
+// Punctuation
+।	dVn.d.V
+્	H@l'Vnt
+$	dOl@r
+%	pVt'IS@t
++	plVs
+=	bVr'a:b@r
+*	ta:r'a:Nk@n
+
+

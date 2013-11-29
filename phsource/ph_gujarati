@@ -1,0 +1,19 @@
+
+// Phonemes for gujarati
+// This inherits from ph_hindi
+
+phoneme aI
+  vowel long starttype #@ endtype #i
+  length 240
+  long
+  FMT(vdiph/@i_4)
+endphoneme
+
+phoneme aU
+  vowel long starttype #a endtype #u
+  length 240
+  long
+  FMT(vdiph/a#u)
+endphoneme
+
+

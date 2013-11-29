@@ -1,12 +1,13 @@
-﻿// This file is UTF-8 encoded
-
+ 
+// This file is UTF-8 encoded
+// Updated 2013-11-01 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
 //  Any [E] or [O] phonemes in unstressed words must be listed explicitly
 
-
 // character names
+
 _cap	maj'uskola
 
 _??	s'imbolo
@@ -15,29 +16,30 @@ _?A	let:'e:Ra
 _a	a:
 b	bi
 c	tSi
-d	di
+d	dI
 _e	e:
 f	effe
 g	dZi
 h	ak:a
 _i	i:
-j	dZe:j
+j	'i||l'unga
 k	kap:a
 l	Elle
 m	Emme
 n	Enne
+ñ	En:ekontilde
 _o	O:
 p	pi
 q	ku
 r	ER*e
 s	esse
-t	ti
+t	tI:
 _u	u:
 v	vu
 w	d'op:jav'u
 x	'iks
 y	'ipsilon
-z	dze:ta
+z	dzEta
 
 _à	$accent
 _é	$accent
@@ -46,8 +48,6 @@ _ì	$accent
 _ó	$accent
 _ò	$accent
 _ù	$accent
-
-
 
 // accent names
 _lig	l,egat'u:Ra
@@ -66,7 +66,6 @@ _rng	an'ello
 _stk	b'aR*a
 _tld	t'ilde
 
-
 *	asteRisko $max3
 %	pe@-*tS'ento $max3
 .	punto	$max3
@@ -74,16 +73,17 @@ _tld	t'ilde
 +	pju	$max3
 /	slaS	$max3
 \	bakslaS	$max3
-₤       lira
+₤       li@-*a
 £       sterl'ina
 &	_e
+€	'euro
 @       ki'otS:ola
 ©       k'opiraIt
 #	kantSellet:o
 @	ki'otS:ola
 ~	tilde
 °	g@-*'a:di
-:	d,uep'unti
+_:	d,uep'unti
 
 _!	p,untoesklamat'ivo
 _"	viRgolet:e
@@ -103,11 +103,11 @@ __	'undeRskoRe
 _`	bakp@-*aIm
 _{	ap,eRtag@-*'af:a
 _}	kj,uzag@-*'af:a
-
-
+_¡	p'unto||esklamat'ivo||@-*ovES'ato
+_¿	p'unto||inteR*ogat'ivo||@-*ovES'ato
 
 // numbers
-_0	dz'eRo
+_0	dz'eRo	$u+
 _1	'uno
 _2	d'ue
 _3	tR'e
@@ -127,7 +127,7 @@ _16     s'editSi
 _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
-_2X     v'entj
+_2X	v'entj $u
 _21     v'ent'uno
 _28     v'ent'Ot:o
 _3X     t@-*'enta
@@ -137,7 +137,7 @@ _6X     sess'anta
 _7X     set:'anta
 _8X     ot:'anta
 _9X     nov'anta
-_0C     tS'ento
+_0C     tS'ento $u+
 _0M1    m'ila
 _1M1	m'ille
 _0M2    mili'oni
@@ -151,19 +151,46 @@ _0Z2	tSent'ezimi     // 100ths
 _0Z3	mill'ezimi      // 1000ths
 
 // abbreviations
+abc	$abbrev
+avg	$abbrev
+cia	tS'ia
+hiv	$abbrev
+ibm	$abbrev
+id	$abbrev
+ipa	$abbrev
+ocr	$abbrev
+ok	ok'eI
+olp	$abbrev
+omg	$abbrev
+spa	$abbrev
+sos	$abbrev
+srl	$abbrev
+uic	$abbrev
+uk	$abbrev
+url	$abbrev
+usb	$abbrev
+xml	$abbrev
+html	$abbrev
+mr	mIster     $dot
+dr	dot:o=r	$dot
+prof	$dot
+st	$dot
+
 (http ://)       'ak:at,i:t,i:p'i:_
 www	'vu'vu'vu
-avv	avvocato $text $hasdot
+avv	av:ok'ato $dot
+nvda	$abbrev	$u
+adsl	$abbrev
+cpu	$abbrev
 
 // articles
-i	$u $only
+i	$u+ $only
 il	$u $only
 la	$u $only
 le	$u $only
 lo	$u $only
 un	$u $only
-una	$u $only
-
+una	$u1+ $only
 gli	l^i  $only $u
 
 
@@ -175,81 +202,89 @@ lei	$u+ $only
 noi	$u+ $only
 voi	$u+ $only
 loro	$u+ $only
-
-egli	el^i $u+
-ella	ella $u+
-essa	essa $u+
-esse	esse $u+
-essi	essi $u+
+egli	$u+
+ella	$u+
+essa	$u+ 
+esse	$u+
+essi	$u+ 
 
 mi	$u+ $only
 ti	$u+ $only
 si      $u+ $only
 ci	$u+ $only
-vi	vi $u+ $only
-li	li $u+ $only
+vi	$u+ $only
+li	$u+ $only
+me	$u+
+te	$u+
+ce	$u+
+ve	$u+
 
+//  adjectives
+mio	$u+
+tuo	$u+
+suo	$u+
+nostro	$u+
+vostro	$u+
+loro	$u+
+mia	$u+
+tua	$u+
+sua	$u+
+nostra	$u+
+vostra	$u+
+miei	$u+
+tuoi	$u+
+suoi	$u+
+nostri	$u+
+vostri	$u+
+mie	$u+
+tue	$u+
+sue	$u+
+nostre	$u+
+vostre	$u+
 
-// words that double the following consonant
-qualche  // $double
-come     // $double
+questo	$u+	// this
+questa	$u+	// this
+questi  $u+      // these
+queste  $u+      // these
 
-// possessive adjectives
-mio	$u
-tuo	$u
-suo	$u
-nostro	$u
-vostro	$u
-loro	$u
-mia	$u
-tua	$u
-sua	$u
-nostra	$u
-vostra	$u
-miei	$u
-tuoi	$u
-suoi	$u
-nostri	$u
-vostri	$u
-mie	$u
-tue	$u
-sue	$u
-nostre	$u
-vostre	$u
-
-questo	$u	// this
-questa	$u	// this
-questi  $u      // these
-queste  $u      // these
-
-quel	$u	// that
-quella	$u	// that
+quel	$u+	// that
+quella	$u+	// that
 quei    kw2ej      // those
-quegli  $u      // those
-quelle  $u      // those
-
-
+quegli  $u+      // those
+quelle  $u+      // those
 
 // conjunctions
-e		$u $pause // $double  // and
-ed		$u $pause
-o		$u $pause // $double  // or
-se		$pause      // if
-ma		$pause      // but
-perché		$pause      // because
-benchè		$pause      // though
-anche		$pause      // although
-tuttavia	$pause      // however
-invece		$pause      // instead
-malevolenza	$pause      // despite
-pertanto        $pause      // therefore
-né              $pause  $only     // neither-nor
 
-(in cui)        in||kw2,i  $pause   // in which
-che             $u $pause   // which
-
+accanto    $2      // beside
+attraverso 	$3 // across, through
+benchè		$u	$brk      // though
+che             $u $brk   // which
+cioè	$u+
+come	$u+
+contro     $1      // against
+cui	k'uj
+durante    $brk       // during
+e		$u $brk // $double  // and
+eccetto    $pause       // except
+ed		$u $brk
+ma	$u
+mai	$u+
+mentre	$u
+né              $u	$brk  $only     // neither-nor
+o		$u $brk // $double  // or
+oltre	$u+
+perché		$u+ $brk      // because
+pertanto        $u	$brk      // therefore
+pure		$u1+
+se		$u     // if
+senza     $u1+        // without
+sopra	   $1 	// above
+sotto	   $1 $alt2	// below
+tanto	$u+
+verso      $u1+      // toward
 
 // prepositions
+
 a       $u // $double
 al      $u $only
 allo    $u
@@ -257,10 +292,9 @@ alla    $u
 ai      $u
 agli    $u $only
 alle    $u
+ad      $u
 
-ad      $u $brk
-
-da	$u $only $brk      // by
+da	$u+       // by
 dal	$u
 dallo   $u
 dalla	$u	// by the
@@ -268,7 +302,7 @@ dai     $u
 dagli   $u
 dalle   $u
 
-di	$u $only $brk	// of
+di	$u $only 	// of
 del	$u $only
 dello   $u
 della	$u	// of the
@@ -277,176 +311,566 @@ degli   $u
 delle   $u
 de      $u $only
 
-in	$u $brk	$only // in
-nel	$u $brk $only
-nello   $u $brk
-nella	$u $brk	// in the
-nei     $u $brk
-negli   $u $brk
-nelle   $u $brk
-ne      $u $brk  $only
+in	$u+ 	$only // in
+nel	 $u	$only
+nello	$u1
+nella	$u 	// in the
+nei     $u 
+negli   $u 
+nelle   $u
+ne      $u   $only
 
-su	$u $only //$double	// on
-sul	$u
+su	$u+ $only //$double	// on
+sul	$u+
 sullo   $u
 sulla	$u	// on the
 sui     $u
 sugli   $u
 sulle   $u
 
-con	$u $pause $only	// with
+con	$u  $only	// with
 col     $u $only
 coi     $u $only
 
-attraverso $brk	$3 // across, through
-contro     $u+ $brk     // against
-accanto    $u+ $brk     // beside
-verso      $u+ $brk     // toward
-sopra	   $u+ $brk	// above
-sotto	   $u+ $brk $alt2	// below
-per        $u $pause $only   // for
-eccetto    $pause       // except
-senza      $pause       // without
-durante    $pause       // during
-
+per        $u  $only    // for
+tra	$u
+fra	$u
 
 // aux verb, to be
-sono	$u
-sei	$u
-è	E  $u //$double
-siamo	$u
-siete	$u
-sono	$u
-fui	$u
-fosti	$u
-fu	$u //$double
-fummo	$u
-foste	$u
-furono	$u
-ero	$u $only
-eri	$u $only
-era	$u $only
-eravamo	$u
-eravate	$u
-erano	$u
-sarò	sa/r'O $u
-sarai	$u
-sarà	$u
-saremo	$u
-srete	$u
-saranno	$u
+sono	$u1+
+sei	$u+
+è	E $u+  //$double
+siamo	$u+
+siete	$u+
 
-sia	$u
-siate	$u
-siano	$u
-fossi	$u
-fosse	$u
-fossimo	$u
-fossero	$u
-sarei	$u
-saresti	$u
-sarebbe	$u
-saremmo	$u
-sareste	$u
-sarebbero	$u
+fui	$u+
+fosti	$u+
+fu	$u+ //$double
+fummo	$u+
+foste	$u1+
+furono	$u1
+ero	$u1+ $only
+eri	$u1+ $only
+era	$u1+ $only
+eravamo	$3
+eravate	$3
+erano	$1
+sarò	sa/R'O 
+sarai	$2
+sarà	$u2+
+saremo	$u2+
+sarete	$u2+
+saranno	$u2+
+
+sia	$u+
+siate	si'ate	$u+
+siano	s'iano	$u+
+fossi	$u1+	$alt
+fosse	$u1+
+fossimo	$u1+
+fossero	$u1+
+sarei	$u2+
+saresti	$u2+
+sarebbe	$u2+
+saremmo	$u+
+sareste	$u+
+sarebbero	$u2+
 
 // aux verb, to have
+aver	$u2+
 ho	$u //$double
-hai	aj $u //$double
-ha	a  $u //$double
-abbiamo	$u
-avete	$u
-hanno	anno $u
+hai	'aj	$u+  //$double
+ha	a	$u+   //$double
+abbiamo	$u+
+avete	$u2+
+hanno	anno $u+
 
-ebbi	$u
-avesti	$u
-ebbe	$u
-avemmo	$u
-aveste	$u
-ebbero	$u
+ebbi	$u1+
+avesti	$u2+
+ebbe	$u+
+avemmo	$u2+
+aveste	$u2+
+ebbero	$u1+
 
-avevo	$u
-avevi	$u
-aveva	$u
-avevamo	$u
-avevate	$u
-avevano	$u
+avevo	$u2+   $alt
+avevi	$u2+
+aveva	$u2+
+avevamo	$u3
+avevate	$u3
+avevano	$u2+
 
-avrò	a/vr'O $u
-avrai	$u
-avrà	$u
-avremo	$u
-avrete	$u
-avranno	$u
+avrò	a/v@-*'O $u+
+avrai	$u2+
+avrà	$u+
+avremo	$u2+
+avrete	$u+
+avranno	$u+
 
 abbia	$u+
 abbiamo	$u+
 abbiate	$u+
-abbiano	$u+
-avessi	$u
-avesse	$u
-avessimo	$u
-aveste	$u
-avessero	$u
+abbiano	$1
+avessi	$u+
+avesse	$u+
+avessimo	$u+
+aveste	$u+
+avessero	$u+
 
-avrei	$u
-avresti	$u
-avrebbe	$u
-avremmo	$u
-avreste	$u
-avrebbero	$u
+avrei	$2
+avresti	$u+
+avrebbe	$u+
+avremmo	$u+
+avreste	$u+
+avrebbero	$u+	$alt
 
 // to do/make
-fare	$u+
-faccio	$u+
+fare	$u1+
+faccio	$u1+
 facciamo	$u+
-fai	$u+
-fate	$u+
+fai	f'ai
+fate	$u1+
 fa	$u+
-fanno	$u+
+fanno	$u1+
 
-facevo	$u+
-facevi	$u+
-faceva	$u+
-facevamo	$u+
-facevate	$u+
-facevano	$u+
-
+facevo	$u2+
+facevi	$u2+
+faceva	$u2+
+facevamo	$3
+facevate	$3
+facevano	$u2+
+fecero	$1
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here
 a	a:  $atend
 e       e:  $atend
-i       i:  $atend
+       i:  $atend
 o       O:  $atend
 
-
 // foreign words
+
+account	_^_EN
+apple	_^_EN
+application	_^_EN
+backup	bek'ap
+bancomat	$1
+beep	_^_EN
+boom	bum
+bordeaux	_^_FR
+braille	brail:
+buffer	b'afe@-*
+business	_^_EN
+byte	_^_EN
+champion	tS'Empion
+change	tS'EindZ
+channel	tS'anel
 chat		_^_EN
-cliché		kli:Se
-internet	_^_EN
-jeans		dZi:nz
+check	tSEk:
+city	s'itI
+cliché		kli:S'e
+computer	kompj'uter
+couscous	k'us||k,us
+database	datab'Eiz
+deejay		_^_EN
+default	_^_EN
+disney	$1
+disneyland	$1
+display	displ'ei
+drive	_^_EN
+driver	_^_EN
+editor	$1
+eloquence		_^_EN
+emergency	em'e@-*dZensi
+english		_^_EN
+espeak		isp'ik:
+facebook		_^_EN
+fantasy	_^_EN
+firefox		_^_EN
+free		_^_EN
+gmail	dZI||m'eil
+google		_^_EN
+hardware	'ardw2eR
+internet	'inte@-*net
+iperlink	,iper||l'ink
+iphone		_^_EN
+jaws		dZo:s
+jazz		_^_EN
+jeans		dZi:ns
+leader	lidE@-*
+macintosh	_^_EN
+mail	m'eil
+microsoft		_^_EN
+monitor	$1
+mouse	maus
+new	_^_EN
+news	ni'us
+nomination	nomIn'eSon
+nylon	n'aIlon
+office		_^_EN
+philips	f'ilips
+privacy	p@-*'aivazi
+puzzle	p'atsol
+python	_^_EN
+skype		_^_EN
+smile	zmaIl
+smiley	_^_EN
+snack		_^_EN
+software	_^_EN
+spanish		_^_EN
+speaker		_^_EN
+team		_^_EN
+thunderbird		_^_EN
+time		_^_EN
+timer		t'aIme@-*
+touch	_^_EN
+update		ap||d'eit
+videogames		_^_EN
+vodafone	v'odafon
+voilà	_^_FR
+wave		_^_EN
 web		wEb
-accelerator	_^_EN
-ace		_^_EN
-aces		_^_EN
+windows		_^_EN
+wireless		_^_EN
+wow		_^_EN
+yahoo		_^_EN
+yoghourt	'jogurt
+zoom	tsu:m
+(e speak)		isp'ik:
+(i phone)		'aI||fon
+(you tube)	_^_EN
 
+// Main  Dictionary
 
-// exceptions
+acrobazia	$4
 aereo		a'EReo
+agenzie	adZents'ie
+alcun	$u2+
+algebra	$1
+ambrosiano	$4
+amic	$2
+amnistie	amnist'ie
+anemie	anem'ie
+anestesie	anestes'ie
+anime	$1
+anomala	$2
+anomalie	$4
+antiche	$2
+antilopi	$2
+antipatie	antipat'ie
+apatie	apat'ie
+arbore	$1
+archeologi	$3
+aree	$1
+asfissie	asfis:'ie
+atenei	$3
+attimi	$1
+attric	$2
+auspici	$3
+autonoma	$3
+autonomie	autonom'ie
+avarie	$3
+baritono	$3
+becera	$1
+beneficio	$3
+biotecnologie	bioteknolodZ'ie
+bizzarria	$3
+bizzarrie	$3
+brusii	b@-*uz'ij
+buon	bu'on	$u+
+burocrate	$2
+caffeina	kaf:E'ina
+capitoli	$2
+carboniferi	$3
+cardiache	ka@-*d'iake
+carestie	ka@-*est'ie
+categorie	$4
 celsius		tsElsj'us
+centraline	$3
+ciao	$u+ $strend $pause
+ciascun	$u3+
+circuiti	$2
+civili	$2
+colabrodo	$3
+compagini	$2
+compagnie	kompan^'ie
+compatrono	$3
 conoscerla	$2
-no		nO
-posta		pOsta
+contemporanea	$4
+contumace	$3
+costi	$1	$alt
+crimini	$1
+cuor	ku'o@-*
+debol	$1
+decim	$1
+decimonono	$4
+deleghe	$1
+democrazie	demok@-*ats'ie
+demoni	$1
+deroghe	$1
+dialoghi	$2
+discipline	$3
+disordin	$2
+economie	ekonom'ie
+edili	$1
+efficaci	$3
+embolie	$3
+energie	ene@-*dZ'ie
+episodi	$3
+epoche	$1
+erronea	$2
+eter	$1	$alt2
+etn'ie	etn'ie
+fantasie	fantaz'ie
+farmaceutiche	fa@-*matS'ewtike
+farmacie	fa@-*matS'ie
+femminili	$3
+ferita	$2
+filosofie	filozof'ie
+fischiettio	fiskiet:'io
+fischio	f'iskio
+follie	$2
+formicolio	$4
+fornaci	$2
+fornitrici	$3
+frastuono	$2
+fugaci	$2
+garanzie	gaRants'ie
+genesi	$1
+giovani	dZ'ovani
+giovanili	$3
+glicemia	glitSem'ia
+gonartria	$3
+guaiscono	gua'iskono
+idiozia	$4
+idonea	$2
+imprenditoria	$5
+incapace	$3
+infine	$u2
+intercapedini	$4
+ipertono	$3
+kimono	$2
+lacrime	$1
+lavatrici	$3
+linee	$1
+lode	$1
+lucubri	$1
+madrepatria	$3
+maggior	$u2
+maomettano	$4
+marinai	$3
+maschera	$1
+massimi	$1
+mediaset	m'Ediaset
+melodie	melod'ie
+mensili	$2
+menu	mEn'u
+meteo	$1
+microtono	$3
+miglior	$u3+
+migliori	mil^i'o@-*i
+minimi	$1
+miriadi	$2
+multilinea	$3
+negligenza	neglidZ'entsa
+negrita	$2
+nessun	$u2+
+no		nO $strend
+non	$u
+nuocciono	$alt
+olfattori	$3
+olinpiad	$3
+omogenea	$3
+opera	$1
+operai	opER'ai
+operaio	opeR'ajo
+ottime	$1
+ovvia	'ov:ia
+ovviamente	ov:iam'Ente
+ovvie	'ov:ie
+ovvietà	ov:iet'a
+ozono	$2 $alt2
+paraolimpiadi	$4
+parodie	pa@-*od'ie
+passegger	$3
+patologie	patolodZ'ie
+patria	$1
+patrie	$1
+patrono	$2
+peggior	$u3+
+peripezia	$4
+peripezie	pe@-*ipets'ie
+pero	$1 $alt
+petrolifer	$3
+pistola	$2
+poesie	poez|'ie
+posta		p'Osta
+prevendit	$2
+primavere	$3
+principe	$1
 principi	$1
-tesser		tess'ER
-uomini		$1
-
+principio	$2
+profezie	p@-*ofets'ie
+prossime	$1
+proteine	p@-*ote'ine
+psicologi	$2
+pulizie	pulits'ie
 quia		kw'ia
+radici	$2
+rapaci	$2
+reciproche	$2
+reduci	$1
+regine	$2
+remore	$1
+restio	@-*est'io
+revoche	$1
+ricevitoria	$5
+riepilogo	$3
+ruggini	$1
+rullio	$2
+sacrestie	sak@-*est'ie
+sacrifici	$3
+sagac	$2
+sale	$1
+satelliti	$2
+sature	$1
+scandinavi	$2
+schizzofrenia	$4
+scie	S'i%e
+scintillio	$3
+scomoda	$1
+scricchiolio	$4
+scurrile	$2
+semitono	$3
+serie	$1
+simpatie	simpat'ie
+sinonimi	$2
+sottoparagrafi	$4
+sottotono	$3
+sovratono	$3
+spie	sp'ie
+statua	$1
+sterline	$2
+strategie	st@-*atedZ'ie
+stupidaggini	$3
+succube	$1
+superfice	$3
+superstiti	$2
+tecnologie	$4
+temporanee	$3
+tenaci	$2
+tendini	$1
+teorie	$3
+tesser		tess'ER
+titoli	$1
+tuttavia	tut:av'ia	$u
+uffici	$2
+ultime	$1
+ultimi	$1
+ultrasuono	ult@-*a||su'Ono
+univoche	$2
+uomini		$1
+vergini	$1
+videocamera	$4
+vittime	$1
+vivaci	$2
+vocaboli	$2
+voragini	$2
 
+watt	vatt[
 
-// If the final vowel is omitted, then the rule applies to 'a' 'e' 'i' 'o'
+//  countries, Proper names and locations and languages
 
+(coca cola)	k,okak'ola
+(tel aviv)	t,El||av'iv;:
+alessia	$2 $capital
+alzeimer	alts'aime@-*
+amelia	$2
+amerigo	$2
+andreina	and@-*e'ina
+andromeda	$2
+angeles	$1
+anita	$2
+annamaria	$4
+arbatax	$3
+armida	$2
+arrigo	$2
+asdrubale	$2
+asia	'azi%a
+beatles	bItols
+bergamo	$1
+brasile	$2
+brian	b@-*'aian
+bulgare	$1
+cagliari	$1
+camerun	$1
+carmelo	$2
+catia	$1
+chaplin	tS'apliN
+charlie	tS'a@-*li
+chicago	tSikago
+cremona	$2
+danilo	$2
+dionigi	$3
+elena	'ElEna
+elia	el'ia
+enric	$2
+everest	$1
+federic	$3
+gallipoli	$2
+genesia	$2
+genova	$1
+gianluigi	dZanlu'idZi
+giorgia	$1
+girolamo	$2
+hotel	$2
+iacopo	i'akopo
+imperia	$2
+indonesia	$3
+ipopotamo	$3
+ippocrate	$2
+jack	_^_EN
+jackson	_^_EN
+james	_^_EN
+jerzu	j'E@-*dzu
+jole	j'Ole
+jugoslavia	jugozl'avia
+juri	j'urI
+juve	j'uvE
+juventus	juv'entus
+kuwait	kw2'Eit
+libano	$1
+ludovic	$3
+luigi	lw2'idZi
+luigia	lu'idZa
+manchester	_^_EN
+mantova	$1
+michelangelo	$3
+mike	_^_EN
+modena	$1
+napoli	$1
+nicola	$2
+padova	$1
+parigi	$2
+pavia	pav'ia
+perugia	$2
+pierangelo	$2
+pierluigi	pi%e@-*||lu'idZi
+rimini	$1
+rodrigo	$2
+sassari	$1
+shakespeare	_^_EN
+sidney	$1
+socrate	$1
+sofia	sof'ia	$capital
+sonia	$1
+stanley	$1
+stefano	$1
+street	_^_EN
+tamara	$2
+vladimir	$3
+wall	_^_EN
+walter	v'alte@-*
+zaccaria	$3
 
 // fix errors in it_listx
 accetto		$alt
@@ -477,7 +901,7 @@ gorga		$alt2
 gotta		$alt2
 ias		iaz $1
 indolo		$2
-leggi		ledZ'i
+leggi		l'edZ:,i
 lena		$alt2
 nocciola	$2
 olimpiade	olimp'iade
@@ -489,21 +913,661 @@ pesce		$alt2
 peste		$alt
 ponto		$alt
 protas		$1
-
-rene		$alt
+re	@-*e
+re	@-*'E	$capital
+rene		$alt2
 scopa		$alt2
 sera		$alt2
 teco		$alt2
-vicari		$1 $only
-vicaria		$3
+vicari		$2 $only
+vicaria		$2
 volto		$alt2
 zone		$alt2
 
+// Exceptions for verbs and others irregular verbs 
 
-
-
-
-
-
-
+abbandono	$3
+abilita	$2
+aboliscano	$3
+accadere	$3 
+accettino 	$2
+accodano	$2
+accorgano	$2
+accorrano	$2
+accorsero	$2
+acquisiscano	$3
+addici	$2
+adopera	$2
+adoperano	$2
+adoperi	$2
+adoperino	$2
+adopero	$2
+affascino	$2
+affermano	$2
+affermino	$2
+affida	$2
+affrettino	$2
+affrontano	$2
+affrontino	$2
+agevolano	$2
+agevolino	$2
+agganciano	$2
+aggiornano	$2
+aggiornino	$2
+aggiungerla	$2
+aggiungerne	$2
+aggiungetela	$3
+agitano	$1
+agiti	$1
+agitino	$1
+aiutali	aj'utali	 $u+
+aiutano	aj'utalo
+alimentano	$3
+alimentino	$3
+allacciano	$2
+allaccino	$2
+allargano	$2
+allarghino	$2
+allegano	$2
+alleghino	$2
+allenano	$2
+allenino	$2
+alloggiano	$2
+alloggino	$2
+allontanano	$3
+allontanino	$3
+alzal	$1
+alzano	$1
+alzino	$1
+annunciano	$2
+annuncino	$2
+appaiano	$2
+apparsero	$2
+appartenere	$4
+appartengano	$3
+appoggiano	$2
+appoggino	$2
+apprezzino	$2
+approfittino	$3
+approvino	$2
+aprano	$1
+apriti	$1
+argina	$1
+arrecano	$2
+arrechino	$2
+arrestano	$2
+arrestino	$2
+arricchiscano	$3
+arrivano	$2
+arrivino	$2
+assalgano	$2
+asseriscano	$3
+asserragliano	$3
+assolvano	$2
+assommano	$2
+assommino	$2
+assumano	$2
+assumersi	$2
+assunsero	$2
+attengano	$2
+attestano	$2
+attestino	$2
+attirano	$2
+attirino	$2
+attivano	$2
+attonito	$2
+attribuiscano	$3
+augura	$1
+aumentano	$3
+auspicano	$1
+avvalere	$3
+avvalgano	$2
+avvantaggiano	$3
+avvantaggino	$3
+avvengano	$2
+avvia	av:'ia
+avviano	av:'iano
+baciano	$1
+badano	$1
+batterlo	$1
+benedic	$3
+bevano	$1
+bocciano	$1
+boccino	$1
+boicottino	$3
+bruciano	$1
+brucino	$1
+cadere	$2
+cancellami	$2
+capitola	$2
+capitolano	$2
+caricalo	$1
+catalogano	$2
+cataloghino	$2
+celebra	$1
+cercano	$1
+cercasi	$1
+chiamano	$1
+chiamino	$1
+chiariscano	$2
+chiesero	$1
+chiudano	$1
+circondano	$2
+circondino	$2
+cliccano	$1
+clicchino	$1
+cogliere	$1
+coincida	ko'intSita
+coincide	kOintS'ide
+cola	$1
+collabora	$2
+collochi	$1
+colloco	$1
+cominciano	$2
+commetterl	$u2+
+commisero	$2
+compaiano	$2
+competano	$2
+compiere	$1	$alt2
+completano	$2
+compongano	$2
+comprendano	$2
+comunicano	$2
+concentrano	$2
+concentrino	$2
+concludano	$2
+concorrano	$2
+condividano	$3
+conferiscano	$3
+confermano	$2
+confermino	$2
+configurano	$3
+configurino	$3
+confrontano	$2
+confrontino	$2
+coniuga	k'onjuga
+connetter	$u2+
+connettersi	$2
+conoscano	$2
+conoscevano	$3
+conseguano	$2
+consentano	$2
+consider	$2
+consol	$2
+consolano	$2
+contemplano	$2
+contengano	$2
+continuano	$2
+continuino	$2
+contraddici	$3
+contraddico	$3
+contraddistinguano	$4
+contribuiscano	kont@-*ibu'iskono
+convengano	$2
+conversano	$2
+conversino	$2
+convivano	$2
+coordina	$2
+coordinano	$2
+corrispondano	$3
+costa	$1
+costringano	$2
+creano	$1
+credano	$1
+crederci	$1
+credetemi	$2
+crescano	$1
+cucinano	$2
+deambulano	de'ambulano
+debbano	$1
+debuttino	$2
+decadere	$3
+decid	$2
+decidano	$2
+decifrano	$2
+decomprimano	$3
+decorrano	$2
+dedalo	$1
+dedicano	$1
+dedicano	$1
+dedichino	$1
+delimit	$2
+delinquere	$2
+denotano	$2
+denotino	$2
+depositano	$2
+depositino	$2
+derivano	$2
+derivino	$2
+derogano	$1
+desider	$2
+desiderano	$2
+desiderino	$2
+determina	$2
+detestano	$2
+detestino	$2
+dettino	$1
+deviano	$1
+dicano	$1
+dicevano	$2
+diffid	$2
+diffondano	$2
+digit	$1
+digitalo	$1
+digitano	$1
+discrimin	$2
+discutano	$2
+dispiace	dispi'atSe
+distinguano	$2
+distinguere	$2
+distintesi	$2
+distribuiscano	dist@-*ibu'iskano
+distribuit	dist@-*ibu'it
+disturbano	$2
+disturbino	$2
+divaricano	$2
+divengano	$2
+diventano	$2
+diventino	$2
+divid	$2
+dividetela	$3
+documentano	$3
+dotano	$1
+dotino	$1
+dovevano	$2
+dubita	$1
+dubitano	$1
+dubito	$1
+eccedano	$2
+eccit	$1
+eleggano	$2
+elimin	$2
+eliminano	$2
+emargin	$2
+enunciano	$2
+enuncino	$2
+erog	$1
+esaltano	$2
+esaltino	$2
+escludano	$2
+escluderl	$2
+eseguano	$2
+esercitano	$2
+esercitino	$2
+esistevano	$3
+esplicitano	$2
+esplicitavano	$4
+espongano	$2
+esprimersi	$2
+essermi	$1
+estendano	$2
+evidenziano	$3
+evit	$1
+falliscano	$2
+figurano	$2
+figuratevi	$3
+figurati	$2
+finiscano	$2
+fioriscano	$3
+formano	$1
+forniscano	$2
+fotografa	$2
+friggerl	$1
+funzionano	$3
+funzionino	$3
+gemitano	$1
+gemitino	$1
+gestiscano	$2
+gioire	dZo'ire
+giudicano	$1
+giudichino	$1
+godere	$2
+gridano	$1
+gridino	$1
+guardar	gua@-*d'a@-*	$u+
+illustrano	$2
+imit	$1
+immagin	$2
+impartiscano	$3
+impegnano	$2
+impegnino	$2
+imperterrita	$3
+implementano	$3
+implementino	$3
+impongano	$2
+incaricano	$2
+incastrano	$2
+incidano	$1
+incit	$1
+incontrano	$2
+incorpora	$2
+incorporano	$2
+incrociano	$2
+indagano	$2
+indossano	$2
+indossino	$2
+inequivoc	$3
+influenzano	influ'Entsano
+informano	$2
+informino	$2
+iniziano	$2
+inneggiano	$2
+inquadrano	$2
+inseguano	$2
+installano	$2
+installino	$2
+instaurano	$2
+intasiamo	intazi'amo
+intentano	$2
+intentino	$2
+interessano	$3
+interpret	$2
+interpretano	$2
+intervengano	$3
+intrattenere	$4
+intravedere	$4
+intrecciano	$2
+intreccino	$2
+invaghitosi	$3
+invia	Inv'Ia
+inviano	inv'iano
+invidiano	$2
+invidino	$2
+invitano	$2
+invitino	$2
+iscriviti	$2
+ispirano	$2
+ispirino	$2
+istituit	$4
+lamentano	$2
+lamentino	$2
+lanciano	$1
+lancino	$1
+leggano	$1
+leggermi	$1
+leggimi	$1
+lievitano	li'Evitano
+lievitino	li'Evitino
+limita	$1
+mancano	$1
+manchino	$1
+mandami	$1
+mantenere	$3
+meritano	$1
+meritino	$1
+metterl	$1
+mettetevi	$2
+milita	$1
+mormora	$1
+mormorano	$1
+mostrano	$1
+mostrar		$2	$u+
+muovano	mu'ovano
+muoversi	mu'ove@-*si
+muoverti	mu'ove@-*ti
+muovetevi	$3
+muoviti	$2
+mutano	$1
+nascano	$1
+navigano	$1
+navigh	$1
+necessita	$2
+negal	$1
+negano	$1
+nominano	$1
+obbligan	$1
+obblighi	$1
+occorrano	$2
+occorsero	$2
+occup	$1
+offertogli	$2
+offrano	$1
+oppongano	$2
+opposero	$2
+ospita	$1
+ottengano	$2
+pagano	$1
+paghino	$1
+palpita	$1
+parlano	$1
+parlino	$1
+partano	$1
+partecipa	$2
+partecipano	$2
+passano	$1
+pattinano	$1
+penetr	$1
+pensiamo	pensi'amo
+permettimi	$2
+perseguita	$2
+persistano	$2
+piace	pj'atSe
+piombano	$2
+ponetevele	$2
+pongano	$1
+popolano	$1
+portami	$1
+portano	$1
+portino	$1
+possano	$1
+possedere	$3
+posseggano	$2
+postulano	$2
+poter	$2	$u+
+potevano	$2
+potrai	pot@-*'aj
+preannunciano	$3
+precipita	$2
+pregano	$1
+preghino	$1
+prendano	$1
+preoccupa	$2
+preoccupatevi	$4
+presentano	$2
+presentino	$2
+presero	$1
+pressano	$1
+pressino	$1
+prestano	$1
+prevedano	$2
+prevedere	$3
+procurano	$2
+producano	$2
+proteggano	$2
+provengano	$2
+provocano	$1
+provvedano	$2
+raccogliere	$2
+raddoppiano	$2
+rafforzano	$2
+rafforzino	$2
+raggiungano	$2
+rallentano	$2
+rallentino	$2
+rapportano	$2
+rapportino	$2
+rappresentano	$3
+rappresentino	$3
+ravvisano	$2
+ravvisino	$2
+reagiscano	$3
+recitano	$1
+recuper	$2
+reggano	$1
+registrano	$2
+registrino	$2
+reinvio	@-*einv'io
+rendano	$1
+reputa	$1
+restano	$1
+restituiscano	@-*estitu'iskano
+restringano	$2
+riabilita	$3
+riallacciano	$3
+riallaccino	$3
+ribellano	$2
+ribellino	$2
+ricapitola	$3
+ricaricano	$2
+ricevano	$2
+richiedano	$2
+riconnettersi	$3
+riconoscevano	$4
+ricordano	$2
+ridimensionano	$5
+riducano	$2
+rientrano	$2
+rientrino	$2
+riescano	$2
+riguardano	$2
+rigurgita	$2
+rimangano	$2
+rincorrerla	$2
+ringraziano	$2
+rinomina	$2
+rinominano	$2
+ripagano	$2
+ripaghino	$2
+ripartano	$2
+ripetano	$2
+riprendano	$2
+rischiano	$1
+rischino	$1
+risiedano	$2
+risolsero	$2
+risolverla	$2
+risultano	$2
+risultino	$2
+risuonano	$3
+risuonino	$3
+ritenevano	$3
+ritirano	$2
+ritrovano	$2
+ritrovino	$2
+rivedere	$3
+rivendicano	$2
+romperti	$1
+sacrificano	$2
+salvano	$1
+salvino	$1
+sanguina	$1
+saper	$2
+saturano	$1
+sbrigati	$1
+scalpita	$1
+scambiano	$1
+scambino	$1
+scandiscano	$2
+scaricano	$1
+sconfinano	$2
+scoppiano	$1
+scoraggiano	$2
+scorrano	$1
+scusami	$1
+scusiamo	skuzI'amo
+segnano	$1 $alt
+seguita	$2
+selezionala	$4
+sembrano	$1
+sembrino	$1
+sentano	$1
+sentivano	$2
+separano	$2
+separino	$2
+servano	$1
+sfidano	$1
+sfidino	$1
+sfilano	$1
+sfiniscano	$2
+sfiorano	$2
+sfiorino	$2
+sfondano	$1
+sfondino	$1
+sforzano	$1
+sforzati	$1
+sforzino	$1
+sfruttino	$1
+siediti	$1
+simulano	$1
+smentiscano	$2
+soggiace	$2
+sognano	$1
+sormontano	$2
+sorreggano	$2
+sorrid	$2
+sorteggiano	$2
+sorteggino	$2
+sostenere	$3
+sottolinea 	$3
+sovrappongano	$3
+spalleggiano	$2
+spariscano	$2
+sparlano	$1
+sparlino	$1
+specchiano	$1
+specificano	$2
+spegnerl	$1
+spiegano	$1
+stabilitosi	$3
+stavano	$1
+stendano	$1
+stendetevi	$2
+stesero	$1
+studiano	$1
+suicid	$3
+suonano	$1
+super	$1
+supera	$1
+superan	$1
+superano	$1
+supportano	$2
+suscit	$1
+suscita	$1
+suscitano	$1
+susseguano	$2
+svolgano	$1
+svuotalo	$1
+svuotano	$1
+telefonano	$2
+tener	$u2+
+tenevano	$2
+tentano	$1
+termin	$1
+terminano	$1
+terminino	$1
+tesser	$1
+testano	$1
+togliere	$1
+tollerano	$1
+tornano	$1
+traducano	$2
+transitano	$1
+trapassano	$2
+trascendano	$2
+trascrivano	$2
+trasformano	$2
+trasportano	$2
+trionfano	$2
+trovano	$1
+trovino	$1
+tutelano	$2
+uccida	$2
+ucciderti	$2
+usal	$1
+usatel	$2
+utilizzalo	$3
+vadano	$1
+valgano	$1
+valuta	$1
+vattene	$1
+vedano	$1
+vengano	$1
+venivano	$2
+verificatasi	$4
+verificatisi	$4
+vincolano	$1
+visitano	$1
+voler	$1	$u+
+vuol	vu'ol	$u+
+zoppicano	$1
 

@@ -526,7 +526,7 @@ unsigned short ipa1[96] = {
 };
 
 #define N_PHON_OUT  500  // realloc increment
-static char *phon_out_buf = NULL;
+static char *phon_out_buf = NULL;   // passes the result of GetTranslatedPhonemeString()
 static int phon_out_size = 0;
 
 
@@ -663,12 +663,23 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	use_ipa = phoneme_mode & 0x10;
 	use_tie = phoneme_mode & 0x0f;
 
+	if(phon_out_buf == NULL)
+	{
+		phon_out_size = N_PHON_OUT;
+		if((phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size)) == NULL)
+		{
+			phon_out_size = 0;
+			return("");
+		}
+	}
+
 	if(use_tie >= 3)
 	{
 		// separate individual phonemes with underscores
 		separate_phonemes = '_';
 		use_tie = 0;
 	}
+
 
 	for(ix=1; ix<(n_phoneme_list-2); ix++)
 	{
@@ -2911,9 +2922,10 @@ int TransposeAlphabet(Translator *tr, char *text)
 	int acc;
 	int pairs_start;
 	const short *pairs_list;
-	char buf[N_WORD_BYTES];
+	int bufix;
+	char buf[N_WORD_BYTES+1];
 
-	p2 = buf;
+
 	offset = tr->transpose_min - 1;
 	min = tr->transpose_min;
 	max = tr->transpose_max;
@@ -2921,6 +2933,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 
 	pairs_start = max - min + 2;
 
+	bufix = 0;
 	do {
 		p += utf8_in(&c,p);
 		if(c != 0)
@@ -2929,30 +2942,30 @@ int TransposeAlphabet(Translator *tr, char *text)
 			{
 				if(map == NULL)
 				{
-					*p2++ = c - offset;
+					buf[bufix++] = c - offset;
 				}
 				else
 				{
 					// get the code from the transpose map
 					if(map[c - min] > 0)
 					{
-						*p2++ = map[c - min];
+						buf[bufix++] = map[c - min];
 					}
 					else
 					{
-						p2 += utf8_out(c,p2);
 						all_alpha=0;
+						break;
 					}
 				}
 			}
 			else
 			{
-				p2 += utf8_out(c,p2);
 				all_alpha=0;
+				break;
 			}
 		}
-	} while (c != 0);
-	*p2 = 0;
+	} while ((c != 0) && (bufix < N_WORD_BYTES));
+	buf[bufix] = 0;
 
 	if(all_alpha)
 	{

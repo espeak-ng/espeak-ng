@@ -171,6 +171,8 @@ public:
 private:
    void DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitude, double scalex);
 
+	wxFont FONT_SMALL;
+	wxFont FONT_MEDIUM;
 };
 
 class SpectSeq

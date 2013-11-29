@@ -1407,7 +1407,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 }  // end f LookupThousands
 
 
-static int LookupNum2(Translator *tr, int value, const int control, char *ph_out)
+static int LookupNum2(Translator *tr, int value, int thousandplex, const int control, char *ph_out)
 {//=============================================================================
 // Lookup a 2 digit number
 // control bit 0: ordinal number
@@ -1506,8 +1506,8 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 				else
 				{
 					// followed by hundreds or thousands etc
-					if(tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS)
-						sprintf(string, "_%do", value);
+					if((tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS) && (thousandplex <= 1))
+						sprintf(string, "_%do", value);  // LANG=TA
 					else
 						sprintf(string, "_%da", value);
 					found = Lookup(tr, string, ph_digits);
@@ -1615,8 +1615,8 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 							else if(((control & 2) == 0) || ((tr->langopts.numbers & NUM_SWAP_TENS) != 0))
 							{
 								// followed by hundreds or thousands (or tens)
-								if(tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS)
-									sprintf(string, "_%do", units);
+								if((tr->langopts.numbers2 & NUM2_ORDINAL_AND_THOUSANDS) && (thousandplex <= 1))
+									sprintf(string, "_%do", units);  // LANG=TA,  only for 100s, 1000s
 								else
 									sprintf(string, "_%da", units);
 								found = Lookup(tr, string, ph_digits);
@@ -1792,7 +1792,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 					x = 8;   // use variant (feminine) for before thousands and millions
 				if(tr->translator_name == L('m','l'))
 					x = 0x208;
-				LookupNum2(tr, hundreds/10, x, ph_digits);
+				LookupNum2(tr, hundreds/10, thousandplex, x, ph_digits);
 			}
 
 			if(tr->langopts.numbers2 & 0x200)
@@ -1875,7 +1875,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 					if(say_one_hundred != 0)
 					{
-						LookupNum2(tr, hundreds, 0, ph_digits);
+						LookupNum2(tr, hundreds, thousandplex, 0, ph_digits);
 					}
 				}
 			}
@@ -1934,7 +1934,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			x |= 0x208;  // use #f form for both tens and units
 		}
 
-		if(LookupNum2(tr, tensunits, x | (control & 0x100), buf2) != 0)
+		if(LookupNum2(tr, tensunits, thousandplex, x | (control & 0x100), buf2) != 0)
 		{
 			if(tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
@@ -2362,7 +2362,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		{
 			// speak any remaining decimal fraction digits individually
 			value = word[n_digits++] - '0';
-			LookupNum2(tr, value, 2, buf1);
+			LookupNum2(tr, value, 0, 2, buf1);
 			len = strlen(ph_out);
 			sprintf(&ph_out[len],"%c%s", phonEND_WORD, buf1);
 		}

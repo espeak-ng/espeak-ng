@@ -1,0 +1,139 @@
+
+// use "flag1" for soft vowels
+
+// short vowels
+
+phoneme I
+  vowel starttype #@ endtype #@
+  flag1
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/ii#)
+endphoneme
+
+phoneme 8
+  vowel starttype #@ endtype #@
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/8)
+endphoneme
+
+phoneme u#
+  vowel starttype @ endtype @
+  length 100
+  flag1
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vdiph2/uw_6)
+endphoneme
+
+phoneme U
+  vowel starttype #u endtype #u
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/uu_2)
+endphoneme
+
+
+// long vowels
+
+phoneme A
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme &
+  vowel starttype #a endtype #a
+  flag1
+  length 200
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 200
+  flag1
+  FMT(vdiph2/ii@_2)
+endphoneme
+
+phoneme E
+  vowel starttype @ endtype @
+  length 200
+  FMT(vowel/@_fnt)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 180
+  FMT(vowel/ii_8)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 200
+  FMT(vowel/o_3)
+endphoneme
+
+phoneme Y
+  vowel starttype #@ endtype #@
+  length 200
+  flag1
+  FMT(vowel/y#_4)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck3)
+endphoneme
+
+
+
+phoneme r
+  import_phoneme base/R2
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme G
+  import_phoneme base/r"
+endphoneme
+
+phoneme X
+  vls uvl frc
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 100
+  Vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  lengthmod 3
+  WAV(ufric/x2, 60)
+endphoneme
+
+phoneme L
+  import_phoneme sq/ll
+//  import_phoneme base/l-
+endphoneme
+
+phoneme l
+  liquid
+  IF nextPhW(isFlag1) THEN
+  ELSE
+    ChangePhoneme(L)  // Hard
+  ENDIF
+  CALL base/l
+endphoneme

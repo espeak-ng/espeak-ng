@@ -861,6 +861,7 @@ dissabores	$alt2
 dobro		$alt2
 dobro		$alt $verb
 doce		$alt2
+dogma		$alt
 dores	$alt2
 dorminhoco	$alt2
 dorminhocos	$alt
@@ -914,6 +915,7 @@ estrogonofe	$alt
 eta		$alt2
 europa		$alt
 europeia	$alt
+?2  ex es
 exagero		$alt $verb
 exorto		$alt
 explore		$alt
@@ -1056,6 +1058,7 @@ panfleto	$alt2
 pangeia		$alt
 pantera		$alt
 papoco		$alt2 $noun
+paradoxo		$alt
 parede		$alt2
 pateta		$alt
 peba		$alt
@@ -1304,7 +1307,7 @@ python     p'aIT&~N
 right   r'aIt
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r
-sky   sk'ay
+sky   sk'aI
 shake	S'eIk
 ?1 shift      S'ift
 ?1 scroll     sk:r'ol

@@ -4,13 +4,13 @@
     base 109  109
 consonants  11  119
    base2  26  125
-      en  54  156
-    en-n  33  156
-   en-us  39  156
-   en-sc  41  158
-   en-rp  34  156
-   en-wm  31  156
-   en-wi  30  156
+      en  55  157
+    en-n  33  157
+   en-us  39  157
+   en-sc  41  159
+   en-rp  34  157
+   en-wm  31  157
+   en-wi  30  157
       af  39  138
       cy  29  134
       ga  30  134
@@ -45,7 +45,7 @@ consonants  11  119
       it  19  129
       la  21  126
       es  15  125
-   es-la   1  125
+   es-la   2  125
       ca  11  127
       an   5  126
       pt  29  140
@@ -83,7 +83,7 @@ consonants  11  119
       dv  14  149
       te  18  149
       si  24  155
-      gu   1  149
+      gu   3  149
       as  12  152
       or  12  152
      mni  11  152
@@ -1295,6 +1295,7 @@ vdiph/au        [aU] en
                 [aU] ta
                 [a:U] vi
                 [aU] prs
+vdiph/a#u       [aU] gu
 vdiph/au#       [aU] en-sc
 vdiph/au_2      [au] zhy
 vdiph/au_3      [aU] en-rp
@@ -1372,6 +1373,7 @@ vdiph/@i_3      [eI] en-wm
                 [@I] ro
                 [@-] vi
                 [ai] zhy
+vdiph/@i_4      [aI] gu
 vdiph/ii        [iI] ro
 vdiph/i#i       [yI] ro
 vdiph/oi        [oI] base2

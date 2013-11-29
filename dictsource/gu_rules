@@ -1,0 +1,455 @@
+﻿
+// Gujarati Language.
+// This gu_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+
+// This file is UTF8 encoded
+
+// letter groups:
+// A   vowel letters and vowel signs
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
+
+.replace
+ ૦	0
+ ૧	1
+ ૨	2
+ ૩	3
+ ૪	4
+ ૫	5
+ ૬	6
+ ૭	7
+ ૮	8
+ ૯	9
+
+
+
+// Vowels
+
+
+.group અ
+        અ          V
+        અ (હ       E         //  (h
+    અહ) અ          E
+
+.group આ
+        આ          a:
+        આં          V~
+
+.group ઇ
+        ઇ          I
+//       ઇઁ        i~
+       ઇં        i~
+
+.group ઈ
+        ઈ          i:
+        ઈ (_       i
+
+.group ઉ
+        ઉ          U
+
+.group ઊ
+        ઊ          u
+        ઊં         u~        // + anusvara
+        ઊઁ (_       u~        // + candrabinbu
+
+.group ઋ
+        ઋ          ru
+
+.group ઌ
+        ઌ          l-        // vocalic l
+
+.group ઍ
+        ઍ          E         // candra e
+
+.group એ
+        એ          e:
+        એઁ          e~:
+        એં          e~:
+    ા) એઁ (_       j
+
+.group ઐ
+        ઐ          aI        // ?? [aI] [E:] [&:]
+        ઐં         E~
+        ઐઁ (_       E~
+?2      ઐ          aI        // ?? [aI] [E:] [&:]
+	
+
+.group ઑ
+        ઑ          O         // candra O
+
+.group ઓ
+        ઓ          o:
+        ઓં         o~        // +anusvara
+        ઓઁ (_       o~        // +candrabindu
+    ા) ઓં (_       w        // +anusvara
+    ા) ઓઁ (_       w
+ 
+.group ઔ
+        ઔ          O:        // ?? [aU] [O:]
+        ઔં         O~        // +anusvara
+        ઔઁ (_       O~        // +candrabindu
+?3      ઔ          aU        // ?? [aU] [O:]
+
+
+// Vowel Signs
+
+.group ા
+        ા          a:
+        ા (ઁ       V~
+        ાઁ (_      V~
+        ાં         V~
+        ાવ         aU
+
+.group િ
+        િ          I
+//      િઁ       i~
+      િં       i~
+
+.group ી
+        ી          i:
+        ી (_       i
+        ી (ઁ       i~
+        ીઁ (_      i~
+        ીં         i~
+
+.group ુ
+        ુ          u
+        ુ (ઁ       u~
+        ું         u~
+        ુઁ (_      u~
+
+.group ૂ
+        ૂ          u:
+        ૂ (ઁ       u~
+        ૂં         u~        // or O~   ??
+        ૂઁ (_      u~
+
+.group ૃ
+        ૃ          ru
+
+.group ૄ
+        ૄ          ru
+
+.group ૅ
+        ૅ          E
+
+.group ે
+        ે          e:
+        ે (ઁ       e~
+        ેં         e~:
+        ેઁ (_      e~:
+
+.group ૈ
+        ૈ          E:        // ?? [aI] [E:] [&:]
+        ૈં         E~
+        ૈ (ઁ       E~ 
+        ૈઁ (_      E~
+?2      ૈ          aI        // ?? [aI] [E:] [&:]
+
+.group ૉ
+        ૉ          O
+
+.group ો
+        ો          o:
+        ોં         o~
+        ો (ઁ       o~
+        ોઁ (_      o~
+
+.group ૌ
+        ૌ          O:        //  [O:] or [aU] ??
+        ૌ (ઁ       O~        //  [O:] or [aU] ??
+        ૌં         O~
+        ૌઁ (_      O~
+?3      ૌ          aU        //  [O:] or [aU] ??
+
+.group ૢ     // vowel sign l
+        ૢ          l-
+
+.group ૣ    // vowel sign ll
+        ૣ          l-:
+
+.group ૐ
+        ૐ          o~m
+
+// Consonants
+
+.group ક
+        ક          kV
+        ક (B       k
+        ક (્ય      k:
+        ક઼         qV
+        ક઼ (B      q
+
+        ક્ક         k:V   // kk -> k:
+        ક્ક (B      k:
+        ક્ષ          kSV
+        ક્ષ (B       kS
+        
+.group ખ
+        ખ          k#V
+        ખ (B       k#
+        ખ઼         xV
+        ખ઼ (B      x
+
+.group ગ
+        ગ          gV
+        ગ (B       g
+        ગ઼         QV
+        ગ઼ (B      Q
+
+.group ઘ
+        ઘ          g#V
+        ઘ (B       g#
+
+.group ઙ
+        ઙ          NV
+        ઙ (B       N
+     ્) ઙ (_       N@
+
+.group ચ
+        ચ          cV
+        ચ (B       c
+        ચ (્ય      c:
+
+.group છ
+        છ          c#V
+        છ (B       c#
+
+.group જ
+        જ          JV
+        જ (B       J
+        જ઼         zV
+        જ઼ (B      z
+        
+         જ્ઞ           gjV
+        જ્ઞ (B       gj
+
+.group ઝ
+        ઝ          J#V
+        ઝ (B       J#
+
+.group ઞ
+        ઞ          n^V
+        ઞ (B       n^
+     ્) ઞ (_       n^
+
+.group ટ
+        ટ          t.V
+        ટ (B       t.
+        ટ (્ય      t.:
+
+        ટ્ટ          t.:V    // t.t. -> t.:
+        ટ્ટ (B       t.:
+
+        ટ્ઠ          t.#:V    // t.t.# -> t.#:
+        ટ્ઠ (B       t.#:
+
+.group ઠ
+        ઠ          t.#V
+        ઠ (B       t.#
+
+        ઠ્ઠ          t.#:V   // t.#t.# -> t.#:
+        ઠ્ઠ (B       t.#:
+
+.group ડ
+        ડ          d.V
+        ડ (B       d.
+
+        ડ઼         r.V
+        ડ઼ (B      r.
+
+.group ઢ
+        ઢ          d.#V
+        ઢ (B       d.#
+        ઢ઼         r.hV      // nukta  (should retroflex flap)
+        ઢ઼ (B      r.h       // nukta
+
+.group ણ
+        ણ          n.V      
+        ણ (B       n.
+     ્) ણ (_       n.@
+
+.group ત
+        ત          tV
+        ત (B       t
+        ત (્ય      t:
+
+        ત્ત          t:V   // tt -> t:
+        ત્ત (B       t:
+
+.group થ
+        થ          t#V
+        થ (B       t#
+
+.group દ
+        દ          dV
+        દ (B       d
+
+.group ધ
+        ધ          d#V
+        ધ (B       d#
+
+.group ન
+        ન          nV
+        ન (B       n
+     ્) ન (_       n@
+    ર્) ન (_       n         // r +virama
+
+.group પ
+        પ          pV
+        પ (B       p
+        પ (્ય      p:
+
+        પ્પ         p:V      // pp -> p:
+        પ્પ (B      p:
+
+.group ફ
+        ફ          p#V
+        ફ (B       p#
+        ફ઼         fV
+        ફ઼ (B      f
+
+.group બ
+        બ          bV
+        બ (B       b
+
+.group ભ
+        ભ          b#V
+        ભ (B       b#
+
+.group મ
+        મ          mV
+        મ (B       m
+     ્) મ (_       m@
+    ર્) મ (_       m         // r +virama
+    ન્) મ (_       m         // n +virama
+
+.group ય
+        ય          j@
+        ય (B       j
+     ્) ય (_       j@
+     C) ય (_       Ej     // [Ej] not [@j]
+
+.group ર
+        ર          rV
+        ર (B       r
+     ્) ર (_       r@
+
+
+.group લ
+        લ          lV
+        લ (B       l
+     ્) લ (_       l@
+
+.group ળ
+        ળ          l.V
+        ળ (B       l.
+     ્) ળ (_       l.@
+
+.group વ
+        વ          vV
+        વ (B       v
+     _) વ          wV
+     _) વ (B       w
+     _) વ (્       v         // +virma
+
+
+.group શ
+        શ          SV
+        શ (B       S
+
+.group ષ
+        ષ          s.V
+        ષ (B       s. 
+
+.group સ
+        સ          sV
+        સ (B       s
+
+.group હ
+        હ          HV
+        હ (B       H
+
+
+.group ઼
+     ઼                   // nukta,  modifies a consonant
+
+.group ઽ                // avagraha, lengthens a vowel ??
+        ઽ          :
+
+.group ઁ
+        ઁ          n         // candrabindu
+
+.group ં
+        ં          n         // anusvara
+        ં (પ       m
+        ં (ફ       m
+        ં (બ       m
+        ં (ભ       m
+        ં (મ       m
+
+        ં (ટ       n.
+        ં (ઠ       n.
+        ં (ડ       n.
+        ં (ઢ       n.
+        ં (ણ       n.
+
+        ં (ચ       n^
+        ં (છ       n^
+        ં (જ       n^
+        ં (ઝ       n^
+        ં (ઞ       n^
+        ં (ય       n^
+
+        ં (ક       N
+        ં (ખ       N
+        ં (ગ       N
+        ં (ઘ       N
+        ં (ઙ       N
+       
+
+.group ઃ
+        ઃ          H         //  visarga
+
+.group ્		// virama
+્ 
+
+// Extra consonants
+
+.group ક઼   // qa
+        ક઼          qV
+
+.group ખ઼   // khha
+        ખ઼          xV
+
+.group ગ઼    // ghha
+        ગ઼          QV
+
+.group જ઼    // za
+        જ઼          zV
+
+.group ફ઼    // fa
+        ફ઼          fV
+
+.group ૠ    // rr
+        ૠ          V-rr
+
+.group ૡ    // ll
+        ૡ          l-:       // long syllabic l
+
+
+// If we find a Latin letter a-z, then translate as English
+// (This is now done automatically by the eSpeak program)
+
+.group o
+        o          _^_EN
+   D__) of (__D    me
+
+
+
+
+.group
+        $          dOlV
+        %          pVsEnt
+

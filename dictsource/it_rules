@@ -1,6 +1,6 @@
-// translation rules
+// Italian translation rules
 // This file is UTF-8 encoded
-
+// Last update: 2013-11-01 Chris, Christian Leo M, <llajta2012@cmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -9,27 +9,34 @@
 .L01 a à o ò ó u ù
 .L02 e é è
 .L03 b d g l m n r v     // 's' is [z] before these
+.L04 mi ti gli  lo la le  si  ci vi li ne melo telo selo celo velo mela tela sela cela vela meli teli seli celi veli mele tele sele cele vele mene tene sene cene vene glielo gliela glieli gliele gliene
+
+// Hours and minutes
+.L16 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+.L17 0 1 2 3 4 5
+
 
 .group a
 		a	a
 		ai (K   aI
                 ao (_N   aU
                 au	a%u
-
 	@C)	a (_S1q  a     // lookup it_list without suffix
 	@i)	a (_S1q  a     // lookup it_list without suffix
-
 	@)	a (cA_	=a
 	@)	a (che_	=a
 		a (istA_  a
-		a (ismo_  a
+		a (ismo_  'a
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 
-	_)	ae (r    aI
+	_)	ae (r    aE
 //	@)	a (no_	=a     //ByFilo, this seems to make it_listx longer
 	@)	avano (_S5  'avano
 		a (tterA_   'a
+     _) all' (P4t     all
+     _) anch' (P5t     ank
+	@) amo (L04_	'amo
 
 .group à
 		à	''a
@@ -44,6 +51,8 @@
 .group c
 		c	k
 		cc	k:
+		ck	k:
+		cqu		k:w2
 		c ('    tS
 		c (Y    tS
 		cc (Y   tS:
@@ -58,9 +67,15 @@
 		dd	d:
 	n)	dere    =deRe
 
+     _) dall' (P5t     dall
+     _) dell' (P5t     dell
+	decider (L04	detS'ide@-*
+
 .group e
 		e        e
-		ei       Ej (K
+		ei (K        Ej
+	r) ei (_	'ei
+	@C)	e (_		e
 	@C)	e (_S1q  e     // lookup it_list without suffix
 	@Ar)	e (_     e
 
@@ -110,10 +125,13 @@
 		e (vo_   E
 	@)	e (volA_ 'e
 		e (zA    E
+	C) ender (L04_	'ende@-*
+	C) erder (L04_	'E@-*de@-*
+	esser (L04_		'es:eR
 
 .group f
 		f	f
-
+		ff	f:
 	@A)	f (ilo_  =f
 	A)	f (ero_  =f
 		
@@ -134,6 +152,8 @@
 		gli (A  l^
 	_)	gl	gl
 		gn	n^
+	@) gn (A_	n^;
+	a) gn (A_	n^:
 		gu (A   gw
 
 	
@@ -149,6 +169,7 @@
 	r)	i (A	%i
        _C)	i (a    i
        _C)	i (à    i
+	_C) ie (_	'ie
 		i (o    i
 		i (ò	i
 		i (ó	i
@@ -156,11 +177,14 @@
 	@)	ià (_	i'a
 	X)	ia (_	'ia
 	af)	ia (_	'ia
+	af)	ie (_	'ie
 	fon)	ia (_	'ia
 	scop)	ia (_	'ia
 	er)	ia (_	'ia
+	er)	ie (_	'ie
 	gor)	ia (_   'ia
 	metr)	ia (_	'ia
+	metr)	ie (_	'ie
 	t)	ia (_	'ia
         @)      io (_S1q   =i%o
 	a)	i (+	j
@@ -198,17 +222,18 @@
         @)	i (mo_    =i
 		inas (_   'inas
 		i (ne_    =i
-	@)	issima(_S6 'issima
-	@)	issime(_S6 'issime
-	@)	issimi(_S6 'issimi
-	@)	issimo(_S6 'issimo
-	@)	issero(_S6 'issero
+	@) issim (A_	'issim
+	@)	issero(_S6q	'issero
 	p)	i (te_    =i
+	@) iono (_	=iono
+	issano (_	'is:ano
 
-		
 .group j
-		j	j
 
+            j            dZ
+            j (j
+         _) juan         _^_ES
+            
 .group k
 		k	k
 		kk	k:
@@ -217,18 +242,24 @@
 		l	l
                ll (C    l_
                ll (_    l
-		
+     _) l' (P2t     l
+	A) l (bA		l:
+
+
 .group m
 		m	m
 	A)	mi (a_  m'i
+     _) m' (P2t     m
+	metter (L04_	m'ette@-*
 
-		
 .group n
 		n	n
 		n (g	N
 		n (gY   n
 		n (k	N
-		
+     _) nell' (P5t     nell
+		ndo (L04_	=ndo    // for pronominal verbs
+
 .group o
 		o	o
 		oi	O%I
@@ -239,15 +270,11 @@
 		o (CACA_  O
 		o (Cr     O
 		o (CC_    O
-
-
 	@C)	o (_S1q  o     // lookup it_list without suffix 
 	@i)	o (_S1q  o     // lookup it_list without suffix 
-
 	i)	o          O
 	i)	o (ne      o
 	i)	o (so_     o
-
 	m)	o (bile    O
 		o (ca_     O
 		o (co_     O
@@ -281,7 +308,8 @@
 	dr)	o (mo_     =o
 		o (ni       O
 		o (ni_      o
-                o (no_      O
+               @) o (no_      =O
+	u) o (no_	'o
 	@)	o (nomo_   'O
 	@)	o (nzolo_  'o
 		o (o        O
@@ -297,8 +325,8 @@
 		o (stracA_  'O
 		o (ttol     O
 		o (zA       O
+	osano (_	'ozano
 
-	
 .group p
 		p	p
 		pp	p:
@@ -307,16 +335,20 @@
 	@m)	p (ere_ =p
 
 .group q
-		q	kw2
+		q	k
 		qu	kw2
+     _) quell' (P6t     kw2Ell
+     _) quest' (P6t     kw2est
 
 .group r
 	C)	r	@-*
 		r	@-*
+		r (_		@-*
 	_)	r	@-*
 		rr	R*
 	A)	r (A	R
-		
+	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
+
 .group s
 		s	s
 	_)	s	s
@@ -341,18 +373,26 @@
 		sch (Y	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
+	A) sh (A	S
 	@)	sia	z'ia
 	@C)	sia	s'ia
 	@)	sià	zi'a
-	@)	s (_S1	s	
-		
+	@)	s (_S1	s
+     _) sull' (P5t     sull
+	scriver (L04_	sk@-*'iv%E@-*
+
 .group t
 		t	t
 		tt	t:
-		
+		@a) tria (_	t@-*'ia
+		@a) trie (_	t@-*'ie
+		@) tt (ano_	=t:
+		a) ttoria (_	t:oR'ia
+		a) ttorie (_	t:oR'Ie
+
 .group u
 		u	u
-		u (A	w2
+		_) u (A	w2
 	Kr)	u (A	u
 	Kl)	u (A	u
 
@@ -360,10 +400,12 @@
 	@)	u (colo_  'u
 		u (ito_ 'u
 	@)	u (lA_	=u
-
+     _) un' (P3t     un
+	@@) u (A_	=u
 .group v
 		v	v
-	
+		vv	v:
+
 .group w
 		w	w2
 
@@ -378,13 +420,19 @@
 .group z
 		z	ts
 	A)	zz	ts:
-	A)	z (A	ts:
-
+	A)	z (A	ts
+		_) z (AC          |dz|
         _)	z (i	dz
         _)	z (ì	dz
 		z (L01A	dz
-
+		@) zz (ano_	=ts:
+	ziono (_	tsi'Ono
 .group
+
+gn	n^
+ñ	n^
+_L16_)	: (_L17D_	||%E_||	// Say time
+
 		è	''E
 		èi (K	''Ej
 
@@ -412,3 +460,5 @@
         C_)  - (_D        _
 
 		§	setsi'one
+		
+		
