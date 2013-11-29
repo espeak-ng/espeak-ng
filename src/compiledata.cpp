@@ -43,10 +43,6 @@
 #include <unistd.h>
 #endif
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#endif
-
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
 extern int utf8_in(int *c, const char *buf);

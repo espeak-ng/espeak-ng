@@ -44,11 +44,6 @@
 #include "wx/filename.h"
 #include "wx/sound.h"
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#define wxSAVE wxFD_SAVE
-#endif
-
 #define T_SOURCE    501
 #define T_PHONETIC  502
 #define T_TRANSLATE 503

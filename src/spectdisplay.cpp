@@ -40,13 +40,6 @@
 #include "spect.h"
 #include "options.h"
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#define wxSAVE wxFD_SAVE
-#define WXK_PRIOR WXK_PAGEUP
-#define WXK_NEXT WXK_PAGEDOWN
-#endif
-
 extern MyFrame *frame ;
 #define SCROLLUNITS  20
 

@@ -38,10 +38,6 @@
 #include "translate.h"
 #include "options.h"
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#endif
-
 /* Read a file of vowel symbols and f1,f2 formants, and produce a vowel diagram
 */
 extern wxString path_phsource;

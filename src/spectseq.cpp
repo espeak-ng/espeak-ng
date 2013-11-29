@@ -33,11 +33,6 @@
 #include "wx/txtstrm.h"
 #include "wx/datstrm.h"
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#define wxSAVE wxFD_SAVE
-#endif
-
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 
 

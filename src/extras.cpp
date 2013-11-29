@@ -36,10 +36,6 @@
 #include "translate.h"
 #include "options.h"
 
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
-#endif
-
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 extern int __cdecl string_sorter(char **a, char **b);
 
