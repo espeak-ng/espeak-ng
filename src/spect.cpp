@@ -93,8 +93,6 @@ float SpectTilt(int value, int freq)
 
 
 SpectFrame::SpectFrame(SpectFrame *copy)
-	: FONT_SMALL(8,wxSWISS,wxNORMAL,wxNORMAL)
-	, FONT_MEDIUM(9,wxSWISS,wxNORMAL,wxNORMAL)
 {//=====================================
 
 	int  ix;
