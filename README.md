@@ -46,8 +46,6 @@ This is a mirror of the eSpeak sources with the following improvements on the
 
 5.  Add support for the Oromo language (`om`, contributed by [gude432](https://github.com/gude432)).
 
-6.  Support for wxWidgets 3.0.
-
 ## Build Dependencies
 
 In order to build eSpeak, you need:
@@ -317,8 +315,6 @@ on POSIX systems.
     *  removing the guards around the relevant source files;
     *  removing the relevant conditional compilation defines from `speech.h`;
     *  fixing the sources if needed to build without support for the feature.
-
-7.  Fixes for building with wxWidgets 3.0, while still supporting wxWidgets 2.8.
 
 #### espeakedit
 
