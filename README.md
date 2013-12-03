@@ -289,6 +289,9 @@ fixes detailed in the sections below. In addition, it:
     and Cantonese Chinese (`zhy`) dictionaries from
     [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/).
 
+4.  Use `/i/` instead of `/ɪ/` for `en` transcription of the `/i/` phoneme;
+    `en-n` still uses the accent-specific `/ɪ/` transcription.
+
 #### Build System
 
 The build system for eSpeak has been changed on the *master* branch to use
@@ -342,16 +345,9 @@ the command line, especially for use in the build process:
 
 The following bugs have been fixed on the *master* branch:
 
-*  [`c1196192e5`](https://github.com/rhdunn/espeak/commit/c1196192e5950a80d37073135780441cc782c127)
-   — don't crash when `espeak_SetPunctuationList` is called with a null pointer.
+*  all bug fixes have been applied upstream.
 
-*  [`304d265f46`](https://github.com/rhdunn/espeak/commit/304d265f462fa4854c7d1f953131c69937a2fe74)
-   — fix a segfault when running `espeak -x "[[]]"`
-
-*  [`c098e8b891`](https://github.com/rhdunn/espeak/commit/c098e8b8910c1bffdd878198095fee803d8bd73a)
-   — change the IPA transcription of the `/i/` phoneme to `i`.
-
-These have been sent upstream for inclusion in the upstream version of eSpeak.
+The bug fixes are sent upstream for inclusion in the upstream version of eSpeak.
 
 ### android
 
