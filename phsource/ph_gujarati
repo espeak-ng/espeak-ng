@@ -9,11 +9,26 @@ phoneme aI
   FMT(vdiph/@i_4)
 endphoneme
 
+phoneme aI~
+  vowel long starttype #@ endtype #i
+  length 270
+  long
+  FMT(vnasal/ai_n)
+endphoneme
+
+
 phoneme aU
   vowel long starttype #a endtype #u
   length 240
   long
   FMT(vdiph/a#u)
+endphoneme
+
+phoneme aU~
+  vowel long starttype #a endtype #u
+  length 300
+  long
+  FMT(vnasal/au_n)
 endphoneme
 
 

@@ -533,6 +533,7 @@ typedef struct {
 	int decimal_sep;
 	int max_digits;    // max number of digits which can be spoken as an integer number (rather than individual digits)
 	const char *ordinal_indicator;   // UTF-8 string
+	const char *roman_suffix;    // add this (ordinal) suffix to Roman numbers (LANG=an)
 
 	// bit 0, accent name before the letter name, bit 1 "capital" after letter name
 	int accents;
@@ -722,6 +723,7 @@ int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
+int IsSuperscript(int letter);
 int iswalpha2(int c);
 int isspace2(unsigned int c);
 int iswlower2(int c);
@@ -736,6 +738,7 @@ ALPHABET *AlphabetFromName(const char *name);
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
 void DeleteTranslator(Translator *tr);
+void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 int Lookup(Translator *tr, const char *word, char *ph_out);
 int LookupFlags(Translator *tr, const char *word);
 

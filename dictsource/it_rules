@@ -31,12 +31,13 @@
 	@)	a (ggine_ 'a
 
 	_)	ae (r    aE
-//	@)	a (no_	=a     //ByFilo, this seems to make it_listx longer
 	@)	avano (_S5  'avano
 		a (tterA_   'a
      _) all' (P4t     all
      _) anch' (P5t     ank
 	@) amo (L04_	'amo
+	@) ander (L04_	'andE@-*
+		ate (L04_	'ate
 
 .group à
 		à	''a
@@ -61,7 +62,8 @@
 		ci (A	tS    // or L01 ?
 		cci (A  tS:   // or L01 ?
 	@)	co (lA_ =ko
-		
+     _) c' (P2t     tS
+
 .group d
 		d	d
 		dd	d:
@@ -69,16 +71,15 @@
 
      _) dall' (P5t     dall
      _) dell' (P5t     dell
+	_) d' (P2t	d
 	decider (L04	detS'ide@-*
 
 .group e
 		e        e
 		ei (K        Ej
 	r) ei (_	'ei
-	@C)	e (_		e
 	@C)	e (_S1q  e     // lookup it_list without suffix
-	@Ar)	e (_     e
-
+// ò	@Ar)	e (_     e
 		e (C_    E
 		e (A     E
 		e (C%A_  E    // doubled consonant
@@ -113,21 +114,23 @@
 	gg)	e (ro_   E
 	f)	e (rm    e
 	@)	e (rrimo_ 'E
-	@)	e (simo_  'e
+	@)	e (simA_  'e
 	h)	e (ss    e
 	m)	e (ss    e
 	_sC)	e (ss    e
 		e (ssa_  e
 		e (tr    E
 		e (ti    E
-
 		e (vi_   E
 		e (vo_   E
 	@)	e (volA_ 'e
 		e (zA    E
+		CC) eggia (no_	'EdZ:a
 	C) ender (L04_	'ende@-*
 	C) erder (L04_	'E@-*de@-*
 	esser (L04_		'es:eR
+	_) ecco (L04	'Ek:o
+		ete (L04_	'ete
 
 .group f
 		f	f
@@ -143,20 +146,22 @@
 		gi (A	dZ   // any vowel, or L01 ?
 		gi (a_	dZ'i#  // [i] only if stressed
 		gì (a_	dZ'i#  // [i] only if stressed
+		lo) gi (e_	dZ'i#
 	n)	gi (a_	dZ
 		gg (Y	dZ:
 		ggi (A  dZ:  // or L01 ?
-	@)	gger (lo_ =dZ:eR
+	@) gger (L04_ =dZ:e@-*
 		gl (i	l^
 		gl (ì	l^
 		gli (A  l^
 	_)	gl	gl
+	@) glier (L04_	=l^E@-*
+	@) guer (L04_	=gUe@-*
 		gn	n^
 	@) gn (A_	n^;
 	a) gn (A_	n^:
 		gu (A   gw
 
-	
 .group h
 		h
 	_)	ha      h'a
@@ -167,8 +172,6 @@
 		i (A	j
 	l)	i (A	%i
 	r)	i (A	%i
-       _C)	i (a    i
-       _C)	i (à    i
 	_C) ie (_	'ie
 		i (o    i
 		i (ò	i
@@ -186,6 +189,7 @@
 	metr)	ia (_	'ia
 	metr)	ie (_	'ie
 	t)	ia (_	'ia
+	t) ie (_	'ie
         @)      io (_S1q   =i%o
 	a)	i (+	j
 	à)	i (+	j
@@ -199,13 +203,13 @@
 		i (asi_   'i
 	@)	i (bile_  'i
 	@)	i (cA_	  =i
-	tr)	i (ce_     i
+	tr)	i (cY_     i
 	@)	i (chA_   =i
         @)      i (dA_    =i
         @)      i (dere_  'i
 	@)	ie (rA_    i'E
 	@)	ié (rA_    i'E
-	@)	iè (rA_    i'E
+// [ 	@)	iè (rA_    i'E
 	@)	i (gA_	  =i
 		i (genA_  'i
 	c)	i (lA_    =i
@@ -227,6 +231,7 @@
 	p)	i (te_    =i
 	@) iono (_	=iono
 	issano (_	'is:ano
+	ite (L04_	'ite
 
 .group j
 
@@ -243,8 +248,8 @@
                ll (C    l_
                ll (_    l
      _) l' (P2t     l
-	A) l (bA		l:
-
+	A) l (bA	l:
+	A) l (vA	l:
 
 .group m
 		m	m
@@ -259,6 +264,7 @@
 		n (k	N
      _) nell' (P5t     nell
 		ndo (L04_	=ndo    // for pronominal verbs
+		_zA) nz (A	n|dz
 
 .group o
 		o	o
@@ -316,7 +322,7 @@
 		o (polA_   'O
 	sc)	o (p        O
 		o (r	    O
-		o (re_      o
+		o (rY_      o
 	f)	o (rmA_     o
 		o (si_      O
 		o (ss       O
@@ -326,7 +332,7 @@
 		o (ttol     O
 		o (zA       O
 	osano (_	'ozano
-
+		C) onder (L04_	'ondE@-*
 .group p
 		p	p
 		pp	p:
@@ -348,6 +354,9 @@
 		rr	R*
 	A)	r (A	R
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
+	C) rai (_	@-*'aI
+	A) rai (_	R'aI
+	rrai (_	R*'aI
 
 .group s
 		s	s
@@ -374,11 +383,13 @@
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
 	A) sh (A	S
-	@)	sia	z'ia
+	@)	sia (_	z'i#a
+	@) sie (_	z'i#e
 	@C)	sia	s'ia
 	@)	sià	zi'a
 	@)	s (_S1	s
      _) sull' (P5t     sull
+	_) sotto (P5t	sot:o
 	scriver (L04_	sk@-*'iv%E@-*
 
 .group t
@@ -415,23 +426,66 @@
 .group y
 		y	j
 		y (K	i        // foreign words
-	
-		
+
 .group z
 		z	ts
-	A)	zz	ts:
-	A)	z (A	ts
-		_) z (AC          |dz|
-        _)	z (i	dz
-        _)	z (ì	dz
+	A)	zz (A	ts:
+	_A)	z (A	dz
+		_) z (AC          dz
+        _)	z (Y	dz
 		z (L01A	dz
+		_A) zz (A	|dz:
+		@li) zz (A	dz:
 		@) zz (ano_	=ts:
-	ziono (_	tsi'Ono
+		i) zza (no_	=dz:a
+		@@) zza (L04_	=dz:a
+		@) zza (ti_	dz:'a
+	zion (A_	tsi'On
+
+.group 0xce   // Greek letters
+// 0xce is the first byte of the utf-8 code for these characters
+
+	α	'alfa_
+	ά	'alfa_
+	β	b'eta_
+	γ	g'am:a_
+	δ	d'Elta_
+	ε	'EpsIlon
+	έ	'EpsIlon_
+	ζ	dz'eta||g@-*'eka
+	η	'e:ta||g@-*'eka
+	ή	'e:ta||g@-*'eka_
+	θ	t'e:ta||g@-*'eka_
+	ι	I'ota_
+	ί	I'ota_
+	κ	k'ap:a||g@-*'eka_
+	λ	l'ambda_
+	μ	m'ju:_
+	ν	n'ju:_
+	ξ	ks'I||g@-*'eka_
+	ο	'omIk@-*on_
+
+.group 0xcf   // Greek letters
+
+	π	p'I||g@-*'eka_
+	ρ	@-*'O||g@-*'eka_
+	σ	s'Igma_
+	ς	s'Igma_
+	τ	t'au_
+	υ	'IpsIlon_
+	ύ	'IpsIlon_
+	φ	f'I||g@-*'eka_
+	χ	k'I||g@-*'eka_
+	ψ	ps'I||g@-*'eka_
+	ω	om'ega_
+	ώ	om'ega_
+	ό	'omIk@-*on_
+
 .group
 
 gn	n^
 ñ	n^
-_L16_)	: (_L17D_	||%E_||	// Say time
+_L16_)	: (_L17D_	_%%E_	// Say time
 
 		è	''E
 		èi (K	''Ej
@@ -448,17 +502,15 @@ _L16_)	: (_L17D_	||%E_||	// Say time
 
 		ù	''u
 
-		$	dollaro
+		$	d'ollaRo
 		, (D    v'irgola
 		!       _p'untoesklamat'ivo_
 	!)	!
 		?	_p'untointeRogat'ivo_
 	?)	?
-
         __)  - (_D         meno
         A_)  - (_D        _
         C_)  - (_D        _
 
 		§	setsi'one
-		
-		
+	

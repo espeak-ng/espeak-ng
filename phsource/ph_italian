@@ -1,4 +1,3 @@
-
 //====================================================
 //  Italian
 //====================================================
@@ -11,7 +10,7 @@ endphoneme
 
 phoneme a
   vowel starttype #a endtype #a
-  length 180
+  length 160
   ChangeIfNotStressed(a/)
   FMT(vowel/a)
 endphoneme
@@ -19,7 +18,7 @@ endphoneme
 
 phoneme a/
   vowel starttype #@ endtype #@
-  length 180
+  length 140
   IF thisPh(isWordEnd) THEN
     FMT(vowel/a#_4)
   ENDIF
@@ -29,14 +28,14 @@ endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 170
+  length 150
   ChangeIfNotStressed(e/)
   FMT(vowel/e_2)
 endphoneme
 
 phoneme e/
   vowel starttype #e endtype #e
-  length 170
+  length 140
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vowel/e_mid2)
   ELSE
@@ -48,7 +47,7 @@ endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 170
+  length 145
   ChangeIfUnstressed(e/)   // [E] only in stressed syllables ?
   FMT(vowel/e_mid)
 endphoneme
@@ -64,7 +63,7 @@ endphoneme
 
 phoneme i#    // Used for 'gia_' where [i] is only spoken if stressed
   vowel starttype #i endtype #i
-  length 140
+  length 145
   ChangeIfNotStressed(NULL)
   ChangePhoneme(i)
 endphoneme
@@ -72,7 +71,7 @@ endphoneme
 
 phoneme I
   vowel starttype #i endtype #i
-  length 150
+  length 140
   IfNextVowelAppend(;)
   FMT(vowel/i_4)
 endphoneme
@@ -81,14 +80,14 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 170
+  length 150
   ChangeIfNotStressed(o/)
   FMT(vowel/o)
 endphoneme
 
 phoneme o/
   vowel starttype #o endtype #o
-  length 170
+  length 140
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vowel/oo_1)
   ELSE
@@ -99,7 +98,7 @@ endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 170
+  length 150
   ChangeIfUnstressed(o/)   // [O] only in stressed syllables ?
   FMT(vowel/oo_4)
 endphoneme
@@ -107,21 +106,21 @@ endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 160
+  length 150
   ChangeIfNotStressed(U)
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme U
   vowel starttype #u endtype #u
-  length 160
+  length 140
   FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme aU
   vowel starttype #a endtype #o
-  length 270
+  length 300
   FMT(vdiph/aoo)
 endphoneme
 
@@ -147,5 +146,17 @@ endphoneme
 
 phoneme l^
   import_phoneme base/l^
-  Length 140
+  Length 130
 endphoneme
+
+phoneme ts
+  import_phoneme consonants/ts
+  voicingswitch ts
+endphoneme
+
+phoneme dz
+  import_phoneme consonants/dz
+  voicingswitch z
+  lengthmod 3
+endphoneme
+

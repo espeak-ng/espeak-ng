@@ -70,9 +70,9 @@
 
 .group ઐ
         ઐ          aI        // ?? [aI] [E:] [&:]
-        ઐં         E~
-        ઐઁ (_       E~
-?2      ઐ          aI        // ?? [aI] [E:] [&:]
+        ઐં          aI~
+        ઐઁ (_       aI~
+
 	
 
 .group ઑ
@@ -86,10 +86,10 @@
     ા) ઓઁ (_       w
  
 .group ઔ
-        ઔ          O:        // ?? [aU] [O:]
-        ઔં         O~        // +anusvara
-        ઔઁ (_       O~        // +candrabindu
-?3      ઔ          aU        // ?? [aU] [O:]
+        ઔ          aU        // ?? [aU] [O:]
+        ઔં          aU~       // +anusvara
+        ઔઁ (_       aU~        // +candrabindu
+
 
 
 // Vowel Signs
@@ -141,11 +141,10 @@
         ેઁ (_      e~:
 
 .group ૈ
-        ૈ          E:        // ?? [aI] [E:] [&:]
-        ૈં         E~
-        ૈ (ઁ       E~ 
-        ૈઁ (_      E~
-?2      ૈ          aI        // ?? [aI] [E:] [&:]
+        ૈ           aI        // ?? [aI] [E:] [&:]
+        ૈં         aI~
+        ૈ (ઁ       aI~ 
+        ૈઁ (_      aI~
 
 .group ૉ
         ૉ          O
@@ -157,11 +156,10 @@
         ોઁ (_      o~
 
 .group ૌ
-        ૌ          O:        //  [O:] or [aU] ??
-        ૌ (ઁ       O~        //  [O:] or [aU] ??
-        ૌં         O~
-        ૌઁ (_      O~
-?3      ૌ          aU        //  [O:] or [aU] ??
+        ૌ          aU        //  [O:] or [aU] ??
+        ૌ (ઁ       aU~        //  [O:] or [aU] ??
+        ૌં         aU~
+        ૌઁ (_      aU~
 
 .group ૢ     // vowel sign l
         ૢ          l-
