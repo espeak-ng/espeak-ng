@@ -314,6 +314,7 @@ dictionaries: \
 	espeak-data/ko_dict \
 	espeak-data/ku_dict \
 	espeak-data/la_dict \
+	espeak-data/lfn_dict \
 	espeak-data/lt_dict \
 	espeak-data/lv_dict \
 	espeak-data/mk_dict \
@@ -565,6 +566,12 @@ dictsource/la_extra:
 	touch dictsource/la_extra
 espeak-data/la_dict: src/espeak phsource/phonemes.stamp dictsource/la_list dictsource/la_rules dictsource/la_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=la && cd ..
+
+lfn: espeak-data/lfn_dict
+dictsource/lfn_extra:
+	touch dictsource/lfn_extra
+espeak-data/lfn_dict: src/espeak phsource/phonemes.stamp dictsource/lfn_list dictsource/lfn_rules dictsource/lfn_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=lfn && cd ..
 
 lt: espeak-data/lt_dict
 dictsource/lt_extra:
