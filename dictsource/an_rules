@@ -75,9 +75,9 @@
      i) e          E
      u) e          E
      y) e          E
-     
-  L06_) e (CC          e#   // unstressed 'e' silent at start of word after a,e,o
-  L06_h) e (CC          e#   // unstressed 'e' silent at start of word after a,e,o
+
+  L06_) e (CC      e#        // unstressed 'e' silent at start of word after a,e,o
+ L06_h) e (CC      e#        // unstressed 'e' silent at start of word after a,e,o
 
      _) ent' (AP4  ent
      _) enta'      ,ent%a
@@ -109,13 +109,13 @@
 .group h
         h                    // silent
         hu (Y      gw
-       
+
 
 .group i
         i          i
         i (u_      i
         i (A       j
-	
+
 
 
 .group j
@@ -142,7 +142,7 @@
         n          n
         n (L04     m
         n (_L04    m
-        ny         n^
+        ny (A      n^
 
 
 .group ñ
@@ -173,13 +173,14 @@
 
 
 .group q
-q        k
+        q          k
         qu (A      kw
         qü         kw
         qu (e      k
         qu (i      k
         qu (é      k
         qu (í      k
+        qu ('A     k
 
 .group r
         r          r
@@ -214,9 +215,9 @@ q        k
      u) t (_       t#
     ei) t (_       t#
      n) t (_       =         // silent, but stress on last vowel
-     n) t (m       // Silent
-	 _pos) t (h        t
-	 _pos) t (C        // Silent
+     n) t (m                 // Silent
+  _pos) t (h       t
+  _pos) t (C                 // Silent
         tz         T
     ue) t (_       t#
     ui) t (_       t#
@@ -234,16 +235,17 @@ q        k
         u (i       u
      r) uix        uS
      r) u (A       u
-	 A) u (Y    gw
+     A) u (Y       gw
         u (A       w
-		_) u (u       u
+     _) u (u       u
      _) u (A       gw
 	 //Ar) u (Y    gw
-	 _des) u (Y    gw
-	 _es) u (Y    gw
+  _des) u (Y       gw
+   _es) u (Y       gw
 
-_cir) ue (ll       gwe
-_esquir) ue (l     gwe
+	 // Some exception
+_esquir) u (el     Qw        // esquiruelo, esquiruelos
+  _cir) u (ell     Qw        // Ciruello, ciruella, ciruellos, ciruellas
 
 .group v   // same as 'b'
         v          b
@@ -266,24 +268,25 @@ _esquir) ue (l     gwe
         x          ks
      _) x          S
      i) x          S
-	 C) x        S
+     C) x          S
 
 .group y
         y          j
         y (_       i
+     C) y (C       i
 
 .group z
         z          T
 
 
 .group
-        '
+' 
         á          ''a
         é          ''e
         í          ''i
         ó          ''o
         ú          ''u
 
-    __) - (_D       m'enos
-    D_) - (_D       m'enos
-    
+    __) - (_D      m'enos
+    D_) - (_D      m'enos
+

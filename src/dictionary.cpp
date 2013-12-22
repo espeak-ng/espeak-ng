@@ -905,12 +905,19 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 	int  vowel_posn=9;
 	int  index;
 	int  count;
+	ALPHABET *alphabet;
 
 	utf8_in(&c,word);
 	if((tr->letter_bits_offset > 0) && (c < 0x241))
 	{
 		// Latin characters for a language with a non-latin alphabet
 		return(0);  // so we can re-translate the word as English
+	}
+
+	if(((alphabet = AlphabetFromChar(c)) != NULL)  && (alphabet->offset != tr->letter_bits_offset))
+	{
+		// Character is not in our alphabet
+		return(0);
 	}
 
 	if(tr->langopts.param[LOPT_UNPRONOUNCABLE] == 1)

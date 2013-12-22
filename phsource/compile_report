@@ -42,7 +42,7 @@ consonants  11  119
       sr  14  144
       ru  49  139
       bg  14  124
-      it  19  129
+      it  21  130
       la  21  126
       es  15  125
    es-la   2  125
@@ -83,7 +83,7 @@ consonants  11  119
       dv  14  149
       te  18  149
       si  24  155
-      gu   3  149
+      gu   5  151
       as  12  152
       or  12  152
      mni  11  152
@@ -1477,11 +1477,13 @@ vnasal/aa_n3    [A~] af
 vnasal/aa_n4    [A~] de
                 [A~] fr
                 [A~] ht
+vnasal/ai_n     [aI~] gu
 vnasal/a#_n     [&~] pt
 vnasal/a#_n2    [&~] pt
 vnasal/a#u_n    [&U~] pt
                 [&U~] pt-pt
                 [o#] vi
+vnasal/au_n     [aU~] gu
 vnasal/ee_n     [E~] fr-ca
 vnasal/ee_n2    [a] en-us
                 [E~] hi

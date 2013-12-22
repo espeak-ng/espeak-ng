@@ -1180,9 +1180,9 @@ if(end_type & SUFX_UNPRON)
 			{
 				int wc;
 				// characters not recognised, speak them individually
-
+				// ?? should we say super/sub-script numbers and letters here?
 				utf8_in(&wc, wordx);
-				if((word_length == 1) && IsAlpha(wc))
+				if((word_length == 1) && (IsAlpha(wc) || IsSuperscript(wc)))
 				{
 					if((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word)) == NULL)
 					{

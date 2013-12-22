@@ -193,9 +193,12 @@ static const unsigned short chars_ignore_default[] = {
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0xad,    1, // soft hyphen
+	0x640,   1, // igniore Arabic Tatweel (lang=FA)
 	0x200c,  '-', // zero width non-joiner, replace with hyphen
 	0x200d,  1, // zero width joiner
 	0, 0 };
+
+const char string_ordinal[] = {0xc2,0xba,0};  // masculine ordinal character, UTF-8
 
 
 static Translator* NewTranslator(void)
@@ -293,6 +296,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 	tr->langopts.alt_alphabet_lang = L('e','n');
+	tr->langopts.roman_suffix = "";
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -752,7 +756,9 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('a','n'))
 			{
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 				tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
+				tr->langopts.roman_suffix = string_ordinal;
 			}
 			else
 			if(name2 == L_pap)
@@ -1657,21 +1663,23 @@ SetLengthMods(tr,3);  // all equal
 
 	tr->translator_name = name2;
 
-	if(tr->langopts.numbers & NUM_DECIMAL_COMMA)
-	{
-		// use . and ; for thousands and decimal separators
-		tr->langopts.thousands_sep = '.';
-		tr->langopts.decimal_sep = ',';
-	}
-	if(tr->langopts.numbers & NUM_THOUS_SPACE)
-	{
-		tr->langopts.thousands_sep = 0;   // don't allow thousands separator, except space
-	}
-
 	return(tr);
 }  // end of SelectTranslator
 
 
+void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
+{//=====================================================
+	if(langopts->numbers & NUM_DECIMAL_COMMA)
+	{
+		// use . and ; for thousands and decimal separators
+		langopts->thousands_sep = '.';
+		langopts->decimal_sep = ',';
+	}
+	if(langopts->numbers & NUM_THOUS_SPACE)
+	{
+		langopts->thousands_sep = 0;   // don't allow thousands separator, except space
+	}
+}
 
 //**********************************************************************************************************
 
