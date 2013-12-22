@@ -1,6 +1,8 @@
+ 
 name italian
 language it
 gender male
 
-replace 03 i I
+tunes s4 c4 q4 e4
 
+replace 03 i I

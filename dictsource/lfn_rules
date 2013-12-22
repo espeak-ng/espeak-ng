@@ -1,0 +1,175 @@
+﻿// translation rules for lingua franca nova
+// This file is UTF-8 encoded
+
+.replace а	a
+.replace б	b
+.replace к	c
+.replace д	d
+.replace е	e
+.replace ф	f
+.replace г	g
+.replace х	h
+.replace и	i
+.replace ж	j
+.replace л	l
+.replace м	m	
+.replace н	n
+.replace о	o
+.replace п	p
+.replace р	r
+.replace с	s
+.replace т	t
+.replace у	u
+.replace в	v
+.replace ш	x
+.replace з	z
+
+.replace ё	io
+.replace й	i
+.replace ц	ts
+.replace ч	tx
+.replace щ	xtx
+.replace ы	i
+.replace э	e
+.replace ю	iu
+.replace я	ia
+
+
+.group a
+        a (CX      'a  // + consonant and no more vowels
+        a          a
+        ai (X      'aI
+        ai         aI
+        au (X      'aU
+        au         aU
+        
+
+.group b
+        b          b
+
+.group c
+        c          k
+
+.group d
+        d          d
+        dj         dZ
+
+.group e
+        e (CX      'e
+        e          e
+     _) ei         e
+        eu         eU
+        eu (X      'eU
+
+
+.group f
+        f          f
+
+.group g
+        g          g
+
+
+.group h
+        h          h
+
+.group i        
+        i          i
+        i (CX     'i
+     _) i (A       j
+     A) i (A       j
+    Al) i (A       j
+    An) i (A       j
+     @) i (A_     =i
+
+.group j
+     A) j          Z
+        j          Z
+
+.group k
+        k          k
+
+.group l
+        l          l
+
+.group m
+        m          m
+     _) mn (em     n
+
+.group n
+        n          n
+        n (c       N
+        n (g       N
+        ng (X      N
+
+.group o
+        o          o
+        o (CX      'o
+        oi         oI
+        oi (X      'oI
+        ou         o
+
+.group p
+        p          p
+        
+     _) p (sA
+     _) ph         f
+     _) pre (i     p**e
+     _) pro (i     p**o
+
+.group q
+        q          k
+
+.group r
+        r (C       R2
+        r          **
+
+    _) re (i       **e
+
+.group s
+        s          s
+        s (_S1     s       // plural suffix
+     X) s (_S1     'es 
+        s (_$w_alt1+ s    // not plural, stress is on the last vowel
+        
+     _) supra      sup**a
+
+.group t
+        t          t
+        tx         tS
+
+.group u
+        u          u
+        u (CX      'u
+     _) u (A       w
+     A) u (A       w
+     c) u (A+      w
+     g) u (A+      w
+     @) u (a_      =u
+     @) u (e_      =u
+     @) u (o_      =u
+
+.group v
+        v          v
+
+.group w
+        w          w
+
+.group x
+        x          S
+
+.group y
+     C) y (K       i
+        y          j
+
+.group z
+        z          z
+
+
+.group
+        á          ''a
+        é          ''e
+        í          ''i
+        ó          ''o
+        ú          ''u
+
+        

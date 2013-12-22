@@ -676,6 +676,25 @@ static unsigned short derived_letters[] = {
 
 static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'ef"};  // names, using phonemes available to all languages
 
+
+int IsSuperscript(int letter)
+{//===========================
+// is this a subscript or superscript letter ?
+	int ix;
+	int c;
+
+	for(ix=0; (c = derived_letters[ix]) != 0; ix+=2)
+	{
+		if(c > letter)
+			break;
+		if(c == letter)
+			return(derived_letters[ix+1]);
+	}
+	return(0);
+}
+
+
+
 int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {//=========================================================================
 // get pronunciation for an isolated letter
@@ -732,30 +751,25 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	if(ph_buf[0] == 0)
 	{
 		// is this a subscript or superscript letter ?
-		for(ix=0; (c = derived_letters[ix]) != 0; ix+=2)
+		if((c = IsSuperscript(letter)) != 0)
 		{
-			if(c > letter)
-				break;
-			if(c == letter)
+			letter = c & 0x3fff;
+			if((control & 4 ) && ((modifier = modifiers[c >> 14]) != NULL))
 			{
-				c = derived_letters[ix+1];
-				letter = c & 0x3fff;
-				if((modifier = modifiers[c >> 14]) != NULL)
+				// don't say "superscript" during normal text reading
+				Lookup(tr, modifier, capital);
+				if(capital[0] == 0)
 				{
-					Lookup(tr, modifier, capital);
-					if(capital[0] == 0)
+					capital[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+					Lookup(translator2, modifier, &capital[3]);
+					if(capital[3] != 0)
 					{
-						capital[2] = SetTranslator2("en");   // overwrites previous contents of translator2
-						Lookup(translator2, modifier, &capital[3]);
-						if(capital[3] != 0)
-						{
-							capital[0] = phonPAUSE;
-							capital[1] = phonSWITCH;
-							len = strlen(&capital[3]);
-							capital[len+3] = phonSWITCH;
-							capital[len+4] = phontab_1;
-							capital[len+5] = 0;
-						}
+						capital[0] = phonPAUSE;
+						capital[1] = phonSWITCH;
+						len = strlen(&capital[3]);
+						capital[len+3] = phonSWITCH;
+						capital[len+4] = phontab_1;
+						capital[len+5] = 0;
 					}
 				}
 			}
@@ -1209,7 +1223,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		p = &ph_out[strlen(ph_roman)];
 	}
 
-	sprintf(number_chars,"  %d    ",acc);
+	sprintf(number_chars,"  %d %s    ",acc, tr->langopts.roman_suffix);
 
 	if(word[0] == '.')
 	{

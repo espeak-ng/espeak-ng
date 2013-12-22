@@ -1932,7 +1932,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	if((f_out = fopen_log(fname_out,"wb+")) == NULL)
 	{
 		if(fname_err)
-			strcpy(fname_err,fname_in);
+			strcpy(fname_err,fname_out);
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);

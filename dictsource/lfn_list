@@ -1,0 +1,166 @@
+// This file is UTF-8 encoded
+
+// Special attributes
+// $alt1   stress on final vowel, before 's', which is not a suffix.
+
+
+// numbers
+
+_0	z'ero
+_1	'un
+_2	d'u
+_3	t**'e
+_4	kw'at**o
+_5	s'inko
+_6	s'es
+_7	s'ete
+_8	'oto
+_9	n'ove
+_1X	d'es
+_2X	dud'es
+_3X	t**ed'es
+_4X	kwat**od'es
+_5X	sinkod'es
+_6X	sesd'es
+_7X	seted'es
+_8X	otod'es
+_9X	noved'es
+_1C	s'ento
+_2C	dus'ento
+_3C	t**es'ento
+_4C	kwat**os'ento
+_5C	sinkos'ento
+_6C	ses'ento
+_7C	setes'ento
+_8C	otos'ento
+_9C	noves'ento
+_0M1	m'il
+_1M1	m'il
+_0M2	milj'on
+_dpt	_viR2g'ula
+
+// Letters
+b	be
+c	ke
+d	de
+f	ef
+g	ge
+h	haS
+j	Ze
+k	ka
+l	el
+m	em
+n	en
+p	pe
+q	kwa
+r	eR2
+s	es
+t	te
+v	ve
+w	wa
+x	eS
+y	ja
+z	ze
+
+
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+_a	'a
+_e	'e
+_o	'o
+
+á	$accent
+é	$accent
+í	$accent
+ó	$accent
+ú	$accent
+
+_acu	sinj'eta'agu
+
+
+// Symbols
+*	s'injadest'ela
+=	s'injadeeg'alja
+#	g**ilja
+$	dolaR2s
+€	eU**os
+%	peR2sento
+°	grado
+_:	dupunto
+_;	punto||viR2gula
+_,	viR2gula
+_.	punto
+
+
+// Abbreviations
+acc	$abbrev
+aec	$abbrev
+dr	dotoR2
+ec	$abbrev
+etc	$abbrev
+
+
+// article
+la	$u+
+
+// Conjunctions
+e	$u+
+o	$u+ $brk
+ma	$u+
+no	$u+
+
+ci	$u+
+cual	$u+
+do	$u+
+cuando	$u+
+cuanto	$u+
+como	$u+
+perce	$u+
+
+ce	$u+
+esce	$u+
+
+afin	$u+ $brk
+ca	$u+ $brk
+car	$u+ $brk
+si	$u+ $brk
+
+// Prepositions
+a	$u+
+ante	$u+
+asta	$u+
+con	$u+
+contra	$u+
+de	$u+
+en	$u+
+entre	$u+
+estra	$u+
+longo	$u+
+par	$u+
+per	$u+
+pos	$u+
+sin	$u+
+sirca	$u+
+su	$u+
+supra	$u+
+sur	$u+
+
+
+// pronouns
+me	$u+
+tu	$u+
+el	$u+
+lo	$u+
+se	$u+
+on	$u+
+nos	 $u+
+vos	$u+
+los	$u+
+
+// non plural words finished by s
+felis     $alt1
+engles    $alt1
+franses   $alt1
+portuges  $alt1

@@ -881,6 +881,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				}
 				while(isalnum(*p)) p++;
 			}
+			ProcessLanguageOptions(langopts);
 			break;
 
 		case V_REPLACE:

@@ -361,7 +361,7 @@ phoneme t
 
   IF nextPhW(isVowel) AND nextPh(isUnstressed) THEN
     IF NOT next2PhW(n) OR nextPhW(3:) THEN
-      IF prevPhW(isVowel) AND NOT prevPhW(aI@) THEN
+      IF prevPhW(isVowel) THEN
         ChangePhoneme(t#)
       ELIF prevPhW(n) THEN
         WAV(ustop/t, 60)

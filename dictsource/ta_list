@@ -112,6 +112,22 @@ U+bf9	ru:ba:j
 ¼	ka:l
 ½	araI
 ¾	mukka:l
+®	pVdivU
+©	p'VdippUrimaI
+•	t'o:t.t.a:
+…	v'id.UnilaI
+¡	t'VlaIki:z.||v'ijVppU
+¿	t'VlaIki:z.||k'e:l.vi
+×	d'Vd.VvaI
+±	k'u:t.t.Vl||k'Vz.ittVl
+™	v'Vn.igVm
+§	p'irivU
+➔	v'VlVdVmbU
+→	v'VlVdVmbU
+■	k'VrUn^dZVdU*Vm
+●	v'Vt.t.Vm
+
+_sup	m'e:lez.UttU
 
 // alphabet names
 _ar	arVbU
@@ -215,7 +231,7 @@ _5o	aInd
 _6o	a:R
 _7o	;e:z.
 _8o	;et.t.
-_9o	onbVd.
+_9o	onbVd
 _10o	patt
 _11o	patinonR
 _12o	pVnnirVn.d.
@@ -278,7 +294,6 @@ tamil	தமிழ்	$text
 பண்தம்	$alt
 பவனி	$alt
 பாபா	$alt
-பாதாம்	$alt
 போகம்	$alt
 போதனை	$alt
 பூகம்பம்	$alt
@@ -504,7 +519,6 @@ tamil	தமிழ்	$text
 காந்தி	$alt
 கிரி	$alt
 கயா	$alt
-காயத்ரி	$alt
 கட	$alt
 கதி	$alt
 கோபி 	$alt
@@ -587,3 +601,4 @@ tamil	தமிழ்	$text
 புட்	fud.
 உப்ப	ubbV
 ஜென்	zen
+
