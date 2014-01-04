@@ -12,6 +12,7 @@
 - [Adding New Voices](#adding-new-voices)
 - [Branching Structure and Changes](#branching-structure-and-changes)
   - [upstream](#upstream)
+    - [Setting Up git-svn](#setting-up-git-svn)
   - [development](#development)
     - [Praat Modifications](#praat-modifications)
   - [master](#master)
@@ -196,6 +197,25 @@ Changes are merged in the following order:
 
 The *upstream* branch contains the unmodified eSpeak sources imported from
 the [espeak]() subversion repository using the `git svn` command.
+
+#### Setting Up git-svn
+
+In order to synchronize with the SVN repository, you need to initialize git-svn:
+
+	$ git svn init https://svn.code.sf.net/p/espeak/code/trunk
+
+Next, you need to make git-svn look for commits on the upstream branch:
+
+	$ git update-ref refs/remotes/git-svn refs/remotes/origin/upstream
+
+The eSpeak SVN repository moved, so you need to inform git-svn to rewrite the
+URLs to the old location:
+
+	$ git config svn-remote.svn.rewriteRoot https://espeak.svn.sourceforge.net/svnroot/espeak/trunk
+
+Now you can update from SVN by running:
+
+	$ git checkout upstream && git svn rebase
 
 ### development
 
