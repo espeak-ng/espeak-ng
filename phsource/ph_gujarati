@@ -32,3 +32,49 @@ phoneme aU~
 endphoneme
 
 
+phoneme V
+  vowel flag1 starttype #@  endtype #@
+  length 140
+
+  IF thisPh(isWordStart) THEN
+    FMT(vowel/V_2)
+    RETURN
+  ENDIF
+
+  IF thisPh(isNotStressed) THEN
+    length 130
+
+    IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
+      ChangePhoneme(NULL)
+    ENDIF
+
+    IF prev2PhW(isVowel) AND NOT nextVowel(isFlag1) THEN
+      IF nextPhW(isNotVowel) AND nextPh(isWordEnd) THEN
+        // don't delete schwa before a word-final consonant
+      ELSE
+        ChangePhoneme(NULL)
+      ENDIF
+    ENDIF
+
+    IF prevPh(isPalatal) AND NOT nextPh(H) THEN
+      ChangePhoneme(@3)
+    ELSEIF prevPh(r) THEN
+      ChangePhoneme(@2)
+    ELSE
+      ChangePhoneme(@)
+    ENDIF
+  ENDIF
+  
+  IF prevPh(w) THEN
+    FMT(vowel/V_4)
+  ENDIF
+
+  FMT(vowel/V_2)
+endphoneme
+
+phoneme o:
+  vowel long starttype #o endtype #o
+  length 227
+  FMT(vowel/o)
+endphoneme
+

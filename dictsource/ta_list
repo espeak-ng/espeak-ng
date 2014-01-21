@@ -115,7 +115,7 @@ U+bf9	ru:ba:j
 ®	pVdivU
 ©	p'VdippUrimaI
 •	t'o:t.t.a:
-…	v'id.UnilaI
+_…	v'id.UnilaI
 ¡	t'VlaIki:z.||v'ijVppU
 ¿	t'VlaIki:z.||k'e:l.vi
 ×	d'Vd.VvaI
@@ -126,6 +126,20 @@ U+bf9	ru:ba:j
 →	v'VlVdVmbU
 ■	k'VrUn^dZVdU*Vm
 ●	v'Vt.t.Vm
+†	kuttUva:l.
+‡	'irVt.t.aI||k'uttUva:l.
+
+௰	pVttU
+௱	nu:RU
+௲	a:jirVm
+௳	na:l.
+௴	ma:dVm
+௵	a:n.d.U
+௶	pVt.RU
+௷	vVrVvU
+௸	m'e:lirUppVdU||p'o:l
+௺	;en.n.UrU
+
 
 _sup	m'e:lez.UttU
 
@@ -259,6 +273,7 @@ _8Co	;en.n.u:R
 
 _#ம்	a:m  // ordinal suffix
 _#ல்	il
+_#இல்	il
 _#வது	a:vVdU
 _#வதும்	a:vVdUm
 _#வதுமாக a:vVdUma:gV
@@ -270,6 +285,7 @@ _#ஆவதுமாக a:vVdUma:gV
 
 _#-ம்	a:m  // ordinal suffix with hyphen
 _#-ல்	il
+_#-இல்	il
 _#-வது	a:vVdU
 _#-வதும்	a:vVdUm
 _#-வதுமாக a:vVdUma:gV
@@ -278,6 +294,12 @@ _#-ஆம்	a:m  // including ஆ
 _#-ஆவது	a:vVdU
 _#-ஆவதும்	a:vVdUm
 _#-ஆவதுமாக a:vVdUma:gV
+
+// The உ sound at the end of a number should sound as இ,
+// if it is followed by லும் or -லும்.
+_#லும்	ilUm
+_#-லும்	ilUm
+
 
 // English words
 tamil	தமிழ்	$text
@@ -294,7 +316,6 @@ tamil	தமிழ்	$text
 பண்தம்	$alt
 பவனி	$alt
 பாபா	$alt
-போகம்	$alt
 போதனை	$alt
 பூகம்பம்	$alt
 பங்கம்	$alt
@@ -415,6 +436,8 @@ tamil	தமிழ்	$text
 பனியா	$alt
 பாம்	$alt
 போத 	$alt
+பொம்ம	$alt
+புகாரி	$alt
 
 
 	// initial த as [d]
@@ -586,7 +609,6 @@ tamil	தமிழ்	$text
 
 
 பப	pVpV
-தீப் 	di:p
 டிரேயின்	t.re:jn
 பைக்	baIk
 பைக்கில் 	baIkkIl
@@ -601,4 +623,5 @@ tamil	தமிழ்	$text
 புட்	fud.
 உப்ப	ubbV
 ஜென்	zen
+சோப்ரா	tSo:pra:
 

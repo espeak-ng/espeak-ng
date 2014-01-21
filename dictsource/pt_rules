@@ -1,4 +1,4 @@
-// translation rules Brazilian
+	// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -77,6 +77,7 @@
     áC) a (C@      &
    áCC) a (C@      &
     éC) a (C@      &
+   éCC) a (C@      &
      í) a (CA_     &
     íC) a (C@      &
    íCC) a (C@      &
@@ -388,6 +389,7 @@ respond) e (L06_   e
     eg) e (L07_    e         // elegeste, etc.
    _@o) e (L07_    e         // doeste, etc.
    _cr) e (L07_    e
+  _val) e (L07_    e
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // meteste, cometeste, etc.
@@ -407,6 +409,7 @@ respond) e (L06_   e
  _remo) e (L07_    e
  _sofr) e (L07_    e
  screv) e (L07_    e         // e- in- ree- pre- de-
+_absorv) e (L07_   e
 _atrev) e (L07_    e
 _corro) e (L07_    e
 _troux) e (L07_    E
@@ -492,6 +495,7 @@ s_colh) e (res_    E
    _cr) e (scL02_  E
     _p) e (scL03_  E
     _m) e (sclL04  E
+  dioc) e (ses_    E
     _d) e (spL02_  E
     _p) e (squL02_ E
  _refr) e (squL02_ E
@@ -575,9 +579,11 @@ _entorp) e (çL03_  e
 _apazi) gu (e      gw
    _ar) gu (i      gw
  averi) gu (e      gw
+ bilin) gu (A      gw
+ _biri) gu (i_     gw
   enxa) gu (e      gw
      i) gu (idade  gw
-   lin) gu (e      gw
+  _lin) gu (A      gw
    lin) gu (i      gw
   _min) gu (e      gw
   _pin) gu (im_    gw
@@ -585,7 +591,8 @@ _apazi) gu (e      gw
    _sa) gu (i      gw
    san) gu (ín     gw
    san) gu (in     gw
-   tin) gu (i      gw
+  stin) gu (A      gw
+  xtin) gu (A      gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
 ?1      gu (ém_    g         // eg: alguém, ninguém, etc...
@@ -880,6 +887,9 @@ _pormen) o (L05_   O
   _sal) o (brL03_  o
      _) o (cL03_   o
  _barr) o (cL03_   o
+  _ecl) o (dL03_   o
+ _expl) o (dL03_   o
+ _impl) o (dL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
    _af) o (fL04_   O
@@ -891,15 +901,19 @@ _pormen) o (L05_   O
     _t) o (lL03_   o
     _f) o (lgL04_  O
   _emp) o (lgL04_  O
+  _arr) o (lhL03_  O
+  _enr) o (lhL03_  O
      _) o (lhL04_  O
      m) o (lhL04_  O
    emb) o (lsL04_  O
   _env) o (ltL03_  o
   _esC) o (pA_     o
+  antr) o (pL03_   o
     _s) o (prL04_  O
    _al) o (prL04_  O
   _ass) o (prL04_  O
      _) o (ptL04_  O
+  flex) o (rA_ 
      p) o (rL02_   o
   _dev) o (rL02_   O
  _apav) o (rL02_   O
@@ -907,6 +921,7 @@ _pormen) o (L05_   O
  _impl) o (rL02_   O
    _ad) o (rL04_   O
   _ma@) o (r_      O
+        o (rdens_  O
   _@um) o (re_     o
      f) o (rmL03_  O
      c) o (rrL01_  o         // incorra, corra, etc.
@@ -915,19 +930,23 @@ _pormen) o (L05_   O
     @p) o (rtL03_  O         // importo, etc.
    a_c) o (rte_    o
         ortos (_   O*@-t=Us# // tortos, mortos, etc.
+  _abs) o (rvL01_  o
      t) o (rçL03_  o         // con-
+    _c) o (sL01_   o
+ _desc) o (sL01_   o
+   enr) o (scL03_  O
     _r) o (snL04_  O
     _c) o (spL02_  O
-  _enr) o (squL02_ O
+   enr) o (squL02_ O
         ossos (_   Os=Us#    // nossos, grossos, etc.
      p) ostos (_   Ost=Us#   // dispostos etc.ortos (_  'O*@-tUs
-  _gar) o (tL03_   o
-  _mar) o (tL03_   o
  _escr) o (tL03_   o
+  _Gar) o (tL03_   o
    zig) o (to_     o
    _ch) o (vL01_   o
     pr) o (vL03_   O
         ovos (_    Ov=Us#    novos, povos, etc.
+_ortod) o (xL03_   O
     _g) o (zL04_   O
   _alm) o (çL01_   O
   _esb) o (çL01_   O
@@ -1178,12 +1197,14 @@ _abaca) x (i       S
    _ca) x (A       S
    _co) x (A       S
   _coe) x (A       z
+_esdrA) x (ul      S
     _e) x (u_      S
    _fa) x (i       S
   _fle) x (a       S
    gra) x (A       S
    _he) x (A       z
 ?2 _he) x (A       ks
+_lagarti) x (A     S
    _li) x (A       S
    _lu) x (A       S
   _mar) x          ks
@@ -1194,6 +1215,7 @@ _abaca) x (i       S
     _o) x (A       S
     _o) x (i       ks
     _o) x (í       ks
+   _pe) xo (to_    So
     pi) x (A       S
   _pro) x (A       S
   _pra) x (A       S

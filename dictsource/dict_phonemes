@@ -85,15 +85,15 @@ p    r    R    R2   s    S    t    tS
 v    w    x    X    z    
 
 
-Dictionary en_dict  2013-12-20
+Dictionary en_dict  2014-01-21
 
-0    0#   3    3:   @    @-   @2   @5   
-@L   a    a#   A:   A@   aa   aI   aI3  
-aI@  aU   aU@  A~   e    E    E#   e:   
-e@   eI   i    I    I#   I2   i:   i@   
-i@3  IR   n-   o    O    O:   o:   O@   
-o@   OI   oU   O~   u    U    u:   U@   
-V    VR   
+0    0#   02   3    3:   @    @-   @2   
+@5   @L   a    a#   A:   A@   aa   aI   
+aI3  aI@  aU   aU@  A~   e    E    E#   
+e:   e@   eI   i    I    I#   I2   i:   
+i@   i@3  IR   n-   o    O    O:   o:   
+O@   o@   OI   oU   O~   u    U    u:   
+U@   V    VR   
 
 *    :    ;    ?    b    C    d    D    
 d#   dZ   f    g    h    j    k    l    
@@ -116,7 +116,7 @@ s    S    t    tS   ts   v    x    z
 Z    
 
 
-Dictionary ta_dict  2013-12-20
+Dictionary ta_dict  2014-01-18
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -293,7 +293,7 @@ n^   p    r    R    R2   s    S    t
 tS   ts   v    z    Z    
 
 
-Dictionary pt_dict  2013-12-20
+Dictionary pt_dict  2014-01-21
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -409,6 +409,19 @@ r    r.   s    S    t    t#   t.   t.#
 tS   tS#  v    w    ~    
 
 
+Dictionary or_dict  2013-12-26
+
+&    @    @-   a    a~   e    e~   i    
+i:   i~   l-   o    O    o:   O~   o~   
+r-   u    u:   u~   V    
+
+*    :    b    b#   d    d#   d.   d.#  
+dZ   f    g    g#   h    H    j    J    
+J#   k    k#   l    m    n    N    n.   
+p    p#   r    r.   s    S    t    t#   
+t.   t.#  tS   tS#  v    w    
+
+
 Dictionary te_dict  2013-11-23
 
 a    a:   aI   aU   e    E    e:   i    
@@ -494,7 +507,7 @@ t#   tS   ts   ts#  v    w    x    z
 Z    
 
 
-Dictionary an_dict  2013-12-19
+Dictionary an_dict  2013-12-23
 
 a    aI   aU   e    E    e#   eI   eU   
 i    o    O    oI   u    U    
@@ -795,7 +808,7 @@ r    r.   s    S    t    t#   t.   t.#
 tS   tS#  v    w    X    ~    
 
 
-Dictionary gu_dict  2013-12-21
+Dictionary gu_dict  2014-01-21
 
 @    @-   @2   @3   a    a:   aI   aI~  
 aU   aU~  e    E    e:   e~   i    I    
