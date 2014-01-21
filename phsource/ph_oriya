@@ -1,6 +1,6 @@
-
 //====================================================
-//  Oriya, inherits from Bengali
+//  Oriya, Basically inherits from Bengali
+// Prepared    by Him Prasad gautam (Kathmandu, Nepal).
 //====================================================
 
 
@@ -40,7 +40,7 @@ endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 210
+  length 180
   FMT(vowel/e)
 endphoneme
 
@@ -93,11 +93,6 @@ phoneme tS#
   ENDIF
   WAV(ustop/tsh)
 endphoneme
-
-
-
-
-
 
 phoneme ~
   virtual
