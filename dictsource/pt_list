@@ -671,7 +671,6 @@ acertos		$alt2
 acocho		$alt2 $noun
 acordo		$alt $verb
 acervo		$alt2
-adepto		$alt
 adorno		$alt  $verb
 aeroporto	$alt2
 aflore		$alt
@@ -683,7 +682,6 @@ ameba		$alt
 amores		$alt2
 amorno		$alt
 amuleto		$alt2
-ampere		$alt
 ampola		$alt2
 ampulheta	$alt2
 anchova		$alt2
@@ -710,6 +708,7 @@ axé		aSE
 azeda		$alt $verb
 azedo		$alt $verb
 bairro		b'aIxU
+baitola	$alt2
 banquete	$alt2
 barreto		$alt2
 bastonete	$alt2
@@ -756,6 +755,7 @@ carrapeta	$alt2
 carroça		$alt
 casebre		$alt
 cateto		$alt2
+catequeses	$alt
 catorze		$alt2
 cebola		$alt2
 cedro		$alt
@@ -772,7 +772,6 @@ checam		$alt
 choco		$alt2 $noun
 choça		$alt
 chofer		$alt
-
 choro		$alt2 $noun
 chovesse	$alt2
 chupeta		$alt2
@@ -819,6 +818,7 @@ corvos		$alt
 costeleta	$alt2
 coto		$alt2
 cotovelo	$alt2
+cozem	$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
@@ -832,7 +832,8 @@ desconfortos	$alt2
 desconsolo		$alt2 $noun
 descontrole		$alt2 $noun
 descordo	$alt
-desemprego	$alt2
+descorno	$alt
+	desemprego	$alt2
 desemprego	$alt $verb
 desespero	$alt2
 desespero	$alt $verb
@@ -865,10 +866,12 @@ dogma		$alt
 dores	$alt2
 dorminhoco	$alt2
 dorminhocos	$alt
+doso	$alt
 doze		$alt2
 dueto		$alt2
 edson		$alt
 elixir		eliSir
+emborco	$alt
 emprego		$alt2
 emprego		$alt2 $noun
 encasqueta	$alt
@@ -877,7 +880,7 @@ endereço	$alt  $verb
 enforco		$alt
 engordo		$alt
 enredo		$alt  $verb
-enrosco		$alt  $verb
+enrosco		$alt2 $noun
 ensosso		$alt2
 enterro		$alt2 $noun
 entorto		$alt
@@ -891,7 +894,6 @@ erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
-
 escova		$alt2
 escova		$alt $verb
 escovo		$alt
@@ -899,6 +901,7 @@ esforço		$alt  $verb
 esforços	$alt
 esgoto		$alt2
 esgoto		$alt $verb
+espectro	$alt
 esperma		$alt
 espeto		$alt2 $noun
 espoleta	$alt2
@@ -906,6 +909,7 @@ esposa		$alt2
 esqueleto	$alt2
 ester		$alt
 estilete	$alt2
+estocolmo	$alt
 estojo		$alt2
 estorno		$alt  $verb
 estorvo		$alt  $verb
@@ -917,17 +921,18 @@ europa		$alt
 europeia	$alt
 ?2  ex es
 exagero		$alt $verb
+ exegeses	$alt
 exorto		$alt
 explore		$alt
 falangeta	$alt2
 farofa		$alt
 farolete	$alt2
+fatora	$alt
 felisteia		$alt
 fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
 flerte		$alt2 $noun
-flexora		$alt2
 foda		$alt2 $verb
 fodo		$alt2
 fogo		$alt2
@@ -976,6 +981,7 @@ grosso		$alt2
 groso		$alt
 gueto		$alt2
 hemorroida	$alt
+hidreto	$alt2
 hoje		$alt2
 homero	$alt
 horrores	$alt2
@@ -996,6 +1002,7 @@ laser		l'eIzer
 lasers		l'eIzers
 lembrete	$alt2
 lepra		$alt
+leses	$alt
 leste		$alt2 $verb
 ?2   lhe	l^y
 licores	$alt2
@@ -1005,6 +1012,8 @@ lodo		$alt2
 logro		$alt
 lopes		$alt
 macete		$alt2
+maioneses	$alt
+manopla	$alt
 maniçoba	$alt
 marieta		$alt2
 mariposa	$alt2
@@ -1035,6 +1044,7 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
+nitreto	$alt2
 nojo		$alt2
 novelo		$alt2
 odisseia	$alt
@@ -1044,7 +1054,7 @@ olho		$alt2 $noun
 olhos		$alt
 onomatopeia	$alt
 opereta		$alt2
-ordens		$alt
+orno	$alt
 osso		$alt2
 ostra		$alt2
 outorgo	$alt
@@ -1132,6 +1142,7 @@ rola		$alt2 $noun
 roleta		$alt2
 rolete		$alt2
 rolo		$alt2 $noun
+rose	$alt2
 roseta		$alt2
 rota		$alt2
 rota		$alt $noun
@@ -1189,6 +1200,7 @@ torre		$alt2 $noun
 torres		$alt2
 torro		$alt
 toso		$alt
+totens	$alt
 transtorno	$alt $verb
 traqueia	$alt
 travesso	$alt2
@@ -1199,15 +1211,19 @@ troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
 trombeta	$alt2
+ureia	$alt
 vanessa		$alt2
 vareta		$alt2
 vera		$alt
 verbete		$alt2
+verborreia	$alt
 verde		$alt2
 vileta		$alt2
 voga		$alt
 xarope		$alt
 xereta		$alt2
+xerox	S'E*Oks
+xeroxes	$alt
 zelo		$alt2 $noun
 zorra		$alt2
 

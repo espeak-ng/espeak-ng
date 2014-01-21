@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -51,6 +51,7 @@ static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
 	{"unpr",   0x01},
+	{"noprefix", 0x02},  // rule fails if a prefix has been removed
 
 	{"w_alt1", 0x11},
 	{"w_alt2", 0x12},

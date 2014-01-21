@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -117,6 +117,7 @@
 #define FLAG_DELETE_WORD     0x100000   // don't speak this word, it has been spoken as part of the previous word
 #define FLAG_CHAR_REPLACED   0x200000   // characters have been replaced by .replace in the *_rules
 #define FLAG_TRANSLATOR2     0x400000   // retranslating using a different language
+#define FLAG_PREFIX_REMOVED  0x800000   // a prefix has been removed from this word
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout

@@ -1,0 +1,335 @@
+// Pronounciation rule for Oriya.
+// Prepared    by Him Prasad gautam (Kathmandu, Nepal).
+// This file is UTF8 encoded 
+
+// letter groups:
+// A   vowel letters and vowel signs
+// B   vowel signs and Halant a ୍
+// C   consonants
+// Y   vowel letters and vowel signs
+
+
+
+.replace
+ ୦	0
+ ୧	1
+ ୨	2
+ ୩	3
+ ୪	4
+ ୫	5
+ ୬	6
+ ୭	7
+ ୮	8
+ ୯	9
+
+ଡ଼	ଡ଼	// can be ଡ plus nukta
+ଢ଼	ଢ଼	// can be ଢ plus nukta
+
+
+// Vowels
+
+.group ଅ
+	ଅ	V
+	ଅଁ	O~
+
+.group ଆ
+	ଆ	a
+	ଆଁ	a~
+
+.group ଇ
+	ଇ	i
+	ଇଁ	i~
+
+.group ଈ
+	ଈ	i
+	ଈଁ	i~
+
+.group ଉ
+	ଉ	u
+	ଉଁ	u~
+
+.group ଊ
+	ଊ	u:
+	ଊଁ	u~
+
+.group ଋ
+	ଋ	ru
+	ଋଁ	ru~
+
+.group ଌ
+	ଌ	l-r'i
+
+.group ଏ
+	ଏ	e
+	ଏଁ	e~
+
+.group ଐ
+	ଐ	oj
+	ଐଁ	o~j
+
+.group ଓ
+	ଓ	o
+	ଓଁ	o~
+
+.group ଔ
+	ଔ	ow
+	ଔଁ	o~w
+
+// Vowel Signs
+
+.group ା
+	C) ା	a
+	C) ାଁ	a~
+
+.group ି
+	C) ି	i
+	C) ିଁ	i~
+
+.group ୀ
+	C) ୀ	i
+	C) ୀଁ	i~
+
+
+.group ୁ
+	C) ୁ	u
+	C) ୁଁ	u~
+
+.group ୂ
+	C) ୂ	u:
+	C) ୂଁ	u~:
+
+.group ୃ
+	C) ୃ	r'u
+	C) ୃଁ	r'u~
+
+.group େ
+	C) େ	e
+	C) େଁ	e~
+	C) େ	ew
+
+.group ୈ
+	C) ୈ	oj
+	C) ୈଁ	o~j
+
+.group ୋ
+	C) ୋ	o
+	C) ୋଁ	o~
+
+.group ୌ
+	C) ୌ	ow
+	C) ୌଁ	o~w
+
+// Consonants
+
+.group କ
+	କ	kV
+	କ (B	k
+	କ୍ଷ	k#k#V   // or [k#:] ?
+	କ୍ଷ (B	k#k#
+
+.group ଖ
+	ଖ	k#V
+	ଖ (B	k#
+
+.group ଗ
+	ଗ	gV
+	ଗ (B	g
+
+.group ଘ
+	ଘ	g#V
+	ଘ (B	g#
+
+.group ଙ
+	ଙ	NV
+	ଙ (B	N
+
+.group ଚ
+	ଚ	tSV
+	ଚ (B	tS
+
+.group ଛ
+	ଛ	tS#V
+	ଛ  (B    tS#
+
+.group ଜ
+	ଜ	JV
+	ଜ (B	J
+
+	ଜ୍ବ	JV
+	ଜ୍ବ (B	J
+	ଜ୍ଞ	ggo~
+	ଜ୍ଞ (B	gg
+
+.group ଝ
+	ଝ	J#V
+	ଝ (B	J#
+
+.group ଞ
+	ଞ	nV
+	ଞ (B	n
+ 
+.group ଟ
+	ଟ	t.V
+	ଟ (B	t.
+
+.group ଠ
+	ଠ	t.#V
+	ଠ (B	t.#
+
+.group ଡ
+	ଡ	d.V
+	ଡ (B	d.
+	ଡ଼	r.V	// nukta
+	ଡ଼ (B	r.
+
+.group ଢ
+	ଢ	d.#V
+	ଢ (B	d.#
+	ଢ଼	hr.V
+	ଢ଼ (B	hr.
+
+.group ଣ
+	ଣ	nV   // should be [n.] if adjacent to t. or d. ?
+	ଣ (B	n
+
+.group ତ
+	ତ	tV
+	ତ (B	t
+	ତ (_	to
+
+.group ଥ
+	ଥ	t#V
+	ଥ (B	t#
+
+.group ଦ
+	ଦ	dV
+	ଦ (B	d
+
+.group ଧ
+	ଧ	d#V
+	ଧ (B	d#
+
+.group ନ
+	ନ	nV
+	ନ (B	n
+
+.group ପ
+	ପ	pV
+	ପ (B	p
+ 
+.group ଫ
+	ଫ	p#V
+	ଫ (B	p#
+  
+.group ବ
+	ବ	bV
+	ବ (B	b
+
+.group ଭ
+	ଭ	b#V
+	ଭ (B	b#
+
+.group ମ
+	ମ	mV
+	ମ (B	m
+
+.group ୟ
+	ୟ	jV
+	_) ୟ (B    j    
+	ୟ (_    jo
+
+.group ଯ
+	ଯ	dZV
+	ଯ (B    dZ
+	ଯ଼	jV   // nukta
+	_) ଯ଼ (B	j
+	ଯ଼ (B	
+	୍) ଯ (_	:O 	// double the previous consonant
+	୍) ଯ (B_	:
+	୍) ଯ (C	&   
+	୍) ଯା	&	// 
+
+.group ର
+	ର	rV
+	ର (B	r
+
+.group ଲ
+	ଲ	lV
+	ଲ  (B    l
+
+.group ଳ//  long la 
+	ଳ	l-V
+	ଳ (B	l-
+
+.group ଵ
+	ଵ	wV
+	ଵ (B	w
+
+.group ଶ
+	ଶ	SV  // or [s] ?
+	ଶ (B	S
+	ଶ (୍ଲ   s
+
+.group ଷ
+	ଷ	SV   
+	ଷ (B	S
+
+.group ସ
+	ସ	SV  // or [s] ??
+	ସ (B	S
+	ସ (୍ଥ   s
+	ସ (୍ତ   s
+	ସ (୍ଯ    s  // ସମସ୍ଯା
+	_) ସ୍ବ	SV   // shb
+	_) ସ୍ବ (B	S
+
+.group ହ
+	ହ	hV  
+	ହ (B	h
+	ହ (_	ho
+
+.group ହ୍ବ
+	ହ୍ବ	vV
+	ହ୍ବ (B	v
+
+.group ୎
+	୎	t
+
+.group ଡ଼	// can be ଡ plus nukta
+	ଡ଼	r.V
+	ଡ଼ (B	r.
+
+.group ଢ଼	// can be ଢ plus nukta
+	ଢ଼	hr.V
+	ଢ଼ (B	hr.
+	ଢ଼ (_	hr.o
+
+.group ଁ
+	C) ଁ	O~	// candrabindu, nasalize the previous vowel/Consonants
+
+.group ଂ
+	A) ଂ	N	//  anusvara/onushshor
+	C) ଂ	N	//  anusvara/onushshor
+   
+.group ଃ		// visarga/bishorgo
+	ଃ		// doubles the following consonant
+	ଃ (_	H
+
+.group ୍		// virama/hoshonto
+	C) ୍
+
+.group ଼
+	଼		// nukta, modifies a consonant
+
+.group
+	// obsolete letters
+	ଋ	r-
+	ୠ	r-
+	ଌ	l-
+	ୡ	l-
+	ୃ	r-
+	ୄ	r-
+	ୢ	l-
+	।	p'urn.'oV'iram
+	ୣ	l-
+
