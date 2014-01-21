@@ -1,0 +1,210 @@
+
+// Translation rules for Oriya
+// Prepared    by Him Prasad gautam (Kathmandu, Nepal).
+// This file is UTF8 encoded
+
+// Numbers
+// Oriya  numbers are changed to latin characters before translation
+
+_0	S'u:nj@-
+_1	'e'k'o
+_2	d'ui
+_3	t'ini
+_4	tS'ari
+_5	p'antSO
+_6	tS#'o
+_7	S'ato
+_8	'at.#O
+_9	n'VO
+
+_10	d'oSO
+_11	'ega*:O
+_12	b'a*O
+_13	t'ewrO
+_14	tS'Oud'O
+_15	p'VndV*'O
+_16	S'ohVl-'O
+_17	S'VtV*,O
+_18	'V:t.#V*,O
+_19	'unew,iS
+
+_20	k'or.i,e
+_21	'eko,iS
+_22	b'aiS
+_23	t'ewiS
+_24	tS'obiS
+_25	p'VtSiS
+_26	tS#'VbiS
+_27	S'Vtew,iS
+_28	'Vt.#ew,iS
+_29	'V:nVt,iriS
+
+_30	t'iriS
+_31	'ekVt,iriS
+_32	b'V:tiS
+_33	t'ewtiS
+_34	tS'Vut,iriS
+_35	p'V,i~tir,iS
+_36	tS#'V:tiS
+_37	SV'i~tir,iS
+_38	'V:t.#Vt,iriS
+_39	'V:nVtS,aliS
+
+_40	tS'al-,iS
+_41	'ekVtS,al-,iS
+_42	b'VjV,al-,iS
+_43	t'ewjV,al-,iS
+_44	tS'Vur,al-,iS
+_45	pV'i~tSal-,iS
+_46	tS#'VjV,al-,iSO
+_47	S'VtVtS,al-,iS
+_48	'V:t.#'VtS,al-,iS
+_49	V:n'VntSaS
+
+_50	p'V:tSaS
+_51	'ekab,Vn
+_52	b'aun
+_53	t'ewpVn
+_54	tS'V:ub,Vn
+_55	p'V:ntSab,Vn
+_56	tS#'V:pVn
+_57	S'Vtab,Vn
+_58	'V:t.#ab,Vn
+_59	'V:nVS'Vt.#i
+
+_60	S'at.#i,e
+_61	'ekVS,Vt.#i
+_62	b'aSVt.#,i
+_63	t'ewSVt.#,i
+_64	tS'VuS,Vt.#i
+_65	pV'O~SVt.#,i
+_66	tS#'V:SVt.#,i
+_67	S'V:tVS,Vt.#i
+_68	'Vr.VS,Vt.#i
+_69	'V:n'VstVr'i
+
+_70	S'V:tur,i
+_71	ek'V:stVr,i
+_72	b'astVr,i
+_73	t'ewstVr,i
+_74	tSV'ustVr,i
+_75	pVntS'VstVr,i
+_76	tS#V'VstVr,i
+_77	S'V:t'VstVr,i
+_78	'V:t.#'VstVr,i
+_79	'V:na,VSi
+
+_80	'V:,Si
+_81	'eka,V:Si
+_82	b'VjV,aVS,i
+_83	t'ewjV,aVS,i
+_84	tS'V:ur,aVS,i
+_85	p'V:ntSa,VSi
+_86	tS#'VjV,aVS,i
+_87	S'Vta,VSi
+_88	'V:t.#a,VSi
+_89	'V:nan,Vbew
+
+_90	n'Vbew
+_91	'ekan,Vbew
+_92	b'V:jV,anVb,ew
+_93	t'ewjV,anVb,ew
+_94	tS'Vur,anVb,ew
+_95	p'VntSan,Vbew
+_96	tS#'V:jV,anVb,ew
+_97	S'Vtan,Vbew
+_98	'V:t.#an,VbewVn'ewSVt,o
+_99	'V:n'ewSVt,o
+   
+
+_0C	S'Vho
+_0M1	h'VJa*,O
+_0M2	l'Vk#k#O
+_0M3	k'ot.i
+_0M4	'VrVb
+_0M5	k#'VrVb
+_dpt	_d@s@ml'o:_   
+
+
+
+// Single consonants
+କ	kO
+ଖ	k#O
+ଗ	gO
+ଘ	g#O
+ଙ	'uNgO~
+ଚ	tSO
+ଛ	tShO    // [h] to distinguish from [tS]
+ଜ	JO
+ଝ	J#O
+ଞ	'iNO~
+ଟ	t.O
+ଠ	t.#O
+ଡ	d.O
+ଢ	d.#O
+ଣ	n.'O
+ତ	tO
+ଥ	t#O
+ଦ	dO
+ଧ	d#O
+ନ	n'O
+ପ	pO
+ଫ	fO	// or [p#O] ?
+ବ	bO
+ଭ	b#O
+ମ	mO
+ୟ	Oj
+ଯ	dZ'O
+ର	rO
+ଡ଼	r.O
+ଡ଼	r.O     // (d. + nukta)
+ଢ଼	hr.O
+ଢ଼	hr.O    // (d#. + nukta)
+ଲ	lO
+ଵ	vO
+ଶ	t,aleboS:'O
+ଷ	m,ud#en:oS:'O
+ସ	d,onteS:'O
+ହ	hO
+
+// full vowels
+ଅ	O
+ଆ	a
+ଇ	hrOS:o'i
+ଈ	d'i:rg#o'i
+ଉ	hrOS:o'u
+ଊ	d'i:rg#o'u
+ଋ	ri
+// lri
+ଏ	e  $u+   // word 'it'
+ଐ	oj $u+   // word 'that'
+ଓ	o  $u+ $brk  // 'and'
+_ଏ	e
+_ଐ	oj
+_ଓ	o
+ଔ	ow
+
+// combining vowel signs
+ା	'akar
+ି	hrOS:o'ikar
+ୀ	d'i:rg#ikar
+ୁ	hrOS:oukar
+ୂ	d'i:rg#'ukar
+ୃ	r'ikar
+େ	'ekar
+ୈ	'ojkar
+ୋ	'okar
+ୌ	'owkar
+
+// signs
+୍	'hVl'VntO
+ଂ	'OnuSSOr
+ଃ	b'iSOrgo
+ଁ	tS'Ondrobindu
+଼	b'indu
+
+$	d.Olar
+
+// Punctuation
+।	dVn.d.V
+_,	koma

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1269,6 +1269,7 @@ if(end_type & SUFX_UNPRON)
 				c_temp = wordx[-1];
 				wordx[-1] = ' ';
 				confirm_prefix = 1;
+				wflags |= FLAG_PREFIX_REMOVED;
 
 				if(prefix_type & SUFX_B)
 				{
@@ -1310,7 +1311,7 @@ if(end_type & SUFX_UNPRON)
 					prefix_flags = 1;
 				if(found == 0)
 				{
-					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags & FLAG_HYPHEN_AFTER, dictionary_flags);
+					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags & (FLAG_HYPHEN_AFTER | FLAG_PREFIX_REMOVED), dictionary_flags);
 
 					if(phonemes[0] == phonSWITCH)
 					{

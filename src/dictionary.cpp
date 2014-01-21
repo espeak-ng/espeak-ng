@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
@@ -2170,6 +2170,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					{
 						match.end_type = SUFX_UNPRON;    // $unpron
 					}
+					else if(command == 0x02)   // $noprefix
+					{
+						if(word_flags & FLAG_PREFIX_REMOVED)
+							failed = 1;             // a prefix has been removed
+						else
+							add_points = 1;
+					}
 					else if((command & 0xf0) == 0x10)
 					{
 						// $w_alt
@@ -3609,7 +3616,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	int end_flags;
 	const char *p;
 	int  len;
-	static char ending[12];
+	char ending[50];
 
 	// these lists are language specific, but are only relevent if the 'e' suffix flag is used
 	static const char *add_e_exceptions[] = {
@@ -3647,7 +3654,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	}
 
 	// remove bytes from the end of the word and replace them by spaces
-	for(i=0; i<len_ending; i++)
+	for(i=0; (i<len_ending) && (i < sizeof(ending)-1); i++)
 	{
 		ending[i] = word_end[i];
 		word_end[i] = ' ';

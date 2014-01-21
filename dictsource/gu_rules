@@ -146,6 +146,7 @@
         ૈ (ઁ       aI~ 
         ૈઁ (_      aI~
 
+
 .group ૉ
         ૉ          O
 
@@ -160,6 +161,7 @@
         ૌ (ઁ       aU~        //  [O:] or [aU] ??
         ૌં         aU~
         ૌઁ (_      aU~
+
 
 .group ૢ     // vowel sign l
         ૢ          l-
@@ -196,6 +198,9 @@
         ગ઼         QV
         ગ઼ (B      Q
 
+        ગ્ગ         g:V   // GG -> g:
+        ગ્ગ (B      g:
+
 .group ઘ
         ઘ          g#V
         ઘ (B       g#
@@ -210,18 +215,32 @@
         ચ (B       c
         ચ (્ય      c:
 
+        ચ્ચ          c:V   // cc -> c:
+        ચ્ચ (B       c:
+
+
+        ચ્છ          c#:V    // c#c# -> c#:
+        ચ્છ (B       c#:
+
+       
 .group છ
         છ          c#V
         છ (B       c#
+
+        છ્છ         c#:V   // c#c# -> c#:
+        છ્છ (B      c#:
 
 .group જ
         જ          JV
         જ (B       J
         જ઼         zV
         જ઼ (B      z
-        
-         જ્ઞ           gjV
-        જ્ઞ (B       gj
+
+        જ્જ         J:V   // JJ -> J:
+        જ્જ (B      J:
+
+        જ્ઞ          gr.V  // ??
+        જ્ઞ (B       gr.
 
 .group ઝ
         ઝ          J#V
@@ -254,12 +273,22 @@
         ડ          d.V
         ડ (B       d.
 
+        ડ્ડ         d.:V   // d. d. -> d.:
+        ડ્ડ (B      d.:
+
+        ડ્ઢ          d.#:V    // d#d# -> d#:
+        ડ્ઢ (B       d.#:
+
         ડ઼         r.V
         ડ઼ (B      r.
 
 .group ઢ
         ઢ          d.#V
         ઢ (B       d.#
+
+        ઢ્ઢ         d.#:V   // d.#d.# -> d.#:
+        ઢ્ઢ (B      d.#:
+
         ઢ઼         r.hV      // nukta  (should retroflex flap)
         ઢ઼ (B      r.h       // nukta
 
@@ -276,17 +305,33 @@
         ત્ત          t:V   // tt -> t:
         ત્ત (B       t:
 
+        ત્થ          t#:V    // t#:t#: -> t#:
+        ત્થ (B       t#:
+
+
 .group થ
         થ          t#V
         થ (B       t#
+
+        થ્થ         t#:V   // t#t# -> t#:
+        થ્થ (B      t#:
 
 .group દ
         દ          dV
         દ (B       d
 
+        દ્દ         d:V   // dd -> d:
+        દ્દ (B      d:
+
+        દ્ધ          d#:V    // d#d# -> d#:
+        દ્ધ (B       d#:
+
 .group ધ
         ધ          d#V
         ધ (B       d#
+
+        ધ્ધ         d#:V   // d#d# -> d#:
+        ધ્ધ (B      d#:
 
 .group ન
         ન          nV
@@ -442,7 +487,7 @@
 
 .group o
         o          _^_EN
-   D__) of (__D    me
+   D__) of (__D    me
 
 
 
