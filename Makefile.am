@@ -325,6 +325,7 @@ dictionaries: \
 	espeak-data/nl_dict \
 	espeak-data/no_dict \
 	espeak-data/om_dict \
+	espeak-data/or_dict \
 	espeak-data/pa_dict \
 	espeak-data/pap_dict \
 	espeak-data/pl_dict \
@@ -632,6 +633,12 @@ dictsource/om_extra:
 	touch dictsource/om_extra
 espeak-data/om_dict: src/espeak phsource/phonemes.stamp dictsource/om_list dictsource/om_rules dictsource/om_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=om && cd ..
+
+or: espeak-data/or_dict
+dictsource/or_extra:
+	touch dictsource/or_extra
+espeak-data/or_dict: src/espeak phsource/phonemes.stamp dictsource/or_list dictsource/or_rules dictsource/or_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=or && cd ..
 
 pa: espeak-data/pa_dict
 dictsource/pa_extra:
