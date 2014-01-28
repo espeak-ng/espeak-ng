@@ -38,6 +38,7 @@ extern int GetNumeric(wxTextCtrl *t);
 extern void SetNumeric(wxTextCtrl *t, int value);
 extern int samplerate;
 
+wxString path_espeakdata;
 wxString path_spectload;
 wxString path_spectload2;
 wxString path_pitches;
@@ -161,6 +162,12 @@ void ConfigInit()
 	wxFileConfig::Set(pConfig);
 
 	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
+	pConfig->Read(_T("/espeakdata"),&path_espeakdata,wxEmptyString);
+	if(path_espeakdata != wxEmptyString)
+	{
+		strcpy(path_home, path_espeakdata.mb_str(wxConvLocal));
+	}
+
 	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));
 	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/phsource"));
 	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
@@ -192,6 +199,7 @@ void ConfigSave(int exit)
 #ifndef PLATFORM_WINDOWS
 //	pConfig->Write(_T("/samplerate"),samplerate);
 #endif
+	pConfig->Write(_T("/espeakdata"),path_espeakdata);
 	pConfig->Write(_T("/spectload"),path_spectload);
 	pConfig->Write(_T("/spectload2"),path_spectload2);
 	pConfig->Write(_T("/pitchpath"),path_pitches);

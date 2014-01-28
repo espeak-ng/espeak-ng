@@ -1,6 +1,6 @@
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2013-11-01 Chris, Christian Leo M, <llajta2012@cmail.com>
+// Last update: 2014 January 07 Chris, Christian Leo M, <llajta2012@cmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -31,7 +31,7 @@
 	@)	a (ggine_ 'a
 
 	_)	ae (r    aE
-	@)	avano (_S5  'avano
+	@)	avano (_S5q  'avano
 		a (tterA_   'a
      _) all' (P4t     all
      _) anch' (P5t     ank
@@ -54,15 +54,19 @@
 		cc	k:
 		ck	k:
 		cqu		k:w2
-		c ('    tS
 		c (Y    tS
 		cc (Y   tS:
-		ch	k
-		cch	k:
+		ch (Y	k
+		cch (Y	k:
+	s) ch (A	k
+	ch (a	tS
+	ch (o	tS
+	ch (u	tS
 		ci (A	tS    // or L01 ?
 		cci (A  tS:   // or L01 ?
 	@)	co (lA_ =ko
      _) c' (P2t     tS
+	@@A) ce (A_	=tSE
 
 .group d
 		d	d
@@ -72,14 +76,16 @@
      _) dall' (P5t     dall
      _) dell' (P5t     dell
 	_) d' (P2t	d
-	decider (L04	detS'ide@-*
+	dona (L04_	d'ona
+	ci) der (L04_	=dE@-*
+	chAA) der (L04_	=de@-*
+	re) der (L04_	=de@-*
 
 .group e
 		e        e
 		ei (K        Ej
 	r) ei (_	'ei
 	@C)	e (_S1q  e     // lookup it_list without suffix
-// ò	@Ar)	e (_     e
 		e (C_    E
 		e (A     E
 		e (C%A_  E    // doubled consonant
@@ -137,7 +143,7 @@
 		ff	f:
 	@A)	f (ilo_  =f
 	A)	f (ero_  =f
-		
+
 .group g
 		g	g
 		gg	g:
@@ -151,6 +157,7 @@
 		gg (Y	dZ:
 		ggi (A  dZ:  // or L01 ?
 	@) gger (L04_ =dZ:e@-*
+	AC) ger (L04_	=dZe@-*
 		gl (i	l^
 		gl (ì	l^
 		gli (A  l^
@@ -195,9 +202,7 @@
 	à)	i (+	j
 	L02)	i (+	j
 	o)	i (+	j
-
 	@C)	i (_S1q  i     // lookup it_list without suffix
-
         @)      i (Ante_   i
 		i (acA_   'i
 		i (asi_   'i
@@ -209,7 +214,6 @@
         @)      i (dere_  'i
 	@)	ie (rA_    i'E
 	@)	ié (rA_    i'E
-// [ 	@)	iè (rA_    i'E
 	@)	i (gA_	  =i
 		i (genA_  'i
 	c)	i (lA_    =i
@@ -218,43 +222,49 @@
 	b)	i (le_    =i
 	m)	i (le_    =i
 		i (lA_    =i
-	@)	i (ma_	  =i
+	@) i (mA_	=i
+	laCr) i (mA_	=i
 	r)	i (ma_	   i
-	laCr)	i (ma_	  =i
-	st)	i (ma_     i
-	enz)	i (ma_     i
-        @)	i (mo_    =i
 		inas (_   'inas
-		i (ne_    =i
+	@g) in (Y_	=in
+	c) ine (_	=ine
+	d) ine (_	=ine
+	@@Cand) i (ne_	'i
+	Cm) in (Y_	=in
+	im) in	(Y_	=in
+
 	@) issim (A_	'issim
 	@)	issero(_S6q	'issero
 	p)	i (te_    =i
+	C) iad (Y_	'iad
 	@) iono (_	=iono
 	issano (_	'is:ano
 	ite (L04_	'ite
+	iver (L04_	'ivE@-*
+	d) iver (L04_	iv'E@-*
 
 .group j
 
             j            dZ
-            j (j
+           @) j (_	j
          _) juan         _^_ES
             
 .group k
 		k	k
 		kk	k:
-		
+
 .group l
 		l	l
                ll (C    l_
                ll (_    l
      _) l' (P2t     l
-	A) l (bA	l:
-	A) l (vA	l:
+		lascia (L04_	l'aSa
 
 .group m
 		m	m
 	A)	mi (a_  m'i
      _) m' (P2t     m
+	_) mezz' (P5t	mEdz:
 	metter (L04_	m'ette@-*
 
 .group n
@@ -264,7 +274,9 @@
 		n (k	N
      _) nell' (P5t     nell
 		ndo (L04_	=ndo    // for pronominal verbs
+		netter (L04_	n'Et:e@-*
 		_zA) nz (A	n|dz
+		A) ne (A_	=nE
 
 .group o
 		o	o
@@ -333,12 +345,15 @@
 		o (zA       O
 	osano (_	'ozano
 		C) onder (L04_	'ondE@-*
+		over (L04_	'ovE@-*
+	d) over (L04_	Ov'E@-*
+
 .group p
 		p	p
 		pp	p:
         _)      pn (@@   n
 	_)	ps (A@	s
-	@m)	p (ere_ =p
+	@m)	p (erY_	=p
 
 .group q
 		q	k
@@ -373,24 +388,26 @@
 		s (p	s
 		s (q	s
 		ss	ss
+	A) ss (A	s:
+
 		s (t	s
 		s (x	s
 		sc (Y	S
 		sci (A  S
-		sci (i	S%i
+		scii	Sij
 		sci (ì	S%i
 		sch (Y	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
 	A) sh (A	S
-	@)	sia (_	z'i#a
-	@) sie (_	z'i#e
+	@)	sia (_	z'ia
+	@) sie (_	z'ie
 	@C)	sia	s'ia
 	@)	sià	zi'a
 	@)	s (_S1	s
      _) sull' (P5t     sull
 	_) sotto (P5t	sot:o
-	scriver (L04_	sk@-*'iv%E@-*
+	@) scer (L04_	=SE@-*
 
 .group t
 		t	t
@@ -407,22 +424,28 @@
 	Kr)	u (A	u
 	Kl)	u (A	u
 
-	@)	u (dine_  'u
+	@)	u (dinY_  'u
 	@)	u (colo_  'u
 		u (ito_ 'u
 	@)	u (lA_	=u
      _) un' (P3t     un
 	@@) u (A_	=u
+	A%C) u (A_	=u
+	C) ura (L04_	'uRa
+	uder (L04_	'udE@-*
+
 .group v
 		v	v
 		vv	v:
-
+		vvi (A	v:i
+		C) vi (A	vI
+		C) vi (A_	=vI
 .group w
 		w	w2
 
 .group x
 		x	ks
-		
+
 .group y
 		y	j
 		y (K	i        // foreign words
@@ -435,11 +458,12 @@
         _)	z (Y	dz
 		z (L01A	dz
 		_A) zz (A	|dz:
+		CA) zz (arC	dz:
 		@li) zz (A	dz:
 		@) zz (ano_	=ts:
 		i) zza (no_	=dz:a
 		@@) zza (L04_	=dz:a
-		@) zza (ti_	dz:'a
+		@i) zza (ti_	dz:'a
 	zion (A_	tsi'On
 
 .group 0xce   // Greek letters
@@ -487,23 +511,22 @@ gn	n^
 ñ	n^
 _L16_)	: (_L17D_	_%%E_	// Say time
 
+		á	''a
+		é	''e
 		è	''E
 		èi (K	''Ej
-
-		é	''e
 		éi (K	''eI
-
 		ì	''i
+		í	''i
 		ó	''o
 		ói	''o|I
-
 		ò	''O
 		òi	''OI
-
+		ú	''u
 		ù	''u
 
 		$	d'ollaRo
-		, (D    v'irgola
+	D) , (D	v'i@-*gola
 		!       _p'untoesklamat'ivo_
 	!)	!
 		?	_p'untointeRogat'ivo_
@@ -511,6 +534,5 @@ _L16_)	: (_L17D_	_%%E_	// Say time
         __)  - (_D         meno
         A_)  - (_D        _
         C_)  - (_D        _
-
 		§	setsi'one
-	
+		

@@ -233,7 +233,7 @@
         e (rgL04_  E
         e (rquL02_ E
         e (rsL04_  E
-
+e (scL02_  E
         e (sL02_   E
         e (ssL04_  E
         e (ss_     E         // stress and english words
@@ -477,6 +477,7 @@ _refrig) e (rL04_  E
  _esqu) e (rdL03_  e
     _C) e (rdL04_  E
   _des) e (rdL04_  E
+    _bol) e (tL04_   e
 s_colh) e (res_    E
      _) e (rgL03_  e
    _re) e (rgL03_  e
@@ -491,9 +492,7 @@ s_colh) e (res_    E
  _repr) e (sL03_   E
   _ent) e (sL04_   E
  _refr) e (scL01_  E
-    _d) e (scL02_  E
-   _cr) e (scL02_  E
-    _p) e (scL03_  E
+        _p) e (scL03_  E
     _m) e (sclL04  E
   dioc) e (ses_    E
     _d) e (spL02_  E
@@ -504,13 +503,13 @@ s_colh) e (res_    E
   _esp) e (ssL03_  e
     _c) e (stL03_  e
    _pr) e (tL03_   e
-  _bol) e (tL03_   e
   _rem) e (tL03_   e
  _derr) e (tL03_   e
 _obsol) e (tL03_   e
   _CaC) e (ta_     e
   viol) e (ta_     e
  _Carr) e (ta_     e
+ sp) e (rma_   E
   _pen) e (trL04_  E
   _sol) e (trL04_  E
     _n) eu (trL03_ 'eU
@@ -582,6 +581,7 @@ _apazi) gu (e      gw
  bilin) gu (A      gw
  _biri) gu (i_     gw
   enxa) gu (e      gw
+  enxá) gu (L02_      gw
      i) gu (idade  gw
   _lin) gu (A      gw
    lin) gu (i      gw
@@ -936,6 +936,7 @@ _pormen) o (L05_   O
  _desc) o (sL01_   o
    enr) o (scL03_  O
     _r) o (snL04_  O
+_l) o (grL04_   O
     _c) o (spL02_  O
    enr) o (squL02_ O
         ossos (_   Os=Us#    // nossos, grossos, etc.
@@ -943,6 +944,8 @@ _pormen) o (L05_   O
  _escr) o (tL03_   o
   _Gar) o (tL03_   o
    zig) o (to_     o
+   _m) o (chA_   o
+   _ch) o (chA_   o
    _ch) o (vL01_   o
     pr) o (vL03_   O
         ovos (_    Ov=Us#    novos, povos, etc.
@@ -1190,6 +1193,7 @@ _ortod) o (xL03_   O
     xA) x (A       S
 _abaca) x (i       S
    ale) x (a       S
+   _arro) x (e   S
    bau) x (A       S
    brA) x (A       S
    _bu) x (o_      S

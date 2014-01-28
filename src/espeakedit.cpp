@@ -119,7 +119,7 @@ bool MyApp::OnInit(void)
 
 int j;
 wxChar *p;
-char param[80];
+char param[120];
 
 
 if(argc > 1)
@@ -182,20 +182,22 @@ if(argc > 1)
 	SetTopWindow(myframe);
 	wxInitAllImageHandlers();
 //	wxImage::AddHandler(wxPNGHandler);
+	wxLogStatus(_T("Using espeak_data at: ")+wxString(path_home, wxConvLocal));
   return TRUE;
 }
 
 BEGIN_EVENT_TABLE(MyFrame, wxFrame)
 	EVT_CHAR(MyFrame::OnKey)
    EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
-	EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
+   EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
    EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
    EVT_MENU(MENU_OPT_SPEED, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_PUNCT, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_SPELL, MyFrame::OnOptions)
-	EVT_MENU(MENU_OPT_SPELL2, MyFrame::OnOptions)
+   EVT_MENU(MENU_OPT_SPELL2, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH_DATA, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH0, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
@@ -389,6 +391,7 @@ void MyFrame::PageCmd(wxCommandEvent& event)
             break;
         case SPECTSEQ_SAVEAS:
             currentcanvas->Save();
+            screenpages->SetPageText(screenpages->GetSelection(), currentcanvas->spectseq->name+_T(" ²"));
             break;
         case SPECTSEQ_SAVESELECT:
             currentcanvas->Save(_T(""), 1);
@@ -631,6 +634,20 @@ void OnOptions2(int event_id)
 		transldlg->t_source->SetValue(_T("<say-as interpret-as=\"tts:char\">\n"));
 		transldlg->t_source->SetInsertionPointEnd();
 		notebook->SetSelection(1);
+		break;
+
+	case MENU_PATH_DATA:
+		string = wxDirSelector(_T("espeak_data directory"), wxEmptyString);
+		if(!string.IsEmpty())
+		{
+			if(!wxDirExists(string+_T("/voices")))
+			{
+				wxLogError(_T("No 'voices' directory in ") + string);
+				break;
+			}
+			path_espeakdata = string;
+			wxLogMessage(_T("Quit and restart espeakedit to use the new espeak_data location"));
+		}
 		break;
 
 	case MENU_PATH0:
