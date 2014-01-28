@@ -1,6 +1,6 @@
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -56,8 +56,9 @@
      X) a ($w_alt3++++++ a#
     sw) a (B       0
         a (Be#     eI
-        a (Beu     a
      w) a (Be#     eI
+        a (Beu     a
+        a (Beup#   eI
         a (Cee+    a
         a (BeCo_   a
         a (BerA    a
@@ -364,7 +365,7 @@
      _) add (r     a#d
      _) add (u     a#d
      _) adj        a#dZ
-    cr) ad         eId
+    cr) ad (l      eId
   crus) ad         'eId
         ad (ag     ad
      c) ada (ver   a#da
@@ -528,6 +529,7 @@
     _c) ais (l     aS        // 'caislin'
     @l) ais (_     eI
         ai (sC_    eII
+     w) ai (sC_    eI
  portr) ai (t      I#
 
 .group al
@@ -619,7 +621,7 @@
      &) al (_      @L
 ?8   &) al (_      a#l
      @) ally (_S2  %i
-   @@c) ally (_S4  l%i
+  @@ic) ally (_S4  l%i
     ac) ally (_    l%i
   inst) al (_      O:l
      &) al (d_     @L
@@ -1538,6 +1540,7 @@ _it_separ) ate (_  @t
         chario (t  tSari@
      _) ch (artre  S
         cha (ris   k@
+     _) cha (ryb   k@
         ch (asm    k
         ch (ass    S
         ch (atea   S
@@ -2245,6 +2248,7 @@ _it_separ) ate (_  @t
      c) ei         i:
      l) eice (st   E
         eich       aIx
+        eier (_    aI|3
         eigh       eI
      l) eigh       i:
     sl) eigh       eI
@@ -2256,6 +2260,7 @@ _it_separ) ate (_  @t
      n) eil        i:l
         ei (m      aI
      @) ei (n_     i:
+    Cl) ei (n_     aI
         ei (nate   I
      @) ei (ne     i:
      b) eing       i:I2N
@@ -2312,6 +2317,7 @@ _it_separ) ate (_  @t
    onn) el (_      'El
      p) el (_      'El
      n) ell (_     'El
+    nn) ell (_     @L
     &r) ell (_     @L
   dopp) el         @L
    all) el         El
@@ -4116,6 +4122,7 @@ multip) ly         laI
      l) n (_       n
         ninth      naInT
         n (Co_     =n
+     _) noauto (P6 noUO:toU
      _) non (@P3   n,0n
         nonchala (n n0nS@l@
 ?3      nonchala (n n0nS@l'A:
@@ -4683,7 +4690,7 @@ multip) ly         laI
      w) or (n      o@
      w) or (e      o@
         or (um_    'o@r
-     &) ory (_     @r%I
+     &) ory (_     @ri
 ?3 @@At) ory (_     ,o:ri
    _st) ory        o@rI
 
@@ -6153,6 +6160,7 @@ contin) u          ju:
      _) x (Y       z
      c) x (_       Eks       // ? filetypes
      t) x (_       Eks
+    eu) x (_
         xio (n     kS@
         xious      =kS@s
         xas (_     =ks@s

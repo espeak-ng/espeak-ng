@@ -1092,6 +1092,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		if((ix = SelectPhonemeTableName(phonemes_name)) < 0)
 		{
 			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
+			ix = 0;
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;

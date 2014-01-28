@@ -84,7 +84,6 @@ albed  $alt
 alber $1
 albignaseg $3
 albireo $2
-albunea $2
 alcali $1
 alcam $1
 alcantar $2
@@ -109,7 +108,6 @@ ali $2
 alibi $1
 alice $2
 alimen  $alt2
-alinea $2
 aliquot $2
 alisei $3
 alit $1
@@ -252,7 +250,6 @@ apocope $2
 apocrif $2
 apocriti $2
 apofisi $2
-apollineo $3
 apoptygm $2
 aporia $3
 apostat $2
@@ -267,7 +264,6 @@ approcci  $alt
 approd $2  $alt
 aprassia $3
 apricen  $alt2
-aprile $2
 aquilegia $3  $alt
 arab $1
 arabi $1
@@ -301,7 +297,6 @@ ardea $1
 ardesia $2  $alt
 area $1
 aren  $alt2
-arenaceo $3
 arene  $alt2
 areol $2
 argali $3
@@ -698,14 +693,12 @@ canter $1
 cantoria $3
 cantu $2
 caorle $1
-capace $2
+capac	$2
 capannori $2
 capello		$alt2
 capiner  $alt2
-capitaneo $3
 capocchia  $alt
 capolavor  $alt2
-capolinea $3
 capoliveri $3
 capoluog  $alt
 cappellania $4
@@ -737,10 +730,8 @@ carre $2
 carrocci  $alt
 carrodan $2
 carsoli $2
-cartaceo $2
 cartam $1
 cartapest  $alt2
-cartilagineo $4
 cartocci  $alt
 cartomanzia $4
 cartosi  $alt
@@ -749,7 +740,6 @@ casanov  $alt
 casatenov  $alt
 casatiell  $alt2
 casatorre  $alt2
-cascin $1
 casmene $1
 casoli $1
 casperia $2
@@ -781,7 +771,6 @@ catecol $3  $alt
 caten  $alt2
 catenanuov  $alt
 catet  $alt
-cattaneo $2
 cattar $1
 cattedr $1
 cattiveria $3
@@ -934,7 +923,6 @@ coccige  $alt
 coclea $1  $alt
 cocomer $2  $alt2
 codol  $alt2
-coetaneo $3
 cofan $1
 coggiol $1  $alt
 cogia $1  $alt
@@ -1002,7 +990,6 @@ condor  $alt
 condott  $alt2
 coner $1
 confett  $alt
-confine $2
 confraternit $3
 cong  $alt
 conged  $alt
@@ -1021,7 +1008,6 @@ conson $1  $alt
 consuet  $alt
 contachilometri $4  $alt
 contemp  $alt
-contemporaneo $4
 contorn  $alt2
 contraereo $3
 contralber $2
@@ -1097,7 +1083,6 @@ crescit $1
 cresol $2
 crest  $alt2
 cret  $alt
-cretaceo $2
 crevalcore  $alt
 cricet  $alt
 criogenia $4
@@ -1115,7 +1100,6 @@ cromofor $2
 cromoterapia $5
 cronotop $2
 cros  $alt
-crostaceo $2
 crotal $1
 crov  $alt
 cubebe  $alt
@@ -1126,16 +1110,13 @@ cuccu $2
 cucul $2
 cucurbit $2
 cuglieri $1
-cuneo $1
 cuoi  $alt
 cupol $1
 curazia $3
 curcum $1
-curvilineo $3
 cuscut $1
 custode  $alt
 custodia  $alt
-cutaneo $2
 dafni $2
 dagherrotip $3
 dagherrotipia $5
@@ -1446,7 +1427,6 @@ equivoche	$2
 equo  $alt
 eraclit $2
 eratostene $3
-erbaceo $2
 erbivor $2
 erd  $alt2
 ereb $1
@@ -1491,20 +1471,18 @@ esplicit $2
 esposimetr $3
 ess  $alt2
 esserci $1  $alt
-essere  $alt
+essere	'EsseRe
 est		$alt2 $only
 estasi	'Estazi
 estensimetr $3
 ester $1
 estet  $alt
 estoni $1
-estraneo $2
 et  $alt
 etampes $1
 etanol $3
 eteocle $2
 eterocefal $4  $alt
-eterogeneo $4
 eterotteri  $alt
 etiope $2
 etn  $alt
@@ -1518,7 +1496,6 @@ eudem  $alt
 eudocia  $alt
 eufemi  $alt
 euforia $4
-euganeo $3
 eugenia  $alt
 eugenol $4
 eumolp  $alt
@@ -1653,7 +1630,6 @@ fontanigord  $alt2
 foppol  $alt
 for  $alt2
 foraminiferi $4
-foraneo $2
 forca		$alt2
 forcol  $alt2
 forfor $1  $alt2
@@ -1699,7 +1675,7 @@ fucile $2
 fucsia $1
 fugace $2
 fulgenzi  $alt
-funebre $1
+funebr	$1
 funivia $3
 fuorilegge  $alt2
 furnari $1
@@ -1765,7 +1741,7 @@ gionat $1
 giorn  $alt2
 giov  $alt2
 giovane $1  $alt2
-giovine  $alt2
+giovine	$1 $alt2
 gipet  $alt
 gipsotec  $alt
 girostat $2
@@ -1811,7 +1787,6 @@ gottasecc  $alt2
 gozz  $alt2
 gradoli $1
 grafem  $alt
-graminacee $3
 granollers $3  $alt2
 gratteri $2
 gratuita $2
@@ -1825,7 +1800,6 @@ grosi  $alt
 grossomod $3  $alt
 guaina  gwa'i:na
 guarani $3
-guardalinee $3
 guardarob  $alt
 guardiaregia $3  $alt
 guer  $alt2
@@ -1849,7 +1823,6 @@ icositetraedr  $alt
 iddi $2
 identic  $alt
 identikit $4
-idoneo $2  $alt
 idrocefal $3  $alt
 idrocors  $alt2
 idroelettric  $alt
@@ -1926,7 +1899,6 @@ integr $1
 intellighenzia  $alt
 interim $1
 interior  $alt2
-interlinea $3
 intermedi  $alt
 intermezz  $alt
 interpol $3
@@ -1977,8 +1949,6 @@ isotopia $4
 isotrop $2
 isotropia $4
 isotteri  $alt
-istantanea $3
-istantaneo $3
 istrice $1
 ital $1
 ittiri $1
@@ -2062,7 +2032,6 @@ letter  $alt
 lettig $2
 leuc $1
 leuci $1
-levant $1  $alt
 levanz $1  $alt
 leve  $alt
 levita $3
@@ -2081,11 +2050,9 @@ lilla $2
 limassol $3  $alt2
 limen $1
 limin $1
-limite $1
 limitrof $2
 limon $2
 limone  $alt
-linea $1
 linfonod $3  $alt
 linoleum $2  $alt
 lipari $1
@@ -2093,7 +2060,6 @@ lipsia $1
 liquigas $3
 liston $2
 litania $3
-litoraneo $3
 lob  $alt
 lod  $alt
 lode	$alt
@@ -2151,7 +2117,7 @@ maiori  $alt2
 malag $1
 malapen  $alt2
 malavoglia  $alt
-malcesine  $alt2
+malcesine	$2 $alt2
 male  $alt
 malebolge  $alt
 malesia $2  $alt
@@ -2223,8 +2189,6 @@ mazzin $2
 mazzol $2
 medi  $alt
 media  $alt
-mediceo $2
-mediterraneo $4
 medium  $alt
 medole $1
 medoll  $alt2
@@ -2325,7 +2289,6 @@ miopia $3
 mirafiori  $alt2
 miriade $2
 misantropia $4
-miscellanea $3
 miser $1
 miserere $3
 miseria $2
@@ -2364,7 +2327,6 @@ molotr $1  $alt
 molten  $alt2
 molv  $alt
 mombarocci  $alt
-momentaneo $3
 mon  $alt
 monade $1
 monarchia $3
@@ -2557,7 +2519,6 @@ ohmic  $alt
 oidi $2
 ola $2
 ole $2
-oleacee $3
 oleodott  $alt2
 olg  $alt
 oligarchia $4
@@ -2579,7 +2540,6 @@ omicron $1  $alt
 omnibus $1  $alt
 omnitel $3
 omnium  $alt
-omogeneo $3
 omotopia $4
 omotteri  $alt
 omozigote  $alt
@@ -2598,7 +2558,6 @@ oraf $1
 oramai $3
 orbit $1
 orca		$alt2
-orchidacee $3
 orcia  $alt2
 ordin	$1 $alt2
 orefice  $alt2
@@ -2607,7 +2566,7 @@ orfanotrofi  $alt
 orfei $2
 organ $1
 organon $1  $alt2
-orgia $1
+orgia	'O@-*dZa
 origan $2
 oritterop $3
 orl  $alt2
@@ -2667,7 +2626,7 @@ ovideposizione  $alt
 ovile $2
 ovovia $3
 ovver $2  $alt2
-ovvi  $alt
+ovvi  $1 $alt
 ozia $2
 pabillonis  $alt
 pacec  $alt
@@ -2716,7 +2675,6 @@ paravia $3
 parenchim  $alt
 parentesi $2  $alt
 parere $2  $alt2
-// ò parestesie $4
 parghelia $3
 paria $2
 parnassos $3
@@ -2830,7 +2788,6 @@ pest  $alt2
 peste		$alt
 petal $1  $alt
 pett  $alt
-pettineo $2
 pezz  $alt
 phon  $alt
 piacere $2  $alt2
@@ -2914,7 +2871,7 @@ polc  $alt
 polcever $2
 polder  $alt
 polesia $2  $alt
-polesine  $alt2
+polesine	$2 $alt2
 polia $2
 policrate $2
 policrom $2
@@ -2940,7 +2897,7 @@ polli  $alt
 pollic  $alt
 pollice  $alt
 pollin $1  $alt
-polline  $alt
+polline	$1 $alt
 pomice  $alt2
 pompei $2
 ponce  $alt
@@ -2964,7 +2921,6 @@ porticciol $3
 portorose  $alt
 portovenere  $alt
 pos  $alt
-posamine $3
 posillip $2
 post  $alt2
 posteri $1
@@ -3156,7 +3112,6 @@ retrofit $1
 retrograd $2
 rett  $alt
 rettifil $3
-rettilineo $3
 revere  $alt2
 revoc $1
 revolver  $alt
@@ -3208,7 +3163,6 @@ robbia  $alt
 robot $2  $alt
 roburent $3  $alt
 robustezz  $alt
-roccagiovine  $alt2
 roccaglorios  $alt2
 roccarainola  @-*ok:aRa'inOla
 roccasecc  $alt2
@@ -3367,7 +3321,7 @@ sedere $2  $alt2
 sedia  $alt
 sedicesim  $alt
 sedici  $alt2
-sedile $2
+sedil	$2
 seggi  $alt
 seggiovia $3
 segnapost  $alt2
@@ -3455,7 +3409,6 @@ simet  $alt
 simia $1
 simonia $3
 simposi  $alt
-simultaneo $3
 simun $2
 sinagog  $alt
 sinalefe  $alt
@@ -3531,15 +3484,13 @@ sorvol $2  $alt2
 sosi  $alt
 sospett  $alt
 soter $2  $alt2
-sotterraneo $3
 sottile $2
 sottobosc  $alt
-sottocutaneo $4
 sottoinsieme  $alt
 sottomultipl $3
 sottopost  $alt2
 sottoprodott  $alt2
-sottordine  $alt2
+sottordine  $2 $alt2
 sottospecie  $alt
 sottozon  $alt
 soverzene $2
@@ -3573,7 +3524,6 @@ spleni  $alt
 splenomegalia $5
 spogli  $alt
 spoglia  $alt
-spontaneo $2
 sporofit $2
 spos  $alt
 spotorn  $alt2
@@ -3697,7 +3647,6 @@ tempi  $alt
 templ  $alt
 tempor  $alt
 tempor $1
-temporaneo $3
 tempr  $alt
 temu $2
 tenace $2
@@ -3760,7 +3709,6 @@ tiepol  $alt
 tiglatpileser  $alt
 timpan $1
 tindari $1
-tinea $1
 tinian $2
 tintoria $3
 tirannia $3
@@ -4011,11 +3959,8 @@ villaspecios  $alt2
 villavallelong  $alt
 vinavil $3
 vincit $1
-vinea $1
 vinile $2
 vinov  $alt
-violacee $3
-violaceo $3
 viper $1
 virile $2
 visigoti  $alt
