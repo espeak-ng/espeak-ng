@@ -522,12 +522,12 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	if(event.ShiftDown())
 	{
 		x_inc = pk_inc1[pk_num];
-		y_inc = 0x40;
+		y_inc = 0x20;
 	}
 	else
 	{
 		x_inc = pk_inc2[pk_num];
-		y_inc = 0x100;
+		y_inc = 0x80;
 	}
 
 	switch(key)
@@ -995,7 +995,7 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 		return;
 	}
 	wxFileName path = wxFileName(filename);
-   leaf = path.GetName();
+	leaf = path.GetName();
 
 	setlocale(LC_NUMERIC,"C");    // read numbers in the form 1.23456
 	spectseq->Load(stream);
@@ -1013,7 +1013,9 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	SpectDisplay *canvas = new SpectDisplay(screenpages, wxDefaultPosition, wxSize(width, height), spectseq);
 	screenpages->AddPage(canvas, leaf, true);
 	canvas->savepath = filename;
-    currentcanvas = canvas;
+	currentcanvas = canvas;
+
+	notebook->ChangeSelection(0); // select FormatDlg window
 }
 
 

@@ -72,6 +72,7 @@ extern int embedded_default[N_EMBEDDED_VALUES];
 
 
 #define N_PEAKS   9
+#define N_PEAKS2  9     // plus Notch and Fill (not yet implemented)
 #define N_MARKERS 8
 
 #define N_KLATTP   10   // this affects the phoneme data file format

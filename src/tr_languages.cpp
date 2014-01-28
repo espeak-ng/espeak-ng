@@ -1048,7 +1048,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
+			tr->langopts.param[LOPT_IT_DOUBLING] = 1;    // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
@@ -1306,7 +1306,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
 			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN_CAPITALS;
 			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS | NUM2_ORDINAL_NO_AND;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
@@ -1663,6 +1663,7 @@ SetLengthMods(tr,3);  // all equal
 
 	tr->translator_name = name2;
 
+	ProcessLanguageOptions(&tr->langopts);
 	return(tr);
 }  // end of SelectTranslator
 

@@ -754,6 +754,7 @@ caroços		$alt
 carrapeta	$alt2
 carroça		$alt
 casebre		$alt
+catacreses	$alt
 cateto		$alt2
 catequeses	$alt
 catorze		$alt2
@@ -902,7 +903,6 @@ esforços	$alt
 esgoto		$alt2
 esgoto		$alt $verb
 espectro	$alt
-esperma		$alt
 espeto		$alt2 $noun
 espoleta	$alt2
 esposa		$alt2
@@ -1009,7 +1009,6 @@ licores	$alt2
 lisboeta	$alt2
 livreto		$alt2
 lodo		$alt2
-logro		$alt
 lopes		$alt
 macete		$alt2
 maioneses	$alt
@@ -1025,6 +1024,7 @@ metro		$alt
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
+mister	$alt
 modelo		$alt2
 modelo		$alt $verb
 moeda		$alt
@@ -1101,6 +1101,7 @@ pose		$alt2
 poxa		p'oS&
 primavera	$alt
 primores	$alt2
+program	$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
@@ -1162,6 +1163,7 @@ selvagem	seUv'aZeIN
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
+sinagoga	$alt
 sinopse		$alt
 soco		$alt2
 soco		$alt $verb
@@ -1171,6 +1173,7 @@ sopro		$alt2 $noun
 sorvete		$alt2
 sossego     	$alt2 $noun
 suborno		$alt  $verb
+sudoreses	$alt
 sufoco		$alt2 $noun
 sufocos		$alt2
 sulfeto		$alt2
@@ -1186,6 +1189,7 @@ tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
+terma	$alt
 test		$alt
 terrores	$alt2
 teses		$alt
@@ -1207,6 +1211,7 @@ travesso	$alt2
 tremores	$alt2
 treta		$alt2
 trevo		$alt2
+trocha	$alt2
 troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
