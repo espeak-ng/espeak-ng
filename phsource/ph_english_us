@@ -390,3 +390,13 @@ endphoneme
 phoneme t2   // [t] which doesn't reduce
   import_phoneme  base/t
 endphoneme
+
+phoneme ?  // glottal stop
+  vls glt stop
+  lengthmod 1   // 5? longer preceding vowel
+  nolink
+  Vowelin  glstop
+  Vowelout glstop
+  WAV(ustop/null)
+endphoneme
+
