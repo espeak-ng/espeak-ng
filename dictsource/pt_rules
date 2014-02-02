@@ -233,7 +233,7 @@
         e (rgL04_  E
         e (rquL02_ E
         e (rsL04_  E
-e (scL02_  E
+        e (scL02_  E
         e (sL02_   E
         e (ssL04_  E
         e (ss_     E         // stress and english words
@@ -389,7 +389,7 @@ respond) e (L06_   e
     eg) e (L07_    e         // elegeste, etc.
    _@o) e (L07_    e         // doeste, etc.
    _cr) e (L07_    e
-  _val) e (L07_    e
+  _dev) e (L07_    e
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // meteste, cometeste, etc.
@@ -398,8 +398,10 @@ respond) e (L06_   e
    olv) e (L07_    e         // devolveste, etc.
    ond) e (L07_    e         // escondeste, etc.
    orr) e (L07_    e         // correste, etc.
+precav) e (L07_    e
   _ard) e (L07_    e
   _coz) e (L07_    e
+  _val) e (L07_    e
   colh) e (L07_    e         // & es-
   ench) e (L07_    e         // pre-
   vert) e (L07_    e         // in- re- con-
@@ -440,8 +442,8 @@ _enver) e (dL03_   E
   _caC) e (lo_     e
 ?2      el (ton_   'EU
     ad) e (quL04_  E
-  _dig) e (rL02_   E
   _ing) e (rL02_   E
+  _dig) e (rL02_   E
     _m) e (rL03_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
@@ -477,11 +479,11 @@ _refrig) e (rL04_  E
  _esqu) e (rdL03_  e
     _C) e (rdL04_  E
   _des) e (rdL04_  E
-    _bol) e (tL04_   e
 s_colh) e (res_    E
      _) e (rgL03_  e
    _re) e (rgL03_  e
    _so) e (rgL03_  e
+    sp) e (rma_    E
         e (rquL02_ E
   _bez) e (rrL03_  e
      v) e (rtL03_  e         // con- re- in-
@@ -492,7 +494,7 @@ s_colh) e (res_    E
  _repr) e (sL03_   E
   _ent) e (sL04_   E
  _refr) e (scL01_  E
-        _p) e (scL03_  E
+    _p) e (scL03_  E
     _m) e (sclL04  E
   dioc) e (ses_    E
     _d) e (spL02_  E
@@ -506,10 +508,10 @@ s_colh) e (res_    E
   _rem) e (tL03_   e
  _derr) e (tL03_   e
 _obsol) e (tL03_   e
+  _bol) e (tL04_   e
   _CaC) e (ta_     e
   viol) e (ta_     e
  _Carr) e (ta_     e
- sp) e (rma_   E
   _pen) e (trL04_  E
   _sol) e (trL04_  E
     _n) eu (trL03_ 'eU
@@ -523,6 +525,7 @@ _obsol) e (tL03_   e
   _rev) e (zL04_   E
 _embel) e (zL04_   E
    com) e (çL01_   E
+_ender) e (çL01_   E
      p) e (çL03_   E
     _m) e (çL03_   E
 _entorp) e (çL03_  e
@@ -581,7 +584,7 @@ _apazi) gu (e      gw
  bilin) gu (A      gw
  _biri) gu (i_     gw
   enxa) gu (e      gw
-  enxá) gu (L02_      gw
+  enxá) gu (L02_   gw
      i) gu (idade  gw
   _lin) gu (A      gw
    lin) gu (i      gw
@@ -887,6 +890,8 @@ _pormen) o (L05_   O
   _sal) o (brL03_  o
      _) o (cL03_   o
  _barr) o (cL03_   o
+   _ch) o (chA_    o
+    _m) o (chA_    o
   _ecl) o (dL03_   o
  _expl) o (dL03_   o
  _impl) o (dL03_   o
@@ -894,6 +899,7 @@ _pormen) o (L05_   O
     _m) o (fL02_   O
    _af) o (fL04_   O
     _s) o (frL02_  O
+    _l) o (grL04_  O
    _ap) oi (L01_   OI
    _ap) oi (L02_   OI
     _b) oi (L04_   OI
@@ -923,6 +929,7 @@ _pormen) o (L05_   O
   _ma@) o (r_      O
         o (rdens_  O
   _@um) o (re_     o
+     f) o (rjo_    O
      f) o (rmL03_  O
      c) o (rrL01_  o         // incorra, corra, etc.
      m) o (rrL01_  o
@@ -936,16 +943,13 @@ _pormen) o (L05_   O
  _desc) o (sL01_   o
    enr) o (scL03_  O
     _r) o (snL04_  O
-_l) o (grL04_   O
     _c) o (spL02_  O
    enr) o (squL02_ O
         ossos (_   Os=Us#    // nossos, grossos, etc.
      p) ostos (_   Ost=Us#   // dispostos etc.ortos (_  'O*@-tUs
- _escr) o (tL03_   o
   _Gar) o (tL03_   o
+ _escr) o (tL03_   o
    zig) o (to_     o
-   _m) o (chA_   o
-   _ch) o (chA_   o
    _ch) o (vL01_   o
     pr) o (vL03_   O
         ovos (_    Ov=Us#    novos, povos, etc.
@@ -1171,7 +1175,7 @@ _ortod) o (xL03_   O
     _e) x (A       z
     _ê) x (A       z
   _ine) x (A       z
-  _ine) x (oráv    ks
+  _ine) x (orAC    ks
      e) x (A       ks
 ?1   e) x (CA      S
     ai) x (A       S
@@ -1193,7 +1197,7 @@ _ortod) o (xL03_   O
     xA) x (A       S
 _abaca) x (i       S
    ale) x (a       S
-   _arro) x (e   S
+ _arro) x (e       S
    bau) x (A       S
    brA) x (A       S
    _bu) x (o_      S

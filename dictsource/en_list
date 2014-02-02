@@ -778,7 +778,7 @@ agressive	a#grEsIv     // misspell
 aground		a#graUnd
 ague		eIgju:
 aha		A:h'A:
-ahem		a#h'Em
+ahem		@h'@m
 ahoy		a#hOI
 airbus		e@bVs
 airpower	'e@p,aU@
@@ -1070,7 +1070,8 @@ bourgeoise	bU@ZwA:z
 bourgeoisie	bU@ZwA:z'i:
 bouquet		bu:k'eI
 bow		boU
-bow		baU           $verb 
+bow		baU           $verb
+(bow down)	b,aU||d'aUn
 bowtie		b,oUt'aI
 breakfast	brEkf@st
 breath		brET          $onlys
@@ -1458,6 +1459,7 @@ defect		di:fEkt
 defens		dI2fEns          // for defensible
 deficit		dEfI2sIt 
 definitive	dI2fInI2tIv
+defragment	di:fragm'Ent
 dego		deIgoU
 deity		deI@ti
 ?3 deity	di:@t2i
@@ -1664,7 +1666,7 @@ euphemism	ju:f@mIz@m
 eureka		ju:'ri:ka#
 europa		jU@r'oUp@
 everything	EvrI2TIN
-evildoers	i:v@Ldu:3z
+evildo		i:v@Ldu:
 evince		I2vIns
 ewe		ju:
 eweek		$alt6
@@ -1769,6 +1771,7 @@ formica		fO@m'aIk@
 fortunate	fO@tS@n@t
 !?3 fortune	fO@tSu:n
 foyer		fOIeI
+fragment	fragm'Ent  $verb
 freelance	fri:laans
 freer		fri:3
 freon		fri:0n
@@ -1949,7 +1952,6 @@ hormonal	ho@m'oUn@L
 hospitable	h0sp'It@b@L
 hostage		h0stI2dZ
 hostess		hoUstEs
-hotel		hoUt'El
 hotkey		h0tki:
 house		haUz          $verb 
 however		$2
@@ -3281,6 +3283,7 @@ turnkey		t3:nki:
 tuna		tju:n@
 ?3 tuna		tu:n@
 tunafish	tu:n@fIS
+tush		tUS
 twas		tw0z
 twilight	twaIlaIt
 twos		tu:z
@@ -3366,6 +3369,7 @@ venus		vi:n@s
 versus		v3:sI2z
 vertices	v3:tIsi:z
 vestige		vEstI2dZ
+vertex		$alt4
 vex		vEks        // for vexed
 viagra		vaI'agr@
 vibrato		vI2brA:toU
@@ -3409,6 +3413,7 @@ wast		weIst         // wasted
 watershed	wO:t3SEd
 watson		w0t|s@n
 waxy		waksi
+(wear and tear)	w'e@||a#nd||t'e@
 webpage		wEbpeIdZ
 wehrmacht	ve@maxt
 website		wEbsaIt
@@ -3495,7 +3500,7 @@ Cheshire	tSES3
 Chiswick	tSIzIk
 Clwyd		klu:Id
 Conway		$1
-Dagenham	dag@n@m
+//Dagenham	dag@n@m
 Devon		dEv@n
 Dolgellau	d0lg'EClaI
 Dover		doUv3
@@ -3677,6 +3682,7 @@ Iditarod	aId'It@r0d
 Indochina	IndoUtS'aIn@
 Iowa		aI|@w@
 Ipanema		Ipa#n'i:m@
+Islay		aIl@
 ?3 Israel	Izri:@L
 Israeli		Izr'eIli
 Istanbul	,Ist,anb'Ul
@@ -4583,6 +4589,7 @@ won't            woUnt		$u+ $verbf $strend2 $only
 wouldst           $u+
 (won't have)     woUnta#v	$pastf $u1
 (won't have)     woUnthav	$pastf $atend
+(won't have it)  woUnthavIt      $u2+
 (won't have to)  w'oUntavt@5	$verbf $strend2
 
 must                            $verbf
@@ -4597,6 +4604,7 @@ shall            ,Sal           $verbf $only $strend2
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only $strend2
 (should have)    SUd@v          $pastf $u1+
+(should have it)  SUdhavIt	$u2+
 (should have to)  SUdhavt@5	$u2 $verbf $strend2
 shouldn't        ,SUd@-nt	$verbf $strend2 $only
 (shouldn't have) SUd@-nth@v	$pastf $u1+

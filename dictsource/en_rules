@@ -383,6 +383,7 @@
      _) ad (i      ad
     gl) ad (i      ad
         adjec      adZEk
+     _) ad (l      ad
         ad (le_    eId
         ad (junct_ ad
         ad (jutan  a
@@ -475,6 +476,7 @@
   mont) ag (e_     A:Z
      @) age (ment  I2dZ
      g) age (ment  'eIdZ
+    _d) agen       ag@n
      m) ag (enta   @dZ
         agh (_     A:g
         agio (_    'A:dZIoU
@@ -792,7 +794,7 @@
     @u) an (_S1    n
     @i) an (_S1    n
     Cc) an (_      an
-   Asc) an (_      =@n
+  &Asc) an (_      =@n
      l) an (_      an
    &Cl) an (_      @n
     pl) an (_+     an
@@ -1536,7 +1538,7 @@ _it_separ) ate (_  @t
      _) ch (andA   S
      _) cha (o     keI
         chaos      keI0s
-        chap (ero  Sap
+        chaperon   Sap3oUn
         chario (t  tSari@
      _) ch (artre  S
         cha (ris   k@
@@ -1819,7 +1821,7 @@ _it_separ) ate (_  @t
         de (finit  dE
         de (flat   d%i:
         de (feren  dE
-     _) defragment di:fragm'Ent
+     _) de (fragP2   d,i:
         de (ft     dE
      _) de (g@     dI2
      _) de (hyd    ,di:
@@ -2286,6 +2288,7 @@ _it_separ) ate (_  @t
 .group el
      _) el (A      %Il
      _) electro    %Il,EktroU
+     _) elect (rocu I2lEkt
      _) elect (rol %ElEkt
      _) elect (ron ElEkt
      _) ele (g     ElI
@@ -2507,7 +2510,7 @@ _it_separ) ate (_  @t
     @@) eo (_      'eIoU
      g) eo         I20
     _g) eo (gr     I0
-    _g) eo (log    IO
+    _g) eo (log    I0
     _g) eo         ,i:%oU
     _g) eor        O@
         eoa (_     i@
@@ -2832,7 +2835,7 @@ _it_separ) ate (_  @t
      l) ev (el     Ev
      _) ev (i      Ev
      _) ev (ict    I2v
-        ev (il     i:v
+     _) evil (K    i:v@L
      _) ev (is     I2v
 ?3   _) ev (olu    Ev
   abbr) ev         i:v
@@ -2994,7 +2997,7 @@ _it_separ) ate (_  @t
         h (_ 
     _B) h 
      @) hammed     h'amId
-     d) h (am_ 
+     C) h (am_ 
      A) han (_     han       // places
      e) han (_     h@n
         ha (st     heI
@@ -3526,7 +3529,7 @@ _it_separ) ate (_  @t
         inte (llec Int@
      _) inter (@P5 ,Int3     // prefix
      _) inter (AP5 ,Int@r
-        inter (est Intr
+     _) inter (est Intr
         interfer   Int@f'i@3
      _) int (erio+ %Int
      _) int (ermin+ %Int
@@ -3886,7 +3889,8 @@ _it_separ) ate (_  @t
         kn (ob     n
         kn (ow     n
 
-        kha        kA:
+     _) kha        kA:
+        kh (A_     k
         khar       kA@
      _) ki (lC@    kI2
      _) ki (ll@    kI
@@ -4746,6 +4750,7 @@ multip) ly         laI
      t) ot (a      oUt
      c) ot (an     oUt
         ot (at     oUt
+     h) ote (l     %oUtE
      p) ot (enti   @t
      b) oth        oUT
   betr) oth        oUD
@@ -5343,6 +5348,7 @@ multip) ly         laI
         re (pt     rE
         re (quis   rE
      _) re (relP2  r,i:
+     _) re (scanP2   r,i:
      _) re (scu    rE
         re (sidue  rE
         res (ign   rI2z
@@ -5371,6 +5377,7 @@ multip) ly         laI
         re (ment   r@
         represent  rEprI2z'Ent
         resi (den  rEzI2
+     _) re (titP2  r,i:
      _) re (unP2   r,i:
     _c) re (dent   rI2
     _c) re (denz   rI2
@@ -5657,8 +5664,9 @@ multip) ly         laI
      _) tsu        tsu:
         tt (i_     =t
         tt (ia_    t
-// ?3   &) ten (_     ?n-
-// ?3   &) tten (_    ?n-
+?3   &) ttan (_    ?n-
+?3   &) ten (_     ?n-
+?3   &) tten (_    ?n-
     Xe) ttin (_    ?n        // gettin, lettin
 ?3   &) tton       ?n-
      _) two        tu:
@@ -5818,6 +5826,7 @@ contin) u          ju:
      r) uary (_    u:ri
 ?3   r) uary (_    u:e@ri
      s) ua (s      weI
+     n) u (at      ju:
      l) u (bri     u:
         ubuntu     u:b'u:nt2u:
     _l) u (c       u:

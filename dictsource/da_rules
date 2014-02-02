@@ -36,10 +36,11 @@
 
 .group a
 
-        a          ?&        // Defalut short a TEST
+        a          ?&        // Defalut short a
      _) at (_      &
      h) al (fback  A
         aaron      ArVn      // name
+    sw) anage      _^_en
    zol) a          '&        // name
      m) ary        &ri       // name
     _t) ate        Ejt       // name
@@ -55,6 +56,7 @@ shangh) ai         Aj
   _pen) a (lhus    '?&       // stressed
     di) abetes     ?&b'et@-s
         avondale   _^_en
+     l) ay (out    ?Ej
 
 // Long a
         a (Ce      &         // ane
@@ -62,6 +64,7 @@ shangh) ai         Aj
     bl) anche      AntS      // name & in stead of A?
     sp) a (de      &
   _imp) a (la      '&:       // stressed
+    sh) a (ver     ?Ej
 
 // Short vowel before double consonant
      r) a (C%++    ?A        // trappe
@@ -73,6 +76,7 @@ shangh) ai         Aj
         a (ffald+  A
      s) a (bbat    ?&
   grim) a (sse     '?&       // stressed
+  _sav) a (nne     '?&       // stressed
     _c) annes      &:n:      // French city
         a (cc+     ?A        // accent
      b) accarat    ?Ak?Ar'?A
@@ -94,7 +98,7 @@ shangh) ai         Aj
      h) a (vet     ?&        // havet "the sea"
 
 // long & before de(n) - made long in ph_danish
-        a (de      &         // gade
+        a (de+     &         // gade, skade
         a (den     &         //gaden
 
 // combinations with "lade = l&
@@ -103,34 +107,50 @@ shangh) ai         Aj
     _l) ade (_dig_ &
     _l) ade (_sig_ &
 
-// Have = "oceans" vs. the verb have
- _vi_h) ave (_     &         // hvad skal vi have?
- _du_h) ave (_     &         // hvad skal du have?
- _de_h) ave (_     &         // hvad skal de have?
-  _i_h) ave (_     &         // hvad skal I have?
-_jeg_h) ave (_     &         // hvad skal jeg have?
-_vil_h) ave (_     &
-_han_h) ave (_     &
-_hun_h) ave (_     &
- _må_h) ave (_     &
-_kunne_h) ave (_   &         // kunne have sagt
-_kan_h) ave (_     &         // kunne have sagt
-_burde_h) ave (_   &         // burde have sagt
-_også_h) ave (_    &
-_nok_h) ave (_     &
-_nødig_h) ave (_   &
-_bare_h) ave (_    &
-_kun_h) ave (_     &
-_ikke_h) ave (_    &
-_stadig_h) ave (_  &
- _jo_h) ave (_     &
-_straks_h) ave (_  &
-_altid_h) ave (_   &
-_godt_h) ave (_    &
-_bør_h) ave (_     &
-    _h) ave (_et_  &
-    _h) ave (_en_  &
-    _h) ave (_tænkt_ &
+// General rule, most words with af- plus vowel: [f] => [w]
+        af (A      ?Aw       // afart, afprøve
+
+// exceptions to the 'a)f(A' rule below
+     c) afe        ?&f'?e    // cafe, bogcafe
+     c) afé        ?&f'?e    // café
+        af (asi    ?&f       // afasi
+        af (atisk  ?&f       // afatisk
+        af (or     ?&f       // aforisme, aforistisk
+        af (olk    ?&f       // mafiafolk
+  dikt) afon       ?&f'?on
+
+// Have = "oceans" vs. the verb "have" pronounced h?&
+ _vi_h) ave (_     ?&        // hvad skal vi have?
+ _du_h) ave (_     ?&        // hvad skal du have?
+ _de_h) ave (_     ?&        // hvad skal de have?
+_vil_i_h) ave (_   ?&        // hvad vil I have? NOT "i have og floder"
+_jeg_h) ave (_     ?&        // hvad skal jeg have?
+_vil_h) ave (_     ?&
+_han_h) ave (_     ?&
+_hun_h) ave (_     ?&
+ _må_h) ave (_     ?&
+_kunne_h) ave (_   ?&        // kunne have sagt
+_kan_h) ave (_     ?&        // kunne have sagt
+_burde_h) ave (_   ?&        // burde have sagt
+_også_h) ave (_    ?&
+_nok_h) ave (_     ?&
+_nødig_h) ave (_   ?&
+_bare_h) ave (_    ?&
+_kun_h) ave (_     ?&
+_ikke_h) ave (_    ?&
+_stadig_h) ave (_  ?&
+ _jo_h) ave (_     ?&
+_straks_h) ave (_  ?&
+_altid_h) ave (_   ?&
+_godt_h) ave (_    ?&
+_bør_h) ave (_     ?&
+    _h) ave (_et_  ?&
+    _h) ave (_en_  ?&
+    _h) ave (_tænkt_ ?&
+    _h) ave (_godt_ ?&
+    _h) ave (_den_ ?&
+    _h) ave (_det_ ?&
+    _h) ave (_dem_ ?&
 
      t) abernak    abVn'ak   // tabernakel, tabernakler
    mil) a (no      '&:       // stressed
@@ -140,8 +160,10 @@ _bør_h) ave (_     &
 
      r) a (CK+     ?A        // drab, Rasmus, rask
      r) a (CA+     A         // drabelig, brase, gratis
+     @) a (be+     ?&        // sweateraber
      r) a (Ci+     ?A        // tradition, radio
      r) a (len+    ?A        // gralen TEST
+ teatr) a (l       '?A       // teatralsk
      r) a (le+     A         // morale, prale
      r) a (dio++   A         // shortend too much by ph_danish
     br) ady        Ejdi      // name
@@ -196,7 +218,7 @@ _bør_h) ave (_     &
     _r) anda (l    &ndO      // Randall - name
     tr) a (L02     ?A        // straf, traf, trav
      r) a (nd+     ?A        // strand - short A
-//   str) a          A         // ekstra
+    br) a          ?A        // hebraisk
      r) a (L06     A         // trappe
      r) a (CL04    A         // generation
   vibr) a (to      'A        // stressed
@@ -237,6 +259,7 @@ _bør_h) ave (_     &
    kan) apé        &p'e      // kanapé
      n) a (palm    &         //
      d) a (vid     &         // name
+     n) apier      ?Ejp?i?V  // name
 
 // General rule &: followed by -tus
         a (tus     &:        // status TEST
@@ -253,7 +276,7 @@ _reprim) and (e    '?&nd
    L02) a (L02ser  ?A        // babser
      m) amelu (k   ?Am@-l'?u //
      p) apegøje    ?Ab@-g'?Vj@- //
-     p) a (v+      &         // pave, pavillon
+     p) a (v++     &         // pave, pavillon
     sv) a (b       &         // svabre
 
     sn) a (vs      ?A        //
@@ -270,6 +293,7 @@ _reprim) and (e    '?&nd
      C) a (m+      ?A        // ham, gamle, lam, Sam, samarbejde
      s) a (mL04+   ?&        // Samoa, Samuel
    met) a (+       ?&        // metamorfose
+ incit) a          ?&        // incitament
    _im) a (m       '?&       // stressed
      s) amurai     ?&m?ur'aI // samurai
      c) a (mp+     ?&        // camping
@@ -441,7 +465,7 @@ gammeld) a (gs     ?&        //
 
 // general rule: [A] before r
         ar (+      Ar        // areal
-        ar (C+     A:        // snart
+        ar (C+     A         // snart
         ar (_++    A         // skar
         ar (CC     A:        // barsk TEST - before unvoiced consonants
         ar (n+     A         // barn - voiced consonants like n add length to the vowel
@@ -454,6 +478,8 @@ gammeld) a (gs     ?&        //
      t) ar (L04+   AR        // tarif TEST
      C) are (de+   A?A       // klarede
      C) are (+     AA_!      // klare, bare
+     m) are (r     AA_!      //mareride
+     C) arer       ?A?V      // forsvarer
         ar (evolution+ AR    // kontrarevolutionær
      k) are (n+    A:        // name
     kl) arer (_    AA        // klarer
@@ -473,7 +499,7 @@ gammeld) a (gs     ?&        //
      m) ar (in     AR        // marina
      @) ar (_++    A         // sårbar
      C) ara (k     AA        // karakteristika
-        a (rr++    ?A        // narren - short A
+        a (rr++    ?A        // narren, arrangør - short A
     ti) a (ra      'A:       // stressed
      m) arokko     ar'Vko    // stressed
    hav) a (rti     'A        // stressed
@@ -499,58 +525,61 @@ _longob) a (rd     'A        // stressed
 // general rule: [A] before velars
         a (L01+++  ?A        // planke, slanke, anke, flanke, gang, hank, aksel, maj, blanko
         a (L01%++  ?A        // bakken
-        a (L01L04++ ?&       // Patagonien TEST
+        a (go+++   ?&        // Patagonien
         a (x       A         // Axel
    _ig) a (ng@     'A        // igangværende
     es) aj (as     'aI       // name
-  pizz) a          &         // pizzakæde
-     b) a (jonet   &         //
-     l) a (gune    &         //
+  pizz) a          ?&        // pizzakæde
+     b) a (jonet   ?&
+     l) a (gune    ?&
      C) a (kL04++  ?A        // pakistan
+    an) akonda     ?&k'?Vnd?& // stressed
  afrik) a (+       ?&        // Afrikakorpset
      f) a (cL04++  ?&        // facon, facilitet
    kap) a (cit     ?&        // kapacitet
-        ag (gregat+ ?&       //
+        ag (gregat+ ?&
         ang (ul++  ?Ang      // rektangulær - not a silent g
      j) a (L10o+   ?A        // Jakob, Jacob
-     h) a (nkøn++  ?&        //
-     h) a (nkanin  ?&        //
-    sp) a (nkuler  ?A        //
-        akryl      ?&kr'?yl  //
+     h) a (nkøn++  ?&
+     h) a (nkanin  ?&
+    sp) a (nkuler  ?A
+        akryl      ?&kr'?yl
    mal) a (L01a    ?&        // Malaga TEST
-   beh) a (g       ?&        //
- big_b) a (ng      ?&        //
-  airb) a (g       &         //
+   beh) a (g       ?&
+ big_b) a (ng      ?&
+  airb) a (g+      &
     di) a (L01+    ?&        // diakon
-     h) a (nkat    ?&        //
-    _m) ag (_+     ?&j       //
-     f) ag (_      ?&j       // hovedfag
+     h) a (nkat    ?&
+    _m) ag (_+     ?&j
+     f) ag (_+     ?&j       // hovedfag
  _mass) a (kre     '?A       // stressed
   _gal) a (kse     '?A       // stressed
-     _) a (L01L04++ ?&       // angive, ankomme
+     _) a (L01L04+++ ?&      // angive, ankomme
+        a (kut++   ?&
   selv) a (ngiv    ?&        // selvangivelse
-     p) a (gn+     ?&        // kompagniskab
+     p) a (gn++    ?&        // kompagniskab
      p) a (gL11+   ?&        // propaganda
      @) a (krL04+  ?&        // anakronisme TEST
      r) a (L01++   ?A        // tragisk
 boomer) a (ng      '?A       // stressed
-     r) angoon     &&ng'u:n  //
+     r) angoon     &&ng'u:n
         aka (dem++ ?&k?&     // militærakademi
         a (ggres++ ?&        // aggression
-   spr) ag (let    ?Aw       //
-     _) a (gA++    ?&        // agere
+   spr) ag (let    ?Aw
+     _) a (gA+++   ?&        // agere, agurk
   tilf) a (nge     '?A       // tilfangetagelse
 michel) angelo     '?and?Z3l?o // name
   firm) a (+       ?&        // firmaet
     re) a (g+      ?&        // reagere, reagensglas
         a (kaC++   ?&        // akavet, akademiker, akacie
-     f) a (nklub+  ?&        //
+     f) a (nklub+  ?&
         a (nho++   ?&        // anholde
         a (ngav++  ?&        // angav
-        a (ngå++   ?&        //
+        a (ngå++   ?&
      b) a (gage++  ?&        // bagage
-     s) a (g+      ?&        // ankesag, sag, heksagon
-     s) a (go      &
+     s) a (g++     ?&        // ankesag, sag, heksagon
+     s) a (go++    &:
+     s) ag (a+     &:g
 
 // General rule: sag => sAu
      s) ag (C+     ?Au       // sagfører
@@ -588,9 +617,11 @@ snakkes) ag (lig   '?&       //
 
  // general rule: consonant + a + c/k: [A]
      C) a (L10     ?A        // makværk, Jacob
+pastin) a (k       '?A
      l) acrosse    ?&kr'?Vs  // game
    tax) a          ?&        // taxachauffør
      f) a (cL11    ?&        // facade, facet
+     f) ace (book  ?Ejs
    att) ache       ?&S'?e    //
      C) a (L10L04  ?&        // pacifist - maybe not a valid rule c = s here
      k) atakomb    ?&t?&k'?omb //
@@ -605,7 +636,7 @@ snakkes) ag (lig   '?&       //
 
         a (k%o+    ?&        // akkord, akkompagnerer
         a (k%u+    ?A        // akkurat
-        a (kvA+    ?&        // akvarium
+        a (kva++   ?&        // akvarium
         appe (tit+ ?Ab@-     // appetit
         a (bnorm   ?A        //
         abdo (m    ?Abd'?o   // abdomen - stressed
@@ -627,7 +658,7 @@ bloody_m) ary      ?&ri      //
     gu) ay         aI        // Paraguay
         a (mp      %?A       // ampul
      _) aage       O:?u@-    // name
-     _) a (men_    A         //
+     _) a (men_    ?A        //
      _) amager     AmAr      // Amager
      _) amy        Ejmi      // name
      g) aux        'o        // Margaux
@@ -670,36 +701,38 @@ _entusi) a (s      '&        // stressed - entusiast
 iske_h) av (_      A?u       // Kaspiske hav, Karibiske Hav
     @h) av (_      A?u       // flammehav
      h) av (C      A?u       // havbund, havre
-københ) av (n      'Aw       //
+københ) av (n      'Aw
      h) av (over   A?u       // havoverfladen
-     h) av (is     A?u       //
+     h) av (is     A?u
+     h) av (eng    ?A?u      // havengel, havengle
 himmel_og_h) av    A?u       // "sea/ocean" not "have" = "garden"
  øde_h) av         A?u       // Det Røde Hav
 åbne_h) av         A?u       // det åbne hav
 åbent_h) av        A?u       // på åbent hav
      h) av (aborr  A?u       // havaborre
      h) av (ud     A?u       // havudsigt
-     h) ag (l      A?u       //
+     h) ag (l      A?u
         ag (n+     A?u       // agn, Agnes
      r) ag (na+    A?u       // ragnarok
         ag (new    &g        // name
  champ) agne       '&nj@-    // champagne
  _kamp) agne       '&nj@-    // stressed
         ag (nos    %Ag       // agnostiker
+     i) ag (nose   ?&g
    hav) a (nna     '?&       // Havanna
      h) a (ck+     ?&        // hacke
  color) ado        'Ado      // US state
      _) av (_      Au        // av
     _f) akultet    &kult'et  // fakultet
      f) akultet    &kultet   // idrætsfakultet
-     _) absolution AbsoluS'on //
-        absolution AbsoluSon //
-     _) attribution &tRibuS'on //
-        attribution &tRibuSon //
+     _) absolution AbsoluS'on
+        absolution AbsoluSon
+     _) attribution &tRibuS'on
+        attribution &tRibuSon
      C) a (x++     ?A        // fax, taxa
      m) a (ka      ?&        // PN makaber
   klim) a          ?&        // klimarelateret
-  klim) a (ks      ?A        //
+  klim) a (ks      ?A
      C) a (ck      ?A        // tackle
     sn) a (ck      ?&        //
     bl) a (ck      ?&        // blackout
@@ -774,29 +807,29 @@ ginger_) ale       Ejl       //
      &) ans ($p_alt '?&ns    // varians
 
 // stressed a in final -at - words in da_list
-     &) at (_$p_alt '?&d     // attentat
+     &) at ($p_alt '?&d      // attentat, granatsplint
      &) at (e$p_alt '?&d     // attentater
      &) at (t$p_alt ''?&     // fregatter - only one t
-     &) ation ($p_alt &S''?on // delegation - 2*'' because of ventil-ventilation
-    &r) ation ($p_alt AS'?on // koncentration
+     &) ation ($p_alt ?&S''?on // delegation - 2*'' because of ventil-ventilation
+    &r) ation ($p_alt ?AS'?on // koncentration
     &r) at ($p_alt '?At      // [A] after "r" - kammerat
     &r) at (i$p_alt ?At      // [A] after "r" - demokrati
     &r) at (ur$p_alt ?At'    // [A] after "r", stressed u - littteratur
-intern) atio (nal  &So       // clash with "internat"
-_oblig) atio (n    &S'o      // clash with "obligat" in da_list
- oblig) atio (n    &S'o      // statsobligation
+intern) atio (nal  ?&S?o     // clash with "internat"
+_oblig) atio (n    ?&S'?o    // clash with "obligat" in da_list
+ oblig) atio (n    ?&S'?o    // statsobligation
 
 // (stressed a in final -ar - words in da_list
      &) ar ($p_alt+++ ''A    // antikvar, dinar, cigarer
      &) ar (iat$p_alt ''A    // antikvariat
 
 // nouns with final -ade in da_list - stressed a
-     &) ade ($p_alt '&:D@    // hystade
-     &) ade (r$p_alt '&:DV   // hystader
+     &) ade ($p_alt '&:D@-   // hystade
+     &) ade (r$p_alt '&:D?V  // hystader
      &) ader (e$p_alt ?&d'er // barrikaderede - er(e) words in da_list
-    &r) ade ($p_alt 'A:D@    // parade
-    &r) ade (r$p_alt 'A:DV   // parader
-    &r) ader (e$p_alt ?Ad'er // paraderede - er(e) words in da_list
+    &r) ade ($p_alt 'A:D@-   // parade
+    &r) ade (r$p_alt 'A:D?V  // parader
+    &r) ader (e$p_alt ?Ad'?er // paraderede - er(e) words in da_list
      &) adent ($p_alt ?&d'?ent // don't spoil the -ent rule - dekad'ent
 
 // nouns with final -an in da_list - stressed a
@@ -972,7 +1005,7 @@ cornfl) akes       ?Ejgs
      w) al (k      V:        // walkie-talkie, walkman
      w) all        V:l       // WQall street
      n) aise       'E:s@-    // mayonnaise
-    br) ai (s      ?E        // braisere
+    br) ai (ser    ?E        // braisere
      k) ai (n      ?&|'i:    // kokain
     _k) ai (n      aI        // name Kain
     ld) a (k       ?&        // baldakin
@@ -1011,7 +1044,7 @@ parmes) a (n       '?&       // stressed
      v) a (j       ?A        // svajende, vaje
 
 // general rule: [&] after p/b/d before n
-   L06) a (n       &         // tand, tante, band, spand, spade
+   L06) a (n       ?&        // tand, tante, band, spand
    L06) a (nd      ?&        // bande
    ban) a (n       '?&       // banan
 kontrab) ande      '?&nd@-   //
@@ -1025,6 +1058,7 @@ kontrab) ande      '?&nd@-   //
     sp) a (nking   &:        //
         an (cien   AN
         a (ndre+   ?A        // andre
+     v) and (rette ?&n
      t) a (nd      ?&        // tandrensning
      _) andrea     ?&ndr'e&  // name
         andrew     ?&ndru    // name
@@ -1130,6 +1164,7 @@ dovenl) ar (s      &         //
      &) age (rs_$p_alt++ '&S?V // reportagers, plamagers
      &) age (rne$p_alt++ '&S?V // reportagerne, plamagerne, plamagernes
     &r) age ($p_alt++ 'A:S@  // [A] after "r" - garage
+    &r) age (r$p_alt++ 'A:S?V // [A] after "r" - garager
      &) age (re$p_alt++ &S'?e // not for the "age" words - gagere
     &r) age (re$p_alt++ ?AS'?e // not for the "age" words - fouragere
 hjertemass) age    &:S@-     // hjertemassage
@@ -1137,6 +1172,7 @@ hjertemass) age    &:S@-     // hjertemassage
      t) aget (+    &:@D      // kirketaget - [@-] is too short here
      t) age (lse   &@-       // tilfangetagelse
  foret) age        &         //
+ foret) age (t     ?&@-      //
    bet) age        &@-       // betaget
  varet) age        &         //
 
@@ -1147,20 +1183,21 @@ hjertemass) age    &:S@-     // hjertemassage
      d) ag (l@+    ?Aw       // daglejer
      d) ag (insti  ?Aw       // daginstitution
     @d) ag (_++    ?&        // dommedag
-    sd) ag (+      ?&        // fødselsdagsgave, fødselsdagsbarn
+    sd) ag (@++    ?&        // fødselsdagsgave, fødselsdagsbarn
      d) ag (og+    ?&g       // pædagog
     _j) ag (_      ?&j
      j) ag (e+     &:        // jage
      j) ag (uar    ?&g
      j) ag (t      ?Ag       // jagt
      b) ag (h+     ?Aw       // baghold
-     b) ag (l      ?Aw       // baglader, baglæns
-     b) ag (L01    ?Aw       // bagklog, baggård
+     b) ag (l+     ?Aw       // baglader, baglæns, baglokale
+     b) ag (L01+   ?Aw       // bagklog, baggård
+     b) ag (vask   ?Aw       // bagvaskelse
      b) ag (f      ?Aw       // bagflikke
-     b) ag (b      ?Aw       // bagbutik
+     b) ag (b+     ?Aw       // bagbutik, bagben
      b) ag (rud    ?Aw       // bagrude
-     b) ag (d      ?Aw       // bagdør
-     b) ag (v      ?Aw       // bagvendt, bagværk
+     b) ag (d+     ?Aw       // bagdør
+     b) ag (v+     ?Aw       // bagvendt, bagværk, bagvej
      b) ag (trap   ?Aw       // bagtrappe
      b) ag (An     ?Aw       // Bagindien, baginder
      b) agend (e   AwEn      // bagende "rear end" - problem with "bagende varm"
@@ -1170,14 +1207,14 @@ hjertemass) age    &:S@-     // hjertemassage
      b) ag (k      ?Aw       // bagklog, bagkrop
      b) ag (m      ?Aw       // bagmand
      b) ag (p      ?Aw       // bagparti
-     b) ag (s      ?Aw       // bagside
+     b) ag (s+     ?Aw       // bagside
      b) ag (t@     ?Aw       // bagtøj
      s) ag (sø     ?Aw       // sagsøge
      b) ag (te     ?Ag       // nybagte
   _L06) ag (_      ?&j       // bag - single word
 hjemmeb) ag (_     ?&j
      b) ag (fr     ?&,       // bagfra
-     b) ag (i      ?&,       // bagi
+     b) ag (i+     ?&,       // bagi
      b) ag (ved    ?&_:      // bagved
      b) ag (efter  ?&j       // bagefter
      b) ag (på     ?&,       // bagpå
@@ -1187,7 +1224,7 @@ hjemmeb) ag (_     ?&j
      b) ag (udgang ?Au       // bagudgang
      p) age (++    &:S@-     // page, pagehår
   band) age        &:S@-     // gipsbandage
-    sC) ag (+++    ?&j       // slag, slaget, smag, forslagskasse
+    sp) ag (o++    A:g       // US restaurant
     st) agn        ?AwN      // stagnere
     sp) ag (at     ?&g
     sk) ag (ler    ?Aw
@@ -1207,49 +1244,53 @@ hjemmeb) ag (_     ?&j
      l) ag (_+     ?&j       // lag
    opl) ag         ?&j       // oplagstal
   forl) ag         %?&j      // forlagsvirksomhed
-  opsl) ag         ?&j       //
+  opsl) ag         ?&j
    gul) ag         ?Ag
-     f) ag (@      ?A?u      // fagsnak, ufaglært, fagarbejde
-     f) ag (ter    ?Ag       //
-     l) ag (C      A?u       // flagstang, lagkage
+     f) ag (@+     ?A?u      // fagsnak, ufaglært, fagarbejde, fagbog
+     f) ag (ter    ?Ag
+     l) ag (C+     A?u       // flagstang, lagkage
+     l) ag (t+     ?Ag       // indlagt
+     l) ag (ner    ?&j
     fl) ag (afbrænd A?u      // flagafbrænding
   gall) agh        3g        // name
    _sl) ag (s_+    ?Ag       // slags
    _sl) ag (sen    ?Ag       // slagsen
 gennemsl) ag (+    &j        // gennemslagskraft
-    sl) ag (sværd  A?u       //
+    sl) ag (sværd  A?u
     pl) ag         ?&j       // plagsom
     pl) ag (i      ?&g       // plagiere, plagiat
     fl) ag (rant   ?&g       // flagrante delicto
      l) ag (re     ?&j       // oplagres
-    fl) ag (re+    A?u       //
+    fl) ag (re+    A?u
    esl) ag (lA     A?u       // beslaglægge
     sl) ag (t_+++  ?Ag       //  slagter
     sl) ag (te+++++ ?Ag      //  slagter
-    sl) ag (tn+    ?Ag       //  slagtning
+    sl) ag (tn++   ?Ag       //  slagtning
     sv) ag (t++    ?&j       // svagt, åndssvagt
-sikkerhedsv) ag (t ?Ag       //
+sikkerhedsv) ag (t ?Ag
 åndssv) ag (+++    ?&j
 evnesv) ag (+++    ?&j
-parkeringsv) ag (t Ag        //
- æresv) ag (t      Ag        //
-butiksv) ag (t     Ag        //
-hospitalsv) ag (t  Ag        //
+parkeringsv) ag (t Ag
+ æresv) ag (t      Ag
+butiksv) ag (t     Ag
+hospitalsv) ag (t  Ag
     sl) ag (smål   A?u       // slagsmål
     sl) ag (tilf   A?u       // slagtilfælde
     sl) ag (side   A?u       // slagside
     sp) ag (ett    &g'       // spagetti
     sp) agh (ett   &g'       // spaghetti
-    sp) ag (num    A?u       //
+    sp) ag (num    A?u
+    sC) ag (+++    ?&j       // slag, slaget, smag, forslagskasse
      r) ag (e+     A?u       // drage, rage
-     C) age (++    &j@-      // bage, kage
+     C) age (+++   &j@-      // bage, kage
     fl) age (ne    ?&j@-     // flagene
      C) age (nK++  &j-@-     // kagen
    _sk) ag (en++   ?&j       // Skagen
      s) ag (en+++  ?&j       // sagen
      s) agd (e+++  &         // sagde
     _t) age (_+    &j@-      // tage
-    _t) age (_sig  ?&
+    _t) age (_sig_ ?&
+    _t) age (_jer  ?&        // fanden tage jer
     _t) age (_imod ?&
     _t) age (_af   ?&
  _du_t) age (_     ?&
@@ -1263,6 +1304,7 @@ _ville_t) age (_   ?&
 _kunne_t) age (_   ?&
 _kan_t) age (_     ?&
 _skulle_t) age (_  ?&
+_skal_t) age (_    ?&
 _måtte_t) age (_   ?&
 _ikke_t) age (_    ?&
  _at_t) age (_     ?&
@@ -1305,28 +1347,29 @@ _nok_t) age (_     ?&
     fl) ager (mus  ?A?uV     //
      l) agde       &:@-      // lagde
      g) ager (e+   ?&S'?e    // gagere
-     r) age (++++  Aw@-      // rage, fremragende, uddragene
+     r) age (++++  ?Aw@-     // rage, fremragende, uddragene
+     r) ager (+++  Aw?V      // bedrager
      _) age (nt++  ?&g'?E    //  agent, agenten - stressed
-        age (nt++  ?&g?E     //  superagenten, dobbeltagent, forsikringsagent
+        age (nt+++ ?&g?E     //  superagenten, dobbeltagent, forsikringsagent
 rædselssl) age (n  ?&j@-     //  rædselsslagent
  suffr) age (tte   ?AS'?E    // suffragette - stressed
     _r) ager (+++  AwV       // rager
     tr) agedie     ?Ag'?eDj@- //
     _t) ager (_+   ?Ar       // tager [t'Ar]
  iagtt) ager (_    ?&j?V     // iagttager - noun
-     t) ag (_      ?&j       // tag
-     t) ag (C      ?Aw       // tagvindue
-        ag (ning   ?&j       // gidseltagning
+     t) ag (_++    ?&j       // tag
+     t) ag (C+     ?Aw       // tagvindue, tgaglejlighed
+        ag (ning+  ?&j       // gidseltagning, udtagning
         ag (tig    ?Ag       // rustagtig
    art) agnan      ?&N'?AN   // d'Artagnan
-     t) ag (ne     &j        // tilfangetagne
+     t) ag (ne+    ?&j       // tilfangetagne, gentagne
      t) ag (fat    ?&        //
      t) agetes     ?&g'?et@-s //
      t) ag (selv   ?&'       // tagselvbord
      t) agg (e     ?&g       //
      t) ag (liatelle _^_it   //
     _s) ag (te_    ?&j       //
-     s) ag (n      ?A?u      // sagn
+     s) ag (n+     ?A?u      // sagn, vidneudsagn
   rans) ag (n      ?&j       // ransagning
    las) agn (e     '?&nj     //
   bret) agn (e     '?&n;     //
@@ -1445,39 +1488,40 @@ _trienn) al (e     '&l
      _) be (@      b%?e      // besta'and
 
 // exceptions to the "be" rule
-     _) be (dste   bE        // bedstefar, bedstemor
-     _) be (dring  bE
-     _) be (nmel   be
+     _) be (dste   b?E       // bedstefar, bedstemor
+     _) be (dring  b?E
+     _) be (nmel   b?e
      _) be (gge    b?E
-     _) be (narbejde be
-     _) be (nbrud  be
-     _) be (nbræk  be
-     _) be (nbbuk  be
-     _) be (nchmark bE
-     _) be (nedder be
-     _) be (nende  be
+     _) be (narbejde b?e
+     _) be (nbrud  b?e
+     _) be (nbræk  b?e
+     _) be (nbbuk  b?e
+     _) be (nchmark b?E
+     _) be (nedder b?e
+     _) be (nende  b?e
      _) be (nene   b?e
-     _) be (ner    be
-     _) be (net    be
-     _) be (nfisk  be
-     _) be (nfedt  be
-     _) be (nfri   be
-     _) be (ngel   bE
+     _) be (ner    b?e
+     _) be (net    b?e
+     _) be (nfisk  b?e
+     _) be (nfedt  b?e
+     _) be (nfri   b?e
+        be (nhård  b?e
+     _) be (ngel   b?E
      _) be (ngna   bE
      _) be (nh     bE
-     _) be (njamin bE
-     _) be (nkl    be
+     _) be (njamin b?E
+     _) be (nkl    b?e
      _) be (nl     bE
-     _) be (nmel   be
-     _) be (npibe  be
-     _) be (nplads be
-     _) be (nrad   be
-     _) be (nskinne be
-     _) be (ntøj   be
-     _) be (nspænd be
+     _) be (nmel   b?e
+     _) be (npibe  b?e
+     _) be (nplads b?e
+     _) be (nrad   b?e
+     _) be (nskinne b?e
+     _) be (ntøj   b?e
+     _) be (nspænd b?e
      _) be (nv     bE
      _) be (de     be
-     _) be (dre    bE
+     _) be (dre    b?E
      _) be (dding  b?e
      _) beg (blende baI
      _) beg (mand  baI
@@ -1496,13 +1540,14 @@ _trienn) al (e     '&l
      _) be (tel    be
      _) be (tl     be
      _) be (ta     be        // betablokker
-     _) be (tal    %be       // betale, betalt
+     _) be (tal    %b?e      // betale, betalt
      _) beige      bE:S      // colour
-     _) be (lla    bEE
+     _) be (lla    b?E
      _) beech      bitS
-     _) beau       %bo       // Beaulieu, Beaumont
+     _) beau       %b?o      // Beaulieu, Beaumont
         beethoven  betov@-n  // name
-        berkeley   bWkl/2i   //
+        berkeley   bWkl/2i
+     _) bea (vis   bi        // Name
 
 .group c
 
@@ -1552,30 +1597,31 @@ frederi) c (ia     =ks
         ch (eese   tS        // cheeseburger
         church     tSW:tS
    _ma) ch (_      k         // sound barrier
-        chaplin    tS&plin   // name
-        challenge  tS&lendZ
-        chelsea    tSElsi
-        cheyenne   SaI'En
+        chaplin    tS?&pl?in // name
+        challenge  tS?&l?EndZ
+        chelsea    tS?Els?i
+        cheyenne   SaI'?En
+        cheyenner  SaI'?En?V
   maso) ch (is     k         // sadomasochisme, masochist
     wi) ch         tS        // sandwich
-        chicago    Sik'AgOw  //
+        chicago    S?ik'AgOw //
         child      tSaIld    // Fairchild
-        chopin     SopEN     // name
+        chopin     S?opEN    // name
         ch (ip     tSj       // mikrochip
     te) ch (no     k
     mi) ch (a      k         S
         ch (r      k
         c (ha      S
      r) ch         S         // march
-        chaucer    tSO:sV    // name
+        chaucer    tSO:s?V   // name
      s) c (ha                // no extra S in 'schalburtage'
-        cigaret    sig3r'&#t
-        cigarett   sig3r'&#t
+        cigaret    s?ig@-r'&#t
+        cigarett   s?ig@-r'&#t
         cc         ks        // accent
     be) cca        %k?&      // Rebecca
     yu) cc (a      k
     ro) cc (o      k         // name
-    pu) ccini      S'ini     // name
+    pu) ccini      S'in?i    // name
   rebe) cc (a      =k        // name
     so) cc (er     k         // European football
    sta) cc (ato    k'
@@ -1592,48 +1638,48 @@ frederi) c (ia     =ks
         cordelia   kVd'ili-&
     ni) ch (ol     k         // Nicholas
         computer   kVmpj'utV
-        cha (t     tj&       // chatte
+        cha (t     tj?&      // chatte
         ch (ateau  S
-        chianti    kj'&nti
+        chianti    kj'?&nt?i
         chokeren (_ SOwkVr@n
         callgirl   kVlgW:l
         cowboy     kaubOj
-     _) custer     kVstV     // name
-     _) ciao (_    tSjAw
+     _) custer     k?Vst?V   // name
+     _) ciao (_    tSj?Aw
         claude     klO:d     // name
-        claudette  klOd'et   // name
-        churchill  tSW:Sil
-        cambridge  kejmbRidZ
+        claudette  kl?Od'et  // name
+        churchill  tSW:S?il
+        cambridge  kejmbR?idZ
         clementine kl?EmIntaIn
         canterbury k&ntVbri
         connecticut kVn'etikVd
         carlisle   kAlaIl
         china      tjaIn&
-     _) cape (_town kEjp     // name
-     _) chuck      tSVk      // name
+     _) cape (_town k?Ejp    // name
+     _) chuck      tS?Vk     // name
         cleveland  kli:vl&n
-        croissant  kroas'AN
-     _) cartier    kArtj'e
-        clair (voy klEr      // clairvoyance
-        co (nrad   kV        // name
-        country    kVntri    //
-        chagall    S&g'&l    // name
+        croissant  kr?o?as'AN
+     _) cartier    k?Artj'?e
+        clair (voy kl?Er     // clairvoyance
+        co (nrad   k?V       // name
+        country    k?Vntr?i  //
+        chagall    S?&g'?&l  // name
   _ali) ce         s
-        connie     kVni
-        chablis    S&bl'i
+        connie     k?Vni
+        chablis    S?&bl'?i
         creme      kr?Em
         creme (n   kr?Em@
-        catering   kEit@riN
+        catering   k?Eit@r?iN
 piccadilly_) circus sWk@s
-        coleridge  kOwlridZ
-        colada     kol'AD&
+        coleridge  kOwlr?idZ
+        colada     k?ol'AD&
         creek      kri:k
-        camembert  kAmANb'Er
+        camembert  k?Am?ANb'Er
         crazy      kREjsi    // Crazy Horse
         cincinnati sensin'&ti
         chihuahua  tSiw'awa
-        connor     kVnV      // name
-        creasy     krisi     // name
+        connor     k?Vn?V    // name
+        creasy     kris?i    // name
         c (ello    Sj
         c (ellofan s
         cutler     kVtlV     // name
@@ -1659,56 +1705,59 @@ north_) carolina   k&rol'aIn&
 
      A) de (_      D@-_!     // hade, lade
     ha) de (@      D@-       // hadefuld
-     a) der (@     DV        // skaderne
+     a) der (@     D?V       // skaderne
    ski) de (@      D@-       // skidefuld
-   ski) der (@     DV        // skideren
-   ski) der (ik    DVR       // skiderik
+   ski) der (@     D?V       // skideren
+   ski) der (ik    D?VR      // skiderik
     ba) de (@      D@-       // badeforhæng
     ga) de (@      D@-       // gadebetjent
     fe) de (@      D@-       // fedekalv
     fe) der        D?V       // federe
-    ga) der        DV
+    ga) der        D?V
     væ) dde (@+    D@-       // væddeløb
     re) de (@      D@-       // redegørelse
     ge) de (@      D@-       // gedemarked
-  orki) de         d'e       // stressed
+  orki) de         d'?e      // stressed
         d (i       d         // redigere, hindi
     ly) d          D         // lydisolering
  drome) d (ar      d
   floy) d          d         // name
    mel) d (ing               // silent d
+    lo) d (s                 // lodse - silent d
      A) d (ig      D         // stadig
   vene) d (ig      d
         d (øm+     d         // idømme
      i) d (ol      d
      u) d (i       D
-   hou) di (ni     d'i       // name
-  _pro) du (kt     d'O       // produkt
-  _pro) du (ktiv   du        // produktiv
+   hou) di (ni     d'?i      // name
+        dhow       daw
+  _pro) du (kt     d'?O      // produkt
+  _pro) du (ktiv   d?u       // produktiv
     bo) d (ega     d
         d (us      d         // fidus
         d (ok      d         // paradoks, tørdok
-    ry) de (@      D@-       // brydehold
-     y) der (@     DV        // yderligere, forbrydere
+//    ry) de (@      D@-       // brydehold
+//     y) der (@     D?V        // yderligere, forbrydere
    gry) de (ret    D@-       // gryderet
-    sy) de (ng     DE        // sydengland
-    by) de (l      de        // bydel
+    sy) de (ng     D?E       // sydengland
+    by) de (l      d?e       // bydel
  indby) de         D@-       // indbydelse
     by) d (elig    D         // modbydelig
-     y) der (_     DV_!      // betyder, snyder
+     y) der (_     D?V_!     // betyder, snyder
      @) d (elt     d         // udelt, tildelt
      æ) de (l+     D@-       // ædelt
     mo) d (em      d
         d (onna    d         // madonna
    dil) d (o       d
-tourne) dos        d'o       // stressed
-    re) dund (ant  dOnd
+tourne) dos        d'?o      // stressed
+    re) dund (ant  d?Ond
      _) dorset     dO:sEt    // name
      _) drysdale   dRaIsdEjl // name
-        dreyfus    drEf'?ys  // name
+        dreyfus    dr?Ef'?ys // name
 
 // general rule: silent d in final ærd
     ær) d (_                 // færd, sværd
+ adfær) den        ?Vn       // adfærden
   svær) d (et                // sværdet
    lær) d (_       d         // højlærd
 
@@ -1716,6 +1765,7 @@ tourne) dos        d'o       // stressed
      l) d                    //  hold, skjold
 
         d (om      d         // PN trældom
+        d (rab     d         // ritualdrab
         d (ronning d         // Snedronningen
         d (ufte    d         // lavendelduftende
         d (amp     d         // keddeldamp
@@ -1863,7 +1913,6 @@ stikor) d                    // exception - silent d in 'stikord'
     bi) d (e       D         // bider
     ri) de (@      D@-       // rideskole
     ri) der        DV
-    si) de (@      D@-       // sidemand
     vi) d (er      D         // videre
     ti) d (e       D         // tider
     ti) de (@      D@-       // tidevand
@@ -2008,17 +2057,21 @@ stikor) d                    // exception - silent d in 'stikord'
      t) er (m++    ?&r       // hydrotermisk, termin
 
 // Long e
-        e (Cig     e         // enig, ledig
-        e (Ce      e         // gedeblod
+        e (Cig++   e         // enig, ledig, snedig
+        e (Ce@     e         // gedeblod
+     p) e (ber     ?e        // pebersovs
 
 // Short e followed by st, st, sk - made short in ph_danish
      C) e (L08++   ?E        // fest, fester, hest, heste
     sl) e (sk      ?e        // slesk, sleske
      @) e (ste_+   @-        // groveste, ondeste TEST
      @) e (st_+    @-        // grovest
+    @h) e (st+     ?E        // kavalerihest.
     fl) e (st+     ?e
     _m) e (st++    ?e
+allerm) e (st      ?e
      m) e (ster    ?E        // politimester
+    @f) e (st+     ?E        // Oscarfest
   _ork) e (st      '?E       // stressed
   nærm) e          @-        // nærmeste
   kort) e          @-        // korteste
@@ -2034,7 +2087,8 @@ stikor) d                    // exception - silent d in 'stikord'
    ugl) e (@       @-        // fugleskræmsel
    ønn) e (st      @-        // kønneste
     rn) e (ste     @-        // fjerneste
-    av) e (@       @-        // pavestolt
+   pav) e (@       @-        // pavestolt
+   vet) e (ran     @-
    sen) e (st      @-
  flott) e (st      @-
 
@@ -2045,19 +2099,18 @@ stikor) d                    // exception - silent d in 'stikord'
   menn) e          @-        // menneske
     æl) e (@       @-        // sjælefred
    ill) e (@       @-        // lillebror
-   gen) e (@       @-        // generation
+   gen) e (ra@     @-        // generation
   gard) e (robe    @-
    rob) e (@       @-        // garderobeskab
   mill) enium      '?En?i?Om
-   usl) e (@       @-        // puslespil
    ill) e (gal     ?e
      r) e (v       ?E        // brev
     år) e (@+      @-        // årevis
    Ass) e (@       @-        // klasseværelse
-//     r) e (Ce+     ?E        // breve
     fr) e (d+      ?E
     fr) e (de_     ?E
    str) ee (t      i:        // street
+    _d) eed        i:d       // name
     _d) e (m_      ?E
      f) e (m       ?E        // femten
         e (dith    e:        // name
@@ -2065,13 +2118,17 @@ stikor) d                    // exception - silent d in 'stikord'
 
 // E after r
      r) e (+       ?E        // reaktion, regiment - VERY BROAD
+  _kor) e (a       '?e
      r) e (Ce      E         // rene
     @r) es (_      ?Vs       // koncentreres TEST
 differ) e (n       ?A        // differentiere
+   guv) er (nør    ?V
 
-// E before n - VERY BROAD
+// ?E before n - VERY BROAD
         e (nK      ?E        // end, men, endelig
+  mail) e          @-        // e-mailen
   lump) e (n       @-
+   elf) e (nben    @-
         e (ndnu    '?e'
      C) e (nd      ?E        // kendelse, send
         e (ns      ?e        // ensrette
@@ -2079,15 +2136,17 @@ differ) e (n       ?A        // differentiere
      _) e (n_      ?e
      b) e (n       ?e
    _st) e (n_      ?e
+    st) e (nbrud   ?e
     st) e (nrig    ?e
     ov) e (n       @-        // ovenpå
    giv) e (n       @-        // begivenhed
     os) e (n       @-        // rosenknop
  sjæld) e (n       @-        // sjældent
    væs) e (n       @-        // væsentlig
+  græk) e (n       @-        // Grækenland
      _) e (ne      ?e        // ene, eneste
    ækk) e (net_    @-        // bækkenet
- røntg) e (n       @-        // røntgenfotografere
+ røntg) e (n+      @-        // røntgenfotografere
    gen) e (ral     @-
     _s) e (n_      ?e        // sen
     _s) e (nt_     ?e        // sent
@@ -2132,8 +2191,7 @@ _emfys) e (m       'e        // stressed
      C) e (L02a    e         // tema
     el) e (fant    @-
   jert) e (@       @-        // hjertebarn
-    ød) e (+       @-        // ødemark
-//  herr) e          @-        // herremand
+    ød) e (@++     @-        // ødemark, mødested
    bed) e          @-        // bedemand
 _still) e (ben     ='e
     fr) e (m       ?&#       // fremad
@@ -2145,10 +2203,10 @@ _still) e (ben     ='e
     br) eve        Ev@-      // breve
     Cr) evet       ?Ev@-D_!  // brevet, skrevet
    L03) e (L02i    ?e        // akademiker
-    åd) e (++      @-        // gådefuld
+    åd) e (@++     @-        // gådefuld, vådeskud
    råd) eret       @-?&#t
     åd) er (++     ?V        // gåder
-    nd) e          @-        // yndefuld
+    nd) e (@       @-        // yndefuld, landeveje
    ind) er         ?V        // inder
   andr) e          ?V        // vandrefalk, andres
      r) e (nsning  &#        // tandrensning
@@ -2183,6 +2241,7 @@ _still) e (ben     ='e
    aml) e          @-        // samlestykke
   kons) e (kv      @-        // inkonsekvens
      l) e (ve      e         // samlever
+     l) e (veran   ?e        // leverandør
      l) e (vering  ?e
   _dil) e (mma     'E        //
     ll) e (de+               // silent e - billede(r)
@@ -2207,7 +2266,7 @@ banglad) esh       '?ES      // stressed
     _p) errier     ?er?i'?e  // brand name
         eddike     ?Edk@-    //
 
-// general rule: [E] after l before t/k
+// general rule: [?E] after l before t/k
      l) e (t       ?E        // let
      l) e (kt      ?E        // lektor
   udsl) e (t++     ?E        // familieudslettelse, udslet (not [uDsl@D])
@@ -2217,7 +2276,7 @@ banglad) esh       '?ES      // stressed
      l) e (der     ?e        // apacheleder
   simp) e (l       @-        // simpelthen
 
-// general rule: E before l
+// general rule: ?E before l
         e (lC      ?E        // heldig, held og lykke, helvede
      h) e (lskindet ?e
      h) e (lhjertet ?e
@@ -2230,9 +2289,11 @@ banglad) esh       '?ES      // stressed
      h) e (lstegt  ?e
      h) e (lgard   ?e        // helgardere, helgardering
      h) e (lstøbt  ?e
+    _d) e (l       ?e        // delstat
   kedd) e (l       @-
   sjof) e (l       @-        // sjofelhed
   midd) e (l       @-        // umiddelbart
+ hvirv) e (l       @-        // hvirveldyr
 
 // general rule: E before m
         e (m       ?E        // slem, slemt, hjem - short in ph_danish
@@ -2291,9 +2352,10 @@ himstr) eg (ims    Vg        // avoid aI
      r) e (nte     ?&#       //
      r) e (st++    ?&#       // restlager, resterne
   tørr) e (st      ?V        // tørreste
+   pur) e (st+     ?V
      r) e (stere++ ?E
      r) estante    ?Est'?ANd@- // poste restente
-     r) e (stau    ?E        // restaurere
+     r) e (stau++  ?E        // restaurere
  klatr) e          ?V        //
      r) e (vn      ?&#       // revne
  leder) e (vne     ?E        //
@@ -2328,9 +2390,9 @@ _ekspr) e (s       '?&#      // stressed
     fr) e (mov     ?&#       // fremover
 
 // general rule: [&#] after r before ng
-     r) e (ng      ?&#       //  streng, dreng
+     r) e (ng+     ?&#       //  streng, dreng
    mar) e (ng      '?&#      // stressed - marengs
-     r) e (ngø     ?E        // rengøre
+     r) e (ngø+    ?E        // rengøre
 
 // general rule: [&#] after r before t
      r) e (t+      ?&#       //  ret, efterretning
@@ -2340,12 +2402,13 @@ karryr) e (t+      ?&#       //
    opr) e (t++     ?&#       //
 kriminalr) e (t    ?&#       //
     gr) e (t       ?E        // Greta
+ sondr) et         ?VD       // afsondrethed
 
 // exceptions (re = prefix e.g. reanimate)
      r) e (tab     ?E        // retablere
      r) e (tard    ?E        // retarderet
      r) e (tention ?E        //
-     r) e (ti      ?E        // retirere
+     r) e (ti+     ?E        // retirere, halvtretiden
      r) e (tor     ?E        // retorik
      r) e (tou     ?E        // retouchere
      r) e (tran    ?E        // retreansmittere
@@ -2353,12 +2416,13 @@ kriminalr) e (t    ?&#       //
      r) e (træ     %?E       // retræte - stressed æ
      r) e (tsina   ?E        //
      r) e (tur     ?E        // returnere
+slentr) e          ?V        // slentretur
 
   forr) e (tning+  '?&#      // stressed
   teor) e (t       ?E        // teoretisk
    _tr) e (t       ?E        // tretal
     kr) e (ta      ?E        // Kreta
-    fr) e (l       ?&#       // frelse
+    fr) e (ls+     ?&#       // frelse
      r) e (nse     ?&#       // nyrenset
      r) e (h       @-        // general rule: [@-] after r before h - fårehyrde, varehus
    _tr) e (+       ?E        // treholdsskift
@@ -2406,7 +2470,7 @@ heavy_m) etal      ?Et@-l    //
         eus        Wws       // for Greek names - Zeus, Achilleus
      m) euse       W:z       // French river
     st) ew         ju        // Stewart
-   tel) e          @-        // tele
+   tel) e (++      @-        // teleskop
    ele) eg (+      aI        // gætteleg
    del) eg (A      @-g       // delegation
    tel) eg (r      @-g       // telegram
@@ -2416,12 +2480,13 @@ heavy_m) etal      ?Et@-l    //
    afl) eve (r     @-ve      // aflevere
    bri) e (f                 // briefing - silent e
    hav) e          @-        // havesyg
+     @) e (ng+     ?E        // havengel
      @) e (ment    @-        // supplement, møblement
   hvab) e (har_    @-        // hvabehar
      v) ek (s      ?Eg       // veksle
      r) eau        ?o        // bureaukratiske
     _m) ead (_     i:d       // name - Lake Mead
-        eer        'e?V      // ideer, cafeer, veer
+        eer (+     '?e?V     // ideer, cafeer, veer
      k) eefe       'i:f      // name
     sh) ee (la     i:        // name
     _r) eed (K     i:d       // name
@@ -2434,7 +2499,7 @@ heavy_m) etal      ?Et@-l    //
     gr) ee (n      i:        // evergreen
  kathl) ee (n      'i:       // name
     gr) ea (t      ?Ej       // English word
-    sw) ea (ter    ?E        //
+    sw) eater      ?Et?V
     sw) ea (tre    ?E        //
         easy       is?i
      h) ead        Ed        // overhead
@@ -2499,7 +2564,7 @@ provenc) e                   // Provence - skip the e
    æbl) e (grød    @-        // æblegrød
   bobl) e          @-        // boblegummi - nothing to do with "bleg"
      _) egen (@    ?ej@-n    // egenrådig, egennyttig, egentlig
-        eg (enkapital+ Aj
+        eg (enkapital+ ?Aj
         eg (enbeskyd+ aI     // egenbeskydning
     _r) e (sten_+  ?&#       // resten
    nyr) e (@+      ?V        // nyresten
@@ -2511,13 +2576,13 @@ _kongr) e (s       '?&#      // kongres - stressed but not after a syllable
  kongr) e (s       &#        // lægekongres
  _rødb) e (de      'e        // stressed e in 'rødbede'
 _aller) e (de_     E         // allerede - otherwise the E is changed by another rule
-   _im) e (ns+     'e        // stressed
- _magn) e (t       'e        // stressed
- _refl) e (ks      'E        // stressed
- divan) e (ser     'e        // stressed
-   lar) e (do      'e
+   _im) e (ns+     '?e       // stressed
+ _magn) e (t       '?e       // stressed
+ _refl) e (ks      '?E       // stressed
+ divan) e (ser     '?e       // stressed
+   lar) e (do      '?E
      l) ew (is     u:        // name
-     p) eabody     ibVdi     // name
+     p) eabody     ib?Vdi    // name
         exchange   _^_en
         eagle      i:g@-l
      p) ea (co     i:        // Peacock
@@ -2525,7 +2590,7 @@ _aller) e (de_     E         // allerede - otherwise the E is changed by another
     dr) ea (m      i:        // English
     _d) ee (p      i:        // Deep Throat
     _p) each       i:tS
-     _) eton       i:t@-n    // university
+     _) eton       it@-n     // university
      f) er (guson  ?W        // name
   arti) e (+                 // name silent e
     _h) eisenberg  aIs@-nb?Erg // Heisenberg
@@ -2540,16 +2605,19 @@ _aller) e (de_     E         // allerede - otherwise the E is changed by another
 
 // various exceptions
     el) e (ndig    ?E        // møgelendig - steressed with $alt rule
-   leb) e (ndig    'E        // steressed with $alt rule
- _ball) e (t@      'E        // balletdanser
-_en_ball) e (t     'E
-_vor_ball) e (t    'E
-_vores_ball) e (t  'E
-_jeres_ball) e (t  'E
-_deres_ball) e (t  'E
-_hans_ball) e (t   'E
-_hendes_ball) e (t 'E
-    _r) e (ndyr+   e         // rendyrke
+   leb) e (ndig    '?E       // steressed with $alt rule
+ _ball) e (t@      '?E       // balletdanser
+_en_ball) e (t     '?E
+_vor_ball) e (t    '?E
+_vores_ball) e (t  '?E
+_jeres_ball) e (t  '?E
+_deres_ball) e (t  '?E
+_hans_ball) e (t   '?E
+_hendes_ball) e (t '?E
+_danse_ball) e (t  '?E
+_danser_ball) e (t '?E
+_dansede_ball) e (t '?E
+    _r) e (ndyr+   ?e        // rendyrke
      h) e (n++     ?E        // hen, hente, derhen
     ch) e (n_++    @-        // branchen
      h) e (nde+    ?e
@@ -2575,7 +2643,7 @@ _hendes_ball) e (t 'E
      t) ech        ?Ek       // hightech
 stoneh) enge       ?EndZ
    pal) e (rmo     'E
-     w) ee         i:        // Sweeney, weekend, tweed
+     w) ee (+      i:        // Sweeney, weekend, tweed, halloween
     tw) eed        i:d
     _h) ei (di     aI        // name
     _d) ei (dre    i:        // name
@@ -2593,9 +2661,15 @@ stoneh) enge       ?EndZ
    urg) ere (_++   VV        // burgere
      r) e (re_     E         // operere
   _alm) e (n       ?e
+kommunik) e (_     '?e
+kommunik) e (er_   '?e
+kommunik) e (et_   '?e
+ chass) e          '?e
 
 // Compounds - words with final "e" + another word
-    kk) e (@       @-        // vækkeur TEST
+    kk) e (@       @-        // vækkeur
+  jakk) e (@+      @-        // jakkerevers
+  hepp) e (@       @-        // heppekor
  studi) e (@       @-        // studiegruppe
  apach) e (@       @-        // apacheleder
   kæmp) e (@       @-        // kæmpestor
@@ -2604,35 +2678,54 @@ stoneh) enge       ?EndZ
     øs) e (@       @-        // løsepenge
     øb) e (@       @-        // løbepas
     æv) e (@       @-        // ræverødt
+    æg) e (@       @-        // lægehjælp
+   els) e (s@      @-        // beskyttelsespenge
 kanari) e (@       @-        // kanariegul
     ug) e (@       @-        // sugemærke
     ej) e (@       @-        // rejekælling
    avl) e (@       @-        // navlestreng
    arm) e (@       @-        // charmetrold
   påsk) e (@       @-        // påskelilje
+   amp) e (@       @-        // svampehave
 skrald) e (@       @-        // skraldespand
    æst) e (@       @-        // gæstehus
-   ægt) e (@       @-        // ægteskab
+   æns) e (@       @-        // grænsepost
+mindst) e (@       @-        // mindsteløn
+   ægt) e (@+      @-        // ægteskab
+   Aft) e (@+      @-        // skriftestol
+   Abn) e (@       @-        // skæbnebestemt
+  rømp) e (@       @-        // strømpeholder
+   ærk) e (@       @-        // ærkebiskop
    øjl) e (@       @-        // søjleformet
    min) e (@       @-        // minearbejder
     iv) e (@       @-        // skriveteknik
+   div) e (rse     '?E
    van) e (@       @-        // svanesang
    ylt) e (@       @-        // snyltehveps
-   uCp) e (@       @-        // pumpeværk
+  Cump) e (@       @-        // pumpeværk
    læb) e (@+      @-        // læbestift
-   alk) e (@       @-        // malkeko
-   ikk) e (@+++++  @-        // stikkende
+   alk) e (@+      @-        // malkeko, skalkeskjul
+   ung) e (@       @-        // lungebetændelse
+  tikk) e (@+++++  @-        // stikkende
+  tikk) e (r@+++++ V         // stikkere
   lipp) e (@       @-        // klippeø
+   Art) e (l@      @-        // kirtelproblem
+   ulv) e (@       @-        // ulvemanden
+  bomb) e (@       @-        // bombemaskine
+  Copp) e (@       @-        // loppemarked
    øjn) e (@       @-        // iøjnefaldende
+   ølg) e (@       @-        // bølgegang
+ sludr) e (@       ?V
    ift) e (@       @-        // giftetanker
  bronz) e (@       @-        // bronzefigur
    odd) e (@       @-        // loddekolbe
     bb) e (@       @-        // krabbecocktail
-   rub) e (@       @-        strubehoved
+   rub) e (@       @-        // strubehoved
 mennesk) e (@      @-        // menneskeheden
   rupp) e (@       @-        // gruppemodel
    emm) e (@       @-        // hjemmefra
    omm) e (@       @-        // trommehinde
+   øll) e (@       @-        // øllebrød
    egn) e (@       @-        // tegnebog
    yld) e (@       @-        // byldepest
    ygg) e (@+      @-        // hyggesnak, byggesten
@@ -2641,47 +2734,67 @@ mennesk) e (@      @-        // menneskeheden
     yd) e (@       @-        // skydetelt
   ramp) e (@       @-        // krampeanfald
    ved) e (@       @-        // svedehytte
+   irk) e (@       @-        // pirkeur
    ødm) e (@       @-        // sødmefuld
    ank) e (@       @-        // tankevirksomhed
+   øjt) e (@       @-        // skøjteløb
    ban) e (@       @-        // jernbanefolk
    lid) e (@       @-        // invalidepension
+        et (hed    @-D       // uforskammethed
 handsk) e (@       @-        // handskerum
+ flint) e (@       @-        // flintesten
+  bøff) e (l@      @-
   bøvs) e          @-        // bøvsesen
+  jævl) e (@       @-        // djævletilbeder
+  farc) e (@       @-        // farceagtigt
+   usl) e (@+      @-        // puslespil
+    øg) e (@       @-        // søgelys
    ond) e (@       @-        // bondefanger
    ton) e (@       @-        // toneleje
   sans) e (@       @-        // sanseapparat
   fisk) e (@       @-        // fiskeforhold
    ast) e (@       @-        // hasteopgave
+    os) e (@       @-        // mosevand
   utsj) e (@       @-        // rutsjebane
  @kast) e (l       ?E        // luftkastel
- studi) er         V
+ studi) er         ?V
   Catt) e (@       @-        // skatteår
     ro) e (@       @-        // roesukker
    ell) e          @-        // cellevæg
+   øls) e (@       @-        // pølsevogn
    æll) e (@       @-        // gællebue
    ong) e (@       @-        // kongefamilie
+  myrt) e (@       @-        // myrtesanger
  _lill) e          @_!
    ytt) e (@       @-        // skytteforbundet
   klog) e          @-        // klogeste
     vi) e (@       @-        // vievand
    alv) e          @-        // kalvekød
    næs) e (@       @-        // næseblod
+  flad) e (@       @-        // overfladespænding
    Cas) e (@       @-        // basepar
-   ent) e (@       @-        // ventetid
+  vent) e (@       @-        // ventetid
    ang) e (@       @-        // fangelejr
     øv) e (@       @-        // prøveperiode
-   øvr) e (@       ?V        // manøvredygtig
+  nøvr) e (@       ?V        // manøvredygtig
    imr) e (@       ?V        // fimrehår
  _prom) enade      @-n'&D@-  // promenade
  _prom) enader     @-n'&D?V
     al) e (@       @-        // malebog
+   kal) e (che     '?E
   melt) e (@       @-        // smelteovn
-   eng) e (@       @-        // sengetid
+   eng) e (@+      @-        // sengetid, pengeskab
+   sid) e (@+      @-        // sidemand
+   ids) e (l@      @-        // gidseltagning
   dans) e (@       @-        // dansebal
    rus) e (@       @-        // brusetablet
+    in) e (@++     @-        // svinesti
     ås) e          @-        // dåse, gåsehud, Åse
   skol) e (@       @-        // skolebog
+   und) e (@+      @-        // hundemad
     ån) e (@+      @-        // låneansøgning, månestråle
+    ån) er (@      ?V        // lånerkort
+   mid) e (@+      @-        // pyramidespil
   _lev) e (@++     @-        // levevis
    arn) e (@       @-        // barnebarn
    æbl) e (@       @-        // æbletærte
@@ -2689,6 +2802,8 @@ handsk) e (@       @-        // handskerum
    ørv) e (@       @-        // tørvetriller
    ull) e (@       @-        // rullebræt
     od) e (@       @-        // modetøj
+     d) e (tonator ?e        //  radiodetonatorer
+    od) ette       'Et       // name
   hest) e (@       @-        // hestehår
    els) e (@       @-        // vielsesattest
  knogl) e (@       @-        // knoglepark
@@ -2701,14 +2816,17 @@ handsk) e (@       @-        // handskerum
    olk) e (@       @-        // folkevogn
    ømm) e (@       @-        // dømmekraft
    umm) e (@+      @-        // dømmeste
-    mm) er (@++    V         // sommeraften
+   omm) er (@++    ?V        // sommeraften
     ab) e (@       @-        // abekat
    bab) e (tte     '?E       // name
      p) e (dere    @-        // torpedere
-    øl) e (@+      @-        // køleskab
+    øl) e (@++     @-        // køleskab
    øgl) e (@       @-        // nøglering
    pil) e (@       @-        // pilespids
    ott) e (@       @-        // rottebur
+   rat) e (@       @-        // karateundervisning
+    æs) e (@       @-        // læseplan
+   yrk) e (@       @-        // styrketræning
    æri) e (@       @-        // prærieulv
    bid) e (@       @-        // bidemærker
    aff) e (@       @-        // straffeattest
@@ -2718,7 +2836,10 @@ handsk) e (@       @-        // handskerum
    alm) e (@       @-        // palmekrabbe
    Avn) e (@       @-        // navneordbog
    lej) e (@       @-        // plejehjem
+    ob) e (@       @-        // hobevis, hobetal
     am) e (@       @-        // dameblad
+   øjd) e (@       @-        // højdepunkt
+    ov) e (@       @-        // sovemiddel
    uml) e (@       @-        // bumletog
    cyk) e (l       @-        // cykelklokke
  smert) e (@       @-        // smertestillende
@@ -2729,39 +2850,48 @@ handsk) e (@       @-        // handskerum
   høns) e          @-        // hønsehus
    æft) e (@       @-        // hæftemaskine
    æpp) e (@       @-        // tæppeforretning
+   ørk) e (@       @-        // mørkekammer
+   ern) e (@       @-        // stjernetåge
+  engl) e (@       @-        // engleagtig
    bib) e (l       @-        // Bibelen
    vic) e (@       @-        // vicedirektør
    ørk) e (n       @-        // ørkenstøvle
+   not) e (@       @-        // notesbog
     æd) e (@       @-        // smædekampagne
+    yd) e (@++     @-        // skydeskive
+  vikl) e (@       @-        // udvikledes
 
- @iker) e (_N      V         // fabrikere
- @iker) et (_      VD        // fabrikeret
+ @iker) e (_N      ?V        // fabrikere
+ @iker) et (_      ?VD       // fabrikeret
 groupi) e                    // silent e
  _jani) e                    // name - silent e
  _arti) e                    // name - silent e
     ud) e (@+      @-        // studehandel, brudepige
-        e (pisode++ e        // skudepisode
+        e (pisode++ ?e       // skudepisode
     øj) e (@       @-        // øjeblik
-    oz) elot       @-l'Vt    // stressed
-   ukk) e          @         // smukkeste
+    oz) elot       @-l'?Vt   // stressed
+   ukk) e          @-        // smukkeste
     ol) e          @-        // tolerant TEST
+petrol) eum        j?Om
+ linol) eum        j?Om
     ul) e (@       @-_!      // juleaften, gulerod
+@formul) e (re     ?e        // velformuleret
     ul) e (mp      ?E        // forulempe
-    is) e (@       @         // spisetid, fisefornem, disede
+    is) e (@++     @-        // spisetid, fisefornem, disede
      s) e (ksuel+  ?E        // biseksuel
      s) e (rie+    ?e        // miniserie
    tim) e (@       @-        // timevis
     åb) e (n       @-        // åbenbart
-   ørr) e (@       @-        // tørresnor - TEST
+   ørr) e (@       @-        // tørresnor
 konsul) e (nt      ?E        // sikkerhedskonsulent
-   afs) e (_       ?e        // afse
+   afs) e (_++     ?e        // afse
    afs) e (t_+     ?e        // afset
   tils) e          ?e        // tilset
 foruds) e          ?e
  godes) e          ?e        // tilgodese
 efters) e          ?e
      _) e (_speak  i         // eSpeak - capital s makes the e one word
-     _) e (_mail   i         // e-mail
+     _) e (_mail   ?i        // e-mail
  hjemv) e          ?e
  hjemv) ej         aI
   diff) e (ren     @-        // difference
@@ -2822,7 +2952,7 @@ morgent) e         ?e
   tesk) e          ?e        // teske
  borts) e (+       ?e
  gourm) e          '?e       // gourmet
-  _rod) e (o       '?e       // stressed
+  _rod) eo         '?e?o     // stressed
 
 // stressed e in words with -ekt - konfekt
   _aff) ek (t      '?Eg
@@ -2876,7 +3006,7 @@ _regim) e (nte     '?e
 _sakram) e (nte    '?e
 
 // words with final -ende
-     &) ende (_++  @-n@-     // troende
+     &) ende (_+++ @-n@-     // troende, udelukkende
     @r) ende (_++  ?Vn@-     // glimrende
 // exceptions to the -ende rule
  divid) ende       '?End@-
@@ -2970,11 +3100,12 @@ selskabsl) eg      aI        //
     br) edd        Ed        // bredde
    _tr) e (d       E         // tredje
         ej (+++    ?Aj       // nej, arbejde
+   ætt) e (@+      @-        // hættejakke
      s) ejr (++    ?Aj?V     // sejr, sejrrig
      l) ejr (++    ?Aj?V     // lejr, lejrbål
      l) ejre (+    ?Ajr?V
         eje (n++   ?Aj@-     // ejendom
-        e (job+    @-_!      // ønskejob
+        e (job++   @-_!      // ønskejob
         e (jord++  @-_!      // apachejord
         e (jæger++ @-_!      // skalpejæger
     dr) ej (+      aI        // fordrejet
@@ -3035,7 +3166,7 @@ halvfj) e (rds     '?&       // stressed
 vietnam) e (ser    '?e       // stressed
   _ant) e (nne     '?E       // stressed
    _el) e (v       '?e       // stressed
-    el) e (v       ?e        // kostelev, skoleelev
+    el) e (v+      ?e        // kostelev, skoleelev
     el) e (vat     @-        // elevator
   sydv) e (st      '?E       // stressed
  nordv) e (st      '?E
@@ -3085,13 +3216,14 @@ havann) e (ser     '?e       // stressed
 stript) ease       i:s
      l) ea (se     i
      l) ea (sing   i
-        eu (ro     ?Ww       // Europa, euro
+//        eu (ro     ?Ww       // Europa, euro
+     _) eu (C      ?Ww       // eucalyptus, euro
         eau (+     '?o       // bureau, niveau
         eau (kti   @Au       // pladeauktion
         eau (to    @Au       // hæveautomat
         empire (_state EmpaI3
     _t) e (_       ?e        // te
-   kin) e (s       '?e       // kineser
+   kin) e (s++     '?e       // kineser, kinesisk
      d) e (s_      @-        // mødes
     _d) e (s_      ?e        // des = desto, jo
    var) e          @-        // vareprøve, varevogn TEST
@@ -3196,6 +3328,7 @@ ration) el         ?El
 krimin) el         ?El       // småkriminel
     ti) el         ?El       // vækstpotentiel
         el (iksir  ?el       // ungdomseliksir
+    @h) el (t      ?El       // drømmehelt
 
 // final -elig in da_list - stress on previous syllable
      &) elig ($p_alt =@-l?i  // jomfruelig
@@ -3215,6 +3348,7 @@ intellektu) el     ?El
     sk) el (_      ?El       // vandskel
   orsk) el         ?El       // forskel
    rsk) el         @-l       // tærskel
+  musk) el         @-l
  flosk) el         @-l
 grænsesk) el       ?El
 marksk) el         ?El
@@ -3227,7 +3361,7 @@ marksk) el         ?El
    lob) el (ia     '?el
      d) el (e+     el        // dele
   særd) el (es     'el       // særdeleshed - stressed
-  bind) ele (d     @-le      // bindeledder
+  bind) ele (d     @-l?e     // bindeledder
  kvind) el (A      @-l       // kvindelejr
   djæv) el         @-l       // Djævelen
   sjof) el         @-l
@@ -3344,13 +3478,15 @@ verdensd) el       ?el
 .group en
 // noun suffix -en (perlen - the pearl), -ens (perlens - the pearl's)
 // not a suffix any more - too many exceptions
-     &) en (_N     @-n       // brien
+     &) en (_      @-n       // brien, voksen
+     &) en (t_     @-n       // voksent
      r) en (_      ?Vn       // skideren [ sk'iDV,Vn] TEST
     gr) en (+      ?En
     _r) en (_      ?En
      d) en (t_     @-n       // beredent
   kier) en (_N     @-n       // bankieren - avoid the r generated by [V]
      &) ens (_+    @-ns      // ungdommens
+  døds) en (s      @-n       // dødsensfarlig
     &r) ens (_+    ?Vns      // naturens
      k) en (en     @-n       // tallerkenen
 
@@ -3388,6 +3524,7 @@ oliegr) en         ?En
 retskaff) en       @-n
    sid) en         @-n       // not a suffix - siden
 præsid) en (t      ?En       // vicepræsident
+@assist) en (t     ?En       // politiassistent
 skyldsr) en        ?En       // uskyldsren
 ædelst) en         ?en       //
 _præsid) en (t     '?En      // præsidentfrue
@@ -3508,49 +3645,49 @@ tungst) en         ?en
  vinst) en         ?en
 ædelst) en         ?en
  øjest) en         ?en
-    st) en (gulv   en        //
-    tj) en (st     En        // fortjenstmedalje
-     m) en (s+     En        // menstruation
-     g) en (st     En        // genstand
-     g) en (sk     En        // genskabe
+    st) en (gulv   ?en       //
+    tj) en (st     ?En       // fortjenstmedalje
+     m) en (s+     ?En       // menstruation
+     g) en (st     ?En       // genstand
+     g) en (sk     ?En       // genskabe
      t) en (å      @-n       // TEST - femtenårig
-    st) en (A      en        // stenograf
+    st) en (A      ?en       // stenograf
  småst) en         ?en       //
-eksist) en (s      'En       // eksistens
-_resid) en (s      'En       // residens
- resid) en (s      En        // residens
+eksist) en (s      '?En      // eksistens
+_resid) en (s      '?En      // residens
+ resid) en (s      ?En       // residens
 _acetyl) en        '?en      //
    mæc) en         '?en      //
-_influ) en (za     'En       //
-skizofr) en        'En       //
-   til) end (ebr   'En       // tilendebringe
+_influ) en (za     '?En      //
+skizofr) en        '?En      //
+   til) end (ebr   '?En      // tilendebringe
 _en_syr) en        '?en      // problem with "syren" = "the acid"
    syr) en (en_    '?en      // syrenen
    syr) en (er_    '?en      // syrener
 
-     s) en (sib    AN        // sensibel
-  _rev) en (che    'AN       // stressed
-   rev) en (che    AN        // not stressed after a syllable
+     s) en (sib    ?AN       // sensibel
+  _rev) en (che    '?AN      // stressed
+   rev) en (che    ?AN       // not stressed after a syllable
 
 // $alt words with final -ent in da_list - stressed e
-     &) ent (_$p_alt++ '?Ent // student
-     &) ent (_en$p_alt++ '?Ent // studenten
+     &) ent (_$p_alt+++ '?Ent // student
+     &) ent (en$p_alt++ '?Ent // studenten
      &) ent (er$p_alt++ '?Ent // studenter
-   &es) ent ($p_alt+ 'AN     // present (gift)
-   &cc) ent ($p_alt+ 'AN     // accent
-    &r) ent ($p_alt+ ''?&#nt // omtrent
+   &es) ent ($p_alt+ '?AN    // present (gift)
+   &cc) ent ($p_alt+++ '?AN  // accent
+    &r) ent ($p_alt+++ ''?&#nt // omtrent, konkurrent
      &) ent (ur$p_alt+ ?ent' // agentur - stressed u
      &) ent (alsk$p_alt+ ?Ent' // + "alsk" - stressed a - orientalsk
 // exceptions
-   acc) ent (+     AN        //
+   acc) ent (+     ?AN       //
    _ev) ent (A++   @-nt      // eventyr, eventuel
      v) enti (on+  ?EnSj     // konvention
-        engros     ANgr'o    // engroshandler
+        engros     ?ANgr'?o  // engroshandler
 // $alt words with final -enser in da_list - stressed e
-     &) enser ($p_alt ''?EnsV // palæstinenser
-    &p) enser (_$p_alt ?Ens'er // kompenser
-     &) enser (e$p_alt ?Ens'er // kondensere
-    &g) ense ($p_alt g''?EnsV //  ålborgenser
+     &) enser ($p_alt ''?Ens?V // palæstinenser
+    &p) enser (_$p_alt ?Ens'?er // kompenser
+     &) enser (e$p_alt ?Ens'?er // kondensere
+    &g) ense ($p_alt g''?Ens?V //  ålborgenser
 
    // $alt words with final -ens in da_list - stressed e
      @) ens (_$p_alt+ '?Ens  // frekvens
@@ -3570,6 +3707,7 @@ excell) ence ($p_alt '?Ens-@ // exception
   _kal) ender      '?En?V    //
   bart) ender      ?End?V    //
      k) end (++++  ?En       // genkender
+tiltrækk) ende (+  @-n@-
     @s) ender (+   ?En?V     // afsender
 
 .group er
@@ -3602,7 +3740,7 @@ infant) eri ($p_alt @-r''?i  // infanteri
      @) eren (_    V:%Vn     // elskeren
      @) erens (_   ?Vr%?Vns  // elskerens
      @) ers (_     ?Vs       // elskers
-     @) erne (_++++ ?Vn@-    // elskerne
+     @) erne (_+++++ ?Vn@-   // elskerne
      @) ernes (_   ?Vn@-s    // elskernes
      @) erste (_   ?Vsd@-    // midterste
      @) ert (_     ?Vd       // lummert, slubbert
@@ -3613,22 +3751,33 @@ infant) eri ($p_alt @-r''?i  // infanteri
      @) ers (tat   ?Ers      // skadeserstatning
 @produc) ere       ?e?V      // masseproducere
 @pension) ere      ?e?V      // førtidspensionere
+     @) eret       ?Vr?VD    (_ // kammeret
 
+fotograf) er (_os_ ''?er
+fotograf) er (_dem_ ''?er
+fotograf) er (_deres_ ''?er
   wien) er         ?V        // wienerbrød
    rac) er (@      ?V        // racerkører
+ strøm) er (@      ?V        // strømerbil
  spejd) er         ?V        // spejderuniform
     od) er         ?V        // moderinstinkt
    hyp) er (@      ?V        // hyperaktiv
     æd) er (@      ?V        // læderindtræk
   træn) er         ?V        // trænerkomite
   hunn) er         ?V        // hunnerkongen
+ schæf) er (@      ?V        // schæferhund
+   sau) er (@      ?V        // dinosauerguf
+    yd) er (@+     ?V        // yderligere, forbrydere, ydermere
+ yderm) ere        eR?V
 sortep) er         ?er       //
   rødl) er         ?er
 vigtigp) er        ?er       //
    beh) er (sk     ?Er       // beherske
+   rev) er (s      '?Er      // jakkerevers
     _t) er (_      ?er       // "de ter sig underligt"
      g) er (_++    ?V        // våger, læger [l'EjV]
     _g) er (ta+    ?Er       // Gerta
+   stj) er (t      ?Er       // rødstjert
   xavi) er         '?e       // name
    gys) er         ?V        // gyserafdeling
    lys) er (ød     @-R       // lyserød
@@ -3658,14 +3807,14 @@ _overs) er         ?er       //
      g) er (ani    ?er       // geranium
      g) er (mans   ?er       // germansk
  aflev) ere        ?e?V      // aflevere
-    mm) er (et     ?V        // nummeret
+   umm) er (et     ?V        // nummeret
   nysg) er (ri     ?er       // nysgerrig
 revolv) er (+      ?V        //
    int) er (@      ?V        // interaktiv
  smugl) er         ?V        // smuglergods
  smugl) ere        V?V       // smuglere
   _int) er (n_++   '?Er      // intern
-  _int) er (ne_++  '?Er      // interne
+  _int) er (ne_+++++ '?Er    // interne
    int) erne (t+   ?Vn?E     //
 //  skid) er         Vr        //
   ønst) er (+      ?V        // mønsterelev
@@ -3686,7 +3835,7 @@ kundes) ervice     Wv?is     //
   _all) er         ?V        // allersidst
   pill) er         ?V        // spiller, piller
   brus) er         ?V        // bruseranvendelse
-   eft) er         ?V        // efteruddanne
+   eft) er (@      ?V        // efteruddanne
      s) er (v+     ?Er       // reservat, servo
      s) ervice (fag Wv?is    // servicefag
      s) ervice (med Wv?is    // servicemedarbejder
@@ -3698,11 +3847,11 @@ kundes) ervice     Wv?is     //
  _kons) er (vativ  '?Er      // stressed
  _præs) er (vativ  '?Er      //
  _kons) er (ves    '?Er      // stressed
-   bas) ere        eV        // behovbaseret
+  @bas) ere        ?e?V      // behovbaseret
     tn) er         ?V        // partnerskab
    all) er (g      ?er       // allergisk
-     j) er (n+++++ ?E3-      // jern, stjerne
-  talj) er (K+++   ?V        // detaljer
+     j) er (n+++++++ ?E3-    // jern, stjerne
+  talj) er (K+++++ ?V        // detaljer
 medalj) er (+++    ?V
  trulj) er (n+++   ?V        // patruljerne
   linj) er (+++    ?V        // telefonlinjer
@@ -3749,9 +3898,9 @@ _perif) er         '?er      // stressed
  _cist) erne (+    'Ern@-
   cist) erne (+    Ern@-
 fascist) erne (+   Vn@-      // exception to "&cist) erne"
-  _kas) erne (+    'Ern@-
-  _kas) erner (+   'ErnV
-   kas) erne (+    Ern@-
+  _kas) erne (+++++ 'Ern@-
+  _kas) erner (++++ 'ErnV
+  @kas) erne (++++ Ern@-
  _lant) erne (+    'Ern@-
 toplant) erne (++  Ern@-
  plant) erne (++   Vn@-
@@ -3786,6 +3935,7 @@ toplant) erne (++  Ern@-
    &ik) er (s_$p_alt++ =?V   // stressed - politikers
 
 // exceptions
+_premi) ere (@     '?e?V     // premiereaften
   fing) er (en     ?VR       // fingeren - clsashes with 'fing'ere'
  _barb) er (+      '?er      // barber
  _barb) er (e+     'er       // barberen
@@ -3813,28 +3963,28 @@ orient) eret       ?er@-D    // venstreorienteret
 // stressed e in finial -ert
 affekt) ert        'e3-t
   blas) ert        'e3-t
-  born) ert        'ert
-  dess) ert        'Ert
-diskontinu) ert    'e3-t
-  eksp) ert        'Ert
-  ethv) ert        'Ert
-  fork) ert        'e3-t
-   gen) ert (+     'e3-t
-    in) ert        'e3-t
-introv) ert        'Ert
-  konc) ert        'Ert
-kontinu) ert       'e3-t
-   kuv) ert (++    'Ert
-reform) ert        ''e3-t
-reserv) ert        'e3-t
+  born) ert        '?ert
+  dess) ert        '?Ert
+diskontinu) ert    '?e3-t
+  eksp) ert        '?Ert
+  ethv) ert        '?Ert
+  fork) ert        '?e3-t
+   gen) ert (+     '?e3-t
+    in) ert        '?e3-t
+introv) ert        '?Ert
+  konc) ert        '?Ert
+kontinu) ert       '?e3-t
+   kuv) ert (++    '?Ert
+reform) ert        ''?e3-t
+reserv) ert        '?e3-t
 
 // fire stavelser, den sidste -tiv, tryk på anden
-   alt) er (nativ  'ER       // stressed LOOK FOR MORE
+   alt) er (nativ  '?ER      // stressed LOOK FOR MORE
 
-    ff) er (At     V         // probably way too broad - offeret
-     c) ere        eV        // velkvalificeret, ceremoni
-    iv) er (et     er        // kultiverret
-    bl) er (e      er        // genetablere
+    ff) er (At     ?V        // probably way too broad - offeret
+     c) ere        ?e?V      // velkvalificeret, ceremoni
+    iv) er (et     ?er       // kultiverret
+    bl) er (e      ?er       // genetablere
   desp) er (at     3R        // desperat
    alt) eret       @-r@-D    //
      d) er (fra    ?er       // derfra
@@ -3843,52 +3993,53 @@ reserv) ert        'e3-t
     _v) er (s_     ?Er
      v) er (d@++   ?Er       // verden
      v) er (siel   ?Er
-     v) er (anda+  er        // veranda
+     v) er (anda+  ?er       // veranda
      v) ermont     ?W:m'Vnt
-  salv) er (++     V         // kvaksalverbutik
-  snæv) er (++     V         // snæversynet
-    ov) er (++++   V         // overbevisende, sover, ovenover, overfald
-  farv) er (s+     V         //
-_kontrov) er (s    'Er       // kontrovers
-    yv) er (+      V         // flyver
+  salv) er (++     ?V        // kvaksalverbutik
+  snæv) er (++     ?V        // snæversynet
+    ov) er (++++   ?V        // overbevisende, sover, ovenover, overfald
+  farv) er (s+     ?V
+_kontrov) er (s    '?Er      // kontrovers
+    yv) er (+      ?V        // flyver
+    yv) er (i      ?VR       // tyverier
   flyv) er (ute    @-r       // flyverute
-    øv) er (st++   V         // øverst, røver
-  perv) er (s+     'Er       // stressed e - pervers
-    &t) er (C      V         // teatervidenskab
-  isot) er (m      'Er       //
-     t) er (rier   Er        //
-     t) er (ni+    Er        // fraternisere
+    øv) er (st++   ?V        // øverst, røver
+  perv) er (s+     '?Er      // stressed e - pervers
+    &t) er (C      ?V        // teatervidenskab
+  isot) er (m      '?Er      //
+     t) er (rier   ?Er       //
+     t) er (ni+    ?Er       // fraternisere
      t) error      ?&3-V     // antiterrorgruppe [ˈtæɐ̯ʌ]
      t) erro (rist ?&3-O     // terrorist [tæɐ̯ɒˈʁisd]
    Cav) er (_+     V         // laver, saver
- @grav) er (e      er        // indgravere
-guldgrav) er (e    V         //
-   lev) er (C++    V         // levertran, leverplet
-   led) er (@      V         // lederkursus
-  pans) er         V         // panserdivision
- kryst) er (@      V         // kryst*er*agtig
- _myst) er (iu     'er       // mysterium
-  hust) er (i      er        // not stressed after a syllable - overhysterisk
- @nist) er (ie     'er       // ministeriet
+ @grav) er (e      ?er       // indgravere
+guldgrav) er (e    ?V        //
+   lev) er (C++    ?V        // levertran, leverplet
+   led) er (@      ?V        // lederkursus
+  pans) er         ?V        // panserdivision
+ kryst) er (@      ?V        // kryst*er*agtig
+ _myst) er (iu     '?er      // mysterium
+  hyst) er (i      ?er       // not stressed after a syllable - overhysterisk
+ @nist) er (ie     '?er      // ministeriet
    _sk) er (_      ?er       // sker
-    _s) er (_      er        // ser
-    _h) er (_      er        // her
-     h) er (s++    Er        // herse, herske
-     h) er (li+    Er        // herlig
-    hv) er (+      Er        // hver
-  enhv) er         'Er       // stressed
-  fork) er (t+     er        // forkert
-   Cik) er (+      V         // epileptiker, optiker
-    kk) er (+      V         // rykker
-  kuff) er (t      V         // kuffert
+    _s) er (_      ?er       // ser
+    _h) er (_      ?er       // her
+     h) er (s++    ?Er       // herse, herske
+     h) er (li+    ?Er       // herlig
+    hv) er (+      ?Er       // hver
+  enhv) er         '?Er      // stressed
+  fork) er (t+     ?er       // forkert
+   Cik) er (+      ?V        // epileptiker, optiker
+    kk) er (+      ?V        // rykker
+  kuff) er (t      ?V        // kuffert
    Amm) er (a      @-r       // kammerater
-     f) er (ni     Er        // fernis
- _fall) er (+      'er       // falleret
- _kass) er (er     'er       // kasserer
-   inf) er (no     'Er       // inferno
-    tt) er (C      V         // lattermild
-  _int) er (n_++   'Er       // stressed
-   int) er (nat    V         // international
+     f) er (ni     ?Er       // fernis
+ _fall) er (+      '?er      // falleret
+ _kass) er (er     '?er      // kasserer
+   inf) er (no     '?Er      // inferno
+    tt) er (C+     ?V        // lattermild, guttermand
+  _int) er (n_++   '?Er      // stressed
+   int) er (nat    ?V        // international
      t) er (min    ?Er       // terminal
      t) er (p      ?Er       // terpentin, terpe
      t) er (mo     ?Er       // termometer
@@ -3909,10 +4060,11 @@ guldgrav) er (e    V         //
   _man) erer       '?e?V     //
   _L06) er         ?Er       // per, person
     @p) er (son    ?Er       // enkeltperson
+     p) er (ron    ?A
 L06L06) er         ?V        // klipper
   fisk) er         ?V        // fisker, fiskerby
   elsk) er         ?V        // elskerinde
-   und) er         ?V        // under
+   und) er (+      ?V        // under, undertøj
   hund) er         3r        // hunderæd
    umm) er         ?V        // hummer
    pok) er         ?V        // pokerspil
@@ -3952,6 +4104,7 @@ der_man) er (_     ?V        // der er intet land, der maner ...
      @) ede (_     @-D@-     // elskede
     &r) ede (_     ?VD@-     // pikerede, spekulerede
     &r) ede (s_    ?VD@-     // placeredes
+   ber) ede (+     ?ED@-     // tilberedes
 
    hov) ed         @-D       // hoved
   mark) ed         @-D       // supermarked
@@ -4052,13 +4205,16 @@ en_son) et         '?Et
    fac) et (+      '?Et
 spermac) et        '?Et      // spermacethval - stressed
    son) ett (e     '?Et      // sonetten, sonetter
- vindu) et (_      @-D       //
-jazzball) et       ?Et       //
+ vindu) et (_      @-D
+jazzball) et       ?Et
   viol) et         ?Et       //  ultraviolet
   tabl) et         ?Et       // jodtablet
   tabl) ett        ?Et       // jodtabletter
   omel) et         ?Et       // spinatomelet
  uglen) et         ?Et       // sommerfuglenet
+    pl) et (+      ?Et       // blodplet
+stempl) et         @-D
+ datan) et         ?Et
 leverpl) et        ?Et       //
    _sk) et         ?et       // sket
 gennems) et        ?et       //
@@ -4129,7 +4285,9 @@ _alfab) et         '?et      //
    tib) et         ?et       //
  _bill) ett        '?Et      // stressed - only one t
  _kask) et         '?Et      // stressed
+ @kask) et         ?Et
  _kask) ett        '?Et      // stressed - only one t
+ @kask) ett        ?Et
 _bajon) et         '?Et      // stressed
 _bajon) ett        '?Et      // only one t
  bajon) et         ?Et       //
@@ -4194,17 +4352,6 @@ _nicol) ette       '?Et@-    // Nicolette
   cali) for        'fO:      // Californien
      @) for (C@    fV:       // lønforhøjelse, efterforske
 
-// General rule, most words with af- plus vowel: [f] => [w]
-     a) f (A       w         // afart, afprøve
-
-// exceptions to the 'a)f(A' rule below
-    ca) fe         f'e       // cafe, bogcafe
-    ca) fé         f'e       // café
-     a) f (asi     f         // afasi
-     a) f (atisk   f         // afatisk
-     a) f (or      f         // aforisme, aforistisk
-        f (olk     f         // mafiafolk
-
 // one sylable plus "færdig" - stressed æ
      @) færdig     f'Erdi    // bluf'ærdig
     @@) færdig     fErdi     $1 // f'ingerfærdig
@@ -4214,6 +4361,7 @@ _nicol) ette       '?Et@-    // Nicolette
 // exceptions to the 'a)f (C' rule below
      a) ff (ine    f         // raffineret, raffinement
         f (lytte   f         // fraflytte
+     a) f (lytte   w
     ja) ff (a      f         //
      a) ff (abel   f         // affabel
      a) ff (ekt    f         // affekt , affekteret
@@ -4232,7 +4380,7 @@ _nicol) ette       '?Et@-    // Nicolette
     ra) f (for     f         // strafforfølge
      a) ff (el     f         // vaffel, taffel
      a) f (ro      f         // afroasiat, afroamerikaner, afrohår etc.
-    la) f (re      f         // blafre
+   bla) f (re      f         // blafre
      @) fobi       fob'i     // xenofobi, hydrofobi
      @) f (laske   f         // colaflaske
         f (jeder   f         // sofafjeder
@@ -4507,51 +4655,53 @@ svededu) g                   // silent g
      å) g (e       w         // tåge, Åge, våge
     go) g          =         // stress on previous syllable, no g - pædagog
     lo) g          =         // stress on previous syllable, no g - psykolog
+        g (uitar   g         // sologuitar
     go) g (ik      g         // pædagogik
-        gogo       gOwg'Ow   //
-  orlo) g          w         //
+    go) g (ikum              // pædagogikum - silent g
+        gogo       gOwg'Ow
+  orlo) g          w
      o) g (ram     g         // hologram, monogram
-        gerald     dZEr3l/2  //
-        geraldine  dZEr3l/2di:n //
-  fitz) gerald     dZ'Er3l/2 //
-        gonzales   _^_ES     // gin
-     _) gi (n      dZe       // Gino
-     _) gi (nL04   dZi       //
+        gerald     dZ?Er3l/2
+        geraldine  dZ?Er3l/2di:n
+  fitz) gerald     dZ'?Er3l/2
+        gonzales   _^_ES
+     _) gi (n      dZe       // gin
+     _) gi (nL04   dZi       // Gino
      _) gi (na     dZi       // name
-     _) ginger     dZendZV   // ginger ale
+     _) ginger     dZ?endZ?V // ginger ale
      _) guy (_     gA:j      // Guy - name
      _) guy (s_    gA:j      // Guys - name
-        ginsberg   gensbW:g  // name
-        geronimo   dZer'VnimO:u //
+        ginsberg   g?ensbW:g // name
+        geronimo   dZ?er'?Vn?imO:u
         grady      grEjdi    // name
         gertie     gWti      n // name
         graham (_  _^_en     // name
         grahams (_ _^_en     // name
         guthrie    gVTRi     // name
         gaulle     gO:l      // de Gaulle
-        g (igolo   dZ        //
+        g (igolo   dZ
         gouda      gAwd&     // cheese
         guirland   girl'&nd  // guirlander
      _) grande (_  grand@-   // italian
-        gele       sjel'e    // gele
-        gelé       sjel'e    // gelé
-        guire      gw'aIV    //
-        gobelin    gob@-l'EN //
-        graffiti   grAf'iti  //
-   en_) gros       gro       //
-        gustav     gOstaw    // name
+        gele       sj?el'?e  // gele
+        gelé       sj?el'?e  // gelé
+        guire      gw'aI?V
+        gobelin    g?ob@-l'?EN
+        graffiti   grAf'?it?i
+   en_) gros       gr?o
+        gustav     gOst?aw   // name
 
 // final -gi in da_list - stressed i
-     @) gi ($p_alt g''i      // pædagogi, analogi
-    @C) gi ($p_alt g''i      // pædagogi, analogi
-     &) gi (sk$p_alt =gi     // pædagogisk
-   _lo) gi (_      S'i       // logi
-   _lo) gi (e      S'i       // logi
- natlo) gi         Si        //
-    re) gi ($p_alt+ S'i      // regibemærkning
-    re) gi (men$p_alt+ gi    // regimentet
-    re) gi (s$p_alt+ gi      // registrere
-    re) gi (on+    gi        // regional
+     @) gi ($p_alt g''?i     // pædagogi, analogi
+    @C) gi ($p_alt g''?i     // pædagogi, analogi
+     &) gi (sk$p_alt =g?i    // pædagogisk
+   _lo) gi (_      S'?i      // logi
+   _lo) gi (e      S'?i      // logi
+ natlo) gi         S?i
+    re) gi ($p_alt+ S'?i     // regibemærkning
+    re) gi (men$p_alt+ g?i   // regimentet
+    re) gi (s$p_alt+ g?i     // registrere
+    re) gi (on+    g?i       // regional
 
     lo) g (a       g
     lo) gg (e      g
@@ -4559,73 +4709,73 @@ svededu) g                   // silent g
     lo) g (o       =g
    blo) g (s       =g
    _lo) g (_       g
-    lo) g (fil     g         //
+    lo) g (fil     g
    _lo) g (g       g
     ør) g          u         // changed from w - spørge
     ør) ge (+      w@-       // spørgeleg - avoid "gele" = [Sel'e]
-    ør) ger        wV
+    ør) ger        w?V
     ør) g (s                 // silent g - spørgsmål
      å) g          u         // åg, åge
         g (røn     g         // PN blågrøn
     ne) g (_       j         // neg, juleneg
    sne) g          j         // sneget
     ve) g (en      j         // undvegen
-    ne) ger (++    V         // neger
-    ne) gre        V         //
+    ne) ger (++    ?V        // neger
+    ne) gre        ?V
     te) g (ori     g         // kategori
         gear       gir       // gear, bakgear
-        goddag     god'&     //
-        godnat     gon'&t    //
-        godaften   go'Aftn   //
-        godmorgen  gom'V:n   //
+        goddag     g?od'?&
+        godnat     g?on'?&t
+        godaften   go'Aftn
+        godmorgen  g?om'V:n
         grace      _^_EN     // Grace - name
-        gentleman  dZEnt@-lm&n //
-        gentlemen  dZEnt@-lm?En //
-        george     _^_EN     //
+        gentleman  dZEnt@-lm&n
+        gentlemen  dZEnt@-lm?En
+        george     _^_EN
         georgie    _^_en     // name
-        georgien   ge'O:gi@-n //
-        geneve     Sen'E:v   //
-        genève     Sen'E:v   //
-     _) gudskelov (_ gusg@-lVu //
-        georgia    dZV:dZj&  //
-        gibraltar  SibRAlt'A //
+        georgien   ge'O:gi@-n
+        geneve     Sen'E:v
+        genève     Sen'E:v
+     _) gudskelov (_ gusg@-lVu
+        georgia    dZV:dZj&
+        gibraltar  SibRAlt'A
      _) gates (_   gEjts     // name
      _) gable      gEjb@-l   // name
-        gendarm    SAnd'A:m  //
-     _) gary       g&ri      // name
-        guillotine gijut'i:n@- //
+        gendarm    SAnd'A:m
+     _) gary       g?&r?i    // name
+        guillotine gijut'i:n@-
      _) gerard     SeR'A:    // name
-        giuseppe   dZis'Ep@  // name
-     _) giants     dZaI&nts  // name
-        gloucester glVstV    //
-  bour) geoisi     ZwAs'i    //
-  bour) geois      Zw'A      //
-        grandprix  grANpr'i  //
-        guernsey   gW:nsi    //
-        gulfstream gVlfstri:m //
-        geoff      dZEf      // name
+        giuseppe   dZ?is'?Ep@ // name
+     _) giants     dZaI?&nts // name
+        gloucester gl?Vst?V
+  bour) geoisi     Zw?As'?i
+  bour) geois      Zw'?A
+        grandprix  gr?ANpr'?i
+        guernsey   gW:nsi
+        gulfstream g?Vlfstri:m
+        geoff      dZ?Ef     // name
 
 .group      ge
 
 // words with final -gere: [S]
- arran) ge (re     S'e
- banda) ge (re     S'e
-  chan) ge (re     S'e
-  char) ge (re     S'e
-  enga) ge (re     S'e
- foura) ge (re     S'e
-    ga) ge (re     S'e
-  gara) ge (re     S'e
- indlo) ge (re     S'e
-indran) ge (re     S'e
-    ju) ge (re     S'e
-    lo) ge (re     S'e
-  mena) ge (re     S'e
- negli) ge (re     S'e
- prote) ge (re     S'e
-   ran) ge (re     S'e
- udran) ge (re     S'e
-    ur) ge (re     S'e
+ arran) ge (re     S'?e
+ banda) ge (re     S'?e
+  chan) ge (re     S'?e
+  char) ge (re     S'?e
+  enga) ge (re     S'?e
+ foura) ge (re     S'?e
+    ga) ge (re     S'?e
+  gara) ge (re     S'?e
+ indlo) ge (re     S'?e
+indran) ge (re     S'?e
+    ju) ge (re     S'?e
+    lo) ge (re     S'?e
+  mena) ge (re     S'?e
+ negli) ge (re     S'?e
+ prote) ge (re     S'?e
+   ran) ge (re     S'?e
+ udran) ge (re     S'?e
+    ur) ge (re     S'?e
 _korte) ge         =S@-
  korte) ge         S3
  _mane) ge         =S@-      // stress on previous syllable
@@ -4633,30 +4783,31 @@ _korte) ge         =S@-
    _lo) ge (_      S@-       // loge
    _lo) ger (_     SV        // loger
     lo) ge (n      S@-       // logen
-frimurerlo) ge     S@-       //
+   @lo) ge         S@-       // vandbøffelloge
+frimurerlo) ge     S@-
  ykolo) ge (n      @-        // børnepsykologen
-proktolo) ge (n    @-        //
+proktolo) ge (n    @-
     lo) ge (bro    S@-       // logebror/logebroder
   halo) ge (n      g'?e      // stressed
     lo) ge (mø     S@-       // logemøde
      _) ge (ne_    Se        // gene
      _) ge (nere   S?e       // genere
-        gener (_mig Sen'?er  // gener mig ikke
+        gener (_mig S?en'?er // gener mig ikke
         genere (_mig S?en'?eV // genere mig
-     _) ge (nerere_ g?e      //
+     _) ge (nerere_ g?e
         ge (nerøs  S?e       // generøs
         ge (nert   S?e       // genert
      _) ge (never  S?e       // genever
         germain    ZErm'?&N  // Saint-Germain (pronounced by a Dane)
      _) generel    g?en@-r'?&#l
     _a) ge (re     g'?e      // agere
-        ge (nial   g?e       //
-        ge (ni     S?e       //
+        ge (nial   g?e
+        ge (ni     S?e
         ge (ninvest g?E      // geninvestere
-        ge (nital  g?e       //
-        ge (nitiv  g?e       //
+        ge (nital  g?e
+        ge (nitiv  g?e
         geni (nd   g?Ene     // genindspille, genindkalde (not [gen'i])
-        ger (ning  g?Er      //
+        ger (ning  g?Er
    bud) ge (t      S'?E
 
  // stressed second syllable in words with initial ge
@@ -4721,23 +4872,23 @@ proktolo) ge (n    @-        //
      A) h (K 
      t) h (en      h
      w) h (isky              // whisky - silent h
-    _r) h (in                // Rhinen - silent h
+    _r) h (A                 // Rhinen - silent h
    sil) hue (t     u'E       // silent h, stressed e
     bo) heme (_    'E:m      // boheme
     bo) hem (e     'E:m      // bohemer
-        hotline    hVtla:jn  //
-        honey      hVni      //
-        heat       hi:t      //
+        hotline    hVtla:jn
+        honey      hVni
+        heat       hi:t
      _) herb (_    hW:b      // name
      _) hercule    Erk'yl    // name
    kat) harine     &r'in@-   // name
-        highhat    hA:jh&d   //
-        housecoat  hAuskowd  //
-        hitech     haItek    //
+        highhat    hA:jh&d
+        housecoat  hAuskowd
+        hitech     haItek
         homer      hom'er    // Homer - Greek
-        hawaii     h&w'a:ji  //
-        heather    hEDV      //
-        houston    hju:sdVn  //
+        hawaii     h&w'a:ji
+        heather    h?ED?V
+        houston    hju:sd?Vn
         hawk       hV:k      // Black Hawk
         hugh       hju:      // name
         huw        hju:      // Welsh name
@@ -4748,19 +4899,19 @@ proktolo) ge (n    @-        //
         hawthorne  hO:Ton    // name
      _) hyde       haId      // dr Jekyll and mr. Hyde
         home       hOwm      // homebanking, home run
-        humveer    hVmvi:V   //
-        humvee     hVmvi:    //
+        humveer    hVmvi:V
+        humvee     hVmvi:
  apart) heid       =hAjd
      w) h (it                // Whitman
-     g) ho (st     ow        //
+     g) ho (st     ow
      _) hunt (_    hVnt      // name
         howard     hawVd     // name
      _) haig       hEjg      // name
      _) huges (_   hju:s     // name
         huckleberry hVk@lbEri // name
         hipokrates hip'okratEs // name
-        hierogly (f hirofl'y //
-        heavy      hEvi      //
+        hierogly (f hirofl'y
+        heavy      hEvi
      _) hearst     hWst      // name
      _) haag (_    h&j       // Dutch city
         hereford   hE:rfO:d
@@ -4771,6 +4922,7 @@ proktolo) ge (n    @-        //
 // Long i
      C) i (Ce+     i         // mine
      b) i (C+++    ?i        // bivej, bille TEST
+     b) i (ms+++   ?e
      t) i (t++     ?i        // titel
 
 // Short i followed by double consonant
@@ -4788,39 +4940,44 @@ proktolo) ge (n    @-        //
 
 // short i - general rules?
      C) i (C       ?i        // politiker (first i) TEST
+ _fest) i (vitas   '?i
+    od) ile        _^_fr
      t) i (t+      ?i        // titel
   disc) i (p       '?i       // discipel - stressed
  namib) ier        =j?V
      p) i (nk      ?e
-
+        i (nf      ?e        // influenza
+        i (nvi     ?e        // invitation
+        i (ntolerant ?e      // laktoseintolerant
      g) iv (_      ?i        // silent v
      g) ive (_     ?i        // PB silent v
      g) ivet (_    i@-D
      g) iver (_    ?ir       // PB silent v
    opg) iver (_    g?ir
+  rådg) iver       ?iv?V
      h) i (ls      ?i        // hils, hilsen - short i
    skr) i (der     ?i        // short i - general rule?
      b) i (l+      ?i        // bil, bilen
      f) i (l+      ?i        // fil, filen
-//     f) i (le      i         // file
     sm) i (le      i
-     v) i (dere    ?i        //
+     v) i (dere    ?i
      t) i (d++     ?i        // tid
      t) i (de@     i         // tidevand
-     l) i (ter     ?i        //
+     l) i (ter     ?i
      t) i (t       ?i        // titel
      b) i (son     ?i
    skr) i (ver     ?i
     fr) i          ?i        // befrielseshær
+    fr) ie         i@-       // den frie verden
     br) i (te      ?i        // person from GB
     br) i (tis     ?i        // britisk, britiske
      t) i (l++     ?e        // tilknytte, stille
-dansk_st) i (l+    ?i        //
-engelsk_st) i (l+  ?i        //
+dansk_st) i (l+    ?i
+engelsk_st) i (l+  ?i
  indst) i (l       ?e        // indstille
 
 // exceptions
-    dr) i (nk      ?e        //
+    dr) i (nk      ?e
     _p) ie (_      Aj
 
 // "lide" - "like" versus "suffer"
@@ -4861,13 +5018,13 @@ _kan_jeg_l) ide    ?i
         i (nfant   ?e        // marineinfanteri
      f) i (nsky    ?i        // finskytte, finskydning
         i (nc+     ?e        // pincet
-     _) insider    ?ensaIdV  //
-     _) inside (information ?ensaId //
+     _) insider    ?ensaIdV
+     _) inside (information ?ensaId
      _) i (ni      ?i        // initiativ
         i (nu      ?i        // inuit
-     p) i (nsel    ?i        //
-     p) i (nsler   ?i        //
-  sixt) i (nsk     '?i       //
+     p) i (nsel    ?i
+     p) i (nsler   ?i
+  sixt) i (nsk     '?i
 
 // general rule: [e] before double consonant
    L03) i (L01%+   ?e        // ligge, dikke
@@ -4876,8 +5033,8 @@ _kan_jeg_l) ide    ?i
    led) ig (++     ?i        // lediggang
      r) i (L01%    ?e        // drikke, prikke
    L08) i (ll++    ?e        // skille, stille, spille
-    st) illads     il'?&s    //
-  bast) ille       'ilj3     //
+    st) illads     il'?&s
+  bast) ille       'ilj3
     sp) i (l       ?e        // lotterispil
     sp) ilop       ?il'?Vp   // stressed
    L09) i (L03%a+  ?e        // middag
@@ -4891,21 +5048,22 @@ mississ) i (ppi    'i        // stressed
      v) i (sselulle ?i
     vr) i (ss      ?e        // vrisse
      v) i (sh      ?e        // uvished
-     n) i (sse     ?e        //
+     n) i (sse     ?e
    pen) i (s       ?i        // penissen
- vildn) i (s       ?i        //
-     p) i (sse     ?e        //
+ vildn) i (s       ?i
+     p) i (sse     ?e
      n) i (p       ?e        // nips, niptang
     kn) ip (tang   iw        // kniptang
         i (kke+    ?e        // ikke, sikkerhed, sikkert
  dynam) i (k+      ?i        // termodynamikken
     ch) i (k+      ?i        // chikke
-    sk) i (k+      ?i        // skikkelse
-   L06) i (lle+    ?e        // billede, piller
-     b) i (lle_+   ?i        // insect
+    sk) i (k++     ?i        // skikkelse, beskikke
+   L06) i (lle++   ?e        // billede, piller
+     b) i (lle_+++ ?i        // insect
+     b) i (llen+++ ?i
      b) i (ller_+  ?i        // insect
      b) i (llen_+  ?i        // insect
-     b) i (llet++  ?i        //
+     b) i (llet+++ ?i
   traf) i (k       ?i        // juletrafikken
   tekn) i (k       ?i        // salgsteknikken
    but) i (k       ?i        // videobutikken
@@ -4915,23 +5073,39 @@ mississ) i (ppi    'i        // stressed
      k) i (L09L04++ ?i       // kinin TEST
      k) i (k++     ?i        // kik, kikkert
      k) i (Ce++    i         // skide
+   ork) i (de+     ?i
      k) i (derik++ ?i        // skiderik - short i
     sk) i (bet++   ?i        // skibet
      k) i (L09L11++ i        // kime
-     k) i (mning+  i         //
-   bik) i (ni      ?i        //
+     k) i (mning+  i
+   bik) i (ni      ?i
     sk) i (mo+     ?i        // eskimo
 
 // General rule j in "udie", "olie"
     ud) i (e       j         // studie, audiens
     ol) i (e       j         // olie
 
+// General rule - word ending -ium, -iet, -ier: i => j
+        i (um_     j         // kranium
+        i (et_     j         // kraniet
+        i (er_     j         // kranier
+    _t) i (er_     ?i        // tier stille
+    fr) i (er      ?i
+     C) i (e_      j         // præmie
+     c) i (enni    j         // anciennitet
+  _mar) ie         '?i@-     // name
+     b) i (er_     ?i
+ polit) i (et      '?i
+     v) i (et      ?i
+    fr) i (et      ?i
+     t) i (et_     ?i
+
 // general rule: [?e] between l and nt
      l) i (nt      ?e        // flint, klint, splint
 
 // general rule: [e] between h and m
      h) i (m+      ?e        // himlen
-     h) iroshi (ma iroS'i    //
+     h) iroshi (ma iroS'i
      h) imalaya    ?em&l'aI& // stressed
 
 // general rule: [e] before mp
@@ -4978,7 +5152,8 @@ mississ) i (ppi    'i        // stressed
     pl) i (gt+     ?e        // pligt
     pl) i (L01L11+ ?i        // komplikation
      s) i (L01L07  ?e        // sigte, sigt, udsigt
-    _l) ig (C      ij        // lighus
+    _l) ig (C      ?ij       // lighus
+     l) ig (ne     i         // ligner - long i
    fil) ig (ran    ?ig
      l) igi        ?igj      // relegiøs, religion
     _n) i (L10     ?e        // nikke, nik, Nick
@@ -4986,7 +5161,7 @@ mississ) i (ppi    'i        // stressed
      n) i (che     ?i
 
      k) ikset (_   egs@-D    //
-     f) i (nkul    i         // finkulturel
+     f) i (nkul    ?i        // finkulturel
 
 // miscellaneous
     sv) i (L09C    ?e        // svimle, svimmel, svindle, svind, sving
@@ -5003,14 +5178,14 @@ spirrev) i (p      '?i       // stressed
      p) i (p+      ?i        // pipfugl
      b) i (p+      ?i        // bipper, biperson
      v) i (b+      ?i        // vibrere
-     C) i (mC      ?e        // fims, gesims, vimse, bims, dims, bimle
-     l) i (mni+    i         // limning
+     C) i (mC+     ?e        // fims, gesims, vimse, bims, dims, bimle
+     l) i (mni+    ?i        // limning
 himstreg) i (ms    '?e       // stressed
     sk) i (n+      ?e        // skin, skinne, skinke
     kn) i (p       ?e        // kniplen
     Cr) i (mC      ?E        // vrimle, strimle
     Cr) i (mm      ?E        // grimme - short followed by 2 consonants
-    pr) i (m+      i         // primtal, primus
+    pr) i (m+      ?i        // primtal, primus
   L06r) i (nt      ?e        // brint, print
    kor) i (nt      ?e        // korinterne
    str) i (nt      ?e        // strinte
@@ -5032,8 +5207,8 @@ espadr) ille       '?ilj@-   //
    _dr) i (l       ?e        // dril, drilagtig
   L01r) i (ll      ?i        // kriller, grill
    jun) i (or      j         //
-     b) i (tter+   ?e
-     b) i (tre     e
+     b) i (tter++  ?e
+     b) i (tre++   ?e
      m) iav        jaw       // miav
   _rad) i (se      '?i       // stressed
   tils) i (de      'i        // tilsidesætte - stressed
@@ -5085,8 +5260,10 @@ espadr) ille       '?ilj@-   //
 
 // general rule: [e] after sp/st/sk/r before k/l
    L08) i (L01++   ?e        // stik, joystick
+    st) i (g++     ?i        // stigning
   part) i          ?i        // skyggepartikler
  polit) i (k       ?i        // miljøpolitikken
+@statist) i (k     ?i        // kriminalstatistikken
    art) i (k       ?i        // trosartikel
     sk) i (l++     ?e        // skildpadde, skilt
     sk) i (løb++   ?i        // skiløber
@@ -5117,12 +5294,14 @@ _ventr) i (k       '?i       // ventrikel, ventrikler
 
 // general rule: [e] between consonant and st/sp/sk
      l) i (L08+    ?e        // list
+@journal) i        ?i        // fotojournalist
   ball) i (stik    ?i
      l) i (sk      ?i        // cyklisk
  @cykl) i (st      ?i        // røvcyklist
   obel) i (sk      '?i       // stressed
      r) i (L08++   ?e        // riste, frisk, brist, vrist, Kristus, dristig
      r) i (skage+  ?i        // riskager
+    ir) i (sk+     ?i        // grønirisk
 @terror) i (s      ?i        // antiterroristenhed
      r) i (L08L04++ ?i       // aristokrat, periskop
     dr) i (stig+   ?e        // dumdristig
@@ -5151,7 +5330,10 @@ infanter) i        i         // marineinfanterist
 //   bev) i (s       ?i       // beviskæde
    høv) i (sk      ?i        //
     _m) i (ste_    ?e        // miste
+    _m) i (stet_   ?e        // mistet
     _m) i (ster_   ?e        // mister
+    _m) i (stede_  ?e        // mistede
+    _m) i (stedes_ ?e        // mistedes
     _m) i (st_     ?e        //
      m) i (stanke  i         //
      m) istelten   ?istElten //
@@ -5195,9 +5377,10 @@ havde_v) i (st_mig i
    L06) i (ke      ?i        // pikikerede, piké
    _sp) ike        aIk       // Spike Jones - name
      l) i (kv+     ?i        // likvid
-    pl) i (k       ?i        // replik, duplik
+    pl) i (k+      ?i        // replik, duplik
   publ) i          ?i        // folkerepublik
   harp) i (ks      ?i        //
+  hand) i (L10     ?i        // handikap
 
 // words with final -id in da_list - stressed i
      &) id ($p_alt+ ''?iD    // hybrid, invalid
@@ -5244,11 +5427,11 @@ austral) ier       =j?V
 
 // words with final -isme in da_list (348) - stressed i
      &) isme ($p_alt ''?ism@- // kommunisme, egoisme
-     &) isme (r$p_alt '?ismV // organismer
+     &) isme (r$p_alt '?ism?V // organismer
 
 // words with final -inde in da_list - stressed i
      &) inde ($p_alt++ '?en@- // malerinde
-     &) inde (r$p_alt++ '?enV // malerinder
+     &) inde (r$p_alt++ '?en?V // malerinder
 
 // put stress on the syllable before final 'ium' - words in da_list
      &) ium ($p_alt =?i?Om   // territorium
@@ -5257,14 +5440,15 @@ austral) ier       =j?V
     &r) i (et$p_alt '?i      // infirmeriet
 
 // put stress on the syllable before final 'ie' - words in da_list
-     &) ie ($p_alt+++ =j@-   // valkyrie, kalorie, familien
+     &) ie ($p_alt++++ =j@-  // valkyrie, kalorie, familien
      &) ie (liv$p_alt =j@-   // familieliv
-     &) ie (r$p_alt++ =j?V   // familier
+     &) ie (r$p_alt+++ =j?V  // familier
     &s) ie ($p_alt =j@-      // gymnasiereform
     &r) ie (l$p_alt++ ?i'?E  // materiel
      &) ie (re$p_alt =?i''?e // injuriere, injurierende
  kalor) i (us      =?i       //
 @famil) ie         j@-       // kongefamilie
+@histor) ie        j@-       // toilethistorien
 
 // stressed i in words with final -mi in da_list
     &m) i (_$p_alt '?i       // økonomi, kemi - only one stress-marker because of 'kemikalier'
@@ -5276,87 +5460,88 @@ austral) ier       =j?V
 // ie=>j@- TEST
     er) ie         j@-       // serie, ferie
     er) iet        i@-D      // nusseriet
-    er) ier        jV        // serier, ferier
-    rr) ie (re     ?i:'E     // karriere TEST
-    rr) ierer      j'EV      // karrierer TEST
-    or) ie (nt_    i'E       // Den nære Orient
-    or) ie (nten_  i'E       // Orienten
-    or) ie (ntens_ i'E       // Orientens
+    er) ier        j?V       // serier, ferier
+    rr) ie (re     ?i'E:     // karriere TEST
+    rr) ierer      ?i'E:?V   // karrierer TEST
+    or) ie (nt_    ?i'?E     // Den nære Orient
+    or) ie (nten_  ?i'?E     // Orienten
+    or) ie (ntens_ ?i'?E     // Orientens
   prær) ie         j@-       // prærieulv
    ter) ie (l      ?i?E      // krigsmateriel
 
 // French words with final -ier
-  atel) ier        j'e
-  bank) ier        j'e
-barbad) ier        j'e
-  coll) ier        j'e
- croup) ier        j'e
-   den) ier        j'e
-  doss) ier        j'e
-  doss) ieret      j'e@-D
-elegant) ier       j'e
- espal) ier        j'e
-financ) ier        j'e
-finans) ier        j'e
-grenad) ier        j'e
-konferenc) ier     j'e
-kostum) ier        j'e
-  lanc) ier        j'e
-   met) ier        j'e
-particul) ier      j'e
-  port) ier        j'e
-  rent) ier        j'e
-  spal) ier        j'e
+  atel) ier        j'?e
+  bank) ier        j'?e
+barbad) ier        j'?e
+  coll) ier        j'?e
+ croup) ier        j'?e
+   den) ier        j'?e
+  doss) ier        j'?e
+  doss) ieret      j'?e@-D
+elegant) ier       j'?e
+ espal) ier        j'?e
+financ) ier        j'?e
+finans) ier        j'?e
+grenad) ier        j'?e
+konferenc) ier     j'?e
+kostum) ier        j'?e
+  lanc) ier        j'?e
+   met) ier        j'?e
+particul) ier      j'?e
+  port) ier        j'?e
+  rent) ier        j'?e
+  spal) ier        j'?e
 
 // various exceptions
      _) idel (_    i:D@-l    // idel
         israel     ?isrA:l   // Israel
         israeler   ?isrA'?elV // israelsk
-        israelsk   ?isrA'?elsk //
+        israelsk   ?isrA'?elsk
     _d) israel (i  isrA'el   // name
         irving     WveN      // name
-  smok) i (ng      ?e        //
-   sen) ior        j?V       //
+  smok) i (ng      ?e
+   sen) ior        j?V
+   sen) io (rer    j'o
         iew        j'u
     _t) i (n       ?e        // tinfolie
      t) i (nL11    i         // Tina, Tine
-     b) ingo       ?engo     //
+     b) ingo       ?engo
     _m) id (t      ?e        // midt - silent d
         i (mpo     ?e        // imponerende
 special) i (st     ?i        // stålspecialist
-   gev) i (nst     ?e        //
+   gev) i (nst     ?e
      f) i (nte     ?e
      r) idge       ?idZ      // Coleridge, bridge
     br) idget      IdZit     // name
      r) isik (e    esik      // risikere
      r) isiko      ?is?ik?o  // risiko
     gl) i (m       ?e        // glimt, glimrende
-     l) i (nned    ?e        //
+     l) i (nned    ?e
   klin) i (k       ?i        // fødeklinik - unstressed after syllable
     @t) i (k_++    ?i        // ferieromantik, finanspolitik
   best) i (k++     ?e        // bestikke
   bist) i (k++     ?e
  solst) i (k++     ?e
-knivst) i (k       ?e        //
-spadest) i (k      ?e        //
-myggest) i (k      ?e        //
-nålest) i (k+      ?e        //
+knivst) i (k       ?e
+spadest) i (k      ?e
+myggest) i (k      ?e
+nålest) i (k+      ?e
  plast) i (L10     ?i        // plastik/c
-tændst) i (k+      ?e        //
-gudhjælpem) ig     =Aj       //
+tændst) i (k+      ?e
+gudhjælpem) ig     =Aj
         i (owa     aI        // US state
-     t) i (ming    aI        //
+     t) i (ming    aI
      n) i (tten    ?e        // the number 19 - problem with noun "nitte"
     kl) i (k_      ?e        // museklik
      f) i (x       ?e        // fixe
    L09) i (ks      ?e        // mikse, niks
    L09) i (x       ?e        // Nixon
-     m) i (kstur   ?i        //
+     m) i (kstur   ?i
      m) i (kler    ?e        // skvatmikler
      p) i (lr      ?e        // pilrådden
      l) i (ns      ?e        // linse
-     l) i (lla     ?e        //
-     t) ime (out   aIm       //
+     l) i (lla     ?e
+     t) ime (out   aIm
      r) i (ley     aI        // name
      s) i (d_      ?e        // sid
      s) i (den_+   ?i        // siden
@@ -5374,56 +5559,56 @@ gudhjælpem) ig     =Aj       //
     hv) i (l+      i         // hvil
  nashv) ille       ?el/2     // US city
     hv) i (lk+     ?e        // hvilken
-     v) ind (rue   ?ind      //
-     v) i (nter    ?e        //
-     v) i (ntre    ?e        //
+     v) ind (rue   ?ind
+     v) i (nter    ?e
+     v) i (ntre    ?e
      v) id (st     ?e        // vidst - e and silent d
-    uv) i (s       ?e        //
-     v) i (st_ikke ?e        //
+    uv) i (s       ?e
+     v) i (st_ikke ?e
 projekt) i (l      ?i        // blyprojektiler
    art) ille (ri   ?il@-     // artilleri
-    st) i (lfuld   ?i        //
+    st) i (lfuld   ?i
 // stil = "style" not the verb 'stil' = "put, place"
-_min_st) i (l_     ?i        //
-_sin_st) i (l_     ?i        //
-_din_st) i (l_     ?i        //
-_jeres_st) i (l_   ?i        //
-_deres_st) i (l_   ?i        //
-_hans_st) i (l_    ?i        //
-_hendes_st) i (l_  ?i        //
-_med_st) i (l_     ?i        //
-_ny_st) i (l_      ?i        //
-_skifte_st) i (l_  ?i        //
-_skift_st) i (l_   ?i        //
-_skifter_st) i (l_ ?i        //
-_dansk_st) i (l_   ?i        //
-_have_st) i (l_    ?i        //
-_havde_st) i (l_   ?i        //
-_har_st) i (l_     ?i        //
+_min_st) i (l_     ?i
+_sin_st) i (l_     ?i
+_din_st) i (l_     ?i
+_jeres_st) i (l_   ?i
+_deres_st) i (l_   ?i
+_hans_st) i (l_    ?i
+_hendes_st) i (l_  ?i
+_med_st) i (l_     ?i
+_ny_st) i (l_      ?i
+_skifte_st) i (l_  ?i
+_skift_st) i (l_   ?i
+_skifter_st) i (l_ ?i
+_dansk_st) i (l_   ?i
+_have_st) i (l_    ?i
+_havde_st) i (l_   ?i
+_har_st) i (l_     ?i
     st) i (l_over  ?i        // "der er stil over ham"
    _st) i (l_dem   ?e        // "stil dem derhenne"
-   _st) i (l_jer   ?e        //
-   _st) i (l_den   ?e        //
-   _st) i (l_mig   ?e        //
-   _st) i (l_os    ?e        //
-   _st) i (l_vores ?e        //
+   _st) i (l_jer   ?e
+   _st) i (l_den   ?e
+   _st) i (l_mig   ?e
+   _st) i (l_os    ?e
+   _st) i (l_vores ?e
    Ast) i (l_      ?i        // fægtestil, rokokkostil
-    st) i (lart    i         //
+    st) i (lart    i
 _en_st) i (l_      ?i        // stil - noun
    _st) i (l_over_hende ?i   // "der er stil over hende"
-   _st) i (l_over_ham ?i     //
+   _st) i (l_over_ham ?i
    _st) i (l_over_deC ?i     // "stil over" det/dem/deres
  er_st) i (l_over_ ?i        // "der er stil over"
 var_st) i (l_over_ ?i        // "der var stil over"
 mere_st) i (l_over_ ?i       // "der er mere stil over"
-har_st) i (l_      ?i        //
-havde_st) i (l_    ?i        //
+har_st) i (l_      ?i
+havde_st) i (l_    ?i
 egen_st) i (l_     ?i
 umoden_st) i (l_   ?i
 moden_st) i (l_    ?i
 stor_st) i (l_     ?i
-forest) i (l       e         //
-livsst) i (l       ?i        //
+forest) i (l       ?e
+livsst) i (l       ?i
     st) i (lling++ ?e        // livsstilling
   vent) i (l       ?i        // slangeventil
     ju) i (ce                // juice - skip the i
@@ -5431,30 +5616,30 @@ livsst) i (l       ?i        //
      s) i (kC      ?e        // sikre
      p) is (_      ?es       // pis
    L08) is (+      ?is       // spis
-     l) igh (ter   aI        //
-luksusl) i (ner    aI        //
+     l) igh (ter   aI
+luksusl) i (ner    aI
      n) ij (megen  aI        // Nijmegen
-     v) ie (tnam   j?E       //
-     v) ie (t_cong j?E       //
+     v) ie (tnam   j?E
+     v) ie (t_cong j?E
   hipp) ie         ?i        // silent e
      p) ie (destal ?i        // silent e
    pav) ill (o     ilj       // pavillon
     br) ill (ere   ilj       // brillere
      d) i (sk      ?e        // købmandsdisk
-     d) i (skrepans ?i       //
+     d) i (skrepans ?i
      d) i (skva    ?i        // diskvalificere
      d) i (skrimi  ?i        // diskriminere
      d) i (skett   ?i        // diskette
      d) i (sko     ?i        // diskotek, diskodans
      d) i (sL10a   ?i        // diskant
-   ind) i (sk      ?i        //
-  jord) i (sk      ?i        //
-    tw) i (st      ?e        //
+   ind) i (sk      ?i
+  jord) i (sk      ?i
+    tw) i (st      ?e
      d) i (sku     ?i        // diskutere
-     d) i (skret   ?i        //
-    kr) i (cket    ?e        //
-     d) i (ngo     ?e        //
-  konf) i (skere   ?i        //
+     d) i (skret   ?i
+    kr) i (cket    ?e
+     d) i (ngo     ?e
+  konf) i (skere   ?i
     pr) i (n       ?e        // prins, princip, print
      d) ie (sel    ?i        // dieselolie
      k) io (sk     jV        // kiosk
@@ -5549,7 +5734,7 @@ _filantrop) i      '?i
 _galvanotyp) i     '?i
 _gastroskop) i     '?i
 _isotop) i         '?i
-  _kop) i          '?i
+  _kop) i (+       '?i
 _litotyp) i        '?i
 _maskep) i         '?i
 _misantrop) i      '?i
@@ -5628,6 +5813,7 @@ _astero) i (de     'i
  _alib) i          '?i       // alibi
   _fob) i          '?i       // fobi
 _konfl) i (kt      '?i       // stressed
+@konfl) i (kt      ?i        // interessekonflikt
   _pap) i (r       '?i       // stressed
   _tap) i (r       '?i       // stressed
  _vels) i (gn      '?i       // stressed
@@ -5692,15 +5878,15 @@ _ekserc) i (ts     '?i
 ampicill) i (n     '?i       // stressed
 valent) i (no      ''i       // name
   _sus) ie         i         // name
-michel) in         EN        // Michelinguide
+michel) in         ?EN       // Michelinguide
   houd) i (ni      'i        // name
 
 .group ig
 
 // general rule: final -ig [i] - silent g
-        ig (_      i         //  dejlig, rig
-     @) igt (_     it        // dejligt
-    @l) ig (C      i         // tydeligvis
+        ig (_      ?i        //  dejlig, rig
+     @) igt (_     ?it       // dejligt
+    @l) ig (C      ?i        // tydeligvis
 
 // exceptions
    ops) ig (t+     ?eg       // opsigt
@@ -5735,6 +5921,7 @@ skæmted) ig (t     ?eg       //
     _l) ig (_ordentligt ?ek  //
     _l) ig (_godt  ?ek       //
     _l) ig (_roligt ?ek      //
+    _l) ig (_ned   ?ek
      l) ight       aIt       //
      m) ighty      aIti      //
     fr) igea (r    ?ig?i     // frigear
@@ -5831,10 +6018,10 @@ byzant) in         '?in      // byzantinsk
 
 .group it
 // words with final  -it - stressed i
-     &) it ($p_alt '?it      // bakelit
-     &) it (an$p_alt ?it'    // samaritan
-     &) ition ($p_alt iS'?on // definition
-     &) it (t$p_alt '?i      // avoid double t - bakelitten [ b,ak@l'it@-n]
+     &) it ($p_alt++ '?it    // bakelit
+     &) it (an$p_alt++ ?it'  // samaritan
+     &) ition ($p_alt++ iS'?on // definition
+     &) it (t$p_alt++ '?i    // avoid double t - bakelitten [ b,ak@l'it@-n]
 
 .group iv
 // stressed final -iv
@@ -5872,6 +6059,8 @@ _adopt) iv         '?iw
     fi) j (i       dZ        //
         ja (ck     dZ&
      _) jarvis     dZA:ves   // name
+     _) joão       dZ?A?o    // name
+     _) joao       dZ?A?o    // name
         jitterbug  dZ?id?Vb?Vg //
         jingle     dZ?eng3l  //
         jewel      dZu:l     //
@@ -5923,7 +6112,7 @@ _adopt) iv         '?iw
      _) jersey (s_ dZW:si    // New Jerseys
         jersey (k  jErsi     // jerseyko
         jeep       dZib      // Jeep (American car)
-     _) juan       Su'AN     // don juan
+     _) juan       Su'?AN    // don juan
         joke       dZWwk     // joke, joker
   derh) j (emme    'j        // stressed j
     en) j (ambe    S         // enjambement
@@ -5980,6 +6169,7 @@ _adopt) iv         '?iw
    spe) k (takl              // silent k - spektakler
      &) k          k         // after stressed vowel
      _) kate (_    kEjt      // name
+     _) kate (s_   kEjt      // name
         karaoke    k&r&'ouki //
         krysantemum krYs'&nt@-mOm //
         krysantemumm krYs'&nt@-mOm //
@@ -6044,6 +6234,7 @@ hestefi) let       l?e       // silent t
         leger (_   laIV      // leger
         lege (ring l?eg'?e   // stressed
     _o) leg        lEg       // name
+        leg (ummi  l@-g      // boblegummi
         læg (præd  lEj       // lægprædikant
      k) læg        lEj
         lægg (e    l?Eg      // mørklægge
@@ -6137,16 +6328,16 @@ forgle) mmigej     m||mAj_!Aj // forglemmigejer
         mpson      msVn      // Thompson
         marseille  maRs'E:j
         musical    mju:sik3l //
-        mahogni    m&h'oni   //
-        manager    m&nedZV   //
-        moulin     mul'&N    // Moulin Rouge
+        mahogni    m?&h'oni  //
+        manager    m?&n?edZ?V //
+        moulin     m?ul'?&N  // Moulin Rouge
      _) mouse      maws      // Mickey Mouse
-        makaroni   mak3r'Vni //
-        midnight   mednaIt   //
+        makaroni   m?ak@-r'?Vn?i //
+        midnight   m?ednaIt  //
 single_) malt      mOlt      // whisky
-        massachusetts m&s&tj'usEts //
-     _) muppet     mVpet     //
-        mother     mVDV      //
+        massachusetts m?&s?&tj'us?Ets //
+     _) muppet     m?Vp?et   //
+        mother     m?VD?V    //
 
 .group me
 
@@ -6241,7 +6432,7 @@ _bombarde) ment    m'?AN     // bombardement
     &n) ni ($p_alt++ '?i     // tyranni - only one n
      &) ni (sk$p_alt+ =n?i   // ironisk - stress on pervious syllable before sk
 _harmo) nika       =n?ik?&   // stressed o
-  biki) ni         =n?i      //
+  biki) ni (++     =n?i      //
     ma) ni (o+     =n?i      // maniodepressiv
 
 // nouns with final -ner ("er" has been removed) in da_list
@@ -6494,7 +6685,7 @@ _man_ba) nd (er    n         //
     ti) nd (in     n         // tinding
     fi) nd (+      n         // fejlfinding
      i) nd (ig+    nd        // spidsfindig, besindig
-    bi) nd (in     n         // forbinding
+    bi) nd (in+    n         // forbinding
     vi) nd (in     n         // udvinding
      i) nd (imellem n        // exception
      i) nd (erl+   n         // inderlig
@@ -6559,11 +6750,18 @@ _man_ba) nd (er    n         //
         o (ld++    ?V        // hold, holde, solde - ld=>l
         o (mm+     ?V        // komme, omme
     ep) o (s       ?V
+    @f) or (A      ?V        // bedsteforældre TEST
+   dep) o (situm   ?o
         o (nd      ?o        // bonde, onde
      p) o (n       ?V        // Ponderosa, poncho
+        or (C      ?O        // torv, lortejob
+     r) oadie      OwdI
+     r) oadier     OwdI?V
 
 _noget_r) o (s_    ?V
 albatr) o (s       ?V
+   fag) o (t       '?V       // stressed
+     f) or (an     ?V        // sikkerhedsforanstaltninger
 
 // long o because of the a?
      s) o (fa      o:
@@ -6571,12 +6769,14 @@ albatr) o (s       ?V
         o (Ci      o         // rolig TEST
   pret) o (ria     '?o       // stresssed
    fur) ore        'o:V      // stressed
+     t) o (lerant+ ?o
 
      _) or (n      O:        // orne, ornitolog
 
         oo         u:        // English words like 'pool'
      v) oodoo      u:d?u
      C) oog        oV        // toogtyve
+     g) oogle      ug@-l
    scr) ooge       u:dZ      // name
      b) oone       un        // name
      b) oogie      ugi       // boogie-woogie
@@ -6588,6 +6788,7 @@ albatr) o (s       ?V
      c) ochise     OwS'i:s   // name
      h) owie       ?Awi      // name
    pin) occhio     '?Vkj?o   // name
+        oates      Owts      // name
     kl) oro (form  oo
  shamp) oo         ?o        //
   nark) o          o         // narkoopgør
@@ -6677,7 +6878,7 @@ _elektr) o (de     'o
 // Some people pronounce it [V]
      k) o (C%L04++ o         // korridor, korrupt, kollegium, kommode
    L08) o (tt      ?V        // skotte, spotte
-
+    sk) o (ll++    ?V        // grønskolling
      k) o (mmentA+++ ?o      // kommentar, kommentere
      k) o (llekt_  ?o        // could also be [V]
      k) o (lleg+++ ?o        // kolleger
@@ -6723,6 +6924,7 @@ _elektr) o (de     'o
    _kr) oket (_    ?Vk@-t    // game
      C) o (kL05+   ?o        // PB pokal TEST
      m) ojave      ?oh'Av?e
+    dr) og         ?o        // drog af sted
 
      C) o (g+      ?O        // bogmærke, bedrog, krog, tog (verb "took", noun "train")
      C) o (ge+     O         // toge
@@ -6786,14 +6988,14 @@ elektr) o          =?o       // elektrokromatisk
 // general rule o + frontal consonant: [V]
         o (L03K+   ?V        // Olga, Volga, vold, vod, od, volt, polstre
      s) o (d+      ?o        // sod, løbesod
-        o (lsen    ?o        // name
+        o (lsen+   ?o        // name
      k) o (d+      ?o        // omkodning
    gaj) o (l       '?o       // candy
   symb) o (l       ?o        // sexsymbol
  bornh) o (lm      '?V       //
    L08) o (l+      o         // skole, spole, spol
      t) o (lk      ?V        // mistolke
-     p) o (l       ?o        // nordpolen, politi
+     p) o (l+      ?o        // nordpolen, politi, interpol
      p) o (l_      ?o        //
      p) o (lsk     ?o        // polsk
      p) o (lt      ?V        // polterabend
@@ -6812,7 +7014,7 @@ hyperm) oder (ne   ?od?Er
   form) o (de      o         // formoder
    anm) oder       oDV
      l) o (L03+    ?o        // forlod, blod, efterlod
-    fl) o (d_      ?o        // short o
+    fl) od (+      ?oD       // floddal - short o
     fl) o (den     ?o        // short o
     fl) o (der     o         // long o
      j) o (d+      ?o        //
@@ -6862,6 +7064,7 @@ trak_l) o (d                 //
 // general rule o + p/b: [V]
         o (L06+    ?V        // op, opdrage, obstruere
         o (L06%+   ?V        // oppe - short
+     n) o (pre     ?o
 kommand) o         ?o        // kommandobroen
      s) ophia      ?of'i&    // name
         o (pposit  ?o        // opposition
@@ -6911,7 +7114,7 @@ _kaskel) o (t      '?V       // stressed
    pel) oton       ?ot'?VN
 
     Ca) o (s       ?V        // kaos Laos
-   L08) o (f       ?V        // stof
+   L08) o (f++     ?V        // stof
     sk) o (fab     ?o        // skofabrik
   kask) o          ?o        // kaskoforsikring
     tr) o (CL04    ?o        // antropolog, tropisk, troperne
@@ -6926,7 +7129,9 @@ _kaskel) o (t      '?V       // stressed
         o (megn    ?V        //
         o (mk      ?V        // deromkring
      k) o (nC      ?V        // konfirmand, konfekt,  konkurrence
-     C) o (sCL11+  ?V        // fosfat, koster, moster, foster, floskel
+     C) o (sCL11++ ?V        // fosfat, koster, moster, foster, floskel
+   eur) o          ?o        (+++ // neuroskanner
+  porn) o (++      ?o
    col) osseum     ?os'E?Om
     fr) o (sne     ?o        // fastfrosne
     tr) o (sretning ?o       //
@@ -6944,7 +7149,7 @@ _kaskel) o (t      '?V       // stressed
   test) o (steron  ?o        //
 rekogn) o (scere   ?o        //
     tr) os (samfund ?os      //
-  metr) o          ?o        // metrostation
+  metr) o (++      ?o        // metrostation
     tr) o (ld      ?V        // charmetrold
    bek) o (st      ?V        // bekostning
         o (sCL04   ?V        // osmose
@@ -6956,7 +7161,7 @@ rekogn) o (scere   ?o        //
         o (stindi  ?o        // Ostindien
      r) oscoe      ?Vsk?Ow   // Roscoe - name
      k) o (stL04   ?o        // kostume
-    Cr) o (sk+     ?o        // troskab, kroskænk
+    Cr) o (sk++    ?o        // troskab, kroskænk
      n) o (s_      ?V        // nos nu ikke i det
      g) o (slav+   ?o        // Jugoslavien
      h) o (spit    ?o        // hospital
@@ -7017,6 +7222,7 @@ _hæmat) o (m       '?o
         o (ttawa   ?V        //
   term) o (sta     ?o        // termostat
      r) o (st++    o         // rost, skamrost, prostitueret, roste
+    pr) o (stata   ?V        // prostata
      f) oged       o:@-D     // silent g
   bank) o (sp      ?o        // bankospil
      k) o (sko     ?o        // bronkoskop
@@ -7043,7 +7249,7 @@ helsek) o (st      ?V        //
     fC) o (t       ?V        // flot, fjot
     fC) o (tL04    ?o        // flotille
 
-        o (x+      ?V        // oxid
+        o (x+++    ?V        // oxid, Fox
      t) o (mas_    ?V        //
     th) o (mas_    ?V        //
      t) ow (er     ?Au       // Tower Bridge
@@ -7164,12 +7370,12 @@ _paran) oia        '?Vj&     // stressed
      k) og (nit    ?Vg       // kognitiv
         og (tredive ?V       // fireogtredive
  hvalr) o (s       ?V        //
-     _) obo        ?ob'?o    //
+     _) obo (+     ?ob'?o    //
         org (+     O:w       // sorg, morgen, Norge
         org (er    Ow        // borger
         org (el    Ow        // orgelet
-        org (i     V:g       // georgisk
-        org (ie    ?Vg       //
+        org (i     O:g       // georgisk
+        org (ie    ?Og       //
     ge) org (ine   ?og       //
         or (ga+    ?O        // organ
      r) or (g      ?oR       // rorgænger
@@ -7193,7 +7399,7 @@ _paran) oia        '?Vj&     // stressed
     kr) o (væ      ?o        // krovært
         ov (erhead Ouv       // overhead
         over (hoved+ ?Ow?V   // overhoved
-    at) ov (er     ?ov       // tatovere
+    at) ov (er+    ?ov       // tatovere
      k) ov (end    ?ov       // kovending
         ov (ærn+   ?ov       // autoværn
    vuk) ov (ar     ?ov       // Vukovar
@@ -7421,31 +7627,32 @@ noblesse_) oblige  _^_fr     // noblesse oblige
     _g) oldie      Ouldi     // name
     _g) olden (_   Ould-@n   // Golden Delicious
   ravi) o (li      'o        // stressed o
-   rob) o (t++     'V        //
-     d) ollar      VlV       // dollar - only this word plus compounds like 'dollargrin'
+   rob) o (t++     '?V
+     d) ollar      ?Vl?V     // dollar - only this word plus compounds like 'dollargrin'
      s) o (l++     ?o        // sol, soldat
-     s) o (llys++  ?o        //
+     s) o (llys++  ?o
     is) olde       'Vld@-    // name
-     s) olgt       Vlt       // solgt - exception
-     n) o (tere+   o         // børsnotere
- kontr) o (l       V         // billetkontrol
+     s) olgt       ?Vlt      // solgt - exception
+     s) o (lvent+  ?V
+     n) o (tere+   ?o        // børsnotere
+ kontr) o (l       ?V        // billetkontrol
  kontr) o (ller    %?O       //  priskontrolleret
- kontr) o (llør    ?o        //
-    sn) o (t+      V         // snot
-     h) otdog      VtdVg     //
-    _h) o (t_      V         //
+ kontr) o (llør    ?o
+    sn) o (t+      ?V        // snot
+     h) otdog      ?Vtd?Vg
+    _h) o (t_      ?V
         or (l      O:        // orlov
      _) orly (_    O*l'i     // French airport
-        oscar      VskA      //
-        oswald     _^_en     //
-        oxford     VgsfV:d   //
-        oakland    Wwkl@-nd  //
+        oscar      ?VskA
+        oswald     _^_en
+        oxford     VgsfV:d
+        oakland    Wwkl@-nd
      b) oar (ding  O:        // boardingpas
-     _) o (liver   V         // name
-     d) ono (van   Vn@-      // name
-    bl) ow         'Ow       // blowjob
-    sp) o (nsor    V         //
-    _h) o (liday   V         //
+     _) o (liver   ?V        // name
+     d) ono (van   ?Vn@-     // name
+    bl) ow         '?Ow      // blowjob
+    sp) o (nsor    ?V
+    _h) o (liday   ?V
 
 .group on
 
@@ -7552,7 +7759,7 @@ helsingf) or (s    'V        // stressed
         or (to     O:        // ortodoks, ortopæd
      m) orge       O?O@-     // morgen
    dek) or (_      'V:r      // dekor
-  rapp) or (t      'O:       // rapport
+  rapp) or (t      'O        // rapport
      f) or (t_     O:        // fort
      f) ort (sæt   O:d       // fortsæt
  _komf) or (t      'O:       // stressed
@@ -7582,6 +7789,7 @@ helsingf) or (s    'V        // stressed
      b) or (te     O
      b) or (C_     O:        // bort
      p) or (t      Or        // port
+     p) or (træt   O
    imp) or (te     O:        // importere
    imp) or (t_     'O        // import - stressed
    _ab) or (t      'O:       // stressed
@@ -7628,7 +7836,7 @@ _transp) or (t     'O:       // stressed - transport, transportmiddel
         ord (enen+ ?Od       // ordenen
      t) ord (enen+ ?ord      // tordenen
     _t) ord (++    ?ord      // torden, tordne
-     j) ord (en    ?o?V      // fjorden jorden
+     j) orde (n    ?o?V      // fjorden jorden
      j) ord (an    ?oRd      // Jordan
      j) ord (i     ?oRd      // jordisk
         ord (entlig+ 'O:d    // overordentlig - stressed
@@ -8035,6 +8243,7 @@ _transp) or (t     'O:       // stressed - transport, transportmiddel
    æld) re         R?V       // forældreløs
     dy) re         R?V       // dyrefoder
   mind) re (@      R?V       // mindreværdig
+   sco) re (@      ?V        // scorereplik
      y) re (@+     ?V        // myretue, dyrehold
      A) res (_     ?Vs
      C) rer (_++   r?V       // beundrer
@@ -8042,7 +8251,8 @@ _transp) or (t     'O:       // stressed - transport, transportmiddel
      @) rer (e_$p_alt+++ ''rE // stressed - operere, opererer
      @) rer (es_$p_alt+++ r''E // stressed - opereres
      C) ret (_++   r?VD      // ændret
-    op) ret (++    r&#t
+   _op) ret (++    r&#t
+   for) ret (++    r&#t
      A) rer (_++   V         // horer
      A) ret (_++   3-?VD     // horet, fyret
      æ) ret (_+++  ?VD       // været
@@ -8050,11 +8260,12 @@ _transp) or (t     'O:       // stressed - transport, transportmiddel
      A) rerne (s_++ ?Vn@-    // horernes
      A) rene (_    ?Vn@-     // hærene
      A) rene (s_   ?Vn@-     // hærenes
+    si) rene (+    R'En@-
      æ) re (+      V         // ærefrygt, kæreste
-//     æ) re (C+     3-V       // væremåde, værelse
+  foru) rene       r'?En@-
   myld) re (@      ?V        // myldretid
   stue) re (n      R?E
-   lad) re (@      r?V       // sladrehank
+  slad) re (@      r?V       // sladrehank
         re (tion++++ R@-     // diskretion
    høj) re (@      r?V       // højresving
 
@@ -8097,6 +8308,7 @@ dagpenge) ret (++  r&#t
    ene) ret (++    r&#t
         rett (+++++++ r?&#t  // henrette, rettroende - only one t
      s) ret (+++   r&#t      // rigsret, yndlingsret
+  pans) ret (+     r?VD      // pansret køretøj
 højeste) ret (++   &#t
 familie) ret (++   r&#t
     by) ret (++    r&#t
@@ -8318,7 +8530,7 @@ franci) sc (o      sk        // Francisco
         shire      S@        // British towns with final -shire
         seamus     SEim@-s   // name
      _) steve      sti:v     // name
-     _) steven     sti:v@-n  // name
+     _) steven     stiv@-n   // name
         sheila     Si:l&     // name
         shor (t    SO        // shorts
      _) stone      sdoun     // namde - Stone
@@ -8327,8 +8539,8 @@ empire_) state (_  stEjt     //
         sher (wood SW:       // Sherwood Forrest
         surf       sW:f      // windsurfing
         surf (e    sW:f
-    la) sur        sur       // lasurfarve
-     _) sugar (_   SugV      // Sugar Ray
+    la) sur        s'?ur     // lasurfarve, glasur
+     _) sugar (_   S?ugV     // Sugar Ray
         savoir     s&voa:    // savoir-faire
         sonya      sVnj&     // name
         sophie     sOufi     // name
@@ -8337,9 +8549,9 @@ empire_) state (_  stEjt     //
         suffolk    sVfVk     //
         screwdriver skRudraIvV //
         sunday     sVndi     // Sunday Times
-        solsjenitsyn sVlsj@n'itsin //
+        solsjenitsyn s?Vlsj@n'?its?in //
         sloane     slOwn     // name
-        swanee     swVni     // Swanee River
+        swanee     sw?Vn?i   // Swanee River
         sweet      swi:t     //
 
    er_) sig (_til  sAj       // avoid [si] - glæder sig [saj] til
@@ -8478,7 +8690,8 @@ _ville_du_) så (_  sV        //
 
 kompromi) s        '         // stress added
  succe) s          '
-        shirt      S3:t      // T-shirt
+        shirt      SWt       // T-shirt
+        shirten    SWt@n     // T-shirten
         steak      stEjk     //
         smiley     smaIli    //
         straight   sdrE:jt   //
@@ -8582,7 +8795,7 @@ world_) trade      trEjd     //
      t) te (_      @-_!      // lodrette TEST
    lyg) te (@      t@-       // lygtepæl
    lyg) ter        d?V       // lygterne
-   sor) te (@      d@-       // sorteper
+   sor) te (p@     d@-       // sorteper
    hel) te (@      d@-       // heltedåd
    tor) t (ere     t         // tortere
  @komi) te         t?e       // trænerkomite
@@ -8706,9 +8919,9 @@ meningi) ti (s     =ti
         u (set     ?u        // huset
 
         ur (gt     o3-       // spurgt
-        ure (_     u3-?V     // ure, mure
-        urer (_    u3-?V     // ure, murer
-    _k) urer       uR'Er     // stressed
+        ure (_     u?V       // ure, mure
+        urer (_    u?V       // ure, murer
+    _k) urer       ?uR'?Er   // stressed
 
 // general rule: [O] after consonant followed by k/g
      C) u (L01t    ?O        // frugt, fugt, lugt, lugte
@@ -8733,10 +8946,11 @@ meningi) ti (s     =ti
     sl) ug         ?u        // slugt, sluge - silent g
      s) u (g       u         // sugerør, suggestiv
      l) u (k       ?O        // sluk, pluk, lukke, fluks
+   zul) u          ?u        // zulukriger
      l) u (krL11   ?u        // lukrativ
         u (ks      ?0        // juks, buks
      l) ukaf       ?Og'&     // sygelukaf
-     p) urple      W:p-@-l   // Purple Heart
+     p) urple      Wp-@-l    // Purple Heart
      d) u (dley    ?V        // name
         ulster     ?Vlst?V   // name
     sv) u (lst+    ?u        // svulster
@@ -8793,7 +9007,7 @@ meningi) ti (s     =ti
 // e.g. u+erværdig [uErv'Erdi] will keep its stress on the next to last syllable.
      _) u (@@+P1   u_!       // _" = no link with next vowel
      _) ube (+     'ube      // uberørt - "be" gives the next vowel stress
-     _) ufor       '?ufV:    // uforskyldt, uforfalsket, uforandret
+     _) ufor       '?ufV:,   // uforskyldt, uforfalsket, uforandret
      _) uud        '?u|'?uD  // uudforsket
      _) u (lækker  '?u
 
@@ -8872,14 +9086,14 @@ meningi) ti (s     =ti
      @) tourn)     ure       y:V
 
 // final -tur in da_list - stressed u
-    &t) ur ($p_alt+ ''ur     // struktur
-//	    &t) ur (en$p_alt+ ''uV     // strukturens
-    &t) ur (el$p_alt+ ur'    // strukturel
-    &d) ur ($p_alt+ ''ur     // trubadur
- _komf) ur         'ur       //
+    &t) ur ($p_alt+ ''?ur    // struktur
+//	    &t) ur (en$p_alt+ ''?u?V     // strukturens
+    &t) ur (el$p_alt+ ?ur'   // strukturel
+    &d) ur ($p_alt+ ''?ur    // trubadur
+ _komf) ur         '?ur      //
 
 // final -ut in da_list - stressed u
-     &) ut ($p_alt 'ut       // rekrut
+     &) ut ($p_alt '?ut      // rekrut
      &) ut (t$p_alt '?u      // rekrutter - avoid double t
 
 // short u - glottal stop
@@ -8891,15 +9105,15 @@ meningi) ti (s     =ti
      t) u (den     ?u
 
 // final -sur
- dress) ur         'ur
-  cens) ur         'ur
-   cæs) ur         'ur
-  fiss) ur         'ur
-  glas) ur         'ur
-   las) ur         'ur
-  mens) ur         'ur
-   ras) ur         'ur
-  tons) ur         'ur
+ dress) ur         '?ur
+  cens) ur         '?ur
+   cæs) ur         '?ur
+  fiss) ur         '?ur
+  glas) ur         '?ur
+   las) ur         '?ur
+  mens) ur         '?ur
+   ras) ur         '?ur
+  tons) ur         '?ur
 
 
  // most of the words with ud-: [uD] - udpege
@@ -8908,7 +9122,7 @@ meningi) ti (s     =ti
 // exceptions for ud-: [ud]
      _) ud (elt+P2 '?ud      // udelt
      _) ud (at+P2  '?ud      // udateret
-     _) ud (rikkelig+P2 ud
+     _) ud (rikkelig+P2 ?ud
      _) ud (røj+P2 'ud
      _) ud (uelig+ ?ud
      _) ud (y+P2   '?ud      // udyd, udygtig, udyr
@@ -8928,6 +9142,7 @@ meningi) ti (s     =ti
      _) d)         u         (ncan V // name
      b) urg (er    Wg        //
         u (mK+     ?O        // dum
+indian_s) u (mmer  ?V
      n) u (mlock   V         //
      h) umphrey    Vmfri     // name
     _b) urns       W:ns      // name
@@ -8984,7 +9199,7 @@ stand_) u (p       V         // stand-up-komiker
      d) ue (lig    u@-
    skr) ue (C      u:        // skruenøgle TEST
   fond) ue         'y        // ostefondue
-  infl) ue (nza    u'E       // stressed
+ _infl) ue (nza    u'E       // stressed
   aven) ue         'y        //
    alb) ue         u:        // albuerum
      h) ue         u:        // tophue, hue
@@ -9023,6 +9238,7 @@ tomatp) uré        ?yre      //
     _k) u (n_      ?0        // kun
     kl) u (ns      ?0        //
      k) u (l       ?O        // kulmine
+     k) u (lminere ?u
      k) u (llet    ?O
      k) u (ld      u         // skuldre, kuld
      k) u (ller    ?u        //
@@ -9080,17 +9296,17 @@ mudderh) u (l      ?O        //
      h) u (ltang   ?O        //
      h) u (lske    ?O        //
      h) u (lbånd   ?O        //
-     h) u (ljern   O         //
+     h) u (ljern   ?O        //
      h) u (lle     ?O        // hulledame
 
-     h) u (g       O         // hugge, hugorm
-     h) u (go_     u         // name
-    Cr) u (k       O         // sprukne, fordrukken, foretrukne, trukket, krukket TEST
-     p) u (f       O         //
-     p) u (lv      0         // pulver
+     h) u (g       ?O        // hugge, hugorm
+     h) u (go_     ?u        // name
+    Cr) u (k       ?O        // sprukne, fordrukken, foretrukne, trukket, krukket TEST
+     p) u (f       ?O        //
+     p) u (lv+     ?0        // pulver
     _r) u (b_      ?O        // rub
-    _n) u (l       O         // nul
-     n) u (levende u         //
+    _n) u (l       ?O        // nul
+     n) u (levende ?u        //
     _r) u (bbe     ?O        // rubbe, rubbet
      k) u (ffert   ?O
     _g) uid (et    aId       // guidet
@@ -9099,7 +9315,7 @@ mudderh) u (l      ?O        //
      g) uiden      aId@-n    // guiden
   at_g) uid (e     aId       // at guide
  vil_g) uid (e     aId       // vil guide
-   aug) u (st      'O        // stressed - the month - the name is in da_list with $capital
+   aug) u (st      '?O       // stressed - the month - the name is in da_list with $capital
      g) u (f       ?O        // guffe
      g) ulv        ?Ol       // gulv - silent v
      g) ulv (e     ?Olv      // gulve
@@ -9123,7 +9339,7 @@ _instr) u (ks      '?u       // stressed
     gr) u (pp      ?u        // gruppe
      r) u (m       ?O
     tr) u (man     u         // name
-   _st) urgis      WdZis     // name
+   _st) urgis      WdZIs     // name
     _m) u (llin    ?V        // name
   rayb) urn        W:n       // name
      r) u (me      ?u        //  musikinstrument
@@ -9189,6 +9405,7 @@ proven) u          '?y
     ra) v (C       w         // gravkammer
     li) vv         wv        // livvagt, livvidde
    snæ) v (+       w         // snæver, snævre
+    lø) v (C       w         // løvtag - TEST
    dri) v (C       w         // drivtryk
     hø) v (l       w         // plathøvl
   L09o) v (A       v         // nova renovation
@@ -9300,7 +9517,7 @@ udeble) v          w         //
 
 .group y
 
-        y          ?y        // Default short y TEST
+        y          ?y        // Default short y
         y (u       j         // Yussef
 
 // Short y followed by two consonants
@@ -9316,6 +9533,7 @@ udeble) v          w         //
 
      s) y (nes     ?y
     fl) y          ?y        // fly, flyet
+    fl) y (nn      ?e        // name
 
 // Long y
      C) y (Ce      y         // lyde, skydetelt
@@ -9324,8 +9542,11 @@ udeble) v          w         //
      l) y (denergi ?y
 
 // short y
+     C) y (Cer     ?y        // skyderi
    bet) y (d       ?y        // betyde
     ps) y (k       ?y        // psyke, psykolog
+_klorof) y (l      '?y       // stressed
+     l) y (den     ?y
 
 // general rule: [W] before (some) velars
         y (nk+     ?W        // ynk, ynkelig, klynke
@@ -9434,12 +9655,14 @@ virkel) y (st      W         //
     _r) y (_       ?y        // short glottal y
     _r) y (et_     ?y        // short glottal y
      h) y (p       ?y        // hyp, hypermoderne
-  part) y          i         //
+  part) y          ?i        //
+tiffan) y          ?i        // name
    Amm) y          ?i        // rummy, dummy, grammy
+  dogg) ybag       ?ib?&g
    str) yge        y@-       // strygetøj
    str) yger       yV        // stryger
-  karr) y (+       i         //
-   lib) y          i         // Libyen
+  karr) y (+       ?i        //
+   lib) y          ?i        // Libyen
      _) yves       i:v       // Yves (French name)
     fl) y (tn      W         // flytning
      m) y (nte     'W        // mynte, pebermynte (stressed)
@@ -9460,6 +9683,7 @@ _molek) y (le      'y        // stressed
      f) yrre (tr   YV        // fyrretræ
      f) yrre (k    YV        // fyrrekogle
      n) y (t       y         // nyt
+   udn) y (t       ?W
      n) y (tt+     ?W        // nytte
    ben) y (t       ?W        // benyt
      n) y (k_      W         // nyk
@@ -9614,6 +9838,7 @@ _stereot) y (p     'y        // stressed
 
 // Long æ
         æ (Ce      E         // pæne
+        æ (bne     E         // væbne
 
 // Short æ
      l) æ (der     ?E
@@ -9627,12 +9852,12 @@ _hun_l) æ (ste     E:
      k) æ (lne     E:
 
 // nouns ending with -ær in da_list - stressed last syllable
-     &) ær ($p_alt ''Er      // elementær
+     &) ær ($p_alt ''?Er     // elementær
 
 // general rule &# after r
-     r) æ (+       &#        // frækt - very broad
+     r) æ (+       ?&#       // frækt - very broad
      r) æ (CC      ?&#       // brænd
- suver) æ (n       'E        // stressed
+ suver) æ (n       '?E       // stressed
     kr) æ (_       ?E        //
      r) æ (t+      ?&#       // åndedræt
    spr) æ (C+      ?&#       // sprængt
@@ -9778,6 +10003,7 @@ _chauff) ø (r      '?W       // stressed in 'chauffør'
         øjer       Vj?V      // bøjer
         ø (jn      ?V        // øjne
      l) øg         ?Vj       // løgn, løg
+        øg (le     ?Vj       // øgler
      b) øg         ?Wj
      h) øg         ?Wj
     kl) øg (t      ?Wg       // kløgtig
@@ -9795,6 +10021,7 @@ oberstl) ø (jtnant '?V       // stressed
     _n) ø (d@      'W        // nød- stressed - nødsituation
     _n) ødt (_     ?WD       // nødt
      r) ø (d+      ?W        // brød
+     r) ø (de+     W         // sprøde
     fr) ø (+       ?W        // frø, frøer - short even if followed by [V]
      r) ø (L09     ?W#       // grøn, strøm
     dr) ø (n       ?W        // drøn
@@ -9941,6 +10168,7 @@ uimodst) å (elig   'O        // stressed
      p) å (st      ?V        // påstand
    gåp) å (mod     '?O       // stressed
     sl) å (s       ?V        // slås
+  afsl) å (s       ?O
     sl) å (s_ihjel O
 tændingsl) å (s    ?O        //
     sl) å (brok    ?V        //

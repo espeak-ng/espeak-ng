@@ -1,0 +1,136 @@
+ 
+// Letter names (temporary English names)
+_a	eI
+b	bi: $atend
+c	si:
+d	di: $atend
+_e	i:
+f	Ef
+g	dZi: $atend
+h	eItS $atend
+_i	aI
+j	dZeI
+k	keI
+l	El
+m	Em $atend
+n	En $atend
+_o	o:
+p	pi:
+q	kju:
+r	aR
+_s	Es
+t	ti: $atend
+_u	ju:
+v	vi:
+w	d'O#b@lju:
+x	Eks
+y	waI
+z	zEd
+
+_à	$accent
+_á	$accent
+_è	$accent
+_é	$accent
+_ì	$accent
+_ò	$accent
+_ó	$accent
+_ù	$accent
+
+_acu	akj'u:t
+_grv	'aksEnt
+
+
+
+// Numbers
+
+_0	n'OnI
+_1	'u-:n
+_2	Q'a
+_3	t*;'i
+_4	k;'ehI*;
+_5	k'O:g;
+_6	S'i@
+_7	S'Exg
+_8	'Oxg
+_9	n['u-I
+_10	d;'eC
+_11	'u-:nd;,iag
+_12	Q'aQ,iag
+_13	t*;'id;,iag
+_14	k;'ehI*;d;,iag
+_15	k'O:g;d;,iag
+_16	S'i@d;,iag
+_17	S'Exgd;,iag
+_18	'Oxgd;,iag
+_19	n['u-Id;,iag
+
+_20	f'iC@d
+_30	t*;'iC@d
+_40	k;'Eh*@d
+_50	k'O:g;@d
+_60	S'esg@d
+_70	S'Exg@d
+_80	'Oxg@d
+_90	n['u-:xg@d
+
+_2X	f'iC@ds@h#
+_3X	t*;'iC@ds@h#
+_4X	k;'Eh*@ds@h#
+_5X	k'O:g;@ds@h#
+_6X	S'esg@ds@h#
+_7X	S'Exg@ds@h#
+_8X	'Oxg@ds@h#
+_9X	n['u-:xg@ds@h#
+
+_0C	k;'iad
+_0M1	m'il@
+_0M2	m'il^@n
+
+_dpt	_st'adf'u-n^u-g;  // ?? full-stop
+
+
+// Unstressed words
+
+	// articles
+a	$u+
+an	$u+
+am	$u+
+na	$u+
+nan	$u+
+nam	$u+
+
+gun	$u+
+gu	$u+
+gum	$u+
+gur	$u+
+
+	// personal pronouns
+mi	$u+
+thu	$u+
+tu	$u+
+e	E: $u+
+i	i: $u+
+sinn	$u+
+sibh	$u+
+iad	$u+
+
+	// possessive adjectives
+
+mo	m@
+do	d@
+ar	$u
+ur	$u
+
+	// prepositions
+á	a2 $u+
+ag	$u+
+gu	$u+
+sa	$u+
+san	$u+
+
+	// verbs
+bu	b@
+
+
+// Pronunciation exceptions
+// $alt1  silent ending (-bh, -gh)
