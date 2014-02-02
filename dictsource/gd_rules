@@ -1,0 +1,410 @@
+
+// Based on:
+// http://en.wikipedia.org/wiki/Scottish_Gaelic_orthography
+
+// front vowels
+.L01 e è é i ì
+
+// back vowels
+.L02 a à á o ò ó u ù
+
+// slender consonant followed by a back vowel
+.L03 eall eann earr earn eadh eahg eo eò ioll ionn iu iù
+
+.L04  b bh g gh m mh
+.L05  ll m nn
+
+.L06  l n r   // cause epenthetic vowel
+.L07  l r s ch  // epenthetic after 'm'
+
+
+// NOTES:
+// Use phoneme [#] for possible preaspiration
+// Use phoneme [&] for epenthetic vowel
+
+.group a
+        a        a
+        a (dh_   o-
+        a (dhA   o-
+        a (gh_   o-
+        a (ghA   o-
+        a (L05K  aU
+        a (rrK   a:
+        a (rd    a:
+        a (rn    a:
+        
+        a (g_    a2   // don't reduce to [@]
+        ai (l_   a2
+     @) ai        I
+
+        ai       a
+        ai (L05K  aI
+        ai (mL07 E  // ? aimsir
+        ai (bhC  aI
+        ai (mhC  aI
+        ai (rrK  a:
+        ai (rd   a:
+        ai (rn   a:
+
+        ao       u-:
+        aoi      u-I
+        
+        abh (C   a_|u
+        amh (C   a_|u
+        adh (C   o-:
+        agh (C   o-:
+        aidh (C  a_|i
+        aigh (C  o-_|i
+ 
+.group à
+        à        a:
+        ài       a:  // or E: ??
+        
+.group á
+        á        a:
+        ái       a:
+
+
+.group e
+        e        e
+
+        @) ea (g_   a2  // unstressed
+        @) ea       @
+
+        ea       E
+        ea (dh_  o-
+        ea (gh_  o-
+        ea (d    e
+        ea (g    e
+        ea (s    e
+        ea (llK  aU
+        ea (nnK  aU
+        ea (rrK  a:
+        ea (rn   a:
+     _) ea (llA  ja
+     _) ea (nnA  ja
+     _) ea (rrA  ja
+        ea (llA  a
+        ea (nnA  a
+        ea (rrA  a
+        
+        eagh (C  o-:  // ?? or O:
+        eamh (C  E_|u
+        
+        ei       e
+     @) ei       I   // unstressed
+        ei (L05K eI
+        
+        eo       O
+     _) eò       jO:
+     _) eòi      jO:
+        eò       O:
+        eòi      O:
+        
+        eu       ia
+        eu (m    e:
+
+.group è
+        è        E:  // or e:
+        èi       E:  // or e:
+        èa       ia
+        
+.group é
+        é        e:
+        éi       e:
+        
+.group i
+        i        i
+        i (L05K  i:
+        i (mL07  i
+        i (mh    i
+        
+        ia       i@  // or ia
+        io       i
+     _) io (llK  ju
+     _) io (nnK  ju
+        io (llK  u:
+        io (nnK  u:
+        
+        iodh (C  i_|@
+        iogh (C  i_|@
+        
+     _) iu       ju
+        iu       u
+        iu (rr   u:
+        iu (rs   u:
+        iù       u:
+        iùi      u:
+        
+.group ì
+        ì        i:
+        ìo       i@
+
+.group o
+        o        O
+        o (L04   o
+        o (L05K  OU
+        o (mh    o
+        o (rrK   O:
+        o (rd    O:
+        o (rn    O:
+        
+        ogh (C   o:
+        oibh (C  o-_i
+        oigh (C  o-_i
+        oimh (C  O_i
+        
+        oi       o-  // or O
+        oi (L04  o
+        oi (mh   o
+        oi (L05K @I
+        
+.group ò
+        ò        O:  // or o:
+        òi       O:  // or o:
+        
+.group ó
+        ó        o:
+        ói       o:
+
+.group u
+        u        u
+        u (L05K  u:
+        u (rn    u:
+        u (rr    u:
+        u (_     u:
+
+        ua       u@   // [ua] if followed by m or n ?
+        uai      u@
+        
+        ui       u
+        ui (m    u-
+        ui (n    u-
+        ui (s    u-
+        ui (dh   u-I
+        ui (L05K u-I
+        ui (L05  u-
+        
+        uimh (C  u_|i
+        
+.group ù
+        ù        u:
+        ùi       u:
+
+        
+.group b
+        b        b
+        b (L03   bj  // try b;
+        
+   L06) b        &b     // insert epenthetic vowel
+   L06) b (L03 &bj
+
+.group bh
+        bh       v
+        bh (_    v
+        bh (_+$w_alt1  // null
+        bh (L03  vj
+        // bh sometimes null between vowels or word-final
+        
+   L06) bh       &v
+   L06) bh (_    &v
+   L06) bh (L03  &vj
+        
+.group c
+        c        k
+     A) c (L02   #k
+     A) c (_     #g
+     C) c (_     g
+
+        c (L01   k;
+     A) c (L01   #k;
+   L01) c (_     #g;
+  L01C) c (_     g;
+
+
+        ch       x
+   L01) ch       C
+        ch (L01  C
+        chd      #g
+
+   L06) ch       &x
+L01L06) ch       &C
+   L06) ch (L01  &C
+        
+        cn       kR
+
+        
+.group d
+        d        d
+   L01) d        d;
+        d (L01   d;
+        
+        dh       Q
+     A) dh (L02  Q   // or null
+        dh (L01  J^
+   L01) dh       J^
+     A) dh (L01  
+    ai) dh (_
+    éi) dh (_
+
+   
+.group f
+        f        f
+        f (L03   fj
+        fh
+
+        
+.group g
+        g        g
+   L01) g        g;
+        g (L01   g;
+        
+   L06) g        &g
+L01L06) g        &g;
+   L06) g (L01   &g;
+
+        gh       Q
+        gh (_+$w_alt1   // null
+     A) gh (L02  Q  // or null
+   L01) gh       J^
+        gh (L01  J^
+     A) gh (L01
+     
+   L06) gh       &Q
+L01L06) gh       &J^
+   L06) gh (L01  &J^
+
+        gn       gR
+
+
+.group h
+        h        h
+
+
+.group j
+        j        dZ
+
+        
+.group k
+        k        k
+
+        
+.group l
+        l        L
+   L01) l        l
+        l (L01   l
+     _) l (L01   l^
+        
+        ll       L
+   L01) ll       l^
+        ll (L01  l^
+        
+
+.group m
+        m        m
+        m (L03   mj
+        
+   L06) m        &m      // epenthetic
+   L06) m (L03   &mj
+        m (L07   m&
+        
+        mh       v
+        mh (L03  vj
+  // mh between vowels sometimes null
+  
+   L06) mh       &v
+   L06) mh (L03  &vj
+
+   
+.group n
+        n        n
+     _) n (L02   n[
+
+ L02L01) n       n^  // slender after a back vowel
+L02L01C) n       n^
+L02L01CC) n       n^
+
+        ng      Ng
+   L01) ng      ng;
+        ng (L01 ng;
+        n (gh   n
+    
+        nn      n[
+   L01) nn (+   n^
+        nn (L01 n^
+
+
+.group p
+        p        p
+     A) p (A     #p
+     A) p (_     #b
+     C) p (_     b
+        p (L03   bj
+     A) p (L03   #bj
+     
+        ph       f
+        ph (L03  fj
+
+
+.group q
+        q        kw
+
+        
+.group r
+        r        *
+   L01) r        *;
+        r (L01   *;
+     _) r        R
+        rr       R
+        rt (_    *Sd
+        rd (_    *Sd
+
+
+.group s
+        s        s
+   L01) s        S
+        s (L01   S
+        
+        sh       h
+        sh (L03  hj
+
+
+.group t
+        t        t
+     A) t (L02   #t
+     A) t (_     #d
+     C) t (_     d
+     
+        t (L01   t;
+     A) t (L01   #t;
+   L01) t (_     #d;
+  L01C) t (_     d;
+ L01CC) t (_     d;
+
+        th       h
+        th (L03  hj
+        th (_          // ?
+        // th between vowels may be null
+
+        
+.group v
+        v       v
+        
+
+.group w
+        w        w
+        
+
+.group x
+        x        ks
+     _) x        z
+     
+     
+.group y
+        y        i
+        y (A     j
+     A) y        j
+
+.group z
+        z        z
+

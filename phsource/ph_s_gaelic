@@ -1,0 +1,357 @@
+// Phoneme table for Scottish Gaelic (lang=gd)
+
+
+
+// Vowels
+
+phoneme I
+  vowel starttype #i endtype #i
+  unstressed
+  length 130
+  FMT(vowel/ii)
+endphoneme
+
+phoneme @
+  vowel starttype #@ endtype #@
+  unstressed
+  length 130
+  FMT(vowel/@_6)
+endphoneme
+
+
+phoneme i:
+  vowel starttype #i endtype #i long
+  length 240
+  ChangeIfUnstressed(i)
+  FMT(vowel/i)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 130
+  ChangeIfUnstressed(I)
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme e:
+  vowel starttype #e endtype #e long
+  length 240
+  ChangeIfUnstressed(@)
+  FMT(vowel/e)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 130
+  ChangeIfUnstressed(@)
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme E:
+  vowel starttype #e endtype #e long
+  length 240
+  FMT(vowel/ee)
+endphoneme
+
+phoneme E
+  vowel starttype #e endtype #e
+  length 130
+  FMT(vowel/ee)
+endphoneme
+
+
+phoneme a:
+  vowel starttype #a endtype #a long
+  length 240
+  ChangeIfUnstressed(a)
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 130
+  ChangeIfUnstressed(@)
+  FMT(vowel/a)
+endphoneme
+
+phoneme a2  // doesn't reduce to [@]
+  vowel starttype #a endtype #a
+  length 130
+  FMT(vowel/a)
+endphoneme
+
+
+phoneme O:
+  vowel starttype #o endtype #o long
+  length 240
+  FMT(vowel/oo_2)
+endphoneme
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 130
+  FMT(vowel/oo_2)
+endphoneme
+
+
+phoneme o:
+  vowel starttype #o endtype #o long
+  length 240
+  FMT(vowel/o)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 130
+  FMT(vowel/o_2)
+endphoneme
+
+
+phoneme u:
+  vowel starttype #u endtype #u long
+  length 240
+  ChangeIfUnstressed(u)
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 130
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+phoneme u-
+  vowel starttype #@ endtype #@
+  ipa ɯ
+  length 240
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme u-
+  vowel starttype #@ endtype #@ long
+  ipa ɯ
+  length 130
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+phoneme o-
+  vowel starttype #@ endtype #@ long
+  ipa ɤ
+  length 240
+  ChangeIfUnstressed(@)
+  FMT(vowel/8_7)
+endphoneme
+
+phoneme o-
+  vowel starttype #@ endtype #@
+  ipa ɤ
+  length 130
+  ChangeIfUnstressed(@)
+  FMT(vowel/8_7)
+endphoneme
+
+// Diphthongs
+
+
+phoneme i@
+  vowel starttype #i endtype #@ long
+  length 240
+  ChangeIfNotStressed(@)
+  FMT(vdiph2/i@)
+endphoneme
+
+
+phoneme ia
+  vowel starttype #i endtype #@ long
+  length 240
+  ChangeIfNotStressed(@)
+  FMT(vdiph2/i@_3)
+endphoneme
+
+
+phoneme u@
+  vowel starttype #u endtype #@ long
+  length 240
+  FMT(vdiph2/u@)
+endphoneme
+
+
+phoneme aI
+  vowel starttype #a endtype #i long
+  length 240
+  ChangeIfUnstressed(@)
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme eI
+  vowel starttype #e endtype #i long
+  length 240
+  FMT(vdiph/ei)
+endphoneme
+
+phoneme @I
+  vowel starttype #@ endtype #i long
+  length 240
+  FMT(vdiph/@i)
+endphoneme
+
+phoneme u-I
+  vowel starttype #@ endtype #i long
+  ipa ɯɪ
+  length 240
+  FMT(vdiph/u-i)
+endphoneme
+
+phoneme aU
+  vowel starttype #a endtype #u long
+  length 240
+  ChangeIfUnstressed(@)
+  FMT(vdiph/aau_4)
+endphoneme
+
+phoneme OU
+  vowel starttype #@ endtype #u long
+  length 240
+  FMT(vdiph/Vu)
+endphoneme
+
+
+// Consonants
+
+phoneme b
+  import_phoneme is/b
+endphoneme
+
+phoneme d
+  import_phoneme is/d
+endphoneme
+
+phoneme d;
+  import_phoneme hi/c
+endphoneme
+
+phoneme g
+  import_phoneme is/g
+endphoneme
+
+phoneme g;
+  vls vel stop
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  WAV(ustop/ki_ejc, 130)
+endphoneme
+
+phoneme k;
+  vls vel stop
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
+  WAV(ustop/ki)
+endphoneme
+
+
+phoneme t
+  import_phoneme hi/t#
+endphoneme
+
+phoneme t;
+  import_phoneme hi/c#
+endphoneme
+
+phoneme S
+  vls pal frc sibilant palatal
+  CALL base/S;
+  ipa ʃ
+endphoneme
+
+
+phoneme n[   // temporary
+  import_phoneme n
+endphoneme
+
+phoneme *    // reduced [t] as in "city"
+  vcd alv stop
+  ipa ɾ
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
+
+  IF KlattSynth THEN
+    IF PreVoicing THEN
+      FMT(klatt/x_tap)
+    ENDIF
+    FMT(klatt/tap2) addWav(x/d, 70)
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(d/x_tap)
+  ENDIF
+  FMT(d/tap2) addWav(x/d, 25)
+endphoneme
+
+
+phoneme *;
+  import_phoneme D
+endphoneme
+
+phoneme R
+  import_phoneme R2
+endphoneme
+
+
+phoneme &  // the epenthetic vowel
+  vowel starttype #@ endtype #@
+  unstressed
+  length 130
+  IF prevVowel(a) THEN
+    ChangePhoneme(a)
+  ELSEIF prevVowel(E) THEN
+    IF prevPh(*) THEN
+      ChangePhoneme(a)
+    ELSE
+      ChangePhoneme(E)
+    ENDIF
+  ELSEIF prevVowel(O) THEN
+    ChangePhoneme(O)
+  ELSEIF prevVowel(i) THEN
+    ChangePhoneme(i)
+  ELSEIF prevVowel(e) THEN
+    ChangePhoneme(e)
+  ELSEIF prevVowel(u) THEN
+    ChangePhoneme(u)
+  ELSEIF prevVowel(u-) THEN
+    ChangePhoneme(u-)
+  ELSEIF prevVowel(o-) THEN
+    ChangePhoneme(o-)
+  ENDIF
+  ChangePhoneme(NULL)
+endphoneme
+
+
+phoneme #  // used for pre-aspiration
+  vls glt apr
+  IF NOT prevPhW(isVowel) OR thisPh(isNotStressed) OR prevVowel(isLong) THEN
+    ChangePhoneme(NULL)
+  ELSE
+    IF nextPhW(g;) OR nextPhW(k;) THEN
+      ChangePhoneme(C)
+    ELSEIF nextPhW(g) OR nextPhW(k) THEN
+      ChangePhoneme(x)
+    ELSE
+      ChangePhoneme(h)
+    ENDIF
+  ENDIF
+endphoneme
+
+
+// [h] only if followed by a vowel
+phoneme h#
+  vls glt apr
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(h)
+  ELSE
+    ChangePhoneme(NULL)
+  ENDIF
+endphoneme
