@@ -6,7 +6,7 @@ INCDIR=@includedir@/espeak
 LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
-SHARED_VERSION=2:47:1 # = *.so.1.1.47
+SHARED_VERSION=2:48:1 # = *.so.1.1.48
 
 MKDIR=mkdir -p
 
