@@ -298,6 +298,7 @@ dictionaries: \
 	espeak-data/fi_dict \
 	espeak-data/fr_dict \
 	espeak-data/ga_dict \
+	espeak-data/gd_dict \
 	espeak-data/grc_dict \
 	espeak-data/gu_dict \
 	espeak-data/hbs_dict \
@@ -471,6 +472,12 @@ dictsource/ga_extra:
 	touch dictsource/ga_extra
 espeak-data/ga_dict: src/espeak phsource/phonemes.stamp dictsource/ga_list dictsource/ga_rules dictsource/ga_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=ga && cd ..
+
+gd: espeak-data/gd_dict
+dictsource/gd_extra:
+	touch dictsource/gd_extra
+espeak-data/gd_dict: src/espeak phsource/phonemes.stamp dictsource/gd_list dictsource/gd_rules dictsource/gd_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=gd && cd ..
 
 grc: espeak-data/grc_dict
 dictsource/grc_extra:
