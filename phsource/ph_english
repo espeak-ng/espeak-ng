@@ -22,7 +22,7 @@ phoneme t#    // reduced [t] as in "city"
   IF PreVoicing THEN
     FMT(d/x_tap)
   ENDIF
-  FMT(d/tap2) addWav(x/d, 70)
+  FMT(d/tap2) addWav(x/d, 50)
 endphoneme
 
 

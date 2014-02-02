@@ -124,6 +124,7 @@ _) ای	e:
 	آ	a:
 	آتش	'a:tIS
 	آہست	a:H'Ist
+	آئ (L02	'a:I
 
 
 .group ع
@@ -209,6 +210,7 @@ _) ای	e:
 	_) بدل (L02	bad'al
 	بوڑھ	b'u:r.h
 	_) بے (P2	b'e:
+	بحران	b,OHR'a:n
 
 
 .group پ
@@ -225,6 +227,7 @@ _) ای	e:
 	پوچھ	p'u:c#
 	پیچھ	p'i:c#
 	پھونک	p#'u:nk
+	_) پور (L01	p'u:R
 
 .group ت
 	ت	tV
@@ -242,6 +245,10 @@ _) ای	e:
 	تجرب	taJ'aRb
 	_) تیار	t,ai:;'a:R
 	_) تیسر	t'i:sR
+	@) تا (_S2	t'a:
+	@) تی (_S2	t'i:
+	@) تے (_S2	t'e:
+	_) توا	t'ava:
 
 .group ٹ
 	ٹ	t.V
@@ -253,6 +260,7 @@ _) ای	e:
 	ٹریفک	t.R'e:fIk
 	_) ٹکڑ	t.'Ukr.
 	_) ٹہ (L02	t.'EH
+	_) ٹرین	t.R'e:n
 
 
 .group ث
@@ -343,6 +351,7 @@ _) ای	e:
 	ڈّ (L01	d.d.
 	ڈھونڈ	d.#'u:nd.
 	@) ڈز (_	d.z
+	ڈرائیور	d.R'a:jvaR
 
 .group ذ
 	ذ	DV
@@ -409,6 +418,8 @@ _) ای	e:
 	سیدھ	s'i:d#
 	سیاست	sja:s'at
 	سرگرم	s,aRg'aRm
+	@) ستان (_	Ist'a:n
+	@) ستانی (_	Ist'a:ni
 
 .group ش
 	ش	SV
@@ -582,6 +593,9 @@ _) ای	e:
 	_) نوا	n'ava:
 	_) نما	n'Uma:
 	_) نماز	nam'a:z
+	@) نا (_S2	n'a:
+	@) نی (_S2	n'i:
+	@) نے (_S2	n'e:
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -630,5 +644,4 @@ _) ای	e:
 	0xe0a4  _^_NE  // switch to Nepali voice
 .group 0xe0a5  // devanagari
 	0xe0a5  _^_NE
-
 

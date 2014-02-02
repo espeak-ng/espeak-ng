@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.47.14
+AppVerName=eSpeak version 1.48.01
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -255,6 +255,7 @@ begin
   'fil': value := $464;
   'fr': value := $40c;
   'ga': value := $83c;
+  'gd': value := $43c;
   'gu': value := $447;
   'hi': value := $439;
   'hr': value := $41a;

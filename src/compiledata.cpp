@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -124,6 +124,7 @@ static keywtab_t k_properties[] = {
 	{"isVFricative", 0,  phVFRICATIVE},
 
 	{"isPalatal",    0,  i_isPalatal},
+	{"isLong",       0,   i_isLong},
 	{"isRhotic",     0,  i_isRhotic},
 	{"isSibilant",   0,  i_isSibilant},
 	{"isFlag1",      0,  i_isFlag1},
