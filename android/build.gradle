@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.android.tools.build:gradle:0.8.+'
     }
 }
 
@@ -18,7 +18,7 @@ dependencies {
 }
 
 android {
-    buildToolsVersion '18.0'
+    buildToolsVersion '19.0'
     compileSdkVersion 18
 
     defaultConfig {
@@ -40,5 +40,6 @@ android {
 }
 
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
-    pkgTask -> pkgTask.jniDir new File(projectDir, 'libs')
+    pkgTask -> pkgTask.jniFolders = new HashSet<File>()
+    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
 }
