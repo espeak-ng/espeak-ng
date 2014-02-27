@@ -399,6 +399,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("fas", "fa");
         mJavaToIanaLanguageCode.put("fin", "fi");
         mJavaToIanaLanguageCode.put("fra", "fr");
+        mJavaToIanaLanguageCode.put("gla", "gd");
         mJavaToIanaLanguageCode.put("gle", "ga");
         mJavaToIanaLanguageCode.put("hin", "hi");
         mJavaToIanaLanguageCode.put("hrv", "hr");
@@ -423,6 +424,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("nep", "ne");
         mJavaToIanaLanguageCode.put("nld", "nl");
         mJavaToIanaLanguageCode.put("nor", "no");
+        mJavaToIanaLanguageCode.put("ori", "or");
         mJavaToIanaLanguageCode.put("pan", "pa");
         mJavaToIanaLanguageCode.put("pol", "pl");
         mJavaToIanaLanguageCode.put("por", "pt");
