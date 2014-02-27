@@ -18,6 +18,16 @@
 ೮	8
 ೯	9
 
+.L01 ಕ ಖ ಗ ಘ ಙ   // velar
+
+.L02 ಚ ಛ ಜ ಝ ಞ  // palatal
+
+.L03 ಟ ಠ ಡ ಢ ಣ  // retroflex
+
+.L04 ತ ಥ ದ ಧ ನ   // dental
+
+.L05 ಪ ಫ ಬ ಭ ಮ  // labial
+
 
 .group ಕ
 	ಕ	ka
@@ -215,7 +225,11 @@
 
 .group 0xe0b2   // characters which start with UTF-8 bytes: [e0 b2]
 
-	ಂ	m	// anusvara (this should nasalize the vowel)
+	ಂ(L01	N	// anusvara (this should nasalize the vowel)
+	ಂ(L02	n^
+	ಂ(L03	n.
+	ಂ(L04	n
+	ಂ	m
 
 	ಃ	h	// visarga
 

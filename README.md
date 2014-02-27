@@ -103,10 +103,6 @@ you need to self-sign the package. You can do this by:
 
 Now, you can install the APK using the `adb` tool:
 
-    $ adb install -r bin/eSpeakActivity-release-signed.apk
-
-### Enabling eSpeak on the Device
-
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
 

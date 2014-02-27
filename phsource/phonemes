@@ -116,7 +116,7 @@ endphoneme
 
 phoneme ?  // glottal stop
   vls glt stop
-  lengthmod 2   // ??
+  lengthmod 3   // ??
   nolink
   Vowelin  glstop
   Vowelout glstop
@@ -199,6 +199,7 @@ endphoneme
 phoneme m-
   vowel starttype #@ endtype #@
   ipa mU+0329
+  lengthmod 4
   length 170
 
   IF thisPh(isWordStart) THEN
@@ -213,6 +214,7 @@ endphoneme
 phoneme n-
   vowel starttype #@ endtype #@
   ipa nU+0329
+  lengthmod 4
   length 170
 
   IF thisPh(isWordStart) THEN
@@ -227,6 +229,7 @@ endphoneme
 phoneme N-
   vowel starttype #e endtype #e
   ipa ŋU+0329
+  lengthmod 4
   length 190
   FMT(nn/nn-syl)
 endphoneme
@@ -1934,6 +1937,11 @@ include ph_gujarati
 phonemetable as bn
 include ph_assamese
 
+phonemetable or bn
+include ph_oriya
+
+phonemetable mni bn
+include ph_manipuri
 
 
 
@@ -1960,7 +1968,7 @@ phonemetable kl base
 include ph_greenlandic
 
 phonemetable om base
-include ph_oromiffa
+include ph_oromo
 
 //phonemetable en2 en
 //include ph_english_test

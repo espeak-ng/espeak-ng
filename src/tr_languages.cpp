@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -193,9 +193,12 @@ static const unsigned short chars_ignore_default[] = {
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	0xad,    1, // soft hyphen
+	0x640,   1, // igniore Arabic Tatweel (lang=FA)
 	0x200c,  '-', // zero width non-joiner, replace with hyphen
 	0x200d,  1, // zero width joiner
 	0, 0 };
+
+const char string_ordinal[] = {0xc2,0xba,0};  // masculine ordinal character, UTF-8
 
 
 static Translator* NewTranslator(void)
@@ -293,6 +296,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 	tr->langopts.alt_alphabet_lang = L('e','n');
+	tr->langopts.roman_suffix = "";
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -509,6 +513,8 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 		}
 		break;
+
+
 
 
 	case L('a','r'):   // Arabic
@@ -752,7 +758,9 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('a','n'))
 			{
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 				tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
+				tr->langopts.roman_suffix = string_ordinal;
 			}
 			else
 			if(name2 == L_pap)
@@ -845,11 +853,14 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('g','a'):   // irish
+	case L('g','d'):   // scots gaelic
 		{
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.numbers = 1;
+			tr->langopts.stress_flags = S_NO_AUTO_2;  // don't use secondary stress
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND;
 			tr->langopts.accents = 2;  // 'capital' after letter name
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 3;  // don't count apostrophe
+			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove [:] phoneme from non-stressed syllables (Lang=gd)
 		}
 		break;
 
@@ -1042,11 +1053,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
+			tr->langopts.param[LOPT_IT_DOUBLING] = 1;    // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
-			tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1;
+			tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1 | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER;
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
 			SetLetterVowel(tr,'y');
 		}
@@ -1260,7 +1271,7 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-	case L('o','m'):
+	case L('o','m'): // Oromo
 		{
 			static const unsigned char stress_amps_om[] = {18,15, 20,20, 20,22, 22,22 };
 			static const short stress_lengths_om[8] = {200,200, 200,200, 0,0, 200,200};
@@ -1268,6 +1279,8 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
+			tr->langopts.numbers2 = 0x200;  // say "thousands" before its number
 		}
 		break;
 
@@ -1300,8 +1313,9 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
 			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN_CAPITALS;
 			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS | NUM2_ORDINAL_NO_AND;
+			tr->langopts.max_roman = 5000;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
@@ -1482,6 +1496,7 @@ SetLengthMods(tr,3);  // all equal
 				SetupTranslator(tr,stress_lengths_ta, NULL);
 				tr->letter_bits_offset = OFFSET_TAMIL;
 				tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+				tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
 				tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			}
 			else
@@ -1578,6 +1593,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('u','r'):   // Urdu
+	case L('s','d'):   // Sindhi
 		{
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
@@ -1655,21 +1671,24 @@ SetLengthMods(tr,3);  // all equal
 
 	tr->translator_name = name2;
 
-	if(tr->langopts.numbers & NUM_DECIMAL_COMMA)
-	{
-		// use . and ; for thousands and decimal separators
-		tr->langopts.thousands_sep = '.';
-		tr->langopts.decimal_sep = ',';
-	}
-	if(tr->langopts.numbers & NUM_THOUS_SPACE)
-	{
-		tr->langopts.thousands_sep = 0;   // don't allow thousands separator, except space
-	}
-
+	ProcessLanguageOptions(&tr->langopts);
 	return(tr);
 }  // end of SelectTranslator
 
 
+void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
+{//=====================================================
+	if(langopts->numbers & NUM_DECIMAL_COMMA)
+	{
+		// use . and ; for thousands and decimal separators
+		langopts->thousands_sep = '.';
+		langopts->decimal_sep = ',';
+	}
+	if(langopts->numbers & NUM_THOUS_SPACE)
+	{
+		langopts->thousands_sep = 0;   // don't allow thousands separator, except space
+	}
+}
 
 //**********************************************************************************************************
 

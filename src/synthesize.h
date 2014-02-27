@@ -72,6 +72,7 @@ extern int embedded_default[N_EMBEDDED_VALUES];
 
 
 #define N_PEAKS   9
+#define N_PEAKS2  9     // plus Notch and Fill (not yet implemented)
 #define N_MARKERS 8
 
 #define N_KLATTP   10   // this affects the phoneme data file format
@@ -349,6 +350,7 @@ typedef struct {
 // phflags
 #define i_isSibilant   0x45    // bit 5 in phflags
 #define i_isPalatal    0x49    // bit 9 in phflags
+#define i_isLong       0x55    // bit 21 in phflags
 #define i_isRhotic     0x57    // bit 23 in phflags
 #define i_isFlag1      0x5c
 #define i_isFlag2      0x5d

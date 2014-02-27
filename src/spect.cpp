@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -50,7 +51,7 @@ wxBrush BRUSH_MARKER[N_MARKERS] = {
 	wxBrush(wxColour(200,0,255),wxSOLID),
 	wxBrush(wxColour(200,0,255),wxSOLID),
 	wxBrush(wxColour(255,0,200),wxSOLID) };
-	
+
 #define DRAWPEAKWIDTH 2000
 #define PEAKSHAPEW 256
 
@@ -86,7 +87,7 @@ float SpectTilt(int value, int freq)
 	}
 	else
 	{
-		return(sqrt(y));	
+		return(sqrt(y));
 	}
 }
 
@@ -95,6 +96,9 @@ SpectFrame::SpectFrame(SpectFrame *copy)
 {//=====================================
 
 	int  ix;
+
+	FONT_SMALL = wxFont(8, wxSWISS, wxNORMAL, wxNORMAL);  // wxWidgets 3, Font creation needs a GTK+ Window
+	FONT_MEDIUM = wxFont(9, wxSWISS, wxNORMAL, wxNORMAL);
 
 	selected = 0;
 	keyframe = 0;
@@ -210,7 +214,7 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 
 	stream.Read(&cy,44);
 	size = SPC2_size_cycle(&cy);
-	
+
 	p = (CYCLE *)malloc(size);
 	if(p == NULL)
 	{
@@ -218,14 +222,14 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 	}
 	stream.SeekI(-44,wxFromCurrent);
 	stream.Read(p,size);
-	
+
 	time = time_acc;
 	len = cy.length / 15625.0;
 	time_acc += len;
 	pitch = float(cy.pitch) / 16.0;
 	nx = cy.n_harm;
 	dx = pitch;
-	
+
 	for(ix=0; ix<7; ix++)
 	{
 		peaks[ix].pkfreq = cy.peak_data[ix].freq * peak_factor[ix];
@@ -244,7 +248,7 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 	}
 	if(((cy.flags & 0x80)==0) && (peaks[1].pkheight > 0))
 		keyframe = 1;
-		
+
 	if(cy.flags & 0x08)
 		markers |= 4;
 	if(cy.flags & 0x10)

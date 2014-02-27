@@ -1,0 +1,177 @@
+
+//====================================================
+//  Oromo
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 160
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 140
+  IfNextVowelAppend(;)
+  ChangeIfUnstressed(I)
+  FMT(vowel/i_4)
+endphoneme
+
+phoneme I
+  vowel starttype #i endtype #i
+  length 140
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 150
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme &
+  vowel starttype #a endtype #a
+  length 150
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 170
+//  ChangeIfUnstressed(a2)
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme a2
+  vowel starttype #a endtype #a
+  length 170
+  FMT(vowel/aa#)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 155
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme Y
+  vowel starttype #@ endtype #@
+  length 155
+  FMT(vowel/y#)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u1    // TEST
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme U    // TEST
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/uu_4)
+endphoneme
+
+
+
+phoneme y
+  vowel starttype #u endtype #u
+  length 150
+  FMT(vowel/y)
+endphoneme
+
+
+phoneme y
+  vowel starttype #@ endtype #@
+  ipa ?
+  length 180
+
+  // assume that word-final [y] are not added by am_rules
+  // Only allow [y] in first or last syllables
+//  IF thisPh(isFinalVowel) THEN
+//  ELIF thisPh(isFirstVowel) THEN
+//  ELSE
+//    ChangePhoneme(NULL)
+//  ENDIF
+  FMT(vowel/ii#_2)
+endphoneme
+
+
+phoneme @
+  vowel starttype #@ endtype #@
+  length 220
+  IF nextPhW(isPalatal) THEN
+    FMT(vdiph/@i_2)
+  ENDIF
+  FMT(vowel/@_3)
+endphoneme
+
+// CONSONANTS
+
+phoneme r
+  import_phoneme base/R2
+endphoneme
+
+phoneme k`
+  vls vel stop
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+phoneme t`
+  vls alv stop
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_hi, 70)
+endphoneme
+
+phoneme tS`
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_unasp, 80)
+  ENDIF
+  WAV(ustop/tsh_unasp, 80)
+endphoneme
+
+phoneme P
+  vls blb stop
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 gpaus
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  WAV(ustop/p_unasp)
+endphoneme
+
+
+phoneme D
+  vcd alv stop
+  lengthmod 6
+  voicingswitch d
+  CALL base/D
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh, 35)   // weaker 
+  ENDIF
+endphoneme

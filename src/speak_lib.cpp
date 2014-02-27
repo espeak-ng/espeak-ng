@@ -32,7 +32,12 @@
 #include "speech.h"
 
 #include <sys/stat.h>
-#ifndef PLATFORM_WINDOWS
+#ifdef PLATFORM_WINDOWS
+#include <fcntl.h>
+#include <io.h>
+#include <windows.h>
+#include <winreg.h>
+#else  /* PLATFORM_POSIX */
 #include <unistd.h>
 #endif
 
@@ -552,7 +557,11 @@ static const char* label[] = {
   "SENTENCE",
   "MARK",
   "PLAY",
-  "END"};
+  "END",
+  "MSG_TERMINATED",
+  "PHONEME",
+  "SAMPLERATE",
+  "??" };
 #endif
 
 
@@ -724,8 +733,12 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 	my_unique_identifier = 0;
 	my_user_data = NULL;
 
-	wcsncpy(option_punctlist, punctlist ? punctlist : L"", N_PUNCTLIST);
-	option_punctlist[N_PUNCTLIST-1] = 0;
+	option_punctlist[0] = 0;
+	if(punctlist != NULL)
+	{
+		wcsncpy(option_punctlist, punctlist, N_PUNCTLIST);
+		option_punctlist[N_PUNCTLIST-1] = 0;
+	}
 }  //  end of sync_espeak_SetPunctuationList
 
 
@@ -784,8 +797,9 @@ ENTER("espeak_Initialize");
 	}
 
 	// buflength is in mS, allocate 2 bytes per sample
-	if(buf_length == 0)
+	if((buf_length == 0) || (output_type == AUDIO_OUTPUT_PLAYBACK) || (output_type == AUDIO_OUTPUT_SYNCH_PLAYBACK))
 		buf_length = 200;
+
 	outbuf_size = (buf_length * samplerate)/500;
 	outbuf = (unsigned char*)realloc(outbuf,outbuf_size);
 	if((out_start = outbuf) == NULL)

@@ -22,7 +22,7 @@ phoneme t#    // reduced [t] as in "city"
   IF PreVoicing THEN
     FMT(d/x_tap)
   ENDIF
-  FMT(d/tap2) addWav(x/d, 70)
+  FMT(d/tap2) addWav(x/d, 50)
 endphoneme
 
 
@@ -212,6 +212,17 @@ phoneme E
 endphoneme
 
 
+phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
+  vowel  starttype #e  endtype #e
+
+  IF thisPh(isUnstressed) AND nextVowel(isVowel) AND nextVowel(isStressed) THEN
+    ChangePhoneme(@)
+  ENDIF
+
+  ChangePhoneme(E)
+endphoneme
+
+
 phoneme I
   vowel  starttype #i  endtype #i
   length 130
@@ -272,6 +283,13 @@ phoneme 0#    // [@] in unstressed syllables
     ChangePhoneme(@)
   ENDIF
 
+  ChangePhoneme(0)
+endphoneme
+
+
+phoneme 02   // becomes V in en-us
+  vowel  starttype #o  endtype #o
+  length 140
   ChangePhoneme(0)
 endphoneme
 

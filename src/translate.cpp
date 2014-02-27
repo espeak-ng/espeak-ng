@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -413,7 +413,7 @@ int IsAlpha(unsigned int c)
 	if(c == 0x0605)
 		return(1);
 
-	if((c >= 0x64b)  && (c <= 0x65e))
+	if((c == 0x670) || ((c >= 0x64b) && (c <= 0x65e)))
 		return(1);   // arabic vowel marks
 
 	if((c >= 0x300) && (c <= 0x36f))
@@ -1184,9 +1184,9 @@ if(end_type & SUFX_UNPRON)
 			{
 				int wc;
 				// characters not recognised, speak them individually
-
+				// ?? should we say super/sub-script numbers and letters here?
 				utf8_in(&wc, wordx);
-				if((word_length == 1) && IsAlpha(wc))
+				if((word_length == 1) && (IsAlpha(wc) || IsSuperscript(wc)))
 				{
 					if((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word)) == NULL)
 					{
@@ -1273,6 +1273,7 @@ if(end_type & SUFX_UNPRON)
 				c_temp = wordx[-1];
 				wordx[-1] = ' ';
 				confirm_prefix = 1;
+				wflags |= FLAG_PREFIX_REMOVED;
 
 				if(prefix_type & SUFX_B)
 				{
@@ -1314,7 +1315,7 @@ if(end_type & SUFX_UNPRON)
 					prefix_flags = 1;
 				if(found == 0)
 				{
-					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
+					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags & (FLAG_HYPHEN_AFTER | FLAG_PREFIX_REMOVED), dictionary_flags);
 
 					if(phonemes[0] == phonSWITCH)
 					{
@@ -1718,8 +1719,26 @@ int SetTranslator2(const char *new_language)
 {//=========================================
 // Set translator2 to a second language
 	int new_phoneme_tab;
+	const char *new_phtab_name;
+	int bitmap;
+	int dialect = 0;
 
-	if((new_phoneme_tab = SelectPhonemeTableName(new_language)) >= 0)
+	new_phtab_name = new_language;
+	if((bitmap = translator->langopts.dict_dialect) != 0)
+	{
+		if((bitmap & (1 << DICTDIALECT_EN_US)) && (strcmp(new_language, "en") == 0))
+		{
+			new_phtab_name = "en-us";
+			dialect = DICTDIALECT_EN_US;
+		}
+		if((bitmap & (1 << DICTDIALECT_ES_LA)) && (strcmp(new_language, "es") == 0))
+		{
+			new_phtab_name = "es-la";
+			dialect = DICTDIALECT_ES_LA;
+		}
+	}
+
+	if((new_phoneme_tab = SelectPhonemeTableName(new_phtab_name)) >= 0)
 	{
 		if((translator2 != NULL) && (strcmp(new_language,translator2_language) != 0))
 		{
@@ -1738,6 +1757,19 @@ int SetTranslator2(const char *new_language)
 				SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 				new_phoneme_tab = -1;
 				translator2_language[0] = 0;
+			}
+			else
+			{
+				if(dialect == DICTDIALECT_EN_US)
+				{
+					// en-us
+					translator2->dict_condition = 0x48;  // bits 3, 6
+					translator2->langopts.param[LOPT_REDUCE_T] = 1;
+				}
+				if(dialect == DICTDIALECT_ES_LA)
+				{
+					translator2->dict_condition = 0x04;  // bit 2
+				}
 			}
 			translator2->phoneme_tab_ix = new_phoneme_tab;
 		}
@@ -1772,7 +1804,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int ix;
 	int sylimit;        // max. number of syllables in a word to be combined with a preceding preposition
 	const char *new_language;
-	unsigned char bad_phoneme[4];
+	int bad_phoneme;
 	int word_flags;
 	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
@@ -1878,7 +1910,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		}
 		else
 		{
-			EncodePhonemes(word,word_phonemes,bad_phoneme);
+			EncodePhonemes(word,word_phonemes,&bad_phoneme);
 		}
 		flags = FLAG_FOUND;
 	}

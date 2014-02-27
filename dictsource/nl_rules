@@ -430,9 +430,10 @@
           _) ge (tenL02   Qe:
           _) geu          QY:
           _) ge (ven      Qe:
-          _) ge (ver      Qe:
+             ge (vend_    Qe:
+             ge (ver      Qe:
              ge (val      Q@
-          _) ge (ving     Qe:
+             ge (ving     Qe:
 
              ge (sprek    Q@  // in compounds
 
@@ -518,6 +519,7 @@
           &) iko (_       =iko:
         fam) i (lie       'i
           _) in (C@P2     'In
+          _) in (a@P2     'In
           _) ing (eC_      IN   // bewerkingen
           _) in (do        In
           _) in (forma     In

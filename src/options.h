@@ -32,6 +32,7 @@ extern void ConfigInit(bool use_defaults);
 extern void ConfigSave(int end);
 extern void ConfigSetPaths();
 
+extern wxString path_espeakdata;
 extern wxString path_spectload;
 extern wxString path_spectload2;
 extern wxString path_pitches;
@@ -51,13 +52,13 @@ extern void OnOptions2(int event_id);
 
 // not currently used
 class Options : public wxDialog  {
-public: 
+public:
 	Options(wxWindow *parent);
 	~Options();
 
 private:
 	void OnCommand(wxCommandEvent& event);
-	
+
 	wxButton *m_save;
 	wxButton *m_close;
 	wxStaticText *m_lab[10];

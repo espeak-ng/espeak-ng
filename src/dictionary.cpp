@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *   Copyright (C) 2013 Reece H. Dunn                                      *
  *                                                                         *
@@ -352,8 +352,8 @@ int HashDictionary(const char *string)
 
 
 
-const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phoneme)
-/***************************************************************************/
+const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
+/******************************************************************/
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
@@ -370,7 +370,7 @@ const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phone
 	unsigned int  mnemonic_word;
 
 	if(bad_phoneme != NULL)
-		bad_phoneme[0] = 0;
+		*bad_phoneme = 0;
 
 	// skip initial blanks
 	while(isspace(*p))
@@ -432,8 +432,7 @@ const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phone
 				// not recognised, report and ignore
 				if(bad_phoneme != NULL)
 				{
-					bad_phoneme[0] = *p;
-					bad_phoneme[1] = 0;
+					utf8_in(bad_phoneme, p);
 				}
 				*outptr++ = 0;
 				return(p+1);
@@ -523,7 +522,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
 unsigned short ipa1[96] = {
-	0x20,0x21,0x22,0x2b0,0x24,0x25,0x0e6,0x2c8,0x28,0x27e,0x2a,0x2b,0x2cc,0x2d,0x2e,0x2f,
+	0x20,0x21,0x22,0x2b0,0x24,0x25,0x0e6,0x2c8,0x28,0x29,0x27e,0x2b,0x2cc,0x2d,0x2e,0x2f,
 	0x252,0x31,0x32,0x25c,0x34,0x35,0x36,0x37,0x275,0x39,0x2d0,0x2b2,0x3c,0x3d,0x3e,0x294,
 	0x259,0x251,0x3b2,0xe7,0xf0,0x25b,0x46,0x262,0x127,0x26a,0x25f,0x4b,0x26b,0x271,0x14b,0x254,
 	0x3a6,0x263,0x280,0x283,0x3b8,0x28a,0x28c,0x153,0x3c7,0xf8,0x292,0x32a,0x5c,0x5d,0x5e,0x5f,
@@ -532,7 +531,7 @@ unsigned short ipa1[96] = {
 };
 
 #define N_PHON_OUT  500  // realloc increment
-static char *phon_out_buf = NULL;
+static char *phon_out_buf = NULL;   // passes the result of GetTranslatedPhonemeString()
 static int phon_out_size = 0;
 
 
@@ -669,12 +668,23 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	use_ipa = phoneme_mode & 0x10;
 	use_tie = phoneme_mode & 0x0f;
 
+	if(phon_out_buf == NULL)
+	{
+		phon_out_size = N_PHON_OUT;
+		if((phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size)) == NULL)
+		{
+			phon_out_size = 0;
+			return("");
+		}
+	}
+
 	if(use_tie >= 3)
 	{
 		// separate individual phonemes with underscores
 		separate_phonemes = '_';
 		use_tie = 0;
 	}
+
 
 	for(ix=1; ix<(n_phoneme_list-2); ix++)
 	{
@@ -904,12 +914,19 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 	int  vowel_posn=9;
 	int  index;
 	int  count;
+	ALPHABET *alphabet;
 
 	utf8_in(&c,word);
 	if((tr->letter_bits_offset > 0) && (c < 0x241))
 	{
 		// Latin characters for a language with a non-latin alphabet
 		return(0);  // so we can re-translate the word as English
+	}
+
+	if(((alphabet = AlphabetFromChar(c)) != NULL)  && (alphabet->offset != tr->letter_bits_offset))
+	{
+		// Character is not in our alphabet
+		return(0);
 	}
 
 	if(tr->langopts.param[LOPT_UNPRONOUNCABLE] == 1)
@@ -2157,6 +2174,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					{
 						match.end_type = SUFX_UNPRON;    // $unpron
 					}
+					else if(command == 0x02)   // $noprefix
+					{
+						if(word_flags & FLAG_PREFIX_REMOVED)
+							failed = 1;             // a prefix has been removed
+						else
+							add_points = 1;
+					}
 					else if((command & 0xf0) == 0x10)
 					{
 						// $w_alt
@@ -2921,9 +2945,10 @@ int TransposeAlphabet(Translator *tr, char *text)
 	int acc;
 	int pairs_start;
 	const short *pairs_list;
-	char buf[N_WORD_BYTES];
+	int bufix;
+	char buf[N_WORD_BYTES+1];
 
-	p2 = buf;
+
 	offset = tr->transpose_min - 1;
 	min = tr->transpose_min;
 	max = tr->transpose_max;
@@ -2931,6 +2956,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 
 	pairs_start = max - min + 2;
 
+	bufix = 0;
 	do {
 		p += utf8_in(&c,p);
 		if(c != 0)
@@ -2939,30 +2965,30 @@ int TransposeAlphabet(Translator *tr, char *text)
 			{
 				if(map == NULL)
 				{
-					*p2++ = c - offset;
+					buf[bufix++] = c - offset;
 				}
 				else
 				{
 					// get the code from the transpose map
 					if(map[c - min] > 0)
 					{
-						*p2++ = map[c - min];
+						buf[bufix++] = map[c - min];
 					}
 					else
 					{
-						p2 += utf8_out(c,p2);
 						all_alpha=0;
+						break;
 					}
 				}
 			}
 			else
 			{
-				p2 += utf8_out(c,p2);
 				all_alpha=0;
+				break;
 			}
 		}
-	} while (c != 0);
-	*p2 = 0;
+	} while ((c != 0) && (bufix < N_WORD_BYTES));
+	buf[bufix] = 0;
 
 	if(all_alpha)
 	{
@@ -3594,7 +3620,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	int end_flags;
 	const char *p;
 	int  len;
-	static char ending[12];
+	char ending[50];
 
 	// these lists are language specific, but are only relevent if the 'e' suffix flag is used
 	static const char *add_e_exceptions[] = {
@@ -3632,7 +3658,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	}
 
 	// remove bytes from the end of the word and replace them by spaces
-	for(i=0; i<len_ending; i++)
+	for(i=0; (i<len_ending) && (i < sizeof(ending)-1); i++)
 	{
 		ending[i] = word_end[i];
 		word_end[i] = ' ';

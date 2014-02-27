@@ -1,143 +1,120 @@
 // Oromo translation rules
 
 .group a
-          a          a
-          aa         a:
-
+        a          a
+        aa         a:
 
 .group b
-          b          b
-          bb         b:
-
+        b          b
+        bb         b:
 
 .group c
-          c          tS'
-
+        c          tS`
 
 .group d
-          d          d
-          dd         d:
-
+        d          d
+        dd         d:
 
 .group e
-          e          e
-          ee         e:
+        e          e
+        ee         e:
 
 .group f
-          f          f
-
+        f          f
 
 .group g
-          g          g
-          gg         g:
-
+        g          g
+        gg         g:
 
 .group h
-          h          h
-
+        h          h
 
 .group i
-          i          i
-          ii         i:
-
+        i          i
+        ii         i:
 
 .group j
-          j          dZ
-
+        j          dZ
 
 .group k
-          k          k
-          kk         k:
-
+        k          k
+        kk         k:
 
 .group l
-          l          l
-          ll         l:
-
+        l          l
+        ll         l:
 
 .group m
-          m          m
-          mm         m:
-
+        m          m
+        mm         m:
 
 .group n
-          n          n
-          nn         n:
+        n          n
+        nn         n:
 
 .group o
-          o          o
-          oo         o:
- 
-
-
+        o          o
+        oo         o:
 
 .group p
-          p          p
-          pp         p:
-
+        p          p
+        pp         p:
 
 .group q
-          q          k
-          qq         k:
-
+        q          k`
+        qq         k`:
 
 .group r
-          r          r
-          rr         r:
+        r          r
+        rr         r:
 
 .group s
-          s          s
-          ss         s:
-
+        s          s
+        ss         s:
 
 .group t
-          t          t
-          tt         t:
-
+        t          t
+        tt         t:
 
 .group u
-          u          u
-          uu         u:
- 
+        u          u
+        uu         u:
 
 .group v
-          v          v
-
+        v          v
 
 .group w
-          w          v
-
+        w          w
 
 .group x
-          x          t'
-          xx         t':
-
+        x          t`
+        xx         t`:
 
 .group y
-          y          y
-          yy         y:
-  
-
+        y          y
+        yy         y:
 
 .group z
-          z          ts
-          zz         ts     
-
+        z          ts
+        zz         ts
 
 .group ch
-          ch          tS
-          
-                    
-.group sh
-          sh          S
-
-.group ph
-          ph          p'
-          
+        ch         tS
 
 .group dh
-          dh           d' // http://en.wikipedia.org/wiki/Voiced_alveolar_implosive
-  
+        dh         D
 
 .group ny
-          ny          n^
+        ny         n^
+
+.group ph
+        ph         P
+
+.group sh
+        sh         S
+
+.group ts
+        ts         ts
+
+.group zy
+        zy         Z

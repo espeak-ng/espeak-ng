@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -51,6 +51,7 @@ static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
 	{"unpr",   0x01},
+	{"noprefix", 0x02},  // rule fails if a prefix has been removed
 
 	{"w_alt1", 0x11},
 	{"w_alt2", 0x12},
@@ -235,6 +236,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	unsigned char rb;
 	unsigned char c;
 	char *p;
+	char *p_end;
 	int  ix;
 	int  match_type;
 	int  finished=0;
@@ -245,10 +247,10 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	int  condition_num=0;
 	int  at_start = 0;
 	const char *name;
-	char buf[60];
-	char buf_pre[60];
+	char buf[200];
+	char buf_pre[200];
 	char suffix[20];
-	static char output[60];
+	static char output[80];
 
 	static char symbols[] =
 		{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
@@ -367,6 +369,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	*p = 0;
 
 	p = output;
+	p_end = p + sizeof(output) - 1;
+
 	if(linenum > 0)
 	{
 		sprintf(p,"%5d:\t",linenum);
@@ -381,12 +385,14 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	{
 		if(at_start)
 			*p++ = '_';
-		while(--ix >= 0)
+		while((--ix >= 0) && (p < p_end-3))
 			*p++ = buf_pre[ix];
 		*p++ = ')';
 		*p++ = ' ';
 	}
 	*p = 0;
+
+	buf[p_end - p] = 0;  // prevent overflow in output[]
 	strcat(p,buf);
 	ix = strlen(output);
 	while(ix < 8)
@@ -425,7 +431,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	char *mnemptr;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
-	unsigned char bad_phoneme[4];
+	char bad_phoneme_str[4];
+	int bad_phoneme;
 	static char nullstring[] = {0};
 
 	text_not_phonemes = 0;
@@ -660,17 +667,18 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	}
 	else
 	{
-		EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
+		EncodePhonemes(phonetic,encoded_ph,&bad_phoneme);
 		if(strchr(encoded_ph,phonSWITCH) != 0)
 		{
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
 		}
 
 		// check for errors in the phonemes codes
-		if(bad_phoneme[0] != 0)
+		if(bad_phoneme != 0)
 		{
 			// unrecognised phoneme, report error
-			fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
+			bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
+			fprintf(f_log,"%5d: Bad phoneme [%s] (U+%x) in: %s  %s\n",linenum,bad_phoneme_str,bad_phoneme,word,phonetic);
 			error_count++;
 		}
 	}
@@ -1194,7 +1202,8 @@ static char *compile_rule(char *input)
 	int finish=0;
 	char buf[80];
 	char output[150];
-	unsigned char bad_phoneme[4];
+	int bad_phoneme;
+	char bad_phoneme_str[4];
 
 	buf[0]=0;
 	rule_cond[0]=0;
@@ -1272,10 +1281,11 @@ static char *compile_rule(char *input)
 		return(NULL);
 	}
 
-	EncodePhonemes(rule_phonemes,buf,bad_phoneme);
-	if(bad_phoneme[0] != 0)
+	EncodePhonemes(rule_phonemes,buf,&bad_phoneme);
+	if(bad_phoneme != 0)
 	{
-		fprintf(f_log,"%5d: Bad phoneme [%c] in %s\n",linenum,bad_phoneme[0],input);
+		bad_phoneme_str[utf8_out(bad_phoneme, bad_phoneme_str)] = 0;
+		fprintf(f_log,"%5d: Bad phoneme [%s] (U+%x) in: %s\n",linenum,bad_phoneme_str,bad_phoneme,input);
 		error_count++;
 	}
 	strcpy(output,buf);
@@ -1923,7 +1933,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	if((f_out = fopen_log(fname_out,"wb+")) == NULL)
 	{
 		if(fname_err)
-			strcpy(fname_err,fname_in);
+			strcpy(fname_err,fname_out);
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);

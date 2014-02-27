@@ -135,6 +135,13 @@ phoneme 0
 endphoneme
 
 
+phoneme 02   // becomes V in en-us
+  vowel  starttype #o  endtype #o
+  length 140
+  ChangePhoneme(V)
+endphoneme
+
+
 phoneme V
   vowel  starttype #a  endtype #@
   length 140

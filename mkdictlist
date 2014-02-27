@@ -10,12 +10,20 @@ import os
 
 voices = set()
 dictionaries = {}
+phoneme_data = set()
 
 # Map voice names to dictionaries when these do not match.
 special_voices = {
 	'bs': 'hbs',
 	'hr': 'hbs',
 	'zh-yue': 'zhy',
+}
+
+# Support for extended dictionaries.
+extended_dictionaries = {
+	'ru':  'ru_listx',
+	'zh':  'zh_listx',
+	'zhy': 'zhy_list',
 }
 
 exclude_voices = []
@@ -32,15 +40,38 @@ def find_voices(path):
 			elif filename not in exclude_voices:
 				voices.add(filename)
 
+def find_phoneme_data(path):
+	for filename in os.listdir(path):
+		phondata_path = os.path.join(path, filename)
+		if filename.startswith('ph_'):
+			phoneme_data.add(phondata_path)
+
 find_voices('espeak-data/voices')
+find_phoneme_data('phsource')
 
 for filename in os.listdir('dictsource'):
-	if filename.endswith('_rules') or filename.endswith('_list') or filename.endswith('_listx'):
+	if filename.endswith('_rules') or filename.endswith('_list') or filename in ['bg_listx', 'it_listx']:
 		dic, cat = filename.split('_')
 		if dic in voices:
 			if not dic in dictionaries.keys():
 				dictionaries[dic] = []
 			dictionaries[dic].append('dictsource/%s' % filename)
+
+def write_phoneme_data_rules(f):
+	f.write('##### phoneme data:\n')
+	f.write('\n')
+	f.write('espeak-data/phondata: phsource/phonemes.stamp\n')
+	f.write('espeak-data/phondata-manifest: phsource/phonemes.stamp\n')
+	f.write('espeak-data/phonindex: phsource/phonemes.stamp\n')
+	f.write('espeak-data/phontab: phsource/phonemes.stamp\n')
+	f.write('espeak-data/intonations: phsource/phonemes.stamp\n')
+	f.write('\n')
+	f.write('phsource/phonemes.stamp: \\\n')
+	for phonfile in sorted(phoneme_data):
+		f.write('\t%s \\\n' % phonfile)
+	f.write('\tphsource/phonemes\n')
+	f.write('\tESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile && touch $@\n')
+	f.write('\n')
 
 def write_dictionary_make_rules(f):
 	f.write('##### dictionaries:\n')
@@ -57,7 +88,16 @@ def write_dictionary_make_rules(f):
 		f.write('%s: espeak-data/%s_dict\n' % (name, name))
 		f.write('dictsource/%s_extra:\n' % name)
 		f.write('\ttouch dictsource/%s_extra\n' % name)
-		f.write('espeak-data/%s_dict: src/espeak espeak-data/phontab %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
+		if name in extended_dictionaries.keys():
+			ext = extended_dictionaries[name]
+			f.write('dictsource/%s:\n' % ext)
+			f.write('\tln -svf extra/%s dictsource/\n' % ext)
+			f.write('if HAVE_%s_EXTENDED_DICTIONARY\n' % name.upper())
+			f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra dictsource/%s\n' % (name, ' '.join(sorted(files)), name, ext))
+			f.write('else\n')
+		f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
+		if name in extended_dictionaries.keys():
+			f.write('endif\n')
 		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=%s && cd ..\n' % name)
 
 try:
@@ -67,9 +107,11 @@ except:
 
 if filename:
 	with open(filename, 'r') as f:
-		prelude = f.read().split('##### dictionaries:\n')[0]
+		prelude = f.read().split('##### phoneme data:\n')[0]
 	with open(filename, 'w') as f:
 		f.write(prelude)
+		write_phoneme_data_rules(f)
 		write_dictionary_make_rules(f)
 else:
+	write_phoneme_data_rules(sys.stdout)
 	write_dictionary_make_rules(sys.stdout)

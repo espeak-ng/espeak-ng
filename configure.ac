@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak], [1.47], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
+AC_INIT([eSpeak], [1.48], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
@@ -179,6 +179,44 @@ AM_CONDITIONAL(OPT_SONIC,  [test x"$have_sonic"  = xyes])
 AM_CONDITIONAL(OPT_ASYNC,  [test x"$have_async"  = xyes])
 
 dnl ================================================================
+dnl Extended dictionary checks.
+dnl ================================================================
+
+AC_ARG_WITH([extdict-ru],
+    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=no@:>@])],
+    [])
+
+if test "$with_extdict_ru" = "yes" ; then
+	have_extdict_ru=yes
+else
+	have_extdict_ru=no
+fi
+
+AC_ARG_WITH([extdict-zh],
+    [AS_HELP_STRING([--with-extdict-zh], [use the extended Mandarin Chinese Dictionary file @<:@default=no@:>@])],
+    [])
+
+if test "$with_extdict_zh" = "yes" ; then
+	have_extdict_zh=yes
+else
+	have_extdict_zh=no
+fi
+
+AC_ARG_WITH([extdict-zhy],
+    [AS_HELP_STRING([--with-extdict-zhy], [use the extended Cantonese Chinese Dictionary file @<:@default=no@:>@])],
+    [])
+
+if test "$with_extdict_zhy" = "yes" ; then
+	have_extdict_zhy=yes
+else
+	have_extdict_zhy=no
+fi
+
+AM_CONDITIONAL(HAVE_RU_EXTENDED_DICTIONARY,  [test x"$have_extdict_ru"  = xyes])
+AM_CONDITIONAL(HAVE_ZH_EXTENDED_DICTIONARY,  [test x"$have_extdict_zh"  = xyes])
+AM_CONDITIONAL(HAVE_ZHY_EXTENDED_DICTIONARY, [test x"$have_extdict_zhy" = xyes])
+
+dnl ================================================================
 dnl wxWidgets checks.
 dnl ================================================================
 
@@ -211,13 +249,18 @@ AC_MSG_NOTICE([
         Compiler flags:                ${CXXFLAGS}
 
         wxWidgets:                     ${WX_VERSION}
-	pulseaudio:                    ${have_pulseaudio}
-	portaudio:                     ${have_portaudio}
-	sada:                          ${have_sada}
-	audio configuration:           ${AUDIO}
+        pulseaudio:                    ${have_pulseaudio}
+        portaudio:                     ${have_portaudio}
+        sada:                          ${have_sada}
+        audio configuration:           ${AUDIO}
 
-	Klatt:                         ${have_klatt}
-	MBROLA:                        ${have_mbrola}
-	Sonic:                         ${have_sonic}
-	Async:                         ${have_async}
+        Klatt:                         ${have_klatt}
+        MBROLA:                        ${have_mbrola}
+        Sonic:                         ${have_sonic}
+        Async:                         ${have_async}
+
+        Extended Dictionaries:
+            Russian:                   ${have_extdict_ru}
+            Chinese (Mandarin):        ${have_extdict_zh}
+            Chinese (Cantonese):       ${have_extdict_zhy}
 ])

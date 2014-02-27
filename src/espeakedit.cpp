@@ -43,8 +43,6 @@
 #include "translate.h"
 #include "prosodydisplay.h"
 
-
-
 static const char *about_string2 = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2009\n\n"
 "Licensed under GNU General Public License version 3\n"
 "http://espeak.sourceforge.net/";
@@ -93,10 +91,6 @@ int frame_x, frame_y, frame_w, frame_h;
 
 int adding_page = 0;   // fix for wxWidgets (2,8,7) bug, adding first page to a wxNotebook gives emptystring for GetPageTex() in Notebook_Page_Changed event.
 
-wxFont FONT_SMALL(8,wxSWISS,wxNORMAL,wxNORMAL);
-wxFont FONT_MEDIUM(9,wxSWISS,wxNORMAL,wxNORMAL);
-wxFont FONT_NORMAL(10,wxSWISS,wxNORMAL,wxNORMAL);
-
 IMPLEMENT_APP(MyApp)
 
 wxString AppName = _T("espeakedit");
@@ -123,8 +117,8 @@ bool MyApp::OnInit(void)
 {//=====================
 
 int j;
-wxChar *p;
-char param[80];
+const wxChar *p;
+char param[120];
 
 
 if(argc > 1)
@@ -186,20 +180,22 @@ if(argc > 1)
 	SetTopWindow(myframe);
 	wxInitAllImageHandlers();
 //	wxImage::AddHandler(wxPNGHandler);
+	wxLogStatus(_T("Using espeak_data at: ")+wxString(path_home, wxConvLocal));
   return TRUE;
 }
 
 BEGIN_EVENT_TABLE(MyFrame, wxFrame)
 	EVT_CHAR(MyFrame::OnKey)
    EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
-	EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
+   EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
    EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
    EVT_MENU(MENU_OPT_SPEED, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_PUNCT, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_SPELL, MyFrame::OnOptions)
-	EVT_MENU(MENU_OPT_SPELL2, MyFrame::OnOptions)
+   EVT_MENU(MENU_OPT_SPELL2, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH_DATA, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH0, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
@@ -393,6 +389,7 @@ void MyFrame::PageCmd(wxCommandEvent& event)
             break;
         case SPECTSEQ_SAVEAS:
             currentcanvas->Save();
+            screenpages->SetPageText(screenpages->GetSelection(), currentcanvas->spectseq->name+_T(" ²"));
             break;
         case SPECTSEQ_SAVESELECT:
             currentcanvas->Save(_T(""), 1);
@@ -637,6 +634,20 @@ void OnOptions2(int event_id)
 		notebook->SetSelection(1);
 		break;
 
+	case MENU_PATH_DATA:
+		string = wxDirSelector(_T("espeak_data directory"), wxEmptyString);
+		if(!string.IsEmpty())
+		{
+			if(!wxDirExists(string+_T("/voices")))
+			{
+				wxLogError(_T("No 'voices' directory in ") + string);
+				break;
+			}
+			path_espeakdata = string;
+			wxLogMessage(_T("Quit and restart espeakedit to use the new espeak_data location"));
+		}
+		break;
+
 	case MENU_PATH0:
 		string = wxFileSelector(_T("Master phonemes file"),wxFileName(path_phfile).GetPath(),
 			_T("phonemes"),_T(""),_T("*"),wxOPEN);
@@ -726,6 +737,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	int debug_flag=0;
 	char fname_log[sizeof(path_dsource)+12];
 	char err_fname[sizeof(path_home)+15];
+	static const char utf8_bom[] = {0xef,0xbb,0xbf,0};
 
 	switch(event.GetId())
 	{
@@ -776,6 +788,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	case MENU_COMPILE_DICT:
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 		log = fopen(fname_log,"w");
+		if(log != NULL)
+		{
+			fprintf(log, "%s", utf8_bom);
+		}
 
 		LoadDictionary(translator, translator->dictionary_name, 0);
 		if((err = CompileDictionary(path_dsource,translator->dictionary_name,log,err_fname,debug_flag)) < 0)
