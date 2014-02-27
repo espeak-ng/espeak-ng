@@ -271,7 +271,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_wolof \
 	phsource/ph_zh \
 	phsource/ph_zh_yue \
-	phsource/phonemes
+	phsource/phonemes \
+	src/espeakedit
 	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile && touch $@
 
 ##### dictionaries:
