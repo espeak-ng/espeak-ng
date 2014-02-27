@@ -37,6 +37,10 @@ android {
             java.srcDirs = ['eSpeakTests/src']
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
