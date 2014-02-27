@@ -32,7 +32,7 @@ In order to build the APK, you need:
 
 1.  the [Android SDK](http://developer.android.com/sdk/index.html);
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 1.7.
+3.  Gradle 1.10.
 
 In order to use Android Studio, you will also need:
 
@@ -50,7 +50,7 @@ In order to use Eclipse, you will also need:
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c++ compiler  | `sudo apt-get install gcc g++`                                   |
 | wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
-| gradle        | [gradle-1.7_1.0-0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.7_1.0-0ubuntu1_all.deb) |
+| gradle        | [gradle-1.10_1.0-0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.10_1.0-0ubuntu1_all.deb) |
 
 ## Building
 
