@@ -102,7 +102,7 @@ _9	n'?i
 _10	t'?i
 _11	'?Elv@
 _12	t'Vl
-_13	t*'?&#d@-n 
+_13	tR'?&#d@-n 
 _14	fj'ord@-n
 _15	 f'Emd@-n
 _16	s'Ajsd@-n
@@ -327,9 +327,7 @@ penthouse	_^_EN
 pidgin		_^_EN
 ranger      _^_EN
 receiver	_^_EN
-//research	_^_EN
 remake		_^_EN
-roadie		_^_EN
 run         _^_EN
 scanner		_^_EN
 science		_^_EN
@@ -367,7 +365,6 @@ bronx       _^_EN
 boyle       _^_EN
 cyrus       _^_EN
 cia         _^_EN
-fox         _^_EN
 leroy        _^_EN
 luke       _^_EN
 mansfield   _^_EN
@@ -377,7 +374,61 @@ oregon      _^_EN
 piccadilly  _^_EN
 reynolds    _^_EN
 white       _^_EN
-
+Churchill  tSW:S?il
+Cambridge  kEjmbRIdZ
+        clementine kl?EmIntaIn
+        canterbury k?&nt?Vbri
+        connecticut k?Vn'?et?ik?Vd
+        carlisle   kAlaIl
+        china      tjaIn?&
+     _) cape (_town k?Ejp
+     _) chuck      tS?Vk
+        cleveland  kli:vl?&n
+     _) cartier    k?Artj'?e
+        chagall    S?&g'?&l
+        connie     k?Vni
+        chablis    S?&bl'?i	
+        coleridge  kOwlr?idZ
+        cincinnati sensin'&ti
+        chihuahua  tSiw'awa
+        connor     k?Vn?V
+        creasy     kris?i
+		        cutler     k?Vtl?V
+        courtney   kOtn?i
+     _) cathy      k?&T?i
+     _) cagney     k?&gn?i
+	         cheryl     S?Er?el/2
+        cohen      kOu@-n
+     _) cardin     kArd'?&N   // name
+        cézanne    s?es'&n    // Cézanne
+        cézannen   s?es'&n@-n // Cézannen
+        cockney    kVknI
+        clerk      klA:k     // Clerkenwell
+        carmine    kA:maIn
+		shaughnessy S?On?Es?i
+        sully      s?Vl?i
+        spielberg  sp?ilbW:g
+        sotheby    s?VD@-bi
+        shelagh    Si:l?&
+     _) shirley    SWl?i
+	    shaw       SO:
+        schweiz    svaIts
+		sussex     s?Vs?Egs
+        seamus     SEim@-s
+     _) steve      stiv
+     _) steven     stiv@-n
+        sheila     Si:l?&
+     _) stone      sdoun
+        sonya      s?Vnj?&
+        sophie     sOuf?i
+        spitfire   sp?etfaI?V
+        suffolk    s?Vf?Vk
+       solsjenitsyn s?Vlsj@n'?its?in
+        sloane     slOwn
+        slovakiet  sl?ov?&k'?i@D
+        swanee     sw?Vn?i   // Swanee River
+        Sydney     s?idn?i
+        Shakespeare S?Eiksb?ir
 // French words
 croquis     _^_FR
 crouton     _^_FR
@@ -6143,6 +6194,7 @@ eskorter   $alt
 espalier   $alt
 estimer   $alt
 etabler   $alt
+genetabler   $alt
 etagere   $alt
 etikettere   $alt
 etymologiser   $alt
@@ -6375,6 +6427,7 @@ insister   $alt
 inspicer   $alt
 inspirer   $alt
 installer   $alt
+afinstaller   $alt
 instituer   $alt
 institutionaliser   $alt
 instruer   $alt
@@ -6841,7 +6894,7 @@ perspektivere   $alt
 perturber   $alt
 perverter   $alt
 petitioner   $alt
-pigmenter   $alt
+pigmentere   $alt
 piker   $alt
 pilotere   $alt
 pioner   $alt
@@ -11202,6 +11255,9 @@ fx fVegsemp@l // PB "fx" is short for 'for eksempel'
 (cd'en) se:de:3n // PB
 (cd'er) se:de:V // PB
 emp $abbrev
+dna $abbrev
+dna's d?e?En'?&s
+dna'et d?e?En'?&@-D
 evt evEntu'El $abbrev $hasdot
 hbo $abbrev // TV station
 usa $abbrev
@@ -11243,12 +11299,13 @@ ikes ajks // PB
 (det kvarter) de||kvA'ter 
 (i kvarter) i||kv'A:dV
 // the verb 'have', not the noun 'have' = garden/oceans
-(at have) &||h&                
-(vil have) vel||h'& 
+(at have) ?&||h?&                
+(vil have) v?el||h'?& 
 (ville have) v?il3||h'& 
 (skulle have) sg'?ul@-||h'&
-(du have) du||h&_!
-(må have)  mO:||h&  
+(du have) du||h?&_!
+(må have)  mO:||h?&
+(man have) m?&n|h?&  
 (skal have)  sk?&||h&  
 (helst have) h'Elst||h&
 (gerne have) g'Ern3||h&

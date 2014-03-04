@@ -104,7 +104,6 @@ static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
 
 // the source text of a single clause (UTF8 bytes)
-#define N_TR_SOURCE    800
 static char source[N_TR_SOURCE+40];     // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
@@ -2655,6 +2654,9 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	charix[charix_top+3] = 0;
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
+	if(terminator & CLAUSE_PAUSE_LONG)
+	  clause_pause = clause_pause * 32 ;  // pause value is *320mS not *10mS
+
 	tone = (terminator >> 12) & 0x7;
 	if(tone2 != 0)
 	{

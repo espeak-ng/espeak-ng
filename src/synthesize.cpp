@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -188,7 +188,7 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 int PauseLength(int pause, int control)
 {//====================================
-	int len;
+	unsigned int len;
 
 	if(control == 0)
 	{
@@ -210,8 +210,10 @@ int PauseLength(int pause, int control)
 
 static void DoPause(int length, int control)
 {//=========================================
+// length in nominal mS
 // control = 1, less shortening at fast speeds
-	int len;
+	unsigned int len;
+	int srate2;
 
 	if(length == 0)
 		len = 0;
@@ -219,7 +221,15 @@ static void DoPause(int length, int control)
 	{
 		len = PauseLength(length, control);
 
-		len = (len * samplerate) / 1000;  // convert from mS to number of samples
+		if(len < 90000)
+		{
+			len = (len * samplerate) / 1000;  // convert from mS to number of samples
+		}
+		else
+		{
+			srate2 = samplerate / 25;  // avoid overflow
+			len = (len * srate2) / 40;
+		}
 	}
 
 	EndPitch(1);

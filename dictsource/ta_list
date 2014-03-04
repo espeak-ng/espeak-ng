@@ -99,15 +99,15 @@ _-	in.aIppUg	// இணைப்புக்
 \	p'in||s,a:jvU	// பின் சாய்வு
 !	vijVppU		// வியப்பு
 _?	ke:l.vi		// கேள்வி
-#	;en.		$max3	// எண் குறி
-=	samVnpa:d.U	$max3	// சமன்பாடு
-+	ku:t.t.Vl	$max3	// கூட்டல்
-*	perUkkVl	$max3	// பெருக்கல்
+#	;en.		// எண் குறி
+=	sVmVm		// சமம்.
++	ku:t.t.Vl	// கூட்டல்
+*	perUkkVl	// பெருக்கல்
 /	sa:jvU		// சாய்வு
 ÷	vVgUttVl	// வகுத்தல்
-%	viz.Ukka:d.U	$max3	// விழுக்காடு
+%	viz.Ukka:d.U	// விழுக்காடு
 &	mVt.RUm
-|	seNgUttU	$max3
+|	seNgUttU
 U+bf9	ru:ba:j
 ¼	ka:l
 ½	araI
@@ -124,10 +124,11 @@ _…	v'id.UnilaI
 §	p'irivU
 ➔	v'VlVdVmbU
 →	v'VlVdVmbU
+←	'id.VdVmbU
 ■	k'VrUn^dZVdU*Vm
 ●	v'Vt.t.Vm
 †	kuttUva:l.
-‡	'irVt.t.aI||k'uttUva:l.
+‡	'i*Vt.t.aIk||k'uttUva:l.
 
 ௰	pVttU
 ௱	nu:RU
@@ -139,7 +140,7 @@ _…	v'id.UnilaI
 ௷	vVrVvU
 ௸	m'e:lirUppVdU||p'o:l
 ௺	;en.n.UrU
-
+ௐ 	o:mV
 
 _sup	m'e:lez.UttU
 
@@ -452,7 +453,6 @@ tamil	தமிழ்	$text
 தடக்	$alt
 தீக்ஷை	$alt
 தடியன் 	$alt
-தரிசனம்		$alt
 தட்சணை	$alt
 தைவதம்		$alt
 தாட்சண்யம்	$alt
@@ -559,7 +559,6 @@ tamil	தமிழ்	$text
 கம்னு	$alt
 கம்மென்று	$alt
 குதி	$alt
-கம்	$alt
 காந்தம்	$alt
 கான	$alt
 கோத்திர	$alt

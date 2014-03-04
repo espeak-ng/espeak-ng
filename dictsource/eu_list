@@ -1,0 +1,128 @@
+ 
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Basque
+
+b	be
+c	ze
+d	de
+f	efe
+g	ge
+h	atSe
+j	xota
+k	ka
+l	ele
+m	eme
+n	ene
+ñ	en^e
+p	pe
+q	ku
+r	eR2e
+s	ese
+t	te
+v	uBe
+w	uBe||bikoitza
+x	iSa
+y	i||grekoa
+z	zeta
+
+_a	a
+_e	e
+_i	i
+_o	o
+_u	u
+
+
+// numbers
+_0	zer'o
+_1	b'at
+_2	b'i
+_3	hir'u
+_4	l'aU
+_5	b'ost
+_6	s'eI
+_7	zazp'i
+_8	zort'i
+_9	beD'eratzi
+_10	am'aR2
+_11	am'aIka
+_12	amaB'i
+_13	ama'ir,u
+_14	amal'aU
+_15	amaB'ost
+_16	amas'eI
+_17	amazazp'i
+_18	emezort'i
+_19	emeretz'i
+_20	hoQ'eI
+_2X	hoQ'eIta
+_40	b'eR2oQeI
+_4X	b'eR2oQeIta2
+_60	ir'uroQeI
+_6X	ir'uroQeIta2
+_80	l'aUroQeI
+_8X	l'aUroQeIta2
+_1C	e'un
+_2C	b'eR2eun
+_0C	R2e,un
+_0M1	mil'a
+_0M2	mil^'i;oI
+_0and	eta
+_dpt	_koma
+
+
+// names of punctuation and symbol characters
+
+
+
+// functuion words
+// conjunctions
+eta	$u+ $pause  // and
+bainan	$pause
+
+
+// pronouns
+ni	$u+
+zu	$u+
+hura	$u+
+gu	$u+
+zuek	$u+
+haiek	$u+
+
+nire	$u+  // possessive
+zure	$u+
+haren	$u+
+bere	$u+
+gure	$u+
+zuen	$u+
+haien	$u+
+beren	$u+
+
+hau	$u+	// this
+hori	$u+	// that
+hura	$u+	// that (further)
+
+// auxillary verbs
+izan	$u	// to be
+naiz	$u
+zara	$u
+da	$u
+gara	$u
+zarete	$u
+dira	$u
+
+egon	$u	// to be
+nago	$u
+zaude	$u
+gaude	$u
+zaudete	$u
+daute	$u
+
+
+// gramatical suffixes which can appear as words appended to numbers etc.
+// Should these be in eu_rules ??
+a	$u
+an	$u
+ean	$u
+eko	$u
+era	$u
+ko	$u

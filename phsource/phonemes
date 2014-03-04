@@ -1970,5 +1970,8 @@ include ph_greenlandic
 phonemetable om base
 include ph_oromo
 
+phonemetable eu base2
+include ph_basque
+
 //phonemetable en2 en
 //include ph_english_test
