@@ -187,6 +187,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_assamese \
 	phsource/ph_azerbaijani \
 	phsource/ph_base2 \
+	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
@@ -295,6 +296,7 @@ dictionaries: \
 	espeak-data/eo_dict \
 	espeak-data/es_dict \
 	espeak-data/et_dict \
+	espeak-data/eu_dict \
 	espeak-data/fa_dict \
 	espeak-data/fi_dict \
 	espeak-data/fr_dict \
@@ -449,6 +451,12 @@ dictsource/et_extra:
 	touch dictsource/et_extra
 espeak-data/et_dict: src/espeak phsource/phonemes.stamp dictsource/et_list dictsource/et_rules dictsource/et_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=et && cd ..
+
+eu: espeak-data/eu_dict
+dictsource/eu_extra:
+	touch dictsource/eu_extra
+espeak-data/eu_dict: src/espeak phsource/phonemes.stamp dictsource/eu_list dictsource/eu_rules dictsource/eu_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=eu && cd ..
 
 fa: espeak-data/fa_dict
 dictsource/fa_extra:
