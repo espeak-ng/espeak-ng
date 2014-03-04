@@ -50,8 +50,9 @@ static char *hash_chains[N_HASH_DICT];
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
-	{"unpr",   0x01},
-	{"noprefix", 0x02},  // rule fails if a prefix has been removed
+	{"unpr",   DOLLAR_UNPR},
+	{"noprefix", DOLLAR_NOPREFIX},  // rule fails if a prefix has been removed
+	{"list",   DOLLAR_LIST},    // a pronunciation is given in the *_list file
 
 	{"w_alt1", 0x11},
 	{"w_alt2", 0x12},
@@ -314,6 +315,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			value = *rule++ & 0xff;
 			if((value != 0x01) || (control & FLAG_UNPRON_TEST))
 			{
+				// TODO write the string backwards if in RULE_PRE
 				p[0] = '$';
 				name = LookupMnemName(mnem_rules, value);
 				strcpy(&p[1],name);
@@ -1102,21 +1104,33 @@ static void copy_rule_string(char *string, int *state_out)
 					break;
 
 				case '$':
-					output[ix++] = RULE_DOLLAR;
-					c = 0;
+					value = 0;
 					mr = mnem_rules;
 					while(mr->mnem != NULL)
 					{
 						len = strlen(mr->mnem);
 						if(memcmp(p, mr->mnem, len) == 0)
 						{
-							c = mr->value;
+							value = mr->value;
 							p += len;
 							break;
 						}
 						mr++;
 					}
-					if(c == 0)
+
+					if(state == 1)
+					{
+						// pre-rule, put the number before the RULE_DOLLAR
+						output[ix++] = value;
+						c = RULE_DOLLAR;
+					}
+					else
+					{
+						output[ix++] = RULE_DOLLAR;
+						c = value;
+					}
+
+					if(value == 0)
 					{
 						fprintf(f_log,"%5d: $ command not recognized\n",linenum);
 						error_count++;

@@ -233,30 +233,8 @@ phoneme ts
 endphoneme
 
 
-phoneme dZ;
-  vcd pal afr sibilant palatal
-  voicingswitch tS;
-  lengthmod 5
-  Vowelin f1=2 f2=2700 400 600 f3=300 80 rate len=70
+// use [tS;] and [dZ;] from base phonemes file
 
-  IF PreVoicing THEN
-FMT(dzh/xdzh)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-FMT(dzh/dzh_) addWav(x/dzh_)
-  ENDIF
-endphoneme
-
-
-phoneme tS;
-  vls pal afr sibilant palatal
-  voicingswitch dZ;
-  lengthmod 2
-  Vowelin f1=0 f2=2700 400 600 f3=300 80 rate len=70
-
-  WAV(ustop/ts_pzd)
-endphoneme
 
 phoneme t
   vls dnt stop

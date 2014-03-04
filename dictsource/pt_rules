@@ -352,6 +352,7 @@
    êCC) e (C@      e
     ôC) e (C@      e
     áC) e (C@      e
+áC) el (_      eU
    áCC) e (CA_     e
    éCC) e (CA_     e
   éCCC) e (C@      e
@@ -385,6 +386,7 @@ _troux) e (L05_    E
  _houv) e (L06_    E
 _escond) e (L06_   e
 respond) e (L06_   e
+constrang) e (L07_   e
     eb) e (L07_    e         // recebeste, etc.
     eg) e (L07_    e         // elegeste, etc.
    _@o) e (L07_    e         // doeste, etc.
@@ -399,6 +401,7 @@ respond) e (L06_   e
    ond) e (L07_    e         // escondeste, etc.
    orr) e (L07_    e         // correste, etc.
 precav) e (L07_    e
+_tang) e (L07_   e
   _ard) e (L07_    e
   _coz) e (L07_    e
   _val) e (L07_    e
@@ -437,9 +440,11 @@ _enver) e (dL03_   E
   estr) ei (L04_   EI
     _r) e (jL03_   E
   _inv) e (jL04_   E
+  _panfl) e (tL04_   e
     _v) e (lhL03_  E
    _gr) e (lhL04_  E
   _caC) e (lo_     e
+  _livr) e (tA_   e
 ?2      el (ton_   'EU
     ad) e (quL04_  E
   _ing) e (rL02_   E
@@ -500,9 +505,11 @@ s_colh) e (res_    E
     _d) e (spL02_  E
     _p) e (squL02_ E
  _refr) e (squL02_ E
+ _degr) e (dL01_   E
     _l) e (ssL02_  e
    _ac) e (ssL02_  E
   _esp) e (ssL03_  e
+  _terc) e (tL03_   e
     _c) e (stL03_  e
    _pr) e (tL03_   e
   _rem) e (tL03_   e
@@ -512,7 +519,7 @@ _obsol) e (tL03_   e
   _CaC) e (ta_     e
   viol) e (ta_     e
  _Carr) e (ta_     e
-  _pen) e (trL04_  E
+ _pen) e (trL04_  E
   _sol) e (trL04_  E
     _n) eu (trL03_ 'eU
     _d) e (vL03_   e
@@ -667,6 +674,7 @@ _apazi) gu (e      gw
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
 ?2      i (rton_   'i
+?2 _v) i (king   'i
 ?2      ight (_    'aIt
 ?1      ight (_    _^_EN
 ?1      ights (_   _^_EN
@@ -892,6 +900,7 @@ _pormen) o (L05_   O
  _barr) o (cL03_   o
    _ch) o (chA_    o
     _m) o (chA_    o
+_f) o (dL01_s   o
   _ecl) o (dL03_   o
  _expl) o (dL03_   o
  _impl) o (dL03_   o
@@ -962,6 +971,7 @@ _ortod) o (xL03_   O
    _ad) o (çL03_   O
   _emp) o (çL03_   O
   _end) o (çL03_   O
+  _c) o (çL03_   O
 //endsort
 
 .group ô
@@ -1198,11 +1208,12 @@ _ortod) o (xL03_   O
 _abaca) x (i       S
    ale) x (a       S
  _arro) x (e       S
+ _ave) x (A   S
    bau) x (A       S
-   brA) x (A       S
+      brA) x (A       S
    _bu) x (o_      S
-    bY) x (A       S
-   _ca) x (A       S
+   bY) x (A       S
+       _ca) x (A       S
    _co) x (A       S
   _coe) x (A       z
 _esdrA) x (ul      S
@@ -1225,9 +1236,9 @@ _lagarti) x (A     S
     _o) x (í       ks
    _pe) xo (to_    So
     pi) x (A       S
-  _pro) x (A       S
+  _pro) x (A      S
   _pra) x (A       S
-   prA) x (i       s         // aproximado, aproximadamente, aproximar, próximo, etc.
+   prA) x (i       s         // aproximado, aproximar, próximo, etc.
     pu) x (A       S         // verb "puxar" and all its conjugations
    qui) x (A       S
     ri) x (A       S
@@ -1241,7 +1252,7 @@ _lagarti) x (A     S
 ?1   i) x (a_      S
 ?1   i) x (as_     S
  _trou) x (ér      s
-  _pro) x (imi     s
+  _pro) x (imA     s
 
 
 .group y

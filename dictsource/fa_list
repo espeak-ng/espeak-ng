@@ -1,5 +1,5 @@
-	// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.1
-// *   This file writen by Shadyar Khodayari 11-14-2013
+	// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.11
+// *   This file writen by Shadyar Khodayari 02-05-2014
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -88,6 +88,21 @@ _؛	noqteviRgul
 ي	'je_aRabi
 
 
+// Urdu for Persian users added by users
+ھ	'he:tS'eSmi_oRdu	//replace with Persian he, by default.
+ٹ	'te:_oRdu
+ڈ	'dAl_oRdu
+ڑ	're:_oRdu
+ہ	'he:_oRdu
+ﮩ	'he:_oRdu
+ﮨ	'he:_oRdu
+ے	'je_oRdu
+ں	'nun_oRdu
+ۃ	'tAje-,ta?nis_oRdu
+ۂ	'he,hamze:_oRdu
+ۓ	'je,hamze:_oRdu
+
+
 // Alphabet for Farsi is written by English characters (Pinglish)
 // Sometimes, Farsi speakers write Farsi words using English characters, particularly in Chat and SMS (texte messages).), called Pinglish
 ?1 a	ej
@@ -171,22 +186,22 @@ _#rd	om
 _#th	om
 
 
-// character names
+// character names.  (An underscore added before characters which should not spoken during normal reading of text)
 ÷	taqsimbaR
 ×	zaRbdaR
-؟	alAmatesoAl
-!	alAmate'ta?adZdZob
+_؟	alAmatesoAl
+_!	alAmate'ta?adZdZob
 $	dolAR
 %	daR'sad
 [	beRAketbAz
 ]	beRAketbaste:
-(	paRAntezbAz
-)	paRAntezbaste:
+_(	paRAntezbAz
+_)	paRAntezbaste:
 *	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
 	_-	nim_fAsele:
-.	noqte:
-:	'donoqte:
+_.	noqte:
+_:	'donoqte:
 <	:alAmate'kutSektaR
 =	:alAmate'mosAvi
 >	:alAmate'bozoRgtaR
@@ -342,6 +357,7 @@ $	dolAR
 آبشش	AbSoS
 آبم	Abam
 آبونمان	AbunmAn
+آبپخش	AbpaxS
 آبپز	Ab'paz
 آبکش	AbkeS
 آبگرم	AbgaRm
@@ -459,12 +475,14 @@ $	dolAR
 آشپز	ASpaz
 آصف	Asef
 آغشت	Aq1eSt
+آغل	Aq1ol
 آفتومات	AftomAt
 آفرودیت	AfRodit
 آفرید	AfaRid
 آفریدگار	AfaRidegAR
 آفریقا	AfRiq1A
 آفرین	AfaRin
+آفریند	AfaRinad
 آفرینش	AfaRineS
 آفند	Afand
 آقااحمدی	Aq1Aahmadi
@@ -550,10 +568,12 @@ $	dolAR
 آنتی	Anti
 آنتیموان	AntimuAn
 آنجانب	'AndZAneb
+آنجلا	AndZellA
 آنجلس	AndZeles
 آنجهان	AndZahAn
 آندانت	AndAnt
 آندرانیک	AndRAnik
+آندروید	AndRojd
 آندوتوکسین	Andotoksin
 آندوسکپ	Andoskop
 آندومتر	AndometR
@@ -719,7 +739,6 @@ $	dolAR
 ابوبکر	abubakR
 ابوت	abovvat
 ابوحاتم	abuhAtam
-ابودجانه	abudadZAne
 ابوذر	abuzaRR
 ابوسعید	abusaid
 ابوسفیان	abusofjAn
@@ -764,6 +783,7 @@ $	dolAR
 اتمسفر	atmosfeR
 اتموسفر	atmosfeR
 اتمیسم	atomism
+اتمیک	atomik
 اتنولژی	etnoloZi
 اتهام	ettehAm
 اتو	otu:
@@ -866,6 +886,7 @@ $	dolAR
 احیانا	ahjAnan
 اخت	oxt
 اختاپوس	oxtApus
+اختبار	extebAR
 اخترفیزیک	axtaRfizik
 اخترفیزیکدان	axtaRfizikdAn
 اختروش	axtaRvaS
@@ -933,6 +954,7 @@ $	dolAR
 اذهان	azhAn
 اذیت	azjat
 ارائه	eRAe:
+ارائۀ	eRAeje
 ارادت	eRAdat
 اراده	eRAde:
 اراذل	'aRAzel
@@ -946,6 +968,7 @@ $	dolAR
 ارتدوکس	oRtodoks
 ارتدکس	oRtodoks
 ارتش	aRteS
+ارتشا	_eRteSA
 ارتشاء	eRteSA
 ارتشبد	aRteSbod
 ارتشتار	aRteStAR
@@ -957,6 +980,7 @@ $	dolAR
 ارجاع	eRdZA?
 ارد	oRd
 اردبیل	aRdebil
+اردستان	aRdestAn
 اردشیر	aRdaSiR
 اردن	oRdon
 اردنگ	oRdang
@@ -1156,6 +1180,7 @@ $	dolAR
 استمپ	estamp
 استن	aseton
 استنفورد	estanfoRd
+استهبان	estahbAn
 استهزا	estehzA
 استوا	ostovA
 استوار	ostovAR
@@ -1170,7 +1195,9 @@ $	dolAR
 استوپا	estupA
 استپ	estep
 استکان	estekAn
+استکبار	estekbAR
 استکهلم	'estokholm
+استیج	estejdZ
 استیجار	estidZAR
 استیحاش	estihAS
 استیشن	estejSen
@@ -1320,6 +1347,7 @@ $	dolAR
 اشتعالزا	eSteAlzA
 اشتغالزا	eSteq1AlzA
 اشتها	eStehA
+اشتهارد	eStehARd
 اشتهاردی	eStehARdi
 اشتون	aSton
 اشتیاق	eStijAq1
@@ -1384,6 +1412,7 @@ $	dolAR
 اطلاق	etlAq1
 اطمینان	etminAn
 اطناب	etnAb
+اطِّلاع	ettelA?
 اظهار	ezhAR
 اظهارنظر	ezhARenazaR
 اعتبار	e?tebAR
@@ -1407,6 +1436,7 @@ $	dolAR
 اعلایحضرت	a?lAjehazRat
 اعلم	a?lam
 اعلی	?a?lA
+اعلیحضرت	a?lAhazRat
 اعم	a?am
 اعماق	a?mAq1
 اعمال	a?mAl
@@ -1466,6 +1496,7 @@ $	dolAR
 اق	oq1
 اقارب	aq1AReb
 اقاله	eq1Ale:
+اقام	eq1Am
 اقامت	eq1Amat
 اقباض	eq1bAz
 اقبال	eq1bAl
@@ -1537,16 +1568,20 @@ $	dolAR
 السالوادور	elsAlvAdoR
 الست	alast
 السلطان	ossoltAn
+الشرکه	oSSeRke
 الشعاع	oSSo?A?
 الشعرا	oSSo?aRA
 الشفا	oSSafA
 الشمس	aSSams
 الصاق	elsAq1
-العاده	olAddeh
+العاده	olAdde
+العبور	ol?obuR
 العدل	ol_adl
 العلاج	ol?alAdZ
 العلم	al?elm
+العلیه	ol_alajh
 العمل	ol_amal
+العموم	ol?omum
 العهد	olahd
 الغا	elq1A
 الغاگری	elq1AgaRi
@@ -1561,11 +1596,13 @@ $	dolAR
 اللحن	ollahn
 اللّه	all:Ah
 الم	alam
+المال	olmAl
 المان	elemAn
 المثل	ol'masal
 المثنی	almosannA
 المسایل	?almasA?el
 المسلمین	olmoslemin
+المسمی	olmosammA
 المقدس	olmoq1addas
 الملل	ol'melal
 المنت	element
@@ -1574,6 +1611,7 @@ $	dolAR
 المپیاد	olampijAd
 المپیک	olampik
 الناز	elnAz
+الناس	onnAs
 النسا	onnesA
 النهار	onnahAR
 النّهار	onnahAR
@@ -1740,6 +1778,7 @@ $	dolAR
 اندوهزدا	anduhzodA
 اندوهگسار	anduhgosAR
 اندیش	andiS
+اندیشان	andiSAn
 اندیمشک	andimeSk
 اندیکاتور	andikAtoR
 اندیکس	andiks
@@ -1934,7 +1973,7 @@ $	dolAR
 اکرام	ekRAm
 اکران	ekRAn
 اکراه	ekRAh
-اکراین	okRAjAn
+اکراین	okRAjn
 اکساسید	oksAsid
 اکسالات	oksAlAt
 اکسایش	oksAjeS
@@ -2096,6 +2135,7 @@ $	dolAR
 باربی	bARbi
 باربیکیو	bARbikiju
 بارتز	bARtez
+بارد	bARad
 باردان	bARdAn
 بارده	bARdeh
 بارسلون	bARselon
@@ -2250,6 +2290,7 @@ $	dolAR
 بایت	bAjt
 باید	'bAjad
 بایرمونیخ	bAjeRmunix
+بایرن	bAjeRn
 بایست	bAjest
 بایستد	be?istad
 بایستیم	be?istim
@@ -2284,6 +2325,7 @@ $	dolAR
 بجو	bedZu
 بحال	behAl
 بحبوحه	bohbuhe:
+بحبوحۀ	bohbuheje
 بحرالانوار	bahRol_anvAR
 بحرالعلوم	bahRol?olum
 بحرالفواید	bahRolfavAjed
@@ -2409,12 +2451,14 @@ $	dolAR
 بدنهاد	badnahA
 بدهکار	bedehkAR
 بدهی	bedehi
+بدو	bodo
 بدوا	badvan
 بدوبدو	bodobodo
 بدوبیراه	badobiRAh
 بدوی	badvi
 بدپیله	badpile
 بدپیلگی	badpilegi
+بدک	badak
 بدکاره	badkARe
 بدکارگی	badkARegi
 بدکردار	badkeRdAR
@@ -2580,12 +2624,14 @@ $	dolAR
 برورو	baRoRu
 بروزرسان	beRuz_ResAn
 بروزیافته	boRuzjAfte
+بروس	boRo:s
 بروساژ	boRosAZ
 بروسلا	buRusellA
 بروسلی	boRusli
 بروشنی	beRoSani
 بروفه	boRufe
 بروم	beRavam
+برومند	boRumand
 برون	boRun
 برونبر	buRunbaR
 برونتراو	boRuntaRAv
@@ -2736,12 +2782,13 @@ $	dolAR
 بعداز	badaz
 بعدازظهر	badazzohR
 بعضا	'ba?zan
+بعضیا	ba?zijA
 بعید	ba?id
 بعینه	be?ejne:
 بغاز	boq1Az
 بغداد	baq1dAd
 بغرنج	boq1RandZ
-بغض	boq1q1z
+بغض	boq1z
 بغضا	baq1zA
 بغل	baq1al
 بفتا	baftA
@@ -2763,7 +2810,7 @@ $	dolAR
 بقی	baq1i
 بقیه	baq1ije:
 بقیۀ	baq1ijeje
-بلا	belA
+بلا	balA
 بلااثر	belAasaR
 بلااجرا	belAedZRA
 بلااستثناء	belAestesnA
@@ -2783,6 +2830,7 @@ $	dolAR
 بلاکش	balAkeS
 بلایا	balAjA
 بلبرینگ	bolbiRing
+بلبشو	balbaSo:
 بلبل	bolbol
 بلد	balad
 بلداجی	boldAdZi
@@ -2813,6 +2861,7 @@ $	dolAR
 بلهوسانه	bolhavasAne
 بلوا	balvA
 بلوار	bolvAR
+بلوتوث	bulutus
 بلور	boluR
 بلوردان	buluRdAn
 بلورلایه	buluRlAje
@@ -2886,6 +2935,12 @@ $	dolAR
 بنشان	beneSAn
 بنشست	beneSast
 بنشن	bonSan
+بنشین	benSin
+بنشینم	beneSinam
+بنشینند	beneSinand
+بنشینی	beneSini
+بنشینید	beneSinid
+بنشینیم	beneSinim
 بنصر	benseR
 بنفش	banafS
 بنلاد	bonlAd
@@ -2920,7 +2975,7 @@ $	dolAR
 بهانه	bahAne:
 بهاییت	bahAijat
 بهبهان	behbahAn
-بهت	behet
+بهت	boht
 بهتا	behtA
 بهتان	bohtAn
 بهتر	behtaR
@@ -2947,6 +3002,9 @@ $	dolAR
 بهنود	behnud
 بهنگام	behengAm
 بهکده	behkade
+بهین	behin
+بهینه	behine:
+بهینۀ	behineje
 بهیچوجه	behitSvadZh
 بواطن	bevAten
 بوالحسن	bolhasan
@@ -2959,7 +3017,7 @@ $	dolAR
 بوجود	bevodZud
 بوحشت	bevahSat
 بوداپست	budApest
-بودجه	buddZe:
+بودج	buddZ
 بودونبود	budonabud
 بورات	boRAt
 بوراکس	boRAks
@@ -3003,6 +3061,7 @@ $	dolAR
 بچّه	batStSe:
 بچّۀ	batStSeje
 بچگی	batStSegi
+بچین	betSin
 بژ	beZ
 بکارت	bekARat
 بکارگیری	bekARgiRi
@@ -3020,6 +3079,7 @@ $	dolAR
 بکل	bekol
 بکن	bokon
 بکند	bokonad
+بگشاد	bogSAd
 بگم	begam
 بگن	began
 بگه	bege:
@@ -3046,10 +3106,12 @@ $	dolAR
 بیاید	bijAjad
 بیت	bejt
 بیتقوا	bitaq1vA
+بیتوته	bejtute
 بیتوجه	bitavadZdZoh
 بیحیا	bihajA
 بیخبر	bixabaR
 بیخت	bixt
+بیخود	bixod
 بیدارشدگی	bidARSodegi
 بیدبلند	bidboland
 بیدخشت	bidxeSt
@@ -3063,6 +3125,7 @@ $	dolAR
 بیروت	bejRut
 بیزنس	biznes
 بیزه	bejze:
+بیزینس	bizines
 بیس	bejs
 بیسایو	bisAo
 بیستم	'bistom
@@ -3084,7 +3147,10 @@ $	dolAR
 بیعمل	bi?amal
 بیفت	bijoft
 بیفتاد	bijoftAd
+بیفتد	bijoftad
 بیفتک	biftak
+بیفروز	bijafRuz
+بیفروزد	bijafRuzad
 بیفروغ	bifuRuq1
 بیفزا	bijafzA
 بیفکن	bijafkan
@@ -3159,7 +3225,7 @@ $	dolAR
 تاخوردگی	tAxoRdegi
 تاخیر	taxiR
 تادب	ta?addob
-تادیه	tadije
+تادیه	ta?dije
 تارت	tARt
 تارخ	tARox
 تارریس	tARRis
@@ -3171,6 +3237,7 @@ $	dolAR
 تاروپود	tARopud
 تارک	tARek
 تاریخدان	tARixdAn
+تازد	tAzad
 تاسف	ta?assof
 تاسمانی	tAsmAni
 تاسیس	'tas,is
@@ -3199,6 +3266,7 @@ $	dolAR
 تاکسیمتر	tAksimetR
 تاکنون	tAkonun
 تاکید	ta?kid
+تایلند	tAjland
 تایم	tAjm
 تایمر	tAjmeR
 تایمز	tAjmz
@@ -3281,6 +3349,7 @@ $	dolAR
 تختخواب	taxtexAb
 تخرمه	texeRme
 تخس	toxs
+تخطی	taxatti
 تخلخل	taxalxol
 تخم	toxm
 تخماش	toxmAS
@@ -3393,6 +3462,7 @@ $	dolAR
 ترنتو	toRento
 ترنج	toRandZ
 ترنم	taRannom
+ترنگ	toRang
 ترهات	toRRahAt
 تروتازه	taRotAze
 تروتازگی	taRotAzegi
@@ -3452,6 +3522,7 @@ $	dolAR
 تزاریسم	tezARism
 تزاید	tazAjod
 تزلزل	tazalzol
+تزوج	tazavvodZ
 تست	test
 تستر	tosteR
 تستوسترون	testosteRon
@@ -3489,7 +3560,7 @@ $	dolAR
 تطور	tatavvoR
 تظلم	tazallom
 تعبدا	ta?abbodan
-تعبیه	ta?bijeh
+تعبیه	ta?bije
 تعجب	ta?adZdZob
 تعجّب	ta?adZdZob
 تعداد	'te?dAd
@@ -3558,6 +3629,7 @@ $	dolAR
 تلمبه	tolombe:
 تلمیذ	telmiz
 تلنگر	talangoR
+تله	tale:
 تلو	telo:
 تلواسه	talvAse
 تلوتلو	telo:telo:
@@ -3726,6 +3798,7 @@ $	dolAR
 توسری	tusaRi
 توسط	tavassote
 توسعه	'tose?e:
+توسعۀ	to:se?eje
 توسن	to:san
 توسّط	tavassote
 توسیط	to:sit
@@ -3783,6 +3856,7 @@ $	dolAR
 تویم	tujam
 توییتر	tui:teR
 تپاند	tapAnd
+تپد	tapad
 تپش	tapeS
 تپق	topoq1
 تپل	topol
@@ -3985,6 +4059,7 @@ $	dolAR
 جراحت	dZeRAhat
 جرایم	dZaRAjem
 جربزه	dZoRboze
+جربزۀ	dZoRbozeje
 جرت	dZeRet
 جرثقیل	dZaRsaq1il
 جرثومه	dZoRsume
@@ -3993,7 +4068,7 @@ $	dolAR
 جرس	dZaRas
 جرسقیل	dZaRsaq1il
 جرش	dZeReS
-جرعه	dZoRe
+جرعه	dZoR?e
 جرقه	dZaRaq1q1e:
 جرم	dZoRm
 جرواجر	dZeRvAdZeR
@@ -4114,7 +4189,9 @@ $	dolAR
 جوهر	dZo:haR
 جوون	dZavun
 جوّی	dZavvi
+جوکار	dZo:kAR
 جوگندمی	dZovgandomi
+جویان	jujAn
 جویبار	dZujbAR
 جکوزی	dZakuzi
 جگر	dZegaR
@@ -4126,6 +4203,7 @@ $	dolAR
 جیببر	dZibboR
 جیبرلین	dZibeRlin
 جیحون	dZejhun
+جیران	dZejRAn
 جیرفت	dZiRoft
 جیمز	dZejmz
 جیمیل	dZimejl
@@ -4217,6 +4295,7 @@ $	dolAR
 حس	hes
 حساب	'hesAb
 حسابرس	hesAbRas
+حسادت	hesAdat
 حساس	hassAs
 حسام	hesAm
 حسد	hasad
@@ -4264,6 +4343,7 @@ $	dolAR
 حقوقدان	hoq1uq1dAn
 حقۀ	hoq1q1eje
 حقیقتا	haq1iq1atan
+حلاوت	halAvat
 حلب	halab
 حلزون	halazun
 حلقوم	holq1um
@@ -4282,7 +4362,7 @@ $	dolAR
 حمایات	hemAjAt
 حمایت	hemAjat
 حمزوی	hamzavi
-حمص	hems
+حمص	homs
 حمق	homq1
 حملات	hamalAt
 حموم	hammum
@@ -4296,8 +4376,11 @@ $	dolAR
 حواله	ha'vAle:
 حوت	hut
 حورسرشت	huRseReSt
+حوز	ho:z
 حوزه	ho:ze:
 حوزوی	ho:zavi
+حوش	ho:S
+حوصلم	ho:selam
 حوصله	ho:sele:
 حوصلگی	ho:selegi
 حوصلۀ	ho:seleje
@@ -4329,6 +4412,7 @@ $	dolAR
 حیدر	hejdaR
 حیدراغلی	hejdaRoq1li
 حیدربابا	hejdaRbAbA
+حیران	hejRAn
 حیرت	hejRat
 حیره	hiRe
 حیز	hajjez
@@ -4387,6 +4471,7 @@ $	dolAR
 خجسته	xodZaste:
 خجل	xedZel
 خجلت	xedZlat
+خجند	xodZand
 خجول	xadZul
 خدا	xodA
 خداحافظ	xodAhAfez
@@ -4522,6 +4607,7 @@ $	dolAR
 خفتن	xoftan
 خفته	xoft
 خفش	xafaS
+خفقان	xafaq1An
 خفم	xafam
 خفن	xafan
 خفچه	xaftSe
@@ -4535,7 +4621,7 @@ $	dolAR
 خلد	xold
 خلر	xollaR
 خلط	xelt
-خلع	xal
+خلع	xal?
 خلعتبری	xalatbaRi
 خلف	xalaf
 خلفا	xolafA
@@ -4671,6 +4757,7 @@ $	dolAR
 دالتون	dAlton
 دامبلدور	dAmbeldoR
 دامعان	dAmq1An
+دامغان	dAmq1An
 دامن	dAman
 دامگه	dAmgah
 داند	dAnad
@@ -4678,7 +4765,6 @@ $	dolAR
 دانستنی	dAnestani
 دانسیمتر	dAnsimetR
 دانش	d'AneS
-دانشجوی	dAneS'dZui
 دانشجویی	dAneS'dZui:
 دانشور	dAneSvaR
 دانلود	dAnlod
@@ -4735,6 +4821,7 @@ $	dolAR
 درایت	deRAjat
 درایه	deRAje
 درایو	deRAjv
+درایور	deRAjveR
 درباره	daR'bAReje:
 دربازکن	daRbAzkon
 دربدر	daRbedaR
@@ -4743,12 +4830,14 @@ $	dolAR
 درت	daRat
 درجات	daRadZAt
 درجه	daRadZe:
+درجۀ	daRadZeje
 درخت	de'Raxt
 درختان	deRaxtAn
 درختزی	deRaxtzi
 درخش	deRaxS
 درخشان	deRaxSAn
 درخشاند	deRaxSAnd
+درخشد	deRaxSad
 درخشش	deRaxSeS
 درخشید	deRaxSid
 درخلال	daRxelAle
@@ -4853,6 +4942,12 @@ $	dolAR
 دسکتاپ	desktAp
 دش	doS
 دشمن	doSman
+دشمنت	doSmanat
+دشمنتان	doSmanetAn
+دشمنش	doSmanaS
+دشمنشان	doSmaneSAn
+دشمنم	doSmanam
+دشمنمان	doSmanemAn
 دشمنکام	doSmankAm
 دشمنکش	doSmankoS
 دشمه	deSme
@@ -5031,6 +5126,7 @@ $	dolAR
 دولپه	dolappe:
 دوم	do'vvom
 دوما	dovvoman
+دوماد	dumAd
 دوند	davan'd
 دونست	dunest
 دونستم	dunestam
@@ -5273,7 +5369,7 @@ $	dolAR
 رجز	RadZaz
 رجل	RadZol
 رجولیت	RadZolijat
-رجوی	RadSavi
+رجوی	RadZavi
 رجیستر	RedZisteR
 رحلت	Rehlat
 رحمات	RahamAt
@@ -5300,6 +5396,7 @@ $	dolAR
 رزاز	RazzAz
 رزاق	RazzAq1
 رزرو	RezeRv
+رزرواسیون	RezeRvAsijon
 رزق	Rezq1
 رزم	Razm
 رزماری	RozmARi
@@ -5309,9 +5406,10 @@ $	dolAR
 رزن	Razan
 رزنانس	RezonAns
 رزه	Raze
-رزومه	Rezoome
+رزومه	Rezome
 رزوه	Rezve
 رزیان	RazijAn
+رزیتا	RozitA
 رزیدنت	Rezident
 رزیستانس	RezistAns
 رزین	Rezin
@@ -5344,6 +5442,7 @@ $	dolAR
 رشادت	ReSAdat
 رشت	R'aSt
 رشته	ReSte:
+رشتۀ	ReSteje
 رشحات	RaSahAt
 رشد	R'oSd
 رشدنیافته	RoSdnajAfte
@@ -5501,6 +5600,7 @@ $	dolAR
 روشنا	RoSanA
 روشندون	Ro:Sandun
 روشنفکر	Ro:SanfekR
+روضه	Ro:ze
 روغن	Roq1an
 رول	Rol
 رولت	Rolet
@@ -5514,6 +5614,7 @@ $	dolAR
 رونالدو	RonAldo
 روند	Ravand
 رونق	Ro:naq1
+رونقی	Ro:naq1i
 روژ	RoZ
 روکار	'Ru:kAR
 روکش	RukeS
@@ -5534,6 +5635,7 @@ $	dolAR
 رویه	Rav'i:je:
 رویکرد	RujkaRd
 رویگر	RujgaR
+رویۀ	Ravijeje
 رپر	RapeR
 رپرتاژ	RepoRtAZ
 رپرتر	RepoRteR
@@ -5608,6 +5710,7 @@ $	dolAR
 زادگان	zAdegAn
 زاروزندگی	zARozendegi
 زارونزار	zARonazAR
+زامبی	zAmbi
 زاگرس	zAgRos
 زایدالوصف	zAjedolvasf
 زایر	zA?eR
@@ -5651,6 +5754,7 @@ $	dolAR
 زرنا	zoRnA
 زرنب	zaRnab
 زرنگ	zeRang
+زرنگی	zeRangi
 زره	zeReh
 زروان	zaRvAn
 زرورق	zaRvaRaq1
@@ -5789,6 +5893,7 @@ $	dolAR
 سادیسم	sAdism
 سارافن	sARAfon
 سارافون	sARAfon
+سارتر	sARtR
 سازد	sAzad
 سازدهنی	sAzdahani
 ساززن	sAzzan
@@ -5958,6 +6063,7 @@ $	dolAR
 سرنگ	soRang
 سرنگون	saRnegun
 سرهم	saR_ham
+سرهنگی	saRhangi
 سرو	saRv
 سرور	seRveR
 سروستان	seRvestAn
@@ -6081,6 +6187,7 @@ $	dolAR
 سنبل	sonbol
 سنبه	sonbe:
 سنت	sonnat
+سنتر	senteR
 سنتی	sonnati
 سنجد	sendZed
 سنجش	sandZeS
@@ -6160,6 +6267,7 @@ $	dolAR
 سونار	sonAR
 سونامی	sonAmi
 سونولژیست	sonoloZist
+سونی	soni
 سونیا	sonijA
 سوهان	sohAn
 سوّم	'sevvom
@@ -6176,6 +6284,7 @@ $	dolAR
 سویچینگ	suitSing
 سّید	sejjed
 سپار	sepAR
+سپارد	sepARad
 سپاس	sepAs
 سپاه	sepAh
 سپاهان	sepAhAn
@@ -6238,6 +6347,7 @@ $	dolAR
 سیاستمدار	sijAsatmadAR
 سیال	sajjAl
 سیبری	sibRi
+سیبویه	sibavejh
 سیتوپلاسم	sitopelAsm
 سید	sejjed
 سیدریت	sidRit
@@ -6256,6 +6366,8 @@ $	dolAR
 سیصد	sisad
 سیصدم	sisadom
 سیطره	sejtaRe:
+سیف	sejf
+سیفون	sifun
 سیل	sejl
 سیلاب	sejlAb
 سیلندر	silandR
@@ -6296,6 +6408,7 @@ $	dolAR
 شارش	SAReS
 شارل	SARl
 شارلمانی	SARlomAni
+شارون	SARon
 شارژ	SARZ
 شارژر	SARZeR
 شازده	SAzde:
@@ -6471,6 +6584,7 @@ $	dolAR
 شناختن	SenAxtan
 شناز	SenAz
 شناس	Sen'As
+شناساند	SenAsAnd
 شناسانده	SenAsAnde
 شناسایی	SenAsAi:
 شناسد	SenAsad
@@ -6493,6 +6607,7 @@ $	dolAR
 شه	Sah
 شهادتین	SahAdatejn
 شهدا	SohadA
+شهدخت	Sahdoxt
 شهربانو	SahRbAnu
 شهرت	SohRat
 شهرفرنگ	SahRefaRang
@@ -6850,6 +6965,7 @@ $	dolAR
 عابربانک	AbeRbAnk
 عاریه	?ARije
 عازم	Azem
+عاشقتم	ASeq1etam
 عالمیان	AlamijAn
 عالیجناب	AlidZenAb
 عالیرتبه	'AliRotbe
@@ -6863,9 +6979,11 @@ $	dolAR
 عبدا	'ebdA?
 عبدال	abdol
 عبدالبها	abdol_bahA
+عبدالعظیم	abdol?azim
 عبدالله	abdollAh
 عبرت	'ebRat
 عبس	abas
+عتبات	'atabAt
 عتش	ataS
 عثمان	osmAn
 عجب	adZab
@@ -6877,6 +6995,7 @@ $	dolAR
 عدس	adas
 عدم	a:dam
 عده	'edde:
+عدوان	?odvAn
 عدّه	edde:
 عدۀ	eddeje
 عذر	o:zR
@@ -6890,11 +7009,14 @@ $	dolAR
 عزرائیل	ezRAi:l
 عزّت	ezzat
 عسل	a:sal
+عسلویه	?asaluje
 عشا	eSA?
 عشاء	eSA?
 عشاع	eSA?
 عشاق	oSSAq1
+عشرت	eSRat
 عشق	e:Sq1
+عشقم	?eSq1am
 عشوه	eSve:
 عشوۀ	eSveje
 عصاره	osARe:
@@ -6971,6 +7093,7 @@ $	dolAR
 عنصر	onsoR
 عنف	onf
 عنفوان	onfovAn
+عنن	?enan
 عنوان	onvAn
 عنکبوت	ankabut
 عهده	'ohde:
@@ -6983,7 +7106,7 @@ $	dolAR
 عیار	ajAR
 عیسا	isA
 عیسی	isA
-عینا	ejnan
+عینا	?ejnan
 غاصبان	q1AsebAn
 غالبا	q1Aleban
 غایبان	q1AjebAn
@@ -7008,6 +7131,7 @@ $	dolAR
 غرغرو	q1oRq1oRu
 غرفه	q1oRfe:
 غرقدره	q1aRq1daRRe:
+غرما	q1oRamA
 غرمب	q1oRomb
 غرمبید	q1oRombid
 غرنده	q1oRRande
@@ -7214,6 +7338,7 @@ $	dolAR
 فرنگ	faRang
 فرنگی	faRangi
 فرنی	fe'Reni
+فره	faRah
 فرهبد	faRahbod
 فرهنگ	faRhang
 فرهنگی	faRhangi
@@ -7431,6 +7556,8 @@ $	dolAR
 قاسملو	q1Asemlu
 قاسمی	q1Asemi
 قاشق	q1ASoq1
+قاصبان	q1AsebAn
+قاصبین	q1Asebin
 قاطعا	q1Ate?an
 قاعدتا	q1A?edatan
 قاعدتاً	q1A?edatan
@@ -7450,6 +7577,7 @@ $	dolAR
 قبح	q1obh
 قبراق	q1ebRAq1
 قبرس	q1ebRes
+قبرستون	q1abRestun
 قبض	q1abz
 قبطی	q1ebti
 قبلا	q1ablan
@@ -7678,6 +7806,7 @@ $	dolAR
 قیچک	q1ejtSak
 قیچی	q1ejtSi
 لابد	lAbod
+لابلا	lAbelA
 لابیرنت	lAbiRent
 لاتزیو	lAtzijo
 لاجرعه	lAdZoR?e
@@ -7900,9 +8029,12 @@ $	dolAR
 مأسس	mo?asses
 مأیوس	ma?jus
 مؤثر	mo?asseR
+مؤخر	mo?axxaR
 مؤسس	mo?asses
+مؤسسان	mo?assesAn
 مؤسسه	mo?assese:
 مؤلف	mo'allef
+مؤلّف	mo?allef
 مؤمن	mo?men
 مؤنث	moannas
 مؤکد	moakkad
@@ -8004,6 +8136,7 @@ $	dolAR
 مبارز	mobARez
 مبارک	mobARak
 مباشر	mobASeR
+مبالات	mobAlAt
 مبالغات	mobAleq1At
 مبالغه	mobAleq1e:
 مبالغۀ	mobAleq1eje
@@ -8045,7 +8178,7 @@ $	dolAR
 متاخر	mote?axxeR
 متارکه	motAReke:
 متاسف	mota?assef
-متاسفانه	mota?as?sefAne
+متاسفانه	mota?assefAne
 متافیزیک	metAfizik
 متالوژی	metAloZi
 متالیک	metAlik
@@ -8186,6 +8319,7 @@ $	dolAR
 مثلا	masalan
 مثلاً	masalan
 مثلث	mosallas
+مثله	mosle
 مثمر	mosmeR
 مثمن	mosamman
 مثنوی	masnavi
@@ -8280,6 +8414,7 @@ $	dolAR
 محرز	mohRaz
 محرف	mohaRRaf
 محرق	mohaRReq1
+محرمات	mohaRRamAt
 محرمان	mahRamAn
 محرمانگی	mahRamAnegi
 محرک	mohaRRek
@@ -8342,14 +8477,17 @@ $	dolAR
 مخدّر	moxaddeR
 مخرب	moxaRReb
 مخرّب	moxaRReb
+مخش	moxaS
 مخصوص	maxsus
 مخصوصا	maxsusan
 مخفف	moxaffaf
 مخل	moxell
 مخلص	moxles
+مخم	moxam
 مخور	maxoR
 مخوف	maxuf
 مخچه	moxtSe:
+مخیر	moxajjaR
 مد	'mod
 مداخل	modAxel
 مداد	medAd
@@ -8363,6 +8501,7 @@ $	dolAR
 مدبر	modabbeR
 مدت	,mo'ddat
 مدرس	modaRRes
+مدرسان	modaRResAn
 مدرسه	madRese
 مدرسۀ	madReseje
 مدرن	modeRn
@@ -8370,6 +8509,8 @@ $	dolAR
 مدرنیتۀ	modeRniteje
 مدرنیزه	modeRnize:
 مدرّس	modaRRes
+مدرّسان	modaRResAn
+مدعو	mad?ov
 مدعی	modda?i
 مدعیان	modda?ijAn
 مدل	model
@@ -8386,6 +8527,7 @@ $	dolAR
 مدیرعامل	modiRAmel
 مدیرکل	modiRkol
 مدیریتی	modiRijati
+مدینه	madine
 مدیون	'madjun
 مذاکر	mozAkeR
 مذاکرات	mozAkeRAt
@@ -8393,10 +8535,12 @@ $	dolAR
 مراجعی	maRAdZei
 مراحل	maRAhel
 مراد	moRAd
+مرارت	maRARat
 مراسم	maRAsem
 مراعات	moRA?At
 مراقب	moRAq1eb
 مراقبان	moRAq1ebAn
+مراقبین	moRAq1ebin
 مراود	moRAved
 مراکش	maRAkeS
 مربا	moRabbA
@@ -8418,6 +8562,7 @@ $	dolAR
 مرجع	maRdZa?
 مرخص	moRaxxas
 مرد	maRd
+مرداب	moRdAb
 مرداد	moRdAd
 مردد	moRaddad
 مردم	m'aRdom
@@ -8460,15 +8605,18 @@ $	dolAR
 مرّفه	moRaffah
 مرکب	moRakkab
 مرکبدان	moRakkabdAn
+مرکل	meRkel
 مرکّبدان	moRakkabdAn
 مرگ	maRg
 مرگبار	maRgbAR
 مریخ	meRRix
 مرید	moRid
+مریلا	meRilA
 مریلند	meRiland
 مریم	maRjam
 مزاح	mezAh
 مزاحم	mozAhem
+مزاحمان	mozAhemAn
 مزاحمت	mozA'hemat
 مزاحمتیم	mozAhemetim
 مزارعه	mozARe?e:
@@ -8530,6 +8678,7 @@ $	dolAR
 مستحکم	mostahkam
 مستحیل	mostahil
 مستخدم	mostaxdem
+مستخدمان	mostaxdemAn
 مستدام	mostadAm
 مستدرک	mostadRak
 مستدعی	mostad?i
@@ -8547,6 +8696,7 @@ $	dolAR
 مستعصم	mosta?sem
 مستعفی	mosta?fi
 مستعلی	mostaelli
+مستعمل	mosta?mal
 مستغنی	mostaq1ni
 مستفاد	mostafAd
 مستفید	mostafid
@@ -8561,9 +8711,11 @@ $	dolAR
 مستمسک	mostamsek
 مستملکات	mostamlakAt
 مستملکه	mostamlake
+مستمند	mostmand
 مستند	mostanad
 مستنکف	mostankef
 مستنیر	mostaniR
+مستهجن	mostahdZan
 مستوجب	mosto:dZeb
 مستوفی	mosto:fi
 مستولی	mosto:li
@@ -8587,6 +8739,7 @@ $	dolAR
 مسلم	mosallam
 مسلما	mosallaman
 مسلمان	mosalmAn
+مسلمون	mosalmun
 مسله	mesalle
 مسلّه	mosallah
 مسما	mosammA
@@ -8828,6 +8981,7 @@ $	dolAR
 معلم	mo?allem
 معلمان	mo?allemAn
 معلول	ma?lul
+معلّم	mo?allem
 معما	mo?ammA
 معمار	me?mAR
 معمر	mo?ammaR
@@ -8966,13 +9120,16 @@ $	dolAR
 ملا	mollA
 ملاء	mala_e
 ملاحظ	molAhez
+ملارد	malARd
 ملاطفت	molAtefat
 ملاقات	molAq1At
 ملاقاتی	molAq1Ati
 ملاک	melAk
 ملایم	molAjem
 ملبس	molabbas
+ملبورن	melboRn
 ملت	mellat
+ملتزم	moltazem
 ملتفت	moltafet
 ملتهب	moltaheb
 ملحق	molhaq1
@@ -8996,7 +9153,9 @@ $	dolAR
 ملیون	milju:n
 ملیونم	milju:nom
 ملیکا	melikA
+ممارست	momAResat
 ممانعت	momAne?at
+ممانعه	momAne?e
 ممتاز	momtAz
 ممتد	momtad
 ممد	mamad
@@ -9040,6 +9199,7 @@ $	dolAR
 منحل	monhal
 منحنی	monhani
 مند	mand
+مندرج	mondaRadZ
 منزل	manzel
 منزله	manzale:
 منزوی	monzavi
@@ -9065,9 +9225,11 @@ $	dolAR
 منهای	menhAje
 منهدم	monhadem
 منو	meno
+منوال	menvAl
 منوط	manut
 منوچهر	manutSehR
 منوی	menoje
+منچستر	mantSesteR
 منچستریونایتد	mantSesteRjunAjted
 منکر	monkeR
 منگل	mongol
@@ -9112,7 +9274,9 @@ $	dolAR
 موازنه	movAzene:
 موازین	mavAzin
 مواظب	movAzeb
+مواظبت	movAzebat
 موافق	movAfeq1
+موافقت	movAfeq1at
 موبایل	'mobAjl
 موبد	mubad
 موتور	motoR
@@ -9121,6 +9285,7 @@ $	dolAR
 موثق	movassaq1
 موج	mo:dZ
 موجب	modZeb
+موجر	mudZeR
 موجه	movadZdZah
 موجود	modZu:d
 موحبت	mo:hebat
@@ -9171,6 +9336,7 @@ $	dolAR
 مولوی	mo:lavi
 مولویت	mo:lavijat
 مولّد	movalled
+مولّف	mo?allef
 مولکول	molkul
 مولی	mo:lA
 مومن	mo?men
@@ -9178,6 +9344,7 @@ $	dolAR
 مونا	monA
 موناکو	monAko
 مونتاژ	montAZ
+مونترو	montRo
 مونث	moannas
 موند	mund
 مونس	munes
@@ -9206,6 +9373,7 @@ $	dolAR
 مژد	mo:Zd
 مژده	moZde:
 مژک	moZak
+مژگان	moZgAn
 مکاتبات	mokAtebAt
 مکاتبی	makAtebi
 مکار	makkAR
@@ -9225,7 +9393,7 @@ $	dolAR
 مکتشف	'mo,ktaSef
 مکتوب	maktub
 مکدر	mokaddaR
-مکرر	mokaRRaRR
+مکرر	mokaRRaR
 مکررا	mokaRRaRan
 مکزیک	mekzik
 مکس	maks
@@ -9280,6 +9448,7 @@ $	dolAR
 میدهی	midahi
 میراحدی	miRahadi
 میرحسین	miRhosejn
+میرد	miRad
 میرداماد	miRdAmAd
 میرزا	miRzA
 میرزاده	miRzAde:
@@ -9324,6 +9493,7 @@ $	dolAR
 میلیونم	miljunom
 میماند	mimAnad
 میمن	mejman
+میمه	mejme
 میمون	mejmun
 میموند	mimund
 میناگر	minAgaR
@@ -9640,6 +9810,7 @@ $	dolAR
 نفریت	nefRit
 نفریدیوم	nefRidijom
 نفرین	nefRin
+نفس	nafas
 نفسانی	nafsAni
 نفسانیت	nafsAnijat
 نفسکش	nafaskeS
@@ -9656,6 +9827,7 @@ $	dolAR
 نقاش	naq1q1AS
 نقاط	noq1At
 نقال	naq1q1Al
+نقدا	naq1dan
 نقده	naq1ade:
 نقدینه	naq1dine:
 نقدینگی	naq1dinegi
@@ -9903,8 +10075,13 @@ $	dolAR
 نیشگان	niSgAn
 نیفت	najoft
 نیفتاد	najoftAd
+نیفتد	najoftad
 نیمکت	nimkat
 نیمکره	nimkoRe
+نینتندو	nintendo
+نینداخت	najandAxt
+نینداز	najandAz
+نیندازد	najandAzad
 نینوا	nejAnavA
 نیوترون	nijotRon
 نیوتن	nijoton
@@ -9928,6 +10105,7 @@ $	dolAR
 نیکوخصال	nikuxesAl
 نیکوسخن	nikusoxan
 نیکولا	nikolA
+هاتبرد	hAtbeRd
 هاتمیل	hAtmejl
 هاجر	hAdZaR
 هارد	hARd
@@ -9972,6 +10150,7 @@ $	dolAR
 هد	hed
 هدایت	hedAjat
 هدر	hadaR
+هدست	hedset
 هدف	hadaf
 هدفون	hed'fo:n
 هدنرس	hedneRs
@@ -10007,6 +10186,7 @@ $	dolAR
 هره	heRRe
 هرهر	heRheR
 هروئین	heRo?in
+هروقت	haRvaq1t
 هروی	heRavi
 هروین	heRoin
 هرویین	heRoi:n
@@ -10043,7 +10223,7 @@ $	dolAR
 هفتیرکش	haftiRkeS
 هفده	'hefdah
 هفهفو	hofhofu
-هل	hel
+هل	hol
 هلال	helAl
 هلاهل	halAhel
 هلاکو	holAku
@@ -10085,6 +10265,7 @@ $	dolAR
 همسرا	hamsoRA
 همسفرگی	hamsofRegi
 همش	hamaS
+هملت	hamlet
 هملیز	hemoliz
 همنفس	hamnafas
 همنهشت	hamneheSt
@@ -10331,6 +10512,7 @@ $	dolAR
 ورک	voRk
 وز	vez
 وزارت	vezARat
+وزد	vazad
 وزرا	vozaRA
 وزش	vazeS
 وزغ	vazaq1
@@ -10387,7 +10569,7 @@ $	dolAR
 ولگاگراد	volgAgeRAd
 ولی	vali
 ولیعصر	vali?asR
-ولیعهد	vali?ahds
+ولیعهد	vali?ahd
 وند	vand
 ونزوئلا	venezu?elA
 ونزویلا	venezu?elA
@@ -10648,6 +10830,7 @@ $	dolAR
 پرهیجان	poRhajedZAn
 پرهیخت	paRhixt
 پرهیز	paRhiz
+پرهیزد	paRhizad
 پرو	poRov
 پروا	paRvA
 پروار	paRvAR
@@ -10924,10 +11107,12 @@ $	dolAR
 پوزیشن	poziSen
 پوستر	posteR
 پوشبرگ	puSbaRg
+پوشد	puSad
 پوشش	puSeS
 پوشکره	puSkoRe
 پولاریزاسیون	polARizAsijon
 پولاریسم	polARism
+پولتیک	poletik
 پولو	polo
 پولونیم	polonijom
 پولکا	polkA
@@ -10947,6 +11132,7 @@ $	dolAR
 پویش	pujeS
 پوینت	pojAnt
 پّله	pelle:
+پپرونی	pepeRoni
 پپسی	pepsi
 پپسیکولا	pepsikolA
 پپیتر	popitR
@@ -11113,12 +11299,14 @@ $	dolAR
 چزانید	tSezAnid
 چس	tSos
 چسبان	tSasbAn
+چسبند	tSasband
 چسبوند	tSasbund
 چست	tSost
 چسخور	tSosxoR
 چسو	tSosu
 چسید	tSosid
 چش	tSeS
+چشات	tSeSAt
 چشاش	tSeSAS
 چشان	tSeSAn
 چشاند	tSeSAnd
@@ -11262,8 +11450,10 @@ $	dolAR
 چگال	tSegAl
 چگالش	tSegAleS
 چگالنده	tSegAlande
+چگن	tSegen
 چگون	tSegun
 چگونگی	tSegunegi
+چگین	tSegin
 چگینی	tSegini
 چیذر	tSizaR
 چیزبرگر	tSizbeRgeR
@@ -11295,6 +11485,7 @@ $	dolAR
 ژنرال	ZeneRAl
 ژنو	Zenev
 ژنوتیپ	Zenotip
+ژنوس	Zenus
 ژورنالیسم	ZuRnAlism
 ژوپیتر	ZupiteR
 ژوکر	ZokeR
@@ -11316,6 +11507,7 @@ $	dolAR
 کاترپیلار	kAteRpilAR
 کاترین	kAtRin
 کاتولیسیسم	kAtolisism
+کاتولیک	kAtolik
 کاتیون	kAtijon
 کادر	kAdR
 کادو	kAdo:
@@ -11349,7 +11541,9 @@ $	dolAR
 کارگزین	kARgozin
 کاریکاتور	kARikAtoR
 کاریکلماتور	kARikalamAtoR
+کازابلانکا	kAzAbelAnkA
 کازرون	kAzeRun
+کاسبان	kAsebAn
 کاسبرگ	kAsbaRg
 کاست	kAst
 کاسپین	kAspijan
@@ -11384,6 +11578,7 @@ $	dolAR
 کانسننت	kAnsonent
 کانسوننت	kAnsonent
 کانکس	kAneks
+کانکشن	kAnekSen
 کانگرو	kAngoRo
 کانگورو	kAngoRo
 کاه	kAh
@@ -11409,6 +11604,7 @@ $	dolAR
 کتبا	katban
 کتباً	katban
 کتری	ketRi
+کترینگ	ketRing
 کتف	ketf
 کتلت	kotlet
 کتمان	ketmAn
@@ -11426,6 +11622,7 @@ $	dolAR
 کجکی	kadZaki
 کد	kod
 کدام	kodAm
+کدامند	kodAmand
 کدامیک	kodAmjek
 کداک	kodAk
 کدخدا	kadxodA
@@ -11725,6 +11922,7 @@ $	dolAR
 کنوانسیون	konvAnsijon
 کنورتور	konveRtoR
 کنکور	konkuR
+کنگان	kangAn
 کنگر	kangaR
 کنگره	kongeRe:
 کنگفو	kongfo
@@ -11761,7 +11959,6 @@ $	dolAR
 کورش	kuRoS
 کورنت	koRnet
 کوروش	ku'RuS
-کوز	kavaz
 کوزوو	kozovo
 کوشد	kuSad
 کوشش	kuSeS
@@ -11812,6 +12009,7 @@ $	dolAR
 کیلوبایت	kilubAjt
 کیلومتر	kilumetR
 کیلوگرم	kilugeRam
+کیلیپس	kilips
 کیه	kije:
 کیهان	kejhAn
 کیوان	kejvAn
@@ -11956,7 +12154,6 @@ $	dolAR
 گریست	geRist
 گریم	geRim
 گریمور	geRimoR
-گرین	geRejAn
 گرینلند	geRinland
 گرینویچ	geRinvitS
 گریه	geRje:
@@ -11997,6 +12194,7 @@ $	dolAR
 گسیل	gosil
 گشا	goSA
 گشاد	goSAd
+گشاید	goSAjad
 گشایش	goSAjeS
 گشت	g'aSt
 گشتالت	geStAlt
@@ -12074,6 +12272,7 @@ $	dolAR
 گمار	gomAR
 گمارد	gomARd
 گماشت	'gomASt
+گماشد	gomASd
 گمبد	gombad
 گمبرون	gombeRon
 گمراه	gomRAh
@@ -12101,6 +12300,7 @@ $	dolAR
 گنجاندید	gondZAndid
 گنجاندیم	gondZAndim
 گنجایش	gondZAjeS
+گنجد	gondZad
 گنجشک	gondZeSk
 گنجعلیخانی	gandZalixAni
 گنجوی	gandZavi
@@ -12169,6 +12369,7 @@ $	dolAR
 گیسوسفید	gisusefid
 گیم	gejm
 گیمر	gejmeR
+گینس	gines
 گیوتین	gijotin
 گیورگ	geoRg
 گیومه	gijume:
@@ -12227,6 +12428,8 @@ $	dolAR
 یوسف	jusef
 یوم	jo:m
 یون	jon
+یونان	junAn
+یونایتد	junAjted
 یونایتدپرس	junAjtedpeRes
 یونجه	jondZe
 یونس	junes
@@ -12251,6 +12454,7 @@ $	dolAR
 یکدیگر	jekdigaR
 یکراست	jekRAst
 یکسر	jeksaR
+یکصد	jeksad
 یکم	'jekom
 یکه	'jekke:
 یکهو	jekho:

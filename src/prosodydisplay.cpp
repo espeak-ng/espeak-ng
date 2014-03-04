@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -343,19 +343,22 @@ void ProsodyDisplay::OnMouse(wxMouseEvent& event)
 
 	line = pt.y / FRAMEHEIGHT;
 
-	// find which phoneme is selected on this line
-	for(ix=linetab[line]; (ix<linetab[line+1]) && (ix<numph); ix++)
+	if(line < num_lines)
 	{
-		xpos += GetWidth(&phlist[ix]);
-		if(xpos > pt.x)
+		// find which phoneme is selected on this line
+		for(ix=linetab[line]; (ix<linetab[line+1]) && (ix<numph); ix++)
 		{
-			selected_ph = ix;
-			SelectPh(selected_ph);
-			break;
+			xpos += GetWidth(&phlist[ix]);
+			if(xpos > pt.x)
+			{
+				selected_ph = ix;
+				SelectPh(selected_ph);
+				break;
+			}
 		}
-	}
 
-	RefreshLine(line);
+		RefreshLine(line);
+	}
 
 	if(event.RightDown())
 	{

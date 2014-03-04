@@ -114,7 +114,7 @@ _*	&ste*'iskU
 _−	m'enUs
 ¼	u~Nku'a*@-tU
 ½	m'eIU
-¾	treSkw'a*@-tUs#
+¾	tRes#kw'a*@-tUs#
 ®	xeZistR'adU
 ?1  ™	m'a*@-k&xeZiSt'ad&
 ?2  ™	m'a*@-k&xeZistR'ad&
@@ -268,6 +268,8 @@ _1M1o	mil'Ezim
 
 
 // not roman numbers
+cc	$abbrev
+cd	$abbrev
 vi	vi
 
 
@@ -707,13 +709,16 @@ avesso		$alt2
 axé		aSE
 azeda		$alt $verb
 azedo		$alt $verb
+açores	$alt2
 bairro		b'aIxU
 baitola	$alt2
+balancete	$alt2
 banquete	$alt2
 barreto		$alt2
 bastonete	$alt2
 beco		$alt2
 besta		$alt2
+beça	$alt
 bilhete		$alt2
 bissulfeto	$alt2
 blazer		bl'eIzer
@@ -736,6 +741,7 @@ bracelete		$alt2
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
+buceta	$alt2
 cabresto	$alt2
 cacete		$alt2
 caderneta	$alt2
@@ -767,6 +773,7 @@ cerca		$alt $verb
 cerco		$alt $verb
 cetro		$alt
 chamego		$alt2 $verb
+chapeleta		$alt2
 chaveta		$alt2
 chefe		$alt
 checam		$alt
@@ -775,6 +782,7 @@ choça		$alt
 chofer		$alt
 choro		$alt2 $noun
 chovesse	$alt2
+chuleta		$alt2
 chupeta		$alt2
 clamores	$alt2
 clero		$alt
@@ -923,6 +931,8 @@ europeia	$alt
 exagero		$alt $verb
  exegeses	$alt
 exorto		$alt
+?2 expert	Eksp'E*@-t
+?2 experts	Eksp'E*@-ts
 explore		$alt
 falangeta	$alt2
 farofa		$alt
@@ -989,13 +999,16 @@ ideia		$alt
 inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
+internet	$alt
 iodo		$alt2
 ioga		$alt
+isolda	$alt2
 jereba		$alt
 jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
+lacerda	$alt
 lagosta		$alt2
 lambreta	$alt2
 laser		l'eIzer
@@ -1007,7 +1020,6 @@ leste		$alt2 $verb
 ?2   lhe	l^y
 licores	$alt2
 lisboeta	$alt2
-livreto		$alt2
 lodo		$alt2
 lopes		$alt
 macete		$alt2
@@ -1030,8 +1042,10 @@ modelo		$alt $verb
 moeda		$alt
 moem		$alt
 mofo		$alt $verb
+mogno	$alt
 molho		$alt2 $noun
 monera		$alt
+montenegro	$alt2
 mor	$alt
 morcego		$alt2
 morda		$alt2
@@ -1044,6 +1058,7 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
+ninfeta	$alt2
 nitreto	$alt2
 nojo		$alt2
 novelo		$alt2
@@ -1064,7 +1079,6 @@ paella		pa'el^&
 palacete	$alt2
 palheta		$alt2
 palhoça		$alt
-panfleto	$alt2
 pangeia		$alt
 pantera		$alt
 papoco		$alt2 $noun
@@ -1080,6 +1094,7 @@ penhores	$alt2 $noun
 perda		$alt2
 pereba		$alt
 peres		$alt
+perneta	$alt2
 peroba		$alt
 pesadelo		$alt2
 peses		$alt
@@ -1100,6 +1115,7 @@ porrete		$alt2
 porto		$alt $verb
 pose		$alt2
 poxa		p'oS&
+poços	$alt
 primavera	$alt
 primores	$alt2
 program	$alt
@@ -1160,7 +1176,6 @@ seco		$alt2
 seco		$alt $verb
 selo		$alt2
 selo		$alt $verb
-selvagem	seUv'aZeIN
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
@@ -1182,7 +1197,6 @@ sulfureto	$alt2
 super		s'Uper
 suporto		$alt
 suor		suOr
-sutiã		sutSi'&~N
 tabefe		$alt
 tambores	$alt2
 tapera		$alt
@@ -1225,6 +1239,7 @@ verbete		$alt2
 verborreia	$alt
 verde		$alt2
 vileta		$alt2
+vodca	v'OdZik&
 voga		$alt
 xarope		$alt
 xereta		$alt2
@@ -1237,7 +1252,6 @@ zorra		$alt2
 // foreign words
 ?2 álcool	'aUkow
 ?1 alt        'alt
-?2        agosto        ag'ostU
 ?1 back       b'Ek
 ?2   bahamas	bax'&~m&s
 ?2  backup        bEk'&p
@@ -1249,6 +1263,7 @@ beatle  b'itow
 beatles  b'itows
 black  blEk
 blind      bl'aind
+?2 blue	blu
 ?1 braille    b:r'aily
 ?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
@@ -1262,6 +1277,7 @@ doc        d'Ok
 ?2 design     dez'aIn
 ?2   designer	dez'aIner
 ?2   designers	dez'aIners
+?2 desktops	deskt'Ops
 ?1 dj         d,i:dZ'eI
 ?2   diesel	dZ'izEU
 ?2   doha	d'ox&
@@ -1298,10 +1314,10 @@ happy  x'Epy
 ?1 hotmail    h'Otm'eIl
 ?2 hotmail    hotm'eIl
 ?1 install    ,inst'al
-?2 internet   iNtern'Et
 ?2 Intranet   iNtRan'Et
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
+?2 jazz	dZIEs
 left	$alt
 laptop	lEpt'Op
 ?2 laptops	lEpt'Ops
@@ -1312,6 +1328,7 @@ laptop	lEpt'Op
    mail       m'eIl
         mails        m'eIls
 marketing	m'arketSiN
+?2  master	m'aste*@-
 ?2        mouse        m'aUzi
 ?1 menu       menu
 next       n'Ekst
@@ -1325,6 +1342,7 @@ next       n'Ekst
    ?1   podcast	pOdkEst
 ?2  podcast	pOdyk'Est
 python     p'aIT&~N
+?2 ranking	x'&NkIN
 ?1 readme     r'i:dmi:
 right   r'aIt
 ?1 sapi       s,ap'i
@@ -1338,13 +1356,14 @@ shake	S'eIk
 ?2   shampoo  S&mpu
 ?2 shoping	S'OpiN
 ?2 slide		zl'aIdZy
-símbolo	s'imbolU
 ?4 símbolo	s'iNbolU
 ?1   software   s'Oft,w'Er-
 ?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?2 space      sp'eIs
 ?1 sporting   sp'Ort,ing
+statu	st'atU
+sutiã		sutSi'&~N
  tab        t'aby
  tablet  t'ablet
   tablets  t'ablets

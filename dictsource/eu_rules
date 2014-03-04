@@ -1,0 +1,145 @@
+
+// This file is UTF8 encoded 
+// Spelling-to-phoneme rules for Basque
+
+
+.group a
+        a        a
+        ai       aI
+        au       aU
+
+
+.group b
+        b        b
+
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+
+
+.group d
+        d        d
+    Ki) d (A     J
+        dd       J
+     A) d (A     D   // ??
+
+
+
+
+.group e
+        e        e
+        ei       eI
+        eu       eU
+
+
+.group f
+        f        f
+
+
+.group g
+        g        g
+     A) g (A     Q   // ??
+
+
+.group h
+        h        // silent
+
+
+.group i
+        i        i
+
+
+.group j
+        j        J   //  try [x] [J] [j] [J^] [Z] [S]
+
+
+.group k
+        k        k
+
+
+.group l
+        l        l
+        ll       l^
+    Ki) l (A     l^
+
+
+.group m
+        m        m
+
+
+.group n
+        n        n
+    Ki) n (A     n^
+
+
+.group ñ
+        ñ        n^
+
+
+.group o
+        o        o
+        oi       oI
+
+
+.group p
+        p        p
+
+
+.group q
+        q        k
+        qu       kw
+        que (_   k
+
+
+.group r
+        r        r
+     _) r        R2
+        r (_     R2
+        rr       R2
+
+
+.group s
+        s        s
+
+
+.group t
+        t        t
+    Ki) t (A     c
+        ts       ts
+        tt       c
+        tx       tS
+        tz       tz
+
+
+.group u
+        u        u
+
+
+.group v
+        v        v
+
+
+.group w
+        w        w
+
+
+.group x
+        x        S
+
+
+.group y
+        y        j
+     K) y (K     i
+
+
+.group z
+        z        z
+
+
+
+.group
+        ç        s
+        ü        Y
+

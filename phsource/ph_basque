@@ -1,0 +1,176 @@
+
+//====================================================
+//  Basque  - based on Base2
+//====================================================
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/a_4)
+endphoneme
+
+
+phoneme a2  // delete if the next vowel is 'a'. Used for numbers.
+  vowel starttype #a endtype #a
+  length 200
+
+  IF nextPh(#a) THEN
+    ChangePhoneme(NULL)   // merge consecutive 'a'
+  ENDIF
+
+  FMT(vowel/a_4)
+endphoneme
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 200
+  FMT(vowel/e_mid2)
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 190
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 200
+  FMT(vowel/oo)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck2)
+endphoneme
+
+
+phoneme Y
+  vowel  starttype #@  endtype #@
+  length 200
+  FMT(vowel/y#)
+endphoneme
+
+
+
+// Note: I have made [s] and [z] the same, and similarly [ts] and [tz]
+// These should be changed to the correct "s", "z", "ts" and "tz" sounds fo Basque.
+
+phoneme s
+  vls alv frc sibilant
+  ipa ʂ
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/sh_rfx, 60)
+  ENDIF
+  WAV(ufric/sh_rfx, 90)       // different from s but probably not correct
+endphoneme
+
+
+phoneme z
+  vls alv frc sibilant
+  ipa s
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  // z+z=tz, z+g=zk, z+g=zt, z+b=zp
+  IF nextPh(z) THEN
+    ChangeNextPhoneme(tz)
+    ChangePhoneme(NULL)
+  ELSEIF nextPh(g) THEN
+    ChangeNextPhoneme(k)
+  ELSEIF nextPh(d) THEN
+    ChangeNextPhoneme(t)
+  ELSEIF nextPh(b) THEN
+    ChangeNextPhoneme(p)
+  ENDIF
+  
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_, 60)
+  ENDIF
+  WAV(ufric/s, 80)
+endphoneme
+
+
+phoneme ts
+  vls alv afr sibilant
+  ipa tʂ
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
+
+
+phoneme tz
+  vls alv afr sibilant
+  ipa ts
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
+
+
+phoneme t
+  vls dnt stop
+  lengthmod 2
+  
+  // t+g=k, t+d=t, t+z=tz
+  IF nextPh(g) THEN
+    ChangeNextPhoneme(k)
+    ChangePhoneme(NULL)
+  ELSEIF nextPh(d) THEN
+    ChangeNextPhoneme(t)
+    ChangePhoneme(NULL)
+  ELSEIF nextPh(z) THEN
+    ChangeNextPhoneme(tz)
+    ChangePhoneme(NULL)
+  ENDIF
+  
+  CALL base2/t
+endphoneme
+
+
+phoneme r
+  vcd alv flp rhotic
+  brkafter
+  ipa ɾ
+  lengthmod 3
+
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(**)
+  ENDIF
+
+  CALL base/*
+endphoneme
+
+
+phoneme b
+  import_phoneme es/b
+endphoneme
+
+phoneme d
+  import_phoneme es/d
+endphoneme
+
+phoneme g
+  import_phoneme es/g
+endphoneme
+
