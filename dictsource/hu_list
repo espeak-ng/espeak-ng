@@ -677,8 +677,8 @@ vasárnapon	$alt3
 sok	$unstressend	// many
 kevés	$unstressend	// few
 se	$unstressend       // neither
-sem	$unstressend       // nor
-
+sem	$unstressend $alt3      // nor
+emléke	$alt3
 
 be	$unstressend	//into
 ki	$unstressend	// out of
@@ -915,7 +915,7 @@ vall	$unstressend
 magam	$unstressend
 magad	$unstressend
 tűz	$unstressend
-egy	$unstressend
+egy	$unstressend $alt3
 lehetett	$unstressend
 arra	$unstressend
 erre	$unstressend
@@ -1586,7 +1586,8 @@ fájlt	$unstressend
 fájlját	$unstressend
 törvény	$unstressend
 jövőt	$unstressend
-viszont	$unstressend
+viszont	$unstressend $alt3
+szerdára	$alt3
 járna	$unstressend
 állnia	$unstressend
 írnánk	$unstressend
@@ -2748,7 +2749,7 @@ fognia	$unstressend
 (azt látni)	$unstressend
 fontosak	$unstressend
 futni	$unstressend
-például	$unstressend
+például	$unstressend $alt3
 hivatalossá	$unstressend
 belőle	$unstressend
 (vált hivatalossá)	$unstressend

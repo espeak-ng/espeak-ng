@@ -1924,6 +1924,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	int add_points;
 	int command;
 	int check_atstart;
+	unsigned int *flags;
 
 	MatchRecord match;
 	static MatchRecord best;
@@ -2161,11 +2162,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 				case RULE_DOLLAR:
 					command = *rule++;
-					if(command == 0x01)
+					if(command == DOLLAR_UNPR)
 					{
 						match.end_type = SUFX_UNPRON;    // $unpron
 					}
-					else if(command == 0x02)   // $noprefix
+					else if(command == DOLLAR_NOPREFIX)   // $noprefix
 					{
 						if(word_flags & FLAG_PREFIX_REMOVED)
 							failed = 1;             // a prefix has been removed
@@ -2180,16 +2181,20 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						else
 							failed = 1;
 					}
-					else if((command & 0xf0) == 0x20)
+					else if(((command & 0xf0) == 0x20) || (command == DOLLAR_LIST))
 					{
-						// $p_alt
+						// $list or $p_alt
 						// make a copy of the word up to the post-match characters
 						ix = *word - word_start + consumed + group_length + 1;
 						memcpy(word_buf, word_start-1, ix);
 						word_buf[ix] = ' ';
 						word_buf[ix+1] = 0;
+						LookupFlags(tr, &word_buf[1], &flags);
 
-						if(LookupFlags(tr, &word_buf[1]) & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
+						if((command == DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
+							add_points = 23;
+						else
+						if(flags[0] & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
 							add_points = 23;
 						else
 							failed = 1;
@@ -2401,6 +2406,28 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					}
 					else
 						failed = 1;
+					break;
+
+				case RULE_DOLLAR:
+					command = *rule++;
+					if((command==DOLLAR_LIST) || ((command & 0xf0) == 0x20))
+					{
+						// $list or $p_alt
+						// make a copy of the word up to the current character
+						ix = *word - word_start + 1;
+						memcpy(word_buf, word_start-1, ix);
+						word_buf[ix] = ' ';
+						word_buf[ix+1] = 0;
+						LookupFlags(tr, &word_buf[1], &flags);
+
+						if((command==DOLLAR_LIST) && (flags[0] & FLAG_FOUND) && !(flags[1] & FLAG_ONLY))
+							add_points = 23;
+						else
+						if(flags[0] & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
+							add_points = 23;
+						else
+							failed = 1;
+					}
 					break;
 
 				case RULE_SYLLABLE:
@@ -3581,14 +3608,15 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 }
 
 
-int LookupFlags(Translator *tr, const char *word)
-{//==============================================
+int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
+{//===========================================================================
 	char buf[100];
 	static unsigned int flags[2];
 	char *word1 = (char *)word;
 
 	flags[0] = flags[1] = 0;
 	LookupDictList(tr, &word1, buf, flags, 0, NULL);
+	*flags_out = flags;
 	return(flags[0]);
 }
 
@@ -3649,7 +3677,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	}
 
 	// remove bytes from the end of the word and replace them by spaces
-	for(i=0; (i<len_ending) && (i < sizeof(ending)-1); i++)
+	for(i=0; (i<len_ending) && (i < (int)sizeof(ending)-1); i++)
 	{
 		ending[i] = word_end[i];
 		word_end[i] = ' ';

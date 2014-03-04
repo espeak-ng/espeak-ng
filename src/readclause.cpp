@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -2092,7 +2092,13 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		if((attr2 = GetSsmlAttribute(px,"time")) != NULL)
 		{
-			value = (attrnumber(attr2,0,1) * 25) / speed.pause_factor; // compensate for speaking speed to keep constant pause length
+			value2 = attrnumber(attr2,0,1);   // pause in mS
+
+			// compensate for speaking speed to keep constant pause length, see function PauseLength()
+			// 'value' here is x 10mS
+			value = (value2 * 256) / (speed.clause_pause_factor * 10);
+			if(value < 200)
+				value = (value2 * 256) / (speed.pause_factor * 10);
 
 			if(terminator == 0)
 				terminator = CLAUSE_NONE;
@@ -2100,7 +2106,13 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		if(terminator)
 		{
 			if(value > 0xfff)
-				value = 0xfff;
+			{
+				// scale down the value and set a scaling indicator bit
+				value = value / 32;
+				if(value > 0xfff)
+					value = 0xfff;
+				terminator |= CLAUSE_PAUSE_LONG;
+			}
 			return(terminator + value);
 		}
 		break;

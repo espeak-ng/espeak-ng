@@ -1,7 +1,7 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary fr_dict  2013-04-04
+Dictionary fr_dict  2014-02-22
 
 @    @-   a    a-   A~   e    E    e-   
 E:   E~   i    I    o    O    O~   u    
@@ -22,7 +22,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary hu_dict  2013-10-15
+Dictionary hu_dict  2014-02-27
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
@@ -85,7 +85,7 @@ p    r    R    R2   s    S    t    tS
 v    w    x    X    z    
 
 
-Dictionary en_dict  2014-02-02
+Dictionary en_dict  2014-03-04
 
 0    0#   02   3    3:   @    @-   @2   
 @5   @L   a    a#   A:   A@   aa   aI   
@@ -97,10 +97,10 @@ U@   V    VR
 
 *    :    ;    ?    b    C    d    D    
 d#   dZ   f    g    h    j    k    l    
-l#   l/   m    n    N    n^   p    Q    
-q    Q"   r    R    r-   R2   s    S    
-t    T    t2   tS   tS;  v    w    x    
-z    Z    z#   z.   
+L    l#   l/   m    n    N    n^   p    
+Q    q    Q"   r    R    r-   R2   s    
+S    t    T    t2   tS   tS;  v    w    
+x    z    Z    z#   z.   
 
 
 Dictionary cs_dict  2011-05-18
@@ -116,7 +116,7 @@ s    S    t    tS   ts   v    x    z
 Z    
 
 
-Dictionary ta_dict  2014-02-01
+Dictionary ta_dict  2014-03-04
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -139,7 +139,7 @@ N    p    p-   ph   q    q-   r    R
 s    s-   t    t-   tS   tS;  tS;- w    
 
 
-Dictionary it_dict  2014-02-01
+Dictionary it_dict  2014-03-04
 
 @    @-   a    a/   aI   aU   e    E    
 eI   EI   i    I    i#   o    O    u    
@@ -179,7 +179,7 @@ s    S    s.   t    T    t#   t.   t.#
 v    w    x    z    Z    z.   
 
 
-Dictionary fa_dict  2013-11-12
+Dictionary fa_dict  2014-02-22
 
 a    A    e    i    o    u    
 
@@ -293,7 +293,7 @@ n^   p    r    R    R2   s    S    t
 tS   ts   v    z    Z    
 
 
-Dictionary pt_dict  2014-01-30
+Dictionary pt_dict  2014-03-02
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -345,7 +345,7 @@ n^#  p    Q    r    R    r#   R2   s
 S    s2   t    T    tl#  v    x    z    
 
 
-Dictionary da_dict  2014-01-31
+Dictionary da_dict  2014-02-04
 
 &    &#   0    3    ?&   ?&#  ?0   ?A   
 ?e   ?E   ?i   ?o   ?O   ?u   ?V   ?W   
@@ -354,10 +354,10 @@ E    i    I    n-   o    O    u    V
 W    W#   y    Y    
 
 *    -    3-   :    ;    ?    b    B    
-d    D    dZ   f    g    h    j    J    
-k    l    l/2  l/3  m    n    N    p    
-r    R    R3   s    S    t    T    tS   
-v    w    x    z    Z    
+c    d    D    dZ   f    g    h    j    
+J    k    l    l/2  l/3  m    n    N    
+p    r    R    R3   s    S    t    T    
+tS   v    w    x    z    Z    
 
 
 Dictionary de_dict  2013-10-03
@@ -435,7 +435,7 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary nl_dict  2013-10-03
+Dictionary nl_dict  2014-03-03
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -576,7 +576,7 @@ m    n    p    Q    r    R    s    S
 t    tS   ts   v    w    x    z    Z    
 
 
-Dictionary grc_dict  2013-07-25
+Dictionary grc_dict  2014-02-21
 
 a    aI   aU   e    E    EI   eU   EU   
 i    o    O    oI   OI   OU   u    y    
@@ -794,7 +794,7 @@ r.   R2   s    S    t    t#   t.   t.#
 v    x    z    
 
 
-Dictionary hi_dict  2013-11-19
+Dictionary hi_dict  2014-03-04
 
 @    @-   a    a:   aI   aU   a~   e    
 E    e:   E:   e~   E~   i    I    i:   
@@ -805,8 +805,8 @@ r-   u    U    u:   u~   V
 c#   d    d#   d.   d.#  f    g    g#   
 h    H    j    J    J#   k    k#   l    
 l.   m    n    N    n.   n^   p    p#   
-Q    q    r    r.   s    S    s.   t    
-t#   t.   t.#  v    w    x    z    
+Q    q    r    R    r.   s    S    s.   
+t    t#   t.   t.#  v    w    x    z    
 
 
 Dictionary as_dict  2013-10-04
@@ -822,7 +822,7 @@ r    r.   s    S    t    t#   t.   t.#
 tS   tS#  v    w    X    ~    
 
 
-Dictionary gu_dict  2014-01-21
+Dictionary gu_dict  2014-03-03
 
 @    @-   @2   @3   a    a:   aI   aI~  
 aU   aU~  e    E    e:   e~   i    I    
@@ -845,3 +845,14 @@ u
 **   b    d    dZ   f    g    h    j    
 k    l    m    n    N    p    r    R2   
 s    S    t    tS   v    w    z    Z    
+
+
+Dictionary eu_dict  2014-03-04
+
+a    a2   aI   aU   e    eI   eU   i    
+o    oI   u    Y    
+
+;    b    B    c    d    D    f    g    
+h    j    J    k    l    l^   m    n    
+n^   p    Q    r    R2   s    S    t    
+tS   ts   tz   v    w    x    z    

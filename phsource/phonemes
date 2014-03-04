@@ -1967,6 +1967,9 @@ include ph_korean
 phonemetable kl base
 include ph_greenlandic
 
+phonemetable eu base2
+include ph_basque
+
 
 //phonemetable en2 en
 //include ph_english_test

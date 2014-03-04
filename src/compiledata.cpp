@@ -293,7 +293,7 @@ static keywtab_t keywords[] = {
 	{"Continue",   tSTATEMENT, kCONTINUE},
 
 	{"ChangePhoneme", tINSTRN1, i_CHANGE_PHONEME},
-	{"ReplaceNextPhoneme", tINSTRN1, i_REPLACE_NEXT_PHONEME},
+	{"ChangeNextPhoneme", tINSTRN1, i_REPLACE_NEXT_PHONEME},
 	{"InsertPhoneme", tINSTRN1, i_INSERT_PHONEME},
 	{"AppendPhoneme", tINSTRN1, i_APPEND_PHONEME},
 	{"IfNextVowelAppend", tINSTRN1, i_APPEND_IFNEXTVOWEL},
@@ -1131,6 +1131,9 @@ static unsigned int StringToWord(const char *string)
 	int  ix;
 	unsigned char c;
 	unsigned int word;
+
+	if(string==NULL)
+		return(0);
 
 	word = 0;
 	for(ix=0; ix<4; ix++)

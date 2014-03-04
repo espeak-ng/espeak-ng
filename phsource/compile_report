@@ -1,5 +1,5 @@
 
-93 phoneme tables
+94 phoneme tables
           new total
     base 109  109
 consonants  11  119
@@ -32,7 +32,7 @@ consonants  11  119
       kn  17  149
       ml  30  152
       hu  25  124
-      lt  44  139
+      lt  42  139
       lv  29  127
       pl  22  122
       sk  28  137
@@ -94,6 +94,7 @@ consonants  11  119
       tt  23  120
       ko  19  120
       kl  18  119
+      eu  17  127
 
 Data file      Used by
 b/b             [b] base
@@ -220,7 +221,6 @@ dzh/dzh         [dZ] base
                 [dZ;] ko
 dzh/dzh_        [dZ] base
                 [dZ;] base
-                [dZ;] lt
                 [dZ] hr
                 [dZ;] hr
                 [dZ;] mk
@@ -235,7 +235,6 @@ dzh/dz_pzd      [J] base
 dzh/dz_pzd_     [J] base
 dzh/xdzh        [dZ] base
                 [dZ;] base
-                [dZ;] lt
                 [dZ] hr
                 [dZ;] hr
                 [dZ;] mk
@@ -845,6 +844,7 @@ ufric/s         [s] base
                 [s] es
                 [z] sq
                 [s] da
+                [z] eu
 ufric/s_        [s] base
                 [z] base
                 [s2] consonants
@@ -854,6 +854,7 @@ ufric/s_        [s] base
                 [z;] ro
                 [s] sw
                 [z] sq
+                [z] eu
 ufric/s!        [s] base
                 [s] fr
                 [s] es
@@ -878,6 +879,7 @@ ufric/sh_pzd2   [S] sr
                 [S;] zh
 ufric/sh_rfx    [s.] base
                 [s.] zh
+                [s] eu
 ufric/s_pal     [s^] et
 ufric/s_pzd     [s;] base
                 [z;] base
@@ -1085,12 +1087,16 @@ ustop/ts        [ts] consonants
                 [ts] tn
                 [ts#] bo
                 [dz#] bo
+                [ts] eu
+                [tz] eu
 ustop/ts_       [ts] consonants
                 [dz] consonants
                 [ts] lv
                 [ts] tn
                 [ts#] bo
                 [dz#] bo
+                [ts] eu
+                [tz] eu
 ustop/ts2       [ts] lv
                 [ts] hy
                 [ts] ka
@@ -1130,7 +1136,6 @@ ustop/tsh_unasp2  [tS] bn
 ustop/ts_pzd    [tS;] base
                 [J#] hi
                 [J#] ml
-                [tS;] lt
                 [tS;] ru
                 [dZ;] sq
                 [tS;] tn
@@ -1811,6 +1816,8 @@ vowel/a_4       [a] ga
                 [a] es
                 [a] el
                 [a] vi
+                [a] eu
+                [a2] eu
 vowel/a#_4      [a:] nl
                 [a] ml
                 [a] bg
@@ -2067,6 +2074,7 @@ vowel/e_mid2    [E] af
                 [e:] si
                 [e] mt
                 [e] bo
+                [e] eu
 vowel/@_fnt     [@] en-wi
                 [@2] en-wi
                 [@2] hr
@@ -2114,6 +2122,7 @@ vowel/i         [i] base
                 [i] bo
                 [i] tt
                 [i] kl
+                [i] eu
 vowel/i#        [y:] cy
                 [i] vi-sgn
 vowel/i_2       [i2] de
@@ -2369,6 +2378,7 @@ vowel/oo        [o] base
                 [o] prs
                 [O] wo
                 [O:] wo
+                [o] eu
 vowel/oo_1      [O:] en-n
                 [O:] en-rp
                 [O@] en-rp
@@ -2553,6 +2563,7 @@ vowel/u_bck2    [u] et
                 [u:] gd
                 [u] ht
                 [u] kl
+                [u] eu
 vowel/u_bck3    [u:] et
                 [u] kk
 vowel/uu        [U] en
@@ -2640,6 +2651,7 @@ vowel/y#        [Y] base2
                 [oe] zhy
                 [W] tr
                 [Y] mt
+                [Y] eu
 vowel/y##       [y] is
 vowel/y_2       [y:] la
                 [y] zh
@@ -2907,7 +2919,6 @@ x/dzh           [J] base
                 [dZ] base
 x/dzh_          [dZ] base
                 [dZ;] base
-                [dZ;] lt
                 [dZ;] mk
                 [dZ;] ru
                 [J] sw
