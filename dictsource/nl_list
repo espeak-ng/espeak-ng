@@ -173,7 +173,7 @@ me		m@
 jij		j%EI
 je		j@
 gij		Q%EI
-ge		g@
+ge		Q@
 u		%y
 hij		h%EI
 zij		z%EI
@@ -219,7 +219,7 @@ over	$only	$u+ $pause	// about
 na	$only	$u+ $pause	// after
 naar	$only	$u+		// to
 door	$only	$u+ $brk	// through, by
-te	$only	$u+ $brk	// to
+te	t@	$only	$u+ $brk	// to
 tot	$only	$u+ $pause	// until
 uit	$only	$u+ $brk	// from, out of
 voor	$only	$u+ $pause	// for, in front of

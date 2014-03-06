@@ -946,6 +946,7 @@ propag) an (d      'an
 
 .group ar
         ar         A@
+     X) ar ($w_alt3+++++ @r
         ar (_      A@
      &) ar (_$w_alt2 3
         ar (o      ar
@@ -1034,7 +1035,7 @@ calend) ar         3
         arest (_   e@r@st
         ar (en     ar
      p) are (nthe  @rE
-     c) ar (eer    ar
+     c) ar (eer    @r
      c) are (C@    e@
      p) aren (t    e@r@n
     pp) ar (enC    ar
@@ -1618,7 +1619,7 @@ _it_separ) ate (_  @t
      _) co (ag     k%oU
         coa (les   k%oU@
         coa (lit   koU@
-     _) co (chair  koU
+     _) co (chair  k,oU'
      _) co (con    k,oU
      _) co (depenP2 k,oU
      _) co (eCP2   k,oU
@@ -1699,7 +1700,7 @@ _it_separ) ate (_  @t
      _) co (nduit  k0
      _) co (nferen k0
      _) co (nfid   k0
-     _) co (nfide  k%0
+     _) co (nfide  k%0#
      _) confi (den k0nfI
      _) co (nfis   k0
      _) co (nflu   k0
@@ -3715,6 +3716,7 @@ _it_separ) ate (_  @t
    des) ir         aI3
      _) ir (re@P2  I2
      _) ir (rA     I
+     _) ir (rat    I2
         ir (ro     I
         ir (ru     I
      v) iru (l     Ir@
@@ -4021,10 +4023,10 @@ multip) ly         laI
      o) mb (e      m
    _bo) mb (K      m
    _du) mb         m
-     _) mc (C      m@k
+     _) mc (C@     m@k
      _) mc (_C     m@k
      _) mc (_L05   m@        // c,g,k
-     _) mc (L05    m@
+     _) mc (L05@   m@
      _) mc (A      m@k
      _) mc (_A     m@k
      _) mc (in     mak
@@ -4371,7 +4373,7 @@ multip) ly         laI
      s) o (phistic @
         o (pini    @
      @) opol (L02  '0p@l
-     @) opoli (L06 '0p@laI
+     @) opol (iL06 '0p@l
         opolitan   @p'0lIt@n
         oppor (tu  %0p3
         opp (res   @p
@@ -5563,7 +5565,7 @@ multip) ly         laI
     Ai) s (y       z
         s (_       z
      @) s (_S1     z
-     @) s (_$w_alt1 s
+     @) s (_$w_alt1S1 s
    _BA) s (_N      s
    &se) s (_S1     I#z
   &sse) s (_S2     I#z
@@ -5865,6 +5867,7 @@ contin) u          ju:
 ?3   n) ucle       u:klI
      n) uclear     ju:kli@3
 ?3   n) uclear     u:kli@3
+     n) u (cl      u:
         ucul       VkjUl
      @) u (da_     'ju:
 ?3 @L08) u (da_     'u:
@@ -6298,6 +6301,7 @@ contin) u          ju:
         yeah       jEh
         yew        ju:
     @C) y (gen     I
+        yhr        i@
 ?!3  d) y (nas     I
      s) ynch       Ink
      t) y (pist    aI
