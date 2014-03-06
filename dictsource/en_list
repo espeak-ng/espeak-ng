@@ -558,6 +558,7 @@ dept	dI2pA@tm@nt
 diy	$abbrev
 dmca	$abbrev
 dow	daU
+edst	$abbrev
 edt	$abbrev
 eff	$abbrev
 eg	fO@Egz'aamp@L	$only
@@ -1468,6 +1469,7 @@ decor		deIkO@
 ?3 decor	deIk'O@
 decoy		di:kOI
 decry		dI2kraI
+defatig		dI2fatIg   // -able
 defect		di:fEkt
 defens		dI2fEns          // for defensible
 deficit		dEfI2sIt 
@@ -1537,6 +1539,7 @@ dilatory	dIl@t@rI
 dilemma		daIl'Em@
 ?3 dilemma	dI#l'Em@
 digest		daIdZEst $noun
+digitalis	$alt1
 ?3 diminutive	dI#mInju:tIv
 dinghy		dINgi
 dingy		dIndZI
@@ -2186,6 +2189,7 @@ lemonade	$3
 lense		lEnz  // lenses
 leona		li:'oUn@
 leopard		lEp3d
+leotard		$alt4
 leprechaun	lEpr@kO:n
 lesion		li:Z@n
 (les misérables)	leImIzEr'A:bl@-
@@ -4272,6 +4276,7 @@ Remus		ri:m@s
 Reynold		rEn@Ld
 Rhys		ri:s
 Rihanna		rI'A:n@
+Roberta		rVb'3:t@
 Roderick	r0drIk
 Roni		r0ni
 Rosalie		roUza#li
@@ -4407,6 +4412,7 @@ Heinz		haInz
 Herrera		h@re@r@
 Hormel		ho@m'El
 Hoosier		hu:Z3
+Ikea		$2
 Iscariot	$2
 Jacobi		dZa#koUbi
 Jerrard		dZ3rA@d
