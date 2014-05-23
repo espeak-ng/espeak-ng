@@ -1,0 +1,518 @@
+//  short vowels
+phoneme a
+  vowel starttype #a endtype #a
+  unstressed
+  length 180
+  CALL ShortVowelLength 
+  IF prevPh(s[)  OR prevPh(d[) OR prevPh(t[) OR prevPh(Z) THEN   
+    FMT(vowel/0_3) 
+  ELSE
+	FMT(vowel/a#)	
+  ENDIF
+  
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 140
+  unstressed  
+  CALL ShortVowelLength 
+  FMT(vowel/i)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  unstressed  
+  length 140
+  CALL ShortVowelLength 
+  FMT(vowel/u)
+endphoneme
+
+
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 200
+endphoneme
+
+
+
+
+//  long vowels
+phoneme a:
+  vowel starttype #a endtype #a
+  length 300
+  //CALL LongVowelLength 
+  IF prevPh(s[)  OR prevPh(d[) OR prevPh(t[) OR prevPh(Z) THEN   
+    FMT(vowel/0_3) 
+  ELSE
+	FMT(vowel/a#)	
+  ENDIF
+  
+endphoneme
+
+
+phoneme i:
+  vowel starttype #i endtype #i
+  length 300
+  //CALL LongVowelLength 
+  FMT(vowel/i)
+endphoneme
+
+phoneme u:
+  vowel starttype #u endtype #u
+  length 300
+  //CALL LongVowelLength 
+  FMT(vowel/u)
+endphoneme
+
+
+// Redifine consnant for arabic 
+
+
+
+
+phoneme l
+  liquid
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    // in case the next phoneme is no longer a vowel, in pass=2
+    PrevVowelEndings
+      VowelEnding(l/L1_@L, -60)
+      VowelEnding(l/L1_aL, -40)
+      VowelEnding(l/L1_eL, -30)
+      VowelEnding(l/L1_iL, -30)
+      VowelEnding(l/L1_oL, -40)
+      VowelEnding(l/L1_uL, -40)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+
+
+
+
+phoneme w
+  liquid
+  lengthmod 7
+  FMT(w/w_)
+endphoneme
+
+
+
+phoneme j
+  liquid palatal
+  lengthmod 7
+  FMT(j/j_)
+endphoneme
+
+
+
+//*******************************************************************
+// NASAL CONSONANTS
+//*******************************************************************
+
+
+phoneme m
+  vcd blb nasal
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+  FMT(m/m_)
+endphoneme
+
+
+phoneme n
+  vcd alv nasal
+  Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
+  lengthmod 4
+  FMT(n/n_)
+endphoneme
+
+
+//*******************************************************************
+// VOICED STOPS
+//*******************************************************************
+
+
+phoneme b
+  vcd blb stop
+  voicingswitch p 
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
+  lengthmod 7
+  FMT(b/b) addWav(x/b)
+endphoneme
+
+
+phoneme d
+  vcd alv stop
+  voicingswitch t
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  FMT(d/d) addWav(x/d)
+endphoneme
+
+
+phoneme d[
+  vcd dnt stop
+  voicingswitch t[
+  lengthmod 5
+  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  FMT(d/d) addWav(x/d_dnt, 100)
+endphoneme
+
+
+phoneme dZ
+  vcd pla afr sibilant
+  voicingswitch tS
+  //lengthmod 8
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+  FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+
+
+phoneme J
+  vcd pal afr sibilant palatal
+  voicingswitch c
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/dz_pzd_) addWav(x/dzh, 35)
+    ENDIF
+    FMT(klatt/dz_pzd) addWav(x/dzh, 45)
+  ENDIF
+
+  FMT(dzh/dz_pzd) addWav(x/dzh, 45)
+endphoneme
+
+
+phoneme g
+  vcd vel stop
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+//*******************************************************************
+// VOICED fricatives
+//*******************************************************************
+
+phoneme D
+  vcd dnt frc
+  voicingswitch T
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1290 -300 300 f3=0 0
+  ENDIF
+  FMT(voc/dh) addWav(vocw/dh)
+endphoneme
+
+
+phoneme z
+  vcd alv frc sibilant
+  //voicingswitch s
+  lengthmod 1
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  FMT(voc/z) addWav(ufric/s_, 85)
+endphoneme
+
+
+phoneme Z
+  vcd pla frc sibilant
+  voicingswitch S
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/zh_) addWav(vocw/zh)
+    ENDIF
+    FMT(klatt/zh) addWav(vocw/zh, 130)
+  ENDIF
+
+  FMT(voc/zh) addWav(vocw/zh, 130)
+endphoneme
+
+
+
+
+
+//*******************************************************************
+// UNVOICED STOPS
+//*******************************************************************
+
+phoneme t
+  vls alv stop
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t, 90)
+endphoneme
+
+
+phoneme t[        // dental variant of /t/
+  vls dnt stop
+  voicingswitch d[
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  WAV(ustop/t_dnt, 35)
+endphoneme
+
+
+
+
+phoneme k
+  vls vel stop
+  voicingswitch g
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
+  ENDIF
+
+  WAV(ustop/k)
+endphoneme
+
+
+phoneme q
+  vls uvl stop
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
+  Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
+  WAV(ustop/q, 48)
+endphoneme
+
+
+
+//*******************************************************************
+// UNVOICED fricatives
+//*******************************************************************
+
+phoneme f
+  vls lbd frc
+  voicingswitch v
+  lengthmod 3
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  WAV(ufric/f)
+endphoneme
+
+
+phoneme T
+  vls dnt frc
+  voicingswitch D
+  lengthmod 3
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ufric/th)
+endphoneme
+
+
+phoneme s
+  vls alv frc sibilant
+  voicingswitch z
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ufric/s)
+endphoneme
+
+
+phoneme S
+  vls pla frc sibilant
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+
+  WAV(ufric/sh)
+endphoneme
+
+
+
+
+
+
+phoneme x
+  vls vel frc
+  voicingswitch Q
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  //WAV(ufric/x)
+  WAV(vwl_ar/kha)
+endphoneme
+
+
+
+phoneme h
+  vls glt apr
+  lengthmod 3
+  ipa h
+  WAV(h/h_, 70)  // no vowel following
+endphoneme
+
+
+
+
+
+
+
+
+// Added specific consnant to arabic
+phoneme H	// arabic Hah
+  vls phr frc
+  ipa U+0127
+  lengthmod 5 
+  WAV(vwl_ar/H2) 
+endphoneme
+
+phoneme Z // arabic ZAH .Todo
+  vls phr frc
+  lengthmod 5 
+  voicingswitch z  
+  WAV(vwl_ar/ZH4) 
+endphoneme
+
+phoneme E	// arabic Ain
+  vls phr frc
+  //ipa U+0127
+  //voicingswitch a  
+  lengthmod 5   
+  //WAV(vwl_ar/AN2,50) 
+ WAV(vwl_ar/ain2) 
+
+endphoneme
+
+phoneme G	//arabic Ghain
+  //vcd uvl frc
+  vls uvl frc
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  voicingswitch R  
+  //lengthmod 5 
+  //ipa U+0280
+  WAV(vwl_ar/ghain6)
+  //FMT(voc/Q_ulv) addWav(vwl_ar/gh, 100)
+	//FMT(voc/Q_ulv) addWav(vwl_ar/ghain3, 100)
+    
+endphoneme
+
+phoneme d[	//arabic Dhad
+  vls dnt stop
+  voicingswitch d
+  length 120
+  WAV(vwl_ar/da7)
+endphoneme
+
+phoneme s[
+  vls dnt stop 
+  //voicingswitch s
+  lengthmod 7
+  WAV(vwl_ar/SA1)
+endphoneme
+
+
+
+phoneme r
+  liquid rhotic
+  ipa ?
+  lengthmod 7
+  IF nextPh(a) OR nextPh(a:) THEN
+  FMT(r/ra)  
+  ENDIF
+  FMT(r/r_)
+endphoneme
+
+procedure ShortVowelLength 
+
+  //IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN // voiced 
+  IF prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN // consonants 
+		length 140 
+		RETURN
+	//ENDIF
+	ELSE
+		IF prevPh(isStressed) THEN
+			length 160
+		ELSE
+			length 175
+		ENDIF
+		
+   ENDIF
+endprocedure
+procedure LongVowelLength 
+
+  //IF prevPhW(isVoiced) AND nextPhW(isVoiced) THEN // voiced 
+	IF nextPhW(:) THEN
+		length 300 
+		RETURN
+	//ENDIF
+	ELIF prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN // consonants 
+		length 340 
+		RETURN
+	//ENDIF
+	ELSE
+		IF prevPh(isStressed) THEN
+			length 360
+		ELSE
+			length 375
+		ENDIF
+		
+   ENDIF
+endprocedure
