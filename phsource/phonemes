@@ -1810,6 +1810,10 @@ include ph_catalan
 phonemetable an es
 include ph_aragon
 
+phonemetable eu base2
+include ph_basque
+
+
 phonemetable pt base2
 include ph_pt_brazil
 
@@ -1877,6 +1881,9 @@ include ph_georgian
 phonemetable fa base
 include ph_farsi
 
+phonemetable ar base
+include ph_arabic
+
 
 //**************************************************************************************
 // The following lines are experimental, for future additions.
@@ -1888,9 +1895,6 @@ include ph_kinyarwanda
 
 //phonemetable mr hi
 //include ph_marathi
-
-//phonemetable eu base2
-//include ph_basque
 
 //phonemetable mn base
 //include ph_mongolian
@@ -1966,9 +1970,6 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
-
-phonemetable eu base2
-include ph_basque
 
 
 //phonemetable en2 en

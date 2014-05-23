@@ -78,6 +78,20 @@ _0M3x	kotlu
 _1M3	koti
 _dpt	_d,aS;a:mkam
 
+_#వ	av#a   // ordinal suffix, drop the final vowel from the cardinal number
+_20o	irav#aIj
+_30o	muppaIj
+_40o	nalub#aIj
+_50o	ja:b#aIj
+_60o	arav#aIj
+_70o	d.#eb#baIj
+_80o	jenab#aIj
+_90o	tomb#aIj
+_0Co	v#andal
+_1Co	v#and
+_0M1o	v#el
+_1M1o   v#ejj
+_0M2o	laks.al
 
 // symbols
 _??	aks.aram   // 'unknown character'

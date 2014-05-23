@@ -121,6 +121,7 @@ static keywtab_t k_properties[] = {
 	{"isNasal",      0,  phNASAL},
 	{"isLiquid",     0,  phLIQUID},
 	{"isUStop",      0,  phSTOP},
+	{"isVStop",      0,  phVSTOP},
 	{"isVFricative", 0,  phVFRICATIVE},
 
 	{"isPalatal",    0,  i_isPalatal},
@@ -3497,6 +3498,10 @@ static void CompilePhonemeFiles()
 				f_in = f;
 				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
+			}
+			else
+			{
+				error("Missing file: %s", item_string);
 			}
 			break;
 

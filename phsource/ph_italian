@@ -151,7 +151,8 @@ endphoneme
 
 phoneme ts
   import_phoneme consonants/ts
-  voicingswitch ts
+  voicingswitch s
+  lengthmod 4
 endphoneme
 
 phoneme dz
@@ -159,4 +160,3 @@ phoneme dz
   voicingswitch z
   lengthmod 3
 endphoneme
-

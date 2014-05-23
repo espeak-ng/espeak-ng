@@ -223,6 +223,14 @@ phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
 endphoneme
 
 
+phoneme E2  // does not reduce in unstressed syllables
+  vowel  starttype #e  endtype #e
+  length 140
+  ChangePhoneme(E)  // a second change ([E]  to [I2]) won't happen
+endphoneme
+
+
+
 phoneme I
   vowel  starttype #i  endtype #i
   length 130
@@ -326,6 +334,14 @@ phoneme A@     // Used for [A:] when followed by 'r'
   IfNextVowelAppend(r-)
   FMT(vowel/aa_2)
 endphoneme
+
+
+phoneme A#    // [a] in British [A:] in American
+  vowel  starttype #a  endtype #a
+  ChangePhoneme(a)
+endphoneme
+
+
 
 
 phoneme 3:

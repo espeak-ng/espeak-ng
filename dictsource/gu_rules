@@ -38,8 +38,8 @@
 
 .group ઇ
         ઇ          I
-//       ઇઁ        i~
-       ઇં        i~
+//       ઇઁ        In
+       ઇં        In
 
 .group ઈ
         ઈ          i:
@@ -99,12 +99,11 @@
         ા (ઁ       V~
         ાઁ (_      V~
         ાં         V~
-        ાવ         aU
 
 .group િ
         િ          I
-//      િઁ       i~
-      િં       i~
+//      િઁ       In
+      િં        In
 
 .group ી
         ી          i:
@@ -242,9 +241,9 @@
         જ્ઞ          gn.V
         જ્ઞ (B       gn.
 
-.group ઝ
-        ઝ          J#V
-        ઝ (B       J#
+.group ઝ  // According to chart this is jha ( ઝ 0A9D)but it is told that it looks like za ( જ઼ 0A9C + 0ABC) 
+        ઝ          zV
+        ઝ (B       z
 
 .group ઞ
         ઞ          n^V
@@ -386,10 +385,10 @@
         લ (B       l
      ્) લ (_       l@
 
-.group ળ
-        ળ          l.V
-        ળ (B       l.
-     ્) ળ (_       l.@
+.group ળ    // According to chart this is lla ( ળ 0AB3)but it is told that it looks like adda ( ડ઼ 0AA1 + 0ABC) 
+        ળ          r.V
+        ળ (B       r.
+     ્) ળ (_       r.@
 
 .group વ
         વ          vV

@@ -44,6 +44,7 @@
 #define FLAG_STRESS_END2     0x400  // full stress if at end of clause, or only followed by unstressed
 #define FLAG_UNSTRESS_END    0x800  // reduce stress at end of clause
 #define FLAG_SPELLWORD      0x1000  // re-translate the word as individual letters, separated by spaces
+#define FLAG_ACCENT_BEFORE  0x1000  // say this accent name before the letter name
 #define FLAG_ABBREV         0x2000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
 #define FLAG_DOUBLING       0x4000  // doubles the following consonant
 
@@ -524,6 +525,7 @@ typedef struct {
 #define NUM2_PERCENT_BEFORE     0x10000
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 #define NUM2_ORDINAL_AND_THOUSANDS 0x40000
+#define NUM2_ORDINAL_DROP_VOWEL  0x80000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
@@ -535,6 +537,7 @@ typedef struct {
 	// bit16=(LANG=si)  say "%" before the number
 	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
 	// bit18=(LANG=ta)  same variant for ordinals and thousands (#o = #a)
+	// bit19=(LANG=te)  drop final vowel from cardial number before adding ordinal suffix
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248

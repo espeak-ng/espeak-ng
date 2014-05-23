@@ -455,17 +455,6 @@ static int initialise(void)
 }
 
 
-static void StopSpeak(int unused)
-{//==============================
-	signal(SIGINT,SIG_IGN);
-	// DEBUG
-//	printf("\n*** Interrupting speech output (use Ctrl-D to actually quit).\n");
-	fflush(stdout);
-	SpeakNextClause(NULL,NULL,5);
-	signal(SIGINT,StopSpeak);
-}  //  end of StopSpeak()
-
-
 
 #ifdef NEED_GETOPT
 	struct option {
@@ -524,13 +513,15 @@ int main (int argc, char **argv)
 	char *optarg2;
 	int amp = 100;     // default
 	int wordgap = 0;
-	int speaking = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
 	int pitch_adjustment = 50;
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
+#ifdef USE_PORTAUDIO
+	int speaking = 0;
+#endif
 
 	voicename[0] = 0;
 	mbrola_name[0] = 0;
@@ -898,9 +889,6 @@ int main (int argc, char **argv)
 	}
 	else
 	{
-		// Silence on ^C or SIGINT
-//		signal(SIGINT,StopSpeak);
-
 		// output sound using portaudio
 		WavegenInitSound();
 

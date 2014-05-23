@@ -3583,8 +3583,10 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
 int Lookup(Translator *tr, const char *word, char *ph_out)
-{//===================================================
-	int found;
+{//=========================================================
+// Look up in *_list, returns dictionary flags[0] and phonemes
+
+	int flags0;
 	unsigned int flags[2];
 	int say_as;
 	char *word1 = (char *)word;
@@ -3592,7 +3594,10 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
-	found = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL);
+	if((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL)) != 0)
+	{
+		flags0 = flags[0];
+	}
 
 	if(flags[0] & FLAG_TEXTMODE)
 	{
@@ -3600,11 +3605,11 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		option_sayas = 0;   // don't speak replacement word as letter names
 		text[0] = 0;
 		strncpy0(&text[1], word1, sizeof(text));
-		found = TranslateWord(tr, &text[1], 0, NULL, NULL);
+		flags0 = TranslateWord(tr, &text[1], 0, NULL, NULL);
 		strcpy(ph_out, word_phonemes);
 		option_sayas = say_as;
 	}
-	return(found);
+	return(flags0);
 }
 
 

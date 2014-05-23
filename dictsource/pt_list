@@ -112,6 +112,11 @@ _(	,abRipa*'eINtezy
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
 _−	m'enUs
+№	n'u~me*U
+∞	iNfin'itU
+∫	iNtegR'aU
+⅓	u~Nt'e*@-sU
+⅔	doIs#t'e*@-sUs#
 ¼	u~Nku'a*@-tU
 ½	m'eIU
 ¾	tRes#kw'a*@-tUs#
@@ -134,6 +139,7 @@ _\	b,ax&,iNvertS'id&
 _]	f,ES&kowS'etSi
 _^	s,irku~Nfl'Eksu
 _´	as'eINtu,ag'udU
+·	p'oNtUseINtR'adU
 __	s,ublin^'adu
   _`	gR'avi
 _{	,abRiS'avi
@@ -163,34 +169,35 @@ _"	'abRi;'asp&||d'upl&s#
    _2	d'oIs#
    _3	tR'es#
 ?1 _4	kw'atru
-?2 _4	kw'atRu
-   _5	s'iNku
+?2 _4	kw'atRU
+?1 _5	s'iNku
+?2 _5	s'iNkU
    _6	s'eIs#
 ?1 _7	s'Ety
 ?2 _7	s'EtSy
-   _8	'oItu
+?1   _8	'oItu
+?2      _8	'oItU
    _9	n'Ovy
    _10	d'Es#
 
 _11	'oNzy
 _12	d'ozy
 ?1_13	tr'ezy
-?2_13	tR'ezi
+?2_13	tR'ezy
 ?1_14	k&t'orzy
-?2_14	kat'orzy
+?2_14	kat'o*@-zy
 _15	k'iNzy
 ?1_16	dyz&s'eis#
 ?2_16	d,ezes'eIs#
 ?1_17	dyz&s'Ety
 ?2_17	d,ezes'EtSy
 ?1_18	dyz'Oitu
-?2_18	dez'oItu
+?2_18	dez'oItU
 ?1_19	dyz&n'Ovy
 ?2_19	dezen'Ovy
 ?1_2X	v'iNty
 ?2_2X	v'iNtSy
 _3X	tR'iNt&
-
 ?1_4X	kw&*'eNt&
 ?2_4X	kwa*'eINt&
 _5X	siNkw'eINt&
@@ -211,20 +218,19 @@ _1C	s'eINtu
 ?2_3C	tRez'eINtUz
 ?1_5C	kin^'eINtus#
 ?2_5C	kin^'eINtUz
+?1_6C	seIs'eINtus#
+?2_6C	seIs'eINtUz
 ?1_0M1	m'il_
 ?2_0M1	m'iU_
 ?1_1M1	m'il_
 ?2_1M1	m'iU_
 
-?1_0M2	milj'o~js#
-?2_0M2	milj'o~jz
+_0M2	milj'o~js#
 _1M2	'u~milj'&U~
-?1_0M3	bilj'o~js#
-?2_0M3	bilj'o~jz
+_0M3	bilj'o~js#
 _1M3	'u~mbilj'&U~
-?1_0M4	trilj'o~js#
-?2_0M4	trilj'o~jz
-_1M4	'u~ntrilj'&U~
+_0M4	trilj'o~js#
+_1M4	'u~ntRilj'&U~
 _0and	i
 _dpt    _v'irgul&
 // _0Z2	seNt'Ezim&     // 100ths
@@ -667,6 +673,7 @@ jamais	$u+	$verbf
 
 abordo		$alt
 aborto		$alt  $verb
+abortos	$alt2
 absorta		$alt2
 acerto		$alt2 $noun
 acertos		$alt2
@@ -734,7 +741,6 @@ bolo		$alt  $verb
 borboleta	$alt2
 bordo		$alt
 borra		$alt2 $noun
-bosque		$alt
 boto		$alt2 $noun
 boxe		$alt
 bracelete		$alt2
@@ -800,7 +806,7 @@ colosso		$alt2
 colossos	$alt2
 colostro	$alt2
 começo		$alt $verb
-comodo		$alt2
+
 concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
@@ -812,6 +818,8 @@ controle	$alt2 $noun
 controles	$alt2
 controles	$alt $verb
 controlo	$alt2 $noun
+conveses	$alt
+copta	$alt
 coreia		$alt
 cores	$alt2
 cores	$alt $verb
@@ -886,6 +894,7 @@ emprego		$alt2 $noun
 encasqueta	$alt
 encosto		$alt  $verb
 endereço	$alt  $verb
+endoide	$alt2
 enforco		$alt
 engordo		$alt
 enredo		$alt  $verb
@@ -927,6 +936,7 @@ estrogonofe	$alt
 eta		$alt2
 europa		$alt
 europeia	$alt
+evangelho	$alt
 ?2  ex es
 exagero		$alt $verb
  exegeses	$alt
@@ -1000,6 +1010,7 @@ inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
 internet	$alt
+interregno	$alt
 iodo		$alt2
 ioga		$alt
 isolda	$alt2
@@ -1105,6 +1116,7 @@ pior		$alt
 pipoco		$alt2 $noun
 plateia		$alt
 plebeia		$alt
+poderem	$alt2
 polca		$alt
 pompeia		$alt
 porcos		$alt
@@ -1150,7 +1162,7 @@ remorso		$alt
 renovo		$alt $verb
 represa		$alt2
 retorno		$alt $verb
-reuva		x'EUv&
+reveses	$alt
 rigores		$alt2
 risoto		$alt2
 robson	$alt
@@ -1185,6 +1197,7 @@ soco		$alt2
 soco		$alt $verb
 sogra		$alt
 sopa		$alt2
+sopeses	$alt
 sopro		$alt2 $noun
 sorvete		$alt2
 sossego     	$alt2 $noun
@@ -1241,6 +1254,7 @@ verde		$alt2
 vileta		$alt2
 vodca	v'OdZik&
 voga		$alt
+voice	$alt
 xarope		$alt
 xereta		$alt2
 xerox	S'E*Oks
@@ -1268,6 +1282,7 @@ blind      bl'aind
 ?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
+?2 cappuccino	kaputS'inU
 ?2 center	s'eNter
 ?1 com        kom
 ?1 ctrl       k'oNt:r,Ol
@@ -1311,8 +1326,9 @@ get   gEt
 happy  x'Epy
 ?1 home       'omy
 ?2 home       h'owmi
-?1 hotmail    h'Otm'eIl
-?2 hotmail    hotm'eIl
+hot	xOt
+?1 hotmail    h'Ot'eIl
+?2 hotmail    hOtm'eIl
 ?1 install    ,inst'al
 ?2 Intranet   iNtRan'Et
 ?1 kernel     k'Ern,El
@@ -1327,7 +1343,8 @@ laptop	lEpt'Op
 ?1 lock       l'Ok
    mail       m'eIl
         mails        m'eIls
-marketing	m'arketSiN
+?1 marketing	m'arktiN
+?2 marketing	m'arketSiN
 ?2  master	m'aste*@-
 ?2        mouse        m'aUzi
 ?1 menu       menu
@@ -1394,7 +1411,8 @@ apple  'Epow
 outdoor	aUtd'Or
 ?2  outdoors	aUtd'Ors
 baby	b'eIby
-chrome  kR'owmi
+?1 chrome	kr'owm
+?2 chrome  kR'owmi
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
 ?1 express     ,Ekspr'Es
@@ -1460,6 +1478,7 @@ twitter  tw'iter
 
 
 // historical/famous person  s
+?2 Alzheimer	aUz'aImEr
 babbage       b'abidZ
 bernhard      bern'ard
 darwin        d'Arwin
@@ -1478,13 +1497,16 @@ heidegger   h'aIdege
 hawking       h'o:king
 heisenberg    h'aIzEnberg
 hitler        h'itler
+?2 hobbes	x'Obys
 husserl   x'usEl
-isaac         iz'&k
+?1 isaac	iz'&k
+?2 isaac	iz'ac
 lavoisier     lavwazj'e
 leibniz       l'aIbni:ts
+locke	lOk
 montesquieu   m,oNteskj'e
 neumann       n'OIman
-newton        n'i;utoN
+newton	n'I;utoN
 oppenheimer   _!'Op@nh,aImar
 richard       x'iS&rd
 riemann       r'i:man
@@ -1512,6 +1534,7 @@ klein       kl'aIn      // Very common on southern Brazil.
 krueger     kR'iZer
 krüger      kR'iZer
 kühl        k'il
+?2 john	dZIoN
 ?2 juan  xu&~N
 mueler      m'iler
 mueller     m'iler
@@ -1519,6 +1542,7 @@ müler       m'iler
 müller      m'iler
 ?1   nelson       n'Els&N
 ronchi      r'OnCi:
+ Scarlet	sk'a*@-let
 valter	v'aUter
 vogel       f'o:g@l
 volkmann    f'Olkman

@@ -12,6 +12,117 @@
 
 .L01 αι ε ι η υ οι ει  αί έ ί ή ύ οί εί 
 
+.replace
+// replace varia by tonos
+ὰ	ά
+ὲ	έ
+ὴ	ή
+ὶ	ί
+ῒ	ΐ
+ὸ	ό
+ὺ	ύ
+ῢ	ΰ
+ὼ	ώ
+
+// replace oxia by tonos
+ά	ά
+έ	έ
+ή	ή
+ί	ί
+ΐ	ΐ
+ό	ό
+ύ	ύ
+ΰ	ΰ
+ώ	ώ
+
+// replace perispomeni by tonos
+ᾶ	ά
+ῆ	ή
+ῖ	ί
+ῗ	ΐ
+ῦ	ύ
+ῧ	ΰ
+ῶ	ώ
+
+
+// remove psili
+ἀ	α
+ἂ	ά
+ἄ	ά
+ἆ	ά
+
+ἐ	ε
+ἒ	έ
+ἔ	έ
+
+ἠ	η
+ἢ	ή
+ἤ	ή
+ἦ	ή
+
+ἰ	ι
+ἲ	ί
+ἴ	ί
+ἶ	ί
+
+ὀ	ο
+ὂ	ό
+ὄ	ό
+
+ὐ	υ
+ὒ	ύ
+ὔ	ύ
+ὖ	ύ
+
+ὠ	ω
+ὢ	ώ
+ὤ	ώ
+ὦ	ώ
+
+
+// remove dasia
+ἁ	α
+ἃ	ά
+ἅ	ά
+ἇ	ά
+
+ἑ	ε
+ἓ	έ
+ἕ	έ
+
+ἡ	η
+ἣ	ή
+ἥ	ή
+ἧ	ή
+
+ἱ	ι
+ἳ	ί
+ἵ	ί
+ἷ	ί
+
+ὁ	ο
+ὃ	ό
+ὅ	ό
+
+ὑ	υ
+ὓ	ύ
+ὕ	ύ
+ὗ	ύ
+
+ὡ	ω
+ὣ	ώ
+ὥ	ώ
+ὧ	ώ
+
+// ypogegrammeni
+ᾳ	α
+
+ῃ	η
+
+ῳ	ω
+ῷ	ώ   // perispomeni + y
+ᾠ	ω   // psili + y
+
 
 .group α
            α        a
@@ -242,15 +353,20 @@
            έ        'e
            ή        'i
            ί        'i
-           ΰ        'i
+           ΐ        'i   // dialytika + tonos
            ϊ        i
            ϋ        i
            ό        'o
            όη       'oI
            όι       'oI
            ύ        'i
+           ΰ        'i   // dialytika + tonos
            ώ        'o
 
+
+           ͅ		// combining ypogegrammeni
+           ͺ		// ypogegrammeni
+           
            .        tel'ia
            , (D     k'oma
            !        Tavmastik'o

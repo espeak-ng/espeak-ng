@@ -94,8 +94,8 @@ endphoneme
 
 
 phoneme k#
-//  import_phoneme consonants/kh
-  import_phoneme base/k
+  import_phoneme consonants/kh
+//  import_phoneme base/k
 endphoneme
 
 

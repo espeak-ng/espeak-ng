@@ -93,13 +93,13 @@ SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ -L . -lespeak
 
-CXXFLAGS=-O2
-
+CXXFLAGS?=-O2
+CXXFLAGS+=-fno-exceptions -pedantic -Wall
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\"  -I. -c  $<
 
 $(BIN_NAME): $(OBJS1)
 	$(CXX) $(LDFLAGS) -o $@ $(OBJS1) $(LIBS1)
@@ -110,8 +110,8 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -fpic -fvisibility=hidden -pedantic \
-	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\"  -fpic -fvisibility=hidden  \
+	-I. -D LIBRARY -c   $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)
 	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ \

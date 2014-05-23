@@ -767,6 +767,7 @@ static int adjustPitch(
 }
 
 /* Skip over a pitch period, and copy period/speed samples to the output */
+/* NOTE: Only called if speed > 1.0f */
 static int skipPitchPeriod(
     sonicStream stream,
     short *samples,
@@ -778,7 +779,7 @@ static int skipPitchPeriod(
 
     if(speed >= 2.0f) {
 	newSamples = period/(speed - 1.0f);
-    } else if(speed > 1.0f) {
+    } else {
 	newSamples = period;
 	stream->remainingInputToCopy = period*(2.0f - speed)/(speed - 1.0f);
     }
