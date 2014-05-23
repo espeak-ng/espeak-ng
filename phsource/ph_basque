@@ -16,9 +16,9 @@ phoneme a2  // delete if the next vowel is 'a'. Used for numbers.
 
   IF nextPh(#a) THEN
     ChangePhoneme(NULL)   // merge consecutive 'a'
+  ELSE
+    ChangePhoneme(a)
   ENDIF
-
-  FMT(vowel/a_4)
 endphoneme
 
 
@@ -174,3 +174,13 @@ phoneme g
   import_phoneme es/g
 endphoneme
 
+phoneme n
+  vcd alv nasal
+  lengthmod 4
+
+  IF prevPhW(i) AND nextPhW(isVowel) THEN
+    ChangePhoneme(n^)
+  ENDIF
+  
+  CALL base/n
+endphoneme

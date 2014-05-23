@@ -1345,6 +1345,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	int  modulation;
 	int  pre_voiced;
 	int  free_min;
+	int  value;
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
@@ -1687,6 +1688,11 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				StartSyllable();
 			}
 			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
+
+			if((value = (phdata.pd_param[i_PAUSE_BEFORE] - p->prepause)) > 0)
+			{
+				DoPause(value, 1);
+			}
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];

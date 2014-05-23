@@ -57,7 +57,7 @@
 	ا	a:
 	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
 _) ا	a
-_) او	u:
+_) او	o:
 _) ای	e:
 	ائ (L02	a:I
 	اہ(_	a:H
@@ -119,6 +119,10 @@ _) ای	e:
 	_) اح (L02	'EH
 	_) است (L02	,IstI
 	_) ارت (L02	,IRtI
+	_) ایس (L01	'Es
+	_) اونچ (L01	'u:nc
+	_) ادا (ر	'Ida:
+	اسکول	,Isk'u:l
 
 .group آ
 	آ	a:
@@ -137,6 +141,11 @@ _) ای	e:
 	_) عمر	'UmR
 	L02) عی (_	'ai:
 	علیحد	'alEHd
+	عَ	'a
+	عِ	'I
+	عُ	'U
+	علاق	Il'a:q
+	عے	e:
 
 .group و
 	و	o:
@@ -211,6 +220,8 @@ _) ای	e:
 	بوڑھ	b'u:r.h
 	_) بے (P2	b'e:
 	بحران	b,OHR'a:n
+	بنیاد	bUnj'a:d
+	بیمار	bim'a:R
 
 
 .group پ
@@ -285,6 +296,7 @@ _) ای	e:
 	_) جمل	J'Uml
 	_) جہ (L02	J'EH
 	_) جدا	J'Uda:
+	_) جسم	J'Ism
 
 .group چ
 	چ	cV
@@ -321,6 +333,8 @@ _) ای	e:
 	_) خود	x'Ud
 	_) خواہش	xv'a:HIS
 	_) خیا	x'aja:
+	_) خون	x'u:n
+	_) خشک	x'USk
 
 
 .group د
@@ -341,6 +355,9 @@ _) ای	e:
 	دلچسپ	d,Ilc'asp
 	دھیم	d#'i:m
 	_) دوسر	d'u:sR
+	_) دین (L01	d'e:n
+	_) دیت (L01	d'e:t
+	دہ (_	d,a
 
 .group ڈ
 	ڈ	d.V
@@ -374,6 +391,7 @@ _) ای	e:
 	_) رکن	R'Ukn
 	@) ر (د	R
 	_) رفت	R'af@t
+	_) روا	R'ava:
 
 .group ڑ
 	ڑ	r.V
@@ -420,6 +438,8 @@ _) ای	e:
 	سرگرم	s,aRg'aRm
 	@) ستان (_	Ist'a:n
 	@) ستانی (_	Ist'a:ni
+	_) سوا	sav'a:
+	_) سکول	sk'u:l
 
 .group ش
 	ش	SV
@@ -441,12 +461,14 @@ _) ای	e:
 	صّ	ssV
 	صّ (L01	ss
 	صوب	s.'u:b
+	صورت	s.u:R'at
 
 .group ض
 	ض	zV
 	ض (L01	z
 	ضّ	zzv
 	ضّ (L01	zz
+	ضرور	zaR'u:R
 
 .group ط
 	ط	tV
@@ -467,6 +489,7 @@ _) ای	e:
 	غ (L01	Q
 	غّ	QQV
 	غّ (L01	QQ
+	غلام	QUl'a:m
 
 .group ف
 	ف	fV
@@ -498,6 +521,8 @@ _) ای	e:
 	کوشش	k'o:SIS
 	_) کہ (L02	k'EH
 	کارکن	k'a:Rk,UUn
+	_) کیس (L01	k'Es
+	_) کت (L01	k'Ut
 
 .group گ
 	گ	gV
@@ -524,6 +549,8 @@ _) ای	e:
 	لّ (L01	ll
 	لکھ	l'Ik#
 	_) لہ (L02	l'EH
+	_) لین (L01	l'e:n
+	_) لیت (L01	l'e:t
 
 .group م
 	م	mV
@@ -563,6 +590,8 @@ _) ای	e:
 	مخبر	m'Uxb,IR
 	ملحق	m'UlH,Iq
 	مذہب	m,aDH'ab
+	متاثر	mUt'a:sIR
+	_) مثال	mIs'a:l
 
 .group ن
 	ن	nV

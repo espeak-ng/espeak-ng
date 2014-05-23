@@ -103,7 +103,7 @@ _85        pInc'a:si
 _86        c#e:'V~si
 _87        s@t:j'a:si
 _88        ,Vt.#j'a:si
-_89        nIvj'a:si
+_89         ne:vj'a:Si
 
 _90       n'e:vu~
 _91       e:k'a:n.u~
@@ -139,7 +139,7 @@ _dpt      _d@s@ml'o:_
 છ      ch@
 જ      J@
 જ઼      z@
-ઝ      Jh@
+ઝ      z@
 ઞ      n^@
 ટ      t.@
 ઠ      t.#@
@@ -162,7 +162,7 @@ _dpt      _d@s@ml'o:_
 ર      r@
 
 લ      l@
-ળ      l.@
+ળ      @r.@   // According to chart this is lla ( ળ 0AB3)but it is told that it looks like adda ( ડ઼ 0AA1 + 0ABC) 
 વ      v@
 શ      S@
 ષ      s.@   //  retroflex [S]
