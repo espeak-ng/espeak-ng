@@ -96,6 +96,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$strend",    9},   // full stress if at end of clause
 	{"$strend2",   10},   // full stress if at end of clause, or only followed by unstressed
 	{"$unstressend",11},  // reduce stress at end of clause
+	{"$accent_before",12}, // used with accent names, say this accent name before the letter name
 	{"$abbrev",    13},   // use this pronuciation rather than split into letters
 
 // language specific

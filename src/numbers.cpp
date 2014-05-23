@@ -73,15 +73,15 @@ static int number_control;
 
 typedef struct {
 	const char *name;
-	int  flags;
+	int  accent_flags;   // bit 0, say before the letter name
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
 static ACCENTS accents_tab[] = {
 	{"_lig", 1},
-	{"_smc", 1},  // smallcap
-	{"_tur", 1},  // turned
-	{"_rev", 1},  // reversed
+	{"_smc", 0},  // smallcap
+	{"_tur", 0},  // turned
+	{"_rev", 0},  // reversed
 	{"_crl", 0},  // curl
 
 	{"_acu", 0},  // acute
@@ -419,6 +419,7 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 	int accent_data = 0;
 	int accent1 = 0;
 	int accent2 = 0;
+	int flags1, flags2;
 	int basic_letter;
 	int letter2=0;
 	char ph_letter1[30];
@@ -456,19 +457,19 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 		}
 
 
-		if(Lookup(tr, accents_tab[accent1].name, ph_accent1) != 0)
+		if((flags1 = Lookup(tr, accents_tab[accent1].name, ph_accent1)) != 0)
 		{
 
 			if(LookupLetter2(tr, basic_letter, ph_letter1) != 0)
 			{
 				if(accent2 != 0)
 				{
-					if(Lookup(tr, accents_tab[accent2].name, ph_accent2) == 0)
+					if((flags2 = Lookup(tr, accents_tab[accent2].name, ph_accent2)) == 0)
 					{
 //						break;
 					}
 
-					if(accents_tab[accent2].flags & 1)
+					if(flags2 & FLAG_ACCENT_BEFORE)
 					{
 						strcpy(ph_buf,ph_accent2);
 						ph_buf += strlen(ph_buf);
@@ -485,7 +486,7 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 				{
 					if(accent1 == 0)
 						strcpy(ph_buf, ph_letter1);
-					else if((tr->langopts.accents & 1) || (accents_tab[accent1].flags & 1))
+					else if((tr->langopts.accents & 1) || (flags1 & FLAG_ACCENT_BEFORE) || (accents_tab[accent1].accent_flags & 1))
 						sprintf(ph_buf,"%s%c%c%s", ph_accent1, phonPAUSE_VSHORT, phonSTRESS_P, ph_letter1);
 					else
 						sprintf(ph_buf,"%c%s%c%s%c", phonSTRESS_2, ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
@@ -1684,7 +1685,18 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 						ph_tens[ix] = 0;
 				}
 			}
-			sprintf(ph_out,"%s%s%s",ph_tens, ph_digits, ph_ordinal);
+
+			if((tr->langopts.numbers2 & NUM2_ORDINAL_DROP_VOWEL) && (ph_ordinal[0] != 0))
+			{
+				ix = sprintf(ph_out,"%s%s", ph_tens, ph_digits);
+				if((ix > 0) && (phoneme_tab[(unsigned char)(ph_out[ix-1])]->type == phVOWEL))
+					ix--;
+				sprintf(&ph_out[ix], "%s", ph_ordinal);
+			}
+			else
+			{
+				sprintf(ph_out,"%s%s%s",ph_tens, ph_digits, ph_ordinal);
+			}
 		}
 	}
 

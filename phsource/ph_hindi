@@ -146,10 +146,10 @@ endphoneme
 phoneme a:
   vowel long starttype #a endtype #a
   length 200
-  IF nextPhW(j) THEN
+//  IF nextPhW(j) THEN
     FMT(vowel/a_5)
-  ENDIF
-  FMT(vowel/aa_9)
+//  ENDIF
+//  FMT(vowel/aa_9)
 endphoneme
 
 phoneme a
@@ -547,8 +547,20 @@ phoneme r
     CALL base/r/
   ELSE
     IF prevPhW(isVowel) THEN
-      IF nextPhW(isNotVowel) OR nextPhW(V) THEN
-        ChangePhoneme(*)
+      IF nextPhW(isNotVowel) THEN
+        IF nextPhW(isUStop) OR nextPhW(isVStop) THEN
+          ChangePhoneme(*)
+        ENDIF
+      ENDIF
+
+      IF nextPhW(V) THEN    // [V] may be removed by ChangePhoneme(NULL)
+        IF next2PhW(isUStop) OR next2PhW(isVStop) THEN
+          ChangePhoneme(*)
+        ENDIF
+      ELSE
+        IF nextPhW(isVowel) THEN
+          ChangePhoneme(*)
+        ENDIF
       ENDIF
     ENDIF
     

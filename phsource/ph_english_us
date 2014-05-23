@@ -169,6 +169,12 @@ phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in Ameri
 endphoneme
 
 
+phoneme A#    // [a] in British [A:] in American 
+  vowel  starttype #a  endtype #a
+  ChangePhoneme(A:)
+endphoneme
+
+
 phoneme 3:
   vowel  starttype #@  endtype #@
   length 240
