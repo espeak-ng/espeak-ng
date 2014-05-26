@@ -83,8 +83,10 @@ public class ImportVoicePreference extends DialogPreference {
                 return !file.isDirectory() && file.getName().endsWith("_dict");
             }
         });
-        Arrays.sort(dictionaries);
-        mDictionaries.setAdapter(new FileListAdapter((Activity)getContext(), dictionaries));
+        if (dictionaries != null) {
+            Arrays.sort(dictionaries);
+            mDictionaries.setAdapter(new FileListAdapter((Activity) getContext(), dictionaries));
+        }
     }
 
     @Override
