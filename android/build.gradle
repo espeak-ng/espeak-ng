@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.android.tools.build:gradle:0.10.+'
     }
 }
 
@@ -14,11 +14,11 @@ repositories {
 }
 
 dependencies {
-    instrumentTestCompile 'org.hamcrest:hamcrest-all:1.3'
+    androidTestCompile 'org.hamcrest:hamcrest-all:1.3'
 }
 
 android {
-    buildToolsVersion '19.0'
+    buildToolsVersion '19.1'
     compileSdkVersion 18
 
     defaultConfig {
