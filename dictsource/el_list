@@ -227,6 +227,7 @@ $	Dol'aria
 
 αλλά	$u $pause	// but
 και	ke   $u	// and (don't change to [ge] after n)
+καί 	ke   $u // polytonic
 ή	$u $pause	// or
 ότι	$u $pause	// that
 αν	$u $pause	// if, whether
@@ -276,20 +277,140 @@ _ο	'omikron
 ψ       psi
 ω       om'eQa
 
-ά       ,alfa|t'onos
+ά       ,alfa||t'onos
 έ       ,epsilon|t'onos
-_ή	,ita|t'onos
-ή	,ita|t'onos $atend
-ί       i,ota|t'onos
-ΰ       ,ipsilon|t'onos
-ϊ       i'ota
-ϋ       'ipsilon
+_ή	,ita||t'onos
+ή	,ita||t'onos $atend
+ί       i,ota||t'onos
+ϊ       i'ota||Di;alitik'a
+ΐ       i,ota||Di;alitik'a||t'onos    // + dialytika
 ό	,omikron|t'onos
 ύ       ,ipsilon|t'onos
-ώ       om,eQa|t'onos
+ϋ       'ipsilon||Di;alitik'a
+ΰ       ,ipsilon|Di;alitik'a||t'onos
+ώ       om,eQa||t'onos
+
+ὰ	,alfa||var'ia
+ὲ	,epsilon|var'ia
+ὴ	,ita||var'ia
+ὶ	i,ota||var'ia
+ῒ	i,ota||Di;alitik'a||var'ia
+ὸ	,omikron|var'ia
+ὺ	,ipsilon|var'ia
+ῢ	,ipsilon|Di;alitik'a||var'ia
+ὼ	om,eQa||var'ia
+
+ά	,alfa||oks'ia
+έ	,epsilon|oks'ia
+ή	,ita||oks'ia
+ί	i,ota||oks'ia
+ΐ	i,ota||Di;alitik'a||oks'ia
+ό	,omikron|oks'ia
+ύ	,ipsilon|oks'ia
+ΰ	,ipsilon|Di;alitik'a||oks'ia
+ώ	om,eQa||oks'ia
+
+ᾶ	,alfa||perispom'eni
+ῆ	,ita||perispom'eni
+ῖ	i,ota||perispom'eni
+ῗ	i,ota||Di;alitik'a||perispom'eni
+ῦ	,ipsilon||perispom'eni
+ῧ	,ipsilon||Di;alitik'a||perispom'eni
+ῶ	om,eQa||perispom'eni
+
+ἁ	,alfa||Das'ia
+ἑ	,epsilon|Das'ia
+ἡ	,ita||Das'ia  $atend
+ἱ	i,ota||Das'ia
+ὁ	,omikron|Das'ia $atend
+ὑ	,ipsilon|Das'ia
+ὡ	om,eQa||Das'ia
+
+ἀ	,alfa||psil'i
+ἂ	,alfa||psil'i||var'ia
+ἄ	,alfa||psil'i||oks'ia
+ἆ	,alfa||psil'i||perispom'eni
+
+ἐ	,epsilon|psil'i
+ἒ	,epsilon|psil'i||var'ia
+ἔ	,epsilon|psil'i||oks'ia
+
+ἠ	,ita||psil'i
+ἢ	,ita||psil'i||var'ia
+ἤ	,ita||psil'i||oks'ia
+ἦ	,ita||psil'i||perispom'eni
+
+ἰ	i,ota||psil'i
+ἲ	i,ota||psil'i||var'ia
+ἴ	i,ota||psil'i||oks'ia
+ἶ	i,ota||psil'i||perispom'eni
+
+ὀ	,omikron|psil'i
+ὂ	,omikron|psil'i||var'ia
+ὄ	,omikron|psil'i||oks'ia
+
+ὐ	,ipsilon|psil'i
+ὒ	,ipsilon|psil'i||var'ia
+ὔ	,ipsilon|psil'i||oks'ia
+ὖ	,ipsilon|psil'i||perispom'eni
+
+ὠ	om,eQa||psil'i
+ὢ	om,eQa||psil'i||var'ia
+ὤ	om,eQa||psil'i||oks'ia
+ὦ	om,eQa||psil'i||perispom'eni
+
+ἁ	,alfa||Das'ia
+ἃ	,alfa||Das'ia||var'ia
+ἅ	,alfa||Das'ia||oks'ia
+ἇ	,alfa||Das'ia||perispom'eni
+
+ἑ	,epsilon|Das'ia
+ἓ	,epsilon|Das'ia||var'ia
+ἕ	,epsilon|Das'ia||oks'ia
+
+ἡ	,ita||Das'ia  $atend
+ἣ	,ita||Das'ia||var'ia
+ἥ	,ita||Das'ia||oks'ia
+ἧ	,ita||Das'ia||perispom'eni
+
+ἱ	i,ota||Das'ia
+ἳ	i,ota||Das'ia||var'ia
+ἵ	i,ota||Das'ia||oks'ia
+ἷ	i,ota||Das'ia||perispom'eni
+
+ὁ	,omikron|Das'ia $atend
+ὃ	,omikron|Das'ia||var'ia
+ὅ	,omikron|Das'ia||oks'ia
+
+ὑ	,ipsilon|Das'ia
+ὓ	,ipsilon|Das'ia||var'ia
+ὕ	,ipsilon|Das'ia||oks'ia
+ὗ	,ipsilon|Das'ia||perispom'eni
+
+ὡ	om,eQa||Das'ia
+ὣ	om,eQa||Das'ia||var'ia
+ὥ	om,eQa||Das'ia||oks'ia
+ὧ	om,eQa||Das'ia||perispom'eni
+
+// ypogegrammeni
+ᾳ	,alfa||||ipojeQram'eni
+
+ῃ	,ita||||ipojeQram'eni
+
+ῳ	om,eQa||ipojeQram'eni
+ῷ	om,eQa||perispom'eni||ipojeQram'eni
+ᾠ	om,eQa||psil'i||ipojeQram'eni
 
 _.      tel'ia
 _,      k'oma
+
+U+342	perispom'eni   // combining accent
+U+345	ipojeQram'eni   // combining iota subscript
+U+37a	ipojeQram'eni   // iota subscript
+U+1fbf	psil'i
+U+1fc0	perispom'eni
+U+1fc1	Di;alitik'a||perispom'eni
+
 
 // Jer
 μου	$u 

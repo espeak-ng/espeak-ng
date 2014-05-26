@@ -316,7 +316,7 @@ endphoneme
 
 
 phoneme r
-  vcd alv flp rhotic
+  liquid alv rhotic
   lengthmod 6
 
   IF prevPhW(@-) THEN
@@ -325,7 +325,10 @@ phoneme r
       IF prevPhW(isVowel) THEN
         ChangePhoneme(R)
       ELSE
-        IF prevPhW(t) THEN
+        IF prevPhW(t) OR prevPhW(p) OR prevPhW(k) THEN
+          PauseBefore 40
+        ELSEIF prevPhW(d) OR prevPhW(b) OR prevPhW(g) THEN
+          PauseBefore 15
         ELSE
           InsertPhoneme(@-)
         ENDIF
@@ -393,7 +396,21 @@ phoneme d
   IF nextPh(l2) THEN
     ChangePhoneme(t)
   ENDIF
-  CALL base/d
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d)
+  ENDIF
+
+  FMT(d/d) addWav(x/d)
 endphoneme
 
 phoneme g

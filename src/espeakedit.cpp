@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
@@ -139,6 +139,12 @@ if(argc > 1)
 	if(strcmp(param,"--compile")==0)
 	{
         samplerate_native = samplerate = 22050;
+	    LoadPhData(NULL);
+		if(LoadVoice("", 0) == NULL)
+		{
+			fprintf(stderr, "Failed to load default voice\n");
+			exit(1);
+		}
 		CompilePhonemeData();
 		CompileIntonation();
 	}

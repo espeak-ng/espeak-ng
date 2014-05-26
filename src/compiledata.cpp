@@ -122,6 +122,7 @@ static keywtab_t k_properties[] = {
 	{"isNasal",      0,  phNASAL},
 	{"isLiquid",     0,  phLIQUID},
 	{"isUStop",      0,  phSTOP},
+	{"isVStop",      0,  phVSTOP},
 	{"isVFricative", 0,  phVFRICATIVE},
 
 	{"isPalatal",    0,  i_isPalatal},
@@ -294,7 +295,7 @@ static keywtab_t keywords[] = {
 	{"Continue",   tSTATEMENT, kCONTINUE},
 
 	{"ChangePhoneme", tINSTRN1, i_CHANGE_PHONEME},
-	{"ReplaceNextPhoneme", tINSTRN1, i_REPLACE_NEXT_PHONEME},
+	{"ChangeNextPhoneme", tINSTRN1, i_REPLACE_NEXT_PHONEME},
 	{"InsertPhoneme", tINSTRN1, i_INSERT_PHONEME},
 	{"AppendPhoneme", tINSTRN1, i_APPEND_PHONEME},
 	{"IfNextVowelAppend", tINSTRN1, i_APPEND_IFNEXTVOWEL},
@@ -1132,6 +1133,9 @@ static unsigned int StringToWord(const char *string)
 	int  ix;
 	unsigned char c;
 	unsigned int word;
+
+	if(string==NULL)
+		return(0);
 
 	word = 0;
 	for(ix=0; ix<4; ix++)
@@ -3495,6 +3499,10 @@ static void CompilePhonemeFiles()
 				f_in = f;
 				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
+			}
+			else
+			{
+				error("Missing file: %s", item_string);
 			}
 			break;
 

@@ -108,7 +108,6 @@ static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
 
 // the source text of a single clause (UTF8 bytes)
-#define N_TR_SOURCE    800
 static char source[N_TR_SOURCE+40];     // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
@@ -954,7 +953,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
 
 
-		if((dictionary_flags[0] & (FLAG_ALLOW_DOT || FLAG_NEEDS_DOT)) && (wordx[1] == '.'))
+		if((dictionary_flags[0] & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (wordx[1] == '.'))
 		{
 			wordx[1] = ' ';   // remove a Dot after this word
 		}
@@ -2075,7 +2074,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				if(pre_pause < 1)
 					pre_pause = 1;
 			}
-			if((flags & FLAG_PREPAUSE) && !(word_flags && (FLAG_LAST_WORD | FLAG_FIRST_WORD)) && !(wtab[-1].flags & FLAG_FIRST_WORD) && (tr->prepause_timeout == 0))
+			if((flags & FLAG_PREPAUSE) && !(word_flags & (FLAG_LAST_WORD | FLAG_FIRST_WORD)) && !(wtab[-1].flags & FLAG_FIRST_WORD) && (tr->prepause_timeout == 0))
 			{
 				// the word is marked in the dictionary list with $pause
 				if(pre_pause < 4) pre_pause = 4;
@@ -2659,6 +2658,9 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	charix[charix_top+3] = 0;
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
+	if(terminator & CLAUSE_PAUSE_LONG)
+	  clause_pause = clause_pause * 32 ;  // pause value is *320mS not *10mS
+
 	tone = (terminator >> 12) & 0x7;
 	if(tone2 != 0)
 	{

@@ -352,16 +352,17 @@
    êCC) e (C@      e
     ôC) e (C@      e
     áC) e (C@      e
+?2 áC) el (_      eU
    áCC) e (CA_     e
    éCC) e (CA_     e
   éCCC) e (C@      e
-    íC) el (_      eU
+?2    íC) el (_      eU
     íC) e (C@      e
    íCC) e (C@      e
     óC) e (C@      e
    óCC) e (CA_     e
     úC) e (C@      e
-    úC) el (_      eU
+?2    úC) el (_      eU
         ection (_  'EkS&~N
 
 //sort
@@ -385,6 +386,7 @@ _troux) e (L05_    E
  _houv) e (L06_    E
 _escond) e (L06_   e
 respond) e (L06_   e
+constrang) e (L07_   e
     eb) e (L07_    e         // recebeste, etc.
     eg) e (L07_    e         // elegeste, etc.
    _@o) e (L07_    e         // doeste, etc.
@@ -399,6 +401,7 @@ respond) e (L06_   e
    ond) e (L07_    e         // escondeste, etc.
    orr) e (L07_    e         // correste, etc.
 precav) e (L07_    e
+_tang) e (L07_   e
   _ard) e (L07_    e
   _coz) e (L07_    e
   _val) e (L07_    e
@@ -419,11 +422,14 @@ _troux) e (L07_    E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
    cel) e (brL04_  E
+   _sop) e (sL04_   E
     _C) e (bre_    E
  _boch) e (chL04_  e
    _ex) e (crL04_  E
+   impr) e (gnL04_   E
   _enr) e (dL01_   E
     _v) e (dL03_   E
+_sob) e (rbL03_  e
    _pr) e (dL03_   E
   _arr) e (dL03_   E
  _depr) e (dL03_   E
@@ -435,18 +441,21 @@ _enver) e (dL03_   E
   _pel) e (gL03_   e
     _n) e (grL03_  e
   estr) ei (L04_   EI
+  _confed) e (rL04_   E
     _r) e (jL03_   E
   _inv) e (jL04_   E
+  _panfl) e (tL04_   e
     _v) e (lhL03_  E
    _gr) e (lhL04_  E
   _caC) e (lo_     e
+  _livr) e (tA_   e
 ?2      el (ton_   'EU
     ad) e (quL04_  E
   _ing) e (rL02_   E
   _dig) e (rL02_   E
     _m) e (rL03_   E
   _sev) e (rL03_   E
- _reit) e (rL03_   E
+ _reit) e (rL04_   E
  _sinc) e (rL03_   E
     _g) e (rL04_   E
     _z) e (rL04_   E
@@ -500,9 +509,11 @@ s_colh) e (res_    E
     _d) e (spL02_  E
     _p) e (squL02_ E
  _refr) e (squL02_ E
+ _degr) e (dL01_   E
     _l) e (ssL02_  e
    _ac) e (ssL02_  E
   _esp) e (ssL03_  e
+  _terc) e (tL03_   e
     _c) e (stL03_  e
    _pr) e (tL03_   e
   _rem) e (tL03_   e
@@ -512,7 +523,7 @@ _obsol) e (tL03_   e
   _CaC) e (ta_     e
   viol) e (ta_     e
  _Carr) e (ta_     e
-  _pen) e (trL04_  E
+ _pen) e (trL04_  E
   _sol) e (trL04_  E
     _n) eu (trL03_ 'eU
     _d) e (vL03_   e
@@ -667,6 +678,7 @@ _apazi) gu (e      gw
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
 ?2      i (rton_   'i
+?2 _v) i (king   'i
 ?2      ight (_    'aIt
 ?1      ight (_    _^_EN
 ?1      ights (_   _^_EN
@@ -888,10 +900,11 @@ _pormen) o (L05_   O
   _esn) o (bL04_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
-     _) o (cL03_   o
+       _) o (cL03_   o
  _barr) o (cL03_   o
    _ch) o (chA_    o
     _m) o (chA_    o
+_f) o (dL01_s   o
   _ecl) o (dL03_   o
  _expl) o (dL03_   o
  _impl) o (dL03_   o
@@ -910,6 +923,7 @@ _pormen) o (L05_   O
   _arr) o (lhL03_  O
   _enr) o (lhL03_  O
      _) o (lhL04_  O
+_) o (bstL04_  O
      m) o (lhL04_  O
    emb) o (lsL04_  O
   _env) o (ltL03_  o
@@ -936,8 +950,7 @@ _pormen) o (L05_   O
  _Cach) o (rra_    o
     @p) o (rtL03_  O         // importo, etc.
    a_c) o (rte_    o
-        ortos (_   O*@-t=Us# // tortos, mortos, etc.
-  _abs) o (rvL01_  o
+          _abs) o (rvL01_  o
      t) o (rçL03_  o         // con-
     _c) o (sL01_   o
  _desc) o (sL01_   o
@@ -945,15 +958,32 @@ _pormen) o (L05_   O
     _r) o (snL04_  O
     _c) o (spL02_  O
    enr) o (squL02_ O
+      emb) o (scL03_ O
+      b) o (squL02_ O
         ossos (_   Os=Us#    // nossos, grossos, etc.
-     p) ostos (_   Ost=Us#   // dispostos etc.ortos (_  'O*@-tUs
+ossos (_A   Os=Uz    // nossos, grossos, etc.
+?1 ossos (_G   Os=UZ    // nossos, grossos, etc.
+?2 ossos (_G   Os=Uz    // nossos, grossos, etc.
+     p) ostos (_   Ost=Us#   // dispostos etc.
+p) ostos (_A   Ost=Uz   // dispostos etc.
+?1 p) ostos (_G   Ost=UZ   // dispostos etc.
+?2 p) ostos (_G   Ost=Uz   // dispostos etc.
+ ortos (_  'O*@-tUs
+ ortos (_A  'O*@-tUz
+?1 ortos (_G  'O*@-tUZ
+?2 ortos (_G  'O*@-tUz
+ovos (_    Ov=Us#    novos, povos, etc.
+ovos (_A    Ov=Uz    novos, povos, etc.
+?1 ovos (_G    Ov=UZ    novos, povos, etc.
+?2 ovos (_G    Ov=Uz    novos, povos, etc.
+ortos (_   O*@-t=Us# // tortos, mortos, etc.
   _Gar) o (tL03_   o
  _escr) o (tL03_   o
    zig) o (to_     o
    _ch) o (vL01_   o
     pr) o (vL03_   O
-        ovos (_    Ov=Us#    novos, povos, etc.
-_ortod) o (xL03_   O
+_Com) o (do_   o
+        _ortod) o (xL03_   O
     _g) o (zL04_   O
   _alm) o (çL01_   O
   _esb) o (çL01_   O
@@ -962,6 +992,7 @@ _ortod) o (xL03_   O
    _ad) o (çL03_   O
   _emp) o (çL03_   O
   _end) o (çL03_   O
+  _c) o (çL03_   O
 //endsort
 
 .group ô
@@ -1019,8 +1050,8 @@ _ortod) o (xL03_   O
      A) qu (idade_ kw
     _a) qu (ífero_ kw
      e) qu (estr   kw
-   ese) qu (ív     kw
-    _e) qu (in     kw
+       _e) qu (in     kw
+   exe) qu (AC     kw
    fre) qu (ent    kw
 ?2  li) qu (id     kw
 ?2  lí) qu (id     kw
@@ -1090,11 +1121,11 @@ _ortod) o (xL03_   O
         s (G       z
         s (w+      s
         sr         zx
-
      _) sobre (@P5 sob*e
   tran) s (A       z
  _trân) s (ito_    z
-?1      ssion (_   _^_EN
+ _sub) s (ist   z
+ ?1      ssion (_   _^_EN
 
 
 .group t
@@ -1198,11 +1229,12 @@ _ortod) o (xL03_   O
 _abaca) x (i       S
    ale) x (a       S
  _arro) x (e       S
+ _ave) x (A   S
    bau) x (A       S
-   brA) x (A       S
+      brA) x (A       S
    _bu) x (o_      S
-    bY) x (A       S
-   _ca) x (A       S
+   bY) x (A       S
+       _ca) x (A       S
    _co) x (A       S
   _coe) x (A       z
 _esdrA) x (ul      S
@@ -1225,9 +1257,10 @@ _lagarti) x (A     S
     _o) x (í       ks
    _pe) xo (to_    So
     pi) x (A       S
-  _pro) x (A       S
+_pree) x (ist   z
+  _pro) x (A      S
   _pra) x (A       S
-   prA) x (i       s         // aproximado, aproximadamente, aproximar, próximo, etc.
+   prA) x (i       s         // aproximado, aproximar, próximo, etc.
     pu) x (A       S         // verb "puxar" and all its conjugations
    qui) x (A       S
     ri) x (A       S
@@ -1241,7 +1274,7 @@ _lagarti) x (A     S
 ?1   i) x (a_      S
 ?1   i) x (as_     S
  _trou) x (ér      s
-  _pro) x (imi     s
+  _pro) x (imA     s
 
 
 .group y

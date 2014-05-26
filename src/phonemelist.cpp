@@ -399,6 +399,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
 
+		if((alternative = phdata.pd_param[pd_CHANGE_NEXTPHONEME]) > 0)
+		{
+			ph_list3[j+1].ph = phoneme_tab[alternative];
+			ph_list3[j+1].phcode = alternative;
+			ph_list3[j+1].type = phoneme_tab[alternative]->type;
+			next = phoneme_tab[alternative];
+		}
+
 		if(((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0) && (inserted == 0))
 		{
 			// PROBLEM: if we insert a phoneme before a vowel then we loose the stress.

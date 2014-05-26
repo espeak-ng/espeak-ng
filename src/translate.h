@@ -26,6 +26,9 @@
 #define N_WORD_PHONEMES  200          // max phonemes in a word
 #define N_WORD_BYTES     160          // max bytes for the UTF8 characters in a word
 #define N_CLAUSE_WORDS   300          // max words in a clause
+#define N_TR_SOURCE    800            // the source text of a single clause (UTF8 bytes)
+
+
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
@@ -41,6 +44,7 @@
 #define FLAG_STRESS_END2     0x400  // full stress if at end of clause, or only followed by unstressed
 #define FLAG_UNSTRESS_END    0x800  // reduce stress at end of clause
 #define FLAG_SPELLWORD      0x1000  // re-translate the word as individual letters, separated by spaces
+#define FLAG_ACCENT_BEFORE  0x1000  // say this accent name before the letter name
 #define FLAG_ABBREV         0x2000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
 #define FLAG_DOUBLING       0x4000  // doubles the following consonant
 
@@ -180,6 +184,11 @@
 #define RULE_SPELLING   31   // W while spelling letter-by-letter
 #define RULE_LAST_RULE   31
 
+#define DOLLAR_UNPR     0x01
+#define DOLLAR_NOPREFIX 0x02
+#define DOLLAR_LIST     0x03
+
+
 #define LETTERGP_A	0
 #define LETTERGP_B	1
 #define LETTERGP_C	2
@@ -191,7 +200,7 @@
 
 
 // Punctuation types  returned by ReadClause()
-// bits 0-7 pause x 10mS, bits 12-14 intonation type,
+// bits 0-11 pause x 10mS
 // bits12-14 intonation type
 // bit 15- don't need space after the punctuation
 // bit 19=sentence, bit 18=clause,  bits 17=voice change
@@ -199,6 +208,8 @@
 // bit 20= punctuation character can be inside a word (Armenian)
 // bit 21= speak the name of the punctuation character
 // bit 22= dot after the last word
+// bit 23= pause is x 320mS (not x 10mS)
+
 #define CLAUSE_BIT_SENTENCE  0x80000
 #define CLAUSE_BIT_CLAUSE    0x40000
 #define CLAUSE_BIT_VOICE     0x20000
@@ -206,6 +217,7 @@
 #define PUNCT_IN_WORD        0x100000
 #define PUNCT_SAY_NAME       0x200000
 #define CLAUSE_DOT           0x400000
+#define CLAUSE_PAUSE_LONG 0x800000
 
 #define CLAUSE_NONE        ( 0 + 0x04000)
 #define CLAUSE_PARAGRAPH   (70 + 0x80000)
@@ -513,6 +525,7 @@ typedef struct {
 #define NUM2_PERCENT_BEFORE     0x10000
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 #define NUM2_ORDINAL_AND_THOUSANDS 0x40000
+#define NUM2_ORDINAL_DROP_VOWEL  0x80000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
@@ -524,6 +537,7 @@ typedef struct {
 	// bit16=(LANG=si)  say "%" before the number
 	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
 	// bit18=(LANG=ta)  same variant for ordinals and thousands (#o = #a)
+	// bit19=(LANG=te)  drop final vowel from cardial number before adding ordinal suffix
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248
@@ -741,7 +755,7 @@ int SetTranslator2(const char *name);
 void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 int Lookup(Translator *tr, const char *word, char *ph_out);
-int LookupFlags(Translator *tr, const char *word);
+int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
 
 int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control);
 int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab);

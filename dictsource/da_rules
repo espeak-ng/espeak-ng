@@ -1648,57 +1648,45 @@ frederi) c (ia     =ks
      _) ciao (_    tSj?Aw
         claude     klO:d     // name
         claudette  kl?Od'et  // name
-        churchill  tSW:S?il
-        cambridge  kejmbR?idZ
-        clementine kl?EmIntaIn
-        canterbury k&ntVbri
-        connecticut kVn'etikVd
-        carlisle   kAlaIl
-        china      tjaIn&
-     _) cape (_town k?Ejp    // name
-     _) chuck      tS?Vk     // name
-        cleveland  kli:vl&n
+//        churchill  tSW:S?il
+//        cambridge  kejmbR?idZ
+//        clementine kl?EmIntaIn
+//        canterbury k&ntVbri
+//        connecticut kVn'etikVd
+ //       carlisle   kAlaIl
+//        china      tjaIn&
+//     _) cape (_town k?Ejp    // name
+//     _) chuck      tS?Vk     // name
+//        cleveland  kli:vl&n
         croissant  kr?o?as'AN
-     _) cartier    k?Artj'?e
+ //    _) cartier    k?Artj'?e
         clair (voy kl?Er     // clairvoyance
         co (nrad   k?V       // name
         country    k?Vntr?i  //
-        chagall    S?&g'?&l  // name
+//        chagall    S?&g'?&l  // name
   _ali) ce         s
-        connie     k?Vni
-        chablis    S?&bl'?i
+//        connie     k?Vni
+ //       chablis    S?&bl'?i
         creme      kr?Em
         creme (n   kr?Em@
         catering   k?Eit@r?iN
-piccadilly_) circus sWk@s
-        coleridge  kOwlr?idZ
+//piccadilly_) circus sWk@s
+//        coleridge  kOwlr?idZ
         colada     k?ol'AD&
         creek      kri:k
         camembert  k?Am?ANb'Er
         crazy      kREjsi    // Crazy Horse
-        cincinnati sensin'&ti
-        chihuahua  tSiw'awa
-        connor     k?Vn?V    // name
-        creasy     kris?i    // name
+ //       cincinnati sensin'&ti
+ //       chihuahua  tSiw'awa
+//        connor     k?Vn?V    // name
+//        creasy     kris?i    // name
+north_) carolina   k?&rol'aIn&
+piccadilly_) circus sWk@s
         c (ello    Sj
         c (ellofan s
-        cutler     kVtlV     // name
         cajun      kEdZ3n    // English pronunciation
-        courtney   kO:tni
-north_) carolina   k&rol'aIn&
-     _) cathy      k&Ti      // name
-     _) cagney     k&gni     // name
         cottage    kVtidZ
-        cheryl     SErel/2
-        cohen      kOu@-n    // name
         cieux      sj'W      // Bonacieux
-     _) cardin     kArd'&N   // name
-        cézanne    ses'&n    // Cézanne
-        cézannen   ses'&n@-n // Cézannen
-        cockney    kVknI
-        clerk      klA:k     // Clerkenwell
-        carmine    kA:maIn   // name
-
 .group d
 
         d          d
@@ -8444,24 +8432,20 @@ fransi) sc (o      =sk       //
         s (cigar   s         // majscigaret
         sc (oo     sk        // scooter, scoop
      _) sh         S         // shaman
-     _) shirley    SWli      // name
     fi) sh (er     S         //
         shot       SVt       // snapshot
-        shaw       SO:       // name
         sc (or     sk        // score
     me) sc (al     sk        //
         sco (t     skV       // Scotland Yard
         skateboard skEjtbO:d //
-        shaughnessy SOnEsi   // name
-        sully      sVli      // name
-        spielberg  spilbW:g  // name
-        sotheby    sVD@-bi   // name
-        shelagh    Si:l&     // name
 
 ///JD s suffix - $alt words in da_list
 // 2-3.000 words end with s, so this cannot be a general suffix.
 // There would be too many exceptions.
      &) s (_$p_altS1 s
+	 
+// For names in da_list with an added genitive s - Chihuahuas, Churchills
+	 @) s (_S1 s
 
   abce) s          s         // not a suffix
   rece) s          s         // not a suffix
@@ -8496,13 +8480,12 @@ franci) sc (o      sk        // Francisco
         sch        S         // changed from [s(ch] - gullasch
         sj (o      Sj        // sjov
   salg) s          s         // salgschef
-        sh (erif   S         //
-    su) sh (i      S         //
-    ha) sh         S         //
+        sh (erif   S
+    su) sh (i      S 
+    ha) sh         S
    sma) sh         S         // smashe
         sch (ool   sk        //
         sherman    SW:m?&n   // Sherman kampvogn
-        schweiz    svaIts    //
         sioux      su:       // red indian
     al) sace       's?&s     // Alsace (French region)
      _) sion       si:?Vn    // Sion, Sions kirke
@@ -8520,20 +8503,11 @@ franci) sc (o      sk        // Francisco
      i) scene (s   s'en@     // stressed 'e - iscenesætte
         speak      spi:k     // eSpeak
         siegfried  _^_DE     //
-        slovakiet  slov&k'i@D //
         show       Sou       //
-        sydney     sidni     //
-        shakespeare SEiksbi:r //
         suther     sVDV      // Southerland
         squash     sgwVS     //
-        sussex     sVsEgs    //
         shire      S@        // British towns with final -shire
-        seamus     SEim@-s   // name
-     _) steve      sti:v     // name
-     _) steven     stiv@-n   // name
-        sheila     Si:l&     // name
         shor (t    SO        // shorts
-     _) stone      sdoun     // namde - Stone
 empire_) state (_  stEjt     //
      _) sir (_     sW:       // Sir Arthur
         sher (wood SW:       // Sherwood Forrest
@@ -8542,16 +8516,9 @@ empire_) state (_  stEjt     //
     la) sur        s'?ur     // lasurfarve, glasur
      _) sugar (_   S?ugV     // Sugar Ray
         savoir     s&voa:    // savoir-faire
-        sonya      sVnj&     // name
-        sophie     sOufi     // name
         sightseeing saItsi:eN //
-        spitfire   spetfaIV  //
-        suffolk    sVfVk     //
         screwdriver skRudraIvV //
         sunday     sVndi     // Sunday Times
-        solsjenitsyn s?Vlsj@n'?its?in //
-        sloane     slOwn     // name
-        swanee     sw?Vn?i   // Swanee River
         sweet      swi:t     //
 
    er_) sig (_til  sAj       // avoid [si] - glæder sig [saj] til
