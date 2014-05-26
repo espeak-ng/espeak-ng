@@ -19,11 +19,11 @@ dependencies {
 
 android {
     buildToolsVersion '19.1'
-    compileSdkVersion 18
+    compileSdkVersion 19
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 18
+        targetSdkVersion 19
     }
 
     sourceSets {
