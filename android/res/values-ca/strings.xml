@@ -50,6 +50,7 @@
   <string name="resetToDefault">Estableix com a predeterminat</string>
   <string name="espeak_pitch_range">Escolliu una variació</string>
   <string name="espeak_variant">Variant de veu</string>
+  <string name="espeak_speak_punctuation">Lletreja la puntuació</string>
   <string name="punctuation_all">Totes</string>
   <string name="punctuation_custom">Personalitzada</string>
   <string name="punctuation_custom_fmt">Personalitzada: %s</string>
