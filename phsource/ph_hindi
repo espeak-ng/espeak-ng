@@ -44,7 +44,7 @@ phoneme V
     ENDIF
 
     IF prev2PhW(isVowel) AND NOT nextVowel(isFlag1) THEN
-      IF nextPhW(isNotVowel) AND nextPh(isWordEnd) THEN
+      IF thisPh(isFinalVowel) AND nextPhW(isNotVowel) THEN
         // don't delete schwa before a word-final consonant
       ELSE
         ChangePhoneme(NULL)
