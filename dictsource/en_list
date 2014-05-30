@@ -237,6 +237,7 @@ _₠	jU@roU
 ।	dVnda#
 ●	bl,aks'3:k@L
 ■	bl'akskw'e@
+♥	hA@t||sImb@L
 
 ß	S,A@p'Es
 ə	SwA:
@@ -992,6 +993,7 @@ ayup		a#jVp
 
 backend		bak'End
 backstory	baksto@ri
+badmouth	$alt1
 bakelite	beIk@laIt
 ?3 balk		bO:k
 ballad		bal@d
@@ -1237,6 +1239,7 @@ chardonnay	SA@d@n'eI
 charismatic	karIsm'atIk
 charit		tSarIt        // charitable
 charlatan	SA@l@t@n
+chasten		tSeIs@n
 chassis		Sasi
 ?3 chassis	tSasi
 chateau		SatoU
@@ -1258,6 +1261,7 @@ chocolate	tS0kl@t
 cholera		k0l@r@
 cholesterol	k@lEst@r0l
 chorizo		tSOr'i:zoU
+christen	krIs@n
 christmas	krIsm@s
 chromosome	kroUm@soUm
 chrysalis	krIs@lIs
@@ -1353,6 +1357,7 @@ competition	k0mp@t'IS@n
 compromise	k0mpr@maIz
 compound	$2 $verb 
 ?3 comrade	k0mrad
+comte		k0nt
 con		k0n
 concave		k0nk'eIv
 concert		$1        $onlys
@@ -1363,6 +1368,7 @@ concierge	k0nsI'e@Z
 concise		k0#ns'aIs
 conclave	$1
 concourse	$1
+concubine	$1
 conduct		$1
 conduct		$verb
 cone		koUn
@@ -1513,6 +1519,7 @@ deity		deI@ti
 deja		deIZA:        $only
 deli		dElI
 deliberate	$alt2
+deliberate	$verb
 delicate	$alt2
 delimit		dI2lImIt     // delimited
 delivery	$alt2
@@ -1790,6 +1797,7 @@ fetus		fi:t@s
 fi		f,aI		// as in "hi-fi"
 fiasco		fi:'askoU
 fiat		fi:@t
+fiche		fi:S
 ficus		faIk@s
 fiery		faI3rI
 ?3 filet	fI2leI
@@ -1962,8 +1970,6 @@ heebiejeeby     hi:bi:dZ'i:bi
 heh		hEh $only
 hehe		hi:h'i:
 heifer		hEf3
-heineken	haIn@k@n
-heist		haIst
 helium		hi:li@m
 helix		hi:lIks
 helluva		hEl@v@
@@ -2489,6 +2495,7 @@ nepenthe	nI2pEnTi
 nescience	nEsI@ns
 newage		$alt1 $2
 nicety		naIs@ti
+niche		ni:S
 nighttable	naI?teIb@L
 nikon		naIk0n
 ninja		nIndZ@
@@ -2509,6 +2516,8 @@ nott		n0t
 nothin		nVTIn	$only
 nothing		nVTIN
 notwithstanding	$3
+nougat		nu:gA:
+?3 nougat	nu:g@t
 noway		noUweI
 nowhere		noUwe@
 ?3 nuance	nu:0ns
@@ -2560,6 +2569,7 @@ opossum		@p0s@m
 opponent	@poUn@nt
 oppose		@poUz
 opposer		@poUz3
+opus		oUp@s
 orange		0rI2ndZ
 ordeal		O@d'i@l
 oregano		0rIg'A:noU
@@ -2861,6 +2871,7 @@ rapier		reIpi@3
 rapport		rap'o@
 rarity		re@r@ti
 rascal		raask@L
+ratan		$alt3
 ratatouille	rat@t'u:I
 ?!3 rather	rA:D3
 rationale	raS@n'al
@@ -3302,6 +3313,7 @@ telephonist	t@l'Ef@nIst
 ten		tEn           // untenable
 tendril		tEndr@L   // ed
 tennis		tEnI#s
+tenure		tEnj3
 tepee		ti:pi:
 tequila		t@ki:l@
 termini		t3:mInaI
@@ -3517,7 +3529,7 @@ volcano		v0lk'eInoU
 vortex		vO@t2Eks
 vortices	vO@tIsi:z
 voyeurism	vOI3Iz@m
-vulcan		vVlk@n
+vulcan		$alt2
 
 (wall st)	w'O:lstr,i:t
 wannabe		w0na#bi:
@@ -3673,13 +3685,17 @@ Aden		eId@n
 adirondack	ad3'0ndak
 Aegean		$2
 Afghan		afgan
+Agartala	A:g3t@l'A:
+Ahmedabad	$1
 Aires		aIrIz
 Alamo		al@moU
 Albuquerque	alb@k3:ki
 Algiers		$2
+Allahabad	@lA:ha#bA:d
 Altura		O:lt'U@r@
 ?3 Amazon	ama#z0n
 Amman		a#m'A:n
+Amritsar	amr'Its3
 Andes		andi:z
 Angeles		andZ@li:s
 ?3 Angeles	andZ@lI#s
@@ -3691,6 +3707,7 @@ Antigua		ant'i:g@
 Antilles	ant'Ili:z
 Apennine	ap@naIn
 Arabia		$alt3
+Arunachal	ar@n'A:tS@L
 Arapahoe	$alt3
 Armageddon	A@ma#g'Ed@n
 Arkansas	A@k@nsO:
@@ -3701,14 +3718,18 @@ Assamese	A:sA:m'i:z
 Audubon		O:d@b0n
 Augusta		$2
 Azerbaijan	az3baIdZ'A:n
-Baja		bA:hA:
+Bahawalpur	$alt3
 Bahrain		$2
+Balochistan	ba#loUtSIstA#n
+Bangalore	$3
 Bangledesh	baNgl@d'ES
+Baja		bA:hA:
 Barbados	bA@'beId0s
 ?3 Barbados	bA@'beIdoUs
 Barents		bar@nt|s
 Basel		bA:z@L
 (Baton rouge) bat@n||r'u:Z
+Bavaria		$alt3
 Beijing		$2
 Beirut		beIr'u:t
 Belgrade	$2
@@ -3719,14 +3740,18 @@ Benin		bEnIn
 Bering		be@rIN
 Berkeley	b3:kli
 Bethesda	$alt3
+Bhopal		boUp'A:l
+Bhubaneswar	bUba#n'eISw3
 Bhutan		bu:t'an
 Bideford	bIdIf@d
+Bilaspur	bI2laspU@
 Bogota		b0g@t'A:
 ?3 Bogota	boUg@t'A:
 Bogotá		bogota	$text
 Bologna		b@loUn;@ $capital
 Boötes		boU'oUti:z
 ?3 Boston	bOst@n
+?!3 Boulogne	bUl'OIn
 Brisbane	brIsb@n
 Bucharest	bu:ka#r'Est
 Budapest	bu:d@p'Est
@@ -3748,8 +3773,10 @@ Chesapeake	tSEs@pi:k
 Cheyenne	SaI'an
 Chile		tSIli
 ?3 Chilean	tSIl'i:@n
+Chandigarh	tSVndIg'3:
 Cincinnati	sInsIn'ati
-Cologne		k@loUn
+Cochin		koUtSIn
+Coimbatore	koUj@mbUt,U@
 Coloradan	k0l3r'A:d@n
 Colorado	k0l3r'A:doU
 Colombia	k@lVmbi@
@@ -3761,17 +3788,21 @@ Cozumel		k0z@m'El
 Cuernavaca	kwe@na#v'ak@
 Cruz		kru:z
 Cyprus		saIpr@s
+Dagestan	dA:gIst'A:n
 Dahomey		$alt3
 Dallas		dal@s
-Dagestan	dA:gIst'A:n
+Daman		da#mA:n
 Damascus	$alt3
 Dakota		$alt3
 Danish		deInIS
+Dehradun	dEra#d'u:n
 Delhi		dEli
 (Des moines)	d@mOIn
 Dhabi		dA:bi
+Dispur		dI2spU@
 Djibouti	dZIb'u:ti
 Donegal		d0nI2g'O:l
+Donetsk		d0n'Etsk
 Dubrovnik	du:br'0vnIk
 Durham		dVr@m
 Egyptia		IdZ'IpS@
@@ -3784,6 +3815,7 @@ Erebus		ErI#b@s
 Erie		i@ri
 Euphrates	ju:fr'eIti:z
 Eyjafjalla	eIja#fjatla#
+//Faisalabad	faIsa#la#bad
 Folkestone	foUkstoUn
 Fuego		fweIgoU
 Gabon		gab0n
@@ -3796,6 +3828,7 @@ Gomera		goUm'e@r@
 (grand saline)  gr'ands@l'i:n
 Guatemalan	gwA:tIm'A:l@n
 Gurmukhi	gU@mUki
+Guwahati	gUwa#h'A:ti
 Harare		ha#rA:ri
 Hanoi		han'OI
 Harvard		$alt2
@@ -3805,6 +3838,7 @@ Hawai'i		h@w'aIi:
 Hawaiian	h@w'aI@n
 Hebrew		hi:bru:
 Hebrides	hEbr@di:z
+Himachal	hI2mA:tS@l
 Hispaniola	hIsp@nj'oUl@
 Honduras	h0nd'jU@r@s
 Honolulu	$3
@@ -3812,6 +3846,7 @@ Houston		hju:st@n
 Idaho		$1
 Illinois	Il@n'OI
 Iditarod	aId'It@r0d
+Imphal		I2mpA:l
 Indochina	IndoUtS'aIn@
 Iowa		aI|@w@
 Ipanema		Ipa#n'i:m@
@@ -3827,6 +3862,7 @@ Jammu		$alt3
 Janeiro		Za#ne@roU
 Jericho		dZErIkoU
 Jerusalem	dZ@ru:s@l@m
+Jharkhand	dZA@kVnd
 Johannesburg	$2
 Kalgoorlie	kalgU@li
 Kannada		kA:n@d@
@@ -3835,16 +3871,20 @@ Karachi		ka#rA@tSi
 Karnataka	kA@n'A:t@k@
 Kashmir		$alt3
 Kentucky	$2
-Kerela		kEr@l@
+Kerala		kEr@l@
 Kiev		ki:Ef
 Kihei		$2
 Khmer		kmi@3
+Khulna		kUln@
+Kochi		koUtS'i:
 Kolkata		koUlk'A:t@
 Korea		kOr'i:@
 Korean		kOr'i:@n
 ?3 Korea	k3r'i:@
 ?3 Korean	k3r'i:@n
 Kosovo		k0s@voU
+Kovai		koUveI
+Kozhikode	koUZIkoUd
 Kuala		kwA:la#
 Kyrgyz		k3:rgIz
 Kyrgyzstan	k3:rgIst'A:n
@@ -3853,6 +3893,7 @@ Lafitte		la#fi:t
 (La quinta)	l@ki:nt@
 Lagos		leIg0s
 Lahore		$alt3
+Lakshadweep	$alt3
 Lebanon		lEb@n0n
 Leipzig		laIpsIg
 Leone		li:'oUn
@@ -3864,13 +3905,16 @@ Lima		li:ma#
 Ljubljana	lju:blj'A:n@
 Lorraine	$alt3
 Louisiana	lu:,i:zi:'an@
+Lucknow		lVknaU
 Luxembourg	lVks@mb3:g
 ?5 Luxembourg	lVks@mbVRg
 Lvov		l@-v0v
 Machynlleth	m@kVnl#@T
 Madagascar	mad@g'ask3
-Madras		m@draas
+Madhya		mA:dj@
+Madras		m@drA:s
 Madrid		m@drId
+Maharashtra	$3
 Makassar	$alt3 $alt2
 Malawi		$alt3
 Malayalam	maleI'A:l@m
@@ -3883,6 +3927,7 @@ Massachusetts	$3
 Maui		maUi:
 Maya		maI@
 Mayan		maI@n
+Meghalaya	meIg@l'aI|@
 Melbourne       mElb3n
 Memphis		mEmfI2s
 Merced		m3:s'Ed
@@ -3906,6 +3951,8 @@ Moroccan	m@r0k@n
 Montana		m0nt'an@
 Monterey	m0nt@r'eI
 Monte		m0nt2i
+Multan		mUlt'A:n
+Mumbai		mUmb'aI
 Munich		mju:nIk
 Myanmar		mjA:nmA@
 Nepalese	nEp@l'i:z
@@ -3932,13 +3979,18 @@ Omagh		oUmA:
 Omaha		oUma#hA:
 Oman		oUm'an
 Oregon		0rI2g@n
+Oriya		O:r'i:@
 Ottawa		0ta#w@
 Ozark		oUzA@k
 Pacific		$alt3
+Pakhtunkhwa	p@xtUnkwA:
 Palestine	pal@staIn 
 Palestinia	pal@st'Ini:@
+Panaji		pVna#dZi:
 Panama		pan@mA:
+Patna		pVtn@
 Peking		pi:k'IN
+Peshawar	pES'A:w3
 Penobscot	$alt3
 Persia		p3:Z@
 Peru		p@ru:
@@ -3946,17 +3998,26 @@ Philippine	fIlI2pi:n
 Philipine	fIlI2pi:n        // misspell
 Phnom		pn0m
 Polish		poUlIS        $capital $only
+Pondicherry	$3
 Portugal	po@tS@g@L
 Portuguese	po@tS@g'i:z
 Potomac		p@toUm@k
+Pradesh		pra#dES
+Pradeshi	pra#dESi
 Prague		prA:g
+Prayag		pra#jA:g
 Provence	pr0v'A~s
+Puducherry	pUd@tSEri
+Pune		pu:n@
+Punjab		pVndZ'A:b
 Punjabi		pVndZ'A:bi
 Pyrenees	pIr@n'i:z
 Qatar		katA@
 Quebec		kwI2bEk
 Québec		kwI2bEk
+Raipur		raIpU@
 Raleigh		rA:li
+Ranchi		rA:ntSi
 Reno		ri:noU
 Rio		ri:oU
 Sabattus	$alt3
@@ -3985,11 +4046,14 @@ Soweto		s@wEtoU
 Spokane		spoUk'an
 Sri		sr,i:   // Sri Lanka(n)
 Srinagar	sri:n@g3
+Styria		stIri@
 Sudan		su:d'an
 Suez		su:I2z
 Sulawesi	su:la#w'eIsi
 Sumatran	su:m'A:tr@n
+Surat		su:r@t
 Suriname	sU@rIn'am
+Sylhet		sIlEt
 Tagus		teIg@s
 Tahoe		tA:hoU
 Taipei		t,aIp'eI
@@ -4001,7 +4065,7 @@ Tehran		te@r'A:n
 (tel aviv)	t,El||a#v'i:v
 Tenerife	tEn3r'i:f
 Tennessee	tEn@s'i:
-Thiruvananthapuram	tIru:v@n@nt@pUr@m
+Thiruvananthapuram	tIru:v@n@nt@pU@r@m
 Tijuana		ti@w'A:n@
 Tikal		tI2kA:l
 Timor		ti:mo@
@@ -4010,6 +4074,7 @@ Topeka		toUp'i:k@
 Toronto		t@r0ntoU
 Toulouse	tu:l'u:z
 Trafalgar	$alt3
+Trincomalee	$4
 ?3 Tunisia	tu:n'i:Z@
 Tripoli		trIp@li
 tuareg		twA@rEg
@@ -4087,6 +4152,7 @@ Archibald	A@tSIbO:ld
 Archie		A@tSi
 Ares		e@ri:z
 Arianna		arI'A:n@
+Arnold		A@n@Ld
 Astley		astli
 Baez		baI'Ez
 Bambi		bambi:
@@ -4331,6 +4397,7 @@ Mellissa	$alt3
 Melissa		$alt3
 Meredith	mEr@dIT
 Micah		maIk@
+Michaela	mI2keIl@
 Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
@@ -4537,6 +4604,7 @@ Heinz		haInz
 Herrera		h@re@r@
 Hormel		ho@m'El
 Hoosier		hu:Z3
+Ibuprofen	aIbju:pr'oUf@n
 Ikea		aIk'i:@
 Ingram		Ingr@m
 Iscariot	$2
@@ -4575,6 +4643,7 @@ Nehru		ne@ru:
 Nescafe		nEskafeI
 Nichol		nIk@L
 Nicholson	nIk@Ls@n
+Nicodemus	nIk@d'i:m@s
 Nietzsche	ni:tSi
 Niro		ni@roU
 ?3 Nissan	nIsA:n
@@ -4587,6 +4656,7 @@ Pérez		pErEz
 Perot		pEr'oU
 Perrier		pErI'eI
 ?3 Peugeot	pju:Z'oU
+Plantagenet	plant'adZI#n@t
 Pokemon		poUkeIm0n
 Pompadour	p0mpa#do@
 Porsche		po@S
@@ -4810,6 +4880,7 @@ shall            ,Sal           $verbf $only $strend2
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only $strend2
 (should have)    SUd@v          $pastf $u1+
+(should have)    SUdhav         $atend
 (should have it)  SUdhavIt	$u2+
 (should have to)  SUdhavt@5	$u2 $verbf $strend2
 shouldn't        ,SUd@-nt	$verbf $strend2 $only
@@ -4856,7 +4927,7 @@ has              haz		$only $atend
 (has it)         h,azI2t		$atend
 has              haz		$allcaps
 hath             %haT		$pastf $only
-had              %ha#d		$pastf $strend2 $only
+had              %had		$pastf $strend2 $only
 had              ,had		$atend
 (had to)         h%adt@5
 (had to)         hadtu:		$atend
@@ -4980,6 +5051,7 @@ them             ,DEm		$only
 my               maI		$u $nounf $strend2
 his              hIz		$u $nounf $only $strend2
 her              h3:		$u $nounf $only
+(his / her)	h'IzO@h'3:
 hers             h3:z		$u $strend2
 its              Its		$u $nounf
 our              aU@		$u $nounf $only
