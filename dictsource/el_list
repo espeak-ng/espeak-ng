@@ -49,7 +49,6 @@ _0M2	ekatom'iria
 _1M3	'ena|Disekatom'irio
 _0M3	Disekatom'iria
 _dpt	_k'oma
-_.	tel'ia
 
 _#ος	os	// ordinal suffix
 _#η	i
@@ -102,6 +101,11 @@ _3M1o	trisCil^ost'
 -	m'ion
 =       ison $max3
 $	Dol'aria
+_.	tel'ia
+_,	k'oma
+_«	arister'a||isaQojik'a
+_»	Deksi'a||isaQojik'a
+
 
 // articles
 ο	o $u   // definate article
@@ -401,8 +405,6 @@ _ή	,ita||t'onos
 ῷ	om,eQa||perispom'eni||ipojeQram'eni
 ᾠ	om,eQa||psil'i||ipojeQram'eni
 
-_.      tel'ia
-_,      k'oma
 
 U+342	perispom'eni   // combining accent
 U+345	ipojeQram'eni   // combining iota subscript

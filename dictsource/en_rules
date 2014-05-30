@@ -114,6 +114,7 @@
      m) ae (st     aI
         ae (val    'i:
     sw) a (g       a
+        a (hA_     'A:
         ah (K      A:
         ahr (_N    A@
      &) ah (_      @
@@ -169,7 +170,7 @@
         aw         O:
         a (wA      a
      _) aw (a+     a#w
-        awal       O:l
+     r) awal       O:l
         a (way_    @
      _) awe        O:
         awe (B     O:
@@ -195,6 +196,7 @@
      r) a (zi      eI
      h) a (zar     'a
      g) a (zeC%    @
+   _gh) a (z       A:
     @k) aze (_     'A:zI
      @) a (zi_     'A:
         a (zide    'eI
@@ -208,7 +210,7 @@
 .group ab
      _) ab (@      a#b
         ab (acA    ab
-     @) abad (_    =a#bad
+     @) abad (_    =a#bA#d
         ab (att    ab
      _) abb        ab
      _) abbo       ab@
@@ -447,6 +449,7 @@
      @) af (ter    'aaf
 
 .group ag
+     @) ag (ar_    'A:g
      _) ag (e      eIdZ
      _) agg (@@    a#g
      _) agg (rav   ag
@@ -459,7 +462,8 @@
      _) age (i     eIdZ
      _) age (l     eIdZ
      _) ag (is     eIdZ
-    &h) agen (_    A:g@n
+        ag (en_    @dZ
+    &h) ag (en_    A:g
         ag (end    a#dZ
         agg (res   a#g
         agg (riev  a#g
@@ -541,10 +545,12 @@
         aire       'e@
         aise (_    'eIz
     _c) ais (l     aS        // 'caislin'
+    _f) aisal      aIs@L
     @l) ais (_     eI
         ai (sC_    eII
      w) ai (sC_    eI
  portr) ai (t      I#
+     _) ai (z      aI
 
 .group al
    @ic) al (_S2    @L
@@ -647,6 +653,7 @@
     &b) all (er_   O:l
     _c) al (e      al
    _sc) al (a      eIl
+    _m) al (ef     al
      c) al (f      A:
 ?3   c) al (f      a
      h) al (f      A:
@@ -807,6 +814,7 @@
     @u) an (_S1    n
     @i) an (_S1    n
     Cc) an (_      an
+    cc) an (_      @n
   &Asc) an (_      =@n
      l) an (_      an
    &Cl) an (_      @n
@@ -867,7 +875,7 @@ propag) an (d      'an
     sp) an (ia     an
      &) an (ie_    @n
      &) ann (ie_   @n
-     m) anipu      @nIpjU
+     m) anipu (l   @nIpjU
      w) an (t_     0n
      &) an (y_     @n
      &) an (ies_   @n
@@ -1127,6 +1135,7 @@ calend) ar         3
    &sp) ass (_     @s
     rr) ass        @s
     &v) ass (_     @s
+        ass (a_    'as
         as (al     eIz
      b) as (al     as
         ascii (_   askI
@@ -1228,7 +1237,7 @@ _it_separ) ate (_  @t
      @) ating (++_ eItIN
      &) at (ive    @t
      &) at (ive_$w_alt1 eIt
-//       &) ately (_     @tl%I
+//       &) ately (_     @tli
     ul) at (ory    'eIt
    sen) at         @t
     pl) at (ea     at
@@ -1244,13 +1253,15 @@ _it_separ) ate (_  @t
         at (io_    eIS
         ati (aX    'eIS
      &) atism      @tIz@m
+     &) atist (_   @tIst
      w) at (t      0t
      &) ath (An_   @T
         athed (_   eIDd
         athei      eITI2I
-     &) athy (_    =@TI2
+     &) athy (_    =@Ti
      @) ath (is    =@T
      _) at (lan    a#t
+    &p) atnam     ,Vtn@m
         at (omi    a#t
      _) at (omiz   at
      _) ato (n     a#toU
@@ -1262,7 +1273,7 @@ _it_separ) ate (_  @t
         atrix      'eItrIks
      X) atron (_   eItr@n
      _) at (roc    a#t
-     @) atry (_    =@trI
+     @) atry (_    =@tri
      _) att (@     a#t
         att (ic    at
         att (it    at
@@ -1381,8 +1392,8 @@ _it_separ) ate (_  @t
     su) bt (l      t
     de) bt         t
      _) bug (le    bju:g
-     @) bury (_S4i br%I
-?3   @) bury (_S4i bEr%I
+     &) bury (_S4i br%I
+?3   &) bury (_S4i bEr%I
      _) byte       baIt
         bydesign (_S8 baIdI2z'aIn
      _) by (zan    b%I
@@ -1460,8 +1471,7 @@ _it_separ) ate (_  @t
         bi (ker    baI
      _) bi (lC     bI
         bi (lio    bI
-        bi (llio   bI2
-     _) bi (har    bI
+     _) bi (har    bI2
         bi (nary   baI
         bi (nd     baI
      _) bi (ng     bI
@@ -1595,6 +1605,7 @@ _it_separ) ate (_  @t
    _or) ch (es     k
     me) ch (a      k
     mi) ch (a      k
+     _) chhattisgarh  tSVti:sg3:
         chica (n   SI2keI
         chi (rA    kaI
      _) chi (ropA  kI2
@@ -1838,11 +1849,11 @@ _it_separ) ate (_  @t
      _) de (c@     dI#
         deca (den  dEk@
      _) decaffei   d%i:kafI
+     _) de (cL05   dE
         de (cenc   di:
         de (cib    dE
         de (cil    dE
         de (cim    dE
-     _) de (ck     dE
      _) de (com    d,i:
      _) de (con    d,i:
         de (cor    dE
@@ -2287,6 +2298,7 @@ _it_separ) ate (_  @t
         ei         eI
      _) ei         aI
      c) ei         i:
+    _h) ei         aI
      l) eice (st   E
         eich       aIk
         eier (_    aI|3
@@ -2495,6 +2507,7 @@ _it_separ) ate (_  @t
         en (tran   En
         en (trec   0n
         en (trep   ,0n
+     c) en (tre    E2n
         en (tri    En
         en (tro    En
      _) en (try    En
@@ -2683,6 +2696,7 @@ _it_separ) ate (_  @t
     _g) er (on     Er
      &) er (oCe_   =@r
     _t) erre (_    e@
+     h) err (y_    Er
         er (se     3:
      v) er (sal    '3:
      @) ersi (al   '3:S
@@ -2788,6 +2802,7 @@ _it_separ) ate (_  @t
      @) et (ate    It
      @) et (ation  It
         ete (_     i:t
+        et (i_     'Et
      _) et (ern    I2t
      _) eth (A     i:T
 ?!3     eth (ane   i:T
@@ -3005,7 +3020,7 @@ _it_separ) ate (_  @t
     bo) g (Ey      g
     oo) g (ey      g
      _) gia (@@    dZa#
-     _) g (iant    dZ
+     _) g (iant+   dZ
      &) gia (_     dZ@
      &) gia (C_    dZ@
         g (ibb     g
@@ -3033,7 +3048,7 @@ _it_separ) ate (_  @t
      _) gu (i      g
      _) gui (dA    gaI
         guide (@   gaId
-     _) gu (jAr    g,U
+     _) gu (j      g,U
      _) g (yn      g
      o) g (y_      g
         g (ynous_  =dZ
@@ -3156,7 +3171,6 @@ _it_separ) ate (_  @t
   serv) ice        I2s
      @) i (cence   I
      _) ich        Ik
-        iche (_N   'i:S
      m) ichael     aIk@L
      l) ich (_     Ix
      l) ich (er_   Ix
@@ -3436,7 +3450,7 @@ _it_separ) ate (_  @t
     cl) imb        aIm
      _) im (@      %Im
    _pr) im (a      aIm
-    sh) im (a_     'i:m
+     h) im (a_     'i:m
         imag (e#   ImI2dZ
         im (ent+   Im
         ime (nto   Im'E
@@ -3612,6 +3626,7 @@ _it_separ) ate (_  @t
      l) in (a_     'i:n
      r) in (a_     'i:n
      t) in (a_     'i:n
+        ina (gar   'i:na#
     sp) in (al_    'aIn
      @) in (ate    =I#n
      @) in (ation  I#n
@@ -3728,8 +3743,8 @@ _it_separ) ate (_  @t
 ?8      ire        aIa#
      s) ir (en     aI3
      c) ire (n     aIr@
-    _d) ir (ec     %aIr
-?3  _d) ir (ec     3r
+     d) ir (ect    %aIr
+?3   d) ir (ect    3r
         ir (ety    aIr
         irer (_    aI3r3
         ir         3:
@@ -3776,6 +3791,7 @@ _it_separ) ate (_  @t
    @Cs) is (_      =Is
      &) is (abl    aIz
         is (al_    aIz
+     &) is (al_    Is
         isa (tion  aIzeI
 ?3      isa (tion  @zeI
      @) isc (enC   'Is
@@ -3915,6 +3931,7 @@ _it_separ) ate (_  @t
         jager      jeIg3
      _) jere (C    dZEr@
      _) jes (ui    dZEz
+     _) jh (A@     dZ
      _) jiha (d    dZI2hA:
      _) joa (n@    dZoU'a
      n) j (a_      j
@@ -3943,6 +3960,7 @@ _it_separ) ate (_  @t
 
      _) kha        kA:
         kh (A_     k
+     A) kha (nd    k,V
         khar       kA@
      _) ki (lC@    kI2
      _) ki (ll@    kI
@@ -3972,7 +3990,8 @@ _it_separ) ate (_  @t
      _) llan       l#%an
         l (E       l
         lle (_     l
-   @@o) lled (_S3v d
+    %C) l (eC_     l
+  @@ba) lled (_S2v d
     @@) lled (_S3v d
      B) l (_       @L
      w) l (_       l
@@ -4185,6 +4204,7 @@ multip) ly         laI
         nonchala (n n0nS@l@
 ?3      nonchala (n n0nS@l'A:
      _) nurse (B   n3:s
+     &) nut (_S3   nVt
      &) nya (_     =nj@
 
 .group ng
@@ -4357,6 +4377,7 @@ multip) ly         laI
         o (geny    '0
      r) o (ger     0
      l) ogism      =@dZIz@m
+     l) ogne (_    'oUn
      @) ographer   '0gr@f3
      _) og (re     oUg
      r) ogue       oUg
@@ -4671,7 +4692,9 @@ multip) ly         laI
         or (A      o@r
   _mem) or (a      3
      &) or (al_    @r
-        orama (_   @r'am@
+        orama (_   @r'A:m@
+?3      orama (_   @r'am@
+        or (amic   @r
      &) or (ate    3r
      &) or (ative  @-r
 //       @@C) or (_S2de    3                // suffix
@@ -4879,7 +4902,6 @@ multip) ly         laI
      b) ou (d      u:
         ou (f      u:
      d) ou (g      V
-     n) ou (ga     u:
      r) ouge       u:Z
      _) ough       O:
         ough (t    O:
@@ -4971,6 +4993,7 @@ multip) ly         laI
      &) ous (_     @s
      &) ousy (_    @s%i
     &m) ous (_     @s
+    _m) ou (se#    aU
     &n) ous (_     @s
     @r) ousel (_   @s'El
      _) out (@P3   %aUt      // prefix  out
@@ -5321,7 +5344,7 @@ multip) ly         laI
         questio (n  kwEstS@
         quet (_    keI
     ra) quet       kI2t
-        quett      k'Et
+     @) quett      k'Et
         queu       kju:
         qu (_      k
         quay       ki:
@@ -5641,7 +5664,7 @@ multip) ly         laI
     ea) s (y       z
     Ai) s (y       z
         s (_       z
-     @) s (_S1m    z
+     @) s (_NS1m   z
      @) s (_$w_alt1S1 s
    _BA) s (_N      s
    &se) s (_S1     I#z
@@ -5652,20 +5675,20 @@ multip) ly         laI
    @ce) s (_S1     I#z
    &er) s (_S1m    z
      f) s (_       s
-    ng) s (_S1     z
+    ng) s (_S1m    z
      k) s (_       s
-     n) s (_S1     z
+     n) s (_S1m    z
      p) s (_       s
     th) s (_       s
-     t) s (_S1     s
-    te) s (_S1     s
-    &c) s (_S1     s
-    &f) s (_S1     s
-    &k) s (_S1     s
-    &p) s (_S1     s
-   &pe) s (_S1     s
-   &th) s (_S1     s
-    &t) s (_S1     s
+     t) s (_S1m    s
+    te) s (_S1m    s
+    &c) s (_S1m    s
+    &f) s (_S1m    s
+    &k) s (_S1m    s
+    &p) s (_S1m    s
+   &pe) s (_S1m    s
+   &th) s (_S1m    s
+    &t) s (_S1m    s
    _ha) s (_       z
 
 .group su
@@ -5675,7 +5698,7 @@ multip) ly         laI
      n) su (al     sju:
 ?3   n) su (al     Su:
      _) su (b      sV
-     _) su (bdi    s,V
+     _) su (bdiv   s,V
         su (bdue   s%V
      _) su (bmer   s@
         su (bmi    s@
@@ -5704,7 +5727,7 @@ multip) ly         laI
         su (pplic  sV
         su (ppor   s@
         su (ppres  s@
-     _) su (pra    su:
+     _) supra (P5  s'u:pr@
      _) sur        s3:
 ?5   _) sur        sVR
      _) sure       SU@
@@ -5946,6 +5969,7 @@ contin) u          ju:
         ubuntu     u:b'u:nt2u:
     _l) u (c       u:
         ucc (i     u:tS
+        ucci (_    'u:tSi
   lett) u (ce      I
      w) u (chA     u:
      l) u (ck      V
@@ -6053,6 +6077,7 @@ contin) u          ju:
      _) u (til     ju:
         u (tion    'ju:
      K) u (tri     ju:
+     _) u (ttar    U
         u (ty      ju:
 ?3   d) u (ty      u:
    vac) uu         ju:
@@ -6073,6 +6098,7 @@ contin) u          ju:
     _C) ue (l      ju:@
    _CC) ue (l      u:@
         ue (n      ju:@
+    _h) ue (nt     wE
         uene (_    ju:i:n
         ue (nd     ju:'E
      l) ue (n      u:@
@@ -6193,6 +6219,7 @@ contin) u          ju:
      l) ur (A+     U@
      t) ur (A      j@r
      r) ur (A+     U@r
+    &b) urg (_S4   b3:g
      b) ur (y      Er
      b) urg (er    3:g
 ?5   b) urg (er    VRg
@@ -6206,6 +6233,7 @@ contin) u          ju:
      j) ur (i      U@
     _j) ur (y      U@
      j) ur (y      @r
+    &p) ura (m_    U@r@
      @) ura (t     jUreI
      @) ur (ation  jUr
         ure (_     jU@
@@ -6216,7 +6244,6 @@ contin) u          ju:
 ?3   g) ure (_     j3
     nj) ure (_     3
     il) ure (_     i@3
-    en) ure (_     j3
      r) ure (_     i@3
     &s) ure (_     j@3
   icat) ure (_     jU@
@@ -6319,6 +6346,7 @@ contin) u          ju:
         y (ar      j
         y (Be#     aI
     @C) y (Be#     aI
+    %C) y (Be      i
         ye (_      aI
         y (ear     j
     %B) y (_NS1d   i
@@ -6346,6 +6374,7 @@ contin) u          ju:
   ereb) y (_       aI
   earb) y (_       aI
      h) y (Cr      aI
+     C) yin (_S2   In          
      c) y (lin     I
      c) y (r       I
     th) y (l_      aI
@@ -6519,7 +6548,7 @@ contin) u          ju:
     ph) Es (_S2e   I#z
      k) Es (_S2e   z#
      p) Es (_S2e   z#
-     s) Es (_S2e   I#z
+     s) Es (_S1e   I#z
      s) E's (_S2e  I#z
     sh) Es (_S2e   I#z
      t) Es (_S2e   z#

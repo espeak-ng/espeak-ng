@@ -1281,7 +1281,6 @@ vdiph2/y-y#     [yY] fi
                 [yY] mt
 vdiph/8u        [oU] en-us
                 [ou] zh
-vdiph/aae       [aI] en-us
 vdiph/aai       [aI] ne
                 [ai] lt
                 [ai] lv
@@ -1338,7 +1337,8 @@ vdiph/ai_3      [aI] no
 vdiph/ai_4      [aI] af
 vdiph/ai_5      [aI] de
                 [a] am
-vdiph/ai_6      [aI] en-rp
+vdiph/ai_6      [aI] en-us
+                [aI] en-rp
                 [ai] zh
 vdiph/ai_7      [aI] en-sc
                 [aI2] en-sc
