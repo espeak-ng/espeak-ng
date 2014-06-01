@@ -32,8 +32,8 @@ android {
             java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
-        instrumentTest.setRoot('eSpeakTests')
-        instrumentTest {
+        androidTest.setRoot('eSpeakTests')
+        androidTest {
             java.srcDirs = ['eSpeakTests/src']
         }
     }
