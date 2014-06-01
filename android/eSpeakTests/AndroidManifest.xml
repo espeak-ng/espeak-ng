@@ -4,8 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8" />
-
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.reecedunn.espeak" />
