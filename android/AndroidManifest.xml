@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.reecedunn.espeak"
-    android:versionCode="17"
-    android:versionName="1.47.12" >
+    android:versionCode="18"
+    android:versionName="1.48.05" >
 
     <uses-feature
         android:name="android.hardware.touchscreen"
