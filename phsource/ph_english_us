@@ -262,7 +262,7 @@ phoneme aI
   IF nextPh(#a) OR nextPh(#o) THEN
     AppendPhoneme(;)
   ENDIF
-  FMT(vdiph/aae)
+  FMT(vdiph/ai_6)
 endphoneme
 
 

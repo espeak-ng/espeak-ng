@@ -194,6 +194,12 @@ _dpt      _d@s@ml'o:_
 ॣ	#X2l-:
 ॐ	#X1o~m
 
+U+901	cVndrVbIndu
+U+902	VnUswa:r
+U+903	wIsVrg@
+U+93c	nUkta
+U+94d	hVlVnt
+
 _??	Vks.@r
 
 // Alphabet names
@@ -202,14 +208,24 @@ _cyr	sIrIk'Ik
 _zh	c'i@ni
 
 // Punctuation
-।	dVn.d.V
+// ।	dVn.d.V
 
-$	dOl@r
-%	pVt'IS@t
+$	dOlVr
+%	pVt'ISVt
 +	plVs
-=	bVr'a:b@r
-*	ta:r'a:Nk@n
-* 
+=	bVr'a:bVr
+*	ta:r'a:NkVn
+/	sle:S
+_,	'Vlp@||wir,a:m
+_।	p'u:rn.@||wIr,a:m
+_;	'Vrd#@-||wIr,a:m
+_:	brIHVd'a:ntr@-
+_?	prVSVnv'a:cVk
+!	wIsmVja:dIv'a:cVk 
+_—	nIrd'e:SVk
+_-	j'o:JVk
+_"	'Udd#VrVn. 
+
 
 // Pronouns
 मैं 	$u	// main: IrI

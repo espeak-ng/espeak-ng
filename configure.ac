@@ -220,14 +220,21 @@ dnl ================================================================
 dnl wxWidgets checks.
 dnl ================================================================
 
-AC_CHECK_PROG(WXCONFIG_CHECK,wx-config,yes)
-if test x"$WXCONFIG_CHECK" != x"yes" ; then
-    AC_MSG_ERROR([Please install wxWidgets which is needed for espeakedit.])
+AC_ARG_WITH([wx-config],
+    [AS_HELP_STRING([--with-wx-config], [specify the location of wx-config @<:@default=wx-config@:>@])],
+    [WX_CONFIG=$with_wx_config],
+    [WX_CONFIG=wx-config])
+
+if test ! -e "${WX_CONFIG}" ; then
+    AC_CHECK_PROG(WXCONFIG_CHECK,${WX_CONFIG},yes)
+    if test x"$WXCONFIG_CHECK" != x"yes" ; then
+        AC_MSG_ERROR([Cannot find wxWidgets which is needed for espeakedit to build the voices.])
+    fi
 fi
 
-WX_LIBS=`wx-config --libs`
-WX_CXXFLAGS=`wx-config --cxxflags`
-WX_VERSION=`wx-config --version`
+WX_LIBS=`${WX_CONFIG} --libs`
+WX_CXXFLAGS=`${WX_CONFIG} --cxxflags`
+WX_VERSION=`${WX_CONFIG} --version`
 
 AC_SUBST(WX_LIBS)
 AC_SUBST(WX_CXXFLAGS)
@@ -248,7 +255,7 @@ AC_MSG_NOTICE([
         Compiler:                      ${CXX}
         Compiler flags:                ${CXXFLAGS}
 
-        wxWidgets:                     ${WX_VERSION}
+        wxWidgets:                     ${WX_VERSION} (${WX_CONFIG})
         pulseaudio:                    ${have_pulseaudio}
         portaudio:                     ${have_portaudio}
         sada:                          ${have_sada}
