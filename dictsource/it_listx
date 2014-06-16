@@ -838,8 +838,6 @@ cenobi  $alt
 cenomani $2
 centaurea	$2
 centauree$2
-centesim  $2 $alt
-centimetr $2
 centin $1  $alt
 centocchi  $alt
 centol  $alt
@@ -923,7 +921,7 @@ ciotol $1
 cipoll  $alt2
 cipress  $alt
 circocentr  $alt
-circuito  tSi@-*k'uito
+circuit	tSi@-*k'u:it
 cireneo	$3
 ciscaucasia $4
 cismon $2
@@ -1047,7 +1045,6 @@ consci  $alt
 console  $alt
 conson $1  $alt
 consuet  $alt
-contachilometri $4  $alt
 contadine	$3
 contemp  $alt
 contorn  $alt2
@@ -1059,6 +1056,7 @@ controfil	$3
 contropiede  $alt
 controsoggett  $alt
 controversia $3
+controversie	$3
 convogli  $alt
 copepodi  $alt
 copet  $alt
@@ -1099,7 +1097,7 @@ cortenuov  $alt
 cortes $2
 cortil	$2
 cortisol $3
-cortocircuito  kO@-*totSi@-*k'uito
+cortocircuit	k,O@-*totSi@-*k'uit
 cos  $alt
 cosc  $alt
 coscia  $alt
@@ -1238,6 +1236,7 @@ diciottesim  $alt
 dicotiledoni $4  $alt
 didache $3  $alt
 didascalia $4
+didascalie	didask,al'i;e
 dieci  $alt
 diedr  $alt
 dielettric  $alt
@@ -1415,12 +1414,12 @@ emodialisi $3
 emofilia $4
 emostasi $2
 emoticon $2
+emorragie	emoR*adZ'i;e
 empedocle $2  $alt
 empireo $2
 emu $2
 enantiomer $4
 encefal $2  $alt
-enciclopedia $5
 encolpi  $alt
 endecasillab $4
 endocrin $2
@@ -1704,7 +1703,7 @@ forn  $alt2
 fornace $2
 forr  $alt2
 forse  $alt2
-fortuito  fO@-*t'uito
+fortuit	f,O@-*t'uit
 foscari $1
 foschia $2
 foschie	fosk'ie
@@ -1782,7 +1781,6 @@ geneve  $alt
 geni  $alt
 geocentric  $alt
 geode  $alt
-geometr $2  $alt
 geotermia $4
 geov $1
 gerarchia $3
@@ -2180,7 +2178,6 @@ lugubre $1
 lumac $2
 luog  $alt
 luteo $1
-maat $2
 macabr $1
 macac $2
 macadam $3
@@ -2194,7 +2191,7 @@ macin $1
 macomer $3
 macroclim	$3
 macrocosm  $alt
-madonie $3
+macrofagi	$2
 madras $2
 maestria $3
 mafia $1
@@ -2238,6 +2235,7 @@ mangan $1
 mangiatoia  $alt2
 mangim	$2
 mania $2
+manie	man'i:e
 manicomi  $alt
 mannosi  $alt
 manocchi  $alt
@@ -2303,7 +2301,6 @@ megli  $alt
 meknes $2  $alt
 melanconia $4
 melodia $3
-melomane $2
 melpomene $2
 membr  $alt
 mement  $alt
@@ -2323,7 +2320,6 @@ mercantil	$3
 mercanzia $3
 mercanzie	me@-*ka/nts'ie
 merendine	$3
-meri $2
 meristem  $alt
 merit $1
 merope $1
@@ -2360,12 +2356,12 @@ mettere  $alt
 mexic  $alt2
 mezenzi  $alt
 mezz  $alt
-mezzadria $3
+mezzadria	medz:ad@-*'ia
 mezzadril	medz:ad@-*'il
 mezzaneg $2
 mezzenile	$3
-mezzogiorn  $alt2
-miastenia $4
+mezzogiorno	m,edz:odZ'o@-*no
+miastenia $3
 michiel $2
 microcefalia $5
 microclim	$3
@@ -2375,30 +2371,28 @@ micronesia $3  $alt
 microsporum $2  $alt
 microtom $2
 midoll  $alt2
-miglioria $3
+miglioria	$3
+migliorie	$3
 mignaneg $2
 mignol $1
-milite $1
 millefiori  $alt2
 millefogli  $alt
 millenni  $alt
-millesim  $alt
-millimetr $2
 mimesi  $alt
-mimi $2
 mindaugas $1
 minigolf $3
 minimax $3
-minori  $alt2
+minor	$alt2
 minoril	$3
 minutoli $2
 miopia $3
 mirafiori  $alt2
-miriade $2
+miriade  $2
 misantropia $4
 miser $1
 miserere $3
-miseria $2
+miserie	$2
+miseria	$2
 miserrima	$2
 misia $1
 misoginia $4
@@ -2411,18 +2405,15 @@ moab $2
 mochi  $alt
 moconesi $2
 mod  $alt
-mod  $alt
 modem  $alt
 modestia $2
 modoc  $alt
 mogan $1
 moggi  $alt
-moglie  $alt
 mogol $2
 mogor $1
 moheli  $alt2
 moin	mo'in
-moire $3
 mok  $alt
 moken  $alt
 mol  $alt
@@ -2579,18 +2570,15 @@ noem  $alt
 noemi  $alt
 noicattar $3
 nol  $alt
-nomade $1
+nomad	$1
 nomi  $alt
 nomin $1
-non  $alt
-nonche $2
 none  $alt
 nontiscordardime	non||ti||sko@-*d'a@-*||di||m'e
 normandia $3
 norvegia	$2 $alt2
 nosocomi  $alt
 nostoi $1  $alt2
-not  $alt
 not  $alt
 notaril	$3
 notes  $alt
@@ -2602,46 +2590,37 @@ nov  $alt
 nove  $alt
 novembre  $alt
 nover $1
-novi  $alt
-nucleo $1
+nucleo	$1
 nucleoprotein	nukleo-p@-*ote'in
 nucleosintesi $4
 numer $1
-numeri $1
 nunatak $3
 nuot  $alt
 nuov  $alt
 nuraminis $2
 nuvolone  $alt
 oasi $1  $alt
-ob  $alt
 obblig  $alt
 obes  $alt
 obidos  $alt2
 obit $1
-obli $2
 oboe $1  $alt
 obsolet  $alt
 occhi  $alt
 ocean $2
-od  $alt
 ode  $alt
 odi  $alt
 odontotecnic  $alt
 ofant $1  $alt
 offid  $alt
 offline	of||_l'aIn
-oggebbi  $alt
 oggett  $alt
 oggigiorn  $alt2
 ogli  $alt
 ognitemp  $alt
-oh  $alt
-ohi  $alt
+oh	'o:
 ohmic  $alt
 oidi $2
-ola $2
-ole $2
 oleodott  $alt2
 olg  $alt
 oligarchia $4
@@ -2656,7 +2635,7 @@ omayyadi $2
 ombelic $3
 omeg  $alt
 omelia $3
-omer $1
+omer	$1	$alt
 omicid $3
 omicron $1  $alt
 omnibus $1  $alt
@@ -2692,13 +2671,12 @@ orgia	'O@-*dZa
 origan $2
 oritterop $3
 orl  $alt2
-orleans  $alt2
+orleans	,o@-*l'i:ns
 orogenesi $3
 orologi  $alt
 orop  $alt
 oroscop $2  $alt
 orosei $3
-ors  $alt2
 ors  $alt2
 orsol  $alt2
 ortensi  $alt
@@ -2718,7 +2696,7 @@ orzivecchi  $alt
 osc  $alt
 oscar  $alt
 osmi  $alt
-ospite  $alt
+ospit	$1 $alt
 osroe $1
 ossa		$alt2
 ossea	$1
@@ -2806,14 +2784,13 @@ parghelia $3
 paria $2
 parigin	$3
 parnassos $3
-parodi  $alt
-parodi $2
+parodi  $2	$alt
 parodia $3
 parop  $alt
 parricid $3
 parroc $1
 parrocchia  $alt
-partecipe $2  $alt2
+partecip	$2  $alt2
 partenogenesi $4
 partenope $2  $alt
 passatemp  $alt
@@ -2823,10 +2800,8 @@ pater $1
 patin $1
 patogenesi $3
 pattin $1
-patu $2
 paulilatin $4
 paur $2
-pave $2
 pazzia $2
 pazzie	pa/ts:'ie
 pecari $1  $alt
@@ -2841,14 +2816,12 @@ pedofilia $4
 pedogenesi $3
 peggi  $alt
 pel  $alt2
-pel  $alt2
 pelag $1
 pelaverg  $alt2
 pell  $alt2
-pelle  $alt2
 pelope $1
 peloponnes  $alt
-pelosi  $alt2
+pelos$alt2
 pelot  $alt
 pemfig  $alt
 pena		$alt2
@@ -2866,8 +2839,7 @@ pentagon $2
 pentametr $2
 pentapoli $2
 pentateuc $3
-pentatl  $alt
-pentatl $1
+pentatl  $1	$alt
 pentatlet  $alt
 pentod  $alt
 peoni		$1 $only
@@ -2910,19 +2882,17 @@ peru $2
 perugine	$3
 perun $2
 pesc  $alt
-pesc  $alt
 pescasseroli $3
 pesce		$alt2
 pesche  $alt
 peschici  $alt
-pesi  $alt
+pes	$alt
 pessim  $alt
 pest  $alt2
 peste		$alt
 petal $1  $alt
 pett  $alt
 pezz  $alt
-phon  $alt
 piacere $2  $alt2
 piaden $2
 piadine	$2
@@ -2936,7 +2906,6 @@ piccioncine	$3
 piccolomini $3
 picnic $2
 pidocchi  $alt
-pie  $alt
 piece  $alt
 piede  $alt
 piedr  $alt
@@ -3849,6 +3818,7 @@ teosofia $4
 tepanechi  $alt
 tequila	tek'ila
 terapeut $3
+terapeutiche	$3
 terapeuti $3
 terapeutic $3
 terapia $3

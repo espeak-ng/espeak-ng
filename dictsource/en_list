@@ -550,6 +550,7 @@ ati	$abbrev
 atk	$abbrev
 atm	$abbrev
 avc	$abbrev
+avg	$abbrev
 awol	eIw0l
 bsod	$abbrev
 bvld	bUl@vA@d
@@ -829,6 +830,7 @@ allspice	$1
 alm		A:m
 almost		O:lmoUst
 aloe		aloU
+alpaca		alp'ak@
 alphabetize	alf@b@taIz
 alt		0lt   // not abbrev
 alternate	O:lt'3:n@t     $only
@@ -944,7 +946,7 @@ asparagus	a#spar@g@s
 arsenal		A@s@n@L
 arsenic		A@snIk
 ascertain	as3t'eIn
-asiatic		eISI'atIk
+asiatic		eIZI'atIk
 askance		a#skaans
 askew		a#skju:
 ass		as
@@ -967,6 +969,7 @@ audi		aUdi
 auger		O:g3
 augmentation O:gmEnt'eIS@n
 august		O:g@st
+augustan	$alt2 $2
 aussie		0zi
 ?3 aussie	0si
 austere		O:st'i@3
@@ -1074,8 +1077,8 @@ blouse		blaUz
 bludgeon	$alt2
 bluest		blu:@st
 bluish		blu:IS
-blurry		bl3:rI
-?5 blurry	blVRrI
+blurry		bl3:ri
+?5 blurry	blVRri
 boardmember	$1
 bobsled		b0bslEd
 boing		bOIN
@@ -1243,6 +1246,7 @@ chasten		tSeIs@n
 chassis		Sasi
 ?3 chassis	tSasi
 chateau		SatoU
+cheddar		tSEd3
 chemise		S@mi:z
 chevalier	$alt1
 chevrolet	SEvr@l'eI
@@ -1341,7 +1345,7 @@ commence	k@mEns
 commend		k@mEnd
 commensurate	k@mEns3r@t
 comment		k0mEnt
-commentary	k0m@ntrI
+commentary	k0m@ntri
 ?3 commentary   k0m@ntEri
 commi		k0mI
 commie		k0mI
@@ -1374,6 +1378,8 @@ conduct		$verb
 cone		koUn
 conic		$1
 conical		$1
+conferee	k0nf@r'i:
+conference	k0nfr@ns
 confidant	$alt1
 conflict	$1          $onlys
 conflict	$verb
@@ -1399,7 +1405,7 @@ contract	$1      $onlys
 contract	$verb
 contralto	k@ntr'altoU
 contraption	k@ntr'apS@n
-contrary	k0ntr@rI
+contrary	k0ntr@ri
 ?3 contrary	k0ntre@ri
 contrast	$2     $verb
 contrite	$2
@@ -1491,6 +1497,7 @@ debris		dEbri:
 debunk		di:b'Vnk
 debut		deIbju:
 ?3 debut	deIb'ju:
+début		debut $text
 decade		dEkeId
 decaf		di:kaf
 decedent	dI#si:d@nt
@@ -1573,8 +1580,8 @@ diehard		daIhA@d
 dielectric	daI@l'EktrIk
 diesel		di:z@L
 dieu		_^_FR
-dilatory	dIl@t@rI
-?3 dilatory	dIlato:rI
+dilatory	dIl@t@ri
+?3 dilatory	dIlato:ri
 dilemma		daIl'Em@
 ?3 dilemma	dI#l'Em@
 digest		daIdZEst $noun
@@ -1724,6 +1731,7 @@ estoppel	Est'0p@L
 estrange	$2
 etiquette	$1
 ?3 etiquette	EtI#k@t
+eunuch		ju:m@k
 euphemism	ju:f@mIz@m
 eureka		ju:'ri:ka#
 europa		jU@r'oUp@
@@ -1799,7 +1807,7 @@ fiasco		fi:'askoU
 fiat		fi:@t
 fiche		fi:S
 ficus		faIk@s
-fiery		faI3rI
+fiery		faI3ri
 ?3 filet	fI2leI
 ?3 fillet	fI2leI
 finale		fI2nA:li
@@ -2085,7 +2093,7 @@ indirect	$3
 indiscriminate	$alt2
 indo		IndoU
 indoor		$1           $only
-industry	IndVstrI
+industry	IndVstri
 indy		Indi
 infancy		Inf@nsi
 infantile	Inf@ntaIl
@@ -2196,7 +2204,7 @@ kowtow		kaUt2aU
 la		,la           $only
 la		$abbrev $allcaps
 (la vie)	la||v'i:
-laboratory	la#b'0r@trI
+laboratory	la#b'0r@tri
 ?3 laboratory	labr@tO:ri
 labor		leIb3
 labored		leIb@d
@@ -2409,7 +2417,7 @@ mirage		mIrA:Z
 ?3 mirage	m3rA:Z
 mirandize	$2
 mischief	mIstSI#f
-misery		mIz@rI
+misery		mIz@ri
 misled		mIsl'Ed
 miscellaneous	mIs@l'eIni@s
 mischievous	mIstSI2v@s
@@ -2630,7 +2638,7 @@ pageant		padZ@nt
 pajama		$alt3
 palaver		pa#lA:v3
 palladium	$alt3
-paltry		pO:ltrI
+paltry		pO:ltri
 panacea		pana#s'i:@
 panache		$alt3
 pancreas	pankri@s
@@ -2827,7 +2835,7 @@ psst		psst
 psyche		saIki:
 psyched		saIkd
 psychiatrist	saIk'aI@trIst
-psychiatry	saIk'aI@trI
+psychiatry	saIk'aI@tri
 psychosis	saIk'oUsIs
 psychotic	saIk'0tIk
 pud		pUd           // and pudding
@@ -2848,7 +2856,7 @@ pyramidal	pI2r'amId@L
 qaeda		kaId@
 quadrilateral	$3
 quash		kw0S
-quaternary	kw@t3:n@rI
+quaternary	kw@t3:n@ri
 qubit		kju:bIt
 quesadilla      keIs@'di:@
 //question	kwEstS@n
@@ -2867,6 +2875,7 @@ rainforest	r'eInf,0rI2st
 (raison d'être)	reIz0n||d'Etr@-
 rajah		rA:dZA:
 ramadan		rama#dA:n
+rani		rA:ni
 rapier		reIpi@3
 rapport		rap'o@
 rarity		re@r@ti
@@ -2917,7 +2926,7 @@ reference	rEfr@ns
 referee		rEf@r'i:
 referral	rI2f3:r@L
 referring	rI2f3:rIN 
-refinery	rI2faIn@rI
+refinery	rI2faIn@ri
 refit		ri:fIt
 reflex		ri:flEks
 reflux		ri:flVks
@@ -2968,7 +2977,7 @@ résistance	reIzIst'A~ns
 ?3 respite	rEspI2t
 restive		rEstIv
 respiration	rEspI#r'eIS@n 
-respiratory	rI2spIr@t@rI
+respiratory	rI2spIr@t@ri
 ?3 respiratory	rEspr@to:ri
 respite		rEspaIt
 ?3 respite	rEspIt
@@ -3007,7 +3016,7 @@ rouse		raUz
 rout		raUt          // for routed
 routine		$2
 row		roU
-row		raU	$noun
+//row		raU	$noun
 royale		rOI'al
 ruby		ru:bi
 rugged		rVgI#d
@@ -3024,6 +3033,7 @@ sachet		saSeI
 saccharine	sak3In
 sacred		seIkr@d
 sacrifice	sakrI2faIs
+sacristan	sakrIst@n
 sadistic	$alt3
 safari		$alt3
 safaris		sa#fA@riz
@@ -3081,7 +3091,7 @@ secret		si:kr@t
 secrete		sI2kri:t
 secretion	sI2kri:S@n
 secretive	si:kr@tIv
-secretary	sEkr@trI
+secretary	sEkr@tri
 sedan		sI2dan
 sedate		sI2deIt
 sega		seIg@
@@ -3100,6 +3110,7 @@ senator		sEn@t3
 sens		sEns               // for sensible
 !?3 sentient	sEnti@nt  // ??
 sepia		$alt6
+sepoy		si:pOI
 sequester	$2
 sequine		si:kwI2n
 series		si@3riz
@@ -3132,7 +3143,7 @@ shillelagh	S,I2l'eIl@
 shiver		SIv3
 shone		S0n
 shoulder	SoUld3
-shrilly		SrIllI       $verbf
+shrilly		SrIlli       $verbf
 si		si:
 sí		Si:
 sibelius	sI2beIli@s
@@ -3207,7 +3218,7 @@ standby		standbaI
 stagnate	$2
 stampede	$2
 starboard	stA@b3d
-starry		stA:rI
+starry		stA:ri
 statistic	$alt3
 stencil		stEns@L   // ed
 stiletto	stI2lEtoU
@@ -3287,7 +3298,7 @@ tallyho		talI'hoU
 tampon		tamp0n
 tangerine	tandZ@r'i:n
 taoiseach	ti:S@x
-tapestry	tap@strI
+tapestry	tap@stri
 tarantula	t@rantjUl@
 tariff		tarIf
 tase		teIz
@@ -3322,7 +3333,7 @@ terrific	t3rIfIk
 testes		tEsti:z
 telephon	tElI2foUn     // for telephoning
 temperature	tEmprI2tS3
-?!3 temporary	tEmpr@rI
+?!3 temporary	tEmpr@ri
 ?3 template	$alt2
 tetanus		tEt@n@s
 thereabout	$3
@@ -3378,7 +3389,7 @@ transfer	$verb
 transport	transpo@t     $only
 transport	$verb
 transports	transpo@t|s    $nounf
-trajectory	tr@dZEkt@rI
+trajectory	tr@dZEkt@ri
 traverse	$alt3
 travesty	trav@sti
 treatise	tri:tIz
@@ -3411,7 +3422,6 @@ tuna		tju:n@
 tunafish	tu:n@fIS
 tush		tUS
 twas		tw0z
-twilight	twaIlaIt
 twould		twUd
 typo		taIpoU
 tyr		taI3
@@ -3473,7 +3483,7 @@ valet		valeI
 ?3 valet	val'eI
 valhalla	$2
 valise		va#li:s
-vagary		veIg@rI
+vagary		veIg@ri
 vagina		v@dZaIn@
 vaguest		veIg@st
 vallejo		va#leIhoU
@@ -3684,7 +3694,8 @@ Adelaide	ad@leId
 Aden		eId@n
 adirondack	ad3'0ndak
 Aegean		$2
-Afghan		afgan
+Afghan		$alt1
+Afghanistan	$2
 Agartala	A:g3t@l'A:
 Ahmedabad	$1
 Aires		aIrIz
@@ -3696,6 +3707,7 @@ Altura		O:lt'U@r@
 ?3 Amazon	ama#z0n
 Amman		a#m'A:n
 Amritsar	amr'Its3
+Andaman		and@m@n
 Andes		andi:z
 Angeles		andZ@li:s
 ?3 Angeles	andZ@lI#s
@@ -3713,6 +3725,9 @@ Armageddon	A@ma#g'Ed@n
 Arkansas	A@k@nsO:
 Atlantis	atl'antIs
 Athens		aTI2nz
+Asia		eIS@
+?3 Asia		eIZ@
+Asian		eIZ@n
 Assam		A:s'A:m
 Assamese	A:sA:m'i:z
 Audubon		O:d@b0n
@@ -3742,7 +3757,7 @@ Berkeley	b3:kli
 Bethesda	$alt3
 Bhopal		boUp'A:l
 Bhubaneswar	bUba#n'eISw3
-Bhutan		bu:t'an
+Bhutan		bu:t'A:n
 Bideford	bIdIf@d
 Bilaspur	bI2laspU@
 Bogota		b0g@t'A:
@@ -3843,10 +3858,10 @@ Hispaniola	hIsp@nj'oUl@
 Honduras	h0nd'jU@r@s
 Honolulu	$3
 Houston		hju:st@n
-Idaho		$1
+Idaho		aId@hoU
 Illinois	Il@n'OI
 Iditarod	aId'It@r0d
-Imphal		I2mpA:l
+Imphal		I2mfA:l
 Indochina	IndoUtS'aIn@
 Iowa		aI|@w@
 Ipanema		Ipa#n'i:m@
@@ -3855,6 +3870,7 @@ Islay		aIl@
 Israeli		Izr'eIli
 Istanbul	,Ist,anb'Ul
 Italia		It'alI2@  // Italian(s)
+Itanagar	i:t'A:n@g3
 Ithaca		IT@k@
 Jaipur		dZaIpU@
 Jakarta		$alt3
@@ -3868,7 +3884,7 @@ Kalgoorlie	kalgU@li
 Kannada		kA:n@d@
 Kansas		kanz@s
 Karachi		ka#rA@tSi
-Karnataka	kA@n'A:t@k@
+Karnataka	k3n'A:t@k@
 Kashmir		$alt3
 Kentucky	$2
 Kerala		kEr@l@
@@ -3877,7 +3893,7 @@ Kihei		$2
 Khmer		kmi@3
 Khulna		kUln@
 Kochi		koUtS'i:
-Kolkata		koUlk'A:t@
+Kolkata		k0lk'A:t@
 Korea		kOr'i:@
 Korean		kOr'i:@n
 ?3 Korea	k3r'i:@
@@ -3888,6 +3904,7 @@ Kozhikode	koUZIkoUd
 Kuala		kwA:la#
 Kyrgyz		k3:rgIz
 Kyrgyzstan	k3:rgIst'A:n
+Ladakh		la#dA:k
 Lafitte		la#fi:t
 (La jolla)	la#hOI@
 (La quinta)	l@ki:nt@
@@ -3914,6 +3931,7 @@ Madagascar	mad@g'ask3
 Madhya		mA:dj@
 Madras		m@drA:s
 Madrid		m@drId
+Mahal		ma#hA:l
 Maharashtra	$3
 Makassar	$alt3 $alt2
 Malawi		$alt3
@@ -3923,6 +3941,7 @@ Mali		mA:li
 Mandalay	$3
 Manhattan	$2
 Manila		$alt3
+Manipur		mVnIp'U@
 Massachusetts	$3
 Maui		maUi:
 Maya		maI@
@@ -3942,6 +3961,7 @@ Mineola		mIni:'oUl@
 Minneapolis	mIni:'ap@lI2s
 Minnesotan	mI2nI2soUt@n
 Missouri	mIz'U@ri
+Mizoram		mI2zoUram
 Mojave		moUh'A:vi
 Monaco		m0n@koU
 Montevideo	m0ntIvId'eIoU
@@ -3951,12 +3971,12 @@ Moroccan	m@r0k@n
 Montana		m0nt'an@
 Monterey	m0nt@r'eI
 Monte		m0nt2i
+Mughal		moUg@L
 Multan		mUlt'A:n
 Mumbai		mUmb'aI
 Munich		mju:nIk
 Myanmar		mjA:nmA@
-Nepalese	nEp@l'i:z
-Niagara		naI'agr@
+Nagaland	nA:g@land
 Nairobi		naIr'oUbi
 Nantucket	$2
 Naples		neIp@Lz
@@ -3964,9 +3984,11 @@ Nauru		naUru:
 Nazareth	naz@r@T
 Nebraska	n@brask@
 Nepal		nEp'O:l
+Nepalese	nEp@l'i:z
 Nevada		nI2vA:d@
 ?3 Nevada	nI2vad@
 Newfoundland	nju:f@ndla#nd
+Niagara		naI'agr@
 Niagra		naI'agr@
 Nineveh		nInIv@
 Nocera		noUs'i@r@
@@ -4002,12 +4024,12 @@ Pondicherry	$3
 Portugal	po@tS@g@L
 Portuguese	po@tS@g'i:z
 Potomac		p@toUm@k
-Pradesh		pra#dES
-Pradeshi	pra#dESi
+Pradesh		pra#deIS
+Pradeshi	pra#deISi
 Prague		prA:g
 Prayag		pra#jA:g
 Provence	pr0v'A~s
-Puducherry	pUd@tSEri
+Puducherry	pUdu:tSEri
 Pune		pu:n@
 Punjab		pVndZ'A:b
 Punjabi		pVndZ'A:bi
@@ -4059,6 +4081,8 @@ Tahoe		tA:hoU
 Taipei		t,aIp'eI
 Taiwan		taI'wA:n
 Taiwanese	taIw@n'i:z
+Taj		tA:Z
+Tashkent	taSk'Ent
 Tawakoni	ta#wA:k@ni
 Tblisi		t@-bli:si
 Tehran		te@r'A:n
@@ -4069,6 +4093,7 @@ Thiruvananthapuram	tIru:v@n@nt@pU@r@m
 Tijuana		ti@w'A:n@
 Tikal		tI2kA:l
 Timor		ti:mo@
+Tipperary	tIp@r'e@i
 Tokyo		toUkIoU
 Topeka		toUp'i:k@
 Toronto		t@r0ntoU
@@ -4077,12 +4102,14 @@ Trafalgar	$alt3
 Trincomalee	$4
 ?3 Tunisia	tu:n'i:Z@
 Tripoli		trIp@li
+Turkmenistan	$alt1
 tuareg		twA@rEg
 Uighur		wi:gU@
 Ural		ju:@r@L
 Utah		ju:t2A:
 ?3 Utah		ju:t2O
 Utrecht		ju:trECt
+Uzbekistan	Uzb,EkIst'A:n
 Vancouver	$2
 Vegas		veIg@s
 Ventura		vEnt'U@@
@@ -4205,6 +4232,7 @@ Conor		k0n3
 Conrad		$1
 Corinne		k@ri:n
 Crichton	kraIt@n
+Cristen		krIst@n
 Curtis		k3:tI#s
 ?5 Curtis	kVRtI#s
 Cyrus		saIr@s
@@ -4240,6 +4268,7 @@ Edith		i:dIT
 Eduardo		Edw'A@doU
 Einín		Eni:n
 Elias		I2laI|@s
+Elice		I2li:s
 Elijah		I2laIdZ@
 Elise		I2li:z
 Elisabeth	I2lIz@b@T
@@ -4446,6 +4475,7 @@ Rachel		reItS@L
 Rae		reI
 Rafael		rA:faI'El
 Rafaella	rA:faI'El@
+Rahul		rA:hUl
 Rajiv		rA:dZi:v
 Ramon		ra#moUn
 Ramona		ra#moUn@
@@ -4468,6 +4498,7 @@ Rosario		roUz'A@rIoU
 Russell		rVs@L
 Sabina		$alt3 //sa#bi:n@
 Sabine		sa#b'i:n
+Salman		sa#lmA:n
 Samantha	sa#manT@
 (Santa claus)	s'ant@||kl'O:z
 Saoirse		si@S@
@@ -4493,6 +4524,7 @@ Stewart		stju:3t
 ?3 Stewart	stu:3t
 Stuart		stju:3t
 ?3 Stuart	stu:3t
+Suresh		sUr'ES
 Susannah	$2
 Susanne		$2
 Suzy		su:zi
@@ -4589,6 +4621,7 @@ Foushee		fu:S'eI
 Gaia		gaI|@
 Gallagher	gal@g3
 Gandhi		gA:ndi
+Garcia		gA@si@
 Genghis		dZENgIs
 Ghandhi		gA:ndi
 Gibson		gIbs@n
@@ -4619,6 +4652,7 @@ Khrushchev	kru:stSEf
 Khruschev	kru:stSEf
 Kia		ki:a#
 Kroger		kroUg3
+Kumar		ku:m'A@
 Kyocera		kaI|@s'i@r@
 Lamaze		la#mA:z
 Levine		l@vi:n
@@ -4637,6 +4671,7 @@ Montague	m0nt2@gju:
 Moriarty	m0rI'A@ti
 Mossad		moUs'A:d
 Mozart		moUtsA@t
+Mukherjee	mUk'3:dZi:
 Munoz		mu:njoUz
 Navasca		$alt3
 Nehru		ne@ru:
@@ -5109,7 +5144,7 @@ not              ,n0t		$verbextend $only $strend
 (not have)       n0thav		$pastf $atend
 (not have to)    ,n0thavt@5	$pastf $strend
 (not a)          ,n0t@		$nounf
-not              n0t		$allcaps $verbextend    // don't spell "NOT"; speak it with stress
+not              n0t		$allcaps $only $verbextend    // don't spell "NOT"; speak it with stress
 only             oUnli		$verbextend
 
 any              ,Eni		$nounf $only

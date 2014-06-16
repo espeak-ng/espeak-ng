@@ -732,6 +732,7 @@ blazer		bl'eIzer
 blazers		bl'eIzers
 boca		$alt2
 boceta		$alt2
+boda	$alt2
 bofe		$alt
 bojo		$alt2
 boleia		$alt
@@ -953,6 +954,7 @@ fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
 flerte		$alt2 $noun
+florete	$alt2
 foda		$alt2 $verb
 fodo		$alt2
 fogo		$alt2
@@ -989,6 +991,7 @@ gol		gow
 golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
+gororoba	$alt
 gosma		$alt
 gosto		$alt $verb
 gota		$alt2
@@ -1048,6 +1051,7 @@ minueto		$alt2
 miolo		$alt2
 miolos		$alt
 mister	$alt
+mocreia	$alt
 modelo		$alt2
 modelo		$alt $verb
 moeda		$alt
@@ -1074,6 +1078,7 @@ nitreto	$alt2
 nojo		$alt2
 novelo		$alt2
 odisseia	$alt
+oeste	$alt
 off		$alt
 onu		$1
 olho		$alt2 $noun
@@ -1273,6 +1278,7 @@ zorra		$alt2
 bad  bEd
 bank	beINk
 bacon	b'eIkoN
+?2 basebol	beIzyb'Ow
 beatle  b'itow
 beatles  b'itows
 black  blEk
@@ -1321,6 +1327,7 @@ game	g'eImy
 get   gEt
 ?1 google     g'u:g&l 
 ?2 google     g'ugol
+?2 handebol	hendZyb'Ow
 ?1 hardware   'ard,w'Er-
 ?2 hardware   h'ardwe@-
 happy  x'Epy
@@ -1357,8 +1364,9 @@ next       n'Ekst
 ?1 pause      p'au:z
    page       p'eIdZ
    ?1   podcast	pOdkEst
-?2  podcast	pOdyk'Est
+?2  podcast	pOdZyk'Est
 python     p'aIT&~N
+?2 quantum	kw'&~Ntu~N
 ?2 ranking	x'&NkIN
 ?1 readme     r'i:dmi:
 right   r'aIt
@@ -1371,7 +1379,7 @@ shake	S'eIk
 ?1 site       s'aIt
 ?2 site       s'aItSy
 ?2   shampoo  S&mpu
-?2 shoping	S'OpiN
+?2 shopping	S'OpiN
 ?2 slide		zl'aIdZy
 ?4 símbolo	s'iNbolU
 ?1   software   s'Oft,w'Er-
@@ -1384,6 +1392,7 @@ sutiã		sutSi'&~N
  tab        t'aby
  tablet  t'ablet
   tablets  t'ablets
+  ?2 tantum	t'&~Ntu~N
  taser	t'eIzer
 ?1 telemóvel  t,El,Em'OvEl
 ?1 telemóveis t,El,Em'OveIs#
@@ -1411,8 +1420,10 @@ apple  'Epow
 outdoor	aUtd'Or
 ?2  outdoors	aUtd'Ors
 baby	b'eIby
+?2 campari	k&mp'a*y
 ?1 chrome	kr'owm
 ?2 chrome  kR'owmi
+corpus	k'O*@-pUs#
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
 ?1 express     ,Ekspr'Es
@@ -1422,12 +1433,14 @@ facebook  feIsybuk
 ?1 fedora      _^_EN
     firefox     f'ai@fOks
 ?1 front       fr'ont
+?2 habeas	'abe&s
 high   haI
 ?1 jaws        dZ'au:z
 lady	l'eIdy
 ?1 linux       l,in'uks
 ?2 linux       l'inUks
  live        l'aiv
+ ?2 lobby	$alt
 ?1 maker       m'eIk&r-
 mac  mEk
 ?1 media       m'Ed,i&
