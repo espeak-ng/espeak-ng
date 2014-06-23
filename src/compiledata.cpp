@@ -213,7 +213,7 @@ enum {
 	kTUNE_SPLIT,
 };
 
-static const char utf8_bom[] = {0xef,0xbb,0xbf,0};
+static unsigned const char utf8_bom[] = {0xef,0xbb,0xbf,0};
 
 static keywtab_t k_intonation[] = {
 	{"tune",      0,   kTUNE},
@@ -255,7 +255,7 @@ static keywtab_t keywords[] = {
 	{"phonemenumber",tSTATEMENT, kPHONEMENUMBER},
 	{"phonemetable",tSTATEMENT, kPHONEMETABLE},
 	{"include",     tSTATEMENT, kINCLUDE},
-	{utf8_bom,      tSTATEMENT, kUTF8_BOM},
+	{(const char *)utf8_bom,      tSTATEMENT, kUTF8_BOM},
 
 	{"phoneme",    tSTATEMENT, kPHONEMESTART},
 	{"procedure",  tSTATEMENT, kPROCEDURE},
@@ -3498,6 +3498,7 @@ static void CompilePhonemeFiles()
 				f_in = f;
 				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
+
 			}
 			else
 			{

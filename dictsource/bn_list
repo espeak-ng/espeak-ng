@@ -173,7 +173,7 @@ _dpt	_d'Osomik_
 
 
 // full vowels
-অ	O
+অ	O:
 আ	a
 ই	hrOS:o'i
 ঈ	d'i:rg#o'i
@@ -213,6 +213,10 @@ $	d.Olar
 %	SOtk'Ora
 +	jOg
 =	SOman
+৴	&k'ana:
+৵	du,ana:
+৶	tin,ana:
+
 
 
 
@@ -325,10 +329,10 @@ _?	pr'oSnOtSihnO
 এত	&to
 // Exceptions - where inherent vowel even being between two consonant is not pronounced as (o) mostly in case of two words pronounced and used as a single word. The list however is not final and contain most commonly used words.
 
-সোমবার		Som,bar
+সোমবার		Sombar
 মঙ্গলবার		mOng'ol,bar
 বুধবার		budh,bar
-অমলকান্তি	amol,kanti
+অমলকান্তি	O:mol,kanti
 অন্দরমহল	andor,mahol
 আকাশকুসুম	aka:S,kuSum
 আতসবাজী	atoS,ba:JI
@@ -339,14 +343,14 @@ _?	pr'oSnOtSihnO
 আমজনতা	a:m'jano'ta:
 আলটপকা	al,tO,pka
 আসকারা		a:s,ka:ra:
-আসনতলে	a:son,tole
-ইমনকল্যান	imon,kal'la:n
+আসনতলে	aS'ontO:le
+ইমনকল্যান	i,mO'n'k,ollan
 ঈগলপাখী	igol,pa:khi
 ইঁদুরছানা		i~dur'cha:na:
 একজন		&k'JOn
 উত্তরদাতা		utt'or,data
 উত্তরদায়ী		utt;or,da:I
-কচকচি		kO,c'kOci
+কচকচি		kOtS,kOci
 কবরখানা		kObOr,kha:na
 করদাতা		kOr,data:
 কয়েদখানা		kO'edkhana
@@ -358,7 +362,7 @@ _?	pr'oSnOtSihnO
 কারবার		kar,bar
 কালকেতু		kal,ketu
 কালপুরুষ		kal,puruS
-খরখরে		khOr,khOre
+খরখরে		k#'Or,k#Ore
 খাপছাড়া		khap,chara:
 খানখান		khan,khan
 খানসামা		khan,Sama
@@ -366,13 +370,13 @@ _?	pr'oSnOtSihnO
 খিড়কি		khir.ki
 খুনসুটি		khun,Suti
 খুরপি		khu,rpi
-গজগজ		gOJgOJ
+গজগজ		g'OJ,g'OJ
 গরমিল		gOr,mil
 ঘটকালী		g#Ot'kali
-চটপট		cOt,pOt
+চটপট		cOt',pOt'
 চালবাজ		cal'baJ
 চালবাজি		cal'baJi
-ছটপট		c#Ot'pOt
+ছটপট		tS#'Ot,pOt
 জলখাবার		JOl,khabar
 টনটনে		tOn,tOne
 টানটান		ta:n,tan
@@ -384,7 +388,7 @@ _?	pr'oSnOtSihnO
 গালগল্প		gal'gOlpo
 ঘাসপাতা		gha:s'pa:ta
 চালচুলো		ca:lculo
-ছালবাকল		c#al'ba:kol
+ছালবাকল		tS#'al,bako'l
 কানপাতলা	ka:n'patla:
 খানখান		kha:n'khan
 আরামবাগ	ara:m'bag
@@ -392,7 +396,33 @@ _?	pr'oSnOtSihnO
 নামডাক		na:m'da:k
 নাকছাবি		na:kcha:bi
 পাশবালিশ	pash'baliS
-ফুলশয্যা		ful'SaJJa:
+ফুলশয্যা		fu'l,So'JJa:
 খালবিল		kha:l'bil
 জালসাজি		Jal'Sa:Ji
 পোষ্টমাস্টার	post'ma:sta:r
+অমরসঙ্গী                 O:mor'SongI
+চুপচাপ                    cup'c,ap
+পাগলা                   pa',g'la
+পাগলামো                pa',g'la'mo
+মর্যাদা		mO:rJ,ada
+আমপাতা		'ampa,ta
+আকাশবানী             akaS'banI
+বিদঘুটে 		bi,dg#Ut.e
+দেবদেবী		deb'debI
+অথচ 		O:t#oco
+আমরাই	   	am,rai
+খেলা 		k#&'la
+খেলবো 		k#el'bo
+চারটি 		car,t.i
+একটি 		ekt.i
+দরকার		dO:r'kar'
+দেখছি		dek#'c#i
+বলছি		bo,lc#i
+করছি	 	ko'rc#i
+শুনছি	 	Sun'c#i
+ভাবছি	 	b#a'bc#i
+ঘুরছি 	 	g#U,rc#i
+দিনরাত 	  	din'rat.
+সবরকম 	 	SO:b,rO:kom
+কাজকর্ম 	 	kaJ,kO:'rmo
+দুঃখ 		duk#'k#o

@@ -118,7 +118,7 @@ bool MyApp::OnInit(void)
 {//=====================
 
 int j;
-wxChar *p;
+const wxChar *p;
 char param[120];
 
 
@@ -744,7 +744,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	int debug_flag=0;
 	char fname_log[sizeof(path_dsource)+12];
 	char err_fname[sizeof(path_home)+15];
-	static const char utf8_bom[] = {0xef,0xbb,0xbf,0};
+	static unsigned const char utf8_bom[] = {0xef,0xbb,0xbf,0};
 
 	switch(event.GetId())
 	{

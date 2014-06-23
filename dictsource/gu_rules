@@ -50,8 +50,8 @@
 
 .group ઊ
         ઊ          u
-        ઊં         u~        // + anusvara
-        ઊઁ (_       u~        // + candrabinbu
+        ઊં         un        // + anusvara
+        ઊઁ (_       un        // + candrabinbu
 
 .group ઋ
         ઋ          ru
@@ -80,8 +80,8 @@
 
 .group ઓ
         ઓ          o:
-        ઓં         o~        // +anusvara
-        ઓઁ (_       o~        // +candrabindu
+        ઓં         on        // +anusvara
+        ઓઁ (_       on        // +candrabindu
     ા) ઓં (_       w        // +anusvara
     ા) ઓઁ (_       w
  
@@ -104,25 +104,29 @@
         િ          I
 //      િઁ       In
       િં        In
+      િં (_     I~
 
 .group ી
         ી          i:
         ી (_       i
-        ી (ઁ       i~
-        ીઁ (_      i~
-        ીં         i~
+        ી (ઁ       in
+        ીઁ (_      in
+        ીં         in
+        ીં (_      i~
 
 .group ુ
         ુ          u
-        ુ (ઁ       u~
-        ું         u~
-        ુઁ (_      u~
+        ુ (ઁ       un
+        ુઁ (_      un
+        ું         un
+        ું (_      u~
 
 .group ૂ
         ૂ          u:
-        ૂ (ઁ       u~
-        ૂં         u~        // or O~   ??
-        ૂઁ (_      u~
+        ૂ (ઁ       un
+        ૂઁ (_      un
+        ૂં         un
+        ૂં (_      u~        // or O~   ??
 
 .group ૃ
         ૃ          ru
@@ -151,9 +155,10 @@
 
 .group ો
         ો          o:
-        ોં         o~
-        ો (ઁ       o~
-        ોઁ (_      o~
+        ોં         on
+        ોં (_      o~
+        ો (ઁ       on
+        ોઁ (_      on
 
 .group ૌ
         ૌ          aU        //  [O:] or [aU] ??
