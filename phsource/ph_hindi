@@ -228,8 +228,8 @@ endphoneme
 
 phoneme a~
   vowel long starttype #a endtype #a
-  length 220
-  FMT(vnasal/&_n)
+  length 240
+  FMT(vnasal/a_n)
 endphoneme
 
 phoneme V~

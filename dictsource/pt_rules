@@ -396,6 +396,7 @@ constrang) e (L07_   e
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // meteste, cometeste, etc.
    mex) e (L07_    e
+prouv) e (L07_   e
    mov) e (L07_    e         // re- co-
    olv) e (L07_    e         // devolveste, etc.
    ond) e (L07_    e         // escondeste, etc.
@@ -438,6 +439,9 @@ _enver) e (dL03_   E
      _) e (dnL03_  E
    _gr) e (gL03_   e
   _gal) e (gL03_   e
+_alvin) e (grL03_   e
+_lanc) e (tA_   e
+menorr) ei (a_   EI
   _pel) e (gL03_   e
     _n) e (grL03_  e
   estr) ei (L04_   EI
@@ -507,6 +511,7 @@ s_colh) e (res_    E
     _m) e (sclL04  E
   dioc) e (ses_    E
     _d) e (spL02_  E
+proc) e (ssL02_   E
     _p) e (squL02_ E
  _refr) e (squL02_ E
  _degr) e (dL01_   E
