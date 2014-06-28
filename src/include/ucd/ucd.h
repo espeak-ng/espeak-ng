@@ -134,109 +134,174 @@ namespace ucd
 	  */
 	enum script
 	{
+		Afak, /**< @brief Afaka Script */
+		Aghb, /**< @brief Caucasian Albanian Script */
+		Ahom, /**< @brief Tai Ahom Script */
 		Arab, /**< @brief Arabic Script */
 		Armi, /**< @brief Imperial Aramaic Script */
 		Armn, /**< @brief Armenian Script */
 		Avst, /**< @brief Avestan Script */
 		Bali, /**< @brief Balinese Script */
 		Bamu, /**< @brief Bamum Script */
+		Bass, /**< @brief Bassa Vah Script */
 		Batk, /**< @brief Batak Script */
 		Beng, /**< @brief Bengali Script */
+		Blis, /**< @brief Blissymbols Script */
 		Bopo, /**< @brief Bopomofo Script */
 		Brah, /**< @brief Brahmi Script */
 		Brai, /**< @brief Braille Script */
 		Bugi, /**< @brief Buginese Script */
 		Buhd, /**< @brief Buhid Script */
+		Cakm, /**< @brief Chakma Script */
 		Cans, /**< @brief Unified Canadian Aboriginal Syllabics */
 		Cari, /**< @brief Carian Script */
-		Cakm, /**< @brief Chakma Script */
 		Cham, /**< @brief Cham Script */
 		Cher, /**< @brief Cherokee Script */
+		Cirt, /**< @brief Cirth Script */
 		Copt, /**< @brief Coptic Script */
 		Cprt, /**< @brief Cypriot Script */
 		Cyrl, /**< @brief Cyrillic Script */
+		Cyrs, /**< @brief Cyrillic (Old Church Slavonic variant) Script */
 		Deva, /**< @brief Devanagari Script */
 		Dsrt, /**< @brief Deseret Script */
+		Dupl, /**< @brief Duployan Shorthand Script */
+		Egyd, /**< @brief Egyptian Demotic Script */
+		Egyh, /**< @brief Egyptian Hieratic Script */
 		Egyp, /**< @brief Egyptian Hiegoglyphs */
+		Elba, /**< @brief Elbasan Script */
 		Ethi, /**< @brief Ethiopic Script */
+		Geok, /**< @brief Khutsuri Script */
 		Geor, /**< @brief Geirgian Script */
 		Glag, /**< @brief Glagolitic Script */
 		Goth, /**< @brief Gothic Script */
+		Gran, /**< @brief Grantha Script */
 		Grek, /**< @brief Greek Script */
 		Gujr, /**< @brief Gujarati Script */
 		Guru, /**< @brief Gurmukhi Script */
 		Hang, /**< @brief Hangul Script */
+		Hani, /**< @brief Han (Hanzi, Kanji, Hanja) Script */
 		Hano, /**< @brief Hanunoo Script */
+		Hans, /**< @brief Han (Simplified) Script */
 		Hant, /**< @brief Han (Traditional) Script */
+		Hatr, /**< @brief Hatran Script */
 		Hebr, /**< @brief Hebrew Script */
 		Hira, /**< @brief Hiragana Script */
+		Hluw, /**< @brief Anatolian Hieroglyphs */
+		Hmng, /**< @brief Pahawh Hmong Script */
+		Hrkt, /**< @brief Japanese Syllabaries */
+		Hung, /**< @brief Old Hungarian Script */
+		Inds, /**< @brief Indus Script */
 		Ital, /**< @brief Old Italic Script */
 		Java, /**< @brief Javanese Script */
+		Jpan, /**< @brief Japanese (Han + Hiragana + Katakana) Scripts */
+		Jurc, /**< @brief Jurchen Script */
 		Kali, /**< @brief Kayah Li Script */
 		Kana, /**< @brief Katakana Script */
 		Khar, /**< @brief Kharoshthi Script */
 		Khmr, /**< @brief Khmer Script */
+		Khoj, /**< @brief Khojki Script */
 		Knda, /**< @brief Kannada Script */
+		Kore, /**< @brief Korean (Hangul + Han) Scripts */
+		Kpel, /**< @brief Kpelle Script */
 		Kthi, /**< @brief Kaithi Script */
 		Lana, /**< @brief Tai Tham Script */
 		Laoo, /**< @brief Lao Script */
+		Latf, /**< @brief Latin Script (Fractur Variant) */
+		Latg, /**< @brief Latin Script (Gaelic Variant) */
 		Latn, /**< @brief Latin Script */
 		Lepc, /**< @brief Lepcha Script */
 		Limb, /**< @brief Limbu Script */
+		Lina, /**< @brief Linear A Script */
 		Linb, /**< @brief Linear B Script */
 		Lisu, /**< @brief Lisu Script */
+		Loma, /**< @brief Loma Script */
 		Lyci, /**< @brief Lycian Script */
 		Lydi, /**< @brief Lydian Script */
+		Mahj, /**< @brief Mahajani Script */
 		Mand, /**< @brief Mandaic Script */
+		Mani, /**< @brief Manichaean Script */
+		Maya, /**< @brief Mayan Hieroglyphs */
+		Mend, /**< @brief Mende Kikakui Script */
 		Merc, /**< @brief Meroitic Cursive Script */
 		Mero, /**< @brief Meroitic Hieroglyphs */
 		Mlym, /**< @brief Malayalam Script */
+		Modi, /**< @brief Modi Script */
 		Mong, /**< @brief Mongolian Script */
+		Moon, /**< @brief Moon Script */
+		Mroo, /**< @brief Mro Script */
 		Mtei, /**< @brief Meitei Mayek Script */
-		Mymr, /**< @brief Myanmar Script */
+		Mult, /**< @brief Multani Script */
+		Mymr, /**< @brief Myanmar (Burmese) Script */
+		Narb, /**< @brief Old North Arabian Script */
+		Nbat, /**< @brief Nabataean Script */
+		Nkgb, /**< @brief Nakhi Geba Script */
 		Nkoo, /**< @brief N'Ko Script */
+		Nshu, /**< @brief Nushu Script */
 		Ogam, /**< @brief Ogham Script */
 		Olck, /**< @brief Ol Chiki Script */
 		Orkh, /**< @brief Old Turkic Script */
 		Orya, /**< @brief Oriya Script */
 		Osma, /**< @brief Osmanya Script */
+		Palm, /**< @brief Palmyrene Script */
+		Pauc, /**< @brief Pau Cin Hau Script */
+		Perm, /**< @brief Old Permic */
 		Phag, /**< @brief Phags-Pa Script */
 		Phli, /**< @brief Inscriptional Pahlavi Script */
+		Phlp, /**< @brief Psalter Pahlavi Script */
+		Phlv, /**< @brief Book Pahlavi Script */
 		Phnx, /**< @brief Phoenician Script */
 		Plrd, /**< @brief Miao Script */
 		Prti, /**< @brief Inscriptional Parthian Script */
-		Qaak, /**< @brief Klingon Script */
+		Qaak, /**< @brief Klingon Script (Private Use) */
 		Rjng, /**< @brief Rejang Script */
+		Roro, /**< @brief Rongorongo Script */
 		Runr, /**< @brief Runic Script */
 		Samr, /**< @brief Samaritan Script */
+		Sara, /**< @brief Sarati Script */
 		Sarb, /**< @brief Old South Arabian Script */
 		Saur, /**< @brief Saurashtra Script */
+		Sgnw, /**< @brief Sign Writing */
 		Shaw, /**< @brief Shavian Script */
 		Shrd, /**< @brief Sharada Script */
+		Sidd, /**< @brief Siddham Script */
+		Sind, /**< @brief Sindhi Script */
 		Sinh, /**< @brief Sinhala Script */
 		Sora, /**< @brief Sora Sompeng Script */
 		Sund, /**< @brief Sundanese Script */
 		Sylo, /**< @brief Syloti Nagri Script */
-		Syrn, /**< @brief Syriatic (Eastern) Script */
+		Syrc, /**< @brief Syriac Script */
+		Syre, /**< @brief Syriac Script (Estrangelo Variant) */
+		Syrj, /**< @brief Syriac Script (Western Variant) */
+		Syrn, /**< @brief Syriac Script (Eastern Variant) */
 		Tagb, /**< @brief Tagbanwa Script */
 		Takr, /**< @brief Takri Script */
 		Tale, /**< @brief Tai Le Script */
 		Talu, /**< @brief New Tai Lue Script */
 		Taml, /**< @brief Tamil Script */
+		Tang, /**< @brief Tangut Script */
 		Tavt, /**< @brief Tai Viet Script */
 		Telu, /**< @brief Telugu Script */
+		Teng, /**< @brief Tengwar Script */
 		Tfng, /**< @brief Tifinagh Script */
 		Tglg, /**< @brief Tagalog Script */
 		Thaa, /**< @brief Thaana Script */
 		Thai, /**< @brief Thai Script */
 		Tibt, /**< @brief Tibetan Script */
+		Tirh, /**< @brief Tirhuta Script */
 		Ugar, /**< @brief Ugaritic Script */
 		Vaii, /**< @brief Vai Script */
+		Visp, /**< @brief Visible Speech Script */
+		Wara, /**< @brief Warang Citi Script */
+		Wole, /**< @brief Woleai Script */
 		Xpeo, /**< @brief Old Persian Script */
 		Xsux, /**< @brief Cuneiform Script */
 		Yiii, /**< @brief Yi Script */
-		Zyyy, /**< @brief Inherited Script */
-		Zzzz, /**< @brief Unknown Script */
+		Zinh, /**< @brief Inherited Script */
+		Zmth, /**< @brief Mathematical Notation */
+		Zsym, /**< @brief Symbols */
+		Zxxx, /**< @brief Unwritten Documents */
+		Zyyy, /**< @brief Undetermined Script */
+		Zzzz, /**< @brief Uncoded Script */
 	};
 
 	/** @brief Get a string representation of the script enumeration value.
