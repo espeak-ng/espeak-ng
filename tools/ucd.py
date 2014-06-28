@@ -32,7 +32,9 @@ script_map = {
 	'Phags_Pa': 'Phag',
 	# Codes in http://www.unicode.org/iso15924/iso15924-codes.html not in IANA:
 	'Cuneiform': 'Xsux',
+	'Duployan': 'Dupl',
 }
+
 for ref, tag in iana.read_iana_subtags('data/language-subtag-registry').items():
 	if tag['Type'] == 'Script':
 		# Convert the IANA scipt tag descriptions to the UCD script names:
