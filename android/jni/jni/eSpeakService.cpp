@@ -227,8 +227,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
   if (nat) {
     env->DeleteWeakGlobalRef(nat->object);
     delete nat;
-  } else {
-    env->DeleteWeakGlobalRef(object);
   }
 
   return JNI_TRUE;
