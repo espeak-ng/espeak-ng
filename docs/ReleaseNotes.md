@@ -1,6 +1,12 @@
 Release Notes
 =============
 
+Version 7.0.0.1: Saturday June 28th 2014 \[Jun 2014\]
+-----------------------------------------------------
+
+  *  Remove the ConScript Unicode Registry data from the Script and Category tables.
+  *  Fix mapping Script values to string.
+
 Version 7.0.0: Saturday June 28th 2014 \[Jun 2014\]
 ---------------------------------------------------
 
