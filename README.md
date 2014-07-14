@@ -22,7 +22,7 @@ In addition to this it provides APIs for:
 -  converting to upper, lower and title case.
 
 The following data sets are used for the data tables:
--  [Unicode Character Data 6.3.0](http://www.unicode.org/Public/6.3.0/ucd/);
+-  [Unicode Character Data 7.0.0](http://www.unicode.org/Public/7.0.0/ucd/);
 -  [Klingon](http://www.evertype.com/standards/csur/klingon.html) [F8D0-F8FF].
 
 ## Build Dependencies
