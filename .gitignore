@@ -12,7 +12,9 @@
 
 # build output:
 
-data/
+data/language-subtag-registry
+data/ucd
+
 src/libucd.la
 tests/printucddata
 

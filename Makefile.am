@@ -58,7 +58,6 @@ UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
 
 data/language-subtag-registry:
-	mkdir -pv data
 	wget -O $@ http://www.iana.org/assignments/language-subtag-registry
 
 data/ucd/PropList.txt:
