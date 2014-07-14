@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012 Reece H. Dunn
+# Copyright (C) 2012, 2014 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -28,9 +28,6 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data['GeneralCategory']
-for data in ucd.parse_ucd_data('supplemental', 'Klingon'):
-	for codepoint in data['CodePoint']:
-		unicode_chars[codepoint] = data['GeneralCategory']
 
 # This map is a combination of the information in the UnicodeData and Blocks
 # data files. It is intended to reduce the number of character tables that
@@ -52,7 +49,7 @@ category_sets = [
 # These categories have many pages consisting of just this category:
 #     Cn -- Unassigned
 #     Lo -- CJK Ideographs
-special_categories = ['Cn', 'Lo', 'Sm', 'So']
+special_categories = ['Cn', 'Co', 'Lo', 'Sm', 'So']
 
 category_tables = {}
 for codepoints, category, comment in category_sets:

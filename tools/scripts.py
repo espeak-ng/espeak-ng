@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012 Reece H. Dunn
+# Copyright (C) 2012, 2014 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -27,9 +27,6 @@ ucd_version = sys.argv[2]
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
-		unicode_chars[codepoint] = data['Script']
-for data in ucd.parse_ucd_data('supplemental', 'Klingon'):
-	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data['Script']
 
 # This map is a combination of the information in the UnicodeData and Blocks

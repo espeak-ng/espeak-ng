@@ -86,11 +86,9 @@ tools/case.py: tools/ucd.py \
 	data/ucd/UnicodeData.txt
 
 tools/categories.py: tools/ucd.py \
-	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt
 
 tools/scripts.py: tools/ucd.py \
-	supplemental/Klingon.txt \
 	data/ucd/Scripts.txt
 
 ucd-update: tools/case.py tools/categories.py tools/scripts.py
@@ -119,7 +117,6 @@ tests_printucddata_SOURCES = tests/printucddata.cpp
 tests_printucddata_LDADD   = src/libucd.la
 
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
-	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
 	data/ucd/Scripts.txt
