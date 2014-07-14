@@ -33,10 +33,3 @@ wctype.h/wchar.h compatibility:
 
   *  ctype-style API.
   *  case conversion API (including `totitle` to convert to title case).
-
-  *  Supports the following information from the Unicode Character Data:
-     *  General Category Value (`UnicodeData.txt`);
-     *  General Category Group (`UnicodeData.txt`).
-  *  Supports the following properties from `PropertyList.txt`:
-  *  ctype-style API compatible with `wctype.h`.
-  *  case-conversion API for 
