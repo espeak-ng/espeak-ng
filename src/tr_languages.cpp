@@ -732,6 +732,7 @@ Translator *SelectTranslator(const char *name)
 	case L('e','s'):   // Spanish
 	case L('a','n'):   // Aragonese
 	case L('c','a'):   // Catalan
+	case L('i','a'):   // Interlingua
 	case L_pap:        // Papiamento
 		{
 			static const short stress_lengths_es[8] = {180, 190,  230, 180,  0, 0,  240, 270};
@@ -758,6 +759,12 @@ Translator *SelectTranslator(const char *name)
 				// stress last syllable unless word ends with a vowel
 				tr->punct_within_word = ca_punct_within_word;
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+			}
+			else
+			if(name2 == L('i','a'))
+			{
+				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+				tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
 			}
 			else
 			if(name2 == L('a','n'))

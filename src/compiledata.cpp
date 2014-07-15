@@ -323,6 +323,7 @@ static keywtab_t keywords[] = {
 	{"vowel2",     tPHONEME_FLAG, phVOWEL2},
 	{"palatal",    tPHONEME_FLAG, phPALATAL},
 	{"long",       tPHONEME_FLAG, phLONG},
+	{"dontlist",   tPHONEME_FLAG, phDONTLIST},
 	{"brkafter",   tPHONEME_FLAG, phBRKAFTER},
 	{"rhotic",     tPHONEME_FLAG, phRHOTIC},
 	{"nonsyllabic",tPHONEME_FLAG, phNONSYLLABIC},
@@ -924,6 +925,9 @@ static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname
 	for(ix=0; ix<n_ph; ix++)
 	{
 		ph = ph_tab[ix];
+
+		if(ph->phflags & phDONTLIST)  // "dontlist" attribute
+			continue;
 
 		if(ph->type > 1)
 		{

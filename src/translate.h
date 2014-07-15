@@ -55,6 +55,7 @@
 #define FLAG_ALT4_TRANS    0x40000  // language specific
 #define FLAG_ALT5_TRANS    0x80000  // language specific
 #define FLAG_ALT6_TRANS   0x100000  // language specific
+#define FLAG_ALT7_TRANS   0x200000  // language specific
 
 #define FLAG_COMBINE      0x800000  // combine with the next word
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
@@ -525,7 +526,7 @@ typedef struct {
 #define NUM2_PERCENT_BEFORE     0x10000
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 #define NUM2_ORDINAL_AND_THOUSANDS 0x40000
-#define NUM2_ORDINAL_DROP_VOWEL  0x80000
+#define NUM2_ORDINAL_DROP_VOWEL  0x80000        // currently only for tens and units
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after

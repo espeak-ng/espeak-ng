@@ -606,7 +606,8 @@ endphoneme
 phoneme w
   liquid
   lengthmod 7
-
+  starttype #u
+  
   IF nextPh(isVowel) THEN
     NextVowelStarts
       VowelStart(w/w@)
@@ -621,6 +622,8 @@ phoneme w
 
     IF prevPhW(isNasal) THEN
       FMT(w/w)
+    ELSEIF prevPhW(h) THEN
+      // none,  [hw]
     ELSE
       FMT(w/_w)
     ENDIF
@@ -633,6 +636,7 @@ phoneme w
     FMT(w/w_)
   ENDIF
 endphoneme
+
 
 
 
@@ -1708,6 +1712,9 @@ include ph_german
 
 phonemetable eo base
 include ph_esperanto
+
+phonemetable ia eo
+include ph_interlingua
 
 phonemetable jbo eo
 include ph_lojban

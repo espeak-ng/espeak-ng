@@ -47,6 +47,7 @@
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
 #define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
+#define phDONTLIST 0x2000  // don't list in dict_phonemes
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position
