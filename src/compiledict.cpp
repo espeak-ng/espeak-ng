@@ -108,6 +108,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$alt4",      18},
 	{"$alt5",      19},
 	{"$alt6",      20},
+	{"$alt7",      21},
 
 	{"$combine",   23},   // Combine with the next word
 

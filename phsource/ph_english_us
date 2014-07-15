@@ -48,6 +48,8 @@ phoneme a
 
   IF nextPh(isNasal) THEN
     FMT(vnasal/ee_n2)
+  ELSEIF nextPh(r) THEN
+    FMT(vowel/ee_7)
   ENDIF
   FMT(vwl_en_us/a)
 endphoneme
@@ -63,6 +65,11 @@ phoneme a#
   ipa ɐ
   unstressed
   length 150
+  
+  IF nextPhW(r) THEN
+    ChangePhoneme(3)
+  ENDIF
+  
   FMT(vowel/a#_3)
 endphoneme
 
@@ -80,6 +87,11 @@ phoneme I
   length 160
   IfNextVowelAppend(;)
   ChangeIfDiminished(I2)
+  
+  IF nextPhW(r) THEN
+    length 200
+  ENDIF
+
   FMT(vowel/ii_4)
 endphoneme
 
@@ -177,7 +189,7 @@ endphoneme
 
 phoneme 3:
   vowel  starttype #@  endtype #@
-  length 240
+  length 210
   IfNextVowelAppend(r-)
   ChangeIfDiminished(3)
   FMT(vwl_en_us/3_us2)
@@ -362,6 +374,31 @@ phoneme r/   // used for [r] when not preceding a vowel
   liquid
   lengthmod 2   //
 //  formants NULL
+endphoneme
+
+
+phoneme t#    // reduced [t] as in "city"
+  vcd alv stop
+  ipa ɾ
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(t)
+  ENDIF
+
+  IF KlattSynth THEN
+    IF PreVoicing THEN
+      FMT(klatt/x_tap)
+    ENDIF
+    FMT(klatt/tap2) addWav(x/d, 70)
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(d/x_tap)
+  ENDIF
+  FMT(d/tap2) addWav(x/d, 50)
 endphoneme
 
 

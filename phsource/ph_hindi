@@ -146,10 +146,10 @@ endphoneme
 phoneme a:
   vowel long starttype #a endtype #a
   length 200
-//  IF nextPhW(j) THEN
+  IF nextPhW(j) THEN
     FMT(vowel/a_5)
-//  ENDIF
-//  FMT(vowel/aa_9)
+  ENDIF
+  FMT(vowel/aa_9)
 endphoneme
 
 phoneme a
@@ -548,6 +548,10 @@ phoneme r
   ELSE
     IF prevPhW(isVowel) THEN
       IF nextPhW(isNotVowel) THEN
+        IF nextPhW(v) THEN
+          ChangePhoneme(**)  // test for lang=ta
+        ENDIF
+        
         IF nextPhW(isUStop) OR nextPhW(isVStop) THEN
           ChangePhoneme(*)
         ENDIF

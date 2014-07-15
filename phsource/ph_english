@@ -1,33 +1,18 @@
 
 phoneme t2   // [t] which doesn't reduce
+  vcd alv stop dontlist
+  ChangePhoneme(t)
+endphoneme
+
+
+phoneme t#    // reduced [t] as in "city" in en-us
   vcd alv stop
   ChangePhoneme(t)
 endphoneme
 
 
-phoneme t#    // reduced [t] as in "city"
-  vcd alv stop
-  ipa ɾ
-  lengthmod 5
-  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
-
-  IF KlattSynth THEN
-    IF PreVoicing THEN
-      FMT(klatt/x_tap)
-    ENDIF
-    FMT(klatt/tap2) addWav(x/d, 70)
-  ENDIF
-
-  IF PreVoicing THEN
-    FMT(d/x_tap)
-  ENDIF
-  FMT(d/tap2) addWav(x/d, 50)
-endphoneme
-
-
 phoneme d#    // change to [d] or [t] depending on whether previous phoneme is voiced
-  vls alv stop
+  vls alv stop dontlist
   IF prevPh(isVoiced) THEN
     ChangePhoneme(d)
   ELSE
@@ -37,7 +22,7 @@ endphoneme
 
 
 phoneme z#    // change to [z] or [s] depending on whether previous phoneme is voiced
-  vls alv frc sibilant
+  vls alv frc sibilant dontlist
   IF prevPh(isVoiced) THEN
     ChangePhoneme(z)
   ELSE
@@ -60,23 +45,6 @@ phoneme l      // use dark [l/2] before not-vowel
   ENDIF
 
   CALL base/l
-endphoneme
-
-
-phoneme g-
-  vcd vel stop
-  lengthmod 5
-  Vowelin f1=2  f2=2300 200 300  f3=-300 80
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-
-  IF PreVoicing THEN
-    FMT(g/xg)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(g/g_) addWav(x/g2_)
-  ENDIF
-  FMT(g/g) addWav(x/g2_)
 endphoneme
 
 
@@ -116,6 +84,25 @@ phoneme z/2    // used for 's suffix
 endphoneme
 
 
+phoneme w#
+  vls glt apr  // [h]
+  ipa ʍ
+  
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ENDIF
+
+  WAV(h/hu)
+endphoneme
+
+
 //*******************************************************************
 // VOWELS
 //*******************************************************************
@@ -140,7 +127,7 @@ endphoneme
 
 phoneme @2   //  Schwa, changes to I before a vowel
   vowel  starttype #@  endtype #@
-  unstressed
+  unstressed dontlist
   length 120
   IF nextPh(isVowel) THEN
     ChangePhoneme(I2)
@@ -151,7 +138,7 @@ endphoneme
 
 phoneme @5   //  Schwa, changes to U before a vowel
   vowel  starttype #@  endtype #@
-  unstressed
+  unstressed dontlist
   length 140
   IF nextPh(isVowel) OR nextPh(isPause) THEN
     ChangePhoneme(U)
@@ -193,14 +180,14 @@ endphoneme
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
   ipa a
-  length 185
+  length 200
   
   IF MbrolaSynth THEN
     ChangePhoneme(A:)
   ENDIF
 
   IfNextVowelAppend(r-)
-  FMT(vowel/a)
+  FMT(vowel/a_6, 90)
 endphoneme
 
 
@@ -214,6 +201,7 @@ endphoneme
 
 phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
   vowel  starttype #e  endtype #e
+  dontlist
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND nextVowel(isStressed) THEN
     ChangePhoneme(@)
@@ -225,6 +213,7 @@ endphoneme
 
 phoneme E2  // does not reduce in unstressed syllables
   vowel  starttype #e  endtype #e
+  dontlist
   length 140
   ChangePhoneme(E)  // a second change ([E]  to [I2]) won't happen
 endphoneme
@@ -249,6 +238,10 @@ phoneme I2
   ENDIF
 
   IfNextVowelAppend(;)
+  
+  IF thisPh(isAfterStress) AND thisPh(isFinalVowel) THEN
+    FMT(vowel/ii#_3)
+  ENDIF
   FMT(vowel/ii_4)
 endphoneme
 
@@ -272,8 +265,12 @@ phoneme i   //  optional variant of [I] for end of words
   ipa i
   length 150
   IfNextVowelAppend(;)
+  
+  IF prevVowel(isStressed) AND prevPhW(dZ) THEN
+    FMT(vowel/ii_final)
+  ENDIF
+  
   FMT(vowel/ii_7)
-//  FMT(vowel/ii_final)
 endphoneme
 
 
@@ -287,6 +284,7 @@ endphoneme
 
 phoneme 0#    // [@] in unstressed syllables
   vowel  starttype #o  endtype #o
+  dontlist
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND NOT nextVowel(isUnstressed) THEN
     ChangePhoneme(@)
@@ -298,6 +296,7 @@ endphoneme
 
 phoneme 02   // becomes V in en-us
   vowel  starttype #o  endtype #o
+  dontlist
   length 140
   ChangePhoneme(0)
 endphoneme
@@ -339,6 +338,7 @@ endphoneme
 
 phoneme A#    // [a] in British [A:] in American
   vowel  starttype #a  endtype #a
+  dontlist
   ChangePhoneme(a)
 endphoneme
 
@@ -429,6 +429,20 @@ phoneme oU
   ipa əʊ
   length 220
   FMT(vdiph/@u_en)
+endphoneme
+
+
+phoneme oU#
+  vowel dontlist
+  IF thisPh(isStressed) THEN
+    ChangePhoneme(0)
+  ENDIF
+  
+  IF nextVowel(isStressed) OR prevVowel(isStressed) THEN
+    ChangePhoneme(@)
+  ENDIF
+  
+  ChangePhoneme(oU)
 endphoneme
 
 
@@ -570,6 +584,16 @@ phoneme e:
   vowel  starttype #e  endtype #e
   length 210
   FMT(vowel/e)
+endphoneme
+
+
+phoneme a#2  // for word 'an'
+  vowel dontlist
+  IF next2Ph(isVowel) THEN
+    ChangePhoneme(a#)
+  ELSE
+    ChangePhoneme(a)
+  ENDIF
 endphoneme
 
 

@@ -1351,6 +1351,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	PHONEME_TAB *ph;
 	int use_ipa=0;
 	int done_phoneme_marker;
+	int vowelstart_prev;
 	char phoneme_name[16];
 	static int sourceix=0;
 
@@ -1710,6 +1711,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH] * 2;
+			vowelstart_prev = 0;
 
 			if(((fmtp.fmt_addr = phdata.sound_addr[pd_VWLSTART]) != 0) && ((phdata.pd_control & pd_FORNEXTPH) == 0))
 			{
@@ -1721,9 +1723,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				// check the previous phoneme
 				InterpretPhoneme(NULL, 0, prev, &phdata_prev, NULL);
-				if((fmtp.fmt_addr = phdata_prev.sound_addr[pd_VWLSTART]) != 0)
+				if(((fmtp.fmt_addr = phdata_prev.sound_addr[pd_VWLSTART]) != 0) && (phdata_prev.pd_control & pd_FORNEXTPH))
 				{
-					// a vowel start has been specified by the Vowel program
+					// a vowel start has been specified by the previous phoneme
+					vowelstart_prev = 1;
 					fmtp.fmt2_lenadj = phdata_prev.sound_param[pd_VWLSTART];
 				}
 				fmtp.transition0 = phdata_prev.vowel_transition[0];
@@ -1769,6 +1772,15 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(prev->type==phLIQUID || prev->type==phNASAL)
 			{
 				DoAmplitude(p->amp,amp_env);
+				DoSpect2(ph, 1, &fmtp, p, modulation);  // continue with pre-vocalic rising tone
+				DoPitch(pitch_env,p->pitch1,p->pitch2);
+			}
+			else
+			if(vowelstart_prev)
+			{
+				// VowelStart from the previous phoneme, but not phLIQUID or phNASAL
+				DoPitch(envelope_data[PITCHrise], p->pitch2 - 15, p->pitch2);
+				DoAmplitude(p->amp-1,amp_env);
 				DoSpect2(ph, 1, &fmtp, p, modulation);  // continue with pre-vocalic rising tone
 				DoPitch(pitch_env,p->pitch1,p->pitch2);
 			}
