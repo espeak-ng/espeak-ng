@@ -1357,6 +1357,12 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 									stressed_syllable = vowel_count - 1;   // stress on last syllable
 							}
 							else
+							if(tr->translator_name == L('i','a'))
+							{
+								if((mnem != 's') || phoneme_tab[final_ph2]->type != phVOWEL)
+									stressed_syllable = vowel_count - 1;   // stress on last syllable
+							}
+							else
 							{
 								if((mnem == 's') && (phoneme_tab[final_ph2]->type == phNASAL))
 								{
@@ -3311,7 +3317,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			if(tr->expect_verb || (tr->expect_verb_s && (end_flags & FLAG_SUFX_S)))
 			{
 				// OK, we are expecting a verb
-				if((tr->translator_name == L('e','n')) && (tr->prev_dict_flags[0] & FLAG_ALT6_TRANS) && (end_flags & FLAG_SUFX_S))
+				if((tr->translator_name == L('e','n')) && (tr->prev_dict_flags[0] & FLAG_ALT7_TRANS) && (end_flags & FLAG_SUFX_S))
 				{
 					// lang=en, don't use verb form after 'to' if the word has 's' suffix
 					continue;

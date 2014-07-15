@@ -2,7 +2,7 @@
 phoneme N
   vcd vel nasal
   lengthmod 8            // longer than 'n'
-  IfNextVowelAppend(g-)
+  IfNextVowelAppend(g)
   CALL base/N
 endphoneme
 
