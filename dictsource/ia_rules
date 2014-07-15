@@ -1,0 +1,186 @@
+// Interlingua translation rules for Espeak
+// This file is UTF-8 encoded
+
+// GI: Unstressed i and u turn into semiconsonants before a following vowel; 
+// 	e.g. Bulgaria, filatorio, persuader
+
+.group a
+	a	a
+	ai	aI
+	au	aU
+
+.group e
+	e	e
+	ei	eI
+	eu	eU
+
+.group i
+	i	i 
+	i (A	j // turns into j if followed by vowel
+
+     &) i (c_   =i  // stress on previous syllable
+     &) i (ca_  =i
+     &) i (co_  =i
+     &) i (da_  =i
+     &) i (do_  =i
+        i (fic_ 'i
+        i (fico_ 'i
+     
+
+.group o
+	o	o
+	oi	oI
+
+.group u
+	u	u 
+	u (A	w // turns into w if followed by vowel.
+
+     &) u (la_  =u  // stress on previous syllable
+     &) u (lo_  =u
+  
+	
+// GI: DOUBLE CONSONANTS merge in pronunciation. 
+
+
+.group b
+	b	b
+	b (b
+
+	
+// GI: c before e, i, y is pronounced like ts in 'hats' (or, optionally, like
+// c in 'city'); otherwise like c in 'cats'; ch like ch in 'echo', 'chrome';
+.group c
+	c 	k
+	c (c
+	c (e	ts
+	c (i	ts
+	c (y	ts
+// GI: The digraph ch stands frequently for the sound of sh in 'English' 
+//	and is respelled as sh; e.g. choc (sh-).
+	ch	tS // reduce deviation spellings by making ch standardized
+	ch (l	k
+	ch (r	k
+
+
+.group d
+	d 	d
+	d (d
+
+	
+.group f
+	f 	f
+	f (f
+
+
+.group g 
+	g 	g
+	g (g
+
+	
+// GI: h as in English (or, optionally, silent); after r and t, silent;
+.group h
+	h 	h
+	h (h
+     r) h
+     t) h
+
+     
+// GI: like z in 'azure' (or, optionally, like g in 'gem' or like y in 'yes');
+.group j
+	j 	Z // like z in azure
+	j (j
+
+
+.group k
+	k 	k
+	k (k
+
+
+.group l
+	l 	l
+	l (l
+
+
+.group m
+	m 	m
+	m (m
+
+
+//	The sounds of g and k assimilate a preceding n as in English. 
+.group n
+	n 	n
+	n (n
+	n (k	N
+	n (g	N
+	n (q	N
+
+.group p
+	p 	p
+	p (p
+	ph	f
+
+	
+.group q
+	q	k
+	q (q
+
+
+// GI: r like rr in 'merry' or, better, like r in Spanish 'caro';
+.group r
+	r	R // description too vague, so using standard r trill.
+	r (r
+
+	
+// GI: like s in 'stay'; between vowels, the same 
+// 	(or, optionally, like s in 'these'); 
+//	e.g. sparse, abstruse, accusativo;
+// GI: sound of sh in 'English'
+.group s
+	s	s // s always s for simplicity.
+	s (s
+	sh	S
+	s (_S1  s
+
+// GI:     as in English; ti before vowels, unless stressed or preceded by s,
+//	 like tsy in 'he gets you' (or, optionally, like sy in 'we pass you'
+//	 or like ty in 'we let you'); e.g. actor, garantia, question, 
+//	but action, reverentia;
+
+
+// GI: h as in English (or, optionally, silent); after r and t, silent;
+.group t
+	t	t
+	t (t
+	th	t // after t, h is silent.
+	//ti	S // too variable, English S, French s, latin t, keeping t.
+
+.group v
+	v	v
+	v (v
+
+	
+.group w
+	w	w
+	w (w
+
+	
+// GI: x like x in 'fox'; between vowels, the same 
+//	(or, optionally, like x in 'exact');
+.group x
+	x	ks // always ks for simplicty.
+	x (x
+
+	
+// GI: y unstressed before vowels, like y in 'yes'; 
+//	otherwise like i in 'machine'; e.g. Yugoslavia, typo. 
+.group y
+	y (A	j // j before vowels
+     A) y	j // ??
+	y	i // i otherwise
+	
+	
+.group z
+	z	z
+	z (z
+	
+
