@@ -182,6 +182,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_akan \
 	phsource/ph_albanian \
 	phsource/ph_amhari \
+	phsource/ph_arabic \
 	phsource/ph_aragon \
 	phsource/ph_armenian \
 	phsource/ph_assamese \
@@ -222,6 +223,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_hungarian \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
+	phsource/ph_interlingua \
 	phsource/ph_irish \
 	phsource/ph_italian \
 	phsource/ph_kannada \
@@ -270,6 +272,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_vietnam_sgn \
 	phsource/ph_welsh \
 	phsource/ph_wolof \
+	phsource/ph_yoruba \
 	phsource/ph_zh \
 	phsource/ph_zh_yue \
 	phsource/phonemes \
@@ -308,6 +311,7 @@ dictionaries: \
 	espeak-data/hi_dict \
 	espeak-data/hu_dict \
 	espeak-data/hy_dict \
+	espeak-data/ia_dict \
 	espeak-data/id_dict \
 	espeak-data/is_dict \
 	espeak-data/it_dict \
@@ -523,6 +527,12 @@ dictsource/hy_extra:
 	touch dictsource/hy_extra
 espeak-data/hy_dict: src/espeak phsource/phonemes.stamp dictsource/hy_list dictsource/hy_rules dictsource/hy_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=hy && cd ..
+
+ia: espeak-data/ia_dict
+dictsource/ia_extra:
+	touch dictsource/ia_extra
+espeak-data/ia_dict: src/espeak phsource/phonemes.stamp dictsource/ia_list dictsource/ia_rules dictsource/ia_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=ia && cd ..
 
 id: espeak-data/id_dict
 dictsource/id_extra:
