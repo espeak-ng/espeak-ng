@@ -1,5 +1,5 @@
-	// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.11
-// *   This file writen by Shadyar Khodayari 02-05-2014
+	// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.12
+// *   This file writen by Shadyar Khodayari 07-01-2014
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -75,8 +75,8 @@ _و	'vAv
 ً	'an
 ٌ	'on
 ٍ	'en
-_،	viRgul
-_؛	noqteviRgul
+،	viRgul
+؛	noqteviRgul
 ـ	keSi'dane,hoRuf
 ئ	'je,hamze:
 ؤ	'vAv,hamze:
@@ -189,22 +189,22 @@ _#th	om
 // character names.  (An underscore added before characters which should not spoken during normal reading of text)
 ÷	taqsimbaR
 ×	zaRbdaR
-_؟	alAmatesoAl
-_!	alAmate'ta?adZdZob
+؟	alAmatesoAl
+!	alAmate'ta?adZdZob
 $	dolAR
 %	daR'sad
 [	beRAketbAz
 ]	beRAketbaste:
-_(	paRAntezbAz
-_)	paRAntezbaste:
+(	paRAntezbAz
+)	paRAntezbaste:
 *	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
-	_-	nim_fAsele:
-_.	noqte:
-_:	'donoqte:
-<	:alAmate'kutSektaR
+	-	nim_fAsele:
+.	noqte:
+:	'donoqte:
+<	alAmate'kutSektaR
 =	:alAmate'mosAvi
->	:alAmate'bozoRgtaR
+>	alAmate'bozoRgtaR
 {	g:ijumebAz
 }	g:ijumebaste:
 
@@ -355,6 +355,7 @@ _:	'donoqte:
 آبسکون	Abeskun
 آبش	AbaS
 آبشش	AbSoS
+آبله	'Abele:
 آبم	Abam
 آبونمان	AbunmAn
 آبپخش	AbpaxS
@@ -479,6 +480,7 @@ _:	'donoqte:
 آفتومات	AftomAt
 آفرودیت	AfRodit
 آفرید	AfaRid
+آفریده	AfaRide:
 آفریدگار	AfaRidegAR
 آفریقا	AfRiq1A
 آفرین	AfaRin
@@ -503,6 +505,7 @@ _:	'donoqte:
 آلتیمتر	AltimetR
 آلدسترون	AldosteRon
 آلدیید	Aldeid
+آلرژی	AleRZi
 آلزایمر	AlzAjmeR
 آلفرد	AlfeRed
 آلماتی	AlmAti
@@ -585,6 +588,7 @@ _:	'donoqte:
 آنسفالیت	AnsefAlit
 آنطور	Anto:R
 آنفلوآنزا	AnfeloAnzA
+آنفلوانزا	AnfeloAnzA
 آنقدر	Anq1adR
 آنقوت	Anq1ut
 آنلاین	AnlAjn
@@ -669,6 +673,7 @@ _:	'donoqte:
 آگنتوزوییک	Agnetozoik
 آگه	Agah
 آگهی	Agahi
+آگوست	Agost
 آی	Aj
 آیتم	Ajtem
 آیدا	AjdA
@@ -906,7 +911,6 @@ _:	'donoqte:
 اخلاقا	axlAq1an
 اخلال	exlAl
 اخوان	axavAn
-اخوانیات	exvAnijAt
 اخوانیه	exvAnije
 اخوت	oxovvat
 اخوی	axavi
@@ -918,6 +922,7 @@ _:	'donoqte:
 ادار	edAR
 اداره	'ed,ARe:
 ادامه	edAme:
+ادامۀ	'edAmeje
 ادانشده	adAnaSode
 ادب	adab
 ادبا	odabA
@@ -935,7 +940,6 @@ _:	'donoqte:
 ادلۀ	adelleje
 ادموند	edmond
 ادهم	adham
-ادوات	adavAt
 ادوارد	edvARd
 ادواردو	edvARdo
 ادونیست	advenist
@@ -1087,6 +1091,7 @@ _:	'donoqte:
 ازیریس	oziRis
 اسارت	esARat
 اساسا	asAsan
+اسامه	osAme
 اسانس	esAns
 اسایه	?esA?e
 اسبات	esbAt
@@ -1189,6 +1194,7 @@ _:	'donoqte:
 استوانۀ	ostovAneje
 استوخودوس	ostoxoddus
 استودیو	estedijo
+استور	estoR
 استوره	ostuRe:
 استوقدوس	ostoq1oddus
 استون	aseton
@@ -1224,6 +1230,7 @@ _:	'donoqte:
 اسطرلاب	ostoRlAb
 اسطقس	ostoq1os
 اسطوخودوس	ostoxoddus
+اسطور	ostuR
 اسطوره	ostuRe:
 اسف	asaf
 اسفالت	esfAlt
@@ -1262,6 +1269,7 @@ _:	'donoqte:
 اسپارتا	espARtA
 اسپارتاکوس	espARtAkus
 اسپاسم	espAsm
+اسپانسر	'espAnseR
 اسپانسرخطم	espAnseR
 اسپانیا	espAnijA
 اسپانیول	espAnjol
@@ -1335,7 +1343,6 @@ _:	'donoqte:
 اسیدکربنیک	asidkaRbonik
 اسیلاتور	asilAtoR
 اسیلوسکپ	asiloskop
-اشارات	eSARAt
 اشارت	eSARat
 اشاره	eSARe:
 اشاعه	eSA?e
@@ -1359,6 +1366,7 @@ _:	'donoqte:
 اشل	eSel
 اشنویه	oSnavijje:
 اشپیل	eSpil
+اشپیگل	eSpigel
 اشک	aSk
 اشکاف	eSkAf
 اشکال	e:S'kAl
@@ -1408,7 +1416,6 @@ _:	'donoqte:
 اطفایّۀ	etfAijjeje
 اطفایۀ	etfAijjeje
 اطلاع	e:ttelA?
-اطلاعات	ettelA?At
 اطلاق	etlAq1
 اطمینان	etminAn
 اطناب	etnAb
@@ -1448,9 +1455,7 @@ _:	'donoqte:
 اغما	eq1mA
 اغماض	eq1mAz
 اغوا	eq1vA
-افادات	efAdAt
 افاده	efAdeh
-افاضات	efAzAt
 افاضه	efAze
 افاقه	efAq1e:
 افت	oft
@@ -1523,6 +1528,7 @@ _:	'donoqte:
 اقوی	aq1vA
 اقویا	aq1vijA
 اقیانوس	oq1jAnus
+الائمه	ol_a?emme:
 الابختکی	allAbaxtaki
 الابختی	allAbaxti
 الابهی	alabhA
@@ -1543,7 +1549,6 @@ _:	'donoqte:
 الترجمۀ	oltaRdZomeje
 التزام	eltezAm
 التصاق	eltesAq1
-التفات	eltefAt
 التفاوت	ottafAvot
 التقا	elteq1A
 التقاط	elteq1At
@@ -1558,9 +1563,11 @@ _:	'donoqte:
 الحمد	alhamd
 الحمدالله	alhamdolellAh
 الخروج	olxoRudZ
+الخلقه	olxelq1e
 الدّین	oddin
 الدین	oddin
 الرحمان	aRRahmAn
+الریه	oRRije
 الزام	elzAm
 الزاما	elzAman
 السادات	ossAdAt
@@ -1568,6 +1575,7 @@ _:	'donoqte:
 السالوادور	elsAlvAdoR
 الست	alast
 السلطان	ossoltAn
+السلطنه	ossaltane:
 الشرکه	oSSeRke
 الشعاع	oSSo?A?
 الشعرا	oSSo?aRA
@@ -1610,10 +1618,12 @@ _:	'donoqte:
 المپ	olamp
 المپیاد	olampijAd
 المپیک	olampik
+المیرا	elmiRA
 الناز	elnAz
 الناس	onnAs
 النسا	onnesA
 النهار	onnahAR
+النهرین	onnahRejn
 النّهار	onnahAR
 النگ	alang
 النگو	alangu
@@ -1714,7 +1724,6 @@ _:	'donoqte:
 املا	emlA
 املت	omlet
 امنا	omanA
-اموات	amvAt
 امور	omuR
 امولسیون	emolsijon
 اموی	omavi
@@ -1820,6 +1829,7 @@ _:	'donoqte:
 انکسار	enkesAR
 انکوباتور	ankubAtoR
 انگار	engAR
+انگارد	'engARad
 انگاشت	engASt
 انگبین	angabin
 انگشت	angoSt
@@ -1846,7 +1856,7 @@ _:	'donoqte:
 اهم	ahamm
 اهمال	ehmAl
 اهمّ	aham
-اهمیت	'ahammi:,jat
+اهم	aham
 اهورامزدا	ahuRAmazdA
 او	u:
 اوا	evA
@@ -1858,6 +1868,7 @@ _:	'donoqte:
 اوتار	o:tAR
 اوتاوا	otAvA
 اوتوپیا	otopijA
+اوتیسم	'otism
 اوج	'o:dZ
 اوجا	udZA
 اودکلن	odokolon
@@ -1870,6 +1881,7 @@ _:	'donoqte:
 اورتور	oveRtuR
 اورتوپد	oRtoped
 اورد	ovoRd
+اورست	eveRest
 اورنگ	o:Rang
 اورولوژی	uRoloZi
 اوروگویه	oRogue
@@ -1880,11 +1892,11 @@ _:	'donoqte:
 اوزاکا	ozAkA
 اوزن	ozon
 اوستا	avestA
+اوسط	o:sat
 اوصاف	osAf
 اوضاع	o:zA?
 اوغور	oq1oR
 اوقات	o:q1At
-اوقاتی	o:q1Ati
 اوقاف	o:q1Af
 اول	'avval
 اولا	avvalan
@@ -1895,6 +1907,7 @@ _:	'donoqte:
 اولتراسونیک	oltRAsonik
 اولتراویولت	ultRAvijolet
 اولتیماتوم	oltimAtom
+اولشه	avvaleSe
 اولمپیا	olampijA
 اولوالعزم	ololazm
 اولویت	o:lavijat
@@ -2089,6 +2102,7 @@ _:	'donoqte:
 ایوانوویچ	ivAnovitS
 ایوب	ajjub
 ایوزین	eozin
+ایول	'ejval
 ایوژنی	ijoZeni
 ایّام	ajjAm
 ایگرگ	igReg
@@ -2265,6 +2279,7 @@ _:	'donoqte:
 بانک	bAnk
 بانکتزنی	bAnketzani
 بانکزن	bAnkzan
+بانکوک	bAnkok
 بانگ	bAng
 بانگهی	bAngahi
 باهجا	bAhedZA
@@ -2311,6 +2326,7 @@ _:	'donoqte:
 بتا	betA
 بتاترون	betAteRon
 بتر	botR
+بترسان	betaRsAn
 بتهون	bethoven
 بتهوون	bethoven
 بتوان	betavAn
@@ -2357,6 +2373,7 @@ _:	'donoqte:
 بخشودنی	baxSudani
 بخشوده	baxSude
 بخشودگی	baxSudegi
+بخشید	baxSid
 بخشیدن	baxSidan
 بخشیده	baxSide:
 بخشیدی	baxSidi
@@ -2382,7 +2399,7 @@ _:	'donoqte:
 بدترکیب	badtaRkib
 بدتری	badtaRi
 بدجنس	baddZens
-بدجور	baddSuR
+بدجور	baddZuR
 بدجوری	baddZuRi
 بدحجاب	badhedZAb
 بدحساب	badhesAb
@@ -2519,6 +2536,7 @@ _:	'donoqte:
 بربر	baRbaR
 بربط	baRbat
 برتافت	baRtAft
+برتراند	beRtRAnd
 برتری	baRtaRi
 برج	boRdZ
 برجا	baRdZA
@@ -2609,7 +2627,6 @@ _:	'donoqte:
 برهه	boRhe:
 برهوت	baRahut
 برو	boRo
-بروات	baRavAt
 بروبر	beRRobeR
 بروبرو	boRoboRo
 بروبوم	baRobum
@@ -2852,6 +2869,7 @@ _:	'donoqte:
 بلقیس	belq1ejs
 بلم	balam
 بلند	'boland
+بلندای	bolandAje
 بلندقد	bolandq1ad
 بلندمدت	bolandmoddat
 بلندهمت	bolandhemmat
@@ -2898,6 +2916,7 @@ _:	'donoqte:
 بنابراین	banA_baR_in
 بنابه	banAbe:
 بنادر	banAdeR
+بنامند	benAmand
 بنان	banAn
 بناگوشک	banAguSak
 بنج	bondZ
@@ -2914,6 +2933,7 @@ _:	'donoqte:
 بندرپهلوی	bandaRpahlavi
 بندرگز	bandaRgaz
 بندزنی	bandzani
+بندست	bandast
 بندفنگ	bandfang
 بندقیر	bandq1iR
 بندوبساط	bandobasAt
@@ -2961,6 +2981,7 @@ _:	'donoqte:
 بنیان	bonjAn
 بها	bahA
 بهاءالله	bahA_ollAh
+بهائیت	bahA?ijjat
 بهاالله	bahA_olAh
 بهابازار	bahAbAzAR
 بهابرگ	bahAbaRg
@@ -3013,16 +3034,19 @@ _:	'donoqte:
 بوالفضول	bolfozul
 بوالهوس	bolhavas
 بوالهوسانه	bolhavasAne
+بوانات	bavAnAt
 بوتاکس	butAks
 بوجود	bevodZud
 بوحشت	bevahSat
 بوداپست	budApest
 بودج	buddZ
 بودونبود	budonabud
+بودیسم	budism
 بورات	boRAt
 بوراکس	boRAks
 بورت	buRet
 بورز	bevaRz
+بورزد	bevaRzad
 بورس	buRs
 بورژوا	buRZuvA
 بورژوازی	buRZvAzi
@@ -3063,10 +3087,12 @@ _:	'donoqte:
 بچگی	batStSegi
 بچین	betSin
 بژ	beZ
+بکآپ	bakAp
 بکارت	bekARat
 بکارگیری	bekARgiRi
 بکاه	bekAh
 بکاهد	bekAhad
+بکاپ	bakAp
 بکتاش	baktAS
 بکر	bekR
 بکرات	bekaRRAt
@@ -3143,6 +3169,7 @@ _:	'donoqte:
 بیضا	bejzA
 بیضتین	bejzatejAn
 بیضوی	bejzavi
+بیع	bej?
 بیعرفان	bi_eRfAn
 بیعمل	bi?amal
 بیفت	bijoft
@@ -3162,21 +3189,26 @@ _:	'donoqte:
 بیلیونم	'milju:nom
 بیمعرفت	bima?Refat
 بین	'bejn
+بینابین	bejnAbejn
 بینات	bajenAt
 بینان	binAn
 بینانه	binAne:
 بینجام	bijandZAm
+بینجامد	bijandZAmad
 بیند	binad
 بینداز	bijandAz
 بیندازد	bijandAzad
 بیندیش	bijandiS
+بیندیشد	bijandiSad
 بینش	bineS
 بینظم	binazm
 بینفوذ	binofuz
 بینم	binam
 بینند	binand
 بیننده	binande
+بینه	bajjene:
 بینوا	binavA
+بینۀ	bajjeneje
 بینی	bini
 بینید	binid
 بینیم	binim
@@ -3229,6 +3261,7 @@ _:	'donoqte:
 تارت	tARt
 تارخ	tARox
 تارریس	tARRis
+تارزان	tARzAn
 تارزن	tARzan
 تارم	tARom
 تارمکان	tARmekAn
@@ -3261,6 +3294,8 @@ _:	'donoqte:
 تاهل	taahhol
 تاول	tAval
 تاچر	tAtSeR
+تاکبک	tAkbak
+تاکس	tAks
 تاکسی	tAksi
 تاکسیدرمی	tAksideRmi
 تاکسیمتر	tAksimetR
@@ -3290,7 +3325,6 @@ _:	'donoqte:
 تبع	taba
 تبعا	tab?an
 تبعات	taba?At
-تبعاتی	taba?Ati
 تبعه	tabaeje
 تبعیات	taba?ijjAt
 تبعیت	taba?ijjat
@@ -3364,7 +3398,6 @@ _:	'donoqte:
 تخیر	taxajjoR
 تخیل	taxa'jjol
 تدارک	tadARok
-تدارکات	tadARokAt
 تداوم	tadAvom
 تدریجا	tadRidZan
 تدهین	tadhin
@@ -3376,6 +3409,7 @@ _:	'donoqte:
 تذکر	tazakoR
 تذکره	tazkaRe:
 تراب	toRAb
+ترابر	taRAbaR
 ترابری	taRAbaRi
 تراجم	taRAdZom
 تراخم	taRAxom
@@ -3412,6 +3446,7 @@ _:	'donoqte:
 تربیم	teRbijom
 ترترو	teRteRu
 ترجمان	taRdZomAn
+ترجمش	taRdZomaS
 ترجمه	taRdZome:
 ترجمۀ	taRdZomeje
 ترجیحا	taRdZihan
@@ -3463,7 +3498,6 @@ _:	'donoqte:
 ترنج	toRandZ
 ترنم	taRannom
 ترنگ	toRang
-ترهات	toRRahAt
 تروتازه	taRotAze
 تروتازگی	taRotAzegi
 تروتسکیسم	teRoteskism
@@ -3623,6 +3657,7 @@ _:	'donoqte:
 تلفاکس	telefAks
 تلفن	tele'fon
 تلفنا	telefonan
+تلفنبانک	telefonbAnk
 تلفکس	telefaks
 تلقی	talaq1q1i
 تلمب	tolomb
@@ -3671,7 +3706,6 @@ _:	'donoqte:
 تمشک	tameSk
 تملک	tamallok
 تمنا	tamannA
-تمنیات	tamannijAt
 تمهید	tamhid
 تموج	tamavvodZ
 تمول	tamavvol
@@ -3719,6 +3753,7 @@ _:	'donoqte:
 تنگاتنگ	tangAtang
 تنگراه	tangRAh
 تنگستن	tangestan
+تنگسیر	tangesiR
 تنگنا	tangnA
 تنگوز	tunguz
 تنید	tanid
@@ -3738,6 +3773,7 @@ _:	'donoqte:
 تهویه	tahvije:
 تهویۀ	tahvijeje
 تهی	tohi
+تهیدستان	tohidastAn
 تهیه	tahi:je:
 تهیّه	tahi:je:
 تو	to
@@ -4065,6 +4101,7 @@ _:	'donoqte:
 جرثومه	dZoRsume
 جرج	dZoRdZ
 جردن	dZoRdan
+جرز	dZeRz
 جرس	dZaRas
 جرسقیل	dZaRsaq1il
 جرش	dZeReS
@@ -4088,7 +4125,7 @@ _:	'donoqte:
 جزوه	dZozve:
 جزیرةالعرب	dZaziRatolaRab
 جزیره	dZaziRe:
-جزییات	dZozi:jAt
+جزییات	dZoz?i:jAt
 جسارت	dZesARat
 جسارتا	dZesARatan
 جستجو	dZostodZu:
@@ -4114,11 +4151,11 @@ _:	'donoqte:
 جفر	dZafaR
 جفعر	dZafaR
 جفنگ	dZafang
+جلاد	tSallAd
 جلبک	dZolbak
 جلد	dZeld
 جلزولز	dZelezovelez
 جلس	dZalas
-جلسات	dZalasAt
 جلسقه	dZelesq1e:
 جلسه	dZalase:
 جلف	dZelf
@@ -4133,9 +4170,9 @@ _:	'donoqte:
 جمعا	dZam?an
 جمعه	dZom?e:
 جمل	dZomal
-جملات	dZomalAt
 جمله	dZomle:
 جملگی	dZomlegi
+جملۀ	dZomleje
 جمهور	dZomhuR
 جمهوری	dZomhuRi
 جمیعا	dZamian
@@ -4158,7 +4195,7 @@ _:	'donoqte:
 جنبید	dZonbid
 جنت	dZannat
 جنتلمن	dZentelman
-جند	tSond
+جند	dZond
 جنده	dZende:
 جندگی	dZendegi
 جنرال	dZeneRAl
@@ -4179,6 +4216,7 @@ _:	'donoqte:
 جواهر	dZavAheR
 جواهرنشان	dZavAheRneSAn
 جودو	dZodo
+جورج	dZoRdZ
 جورجیا	dZoRdZijA
 جورهمسری	dZuRhamsaRi
 جوزده	dZavzadd
@@ -4191,7 +4229,7 @@ _:	'donoqte:
 جوّی	dZavvi
 جوکار	dZo:kAR
 جوگندمی	dZovgandomi
-جویان	jujAn
+جویان	dZujAn
 جویبار	dZujbAR
 جکوزی	dZakuzi
 جگر	dZegaR
@@ -4321,7 +4359,6 @@ _:	'donoqte:
 حصین	hasin
 حضار	hozzAR
 حضانت	hezAnat
-حضرات	hazaRAt
 حضورا	hozuRan
 حطام	hotAm
 حطی	hotti
@@ -4346,6 +4383,7 @@ _:	'donoqte:
 حلاوت	halAvat
 حلب	halab
 حلزون	halazun
+حلش	hallaS
 حلقوم	holq1um
 حلقوی	halq1avi
 حلم	helm
@@ -4371,6 +4409,7 @@ _:	'donoqte:
 حنبل	hanbal
 حنظل	hanzal
 حنظله	hanzale
+حنفی	hanafi
 حنین	honajAn
 حوادث	havAdes
 حواله	ha'vAle:
@@ -4426,6 +4465,7 @@ _:	'donoqte:
 خاتم	xAtam
 خاتمه	xAteme:
 خادم	xAdem
+خارد	xARad
 خارش	xAReS
 خارشکر	xARSekaR
 خارپشت	xARpoSt
@@ -4438,6 +4478,7 @@ _:	'donoqte:
 خالصجات	xAlesdZAt
 خامنی	xAmenei
 خاموش	xAmu:S
+خاندان	xAndAn
 خانقلی	xAnq1oli
 خانم	xAnum
 خانواد	xAnevAd
@@ -4474,6 +4515,7 @@ _:	'donoqte:
 خجند	xodZand
 خجول	xadZul
 خدا	xodA
+خدابنده	xodAbande:
 خداحافظ	xodAhAfez
 خداوند	xodAvand
 خداوندا	xodAvandA
@@ -4485,14 +4527,11 @@ _:	'donoqte:
 خدر	xadaR
 خدعه	xod?e
 خدم	xadam
-خدمات	xadamAt
 خدمت	xedmat
 خدمه	xadame:
 خراز	xaRRAz
 خراسان	xoRAsAn
-خرافات	xoRAfAt
-خرافه	xoRAfe
-خرافی	xoRAfi
+خراف	xoRAf
 خربزه	xaRboze
 خربزۀ	xaRbozeje
 خربق	xaRbaq1
@@ -4534,8 +4573,10 @@ _:	'donoqte:
 خرما	xoRmA
 خرمالو	xoRmAlu
 خرماپزان	xoRmApazAn
+خرمدره	xoRRamdaRRe:
 خرمشاهی	xoRRamSAhi
 خرمشهر	xoRamSahR
+خرمن	xaRman
 خرمندی	xoRmandi
 خرمهره	xaRmohRe:
 خرمهرۀ	xaRmohReje
@@ -4559,7 +4600,7 @@ _:	'donoqte:
 خزت	xazat
 خزر	xazaR
 خزرج	xazRadZ
-خزعبلات	xoza?balAt
+خزعبل	xoza?bal
 خزم	xazam
 خسارات	xesARAt
 خسارت	xesARat
@@ -4580,6 +4621,7 @@ _:	'donoqte:
 خشک	xoSk
 خشکار	xoSkAR
 خشکبار	xoSkbAR
+خشکش	xoSkaS
 خشکی	xoSki
 خشکیدگی	xoSkidegi
 خشکیزی	xoSkizi
@@ -4682,12 +4724,15 @@ _:	'donoqte:
 خودالقا	xodelq1A
 خودانگیختگی	xodangixtegi
 خودایمنی	xodimeni
+خودتو	xodeto
 خودرو	xodRo
 خودرودیزل	xodRovdizel
 خودروکار	xodRovkAR
 خودسترونی	xodsetaRvani
+خودمو	xodamo
 خودکشی	xodkoSi
 خودگشانی	xodgoSni
+خورخه	xoRxe:
 خورد	xoRd
 خوردوخوراک	xoRdoxoRAk
 خورش	xoReS
@@ -4705,6 +4750,7 @@ _:	'donoqte:
 خونبر	xunbaR
 خونتا	xontA
 خونسرد	xunsaRd
+خونواده	xunevAde:
 خونگرم	xungaRm
 خویش	xiS
 خویشا	xiSA
@@ -4788,7 +4834,6 @@ _:	'donoqte:
 دترمینیسم	deteRminism
 دخالت	dexAlat
 دخان	doxAn
-دخانیات	doxAnijAt
 دخت	doxt
 دختر	doxtaR
 دخترا	doxtaRA
@@ -4929,7 +4974,6 @@ _:	'donoqte:
 دستشو	dasteSo
 دستمبو	dastambu
 دستور	dastuR
-دستوراتی	dastuRAti
 دستورالعمل	dastuRol_amal
 دستوری	dastuRi
 دستپاچه	dastpAtSe
@@ -4959,6 +5003,7 @@ _:	'donoqte:
 دشک	doSak
 دعا	doA
 دعات	doAt
+دعام	do?Am
 دعوا	da?'vA
 دعوات	da?avAt
 دعوت	da?'vat
@@ -4980,6 +5025,7 @@ _:	'donoqte:
 دلارام	delARAm
 دلال	dallAl
 دلالت	delAlat
+دلان	delAn
 دلاور	delAvaR
 دلاویز	delAviz
 دلاک	dallAk
@@ -5006,6 +5052,7 @@ _:	'donoqte:
 دلهره	delhoRe:
 دلو	dalv
 دلواپس	delvApas
+دلواپسان	delvApasAn
 دلپسند	delpasand
 دلکش	'delkaS
 دلکو	delko
@@ -5024,8 +5071,10 @@ _:	'donoqte:
 دمبرگ	dombaRg
 دمبل	dambel
 دمبک	dombak
+دمت	damat
 دمر	damaR
 دمرو	damaRu
+دمش	damaS
 دمشق	dameSq1
 دمغ	damaq1
 دمق	damaq1
@@ -5104,6 +5153,7 @@ _:	'donoqte:
 دوزخ	duzax
 دوزد	duzad
 دوست	d'u:st
+دوستا	dustA
 دوستار	dustAR
 دوستاش	dustAS
 دوستام	dustAm
@@ -5272,6 +5322,7 @@ _:	'donoqte:
 رؤسا	Ro?asA
 رؤیت	Ro?jat
 رئال	ReA:l
+رئالیسم	ReAlism
 رئاکتور	ReAktoR
 رئیسجمهور	Ra_isdZomhuR
 رابرت	RAbeRt
@@ -5348,8 +5399,8 @@ _:	'donoqte:
 رباتیک	RobAtik
 رباخوار	RebAxAR
 رباط	RobAt
+رباطکریم	RobAtkaRim
 رباعی	RobA_i
-رباعیات	RobA_ijAt
 ربانی	RabbAni
 رباید	RobAjad
 ربایش	RobAjeS
@@ -5372,7 +5423,6 @@ _:	'donoqte:
 رجوی	RadZavi
 رجیستر	RedZisteR
 رحلت	Rehlat
-رحمات	RahamAt
 رحمان	RahmAn
 رخ	Rox
 رخام	RoxAm
@@ -5443,7 +5493,6 @@ _:	'donoqte:
 رشت	R'aSt
 رشته	ReSte:
 رشتۀ	ReSteje
-رشحات	RaSahAt
 رشد	R'oSd
 رشدنیافته	RoSdnajAfte
 رشوه	ReSveh
@@ -5571,6 +5620,7 @@ _:	'donoqte:
 روحانی	RohAni
 روحوضی	Ruho:zi
 رود	Ravad
+رودبار	RudbAR
 رودخانه	Rud'xAne:
 رودربایستی	RudaRbAjsti
 رودررو	RudaRRu
@@ -5731,10 +5781,10 @@ _:	'donoqte:
 زجاج	zodZAdZ
 زجردیده	zadZRdide
 زحل	zohal
-زحمات	zahamAt
 زخارف	zaxARef
 زخرف	zoxRof
 زدا	zodA
+زداید	zodAjad
 زدم	zadam
 زدن	zadan
 زدگی	zadegi
@@ -5820,6 +5870,7 @@ _:	'donoqte:
 زندگان	zendegAn
 زندگانی	zendegAni
 زندگی	'zendegi
+زندۀ	zendeje
 زندیه	zandije:
 زنش	zanaS
 زنم	zanam
@@ -5894,6 +5945,7 @@ _:	'donoqte:
 سارافن	sARAfon
 سارافون	sARAfon
 سارتر	sARtR
+سارس	sARs
 سازد	sAzad
 سازدهنی	sAzdahani
 ساززن	sAzzan
@@ -5906,6 +5958,7 @@ _:	'donoqte:
 سالخورده	sAlxoRde
 سالخوردگی	sAlxoRdegi
 سالم	sAlem
+سالمرگ	sAlmaRg
 سالمون	sAlmon
 سالن	sAlon
 سامسونت	sAmsonet
@@ -5928,7 +5981,9 @@ _:	'donoqte:
 سانسیبل	sAnsibl
 سانفرانسیسکو	sAnfeRAnsisko:
 سانیتگراد	sAntigeRAd
+ساوجبلاغ	sAvodZbolAq1
 ساپروفیت	sApRofit
+ساپورت	sApoRt
 ساچمه	sAtSme:
 ساکت	sAket
 ساکسفون	sAksifon
@@ -5939,6 +5994,8 @@ _:	'donoqte:
 سایت	sAjt
 سایر	sAjeR
 سایش	sAjeS
+سایلنت	sAjlent
+ساین	sAjn
 سبحان	sobhAn
 سبحه	sobhe
 سبد	sabad
@@ -5983,7 +6040,7 @@ _:	'donoqte:
 ستیغ	setiq1
 سجاف	sedZAf
 سجل	sedZell
-سجن	sejn
+سجن	sedZn
 سحرآسا	sehRAsA
 سحرخیز	sahaRxiz
 سحری	sahaRi
@@ -6048,6 +6105,7 @@ _:	'donoqte:
 سرط	saRat
 سرطان	saRatAn
 سرعت	soR?at
+سرعین	saR?ejn
 سرفه	soRfe:
 سرقت	seRq1at
 سرم	saRam
@@ -6062,6 +6120,7 @@ _:	'donoqte:
 سرنشین	saRneSin
 سرنگ	soRang
 سرنگون	saRnegun
+سره	seRe
 سرهم	saR_ham
 سرهنگی	saRhangi
 سرو	saRv
@@ -6083,6 +6142,7 @@ _:	'donoqte:
 سرکه	seRke:
 سرکوفت	saRkuft
 سرگران	saRgeRAn
+سرگرد	saRgoRd
 سرگرم	saRgaRm
 سرگون	soRgun
 سرگین	seRgin
@@ -6091,6 +6151,7 @@ _:	'donoqte:
 سرید	soRid
 سریش	siRiS
 سریعا	saRi?an
+سریعتری	saRi?taRi
 سریلانکا	seRilAnkA
 سزا	sezA
 سزار	sezAR
@@ -6099,6 +6160,7 @@ _:	'donoqte:
 سس	sos
 سست	sost
 سشوار	seSoAR
+سعه	se?e
 سعود	so?ud
 سعی	sa?j
 سعیش	sa?jaS
@@ -6176,6 +6238,7 @@ _:	'donoqte:
 سمنان	semnAn
 سمندر	samandaR
 سمنو	samanu
+سمنگان	samangAn
 سمور	samuR
 سمک	samak
 سمیرم	semiRom
@@ -6188,6 +6251,7 @@ _:	'donoqte:
 سنبه	sonbe:
 سنت	sonnat
 سنتر	senteR
+سنتز	santez
 سنتی	sonnati
 سنجد	sendZed
 سنجش	sandZeS
@@ -6204,7 +6268,7 @@ _:	'donoqte:
 سنفنیک	sanfonik
 سنفونی	samfoni
 سنن	sonan
-سنوات	sanavAt
+سنوات	swa	navAt
 سنّتی	sonnati
 سنگال	senegAl
 سنگر	sangaR
@@ -6247,6 +6311,7 @@ _:	'donoqte:
 سورریالیست	suReReAlist
 سورریالیسم	suReReAlim
 سورنا	soRnA
+سورپرایز	suRpRAjz
 سورپریز	suRpRiz
 سوزد	suzad
 سوزنبان	suzanbAn
@@ -6255,7 +6320,6 @@ _:	'donoqte:
 سوسیالیسم	susijAlism
 سوسیس	sosis
 سوشیانت	soSijAnt
-سوغات	so:q1At
 سوق	'soq1
 سولفژ	solfeZ
 سولماز	solmAz
@@ -6270,6 +6334,7 @@ _:	'donoqte:
 سونی	soni
 سونیا	sonijA
 سوهان	sohAn
+سووشون	so:vaSun
 سوّم	'sevvom
 سوپر	supeR
 سوپرانو	sopRAno
@@ -6341,6 +6406,7 @@ _:	'donoqte:
 سگش	sagaS
 سگم	sagam
 سگک	sagak
+سیاح	sajjAh
 سیار	sajjAR
 سیاره	sajjARe:
 سیاست	sijAsat
@@ -6349,6 +6415,7 @@ _:	'donoqte:
 سیبری	sibRi
 سیبویه	sibavejh
 سیتوپلاسم	sitopelAsm
+سیحون	sejhun
 سید	sejjed
 سیدریت	sidRit
 سیدنی	sidni
@@ -6415,6 +6482,7 @@ _:	'donoqte:
 شازدۀ	SAzdeje
 شاستی	SAsti
 شاشبند	SASband
+شاشو	SASu
 شاقّه	SAq1e:
 شالنگ	SAlang
 شامورتی	SAmvuRti
@@ -6432,6 +6500,7 @@ _:	'donoqte:
 شاهنشاه	SAhanSAh
 شاپرک	SApaRak
 شاگرد	SAgeRd
+شاگردان	SAgeRdAn
 شاگردانه	SAgeRdAne
 شاگردانگی	SAgeRdAnegi
 شاید	'SAjad
@@ -6443,8 +6512,10 @@ _:	'donoqte:
 شبح	Sabah
 شبر	SebR
 شبستر	SabestaR
+شبش	SabaS
 شبق	Sabaq1
 شبلی	Sebli
+شبم	Sabam
 شبنما	SabnemA
 شبه	Sebh
 شبهات	SobahAt
@@ -6541,6 +6612,7 @@ _:	'donoqte:
 شفعه	Sof?e:
 شفق	'Safaq1
 شفقت	Safeq1q1at
+شفیلد	Sefild
 شقاقل	Saq1Aq1ol
 شقال	Soq1Al
 شقه	Saq1q1e:
@@ -6643,7 +6715,6 @@ _:	'donoqte:
 شویم	Savim
 شّدت	Seddat
 شپش	SepeS
-شکات	SokkAt
 شکار	SekAR
 شکارچی	SekARtSi
 شکاعی	SokA_i
@@ -6846,6 +6917,7 @@ _:	'donoqte:
 صیّاد	sajjAd
 ضاحک	zAhek
 ضاربان	zARebAn
+ضاربین	zARebin
 ضامن	zAmen
 ضجه	zadZdZe:
 ضحی	zohA
@@ -6926,6 +6998,7 @@ _:	'donoqte:
 طلانشانده	talAneSAnde
 طلب	talab
 طلبان	talabAn
+طلبد	talabad
 طلسم	telesm
 طلق	telq1
 طمطراق	tamtaRAq1
@@ -6949,6 +7022,7 @@ _:	'donoqte:
 ظالم	zAlem
 ظاهرا	zAheRan
 ظاهرالصلاح	zAheRossalAh
+ظرافت	zeRAfat
 ظرفا	zoRafA
 ظفر	zafaR
 ظفرالحق	zafaRolhaq1q1
@@ -6970,8 +7044,7 @@ _:	'donoqte:
 عالیجناب	AlidZenAb
 عالیرتبه	'AliRotbe
 عباد	ebAd
-عبارات	ebARAt
-عباراتی	ebARAti
+عبار	ebAR
 عبارت	ebARat
 عباس	abbAs
 عبث	abas
@@ -7025,6 +7098,7 @@ _:	'donoqte:
 عصبانیت	asabAnijjat
 عصبانیّت	asabAniijat
 عصمت	esmat
+عصیان	'esjAn
 عضلات	azolAt
 عضلانی	azolAni
 عضله	azole:
@@ -7032,10 +7106,12 @@ _:	'donoqte:
 عضو	o'zv
 عضوی	ozvi
 عطارد	_atARod
+عطش	'ataS
 عظمت	azemat
 عفاف	efAf
 عفت	effat
 عفو	afv
+عفونت	?ofunat
 عقاب	oq1Ab
 عقاید	aq1Ajed
 عقب	a:q1ab
@@ -7078,7 +7154,6 @@ _:	'donoqte:
 عمل	amal
 عملا	amalan
 عملکرد	amal_kaRd
-عملیات	amalijAt
 عملییات	amalijat
 عمود	amud
 عمودی	amudi
@@ -7104,6 +7179,7 @@ _:	'donoqte:
 عودت	'o:dat
 عوض	avaz
 عیار	ajAR
+عیاش	'ajjAS
 عیسا	isA
 عیسی	isA
 عینا	?ejnan
@@ -7198,6 +7274,7 @@ _:	'donoqte:
 غیور	q1ajuR
 فاحش	fAheS
 فاخته	fAxte:
+فاختۀ	fAxteje
 فارس	fARs
 فارسان	fARsAn
 فارغالتحصیل	fAReq1ottahsil
@@ -7267,6 +7344,7 @@ _:	'donoqte:
 فراروند	faRARavand
 فرازمان	faRAzamAn
 فراست	feRAsat
+فراشبند	faRASband
 فراطبق	faRAtabaq1
 فراعنه	faRA?ene:
 فرافکنی	faRAfekani
@@ -7302,6 +7380,7 @@ _:	'donoqte:
 فردوسی	feRdo:si
 فرزاد	faRzAd
 فرسا	faRsA
+فرسایش	faRsAjeS
 فرست	feRest
 فرستاد	feRestAd
 فرستد	feRestad
@@ -7333,6 +7412,7 @@ _:	'donoqte:
 فرماید	faRmAjad
 فرمت	foRmat
 فرمول	foRmul
+فرمون	faRmun
 فرنج	feRendZ
 فرنجمشک	faRandZmeSk
 فرنگ	faRang
@@ -7439,6 +7519,7 @@ _:	'donoqte:
 فلاسک	felAsk
 فلاش	felAS
 فلاشر	felASeR
+فلامینکو	felAminko
 فلامینگو	felAmingo
 فلان	felAn
 فلانژ	felAnZ
@@ -7520,6 +7601,7 @@ _:	'donoqte:
 فکر	'fekR
 فکل	fokol
 فکن	fekan
+فکند	fekand
 فکه	fakke:
 فکور	fakuR
 فیاض	fajjAz
@@ -7613,6 +7695,8 @@ _:	'donoqte:
 قر	q1eR
 قرآن	q1oR?An
 قرا	q1oRA
+قرائت	q1eRA?at
+قرائن	q1aRA?en
 قراب	q1oRAb
 قراص	q1oRAs
 قراضه	q1oRAze:
@@ -7625,6 +7709,7 @@ _:	'donoqte:
 قربونت	q1oRbunet
 قربونش	q1oRbuneS
 قرةالعین	q1oRRatol?ejn
+قرتی	q1eRti
 قرحه	q1oRhe:
 قرشت	q1aRaSt
 قرشمال	q1eReSmAl
@@ -7691,11 +7776,8 @@ _:	'donoqte:
 قطران	q1atRAn
 قطره	q1atRe:
 قطعا	q1at?'an
-قطعات	q1ata?At
-قطعاتی	q1ataAti
 قطور	q1atuR
 قفس	q1afas
-قفص	q1afas
 قفل	q1ofl
 ققنوس	q1oq1nus
 قل	q1ol
@@ -7787,6 +7869,7 @@ _:	'donoqte:
 قیافتا	q1ijAfatan
 قید	q1ejd
 قیروان	q1iRovAn
+قیروکارزین	q1iRokARzin
 قیسی	q1ejsi
 قیصر	q1ejsaR
 قیصران	q1ejsaRAn
@@ -7806,6 +7889,7 @@ _:	'donoqte:
 قیچک	q1ejtSak
 قیچی	q1ejtSi
 لابد	lAbod
+لابراتوار	lAbRAtuAR
 لابلا	lAbelA
 لابیرنت	lAbiRent
 لاتزیو	lAtzijo
@@ -7870,7 +7954,6 @@ _:	'donoqte:
 لجوج	ladZudZ
 لحد	lahad
 لحظ	lahaz
-لحظات	lahazAt
 لحظه	lahze:
 لحی	lehA
 لخم	loxm
@@ -7947,7 +8030,7 @@ _:	'donoqte:
 لهو	lahv
 لهید	lehid
 لو	lo
-لوات	levAt
+لوات	lavAt
 لوازم	lavAzem
 لواف	lavvAf
 لوب	lob
@@ -8020,6 +8103,7 @@ _:	'donoqte:
 لیلی	lejli
 لینوکس	linuks
 لینک	'link
+لینکدین	linkdin
 لیورپول	liveRpul
 لیون	lijon
 لیوناردو	le_onARdo
@@ -8049,6 +8133,7 @@ _:	'donoqte:
 ماترک	mAtaRak
 ماتریالیزم	mAteRjAlizm
 ماتریالیسم	mAteRjAlism
+ماتریکس	mAtRiks
 ماتم	mAtam
 ماجرا	mAdZaRA
 ماحصل	mAhasal
@@ -8073,6 +8158,7 @@ _:	'donoqte:
 مارسان	mARsAn
 مارک	mARk
 مارکت	mARket
+مارکز	mARkez
 مارکسیزم	mARksizm
 مارکسیست	mARksist
 مارکسیسم	mARksism
@@ -8112,7 +8198,6 @@ _:	'donoqte:
 ماکرو	mAkRo
 ماکسی	mAksi
 ماکول	makul
-ماکولات	makulAt
 ماکیاولی	mAkijAveli
 ماکیاولیسم	mAkijAvelism
 ماگنتیت	mAgnetit
@@ -8131,8 +8216,7 @@ _:	'donoqte:
 مباحثه	mobAhese
 مباخثات	mobAhesAt
 مبادرت	mobAdeRat
-مبادلات	mobAdelAt
-مبادله	mobAdele:
+مبادل	mobAdel
 مبارز	mobARez
 مبارک	mobARak
 مباشر	mobASeR
@@ -8186,6 +8270,7 @@ _:	'donoqte:
 متانول	metAnol
 متبرک	motebaRRek
 متبسم	motebassem
+متبلور	motebalveR
 متبوع	matbu?
 متجدد	motedZadded
 متجسم	motedZassem
@@ -8242,7 +8327,9 @@ _:	'donoqte:
 متعال	mota?Al
 متعدد	mote?added
 متعدی	mote?addi
+متعصبان	mote?assebAn
 متعصبانه	moteassebAne
+متعصبین	mote?assebin
 متعظ	mottaez
 متعفن	mote?affen
 متعلم	mote?allem
@@ -8294,7 +8381,7 @@ _:	'donoqte:
 متوطن	motevatten
 متوفا	motevaffA
 متوفی	motevaffA
-متوفیات	motevaffijAt
+متوف	motevaff
 متولا	motevallA
 متولی	motevalli
 متولیان	motevallijAn
@@ -8398,6 +8485,7 @@ _:	'donoqte:
 محتاط	mohtAt
 محترم	'moh,taRam
 محترما	mohtaRaman
+محترمند	mohtaRamand
 محتشم	mohtaSam
 محتلم	mohtalem
 محتملا	mohtamelan
@@ -8409,7 +8497,7 @@ _:	'donoqte:
 محدث	mohaddes
 محدود	mahdud
 محدودنگر	mahdudnegaR
-محراب	mehRAbe
+محراب	mehRAb
 محرر	mohaRReR
 محرز	mohRaz
 محرف	mohaRRaf
@@ -8423,7 +8511,6 @@ _:	'donoqte:
 محصص	mohasses
 محصل	mohassel
 محصن	mohsen
-محصولاتی	mahsulAti
 محض	mahz
 محظور	mahzuR
 محفل	mahfel
@@ -8456,8 +8543,6 @@ _:	'donoqte:
 محیط	mohit
 مخ	mo:x
 مخابر	moxAbeR
-مخابرات	moxAbeRAt
-مخابره	moxAbeRe:
 مخاط	moxAt
 مخاطب	moxAtab
 مخاطبان	moxAtabAn
@@ -8488,6 +8573,8 @@ _:	'donoqte:
 مخوف	maxuf
 مخچه	moxtSe:
 مخیر	moxajjaR
+مخیله	moxajjale:
+مخیلۀ	moxajjaleje
 مد	'mod
 مداخل	modAxel
 مداد	medAd
@@ -8517,6 +8604,7 @@ _:	'donoqte:
 مدلینگ	modeling
 مدم	modem
 مدنی	madani
+مدنیت	madanijjat
 مدون	modavvan
 مدّت	moddat
 مدیا	medijA
@@ -8530,7 +8618,6 @@ _:	'donoqte:
 مدینه	madine
 مدیون	'madjun
 مذاکر	mozAkeR
-مذاکرات	mozAkeRAt
 مذکر	mozakkaR
 مراجعی	maRAdZei
 مراحل	maRAhel
@@ -8586,6 +8673,7 @@ _:	'donoqte:
 مرسده	meRsede:
 مرسی	meRsi
 مرشد	moRSed
+مرصاد	meRsAd
 مرضع	moRze?
 مرغ	moRq1
 مرغابی	moRq1Abi
@@ -8595,6 +8683,7 @@ _:	'donoqte:
 مرند	maRand
 مرهم	maRham
 مرو	maRo
+مروا	moRvA
 مروارید	moRvARid
 مروت	moRovvat
 مرودشت	maRvdaSt
@@ -8665,6 +8754,7 @@ _:	'donoqte:
 مسبار	mesbAR
 مسبب	mosabbeb
 مسببان	mosabbebAn
+مسببین	mosabbebin
 مسبوق	masbuq1
 مستاصل	mosta?sal
 مستثنا	mostasnA
@@ -8686,6 +8776,7 @@ _:	'donoqte:
 مستدیر	mostadiR
 مستر	masteR
 مستراح	mostaRAh
+مسترد	mostaRad
 مستزاد	mostazAd
 مستشار	mostaSAR
 مستضعف	mostaz?af
@@ -8740,6 +8831,7 @@ _:	'donoqte:
 مسلما	mosallaman
 مسلمان	mosalmAn
 مسلمون	mosalmun
+مسلمین	moslemin
 مسله	mesalle
 مسلّه	mosallah
 مسما	mosammA
@@ -8758,6 +8850,7 @@ _:	'donoqte:
 مسگر	mesgaR
 مسیر	masiR
 مسیو	mosijo
+مسیونر	mesijuneR
 مش	meS
 مشابه	moSAbeh
 مشاجر	moSAdZeR
@@ -8797,6 +8890,7 @@ _:	'donoqte:
 مشما	moSammA
 مشمشه	meSmeSe
 مشمع	moSamma?
+مشنگ	maSang
 مشهدالرضا	maShadoRRezA
 مشهور	maS'huR
 مشوب	maSub
@@ -8808,7 +8902,6 @@ _:	'donoqte:
 مشّخص	moSaxxas
 مشک	moSk
 مشکات	meSkAt
-مشکاتیان	meSkAtijAn
 مشکبار	moSkbAR
 مشکبو	moSkbu
 مشکل	'moSkel
@@ -8821,8 +8914,8 @@ _:	'donoqte:
 مشیمیه	maSimije:
 مشیّت	maSijjat
 مصاحب	mosAheb
-مصادرات	mosAdeRAt
-مصادره	mosAdeRe:
+مصادر	mosAdeR
+مصادف	mosAdef
 مصادقت	mosAdeq1at
 مصافح	mosAfeh
 مصالحه	mosAlehe:
@@ -8858,7 +8951,6 @@ _:	'donoqte:
 مصمم	mosammam
 مصممانه	mosammamAne
 مصنف	mosannef
-مصنفات	mosannafAt
 مصوب	mosavvab
 مصوت	mosavvat
 مصور	mosavvaR
@@ -8893,6 +8985,7 @@ _:	'donoqte:
 مطبق	motabbaq1
 مطران	metRAn
 مطرب	motReb
+مطربان	motRebAn
 مطرح	matRah
 مطلب	'matlab
 مطلع	mottale:?
@@ -8901,6 +8994,7 @@ _:	'donoqte:
 مطلقه	motallaq1e
 مطمئن	'mot,maen
 مطمئنا	motma?ennan
+مطمئنم	motma?ennam
 مطمعن	motmaen
 مطمعنا	motma??enan
 مطمین	motmaen
@@ -8923,7 +9017,6 @@ _:	'donoqte:
 معاف	mo?Af
 معالج	mo?AledZ
 معاملات	moAmelAt
-معاملاتی	moAmelAti
 معامله	mo?Amele:
 معاملۀ	mo?Ameleje
 معاند	moAned
@@ -8944,8 +9037,6 @@ _:	'donoqte:
 معتل	mo?attal
 معتمدآریا	motamedARij
 معجز	mo?dZez
-معجزات	mo?dZezAt
-معجزه	mo?dZeze:
 معجم	mo?dZam
 معجون	ma?dZun
 معدل	moaddel
@@ -9081,7 +9172,6 @@ _:	'donoqte:
 مقدس	moq1addas
 مقدم	maq1dam
 مقدمات	moq1addamAt
-مقدماتی	moq1addamAti
 مقدمتا	moq1addamatan
 مقدمه	moq1addame:
 مقدّم	moq1addam
@@ -9089,11 +9179,9 @@ _:	'donoqte:
 مقراض	meq1RAz
 مقرب	moq1aRRab
 مقرر	moq1aRRaR
-مقررات	moq1aRRaRAt
 مقررتنهایی	moq1aRRaR
 مقرنس	moq1aRnas
 مقرّر	moq1aRRaR
-مقرّرات	moq1aRRaRAt
 مقسم	moq1assem
 مقصر	moq1asseR
 مقطر	moq1attaR
@@ -9123,7 +9211,6 @@ _:	'donoqte:
 ملارد	malARd
 ملاطفت	molAtefat
 ملاقات	molAq1At
-ملاقاتی	molAq1Ati
 ملاک	melAk
 ملایم	molAjem
 ملبس	molabbas
@@ -9136,16 +9223,21 @@ _:	'donoqte:
 ملخ	malax
 ملزم	molzam
 ملغی	molq1A
+ملقب	molaq1q1ab
 ملل	'melal
+ملنگ	malang
 ملوان	malavAn
 ملودی	melodi
 ملوس	malus
 ملول	malul
 ملوک	moluk
+ملّت	mellat
 ملّی	me'lli
 ملک	melk
+ملکان	malekAn
 ملکه	malake:
 ملکوت	malakut
+ملکول	molkul
 ملکۀ	malakeje
 ملی	me'lli
 ملیت	mellijat
@@ -9159,6 +9251,8 @@ _:	'donoqte:
 ممتاز	momtAz
 ممتد	momtad
 ممد	mamad
+ممسنی	mamassani
+ممل	mamal
 مملو	mamlo
 مملکت	mamlekat
 ممنون	mamnun
@@ -9181,6 +9275,7 @@ _:	'donoqte:
 منتاژ	montAZ
 منتج	montadZ
 منتخب	montaxab
+منتخبان	montaxabAn
 منتخبین	montaxebin
 منتشر	montaSeR
 منتظر	montazeR
@@ -9194,6 +9289,7 @@ _:	'donoqte:
 منتهی	montahi
 منجر	mondZaR
 منجلاب	mandZelAb
+منجی	mondZi
 منحا	'menhA
 منحصرا	monhaseRan
 منحل	monhal
@@ -9208,11 +9304,13 @@ _:	'donoqte:
 منشأ	manSa?
 منشاء	manSa?
 منشی	mo:n'Si
+منشین	manSin
 منصف	monsef
 منطق	manteq1
 منطقه	mantaq1e:
 منطقۀ	mantaq1eje
 منظم	monazzam
+منظما	monazzaman
 منظور	manzuR
 منظّم	monazzam
 منفعت	manfa?at
@@ -9291,6 +9389,7 @@ _:	'donoqte:
 موحبت	mo:hebat
 موحد	movahhed
 مودب	moa?dab
+مودت	maveddat
 مودم	modem
 مورخ	movaRRex
 مورد	moRed
@@ -9311,6 +9410,7 @@ _:	'donoqte:
 موسی	musA
 موسیو	mosijo
 موشک	muSak
+موشکاف	muSekAf
 موصل	musel
 موضع	mo:ze?
 موضوع	mozu:
@@ -9380,8 +9480,6 @@ _:	'donoqte:
 مکاران	makkARAn
 مکارم	makARem
 مکاشب	mokASef
-مکاشفات	mokASefAt
-مکاشفه	mokASefe:
 مکافات	mokAfAt
 مکالم	mokAlem
 مکالمه	mokAleme:
@@ -9396,8 +9494,10 @@ _:	'donoqte:
 مکرر	mokaRRaR
 مکررا	mokaRRaRan
 مکزیک	mekzik
+مکزیکوسیتی	mekzikositi
 مکس	maks
 مکسر	mokassaR
+مکش	makeS
 مکعب	moka??ab
 مکفی	mokfi
 مکلف	mokallaf
@@ -9405,6 +9505,8 @@ _:	'donoqte:
 مکمّل	mokammel
 مکن	makon
 مکنت	meknat
+مکنده	makande:
+مکندۀ	makandeje
 مکید	makid
 مگا	megA
 مگابایت	megAbAjt
@@ -9417,6 +9519,7 @@ _:	'donoqte:
 میان	miAn
 میانبر	mijAnboR
 میانجی	mi:An'dZi:
+میاندوآب	mijAndoAb
 میای	mijAj
 میبد	mejbod
 میبر	mibaR
@@ -9493,6 +9596,7 @@ _:	'donoqte:
 میلیونم	miljunom
 میماند	mimAnad
 میمن	mejman
+میمنت	mejmanat
 میمه	mejme
 میمون	mejmun
 میموند	mimund
@@ -9545,6 +9649,7 @@ _:	'donoqte:
 میگویم	migujam
 نابخرد	nAbexRad
 نابرادری	nAbaRAdaRi
+نابسامان	nAbesAmAn
 نابکار	nAbekAR
 نابینا	nAbinA
 ناتریم	nAteRjom
@@ -9571,6 +9676,7 @@ _:	'donoqte:
 نازبالش	nAzbAleS
 نازخاتون	nAzxAtun
 نازدید	nAzdid
+نازلی	nAzli
 نازنازی	nAznAzi
 نازنین	nAzanin
 نازپرورد	nAzpaRvaRd
@@ -9588,6 +9694,7 @@ _:	'donoqte:
 نافهم	nAfahm
 ناقلا	nAq1olA
 ناقوس	nAq1us
+نالد	nAlad
 نام	'nAm
 نامبرده	nAmboRde:
 نامبردۀ	nAmboRdeje
@@ -9698,11 +9805,14 @@ _:	'donoqte:
 نرخ	neRx
 نردبام	naRdebAm
 نردبان	naRdebAn
+نرسند	naResand
 نرسید	naResid
 نرسیده	naReside:
+نرسیم	naResim
 نرفت	naRaft
 نرماده	naRmAde
 نرمال	noRmAl
+نرماندی	noRmAndi
 نرمش	naRmeS
 نرموک	naRmuk
 نرو	naRo
@@ -9757,8 +9867,8 @@ _:	'donoqte:
 نشاند	neSAnd
 نشانه	neSAne
 نشتر	neStaR
+نشخوار	noSxAR
 نشد	naSod
-نشریات	naSRijAt
 نشست	ne'Sast
 نشستم	neSastam
 نشستن	neSastan
@@ -9816,6 +9926,7 @@ _:	'donoqte:
 نفسکش	nafaskeS
 نفقات	nafaq1At
 نفقه	nafaq1e:
+نفقۀ	nafaq1eje
 نفله	nefle:
 نفهم	nafahm
 نفوذ	nofuz
@@ -9824,6 +9935,7 @@ _:	'donoqte:
 نفیا	nafjan
 نق	neq1
 نقاب	neq1Ab
+نقاد	naq1q1Ad
 نقاش	naq1q1AS
 نقاط	noq1At
 نقال	naq1q1Al
@@ -9866,6 +9978,7 @@ _:	'donoqte:
 نمونک	nemunak
 نمونۀ	nemuneje
 نمک	namak
+نمیای	nemijAj
 نمیبرم	nemibaRam
 نمیبریم	nemibaRim
 نمیخرد	nemixaRad
@@ -9885,6 +9998,7 @@ _:	'donoqte:
 نمیومد	nemijumad
 نمیپرس	nemipoRs
 نمیکند	nemikonad
+نمیگه	nemige:
 ننداز	nandAz
 ننمود	nanemud
 ننگبار	nangbAR
@@ -9938,6 +10052,7 @@ _:	'donoqte:
 نورتاب	nuRtAb
 نورد	navaRd
 نورز	navaRz
+نورزید	navaRzid
 نورس	no:Ras
 نورساخت	nuRsAxt
 نورمن	noRman
@@ -10004,7 +10119,7 @@ _:	'donoqte:
 نکبتبار	nekbatbAR
 نکته	nok'te:
 نکتهدان	noktedAn
-نکتۀ	'nokkteje
+نکتۀ	nokteje
 نکرد	nakaRd
 نکره	nakaRe:
 نکش	nakeS
@@ -10082,7 +10197,7 @@ _:	'donoqte:
 نینداخت	najandAxt
 نینداز	najandAz
 نیندازد	najandAzad
-نینوا	nejAnavA
+نینوا	nejnavA
 نیوترون	nijotRon
 نیوتن	nijoton
 نیوتون	nijoton
@@ -10106,6 +10221,7 @@ _:	'donoqte:
 نیکوسخن	nikusoxan
 نیکولا	nikolA
 هاتبرد	hAtbeRd
+هاتم	hAtam
 هاتمیل	hAtmejl
 هاجر	hAdZaR
 هارد	hARd
@@ -10145,6 +10261,7 @@ _:	'donoqte:
 هجری	hedZRi
 هجو	hadZv
 هجویه	hadZvije
+هجی	hedZdZi
 هجیکتبی	hedZdZi
 هخامنش	haxAmaneS
 هد	hed
@@ -10263,6 +10380,7 @@ _:	'donoqte:
 همزادپندار	hamzAdpendAR
 همزمان	hamzamAn
 همسرا	hamsoRA
+همسفر	hamsafaR
 همسفرگی	hamsofRegi
 همش	hamaS
 هملت	hamlet
@@ -10275,6 +10393,7 @@ _:	'donoqte:
 همون	hamun
 همونجا	hamundZA
 همونجور	hamundZuR
+همونطور	hamunto:R
 هموژن	hemoZen
 هموژنیزه	hemoZenize
 هموگلوبین	hemogolobin
@@ -10302,9 +10421,11 @@ _:	'donoqte:
 هندوانه	hendevAne:
 هندوانۀ	hendevAneje
 هندوراس	hendoRAs
+هندونه	hendune:
 هندوکش	hendokoS
 هندوییسم	hendoism
 هنر	honaR
+هنرپیش	honaRpiS
 هنوز	hanuz
 هنگام	hengAm
 هنگفت	hangoft
@@ -10314,6 +10435,7 @@ _:	'donoqte:
 هوالشافی	hovaSSAfi
 هواپز	havA_paz
 هواپیما	'havApejmA
+هواپیمابر	havApejmAbaR
 هواکش	havAkeS
 هوخشتره	hovaxSatRah
 هورت	hoRt
@@ -10423,6 +10545,7 @@ _:	'donoqte:
 واردآمده	vARedAmade
 وارست	vARast
 وارفت	vARaft
+واریانس	vARijAns
 واریته	vARijete
 وازکتومی	vAzektomi
 واست	vAsat
@@ -10496,6 +10619,7 @@ _:	'donoqte:
 وردپرس	voRdpeRes
 ورزد	vaRzad
 ورزش	vaRzeS
+ورزقان	vaRzaq1An
 ورساد	veRsAd
 ورسای	veRsAj
 ورسک	veResk
@@ -10518,6 +10642,7 @@ _:	'donoqte:
 وزغ	vazaq1
 وزق	vazaq1
 وزوز	vezvez
+وزین	vazin
 وساطت	vesAtat
 وساوس	vasAves
 وسترن	vesteRn
@@ -10613,6 +10738,7 @@ _:	'donoqte:
 ویژوال	viZuAl
 ویکتور	viktoR
 ویکتوریا	viktoRijA
+ویگن	vigen
 پائین	'pAi:n
 پابرجا	pAbaRdZA
 پابند	pAband
@@ -10639,6 +10765,7 @@ _:	'donoqte:
 پارچ	pARtS
 پارک	pARk
 پارکت	pARket
+پارکینسون	pARkinson
 پاستل	pAstel
 پاسخ	pAsox
 پاسپورت	pAspoRt
@@ -10704,7 +10831,9 @@ _:	'donoqte:
 پراتیک	peRAtik
 پرازیت	pARAzit
 پرانتز	paRAntez
+پراکسی	peRAksi
 پراکند	paRAkand
+پراکنی	paRAkani
 پراگ	peRAg
 پراگماتیک	peRAgmAtik
 پراید	peRAjd
@@ -10980,6 +11109,7 @@ _:	'donoqte:
 پلاگین	pelAgin
 پلت	palat
 پلتیک	poletik
+پلدختر	poldoxtaR
 پلس	palas
 پلسک	pelesk
 پلشت	palaSt
@@ -11059,45 +11189,13 @@ _:	'donoqte:
 پوتسدام	putsdAm
 پوخ	pox
 پودر	pudR
-پوراحد	puRahad
-پوراحمد	puRahmad
-پوراردبیلی	puRaRdebili
-پوراستاد	puRostAd
-پوراسدالله	puRasadollAh
-پوراشرف	puRaSRaf
-پوراصل	puRasl
-پورباقری	puRbAq1eRi
-پوربهشتی	puRbeheSti
 پورت	poRt
 پورتال	poRtAl
-پورجواد	puRdZavAd
-پورحامدی	puRhAmedi
-پورحیدری	puRhejdaRi
-پوردهقان	puRdehq1An
-پورراجیان	puRRAdZijAn
-پوررنجبر	puRRandZbaR
-پورزمانی	puRzamAni
-پورسان	puRsAn
 پورسانت	puRsAnt
-پورسهراب	puRsohRAb
-پورشاسب	puRSAsb
 پورشه	poRSe:
-پورشیخ	puRSejx
-پورصادق	puRsAdeq1
-پورصباغ	puRsabbAq1
-پورعباس	puRabbAs
-پورعسکری	puRaskaRi
-پورفاطمی	puRfAtemi
-پورمراد	puRmoRAd
-پورمقدس	puRmoq1addas
-پورموسوی	puRmusavi
-پورمک	puRmak
-پورنجاتی	puRnedZAti
-پورنظری	puRnazaRi
-پورنوذری	puRnozaRi
+پورنو	poRno
 پورنوگرافی	poRnogeRAfi
 پورنگ	puRang
-پورکاظمی	puRkAzemi
 پوزئیدون	poze?idon
 پوزش	puzeS
 پوزیترون	pozitRon
@@ -11209,6 +11307,7 @@ _:	'donoqte:
 پیما	pejmA
 پیمان	pejmAn
 پیماید	pejmAjad
+پیمایش	pejmAjeS
 پیمود	pejmud
 پینت	pejnt
 پینتبال	pejntbAl
@@ -11253,6 +11352,7 @@ _:	'donoqte:
 چارکه	tSARke
 چاشت	tSASt
 چاشنی	tSASni
+چالدران	tSAldoRAn
 چالدره	tSAldaRR
 چالش	tSAleS
 چاه	tSAh
@@ -11270,6 +11370,7 @@ _:	'donoqte:
 چترک	tSatRak
 چتول	tSatval
 چتکه	tSotke
+چجور	tSedZuR
 چدن	tSodan
 چرا	tSeRA
 چراخور	tSeRAxoR
@@ -11421,6 +11522,7 @@ _:	'donoqte:
 چو	tSo
 چوبدستی	tSub_dasti
 چوبفرش	tSubfaRS
+چوبین	tSubin
 چودری	tSodaRi
 چون	'tSon
 چوپی	tSubi
@@ -11461,7 +11563,9 @@ _:	'donoqte:
 چیند	tSinad
 چینش	tSineS
 چیه	tSije:
+چیپس	tSips
 چیپست	tSipset
+ژئو	Ze?o
 ژئوتکنیک	Zeoteknik
 ژئوفیزیک	Ze?ofizik
 ژامبون	ZAmbon
@@ -11487,6 +11591,7 @@ _:	'donoqte:
 ژنوتیپ	Zenotip
 ژنوس	Zenus
 ژورنالیسم	ZuRnAlism
+ژوهانسبورگ	ZuhAnsbuRg
 ژوپیتر	ZupiteR
 ژوکر	ZokeR
 ژوکوند	Zokond
@@ -11561,10 +11666,12 @@ _:	'donoqte:
 کالبد	kAlbod
 کالبدشکاف	kAlbodSekAf
 کالسکه	kAleske:
+کالکسیون	kAleksijon
 کالیبر	kAlibR
 کالیفرنیا	kAlifoRnijA
 کامران	kAmRAn
 کامروا	kAmRavA
+کامرون	kAmeRon
 کاملا	kAmelan
 کامنت	kAment
 کامپوزیت	kAmpozit
@@ -11598,6 +11705,7 @@ _:	'donoqte:
 کبریا	kebRijA
 کبریت	'kebRit
 کبود	kabud
+کبودرآهنگ	kabudaRAhang
 کت	kot
 کتاب	ketAb
 کتب	kotob
@@ -11651,6 +11759,7 @@ _:	'donoqte:
 کردزبان	koRdzabAn
 کردستان	koRdestAn
 کردعلی	koRdali
+کردما	kaRdama
 کردنشین	koRdneSin
 کردکو	koRdku
 کردکوی	koRdkuj
@@ -11663,7 +11772,7 @@ _:	'donoqte:
 کرشمه	keReSme:
 کرشندو	keReSendo
 کرفس	kaRafs
-کرم	keRm
+کرم	kaRam
 کرمان	keRmAn
 کرمل	kaRmel
 کرملین	keRemlin
@@ -11693,6 +11802,7 @@ _:	'donoqte:
 کریسمس	keRismas
 کریمان	kaRimAn
 کریکت	keRiket
+کزاز	kozAz
 کزوو	kozovo
 کس	kas
 کساد	kesAd
@@ -11700,13 +11810,17 @@ _:	'donoqte:
 کسایی	kasAi:
 کسبه	kasabe:
 کست	kasat
+کسخل	kosxol
 کسخول	kosxol
+کسده	kosde:
+کسروی	kasRavi
 کسش	kasaS
 کسشعر	kosSe?R
 کسل	kesel
 کسم	kasam
 کسه	kosse:
 کسوت	kesvat
+کسچرخ	kostSaRx
 کسکش	koskeS
 کسکن	koskon
 کسینوس	kosinus
@@ -11734,6 +11848,7 @@ _:	'donoqte:
 کشمش	keSmeS
 کشمکش	keSmakeS
 کشمیر	keSmiR
+کشن	keSan
 کشند	keSand
 کشنده	koSande:
 کشندگی	koSandegi
@@ -11790,7 +11905,6 @@ _:	'donoqte:
 کلفت	'koloft
 کلل	kolal
 کلم	kalam
-کلمات	kalamAt
 کلمبیا	kolombijA
 کلمه	'kalame:
 کلن	koln
@@ -11810,7 +11924,6 @@ _:	'donoqte:
 کلکسیونر	koleksijoneR
 کلۀ	kaleje
 کلی	ko'lli
-کلیات	kollijAt
 کلید	kelid
 کلیدزن	kelidzan
 کلیسا	kelisA
@@ -11826,6 +11939,7 @@ _:	'donoqte:
 کلیک	ki'lik
 کم	'kam
 کما	komA
+کمابیش	kamAbiS
 کماج	komAdZ
 کمار	komAR
 کمال	kamAl
@@ -11898,6 +12012,7 @@ _:	'donoqte:
 کنده	konde:
 کندوان	kandovAn
 کندۀ	kondeje
+کندی	kondi
 کندید	kandid
 کندیم	kandim
 کنس	kenes
@@ -11956,6 +12071,7 @@ _:	'donoqte:
 کورتیزول	koRtizol
 کورده	kuRdeh
 کوررنگی	kuRRangi
+کورس	kuRs
 کورش	kuRoS
 کورنت	koRnet
 کوروش	ku'RuS
@@ -11990,6 +12106,7 @@ _:	'donoqte:
 کپنهاک	kopenhAk
 کپنهاگ	kopenhAg
 کپه	koppe:
+کپک	kapak
 کپی	''kopi
 کچل	katSal
 کژدم	kaZdom
@@ -12020,6 +12137,7 @@ _:	'donoqte:
 کیک	kejk
 کیکاووس	kejkAvus
 گاباردین	gAbARdin
+گابریل	gAbRijel
 گارانتی	gARAnti
 گارد	gARd
 گاردریل	gARdRejl
@@ -12066,6 +12184,7 @@ _:	'donoqte:
 گذشت	go'zaSt
 گراز	goRAz
 گراس	geRAs
+گراش	geRAS
 گراف	geRAf
 گرافیت	geRAfit
 گرافیست	geRAfist
@@ -12159,10 +12278,12 @@ _:	'donoqte:
 گریه	geRje:
 گزار	gozAR
 گزارد	gozARad
+گزاردن	gozARdan
 گزارده	gozARde
 گزارش	'gozAReS
 گزانتوفیل	gezAntofil
 گزانتین	gezAntin
+گزد	gazad
 گزر	gozaR
 گزراند	gozaRAnd
 گزرد	gozaRad
@@ -12262,6 +12383,7 @@ _:	'donoqte:
 گلپر	golpaR
 گلچین	goltSin
 گلک	golak
+گلکسی	galeksi
 گلگی	gelegi
 گلۀ	galleje
 گلیسیرین	gelisiRin
@@ -12367,6 +12489,7 @@ _:	'donoqte:
 گیرد	giRad
 گیرودار	giRodAR
 گیسوسفید	gisusefid
+گیفت	gift
 گیم	gejm
 گیمر	gejmeR
 گینس	gines
@@ -12400,6 +12523,7 @@ _:	'donoqte:
 یخچال	jaxtSAl
 یددار	joddAR
 یدک	jadak
+یزدگرد	jazdgeRd
 یسر	josR
 یسوعی	jasu?i
 یشان	jeSAn
@@ -12440,6 +12564,7 @@ _:	'donoqte:
 یونیسف	junisef
 یونیورسال	juniveRsAl
 یونیورسیتی	juniveRsiti
+یونیکس	juniks
 یوهان	juhAn
 یوگسلاو	jugoslAv
 یویو	jojo

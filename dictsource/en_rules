@@ -554,7 +554,7 @@
      _) ai (z      aI
 
 .group al
-     _) ale (X     alI2
+     _) ale (C_    alI2
    @ic) al (_S2    @L
      _) al (@      a#l
   gonz) al         'A:l
@@ -1144,6 +1144,7 @@ calend) ar         3
         ass (a_    'as
         as (al     eIz
      b) as (al     as
+     _) asch       aS
         ascii (_   askI
      f) asc (ia    eIS
      f) asci (s    aSI
@@ -2112,7 +2113,7 @@ _it_separ) ate (_  @t
      X) e (gan_    i:
      _) e (gest    I2
      @) e (gic     'i:
-     l) egion      i:dZ@n
+        egi (An    'i:dZ
      l) e (git     @
      _) ego        i:goU
      _) ego (t     Eg@
@@ -2509,6 +2510,7 @@ _it_separ) ate (_  @t
      &) en (ment   @n
         en (mes    %En
      _) enn        %En
+        enne (_    'En
         enn (ia    'En
      _) en (o      I2n
      _) en (oX     i:n
@@ -3284,6 +3286,9 @@ _it_separ) ate (_  @t
     _t) ia         i:@
     XC) ia (_      i@
      &) iac (_     =Iak
+     &) ian (_S1   n
+     &) ians (_S2  nz
+
      C) iar        aI3
 ?8   C) iar        aIa#
         iar (iC    i@3
@@ -4096,7 +4101,8 @@ multip) ly         laI
 ?8   @) less (_S4i lEs
 ?8   @) lessly (_S6i lEsl%i
 ?8   @) lessness (_S8i lEsnEs
-        le (vel++  lE
+        le (vel+   lE
+     c) leve (l    li:v
 
 
 .group m
@@ -4208,8 +4214,6 @@ multip) ly         laI
      n) n 
      _) n (gY+     @-N
 
-   &ia) n (_S1     n
-   &ia) ns (_S2    nz
      &) name (_S4  neIm
      _) nano (P4   n,anoU
         nause      nO:sI
@@ -5264,6 +5268,7 @@ multip) ly         laI
         per (fus   p3
         per (su    p3
      _) per (va    p3
+     _) per (ver   p3
      _) perus      p3ru:z
      _) peroxy     p3,0ksI
      _) peri (Be   pErI2
@@ -5515,6 +5520,8 @@ multip) ly         laI
      _) re (i@P2   r,i:
      _) rei (c     raI
         reich      raIx
+     _) re (ifL02  reI
+     _) rei (gA    raI
      _) rei (l     raI
      _) rei (nh    raI
      _) reis       raIz
