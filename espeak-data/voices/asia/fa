@@ -1,4 +1,4 @@
-name persian
+name Persian+English-UK
 language fa
-dictdialect en-us
-
+// There is Classic fa file, for person who installs eSpeak using  the ISO-Code of language.
+// This language reads Persian and English with U.K pronunciation, as  Persian uses a collection of  special characters which differs entirely from English characters.

@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.48.08  15.Jul.14";
+const char *version_string = "1.48.09  20.Jul.14";
 const int version_phdata  = 0x014801;
 
 int option_device_number = -1;
@@ -809,7 +809,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				for(;;)
 				{
 					plist++;
-					plist->ph = phoneme_tab[plist->phcode];
+//	plist->ph = phoneme_tab[plist->phcode];  // Why was this line here?? It corrupts plist if we have language switching if phoneme_tab is wrong language
 					if(plist->sourceix != 0)
 						return(true);   // start of next word, without finding another vowel
 					if(plist->ph->type == phVOWEL)

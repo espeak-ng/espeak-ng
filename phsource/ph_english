@@ -266,9 +266,9 @@ phoneme i   //  optional variant of [I] for end of words
   length 150
   IfNextVowelAppend(;)
   
-  IF prevVowel(isStressed) AND prevPhW(dZ) THEN
-    FMT(vowel/ii_final)
-  ENDIF
+//  IF prevVowel(isStressed) AND prevPhW(dZ) THEN
+//    FMT(vowel/ii_final)
+//  ENDIF
   
   FMT(vowel/ii_7)
 endphoneme

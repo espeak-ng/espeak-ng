@@ -527,7 +527,7 @@ unsigned short ipa1[96] = {
 
 #define N_PHON_OUT  500  // realloc increment
 static char *phon_out_buf = NULL;   // passes the result of GetTranslatedPhonemeString()
-static int phon_out_size = 0;
+static unsigned int phon_out_size = 0;
 
 
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)

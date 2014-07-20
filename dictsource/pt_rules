@@ -396,6 +396,7 @@ constrang) e (L07_ e
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // meteste, cometeste, etc.
    mex) e (L07_    e
+   _requer) e (L07_   e
  prouv) e (L07_    e
    mov) e (L07_    e         // re- co-
    olv) e (L07_    e         // devolveste, etc.
@@ -424,6 +425,7 @@ _troux) e (L07_    E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
  _perp) e (trL04_  E
+ _assev) e (rL04_   E
   _imp) e (trL04_  E
    cel) e (brL04_  E
   _sop) e (sL04_   E
