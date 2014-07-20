@@ -740,8 +740,9 @@ abstract	abstrakt      $only
 abstract	a#bstr'akt    $verb
 academe		a#kad@mi
 acapela		aka#p'El@
-access		aksEs         $onlys
-access		aksEs         $verb
+access		aksEs
+accessible	$2
+accessibly	$2
 accouchement	a#ku:SmO~
 accusation	akju:z'eIS@n
 acer		eIs3
@@ -2774,7 +2775,7 @@ permit		p3mIt         $verb
 persona		p3:s'oUn@
 perspex		p3:spEks
 perus		p@ru:z
-pervert		p3v3:t	$verb
+pervert		p3:v3t	$noun
 peso		peIsoU
 petit		p@ti:
 petite		p@ti:t
@@ -2816,6 +2817,7 @@ pisces		paIsi:z
 piteous		pIti@s
 pituitary	$2
 pizzeria	$alt1
+plaid		plad
 plaguing	pleIgIN
 ?3 plateau	$2
 platoon		$alt3
@@ -3195,7 +3197,7 @@ sens		sEns               // for sensible
 sepia		$alt6
 sepoy		si:pOI
 sequester	$2
-sequine		si:kwI2n
+sequin		$alt6
 series		si@3riz
 serenade	$3
 serene		$alt3
