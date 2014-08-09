@@ -408,6 +408,8 @@ precav) e (L07_    e
   _coz) e (L07_    e
   _val) e (L07_    e
   colh) e (L07_    e         // & es-
+  _lamb) e (L07_   e
+_prov) e (L07_   e
   ench) e (L07_    e         // pre-
   vert) e (L07_    e         // in- re- con-
   ergu) e (L07_    e
@@ -438,6 +440,9 @@ _amanc) e (bL03_   E
   _sob) e (rbL03_  e
    _pr) e (dL03_   E
   _arr) e (dL03_   E
+_emp) e (drL03_   E
+_enc) e (dL03_   E
+_api) e (dL03_   E
  _depr) e (dL03_   E
  _hosp) e (dL03_   E
 _enver) e (dL03_   E
@@ -460,6 +465,7 @@ _tataran) e (tA_   E
 _tetran) e (tA_    E
  _trin) e (tA_     E
   _caC) e (lo_     e
+  _porr) e (tA_   e
  _livr) e (tA_     e
 ?2      el (ton_   'EU
     ad) e (quL04_  E
@@ -500,6 +506,7 @@ _refrig) e (rL04_  E
  _esqu) e (rdL03_  e
     _C) e (rdL04_  E
   _des) e (rdL04_  E
+  _oblit) e (rL04_   E
 s_colh) e (res_    E
      _) e (rgL03_  e
    _re) e (rgL03_  e
@@ -538,6 +545,7 @@ _obsol) e (tL03_   e
  _terc) e (tA_     e
   viol) e (ta_     e
  _Carr) e (ta_     e
+ _Gur) e (ta_   e
   _pen) e (trL04_  E
   _sol) e (trL04_  E
     _n) eu (trL03_ 'eU
@@ -624,6 +632,7 @@ _redar) gu (A      gw
    san) gu (ín     gw
    san) gu (in     gw
   stin) gu (A      gw
+  _un) gu (ento_   gw
   xtin) gu (A      gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
@@ -1010,7 +1019,7 @@ _ortod) o (xL03_   O
    _ad) o (çL03_   O
   _emp) o (çL03_   O
   _end) o (çL03_   O
-    _c) o (çL03_   O
+      _c) o (çL03_   O
 //endsort
 
 .group ô
