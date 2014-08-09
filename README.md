@@ -55,6 +55,7 @@ In order to use Android Studio, you will also need:
 
 1.  Set the location of the Android SDK:
 
+        $ export ANDROID_HOME=<path-to-the-android-sdk>
 2.  Build the project:
 
         $ ./autogen.sh
@@ -84,6 +85,8 @@ this by:
 ## Installing
 
 Now, you can install the APK using the `adb` tool:
+
+    $ adb install -r android/build/outputs/apk/espeak-release-signed.apk
 
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
