@@ -337,7 +337,7 @@ sr	$dot
 ?2 sra	$dot
 
 // articles
-o	$u+	$nounf
+o	$u	$nounf
 a	$u+	$nounf
 os	$u+	$nounf
 as	$u+	$nounf
@@ -650,9 +650,9 @@ há	$u+
 _a      a
 _e      E
 _o	O
-a       a $atend
-e       E $atend        // assume letter-e at end of sentence
-o       O $atend
+a       a $atend $atstart
+e       E $atend $atstart       // assume letter-e at end of sentence
+o       O $atend $atstart
 
 
 // some common adjectives and adverbs
@@ -703,6 +703,7 @@ aperto		$alt2 $noun
 apneia		$alt
 apoio		$alt $verb
 arredores	$alt
+arrego	$alt2
 arremesso	$alt2 $noun
 arrocho		$alt2 $noun
 arroto		$alt2 $noun
@@ -748,6 +749,7 @@ bracelete		$alt2
 brejo		$alt
 bromelha	$alt
 broto		$alt2 $noun
+brotos	$alt2
 buceta	$alt2
 cabresto	$alt2
 cacete		$alt2
@@ -789,6 +791,7 @@ choça		$alt
 chofer		$alt
 choro		$alt2 $noun
 chovesse	$alt2
+chope	$alt2
 chuleta		$alt2
 chupeta		$alt2
 clamores	$alt2
@@ -807,11 +810,11 @@ colosso		$alt2
 colossos	$alt2
 colostro	$alt2
 começo		$alt $verb
-
-concerto	$alt2 $noun
-concertos	$alt2
+concerto	$alt2
 concordo	$alt
 conforto	$alt  $verb
+conserto	$alt2
+conserto	$alt $verb
 console		$alt2 $noun
 consolo		$alt2 $noun
 constroem	$alt
@@ -840,6 +843,7 @@ cozem	$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
+crimeia	$alt
 decoro		$alt2 $noun
 degelo		$alt2
 desaforo	$alt2
@@ -888,6 +892,7 @@ doso	$alt
 doze		$alt2
 dueto		$alt2
 edson		$alt
+eletrodo	$alt2
 elixir		eliSir
 emborco	$alt
 emprego		$alt2
@@ -897,11 +902,13 @@ encosto		$alt  $verb
 endereço	$alt  $verb
 endoide	$alt2
 enforco		$alt
+engodo		$alt2
 engordo		$alt
 enredo		$alt  $verb
 enrosco		$alt2 $noun
 ensosso		$alt2
 enterro		$alt2 $noun
+enterros	$alt2
 entorto		$alt
 entroso		$alt
 envelope	$alt
@@ -988,6 +995,7 @@ gesso		$alt2
 gloso		$alt
 gonorreia	$alt
 gol		gow
+?1 golo	$alt2
 golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
@@ -1047,7 +1055,6 @@ melhor		$alt
 menor		$alt
 meta		$alt $noun
 metro		$alt
-minueto		$alt2
 miolo		$alt2
 miolos		$alt
 mister	$alt
@@ -1139,6 +1146,7 @@ program	$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
+punheta	$alt2
 quarteto	$alt2
 quatorze	$alt2
 queda		$alt
@@ -1191,6 +1199,8 @@ seca		$alt2 $noun
 secas		$alt2
 seco		$alt2
 seco		$alt $verb
+sede	$alt2
+sedes	$alt
 selo		$alt2
 selo		$alt $verb
 sexteto		$alt2
@@ -1201,9 +1211,13 @@ sinopse		$alt
 soco		$alt2
 soco		$alt $verb
 sogra		$alt
+solto	$alt2
+solto	$alt $verb
+soltos	$alt2
 sopa		$alt2
 sopeses	$alt
 sopro		$alt2 $noun
+sorva	$alt2
 sorvete		$alt2
 sossego     	$alt2 $noun
 suborno		$alt  $verb
@@ -1223,9 +1237,9 @@ temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
 terma	$alt
-test		$alt
 terrores	$alt2
 teses		$alt
+test		$alt
 teta		$alt2
 tijolo	$alt2
 tijolos	$alt
@@ -1252,11 +1266,13 @@ trombeta	$alt2
 ureia	$alt
 vanessa		$alt2
 vareta		$alt2
+vedeta		$alt2
 vera		$alt
 verbete		$alt2
 verborreia	$alt
 verde		$alt2
 vileta		$alt2
+vinheta		$alt2
 vodca	v'OdZik&
 voga		$alt
 voice	$alt
@@ -1276,6 +1292,7 @@ zorra		$alt2
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
 bad  bEd
+ballet	bal'E
 bank	beINk
 bacon	b'eIkoN
 ?2 basebol	beIzyb'Ow
@@ -1286,6 +1303,7 @@ blind      bl'aind
 ?2 blue	blu
 ?1 braille    b:r'aily
 ?2        Braille        bR'aili
+?2 buffet	bif'e
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
 ?2 cappuccino	kaputS'inU
@@ -1380,6 +1398,7 @@ shake	S'eIk
 ?2 site       s'aItSy
 ?2   shampoo  S&mpu
 ?2 shopping	S'OpiN
+?2 shoppings	S'OpiNs
 ?2 slide		zl'aIdZy
 ?4 símbolo	s'iNbolU
 ?1   software   s'Oft,w'Er-
@@ -1420,7 +1439,9 @@ apple  'Epow
 outdoor	aUtd'Or
 ?2  outdoors	aUtd'Ors
 baby	b'eIby
-?2 campari	k&mp'a*y
+?2 banner	b'&~ner
+?2 banners	b'&~ners
+?2 campari	k&~mp'a*y
 ?1 chrome	kr'owm
 ?2 chrome  kR'owmi
 corpus	k'O*@-pUs#
@@ -1432,6 +1453,8 @@ corpus	k'O*@-pUs#
 facebook  feIsybuk
 ?1 fedora      _^_EN
     firefox     f'ai@fOks
+?2 folder	f'owder
+?2 folders	f'owders
 ?1 front       fr'ont
 ?2 habeas	'abe&s
 high   haI
@@ -1467,6 +1490,7 @@ mac  mEk
 ?1 product     p:r'&d&kt
 ?1 Publisher   p'&bl,iS&r-
 ?1 reader      r'id,&r-
+?2 reader	r'ider
 ?1 setup       s'Et'&p
 ?1 scout       sk'aut // Nero scout       
 ?1 skype       sk'aip
@@ -1561,4 +1585,4 @@ vogel       f'o:g@l
 volkmann    f'Olkman
 washington	w'OSinton
 wellington	w'Elynton
-
+?2 wesley	w'EzleI

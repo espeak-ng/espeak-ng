@@ -1,0 +1,99 @@
+
+
+// letter names
+b	be
+c	se
+d	de
+f	ef
+g	ge
+h	ha
+j	Zota
+k	ka
+l	el
+m	em
+n	en
+p	pe
+q	ku
+r	er
+s	es
+t	te
+v	ve
+w	d'upleve
+x	iks
+y	ipsilon
+z	zeta
+
+
+// numbers
+_0	z'ero
+_1	'un
+_2	dw'o
+_3	tr'es
+_4	kw'atro
+_5	ts'iNkwe
+_6	s'eks
+_7	s'epte
+_8	'okto
+_9	n'ove
+_1X	d'etse
+_2X	v'inti
+_3X	tr'enta
+_4X	kwar'anta
+_5X	tsiNkw'anta
+_6X	seks'anta
+_7X	sept'anta
+_8X	okt'anta
+_9X	nov'anta
+_0C	ts'ento
+_0M1	m'ile
+_0M2	milj'on
+_0M3	milj'ardo
+_0M4	bilj'on
+_0M5	bilj'ardo
+
+
+
+
+
+
+// unstressed words
+le	$u+
+un	$u+
+
+e	$u+ $brk  // and
+
+// pronouns
+il	$u+
+
+mi	$u+	// possessive
+nostre	$u+
+vostre	$u+
+su	$u+
+lor	$u+
+
+
+// prepositions
+a	$u+ $brk
+al	$u+ $brk
+de	$u+
+del	$u+
+pro	$u+
+
+
+// verbs
+es	$u+
+era	$u+
+essite	$u+
+esseva	$u+
+ha	$u+
+habeva	$u+
+va	$u+
+velle	$u+
+
+
+// pronunciation exceptions
+
+que	ke $brk
+qui	ki $brk
+
+
