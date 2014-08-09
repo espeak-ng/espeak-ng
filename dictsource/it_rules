@@ -1,6 +1,6 @@
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2014 April 21 Chris, Christian Leo M, <llajta2012@cmail.com>
+// Last update: 2014 May 31 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -39,7 +39,7 @@ ene
      @) amo (L04_  'amo
      @) ander (L04_ 'andE@-*
         ate (L04_  'ate
-
+ _L04Z) auguri (_  'a:uguRI
         astano (_  'a:sta/no // verbs
 
 .group à
@@ -76,8 +76,8 @@ ene
         cciano (_  =tS:ano   // verbs
         chiano (_  =kiano
      A) cchiano (_ =k:iano   // verbs
-  L04Z) capit (A_  k'a:p,it
-  L04Z) capit (ano_ k'a:p,it
+ _L04Z) capit (A_  k'a:p,it
+ _L04Z) capit (ano_ k'a:p,it
 
 .group d
         d          d
@@ -93,6 +93,7 @@ ene
   chAA) der (L04_  =de@-*
     re) der (L04_  =de@-*
      @) dinano (_  =dina/no  // verbs
+        day (_     d'eI      // foreign
 
 .group e
         e          e
@@ -265,7 +266,7 @@ ele%tr) ici (_     =itSi
 
      @) issim (A_  'issim
      @) issero (_S6q 'issero
-     p) i (te_     =i
+    ip) i (te_     =i
      C) iad (Y_    'iad
      @) iono (_    =iono
         ite (L04_  'ite
@@ -362,7 +363,10 @@ ele%tr) ici (_     =itSi
      c) o (ltA_    O
     sc) o (ltA_    o
      v) o (ltA_    O
-     @) o (metro_  'O
+     @) o (manY_   'O:
+    @d) omani (_   om'ani
+     r) oman (Y_   ,Om'an
+     @) o (metrA_  'O
      @) o (ma_     O
      @) o (mo_     O
     dr) o (mo_     =o
@@ -423,6 +427,7 @@ ele%tr) ici (_     =itSi
      A) rai (_     R'a:I
         rrai (_    R*'a:I
      @) rvano (_   =@-*v,ano
+    CA) rcano (_   =@-*k,ano // verbs
 
 .group s
         s          s
@@ -451,10 +456,10 @@ ele%tr) ici (_     =itSi
         sh (K      S         // foreign words
      K) sh         S         // foreign words
      A) sh (A      S
-     @) sia (_     z'ia
-     @) sie (_     z'ie
+    @A) sia (_     z'ia
+    @A) sie (_     z'ie
     @C) sia        s'ia
-     @) sià        zi'a
+    @C) sie (_     s'ie
      @) s (_S1     s
      _) sull' (P5t sull
      _) sotto (P5t sot:o
@@ -482,15 +487,12 @@ ele%tr) ici (_     =itSi
      _) u (A       w2
     Kr) u (A       u
     Kl) u (A       u
-
      @) u (dinY_   'u
      @) u (colo_   'u
-        u (ito_    'u
      @) u (lA_     =u
      _) un' (P3t   un
     @@) u (A_      =u
    A%C) u (A_      =u
-
         ural (Y_   uR'al
      C) ura (L04_  'uRa
         uder (L04_ 'udE@-*
@@ -589,8 +591,9 @@ ele%tr) ici (_     =itSi
  _L16_) : (_L17D_  _%%E_     // Say time
 
         á          ''a
-        é          ''e
-        è          ''E
+        é          'e
+        è          E
+     @) è          ''E
         èi (K      ''Ej
         éi (K      ''eI
         ì          ''i
