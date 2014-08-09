@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.11
-// *   This file writen by Shadyar Khodayari 02-05-2014
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.12
+// *   This file writen by Shadyar Khodayari 07-01-2014
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -308,23 +308,7 @@
 			l09l09l04) انتون (_NSm5	Anetun
 			l09l09l04) انشان (_NSm5	AneSAn
 			l09l09l04) انشون (_NSm5	AneSun
-		L09L03L01) ات (_Sm2	At
-		//L09L03L01) اتی (_NSm3	Ati
-		L09L09L03) ات (_NSm2	At
-		L09L09L03) اتی (_NSm3	Ati
-		// Plural possessive pronouns for ات eg. " تفکراتمان"
-			L09L09L03) اتم (_NSm3	Atam
-			L09L09L03) اتت (_NSm3	Atat
-			L09L09L03) اتش (_NSm3	AtaS
-			L09L09L03) اتمان (_NSm5	AtemAn
-			L09L09L03) اتمون (_NSm5	Atemun
-			L09L09L03) اتتان (_NSm5	AtetAn
-			L09L09L03) اتتون (_NSm5	Atetun
-			L09L09L03) اتشان (_NSm5	AteSAn
-			L09L09L03) اتشون (_NSm5	AteSun
-			L09L09L03) اتها (_NSm4	AthA
-			L09L09L03) اتهای (_NSm5	AthAje
-			L09L09L03) اتهایی (_NSm6	AthAi:
+		L09L09L09) ات (_Sm2	At
 		l09l09l03) انه (_NSm3	A,ne:
 		l09l09l03) انۀ (_NSm3	A,neje
 		L09L09L04) اور (_Sm3	AvaR
@@ -689,6 +673,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		_) پسا (آL09L09P3@	'pasA
 		_) پیکو (L04L09L09P4@	'piko
 		_) پیکو (آL09L09P4@	'piko
+		_) پور (L04L09L09$noprefixP3@	puR
 
 	// suffixes پ
 		L09L09) پژوه (_Sm4	paZuh
@@ -5653,9 +5638,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 			L09L03) ی (_Sm1	i
 			L09L01و) ی (_Sm1	i
 			L09L09L03) یم (_NSm2	im
-			L09L09L03) ید (_NSm2	id
-			L09L09L03) یده (_NSm3	ide:	// eg. "دزدیده"
-			L09L09L03) یدۀ (_NSm3	ideje	// eg. "دزدیده"
+			L09L09L03) ید (_Sm2	id
 		// Possessive pronouns
 			L09L01) یم (_+NSm2	jam
 			L09L01) یت (_+NSm2	jat
@@ -5890,6 +5873,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 
 
 .group ،
+،	
 
 
 .group ؛

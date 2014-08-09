@@ -6,7 +6,7 @@ language en 3
 gender male
 
 phonemes en-us
-dictrules 2 3 6
+dictrules 3 6
 option reduce_t 1
 
 stressLength 140 120 190 170 0 0 255 300
