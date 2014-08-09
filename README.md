@@ -40,11 +40,6 @@ In order to use Android Studio, you will also need:
 
 1.  [Android Studio](http://developer.android.com/sdk/installing/studio.html).
 
-In order to use Eclipse, you will also need:
-
-1.  Eclipse;
-2.  the [Android Developer Tools](http://developer.android.com/tools/sdk/eclipse-adt.html) (ADT) for Eclipse.
-
 ### Debian
 
 | Dependency    | Install                                                          |
@@ -67,21 +62,6 @@ In order to use Eclipse, you will also need:
         $ make
 
 This will create an `android/build/apk/espeak-release-unsigned.apk` file.
-
-### Building with Eclipse
-
-1.  Build the JNI binding and espeak data file by running:
-
-        $ ./autogen.sh
-        $ ./configure
-        $ make jni espeakdata
-2.  Open Eclipse.
-3.  Create a new workspace.
-4.  Import the espeak folder as an exising Android project.
-5.  Build the espeak apk within Eclipse.
-
-The generated `eSpeakActivity.apk` can be installed like any other apk build
-via eclipse, such as by using the `Run` menu option.
 
 ### Signing the APK
 
