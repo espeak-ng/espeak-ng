@@ -61,12 +61,12 @@ In order to use Android Studio, you will also need:
         $ ./configure
         $ make
 
-This will create an `android/build/apk/espeak-release-unsigned.apk` file.
+This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
 
 ### Signing the APK
 
-In order to install the built APK (e.g. `bin/eSpeakActivity-release-unsigned.apk`)
-you need to self-sign the package. You can do this by:
+In order to install the built APK you need to self-sign the package. You can do
+this by:
 
 1.  Creating a certificate, if you do not already have one:
 
@@ -75,11 +75,11 @@ you need to self-sign the package. You can do this by:
 
         $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
           -keystore [YOUR_CERTIFICATE] \
-          bin/eSpeakActivity-release-unsigned.apk [ALIAS]
+          android/build/outputs/apk/espeak-release-unsigned.apk [ALIAS]
 3. Align the apk using the zipalign tool.
 
-        $ zipalign 4 bin/eSpeakActivity-release-unsigned.apk \
-          bin/eSpeakActivity-release-signed.apk
+        $ zipalign 4 android/build/outputs/apk/espeak-release-unsigned.apk \
+          android/build/outputs/apk/espeak-release-signed.apk
 
 ## Installing
 
