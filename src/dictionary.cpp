@@ -2570,12 +2570,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		while(*rule++ != 0);
 	}
 
-	if((option_phonemes == 2) && ((word_flags & FLAG_NO_TRACE)==0))
-	{
-		if(group_length <= 1)
-			fprintf(f_trans,"\n");
-	}
-
 	/* advance input data pointer */
 	total_consumed += group_length;
 	if(total_consumed == 0)
@@ -2870,6 +2864,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				// an instruction to switch language, return immediately so we can re-translate
 				strcpy(phonemes,match1.phonemes);
 				return(0);
+			}
+
+			if((option_phonemes == 2) && ((word_flags & FLAG_NO_TRACE)==0))
+			{
+					fprintf(f_trans,"\n");
 			}
 
 			match1.end_type &= ~SUFX_UNPRON;

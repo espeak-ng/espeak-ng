@@ -4,13 +4,13 @@
     base 109  109
 consonants  11  119
    base2  26  125
-      en  60  162
-    en-n  33  162
-   en-us  43  162
-   en-sc  42  164
-   en-rp  34  162
-   en-wm  32  162
-   en-wi  30  162
+      en  61  163
+    en-n  33  163
+   en-us  43  163
+   en-sc  42  165
+   en-rp  34  163
+   en-wm  32  163
+   en-wi  30  163
       af  39  138
       cy  29  134
       ga  30  134
@@ -29,7 +29,7 @@ consonants  11  119
       ne  18  157
       ur   6  149
       pa  15  151
-      ta  24  153
+      ta  25  153
       kn  17  149
       ml  30  152
       hu  25  124
@@ -1745,7 +1745,8 @@ vowel/@_6       [@] en
                 [@] gd
 vowel/8         [o-] zh
                 [8] kk
-vowel/8_2       [U] en-us
+vowel/8_2       [U] en
+                [U] en-us
                 [8] sv
 vowel/8_3       [eo] zhy
 vowel/8_4       [8:] et
@@ -2061,7 +2062,6 @@ vowel/ee_6      [&] sk
                 [E] ku
                 [&] si
                 [&:] si
-vowel/ee_7      [a] en-us
 vowel/e_mid     [E] en-rp
                 [E] ga
                 [E] fr
@@ -2769,11 +2769,12 @@ vwl_en/u_L      [u:] en
 vwl_en_us/3_us  [3] en-us
 vwl_en_us/3_us2  [3:] en-us
 vwl_en_us/a     [a] en-us
+vwl_en_us/aar   [A:] en-us
+                [A@] en-us
 vwl_en_us/ai    [aI] en-us
 vwl_en_us/ai@   [aI@] en-us
 vwl_en_us/ai3   [aI3] en-us
-vwl_en_us/ar    [A:] en-us
-                [A@] en-us
+vwl_en_us/ar    [a] en-us
 vwl_en_us/aU@   [aU@] en-us
 vwl_en_us/ee    [E] en-us
 vwl_en_us/er    [e@] en-us

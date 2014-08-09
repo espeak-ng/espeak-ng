@@ -74,7 +74,7 @@
 
 // character ranges must be listed in ascending order
 ALPHABET alphabets [] = {
-    {"_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e','l'), AL_DONT_NAME | AL_NOT_LETTERS},
+    {"_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e','l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS},
     {"_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0},
     {"_hy",    OFFSET_ARMENIAN, 0x530, 0x58f,  L('h','y'), AL_WORDS},
     {"_he",    OFFSET_HEBREW,   0x590, 0x5ff,  0, 0},
@@ -709,7 +709,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','o'):
 		{
-			static const short stress_lengths_eo[8] = {150, 150,  230, 180,    0,   0,  300, 320};
+//			static const short stress_lengths_eo[8] = {150, 150,  230, 180,    0,   0,  300, 320};
+			static const short stress_lengths_eo[8] = {150, 140,  180, 180,    0,   0,  200, 200};
 			static const unsigned char stress_amps_eo[] = {16,14, 20,20, 20,22, 22,21 };
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 
@@ -735,7 +736,7 @@ Translator *SelectTranslator(const char *name)
 	case L('i','a'):   // Interlingua
 	case L_pap:        // Papiamento
 		{
-			static const short stress_lengths_es[8] = {180, 190,  230, 180,  0, 0,  240, 270};
+			static const short stress_lengths_es[8] = {156, 170,  170, 156,  0, 0,  163, 200};  //change for Leandro Benitez, 02.Aug.2014
 			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,20, 20,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			static const wchar_t ca_punct_within_word[] = {'\'',0xb7,0};   // ca: allow middle-dot within word
 
@@ -1054,8 +1055,10 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('i','t'):   // Italian
 		{
-			static const short stress_lengths_it[8] = {150, 140,  170, 170,  0, 0,  300, 330};
-			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,22, 22,20 };
+			static const short stress_lengths_it[8] =
+  {165, 100,  170, 150,  0, 0,  215, 303};
+			static const unsigned char stress_amps_it[8] =
+  {16,15, 16,14, 20,22, 22,24 };
 
 			SetupTranslator(tr,stress_lengths_it,stress_amps_it);
 

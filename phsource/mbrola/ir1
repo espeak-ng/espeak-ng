@@ -1,0 +1,267 @@
+// eSpeak Phonemes to Mbrola
+// Persian (Farsi) & English
+// mb-ir1 Phonemes Translation
+// Seyed Mahmood Taghavi Shahri
+// mahmood.taghavi at Gmail.com
+// http://www.amardan.ir
+// License: GPL
+// Release: 2013-11-07
+
+// Limitation: Some English vowels can not be present or play with only two "ir1" diphones!
+// I need ability of combine up to four Mbrola diphones for good eSpeak to Mbrola translation.
+// Most English vowels can be present with two or three "ir1" diphones. But for playing them,
+// Mbrola "ir1" don't allow consequence of Persian vowels and also begin with a Persian vowel.
+// So in most case I forced to add "?" Persian consonant to do work with "ir1" specifications. 
+
+// Persian vowels
+2	A	_		0	?	a:
+6	A	i		0	?	a:
+2	A	i		0	y	a:			// Persian: ریاضی
+2	A	VWL		0	?	a:
+2	A	;		0	?	a:
+0	A	NULL	0	a:
+2	u	_		0	?	u
+6	u	i		0	?	u
+2	u	i		0	y	u
+2	u	VWL		0	?	u
+2	u	;		0	?	u
+0	u	NULL	0	u
+2	i	_		0	?	i
+6	i	i		0	?	i
+2	i	i		0	y	i
+2	i	3:		0	i				// Before phoneme end with "mb-ir1" consonant.
+2	i	@L		0	i				// Before phoneme end with "mb-ir1" consonant.
+2	i	e@		0	i				// Before phoneme end with "mb-ir1" consonant.
+2	i	r-		0	i				// Before phoneme end with "mb-ir1" consonant.
+2	i	VWL		0	?	i
+2	i	;		0	?	i
+0	i	NULL	0	i
+2	a	_		0	?	a
+6	a	i		0	?	a
+2	a	i		0	y	a
+2	a	@L		0	a				// Before phoneme end with "mb-ir1" consonant.
+2	a	VWL		0	?	a
+2	a	;		0	?	a			// English: specialty and
+0	a	NULL	0	a
+2	e	_		0	?	e
+6	e	i		0	?	e
+2	e	i		0	y	e
+2	e	VWL		0	?	e
+2	e	;		0	?	e
+0	e	NULL	0	e
+2	o	_		0	?	o
+6	o	i		0	?	o
+2	o	i		0	y	o
+2	o	VWL		0	?	o
+2	o	;		0	?	o
+0	o	NULL	0	o
+
+// Persian end of words
+0	_	NULL	0	NULL
+2	_	NULL	0	NULL
+
+// Persian & English consonants
+0	?	NULL	0	?
+0	b	NULL	0	b
+0	d	NULL	0	d
+0	dZ	NULL	0	j:
+0	D	NULL	50	z	d
+0	f	NULL	0	f
+0	h	NULL	0	h
+0	j	NULL	0	y
+0	l	NULL	0	l
+0	m	NULL	0	m
+0	n	NULL	0	n
+0	N	NULL	50	n	g:
+0	p	NULL	0	p
+0	l/	NULL	0	l
+1	q	1		0	q
+0	q	NULL	0	q
+0	r	NULL	0	r
+0	R	NULL	0	r
+0	s	NULL	0	s
+0	S	NULL	0	s:
+0	t	NULL	0	t
+0	tS	NULL	0	c:
+0	T	NULL	50	s	t
+0	v	NULL	0	v
+0	x	NULL	0	x
+0	z	NULL	0	z
+0	Z	NULL	0	z:
+0	g	A		0	g
+0	g	u		0	g
+0	g	o		0	g
+0	g	@5		0	g
+0	g	A@		0	g
+0	g	0		0	g
+0	g	V		0	g
+0	g	u:		0	g
+0	g	U		0	g
+0	g	U@		0	g
+0	g	O@		0	g
+0	g	o@		0	g
+0	g	OI		0	g
+0	g	NULL	0	g:
+0	k	A		0	k
+0	k	u		0	k
+0	k	o		0	k
+0	k	@5		0	k
+0	k	A@		0	k
+0	k	0		0	k
+0	k	V		0	k
+0	k	u:		0	k
+0	k	U		0	k
+0	k	U@		0	k
+0	k	O@		0	k
+0	k	o@		0	k
+0	k	OI		0	k
+0	k	NULL	0	c
+
+// Persian & English others
+0	;	NULL	0	_
+0	g-	NULL	0	NULL
+0	@-	NULL	0	NULL
+
+// English vowels
+0	w	NULL	0	v				// English: quite. Arabic: ولَد
+8	a	NULL	0	?	a
+8	i	NULL	0	?	i
+0	@	NULL	50	?	e
+8	3	NULL	50	?	e
+2	3	i@		50	e	r			// Before phoneme end with "mb-ir1" consonant.
+2	3	VWL		50	?	e
+2	3	;		50	?	e
+0	3	NULL	50	e	r
+0	3:	NULL	50	?	r
+8	@L	NULL	50	?	l
+2	@L	VWL		50	?	l
+2	@L	;		50	?	l
+0	@L	NULL	50	e	l
+0	@2	NULL	50	?	e
+2	@5	g		0	u
+2	@5	k		0	u
+8	@5	NULL	0	?	u
+2	@5	VWL		0	?	u
+2	@5	;		0	?	u
+0	@5	NULL	0	u
+8	aa	NULL	0	?	a
+2	aa	@L		0	a				// Before phoneme end with "mb-ir1" consonant.
+2	aa	VWL		0	?	a
+2	aa	;		0	?	a
+0	aa	NULL	0	a
+0	a#	NULL	10	?	e
+0	A:	NULL	10	?	a:
+2	A@	g		10	a:	r
+2	A@	k		10	a:	r
+8	A@	NULL	0	?	r
+2	A@	VWL		0	?	r
+2	A@	;		0	?	r
+0	A@	NULL	10	a:	r
+8	E	NULL	0	?	e
+2	E	@L		0	e				// Before phoneme end with "mb-ir1" consonant.
+2	E	l/2		0	e				// Before phoneme end with "mb-ir1" consonant.
+2	E	VWL		0	?	e
+2	E	;		0	?	e
+0	E	NULL	0	e
+8	e@	NULL	50	?	r
+2	e@	VWL		50	?	r
+2	e@	;		50	?	r
+0	e@	NULL	50	e	r
+0	I	NULL	50	?	i
+8	I2	NULL	0	?	e
+2	I2	3:		0	e				// Before phoneme end with "mb-ir1" consonant.
+2	I2	@L		0	e				// Before phoneme end with "mb-ir1" consonant.
+2	I2	VWL		0	?	e
+2	I2	;		0	?	e
+0	I2	NULL	0	e
+8	i:	NULL	0	?	i
+2	i:	@L		0	i				// Before phoneme end with "mb-ir1" consonant.
+2	i:	VWL		0	?	i
+2	i:	;		0	?	i
+0	i:	NULL	0	i
+0	i@	NULL	50	y	r
+2	0	g		0	a:
+2	0	k		0	a:
+8	0	NULL	0	?	a:
+2	0	@L		0	a:				// Before phoneme end with "mb-ir1" consonant.
+2	0	VWL		0	?	a:
+2	0	;		0	?	a:
+0	0	NULL	0	a:
+2	V	g		0	a:
+2	V	k		0	a:
+8	V	NULL	0	?	a:
+2	V	3:		0	a:				// Before phoneme end with "mb-ir1" consonant.
+2	V	@L		0	a:				// Before phoneme end with "mb-ir1" consonant.
+2	V	A@		0	a:				// Before phoneme end with "mb-ir1" consonant.
+2	V	e@		0	a:				// Before phoneme end with "mb-ir1" consonant.
+2	V	VWL		0	?	a:
+2	V	;		0	?	a:
+0	V	NULL	0	a:
+2	u:	g		0	u
+2	u:	k		0	u
+8	u:	NULL	0	?	u
+2	u:	@L		0	u				// Before phoneme end with "mb-ir1" consonant.
+2	u:	VWL		0	?	u
+2	u:	;		0	?	u
+0	u:	NULL	0	u
+2	U	g		0	u
+2	U	k		0	u
+8	U	NULL	0	?	u
+2	U	VWL		0	?	u
+2	U	;		0	?	u
+0	U	NULL	0	u
+2	U@	g		90	o	r
+2	U@	k		90	o	r
+8	U@	NULL	0	?	o
+2	U@	VWL		0	?	o
+2	U@	;		0	?	o
+0	U@	NULL	90	o	r
+0	O:	NULL	10	?	a:
+2	O@	g		70	o	r
+2	O@	k		70	o	r			// English: recording
+8	O@	NULL	0	?	o
+2	O@	VWL		10	?	o
+2	O@	;		10	?	o
+0	O@	NULL	70	o	r
+2	o@	g		70	o	r
+2	o@	k		70	o	r
+8	o@	NULL	0	?	o
+2	o@	VWL		0	?	o
+2	o@	;		0	?	o
+0	o@	NULL	70	o	r
+0	aI	NULL	0	?	a:y
+0	eI	NULL	0	?	ey
+2	OI	g		0	oy
+2	OI	k		0	oy
+8	OI	NULL	0	?	oy
+2	OI	VWL		0	?	oy
+2	OI	;		0	?	oy
+0	OI	NULL	0	oy
+0	aU	NULL	0	?	ow
+0	oU	NULL	0	?	ow
+8	aI@	NULL	0	?	ay
+2	aI@	VWL		0	?	ay
+2	aI@	;		0	?	ay
+0	aI@	NULL	90	ay	?
+0	aU@	NULL	50	?	o
+0	l/2	NULL	0	l				// English: child
+0	r-	NULL	0	r				// English: are available
+0	i@3	NULL	50	?	r			// English: career
+0	I#	NULL	50	?	n			// English: genuine
+0	VR	NULL	50	?	r			// English: sir
+0	n^	NULL	90	?	n			// English: n
+0	th	NULL	50	s	t			// English: th
+0	ts	NULL	50	t	s			// English: mhz
+0	t#	NULL	0	t				// English: gettin
+0	n-	NULL	50	?	n			// English: gettin
+0	O~	NULL	50	?	n			// English: frisson
+0	tS;	NULL	0	c:				// English: ћ
+0	Q	NULL	0	g:				// English: Miguel
+0	Q"	NULL	0	q				// English: غ
+0	z.	NULL	0	z:				// English: ڑ
+0	IR	NULL	50	?	r
+0	C	NULL	0	c:				// German ich.
+0	Y	NULL	0	?	o			// German ö, French oe.
+0	l^	NULL	50	g:	l			// Italian gli.
+
+

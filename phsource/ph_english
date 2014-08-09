@@ -51,6 +51,12 @@ endphoneme
 phoneme r-   // linking r, used in English between certain vowels and a following vowel
   liquid rhotic
   ipa ɹ
+  
+  IF NOT thisPh(isWordEnd) THEN
+    ChangePhoneme(r)
+  ENDIF
+//  ChangePhoneme(r)  // always use [r], not [r-] ?
+  
   lengthmod 0
 
   NextVowelStarts
@@ -99,7 +105,7 @@ phoneme w#
     EndSwitch
   ENDIF
 
-  WAV(h/hu)
+  WAV(h/hu, 70)
 endphoneme
 
 
@@ -113,7 +119,7 @@ phoneme @    //  Schwa
   length 140
   IfNextVowelAppend(r-)
   IF thisPh(isWordEnd) THEN
-    FMT(vowel/@_6)
+    FMT(vowel/@_6, 90)
   ENDIF
   FMT(vowel/@)
 endphoneme
@@ -168,11 +174,22 @@ phoneme a
 endphoneme
 
 
+phoneme a2  // don't reduce to a#
+  vowel dontlist
+  ChangePhoneme(a)
+endphoneme
+
+
 phoneme a#
   vowel  starttype #@  endtype #@
   ipa ɐ
   unstressed
   length 150
+  
+  IF NOT thisPh(isUnstressed) THEN
+    ChangePhoneme(a)          // syllable has an explicit stress
+  ENDIF
+
   FMT(vowel/a#_3)
 endphoneme
 
@@ -187,7 +204,7 @@ phoneme aa   //   'bath' etc.
   ENDIF
 
   IfNextVowelAppend(r-)
-  FMT(vowel/a_6, 90)
+  FMT(vowel/a_6, 88)
 endphoneme
 
 
@@ -266,9 +283,9 @@ phoneme i   //  optional variant of [I] for end of words
   length 150
   IfNextVowelAppend(;)
   
-//  IF prevVowel(isStressed) AND prevPhW(dZ) THEN
-//    FMT(vowel/ii_final)
-//  ENDIF
+  IF NOT thisPh(isFinalVowel) THEN
+    ChangePhoneme(I)
+  ENDIF
   
   FMT(vowel/ii_7)
 endphoneme
@@ -314,6 +331,12 @@ endphoneme
 phoneme U
   vowel  starttype #o  endtype #o
   length 150
+  
+  IF prevPhW(j) THEN
+    length 130
+    FMT(vowel/8_2)
+  ENDIF
+
   FMT(vowel/uu)
 endphoneme
 
@@ -410,8 +433,8 @@ phoneme u:
   IF nextPh(l/2) THEN
     FMT(vwl_en/u_L)
   ENDIF
-  IF prevPhW(j) THEN
-    length 180
+  IF prevPhW(j) AND NOT thisPh(isWordEnd) THEN
+    length 160
   ENDIF
   FMT(vdiph2/uw_2)
 endphoneme

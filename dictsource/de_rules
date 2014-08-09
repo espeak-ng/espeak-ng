@@ -1054,9 +1054,9 @@ formal) ie         =I@
     &C) stes (_S4  st@s
     &n) st (_      st       // needs more work
 
-   _be) st         St
-   _ge) st         St
-  _ver) st         St
+//   _be) st         St   // don't need these because 'be' is removed as a prefix
+//   _ge) st         St
+//  _ver) st         St
         ste (ll    StE
      a) ste (ll    stE
         st (ah     St
@@ -1093,7 +1093,7 @@ formal) ie         =I@
         shop       _^_EN
      _) sky        _^_EN
         soldat     z%OldA:t
-        so (rt_    s_|O
+     &) so (rt_    s_|O
 
         speed      _^_EN
   stau) ss         s

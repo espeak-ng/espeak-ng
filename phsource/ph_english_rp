@@ -81,6 +81,11 @@ phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   length 140
   IfNextVowelAppend(;)
+
+  IF NOT thisPh(isFinalVowel) THEN
+    ChangePhoneme(I)
+  ENDIF
+    
   FMT(vowel/ii_final)
 endphoneme
 
