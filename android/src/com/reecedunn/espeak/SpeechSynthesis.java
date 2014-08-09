@@ -406,6 +406,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("hat", "ht");
         mJavaToIanaLanguageCode.put("hun", "hu");
         mJavaToIanaLanguageCode.put("hye", "hy");
+        mJavaToIanaLanguageCode.put("ina", "ia");
         mJavaToIanaLanguageCode.put("ind", "in"); // NOTE: The deprecated 'in' code is used by Java/Android.
         mJavaToIanaLanguageCode.put("isl", "is");
         mJavaToIanaLanguageCode.put("ita", "it");
