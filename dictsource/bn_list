@@ -1,4 +1,4 @@
-
+﻿
 // Translation rules for Bengali
 // Improvement input  by Him Prasad gautam (Nepal).
 // This file is UTF8 encoded
@@ -415,6 +415,7 @@ _?	pr'oSnOtSihnO
 খেলবো 		k#el'bo
 চারটি 		car,t.i
 একটি 		ekt.i
+একটা 		&kt.a:
 দরকার		dO:r'kar'
 দেখছি		dek#'c#i
 বলছি		bo,lc#i
@@ -426,3 +427,29 @@ _?	pr'oSnOtSihnO
 সবরকম 	 	SO:b,rO:kom
 কাজকর্ম 	 	kaJ,kO:'rmo
 দুঃখ 		duk#'k#o
+তিনটে		tin't.e
+চারটে		car't.e
+পাঁচটা		p~ac't.a
+সাতটা		Sat't.a
+আটটা		a:t.'t.a
+দশটা		dOS't.:a
+একুশটা		ekuS't.:a
+বাইশটা		ba:iS't.:a
+তেইশটা		tei'St.:a
+চব্বিশটা		co'b'biS't.:a
+পঁচিশটা		p~o'ciS't.:a
+ছাব্বিশটা		ch:a'b'biS't.:a
+সাতাশটা		Sat.aS't.:a
+আঠাশটা		a:t.#a:S't.:a
+উনত্রিশটা		un'triS't.:a
+তিরিশটা		tiriS't.:a
+একত্রিশটা		ek'triS't.:a
+বত্রিশটা		bot:riS't.:a
+তেত্রিশটা		tetriS't.:a
+চৌঁত্রিশটা		c~ou:triS't.:a
+পঁয়ত্রিশটা		p~oj'triS't.:a
+ছত্রিশটা		chot:riS't.:a
+সাঁইত্রিশটা		S~ai'triS't.:a
+আটত্রিশটা	a:t.triS't.:a
+উনচল্লিশটা	uno'col'l:iS't.:a
+চল্লিশটা		col'l:iS't.:a

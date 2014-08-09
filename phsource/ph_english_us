@@ -49,7 +49,8 @@ phoneme a
   IF nextPh(isNasal) THEN
     FMT(vnasal/ee_n2)
   ELSEIF nextPh(r) THEN
-    FMT(vowel/ee_7)
+    length 230
+    FMT(vwl_en_us/ar)
   ENDIF
   FMT(vwl_en_us/a)
 endphoneme
@@ -65,7 +66,11 @@ phoneme a#
   ipa ɐ
   unstressed
   length 150
-  
+
+  IF thisPh(isStressed) THEN
+    ChangePhoneme(a)
+  ENDIF
+
   IF nextPhW(r) THEN
     ChangePhoneme(3)
   ENDIF
@@ -121,6 +126,11 @@ phoneme i   //  optional variant of [I] for end of words
   unstressed
   length 170
   IfNextVowelAppend(;)
+
+  IF NOT thisPh(isFinalVowel) THEN
+    ChangePhoneme(I)
+  ENDIF
+  
   FMT(vowel/ii_final)
 endphoneme
 
@@ -163,7 +173,7 @@ phoneme A:
   vowel  starttype #a  endtype #a
   length 200
   IF nextPhW(r) THEN
-    FMT(vwl_en_us/ar)
+    FMT(vwl_en_us/aar)
   ENDIF
   FMT(vowel/aa_8)
 endphoneme
@@ -177,7 +187,7 @@ phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in Ameri
   ENDIF
   length 260
   IfNextVowelAppend(r-)
-  FMT(vwl_en_us/ar)
+  FMT(vwl_en_us/aar)
 endphoneme
 
 
@@ -250,6 +260,11 @@ endphoneme
 phoneme u:
   vowel  starttype #u  endtype #u
   length 190
+  
+  IF prevPhW(j)  AND NOT thisPh(isWordEnd) THEN
+    length 160
+  ENDIF
+  
   FMT(vdiph2/uw_6)
 endphoneme
 
@@ -295,7 +310,7 @@ endphoneme
 
 phoneme e@
   vowel  starttype #e  endtype #@
-  length 280
+  length 260
   ipa ɛ|ɹ
   IF nextPhW(r) THEN
     ipa ɛ

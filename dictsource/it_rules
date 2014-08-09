@@ -1,6 +1,6 @@
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2014 June 28 by Chris <llajta2012@gmail.com>
+// Last update: 2014 July 30 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -70,8 +70,8 @@
 	ch (a	tS
 	ch (o	tS
 	ch (u	tS
-		ci (A	tS    // or L01 ?
-		cci (A  tS:   // or L01 ?
+		ci (A	tS
+		cci (A  tS:
 	@)	co (lA_ =ko
      _) c' (P2t     tS
 	@@A) ce (A_	=tSE
@@ -81,8 +81,11 @@
 	A) cchiano (_	=k:iano   // verbs
 	ceder (L04_	tS'Ede@-*  // Pron.s verbs
 	cceder (L04_	tS:'Ede@-*
+	in) cer (L04_	=tSe@-*
 	_L04Z) capit (A_	k'a:p,it
 		_L04Z) capit (ano_	k'a:p,it
+	correr (L04_	k'o:R*eR
+	ccorrer (L04_	k:'o:R*eR
 
 .group d
 		d	d
@@ -97,6 +100,8 @@
 	chAA) der (L04_	=de@-*
 	re) der (L04_	=de@-*
 	@) dinano (_	=dina/no   // verbs
+	i) dano (_	=dano  // verbs
+	i) dino (_	=dino
 	due (_	d'ue   // numbers
 	day (_	d'eI   // foreign
 
@@ -157,11 +162,13 @@
 	esser (L04_		'es:eR
 	_) ecco (L04	'Ek:o
 		ete (L04_	'ete
-	fl) etter (L04_	'Et:e@-*   // pronominal
-	evano (_	'evano   // verbs
-	estano (_	'Estano   // verbs
-	AC) erano (_	=eR,ano   //verbs
-	@s) ero (_	=ERO   //verbs
+	fl) etter (L04_	'Et:e@-*
+	ever (L04_	'eveR
+	evano (_	'evano  // verbs
+	estano (_	'Estano
+	AC) erano (_	=eR,ano
+	@s) ero (_	=ERO
+	e (lano_	'e
 
 .group f
 		f	f
@@ -249,6 +256,7 @@
 	@C)	i (_S1q  i     // lookup it_list without suffix
         @)      i (Ante_   i
 		i (acA_   'i
+	i (ache_	'i
 		i (asi_   'i
 	@)	i (bile_  'i
 	@)	i (cA_	  =i
@@ -262,7 +270,6 @@
         @)      i (dere_  'i
 	@)	ie (rA_    i'E
 	@)	ié (rA_    i'E
-	@)	i (gA_	  =i
 		i (genA_  'i
 	c)	i (lA_    =i
 	g)	i (lA_    =i
@@ -325,7 +332,8 @@
 	A) mila (_	m'ila/
      _) m' (P2t     m
 	_) mezz' (P5t	mEdz:
-	metter (L04_	m'ette@-*
+	metter (L04_	m'ette@-* // Pron.s Verbs
+	manda (L05_	m'anda
 	mbano (_	=mbano // verbs
 	@) minano(_	=mina/no   // verbs
 
@@ -429,6 +437,8 @@
 	ph	f   // foreign words
 	@m)	p (erY_	=p
 	porta (L05_	p'O@-*ta  // Pron.s verbs
+	pie (gaL05_	pI'e
+	pie (galA_	pI'e
 
 .group q
 		q	k
@@ -445,6 +455,9 @@
 	A) r (_	=@-*
 		rr	R*
 	A)	r (A	R
+	a) r (a	*
+	A) r (à_	*
+	A) r (ò_	*
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
@@ -467,7 +480,6 @@
 		s (q	s
 		ss	ss
 	A) ss (A	s:
-
 		s (t	s
 		s (x	s
 		sc (Y	S
@@ -480,14 +492,16 @@
 	A) sh (A	S
 	@A)	sia (_	z'ia
 	@A) sie (_	z'ie
-	@C)	sia	s'ia
+	@C) sia (_	s'ia
 	@C) sie (_	s'ie
 	@)	s (_S1	s
      _) sull' (P5t     sull
+	_) sant' (P5t	sant
 	_sotto) s (A	_||s
 	sfere (_	sf'eRe
 	@) scer (L04_	=SE@-*  // pron.s verbs
 	A) sci (L05_	=SI
+	scrivi (L04_	sk@-*'i:vI
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -504,9 +518,11 @@
 		a) ttoria (_	t:oR'ia
 		a) ttorie (_	t:oR'Ie
 		@) tt (ano_	=t:  // verbs
+	en) t (ano_	=t
 	@ma) to (L06_	t'O
 	@a) to (L06_	=to
 	intima) to (L04_	=to
+	a) ta (si_	=ta
 	_) tutt' (P5t	tut:
 
 .group u
@@ -523,8 +539,9 @@
 	uder (L04_	'udE@-*
 	uter (L04_	'ute@-*
 	uvano (_	'uvano // verbs
-	ubano (_	'ubano // verbs
-	ustano (_	'u:stano   // verbs
+	ubano (_	'ubano
+	ustano (_	'u:stano
+	C) uo (tano_	U'O
 	uomini (_	w2'Omini
 
 .group v
@@ -534,6 +551,7 @@
 		C) vi (A	vI
 		C) vi (A_	=vI
 	A) vino (_	=vino  // verbs
+	@) vo (cano_	=vo
 
 .group w
 		w	w2
@@ -621,7 +639,7 @@ gn	n^
 _L16_)	: (_L17D_	_%%E_	// Say time
 
 		á	''a
-		é	'e
+		é	''e
 		è	E
 	@) è	''E
 		èi (K	''Ej
@@ -645,4 +663,3 @@ _L16_)	: (_L17D_	_%%E_	// Say time
         A_)  - (_D        _
         C_)  - (_D        _
 		§	setsi'one
-		

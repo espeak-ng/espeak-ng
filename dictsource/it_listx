@@ -173,6 +173,7 @@ anamnesi $2
 anania $3
 anap $1
 anarchia $3
+anarchie	ana@-*k'ie
 anastasia $3
 anatem  $alt
 anatroccol  $alt
@@ -499,6 +500,7 @@ benessere  $alt
 benevol  $alt
 benton  $alt
 benzil	bendz'il
+benzin	bendz'In
 beot  $alt
 berber $1
 berberi $1
@@ -542,6 +544,7 @@ bisenzi  $alt
 bisestil $3
 bistecc  $alt2
 bisturi $1
+bizantin	bidzant'in
 blasfem  $alt
 blastopor $2
 blattoidei $4
@@ -626,6 +629,7 @@ bronzea	b@-*'o:Ndzea
 bronzee	$1
 bronzeo	b@-*'o:Ndz,Eo
 bronzeo $1
+bronzin	b@-*ondz'in
 brugol $1
 brusi $2
 bubu $2
@@ -703,7 +707,7 @@ candel  $alt2
 canfor $1
 canil $2
 cannalong  $alt
-cannibale $2
+cannibal	$2
 cannobi  $alt
 canoa  $alt
 canon	$1
@@ -782,7 +786,6 @@ castelsepri  $alt
 casteltermini $3
 castelverde  $alt2
 castelvetere  $alt
-castig $2
 castin $1
 castore $1
 castroliber $3
@@ -912,7 +915,7 @@ ciotol $1
 cipoll  $alt2
 cipress  $alt
 circocentr  $alt
-circuit	tSi@-*k'u:it
+circuit	tSi@-*k'u:It
 cireneo	$3
 ciscaucasia $4
 cismon $2
@@ -946,7 +949,7 @@ cocchi  $alt
 cocchia  $alt
 coccia  $alt
 coccidi  $alt
-coccige  $alt
+coccig	$1 $alt
 coccigea	$2
 coccigeo	$2
 coclea $1  $alt
@@ -1428,7 +1431,7 @@ entalpia $3
 enteric  $alt2
 entropia $3
 entusiasm $3
-entusiast $4
+entusiast $3
 epa		$alt
 epagneul $1
 eparchia $3
@@ -1487,6 +1490,7 @@ esempi  $alt
 esequie  $alt
 esercit $2
 esit $1
+esocrin	$2
 esod  $alt
 esofag $2
 esoner $2
@@ -1555,6 +1559,7 @@ facet  $alt
 faedis  $alt
 faicchio  fa'ik:io
 faina  fa'i:na
+faine	fa'ine
 falangine	$3
 falascia $3
 falcon $2
@@ -1760,7 +1765,8 @@ geocentric  $alt
 geode  $alt
 geotermia $4
 geov $1
-gerarchia $3
+gerarchia	$3
+gerarchie	dZeRa@-*k'ie
 gergovia  $alt
 germil	$2
 gerolam $2
@@ -1786,6 +1792,7 @@ giog  $alt2
 giogoli	$1	$alt
 giolit $1
 gionat $1
+giorgine	$2
 giorn  $alt2
 giov  $alt2
 giovane $1  $alt2
@@ -1800,6 +1807,7 @@ gladiol $2
 glaucofane $3
 gleb  $alt
 glia  l^'i:a
+glicerin	glitSe*'in
 glicerol $3
 glicin	gl'itSin
 glicine	gl'itSine
@@ -1970,8 +1978,8 @@ interprete $2
 intersind $3
 intonarumori  $alt2
 intorn  $alt2
-intrig $2
 intrinsec $2
+intrinseche	$2
 introdott  $alt2
 inver  $alt2
 invi $2
@@ -2003,6 +2011,7 @@ ironia $3
 isaia  iza'i:a
 islam $2
 isobar $2
+isocline	$2
 isocrate $2
 isocron $2
 isoenzim	izoendz'im
@@ -2101,7 +2110,6 @@ lestrigoni $2
 let  $alt
 lett  $alt
 letter  $alt
-lettig $2
 leuc $1
 leuci $1
 levanz $1  $alt
@@ -2176,8 +2184,8 @@ madras $2
 maestria $3
 mafia $1
 magazine	m'EgaziN
-magie	madZ'iE
 maggior  $alt2
+magie	madZ'iE
 magnenzi  $alt
 magnesi  $alt
 magnesia $2  $alt
@@ -2266,6 +2274,7 @@ mazzin $2
 mazzol $2
 medi  $alt
 media  $alt
+medicine	$3
 medium  $alt
 medole $1
 medoll  $alt2
@@ -2343,6 +2352,7 @@ mezzosangue	medz:os'aNgwe
 miastenia $3
 michiel $2
 microcefalia $5
+microcircuit	mik@-*o||tSi@-*k'u:It
 microclim	$3
 microcosm  $alt
 microfilm $3
@@ -2398,6 +2408,8 @@ mol  $alt
 mol  $alt
 mole  $alt
 molecol  $alt
+molestia	$2
+molestie	$2
 mollic $2
 moloch  $alt
 molochi  $alt
@@ -2572,6 +2584,7 @@ nov  $alt
 nove  $alt
 novembre  $alt
 nover $1
+nuclein	nukle'In
 nucleo	$1
 nucleoprotein	nukleo-p@-*ote'in
 nucleosintesi $4
@@ -2582,7 +2595,7 @@ nuov  $alt
 nuraminis $2
 nuvolone  $alt
 oasi $1  $alt
-obblig  $alt
+obblig	$1 $alt
 obes  $alt
 obidos  $alt2
 obit $1
@@ -2606,6 +2619,7 @@ oidi $2
 oleodott  $alt2
 olg  $alt
 oligarchia $4
+oligo	$1
 oligodendroglioma  Oligodend@-*ol^'iOma
 olmi  $alt
 oltremod $3  $alt
@@ -2806,8 +2820,8 @@ pelope $1
 peloponnes  $alt
 pelos$alt2
 pelot  $alt
-pemfig  $alt
-pena		$alt2
+pemfig  $1 $alt
+pena	$alt2
 pend  $alt2
 pendi $2
 pendol  $alt
@@ -2860,7 +2874,6 @@ perregaux $2
 perrer $2
 persefone $2  $alt
 persia $1
-persian $3
 personcine	$3
 peru $2
 perugine	$3
@@ -3080,6 +3093,7 @@ procediment  $alt
 proci  $alt
 procne  $alt
 proconsole  $alt
+prodigo	$1
 prodott  $alt2
 proemi  $alt
 proenzim	p@-*o-endz'im
@@ -3132,6 +3146,7 @@ psicosintesi $3
 psicoterapeut $5
 psicoterapia $5
 pulcheria $2
+puliga	$1
 pulizia $3
 pulpit $1
 puntasecc  $alt2
@@ -3139,7 +3154,6 @@ purpurea	$2
 purpuree	$2
 purpureo $2
 quadrifogli  $alt
-quadrig $2
 quadrigemin	$3
 quadrilater $3
 quadripol $3
@@ -3729,7 +3743,6 @@ tallofite $2
 talor  $alt2
 tamar $1
 tamerice $3
-tamigi $2
 tammar $1
 tanagr $1
 tanar $1
@@ -3985,6 +3998,7 @@ tuttor  $alt2
 tuttosport $3
 tutu $2
 ubbriac	$3
+ubbriache	ub:@-*I'ake
 uberta $3
 ubold  $alt
 ubriac $3
