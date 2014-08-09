@@ -122,7 +122,6 @@ _−	m'enUs
 ®	xeZistR'adU
 ?1  ™	m'a*@-k&xeZiSt'ad&
 ?2  ™	m'a*@-k&xeZistR'ad&
-
 _,	v'irgul&
 _-	'ifeIN
 _/	b'aQ&
@@ -684,6 +683,7 @@ aeroporto	$alt2
 aflore		$alt
 alcateia	$alt
 alcova		$alt2
+alegrete	$alt2
 alegro		$alt2 $noun
 almoço		$alt $verb
 ameba		$alt
@@ -697,6 +697,7 @@ andorra		$alt2
 antonieta	$alt2
 apego		$alt2 $noun
 apelo		$alt2  $noun
+apelos	$alt2
 aposto		$alt  $verb
 aperto		$alt2 $noun
 apneia		$alt
@@ -704,7 +705,9 @@ apoio		$alt $verb
 arredores	$alt
 arremesso	$alt2 $noun
 arrocho		$alt2 $noun
+arrochos	$alt2
 arroto		$alt2 $noun
+arrotos	$alt2
 arroz		$alt2
 assembleia	$alt
 assopro		$alt2 $noun
@@ -770,6 +773,7 @@ catacreses	$alt
 cateto		$alt2
 catequeses	$alt
 catorze		$alt2
+cavalete	$alt2
 cebola		$alt2
 cedro		$alt
 cefaleia	$alt
@@ -779,10 +783,10 @@ cerca		$alt $verb
 cerco		$alt $verb
 cetro		$alt
 chamego		$alt2 $verb
+chamegos	$alt2
 chapeleta		$alt2
 chaveta		$alt2
 chefe		$alt
-checam		$alt
 choco		$alt2 $noun
 choça		$alt
 chofer		$alt
@@ -794,6 +798,7 @@ clamores	$alt2
 clero		$alt
 cloreto		$alt2
 coche		$alt2
+cocho		$alt2
 coco		$alt2
 cofre		$alt
 colete		$alt2
@@ -806,7 +811,6 @@ colosso		$alt2
 colossos	$alt2
 colostro	$alt2
 começo		$alt $verb
-
 concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
@@ -828,6 +832,7 @@ corneta		$alt2
 cornos		$alt
 coro		$alt2
 coro		$alt $verb
+corpete	$alt2
 corpos		$alt
 corto		$alt
 corveta		$alt2
@@ -896,6 +901,7 @@ encosto		$alt  $verb
 endereço	$alt  $verb
 endoide	$alt2
 enforco		$alt
+engodo	$alt2
 engordo		$alt
 enredo		$alt  $verb
 enrosco		$alt2 $noun
@@ -921,6 +927,7 @@ esgoto		$alt2
 esgoto		$alt $verb
 espectro	$alt
 espeto		$alt2 $noun
+espetos	$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
@@ -939,7 +946,7 @@ europeia	$alt
 evangelho	$alt
 ?2  ex es
 exagero		$alt $verb
- exegeses	$alt
+exegeses	$alt
 exorto		$alt
 ?2 expert	Eksp'E*@-t
 ?2 experts	Eksp'E*@-ts
@@ -951,7 +958,6 @@ fatora	$alt
 felisteia		$alt
 fezes		$alt
 filete		$alt2
-?1 fixe		fiSy
 flerte		$alt2 $noun
 florete	$alt2
 foda		$alt2 $verb
@@ -1021,11 +1027,10 @@ jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
+judeia	$alt
 lacerda	$alt
 lagosta		$alt2
 lambreta	$alt2
-laser		l'eIzer
-lasers		l'eIzers
 lembrete	$alt2
 lepra		$alt
 leses	$alt
@@ -1035,6 +1040,7 @@ licores	$alt2
 lisboeta	$alt2
 lodo		$alt2
 lopes		$alt
+lutero	$alt
 macete		$alt2
 maioneses	$alt
 manopla	$alt
@@ -1066,7 +1072,6 @@ morda		$alt2
 moreia		$alt
 mui		m'UI
 muleta		$alt2
-mureta		$alt2
 mutreta		$alt2
 namoro		$alt2 $noun
 naquela		$nounf
@@ -1116,8 +1121,10 @@ peses		$alt
 peseta		$alt2
 peso		$alt $verb
 piloto		$alt2 $noun
+pilotos	$alt2
 pior		$alt
 pipoco		$alt2 $noun
+piquete	$alt2
 plateia		$alt
 plebeia		$alt
 poderem	$alt2
@@ -1126,8 +1133,6 @@ pompeia		$alt
 porcos		$alt
 porque		$alt2
 porra		$alt2
-porreta		$alt2
-porrete		$alt2
 porto		$alt $verb
 pose		$alt2
 poxa		p'oS&
@@ -1138,6 +1143,7 @@ program	$alt
 proso		$alt
 prosopopeia	$alt
 proveta		$alt2
+punheta	$alt2
 quarteto	$alt2
 quatorze	$alt2
 queda		$alt
@@ -1178,8 +1184,6 @@ rolete		$alt2
 rolo		$alt2 $noun
 rose	$alt2
 roseta		$alt2
-rota		$alt2
-rota		$alt $noun
 rubores		$alt2
 sabonete	$alt2
 sabores		$alt2
@@ -1190,16 +1194,26 @@ seca		$alt2 $noun
 secas		$alt2
 seco		$alt2
 seco		$alt $verb
+sede	$alt2
+sedes	$alt
 selo		$alt2
 selo		$alt $verb
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
+serdes	$alt2
 sinagoga	$alt
 sinopse		$alt
 soco		$alt2
 soco		$alt $verb
 sogra		$alt
+soldo	s'owdU
+soldo	$alt $verb
+soldo	$alt $verb
+solta	s'owt&
+solta	$alt $verb
+solto	s'owtU
+solto	$alt $verb
 sopa		$alt2
 sopeses	$alt
 sopro		$alt2 $noun
@@ -1221,6 +1235,7 @@ tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
+terdes	$alt2
 terma	$alt
 test		$alt
 terrores	$alt2
@@ -1256,6 +1271,7 @@ verbete		$alt2
 verborreia	$alt
 verde		$alt2
 vileta		$alt2
+vinheta	$alt2
 vodca	v'OdZik&
 voga		$alt
 voice	$alt
@@ -1265,7 +1281,6 @@ xerox	S'E*Oks
 xeroxes	$alt
 zelo		$alt2 $noun
 zorra		$alt2
-
 
 // foreign words
 ?2 álcool	'aUkow
@@ -1291,6 +1306,7 @@ blind      bl'aind
 ?2 center	s'eNter
 ?1 com        kom
 ?1 ctrl       k'oNt:r,Ol
+?2 control	k'oNtRow
 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
@@ -1298,7 +1314,7 @@ doc        d'Ok
 ?2   designer	dez'aIner
 ?2   designers	dez'aIners
 ?2 desktops	deskt'Ops
-?1 dj         d,i:dZ'eI
+dj         d,i:dZ'eI
 ?2   diesel	dZ'izEU
 ?2   doha	d'ox&
 ?1 down       d'a,wn
@@ -1316,16 +1332,19 @@ drive	dR'aIv
 ?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
 ?2 eyes       'aIs
+?1 fixe		fiSy
 flash	flES
 ?1 frame      fr'eImy
 ?2 frame      fR'eImi
 funk	f&~Nk
 game	g'eImy
+gay	geI
+get   gEt
 ?1 gmail      g,em'eIl
 ?2 Gmail      Zem'eIl
-get   gEt
 ?1 google     g'u:g&l 
 ?2 google     g'ugol
+?2 habeas	'abe&s
 ?2 handebol	hendZyb'Ow
 ?1 hardware   'ard,w'Er-
 ?2 hardware   h'ardwe@-
@@ -1340,6 +1359,8 @@ hot	xOt
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
 ?2 jazz	dZIEs
+laser		l'eIzer
+lasers		l'eIzers
 left	$alt
 laptop	lEpt'Op
 ?2 laptops	lEpt'Ops
@@ -1354,6 +1375,7 @@ laptop	lEpt'Op
 ?2  master	m'aste*@-
 ?2        mouse        m'aUzi
 ?1 menu       menu
+mickey	m'ikeI
 next       n'Ekst
    ok         Ok'eI
 ?2 offline    Ofl'aIN
@@ -1433,7 +1455,6 @@ facebook  feIsybuk
 ?1 fedora      _^_EN
     firefox     f'ai@fOks
 ?1 front       fr'ont
-?2 habeas	'abe&s
 high   haI
 ?1 jaws        dZ'au:z
 lady	l'eIdy
@@ -1449,6 +1470,7 @@ mac  mEk
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
+?2 nero	n'ErU
 ?2  netbooks   nEtbUks
 ?2  notebook   nowtbUk
 ?2  notebooks   nowtbUks
@@ -1498,6 +1520,7 @@ darwin        d'Arwin
 dijkstra      d'ijkstrA:
 einstein      _!'aInSt,aIn
 ?2   einstein      _!'aInst,aIn
+?2 diderot	didex'o
 feuerbach   _^_DE
 feynman       f'ainm@n
 freud         fR'OId
@@ -1549,11 +1572,13 @@ krüger      kR'iZer
 kühl        k'il
 ?2 john	dZIoN
 ?2 juan  xu&~N
+mike	maIk
 mueler      m'iler
 mueller     m'iler
 müler       m'iler
 müller      m'iler
 ?1   nelson       n'Els&N
+?2 robert	x'obe*@-t
 ronchi      r'OnCi:
  Scarlet	sk'a*@-let
 valter	v'aUter

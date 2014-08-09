@@ -1,4 +1,4 @@
-// Pronounciation rule for Bengali.
+﻿// Pronounciation rule for Bengali.
 // Improvement input by Him Prasad Gautam (Nepal).
 // This file is UTF8 encoded 
 
@@ -137,9 +137,8 @@
 .group ৌ
 	C) ৌ	ow
 	C) ৌঁ	o~w
-	
 .group ৺
-	৺ (C	iSSor
+	৺(C	iSSor
 
 
        
@@ -405,3 +404,4 @@
 
     __) - (_D    bij'og
     D_) - (_D    bij'og
+
