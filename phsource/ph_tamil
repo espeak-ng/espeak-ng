@@ -165,22 +165,7 @@ phoneme z.
 endphoneme
 
 phoneme r
-  liquid rhotic
-  lengthmod 3
-  
-  IF thisPh(isWordEnd) THEN
-    CALL base/r/
-  ENDIF
-    
-  IF prevPhW(isVowel) THEN
-    IF nextPhW(isNotVowel) THEN
-      ChangePhoneme(**)
-    ENDIF
-
-    ChangePhoneme(*)
-  ENDIF
-    
-  CALL base/r
-  ipa ɾ
+  import_phoneme base/r
 endphoneme
+
 

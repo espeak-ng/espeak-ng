@@ -915,7 +915,7 @@ static char rule_phonemes[80];
 static char group_name[LEN_GROUP_NAME+1];
 static int group3_ix;
 
-#define N_RULES 2000		// max rules for each group
+#define N_RULES 3000		// max rules for each group
 
 
 
@@ -1681,6 +1681,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	int count=0;
 	int different;
 	int wc;
+	int err_n_rules=0;
 	const char *prev_rgroup_name;
 	unsigned int char_code;
 	int compile_mode=0;
@@ -1726,6 +1727,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				count += n_rules;
 			}
 			n_rules = 0;
+			err_n_rules = 0;
 
 			if(compile_mode == 2)
 			{
@@ -1808,9 +1810,22 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 		{
 		case 1:    //  .group
 			prule = compile_rule(buf);
-			if((prule != NULL) && (n_rules < N_RULES))
+			if(prule != NULL)
 			{
-				rules[n_rules++] = prule;
+				if(n_rules < N_RULES)
+				{
+					rules[n_rules++] = prule;
+				}
+				else
+				{
+					if(err_n_rules == 0)
+					{
+						fprintf(stderr, "\nExceeded limit of rules (%d) in group '%s'\n", N_RULES, group_name);
+						error_count++;
+						err_n_rules = 1;
+					}
+				}
+
 			}
 			break;
 
