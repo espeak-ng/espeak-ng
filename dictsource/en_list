@@ -500,16 +500,16 @@ _17	s'Ev@nti:n
 ?7 _17  s'@v@nti:n
 _18	'eIti:n
 _19	n'aInti:n
-_2X	tw'Ent2i
-_3X	T'3:ti
-?5 _3X	T'IRti
-_4X	f'o@ti
-_5X	f'Ifti
-_6X	s'Iksti
-_7X	s'Ev@nti
-?7 _7X  s'@v@nti
-_8X	'eIti
-_9X	n'aInti
+_2X	tw'Ent2i||
+_3X	T'3:ti||
+?5 _3X	T'IRti||
+_4X	f'o@ti||
+_5X	f'Ifti||
+_6X	s'Iksti||
+_7X	s'Ev@nti||
+?7 _7X  s'@v@nti||
+_8X	'eIti||
+_9X	n'aInti||
 
 _0C	h'Vndr@d
 _0M1	T'aUz@nd
@@ -4735,6 +4735,7 @@ Zoë		zoUi
 Acura		akjUr@
 Advil		advIl
 Allgemeine	alg@maIm@
+Andagakavi	anda#ga#kka#v%i  // a Tamil keyboard
 Andromeda	andr'0mId@
 Aquino		a#ki:noU
 Asimov		azI#m0f
