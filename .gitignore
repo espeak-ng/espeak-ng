@@ -76,6 +76,7 @@ espeak-data/config
 espeak-data/dictsource
 espeak-data/phsource
 espeak-data/*_dict
+espeak-data/mbrola_ph/*_phtrans
 espeak-data/intonations
 espeak-data/phondata
 espeak-data/phondata-manifest

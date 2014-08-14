@@ -3747,9 +3747,9 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
     ReadPhondataManifest();
 }  // end of CompilePhonemeData
 
+#include <errno.h>
 
-
-void CompileMbrola()
+void CompileMbrola(const char *mbrola_file)
 {//=================
 	char *p;
 	FILE *f_in;
@@ -3769,7 +3769,15 @@ void CompileMbrola()
 	int mbrola_ctrl = 20;   // volume in 1/16 ths
 	MBROLA_TAB data[N_PHONEME_TAB];
 
-	wxString filepath = wxFileSelector(_T("Read Mbrola phonemes file"),path_phsource+_T("/mbrola"),_T(""),_T(""),_T("*"),wxOPEN);
+	wxString filepath;
+	if (mbrola_file == NULL)
+	{
+		filepath = wxFileSelector(_T("Read Mbrola phonemes file"),path_phsource+_T("/mbrola"),_T(""),_T(""),_T("*"),wxOPEN);
+	}
+	else
+	{
+		filepath = mbrola_file;
+	}
 	strcpy(buf,filepath.mb_str(wxConvLocal));
 	if((f_in = fopen(buf,"r")) == NULL)
 	{
