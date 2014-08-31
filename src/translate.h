@@ -408,8 +408,8 @@ typedef struct {
 #define S_FIRST_PRIMARY     0x80
 // bit7=if more than one primary stress, make the subsequent primaries to secondary stress
 
-#define S_FINAL_STRESS_C    0x100
-// bit8=stress last syllable if it doesn't end in a vowel
+#define S_FINAL_VOWEL_UNSTRESSED    0x100
+// bit8=don't apply default stress to a word-final vowel
 
 #define S_FINAL_SPANISH     0x200
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
@@ -673,7 +673,6 @@ extern int option_tone_flags;
 extern int option_waveout;
 extern int option_quiet;
 extern int option_phonemes;
-extern int option_mbrola_phonemes;
 extern int option_phoneme_events;
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_multibyte;

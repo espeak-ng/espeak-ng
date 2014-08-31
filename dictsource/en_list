@@ -18,7 +18,7 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 
-// $alt1   use strong ending (-age, -an, -ance, -ative, -table, -ed, -eria, -et, -inal, -ier  -mouth -on -or -ored, -ose, -s)
+// $alt1   use strong ending (-age, -an, -ance, -ate, -ative, -table, -ed, -eria, -et, -inal, -ier  -mouth -on -or -ored, -ose, -s)
 // $alt2   use weak ending (ace, ain, an, ar*, ard, ate, ath, ell, ery, ess, et, ie, ile, ine, men, on, ot)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
 // $alt4   separate 'h', not 'th' 'ph' 'sh';  [t2] not [t]
@@ -570,6 +570,7 @@ asap	$abbrev
 ati	$abbrev
 atk	$abbrev
 atm	$abbrev
+atv	$abbrev
 avc	$abbrev
 avg	$abbrev
 awol	eIw0l
@@ -894,6 +895,7 @@ anchovy		antSoUvi
 anemone		a#nEm@ni
 anemometer	anIm'0mI2t3
 anesthetize	$alt3
+antacid		$2
 anew		a#nju:
 ?3 anew		a#nu:
 anime		anImeI
@@ -1026,6 +1028,7 @@ axon		aks0n
 ayuh		a#j'@
 ayup		a#jVp
 
+backdate	$2
 backend		bak'End
 backstory	baksto@ri
 badmouth	$alt1
@@ -1065,6 +1068,7 @@ batman		batman
 battalion	$alt3
 bazaar		$alt3
 bazooka		ba#zu:k@
+beating		bi:tIN
 bedouin		bEdu:I#n
 beige		beIZ
 belisha		b@l'i:S@
@@ -1085,6 +1089,7 @@ bias		baI@s
 biased		baI@st
 bible		baIb@L
 bidet		bi:deI
+bifurcate	$1
 bigot		bIg@t  // -ed
 bijou		bi:Zu:
 bikini		bIk'i:ni
@@ -1196,6 +1201,7 @@ caldera		k0ld'e@r@
 caliche		ka#li:tSi
 caliph		$alt6
 calix		$alt6
+callous		kal@s   // -ed
 calv		kA:v          // for calved, calving
 ?3 calv		kav          // for calved, calving
 calve		kA:v
@@ -1240,6 +1246,7 @@ cashmere	kaSmi@3
 ?3 cashmere	kaZmi@3
 casino		$alt3
 cassette	$alt3
+castrate	$2
 catastrophe	$alt3
 catastrophic    kat@str'0fIk
 catarrh		k@tA@
@@ -1264,7 +1271,7 @@ centurion	sEntS'U@ri@n
 ceres		si@ri:z
 cerise		s@ri:z
 ?3 certain	s3:?n-
-certificate	s3tIfIk@t
+certificate	s3tIfIk@t	$onlys
 cerulean	$alt3
 c'est		seI $u
 chagrin		SagrIn
@@ -1436,6 +1443,7 @@ conker		$1
 coquina		koUk'i:n@
 conquistador	k0nk'i:st@do@
 conscience	k0nS@ns
+console		k@nsoUl $verb
 consort		$1
 consort		$verb
 construct	$1     $onlys
@@ -1450,6 +1458,7 @@ contest		$verb
 context		$1
 contract	$1      $onlys
 contract	$verb
+contrail	k0ntreIl
 contralto	k@ntr'altoU
 contraption	k@ntr'apS@n
 contrary	k0ntr@ri
@@ -1552,6 +1561,7 @@ debut		deIbju:
 début		debut $text
 decade		dEkeId
 decaf		di:kaf
+decane		dEkeIn
 decedent	dI#si:d@nt
 decent		di:s@nt
 decibel		dEsI#b@L
@@ -1571,6 +1581,7 @@ defens		dI2fEns          // for defensible
 deficit		dEfI2sIt 
 definitive	dI2fInI2tIv
 ?!3 defragment	di:fragm'Ent
+degas		di:g'as
 degenerate	$alt2 $noun
 dego		deIgoU
 deice		di:'aIs
@@ -1602,9 +1613,9 @@ derogative	$2
 descant		dEskant
 descry		dI2skreI
 desert		dI2z3:t
-desert		dEs3t         $only
-desert		dI2z3:t       $verb
-desolate	dEs@l@t
+desert		dEs3t		$only
+desert		dI2z3:t		$verb
+desolate	dEs@l@t		$only
 desperate	$alt2
 ?3 detail       $2
 detante		deIt'0nt
@@ -1660,6 +1671,7 @@ dishy		dISi
 dismal		dIzm@l
 disparate	dIsp@r@t
 disreputable	$2
+dissipate	$1
 distributor	$2
 distro		dIstroU
 disuse		dIs'ju:s
@@ -1691,6 +1703,8 @@ drier		draI3
 driest		draI|@st
 duet		dju:'Et
 dugout		dVgaUt
+dumber		dVm3
+dumbest		dVm@st
 dungaree	dVNga#r'i:
 ?!3 dupe	dju:p
 duress		$2
@@ -1724,13 +1738,10 @@ eh		eI
 eid		i:d
 eke		i:k
 el		,El $only
-electricity	I2lEktr'IsI2ti
-electrode	I2lEktroUd
-electron	I2lEktr0n
-electrocute	$2
-elicit		I2lIsI2t
+electrode	I#lEktroUd
+elicit		I#lIsI#t
 élite		Il'i:t
-elixir		I2lIks3
+elixir		I#lIks3
 embed		Emb'Ed
 ember		Emb3
 embole		$1  // embolism
@@ -1746,6 +1757,7 @@ enroute		0nr'u:t
 ensemble	0ns'0mb@L
 entendre	0nt'0ndr@-
 entente		0nt'0nt
+entirity	Ent'aI3I#ti
 entourage	0nt2UrA:Z
 entrail		$1
 entrance	$1       $onlys
@@ -1763,6 +1775,7 @@ epitome		I2pIt@mI
 epub		$alt6
 equal		i:kw@L
 equation	I2kweIZ@n
+equilibrate	$2
 equipage	EkwIpIdZ
 equivocal	I2kwIv@k@L
 erase		I2reIz        // erasing erases
@@ -1793,7 +1806,7 @@ ethernet	$alt1
 etiquette	$1
 ?3 etiquette	EtI#k@t
 euclidean	ju:kl'Idi:|@n
-eunuch		ju:m@k
+eunuch		ju:n@k
 euphemism	ju:f@mIz@m
 eureka		ju:'ri:ka#
 europa		jU@r'oUp@
@@ -1807,6 +1820,7 @@ evenings	i:vnINz
 evit		EvI2t          // inevitable
 exactement	Egzakt@m'A~
 exalt		Egz'0lt
+exculpate	$1
 excuses		Ekskj'u:sI#z
 execute		EksI2kju:t      // not $2
 executable	$3
@@ -1819,12 +1833,15 @@ expert		Eksp3:t
 expertise	Eksp3t'i:z
 expletive	Ekspl'i:tIv
 ?3 expletive	EksplI#tIv
+explicate	$1
 exploit		$1 $onlys
 exploit		$verb
 expo		$1
 exponential	Eksp@n'EnS@L
 export		$1 $onlys
 export		$verb
+expurgate	$1
+extirpate	$1
 extract		$1 $onlys
 extract		$1 $only
 extract		$2 $verb
@@ -1858,6 +1875,7 @@ favourite	feIv@-rI2t
 favourites	feIv@-rI2ts
 fedora		fI2d'o@r@
 feisty		faIsti
+fellate		$2
 feline		fi:laIn
 felon		$alt2
 feminine	fEm@nIn
@@ -1872,6 +1890,7 @@ ficus		faIk@s
 fiery		faI3ri
 ?3 filet	fI2leI
 ?3 fillet	fI2leI
+filtrate	$2 $verb
 finale		fI2nA:li
 finance		faInans       $only
 finance		$verb
@@ -1894,6 +1913,7 @@ flyby		flaIbaI
 foothold	fUthoUld
 forage		f0rI2dZ
 force		fo@s
+forearmed	$2
 foreknowledge	$2
 forensic	f@rEnsIk
 foreshadow	$2
@@ -2018,6 +2038,7 @@ gucci		gu:tSi
 gui		gu:i  $onlys
 guinea		gIni
 gurus		gu:ru:z
+?!3 gyrate	$2
 
 habitual	$alt3
 hacienda	hA:sI'End@
@@ -2109,6 +2130,7 @@ huevo		hweIvoU
 hula		hu:l@
 hullabaloo	hVl@b@lu:
 humane		$2
+hundred		hVndr@d
 hunger		hVNg3
 hungover	$2
 hurrah		h@rA:
@@ -2119,6 +2141,7 @@ hussar		hVz'A@
 huzza		h@z'A:
 huzzah		h@z'A:
 hydrangea	haIdr'eIndZ@
+hydrate		$2 $verb
 hyperbola	haIp'3:b@l@
 hyperbole	haIp'3:b@li
 hypercube	$1
@@ -2142,6 +2165,7 @@ imagery		ImIdZri
 imagine		I2madZI2n
 imbecile	ImbI2si:l
 ?3 imbecile	Imb@s@L
+immolate	$1
 impedance	Imp'i:d@ns
 imperative	Imp'Er@tIv
 imperfect	Imp'3:fEkt
@@ -2180,6 +2204,7 @@ ingenuity	IndZI2n'ju:I2ti
 inherit		Inh'ErIt	// inherited
 innard		In3d
 inner		In3
+innervate	In3:veIt
 innovative	In@veItIv
 impetus		Imp@t@s
 ?3 inquiry      Inkw@ri
@@ -2290,6 +2315,7 @@ laboratory	la#b'0r@tri
 laborious	$alt3
 labyrinth	lab3InT
 labyrinthine    lab3'InTi:n
+lactate		$2 $verb
 lascivious	$alt3
 lager		lA:g3
 lagoon		$alt3
@@ -2304,6 +2330,7 @@ lasagne		lasagna	$text
 laser		$alt6
 lasso		las'u:
 ?3 lasso	lasoU
+latex		$alt4
 latrine		$alt3
 latte		lA:t2eI
 ?3 launch	lA:ntS
@@ -2335,7 +2362,8 @@ lichen		laIk@n
 lidar		laIdA@
 lien		li:@n
 lier		laI3         // outlier
-ligate		li:geIt
+ligate		$2
+?3 ligate	laIgeIt
 lightning	laItnIN
 lilac		laIl@k
 lily		lIli
@@ -2672,6 +2700,7 @@ oppose		@poUz
 opposer		@poUz3
 opus		oUp@s
 orange		0rI2ndZ
+orate		$2
 ordeal		O@d'i@l
 oregano		0rIg'A:noU
 organelle	O@g@n'El
@@ -2738,6 +2767,7 @@ panache		$alt3
 panchakarma	$alt3 $3
 panchayat	pa#ntSaI@t
 pancreas	pankri@s
+palpate		$2
 papaya		pa#paI;@
 papyrus		pa#paIr@s
 parabola	p@rab@l@
@@ -2843,7 +2873,8 @@ pizzeria	$alt1
 plaid		plad
 ?3 plateau	$2
 platoon		$alt3
-playtest	pleItEst
+playa		plaI@
+playtest	$alt1
 plaza		plA:z@
 plebeian	pl@b'i:@n
 plethora	plET3r@
@@ -2851,13 +2882,14 @@ plicate		$2
 plumber		plVm3
 plus		plVs
 pois		pwA:	$only
-poly		p0lI
+poleaxe		poUlaks
 politer		p@l'aIt3
 politic		p0l@tIk   $onlys
 poll		poUl
+poly		p0lI
 polyamide	p0lI'eImaId
 polyester	p0lI'Est3
-polygon		$alt1
+?3 polygon	$alt1
 polythene	$1
 porcelain	$alt2
 populace	$alt2
@@ -2866,6 +2898,7 @@ portend		po@t'End
 poseidon	p@saId@n
 posse		p0si
 postage		poUstI2dZ
+postdate	$2
 practise	praktI2s
 prayer		pre@
 precedence	prEsI2d@ns
@@ -2925,6 +2958,8 @@ project		pr0dZEkt      $onlys
 project		$verb
 promenade	pr0m@n'A:d
 pronoun		proUnaUn
+propranolol	proUpr'an@l0l
+prostrate	$2 $verb
 protege		pr0t@ZeI
 ?3 protege	proUt@ZeI
 protegé		protege       $text
@@ -2955,6 +2990,7 @@ pythagoras	paIT'ag@r@s
 python		paIT@n
 pyramidal	pI2r'amId@L
 
+qua		kwA:
 qaeda		kaId@
 quadrilateral	$3
 quash		kw0S
@@ -3186,6 +3222,7 @@ sciatica	saI'atIk@
 sclera		skli@r
 scourge		sk3:dZ
 ?5 scourge	skVRdZ
+scrapheap	$alt4
 scrotum		skroUt@m
 scuba		sku:b@
 seabed		si:bEd
@@ -3347,16 +3384,18 @@ stygian		stIdZi@n
 suave		swA:v
 subcategory	$2  // U.S ?
 subcontinent	$2
-subject		sVbdZ'Ekt $verb
+// subject		sVbdZ'Ekt $verb
+sublevel	sVblEv@L
 sublime		$2
 submenu		s'Vbm,Enju:
 subordinate	$2
+subordinate	$alt1 $verb
 subpoena	su:p'i:n@
 subsequent	sVbsI2kw@nt
 subside		s@bsaId
 subtly		sVt@lI      $verbf
 subvocal	sVbv'oUk@L
-succinct	s@ksINkt
+succumb		s@kVm
 sucrose		su:kroUs
 suede		sweId
 suerte		swe@rteI   // -ed, -es
@@ -3371,6 +3410,7 @@ suntan		sVntan
 suite		swi:t         $onlys
 superb		su:p'3:b
 superfluous	su:p'3:flu:@s
+superheat	$3
 supernal	su:p'3:n@L
 superstructure	$1
 supplier	s@plaI3
@@ -3414,6 +3454,7 @@ tangerine	tandZ@r'i:n
 taoiseach	ti:S@x
 tapestry	tap@stri
 tarantula	t@rantS@l@
+tardis		$alt1
 tariff		tarIf
 tase		teIz
 taskforce	t'askf,o@s
@@ -3520,6 +3561,7 @@ tricycle	traIsIk@L
 trilogy		trIl@dZi
 trio		tri:oU
 triplicate	$alt2
+triplicate	$verb
 trisquel	trIsk'El
 triumphant	$2
 trois		twA:
@@ -3597,6 +3639,7 @@ useful		ju:sf@L
 utan		u:t'an
 utensil		ju:t'Ens@L
 
+?!3 vacate	$2
 vaccine		$2
 valet		valeI
 ?3 valet	val'eI
@@ -3687,8 +3730,8 @@ whate're	w02t'e@
 whatsoe're	w02tsoU'e@
 wheelbarrow	w'i:l_b,aroU
 ?2 wheelbarrow	w#'i:l_b,aroU
-whereas		we@'az
-?2 whereas	w#e@'az
+whereas		we@az
+?2 whereas	w#e@az
 wherewithal	we@wIDO:l
 ?2 wherewithal	w#e@wIDO:l
 whew		fju:
@@ -3976,6 +4019,7 @@ Eyjafjalla	eIja#fjatla#
 Faroe		fe@roU
 Faroes		fe@roUz
 Fermanagh	f3:m'an@
+Flores		flo@rIz
 Folkestone	foUkstoUn
 Fuego		fweIgoU
 Gabon		gab0n
@@ -4522,6 +4566,7 @@ Jesus		dZi:z@s
 Joachim		dZoU@kIm
 Johann		joUhA#n
 Jonah		dZoUn@
+Jolene		$alt3
 Jorge		ho@heI
 José		hoUs'eI
 Jose		hoUs'eI
@@ -4735,7 +4780,6 @@ Zoë		zoUi
 Acura		akjUr@
 Advil		advIl
 Allgemeine	alg@maIm@
-Andagakavi	anda#ga#kka#v%i  // a Tamil keyboard
 Andromeda	andr'0mId@
 Aquino		a#ki:noU
 Asimov		azI#m0f
@@ -4772,6 +4816,7 @@ Damocles	dam@kli:z
 (da vinci)	da#vIntSi
 Dante		dA:nt2eI
 ?3 Datsun	dA:ts@n
+Degas		deIgA:  $capital
 Desiree		dI2zi@reI
 ?3 Desiree	dEz@r'eI
 Deslauriers	dI2lo@rIeI
@@ -4807,6 +4852,8 @@ Ghandhi		gA:ndi
 Gibson		gIbs@n
 Godzilla	g0dz'Il@
 Goliath		$alt3
+Gogh		g0x
+?3 Gogh		goU
 Grigio		gri:Z'oU
 Guinness	gInIs
 Gutierrez	gu:tj'ErEz
@@ -4833,7 +4880,8 @@ Jimenez		hIm'EnEz
 Jonese		dZoUnz  // Joneses
 Kapoor		$2
 Kawasaki	kaU|@s'A:ki
-Kendell		kEnd@L
+Kendall		$alt2
+Kendell		$alt2
 Khrushchev	kru:stSEf
 Khruschev	kru:stSEf
 Kroger		kroUg3
@@ -4932,6 +4980,7 @@ Urquhart	3:kA@t
 Versace		v3sA:tSi
 Vicodin		vaIk@dI#n
 Volkswagen	v'oUlksv,A:g@n
+Vries		vri:s
 Wegener		veIg@n3
 Wii		wi::
 Wiimote		wi:moUt
@@ -5160,6 +5209,7 @@ haves            havz
 has              %ha#z		$pastf $only
 has              haz		$only $atend
 (has been)       %ha#z%bIn	$pastf
+(has-been)       hazbi:n   
 (has to)         haztu:		$atend
 (has not)        h@zn%0t	$pastf
 (has not)        ha#zn0t	$pastf $atend
@@ -5174,7 +5224,7 @@ had              ,had		$atend
 (had it)         h,adI2t
 (had them)       h,adDEm
 (had one)        hadwVn		$atend
-(had any)        h,ad||Eni
+(had any)        h,ad||,Eni
 (had some)       h,ad||sVm
 having           ,havIN		$strend2 $pastf $only
 haven't          hav@-nt	$pastf
@@ -5276,6 +5326,7 @@ thee             Di: 		$u+
 thou             DaU
 thy              ,DaI
 thine            DaIn		$u+
+thyself          DaIs'Elf
 
 (i had)          aI||h'ad	$atend
 (he had)         hi:||h'ad	$atend
