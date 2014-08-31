@@ -1978,5 +1978,6 @@ phonemetable kl base
 include ph_greenlandic
 
 
-//phonemetable en2 en
+//phonemetable en-test base
 //include ph_english_test
+

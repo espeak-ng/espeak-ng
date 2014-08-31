@@ -409,7 +409,6 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	const char *phon_out2;
 	int clause_tone;
 	int clause_count;
-	int use_ipa = 0;
 	FILE *f;
 	int  fd_temp;
 	char fname_temp[100];
@@ -447,21 +446,20 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		}
 #endif
 		t_phonetic->SetDefaultStyle(style_phonetic);
-		translate_text = 2;
+		translate_text = espeakPHONEMES_TRACE;
 		break;
 
 	case T_TRANSLATE:
 	case MENU_SPEAK_TRANSLATE:
 		t_phonetic->SetDefaultStyle(style_phonetic);
-		translate_text = 1;
+		translate_text = espeakPHONEMES_SHOW;
 		break;
 
 	case T_TRANSLATE_IPA:
 	case MENU_SPEAK_IPA:
 		t_phonetic->SetDefaultStyle(style_phonetic_large);
 
-		translate_text = 3;
-		use_ipa = 0x10;
+		translate_text = espeakPHONEMES_IPA;
 		break;
 
 	case T_PROCESS:
@@ -496,7 +494,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			CalcPitches(translator,clause_tone);
 			CalcLengths(translator);
 
-			phon_out2 = GetTranslatedPhonemeString(use_ipa);
+			phon_out2 = GetTranslatedPhonemeString(option_phonemes);
 			if(clause_count++ > 0)
 				strcat(phon_out," ||");
 			strcat(phon_out, phon_out2);
@@ -514,7 +512,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
         ph_list[N_PH_LIST].ph = NULL;  // to recognize overrun off list (in Generate() )
 
 		t_phonetic->Clear();
-		if(option_phonemes == 2)
+		if(option_phonemes & espeakPHONEMES_TRACE)
 		{
 			option_phonemes=0;
 			rewind(f_trans);

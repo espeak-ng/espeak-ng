@@ -49,7 +49,7 @@ consonants  11  119
    es-la   2  125
       ca  11  127
       an   5  126
-      eu  18  127
+      eu  21  129
       pt  29  140
    pt-pt  20  140
       ro  36  148
@@ -875,7 +875,6 @@ ufric/s         [s] base
                 [z2] fr
                 [s] ru
                 [s] es
-                [z] eu
                 [z] sq
                 [s] da
                 [s] ar
@@ -885,7 +884,6 @@ ufric/s_        [s] base
                 [s] fr
                 [z] fr
                 [s] es
-                [z] eu
                 [z;] ro
                 [s] sw
                 [z] sq
@@ -914,7 +912,6 @@ ufric/sh_pzd2   [S] sr
                 [dZ] sr
                 [S;] zh
 ufric/sh_rfx    [s.] base
-                [s] eu
                 [s.] zh
 ufric/s_pal     [s^] et
 ufric/s_pzd     [s;] base
@@ -932,6 +929,8 @@ ufric/tl#       [tl#] is
                 [tl#] kl
 ufric/tlh       [K] nso
                 [K] tn
+ufric/ts_eu     [ts] eu
+ufric/tz_eu     [tz] eu
 ufric/x_        [x] base
 ufric/x2        [x2] af
                 [x] ku
@@ -945,6 +944,7 @@ ufric/x_sr      [h#] sr
 ufric/xx        [X] base
                 [Q"] base
                 [Q] ka
+ufric/z_eu      [z] eu
 ustop/c         [c] base
 ustop/k         [k] base
                 [k] fr
@@ -1123,8 +1123,6 @@ ustop/tr        [t] base
 ustop/ts        [ts] consonants
                 [dz] consonants
                 [ts] hu
-                [ts] eu
-                [tz] eu
                 [z] zhy
                 [tsh] zh
                 [ts] tn
@@ -1133,8 +1131,6 @@ ustop/ts        [ts] consonants
 ustop/ts_       [ts] consonants
                 [dz] consonants
                 [ts] lv
-                [ts] eu
-                [tz] eu
                 [ts] tn
                 [ts#] bo
                 [dz#] bo
@@ -1865,6 +1861,7 @@ vowel/a#_3      [a#] en
 vowel/a_4       [a] ga
                 [a] es
                 [a] eu
+                [a2] eu
                 [a] el
                 [a] vi
 vowel/a#_4      [a:] nl

@@ -53,7 +53,7 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute, 80 to 450, default is 175\n"
+"\t   Speed in approximate words per minute. The default is 175\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
@@ -68,7 +68,6 @@ static const char *help_text =
 "\t   Compile pronunciation rules and dictionary from the current\n"
 "\t   directory. <voice name> specifies the language\n"
 "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
-"\t         --ipa=1 Use ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _\n" 
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
 "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
@@ -77,9 +76,15 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
-"--split=\"<minutes>\"\n"
+"--sep=<character>\n"
+"\t   Separate phonemes (from -x --ipa) with <character>.\n"
+"\t   Default is space, z means ZWJN character.\n"
+"--split=<minutes>\n"
 "\t   Starts a new WAV file every <minutes>.  Used with -w\n"
 "--stdout   Write speech output to stdout\n"
+"--tie=<character>\n"
+"\t   Use a tie character within multi-letter phoneme names.\n"
+"\t   Default is U+361, z means ZWJ character.\n"
 "--version  Shows version number and date, and location of espeak-data\n"
 "--voices=<language>\n"
 "\t   List the available voices for the specified language.\n"
@@ -121,6 +126,37 @@ void strncpy0(char *dest, const char *source, int size)
 		strncpy(dest,source,size);
 		dest[size-1] = 0;
 	}
+}
+
+int utf8_in(int *c, const char *buf)
+{//=================================
+// Read a unicode characater from a UTF8 string
+// Returns the number of UTF8 bytes used.
+// backwards: set if we are moving backwards through the UTF8 string
+	int c1;
+	int n_bytes;
+	int ix;
+	static const unsigned char mask[4] = {0xff,0x1f,0x0f,0x07};
+
+	n_bytes = 0;
+
+	if((c1 = *buf++) & 0x80)
+	{
+		if((c1 & 0xe0) == 0xc0)
+			n_bytes = 1;
+		else if((c1 & 0xf0) == 0xe0)
+			n_bytes = 2;
+		else if((c1 & 0xf8) == 0xf0)
+			n_bytes = 3;
+
+		c1 &= mask[n_bytes];
+		for(ix=0; ix<n_bytes; ix++)
+		{
+			c1 = (c1 << 6) + (*buf++ & 0x3f);
+		}
+	}
+	*c = c1;
+	return(n_bytes+1);
 }
 
 
@@ -381,6 +417,8 @@ int main (int argc, char **argv)
 		{"pho",     no_argument,       0, 0x109},
 		{"ipa",     optional_argument, 0, 0x10a},
 		{"version", no_argument,       0, 0x10b},
+		{"sep",     optional_argument, 0, 0x10c},
+		{"tie",     optional_argument, 0, 0x10d},
 		{0, 0, 0, 0}
 		};
 
@@ -408,8 +446,8 @@ int main (int argc, char **argv)
 	int wordgap = -1;
 	int option_capitals = -1;
 	int option_punctuation = -1;
-	int option_phonemes = 0;
-	int option_mbrola_phonemes = 0;
+	int phonemes_separator = 0;
+	int phoneme_options = 0;
 	int option_linelength = 0;
 	int option_waveout = 0;
 
@@ -513,11 +551,11 @@ int main (int argc, char **argv)
 			break;
 
 		case 'x':
-			option_phonemes = 1;
+			phoneme_options |= espeakPHONEMES_SHOW;
 			break;
 
 		case 'X':
-			option_phonemes = 2;
+			phoneme_options |= espeakPHONEMES_TRACE;
 			break;
 
 		case 'm':
@@ -616,27 +654,56 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x109:  // --pho
-			option_mbrola_phonemes = 16;
+			phoneme_options |= espeakPHONEMES_MBROLA;
 			break;
 
 		case 0x10a:  // --ipa
-			option_phonemes = 3;
+			phoneme_options |= espeakPHONEMES_IPA;
 			if(optarg2 != NULL)
 			{
-				value = -1;
-				sscanf(optarg2,"%d",&value);
-				if((value<0) || (value>3))
+				// deprecated and obsolete
+				switch(atoi(optarg2))
 				{
-					fprintf(stderr,"Bad value for -ipa=\n");
-					value = 0;
+					case 1:
+						phonemes_separator = '_';
+						break;
+					case 2:
+						phonemes_separator = 0x0361;
+						phoneme_options |= espeakPHONEMES_TIE;
+						break;
+					case 3:
+						phonemes_separator = 0x200d;  // ZWJ
+						phoneme_options |= espeakPHONEMES_TIE;
+						break;
 				}
-				option_phonemes += value;
+				
 			}
 			break;
 
-		case 0x10b:  // -version
+		case 0x10b:  // --version
 			PrintVersion();
 			exit(0);
+			
+		case 0x10c:  // --sep
+			phoneme_options |= espeakPHONEMES_SHOW;
+			if(optarg2 == 0)
+				phonemes_separator = ' ';
+			else
+				utf8_in(&phonemes_separator, optarg2);
+				if(phonemes_separator == 'z')
+					phonemes_separator = 0x200c;  // ZWNJ
+			break;
+
+		case 0x10d:  // --tie
+			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
+			if(optarg2 == 0)
+				phonemes_separator = 0x0361;   // default: combining-double-inverted-breve
+			else
+				utf8_in(&phonemes_separator, optarg2);
+				if(phonemes_separator == 'z')
+					phonemes_separator = 0x200d;  // ZWJ
+			break;
+
 
 		default:
 			exit(0);
@@ -707,7 +774,9 @@ int main (int argc, char **argv)
 		espeak_SetParameter(espeakLINELENGTH,option_linelength,0);
 	if(option_punctuation == 2)
 		espeak_SetPunctuationList(option_punctlist);
-	espeak_SetPhonemeTrace(option_phonemes | option_mbrola_phonemes,f_phonemes_out);
+	
+
+	espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
 
 	if(filename[0]==0)
 	{

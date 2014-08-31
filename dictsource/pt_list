@@ -120,6 +120,11 @@ _−	m'enUs
 ½	m'eIU
 ¾	tRes#kw'a*@-tUs#
 ®	xeZistR'adU
+↑	s'Et&as'im&
+↓	s'Et&ab'aISU
+←	s'Et&aes#k'e*@-d&
+?2 →	s'Et&adZi*eIt&
+
 ?1  ™	m'a*@-k&xeZiSt'ad&
 ?2  ™	m'a*@-k&xeZistR'ad&
 _,	v'irgul&
@@ -694,14 +699,18 @@ ampola		$alt2
 ampulheta	$alt2
 anchova		$alt2
 andorra		$alt2
+andrea	$alt
+andreia	$alt
 antonieta	$alt2
 apego		$alt2 $noun
 apelo		$alt2  $noun
 apelos	$alt2
 aposto		$alt  $verb
 aperto		$alt2 $noun
+apertos	$alt2
 apneia		$alt
 apoio		$alt $verb
+aqueia	$alt
 arredores	$alt
 arremesso	$alt2 $noun
 arrocho		$alt2 $noun
@@ -722,9 +731,12 @@ açores	$alt2
 bairro		b'aIxU
 baitola	$alt2
 balancete	$alt2
+bangladesh	$alt
 banquete	$alt2
 barreto		$alt2
+basileia	$alt
 bastonete	$alt2
+baviera	$alt
 beco		$alt2
 besta		$alt2
 beça	$alt
@@ -753,14 +765,17 @@ broto		$alt2 $noun
 buceta	$alt2
 cabresto	$alt2
 cacete		$alt2
+cacoete		$alt2
 caderneta	$alt2
 cadete		$alt2
 caibro		k'aIbRU
 cãibra		k'&~IbR&
 caixeta		$alt2
+caldeia	$alt
 camelha		$alt
 camiseta	$alt2
 canaleta	$alt2
+cananeia	$alt
 canhoto		$alt2
 capacete	$alt2
 caractere	$alt
@@ -775,18 +790,16 @@ catequeses	$alt
 catorze		$alt2
 cavalete	$alt2
 cebola		$alt2
-cedro		$alt
 cefaleia	$alt
 centopeia	$alt
 cerebelo	$alt2
 cerca		$alt $verb
 cerco		$alt $verb
 cetro		$alt
-chamego		$alt2 $verb
-chamegos	$alt2
+chamego	$alt2
+chamego	$alt $verb
 chapeleta		$alt2
 chaveta		$alt2
-chefe		$alt
 choco		$alt2 $noun
 choça		$alt
 chofer		$alt
@@ -823,7 +836,6 @@ controles	$alt2
 controles	$alt $verb
 controlo	$alt2 $noun
 conveses	$alt
-copta	$alt
 coreia		$alt
 cores	$alt2
 cores	$alt $verb
@@ -835,8 +847,10 @@ coro		$alt $verb
 corpete	$alt2
 corpos		$alt
 corto		$alt
+corveia	$alt
 corveta		$alt2
 corvos		$alt
+cosme	$alt
 costeleta	$alt2
 coto		$alt2
 cotovelo	$alt2
@@ -844,11 +858,14 @@ cozem	$alt
 cratera		$alt
 crede		$alt2
 credo		$alt
+crimeia	$alt
+decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
 desaforo	$alt2
 desamores	$alt2
-desapego	$alt2 $noun
+desapego	$alt2
+desapego	$alt $verb
 desassossego		$alt2 $noun
 desconfortos	$alt2
 desconsolo		$alt2 $noun
@@ -857,6 +874,7 @@ descordo	$alt
 descorno	$alt
 	desemprego	$alt2
 desemprego	$alt $verb
+desenvolto	$alt2
 desespero	$alt2
 desespero	$alt $verb
 desfecho	$alt2
@@ -869,6 +887,8 @@ desse		$alt2
 desse		$alt $verb
 deste		$alt2
 deste		$alt $verb
+destempero	$alt2 $noun
+destemperos	$alt2
 desterro	$alt2
 destroem	$alt
 deteriore	$alt
@@ -892,7 +912,8 @@ doso	$alt
 doze		$alt2
 dueto		$alt2
 edson		$alt
-elixir		eliSir
+egeia	$alt
+eleia	$alt
 emborco	$alt
 emprego		$alt2
 emprego		$alt2 $noun
@@ -900,6 +921,7 @@ encasqueta	$alt
 encosto		$alt  $verb
 endereço	$alt  $verb
 endoide	$alt2
+eneias	$alt
 enforco		$alt
 engodo	$alt2
 engordo		$alt
@@ -976,6 +998,7 @@ força		$alt $verb
 forço		$alt
 formos		$alt2
 forro		$alt $verb
+fosso	$alt2
 frescores	$alt2
 frevo		$alt2
 fulgores	$alt2
@@ -993,7 +1016,6 @@ gesso		$alt2
 gloso		$alt
 gonorreia	$alt
 gol		gow
-golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
 gororoba	$alt
@@ -1003,6 +1025,7 @@ gota		$alt2
 governo		$alt2
 governo		$alt $verb
 gozo		$alt2 $noun
+gozos	$alt2
 graveto		$alt2
 groselha	$alt
 grosso		$alt2
@@ -1028,6 +1051,7 @@ jogo		$alt $verb
 jogos		$alt
 joguete		$alt2
 judeia	$alt
+jurubeba	$alt
 lacerda	$alt
 lagosta		$alt2
 lambreta	$alt2
@@ -1043,13 +1067,11 @@ lopes		$alt
 lutero	$alt
 macete		$alt2
 maioneses	$alt
-manopla	$alt
 maniçoba	$alt
 marieta		$alt2
 mariposa	$alt2
 megera		$alt
 melhor		$alt
-menor		$alt
 meta		$alt $noun
 metro		$alt
 minueto		$alt2
@@ -1064,7 +1086,6 @@ moem		$alt
 mofo		$alt $verb
 mogno	$alt
 molho		$alt2 $noun
-monera		$alt
 montenegro	$alt2
 mor	$alt
 morcego		$alt2
@@ -1077,6 +1098,7 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
+niceia	$alt
 ninfeta	$alt2
 nitreto	$alt2
 nojo		$alt2
@@ -1097,8 +1119,11 @@ pacheco		$alt2
 paexa		paeSa
 paella		pa'el^&
 palacete	$alt2
+palermo	$alt
+palimpsesto	$alt2
 palheta		$alt2
 palhoça		$alt
+panaceia	$alt
 pangeia		$alt
 pantera		$alt
 papoco		$alt2 $noun
@@ -1106,7 +1131,7 @@ paradoxo		$alt
 parede		$alt2
 pateta		$alt
 peba		$alt
-pedra		$alt
+pedro	$alt2
 peixoto	$alt2
 pela		$alt2
 pelo		$alt2
@@ -1120,6 +1145,7 @@ pesadelo		$alt2
 peses		$alt
 peseta		$alt2
 peso		$alt $verb
+pigmeia	$alt
 piloto		$alt2 $noun
 pilotos	$alt2
 pior		$alt
@@ -1130,6 +1156,7 @@ plebeia		$alt
 poderem	$alt2
 polca		$alt
 pompeia		$alt
+popa	$alt2
 porcos		$alt
 porque		$alt2
 porra		$alt2
@@ -1153,6 +1180,7 @@ quitinete	$alt
 quinteto	$alt2
 ramalhete	$alt2
 rancores	$alt2
+ranheta	$alt2
 raposa		$alt2
 recomeço	$alt $verb
 reconstroem	$alt
@@ -1228,10 +1256,10 @@ sulfureto	$alt2
 super		s'Uper
 suporto		$alt
 suor		suOr
-tabefe		$alt
 tambores	$alt2
 tapera		$alt
 tapete		$alt2
+tebas	$alt
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
@@ -1249,6 +1277,7 @@ torno		$alt  $verb
 tornozelo	$alt2
 torre		$alt2 $noun
 torres		$alt2
+torreta		$alt2
 torro		$alt
 toso		$alt
 totens	$alt
@@ -1264,6 +1293,7 @@ tropa		$alt
 tropeço		$alt2 $noun
 trombeta	$alt2
 ureia	$alt
+uretra	$alt
 vanessa		$alt2
 vareta		$alt2
 vera		$alt
@@ -1277,7 +1307,6 @@ voga		$alt
 voice	$alt
 xarope		$alt
 xereta		$alt2
-xerox	S'E*Oks
 xeroxes	$alt
 zelo		$alt2 $noun
 zorra		$alt2
@@ -1314,7 +1343,7 @@ doc        d'Ok
 ?2   designer	dez'aIner
 ?2   designers	dez'aIners
 ?2 desktops	deskt'Ops
-dj         d,i:dZ'eI
+?1  dj         d,i:dZ'eI
 ?2   diesel	dZ'izEU
 ?2   doha	d'ox&
 ?1 down       d'a,wn
@@ -1349,6 +1378,7 @@ get   gEt
 ?1 hardware   'ard,w'Er-
 ?2 hardware   h'ardwe@-
 happy  x'Epy
+?2 haxixe	xaS'iSy
 ?1 home       'omy
 ?2 home       h'owmi
 hot	xOt
@@ -1424,9 +1454,10 @@ upgrade		&pgR'eId
 upload		&pl'oud
 ?2        web        w'Eb
 writer r'aIter
+xerox	S'E*Oks
 ?1 yahoo      'i,ah'u
 ?2 yahoo      iah'u
-?1 yes        j'Es
+yes        j'Es
 
 
 // common person names
@@ -1470,7 +1501,6 @@ mac  mEk
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
-?2 nero	n'ErU
 ?2  netbooks   nEtbUks
 ?2  notebook   nowtbUk
 ?2  notebooks   nowtbUks
