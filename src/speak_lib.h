@@ -34,7 +34,7 @@
 #define ESPEAK_API
 #endif
 
-#define ESPEAK_API_REVISION  9
+#define ESPEAK_API_REVISION  10
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -60,6 +60,9 @@ Revision 8  26.Apr.2013
 
 Revision 9  30.May.2013
   Changed function espeak_TextToPhonemes().
+
+Revision 10 29.Aug.2014
+  Changed phonememode parameter to espeak_TextToPhonemes() and espeak_SetPhonemeTrace
 
 */
          /********************/
@@ -473,15 +476,25 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist);
 	   EE_INTERNAL_ERROR.
 */
 
+#define espeakPHONEMES_SHOW    0x01
+#define espeakPHONEMES_IPA     0x02
+#define espeakPHONEMES_TRACE   0x08
+#define espeakPHONEMES_MBROLA  0x10
+#define espeakPHONEMES_TIE     0x80
+
 #ifdef __cplusplus
 extern "C"
 #endif
-ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream);
-/* Controls the output of phoneme symbols for the text
-   value=0  No phoneme output (default)
-   value=1  Output the translated phoneme symbols for the text
-   value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
-   value=3  as (1), but produces IPA rather than ascii phoneme names
+ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream);
+/* phonememode:  Controls the output of phoneme symbols for the text
+      bits 0-2:
+         value=0  No phoneme output (default)
+         value=1  Output the translated phoneme symbols for the text
+         value=2  as (1), but produces IPA phoneme names rather than ascii
+      bit 3:   output a trace of how the translation was done (showing the matching rules and list entries)
+      bit 4:   produce pho data for mbrola
+      bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+      bits 8-23:  separator character, between phoneme names
 
    stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
 */
@@ -506,15 +519,11 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
          espeakCHARS_WCHAR    Wide characters (wchar_t)
          espeakCHARS_16BIT    16 bit characters.
 
-   phonememode: bits0-3:
-      0= just phonemes.
-      1= include ties (U+361) for phoneme names of more than one letter.
-      2= include zero-width-joiner for phoneme names of more than one letter.
-      3= separate phonemes with underscore characters.
+   phoneme_mode
+	    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
+        bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+        bits 8-23:  separator character, between phoneme names
 
-	 bits 4-7:
-      0= eSpeak's ascii phoneme names.
-      1= International Phonetic Alphabet (as UTF-8 characters).
 */
 
 #ifdef __cplusplus

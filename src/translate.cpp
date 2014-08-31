@@ -763,7 +763,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 	}
 	remove_stress = pb[1];
 
-	if(option_phonemes == 2)
+	if(option_phonemes & espeakPHONEMES_TRACE)
 	{
 		DecodePhonemes(phonemes, phonbuf);
 		fprintf(f_trans,"(%s) %s  -> (%s) ", phoneme_tab_list[lang2].name, phonbuf, phoneme_tab_list[tr->phoneme_tab_ix].name);
@@ -806,7 +806,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 
 	strcpy(phonemes, phonbuf);
 
-	if(option_phonemes == 2)
+	if(option_phonemes & espeakPHONEMES_TRACE)
 	{
 		SelectPhonemeTable(tr->phoneme_tab_ix);
 		DecodePhonemes(phonemes, phonbuf);
@@ -1220,7 +1220,7 @@ if(end_type & SUFX_UNPRON)
 							end_type = end2;
 							strcpy(phonemes,phonemes2);
 							strcpy(end_phonemes,end_phonemes2);
-							if(option_phonemes == 2)
+							if(option_phonemes & espeakPHONEMES_TRACE)
 							{
 								DecodePhonemes(end_phonemes,end_phonemes2);
 								fprintf(f_trans,"  suffix [%s]\n\n",end_phonemes2);

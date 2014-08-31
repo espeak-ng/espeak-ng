@@ -1,147 +1,250 @@
-
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Spelling-to-phoneme rules for Basque
+
+.L01 b d g
+.L02 e i
 
 
 .group a
-        a        a
-        ai       aI
-        au       aU
-
+        a          a
+        ai         aI
+        ahi        aI
+        au         aU
+        ahu        aU
+        a (_S1t    a
+        ak (_S2t   ak
+        ari (_S3t  ari
+        aren (_S4t a**en
+        arekin (_S6t a**ekin
+        arentzat (_S8t a**entzat
+        arentzako (_S9t arentzako
+        an (_S2t   an
+        atik (_S4t atik
+        ara (_S3t  a**a
+        arat (_S4t arat
+        atatik (_S6t atatik
+        atara (_S5t ata**a
+        atarat (_S5t atarat
+        ako (_S3t  ako
+        atako (_S5t atako
+        araino (_S6t a**ain^o
+        ataraino (_S8t ata**an^o
+        arantz (_S6t a**antz
+        atarantz (_S8t a**antz
+        agana (_S5t agana
+        arengana (_S8t a**engana
+        arenganaino (_s11 a**enganain^o
+        arengatik (_S9t a**engatik
+        atzat (_S5t atzat
+         
+         
 
 .group b
-        b        b
-
+        b          b
+  _ez_) b (A       p'
+         
 
 .group c
-        c        k
-        c (e     s
-        c (i     s
-
+        c          k
+        c (L02     T
+         
+         
 
 .group d
-        d        d
-    Ki) d (A     J
-        dd       J
-     A) d (A     D   // ??
-
-
-
+        d          d
+        dd         J
+     A) d (A       D         // ??
+  _ez_) d (A       t'
+         
+         
+         
 
 .group e
-        e        e
-        ei       eI
-        eu       eU
-
-     &) ek (_S2  ek
-        
+        e          e
+        ei         eI
+        ehi        eI
+     l) ehi (A     eI
+        eu         eU
+        ek (_S2t   ek
+        ei (_S2t   eI
+        en (_S2t   en
+        ean (_S3t  ean
+        etan (_S4t etan
+        etatik (_S6t etatik
+        etara (_S5t eta**a
+        erat (_S4t erat
+        etako (_S5t etako
+        eko (_S3t  eko
+        etarako (_S7t etarako
+        etarantz (_S8t eta**antz
+        etaraino (_S8t eta**aino
+        engana (_S6t engana
+        entzat (_S6t entzat
+        entzako (_S7t entzako
+        engatik (S7 engatik
+        ekin (_S4t ekin
+        ekiko (_S5t ekiko
+        ez (_S2t   ez
+        etaz (_S4t etaz
+         
+         
 
 .group f
-        f        f
-
+        f          f
+         
+         
 
 .group g
-        g        g
-     A) g (A     Q   // ??
-
+        g          g
+     A) g (A       Q         // ??
+  _ez_) g (A       k'
+        gana (_S4t gana
+        go (_S2t   go
+         
 
 .group h
-        h        // silent
-
+        h                    // silent
+    zi) h (o       x
+         
+         
 
 .group i
-        i        i
-
+        i          i
+     K) i (_S1t    i
+    ad) i (eraz    j
+    le) i (h       j
+ arraz) i (on      j
+         
 
 .group j
-        j        J   //  try [x] [J] [j] [J^] [Z] [S]
-
+        j          J         //  try [x] [J] [j] [J^] [Z] [S]
+    ad) j (udika   x
+         
+         
 
 .group k
-        k        k
-
+        k          k
+        ko (_S2t   ko
+         
+         
 
 .group l
-        l        l
-        ll       l^
-    Ki) l (A     l^
-
+        l          l
+        ll         l^
+  _ez_) l (A       l'
+         
 
 .group m
-        m        m
-
+        m          m
+         
+         
 
 .group n
-        n        n
-    Ki) n (A     n^
-
-
-.group ñ
-        ñ        n^
-
+        n          n
+        n (_S1t    n         
+adrenali) n        n2
+  admi) n (istr    n2
+         
 
 .group o
-        o        o
-        oi       oI
-
+        o          o
+        oi         oI
+         
+         
 
 .group p
-        p        p
-
+        p          p
+         
+         
 
 .group q
-        q        k
-        qu       kw
-        que (_   k
-
+        q          k
+         
+         
 
 .group r
-        r        r
-     _) r        R2
-        r (_     R2
-        rr       R2
-
+        r          r
+     _) r          R2
+        rr         R2
+     A) ri (_S2t   ri
+        ren (_S3t  ren
+        ra (_S2t   ra
+        rat (_S3   t         rat
+        rantz (_S5t rantz
+        raino (_S5t raino
+        rako (_S4t rako
+        rentzat (_S7t rentzat
+        rentzako (_S8t rentzako
+        rekin (_S5t rekin
+        rengan (_S6t rengan
+        rengana (_S7t rengana
+        rengandik (_S9t rengandik
+        rengatik (_S8t rengatik
+         
+         
 
 .group s
-        s        s
-
+        s          s
+         
+         
 
 .group t
-        t        t
-    Ki) t (A     c
-        ts       ts
-        tt       c
-        tx       tS
-        tz       tz
-
+        t          t
+        ts         ts
+        tt         c
+        tx         tS
+        tz         tz
+        tan (_S3t  tan
+        tara (_S4  t         tara
+        tarat (_S5t tarat
+        tik (_S3t  tik
+        tatik (_S5t tatik
+        taz (_S3t  taz
+        tu (_S2t   tu
+        tuko (_S4t tuko
+        tzen (_S4t tzen
+        ten (_S3t  ten
+         
+         
 
 .group u
-        u        u
-
+        u          u
+         
+         
 
 .group v
-        v        v
-
+        v          b
+         
+         
 
 .group w
-        w        w
-
+        w          u
+         
+         
 
 .group x
-        x        S
-
+        x          S
+         
+         
 
 .group y
-        y        j
-     K) y (K     i
-
+        y          jj
+         
 
 .group z
-        z        z
-
-
+        z          z
+    _e) z (_L01    %z
+    _e) z (_l      
+        z (_S1t    z
+         
 
 .group
-        ç        s
-        ü        Y
-
+        á          ''a       
+        é          ''e
+        í          ''i
+        ó          ''o
+        ú          ''u
+        ç          s
+        ü          Y
+        ñ          n^
+         

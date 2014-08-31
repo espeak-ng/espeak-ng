@@ -811,7 +811,6 @@ ENTER("espeak_Initialize");
 		return(EE_INTERNAL_ERROR);
 
 	option_phonemes = 0;
-	option_mbrola_phonemes = 0;
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	VoiceReset(0);
@@ -1159,19 +1158,22 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 }  //  end of espeak_SetPunctuationList
 
 
-ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
-{//============================================================
+ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
+{//===================================================================
 	ENTER("espeak_SetPhonemes");
-	/* Controls the output of phoneme symbols for the text
-		bits 0-3:
-		 value=0  No phoneme output (default)
-		 value=1  Output the translated phoneme symbols for the text
-		 value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
-		 value=3  as (1), but produces IPA phoneme names rather than ascii
-		bit 4:   produce mbrola pho data
-	*/
-	option_phonemes = value & 7;
-	option_mbrola_phonemes = value & 16;
+/* phonememode:  Controls the output of phoneme symbols for the text
+      bits 0-2:
+         value=0  No phoneme output (default)
+         value=1  Output the translated phoneme symbols for the text
+         value=2  as (1), but produces IPA phoneme names rather than ascii
+      bit 3:   output a trace of how the translation was done (showing the matching rules and list entries)
+      bit 4:   produce pho data for mbrola
+      bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+      bits 8-23:  separator character, between phoneme names
+
+   stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
+*/
+	option_phonemes = phonememode;
 	f_trans = stream;
 	if(stream == NULL)
 		f_trans = stderr;
@@ -1181,8 +1183,10 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 
 ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
 {//=================================================================================================
-	/* phoneme_mode  bits 0-3: 0=only phoneme names, 1=ties, 2=ZWJ, 3=underscore separator
-	                 bits 4-7:   0=eSpeak phoneme names, 1=IPA
+	/* phoneme_mode
+	    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
+        bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+        bits 8-23:  separator character, between phoneme names
 	*/
 
 	option_multibyte = textmode & 7;

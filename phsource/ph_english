@@ -279,13 +279,14 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
+  unstressed
   ipa i
   length 150
   IfNextVowelAppend(;)
   
-  IF NOT thisPh(isFinalVowel) THEN
-    ChangePhoneme(I)
-  ENDIF
+//  IF NOT thisPh(isFinalVowel) THEN
+//    ChangePhoneme(I)
+//  ENDIF
   
   FMT(vowel/ii_7)
 endphoneme

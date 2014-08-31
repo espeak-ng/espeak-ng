@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.48.10  09.Aug.14";
+const char *version_string = "1.48.11  31.Aug.14";
 const int version_phdata  = 0x014801;
 
 int option_device_number = -1;
@@ -620,6 +620,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	int instn;
 	int instn2;
 	int count;
+	int check_endtype = 0;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
 
@@ -672,6 +673,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
         case 0:  // prevPh
         case 5:  // prevPhW
             plist--;
+            check_endtype = 1;
             break;
 
         case 1:  // thisPh
@@ -705,6 +707,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		    if((worddata==NULL) || (worddata->prev_vowel.ph == NULL))
                 return(false);   // no previous vowel
 				plist = &(worddata->prev_vowel);
+			check_endtype = 1;
             break;
 
 		case 9:  // next3PhW
@@ -720,6 +723,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			if((plist[0].sourceix) || (plist[-1].sourceix))
 				return(false);
 			plist-=2;
+			check_endtype = 1;
 			break;
         }
 
@@ -744,7 +748,9 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			// 'data' is a phoneme number
 			if((phoneme_tab[data]->mnemonic == ph->mnemonic) == true)
 				return(true);
-			if((which == 0) && (ph->type == phVOWEL))
+
+			//  not an exact match, check for a vowel type (eg. #i )
+			if((check_endtype) && (ph->type == phVOWEL))
 				return(data == ph->end_type);   // prevPh() match on end_type
 			return(data == ph->start_type);    // thisPh() or nextPh(), match on start_type
 		}

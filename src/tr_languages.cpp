@@ -779,7 +779,8 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L_pap)
 			{
 				// stress last syllable unless word ends with a vowel
-				tr->langopts.stress_flags = S_FINAL_STRESS_C | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
+				tr->langopts.stress_rule = STRESSPOSN_1R;
+				tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
 			}
 			else
 			{
@@ -793,7 +794,8 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_eu[8] = {200, 200,  200, 200,  0, 0,  210, 230};  // very weak stress
 			static const unsigned char stress_amps_eu[8] = {16,16, 18,18, 18,18, 18,18 };
 			SetupTranslator(tr,stress_lengths_eu,stress_amps_eu);
-			tr->langopts.stress_rule = STRESSPOSN_2L;  // ?? second syllable ??
+			tr->langopts.stress_rule = STRESSPOSN_2L;  // ?? second syllable, but not on a word-final vowel
+			tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED;
 			tr->langopts.param[LOPT_SUFFIX] = 1;
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_VIGESIMAL;
 		}
@@ -1345,8 +1347,8 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_ro,stress_amps_ro);
 
-			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = S_FINAL_STRESS_C + S_FINAL_DIM_ONLY;
+			tr->langopts.stress_rule = STRESSPOSN_1R;
+			tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3 | NUM_AND_UNITS | NUM_ROMAN;
@@ -1449,8 +1451,8 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
 
-			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_FINAL_STRESS_C;
+			tr->langopts.stress_rule = STRESSPOSN_1R;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_FINAL_VOWEL_UNSTRESSED;
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_4;
 			tr->langopts.accents = 2;  // "capital" after letter name
