@@ -16,7 +16,6 @@
 
 package com.reecedunn.espeak.test;
 
-import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -25,10 +24,6 @@ import java.util.Set;
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.Voice;
 
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;

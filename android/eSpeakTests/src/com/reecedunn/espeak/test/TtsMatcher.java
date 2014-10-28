@@ -17,13 +17,10 @@
 package com.reecedunn.espeak.test;
 
 import org.hamcrest.Description;
-import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 import android.speech.tts.TextToSpeech;
-
-import com.reecedunn.espeak.InformationListAdapter;
 
 public class TtsMatcher
 {
