@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2013 Reece H. Dunn
+ * Copyright (C) 2012-2014 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.AnyOf.anyOf;
@@ -248,20 +249,20 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         final Voice voice = getVoice("de"); // language="de" country="" variant=""
         assertThat(voice, is(notNullValue()));
 
-        assertThat(voice.match(fr), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
 
-        assertThat(voice.match(de), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(de), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(de_1996), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(de_DE), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(de_CH_1901), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
 
-        assertThat(voice.match(deu), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(deu_1996), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(deu_DEU), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(deu_CHE_1901), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(deu), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(deu_1996), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(deu_DEU), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(deu_CHE_1901), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
     }
 
     public void testMatchVoiceWithLanguageAndCountry()
@@ -269,24 +270,24 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         final Voice voice = getVoice("fr-fr"); // language="fr" country="fr" variant=""
         assertThat(voice, is(notNullValue()));
 
-        assertThat(voice.match(de), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_1996), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_DE), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_CH_1901), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
 
-        assertThat(voice.match(fr), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fr_FR), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(fr_BE_1694acad), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(fr_BE_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
 
-        assertThat(voice.match(fra), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fra_FRA), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(fra_BEL), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fra_1694acad), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fra_FRA_1694acad), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(fra_BEL_1694acad), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_FRA), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(fra_BEL), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_FRA_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(fra_BEL_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
     }
 
     public void testMatchVoiceWithLanguageAndVariant()
@@ -294,24 +295,24 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         final Voice voice = getVoice("hy-west"); // language="hy" country="" variant="arevmda"
         assertThat(voice, is(notNullValue()));
 
-        assertThat(voice.match(fr), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
 
-        assertThat(voice.match(hy), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hy_AM), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hy_arevela), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hy_arevmda), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(hy_AM_arevela), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hy_AM_arevmda), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+        assertThat(voice.match(hy), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hy_AM), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hy_arevela), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hy_arevmda), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(hy_AM_arevela), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hy_AM_arevmda), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
 
-        assertThat(voice.match(hye), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hye_ARM), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hye_arevela), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hye_arevmda), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(hye_ARM_arevela), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hye_ARM_arevmda), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+        assertThat(voice.match(hye), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hye_ARM), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hye_arevela), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hye_arevmda), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(hye_ARM_arevela), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hye_ARM_arevmda), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
     }
 
     public void testMatchVoiceWithLanguageCountryAndVariant()
@@ -319,24 +320,24 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         final Voice voice = getVoice("en-sc"); // language="en" country="GB" variant="scotland"
         assertThat(voice, is(notNullValue()));
 
-        assertThat(voice.match(de), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_1996), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_DE), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_CH_1901), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
 
-        assertThat(voice.match(en), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(en_GB), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(en_US), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(en_scotland), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
-        assertThat(voice.match(en_GB_scotland), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(en_GB_north), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(en), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(en_GB), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(en_US), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(en_scotland), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+        assertThat(voice.match(en_GB_scotland), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(en_GB_north), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
 
-        assertThat(voice.match(eng), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(eng_GBR), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(eng_USA), is(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(eng_scotland), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
-        assertThat(voice.match(eng_GBR_scotland), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(eng_GBR_north), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(eng), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(eng_GBR), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(eng_USA), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(eng_scotland), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+        assertThat(voice.match(eng_GBR_scotland), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(eng_GBR_north), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
     }
 
     public void testGetSampleText()

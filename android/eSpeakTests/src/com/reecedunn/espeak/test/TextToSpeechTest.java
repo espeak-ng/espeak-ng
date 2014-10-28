@@ -20,6 +20,7 @@ import java.util.Locale;
 
 import android.speech.tts.TextToSpeech;
 
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -30,7 +31,7 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(getEngine(), is(notNullValue()));
 
         Locale initialLocale = getEngine().getLanguage();
-        assertThat(getEngine().isLanguageAvailable(new Locale("cel")), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(getEngine().isLanguageAvailable(new Locale("cel")), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
         assertThat(getEngine().getLanguage().getLanguage(), is(initialLocale.getLanguage()));
         assertThat(getEngine().getLanguage().getCountry(), is(initialLocale.getCountry()));
         assertThat(getEngine().getLanguage().getVariant(), is(initialLocale.getVariant()));
@@ -57,43 +58,43 @@ public class TextToSpeechTest extends TextToSpeechTestCase
                 final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
                 context = "iana1";
-                assertThat(getEngine().isLanguageAvailable(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(iana1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(getEngine().getLanguage().getVariant(), is(data.variant));
 
                 context = "iana2";
-                assertThat(getEngine().isLanguageAvailable(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(iana2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "iana3";
-                assertThat(getEngine().isLanguageAvailable(iana3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(iana3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().setLanguage(iana3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(""));
                 assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "java1";
-                assertThat(getEngine().isLanguageAvailable(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getEngine().setLanguage(java1), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(java1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                assertThat(getEngine().setLanguage(java1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(getEngine().getLanguage().getVariant(), is(data.variant));
 
                 context = "java2";
-                assertThat(getEngine().isLanguageAvailable(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getEngine().setLanguage(java2), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(java2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+                assertThat(getEngine().setLanguage(java2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(data.javaCountry));
                 assertThat(getEngine().getLanguage().getVariant(), is(""));
 
                 context = "java3";
-                assertThat(getEngine().isLanguageAvailable(java3), is(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getEngine().setLanguage(java3), is(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().isLanguageAvailable(java3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+                assertThat(getEngine().setLanguage(java3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
                 assertThat(getEngine().getLanguage().getLanguage(), is(data.javaLanguage));
                 assertThat(getEngine().getLanguage().getCountry(), is(""));
                 assertThat(getEngine().getLanguage().getVariant(), is(""));
