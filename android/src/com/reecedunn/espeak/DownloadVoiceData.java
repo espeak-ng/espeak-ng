@@ -133,13 +133,15 @@ public class DownloadVoiceData extends Activity {
                 mExtractedFiles.add(outputFile);
 
                 if (entry.isDirectory()) {
-                    outputFile.mkdirs();
-                    FileUtils.chmod(outputFile);
+                    if (outputFile.mkdirs()) {
+                        FileUtils.chmod(outputFile);
+                    }
                     continue;
                 }
 
                 // Ensure the target path exists.
-                outputFile.getParentFile().mkdirs();
+                if (!outputFile.getParentFile().mkdirs())
+                    continue;
 
                 final FileOutputStream outputStream = new FileOutputStream(outputFile);
                 try {
