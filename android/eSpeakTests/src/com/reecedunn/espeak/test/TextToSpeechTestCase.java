@@ -16,6 +16,7 @@
 
 package com.reecedunn.espeak.test;
 
+import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.test.AndroidTestCase;
@@ -92,5 +93,20 @@ public class TextToSpeechTestCase extends AndroidTestCase
     public TextToSpeech getEngine()
     {
         return mEngine;
+    }
+
+    @SuppressWarnings("deprecation")
+    public static Locale getLanguage(TextToSpeech engine) {
+        if (engine != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                android.speech.tts.Voice voice = engine.getVoice();
+                if (voice != null) {
+                    return voice.getLocale();
+                }
+            } else {
+                return engine.getLanguage();
+            }
+        }
+        return null;
     }
 }

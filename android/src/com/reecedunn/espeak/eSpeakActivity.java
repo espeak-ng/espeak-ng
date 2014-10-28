@@ -89,8 +89,13 @@ public class eSpeakActivity extends Activity {
 
         findViewById(R.id.speak).setOnClickListener(new View.OnClickListener() {
             @Override
+            @SuppressWarnings("deprecation")
             public void onClick(View v) {
-                mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null, null);
+                } else {
+                    mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                }
             }
         });
 
@@ -189,15 +194,28 @@ public class eSpeakActivity extends Activity {
         mTts = new TextToSpeech(this, mInitListener);
     }
 
+    @SuppressWarnings("deprecation")
+    private Locale getTtsLanguage() {
+        if (mTts != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                android.speech.tts.Voice voice = mTts.getVoice();
+                if (voice != null) {
+                    return voice.getLocale();
+                }
+            } else {
+                return mTts.getLanguage();
+            }
+        }
+        return null;
+    }
+
     private void populateInformationView() {
         mInformation.clear();
 
-        if (mTts != null) {
-            Locale language = mTts.getLanguage();
-            if (language != null) {
-                final String currentLocale = getString(R.string.current_tts_locale);
-                mInformation.add(new Pair<String,String>(currentLocale, mTts.getLanguage().getDisplayName()));
-            }
+        Locale language = getTtsLanguage();
+        if (language != null) {
+            final String currentLocale = getString(R.string.current_tts_locale);
+            mInformation.add(new Pair<String, String>(currentLocale, language.getDisplayName()));
         }
 
         final String availableVoices = getString(R.string.available_voices);
