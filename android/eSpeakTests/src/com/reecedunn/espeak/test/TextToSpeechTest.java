@@ -32,9 +32,14 @@ public class TextToSpeechTest extends TextToSpeechTestCase
 
         Locale initialLocale = getLanguage(getEngine());
         assertThat(getEngine().isLanguageAvailable(new Locale("cel")), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(getLanguage(getEngine()).getLanguage(), is(initialLocale.getLanguage()));
-        assertThat(getLanguage(getEngine()).getCountry(), is(initialLocale.getCountry()));
-        assertThat(getLanguage(getEngine()).getVariant(), is(initialLocale.getVariant()));
+        Locale language = getLanguage(getEngine());
+        if (language != null) {
+            assertThat(getLanguage(getEngine()).getLanguage(), is(initialLocale.getLanguage()));
+            assertThat(getLanguage(getEngine()).getCountry(), is(initialLocale.getCountry()));
+            assertThat(getLanguage(getEngine()).getVariant(), is(initialLocale.getVariant()));
+        } else {
+            assertThat(initialLocale, is(nullValue()));
+        }
     }
 
     public void testLanguages()
