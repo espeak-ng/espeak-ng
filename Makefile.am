@@ -41,7 +41,7 @@ install-data-hook: uninstall-hook
 
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
-	cd android && gradle clean
+	cd android && $(GRADLE) clean
 
 distclean-local:
 	rm -rf espeak-data/phondata-manifest
@@ -285,13 +285,13 @@ jni:
 	cd android && ndk-build
 
 apk-release:
-	cd android && gradle assembleRelease
+	cd android && $(GRADLE) assembleRelease
 
 apk-debug:
-	cd android && gradle assembleDebug
+	cd android && $(GRADLE) assembleDebug
 
 apk-check:
-	cd android && gradle connectedCheck
+	cd android && $(GRADLE) connectedCheck
 
 android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
 	mkdir -pv android/res/raw
