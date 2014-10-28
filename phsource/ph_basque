@@ -12,13 +12,14 @@ endphoneme
 
 phoneme a2  // delete if the next vowel is 'a'. Used for numbers.
   vowel starttype #a endtype #a
+
   length 200
 
   IF nextPh(#a) THEN
     ChangePhoneme(NULL)   // merge consecutive 'a'
-  ELSE
-    ChangePhoneme(a)
   ENDIF
+
+  FMT(vowel/a_4)
 endphoneme
 
 
@@ -58,21 +59,8 @@ phoneme Y
 endphoneme
 
 
-
-// Note: I have made [s] and [z] the same, and similarly [ts] and [tz]
-// These should be changed to the correct "s", "z", "ts" and "tz" sounds fo Basque.
-
 phoneme s
-  vls alv frc sibilant
-  ipa ʂ
-  lengthmod 3
-  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/sh_rfx, 60)
-  ENDIF
-  WAV(ufric/sh_rfx, 90)       // different from s but probably not correct
+import_phoneme es/s
 endphoneme
 
 
@@ -81,37 +69,24 @@ phoneme z
   ipa s
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-
-  // z+z=tz, z+g=zk, z+g=zt, z+b=zp
-  IF nextPh(z) THEN
-    ChangeNextPhoneme(tz)
-    ChangePhoneme(NULL)
-  ELSEIF nextPh(g) THEN
-    ChangeNextPhoneme(k)
-  ELSEIF nextPh(d) THEN
-    ChangeNextPhoneme(t)
-  ELSEIF nextPh(b) THEN
-    ChangeNextPhoneme(p)
-  ENDIF
-  
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20  
   IF nextPh(isPause) THEN
-    WAV(ufric/s_, 60)
+    WAV(ufric/z_eu, 60)
   ENDIF
-  WAV(ufric/s, 80)
+  WAV(ufric/z_eu, 90)
 endphoneme
 
 
 phoneme ts
   vls alv afr sibilant
-  ipa tʂ
+  ipa t?
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   IF nextPh(isPause2) THEN
-    WAV(ustop/ts_)
+    WAV(ufric/ts_eu, 60)
   ENDIF
-  WAV(ustop/ts)
+  WAV(ufric/ts_eu, 90)
 endphoneme
 
 
@@ -122,28 +97,15 @@ phoneme tz
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   IF nextPh(isPause2) THEN
-    WAV(ustop/ts_)
+    WAV(ufric/tz_eu, 90)
   ENDIF
-  WAV(ustop/ts)
+  WAV(ufric/tz_eu, 60)
 endphoneme
 
 
 phoneme t
   vls dnt stop
-  lengthmod 2
-  
-  // t+g=k, t+d=t, t+z=tz
-  IF nextPh(g) THEN
-    ChangeNextPhoneme(k)
-    ChangePhoneme(NULL)
-  ELSEIF nextPh(d) THEN
-    ChangeNextPhoneme(t)
-    ChangePhoneme(NULL)
-  ELSEIF nextPh(z) THEN
-    ChangeNextPhoneme(tz)
-    ChangePhoneme(NULL)
-  ENDIF
-  
+  lengthmod 2  
   CALL base2/t
 endphoneme
 
@@ -151,7 +113,7 @@ endphoneme
 phoneme r
   vcd alv flp rhotic
   brkafter
-  ipa ɾ
+  ipa ?
   lengthmod 3
 
   IF nextPhW(isVowel) THEN
@@ -178,9 +140,28 @@ phoneme n
   vcd alv nasal
   lengthmod 4
 
-  IF prevPhW(i) AND nextPhW(isVowel) THEN
+  IF prevPhW(#i) AND nextPhW(isVowel) THEN
     ChangePhoneme(n^)
   ENDIF
   
   CALL base/n
+endphoneme
+
+phoneme n2  // doesn't palatalise, used for exceptions
+  vcd alv nasal
+  lengthmod 4
+  CALL base/n
+endphoneme
+
+phoneme l
+  liquid
+  IF prevPhW(#i) AND nextPhW(isVowel) THEN
+    ChangePhoneme(l^)
+  ENDIF
+  CALL base/l
+endphoneme
+
+phoneme l2 // same as l2
+  liquid
+  CALL base/l
 endphoneme

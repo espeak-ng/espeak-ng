@@ -1980,5 +1980,6 @@ include ph_greenlandic
 phonemetable om base
 include ph_oromo
 
-//phonemetable en2 en
+//phonemetable en-test base
 //include ph_english_test
+

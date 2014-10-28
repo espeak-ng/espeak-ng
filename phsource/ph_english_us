@@ -48,8 +48,8 @@ phoneme a
 
   IF nextPh(isNasal) THEN
     FMT(vnasal/ee_n2)
-  ELSEIF nextPh(r) THEN
-    length 230
+  ELSEIF nextPh(r) AND thisPh(isStressed) THEN
+    length 190
     FMT(vwl_en_us/ar)
   ENDIF
   FMT(vwl_en_us/a)

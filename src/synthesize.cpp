@@ -1980,14 +1980,10 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	CalcPitches(translator, clause_tone);
 	CalcLengths(translator);
 
-	if((option_phonemes > 0) || (phoneme_callback != NULL))
+	if((option_phonemes & 0xf) || (phoneme_callback != NULL))
 	{
-		int phoneme_mode = 0;
-		if(option_phonemes >= 3)
-			phoneme_mode = 0x10 + option_phonemes-3;   // 0x10=ipa, 0x11=ipa with tie, 0x12=ipa with ZWJ, 0x13=ipa with separators
-
-		phon_out = GetTranslatedPhonemeString(phoneme_mode);
-		if(option_phonemes > 0)
+		phon_out = GetTranslatedPhonemeString(option_phonemes);
+		if(option_phonemes & 0xf)
 		{
 			fprintf(f_trans,"%s\n",phon_out);
 		}

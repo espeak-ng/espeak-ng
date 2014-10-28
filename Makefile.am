@@ -30,7 +30,7 @@ EXTRA_DIST += ChangeLog
 
 ##### standard build actions:
 
-all: jni espeakdata apk-release
+all-local: jni espeakdata apk-release
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(DATADIR)
@@ -825,3 +825,187 @@ else
 espeak-data/zhy_dict: src/espeak phsource/phonemes.stamp dictsource/zhy_rules dictsource/zhy_extra
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=zhy && cd ..
+
+##### mbrola:
+
+mbrola: \
+	espeak-data/mbrola_ph/af1_phtrans \
+	espeak-data/mbrola_ph/cr1_phtrans \
+	espeak-data/mbrola_ph/cs_phtrans \
+	espeak-data/mbrola_ph/de2_phtrans \
+	espeak-data/mbrola_ph/de4_phtrans \
+	espeak-data/mbrola_ph/de6_phtrans \
+	espeak-data/mbrola_ph/ee1_phtrans \
+	espeak-data/mbrola_ph/en1_phtrans \
+	espeak-data/mbrola_ph/es_phtrans \
+	espeak-data/mbrola_ph/fr1_phtrans \
+	espeak-data/mbrola_ph/gr2_phtrans \
+	espeak-data/mbrola_ph/grc-de6_phtrans \
+	espeak-data/mbrola_ph/hn1_phtrans \
+	espeak-data/mbrola_ph/hu1_phtrans \
+	espeak-data/mbrola_ph/ic1_phtrans \
+	espeak-data/mbrola_ph/id1_phtrans \
+	espeak-data/mbrola_ph/in1_phtrans \
+	espeak-data/mbrola_ph/ir1_phtrans \
+	espeak-data/mbrola_ph/it3_phtrans \
+	espeak-data/mbrola_ph/la1_phtrans \
+	espeak-data/mbrola_ph/lt1_phtrans \
+	espeak-data/mbrola_ph/lt2_phtrans \
+	espeak-data/mbrola_ph/mx1_phtrans \
+	espeak-data/mbrola_ph/mx2_phtrans \
+	espeak-data/mbrola_ph/nl_phtrans \
+	espeak-data/mbrola_ph/pl1_phtrans \
+	espeak-data/mbrola_ph/pt1_phtrans \
+	espeak-data/mbrola_ph/ptbr_phtrans \
+	espeak-data/mbrola_ph/ptbr4_phtrans \
+	espeak-data/mbrola_ph/ro1_phtrans \
+	espeak-data/mbrola_ph/sv_phtrans \
+	espeak-data/mbrola_ph/sv2_phtrans \
+	espeak-data/mbrola_ph/tr1_phtrans \
+	espeak-data/mbrola_ph/us_phtrans \
+	espeak-data/mbrola_ph/us3_phtrans \
+	espeak-data/mbrola_ph/vz_phtrans
+
+espeak-data/mbrola_ph/af1_phtrans: phsource/mbrola/af1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/cr1_phtrans: phsource/mbrola/cr1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/cs_phtrans: phsource/mbrola/cs src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/de2_phtrans: phsource/mbrola/de2 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/de4_phtrans: phsource/mbrola/de4 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/de6_phtrans: phsource/mbrola/de6 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ee1_phtrans: phsource/mbrola/ee1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/en1_phtrans: phsource/mbrola/en1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/es_phtrans: phsource/mbrola/es src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/fr1_phtrans: phsource/mbrola/fr1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/gr2_phtrans: phsource/mbrola/gr2 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/grc-de6_phtrans: phsource/mbrola/grc-de6 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/hn1_phtrans: phsource/mbrola/hn1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/hu1_phtrans: phsource/mbrola/hu1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ic1_phtrans: phsource/mbrola/ic1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/id1_phtrans: phsource/mbrola/id1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/in1_phtrans: phsource/mbrola/in1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ir1_phtrans: phsource/mbrola/ir1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/it3_phtrans: phsource/mbrola/it3 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/la1_phtrans: phsource/mbrola/la1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/lt1_phtrans: phsource/mbrola/lt1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/lt2_phtrans: phsource/mbrola/lt2 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/mx1_phtrans: phsource/mbrola/mx1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/mx2_phtrans: phsource/mbrola/mx2 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/nl_phtrans: phsource/mbrola/nl src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/pl1_phtrans: phsource/mbrola/pl1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/pt1_phtrans: phsource/mbrola/pt1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ptbr_phtrans: phsource/mbrola/ptbr src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ptbr4_phtrans: phsource/mbrola/ptbr4 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/ro1_phtrans: phsource/mbrola/ro1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/sv_phtrans: phsource/mbrola/sv src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/sv2_phtrans: phsource/mbrola/sv2 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/tr1_phtrans: phsource/mbrola/tr1 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/us_phtrans: phsource/mbrola/us src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/us3_phtrans: phsource/mbrola/us3 src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<
+
+espeak-data/mbrola_ph/vz_phtrans: phsource/mbrola/vz src/espeakedit
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile-mbrola ${PWD}/$<

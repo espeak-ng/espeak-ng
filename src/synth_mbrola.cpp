@@ -35,7 +35,6 @@
 #include "translate.h"
 #include "voice.h"
 
-int option_mbrola_phonemes;
 
 #ifdef INCLUDE_MBROLA
 
@@ -646,7 +645,7 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	if(*n_ph == 0)
 		return(0);
 
-	if(option_mbrola_phonemes)
+	if(option_phonemes & espeakPHONEMES_MBROLA)
 	{
 		// send mbrola data to a file, not to the mbrola library
 		f_mbrola = f_trans;

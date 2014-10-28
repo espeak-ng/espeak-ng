@@ -80,7 +80,7 @@ If neither -f nor --stdin is given, then the text input is taken from "text word
 <dt>
 <strong>-s &lt;integer&gt;</strong><br>
 <dd>Sets the speed in words-per-minute (approximate values for the default English voice, others may differ slightly). The default value is 175. I generally use a faster speed
-of 200.  Range 80 to 450.  Larger value are rounded down to the maximum.
+of 260.  The lower limit is 80.  There is no upper limit, but about 500 is probably a practical maximum.
 <p>
 <dt>
 <strong>-b &lt;integer&gt;</strong><br>
@@ -141,8 +141,9 @@ Some languages may need additional dictionary data, see <a href="languages.html"
 <p>
 <dt>
 <strong>-x</strong><br>
-<dd>The phoneme mnemonics, into which the input text is translated, are
-written to stdout.
+<dd>The phoneme mnemonics, into which the input text is translated, are written to stdout.
+If a phoneme name contains more than one letter (eg. [tS]), the --sep or --tie option can be used to distinguish
+this from separate phonemes.
 <p>
 <dt>
 <strong>-X</strong><br>
@@ -167,12 +168,8 @@ The same as <strong>--compile</strong>, but source line numbers from the *_rules
 <dt><strong>--ipa</strong><br>
 <dd>
 Writes phonemes to stdout, using the International Phonetic Alphabet (IPA).<br>
-If a phoneme name contains more than one letter (eg. [tS]) an optional parameter can be used to distinguish
+If a phoneme name contains more than one letter (eg. [tS]), the --sep or --tie option can be used to distinguish
 this from separate phonemes.
-<br>
-<code>--pho=1  </code> Use a tie character (U+0361) before subsequence letters.
-<br>
-<code>--pho=2  </code> Use a zero-width-joiner (U+200D) before subsequent letters.
 <p>
 <dt><strong>--path [="&lt;directory path&gt;"]</strong><br>
 <dd>
@@ -190,9 +187,17 @@ If specified, the output from -x, -X, --ipa, and --pho options is written to thi
 <dd>
 Speaks the names of punctuation characters when they are encountered in the text.  If &lt;characters&gt; are given, then only those listed punctuation characters are spoken, eg.  <code> --punct=".,;?"</code>
 <p>
+<dt><strong>--sep [=&lt;character&gt;]</strong><br>
+<dd>
+The character is used to separate individual phonemes in the output which is produced by the -x or --ipa options.  The default is a space character.  The character z means use a ZWNJ character (U+200c).
+<p>
 <dt><strong>--split [=&lt;minutes&gt;]</strong><br>
 <dd>
 Used with <strong>-w</strong>, it starts a new WAV file every <code>&lt;minutes&gt;</code> minutes, at the next sentence boundary.
+<p>
+<dt><strong>--tie [=&lt;character&gt;]</strong><br>
+<dd>
+The character is used within multi-letter phonemes in the output which is produced by the -x or --ipa options.  The default is the tie character&nbsp; &#x361; &nbsp;U+361.  The character z means use a ZWJ character (U+200d).
 <p>
 <dt>
 <strong>--voices [=&lt;language code&gt;]</strong><br>
