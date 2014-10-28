@@ -179,6 +179,14 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         }
     }
 
+    public void testJavaToIanaCountryCode()
+    {
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            assertThat(SpeechSynthesis.getIanaCountryCode(data.javaCountry), is(data.ianaCountry));
+        }
+    }
+
     public void testAddedVoices()
     {
         getVoices(); // Ensure that the voice data has been populated.

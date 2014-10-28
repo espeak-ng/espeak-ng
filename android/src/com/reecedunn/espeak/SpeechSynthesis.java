@@ -320,7 +320,7 @@ public class SpeechSynthesis {
         final Configuration config = context.getResources().getConfiguration();
 
         final String language = getIanaLanguageCode(locale.getLanguage());
-        final String country = getIanaLocaleCode(locale.getCountry(), mJavaToIanaCountryCode);
+        final String country = getIanaCountryCode(locale.getCountry());
         config.locale = new Locale(language, country, locale.getVariant());
 
         Resources res = new Resources(context.getAssets(), metrics, config);
@@ -369,6 +369,10 @@ public class SpeechSynthesis {
 
     public static String getIanaLanguageCode(String code) {
         return getIanaLocaleCode(code, mJavaToIanaLanguageCode);
+    }
+
+    public static String getIanaCountryCode(String code) {
+        return getIanaLocaleCode(code, mJavaToIanaCountryCode);
     }
 
     private static String getIanaLocaleCode(String code, final Map<String, String> javaToIana) {
@@ -449,12 +453,13 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("vie", "vi");
         mJavaToIanaLanguageCode.put("zho", "zh");
 
-        mJavaToIanaCountryCode.put("JAM", "JM");
-        mJavaToIanaCountryCode.put("MEX", "MX");
         mJavaToIanaCountryCode.put("BEL", "BE");
         mJavaToIanaCountryCode.put("BRA", "BR");
         mJavaToIanaCountryCode.put("FRA", "FR");
         mJavaToIanaCountryCode.put("GBR", "GB");
+        mJavaToIanaCountryCode.put("HKG", "HK");
+        mJavaToIanaCountryCode.put("JAM", "JM");
+        mJavaToIanaCountryCode.put("MEX", "MX");
         mJavaToIanaCountryCode.put("PRT", "PT");
         mJavaToIanaCountryCode.put("USA", "US");
         mJavaToIanaCountryCode.put("VNM", "VN");
