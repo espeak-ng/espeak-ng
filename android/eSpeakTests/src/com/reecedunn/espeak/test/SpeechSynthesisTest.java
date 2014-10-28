@@ -171,6 +171,14 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(synth.getBufferSizeInBytes(), is(22050));
     }
 
+    public void testJavaToIanaLanguageCode()
+    {
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            assertThat(SpeechSynthesis.getIanaLanguageCode(data.javaLanguage), is(data.ianaLanguage));
+        }
+    }
+
     public void testAddedVoices()
     {
         getVoices(); // Ensure that the voice data has been populated.
