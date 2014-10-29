@@ -41,6 +41,7 @@ import android.util.Log;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -205,7 +206,13 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public List<android.speech.tts.Voice> onGetVoices() {
-        return super.onGetVoices();
+        List<android.speech.tts.Voice> voices = new ArrayList<android.speech.tts.Voice>();
+        for (Voice voice : mAvailableVoices) {
+            int quality = android.speech.tts.Voice.QUALITY_NORMAL;
+            int latency = android.speech.tts.Voice.LATENCY_VERY_LOW;
+            voices.add(new android.speech.tts.Voice(voice.name, voice.locale, quality, latency, false, null));
+        }
+        return voices;
     }
 
     @Override

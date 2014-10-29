@@ -16,8 +16,12 @@
 
 package com.reecedunn.espeak.test;
 
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.speech.tts.TextToSpeech;
 
 import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
@@ -26,6 +30,73 @@ import static org.hamcrest.Matchers.*;
 
 public class TextToSpeechTest extends TextToSpeechTestCase
 {
+    private Set<Object> mVoices = null;
+    private Set<String> mAdded = new HashSet<String>();
+    private Set<String> mRemoved = new HashSet<String>();
+
+    @SuppressLint("NewApi")
+    public Set<Object> getVoices()
+    {
+        if (mVoices == null)
+        {
+            Set<android.speech.tts.Voice> voiceData = getEngine().getVoices();
+            assertThat(voiceData, is(notNullValue()));
+
+            mVoices = new HashSet<Object>();
+            for (android.speech.tts.Voice voice : voiceData)
+            {
+                mVoices.add(voice);
+            }
+
+            Set<String> voices = new HashSet<String>();
+            for (Object data : mVoices)
+            {
+                voices.add(((android.speech.tts.Voice)data).getName());
+            }
+
+            Set<String> expected = new HashSet<String>();
+            for (VoiceData.Voice data : VoiceData.voices)
+            {
+                expected.add(data.name);
+            }
+
+            for (String voice : voices)
+            {
+                if (!expected.contains(voice))
+                {
+                    mAdded.add(voice);
+                }
+            }
+
+            for (String voice : expected)
+            {
+                if (!voices.contains(voice))
+                {
+                    mRemoved.add(voice);
+                }
+            }
+        }
+        return mVoices;
+    }
+
+    public void testAddedVoices()
+    {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return;
+
+        getVoices(); // Ensure that the voice data has been populated.
+        assertThat(mAdded.toString(), is("[]"));
+    }
+
+    public void testRemovedVoices()
+    {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return;
+
+        getVoices(); // Ensure that the voice data has been populated.
+        assertThat(mRemoved.toString(), is("[]"));
+    }
+
     public void testUnsupportedLanguage()
     {
         assertThat(getEngine(), is(notNullValue()));
