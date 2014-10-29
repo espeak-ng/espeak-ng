@@ -110,72 +110,46 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(getLanguage(getEngine()).getVariant(), is(initialLocale.getVariant()));
     }
 
+    public void checkLanguage(VoiceData.Voice data, Locale locale, int status, String language, String country, String variant, String context)
+    {
+        try
+        {
+            assertThat(getEngine().isLanguageAvailable(locale), isTtsLangCode(status));
+            assertThat(getEngine().setLanguage(locale), isTtsLangCode(status));
+            assertThat(getLanguage(getEngine()).getLanguage(), is(language));
+            assertThat(getLanguage(getEngine()).getCountry(), is(country));
+            assertThat(getLanguage(getEngine()).getVariant(), is(variant));
+        }
+        catch (AssertionError e)
+        {
+            throw new VoiceData.Exception(data, context, e);
+        }
+    }
+
     public void testLanguages()
     {
         assertThat(getEngine(), is(notNullValue()));
 
         for (VoiceData.Voice data : VoiceData.voices)
         {
-            String context = null;
-            try
-            {
-                // Skip the voice if the language code is not supported by Android:
-                if (data.javaLanguage.equals("")) continue;
+            // Skip the voice if the language code is not supported by Android:
+            if (data.javaLanguage.equals("")) continue;
 
-                final Locale iana1 = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
-                final Locale iana2 = new Locale(data.ianaLanguage, data.ianaCountry, "test");
-                final Locale iana3 = new Locale(data.ianaLanguage, "VU", data.variant);
+            final Locale iana1 = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
+            final Locale iana2 = new Locale(data.ianaLanguage, data.ianaCountry, "test");
+            final Locale iana3 = new Locale(data.ianaLanguage, "VU", data.variant);
 
-                final Locale java1 = new Locale(data.javaLanguage, data.javaCountry, data.variant);
-                final Locale java2 = new Locale(data.javaLanguage, data.javaCountry, "test");
-                final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
+            final Locale java1 = new Locale(data.javaLanguage, data.javaCountry, data.variant);
+            final Locale java2 = new Locale(data.javaLanguage, data.javaCountry, "test");
+            final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
-                context = "iana1";
-                assertThat(getEngine().isLanguageAvailable(iana1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(data.javaCountry));
-                assertThat(getLanguage(getEngine()).getVariant(), is(data.variant));
+            checkLanguage(data, iana1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant, "iana1");
+            checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "",           "iana2");
+            checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "",           "iana3");
 
-                context = "iana2";
-                assertThat(getEngine().isLanguageAvailable(iana2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(data.javaCountry));
-                assertThat(getLanguage(getEngine()).getVariant(), is(""));
-
-                context = "iana3";
-                assertThat(getEngine().isLanguageAvailable(iana3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getEngine().setLanguage(iana3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(""));
-                assertThat(getLanguage(getEngine()).getVariant(), is(""));
-
-                context = "java1";
-                assertThat(getEngine().isLanguageAvailable(java1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getEngine().setLanguage(java1), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(data.javaCountry));
-                assertThat(getLanguage(getEngine()).getVariant(), is(data.variant));
-
-                context = "java2";
-                assertThat(getEngine().isLanguageAvailable(java2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getEngine().setLanguage(java2), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(data.javaCountry));
-                assertThat(getLanguage(getEngine()).getVariant(), is(""));
-
-                context = "java3";
-                assertThat(getEngine().isLanguageAvailable(java3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getEngine().setLanguage(java3), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-                assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
-                assertThat(getLanguage(getEngine()).getCountry(), is(""));
-                assertThat(getLanguage(getEngine()).getVariant(), is(""));
-            }
-            catch (AssertionError e)
-            {
-                throw new VoiceData.Exception(data, context, e);
-            }
+            checkLanguage(data, java1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant, "java1");
+            checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "",           "java2");
+            checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "",           "java3");
         }
     }
 }
