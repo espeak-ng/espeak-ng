@@ -79,6 +79,18 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         return mVoices;
     }
 
+    public VoiceData.Voice getVoiceData(String name)
+    {
+        for (VoiceData.Voice voice : VoiceData.voices)
+        {
+            if (voice.name.equals(name))
+            {
+                return voice;
+            }
+        }
+        return null;
+    }
+
     public void testAddedVoices()
     {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
@@ -95,6 +107,41 @@ public class TextToSpeechTest extends TextToSpeechTestCase
 
         getVoices(); // Ensure that the voice data has been populated.
         assertThat(mRemoved.toString(), is("[]"));
+    }
+
+    @SuppressLint("NewApi")
+    public void testVoices()
+    {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return;
+
+        getVoices(); // Ensure that the voice data has been populated.
+        for (Object item : mVoices)
+        {
+            android.speech.tts.Voice voice = (android.speech.tts.Voice)item;
+            VoiceData.Voice data = getVoiceData(voice.getName());
+
+            assertThat(data, is(notNullValue()));
+            assertThat(voice.getName(), is(data.name));
+            assertThat(voice.getLocale().getLanguage(), is(data.ianaLanguage));
+            assertThat(voice.getLocale().getCountry(), is(data.ianaCountry));
+            assertThat(voice.getLocale().getVariant(), is(data.variant));
+            assertThat(voice.getFeatures(), is(nullValue()));
+            assertThat(voice.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));
+            assertThat(voice.getQuality(), is(android.speech.tts.Voice.QUALITY_NORMAL));
+
+            getEngine().setVoice(voice);
+
+            android.speech.tts.Voice voice2 = getEngine().getVoice();
+            assertThat(voice2, is(notNullValue()));
+            assertThat(voice2.getName(), is(data.name));
+            assertThat(voice2.getLocale().getLanguage(), is(data.ianaLanguage));
+            assertThat(voice2.getLocale().getCountry(), is(data.ianaCountry));
+            assertThat(voice2.getLocale().getVariant(), is(data.variant));
+            assertThat(voice2.getFeatures(), is(nullValue()));
+            assertThat(voice2.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));
+            assertThat(voice2.getQuality(), is(android.speech.tts.Voice.QUALITY_NORMAL));
+        }
     }
 
     public void testUnsupportedLanguage()

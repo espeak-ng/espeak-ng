@@ -217,7 +217,12 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public int onIsValidVoiceName(String name) {
-        return super.onIsValidVoiceName(name);
+        for (Voice voice : mAvailableVoices) {
+            if (voice.name.equals(name)) {
+                return TextToSpeech.SUCCESS;
+            }
+        }
+        return TextToSpeech.ERROR;
     }
 
     @Override
