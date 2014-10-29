@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioTrack;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.tts.SynthesisCallback;
@@ -204,6 +205,15 @@ public class TtsService extends TextToSpeechService {
         mEngine.stop();
     }
 
+    @SuppressWarnings("deprecation")
+    private String getRequestString(SynthesisRequest request) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return request.getCharSequenceText().toString();
+        } else {
+            return request.getText();
+        }
+    }
+
     @Override
     protected synchronized void onSynthesizeText(
             SynthesisRequest request, SynthesisCallback callback) {
@@ -214,7 +224,7 @@ public class TtsService extends TextToSpeechService {
             return;
         }
 
-        String text = request.getText();
+        String text = getRequestString(request);
         if (text == null)
             return;
 
