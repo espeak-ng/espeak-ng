@@ -132,9 +132,6 @@ public class TextToSpeechTest extends TextToSpeechTestCase
 
         for (VoiceData.Voice data : VoiceData.voices)
         {
-            // Skip the voice if the language code is not supported by Android:
-            if (data.javaLanguage.equals("")) continue;
-
             final Locale iana1 = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
             final Locale iana2 = new Locale(data.ianaLanguage, data.ianaCountry, "test");
             final Locale iana3 = new Locale(data.ianaLanguage, "VU", data.variant);
