@@ -199,6 +199,26 @@ public class TtsService extends TextToSpeechService {
     }
 
     @Override
+    public String onGetDefaultVoiceNameFor(String language, String country, String variant) {
+        return super.onGetDefaultVoiceNameFor(language, country, variant);
+    }
+
+    @Override
+    public List<android.speech.tts.Voice> onGetVoices() {
+        return super.onGetVoices();
+    }
+
+    @Override
+    public int onIsValidVoiceName(String name) {
+        return super.onIsValidVoiceName(name);
+    }
+
+    @Override
+    public int onLoadVoice(String name) {
+        return super.onLoadVoice(name);
+    }
+
+    @Override
     protected void onStop() {
         Log.i(TAG, "Received stop request.");
 
