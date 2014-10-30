@@ -42,8 +42,10 @@ import android.util.Log;
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * Implements the eSpeak engine as a {@link TextToSpeechService}.
@@ -65,7 +67,7 @@ public class TtsService extends TextToSpeechService {
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
-    private List<Voice> mAvailableVoices;
+    private Map<String, Voice> mAvailableVoices;
     private Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
@@ -98,7 +100,10 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
-        mAvailableVoices = mEngine.getAvailableVoices();
+        mAvailableVoices = new HashMap<String, Voice>();
+        for (Voice voice : mEngine.getAvailableVoices()) {
+            mAvailableVoices.put(voice.name, voice);
+        }
 
         final Intent intent = new Intent(ESPEAK_INITIALIZED);
         sendBroadcast(intent);
@@ -140,7 +145,7 @@ public class TtsService extends TextToSpeechService {
         Voice countryVoice = null;
 
         synchronized (mAvailableVoices) {
-            for (Voice voice : mAvailableVoices) {
+            for (Voice voice : mAvailableVoices.values()) {
                 switch (voice.match(query)) {
                     case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
                         mMatchingVoice = voice;
@@ -213,7 +218,7 @@ public class TtsService extends TextToSpeechService {
     @Override
     public List<android.speech.tts.Voice> onGetVoices() {
         List<android.speech.tts.Voice> voices = new ArrayList<android.speech.tts.Voice>();
-        for (Voice voice : mAvailableVoices) {
+        for (Voice voice : mAvailableVoices.values()) {
             int quality = android.speech.tts.Voice.QUALITY_NORMAL;
             int latency = android.speech.tts.Voice.LATENCY_VERY_LOW;
             voices.add(new android.speech.tts.Voice(voice.name, voice.locale, quality, latency, false, null));
@@ -223,12 +228,8 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public int onIsValidVoiceName(String name) {
-        for (Voice voice : mAvailableVoices) {
-            if (voice.name.equals(name)) {
-                return TextToSpeech.SUCCESS;
-            }
-        }
-        return TextToSpeech.ERROR;
+        Voice voice = mAvailableVoices.get(name);
+        return (voice == null) ? TextToSpeech.ERROR : TextToSpeech.SUCCESS;
     }
 
     @Override
