@@ -157,19 +157,24 @@ public class TextToSpeechTest extends TextToSpeechTestCase
         assertThat(getLanguage(getEngine()).getVariant(), is(initialLocale.getVariant()));
     }
 
-    public void checkLanguage(VoiceData.Voice data, Locale locale, int status, String language, String country, String variant, String context)
+    public void checkLanguage(VoiceData.Voice data, Locale locale, int status, String language, String country, String variant)
     {
+        String langTag = locale.toString().replace('_', '-');
+        String context = "";
         try
         {
+            context = "isLanguageAvailable";
             assertThat(getEngine().isLanguageAvailable(locale), isTtsLangCode(status));
+            context = "setLanguage";
             assertThat(getEngine().setLanguage(locale), isTtsLangCode(status));
+            context = "getLanguage";
             assertThat(getLanguage(getEngine()).getLanguage(), is(language));
             assertThat(getLanguage(getEngine()).getCountry(), is(country));
             assertThat(getLanguage(getEngine()).getVariant(), is(variant));
         }
         catch (AssertionError e)
         {
-            throw new VoiceData.Exception(data, context, e);
+            throw new VoiceData.Exception(data, context + "|" + langTag, e);
         }
     }
 
@@ -187,13 +192,13 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             final Locale java2 = new Locale(data.javaLanguage, data.javaCountry, "test");
             final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
-            checkLanguage(data, iana1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant, "iana1");
-            checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "",           "iana2");
-            checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "",           "iana3");
+            checkLanguage(data, iana1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant);
+            checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "");
+            checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "");
 
-            checkLanguage(data, java1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant, "java1");
-            checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "",           "java2");
-            checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "",           "java3");
+            checkLanguage(data, java1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant);
+            checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "");
+            checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "");
         }
     }
 }
