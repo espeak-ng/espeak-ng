@@ -116,6 +116,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = new HashMap<String, Voice>();
             for (Voice voice : synth.getAvailableVoices()) {
+                assertThat(mVoices.get(voice.name), is(nullValue()));
                 mVoices.put(voice.name, voice);
             }
             assertThat(mVoices, is(notNullValue()));
