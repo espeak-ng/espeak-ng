@@ -234,7 +234,12 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public int onLoadVoice(String name) {
-        return super.onLoadVoice(name);
+        Voice voice = mAvailableVoices.get(name);
+        if (voice == null) {
+            return TextToSpeech.ERROR;
+        }
+        mMatchingVoice = voice;
+        return TextToSpeech.SUCCESS;
     }
 
     @Override
@@ -253,15 +258,27 @@ public class TtsService extends TextToSpeechService {
         }
     }
 
-    @Override
-    protected synchronized void onSynthesizeText(
-            SynthesisRequest request, SynthesisCallback callback) {
+    private int selectVoice(SynthesisRequest request) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            final String name = request.getVoiceName();
+            if (name != null && !name.isEmpty()) {
+                return onLoadVoice(name);
+            }
+        }
+
         final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
         switch (result) {
-        case TextToSpeech.LANG_MISSING_DATA:
-        case TextToSpeech.LANG_NOT_SUPPORTED:
-            return;
+            case TextToSpeech.LANG_MISSING_DATA:
+            case TextToSpeech.LANG_NOT_SUPPORTED:
+                return TextToSpeech.ERROR;
         }
+        return TextToSpeech.SUCCESS;
+    }
+
+    @Override
+    protected synchronized void onSynthesizeText(SynthesisRequest request, SynthesisCallback callback) {
+        if (selectVoice(request) == TextToSpeech.ERROR)
+            return;
 
         String text = getRequestString(request);
         if (text == null)
