@@ -139,7 +139,7 @@ public class SpeechSynthesis {
                 locale = new Locale("es", "MX");
             } else if (name.equals("hy-west")) {
                 // 'west' is not a country code.
-                locale = new Locale("hy", "", "arevmda");
+                locale = null;
             } else if (name.equals("vi-hue")) {
                 // 'hue' is for the Hue Province accent/dialect (Central Vietnamese).
                 locale = new Locale("vi", "VN", "hue");

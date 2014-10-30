@@ -285,31 +285,6 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(voice.match(fra_BEL_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
     }
 
-    public void testMatchVoiceWithLanguageAndVariant()
-    {
-        final Voice voice = getVoice("hy-west"); // language="hy" country="" variant="arevmda"
-        assertThat(voice, is(notNullValue()));
-
-        assertThat(voice.match(fr), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
-        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
-
-        assertThat(voice.match(hy), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hy_AM), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hy_arevela), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hy_arevmda), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(hy_AM_arevela), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hy_AM_arevmda), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
-
-        assertThat(voice.match(hye), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hye_ARM), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hye_arevela), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(hye_arevmda), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(hye_ARM_arevela), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(hye_ARM_arevmda), isTtsLangCode(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
-    }
-
     public void testMatchVoiceWithLanguageCountryAndVariant()
     {
         final Voice voice = getVoice("en-sc"); // language="en" country="GB" variant="scotland"
