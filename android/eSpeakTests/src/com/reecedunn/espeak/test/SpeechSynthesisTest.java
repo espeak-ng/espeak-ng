@@ -16,9 +16,11 @@
 
 package com.reecedunn.espeak.test;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import com.reecedunn.espeak.SpeechSynthesis;
@@ -103,20 +105,23 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         }
     };
 
-    private List<Voice> mVoices = null;
+    private Map<String, Voice> mVoices = null;
     private Set<String> mAdded = new HashSet<String>();
     private Set<String> mRemoved = new HashSet<String>();
 
-    public List<Voice> getVoices()
+    public Map<String, Voice> getVoices()
     {
         if (mVoices == null)
         {
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-            mVoices = synth.getAvailableVoices();
+            mVoices = new HashMap<String, Voice>();
+            for (Voice voice : synth.getAvailableVoices()) {
+                mVoices.put(voice.name, voice);
+            }
             assertThat(mVoices, is(notNullValue()));
 
             Set<String> voices = new HashSet<String>();
-            for (Voice data : mVoices)
+            for (Voice data : mVoices.values())
             {
                 voices.add(data.name);
             }
@@ -148,14 +153,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
 
     public Voice getVoice(String name)
     {
-        for (Voice voice : getVoices())
-        {
-            if (voice.name.equals(name))
-            {
-                return voice;
-            }
-        }
-        return null;
+        return getVoices().get(name);
     }
 
     public void testConstruction()
