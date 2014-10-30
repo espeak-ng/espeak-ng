@@ -68,6 +68,15 @@ public class Voice {
 
     @Override
     public String toString() {
-        return locale.toString().replace('_', '-');
+        String ret = locale.getISO3Language();
+        if (locale.getISO3Country() != null && !locale.getISO3Country().isEmpty()) {
+            ret += '-';
+            ret += locale.getISO3Country();
+        }
+        if (locale.getVariant() != null && !locale.getVariant().isEmpty()) {
+            ret += '-';
+            ret += locale.getVariant();
+        }
+        return ret;
     }
 }
