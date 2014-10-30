@@ -201,7 +201,13 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public String onGetDefaultVoiceNameFor(String language, String country, String variant) {
-        return super.onGetDefaultVoiceNameFor(language, country, variant);
+        final int result = onLoadLanguage(language, country, variant);
+        switch (result) {
+            case TextToSpeech.LANG_MISSING_DATA:
+            case TextToSpeech.LANG_NOT_SUPPORTED:
+                return null;
+        }
+        return mMatchingVoice.name;
     }
 
     @Override
