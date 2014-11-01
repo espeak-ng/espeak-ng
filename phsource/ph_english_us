@@ -46,7 +46,7 @@ phoneme a
 
   ChangeIfDiminished(a#)
 
-  IF nextPh(isNasal) THEN
+  IF nextPh(isNasal) AND NOT KlattSynth THEN
     FMT(vnasal/ee_n2)
   ELSEIF nextPh(r) AND thisPh(isStressed) THEN
     length 190

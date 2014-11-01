@@ -123,6 +123,13 @@ _) ای	e:
 	_) اونچ (L01	'u:nc
 	_) ادا (ر	'Ida:
 	اسکول	,Isk'u:l
+	_) اونٹ	'u:nt.
+	_) انکار	Inka:R
+	_) اسرائیل	IsRa:i:l
+	_) استاد	Usta:d
+	_) انگریز	angRe:z
+	_) انڈس	Ind.as
+	اع (_	a:
 
 .group آ
 	آ	a:
@@ -146,6 +153,7 @@ _) ای	e:
 	عُ	'U
 	علاق	Il'a:q
 	عے	e:
+	عراق	IRa:q
 
 .group و
 	و	o:
@@ -157,6 +165,7 @@ _) ای	e:
 	وّ	vv
 	L02L02L02) و (L02	u:
 	L02) ونکہ (_	u:nk'e:H
+	_) وکٹ (L01	vIkt.
 
 .group ی
 	ی	e:
@@ -222,6 +231,9 @@ _) ای	e:
 	بحران	b,OHR'a:n
 	بنیاد	bUnj'a:d
 	بیمار	bim'a:R
+	_) بھوت	b#u:t
+	_) بخار	bUxa:R
+	_) بیج	bi:J
 
 
 .group پ
@@ -239,6 +251,8 @@ _) ای	e:
 	پیچھ	p'i:c#
 	پھونک	p#'u:nk
 	_) پور (L01	p'u:R
+	_) پچھل (L01	pIc#l
+	_) پران (L01	pURa:n
 
 .group ت
 	ت	tV
@@ -260,6 +274,8 @@ _) ای	e:
 	@) تی (_S2	t'i:
 	@) تے (_S2	t'e:
 	_) توا	t'ava:
+	تہ (_	t,a
+	تحصیل	te:Hs.i:l
 
 .group ٹ
 	ٹ	t.V
@@ -272,6 +288,8 @@ _) ای	e:
 	_) ٹکڑ	t.'Ukr.
 	_) ٹہ (L02	t.'EH
 	_) ٹرین	t.R'e:n
+	ٹری (_	t.Ri
+	_) ٹوٹ	t.u:t.
 
 
 .group ث
@@ -297,6 +315,7 @@ _) ای	e:
 	_) جہ (L02	J'EH
 	_) جدا	J'Uda:
 	_) جسم	J'Ism
+	_) جتن (L01	JItn
 
 .group چ
 	چ	cV
@@ -322,6 +341,7 @@ _) ای	e:
 
 	حّ	HHV
 	حّ (L01	HH
+	_) حاضر	Ha:zIR
 
 .group خ
 	خ	xV
@@ -335,6 +355,7 @@ _) ای	e:
 	_) خیا	x'aja:
 	_) خون	x'u:n
 	_) خشک	x'USk
+	_) خوب	xu:b
 
 
 .group د
@@ -358,6 +379,8 @@ _) ای	e:
 	_) دین (L01	d'e:n
 	_) دیت (L01	d'e:t
 	دہ (_	d,a
+	_) دوا	dava:
+	_) دشمن	dUSman
 
 .group ڈ
 	ڈ	d.V
@@ -369,6 +392,7 @@ _) ای	e:
 	ڈھونڈ	d.#'u:nd.
 	@) ڈز (_	d.z
 	ڈرائیور	d.R'a:jvaR
+	_) ڈگری	d.IgRi:
 
 .group ذ
 	ذ	DV
@@ -392,6 +416,12 @@ _) ای	e:
 	@) ر (د	R
 	_) رفت	R'af@t
 	_) روا	R'ava:
+	_) رش (ت	RIS
+	_) روح	Ru:H
+	_) رفت	Raft
+	ریشن (_	Re:San
+	_) رحمت	REHmat
+	_) رکاوٹ	RUka:vat.
 
 .group ڑ
 	ڑ	r.V
@@ -409,6 +439,7 @@ _) ای	e:
 	_) زند	z'Ind
 	_) زہ (L02	z'EH
 	_) زلزل	z,alz'al
+	_) زاہد	za:HId
 
 .group ژ
 	ژ	ZV
@@ -440,6 +471,9 @@ _) ای	e:
 	@) ستانی (_	Ist'a:ni
 	_) سوا	sav'a:
 	_) سکول	sk'u:l
+	سلطان	sUlta:n
+	_) سفید	safe:d
+	_) سلوک	sUlu:k
 
 .group ش
 	ش	SV
@@ -454,6 +488,7 @@ _) ای	e:
 	_) شخص	S'axs.
 	_) شہ (L02	S'EH
 	شرمند	S,aRm'Ind
+	_) شعور	Sa'u:R
 
 .group ص
 	ص	s.V
@@ -462,6 +497,7 @@ _) ای	e:
 	صّ (L01	ss
 	صوب	s.'u:b
 	صورت	s.u:R'at
+	_) صدیق	s.Idi:q
 
 .group ض
 	ض	zV
@@ -469,6 +505,7 @@ _) ای	e:
 	ضّ	zzv
 	ضّ (L01	zz
 	ضرور	zaR'u:R
+	_) ضد (L01	zId
 
 .group ط
 	ط	tV
@@ -508,6 +545,10 @@ _) ای	e:
 	قاعد	q'a:jd
 	_) قسط	q'Ist
 	_) قیا	q'aja:
+	قیمت (L01	qi:mt
+	_) قریش	qURe:S
+	_) قبض	qabz
+	_) قربان	qURba:n
 
 .group ک
 	ک	kV
@@ -523,6 +564,10 @@ _) ای	e:
 	کارکن	k'a:Rk,UUn
 	_) کیس (L01	k'Es
 	_) کت (L01	k'Ut
+	کردار	kIRda:R
+	_) کمزور	kamzo:R
+	_) کلاس	kla:s
+	_) کھل	k#Ul
 
 .group گ
 	گ	gV
@@ -541,6 +586,7 @@ _) ای	e:
 	_) گہ (L02	g'EH
 	گزارش	gUz'a:RIS
 	_) گیت	g'i:t
+	_) گزار	gUza:R
 
 .group ل
 	ل	lV
@@ -551,6 +597,7 @@ _) ای	e:
 	_) لہ (L02	l'EH
 	_) لین (L01	l'e:n
 	_) لیت (L01	l'e:t
+	_) لیڈر	lid.aR
 
 .group م
 	م	mV
@@ -592,6 +639,14 @@ _) ای	e:
 	مذہب	m,aDH'ab
 	متاثر	mUt'a:sIR
 	_) مثال	mIs'a:l
+	_) مراد	mURa:d
+	محبوب	mEHbu:b
+	_) ماہر	ma:HIR
+	_) معاہد	mOa:HId
+	_) مشور	maSvaR
+	_) مزاج	mIza:J
+	_) معین	mOi;'an
+	_) مشیر	mUSi:R
 
 .group ن
 	ن	nV
@@ -625,6 +680,11 @@ _) ای	e:
 	@) نا (_S2	n'a:
 	@) نی (_S2	n'i:
 	@) نے (_S2	n'e:
+	_) نیچ	ni:c
+	_) نشست	nISast
+	_) نقط	nUqt
+	_) نیند	ni:nd
+	_) نصاب	nIs.a:b
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -648,6 +708,8 @@ _) ای	e:
 	ہ (L02	HV
 	@) ہ (L02L01	H
 	_) ہم (L02L02L02P2	H'am
+	_) ہندوستان	HIndUsta:n
+
 
 .group ّ
 	ّ
@@ -666,8 +728,10 @@ _) ای	e:
 	:	r'a:b'tah//Rabtar 	رابطہ
 	?	saw'a:l'i:ja:n'is'a:nV	// Sawaliya Nishan	سوالیہ نشان
 	%	f'i:sVd	//Fisad	فیصد
+	۔	xatma	//Khatmah	ختمہ
+	،	sakta	//Saktah	سکتہ
+	؟	sava:li:;anISa:n	//Sawaliya Nishan	سوالیہ نشان
 
-	
 
 .group 0xe0a4  // devanagari
 	0xe0a4  _^_NE  // switch to Nepali voice

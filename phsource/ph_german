@@ -240,6 +240,25 @@ endphoneme
 // CONSONANTS
 //===========
 
+phoneme t
+  vls alv stop
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ELIF nextPh(r) THEN
+    WAV(ustop/t_)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/t_dnt, 50)
+  ENDIF
+  WAV(ustop/t, 90)
+endphoneme
+
+
+
 phoneme ts
   import_phoneme consonants/ts
 endphoneme
@@ -315,7 +334,7 @@ phoneme j
 endphoneme
 
 
-phoneme r
+phoneme r   // note, following consonant must be 'ustop/t_' not 'ustop/tr' etc.
   liquid alv rhotic
   lengthmod 6
 
