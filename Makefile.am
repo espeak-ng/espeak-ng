@@ -221,6 +221,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_gujarati \
 	phsource/ph_haitian \
 	phsource/ph_hindi \
+	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
@@ -240,6 +241,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_malayalam \
 	phsource/ph_maltese \
 	phsource/ph_manipuri \
+	phsource/ph_marathi \
 	phsource/ph_nahuatl \
 	phsource/ph_nepali \
 	phsource/ph_northern-sotho \
