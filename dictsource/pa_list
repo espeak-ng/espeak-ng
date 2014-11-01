@@ -117,8 +117,9 @@ _dpt	_d@s@ml'o:
 ਂ	bInd'i
 ੰ	tIpp'i
 ੱ	VddVk
+਼	 p'Erb'I~di
 ਃ	visaRg
-੍	hVlVnt
+
 
 ਅ	'ERV
 ੲ	'IRI
@@ -133,15 +134,15 @@ _ਐ	'ERV||dUl'avam
 _ਓ	'URV||hoR'a
 _ਔ	'ERV||kVnOR'a
 
-ਾ	kVnn'a
-ਿ	sIh'aRi
-ੀ	bIh'aRi
-ੁ	OnkaR
-ੂ	dUl'EnkaR
-ੇ	l'ava~
-ੈ	d@l'ava~
-ੋ	hoR'a
-ੌ	kVn'ORa
+//ਾ	#X2kVnn'a
+
+
+
+
+
+
+
+
 
 
 // Punctuation
@@ -242,5 +243,8 @@ $textmode
 ਈਮੇਲ   email
 ਕੀਬੋਰਡ  keyboard
 ਬੋਰਡ    board
+ਟੈਕਸਟ	text
+ਸੈਟਿੰਗਜ਼	settings
 $phonememode
 
+ਬਦਲਾਅ	

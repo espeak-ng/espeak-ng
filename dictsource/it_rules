@@ -1,6 +1,6 @@
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2014 July 30 by Chris <llajta2012@gmail.com>
+// Last update: 2014 August 18 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -41,7 +41,7 @@
      _) anch' (P5t     ank
 	@) amo (L04_	'amo  // Pron.s verbs
 	@) ander (L04_	'andE@-*  // Pron.s verbs
-		ate (L04_	'ate
+		ate (L04_+	'ate
 	_L04Z) auguri (_	'awguRI
 	astano (_	'a:sta/no   // verbs
 
@@ -73,6 +73,8 @@
 		ci (A	tS
 		cci (A  tS:
 	@)	co (lA_ =ko
+	cardia (_	ka@-*d'ia
+	cardie (_	ka@-*d'ie
      _) c' (P2t     tS
 	@@A) ce (A_	=tSE
 	ciano (_	=tSano   // verbs
@@ -228,6 +230,7 @@
 .group i
 		i	i
 		i (A	j
+	@) ii (_	'I:j
 	l)	i (A	%i
 	r)	i (A	%i
 	_C) ie (_	'ie
@@ -241,6 +244,7 @@
 	af)	ie (_	'ie
 	fon)	ia (_	'ia
 	scop)	ia (_	'ia
+	scop) ie (_	'ie
 	er)	ia (_	'ia
 	er)	ie (_	'ie
 	gor)	ia (_   'ia
@@ -288,7 +292,7 @@
 	Cm) in (Y_	=in
 	im) in	(Y_	=in
 	@) issim (A_	'issim
-	@)	issero(_S6q	'issero
+	@)	issero(_S6q	'isse*o
 	ip) i (te_    =i
 	C) iad (Y_	'iad
 	@) iono (_	=iono
@@ -328,12 +332,14 @@
 .group m
 		m	m
 	mm	m:
-	A)	mi (a_  m'i
+	A) mi (a_  m'i
+	A) mi (e_	m'i
 	A) mila (_	m'ila/
      _) m' (P2t     m
 	_) mezz' (P5t	mEdz:
 	metter (L04_	m'ette@-* // Pron.s Verbs
 	manda (L05_	m'anda
+	assu) mer (L04_	=me@-*
 	mbano (_	=mbano // verbs
 	@) minano(_	=mina/no   // verbs
 
@@ -342,9 +348,11 @@
 		n (g	N
 		n (gY   n
 		n (k	N
+	Ama) nia (_	n'i:a
+	Ama) nie (_	n'i:e
      _) nell' (P5t     nell
 	_) neanch' (P7t	neank
-		ndo (L04_	=ndo    // for pronominal verbs
+		ndo (L04_	=ndo    //  Pronominal verbs
 		netter (L04_	n'Et:e@-*
 		_zA) nz (A	n|dz
 		A) ne (A_	=nE
@@ -439,6 +447,8 @@
 	porta (L05_	p'O@-*ta  // Pron.s verbs
 	pie (gaL05_	pI'e
 	pie (galA_	pI'e
+	tera) pi (A_	p'i
+	tro) pi (A_	p'i
 
 .group q
 		q	k
@@ -459,6 +469,7 @@
 	A) r (à_	*
 	A) r (ò_	*
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
+	_) rega (laL04_	@-*eg'a
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -467,12 +478,11 @@
 
 .group s
 		s	s
-	_)	s	s
 	A)	s (A	z
 		s (L03	z
 	l)      s       s
-	p)      s       s
-	k)	s	s
+	p) s	s
+	k) s	s
 		s (c	s
 		s (f	s
 		s (k	s
@@ -488,13 +498,14 @@
 		sci (ì	S%i
 		sch (Y	sk
 		sh (K	S    // foreign words
-	K)	sh	S    // foreign words
+	K) sh	S
 	A) sh (A	S
 	@A)	sia (_	z'ia
 	@A) sie (_	z'ie
 	@C) sia (_	s'ia
 	@C) sie (_	s'ie
 	@)	s (_S1	s
+	_) s' (P2t	s
      _) sull' (P5t     sull
 	_) sant' (P5t	sant
 	_sotto) s (A	_||s
@@ -502,6 +513,7 @@
 	@) scer (L04_	=SE@-*  // pron.s verbs
 	A) sci (L05_	=SI
 	scrivi (L04_	sk@-*'i:vI
+	salu (taL04_	sal'U
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -552,6 +564,7 @@
 		C) vi (A_	=vI
 	A) vino (_	=vino  // verbs
 	@) vo (cano_	=vo
+	in) via (toL04_	vI'a
 
 .group w
 		w	w2
@@ -662,4 +675,5 @@ _L16_)	: (_L17D_	_%%E_	// Say time
         __)  - (_D         meno
         A_)  - (_D        _
         C_)  - (_D        _
-		§	setsi'one
+		§	pa*'ag@-*afO
+		

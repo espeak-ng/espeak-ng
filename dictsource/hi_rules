@@ -1,6 +1,6 @@
-
+﻿
 // This file is UTF8 encoded
-
+// Improvement work started on July 2014 by Maheshinder Singh Khosla, mahesh.khosla@gmail.com
 // letter groups:
 // A   vowel letters and vowel signs
 // B   vowel signs and virama ्
@@ -23,6 +23,7 @@
  ७	7
  ८	8
  ९	9
+
 
 
 // Vowels
@@ -106,95 +107,115 @@
 // Vowel Signs
 
 .group ा
-        ा          a:
-        ा (ँ       a~
-        ाँ (_      a~
-        ां         a~
-        ाव         aU
+ा	#X2a:
+   C) ा      a:
+C)        ा (ँ       a~
+C)        ाँ (_      a~
+C)        ां         a~
+
 
 .group ि
-        ि          I
-//      िँ       i~
-        िं       i~
+ि	#X1I
+C)        ि          I
+C)//      िँ       i~
+C)        िं       i~
 
 .group ी
-        ी          i:
-        ी (_       i
-        ी (ँ       i~
-        ीँ (_      i~
-        ीं         i~
+ी	#X2i:
+C)        ी          i:
+C)        ी (_       i
+C)        ी (ँ       i~
+C)        ीँ (_      i~
+C)        ीं         i~
 
 .group ु
-        ु          U
-        ु (ँ       u~
-        ुं         u~
-        ुँ (_      u~
+ु	#X1U
+C)        ु          U
+C)        ु (ँ       u~
+C)        ुं         u~
+C)        ुँ (_      u~
 
 .group ू
-        ू          u:
-        ू (ँ       u~
-        ूं         u~        // or O~   ??
-        ूँ (_      u~
+ू	#X2u:
+C)        ू          u:
+C)        ू (ँ       u~
+C)        ूं         u~        // or O~   ??
+C)        ूँ (_      u~
 
 .group ृ
-        ृ          rI
+ृ	#X1rI
+C)        ृ          rI
 
 .group ॄ
-        ॄ          rI
+ॄ	#X1rI
+C)        ॄ          rI
 
 .group ॅ
-        ॅ          E
+ॅ	#X1E
+C)        ॅ          E
 
 .group ॆ
-        ॆ          e
-        ॆ (ँ       e~
-        ॆं         e~
-        ॆँ (_      e~
+ॆ	#X1e
+C)        ॆ          e
+C)        ॆ (ँ       e~
+C)        ॆं         e~
+C)        ॆँ (_      e~
 
 .group े
-        े          e:
-        े (ँ       e~
-        ें         e~:
-        ेँ (_      e~:
+े	#X2e:
+C)        े          e:
+C)        े (ँ       e~
+C)        ें         e~:
+C)        ेँ (_      e~:
 
 .group ै
-        ै          E:        // ?? [aI] [E:] [&:]
-        ैं         E~ 
-        ै (ँ       E~ 
-        ैं         E~
-        ैँ (_      E~
-?2      ै          aI        // ?? [aI] [E:] [&:]
+ै	#X2E:
+C)        ै          E:        // ?? [aI] [E:] [&:]
+C)        ैं         E~ 
+C)        ै (ँ       E~ 
+C)        ैं         E~
+C)        ैँ (_      E~
+?2 ै	#X2aI
+?2  C)    ै          aI        // ?? [aI] [E:] [&:]
 
 .group ॉ
-        ॉ          O
+ॉ	#X1O
+C)        ॉ          O
 
 .group ॊ
-        ॊ          o
-        ॊ (ँ       o~
-        ॊं         o~
-        ॊँ (_      o~
+ॊ	#X1o
+C)        ॊ          o
+C)        ॊ (ँ       o~
+C)        ॊं         o~
+C)        ॊँ (_      o~
 
 .group ो
-        ो          o:
-        ो (ँ       o~
-        ों         o~
-        ोँ (_      o~
+ो	#X2o:
+C)        ो          o:
+C)        ो (ँ       o~
+C)        ों         o~
+C)        ोँ (_      o~
 
 .group ौ
-        ौ          O:        //  [O:] or [aU] ??
-        ौ (ँ       O~        //  [O:] or [aU] ??
-        ौं         O~
-        ौँ (_      O~
-?3      ौ          aU        //  [O:] or [aU] ??
+ौ	#X2O:
+C)        ौ          O:        //  [O:] or [aU] ??
+C)        ौ (ँ       O~        //  [O:] or [aU] ??
+C)        ौं         O~
+C)        ौँ (_      O~
+?3 ौ 	#X2aU
+?3  C)    ौ          aU        //  [O:] or [aU] ??
 
 .group ॢ     // vowel sign l
-        ॢ          l-
+ॢ 	#X1l-
+C)        ॢ          l-
 
 .group ॣ    // vowel sign ll
-        ॣ          l-:
+ॣ	#X2l-:
+C)        ॣ          l-:
 
 .group ॐ
-        ॐ          o~m
+ॐ	o~m
+
 
 // Consonants
 
@@ -221,6 +242,9 @@
         ग (B       g
         ग़         QV
         ग़ (B      Q
+//new
+        ग्ग         g:V   // GG -> g:
+        ग्ग (B      g:
 
 .group घ
         घ          g#V
@@ -236,6 +260,15 @@
         च (B       c
         च (्य      c:
 
+//New
+        च्च          c:V   // cc -> c:
+        च्च (B       c:
+
+//new
+        च्छ          c#:V    // c#c# -> c#:
+        च्छ (B       c#:
+      
+
 .group छ
         छ          c#V
         छ (B       c#
@@ -245,6 +278,9 @@
         ज (B       J
         ज़         zV
         ज़ (B      z
+//new
+        ज्ज         J:V   // JJ -> J:
+        ज्ज (B      J:
         
          ज्ञ           gjV
         ज्ञ (B       gj
@@ -264,8 +300,10 @@
         ट          t.V
         ट (B       t.
         ट (्य      t.:
+
         ट्ट          t.:V    // t.t. -> t.:
         ट्ट (B       t.:
+
         ट्ठ          t.#:V    // t.t.# -> t.#:
         ट्ठ (B       t.#:
 
@@ -279,6 +317,13 @@
 .group ड
         ड          d.V
         ड (B       d.
+
+        ड्ड          d.:V   // d. d. -> d.:
+        ड्ड (B      d.:
+
+        ड्ढ          d.#:V    // d#d# -> d#:
+        ड्ढ (B       d.#:
+
 
         ड़         r.V
         ड़ (B      r.
@@ -301,7 +346,11 @@
 
         त्त          t:V   // tt -> t:
         त्त (B       t:
-        
+//new
+        त्थ          t#:V    // t#:t#: -> t#:
+        त्थ (B       t#:
+
+       
 .group थ
         थ          t#V
         थ (B       t#
@@ -309,6 +358,14 @@
 .group द
         द          dV
         द (B       d
+
+//new
+        द्द         d:V   // dd -> d:
+        द्द (B      d:
+
+        द्ध          d#:V    // d#d# -> d#:
+        द्ध (B       d#:
+
 
 .group ध
         ध          d#V
@@ -388,12 +445,12 @@
 .group व
         व          vV
         व (B       v
-     _) व          wV
-     _) व (B       w
-     _) व (्       v         // +virma
-        व (_       w
-    ्) व (_       w@
-
+// 3     _) व          wV
+// 3     _) व (B       w
+// 4      _) व (्       v         // +virma
+// 2        व (_       w
+// 5     ्) व (_       w@
+// 1 deleted
 .group श
         श          SV
         श (B       S
@@ -451,7 +508,8 @@
         ः          H         //  visarga
 
 .group ्		// virama
-	् 
+्	H@l'Vnt
+C)	् 
 
 // Extra consonants
 
@@ -494,12 +552,13 @@
         ॡ          l-:       // long syllabic l
 
 
+
 // If we find a Latin letter a-z, then translate as English
 // (This is now done automatically by the eSpeak program)
 
 .group o
         o          _^_EN
-   D__) of (__D    me
+   D__) of (__D    me
 
 
 

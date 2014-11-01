@@ -52,10 +52,9 @@ phoneme r-   // linking r, used in English between certain vowels and a followin
   liquid rhotic
   ipa ɹ
   
-  IF NOT thisPh(isWordEnd) THEN
+  IF NOT thisPh(isWordEnd) AND NOT prevPh(@) AND NOT prevPh(3) THEN
     ChangePhoneme(r)
   ENDIF
-//  ChangePhoneme(r)  // always use [r], not [r-] ?
   
   lengthmod 0
 

@@ -773,7 +773,7 @@ static int skipPitchPeriod(
     float speed,
     int period)
 {
-    long newSamples;
+    long newSamples = period;
     int numChannels = stream->numChannels;
 
     if(speed >= 2.0f) {

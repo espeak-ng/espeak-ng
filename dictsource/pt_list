@@ -697,6 +697,7 @@ amorno		$alt
 amuleto		$alt2
 ampola		$alt2
 ampulheta	$alt2
+anchieta	$alt2
 anchova		$alt2
 andorra		$alt2
 andrea	$alt
@@ -748,7 +749,6 @@ boca		$alt2
 boceta		$alt2
 boda	$alt2
 bofe		$alt
-bojo		$alt2
 boleia		$alt
 bolero		$alt
 bolo		$alt2
@@ -795,7 +795,6 @@ centopeia	$alt
 cerebelo	$alt2
 cerca		$alt $verb
 cerco		$alt $verb
-cetro		$alt
 chamego	$alt2
 chamego	$alt $verb
 chapeleta		$alt2
@@ -850,7 +849,6 @@ corto		$alt
 corveia	$alt
 corveta		$alt2
 corvos		$alt
-cosme	$alt
 costeleta	$alt2
 coto		$alt2
 cotovelo	$alt2
@@ -1019,7 +1017,6 @@ gol		gow
 gorda		$alt2
 gorjeta		$alt2
 gororoba	$alt
-gosma		$alt
 gosto		$alt $verb
 gota		$alt2
 governo		$alt2
@@ -1040,7 +1037,6 @@ ideia		$alt
 inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
-internet	$alt
 interregno	$alt
 iodo		$alt2
 ioga		$alt
@@ -1059,6 +1055,7 @@ lembrete	$alt2
 lepra		$alt
 leses	$alt
 leste		$alt2 $verb
+letra	$alt2
 ?2   lhe	l^y
 licores	$alt2
 lisboeta	$alt2
@@ -1070,10 +1067,10 @@ maioneses	$alt
 maniçoba	$alt
 marieta		$alt2
 mariposa	$alt2
+martelete	$alt2
 megera		$alt
 melhor		$alt
 meta		$alt $noun
-metro		$alt
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
@@ -1101,7 +1098,6 @@ nervo		$alt2
 niceia	$alt
 ninfeta	$alt2
 nitreto	$alt2
-nojo		$alt2
 novelo		$alt2
 odisseia	$alt
 oeste	$alt
@@ -1293,7 +1289,6 @@ tropa		$alt
 tropeço		$alt2 $noun
 trombeta	$alt2
 ureia	$alt
-uretra	$alt
 vanessa		$alt2
 vareta		$alt2
 vera		$alt

@@ -18,7 +18,7 @@ _cir	Tirkumfl'eSo
 _dia	djEr'esi
 _dac	d'Ople||aQ'uDo	
 _dot	p'unto
-_grv	gr'iEu
+_grv	gr'au
 _hac	kar'On
 _mcn	makr'On
 _ogo	kod'eta
@@ -242,7 +242,6 @@ ta	$u $brk
 tu	$u
 sin	$u 
 su	$u
-ye	$u
 el	$u
 es	$u
 els	$u
@@ -272,9 +271,10 @@ ni	$u
 ibi	$u
 bi	$u
 i	$u+
+ye	$u
 ie	$u
 hu	$u
-sant	$u
+so	$u
 
 
 //abbreviations
@@ -513,7 +513,6 @@ iphone		'aIfon
 ipod		'aIpod
 junior		j'unior
 linux		$1
-live 		laIB
 messenger 	m'esendZer
 mozilla		moTila
 nvda		ene|be|de|'a
