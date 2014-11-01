@@ -124,11 +124,12 @@ static ACCENTS accents_tab[] = {
 #define L_EZH     70 // U+292
 #define L_GLOTTAL 71 // U+294
 #define L_RTAP    72 // U+27E
+#define L_RLONG   73 // U+27C
 
 
 static const short non_ascii_tab[] = {
 	0, 0x3b1, 0x259, 0x25b, 0x3b3, 0x3b9, 0x153, 0x3c9,
-	0x3c6, 0x283, 0x3c5, 0x292, 0x294, 0x27e
+	0x3c6, 0x283, 0x3c5, 0x292, 0x294, 0x27e, 0x27c
 };
 
 
@@ -294,6 +295,8 @@ static const unsigned short letter_accents_0e0[] = {
 	CAPITAL,
 	LETTER('z',M_CARON,0),
 	LETTER('s',M_NAME,0), // long-s  // U+17f
+//	LETTER('b',M_STROKE,0),
+
 };
 
 
@@ -341,7 +344,7 @@ static const unsigned short letter_accents_250[] = {
 	0,//LETTER(L_OMEGA,M_CLOSED,0),
 	LETTER(L_PHI,0,0),		// U+278
 	LETTER('r',M_TURNED,0),
-	0,//LETTER('r',M_TURNED,M_LEG),
+	LETTER(L_RLONG,M_TURNED,0),
 	LETTER('r',M_RETROFLEX,M_TURNED),
 	0,//LETTER('r',M_LEG,0),
 	LETTER('r',M_RETROFLEX,0),
@@ -351,7 +354,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('r',M_TURNED,M_SMALLCAP),
 	LETTER('s',M_RETROFLEX,0),
 	0,  // esh
-	0,//LETTER('j',M_BAR,L_IMPLOSIVE),
+	LETTER('j',M_HOOK,0), //LETTER('j',M_HOOK,M_BAR),
 	LETTER(L_ESH,M_REVERSED,0),
 	LETTER(L_ESH,M_CURL,0),
 	LETTER('t',M_TURNED,0),

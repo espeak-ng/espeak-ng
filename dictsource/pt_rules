@@ -188,19 +188,15 @@
 ?2      el (K      EU
         e (lh+     e
         e (ll+     E
+et (_  EtS
 
         e (bL02_   E
         e (cL04_   E
     @c) e (L07_    e
-        e (chL04_  E
-
+        e (cCL04_  E
      r) e (cho_    e
 
-        e (clL04_  E
-
-        e (ctL04_  E
-
-        e (dL02_   E
+   e (dL02_   E
 
         e (fL04_   E
 
@@ -249,20 +245,18 @@
         e (rrL04_  E
         e (rvL04_  E
         e (tL04_   E
+e (trL04_   E
      m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
      u) e (ta_     e
         e (vL04_   E
      t) e (ve_     e
-
-        e (rrAs_   E
+        
     _r) eu (n      eu
 
         e (x_      E
         e (xL04_   E
-
-?2  _n) e (t       E
         em (C      eIm
         en (K      eIN
         enh        en^
@@ -297,7 +291,6 @@
 ?1   _) es (C@@    S         // drop initial "e".
 ?1   _) e (f       i         // efectuar, etc.
 ?1  _n) e (nhu     i         // eg: nenhum, nenhuma, nenhuns, nenhumas.
-?1      e (la_     'E        // eg: cadela, janela, vela, etc...
 ?1   C) e (cC      ,E        // eg: seleccionar, efectuar, etc...
 ?1   C) ecç        'Es       // eg: selecção, etc...
 ?1   C) e (ã       i         // leão, panteão, etc.
@@ -336,9 +329,7 @@
 ?1      e (l_      'E        // eg: possível, manuel, etc...
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
-
-    ef) e (tuL02_  e
-     t) e (tra     E
+     
         e (drL04_  E
 
     âC) e (C@      e
@@ -420,16 +411,13 @@ _troux) e (L07_    E
   _ens) e (bL03_   E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
- _perp) e (trL04_  E
-   sev) e (rL04_   E
-  _imp) e (trL04_  E
-   cel) e (brL04_  E
+    sev) e (rL04_   E
+     cel) e (brL04_  E
   _sop) e (sL04_   E
     _C) e (bre_    E
  _barb) e (tA_     e
  _boch) e (chL04_  e
-   _ex) e (crL04_  E
-  impr) e (gnL04_  E
+     impr) e (gnL04_  E
   _enr) e (dL01_   E
     _v) e (dL03_   E
   _sob) e (rbL03_  e
@@ -477,7 +465,7 @@ _tetran) e (tL08_  E
   _tol) e (rL04_   E
   acel) e (rL04_   E         // des-
  _apod) e (rL04_   E
- _enum) e (rL04_   E
+ enum) e (rL04_   E
  _exub) e (rL04_   E
 _adult) e (rL04_   E
 _aglom) e (rL04_   E
@@ -506,8 +494,9 @@ s_colh) e (res_    E
  _repr) e (sL03_   E
   _ent) e (sL04_   E
  _refr) e (scL01_  E
+ _ef) e (tuL02_   e
     _p) e (scL03_  E
-    _m) e (sclL04  E
+    _m) e (sclL04_  E
   dioc) e (ses_    E
  _aust) e (rL08_   E
     _d) e (spL02_  E
@@ -530,9 +519,7 @@ _obsol) e (tL08_   e
   viol) e (ta_     e
  _Carr) e (ta_     e
   _Gur) e (ta_     e
-  _pen) e (trL04_  E
-  _sol) e (trL04_  E
-    _n) eu (trL08_ 'eU
+        _n) eu (trL08_ 'eU
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
@@ -803,7 +790,7 @@ _redar) gu (A      gw
         o (g_      O
         o (gs_     O
         o (gL04_   O
-     g) o (gL03_   o
+     g) o (gL08_   o
         o (jL04_   O
 
         o (ldL04_  O
@@ -994,6 +981,8 @@ _redar) gu (A      gw
   _Com) o (do_     o
 _ortod) o (xL08_   O
   _arr) ox (A      OS
+  _B) o (jo_   o
+  C) o (smA_  O
     _g) o (zL04_   O
   _alm) o (çL01_   O
   _esb) o (çL01_   O
@@ -1147,6 +1136,7 @@ _ortod) o (xL08_   O
 ?2      t (i       tS
 ?2      t (í       tS
 ?2      t (e_      tS
+?2      t (_      tS
 ?1      th         _^_EN
 ?1      tion (_    _^_EN
 ?2   A) te (o_     tSj
@@ -1182,7 +1172,7 @@ _ortod) o (xL08_   O
         unh        u~n^
 
      g) u (Y 
-    _m) ui (tA_    'wiN
+    _m) ui (tL08_    'wiN
 
 
 .group ú

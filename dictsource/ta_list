@@ -180,7 +180,7 @@ _8	;et.t.U
 _9	onbVd.U
 _10	pattU
 _1X	padin
-_11	patinonRU
+_11	padinonRU
 _12	pVnnirVn.d.U
 _19	pattonbVdU
 
@@ -313,7 +313,7 @@ andagakavi	அந்தகக்கவி	$text
 பாறம்	$alt
 பாரதம்	$alt
 பரதம்	$alt
-பாப	$alt
+//பாப	$alt
 பாகம்	$alt
 பண்தம்	$alt
 பவனி	$alt
@@ -327,7 +327,7 @@ andagakavi	அந்தகக்கவி	$text
 பேதம்	$alt
 போனஸ்	$alt
 போகி	$alt
-பாலா	$alt
+//பாலா	$alt
 பூத	$alt
 பாபா 	ba:ba:
 பாக்கி	$alt
@@ -391,8 +391,6 @@ andagakavi	அந்தகக்கவி	$text
 போன்ஸாய்	$alt
 பீப்	bi:p
 ப்யூனஸ்	$alt
-பவுத்த	$alt
-பவுத்தம்	$alt
 பிட்	$alt
 பீடிக்	$alt
 பீச்	$alt
@@ -440,6 +438,7 @@ andagakavi	அந்தகக்கவி	$text
 போத 	$alt
 பொம்ம	$alt
 புகாரி	$alt
+பாக	$alt
 
 
 	// initial த as [d]
@@ -491,7 +490,6 @@ andagakavi	அந்தகக்கவி	$text
 தருமமும்	$alt
 தராவி	$alt
 தவக்	$alt
-களில்	$alt
 தடிக்க	$alt
 தின	$alt
 தில்	$alt
@@ -540,7 +538,6 @@ andagakavi	அந்தகக்கவி	$text
 
 கக	$alt	// initial க as [g]
 கனம்	$alt
-கிலி	$alt
 கில்லி	$alt
 காந்தி	$alt
 கிரி	$alt

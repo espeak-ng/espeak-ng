@@ -7,6 +7,7 @@
 .L04 b v f p      // labials, nasals are [m]
 .L05 g k          // velars, nasals are [N]
 .L06 a e o
+.L07 m n s	
 
 .group a
         a          a
@@ -37,8 +38,10 @@
 .group c
         c          k
         c (Y       T         // ce  ci
+		c' (Y      T
         ck         k         // Forano (Foreign)
         ch         tS
+		//c (_        =
 
 
 
@@ -47,6 +50,8 @@
 
 .group d
         d          d
+C) d (_       =         // silent, but stress on last vowel
+A) d (_       =         // silent, but stress on last vowel
      _) d          d         // phoneme definition may change it to [D]
      _) d (A       d
         d (A       D
@@ -56,9 +61,7 @@
      n) d          d
      l) d          d
      r) d          d
-
-     n) d (_       =         // silent, but stress on last vowel
-
+   
      _) d' (AP2    d
      _) de'        d%e
 
@@ -76,8 +79,9 @@
      u) e          E
      y) e          E
 
-  L06_) e (CC      e#        // unstressed 'e' silent at start of word after a,e,o
- L06_h) e (CC      e#        // unstressed 'e' silent at start of word after a,e,o
+	 L06_) e (n_      e#        // unstressed 'e' silent at start of word after a,e,o
+  L06_) e (L07C      e#        // unstressed 'e' silent at start of word after a,e,o
+ L06_h) e (L07C      e#        // unstressed 'e' silent at start of word after a,e,o
 
      _) ent' (AP4  ent
      _) enta'      ,ent%a
@@ -213,18 +217,12 @@
 
 .group t
         t          t
-     a) t (_       t#        // becomes silent in a stressed syllable
-     u) t (_       t#
-    ei) t (_       t#
-     n) t (_       =         // silent, but stress on last vowel
-     n) t (m                 // Silent
-  _pos) t (h       t
-  _pos) t (C                 // Silent
+t (_        t#
+     C) t (C               // Silent
+C) t (r        t
+ C) t (h        t
         tz         T
-    ue) t (_       t#
-    ui) t (_       t#
-     s) t (_       =         // silent, but stress on last vowel
-
+   
      _) t' (AP2    t
      _) ta'        t%a
      _) to'        t%o

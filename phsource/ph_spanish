@@ -159,3 +159,36 @@ endphoneme
 
 
 
+phoneme k
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(#i) OR nextPh(;) THEN
+    WAV(ustop/ki_unasp2, 50)
+//  ELIF nextPh(isRhotic) THEN
+//    WAV(ustop/kr)
+//  ELIF nextPh(l) THEN
+//    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_unasp2, 50)
+endphoneme
+
+
+phoneme t
+  vls dnt stop
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_unasp3, 30)
+  ENDIF
+  WAV(ustop/t_unasp3, 60)
+endphoneme
+
+

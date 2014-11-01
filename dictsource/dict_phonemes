@@ -85,7 +85,7 @@ p    r    R    R2   s    S    t    tS
 v    w    x    X    z    
 
 
-Dictionary en_dict  2014-08-31
+Dictionary en_dict  2014-11-01
 
 0    3    3:   @    @-   @L   a    a#   
 A:   A@   aa   aI   aI3  aI@  aU   aU@  
@@ -115,7 +115,7 @@ s    S    t    tS   ts   v    x    z
 Z    
 
 
-Dictionary ta_dict  2014-08-31
+Dictionary ta_dict  2014-10-01
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -138,7 +138,7 @@ N    p    p-   ph   q    q-   r    R
 s    s-   t    t-   tS   tS;  tS;- w    
 
 
-Dictionary it_dict  2014-07-31
+Dictionary it_dict  2014-10-15
 
 @    @-   a    a/   aI   aU   e    E    
 e/   eI   EI   eU   i    I    i#   o    
@@ -164,7 +164,7 @@ s    S    t    t;   tS   ts   v    w
 x    z    Z    
 
 
-Dictionary ur_dict  2014-05-16
+Dictionary ur_dict  2014-10-15
 
 @    a    a:   aI   aU   e    E    e:   
 i    I    i:   O    o:   u    U    u:   
@@ -292,7 +292,7 @@ n^   p    r    R    R2   s    S    t
 tS   ts   v    z    Z    
 
 
-Dictionary pt_dict  2014-08-31
+Dictionary pt_dict  2014-10-15
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -344,7 +344,7 @@ n^#  p    Q    r    R    r#   R2   s
 S    s2   t    T    tl#  v    x    z    
 
 
-Dictionary da_dict  2014-02-04
+Dictionary da_dict  2014-10-15
 
 &    &#   0    3    ?&   ?&#  ?0   ?A   
 ?e   ?E   ?i   ?o   ?O   ?u   ?V   ?W   
@@ -506,7 +506,7 @@ t#   tS   ts   ts#  v    w    x    z
 Z    
 
 
-Dictionary an_dict  2013-12-23
+Dictionary an_dict  2014-10-21
 
 a    aI   aU   e    E    e#   eI   eU   
 i    o    O    oI   u    U    
@@ -779,26 +779,26 @@ n^   p    r    R    R2   s    S    t
 tS   v    w    x    z    
 
 
-Dictionary pa_dict  2013-04-24
+Dictionary pa_dict  2014-10-30
 
 @    a    a~   e    E    e~   E~   i    
 I    i~   I~   o    O    o:   O~   o~   
 r-   u    U    U~   u~   V    V~   
 
-:    ;    b    b#   c    c#   d    d#   
-d.   d.#  f    g    g#   h    H    j    
-J    J#   k    k#   l    l.   m    n    
-N    n.   n^   p    p#   Q    r    R    
-r.   R2   s    S    t    t#   t.   t.#  
-v    x    z    
+#X1  #X2  :    ;    b    b#   c    c#   
+d    d#   d.   d.#  f    g    g#   h    
+H    j    J    J#   k    k#   l    l.   
+m    n    N    n.   n^   p    p#   Q    
+r    R    r.   R2   s    S    t    t#   
+t.   t.#  v    x    z    
 
 
-Dictionary hi_dict  2014-06-05
+Dictionary hi_dict  2014-10-30
 
-@    @-   a    a:   aI   aU   a~   e    
-E    e:   E:   e~   E~   i    I    i:   
-i~   l-   o    O    o:   O:   O~   o~   
-r-   u    U    u:   u~   V    
+@    @-   @2   a    a:   aI   aU   a~   
+e    E    e:   E:   e~   E~   i    I    
+i:   i~   l-   o    O    o:   O:   O~   
+o~   r-   u    U    u:   u~   V    
 
 #X1  #X2  *    -    :    b    b#   c    
 c#   d    d#   d.   d.#  f    g    g#   
@@ -821,7 +821,7 @@ r    r.   s    S    t    t#   t.   t.#
 tS   tS#  v    w    X    ~    
 
 
-Dictionary gu_dict  2014-06-16
+Dictionary gu_dict  2014-10-30
 
 @    @-   @2   @3   a    a:   aI   aI~  
 aU   aU~  e    E    e:   e~   i    I    
@@ -832,8 +832,8 @@ o~   u    U    u:   u~   V    V~
 c    c#   d    d#   d.   d.#  f    g    
 g#   h    H    j    J    k    k#   l    
 m    n    N    n.   n^   p    p#   Q    
-q    r    r.   s    S    s.   t    t#   
-t.   t.#  v    w    x    z    
+q    r    R    r.   s    S    s.   t    
+t#   t.   t.#  v    w    x    z    
 
 
 Dictionary lfn_dict  2013-12-20
