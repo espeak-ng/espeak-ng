@@ -32,9 +32,9 @@ In order to build eSpeak, you need:
 
 In order to build the APK, you need:
 
-1.  the [Android SDK](http://developer.android.com/sdk/index.html);
+1.  the [Android SDK](http://developer.android.com/sdk/index.html) with API 21 support;
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 1.10.
+3.  Gradle 2.1.
 
 In order to use Android Studio, you will also need:
 
@@ -47,7 +47,7 @@ In order to use Android Studio, you will also need:
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c++ compiler  | `sudo apt-get install gcc g++`                                   |
 | wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
-| gradle        | [gradle-1.10_1.0-0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/gradle/+files/gradle-1.10_1.0-0ubuntu1_all.deb) |
+| gradle        | [gradle-2.1_0ubuntu1_all.deb](https://launchpad.net/~cwchien/+archive/ubuntu/gradle/+files/gradle_2.1-0ubuntu1_all.deb) |
 
 ## Building
 
@@ -59,7 +59,7 @@ In order to use Android Studio, you will also need:
 2.  Build the project:
 
         $ ./autogen.sh
-        $ ./configure
+        $ ./configure --with-gradle=<path-to-gradle>
         $ make
 
 This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
