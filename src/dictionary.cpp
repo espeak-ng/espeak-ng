@@ -1191,6 +1191,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
    If 'tonic' is set (>= 0), replace highest stress by this value.
 
   control:  bit 0   This is an individual symbol, not a word
+            bit 1   Suffix phonemes are still to be added
 */
 
 	unsigned char phcode;
@@ -1577,11 +1578,12 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		break;
 	}
 
-   if((stressflags & S_FINAL_VOWEL_UNSTRESSED) && (vowel_count > 2) && (max_stress_input < 3) && (vowel_stress[vowel_count - 1] == 4))
+   if((stressflags & S_FINAL_VOWEL_UNSTRESSED) && ((control & 2) == 0) && (vowel_count > 2) && (max_stress_input < 3) && (vowel_stress[vowel_count - 1] == 4))
    {
+		// Don't allow stress on a word-final vowel
+		// Only do this if there is no suffix phonemes to be added, and if a stress position was not given explicitly
 		if(phoneme_tab[final_ph]->type == phVOWEL)
 		{
-			// don't allow stress on a word-final vowel
 			vowel_stress[vowel_count - 1] = 1;
 			vowel_stress[vowel_count - 2] = 4;
 		}

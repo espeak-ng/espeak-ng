@@ -48,10 +48,10 @@ consonants  11  119
       bg  14  124
       it  21  130
       la  21  126
-      es  17  125
+      es  15  125
    es-la   2  125
       ca  11  127
-      an   5  126
+      an   7  126
       eu  21  129
       pt  29  140
    pt-pt  20  140
@@ -957,7 +957,7 @@ ustop/k_        [k] base
                 [k] base2
                 [k] fr
                 [k] lv
-                [k] es
+                [k] an
                 [k] el
                 [k] sw
                 [k] sq
@@ -992,7 +992,7 @@ ustop/ki        [k] base
                 [k] sl
                 [k;] gd
 ustop/ki_ejc    [g;] gd
-ustop/ki_unasp2  [k] es
+ustop/ki_unasp2  [k] an
 ustop/kl        [k] base
                 [kh] consonants
                 [k] base2
@@ -1021,7 +1021,7 @@ ustop/k_unasp   [k] base
                 [k-] tn
 ustop/k_unasp_  [k] zh
                 [k-] ko
-ustop/k_unasp2  [k] es
+ustop/k_unasp2  [k] an
 ustop/null      [?] base
                 [?] en-us
                 [t2] hu
@@ -1106,6 +1106,7 @@ ustop/t_dnt     [t] base
                 [t] lt
                 [t] pl
                 [t] hr
+                [t] an
                 [t[] ar
                 [t] sl
 ustop/t_dnt2    [t] base2
@@ -1200,7 +1201,7 @@ ustop/t_unasp   [t-] ko
 ustop/t_unasp2  [t] el
                 [t[] vi
                 [t] zh
-ustop/t_unasp3  [t] es
+ustop/t_unasp3  [t] an
 vdiph/0i        [OI] pt
                 [OI] grc
 vdiph/0i_2      [OI] en-sc

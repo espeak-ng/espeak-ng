@@ -674,7 +674,6 @@ jamais	$u+	$verbf
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
-abordo		$alt
 aborto		$alt  $verb
 abortos	$alt2
 absorta		$alt2
@@ -754,7 +753,6 @@ bolero		$alt
 bolo		$alt2
 bolo		$alt  $verb
 borboleta	$alt2
-bordo		$alt
 borra		$alt2 $noun
 boto		$alt2 $noun
 boxe		$alt
@@ -860,6 +858,7 @@ crimeia	$alt
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
+desacerto	$alt2
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2
@@ -1195,6 +1194,7 @@ remoem		$alt
 remorso		$alt
 renovo		$alt $verb
 represa		$alt2
+represes		$alt
 retorno		$alt $verb
 reveses	$alt
 rigores		$alt2
@@ -1287,6 +1287,7 @@ trocha	$alt2
 troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
+tropeços		$alt2
 trombeta	$alt2
 ureia	$alt
 vanessa		$alt2
