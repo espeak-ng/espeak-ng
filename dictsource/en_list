@@ -18,12 +18,12 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 
-// $alt1   use strong ending (-age, -an, -ance, -ate, -ative, -table, -ed, -eria, -et, -inal, -ier  -mouth -on -or -ored, -ose, -s -y)
+// $alt1   use strong ending (-age, -an, -ance, -ate, -ative, -table, -ed, -eria, -et, -i ,-inal, -ier  -mouth -on -or -ored, -ose, -s -y)
 // $alt2   use weak ending (ace, ain, an, ar*, ard, ate, ath, ell, ery, ess, et, ie, ile, ine, men, on, ot)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
 // $alt4   separate 'h', not 'th' 'ph' 'sh';  [t2] not [t]
 // $alt5   remove only 's' from plural (-ies -is)
-// $alt6   use strong first vowel (a-> [eI], e->[i:], i->[aI])
+// $alt6   use strong first vowel (a-> [eI], e->[i:], i->[aI]  y->[aI])
 // $alt7   for the word "to", with $verbf, check that verb doesn't have 's' suffix
 
 
@@ -551,6 +551,7 @@ _90o	n'aInti@
 aaa	$abbrev
 abc	$abbrev
 ac	$abbrev
+acsi	$abbrev
 adf	$abbrev
 adhd	$abbrev
 adsl	$abbrev
@@ -569,9 +570,12 @@ aph	$abbrev
 api	$abbrev
 apr	apr@
 asap	$abbrev
+aspca	$abbrev
+astm	$abbrev
 ati	$abbrev
 atk	$abbrev
 atm	$abbrev
+atsc	$abbrev
 atv	$abbrev
 avc	$abbrev
 avg	$abbrev
@@ -584,6 +588,7 @@ ces	$abbrev
 cet	$abbrev
 cia	$abbrev
 cio	$abbrev
+ctia	$abbrev
 ctrl	k@ntroUl
 dept	dI2pA@tm@nt
 diy	$abbrev
@@ -597,7 +602,7 @@ eff	$abbrev
 eg	fO@Egz'aamp@L	$only
 (e . g .) fO@Egz'aamp@L
 ept	$abbrev
-ersb	$abbrev
+esrb	$abbrev
 espn	$abbrev
 est	$abbrev
 etc	Et'sEtr@
@@ -614,6 +619,7 @@ hiv	$abbrev
 ibm	$abbrev
 ibmtts	$abbrev
 icmp	$abbrev
+ietf	$abbrev
 iidc	$abbrev
 iis	$abbrev
 ie	aIi:_!   $pause $only
@@ -655,6 +661,7 @@ nypd	$abbrev
 nypsd	$abbrev
 nyse	$abbrev
 nyt	$abbrev
+ocd	$abbrev
 ocr	$abbrev
 odf	$abbrev
 oecd	$abbrev
@@ -762,14 +769,15 @@ abstract	a#bstr'akt    $verb
 academe		a#kad@mi
 acapela		aka#p'El@
 access		aksEs
+accompli	a#k0mpl'i:
 accouchement	a#ku:SmO~
-accusation	akju:z'eIS@n
-acer		eIs3
-acetylene	a#sEt@li:n
 accurate	$alt2
 accursed	a#k3:sI#d
 ?5 accursed	a#kVRsI#d
 accuses		a#kju:zI#z
+accusation	akju:z'eIS@n
+acer		eIs3
+acetylene	a#sEt@li:n
 ached		eIkt
 achille		a#kIli:
 aching		eIkIN
@@ -884,6 +892,7 @@ amok		a#m0k
 amoral		eIm'0r@L
 amore		a#mo@reI
 amount		a#maUnt
+amour		a#mU@
 amply		amplI         $verbf
 amuck		a#mVk
 anal		eIn@L
@@ -942,7 +951,7 @@ apropos		apr@p'oU
 appal		a#pO:l
 appall		a#pO:l
 appaloosa	ap@l'u:s@
-apparal		$alt3
+apparel		a#par@L
 apparatus	ap@r'eIt@s
 ?3 apparatus	ap@r'at@s
 appropriate	a#proUprI|@t
@@ -1095,6 +1104,7 @@ bifurcate	$1
 bigot		bIg@t  // -ed
 bijou		bi:Zu:
 bikini		bIk'i:ni
+bikiny		bIk'i:ni  // -ed
 binman		bInman
 bio		baIoU
 biome		baIoUm
@@ -1227,7 +1237,7 @@ canonical	$alt3
 cantilever	kantI#li:v3
 canton		kant0n
 canvas		kanv@s
-capish		ka#pi:S
+capische	ka#pi:S
 capita		kapIt@
 capitol		kapIt@L
 capri		ka#pri:
@@ -1242,8 +1252,10 @@ careen		$alt3
 career		$alt3
 caress		k@rEs
 carole		kar@L
+carotid		$alt3
 carouse		ka#raUz
 carpel		kA@p@l
+cartel		kA@t'El
 cascade		$alt3
 cashier		kaS'i@3
 cashmere	kaSmi@3
@@ -1258,8 +1270,7 @@ catarrh		k@tA@
 caterer		$alt6
 cathedral	$alt3
 catholic	kaTlIk
-carotid		$alt3
-cartel		kA@t'El
+catsup		katS@p
 cavalier	$alt1
 caveat		kavIat
 ?3 caveat	kavIA:t
@@ -1433,6 +1444,7 @@ concise		k0#ns'aIs
 conclave	$1
 concourse	$1
 concubine	$1
+conde		k0ndi
 conduct		$1
 conduct		$verb
 cone		koUn
@@ -1640,7 +1652,7 @@ diabetes	daI|@b'i:ti:z
 diablo		di:'A:bloU
 diabolo		daI'ab@loU
 diagnose	$3
-?3 dialog	daI|@lO:g
+//?3 dialog	daI|@lO:g
 dialysis	daI'al@sIs
 diameter	daI'amI2t3
 diaper		daIp3
@@ -2290,6 +2302,7 @@ july		dZu:l'aI
 jumbalaya	dZVmb@l'aI|@
 
 kabaddi		$alt3
+kaboom		$alt3
 kalian		kalj'A:n
 kaput		$alt3
 karaoke		karI'oUki
@@ -2593,8 +2606,6 @@ mujaheddin	mUdZ@hId'i:n
 multitude	$1
 multiplexer	$1
 mundane		$2
-murmur		m3:m3
-?5 murmur	mVRm3
 museum		mju:z'i@m
 muslim		mUzlIm
 mutate		mju:t'eIt
@@ -2683,6 +2694,7 @@ ochre		oUk3
 o'clock		@kl0k
 octave		0ktIv
 october		0kt'oUb3
+octopi		$alt1
 oem		oUi:'Em
 oeuvre		3:vr@
 ?5 oeuvre	VRvr@
@@ -2860,6 +2872,7 @@ pecan		pI#kA:n
 piecemeal	p'i:sm,i:l
 pier		pi@3
 pigheaded	$2
+pigpen		$alt1
 pigsty		pIgstaI
 pilau		$2
 pilot		paIl@t
@@ -2886,6 +2899,7 @@ plaid		plad
 ?3 plateau	$2
 platoon		$alt3
 playa		plaI@
+playpen		$alt1
 playtest	$alt1
 plaza		plA:z@
 plebeian	pl@b'i:@n
@@ -3216,6 +3230,7 @@ satanic		$alt3
 satiric		$alt3
 saucepan	sO:sp@n
 saudi		saUdi
+saur		saU3
 saute		sO:teI
 ?3 savant	sa#vA:nt
 savagery	savIdZri
@@ -3331,6 +3346,7 @@ sir		s,3: $only
 ?5 sir		s,VR $only
 site		saIt          // for sited
 ski		ski:
+skier		ski:3
 skies		skaIz
 skied		ski:d
 skua		sku:@
@@ -3361,6 +3377,7 @@ son		sVn
 sonar		soUnA@
 sonny		sVnI
 sooth		su:D
+sope		soUpeI
 souffle		su:fl'eI
 soundbite	saUndbaIt
 souvenir	su:v@n'i@3
@@ -4044,11 +4061,13 @@ Eyjafjalla	eIja#fjatla#
 Faroe		fe@roU
 Faroes		fe@roUz
 Fermanagh	f3:m'an@
+Fayetteville	feI@tvIl
 Flores		flo@rIz
 Folkestone	foUkstoUn
 Fuego		fweIgoU
 Gabon		gab0n
 ?3 Gabon	ga#boUn
+Galle		gA:l@
 Galveston	galvI#st@n
 Geneva		dZ@ni:v@
 Gdansk		g@-dansk
@@ -4190,6 +4209,7 @@ Mineola		mIni:'oUl@
 Minneapolis	mIni:'ap@lI2s
 Minnesotan	mI2nI2soUt@n
 Missouri	mIz'U@ri
+Missouria	mIz'U@ri@
 Mizoram		mI2zoUram
 Mojave		moUh'A:vi
 Monaco		m0n@koU
@@ -4223,8 +4243,10 @@ Niagara		naI'agr@
 Niagra		naI'agr@
 Nineveh		nInIv@
 Nocera		noUs'i@r@
+Nogales		noUg'A:l@s
 Noumea		nu:m'eI@
 Oahu		oU'A:hu:
+Oceania		oUSI'A:ni@
 Ochiltree	0k@Ltri
 Oklahoma	oUkla#h'oUm@
 Ohio		oUh'aIoU
@@ -4235,6 +4257,7 @@ Oman		oUm'an
 Oregon		0rI2g@n
 Oriya		O:r'i:@
 Ottawa		0ta#w@
+Ouagadougou	$3
 Ozark		oUzA@k
 Pacific		$alt3
 Pakhtunkhwa	p@xtUnkwA:
@@ -4426,6 +4449,7 @@ Ares		e@ri:z
 Arianna		arI'A:n@
 Arnold		A@n@Ld
 Astley		astli
+Ayane		eI'an
 Baez		baI'Ez
 Bambi		bambi:
 Barack		ba#rA:k
@@ -4446,6 +4470,7 @@ Brien		braI@n
 Caiseal		kaS@L
 Camille		ka#mi:l
 Candace		kandIs
+Carissa		$alt3
 Carol		kar@L
 Caroline	kar@laIn
 Calliope	ka#laI@pi
@@ -4585,6 +4610,7 @@ Isaac		aIs@k
 Isabel		Iz@bEl
 isabela		Iz@b'El@
 Isaiah		aIz'aI@
+?3 Isaiah	aIz'eI@
 Isobel		Iz@bEl
 Isla		aIl@
 Isiah		aIz'aI@
@@ -4638,6 +4664,7 @@ Loinnir		lVni@
 Lois		loUIs
 Louis		lu:i
 Louise		lu:w'i:z
+Luciano		lu:tS'A:noU
 Luigi		lu:'i:dZi
 Luis		lu:Is
 Lupe		lu:peI
@@ -4701,9 +4728,11 @@ Naomi		neI'oUmi
 Napoleon	$alt3
 Natalie		nata#li
 Natasha		$alt3
+Nathalie	nat@li
 Nathan		$alt6
 Nathaniel	$alt3
 Neville		nEvIl
+Nicci		nIki
 Nicholas	nIk@l@s
 Nicola		nIk@l@
 Nicole		$2
@@ -4807,6 +4836,7 @@ Wallace		w0lI#s
 Wally		w0li
 Wilhelmina	wIlh@lm'i:n@
 ?3 William	wIlj@m
+Wyatt		waI|@t
 Yerevan		jEr@v'an
 Yves		i:v
 Yvonne		$2
@@ -4844,6 +4874,7 @@ Cohen		koU@n
 Compton		k0mpt@n
 Connelly	k0n@li
 Connolly	$1
+Coor		kU@
 Corazon		kO@r@z0n
 Cortez		$2
 Cthulhu		k@-Tu:l#u:
@@ -4853,6 +4884,7 @@ Damocles	dam@kli:z
 (da vinci)	da#vIntSi
 Dante		dA:nt2eI
 ?3 Datsun	dA:ts@n
+Decatur		dI#keIt3
 Degas		deIgA:  $capital
 Desiree		dI2zi@reI
 ?3 Desiree	dEz@r'eI
@@ -4868,9 +4900,11 @@ Dolce		d0ltSeI
 Dolittle	du:lIt@L
 Donatello	d0n@t'EloU
 Douglass	$alt2
+Drysdale	$alt6
 Dulles		dVl@s
 Dupuis		du:pw'i:
 Dvorak		d@-vo@Zak
+Earp		3:p
 Emory		Em3ri
 exxon		Eks0n
 Ferguson	f3:g@s@n
@@ -4886,6 +4920,8 @@ Gandhi		gA:ndi
 Garcia		gA@si@
 ?3 Garcia	gA@s'i:a#
 Genghis		dZENgIs
+geico		gaIkoU
+gevalia		dZ@vA:li@
 Ghandhi		gA:ndi
 Gibson		gIbs@n
 Godzilla	g0dz'Il@
@@ -5003,6 +5039,7 @@ Ruiz		ru:'i:z
 Sachs		saks
 Sanchez		santSEz
 ?3 Sara		se@r@
+Scalia		ska#li:@
 scheherazade	S@hEr@zA:d
 Seymour		si:mo@
 Shakur		Sa#kU@
@@ -5509,7 +5546,8 @@ wherever	$text whereever
 
 
 an		a#2n           $nounf $only $u
-(a la)		,ala
+(a la)		,A#la
+(à la)		,A#la
 the		D@2           $only $nounf
 (a while)	a#||waIl      // no pause
 (the while)	D@2||waIl

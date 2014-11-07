@@ -137,7 +137,7 @@ endphoneme
 
 phoneme 0
   vowel  starttype #a   endtype #a
-  length 200
+  length 220
   ipa ɑː
   ChangeIfDiminished(@)
   IF nextPh(r) THEN
@@ -171,7 +171,7 @@ endphoneme
 
 phoneme A:
   vowel  starttype #a  endtype #a
-  length 200
+  length 220
   IF nextPhW(r) THEN
     FMT(vwl_en_us/aar)
   ENDIF
@@ -208,7 +208,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 170
+  length 180
   IfNextVowelAppend(;)
   FMT(vowel/i_en)
 endphoneme
@@ -216,7 +216,7 @@ endphoneme
 
 phoneme O:
   vowel  starttype #o  endtype #o
-  length 200
+  length 220
   ChangeIfDiminished(@)
   IF nextPhW(r) THEN
     FMT(vwl_en_us/oor)

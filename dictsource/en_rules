@@ -118,6 +118,7 @@
     sw) a (g       a
         a (hA_     'A:
         ah (K      A:
+        ah (y      ah
         ahr (_N    A@
      &) ah (_      @
      m) a (hog     @
@@ -354,7 +355,6 @@
      m) acro (@    akr@
         ac (rum_   'eIk
      _) ac (t      ak
-        ac (tory   'ak
         actu (A    aktSu:
         ac (ture   'ak
         ac (um     ak
@@ -2114,7 +2114,6 @@ _it_separ) ate (_  @t
    cel) e (bra     @
         e (bria    i:
      _) e (bulli   %I
-     t) ech        E2k
      m) e (chanic  I
     sp) e (cial    E
     sp) e (cies    i:
@@ -2286,6 +2285,7 @@ _it_separ) ate (_  @t
      l) eath       ED
     br) ea (th     E
     br) eath (e    i:D
+     &) ea (te_    i:eI
     cr) ea (t      i:'eI
     cr) ea (tic    i:a
     gr) ea (t      eI
@@ -2497,6 +2497,7 @@ _it_separ) ate (_  @t
 
 .group en
      _) en (@      %En
+        en (_$w_alt1 En
  chick) en         In
         en (a_     'i:n
         en (al_    i:n
@@ -2913,6 +2914,7 @@ _it_separ) ate (_  @t
         et (itor   'Et
      _) et (r      I2t
      m) etre       i:t3
+    om) eter (_    =It3
      m) etry (_    =@tr%i
      &) ett (_     I2t
   subn) et         E2t
@@ -3174,6 +3176,7 @@ _it_separ) ate (_  @t
 .group i
         i          I
         i (_       i
+        i (_$w_alt1 aI
  ntell) i          I
      _) i'         %aI
      X) i ($w_alt6+++ aI
@@ -4917,6 +4920,8 @@ multip) ly         laI
         or (um_    'o@r
      &) ory (_     @ri
 ?3 @@At) ory (_     ,o:ri
+    ct) ory (_     =@ri
+    ct) orily (_   =@r@li
    _st) ory        o@ri
 
 .group os
@@ -5020,7 +5025,8 @@ multip) ly         laI
      d) ouch       u:S
      b) ou (d      u:
         ou (f      u:
-     d) ou (g      V
+    _d) ou (gK     V
+     d) ou (g      u:
      r) ouge       u:Z
      _) ough       O:
         ough (t    O:
@@ -5909,6 +5915,7 @@ multip) ly         laI
         t (ap_     t2
     ie) t (ary_    t2
      A) tch        tS
+        tech       t2E2k
      @) tek (_S3   tEk
      _) tele       tElI2
      _) tera       tEr@
@@ -5990,6 +5997,7 @@ multip) ly         laI
      n) th (er+    T
         therap     TEr@p
         th (erm+   T
+     _) thermo     T3:moU#
     ca) th (eri    T
     _e) th (er     T
         th (ern_   D
@@ -6074,6 +6082,7 @@ multip) ly         laI
 
 .group u
         u          V
+     X) u (Cy_     u: 
    man) u          ju:
   _sol) u (C       ju:
         u (CA      ju:
@@ -6370,6 +6379,7 @@ contin) u          ju:
     &g) ur (_      3
     &h) ur (_      3
     &m) ur (_      3
+  murm) ur         3
     &p) ur (_      U@
     sp) ur (_      3:
 ?5  sp) ur (_      VR
@@ -6509,6 +6519,7 @@ contin) u          ju:
         y (C_      I
         y (CC      I
    XoB) y (@+      I
+     X) y ($w_alt6+ aI
      _) y (C@      I
      _) y (n@      V
      _) y (s@      V

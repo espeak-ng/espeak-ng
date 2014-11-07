@@ -344,9 +344,9 @@ phoneme r   // note, following consonant must be 'ustop/t_' not 'ustop/tr' etc.
       IF prevPhW(isVowel) THEN
         ChangePhoneme(R)
       ELSE
-        IF prevPhW(t) OR prevPhW(p) OR prevPhW(k) THEN
-          PauseBefore 40
-        ELSEIF prevPhW(d) OR prevPhW(b) OR prevPhW(g) THEN
+        IF prevPhW(t) THEN
+          PauseBefore 30
+        ELSEIF prevPhW(d) OR prevPhW(b) OR prevPhW(g) OR prevPhW(k) OR prevPhW(p) THEN
           PauseBefore 15
         ELSE
           InsertPhoneme(@-)
