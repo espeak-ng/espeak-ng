@@ -1233,7 +1233,7 @@ diaconia $4
 diadem  $alt
 diagnosi $1
 dialett  $alt
-dialisi $2
+dialisi	dI'a:lizi
 diametr $1
 diapason $1
 diarchia $3
@@ -1285,7 +1285,6 @@ discotec  $alt
 discredit $2  $alt2
 disistim	$3
 dislessia $3
-disonesta $4
 dispareunia $5
 dispari $1
 dispendi  $alt
@@ -1709,8 +1708,6 @@ forcine	$2
 forcol  $alt2
 forfor $1  $alt2
 forgia $1
-fori		$alt $only
-fori $2
 formic $2
 forn  $alt2
 forr  $alt2
@@ -1738,17 +1735,15 @@ franchigia $2
 franciacort  $alt2
 francoboll  $alt2
 frassin $1
-fraternita $4
 frattemp  $alt
 freccette  $alt2
 fredd  $alt2
 fren  $alt2
 frigia $1
 frod  $alt
-frode  $alt
 frumenzi  $alt
 fruscii	f@-*uS'i:j
-fruscio  f@-*uS'i:o
+fruscio	f@-*uS'i:o
 fruttosi  $alt
 fucile $2
 fucine	$2
@@ -1783,7 +1778,6 @@ garofan $2
 garzon $2
 gasdott  $alt2
 gaudenzi  $alt
-ge  $alt
 gebel  $alt
 gec  $alt
 gemin $1
@@ -1840,7 +1834,7 @@ giuria $2
 gladiol $2
 glaucofane $3
 gleb  $alt
-glia  l^'i:a
+glia  gl'i:a
 glicemiche	glitS'emike
 glicemie	glitSem'i;e
 glicerin	glitSe*'in
@@ -1864,7 +1858,6 @@ glucosi  $alt
 gluteo $1
 gnom  $alt
 gnome  $alt
-gogo $2  $alt
 gol  $alt
 golasecc  $alt2
 goleador $4
@@ -1915,7 +1908,6 @@ guspini $1
 gutei $2
 hellas $2
 heracleopolis $3  $alt2
-herve $2
 hieron $2
 hiroshima	$3
 honore $3
@@ -1955,10 +1947,13 @@ imenofor $3
 imenotteri  $alt
 imol $1
 imperfett  $alt
+imperi	$2
 impet $1
 impieg  $alt
 implicit $2
+incazzati	inkats:'ati
 incendi  $alt
+incerti	$2 $alt
 incentr  $alt
 incivil	intSiv'il
 incognit $2  $alt
@@ -1978,7 +1973,8 @@ indomit $2
 inedia  $alt
 inedit $2
 inett  $alt
-infamia $2
+infamie $2
+infamia	$2
 infantil	$3
 infedele  $alt2
 infer $1
@@ -2097,7 +2093,6 @@ kore $2
 krakow $2
 kurumb $1
 labar $1
-lacche $2  $alt
 lachete  $alt
 laconi $1
 laigueglia  $alt
@@ -2134,7 +2129,7 @@ lemn  $alt
 lemure $1  $alt
 lemuri $1  $alt
 lena		$alt2
-leo  $alt2
+leo  $alt
 leon  $alt2
 leonzi  $alt
 leopold  $alt
@@ -2160,10 +2155,7 @@ leuc $1
 leuci $1
 levanz $1  $alt
 leve  $alt
-levita $3
 liber $1
-liber $1
-liberi $1
 licantrop $2
 licomede  $alt
 liet  $alt
@@ -2175,8 +2167,7 @@ limassol $3  $alt2
 limen $1
 limin $1
 limitrof $2
-limon $2
-limone  $alt
+limon $2 $alt2
 limousine	limuz'iN
 linfonod $3  $alt
 linguine	$1
@@ -2248,13 +2239,13 @@ malag $1
 malapen  $alt2
 malavoglia  $alt
 malcesine	$2 $alt2
-male  $alt
 malebolge  $alt
 malesia $2  $alt
 malessere  $alt
 malevol  $alt
 malia $2
-malinconia $4
+malinconia	$4
+malinconie	malinkon'iE
 malincuore  $alt
 mallare $1
 mallofagi $2
@@ -2566,6 +2557,7 @@ naumachia $4
 nausea $1
 nausee	$1
 nauseo	$1
+ndrangheta	$1
 neb  $alt
 nebul  $alt2
 necchi  $alt
@@ -3035,6 +3027,7 @@ poe  $alt
 poem  $alt
 poet  $alt
 poggi  $alt
+poggiagomit	$3
 pol  $alt
 polarimetr $3
 polc  $alt
@@ -3130,6 +3123,7 @@ prensile  $alt
 prepost  $alt2
 presbite $1  $alt
 presbiter $2
+presenil	p@-*e||sen'il
 presepi  $alt
 press  $alt
 prestit $1
@@ -3553,6 +3547,7 @@ semibreve  $alt
 semicerchi  $alt2
 semidi $3
 semin $1  $alt2
+semini	$2 $noun
 semiopac	semIop'ak
 semirett  $alt
 semol $1
@@ -3601,6 +3596,7 @@ sfoglia  $alt
 sfregi  $alt
 sgomber $1
 sguizzare	zgwIts:'aRe
+shh	hS:_
 sibari $1
 sidereo $2
 siepe  $alt
@@ -3800,6 +3796,8 @@ subconsci  $alt
 subfebbril	$3
 subito  $1
 suddiacon $2
+sudicia	$1
+sudicio	$1
 suddit $1
 sudest $2
 sudicie	$1
@@ -3846,11 +3844,8 @@ tartaree	$2
 tartareo	$2
 tartari $1
 tassametr $2
-tassi $2
 tatar $1
 tatari $1
-taurianov  $alt
-te  $alt
 tec  $alt
 technicolor  $alt
 teck  $alt
@@ -3860,12 +3855,11 @@ teco		$alt2
 tedofor $2
 teetet  $alt
 tegol $1
-tegu $2
 teista  tE'ista
 teistiche	te'Istike
 tel  $alt2
 telecamer $3
-telef $1
+telefax	$1
 telefilm $3
 telefon $2  $alt
 telegon $2  $alt
@@ -3880,7 +3874,6 @@ temi  $alt
 temistocle $2
 temnospondili  $alt
 temp  $alt
-tempe  $alt
 temper $1  $alt
 temperie	$2
 tempi  $alt
@@ -3888,7 +3881,6 @@ templ  $alt
 tempor  $alt
 tempor $1
 tempr  $alt
-temu $2
 tenebr $1  $alt
 tened $1  $alt
 tenera	$1  $alt
@@ -3932,7 +3924,7 @@ teser $1
 tesi  $alt
 tespi  $alt
 tessile  $alt
-testimone  $alt
+testimon	$alt
 tetan $1  $alt
 tetraedr  $alt
 tetraetil	$4
@@ -3982,13 +3974,13 @@ ton  $alt
 toni  $alt
 tonn  $alt2
 top  $alt
-tora $2
 torb  $alt2
 torbid  $alt2
 torbole  $alt2
 torchiarol $3
 tord  $alt2
 torn  $alt2
+tornei	to@-*n'E:I
 tornabuoni  $alt
 tornarecci  $alt
 torni  $alt2
@@ -4001,8 +3993,7 @@ tosse  $alt2
 tot  $alt
 totan $1
 totem  $alt
-toto  $alt
-toto $2
+toto $2 $alt
 totogol $3
 tournee  $alt2
 trabea $1
@@ -4030,20 +4021,17 @@ tredicesim  $alt
 tredici  $alt2
 tremil $2
 trentaduesim  $alt
-trentasei	$3
-trentenni  $alt
+trentasei	t@-*entas'EI
+trentenn	$alt
 trentesim  $alt
-treppiede  $alt
+treppied	$alt
 tres  $alt
-tres  $alt
-tresette  $alt
-tressette  $alt
+tresette	t@-*es'Et:e
 treveri $1  $alt
 treves  $alt
 treviri $1
 trevisan $3
 triac $1
-triade $1
 triathlon $1
 tribu $2
 tricesim  $alt
@@ -4073,7 +4061,6 @@ troclea	$1
 trombocitopenia $6
 trot  $alt
 trov  $alt
-trovarobe  $alt
 truffaldine	$3
 tuber $1
 tunisi $1
@@ -4090,7 +4077,6 @@ tuttosport $3
 tutu $2
 ubbriac	$3
 ubbriache	ub:@-*I'ake
-uberta $3
 ubold  $alt
 ubriac $3
 ucronia $3
@@ -4133,50 +4119,42 @@ valsassin $2
 valsecc  $alt2
 valsesia $2  $alt
 vandal $1
-vandali $1
 varen  $alt2
 varenn  $alt2
-vate $2
 vazzol $2
 vecchia  $alt
 vedov $1
 vegli  $alt
 veicol	vE'ikol
 vel  $alt2
-vel  $alt2
 velen  $alt2
 velletri  $alt2
-velocipede $3
+velociped	$3
 ven  $alt2
 venaria $3
 venceslao $3
 vendit $1
-venere  $alt
+vener	$1 $alt
 venet $1  $alt
-veneti $1  $alt
-ventenni  $alt
+ventenn	$alt
 ventesim  $alt
 ventiquattresim  $alt
-ventisette  $alt
+ventisette  ventis'Et:e
 ventol  $alt
 ventre  $alt
 ventriloqua	$2
 ventriloque	$2
 ventriloqui  $2 $only
 ventriloquo $2
-venusta $3
 vepre  $alt
 ver  $alt2
-ver  $alt2
-verde  $alt2
+verd	$alt2
 verg  $alt2
-vergine  $alt2
-verne $2
+vergin	$1 $alt2
 verolanuov  $alt
 veroli $1
 verosimil	veRo||s'imil
 vertebr $1
-vertebre $1
 vertov $1
 verz  $alt2
 verzegnis  $alt
@@ -4224,15 +4202,11 @@ visit $1
 vitrea	$1
 vitree	$1
 vitreo	$1
-vitreo $1
-vittoria  $alt2
 viveri $1
-vo  $alt
 vobbia  $alt
 vocii	votS'i:j
 vodk  $alt
 voglia  $alt2
-voivod  $alt
 volere $2  $alt2
 volg  $alt
 voll  $alt2
@@ -4245,25 +4219,22 @@ volv  $alt
 vomer $1
 vomit $1
 vosgi  $alt
-vot  $alt
-voti  $alt
+vot  $alt2
 vulture $1
-wattor  $alt2
 wilanow $3
 wuchereria $3
 xenia $3
 xenoglossia $4
 xilem  $alt
-yahweh $2
+yahweh jav'E
 yaounde $4
 yod  $alt
 yog  $alt
 zagar $1
 zagarol $3
 zaira  dza'i:Ra
-zambesi  $alt
+zambes	$alt
 zandobbi  $alt
-zane $2  $alt
 zanobi  $alt
 zapotechi  $alt
 zarevic  $alt
@@ -4282,17 +4253,16 @@ zet  $alt
 zeugm $1
 zevi  $alt
 ziggurat $1
-zigote  $alt
+zigot	$alt
 zigotteri  $alt
 zingar $1
 zizzanie	dzidz:'anie
 zoccol  $alt
 zoe  $alt
 zon  $alt
-zone	$alt2
 zoofilia $4
 zoppia $2
 zoppie	dzop:'i:e
 zoppol  $alt
 zuccari $1
-zuccher $1
+zuccher	dz:'U_k:eR

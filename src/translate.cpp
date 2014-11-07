@@ -861,6 +861,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int wmark;
 	int was_unpronouncable = 0;
 	int loopcount;
+	int add_suffix_phonemes = 0;
 	WORD_TAB wtab_null[8];
 
 	// translate these to get pronunciations of plural 's' suffix (different forms depending on
@@ -1465,6 +1466,12 @@ if(end_type & SUFX_UNPRON)
 
 	/* determine stress pattern for this word */
 	/******************************************/
+	add_suffix_phonemes = 0;
+	if(end_phonemes[0] != 0)
+	{
+		add_suffix_phonemes = 2;
+	}
+
 	prefix_stress = 0;
 	for(p = prefix_phonemes; *p != 0; p++)
 	{
@@ -1516,9 +1523,9 @@ if(end_type & SUFX_UNPRON)
 	else
 	{
 		if(prefix_phonemes[0] == 0)
-			SetWordStress(tr, phonemes, dictionary_flags, -1, 0);
+			SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
 		else
-			SetWordStress(tr, phonemes, dictionary_flags, -1, 0);
+			SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
 #ifdef PLATFORM_WINDOWS
 		sprintf(word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
 #else

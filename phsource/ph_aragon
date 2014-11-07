@@ -28,3 +28,38 @@ phoneme O
   FMT(vowel/oo_4)
 endphoneme
 
+
+
+phoneme k
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(#i) OR nextPh(;) THEN
+    WAV(ustop/ki_unasp2, 30)
+//  ELIF nextPh(isRhotic) THEN
+//    WAV(ustop/kr)
+//  ELIF nextPh(l) THEN
+//    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_unasp2, 25)
+endphoneme
+
+
+phoneme t
+  vls dnt stop
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 25)
+  ENDIF
+  WAV(ustop/t_unasp3, 50)
+endphoneme
+
+

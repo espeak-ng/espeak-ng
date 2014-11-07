@@ -1,6 +1,6 @@
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2014 August 18 by Chris <llajta2012@gmail.com>
+// Last update: 2014 October 22 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -78,12 +78,13 @@
      _) c' (P2t     tS
 	@@A) ce (A_	=tSE
 	ciano (_	=tSano   // verbs
-	cciano (_	=tS:ano   // verbs
+	cciano (_	=tS:ano
 	chiano (_	=kiano
-	A) cchiano (_	=k:iano   // verbs
+	A) cchiano (_	=k:iano
 	ceder (L04_	tS'Ede@-*  // Pron.s verbs
 	cceder (L04_	tS:'Ede@-*
 	in) cer (L04_	=tSe@-*
+	cuocer (L04_	kU'OtSe@-*
 	_L04Z) capit (A_	k'a:p,it
 		_L04Z) capit (ano_	k'a:p,it
 	correr (L04_	k'o:R*eR
