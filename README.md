@@ -1,5 +1,6 @@
 # Unicode Character Data Tools
 
+- [ConScript Unicode Registry](#conscript-unicode-registry)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -30,11 +31,12 @@ If enabled, the following data from the
 [ConScript Unicode Registry](http://www.evertype.com/standards/csur/) (CSUR) is
 added:
 
-| Code Range | Script  |
-|------------|---------|
-| F8D0-F8FF  | [Klingon](http://www.evertype.com/standards/csur/klingon.html) |
+| Code Range   | Script  |
+|--------------|---------|
+| `F8D0-F8FF`  | [Klingon](http://www.evertype.com/standards/csur/klingon.html) |
 
-This data is located in the `data/csur` directory.
+This data is located in the `data/csur` directory in a form compatible with the
+Unicode Character Data files.
 
 ## Build Dependencies
 
