@@ -12,7 +12,6 @@
 
 # build output:
 
-data/language-subtag-registry
 data/ucd
 
 src/libucd.la

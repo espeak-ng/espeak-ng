@@ -21,30 +21,7 @@ import os
 import sys
 import iana
 
-script_map = {
-	# UCD script names not derivable from IANA script tags:
-	'Canadian_Aboriginal': 'Cans',
-	'Common': 'Zyyy',
-	'Egyptian_Hieroglyphs': 'Egyp',
-	'Inherited': 'Zyyy',
-	'Meetei_Mayek': 'Mtei',
-	'Nko': 'Nkoo',
-	'Phags_Pa': 'Phag',
-	# Codes in http://www.unicode.org/iso15924/iso15924-codes.html not in IANA:
-	'Cuneiform': 'Xsux',
-	'Duployan': 'Dupl',
-}
-
-for ref, tag in iana.read_iana_subtags('data/language-subtag-registry').items():
-	if tag['Type'] == 'Script':
-		# Convert the IANA scipt tag descriptions to the UCD script names:
-		desc = tag['Description']
-		if ' (' in desc:
-			desc = desc.split(' (')[0]
-		desc = desc.replace(' ', '_')
-		script_map[desc] = ref
-# Fix up incorrectly mapped script names:
-script_map['Cyrillic'] = 'Cyrl'
+script_map = {}
 
 class CodePoint:
 	def __init__(self, x):
@@ -193,13 +170,26 @@ def parse_ucd_data(ucd_rootdir, dataset):
 					data[key], linedata = typemap(linedata)
 				yield data
 
+def parse_property_mapping(ucd_rootdir, propname, reverse=False):
+	ret = {}
+	for data in parse_ucd_data(ucd_rootdir, 'PropertyValueAliases'):
+		if data['Property'] == propname:
+			if reverse:
+				ret[data['Value']] = data['Key']
+			else:
+				ret[data['Key']] = data['Value']
+	return ret
+
 if __name__ == '__main__':
 	try:
 		items = sys.argv[3].split(',')
 	except:
 		items = None
+	script_map = parse_property_mapping(sys.argv[1], 'sc', reverse=True)
 	for entry in parse_ucd_data(sys.argv[1], sys.argv[2]):
 		if items:
 			print ','.join([str(entry[item]) for item in items])
 		else:
 			print entry
+else:
+	script_map = parse_property_mapping('data/ucd', 'sc', reverse=True)

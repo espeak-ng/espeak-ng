@@ -129,24 +129,24 @@ static const uint8_t scripts_Brai[256] =
 	/* F0 */ Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai, Brai,
 };
 
-static const uint8_t scripts_Hant[256] =
+static const uint8_t scripts_Hani[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* E0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* F0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* E0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* F0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
 };
 
 static const uint8_t scripts_Yiii[256] =
@@ -351,13 +351,13 @@ static const uint8_t scripts_000200[256] =
 
 static const uint8_t scripts_000300[256] =
 {
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 00 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 10 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 20 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 30 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 40 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 50 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 60 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* 70 */ Grek, Grek, Grek, Grek, Zyyy, Grek, Grek, Grek, Zzzz, Zzzz, Grek, Grek, Grek, Grek, Zyyy, Grek,
 	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Grek, Zyyy, Grek, Zyyy, Grek, Grek, Grek, Zzzz, Grek, Zzzz, Grek, Grek,
 	/* 90 */ Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek, Grek,
@@ -379,7 +379,7 @@ static const uint8_t scripts_000400[256] =
 	/* 50 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* 60 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* 70 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
-	/* 80 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Zyyy, Zyyy, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
+	/* 80 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Zinh, Zinh, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* 90 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* A0 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* B0 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
@@ -415,10 +415,10 @@ static const uint8_t scripts_000600[256] =
 	/* 10 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Zyyy, Zzzz, Arab, Zyyy,
 	/* 20 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 30 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
-	/* 40 */ Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
+	/* 40 */ Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 50 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Arab, Arab, Arab, Arab, Arab, Arab,
-	/* 70 */ Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
+	/* 70 */ Zinh, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 80 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 90 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* A0 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
@@ -431,11 +431,11 @@ static const uint8_t scripts_000600[256] =
 
 static const uint8_t scripts_000700[256] =
 {
-	/* 00 */ Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Zzzz, Syrn,
-	/* 10 */ Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn,
-	/* 20 */ Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn,
-	/* 30 */ Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn,
-	/* 40 */ Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Syrn, Zzzz, Zzzz, Syrn, Syrn, Syrn,
+	/* 00 */ Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Zzzz, Syrc,
+	/* 10 */ Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc,
+	/* 20 */ Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc,
+	/* 30 */ Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc,
+	/* 40 */ Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Syrc, Zzzz, Zzzz, Syrc, Syrc, Syrc,
 	/* 50 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 60 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 70 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
@@ -476,7 +476,7 @@ static const uint8_t scripts_000900[256] =
 	/* 20 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
 	/* 30 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
 	/* 40 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
-	/* 50 */ Deva, Zyyy, Zyyy, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
+	/* 50 */ Deva, Zinh, Zinh, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
 	/* 60 */ Deva, Deva, Deva, Deva, Zyyy, Zyyy, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
 	/* 70 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
 	/* 80 */ Beng, Beng, Beng, Beng, Zzzz, Beng, Beng, Beng, Beng, Beng, Beng, Beng, Beng, Zzzz, Zzzz, Beng,
@@ -762,7 +762,7 @@ static const uint8_t scripts_001A00[256] =
 	/* 80 */ Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 90 */ Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* A0 */ Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Lana, Zzzz, Zzzz,
-	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
+	/* B0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -804,9 +804,9 @@ static const uint8_t scripts_001C00[256] =
 	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Sund, Sund, Sund, Sund, Sund, Sund, Sund, Sund, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zinh, Zinh, Zinh, Zyyy, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* E0 */ Zinh, Zyyy, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zyyy, Zyyy,
+	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zyyy, Zyyy, Zzzz, Zinh, Zinh, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_001D00[256] =
@@ -823,10 +823,10 @@ static const uint8_t scripts_001D00[256] =
 	/* 90 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* A0 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* B0 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Grek,
-	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* C0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* D0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* E0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* F0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zinh, Zinh, Zinh, Zinh,
 };
 
 static const uint8_t scripts_001F00[256] =
@@ -851,7 +851,7 @@ static const uint8_t scripts_001F00[256] =
 
 static const uint8_t scripts_002000[256] =
 {
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zinh, Zyyy, Zyyy,
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -864,9 +864,9 @@ static const uint8_t scripts_002000[256] =
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* E0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* F0 */ Zinh, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_002100[256] =
@@ -999,48 +999,48 @@ static const uint8_t scripts_002E00[256] =
 	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* E0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* F0 */ Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* E0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* F0 */ Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_002F00[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_003000[256] =
 {
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Hant, Zyyy, Hant, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Hani, Zyyy, Hani, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 20 */ Zyyy, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zyyy, Zyyy, Zyyy, Zyyy, Hang, Hang,
-	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Hant, Hant, Hant, Hant, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 20 */ Zyyy, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zinh, Zinh, Zinh, Zinh, Hang, Hang,
+	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Hani, Hani, Hani, Hani, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 40 */ Zzzz, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira,
 	/* 50 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira,
 	/* 60 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira,
 	/* 70 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira,
 	/* 80 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira, Hira,
-	/* 90 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Hira, Hira, Hira,
+	/* 90 */ Hira, Hira, Hira, Hira, Hira, Hira, Hira, Zzzz, Zzzz, Zinh, Zinh, Zyyy, Zyyy, Hira, Hira, Hira,
 	/* A0 */ Zyyy, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana,
 	/* B0 */ Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana,
 	/* C0 */ Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana, Kana,
@@ -1111,18 +1111,18 @@ static const uint8_t scripts_003300[256] =
 
 static const uint8_t scripts_004D00[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -1131,19 +1131,19 @@ static const uint8_t scripts_004D00[256] =
 
 static const uint8_t scripts_009F00[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1311,20 +1311,20 @@ static const uint8_t scripts_00D700[256] =
 
 static const uint8_t scripts_00FA00[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
@@ -1371,9 +1371,9 @@ static const uint8_t scripts_00FD00[256] =
 
 static const uint8_t scripts_00FE00[256] =
 {
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 00 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
+	/* 20 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zzzz, Zzzz,
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -1446,7 +1446,7 @@ static const uint8_t scripts_010100[256] =
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
+	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_010200[256] =
@@ -1465,7 +1465,7 @@ static const uint8_t scripts_010200[256] =
 	/* B0 */ Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari,
 	/* C0 */ Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari, Cari,
 	/* D0 */ Cari, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* E0 */ Zinh, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
@@ -2037,11 +2037,11 @@ static const uint8_t scripts_01D100[256] =
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zinh, Zinh, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 80 */ Zinh, Zinh, Zinh, Zyyy, Zyyy, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 90 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zinh, Zinh, Zinh, Zyyy, Zyyy,
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
@@ -2391,48 +2391,48 @@ static const uint8_t scripts_01F800[256] =
 
 static const uint8_t scripts_02A600[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_02B700[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 20 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 30 */ Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 40 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 50 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 60 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 70 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 80 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 90 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* A0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* B0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* C0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* D0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* E0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* F0 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* E0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* F0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
 };
 
 static const uint8_t scripts_02B800[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz,
 	/* 20 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -2451,8 +2451,8 @@ static const uint8_t scripts_02B800[256] =
 
 static const uint8_t scripts_02FA00[256] =
 {
-	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
-	/* 10 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Zzzz, Zzzz,
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz,
 	/* 20 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -2491,21 +2491,21 @@ static const uint8_t scripts_0E0000[256] =
 
 static const uint8_t scripts_0E0100[256] =
 {
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 90 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 00 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 10 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 20 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 30 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 40 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 50 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 60 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 70 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 80 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* 90 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* A0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* B0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* C0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* D0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
+	/* E0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
@@ -2563,113 +2563,113 @@ static const uint8_t *scripts_000000_00D7FF[] =
 	scripts_003100,
 	scripts_003200,
 	scripts_003300,
-	scripts_Hant, // 003400
-	scripts_Hant, // 003500
-	scripts_Hant, // 003600
-	scripts_Hant, // 003700
-	scripts_Hant, // 003800
-	scripts_Hant, // 003900
-	scripts_Hant, // 003A00
-	scripts_Hant, // 003B00
-	scripts_Hant, // 003C00
-	scripts_Hant, // 003D00
-	scripts_Hant, // 003E00
-	scripts_Hant, // 003F00
-	scripts_Hant, // 004000
-	scripts_Hant, // 004100
-	scripts_Hant, // 004200
-	scripts_Hant, // 004300
-	scripts_Hant, // 004400
-	scripts_Hant, // 004500
-	scripts_Hant, // 004600
-	scripts_Hant, // 004700
-	scripts_Hant, // 004800
-	scripts_Hant, // 004900
-	scripts_Hant, // 004A00
-	scripts_Hant, // 004B00
-	scripts_Hant, // 004C00
+	scripts_Hani, // 003400
+	scripts_Hani, // 003500
+	scripts_Hani, // 003600
+	scripts_Hani, // 003700
+	scripts_Hani, // 003800
+	scripts_Hani, // 003900
+	scripts_Hani, // 003A00
+	scripts_Hani, // 003B00
+	scripts_Hani, // 003C00
+	scripts_Hani, // 003D00
+	scripts_Hani, // 003E00
+	scripts_Hani, // 003F00
+	scripts_Hani, // 004000
+	scripts_Hani, // 004100
+	scripts_Hani, // 004200
+	scripts_Hani, // 004300
+	scripts_Hani, // 004400
+	scripts_Hani, // 004500
+	scripts_Hani, // 004600
+	scripts_Hani, // 004700
+	scripts_Hani, // 004800
+	scripts_Hani, // 004900
+	scripts_Hani, // 004A00
+	scripts_Hani, // 004B00
+	scripts_Hani, // 004C00
 	scripts_004D00,
-	scripts_Hant, // 004E00
-	scripts_Hant, // 004F00
-	scripts_Hant, // 005000
-	scripts_Hant, // 005100
-	scripts_Hant, // 005200
-	scripts_Hant, // 005300
-	scripts_Hant, // 005400
-	scripts_Hant, // 005500
-	scripts_Hant, // 005600
-	scripts_Hant, // 005700
-	scripts_Hant, // 005800
-	scripts_Hant, // 005900
-	scripts_Hant, // 005A00
-	scripts_Hant, // 005B00
-	scripts_Hant, // 005C00
-	scripts_Hant, // 005D00
-	scripts_Hant, // 005E00
-	scripts_Hant, // 005F00
-	scripts_Hant, // 006000
-	scripts_Hant, // 006100
-	scripts_Hant, // 006200
-	scripts_Hant, // 006300
-	scripts_Hant, // 006400
-	scripts_Hant, // 006500
-	scripts_Hant, // 006600
-	scripts_Hant, // 006700
-	scripts_Hant, // 006800
-	scripts_Hant, // 006900
-	scripts_Hant, // 006A00
-	scripts_Hant, // 006B00
-	scripts_Hant, // 006C00
-	scripts_Hant, // 006D00
-	scripts_Hant, // 006E00
-	scripts_Hant, // 006F00
-	scripts_Hant, // 007000
-	scripts_Hant, // 007100
-	scripts_Hant, // 007200
-	scripts_Hant, // 007300
-	scripts_Hant, // 007400
-	scripts_Hant, // 007500
-	scripts_Hant, // 007600
-	scripts_Hant, // 007700
-	scripts_Hant, // 007800
-	scripts_Hant, // 007900
-	scripts_Hant, // 007A00
-	scripts_Hant, // 007B00
-	scripts_Hant, // 007C00
-	scripts_Hant, // 007D00
-	scripts_Hant, // 007E00
-	scripts_Hant, // 007F00
-	scripts_Hant, // 008000
-	scripts_Hant, // 008100
-	scripts_Hant, // 008200
-	scripts_Hant, // 008300
-	scripts_Hant, // 008400
-	scripts_Hant, // 008500
-	scripts_Hant, // 008600
-	scripts_Hant, // 008700
-	scripts_Hant, // 008800
-	scripts_Hant, // 008900
-	scripts_Hant, // 008A00
-	scripts_Hant, // 008B00
-	scripts_Hant, // 008C00
-	scripts_Hant, // 008D00
-	scripts_Hant, // 008E00
-	scripts_Hant, // 008F00
-	scripts_Hant, // 009000
-	scripts_Hant, // 009100
-	scripts_Hant, // 009200
-	scripts_Hant, // 009300
-	scripts_Hant, // 009400
-	scripts_Hant, // 009500
-	scripts_Hant, // 009600
-	scripts_Hant, // 009700
-	scripts_Hant, // 009800
-	scripts_Hant, // 009900
-	scripts_Hant, // 009A00
-	scripts_Hant, // 009B00
-	scripts_Hant, // 009C00
-	scripts_Hant, // 009D00
-	scripts_Hant, // 009E00
+	scripts_Hani, // 004E00
+	scripts_Hani, // 004F00
+	scripts_Hani, // 005000
+	scripts_Hani, // 005100
+	scripts_Hani, // 005200
+	scripts_Hani, // 005300
+	scripts_Hani, // 005400
+	scripts_Hani, // 005500
+	scripts_Hani, // 005600
+	scripts_Hani, // 005700
+	scripts_Hani, // 005800
+	scripts_Hani, // 005900
+	scripts_Hani, // 005A00
+	scripts_Hani, // 005B00
+	scripts_Hani, // 005C00
+	scripts_Hani, // 005D00
+	scripts_Hani, // 005E00
+	scripts_Hani, // 005F00
+	scripts_Hani, // 006000
+	scripts_Hani, // 006100
+	scripts_Hani, // 006200
+	scripts_Hani, // 006300
+	scripts_Hani, // 006400
+	scripts_Hani, // 006500
+	scripts_Hani, // 006600
+	scripts_Hani, // 006700
+	scripts_Hani, // 006800
+	scripts_Hani, // 006900
+	scripts_Hani, // 006A00
+	scripts_Hani, // 006B00
+	scripts_Hani, // 006C00
+	scripts_Hani, // 006D00
+	scripts_Hani, // 006E00
+	scripts_Hani, // 006F00
+	scripts_Hani, // 007000
+	scripts_Hani, // 007100
+	scripts_Hani, // 007200
+	scripts_Hani, // 007300
+	scripts_Hani, // 007400
+	scripts_Hani, // 007500
+	scripts_Hani, // 007600
+	scripts_Hani, // 007700
+	scripts_Hani, // 007800
+	scripts_Hani, // 007900
+	scripts_Hani, // 007A00
+	scripts_Hani, // 007B00
+	scripts_Hani, // 007C00
+	scripts_Hani, // 007D00
+	scripts_Hani, // 007E00
+	scripts_Hani, // 007F00
+	scripts_Hani, // 008000
+	scripts_Hani, // 008100
+	scripts_Hani, // 008200
+	scripts_Hani, // 008300
+	scripts_Hani, // 008400
+	scripts_Hani, // 008500
+	scripts_Hani, // 008600
+	scripts_Hani, // 008700
+	scripts_Hani, // 008800
+	scripts_Hani, // 008900
+	scripts_Hani, // 008A00
+	scripts_Hani, // 008B00
+	scripts_Hani, // 008C00
+	scripts_Hani, // 008D00
+	scripts_Hani, // 008E00
+	scripts_Hani, // 008F00
+	scripts_Hani, // 009000
+	scripts_Hani, // 009100
+	scripts_Hani, // 009200
+	scripts_Hani, // 009300
+	scripts_Hani, // 009400
+	scripts_Hani, // 009500
+	scripts_Hani, // 009600
+	scripts_Hani, // 009700
+	scripts_Hani, // 009800
+	scripts_Hani, // 009900
+	scripts_Hani, // 009A00
+	scripts_Hani, // 009B00
+	scripts_Hani, // 009C00
+	scripts_Hani, // 009D00
+	scripts_Hani, // 009E00
 	scripts_009F00,
 	scripts_Yiii, // 00A000
 	scripts_Yiii, // 00A100
@@ -2732,7 +2732,7 @@ static const uint8_t *scripts_000000_00D7FF[] =
 static const uint8_t *scripts_00F800_02FAFF[] =
 {
 	scripts_Zzzz, // 00F800
-	scripts_Hant, // 00F900
+	scripts_Hani, // 00F900
 	scripts_00FA00,
 	scripts_00FB00,
 	scripts_Arab, // 00FC00
@@ -2995,189 +2995,189 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_Zzzz, // 01FD00
 	scripts_Zzzz, // 01FE00
 	scripts_Zzzz, // 01FF00
-	scripts_Hant, // 020000
-	scripts_Hant, // 020100
-	scripts_Hant, // 020200
-	scripts_Hant, // 020300
-	scripts_Hant, // 020400
-	scripts_Hant, // 020500
-	scripts_Hant, // 020600
-	scripts_Hant, // 020700
-	scripts_Hant, // 020800
-	scripts_Hant, // 020900
-	scripts_Hant, // 020A00
-	scripts_Hant, // 020B00
-	scripts_Hant, // 020C00
-	scripts_Hant, // 020D00
-	scripts_Hant, // 020E00
-	scripts_Hant, // 020F00
-	scripts_Hant, // 021000
-	scripts_Hant, // 021100
-	scripts_Hant, // 021200
-	scripts_Hant, // 021300
-	scripts_Hant, // 021400
-	scripts_Hant, // 021500
-	scripts_Hant, // 021600
-	scripts_Hant, // 021700
-	scripts_Hant, // 021800
-	scripts_Hant, // 021900
-	scripts_Hant, // 021A00
-	scripts_Hant, // 021B00
-	scripts_Hant, // 021C00
-	scripts_Hant, // 021D00
-	scripts_Hant, // 021E00
-	scripts_Hant, // 021F00
-	scripts_Hant, // 022000
-	scripts_Hant, // 022100
-	scripts_Hant, // 022200
-	scripts_Hant, // 022300
-	scripts_Hant, // 022400
-	scripts_Hant, // 022500
-	scripts_Hant, // 022600
-	scripts_Hant, // 022700
-	scripts_Hant, // 022800
-	scripts_Hant, // 022900
-	scripts_Hant, // 022A00
-	scripts_Hant, // 022B00
-	scripts_Hant, // 022C00
-	scripts_Hant, // 022D00
-	scripts_Hant, // 022E00
-	scripts_Hant, // 022F00
-	scripts_Hant, // 023000
-	scripts_Hant, // 023100
-	scripts_Hant, // 023200
-	scripts_Hant, // 023300
-	scripts_Hant, // 023400
-	scripts_Hant, // 023500
-	scripts_Hant, // 023600
-	scripts_Hant, // 023700
-	scripts_Hant, // 023800
-	scripts_Hant, // 023900
-	scripts_Hant, // 023A00
-	scripts_Hant, // 023B00
-	scripts_Hant, // 023C00
-	scripts_Hant, // 023D00
-	scripts_Hant, // 023E00
-	scripts_Hant, // 023F00
-	scripts_Hant, // 024000
-	scripts_Hant, // 024100
-	scripts_Hant, // 024200
-	scripts_Hant, // 024300
-	scripts_Hant, // 024400
-	scripts_Hant, // 024500
-	scripts_Hant, // 024600
-	scripts_Hant, // 024700
-	scripts_Hant, // 024800
-	scripts_Hant, // 024900
-	scripts_Hant, // 024A00
-	scripts_Hant, // 024B00
-	scripts_Hant, // 024C00
-	scripts_Hant, // 024D00
-	scripts_Hant, // 024E00
-	scripts_Hant, // 024F00
-	scripts_Hant, // 025000
-	scripts_Hant, // 025100
-	scripts_Hant, // 025200
-	scripts_Hant, // 025300
-	scripts_Hant, // 025400
-	scripts_Hant, // 025500
-	scripts_Hant, // 025600
-	scripts_Hant, // 025700
-	scripts_Hant, // 025800
-	scripts_Hant, // 025900
-	scripts_Hant, // 025A00
-	scripts_Hant, // 025B00
-	scripts_Hant, // 025C00
-	scripts_Hant, // 025D00
-	scripts_Hant, // 025E00
-	scripts_Hant, // 025F00
-	scripts_Hant, // 026000
-	scripts_Hant, // 026100
-	scripts_Hant, // 026200
-	scripts_Hant, // 026300
-	scripts_Hant, // 026400
-	scripts_Hant, // 026500
-	scripts_Hant, // 026600
-	scripts_Hant, // 026700
-	scripts_Hant, // 026800
-	scripts_Hant, // 026900
-	scripts_Hant, // 026A00
-	scripts_Hant, // 026B00
-	scripts_Hant, // 026C00
-	scripts_Hant, // 026D00
-	scripts_Hant, // 026E00
-	scripts_Hant, // 026F00
-	scripts_Hant, // 027000
-	scripts_Hant, // 027100
-	scripts_Hant, // 027200
-	scripts_Hant, // 027300
-	scripts_Hant, // 027400
-	scripts_Hant, // 027500
-	scripts_Hant, // 027600
-	scripts_Hant, // 027700
-	scripts_Hant, // 027800
-	scripts_Hant, // 027900
-	scripts_Hant, // 027A00
-	scripts_Hant, // 027B00
-	scripts_Hant, // 027C00
-	scripts_Hant, // 027D00
-	scripts_Hant, // 027E00
-	scripts_Hant, // 027F00
-	scripts_Hant, // 028000
-	scripts_Hant, // 028100
-	scripts_Hant, // 028200
-	scripts_Hant, // 028300
-	scripts_Hant, // 028400
-	scripts_Hant, // 028500
-	scripts_Hant, // 028600
-	scripts_Hant, // 028700
-	scripts_Hant, // 028800
-	scripts_Hant, // 028900
-	scripts_Hant, // 028A00
-	scripts_Hant, // 028B00
-	scripts_Hant, // 028C00
-	scripts_Hant, // 028D00
-	scripts_Hant, // 028E00
-	scripts_Hant, // 028F00
-	scripts_Hant, // 029000
-	scripts_Hant, // 029100
-	scripts_Hant, // 029200
-	scripts_Hant, // 029300
-	scripts_Hant, // 029400
-	scripts_Hant, // 029500
-	scripts_Hant, // 029600
-	scripts_Hant, // 029700
-	scripts_Hant, // 029800
-	scripts_Hant, // 029900
-	scripts_Hant, // 029A00
-	scripts_Hant, // 029B00
-	scripts_Hant, // 029C00
-	scripts_Hant, // 029D00
-	scripts_Hant, // 029E00
-	scripts_Hant, // 029F00
-	scripts_Hant, // 02A000
-	scripts_Hant, // 02A100
-	scripts_Hant, // 02A200
-	scripts_Hant, // 02A300
-	scripts_Hant, // 02A400
-	scripts_Hant, // 02A500
+	scripts_Hani, // 020000
+	scripts_Hani, // 020100
+	scripts_Hani, // 020200
+	scripts_Hani, // 020300
+	scripts_Hani, // 020400
+	scripts_Hani, // 020500
+	scripts_Hani, // 020600
+	scripts_Hani, // 020700
+	scripts_Hani, // 020800
+	scripts_Hani, // 020900
+	scripts_Hani, // 020A00
+	scripts_Hani, // 020B00
+	scripts_Hani, // 020C00
+	scripts_Hani, // 020D00
+	scripts_Hani, // 020E00
+	scripts_Hani, // 020F00
+	scripts_Hani, // 021000
+	scripts_Hani, // 021100
+	scripts_Hani, // 021200
+	scripts_Hani, // 021300
+	scripts_Hani, // 021400
+	scripts_Hani, // 021500
+	scripts_Hani, // 021600
+	scripts_Hani, // 021700
+	scripts_Hani, // 021800
+	scripts_Hani, // 021900
+	scripts_Hani, // 021A00
+	scripts_Hani, // 021B00
+	scripts_Hani, // 021C00
+	scripts_Hani, // 021D00
+	scripts_Hani, // 021E00
+	scripts_Hani, // 021F00
+	scripts_Hani, // 022000
+	scripts_Hani, // 022100
+	scripts_Hani, // 022200
+	scripts_Hani, // 022300
+	scripts_Hani, // 022400
+	scripts_Hani, // 022500
+	scripts_Hani, // 022600
+	scripts_Hani, // 022700
+	scripts_Hani, // 022800
+	scripts_Hani, // 022900
+	scripts_Hani, // 022A00
+	scripts_Hani, // 022B00
+	scripts_Hani, // 022C00
+	scripts_Hani, // 022D00
+	scripts_Hani, // 022E00
+	scripts_Hani, // 022F00
+	scripts_Hani, // 023000
+	scripts_Hani, // 023100
+	scripts_Hani, // 023200
+	scripts_Hani, // 023300
+	scripts_Hani, // 023400
+	scripts_Hani, // 023500
+	scripts_Hani, // 023600
+	scripts_Hani, // 023700
+	scripts_Hani, // 023800
+	scripts_Hani, // 023900
+	scripts_Hani, // 023A00
+	scripts_Hani, // 023B00
+	scripts_Hani, // 023C00
+	scripts_Hani, // 023D00
+	scripts_Hani, // 023E00
+	scripts_Hani, // 023F00
+	scripts_Hani, // 024000
+	scripts_Hani, // 024100
+	scripts_Hani, // 024200
+	scripts_Hani, // 024300
+	scripts_Hani, // 024400
+	scripts_Hani, // 024500
+	scripts_Hani, // 024600
+	scripts_Hani, // 024700
+	scripts_Hani, // 024800
+	scripts_Hani, // 024900
+	scripts_Hani, // 024A00
+	scripts_Hani, // 024B00
+	scripts_Hani, // 024C00
+	scripts_Hani, // 024D00
+	scripts_Hani, // 024E00
+	scripts_Hani, // 024F00
+	scripts_Hani, // 025000
+	scripts_Hani, // 025100
+	scripts_Hani, // 025200
+	scripts_Hani, // 025300
+	scripts_Hani, // 025400
+	scripts_Hani, // 025500
+	scripts_Hani, // 025600
+	scripts_Hani, // 025700
+	scripts_Hani, // 025800
+	scripts_Hani, // 025900
+	scripts_Hani, // 025A00
+	scripts_Hani, // 025B00
+	scripts_Hani, // 025C00
+	scripts_Hani, // 025D00
+	scripts_Hani, // 025E00
+	scripts_Hani, // 025F00
+	scripts_Hani, // 026000
+	scripts_Hani, // 026100
+	scripts_Hani, // 026200
+	scripts_Hani, // 026300
+	scripts_Hani, // 026400
+	scripts_Hani, // 026500
+	scripts_Hani, // 026600
+	scripts_Hani, // 026700
+	scripts_Hani, // 026800
+	scripts_Hani, // 026900
+	scripts_Hani, // 026A00
+	scripts_Hani, // 026B00
+	scripts_Hani, // 026C00
+	scripts_Hani, // 026D00
+	scripts_Hani, // 026E00
+	scripts_Hani, // 026F00
+	scripts_Hani, // 027000
+	scripts_Hani, // 027100
+	scripts_Hani, // 027200
+	scripts_Hani, // 027300
+	scripts_Hani, // 027400
+	scripts_Hani, // 027500
+	scripts_Hani, // 027600
+	scripts_Hani, // 027700
+	scripts_Hani, // 027800
+	scripts_Hani, // 027900
+	scripts_Hani, // 027A00
+	scripts_Hani, // 027B00
+	scripts_Hani, // 027C00
+	scripts_Hani, // 027D00
+	scripts_Hani, // 027E00
+	scripts_Hani, // 027F00
+	scripts_Hani, // 028000
+	scripts_Hani, // 028100
+	scripts_Hani, // 028200
+	scripts_Hani, // 028300
+	scripts_Hani, // 028400
+	scripts_Hani, // 028500
+	scripts_Hani, // 028600
+	scripts_Hani, // 028700
+	scripts_Hani, // 028800
+	scripts_Hani, // 028900
+	scripts_Hani, // 028A00
+	scripts_Hani, // 028B00
+	scripts_Hani, // 028C00
+	scripts_Hani, // 028D00
+	scripts_Hani, // 028E00
+	scripts_Hani, // 028F00
+	scripts_Hani, // 029000
+	scripts_Hani, // 029100
+	scripts_Hani, // 029200
+	scripts_Hani, // 029300
+	scripts_Hani, // 029400
+	scripts_Hani, // 029500
+	scripts_Hani, // 029600
+	scripts_Hani, // 029700
+	scripts_Hani, // 029800
+	scripts_Hani, // 029900
+	scripts_Hani, // 029A00
+	scripts_Hani, // 029B00
+	scripts_Hani, // 029C00
+	scripts_Hani, // 029D00
+	scripts_Hani, // 029E00
+	scripts_Hani, // 029F00
+	scripts_Hani, // 02A000
+	scripts_Hani, // 02A100
+	scripts_Hani, // 02A200
+	scripts_Hani, // 02A300
+	scripts_Hani, // 02A400
+	scripts_Hani, // 02A500
 	scripts_02A600,
-	scripts_Hant, // 02A700
-	scripts_Hant, // 02A800
-	scripts_Hant, // 02A900
-	scripts_Hant, // 02AA00
-	scripts_Hant, // 02AB00
-	scripts_Hant, // 02AC00
-	scripts_Hant, // 02AD00
-	scripts_Hant, // 02AE00
-	scripts_Hant, // 02AF00
-	scripts_Hant, // 02B000
-	scripts_Hant, // 02B100
-	scripts_Hant, // 02B200
-	scripts_Hant, // 02B300
-	scripts_Hant, // 02B400
-	scripts_Hant, // 02B500
-	scripts_Hant, // 02B600
+	scripts_Hani, // 02A700
+	scripts_Hani, // 02A800
+	scripts_Hani, // 02A900
+	scripts_Hani, // 02AA00
+	scripts_Hani, // 02AB00
+	scripts_Hani, // 02AC00
+	scripts_Hani, // 02AD00
+	scripts_Hani, // 02AE00
+	scripts_Hani, // 02AF00
+	scripts_Hani, // 02B000
+	scripts_Hani, // 02B100
+	scripts_Hani, // 02B200
+	scripts_Hani, // 02B300
+	scripts_Hani, // 02B400
+	scripts_Hani, // 02B500
+	scripts_Hani, // 02B600
 	scripts_02B700,
 	scripts_02B800,
 	scripts_Zzzz, // 02B900
@@ -3243,8 +3243,8 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_Zzzz, // 02F500
 	scripts_Zzzz, // 02F600
 	scripts_Zzzz, // 02F700
-	scripts_Hant, // 02F800
-	scripts_Hant, // 02F900
+	scripts_Hani, // 02F800
+	scripts_Hani, // 02F900
 	scripts_02FA00,
 };
 

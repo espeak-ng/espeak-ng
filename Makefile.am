@@ -57,12 +57,13 @@ EXTRA_DIST += ChangeLog
 UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
 
-data/language-subtag-registry:
-	wget -O $@ http://www.iana.org/assignments/language-subtag-registry
-
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
 	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropList.txt
+
+data/ucd/PropertyValueAliases.txt:
+	mkdir -pv data/ucd
+	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropertyValueAliases.txt
 
 data/ucd/Scripts.txt:
 	mkdir -pv data/ucd
@@ -79,7 +80,7 @@ html:
 
 ############################# libucd ##########################################
 
-tools/ucd.py: data/language-subtag-registry
+tools/ucd.py: data/ucd/PropertyValueAliases.txt
 
 tools/case.py: tools/ucd.py \
 	data/ucd/UnicodeData.txt
