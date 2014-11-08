@@ -183,3 +183,6 @@ licensed under the [Unicode Terms of Use](COPYING.UCD). These data files are
 used in their unmodified form. They have the following Copyright notice:
 
     Copyright © 1991-2014 Unicode, Inc. All rights reserved.
+
+The files in `data/csur` are based on the information from the ConScript
+Unicode Registry maintained by John Cowan and Michael Everson.
