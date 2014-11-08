@@ -94,39 +94,51 @@ class CodeRange:
 		return self.last.codepoint - self.first.codepoint + 1
 
 def codepoint(x):
-	if '..' in x:
-		return CodeRange(x)
+	if '..' in x[0]:
+		return CodeRange(x[0]), x[1:]
 	if ' ' in x:
-		return [CodePoint(c) for c in x.split()]
-	if x == '':
-		return CodePoint('0000')
-	return CodePoint(x)
+		return [CodePoint(c) for c in x[0].split()], x[1:]
+	if x[0] == '':
+		return CodePoint('0000'), x[1:]
+	return CodePoint(x[0]), x[1:]
 
 def string(x):
-	if x == '':
-		return None
-	return x
+	if x[0] == '':
+		return None, x[1:]
+	return x[0], x[1:]
+
+def integer(x):
+	return int(x[0]), x[1:]
 
 def boolean(x):
-	if x == 'Y':
-		return True
-	return False
+	if x[0] == 'Y':
+		return True, x[1:]
+	return False, x[1:]
 
 def script(x):
-	return script_map[x]
+	return script_map[x[0]], x[1:]
+
+def strlist(x):
+	return x, []
 
 data_items = {
 	'Blocks': [
 		('Range', codepoint),
-		('Name', str)
+		('Name', string)
 	],
 	'DerivedAge': [
 		('Range', codepoint),
-		('Age', str),
+		('Age', string),
 	],
 	'PropList': [
 		('Range', codepoint),
-		('Property', str),
+		('Property', string),
+	],
+	'PropertyValueAliases': [
+		('Property', string),
+		('Key', string),
+		('Value', string),
+		('Aliases', strlist),
 	],
 	'Scripts': [
 		('Range', codepoint),
@@ -136,7 +148,7 @@ data_items = {
 		('CodePoint', codepoint),
 		('Name', string),
 		('GeneralCategory', string),
-		('CanonicalCombiningClass', int),
+		('CanonicalCombiningClass', integer),
 		('BidiClass', string),
 		('DecompositionType', string),
 		('DecompositionMapping', string),
@@ -152,7 +164,7 @@ data_items = {
 	# Supplemental Data:
 	'Klingon': [
 		('CodePoint', codepoint),
-		('Script', str),
+		('Script', string),
 		('GeneralCategory', string),
 		('Name', string),
 		('Transliteration', string),
@@ -166,7 +178,7 @@ def parse_ucd_data(ucd_rootdir, dataset):
 		for line in f:
 			line = line.replace('\n', '').split('#')[0]
 			linedata = [' '.join(x.split()) for x in line.split(';')]
-			if len(linedata) == len(keys):
+			if len(linedata) > 1:
 				if linedata[1].endswith(', First>'):
 					first = linedata
 					continue
@@ -177,10 +189,8 @@ def parse_ucd_data(ucd_rootdir, dataset):
 					first = None
 
 				data = {}
-				for keydata, value in zip(keys, linedata):
-					key, typemap = keydata
-					if key:
-						data[key] = typemap(value)
+				for key, typemap in keys:
+					data[key], linedata = typemap(linedata)
 				yield data
 
 if __name__ == '__main__':
