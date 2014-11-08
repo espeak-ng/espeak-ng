@@ -3,7 +3,7 @@
 - [Data Files](#data-files)
   - [Unicode Character Database](#unicode-character-database)
   - [ConScript Unicode Registry](#conscript-unicode-registry)
-- [C Library](#c-library)
+- [C++ Library](#c++-library)
   - [Querying Properties](#querying-properties)
   - [Case Conversion](#case-conversion)
   - [wctype Compatibility](#wctype-compatibility)
@@ -16,10 +16,10 @@
 
 ----------
 
-The Unicode Character Database (UCD) Tools is a set of Python tools and a C
+The Unicode Character Database (UCD) Tools is a set of Python tools and a C++
 library. The Python tools are designed to support extracting and processing
-data from the text-based UCD source files, while the C library is designed
-to provide easy access to this information.
+data from the text-based UCD source files, while the C++ library is designed
+to provide easy access to this information within a C++ program.
 
 ## Data Files
 
@@ -51,9 +51,9 @@ added:
 This data is located in the `data/csur` directory in a form compatible with the
 Unicode Character Data files.
 
-## C Library
+## C++ Library
 
-The C library provides several different facilities that make use of the UCD
+The C++ library provides several different facilities that make use of the UCD
 data. It provides a compact and efficient representation of the different data
 tables.
 
