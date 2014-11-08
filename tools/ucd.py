@@ -98,6 +98,7 @@ def strlist(x):
 	return x, []
 
 data_items = {
+	# Unicode Character Data:
 	'Blocks': [
 		('Range', codepoint),
 		('Name', string)
@@ -137,7 +138,7 @@ data_items = {
 		('LowerCase', codepoint),
 		('TitleCase', codepoint),
 	],
-	# Supplemental Data:
+	# ConScript Unicode Registry Data:
 	'Klingon': [
 		('CodePoint', codepoint),
 		('Script', string),

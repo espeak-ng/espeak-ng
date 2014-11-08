@@ -24,6 +24,18 @@ In addition to this it provides APIs for:
 The following data sets are used for the data tables:
 -  [Unicode Character Data 7.0.0](http://www.unicode.org/Public/7.0.0/ucd/).
 
+## ConScript Unicode Registry
+
+If enabled, the following data from the
+[ConScript Unicode Registry](http://www.evertype.com/standards/csur/) (CSUR) is
+added:
+
+| Code Range | Script  |
+|------------|---------|
+| F8D0-F8FF  | [Klingon](http://www.evertype.com/standards/csur/klingon.html) |
+
+This data is located in the `data/csur` directory.
+
 ## Build Dependencies
 
 In order to build ucd-tools, you need:
@@ -83,6 +95,13 @@ unicode is released, you need to run:
 	make ucd-update
 
 where `VERSION` is the Unicode version (e.g. `6.3.0`).
+
+Additionally, you can use the `UCD_FLAGS` option to control how the data is
+generated. The following flags are supported:
+
+| Flag        | Description |
+|-------------|-------------|
+| --with-csur | Add ConScript Unicode Registry data. |
 
 ## Bugs
 

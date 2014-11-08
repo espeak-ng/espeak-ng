@@ -92,9 +92,9 @@ tools/scripts.py: tools/ucd.py \
 	data/ucd/Scripts.txt
 
 ucd-update: tools/case.py tools/categories.py tools/scripts.py
-	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/case.cpp
-	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/categories.cpp
-	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > src/scripts.cpp
+	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/case.cpp
+	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/categories.cpp
+	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/scripts.cpp
 
 libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \
@@ -120,7 +120,7 @@ tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
 	data/ucd/Scripts.txt
-	tools/printdata.py ${UCD_ROOTDIR} > $@
+	tools/printdata.py ${UCD_ROOTDIR} ${UCD_FLAGS} > $@
 
 tests/unicode-data.actual: tests/printucddata
 	tests/printucddata > $@

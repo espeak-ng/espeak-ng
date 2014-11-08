@@ -28,6 +28,11 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
 		unicode_chars[codepoint] = data['Script']
+if '--with-csur' in sys.argv:
+	for csur in ['Klingon']:
+		for data in ucd.parse_ucd_data('data/csur', csur):
+			for codepoint in data['CodePoint']:
+				unicode_chars[codepoint] = data['Script']
 
 # This map is a combination of the information in the UnicodeData and Blocks
 # data files. It is intended to reduce the number of character tables that

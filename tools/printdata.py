@@ -22,6 +22,7 @@ import sys
 import ucd
 
 ucd_rootdir = sys.argv[1]
+csur_rootdir = 'data/csur'
 
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
@@ -35,6 +36,15 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
 		unicode_chars[codepoint]['Script'] = data['Script']
+if '--with-csur' in sys.argv:
+	for csur in ['Klingon']:
+		for data in ucd.parse_ucd_data('data/csur', csur):
+			for codepoint in data['CodePoint']:
+				if not 'TitleCase'  in data: data['TitleCase']  = codepoint
+				if not 'UpperCase'  in data: data['UpperCase']  = codepoint
+				if not 'LowerCase'  in data: data['LowerCase']  = codepoint
+				if not 'Properties' in data: data['Properties'] = []
+				unicode_chars[codepoint] = data
 
 null = ucd.CodePoint('0000')
 if __name__ == '__main__':
