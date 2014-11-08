@@ -29,7 +29,7 @@ several different sources.
 ### Unicode Character Database
 
 The following [Unicode Character Database](http://www.unicode.org/Public/7.0.0/ucd/)
-files from the [Unicode Consortium](http://www.unicode.org) are supported:
+files are supported:
 
 *  Blocks
 *  DerivedAge
@@ -177,3 +177,9 @@ page on GitHub.
 ## License Information
 
 UCD Tools is released under the GPL version 3 or later license.
+
+The UCD data files in `data/ucd` are downloaded from the UCD website and are
+licensed under the [Unicode Terms of Use](COPYING.UCD). These data files are
+used in their unmodified form. They have the following Copyright notice:
+
+    Copyright © 1991-2014 Unicode, Inc. All rights reserved.
