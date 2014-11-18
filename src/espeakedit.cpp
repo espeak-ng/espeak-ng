@@ -63,7 +63,7 @@ extern void DictionarySort(const char *dictname);
 extern void init_z();
 extern void CompilePhonemeData(void);
 extern void CompileSampleRate(void);
-extern void CompileMbrola(const char *mbrola_file = NULL);
+extern void CompileMbrola(const wxChar *mbrola_file = NULL);
 extern void CompileIntonation();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();

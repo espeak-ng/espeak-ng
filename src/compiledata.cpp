@@ -3749,7 +3749,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
 #include <errno.h>
 
-void CompileMbrola(const char *mbrola_file)
+void CompileMbrola(const wxChar *mbrola_file)
 {//=================
 	char *p;
 	FILE *f_in;
