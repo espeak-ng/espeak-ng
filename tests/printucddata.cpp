@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2013 Reece H. Dunn
+ * Copyright (C) 2012-2015 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -21,21 +21,64 @@
 
 #include <stdio.h>
 
+void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
+{
+	switch (mode)
+	{
+	case 'h': // hexadecimal (lower)
+		fprintf(out, "%06x", c);
+		break;
+	case 'H': // hexadecimal (upper)
+		fprintf(out, "%06X", c);
+		break;
+	}
+}
+
+void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
+{
+	while (*format) switch (*format)
+	{
+	case '%':
+		switch (*++format)
+		{
+		case 'c': // category
+			fputs(ucd::get_category_string(ucd::lookup_category(c)), out);
+			break;
+		case 'C': // category group
+			fputs(ucd::get_category_group_string(ucd::lookup_category_group(c)), out);
+			break;
+		case 'p': // codepoint
+			uprintf_codepoint(out, c, *++format);
+			break;
+		case 'L': // lowercase
+			uprintf_codepoint(out, ucd::tolower(c), *++format);
+			break;
+		case 's': // script
+			fputs(ucd::get_script_string(ucd::lookup_script(c)), out);
+			break;
+		case 'T': // titlecase
+			uprintf_codepoint(out, ucd::totitle(c), *++format);
+			break;
+		case 'U': // uppercase
+			uprintf_codepoint(out, ucd::toupper(c), *++format);
+			break;
+		case 'W': // whitespace
+			if (ucd::isspace(c))
+				fputs("White_Space", out);
+			break;
+		}
+		++format;
+		break;
+	default:
+		fputc(*format, out);
+		++format;
+		break;
+	}
+}
+
 int main()
 {
 	for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
-	{
-		const char *script = ucd::get_script_string(ucd::lookup_script(c));
-		const char *category = ucd::get_category_string(ucd::lookup_category(c));
-		const char *category_group = ucd::get_category_group_string(ucd::lookup_category_group(c));
-		ucd::codepoint_t upper = ucd::toupper(c);
-		ucd::codepoint_t lower = ucd::tolower(c);
-		ucd::codepoint_t title = ucd::totitle(c);
-		const char *whitespace = ucd::isspace(c) ? "White_Space" : "";
-		printf("%06X %s %s %s %06X %06X %06X %s\n",
-		       c, script, category_group, category,
-		       upper, lower, title,
-		       whitespace);
-	}
+		uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
 	return 0;
 }
