@@ -22,6 +22,30 @@
 #include <string.h>
 #include <stdio.h>
 
+void fput_utf8c(FILE *out, ucd::codepoint_t c)
+{
+	if (c < 0x80)
+		fputc((uint8_t)c, out);
+	else if (c < 0x800)
+	{
+		fputc(0xC0 | (c >> 6), out);
+		fputc(0x80 + (c & 0x3F), out);
+	}
+	else if (c < 0x10000)
+	{
+		fputc(0xE0 | (c >> 12), out);
+		fputc(0x80 + ((c >> 6) & 0x3F), out);
+		fputc(0x80 + (c & 0x3F), out);
+	}
+	else if (c < 0x200000)
+	{
+		fputc(0xF0 | (c >> 18), out);
+		fputc(0x80 + ((c >> 12) & 0x3F), out);
+		fputc(0x80 + ((c >>  6) & 0x3F), out);
+		fputc(0x80 + (c & 0x3F), out);
+	}
+}
+
 bool fget_utf8c(FILE *in, ucd::codepoint_t &c)
 {
 	int ch = EOF;
@@ -59,6 +83,15 @@ void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
 {
 	switch (mode)
 	{
+	case 'c': // character
+		switch (c)
+		{
+		case '\t': fputs("\\t", out);  break;
+		case '\r': fputs("\\r", out);  break;
+		case '\n': fputs("\\n", out);  break;
+		default:   fput_utf8c(out, c); break;
+		}
+		break;
 	case 'h': // hexadecimal (lower)
 		fprintf(out, "%06x", c);
 		break;
@@ -114,7 +147,7 @@ void print_file(FILE *in)
 {
 	ucd::codepoint_t c = 0;
 	while (fget_utf8c(in, c))
-		uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
+		uprintf(stdout, c, "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%W\n");
 }
 
 int main(int argc, char **argv)
