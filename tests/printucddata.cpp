@@ -19,7 +19,41 @@
 
 #include "ucd/ucd.h"
 
+#include <string.h>
 #include <stdio.h>
+
+bool fget_utf8c(FILE *in, ucd::codepoint_t &c)
+{
+	int ch = EOF;
+	if ((ch = fgetc(in)) == EOF) return false;
+	if (uint8_t(ch) < 0x80)
+		c = uint8_t(ch);
+	else switch (uint8_t(ch) & 0xF0)
+	{
+	default:
+		c = uint8_t(ch) & 0x1F;
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		break;
+	case 0xE0:
+		c = uint8_t(ch) & 0x0F;
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		break;
+	case 0xF0:
+		c = uint8_t(ch) & 0x07;
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return false;
+		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		break;
+	}
+	return true;
+}
 
 void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
 {
@@ -76,9 +110,35 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 	}
 }
 
-int main()
+void print_file(FILE *in)
 {
-	for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
+	ucd::codepoint_t c = 0;
+	while (fget_utf8c(in, c))
 		uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
+}
+
+int main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		if (!strcmp(argv[1], "--stdin") || !strcmp(argv[1], "-"))
+			print_file(stdin);
+		else
+		{
+			FILE *in = fopen(argv[1], "r");
+			if (in)
+			{
+				print_file(in);
+				fclose(in);
+			}
+			else
+				fprintf(stdout, "cannot open `%s`\n", argv[1]);
+		}
+	}
+	else
+	{
+		for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
+			uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
+	}
 	return 0;
 }
