@@ -713,9 +713,11 @@ boutique	but'i:k
 boxer	$1
 braille	b@-*ail:
 brandy	b@-*'E:ndI
+breakfast	b@-*'Ek||fast
 bricolage	b@-*ikol'aZ
 browser	b@-*'a:UzE@-*
 buffer	b'afe@-*
+buffet	buf:'E $only
 bouquet	_^_FR
 bulldozer	$2
 bunker	$1
@@ -838,6 +840,7 @@ google		_^_EN
 green	g@-*i:n $onlys
 guinness	g'ines:
 hacker	'ake@-*
+hall	h'O:l: $only
 hamburger	hamb'u@-*ge@-*
 happy	_^_EN 
 hardware	'a:rd[we@-*
@@ -1000,7 +1003,7 @@ skype	sk'a/:ip
 smartphone	zm'a@-*tfon
 smile	zmaIl
 smiley	_^_EN
-snack		_^_EN
+snack	sn'E:k
 software	s'Oft[_we@-*
 sonar	$1	$only
 stage	st'EidZ $onlys
@@ -2011,6 +2014,7 @@ beatle	b'i:tol
 Beethoven	be:t'o:ven
 bergomi	$1
 bettega	$1 $alt
+boeing	b'O:ing
 brandon	b@-*'Endon
 brian	b@-*'aian
 brigitte	b@-*iZ'it[
@@ -2102,6 +2106,7 @@ juri	j'uRI
 kate	k'eIt[
 katia	k'a:tia
 kennedy	$1 $alt
+kinder	$1 $onlys
 lee	_^_en $capital
 lennon	_^_EN
 louise	lu'iz
@@ -2190,6 +2195,7 @@ steven	st'iven	$onlys
 thatcher	t'a/tSe@-*
 tamara	$2
 taylor	t'EIlo@-*
+terence	t'ERens $onlys
 tiffany	$1
 timoteo	$2
 troisi	t@-*o'izI
@@ -3020,7 +3026,6 @@ moltiplicano	$2
 monitorano	$1
 monologano	$2 $alt2
 montano	$1
-mormora	$1
 mormorano	$1
 mostrano	$1
 mostrino	$1
@@ -3826,6 +3831,7 @@ distrugerne	$2
 domandatel	$3
 domandati	$2
 drizzarsi	d@-*its:'a@-*si
+espellerl	$2
 esprimiti	$2
 fattel	f'at:el
 formatosi	$2
@@ -3914,6 +3920,7 @@ stabilitosi	$3
 suggeritomi	$3
 svoltosi	$1
 svuotal	$2 $alt2
+tenutosi	$2
 trattasi	$1
 usal	'u:za/l
 vendesi	$1 $alt

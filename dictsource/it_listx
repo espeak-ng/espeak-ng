@@ -203,6 +203,8 @@ anfor $1
 angel $1
 angeli $1
 angiogenesi $3
+anglicanesimo	anglikan'Ezimo
+anglicizzazione	anglitSidz:atsi'One
 anglosassone $3
 anglosassoni $3
 angol $1
@@ -551,6 +553,7 @@ betil  $alt2
 beton $2  $alt
 bezzi  $alt
 biathlon $1
+biberon	$3
 bibit $1
 bibite $1
 bibliotec  $alt
@@ -683,13 +686,13 @@ buio  b'u:jo
 bulgar $1
 bulgari $1
 bulgaria $3
-buonarroti  $alt
 buon	bw2,On	$only
 buona	bu'Ona
+buonarroti  $alt
+buonasera	bw2,Ona_|s'eRa
 buone	bu'One
 buoni	bu'Oni
 buono	bu'Ono
-buonasera	bw2,Ona_|s'eRa
 burber $1
 buscemi  $alt
 butanol $3
@@ -733,6 +736,7 @@ camefite $2
 camer $1
 cameri $1
 camerot  $alt
+camiciol	$3
 camion $1
 camosci  $alt
 campagnol $3
@@ -2050,7 +2054,6 @@ inferi $1
 infett  $alt
 infinitesim  $alt
 infradici	$2
-insudici	$2
 ingenua  $alt
 ingenuo  $alt
 ingobbi  $alt
@@ -2070,6 +2073,7 @@ insomm  $alt2
 insonnia  $alt
 insubre $1
 insubri $1
+insudici	$2
 integr $1
 intellighenzia  $alt
 intemperia	$3
@@ -2506,6 +2510,7 @@ millefogli  $alt
 millenni  $alt
 mimesi  $alt
 mindaugas $1
+miniclub	m,inI||cl'a:b
 minigolf $3
 minimax $3
 minor	$alt2
@@ -2611,6 +2616,7 @@ morfem  $alt
 mori  $alt2
 moria $2
 morini $1
+mormor	$1
 mormorio	$3
 morol $2
 moschicidi	$3
@@ -3506,6 +3512,7 @@ rombicubottaedr  $alt
 romboedr  $alt
 rompiscatole $3
 rondini	$1
+ronsio	@-*ondz'io
 ropaloceri $3
 rore  $alt
 ros  $alt
@@ -3895,6 +3902,7 @@ sprec  $alt
 staffor $1
 stambecc  $alt2
 stanislao $3
+stantio	stant'io
 starost $1
 staser  $alt2
 statere $2
