@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -72,7 +72,7 @@
 #define OFFSET_ETHIOPIC 0x1200
 
 
-// character ranges must be listed in ascending order
+// character ranges must be listed in ascending unicode order
 ALPHABET alphabets [] = {
     {"_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e','l'), AL_DONT_NAME | AL_NOT_LETTERS | AL_WORDS},
     {"_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0},
@@ -885,6 +885,7 @@ Translator *SelectTranslator(const char *name)
 	case L('o','r'):    // Oriya
 	case L('p','a'):    // Punjabi
 	case L('g','u'):    // Gujarati
+	case L('m','r'):    // Marathi
 		{
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,22, 22,21 };
@@ -1497,7 +1498,6 @@ SetLengthMods(tr,3);  // all equal
 	case L('t','a'):  // Tamil
 	case L('k','n'):  // Kannada
 	case L('m','l'):  // Malayalam
-	case L('m','r'):  // Marathi
 	case L('t','e'):  // Telugu
 		{
 			SetupTranslator(tr,stress_lengths_ta2, stress_amps_ta);
@@ -1678,7 +1678,9 @@ SetLengthMods(tr,3);  // all equal
 			{
 				tr->langopts.textmode = 1;
 				tr->langopts.listx = 1;    // compile zh_listx after zh_list
-			}
+				tr->langopts.numbers = 1;
+				tr->langopts.numbers2 = NUM2_ZERO_TENS;
+				tr->langopts.break_numbers = 0x00018;			}
 		}
 		break;
 

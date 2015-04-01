@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -642,7 +642,7 @@ void OnOptions2(int event_id)
 		break;
 
 	case MENU_PATH_DATA:
-		string = wxDirSelector(_T("espeak_data directory"), wxEmptyString);
+		string = wxDirSelector(_T("espeak_data directory"), path_espeakdata);
 		if(!string.IsEmpty())
 		{
 			if(!wxDirExists(string+_T("/voices")))

@@ -1,0 +1,231 @@
+﻿// This mr_list file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+// This file is UTF8 encoded
+
+// Numbers
+// devanagari/Marathi numbers are changed to latin characters before translation
+_0        S'u:nj@-
+_1        'e:k
+_2         d'o:n
+_3        t'i:n
+_4        c'a:r
+_5         p'a:c
+_6         s'VHa:
+_7        s'a:t
+_8         'a:t.#
+_9         n'Vu
+?3  _9    n'aU
+
+_10        d'VHa:
+_11        'Vkra:
+_12       b'a:ra:
+_13        t'e:*a:
+_14         c'O:da:
+_15         p'Vnd#@*,a:
+_16         s'o:l.a:
+_17        s'Vtr,a:
+_18        'Vt.#r,a:
+_19        ,e:ko:n.'i:s
+
+_20        w'i:s
+_21        ,e:kv'i:s
+_22        baU'i:s
+_23        te:v'i:s
+_24        co:v'i:s
+_25        p,@n^c@v'i:s
+_26        s@vv'i:s
+_27        s,@t:aU'i:s
+_28        ,Vt.#:aU'i:s
+_29        ,e:ko:n.t'i:s
+_30        t'i:s
+
+_31        ,e:kt'i:s
+_32        b@t:'i:s
+_33        t,e:He:t'i:s// E~ ?
+_34        cO:t'i:s
+_35        p@st'i:s
+_36        c#@3t:'i:s
+_37        s,@dt'i:s
+_38        ,Vd.t'i:s
+_39        ,e:ko:n.ca:l.'i:s
+
+_40         ca:l.'i:s
+_41        'e:k:e:c,a:l.is
+_42        b,e:ca:l.'i:s
+_43        tr,e:ca:l.'i:s
+_44        c,@vve:ca:l.'i:s
+_45        p,@n^ce:ca:l.'i:s
+_46        s,e:He:ca:l.'i:s
+_47        s,@t:e:ca:l.'i:s
+_48        ,Vt.#:e:ca:l.'i:s
+_49        ,e:ko:n.,@pnn'a:s
+
+_50        p@nn'a:s
+_51        e:k:'aUnn@-
+_52        b'aUnn@-
+_53        tre:p'Vnn@-
+_54        co:p'Vnn@-
+_55        p@n^c'aUnn@-
+_56        c#@3p:'Vnn@-
+_57        s@t:'aUnn@-
+_58        Vt.#:'aUnn@-
+_59        ,e:ko:n.s'a:t.#
+
+_60        s'a:t.#
+_61        ,e:ks'Vs.t.#
+_62        ba:s'Vs.t.#
+_63        tre:s'Vs.t.#
+_64        cO:s'Vs.t.#
+_65        pa:s'Vs.t.#
+_66        s,@Ha:s'Vs.t.#
+_67        s,@dUs'Vs.t.#
+_68        ,Vd.Us'Vs.t.#
+_69        ,e:ko:n.@s'Vt:@r
+
+_70        s'Vt:@r
+_71        'e:k:a:H,@t:@r
+_72        ba:H'Vt:@r
+_73        trja:H'Vt:@r
+_74        c'O:rja:H,@t:@r
+_75        p,@n^c:ja:H'Vt:@r
+_76        S@H'a:t:@r
+_77        s,@t:ja:H'Vt:@r
+_78        ,Vt.#:ja:H'Vt:@r
+_79        ,e:ko:n.'E~Si
+
+_80        'E~Si
+_81        'e:k:ja:,E~Si
+_82        bja:'E~Si
+_83        trja:'E~Si
+_84        c'O:rja:,E~Si
+_85        p,@n^c:ja:'E~Si
+_86        S,@Ha:'E~Si
+_87        s,@t:ja:'E~Si
+_88        ,Vt.#:ja:'E~Si
+_89        ,e:ko:n.@n'Vvv@d
+
+_90        n'Vvv@d
+_91        e:k:j'a:n.n.@w
+_92        bj'a:n.n.@w
+_93        trj'a:n.n.@w
+_94        cO:rj'a:n.n.@w
+_95        p@n^c:j'a:n.n.@w
+_96        S@H'a:n.n.@w
+_97        s@t:j'a:n.n.@w
+_98        Vt.#:j'a:n.n.@w
+_99        n@vvj'a:n.n.@w
+
+_0C	  S'e:
+_0M1	 H@z'a:r
+_0M2	l'a:k#
+_0M3	k@r'o:r.V
+_0M4	'VrVb
+_0M5	k#'VrVb
+_dpt      _d@s@ml'o:_   
+
+// Single consonants
+क      k@
+क़      q@
+ख      k#@
+ख़      x@
+ग      g@
+ग़      Q@
+घ      g#@
+ङ      N@
+च      c@
+छ      c#@
+ज      J@
+ज़      z@
+झ      J#@
+ञ      n^@
+ट      t.@
+ठ      t.#@
+ड      d.@
+ड़      r.@
+ढ      d.#@
+ण      n.@   // retroflex n.@
+त      t@
+थ      t#@
+द      d@
+ध      d#@
+न      n@
+प      p@
+फ      p#@
+फ़      f@
+ब      b@
+भ      b#@
+म      m@
+य      j@
+र      r@
+ऱ      r@
+ल      l@
+ळ      l.@
+व      v@
+श      S@
+ष      s.@   //  retroflex [S]
+स      s@
+ह      H@
+क़      q@
+ख़      x@
+ग़      Q@
+ज़      z@
+ड़      r-@
+ढ़      hr@
+फ़      f@
+य़      j@
+
+// combining vowel signs
+//ा	#X2a:
+//ि	#X1I
+//ी	#X2i:
+//ु	#X1U
+//ू	#X2u:
+//ृ	#X1rI
+//ॄ	#X1rI
+//ॅ	#X1E
+//ॆ	#X1e
+//े	#X2e:
+//ै	#X2E:
+//?2 ै	#X2aI
+//ॉ	#X1O
+//ॊ	#X1o
+//ो	#X2o:
+//ौ	#X2O:
+//?3 ौ 	#X2aU
+//ॢ 	#X1l-
+//ॣ	#X2l-:
+////ॐ	#X1o~m
+
+U+901	cVndrVbIndu
+U+902	VnUswa:r
+U+903	wIsVrg@
+U+93c	nUkta
+U+94d	hVlVnt
+
+_??	Vks.@r
+
+// Alphabet names
+_ar	'Vrbi
+_cyr	sIrIk'Ik
+_zh	c'i@ni
+
+// Punctuation
+// ।	dVn.d.V
+
+$	dOlVr
+%	pVt'ISVt
++	plVs
+=	bVr'a:bVr
+*	ta:r'a:NkVn
+/	sle:S
+_,	'Vlp@||wir,a:m
+।	p'u:rn.@||wIr,a:m
+_;	'Vrd#@-||wIr,a:m
+_:	brIHVd'a:ntr@-
+_?	prVSVnv'a:cVk
+!	wIsmVja:dIv'a:cVk 
+_—	nIrd'e:SVk
+_-	j'o:JVk
+_"	'Udd#VrVn. 
+
+// Exceptions
+100	 S'Vmb@r

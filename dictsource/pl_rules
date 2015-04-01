@@ -3,6 +3,10 @@
 // Spelling to phoneme words and exceptions for Polish
 
 .L01	ka ki ce kę ką ko kach kom
+
+// 'w' if [f] after these consonants
+.L02 c ć cz f h k p s ś sz t
+
 //.L02	a i ę ą o
 
 //.L03	a em ie owi o
@@ -835,9 +839,8 @@
 		w (sk		_v
 	ier)	wsz	(A	S
 		w	(_	f
-	c)	w	(A	f
-	ć)	w	(A	f
-	cz)	w	(A	f
+	L02)	w	(A	f
+	L02r)	w	(A	f
 
 	_)	w	(_c	f
 	_)	w	(_f	wE
@@ -849,20 +852,13 @@
 	_)	w	(_mn	wE // 'w' should be written 'we' before 'mn', but not always
 	_)	w	(_	w
 
-	f)	w	(A	f
-	h)	w	(A	f
-	k)	w	(A	f
-	p)	w	(A	f
-	s)	w	(A	f
-	ś)	w	(A	f
-	sz)	w	(A	f
-	t)	w	(A	f
 	_)	wice	(@P4t	vitsE
 	_)	window		wyndOw
 		wee	(k	wi
 	_)	washi		wOSi
 		wrigh		Raj
 	C)	wrigh		Raj
+	
 
 .group	 x
 		x		ks

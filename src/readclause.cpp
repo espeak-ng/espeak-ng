@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -39,7 +39,7 @@
 #endif
 
 #include <locale.h>
-#define N_XML_BUF   256
+#define N_XML_BUF   500
 
 
 static const char *xmlbase = "";    // base URL from <speak>
@@ -2402,9 +2402,9 @@ f_input = f_in;  // for GetC etc
 			else
 			if((c1 == '<') && (ssml_ignore_l_angle != '<'))
 			{
-				if(c2 == '!')
+				if((c2 == '!') || (c2 == '?'))
 				{
-					// a comment, ignore until closing '<'
+					// a comment, ignore until closing '<'  (or <?xml tag )
 					while(!Eof() && (c1 != '>'))
 					{
 						c1 = GetC();

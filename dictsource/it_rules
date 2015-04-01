@@ -1,6 +1,7 @@
+
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2014 October 22 by Chris <llajta2012@gmail.com>
+// Last update: 2015 march  20 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -13,6 +14,7 @@
 .L04 mi ti gli lo la le si ci vi li ne melo telo selo celo velo mela tela sela cela vela meli teli seli celi veli mele tele sele cele vele mene tene sene cene vene glielo gliela glieli gliele gliene
 .L05 melo telo selo celo velo mela tela sela cela vela meli teli seli celi veli mele tele sele cele vele mene tene sene cene vene glielo gliela glieli gliele gliene mi ci gli ne
 .L06 gli mi vi si
+.L07 mi gli lo la le si ci li ne melo selo celo velo mela sela cela vela meli seli celi veli mele sele cele vele mene sene cene vene glielo gliela glieli gliele gliene
 // Hours and minutes
 .L16 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
 .L17 0 1 2 3 4 5
@@ -22,8 +24,7 @@
 		a	a
 	ai (_	'aj
 		ai (C   aI
-                ao (_N   aU
-                au	a%u
+	au	a|%U
 	@C)	a (_S1q  a     // lookup it_list without suffix
 	@i)	a (_S1q  a     // lookup it_list without suffix
 	C) a (cY_	'a
@@ -40,7 +41,8 @@
      _) all' (P4t     all
      _) anch' (P5t     ank
 	@) amo (L04_	'amo  // Pron.s verbs
-	@) ander (L04_	'andE@-*  // Pron.s verbs
+	Ci) amo (L04_	'amo
+	@) ander (L04_	'andE@-*
 		ate (L04_+	'ate
 	_L04Z) auguri (_	'awguRI
 	astano (_	'a:sta/no   // verbs
@@ -48,8 +50,7 @@
 .group à
 		à	''a
 		ài (K   ''aI
-                ào (_N   ''aU
-                àu	''a%u
+                àu	''a|%U
 
 .group b
 		b       b
@@ -85,6 +86,7 @@
 	cceder (L04_	tS:'Ede@-*
 	in) cer (L04_	=tSe@-*
 	cuocer (L04_	kU'OtSe@-*
+	compra (L07_	k'omp@-*a
 	_L04Z) capit (A_	k'a:p,it
 		_L04Z) capit (ano_	k'a:p,it
 	correr (L04_	k'o:R*eR
@@ -98,8 +100,9 @@
      _) dell' (P5t     dell
 	_) d' (P2t	d
 	donat (Y_	don'at
-	dona (L04_	d'ona  // Pron.s verbs
+	dona (L07_	d'ona  // Pron.s verbs
 	ci) der (L04_	=dE@-*
+	divi) der (L04_	=de@-*
 	chAA) der (L04_	=de@-*
 	re) der (L04_	=de@-*
 	@) dinano (_	=dina/no   // verbs
@@ -110,12 +113,18 @@
 
 .group e
 		e        e
-		ei (K        Ej
-	r) ei (_	'ei
+	ei (d	Ej
+	ei (c	Ej
+	ei (colA_	ei
+	r) ei (_	'Ei
+	@d) ei (_	'eI
+	@t) ei (_	'eI
+	@) ey (_	=eI
 	@C)	e (_S1q  e     // lookup it_list without suffix
 		e (C_    E
 		e (A     E
-		e (C%A_  E    // doubled consonant
+		e (C%A_  E
+	_d) e (llA_	e
 		e (CiCA_ E
 		e (CulA_ E
 		e (llu   E
@@ -124,16 +133,11 @@
 	c)	e (ttA_  E
 		e (tti@	 E
 		e (zzA_  e
-
 		e (r     E
 		e (rsi_N e
-	A)	e (r_	 'E
-
-	_r)	e	 E
-
-//	@)	e (ce_	=e
+	A) e (r_	'E
+	_r) e	E
 	@)	e (ci_	=e
-
 		e (l     E
 	r)	e (m     E
 		e (monA_ 'e
@@ -148,7 +152,8 @@
 	gg)	e (ri_	E
 	f)	e (rm    e
 	@)	e (rrimo_ 'E
-	@)	e (simA_  'e
+	an) e (simA_	'e:
+	@) e (simA_	'E
 	h)	e (ss    e
 	m)	e (ss    e
 	_sC)	e (ss    e
@@ -187,7 +192,7 @@
 		gg	g:
 		gh	g
 		g (Y	dZ
-		gi (A	dZ   // any vowel, or L01 ?
+		gi (A	dZ
 		gi (a_	dZ'i#  // [i] only if stressed
 		gì (a_	dZ'i#  // [i] only if stressed
 	al) gie (_	dZ'iE
@@ -199,10 +204,11 @@
 		lo) gi (e_	dZ'i#
 	n)	gi (a_	dZ
 		gg (Y	dZ:
-		ggi (A  dZ:  // or L01 ?
+		ggi (A  dZ:
 	@) gger (L04_ =dZ:e@-*  // Pron.s verbs
 	AC) ger (L04_	=dZe@-*
-		_) giura (L04_	dZ'URa
+		_) giura (L07_	dZ'URa
+	godi (L04_	g'Odi
 		gl (i	l^
 		gl (ì	l^
 		gli (A  l^
@@ -214,14 +220,15 @@
 	a) gn (A_	n^:
 		gu (A   gw
 	guono (_	=gw2ono   / verbs
-	o) gnano (_	=n^ano   // verbs
+	o) gnano (_	=n^ano
 	A) gnano (_	n^'ano   // exceptions
 	@) ginano(_	=dZinano   // verbs
-		gano (_	=gano   // verbs
+		gano (_	=gano
 	ggano (_	=g:a/no 
-	giono (_	dZ'Ono   // verbs
-	n) guere (_	=gweRe   // verbs
+	giono (_	dZ'Ono
+	n) guere (_	=gweRe
 	@) graf (A_	=g@-*af
+	guai (scA_	gw2a'i:
 
 .group h
 		h
@@ -231,6 +238,7 @@
 .group i
 		i	i
 		i (A	j
+	zz) ia (@	ia
 	@) ii (_	'I:j
 	l)	i (A	%i
 	r)	i (A	%i
@@ -256,7 +264,6 @@
         @)      io (_S1q   =i%o
 	a)	i (+	j
 	à)	i (+	j
-	L02)	i (+	j
 	o)	i (+	j
 	@C)	i (_S1q  i     // lookup it_list without suffix
         @)      i (Ante_   i
@@ -327,7 +334,7 @@
 	@A) lo (ghY_	=lo
 	_) l' (P2t	l
 	lasciati (_	l,a/S'atI
-		lascia (L04_	l'aSa
+		lascia (L07_	l'aSa
 	leggi (L04_	l'EdZ:I
 
 .group m
@@ -340,7 +347,9 @@
 	_) mezz' (P5t	mEdz:
 	metter (L04_	m'ette@-* // Pron.s Verbs
 	manda (L05_	m'anda
+	mostra (L07_	m'Ost@-*a
 	assu) mer (L04_	=me@-*
+	_a) ma (L07_	=ma
 	mbano (_	=mbano // verbs
 	@) minano(_	=mina/no   // verbs
 
@@ -367,7 +376,7 @@
 
 		o (C%A_	O    // doubled consonant
 		o (CACA_  O
-		o (Cr     O
+		o (CrA	O
 		o (CC_    O
 	@C)	o (_S1q  o     // lookup it_list without suffix 
 	@i)	o (_S1q  o     // lookup it_list without suffix 
@@ -429,15 +438,16 @@
 		o (ttol     O
 		o (zA       O
 	l) oqui (A	Okwj
-	osano (_	'ozano
+	C) orda (L05_	'O@-*da   // pron. verbs
 		C) onder (L04_	'ondE@-*
 		over (L04_	'ovE@-*
 	d) over (L04_	Ov'E@-*
+	m) order (L04_	'O:@-*de@-*
 	ovano (_ 'ovano   // verbs
-	o (CCano_	'O   // verbs
-	o (CCicano_	'O   //verbs
-	ogliere (_	'Ol^eRe   // verbs
-	C) orda (L05_	'O@-*da   // pron. verbs
+	osano (_	'ozano
+	o (CCano_	'O
+	o (CCicano_	'O
+	ogliere (_	'Ol^eRe
 	@) ordin (A_	'o@-*din
 
 .group p
@@ -447,6 +457,7 @@
 	@m)	p (erY_	=p
 	porta (L05_	p'O@-*ta  // Pron.s verbs
 	pie (gaL05_	pI'e
+	prendi (L04_	p@-*'E:ndi
 	pie (galA_	pI'e
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
@@ -470,7 +481,7 @@
 	A) r (à_	*
 	A) r (ò_	*
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
-	_) rega (laL04_	@-*eg'a
+	_) rega (laL07_	@-*eg'a
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -515,6 +526,8 @@
 	A) sci (L05_	=SI
 	scrivi (L04_	sk@-*'i:vI
 	salu (taL04_	sal'U
+	spegner (L04_	sp'en^e@-*
+	re) sister (L04_	z'i:ste@-*
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -535,6 +548,8 @@
 	@ma) to (L06_	t'O
 	@a) to (L06_	=to
 	intima) to (L04_	=to
+	ba) tter (L04_	=t:e@-*
+	tratta (L07	t@-*'at:a
 	a) ta (si_	=ta
 	_) tutt' (P5t	tut:
 
@@ -548,7 +563,7 @@
 	@) u (A_	=u
 	A%C) u (A_	=u
 	ural (Y_	uR'al
-	C) ura (L04_	'uRa   // Pron.s verbs
+	C) ura (L07_	'uRa   // Pron.s verbs
 	uder (L04_	'udE@-*
 	uter (L04_	'ute@-*
 	uvano (_	'uvano // verbs
@@ -566,6 +581,8 @@
 	A) vino (_	=vino  // verbs
 	@) vo (cano_	=vo
 	in) via (toL04_	vI'a
+	in) via (L07_	v'ia
+	_a) vvisa (L07_	v:'iza
 
 .group w
 		w	w2
@@ -579,33 +596,52 @@
 
 .group z
 		z	ts
-	A)	zz (A	ts:
+	A) zz (A	ts:
 	_A) z (AC	dz
-		_) z (AC          dz
+	_) z (A	dz
         _)	z (Y	dz
-		z (L01A	dz
+		z (oA	dz
 		_A) zz (A	|dz:
 		CA) zz (arC	dz:
 		@li) zz (A	dz:
-	@@Ci) zz (o	dz:
-	_Cri) zz (o	ts:
-	_CCri) zz (o	ts:
+	_bri) zz (A	ts:
+	diri) zz	ts:
+	_indiri) zzar (L04_	ts:'a@-*
+	dri) zz (A	ts:
+	fri) zz (A	ts:
+	_ri) zz (A	ts:
+	_pi) zz (A	ts:
+	atti) zz (A	ts:
+	schi) zz (A	ts:
+	_spri) zz (A	ts:
+	stri) zz (A	ts:
+	_sti) zz (A ts:
+	appre) zza (rL04_	ts:a
+	care) zz (A	ts:
+	appre) zza (L07_	=tsa
+	Ci) zz (A	dz:
+	_mar) z (A	ts
+	par) z (A	ts
+	quar) z (A	ts
+	sfar) z (A	ts
+	ar) z (A	dz
+	bron) z (A	dz
 		@) zz (ano_	=ts:
 		i) zza (no_	=dz:a
-		@@) zza (L04_	=dz:a
+		@@) zza (L07_	=dz:a
 		@i) zza (ti_	dz:'a
-	@i) zz (are_	dz:
-	dri) zz (are_	ts:
+	@i) zz (are_	|dz|:
 	zion (A_	tsi'on
 	ziona (ti_	tsiOn'a
 	zional (Y_	tsion'al
-	ziona (L04_	tsi'Ona
+	ziona (L07_	tsi'Ona
+	organi) zzia (moL07_	dz:i'a:
 	cra) zia (_	ts'i;a/
 	cra) zie (_	ts'I;e/
+	man) z (A	dz
 	man) zia (_	ts'i;a
 	man) zie (_	ts'i;e
 	me) zz	dz:
-
 
 .group 0xce   // Greek letters
 // 0xce is the first byte of the utf-8 code for these characters
@@ -654,8 +690,9 @@ _L16_)	: (_L17D_	_%%E_	// Say time
 
 		á	''a
 		é	''e
-		è	E
-	@) è	''E
+	_) è (_	,E:
+	A) è	''E
+	C) è	''E
 		èi (K	''Ej
 		éi (K	''eI
 		ì	''i
@@ -669,12 +706,7 @@ _L16_)	: (_L17D_	_%%E_	// Say time
 
 		$	d'ollaRo
 	D) , (D	v'i@-*gola
-		!       _p'untoesklamat'ivo_
-	!)	!
-		?	_p'untointeRogat'ivo_
-	?)	?
         __)  - (_D         meno
         A_)  - (_D        _
         C_)  - (_D        _
 		§	pa*'ag@-*afO
-		
