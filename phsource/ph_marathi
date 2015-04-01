@@ -4,3 +4,41 @@
 //====================================================
 
 
+phoneme c
+  import_phoneme base/c
+endphoneme
+
+
+phoneme c#
+  CALL base/tS;
+  ipa cU+02B0
+endphoneme
+
+
+phoneme tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh_unasp)
+endphoneme
+
+
+
+phoneme aI~
+  vowel long starttype #@ endtype #i
+  length 270
+  long
+  FMT(vnasal/ai_n)
+endphoneme
+
+phoneme aU~
+  vowel long starttype #a endtype #u
+  length 300
+  long
+  FMT(vnasal/au_n)
+endphoneme

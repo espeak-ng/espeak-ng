@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -579,6 +579,7 @@ ingrid      iNgr@d
 isabel      is@b&l
 isis        $1
 iskariot    isk'ariOt
+izak        isak
 jaco        jaku
 jakomina    jakum'ina
 james       _^_EN
@@ -687,6 +688,7 @@ naomi       na_'o@mi
 natasha n%at'aSa
 natasja     n%at'aSa
 naudé       nOd'e@
+nebukadnésar $4
 nefertiti   nEf@rt'iti
 neil        _^_EN
 nelson      _^_EN
@@ -775,6 +777,8 @@ theron tr'On
 thessalonicense tEsalo@nis'E:ns@
 thys        teIs
 timotheus   t@m'o@tiWs
+timoteus    t@m'o@tiWs
+timótheüs   t@m'o@tiWs 
 toerien     $2
 totius      to@SiWs
 trudie      trudi
@@ -1111,6 +1115,7 @@ bewering      b@ve@rIN
 biopsie       bi'Opsi
 bomaat      bo@mA:t
 bordegoed     bO:rd@x2ut
+bordekas      bOrd@kas
 borgene       bOrx2@n@
 boskaas       $2
 bostaande b'o@stA:nd@
@@ -1163,6 +1168,7 @@ disleksie     $2
 divan         div'an
 doktore       $2
 doyen       dO:j'En
+dratyd        drA:teIt
 drinkebroer   drInk@bru:r
 droomster     dro@mst&r
 dubbelken     dWb@lkEn
@@ -1405,9 +1411,11 @@ onkunde       $1
 onmag         $1
 onmin         $1
 onomwonde     $3
+ontersake     Ont&rsA:k@
 oorboord      $2
-oorleg        $2
 ooreenkomste  $2
+oorleg        $2
+oorlewe       $2
 oorstroom     $2
 oorwaai       $1
 oplaas        $2

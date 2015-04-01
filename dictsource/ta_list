@@ -109,6 +109,7 @@ _?	ke:l.vi		// கேள்வி
 &	mVt.RUm
 |	seNgUttU
 U+bf9	ru:ba:j
+₹	ru:ba:j
 ¼	ka:l
 ½	araI
 ¾	mukka:l
@@ -248,7 +249,7 @@ _7o	;e:z.
 _8o	;et.t.
 _9o	onbVd
 _10o	patt
-_11o	patinonR
+_11o	padinonR
 _12o	pVnnirVn.d.
 _19o	pattonbVd
 
@@ -325,7 +326,6 @@ andagakavi	அந்தகக்கவி	$text
 பார்லி	$alt
 பிக்கினி	$alt
 பேதம்	$alt
-போனஸ்	$alt
 போகி	$alt
 //பாலா	$alt
 பூத	$alt
@@ -410,7 +410,6 @@ andagakavi	அந்தகக்கவி	$text
 பிரா	bra:
 ப்ரா	$alt
 பலம்	$alt
-பலமாக	$alt
 பலமா	$alt
 பாதிப்பு	$alt
 பீடா	$alt
@@ -439,6 +438,8 @@ andagakavi	அந்தகக்கவி	$text
 பொம்ம	$alt
 புகாரி	$alt
 பாக	$alt
+பாதிப்பா	$alt
+பாதிப்பாக	$alt
 
 
 	// initial த as [d]
@@ -446,7 +447,6 @@ andagakavi	அந்தகக்கவி	$text
 தண்டனை	$alt
 துவம்சம்	$alt
 திருஷ்டி	$alt
-தயாநிதி	$alt
 தயாளு	$alt
 துந்துவி	$alt
 திக்	$alt
@@ -604,10 +604,10 @@ andagakavi	அந்தகக்கவி	$text
 பேனில்	fe:nil
 பேன்ல	fe:nlV
 போன்ல	fo:nlV
-ஆப்	a:f
 
 
 பப	pVpV
+பாப 	pa:bV
 டிரேயின்	t.re:jn
 பைக்	baIk
 பைக்கில் 	baIkkIl

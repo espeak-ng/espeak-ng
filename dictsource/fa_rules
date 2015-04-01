@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.12
-// *   This file writen by Shadyar Khodayari 07-01-2014
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.13
+// *   This file writen by Shadyar Khodayari 01-17-2015
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -44,7 +44,6 @@
 		۸	8
 		٩	9
 		۹	9
-		
 		٪	%
 		ٔ	ٴ
 		ي	ی	// this is "ي" Shift + x on the Persian Keyboard ("ye Arabi") that has been replaced with "ی" Standard for some programing reasones.
@@ -1330,6 +1329,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09L09) چی (_Sm2	tSi
 		L09L09) چیان (_Sm4	tSijAn
 		L09L09) چه (_Sm2	tSe
+		L09L09) چۀ (_Sm2	tSeje
 		L09L09) چین (_Sm3	tSin
 		L09L09) چهر (_Sm3	tSehR
 		L09L09) چهره (_Sm4	tSehRe:
@@ -5866,18 +5866,6 @@ L09L04) السّادات (_Sm8	ossAdAt
 .group إ
 	إ	e?
 	إ (ِ	
-
-
-.group ـ
-	ـ	
-
-
-.group ،
-،	
-
-
-.group ؛
-	؛	
 
 
 
