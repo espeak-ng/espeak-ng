@@ -1,4 +1,4 @@
- 
+﻿ 
 // This file is UTF8 encoded 
 // Spelling to phoneme words and exceptions for Kannada
 
@@ -38,49 +38,49 @@ _??	aks.ara   // 'unknown character'
 
 // letter names
 
-ಕ್	ik
-ಖ್	ik#
-ಗ್	ig
-ಘ್	ig#
-ಙ್	iN
-ಚ್	ic
-ಛ್	ic#
-ಜ್	iJ
-ಝ್	iJ#
-ಞ್	in^
-ಟ್	it.
-ಠ್	it.#
-ಡ್	id.
-ಢ್	id.#
-ಣ್	in.
-ತ್	it
-ಥ್	it#
-ದ್	id
-ಧ್	id#
-ನ್	in
-ಪ್	ip
-ಫ್	ip#
-ಬ್	ib
-ಭ್	ib#
-ಮ್	im
-ಯ್	ij
-ರ್	ir
-ಱ್	ir
-ಲ್	il
-ಳ್	il.
-ವ್	iv
-ಶ್	iS;
-ಷ್	is.
-ಸ್	is
-ಹ್	ih
-ೞ್	if
+ಕ್	ka
+ಖ್	k#a
+ಗ್	ga
+ಘ್	g#a
+ಙ್	Na
+ಚ್	ca
+ಛ್	c#a
+ಜ್	Ja
+ಝ್	J#a
+ಞ್	n^a
+ಟ್	t.a
+ಠ್	t.#a
+ಡ್	d.a
+ಢ್	d.#a
+ಣ್	n.a
+ತ್	ta
+ಥ್	t#a
+ದ್	da
+ಧ್	d#a
+ನ್	na
+ಪ್	pa
+ಫ್	p#a
+ಬ್	ba
+ಭ್	b#a
+ಮ್	ma
+ಯ್	ja
+ರ್	ra
+ಱ್	ra
+ಲ್	la
+ಳ್	l.a
+ವ್	va
+ಶ್	S;a
+ಷ್	s.a
+ಸ್	sa
+ಹ್	ha
+ೞ್	fa
 U+c82	am
 U+c83	ah
 U+cbc	nukta
 U+cbd	avagraha
 U+ccd	vattu
-ಫ಼್	if
-ಜ಼್	iz
+ಫ಼್	fa
+ಜ಼್	za
 
 
 // combining vowels, precede by a click so they can be distinguished from stand-alone vowels
@@ -248,7 +248,7 @@ _dpt	_d'as.a:ms.a
 // abbreviations
 
 (http ://)   e:tSti:ti:'pi:_
-pvt	praIvat
+pvt	praIve::t.
 
 
 // English words

@@ -152,6 +152,9 @@ endphoneme
 
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
+  IF nextPh(isVoiced) THEN
+    ChangePhoneme(Z)
+  ENDIF
   CALL base/S
   ipa ʃ
 endphoneme

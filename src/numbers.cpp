@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -35,7 +35,7 @@
 #include "translate.h"
 
 
-
+#define M_LIGATURE  0x8000
 #define M_NAME      0
 #define M_SMALLCAP  1
 #define M_TURNED    2
@@ -107,7 +107,7 @@ static ACCENTS accents_tab[] = {
 
 #define CAPITAL  0
 #define LETTER(ch,mod1,mod2) (ch-59)+(mod1 << 6)+(mod2 << 11)
-#define LIGATURE(ch1,ch2,mod1) (ch1-59)+((ch2-59) << 6)+(mod1 << 12)+0x8000
+#define LIGATURE(ch1,ch2,mod1) (ch1-59)+((ch2-59) << 6)+(mod1 << 12)+M_LIGATURE
 
 
 #define L_ALPHA  60   // U+3B1
@@ -447,7 +447,7 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 		if(basic_letter < 'a')
 			basic_letter = non_ascii_tab[basic_letter-59];
 
-		if(accent_data & 0x8000)
+		if(accent_data & M_LIGATURE)
 		{
 			letter2 = (accent_data >> 6) & 0x3f;
 			letter2 += 59;
@@ -459,6 +459,12 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 			accent2 = (accent_data >> 11) & 0xf;
 		}
 
+
+		if((accent1==0) && !(accent_data & M_LIGATURE))
+		{
+			// just a letter name, not an accented character or ligature
+			return;
+		}
 
 		if((flags1 = Lookup(tr, accents_tab[accent1].name, ph_accent1)) != 0)
 		{
@@ -1551,7 +1557,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 
 		// no, speak as tens+units
 
-		if((control & 0x10) && (value < 10))
+		if((value < 10) && (control & 0x10))
 		{
 			// speak leading zero
 			Lookup(tr, "_0", ph_tens);
@@ -1964,6 +1970,12 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		if((tr->translator_name == L('m','l')) && (thousandplex == 1))
 		{
 			x |= 0x208;  // use #f form for both tens and units
+		}
+
+		if(tr->langopts.numbers2 & NUM2_ZERO_TENS)
+		{
+			// LANG=zh
+			x |= 0x10;
 		}
 
 		if(LookupNum2(tr, tensunits, thousandplex, x | (control & 0x100), buf2) != 0)

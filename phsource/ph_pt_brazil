@@ -200,7 +200,11 @@ phoneme r-
 endphoneme
 
 
-phoneme s#     // This is [s] for Brazi;, [S] for Portugal
+phoneme s#     // This is [s] for Brazil, [S] for Portugal
+  IF nextPh(isVoiced) THEN
+    ChangePhoneme(z)
+  ENDIF
+
   CALL base/s
   ipa s
 endphoneme

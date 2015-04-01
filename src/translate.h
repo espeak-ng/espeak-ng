@@ -527,6 +527,7 @@ typedef struct {
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 #define NUM2_ORDINAL_AND_THOUSANDS 0x40000
 #define NUM2_ORDINAL_DROP_VOWEL  0x80000        // currently only for tens and units
+#define NUM2_ZERO_TENS          0x100000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
@@ -539,6 +540,7 @@ typedef struct {
 	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
 	// bit18=(LANG=ta)  same variant for ordinals and thousands (#o = #a)
 	// bit19=(LANG=te)  drop final vowel from cardial number before adding ordinal suffix
+	// bit20=(LANG=zh)  say zero tens
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248

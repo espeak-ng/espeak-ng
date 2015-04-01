@@ -233,7 +233,6 @@ _#-ikának	a:nAk
 (0-ába) nul:a:bA
 (0-áson) nul:a:Son
 (0-tól)	nul:a:to:l
-(00-tól)	nul:Anul:a:to:l
 (0-n) nul:a:n
 (00-n) nul:Anul:a:n
 (0-ról)	nul:a:R2o:l
@@ -3705,7 +3704,7 @@ programjának	$unstressend
 órától	$unstressend
 elnöke	$unstressend
 vezeti	$unstressend
-(a hagyományt) A'_||hAJomA:n^t	$unstressend
+(a hagyományt) A'_||hAJoma:n^t	$unstressend
 (azt a hagyományt) Ast'_||A_||hAJoma:n^t	$unstressend
 megsegítésére	$unstressend
 (helyezett ki) hEjEzEt:_||ki	$unstressend
@@ -4921,7 +4920,7 @@ reméljük	$unstressend
 törvényeken	$unstressend
 kötelezettségeket	$unstressend
 (is beszélt) iS_||bEse:lt	$unstressend
-(is történt) iS_||tYrte:nt	$unstressend
+(is történt) iS_||tYR2te:nt	$unstressend
 nyilatkoztak	$unstressend
 (a kutatókat) A'||kutAto:kAt	$unstressend
 gyanúsítanak	$unstressend
@@ -5508,4 +5507,3 @@ egyezség	eggyesség
 (ORTT-től) oerrtététől //special exceptio
 (kilogramm) kilogram
 mszmp emeszempé
-

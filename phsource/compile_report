@@ -34,7 +34,7 @@ consonants  11  119
       kn  17  149
       ml  30  152
       gu   7  151
-      mr   1  149
+      mr   6  151
       hu  25  124
       lt  42  139
       lv  29  127
@@ -1132,6 +1132,7 @@ ustop/tr        [t] base
 ustop/ts        [ts] consonants
                 [dz] consonants
                 [ts] hu
+                [ts] it
                 [z] zhy
                 [tsh] zh
                 [ts] tn
@@ -1140,6 +1141,7 @@ ustop/ts        [ts] consonants
 ustop/ts_       [ts] consonants
                 [dz] consonants
                 [ts] lv
+                [ts] it
                 [ts] tn
                 [ts#] bo
                 [dz#] bo
@@ -1157,6 +1159,7 @@ ustop/tsh       [tS] base
 ustop/tsh_      [tS] base
                 [c] hi_base
                 [tS#] bn
+                [tS] mr
                 [c] zhy
                 [tS#] or
                 [tS#] mni
@@ -1174,6 +1177,7 @@ ustop/tsh_pzd   [tS;h] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
 ustop/tsh_unasp  [c] hi_base
+                [tS] mr
                 [tS] hy
                 [tS`] am
 ustop/tsh_unasp2  [tS] bn
@@ -1352,7 +1356,6 @@ vdiph/ai_8      [aI] ta
                 [aI] dv
                 [aI] si
 vdiph/aoo       [aU] en-us
-                [aU] it
 vdiph/au        [aU] en
                 [aU] af
                 [aU] ta
@@ -1369,6 +1372,7 @@ vdiph/au_4      [aU] base2
                 [aU] eo
                 [aU] lt
                 [aU] sk
+                [aU] it
                 [aU] id
 vdiph/ee-e      [E:] hi_base
 vdiph/eei       [EI] base2
@@ -1545,6 +1549,7 @@ vnasal/aa_n4    [A~] de
                 [A~] fr
                 [A~] ht
 vnasal/ai_n     [aI~] gu
+                [aI~] mr
 vnasal/a_n      [a~] hi_base
 vnasal/a#_n     [&~] pt
 vnasal/a#_n2    [&~] pt
@@ -1552,6 +1557,7 @@ vnasal/a#u_n    [&U~] pt
                 [&U~] pt-pt
                 [o#] vi
 vnasal/au_n     [aU~] gu
+                [aU~] mr
 vnasal/ee_n     [E~] fr-ca
 vnasal/ee_n2    [a] en-us
                 [E~] hi_base

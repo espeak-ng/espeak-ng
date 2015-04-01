@@ -1,6 +1,8 @@
-﻿
+﻿// Marathi Language.
+// This mr_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+
 // This file is UTF8 encoded
-// Updated file. up to 20 Jan 2015
+
 // letter groups:
 // A   vowel letters and vowel signs
 // B   vowel signs and virama ्
@@ -24,7 +26,7 @@
  ८	8
  ९	9
 
-// combine nukta-dot consonants into a single character
+// combine dot consonants into a single character
 क़	क़
 ख़	ख़
 ग़	ग़
@@ -83,10 +85,10 @@
     ा) एँ (_       j
 
 .group ऐ
-        ऐ          E:        // ?? [aI] [E:] [&:]
-        ऐं          E~
-        ऐँ (_       E~
-?2      ऐ          aI        // ?? [aI] [E:] [&:]
+        ऐ          aI        // ?? [aI] [E:] [&:]
+        ऐं          aI~
+        ऐँ (_       aI~
+
 
 
 .group ऑ
@@ -106,10 +108,10 @@
     
 
 .group औ
-        औ          O:        // ?? [aU] [O:]
-        औं          O~        // +anusvara
-        औँ (_       O~        // +candrabindu
-?3      औ          aU        // ?? [aU] [O:]
+        औ          aU        // ?? [aU] [O:]
+        औं          aU~        // +anusvara
+        औँ (_       aU~        // +candrabindu
+
 
 
 // Vowel Signs
@@ -177,14 +179,12 @@ C)        ें         e~:
 C)        ेँ (_      e~:
 
 .group ै
-ै	#X2E:
-C)        ै          E:        // ?? [aI] [E:] [&:]
-C)        ैं         E~ 
-C)        ै (ँ       E~ 
-C)        ैं         E~
-C)        ैँ (_      E~
-?2 ै	#X2aI
-?2  C)    ै          aI        // ?? [aI] [E:] [&:]
+ै	#X2aI
+C)        ै          aI        // ?? [aI] [E:] [&:]
+C)        ैं         aI~ 
+C)        ै (ँ       aI~ 
+C)        ैं         aI~
+C)        ैँ (_      aI~
 
 .group ॉ
 ॉ	#X1O
@@ -205,13 +205,11 @@ C)        ों         o~
 C)        ोँ (_      o~
 
 .group ौ
-ौ	#X2O:
-C)        ौ          O:        //  [O:] or [aU] ??
-C)        ौ (ँ       O~        //  [O:] or [aU] ??
-C)        ौं         O~
-C)        ौँ (_      O~
-?3 ौ 	#X2aU
-?3  C)    ौ          aU        //  [O:] or [aU] ??
+ौ	#X2aU
+C)        ौ          aU        //  [O:] or [aU] ??
+C)        ौ (ँ       aU~        //  [O:] or [aU] ??
+C)        ौं         aU~
+C)        ौँ (_      aU~
 
 .group ॢ     // vowel sign l
 ॢ 	#X1l-
@@ -223,6 +221,7 @@ C)        ॣ          l-:
 
 .group ॐ
 ॐ	o~m
+
 
 
 // Consonants
@@ -250,9 +249,6 @@ C)        ॣ          l-:
         ग (B       g
         ग़         QV
         ग़ (B      Q
-//new
-        ग्ग         g:V   // GG -> g:
-        ग्ग (B      g:
 
 .group घ
         घ          g#V
@@ -268,15 +264,6 @@ C)        ॣ          l-:
         च (B       c
         च (्य      c:
 
-//New
-        च्च          c:V   // cc -> c:
-        च्च (B       c:
-
-//new
-        च्छ          c#:V    // c#c# -> c#:
-        च्छ (B       c#:
-      
-
 .group छ
         छ          c#V
         छ (B       c#
@@ -286,12 +273,15 @@ C)        ॣ          l-:
         ज (B       J
         ज़         zV
         ज़ (B      z
-//new
-        ज्ज         J:V   // JJ -> J:
-        ज्ज (B      J:
         
-         ज्ञ           gjV
-        ज्ञ (B       gj
+//         ज्ञ           gjV
+//        ज्ञ (B       gj
+
+
+        ज्ञ          gn.V
+        ज्ञ (B       gn.
+
+
 
 .group झ
         झ          J#V
@@ -308,10 +298,8 @@ C)        ॣ          l-:
         ट          t.V
         ट (B       t.
         ट (्य      t.:
-
         ट्ट          t.:V    // t.t. -> t.:
         ट्ट (B       t.:
-
         ट्ठ          t.#:V    // t.t.# -> t.#:
         ट्ठ (B       t.#:
 
@@ -325,13 +313,6 @@ C)        ॣ          l-:
 .group ड
         ड          d.V
         ड (B       d.
-
-        ड्ड          d.:V   // d. d. -> d.:
-        ड्ड (B      d.:
-
-        ड्ढ          d.#:V    // d#d# -> d#:
-        ड्ढ (B       d.#:
-
 
         ड़         r.V
         ड़ (B      r.
@@ -354,11 +335,7 @@ C)        ॣ          l-:
 
         त्त          t:V   // tt -> t:
         त्त (B       t:
-//new
-        त्थ          t#:V    // t#:t#: -> t#:
-        त्थ (B       t#:
-
-       
+        
 .group थ
         थ          t#V
         थ (B       t#
@@ -366,14 +343,6 @@ C)        ॣ          l-:
 .group द
         द          dV
         द (B       d
-
-//new
-        द्द         d:V   // dd -> d:
-        द्द (B      d:
-
-        द्ध          d#:V    // d#d# -> d#:
-        द्ध (B       d#:
-
 
 .group ध
         ध          d#V
@@ -453,12 +422,12 @@ C)        ॣ          l-:
 .group व
         व          vV
         व (B       v
-// 3     _) व          wV
-// 3     _) व (B       w
-// 4      _) व (्       v         // +virma
-// 2        व (_       w
-// 5     ्) व (_       w@
-// 1 deleted
+//     _) व          wV
+//     _) व (B       w
+//     _) व (्       v         // +virma
+//        व (_       w
+//    ्) व (_       w@
+
 .group श
         श          SV
         श (B       S
@@ -517,7 +486,7 @@ C)        ॣ          l-:
 
 .group ्		// virama
 ्	H@l'Vnt
-C)	् 
+//C)	् 
 
 // Extra consonants
 
@@ -558,7 +527,6 @@ C)	्
 
 .group ॡ    // ll
         ॡ          l-:       // long syllabic l
-
 
 
 // If we find a Latin letter a-z, then translate as English

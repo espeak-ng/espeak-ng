@@ -58,6 +58,10 @@ phoneme i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/i)
+
+   IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND NOT prevPhW(E) THEN
+   ChangePhoneme(I)
+   ENDIF
 endphoneme
 
 
@@ -119,9 +123,9 @@ endphoneme
 
 
 phoneme aU
-  vowel starttype #a endtype #o
-  length 300
-  FMT(vdiph/aoo)
+  vowel starttype #a endtype #u
+  length 270
+  FMT(vdiph/au_4)
 endphoneme
 
 
@@ -150,9 +154,15 @@ phoneme l^
 endphoneme
 
 phoneme ts
-  import_phoneme consonants/ts
-  voicingswitch s
-  lengthmod 4
+  vls alv afr sibilant
+  voicingswitch dz
+  lengthmod 2
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 70 len=60
+  Vowelout f1=2 f2=1700 -300 250  f3=-100 70  rms=14
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
 endphoneme
 
 phoneme dz

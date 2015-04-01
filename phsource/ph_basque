@@ -60,13 +60,14 @@ endphoneme
 
 
 phoneme s
-import_phoneme es/s
+  CALL es/s
+  ipa s̺
 endphoneme
 
 
 phoneme z
   vls alv frc sibilant
-  ipa s
+  ipa s̻
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20  
@@ -79,7 +80,7 @@ endphoneme
 
 phoneme ts
   vls alv afr sibilant
-  ipa t?
+  ipa ts̺
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -92,7 +93,7 @@ endphoneme
 
 phoneme tz
   vls alv afr sibilant
-  ipa ts
+  ipa ts̻
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -113,7 +114,7 @@ endphoneme
 phoneme r
   vcd alv flp rhotic
   brkafter
-  ipa ?
+  ipa ɾ
   lengthmod 3
 
   IF nextPhW(isVowel) THEN
@@ -160,8 +161,7 @@ phoneme l
   ENDIF
   CALL base/l
 endphoneme
-
-phoneme l2 // same as l2
+phoneme l2 // same as n2
   liquid
   CALL base/l
 endphoneme
