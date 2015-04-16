@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -874,7 +874,7 @@ voice_t *LoadVoice(const char *vname, int control)
 					else
 					{
 						if((key==V_NUMBERS) && (n < 64))
-							langopts->numbers |= (1 << (n-32));
+							langopts->numbers2 |= (1 << (n-32));
 						else
 							fprintf(stderr,"Bad option number %d\n", n);
 					}

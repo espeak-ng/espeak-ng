@@ -721,6 +721,7 @@ utc     $abbrev
 uucp	$abbrev
 uv	$abbrev
 VI      $abbrev
+webrtc	w'EbA@t2i:s'i:
 wuxga	$abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
 xaml	$abbrev
@@ -995,6 +996,7 @@ arithmetic	a#rITm@tIk $onlys
 arise		a#raIz
 arisen		@rIz@n
 aright		$alt3
+armorer		A@m3r3
 armslength	,A@mzl'ENT
 aroma		a#roUm@
 arouse		a#raUz
@@ -1100,6 +1102,8 @@ belisha		b@l'i:S@
 bellyaching	bElIeIkIN
 bely		bI2laI
 bereft		bI2rEft
+beret		bEreI
+?3 beret	b3eI
 beriberi	bErIb'Eri
 beringed	bI2rINgd
 beryl		bEr@L
@@ -1144,7 +1148,7 @@ bleh		blEh
 blockade	bl0k'eId
 bloodrage	$alt1
 blouse		blaUz
-bludgeon	$alt2
+bludgeon	blVdZ@n
 bluest		blu:@st
 bluish		blu:IS
 blurry		bl3:ri
@@ -1301,6 +1305,7 @@ celebrity	$alt3
 celidh		keIli
 ceilidh		keIli
 celebre		sEl'Ebr@
+celibate	$alt2
 censure		sEnS3
 centurion	sEntS'U@ri@n
 ?3 cerebral	s@ri:br@L
@@ -1483,6 +1488,7 @@ conker		$1
 coquina		koUk'i:n@
 conquistador	k0nk'i:st@do@
 conscience	k0nS@ns
+conscript	$2 $verb
 console		k@nsoUl $verb
 consort		$1
 consort		$verb
@@ -1736,6 +1742,7 @@ dossier		d0sIeI
 dotage		doUtI2dZ
 dove		doUv	$verb
 dove		doUv	$past
+downriver	d,aUnr'Iv3
 draconia	$alt3  // -n
 dragnet		$alt1
 dramatic	dr@matIk
@@ -1999,6 +2006,7 @@ fuscia		fju:S@
 fuselage	fju:z@lA:Z
 futon		fu:t0n
 
+gabardine	gab3di:n
 ?3 gala		geIl@
 galactic	$alt3
 galaga		gal@g@
@@ -2056,6 +2064,7 @@ goatee		$2
 goddam		g0dam
 ?3 goddess	$alt2
 goin		,goUI2n $only // for goin'
+golliwog	$1
 gonna		g,@n@
 goodbye		$2
 goodday		$2
@@ -2170,6 +2179,7 @@ hospitable	h0sp'It@b@L
 hostage		h0stI2dZ
 hostess		hoUstEs
 hostname	hoUstneIm
+hotheaded	$2
 hotkey		h0tki:
 house		haUz          $verb 
 however		$2
@@ -2219,6 +2229,7 @@ immolate	$1
 impedance	Imp'i:d@ns
 imperative	Imp'Er@tIv
 imperfect	Imp'3:fEkt
+imperile	$alt2
 impi		$1
 impinging	Imp'IndZIN
 impish		$1
@@ -2348,6 +2359,7 @@ kerosene	kEr@si:n
 kilo		ki:loU
 kilometer	kIl'0mI2t3
 kilter		kIlt3
+kinda		kaInd@
 kinect		kI2nEkt
 kinetic		kI#nEtIk
 kiosk		ki:0sk
@@ -2373,7 +2385,6 @@ lascivious	$alt3
 lager		lA:g3
 lagoon		$alt3
 laity		leI@ti
-landowner	l'and,oUn3
 lapel		$alt3
 las		,las $only
 ?3 las		,lA:s $only
@@ -2387,6 +2398,7 @@ latex		$alt4
 latrine		$alt3
 latte		lA:t2eI
 ?3 launch	lA:ntS
+laundress	$alt2
 lava		lA:v@
 lavender	lav@nd3
 le		l@_|            $only
@@ -2455,10 +2467,12 @@ losing		lu:zIN        // misspell
 loquat		loUkw0t
 ?3 lost		lOst
 loudmouth	$alt1
+lugubrious	l@g'u:brI2@s
 lukewarm	lu:kwO@m
 lullaby		lVl@baI
 lunatic		lu:n@tIk
 lunchroom	lVntS||ru:m
+luxuriant	$2
 luxury		lVkS3ri
 lychee		li:tSi:
 lycra		laIkr@
@@ -2535,6 +2549,7 @@ medicine	mEds@n
 ?3 medicine	mEd@s@n
 meh		mE
 melamed		mEl@mEd
+melange		meIl'0nZ
 melee		mEleI
 ?3 melee	meIleI
 memento		$alt3
@@ -2733,6 +2748,7 @@ oeuvre		3:vr@
 ?5 oeuvre	VRvr@
 offer		0f3
 offers		0f3z
+offhand		$2
 okay		oUk'eI
 okra		oUkr@
 oldtimer	oUldt'aIm3
@@ -3057,6 +3073,8 @@ pyramidal	pI2r'amId@L
 qua		kwA:
 qaeda		kaId@
 quadrilateral	$3
+quadruped	kw0drUpEd
+quadrupedal	$3
 quarantine	kw0r@nti:n
 quash		kw0S
 quaternary	kw@t3:n@ri
@@ -3135,6 +3153,7 @@ refit		ri:fIt
 reflex		ri:flEks
 reflux		ri:flVks
 refund		ri:fVnd $noun
+refuse		rEfju:s	$noun $only
 reg		rEdZ
 regal		ri:g@L
 regale		rI2geIl   // regaled, ing
@@ -3351,6 +3370,7 @@ shareable	Se@@b@L
 sharpie		$alt2
 shazam		$alt3
 shebang		SI#baN
+sheepherder	$alt4
 shenanigan	SI#nanIg@n
 shepherd	SEp3d
 sheriff		S'ErI2f
@@ -3512,6 +3532,7 @@ sutra		su:tr@
 swahili		swA:h'i:li
 swampland	$alt1
 swath		sw0T
+syllabi		sIl@baI
 symbol		sImb@L
 sync		sINk
 syntax		sInt2aks
@@ -3519,7 +3540,6 @@ syphilis	sIf@lI#s
 syphon		$alt2
 
 tabasco		$alt3
-tableau		tabloU
 tablet		tabl@t
 taboo		$2
 tabu		tabu:
@@ -3704,6 +3724,7 @@ update		$1 $onlys
 update		$verb
 upgrade		$1 $onlys
 upgrade		$verb
+upriver		,Vpr'Iv3
 uproot		$2
 uplift		$2
 upset		$1        $noun
@@ -3828,6 +3849,7 @@ whodunit	hu:d'VnIt
 whoe're		hu:'e@
 whois		hu:'Iz
 whol		hoUl          // for wholly
+wholehearted	$2
 whore		ho@
 wicked		wIkI#d
 wilderness	wIld3n@s
@@ -3920,6 +3942,7 @@ Fylde		faIld
 Glasgow		glaazgoU
 Glenrothes	gl,Enr'0TI#s
 Greenwich	grEnItS
+Halesowen	heIlz'oUI#n
 Harwich		harIdZ
 Hasting		$alt6
 Hartlepool	hA@tlIpu:l
@@ -4025,6 +4048,7 @@ Benevente	bEnIv'EnteI
 Benin		bEnIn
 Bering		be@rIN
 Berkeley	b3:kli
+Beslan		bEslan
 Bethesda	$alt3
 Bhopal		boUp'A:l
 Bhubaneswar	bUba#n'eISw3
@@ -4080,10 +4104,10 @@ Cruz		kru:z
 Cyprus		saIpr@s
 Dagestan	dA:gIst'A:n
 Dahomey		$alt3
+Dakota		$alt3
 Dallas		dal@s
 Daman		da#mA:n
 Damascus	$alt3
-Dakota		$alt3
 Danish		$alt6
 Dehradun	de@a#d'u:n
 (Dehra dun)	de@a#d'u:n
@@ -4266,6 +4290,7 @@ Mojave		moUh'A:vi
 Monaco		m0n@koU
 Montevideo	m0ntIvId'eIoU
 Montreal	m0ntrI'O:l
+Montréal	m0ntrI'O:l
 Morocco		m@r0koU
 Moroccan	m@r0k@n
 Montana		m0nt'an@
@@ -4344,6 +4369,7 @@ Pyrenees	pIr@n'i:z
 Qatar		katA@
 Quebec		kwI2bEk
 Québec		kwI2bEk
+Rahad		$alt3
 Raipur		raIpU@
 Raleigh		rA:li
 Ranchi		rA:ntSi
@@ -4512,6 +4538,7 @@ Bambi		bambi:
 Barack		ba#rA:k
 Barbara		bA@b@r@
 Bartholomew	bA@T'0l@mju:
+Bela		bEl@
 Benjamin	bEndZ@mI#n
 Benoit		bEnw'A:
 Bernard		b3:n@d
@@ -4564,6 +4591,7 @@ Curtis		k3:tI#s
 ?5 Curtis	kVRtI#s
 Cyrus		saIr@s
 Dana		$alt6
+Danelle		$alt3
 Danilo		da#ni:loU
 Daphne		dafni
 Darryl		dar@L
@@ -4572,6 +4600,7 @@ Davis		deIvIs
 Deborah		dEb@r@
 Declan		dEkla#n
 Delia		di:li@
+Dimitris	dI#mi:trIs
 Denise		d@ni:s
 Dennis		dEnI#s
 Derek		dErIk
@@ -4645,6 +4674,7 @@ Guido		gwi:doU
 Guillaume	gi:j'oUm
 Guinevere	gwInI#vi@3
 Hadrian		$alt6
+Halima		ha#li:m@
 Hamish		$alt6
 Harold		har@Ld
 Harriet		hari@t
@@ -4708,6 +4738,7 @@ Lawrence	l0r@ns
 Leann		li:'an
 Leanne		li:'an
 (Le ann)	li:'an
+Lelaine		$2
 Lenore		lEn'o@
 Leola		li:'oUl@
 Leon		li:0n
@@ -4932,6 +4963,7 @@ Chavez		tSA:vEz
 Cialis		si:'alI#s
 Cohen		koU@n
 Compton		k0mpt@n
+Connally	$1
 Connelly	k0n@li
 Connolly	$1
 Conti		$1
@@ -4967,6 +4999,7 @@ Dulles		dVl@s
 Dupuis		du:pw'i:
 Dvorak		d@-vo@Zak
 Earp		3:p
+Ellis		$alt1
 Emory		Em3ri
 exxon		Eks0n
 Ferguson	f3:g@s@n
@@ -5073,6 +5106,7 @@ Oreilly		oUr'aIli
 Ortiz		O@t'i:z
 Osiris		oUs'aIrIs
 Otis		oUtIs
+ouya		u:j@
 Patel		$alt3
 Perez		p3rEz
 Pérez		pErEz
@@ -5102,6 +5136,7 @@ Renee		r@neI
 Reuter		rOIt3
 Rivera		rI2ve@r@
 Rizzoli		rI2zoUli
+Rhiannon	ri:'an@n
 Rodrigues	r0dr'i:gEz
 rohypnol	roUh'Ipn0l
 Rojas		roUhA:s

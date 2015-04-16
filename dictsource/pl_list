@@ -1,6 +1,9 @@
 
 // This file is UTF8 encoded
 
+// $alt is used to mark words which combine with 'ni' or 'nie'
+
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
@@ -182,7 +185,7 @@ _'	ap'OstROf
 \	b'EkslES	$max3
 |	kR,Eska||p;On'Ova
 #	haS	$max3
-_$	d'OlaR
+$	d'OlaR
 %	pR'OtsEnt
 ^	d'aSEk		// what's be better?
 &	and
@@ -228,9 +231,9 @@ _$	d'OlaR
 
 // screenreadery
 
-nvda EnfawdE'a $abbrev
+nvda $abbrev
 orca ORka
-jaws dZ'Ews $abbrev
+jaws dZ'Ews
 
 // komputery, komputery
 
@@ -267,17 +270,17 @@ forward		fORwERd
 backward	bEkwERd
 device		div'ajs
 devices		divajsis
-usb		uEsb'E	$abbrev
-url		uER'El	$abbrev
+usb		$abbrev
+url		$abbrev
 drive		drajv
-scsi		sk'azi	$abbrev
+scsi		sk'azi
 hda		$abbrev
 sda		$abbrev
-dvd		divid'i	$abbrev
-sh		Es'xa	$abbrev
-ascii		'askEj	$abbrev
-ctrl		k'OntROl $abbrev
-right		Rajt	$abbrev
+dvd		divid'i
+sh		$abbrev
+//ascii		'askEj
+ctrl		k'OntROl
+right		Rajt
 
 // nazwy własne akcentowanie - wymowa w regułkach
 // todo: more!
@@ -335,7 +338,7 @@ jerry	dZERy	$only
 arcus		arkus
 jebut		$2
 babach		$2
-cv		siv'i	$abbrev
+cv		siv'i
 maximum		$1
 maxima		$1
 maksimum	$1
