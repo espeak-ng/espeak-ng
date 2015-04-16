@@ -1178,7 +1178,14 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		return(0);    // not '2xx'
 
 	if(word[1] == ' ')
-		return(0);  // only one letter, don't speak as a Roman Number
+	{
+		if((tr->langopts.numbers & (NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL | NUM_ORDINAL_DOT)) && (wtab[0].flags & FLAG_HAS_DOT))
+		{
+			// allow single letter Roman ordinal followed by dot.
+		}
+		else
+			return(0);  // only one letter, don't speak as a Roman Number
+	}
 
 	word_start = word;
 	while((c = *word++) != ' ')
@@ -1972,9 +1979,9 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			x |= 0x208;  // use #f form for both tens and units
 		}
 
-		if(tr->langopts.numbers2 & NUM2_ZERO_TENS)
+		if((tr->langopts.numbers2 & NUM2_ZERO_TENS) && ((control & 1) || (hundreds > 0)))
 		{
-			// LANG=zh
+			// LANG=zh,
 			x |= 0x10;
 		}
 

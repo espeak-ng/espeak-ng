@@ -1209,13 +1209,13 @@ phoneme Z
 
   IF KlattSynth THEN
     IF nextPh(isPause2) THEN
-      FMT(klatt/zh_) addWav(vocw/zh)
+      FMT(klatt/zh_, 60) addWav(vocw/zh, 70)
     ENDIF
     FMT(klatt/zh) addWav(vocw/zh, 130)
   ENDIF
 
   IF nextPh(isPause2) THEN
-    FMT(voc/zh_) addWav(vocw/zh)
+    FMT(voc/zh_, 60) addWav(vocw/zh, 70)
   ENDIF
   FMT(voc/zh) addWav(vocw/zh, 130)
 endphoneme

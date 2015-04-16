@@ -13,8 +13,11 @@
 
 .group a
         a        a
+     X) a ($w_alt1 a:
         a (j     A
         a (r     A        // don't reduce to [&]
+        
+   _hrv) a (t    a:
 
 .group b
         b        b
@@ -40,6 +43,7 @@
 
 .group e
         e        E
+     X) e ($w_alt1 E:
      j) e        e
         e (j     e
      _) exe      %ekse        // filetype
@@ -57,6 +61,7 @@
 
 .group i
         i        i
+     X) i ($w_alt1 i:
     ._) ini      %ini         // filetype
 
 .group j
@@ -87,6 +92,7 @@
 
 .group o
         o        o
+     X) o ($w_alt1 o:
         ou       oU
 
 .group p
@@ -118,6 +124,7 @@
 
 .group u
         u        u
+     X) u ($w_alt1 u:
 
 .group v
         v        v
