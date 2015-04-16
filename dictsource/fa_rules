@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.13
-// *   This file writen by Shadyar Khodayari 01-17-2015
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.131
+// *   This file writen by Shadyar Khodayari 04-07-2015
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -233,7 +233,6 @@
 
 
 .group -
-		- (.D	manfije-
 		__) - (_D	manfije-
 
 

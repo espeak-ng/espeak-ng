@@ -8,6 +8,8 @@
 // ?3  Bosnian (Bosna and Hercegovina)
 // ?4  Serbian & Bosnian
 
+// $alt1   first vowel is long
+
 
 // Letters
    b	b@
@@ -275,24 +277,24 @@ _tld	t'ild&
 ?3 _0MA1 h'il^ade
 ?3 _1M1  h'il^adU
 
-   _0M2  m'ilijUna
-   _0MA2 m'ilijUna
-   _1M2  m'ilijUn
-?4 _0M2  m'ilijOna
-?4 _0MA2 m'ilijOna
-?4 _1M2  m'ilijOn
+   _0M2  m'ilijU:na
+   _0MA2 m'ilijU:na
+   _1M2  m'ilijU:n
+?4 _0M2  m'ilijO:na
+?4 _0MA2 m'ilijO:na
+?4 _1M2  m'ilijO:n
 
-   _0M3  m'iliaRdI
-   _0MA3 m'iliaRde
-   _1M3  m'iliaRdU
-?2 _0M3  milijArdI
-?2 _0MA3 milijArde
-?2 _1M3  milijArdU
+   _0M3  m'ilia:RdI
+   _0MA3 m'ilia:Rde
+   _1M3  m'ilia:RdU
+?2 _0M3  milijA:rdI
+?2 _0MA3 milijA:rde
+?2 _1M3  milijA:rdU
 
-   _0M4  b'ilijUna
-   _1M4  b'ilijUn
-?4 _0M4  b'ilijOna
-?4 _1M4  b'ilijOn
+   _0M4  b'ilijU:na
+   _1M4  b'ilijU:n
+?4 _0M4  b'ilijO:na
+?4 _1M4  b'ilijO:n
 
    _dpt  _:z'a*Ez_
    _roman  r*'imsko
@@ -601,7 +603,7 @@ koga     $pause
 
 
 // Pronouns
-
+ja	$alt1
 
 // Prepositions
 o        $u $brk

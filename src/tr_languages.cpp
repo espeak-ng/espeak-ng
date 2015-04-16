@@ -561,6 +561,13 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.numbers = NUM_SWAP_TENS;
 			tr->langopts.break_numbers = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+
+			if(name2 == L_mni)
+			{
+				tr->langopts.numbers = 1;
+				tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
+			}
+
 		}
 		break;
 
