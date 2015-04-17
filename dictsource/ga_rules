@@ -13,7 +13,7 @@ f// translation rules for Irish Gaeilge
 .L03 b bh mb  c ch f m mh dh p ph   // used for words likemuir or cuid
 .L04 b bh mb    // for words like beag
 .L05 nn nna nnas dh r s ntas nach nas nais dar mar rtha nta mh chas chais cht  chta nnach ntach llach d l  ll             // word endings where @ is to repleace ea or a
-.L06 aidh idh aí á eá eadh adh ad ead  adsaeadsa  imid aimid imis aimis  ainn ainnse inn innse idís aidís éin      // word endings where f changes to h
+.L06 aidh idh aí á eá eadh adh ad ead  adsa eadsa  imid aimid imis aimis  ainn ainnse inn innse idís aidís éin      // word endings where f changes to h
 .L07 b c g ch bh gh mb
 .L08 lc ll nt bhse       // for words like cailc
 .L09 cl cr chr  f
