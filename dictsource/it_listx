@@ -203,7 +203,7 @@ anfor $1
 angel $1
 angeli $1
 angiogenesi $3
-anglicanesimo	anglikan'Ezimo
+anglicanesimo	anglikan'ezimo
 anglicizzazione	anglitSidz:atsi'One
 anglosassone $3
 anglosassoni $3
@@ -1228,7 +1228,6 @@ davver $2  $alt2
 debit $1  $alt2
 debole $1
 dec  $alt
-decade $1  $alt
 decameron $2
 decapoli $2
 decebal $2  $alt
@@ -2209,8 +2208,8 @@ leggii	ledZ'i:I
 lemn  $alt
 lemure $1  $alt
 lemuri $1  $alt
-lena		$alt2
-leo  $alt
+lena	$alt2
+leo  $alt2
 leon  $alt2
 leonzi  $alt
 leopold  $alt
@@ -2220,8 +2219,7 @@ lepidotteri  $alt
 lepilemure $3  $alt
 lepore $1  $alt
 lepospondili  $alt
-lepre  $alt
-lepri  $alt
+lepr	$alt
 lequile  $alt
 leros  $alt2
 lesb  $alt
@@ -2229,13 +2227,13 @@ lesbic  $alt
 lesm  $alt
 lessic  $alt
 lestrigoni $2
-let  $alt
 lett  $alt
 letter  $alt
 leuc $1
 leuci $1
 levanz $1  $alt
 leve  $alt
+lezioncine	$4
 liber $1
 licantrop $2
 licomede  $alt
@@ -2378,8 +2376,7 @@ marmorea	$2
 marmoree	$2
 marmorei	$2
 marmoreo $2
-maro  $alt
-maro $2
+maro  $2 $alt
 maroboduo  $alt
 marron $2
 marsia $1
@@ -2391,7 +2388,6 @@ martirii	$2
 martor $1
 mascali $1
 mascalucia  maskalutS'i:a
-mascar $1
 maser $2
 masovia  $alt
 massaros  $alt
@@ -2436,8 +2432,6 @@ menn  $alt2
 mensile $2
 mensol  $alt
 ment  $alt2
-ment  $alt2
-mente  $alt2
 mercantil	$3
 mercanzia $3
 mercanzie	me@-*ka/nts'ie
@@ -3292,6 +3286,7 @@ propedeutic $3
 proposit $2
 propost  $alt2
 prorog $1
+proroghe	$1
 pros  $alt
 prosceni  $alt
 prosecc  $alt2
@@ -3482,6 +3477,7 @@ rispost  $alt2
 ritocc  $alt2
 ritorn  $alt2
 ritrov  $alt
+rivendit	$2
 riverber $2
 rivincit $2
 rizzare	@-*its:'aRe
@@ -4027,6 +4023,7 @@ telemac  $alt
 telemetr $2  $alt
 telencefal $3  $alt
 teletext $3  $alt
+televendit	$3
 televideo $3
 temen $1  $alt
 temi  $alt

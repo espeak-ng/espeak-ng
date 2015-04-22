@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 march 27 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 april 15 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -384,6 +384,7 @@ _1M1o	mil'Ezim
 // abbreviations
 
 abc	a||bi||tS'i
+acdc	$abbrev
 adsl	a||di||es:e||'El:e
 ascii	'askIi
 atp	a||ti||p'i
@@ -403,6 +404,7 @@ id	i:||_d'i	$only
 ipa	i||pI||'a:
 isbn	$abbrev
 jpeg	dZeI||p'Eg
+ko	$abbrev $only
 mr	mIster	$hasdot $dot
 nvda	$abbrev
 ocr	o||tSi||'ER*e $onlys
@@ -936,13 +938,16 @@ ovation	ov'e:Son
 over	$1
 pacemaker	peIsm'eIkE@-*
 page	p'EidZ $onlys
+palace	_^_en $only
 partner	$1
 paternoster	$3
+peluche	pel'uS $onlys
 performer	$2
 performance	pe@-*f'O@-*mans $onlys
 play	pl'EI
 player	pl'eIE@-*
 playroom	pl'Ei||R'um
+playstation	pl,Ei||st'E:Son
 pointer	$1
 poker	$1 $alt
 portacontainer	$4
@@ -1672,6 +1677,7 @@ bruxelles	b@-*uks'El:
 bruzzano	$2
 bucarest	$1
 bucciano	$2
+buckingham	b'akIng@m
 bulgare	$1
 düsseldorf	$1
 cagliari	k'a:l^,a/RI
@@ -1736,6 +1742,7 @@ fisciano	$2
 fivizzano	$3
 fossano	$2
 francescano	$3
+frailis	f@-*a'i:lIs
 fusciano	$2
 gabbano	$2
 galgano	$2
@@ -1764,6 +1771,7 @@ hawaii	aw'a:i:
 helsinki	$1
 hollywood	_^_EN
 huligano	$3
+Houston	hj'uston
 ilbono	$2
 imperia	$2
 indonesia	$3
@@ -1771,10 +1779,11 @@ indostano	$3
 janeiro	Zan'E:iRo
 jerzu	j'E@-*tsu
 jonio	j'Onio
-jugoslav	jugozl'a/v
-jugoslavia	jugozl'a/via
+jugoslav	jugozl'a:v
+jugoslavia	jugozl'a:via
 kabul	$2
 kazakistan	$2
+kosovo	$1
 kuwait	kw2'E:it[
 labrador	$1
 langarolo	$3	$alt2
@@ -2044,6 +2053,7 @@ chrysler	_^_EN
 danilo	$2
 debor $1  $alt
 deborah	$1 $alt2
+diaz	d'iats $only
 eddie	'Ed:I
 edison	$1 $onlys
 eiffel	eIf'El
@@ -2075,13 +2085,15 @@ giordano	$2
 giorgia	$1
 girolamo	$2
 gorbaciov	$1
+grace	g@-*'Eis	$only
 gray	g@-*'eI
 halen	'alen
 heidi	'aIdi
 harry	hE:R*I
 harrison	h'ER*izon
+hillary	h'i:la*I
 hisham	hiS'am
-iacopo	i'akopo
+iacopo	j'akopo
 igor	$1
 ingrassia	$3
 ipocrit	$2 $alt
@@ -2236,6 +2248,8 @@ chilometr	$2	$alt2
 kilometr	kil'omet@-*
 watt	vat[:
 chilowatt	k'ilo_vat[:
+chilocaloria	$5
+chilocalorie	$5
 
 // Exceptions for verbs and others irregular verbs 
 
@@ -2722,6 +2736,7 @@ fatturano	$2
 favoreggiano	$3
 fecero	$1 $alt
 fermano	$1
+festeggino	$2
 fiatano	$1
 fidanzano	$2
 figurano	$2
@@ -2837,6 +2852,7 @@ incazzino	$2
 incendiano	$2
 incendino	$2
 inchiod	inkj'Od
+inciampano	$2
 incid	$2
 incit	$1
 incitano	$1
@@ -2977,7 +2993,8 @@ litig	$1
 litigano	$1
 litighino	$1
 lodano	$1
-logorano	$1
+logor	$1 $alt2
+logorano	$1 $alt2
 luccicano	$1
 lucidano	$1
 lucrano	$1
@@ -3033,6 +3050,7 @@ mugol	$1
 mugolio	$3
 mugugnano	$2
 muoiano	$2
+muoiono	mu'Ojono
 muoviti	$2
 mutano	$1
 naquero	$1
@@ -3157,6 +3175,7 @@ procurano	$2
 prodigano	$1
 producano	$2
 profilano	$2
+pronuncino	$2
 propinino	$2
 propugnano	$2
 prorogano	$1
@@ -3347,7 +3366,8 @@ rotolano	$1
 rovino	$2
 rubino	$1 $verb
 rullano	$1
-sabotano	$2
+sabot	$1
+sabotano	$1
 salpano	$1
 saltano	$1
 salutano	$2
@@ -3833,6 +3853,7 @@ domandati	$2
 drizzarsi	d@-*its:'a@-*si
 espellerl	$2
 esprimiti	$2
+evolversi	$2
 fattel	f'at:el
 formatosi	$2
 giuravi	$2
@@ -3901,7 +3922,6 @@ ripeterl	$2
 ripetersi	$2
 rivelataci	$3
 rizzarsi	@-*its:'a@-*sI
-romperti	$1
 sbrigati	$1
 scusami	$1
 segnalaci	$2
@@ -3950,7 +3970,8 @@ proceder	$2
 prometter	$2
 reger	$1
 render	$1
-riscuoter	$2
+riscuoter	$3
 risolver	$2
+saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
