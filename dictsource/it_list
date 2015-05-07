@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 april 15 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 may 02 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -703,6 +703,7 @@ bijoux	biZ'u:
 bike	b'aIk
 birthday	b'e/:rt[||d,ei
 bitter	$1
+black	bl'E:k
 blackout	bl'Ek'aUt
 blind	bl'aInd $onlys
 blues	bl'u:z
@@ -747,6 +748,7 @@ chaos	k'eOs
 charter	$1
 chat		_^_EN
 check	tSEk:
+chef	S'ef: $only
 cheque	S'ek
 (chewing gum)	tS'uIN||g'am
 chewinggum	tS'uIN||gam
@@ -832,6 +834,7 @@ fuji	fu:ZI
 game	g'Ejm $onlys
 gangster	$1
 garage	gaR'aZ
+gate	g'eIt $onlys
 general	$1 $onlys
 generation	dZeneR'ES@n $onlys
 geyser	g'aIzE@-*
@@ -965,6 +968,7 @@ radar	$1	$onlys
 raider	$1
 ranger	@-*'endZe@-*
 reader	@-*'i:dE@-*
+rapper	@-*'Epp@@-*	$onlys
 recorder	$2	$onlys
 reporter	$2	$onlys
 reportage	@-*epo@-*t'a:Z
@@ -981,7 +985,7 @@ rugby	@-*'a/gbi
 saver	_^_en $onlys
 scanner	$1
 schiller	$1
-schopenhauer	_^_EN
+schopenhauer	S,Open'a:w2e@-*
 scooter	sk'utE@-*
 scuter	$1
 scorpion	$1	$onlys
@@ -1860,6 +1864,7 @@ oltremontano	$4
 onano	$2
 ontano	$2
 orbassano	$3
+oregon	$1 $only
 oristano	$3
 ortezzano	$3
 orzano	$2
@@ -1948,6 +1953,7 @@ swahili	swah'ilI
 tagikistan	$2
 taiwan	t'aj_w,an
 taliban	$3
+tanzania	tandz'a:nia
 tavazzano	$3
 teheran	t,I_iR'a:n
 teramo	$1
@@ -1982,6 +1988,7 @@ wimbledon	$1
 zanzibar	$1
 zigano	ts-ig'a/no
 
+(bel air)	b,El||'E:@-*
 (al jazeera)	al||Zaz'iRa
 (charles baudelaire)	_^_FR
 (coca cola)	k,Okak'ola
@@ -1991,6 +1998,8 @@ zigano	ts-ig'a/no
 
 //  Proper names
 
+abdolah	$3
+abdullah	$3
 agatha	$1
 aida	a'i:da
 alain	al'En $only
@@ -2093,6 +2102,7 @@ harry	hE:R*I
 harrison	h'ER*izon
 hillary	h'i:la*I
 hisham	hiS'am
+hitchcock	'itS_kok
 iacopo	j'akopo
 igor	$1
 ingrassia	$3
@@ -2102,6 +2112,7 @@ isabel	$3
 isaac	'aIza:k
 ivano	$2
 jack	dZ'E:k
+jacopo	j'a:kopo
 jackson	_^_EN
 james	_^_EN
 jane	_^_EN
@@ -2159,6 +2170,7 @@ mozilla	m,o|dz'il:a
 murgia	$1
 nancy	n'E:nsI
 newton	nI'utoN
+nichol	n'i:kol	$onlys
 nichola	n'ikola
 nicola	$2
 Oliver	'O:liv,e@-* $onlys
@@ -2184,6 +2196,8 @@ rocky	@-*'Oki
 roger	$1 $alt
 ryanair	@-*'aIaneR
 samuel	$1 $only
+sánchez	s'antSets
+sànchez	s'antSets
 sandoval	$3
 sandokan	$1
 savino	$2
@@ -2380,6 +2394,7 @@ appartenere	$4
 apparvero	$2
 appoggiano	$2
 appoggino	$2
+applichino	$1
 apprezzat	ap:@-*,e'ts:at
 apprezzino	$2
 approfittino	$3
@@ -2402,6 +2417,7 @@ ascoltino	$2
 aspettino	$2
 aspirano	$2
 assaggiano	$2
+assaltano	$2
 assediano	$2
 assegnano	$2
 assemblano	$2
@@ -2509,6 +2525,7 @@ compiere	k'o:mpjeRe
 compilano	$2
 completano	$2
 comprano	$1
+comprino	$1
 comprendano	$2
 comunicano	$2
 concentrano	$2
@@ -2835,6 +2852,7 @@ imprecano	$2
 impregnano	$2
 improvvisano	$3
 impugnano	$2
+imput	$1
 inabissino	$3
 inalber	$2
 inalzano	$2
@@ -3079,8 +3097,10 @@ offendano	$2
 offrano	$1
 oltraggiano	$2
 oltrepassino	$3
+omaggiano	$2
 omogeneizz	omodZene'idz:
 onomatopeizzo	onomajtope'idz:o
+onorano	$2 $alt2
 orbitano	$1
 organizzino	o@-*gan'itsino
 oscillano	$2
@@ -3461,6 +3481,7 @@ separano	$2
 separino	$2
 sequestrano	$2
 servino	$1
+seviziano	$2
 sfamano	$1
 sferrano	$1
 sferrino	$1
@@ -3804,6 +3825,7 @@ zuccherano	$1
 // pronominal verbs
 
 accadutomi	$3
+affrettati	$2
 aiutaci	$2
 aiutal	aj'utal
 aiutami	$2
@@ -3847,7 +3869,7 @@ digliene	$1
 dimmelo	$1
 dirigerl	$2
 dirigersi	$2
-distrugerne	$2
+disconnettiti	$3
 domandatel	$3
 domandati	$2
 drizzarsi	d@-*its:'a@-*si
@@ -3923,6 +3945,8 @@ ripetersi	$2
 rivelataci	$3
 rizzarsi	@-*its:'a@-*sI
 sbrigati	$1
+scarical	$1
+scaricami	$1
 scusami	$1
 segnalaci	$2
 selezionale	$4

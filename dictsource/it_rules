@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 march  20 by Chris <llajta2012@gmail.com>
+// Last update: 2015 may 02 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -91,6 +91,8 @@
 		_L04Z) capit (ano_	k'a:p,it
 	correr (L04_	k'o:R*eR
 	ccorrer (L04_	k:'o:R*eR
+	chiama (L07_	ki'a:ma
+	a) cquista (L07_	k:w2'ista
 
 .group d
 		d	d
@@ -530,6 +532,7 @@
 	salu (taL04_	sal'U
 	spegner (L04_	sp'en^e@-*
 	re) sister (L04_	z'i:ste@-*
+	salva (L07_	s'alva
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -552,6 +555,7 @@
 	intima) to (L04_	=to
 	ba) tter (L04_	=t:e@-*
 	tratta (L07	t@-*'at:a
+	tocca (L07_	t'Ok:a
 	a) ta (si_	=ta
 	_) tutt' (P5t	tut:
 

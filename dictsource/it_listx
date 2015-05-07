@@ -488,7 +488,7 @@ baratr $1
 barbabietol $3  $alt
 barbaner  $alt2
 barbar $1
-barbera		$2
+barbera	$2
 barcollio	$3
 baricentr  $alt
 baril $2
@@ -497,6 +497,7 @@ baritonesi  $alt
 barnab $1
 barol $2
 baronia $3
+barrui	$2
 barumini $2
 baryton $1
 basileus  $alt2
@@ -3007,6 +3008,7 @@ peptidi  $alt
 percentil	$3
 percors  $alt2
 perdasdefogu  $alt
+perdio	pe@-*||d'i:o
 perdit $1
 perdon  $alt2
 pereg $1
@@ -3077,11 +3079,11 @@ pievepelag $3
 pigiapigia	$3
 pigolio	$3
 pilade $1
+pilia	$2 $only
 pileo $1
 pilot  $alt
 pimentel $3
 pinacotec  $alt
-pince $2
 pinerol $3
 pinnipedi $2
 pinocchi  $alt
