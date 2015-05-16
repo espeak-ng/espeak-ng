@@ -1121,6 +1121,7 @@ coppol  $alt
 coprolalia $4
 copt  $alt
 copti  $alt
+codardia	$3
 cordenons $3  $alt
 cordob $1  $alt2
 cordogli  $alt
@@ -1832,6 +1833,7 @@ garzon $2
 gasdott  $alt2
 gastronom	$2
 gaudenzi  $alt
+gazzettin	gadz:et:'in
 gebel  $alt
 gec  $alt
 gemin $1
@@ -2201,6 +2203,8 @@ lazzar l'adz:aR
 lecc  $alt2
 leccacul	$3
 lecit $1  $alt2
+leccornia	$3
+leccornie	lek:o@-*n'ie
 legatoria $4
 legazia $3
 legge  $alt2
@@ -2251,7 +2255,6 @@ limitrof $2
 limon $2 $alt2
 limousine	limuz'iN
 linfonod $3  $alt
-linguine	$1
 linoleum $2  $alt
 lio	l'io
 lipari $1
@@ -2309,6 +2312,7 @@ maestrie	$3
 mafia $1
 mafie	$1
 magazine	m'EgaziN
+magazzin	magadz:'in
 magazzinier	magadz:Inj'ER
 maggior  $alt2
 magie	madZ'iE
@@ -3266,6 +3270,7 @@ privilegi  $alt
 prob  $alt
 problem  $alt
 proboscide  $alt
+procapite	$2
 procediment  $alt
 proci  $alt
 procne  $alt
@@ -4217,7 +4222,6 @@ tripoli $1
 tripost  $alt2
 triscele $1
 trissin $1
-triton $1
 triumvir $2
 trivenet $2  $alt
 troade $1  $alt
