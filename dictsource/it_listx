@@ -209,7 +209,7 @@ anglosassone $3
 anglosassoni $3
 angol $1
 angor $1
-angoscia  $alt
+angoscia	ang'OSa
 angustie	$2
 anicet  $alt
 anidr $1
@@ -225,14 +225,15 @@ anomalia $4
 anomalo		$2 $alt
 anoressia $4
 anosmia $3
-ansia $1
+ansia	'ansia
+ansie	'ansie
 antelao $3
 antemi  $alt
 antenn  $alt2
 antenne  $alt2
 anter $1
-antera		$2
-anteros $1
+antera	$2
+anteros	$1
 anthemis $1
 antiaerea $3
 antiaeree	$3
@@ -265,10 +266,9 @@ antisom $3  $alt
 antitesi $2
 antiuomo	anti||U'Omo
 antivari $2
-antoni  $alt
 antonomasia $4
 antroposofia $5
-anuak $2
+anuak $3
 aot  $alt
 apocatastasi $4
 apocope $2
@@ -278,9 +278,9 @@ apofisi $2
 apoptygm $2
 aporia $3
 apostat $2
-apostrof $2
+apostrof	$2
 apotem  $alt
-appen  $alt2
+appen	ap:,en
 appendice $3
 appiomb  $alt2
 appoggi  $alt
@@ -292,18 +292,15 @@ aprassie	ap@-*as:'i;e
 apricen  $alt2
 aquilegia $3  $alt
 arab $1
-arabi $1
 aragon $3
 aragost  $alt2
 arancine	$3
 arbitr $1
-arbore $3
 arboreo $2
 arcade $1
 arcangel $2
 arcene $1
 arcevia  $alt
-arche $2  $alt
 archelao $3
 archetip $2
 archiloc $2
@@ -325,14 +322,13 @@ ardesia $2  $alt
 ardue	$1
 area $1
 aren  $alt2
-arene  $alt2
 arenil	aRen'il
 areol $2
 argali $3
 argan $1
-argentea	$2
+argentea	$2	$alt
 argentee	$2
-argentei	$2
+argentei	$2	$alt
 argenteo $2  $alt
 argostoli $3
 argovia  $alt
@@ -362,7 +358,6 @@ arterie	$2
 arteriol $3
 ascalaf $2
 ascari $1
-asce $2
 ascension $4  $alt2
 ascesi  $alt
 ascet  $alt
@@ -382,7 +377,6 @@ asparagine	$4
 aspett  $alt
 assaggini	$3
 assedi  $alt
-assemble $3
 assemini $2
 assenzi  $alt
 assett  $alt
@@ -3328,7 +3322,8 @@ prozie	p@-*odz'i;e
 psicoanalisi $4
 psicocinesi  $alt
 psicosintesi $3
-psicoterapeut $5
+psicoterapeut	$5
+psicoterapeutic	$5
 psicoterapeutiche	$5
 pulcheria $2
 puliga	$1

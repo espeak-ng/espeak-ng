@@ -946,6 +946,7 @@ over	$1
 pacemaker	peIsm'eIkE@-*
 page	p'EidZ $onlys
 palace	_^_en $only
+papillon	papiJ^'on $onlys
 partner	$1
 paternoster	$3
 peluche	pel'uS $onlys
@@ -1147,8 +1148,6 @@ angioin	$3
 anime	$1
 anomal	$2
 anomalie	$4
-ansia	'ansia
-ansie	'ansie
 antich	$2
 anticolesterol	$6 $alt2
 antidolorifici	$5
@@ -1619,7 +1618,7 @@ vent'anni	vent'an:I
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
-ciao	tS'ao:_
+ciao	tS'ao_
 (ciao a)	tS'ao||_|,a_|
 (un turbine)	un||_t'u@-*bine
 (gli auguri)	l^iaw2g'u:RI
@@ -1686,6 +1685,7 @@ brusciano	$2
 bruxelles	b@-*uks'El:
 bruzzano	$2
 bucarest	$1
+budapest	$1
 bucciano	$2
 buckingham	b'akIng@m
 bulgare	$1
@@ -1845,6 +1845,7 @@ montepulciano	$4
 montescano	$3
 monticiano	$3
 montgomery	$2
+montreal	$1 $alt
 monzambano	mondz,amb'ano
 monzano	mOndz'ano
 morgano	$2
@@ -1857,6 +1858,7 @@ murazzano	$3
 muzzano	$2
 napoli	$1
 nazzano	$2
+neanderthal	ne'a:nde@-*tal
 nevano	$2
 newyorkes	nI,u||io@-*k'Ez
 niger	$1
@@ -2057,6 +2059,7 @@ charles	tS'a/@-*ls
 charlie	tS'a@-*li
 charlotte	Sa@-*l'Ot
 chevalier	_^_FR
+charriere	SaR*j'e*
 chopin	Sop'EN
 chuck	tS'a/k
 churchill	_^_en
@@ -2069,6 +2072,7 @@ danilo	$2
 debor $1  $alt
 deborah	$1 $alt2
 diaz	d'iats $only
+duddington	d'a/dINt@n
 eddie	'Ed:I
 edison	$1 $onlys
 eiffel	eIf'El
@@ -2217,13 +2221,14 @@ simon	s'aImon	$onlys
 socrate	$1
 sofia	sof'ia	$capital
 sonia	$1	$alt2
-sonja	s'o:nIa
+sonja	s'O:nIa
 sophia	sOf'ia
 spencer	sp'ense@-*
 stanley	$1
 stefano	$1
 steve	_^_en $only
 steven	st'iven	$onlys
+sylvester	$2
 thatcher	t'a/tSe@-*
 tamara	$2
 taylor	t'EIlo@-*
@@ -4281,7 +4286,9 @@ cercal	$1
 cercasi	$1
 chiuditi	kj'uditI
 compil	$2
+comunicacel	$2
 comunical	$2
+connettiti	$2
 contattaci	$2
 contattami	$2
 copial	$1 $alt
