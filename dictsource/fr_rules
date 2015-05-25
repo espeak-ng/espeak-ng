@@ -970,6 +970,10 @@ _re)	name		_^_en
     _c) on (_      O~        // no comment
     _C) on (_      O~n2      // mon appui, mon histoire, mon havre
 
+     c) one        on
+     g) one        on
+     z) one        on
+
    alc) oo (l      O         // alcool
      z) oo         o         // zoo
      z) oo (C      oo        // zoologue
@@ -996,10 +1000,16 @@ _re)	name		_^_en
         o (_       o         // zorro allégro
    gr) oss         os        // grosse, grossir
 
-C)   o (me_      o         // atome, chrome
-_C)   o (me_      O         // Rome tome
-     o (sA       o         // position
-     o (zA       o         // Mozilla
+        o (Ce_     O         // pote
+        o (CA      o         // otarie
+        o (Che_    O         // poche, wisigothe, apostrophe
+        o (ChA     o         // rocher, orthophoniste
+        o (rr      o         // zorro
+   C)   o (me_     o         // atome, chrome
+  _C)   o (me_     O         // Rome tome
+        o (sA      o         // position
+        o (zA      o         // Mozilla
+        o (tr      o         // votre
         o (CC      O         // poste, votre
         o          O
 
