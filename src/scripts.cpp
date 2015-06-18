@@ -27,7 +27,7 @@
 
 using namespace ucd;
 
-// Unicode Character Data 7.0.0
+// Unicode Character Data 8.0.0
 
 static const uint8_t scripts_Latn[256] =
 {
@@ -289,6 +289,26 @@ static const uint8_t scripts_Egyp[256] =
 	/* F0 */ Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp,
 };
 
+static const uint8_t scripts_Hluw[256] =
+{
+	/* 00 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 10 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 20 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 30 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 40 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 50 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 60 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 70 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 80 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 90 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* A0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* B0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* C0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* D0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* E0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* F0 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+};
+
 static const uint8_t scripts_Bamu[256] =
 {
 	/* 00 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
@@ -307,6 +327,26 @@ static const uint8_t scripts_Bamu[256] =
 	/* D0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
 	/* E0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
 	/* F0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
+};
+
+static const uint8_t scripts_Sgnw[256] =
+{
+	/* 00 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 10 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 20 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 30 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 40 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 50 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 60 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 70 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 80 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 90 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* A0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* B0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* C0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* D0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* E0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* F0 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
 };
 
 static const uint8_t scripts_000000[256] =
@@ -417,7 +457,7 @@ static const uint8_t scripts_000600[256] =
 	/* 30 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 40 */ Zyyy, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* 50 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Arab, Arab, Arab, Arab, Arab, Arab,
+	/* 60 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 70 */ Zinh, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 80 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* 90 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
@@ -462,10 +502,10 @@ static const uint8_t scripts_000800[256] =
 	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* A0 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
-	/* B0 */ Arab, Arab, Arab, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Arab, Arab, Arab, Arab, Arab, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 	/* F0 */ Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab, Arab,
 };
 
@@ -506,7 +546,7 @@ static const uint8_t scripts_000A00[256] =
 	/* C0 */ Gujr, Gujr, Gujr, Gujr, Gujr, Gujr, Zzzz, Gujr, Gujr, Gujr, Zzzz, Gujr, Gujr, Gujr, Zzzz, Zzzz,
 	/* D0 */ Gujr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Gujr, Gujr, Gujr, Gujr, Zzzz, Zzzz, Gujr, Gujr, Gujr, Gujr, Gujr, Gujr, Gujr, Gujr, Gujr, Gujr,
-	/* F0 */ Gujr, Gujr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Gujr, Gujr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Gujr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_000B00[256] =
@@ -536,7 +576,7 @@ static const uint8_t scripts_000C00[256] =
 	/* 20 */ Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Zzzz, Telu, Telu, Telu, Telu, Telu, Telu,
 	/* 30 */ Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Zzzz, Zzzz, Zzzz, Telu, Telu, Telu,
 	/* 40 */ Telu, Telu, Telu, Telu, Telu, Zzzz, Telu, Telu, Telu, Zzzz, Telu, Telu, Telu, Telu, Zzzz, Zzzz,
-	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Telu, Telu, Zzzz, Telu, Telu, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Telu, Telu, Zzzz, Telu, Telu, Telu, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 60 */ Telu, Telu, Telu, Telu, Zzzz, Zzzz, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu,
 	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Telu, Telu, Telu, Telu, Telu, Telu, Telu, Telu,
 	/* 80 */ Zzzz, Knda, Knda, Knda, Zzzz, Knda, Knda, Knda, Knda, Knda, Knda, Knda, Knda, Zzzz, Knda, Knda,
@@ -556,7 +596,7 @@ static const uint8_t scripts_000D00[256] =
 	/* 20 */ Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym,
 	/* 30 */ Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Zzzz, Zzzz, Mlym, Mlym, Mlym,
 	/* 40 */ Mlym, Mlym, Mlym, Mlym, Mlym, Zzzz, Mlym, Mlym, Mlym, Zzzz, Mlym, Mlym, Mlym, Mlym, Mlym, Zzzz,
-	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Mlym, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Mlym, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Mlym,
 	/* 60 */ Mlym, Mlym, Mlym, Mlym, Zzzz, Zzzz, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym,
 	/* 70 */ Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Zzzz, Zzzz, Zzzz, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym, Mlym,
 	/* 80 */ Zzzz, Zzzz, Sinh, Sinh, Zzzz, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh,
@@ -666,7 +706,7 @@ static const uint8_t scripts_001300[256] =
 	/* C0 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
 	/* D0 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
 	/* E0 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
-	/* F0 */ Cher, Cher, Cher, Cher, Cher, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Cher, Cher, Cher, Cher, Cher, Cher, Zzzz, Zzzz, Cher, Cher, Cher, Cher, Cher, Cher, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_001600[256] =
@@ -862,7 +902,7 @@ static const uint8_t scripts_002000[256] =
 	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
 	/* 90 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zzzz, Zzzz, Zzzz,
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
+	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* E0 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
@@ -879,7 +919,7 @@ static const uint8_t scripts_002100[256] =
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 60 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* 70 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
-	/* 80 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 90 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -945,7 +985,7 @@ static const uint8_t scripts_002B00[256] =
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy,
 	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* D0 */ Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
@@ -1143,8 +1183,8 @@ static const uint8_t scripts_009F00[256] =
 	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
 	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
 	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
-	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
@@ -1180,7 +1220,7 @@ static const uint8_t scripts_00A600[256] =
 	/* 60 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* 70 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* 80 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
-	/* 90 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Zzzz, Cyrl,
+	/* 90 */ Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl, Cyrl,
 	/* A0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
 	/* B0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
 	/* C0 */ Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu, Bamu,
@@ -1199,10 +1239,10 @@ static const uint8_t scripts_00A700[256] =
 	/* 50 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* 60 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* 70 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
-	/* 80 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zyyy, Zyyy, Zyyy, Latn, Latn, Latn, Latn, Zzzz,
+	/* 80 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zyyy, Zyyy, Zyyy, Latn, Latn, Latn, Latn, Latn,
 	/* 90 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* A0 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zzzz, Zzzz,
-	/* B0 */ Latn, Latn, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1226,7 +1266,7 @@ static const uint8_t scripts_00A800[256] =
 	/* C0 */ Saur, Saur, Saur, Saur, Saur, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Saur, Saur,
 	/* D0 */ Saur, Saur, Saur, Saur, Saur, Saur, Saur, Saur, Saur, Saur, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva,
-	/* F0 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Deva, Zzzz, Zzzz,
 };
 
 static const uint8_t scripts_00A900[256] =
@@ -1277,12 +1317,12 @@ static const uint8_t scripts_00AB00[256] =
 	/* 30 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* 40 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn,
 	/* 50 */ Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Latn, Zyyy, Latn, Latn, Latn, Latn,
-	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Latn, Grek, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Latn, Latn, Latn, Latn, Latn, Grek, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
+	/* 80 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
+	/* 90 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
+	/* A0 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
+	/* B0 */ Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher, Cher,
 	/* C0 */ Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei,
 	/* D0 */ Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei,
 	/* E0 */ Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Mtei, Zzzz, Zzzz,
@@ -1373,7 +1413,7 @@ static const uint8_t scripts_00FE00[256] =
 {
 	/* 00 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh,
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 20 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zzzz, Zzzz,
+	/* 20 */ Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Zinh, Cyrl, Cyrl,
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -1565,8 +1605,8 @@ static const uint8_t scripts_010800[256] =
 	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr, Hatr,
+	/* F0 */ Hatr, Hatr, Hatr, Zzzz, Hatr, Hatr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Hatr, Hatr, Hatr, Hatr, Hatr,
 };
 
 static const uint8_t scripts_010900[256] =
@@ -1582,11 +1622,11 @@ static const uint8_t scripts_010900[256] =
 	/* 80 */ Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero,
 	/* 90 */ Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero, Mero,
 	/* A0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc,
-	/* B0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Merc, Merc,
-	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Zzzz, Zzzz, Zzzz, Zzzz, Merc, Merc, Merc, Merc,
+	/* C0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc,
+	/* D0 */ Zzzz, Zzzz, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc,
+	/* E0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc,
+	/* F0 */ Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc, Merc,
 };
 
 static const uint8_t scripts_010A00[256] =
@@ -1639,14 +1679,14 @@ static const uint8_t scripts_010C00[256] =
 	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* 90 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* A0 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* B0 */ Hung, Hung, Hung, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* D0 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* E0 */ Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung, Hung,
+	/* F0 */ Hung, Hung, Hung, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Hung, Hung, Hung, Hung, Hung, Hung,
 };
 
 static const uint8_t scripts_010E00[256] =
@@ -1703,8 +1743,8 @@ static const uint8_t scripts_011100[256] =
 	/* 90 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd,
 	/* A0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd,
 	/* B0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd,
-	/* C0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Zzzz, Zzzz, Zzzz, Zzzz, Shrd, Zzzz, Zzzz,
-	/* D0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Zzzz, Zzzz,
+	/* D0 */ Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd, Shrd,
 	/* E0 */ Zzzz, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh, Sinh,
 	/* F0 */ Sinh, Sinh, Sinh, Sinh, Sinh, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
@@ -1719,9 +1759,9 @@ static const uint8_t scripts_011200[256] =
 	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Mult, Mult, Mult, Mult, Mult, Mult, Mult, Zzzz, Mult, Zzzz, Mult, Mult, Mult, Mult, Zzzz, Mult,
+	/* 90 */ Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Zzzz, Mult,
+	/* A0 */ Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Mult, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* B0 */ Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind,
 	/* C0 */ Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind,
 	/* D0 */ Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind, Sind,
@@ -1731,12 +1771,12 @@ static const uint8_t scripts_011200[256] =
 
 static const uint8_t scripts_011300[256] =
 {
-	/* 00 */ Zzzz, Gran, Gran, Gran, Zzzz, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Gran,
+	/* 00 */ Gran, Gran, Gran, Gran, Zzzz, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Gran,
 	/* 10 */ Gran, Zzzz, Zzzz, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran,
 	/* 20 */ Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Zzzz, Gran, Gran, Gran, Gran, Gran, Gran,
 	/* 30 */ Gran, Zzzz, Gran, Gran, Zzzz, Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Gran, Gran, Gran, Gran,
 	/* 40 */ Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Gran, Gran, Zzzz, Zzzz, Gran, Gran, Gran, Zzzz, Zzzz,
-	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Gran, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Gran, Gran, Gran,
+	/* 50 */ Gran, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Gran, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Gran, Gran, Gran,
 	/* 60 */ Gran, Gran, Gran, Gran, Zzzz, Zzzz, Gran, Gran, Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Zzzz,
 	/* 70 */ Gran, Gran, Gran, Gran, Gran, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1783,8 +1823,8 @@ static const uint8_t scripts_011500[256] =
 	/* 90 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd,
 	/* A0 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd,
 	/* B0 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Zzzz, Zzzz, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd,
-	/* C0 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd,
+	/* D0 */ Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Sidd, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
@@ -1804,6 +1844,26 @@ static const uint8_t scripts_011600[256] =
 	/* A0 */ Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr,
 	/* B0 */ Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Takr, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+};
+
+static const uint8_t scripts_011700[256] =
+{
+	/* 00 */ Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom,
+	/* 10 */ Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Zzzz, Zzzz, Zzzz, Ahom, Ahom, Ahom,
+	/* 20 */ Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 30 */ Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom, Ahom,
+	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1860,7 +1920,7 @@ static const uint8_t scripts_012300[256] =
 	/* 60 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
 	/* 70 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
 	/* 80 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
-	/* 90 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1879,6 +1939,26 @@ static const uint8_t scripts_012400[256] =
 	/* 50 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
 	/* 60 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Zzzz,
 	/* 70 */ Xsux, Xsux, Xsux, Xsux, Xsux, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* 90 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* A0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* B0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* C0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* D0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* E0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* F0 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+};
+
+static const uint8_t scripts_012500[256] =
+{
+	/* 00 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* 10 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* 20 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* 30 */ Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux, Xsux,
+	/* 40 */ Xsux, Xsux, Xsux, Xsux, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -1896,6 +1976,26 @@ static const uint8_t scripts_013400[256] =
 	/* 20 */ Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Egyp, Zzzz,
 	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+};
+
+static const uint8_t scripts_014600[256] =
+{
+	/* 00 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 10 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 20 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 30 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw,
+	/* 40 */ Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Hluw, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -2044,8 +2144,8 @@ static const uint8_t scripts_01D100[256] =
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zinh, Zinh, Zinh, Zinh, Zyyy, Zyyy,
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
-	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
@@ -2169,6 +2269,26 @@ static const uint8_t scripts_01D700[256] =
 	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 };
 
+static const uint8_t scripts_01DA00[256] =
+{
+	/* 00 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 10 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 20 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 30 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 40 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 50 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 60 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 70 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* 80 */ Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* A0 */ Zzzz, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw, Sgnw,
+	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+};
+
 static const uint8_t scripts_01E800[256] =
 {
 	/* 00 */ Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend, Mend,
@@ -2269,53 +2389,13 @@ static const uint8_t scripts_01F200[256] =
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
-static const uint8_t scripts_01F300[256] =
-{
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz,
-	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
-	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 90 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-};
-
-static const uint8_t scripts_01F400[256] =
-{
-	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 90 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* D0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz,
-};
-
 static const uint8_t scripts_01F500[256] =
 {
 	/* 00 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -2335,7 +2415,7 @@ static const uint8_t scripts_01F600[256] =
 	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 20 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 30 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* 40 */ Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
+	/* 40 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 50 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 60 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* 70 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
@@ -2344,7 +2424,7 @@ static const uint8_t scripts_01F600[256] =
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* B0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
 	/* C0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy,
-	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 };
@@ -2384,6 +2464,26 @@ static const uint8_t scripts_01F800[256] =
 	/* A0 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz,
 	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+};
+
+static const uint8_t scripts_01F900[256] =
+{
+	/* 00 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 10 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 20 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Zyyy, Zyyy, Zyyy, Zyyy, Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Zyyy, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* E0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* F0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -2433,15 +2533,35 @@ static const uint8_t scripts_02B800[256] =
 {
 	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
 	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Zzzz, Zzzz,
-	/* 20 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
-	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* B0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* C0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* D0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* E0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* F0 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+};
+
+static const uint8_t scripts_02CE00[256] =
+{
+	/* 00 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 10 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 20 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 30 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 40 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 50 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 60 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 70 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 80 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* 90 */ Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani, Hani,
+	/* A0 */ Hani, Hani, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
 	/* D0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
@@ -2762,7 +2882,7 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_011400,
 	scripts_011500,
 	scripts_011600,
-	scripts_Zzzz, // 011700
+	scripts_011700,
 	scripts_011800,
 	scripts_Zzzz, // 011900
 	scripts_011A00,
@@ -2776,7 +2896,7 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_Xsux, // 012200
 	scripts_012300,
 	scripts_012400,
-	scripts_Zzzz, // 012500
+	scripts_012500,
 	scripts_Zzzz, // 012600
 	scripts_Zzzz, // 012700
 	scripts_Zzzz, // 012800
@@ -2807,9 +2927,9 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_Zzzz, // 014100
 	scripts_Zzzz, // 014200
 	scripts_Zzzz, // 014300
-	scripts_Zzzz, // 014400
-	scripts_Zzzz, // 014500
-	scripts_Zzzz, // 014600
+	scripts_Hluw, // 014400
+	scripts_Hluw, // 014500
+	scripts_014600,
 	scripts_Zzzz, // 014700
 	scripts_Zzzz, // 014800
 	scripts_Zzzz, // 014900
@@ -2955,9 +3075,9 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_01D500,
 	scripts_01D600,
 	scripts_01D700,
-	scripts_Zzzz, // 01D800
-	scripts_Zzzz, // 01D900
-	scripts_Zzzz, // 01DA00
+	scripts_Sgnw, // 01D800
+	scripts_Sgnw, // 01D900
+	scripts_01DA00,
 	scripts_Zzzz, // 01DB00
 	scripts_Zzzz, // 01DC00
 	scripts_Zzzz, // 01DD00
@@ -2982,13 +3102,13 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_01F000,
 	scripts_01F100,
 	scripts_01F200,
-	scripts_01F300,
-	scripts_01F400,
+	scripts_Zyyy, // 01F300
+	scripts_Zyyy, // 01F400
 	scripts_01F500,
 	scripts_01F600,
 	scripts_01F700,
 	scripts_01F800,
-	scripts_Zzzz, // 01F900
+	scripts_01F900,
 	scripts_Zzzz, // 01FA00
 	scripts_Zzzz, // 01FB00
 	scripts_Zzzz, // 01FC00
@@ -3180,28 +3300,28 @@ static const uint8_t *scripts_00F800_02FAFF[] =
 	scripts_Hani, // 02B600
 	scripts_02B700,
 	scripts_02B800,
-	scripts_Zzzz, // 02B900
-	scripts_Zzzz, // 02BA00
-	scripts_Zzzz, // 02BB00
-	scripts_Zzzz, // 02BC00
-	scripts_Zzzz, // 02BD00
-	scripts_Zzzz, // 02BE00
-	scripts_Zzzz, // 02BF00
-	scripts_Zzzz, // 02C000
-	scripts_Zzzz, // 02C100
-	scripts_Zzzz, // 02C200
-	scripts_Zzzz, // 02C300
-	scripts_Zzzz, // 02C400
-	scripts_Zzzz, // 02C500
-	scripts_Zzzz, // 02C600
-	scripts_Zzzz, // 02C700
-	scripts_Zzzz, // 02C800
-	scripts_Zzzz, // 02C900
-	scripts_Zzzz, // 02CA00
-	scripts_Zzzz, // 02CB00
-	scripts_Zzzz, // 02CC00
-	scripts_Zzzz, // 02CD00
-	scripts_Zzzz, // 02CE00
+	scripts_Hani, // 02B900
+	scripts_Hani, // 02BA00
+	scripts_Hani, // 02BB00
+	scripts_Hani, // 02BC00
+	scripts_Hani, // 02BD00
+	scripts_Hani, // 02BE00
+	scripts_Hani, // 02BF00
+	scripts_Hani, // 02C000
+	scripts_Hani, // 02C100
+	scripts_Hani, // 02C200
+	scripts_Hani, // 02C300
+	scripts_Hani, // 02C400
+	scripts_Hani, // 02C500
+	scripts_Hani, // 02C600
+	scripts_Hani, // 02C700
+	scripts_Hani, // 02C800
+	scripts_Hani, // 02C900
+	scripts_Hani, // 02CA00
+	scripts_Hani, // 02CB00
+	scripts_Hani, // 02CC00
+	scripts_Hani, // 02CD00
+	scripts_02CE00,
 	scripts_Zzzz, // 02CF00
 	scripts_Zzzz, // 02D000
 	scripts_Zzzz, // 02D100
