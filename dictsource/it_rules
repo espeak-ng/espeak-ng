@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 may 02 by Chris <llajta2012@gmail.com>
+// Last update: 2015 july 02 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -32,7 +32,7 @@
 	@) a (ca_	=a
 	@)	a (che_	=a
 		a (istA_  a
-		a (ismo_  'a
+	ai (smo_	a'i:
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 	_)	ae (r    aE
@@ -56,6 +56,7 @@
 		b       b
 		bb      b:
 	bbano (_	=b:ano // verbs
+	bacia (L07_	b'atSa
 
 .group c
 		c	k
@@ -169,7 +170,7 @@
 		CC) eggia (no_	'EdZ:a
 	C) ender (L04_	'ende@-*  // Pron.s verbs
 	C) erder (L04_	'E@-*de@-*
-	esser (L04_		'es:eR
+	esser (L04_		'Es:eR
 	_) ecco (L04	'Ek:o
 		ete (L04_	'ete
 	fl) etter (L04_	'Et:e@-*
@@ -209,6 +210,8 @@
 		ggi (A  dZ:
 	@) gger (L04_ =dZ:e@-*  // Pron.s verbs
 	AC) ger (L04_	=dZe@-*
+	esi) ger (L04_	=dZe@-*
+	eri) ger (L04_	=dZe@-*
 		_) giura (L07_	dZ'URa
 	godi (L04_	g'Odi
 		gl (i	l^
@@ -441,6 +444,7 @@
 		o (zA       O
 	l) oqui (A	Okwj
 	C) orda (L05_	'O@-*da   // pron. verbs
+	r) omper (L04_	'ompe@-*
 		C) onder (L04_	'ondE@-*
 		over (L04_	'ovE@-*
 	d) over (L04_	Ov'E@-*
@@ -529,7 +533,7 @@
 	@) scer (L04_	=SE@-*  // pron.s verbs
 	A) sci (L05_	=SI
 	scrivi (L04_	sk@-*'i:vI
-	salu (taL04_	sal'U
+	saluta (L07_	sal'uta
 	spegner (L04_	sp'en^e@-*
 	re) sister (L04_	z'i:ste@-*
 	salva (L07_	s'alva
