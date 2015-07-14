@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 july 02 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 july 13 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -453,8 +453,8 @@ essi	$u+
 
 mi	$u+ $only
 ti	$u+ $only $verbf
-si      $u+ $only
-ci	$u+ $only
+si	 $u+ $verbf $only
+ci	$u+ $verbf $only
 vi	vi $u+ $only
 li	$u+ $only
 me	$u+
@@ -496,8 +496,10 @@ quella	$u+
 quei	kw2eI
 quegli  $u+
 quelle  $u+
+alcun	$u2+
+nessun	$u2+
 
-// conjunctions, Adverbs
+// conjunctions and Adverbs
 
 anche	$u+
 attraverso 	$alt
@@ -518,6 +520,8 @@ mai	$u+ $verbf
 mentre	$u+
 neanche	$u+	$brk
 né	$u+	$brk  $only
+no	nO $strend
+non	$u	$only
 o	$u+ $brk
 ogni	$u+
 oltre	$u+
@@ -525,9 +529,10 @@ ormai	o@-*m'aI
 perché	$u+ $brk
 pure	$u+
 più	$u+
-se		$u+ $verbf
+se	$u+ $verbf
 senza	s,entsa
 senza	s'Entsa $atend
+si	si: $atend
 sopra	   $alt2
 sotto	$alt2
 tuttavia	tut:av'ia
@@ -687,6 +692,7 @@ u	u: $atend
 abajour	abaZ'u@-*
 account	ak:'aw2nt
 after	$1
+amnesty	'amn@stI
 antitrust	anti_t@-*'ast
 apple	_^_EN
 application	_^_EN
@@ -875,6 +881,7 @@ impeachment	imp'itSm,ent[
 information	info@-*m'ES@n $onlys
 installer	inst'a:l:e@-*
 inter	$1 $only
+international	inte@-*n'ESonal $onlys
 internet	'inte@-*nEt
 intranet$3 $only
 iper	$1 $only
@@ -1060,6 +1067,7 @@ teamviewer	t'i:m||_vju:Er
 teenager	tin'EIdZe@-*
 terminator	te@-*min'etO@-*
 tester	$1	$onlys
+therapy	$1
 toilette	tw2al'et:
 tour	t'u:@-*
 thriller	$1 $onlys
@@ -1148,7 +1156,6 @@ aeroplano	aERopl'ano
 agenzie	adZents'ie
 alcoolici	alk'o:litSI
 alcoolico	alk'o:liko
-alcun	$u2+
 algebra	$1
 alterigia	alteR'i:dZa
 alveoli	$2
@@ -1414,10 +1421,7 @@ mostacciol	$3
 multipolo	$3
 naric	$2
 negrita	$2
-nessun	$u2+
 nitrobenzolo	nit@-*ibendz'Olo
-no		nO $strend
-non	$u+	$only
 nucleoli	$2
 oblio	,Obl'i:o
 odontoiatrici	odontoj'at@-*itSi
@@ -2355,10 +2359,12 @@ salome $3  $alt
 samuel	$1 $only
 sandokan	$1
 sandoval	$3
+santangelo	$2
 savino	$2
 scalfaro	$1
 schopenhauer	S,Open'a:w2e@-*
 schumacher	_^_DE
+Schubert	S'ube@-*t
 schwarznegger	Sv,arzn'Eger
 sean	_^_EN $only $capital
 shakespeare	_^_EN
@@ -3107,6 +3113,7 @@ festeggino	$2
 fiatano	$1
 fidanzano	$2
 figurano	$2
+figurati	$2	$atstart
 filano	$1
 filmano	$1
 filtrano	$1
@@ -3430,6 +3437,7 @@ legalizzino	$3
 leggere	$1 $alt
 leghino	$1
 legiferino	$2
+legittimano	$2
 lessino	$1
 levig	$1
 levigano	$1
@@ -3445,6 +3453,7 @@ liquidano	$1
 liquidino	$1
 litig	$1
 litigano	$1
+litighi	$1
 litighino	$1
 lodano	$1
 logor	$1 $alt2
@@ -4406,6 +4415,7 @@ zuccherano	$1
 (non capita)	non||k'a:pita
 (volte capita)	v,Olte||k'a:p,ita
 (quando capita)	kw'ando||k'apita
+(se capita)	se||k'a:pita
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
@@ -4417,16 +4427,16 @@ zuccherano	$1
 (seguiti a)	s'e:gwiti||a
 (seguito a)	s'e:gwito||a
 (perseguita da)	pe@-*segw2'Ita||da
-(ci perdono)	tSi||p'E@-*dono
-(si perdono)	si||p'E@-*dono
-(ci desideri)	tS,i||dez'I:deRI
+(ci perdono)	tSi||p'E:@-*dono
+(si perdono)	si||p'E:@-*dono
+(perdono tempo)	p'E:@-*dono||t'Empo
 (come desideri)	kome||dez'ideRi
 (così desideri)	koz'i||_dez'i:deRI
 (cosa desideri)	k'O:za||dez'i:deRI
 (la desideri)	ladez'i:deRi
 (lo desideri)	lodez'ideRi
 (mi desideri)	mI||dez'i:deRI
-(quando desideri)	kw2aNdo||dez'i:deRi
+(quando desideri)	kw2ando||_|dez'i:deRi
 (quindi desideri)	kw2,indi||dez'ideRi
 
 // pronominal verbs

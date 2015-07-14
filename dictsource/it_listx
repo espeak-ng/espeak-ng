@@ -673,6 +673,7 @@ caloria $3
 calorie	$3
 calorimetr $3
 calumet $3  $alt2
+calpestio	$3
 camar $1
 cambodia  $alt
 cambri $2
@@ -1421,6 +1422,7 @@ epicentr  $alt
 epicurei	$3
 epifania $4
 epifanie	epifan'i;e
+epifisi	ep'ifizI
 epiglottide  $alt
 epilessia $4
 epilessie	epiles:'i:e
@@ -3290,6 +3292,7 @@ ripristin $2
 riprov  $alt
 risan $1
 risemin	@-*is'emin
+risiko	$1
 risolt  $alt
 risors  $alt2
 risort  $alt2
