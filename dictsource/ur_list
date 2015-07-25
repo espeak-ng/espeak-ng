@@ -44,9 +44,9 @@ _و	va:O
 ء	HamzaH
 ی	c#o:t.i:||je:
 ے	bar.i:||je:
-ئ	h'amza
+ئ	h'amzaje:
 ۂ	He:h'amza
-_ؤ	va:Oh'amza
+_ؤ	hamzava:O
 
 َ	z@b@R
 ِ	ze:R
@@ -55,6 +55,9 @@ _ؤ	va:Oh'amza
 ّ	t,aSd'i:d
 ً	d'o:zab'aR
 ْ	sUk'u:n
+۔	xatma
+،	sakta
+؟	sava:li:;anISa:n
 
 
 // The numbers
@@ -193,6 +196,9 @@ _dpt	_ISaRI'Ia_
 انہیں	,UnH'e:n	$u
 انھیں	,UnH'e:n	$u
 جنہوں	J,InH'o:n	$u
+جنہیں	JInHe:n	$u
+تجھ	tUJ#	$u
+انہی	InHi:	$u
 
 // unstressed prepositions
 کا	$u
@@ -216,7 +222,7 @@ _dpt	_ISaRI'Ia_
 پبلک	p'abl,Ik
 آئرش	'a:IR,IS
 برگ	b'aRg
-(آئیس کریم)	a:'i:s||kR'i:m
+(آئس کریم)	a:Is||kR'i:m
 آئیسنگ	,a:is'Ing
 آئدیلسٹ	'a:Id.,i:;al,Ist.
 آئڈیلزم	'a:Id.,i:;al,Izam
@@ -768,3 +774,236 @@ _dpt	_ISaRI'Ia_
 اطلاعات	,Itl'a:t
 سنہ	s'an
 دسٹرکٹ	d.'Ist.RIkt.
+اون	'u:n
+اونی	u:n'i:
+مصطفیٰ	m,Us.t'afa:
+ملوث	m,Ulav'as
+کلو	k'Ilo:
+ترقیاتی	t,aRaq,i:;a:t'i:
+طارق	t'a:RIq
+حامل	H'a:mIl
+انٹرنیشنل	Int.'aRn,e:Sn,al
+اہم	EHEm
+باوجود	ba:vUJu:d
+گروپ	gRu:p
+واضح	va:ze:H	$1
+امن	amn
+فٹ	fIt.
+آخر	a:xIR
+سبب	sabab
+مجموعی	maJmu:i
+مجلس	maJlIs
+پریس	pRe:s
+غالب	Qa:lIb
+سٹی	sIt.i
+نقشہ	naqSa
+امور	Umu:R
+ضمن	zImn
+حکام	HUka:m
+پہر	pEHER
+کانفرنس	ka:nfRans
+سرحد	saRHad
+سیکرٹری	se:kRIt.Ri:
+خالد	xa:lId
+ملیں	mIle:n
+(کا دور)	ka:||dOR	$2
+ملین	mIli;an
+یونین	ju:ni;an
+ذہنی	DEHni:
+حمایت	HIma:jat
+تجارت	tIJa:Rat
+تجارتی	tIJa:Rti:	$2
+گورنر	gavaRnaR
+واقعہ	va:qja
+والد	va:lId
+نہایت	nIHa:jat
+محور	mEHvaR
+انصاف	Ins.a:f
+مالک	ma:lIk
+البتہ	albata
+بخش	baxS
+لحاظ	lIHa:z.
+دعوت	da:vat
+دریافت	daRja:ft
+محروم	mEHRu:m
+مصارف	mas.a:RIf
+انڈین	Ind.i;an	$2
+خاطر	xa:tIR
+جذبات	JaDba:t
+دراندازی	daR||anda:zi:
+مرتب	mURatab
+سینئر	si:nI;aR
+غربت	QURbat
+ارشاد	IRSa:d
+بیمہ	bi:ma
+مرزا	mIRza:
+جہت	JEHEt
+واحد	va:HId
+قدرتی	qUdRati:
+حکمت	HIkmat
+موثر	mo:asaR
+میٹر	mit.aR
+مسٹر	mIst.aR
+پہلو	pEHlu:
+حلقہ	Halqa
+مملکت	mamlIkat
+ارشد	aRSad
+اکرم	akRam
+ڈسٹرکٹ	d.Ist.RIkt.
+خبر	xabaR
+کنٹرول	kant.Ro:l
+اسٹاف	Ist.a:f
+اکبر	akbaR
+طاہر	ta:HIR
+فرض	faRz
+قبل	qabl
+حافظ	Ha:fIz.
+رویہ	Ravai:;a
+رویوں	Ravai;o:n
+رویے	Ravai:;e:
+تذبذب	taD'abDUb
+سکور	sko:R
+حالانکہ	Ha:la:nke:H	$2
+دکھ	dUk#
+سول	sIvIl
+اسلم	aslam
+مبتلا	mUbtIla:
+حدود	HUdu:d
+مبارک	mUba:Rak
+عزت	Izat
+نوید	navi:d
+اعجاز	e:Ja:z
+پہ	pEH
+سود	su:d
+عارف	a:RIf
+جناح	JIna:H
+بدستور	badastu:R	$3
+اوسط	Osat
+بہن	bEHEn
+موومنٹ	mu:vmInt.
+طرز	taRz
+بارش	ba:RIS
+انٹرویو	Int.aRvi;u:
+بولنگ	bo:lIng
+نصف	nIs.f
+مواقع	mava:qe:
+میسر	mUjasaR
+ناصر	na:s.IR
+ورک	vaRk
+لباس	lIba:s
+ایکشن	EkSan
+عرفان	IRfa:n	$2
+ضائع	za:ja:
+ڈپٹی	d.Ipt.i:
+ممبر	mImbaR
+ثبوت	sUbu:t
+انحصار	InHIs.a:R
+تاثر	ta:sUR
+اظہر	az.HaR
+اہلکاروں	EHElka:Ro:n	$3
+اہلکار	EHElka:R
+ترکی	tURki:
+آپس	a:pas
+مہر	mEHER
+قاسم	qa:sIm
+حضرات	HazRa:t
+ظلم	z.Ulm
+بھائیوں	b#a:i;o:n
+جون	Ju:n
+مصنوعات	mas.nu:a:t
+رجحان	RUJHa:n
+سپریم	sUpRi:m
+عملدرآمد	amaldaRa:mad
+دوں	du:n
+ٹکٹ	t.IkIt.
+عناصر	ana:s.IR
+مسعود	masu:d
+حرکت	HaRkat
+راشد	Ra:SId
+اشرف	aSRaf
+قاتل	qa:tIl
+اسلحہ	aslaHa
+فخر	faxR
+ردعمل	Rade:a:mal
+کرفیو	kaRfju:
+افتخار	IftIxa:R
+جمیعت	Jami;at
+مابین	ma:be:n
+ٹرک	t.Rak
+اک	Ik
+افادہ	Ifa:da
+ملازمت	mUla:zImat
+نافذ	na:fID
+عبادت	Iba:dat
+امجد	amJad
+ترک	taRk
+مستحکم	mUstEHkam
+مشن	mISan
+دانش	da:nIS
+دیہ	de:H
+فرم	faRm
+مفید	mUfi:d
+حامد	Ha:mId
+حفاظتی	HIfa:z.ati:
+مشتاق	mUSta:q
+تحسین	tEHsi:n
+ایئر	ER
+چیلنج	ce:lInJ
+حسب	Hasb
+قارئین	qa:RI;i:n
+جامع	Ja:me:
+عزم	azm
+فیلڈ	fi:ld.
+خطے	xIte:
+امت	Umat
+خراج	xIRa:J
+شوگر	Su:gaR
+منیر	mUni:R
+ملت	mIlat
+جونیئر	JUni;aR
+ایگزیکٹو	EgzEkIt.Iv
+ڈویژن	d.IviZan
+انخلا	InxIla:
+ماڈلز	ma:d.alz
+پلس	plas
+سمارٹ	sma:Rt.
+نیوی	ne:vi
+انکشاف	InkISa:f
+منکشف	mUnkaSIf
+مقدم	maqdam
+متعارف	mUta:RIf
+دلی	dIli	$1
+سگریٹ	sIgRe:t.
+اوور	o:vaR
+قدرت	qUdRat
+جانور	Ja:nvaR
+شکریہ	SUkRi:;a
+جانوروں	Ja:nvaRo:n
+نرم	naRm
+نیم	ni:m
+مزاحمت	mUza:HImat
+برتری	baRtaRi
+صادق	s.a:dIq
+گویا	go:ja:
+گنجائش	gUnJa:IS
+علوم	Ulu:m
+مطمئن	mUtmaIn
+ظہور	z.aHu:R
+بہرحال	baHaRHa:l
+گروہ	gIRo:H
+بروقت	baRvaqt
+نفرت	nafRat
+یکم	jakUm
+صفر	s.IfaR
+شرط	SaRt
+پرنسپل	pRInsIpal
+جگر	JIgaR
+مدنظر	made:naz.aR
+وزراء	vUzaRa:
+بدقسمتی	badqIsmati
+بزنس	bIznIs
+منظم	mUnaz.am
+مقاصد	maqa:s.Id
+نعمت	ne:mat
+نامور	na:mvaR
+ہرگز	HaRgIz

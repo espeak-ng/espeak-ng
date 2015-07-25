@@ -168,7 +168,7 @@ void SetSpeed(int control)
 	{
 		DoSonicSpeed(1 * 1024);
 	}
-	if((wpm_value > 450) || ((wpm_value > speed.fast_settings[0]) && (wpm > 350)))
+	if((wpm_value >= 450) || ((wpm_value > speed.fast_settings[0]) && (wpm > 350)))
 	{
 		wpm2 = wpm;
 		wpm = 175;
@@ -313,7 +313,7 @@ speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
 
 #ifdef TEST_SPEED
 //if(control==3)
-printf("%3d: speedf %d %d %d   pause=%d %d   wav=%d  lenmod=%d %d\n",wpm,speed1,speed2,speed3, speed.pause_factor,speed.clause_pause_factor, speed.wav_factor,speed.lenmod_factor,speed.lenmod2_factor);
+printf("%3d: speedf %d %d %d   x=%d  pause=%d %d   wav=%d  lenmod=%d %d\n",wpm,speed1,speed2,speed3, speed_lookup[wpm2-80], speed.pause_factor,speed.clause_pause_factor, speed.wav_factor,speed.lenmod_factor,speed.lenmod2_factor);
 #endif
 }  //  end of SetSpeed
 

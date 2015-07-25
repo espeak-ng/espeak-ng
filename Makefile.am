@@ -220,6 +220,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_gujarati \
 	phsource/ph_haitian \
 	phsource/ph_hindi \
+	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
@@ -239,6 +240,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_malayalam \
 	phsource/ph_maltese \
 	phsource/ph_manipuri \
+	phsource/ph_marathi \
 	phsource/ph_nahuatl \
 	phsource/ph_nepali \
 	phsource/ph_northern-sotho \
@@ -355,6 +357,7 @@ dictionaries: src/espeak \
 	espeak-data/lv_dict \
 	espeak-data/mk_dict \
 	espeak-data/ml_dict \
+	espeak-data/mr_dict \
 	espeak-data/ms_dict \
 	espeak-data/nci_dict \
 	espeak-data/ne_dict \
@@ -651,6 +654,12 @@ dictsource/ml_extra:
 	touch dictsource/ml_extra
 espeak-data/ml_dict: src/espeak phsource/phonemes.stamp dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=ml && cd ..
+
+mr: espeak-data/mr_dict
+dictsource/mr_extra:
+	touch dictsource/mr_extra
+espeak-data/mr_dict: src/espeak phsource/phonemes.stamp dictsource/mr_list dictsource/mr_rules dictsource/mr_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=mr && cd ..
 
 ms: espeak-data/ms_dict
 dictsource/ms_extra:

@@ -46,7 +46,7 @@ phoneme a
 
   ChangeIfDiminished(a#)
 
-  IF nextPh(isNasal) THEN
+  IF nextPh(isNasal) AND NOT KlattSynth THEN
     FMT(vnasal/ee_n2)
   ELSEIF nextPh(r) AND thisPh(isStressed) THEN
     length 190
@@ -82,7 +82,11 @@ endphoneme
 phoneme E
   vowel  starttype #e  endtype #e
   length 190
-  ChangeIfDiminished(I2)
+  IF nextPhW(n) THEN
+    ChangeIfDiminished(@)
+  ELSE
+    ChangeIfDiminished(I2)
+  ENDIF
   FMT(vwl_en_us/ee)
 endphoneme
 
@@ -137,7 +141,7 @@ endphoneme
 
 phoneme 0
   vowel  starttype #a   endtype #a
-  length 200
+  length 220
   ipa ɑː
   ChangeIfDiminished(@)
   IF nextPh(r) THEN
@@ -171,7 +175,7 @@ endphoneme
 
 phoneme A:
   vowel  starttype #a  endtype #a
-  length 200
+  length 220
   IF nextPhW(r) THEN
     FMT(vwl_en_us/aar)
   ENDIF
@@ -208,7 +212,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 170
+  length 180
   IfNextVowelAppend(;)
   FMT(vowel/i_en)
 endphoneme
@@ -216,7 +220,7 @@ endphoneme
 
 phoneme O:
   vowel  starttype #o  endtype #o
-  length 200
+  length 220
   ChangeIfDiminished(@)
   IF nextPhW(r) THEN
     FMT(vwl_en_us/oor)

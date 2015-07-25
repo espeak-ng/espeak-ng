@@ -120,49 +120,58 @@
 // Vowel Signs
 
 .group ਾ
-        ਾ          a
-        ਾਂ         a~
-        ਾੰ         a~
+ਾ	#X2kVnn'a
+C)        ਾ          a
+C)        ਾਂ         a~
+C)        ਾੰ         a~
 
 .group ਿ
-        ਿ          I
-        ਿਂ         I~
-        ਿੰ         I~
+ਿ	#X1sIh'aRi
+C)        ਿ          I
+C)        ਿਂ         I~
+C)        ਿੰ         I~
 
 .group ੀ
-        ੀ          i
-        ੀਂ         i~
-        ੀੰ         i~
+ੀ	#X2bIh'aRi
+C)        ੀ          i
+C)        ੀਂ         i~
+C)        ੀੰ         i~
 
 .group ੁ
-        ੁ          U
-        ੁਂ         U~
-        ੁੰ         U~
+ੁ	#X1OnkaR
+C)        ੁ          U
+C)        ੁਂ         U~
+C)        ੁੰ         U~
 
 .group ੂ
-        ੂ          u
-        ੂਂ         u~
-        ੂੰ         u~
+ੂ	#X2dUl'EnkaR
+C)        ੂ          u
+C)        ੂਂ         u~
+C)        ੂੰ         u~
 
 .group ੇ
-        ੇ          e
-        ੇਂ         e~
-        ੇੰ         e~
+ੇ	#X1l'ava~
+C)        ੇ          e
+C)        ੇਂ         e~
+C)        ੇੰ         e~
 
 .group ੈ
-        ੈ          E         // aI
-        ੈਂ         E~
-        ੈੰ         E~
+ੈ	#X2d@l'ava~
+C)        ੈ          E         // aI
+C)        ੈਂ         E~
+C)        ੈੰ         E~
 
 .group ੋ
-        ੋ          o
-        ੋਂ         o~
-        ੋੰ         o~
+ੋ	#X1hoR'a
+C)        ੋ          o
+C)        ੋਂ         o~
+C)        ੋੰ         o~
 
 .group ੌ
-        ੌ          O         // aU
-        ੌਂ         O~
-        ੌੰ         O~
+ੌ	#X2kVn'ORa
+C)        ੌ          O         // aU
+C)        ੌਂ         O~
+C)        ੌੰ         O~
 
 
 // Consonants ਕે
@@ -447,7 +456,9 @@
 
 
 .group ੍
-        ੍                    // virama
+੍	hVlVnt
+C)	੍ 
+	C) ੍ (C_	=
 
 .group ਼
         ਼                    // nukta
@@ -467,3 +478,6 @@
 .group
         $          dOlVR     // TEST
         %          pVsEnt    // TEST
+.group o
+        o          _^_EN
+   D__) of (__D     v'Ico~

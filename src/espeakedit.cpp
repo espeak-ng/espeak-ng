@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
@@ -63,7 +63,7 @@ extern void DictionarySort(const char *dictname);
 extern void init_z();
 extern void CompilePhonemeData(void);
 extern void CompileSampleRate(void);
-extern void CompileMbrola(const char *mbrola_file = NULL);
+extern void CompileMbrola(const wxChar *mbrola_file = NULL);
 extern void CompileIntonation();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
@@ -652,7 +652,7 @@ void OnOptions2(int event_id)
 		break;
 
 	case MENU_PATH_DATA:
-		string = wxDirSelector(_T("espeak_data directory"), wxEmptyString);
+		string = wxDirSelector(_T("espeak_data directory"), path_espeakdata);
 		if(!string.IsEmpty())
 		{
 			if(!wxDirExists(string+_T("/voices")))

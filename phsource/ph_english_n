@@ -33,7 +33,11 @@ endphoneme
 phoneme E
   vowel  starttype #a  endtype #a
   length 150
-  ChangeIfDiminished(I2)
+  IF nextPhW(n) THEN
+    ChangeIfDiminished(@)
+  ELSE
+    ChangeIfDiminished(I2)
+  ENDIF
   FMT(vowel/ee)
 endphoneme
 

@@ -1,7 +1,13 @@
- 
+
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Basque
 
+// $alt j as [x]
+// $alt2 don't palatalise l
+// $alt3 don't palatalise n
+
+
+// Letter names
 b	be
 c	ze
 d	de
@@ -22,7 +28,7 @@ t	'te
 v	'uBe
 w	'uBe||bikoitza
 x	'iSa
-y	i||gr'ekoa
+y	'i||gr'ekoa
 z	'z'eta
 
 _a	a
@@ -33,7 +39,7 @@ _u	u
 
 
 // numbers
-_0	zer'o
+_0	z'ero
 _1	b'at
 _2	b'i
 _3	'iru
@@ -85,9 +91,26 @@ _- gid'oI
 _! arr'idura
 _? gald'era
 _: b'i||p'untu
-_; p'untu||eta||k'oma
+_; puntu||eta||koma
+_/ b'arra
 
-// functuion words
+// Accent characters
+
+//names
+_acu az'entuduna
+_grv kam'utsa
+_cir zirk'unfleSua
+_dia d'jeresiduna
+
+// characters
+á 'a||a'zentuduna
+é 'e||a'zentuduna
+í 'i||a'zentuduna
+ó 'o||a'zentuduna
+ú 'u||a'zentuduna
+ü 'u||dj'eresiduna
+
+// function words
 // conjunctions
 eta	$u+ $pause  // and
 baina	$u+ $pause
@@ -95,7 +118,6 @@ baina	$u+ $pause
 // pronouns
 ni	$1
 zu	$1
-hura	$1
 gu	$1
 zuek	$1
 haiek	$1
@@ -116,10 +138,12 @@ horren	$1 // genitive
 hura	$1	// that (further)
 haien $1 // genitive
 
-// Some auxiliary verbs
+// Some  verbs
 gara $2
 zara $2
 dira $2
+dio $2
+die $2
 
 // gramatical suffixes which can appear as words appended to numbers etc.
 // Should these be in eu_rules ??
@@ -135,56 +159,70 @@ era	$u
 ra $u
 etara $u
 
+// Abbreviations
+adib ad'ibidez $hasdot
 
-// Other words (mostly nouns)
+// proper names and surnames
+juan $alt
+jorge $1 x'orxe
+jose $1 $alt
+josé $alt
+joaquín $alt
+san $u $only $only
+santo $u
+aristoteles $3
+hume hjum $1
+humer hjum
+google g'uQ@l
+googler g'uQ@l
+moodle m'uD@l
+moodler m'uD@l
+doodle d'uD@l
+doodler m'uD@l
+nietztsche n'itSe 
+ainara $alt3
 
-// Bisillabic words which have the stres always in the first syllable
-kaixo $1
+// Other words
+
+// Bisillabic words which always have the stres  in the first syllable
 testu $1
 lehia $1
 patu $1
+kasu $1
+// Other (from the Standard Basque dictionary (hiztegi batua) from Euskaltzaindia, maybe even more should be added)
 
-// Bisillabic words whitch get misspronounced with the suffix list
-etxe $1 $only
-kale $1 $only
-aste $1 $only
-urte $1 $only
-
-// j as [x]
-jipoi x'ipoi
-
-// other
-
+abako $1
 aerobiko $3
-aerodinamiko $5
-aerodinamika $5
+aerodinamika $5 $alt3
+aerodinamiko $5 $alt3
 aerodromo $3
 aerometro $3
 aeromodelismo $6
 aeronauta $4
 aeronautika $4
-aeronautiko9 $4
+aeronautiko $4
 aerosol $4
 aerostatika $4
 aerostato $4
-adrenalina adrenalin2a
-aharraus $2
-aharrausika $2
-ahur aur $only
-ahurr auR2
-
-// Abbreviations
-adib ad'ibidez $hasdot
-
-// proper names and surnames
-juan xw'an
-jorge x'orxe
-jose x'ose
-jos� x'os'e
-joaqu�n xoak'in
-san $u
-santo $u
-aristoteles $3
-hume x'iUm
-nietztsche n'itSe 
-abako $1
+adrenalina $4 $alt3
+aharraus a'R2aus
+ainitz $alt3
+aintzat $1 $only
+aje $alt
+akademi $3
+aktibist $3
+alajain $alt
+album $1
+[aldez-alde] 'alDez_'alDe
+[aldez-alde] 'alDez_'alDe
+alfanumeriko $4
+algebra $1 $alt
+aljebraiko $3 $alt 
+aljebra $1 $alt
+aljebraiko $3 $alt
+algoritmo $3
+alkalino $3 $alt3
+alkaloide $3
+alokutibo $4
+alproj $alt
+alprojakeri $alt

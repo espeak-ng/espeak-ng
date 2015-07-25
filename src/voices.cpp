@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -613,7 +613,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	static const char *voices_asia =
 		"az bn fa fa-pin gu hi hy hy-west id ka kn ku ml ms ne pa ta te tr vi vi-hue vi-sgn zh zh-yue ";
 	static const char *voices_europe =
-		"an bg bs ca cs cy da de el en en-us es et fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
+		"an bg bs ca cs cy da de el en en-us es et eu fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 
 	strncpy0(voicename, vname, sizeof(voicename));
@@ -875,7 +875,7 @@ voice_t *LoadVoice(const char *vname, int control)
 					else
 					{
 						if((key==V_NUMBERS) && (n < 64))
-							langopts->numbers |= (1 << (n-32));
+							langopts->numbers2 |= (1 << (n-32));
 						else
 							fprintf(stderr,"Bad option number %d\n", n);
 					}

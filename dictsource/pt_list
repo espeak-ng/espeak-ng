@@ -674,7 +674,6 @@ jamais	$u+	$verbf
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
-abordo		$alt
 aborto		$alt  $verb
 abortos	$alt2
 absorta		$alt2
@@ -697,6 +696,7 @@ amorno		$alt
 amuleto		$alt2
 ampola		$alt2
 ampulheta	$alt2
+anchieta	$alt2
 anchova		$alt2
 andorra		$alt2
 andrea	$alt
@@ -748,13 +748,11 @@ boca		$alt2
 boceta		$alt2
 boda	$alt2
 bofe		$alt
-bojo		$alt2
 boleia		$alt
 bolero		$alt
 bolo		$alt2
 bolo		$alt  $verb
 borboleta	$alt2
-bordo		$alt
 borra		$alt2 $noun
 boto		$alt2 $noun
 boxe		$alt
@@ -795,7 +793,6 @@ centopeia	$alt
 cerebelo	$alt2
 cerca		$alt $verb
 cerco		$alt $verb
-cetro		$alt
 chamego	$alt2
 chamego	$alt $verb
 chapeleta		$alt2
@@ -850,7 +847,6 @@ corto		$alt
 corveia	$alt
 corveta		$alt2
 corvos		$alt
-cosme	$alt
 costeleta	$alt2
 coto		$alt2
 cotovelo	$alt2
@@ -862,6 +858,7 @@ crimeia	$alt
 decoreba	$alt
 decoro		$alt2 $noun
 degelo		$alt2
+desacerto	$alt2
 desaforo	$alt2
 desamores	$alt2
 desapego	$alt2
@@ -1019,7 +1016,6 @@ gol		gow
 gorda		$alt2
 gorjeta		$alt2
 gororoba	$alt
-gosma		$alt
 gosto		$alt $verb
 gota		$alt2
 governo		$alt2
@@ -1040,7 +1036,6 @@ ideia		$alt
 inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
-internet	$alt
 interregno	$alt
 iodo		$alt2
 ioga		$alt
@@ -1059,6 +1054,7 @@ lembrete	$alt2
 lepra		$alt
 leses	$alt
 leste		$alt2 $verb
+letra	$alt2
 ?2   lhe	l^y
 licores	$alt2
 lisboeta	$alt2
@@ -1070,10 +1066,10 @@ maioneses	$alt
 maniçoba	$alt
 marieta		$alt2
 mariposa	$alt2
+martelete	$alt2
 megera		$alt
 melhor		$alt
 meta		$alt $noun
-metro		$alt
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
@@ -1101,7 +1097,6 @@ nervo		$alt2
 niceia	$alt
 ninfeta	$alt2
 nitreto	$alt2
-nojo		$alt2
 novelo		$alt2
 odisseia	$alt
 oeste	$alt
@@ -1199,6 +1194,7 @@ remoem		$alt
 remorso		$alt
 renovo		$alt $verb
 represa		$alt2
+represes		$alt
 retorno		$alt $verb
 reveses	$alt
 rigores		$alt2
@@ -1291,9 +1287,9 @@ trocha	$alt2
 troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
+tropeços		$alt2
 trombeta	$alt2
 ureia	$alt
-uretra	$alt
 vanessa		$alt2
 vareta		$alt2
 vera		$alt
