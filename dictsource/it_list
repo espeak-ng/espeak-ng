@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 july 13 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 august 06 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -189,6 +189,7 @@ _‥	p,unto||d'op:io
 £       sterl'ina
 ₠	'e:uRo
 €	'e:uRo
+₹	@-*u_pjaindj'ana
 ₨	@-*'upja
 ¤	s'imbolo||di||v'aluta
 
@@ -403,6 +404,7 @@ ibm	i||bi||'Em:e
 id	i:||_d'i	$only
 ipa	i||pI||'a:
 isbn	$abbrev
+gse	$abbrev
 jpeg	dZeI||p'Eg
 ko	$abbrev $only
 mr	mIster	$hasdot $dot
@@ -730,6 +732,7 @@ breakfast	b@-*'Ek||fast
 bricolage	b@-*ikol'aZ
 browser	b@-*'a:UzE@-*
 buffer	b'afe@-*
+budget	b'a:dZet
 buffet	buf:'E $only
 bouquet	_^_FR
 bulldozer	$2
@@ -930,6 +933,7 @@ manager	$1
 marker	$1
 marketing	$1
 master	$1
+mediaworld	$1
 melody	m'E:l@di
 messenger	$1
 microchip	mik@-*o||tS'ip
@@ -950,7 +954,7 @@ noir	nU'a:R $only
 nomination	nomIn'eSon
 nonchalance	non_Sal'ans
 nylon	n'aIlon
-office		_^_EN
+office	_^_EN
 one	w'a/n $onlys $capital
 online	,on||l'aIn
 order	$1
@@ -1485,8 +1489,6 @@ principe	$1
 principi	$1
 principio	$2
 profezie	p@-*ofets'ie
-profug	$1
-profughi	$1
 prolifici	$2
 prossime	$1
 provino	$2
@@ -1701,6 +1703,7 @@ beirut	b'Ei@-*ut
 beneventano	$4
 bergamo	$1
 beverly	$1
+Birmingham	$1
 boemia $2  $alt
 boissano	$3
 bolognano	$3
@@ -2138,6 +2141,7 @@ asimov	'azim,ov
 asterix	$1
 augias	a'u:dZas
 bardot	ba@-*d'o
+bartali	$1
 bastian $2
 baudelaire	bOdl'E@-*
 beatle	b'i:tol
@@ -2198,6 +2202,7 @@ elgar	$1	$only
 elia	el'ia
 elizabeth	el'izabet[
 enric	$2
+erika	$1
 esposito	$2
 ettore $1  $alt
 eugenia  $alt
@@ -2236,6 +2241,7 @@ hillary	h'i:la*I
 hisham	hiS'am
 hitchcock	'itS_kok
 honore $3
+hulk	h'alk
 iacopo	j'akopo
 icar $1
 igor	$1
@@ -2335,6 +2341,7 @@ peggy	p'Eg:I
 pericle $1
 peter	$1 $onlys
 peugeot	p,EZ'o
+piquet	pik'E $only
 pierangel	$2
 piernicola	$3
 pierpaol	pje@-*p'aol
@@ -2363,6 +2370,7 @@ santangelo	$2
 savino	$2
 scalfaro	$1
 schopenhauer	S,Open'a:w2e@-*
+schumann	S'u:man
 schumacher	_^_DE
 Schubert	S'ube@-*t
 schwarznegger	Sv,arzn'Eger
@@ -2380,6 +2388,7 @@ stanley	$1
 stefano	$1
 steve	_^_en $only
 steven	st'iven	$onlys
+stewart	stj'ua*t
 sylvester	$2
 tamara	$2
 taylor	t'EIlo@-*
@@ -2746,6 +2755,7 @@ caccino	$1
 cadano	$1
 cadere	$2	$alt2
 calano	$1
+calcano	$1
 calcolano	$1
 calcolino	$1
 calmano	$1
@@ -3112,6 +3122,7 @@ fermano	$1
 festeggino	$2
 fiatano	$1
 fidanzano	$2
+fidati	f'i:datI	$atstart
 figurano	$2
 figurati	$2	$atstart
 filano	$1
@@ -4244,6 +4255,7 @@ suscitino	$1
 susseguano	$2
 svaghino	$1
 svaligia	$2
+svaligiano	$2
 svalutano	$1
 svalutino	$1
 svegliano	$1
@@ -4345,6 +4357,7 @@ ultimano	$1
 ululano	$1
 umiliano	$2
 umilino	$2
+unisciti	$2
 urlano	$1
 urlino	$1
 urtano	$1
@@ -4411,6 +4424,7 @@ zuccherano	$1
 (capita di)	k'a:pita||_d'I
 (capita spesso)	k'apita||sp'es:o
 (che capita)	ke||k'a:pita
+(chi capita)	ki||k'a:pita
 (dove capita)	dove||k'apita
 (non capita)	non||k'a:pita
 (volte capita)	v,Olte||k'a:p,ita
@@ -4454,6 +4468,7 @@ aprimel	$1
 aprimi	$1
 aprine	$1
 approfittane	$3
+arrivatoci	$3
 ascoltaci	$2
 ascoltami	$2
 ascoltal	$2
@@ -4577,6 +4592,7 @@ rizzarsi	@-*its:'a@-*sI
 sbrigati	$1
 scarical	$1
 scaricami	$1
+scommetterci	$2 $alt2
 scusami	$1
 scuotersi	$2 $alt
 segnalaci	$2

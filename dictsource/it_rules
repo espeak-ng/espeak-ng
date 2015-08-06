@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 july 02 by Chris <llajta2012@gmail.com>
+// Last update: 2015 August 05 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -365,7 +365,8 @@
 		n (k	N
 	Ama) nia (_	n'i:a
 	Ama) nie (_	n'i:e
-     _) nell' (P5t     nell
+	_) nell' (P5t	nel:
+	_) n' (P2t	n
 	_) neanch' (P7t	neank
 		ndo (L04_	=ndo    //  Pronominal verbs
 		netter (L04_	n'Et:e@-*
