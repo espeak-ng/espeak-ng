@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 August 05 by Chris <llajta2012@gmail.com>
+// Last update: 2015 Sept  5 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -463,8 +463,11 @@
 	ph	f   // foreign words
 	@m)	p (erY_	=p
 	porta (L05_	p'O@-*ta  // Pron.s verbs
+	parla (L07_	p'a@-*la
 	pie (gaL05_	pI'e
 	prendi (L04_	p@-*'E:ndi
+	prova (L07_	p@-*'Ova
+	a) pprova (L07_	p:@-*'Ova
 	pie (galA_	pI'e
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
@@ -490,6 +493,7 @@
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
 	_) rega (laL07_	@-*eg'a
 	_) rader (L04_	@-*'ade@-*
+	_) ripeter (L04_	@-*ip'E:te@-*
 	_) romper (L04_	@-*'ompe@-*
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
@@ -562,6 +566,8 @@
 	tratta (L07	t@-*'at:a
 	tocca (L07_	t'Ok:a
 	a) ta (si_	=ta
+	_) togli (L04_	t'Ol^i
+	trova (L07_	t@-*'Ova
 	_) tutt' (P5t	tut:
 
 .group u
@@ -594,6 +600,8 @@
 	in) via (toL04_	vI'a
 	in) via (L07_	v'ia
 	_a) vvisa (L07_	v:'iza
+	_in) vader (L04_	v'a:de@-*
+	_) vota (L07_	v'Ota
 
 .group w
 		w	w2

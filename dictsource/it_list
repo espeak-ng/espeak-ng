@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 august 06 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 sept 5 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -400,6 +400,8 @@ fiat	f'iat[	$only
 gnu	$abbrev	$allcaps
 hiv	ak:a||i:||v'u
 html	ak:ati||em:e||'El:e
+l'html	lak:at,i||em:e'El:e
+l'xml	liks||em:e'El:e
 ibm	i||bi||'Em:e
 id	i:||_d'i	$only
 ipa	i||pI||'a:
@@ -797,6 +799,7 @@ cult	k'a/:lt	$onlys
 database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
+desaparecido	d,EzapaReT'ido
 desktop	d'Eskt,op
 detector	$2
 designer	d,ez'aIne@-*
@@ -968,6 +971,7 @@ page	p'EidZ $onlys
 palace	_^_en $only
 papillon	papiJ^'on $onlys
 partner	$1
+passepartout	pas_pa@-*t'u
 paternoster	$3
 peluche	pel'uS $onlys
 performer	$2
@@ -1047,6 +1051,7 @@ stage	st'EidZ $onlys
 standby	st'End||b'aI
 station	st'ESon	$only
 stalking	st'O:lkiN
+strike	st@-*'aIk
 streaming	_^_EN
 street	_^_EN
 superbike	supe@-*||b'aIk
@@ -1137,6 +1142,7 @@ rock'n'roll	@-*,Oken@-*'o:l
 (pace maker)	_^_EN
 (hi fi)	h'aI_||f'a/I
 (wi fi)	w'a/I_||f'a/I
+(top secret)	t,Op||s'ik@-*et
 (week end)	w,i:k'end
 (you tube)	ju:||tj'u:b
 (déjà vu)	deIZa:||v'u:
@@ -1836,6 +1842,7 @@ houston	hj'uston
 iglesias $2  $alt
 ilbono	$2
 imperia	$2
+indianapolis	$3
 indonesia	$3
 indostano	$3
 janeiro	Zan'E:iRo
@@ -2124,6 +2131,7 @@ amerigo	$2
 amicis	$2
 amilcare $2
 anastasia $3
+andersson	'a:nde@-*son
 anderson	$1
 andromeda	$2
 anita	$2
@@ -2171,6 +2179,7 @@ charles	tS'a/@-*ls
 charlie	tS'a@-*li
 charlotte	Sa@-*l'Ot
 charriere	SaR*j'e*
+chesterfield	tS'Este@-*fild
 chevalier	_^_FR
 chopin	Sop'EN
 christie	k@-*'istI
@@ -2185,6 +2194,7 @@ consoli	$1 $capital $only
 corine	k'ORIn $capital
 cristofor $2
 danilo	$2
+davidson	$1
 debor $1  $alt
 deborah	$1 $alt2
 diaz	d'iats $only
@@ -2202,11 +2212,13 @@ elgar	$1	$only
 elia	el'ia
 elizabeth	el'izabet[
 enric	$2
+emmanuel	$2 $only
 erika	$1
 esposito	$2
 ettore $1  $alt
 eugenia  $alt
 eutichiano	ewdiki'ano
+everett	$1 $only
 fabiol $2
 fabiola	$3
 fahrenheit	f'aRenaIt
@@ -2236,6 +2248,7 @@ gray	g@-*'eI
 halen	'alen
 harrison	h'ER*izon
 harry	hE:R*I
+hawking	_^_en
 heidi	'aIdi
 hillary	h'i:la*I
 hisham	hiS'am
@@ -2254,6 +2267,7 @@ isaia  iza'i:a
 isocrate $2
 ital $1
 ivano	$2
+jace	_^_en $only
 jack	dZ'E:k
 jackson	_^_EN
 jacopo	j'a:kopo
@@ -2261,8 +2275,8 @@ james	_^_EN
 jane	_^_EN
 jarno	j'a:@-*no
 jennifer	$1
+jolanda	jol'anda
 jole	j'Ole
-jole  $alt
 jolie	Zol'i $only
 jonathan	$1
 jones	dZ'O:ns
@@ -2284,6 +2298,7 @@ ligabue	$3
 lionel	l'aj,One@-*	$onlys
 loredan $3
 louise	lu'iz
+Lucky	l'a/ki
 lucía	_^_ES
 lucia	lutS'i:a
 luciano	$2
@@ -2293,6 +2308,7 @@ luigi	lu'i:dZI
 luigia	lU'i:dZa
 manolo	ma/n'Olo
 manuel	$1 $only
+marciano	$2 $capital
 marcon $2
 margaret	$1 $only
 margareth	$1 $only
@@ -2399,7 +2415,9 @@ timoteo	$2
 tobia $2
 tracy	t@-*'E:sI
 troisi	t@-*o'izI
+turner	t'@:ne@-* $onlys
 tyson	t'aIzon
+usher	'aSe@-* $only
 vainer	v'aIne@-*	$only
 valeria	$2 $alt2
 valter	$1 $onlys
@@ -2411,6 +2429,7 @@ vladimir	$3
 wagner	v'agnE@-*
 walker	w2'O:lke@-*
 walter	v'alte@-*
+wather	w'OTe@-*
 wilde	w'aIld
 wojtyla	vojt'ila
 woody	v'udI
@@ -2443,6 +2462,7 @@ watt	vat[:
 chilowatt	k'ilo_vat[:
 chilocaloria	$5
 chilocalorie	$5
+centigrad	$2
 
 // Exceptions for verbs and others irregular verbs 
 
@@ -2489,6 +2509,7 @@ accerchino	$2
 accertano	$2
 accertino	$2
 accettino 	$2
+acchiappano	$2
 acchiappino	$2
 acciecano	$2
 acclamano	$2
@@ -2593,6 +2614,7 @@ alzano	$1
 alzino	$1
 amano	$1
 amareggino	$3
+amino	$1
 ammacchino	$2
 ammalano	$2
 ammalino	$2
@@ -2651,6 +2673,7 @@ arrangino	$2
 arrecano	$2
 arrechino	$2
 arredano	$2
+arrenditi	$2
 arrestino	$2
 arrotol	$2
 ascoltino	$2
@@ -2810,6 +2833,7 @@ comandino	$2
 combinino	$2
 comemor	kom'E:m,oR
 comincino	$2
+commemor	$2 $alt
 commutino	$2
 compaiano	$2
 competano	$2
@@ -2961,6 +2985,7 @@ diano	d'iano
 dicano	$1
 dichiarano	$2
 dichiarino	$2
+diedero	$1 $alt
 diffamano	$2
 diffamino	$2
 differenziano	$3
@@ -3541,7 +3566,7 @@ muoiano	$2
 muoiono	mu'Ojono
 muoviti	$2
 mutano	$1
-naquero	$1
+nacquero	$1
 narrano	$1
 nauseano	$1
 nauseino	n'aw2zeIno
@@ -3827,6 +3852,7 @@ riconciliano	$3
 riconducano	$3
 riconsegnano	$3
 ricoverino	$2
+ricreano	$2
 ricredano	$2
 ricreino	$2
 ricucii	@-*ikutS'i:j
@@ -3912,6 +3938,7 @@ risolverl	$2	$alt
 risparmiano	$2
 rispecchino	$2
 rispettino	$2
+rispolver	$2
 ristagnano	$2
 risultano	$2
 risultino	$2
@@ -4028,6 +4055,7 @@ scoppiano	$1
 scoppino	$1
 scoraggiano	$2
 scordino	$1
+scredit	$1
 screpol	$1
 scricchiol	$1
 scricchiolano	$1
@@ -4451,7 +4479,7 @@ zuccherano	$1
 (lo desideri)	lodez'ideRi
 (mi desideri)	mI||dez'i:deRI
 (quando desideri)	kw2ando||_|dez'i:deRi
-(quindi desideri)	kw2,indi||dez'ideRi
+(quindi desideri)	kw2,indi||_dez'i:deRi
 
 // pronominal verbs
 
@@ -4532,6 +4560,8 @@ illuminami	$2
 illuminal	$2
 impostaci	$2
 impostomi	$2
+indirizziamoci	indiRi_tsj'amotSI // $5
+indirizziamol	indiRi_tsj'amol // $5
 indirizzati	indiRits:'ati
 informaci	$2
 insediatisi	$3
@@ -4565,8 +4595,6 @@ presentaci	$2
 promessomi	$2
 privaci	$1
 proteggiti	$2 $alt2
-provaci	$1
-proval	$1
 pulisciti	$2
 raccontami	$2
 raccontaci	$2
@@ -4585,8 +4613,9 @@ rieccomi	@-*i'e:k:Omi
 rieccoti	$2
 rieccol	$2
 rincorrerl	$2
-ripeterl	$2
-ripetersi	$2
+risparmial	$2
+risparmiaci	$2
+risparmiami	$2
 rivelataci	$3
 rizzarsi	@-*its:'a@-*sI
 sbrigati	$1
@@ -4608,6 +4637,7 @@ spogliami	$1 $alt
 spoglial	$1 $alt
 spogliati	$1 $alt
 stabilitosi	$3
+stampal	$1
 suggeritomi	$3
 svoltasi	$1 $alt
 svoltesi	$1

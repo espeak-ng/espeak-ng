@@ -128,7 +128,7 @@ alleluia  allEl'uia
 allobrogi $2
 allodol $2
 alloggi  $alt
-allora	$alt2
+allora	al:'oRa
 alluce $1
 almen  $alt2
 aloe  $alt
@@ -780,6 +780,7 @@ castelsepri  $alt
 casteltermini $3
 castelverde  $alt2
 castelvetere  $alt
+castel	$2 $only
 castin $1
 castore $1
 castroliber $3
@@ -1815,6 +1816,7 @@ glicoprotein	glikop@-*ote'in
 gliptodontid	gliptod'Ontid
 glissando	glis:'ando
 glissare	glis:'aRe
+glissat	glis:'at
 glittograf	glit:'Og@-*af
 glittografia	glit:og@-*af'i:a
 glob  $alt
@@ -1877,6 +1879,7 @@ guidizzol $3
 guinizzellian	gw2inits:el:i'an
 guizzare	gwIts:'aRe
 habitat	'a:bitat[
+hannoverian	an:oveRi'an
 hellas $2
 heracleopolis $3  $alt2
 hieron $2
@@ -2529,6 +2532,7 @@ nemic $2
 nemiche	$2
 nemmen  $alt2
 nenni  $alt
+neofit	$2 $alt
 neogrec  $alt
 nepi  $alt
 ner  $alt2
@@ -2714,12 +2718,11 @@ ottenere $3  $alt2
 ottic  $alt
 ottim  $alt
 ottoboni  $alt
-ottobre  $alt2
+ottobre	ot:'ob@-*e
 ottotip $2
 ottotipi $2
 ovaii	$2
 ovest  $alt
-ovideposizione  $alt
 ovil	$2
 ovovia $3
 ovver $2  $alt2
@@ -3661,7 +3664,7 @@ sorisole $2
 sorradile	$3
 sors  $alt2
 sorvol $2  $alt2
-sosi  $alt
+sosia	s'Ozia
 sospett  $alt
 soter $2  $alt2
 sottile $2
@@ -3783,6 +3786,7 @@ supremazie	sup@-*emats'ie
 surrene  $alt2
 sussurrio	$3
 susurrio	$3
+svendit	$1
 sventolio	$3
 svevia  $alt
 tabi $2
