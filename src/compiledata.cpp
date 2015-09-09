@@ -902,7 +902,7 @@ static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname
 
 	if(mod_time > 0)
 	{
-		strftime(time_string, sizeof(time_string), "%F", localtime(&mod_time));
+		strftime(time_string, sizeof(time_string), "%Y-%m-%d", localtime(&mod_time));
 		fprintf(f,"\n\nDictionary %s_dict  %s\n",dictname, time_string);
 	}
 	else
