@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 by Reece H. Dunn                                   *
+ *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -111,21 +111,21 @@ static const char *help_text =
 "\tCompile phoneme data in espeak-data/phsource\n"
 "\tand dictionary data in espeak-data/dictsource\n";
 
-
 // Initialise this in OnInit, not statically
 bool MyApp::OnInit(void)
 {//=====================
 
 int j;
-const wxChar *p;
 char param[120];
-
 
 if(argc > 1)
 {
-	p = argv[1];
-	j = 0;
+#if wxUSE_UNICODE == 1
+	wcstombs(param, argv[1], sizeof(param));
+#else
+	const char *p = argv[1];
 	while((param[j] = p[j]) != 0) j++;
+#endif
 
 	if((strcmp(param,"--help")==0) || (strcmp(param,"-h")==0))
 	{
