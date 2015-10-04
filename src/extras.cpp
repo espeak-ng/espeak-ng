@@ -1648,6 +1648,7 @@ void MakeWordFreqList()
 		free(p);
 	}
 	fclose(f_out);
+	free(w_list);
 
 }  // end of Make WorkFreqList
 
