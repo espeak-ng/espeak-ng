@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -1099,7 +1100,10 @@ voice_t *LoadVoice(const char *vname, int control)
 		new_translator->dict_min_size = dict_min;
 		LoadDictionary(new_translator, new_dictionary, control & 4);
 		if(dictionary_name[0]==0)
+		{
+			DeleteTranslator(new_translator);
 			return(NULL);   // no dictionary loaded
+		}
 
 		new_translator->dict_condition = conditional_rules;
 
