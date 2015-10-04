@@ -585,7 +585,10 @@ void MakeVowelLists(void)
 	ix = GetFileLength(fname);
 	prog_log_table = (PHONEME_PROG_LOG *)malloc(ix);
 	if(prog_log_table == NULL)
+	{
+		fclose(f_prog_log);
 		return;
+	}
 	ix = fread(prog_log_table, 1, ix, f_prog_log);
 	fclose(f_prog_log);
 	n_prog_log = ix / sizeof(PHONEME_PROG_LOG);
