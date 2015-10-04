@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2006 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 by Reece H. Dunn                                   *
+ *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -711,6 +711,7 @@ void Lexicon_De()
 	if((f_out = fopen("compare_de","w")) == NULL)
 	{
 		wxLogError(_T("Can't write file "));
+		fclose(f_out);
 		return;
 	}
 	LoadVoice("de",0);
