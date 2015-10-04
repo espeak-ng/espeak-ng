@@ -1968,6 +1968,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	{
 		if(fname_err)
 			strcpy(fname_err,fname_out);
+		fclose(f_in);
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);
