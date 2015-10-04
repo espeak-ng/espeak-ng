@@ -609,7 +609,11 @@ void MakeVowelLists(void)
 
 		// select the phoneme table by name
 //		if(SetVoiceByName(phoneme_tab_list[table].name) != 0) continue;
-		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0) continue;
+		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0)
+		{
+			fclose(f);
+			continue;
+		}
 
 		voice_found = 0;
 		if((LoadVoice(phoneme_tab_list[table].name, 0) != NULL) && (translator->data_dictrules != NULL))
