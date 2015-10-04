@@ -384,7 +384,7 @@ void Lexicon_It(int pass)
 		f_listx = fopen(buf,"w");
 		wxLogStatus(_T("Pass 1"));
 	}
-	else
+	else if(pass == 2)
 	{
 		CompileDictionary(path_dsource,"it",NULL,NULL,0);
 		sprintf(buf,"%s/it_listx2",path_dsource);
