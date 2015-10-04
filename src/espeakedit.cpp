@@ -559,23 +559,20 @@ void MyFrame::OnAbout(wxCommandEvent& event)
 	char buf[300];
 	wxString url_docs;
 
-	wxBoxSizer *topsizer;
-	HtmlWindow *html;
-	wxDialog dlg(this, wxID_ANY, wxString(_("About")));
-
-	topsizer = new wxBoxSizer(wxVERTICAL);
-
 	switch(event.GetId())
 	{
 	case MENU_ABOUT:
 		{
+		wxDialog dlg(this, wxID_ANY, wxString(_("About")));
+
 		sprintf(buf,about_string,espeak_Info(NULL));
-		html = new HtmlWindow(&dlg, wxID_ANY, wxDefaultPosition, wxSize(380, 160), wxHW_SCROLLBAR_NEVER);
+		HtmlWindow *html = new HtmlWindow(&dlg, wxID_ANY, wxDefaultPosition, wxSize(380, 160), wxHW_SCROLLBAR_NEVER);
 		html -> SetBorders(0);
 		html -> SetPage(wxString(buf,wxConvLocal));
 		html -> SetSize(html -> GetInternalRepresentation() -> GetWidth(),
 								html -> GetInternalRepresentation() -> GetHeight());
 
+		wxBoxSizer *topsizer = new wxBoxSizer(wxVERTICAL);
 		topsizer -> Add(html, 1, wxALL, 10);
 
 //#if wxUSE_STATLINE
