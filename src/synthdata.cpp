@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -98,6 +99,7 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 	if(fread(p,1,length,f_in) != length)
 	{
 		fclose(f_in);
+		Free(p);
 		return(NULL);
 	}
 
