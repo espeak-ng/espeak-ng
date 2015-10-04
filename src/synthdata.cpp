@@ -495,7 +495,11 @@ void LoadConfig(void)
 		if(memcmp(buf,"log",3)==0)
 		{
 			if(sscanf(&buf[4],"%d %s",&logging_type,string)==2)
+			{
+				if (f_logespeak)
+					fclose(f_logespeak);
 				f_logespeak = fopen(string,"w");
+			}
 		}
 		else
 		if(memcmp(buf,"tone",4)==0)
