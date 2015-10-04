@@ -369,6 +369,7 @@ void Lexicon_It(int pass)
 	{
 		str = wxString(buf, wxConvLocal);
 		wxLogError(_T("Can't write file: ") + str);
+		fclose(f_in);
 		return;
 	}
 
