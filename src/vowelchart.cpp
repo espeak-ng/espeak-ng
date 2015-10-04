@@ -329,6 +329,7 @@ static int VowelChartList(wxDC *dc, wxBitmap *bitmap, char *fname)
 
 	filename.SetExt(_T("png"));
 	bitmap->SaveFile(filename.GetFullPath(),wxBITMAP_TYPE_PNG);
+	fclose(f_in);
 	return(count);
 }
 
