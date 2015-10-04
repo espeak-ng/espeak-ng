@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 sept 5 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 october 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -713,6 +713,7 @@ beat	_^_en $only
 beep	b'i:p
 beige b'E:Z
 bestseller	b'Est[_||s'el:e@-*
+bidet	bId'e	$only
 bijoux	biZ'u:
 bike	b'aIk
 birthday	b'e/:rt[||d,ei
@@ -800,6 +801,7 @@ database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
 desaparecido	d,EzapaReT'ido
+dessert	des:'e@-*	$only
 desktop	d'Eskt,op
 detector	$2
 designer	d,ez'aIne@-*
@@ -845,7 +847,8 @@ flipper	$1
 folder	$1	$onlys
 follower	$1 $alt
 following	f'O:l:ow2iN
-fotocolor	$3	$onlys
+forfait	fo@-*f'e
+fotocolor	$3	$alt $onlys
 fotoreporter	$4	$onlys
 frame	_^_en
 france	f@-*'a/ns
@@ -908,6 +911,7 @@ junior	j'unio@-*
 juniores	j'uni,o@-*s
 juve	j'uve
 juventus	juv'Entus
+kalashnikov	$2
 kashmir	$1
 killer	$1
 lady	l'E:dI
@@ -998,6 +1002,7 @@ quechua	k'etSua
 radar	$1	$onlys
 raider	$1
 ranger	@-*'endZe@-*
+richter	$1 $only
 reader	@-*'i:dE@-*
 rapper	@-*'Epp@@-*	$onlys
 recorder	$2	$onlys
@@ -1051,6 +1056,7 @@ stage	st'EidZ $onlys
 standby	st'End||b'aI
 station	st'ESon	$only
 stalking	st'O:lkiN
+stretching	st@-*'EtSIN
 strike	st@-*'aIk
 streaming	_^_EN
 street	_^_EN
@@ -1115,7 +1121,7 @@ wafer	v'afe@-*
 walkman	w'Olk||m,En
 wall	_^_EN
 walzer	v'altsE@-*
-water	v'atE@-*
+water	v'atE@-*	$only
 way	_^_EN
 wave		_^_EN
 web		wEb
@@ -1696,6 +1702,8 @@ avezzano	$3
 azerbaigian	$5
 azerbaijan	a@-*dz,eb,ajdZ'an
 azzano	$2
+bagdad	$2 $only
+baghdad	$2
 bangladesh	$1
 barbagia	ba/@-*b'adZa/
 barisciano	$3
@@ -2140,6 +2148,7 @@ annapaola	$3
 annibale $2
 antioc	ant'iok
 antony	'E:ntonI
+arafat	$3 $only
 archimede  $alt
 aristofane $3
 aristotele $3
@@ -2152,6 +2161,7 @@ bardot	ba@-*d'o
 bartali	$1
 bastian $2
 baudelaire	bOdl'E@-*
+bearzot	bea*_dz'Ot $only
 beatle	b'i:tol
 beethoven	be:t'o:ven
 beccaria $3
@@ -2228,6 +2238,7 @@ ferrero	$2
 françois	f@-*,a/NsU'a
 francisco	f@-*ans'isko
 frederic	$1
+freud	f@-*'Oid $only
 gandolfi  $alt
 garcía	_^_ES
 gavino	$2
@@ -2375,6 +2386,7 @@ rocky	@-*'Oki
 roger	$1 $alt
 rosalia $3
 ryanair	@-*'aIaneR
+saragat	$1	$only
 sànchez	s'antSets
 sánchez	s'antSets
 salemi  $alt
@@ -2429,7 +2441,7 @@ vladimir	$3
 wagner	v'agnE@-*
 walker	w2'O:lke@-*
 walter	v'alte@-*
-wather	w'OTe@-*
+waters	w'OTe@-*s $only
 wilde	w'aIld
 wojtyla	vojt'ila
 woody	v'udI
@@ -2516,6 +2528,7 @@ acclamano	$2
 acclamino	$2
 accodano	$2
 accodino	$2
+accomoda	$2
 accomodano	$2
 accomodino	$2
 accompagnano	$3
@@ -2661,6 +2674,7 @@ approprino	$2
 aprano	$1
 apriti	$1
 arano	$1
+archiviano	$2
 argina	$1
 argino	$1
 arino	$1
@@ -2809,6 +2823,7 @@ cenino	$1
 censurano	$2
 censurino	$2
 cessino	$1
+centrano	$1 $alt
 chiacchier	$1
 chiacchierano	$1
 chiacchierino	$1
@@ -3821,6 +3836,7 @@ riaccompagnano	$4
 riacquistino	$3
 riadagia	$3
 riaddormentino	$4
+riaffermano	$3
 riallaccino	$3
 riapparvero	$3
 riaprano	$2
@@ -3859,6 +3875,7 @@ ricucii	@-*ikutS'i:j
 ridigit	$2
 ridisegnano	$3
 riducano	$2
+riedito	$2
 rieduchino	$2
 riempiano	$2
 rientrano	$2
@@ -3956,6 +3973,7 @@ riuscii	@-*IuS'i:j
 rivedere	$3
 rivelino	$2
 rivendicano	$2
+riversano	$2
 riversi	$2
 rizzano	@-*'its:ano
 ronzai	@-*oNdz'aI
@@ -4056,6 +4074,7 @@ scoppino	$1
 scoraggiano	$2
 scordino	$1
 scredit	$1
+screditano	$1
 screpol	$1
 scricchiol	$1
 scricchiolano	$1
@@ -4079,6 +4098,7 @@ sequestrano	$2
 servino	$1
 seviziano	$2
 sfamano	$1
+sfatano	$1
 sferrano	$1
 sferrino	$1
 sfiammano	$1
@@ -4505,6 +4525,7 @@ assecondal	$3
 assumersi	$2
 buttal	$1
 calmati	$1	$atstart
+cancellal	$2
 cancellami	$2
 carical	$1
 cercal	$1
@@ -4542,6 +4563,7 @@ domandati	$2
 drizzarsi	d@-*its:'a@-*si
 espellerl	$2
 esprimiti	$2
+evolverci	$2
 evolversi	$2
 fattel	f'at:el
 fermatosi	$2
@@ -4632,7 +4654,7 @@ siediti	$1 $alt2
 spezzal	$1
 spiegaci	$2
 spiegatel	$3
-spiegati	$1
+spiegati	$1	$atstart
 spogliami	$1 $alt
 spoglial	$1 $alt
 spogliati	$1 $alt

@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 Sept  5 by Chris <llajta2012@gmail.com>
+// Last update: 2015 Sept  26 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -340,6 +340,7 @@
 	_) l' (P2t	l
 	lasciati (_	l,a/S'atI
 		lascia (L07_	l'aSa
+	_) lecca (L07_	l'ek:a
 	leggi (L04_	l'EdZ:I
 
 .group m
