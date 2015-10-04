@@ -3999,6 +3999,7 @@ void CompileIntonation()
 	{
 		fclose(f_in);
 		fclose(f_errors);
+		free(tune_data);
 		return;
 	}
 
@@ -4185,6 +4186,7 @@ void CompileIntonation()
 		}
 	}
 	fwrite(tune_data, n_tune_names, sizeof(TUNE), f_out);
+	free(tune_data);
 	fclose(f_in);
 	fclose(f_out);
 
