@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 by Reece H. Dunn                                   *
+ *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -1649,6 +1649,7 @@ int LoadSpect(const char *path, int control)
 	if(stream.Ok() == FALSE)
 	{
 		error("Failed to open: '%s'",path);
+		delete spectseq;
 		return(0);
 	}
 	spectseq->Load(stream);
@@ -1656,6 +1657,7 @@ int LoadSpect(const char *path, int control)
 	if(spectseq->frames == NULL)
 	{
 		error("Bad vowel file, no frames: '%s'",path);
+		delete spectseq;
 		return(0);
 	}
 
