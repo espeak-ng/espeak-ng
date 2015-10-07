@@ -109,29 +109,20 @@ enum synthesis_result {
   SYNTH_ABORT = 1
 };
 
-struct native_data_t {
-  JNIEnv *env;
-  jobject object;
-
-  native_data_t() {
-    env = NULL;
-    object = NULL;
-  }
-};
-
+static JavaVM *jvm = NULL;
 jmethodID METHOD_nativeSynthCallback;
-jfieldID FIELD_mNativeData;
 
-static inline native_data_t *getNativeData(JNIEnv *env, jobject object) {
-  return (native_data_t *) (env->GetIntField(object, FIELD_mNativeData));
+static JNIEnv *getJniEnv() {
+  JNIEnv *env = NULL;
+  jvm->AttachCurrentThread(&env, NULL);
+  return env;
 }
 
 /* Callback from espeak.  Should call back to the TTS API */
 static int SynthCallback(short *audioData, int numSamples,
                          espeak_EVENT *events) {
-  native_data_t *nat = (native_data_t *) events->user_data;
-  JNIEnv *env = nat->env;
-  jobject object = nat->object;
+  JNIEnv *env = getJniEnv();
+  jobject object = (jobject)events->user_data;
 
   if (numSamples < 1) {
     env->CallVoidMethod(object, METHOD_nativeSynthCallback, NULL);
@@ -150,6 +141,7 @@ extern "C" {
 
 JNIEXPORT jint
 JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
+  jvm = vm;
   JNIEnv *env;
 
   if (vm->GetEnv((void **) &env, JNI_VERSION_1_6) != JNI_OK) {
@@ -165,7 +157,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
     JNIEnv* env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   METHOD_nativeSynthCallback = env->GetMethodID(clazz, "nativeSynthCallback", "([B)V");
-  FIELD_mNativeData = env->GetFieldID(clazz, "mNativeData", "I");
 
   return JNI_TRUE;
 }
@@ -174,38 +165,15 @@ JNIEXPORT jint
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path, jint bufferSizeInMillis) {
   if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
-  native_data_t *nat = new native_data_t;
-
-  if (nat == NULL) {
-    LOGE("%s: out of memory!", __FUNCTION__);
-    return 0;
-  }
-
-  env->SetIntField(object, FIELD_mNativeData, (jint) nat);
 
   const char *c_path = path ? env->GetStringUTFChars(path, NULL) : NULL;
 
-  nat->object = env->NewWeakGlobalRef(object);
   if (DEBUG) LOGV("Initializing with path %s", c_path);
   int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, bufferSizeInMillis, c_path, 0);
 
   if (c_path) env->ReleaseStringUTFChars(path, c_path);
 
   return sampleRate;
-}
-
-JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
-    JNIEnv *env, jobject object) {
-  if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
-
-  native_data_t *nat = getNativeData(env, object);
-  if (nat) {
-    env->DeleteWeakGlobalRef(nat->object);
-    delete nat;
-  }
-
-  return JNI_TRUE;
 }
 
 JNIEXPORT jobject
@@ -347,18 +315,15 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
-  native_data_t *nat = getNativeData(env, object);
   const char *c_text = text ? env->GetStringUTFChars(text, NULL) : NULL;
   unsigned int unique_identifier;
-
-  nat->env = env;
 
   espeak_SetSynthCallback(SynthCallback);
   const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
                POS_CHARACTER, 0, // end position (0 means no end position)
                isSsml ? espeakCHARS_UTF8 | espeakSSML // UTF-8 encoded SSML
                       : espeakCHARS_UTF8,             // UTF-8 encoded text
-               &unique_identifier, nat);
+               &unique_identifier, object);
   espeak_Synchronize();
 
   if (c_text) env->ReleaseStringUTFChars(text, c_text);

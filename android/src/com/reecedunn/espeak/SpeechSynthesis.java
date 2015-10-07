@@ -83,11 +83,6 @@ public class SpeechSynthesis {
         attemptInit();
     }
 
-    @Override
-    protected void finalize() {
-        nativeDestroy();
-    }
-
     public static String getVersion() {
         return nativeGetVersion();
     }
@@ -338,8 +333,6 @@ public class SpeechSynthesis {
     private static native final boolean nativeClassInit();
 
     private native final int nativeCreate(String path, int bufferSizeInMillis);
-
-    private native final boolean nativeDestroy();
 
     private native final static String nativeGetVersion();
 
