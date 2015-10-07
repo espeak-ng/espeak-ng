@@ -256,25 +256,33 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 	if(cy.flags & 0x04)
 		markers |= 8;
 
-	spect_data = new USHORT[nx];
-
-	if(spect_data == NULL)
+	if(nx>0)
 	{
-		wxLogError(_T("Failed to allocate memory"));
-		return(1);
-	}
+		spect_data = new USHORT[nx];
 
-	max_y = 0;
-	for(ix=0; ix<nx; ix++)
-	{
-		spect_data[ix] = p->data[ix];
-		if(spect_data[ix] > max_y)
-			max_y = spect_data[ix];
+		if(spect_data == NULL)
+		{
+			wxLogError(_T("Failed to allocate memory"));
+			return(1);
+		}
+
+		max_y = 0;
+		for(ix=0; ix<nx; ix++)
+		{
+			spect_data[ix] = p->data[ix];
+			if(spect_data[ix] > max_y)
+				max_y = spect_data[ix];
+		}
 	}
-	if(nx==0)
+	else
 	{
 		nx = int(8000/dx);
 		spect_data = new USHORT[nx];
+		if(spect_data == NULL)
+		{
+			wxLogError(_T("Failed to allocate memory"));
+			return(1);
+		}
 		for(ix=0; ix<nx; ix++)
 			spect_data[ix] = 1;
 		max_y = 1;

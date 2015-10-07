@@ -993,6 +993,7 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	if(stream.Ok() == FALSE)
 	{
 		wxLogError(_T("Failed to open '%s'"),filename.c_str());
+		delete spectseq;
 		return;
 	}
 	wxFileName path = wxFileName(filename);

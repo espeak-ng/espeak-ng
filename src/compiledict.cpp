@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -870,7 +871,8 @@ static int compile_dictlist_file(const char *path, const char* filename)
 			return(-1);
 	}
 
-	fprintf(f_log,"Compiling: '%s'\n",fname);
+	if(f_log != NULL)
+		fprintf(f_log,"Compiling: '%s'\n",fname);
 
 	linenum=0;
 
@@ -900,7 +902,8 @@ static int compile_dictlist_file(const char *path, const char* filename)
 		count++;
 	}
 
-	fprintf(f_log,"\t%d entries\n",count);
+	if(f_log != NULL)
+		fprintf(f_log,"\t%d entries\n",count);
 	fclose(f_in);
 	return(0);
 }   /* end of compile_dictlist_file */
@@ -1965,6 +1968,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	{
 		if(fname_err)
 			strcpy(fname_err,fname_out);
+		fclose(f_in);
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);

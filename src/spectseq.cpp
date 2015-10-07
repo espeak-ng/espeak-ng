@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -386,16 +386,28 @@ void SpectSeq::Load2(wxInputStream& stream, int import, int n)
 
 		if(import==1)
 		{
-			if(frame->Import(stream) != 0) break;
+			if(frame->Import(stream) != 0)
+			{
+				delete frame;
+				break;
+			}
 		}
 		else
 		if(import==2)
 		{
-			if(frame->ImportSPC2(stream,time_acc) != 0) break;
+			if(frame->ImportSPC2(stream,time_acc) != 0)
+			{
+				delete frame;
+				break;
+			}
 		}
 		else
 		{
-			if(frame->Load(stream, file_format) != 0) break;
+			if(frame->Load(stream, file_format) != 0)
+			{
+				delete frame;
+				break;
+			}
 		}
 
 		frames[numframes++] = frame;

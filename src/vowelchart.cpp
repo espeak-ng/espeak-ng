@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -225,6 +225,7 @@ static int VowelChartDir(wxDC *dc, wxBitmap *bitmap)
 		if(stream.Ok() == FALSE)
 		{
 			path = wxFindNextFile();
+			delete spectseq;
 			continue;
 		}
 		spectseq->Load(stream);
@@ -328,6 +329,7 @@ static int VowelChartList(wxDC *dc, wxBitmap *bitmap, char *fname)
 
 	filename.SetExt(_T("png"));
 	bitmap->SaveFile(filename.GetFullPath(),wxBITMAP_TYPE_PNG);
+	fclose(f_in);
 	return(count);
 }
 
@@ -583,7 +585,10 @@ void MakeVowelLists(void)
 	ix = GetFileLength(fname);
 	prog_log_table = (PHONEME_PROG_LOG *)malloc(ix);
 	if(prog_log_table == NULL)
+	{
+		fclose(f_prog_log);
 		return;
+	}
 	ix = fread(prog_log_table, 1, ix, f_prog_log);
 	fclose(f_prog_log);
 	n_prog_log = ix / sizeof(PHONEME_PROG_LOG);
@@ -604,7 +609,11 @@ void MakeVowelLists(void)
 
 		// select the phoneme table by name
 //		if(SetVoiceByName(phoneme_tab_list[table].name) != 0) continue;
-		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0) continue;
+		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0)
+		{
+			fclose(f);
+			continue;
+		}
 
 		voice_found = 0;
 		if((LoadVoice(phoneme_tab_list[table].name, 0) != NULL) && (translator->data_dictrules != NULL))

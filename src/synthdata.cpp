@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -98,6 +99,7 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 	if(fread(p,1,length,f_in) != length)
 	{
 		fclose(f_in);
+		Free(p);
 		return(NULL);
 	}
 
@@ -493,7 +495,11 @@ void LoadConfig(void)
 		if(memcmp(buf,"log",3)==0)
 		{
 			if(sscanf(&buf[4],"%d %s",&logging_type,string)==2)
+			{
+				if (f_logespeak)
+					fclose(f_logespeak);
 				f_logespeak = fopen(string,"w");
+			}
 		}
 		else
 		if(memcmp(buf,"tone",4)==0)
