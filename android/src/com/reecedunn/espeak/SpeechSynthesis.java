@@ -328,8 +328,6 @@ public class SpeechSynthesis {
         return res.getString(R.string.sample_text, config.locale.getDisplayName(config.locale));
     }
 
-    private int mNativeData;
-
     private static native final boolean nativeClassInit();
 
     private native final int nativeCreate(String path, int bufferSizeInMillis);
