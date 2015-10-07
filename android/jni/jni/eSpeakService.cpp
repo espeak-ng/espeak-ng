@@ -112,12 +112,10 @@ enum synthesis_result {
 struct native_data_t {
   JNIEnv *env;
   jobject object;
-  int sampleRate;
 
   native_data_t() {
     env = NULL;
     object = NULL;
-    sampleRate = 0;
   }
 };
 
@@ -172,7 +170,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
   return JNI_TRUE;
 }
 
-JNIEXPORT jboolean
+JNIEXPORT jint
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path, jint bufferSizeInMillis) {
   if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
@@ -180,7 +178,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
 
   if (nat == NULL) {
     LOGE("%s: out of memory!", __FUNCTION__);
-    return JNI_FALSE;
+    return 0;
   }
 
   env->SetIntField(object, FIELD_mNativeData, (jint) nat);
@@ -189,11 +187,11 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
 
   nat->object = env->NewWeakGlobalRef(object);
   if (DEBUG) LOGV("Initializing with path %s", c_path);
-  nat->sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, bufferSizeInMillis, c_path, 0);
+  int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, bufferSizeInMillis, c_path, 0);
 
   if (c_path) env->ReleaseStringUTFChars(path, c_path);
 
-  return (nat->sampleRate > 0) ? JNI_TRUE : JNI_FALSE;
+  return sampleRate;
 }
 
 JNIEXPORT jboolean
@@ -215,14 +213,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetVersion(
     JNIEnv *env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   return env->NewStringUTF(espeak_Info(NULL));
-}
-
-JNIEXPORT jint
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetSampleRate(
-    JNIEnv *env, jobject object) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
-  const native_data_t *nat = getNativeData(env, object);
-  return (jint)(nat ? nat->sampleRate : 0);
 }
 
 JNIEXPORT jobjectArray

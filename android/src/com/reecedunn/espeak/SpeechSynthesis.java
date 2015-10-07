@@ -65,6 +65,7 @@ public class SpeechSynthesis {
 
     private boolean mInitialized = false;
     private static int mVoiceCount = 0;
+    private int mSampleRate = 0;
 
     public SpeechSynthesis(Context context, SynthReadyCallback callback) {
         // First, ensure the data directory exists, otherwise init will crash.
@@ -96,7 +97,7 @@ public class SpeechSynthesis {
     }
 
     public int getSampleRate() {
-        return nativeGetSampleRate();
+        return mSampleRate;
     }
 
     public int getChannelCount() {
@@ -108,9 +109,7 @@ public class SpeechSynthesis {
     }
 
     public int getBufferSizeInBytes() {
-        final int bufferSizeInMillis = BUFFER_SIZE_IN_MILLIS;
-        final int sampleRate = nativeGetSampleRate();
-        return (bufferSizeInMillis * sampleRate) / 1000;
+        return (BUFFER_SIZE_IN_MILLIS * mSampleRate) / 1000;
     }
 
     public List<Voice> getAvailableVoices() {
@@ -311,7 +310,8 @@ public class SpeechSynthesis {
             return;
         }
 
-        if (!nativeCreate(mDatapath, BUFFER_SIZE_IN_MILLIS)) {
+        mSampleRate = nativeCreate(mDatapath, BUFFER_SIZE_IN_MILLIS);
+        if (mSampleRate == 0) {
             Log.e(TAG, "Failed to initialize speech synthesis library");
             return;
         }
@@ -337,13 +337,11 @@ public class SpeechSynthesis {
 
     private static native final boolean nativeClassInit();
 
-    private native final boolean nativeCreate(String path, int bufferSizeInMillis);
+    private native final int nativeCreate(String path, int bufferSizeInMillis);
 
     private native final boolean nativeDestroy();
 
     private native final static String nativeGetVersion();
-
-    private native final int nativeGetSampleRate();
 
     private native final String[] nativeGetAvailableVoices();
 
