@@ -104,33 +104,23 @@ unicode_string::~unicode_string()
 #define LOG_TAG "eSpeakService"
 #define DEBUG true
 
-enum audio_encoding {
-  ENCODING_INVALID = 0x00,
-  ENCODING_DEFAULT = 0x01,
-  ENCODING_PCM_16BIT = 0x02,
-  ENCODING_PCM_8BIT = 0x03
-};
-
 enum synthesis_result {
   SYNTH_CONTINUE = 0,
   SYNTH_ABORT = 1
 };
 
-const int DEFAULT_AUDIO_FORMAT = ENCODING_PCM_16BIT;
 const int DEFAULT_BUFFER_SIZE = 1000;
 
 struct native_data_t {
   JNIEnv *env;
   jobject object;
   int sampleRate;
-  int audioFormat;
   int bufferSizeInMillis;
 
   native_data_t() {
     env = NULL;
     object = NULL;
     sampleRate = 0;
-    audioFormat = DEFAULT_AUDIO_FORMAT;
     bufferSizeInMillis = DEFAULT_BUFFER_SIZE;
   }
 };
@@ -237,14 +227,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetSampleRate(
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
   return (jint)(nat ? nat->sampleRate : 0);
-}
-
-JNIEXPORT jint
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAudioFormat(
-    JNIEnv *env, jobject object) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
-  const native_data_t *nat = getNativeData(env, object);
-  return (jint) nat->audioFormat;
 }
 
 JNIEXPORT jint

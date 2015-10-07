@@ -50,6 +50,7 @@ public class SpeechSynthesis {
     public static final int AGE_OLD = 60;
 
     public static final int CHANNEL_COUNT_MONO = 1;
+    public static final int FORMAT_PCM_S16 = 2;
 
     static {
         System.loadLibrary("ttsespeak");
@@ -102,7 +103,7 @@ public class SpeechSynthesis {
     }
 
     public int getAudioFormat() {
-        return nativeGetAudioFormat();
+        return FORMAT_PCM_S16;
     }
 
     public int getBufferSizeInBytes() {
@@ -342,8 +343,6 @@ public class SpeechSynthesis {
     private native final static String nativeGetVersion();
 
     private native final int nativeGetSampleRate();
-
-    private native final int nativeGetAudioFormat();
 
     private native final int nativeGetBufferSizeInMillis();
 
