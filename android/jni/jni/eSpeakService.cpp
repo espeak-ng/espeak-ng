@@ -104,11 +104,6 @@ unicode_string::~unicode_string()
 #define LOG_TAG "eSpeakService"
 #define DEBUG true
 
-enum audio_channel_count {
-  CHANNEL_COUNT_MONO = 1,
-  CHANNEL_COUNT_STEREO = 2
-};
-
 enum audio_encoding {
   ENCODING_INVALID = 0x00,
   ENCODING_DEFAULT = 0x01,
@@ -121,7 +116,6 @@ enum synthesis_result {
   SYNTH_ABORT = 1
 };
 
-const int DEFAULT_CHANNEL_COUNT = CHANNEL_COUNT_MONO;
 const int DEFAULT_AUDIO_FORMAT = ENCODING_PCM_16BIT;
 const int DEFAULT_BUFFER_SIZE = 1000;
 
@@ -129,7 +123,6 @@ struct native_data_t {
   JNIEnv *env;
   jobject object;
   int sampleRate;
-  int channelCount;
   int audioFormat;
   int bufferSizeInMillis;
 
@@ -137,7 +130,6 @@ struct native_data_t {
     env = NULL;
     object = NULL;
     sampleRate = 0;
-    channelCount = DEFAULT_CHANNEL_COUNT;
     audioFormat = DEFAULT_AUDIO_FORMAT;
     bufferSizeInMillis = DEFAULT_BUFFER_SIZE;
   }
@@ -245,14 +237,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetSampleRate(
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
   return (jint)(nat ? nat->sampleRate : 0);
-}
-
-JNIEXPORT jint
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetChannelCount(
-    JNIEnv *env, jobject object) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
-  const native_data_t *nat = getNativeData(env, object);
-  return (jint) nat->channelCount;
 }
 
 JNIEXPORT jint

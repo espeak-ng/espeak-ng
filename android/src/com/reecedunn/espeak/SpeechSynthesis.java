@@ -49,6 +49,8 @@ public class SpeechSynthesis {
     public static final int AGE_YOUNG = 12;
     public static final int AGE_OLD = 60;
 
+    public static final int CHANNEL_COUNT_MONO = 1;
+
     static {
         System.loadLibrary("ttsespeak");
 
@@ -96,7 +98,7 @@ public class SpeechSynthesis {
     }
 
     public int getChannelCount() {
-        return nativeGetChannelCount();
+        return CHANNEL_COUNT_MONO;
     }
 
     public int getAudioFormat() {
@@ -340,8 +342,6 @@ public class SpeechSynthesis {
     private native final static String nativeGetVersion();
 
     private native final int nativeGetSampleRate();
-
-    private native final int nativeGetChannelCount();
 
     private native final int nativeGetAudioFormat();
 
