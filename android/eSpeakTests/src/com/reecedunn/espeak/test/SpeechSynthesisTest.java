@@ -325,7 +325,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
             {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 context = "[iana:sample-text]";
-                assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), anyOf(equalTo(data.sampleText), equalTo(data.sampleTextAlt)));
+                assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), isIn(data.sampleText));
                 context = "[iana:resource-locale]";
                 assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
 
@@ -333,7 +333,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
                 {
                     final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
                     context = "[java:sample-text]";
-                    assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), anyOf(equalTo(data.sampleText), equalTo(data.sampleTextAlt)));
+                    assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), isIn(data.sampleText));
                     context = "[java:resource-locale]";
                     assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
                 }

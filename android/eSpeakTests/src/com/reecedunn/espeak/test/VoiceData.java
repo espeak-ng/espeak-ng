@@ -18,6 +18,9 @@ package com.reecedunn.espeak.test;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VoiceData
 {
     public static class Voice
@@ -32,8 +35,7 @@ public class VoiceData
         public final int    gender;
         public final String displayName;
         public final String locale;
-        public final String sampleText;
-        public final String sampleTextAlt;
+        public final List<String> sampleText = new ArrayList<>();
 
         public Voice(String name,
                      String identifier,
@@ -45,7 +47,7 @@ public class VoiceData
                      int    gender,
                      String displayName,
                      String locale,
-                     String sampleText)
+                     String... sampleText)
         {
             this.name = name;
             this.identifier = identifier;
@@ -57,35 +59,8 @@ public class VoiceData
             this.gender = gender;
             this.displayName = displayName;
             this.locale = locale;
-            this.sampleText = sampleText;
-            this.sampleTextAlt = sampleText;
-        }
-
-        public Voice(String name,
-                     String identifier,
-                     String ianaLanguage,
-                     String javaLanguage,
-                     String ianaCountry,
-                     String javaCountry,
-                     String variant,
-                     int    gender,
-                     String displayName,
-                     String locale,
-                     String sampleText,
-                     String sampleTextAlt)
-        {
-            this.name = name;
-            this.identifier = identifier;
-            this.ianaLanguage = ianaLanguage;
-            this.javaLanguage = javaLanguage;
-            this.ianaCountry = ianaCountry;
-            this.javaCountry = javaCountry;
-            this.variant = variant;
-            this.gender = gender;
-            this.displayName = displayName;
-            this.locale = locale;
-            this.sampleText = sampleText;
-            this.sampleTextAlt = sampleTextAlt;
+            for (String text : sampleText)
+                this.sampleText.add(text);
         }
     }
 
@@ -132,7 +107,7 @@ public class VoiceData
         new Voice("fr-be",       "europe/fr-be", "fr",  "fra", "BE",  "BEL", "",         SpeechSynthesis.GENDER_MALE,        "French (Belgium)",                 "fra-BEL",          "Voici un exemple de texte énoncé en français (Belgique)."),
         new Voice("fr-fr",       "fr",           "fr",  "fra", "FR",  "FRA", "",         SpeechSynthesis.GENDER_MALE,        "French (France)",                  "fra-FRA",          "Voici un exemple de texte énoncé en français (France)."),
         new Voice("ga",          "europe/ga",    "ga",  "gle", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Irish",                            "gle",              "This is a sample of text spoken in Irish", "This is a sample of text spoken in Gaeilge"),
-        new Voice("gd",          "test/gd",      "gd",  "gla", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Scottish Gaelic",                  "gla",              "This is a sample of text spoken in Scottish Gaelic"),
+        new Voice("gd",          "test/gd",      "gd",  "gla", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Scottish Gaelic",                  "gla",              "This is a sample of text spoken in Scottish Gaelic", "This is a sample of text spoken in Gàidhlig"),
         new Voice("grc",         "other/grc",    "grc", "grc", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Greek (Ancient)",                  "grc",              "This is a sample of text spoken in Ancient Greek"),
         new Voice("gu",          "asia/gu",      "gu",  "guj", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Gujarati",                         "guj",              "This is a sample of text spoken in Gujarati", "This is a sample of text spoken in ગુજરાતી"),
         new Voice("hi",          "asia/hi",      "hi",  "hin", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Hindi",                            "hin",              "यह हिन्दी में बोले गए पाठ का नमूना है"),
@@ -171,8 +146,8 @@ public class VoiceData
         new Voice("si",          "test/si",      "si",  "sin", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Sinhalese",                        "sin",              "This is a sample of text spoken in Sinhala", "This is a sample of text spoken in සිංහල"),
         new Voice("sk",          "europe/sk",    "sk",  "slk", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Slovak",                           "slk",              "Toto je ukážkový text nahovorený v jazyku slovenčina"),
         new Voice("sl",          "test/sl",      "sl",  "slv", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Slovenian",                        "slv",              "To je vzorec besedila, izgovorjen v slovenščina"),
-        new Voice("sq",          "europe/sq",    "sq",  "sqi", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Albanian",                         "sqi",              "This is a sample of text spoken in Albanian", "This is a sample of text spoken in Shqip"),
-        new Voice("sr",          "europe/sr",    "sr",  "srp", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Serbian",                          "srp",              "Ово је пример текста који је изговорен на језику Српски"),
+        new Voice("sq",          "europe/sq",    "sq",  "sqi", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Albanian",                         "sqi",              "This is a sample of text spoken in Albanian", "This is a sample of text spoken in Shqip", "This is a sample of text spoken in shqip"),
+        new Voice("sr",          "europe/sr",    "sr",  "srp", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Serbian",                          "srp",              "Ово је пример текста који је изговорен на језику Српски", "Ово је пример текста који је изговорен на језику српски"),
         new Voice("sv",          "europe/sv",    "sv",  "swe", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Swedish",                          "swe",              "Detta är ett textexempel som läses på svenska"),
         new Voice("sw",          "other/sw",     "sw",  "swa", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Swahili",                          "swa",              "Hii ni sampuli ya maandishi yaliyonenwa katika Kiswahili", "Hii ni sampuli ya maandishi yaliyonenwa katika Swahili"),
         new Voice("ta",          "asia/ta",      "ta",  "tam", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Tamil",                            "tam",              "This is a sample of text spoken in தமிழ்", "This is a sample of text spoken in Tamil"),
