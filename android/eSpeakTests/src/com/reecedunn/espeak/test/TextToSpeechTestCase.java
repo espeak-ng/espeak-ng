@@ -24,6 +24,7 @@ import android.util.Log;
 
 import java.util.Locale;
 
+import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -71,7 +72,7 @@ public class TextToSpeechTestCase extends AndroidTestCase
                 Log.d("TextToSpeechTestCase", "setUp: available = " + available);
             }
 
-            assertThat(available, is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+            assertThat(available, isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         }
         catch (Exception e)
         {
