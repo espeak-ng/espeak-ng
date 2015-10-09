@@ -123,20 +123,23 @@ public class TextToSpeechTest extends TextToSpeechTestCase
 
             assertThat(data, is(notNullValue()));
             assertThat(voice.getName(), is(data.name));
-            assertThat(voice.getLocale().getLanguage(), is(data.ianaLanguage));
-            assertThat(voice.getLocale().getCountry(), is(data.ianaCountry));
+            assertThat(voice.getLocale().getLanguage(), is(data.javaLanguage));
+            assertThat(voice.getLocale().getCountry(), is(data.javaCountry));
             assertThat(voice.getLocale().getVariant(), is(data.variant));
             assertThat(voice.getFeatures(), is(nullValue()));
             assertThat(voice.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));
             assertThat(voice.getQuality(), is(android.speech.tts.Voice.QUALITY_NORMAL));
 
             getEngine().setVoice(voice);
+            assertThat(getLanguage(getEngine()).getLanguage(), is(data.javaLanguage));
+            assertThat(getLanguage(getEngine()).getCountry(), is(data.javaCountry));
+            assertThat(getLanguage(getEngine()).getVariant(), is(data.variant));
 
             android.speech.tts.Voice voice2 = getEngine().getVoice();
             assertThat(voice2, is(notNullValue()));
             assertThat(voice2.getName(), is(data.name));
-            assertThat(voice2.getLocale().getLanguage(), is(data.ianaLanguage));
-            assertThat(voice2.getLocale().getCountry(), is(data.ianaCountry));
+            assertThat(voice2.getLocale().getLanguage(), is(data.javaLanguage));
+            assertThat(voice2.getLocale().getCountry(), is(data.javaCountry));
             assertThat(voice2.getLocale().getVariant(), is(data.variant));
             assertThat(voice2.getFeatures(), is(nullValue()));
             assertThat(voice2.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));

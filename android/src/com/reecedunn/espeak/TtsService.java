@@ -221,7 +221,7 @@ public class TtsService extends TextToSpeechService {
         for (Voice voice : mAvailableVoices.values()) {
             int quality = android.speech.tts.Voice.QUALITY_NORMAL;
             int latency = android.speech.tts.Voice.LATENCY_VERY_LOW;
-            voices.add(new android.speech.tts.Voice(voice.name, voice.locale, quality, latency, false, null));
+            voices.add(new android.speech.tts.Voice(voice.name, new Locale(voice.locale.getISO3Language(), voice.locale.getISO3Country(), voice.locale.getVariant()), quality, latency, false, null));
         }
         return voices;
     }
