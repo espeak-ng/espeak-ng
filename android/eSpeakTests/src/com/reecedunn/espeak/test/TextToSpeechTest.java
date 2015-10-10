@@ -196,12 +196,42 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             final Locale java3 = new Locale(data.javaLanguage, "VUT", data.variant);
 
             checkLanguage(data, iana1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant);
-            checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "");
-            checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "");
-
             checkLanguage(data, java1, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE, data.javaLanguage, data.javaCountry, data.variant);
-            checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE,     data.javaLanguage, data.javaCountry, "");
-            checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE,             data.javaLanguage, "",               "");
+
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
+                // Android Lollipop sets variant to "" when TextToSpeech.LANG_COUNTRY_AVAILABLE is returned.
+                checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");
+                checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");
+            } else {
+                if (data.ianaLanguage.equals("vi") && data.ianaCountry.equals("VN")) {
+                    checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "hue");
+                    checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "hue");
+                } else {
+                    checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");
+                    checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");
+                }
+            }
+
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
+                // Android Lollipop sets country and variant to "" when TextToSpeech.LANG_AVAILABLE is returned.
+                checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "", "");
+                checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "", "");
+            } else {
+                switch (data.ianaLanguage) {
+                    case "fr":
+                        checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "FRA", "");
+                        checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "FRA", "");
+                        break;
+                    case "pt":
+                        checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "PRT", "");
+                        checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "PRT", "");
+                        break;
+                    default:
+                        checkLanguage(data, iana3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "", "");
+                        checkLanguage(data, java3, TextToSpeech.LANG_AVAILABLE, data.javaLanguage, "", "");
+                        break;
+                }
+            }
         }
     }
 }

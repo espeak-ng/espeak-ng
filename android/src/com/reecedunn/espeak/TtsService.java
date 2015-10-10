@@ -168,8 +168,17 @@ public class TtsService extends TextToSpeechService {
         final Pair<Voice, Integer> match = findVoice(language, country, variant);
         switch (match.second) {
             case TextToSpeech.LANG_AVAILABLE:
+                if (language.equals("fr") || language.equals("fra")) {
+                    return new Pair<>(findVoice(language, "FRA", "").first, match.second);
+                }
+                if (language.equals("pt") || language.equals("por")) {
+                    return new Pair<>(findVoice(language, "PRT", "").first, match.second);
+                }
                 return new Pair<>(findVoice(language, "", "").first, match.second);
             case TextToSpeech.LANG_COUNTRY_AVAILABLE:
+                if ((language.equals("vi") || language.equals("vie")) && (country.equals("VN") || country.equals("VNM"))) {
+                    return new Pair<>(findVoice(language, country, "hue").first, match.second);
+                }
                 return new Pair<>(findVoice(language, country, "").first, match.second);
             default:
                 return match;
