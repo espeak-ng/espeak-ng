@@ -67,7 +67,7 @@ public class TtsService extends TextToSpeechService {
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
-    private Map<String, Voice> mAvailableVoices;
+    private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
     private Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
@@ -100,7 +100,6 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
-        mAvailableVoices = new HashMap<String, Voice>();
         for (Voice voice : mEngine.getAvailableVoices()) {
             mAvailableVoices.put(voice.name, voice);
         }
