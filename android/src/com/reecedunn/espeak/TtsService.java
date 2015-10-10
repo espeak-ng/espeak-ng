@@ -61,10 +61,6 @@ public class TtsService extends TextToSpeechService {
     private static final String TAG = TtsService.class.getSimpleName();
     private static final boolean DEBUG = false;
 
-    private static final String DEFAULT_LANGUAGE = "en";
-    private static final String DEFAULT_COUNTRY = "uk";
-    private static final String DEFAULT_VARIANT = "";
-
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
@@ -72,10 +68,6 @@ public class TtsService extends TextToSpeechService {
     protected Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
-
-    private String mLanguage = DEFAULT_LANGUAGE;
-    private String mCountry = DEFAULT_COUNTRY;
-    private String mVariant = DEFAULT_VARIANT;
 
     @Override
     public void onCreate() {
@@ -112,8 +104,13 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected String[] onGetLanguage() {
         // This is used to specify the language requested from GetSampleText.
+        if (mMatchingVoice == null) {
+            return new String[] { "eng", "GBR", "" };
+        }
         return new String[] {
-                mLanguage, mCountry, mVariant
+            mMatchingVoice.locale.getISO3Language(),
+            mMatchingVoice.locale.getISO3Country(),
+            mMatchingVoice.locale.getVariant()
         };
     }
 
@@ -180,42 +177,16 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
-        final Pair<Voice, Integer> match = findVoice(language, country, variant);
-        mMatchingVoice = match.first;
-        return match.second;
+        return findVoice(language, country, variant).second;
     }
 
     @Override
     protected int onLoadLanguage(String language, String country, String variant) {
-        final int result = onIsLanguageAvailable(language, country, variant);
-        switch (result) {
-        case TextToSpeech.LANG_AVAILABLE:
-            synchronized (this) {
-                mLanguage = language;
-                mCountry = "";
-                mVariant = "";
-            }
-            break;
-        case TextToSpeech.LANG_COUNTRY_AVAILABLE:
-            synchronized (this) {
-                mLanguage = language;
-                mCountry = ((country == null) ? "" : country);
-                mVariant = "";
-            }
-            break;
-        case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
-            synchronized (this) {
-                mLanguage = language;
-                mCountry = ((country == null) ? "" : country);
-                mVariant = ((variant == null) ? "" : variant);
-            }
-            break;
-        case TextToSpeech.LANG_NOT_SUPPORTED:
-            Log.e(TAG, "Unsupported language {language='" + language + "', country='" + country
-                    + "', variant='" + variant + "'}");
-            break;
+        final Pair<Voice, Integer> match = getDefaultVoiceFor(language, country, variant);
+        if (match.first != null) {
+            mMatchingVoice = match.first;
         }
-        return result;
+        return match.second;
     }
 
     @Override
