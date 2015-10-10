@@ -132,4 +132,32 @@ public class TextToSpeechServiceTest extends AndroidTestCase
         assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
     }
+
+    public void testOnGetDefaultVoiceNameFor() {
+        assertThat(mService.onLoadLanguage("vie", "VNM", "saigon"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "", ""), is("en"));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", ""), is("en-us"));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "GBR", "scotland"), is("en-sc"));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", "rp"), is("en-us"));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "", "scotland"), is("en"));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", "rp"), is("en-uk-rp")); // INCORRECT BEHAVIOUR
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", ""), is("en-uk-rp")); // INCORRECT BEHAVIOUR
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+
+        assertThat(mService.onGetDefaultVoiceNameFor("ine", "", ""), is(nullValue()));
+        checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+    }
 }
