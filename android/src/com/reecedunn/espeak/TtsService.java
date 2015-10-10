@@ -38,6 +38,7 @@ import android.speech.tts.SynthesisRequest;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeechService;
 import android.util.Log;
+import android.util.Pair;
 
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
@@ -116,8 +117,7 @@ public class TtsService extends TextToSpeechService {
         };
     }
 
-    @Override
-    protected int onIsLanguageAvailable(String language, String country, String variant) {
+    private Pair<Voice, Integer> findVoice(String language, String country, String variant) {
         if (!CheckVoiceData.hasBaseResources(this) || CheckVoiceData.canUpgradeResources(this)) {
             if (mOnLanguagesDownloaded == null) {
                 mOnLanguagesDownloaded = new BroadcastReceiver() {
@@ -135,7 +135,7 @@ public class TtsService extends TextToSpeechService {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
 
-            return TextToSpeech.LANG_MISSING_DATA;
+            return new Pair<>(null, TextToSpeech.LANG_MISSING_DATA);
         }
 
         final Locale query = new Locale(language, country, variant);
@@ -147,8 +147,7 @@ public class TtsService extends TextToSpeechService {
             for (Voice voice : mAvailableVoices.values()) {
                 switch (voice.match(query)) {
                     case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
-                        mMatchingVoice = voice;
-                        return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
+                        return new Pair<>(voice, TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE);
                     case TextToSpeech.LANG_COUNTRY_AVAILABLE:
                         countryVoice = voice;
                     case TextToSpeech.LANG_AVAILABLE:
@@ -159,15 +158,19 @@ public class TtsService extends TextToSpeechService {
         }
 
         if (languageVoice == null) {
-            mMatchingVoice = null;
-            return TextToSpeech.LANG_NOT_SUPPORTED;
+            return new Pair<>(null, TextToSpeech.LANG_NOT_SUPPORTED);
         } else if (countryVoice == null) {
-            mMatchingVoice = languageVoice;
-            return TextToSpeech.LANG_AVAILABLE;
+            return new Pair<>(languageVoice, TextToSpeech.LANG_AVAILABLE);
         } else {
-            mMatchingVoice = countryVoice;
-            return TextToSpeech.LANG_COUNTRY_AVAILABLE;
+            return new Pair<>(countryVoice, TextToSpeech.LANG_COUNTRY_AVAILABLE);
         }
+    }
+
+    @Override
+    protected int onIsLanguageAvailable(String language, String country, String variant) {
+        final Pair<Voice, Integer> match = findVoice(language, country, variant);
+        mMatchingVoice = match.first;
+        return match.second;
     }
 
     @Override
