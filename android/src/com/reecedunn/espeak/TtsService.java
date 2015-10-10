@@ -166,6 +166,18 @@ public class TtsService extends TextToSpeechService {
         }
     }
 
+    private Pair<Voice, Integer> getDefaultVoiceFor(String language, String country, String variant) {
+        final Pair<Voice, Integer> match = findVoice(language, country, variant);
+        switch (match.second) {
+            case TextToSpeech.LANG_AVAILABLE:
+                return new Pair<>(findVoice(language, "", "").first, match.second);
+            case TextToSpeech.LANG_COUNTRY_AVAILABLE:
+                return new Pair<>(findVoice(language, country, "").first, match.second);
+            default:
+                return match;
+        }
+    }
+
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
         final Pair<Voice, Integer> match = findVoice(language, country, variant);
@@ -208,13 +220,8 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public String onGetDefaultVoiceNameFor(String language, String country, String variant) {
-        final int result = onIsLanguageAvailable(language, country, variant);
-        switch (result) {
-            case TextToSpeech.LANG_MISSING_DATA:
-            case TextToSpeech.LANG_NOT_SUPPORTED:
-                return null;
-        }
-        return mMatchingVoice.name;
+        final Voice match = getDefaultVoiceFor(language, country, variant).first;
+        return (match == null) ? null : match.name;
     }
 
     @Override

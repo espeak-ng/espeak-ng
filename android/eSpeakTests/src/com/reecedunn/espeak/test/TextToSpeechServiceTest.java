@@ -169,40 +169,41 @@ public class TextToSpeechServiceTest extends AndroidTestCase
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "", ""), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", ""), is("en-us"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en-us"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "GBR", "scotland"), is("en-sc"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en-sc"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", "rp"), is("en-us"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en-us"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "", "scotland"), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
-        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", "rp"), is("en-uk-rp"));
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", "rp"), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
-        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", ""), is("en-uk-rp"));
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", ""), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
-        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("ine", "", ""), is(nullValue()));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
-        assertThat(mService.getActiveVoice(), is(nullValue()));
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("vi-sgn"));
     }
 }
