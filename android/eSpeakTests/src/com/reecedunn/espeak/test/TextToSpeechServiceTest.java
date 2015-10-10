@@ -18,18 +18,14 @@ package com.reecedunn.espeak.test;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import com.reecedunn.espeak.TtsService;
-
-import java.util.Locale;
+import com.reecedunn.espeak.Voice;
 
 import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.*;
 
 public class TextToSpeechServiceTest extends AndroidTestCase
 {
@@ -50,6 +46,10 @@ public class TextToSpeechServiceTest extends AndroidTestCase
 
         public int onLoadLanguage(String language, String country, String variant) {
             return super.onLoadLanguage(language, country, variant);
+        }
+
+        public Voice getActiveVoice() {
+            return mMatchingVoice;
         }
     }
 
@@ -82,27 +82,42 @@ public class TextToSpeechServiceTest extends AndroidTestCase
     public void testOnLoadLanguage() {
         assertThat(mService.onLoadLanguage("eng", "", ""), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
         assertThat(mService.onLoadLanguage("eng", "USA", ""), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "USA", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onLoadLanguage("eng", "GBR", "scotland"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "GBR", "scotland");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-sc"));
 
         assertThat(mService.onLoadLanguage("eng", "USA", "rp"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "USA", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onLoadLanguage("eng", "", "scotland"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
         assertThat(mService.onLoadLanguage("eng", "FRA", "rp"), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
         assertThat(mService.onLoadLanguage("eng", "FRA", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "eng", "", "");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
         assertThat(mService.onLoadLanguage("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
         checkLanguage(mService.onGetLanguage(), "eng", "", "");
+        assertThat(mService.getActiveVoice(), is(nullValue()));
     }
 
     public void testOnIsLanguageAvailable() {
@@ -110,27 +125,42 @@ public class TextToSpeechServiceTest extends AndroidTestCase
 
         assertThat(mService.onIsLanguageAvailable("eng", "", ""), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "USA", ""), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "GBR", "scotland"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-sc"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "USA", "rp"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "", "scotland"), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "FRA", "rp"), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
         assertThat(mService.onIsLanguageAvailable("eng", "FRA", ""), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
         assertThat(mService.onIsLanguageAvailable("ine", "", ""), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(nullValue()));
     }
 
     public void testOnGetDefaultVoiceNameFor() {
@@ -138,26 +168,41 @@ public class TextToSpeechServiceTest extends AndroidTestCase
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "", ""), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", ""), is("en-us"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "GBR", "scotland"), is("en-sc"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-sc"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "USA", "rp"), is("en-us"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-us"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("eng", "", "scotland"), is("en"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en"));
 
-        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", "rp"), is("en-uk-rp")); // INCORRECT BEHAVIOUR
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", "rp"), is("en-uk-rp"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
-        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", ""), is("en-uk-rp")); // INCORRECT BEHAVIOUR
+        assertThat(mService.onGetDefaultVoiceNameFor("eng", "FRA", ""), is("en-uk-rp"));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(notNullValue()));
+        assertThat(mService.getActiveVoice().name, is("en-uk-rp"));
 
         assertThat(mService.onGetDefaultVoiceNameFor("ine", "", ""), is(nullValue()));
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
+        assertThat(mService.getActiveVoice(), is(nullValue()));
     }
 }

@@ -68,7 +68,7 @@ public class TtsService extends TextToSpeechService {
     private SynthesisCallback mCallback;
 
     private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
-    private Voice mMatchingVoice = null;
+    protected Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
 
