@@ -258,7 +258,7 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected synchronized void onSynthesizeText(SynthesisRequest request, SynthesisCallback callback) {
-        if (selectVoice(request) == TextToSpeech.ERROR)
+        if (mMatchingVoice == null)
             return;
 
         String text = getRequestString(request);
