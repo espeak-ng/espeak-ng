@@ -205,7 +205,7 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public String onGetDefaultVoiceNameFor(String language, String country, String variant) {
-        final int result = onLoadLanguage(language, country, variant);
+        final int result = onIsLanguageAvailable(language, country, variant);
         switch (result) {
             case TextToSpeech.LANG_MISSING_DATA:
             case TextToSpeech.LANG_NOT_SUPPORTED:
