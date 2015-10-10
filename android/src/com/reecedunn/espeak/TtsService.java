@@ -93,6 +93,7 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
+        mAvailableVoices.clear();
         for (Voice voice : mEngine.getAvailableVoices()) {
             mAvailableVoices.put(voice.name, voice);
         }
