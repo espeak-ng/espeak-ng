@@ -16,12 +16,16 @@
 
 package com.reecedunn.espeak.test;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.test.AndroidTestCase;
 
 import com.reecedunn.espeak.TtsService;
 import com.reecedunn.espeak.Voice;
+
+import java.util.Locale;
 
 import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -50,6 +54,16 @@ public class TextToSpeechServiceTest extends AndroidTestCase
 
         public Voice getActiveVoice() {
             return mMatchingVoice;
+        }
+
+        @SuppressLint("NewApi")
+        private android.speech.tts.Voice getVoice(String name) {
+            for (android.speech.tts.Voice voice : onGetVoices()) {
+                if (voice.getName().equals(name)) {
+                    return voice;
+                }
+            }
+            return null;
         }
     }
 
@@ -207,5 +221,28 @@ public class TextToSpeechServiceTest extends AndroidTestCase
         checkLanguage(mService.onGetLanguage(), "vie", "VNM", "saigon");
         assertThat(mService.getActiveVoice(), is(notNullValue()));
         assertThat(mService.getActiveVoice().name, is("vi-sgn"));
+    }
+
+    public void testLanguages() {
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            assertThat(mService.onIsLanguageAvailable(data.javaLanguage, data.javaCountry, data.variant), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                assertThat(mService.onLoadLanguage(data.javaLanguage, data.javaCountry, data.variant), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+                checkLanguage(mService.onGetLanguage(), data.javaLanguage, data.javaCountry, data.variant);
+            } else {
+                assertThat(mService.onGetDefaultVoiceNameFor(data.javaLanguage, data.javaCountry, data.variant), is(data.name));
+                assertThat(mService.onLoadVoice(data.name), is(TextToSpeech.SUCCESS));
+
+                android.speech.tts.Voice voice = mService.getVoice(data.name);
+                assertThat(voice, is(notNullValue()));
+
+                Locale locale = voice.getLocale();
+                assertThat(locale, is(notNullValue()));
+                assertThat(locale.getISO3Language(), is(data.javaLanguage));
+                assertThat(locale.getISO3Country(), is(data.javaCountry));
+                assertThat(locale.getVariant(), is(data.variant));
+            }
+        }
     }
 }
