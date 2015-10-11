@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 march 27 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 october 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -151,7 +151,7 @@ _‣	punt'ato
 ↓	f@-*'etS:a||_dZ'u
 ♭	bem'Ol:e
 ♯	dI'ezis
-♥	'as:o||di||kw'ORI // s'imbolo||ku'oRe
+♥	'as:o||di||kw'ORI
 ❓	p'unto||inteR*ogat'ivo
 
 ∞	infin'Ito
@@ -189,6 +189,7 @@ _‥	p,unto||d'op:io
 £       sterl'ina
 ₠	'e:uRo
 €	'e:uRo
+₹	@-*u_pjaindj'ana
 ₨	@-*'upja
 ¤	s'imbolo||di||v'aluta
 
@@ -384,6 +385,7 @@ _1M1o	mil'Ezim
 // abbreviations
 
 abc	a||bi||tS'i
+acdc	$abbrev
 adsl	a||di||es:e||'El:e
 ascii	'askIi
 atp	a||ti||p'i
@@ -398,11 +400,15 @@ fiat	f'iat[	$only
 gnu	$abbrev	$allcaps
 hiv	ak:a||i:||v'u
 html	ak:ati||em:e||'El:e
+l'html	lak:at,i||em:e'El:e
+l'xml	liks||em:e'El:e
 ibm	i||bi||'Em:e
 id	i:||_d'i	$only
 ipa	i||pI||'a:
 isbn	$abbrev
+gse	$abbrev
 jpeg	dZeI||p'Eg
+ko	$abbrev $only
 mr	mIster	$hasdot $dot
 nvda	$abbrev
 ocr	o||tSi||'ER*e $onlys
@@ -421,6 +427,7 @@ uk	$abbrev
 unicef	$1
 url	u||eR*e||'El:e $only
 usb	$abbrev
+wwf	vu||vu||'Ef:e
 www	v,u||_vu||_v'u
 xml	iks||em:e||'El:e
 
@@ -449,9 +456,9 @@ esse	$u+
 essi	$u+ 
 
 mi	$u+ $only
-ti	$u+ $only
-si      $u+ $only
-ci	$u+ $only
+ti	$u+ $only $verbf
+si	 $u+ $verbf $only
+ci	$u+ $verbf $only
 vi	vi $u+ $only
 li	$u+ $only
 me	$u+
@@ -483,46 +490,53 @@ sue	$u+
 nostre	$u+
 vostre	$u+
 
-questo	$u+	// this
-questa	$u+	// this
+questo	$u+
+questa	$u+
 questi  $u+	$nounf
-queste  $u+      // these
+queste  $u+
 
-quel	$u+	// that
-quella	$u+	// that
+quel	$u+
+quella	$u+
 quei	kw2eI
-quegli  $u+      // those
-quelle  $u+      // those
+quegli  $u+
+quelle  $u+
+alcun	$u2+
+nessun	$u2+
 
-// conjunctions
+// conjunctions and Adverbs
 
 anche	$u+
-attraverso 	$alt // across, through
-benchè		$u+	$brk      // though
-che             $u+ $verbf
+attraverso 	$alt
+benchè		$u+	$brk
+che	ke	$u+ $verbf
+chi	ki	$u+
+chiunque	$verbf
 cioè	$u+
 come	$u+
 contro	$u+
 cui	k'uj
-durante	$brk       // during
+durante	$brk
 e		$u+ $brk
 eccetto    $pause
 ed		$u+ $brk $only
 ma	$u+ $brk
-mai	$u+
+mai	$u+ $verbf
 mentre	$u+
 neanche	$u+	$brk
-né              $u+	$brk  $only     // neither-nor
-o		$u+ $brk // or
+né	$u+	$brk  $only
+no	nO $strend
+non	$u	$only
+o	$u+ $brk
 ogni	$u+
 oltre	$u+
 ormai	o@-*m'aI
-perché		$u+ $brk
+perché	$u+ $brk
 pure	$u+
 più	$u+
-se		$u+ $verbf
+se	$u+ $verbf
 senza	s,entsa
 senza	s'Entsa $atend
+si	si: $atend
 sopra	   $alt2
 sotto	$alt2
 tuttavia	tut:av'ia
@@ -542,7 +556,7 @@ ad	$u+	$only
 da	$u+
 dal	$u+
 dallo   $u+
-dalla	$u+	// by the
+dalla	$u+
 dai     $u+ $nounf
 dagli   $u+ $nounf
 dalle   $u+
@@ -559,25 +573,25 @@ de      $u+ $only
 in	$u+ 	$only $nounf
 nel	 $u+	$only
 nello	$u+
-nella	$u+ 	// in the
+nella	$u+
 nei     $u+ 
 negli   $u+ 
 nelle   $u+
 ne      $u+   $only
 
-su	$u+ $only // on
+su	$u+ $only
 sul	$u+
 sullo   $u+
-sulla	$u+	// on the
+sulla	$u+
 sui     $u+
 sugli   $u+
 sulle   $u+
 
-con	$u+  $only	// with
+con	$u+  $only
 col     $u+ $only
 coi     $u+ $only
 
-per	$u+  $only $verbf
+per	pe@-* $u+ $only $verbf
 tra	$u+
 fra	$u+
 
@@ -682,6 +696,8 @@ u	u: $atend
 abajour	abaZ'u@-*
 account	ak:'aw2nt
 after	$1
+amnesty	'amn@stI
+antitrust	anti_t@-*'ast
 apple	_^_EN
 application	_^_EN
 authority	$3	$alt2
@@ -697,15 +713,17 @@ beat	_^_en $only
 beep	b'i:p
 beige b'E:Z
 bestseller	b'Est[_||s'el:e@-*
+bidet	bId'e	$only
 bijoux	biZ'u:
 bike	b'aIk
 birthday	b'e/:rt[||d,ei
 bitter	$1
+black	bl'E:k
 blackout	bl'Ek'aUt
 blind	bl'aInd $onlys
 blues	bl'u:z
 boiler	$1
-bonjour	b,O:_Z'u:r // _^_fr
+bonjour	b,O:_Z'u:r
 boogie	b'ugi
 boom	bum
 bordeaux	_^_FR
@@ -713,9 +731,12 @@ boutique	but'i:k
 boxer	$1
 braille	b@-*ail:
 brandy	b@-*'E:ndI
+breakfast	b@-*'Ek||fast
 bricolage	b@-*ikol'aZ
 browser	b@-*'a:UzE@-*
 buffer	b'afe@-*
+budget	b'a:dZet
+buffet	buf:'E $only
 bouquet	_^_FR
 bulldozer	$2
 bunker	$1
@@ -723,6 +744,7 @@ business	_^_EN
 by	b'aI $only
 bye	_^_EN
 byte	_^_EN
+cabaret	$3 $only
 camper	$1
 caterpillar	$1
 carter	$1 $only
@@ -743,6 +765,7 @@ chaos	k'eOs
 charter	$1
 chat		_^_EN
 check	tSEk:
+chef	S'ef: $only
 cheque	S'ek
 (chewing gum)	tS'uIN||g'am
 chewinggum	tS'uIN||gam
@@ -753,7 +776,9 @@ city	s'i:ti
 cleaner	_^_EN
 cliché		kli:S'e
 cocker	$1
+cocktail	k'Ok_t,El
 college	k'Ol:edZ
+company	$1 $alt
 community	komj'unitI
 compilation	kompil'ES@n
 computer	kompj'ute@-* $onlys
@@ -775,6 +800,8 @@ cult	k'a/:lt	$onlys
 database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
+desaparecido	d,EzapaReT'ido
+dessert	des:'e@-*	$only
 desktop	d'Eskt,op
 detector	$2
 designer	d,ez'aIne@-*
@@ -789,6 +816,7 @@ download	d'a/:w2nl,o:d
 drive	_^_EN
 driver	_^_EN
 ebook	'i:b,Uk
+edition	ed'iSon $only
 editor	'Edito@-*	$onlys
 l'editor	l'Edito@-* $only
 eloquence		_^_EN
@@ -798,6 +826,7 @@ emule	,i||_mj'ul
 english		_^_EN
 enter	$1
 equipe	Ek'ip
+équipe	ek'I:p
 error	$1	$onlys
 español	$3
 espeak		isp'ik:
@@ -808,6 +837,8 @@ facebook		_^_EN
 fantasy	_^_EN
 fashion	f'aS@n
 feed	_^_en
+feeling	f'i:lIN
+fender	$1 $alt
 firefox		_^_EN
 firewall	f'aIR||w,Ol:
 fiction	f'ikS@n
@@ -816,7 +847,8 @@ flipper	$1
 folder	$1	$onlys
 follower	$1 $alt
 following	f'O:l:ow2iN
-fotocolor	$3	$onlys
+forfait	fo@-*f'e
+fotocolor	$3	$alt $onlys
 fotoreporter	$4	$onlys
 frame	_^_en
 france	f@-*'a/ns
@@ -828,6 +860,7 @@ fuji	fu:ZI
 game	g'Ejm $onlys
 gangster	$1
 garage	gaR'aZ
+gate	g'eIt $onlys
 general	$1 $onlys
 generation	dZeneR'ES@n $onlys
 geyser	g'aIzE@-*
@@ -838,6 +871,7 @@ google		_^_EN
 green	g@-*i:n $onlys
 guinness	g'ines:
 hacker	'ake@-*
+hall	h'O:l: $only
 hamburger	hamb'u@-*ge@-*
 happy	_^_EN 
 hardware	'a:rd[we@-*
@@ -846,6 +880,7 @@ hi	h'aI	$only
 hitler	$1
 home	hO:m
 homepage	h'Om||p'EjdZ $onlys
+hooligan	'u:ligan $onlys
 hospital	$1 $alt
 hotel	$2
 hunter	'ha/nte@-* $onlys
@@ -855,6 +890,7 @@ impeachment	imp'itSm,ent[
 information	info@-*m'ES@n $onlys
 installer	inst'a:l:e@-*
 inter	$1 $only
+international	inte@-*n'ESonal $onlys
 internet	'inte@-*nEt
 intranet$3 $only
 iper	$1 $only
@@ -875,6 +911,7 @@ junior	j'unio@-*
 juniores	j'uni,o@-*s
 juve	j'uve
 juventus	juv'Entus
+kalashnikov	$2
 kashmir	$1
 killer	$1
 lady	l'E:dI
@@ -903,6 +940,7 @@ manager	$1
 marker	$1
 marketing	$1
 master	$1
+mediaworld	$1
 melody	m'E:l@di
 messenger	$1
 microchip	mik@-*o||tS'ip
@@ -923,23 +961,30 @@ noir	nU'a:R $only
 nomination	nomIn'eSon
 nonchalance	non_Sal'ans
 nylon	n'aIlon
-office		_^_EN
+office	_^_EN
 one	w'a/n $onlys $capital
 online	,on||l'aIn
 order	$1
+orient	oRi'Ent
 oscar	$1
 out	_^_en $only
 ovation	ov'e:Son
 over	$1
 pacemaker	peIsm'eIkE@-*
 page	p'EidZ $onlys
+palace	_^_en $only
+papillon	papiJ^'on $onlys
 partner	$1
+passepartout	pas_pa@-*t'u
 paternoster	$3
+peluche	pel'uS $onlys
 performer	$2
 performance	pe@-*f'O@-*mans $onlys
+personal	$1 $only
 play	pl'EI
 player	pl'eIE@-*
 playroom	pl'Ei||R'um
+playstation	pl,Ei||st'E:Son
 pointer	$1
 poker	$1 $alt
 portacontainer	$4
@@ -947,6 +992,7 @@ poster	$1	$onlys
 power	p'a:|we@-*
 premier	$1
 privacy	p@-*'aivazi
+professional	p@-*of'ESonal $onlys
 project	p@-*'odZet
 provider	p@-*ov'aide@-* $onlys
 pullover	$2
@@ -956,7 +1002,9 @@ quechua	k'etSua
 radar	$1	$onlys
 raider	$1
 ranger	@-*'endZe@-*
+richter	$1 $only
 reader	@-*'i:dE@-*
+rapper	@-*'Epp@@-*	$onlys
 recorder	$2	$onlys
 reporter	$2	$onlys
 reportage	@-*epo@-*t'a:Z
@@ -973,14 +1021,15 @@ rugby	@-*'a/gbi
 saver	_^_en $onlys
 scanner	$1
 schiller	$1
-schopenhauer	_^_EN
 scooter	sk'utE@-*
 scuter	$1
 scorpion	$1	$onlys
+scoop	sk'u:p	$onlys
 scotch	sk'OtS
 screen	sk@-*'i:n
 screenreader	sk@-*'i:n||@-*'i:de@-*
 security	sikI'URitI
+selfie	s'Elfi
 seller	$1 $alt2 $onlys
 server	$1	$onlys
 service	s'E@-*vis	$onlys
@@ -1000,13 +1049,15 @@ skype	sk'a/:ip
 smartphone	zm'a@-*tfon
 smile	zmaIl
 smiley	_^_EN
-snack		_^_EN
+snack	sn'E:k
 software	s'Oft[_we@-*
 sonar	$1	$only
 stage	st'EidZ $onlys
 standby	st'End||b'aI
 station	st'ESon	$only
 stalking	st'O:lkiN
+stretching	st@-*'EtSIN
+strike	st@-*'aIk
 streaming	_^_EN
 street	_^_EN
 superbike	supe@-*||b'aIk
@@ -1014,12 +1065,14 @@ suspense	s@sp'a/:ns $only
 souvenir	suvEn'i@-*
 spanish		_^_EN
 speaker		_^_EN
+speech	sp'i:tS $only
 spider	sp'aIde@-*
 spoiler	$1
 sponsor	$1
 standing	st'E:ndiN
 starter	$1
 stopper	$1
+stratocaster	$3	$onlys
 supporter	$2
 subwoofer	sub||v'u:fe@-*
 synthesizer	$3
@@ -1029,8 +1082,11 @@ teamviewer	t'i:m||_vju:Er
 teenager	tin'EIdZe@-*
 terminator	te@-*min'etO@-*
 tester	$1	$onlys
+therapy	$1
+toilette	tw2al'et:
 tour	t'u:@-*
 thriller	$1 $onlys
+troupe	t@-*'u:p_	$only
 thunderbird		_^_EN
 time	t'aIm
 timer	t'aIme@-*
@@ -1057,6 +1113,7 @@ videogames		v,ideo||g'eIm
 videomaker	vidEom'eIke@-*
 viewer	vj'u:Er
 visual	v'iZwal $only
+voodoo	vud'u
 vodafone	v'odafon
 voilà	_^_FR
 volkswagen	_^_DE
@@ -1064,7 +1121,7 @@ wafer	v'afe@-*
 walkman	w'Olk||m,En
 wall	_^_EN
 walzer	v'altsE@-*
-water	v'atE@-*
+water	v'atE@-*	$only
 way	_^_EN
 wave		_^_EN
 web		wEb
@@ -1082,9 +1139,8 @@ youtube	ju:||tj'u:b
 yoghourt	'jogurt
 zoom	z'u:m
 zoster	$1
+élysées	eliz''e
 
-com'era	kom'E:Ra
-cos'hai	koz'a:i
 rock'n'roll	@-*,Oken@-*'o:l
 (call center)	k'ol||s'entE@-*
 (e speak)		isp'ik:
@@ -1092,6 +1148,7 @@ rock'n'roll	@-*,Oken@-*'o:l
 (pace maker)	_^_EN
 (hi fi)	h'aI_||f'a/I
 (wi fi)	w'a/I_||f'a/I
+(top secret)	t,Op||s'ik@-*et
 (week end)	w,i:k'end
 (you tube)	ju:||tj'u:b
 (déjà vu)	deIZa:||v'u:
@@ -1099,7 +1156,7 @@ rock'n'roll	@-*,Oken@-*'o:l
 (nôtre dame)	noUt@-*'da:m
 (question time)	kw2'estiont'aIm
 
-// Main  Dictionary
+// Main  nouns Dictionary (see also it_listx)
 
 acciain	atS:a'in
 acetaboli	$3
@@ -1115,7 +1172,6 @@ aeroplano	aERopl'ano
 agenzie	adZents'ie
 alcoolici	alk'o:litSI
 alcoolico	alk'o:liko
-alcun	$u2+
 algebra	$1
 alterigia	alteR'i:dZa
 alveoli	$2
@@ -1130,8 +1186,6 @@ angioin	$3
 anime	$1
 anomal	$2
 anomalie	$4
-ansia	'ansia
-ansie	'ansie
 antich	$2
 anticolesterol	$6 $alt2
 antidolorifici	$5
@@ -1378,14 +1432,12 @@ monopattin	$3
 monoplano	$3
 monosillabi	mono||s'il:abI
 montagnol	$3
+montano	$2
 mostacciol	$3
 multipolo	$3
 naric	$2
 negrita	$2
-nessun	$u2+
 nitrobenzolo	nit@-*ibendz'Olo
-no		nO $strend
-non	$u+	$only
 nucleoli	$2
 oblio	,Obl'i:o
 odontoiatrici	odontoj'at@-*itSi
@@ -1423,7 +1475,6 @@ patrono	$2
 pedine	$2
 pedonal	$3
 peggior	$2 $alt
-perdon	$2	$alt2
 perigastrici	$3
 peripezia	$4
 peripezie	pe@-*ipets'ie
@@ -1450,8 +1501,6 @@ principe	$1
 principi	$1
 principio	$2
 profezie	p@-*ofets'ie
-profug	$1
-profughi	$1
 prolifici	$2
 prossime	$1
 provino	$2
@@ -1586,10 +1635,15 @@ visualizzazion	vizUali|dz:atsi'On
 vittime	$1
 vocaboli	$2
 voragini	$2
-vuot	vu'O:t
+vuot	vU'Ot
 
+com'era	kom'E:Ra
+cos'hai	koz'a:i
 cos'è	koz'E
+dov'è	dov'E
+tant'è	taNt'E
 l'ancora	l'ankoRa
+un'ancora	un'a:nkoRa
 quand'è	kw2aNd'E
 senz'altro	sents'a:lt@-*o
 nessun'altra	nes:un'alt@-*a
@@ -1601,10 +1655,10 @@ vent'anni	vent'an:I
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
-ciao	tS'ao:_
+ciao	tS'ao_
 (ciao a)	tS'ao||_|,a_|
 (un turbine)	un||_t'u@-*bine
-(gli auguri)	l^jaUg'u:RI
+(gli auguri)	l^iaw2g'u:RI
 (pro capite)	p@-*ok'a:pIte
 (droghe leggere)	d@-*'O:ge||ledZ:'ERe
 (tutto spiano)	t'ut:o||spj'ano
@@ -1623,40 +1677,54 @@ afghanistan	$2
 agazzano	$3
 agostano	$3
 aiquile	_^_es
-alcatraz	$1
+albania $3
 albuzzano	$3
+alcatraz	$1
 alessano	$3
+amsterdam	$1
 andorrano	$3
 angeles	$1
 anglican	aNglik'an
+angola	$2 $capital
 aostano	aost'ano
+arab $1
+aragon $3
 arbatax	'a:@-*bat,aks
+arcore $1
 arizzano	aRidz:'ano
 arzana	'a@-*tsana
 asciano	$2
 asia	'a:zja/
-amsterdam	$1
+assemini $2
 atene	$2
 auschwitz	'aUSw2its
 avezzano	$3
-azerbaijan	a@-*dz,eb,ajdZ'an
 azerbaigian	$5
+azerbaijan	a@-*dz,eb,ajdZ'an
 azzano	$2
+bagdad	$2 $only
+baghdad	$2
 bangladesh	$1
 barbagia	ba/@-*b'adZa/
 barisciano	$3
 barlettano	$3
+barumini $2
 basciano	$2
 bassano	$2
+baunei baw2n'Ei
 bazzano	$2
 beirut	b'Ei@-*ut
 beneventano	$4
 bergamo	$1
 beverly	$1
+Birmingham	$1
+boemia $2  $alt
 boissano	$3
 bolognano	$3
 bolzano	$2
 bordano	$2
+boscimani $2
+bosnia  $alt
 bosniache	bozn'iake
 bracciano	$2
 brasile	$2
@@ -1669,12 +1737,17 @@ bruxelles	b@-*uks'El:
 bruzzano	$2
 bucarest	$1
 bucciano	$2
+buckingham	b'akIng@m
+budapest	$1
+bulgar $1
 bulgare	$1
-düsseldorf	$1
+bulgari $1
+bulgaria $3
 cagliari	k'a:l^,a/RI
 calestano	$3
 calizzano	kalits:'ano
 calvizzano	$3
+cambogia $2  $alt
 cambridge	_^_EN
 camerun	$1
 campidano	$3
@@ -1688,18 +1761,23 @@ carezzano	$3	$capital
 casamarciano	$4
 castelmezzano	kast,el||medz:'ano
 castelpagano	$4
+caucas $1
 cazzano	$2
+ceca	$alt
 champs	S'amps
 chernobyl	tS'E@-*nobil
+chianciano	$2
 chicago	tSikago
 cicciano	$2
 cilentano	$3
+ciociaria $3
 ciorlano	$2
+ciscaucasia $4
 ciserano	$3
 cismontano	$3
 citramontano	$4
 civezzano	$3
-chianciano	$2
+civitavecchia  $alt
 colombano	$3
 conzano	$2
 copenhagen	kopen'agen
@@ -1712,13 +1790,15 @@ cremona	$2
 cremosano	$3
 creol	k@-*'E:ol
 cubano	$2
+düsseldorf	$1
 daciano	$2
 dallas	$1	$capital
 dorzano	$2
 durazzano	$3
-élysées	eliz''e
 eire	'eIRe
+erzegovin $3
 esterzili	$3
+estoni $1
 everest	$1
 fanano	$2
 federiciano	$4
@@ -1728,10 +1808,13 @@ fenici	$2
 ferragostano	$4
 ferrazzano	$3
 ferruzzano	$3
+fiesole $1  $alt
 filacciano	$3
 fisciano	$2
 fivizzano	$3
+foggia  $alt
 fossano	$2
+frailis	f@-*a'i:lIs
 francescano	$3
 fusciano	$2
 gabbano	$2
@@ -1754,45 +1837,59 @@ grazzano	$2
 guantanamo	$2
 guasila	$2
 guinea	gwin'ea
-hamas	$2
+guspini $1
 haiti	a'i:ti
 haitian	aiti'an
+hamas	$2
 hawaii	aw'a:i:
 helsinki	$1
+hiroshima	$3
 hollywood	_^_EN
 huligano	$3
+houston	hj'uston
+iglesias $2  $alt
 ilbono	$2
 imperia	$2
+indianapolis	$3
 indonesia	$3
 indostano	$3
 janeiro	Zan'E:iRo
 jerzu	j'E@-*tsu
 jonio	j'Onio
-jugoslav	jugozl'a/v
-jugoslavia	jugozl'a/via
+jugoslav	jugozl'a:v
+jugoslavia	jugozl'a:via
 kabul	$2
 kazakistan	$2
+kenia  k'E:nia
+kosovo	$1
 kuwait	kw2'E:it[
 labrador	$1
+laconi $1
 langarolo	$3	$alt2
 larciano	$2
 laterano	$3
 leverano	$3
 libano	$1
 liberia	$2
+ligur	l'ig,uR
 liverpool	l'ive@-*pul
 lizzano	lits:'ano
+lombardia	$3
 longano	$2
 louisiana	luIzi'a:na
-lungadige	$2
 lugano	$2
 lunano	$2
+lungadige	$2
 lusciano	$2
 luterano	$3
 maceratesi	$4	$alt
+macomer $3
 madrid	$2
 magano	$2
 maine	m'eIn $capital
+malag $1
+malcesine	$2 $alt2
+malesia $2  $alt
 manchester	_^_EN
 manciano	$2
 mandragola	$2
@@ -1804,6 +1901,8 @@ mazzano	$2
 medjugorje	m,EdJUg'O:RIE
 melissano	$3
 melizzano	$3
+mesopotamia $4
+mexic  $alt2
 mezzano	medz:'ano
 miami	maj'EmI
 minneapolis	$3
@@ -1812,8 +1911,10 @@ miscano	$2
 modena	$1
 moldovano	m,Oldov'ano
 molfettano	m,Olfet'ano
-mondano	$2
 mompracem	$1
+mondano	$2
+mondovi $3
+mongoli  $alt
 mongrassano	$3
 monsano	$2
 montagano	$3
@@ -1821,8 +1922,9 @@ montegiordano	$4
 montemarciano	$4
 montepulciano	$4
 montescano	$3
-monticiano	$3
 montgomery	$2
+monticiano	$3
+montreal	$1 $alt
 monzambano	mondz,amb'ano
 monzano	mOndz'ano
 morgano	$2
@@ -1834,13 +1936,18 @@ mulazzano	$3
 murazzano	$3
 muzzano	$2
 napoli	$1
+napule	n'a:pul@
 nazzano	$2
+neanderthal	ne'a:nde@-*tal
 nevano	$2
 newyorkes	nI,u||io@-*k'Ez
 niger	$1
+nigeria $2
 nizza	n'its:a
 nizzano	nits:'ano
 nocciano	$2
+normandia $3
+norvegia	no*v'e:dZa
 oltramondano	$4
 oltramontano	$4
 oltremondano	$4
@@ -1848,21 +1955,27 @@ oltremontano	$4
 onano	$2
 ontano	$2
 orbassano	$3
+oregon	$1 $only
 oristano	$3
+orleans	,o@-*l'i:ns
 ortezzano	$3
+orviet  $alt
 orzano	$2
 ostano	$2
+otrant $1
 ottano	$2
 ottavino	$3
 ottoman	ot:,Om'an
 ozzano	$2
-pakistan	$1
 pachistano	$3
 paciano	$2
 padova	$1
 padovano	$3
 pagazzano	$3
+pakistan	$1
 pakistano	$3
+panam $1
+parigin	$3
 passavogano	$4
 pavano	$2
 pavia	pav'ia
@@ -1871,16 +1984,22 @@ pedemontano	$4
 pellezzano	$3
 pellizzano	pel:its:'ano
 pentano	$2 $capital
+persia $1
+peru $2
 perugia	$2
 perugin	$3
+perugine	$3
 pesaro	p'e:za/Ro
 pescolanciano	$4
 pescopagano	$4
 pescorocchiano	$5
 picciano	$2
 piozzano	$3
+pirenei $3
 pognano	$2
+polinesia $3  $alt
 pomerano	$3
+pontassieve  $alt
 ponzano	$2
 prascorsano	$3
 pratesi	$2
@@ -1888,18 +2007,20 @@ regano	$2
 resuttano	$3
 ricciano	$2
 rimini	$1
+ripoli $1
 rivanazzano	$4
 rofrano	$2
 rognano	$2
+romagnol $3
 rosciano	$2
 rossano	$2
-rotterdam	$1
 rotoplano	$3
+rotterdam	$1
 rozzano	$2
 rusticiano	$3
-sanlazzaro	san_l'adz:aRo
 sandviciano	$3
 sangano	$2
+sanlazzaro	san_l'adz:aRo
 saragozzano	$4
 sarezzano	$3
 sarnano	$2
@@ -1911,19 +2032,21 @@ scorrano	$2 $capital
 seattle	_^_en
 sedilo	$1
 segonzano	$3
-seychelles	seIS'El
 selvazzano	$3
+seul $2
+seychelles	seIS'El
 siberia	s,ib'E:Ri;a
-sydney	$1
 simpliciano	$3
 sinnai	$1
 sizzano	$2
 soldano	$2
+somali $1
 sopramondano	$4
 soprano	$2
 sormano	$2
 sossano	$2
 sovrano	$2
+spagnol $2
 spazioplano	$4
 spezzano	$2 $capital
 spongano	$2
@@ -1933,13 +2056,18 @@ submontano	$3
 survoltano	$3
 svizzer	zv'i:ts:eR
 swahili	swah'ilI
+sydney	$1
 tagikistan	$2
 taiwan	t'aj_w,an
 taliban	$3
+tanzania	tandz'a:nia
+taranto	$1
+tatari $1
 tavazzano	$3
 teheran	t,I_iR'a:n
 teramo	$1
 ternano	$2
+tertenia $3
 tessennano	$3
 tiscali	$1
 tizzano	tits:'a:no
@@ -1947,9 +2075,12 @@ tolosano	$3
 toscano	$2
 trevano	$2
 trezzano	$2
+tripoli $1
 tristano	$2
 trontano	$2
 truccazzano	$3
+tunisi $1
+turchia $2
 uligano	$3
 ultramondano	$4
 ultramontano	$4
@@ -1958,18 +2089,24 @@ vajont	vaj'O:nt
 valdostano	$3
 valentano	$3 $capital
 vallombrosano	$4
+vancouver	vank'u:ve@-*
 vazzano	$2
 vecchiano	$3
+venet $1  $alt
 venezuelano	venetsUel'ano
 vezzano	$2
+villamassargia $4
+villasimius	vil:a/sim'i:us
 visciano	$2
 vissano	$2
 vitorchiano	$4
 washington	_^_EN
 wimbledon	$1
+zaire	dza'i:Re
 zanzibar	$1
 zigano	ts-ig'a/no
 
+(bel air)	b,El||'E:@-*
 (al jazeera)	al||Zaz'iRa
 (charles baudelaire)	_^_FR
 (coca cola)	k,Okak'ola
@@ -1979,38 +2116,60 @@ zigano	ts-ig'a/no
 
 //  Proper names
 
+abdolah	$3
+abdullah	$3
+agamennone $3  $alt
+agat $1
 agatha	$1
 aida	a'i:da
 alain	al'En $only
 albert	$1 $only
 alejandro	_^_ES
+alessi  $alt
 alessia	$2 $capital
 alexander	$3
+alice $2
 allende	al^'Ende
 alzeimer	alts'aime@-*
 alzheimer	alts'aIme@-*
+amadeus  $alt2
 amazon	'amazOn $only
 amelia	$2	$alt2
 amerigo	$2
 amicis	$2
+amilcare $2
+anastasia $3
+andersson	'a:nde@-*son
 anderson	$1
 andromeda	$2
 anita	$2
 annamaria	$4
 annapaola	$3
+annibale $2
 antioc	ant'iok
 antony	'E:ntonI
+arafat	$3 $only
+archimede  $alt
+aristofane $3
+aristotele $3
 armida	$2
 asdrubale	$2
 asimov	'azim,ov
 asterix	$1
 augias	a'u:dZas
 bardot	ba@-*d'o
+bartali	$1
+bastian $2
 baudelaire	bOdl'E@-*
+bearzot	bea*_dz'Ot $only
 beatle	b'i:tol
-Beethoven	be:t'o:ven
+beethoven	be:t'o:ven
+beccaria $3
+benetton	$3
 bergomi	$1
+bertold  $alt
 bettega	$1 $alt
+boeing	b'O:ing
 brandon	b@-*'Endon
 brian	b@-*'aian
 brigitte	b@-*iZ'it[
@@ -2024,98 +2183,144 @@ carmel	$2
 cassano	$2
 catia	k'a:tia
 celentano	$3
+cesare $1
 chaplin	tS'apliN
 charles	tS'a/@-*ls
 charlie	tS'a@-*li
 charlotte	Sa@-*l'Ot
+charriere	SaR*j'e*
+chesterfield	tS'Este@-*fild
 chevalier	_^_FR
 chopin	Sop'EN
-chuck	tS'a/k
-churchill	_^_en
-consoli	$1 $capital $only
 christie	k@-*'istI
 christofer	$1
 christopher	$1
 chrysler	_^_EN
+chuck	tS'a/k
+churchill	_^_en
+cimabue  tSimab'u:e
+collodi		$2 $alt $only
+consoli	$1 $capital $only
+corine	k'ORIn $capital
+cristofor $2
 danilo	$2
+davidson	$1
 debor $1  $alt
 deborah	$1 $alt2
+diaz	d'iats $only
+diocle $1
+diomede  $alt
+duddington	d'a/dINt@n
 eddie	'Ed:I
+edgar	$1
 edison	$1 $onlys
 eiffel	eIf'El
 einstein	'aInstaIn
 eisenhower	aIzen'awE@-*
-edgar	$1
 elena	'E:lena
 elgar	$1	$only
 elia	el'ia
 elizabeth	el'izabet[
 enric	$2
+emmanuel	$2 $only
+erika	$1
 esposito	$2
+ettore $1  $alt
+eugenia  $alt
 eutichiano	ewdiki'ano
+everett	$1 $only
+fabiol $2
 fabiola	$3
 fahrenheit	f'aRenaIt
 federic	$3
 felicita	$2
 ferrero	$2
-francisco	f@-*ans'isko
 françois	f@-*,a/NsU'a
+francisco	f@-*ans'isko
 frederic	$1
+freud	f@-*'Oid $only
+gandolfi  $alt
 garcía	_^_ES
 gavino	$2
 genesia	$2
 george	dZ'O@-*dZ	$onlys
+gerolam $2
+gesu $2
+giacom $1
+giangiacomo	$2
 gianmaria	$3
 gibson	g'Ibson
 giordano	$2
 giorgia	$1
 girolamo	$2
 gorbaciov	$1
+grace	g@-*'Eis	$only
 gray	g@-*'eI
 halen	'alen
-heidi	'aIdi
-harry	hE:R*I
 harrison	h'ER*izon
+harry	hE:R*I
+hawking	_^_en
+heidi	'aIdi
+hillary	h'i:la*I
 hisham	hiS'am
-iacopo	i'akopo
+hitchcock	'itS_kok
+honore $3
+hulk	h'alk
+iacopo	j'akopo
+icar $1
 igor	$1
 ingrassia	$3
 ipocrit	$2 $alt
 ippocrate	$2
-isabel	$3
 isaac	'aIza:k
+isabel	$3
+isaia  iza'i:a
+isocrate $2
+ital $1
 ivano	$2
+jace	_^_en $only
 jack	dZ'E:k
 jackson	_^_EN
+jacopo	j'a:kopo
 james	_^_EN
 jane	_^_EN
 jarno	j'a:@-*no
 jennifer	$1
+jolanda	jol'anda
 jole	j'Ole
 jolie	Zol'i $only
 jonathan	$1
 jones	dZ'O:ns
 josé	_^_ES
 juan	_^_ES
-jurij	juRI 
 juri	j'uRI
+jurij	juRI 
 kate	k'eIt[
 katia	k'a:tia
 kennedy	$1 $alt
+kinder	$1 $onlys
+landolf  $alt
+laurenzi  $alt
 lee	_^_en $capital
 lennon	_^_EN
-louise	lu'iz
+leopold  $alt
 lewis	l'uIs
 ligabue	$3
 lionel	l'aj,One@-*	$onlys
+loredan $3
+louise	lu'iz
+Lucky	l'a/ki
 lucía	_^_ES
+lucia	lutS'i:a
 luciano	$2
+ludwig	l'u:dvIc
 ludovic	$3
-Ludwig	l'u:dvIc
 luigi	lu'i:dZI
 luigia	lU'i:dZa
 manolo	ma/n'Olo
 manuel	$1 $only
+marciano	$2 $capital
+marcon $2
 margaret	$1 $only
 margareth	$1 $only
 maria	m,a/R'i:a
@@ -2123,55 +2328,79 @@ mariah	$2
 mariangel	$3
 mariapaola	maRIap'aola
 mariapia	$4
-meola	$1
 marilyn	m'E:r*ilIN
 marylin	m'ERilin
 marzott	ma@-*dz'Ot:
 mayer	$1
-(mc donald's)	m,ek_d'Onalds
-(mc laren)	m,ek_l'aRen
-(mc cartney)	m,Ekk'a@-*tneI
+mazzin $2
+mazzol $2
+meola	$1
+mercury	$1 $alt2 $only
 michael	m'aIkOl
 michelangel	$3
 michelle	m,iS'el	$only
 mike	_^_EN
+mogol $2
+mondadori  $alt2
 monika	$1
 monroe	m'On||r,ow
 morissette	m'ORIsEt[
 mozilla	m,o|dz'il:a
+muresan	$3
 murgia	$1
+nadir $2
 nancy	n'E:nsI
 newton	nI'utoN
+nichol	n'i:kol	$onlys
 nichola	n'ikola
 nicola	$2
-Oliver	'O:liv,e@-* $onlys
+noe  $2 $alt
+olg  $alt
+oliver	'O:liv,e@-* $onlys
 ollie	'Ol:i
 omero	om'E:Ro	$capital
+paol $1
 parkinson	$1
+parodi  $2	$alt
 pascal	$2
 paul	p'O:l	$only
 peggy	p'Eg:I
+pericle $1
 peter	$1 $onlys
 peugeot	p,EZ'o
+piquet	pik'E $only
 pierangel	$2
 piernicola	$3
 pierpaol	pje@-*p'aol
+pioneer	p'aIoni@-* $only
 piscopo	$1
+pisistrat $2
 poirot	puaR'o
 potter	$1	$onlys
 presley	p@-*'e:zleI
 ray	@-*'eI
 renault	@-*en'o
+rizzoli $2
 robinson	$1 $alt $onlys
 rocky	@-*'Oki
 roger	$1 $alt
+rosalia $3
 ryanair	@-*'aIaneR
+saragat	$1	$only
+sànchez	s'antSets
+sánchez	s'antSets
+salemi  $alt
+salome $3  $alt
 samuel	$1 $only
-sandoval	$3
 sandokan	$1
+sandoval	$3
+santangelo	$2
 savino	$2
 scalfaro	$1
+schopenhauer	S,Open'a:w2e@-*
+schumann	S'u:man
 schumacher	_^_DE
+Schubert	S'ube@-*t
 schwarznegger	Sv,arzn'Eger
 sean	_^_EN $only $capital
 shakespeare	_^_EN
@@ -2180,37 +2409,50 @@ simon	s'aImon	$onlys
 socrate	$1
 sofia	sof'ia	$capital
 sonia	$1	$alt2
-sonja	s'o:nIa
+sonja	s'O:nIa
 sophia	sOf'ia
 spencer	sp'ense@-*
 stanley	$1
 stefano	$1
 steve	_^_en $only
 steven	st'iven	$onlys
-thatcher	t'a/tSe@-*
+stewart	stj'ua*t
+sylvester	$2
 tamara	$2
 taylor	t'EIlo@-*
+terence	t'ERens $onlys
+thatcher	t'a/tSe@-*
 tiffany	$1
 timoteo	$2
-troisi	t@-*o'izI
-tyson	t'aIzon
+tobia $2
 tracy	t@-*'E:sI
-wagner	v'agnE@-*
+troisi	t@-*o'izI
+turner	t'@:ne@-* $onlys
+tyson	t'aIzon
+usher	'aSe@-* $only
 vainer	v'aIne@-*	$only
 valeria	$2 $alt2
 valter	$1 $onlys
 van	$u $capital $only
+vermouth	v'E@-*mut
 victor	$1 $only
 vincent	v'inseNt[ $only
 vladimir	$3
+wagner	v'agnE@-*
 walker	w2'O:lke@-*
 walter	v'alte@-*
+waters	w'OTe@-*s $only
 wilde	w'aIld
 wojtyla	vojt'ila
 woody	v'udI
 zaccaria	$3
+zaira  dza'i:Ra
+zoe  $alt
 
 (che guevara)	tS'E_||gev'a*a
+(mc cartney)	m,Ekk'a@-*tneI
+(mc donald's)	m,ek_d'Onalds
+(mc laren)	m,ek_l'aRen
 
 // Unit of measure
 
@@ -2227,9 +2469,12 @@ decametr	$2
 decalitr	$2
 ettolitr	$2
 chilometr	$2	$alt2
-kilometr	kil'omet@-*
+kilometr	kil'o:met@-*
 watt	vat[:
 chilowatt	k'ilo_vat[:
+chilocaloria	$5
+chilocalorie	$5
+centigrad	$2
 
 // Exceptions for verbs and others irregular verbs 
 
@@ -2238,50 +2483,76 @@ abbaglino	$2
 abbaiano	$2
 abbandonino	$3
 abbandono	ab:aNd'Ono
+abbassino	$2
+abbever	$2 $alt
 abbindolano	$2
+abbinino	$2
 abbocchino	$2
+abbondino	$2
+abbonino	$2
+abbozzino	$2
 abbraccino	$2
 abbreviano	$2
 abbronzai	ab:@-*oNdz'aI
+abbronzino	$2
 abilit	$2
 abilitino	$2
 abissino	$2
 abitano	$1
 abituano	$2
 abituino	$2
+abroghino	$2
 abusano	$2
 abusino	$2
 accadano	$2
 accadere	$3	$alt2 
 accampano	$2
+accarezzano	$3 $alt
 accecano	$2
-acciecano	$2
 accechino	$2
-accelerano	atS:'E:l,eRano
 acceler	atS:'E:l,ER
+accelerano	atS:'E:l,eRano
+accelerino	$2
 accennino	$2
+accentrino	$2
 accentuano	$2
+accentuino	$2
+accerchino	$2
 accertano	$2
+accertino	$2
 accettino 	$2
+acchiappano	$2
+acchiappino	$2
+acciecano	$2
 acclamano	$2
+acclamino	$2
 accodano	$2
 accodino	$2
+accomoda	$2
 accomodano	$2
+accomodino	$2
 accompagnano	$3
 accompagnino	$3
 accontentino	$3
 accoppiano	$2
+accorcino	$2
+accostino	$2
 accumulano	$2
+accumulino	$2
 accusano	$2
 accusino	$2
 acquietano	$2 $alt
 acquietino	$2 $alt
+acquistino	$2
 adagia	$2
 adagiano	$2
+adagino	$2
 adattino	$2
 addensano	$2
+addensino	$2
 addentrano	$2	$alt
 addestrano	$2
+addestrino	$2
 addic	$2
 addossino	$2
 addrizzare	ad:@-*Its:'aRe
@@ -2292,9 +2563,12 @@ adirino	$2
 adoper	$2
 adoperino	$2
 adorano	$2
+adorino	$2
+adottino	$2
 adulano	$2
-affascinano	$2
+affaccino	$2
 affascin	$2
+affascinano	$2
 affascino	$2
 affaticano	$3
 affermano	$2
@@ -2302,27 +2576,37 @@ affermino	$2
 afferrano	$2
 affiancano	$2
 affid	$2
+affiorano	$3
 affil	$2
+affittino	$2
 affoghino	$2
+affondino	$2
 affrettino	$2
 affrontino	$2
 agevolano	$2
 agevolino	$2
+aggancino	$2
 aggiornino	$2
 aggirano	$2
+aggirino	$2
+aggiudicano	$2
+aggiustino	$2
 aggradano	$2
+aggrappano	$2
+aggrappino	$2
 agit	$1
 agitano	$1
 agite	$2
 agitino	$1
 agito	adZ'i:to	$verb
-aggiudicano	$2
-aggrappano	$2
 aiutano	aj'utano
 alimentino	$3
 allaccino	$2
+allaghino	$2
 allarghino	$2
 allarmano	$2
+allarmino	$2
+allattino	$2
 alleano	$2
 alleghino	$2
 allenano	$alt
@@ -2334,41 +2618,68 @@ alloggiano	$2
 alloggino	$2
 allontanino	$3
 allontano	al:ont'ano
+allunghino	$2
 alter	$1
 alterano	$1
+alterino	$1
+alternino	$2
 alzano	$1
 alzino	$1
 amano	$1
+amareggino	$3
+amino	$1
+ammacchino	$2
 ammalano	$2
+ammalino	$2
+ammazzino	$2
 ammirano	$2
+ammirino	$2
+ammontino	$2
+ammucchino	$2
+amoreggino	$3
 amputano	$2
+amputino	$1
+analizzino	$3
 ancorano	$1
 animano	$1
 annebbiano	$2
+anneghino	$2
+annientino	$2
 annod	$2
 annoiano	$2
 annotano	$2
-annoverino	$2 $alt2
 annover	$2 $alt2
+annoverino	$2 $alt2
 annullano	$2
+annullino	$2
 annuncino	$2
 annunziano	$2
+annusino	$2
 anticipano	$2
+anticipino	$2
 apostrofano	$2
 appaiano	$2
+appannino	$2
 appartenere	$4
 apparvero	$2
+appellino	$2
+applichino	$1
 appoggiano	$2
 appoggino	$2
 apprezzat	ap:@-*,e'ts:at
 apprezzino	$2
+approdino	$2
 approfittino	$3
+approprino	$2
 aprano	$1
 apriti	$1
 arano	$1
+archiviano	$2
 argina	$1
 argino	$1
+arino	$1
 armano	$1
+armino	$1
 arrabbiano	$2
 arrabbino	$2
 arrangiano	$2
@@ -2376,44 +2687,62 @@ arrangino	$2
 arrecano	$2
 arrechino	$2
 arredano	$2
+arrenditi	$2
 arrestino	$2
 arrotol	$2
 ascoltino	$2
 aspettino	$2
 aspirano	$2
+aspirino	$2
 assaggiano	$2
+assaltano	$2
 assediano	$2
+assedino	$2
 assegnano	$2
 assemblano	$2
 asserragliano	$3
+assestino	$2
 assicurano	$3
+assicurino	$3
 assimila	$2
 assimilano	$2
+assimilino	$2
+associno	$2
 assomigliano	$3
 assommino	$2
 assumano	$2
 attaccano	$2
+attacchino	$2
+atteggino	$2
 attendano	$2
+attentino	$2
 atterrano	$2
+atterrino	$2
 attestino	$2
 attirano	$2
 attirino	$2
 attonit	$2
+attraversano	$3 $alt2
+attuano	$1
 augura	$1
 augurano	$1
+augurino	$1
 auguro	$1
 aumentino	aUm'entino
 auspicano	$1
 avanzano	$2
+avanzino	$2
 avvalere	$3
 avvantaggiano	$3
 avvantaggino	$3
+avvelenino	$3
+avver	$2
 avverano	$2
 avverino	$2
-avver	$2
 avvia	av:'i#a
 avviano	av:'iano
 avvicendano	$3	$alt
+avvicinino	$3
 avvid	$2
 avvidero	$2
 avviino	av:'ijno
@@ -2421,53 +2750,88 @@ avvisano	$2
 avvisino	$2
 azzardino	$2
 azzeccano	$2
+azzecchino	$2
 azzer	,a|dz:'eR
+azzuffino	$2
 badano	$1
 bagnano	$1
 ballano	$1
+ballino	$1
+balzino	$1
+barino	$1
 basano	$1
+bastino	$1
 bastono	$2
+battezzino	bat:'edz:ino
 bendano	$1
+bendino	$1
 benedic	$3
 benedicano	$3
+bestemmino	$2
+bisticcino	$2
 boccino	$1
 boicottino	$3
 bombardano	$2
+bombardino	$2
 brahmano	$1
+bramino	$1
 brancolano	$1
+brancolino	$1
 brillano	$1
+brillino	$1
 brindano	$1
+brindino	$1
 brontolano	$1
+brontolino	$1
 brucino	$1
 burlano	$1
+burlino	$1
+bussino	$1
+buttino	$1
+caccino	$1
 cadano	$1
 cadere	$2	$alt2
 calano	$1
+calcano	$1
 calcolano	$1
+calcolino	$1
 calmano	$1
+calmino	$1
+calpestino	$2
 cambiano	$1
+cambino	$1
 cammin	$2
 camminano	$2
 camminino	$2
+campino	$1
 cancellano	$2
 candidano	$1
 cantano	$1
+cantino	$1
 capitola	$2
 capitolano	$2
 catalogano	$2
 cataloghino	$2
 catturano	$2
+catturino	$2
 causano	$1
+causino	$1
 celebr	$1
 celebrano	$1
+celebrino	$1
+cenino	$1
 censurano	$2
+censurino	$2
+cessino	$1
+centrano	$1 $alt
 chiacchier	$1
-chiacchierino	$1
 chiacchierano	$1
+chiacchierino	$1
 chiamano	$1
 chiamino	$1
 chiudano	$1
 circolano	$1
+circolino	$1
 circondino	$2
 citano	$1
 citofonano	$2
@@ -2480,8 +2844,12 @@ colloc	$1	$alt
 collocano	$1 $alt
 collochi	$1	$alt
 comandano	$2
+comandino	$2
+combinino	$2
 comemor	kom'E:m,oR
 comincino	$2
+commemor	$2 $alt
+commutino	$2
 compaiano	$2
 competano	$2
 compiacere	$3
@@ -2490,41 +2858,53 @@ compilano	$2
 completano	$2
 comprano	$1
 comprendano	$2
+comprino	$1
 comunicano	$2
 concentrano	$2
 concentrino	$2
 concili	$2
 conciliano	$2
+concilino	$2
 concludano	$2
+condannino	$2
 condivid	$3
 condividerl	$3
 condono	$2
 conducano	$2
 confermano	$2
 confermino	$2
+confessino	$2
 confid	$2
 confidati	$2
 configurano	$3
 configurino	$3
 confrontino	$2
+congelino	$2
 conglobano	$2	$alt2
 coniuga	k'onjuga
 connetter	$2
 consacrano	$2
 consegnano	$2
+consegnino	$2
 conseguano	$2
+conservino	$2
 consider	$2
 considerino	$2
 consigliano	$2
+consiglino	$2
 consol	$2
 consolano	$2
 consolidano	$2
+consolino	$2
+constatano	$2
 consultano	$2
 consumano	$2
+consumino	$2
 contamin	$2
 contemplano	$2
 contemplino	$2
 contenere	$3 $alt2
+contestino	$2
 contino	$1
 continuano	$2
 continuino	$2
@@ -2536,101 +2916,131 @@ contrattaccano	$3
 conversano	$2
 conversino	$2
 convoc	$1
+convochino	$1
 convogliano	$2
 coordin	$2
 copiano	$1
+copino	$1
 cospirano	$2
+costino	$1
 creano	$1
 credano	$1
 creino	$1
 cremano	$1
 crepano	$1
+crepino	$1
 criticano	$1
+crollino	$1
 cuccano	$1
 cullano	$1
 curano	$1
+curino	$1
+curvino	$1
 dai	d'a:i $atend
 danneggino	$2
+dannino	$1
 danzano	$1
+danzino	$1
 datano	$1
 deambulano	de'ambulano
 debuttino	$2
 decadere	$3
-decapitano	$2
 decapit	$2
+decapitano	$2
 decid	$2
 decifrano	$2
+decollino	$2
 decomprimano	$3
 decretano	$2
 dedalo	$1
 dedicano	$1
 dedichino	$1
+deformino	$2
+degenerino	$2
 degnano	$1
+degnino	$1
 degradano	$2
+degradino	$2
 delegano	$1
+deleghino	$1
 delimit	$2
 delimitano	$2
+delimitino	$2
 delinquere	$2
 deliziano	$2
+delizino	$2
 denomin	$2
 denotano	$2
 denotino	$2
+denuncino	$2
 depil	$2
 depositano	$2
 depositino	$2
 depurano	$2
+depurino	$2
 derogano	$1
+derubino	$2
 desider	$2
 desideri	$2 $verb $only
 desiderino	$2
-(la desideri)	ladez'i:deRi
-(lo desideri)	lodez'ideRi
-(mi desideri)	mI||dez'i:deRI
-(ci desideri)	tS,i||dez'I:deRI
-(come desideri)	kome||dez'ideRi
-(cosa desideri)	k'O:za||dez'i:deRI
-(così desideri)	koz'i||_dez'i:deRI
-(quando desideri)	kw2aNdo||dez'i:deRi
-(quindi desideri)	kw2,indi||dez'ideRi
 designano	$2
 destrutturano	$3
 detenere	$3
 deteriorano	$4
 determina	$2
+determinino	$2
+determino	$2
 detestino	$2
 dettino	$1
 deturpano	$2
+deturpino	$2
+devastino	$2
 deviano	$1
 diano	d'iano
 dicano	$1
 dichiarano	$2
+dichiarino	$2
+diedero	$1 $alt
 diffamano	$2
+diffamino	$2
 differenziano	$3
 diffid	$2
 digit	$1
 digitano	$1
+digiunino	$2
 digrignano	$2
 dilatano	$2
+dileguino	$2
+dimenino	$2
 dimenticano	$2
 dimezzano	dim'edz:ano
+dimezzino	$2
 dimostrano	$2
+dimostrino	$2
 disabilit	$3
 disagia	$2
 disarmano	$2
+disarmino	$2
+discolpino	$2
 discrimin	$2
 discutano	$2
 disdegnano	$2
+disdegnino	$2
 disdic	$2
 disdicano	$2
 disegnano	$2
 disertano	$2
+disertino	$2
 disfano	$1
 disintegr	$2
 disonorano	$3
+disonorino	$3
 dispensano	$2
 disperano	$2
+disperino	$2
 dispiace	dispI'a:tSe
 dispregia	$2	$alt
+disputino	$1
 dissemin	$2
 dissetano	$2
 dissipano	$2
@@ -2638,52 +3048,75 @@ dissod	$2
 distaccano	$2
 distillano	$2
 distinguano	$2
+distino	$1
 distintesi	$2
 disturbano	$2
 disturbino	$2
+divaghino	$2
 divaricano	$2
 diventino	$2
 divertano	$2
 divid	$2
 divorano	$2
+divorino	$2
 divorziano	$2
+divorzino	$2
+divulghino	$2
 dolere	$2
 domandano	$2
+domandino	$2
 dondolano	$1
+donino	$1
 dotano	$1
 dotino	$1
-dubit	$1
-dubitano	$1
-dubito	$1
-durano	$1
 drizzano	d@-*'its:ano
 drizzare	d@-*its:'aRe
+dubit	$1
+dubitano	$1
+dubitino	$1
+dubito	$1
+durano	$1
+durino	$1
 eccedano	$2
 eccit	$1
 eccitano	$1
+eccitino	$1
 educano	$1
+educhino	$1
 effettuano	$2
+effettuino	$2
+eguaglino	$2
 elabor	$2
 elaborano	$2
+elaborino	$2
 elencano	$2
 elimin	$2
+eliminino	$2
 elogiano	$2
+emanino	$2
 emargin	$2
 emigrano	$2
+emigrino	$2
 emulano	$1
+emulino	$2
 entrano	$1
+entrino	$1
 enuncino	$2
 equivalere	$4
 ereditano	$2
+ereditino	$2
 erog	$1
 erogano	$1
 esager	$2
+esagerino	$2
 esaltano	$2
 esaltino	$2
 esamin	$2
+esaminino	$2
 esasper	$2
 esasperano	$2
 esclamano	$2
+esclamino	$2
 escludano	$2
 escogit	$2	$alt2
 escogitano	$2
@@ -2694,146 +3127,214 @@ esiliano	$2
 esitano	$1
 espatriano	$2
 espia	esp'ia
+esplichino	$1
 esplicitano	$2
 esplod	$2
 esplodano	$2
 esplorano	$2
+esplorino	$2
+esportino	$2
 esprimano	$2
 espugnano	$2
 estendano	$2
 esultano	$2
+esultino	$2
 evacuano	$2
+evacuino	$2
 evaporano	$2
+evaporino	$2
 evidenziano	$3
 evit	$1
 evitano	$1
+evitino	$1
 evoc	$1
 evochi	$1
+evochino	$1
 fai	f'a:i
 fantasticano	$2
 faticano	$2
+fatichino	$2
 fatturano	$2
 favoreggiano	$3
 fecero	$1 $alt
+fecondino	$2
 fermano	$1
+festeggino	$2
 fiatano	$1
 fidanzano	$2
+fidati	f'i:datI	$atstart
 figurano	$2
+figurati	$2	$atstart
 filano	$1
 filmano	$1
 filtrano	$1
 finanziano	$2
+finanzino	$2
 finisciti	$2
 firmano	$1
+firmino	$1
+fischino	$1
+fissino	$1
 fiutano	$1
+flagellino	$2
 fluttuano	$1
 forano	$1
 formino	$1
 forzino	$1
 fotografano	$2
+franino	$1
 frantumano	$2
 fratturano	$2
 friggerl	$1
 frizzare	f@-*its:'aRe
 frodano	$1
+frodino	$1
+frughino	$1
 frustrano	$1
+frustrino	$1
 fucil	$2
 fucilano	$2
+fucilino	$2
 fulmin	$1
 fumano	$1
 funzionino	$3
 galoppano	ga/l'op:ano
 garbano	$1
+garbino	$1
 gareggiano	$2
+gareggino	$2
 gattono	$2
+gelino	$1
 gemitano	$1
 gemitino	$1
+generino	$1
 germogliano	$2
 ghignano	$1
 giacere	$2
 giocano	$1
+gioimmo	dZo'i:m:o
 gioire	dZo'iRE
+gioirne	dZo'i:@-*ne
 gioirono	dZo'iRono
 gioiscano	dZo'i:skano
 gioiscono	dZo'iskono
-gioissimo	dZo'i:s:imo
-gioivano	dZo'ivano
-gioimmo	dZo'i:m:o
-gioirne	dZo'i:@-*ne
 gioissero	$2
+gioissimo	dZo'i:s:imo
 gioit	dZo'i:t
 gioiv	dZo'i:v
+gioivano	dZo'ivano
 girano	$1
 giudicano	$1
 giudichino	$1
 giurano	$1
+giurino	$1
 gocciolano	$1
 godano	$1
 godere	$2 $alt2
+gonfino	$1
+governino	$2
 graffiano	$1
+graffino	$1
 grattugia	$2
 gravitano	$1
+gravitino	$1
+grazino	$1
 guadagnano	$2
+guadagnino	$2
 guaimmo	gw2a'i:m:o
 guaire	gw2a'i:Re
+guairono	gwa'iRono
+guaiscano	gw2a'i:skano
 guaiss	gw2a'i:s:
 guaissero	gw2a'i:s:eRo
 guaissimo	gw2a'i:s:imo
 guaist	gw2a'i:st
 guait	gw2a'i:t
 guaiv	gw2a'i:v
-guairono	gwa'iRono
-guaiscano	gw2a'i:skano
 guaivano	gwa'ivano
 guardano	$1
 guardar	gwa@-*d'aR
+guardino	$1
+guastino	$1
+guizzino	$1
+gustino	$1
 ignorano	$2
 ignorino	$2
 illudano	$2
 illumin	$2
+illuminino	$2
 illustrano	$2
+illustrino	$2
 imbottigliano	$3
 imbrogliano	$2
+imbroglino	$2
 imit	$1
 imitano	$1
+imitino	$1
 immagin	$2
+immaginino	$2
 immigrano	$2
+immischino	$2
+immobilizzino	$4
 imparano	$2
 imparino	$2
 impegnano	$2 $alt
-impuntano	$2
-impuntino	$2
 impegnino	$2
 impersono	$3
 imperterrit	$3
 imperversano	$3
+impicchino	$2
+impiccino	$2
+impieghino	$2
 implementino	$3
+implichino	$1
 implorano	$2
+importino	$2
+importunino	$3
+impossessino	$3
 impossibilitano	$3
+impostino	$2
 imprecano	$2
 impregnano	$2
+impressionino	$3
 improvvisano	$3
+improvvisino	$3
 impugnano	$2
+impuntano	$2
+impuntino	$2
+imput	$1
+imputino	$1
 inabissino	$3
+innalzano	$2
+includano	$2
 inalber	$2
 inalzano	$2
 inaugur	in'aw2gu@-*
 inaugurano	$2
+inaugurino	$2
 incammin	$3
 incamminano	$3
 incantano	$2
+incarcerino	$2
 incaricano	$2
-incartono	$3
+incarichino	$2
 incartolano	$3
+incartono	$3
+incassino	$2
 incastrano	$2
 incastrino	$2
+incavolino	$2
 incazzino	$2
 incendiano	$2
 incendino	$2
 inchiod	inkj'Od
+inciampano	$2
+inciampino	$2
 incid	$2
 incit	$1
 incitano	$1
+incitino	$2
+incollino	$2
 incomincino	$3
 incontrano	$2
 incontrino	$2
@@ -2845,6 +3346,7 @@ incorporano	$2
 incrimino	$2
 incrocino	$2
 inculano	$2
+indaghino	$2
 indebitano	$2
 indebitino	$2
 indicano	$1
@@ -2853,20 +3355,29 @@ indignano	$2
 indirizzano	indiR'its:ano
 indirizzino	$3
 individuano	$3
+individuino	$3
 indossino	$2
 inducano	$2
 indugia	$2
 inequivoc	$3
 infettino	$2
 infiammano	$2
+infiammino	$2
 infil	$2
 infilano	$2
+infilino	$2
 infiltrano	$2
 infiltrino	$2
+infischino	$2
 influenzano	influ'Entsano
+influenzino	$3
 informino	$2
+infuriano	$2
+ingannino	$2
 ingegnano	$2
+ingegnino	$2
 inglobano	$2	$alt2
+ingrossino	$2
 iniziano	$2
 inizino	$2
 innamorano	$3
@@ -2889,16 +3400,23 @@ insudiciano	$2
 insultano	$2
 insultino	$2
 intarsiano	$2
+intaschino	$2
+intasino	$2
 integrano	$1
 integrino	$1
 intentino	$2
+intercettino	$3
 interdicano	$3
+interessino	$3
 interpellano	$3
+interpellino	$3
 interpret	$2
 interpretano	$2
+interpretino	$2
 interrog	$2
 interrogano	$2
 interroghi	$2
+interroghino	$2
 intersecano	$2
 intervallano	$3
 intimano	$1
@@ -2906,42 +3424,54 @@ intirizzendo	intiRits'Endo
 intirizzendosi	intiRits:'Endozi
 intitol	$2
 intono	$2
+intossichino	$2
+intralcino	$2
+intrappolino	$2
 intrattenere	$4
 intravedere	$4
-intravvedere	$4
-intravidero	$3
 intravid	$3
+intravidero	$3
+intravvedere	$4
 intreccino	$2
 intregnano	$2
 introducano	$3
 intuito	intu'i:to	$verb
 invaginano	$3
 invalidano	$2
+invalidino	$2
+invecchino	$2
 inventino	$2
 investig	$2
 investigano	$2 $alt2
 investighi	$2
+invi	$2
 invia	Inv'Ia
 inviano	inv'iano
-inviino	inv'ijno
-invidiano	$2
 invidi	$2
+invidiano	$2
 invii	inv'i:I
+inviino	inv'ijno
 invitano	$2
 invitino	$2
 invocano	$2
 invogliano	$2
+invoglino	$2
 inzuppano	$2
 ipotecano	$3
 ipotechino	$3
+ipotizzino	$3
 irradiano	$2
 irrig	$1
 irrit	$1
 irritano	$1
+irritino	$2
+isolino	$1
 ispirano	$2
 ispirino	$2
 istig	$1
 istigano	$1
+lacer	$1
+lacerino	$1
 lacrimano	$1
 lagnano	$1
 lagnino	$1
@@ -2954,7 +3484,12 @@ laureino	l'aw2Rejno
 lavorano	$2 $alt2
 lavorino	$2 $alt2
 leccano	$1
+legalizzino	$3
 leggere	$1 $alt
+leghino	$1
+legiferino	$2
+legittimano	$2
+lessino	$1
 levig	$1
 levigano	$1
 liberino	$1
@@ -2969,13 +3504,17 @@ liquidano	$1
 liquidino	$1
 litig	$1
 litigano	$1
+litighi	$1
 litighino	$1
 lodano	$1
-logorano	$1
+logor	$1 $alt2
+logorano	$1 $alt2
+lottino	$1
 luccicano	$1
 lucidano	$1
 lucrano	$1
 macellano	$2
+macellino	$2
 macinano	$1
 maledic	$3
 maledicano	$3
@@ -2984,26 +3523,33 @@ malvolere	$3
 mancano	$1
 manchino	$1
 mandano	$1
+mandino	$1
 mangiano	$1
+mangino	$1
+manifestino	$3
 manipol	$2
-mantenere	$3
 mantenei	$3 $alt2
+mantenere	$3
 marcino	$1
 martellano	$2
 mascherano	$1
 massacrano	$2
+massacrino	$2
 massaggiano	$2
 masticano	$1
 masturbano	$2
 maturano	$2
+maturino	$2
 medicano	$1
 meditano	$1
 memorizzino	$3
 mendicano	$1
 meravigliano	$3
+meraviglino	$3
 meritano	$1
 meritino	$1
 mescolano	$1
+mescolino	$1 $alt
 metterl	$1
 miagol	$1
 miagolano	$1
@@ -3011,63 +3557,82 @@ migliorano	$2	$alt2
 migliorino	$2	$alt2
 migrano	$1
 milit	$1
+minaccino	$2
 mirano	$1
+mischino	$1
 misurano	$2
 mitig	$1
 mitigano	$1
 mobilit	$2
+mollino	$1
 moltiplicano	$2
+moltiplichino	$2
 monitorano	$1
 monologano	$2 $alt2
-montano	$1
-mormora	$1
+montano	$1 $verb
 mormorano	$1
 mostrano	$1
 mostrino	$1
 mugol	$1
 mugolio	$3
 mugugnano	$2
+multino	$1
 muoiano	$2
+muoiono	mu'Ojono
 muoviti	$2
 mutano	$1
-naquero	$1
+nacquero	$1
 narrano	$1
 nauseano	$1
 nauseino	n'aw2zeIno
 navig	$1
 navigano	$1
-navighino	$1
 navighi	$1
+navighino	$1
 necessit	$2
 necessitano	$2 $alt
+necessitino	$2
 negal	$1
+neghino	$1
 neglige	negl'idZe
 notano	$1
+notino	$1
 noverano	$2
 nuocciono	$alt
+nuotino	$2
 obbligano	$1 $alt
 obblighi	$1
+obblighino	$1
 occultano	$2
 occup	$1
 occupano	$1
 occupino	$1
 odiano	$1	$alt
+odino	$1
 offendano	$2
 offrano	$1
 oltraggiano	$2
 oltrepassino	$3
+omaggiano	$2
 omogeneizz	omodZene'idz:
 onomatopeizzo	onomajtope'idz:o
+onorano	$2 $alt2
+operino	$1
 orbitano	$1
 organizzino	o@-*gan'itsino
 oscillano	$2
+oscurino	$2
+osino	$1
 ospitano	$1	$alt
+ospitino	$1
 ossequiano	$2 $alt
 osservino	$2
 ossidano	$1
 ossigenano	$2
 ostacolano	$2
+ostacolino	$2
 ovviano	$1
+ovvino	$1
 paghino	$1
 palpano	$1
 palpita	$1
@@ -3087,12 +3652,17 @@ peccano	$1
 pecchino	$1
 pedinano	$2
 peggiorano	$2
+peggiorino	$2
+penalizzino	$3
 penetr	$1
 penetrano	$1
+penino	$1 $alt2
 pensano	$1
 pensino	$1
 percepite	$3
 perdano	$1
+perdonino	$2
+perforano	$2
 perlustrano	$2
 permanere	$3
 perseguita	$2
@@ -3102,6 +3672,8 @@ pettegol	$2
 pettinano	$1
 piac	pj'atS
 piantano	$1
+piazzino	$1
+pieghino	$1
 pigia	$1
 pigiano	$1
 pignorano	$2
@@ -3109,8 +3681,10 @@ pilotano	$2
 pizzicano	$1
 pizzichino	$1
 placano	$1
+plachino	$1
 platinano	$1
 poggiano	$1
+poggino	$1
 polverizzino	$3
 popolano	$1 $alt
 portino	$1
@@ -3119,20 +3693,24 @@ possiedano	$2
 posticipano	$2
 postulano	$2
 potano	$1
-pranzano	p@-*'andzano
 pranzai	p@-*aNdz'aI
+pranzano	p@-*'andzano
 praticano	$1
 preannunziano	$3
 precipita	$2
 precipitano	$2
+precipitino	$2
 precisano	$2
 precisino	$2
 predicano	$1
+predichino	$1
 predici	$2
+predomin	$2
 preghino	$1
 pregia	$1
 premiano	$1
 prendano	$1
+prenotino	$2
 preoccup	$2
 preoccupano	$2
 preoccupino	$2
@@ -3140,29 +3718,40 @@ preordin	$2
 preparano	$2
 presentino	$2
 pressino	$1
+prestino	$1	$alt2
 prevalere	$3
 prevedano	$2
 prevedere	$3
 previd	$2
 previdero	$2
+privatizzino	$3
 privilegia	$3
 privilegiano	$3
 proclamano	$2
+proclamino	$2
 procurano	$2
+procurino	$2
 prodigano	$1
 producano	$2
 profilano	$2
+proiettino	$3
+pronuncino	$2
 propinino	$2
 propugnano	$2
 prorogano	$1
+prosciughino	$2
 proseguano	$2	$alt
 prosperano	$1
+protestino	$2
 provoc	$1	$alt2
 provochi	$1
+provochino	$1
 provvedano	$2
 provvedere	$3
 provvid	$2
 provvidero	$2
+pubblichino	$1
+pubblicizzino	$3
 pugnalano	$2
 pullulano	$1
 pulsano	$1
@@ -3172,21 +3761,26 @@ raccomandano	$3
 raccontino	$2 $verb
 racimol	$2
 racimolano	$2
-raddoppiano	$2
 raddirizzare	@-*ad:iRits:'aRe
+raddoppiano	$2
+raddoppino	$2
 raddrizzano	@-*ad:@-*'its:ano
 raddrizzare	@-*ad:@-*its:'aRe
 raffigurano	$3
+raffigurino	$3
 rafforzino	$2
 raffreddano	$2
 raggruppano	$2
 ragliano	$1
 rallegrano	$2
 rallentino	$2
+rammentino	$2
 rapportino	$2
 rappresentino	$3
 rassegnano	$2
+rassegnino	$2
 rassicurano	$3
+rassicurino	$3
 rassod	$2
 rassodano	$2
 rassomigliano	$3
@@ -3198,7 +3792,9 @@ ravvisino	$2
 razziano	$1
 razziavano	$3
 reagii	@-*eadZ'i:j
+realizzino	$3
 recano	$1
+rechino	$1
 recid	$2
 recitano	$1
 recitino	$1
@@ -3206,30 +3802,41 @@ reclamano	$2
 recludano	$2
 reclutano	$2
 recuper	$2
+recuperino	$2
 regalano	$2
 registrano	$2
 registrino	$2
 regnano	$1
+regnino	$1
 regolano	$1
+regolarizzino	$4
+reimpieghino	$3
 reintegr	@-*e'integ@-*
+reinterpretano	$3
 reinvio	@-*einv'i:o
 remano	$1 $alt2
 rendano	$1
 replicano	$1
 reput	$1
 reputano	$1
+reputino	$1
 respirano	$2
+respirino	$2
 restaurano	$2
 restino	$1
 riabbandono	$4
+riabbiano	$2
 riabbono	$3 $alt2
 riabbottono	$4
 riabbraccino	$3
-riabbiano	$2
 riabilita	$3
 riabituano	$3
+riabituino	$3
 riaccompagnano	$4
+riacquistino	$3
 riadagia	$3
+riaddormentino	$4
+riaffermano	$3
 riallaccino	$3
 riapparvero	$3
 riaprano	$2
@@ -3250,26 +3857,37 @@ ricapitano	$2
 ricapitol	$3
 ricaricano	$2
 richiamano	$2
+richiamino	$2
 richiedano	$2
 riciclano	$2
+riciclino	$2
 ricompensano	$3
 ricompil	$3
 riconcili	$3
 riconciliano	$3
 riconducano	$3
 riconsegnano	$3
+ricoverino	$2
+ricreano	$2
 ricredano	$2
 ricreino	$2
 ricucii	@-*ikutS'i:j
 ridigit	$2
 ridisegnano	$3
 riducano	$2
+riedito	$2
+rieduchino	$2
+riempiano	$2
 rientrano	$2
 rientrino	$2
-riempiano	$2
+rievoc	$2 $alt
+rievochi	$2 $alt
 rifil	$2
 rifilano	$2
+rifilino	$2
 rifiutano	$2
+rifiutino	$2
+riformino	$2
 rifugia	$2
 rifugiano	$2
 rigener	$2
@@ -3278,38 +3896,54 @@ riguadagnano	$3
 riguardano	$2
 riguardino	$2
 rigurgita	$2
+rilascino	$2
 rimacinano	$2
 rimandano	$2
+rimandino	$2
 rimanere	$3
 rimbalzano	$2
+rimborsino	$2
 rimediano	$2
+rimedino	$2
 rimpatria	$2
 rimugin	$2
 rimuginino	$2
 rinavig	$2
 rinavigano	$2
+rinfaccino	$2
 rinforzino	$2
 ringhiano	$1
+ringhino	$1
 ringraziano	$2
+ringrazino	$2
+rinneghino	$2
 rinomin	$2
 rintrono	$2
+rinuncino	$2
 rinviano	$2
 rinvii	@-*inv'i:j
 riordin	@-*i'o@-*din
+riorganizzino	$4
 riottenere	$4
 ripaghino	$2
 riparano	$2
+riparino	$2
 ripartano	$2
 ripensano	$2
+ripensino	$2
 ripetano	$2
+riportino	$2
 riposino	$2 $verb
 riprendano	$2
 riproducano	$3
 ripudiano	$2
+ripudino	$2
 ripugnano	$2
 risaltano	$2
+risaltino	$2
 risapere	$3
 riscaldano	$2
+riscaldino	$2
 rischino	$1
 riscol	$2
 riscontrano	$2
@@ -3319,30 +3953,38 @@ risiedano	$2
 risolsero	$alt
 risolverl	$2	$alt
 risparmiano	$2
+rispecchino	$2
 rispettino	$2
+rispolver	$2
 ristagnano	$2
 risultano	$2
 risultino	$2
 risuonino	$3
 risuscit	$2
 risuscitano	$2
+risvegliano	$2
 ritardano	$2
-ritenere	$3
 ritenei	$3 $alt2
+ritenere	$3
 ritirano	$2
+ritirino	$2
 ritornino	$2
 riuscii	@-*IuS'i:j
 rivedere	$3
 rivelino	$2
 rivendicano	$2
+riversano	$2
 riversi	$2
 rizzano	@-*'its:ano
 ronzai	@-*oNdz'aI
 rotolano	$1
+rovescino	$2
 rovino	$2
 rubino	$1 $verb
 rullano	$1
-sabotano	$2
+ruotino	$2
+sabot	$1
+sabotano	$1
 salpano	$1
 saltano	$1
 salutano	$2
@@ -3354,6 +3996,7 @@ sanguinano	$1
 sappiano	$1
 saturano	$1
 saziano	$1
+sazino	$1
 sbagliano	$1
 sbaglino	$1
 sbancano	$1
@@ -3361,14 +4004,17 @@ sbandierano	$2
 sbarbano	$1
 sbarrano	$1
 sbircino	$1
+sblocchino	$1
 sbottono	$2
 sbraitano	$1
+sbranino	$1
 sbriciolano	$1
 sbrighino	$1
 sbrodol	$1
 sbronzati	$1
 sbronzino	$1
 sbucano	$1
+sbuccino	$1
 sbullono	$2
 scadano	$1
 scadere	$2
@@ -3379,16 +4025,24 @@ scalpita	$1
 scalpitano	$1
 scambiano	$1
 scambino	$1
+scandalizzino	$3
+scannino	$1
 scantono	$2
 scappano	$1
+scappino	$1
 scardin	$1
 scaricano	$1
 scarichino	$1
 scartano	$1
+scassin	$2
+scatenino	$2
 scavalcano	$2
 scegliere $1
 scherzano	$1
+schiaccino	$1
+schiaffeggino	$2
 schiantano	$1
+schiantino	$1
 schierano	$1
 schiod	sk'jOd
 schiodano	$2
@@ -3402,6 +4056,7 @@ sciato	Si'atO
 sciavano	Si'avano
 scippano	$1
 sciupano	$1
+sciupino	$1
 scivolano	$1
 scogliono	$2
 scomodano	$1
@@ -3409,12 +4064,17 @@ scompagnano	$2
 scompaiano	$2
 scomparvero	$2
 scompiacere	$3
+scongelino	$2
 sconsigliano	$2
 scontrano	$1
 scopano	$1
-scoppiano	$1
 scopiazzino	$2
+scoppiano	$1
+scoppino	$1
 scoraggiano	$2
+scordino	$1
+scredit	$1
+screditano	$1
 screpol	$1
 scricchiol	$1
 scricchiolano	$1
@@ -3436,10 +4096,13 @@ separano	$2
 separino	$2
 sequestrano	$2
 servino	$1
+seviziano	$2
 sfamano	$1
+sfatano	$1
 sferrano	$1
 sferrino	$1
 sfiammano	$1
+sfiancano	$1
 sfiatino	$1
 sfigurano	$2
 sfilano	$1
@@ -3449,8 +4112,8 @@ sfoder	$1
 sfoghino	$1
 sfondino	$1
 sforano	$1
-sforino	$1
 sforbiciano	$1
+sforino	$1
 sforzino	$1
 sfreddano	$1
 sfregia	$1
@@ -3482,9 +4145,11 @@ sintonizzino	$3
 sistemano	$2
 sistemino	$2
 situano	$1
+situino	$1
 sloggiano	$1
 smagnetizzino	$3
 smascher	$1
+smercino	$1
 sniffano	$1
 snodano	$1
 socializzino	$3
@@ -3492,13 +4157,15 @@ soddisfano	$2
 soddisfino	$2
 sodomizzino	$3
 soffiano	$1
-soffocano	$1
+soffino	$1 $alt
 soffoc	$1 $alt
+soffocano	$1
 soffochi	$1 $alt
 soffochino	$1 $alt
 soffrano	$1
 sogghignano	$2
 soggiacere	$3
+sognino	$1 $alt
 solchino	$1
 sollecit	$2
 sollecitano	$2
@@ -3515,8 +4182,9 @@ sorrid	$2
 sorteggino	$2
 sorvegliano	$2
 sospettino	$2
-sostenere	$3
 sostenei	$3 $alt2
+sostenere	$3
+sostino	$1
 sottolineano	$3
 sottolineino	$3
 sottoposte	$3
@@ -3524,19 +4192,27 @@ sottostiano	sot:ost'i:ano
 sottostim	$3
 sottovalut	$3
 sottovalutano	$3
+sottovalutino	$3
 spaccano	$1
+spacchino	$1
+spaccino	$1
 spalmano	$1
 sparano	$1
 sparecchino	$2
 sparino	$1
 sparlano	$1
 sparlino	$1
-spaziano	$1
 spassino	$1
+spaventino	$2
+spaziano	$1
+specializzino	$3
 speculano	$1
+speculino	$1
 spellano	$1
+spellino	$1
 sperano	$1
 sperimentino	$3
+sperino	$1
 sperono	$2
 sperperano	$1
 spettin	$1
@@ -3558,12 +4234,15 @@ spolmono	$2 $alt2
 spolver	$1
 spolverano	$1
 spopolano	$1
+sporchino	$1
 sprecano	$1
 spregia	$1
+sprigionino	$2
 sprizzano	$1
 sprovvedere	$3
 spuntano	$1
 sputano	$1
+sputtanino	$2
 staccano	$1
 stagnano	$1
 stampano	$1
@@ -3582,6 +4261,7 @@ stipendiano	$2
 stipulano	$1
 stirano	$1
 strangolano	$1
+strangolino	$1
 strappano	$1
 straripano	$2
 straripino	$2
@@ -3589,24 +4269,31 @@ strattono	$2
 stravedere	$3
 stravere	$2
 stremano	$1
+stressino	$1
 strillano	$1
+strillino	$1
+striscino	$1
 stritol	$1
 strizzano	$1
 strutturano	$2
 studiano	$1
 studino	$1
 stufano	$1
+stufino	$1
 stuzzicano	$1
 subentrano	$2
+subentrino	$2
 subito	sub'i:to	$verb
 succedano	$2
 sudano	$1
+sudino	$1
 suggestiono	$4
 suicid	$3
 suonano	sw'Onano
 suonino	$1
 super	$1
 superano	$1
+superino	$1
 surriscaldano	$3
 surriscaldino	$3
 suscit	$1
@@ -3616,7 +4303,9 @@ suscitino	$1
 susseguano	$2
 svaghino	$1
 svaligia	$2
+svaligiano	$2
 svalutano	$1
+svalutino	$1
 svegliano	$1
 sveglino	$1
 sventolano	$1
@@ -3625,8 +4314,10 @@ svignino	$1
 sviluppano	$2
 sviluppino	$2
 sviscer	$1
+svuotino	$2
 tacere	$2
 tagliano	$1
+taglino	$1
 tallono	$2
 tambureggiano	$3
 tampono	$2
@@ -3641,8 +4332,10 @@ temere	$2	$alt2
 temperano	$1
 tempestino	$2
 temporeggiano	$3
+temporeggino	$3
 tendano	$1
 tenere	$2	$alt2
+tentino	$1 $alt
 tergiversano	$3
 termin	$1
 terminino	$1
@@ -3650,29 +4343,37 @@ termoregol	$3
 terrorizzino	$3
 tesserano	$1
 testimoniano	$3
+testimonino	$3
+testino	$1 $alt
 tifano	$1
 timbrano	$1
 tirano	$1
 tirino	$1
 titola	$1
 titolano	$1
+tocchino	$1
 tollerano	$1
 tollerino	$1
 tornino	$1
 torturano	$2
 traducano	$2
 trafficano	$1
+tralascino	$2
 tramandano	$2
 tramano	$1
 tramutano	$1
 trangugia	$2
+tranquillizzino	$3
 transitano	$1
+trapelino	$2
 trascegliere	$2
 trascendano	$2
 trascurano	$2
-traslocano	$2
+trascurino	$2
 trasformino	$2
+traslocano	$2
 traspaiano	$2
+trasportino	$2
 trattenere	$3
 traumatizzino	$4
 travasano	$2
@@ -3684,7 +4385,9 @@ trepidano	$1
 triangolano	$2
 tribol	$1
 tribolano	$1
+trionfino	$2
 triplicano	$1
+triplichino	$1
 tritano	$1
 trivellano	$2
 troneggiano	$2
@@ -3701,16 +4404,21 @@ uguagliano	$2
 ultimano	$1
 ululano	$1
 umiliano	$2
+umilino	$2
+unisciti	$2
 urlano	$1
+urlino	$1
 urtano	$1
 usano	$1
-usino	$1
 uscii	uS'i:j
+usino	$1
 ustiono	$3 $alt
 usurpano	$2
 utilizzino	$3
+vaccinino	$2
 vacillano	$2
 vadano	$1
+vaghino	$1
 valere	$2 $alt2
 valicano	$1
 validano	$1
@@ -3719,13 +4427,16 @@ valutano	$1
 valutino	$1
 vaneggiano	$2
 vantano	$1
+vantino	$1
 varano	$1
+varchino	$1
 variano	$1
 vattene	$1 $strend
 vedano	$1
 vedere $2  $alt2
 vegetano	$1
 vegliano	$1
+veglino	$1
 vendemmiano	$2
 vendicano	$1
 vendichino	$1
@@ -3740,15 +4451,18 @@ vietano	$1
 vincolano	$1
 vincolino	$1
 violano	$2
+violentino	$3
 violi	v'iOlI
+virano	$1
 visitano	$1
+visitino	$1
 viziano	$1
 vizino	$1
 vogliano	$1
 volano	$1
 vomitano	$1
 votano	$1	$alt2
-voodoo	vud'u
+votino	$1
 vuol	vu'ol	$u+
 zappano	$1
 zuccherano	$1
@@ -3758,10 +4472,12 @@ zuccherano	$1
 (capita di)	k'a:pita||_d'I
 (capita spesso)	k'apita||sp'es:o
 (che capita)	ke||k'a:pita
+(chi capita)	ki||k'a:pita
 (dove capita)	dove||k'apita
 (non capita)	non||k'a:pita
 (volte capita)	v,Olte||k'a:p,ita
 (quando capita)	kw'ando||k'apita
+(se capita)	se||k'a:pita
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
@@ -3773,12 +4489,22 @@ zuccherano	$1
 (seguiti a)	s'e:gwiti||a
 (seguito a)	s'e:gwito||a
 (perseguita da)	pe@-*segw2'Ita||da
-(ci perdono)	tSi||p'E@-*dono
-(si perdono)	si||p'E@-*dono
+(ci perdono)	tSi||p'E:@-*dono
+(si perdono)	si||p'E:@-*dono
+(perdono tempo)	p'E:@-*dono||t'Empo
+(come desideri)	kome||dez'ideRi
+(così desideri)	koz'i||_dez'i:deRI
+(cosa desideri)	k'O:za||dez'i:deRI
+(la desideri)	ladez'i:deRi
+(lo desideri)	lodez'ideRi
+(mi desideri)	mI||dez'i:deRI
+(quando desideri)	kw2ando||_|dez'i:deRi
+(quindi desideri)	kw2,indi||_dez'i:deRi
 
 // pronominal verbs
 
 accadutomi	$3
+affrettati	$2
 aiutaci	$2
 aiutal	aj'utal
 aiutami	$2
@@ -3790,21 +4516,29 @@ aprimel	$1
 aprimi	$1
 aprine	$1
 approfittane	$3
+arrivatoci	$3
 ascoltaci	$2
 ascoltami	$2
 ascoltal	$2
 aspettami	$2 $alt
+assecondal	$3
 assumersi	$2
 buttal	$1
+calmati	$1	$atstart
+cancellal	$2
 cancellami	$2
 carical	$1
 cercal	$1
 cercasi	$1
 chiuditi	kj'uditI
 compil	$2
+comunicacel	$2
 comunical	$2
+conclusasi	$2
+connettiti	$2
 contattaci	$2
 contattami	$2
+contorcersi	$2
 copial	$1 $alt
 copriti	$1
 coprimi	$1
@@ -3815,6 +4549,7 @@ dagliel	$1
 dagliene	$1
 dammel	$1
 dammene	$1
+deciditi	$2
 dedical	$1
 digitalo	$1
 digliel	$1
@@ -3822,12 +4557,16 @@ digliene	$1
 dimmelo	$1
 dirigerl	$2
 dirigersi	$2
-distrugerne	$2
+disconnettiti	$3
 domandatel	$3
 domandati	$2
 drizzarsi	d@-*its:'a@-*si
+espellerl	$2
 esprimiti	$2
+evolverci	$2
+evolversi	$2
 fattel	f'at:el
+fermatosi	$2
 formatosi	$2
 giuravi	$2
 guardagli	$1
@@ -3843,17 +4582,24 @@ illuminami	$2
 illuminal	$2
 impostaci	$2
 impostomi	$2
+indirizziamoci	indiRi_tsj'amotSI // $5
+indirizziamol	indiRi_tsj'amol // $5
 indirizzati	indiRits:'ati
 informaci	$2
+insediatisi	$3
 insegnagli	$2	$alt
 installal	$2
 intonaci	$2
 invaghitosi	$3
+inviataci	$3
+inviatami	$3
+inviatati	$3
 lasciataci	$2
 liberaci	$1
 mandal	$1
 mandatel	$2
-mangialo	$1
+mangial	m'a:ndZal // $1
+mescolatisi	$3
 mettine	$1
 mostravi	$2
 offertogli	$2
@@ -3871,8 +4617,6 @@ presentaci	$2
 promessomi	$2
 privaci	$1
 proteggiti	$2 $alt2
-provaci	$1
-proval	$1
 pulisciti	$2
 raccontami	$2
 raccontaci	$2
@@ -3891,13 +4635,17 @@ rieccomi	@-*i'e:k:Omi
 rieccoti	$2
 rieccol	$2
 rincorrerl	$2
-ripeterl	$2
-ripetersi	$2
+risparmial	$2
+risparmiaci	$2
+risparmiami	$2
 rivelataci	$3
 rizzarsi	@-*its:'a@-*sI
-romperti	$1
 sbrigati	$1
+scarical	$1
+scaricami	$1
+scommetterci	$2 $alt2
 scusami	$1
+scuotersi	$2 $alt
 segnalaci	$2
 selezionale	$4
 selezionali	$4
@@ -3906,19 +4654,26 @@ siediti	$1 $alt2
 spezzal	$1
 spiegaci	$2
 spiegatel	$3
-spiegati	$1
+spiegati	$1	$atstart
 spogliami	$1 $alt
 spoglial	$1 $alt
 spogliati	$1 $alt
 stabilitosi	$3
+stampal	$1
 suggeritomi	$3
-svoltosi	$1
+svoltasi	$1 $alt
+svoltesi	$1
+svoltosi	$1 $alt
 svuotal	$2 $alt2
+tenutasi	$2
+tenutosi	$2
 trattasi	$1
 usal	'u:za/l
 vendesi	$1 $alt
 verificatasi	$4
 verificatisi	$4
+volevasi	$2
+
 (regalati un)	@-*eg'alati||un
 (regalati una)	@-*eg'alati||una
 
@@ -3929,7 +4684,7 @@ batter	$1
 commetter	$2
 comprender	$2
 dipender	$2
-esser	$1
+esser	'Es:eR
 gioir	dZo'i@-*
 legger	l'EdZ:e/@-* $only
 metter	$1
@@ -3943,7 +4698,8 @@ proceder	$2
 prometter	$2
 reger	$1
 render	$1
-riscuoter	$2
+riscuoter	$3
 risolver	$2
+saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
