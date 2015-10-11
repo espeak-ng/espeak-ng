@@ -44,9 +44,11 @@ import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Implements the eSpeak engine as a {@link TextToSpeechService}.
@@ -200,6 +202,11 @@ public class TtsService extends TextToSpeechService {
     }
 
     @Override
+    protected Set<String> onGetFeaturesForLanguage(String lang, String country, String variant) {
+        return new HashSet<String>();
+    }
+
+    @Override
     public String onGetDefaultVoiceNameFor(String language, String country, String variant) {
         final Voice match = getDefaultVoiceFor(language, country, variant).first;
         return (match == null) ? null : match.name;
@@ -211,7 +218,9 @@ public class TtsService extends TextToSpeechService {
         for (Voice voice : mAvailableVoices.values()) {
             int quality = android.speech.tts.Voice.QUALITY_NORMAL;
             int latency = android.speech.tts.Voice.LATENCY_VERY_LOW;
-            voices.add(new android.speech.tts.Voice(voice.name, new Locale(voice.locale.getISO3Language(), voice.locale.getISO3Country(), voice.locale.getVariant()), quality, latency, false, null));
+            Locale locale = new Locale(voice.locale.getISO3Language(), voice.locale.getISO3Country(), voice.locale.getVariant());
+            Set<String> features = onGetFeaturesForLanguage(locale.getLanguage(), locale.getCountry(), locale.getVariant());
+            voices.add(new android.speech.tts.Voice(voice.name, locale, quality, latency, false, features));
         }
         return voices;
     }

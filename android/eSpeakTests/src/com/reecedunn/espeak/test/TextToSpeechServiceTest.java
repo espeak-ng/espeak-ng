@@ -26,6 +26,7 @@ import com.reecedunn.espeak.TtsService;
 import com.reecedunn.espeak.Voice;
 
 import java.util.Locale;
+import java.util.Set;
 
 import static com.reecedunn.espeak.test.TtsMatcher.isTtsLangCode;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -50,6 +51,10 @@ public class TextToSpeechServiceTest extends AndroidTestCase
 
         public int onLoadLanguage(String language, String country, String variant) {
             return super.onLoadLanguage(language, country, variant);
+        }
+
+        public Set<String> onGetFeaturesForLanguage(String language, String country, String variant) {
+            return super.onGetFeaturesForLanguage(language, country, variant);
         }
 
         public Voice getActiveVoice() {
@@ -242,6 +247,10 @@ public class TextToSpeechServiceTest extends AndroidTestCase
                 assertThat(locale.getISO3Language(), is(data.javaLanguage));
                 assertThat(locale.getISO3Country(), is(data.javaCountry));
                 assertThat(locale.getVariant(), is(data.variant));
+
+                Set<String> features = mService.onGetFeaturesForLanguage(data.javaLanguage, data.javaCountry, data.variant);
+                assertThat(features, is(notNullValue()));
+                assertThat(features.size(), is(0));
             }
         }
     }

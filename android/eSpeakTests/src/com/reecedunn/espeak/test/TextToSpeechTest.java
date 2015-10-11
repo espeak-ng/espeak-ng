@@ -126,7 +126,8 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             assertThat(voice.getLocale().getLanguage(), is(data.javaLanguage));
             assertThat(voice.getLocale().getCountry(), is(data.javaCountry));
             assertThat(voice.getLocale().getVariant(), is(data.variant));
-            assertThat(voice.getFeatures(), is(nullValue()));
+            assertThat(voice.getFeatures(), is(notNullValue()));
+            assertThat(voice.getFeatures().size(), is(0));
             assertThat(voice.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));
             assertThat(voice.getQuality(), is(android.speech.tts.Voice.QUALITY_NORMAL));
 
@@ -141,7 +142,8 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             assertThat(voice2.getLocale().getLanguage(), is(data.javaLanguage));
             assertThat(voice2.getLocale().getCountry(), is(data.javaCountry));
             assertThat(voice2.getLocale().getVariant(), is(data.variant));
-            assertThat(voice2.getFeatures(), is(nullValue()));
+            assertThat(voice2.getFeatures(), is(notNullValue()));
+            assertThat(voice2.getFeatures().size(), is(0));
             assertThat(voice2.getLatency(), is(android.speech.tts.Voice.LATENCY_VERY_LOW));
             assertThat(voice2.getQuality(), is(android.speech.tts.Voice.QUALITY_NORMAL));
         }
