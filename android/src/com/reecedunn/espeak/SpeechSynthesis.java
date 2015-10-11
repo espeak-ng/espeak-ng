@@ -406,6 +406,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("msa", "ms");
         mJavaToIanaLanguageCode.put("nep", "ne");
         mJavaToIanaLanguageCode.put("nld", "nl");
+        mJavaToIanaLanguageCode.put("nob", "nb");
         mJavaToIanaLanguageCode.put("nor", "no");
         mJavaToIanaLanguageCode.put("ori", "or");
         mJavaToIanaLanguageCode.put("orm", "om");
@@ -449,6 +450,7 @@ public class SpeechSynthesis {
         mLocaleFixes.put("es-la", new Locale("es", "MX"));
         mLocaleFixes.put("fa-pin", null); // Script tags not supported.
         mLocaleFixes.put("hy-west", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
+        mLocaleFixes.put("no", new Locale("nb")); // 'no' is valid, but the system uses the more specific 'nb' and 'nn'
         mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
         mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
         mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
