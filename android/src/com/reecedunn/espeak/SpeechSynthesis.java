@@ -135,18 +135,17 @@ public class SpeechSynthesis {
             final int gender = Integer.parseInt(results[i + 2]);
             final int age = Integer.parseInt(results[i + 3]);
 
-            final Locale locale;
-            if (identifier.equals("asia/fa-en-us")) {
-                locale = null;
-            } else {
-                locale = getLocaleFromLanguageName(name);
-            }
-            if (locale == null) {
-                Log.d(TAG, "getAvailableResources: skipping " + name + " => locale not supported");
-                continue;
-            }
-
             try {
+                final Locale locale;
+                if (identifier.equals("asia/fa-en-us")) {
+                    throw new IllegalArgumentException("Voice '" + identifier + "' is a duplicate voice.");
+                } else {
+                    locale = getLocaleFromLanguageName(name);
+                    if (locale == null) {
+                        throw new IllegalArgumentException("Locale not supported.");
+                    }
+                }
+
                 String language = locale.getISO3Language();
                 if (language.equals("")) {
                     throw new IllegalArgumentException("Language '" + locale.getLanguage() + "' not supported.");
