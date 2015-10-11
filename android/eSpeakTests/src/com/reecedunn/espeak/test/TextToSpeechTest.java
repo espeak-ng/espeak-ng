@@ -208,6 +208,9 @@ public class TextToSpeechTest extends TextToSpeechTestCase
                 if (data.ianaLanguage.equals("vi") && data.ianaCountry.equals("VN")) {
                     checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "hue");
                     checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "hue");
+                } else if (data.ianaLanguage.equals("hy") && data.ianaCountry.equals("AM")) {
+                    checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "arevmda");
+                    checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "arevmda");
                 } else {
                     checkLanguage(data, iana2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");
                     checkLanguage(data, java2, TextToSpeech.LANG_COUNTRY_AVAILABLE, data.javaLanguage, data.javaCountry, "");

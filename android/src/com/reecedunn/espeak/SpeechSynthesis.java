@@ -428,6 +428,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("vie", "vi");
         mJavaToIanaLanguageCode.put("zho", "zh");
 
+        mJavaToIanaCountryCode.put("ARM", "AM");
         mJavaToIanaCountryCode.put("BEL", "BE");
         mJavaToIanaCountryCode.put("BRA", "BR");
         mJavaToIanaCountryCode.put("FRA", "FR");
@@ -447,7 +448,7 @@ public class SpeechSynthesis {
         mLocaleFixes.put("en-wi", new Locale("en", "JM"));
         mLocaleFixes.put("es-la", new Locale("es", "MX"));
         mLocaleFixes.put("fa-pin", null); // Script tags not supported.
-        mLocaleFixes.put("hy-west", null); // language-variant locales not supported.
+        mLocaleFixes.put("hy-west", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
         mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
         mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
         mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
