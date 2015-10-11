@@ -408,6 +408,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("nld", "nl");
         mJavaToIanaLanguageCode.put("nor", "no");
         mJavaToIanaLanguageCode.put("ori", "or");
+        mJavaToIanaLanguageCode.put("orm", "om");
         mJavaToIanaLanguageCode.put("pan", "pa");
         mJavaToIanaLanguageCode.put("pol", "pl");
         mJavaToIanaLanguageCode.put("por", "pt");
@@ -447,7 +448,6 @@ public class SpeechSynthesis {
         mLocaleFixes.put("es-la", new Locale("es", "MX"));
         mLocaleFixes.put("fa-pin", null); // Script tags not supported.
         mLocaleFixes.put("hy-west", null); // language-variant locales not supported.
-        mLocaleFixes.put("om", null); // This is an experimental voice that is not currently well tested to be used.
         mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
         mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
         mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
