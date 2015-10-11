@@ -107,6 +107,23 @@ public class SpeechSynthesis {
         return (BUFFER_SIZE_IN_MILLIS * mSampleRate) / 1000;
     }
 
+    private Locale getLocaleFromLanguageName(String name) {
+        if (mLocaleFixes.containsKey(name)) {
+            return mLocaleFixes.get(name);
+        }
+        String[] parts = name.split("-");
+        switch (parts.length) {
+            case 1: // language
+                return new Locale(parts[0]);
+            case 2: // language-country
+                return new Locale(parts[0], parts[1]);
+            case 3: // language-country-variant
+                return new Locale(parts[0], parts[1], parts[2]);
+            default:
+                return null;
+        }
+    }
+
     public List<Voice> getAvailableVoices() {
         final List<Voice> voices = new LinkedList<Voice>();
         final String[] results = nativeGetAvailableVoices();
@@ -117,72 +134,38 @@ public class SpeechSynthesis {
             final String identifier = results[i + 1];
             final int gender = Integer.parseInt(results[i + 2]);
             final int age = Integer.parseInt(results[i + 3]);
+
             final Locale locale;
-            if (name.equals("fa-pin")) {
-                // Android locales do not support scripts, so fa-Latn is not possible for Farsi Pinglish:
+            if (identifier.equals("asia/fa-en-us")) {
                 locale = null;
-            } else if (identifier.equals("asia/fa-en-us")) {
-                locale = null;
-            } else if (name.equals("om")) {
-                // This is an experimental voice that is not currently well tested to be used.
-                locale = null;
-            } else if (name.equals("en-sc")) {
-                // 'SC' is not a country code.
-                locale = new Locale("en", "GB", "scotland");
-            } else if (name.equals("en-wi")) {
-                // 'WI' is not a country code. Also, territory code 029 (Caribbean)
-                // is not supported by Android.
-                locale = new Locale("en", "JM");
-            } else if (name.equals("es-la")) {
-                // 'LA' is the country code for Laos, not Latin America. Also, territory code 419
-                // (Latin America) is not supported by Android.
-                locale = new Locale("es", "MX");
-            } else if (name.equals("hy-west")) {
-                // 'west' is not a country code.
-                locale = null;
-            } else if (name.equals("vi-hue")) {
-                // 'hue' is for the Hue Province accent/dialect (Central Vietnamese).
-                locale = new Locale("vi", "VN", "hue");
-            } else if (name.equals("vi-sgn")) {
-                // 'sgn' is for the Saigon accent/dialect (South Vietnamese).
-                locale = new Locale("vi", "VN", "saigon");
-            } else if (name.equals("zh-yue")) {
-                // Android/Java does not support macrolanguages.
-                locale = new Locale("zh", "HK");
             } else {
-                String[] parts = name.split("-");
-                switch (parts.length) {
-                case 1: // language
-                    locale = new Locale(parts[0]);
-                    break;
-                case 2: // language-country
-                    if (parts[1].equals("uk")) {
-                        // 'uk' is the language code for Ukranian, not Great Britain.
-                        parts[1] = "GB";
-                    }
-                    locale = new Locale(parts[0], parts[1]);
-                    break;
-                case 3: // language-country-variant
-                    if (parts[1].equals("uk")) {
-                        // 'uk' is the language code for Ukranian, not Great Britain.
-                        parts[1] = "GB";
-                    }
-                    locale = new Locale(parts[0], parts[1], parts[2]);
-                    break;
-                default:
-                    locale = null;
-                }
+                locale = getLocaleFromLanguageName(name);
+            }
+            if (locale == null) {
+                Log.d(TAG, "getAvailableResources: skipping " + name + " => locale not supported");
+                continue;
             }
 
             try {
-                if (locale != null && !locale.getISO3Language().equals("")) {
-                    final Voice voice = new Voice(name, identifier, gender, age, locale);
-                    voices.add(voice);
+                String language = locale.getISO3Language();
+                if (language.equals("")) {
+                    throw new IllegalArgumentException("Language '" + locale.getLanguage() + "' not supported.");
                 }
+
+                String country  = locale.getISO3Country();
+                if (country.equals("") && !locale.getCountry().equals("")) {
+                    throw new IllegalArgumentException("Country '" + locale.getCountry() + "' not supported.");
+                }
+
+                final Voice voice = new Voice(name, identifier, gender, age, locale);
+                voices.add(voice);
             } catch (MissingResourceException e) {
                 // Android 4.3 throws this exception if the 3-letter language
                 // (e.g. nci) or country (e.g. 021) code is missing for a locale.
-                // Earlier versions of Android return an empty string.
+                // Earlier versions return an empty string (handled above).
+                Log.d(TAG, "getAvailableResources: skipping " + name + " => " + e.getMessage());
+            } catch (IllegalArgumentException e) {
+                Log.d(TAG, "getAvailableResources: skipping " + name + " => " + e.getMessage());
             }
         }
 
@@ -374,6 +357,7 @@ public class SpeechSynthesis {
 
     private static final Map<String, String> mJavaToIanaLanguageCode = new HashMap<String, String>();
     private static final Map<String, String> mJavaToIanaCountryCode = new HashMap<String, String>();
+    private static final HashMap<String, Locale> mLocaleFixes = new HashMap<String, Locale>();
     static {
         mJavaToIanaLanguageCode.put("afr", "af");
         mJavaToIanaLanguageCode.put("amh", "am");
@@ -453,5 +437,19 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("PRT", "PT");
         mJavaToIanaCountryCode.put("USA", "US");
         mJavaToIanaCountryCode.put("VNM", "VN");
+
+        // Map eSpeak locales to their correct BCP47 locales supported by Android:
+        mLocaleFixes.put("en-sc", new Locale("en", "GB", "scotland"));
+        mLocaleFixes.put("en-uk-north", new Locale("en", "GB", "north"));
+        mLocaleFixes.put("en-uk-rp", new Locale("en", "GB", "rp"));
+        mLocaleFixes.put("en-uk-wmids", new Locale("en", "GB", "wmids"));
+        mLocaleFixes.put("en-wi", new Locale("en", "JM"));
+        mLocaleFixes.put("es-la", new Locale("es", "MX"));
+        mLocaleFixes.put("fa-pin", null); // Script tags not supported.
+        mLocaleFixes.put("hy-west", null); // language-variant locales not supported.
+        mLocaleFixes.put("om", null); // This is an experimental voice that is not currently well tested to be used.
+        mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
+        mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
+        mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
     }
 }
