@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 march  20 by Chris <llajta2012@gmail.com>
+// Last update: 2015 Sept  26 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -32,7 +32,7 @@
 	@) a (ca_	=a
 	@)	a (che_	=a
 		a (istA_  a
-		a (ismo_  'a
+	ai (smo_	a'i:
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 	_)	ae (r    aE
@@ -56,6 +56,7 @@
 		b       b
 		bb      b:
 	bbano (_	=b:ano // verbs
+	bacia (L07_	b'atSa
 
 .group c
 		c	k
@@ -91,6 +92,8 @@
 		_L04Z) capit (ano_	k'a:p,it
 	correr (L04_	k'o:R*eR
 	ccorrer (L04_	k:'o:R*eR
+	chiama (L07_	ki'a:ma
+	a) cquista (L07_	k:w2'ista
 
 .group d
 		d	d
@@ -167,7 +170,7 @@
 		CC) eggia (no_	'EdZ:a
 	C) ender (L04_	'ende@-*  // Pron.s verbs
 	C) erder (L04_	'E@-*de@-*
-	esser (L04_		'es:eR
+	esser (L04_		'Es:eR
 	_) ecco (L04	'Ek:o
 		ete (L04_	'ete
 	fl) etter (L04_	'Et:e@-*
@@ -207,6 +210,8 @@
 		ggi (A  dZ:
 	@) gger (L04_ =dZ:e@-*  // Pron.s verbs
 	AC) ger (L04_	=dZe@-*
+	esi) ger (L04_	=dZe@-*
+	eri) ger (L04_	=dZe@-*
 		_) giura (L07_	dZ'URa
 	godi (L04_	g'Odi
 		gl (i	l^
@@ -335,6 +340,7 @@
 	_) l' (P2t	l
 	lasciati (_	l,a/S'atI
 		lascia (L07_	l'aSa
+	_) lecca (L07_	l'ek:a
 	leggi (L04_	l'EdZ:I
 
 .group m
@@ -360,7 +366,8 @@
 		n (k	N
 	Ama) nia (_	n'i:a
 	Ama) nie (_	n'i:e
-     _) nell' (P5t     nell
+	_) nell' (P5t	nel:
+	_) n' (P2t	n
 	_) neanch' (P7t	neank
 		ndo (L04_	=ndo    //  Pronominal verbs
 		netter (L04_	n'Et:e@-*
@@ -439,6 +446,7 @@
 		o (zA       O
 	l) oqui (A	Okwj
 	C) orda (L05_	'O@-*da   // pron. verbs
+	r) omper (L04_	'ompe@-*
 		C) onder (L04_	'ondE@-*
 		over (L04_	'ovE@-*
 	d) over (L04_	Ov'E@-*
@@ -456,8 +464,11 @@
 	ph	f   // foreign words
 	@m)	p (erY_	=p
 	porta (L05_	p'O@-*ta  // Pron.s verbs
+	parla (L07_	p'a@-*la
 	pie (gaL05_	pI'e
 	prendi (L04_	p@-*'E:ndi
+	prova (L07_	p@-*'Ova
+	a) pprova (L07_	p:@-*'Ova
 	pie (galA_	pI'e
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
@@ -482,6 +493,9 @@
 	A) r (ò_	*
 	@) r (L04_	=@-*   // for Italian pronominal verbs and reflexive verbs 
 	_) rega (laL07_	@-*eg'a
+	_) rader (L04_	@-*'ade@-*
+	_) ripeter (L04_	@-*ip'E:te@-*
+	_) romper (L04_	@-*'ompe@-*
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -525,9 +539,10 @@
 	@) scer (L04_	=SE@-*  // pron.s verbs
 	A) sci (L05_	=SI
 	scrivi (L04_	sk@-*'i:vI
-	salu (taL04_	sal'U
+	saluta (L07_	sal'uta
 	spegner (L04_	sp'en^e@-*
 	re) sister (L04_	z'i:ste@-*
+	salva (L07_	s'alva
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -550,7 +565,10 @@
 	intima) to (L04_	=to
 	ba) tter (L04_	=t:e@-*
 	tratta (L07	t@-*'at:a
+	tocca (L07_	t'Ok:a
 	a) ta (si_	=ta
+	_) togli (L04_	t'Ol^i
+	trova (L07_	t@-*'Ova
 	_) tutt' (P5t	tut:
 
 .group u
@@ -583,6 +601,8 @@
 	in) via (toL04_	vI'a
 	in) via (L07_	v'ia
 	_a) vvisa (L07_	v:'iza
+	_in) vader (L04_	v'a:de@-*
+	_) vota (L07_	v'Ota
 
 .group w
 		w	w2

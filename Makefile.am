@@ -131,7 +131,7 @@ wave_LIBS   = -lportaudio
 wave_FLAGS  = -DUSE_PORTAUDIO
 else
 if AUDIO_SADA
-wave_SOURCE = wave_sada.cpp
+wave_SOURCE = src/wave_sada.cpp
 wave_FLAGS  = -DUSE_SADA
 else
 wave_SOURCE = src/wave.cpp
