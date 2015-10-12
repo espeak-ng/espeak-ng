@@ -78,7 +78,22 @@ public class DownloadVoiceData extends Activity {
         mAsyncExtract.cancel(true);
     }
 
-    private static class AsyncExtract extends AsyncTask<Void, Void, Integer> {
+    private static final int PROGRESS_STARTING = 0;
+    private static final int PROGRESS_EXTRACTING = 1;
+    private static final int PROGRESS_FINISHED = 2;
+
+    private static class ExtractProgress {
+        long total;
+        long progress = 0;
+        int state = PROGRESS_STARTING;
+        File file;
+
+        public ExtractProgress(long total) {
+            this.total = total;
+        }
+    }
+
+    private static class AsyncExtract extends AsyncTask<Void, ExtractProgress, Integer> {
         private final Context mContext;
         private final int mRawResId;
         private final File mOutput;
@@ -97,27 +112,33 @@ public class DownloadVoiceData extends Activity {
             final ZipInputStream zipStream = new ZipInputStream(new BufferedInputStream(stream));
 
             try {
+                ExtractProgress progress = new ExtractProgress(stream.available());
+                publishProgress(progress);
+                progress.state = PROGRESS_EXTRACTING;
+
                 final byte[] buffer = new byte[10240];
 
                 int bytesRead;
                 ZipEntry entry;
 
                 while (!isCancelled() && ((entry = zipStream.getNextEntry()) != null)) {
-                    final File outputFile = new File(mOutput, entry.getName());
+                    progress.file = new File(mOutput, entry.getName());
+                    publishProgress(progress);
 
                     if (entry.isDirectory()) {
-                        outputFile.mkdirs();
-                        FileUtils.chmod(outputFile);
+                        progress.file.mkdirs();
+                        FileUtils.chmod(progress.file);
                         continue;
                     }
 
                     // Ensure the target path exists.
-                    outputFile.getParentFile().mkdirs();
+                    progress.file.getParentFile().mkdirs();
 
-                    final FileOutputStream outputStream = new FileOutputStream(outputFile);
+                    final FileOutputStream outputStream = new FileOutputStream(progress.file);
                     try {
                         while (!isCancelled() && ((bytesRead = zipStream.read(buffer)) != -1)) {
                             outputStream.write(buffer, 0, bytesRead);
+                            progress.total += bytesRead;
                         }
                     } finally {
                         outputStream.close();
@@ -125,7 +146,7 @@ public class DownloadVoiceData extends Activity {
                     zipStream.closeEntry();
 
                     // Make sure the output file is readable.
-                    FileUtils.chmod(outputFile);
+                    FileUtils.chmod(progress.file);
                 }
 
                 final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
@@ -133,6 +154,8 @@ public class DownloadVoiceData extends Activity {
 
                 FileUtils.write(outputFile, version);
 
+                progress.state = PROGRESS_FINISHED;
+                publishProgress(progress);
                 return RESULT_OK;
             } catch (Exception e) {
                 e.printStackTrace();
