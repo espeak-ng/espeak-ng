@@ -96,8 +96,6 @@ public class DownloadVoiceData extends Activity {
             final InputStream stream = mContext.getResources().openRawResource(mRawResId);
             final ZipInputStream zipStream = new ZipInputStream(new BufferedInputStream(stream));
 
-            boolean successful = false;
-
             try {
                 final byte[] buffer = new byte[10240];
 
@@ -134,7 +132,8 @@ public class DownloadVoiceData extends Activity {
                 final File outputFile = new File(mOutput, "espeak-data/version");
 
                 FileUtils.write(outputFile, version);
-                successful = true;
+
+                return RESULT_OK;
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -145,11 +144,7 @@ public class DownloadVoiceData extends Activity {
                 }
             }
 
-            if (isCancelled() || !successful) {
-                return RESULT_CANCELED;
-            }
-
-            return RESULT_OK;
+            return RESULT_CANCELED;
         }
     }
 }
