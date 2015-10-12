@@ -101,7 +101,44 @@ public class DownloadVoiceData extends Activity {
             boolean successful = false;
 
             try {
-                extractEntries(zipStream);
+                final byte[] buffer = new byte[10240];
+
+                int bytesRead;
+                ZipEntry entry;
+
+                while (!isCancelled() && ((entry = zipStream.getNextEntry()) != null)) {
+                    final File outputFile = new File(mOutput, entry.getName());
+
+                    mExtractedFiles.add(outputFile);
+
+                    if (entry.isDirectory()) {
+                        outputFile.mkdirs();
+                        FileUtils.chmod(outputFile);
+                        continue;
+                    }
+
+                    // Ensure the target path exists.
+                    outputFile.getParentFile().mkdirs();
+
+                    final FileOutputStream outputStream = new FileOutputStream(outputFile);
+                    try {
+                        while (!isCancelled() && ((bytesRead = zipStream.read(buffer)) != -1)) {
+                            outputStream.write(buffer, 0, bytesRead);
+                        }
+                    } finally {
+                        outputStream.close();
+                    }
+                    zipStream.closeEntry();
+
+                    // Make sure the output file is readable.
+                    FileUtils.chmod(outputFile);
+                }
+
+                final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
+                final File outputFile = new File(mOutput, "espeak-data/version");
+                mExtractedFiles.add(outputFile);
+
+                FileUtils.write(outputFile, version);
                 successful = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,47 +156,6 @@ public class DownloadVoiceData extends Activity {
             }
 
             return RESULT_OK;
-        }
-
-        private void extractEntries(ZipInputStream zipStream) throws IOException {
-            final byte[] buffer = new byte[10240];
-
-            int bytesRead;
-            ZipEntry entry;
-
-            while (!isCancelled() && ((entry = zipStream.getNextEntry()) != null)) {
-                final File outputFile = new File(mOutput, entry.getName());
-
-                mExtractedFiles.add(outputFile);
-
-                if (entry.isDirectory()) {
-                    outputFile.mkdirs();
-                    FileUtils.chmod(outputFile);
-                    continue;
-                }
-
-                // Ensure the target path exists.
-                outputFile.getParentFile().mkdirs();
-
-                final FileOutputStream outputStream = new FileOutputStream(outputFile);
-                try {
-                    while (!isCancelled() && ((bytesRead = zipStream.read(buffer)) != -1)) {
-                        outputStream.write(buffer, 0, bytesRead);
-                    }
-                } finally {
-                    outputStream.close();
-                }
-                zipStream.closeEntry();
-
-                // Make sure the output file is readable.
-                FileUtils.chmod(outputFile);
-            }
-
-            final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
-            final File outputFile = new File(mOutput, "espeak-data/version");
-            mExtractedFiles.add(outputFile);
-
-            FileUtils.write(outputFile, version);
         }
 
         private void removeExtractedFiles() {
