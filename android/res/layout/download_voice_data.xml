@@ -7,10 +7,13 @@
     android:padding="16dp" >
 
     <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:id="@+id/progress"
+        android:indeterminate="false"
+        android:longClickable="false" />
 
     <TextView
         android:id="@+id/installing_voice_data"
