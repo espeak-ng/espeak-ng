@@ -79,8 +79,6 @@ public class DownloadVoiceData extends Activity {
     }
 
     private static class AsyncExtract extends AsyncTask<Void, Void, Integer> {
-        private final LinkedList<File> mExtractedFiles = new LinkedList<File>();
-
         private final Context mContext;
         private final int mRawResId;
         private final File mOutput;
@@ -109,8 +107,6 @@ public class DownloadVoiceData extends Activity {
                 while (!isCancelled() && ((entry = zipStream.getNextEntry()) != null)) {
                     final File outputFile = new File(mOutput, entry.getName());
 
-                    mExtractedFiles.add(outputFile);
-
                     if (entry.isDirectory()) {
                         outputFile.mkdirs();
                         FileUtils.chmod(outputFile);
@@ -136,7 +132,6 @@ public class DownloadVoiceData extends Activity {
 
                 final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
                 final File outputFile = new File(mOutput, "espeak-data/version");
-                mExtractedFiles.add(outputFile);
 
                 FileUtils.write(outputFile, version);
                 successful = true;
@@ -151,21 +146,10 @@ public class DownloadVoiceData extends Activity {
             }
 
             if (isCancelled() || !successful) {
-                removeExtractedFiles();
                 return RESULT_CANCELED;
             }
 
             return RESULT_OK;
-        }
-
-        private void removeExtractedFiles() {
-            for (File extractedFile : mExtractedFiles) {
-                if (!extractedFile.isDirectory()) {
-                    extractedFile.delete();
-                }
-            }
-
-            mExtractedFiles.clear();
         }
     }
 }
