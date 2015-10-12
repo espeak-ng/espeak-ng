@@ -123,8 +123,8 @@ public class TextToSpeechTest extends TextToSpeechTestCase
 
             assertThat(data, is(notNullValue()));
             assertThat(voice.getName(), is(data.name));
-            assertThat(voice.getLocale().getLanguage(), is(data.javaLanguage));
-            assertThat(voice.getLocale().getCountry(), is(data.javaCountry));
+            assertThat(voice.getLocale().getLanguage(), is(data.ianaLanguage));
+            assertThat(voice.getLocale().getCountry(), is(data.ianaCountry));
             assertThat(voice.getLocale().getVariant(), is(data.variant));
             assertThat(voice.getFeatures(), is(notNullValue()));
             assertThat(voice.getFeatures().size(), is(0));
@@ -139,8 +139,8 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             android.speech.tts.Voice voice2 = getEngine().getVoice();
             assertThat(voice2, is(notNullValue()));
             assertThat(voice2.getName(), is(data.name));
-            assertThat(voice2.getLocale().getLanguage(), is(data.javaLanguage));
-            assertThat(voice2.getLocale().getCountry(), is(data.javaCountry));
+            assertThat(voice2.getLocale().getLanguage(), is(data.ianaLanguage));
+            assertThat(voice2.getLocale().getCountry(), is(data.ianaCountry));
             assertThat(voice2.getLocale().getVariant(), is(data.variant));
             assertThat(voice2.getFeatures(), is(notNullValue()));
             assertThat(voice2.getFeatures().size(), is(0));
