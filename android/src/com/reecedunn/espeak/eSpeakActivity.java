@@ -198,14 +198,7 @@ public class eSpeakActivity extends Activity {
     private Locale getTtsLanguage() {
         if (mTts != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                android.speech.tts.Voice voice = null;
-                try {
-                    voice = mTts.getVoice();
-                } catch (NullPointerException e) {
-                    // Android Lollipop and later may throw a NullPointerException
-                    // if a voice is not selected.
-                    return null;
-                }
+                android.speech.tts.Voice voice = mTts.getVoice();
                 if (voice != null) {
                     return voice.getLocale();
                 }
