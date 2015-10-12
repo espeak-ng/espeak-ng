@@ -30,6 +30,8 @@
 #include <speak_lib.h>
 #include <Log.h>
 
+#define BUFFER_SIZE_IN_MILLISECONDS 1000
+
 /** @name  Java to Wide String Helpers
   * @brief These are helpers for converting a jstring to wchar_t*.
   *
@@ -163,13 +165,13 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
 
 JNIEXPORT jint
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
-    JNIEnv *env, jobject object, jstring path, jint bufferSizeInMillis) {
+    JNIEnv *env, jobject object, jstring path) {
   if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
 
   const char *c_path = path ? env->GetStringUTFChars(path, NULL) : NULL;
 
   if (DEBUG) LOGV("Initializing with path %s", c_path);
-  int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, bufferSizeInMillis, c_path, 0);
+  int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, BUFFER_SIZE_IN_MILLISECONDS, c_path, 0);
 
   if (c_path) env->ReleaseStringUTFChars(path, c_path);
 

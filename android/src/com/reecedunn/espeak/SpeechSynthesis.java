@@ -51,7 +51,6 @@ public class SpeechSynthesis {
 
     public static final int CHANNEL_COUNT_MONO = 1;
     public static final int FORMAT_PCM_S16 = 2;
-    public static final int BUFFER_SIZE_IN_MILLIS = 1000;
 
     static {
         System.loadLibrary("ttsespeak");
@@ -101,10 +100,6 @@ public class SpeechSynthesis {
 
     public int getAudioFormat() {
         return FORMAT_PCM_S16;
-    }
-
-    public int getBufferSizeInBytes() {
-        return (BUFFER_SIZE_IN_MILLIS * mSampleRate) / 1000;
     }
 
     private Locale getLocaleFromLanguageName(String name) {
@@ -287,7 +282,7 @@ public class SpeechSynthesis {
             return;
         }
 
-        mSampleRate = nativeCreate(mDatapath, BUFFER_SIZE_IN_MILLIS);
+        mSampleRate = nativeCreate(mDatapath);
         if (mSampleRate == 0) {
             Log.e(TAG, "Failed to initialize speech synthesis library");
             return;
@@ -312,7 +307,7 @@ public class SpeechSynthesis {
 
     private static native final boolean nativeClassInit();
 
-    private native final int nativeCreate(String path, int bufferSizeInMillis);
+    private native final int nativeCreate(String path);
 
     private native final static String nativeGetVersion();
 

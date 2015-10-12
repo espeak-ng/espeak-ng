@@ -163,7 +163,6 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(synth.getSampleRate(), is(22050));
         assertThat(synth.getChannelCount(), is(1));
         assertThat(synth.getAudioFormat(), is(AudioFormat.ENCODING_PCM_16BIT));
-        assertThat(synth.getBufferSizeInBytes(), is(22050));
     }
 
     public void testJavaToIanaLanguageCode()
