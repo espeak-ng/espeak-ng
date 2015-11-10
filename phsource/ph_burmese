@@ -178,7 +178,8 @@ phoneme ð
 endphoneme
 
 phoneme s
-  vls alv frc sibilant
+  import_phoneme base/s
+//  vls alv frc sibilant
 endphoneme
 
 phoneme z
