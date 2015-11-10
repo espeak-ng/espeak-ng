@@ -1,0 +1,23 @@
+// This file is UTF8 encoded
+// Spelling to phoneme rules for Burmese
+
+//.replace
+//၀ 0 // Convert numbers
+//၁ 1
+//၂ 2
+//၃ 3
+//၄ 4
+//၅ 5
+//၆ 6
+//၇ 7
+//၈ 8
+//၉ 9
+
+.group စ
+        စ    zə
+
+.group ပ
+        ပ    bə
+
+.group က
+        က    kə

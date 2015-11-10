@@ -192,6 +192,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
+	phsource/ph_burmese \
 	phsource/ph_catalan \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
@@ -332,6 +333,7 @@ dictionaries: \
 	espeak-data/ml_dict \
 	espeak-data/mr_dict \
 	espeak-data/ms_dict \
+	espeak-data/my_dict \
 	espeak-data/nci_dict \
 	espeak-data/ne_dict \
 	espeak-data/nl_dict \
@@ -639,6 +641,12 @@ dictsource/ms_extra:
 	touch dictsource/ms_extra
 espeak-data/ms_dict: src/espeak phsource/phonemes.stamp dictsource/ms_list dictsource/ms_rules dictsource/ms_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=ms && cd ..
+
+my: espeak-data/my_dict
+dictsource/my_extra:
+	touch dictsource/my_extra
+espeak-data/my_dict: src/espeak phsource/phonemes.stamp dictsource/my_list dictsource/my_rules dictsource/my_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=my && cd ..
 
 nci: espeak-data/nci_dict
 dictsource/nci_extra:

@@ -1,0 +1,224 @@
+// http://espeak.sourceforge.net/phontab.html
+//=========================================================
+// Burmese
+//=========================================================
+
+//===========
+// TONES
+//===========
+
+//phoneme 1  //see vietnamese; tones taken from there
+//  stress
+//  Tone(X,Y,...)
+//endphoneme
+
+phoneme 1 //low tone
+  stress
+  Tone(20,35, envelope/i_risefall,NULL)
+endphoneme
+
+phoneme 2  //high tone
+  stress
+  Tone(45,80, envelope/p_rise,NULL)
+endphoneme
+
+phoneme 3  //creaky tone
+  stress
+  Tone(30,75, envelope/p_214, NULL)
+endphoneme
+
+phoneme 4  //checked tone
+  stress
+  Tone(20,35, envelope/i_risefall,NULL)
+endphoneme
+
+
+//===========
+// VOWELS
+//===========
+
+//phoneme X
+//  vowel starttype #X endtype #X
+//  length XXX
+//  FMT(vowel/X_X)
+//endphoneme
+
+phoneme ə    //  Schwa
+  vowel   starttype #@  endtype #@
+  unstressed
+  length 140
+  IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6, 90)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+phoneme ɔ
+  vowel   starttype #@  endtype #@
+  unstressed
+  length 140
+  IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6, 90)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+phoneme o
+  vowel   starttype #@  endtype #@
+  unstressed
+  length 140
+  IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6, 90)
+  ENDIF
+  FMT(vowel/@)
+endphoneme
+
+//===========
+// CONSONANTS
+//===========
+
+phoneme mh //voiceless
+  vls blb nasal
+endphoneme
+
+phoneme m
+  vcd blb nasal
+endphoneme
+
+phoneme nh
+  vls alv nasal
+endphoneme
+
+phoneme n
+  vcd alv nasal
+endphoneme
+
+phoneme ɲh
+  vls pal nasal
+endphoneme
+
+phoneme ɲ
+  vcd pal nasal
+endphoneme
+
+phoneme ŋh
+  vls vel nasal
+endphoneme
+
+phoneme ŋ
+  vcd vel nasal
+endphoneme
+
+phoneme ɴ
+  vcd glt nasal
+endphoneme
+
+phoneme p
+  vls blb stop
+endphoneme
+
+phoneme b
+  vcd blb stop
+endphoneme
+
+phoneme ph //aspirated
+  vls blb stop
+endphoneme
+
+phoneme t
+  vls alv stop
+endphoneme
+
+phoneme d
+  vcd alv stop
+endphoneme
+
+phoneme th
+  vls alv stop
+endphoneme
+
+phoneme tɕ
+  vls pla afr sibilant
+endphoneme
+
+phoneme dʑ
+  vcd pla afr sibilant
+endphoneme
+
+phoneme tɕh
+  vls pla afr sibilant
+endphoneme
+
+phoneme k
+  import_phoneme base/k
+//  vls vel stop
+endphoneme
+
+phoneme g
+  vcd vel stop
+endphoneme
+
+phoneme kh
+  vls vel stop
+endphoneme
+
+phoneme ʔ
+  vls glt stop
+endphoneme
+
+phoneme θ
+  vls dnt frc
+endphoneme
+
+phoneme ð
+  vcd dnt frc
+endphoneme
+
+phoneme s
+  vls alv frc sibilant
+endphoneme
+
+phoneme z
+  import_phoneme base/z
+//  vcd alv frc sibilant
+endphoneme
+
+phoneme sh //aspirated not palatal
+  vls alv frc sibilant
+endphoneme
+
+phoneme ʃ
+  vls pla frc sibilant
+endphoneme
+
+phoneme h
+  vls glt frc
+endphoneme
+
+phoneme j
+  vcd pal liquid
+endphoneme
+
+phoneme ɹ
+  vcd alv liquid
+endphoneme
+
+phoneme wh //voiceless
+  vls blb liquid
+endphoneme
+
+phoneme w
+  vcd blb liquid
+endphoneme
+
+phoneme lh //voiceless
+  vls alv liquid
+endphoneme
+
+phoneme l
+  vcd alv liquid
+endphoneme
+
