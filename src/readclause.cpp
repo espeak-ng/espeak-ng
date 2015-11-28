@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -1789,6 +1790,10 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	PARAM_STACK *sp;
 	SSML_STACK *ssml_sp;
 
+	static const MNEM_TAB mnem_phoneme_alphabet[] = {
+		{"espeak",1},
+		{NULL, -1}};
+
 	static const MNEM_TAB mnem_punct[] = {
 		{"none", 1},
 		{"all", 2},
@@ -1936,6 +1941,20 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	case SSML_PROSODY + SSML_CLOSE:
 	case SSML_EMPHASIS + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
+		break;
+
+	case SSML_PHONEME:
+		attr1 = GetSsmlAttribute(px,"alphabet");
+		attr2 = GetSsmlAttribute(px,"ph");
+		value = attrlookup(attr1,mnem_phoneme_alphabet);
+		if (value == 1) // alphabet="espeak"
+		{
+			outbuf[(*outix)++] = '[';
+			outbuf[(*outix)++] = '[';
+			*outix += attrcopy_utf8(&outbuf[*outix],attr2,n_outbuf-*outix);
+			outbuf[(*outix)++] = ']';
+			outbuf[(*outix)++] = ']';
+		}
 		break;
 
 	case SSML_SAYAS:
