@@ -49,10 +49,7 @@ aculei	$2
 aculeo $2
 adamas $3
 addebit $2  $alt2
-addi $2
 addom	$2 $alt
-adeline  $alt2
-adempiere	ad'e:mpjeRe
 adenoipofisi $5
 adenomer $3
 aderbale $2
@@ -64,8 +61,7 @@ aeree	$2
 aerogel $3
 aerosol $4
 aerostat $2
-aerovia $3
-aet  $alt
+aerovia	$4
 affett  $alt
 affori $1
 afonie	afon'i;e
@@ -74,6 +70,7 @@ agadez $3
 agapit $2
 agave $1
 agenzia $3
+agenzie	adZents'ie
 agerol $2
 agesilao $4
 agnati $1
@@ -82,12 +79,11 @@ agonie	agon'i;e
 agora $3
 agord $1
 agost  $alt2
-agosta		$1
 agrifogli  $alt
 agronomi	$2
 agrosistem  $alt
+aikido	$2
 ailoche  $alt
-aime $2  $alt
 airol $2
 airole  $alt
 alabastron $2
@@ -108,18 +104,16 @@ alea $1
 alen  $alt2
 alenia  $alt
 aleria $2  $alt2
-ales  $alt
 alesia $2  $alt
 alessia $3
 alfabet  $alt
 algebric  $alt
 algenib  $alt
 algovia  $alt
-alibi $1
+alibi	'alibI
 alimen  $alt2
 aliquot $2
 alit $1
-alleghe $1
 allegorie	$4
 allegria $3
 allegrie	$3
@@ -129,9 +123,8 @@ allobrogi $2
 allodol $2
 alloggi  $alt
 allora	al:'oRa
-alluce $1
+alluce	'al:utSe
 almen  $alt2
-aloe  $alt
 alope $1
 alopecia  alopetS'i:a
 altair $2
@@ -142,7 +135,7 @@ altrui	alt@-*'ui
 alveo $1
 amalgam $2
 amarcord $3
-amazzone $2
+amazzone	am'ats:one/
 amazzoni $2
 ambita	$2
 ambite	$2
@@ -161,7 +154,7 @@ ammine	$2
 amniocentesi $4  $alt
 amor $2  $alt2
 amorgos $3
-amorosi  $alt2
+amoros	$alt2
 ampoll  $alt2
 amulet  $alt
 anabasi $2
@@ -177,7 +170,6 @@ anarchie	ana@-*k'ie
 anatem  $alt
 anatr	'anat@-*
 anatroccol  $alt
-ancora	$alt2
 andine	$2
 androgin $2
 aneddot $2  $alt
@@ -674,8 +666,8 @@ calolziocorte  $alt2
 caloria $3
 calorie	$3
 calorimetr $3
-calumet $3  $alt2
 calpestio	$3
+calumet $3  $alt2
 camar $1
 cambodia  $alt
 cambri $2
@@ -773,6 +765,7 @@ cassal $1
 cassar $1
 cassol $2
 castagnole	$3
+castel	$2 $only
 castelcivit $3
 castellar $3
 castellon $3
@@ -781,7 +774,6 @@ castelsepri  $alt
 casteltermini $3
 castelverde  $alt2
 castelvetere  $alt
-castel	$2 $only
 castin $1
 castore $1
 castroliber $3
@@ -1100,6 +1092,7 @@ costumanz	kostum'an|ts
 cot  $alt
 cottim  $alt
 coyote  $alt
+cozzoli	k'o_tsolI
 cratere $2
 cred  $alt
 credit $1  $alt2
@@ -1240,8 +1233,8 @@ diplomazie	diplomats'ie/
 dipol $2
 dipylon $1
 dirett  $alt
-disarmonie	diza@-*mon'ie
 disarmonia	$4
+disarmonie	diza@-*mon'ie
 disartrie	$3
 discapit $2
 discors  $alt2
@@ -1325,6 +1318,7 @@ ecceter $2  $alt
 ecij $1  $alt2
 economy	$2
 ecosistem  $alt
+ecstasy	'EkstazI
 ecub $1  $alt
 eczem  $alt
 edea  $alt2
@@ -1475,7 +1469,6 @@ esantem  $alt
 eschil  $alt
 eschim  $alt
 eschine  $alt
-ecstasy	'EkstazI
 esedr  $alt
 esegesi  $alt
 esempi  $alt
@@ -1649,6 +1642,7 @@ folgaria $3
 folgor	$1
 folgorio	$3
 follia $2
+follie	$2
 fomori $1
 fon  $alt
 fondine	$2
@@ -1665,10 +1659,13 @@ forcine	$2
 forcol  $alt2
 forfor $1  $alt2
 forgia $1
+formaggini	$3
 formic $2
+formiche	$2
+formici	$1
+formicolio	$4
 forn  $alt2
 forr  $alt2
-forse  $alt2
 fortuit	f,O@-*t'uit
 foscari $1
 foschia $2
@@ -2094,6 +2091,7 @@ laureo	$1
 lauria $3
 lavorio	$3
 lazzar l'adz:aR
+lazzarett	ladz:aR'et:
 lecc  $alt2
 leccacul	$3
 leccornia	$3
@@ -2400,8 +2398,8 @@ miserere $3
 miseria	$2
 miserie	$2
 misia $1
-misoginia $4
 misogin	$2
+misoginia $4
 mistral $2
 mitocondri  $alt
 mixtechi  $alt
@@ -2501,8 +2499,8 @@ multietnic  $alt
 multigaranzia	$5
 multigaranzie	multigaRa/Nts'ie
 multipl $1
-multiplexer  $alt
 muntaz $2
+musik	$1
 muster $2
 mutagen $2
 mutagenesi $3
@@ -2797,10 +2795,10 @@ partenope $2  $alt
 passafili	$3
 passatemp  $alt
 pasten $1
-pastiche	$2
+pasticcer	$3 $alt2
 pastor  $alt2
 pater $1
-patin $1
+patin	$1
 patogenesi $3
 patricidi	$3
 pattin $1
@@ -3116,8 +3114,8 @@ profezia $3
 profil $2
 profondimetr $3
 profug	$1
-profughi	$1 $alt
 profughe	$1 $alt
+profughi	$1 $alt
 progenie  $alt
 progett  $alt
 prognosi $1  $alt
@@ -3694,6 +3692,7 @@ spadaccine	$3
 spalat $1
 spandiconcim	$4
 spatol $1
+spazioausili	sp,atsio||a|Uz'ilI
 specchi  $alt
 specchia  $alt
 specie  $alt
@@ -3701,8 +3700,8 @@ specol  $alt
 speculum $1
 speot  $alt
 spermicid $3
-sperperio	$3
 sperper	$1
+sperperio	$3
 spessimetr $2
 spettr  $alt
 spettri  $alt
@@ -4241,4 +4240,6 @@ zoppol  $alt
 zozz	ts'O:ts:
 zozzon	tsots:'on
 zuccari $1
-zuccher	ts;'U_k:eR
+zuccher	tz'uk:e*
+
+
