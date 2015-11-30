@@ -55,26 +55,15 @@ phoneme ə    //  Schwa
 endphoneme
 
 phoneme ɔ
-  vowel   starttype #@  endtype #@
-  unstressed
-  length 140
+  vowel  starttype #o  endtype #o
+  //ipa ɔː
+  length 240
   IfNextVowelAppend(r-)
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/@_6, 90)
-  ENDIF
-  FMT(vowel/@)
+  FMT(vowel/oo_en)
 endphoneme
 
-phoneme o
-  vowel   starttype #@  endtype #@
-  unstressed
-  length 140
-  IfNextVowelAppend(r-)
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/@_6, 90)
-  ENDIF
-  FMT(vowel/@)
-endphoneme
+//phoneme o
+//endphoneme
 
 //===========
 // CONSONANTS
@@ -85,7 +74,8 @@ phoneme mh //voiceless
 endphoneme
 
 phoneme m
-  vcd blb nasal
+  //vcd blb nasal
+  import_phoneme base/m
 endphoneme
 
 phoneme nh
@@ -93,7 +83,8 @@ phoneme nh
 endphoneme
 
 phoneme n
-  vcd alv nasal
+  //vcd alv nasal
+  import_phoneme base/n
 endphoneme
 
 phoneme ɲh
@@ -101,7 +92,8 @@ phoneme ɲh
 endphoneme
 
 phoneme ɲ
-  vcd pal nasal
+  //vcd pal nasal palatal
+  import_phoneme base/n^
 endphoneme
 
 phoneme ŋh
@@ -109,19 +101,22 @@ phoneme ŋh
 endphoneme
 
 phoneme ŋ
-  vcd vel nasal
+  //vcd vel nasal
+  import_phoneme base/N
 endphoneme
 
-phoneme ɴ
-  vcd glt nasal
-endphoneme
+//phoneme ɴ
+//  vcd glt nasal
+//endphoneme
 
 phoneme p
-  vls blb stop
+  //vls blb stop
+  import_phoneme base/p
 endphoneme
 
 phoneme b
-  vcd blb stop
+  //vcd blb stop
+  import_phoneme base/b
 endphoneme
 
 phoneme ph //aspirated
@@ -129,11 +124,13 @@ phoneme ph //aspirated
 endphoneme
 
 phoneme t
-  vls alv stop
+  //vls alv stop
+  import_phoneme base/t
 endphoneme
 
 phoneme d
-  vcd alv stop
+  //vcd alv stop
+  import_phoneme base/d
 endphoneme
 
 phoneme th
@@ -141,24 +138,28 @@ phoneme th
 endphoneme
 
 phoneme tɕ
-  vls pla afr sibilant
+  //vls pla afr sibilant
+  import_phoneme base/tS
 endphoneme
 
 phoneme dʑ
-  vcd pla afr sibilant
+  //vcd pla afr sibilant
+  import_phoneme base/dZ
 endphoneme
 
 phoneme tɕh
   vls pla afr sibilant
+  // aspirated
 endphoneme
 
 phoneme k
+  //vls vel stop
   import_phoneme base/k
-//  vls vel stop
 endphoneme
 
 phoneme g
-  vcd vel stop
+  //vcd vel stop
+  import_phoneme base/g
 endphoneme
 
 phoneme kh
@@ -170,21 +171,23 @@ phoneme ʔ
 endphoneme
 
 phoneme θ
-  vls dnt frc
+  //vls dnt frc
+  import_phoneme base/T
 endphoneme
 
 phoneme ð
-  vcd dnt frc
+  //vcd dnt frc
+  import_phoneme base/D
 endphoneme
 
 phoneme s
+  //vls alv frc sibilant
   import_phoneme base/s
-//  vls alv frc sibilant
 endphoneme
 
 phoneme z
+  //vcd alv frc sibilant
   import_phoneme base/z
-//  vcd alv frc sibilant
 endphoneme
 
 phoneme sh //aspirated not palatal
@@ -192,7 +195,8 @@ phoneme sh //aspirated not palatal
 endphoneme
 
 phoneme ʃ
-  vls pla frc sibilant
+  //vls pla frc sibilant
+  import_phoneme base/S
 endphoneme
 
 phoneme h
@@ -220,6 +224,7 @@ phoneme lh //voiceless
 endphoneme
 
 phoneme l
-  vcd alv liquid
+  //vcd alv liquid
+  import_phoneme base/l  
 endphoneme
 

@@ -14,10 +14,49 @@
 //၉ 9
 
 .group စ
-        စ    sə
+//    စ    sə3
+    စ    s
+
+.group    က
+//    _) က (_    kə3
+//       ေ          e
+         က   k
+//    ကေ    ke3
+
+.group ေ
+      ေ    e3
+//    က) ေ    e3
+//    @)    ေ    ke3
+
+.group ို
+    ို    o
 
 .group ပ
-        ပ    bə
+    ပ    bə3
 
-.group က
-        က    kə
+.group န
+    န    n
+
+.group လ
+    လ    l
+
+.group ာ
+    ာ    ə
+
+.group း
+    း    2
+
+.group ော
+    ော   au2
+    ော  (်    au1
+    ော  (့    au3
+//    ောင်    aun4
+
+.group ်
+    ်    n
+
+.group င
+    င    ŋ
+    င်    n
+    
+
