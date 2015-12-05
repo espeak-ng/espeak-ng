@@ -148,7 +148,7 @@ lib_LTLIBRARIES += src/libespeak.la
 
 src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
 src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
-	-fpic -fvisibility=hidden -D LIBRARY \
+	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 

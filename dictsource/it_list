@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 october 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 november 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -22,12 +22,12 @@ j	'i||l'unga
 k	kap:a
 l	Elle
 m	Emme
-n	Enne
+n	Enne/
 _o	o:
 p	pi
 q	ku
 r	ER*e
-s	esse
+s	Esse/
 t	t'I
 _u	u:
 v	vu
@@ -506,6 +506,7 @@ nessun	$u2+
 // conjunctions and Adverbs
 
 anche	$u+
+ancora	$alt2
 attraverso 	$alt
 benchè		$u+	$brk
 che	ke	$u+ $verbf
@@ -519,6 +520,7 @@ durante	$brk
 e		$u+ $brk
 eccetto    $pause
 ed		$u+ $brk $only
+forse	$alt2
 ma	$u+ $brk
 mai	$u+ $verbf
 mentre	$u+
@@ -540,7 +542,7 @@ si	si: $atend
 sopra	   $alt2
 sotto	$alt2
 tuttavia	tut:av'ia
-verso      $u+
+verso	$u+
 
 // prepositions
 
@@ -640,7 +642,7 @@ sarebbero	$u2+
 
 avere	av'eRe
 ho	$alt $u+ $verbf
-hai	'aj	$u+ $verbf
+hai	aj	$u+ $verbf
 ha	a	$u+ $verbf
 abbiamo	$u+ $verbf
 avete	$u2+ $verbf
@@ -703,7 +705,8 @@ application	_^_EN
 authority	$3	$alt2
 avances	av'ans
 amway	_^_EN
-austerity	aUst'e*itI
+auchan	'o:San $only
+austerity	aUst'ERitI
 baby	b'EbI
 backup	bek'ap
 bancomat	$1
@@ -806,6 +809,7 @@ desktop	d'Eskt,op
 detector	$2
 designer	d,ez'aIne@-*
 design	d,ez'aIn	$only
+devolution	devol'uSon
 disney	$1
 disneyland	$1
 display	displ'ei
@@ -845,6 +849,7 @@ fiction	f'ikS@n
 first	f'@:rst[
 flipper	$1
 folder	$1	$onlys
+(folder view)	f'Olde@-*||vj'U_
 follower	$1 $alt
 following	f'O:l:ow2iN
 forfait	fo@-*f'e
@@ -869,12 +874,13 @@ gmail	dZI||m'eil
 girl	_^_EN
 google		_^_EN
 green	g@-*i:n $onlys
+greenpeace	g@-*,iN||p'i:s
 guinness	g'ines:
 hacker	'ake@-*
 hall	h'O:l: $only
 hamburger	hamb'u@-*ge@-*
 happy	_^_EN 
-hardware	'a:rd[we@-*
+hardware	'a:*d[||we@-*
 highlander	aIl'a/Nde@-*
 hi	h'aI	$only
 hitler	$1
@@ -922,10 +928,12 @@ leadership	l'idE@-*Sip
 league	_^_en
 leasing	l'i:ziN
 line	l'aIn	$only
-live	l'aIv
-login	l'Og||In
+lingerie	liNZeR'i
+live	l'a:Iv
+login	l'Og||in
 logging	l'Oging
 lord	$alt $only
+love	l'O:v $onlys
 lover	$1
 my	_^_EN
 myspace	m'aI||sp'Eis
@@ -985,6 +993,7 @@ play	pl'EI
 player	pl'eIE@-*
 playroom	pl'Ei||R'um
 playstation	pl,Ei||st'E:Son
+please	_^_en
 pointer	$1
 poker	$1 $alt
 portacontainer	$4
@@ -1011,6 +1020,7 @@ reportage	@-*epo@-*t'a:Z
 residence	@-*'Ezidens	$onlys
 retriever	@-*et@-*'i:ve@-*
 revolver	$2 $onlys
+rhapsody	$1
 rockefeller	@-*Okf'el:e@-*
 rocker	$1
 round	@-*'awnd $onlys
@@ -1051,7 +1061,7 @@ smile	zmaIl
 smiley	_^_EN
 snack	sn'E:k
 software	s'Oft[_we@-*
-sonar	$1	$only
+sonar	$1	$alt $only
 stage	st'EidZ $onlys
 standby	st'End||b'aI
 station	st'ESon	$only
@@ -1169,10 +1179,9 @@ aerei	a'E:REi
 aereo	a'E:REo
 aereoplan	aeReopl'an
 aeroplano	aERopl'ano
-agenzie	adZents'ie
 alcoolici	alk'o:litSI
 alcoolico	alk'o:liko
-algebra	$1
+algebra	'a:ldZeb@-*a/
 alterigia	alteR'i:dZa
 alveoli	$2
 amarognol	$3
@@ -1331,11 +1340,6 @@ filosofie	filozof'ie
 filovia	filov'i#a
 fischiettio	fiskiet:'io
 fischio	f'iskio
-follie	$2
-formaggini	$3
-formiche	$2
-formici	$1
-formicolio	$4
 fotocamera	$3
 frastuon	$3
 fraticid	$3
@@ -1584,7 +1588,6 @@ sottotitoli	$3
 sottopotere	$4
 sottotono	$3
 sovratono	$3
-spazioausili	sp,atsjo||aUz'ilI
 specifici	$2
 spie	sp'ie
 sproposit	$2
@@ -2004,6 +2007,7 @@ ponzano	$2
 prascorsano	$3
 pratesi	$2
 regano	$2
+regini	$2
 resuttano	$3
 ricciano	$2
 rimini	$1
@@ -2147,6 +2151,7 @@ annamaria	$4
 annapaola	$3
 annibale $2
 antioc	ant'iok
+anthony	'E:NtonI
 antony	'E:ntonI
 arafat	$3 $only
 archimede  $alt
@@ -2173,6 +2178,7 @@ boeing	b'O:ing
 brandon	b@-*'Endon
 brian	b@-*'aian
 brigitte	b@-*iZ'it[
+brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
 caino	ka'i:nO
@@ -2202,6 +2208,7 @@ cimabue  tSimab'u:e
 collodi		$2 $alt $only
 consoli	$1 $capital $only
 corine	k'ORIn $capital
+corrias	$2
 cristofor $2
 danilo	$2
 davidson	$1
@@ -2234,7 +2241,7 @@ fabiola	$3
 fahrenheit	f'aRenaIt
 federic	$3
 felicita	$2
-ferrero	$2
+ferrer	$2	$alt2
 françois	f@-*,a/NsU'a
 francisco	f@-*ans'isko
 frederic	$1
@@ -2244,6 +2251,7 @@ garcía	_^_ES
 gavino	$2
 genesia	$2
 george	dZ'O@-*dZ	$onlys
+geremy	$1
 gerolam $2
 gesu $2
 giacom $1
@@ -2286,6 +2294,7 @@ james	_^_EN
 jane	_^_EN
 jarno	j'a:@-*no
 jennifer	$1
+jeremy	dZ'E*emI
 jolanda	jol'anda
 jole	j'Ole
 jolie	Zol'i $only
@@ -2340,6 +2349,7 @@ michael	m'aIkOl
 michelangel	$3
 michelle	m,iS'el	$only
 mike	_^_EN
+mowgli	m'o:glI
 mogol $2
 mondadori  $alt2
 monika	$1
@@ -2361,6 +2371,7 @@ ollie	'Ol:i
 omero	om'E:Ro	$capital
 paol $1
 parkinson	$1
+parmalat	$1 $only
 parodi  $2	$alt
 pascal	$2
 paul	p'O:l	$only
@@ -2375,9 +2386,11 @@ pierpaol	pje@-*p'aol
 pioneer	p'aIoni@-* $only
 piscopo	$1
 pisistrat $2
+pitagora	$2
 poirot	puaR'o
 potter	$1	$onlys
 presley	p@-*'e:zleI
+rafael	$3
 ray	@-*'eI
 renault	@-*en'o
 rizzoli $2
@@ -2548,6 +2561,7 @@ adagia	$2
 adagiano	$2
 adagino	$2
 adattino	$2
+adempiere	ad'e:mpjeRe
 addensano	$2
 addensino	$2
 addentrano	$2	$alt
@@ -2755,6 +2769,7 @@ azzer	,a|dz:'eR
 azzuffino	$2
 badano	$1
 bagnano	$1
+(si bagnino)	si||_b'a:n^ino
 ballano	$1
 ballino	$1
 balzino	$1
@@ -2762,6 +2777,7 @@ barino	$1
 basano	$1
 bastino	$1
 bastono	$2
+battezzat	bat:edz:'at
 battezzino	bat:'edz:ino
 bendano	$1
 bendino	$1
@@ -3137,6 +3153,8 @@ esportino	$2
 esprimano	$2
 espugnano	$2
 estendano	$2
+estirpano	$2
+estrapol	$2
 esultano	$2
 esultino	$2
 evacuano	$2
@@ -3621,6 +3639,7 @@ operino	$1
 orbitano	$1
 organizzino	o@-*gan'itsino
 oscillano	$2
+oscurano	$2
 oscurino	$2
 osino	$1
 ospitano	$1	$alt
@@ -4038,6 +4057,7 @@ scassin	$2
 scatenino	$2
 scavalcano	$2
 scegliere $1
+scendano	$1
 scherzano	$1
 schiaccino	$1
 schiaffeggino	$2
@@ -4210,7 +4230,8 @@ speculano	$1
 speculino	$1
 spellano	$1
 spellino	$1
-sperano	$1
+sper	sp'eR
+sperano	$1 $alt2
 sperimentino	$3
 sperino	$1
 sperono	$2
@@ -4504,6 +4525,7 @@ zuccherano	$1
 // pronominal verbs
 
 accadutomi	$3
+accertati	$2 $atstart
 affrettati	$2
 aiutaci	$2
 aiutal	aj'utal
