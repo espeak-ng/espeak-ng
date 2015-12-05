@@ -13,15 +13,112 @@
 //၈ 8
 //၉ 9
 
-.group စ
-//    စ    sə3
-    စ    s
-
 .group    က
 //    _) က (_    kə3
 //       ေ          e
          က   k
 //    ကေ    ke3
+
+.group    ခ
+         ခ   kh
+
+.group    ဂ
+        ဂ   g
+
+.group    ဃ
+         ဃ   g
+
+.group    င
+         င   ŋ
+
+.group    စ
+         စ   s
+
+.group    ဆ
+         ဆ   sh
+
+.group   ဇ
+         ဇ   z
+
+.group    ဈ
+         ဈ   z
+
+.group    ည
+         ည   ɲ
+
+.group    ဉ
+         ဉ   ɲ
+
+.group    ဋ
+         ဋ   t
+
+.group    ဌ
+         ဌ   th
+
+.group    ဍ
+         ဍ   t
+
+.group    ဎ
+         ဎ   d
+
+.group    ဏ
+         ဏ   n
+
+.group    တ
+         တ   t
+
+.group    ထ
+         ထ   th
+
+.group    ဒ
+         ဒ   d
+
+.group    ဓ
+         ဓ   d
+
+.group    န
+         န   n
+
+.group    ပ
+         ပ   p
+
+.group    ဖ
+         ဖ   ph
+
+.group    ဗ
+         ဗ   b
+
+.group    ဘ
+         ဘ   b
+
+.group    မ
+         မ   m
+
+.group    ယ
+         ယ   j
+
+.group    ရ
+         ရ   j
+
+.group    လ
+         လ   l
+
+.group    ဝ
+         ဝ   w
+
+.group    သ
+         သ   θ
+
+.group    ဟ
+         ဟ   h
+
+.group    ဠ
+         ဠ   l
+
+.group    အ
+         အ   ə3
+
+////
 
 .group ေ
       ေ    e3
