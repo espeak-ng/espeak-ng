@@ -461,7 +461,7 @@ endphoneme
 
 phoneme p
   //vls blb stop
-  import_phoneme base/p
+  import_phoneme base/b
 endphoneme
 
 phoneme b
@@ -471,11 +471,12 @@ endphoneme
 
 phoneme ph //aspirated
   vls blb stop
+  import_phoneme base/p
 endphoneme
 
 phoneme t
   //vls alv stop
-  import_phoneme base/t
+  import_phoneme base/d
 endphoneme
 
 phoneme d
@@ -485,6 +486,7 @@ endphoneme
 
 phoneme th
   vls alv stop
+  import_phoneme base/t
 endphoneme
 
 phoneme tɕ
@@ -504,7 +506,7 @@ endphoneme
 
 phoneme k
   //vls vel stop
-  import_phoneme base/k
+  import_phoneme base/g
 endphoneme
 
 phoneme g
@@ -514,6 +516,7 @@ endphoneme
 
 phoneme kh
   vls vel stop
+  import_phoneme base/k
 endphoneme
 
 phoneme ʔ
