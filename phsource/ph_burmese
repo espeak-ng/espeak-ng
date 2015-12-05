@@ -1,4 +1,4 @@
-// http://espeak.sourceforge.net/phontab.html
+﻿// http://espeak.sourceforge.net/phontab.html
 //=========================================================
 // Burmese
 //=========================================================
@@ -45,21 +45,64 @@ endphoneme
 
 
 
+//Oral Vowels
 
-
-phoneme ə    //  Schwa
+phoneme ə    //  Schwa 
+//cannot be followed by ɴ
   vowel   starttype #@  endtype #@
   unstressed
-  length 140
-  IfNextVowelAppend(r-)
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/@_6, 90)
-  ENDIF
+   IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 
+	length 
+	//f1 
+	//f2
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2
+  ELIF nextPh(4) THEN //checked tone
+	//length 213 195 173
+	length 194
+	//f1 785 777 799
+	//f2 1644 1613 1629
   FMT(vowel/@)
 endphoneme
 
-
-
+phoneme ɛ 
+//cannot be followed by ɴ
+  vowel starttype #e endtype #e
+  IF nextPh(3) THEN //creaky tone
+	//length 184 223 202
+	length 203
+	//formant 561,2055 566,2050 596,1978
+	//f1 561 566 596: 574
+	//f2 2055 2050 1978: 2028
+  ELIF nextPh(1) THEN //low tone
+	//length 446 431 360
+	length 412
+	//formant 547,2002 552,1977 558,1976
+	//f1 547 552 558: 552
+	//f2 2002 1977 1976: 1985
+  ELIF nextPh(2) THEN //high tone
+	//length 364 306 281
+	length 317
+	//formant 577,2111 545,2063 542,2036
+	//f1 577 545 542: 555
+	//f2 2111 2063 2036: 2070
+  ELIF nextPh(4) THEN //checked tone
+	//length 207 215 204
+	length 209
+	//f1 705 722 715
+	//f2 1975 1866 1871
+  ENDIF
+  FMT(vowel/e_mid) //chosen at random
+endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
@@ -80,6 +123,11 @@ phoneme i
 	//formant 351,2043 350,2287 365,2307
 	//f1 351 350 365: 355
 	//f2 2043 2287 2307: 2212
+  ELIF nextPh(4) THEN //checked tone
+	//length 226 217 211
+	length 218
+	//f1 517 536 542
+	//f2 2209 2185 2191
   ENDIF
   FMT(vowel/i)
 endphoneme
@@ -104,32 +152,13 @@ phoneme e
 	//formant 451,2313 447,2288 487,2314
 	//f1 451 447 487: 462
 	//f2 2313 2288 2314: 2305
+  ELIF nextPh(4) THEN //checked tone
+	//length 207 225 225
+	length 219
+	//f1 495 502 506
+	//f2 2273 2319 2280
   ENDIF
   FMT(vowel/e)
-endphoneme
-
-phoneme ɛ
-  vowel starttype #e endtype #e
-  IF nextPh(3) THEN //creaky tone
-	//length 184 223 202
-	length 203
-	//formant 561,2055 566,2050 596,1978
-	//f1 561 566 596: 574
-	//f2 2055 2050 1978: 2028
-  ELIF nextPh(1) THEN //low tone
-	//length 446 431 360
-	length 412
-	//formant 547,2002 552,1977 558,1976
-	//f1 547 552 558: 552
-	//f2 2002 1977 1976: 1985
-  ELIF nextPh(2) THEN //high tone
-	//length 364 306 281
-	length 317
-	//formant 577,2111 545,2063 542,2036
-	//f1 577 545 542: 555
-	//f2 2111 2063 2036: 2070
-  ENDIF
-  FMT(vowel/e_mid) //chosen at random
 endphoneme
 
 phoneme u
@@ -152,6 +181,11 @@ phoneme u
 	//formant 350,1125 325,1104 326,1183
 	//f1 350 325 326: 3334
 	//f2 1125 1104 1183: 1137
+  ELIF nextPh(4) THEN //checked tone
+	//length 
+	length 
+	//f1 
+	//f2 
   ENDIF
   FMT(vowel/u)
 endphoneme
@@ -176,12 +210,21 @@ phoneme o
 	//formant 449,1038 462,1036 507,1030
 	//f1 449 462 507: 473
 	//f2 1038 1036 1030: 1035
+  ELIF nextPh(4) THEN //checked tone
+	//length 202 211 193
+	length 202
+	//f1 547 542 541
+	//f2 1095 1110 1146
   ENDIF
   FMT(vowel/oo)
 endphoneme
 
 phoneme ɔ
-  vowel  starttype #o  endtype #o
+  IF nextPh(4) THEN //diphthong with checked tone
+  	vowel  starttype #u  endtype #u
+  ELSE
+	vowel  starttype #o  endtype #o
+  ENDIF
   IF nextPh(3) THEN //creaky tone
 	//length 252 270 277
 	length 266
@@ -200,21 +243,174 @@ phoneme ɔ
 	//formant 580,1075 560,1048 578,1097
 	//f1 580 560 578: 573
 	//f2 1075 1049 1097: 1074
+  ELIF nextPh(4) THEN //checked tone
+	//length 202 224 180
+	length 202
+	//f1 888 851 840
+	//f2 1290 1317 1321 
   ENDIF
   FMT(vowel/oo_en) //formant
 endphoneme
 
+phoneme a
+  IF nextPh(4) THEN //diphthong with checked tone
+  	vowel  starttype #a  endtype #i
+  ELSE
+	vowel  starttype #a  endtype #a
+  ENDIF
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(4) THEN //checked tone
+	//length 246 244 209
+	length 233
+	//f1 806 753 734
+	//f2 1789 1862 1928
+  ENDIF
+  FMT(vowel/oo_en) //formant
+endphoneme
 
+//Nasal Vowels
+//Nasal vowels cannot take checked tone
 
+phoneme iɴ
+  vowel starttype #i endtype #i
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2	
+  ELIF nextPh(1) THEN //low tone
+	//length 379 400 359
+	length 379
+	//f1 479 548 577
+	//f2 2015 2235 2126
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/i)
+endphoneme
 
+phoneme eɴ
+  vowel starttype #e endtype #e
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 417 476 497
+	length 463
+	//f1 478 550 605
+	//f2 2323 2295 2292
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/e)
+endphoneme
 
+phoneme uɴ
+  vowel starttype #u endtype #u
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/u)
+endphoneme
 
+phoneme oɴ
+  vowel starttype #a endtype #u
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 372 371 329
+	length 357
+	//f1 530 559 573
+	//f2 1006 1035 1057
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
 
+phoneme ɔɴ
+  vowel  starttype #o  endtype #u
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 572 582 395
+	length 516
+	//f1 823 840 801
+	//f2 1463 1535 1393
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/oo_en) //formant
+endphoneme
 
+phoneme aɴ
+  vowel  starttype #a  endtype #i
+  IF nextPh(3) THEN //creaky tone
+	//length 
+	length
+	//f1 
+	//f2 
+  ELIF nextPh(1) THEN //low tone
+	//length 451 393 357
+	length 400
+	//f1 776 762 792
+	//f2 1908 1772 1753
+  ELIF nextPh(2) THEN //high tone
+	//length 
+	length 
+	//f1 
+	//f2 
+  ENDIF
+  FMT(vowel/a) //formant
+endphoneme
 
-
-
-//a, ai 
 
 //===========
 // CONSONANTS
