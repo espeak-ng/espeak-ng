@@ -223,7 +223,7 @@ endphoneme
 phoneme ɔ
   vowel
   IF nextPh(4) THEN //diphthong with checked tone
-  	starttype #u  endtype #u
+  	starttype #o  endtype #u
   ELSE
 	starttype #o  endtype #o
   ENDIF
