@@ -28,8 +28,9 @@
 .group    ဃ
          ဃ   g
 
-.group    င
-         င   ŋ
+.group င
+    င    ŋ
+    င်    n
 
 .group    စ
          စ   s
@@ -128,17 +129,9 @@
 .group ို
     ို    o
 
-.group ပ
-    ပ    bə3
-
-.group န
-    န    n
-
-.group လ
-    လ    l
-
 .group ာ
     ာ    ə
+   ါ    ə    
 
 .group း
     း    2
@@ -152,8 +145,5 @@
 .group ်
     ်    n
 
-.group င
-    င    ŋ
-    င်    n
     
 
