@@ -221,10 +221,11 @@ phoneme o
 endphoneme
 
 phoneme ɔ
+  vowel
   IF nextPh(4) THEN //diphthong with checked tone
-  	vowel  starttype #u  endtype #u
+  	starttype #u  endtype #u
   ELSE
-	vowel  starttype #o  endtype #o
+	starttype #o  endtype #o
   ENDIF
   IF nextPh(3) THEN //creaky tone
 	//length 252 270 277
@@ -254,10 +255,11 @@ phoneme ɔ
 endphoneme
 
 phoneme a
+  vowel
   IF nextPh(4) THEN //diphthong with checked tone
-  	vowel  starttype #a  endtype #i
+  	starttype #a  endtype #i
   ELSE
-	vowel  starttype #a  endtype #a
+	starttype #a  endtype #a
   ENDIF
 //  IF nextPh(3) THEN //creaky tone
 	//length 
@@ -379,7 +381,7 @@ phoneme ɔɴ
 	//f2 
 //  ELIF nextPh(1) THEN //low tone
 	//length 572 582 395
-	length 516
+	length 511
 	//f1 823 840 801
 	//f2 1463 1535 1393
 //  ELIF nextPh(2) THEN //high tone
