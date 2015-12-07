@@ -110,7 +110,7 @@ static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
 static int mbr_name_prefix = 0;
 
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate)
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {//===================================================================================
 // Load a phoneme name translation table from espeak-data/mbrola
 
@@ -189,9 +189,8 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	fclose(f_in);
 
 	setVolumeRatio_MBR((float)(mbrola_control & 0xff) /16.0f);
-//	srate = getFreq_MBR();
-	samplerate = srate;
-	if(srate == 22050)
+	samplerate = *srate = getFreq_MBR();
+	if(*srate == 22050)
 		SetParameter(espeakVOICETYPE,0,0);
 	else
 		SetParameter(espeakVOICETYPE,1,0);
