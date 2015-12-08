@@ -1,0 +1,83 @@
+// This file is UTF8 encoded 
+// Spelling-to-phoneme rules for Tatar
+
+
+// Letters
+б	be
+в	we
+г	ge
+д	de
+е	je
+ё	jo
+ж	Ze
+җ	Z;e
+з	ze
+и	i
+й	kVsk,A'i
+к	kA
+л	el
+м	em
+н	en
+ң	eN
+о	o:
+ө	W:
+п	pe
+р	er
+с	es
+т	te
+у	u
+ү	y
+ф	ef
+х	xA
+һ	he
+ц	tse
+ч	S;e
+ш	SA
+щ	SS;A
+ъ	kAlVnl,Vqbilges'e
+ы	V:
+ь	neS;k&l,ekbilges'e
+э	e|:
+ю	ju
+я	jA
+
+
+// Numbers
+_0	n'ul?
+_1	b'er
+_2	ik'e 
+_3	'WS;
+_4	d'yrt
+_5	b'iS
+_6	Alt'V
+_7	Z;id'e
+_8	sig'ez
+_9	tug'Vz
+_10	'un
+_11	unb'er
+_12	unik'e 
+_13	un'WS;
+_14	und'yrt
+_15	unb'iS
+_16	unAlt'V
+_17	unZ;id'e
+_18	unsig'ez
+_19	untug'Vz
+_2X	egerm'e
+_3X	ut'Vz
+_4X	kVr'Vk
+_5X	ill'e
+_6X	Altm'VS
+_7X	Z;itm'eS
+_8X	siks'&n
+_9X	tuks'An
+_0C	j'Wz
+_0M1	m'eN
+_0M2	milli'on
+_1M2	milli'on
+_0M3	milli'Ard
+_1M3	milli'Ard
+_0M4	billi'on
+_1M4	billi'on
+
+_dpt	_bWt,en
