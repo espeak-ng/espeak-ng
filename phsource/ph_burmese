@@ -506,7 +506,7 @@ endphoneme
 
 phoneme k
   //vls vel stop
-  import_phoneme base/g
+  import_phoneme base/k
 endphoneme
 
 phoneme g
