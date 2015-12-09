@@ -11,7 +11,7 @@ extern "C"
 {
 #endif
 
-enum t_espeak_type
+typedef enum
   {
     ET_TEXT,
     ET_MARK,
@@ -22,7 +22,7 @@ enum t_espeak_type
     ET_VOICE_NAME,
     ET_VOICE_SPEC,
     ET_TERMINATED_MSG
-  };
+  } t_espeak_type;
 
 typedef struct 
 {
@@ -76,16 +76,16 @@ typedef struct
   int relative;
 } t_espeak_parameter;
 
-enum t_command_state 
+typedef enum
 {
   CS_UNDEFINED, // The command has just been created
   CS_PENDING, // stored in the fifo
   CS_PROCESSED // processed
-};
+} t_command_state;
 
 typedef struct 
 {
-  enum t_espeak_type type;
+  t_espeak_type type;
   t_command_state state; 
 
   union command

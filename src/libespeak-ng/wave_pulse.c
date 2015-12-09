@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *   eSpeak driver for PulseAudio                                          *
  *   based on the XMMS PulseAudio Plugin                                   *
  *                                                                         *
@@ -29,6 +30,7 @@
 #ifdef USE_ASYNC
 // This source file is only used for asynchronious modes
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

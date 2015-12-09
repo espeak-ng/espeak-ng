@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *   based on AudioIO.cc (Audacity-1.2.4b) and wavegen.cpp                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,6 +24,7 @@
 #ifdef USE_ASYNC
 // This source file is only used for asynchronious modes
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

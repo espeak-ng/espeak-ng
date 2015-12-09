@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -32,6 +32,7 @@
 #include <semaphore.h>
 #include <sys/time.h>
 #include <errno.h>
+#include <stdbool.h>
 
 #include "speech.h"
 #include "speak_lib.h"
@@ -63,7 +64,7 @@ enum {MIN_TIMEOUT_IN_MS=10,
 typedef struct t_node
 {
   void* data;
-  t_node *next;
+  struct t_node *next;
 } node;
 
 static node* head=NULL;
@@ -474,7 +475,7 @@ ENTER("get_remaining_time");
 //>
 //<polling_thread
 
-static void* polling_thread(void*)
+static void* polling_thread(void*p)
 {
 ENTER("polling_thread");
 

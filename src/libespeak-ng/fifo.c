@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -376,7 +376,7 @@ static void close_stream()
 //>
 //<say_thread
 
-static void* say_thread(void*)
+static void* say_thread(void*p)
 {
   ENTER("say_thread");
 
@@ -489,7 +489,7 @@ int fifo_is_command_enabled()
 typedef struct t_node
 {
   t_espeak_command* data;
-  t_node *next;
+  struct t_node *next;
 } node;
 
 static node* head=NULL;

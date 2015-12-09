@@ -37,13 +37,13 @@
 
 
 #ifdef INCLUDE_KLATT
-extern void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
-extern int Wavegen_Klatt(int resume);
+extern "C" void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
+extern "C" int Wavegen_Klatt(int resume);
 extern void KlattReset(int control);
 #endif
 
-extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
-extern int Wavegen();
+extern "C" void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
+extern "C" int Wavegen();
 extern void CloseWaveFile2();
 extern FILE *f_wave;
 

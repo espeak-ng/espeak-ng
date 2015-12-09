@@ -34,7 +34,7 @@
 #include "wx/datstrm.h"
 
 
-extern int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
+extern "C" int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char pk_shape1[];
 extern int pk_select;

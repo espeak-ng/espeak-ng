@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 by Reece H. Dunn                                   *
+ *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -384,7 +384,7 @@ extern SpectDisplay *currentcanvas;
 extern float polint(float xa[],float ya[],int n,float x);
 extern void WavegenInit(int samplerate, int wavemult_fact);
 extern void WavegenInitPkData(int);  // initialise envelope data
-extern void SetPitch(int length, unsigned char *env, int pitch1, int pitch2);
+extern "C" void SetPitch(int length, unsigned char *env, int pitch1, int pitch2);
 extern void SetSynthHtab(int length_mS, USHORT *ht1, int nh1, float pitch1, USHORT *ht2, int nh2, float pitch2);
 extern void MakeWaveFile(int synthesis_method);
 extern void MakeWaveBuf(int length, UCHAR *buf);

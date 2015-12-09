@@ -56,27 +56,27 @@ libespeak_includedir = $(includedir)/espeak
 libespeak_include_HEADERS = \
 	src/speak_lib.h
 
-common_FLAGS  =
+common_FLAGS  = -Isrc
 common_SOURCE = \
-	src/compiledict.cpp \
-	src/dictionary.cpp \
-	src/intonation.cpp \
-	src/numbers.cpp \
-	src/readclause.cpp \
-	src/phonemelist.cpp \
-	src/setlengths.cpp \
-	src/synthdata.cpp \
-	src/synthesize.cpp \
-	src/synth_mbrola.cpp \
-	src/translate.cpp \
-	src/tr_languages.cpp \
-	src/voices.cpp \
-	src/wavegen.cpp 
+	src/libespeak-ng/compiledict.c \
+	src/libespeak-ng/dictionary.c \
+	src/libespeak-ng/intonation.c \
+	src/libespeak-ng/numbers.c \
+	src/libespeak-ng/readclause.c \
+	src/libespeak-ng/phonemelist.c \
+	src/libespeak-ng/setlengths.c \
+	src/libespeak-ng/synthdata.c \
+	src/libespeak-ng/synthesize.c \
+	src/libespeak-ng/synth_mbrola.c \
+	src/libespeak-ng/translate.c \
+	src/libespeak-ng/tr_languages.c \
+	src/libespeak-ng/voices.c \
+	src/libespeak-ng/wavegen.c
 
 libespeak_FLAGS  =
 libespeak_SOURCE = \
-	src/speak_lib.cpp \
-	src/debug.cpp
+	src/libespeak-ng/speak_lib.c \
+	src/libespeak-ng/debug.c
 
 espeakedit_SOURCE = \
 	src/compiledata.cpp \
@@ -95,47 +95,47 @@ espeakedit_SOURCE = \
 
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT
-common_SOURCE += src/klatt.cpp
+common_SOURCE += src/libespeak-ng/klatt.c
 endif
 
 if OPT_MBROLA
 common_FLAGS  += -DINCLUDE_MBROLA
-common_SOURCE += src/mbrowrap.cpp
+common_SOURCE += src/libespeak-ng/mbrowrap.c
 endif
 
 if OPT_SONIC
 common_FLAGS  += -DINCLUDE_SONIC
-common_SOURCE += src/sonic.cpp
+common_SOURCE += src/libespeak-ng/sonic.c
 endif
 
 if OPT_ASYNC
 libespeak_FLAGS  += -DUSE_ASYNC
 libespeak_SOURCE += \
-	src/espeak_command.cpp \
-	src/event.cpp \
-	src/fifo.cpp
+	src/libespeak-ng/espeak_command.c \
+	src/libespeak-ng/event.c \
+	src/libespeak-ng/fifo.c
 endif
 
 if AUDIO_RUNTIME
-wave_SOURCE = src/wave.cpp src/wave_pulse.cpp
+wave_SOURCE = src/libespeak-ng/wave.c src/libespeak-ng/wave_pulse.c
 wave_LIBS   = -lpulse -lpulse-simple -lportaudio
 wave_FLAGS  = -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
 else
 if AUDIO_PULSEAUDIO
-wave_SOURCE = src/wave_pulse.cpp
+wave_SOURCE = src/libespeak-ng/wave_pulse.c
 wave_LIBS   = -lpulse
 wave_FLAGS  = -DUSE_PULSEAUDIO
 else
 if AUDIO_PORTAUDIO
-wave_SOURCE = src/wave.cpp
+wave_SOURCE = src/libespeak-ng/wave.c
 wave_LIBS   = -lportaudio
 wave_FLAGS  = -DUSE_PORTAUDIO
 else
 if AUDIO_SADA
-wave_SOURCE = src/wave_sada.cpp
+wave_SOURCE = src/libespeak-ng/wave_sada.c
 wave_FLAGS  = -DUSE_SADA
 else
-wave_SOURCE = src/wave.cpp
+wave_SOURCE = src/libespeak-ng/wave.c
 endif
 endif
 endif
@@ -147,6 +147,9 @@ docs/speak_lib.h: src/speak_lib.h
 lib_LTLIBRARIES += src/libespeak.la
 
 src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
+src_libespeak_la_CFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+	-fPIC -fvisibility=hidden -D LIBRARY \
+	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
@@ -154,18 +157,20 @@ src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/speak
 
-src_speak_LDFLAGS  = $(wave_LIBS) -lpthread
-src_speak_CXXFLAGS = $(common_FLAGS) $(wave_FLAGS)
-src_speak_SOURCES  = src/speak.cpp $(common_SOURCE) $(wave_SOURCE)
+src_speak_LDFLAGS  = $(wave_LIBS) -lpthread -lm
+src_speak_CFLAGS = $(common_FLAGS) $(wave_FLAGS)
+src_speak_SOURCES  = src/speak.c $(common_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/espeak
 
 src_espeak_LDADD   = src/libespeak.la
-src_espeak_SOURCES = src/espeak.cpp
+src_espeak_SOURCES = src/espeak.c
 
 bin_PROGRAMS += src/espeakedit
 
 src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
+src_espeakedit_CFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)

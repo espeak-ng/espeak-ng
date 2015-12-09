@@ -37,7 +37,7 @@
 #include "options.h"
 
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
-extern int __cdecl string_sorter(char **a, char **b);
+extern "C" int __cdecl string_sorter(char **a, char **b);
 
 //******************************************************************************************************
 
@@ -1470,7 +1470,7 @@ void CompareLexicon(int id)
 
 
 //******************************************************************************************************
-extern int HashDictionary(const char *string);
+extern "C" int HashDictionary(const char *string);
 static int n_words;
 
 struct wcount {

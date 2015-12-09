@@ -18,6 +18,7 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
