@@ -5,6 +5,11 @@
 #include "stdint.h"
 #endif
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 extern int option_device_number;
 
 extern int wave_init(int samplerate);
@@ -39,5 +44,9 @@ extern void add_time_in_ms(struct timespec *ts, int time_in_ms);
 
 // for tests
 extern void *wave_test_get_write_buffer();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

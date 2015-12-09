@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,6 +18,10 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 
 // phoneme types
@@ -169,3 +174,7 @@ extern const char *WordToString(unsigned int word);
 
 extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 extern int phoneme_tab_number;
+
+#ifdef __cplusplus
+}
+#endif

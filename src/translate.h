@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,6 +18,10 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer for translator name
 
@@ -796,3 +801,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 extern FILE *f_trans;		// for logging
 extern FILE *f_logespeak;
 extern int logging_type;  // from config file
+
+#ifdef __cplusplus
+}
+#endif

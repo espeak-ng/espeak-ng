@@ -7,6 +7,11 @@
 #include "espeak_command.h"
 #include "speak_lib.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 // Initialize the fifo component.
 // First function to be called.
 void fifo_init();
@@ -54,5 +59,9 @@ void fifo_terminate();
 //
 // Returns 1 if yes, or 0 otherwise.
 int fifo_is_command_enabled();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

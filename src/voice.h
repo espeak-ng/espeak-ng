@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,6 +17,11 @@
  *   along with this program; if not, write see:                           *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 
 
@@ -85,3 +91,6 @@ void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);
 void VoiceReset(int control);
 
+#ifdef __cplusplus
+}
+#endif

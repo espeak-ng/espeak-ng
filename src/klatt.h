@@ -1,4 +1,7 @@
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define CASCADE_PARALLEL 1         /* Type of synthesis model */
 #define ALL_PARALLEL     2
@@ -152,3 +155,6 @@ typedef struct {
 }  klatt_peaks_t;
 
 
+#ifdef __cplusplus
+}
+#endif

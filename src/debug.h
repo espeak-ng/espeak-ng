@@ -1,6 +1,11 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 //#define DEBUG_ENABLED
 
 #ifdef DEBUG_ENABLED
@@ -22,5 +27,8 @@ extern void debug_time(const char* text);
 #define ENTER(text)
 #endif
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif

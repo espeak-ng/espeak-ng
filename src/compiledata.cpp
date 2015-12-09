@@ -45,8 +45,8 @@
 
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
-extern int utf8_in(int *c, const char *buf);
-extern int utf8_out(unsigned int c, char *buf);
+extern "C" int utf8_in(int *c, const char *buf);
+extern "C" int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
 extern void ReadPhondataManifest();
 char path_source[sizeof(path_home)+20];

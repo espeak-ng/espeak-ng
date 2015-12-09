@@ -6,6 +6,11 @@
 #endif
 #include "speak_lib.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 enum t_espeak_type
   {
     ET_TEXT,
@@ -140,6 +145,10 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
 void SetParameter(int parameter, int value, int relative);
 
 int sync_espeak_terminated_msg(unsigned int unique_identifier, void* user_data);
+
+#ifdef __cplusplus
+}
+#endif
 
 //>
 #endif

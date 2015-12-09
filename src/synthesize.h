@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,6 +17,11 @@
  *   along with this program; if not, write see:                           *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define espeakINITIALIZE_PHONEME_IPA   0x0002   // move this to speak_lib.h, after eSpeak version 1.46.02
 
@@ -587,3 +593,6 @@ void KlattInit();
 void KlattReset(int control);
 int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2);
 
+#ifdef __cplusplus
+}
+#endif

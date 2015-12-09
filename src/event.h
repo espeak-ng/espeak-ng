@@ -23,6 +23,11 @@ Note: the timeout is checked against the real progress of the audio stream, whic
 
 #include "speak_lib.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 // Initialize the event component.
 // First function to be called.
 // the callback will be called when the event actually occurs.
@@ -47,5 +52,9 @@ espeak_ERROR event_declare (espeak_EVENT* event);
 // Terminate the event component.
 // Last function to be called.
 void event_terminate();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

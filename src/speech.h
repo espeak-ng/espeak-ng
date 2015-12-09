@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,6 +22,11 @@
 #define SPEECH_H
 
 #include <sys/types.h>
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 #define ARCH_BIG
@@ -77,5 +82,9 @@ extern void strncpy0(char *to,const char *from, int size);
 int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // SPEECH_H
