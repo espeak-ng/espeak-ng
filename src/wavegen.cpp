@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,8 +17,6 @@
  *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
-
-#include "StdAfx.h"
 
 // this version keeps wavemult window as a constant fraction
 // of the cycle length - but that spreads out the HF peaks too much

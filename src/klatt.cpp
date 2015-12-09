@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Jonathan Duddington                             *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   Based on a re-implementation by:                                      *
  *   (c) 1993,94 Jon Iles and Nick Ing-Simmons                             *
@@ -23,8 +23,6 @@
  ***************************************************************************/
 
 // See URL: ftp://svr-ftp.eng.cam.ac.uk/pub/comp.speech/synthesis/klatt.3.04.tar.gz
-
-#include "StdAfx.h"
 
 #include <stdio.h>
 #include <stdlib.h>
