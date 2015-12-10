@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2015 november 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 December 10 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -153,12 +153,13 @@ _‣	punt'ato
 ♯	dI'ezis
 ♥	'as:o||di||kw'ORI
 ❓	p'unto||inteR*ogat'ivo
+_‧	sepaRat'oRe/
 
 ∞	infin'Ito
 −	m'Eno
 ²	d'ue $native
 ³	t@-*'e	$native
-⅓	uNt'e@-*|tso
+⅓	un_t'E@-*|tso/
 ⅔	du,e||t'E@-*tsI
 ¼	un||ku'a@-*to
 ½	un||m'Edz:o
@@ -172,6 +173,7 @@ _‣	punt'ato
 ɼ	'ER*e||al:uNg'ata
 ≠	non||ugw'ale||,a
 ∫	integ@-*'ale
+∬	d,op:jo||_integ@-*'ale/
 _․	p'unto
 _‥	p,unto||d'op:io
 ≈	tS'i@-*ka
@@ -422,6 +424,7 @@ sos	$abbrev	$allcaps
 spa	$abbrev
 srl	$abbrev
 st	$dot
+ue	_u||'E
 uic	u||i||tS'i
 uk	$abbrev
 unicef	$1
@@ -699,6 +702,7 @@ abajour	abaZ'u@-*
 account	ak:'aw2nt
 after	$1
 amnesty	'amn@stI
+anonymous 	an'OnimUs
 antitrust	anti_t@-*'ast
 apple	_^_EN
 application	_^_EN
@@ -746,6 +750,7 @@ bunker	$1
 business	_^_EN
 by	b'aI $only
 bye	_^_EN
+bypass	b'aIpas
 byte	_^_EN
 cabaret	$3 $only
 camper	$1
@@ -852,6 +857,7 @@ folder	$1	$onlys
 (folder view)	f'Olde@-*||vj'U_
 follower	$1 $alt
 following	f'O:l:ow2iN
+food	f'u:d
 forfait	fo@-*f'e
 fotocolor	$3	$alt $onlys
 fotoreporter	$4	$onlys
@@ -895,6 +901,7 @@ iceberg	'aIs||b,e@-*g
 impeachment	imp'itSm,ent[
 information	info@-*m'ES@n $onlys
 installer	inst'a:l:e@-*
+intelligence	int'ElidZens 
 inter	$1 $only
 international	inte@-*n'ESonal $onlys
 internet	'inte@-*nEt
@@ -910,6 +917,7 @@ jaguar	$1
 jaws		dZ'O:z
 jazz		_^_EN
 jeans		dZi:ns
+jihad	ZI'a:d
 jockey	dZ'OkeI
 jocker	dZ'Oke@-*
 jukebox	dZ'u:kboks
@@ -921,12 +929,14 @@ kalashnikov	$2
 kashmir	$1
 killer	$1
 lady	l'E:dI
+lager	l'age@-* $onlys
 laser	$1
 layout	_^_en
 leader	lidE@-*
 leadership	l'idE@-*Sip
 league	_^_en
 leasing	l'i:ziN
+like	l'aIk
 line	l'aIn	$only
 lingerie	liNZeR'i
 live	l'a:Iv
@@ -960,11 +970,13 @@ mixer	$1
 monitor	$1 $onlys
 monsieur	_^_FR
 motor	$1 $alt $onlys
+mountanbike	montanb'aIk
 mouse	maus
 national	n'a/Sonal $onlys
 new	_^_EN
 newsletter	njuzl:'et:e@-*
 musical	m'juzikOl $onlys
+nike	n'aIk
 noir	nU'a:R $only
 nomination	nomIn'eSon
 nonchalance	non_Sal'ans
@@ -994,6 +1006,8 @@ player	pl'eIE@-*
 playroom	pl'Ei||R'um
 playstation	pl,Ei||st'E:Son
 please	_^_en
+plugin	pl,a/g||'in
+(plug in)	pl,a/g||'in
 pointer	$1
 poker	$1 $alt
 portacontainer	$4
@@ -1047,6 +1061,7 @@ setter	$1	$onlys
 setup	s'Et||,a/p
 shaker	$1
 shampoo	S'a:mpo
+sharia	SaR'ia/
 shuttle	S'a/tOl
 showgirl	_^_en
 sky	sk'aI
@@ -1090,6 +1105,7 @@ tailleur	_^_FR
 team		_^_EN
 teamviewer	t'i:m||_vju:Er
 teenager	tin'EIdZe@-*
+telemarketing	$3
 terminator	te@-*min'etO@-*
 tester	$1	$onlys
 therapy	$1
@@ -1168,28 +1184,6 @@ rock'n'roll	@-*,Oken@-*'o:l
 
 // Main  nouns Dictionary (see also it_listx)
 
-acciain	atS:a'in
-acetaboli	$3
-acquaragia	a/k:ua_R'adZa/
-acrobazia	$4
-adit	$1
-adultere	$2
-aerea	a'E:Rea
-aerei	a'E:REi
-aereo	a'E:REo
-aereoplan	aeReopl'an
-aeroplano	aERopl'ano
-alcoolici	alk'o:litSI
-alcoolico	alk'o:liko
-algebra	'a:ldZeb@-*a/
-alterigia	alteR'i:dZa
-alveoli	$2
-amarognol	$3
-ambrosiano	$3
-amic	$2
-amiche	$2
-amnistie	amnist'ie
-anatemi	$3
 ancore	$1
 angioin	$3
 anime	$1
@@ -1309,12 +1303,6 @@ edili	$1
 egoistici	ego'istitSi
 egregia	eg@-*'E:dZa
 embolie	$3
-enciclopedia	entSiklop,ed'ia
-enciclopedie	entSiklop,ed'ie
-enzim	endz'im
-epatosi	$3
-epigastrici	$3
-episodi	$3
 epoche	$1
 estrinsech	$2
 estrinsec	$2
@@ -1451,7 +1439,7 @@ oneri	$1
 onorifici	$3
 oper	$1 $alt2
 operai	op,eR'a:I
-operaio	op,eR'a:jo
+operaio	op,e*'a:jo
 origin	$2
 ortiche	$2
 ottim	$1
@@ -1621,7 +1609,7 @@ uffici	$2
 ugol	'u:gol
 ultrasuono	ult@-*a||su'Ono
 univoche	$2
-uomini		$1
+uomini	$1
 uragano	uRa/g'ano
 vacuolo	$3
 vagin	$2
@@ -1634,12 +1622,13 @@ veterano	$3
 vicere	$3 $alt2
 videocamera	$4
 vinacciol	$3
-visualizzazion	vizUali|dz:atsi'On
+visualizzazion	vizw2ali|dz:atsi'On
 vittime	$1
 vocaboli	$2
 voragini	$2
 vuot	vU'Ot
 
+com'è	kom'E
 com'era	kom'E:Ra
 cos'hai	koz'a:i
 cos'è	koz'E
@@ -1928,6 +1917,7 @@ montescano	$3
 montgomery	$2
 monticiano	$3
 montreal	$1 $alt
+monza	m'Ondza/
 monzambano	mondz,amb'ano
 monzano	mOndz'ano
 morgano	$2
@@ -2022,6 +2012,7 @@ rotoplano	$3
 rotterdam	$1
 rozzano	$2
 rusticiano	$3
+sadali	$1
 sandviciano	$3
 sangano	$2
 sanlazzaro	san_l'adz:aRo
@@ -2037,11 +2028,13 @@ seattle	_^_en
 sedilo	$1
 segonzano	$3
 selvazzano	$3
-seul $2
+seui	$2
+seul $2 $only
 seychelles	seIS'El
 siberia	s,ib'E:Ri;a
 simpliciano	$3
 sinnai	$1
+sinai	s'i:naI
 sizzano	$2
 soldano	$2
 somali $1
@@ -2151,6 +2144,7 @@ annamaria	$4
 annapaola	$3
 annibale $2
 antioc	ant'iok
+antoine	antw2'a:n
 anthony	'E:NtonI
 antony	'E:ntonI
 arafat	$3 $only
@@ -2181,7 +2175,7 @@ brigitte	b@-*iZ'it[
 brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
-caino	ka'i:nO
+caino	ka'i:no/
 caligola	$2
 camilleri	$3
 carey	_^_en
@@ -2214,6 +2208,8 @@ danilo	$2
 davidson	$1
 debor $1  $alt
 deborah	$1 $alt2
+deidda	de'i:d:a
+delrio	del||@-*'io/
 diaz	d'iats $only
 diocle $1
 diomede  $alt
@@ -2236,6 +2232,7 @@ ettore $1  $alt
 eugenia  $alt
 eutichiano	ewdiki'ano
 everett	$1 $only
+exupery	$4
 fabiol $2
 fabiola	$3
 fahrenheit	f'aRenaIt
@@ -2318,6 +2315,7 @@ ligabue	$3
 lionel	l'aj,One@-*	$onlys
 loredan $3
 louise	lu'iz
+lucy	l'usI
 Lucky	l'a/ki
 lucía	_^_ES
 lucia	lutS'i:a
@@ -2360,7 +2358,8 @@ muresan	$3
 murgia	$1
 nadir $2
 nancy	n'E:nsI
-newton	nI'utoN
+natalie	natal'i
+newton	nj'utoN
 nichol	n'i:kol	$onlys
 nichola	n'ikola
 nicola	$2
@@ -2399,6 +2398,8 @@ rocky	@-*'Oki
 roger	$1 $alt
 rosalia $3
 ryanair	@-*'aIaneR
+saddam	$2
+samara	$2
 saragat	$1	$only
 sànchez	s'antSets
 sánchez	s'antSets
@@ -2765,7 +2766,8 @@ avvisino	$2
 azzardino	$2
 azzeccano	$2
 azzecchino	$2
-azzer	,a|dz:'eR
+azzer	,a|dz:'ER
+azzerano	adz:'E*ano/
 azzuffino	$2
 badano	$1
 bagnano	$1
@@ -2998,6 +3000,7 @@ derogano	$1
 derubino	$2
 desider	$2
 desideri	$2 $verb $only
+desideri	$2 $only $atstart
 desiderino	$2
 designano	$2
 destrutturano	$3
@@ -3597,6 +3600,7 @@ mugugnano	$2
 multino	$1
 muoiano	$2
 muoiono	mu'Ojono
+muor	mU'OR
 muoviti	$2
 mutano	$1
 nacquero	$1
@@ -3609,7 +3613,7 @@ navighi	$1
 navighino	$1
 necessit	$2
 necessitano	$2 $alt
-necessitino	$2
+necessitino	$2	$alt
 negal	$1
 neghino	$1
 neglige	negl'idZe
@@ -3690,6 +3694,7 @@ pesano	$1
 pettegol	$2
 pettinano	$1
 piac	pj'atS
+piacquero	$1
 piantano	$1
 piazzino	$1
 pieghino	$1
@@ -4146,6 +4151,7 @@ sghignano	$1
 sgolino	$1
 sgombrino	$1
 sgomin	$1
+sgomit	$1 $alt2
 sgomitol	$2
 sgonfiano	$1
 sgonfino	$1
@@ -4489,6 +4495,7 @@ zappano	$1
 zuccherano	$1
 
 (capita a)	k'apita/||a
+(capita ad)	k'a:pita||ad
 (capita che)	k'a:pita||ke
 (capita di)	k'a:pita||_d'I
 (capita spesso)	k'apita||sp'es:o
@@ -4526,13 +4533,13 @@ zuccherano	$1
 
 accadutomi	$3
 accertati	$2 $atstart
-affrettati	$2
+affrettati	$2 $atstart
 aiutaci	$2
 aiutal	aj'utal
 aiutami	$2
 aggiornal	$2	$alt2
 alzal	$1
-alzati	$1
+alzati	$1	$atstart
 aprigli	$1
 aprimel	$1
 aprimi	$1
@@ -4550,6 +4557,7 @@ calmati	$1	$atstart
 cancellal	$2
 cancellami	$2
 carical	$1
+causatoci	$3
 cercal	$1
 cercasi	$1
 chiuditi	kj'uditI
@@ -4579,6 +4587,7 @@ digliene	$1
 dimmelo	$1
 dirigerl	$2
 dirigersi	$2
+disabilital	$3
 disconnettiti	$3
 domandatel	$3
 domandati	$2
@@ -4607,7 +4616,8 @@ impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
 indirizziamol	indiRi_tsj'amol // $5
 indirizzati	indiRits:'ati
-informaci	$2
+informaci	$2 $alt2
+informati	$2 $alt2 $atstart
 insediatisi	$3
 insegnagli	$2	$alt
 installal	$2
@@ -4622,7 +4632,8 @@ mandal	$1
 mandatel	$2
 mangial	m'a:ndZal // $1
 mescolatisi	$3
-mettine	$1
+mettine	$1 $alt2
+mettiti	$1	$alt2
 mostravi	$2
 offertogli	$2
 orientaci	$3
@@ -4640,18 +4651,21 @@ promessomi	$2
 privaci	$1
 proteggiti	$2 $alt2
 pulisciti	$2
+raccontal	$2
 raccontami	$2
 raccontaci	$2
+redigerl	$2
 raddrizzarl	@-*ad:@-*its:'a@-*l
 rafforzal	$2
 regalaci	$2
+regalati	$2	$atstart
 regalavi	$3
 reinseritasi	$4
 resistergli	$2
 restatene	$1
 richiestomi	$2
 riceverne	$2
-ricordati	$2
+ricordati	$2 $atstart
 rieccoci	$2
 rieccomi	@-*i'e:k:Omi
 rieccoti	$2
@@ -4671,7 +4685,7 @@ scuotersi	$2 $alt
 segnalaci	$2
 selezionale	$4
 selezionali	$4
-sforzati	$1
+sforzati	$1 $atstart
 siediti	$1 $alt2
 spezzal	$1
 spiegaci	$2
@@ -4679,17 +4693,19 @@ spiegatel	$3
 spiegati	$1	$atstart
 spogliami	$1 $alt
 spoglial	$1 $alt
-spogliati	$1 $alt
+spogliati	$1 $alt $atstart
 stabilitosi	$3
 stampal	$1
 suggeritomi	$3
-svoltasi	$1 $alt
+svegliati	$1 $atstart
+svoltasi	$1 $alt $atstart
 svoltesi	$1
 svoltosi	$1 $alt
 svuotal	$2 $alt2
 tenutasi	$2
 tenutosi	$2
 trattasi	$1
+tuffati	$1 $atstart
 usal	'u:za/l
 vendesi	$1 $alt
 verificatasi	$4
@@ -4709,7 +4725,7 @@ dipender	$2
 esser	'Es:eR
 gioir	dZo'i@-*
 legger	l'EdZ:e/@-* $only
-metter	$1
+metter	$1 $alt2
 morder	$1
 muover	$2
 pender	$1

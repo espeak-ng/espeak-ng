@@ -22,6 +22,7 @@ accegli  $alt
 accenn  $alt2
 accett  $alt2
 accetto		$alt
+acciain	atS:a'in
 acciottolio	$4
 accipiter $2
 accolit $2
@@ -30,6 +31,7 @@ accredit $2  $alt2
 accumoli $2
 acefalie	$4
 acer $1
+acetaboli	$3
 acetil	atSe'til
 achei $2
 achemene $2
@@ -38,27 +40,37 @@ achillea	$2
 achillee	$2
 acin $1
 acquafredd  $alt2
+acquaragia	a/k:ua_R'adZa/
 acquea	$1
 acquedott  $alt2
 acquee	$1
 acqueo $1
 acril	ak@-*'il
 acrobat $2
+acrobazia	$4
 acrobazie	ak@-*obats'ie/
 aculei	$2
 aculeo $2
 adamas $3
 addebit $2  $alt2
 addom	$2 $alt
+addio	ad:'io/
 adenoipofisi $5
 adenomer $3
 aderbale $2
 adesmia $3
+adit	$1
 admet  $alt
 adorn  $alt2
+adultere	$2
 aed  $alt
+aerea	a'E:Rea
 aeree	$2
+aerei	a'E:*eI
+aereo	a'E:Reo
+aereoplan	aeReopl'an
 aerogel $3
+aeroplano	aERopl'ano
 aerosol $4
 aerostat $2
 aerovia	$4
@@ -97,6 +109,8 @@ alcantar $2
 alchil	alk'il
 alchimia $2
 alcool $1
+alcoolici	alk'o:litSI
+alcoolico	alk'o:liko
 alcor $2
 alcov  $alt
 aldebaran $4
@@ -107,6 +121,7 @@ aleria $2  $alt2
 alesia $2  $alt
 alessia $3
 alfabet  $alt
+algebra	'a:ldZeb@-*a/
 algebric  $alt
 algenib  $alt
 algovia  $alt
@@ -129,12 +144,15 @@ alope $1
 alopecia  alopetS'i:a
 altair $2
 altalen  $alt2
+alterigia	alteR'i:dZa
 altimetr $2
 altoforn  $alt2
 altrui	alt@-*'ui
 alveo $1
+alveoli	$2
 amalgam $2
 amarcord $3
+amarognol	$3
 amazzone	am'ats:one/
 amazzoni $2
 ambita	$2
@@ -145,13 +163,17 @@ ambliopia $4
 ambrogi  $alt
 ambrosi  $alt
 ambrosia $2  $alt
+ambrosiano	$3
 ameb  $alt
 ameglia  $alt
+amic	$2
+amiche	$2
 amigdal $2
 amilosi  $alt
 amlet  $alt
 ammine	$2
 amniocentesi $4  $alt
+amnistie	amnist'ie
 amor $2  $alt2
 amorgos $3
 amoros	$alt2
@@ -168,6 +190,7 @@ anap $1
 anarchia $3
 anarchie	ana@-*k'ie
 anatem  $alt
+anatemi	$3
 anatr	'anat@-*
 anatroccol  $alt
 andine	$2
@@ -332,7 +355,7 @@ arteriol $3
 ascalaf $2
 ascari $1
 ascension $4  $alt2
-ascesi  $alt
+ascesi	aS'EzI
 ascet  $alt
 asciugacapelli  $alt2
 asclepi  $alt
@@ -1308,6 +1331,7 @@ duom  $alt
 dupondi  $alt
 eban $1  $alt
 ebbr  $alt
+ebet	'Ebe/t
 ebl  $alt
 eboli $1  $alt
 ebridi  $alt
@@ -1393,6 +1417,8 @@ empirei	$2
 empireo $2
 enantiomer $4
 encefal $2  $alt
+enciclopedia	entSiklop,ed'ia
+enciclopedie	entSiklop,ed'ie
 encolpi  $alt
 endecasillab $4
 endocrin $2
@@ -1409,25 +1435,30 @@ ennesim  $alt
 ennupl $1  $alt
 enoch  $alt
 enone  $alt
-enorme  $alt2
+enorm	$alt2
 enotec  $alt
-enschede $3
 entalpia $3
 enteric  $alt2
 entusiasm $3
 entusiast $3
+enzim	endz'im
+enzimatic	endzim'atik
+enzimatici	endzim'atitSI
 epa		$alt
 epagneul $1
 eparchia $3
+epatosi	$3
 epicentr  $alt
 epicurei	$3
 epifania $4
 epifanie	epifan'i;e
 epifisi	ep'ifizI
+epigastrici	$3
 epiglottide  $alt
 epilessia $4
 epilessie	epiles:'i:e
 epirot  $alt
+episodi	$3
 episodi  $alt
 epitet $2
 epitome $2
@@ -1664,8 +1695,8 @@ formic $2
 formiche	$2
 formici	$1
 formicolio	$4
+formine	$2
 forn  $alt2
-forr  $alt2
 fortuit	f,O@-*t'uit
 foscari $1
 foschia $2
@@ -1800,6 +1831,8 @@ gladiol $2
 glaucofane $3
 gleb  $alt
 glia  gl'i:a
+glif	gl'if
+glifosat	glifoz'at
 glicemic	glitS'Emik
 glicemiche	glitS'emike
 glicemie	glitSem'i;e
@@ -2350,7 +2383,6 @@ metil	$2
 metod  $alt
 metodi  $alt
 metr  $alt2
-mettere  $alt
 mezenzi  $alt
 mezz  $alt
 mezzadria	medz:ad@-*'ia
