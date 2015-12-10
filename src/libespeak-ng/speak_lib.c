@@ -298,8 +298,7 @@ int GetFileLength(const char *filename)
 	if(stat(filename,&statbuf) != 0)
 		return(0);
 
-	if((statbuf.st_mode & S_IFMT) == S_IFDIR)
-		//	if(S_ISDIR(statbuf.st_mode))
+	if(S_ISDIR(statbuf.st_mode))
 		return(-2);  // a directory
 
 	return(statbuf.st_size);
