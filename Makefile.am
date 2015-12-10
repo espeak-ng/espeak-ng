@@ -52,11 +52,11 @@ distclean-local:
 
 ##### build targets:
 
-libespeak_includedir = $(includedir)/espeak
-libespeak_include_HEADERS = \
-	src/speak_lib.h
+libespeak_ng_includedir = $(includedir)/espeak-ng
+libespeak_ng_include_HEADERS = \
+	src/include/espeak-ng/speak_lib.h
 
-common_FLAGS  = -Isrc -Isrc/libespeak-ng
+common_FLAGS  = -Isrc/include/espeak-ng
 common_SOURCE = \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/dictionary.c \
@@ -141,7 +141,7 @@ endif
 endif
 endif
 
-docs/speak_lib.h: src/speak_lib.h
+docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
 	cp $< $@
 
 lib_LTLIBRARIES += src/libespeak.la
@@ -158,12 +158,13 @@ src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 bin_PROGRAMS += src/speak
 
 src_speak_LDFLAGS  = $(wave_LIBS) -lpthread -lm
-src_speak_CFLAGS = $(common_FLAGS) $(wave_FLAGS)
+src_speak_CFLAGS = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
 src_speak_SOURCES  = src/speak.c $(common_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/espeak
 
 src_espeak_LDADD   = src/libespeak.la
+src_espeak_CFLAGS  = -I src/include/espeak-ng
 src_espeak_SOURCES = src/espeak.c
 
 bin_PROGRAMS += src/espeakedit
@@ -172,7 +173,7 @@ src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
 src_espeakedit_CFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
-	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
+	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT -I src/libespeak-ng
 src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
 ##### phoneme data:
