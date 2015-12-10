@@ -50,6 +50,10 @@
 #include "event.h"
 #include "wave.h"
 
+#ifndef S_ISDIR
+#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
+#endif
+
 unsigned char *outbuf=NULL;
 
 espeak_EVENT *event_list=NULL;

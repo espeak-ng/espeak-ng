@@ -51,6 +51,10 @@
 #include "voice.h"
 #include "translate.h"
 
+#ifndef S_ISDIR
+#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
+#endif
+
 
 
 extern void Write4Bytes(FILE *f, int value);

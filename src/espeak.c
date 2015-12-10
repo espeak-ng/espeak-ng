@@ -31,6 +31,10 @@
 
 #include "speak_lib.h"
 
+#ifndef S_ISDIR
+#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
+#endif
+
 // This version of the command-line speak program uses the
 // libespeak.so.1  library
 
