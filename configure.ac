@@ -19,6 +19,48 @@ AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
 dnl ================================================================
+dnl C11 compiler checks.
+dnl ================================================================
+
+AC_LANG_PUSH(C)
+AC_MSG_CHECKING([if $CC supports C11 without any flags])
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM(
+		[[// test]],
+		[[]])],
+	[AC_MSG_RESULT([yes])
+	 have_c11_native=yes],
+	[AC_MSG_RESULT([no])
+	 have_c11_native=no])
+AC_LANG_POP(C)
+
+AC_LANG_PUSH(C)
+TEMP_CFLAGS="$CFLAGS"
+CFLAGS="$CFLAGS -std=c11"
+AC_MSG_CHECKING([if $CC supports C11 with the -std=c11 flag])
+AC_COMPILE_IFELSE(
+	[AC_LANG_PROGRAM(
+		[[// test]],
+		[[]])],
+	[AC_MSG_RESULT([yes])
+	 have_c11_c11=yes],
+	[AC_MSG_RESULT([no])
+	 have_c11_c11=no])
+CFLAGS="$TEMP_CFLAGS"
+AC_LANG_POP(C)
+
+AC_MSG_CHECKING([if $CC supports C11])
+if test "$have_c11_c11" = yes ; then
+	AC_MSG_RESULT([-std=c11])
+	CFLAGS="$CFLAGS -std=c11"
+elif test "$have_c11_native" = yes ; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([C11 is not supported by $CC.])
+fi
+
+dnl ================================================================
 dnl getopt checks.
 dnl ================================================================
 
@@ -248,8 +290,11 @@ AC_MSG_NOTICE([
 
         Source code location:          ${srcdir}
 
-        Compiler:                      ${CXX}
-        Compiler flags:                ${CXXFLAGS}
+        C11 Compiler:                  ${CC}
+        C11 Compiler flags:            ${CFLAGS}
+
+        C++ Compiler:                  ${CXX}
+        C++ Compiler flags:            ${CXXFLAGS}
 
         wxWidgets:                     ${WX_VERSION} (${WX_CONFIG})
         pulseaudio:                    ${have_pulseaudio}

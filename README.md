@@ -30,8 +30,9 @@ In order to build eSpeak NG, you need:
 
 1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
     and `pkg-config`);
-2.  a functional c++ compiler;
-3.  wxWidgets development libraries (needed to build and run espeakedit
+2.  a functional c compiler that supports C11;
+3.  a functional c++ compiler;
+4.  wxWidgets development libraries (needed to build and run espeakedit
     to compile the phoneme data).
 
 Optionally, you need:
