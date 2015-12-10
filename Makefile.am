@@ -56,7 +56,7 @@ libespeak_includedir = $(includedir)/espeak
 libespeak_include_HEADERS = \
 	src/speak_lib.h
 
-common_FLAGS  = -Isrc
+common_FLAGS  = -Isrc -Isrc/libespeak-ng
 common_SOURCE = \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/dictionary.c \
