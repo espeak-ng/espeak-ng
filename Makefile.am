@@ -144,16 +144,16 @@ endif
 docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
 	cp $< $@
 
-lib_LTLIBRARIES += src/libespeak.la
+lib_LTLIBRARIES += src/libespeak-ng.la
 
-src_libespeak_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
-src_libespeak_la_CFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_libespeak_ng_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
+src_libespeak_ng_la_CFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_libespeak_ng_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
+src_libespeak_ng_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/speak-ng
 
@@ -163,7 +163,7 @@ src_speak_ng_SOURCES  = src/speak-ng.c $(common_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/espeak-ng
 
-src_espeak_ng_LDADD   = src/libespeak.la
+src_espeak_ng_LDADD   = src/libespeak-ng.la
 src_espeak_ng_CFLAGS  = -I src/include/espeak-ng
 src_espeak_ng_SOURCES = src/espeak-ng.c
 

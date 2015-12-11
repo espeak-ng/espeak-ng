@@ -37,9 +37,9 @@ stamp-h1
 
 docs/speak_lib.h
 
-libespeak.a
-libespeak.la
-libespeak.so*
+libespeak-ng.a
+libespeak-ng.la
+libespeak-ng.so*
 
 # programs
 
