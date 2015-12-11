@@ -155,11 +155,11 @@ src_libespeak_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
 
-bin_PROGRAMS += src/speak
+bin_PROGRAMS += src/speak-ng
 
-src_speak_LDFLAGS  = $(wave_LIBS) -lpthread -lm
-src_speak_CFLAGS = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
-src_speak_SOURCES  = src/speak.c $(common_SOURCE) $(wave_SOURCE)
+src_speak_ng_LDFLAGS  = $(wave_LIBS) -lpthread -lm
+src_speak_ng_CFLAGS = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
+src_speak_ng_SOURCES  = src/speak-ng.c $(common_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/espeak-ng
 

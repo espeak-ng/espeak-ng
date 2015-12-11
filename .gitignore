@@ -46,7 +46,7 @@ libespeak.so*
 platforms/*/espeak-phoneme-data
 espeak-ng
 espeakedit
-speak
+speak-ng
 
 # Linux/Source distribution files
 

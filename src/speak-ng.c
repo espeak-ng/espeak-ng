@@ -73,7 +73,7 @@ unsigned int wavefile_count = 0;
 int end_of_sentence = 0;
 
 static const char *help_text =
-"\nspeak [options] [\"<words>\"]\n\n"
+"\nspeak-ng [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
 "--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
