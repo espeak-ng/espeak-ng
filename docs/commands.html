@@ -13,18 +13,18 @@
 <h3>2.1.1 Linux and other Posix systems</h3>
 There are two versions of the command line program. They both have the same command parameters (see below).
 <ol>
-<li><strong>espeak</strong> uses speech engine in the <strong>libespeak</strong> shared library.  The libespeak library must first be installed.
+<li><strong>espeak-ng</strong> uses speech engine in the <strong>libespeak-ng</strong> shared library.  The libespeak-ng library must first be installed.
 <p>
-<li><strong>speak</strong> is a stand-alone version which includes its own copy of the speech engine.
+<li><strong>speak-ng</strong> is a stand-alone version which includes its own copy of the speech engine.
 </ol>
-Place the <strong>espeak</strong> or <strong>speak</strong> executable file in the command path, eg in <strong>/usr/local/bin</strong>
+Place the <strong>espeak-ng</strong> or <strong>speak-ng</strong> executable file in the command path, eg in <strong>/usr/local/bin</strong>
 <p>
 Place the "<strong>espeak-data</strong>" directory in /usr/share as <strong>/usr/share/espeak-data</strong>.<br>
 Alternatively if it is placed in the user's home directory (i.e. <strong>/home/&lt;user&gt;/espeak-data</strong>)
 then that will be used instead.
 <p>
 <h4>Dependencies</h4>
-<strong>espeak</strong> uses the PortAudio sound library (version 18), so you will need to have the <strong>libportaudio0</strong> library package installed.  It may be already, since it's used by other software, such as OpenOffice.org and the Audacity sound editor.<p>
+<strong>espeak-ng</strong> uses the PortAudio sound library (version 18), so you will need to have the <strong>libportaudio0</strong> library package installed.  It may be already, since it's used by other software, such as OpenOffice.org and the Audacity sound editor.<p>
 Some Linux distrubitions (eg. SuSe 10) have version 19 of PortAudio which has a slightly different API. The speak program can be compiled to use version 19 of PortAudio by copying the file portaudio19.h to portaudio.h before compiling.<p>
  The speak program may be compiled without using PortAudio, by removing the line<pre>   #define USE_PORTAUDIO
 </pre>in the file speech.h. 
@@ -34,28 +34,28 @@ Some Linux distrubitions (eg. SuSe 10) have version 19 of PortAudio which has a 
 The installer: <strong>setup_espeak.exe</strong> installs the SAPI5 version of eSpeak.
 During installation you need to specify which voices you want to appear in SAPI5 voice menus.
 <p>
-It also installs a command line program <strong>espeak</strong> in the espeak program directory.
+It also installs a command line program <strong>espeak-ng</strong> in the espeak-ng program directory.
 
 <p>&nbsp;<hr>
 <h2>2.2 COMMAND OPTIONS</h2>
 <hr>
 <h3>2.2.1 Examples</h3>
 To use at the command line, type:<br>
- &nbsp; <strong>espeak "This is a test"</strong><br>
+ &nbsp; <strong>espeak-ng "This is a test"</strong><br>
 or<br>
- &nbsp; <strong>espeak -f &lt;text file&gt;</strong>
+ &nbsp; <strong>espeak-ng -f &lt;text file&gt;</strong>
 <p>
 Or just type<br>
- &nbsp; <strong>espeak</strong><br>
+ &nbsp; <strong>espeak-ng</strong><br>
 followed by text on subsequent lines. Each line is spoken when
 RETURN is pressed.
 <p>
-Use <strong>espeak -x</strong> to see the corresponding phoneme codes.
+Use <strong>espeak-ng -x</strong> to see the corresponding phoneme codes.
 <p>&nbsp;<hr>
 <h3>2.2.2 The Command Line Options</h3>
 <dl>
 <dt>
-<strong>espeak [options] ["text words"]</strong><br>
+<strong>espeak-ng [options] ["text words"]</strong><br>
 <dd>Text input can be taken either from a file, from a string in the command, or from stdin.
 <p>
 <dt>
@@ -123,9 +123,9 @@ Quiet. No sound is generated.  This may be useful with options such as -x and --
 <dt>
 <strong>-v &lt;voice filename&gt;[+&lt;variant&gt;]</strong><br>
 <dd>Sets a Voice for the speech, usually to select a language. eg:
-<pre>   espeak -vaf</pre>
+<pre>   espeak-ng -vaf</pre>
 To use the Afrikaans voice.  A modifier after the voice name can be used to vary the tone of the voice, eg:
-<pre>   espeak -vaf+3</pre>
+<pre>   espeak-ng -vaf+3</pre>
 The variants are <code> +m1  +m2  +m3  +m4  +m5  +m6  +m7</code> for male voices and <code> +f1 +f2 +f3 +f4 </code> which simulate female voices by using higher pitches. Other variants include <code>+croak</code> and <code>+whisper</code>.
 <p>
 &lt;voice filename&gt; is a file within the <code>espeak-data/voices</code> directory.<br>
@@ -216,8 +216,8 @@ If the -m option is used to indicate marked-up text, then HTML can be spoken dir
 <p>
 <dt><b>Phoneme Input</b>
 <dd>
-As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<p>
- &nbsp; eg: &nbsp; <code> espeak -v en "[[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]]" </code><p>
+As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak-ng</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<p>
+ &nbsp; eg: &nbsp; <code> espeak-ng -v en "[[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]]" </code><p>
  This command will speak: "This is some phonetic text input".
 </dl>
 

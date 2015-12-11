@@ -62,13 +62,13 @@ Unpack the archive, and copy the "<b>en1</b>" data file (not the whole "en1"
 directory) to <code>/usr/share/mbrola/en1</code>.<p>eSpeak will look for mbrola voices firstly in <code>espeak-data/mbrola</code> and then in <code>/usr/share/mbrola</code>
 <p>
 <li>If you use the eSpeak voice such as "<b>mb-en1</b>" then eSpeak will use the mbrola "en1" voice, eg:<br>
-<code>espeak -v mb-en1 "Hello world"
+<code>espeak-ng -v mb-en1 "Hello world"
 </code>
 <p><p>
 To generate mbrola phoneme data (.pho file) you can use:<br>
-<code>espeak -v mb-en1 -q --pho "Hello world"</code>
+<code>espeak-ng -v mb-en1 -q --pho "Hello world"</code>
 <br>or<br>
-<code>espeak -v mb-en1 -q --pho --phonout=out.pho "Hello world"</code>
+<code>espeak-ng -v mb-en1 -q --pho --phonout=out.pho "Hello world"</code>
 
 </ol>
 <h3>Mbrola Voice Files</h3>

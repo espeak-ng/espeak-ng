@@ -27,7 +27,7 @@ Sample texts in various languages can be found at  <a href="http://meta.wikimedi
 A number of Voice files are provided in the <code>espeak-data/voices</code> directory.
 You can select one of these with the <strong>-v &lt;voice filename&gt;</strong> parameter to the
 speak command, eg:
-<pre>   espeak -vaf</pre>
+<pre>   espeak-ng -vaf</pre>
 to speak using the Afrikaans voice.<p>Language voices generally start with the 2 letter <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a> for the language.  If the language does not have an ISO 639-1 code, then the 3 letter <a href="http://www.sil.org/iso639-3/codes.asp">ISO 639-3 code</a> can be used.
 <p>
 For details of the voice files see <a href="voices.html">Voices</a>.
@@ -69,9 +69,9 @@ To make alternative voices for a language, you can make additional voice files i
 Alternatively there are some preset voice variants which can be applied to any of the language voices, by appending <code>+</code> and a variant name. Their effects are defined by files in <code>espeak-data/voices/!v</code>.
 <p>
 The variants are <code> +m1  +m2  +m3  +m4  +m5 +m6 +m7</code> for male voices, <code> +f1 +f2 +f3 +f4 +f5 </code> for female voices, and <code> +croak  +whisper</code> for other effects. For example:
-<pre>   espeak -ven+m3</pre>
+<pre>   espeak-ng -ven+m3</pre>
 The available voice variants can be listed with:<br>
-<pre>   espeak --voices=variant</pre>
+<pre>   espeak-ng --voices=variant</pre>
 <h3>3.4 Other Languages</h3>
 The eSpeak speech synthesizer does text to speech for the following additional langauges.
 <ul>
