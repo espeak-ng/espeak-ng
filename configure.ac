@@ -15,6 +15,7 @@ dnl ================================================================
 
 AC_PROG_CC
 AC_PROG_CXX
+AC_PROG_RANLIB
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
@@ -60,12 +61,51 @@ else
 	AC_MSG_ERROR([C11 is not supported by $CC.])
 fi
 
+AC_C_INLINE
+AC_C_RESTRICT
+
 dnl ================================================================
-dnl getopt checks.
+dnl library checks.
 dnl ================================================================
 
+AC_CHECK_HEADER_STDBOOL
+
+AC_CHECK_HEADERS([fcntl.h])
 AC_CHECK_HEADERS([getopt.h])
+AC_CHECK_HEADERS([locale.h])
+AC_CHECK_HEADERS([stddef.h])
+AC_CHECK_HEADERS([sys/time.h])
+AC_CHECK_HEADERS([wchar.h])
+AC_CHECK_HEADERS([wctype.h])
+
+AC_TYPE_SIZE_T
+AC_TYPE_SSIZE_T
+AC_TYPE_UINT16_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+
+AC_FUNC_FORK
+AC_FUNC_MALLOC
+AC_FUNC_REALLOC
+AC_FUNC_STRCOLL
+AC_FUNC_ERROR_AT_LINE
+
+AC_CHECK_FUNCS([dup2])
 AC_CHECK_FUNCS([getopt_long])
+AC_CHECK_FUNCS([gettimeofday])
+AC_CHECK_FUNCS([memchr])
+AC_CHECK_FUNCS([memmove])
+AC_CHECK_FUNCS([memset])
+AC_CHECK_FUNCS([mkdir])
+AC_CHECK_FUNCS([pow])
+AC_CHECK_FUNCS([setlocale])
+AC_CHECK_FUNCS([sqrt])
+AC_CHECK_FUNCS([strcasecmp])
+AC_CHECK_FUNCS([strchr])
+AC_CHECK_FUNCS([strdup])
+AC_CHECK_FUNCS([strerror])
+AC_CHECK_FUNCS([strrchr])
+AC_CHECK_FUNCS([strstr])
 
 dnl ================================================================
 dnl PulseAudio checks.
