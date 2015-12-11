@@ -73,8 +73,8 @@ common_SOURCE = \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
 
-libespeak_FLAGS  =
-libespeak_SOURCE = \
+libespeak_ng_FLAGS  =
+libespeak_ng_SOURCE = \
 	src/libespeak-ng/speak_lib.c \
 	src/libespeak-ng/debug.c
 
@@ -109,8 +109,8 @@ common_SOURCE += src/libespeak-ng/sonic.c
 endif
 
 if OPT_ASYNC
-libespeak_FLAGS  += -DUSE_ASYNC
-libespeak_SOURCE += \
+libespeak_ng_FLAGS  += -DUSE_ASYNC
+libespeak_ng_SOURCE += \
 	src/libespeak-ng/espeak_command.c \
 	src/libespeak-ng/event.c \
 	src/libespeak-ng/fifo.c
@@ -147,13 +147,13 @@ docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
 lib_LTLIBRARIES += src/libespeak-ng.la
 
 src_libespeak_ng_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
-src_libespeak_ng_la_CFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_libespeak_ng_la_CFLAGS = $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
 	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_ng_la_CXXFLAGS = $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_libespeak_ng_la_CXXFLAGS = $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
 	-fPIC -fvisibility=hidden -D LIBRARY \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_ng_la_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(wave_SOURCE)
+src_libespeak_ng_la_SOURCES  = $(common_SOURCE) $(libespeak_ng_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/speak-ng
 
@@ -170,11 +170,11 @@ src_espeak_ng_SOURCES = src/espeak-ng.c
 bin_PROGRAMS += src/espeakedit
 
 src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
-src_espeakedit_CFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_espeakedit_CFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
-src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_FLAGS) $(wave_FLAGS) \
+src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT -I src/libespeak-ng
-src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
+src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_ng_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
 ##### phoneme data:
 
