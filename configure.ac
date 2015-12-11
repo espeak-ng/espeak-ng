@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak NG], [1.48], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
+AC_INIT([eSpeak NG], [1.48.15], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
