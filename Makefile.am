@@ -157,9 +157,10 @@ src_libespeak_ng_la_SOURCES  = $(common_SOURCE) $(libespeak_ng_SOURCE) $(wave_SO
 
 bin_PROGRAMS += src/speak-ng
 
-src_speak_ng_LDFLAGS  = $(wave_LIBS) -lpthread -lm
-src_speak_ng_CFLAGS = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
-src_speak_ng_SOURCES  = src/speak-ng.c $(common_SOURCE) $(wave_SOURCE)
+src_speak_ng_LDADD   = src/libespeak-ng.la
+src_speak_ng_LDFLAGS = -static
+src_speak_ng_CFLAGS  = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
+src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
 

@@ -51,10 +51,6 @@
 #include "voice.h"
 #include "translate.h"
 
-#ifndef S_ISDIR
-#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
-#endif
-
 
 
 extern void Write4Bytes(FILE *f, int value);
@@ -62,8 +58,6 @@ char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
 char filetype[5];
 char wavefile[200];
-int (* uri_callback)(int, const char *, const char *) = NULL;
-int (* phoneme_callback)(const char *) = NULL;
 
 FILE *f_wave = NULL;
 int quiet = 0;
@@ -133,35 +127,6 @@ void DisplayVoices(FILE *f_out, char *language);
 
 USHORT voice_pcnt[N_PEAKS+1][3];
 
-
-
-int GetFileLength(const char *filename)
-{//====================================
-	struct stat statbuf;
-
-	if(stat(filename,&statbuf) != 0)
-		return(0);
-
-	if(S_ISDIR(statbuf.st_mode))
-		return(-2);  // a directory
-
-	return(statbuf.st_size);
-}  // end of GetFileLength
-
-
-char *Alloc(int size)
-{//==================
-	char *p;
-	if((p = (char *)malloc(size)) == NULL)
-		fprintf(stderr,"Can't allocate memory\n");
-	return(p);
-}
-
-void Free(void *ptr)
-{//=================
-	if(ptr != NULL)
-		free(ptr);
-}
 
 
 void DisplayVoices(FILE *f_out, char *language)
@@ -236,10 +201,6 @@ void DisplayVoices(FILE *f_out, char *language)
 }   //  end of DisplayVoices
 
 
-void WVoiceChanged(voice_t *wvoice)
-{
-}
-
 static int OpenWaveFile(const char *path, int rate)
 //=================================================
 {
@@ -308,14 +269,6 @@ static void CloseWaveFile()
 } // end of CloseWaveFile
 
 
-
-
-void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
-{//======================================================================================
-// Do nothing in the command-line version.
-	if(type == 2)
-		end_of_sentence = 1;
-}  // end of MarkerEvent
 
 
 static int WavegenFile(void)
