@@ -41,7 +41,7 @@
 
 
 static const char *help_text =
-"\nespeak [options] [\"<words>\"]\n\n"
+"\nespeak-ng [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
 "--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"

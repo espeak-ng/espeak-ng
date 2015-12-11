@@ -102,10 +102,10 @@ def write_dictionary_make_rules(f):
 			f.write('if HAVE_%s_EXTENDED_DICTIONARY\n' % name.upper())
 			f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra dictsource/%s\n' % (name, ' '.join(sorted(files)), name, ext))
 			f.write('else\n')
-		f.write('espeak-data/%s_dict: src/espeak phsource/phonemes.stamp %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
+		f.write('espeak-data/%s_dict: src/espeak-ng phsource/phonemes.stamp %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
 		if name in extended_dictionaries.keys():
 			f.write('endif\n')
-		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=%s && cd ..\n' % name)
+		f.write('\tcd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=%s && cd ..\n' % name)
 
 def write_mbrola_make_rules(f):
 	f.write('\n##### mbrola:\n')

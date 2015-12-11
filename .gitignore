@@ -44,7 +44,7 @@ libespeak.so*
 # programs
 
 platforms/*/espeak-phoneme-data
-espeak
+espeak-ng
 espeakedit
 speak
 
