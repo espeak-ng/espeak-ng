@@ -79,7 +79,7 @@ portaudio.
 
 ### eSpeak NG Feature Configuration
 
-The following `configure` options control which eSpeak features are enabled:
+The following `configure` options control which eSpeak NG features are enabled:
 
 | Option          | Description                                  | Default |
 |-----------------|----------------------------------------------|---------|

@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak], [1.48], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
+AC_INIT([eSpeak NG], [1.48], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
@@ -326,7 +326,7 @@ AC_OUTPUT
 
 AC_MSG_NOTICE([
 
-    Configuration for eSpeak complete.
+    Configuration for eSpeak NG complete.
 
         Source code location:          ${srcdir}
 
