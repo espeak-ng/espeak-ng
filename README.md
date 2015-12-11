@@ -52,7 +52,7 @@ Optionally, you need:
 
 ## Building
 
-The espeak and espeakedit programs, along with the espeak voices, can
+The espeak-ng and espeakedit programs, along with the espeak-ng voices, can
 be built via the standard autotools commands:
 
 	$ ./autogen.sh
@@ -106,15 +106,15 @@ dictionary size.
 
 ## Testing
 
-Before installing, you can test the built espeak using the following command:
+Before installing, you can test the built espeak-ng using the following command:
 
-    $ ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak ...
+    $ ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
 
-The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak data from
-the source tree. Otherwise, espeak will look in `$(HOME)` or
+The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak-ng data from
+the source tree. Otherwise, espeak-ng will look in `$(HOME)` or
 `/usr/share/espeak-data`.
 
-The `LD_LIBRARY_PATH` is set as `espeak` uses the `libespeak.so` shared
+The `LD_LIBRARY_PATH` is set as `espeak` uses the `libespeak-ng.so` shared
 library. This ensures that `espeak` uses the built shared library in the
 `src` directory and not the one on the system (which could be an older
 version).
@@ -129,10 +129,10 @@ The `LIBDIR` path may be different to the one on your system (the above
 is for 64-bit Debian/Ubuntu releases that use the multi-arch package
 structure -- that is, Debian Wheezy or later).
 
-You can find out where espeak is installed to on your system if you
-already have an espeak install by running:
+You can find out where espeak-ng is installed to on your system if you
+already have an espeak-ng install by running:
 
-    $ find /usr/lib | grep libespeak
+    $ find /usr/lib | grep libespeak-ng
 
 ## Building Voices
 
