@@ -1258,7 +1258,6 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
         memcpy(&worddata->prev_vowel, &plist[0], sizeof(PHONEME_LIST));
     }
 
-#ifdef _ESPEAKEDIT
     plist->std_length = phdata->pd_param[i_SET_LENGTH];
     if(phdata->sound_addr[0] != 0)
     {
@@ -1270,7 +1269,6 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
         plist->phontab_addr = phdata->sound_addr[1];  // WAV address
         plist->sound_param = phdata->sound_param[1];
 	}
-#endif
 }  // end of InterpretPhoneme
 
 

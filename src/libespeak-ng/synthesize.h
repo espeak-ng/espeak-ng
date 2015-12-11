@@ -227,11 +227,9 @@ typedef struct {
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
 	unsigned char pitch1;
 	unsigned char pitch2;
-#ifdef _ESPEAKEDIT
 	unsigned char std_length;
 	unsigned int phontab_addr;
 	int sound_param;
-#endif
 } PHONEME_LIST;
 
 

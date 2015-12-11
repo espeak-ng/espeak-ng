@@ -1459,9 +1459,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		{
 		case phPAUSE:
 			DoPause(p->length,0);
-#ifdef _ESPEAKEDIT
             p->std_length = p->ph->std_length;
-#endif
 			break;
 
 		case phSTOP:
