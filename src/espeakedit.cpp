@@ -149,17 +149,6 @@ if(argc > 1)
 		CompilePhonemeData();
 		CompileIntonation();
 	}
-	else if(argc > 2 && strcmp(param,"--compile-mbrola")==0)
-	{
-		samplerate_native = samplerate = 22050;
-		LoadPhData(NULL);
-		if(LoadVoice("", 0) == NULL)
-		{
-			fprintf(stderr, "Failed to load default voice\n");
-			exit(1);
-		}
-		espeak_ng_CompileMbrolaVoice(argv[2], stdout);
-	}
     exit(0);
 }
 
