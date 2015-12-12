@@ -22,6 +22,7 @@
 #include <unistd.h>
 
 #include "speak_lib.h"
+#include "espeak_ng.h"
 
 #include "phoneme.h"
 #include "speech.h"
@@ -47,7 +48,7 @@ static unsigned int StringToWord(const char *string)
 	return(word);
 }
 
-void CompileMbrola(const char *filepath)
+espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 {
 	char *p;
 	FILE *f_in;
@@ -70,8 +71,8 @@ void CompileMbrola(const char *filepath)
 	strcpy(buf,filepath);
 	if((f_in = fopen(buf,"r")) == NULL)
 	{
-		fprintf(stderr, "Can't read: %s\n", filepath);
-		return;
+		fprintf(log, "Can't read: %s\n", filepath);
+		return ENE_NOT_FOUND;
 	}
 
 	while(fgets(buf,sizeof(phoneme),f_in) != NULL)
@@ -116,8 +117,8 @@ void CompileMbrola(const char *filepath)
 	sprintf(buf,"%s/mbrola_ph/%s_phtrans",path_home,mbrola_voice);
 	if((f_out = fopen(buf,"wb")) == NULL)
 	{
-		fprintf(stderr, "Can't write to: %s\n", buf);
-		return;
+		fprintf(log, "Can't write to: %s\n", buf);
+		return ENE_WRITE_FAILED;
 	}
 
 	data[count].name = 0;  // list terminator
@@ -129,5 +130,6 @@ void CompileMbrola(const char *filepath)
 		Write4Bytes(f_out, *pw);
 	}
 	fclose(f_out);
-	fprintf(stdout, "Mbrola translation file: %d phonemes", count);
+	fprintf(log, "Mbrola translation file: %s -- %d phonemes\n", buf, count);
+	return ENS_OK;
 }
