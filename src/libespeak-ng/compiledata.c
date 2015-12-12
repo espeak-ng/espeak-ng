@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 #include <stdio.h>
-#include <unistd.h>
 
 #include "speak_lib.h"
 #include "espeak_ng.h"
@@ -27,6 +26,14 @@
 #include "phoneme.h"
 #include "speech.h"
 #include "synthesize.h"
+
+static const char *basename(const char *filename)
+{
+	const char *current = filename + strlen(filename);
+	while (current != filename && !(*current == '/' || *current == '\\'))
+		--current;
+	return current == filename ? current : current + 1;
+}
 
 static unsigned int StringToWord(const char *string)
 {
@@ -48,6 +55,7 @@ static unsigned int StringToWord(const char *string)
 	return(word);
 }
 
+#pragma GCC visibility push(default)
 espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 {
 	char *p;
@@ -133,3 +141,4 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	fprintf(log, "Mbrola translation file: %s -- %d phonemes\n", buf, count);
 	return ENS_OK;
 }
+#pragma GCC visibility pop

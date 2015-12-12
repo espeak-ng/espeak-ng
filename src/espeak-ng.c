@@ -30,6 +30,7 @@
 #include <sys/stat.h>
 
 #include "speak_lib.h"
+#include "espeak_ng.h"
 
 #ifndef S_ISDIR
 #define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
@@ -73,6 +74,8 @@ static const char *help_text =
 "--compile=<voice name>\n"
 "\t   Compile pronunciation rules and dictionary from the current\n"
 "\t   directory. <voice name> specifies the language\n"
+"--compile-mbrola=<voice name>\n"
+"\t   Compile an MBROLA voice\n"
 "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
@@ -425,6 +428,7 @@ int main (int argc, char **argv)
 		{"version", no_argument,       0, 0x10b},
 		{"sep",     optional_argument, 0, 0x10c},
 		{"tie",     optional_argument, 0, 0x10d},
+		{"compile-mbrola", optional_argument, 0, 0x10e},
 		{0, 0, 0, 0}
 		};
 
@@ -710,6 +714,10 @@ int main (int argc, char **argv)
 					phonemes_separator = 0x200d;  // ZWJ
 			break;
 
+		case 0x10e:  // --compile-mbrola
+			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,data_path,0);
+			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
+			exit(0);
 
 		default:
 			exit(0);
