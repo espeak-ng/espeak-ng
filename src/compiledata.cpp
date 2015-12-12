@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -50,21 +50,6 @@ extern "C" int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
 extern void ReadPhondataManifest();
 char path_source[sizeof(path_home)+20];
-
-
-typedef struct {   // total 48 bytes
-	short frflags;
-	unsigned char length;
-	unsigned char rms;
-	short ffreq[4];   // f0,1,2,3
-	unsigned char ffreq2[6];     // nasal(*2)  f4,5,6,7,8(*20)
-	unsigned char fheight[9];    // f0-8
-	unsigned char fwidth[6];     // width/4  f0-5
-	unsigned char fright[4];     // width/4  f0-3
-	unsigned char bw[6];         // nasal, f1,2,3,4,5 (*2)
-	unsigned char klattp[5];     // amp, tilt, kopen, asp,
-} frame_t3;
-
 
 typedef struct {
 	const char *mnem;
