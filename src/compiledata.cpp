@@ -53,18 +53,16 @@ extern wxString path_dictsource;
 extern wxString path_phsource;
 extern wxString path_phfile;
 extern char path_dsource[sizeof(path_home)+20];
+extern char path_source[sizeof(path_home)+20];
 
-extern wxProgressDialog *progress;
 extern int progress_max;
 extern int gui_flag;
 extern char voice_name2[40];
 
-extern void FindPhonemesUsed(void);
 extern "C" int utf8_in(int *c, const char *buf);
 extern "C" int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
 extern void ReadPhondataManifest();
-char path_source[sizeof(path_home)+20];
 
 typedef struct {
 	const char *mnem;
@@ -946,159 +944,6 @@ static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname
 	}
 	fputc('\n',f);
 }  // end of  PrintPhonemesUsed
-
-
-
-static wxString CompileAllDictionaries()
-{//=====================================
-	wxString filename;
-	wxFileName fname;
-	wxString dictstr;
-	wxString filetype;
-	wxString report = _T("");
-	int err;
-	int errors = 0;
-	int dict_count = 0;
-	FILE *f_in;
-	FILE *log;
-	FILE *f_phused;
-	char dictname[80];
-	char fname_log[sizeof(path_dsource)+20];
-	char save_voice_name[80];
-	char path[sizeof(path_home)+40];       // path_dsource+20
-	char buf[200];
-	char voicename[80];
-
-	if(!wxDirExists(path_dictsource))
-	{
-		if(gui_flag)
-		{
-			wxString dirname = wxDirSelector(_T("Directory of dictionary files"),path_phsource);
-			if(!dirname.IsEmpty())
-			{
-				path_dictsource = dirname;
-				strncpy0(path_dsource,path_dictsource.mb_str(wxConvLocal),sizeof(path_dsource)-1);
-				strcat(path_dsource,"/");
-			}
-		}
-		else
-		{
-			fprintf(stderr,"Can't find dictionary files: %s\n",path_dsource);
-		}
-	}
-
-	wxDir dir(path_dictsource);
-	if(!dir.IsOpened())
-	{
-		return(_T(" No dictionaries"));
-	}
-
-	strcpy(save_voice_name,voice_name2);
-
-	sprintf(fname_log,"%s%s",path_dsource,"dict_log");
-	log = fopen(fname_log,"w");
-	if(log != 0)
-	{
-		fprintf(log, "%s", utf8_bom);
-	}
-	sprintf(fname_log,"%s%s",path_dsource,"dict_phonemes");
-	f_phused = fopen(fname_log,"w");
-
-	if(f_phused)
-	{
-		fprintf(f_phused,"Phonemes which are used in the *_rules and *_list files\n");
-	}
-
-	bool cont = dir.GetFirst(&filename, _T("*_rules*"), wxDIR_FILES);
-	while ( cont )
-	{
-		fname = wxFileName(filename);
-		filetype = fname.GetName().AfterLast('_');
-		if((filetype != _T("rules")) && (filetype != _T("rules.txt")))
-		{
-			cont = dir.GetNext(&filename);
-			continue;
-		}
-
-		dictstr = fname.GetName().BeforeLast('_');
-		strcpy(dictname,dictstr.mb_str(wxConvLocal));
-
-		dict_count++;
-		strcpy(voicename,dictname);
-
-		// read the *_rules file to see if a phoneme table is specified though a voice name
-		sprintf(path,"%s%s_rules.txt",path_dsource,dictname);
-		if((f_in = fopen(path,"r")) == NULL)
-		{
-			sprintf(path,"%s%s_rules",path_dsource,dictname);
-			f_in = fopen(path,"r");
-		}
-
-		if(f_in != NULL)
-		{
-			unsigned int ix;
-			unsigned int c;
-
-			for(ix=0; ix<20; ix++)
-			{
-				if(fgets(buf,sizeof(buf),f_in) == NULL)
-					break;
-
-				if(memcmp(buf,"//voice=",8)==0)
-				{
-					for(ix=0; ix<sizeof(voicename); ix++)
-					{
-						if(isspace(c = buf[ix+8]))
-						{
-							break;
-						}
-						voicename[ix] = c;
-					}
-					voicename[ix] = 0;
-					break;
-				}
-			}
-			fclose(f_in);
-		}
-
-		if(LoadVoice(voicename,1) == NULL)
-		{
-			wxLogError(wxString::Format(_T("Can't find voice '%s' for dictionary '%s'"), wxString(voicename, wxConvLocal).c_str(), dictstr.c_str()));
-			report = report + dictstr + _T(" No Voice, ");
-			errors ++;
-		}
-		else
-		if((err = CompileDictionary(path_dsource, dictname,log,NULL,0)) > 0)
-		{
-			report = report + dictstr + wxString::Format(_T(" %d, "),err);
-			errors += err;
-		}
-
-		if(f_phused != NULL)
-		{
-			memset(phoneme_tab_flags,0,sizeof(phoneme_tab_flags));
-			FindPhonemesUsed();
-			PrintPhonemesUsed(f_phused, path_dsource, dictname);
-		}
-
-		cont = dir.GetNext(&filename);
-	}
-	if(log != NULL)
-		fclose(log);
-	if(f_phused != NULL)
-		fclose(f_phused);
-
-	LoadVoiceVariant(save_voice_name,0);
-
-	if(errors == 0)
-		return(wxString::Format(_T(" Compiled %d dictionaries"),dict_count));
-	else
-	{
-		return(_T(" Dictionary errors: ") + report);
-	}
-
-}  // end of CompileAllDictionaries
-
 
 
 
@@ -3283,9 +3128,6 @@ static void StartPhonemeTable(const char *name)
 		return;
 	}
 
-	if(gui_flag)
-		progress->Update(n_phoneme_tabs);
-
 	memset(&phoneme_tab_list2[n_phoneme_tabs], 0, sizeof(PHONEME_TAB_LIST));
 	phoneme_tab_list2[n_phoneme_tabs].phoneme_tab_ptr = phoneme_tab2 = p;
 	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
@@ -3652,14 +3494,7 @@ make_envs();
 	sprintf(fname,"%scompile_prog_log",path_source);
 	f_prog_log = fopen_log(f_errors,fname,"wb");
 
-	if(gui_flag)
-	{
-		progress = new wxProgressDialog(_T("Compiling"),_T(""),progress_max);
-	}
-	else
-	{
-		fprintf(stderr,"Compiling phoneme data: %s\n",path_source);
-	}
+	fprintf(stderr,"Compiling phoneme data: %s\n",path_source);
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(f_phdata,version_phdata);
@@ -3691,17 +3526,9 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
         LoadVoice(voice_name2,0);
 
 	CompileReport();
-	if(gui_flag != 0)
-	report_dict = CompileAllDictionaries();
 #ifdef MAKE_ENVELOPES
 	DrawEnvelopes();
 #endif
-
-
-	if(gui_flag)
-	{
-		delete progress;
-	}
 
 	if(resample_count > 0)
 	{

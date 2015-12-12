@@ -82,17 +82,10 @@ libespeak_ng_SOURCE = \
 espeakedit_SOURCE = \
 	src/compiledata.cpp \
 	src/espeakedit.cpp \
-	src/extras.cpp \
-	src/formantdlg.cpp \
-	src/menus.cpp \
 	src/options.cpp \
 	src/prosodydisplay.cpp \
 	src/spect.cpp \
-	src/spectdisplay.cpp \
-	src/spectseq.cpp \
-	src/transldlg.cpp \
-	src/voicedlg.cpp \
-	src/vowelchart.cpp
+	src/spectseq.cpp
 
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT

@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013 by Reece H. Dunn                                   *
+ *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,12 +23,10 @@
 
 #include "speak_lib.h"
 #include "speech.h"
-#include "main.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
-#include "options.h"
 #include "wx/txtstrm.h"
 #include "wx/brush.h"
 #include "wx/datstrm.h"
@@ -64,33 +62,6 @@ static int default_width[N_PEAKS] =
 	{750,500,550,550,600,700,700,700,700};
 static int default_klt_bw[N_PEAKS] =
 	{89,90,140,260,260,260,500,500,500};
-
-float SpectTilt(int value, int freq)
-{//=================================
-	float x;
-	float y;
-
-	if((currentcanvas == NULL) || (currentcanvas->spectseq->bass_reduction == 0))
-		return(float(value));
-
-	y = value*value*2;
-
-	if(freq < 600)
-	{
-		return(sqrt(y/2.5));
-	}
-	else
-	if(freq < 1050)
-	{
-		x =  1.0 + ((1050.0-freq)* 1.5)/450.0;
-		return(sqrt(y/x));
-	}
-	else
-	{
-		return(sqrt(y));
-	}
-}
-
 
 SpectFrame::SpectFrame(SpectFrame *copy)
 {//=====================================
@@ -442,34 +413,6 @@ void SpectFrame::ToggleMarker(int n)
 }
 
 
-void SpectFrame::ApplyVoiceMods()
-{//==============================
-	// apply the modifications to the formants which are defined in the current voice
-	int pk;
-	char voice_name1[40];
-
-	strcpy(voice_name1, voice_name2);  // remember current voice name
-
-	if(LoadVoice(path_modifiervoice.mb_str(wxConvLocal),0x13) == NULL)
-	{
-		wxLogError(_T("Can't read voice: ")+path_modifiervoice);
-		OnOptions2(MENU_PATH4);
-		return;
-	}
-
-	wxLogStatus(_T("Convert using voice: ")+path_modifiervoice);
-
-	for(pk=0; pk<N_PEAKS; pk++)
-	{
-		peaks[pk].pkfreq = (peaks[pk].pkfreq * voice->freq2[pk])/256;
-		peaks[pk].pkheight = (peaks[pk].pkheight * voice->height2[pk])/256;
-		peaks[pk].pkwidth = (peaks[pk].pkwidth * voice->width2[pk])/256;
-		peaks[pk].pkright = (peaks[pk].pkright * voice->width2[pk])/256;
-	}
-	LoadVoice(voice_name1,1);
-}
-
-
 
 double SpectFrame::GetRms(int seq_amplitude)
 {//=========================================
@@ -579,130 +522,6 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 rms = GetRms(seq_amplitude);
 }  // end of SpectFrame::DrawPeaks
 
-
-
-void SpectFrame::Draw(wxDC& dc, int offy, int frame_width, double scalex, double scaley)
-{//=====================================================================================
-	int  pt;
-	int  peak;
-   peak_t *pk;
-	int  ix;
-	double x0, x1;
-	int  y0, y1;
-	int  x, x2, x3;
-	double xinc;
-	double yf;
-	int font_height;
-	wxString text;
-
-	if(currentcanvas == NULL)
-		return;
-
-	dc.SetFont(*wxSWISS_FONT);
-
-	xinc = dx * scalex;
-
-	x0 = xinc;
-	x1 = nx * xinc;
-
-	if(selected)  // this frame is selected
-	{
-		// highlight selected peak by drawing a red triangle
-		pk = &peaks[pk_select];
-
-		x2 = int(pk->pkright * scalex * 0.44);
-		x3 = int(pk->pkwidth * scalex * 0.44);
-		x = int((pk->pkfreq) * scalex);
-		y1 = (pk->pkheight * FRAME_HEIGHT) >> 14;
-		if(y1 < 5) y1 = 5;
-
-		wxPoint triangle[3];
-		dc.SetBrush(BRUSH_SELECTED_PEAK);
-		dc.SetPen(*wxTRANSPARENT_PEN);
-		triangle[0] = wxPoint(0,-y1);
-		triangle[1] = wxPoint(x2,0);
-		triangle[2] = wxPoint(-x3,0);
-		dc.DrawPolygon(3,triangle,x,offy);
-	}
-
-	// draw the measured formants
-	dc.SetPen(BLUE_PEN);
-	for(peak=1; peak<=5; peak++)
-	{
-		if(formants[peak].freq != 0)
-		{
-		   // set height from linear interpolation of the adjacent
-			// points in the spectrum
-			pt = (int)(formants[peak].freq / dx);
-			y0 = spect[pt-1];
-			y1 = spect[pt];
-			yf = (y1-y0) * (formants[peak].freq - pt*dx)/dx;
-
-			y1 = offy - (int)((y0+yf) * scaley);
-			x1 = formants[peak].freq * scalex;
-			dc.DrawLine((int)x1,offy,(int)x1,y1);
-
-		}
-	}
-
-	// draw the spectrum outline
-	if(keyframe)
-		dc.SetPen(*wxBLACK_PEN);
-	else
-		dc.SetPen(*wxMEDIUM_GREY_PEN);
-
-   if(spect != NULL)
-   {
-		y0 = offy - (int)(spect[0] * scaley);
-		for(pt=1; pt<nx; pt++)
-	   {
-		   x1 = x0 + xinc;
-		   y1 = offy - (int)(SpectTilt(spect[pt],int(pt*dx)) * scaley);
-		   dc.DrawLine((int)x0,y0,(int)x1,y1);
-		   x0 = x1;
-		   y0 = y1;
-      }
-	}
-
-	if(currentcanvas->zoom < 2)
-		dc.SetFont(FONT_SMALL);
-	else
-		dc.SetFont(FONT_MEDIUM);
-
-
-	// Markers
-	x = frame_width - 120 - 32;
-	for(ix=0; ix<N_MARKERS; ix++)
-	{
-		if(markers & 1<<ix)
-		{
-			dc.SetBrush(BRUSH_MARKER[ix]);
-			y0 = offy-FRAME_HEIGHT+22;
-			dc.DrawRectangle(x,y0,22,22);
-			if(currentcanvas->zoom > 2)
-			{
-				text.Printf(_T("%d"),ix);
-				dc.DrawText(text,x+2,y0);
-			}
-			x -= 26;
-		}
-	}
-
-	DrawPeaks(&dc,offy,frame_width,currentcanvas->spectseq->amplitude,scalex);
-
-	font_height = int(15 / currentcanvas->zoomy);
-
-	text.Printf(_T("%3dmS  %.1fHz"),int(time*1000),pitch);
-	dc.DrawText(text,frame_width-130,offy-FRAME_HEIGHT+20+font_height);
-	if(keyframe || rms > 0)
-	{
-		text.Printf(_T("%3d"),(int)rms);
-		dc.DrawText(text,frame_width-130,offy-FRAME_HEIGHT+20+font_height*2);
-	}
-	dc.SetPen(*wxBLACK_PEN);
-	dc.DrawLine(0,offy,frame_width,offy);  // base line
-
-}  // end of SpectFrame::Draw
 
 
 void SpectFrame::KlattDefaults()
