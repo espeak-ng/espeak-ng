@@ -29,9 +29,9 @@
 #include "wx/dir.h"
 #include "wx/filename.h"
 #include <wx/numdlg.h>
+#include "wx/progdlg.h"
 
 #include "speak_lib.h"
-#include "main.h"
 #include "speech.h"
 #include "options.h"
 #include "phoneme.h"
@@ -42,6 +42,16 @@
 #ifdef PLATFORM_POSIX
 #include <unistd.h>
 #endif
+
+// wxWidgets 3 name changes
+#if wxCHECK_VERSION(3, 0, 0)
+#define wxOPEN wxFD_OPEN
+#endif
+
+extern wxProgressDialog *progress;
+extern int progress_max;
+extern int gui_flag;
+extern char voice_name2[40];
 
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
