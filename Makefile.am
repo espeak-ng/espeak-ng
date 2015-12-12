@@ -58,8 +58,8 @@ libespeak_ng_include_HEADERS = \
 
 common_FLAGS  = -Isrc/include/espeak-ng
 common_SOURCE = \
-	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
+	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/intonation.c \
 	src/libespeak-ng/numbers.c \
