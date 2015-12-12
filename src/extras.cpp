@@ -164,32 +164,6 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 //******************************************************************************************************
 
 
-#ifdef deleted
-static int RuLex_sorter(char **a, char **b)
-{//=======================================
-	char *pa, *pb;
-	int xa, xb;
-	int ix;
-
-	pa = *a;
-	pb = *b;
-
-	xa = strlen(pa)-1;
-	xb = strlen(pb)-1;
-
-	while((xa >= 0) && (xb >= 0))
-	{
-		if((ix = (pa[xa] - pb[xb])) != 0)
-			return(ix);
-
-		xa--;
-		xb--;
-	}
-	return(pa - pb);
-}   /* end of strcmp2 */
-#endif
-
-
 static const unsigned short KOI8_R[0x60] = {
    0x2550, 0x2551, 0x2552, 0x0451, 0x2553, 0x2554, 0x2555, 0x2556, // a0
    0x2557, 0x2558, 0x2559, 0x255a, 0x255b, 0x255c, 0x255d, 0x255e, // a8
@@ -766,17 +740,7 @@ void Lexicon_De()
 				if((c2 = pronounce[ix+1]) == 'i')
 				{
 					defer_stress =1;
-#ifdef deleted
-					if(stress == 4)
-					{
-						*p++ = 'i';
-						c =':';
-					}
-					else
-#endif
-					{
-						c = 'I';
-					}
+					c = 'I';
 					ix++;
 				}
 			}
@@ -1171,33 +1135,6 @@ void Lexicon_Ru()
 		int  syllables;
 	} SUFFIX;
 
-#ifdef deleted
-	FILE *f_roots;
-	int sfx;
-	const char *suffix;
-	int wlen;
-	int len;
-	static SUFFIX suffixes[] = {
-{NULL,0},
-	{"ичу",2},
-	{"ского",2},
-	{"ская",2},
-	{"ски",1},
-	{"ские",2},
-	{"ский",1},
-	{"ским",1},
-	{"ское",2},
-	{"ской",1},
-	{"ском",1},
-	{"скую",2},
-
-	{"а",1},
-	{"е",1},
-	{"и",1},
-
-	{NULL,0}};
-#endif
-
 	memset(counts,0,sizeof(counts));
 
 	if(gui_flag)
@@ -1374,32 +1311,6 @@ void Lexicon_Ru()
 //CharStats();
 			}
 		}
-
-
-#ifdef deleted
-		if(check_root)
-		{
-			// does this word match any suffixes ?
-			wlen = strlen(word);
-			for(sfx=0;(suffix = suffixes[sfx].suffix) != NULL; sfx++)
-			{
-				len = strlen(suffix);
-				if(len >= (wlen-2))
-					continue;
-
-				if(ru_stress > (vcount - suffixes[sfx].syllables))
-					continue;
-
-				if(strcmp(suffix,&word[wlen-len])==0)
-				{
-					strcpy(word2,word);
-					word2[wlen-len] = 0;
-//					fprintf(f_roots,"%s\t $%d\t\\ %s\n",word2,ru_stress,suffix);
-					fprintf(f_roots,"%s\t $%d\n",word2,ru_stress);
-				}
-			}
-		}
-#endif
 	}
 
 	fclose(f_in);
@@ -1419,25 +1330,6 @@ void Lexicon_Ru()
 
 	if(f_log != NULL)
 	{
-
-#ifdef deleted
-		// list tables of frequency of stress position for words of different syllable lengths
-		int j,k;
-		for(ix=2; ix<12; ix++)
-		{
-			fprintf(f_log,"%2d syllables\n",ix);
-			for(k=0; k<10; k++)
-			{
-				fprintf(f_log,"  %2d :",k);
-				for(j=1; j<=ix; j++)
-				{
-					fprintf(f_log,"%6d ",counts[ix][j][k]);
-				}
-				fprintf(f_log,"\n");
-			}
-			fprintf(f_log,"\n\n");
-		}
-#endif
 		fclose(f_log);
 	}
 
@@ -2245,36 +2137,6 @@ void CharsetToUnicode(const char *charset)
 
 
 
-
-#ifdef deleted
-void Test2()
-{
-//
-	char buf[120];
-	FILE *f;
-	FILE *f_out;
-	unsigned char *p;
-
-	f = fopen("/home/jsd1/tmp1/list","r");
-	if(f == NULL) return;
-	f_out = fopen("/home/jsd1/tmp1/list_out","w");
-	if(f_out == NULL) return;
-
-	while(!feof(f))
-	{
-		if(fgets(buf,sizeof(buf),f) == NULL)
-			break;
-
-		p = (unsigned char *)buf;
-		while(*p > ' ') p++;
-		*p = 0;
-		fprintf(f_out,"%s . . .\n",buf);
-	}
-	fclose(f);
-	fclose(f_out);
-}
-
-#endif
 
 #define MAX_WALPHA  0x24f
 void Make_walpha_tab()

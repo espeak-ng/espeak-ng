@@ -597,8 +597,6 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	if((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
 		ep->id.name = &namedata[value];
 	else
-//#ifdef deleted
-// temporarily removed, don't introduce until after eSpeak version 1.46.02
 	if(type == espeakEVENT_PHONEME)
 	{
 		int *p;
@@ -607,7 +605,6 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 		p[1] = value2;
 	}
 	else
-//#endif
 	{
 		ep->id.number = value;
 	}
@@ -1035,26 +1032,7 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
 {//============================================================
   ENTER("espeak_SetVoiceByName");
 
-//#ifdef USE_ASYNC
-// I don't think there's a need to queue change voice requests
-#ifdef deleted
-	espeak_ERROR a_error;
-
-	if(synchronous_mode)
-	{
-		return(SetVoiceByName(name));
-	}
-
-	t_espeak_command* c = create_espeak_voice_name(name);
-	a_error = fifo_add_command(c);
-	if (a_error != EE_OK)
-	{
-		delete_espeak_command(c);
-	}
-	return a_error;
-#else
 	return(SetVoiceByName(name));
-#endif
 }  // end of espeak_SetVoiceByName
 
 
@@ -1063,25 +1041,7 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector
 {//==============================================================================
   ENTER("espeak_SetVoiceByProperties");
 
-//#ifdef USE_ASYNC
-#ifdef deleted
-	espeak_ERROR a_error;
-
-	if(synchronous_mode)
-	{
-		return(SetVoiceByProperties(voice_selector));
-	}
-
-	t_espeak_command* c = create_espeak_voice_spec( voice_selector);
-	a_error = fifo_add_command(c);
-	if (a_error != EE_OK)
-	{
-		delete_espeak_command(c);
-	}
-	return a_error;
-#else
 	return(SetVoiceByProperties(voice_selector));
-#endif
 }  // end of espeak_SetVoiceByProperties
 
 

@@ -458,20 +458,6 @@ printf("%3d: speedf %d %d %d   pause=%d %d   wav=%d  lenmod=%d %d\n",wpm,speed1,
 #endif   // of INCLUDE_SONIC
 
 
-#ifdef deleted
-void SetAmplitude(int amp)
-{//=======================
-	static unsigned char amplitude_factor[] = {0,5,6,7,9,11,14,17,21,26, 32, 38,44,50,56,63,70,77,84,91,100 };
-
-	if((amp >= 0) && (amp <= 20))
-	{
-		option_amplitude = (amplitude_factor[amp] * 480)/256;
-	}
-}
-#endif
-
-
-
 void SetParameter(int parameter, int value, int relative)
 {//======================================================
 // parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping

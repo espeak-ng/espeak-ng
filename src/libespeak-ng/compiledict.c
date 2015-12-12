@@ -444,22 +444,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	p = linebuf;
 //	while(isspace2(*p)) p++;
 
-#ifdef deleted
-	if(*p == '$')
-	{
-		if(memcmp(p,"$textmode",9) == 0)
-		{
-			text_mode = 1;
-			return(0);
-		}
-		if(memcmp(p,"$phonememode",12) == 0)
-		{
-			text_mode = 0;
-			return(0);
-		}
-	}
-#endif
-
 	step = 0;
 
 	c = 0;
@@ -976,14 +960,12 @@ static void copy_rule_string(char *string, int *state_out)
 		if(c == '\\')
 		{
 			c = *p++;   // treat next character literally
-//#ifdef deleted
 			if((c >= '0') && (c <= '3') && (p[0] >= '0') && (p[0] <= '7') && (p[1] >= '0') && (p[1] <= '7'))
 			{
 				// character code given by 3 digit octal value;
 				c = (c-'0')*64 + (p[0]-'0')*8 + (p[1]-'0');
 				p += 2;
 			}
-//endif
 			literal = 1;
 		}
 		if(hexdigit_input)

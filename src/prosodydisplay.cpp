@@ -169,21 +169,6 @@ void InitProsodyDisplay()
 		string = wxString(envelope_names[ix].mnem, wxConvLocal);
 		menu_envelopes->Append(0x100+envelope_names[ix].value, string);
 	}
-#ifdef deleted
-	menu_envelopes->Append(0x100,_T("fall"));
-	menu_envelopes->Append(0x102,_T("rise"));
-	menu_envelopes->Append(0x104,_T("fall-rise"));
-//	menu_envelopes->Append(0x105,_T("fall-rise (R)"));
-	menu_envelopes->Append(0x106,_T("fall-rise 2"));
-//	menu_envelopes->Append(0x107,_T("fall-rise 2(R)"));
-	menu_envelopes->Append(0x108,_T("rise-fall"));
-
-	menu_envelopes->Append(0x10a,_T("fall-rise 3"));
-	menu_envelopes->Append(0x10c,_T("fall-rise 4"));
-	menu_envelopes->Append(0x10e,_T("fall 2"));
-	menu_envelopes->Append(0x110,_T("rise 2"));
-	menu_envelopes->Append(0x112,_T("rise-fall-rise"));
-#endif
 	menu_prosody = new wxMenu;
 	menu_prosody->Append(1,_T("Pitch envelope"),menu_envelopes);
 	menu_prosody->Append(2,_T("Amplitude"));

@@ -1257,13 +1257,6 @@ void CalcPitches(Translator *tr, int clause_type)
 			else
 				calc_pitches(option, st_start, ix, group_tone);
 
-#ifdef deleted
-			if((ix < n_st) || (clause_type == 0))
-				calc_pitches(option, st_start, ix, group_tone_emph);   // split into > 1 tone groups, use emphatic tone
-			else
-				calc_pitches(option, st_start, ix, group_tone);
-#endif
-
 			st_start = ix;
 		}
 		if((st_start < st_ix) && (syl->flags & SYL_END_CLAUSE))

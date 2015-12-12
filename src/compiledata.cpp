@@ -1680,22 +1680,6 @@ int LoadSpect(const char *path, int control)
 	total = 0;
 	for(frame=0; frame < spectseq->numframes; frame++)
 	{
-
-#ifdef deleted
-for(ix=0; ix<8; ix++)
-{
-	// find which files have certain markers set
-	if(spectseq->frames[frame]->markers & (1<<ix))
-	{
-		markers_used[ix]++;
-		if((ix==3) || (ix==4))
-		{
-			fprintf(f_errors,"Marker %d: %s\n",ix,path);
-		}
-	}
-}
-#endif
-
 		if(spectseq->frames[frame]->keyframe)
 		{
 			if(seq_out.n_frames == 1)

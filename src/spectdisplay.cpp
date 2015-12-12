@@ -433,23 +433,6 @@ void SpectDisplay::SavePitchenv(PitchEnvelope &pitch)
 
 
 
-
-void SpectDisplay::PlayChild(int number, PitchEnvelope pitchenv)
-{//=========================================================
-#ifdef deleted
-	SpectSeq *seq;
-
-	if(number >= canvaslistix) return;
-
-	if((seq = canvaslist[number]->spectseq) == NULL)
-		return;
-
-	ReadDialogValues();
-	seq->MakeWave(0,seq->numframes-1,pitchenv);
-#endif
-}  // end of PlayChild
-
-
 void SpectDisplay::SetKeyframe(SpectFrame *sf, int yes)
 {//====================================================
 	if(sf->keyframe == yes) return;  // already done
@@ -841,12 +824,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		if(key>='0' && key<='9')
 		{
 			i = key-'0';
-			if(event.ControlDown())
-			{
-				if(i==0) i=10;
-				PlayChild(i-1,voicedlg->pitchenv);
-			}
-			else
+			if(!event.ControlDown())
 			{
 				// select peak number
 				if((pk_num = i) >= N_PEAKS) pk_num = N_PEAKS-1;

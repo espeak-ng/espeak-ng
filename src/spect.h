@@ -260,7 +260,6 @@ class SpectDisplay: public wxScrolledWindow
 	private:
 		void RefreshFrame(int frame);
 		void SetKeyframe(SpectFrame *sf, int yes);
-		void PlayChild(int number, PitchEnvelope pitchenv);
 		void SetExtent();
 		int sframe;
 		int pk_num;

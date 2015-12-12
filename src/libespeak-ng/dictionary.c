@@ -1714,15 +1714,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			ph = phoneme_tab[p[0]];
 		}
 
-#ifdef deleted
-		int gap = tr->langopts.word_gap & 0x700;
-		if((gap) && (vowel_stress[1] >= 4) && (prev_stress >= 4))
-		{
-			/* two primary stresses together, insert a short pause */
-			*output++ = pause_phonemes[gap >> 8];
-		}
-		else
-#endif
 			if((tr->langopts.vowel_pause & 0x30) && (ph->type == phVOWEL))
 			{
 				// word starts with a vowel
@@ -2760,15 +2751,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 								return(0);
 							}
 						}
-#ifdef deleted
-// can't switch to a tone language, because the tone-phoneme numbers are not valid for the original language
-						if((letter >= 0x4e00) && (letter < 0xa000) && (tr->langopts.ideographs != 1))
-						{
-							// Chinese ideogram
-							sprintf(phonemes,"%czh",phonSWITCH);
-							return(0);
-						}
-#endif
 
 						// is it a bracket ?
 						if(letter == 0xe000+'(')
@@ -2868,12 +2850,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		{
 			if(word_flags & FLAG_UNPRON_TEST)
 				return(match1.end_type | 1);
-
-#ifdef deleted
-// ?? allow $unpr while translating rules, not just on initial FLAG_UNPRON_TEST
-			if((match1.end_type & SUFX_UNPRON) && !(word_flags & FLAG_SUFFIX_REMOVED))
-				return(match1.end_type);
-#endif
 
 			if((match1.phonemes[0] == phonSWITCH) && ((word_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{

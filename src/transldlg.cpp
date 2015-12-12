@@ -71,59 +71,6 @@ wxFont font_phonetic_large;
 wxTextAttr style_phonetic_large;
 
 
-#ifdef deleted
-
-class IPATextCtrl : public wxTextCtrl
-{
-public:
-	void OnKey(wxKeyEvent& event);
-	IPATextCtrl(wxWindow *parent,wxWindowID id,const wxPoint& pos,const wxSize& size);
-
-	DECLARE_EVENT_TABLE()
-};
-
-BEGIN_EVENT_TABLE(IPATextCtrl, wxTextCtrl)
-	EVT_CHAR(IPATextCtrl::OnKey)
-END_EVENT_TABLE()
-
-
-IPATextCtrl::IPATextCtrl(wxWindow *parent,wxWindowID id,const wxPoint& pos,const wxSize& size) :
-	wxTextCtrl(parent,id,_T(""),pos,size,wxTE_MULTILINE)
-{
-	wxTextAttr attr;
-	wxFont font = wxFont(12,wxFONTFAMILY_ROMAN,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_LIGHT);
-
-	attr.SetFont(font);
-	SetDefaultStyle(attr);
-}
-
-void IPATextCtrl::OnKey(wxKeyEvent& event)
-{
-	long key;
-	wchar_t wbuf[3];
-
-	key = event.m_keyCode;
-	key = event.GetKeyCode();
-
-	if(event.ControlDown())
-		key = key & 0x1f;
-
-	if(key==0xd && !event.ControlDown())
-		event.Skip();  // ENTER
-	else
-	if(key != 8 && key < 0x7f)
-	{
-		wbuf[0] = ipa1[key];
-		wbuf[1] = 0;
-		WriteText(wxString(wbuf));
-	}
-	else
-		event.Skip();
-}
-#endif
-
-
-
 void PlayWavFile(const char *fname)
 {//================================
 	char command[120];

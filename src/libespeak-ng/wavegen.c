@@ -392,41 +392,6 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 static unsigned char *pk_shape;
 
 
-static void WavegenInitPkData(int which)
-{//=====================================
-// this is only needed to set up the presets for pk_shape1 and pk_shape2
-// These have already been pre-calculated and preset
-#ifdef deleted
-	int ix;
-	int p;
-	float x;
-	float y[PEAKSHAPEW];
-	float maxy=0;
-
-	if(which==0)
-		pk_shape = pk_shape1;
-	else
-		pk_shape = pk_shape2;
-
-	p = 0;
-	for(ix=0;ix<PEAKSHAPEW;ix++)
-	{
-		x = (4.5*ix)/PEAKSHAPEW;
-		if(x >= pk_shape_x[which][p+3]) p++;
-		y[ix] = polint(&pk_shape_x[which][p],&pk_shape_y[which][p],3,x);
-		if(y[ix] > maxy) maxy = y[ix];
-	}
-	for(ix=0;ix<PEAKSHAPEW;ix++)
-	{
-		p = (int)(y[ix]*255/maxy);
-      pk_shape[ix] = (p >= 0) ? p : 0;
-	}
-	pk_shape[PEAKSHAPEW]=0;
-#endif
-}  //  end of WavegenInitPkData
-
-
-
 #ifdef USE_PORTAUDIO
 // PortAudio interface
 
@@ -782,8 +747,6 @@ void WavegenInit(int rate, int wavemult_fact)
 		}
 	}
 
-	WavegenInitPkData(1);
-	WavegenInitPkData(0);
 	pk_shape = pk_shape2;         // pk_shape2
 
 #ifdef INCLUDE_KLATT

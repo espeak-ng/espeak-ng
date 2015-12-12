@@ -1559,24 +1559,6 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-#ifdef deleted
-	case L('t','h'):  // Thai
-		{
-			static const short stress_lengths_th[8] = {230,150, 230,230, 230,0, 230,250};
-			static const unsigned char stress_amps_th[] = {22,16, 22,22, 22,22, 22,22 };
-
-			SetupTranslator(tr,stress_lengths_th,stress_amps_th);
-
-			tr->langopts.stress_rule = 0;   // stress on final syllable of a "word"
-			tr->langopts.stress_flags = S_NO_DIM;          // don't automatically set diminished stress (may be set in the intonation module)
-			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
-			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-//			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
-			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
-		}
-		break;
-#endif
-
 	case L('t','r'):   // Turkish
 	case L('a','z'):   // Azerbaijan
 		{

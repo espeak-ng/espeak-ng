@@ -151,25 +151,6 @@ static double resonator2(resonator_ptr r, double input)
 
 
 
-/*
-function ANTIRESONATOR
-
-This is a generic anti-resonator function. The code is the same as resonator
-except that a,b,c need to be set with setzeroabc() and we save inputs in
-p1/p2 rather than outputs. There is currently only one of these - "rnz"
-Output = (rnz.a * input) + (rnz.b * oldin1) + (rnz.c * oldin2)
-*/
-
-#ifdef deleted
-static double antiresonator(resonator_ptr r, double input)
-{
-	register double x = (double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2;
-	r->p2 = (double)r->p1;
-	r->p1 = (double)input;
-	return (double)x;
-}
-#endif
-
 static double antiresonator2(resonator_ptr r, double input)
 {
 	register double x = (double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2;
@@ -449,37 +430,6 @@ if(option_log_frames)
 		outbypas = kt_globals.amp_bypas * sourc;
 
 		out = outbypas - out;
-
-#ifdef deleted
-// for testing
-		if (kt_globals.outsl != 0)
-		{
-			switch(kt_globals.outsl)
-			{
-			case 1:
-				out = voice;
-				break;
-			case 2:
-				out = aspiration;
-				break;
-			case 3:
-				out = frics;
-				break;
-			case 4:
-				out = glotout;
-				break;
-			case 5:
-				out = par_glotout;
-				break;
-			case 6:
-				out = outbypas;
-				break;
-			case 7:
-				out = sourc;
-				break;
-			}
-		}
-#endif
 
 		out = resonator(&(kt_globals.rsn[Rout]),out);
 		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0) ;   /* Convert back to integer */
@@ -1148,18 +1098,7 @@ int Wavegen_Klatt(int resume)
 
 	if(end_wave > 0)
 	{
-#ifdef deleted
-		if(end_wave == 2)
-		{
-		fade = (kt_globals.T0 - kt_globals.nper)/4;  // samples until end of current cycle
-		if(fade < 64)
-			fade = 64;
-		}
-		else
-#endif
-		{
-			fade = 64;   // not followd by formant synthesis
-		}
+		fade = 64;   // not followd by formant synthesis
 
 		// fade out to avoid a click
 		kt_globals.fadeout = fade;
