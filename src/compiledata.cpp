@@ -33,7 +33,6 @@
 
 #include "speak_lib.h"
 #include "speech.h"
-#include "options.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
@@ -47,6 +46,11 @@
 #if wxCHECK_VERSION(3, 0, 0)
 #define wxOPEN wxFD_OPEN
 #endif
+
+extern wxString path_dictsource;
+extern wxString path_phsource;
+extern wxString path_phfile;
+extern char path_dsource[sizeof(path_home)+20];
 
 extern wxProgressDialog *progress;
 extern int progress_max;
