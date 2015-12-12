@@ -80,7 +80,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	if((f_in = fopen(buf,"r")) == NULL)
 	{
 		fprintf(log, "Can't read: %s\n", filepath);
-		return ENE_NOT_FOUND;
+		return ENE_READ_ERROR;
 	}
 
 	while(fgets(buf,sizeof(phoneme),f_in) != NULL)
@@ -126,7 +126,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	if((f_out = fopen(buf,"wb")) == NULL)
 	{
 		fprintf(log, "Can't write to: %s\n", buf);
-		return ENE_WRITE_FAILED;
+		return ENE_WRITE_ERROR;
 	}
 
 	data[count].name = 0;  // list terminator

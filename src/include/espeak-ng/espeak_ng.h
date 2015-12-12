@@ -39,8 +39,10 @@ typedef enum {
 
 	/* Error Codes (< 0) */
 
-	ENE_NOT_FOUND = -1,
-	ENE_WRITE_FAILED = -2,
+	ENE_READ_ERROR = -1,
+	ENE_WRITE_ERROR = -2,
+	ENE_OUT_OF_MEMORY = -3,
+	ENE_COMPILE_ERRORS = -4,
 } espeak_ng_STATUS;
 
 ESPEAK_NG_API espeak_ng_STATUS

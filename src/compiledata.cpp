@@ -32,6 +32,8 @@
 #include "wx/progdlg.h"
 
 #include "speak_lib.h"
+#include "espeak_ng.h"
+
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -58,7 +60,6 @@ extern int gui_flag;
 extern char voice_name2[40];
 
 extern void FindPhonemesUsed(void);
-extern void DisplayErrorFile(const char *fname);
 extern "C" int utf8_in(int *c, const char *buf);
 extern "C" int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
@@ -3778,7 +3779,7 @@ int LookupEnvelope(const char *name)
 }
 
 
-void CompileIntonation()
+espeak_ng_STATUS CompileIntonation(FILE *log)
 {//=====================
 	int ix;
 	char *p;
@@ -3799,15 +3800,11 @@ void CompileIntonation()
 
 
 	char name[12];
-	char fname_errors[sizeof(path_source)+120];
 	char tune_names[N_TUNE_NAMES][12];
 	char buf[sizeof(path_source)+120];
 
 	error_count = 0;
-
-	sprintf(fname_errors,"%s%s",path_source,"error_intonation");
-	if((f_errors = fopen(fname_errors,"w")) == NULL)
-		f_errors = stderr;
+	f_errors = log;
 
 	sprintf(buf,"%sintonation.txt",path_source);
 	if((f_in = fopen(buf, "r")) == NULL)
@@ -3817,7 +3814,7 @@ void CompileIntonation()
 		{
 			wxLogError(_T("Can't read file: ") + wxString(buf,wxConvLocal));
 			fclose(f_errors);
-			return;
+			return ENE_READ_ERROR;
 		}
 	}
 
@@ -3875,7 +3872,7 @@ void CompileIntonation()
 		fprintf(f_errors, "Failed to allocate data for tunes\n");
 		fclose(f_in);
 		fclose(f_errors);
-		return;
+		return ENE_OUT_OF_MEMORY;
 	}
 
 	sprintf(buf,"%s/intonations",path_home);
@@ -3885,7 +3882,7 @@ void CompileIntonation()
 		fclose(f_in);
 		fclose(f_errors);
 		free(tune_data);
-		return;
+		return ENE_WRITE_ERROR;
 	}
 
 	while(!feof(f_in))
@@ -4078,12 +4075,9 @@ void CompileIntonation()
 	report.Printf(_T("Compiled %d intonation tunes: %d errors."),n_tune_names, error_count);
 	wxLogStatus(report);
 
-	if(error_count > 0)
-	{
-		DisplayErrorFile(fname_errors);
-	}
 	LoadPhData(NULL);
 
+	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
 }   // end of CompileIntonation
 
 

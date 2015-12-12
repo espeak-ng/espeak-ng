@@ -65,7 +65,7 @@ extern void DictionarySort(const char *dictname);
 extern void init_z();
 extern void CompilePhonemeData(void);
 extern void CompileSampleRate(void);
-extern void CompileIntonation();
+extern espeak_ng_STATUS CompileIntonation(FILE *log);
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
 extern void InitWaveDisplay();
@@ -147,7 +147,7 @@ if(argc > 1)
 			exit(1);
 		}
 		CompilePhonemeData();
-		CompileIntonation();
+		CompileIntonation(stderr);
 	}
     exit(0);
 }
@@ -787,7 +787,20 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 
 	case MENU_COMPILE_INTONATION:
-		CompileIntonation();
+		{
+			FILE *f_errors;
+			char fname_errors[sizeof(path_source)+120];
+			sprintf(fname_errors,"%s%s",path_source,"error_intonation");
+			if((f_errors = fopen(fname_errors,"w")) == NULL)
+				f_errors = stderr;
+
+			espeak_ng_STATUS status = CompileIntonation(f_errors);
+			if (f_errors != stderr)
+				fclose(f_errors);
+
+			if (status == ENE_COMPILE_ERRORS)
+				DisplayErrorFile(fname_errors);
+		}
 		break;
 
 	case MENU_COMPILE_DICT_DEBUG:
