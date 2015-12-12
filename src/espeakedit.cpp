@@ -63,7 +63,7 @@ extern void DictionarySort(const char *dictname);
 extern void init_z();
 extern void CompilePhonemeData(void);
 extern void CompileSampleRate(void);
-extern void CompileMbrola(const wxChar *mbrola_file = NULL);
+extern "C" void CompileMbrola(const char *mbrola_file);
 extern void CompileIntonation();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
@@ -790,7 +790,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 
 	case MENU_COMPILE_MBROLA:
-		CompileMbrola();
+		{
+			wxString filepath = wxFileSelector(_T("Read Mbrola phonemes file"),path_phsource+_T("/mbrola"),_T(""),_T(""),_T("*"),wxOPEN);
+			CompileMbrola(filepath.mb_str(wxConvLocal));
+		}
 		break;
 
 	case MENU_COMPILE_INTONATION:
