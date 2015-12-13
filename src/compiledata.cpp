@@ -49,6 +49,14 @@
 #define wxOPEN wxFD_OPEN
 #endif
 
+typedef struct {
+    unsigned int value;
+    char *name;
+} NAMETAB;
+
+NAMETAB *manifest = NULL;
+int n_manifest;
+
 extern char path_source[sizeof(path_home)+20];
 
 extern int progress_max;
@@ -58,7 +66,6 @@ extern char voice_name2[40];
 extern "C" int utf8_in(int *c, const char *buf);
 extern "C" int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
-extern void ReadPhondataManifest();
 
 typedef struct {
 	const char *mnem;
@@ -393,6 +400,57 @@ USHORT *prog_out;
 USHORT *prog_out_max;
 USHORT prog_buf[MAX_PROG_BUF+20];
 
+static void ReadPhondataManifest()
+{
+    // Read the phondata-manifest file
+    FILE *f;
+    int n_lines=0;
+    int ix;
+    char *p;
+    unsigned int value;
+    char buf[sizeof(path_home)+40];
+    char name[120];
+
+	sprintf(buf,"%s%c%s",path_home,PATHSEP,"phondata-manifest");
+    if((f = fopen(buf, "r")) == NULL)
+        return;
+
+    while(fgets(buf, sizeof(buf), f) != NULL)
+        n_lines++;
+
+    rewind(f);
+
+    if(manifest != NULL)
+    {
+        for(ix=0; ix < n_manifest; ix++)
+            free(manifest[ix].name);
+    }
+
+    if((manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB))) == NULL)
+    {
+        fclose(f);
+        return;
+    }
+
+    n_manifest = 0;
+    while(fgets(buf, sizeof(buf), f) != NULL)
+    {
+        if(!isalpha(buf[0]))
+           continue;
+
+        if(sscanf(&buf[2], "%x %s", &value, name) == 2)
+        {
+            if((p = (char *)malloc(strlen(name)+1)) != NULL)
+            {
+                strcpy(p, name);
+                manifest[n_manifest].value = value;
+                manifest[n_manifest].name = p;
+                n_manifest++;
+            }
+        }
+    }
+    fclose(f);
+}
 
 static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
 {//===============================================================

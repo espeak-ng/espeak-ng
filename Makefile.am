@@ -82,7 +82,6 @@ libespeak_ng_SOURCE = \
 espeakedit_SOURCE = \
 	src/compiledata.cpp \
 	src/espeakedit.cpp \
-	src/prosodydisplay.cpp \
 	src/spect.cpp
 
 if OPT_KLATT
