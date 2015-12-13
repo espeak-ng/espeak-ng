@@ -56,11 +56,20 @@ libespeak_ng_includedir = $(includedir)/espeak-ng
 libespeak_ng_include_HEADERS = \
 	src/include/espeak-ng/speak_lib.h
 
-common_FLAGS  = -Isrc/include/espeak-ng
-common_SOURCE = \
+docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
+	cp $< $@
+
+lib_LTLIBRARIES += src/libespeak-ng.la
+
+src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread
+src_libespeak_ng_la_CFLAGS = -Isrc/include/espeak-ng \
+	-fPIC -fvisibility=hidden -D LIBRARY \
+	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
+src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
+	src/libespeak-ng/debug.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
@@ -68,6 +77,7 @@ common_SOURCE = \
 	src/libespeak-ng/readclause.c \
 	src/libespeak-ng/phonemelist.c \
 	src/libespeak-ng/setlengths.c \
+	src/libespeak-ng/speak_lib.c \
 	src/libespeak-ng/spect.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
@@ -77,84 +87,67 @@ common_SOURCE = \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
 
-libespeak_ng_FLAGS  =
-libespeak_ng_SOURCE = \
-	src/libespeak-ng/speak_lib.c \
-	src/libespeak-ng/debug.c
-
 if OPT_KLATT
-common_FLAGS  += -DINCLUDE_KLATT
-common_SOURCE += src/libespeak-ng/klatt.c
+src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
 endif
 
 if OPT_MBROLA
-common_FLAGS  += -DINCLUDE_MBROLA
-common_SOURCE += src/libespeak-ng/mbrowrap.c
+src_libespeak_ng_la_CFLAGS  += -DINCLUDE_MBROLA
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
 endif
 
 if OPT_SONIC
-common_FLAGS  += -DINCLUDE_SONIC
-common_SOURCE += src/libespeak-ng/sonic.c
+src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SONIC
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/sonic.c
 endif
 
 if OPT_ASYNC
-libespeak_ng_FLAGS  += -DUSE_ASYNC
-libespeak_ng_SOURCE += \
+src_libespeak_ng_la_CFLAGS  += -DUSE_ASYNC
+src_libespeak_ng_la_SOURCES += \
 	src/libespeak-ng/espeak_command.c \
 	src/libespeak-ng/event.c \
 	src/libespeak-ng/fifo.c
 endif
 
 if AUDIO_RUNTIME
-wave_SOURCE = src/libespeak-ng/wave.c src/libespeak-ng/wave_pulse.c
-wave_LIBS   = -lpulse -lpulse-simple -lportaudio
-wave_FLAGS  = -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+src_libespeak_ng_la_LDFLAGS += -lpulse -lpulse-simple -lportaudio
+src_libespeak_ng_la_CFLAGS  += -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+src_libespeak_ng_la_SOURCES += \
+	src/libespeak-ng/wave.c \
+	src/libespeak-ng/wave_pulse.c
 else
 if AUDIO_PULSEAUDIO
-wave_SOURCE = src/libespeak-ng/wave_pulse.c
-wave_LIBS   = -lpulse
-wave_FLAGS  = -DUSE_PULSEAUDIO
+src_libespeak_ng_la_LDFLAGS += -lpulse
+src_libespeak_ng_la_CFLAGS  += -DUSE_PULSEAUDIO
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave_pulse.c
 else
 if AUDIO_PORTAUDIO
-wave_SOURCE = src/libespeak-ng/wave.c
-wave_LIBS   = -lportaudio
-wave_FLAGS  = -DUSE_PORTAUDIO
+src_libespeak_ng_la_LDFLAGS += -lportaudio
+src_libespeak_ng_la_CFLAGS  += -DUSE_PORTAUDIO
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave.c
 else
 if AUDIO_SADA
-wave_SOURCE = src/libespeak-ng/wave_sada.c
-wave_FLAGS  = -DUSE_SADA
+src_libespeak_ng_la_CFLAGS  += -DUSE_SADA
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave_sada.c
 else
-wave_SOURCE = src/libespeak-ng/wave.c
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave.c
 endif
 endif
 endif
 endif
-
-docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
-	cp $< $@
-
-lib_LTLIBRARIES += src/libespeak-ng.la
-
-src_libespeak_ng_la_LDFLAGS  = -version-info $(SHARED_VERSION) $(wave_LIBS) -lpthread
-src_libespeak_ng_la_CFLAGS = $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
-	-fPIC -fvisibility=hidden -D LIBRARY \
-	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_ng_la_CXXFLAGS = $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
-	-fPIC -fvisibility=hidden -D LIBRARY \
-	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
-src_libespeak_ng_la_SOURCES  = $(common_SOURCE) $(libespeak_ng_SOURCE) $(wave_SOURCE)
 
 bin_PROGRAMS += src/speak-ng
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static
-src_speak_ng_CFLAGS  = $(common_FLAGS) $(wave_FLAGS) -I src/libespeak-ng
+src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include/espeak-ng
 src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la
-src_espeak_ng_CFLAGS  = -I src/include/espeak-ng
+src_espeak_ng_CFLAGS  = -Isrc/include/espeak-ng
 src_espeak_ng_SOURCES = src/espeak-ng.c
 
 ##### phoneme data:

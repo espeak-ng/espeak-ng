@@ -484,9 +484,7 @@ int main (int argc, char **argv)
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
-#ifdef USE_PORTAUDIO
 	int speaking = 0;
-#endif
 
 	voicename[0] = 0;
 	mbrola_name[0] = 0;
@@ -884,7 +882,6 @@ int main (int argc, char **argv)
 	}
 	else
 	{
-		// output sound using portaudio
 		WavegenInitSound();
 
 		InitText(0);
@@ -896,7 +893,6 @@ int main (int argc, char **argv)
 			return(0);
 		}
 
-#ifdef USE_PORTAUDIO
 		speaking = 1;
 		while(speaking)
 		{
@@ -918,9 +914,6 @@ int main (int argc, char **argv)
 			if(SynthOnTimer() != 0)
 				speaking = 0;
 		}
-#else
-		fprintf(stderr,"-w option must be used because the program was built without a sound interface\n");
-#endif  // USE_PORTAUDIO
 	}
 
 	if((f_trans != stdout) && (f_trans != stderr))
