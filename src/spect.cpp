@@ -246,38 +246,40 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 }
 
 
-SpectSeq::SpectSeq(int n)
-{//======================
-	numframes = n;
-	if(n > 0)
-		frames = new SpectFrame* [n];
-	else
-		frames = NULL;
+SpectSeq *SpectSeqCreate()
+{
+	SpectSeq *spect = new SpectSeq;
+
+	spect->numframes = 0;
+	spect->frames = NULL;
 	
 	pk_select = 1;
-	grid = 1;
-   duration = 0;
-   pitch1 = 0;
-   pitch2 = 0;
-	bass_reduction = 0;
+	spect->grid = 1;
+   spect->duration = 0;
+   spect->pitch1 = 0;
+   spect->pitch2 = 0;
+	spect->bass_reduction = 0;
 
-	max_x = 3000;
-	max_y = 1;
-	file_format = 0;
+	spect->max_x = 3000;
+	spect->max_y = 1;
+	spect->file_format = 0;
+
+	return spect;
 }
 
-SpectSeq::~SpectSeq()
+void SpectSeqDestroy(SpectSeq *spect)
 {//==================
 	int ix;
-	if(frames != NULL)
+	if(spect->frames != NULL)
 	{
-		for(ix=0; ix<numframes; ix++)
+		for(ix=0; ix<spect->numframes; ix++)
 		{
-			if(frames[ix] != NULL)
-				SpectFrameDestroy(frames[ix]);
+			if(spect->frames[ix] != NULL)
+				SpectFrameDestroy(spect->frames[ix]);
 		}
-		delete frames;
+		delete spect->frames;
 	}
+	delete spect;
 }
 
 
@@ -298,7 +300,7 @@ static float GetFrameLength(SpectSeq &spect, int frame)
 
 
 
-int SpectSeq::Load(wxInputStream & stream)
+int LoadSpectSeq(SpectSeq *spect, wxInputStream & stream)
 {//=======================================
 	int n;
 	int ix;
@@ -313,17 +315,17 @@ int SpectSeq::Load(wxInputStream & stream)
 
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
-			file_format = 0;   // eSpeak formants
+			spect->file_format = 0;   // eSpeak formants
 	}
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
 	{
-			file_format = 1;   // formants for Klatt synthesizer
+			spect->file_format = 1;   // formants for Klatt synthesizer
 	}
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
 	{
-			file_format = 2;   // formants for Klatt synthesizer
+			spect->file_format = 2;   // formants for Klatt synthesizer
 	}
 	else
 	{
@@ -331,64 +333,72 @@ int SpectSeq::Load(wxInputStream & stream)
 		return(1);
 	}
 
-	name = s.ReadString();
+	spect->name = s.ReadString();
 	n = s.Read16();
-	amplitude = s.Read16();
-	max_y = s.Read16();
+	spect->amplitude = s.Read16();
+	spect->max_y = s.Read16();
 	s.Read16();
 
 	if(n==0) return(0);
 
-	if(frames != NULL) delete frames;
-	frames = new SpectFrame* [n];
+	if(spect->frames != NULL)
+	{
+		for(ix=0; ix<spect->numframes; ix++)
+		{
+			if(spect->frames[ix] != NULL)
+				SpectFrameDestroy(spect->frames[ix]);
+		}
+		delete spect->frames;
+	}
+	spect->frames = new SpectFrame* [n];
 
-	numframes = 0;
-	max_x = 3000;
-	if(max_y == 0)
+	spect->numframes = 0;
+	spect->max_x = 3000;
+	if(spect->max_y == 0)
 	{
 		set_max_y = 1;
-		max_y = 1;
+		spect->max_y = 1;
 	}
 	for(ix = 0; ix < n; ix++)
 	{
 		SpectFrame *frame = SpectFrameCreate();
 
-		if(LoadFrame(*frame, stream, file_format) != 0)
+		if(LoadFrame(*frame, stream, spect->file_format) != 0)
 		{
 			delete frame;
 			break;
 		}
 
-		frames[numframes++] = frame;
+		spect->frames[spect->numframes++] = frame;
 
-		if(set_max_y && (frame->max_y > max_y))
-			max_y = frame->max_y;
-		if(frame->nx * frame->dx > max_x) max_x = int(frame->nx * frame->dx);
+		if(set_max_y && (frame->max_y > spect->max_y))
+			spect->max_y = frame->max_y;
+		if(frame->nx * frame->dx > spect->max_x) spect->max_x = int(frame->nx * frame->dx);
 	}
-max_x = 9000;   // disable auto-xscaling
+spect->max_x = 9000;   // disable auto-xscaling
 
-	frame_width = int((FRAME_WIDTH*max_x)/MAX_DISPLAY_FREQ);
+	frame_width = int((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
 	if(frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
 
 
 	// start times from zero
-	time_offset = frames[0]->time;
-	for(ix=0; ix<numframes; ix++)
-		frames[ix]->time -= time_offset;
+	time_offset = spect->frames[0]->time;
+	for(ix=0; ix<spect->numframes; ix++)
+		spect->frames[ix]->time -= time_offset;
 
-	pitch1 = pitchenv.pitch1;
-	pitch2 = pitchenv.pitch2;
-	duration = int(frames[numframes-1]->time * 1000);
+	spect->pitch1 = spect->pitchenv.pitch1;
+	spect->pitch2 = spect->pitchenv.pitch2;
+	spect->duration = int(spect->frames[spect->numframes-1]->time * 1000);
 
-if(max_y < 400)
-	max_y = 200;
+if(spect->max_y < 400)
+	spect->max_y = 200;
 else
-	max_y = 29000;  // disable auto height scaling
+	spect->max_y = 29000;  // disable auto height scaling
 
-	for(ix=0; ix<numframes; ix++)
+	for(ix=0; ix<spect->numframes; ix++)
 	{
-		if(frames[ix]->keyframe)
-			frames[ix]->length_adjust = frames[ix]->length - GetFrameLength(*this,ix);
+		if(spect->frames[ix]->keyframe)
+			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(*spect,ix);
 	}
 	return(0);
 }  // end of SpectSeq::Load

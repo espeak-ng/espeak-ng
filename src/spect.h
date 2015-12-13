@@ -109,13 +109,8 @@ struct SpectFrame
 
 double GetFrameRms(SpectFrame *frame, int amp);
 
-class SpectSeq
-{//===========
-public:
-	SpectSeq(int nframes=0);
-	~SpectSeq();
-	int Load(wxInputStream& stream);
-
+struct SpectSeq
+{
 	int  numframes;
 	int  amplitude;
 	int  spare;
@@ -132,3 +127,7 @@ public:
 	int max_y;
 	int file_format;
 };
+
+SpectSeq *SpectSeqCreate();
+void SpectSeqDestroy(SpectSeq *spect);
+int LoadSpectSeq(SpectSeq *spect, wxInputStream& stream);

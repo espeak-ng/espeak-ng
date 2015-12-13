@@ -1535,7 +1535,7 @@ int LoadSpect(const char *path, int control)
 	SPECT_SEQK seqk_out;
 
 	// create SpectSeq and import data
-	spectseq = new SpectSeq;
+	spectseq = SpectSeqCreate();
 	if(spectseq == NULL)
 	{
 		Error("Failed to create SpectSeq");
@@ -1548,15 +1548,15 @@ int LoadSpect(const char *path, int control)
 	if(stream.Ok() == FALSE)
 	{
 		error("Failed to open: '%s'",path);
-		delete spectseq;
+		SpectSeqDestroy(spectseq);
 		return(0);
 	}
-	spectseq->Load(stream);
+	LoadSpectSeq(spectseq, stream);
 
 	if(spectseq->frames == NULL)
 	{
 		error("Bad vowel file, no frames: '%s'",path);
-		delete spectseq;
+		SpectSeqDestroy(spectseq);
 		return(0);
 	}
 
@@ -1718,7 +1718,7 @@ int LoadSpect(const char *path, int control)
 		fwrite(&seq_out,ix,1,f_phdata);
 	}
 
-	delete spectseq;
+	SpectSeqDestroy(spectseq);
 	return(displ);
 }  //  end of LoadSpect
 
