@@ -20,16 +20,6 @@
 
 #include "wx/wx.h"
 
-
-#include "wx/wfstream.h"
-#include "wx/image.h"
-#include "wx/filename.h"
-#include "wx/numdlg.h"
-#include "wx/mdi.h"
-#include "wx/laywin.h"
-#include "wx/sashwin.h"
-#include "wx/utils.h"
-#include "wx/html/htmlwin.h"
 #include <locale.h>
 
 #include "speak_lib.h"

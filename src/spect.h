@@ -18,9 +18,6 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-#include "wx/spinctrl.h"
-#include "wx/notebook.h"
-
 #define PROGRAM_NAME _T("Voice Editor")
 
 #define FRAME_WIDTH  1000  // max width for 8000kHz frame
@@ -134,7 +131,6 @@ public:
    int Import(wxInputStream &stream);
    int ImportSPC2(wxInputStream &stream, float &time_acc);
 	int Load(wxInputStream &stream, int file_format_type);
-	int Save(wxOutputStream &stream, int file_format_type);
 
 	void ZeroPeaks();
 	void CopyPeaks(SpectFrame *sf);
@@ -163,12 +159,6 @@ public:
 
    formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
    peak_t peaks[N_PEAKS];
-
-private:
-   void DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitude, double scalex);
-
-   wxFont FONT_SMALL;
-   wxFont FONT_MEDIUM;
 };
 
 class SpectSeq
@@ -178,9 +168,7 @@ public:
 	~SpectSeq();
 	int Import(wxInputStream& stream);
 	int ImportSPC2(wxInputStream& stream);
-	int Save(wxOutputStream& stream, int selection);
 	int Load(wxInputStream& stream);
-	void MakePitchenv(PitchEnvelope &pitch, int start_frame, int end_frame);
 
 	void InterpolatePeaks(int on);
 	void CopyDown(int frame, int direction);
@@ -190,7 +178,6 @@ public:
 	float GetFrameLength(int frame, int plus, int *original_mS);
 	float GetKeyedLength();
 	void SetFrameLengths();
-	void ConstructVowel(void);
 
 	int  numframes;
 	int  amplitude;
@@ -212,8 +199,4 @@ public:
 private:
 	void Load2(wxInputStream& stream, int import, int n);
 	void InterpolatePeak(int peak);
-	void ApplyAmp_adjust(SpectFrame *sp, peak_t *peaks);
-	double scalex;
-	double scaley;
-
 };

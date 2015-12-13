@@ -21,7 +21,6 @@
 
 
 #include "wx/wx.h"
-#include "wx/numdlg.h"
 
 #include "speak_lib.h"
 #include "speech.h"

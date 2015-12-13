@@ -28,7 +28,6 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
-#include "wx/numdlg.h"
 #include "wx/txtstrm.h"
 #include "wx/datstrm.h"
 
@@ -447,76 +446,6 @@ int SpectSeq::Load(wxInputStream & stream)
 }  // end of SpectSeq::Load
 
 
-int SpectSeq::Save(wxOutputStream &stream, int selection)
-{//======================================================
-	int ix;
-	int count=numframes;
-
-	if(selection)
-	{
-		count = CountSelected();
-	}
-	
-	SetFrameLengths();
-	
-	wxDataOutputStream s(stream);
-
-file_format = 2;   // inclue Klatt data in new saves
-
-	s.Write32(FILEID1_SPECTSEQ);
-	if(file_format == 2)
-		s.Write32(FILEID2_SPECTSQ2);
-	else
-	if(file_format == 1)
-		s.Write32(FILEID2_SPECTSEK);
-	else
-		s.Write32(FILEID2_SPECTSEQ);
-
-	s.WriteString(name);
-	s.Write16(count);
-	s.Write16(amplitude);
-	s.Write16(selection ? max_y : 0);
-	s.Write16(0);    // spare
-	for(ix=0; ix<numframes; ix++)
-	{
-		if((selection==0) || frames[ix]->selected)
-		{
-			if(frames[ix]->Save(stream, file_format) != 0) return(1);
-		}
-	}
-	return(0);
-}  // end of SpectSeq::Save
-
-
-
-void SpectSeq::ConstructVowel(void)
-{//================================
-
-// not completed
-
-
-	int ix;
-	int j=0;
-	int frames_selected[4];
-
-	for(ix=0; ix<numframes; ix++)
-	{
-		if(frames[ix]->selected)
-		{
-			if(ix >= 4)
-				break;
-			frames_selected[j++] = ix;
-		}
-	}
-	if(j==0 || j>= 4)
-		return;
-	if(frames_selected[0] == 0)
-		return;
-
-	
-}  // end of ConstructVowel
-
-
 void SpectSeq::InterpolatePeak(int peak)
 {//=====================================
 	int  f, f1=0, f2;
@@ -597,103 +526,6 @@ void SpectSeq::CopyDown(int frame, int direction)
 		}
 	}
 }  //  end of CopyDown
-
-
-void SpectSeq::MakePitchenv(PitchEnvelope &pitchenv, int start_frame, int end_frame)
-{//=================================================================================
-	double f;
-	double min=8000;
-	double max=0;
-	double diff;
-	double t_start = -1;
-	double t_end=0, t_diff;
-	double yy;
-	int  ix;
-	int  x, y;
-	int  xx;
-	int  nx=0;
-   float *ax, *ay;
-
-	memset(pitchenv.env,127,128);
-
-	for(ix=start_frame; ix<=end_frame; ix++)
-	{
-		if((f = frames[ix]->pitch) == 0) continue;
-		nx++;
-
-		t_end = frames[ix]->time;
-		if(t_start < 0) t_start = t_end;
-
-		if(f < min) min = f;
-		if(f > max) max = f;
-	}
-	diff = max-min;
-	t_diff = t_end - t_start;
-
-	if(nx<2 || diff<=0 || t_diff<=0)
-	{
-		// no pitch info, use defaults
-		pitchenv.pitch1=80;
-		pitchenv.pitch2=120;
-		return;
-	}
-
-	pitchenv.pitch1 = int(min);
-	pitchenv.pitch2 = int(max);
-
-	ax = new float [nx+1];
-	ay = new float[nx+1];
-
-	nx = 0;
-	for(ix=start_frame; ix<=end_frame; ix++)
-	{
-		if((f = frames[ix]->pitch) == 0) continue;
-
-		ax[++nx] = (frames[ix]->time - t_start) * 128 / t_diff;
-		ay[nx] = (frames[ix]->pitch - min) * 255 / diff;
-	}
-
-	pitchenv.env[0] = int(ay[1]);
-	pitchenv.env[127] = int(ay[nx]);
-
-	// create pitch envelope by interpolating the time/pitch
-	// values from the spectrum sequence
-	xx = 1;
-	for(x=1; x<127; x++)
-	{
-		while((ax[xx] < x) && (xx < nx)) xx++;
-		if(xx < 3)
-			yy = polint(&ax[xx-1],&ay[xx-1],3,(float)x);
-		else if(xx > nx-1)
-			yy = polint(&ax[xx-2],&ay[xx-2],3,(float)x);
-		else
-			yy = polint(&ax[xx-2],&ay[xx-2],4,(float)x);
-
-		y = int(yy);
-		if(y < 0) y = 0;
-		if(y > 255) y = 255;
-		pitchenv.env[x] = y;
-	}
-
-	delete ax;
-	delete ay;
-}  // end of SpectSeq::MakePitchenv
-
-
-void SpectSeq::ApplyAmp_adjust(SpectFrame *sp, peak_t *peaks)
-{//=============================================================
-	int  ix;
-	int  y;
-
-	memcpy(peaks,sp->peaks,sizeof(*peaks)*N_PEAKS);
-
-	for(ix=0; ix<N_PEAKS; ix++)
-	{
-		y = peaks[ix].pkheight * sp->amp_adjust * amplitude;
-		peaks[ix].pkheight = y / 10000;
-	}
-}  // end of ApplyAmp_adjust
-
 
 
 void PeaksToFrame(SpectFrame *sp1, peak_t *pks, frame_t *fr)

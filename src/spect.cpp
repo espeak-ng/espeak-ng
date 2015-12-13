@@ -28,7 +28,6 @@
 #include "voice.h"
 #include "spect.h"
 #include "wx/txtstrm.h"
-#include "wx/brush.h"
 #include "wx/datstrm.h"
 
 
@@ -37,18 +36,6 @@ extern "C" int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, in
 extern unsigned char pk_shape1[];
 extern int pk_select;
 extern char voice_name[];
-
-wxPen BLUE_PEN(wxColour(0,0,255),2,wxSOLID);
-wxBrush BRUSH_SELECTED_PEAK(wxColour(255,180,180),wxSOLID);
-wxBrush BRUSH_MARKER[N_MARKERS] = {
-	wxBrush(wxColour(200,0,255),wxSOLID),
-	wxBrush(wxColour(255,0,0),wxSOLID),
-	wxBrush(wxColour(255,200,0),wxSOLID),
-	wxBrush(wxColour(0,255,0),wxSOLID),
-	wxBrush(wxColour(0,255,255),wxSOLID),
-	wxBrush(wxColour(200,0,255),wxSOLID),
-	wxBrush(wxColour(200,0,255),wxSOLID),
-	wxBrush(wxColour(255,0,200),wxSOLID) };
 
 #define DRAWPEAKWIDTH 2000
 #define PEAKSHAPEW 256
@@ -67,9 +54,6 @@ SpectFrame::SpectFrame(SpectFrame *copy)
 {//=====================================
 
 	int  ix;
-
-	FONT_SMALL = wxFont(8, wxSWISS, wxNORMAL, wxNORMAL);  // wxWidgets 3, Font creation needs a GTK+ Window
-	FONT_MEDIUM = wxFont(9, wxSWISS, wxNORMAL, wxNORMAL);
 
 	selected = 0;
 	keyframe = 0;
@@ -333,60 +317,6 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 }  //  End of SpectFrame::Load
 
 
-int SpectFrame::Save(wxOutputStream& stream, int file_format_type)
-{//===============================================================
-	int ix;
-
-  	wxDataOutputStream s(stream);
-
-	s.WriteDouble(time);
-	s.WriteDouble(pitch);
-	s.WriteDouble(length);
-	s.WriteDouble(dx);
-	s.Write16(nx);
-	s.Write16(markers);
-	s.Write16(amp_adjust);
-
-	if(file_format_type == 2)
-	{
-		s.Write16(0);  // spare
-		s.Write16(0);  // spare
-	}
-
-	for(ix=0; ix<N_PEAKS; ix++)
-	{
-		s.Write16(formants[ix].freq);
-		s.Write16(formants[ix].bandw);
-
-		s.Write16(peaks[ix].pkfreq);
-		s.Write16(keyframe ? peaks[ix].pkheight : 0);
-		s.Write16(peaks[ix].pkwidth);
-		s.Write16(peaks[ix].pkright);
-
-		if(file_format_type == 2)
-		{
-			s.Write16(peaks[ix].klt_bw);
-			s.Write16(peaks[ix].klt_ap);
-			s.Write16(peaks[ix].klt_bp);
-		}
-	}
-
-	if(file_format_type > 0)
-	{
-		for(ix=0; ix<N_KLATTP2; ix++)
-		{
-			s.Write16(klatt_param[ix]);
-		}
-	}
-
-	for(ix=0; ix<nx; ix++)
-	{
-		s.Write16(spect[ix]);
-	}
-
-	return(0);
-}  //  end of SpectFrame::Save
-
 
 void SpectFrame::ZeroPeaks()
 {//=========================
@@ -439,88 +369,8 @@ double SpectFrame::GetRms(int seq_amplitude)
 		total += ((htab[h] * htab[h]) >> 10);
 	}
 	rms = sqrt(total) / 7.25;
-//	DrawPeaks(NULL,0,0,amp);
 	return(rms);
 }
-
-
-
-void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitude, double scale_x)
-{//==============================================================================================
- // dc==NULL means don't draw, just calculate RMS
-
-	int peak;
-	peak_t *pk;
-	int  x1,x2,x3,width,ix;
-	int  y1, y2;
-	double yy;
-	int max_ix;
-	int height;
-	int pkright;
-	int pkwidth;
-	int buf[DRAWPEAKWIDTH*2];
-
-	max_ix = int(9000 * scale_x);
-
-	memset(buf,0,sizeof(buf));
-	for(peak=0; peak<N_PEAKS; peak++)
-	{
-	   pk = &peaks[peak];
-
-		if((pk->pkfreq == 0) || (pk->pkheight==0)) continue;
-
-		height = pk->pkheight;
-		pkright = pk->pkright;
-		pkwidth = pk->pkwidth;
-
-		x1 = (int)(pk->pkfreq*scale_x);
-		x2 = (int)((pk->pkfreq + pkright)*scale_x);
-		x3 = (int)((pk->pkfreq - pkwidth)*scale_x);
-
-		if(x3 >= DRAWPEAKWIDTH)
-			continue;   // whole peak is off the scale
-
-		if((width = x2-x1) <= 0) continue;
-		for(ix=0; ix<width; ix++)
-		{
-			buf[x1+ix] += height * pk_shape1[(ix*PEAKSHAPEW)/width];
-		}
-
-		if((width = x1-x3) <= 0) continue;
-		for(ix=1; ix<width; ix++)
-		{
-			if(x3+ix >= 0)
-			{
-				buf[x3+ix] += height * pk_shape1[((width-ix)*PEAKSHAPEW)/width];
-			}
-		}
-	}
-
-	rms = buf[0]>>12;
-	rms = rms*rms*23;
-	rms = rms*rms;
-
-	if(dc != NULL) dc->SetPen(*wxGREEN_PEN);
-	x1 = 0;
-	y1 = offy - ((buf[0] * FRAME_HEIGHT) >> 21);
-	for(ix=1; ix<max_ix; ix++)
-	{
-		yy = buf[ix]>>12;
-		yy = yy*yy*23;
-		rms += (yy*yy);
-
-		x2 = ix;
-		y2 = offy - ((buf[ix] * FRAME_HEIGHT) >> 21);
-		if(dc != NULL) dc->DrawLine(x1,y1,x2,y2);
-		x1 = x2;
-		y1 = y2;
-	}
-	rms = sqrt(rms)/200000.0;
-	// apply adjustment from spectseq amplitude
-	rms = rms * seq_amplitude * amp_adjust / 10000.0;
-
-rms = GetRms(seq_amplitude);
-}  // end of SpectFrame::DrawPeaks
 
 
 

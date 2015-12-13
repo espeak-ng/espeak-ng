@@ -21,7 +21,6 @@
 
 #include "wx/wx.h"
 #include "wx/fileconf.h"
-#include "wx/filename.h"
 #include <sys/stat.h>
 #include "speech.h"
 
@@ -29,15 +28,9 @@
 #include "wx/msw/registry.h"
 #endif
 
-wxString path_espeakdata;
-wxString path_spectload;
-wxString path_spectload2;
-wxString path_pitches;
 wxString path_phfile;
 wxString path_phsource;
 wxString path_dictsource;
-wxString path_modifiervoice;
-wxString path_dir1;
 
 char path_source[sizeof(path_home)+20];
 char path_dsource[sizeof(path_home)+20];
@@ -100,34 +93,9 @@ void ConfigInit(bool use_defaults)
 	wxFileConfig::Set(pConfig);
 
 	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
-	if (use_defaults)
-	{
-		path_spectload = basedir + _T("/../phsource");
-		path_spectload2 = basedir + _T("/../phsource");
-		path_pitches = basedir + _T("/pitch");
-		path_phsource = basedir + _T("/../phsource");
-		path_phfile = path_phsource + _T("/phonemes");
-		path_dictsource = basedir + _T("/../dictsource");
-		path_modifiervoice = basedir;
-		path_dir1 = basedir;
-	}
-	else
-	{
-	pConfig->Read(_T("/espeakdata"),&path_espeakdata,wxEmptyString);
-	if(path_espeakdata != wxEmptyString)
-	{
-		strcpy(path_home, path_espeakdata.mb_str(wxConvLocal));
-	}
+	path_phsource = basedir + _T("/../phsource");
+	path_phfile = path_phsource + _T("/phonemes");
+	path_dictsource = basedir + _T("/../dictsource");
 
-	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));
-	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/phsource"));
-	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
-	pConfig->Read(_T("/voicename"),&string,wxEmptyString);
-	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
-	pConfig->Read(_T("/phfile"),&path_phfile,path_phsource+_T("/phonemes"));
-	pConfig->Read(_T("/dictsource"),&path_dictsource,basedir+_T("/dictsource"));
-	pConfig->Read(_T("/modifiervoice"),&path_modifiervoice,basedir);
-	pConfig->Read(_T("/dir1"),&path_dir1,basedir);
-	}
 	ConfigSetPaths();
 }  // end of ConfigInit
