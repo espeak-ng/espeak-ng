@@ -30,8 +30,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern "C" double ConvertFromIeeeExtended(unsigned char *bytes);
-extern "C" int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
+extern double ConvertFromIeeeExtended(unsigned char *bytes);
+extern int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char pk_shape1[];
 extern int pk_select;
@@ -112,7 +112,7 @@ static SpectFrame *SpectFrameCreate()
 	int  ix;
 	SpectFrame *frame;
 
-	frame = new SpectFrame;
+	frame = malloc(sizeof(SpectFrame));
 	frame->keyframe = 0;
 	frame->spect = NULL;
 	frame->markers = 0;
@@ -145,25 +145,25 @@ static SpectFrame *SpectFrameCreate()
 static void SpectFrameDestroy(SpectFrame *frame)
 {
 	if(frame->spect != NULL)
-		delete frame->spect;
-	delete frame;
+		free(frame->spect);
+	free(frame);
 }
 
 
 
-int LoadFrame(SpectFrame &frame, FILE *stream, int file_format_type)
+int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 {//==============================================================
 	short ix;
 	short x;
 	unsigned short *spect_data;
 
-	frame.time = read_double(stream);
-	frame.pitch = read_double(stream);
-	frame.length = read_double(stream);
-	frame.dx = read_double(stream);
-	fread(&frame.nx,sizeof(short),1,stream);
-	fread(&frame.markers,sizeof(short),1,stream);
-	fread(&frame.amp_adjust,sizeof(short),1,stream);
+	frame->time = read_double(stream);
+	frame->pitch = read_double(stream);
+	frame->length = read_double(stream);
+	frame->dx = read_double(stream);
+	fread(&frame->nx,sizeof(short),1,stream);
+	fread(&frame->markers,sizeof(short),1,stream);
+	fread(&frame->amp_adjust,sizeof(short),1,stream);
 
 	if(file_format_type == 2)
 	{
@@ -173,20 +173,20 @@ int LoadFrame(SpectFrame &frame, FILE *stream, int file_format_type)
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		fread(&frame.formants[ix].freq,sizeof(short),1,stream);
-		fread(&frame.formants[ix].bandw,sizeof(short),1,stream);
-		fread(&frame.peaks[ix].pkfreq,sizeof(short),1,stream);
-		fread(&frame.peaks[ix].pkheight,sizeof(short),1,stream);
-		fread(&frame.peaks[ix].pkwidth,sizeof(short),1,stream);
-		fread(&frame.peaks[ix].pkright,sizeof(short),1,stream);
-		if(frame.peaks[ix].pkheight > 0)
-			frame.keyframe = 1;
+		fread(&frame->formants[ix].freq,sizeof(short),1,stream);
+		fread(&frame->formants[ix].bandw,sizeof(short),1,stream);
+		fread(&frame->peaks[ix].pkfreq,sizeof(short),1,stream);
+		fread(&frame->peaks[ix].pkheight,sizeof(short),1,stream);
+		fread(&frame->peaks[ix].pkwidth,sizeof(short),1,stream);
+		fread(&frame->peaks[ix].pkright,sizeof(short),1,stream);
+		if(frame->peaks[ix].pkheight > 0)
+			frame->keyframe = 1;
 
 		if(file_format_type == 2)
 		{
-			fread(&frame.peaks[ix].klt_bw,sizeof(short),1,stream);
-			fread(&frame.peaks[ix].klt_ap,sizeof(short),1,stream);
-			fread(&frame.peaks[ix].klt_bp,sizeof(short),1,stream);
+			fread(&frame->peaks[ix].klt_bw,sizeof(short),1,stream);
+			fread(&frame->peaks[ix].klt_ap,sizeof(short),1,stream);
+			fread(&frame->peaks[ix].klt_bp,sizeof(short),1,stream);
 		}
 	}
 
@@ -194,11 +194,11 @@ int LoadFrame(SpectFrame &frame, FILE *stream, int file_format_type)
 	{
 		for(ix=0; ix<N_KLATTP2; ix++)
 		{
-			fread(frame.klatt_param + ix,sizeof(short),1,stream);
+			fread(frame->klatt_param + ix,sizeof(short),1,stream);
 		}
 	}
 
-	spect_data = new USHORT[frame.nx];
+	spect_data = malloc(sizeof(USHORT) * frame->nx);
 
 	if(spect_data == NULL)
 	{
@@ -206,14 +206,14 @@ int LoadFrame(SpectFrame &frame, FILE *stream, int file_format_type)
 		return(1);
 	}
 
-	frame.max_y = 0;
-	for(ix=0; ix<frame.nx; ix++)
+	frame->max_y = 0;
+	for(ix=0; ix<frame->nx; ix++)
 	{
 		fread(&x,sizeof(short),1,stream);
 		spect_data[ix] = x;
-		if(x > frame.max_y) frame.max_y = x;
+		if(x > frame->max_y) frame->max_y = x;
 	}
-   frame.spect = spect_data;
+   frame->spect = spect_data;
 
 	return(0);
 }  //  End of SpectFrame::Load
@@ -251,7 +251,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 
 SpectSeq *SpectSeqCreate()
 {
-	SpectSeq *spect = new SpectSeq;
+	SpectSeq *spect = malloc(sizeof(SpectSeq));
 
 	spect->numframes = 0;
 	spect->frames = NULL;
@@ -281,26 +281,26 @@ void SpectSeqDestroy(SpectSeq *spect)
 			if(spect->frames[ix] != NULL)
 				SpectFrameDestroy(spect->frames[ix]);
 		}
-		delete spect->frames;
+		free(spect->frames);
 	}
 	free(spect->name);
-	delete spect;
+	free(spect);
 }
 
 
-static float GetFrameLength(SpectSeq &spect, int frame)
+static float GetFrameLength(SpectSeq *spect, int frame)
 {//===============================================================
 	int  ix;
 	float  adjust=0;
 
-	if(frame >= spect.numframes-1) return(0);
+	if(frame >= spect->numframes-1) return(0);
 	
-	for(ix=frame+1; ix<spect.numframes-1; ix++)
+	for(ix=frame+1; ix<spect->numframes-1; ix++)
 	{
-		if(spect.frames[ix]->keyframe) break;  // reached next keyframe
-		adjust += spect.frames[ix]->length_adjust;
+		if(spect->frames[ix]->keyframe) break;  // reached next keyframe
+		adjust += spect->frames[ix]->length_adjust;
 	}
-	return ((spect.frames[ix]->time - spect.frames[frame]->time) * 1000.0 + adjust);
+	return ((spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust);
 }
 
 
@@ -366,9 +366,9 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 			if(spect->frames[ix] != NULL)
 				SpectFrameDestroy(spect->frames[ix]);
 		}
-		delete spect->frames;
+		free(spect->frames);
 	}
-	spect->frames = new SpectFrame* [n];
+	spect->frames = malloc(sizeof(SpectFrame) * n);
 
 	spect->numframes = 0;
 	spect->max_x = 3000;
@@ -381,9 +381,9 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	{
 		SpectFrame *frame = SpectFrameCreate();
 
-		if(LoadFrame(*frame, stream, spect->file_format) != 0)
+		if(LoadFrame(frame, stream, spect->file_format) != 0)
 		{
-			delete frame;
+			free(frame);
 			break;
 		}
 
@@ -391,11 +391,11 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 		if(set_max_y && (frame->max_y > spect->max_y))
 			spect->max_y = frame->max_y;
-		if(frame->nx * frame->dx > spect->max_x) spect->max_x = int(frame->nx * frame->dx);
+		if(frame->nx * frame->dx > spect->max_x) spect->max_x = (int)(frame->nx * frame->dx);
 	}
 spect->max_x = 9000;   // disable auto-xscaling
 
-	frame_width = int((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
+	frame_width = (int)((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
 	if(frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
 
 
@@ -406,7 +406,7 @@ spect->max_x = 9000;   // disable auto-xscaling
 
 	spect->pitch1 = spect->pitchenv.pitch1;
 	spect->pitch2 = spect->pitchenv.pitch2;
-	spect->duration = int(spect->frames[spect->numframes-1]->time * 1000);
+	spect->duration = (int)(spect->frames[spect->numframes-1]->time * 1000);
 
 if(spect->max_y < 400)
 	spect->max_y = 200;
@@ -416,7 +416,7 @@ else
 	for(ix=0; ix<spect->numframes; ix++)
 	{
 		if(spect->frames[ix]->keyframe)
-			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(*spect,ix);
+			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(spect,ix);
 	}
 	return(0);
 }  // end of SpectSeq::Load

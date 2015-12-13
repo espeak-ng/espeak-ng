@@ -67,6 +67,7 @@ common_SOURCE = \
 	src/libespeak-ng/readclause.c \
 	src/libespeak-ng/phonemelist.c \
 	src/libespeak-ng/setlengths.c \
+	src/libespeak-ng/spect.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
@@ -82,8 +83,7 @@ libespeak_ng_SOURCE = \
 
 espeakedit_SOURCE = \
 	src/compiledata.cpp \
-	src/espeakedit.cpp \
-	src/spect.cpp
+	src/espeakedit.cpp
 
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT

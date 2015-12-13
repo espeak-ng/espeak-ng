@@ -18,6 +18,11 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #define FRAME_WIDTH  1000  // max width for 8000kHz frame
 #define MAX_DISPLAY_FREQ 9500
 #define FRAME_HEIGHT 240
@@ -83,7 +88,7 @@ typedef struct {
 }  peak_t;
 
 
-struct SpectFrame
+typedef struct
 {
 	int keyframe;
 	short amp_adjust;
@@ -103,11 +108,11 @@ struct SpectFrame
 
    formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
    peak_t peaks[N_PEAKS];
-};
+} SpectFrame;
 
 double GetFrameRms(SpectFrame *frame, int amp);
 
-struct SpectSeq
+typedef struct
 {
 	int  numframes;
 	short amplitude;
@@ -124,8 +129,12 @@ struct SpectSeq
 	int max_x;
 	short max_y;
 	int file_format;
-};
+} SpectSeq;
 
 SpectSeq *SpectSeqCreate();
 void SpectSeqDestroy(SpectSeq *spect);
 int LoadSpectSeq(SpectSeq *spect, const char *filename);
+
+#ifdef __cplusplus
+}
+#endif
