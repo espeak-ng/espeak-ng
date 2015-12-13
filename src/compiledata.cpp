@@ -1623,7 +1623,7 @@ int LoadSpect(const char *path, int control)
 
 			fr_out->frflags = fr->markers | klatt_flag;
 
-			rms = int(fr->GetRms(spectseq->amplitude));
+			rms = int(GetFrameRms(fr, spectseq->amplitude));
 			if(rms > 255) rms = 255;
 			fr_out->rms = rms;
 

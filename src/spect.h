@@ -91,8 +91,6 @@ public:
 	SpectFrame(SpectFrame *copy=NULL);
 	~SpectFrame();
 
-	double GetRms(int amp);
-
 	int keyframe;
 	int amp_adjust;
 	float length_adjust;
@@ -112,6 +110,8 @@ public:
    formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
    peak_t peaks[N_PEAKS];
 };
+
+double GetFrameRms(SpectFrame *frame, int amp);
 
 class SpectSeq
 {//===========

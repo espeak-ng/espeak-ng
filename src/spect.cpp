@@ -222,7 +222,7 @@ int LoadFrame(SpectFrame &frame, wxInputStream& stream, int file_format_type)
 
 
 
-double SpectFrame::GetRms(int seq_amplitude)
+double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 {//=========================================
 	int h;
 	float total=0;
@@ -233,12 +233,12 @@ double SpectFrame::GetRms(int seq_amplitude)
 
 	for(h=0; h<9; h++)
 	{
-		height = (peaks[h].pkheight * seq_amplitude * amp_adjust)/10000;
+		height = (frame->peaks[h].pkheight * seq_amplitude * frame->amp_adjust)/10000;
 		wpeaks[h].height = height << 8;
 
-		wpeaks[h].freq = peaks[h].pkfreq << 16;
-		wpeaks[h].left = peaks[h].pkwidth << 16;
-		wpeaks[h].right = peaks[h].pkright << 16;
+		wpeaks[h].freq = frame->peaks[h].pkfreq << 16;
+		wpeaks[h].left = frame->peaks[h].pkwidth << 16;
+		wpeaks[h].right = frame->peaks[h].pkright << 16;
 	}
 
 	maxh = PeaksToHarmspect(wpeaks,90<<16,htab,0);
@@ -246,8 +246,8 @@ double SpectFrame::GetRms(int seq_amplitude)
 	{
 		total += ((htab[h] * htab[h]) >> 10);
 	}
-	rms = sqrt(total) / 7.25;
-	return(rms);
+	frame->rms = sqrt(total) / 7.25;
+	return(frame->rms);
 }
 
 
