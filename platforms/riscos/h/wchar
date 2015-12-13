@@ -1,3 +1,0 @@
-
-const wchar_t *wcschr(const wchar_t *str, int c);
-
