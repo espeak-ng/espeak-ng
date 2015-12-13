@@ -83,8 +83,7 @@ espeakedit_SOURCE = \
 	src/compiledata.cpp \
 	src/espeakedit.cpp \
 	src/prosodydisplay.cpp \
-	src/spect.cpp \
-	src/spectseq.cpp
+	src/spect.cpp
 
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT
