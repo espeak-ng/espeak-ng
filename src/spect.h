@@ -18,8 +18,6 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-#define PROGRAM_NAME _T("Voice Editor")
-
 #define FRAME_WIDTH  1000  // max width for 8000kHz frame
 #define MAX_DISPLAY_FREQ 9500
 #define FRAME_HEIGHT 240
@@ -88,7 +86,7 @@ typedef struct {
 struct SpectFrame
 {
 	int keyframe;
-	int amp_adjust;
+	short amp_adjust;
 	float length_adjust;
 	double rms;
 
@@ -96,8 +94,8 @@ struct SpectFrame
    float pitch;
    float length;
    float dx;
-   int  nx;
-   int  markers;
+   unsigned short nx;
+   short markers;
 	int  max_y;
    USHORT *spect;    // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 

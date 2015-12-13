@@ -61,6 +61,7 @@ common_SOURCE = \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
+	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
 	src/libespeak-ng/numbers.c \
 	src/libespeak-ng/readclause.c \

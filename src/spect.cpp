@@ -18,22 +18,19 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-
-#include "wx/wx.h"
-
 #include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
-#include "wx/wfstream.h"
-#include "wx/txtstrm.h"
-#include "wx/datstrm.h"
 
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
+extern "C" double ConvertFromIeeeExtended(unsigned char *bytes);
 extern "C" int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char pk_shape1[];
@@ -53,9 +50,11 @@ static int default_width[N_PEAKS] =
 static int default_klt_bw[N_PEAKS] =
 	{89,90,140,260,260,260,500,500,500};
 
-static void fread(void *ptr, int size, int count, wxInputStream &stream)
+static double read_double(FILE *stream)
 {
-	stream.Read(ptr, count*size);
+	unsigned char bytes[10];
+	fread(bytes,sizeof(char),10,stream);
+	return ConvertFromIeeeExtended(bytes);
 }
 
 float polint(float xa[],float ya[],int n,float x)
@@ -152,43 +151,42 @@ static void SpectFrameDestroy(SpectFrame *frame)
 
 
 
-int LoadFrame(SpectFrame &frame, wxInputStream& stream, int file_format_type)
+int LoadFrame(SpectFrame &frame, FILE *stream, int file_format_type)
 {//==============================================================
-	int  ix;
-	int  x;
+	short ix;
+	short x;
 	unsigned short *spect_data;
 
-   wxDataInputStream s(stream);
-
-	frame.time = s.ReadDouble();
-	frame.pitch = s.ReadDouble();
-	frame.length = s.ReadDouble();
-	frame.dx = s.ReadDouble();
-	frame.nx = s.Read16();
-	frame.markers = s.Read16();
-	frame.amp_adjust = s.Read16();
+	frame.time = read_double(stream);
+	frame.pitch = read_double(stream);
+	frame.length = read_double(stream);
+	frame.dx = read_double(stream);
+	fread(&frame.nx,sizeof(short),1,stream);
+	fread(&frame.markers,sizeof(short),1,stream);
+	fread(&frame.amp_adjust,sizeof(short),1,stream);
 
 	if(file_format_type == 2)
 	{
-		ix = s.Read16();  // spare
-		ix = s.Read16();  // spare
+		fread(&ix,sizeof(short),1,stream); // spare
+		fread(&ix,sizeof(short),1,stream); // spare
 	}
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		frame.formants[ix].freq = s.Read16();
-		frame.formants[ix].bandw = s.Read16();
-		frame.peaks[ix].pkfreq = s.Read16();
-		if((frame.peaks[ix].pkheight = s.Read16()) > 0)
+		fread(&frame.formants[ix].freq,sizeof(short),1,stream);
+		fread(&frame.formants[ix].bandw,sizeof(short),1,stream);
+		fread(&frame.peaks[ix].pkfreq,sizeof(short),1,stream);
+		fread(&frame.peaks[ix].pkheight,sizeof(short),1,stream);
+		fread(&frame.peaks[ix].pkwidth,sizeof(short),1,stream);
+		fread(&frame.peaks[ix].pkright,sizeof(short),1,stream);
+		if(frame.peaks[ix].pkheight > 0)
 			frame.keyframe = 1;
-		frame.peaks[ix].pkwidth = s.Read16();
-		frame.peaks[ix].pkright = s.Read16();
 
 		if(file_format_type == 2)
 		{
-			frame.peaks[ix].klt_bw = s.Read16();
-			frame.peaks[ix].klt_ap = s.Read16();
-			frame.peaks[ix].klt_bp = s.Read16();
+			fread(&frame.peaks[ix].klt_bw,sizeof(short),1,stream);
+			fread(&frame.peaks[ix].klt_ap,sizeof(short),1,stream);
+			fread(&frame.peaks[ix].klt_bp,sizeof(short),1,stream);
 		}
 	}
 
@@ -196,7 +194,7 @@ int LoadFrame(SpectFrame &frame, wxInputStream& stream, int file_format_type)
 	{
 		for(ix=0; ix<N_KLATTP2; ix++)
 		{
-			frame.klatt_param[ix] = s.Read16();
+			fread(frame.klatt_param + ix,sizeof(short),1,stream);
 		}
 	}
 
@@ -204,14 +202,15 @@ int LoadFrame(SpectFrame &frame, wxInputStream& stream, int file_format_type)
 
 	if(spect_data == NULL)
 	{
-		wxLogError(_T("Failed to allocate memory"));
+		fprintf(stderr,"Failed to allocate memory\n");
 		return(1);
 	}
 
 	frame.max_y = 0;
 	for(ix=0; ix<frame.nx; ix++)
 	{
-		x = spect_data[ix] = s.Read16();
+		fread(&x,sizeof(short),1,stream);
+		spect_data[ix] = x;
 		if(x > frame.max_y) frame.max_y = x;
 	}
    frame.spect = spect_data;
@@ -314,8 +313,8 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	int set_max_y=0;
 	float time_offset;
 
-	wxFileInputStream stream(filename);
-	if(stream.Ok() == FALSE)
+	FILE *stream = fopen(filename, "rb");
+	if(stream == NULL)
 	{
 		fprintf(stderr, "Failed to open: '%s'", filename);
 		return(0);
