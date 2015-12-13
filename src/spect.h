@@ -128,7 +128,6 @@ class SpectFrame
 public:
 	SpectFrame(SpectFrame *copy=NULL);
 	~SpectFrame();
-   int Import(wxInputStream &stream);
    int ImportSPC2(wxInputStream &stream, float &time_acc);
 	int Load(wxInputStream &stream, int file_format_type);
 
@@ -166,7 +165,6 @@ class SpectSeq
 public:
 	SpectSeq(int nframes=0);
 	~SpectSeq();
-	int Import(wxInputStream& stream);
 	int ImportSPC2(wxInputStream& stream);
 	int Load(wxInputStream& stream);
 

@@ -158,65 +158,6 @@ SpectFrame::~SpectFrame()
 		delete spect;
 }
 
-int SpectFrame::Import(wxInputStream& stream1)
-{//==========================================
-// Import Pratt analysis data
-	int ix;
-	double x;
-	unsigned short *spect_data;
-
-	wxTextInputStream stream(stream1);
-
-	stream >> time;
-	stream >> pitch;
-	stream >> nx;
-	stream >> dx;
-
-	if(stream1.Eof())
-		return(1);
-
-	for(ix=0; ix<N_PEAKS; ix++)
-	{
-		peaks[ix].pkfreq = default_freq[ix];
-		peaks[ix].pkheight = 0;
-		peaks[ix].pkwidth = default_width[ix];
-		peaks[ix].pkright = default_width[ix];
-	}
-	for(ix=1; ix<=5; ix++)
-	{
-      stream >> x;
-		formants[ix].freq = (int)x;
-
-		if(x > 0)
-			peaks[ix].pkfreq = (int)x;
-
-      stream >> x;
-		formants[ix].bandw = (int)x;
-	}
-
-	spect_data = new USHORT[nx];
-
-	if(spect_data == NULL)
-	{
-		wxLogError(_T("Failed to allocate memory"));
-		return(1);
-	}
-
-	max_y = 0;
-	for(ix=0; ix<nx; ix++)
-	{
-		stream >> x;
-		spect_data[ix] = (int)(sqrt(x) * 16386);
-		if(spect_data[ix] > max_y)
-			max_y = spect_data[ix];
-	}
-   spect = spect_data;
-
-	return(0);
-}  //  End of SpectFrame::Import
-
-
-
 int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 {//===============================================================
 	int ix;
@@ -666,15 +607,6 @@ void SpectSeq::Load2(wxInputStream& stream, int import, int n)
 	{
 		SpectFrame *frame = new SpectFrame;
 
-		if(import==1)
-		{
-			if(frame->Import(stream) != 0)
-			{
-				delete frame;
-				break;
-			}
-		}
-		else
 		if(import==2)
 		{
 			if(frame->ImportSPC2(stream,time_acc) != 0)
@@ -718,23 +650,6 @@ if(max_y < 400)
 else
 	max_y = 29000;  // disable auto height scaling
 }  // end of SpectSeq::Load2
-
-
-int SpectSeq::Import(wxInputStream& stream)
-{//========================================
-// Import data from Pratt analysis
-	int  n = 0;
-
-
-	wxTextInputStream text_stream(stream);
-	name = _T("");
-	text_stream >> n;
-	amplitude = 100;
-	max_y = 0;
-
-	Load2(stream,1,n);
-	return(0);
-}  // end of SpectSeq::Import
 
 
 int SPC2_size_cycle(CYCLE *cy)
@@ -821,9 +736,8 @@ int SpectSeq::Load(wxInputStream & stream)
 	}
 	else
 	{
-		// Praat analysis data
-		stream.SeekI(0);
-		return(Import(stream));
+		fprintf(stderr, "Unsupported spectral file format.\n");
+		return(1);
 	}
 
 	name = s.ReadString();
