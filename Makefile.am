@@ -58,6 +58,7 @@ libespeak_ng_include_HEADERS = \
 
 common_FLAGS  = -Isrc/include/espeak-ng
 common_SOURCE = \
+	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
@@ -82,7 +83,6 @@ libespeak_ng_SOURCE = \
 	src/libespeak-ng/debug.c
 
 espeakedit_SOURCE = \
-	src/compiledata.cpp \
 	src/espeakedit.cpp
 
 if OPT_KLATT

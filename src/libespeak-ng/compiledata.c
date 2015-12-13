@@ -46,14 +46,8 @@ typedef struct {
 NAMETAB *manifest = NULL;
 int n_manifest;
 
-extern char path_source[sizeof(path_home)+20];
-
-extern int progress_max;
-extern int gui_flag;
-extern char voice_name2[40];
-
-extern "C" int utf8_in(int *c, const char *buf);
-extern "C" int utf8_out(unsigned int c, char *buf);
+extern int utf8_in(int *c, const char *buf);
+extern int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
 
 typedef struct {
@@ -468,8 +462,6 @@ static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
 	const char *name;
 	char buf[120];
 
-	static const char *INV = "Invalid";
-
 	static const char *instn_category_string[16] = {
 		"", "", "IF", "IF OR",
 		"", "", "", "",
@@ -489,8 +481,8 @@ static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
 	};
 
 	static const char *instn_jumps[] = {
-		"JMP", INV, INV, INV,
-		"JMP false", "SwitchNextVowelType", "SwitchPrevVowelType", INV};
+		"JMP", "Invalid", "Invalid", "Invalid",
+		"JMP false", "SwitchNextVowelType", "SwitchPrevVowelType", "Invalid"};
 
 	static char instn1_paramtype[] = {
 		0, 3, 3, 3, 3, 3, 3, 1,
@@ -679,7 +671,7 @@ static FILE *f_phdata;
 static FILE *f_phindex;
 static FILE *f_phtab;
 static FILE *f_phcontents;
-static FILE *f_errors = stderr;
+static FILE *f_errors = NULL;
 static FILE *f_prog_log = NULL;
 static FILE *f_report;
 
@@ -1531,7 +1523,7 @@ int LoadSpect(const char *path, int control)
 		return(0);
 	}
 
-	snprintf(filename, sizeof(filename), "%s/%s", path_source, path);
+	snprintf(filename, sizeof(filename), "%s/../phsource/%s", path_home, path);
 	LoadSpectSeq(spectseq, filename);
 
 	if(spectseq->frames == NULL)
@@ -1577,7 +1569,7 @@ int LoadSpect(const char *path, int control)
 				total += spectseq->frames[frame-1]->length;
 		}
 	}
-	seq_out.length_total = int(total);
+	seq_out.length_total = (int)total;
 
 	if((control & 1) && (marker1_set == 0))
 	{
@@ -1598,13 +1590,13 @@ int LoadSpect(const char *path, int control)
 			else
 				fr_out = (frame_t *)&seq_out.frame[n_frames];
 
-			x = int(fr->length + 0.5);  // round to nearest mS
+			x = (int)(fr->length + 0.5);  // round to nearest mS
 			if(x > 255) x = 255;
 			fr_out->length = x;
 
 			fr_out->frflags = fr->markers | klatt_flag;
 
-			rms = int(GetFrameRms(fr, spectseq->amplitude));
+			rms = (int)GetFrameRms(fr, spectseq->amplitude);
 			if(rms > 255) rms = 255;
 			fr_out->rms = rms;
 
@@ -1621,7 +1613,7 @@ int LoadSpect(const char *path, int control)
 				pkheight = spectseq->amplitude * fr->amp_adjust * fr->peaks[peak].pkheight;
 				pkheight = pkheight/640000;
 				if(pkheight > 255) pkheight = 255;
-				fr_out->fheight[peak] = int(pkheight);
+				fr_out->fheight[peak] = (int)pkheight;
 
 				if(peak < 6)
 				{
@@ -1733,7 +1725,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 	if((sr1 != samplerate_native) || (sr2 != sr1*2))
 	{
         int fd_temp;
-        char command[sizeof(path_source)+200];
+        char command[sizeof(path_home)+250];
 
 	    failed = 0;
 
@@ -1756,7 +1748,7 @@ static int LoadWavefile(FILE *f, const char *fname)
             fname2 = msg;
         }
 
-        sprintf(command,"sox \"%s%s.wav\" -r %d -c1 -t wav %s\n",path_source,fname2,samplerate_native, fname_temp);
+        sprintf(command,"sox \"%s/../phsource/%s.wav\" -r %d -c1 -t wav %s\n",path_home,fname2,samplerate_native, fname_temp);
         if(system(command) != 0)
         {
             failed = 1;
@@ -1851,8 +1843,8 @@ static int LoadWavefile(FILE *f, const char *fname)
 		}
 		else
 		{
-			x = (float(sample) / scale_factor) + 0.5;
-			sample2= int(x);
+			x = ((float)sample / scale_factor) + 0.5;
+			sample2= (int)x;
 			if(sample2 > 127)
 				sample2 = 127;
 			if(sample2 < -128)
@@ -1969,8 +1961,8 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 
 		if(env_lin[ix2] > 0)
 		{
-			yy = env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * (float(x) - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2]);
-			y = int(yy * 2.55);
+			yy = env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * ((float)x - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2]);
+			y = (int)(yy * 2.55);
 		}
 		else
 		if(n_points > 3)
@@ -2007,7 +1999,7 @@ static int LoadDataFile(const char *path, int control)
 	int addr = 0;
 	int type_code=' ';
 	REF_HASH_TAB *p, *p2;
-	char buf[sizeof(path_source)+120];
+	char buf[sizeof(path_home)+150];
 
 	if(strcmp(path,"NULL")==0)
 		return(0);
@@ -2031,11 +2023,11 @@ static int LoadDataFile(const char *path, int control)
 
 	if(addr == 0)
 	{
-		sprintf(buf,"%s%s",path_source,path);
+		sprintf(buf,"%s/../phsource/%s",path_home,path);
 
 		if((f = fopen(buf,"rb")) == NULL)
 		{
-			sprintf(buf,"%s%s.wav",path_source,path);
+			sprintf(buf,"%s/../phsource/%s.wav",path_home,path);
 			if((f = fopen(buf,"rb")) == NULL)
 			{
 				error("Can't read file: %s",path);
@@ -3119,7 +3111,7 @@ static void EndPhonemeTable()
 		if(phoneme_tab2[ix].type == phINVALID)
 		{
 			fprintf(f_errors,"%3d: Phoneme [%s] not declared, referenced at line %d\n",linenum,
-				WordToString(phoneme_tab2[ix].mnemonic),int(phoneme_tab2[ix].program));
+				WordToString(phoneme_tab2[ix].mnemonic),(int)(phoneme_tab2[ix].program));
 			error_count++;
 			phoneme_tab2[ix].type = 0;   // prevent the error message repeating
 		}
@@ -3220,11 +3212,9 @@ static void CompileEquivalents()
 	char line_buf[80];
 	char names[6][80];
 	char phcode[7];
-	char save_voice_name[80];
 
 	NextItem(tSTRING);
 	strcpy(foreign_table_name, item_string);
-	strcpy(save_voice_name,voice_name2);
 
 	if((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0)
 	{
@@ -3307,12 +3297,6 @@ static void CompileEquivalents()
 	n_bytes = n_bytes / 4;
 	p_start[2] = n_bytes >> 8;    // index of next table
 	p_start[3] = n_bytes;
-
-    if(gui_flag != 0)
-    {
-        LoadVoice(voice_name2,0);  // reset the original phoneme table
-        LoadVoiceVariant(save_voice_name,0);
-    }
 }  // end of CompileEquivalents
 
 
@@ -3321,7 +3305,7 @@ static void CompilePhonemeFiles()
 {//==============================
 	int item;
 	FILE *f;
-	char buf[sizeof(path_source)+120];
+	char buf[sizeof(path_home)+120];
 
 	linenum = 1;
 
@@ -3354,7 +3338,7 @@ static void CompilePhonemeFiles()
 
 		case kINCLUDE:
 			NextItem(tSTRING);
-			sprintf(buf,"%s%s",path_source,item_string);
+			sprintf(buf,"%s/../phsource/%s",path_home,item_string);
 
 			if((stack_ix < N_STACK) && (f = fopen_log(f_errors,buf,"rb")) != NULL)
 			{
@@ -3410,13 +3394,14 @@ static void CompilePhonemeFiles()
 
 static void CompilePhonemeData2(const char *source, FILE *log)
 {//================================================
-	char fname[sizeof(path_source)+40];
+	char fname[sizeof(path_home)+40];
+	sprintf(fname,"%s/../phsource",path_home);
 
 #ifdef MAKE_ENVELOPES
 make_envs();
 #endif
 
-	fprintf(log,"Compiling phoneme data: %s\n",path_source);
+	fprintf(log,"Compiling phoneme data: %s\n",fname);
 	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
@@ -3424,15 +3409,15 @@ make_envs();
 
 	f_errors = log;
 
-	if(!access(path_source, 755))
+	if(!access(fname, 755))
 	{
-		fprintf(log,"Can't find phoneme source directory: %s\n",path_source);
+		fprintf(log,"Can't find phoneme source directory: %s\n",fname);
 		return;
 	}
 
 	strncpy0(current_fname,source,sizeof(current_fname));
 
-	sprintf(fname,"%s/%s",path_source,"phonemes");
+	sprintf(fname,"%s/../phsource/phonemes",path_home);
 	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
 	{
@@ -3440,20 +3425,11 @@ make_envs();
 		return;
 	}
 
-	progress_max = 0;
-	while(fgets(fname,sizeof(fname),f_in) != NULL)
-	{
-		// count the number of phoneme tables declared in the master phonemes file
-		if(memcmp(fname,"phonemetable",12)==0)
-			progress_max++;
-	}
-	rewind(f_in);
-
-	sprintf(fname,"%s%s",path_source,"error_log");
+	sprintf(fname,"%s/../phsource/%s",path_home,"error_log");
 	if((f_errors = fopen_log(f_errors,fname,"w")) == NULL)
 		f_errors = stderr;
 
-	sprintf(fname,"%s%s",path_source,"compile_report");
+	sprintf(fname,"%s/../phsource/%s",path_home,"compile_report");
 	f_report = fopen_log(f_errors, fname,"w");
 
 
@@ -3477,8 +3453,8 @@ make_envs();
 "#  -------  ---------\n");
 
 
-	fprintf(f_errors, "Source data path = '%s'\n", path_source);
-	fprintf(f_errors, "Master phonemes file = '%s/phonemes'\n", path_source);
+	fprintf(f_errors, "Source data path = '%s/../phsource'\n", path_home);
+	fprintf(f_errors, "Master phonemes file = '%s/../phsource/phonemes'\n", path_home);
 	fprintf(f_errors, "Output to '%s/'\n\n", path_home);
 
 	sprintf(fname,"%s/%s",path_home,"phondata");
@@ -3495,10 +3471,10 @@ make_envs();
 		return;
 	}
 
-	sprintf(fname,"%scompile_prog_log",path_source);
+	sprintf(fname,"%s/../phsource/compile_prog_log",path_home);
 	f_prog_log = fopen_log(f_errors,fname,"wb");
 
-	fprintf(log,"Compiling phoneme data: %s\n",path_source);
+	fprintf(log,"Compiling phoneme data: %s/../phsource\n",path_home);
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(f_phdata,version_phdata);
@@ -3525,9 +3501,6 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	fclose(f_phcontents);
 
 	LoadPhData(NULL);
-
-	if(gui_flag != 0)
-        LoadVoice(voice_name2,0);
 
 	CompileReport();
 #ifdef MAKE_ENVELOPES
@@ -3590,7 +3563,7 @@ MNEM_TAB envelope_names[] = {
 //	env_rise2, env_rise2,
 //	env_risefallrise, env_risefallrise
 
-int LookupEnvelope(const char *name)
+int LookupEnvelopeName(const char *name)
 {//=================================
 	return(LookupMnem(envelope_names, name));
 }
@@ -3617,15 +3590,15 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 	char name[12];
 	char tune_names[N_TUNE_NAMES][12];
-	char buf[sizeof(path_source)+120];
+	char buf[sizeof(path_home)+150];
 
 	error_count = 0;
 	f_errors = log;
 
-	sprintf(buf,"%sintonation.txt",path_source);
+	sprintf(buf,"%s/../phsource/intonation.txt",path_home);
 	if((f_in = fopen(buf, "r")) == NULL)
 	{
-		sprintf(buf,"%sintonation",path_source);
+		sprintf(buf,"%s/../phsource/intonation",path_home);
 		if((f_in = fopen_log(f_errors, buf, "r")) == NULL)
 		{
 			fprintf(log,"Can't read file: %s\n",buf);
@@ -3654,7 +3627,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 			while(isspace(*p)) p++;
 
 			ix = 0;
-			while((ix < int(sizeof(name) - 1)) && !isspace(*p))
+			while((ix < (int)(sizeof(name) - 1)) && !isspace(*p))
 			{
 				name[ix++] = *p++;
 			}
@@ -3780,7 +3753,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 		case kTUNE_HEADENV:
 			NextItem(tSTRING);
-			if((ix = LookupEnvelope(item_string)) < 0)
+			if((ix = LookupEnvelopeName(item_string)) < 0)
 				error("Bad envelope name: '%s'",item_string);
 			else
 				new_tune.stressed_env = ix;
@@ -3797,7 +3770,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 		case kTUNE_HEADEXTEND:
 			// up to 8 numbers
-			for(ix=0; ix < int(sizeof(new_tune.head_extend)); ix++)
+			for(ix=0; ix < (int)(sizeof(new_tune.head_extend)); ix++)
 			{
 				if(!isdigit(c = CheckNextChar()) && (c != '-'))
 					break;
@@ -3809,7 +3782,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 		case kTUNE_NUCLEUS0:
 			NextItem(tSTRING);
-			if((ix = LookupEnvelope(item_string)) < 0)
+			if((ix = LookupEnvelopeName(item_string)) < 0)
 			{
 				error("Bad envelope name: '%s'",item_string);
 				break;
@@ -3821,7 +3794,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 		case kTUNE_NUCLEUS1:
 			NextItem(tSTRING);
-			if((ix = LookupEnvelope(item_string)) < 0)
+			if((ix = LookupEnvelopeName(item_string)) < 0)
 			{
 				error("Bad envelope name: '%s'",item_string);
 				break;
@@ -3845,7 +3818,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 		case kTUNE_SPLIT:
 			NextItem(tSTRING);
-			if((ix = LookupEnvelope(item_string)) < 0)
+			if((ix = LookupEnvelopeName(item_string)) < 0)
 			{
 				error("Bad envelope name: '%s'",item_string);
 				break;
