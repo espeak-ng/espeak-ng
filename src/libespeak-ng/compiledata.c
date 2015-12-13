@@ -3392,7 +3392,7 @@ static void CompilePhonemeFiles()
 
 
 
-static void CompilePhonemeData2(const char *source, FILE *log)
+static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 {//================================================
 	char fname[sizeof(path_home)+40];
 	sprintf(fname,"%s/../phsource",path_home);
@@ -3412,7 +3412,7 @@ make_envs();
 	if(!access(fname, 755))
 	{
 		fprintf(log,"Can't find phoneme source directory: %s\n",fname);
-		return;
+		return ENE_READ_ERROR;
 	}
 
 	strncpy0(current_fname,source,sizeof(current_fname));
@@ -3422,7 +3422,7 @@ make_envs();
 	if(f_in == NULL)
 	{
 		fprintf(log,"Can't read master phonemes file: %s\n",fname);
-		return;
+		return ENE_READ_ERROR;
 	}
 
 	sprintf(fname,"%s/../phsource/%s",path_home,"error_log");
@@ -3468,7 +3468,7 @@ make_envs();
 
 	if(f_phdata==NULL || f_phindex==NULL || f_phtab==NULL)
 	{
-		return;
+		return ENE_WRITE_ERROR;
 	}
 
 	sprintf(fname,"%s/../phsource/compile_prog_log",path_home);
@@ -3521,6 +3521,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
         fclose(f_errors);
 
     ReadPhondataManifest();
+    return ENS_OK;
 }  // end of CompilePhonemeData
 
 
@@ -3569,7 +3570,9 @@ int LookupEnvelopeName(const char *name)
 }
 
 
-espeak_ng_STATUS CompileIntonation(FILE *log)
+#pragma GCC visibility push(default)
+
+espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 {//=====================
 	int ix;
 	char *p;
@@ -3870,9 +3873,11 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 
 
-void CompilePhonemeData(long rate, FILE *log)
+espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log)
 {
     WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
-	CompilePhonemeData2("phonemes", log);
+	return CompilePhonemeData2("phonemes", log);
 }
+
+#pragma GCC visibility pop
