@@ -90,7 +90,6 @@ class SpectFrame
 public:
 	SpectFrame(SpectFrame *copy=NULL);
 	~SpectFrame();
-	int Load(wxInputStream &stream, int file_format_type);
 
 	double GetRms(int amp);
 

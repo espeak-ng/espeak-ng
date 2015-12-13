@@ -153,7 +153,7 @@ SpectFrame::~SpectFrame()
 
 
 
-int SpectFrame::Load(wxInputStream& stream, int file_format_type)
+int LoadFrame(SpectFrame &frame, wxInputStream& stream, int file_format_type)
 {//==============================================================
 	int  ix;
 	int  x;
@@ -161,13 +161,13 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 
    wxDataInputStream s(stream);
 
-	time = s.ReadDouble();
-	pitch = s.ReadDouble();
-	length = s.ReadDouble();
-	dx = s.ReadDouble();
-	nx = s.Read16();
-	markers = s.Read16();
-	amp_adjust = s.Read16();
+	frame.time = s.ReadDouble();
+	frame.pitch = s.ReadDouble();
+	frame.length = s.ReadDouble();
+	frame.dx = s.ReadDouble();
+	frame.nx = s.Read16();
+	frame.markers = s.Read16();
+	frame.amp_adjust = s.Read16();
 
 	if(file_format_type == 2)
 	{
@@ -177,19 +177,19 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		formants[ix].freq = s.Read16();
-		formants[ix].bandw = s.Read16();
-		peaks[ix].pkfreq = s.Read16();
-		if((peaks[ix].pkheight = s.Read16()) > 0)
-			keyframe = 1;
-		peaks[ix].pkwidth = s.Read16();
-		peaks[ix].pkright = s.Read16();
+		frame.formants[ix].freq = s.Read16();
+		frame.formants[ix].bandw = s.Read16();
+		frame.peaks[ix].pkfreq = s.Read16();
+		if((frame.peaks[ix].pkheight = s.Read16()) > 0)
+			frame.keyframe = 1;
+		frame.peaks[ix].pkwidth = s.Read16();
+		frame.peaks[ix].pkright = s.Read16();
 
 		if(file_format_type == 2)
 		{
-			peaks[ix].klt_bw = s.Read16();
-			peaks[ix].klt_ap = s.Read16();
-			peaks[ix].klt_bp = s.Read16();
+			frame.peaks[ix].klt_bw = s.Read16();
+			frame.peaks[ix].klt_ap = s.Read16();
+			frame.peaks[ix].klt_bp = s.Read16();
 		}
 	}
 
@@ -197,11 +197,11 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 	{
 		for(ix=0; ix<N_KLATTP2; ix++)
 		{
-			klatt_param[ix] = s.Read16();
+			frame.klatt_param[ix] = s.Read16();
 		}
 	}
 
-	spect_data = new USHORT[nx];
+	spect_data = new USHORT[frame.nx];
 
 	if(spect_data == NULL)
 	{
@@ -209,13 +209,13 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 		return(1);
 	}
 
-	max_y = 0;
-	for(ix=0; ix<nx; ix++)
+	frame.max_y = 0;
+	for(ix=0; ix<frame.nx; ix++)
 	{
 		x = spect_data[ix] = s.Read16();
-		if(x > max_y) max_y = x;
+		if(x > frame.max_y) frame.max_y = x;
 	}
-   spect = spect_data;
+   frame.spect = spect_data;
 
 	return(0);
 }  //  End of SpectFrame::Load
@@ -358,7 +358,7 @@ int SpectSeq::Load(wxInputStream & stream)
 	{
 		SpectFrame *frame = new SpectFrame;
 
-		if(frame->Load(stream, file_format) != 0)
+		if(LoadFrame(*frame, stream, file_format) != 0)
 		{
 			delete frame;
 			break;
