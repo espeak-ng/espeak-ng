@@ -138,8 +138,4 @@ public:
 	int max_x;
 	int max_y;
 	int file_format;
-
-
-private:
-	void Load2(wxInputStream& stream, int n);
 };

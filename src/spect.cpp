@@ -307,16 +307,47 @@ float SpectSeq::GetFrameLength(int frame, int plus, int *original)
 }
 
 
-void SpectSeq::Load2(wxInputStream& stream, int n)
-{//===========================================================
-	// continuation of load/import
-   int  ix;
-	wxString string;
-	float time_offset;
-	float time_acc=0;
-	int  set_max_y=0;
 
-	if(n==0) return;
+int SpectSeq::Load(wxInputStream & stream)
+{//=======================================
+	int n;
+	int ix;
+	unsigned int id1, id2;
+	int set_max_y=0;
+	float time_offset;
+
+	wxDataInputStream s(stream);
+
+	id1 = s.Read32();
+	id2 = s.Read32();
+
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
+	{
+			file_format = 0;   // eSpeak formants
+	}
+	else
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
+	{
+			file_format = 1;   // formants for Klatt synthesizer
+	}
+	else
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
+	{
+			file_format = 2;   // formants for Klatt synthesizer
+	}
+	else
+	{
+		fprintf(stderr, "Unsupported spectral file format.\n");
+		return(1);
+	}
+
+	name = s.ReadString();
+	n = s.Read16();
+	amplitude = s.Read16();
+	max_y = s.Read16();
+	s.Read16();
+
+	if(n==0) return(0);
 
 	if(frames != NULL) delete frames;
 	frames = new SpectFrame* [n];
@@ -363,47 +394,6 @@ if(max_y < 400)
 	max_y = 200;
 else
 	max_y = 29000;  // disable auto height scaling
-}  // end of SpectSeq::Load2
-
-
-
-int SpectSeq::Load(wxInputStream & stream)
-{//=======================================
-	int n;
-	int ix;
-	unsigned int id1, id2;
-
-	wxDataInputStream s(stream);
-
-	id1 = s.Read32();
-	id2 = s.Read32();
-
-	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
-	{
-			file_format = 0;   // eSpeak formants
-	}
-	else
-	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
-	{
-			file_format = 1;   // formants for Klatt synthesizer
-	}
-	else
-	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
-	{
-			file_format = 2;   // formants for Klatt synthesizer
-	}
-	else
-	{
-		fprintf(stderr, "Unsupported spectral file format.\n");
-		return(1);
-	}
-
-	name = s.ReadString();
-	n = s.Read16();
-	amplitude = s.Read16();
-	max_y = s.Read16();
-	s.Read16();
-	Load2(stream,n);
 
 	for(ix=0; ix<numframes; ix++)
 	{
