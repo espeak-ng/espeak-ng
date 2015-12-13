@@ -104,51 +104,46 @@ static void PeaksZero(peak_t *sp, peak_t *zero)
 
 }  // end of PeaksZero
 
-SpectFrame::SpectFrame(SpectFrame *copy)
-{//=====================================
-
+static SpectFrame *SpectFrameCreate()
+{
 	int  ix;
+	SpectFrame *frame;
 
-	keyframe = 0;
-	spect = NULL;
-	markers = 0;
-	pitch = 0;
-	nx = 0;
-	time = 0;
-	length = 0;
-	amp_adjust = 100;
-	length_adjust = 0;
+	frame = new SpectFrame;
+	frame->keyframe = 0;
+	frame->spect = NULL;
+	frame->markers = 0;
+	frame->pitch = 0;
+	frame->nx = 0;
+	frame->time = 0;
+	frame->length = 0;
+	frame->amp_adjust = 100;
+	frame->length_adjust = 0;
 
 	for(ix=0; ix<N_PEAKS; ix++)
    {
-		formants[ix].freq = 0;
-		peaks[ix].pkfreq = default_freq[ix];
-		peaks[ix].pkheight = 0;
-		peaks[ix].pkwidth = default_width[ix];
-		peaks[ix].pkright = default_width[ix];
-		peaks[ix].klt_bw = default_klt_bw[ix];
-		peaks[ix].klt_ap = 0;
-		peaks[ix].klt_bp = default_klt_bw[ix];
+		frame->formants[ix].freq = 0;
+		frame->peaks[ix].pkfreq = default_freq[ix];
+		frame->peaks[ix].pkheight = 0;
+		frame->peaks[ix].pkwidth = default_width[ix];
+		frame->peaks[ix].pkright = default_width[ix];
+		frame->peaks[ix].klt_bw = default_klt_bw[ix];
+		frame->peaks[ix].klt_ap = 0;
+		frame->peaks[ix].klt_bp = default_klt_bw[ix];
    }
 
-	memset(klatt_param, 0, sizeof(klatt_param));
-	klatt_param[KLATT_AV] = 59;
-	klatt_param[KLATT_Kopen] = 40;
+	memset(frame->klatt_param, 0, sizeof(frame->klatt_param));
+	frame->klatt_param[KLATT_AV] = 59;
+	frame->klatt_param[KLATT_Kopen] = 40;
 
-   if(copy != NULL)
-   {
-		*this = *copy;
-		spect = new USHORT[nx];
-		memcpy(spect,copy->spect,sizeof(USHORT)*nx);
-	}
+	return frame;
 }
 
-
-SpectFrame::~SpectFrame()
-{//=======================
-
-	if(spect != NULL)
-		delete spect;
+static void SpectFrameDestroy(SpectFrame *frame)
+{
+	if(frame->spect != NULL)
+		delete frame->spect;
+	delete frame;
 }
 
 
@@ -279,7 +274,7 @@ SpectSeq::~SpectSeq()
 		for(ix=0; ix<numframes; ix++)
 		{
 			if(frames[ix] != NULL)
-				delete frames[ix];
+				SpectFrameDestroy(frames[ix]);
 		}
 		delete frames;
 	}
@@ -356,7 +351,7 @@ int SpectSeq::Load(wxInputStream & stream)
 	}
 	for(ix = 0; ix < n; ix++)
 	{
-		SpectFrame *frame = new SpectFrame;
+		SpectFrame *frame = SpectFrameCreate();
 
 		if(LoadFrame(*frame, stream, file_format) != 0)
 		{

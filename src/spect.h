@@ -85,12 +85,8 @@ typedef struct {
 }  peak_t;
 
 
-class SpectFrame
-{//=============
-public:
-	SpectFrame(SpectFrame *copy=NULL);
-	~SpectFrame();
-
+struct SpectFrame
+{
 	int keyframe;
 	int amp_adjust;
 	float length_adjust;
