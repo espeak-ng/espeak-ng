@@ -18,15 +18,12 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
-
-
-#include "wx/wx.h"
-
-#include "speak_lib.h"
 #include "speech.h"
-#include "phoneme.h"
-#include "synthesize.h"
-#include "translate.h"
+
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct {
     unsigned int value;
