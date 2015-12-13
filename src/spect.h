@@ -112,7 +112,7 @@ double GetFrameRms(SpectFrame *frame, int amp);
 struct SpectSeq
 {
 	int  numframes;
-	int  amplitude;
+	short amplitude;
 	int  spare;
 	char *name;
 
@@ -124,7 +124,7 @@ struct SpectSeq
 	int  grid;
 	int  bass_reduction;
 	int max_x;
-	int max_y;
+	short max_y;
 	int file_format;
 };
 

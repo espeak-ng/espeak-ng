@@ -31,6 +31,8 @@
 #include "wx/txtstrm.h"
 #include "wx/datstrm.h"
 
+#include <math.h>
+#include <stdint.h>
 
 extern "C" int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
@@ -44,9 +46,6 @@ int pk_select;
 #define DRAWPEAKWIDTH 2000
 #define PEAKSHAPEW 256
 
-#include <math.h>
-
-
 static int default_freq[N_PEAKS] =
 	{200,500,1200,3000,3500,4000,6900,7800,9000};
 static int default_width[N_PEAKS] =
@@ -54,6 +53,10 @@ static int default_width[N_PEAKS] =
 static int default_klt_bw[N_PEAKS] =
 	{89,90,140,260,260,260,500,500,500};
 
+static void fread(void *ptr, int size, int count, wxInputStream &stream)
+{
+	stream.Read(ptr, count*size);
+}
 
 float polint(float xa[],float ya[],int n,float x)
 {//==============================================
@@ -305,9 +308,9 @@ static float GetFrameLength(SpectSeq &spect, int frame)
 
 int LoadSpectSeq(SpectSeq *spect, const char *filename)
 {//=======================================
-	int n;
+	short n, temp;
 	int ix;
-	unsigned int id1, id2;
+	uint32_t id1, id2, name_len;
 	int set_max_y=0;
 	float time_offset;
 
@@ -318,10 +321,8 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 		return(0);
 	}
 
-	wxDataInputStream s(stream);
-
-	id1 = s.Read32();
-	id2 = s.Read32();
+	fread(&id1,sizeof(uint32_t),1,stream);
+	fread(&id2,sizeof(uint32_t),1,stream);
 
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
@@ -343,14 +344,19 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 		return(1);
 	}
 
-	wxString name = s.ReadString();
-	n = s.Read16();
-	spect->amplitude = s.Read16();
-	spect->max_y = s.Read16();
-	s.Read16();
+	fread(&name_len,sizeof(uint32_t),1,stream);
+	if (name_len > 0)
+	{
+		spect->name = (char *)malloc(name_len);
+		fread(spect->name,sizeof(char),name_len,stream);
+	}
+	else
+		spect->name = NULL;
 
-	free(spect->name);
-	spect->name = strdup(name.mb_str(wxConvLocal));
+	fread(&n,sizeof(short),1,stream);
+	fread(&spect->amplitude,sizeof(short),1,stream);
+	fread(&spect->max_y,sizeof(short),1,stream);
+	fread(&temp,sizeof(short),1,stream); // unused
 
 	if(n==0) return(0);
 
