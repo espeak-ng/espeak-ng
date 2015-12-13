@@ -41,13 +41,15 @@ static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author:
 "<a href=\"http://espeak.sourceforge.net/\">http://espeak.sourceforge.net</a><br>"
 "Licensed under <a href=\"http://espeak.sourceforge.net/license.html\">GNU General Public License version 3</a></font>";
 
-extern void ConfigInit(bool use_defaults);
 extern void CompilePhonemeData(void);
 extern void CompileSampleRate(void);
 extern espeak_ng_STATUS CompileIntonation(FILE *log);
 
 int progress_max;
 int gui_flag = 0;
+
+char path_source[sizeof(path_home)+20];
+char voice_name2[40];
 
 class MyApp: public wxApp
 {
@@ -105,7 +107,11 @@ else
 		exit(0);
 	}
 
-	ConfigInit(true);
+        char *env;
+	if((env = getenv("ESPEAK_DATA_PATH")) == NULL)
+		env = getenv("HOME");
+	snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+	snprintf(path_source,sizeof(path_source),"%s/../phsource/",path_home);
 
 	if(strcmp(param,"--compile")==0)
 	{

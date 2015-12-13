@@ -82,7 +82,6 @@ libespeak_ng_SOURCE = \
 espeakedit_SOURCE = \
 	src/compiledata.cpp \
 	src/espeakedit.cpp \
-	src/options.cpp \
 	src/prosodydisplay.cpp \
 	src/spect.cpp \
 	src/spectseq.cpp

@@ -49,10 +49,6 @@
 #define wxOPEN wxFD_OPEN
 #endif
 
-extern wxString path_dictsource;
-extern wxString path_phsource;
-extern wxString path_phfile;
-extern char path_dsource[sizeof(path_home)+20];
 extern char path_source[sizeof(path_home)+20];
 
 extern int progress_max;
@@ -1488,7 +1484,7 @@ int LoadSpect(const char *path, int control)
 		return(0);
 	}
 
-	wxString filename = path_phsource + path_sep + wxString(path,wxConvLocal);
+	wxString filename = wxString(path_source,wxConvLocal) + path_sep + wxString(path,wxConvLocal);
 	wxFileInputStream stream(filename);
 
 	if(stream.Ok() == FALSE)
@@ -3391,48 +3387,20 @@ make_envs();
 
 	f_errors = stderr;
 
-	if(!wxDirExists(path_phsource))
+	if(!wxDirExists(path_source))
 	{
-		if(gui_flag)
-		{
-			wxString dirname = wxDirSelector(_T("Phoneme source directory"),path_phsource);
-			if(!dirname.IsEmpty())
-			{
-				path_phsource = dirname;
-				strncpy0(path_source,path_phsource.mb_str(wxConvLocal),sizeof(path_source)-1);
-				strcat(path_source,"/");
-			}
-		}
-		else
-		{
-			fprintf(stderr,"Can't find phoneme source directory: %s\n",path_source);
-		}
+		fprintf(stderr,"Can't find phoneme source directory: %s\n",path_source);
+		return;
 	}
 
 	strncpy0(current_fname,source,sizeof(current_fname));
 
-	strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
+	sprintf(fname,"%s/%s",path_source,"phonemes");
 	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
 	{
-		if(gui_flag)
-		{
-			wxString phfile = wxFileSelector(_T("Master phonemes file"),path_phsource,
-			_T(""),_T(""),_T("*"),wxOPEN);
-
-			if(!phfile.IsEmpty())
-			{
-				path_phfile = phfile;
-			}
-		}
-
-		strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
-		f_in = fopen_log(f_errors,fname,"rb");
-		if(f_in == NULL)
-		{
-			wxLogError(_T("Can't read master phonemes file:\n") + wxString(fname,wxConvLocal));
-			return;
-		}
+		wxLogError(_T("Can't read master phonemes file:\n") + wxString(fname,wxConvLocal));
+		return;
 	}
 
 	progress_max = 0;
@@ -3473,8 +3441,7 @@ make_envs();
 
 
 	fprintf(f_errors, "Source data path = '%s'\n", path_source);
-	strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
-	fprintf(f_errors, "Master phonemes file = '%s'\n", fname);
+	fprintf(f_errors, "Master phonemes file = '%s/phonemes'\n", path_source);
 	fprintf(f_errors, "Output to '%s/'\n\n", path_home);
 
 	sprintf(fname,"%s/%s",path_home,"phondata");
