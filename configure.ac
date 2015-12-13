@@ -15,7 +15,6 @@ dnl Program checks.
 dnl ================================================================
 
 AC_PROG_CC
-AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 
@@ -295,29 +294,6 @@ AM_CONDITIONAL(HAVE_ZH_EXTENDED_DICTIONARY,  [test x"$have_extdict_zh"  = xyes])
 AM_CONDITIONAL(HAVE_ZHY_EXTENDED_DICTIONARY, [test x"$have_extdict_zhy" = xyes])
 
 dnl ================================================================
-dnl wxWidgets checks.
-dnl ================================================================
-
-AC_ARG_WITH([wx-config],
-    [AS_HELP_STRING([--with-wx-config], [specify the location of wx-config @<:@default=wx-config@:>@])],
-    [WX_CONFIG=$with_wx_config],
-    [WX_CONFIG=wx-config])
-
-if test ! -e "${WX_CONFIG}" ; then
-    AC_CHECK_PROG(WXCONFIG_CHECK,${WX_CONFIG},yes)
-    if test x"$WXCONFIG_CHECK" != x"yes" ; then
-        AC_MSG_ERROR([Cannot find wxWidgets which is needed for espeakedit to build the voices.])
-    fi
-fi
-
-WX_LIBS=`${WX_CONFIG} --libs`
-WX_CXXFLAGS=`${WX_CONFIG} --cxxflags`
-WX_VERSION=`${WX_CONFIG} --version`
-
-AC_SUBST(WX_LIBS)
-AC_SUBST(WX_CXXFLAGS)
-
-dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
@@ -333,10 +309,6 @@ AC_MSG_NOTICE([
         C11 Compiler:                  ${CC}
         C11 Compiler flags:            ${CFLAGS}
 
-        C++ Compiler:                  ${CXX}
-        C++ Compiler flags:            ${CXXFLAGS}
-
-        wxWidgets:                     ${WX_VERSION} (${WX_CONFIG})
         pulseaudio:                    ${have_pulseaudio}
         portaudio:                     ${have_portaudio}
         sada:                          ${have_sada}

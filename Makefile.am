@@ -82,9 +82,6 @@ libespeak_ng_SOURCE = \
 	src/libespeak-ng/speak_lib.c \
 	src/libespeak-ng/debug.c
 
-espeakedit_SOURCE = \
-	src/espeakedit.cpp
-
 if OPT_KLATT
 common_FLAGS  += -DINCLUDE_KLATT
 common_SOURCE += src/libespeak-ng/klatt.c
@@ -159,15 +156,6 @@ bin_PROGRAMS += src/espeak-ng
 src_espeak_ng_LDADD   = src/libespeak-ng.la
 src_espeak_ng_CFLAGS  = -I src/include/espeak-ng
 src_espeak_ng_SOURCES = src/espeak-ng.c
-
-bin_PROGRAMS += src/espeakedit
-
-src_espeakedit_LDFLAGS  = $(wave_LIBS) ${WX_LIBS}
-src_espeakedit_CFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
-	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
-src_espeakedit_CXXFLAGS = ${WX_CXXFLAGS} $(common_FLAGS) $(libespeak_ng_FLAGS) $(wave_FLAGS) \
-	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT -I src/libespeak-ng
-src_espeakedit_SOURCES  = $(common_SOURCE) $(libespeak_ng_SOURCE) $(espeakedit_SOURCE) $(wave_SOURCE)
 
 ##### phoneme data:
 
@@ -278,7 +266,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_zh \
 	phsource/ph_zh_yue \
 	phsource/phonemes \
-	src/espeakedit
+	src/espeak-ng
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-intonations && \
 		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-phonemes && \
 		touch $@
@@ -897,7 +885,7 @@ espeak-data/mbrola_ph/grc-de6_phtrans: phsource/mbrola/grc-de6 src/espeak-ng
 	mkdir -p espeak-data/mbrola_ph
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=$<
 
-espeak-data/mbrola_ph/hn1_phtrans: phsource/mbrola/hn1 src/espeakedit
+espeak-data/mbrola_ph/hn1_phtrans: phsource/mbrola/hn1 src/espeak-ng
 	mkdir -p espeak-data/mbrola_ph
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=$<
 

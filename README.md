@@ -30,10 +30,7 @@ In order to build eSpeak NG, you need:
 
 1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
     and `pkg-config`);
-2.  a functional c compiler that supports C11;
-3.  a functional c++ compiler;
-4.  wxWidgets development libraries (needed to build and run espeakedit
-    to compile the phoneme data).
+2.  a functional c compiler that supports C11.
 
 Optionally, you need:
 
@@ -45,23 +42,18 @@ Optionally, you need:
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
-| c++ compiler  | `sudo apt-get install gcc g++`                                   |
-| wxWidgets     | `sudo apt-get install libwxgtk2.8-dev`                           |
+| c11 compiler  | `sudo apt-get install gcc`                                       |
 | pulseaudio    | `sudo apt-get install libpulse-dev`                              |
 | portaudio     | `sudo apt-get install libportaudio-dev`                          |
 
 ## Building
 
-The espeak-ng and espeakedit programs, along with the espeak-ng voices, can
+The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 be built via the standard autotools commands:
 
 	$ ./autogen.sh
 	$ ./configure --prefix=/usr
 	$ make
-
-__NOTE:__ The configure command detects various platform differences that
-the espeak-ng makefiles don't cater for (e.g. different wxWidgets version)
-and detect the available audio setup to use automatically.
 
 ### Audio Output Configuration
 
