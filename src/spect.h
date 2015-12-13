@@ -121,8 +121,6 @@ public:
 	~SpectSeq();
 	int Load(wxInputStream& stream);
 
-	float GetFrameLength(int frame, int plus, int *original_mS);
-
 	int  numframes;
 	int  amplitude;
 	int  spare;

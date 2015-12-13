@@ -286,24 +286,19 @@ SpectSeq::~SpectSeq()
 }
 
 
-float SpectSeq::GetFrameLength(int frame, int plus, int *original)
+static float GetFrameLength(SpectSeq &spect, int frame)
 {//===============================================================
 	int  ix;
 	float  adjust=0;
 
-	if(frame >= numframes-1) return(0);
+	if(frame >= spect.numframes-1) return(0);
 	
-	// include the adjustment for this frame ?
-	if(plus) adjust = frames[frame]->length_adjust;
-	
-	for(ix=frame+1; ix<numframes-1; ix++)
+	for(ix=frame+1; ix<spect.numframes-1; ix++)
 	{
-		if(frames[ix]->keyframe) break;  // reached next keyframe
-		adjust += frames[ix]->length_adjust;
+		if(spect.frames[ix]->keyframe) break;  // reached next keyframe
+		adjust += spect.frames[ix]->length_adjust;
 	}
-	if(original != NULL)
-		*original = int((frames[ix]->time - frames[frame]->time) * 1000.0 + 0.5);
-	return ((frames[ix]->time - frames[frame]->time) * 1000.0 + adjust);
+	return ((spect.frames[ix]->time - spect.frames[frame]->time) * 1000.0 + adjust);
 }
 
 
@@ -398,7 +393,7 @@ else
 	for(ix=0; ix<numframes; ix++)
 	{
 		if(frames[ix]->keyframe)
-			frames[ix]->length_adjust = frames[ix]->length - GetFrameLength(ix,0,NULL);
+			frames[ix]->length_adjust = frames[ix]->length - GetFrameLength(*this,ix);
 	}
 	return(0);
 }  // end of SpectSeq::Load
