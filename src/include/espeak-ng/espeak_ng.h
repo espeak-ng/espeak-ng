@@ -45,6 +45,8 @@ typedef enum {
 	ENE_COMPILE_ERRORS = -4,
 } espeak_ng_STATUS;
 
+#define espeakINITIALIZE_PATH_ONLY 0x4000
+
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileMbrolaVoice(const char *path, FILE *log);
 

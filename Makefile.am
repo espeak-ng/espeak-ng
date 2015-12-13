@@ -279,7 +279,9 @@ phsource/phonemes.stamp: \
 	phsource/ph_zh_yue \
 	phsource/phonemes \
 	src/espeakedit
-	ESPEAK_DATA_PATH=$(PWD) src/espeakedit --compile && touch $@
+	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-intonations && \
+		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-phonemes && \
+		touch $@
 
 ##### dictionaries:
 

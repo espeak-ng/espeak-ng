@@ -40,6 +40,7 @@
 #endif
 
 #include "speak_lib.h"
+#include "espeak_ng.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
@@ -786,6 +787,9 @@ ENTER("espeak_Initialize");
 #endif
 
 	init_path(path);
+	if(options & espeakINITIALIZE_PATH_ONLY)
+		return 0;
+
 	initialise(options);
 	select_output(output_type);
 

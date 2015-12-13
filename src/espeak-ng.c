@@ -76,6 +76,10 @@ static const char *help_text =
 "\t   directory. <voice name> specifies the language\n"
 "--compile-mbrola=<voice name>\n"
 "\t   Compile an MBROLA voice\n"
+"--compile-intonations\n"
+"\t   Compile the intonation data\n"
+"--compile-phonemes\n"
+"\t   Compile the phoneme data\n"
 "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
@@ -429,6 +433,8 @@ int main (int argc, char **argv)
 		{"sep",     optional_argument, 0, 0x10c},
 		{"tie",     optional_argument, 0, 0x10d},
 		{"compile-mbrola", optional_argument, 0, 0x10e},
+		{"compile-intonations", no_argument, 0, 0x10f},
+		{"compile-phonemes", no_argument, 0, 0x110},
 		{0, 0, 0, 0}
 		};
 
@@ -717,6 +723,16 @@ int main (int argc, char **argv)
 		case 0x10e:  // --compile-mbrola
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,data_path,0);
 			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
+			exit(0);
+
+		case 0x10f:  // --compile-intonations
+			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,data_path,espeakINITIALIZE_PATH_ONLY);
+			espeak_ng_CompileIntonation(stdout);
+			exit(0);
+
+		case 0x110:  // --compile-phonemes
+			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,data_path,espeakINITIALIZE_PATH_ONLY);
+			espeak_ng_CompilePhonemeData(22050, stdout);
 			exit(0);
 
 		default:
