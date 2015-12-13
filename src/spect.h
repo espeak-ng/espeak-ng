@@ -85,50 +85,11 @@ typedef struct {
 }  peak_t;
 
 
-//===============================================================================================
-// Old "SPC2" format
-
-typedef struct {
-   unsigned char  freq;      /* *factor for f0-f7 of [4,5,11,20,20,25,32,32] */
-   unsigned char  height;
-   unsigned char  width_l;   /* * 8 Hz */
-   unsigned char  width_r;   /* * 8 Hz */
-   } PEAKS7;
-
-/* flags: bit 0      label is present in data[]
-          bit 1      mark cycle - blue background
-          bit 2      mark cycle - green square
-          bit 3      mark cycle - 'lengthen' indicator
-          bit 4      mark cycle - 'standard'
-          bit 7      hide peaks
-*/
-
-typedef struct {
-   short pitch;     /* pitch of fundamental, 1/16 Hz */
-   short length;    /* length in 1/15625 sec */
-   unsigned char  n_harm;    /* number of harmonic data, h1 ... hn */
-   unsigned char  flags;     /* bits 0 */
-   unsigned char  aspiration;
-   unsigned char  hf_voicing;
-   unsigned char  spare1;
-   unsigned char  spare2;
-   unsigned char  spare3;
-   unsigned char  spare4;
-   PEAKS7 peak_data[7];
-   unsigned char  data[1];   /* firstly harmonic data, then f3,f4,f5 data */
-   } CYCLE;         /* VARIABLE LENGTH Structure */
-
-extern int SPC2_size_cycle(CYCLE *cy);
-//==============================================================================================
-
-
-
 class SpectFrame
 {//=============
 public:
 	SpectFrame(SpectFrame *copy=NULL);
 	~SpectFrame();
-   int ImportSPC2(wxInputStream &stream, float &time_acc);
 	int Load(wxInputStream &stream, int file_format_type);
 
 	void ZeroPeaks();
@@ -165,7 +126,6 @@ class SpectSeq
 public:
 	SpectSeq(int nframes=0);
 	~SpectSeq();
-	int ImportSPC2(wxInputStream& stream);
 	int Load(wxInputStream& stream);
 
 	void InterpolatePeaks(int on);
@@ -195,6 +155,6 @@ public:
 
 
 private:
-	void Load2(wxInputStream& stream, int import, int n);
+	void Load2(wxInputStream& stream, int n);
 	void InterpolatePeak(int peak);
 };

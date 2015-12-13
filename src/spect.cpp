@@ -158,96 +158,6 @@ SpectFrame::~SpectFrame()
 		delete spect;
 }
 
-int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
-{//===============================================================
-	int ix;
-	int size;
-	unsigned short *spect_data;
-	CYCLE cy;
-	CYCLE *p;
-	float len;
-	static char peak_factor[8] = {4,5,11,20,20,25,32,32};
-
-	stream.Read(&cy,44);
-	size = SPC2_size_cycle(&cy);
-
-	p = (CYCLE *)malloc(size);
-	if(p == NULL)
-	{
-		return(1);
-	}
-	stream.SeekI(-44,wxFromCurrent);
-	stream.Read(p,size);
-
-	time = time_acc;
-	len = cy.length / 15625.0;
-	time_acc += len;
-	pitch = float(cy.pitch) / 16.0;
-	nx = cy.n_harm;
-	dx = pitch;
-
-	for(ix=0; ix<7; ix++)
-	{
-		peaks[ix].pkfreq = cy.peak_data[ix].freq * peak_factor[ix];
-		if(peaks[ix].pkfreq == 0)
-			peaks[ix].pkfreq = default_freq[ix];
-
-		peaks[ix].pkheight = cy.peak_data[ix].height * 40;
-		peaks[ix].pkwidth = cy.peak_data[ix].width_l * 12;
-		peaks[ix].pkright = cy.peak_data[ix].width_r * 12;
-	}
-	for(ix=7; ix<=8; ix++)
-	{
-		peaks[ix].pkfreq = default_freq[ix];  // default
-		peaks[ix].pkheight = 0;
-		peaks[ix].pkwidth = peaks[ix].pkright = default_width[ix];
-	}
-	if(((cy.flags & 0x80)==0) && (peaks[1].pkheight > 0))
-		keyframe = 1;
-
-	if(cy.flags & 0x08)
-		markers |= 4;
-	if(cy.flags & 0x10)
-		markers |= 2;
-	if(cy.flags & 0x04)
-		markers |= 8;
-
-	if(nx>0)
-	{
-		spect_data = new USHORT[nx];
-
-		if(spect_data == NULL)
-		{
-			wxLogError(_T("Failed to allocate memory"));
-			return(1);
-		}
-
-		max_y = 0;
-		for(ix=0; ix<nx; ix++)
-		{
-			spect_data[ix] = p->data[ix];
-			if(spect_data[ix] > max_y)
-				max_y = spect_data[ix];
-		}
-	}
-	else
-	{
-		nx = int(8000/dx);
-		spect_data = new USHORT[nx];
-		if(spect_data == NULL)
-		{
-			wxLogError(_T("Failed to allocate memory"));
-			return(1);
-		}
-		for(ix=0; ix<nx; ix++)
-			spect_data[ix] = 1;
-		max_y = 1;
-	}
-   spect = spect_data;
-	free(p);
-	return(0);
-}  //  end of ImportSPC2
-
 
 
 int SpectFrame::Load(wxInputStream& stream, int file_format_type)
@@ -582,7 +492,7 @@ float SpectSeq::GetKeyedLength()
 }
 
 
-void SpectSeq::Load2(wxInputStream& stream, int import, int n)
+void SpectSeq::Load2(wxInputStream& stream, int n)
 {//===========================================================
 	// continuation of load/import
    int  ix;
@@ -607,21 +517,10 @@ void SpectSeq::Load2(wxInputStream& stream, int import, int n)
 	{
 		SpectFrame *frame = new SpectFrame;
 
-		if(import==2)
+		if(frame->Load(stream, file_format) != 0)
 		{
-			if(frame->ImportSPC2(stream,time_acc) != 0)
-			{
-				delete frame;
-				break;
-			}
-		}
-		else
-		{
-			if(frame->Load(stream, file_format) != 0)
-			{
-				delete frame;
-				break;
-			}
+			delete frame;
+			break;
 		}
 
 		frames[numframes++] = frame;
@@ -652,56 +551,6 @@ else
 }  // end of SpectSeq::Load2
 
 
-int SPC2_size_cycle(CYCLE *cy)
-/****************************/
-/* Find number of bytes in cycle record */
-{
-	int  i;
-	
-	i = 44 + cy->n_harm;
-	
-	if(cy->flags & 1)
-	{
-		i += 4;     /* label */
-	}
-	return(i);   
-}   /* end of size_cycle */
-
-
-
-
-int SpectSeq::ImportSPC2(wxInputStream & stream)
-{//=============================================
-// load an spectrum with an old "SPC2" format
-	int n_cycles = 0;
-	int x;
-	CYCLE cy;
-	
-	/* count number of cycles */
-	while(!stream.Eof())
-	{
-		stream.TellI();
-		stream.Read(&cy,44);
-		stream.TellI();
-		if(stream.Eof()) break;
-		
-		n_cycles++;
-		x = SPC2_size_cycle(&cy) - 44;
-		stream.SeekI(x,wxFromCurrent);
-	}
-	
-	if(n_cycles == 0) return(0);
-	
-	name = _T("");
-	amplitude = 100;
-	max_y = 0;
-	
-	stream.SeekI(4);        // rewind and skip header
-	Load2(stream,2,n_cycles);
-	
-	return(0);
-}
-
 
 int SpectSeq::Load(wxInputStream & stream)
 {//=======================================
@@ -714,12 +563,6 @@ int SpectSeq::Load(wxInputStream & stream)
 	id1 = s.Read32();
 	id2 = s.Read32();
 
-	if(id1 == FILEID1_SPC2)
-	{
-		stream.SeekI(4);
-		return(ImportSPC2(stream));
-	}
-	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
 			file_format = 0;   // eSpeak formants
@@ -745,7 +588,7 @@ int SpectSeq::Load(wxInputStream & stream)
 	amplitude = s.Read16();
 	max_y = s.Read16();
 	s.Read16();
-	Load2(stream,0,n);
+	Load2(stream,n);
 
 	for(ix=0; ix<numframes; ix++)
 	{
