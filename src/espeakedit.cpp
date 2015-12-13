@@ -41,8 +41,7 @@ static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author:
 "<a href=\"http://espeak.sourceforge.net/\">http://espeak.sourceforge.net</a><br>"
 "Licensed under <a href=\"http://espeak.sourceforge.net/license.html\">GNU General Public License version 3</a></font>";
 
-extern void CompilePhonemeData(void);
-extern void CompileSampleRate(void);
+extern void CompilePhonemeData(long rate, FILE *log);
 extern espeak_ng_STATUS CompileIntonation(FILE *log);
 
 int progress_max;
@@ -122,7 +121,7 @@ else
 			fprintf(stderr, "Failed to load default voice\n");
 			exit(1);
 		}
-		CompilePhonemeData();
+		CompilePhonemeData(22050, stderr);
 		CompileIntonation(stderr);
 	}
     exit(0);

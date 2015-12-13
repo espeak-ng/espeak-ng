@@ -27,6 +27,7 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
+#include "wx/wfstream.h"
 #include "wx/txtstrm.h"
 #include "wx/datstrm.h"
 
@@ -252,6 +253,7 @@ SpectSeq *SpectSeqCreate()
 
 	spect->numframes = 0;
 	spect->frames = NULL;
+	spect->name = NULL;
 	
 	pk_select = 1;
 	spect->grid = 1;
@@ -279,6 +281,7 @@ void SpectSeqDestroy(SpectSeq *spect)
 		}
 		delete spect->frames;
 	}
+	free(spect->name);
 	delete spect;
 }
 
@@ -300,13 +303,20 @@ static float GetFrameLength(SpectSeq &spect, int frame)
 
 
 
-int LoadSpectSeq(SpectSeq *spect, wxInputStream & stream)
+int LoadSpectSeq(SpectSeq *spect, const char *filename)
 {//=======================================
 	int n;
 	int ix;
 	unsigned int id1, id2;
 	int set_max_y=0;
 	float time_offset;
+
+	wxFileInputStream stream(filename);
+	if(stream.Ok() == FALSE)
+	{
+		fprintf(stderr, "Failed to open: '%s'", filename);
+		return(0);
+	}
 
 	wxDataInputStream s(stream);
 
@@ -333,11 +343,14 @@ int LoadSpectSeq(SpectSeq *spect, wxInputStream & stream)
 		return(1);
 	}
 
-	spect->name = s.ReadString();
+	wxString name = s.ReadString();
 	n = s.Read16();
 	spect->amplitude = s.Read16();
 	spect->max_y = s.Read16();
 	s.Read16();
+
+	free(spect->name);
+	spect->name = strdup(name.mb_str(wxConvLocal));
 
 	if(n==0) return(0);
 

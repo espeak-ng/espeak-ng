@@ -114,7 +114,7 @@ struct SpectSeq
 	int  numframes;
 	int  amplitude;
 	int  spare;
-	wxString name;
+	char *name;
 
 	SpectFrame **frames;
 	PitchEnvelope pitchenv;
@@ -130,4 +130,4 @@ struct SpectSeq
 
 SpectSeq *SpectSeqCreate();
 void SpectSeqDestroy(SpectSeq *spect);
-int LoadSpectSeq(SpectSeq *spect, wxInputStream& stream);
+int LoadSpectSeq(SpectSeq *spect, const char *filename);

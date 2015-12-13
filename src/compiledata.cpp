@@ -24,13 +24,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "wx/wx.h"
-#include "wx/wfstream.h"
-#include "wx/dir.h"
-#include "wx/filename.h"
-#include <wx/numdlg.h>
-#include "wx/progdlg.h"
-
 #include "speak_lib.h"
 #include "espeak_ng.h"
 
@@ -40,13 +33,9 @@
 #include "voice.h"
 #include "spect.h"
 
+#include <sys/stat.h>
 #ifdef PLATFORM_POSIX
 #include <unistd.h>
-#endif
-
-// wxWidgets 3 name changes
-#if wxCHECK_VERSION(3, 0, 0)
-#define wxOPEN wxFD_OPEN
 #endif
 
 typedef struct {
@@ -1529,7 +1518,7 @@ int LoadSpect(const char *path, int control)
 	int klatt_flag=0;
 	SpectFrame *fr;
 	frame_t *fr_out;
-	wxString path_sep = _T("/");
+	char filename[sizeof(path_home)+20];
 
 	SPECT_SEQ seq_out;
 	SPECT_SEQK seqk_out;
@@ -1542,16 +1531,8 @@ int LoadSpect(const char *path, int control)
 		return(0);
 	}
 
-	wxString filename = wxString(path_source,wxConvLocal) + path_sep + wxString(path,wxConvLocal);
-	wxFileInputStream stream(filename);
-
-	if(stream.Ok() == FALSE)
-	{
-		error("Failed to open: '%s'",path);
-		SpectSeqDestroy(spectseq);
-		return(0);
-	}
-	LoadSpectSeq(spectseq, stream);
+	snprintf(filename, sizeof(filename), "%s/%s", path_source, path);
+	LoadSpectSeq(spectseq, filename);
 
 	if(spectseq->frames == NULL)
 	{
@@ -3427,27 +3408,25 @@ static void CompilePhonemeFiles()
 
 
 
-static void CompilePhonemeData2(const char *source)
+static void CompilePhonemeData2(const char *source, FILE *log)
 {//================================================
 	char fname[sizeof(path_source)+40];
-	wxString report;
-	wxString report_dict;
 
 #ifdef MAKE_ENVELOPES
 make_envs();
 #endif
 
-	wxLogStatus(_T("Compiling phoneme data: ")+wxString(path_source,wxConvLocal));
+	fprintf(log,"Compiling phoneme data: %s\n",path_source);
 	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
 	memset(markers_used,0,sizeof(markers_used));
 
-	f_errors = stderr;
+	f_errors = log;
 
-	if(!wxDirExists(path_source))
+	if(!access(path_source, 755))
 	{
-		fprintf(stderr,"Can't find phoneme source directory: %s\n",path_source);
+		fprintf(log,"Can't find phoneme source directory: %s\n",path_source);
 		return;
 	}
 
@@ -3457,7 +3436,7 @@ make_envs();
 	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
 	{
-		wxLogError(_T("Can't read master phonemes file:\n") + wxString(fname,wxConvLocal));
+		fprintf(log,"Can't read master phonemes file: %s\n",fname);
 		return;
 	}
 
@@ -3519,7 +3498,7 @@ make_envs();
 	sprintf(fname,"%scompile_prog_log",path_source);
 	f_prog_log = fopen_log(f_errors,fname,"wb");
 
-	fprintf(stderr,"Compiling phoneme data: %s\n",path_source);
+	fprintf(log,"Compiling phoneme data: %s\n",path_source);
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(f_phdata,version_phdata);
@@ -3558,29 +3537,15 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	if(resample_count > 0)
 	{
 	    fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
-        report.Printf(_T("Compiled phonemes: %d errors, %d files resampled to %d Hz. "),error_count, resample_count, samplerate_native);
+        fprintf(log,"Compiled phonemes: %d errors, %d files resampled to %d Hz.\n",error_count, resample_count, samplerate_native);
 	}
 	else
 	{
-        report.Printf(_T("Compiled phonemes: %d errors."),error_count);
+        fprintf(log,"Compiled phonemes: %d errors.\n",error_count);
 	}
 
 	if(f_errors != stderr)
         fclose(f_errors);
-
-	if(error_count > 0)
-	{
-		report += _T(" See file: '")+wxString(path_source,wxConvLocal)+_T("phsource/error_log'.");
-		wxLogError(report);
-	}
-	wxLogStatus(report + report_dict);
-
-	if(gui_flag == 0)
-	{
-		strncpy0(fname,(report+report_dict).mb_str(wxConvLocal),sizeof(fname));
-		fprintf(stderr,"%s\n",fname);
-
-	}
 
     ReadPhondataManifest();
 }  // end of CompilePhonemeData
@@ -3646,7 +3611,6 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 	int found;
 	int tune_number = 0;
 	FILE *f_out;
-	wxString report;
 	TUNE *tune_data;
 	TUNE new_tune;
 
@@ -3664,7 +3628,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 		sprintf(buf,"%sintonation",path_source);
 		if((f_in = fopen_log(f_errors, buf, "r")) == NULL)
 		{
-			wxLogError(_T("Can't read file: ") + wxString(buf,wxConvLocal));
+			fprintf(log,"Can't read file: %s\n",buf);
 			fclose(f_errors);
 			return ENE_READ_ERROR;
 		}
@@ -3924,8 +3888,7 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 	fclose(f_in);
 	fclose(f_out);
 
-	report.Printf(_T("Compiled %d intonation tunes: %d errors."),n_tune_names, error_count);
-	wxLogStatus(report);
+	fprintf(log,"Compiled %d intonation tunes: %d errors.\n",n_tune_names, error_count);
 
 	LoadPhData(NULL);
 
@@ -3934,28 +3897,9 @@ espeak_ng_STATUS CompileIntonation(FILE *log)
 
 
 
-void CompilePhonemeData()
+void CompilePhonemeData(long rate, FILE *log)
 {
-    WavegenInit(22050, 0);
+    WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
-	CompilePhonemeData2("phonemes");
+	CompilePhonemeData2("phonemes", log);
 }
-
-
-void CompileSampleRate()
-{
-    long value;
-#ifndef PLATFORM_POSIX
-	wxLogError(_T("Change Sample Rate needs the 'sox' program.  It probably doesn't work on Windows"));
-#endif
-
-    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs 'sox' program)"), 22050, 5000, 48000);
-
-    if(value > 1000)
-    {
-        WavegenInit(value, 0);
-        WavegenSetVoice(voice);
-        CompilePhonemeData2("phonemes");
-    }
-}
-
