@@ -92,15 +92,8 @@ public:
 	~SpectFrame();
 	int Load(wxInputStream &stream, int file_format_type);
 
-	void ZeroPeaks();
-	void CopyPeaks(SpectFrame *sf);
-	void ToggleMarker(int n);
-
-	void MakeHtab(int numh, int *htab, int pitch);
 	double GetRms(int amp);
-	void KlattDefaults();
 
-	int selected;
 	int keyframe;
 	int amp_adjust;
 	float length_adjust;
@@ -128,14 +121,7 @@ public:
 	~SpectSeq();
 	int Load(wxInputStream& stream);
 
-	void InterpolatePeaks(int on);
-	void CopyDown(int frame, int direction);
-	void SelectAll(int yes);
-	int  CountSelected();
-	void DeleteSelected();
 	float GetFrameLength(int frame, int plus, int *original_mS);
-	float GetKeyedLength();
-	void SetFrameLengths();
 
 	int  numframes;
 	int  amplitude;
@@ -156,5 +142,4 @@ public:
 
 private:
 	void Load2(wxInputStream& stream, int n);
-	void InterpolatePeak(int peak);
 };
