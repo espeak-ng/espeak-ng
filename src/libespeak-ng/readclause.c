@@ -64,10 +64,6 @@ static int sayas_mode;
 static int sayas_start;
 static int ssml_ignore_l_angle = 0;
 
-// alter tone for announce punctuation or capitals
-//static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
-//static const char *tone_punct_off = "\001T\001P";
-
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x00a1,  // inverted exclamation
@@ -906,7 +902,7 @@ static int LoadSoundFile(const char *fname, int index)
 		f = fopen(fname,"rb");
 		if(f == NULL)
 		{
-//			fprintf(stderr,"Can't read temp file: %s\n",fname);
+			fprintf(stderr,"Can't read temp file: %s\n",fname);
 			return(3);
 		}
 	}
@@ -1039,7 +1035,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 			if(punct_count==1)
 			{
-//				sprintf(buf,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
 				sprintf(buf," %s",punctname);   // we need the space before punctname, to ensure it doesn't merge with the previous word  (eg.  "2.-a")
 			}
 			else
@@ -2702,7 +2697,6 @@ if(option_ssml) parag=1;
 				if(!iswspace(c1))
 				{
 					if(!IsAlpha(c1) || !iswlower2(c1))
-//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower2(c1)))
 					{
 						UngetC(c2);
 						ungot_char2 = c1;
@@ -2742,7 +2736,6 @@ if(option_ssml) parag=1;
 				}
 
 				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || Eof() || (c2 == ctrl_embedded)))    // don't check for '-' because it prevents recognizing ':-)'
-//				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 				{
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
 					is_end_clause = 1;
@@ -2832,7 +2825,6 @@ if(option_ssml) parag=1;
 						if(iswlower2(c_next))
 						{
 							// next word has no capital letter, this dot is probably from an abbreviation
-//							c1 = ' ';
 							is_end_clause = 0;
 						}
 						if(any_alnum==0)
@@ -2912,7 +2904,7 @@ if(option_ssml) parag=1;
 
 		if(c1 == 0xe000 + '<') c1 = '<';
 
-		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;
+		ix += utf8_out(c1,&buf[ix]);
 		if(!iswspace(c1) && !IsBracket(c1))
 		{
 			charix[ix] = count_characters - clause_start_char;

@@ -20,8 +20,6 @@
 
 // This source file is only used for asynchronious modes
 
-
-//<includes
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif
@@ -39,9 +37,6 @@
 #include "event.h"
 #include "wave.h"
 #include "debug.h"
-//>
-//<decls and function prototypes
-
 
 // my_mutex: protects my_thread_is_talking,
 static pthread_mutex_t my_mutex;
@@ -75,9 +70,6 @@ static void* pop();
 static void init();
 static void* polling_thread(void*);
 
-//>
-//<event_init
-
 void event_set_callback(t_espeak_callback* SynthCallback)
 {
   my_callback = SynthCallback;
@@ -110,8 +102,7 @@ void event_init(void)
   assert(thread_inited);
   pthread_attr_destroy(&a_attrib);
 }
-//>
-//<event_display
+
 static void event_display(espeak_EVENT* event)
 {
 ENTER("event_display");
@@ -147,8 +138,6 @@ ENTER("event_display");
 	}
 #endif
 }
-//>
-//<event_copy
 
 static espeak_EVENT* event_copy (espeak_EVENT* event)
 {
@@ -183,9 +172,6 @@ static espeak_EVENT* event_copy (espeak_EVENT* event)
 
 	return a_event;
 }
-
-//>
-//<event_notify
 
 // Call the user supplied callback
 //
@@ -223,7 +209,6 @@ ENTER("event_notify");
 		case espeakEVENT_END:
 		case espeakEVENT_PHONEME:
 		{
-// jonsd - I'm not sure what this is for. gilles says it's for when Gnome Speech reads a file of blank lines
 			if (a_old_uid != event->unique_identifier)
 			{
 				espeak_EVENT_TYPE a_new_type = events[0].type;
@@ -244,8 +229,6 @@ ENTER("event_notify");
 		}
 	}
 }
-//>
-//<event_delete
 
 static int event_delete(espeak_EVENT* event)
 {
@@ -280,9 +263,6 @@ ENTER("event_delete");
 	return 1;
 }
 
-//>
-//<event_declare
-
 espeak_ERROR event_declare (espeak_EVENT* event)
 {
 ENTER("event_declare");
@@ -310,23 +290,8 @@ ENTER("event_declare");
 		a_status = pthread_mutex_unlock(&my_mutex);
 	}
 
-  // TBD: remove the comment
-  // reminder: code in comment.
-  // This wait can lead to an underrun
-  //
-//   if (!a_status && !my_event_is_running && (a_error == EE_OK))
-//   {
-//       // quit when command is actually started
-//       // (for possible forthcoming 'end of command' checks)
 	SHOW_TIME("event_declare > post my_sem_start_is_required\n");
 	sem_post(&my_sem_start_is_required);
-//       int val=1;
-//       while (val)
-// 	{
-// 	  usleep(50000); // TBD: event?
-// 	  sem_getvalue(&my_sem_start_is_required, &val);
-// 	}
-//     }
 
 	if (a_status != 0)
 	{
@@ -335,9 +300,6 @@ ENTER("event_declare");
 
 	return a_error;
 }
-
-//>
-//<event_clear_all
 
 espeak_ERROR event_clear_all ()
 {
@@ -384,9 +346,6 @@ espeak_ERROR event_clear_all ()
 	return EE_OK;
 }
 
-//>
-//<sleep_until_timeout_or_stop_request
-
 static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
 {
 ENTER("sleep_until_timeout_or_stop_request");
@@ -428,8 +387,6 @@ ENTER("sleep_until_timeout_or_stop_request");
 	return a_stop_is_required;
 }
 
-//>
-//<get_remaining_time
 // Asked for the time interval required for reaching the sample.
 // If the stream is opened but the audio samples are not played,
 // a timeout is started.
@@ -471,9 +428,6 @@ ENTER("get_remaining_time");
 
 	return err;
 }
-
-//>
-//<polling_thread
 
 static void* polling_thread(void*p)
 {
@@ -628,10 +582,8 @@ ENTER("polling_thread");
 	return NULL;
 }
 
-//>
-//<push, pop, init
 enum {MAX_NODE_COUNTER=1000};
-// return 1 if ok, 0 otherwise
+
 static espeak_ERROR push(void* the_data)
 {
 	ENTER("event > push");
@@ -712,8 +664,6 @@ static void init()
 	node_counter = 0;
 }
 
-//>
-//<event_terminate
 void event_terminate()
 {
 ENTER("event_terminate");
@@ -730,4 +680,3 @@ ENTER("event_terminate");
 		thread_inited = 0;
 	}
 }
-//>

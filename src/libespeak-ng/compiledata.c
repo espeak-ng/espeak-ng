@@ -1397,7 +1397,6 @@ int CompileVowelTransition(int which)
 
 	if(which==1)
 	{
-//		instn = i_VOWELIN;
 		len = 50 / 2;  // defaults for transition into vowel
 		rms = 25 / 2;
 
@@ -1813,8 +1812,6 @@ static int LoadWavefile(FILE *f, const char *fname)
 
 	scale_factor = (max / 127) + 1;
 
-//fprintf(f_errors," sample len=%d max=%4x shift=%d\n",length,max,scale_factor);
-
 #define MIN_FACTOR   -1  // was 6,  disable use of 16 bit samples
 	if(scale_factor > MIN_FACTOR)
 	{
@@ -1822,7 +1819,6 @@ static int LoadWavefile(FILE *f, const char *fname)
 	}
 
 	Write4Bytes(f_phdata,length);
-//	fwrite(&length,4,1,f_phdata);
 	fseek(f,44,SEEK_SET);
 
 	while(!feof(f))
@@ -2462,9 +2458,6 @@ static int CompileSwitch(int type)
 		// check the instructions in the Switch
 		return(0);
 	}
-
-//	count_VowelStart = 0;
-//	count_VowelEnding = 0;
 
 	if(type == 1)
 		*prog_out++ = i_SWITCH_PREVVOWEL+6;
@@ -3708,7 +3701,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 					break;
 				}
 			}
-//			fprintf(f_errors,"tune %s  (%d)\n", new_tune.name, tune_number);
 			if(found == 2)
 			{
 				error("Duplicate tune name: '%s'",new_tune.name);

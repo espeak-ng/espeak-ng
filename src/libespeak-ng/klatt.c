@@ -36,7 +36,7 @@
 #include "synthesize.h"
 #include "voice.h"
 
-extern unsigned char *out_ptr;   // **JSD
+extern unsigned char *out_ptr;
 extern unsigned char *out_start;
 extern unsigned char *out_end;
 extern WGEN_DATA wdata;
@@ -185,9 +185,6 @@ static void flutter(klatt_frame_ptr frame)
 
 	fla = (double) kt_globals.f0_flutter / 50;
 	flb = (double) kt_globals.original_f0 / 100;
-//	flc = sin(2*PI*12.7*time_count);
-//	fld = sin(2*PI*7.1*time_count);
-//	fle = sin(2*PI*4.7*time_count);
 	flc = sin(PI*12.7*time_count);  // because we are calling flutter() more frequently, every 2.9mS
 	fld = sin(PI*7.1*time_count);
 	fle = sin(PI*4.7*time_count);
@@ -767,15 +764,12 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 		if (kt_globals.nopen >= (kt_globals.T0-1))
 		{
-//	printf("Warning: glottal open period cannot exceed T0, truncated\n");
 			kt_globals.nopen = kt_globals.T0 - 2;
 		}
 
 		if (kt_globals.nopen < 40)
 		{
 			/* F0 max = 1000 Hz */
-//	printf("Warning: minimum glottal open period is 10 samples.\n");
-//	printf("truncated, nopen = %d\n",kt_globals.nopen);
 			kt_globals.nopen = 40;
 		}
 
@@ -805,7 +799,6 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		temp = kt_globals.T0 - kt_globals.nopen;
 		if (frame->Kskew > temp)
 		{
-//	printf("Kskew duration=%d > glottal closed period=%d, truncate\n", frame->Kskew, kt_globals.T0 - kt_globals.nopen);
 			frame->Kskew = temp;
 		}
 		if (skew >= 0)
@@ -894,9 +887,6 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 	double arg;
 
 	f = -f;
-
-//NOTE, changes made 30.09.2011 for Reece Dunn <msclrhd@googlemail.com>
-// fix a sound spike when f=0
 
 	/* First compute ordinary resonator coefficients */
 	/* Let r  =  exp(-pi bw t) */
@@ -1220,10 +1210,6 @@ if(option_log_frames)
 			klattp1[ix] = klattp[ix] = fr1->klattp[ix];
 			klattp_inc[ix] = (double)((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
 		}
-
-		// get klatt parameter adjustments for the voice
-//		if((ix>0) && (ix < KLATT_AVp))
-//			klattp1[ix] = klattp[ix] = (klattp[ix] + wvoice->klattv[ix]);
 	}
 
 	nsamples = length;
@@ -1300,12 +1286,6 @@ void KlattInit()
 
 	int ix;
 
-for(ix=0; ix<256; ix++)
-{
-	// TEST: Overwrite natural_samples2
-	// sawtooth wave
-//	natural_samples2[ix] = (128-ix) * 20;
-}
 	sample_count=0;
 
 	kt_globals.synthesis_model = CASCADE_PARALLEL;

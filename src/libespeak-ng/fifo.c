@@ -20,8 +20,6 @@
 
 // This source file is only used for asynchronious modes
 
-//<includes
-
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif
@@ -40,9 +38,6 @@
 #include "wave.h"
 #include "debug.h"
 
-
-//>
-//<decls and function prototypes
 
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
@@ -68,8 +63,6 @@ enum {MAX_NODE_COUNTER=400,
       MAX_INACTIVITY_CHECK=2
 };
 
-//>
-//<fifo_init
 void fifo_init()
 {
   ENTER("fifo_init");
@@ -102,8 +95,6 @@ void fifo_init()
     }
   SHOW_TIME("fifo > get my_sem_stop_is_acknowledged\n");
 }
-//>
-//<fifo_add_command
 
 espeak_ERROR fifo_add_command (t_espeak_command* the_command)
 {
@@ -142,9 +133,6 @@ espeak_ERROR fifo_add_command (t_espeak_command* the_command)
   SHOW_TIME("LEAVE fifo_add_command");
   return a_error;
 }
-
-//>
-//<fifo_add_commands
 
 espeak_ERROR fifo_add_commands (t_espeak_command* command1, t_espeak_command* command2)
 {
@@ -194,9 +182,6 @@ espeak_ERROR fifo_add_commands (t_espeak_command* command1, t_espeak_command* co
   return a_error;
 }
 
-//>
-//<fifo_stop
-
 espeak_ERROR fifo_stop ()
 {
   ENTER("fifo_stop");
@@ -239,36 +224,11 @@ espeak_ERROR fifo_stop ()
   return EE_OK;
 }
 
-//>
-
-//<fifo_is_speaking
 int fifo_is_busy ()
 {
-  //  ENTER("isSpeaking");
-  //  int aResult = (int) (my_command_is_running || WaveIsPlaying());
   SHOW("fifo_is_busy > aResult = %d\n",my_command_is_running);
   return my_command_is_running;
 }
-
-// int pause ()
-// {
-//   ENTER("pause");
-//   // TBD
-//   //   if (espeakPause (espeakHandle, 1))
-//   return true;
-// }
-
-// int resume ()
-// {
-//   ENTER("resume");
-//   // TBD
-//   //   if (espeakPause (espeakHandle, 0))
-//   return true;
-// }
-//>
-
-
-//<sleep_until_start_request_or_inactivity
 
 static int sleep_until_start_request_or_inactivity()
 {
@@ -330,9 +290,6 @@ static int sleep_until_start_request_or_inactivity()
 	return a_start_is_required;
 }
 
-//>
-//<close_stream
-
 static void close_stream()
 {
   SHOW_TIME("fifo > close_stream > ENTER\n");
@@ -372,9 +329,6 @@ static void close_stream()
 
   SHOW_TIME("fifo > close_stream > LEAVE\n");
 }
-
-//>
-//<say_thread
 
 static void* say_thread(void*p)
 {
@@ -484,8 +438,6 @@ int fifo_is_command_enabled()
   return (0 == my_stop_is_required);
 }
 
-//>
-//<fifo
 typedef struct t_node
 {
   t_espeak_command* data;
@@ -494,7 +446,7 @@ typedef struct t_node
 
 static node* head=NULL;
 static node* tail=NULL;
-// return 1 if ok, 0 otherwise
+
 static espeak_ERROR push(t_espeak_command* the_command)
 {
   ENTER("fifo > push");
@@ -569,10 +521,8 @@ static t_espeak_command* pop()
   return the_command;
 }
 
-
 static void init(int process_parameters)
 {
-	// Changed by Tyler Spivey 30.Nov.2011
 	t_espeak_command *c = NULL;
 	ENTER("fifo > init");
 	c = pop();
@@ -587,9 +537,6 @@ static void init(int process_parameters)
 	node_counter = 0;
 }
 
-
-//>
-//<fifo_init
 void fifo_terminate()
 {
   ENTER("fifo_terminate");
@@ -602,4 +549,3 @@ void fifo_terminate()
 
   init(0); // purge fifo
 }
-//>

@@ -83,7 +83,6 @@ float polint(float xa[],float ya[],int n,float x)
 			w=c[i+1]-d[i];
 			if((den=ho-hp) == 0.0)
 			{
-//				fprintf(stderr,"Error in routine 'polint'");
 				return(ya[2]);  // two input xa are identical
 			}
 			den=w/den;

@@ -22,7 +22,6 @@ void debug_enter(const char* text)
 
   gettimeofday(&tv, NULL);                  
 
-  //  fd_log = fopen(FILENAME,"a");
   if (!fd_log)
     {
       debug_init();
@@ -31,7 +30,6 @@ void debug_enter(const char* text)
   if (fd_log)
     {
       fprintf(fd_log, "%03d.%03dms > ENTER %s\n",(int)(tv.tv_sec%1000), (int)(tv.tv_usec/1000), text);
-      //      fclose(fd_log);
     }
 }
 
@@ -40,7 +38,6 @@ void debug_show(const char *format, ...)
 {
   va_list args;		
   va_start(args, format);
-  //  fd_log = fopen(FILENAME,"a");
   if (!fd_log)
     {
       debug_init();
@@ -48,7 +45,6 @@ void debug_show(const char *format, ...)
   if (fd_log)
     {
       vfprintf(fd_log, format, args);
-      //      fclose(fd_log);
     }  
   va_end(args);
 }
@@ -59,7 +55,6 @@ void debug_time(const char* text)
 
   gettimeofday(&tv, NULL);                  
 
-  //  fd_log = fopen(FILENAME,"a");
   if (!fd_log)
     {
       debug_init();
@@ -67,7 +62,6 @@ void debug_time(const char* text)
   if (fd_log)
     {
       fprintf(fd_log, "%03d.%03dms > %s\n",(int)(tv.tv_sec%1000), (int)(tv.tv_usec/1000), text);
-      //      fclose(fd_log);
     }
 }
 

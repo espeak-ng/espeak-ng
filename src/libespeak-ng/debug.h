@@ -6,8 +6,6 @@ extern "C"
 {
 #endif
 
-//#define DEBUG_ENABLED
-
 #ifdef DEBUG_ENABLED
 #define ENTER(text) debug_enter(text)
 #define SHOW(format,...) debug_show(format,__VA_ARGS__);

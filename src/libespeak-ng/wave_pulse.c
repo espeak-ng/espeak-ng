@@ -47,16 +47,9 @@
 #include "wave.h"
 #include "debug.h"
 
-//<Definitions
-
 enum {ONE_BILLION=1000000000};
 
 enum {
-//   /* 100ms. 
-//      If a greater value is set (several seconds), 
-//      please update _pulse_timeout_start accordingly */
-//   PULSE_TIMEOUT_IN_USEC = 100000,  
-
   /* return value */
   PULSE_OK = 0,
   PULSE_ERROR = -1,
@@ -144,26 +137,6 @@ do { \
     if (!connected){ SHOW("CHECK_CONNECTED_NO_RETVAL: !pulse_connected\n", ""); return;	} \
   } while (0);
 
-//>
-
-
-// static void display_timing_info(const pa_timing_info* the_time)
-// {
-//   const struct timeval *tv=&(the_time->timestamp);
-
-//   SHOW_TIME("ti>");
-//   SHOW("ti> timestamp=%03d.%03dms\n",(int)(tv->tv_sec%1000), (int)(tv->tv_usec/1000));
-//   SHOW("ti> synchronized_clocks=%d\n",the_time->synchronized_clocks);
-//   SHOW("ti> sink_usec=%ld\n",the_time->sink_usec);
-//   SHOW("ti> source_usec=%ld\n",the_time->source_usec);
-//   SHOW("ti> transport=%ld\n",the_time->transport_usec);
-//   SHOW("ti> playing=%d\n",the_time->playing);
-//   SHOW("ti> write_index_corrupt=%d\n",the_time->write_index_corrupt);
-//   SHOW("ti> write_index=0x%lx\n",the_time->write_index);
-//   SHOW("ti> read_index_corrupt=%d\n",the_time->read_index_corrupt);
-//   SHOW("ti> read_index=0x%lx\n",the_time->read_index);
-// }
-
 static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata) {
   ENTER(__FUNCTION__);
     
@@ -241,7 +214,6 @@ static void stream_request_cb(pa_stream *s, size_t length, void *userdata) {
 }
 
 static void stream_latency_update_cb(pa_stream *s, void *userdata) {
-  //  ENTER(__FUNCTION__);
     assert(s);
 
     pa_threaded_mainloop_signal(mainloop, 0);
@@ -330,49 +302,11 @@ static int pulse_playing(const pa_timing_info *the_timing_info) {
     r = i->playing;
     memcpy((void*)the_timing_info, (void*)i, sizeof(pa_timing_info));
 
-    //    display_timing_info(i);
-
 fail:
     pa_threaded_mainloop_unlock(mainloop);
 
     return r;
 }
-
-
-// static void pulse_flush(int time) {
-//   ENTER(__FUNCTION__);
-//     pa_operation *o = NULL;
-//     int success = 0;
-
-//     CHECK_CONNECTED();
-
-//     pa_threaded_mainloop_lock(mainloop);
-//     CHECK_DEAD_GOTO(fail, 1);
-
-//     if (!(o = pa_stream_flush(stream, stream_success_cb, &success))) {
-//         SHOW("pa_stream_flush() failed: %s", pa_strerror(pa_context_errno(context)));
-//         goto fail;
-//     }
-    
-//     while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
-//         CHECK_DEAD_GOTO(fail, 1);
-//         pa_threaded_mainloop_wait(mainloop);
-//     }
-
-//     if (!success)
-//         SHOW("pa_stream_flush() failed: %s", pa_strerror(pa_context_errno(context)));
-    
-//     written = (uint64_t) (((double) time * pa_bytes_per_second(pa_stream_get_sample_spec(stream))) / 1000);
-//     just_flushed = 1;
-//     time_offset_msec = time;
-    
-// fail:
-//     if (o)
-//         pa_operation_unref(o);
-    
-//     pa_threaded_mainloop_unlock(mainloop);
-// }
-
 
 static void pulse_write(void* ptr, int length) {
   ENTER(__FUNCTION__);
@@ -610,8 +544,6 @@ unlock_and_fail:
     
 fail:
 
-    //    pulse_close();
-
   if (ret == PULSE_NO_CONNECTION) {
     if (context) {
       SHOW_TIME("pa_context_disconnect (call)");
@@ -639,28 +571,12 @@ fail:
 void wave_flush(void* theHandler)
 {
   ENTER("wave_flush");
-
-//   if (my_stream_could_start)
-//     {
-// //       #define buf 1024
-// //       static char a_buffer[buf*2];
-// //       memset(a_buffer,0,buf*2);
-// //       wave_write(theHandler, a_buffer, buf*2);
-//       start_stream();
-//     }
 }
-
-
-
-//<wave_set_callback_is_output_enabled
 
 void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 {
   my_callback_is_output_enabled = cb;
 }
-
-//>
-//<wave_init
 
 int wave_init(int srate)
 {
@@ -672,17 +588,11 @@ int wave_init(int srate)
   return pulse_open() == PULSE_OK;
 }
 
-//>
-//<wave_open
-
 void* wave_open(const char* the_api)
 {
   ENTER("wave_open");
   return((void*)1);
 }
-
-//>
-//<wave_write
 
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize)
 {
@@ -741,9 +651,6 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
   return theSize;
 }
 
-//>
-//<wave_close
-
 int wave_close(void* theHandler)
 {
   SHOW_TIME("wave_close > ENTER");
@@ -775,9 +682,6 @@ int wave_close(void* theHandler)
 	return PULSE_OK;
 }
 
-//>
-//<wave_is_busy
-
 int wave_is_busy(void* theHandler)
 {
   SHOW_TIME("wave_is_busy");
@@ -788,14 +692,9 @@ int wave_is_busy(void* theHandler)
   return active;
 }
 
-//>
-//<wave_terminate
-
 void wave_terminate()
 {
   ENTER("wave_terminate");
-
-//   Pa_Terminate();
 
   int a_status;
   pthread_mutex_t* a_mutex = NULL;
@@ -808,9 +707,6 @@ void wave_terminate()
   a_status = pthread_mutex_unlock(a_mutex);
   pthread_mutex_destroy(a_mutex);
 }
-
-//>
-//<wave_get_read_position, wave_get_write_position, wave_get_remaining_time
 
 uint32_t wave_get_read_position(void* theHandler)
 {
@@ -859,9 +755,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
   return 0;
 }
 
-//>
-//<wave_test_get_write_buffer
-
 void *wave_test_get_write_buffer()
 {
   return NULL;
@@ -869,7 +762,6 @@ void *wave_test_get_write_buffer()
 
 
 #else
-// notdef USE_PULSEAUDIO
 
 
 int wave_init(return 1;) {}
@@ -895,8 +787,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 #endif  // of USE_PULSEAUDIO
 
 #ifndef USE_PORTAUDIO
-//>
-//<clock_gettime2, add_time_in_ms
 
 void clock_gettime2(struct timespec *ts)
 {
@@ -932,5 +822,3 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 
 
 #endif   // USE_ASYNC
-
-//>

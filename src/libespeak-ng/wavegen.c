@@ -851,7 +851,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 	// restrict highest harmonic to half the samplerate
 	hmax_samplerate = (((samplerate * 19)/40) << 16)/pitch;   // only 95% of Nyquist freq
-//	hmax_samplerate = (samplerate << 16)/(pitch*2);
 
 	if(hmax > hmax_samplerate)
 		hmax = hmax_samplerate;
@@ -1047,19 +1046,14 @@ static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
 		rp->x2 = 0;
 	}
 
-   // x  =  exp(-pi * bwidth * t)
 	arg = minus_pi_t * bwidth;
 	x = exp(arg);
 
-	// c  =  -(x*x)
 	rp->c = -(x * x);
-
-	// b = x * 2*cos(2 pi * freq * t)
 
 	arg = two_pi_t * freq;
 	rp->b = x * cos(arg) * 2.0;
 
-	// a = 1.0 - b - c
 	rp->a = 1.0 - rp->b - rp->c;
 }  // end if setresonator
 #endif
@@ -1167,7 +1161,6 @@ int Wavegen()
 				maxh2 = PeaksToHarmspect(peaks, wdata.pitch<<4, hspect[0], 0);
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-//				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
 				amplitude2 = (wdata.amplitude * (wdata.pitch >> 8) * wdata.amplitude_fmt)/(10000 << 3);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
@@ -1221,7 +1214,6 @@ int Wavegen()
 				}
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-//				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
 				amplitude2 = (wdata.amplitude * (wdata.pitch >> 8) * wdata.amplitude_fmt)/(10000 << 3);
 
 				if(glottal_flag > 0)
@@ -1256,8 +1248,6 @@ int Wavegen()
 					if((ix = amp_ix>>8) > 127) ix = 127;
 					amp = amplitude_env[ix];
 					amplitude2 = (amplitude2 * amp)/128;
-//					if(amp < 255)
-//						modulation_type = 7;
 				}
 
 				// introduce roughness into the sound by reducing the amplitude of
@@ -1602,7 +1592,6 @@ void WavegenSetVoice(voice_t *v)
 	WavegenSetEcho();
 	SetPitchFormants();
 	MarkerEvent(espeakEVENT_SAMPLERATE, 0, wvoice->samplerate, 0, out_ptr);
-//	WVoiceChanged(wvoice);
 }
 
 
@@ -1698,7 +1687,6 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 	int qix;
 	int cmd;
 	static int glottal_reduce_tab1[4] = {0x30, 0x30, 0x40, 0x50};  // vowel before [?], amp * 1/256
-//	static int glottal_reduce_tab1[4] = {0x30, 0x40, 0x50, 0x60};  // vowel before [?], amp * 1/256
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
 
 #ifdef LOG_FRAMES

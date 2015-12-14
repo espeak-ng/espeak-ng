@@ -651,9 +651,6 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 		syl = &syllable_tab[ix];
 		stress = syl->stress;
 
-//		if(stress == PRIMARY_MARKED)
-//			initial = 1;    // reset the intonation pattern
-
 		if(initial || (stress >= min_stress))
 		{
 			// a primary stress
@@ -811,11 +808,6 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	/* tonic syllable */
 	/******************/
 
-//	if(tn->flags & T_EMPH)
-//	{
-//		syllable_tab[ix].flags |= SYL_EMPHASIS;
-//	}
-
 	if(number_tail == 0)
 	{
 		tone_pitch_env = tune->nucleus0_env;
@@ -879,7 +871,6 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 		tone_posn = tone_posn2;  // put tone on the penultimate stressed word
 	}
 	ix = calc_pitch_segment(ix,tone_posn, th, tn, PRIMARY, continuing);
-// ix = SetBodyIntonation(&tunes[0], ix, tone_posn, 0);
 
 	if(no_tonic)
 		return(0);
@@ -936,7 +927,6 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	PHONEME_TAB *tph;
 	PHONEME_TAB *prev_tph;   // forget across word boundary
 	PHONEME_TAB *prevw_tph;  // remember across word boundary
-//	PHONEME_TAB *prev2_tph;  // 2 tones previous
 	PHONEME_LIST *prev_p;
 
 	int  pitch_adjust = 0;     // pitch gradient through the clause - inital value
@@ -1059,7 +1049,6 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			}
 
 			prev_p = p;
-//			prev2_tph = prevw_tph;
 			prevw_tph = prev_tph = tph;
 			pause = 0;
 		}

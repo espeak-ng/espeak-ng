@@ -442,7 +442,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	phonetic = word = nullstring;
 
 	p = linebuf;
-//	while(isspace2(*p)) p++;
 
 	step = 0;
 
@@ -541,10 +540,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 				{
 					multiple_numeric_hyphen = 1;
 				}
-//				else  // ???
-				{
-					flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
-				}
+				flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
 				c = ' ';
 			}
 			if(isspace2(c))
@@ -639,11 +635,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 				// the dictionary was not loaded, we need a second attempt
 				error_need_dictionary++;
 				fprintf(f_log,"%5d: Need to compile dictionary again\n",linenum);
-			}
-			{
-//char decoded_phonemes[128];
-//DecodePhonemes(word_phonemes,decoded_phonemes);
-//printf("Translator %x  %s  [%s] [%s]\n",translator->translator_name,word,phonetic,decoded_phonemes);
 			}
 		}
 		else
@@ -1925,7 +1916,6 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		dsource = "";
 
 	f_log = log;
-//f_log = fopen("log2.txt","w");
 	if(f_log == NULL)
 		f_log = stderr;
 

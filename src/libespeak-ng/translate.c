@@ -121,10 +121,6 @@ static const unsigned short brackets[] = {
 // other characters which break a word, but don't produce a pause
 static const unsigned short breaks[] = {'_', 0};
 
-// treat these characters as spaces, in addition to iswspace()
-// static const wchar_t chars_space[] = {0x2500,0x2501,0};  // box drawing horiz
-
-
 // Translate character codes 0xA0 to 0xFF into their unicode values
 // ISO_8859_1 is set as default
 static const unsigned short ISO_8859_1[0x60] = {
@@ -1081,10 +1077,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		{
 			if(word_length > 1)
 				return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
-			if(phonemes[0] == phonSWITCH)
-			{
-// problem with espeak -vbg "b.c.d.e.f"
-			}
 			return(0);
 		}
 		strcpy(word_phonemes, phonemes);
@@ -2977,7 +2969,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 								c = ' ';      // lower case followed by upper case, treat as new word
 								space_inserted = 1;
 								prev_in_save = c;
-								//							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
 							}
 						}
 						else if((c != ' ') && iswupper2(prev_in) && iswlower2(next_in))

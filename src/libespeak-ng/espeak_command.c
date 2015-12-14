@@ -29,11 +29,8 @@
 
 #include "debug.h"
 
-
 static unsigned int my_current_text_id=0;
 
-
-//<create_espeak_text
 t_espeak_command* create_espeak_text(const void *text, size_t size, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags, void* user_data)
 {
   ENTER("create_espeak_text");
@@ -88,9 +85,6 @@ t_espeak_command* create_espeak_text(const void *text, size_t size, unsigned int
   return a_command;
 }
 
-//>
-
-
 t_espeak_command* create_espeak_terminated_msg(unsigned int unique_identifier, void* user_data)
 {
   ENTER("create_espeak_terminated_msg");
@@ -128,10 +122,6 @@ t_espeak_command* create_espeak_terminated_msg(unsigned int unique_identifier, v
 
 }
 
-
-
-
-//<create_espeak_mark
 t_espeak_command* create_espeak_mark(const void *text, size_t size, const char *index_mark, unsigned int end_position, unsigned int flags, void* user_data)
 {
   ENTER("create_espeak_mark");
@@ -189,8 +179,6 @@ t_espeak_command* create_espeak_mark(const void *text, size_t size, const char *
 
   return a_command;
 }
-//>
-//< create_espeak_key, create_espeak_char
 
 t_espeak_command* create_espeak_key(const char *key_name, void *user_data)
 {
@@ -257,9 +245,6 @@ t_espeak_command* create_espeak_char(wchar_t character, void* user_data)
   return a_command;
 }
 
-//>
-//< create_espeak_parameter
-
 t_espeak_command* create_espeak_parameter(espeak_PARAMETER parameter, int value, int relative)
 {
   ENTER("create_espeak_parameter");
@@ -294,14 +279,10 @@ t_espeak_command* create_espeak_parameter(espeak_PARAMETER parameter, int value,
   return a_command;
 }
 
-//>
-//< create_espeak_punctuation_list
-
 t_espeak_command* create_espeak_punctuation_list(const wchar_t *punctlist)
 {
   ENTER("create_espeak_punctuation_list");
   int a_error=1;
-  //  wchar_t *a_list = NULL;
   t_espeak_command* a_command = (t_espeak_command*)malloc(sizeof(t_espeak_command));
 
   if (!punctlist || !a_command)
@@ -335,9 +316,6 @@ t_espeak_command* create_espeak_punctuation_list(const wchar_t *punctlist)
 
   return a_command;
 }
-
-//>
-//< create_espeak_voice_name, create_espeak_voice_spec
 
 t_espeak_command* create_espeak_voice_name(const char *name)
 {
@@ -421,8 +399,6 @@ t_espeak_command* create_espeak_voice_spec(espeak_VOICE *voice)
   return a_command;
 }
 
-//>
-//< delete_espeak_command
 int delete_espeak_command( t_espeak_command* the_command)
 {
   ENTER("delete_espeak_command");
@@ -522,8 +498,7 @@ int delete_espeak_command( t_espeak_command* the_command)
     }
   return a_status;
 }
-//>
-//< process_espeak_command
+
 void process_espeak_command( t_espeak_command* the_command)
 {
   ENTER("process_espeak_command");
@@ -612,9 +587,6 @@ void process_espeak_command( t_espeak_command* the_command)
     }
 }
 
-//>
-
-//< process_espeak_command
 void display_espeak_command( t_espeak_command* the_command)
 {
   ENTER("display_espeak_command");
@@ -702,4 +674,3 @@ void display_espeak_command( t_espeak_command* the_command)
     }
 #endif
 }
-//>

@@ -817,7 +817,6 @@ ENTER("espeak_Initialize");
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	VoiceReset(0);
-//	SetVoiceByName("default");
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
@@ -827,7 +826,6 @@ ENTER("espeak_Initialize");
 	SetParameter(espeakCAPITALS,option_capitals,0);
 	SetParameter(espeakPUNCTUATION,option_punctuation,0);
 	SetParameter(espeakWORDGAP,0,0);
-//	DoVoiceChange(voice);
 
 #ifdef USE_ASYNC
 	fifo_init();
@@ -1192,7 +1190,6 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 
 ESPEAK_API int espeak_IsPlaying(void)
 {//==================================
-//	ENTER("espeak_IsPlaying");
 #ifdef USE_ASYNC
 	if((my_mode == AUDIO_OUTPUT_PLAYBACK) && wave_is_busy(my_audio))
 		return(1);
