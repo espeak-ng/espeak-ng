@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -513,7 +513,7 @@ int towupper2(unsigned int c)
 }
 
 static int IsRomanU(unsigned int c)
-{//================================
+{
 	if((c=='I') || (c=='V') || (c=='X') || (c=='L'))
 		return(1);
 	return(0);
@@ -521,7 +521,7 @@ static int IsRomanU(unsigned int c)
 
 
 static void GetC_unget(int c)
-{//==========================
+{
 // This is only called with UTF8 input, not wchar input
 	if(f_input != NULL)
 		ungetc(c,f_input);
@@ -534,7 +534,7 @@ static void GetC_unget(int c)
 }
 
 int Eof(void)
-{//==========
+{
 	if(ungot_char != 0)
 		return(0);
 
@@ -546,7 +546,7 @@ int Eof(void)
 
 
 static int GetC_get(void)
-{//======================
+{
 	unsigned int c;
 	unsigned int c2;
 
@@ -599,7 +599,7 @@ static int GetC_get(void)
 
 
 static int GetC(void)
-{//==================
+{
 // Returns a unicode wide character
 // Performs UTF8 checking and conversion
 
@@ -688,17 +688,17 @@ static int GetC(void)
 	if(c1 >= 0xa0)
 		return(translator->charset_a0[c1-0xa0]);
 	return(c1);
-}  // end of GetC
+}
 
 
 static void UngetC(int c)
-{//======================
+{
 	ungot_char = c;
 }
 
 
 const char *WordToString2(unsigned int word)
-{//============================================
+{
 // Convert a language mnemonic word into a string
 	int  ix;
 	static char buf[5];
@@ -716,7 +716,7 @@ const char *WordToString2(unsigned int word)
 
 
 static const char *LookupSpecial(Translator *tr, const char *string, char* text_out)
-{//=================================================================================
+{
 	unsigned int flags[2];
 	char phonemes[55];
 	char phonemes2[55];
@@ -735,7 +735,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char* text_
 
 
 static const char *LookupCharName(Translator *tr, int c, int only)
-{//===============================================================
+{
 // Find the phoneme string (in ascii) to speak the name of character c
 // Used for punctuation characters and symbols
 
@@ -824,7 +824,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 }
 
 int Read4Bytes(FILE *f)
-{//====================
+{
 // Read 4 bytes (least significant first) into a word
 	int ix;
 	unsigned char c;
@@ -840,7 +840,7 @@ int Read4Bytes(FILE *f)
 
 
 static int LoadSoundFile(const char *fname, int index)
-{//===================================================
+{
 	FILE *f;
 	char *p;
 	int *ip;
@@ -922,11 +922,11 @@ static int LoadSoundFile(const char *fname, int index)
 	soundicon_tab[index].length = (*ip) / 2;  // length in samples
 	soundicon_tab[index].data = p;
 	return(0);
-}  //  end of LoadSoundFile
+}
 
 
 static int LookupSoundicon(int c)
-{//==============================
+{
 // Find the sound icon number for a punctuation chatacter
 	int ix;
 
@@ -947,7 +947,7 @@ static int LookupSoundicon(int c)
 
 
 static int LoadSoundFile2(const char *fname)
-{//=========================================
+{
 // Load a sound file into one of the reserved slots in the sound icon table
 // (if it'snot already loaded)
 
@@ -976,7 +976,7 @@ static int LoadSoundFile2(const char *fname)
 
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
-{//=============================================================================================================
+{
 	// announce punctuation names
 	// c1:  the punctuation character
 	// c2:  the following character
@@ -1105,7 +1105,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		return(attributes);
 
 	return(short_pause);
-}  //  end of AnnouncePunctuation
+}
 
 #define SSML_SPEAK     1
 #define SSML_VOICE     2
@@ -1169,7 +1169,7 @@ static MNEM_TAB ssmltags[] = {
 
 
 static const char *VoiceFromStack()
-{//================================
+{
 // Use the voice properties from the SSML stack to choose a voice, and switch
 // to that voice if it's not the current voice
 	int ix;
@@ -1249,12 +1249,12 @@ static const char *VoiceFromStack()
 		return(voice_name);
 	}
 	return(v_id);
-}  // end of VoiceFromStack
+}
 
 
 
 static void ProcessParamStack(char *outbuf, int *outix)
-{//====================================================
+{
 // Set the speech parameters from the parameter stack
 	int param;
 	int ix;
@@ -1306,11 +1306,11 @@ static void ProcessParamStack(char *outbuf, int *outix)
 			*outix += strlen(buf);
 		}
 	}
-}  // end of ProcessParamStack
+}
 
 
 static PARAM_STACK *PushParamStack(int tag_type)
-{//=============================================
+{
 	int  ix;
 	PARAM_STACK *sp;
 
@@ -1324,11 +1324,11 @@ static PARAM_STACK *PushParamStack(int tag_type)
 		sp->parameter[ix] = -1;
 	}
 	return(sp);
-}  //  end of PushParamStack
+}
 
 
 static void PopParamStack(int tag_type, char *outbuf, int *outix)
-{//==============================================================
+{
 	// unwind the stack up to and including the previous tag of this type
 	int ix;
 	int top = 0;
@@ -1348,12 +1348,12 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix)
 		n_param_stack = top;
 	}
 	ProcessParamStack(outbuf, outix);
-}  // end of PopParamStack
+}
 
 
 
 static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
-{//============================================================
+{
 // Gets the value string for an attribute.
 // Returns NULL if the attribute is not present
 	int ix;
@@ -1384,11 +1384,11 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 		pw++;
 	}
 	return(NULL);
-}  //  end of GetSsmlAttribute
+}
 
 
 static int attrcmp(const wchar_t *string1, const char *string2)
-{//============================================================
+{
 	int  ix;
 
 	if(string1 == NULL)
@@ -1404,7 +1404,7 @@ static int attrcmp(const wchar_t *string1, const char *string2)
 
 
 static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
-{//================================================================
+{
 	int ix;
 
 	for(ix=0; mtab[ix].mnem != NULL; ix++)
@@ -1417,7 +1417,7 @@ static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 
 
 static int attrnumber(const wchar_t *pw, int default_value, int type)
-{//==================================================================
+{
 	int value = 0;
 
 	if((pw == NULL) || !IsDigit09(*pw))
@@ -1433,12 +1433,12 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 		value *= 1000;
 	}
 	return(value);
-}  // end of attrnumber
+}
 
 
 
 static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
-{//============================================================
+{
 // Convert attribute string into utf8, write to buf, and return its utf8 length
 	unsigned int c;
 	int ix = 0;
@@ -1458,12 +1458,12 @@ static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 	}
 	buf[ix] = 0;
 	return(ix);
-}  // end of attrcopy_utf8
+}
 
 
 
 static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
-{//=============================================================================
+{
 	int sign = 0;
 	wchar_t *tail;
 	double value;
@@ -1519,11 +1519,11 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 
 	*value_out = (int)value;
 	return(sign);   // -1, 0, or 1
-}  // end of attr_prosody_value
+}
 
 
 int AddNameData(const char *name, int wide)
-{//========================================
+{
 // Add the name to the namedata and return its position
 // (Used by the Windows SAPI wrapper)
 	int ix;
@@ -1553,11 +1553,11 @@ int AddNameData(const char *name, int wide)
 	memcpy(&namedata[ix = namedata_ix],name,len);
 	namedata_ix += len;
 	return(ix);
-}  //  end of AddNameData
+}
 
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
-{//==========================================================
+{
 	SSML_STACK *sp;
 	sp = &ssml_stack[0];
 
@@ -1582,7 +1582,7 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 
 
 static int GetVoiceAttributes(wchar_t *pw, int tag_type)
-{//=====================================================
+{
 // Determines whether voice attribute are specified in this tag, and if so, whether this means
 // a voice change.
 // If it's a closing tag, delete the top frame of the stack and determine whether this implies
@@ -1657,11 +1657,11 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	}
 
 	return(0);
-}  //  end of GetVoiceAttributes
+}
 
 
 static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
-{//=============================================================================
+{
 	int value;
 	int sign;
 
@@ -1729,11 +1729,11 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 			sp->parameter[param_type] = speech_parameters[param_type] + (value*sign);
 		}
 	}
-}  // end of SetProsodyParemeter
+}
 
 
 static int ReplaceKeyName(char *outbuf, int index, int *outix)
-{//===========================================================
+{
 // Replace some key-names by single characters, so they can be pronounced in different languages
 	static MNEM_TAB keynames[] = {
 	{"space ",0xe020},
@@ -1759,7 +1759,7 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 
 
 static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, int self_closing)
-{//==================================================================================================
+{
 // xml_buf is the tag and attributes with a zero terminator in place of the original '>'
 // returns a clause terminator value.
 
@@ -2213,16 +2213,16 @@ terminator=0;  // ??  Sentence intonation, but no pause ??
 		return(CLAUSE_PARAGRAPH);
 	}
 	return(0);
-}  // end of ProcessSsmlTag
+}
 
 
 static void RemoveChar(char *p)
-{//=======================
+{
 // Replace a UTF-8 character by spaces
 	int c;
 
 	memset(p, ' ', utf8_in(&c, p));
-}  // end of RemoveChar
+}
 
 
 static MNEM_TAB xml_char_mnemonics[] = {
@@ -2236,7 +2236,7 @@ static MNEM_TAB xml_char_mnemonics[] = {
 
 
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
-{//=================================================================================================================================
+{
 /* Find the end of the current clause.
 	Write the clause into  buf
 
@@ -2936,11 +2936,11 @@ if(option_ssml) parag=1;
 	buf[ix] = ' ';
 	buf[ix+1] = 0;
 	return(CLAUSE_EOF);   //  end of file
-}  //  end of ReadClause
+}
 
 
 void InitNamedata(void)
-{//====================
+{
 	namedata_ix = 0;
 	if(namedata != NULL)
 	{
@@ -2952,7 +2952,7 @@ void InitNamedata(void)
 
 
 void InitText2(void)
-{//=================
+{
 	int param;
 
 	ungot_char = 0;
@@ -2978,4 +2978,3 @@ void InitText2(void)
 
 	xmlbase = NULL;
 }
-

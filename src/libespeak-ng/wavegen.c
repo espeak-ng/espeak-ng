@@ -264,7 +264,7 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 
 #ifdef LOG_FRAMES
 static void LogMarker(int type, int value, int value2)
-{//===================================================
+{
 	char buf[20];
 	int *p;
 
@@ -294,7 +294,7 @@ static void LogMarker(int type, int value, int value2)
 #endif
 
 void WcmdqStop()
-{//=============
+{
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
@@ -315,7 +315,7 @@ void WcmdqStop()
 
 
 int WcmdqFree()
-{//============
+{
 	int i;
 	i = wcmdq_head - wcmdq_tail;
 	if(i <= 0) i += N_WCMDQ;
@@ -323,19 +323,19 @@ int WcmdqFree()
 }
 
 int WcmdqUsed()
-{//============
+{
    return(N_WCMDQ - WcmdqFree());
 }
 
 
 void WcmdqInc()
-{//============
+{
 	wcmdq_tail++;
 	if(wcmdq_tail >= N_WCMDQ) wcmdq_tail=0;
 }
 
 static void WcmdqIncHead()
-{//=======================
+{
 	wcmdq_head++;
 	if(wcmdq_head >= N_WCMDQ) wcmdq_head=0;
 }
@@ -531,7 +531,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	return(result);
 #endif
 
-}  //  end of WaveCallBack
+}
 
 
 #if USE_PORTAUDIO == 19
@@ -578,7 +578,7 @@ static PaError Pa_OpenDefaultStream2( PaStream** stream,
 
 
 int WavegenOpenSound()
-{//===================
+{
 	PaError err, err2;
 	PaError active;
 
@@ -643,7 +643,7 @@ int WavegenOpenSound()
 
 
 int WavegenCloseSound()
-{//====================
+{
 	PaError active;
 
 	// check whether speaking has finished, and close the stream
@@ -673,7 +673,7 @@ int WavegenCloseSound()
 
 
 int WavegenInitSound()
-{//===================
+{
 	PaError err;
 
 	if(option_quiet)
@@ -691,22 +691,22 @@ int WavegenInitSound()
 }
 #else
 int WavegenOpenSound()
-{//===================
+{
 	return(0);
 }
 int WavegenCloseSound()
-{//====================
+{
 	return(0);
 }
 int WavegenInitSound()
-{//===================
+{
 	return(0);
 }
 #endif
 
 
 void WavegenInit(int rate, int wavemult_fact)
-{//==========================================
+{
 	int  ix;
 	double x;
 
@@ -757,11 +757,11 @@ void WavegenInit(int rate, int wavemult_fact)
 remove("log-espeakedit");
 remove("log-klatt");
 #endif
-}  // end of WavegenInit
+}
 
 
 int GetAmplitude(void)
-{//===================
+{
 	int amp;
 
 	// normal, none, reduced, moderate, strong
@@ -774,7 +774,7 @@ int GetAmplitude(void)
 
 
 static void WavegenSetEcho(void)
-{//=============================
+{
 	int delay;
 	int amp;
 
@@ -812,12 +812,12 @@ static void WavegenSetEcho(void)
 	// compensate (partially) for increase in amplitude due to echo
 	general_amplitude = GetAmplitude();
 	general_amplitude = ((general_amplitude * (500-amp))/500);
-}  // end of WavegenSetEcho
+}
 
 
 
 int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
-{//============================================================================
+{
 // Calculate the amplitude of each  harmonics from the formants
 // Only for formants 0 to 5
 
@@ -942,12 +942,12 @@ int h2;
 	}
 
 	return(hmax);  // highest harmonic number
-}  // end of PeaksToHarmspect
+}
 
 
 
 static void AdvanceParameters()
-{//============================
+{
 // Called every 64 samples to increment the formant freq, height, and widths
 
 	int x;
@@ -1014,12 +1014,12 @@ static void AdvanceParameters()
 			harm_sqrt[ix] += harm_sqrt_inc[ix];
 	}
 #endif
-}  //  end of AdvanceParameters
+}
 
 
 #ifndef PLATFORM_RISCOS
 static double resonator(RESONATOR *r, double input)
-{//================================================
+{
 	double x;
 
 	x = r->a * input + r->b * r->x1 + r->c * r->x2;
@@ -1032,7 +1032,7 @@ static double resonator(RESONATOR *r, double input)
 
 
 static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
-{//====================================================================
+{
 // freq    Frequency of resonator in Hz
 // bwidth  Bandwidth of resonator in Hz
 // init    Initialize internal data
@@ -1055,12 +1055,12 @@ static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
 	rp->b = x * cos(arg) * 2.0;
 
 	rp->a = 1.0 - rp->b - rp->c;
-}  // end if setresonator
+}
 #endif
 
 
 void InitBreath(void)
-{//==================
+{
 #ifndef PLATFORM_RISCOS
 	int ix;
 
@@ -1072,12 +1072,12 @@ void InitBreath(void)
 		setresonator(&rbreath[ix],2000,200,1);
 	}
 #endif
-}  // end of InitBreath
+}
 
 
 
 static void SetBreath()
-{//====================
+{
 #ifndef PLATFORM_RISCOS
 	int pk;
 
@@ -1094,11 +1094,11 @@ static void SetBreath()
 		}
 	}
 #endif
-}  // end of SetBreath
+}
 
 
 static int ApplyBreath(void)
-{//=========================
+{
 	int value = 0;
 #ifndef PLATFORM_RISCOS
 	int noise;
@@ -1123,7 +1123,7 @@ static int ApplyBreath(void)
 
 
 int Wavegen()
-{//==========
+{
 	unsigned short waveph;
 	unsigned short theta;
 	int total;
@@ -1389,11 +1389,11 @@ int Wavegen()
 			return(1);
 	}
 	return(0);
-}  //  end of Wavegen
+}
 
 
 static int PlaySilence(int length, int resume)
-{//===========================================
+{
 	static int n_samples;
 	int value=0;
 
@@ -1425,12 +1425,12 @@ static int PlaySilence(int length, int resume)
 			return(1);
 	}
 	return(0);
-}  // end of PlaySilence
+}
 
 
 
 static int PlayWave(int length, int resume, unsigned char *data, int scale, int amp)
-{//=================================================================================
+{
 	static int n_samples;
 	static int ix=0;
 	int value;
@@ -1490,7 +1490,7 @@ static int PlayWave(int length, int resume, unsigned char *data, int scale, int 
 
 
 static int SetWithRange0(int value, int max)
-{//=========================================
+{
 	if(value < 0)
 		return(0);
 	if(value > max)
@@ -1500,7 +1500,7 @@ static int SetWithRange0(int value, int max)
 
 
 static void SetPitchFormants()
-{//===========================
+{
 	int ix;
 	int factor = 256;
 	int pitch_value;
@@ -1527,7 +1527,7 @@ static void SetPitchFormants()
 
 
 void SetEmbedded(int control, int value)
-{//=====================================
+{
 	// there was an embedded command in the text at this point
 	int sign=0;
 	int command;
@@ -1572,7 +1572,7 @@ void SetEmbedded(int control, int value)
 
 
 void WavegenSetVoice(voice_t *v)
-{//=============================
+{
 	static voice_t v2;
 
 	memcpy(&v2,v,sizeof(v2));
@@ -1596,7 +1596,7 @@ void WavegenSetVoice(voice_t *v)
 
 
 static void SetAmplitude(int length, unsigned char *amp_env, int value)
-{//====================================================================
+{
 	amp_ix = 0;
 	if(length==0)
 		amp_inc = 0;
@@ -1611,7 +1611,7 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 
 
 void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
-{//======================================================================================
+{
 	int x;
 	int base;
 	int range;
@@ -1642,7 +1642,7 @@ void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pit
 
 
 void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
-{//==================================================================
+{
 // length in samples
 
 #ifdef LOG_FRAMES
@@ -1672,14 +1672,14 @@ if(option_log_frames)
 
 	flutter_amp = wvoice->flutter;
 
-}  // end of SetPitch
+}
 
 
 
 
 
 void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
-{//========================================================================
+{
 	int ix;
 	DOUBLEX next;
 	int length2;
@@ -1787,11 +1787,11 @@ if(option_log_frames)
 			}
 		}
 	}
-}  // end of SetSynth
+}
 
 
 static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
-{//====================================================================================
+{
 	if(resume==0)
 		SetSynth(length, modulation, fr1, fr2, wvoice);
 
@@ -1799,7 +1799,7 @@ static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_
 }
 
 void Write4Bytes(FILE *f, int value)
-{//=================================
+{
 // Write 4 bytes to a file, least significant first
 	int ix;
 
@@ -1813,7 +1813,7 @@ void Write4Bytes(FILE *f, int value)
 
 
 int WavegenFill2(int fill_zeros)
-{//============================
+{
 // Pick up next wavegen commands from the queue
 // return: 0  output buffer has been filled
 // return: 1  input command queue is now empty
@@ -1962,13 +1962,13 @@ int WavegenFill2(int fill_zeros)
 	}
 
 	return(0);
-}  // end of WavegenFill2
+}
 
 
 #ifdef INCLUDE_SONIC
 /* Speed up the audio samples with libsonic. */
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
-{//==============================================================================
+{
 	if(length_in >0)
 	{
 		if(sonicSpeedupStream == NULL)
@@ -1991,13 +1991,13 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 		sonicFlushStream(sonicSpeedupStream);
 	}
 	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
-}  // end of SpeedUp
+}
 #endif
 
 
 /* Call WavegenFill2, and then speed up the output samples. */
 int WavegenFill(int fill_zeros)
-{//============================
+{
 	int finished;
 	unsigned char *p_start;
 
@@ -2021,5 +2021,5 @@ int WavegenFill(int fill_zeros)
 	}
 #endif
 	return finished;
-}  // end of WavegenFill
+}
 

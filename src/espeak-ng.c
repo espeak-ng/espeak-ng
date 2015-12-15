@@ -119,7 +119,7 @@ char wavefile[200];
 
 
 int GetFileLength(const char *filename)
-{//====================================
+{
 	struct stat statbuf;
 
 	if(stat(filename,&statbuf) != 0)
@@ -129,11 +129,11 @@ int GetFileLength(const char *filename)
 		return(-2);  // a directory
 
 	return(statbuf.st_size);
-}  // end of GetFileLength
+}
 
 
 void strncpy0(char *dest, const char *source, int size)
-{//====================================================
+{
 	if(source!=NULL)
 	{
 		strncpy(dest,source,size);
@@ -142,7 +142,7 @@ void strncpy0(char *dest, const char *source, int size)
 }
 
 int utf8_in(int *c, const char *buf)
-{//=================================
+{
 // Read a unicode characater from a UTF8 string
 // Returns the number of UTF8 bytes used.
 // backwards: set if we are moving backwards through the UTF8 string
@@ -174,7 +174,7 @@ int utf8_in(int *c, const char *buf)
 
 
 void DisplayVoices(FILE *f_out, char *language)
-{//============================================
+{
 	int ix;
 	const char *p;
 	int len;
@@ -242,13 +242,13 @@ void DisplayVoices(FILE *f_out, char *language)
 		}
 		fputc('\n',f_out);
 	}
-}   //  end of DisplayVoices
+}
 
 
 
 
 static void Write4Bytes(FILE *f, int value)
-{//=================================
+{
 // Write 4 bytes to a file, least significant first
 	int ix;
 
@@ -262,7 +262,6 @@ static void Write4Bytes(FILE *f, int value)
 
 
 int OpenWavFile(char *path, int rate)
-//===================================
 {
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0x24,0xf0,0xff,0x7f,'W','A','V','E','f','m','t',' ',
@@ -295,12 +294,11 @@ int OpenWavFile(char *path, int rate)
 	Write4Bytes(f_wavfile,rate * 2);
 	fwrite(&wave_hdr[32],1,12,f_wavfile);
 	return(0);
-}   //  end of OpenWavFile
+}
 
 
 
 static void CloseWavFile()
-//========================
 {
 	unsigned int pos;
 
@@ -319,11 +317,11 @@ static void CloseWavFile()
 	fclose(f_wavfile);
 	f_wavfile = NULL;
 
-} // end of CloseWavFile
+}
 
 
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
-{//========================================================================
+{
 	char fname[210];
 
 	if(quiet) return(0);  // -q quiet mode
@@ -380,7 +378,7 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 
 
 static void PrintVersion()
-{//=======================
+{
 	const char *version;
 	const char *path_data;
 	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT);
@@ -407,16 +405,9 @@ static void PrintVersion()
 #endif
 
 int main (int argc, char **argv)
-//==============================
 {
 	static struct option long_options[] =
 		{
-		/* These options set a flag. */
-//		{"verbose", no_argument,       &verbose_flag, 1},
-//		{"brief",   no_argument,       &verbose_flag, 0},
-
-		/* These options don't set a flag.
-			We distinguish them by their indices. */
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
 		{"compile-debug", optional_argument, 0, 0x101},

@@ -130,7 +130,7 @@ USHORT voice_pcnt[N_PEAKS+1][3];
 
 
 void DisplayVoices(FILE *f_out, char *language)
-{//============================================
+{
 	int ix;
 	const char *p;
 	int len;
@@ -198,11 +198,10 @@ void DisplayVoices(FILE *f_out, char *language)
 		}
 		fputc('\n',f_out);
 	}
-}   //  end of DisplayVoices
+}
 
 
 static int OpenWaveFile(const char *path, int rate)
-//=================================================
 {
 	// Set the length of 0x7ffff000 for --stdout
 	// This will be changed to the correct length for -w (write to file)
@@ -240,13 +239,12 @@ static int OpenWaveFile(const char *path, int rate)
 		return(0);
 	}
 	return(1);
-}   //  end of OpenWaveFile
+}
 
 
 
 
 static void CloseWaveFile()
-//=========================
 {
    unsigned int pos;
 
@@ -266,13 +264,13 @@ static void CloseWaveFile()
    fclose(f_wave);
    f_wave = NULL;
 
-} // end of CloseWaveFile
+}
 
 
 
 
 static int WavegenFile(void)
-{//=========================
+{
 	int finished;
 	unsigned char wav_outbuf[1024];
 	char fname[210];
@@ -308,12 +306,12 @@ static int WavegenFile(void)
 		fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
 	}
 	return(finished);
-}  // end of WavegenFile
+}
 
 
 
 static void init_path(char *argv0, char *path_specified)
-{//=====================================================
+{
 
 	if(path_specified)
 	{
@@ -375,7 +373,7 @@ static void init_path(char *argv0, char *path_specified)
 
 
 static int initialise(void)
-{//========================
+{
 	int param;
 	int result;
 	int srate = 22050;   // default sample rate
@@ -434,16 +432,9 @@ static int initialise(void)
 #endif
 
 int main (int argc, char **argv)
-//==============================
 {
 	static struct option long_options[] =
 		{
-		/* These options set a flag. */
-//		{"verbose", no_argument,       &verbose_flag, 1},
-//		{"brief",   no_argument,       &verbose_flag, 0},
-
-		/* These options don't set a flag.
-			We distinguish them by their indices. */
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
 		{"compile-debug", optional_argument, 0, 0x101},

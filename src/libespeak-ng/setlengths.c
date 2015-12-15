@@ -133,12 +133,10 @@ static int speed3 = 118;
 
 
 
-//#define TEST_SPEED
-
 #ifdef INCLUDE_SONIC
 
 void SetSpeed(int control)
-{//=======================
+{
 	int x;
 	int s1;
 	int wpm;
@@ -297,12 +295,12 @@ speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
 				speed.clause_pause_factor = 16;
 		}
 	}
-}  //  end of SetSpeed
+}
 
 #else  // not using sonic speed-up
 
 void SetSpeed(int control)
-{//=======================
+{
 // This is the earlier version of SetSpeed() before sonic speed-up was added
 	int x;
 	int s1;
@@ -420,13 +418,13 @@ void SetSpeed(int control)
 				speed.clause_pause_factor = 16;
 		}
 	}
-}  //  end of SetSpeed
+}
 
 #endif   // of INCLUDE_SONIC
 
 
 void SetParameter(int parameter, int value, int relative)
-{//======================================================
+{
 // parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
 // relative 0=absolute  1=relative
 
@@ -485,12 +483,12 @@ void SetParameter(int parameter, int value, int relative)
 	default:
 		break;
 	}
-}  // end of SetParameter
+}
 
 
 
 static void DoEmbedded2(int *embix)
-{//================================
+{
 	// There were embedded commands in the text at this point
 
 	unsigned int word;
@@ -509,7 +507,7 @@ static void DoEmbedded2(int *embix)
 
 
 void CalcLengths(Translator *tr)
-{//==============================
+{
 	int ix;
 	int ix2;
 	PHONEME_LIST *prev;
@@ -971,5 +969,4 @@ if(p->type != phVOWEL)
 			break;
 		}
 	}
-}  //  end of CalcLengths
-
+}

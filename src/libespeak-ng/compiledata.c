@@ -436,7 +436,7 @@ static void ReadPhondataManifest()
 }
 
 static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
-{//===============================================================
+{
 	while(ktab->mnem != NULL)
 	{
 		if(ktab->data == value)
@@ -450,7 +450,7 @@ static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
 }
 
 static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
-{//============================================================================
+{
 	USHORT *pc;
 	int instn;
 	int instn_category;
@@ -753,7 +753,7 @@ char item_string[N_ITEM_STRING];
 
 
 static int ref_sorter(char **a, char **b)
-{//======================================
+{
 	int ix;
 
 	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
@@ -768,12 +768,12 @@ static int ref_sorter(char **a, char **b)
 		return ix;
 
 	return(p1->ph_mnemonic - p2->ph_mnemonic);
-}   /* end of ref_sorter */
+}
 
 
 
 static void CompileReport(void)
-{//============================
+{
 	int ix;
 	int hash;
 	int n;
@@ -862,7 +862,7 @@ static void CompileReport(void)
 	free(list);
 	list = NULL;
 	fclose(f_report);
-}  // end of CompileReport
+}
 
 
 #ifdef PLATFORM_WINDOWS
@@ -886,7 +886,7 @@ int strcasecmp(const char *s1, const char *s2)
 
 
 static int ph_sorter(char **a, char **b)
-{//======================================
+{
 	int ix;
 	int t1, t2;
 	char mnem1[6];
@@ -905,12 +905,12 @@ static int ph_sorter(char **a, char **b)
 
 	strcpy(mnem1,WordToString(p1->mnemonic));
   return(strcasecmp(mnem1,WordToString(p2->mnemonic)));
-}   /* end of ph_sorter */
+}
 
 
 
 static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname)
-{//==============================================================================
+{
 	int ix;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *ph_tab[N_PHONEME_TAB];
@@ -978,12 +978,12 @@ static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname
 		}
 	}
 	fputc('\n',f);
-}  // end of  PrintPhonemesUsed
+}
 
 
 
 static void error(const char *format, const char *string)
-{//======================================================
+{
 	if(string==NULL)
 		string = "";
 	fprintf(f_errors,"%4d:  ",linenum-1);
@@ -993,12 +993,12 @@ static void error(const char *format, const char *string)
 }
 
 static void Error(const char *string)
-{//==================================
+{
 	error("%s",string);
 }
 
 static FILE *fopen_log(FILE *f_log, const char *fname,const char *access)
-{//=====================================================================
+{
 // performs fopen, but produces error message to f_log if it fails
 	FILE *f;
 
@@ -1012,7 +1012,7 @@ static FILE *fopen_log(FILE *f_log, const char *fname,const char *access)
 
 
 static unsigned int StringToWord(const char *string)
-{//=================================================
+{
 // Pack 4 characters into a word
 	int  ix;
 	unsigned char c;
@@ -1070,7 +1070,7 @@ static MNEM_TAB reserved_phonemes[] = {
 
 
 static void ReservePhCodes()
-{//=========================
+{
 // Reserve phoneme codes which have fixed numbers so that they can be
 // referred to from the program code.
 	unsigned int word;
@@ -1086,11 +1086,11 @@ static void ReservePhCodes()
 			n_phcodes = p->value+1;
 		p++;
 	}
-}  // end of ReservePhCodes
+}
 
 
 static int LookupPhoneme(const char *string, int control)
-{//======================================================
+{
 // control = 0   explicit declaration
 // control = 1   declare phoneme if not found
 // control = 2   start looking after control & stress phonemes
@@ -1143,12 +1143,12 @@ static int LookupPhoneme(const char *string, int control)
 	phoneme_tab2[use].type = phINVALID;
 	phoneme_tab2[use].program = linenum;  // for error report if the phoneme remains undeclared
 	return(use);
-}  //  end of Compile::LookupPhoneme
+}
 
 
 
 static unsigned int get_char()
-{//===========================
+{
 	unsigned int c;
 	c = fgetc(f_in);
 	if(c == '\n')
@@ -1157,7 +1157,7 @@ static unsigned int get_char()
 }
 
 static void unget_char(unsigned int c)
-{//===================================
+{
 	ungetc(c,f_in);
 	if(c == '\n')
 		linenum--;
@@ -1165,16 +1165,16 @@ static void unget_char(unsigned int c)
 
 
 int CheckNextChar()
-{//================
+{
 	int c;
 	while(((c = get_char()) == ' ') || (c == '\t'));
 	unget_char(c);
 	return(c);
-}  // end of CheckNextChar
+}
 
 
 static int NextItem(int type)
-{//==========================
+{
 	int  acc;
 	unsigned char  c=0;
 	unsigned char c2;
@@ -1300,12 +1300,12 @@ static int NextItem(int type)
 		return(LookupPhoneme(item_string,2));
 	}
 	return(-1);
-}  //  end of NextItem
+}
 
 
 
 static int NextItemMax(int max)
-{//==============================
+{
 // Get a number, but restrict value to max
     int value;
     char msg[80];
@@ -1323,7 +1323,7 @@ static int NextItemMax(int max)
 
 
 static int NextItemBrackets(int type, int control)
-{//===============================================
+{
 // Expect a parameter inside parantheses
 // control: bit 0  0= need (
 //          bit 1  1= allow comma
@@ -1352,16 +1352,16 @@ static int NextItemBrackets(int type, int control)
 
 
 static void UngetItem()
-{//====================
+{
 	fseek(f_in,f_in_displ,SEEK_SET);
 	linenum = f_in_linenum;
-}  //  end of UngetItem
+}
 
 
 
 
 static int Range(int value, int divide, int min, int max)
-{//======================================================
+{
 	if(value < 0)
 		value -= divide/2;
 	else
@@ -1377,7 +1377,7 @@ static int Range(int value, int divide, int min, int max)
 
 
 int CompileVowelTransition(int which)
-{//==================================
+{
 // Compile a vowel transition
 	int key;
 	int len=0;
@@ -1488,12 +1488,12 @@ int CompileVowelTransition(int which)
 	prog_out += 4;
 
 	return(0);
-}  // end of VowelTransition
+}
 
 
 
 int LoadSpect(const char *path, int control)
-{//=========================================
+{
 	SpectSeq *spectseq;
 	int peak;
 	int displ;
@@ -1692,12 +1692,12 @@ int LoadSpect(const char *path, int control)
 
 	SpectSeqDestroy(spectseq);
 	return(displ);
-}  //  end of LoadSpect
+}
 
 
 
 static int LoadWavefile(FILE *f, const char *fname)
-{//================================================
+{
 	int displ;
 	unsigned char c1;
 	unsigned char c3;
@@ -1863,12 +1863,12 @@ static int LoadWavefile(FILE *f, const char *fname)
 		remove(fname_temp);
 	}
 	return(displ | 0x800000);  // set bit 23 to indicate a wave file rather than a spectrum
-}  //  end of LoadWavefile
+}
 
 
 
 static int LoadEnvelope(FILE *f, const char *fname)
-{//================================================
+{
 	int displ;
 	char buf[128];
 
@@ -1889,13 +1889,12 @@ static int LoadEnvelope(FILE *f, const char *fname)
 	}
 
 	return(displ);
-}  // end of LoadEnvelope
+}
 
 
 
-static int Hash8(const char *string)
-//==================================
 /* Generate a hash code from the specified string */
+static int Hash8(const char *string)
 {
    int  c;
 	int  chars=0;
@@ -1910,12 +1909,12 @@ static int Hash8(const char *string)
    }
 
    return((hash+chars) & 0xff);
-}   //  end of Hash8
+}
 
 
 
 static int LoadEnvelope2(FILE *f, const char *fname)
-{//===================================================
+{
 	int ix, ix2;
 	int n;
 	int x, y;
@@ -1985,7 +1984,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 }
 
 static int LoadDataFile(const char *path, int control)
-{//===================================================
+{
 	// load spectrum sequence or sample data from a file.
 	// return index into spect or sample data area. bit 23=1 if a sample
 
@@ -2084,11 +2083,11 @@ static int LoadDataFile(const char *path, int control)
 	}
 
 	return(addr);
-}   //  end of LoadDataFile
+}
 
 
 static int CompileToneSpec(void)
-{//=============================
+{
 	int pitch1=0;
 	int pitch2=0;
 	int pitch_env = 0;
@@ -2132,12 +2131,12 @@ static int CompileToneSpec(void)
 	}
 
 	return(0);
-}  // end of CompileToneSpec
+}
 
 
 
 int CompileSound(int keyword, int isvowel)
-{//=======================================
+{
 	int addr;
 	int value = 0;
 	char path[N_ITEM_STRING];
@@ -2177,7 +2176,7 @@ int CompileSound(int keyword, int isvowel)
 	*prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);
 	*prog_out++ = addr & 0xffff;
 	return(0);
-}  // end of CompileSound
+}
 
 
 
@@ -2194,7 +2193,7 @@ bit 8-11
 */
 
 int CompileIf(int elif)
-{//====================
+{
 	int key;
 	int finish = 0;
 	int word = 0;
@@ -2322,11 +2321,11 @@ int CompileIf(int elif)
 	*prog_out++ = i_JUMP_FALSE;
 
 	return(0);
-}  // end of CompileIf
+}
 
 
 void FillThen(int add)
-{//===================
+{
 	USHORT *p;
 	int offset;
 
@@ -2358,11 +2357,11 @@ void FillThen(int add)
 	}
 
 	then_count = 0;
-}  // end of FillThen
+}
 
 
 int CompileElse(void)
-{//==================
+{
 	USHORT *ref;
 	USHORT *p;
 
@@ -2394,11 +2393,11 @@ int CompileElse(void)
 	}
 
 	return(0);
-}  // end of CompileElse
+}
 
 
 int CompileElif(void)
-{//===================
+{
 	if(if_level < 1)
 	{
 		error("ELIF not expected",NULL);
@@ -2412,7 +2411,7 @@ int CompileElif(void)
 
 
 int CompileEndif(void)
-{//===================
+{
 	USHORT *p;
 	int chain;
 	int offset;
@@ -2444,11 +2443,11 @@ int CompileEndif(void)
 
 	if_level--;
 	return(0);
-}  // end of CompileEndif
+}
 
 
 static int CompileSwitch(int type)
-{//===============================
+{
 // Type 0:  EndSwitch
 //      1:  SwitchPrevVowelType
 //      2:  SwitchNextVowelType
@@ -2464,12 +2463,12 @@ static int CompileSwitch(int type)
 	if(type == 2)
 		*prog_out++ = i_SWITCH_NEXTVOWEL+6;
 	return(0);
-}  // end of CompileSwitch
+}
 
 
 
 static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
-{//==========================================================
+{
 	int ix;
 
 	for(ix=0; ix<n_phoneme_tabs; ix++)
@@ -2481,12 +2480,12 @@ static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
 	}
 	error("Unknown phoneme table: '%s'",string);
 	return(NULL);
-}  // end of FindPhonemeTable
+}
 
 
 
 static PHONEME_TAB *FindPhoneme(const char *string)
-{//================================================
+{
 	PHONEME_TAB_LIST *phtab = NULL;
 	int ix;
 	unsigned int mnem;
@@ -2527,7 +2526,7 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 
 
 static void ImportPhoneme(void)
-{//============================
+{
 	unsigned int ph_mnem;
 	unsigned int ph_code;
 	PHONEME_TAB *ph;
@@ -2547,11 +2546,11 @@ static void ImportPhoneme(void)
 		phoneme_out->end_type = 0;  // voicingswitch, this must be set later to refer to a local phoneme
 	}
 
-}  // end of ImportPhoneme
+}
 
 
 static void CallPhoneme(void)
-{//==========================
+{
 	PHONEME_TAB *ph;
 	int ix;
 	int addr = 0;
@@ -2589,17 +2588,17 @@ static void CallPhoneme(void)
 
 	*prog_out++ = i_CALLPH + (addr >> 16);
 	*prog_out++ = addr;
-}  // end of CallPhoneme
+}
 
 
 static void DecThenCount()
-{//=======================
+{
 	if(then_count >0)
 		then_count--;
 }
 
 static void InstnPlusPhoneme(int instn)
-{//====================================
+{
 	int phcode;
 
 	phcode = NextItemBrackets(tPHONEMEMNEM,0);
@@ -2608,7 +2607,7 @@ static void InstnPlusPhoneme(int instn)
 
 
 int CompilePhoneme(int compile_phoneme)
-{//====================================
+{
 	int endphoneme = 0;
 	int keyword;
 	int value;
@@ -3024,14 +3023,14 @@ int CompilePhoneme(int compile_phoneme)
 	}
 
 	return(0);
-}  // end of CompilePhoneme
+}
 
 
 
 
 
 static void WritePhonemeTables()
-{//=============================
+{
 	int ix;
 	int j;
 	int n;
@@ -3084,11 +3083,11 @@ static void WritePhonemeTables()
 		fwrite(&p[n],sizeof(PHONEME_TAB),1,f_phtab);  // include the extra list-terminator phoneme entry
 		free(p);
 	}
-}  // end of WritePhonemeTables
+}
 
 
 static void EndPhonemeTable()
-{//==========================
+{
 	int  ix;
 	int *pw;
 	int length;
@@ -3128,7 +3127,7 @@ static void EndPhonemeTable()
 
 
 static void StartPhonemeTable(const char *name)
-{//============================================
+{
 	int ix;
 	int j;
 	PHONEME_TAB *p;
@@ -3185,11 +3184,11 @@ static void StartPhonemeTable(const char *name)
 	}
 
 	n_phoneme_tabs++;
-}  // end of StartPhonemeTable
+}
 
 
 static void CompileEquivalents()
-{//=============================
+{
 	// a list of phonemes in another language and the equivalent phoneme strings in this language
 
 	int ix;
@@ -3290,12 +3289,12 @@ static void CompileEquivalents()
 	n_bytes = n_bytes / 4;
 	p_start[2] = n_bytes >> 8;    // index of next table
 	p_start[3] = n_bytes;
-}  // end of CompileEquivalents
+}
 
 
 
 static void CompilePhonemeFiles()
-{//==============================
+{
 	int item;
 	FILE *f;
 	char buf[sizeof(path_home)+120];
@@ -3381,12 +3380,12 @@ static void CompilePhonemeFiles()
 		}
 	}
 	phoneme_tab2[n_phcodes+1].mnemonic = 0;  // terminator
-}  //  end of CompilePhonemeFiles
+}
 
 
 
 static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
-{//================================================
+{
 	char fname[sizeof(path_home)+40];
 	sprintf(fname,"%s/../phsource",path_home);
 
@@ -3515,7 +3514,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
     ReadPhondataManifest();
     return ENS_OK;
-}  // end of CompilePhonemeData
+}
 
 
 static const char *preset_tune_names[] = {
@@ -3550,15 +3549,8 @@ MNEM_TAB envelope_names[] = {
 	{"rise-fall-rise", 18},
 	{NULL, -1} };
 
-
-//	env_fallrise3, env_fallrise3,
-//	env_fallrise4, env_fallrise4,
-//	env_fall2, env_fall2,
-//	env_rise2, env_rise2,
-//	env_risefallrise, env_risefallrise
-
 int LookupEnvelopeName(const char *name)
-{//=================================
+{
 	return(LookupMnem(envelope_names, name));
 }
 
@@ -3566,7 +3558,7 @@ int LookupEnvelopeName(const char *name)
 #pragma GCC visibility push(default)
 
 espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
-{//=====================
+{
 	int ix;
 	char *p;
 	char c;
@@ -3861,7 +3853,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	LoadPhData(NULL);
 
 	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
-}   // end of CompileIntonation
+}
 
 
 

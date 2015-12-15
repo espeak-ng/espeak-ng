@@ -108,7 +108,7 @@ static int mbrola_control = 0;
 static int mbr_name_prefix = 0;
 
 espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
-{//===================================================================================
+{
 // Load a phoneme name translation table from espeak-data/mbrola
 
 	int size;
@@ -194,11 +194,11 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	strcpy(mbrola_name,mbrola_voice);
 	mbrola_delay = 1000;  // improve synchronization of events
 	return(EE_OK);
-}  // end of LoadMbrolaTable
+}
 
 
 static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)
-{//==========================================================================================================================================
+{
 // Look up a phoneme in the mbrola phoneme name translation table
 // It may give none, 1, or 2 mbrola phonemes
 	MBROLA_TAB *pr;
@@ -288,7 +288,7 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 
 
 static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
-{//===========================================================================
+{
 // final=1:  only give the final pitch value.
 	int x;
 	int ix;
@@ -401,11 +401,11 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	if(final)
 		sprintf(output,"\t100 %d\n",p_end);
 	return(output);
-}  // end of WritePitch
+}
 
 
 int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola)
-{//=================================================================================
+{
 // Generate a mbrola pho file
 	unsigned int name;
 	int len;
@@ -628,11 +628,11 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	}
 
 	return 0;
-}  // end of MbrolaTranslate
+}
 
 
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
-{//==================================================================
+{
 	FILE *f_mbrola = NULL;
 
 	if(*n_ph == 0)
@@ -652,7 +652,7 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 
 int MbrolaFill(int length, int resume, int amplitude)
-{//==================================================
+{
 // Read audio data from Mbrola (length is in millisecs)
 
 	static int n_samples;
@@ -690,7 +690,7 @@ int MbrolaFill(int length, int resume, int amplitude)
 
 
 void MbrolaReset(void)
-{//===================
+{
 // Reset the Mbrola engine and flush the pending audio
 
 	reset_MBR();

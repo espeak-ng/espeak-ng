@@ -81,7 +81,7 @@ static unsigned char remove_accent[N_REMOVE_ACCENT] = {
 
 
 void strncpy0(char *to,const char *from, int size)
-{//===================================================
+{
 // strcpy with limit, ensures a zero terminator
 	strncpy(to,from,size);
 	to[size-1] = 0;
@@ -89,7 +89,7 @@ void strncpy0(char *to,const char *from, int size)
 
 
 int Reverse4Bytes(int word)
-{//==========================
+{
 // reverse the order of bytes from little-endian to big-endian
 #ifdef ARCH_BIG
 	int ix;
@@ -108,7 +108,7 @@ int Reverse4Bytes(int word)
 
 
 int LookupMnem(MNEM_TAB *table, const char *string)
-{//==================================================
+{
 	while(table->mnem != NULL)
 	{
 		if(strcmp(string,table->mnem)==0)
@@ -119,14 +119,8 @@ int LookupMnem(MNEM_TAB *table, const char *string)
 }
 
 
-//=============================================================================================
-//   Read pronunciation rules and pronunciation lookup dictionary
-//
-//=============================================================================================
-
-
 static void InitGroups(Translator *tr)
-{//===================================
+{
 // Called after dictionary 1 is loaded, to set up table of entry points for translation rule chains
 //	for single-letters and two-letter combinations
 
@@ -230,12 +224,12 @@ static void InitGroups(Translator *tr)
 		p++;
 	}
 
-}  //  end of InitGroups
+}
 
 
 
 int LoadDictionary(Translator *tr, const char *name, int no_error)
-{//===============================================================
+{
 	int hash;
 	char *p;
 	int *pw;
@@ -315,14 +309,13 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	}
 
 	return(0);
-}  //  end of LoadDictionary
+}
 
 
-int HashDictionary(const char *string)
-//====================================
 /* Generate a hash code from the specified string
 	This is used to access the dictionary_2 word-lookup dictionary
 */
+int HashDictionary(const char *string)
 {
 	int  c;
 	int  chars=0;
@@ -336,25 +329,17 @@ int HashDictionary(const char *string)
 	}
 
 	return((hash+chars) & 0x3ff);  // a 10 bit hash code
-}   //  end of HashDictionary
+}
 
 
 
-//=============================================================================================
-//   Translate between internal representation of phonemes and a mnemonic form for display
-//
-//=============================================================================================
-
-
-
-const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
-/******************************************************************/
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
    outptr contains encoded phonemes, unrecognized phoneme stops the encoding
    bad_phoneme must point to char array of length 2 of more
 */
+const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 {
 	int ix;
 	unsigned char  c;
@@ -467,12 +452,12 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 	/* terminate the encoded string */
 	*outptr = 0;
 	return(p);
-}   // end of EncodePhonemes
+}
 
 
 
 void DecodePhonemes(const char *inptr, char *outptr)
-{//==================================================
+{
 // Translate from internal phoneme codes into phoneme mnemonics
 	unsigned char phcode;
 	unsigned char c;
@@ -512,7 +497,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 		}
 	}
 	*outptr = 0;    /* string terminator */
-}   //  end of DecodePhonemes
+}
 
 
 // using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
@@ -531,7 +516,7 @@ static unsigned int phon_out_size = 0;
 
 
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
-{//===================================================================================================
+{
 	int c;
 	int mnem;
 	int len;
@@ -628,12 +613,12 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 	phon_out = &phon_out[ix];
 	*phon_out = 0;
 	return(phon_out);
-}  // end of WritePhMnemonic
+}
 
 
 
 const char *GetTranslatedPhonemeString(int phoneme_mode)
-{//=======================================================
+{
 	/* Called after a clause has been translated into phonemes, in order
 	   to display the clause in phoneme mnemonic form.
 
@@ -789,19 +774,12 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	phon_out_buf[phon_out_ix] = 0;
 
 	return(phon_out_buf);
-}  // end of GetTranslatedPhonemeString
-
-
-
-//=============================================================================================
-//   Is a word Unpronouncable - and so should be spoken as individual letters
-//
-//=============================================================================================
+}
 
 
 
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
-{//=====================================================================
+{
 // match the word against a list of utf-8 strings
 	char *p;
 	char *w;
@@ -841,7 +819,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 
 
 static int IsLetter(Translator *tr, int letter, int group)
-{//=======================================================
+{
 	int letter2;
 
 	if(tr->letter_groups[group] != NULL)
@@ -875,7 +853,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 
 
 int IsVowel(Translator *tr, int letter)
-{//====================================
+{
 	return(IsLetter(tr, letter, LETTERGP_VOWEL2));
 }
 
@@ -883,7 +861,7 @@ int IsVowel(Translator *tr, int letter)
 
 
 static int Unpronouncable2(Translator *tr, char *word)
-{//===================================================
+{
 	int  c;
 	int end_flags;
 	char ph_buf[N_WORD_PHONEMES];
@@ -900,7 +878,7 @@ static int Unpronouncable2(Translator *tr, char *word)
 
 
 int Unpronouncable(Translator *tr, char *word, int posn)
-{//=====================================================
+{
 	/* Determines whether a word in 'unpronouncable', i.e. whether it should
 		be spoken as individual letters.
 
@@ -978,19 +956,12 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 
 	return(0);
 
-}   /* end of Unpronounceable */
-
-
-
-//=============================================================================================
-//   Determine the stress pattern of a word
-//
-//=============================================================================================
+}
 
 
 
 static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int *vowel_count, int *stressed_syllable, int control)
-{//=================================================================================================================================================
+{
 // control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
 	PHONEME_TAB *ph;
@@ -1117,7 +1088,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 	*stressed_syllable = primary_posn;
 	*vowel_count = count;
 	return(max_stress);
-}  // end of GetVowelStress
+}
 
 
 
@@ -1127,7 +1098,7 @@ static char stress_phonemes[] = {phonSTRESS_D, phonSTRESS_U, phonSTRESS_2, phonS
 
 
 void ChangeWordStress(Translator *tr, char *word, int new_stress)
-{//==============================================================
+{
 	int ix;
 	unsigned char *p;
 	int  max_stress;
@@ -1176,12 +1147,12 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 		*word++ = *p++;
 	}
 	*word = 0;
-}  // end of ChangeWordStress
+}
 
 
 
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int control)
-{//=====================================================================================================
+{
 /* Guess stress pattern of word.  This is language specific
 
    'output' is used for input and output
@@ -1822,21 +1793,12 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	*output++ = 0;
 
 	return;
-}  /* end of SetWordStress */
-
-
-
-
-//=============================================================================================
-//   Look up a word in the pronunciation rules
-//
-//=============================================================================================
-
+}
 
 
 
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
-{//========================================================================
+{
 /* Add new phoneme string "ph" to "string"
 	Keeps count of the number of vowel phonemes in the word, and whether these
    can be stressed syllables.  These values can be used in translation rules
@@ -1881,12 +1843,12 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 
 	if(string != NULL)
 		strcat(string,ph);
-}   /* end of AppendPhonemes */
+}
 
 
 
 static void MatchRule(Translator *tr, char *word[], char *word_start, int group_length, char *rule, MatchRecord *match_out, int word_flags, int dict_flags)
-{//========================================================================================================================================================
+{
 /* Checks a specified word against dictionary rules.
 	Returns with phoneme code string, or NULL if no match found.
 
@@ -2579,13 +2541,13 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	if(best.points == 0)
 		best.phonemes = "";
 	memcpy(match_out,&best,sizeof(MatchRecord));
-}   /* end of MatchRule */
+}
 
 
 
 
 int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags)
-{//=====================================================================================================================================
+{
 	/* Translate a word bounded by space characters
 	   Append the result to 'phonemes' and any standard prefix/suffix in 'end_phonemes' */
 
@@ -2885,11 +2847,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	memcpy(p_start,word_copy,strlen(word_copy));
 
 	return(0);
-}   /* end of TranslateRules */
+}
 
 
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
-{//========================================================================
+{
 // apply after the translation is complete
 	int ix;
 	int len;
@@ -2922,20 +2884,12 @@ void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
 			}
 		}
 	}
-}  // end of ApplySpecialAttribute2
+}
 
-
-
-
-//=============================================================================================
-//   Look up a word in the pronunciation dictionary list
-//   - exceptions which override the usual pronunciation rules, or which give a word
-//     special properties, such as pronounce as unstressed
-//=============================================================================================
 
 
 int TransposeAlphabet(Translator *tr, char *text)
-{//==============================================
+{
 // transpose cyrillic alphabet (for example) into ascii (single byte) character codes
 // return: number of bytes, bit 6: 1=used compression
 	int c;
@@ -3043,14 +2997,11 @@ int TransposeAlphabet(Translator *tr, char *text)
 	{
 		return(strlen(text));
 	}
-}  // end of TransposeAlphabet
+}
 
 
 
 
-static const char *LookupDict2(Translator *tr, const char *word, const char *word2,
-							   char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab)
-//=====================================================================================
 /* Find an entry in the word_dict file for a specified word.
    Returns NULL if no match, else returns 'word_end'
 
@@ -3061,6 +3012,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 
 	end_flags:  indicates whether this is a retranslation after removing a suffix
 */
+static const char *LookupDict2(Translator *tr, const char *word, const char *word2,
+							   char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab)
 {
 	char *p;
 	char *next;
@@ -3402,17 +3355,16 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 
 	}
 	return(0);
-}   //  end of LookupDict2
+}
 
 
 
-int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab)
-//==================================================================================================================
 /* Lookup a specified word in the word dictionary.
    Returns phonetic data in 'phonetic' and bits in 'flags'
 
    end_flags:  indicates if a suffix has been removed
 */
+int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab)
 {
 	int  length;
 	const char *found;
@@ -3561,13 +3513,13 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 
 	ph_out[0] = 0;
 	return(0);
-}   //  end of LookupDictList
+}
 
 
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
 int Lookup(Translator *tr, const char *word, char *ph_out)
-{//=========================================================
+{
 // Look up in *_list, returns dictionary flags[0] and phonemes
 
 	int flags0;
@@ -3598,7 +3550,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 
 int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
-{//===========================================================================
+{
 	char buf[100];
 	static unsigned int flags[2];
 	char *word1 = (char *)word;
@@ -3612,7 +3564,7 @@ int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out)
 
 
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
-{//========================================================================
+{
 /* Removes a standard suffix from a word, once it has been indicated by the dictionary rules.
    end_type: bits 0-6  number of letters
 			 bits 8-14  suffix flags
@@ -3755,7 +3707,4 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 		end_flags &= ~FLAG_SUFX;  // don't consider 's as an added suffix
 
 	return(end_flags);
-}   /* end of RemoveEnding */
-
-
-
+}

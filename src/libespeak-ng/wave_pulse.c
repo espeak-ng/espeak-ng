@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *   eSpeak driver for PulseAudio                                          *
  *   based on the XMMS PulseAudio Plugin                                   *
  *                                                                         *

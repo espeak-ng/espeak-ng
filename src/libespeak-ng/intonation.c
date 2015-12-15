@@ -325,7 +325,6 @@ static int  no_tonic;
 
 
 static void count_pitch_vowels(int start, int end, int clause_end)
-/****************************************************************/
 {
 	int  ix;
 	int  stress;
@@ -389,14 +388,13 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 		// no primary stress. Use the highest stress
 		syllable_tab[tone_posn].stress = PRIMARY_LAST;
 	}
-}   /* end of count_pitch_vowels */
+}
 
 
 
 
-static int count_increments(int ix, int end_ix, int min_stress)
-/*************************************************************/
 /* Count number of primary stresses up to tonic syllable or body_reset */
+static int count_increments(int ix, int end_ix, int min_stress)
 {
 	int  count = 0;
 	int  stress;
@@ -411,14 +409,13 @@ static int count_increments(int ix, int end_ix, int min_stress)
 			count++;
 	}
 	return(count);
-}  /* end of count_increments */
+}
 
 
 
 
-static void set_pitch(SYLLABLE *syl, int base, int drop)
-/******************************************************/
 // Set the pitch of a vowel in syllable_tab
+static void set_pitch(SYLLABLE *syl, int base, int drop)
 {
 	int  pitch1, pitch2;
 	int  flags = 0;
@@ -443,11 +440,11 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 	syl->pitch1 = pitch1;
 	syl->pitch2 = pitch2;
 	syl->flags |= flags;
-}   /* end of set_pitch */
+}
 
 
 static int CountUnstressed(int start, int end, int limit)
-{//======================================================
+{
 	int ix;
 
 	for(ix=start; ix <= end; ix++)
@@ -459,7 +456,7 @@ static int CountUnstressed(int start, int end, int limit)
 }
 
 static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
-{//==========================================================================
+{
 	int  stress;
 	SYLLABLE *syl;
 	int  ix;
@@ -601,15 +598,14 @@ int secondary=2;  // 2
 	}
 	return(syl_ix);
 
-}  // end of SetBodyIntonation
+}
 
 
 
-static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *tn, int min_stress, int continuing)
-/**********************************************************************************************/
 /* Calculate pitches until next RESET or tonic syllable, or end.
 	Increment pitch if stress is >= min_stress.
 	Used for tonic segment */
+static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *tn, int min_stress, int continuing)
 {
 	int  stress;
 	int  pitch=0;
@@ -719,12 +715,12 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 		ix++;
 	}
 	return(ix);
-}   /* end of calc_pitch_segment */
+}
 
 
 
 static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_pitch)
-{//====================================================================================
+{
 // Set a linear pitch change over a number of syllables.
 // Used for pre-head, unstressed syllables in the body, and the tail
 
@@ -772,13 +768,12 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 			set_pitch(syl, (pitch >> 8), drop);
 		}
 	}
-}  // end of SetPitchGradient
+}
 
 
 
-static int calc_pitches2(int start, int end,  int tune_number)
-//============================================================
 // Calculate pitch values for the vowels in this tone group
+static int calc_pitches2(int start, int end,  int tune_number)
 {
 	int  ix;
 	TUNE *tune;
@@ -831,13 +826,12 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	SetPitchGradient(ix, end, tune->tail_start, tune->tail_end);
 
 	return(tone_pitch_env);
-}   /* end of calc_pitches2 */
+}
 
 
 
-static int calc_pitches(int control, int start, int end,  int tune_number)
-//========================================================================
 // Calculate pitch values for the vowels in this tone group
+static int calc_pitches(int control, int start, int end,  int tune_number)
 {
 	int  ix;
 	TONE_HEAD *th;
@@ -906,7 +900,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	SetPitchGradient(ix, end, tn->tail_start, tn->tail_end);
 
 	return(tone_pitch_env);
-}   /* end of calc_pitches */
+}
 
 
 
@@ -914,7 +908,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 
 static void CalcPitches_Tone(Translator *tr, int clause_tone)
-{//==========================================================
+{
 //  clause_tone: 0=. 1=, 2=?, 3=! 4=none
 	PHONEME_LIST *p;
 	int  ix;
@@ -1088,12 +1082,12 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	}
 
 
-}  // end of Translator::CalcPitches_Tone
+}
 
 
 
 void CalcPitches(Translator *tr, int clause_type)
-{//==============================================
+{
 //  clause_type: 0=. 1=, 2=?, 3=! 4=none
 	PHONEME_LIST *p;
 	SYLLABLE *syl;
@@ -1313,6 +1307,4 @@ if(p->tone_ph)
 		}
 	}
 
-}  // end of CalcPitches
-
-
+}

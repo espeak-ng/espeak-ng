@@ -494,7 +494,7 @@ if(option_log_frames)
 		}
 	}
 	return(0);
-}  //  end of parwave
+}
 
 
 
@@ -998,7 +998,7 @@ static double klattp_inc[N_KLATTP];
 
 
 int Wavegen_Klatt(int resume)
-{//==========================
+{
 	int pk;
 	int x;
 	int ix;
@@ -1106,7 +1106,7 @@ int Wavegen_Klatt(int resume)
 
 
 void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
-{//===========================================================================================
+{
 	int ix;
 	DOUBLEX next;
 	int qix;
@@ -1263,11 +1263,11 @@ if(option_log_frames)
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
 		}
 	}
-}  // end of SetSynth_Klatt
+}
 
 
 int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
-{//===================================================================================
+{
 	if(resume==0)
 		SetSynth_Klatt(length, modulation, fr1, fr2, wvoice, 1);
 
@@ -1323,4 +1323,4 @@ void KlattInit()
 	kt_frame.AB = 0;
 	kt_frame.AVpdb = 0;
 	kt_frame.Gain0 = 62;   // 60
-}  // end of KlattInit
+}

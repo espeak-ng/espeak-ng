@@ -106,7 +106,7 @@ ALPHABET alphabets [] = {
 
 
 ALPHABET *AlphabetFromName(const char *name)
-{//==========================================
+{
 	ALPHABET *alphabet;
 
 	for(alphabet=alphabets; alphabet->name != NULL; alphabet++)
@@ -119,7 +119,7 @@ ALPHABET *AlphabetFromName(const char *name)
 
 
 ALPHABET *AlphabetFromChar(int c)
-{//===============================
+{
 	// Find the alphabet from a character.
 	ALPHABET *alphabet = alphabets;
 
@@ -144,12 +144,12 @@ static void Translator_Russian(Translator *tr);
 
 
 static void SetLetterVowel(Translator *tr, int c)
-{//==============================================
+{
 	tr->letter_bits[c] = (tr->letter_bits[c] & 0x40) | 0x81;  // keep value for group 6 (front vowels e,i,y)
 }
 
 static void ResetLetterBits(Translator *tr, int groups)
-{//====================================================
+{
 // Clear all the specified groups
 	unsigned int ix;
 	unsigned int mask;
@@ -163,7 +163,7 @@ static void ResetLetterBits(Translator *tr, int groups)
 }
 
 static void SetLetterBits(Translator *tr, int group, const char *string)
-{//=====================================================================
+{
 	int bits;
 	unsigned char c;
 
@@ -173,7 +173,7 @@ static void SetLetterBits(Translator *tr, int group, const char *string)
 }
 
 static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
-{//===========================================================================
+{
 	int bits;
 	int ix;
 
@@ -203,7 +203,7 @@ const char string_ordinal[] = {0xc2,0xba,0};  // masculine ordinal character, UT
 
 
 static Translator* NewTranslator(void)
-{//===================================
+{
 	Translator *tr;
 	int ix;
 	static const unsigned char stress_amps2[] = {18,18, 20,20, 20,22, 22,20 };
@@ -394,7 +394,7 @@ static const unsigned char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2
 static const unsigned char ru_consonants[] = {0x11,0x12,0x13,0x14,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2c, 0x73,0x7b,0x83,0x9b,0};
 
 static void SetCyrillicLetters(Translator *tr)
-{//===========================================
+{
 	// character codes offset by 0x420
 	static const char ru_soft[] = {0x2c,0x19,0x27,0x29,0};   // letter group B  [k ts; s;]
 	static const char ru_hard[] = {0x2a,0x16,0x26,0x28,0};   // letter group H  [S Z ts]
@@ -417,11 +417,11 @@ static void SetCyrillicLetters(Translator *tr)
 	SetLetterBits(tr,LETTERGP_G,ru_voiced);
 	SetLetterBits(tr,LETTERGP_Y,ru_ivowels);
 	SetLetterBits(tr,LETTERGP_VOWEL2,(char *)ru_vowels);
-}  // end of SetCyrillicLetters
+}
 
 
 void SetIndicLetters(Translator *tr)
-{//=================================
+{
 	// Set letter types for Indic scripts, Devanagari, Tamill, etc
 	static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f,0x7b,0x7c,0x7e,0x7f,0};
 	static const char dev_vowels2[] = {0x60,0x61, 0x55,0x56,0x57,0x62,0x63,0};  // non-consecutive vowels and vowel-signs
@@ -447,7 +447,7 @@ void SetIndicLetters(Translator *tr)
 
 
 void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
-{//==================================================================================
+{
 	if(lengths != NULL)
 		memcpy(tr->stress_lengths,lengths,sizeof(tr->stress_lengths));
 	if(amps != NULL)
@@ -456,7 +456,7 @@ void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *
 
 
 Translator *SelectTranslator(const char *name)
-{//===========================================
+{
 	int name2 = 0;
 	Translator *tr;
 
@@ -1668,11 +1668,11 @@ SetLengthMods(tr,3);  // all equal
 
 	ProcessLanguageOptions(&tr->langopts);
 	return(tr);
-}  // end of SelectTranslator
+}
 
 
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
-{//=====================================================
+{
 	if(langopts->numbers & NUM_DECIMAL_COMMA)
 	{
 		// use . and ; for thousands and decimal separators
@@ -1685,13 +1685,9 @@ void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
 	}
 }
 
-//**********************************************************************************************************
-
-
-
 
 static void Translator_Russian(Translator *tr)
-{//===========================================
+{
 	static const unsigned char stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
 	static const short stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
 	static const char ru_ivowels2[] = {0x2c,0x15,0x18,0x2e,0x2f,0};   // add more vowels to letter group Y  (iotated vowels & soft-sign)
@@ -1711,4 +1707,4 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.phoneme_change = 1;
 	tr->langopts.testing = 2;
 
-}  // end of Translator_Russian
+}

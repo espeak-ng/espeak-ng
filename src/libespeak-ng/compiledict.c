@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -158,7 +158,7 @@ typedef struct {
 
 
 int isspace2(unsigned int c)
-{//=========================
+{
 // can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
 	int c2;
 
@@ -170,7 +170,7 @@ int isspace2(unsigned int c)
 
 
 static FILE *fopen_log(const char *fname,const char *access)
-{//==================================================
+{
 // performs fopen, but produces error message to f_log if it fails
 	FILE *f;
 
@@ -183,9 +183,8 @@ static FILE *fopen_log(const char *fname,const char *access)
 }
 
 
-const char *LookupMnemName(MNEM_TAB *table, const int value)
-//==========================================================
 /* Lookup a mnemonic string in a table, return its name */
+const char *LookupMnemName(MNEM_TAB *table, const int value)
 {
 	while(table->mnem != NULL)
 	{
@@ -194,11 +193,11 @@ const char *LookupMnemName(MNEM_TAB *table, const int value)
 		table++;
 	}
 	return("");   /* not found */
-}   /* end of LookupMnemValue */
+}
 
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
-{//========================================================================
+{
 	int stress;
 	int ix;
 	const char *name;
@@ -232,7 +231,7 @@ void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 
 
 char *DecodeRule(const char *group_chars, int group_length, char *rule, int control)
-{//=================================================================================
+{
 	/* Convert compiled match template to ascii */
 
 	unsigned char rb;
@@ -402,13 +401,13 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 		output[ix++]=' ';
 	output[ix]=0;
 	return(output);
-}   /* end of DecodeRule */
+}
 
 
 
 
 static int compile_line(char *linebuf, char *dict_line, int *hash)
-{//===============================================================
+{
 // Compile a line in the language_list file
 	unsigned char  c;
 	char *p;
@@ -759,12 +758,12 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 
 
 	return(length);
-}  /* end of compile_line */
+}
 
 
 
 static void compile_dictlist_start(void)
-{//=====================================
+{
 // initialise dictionary list
 	int ix;
 	char *p;
@@ -786,7 +785,7 @@ static void compile_dictlist_start(void)
 
 
 static void compile_dictlist_end(FILE *f_out)
-{//==========================================
+{
 // Write out the compiled dictionary list
 	int hash;
 	int length;
@@ -823,7 +822,7 @@ static void compile_dictlist_end(FILE *f_out)
 
 
 static int compile_dictlist_file(const char *path, const char* filename)
-{//=====================================================================
+{
 	int  length;
 	int  hash;
 	char *p;
@@ -879,7 +878,7 @@ static int compile_dictlist_file(const char *path, const char* filename)
 		fprintf(f_log,"\t%d entries\n",count);
 	fclose(f_in);
 	return(0);
-}   /* end of compile_dictlist_file */
+}
 
 
 
@@ -908,7 +907,7 @@ int isHexDigit(int c)
 
 
 static void copy_rule_string(char *string, int *state_out)
-{//=======================================================
+{
 // state 0: conditional, 1=pre, 2=match, 3=post, 4=phonemes
 	static char *outbuf[5] = {rule_cond, rule_pre, rule_match, rule_post, rule_phonemes};
 	static int next_state[5] = {2,2,4,4,4};
@@ -1174,12 +1173,12 @@ static void copy_rule_string(char *string, int *state_out)
 	}
 
 	*state_out = next_state[state];
-}  //  end of copy_rule_string
+}
 
 
 
 static char *compile_rule(char *input)
-{//===================================
+{
 	int ix;
 	unsigned char c;
 	int wc;
@@ -1360,11 +1359,11 @@ static char *compile_rule(char *input)
 	prule = (char *)malloc(len);
 	memcpy(prule,output,len);
 	return(prule);
-}  //  end of compile_rule
+}
 
 
 int __cdecl string_sorter(char **a, char **b)
-{//===========================================
+{
 	char *pa, *pb;
 	int ix;
 
@@ -1373,11 +1372,11 @@ int __cdecl string_sorter(char **a, char **b)
 	pa += (strlen(pa)+1);
 	pb += (strlen(pb)+1);
 	return(strcmp(pa,pb));
-}   /* end of string_sorter */
+}
 
 
 static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
-{//===================================================
+{
 // Sort long names before short names
 	int ix;
 	ix = strlen(b->name) - strlen(a->name);
@@ -1390,7 +1389,7 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 
 #ifdef OUTPUT_FORMAT
 static void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
-{//=============================================================================
+{
 	int rule;
 	int ix;
 	unsigned char c;
@@ -1495,9 +1494,8 @@ static void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 #endif
 
 
-//#define LIST_GROUP_INFO
 static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
-{//==============================================================================
+{
 	int ix;
 	int len1;
 	int len2;
@@ -1558,12 +1556,12 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 			printf("Group %s   %c  %d\n",name,ix,nextchar_count[ix]);
 	}
 #endif
-}  //  end of output_rule_group
+}
 
 
 
 static int compile_lettergroup(char *input, FILE *f_out)
-{//=====================================================
+{
 	char *p;
 	char *p_start;
 	int group;
@@ -1644,7 +1642,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 
 
 static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
-{//====================================================================
+{
 	char *prule;
 	unsigned char *p;
 	int ix;
@@ -1888,12 +1886,12 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 
 	fprintf(f_log,"\t%d rules, %d groups (%d)\n\n",count,n_rgroups,n_groups3);
 	return(0);
-}  //  end of compile_dictrules
+}
 
 
 
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname_err, int flags)
-{//=====================================================================================================
+{
 // fname:  space to write the filename in case of error
 // flags: bit 0:  include source line number information, for debug purposes.
 
@@ -1979,5 +1977,4 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	LoadDictionary(translator, dict_name, 0);
 
 	return(error_count);
-}  //  end of compile_dictionary
-
+}

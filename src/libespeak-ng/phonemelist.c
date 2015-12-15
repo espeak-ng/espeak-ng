@@ -38,7 +38,7 @@ extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
 
 
 static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
-{//===================================================================
+{
 // Copy the phonemes list and perform any substitutions that are required for the
 // current voice
 	int ix;
@@ -100,12 +100,12 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 		n_plist_out++;
 	}
 	return(n_plist_out);
-}  //  end of SubstitutePhonemes
+}
 
 
 
 void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
-{//=====================================================================
+{
 
 	int  ix=0;
 	int  j;
@@ -656,6 +656,4 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
-}  // end of MakePhonemeList
-
-
+}

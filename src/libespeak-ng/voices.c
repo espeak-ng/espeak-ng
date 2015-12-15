@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2015 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -190,7 +190,7 @@ voice_t *voice = &voicedata;
 
 
 static char *fgets_strip(char *buf, int size, FILE *f_in)
-{//======================================================
+{
 // strip trailing spaces, and truncate lines at // comment
 	int len;
 	char *p;
@@ -216,7 +216,7 @@ static char *fgets_strip(char *buf, int size, FILE *f_in)
 
 
 static int LookupTune(const char *name)
-{//====================================
+{
 	int ix;
 
 	for(ix=0; ix<n_tunes; ix++)
@@ -225,12 +225,12 @@ static int LookupTune(const char *name)
 			return(ix);
 	}
 	return(-1);
-}  // end of LookupTune
+}
 
 
 
 static void SetToneAdjust(voice_t *voice, int *tone_pts)
-{//=====================================================
+{
 	int ix;
 	int pt;
 	int y;
@@ -269,7 +269,7 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 
 
 void ReadTonePoints(char *string, int *tone_pts)
-{//=============================================
+{
 // tone_pts[] is int[12]
 	int ix;
 
@@ -286,7 +286,7 @@ void ReadTonePoints(char *string, int *tone_pts)
 
 
 static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*leafname)
-{//===================================================================================
+{
 // Read a Voice file, allocate a VOICE_DATA and set data from the
 // file's  language, gender, name  lines
 
@@ -391,13 +391,13 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	voice_data->variant = 0;
 	voice_data->xx1 = n_variants;
 	return(voice_data);
-}  // end of ReadVoiceFile
+}
 
 
 
 
 void VoiceReset(int tone_only)
-{//===========================
+{
 // Set voice to the default values
 
 	int  pk;
@@ -464,11 +464,11 @@ void VoiceReset(int tone_only)
 		option_quiet = 0;
 		LoadMbrolaTable(NULL,NULL,0);
 	}
-}  // end of VoiceReset
+}
 
 
 static void VoiceFormant(char *p)
-{//==============================
+{
 	// Set parameters for a formant
 	int ix;
 	int formant;
@@ -498,7 +498,7 @@ static void VoiceFormant(char *p)
 
 
 static void PhonemeReplacement(int type, char *p)
-{//==============================================
+{
 	int n;
 	int  phon;
 	int flags = 0;
@@ -516,12 +516,12 @@ static void PhonemeReplacement(int type, char *p)
 	replace_phonemes[n_replace_phonemes].old_ph = phon;
 	replace_phonemes[n_replace_phonemes].new_ph = LookupPhonemeString(phon_string2);
 	replace_phonemes[n_replace_phonemes++].type = flags;
-}  //  end of PhonemeReplacement
+}
 
 
 
 static int Read8Numbers(char *data_in,int *data)
-{//=============================================
+{
 // Read 8 integer numbers
 	memset(data, 0, 8+sizeof(int));
 	return(sscanf(data_in,"%d %d %d %d %d %d %d %d",
@@ -530,7 +530,7 @@ static int Read8Numbers(char *data_in,int *data)
 
 
 static unsigned int StringToWord2(const char *string)
-{//======================================================
+{
 // Convert a language name string to a word such as L('e','n')
 	int ix;
 	int c;
@@ -545,7 +545,7 @@ static unsigned int StringToWord2(const char *string)
 
 
 voice_t *LoadVoice(const char *vname, int control)
-{//===============================================
+{
 // control, bit 0  1= no_default
 //          bit 1  1 = change tone only, not language
 //          bit 2  1 = don't report error on LoadDictionary
@@ -1129,11 +1129,11 @@ voice_t *LoadVoice(const char *vname, int control)
 	}
 
 	return(voice);
-}  //  end of LoadVoice
+}
 
 
 static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
-{//===========================================================================
+{
 // Remove any voice variant suffix (name or number) from a voice name
 // Returns the voice variant name
 
@@ -1174,12 +1174,12 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 	}
 
 	return(variant_name);
-}  //  end of ExtractVoiceVariantName
+}
 
 
 
 voice_t *LoadVoiceVariant(const char *vname, int variant_num)
-{//==========================================================
+{
 // Load a voice file.
 // Also apply a voice variant if specified by "variant", or by "+number" or "+name" in the "vname"
 
@@ -1203,7 +1203,7 @@ voice_t *LoadVoiceVariant(const char *vname, int variant_num)
 
 
 static int __cdecl VoiceNameSorter(const void *p1, const void *p2)
-{//=======================================================
+{
 	int ix;
 	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
 	espeak_VOICE *v2 = *(espeak_VOICE **)p2;
@@ -1218,7 +1218,7 @@ static int __cdecl VoiceNameSorter(const void *p1, const void *p2)
 
 
 static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
-{//========================================================
+{
 	int ix;
 	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
 	espeak_VOICE *v2 = *(espeak_VOICE **)p2;
@@ -1230,7 +1230,7 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 
 
 static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
-{//=========================================================================================================================
+{
 	int ix;
 	const char *p;
 	int c1, c2;
@@ -1369,11 +1369,11 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 	if(score < 1)
 		score = 1;
 	return(score);
-}  // end of ScoreVoice
+}
 
 
 static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int control)
-{//======================================================================================
+{
 // control: bit0=1  include mbrola voices
 	int ix;
 	int score;
@@ -1439,13 +1439,13 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	qsort(voices,nv,sizeof(espeak_VOICE *),(int (__cdecl *)(const void *,const void *))VoiceScoreSorter);
 
 	return(nv);
-}  // end of SetVoiceScores
+}
 
 
 
 
 espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
-{//======================================================================
+{
 	int ix;
 	int match_fname = -1;
 	int match_fname2 = -1;
@@ -1505,13 +1505,13 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 		return(NULL);
 
 	return(voices[match_name]);
-}  //  end of SelectVoiceByName
+}
 
 
 
 
 char const *SelectVoice(espeak_VOICE *voice_select, int *found)
-{//============================================================
+{
 // Returns a path within espeak-voices, with a possible +variant suffix
 // variant is an output-only parameter
 	int nv;           // number of candidates
@@ -1655,12 +1655,12 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	}
 
 	return(vp->identifier);
-}  //  end of SelectVoice
+}
 
 
 
 static void GetVoices(const char *path)
-{//====================================
+{
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
 	int ftype;
@@ -1802,12 +1802,12 @@ static void GetVoices(const char *path)
 	closedir(dir);
 #endif
 #endif
-}   // end of GetVoices
+}
 
 
 
 espeak_ERROR SetVoiceByName(const char *name)
-{//=========================================
+{
 	espeak_VOICE *v;
 	int ix;
 	espeak_VOICE voice_selector;
@@ -1862,12 +1862,12 @@ espeak_ERROR SetVoiceByName(const char *name)
 		}
 	}
 	return(EE_INTERNAL_ERROR);   // voice name not found
-}  // end of SetVoiceByName
+}
 
 
 
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
-{//============================================================
+{
 	const char *voice_id;
 	int voice_found;
 
@@ -1881,11 +1881,11 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 	SetVoiceStack(voice_selector, "");
 
 	return(EE_OK);
-}  //  end of SetVoiceByProperties
+}
 
 
 void FreeVoiceList()
-{//=================
+{
 	int ix;
 	for(ix=0; ix<n_voices_list; ix++)
 	{
@@ -1899,14 +1899,11 @@ void FreeVoiceList()
 }
 
 
-//=======================================================================
-//  Library Interface Functions
-//=======================================================================
 #pragma GCC visibility push(default)
 
 
 ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
-{//========================================================================
+{
 	char path_voices[sizeof(path_home)+12];
 
 
@@ -1962,15 +1959,13 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	}
 	return((const espeak_VOICE **)voices);
 #endif
-}  //  end of espeak_ListVoices
+}
 
 
 
 ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)
-{//==================================================
+{
 	return(&current_voice_selected);
 }
 
 #pragma GCC visibility pop
-
-

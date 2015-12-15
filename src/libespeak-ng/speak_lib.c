@@ -80,7 +80,7 @@ extern int saved_parameters[N_SPEECH_PARAM]; //Parameters saved on synthesis sta
 
 
 void WVoiceChanged(voice_t *wvoice)
-{//=================================
+{
 // Voice change in wavegen
 	voice_samplerate = wvoice->samplerate;
 }
@@ -89,7 +89,7 @@ void WVoiceChanged(voice_t *wvoice)
 #ifdef USE_ASYNC
 
 static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
-{//======================================================================
+{
 	ENTER("dispatch_audio");
 
 	int a_wave_can_be_played = fifo_is_command_enabled();
@@ -187,7 +187,7 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 
 
 static int create_events(short* outbuf, int length, espeak_EVENT* event, uint32_t the_write_pos)
-{//=====================================================================
+{
 	int finished;
 	int i=0;
 
@@ -224,7 +224,7 @@ static int create_events(short* outbuf, int length, espeak_EVENT* event, uint32_
 
 
 int sync_espeak_terminated_msg( uint32_t unique_identifier, void* user_data)
-{//=====================================================================
+{
 	ENTER("sync_espeak_terminated_msg");
 
 	int finished=0;
@@ -265,7 +265,7 @@ int sync_espeak_terminated_msg( uint32_t unique_identifier, void* user_data)
 
 
 static void select_output(espeak_AUDIO_OUTPUT output_type)
-{//=======================================================
+{
 	my_mode = output_type;
 	my_audio = NULL;
 	synchronous_mode = 1;
@@ -291,13 +291,13 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 		WavegenInitSound();
 		break;
 	}
-}   // end of select_output
+}
 
 
 
 
 int GetFileLength(const char *filename)
-{//====================================
+{
 	struct stat statbuf;
 
 	if(stat(filename,&statbuf) != 0)
@@ -307,11 +307,11 @@ int GetFileLength(const char *filename)
 		return(-2);  // a directory
 
 	return(statbuf.st_size);
-}  // end of GetFileLength
+}
 
 
 char *Alloc(int size)
-{//==================
+{
 	char *p;
 	if((p = (char *)malloc(size)) == NULL)
 		fprintf(stderr,"Can't allocate memory\n");  // I was told that size+1 fixes a crash on 64-bit systems
@@ -319,7 +319,7 @@ char *Alloc(int size)
 }
 
 void Free(void *ptr)
-{//=================
+{
 	if(ptr != NULL)
 		free(ptr);
 }
@@ -327,7 +327,7 @@ void Free(void *ptr)
 
 
 static void init_path(const char *path)
-{//====================================
+{
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
@@ -382,7 +382,7 @@ static void init_path(const char *path)
 }
 
 static int initialise(int control)
-{//===============================
+{
 	int param;
 	int result;
 	int srate = 22050;  // default sample rate 22050 Hz
@@ -418,7 +418,7 @@ static int initialise(int control)
 
 
 static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text, int flags)
-{//========================================================================================
+{
 	// Fill the buffer with output sound
 	int length;
 	int finished = 0;
@@ -550,7 +550,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		}
 	}
 	return(EE_OK);
-}  //  end of Synthesize
+}
 
 #ifdef DEBUG_ENABLED
 static const char* label[] = {
@@ -568,7 +568,7 @@ static const char* label[] = {
 
 
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
-{//==================================================================================================
+{
 	// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end, 7=phoneme
 	ENTER("MarkerEvent");
 	espeak_EVENT *ep;
@@ -609,7 +609,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	{
 		ep->id.number = value;
 	}
-}  //  end of MarkerEvent
+}
 
 
 
@@ -617,7 +617,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text, size_t size,
 		      unsigned int position, espeak_POSITION_TYPE position_type,
 		      unsigned int end_position, unsigned int flags, void* user_data)
-{//===========================================================================
+{
 
 #ifdef DEBUG_ENABLED
 	ENTER("sync_espeak_Synth");
@@ -660,7 +660,7 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 
 	SHOW_TIME("LEAVE sync_espeak_Synth");
 	return aStatus;
-}  //  end of sync_espeak_Synth
+}
 
 
 
@@ -668,7 +668,7 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size,
 			   const char *index_mark, unsigned int end_position,
 			   unsigned int flags, void* user_data)
-{//=========================================================================
+{
 	espeak_ERROR aStatus;
 
 	InitText(flags);
@@ -689,12 +689,12 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 	SHOW_TIME("LEAVE sync_espeak_Synth_Mark");
 
 	return (aStatus);
-}  //  end of sync_espeak_Synth_Mark
+}
 
 
 
 void sync_espeak_Key(const char *key)
-{//==================================
+{
 	// symbolic name, symbolicname_character  - is there a system resource of symbolic names per language?
 	int letter;
 	int ix;
@@ -714,7 +714,7 @@ void sync_espeak_Key(const char *key)
 
 
 void sync_espeak_Char(wchar_t character)
-{//=====================================
+{
 	// is there a system resource of character names per language?
 	char buf[80];
 	my_unique_identifier = 0;
@@ -727,7 +727,7 @@ void sync_espeak_Char(wchar_t character)
 
 
 void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
-{//==========================================================
+{
 	// Set the list of punctuation which are spoken for "some".
 	my_unique_identifier = 0;
 	my_user_data = NULL;
@@ -738,7 +738,7 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 		wcsncpy(option_punctlist, punctlist, N_PUNCTLIST);
 		option_punctlist[N_PUNCTLIST-1] = 0;
 	}
-}  //  end of sync_espeak_SetPunctuationList
+}
 
 
 
@@ -747,7 +747,7 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 
 
 ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback* SynthCallback)
-{//======================================================================
+{
 	ENTER("espeak_SetSynthCallback");
 	synth_callback = SynthCallback;
 #ifdef USE_ASYNC
@@ -756,19 +756,19 @@ ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback* SynthCallback)
 }
 
 ESPEAK_API void espeak_SetUriCallback(int (* UriCallback)(int, const char*, const char *))
-{//=======================================================================================
+{
 	ENTER("espeak_SetUriCallback");
 	uri_callback = UriCallback;
 }
 
 
 ESPEAK_API void espeak_SetPhonemeCallback(int (* PhonemeCallback)(const char*))
-{//===========================================================================
+{
 	phoneme_callback = PhonemeCallback;
 }
 
 ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
-{//=============================================================================================================
+{
 ENTER("espeak_Initialize");
 	int param;
 
@@ -841,7 +841,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 				     espeak_POSITION_TYPE position_type,
 				     unsigned int end_position, unsigned int flags,
 				     unsigned int* unique_identifier, void* user_data)
-{//=====================================================================================
+{
 #ifdef DEBUG_ENABLED
 	ENTER("espeak_Synth");
 	SHOW("espeak_Synth > position=%d, position_type=%d, end_position=%d, flags=%d, user_data=0x%x, text=%s\n", position, position_type, end_position, flags, user_data, text);
@@ -896,7 +896,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 
 #endif
 	return a_error;
-}  //  end of espeak_Synth
+}
 
 
 
@@ -906,7 +906,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 					  unsigned int flags,
 					  unsigned int* unique_identifier,
 					  void* user_data)
-{//=========================================================================
+{
 #ifdef DEBUG_ENABLED
   ENTER("espeak_Synth_Mark");
   SHOW("espeak_Synth_Mark > index_mark=%s, end_position=%d, flags=%d, text=%s\n", index_mark, end_position, flags, text);
@@ -962,12 +962,12 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 
 #endif
 	return a_error;
-}  //  end of espeak_Synth_Mark
+}
 
 
 
 ESPEAK_API espeak_ERROR espeak_Key(const char *key)
-{//================================================
+{
 	ENTER("espeak_Key");
 	// symbolic name, symbolicname_character  - is there a system resource of symbolicnames per language
 
@@ -998,7 +998,7 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 
 
 ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
-{//===========================================
+{
   ENTER("espeak_Char");
   // is there a system resource of character names per language?
 
@@ -1031,24 +1031,24 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
-{//============================================================
+{
   ENTER("espeak_SetVoiceByName");
 
 	return(SetVoiceByName(name));
-}  // end of espeak_SetVoiceByName
+}
 
 
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
-{//==============================================================================
+{
   ENTER("espeak_SetVoiceByProperties");
 
 	return(SetVoiceByProperties(voice_selector));
-}  // end of espeak_SetVoiceByProperties
+}
 
 
 ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
-{//========================================================================
+{
 	ENTER("espeak_GetParameter");
 	// current: 0=default value, 1=current value
 	if(current)
@@ -1059,11 +1059,11 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 	{
 		return(param_defaults[parameter]);
 	}
-}  //  end of espeak_GetParameter
+}
 
 
 ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative)
-{//=============================================================================================
+{
   ENTER("espeak_SetParameter");
 
 	if(f_logespeak)
@@ -1095,7 +1095,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
 
 ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
-{//================================================================
+{
   ENTER("espeak_SetPunctuationList");
   // Set the list of punctuation which are spoken for "some".
 
@@ -1119,11 +1119,11 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 	sync_espeak_SetPunctuationList(punctlist);
 	return(EE_OK);
 #endif
-}  //  end of espeak_SetPunctuationList
+}
 
 
 ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
-{//===================================================================
+{
 	ENTER("espeak_SetPhonemes");
 /* phonememode:  Controls the output of phoneme symbols for the text
       bits 0-2:
@@ -1142,11 +1142,11 @@ ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 	if(stream == NULL)
 		f_trans = stderr;
 
-}   //  end of espeak_SetPhonemes
+}
 
 
 ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode, int phonememode)
-{//=================================================================================================
+{
 	/* phoneme_mode
 	    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
         bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
@@ -1160,14 +1160,14 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
-{//=============================================================================
+{
 	ENTER("espeak_CompileDictionary");
 	CompileDictionary(path, dictionary_name, log, NULL, flags);
-}   //  end of espeak_CompileDirectory
+}
 
 
 ESPEAK_API espeak_ERROR espeak_Cancel(void)
-{//===============================
+{
 #ifdef USE_ASYNC
 	ENTER("espeak_Cancel");
 	fifo_stop();
@@ -1185,11 +1185,11 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 		SetParameter(i, saved_parameters[i], 0);
 
 	return EE_OK;
-}   //  end of espeak_Cancel
+}
 
 
 ESPEAK_API int espeak_IsPlaying(void)
-{//==================================
+{
 #ifdef USE_ASYNC
 	if((my_mode == AUDIO_OUTPUT_PLAYBACK) && wave_is_busy(my_audio))
 		return(1);
@@ -1198,11 +1198,11 @@ ESPEAK_API int espeak_IsPlaying(void)
 #else
 	return(0);
 #endif
-}   //  end of espeak_IsPlaying
+}
 
 
 ESPEAK_API espeak_ERROR espeak_Synchronize(void)
-{//=============================================
+{
 	espeak_ERROR berr = err;
 #ifdef USE_ASYNC
 	SHOW_TIME("espeak_Synchronize > ENTER");
@@ -1214,14 +1214,14 @@ ESPEAK_API espeak_ERROR espeak_Synchronize(void)
 	err = EE_OK;
 	SHOW_TIME("espeak_Synchronize > LEAVE");
 	return berr;
-}   //  end of espeak_Synchronize
+}
 
 
 extern void FreePhData(void);
 extern void FreeVoiceList(void);
 
 ESPEAK_API espeak_ERROR espeak_Terminate(void)
-{//===========================================
+{
 	ENTER("espeak_Terminate");
 #ifdef USE_ASYNC
 	fifo_stop();
@@ -1250,10 +1250,10 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	}
 
 	return EE_OK;
-}   //  end of espeak_Terminate
+}
 
 ESPEAK_API const char *espeak_Info(const char **ptr)
-{//=================================================
+{
 	if(ptr != NULL)
 	{
 		*ptr = path_home;
@@ -1262,5 +1262,3 @@ ESPEAK_API const char *espeak_Info(const char **ptr)
 }
 
 #pragma GCC visibility pop
-
-

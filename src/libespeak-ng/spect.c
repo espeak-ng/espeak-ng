@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2013-2015 by Reece H. Dunn                              *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -58,7 +58,7 @@ static double read_double(FILE *stream)
 }
 
 float polint(float xa[],float ya[],int n,float x)
-{//==============================================
+{
 // General polinomial interpolation routine, xa[1...n] ya[1...n]
 	int i,m,ns=1;
 	float den,dif,dift,ho,hp,w;
@@ -92,11 +92,11 @@ float polint(float xa[],float ya[],int n,float x)
 		y += ((2*ns < (n-m) ? c[ns+1] : d[ns--]));
 	}
 	return(y);
-}  // end of polint
+}
 
 
 static void PeaksZero(peak_t *sp, peak_t *zero)
-{//=====================================
+{
 	int pk;
 
 	memcpy(zero,sp,sizeof(peak_t)*N_PEAKS);
@@ -104,7 +104,7 @@ static void PeaksZero(peak_t *sp, peak_t *zero)
 	for(pk=0; pk<N_PEAKS; pk++)
 		zero[pk].pkheight = 0;
 
-}  // end of PeaksZero
+}
 
 static SpectFrame *SpectFrameCreate()
 {
@@ -151,7 +151,7 @@ static void SpectFrameDestroy(SpectFrame *frame)
 
 
 int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
-{//==============================================================
+{
 	short ix;
 	short x;
 	unsigned short *spect_data;
@@ -215,12 +215,12 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
    frame->spect = spect_data;
 
 	return(0);
-}  //  End of SpectFrame::Load
+}
 
 
 
 double GetFrameRms(SpectFrame *frame, int seq_amplitude)
-{//=========================================
+{
 	int h;
 	float total=0;
 	int maxh;
@@ -271,7 +271,7 @@ SpectSeq *SpectSeqCreate()
 }
 
 void SpectSeqDestroy(SpectSeq *spect)
-{//==================
+{
 	int ix;
 	if(spect->frames != NULL)
 	{
@@ -288,7 +288,7 @@ void SpectSeqDestroy(SpectSeq *spect)
 
 
 static float GetFrameLength(SpectSeq *spect, int frame)
-{//===============================================================
+{
 	int  ix;
 	float  adjust=0;
 
@@ -305,7 +305,7 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 
 
 int LoadSpectSeq(SpectSeq *spect, const char *filename)
-{//=======================================
+{
 	short n, temp;
 	int ix;
 	uint32_t id1, id2, name_len;
@@ -418,4 +418,4 @@ else
 			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(spect,ix);
 	}
 	return(0);
-}  // end of SpectSeq::Load
+}

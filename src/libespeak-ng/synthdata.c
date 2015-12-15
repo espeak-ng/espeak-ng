@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
+ *   Copyright (C) 2015 Reece H. Dunn                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -71,7 +71,7 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 
 
 static char *ReadPhFile(void *ptr, const char *fname, int *size)
-{//=============================================================
+{
 	FILE *f_in;
 	char *p;
 	unsigned int  length;
@@ -105,11 +105,11 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 	if(size != NULL)
 		*size = length;
 	return(p);
-}  //  end of ReadPhFile
+}
 
 
 int LoadPhData(int *srate)
-{//========================
+{
 	int ix;
 	int n_phonemes;
 	int version;
@@ -169,11 +169,11 @@ int LoadPhData(int *srate)
     if(srate != NULL)
         *srate = rate;
 	return(result);
-}  //  end of LoadPhData
+}
 
 
 void FreePhData(void)
-{//==================
+{
 	Free(phoneme_tab_data);
 	Free(phoneme_index);
 	Free(phondata_ptr);
@@ -186,7 +186,7 @@ void FreePhData(void)
 
 
 int PhonemeCode(unsigned int mnem)
-{//===============================
+{
 	int ix;
 
 	for(ix=0; ix<n_phoneme_tab; ix++)
@@ -201,7 +201,7 @@ int PhonemeCode(unsigned int mnem)
 
 
 int LookupPhonemeString(const char *string)
-{//========================================
+{
 	int  ix;
 	unsigned char c;
 	unsigned int  mnem;
@@ -222,7 +222,7 @@ int LookupPhonemeString(const char *string)
 
 
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist)
-{//===================================================================================================================
+{
 	int  ix;
 	int  nf;
 	int  nf1;
@@ -370,12 +370,12 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 	*n_frames = nf;
 	return(frames);
-}  //  end of LookupSpect
+}
 
 
 
 unsigned char *GetEnvelope(int index)
-{//==================================
+{
 	if(index==0)
 	{
 		fprintf(stderr,"espeak: No envelope\n");
@@ -386,7 +386,7 @@ unsigned char *GetEnvelope(int index)
 
 
 static void SetUpPhonemeTable(int number, int recursing)
-{//=====================================================
+{
 	int ix;
 	int includes;
 	int ph_code;
@@ -415,20 +415,20 @@ static void SetUpPhonemeTable(int number, int recursing)
 		if(recursing == 0)
 			phoneme_tab_flags[ph_code] |= 1;   // not inherited
 	}
-}  // end of SetUpPhonemeTable
+}
 
 
 void SelectPhonemeTable(int number)
-{//================================
+{
 	n_phoneme_tab = 0;
 	SetUpPhonemeTable(number,0);  // recursively for included phoneme tables
 	n_phoneme_tab++;
 	current_phoneme_table = number;
-}  //  end of SelectPhonemeTable
+}
 
 
 int LookupPhonemeTable(const char *name)
-{//=====================================
+{
 	int ix;
 
 	for(ix=0; ix<n_phoneme_tables; ix++)
@@ -447,7 +447,7 @@ int LookupPhonemeTable(const char *name)
 
 
 int SelectPhonemeTableName(const char *name)
-{//=========================================
+{
 // Look up a phoneme set by name, and select it if it exists
 // Returns the phoneme table number
 	int ix;
@@ -457,13 +457,13 @@ int SelectPhonemeTableName(const char *name)
 
 	SelectPhonemeTable(ix);
 	return(ix);
-}  //  end of DelectPhonemeTableName
+}
 
 
 
 
 void LoadConfig(void)
-{//==================
+{
 // Load configuration file, if one exists
 	char buf[sizeof(path_home)+10];
 	FILE *f;
@@ -524,7 +524,7 @@ void LoadConfig(void)
 		}
 	}
 	fclose(f);
-}  //  end of LoadConfig
+}
 
 
 
@@ -533,13 +533,13 @@ PHONEME_DATA this_ph_data;
 
 
 static void InvalidInstn(PHONEME_TAB *ph, int instn)
-{//====================================================
+{
 	fprintf(stderr,"Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(ph->mnemonic));
 }
 
 
 static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, int control)
-{//========================================================================================
+{
 // condition:
 //	0	if diminished, 1 if unstressed, 2 if not stressed, 3 if stressed, 4 if max stress
 
@@ -597,11 +597,11 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 	}
 	return(false);
 
-}  // end of StressCondition
+}
 
 
 static int CountVowelPosition(PHONEME_LIST *plist)
-{//===============================================
+{
 	int count = 0;
 
 	for(;;)
@@ -613,11 +613,11 @@ static int CountVowelPosition(PHONEME_LIST *plist)
 		plist--;
 	}
 	return(count);
-}  // end of CoundVowelPosition
+}
 
 
 static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, USHORT *p_prog, WORD_PH_DATA *worddata)
-{//========================================================================================================================
+{
 	int which;
 	int ix;
 	unsigned int data;
@@ -880,11 +880,11 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		}
 	}
 	return(false);
-}  // end of InterpretCondition
+}
 
 
 static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT **p_prog, int instn_type)
-{//========================================================================================================
+{
 	USHORT *prog;
 	int voweltype;
 	signed char x;
@@ -909,11 +909,11 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT 
 	}
 
 	*p_prog += 12;
-}  // end of SwitchVowelType
+}
 
 
 int NumInstnWords(USHORT *prog)
-{//============================
+{
 	int instn;
 	int instn2;
 	int instn_type;
@@ -963,12 +963,12 @@ int NumInstnWords(USHORT *prog)
 		}
 		return(2);
 	}
-}  //  end of NumInstnWords
+}
 
 
 
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
-{//===================================================================================================================
+{
 // control:
 //bit 0:  PreVoicing
 //bit 8:  change phonemes
@@ -1269,11 +1269,11 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
         plist->phontab_addr = phdata->sound_addr[1];  // WAV address
         plist->sound_param = phdata->sound_param[1];
 	}
-}  // end of InterpretPhoneme
+}
 
 
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata)
-{//=====================================================
+{
 // Examine the program of a single isolated phoneme
 	int ix;
 	PHONEME_LIST plist[4];
@@ -1290,4 +1290,4 @@ void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata)
 	plist[2].sourceix = 1;
 
 	InterpretPhoneme(NULL, 0, &plist[1], phdata, NULL);
-}  // end of InterpretPhoneme2
+}

@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
- *   Copyright (C) 2013 Reece H. Dunn                                      *
+ *   Copyright (C) 2013-2015 Reece H. Dunn                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,6 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
-// This source file is only used for asynchronious modes
 
 #include "speech.h"
 #include "espeak_command.h"
