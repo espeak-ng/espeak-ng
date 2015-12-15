@@ -19,6 +19,8 @@
  ***************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "speak_lib.h"
 #include "espeak_ng.h"
