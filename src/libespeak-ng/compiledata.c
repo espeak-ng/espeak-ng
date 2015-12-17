@@ -3567,6 +3567,7 @@ int LookupEnvelopeName(const char *name)
 
 espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 {
+	if(!log) log=stderr;
 	int ix;
 	char *p;
 	char c;
@@ -3867,6 +3868,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 
 espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log)
 {
+	if(!log) log=stderr;
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
 	return CompilePhonemeData2("phonemes", log);
