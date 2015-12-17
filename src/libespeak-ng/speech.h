@@ -37,11 +37,21 @@ extern "C"
 #define NO_VARIADIC_MACROS
 #endif
 
+#if defined(_WIN32) || defined(_WIN64) // Windows
+
+#define PLATFORM_WINDOWS
+#define PATHSEP '\\'
+#define NEED_GETOPT
+#define NO_VARIADIC_MACROS
+
+#else
 
 #define PLATFORM_POSIX
 #define PATHSEP  '/'
 #define USE_NANOSLEEP
 #define __cdecl
+
+#endif
 
 #ifdef _ESPEAKEDIT
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
@@ -55,7 +65,11 @@ extern "C"
 typedef unsigned short USHORT;
 typedef unsigned char UCHAR;
 typedef double DOUBLEX;
+#ifdef _WIN64
+typedef uint64_t long64;        // use this for conversion between pointers and integers
+#else
 typedef unsigned long long64;   // use this for conversion between pointers and integers
+#endif
 
 
 
