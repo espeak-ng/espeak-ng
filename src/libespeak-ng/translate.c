@@ -86,7 +86,7 @@ char word_phonemes[N_WORD_PHONEMES*2];    // longer, because snprint() is not av
 char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 #endif
 int n_ph_list2;
-PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
+PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
 
 
@@ -374,7 +374,7 @@ int IsAlpha(unsigned int c)
 // Replacement for iswalph() which also checks for some in-word symbols
 
 	static const unsigned short extra_indic_alphas[] = {
-		0xa70,0xa71,	// Gurmukhi: tippi, addak
+		0xa70,0xa71,    // Gurmukhi: tippi, addak
 		0
 	};
 
@@ -669,7 +669,7 @@ static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 	wbuf = word_buf;
 	ix = 0;
 
-	for(;;)
+	for(;; )
 	{
 		ok = 0;
 		nbytes = utf8_in(&wc, word);
@@ -728,13 +728,13 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 
 	int ix;
 	int len;
-	char  phon;
+	char phon;
 	char *p;
 	unsigned char *pb;
 	char *eqlist;
 	char *p_out;
 	char *p_in;
-	int  remove_stress = 0;
+	int remove_stress = 0;
 	char phonbuf[N_WORD_PHONEMES];
 
 	// has a phoneme equivalence table been specified for thus language pair?
@@ -743,7 +743,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 
 	pb = (unsigned char *)&phondata_ptr[ix];
 
-	for(;;)
+	for(;; )
 	{
 		if(pb[0] == 0)
 			return(0);   // table not found
@@ -1057,7 +1057,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				emphasize_allcaps = FLAG_EMPHASIZED;
 			}
 			else if(!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length<4) && (tr->clause_lower_count > 3)
-					&& (tr->clause_upper_count <= tr->clause_lower_count))
+			        && (tr->clause_upper_count <= tr->clause_lower_count))
 			{
 				// An upper case word in a lower case clause. This could be an abbreviation.
 				spell_word = 1;
@@ -1845,7 +1845,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		{
 			// switch languages
 			word+=3;
-			for(ix=0;;)
+			for(ix=0;; )
 			{
 				c1 = *word++;
 				if((c1==' ') || (c1==0))
@@ -2224,7 +2224,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				if(first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING])
 				{
 					if(((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
-							(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2)))
+					   (tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2)))
 					{
 						// italian, double the initial consonant if the previous word ends with a
 						// stressed vowel, or is marked with a flag
@@ -2512,7 +2512,7 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	if(tr->translator_name == L('g','a'))
 	{
 		// Irish
-		for(ix=0; ; ix++)
+		for(ix=0;; ix++)
 		{
 			if((p = UCase_ga[ix]) == NULL)
 				break;
@@ -2614,7 +2614,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
 	if(terminator & CLAUSE_PAUSE_LONG)
-	  clause_pause = clause_pause * 32 ;  // pause value is *320mS not *10mS
+		clause_pause = clause_pause * 32; // pause value is *320mS not *10mS
 
 	tone = (terminator >> 12) & 0x7;
 	if(tone2 != 0)
@@ -2924,7 +2924,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 					if(tr->letter_bits_offset > 0)
 					{
 						if(((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
-								((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
+						   ((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
 						{
 							// Don't mix native and Latin characters in the same word
 							// Break into separate words
@@ -3109,34 +3109,34 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 				}
 			}
 			else
-					if(lookupwchar(breaks,c) != 0)
+			if(lookupwchar(breaks,c) != 0)
+			{
+				c = ' ';          // various characters to treat as space
+			}
+			else if(iswdigit(c))
+			{
+				if(tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in))
+				{
+				}
+				else if((prev_out != ' ') && !iswdigit(prev_out))
+				{
+					if((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count > 0) && (tr->langopts.decimal_sep == ',')))
 					{
-						c = ' ';  // various characters to treat as space
+						c = ' ';
+						space_inserted = 1;
 					}
-					else if(iswdigit(c))
+					else
 					{
-						if(tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in))
-						{
-						}
-						else if((prev_out != ' ') && !iswdigit(prev_out))
-						{
-							if((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count > 0) && (tr->langopts.decimal_sep == ',')))
-							{
-								c = ' ';
-								space_inserted = 1;
-							}
-							else
-							{
-								decimal_sep_count = 1;
-							}
-						}
-						else if((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in))
-						{
-							// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
-							sbuf[ix++] = ' ';
-							words[word_count].start++;
-						}
+						decimal_sep_count = 1;
 					}
+				}
+				else if((prev_out == ' ') && IsAlpha(prev_out2) && !IsAlpha(prev_in))
+				{
+					// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
+					sbuf[ix++] = ' ';
+					words[word_count].start++;
+				}
+			}
 		}
 
 		if(IsSpace(c))
@@ -3299,7 +3299,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 					*pn++ = *pw++;
 				}
 				else if((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ')
-						&& iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' '))  // don't allow only 1 or 2 digits in the final part
+				        && iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' '))  // don't allow only 1 or 2 digits in the final part
 				{
 					pw += 2;
 					ix++;  // skip "word"
@@ -3375,7 +3375,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			pn[16] = 0;
 			nw = 0;
 
-			for(pw = &number_buf[1]; pw < pn;)
+			for(pw = &number_buf[1]; pw < pn; )
 			{
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause,0 );
@@ -3398,7 +3398,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			if(dict_flags & FLAG_SPELLWORD)
 			{
 				// redo the word, speaking single letters
-				for(pw = word; *pw != ' ';)
+				for(pw = word; *pw != ' '; )
 				{
 					memset(number_buf,' ',9);
 					nx = utf8_in(&c_temp, pw);

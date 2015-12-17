@@ -36,37 +36,37 @@ typedef struct
 
 typedef struct
 {
-  flag synthesis_model; /* cascade-parallel or all-parallel */
-  flag outsl;       /* Output waveform selector                      */
-  long samrate;     /* Number of output samples per second           */
-  long FLPhz ;      /* Frequeny of glottal downsample low-pass filter */
-  long BLPhz ;      /* Bandwidth of glottal downsample low-pass filter */
-  flag glsource;    /* Type of glottal source */
-  int f0_flutter;   /* Percentage of f0 flutter 0-100 */
-  long nspfr;       /* number of samples per frame */
-  long nper;        /* Counter for number of samples in a pitch period */
-  long ns;
-  long T0;          /* Fundamental period in output samples times 4 */
-  long nopen;       /* Number of samples in open phase of period    */
-  long nmod;        /* Position in period to begin noise amp. modul */
-  long nrand;       /* Varible used by random number generator      */
-  double pulse_shape_a;  /* Makes waveshape of glottal pulse when open   */
-  double pulse_shape_b;  /* Makes waveshape of glottal pulse when open   */
-  double minus_pi_t;
-  double two_pi_t;
-  double onemd;
-  double decay;
-  double amp_bypas; /* AB converted to linear gain              */
-  double amp_voice; /* AVdb converted to linear gain            */
-  double par_amp_voice; /* AVpdb converted to linear gain       */
-  double amp_aspir; /* AP converted to linear gain              */
-  double amp_frica; /* AF converted to linear gain              */
-  double amp_breth; /* ATURB converted to linear gain           */
-  double amp_gain0; /* G0 converted to linear gain              */
-  int num_samples; /* number of glottal samples */
-  double sample_factor; /* multiplication factor for glottal samples */
-  short *natural_samples; /* pointer to an array of glottal samples */
-  long original_f0; /* original value of f0 not modified by flutter */
+	flag synthesis_model; /* cascade-parallel or all-parallel */
+	flag outsl;     /* Output waveform selector                      */
+	long samrate;   /* Number of output samples per second           */
+	long FLPhz;     /* Frequeny of glottal downsample low-pass filter */
+	long BLPhz;     /* Bandwidth of glottal downsample low-pass filter */
+	flag glsource;  /* Type of glottal source */
+	int f0_flutter; /* Percentage of f0 flutter 0-100 */
+	long nspfr;     /* number of samples per frame */
+	long nper;      /* Counter for number of samples in a pitch period */
+	long ns;
+	long T0;        /* Fundamental period in output samples times 4 */
+	long nopen;     /* Number of samples in open phase of period    */
+	long nmod;      /* Position in period to begin noise amp. modul */
+	long nrand;     /* Varible used by random number generator      */
+	double pulse_shape_a; /* Makes waveshape of glottal pulse when open   */
+	double pulse_shape_b; /* Makes waveshape of glottal pulse when open   */
+	double minus_pi_t;
+	double two_pi_t;
+	double onemd;
+	double decay;
+	double amp_bypas; /* AB converted to linear gain              */
+	double amp_voice; /* AVdb converted to linear gain            */
+	double par_amp_voice; /* AVpdb converted to linear gain       */
+	double amp_aspir; /* AP converted to linear gain              */
+	double amp_frica; /* AF converted to linear gain              */
+	double amp_breth; /* ATURB converted to linear gain           */
+	double amp_gain0; /* G0 converted to linear gain              */
+	int num_samples; /* number of glottal samples */
+	double sample_factor; /* multiplication factor for glottal samples */
+	short *natural_samples; /* pointer to an array of glottal samples */
+	long original_f0; /* original value of f0 not modified by flutter */
 
 	int fadeout;       // set to 64 to cause fadeout over 64 samples
 	int scale_wav;     // depends on the voicing source
@@ -96,8 +96,8 @@ typedef struct
 #define RLP  18
 #define Rout 19
 
-  resonator_t rsn[N_RSN];	 // internal storage for resonators
-  resonator_t rsn_next[N_RSN];
+	resonator_t rsn[N_RSN];  // internal storage for resonators
+	resonator_t rsn_next[N_RSN];
 
 } klatt_global_t, *klatt_global_ptr;
 
@@ -136,7 +136,7 @@ typedef struct
 	int AVdb_tmp;      //copy of AVdb, which is changed within parwave()
 	int Fhz_next[10];    // Fhz for the next chunk, so we can do interpolation of resonator (a,b,c) parameters
 	int Bhz_next[10];
- } klatt_frame_t, *klatt_frame_ptr;
+} klatt_frame_t, *klatt_frame_ptr;
 
 
 typedef struct {

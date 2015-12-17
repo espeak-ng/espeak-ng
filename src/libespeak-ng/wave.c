@@ -45,8 +45,8 @@
 #ifdef NEED_STRUCT_TIMESPEC
 #define HAVE_STRUCT_TIMESPEC 1
 struct timespec {
-        long tv_sec;
-        long tv_nsec;
+	long tv_sec;
+	long tv_nsec;
 };
 #endif /* HAVE_STRUCT_TIMESPEC */
 
@@ -104,90 +104,90 @@ int wave_pulse_get_remaining_time(uint32_t sample, uint32_t* time);
 
 // wrappers
 int wave_init(int srate) {
-  pulse_running = is_pulse_running();
+	pulse_running = is_pulse_running();
 
-  if (pulse_running)
-    return wave_pulse_init(srate);
-  else
-    return wave_port_init(srate);
+	if (pulse_running)
+		return wave_pulse_init(srate);
+	else
+		return wave_port_init(srate);
 }
 
 void* wave_open(const char* the_api) {
-  if (pulse_running)
-    return wave_pulse_open(the_api);
-  else
-    return wave_port_open(the_api);
+	if (pulse_running)
+		return wave_pulse_open(the_api);
+	else
+		return wave_port_open(the_api);
 }
 
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {
-  if (pulse_running)
-    return wave_pulse_write(theHandler, theMono16BitsWaveBuffer, theSize);
-  else
-    return wave_port_write(theHandler, theMono16BitsWaveBuffer, theSize);
+	if (pulse_running)
+		return wave_pulse_write(theHandler, theMono16BitsWaveBuffer, theSize);
+	else
+		return wave_port_write(theHandler, theMono16BitsWaveBuffer, theSize);
 }
 
 int wave_close(void* theHandler) {
-  if (pulse_running)
-    return wave_pulse_close(theHandler);
-  else
-    return wave_port_close(theHandler);
+	if (pulse_running)
+		return wave_pulse_close(theHandler);
+	else
+		return wave_port_close(theHandler);
 }
 
 int wave_is_busy(void* theHandler) {
-  if (pulse_running)
-    return wave_pulse_is_busy(theHandler);
-  else
-    return wave_port_is_busy(theHandler);
+	if (pulse_running)
+		return wave_pulse_is_busy(theHandler);
+	else
+		return wave_port_is_busy(theHandler);
 }
 
 void wave_terminate() {
-  if (pulse_running)
-    wave_pulse_terminate();
-  else
-    wave_port_terminate();
+	if (pulse_running)
+		wave_pulse_terminate();
+	else
+		wave_port_terminate();
 }
 
 uint32_t wave_get_read_position(void* theHandler) {
-  if (pulse_running)
-    return wave_pulse_get_read_position(theHandler);
-  else
-    return wave_port_get_read_position(theHandler);
+	if (pulse_running)
+		return wave_pulse_get_read_position(theHandler);
+	else
+		return wave_port_get_read_position(theHandler);
 }
 
 uint32_t wave_get_write_position(void* theHandler) {
-  if (pulse_running)
-    return wave_pulse_get_write_position(theHandler);
-  else
-    return wave_port_get_write_position(theHandler);
+	if (pulse_running)
+		return wave_pulse_get_write_position(theHandler);
+	else
+		return wave_port_get_write_position(theHandler);
 }
 
 void wave_flush(void* theHandler) {
-  if (pulse_running)
-    wave_pulse_flush(theHandler);
-  else
-    wave_port_flush(theHandler);
+	if (pulse_running)
+		wave_pulse_flush(theHandler);
+	else
+		wave_port_flush(theHandler);
 }
 
 void wave_set_callback_is_output_enabled(t_wave_callback* cb) {
-  if (pulse_running)
-    wave_pulse_set_callback_is_output_enabled(cb);
-  else
-    wave_port_set_callback_is_output_enabled(cb);
+	if (pulse_running)
+		wave_pulse_set_callback_is_output_enabled(cb);
+	else
+		wave_port_set_callback_is_output_enabled(cb);
 }
 
 void* wave_test_get_write_buffer() {
-  if (pulse_running)
-    return wave_pulse_test_get_write_buffer();
-  else
-    return wave_port_test_get_write_buffer();
+	if (pulse_running)
+		return wave_pulse_test_get_write_buffer();
+	else
+		return wave_port_test_get_write_buffer();
 }
 
 int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 {
-  if (pulse_running)
-    return wave_pulse_get_remaining_time(sample, time);
-  else
-    return wave_port_get_remaining_time(sample, time);
+	if (pulse_running)
+		return wave_pulse_get_remaining_time(sample, time);
+	else
+		return wave_port_get_remaining_time(sample, time);
 }
 
 // rename functions to be wrapped
@@ -244,59 +244,59 @@ static uint32_t myWritePosition = 0;
 
 static void init_buffer()
 {
-  myWrite = myBuffer;
-  myRead = myBuffer;
-  memset(myBuffer,0,BUFFER_LENGTH);
-  myReadPosition = myWritePosition = 0;
-  SHOW("init_buffer > myRead=0x%x, myWrite=0x%x, BUFFER_LENGTH=0x%x, myReadPosition = myWritePosition = 0\n", (int)myRead, (int)myWrite, BUFFER_LENGTH);
+	myWrite = myBuffer;
+	myRead = myBuffer;
+	memset(myBuffer,0,BUFFER_LENGTH);
+	myReadPosition = myWritePosition = 0;
+	SHOW("init_buffer > myRead=0x%x, myWrite=0x%x, BUFFER_LENGTH=0x%x, myReadPosition = myWritePosition = 0\n", (int)myRead, (int)myWrite, BUFFER_LENGTH);
 }
 
 static unsigned int get_used_mem()
 {
-  char* aRead = myRead;
-  char* aWrite = myWrite;
-  unsigned int used = 0;
+	char* aRead = myRead;
+	char* aWrite = myWrite;
+	unsigned int used = 0;
 
-  assert ((aRead >= myBuffer)
-	  && (aRead <= myBuffer + BUFFER_LENGTH)
-	  && (aWrite >= myBuffer)
-	  && (aWrite <= myBuffer + BUFFER_LENGTH));
+	assert ((aRead >= myBuffer)
+	        && (aRead <= myBuffer + BUFFER_LENGTH)
+	        && (aWrite >= myBuffer)
+	        && (aWrite <= myBuffer + BUFFER_LENGTH));
 
-  if (aRead < aWrite)
-    {
-      used = aWrite - aRead;
-    }
-  else
-    {
-      used = aWrite + BUFFER_LENGTH - aRead;
-    }
-  SHOW("get_used_mem > %d\n", used);
+	if (aRead < aWrite)
+	{
+		used = aWrite - aRead;
+	}
+	else
+	{
+		used = aWrite + BUFFER_LENGTH - aRead;
+	}
+	SHOW("get_used_mem > %d\n", used);
 
-  return used;
+	return used;
 }
 
 static void start_stream()
 {
-  PaError err;
-  SHOW_TIME("start_stream");
+	PaError err;
+	SHOW_TIME("start_stream");
 
-  my_stream_could_start=0;
-  mInCallbackFinishedState = false;
+	my_stream_could_start=0;
+	mInCallbackFinishedState = false;
 
-  err = Pa_StartStream(pa_stream);
-  SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
+	err = Pa_StartStream(pa_stream);
+	SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
 
 #if USE_PORTAUDIO == 19
-  if(err == paStreamIsNotStopped)
-    {
-      SHOW_TIME("start_stream > restart stream (begin)");
-      // not sure why we need this, but PA v19 seems to need it
-      err = Pa_StopStream(pa_stream);
-      SHOW("start_stream > Pa_StopStream=%d (%s)\n", err, Pa_GetErrorText(err));
-      err = Pa_StartStream(pa_stream);
-      SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
-      SHOW_TIME("start_stream > restart stream (end)");
-    }
+	if(err == paStreamIsNotStopped)
+	{
+		SHOW_TIME("start_stream > restart stream (begin)");
+		// not sure why we need this, but PA v19 seems to need it
+		err = Pa_StopStream(pa_stream);
+		SHOW("start_stream > Pa_StopStream=%d (%s)\n", err, Pa_GetErrorText(err));
+		err = Pa_StartStream(pa_stream);
+		SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
+		SHOW_TIME("start_stream > restart stream (end)");
+	}
 #endif
 }
 
@@ -306,11 +306,11 @@ static void start_stream()
 */
 #if USE_PORTAUDIO == 18
 static int pa_callback(void *inputBuffer, void *outputBuffer,
-			unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
+                       unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
 #else
-  static int pa_callback(const void *inputBuffer, void *outputBuffer,
-			  long unsigned int framesPerBuffer, const PaStreamCallbackTimeInfo *outTime,
-			  PaStreamCallbackFlags flags, void *userData )
+static int pa_callback(const void *inputBuffer, void *outputBuffer,
+                       long unsigned int framesPerBuffer, const PaStreamCallbackTimeInfo *outTime,
+                       PaStreamCallbackFlags flags, void *userData )
 #endif
 {
 	int aResult=0; // paContinue
@@ -419,164 +419,164 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 
 void wave_flush(void* theHandler)
 {
-  ENTER("wave_flush");
+	ENTER("wave_flush");
 
-  if (my_stream_could_start)
-    {
-      start_stream();
-    }
+	if (my_stream_could_start)
+	{
+		start_stream();
+	}
 }
 
 static int wave_open_sound()
 {
-  ENTER("wave_open_sound");
+	ENTER("wave_open_sound");
 
-  PaError err=paNoError;
-  PaError active;
-
-#if USE_PORTAUDIO == 18
-  active = Pa_StreamActive(pa_stream);
-#else
-  active = Pa_IsStreamActive(pa_stream);
-#endif
-
-  if(active == 1)
-    {
-      SHOW_TIME("wave_open_sound > already active");
-      return(0);
-    }
-  if(active < 0)
-    {
-      out_channels = 1;
+	PaError err=paNoError;
+	PaError active;
 
 #if USE_PORTAUDIO == 18
-
-   PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
-
-   PaError err = Pa_OpenStream( &pa_stream,
-				/* capture parameters */
-				paNoDevice,
-				0,
-				paInt16,
-				NULL,
-				/* playback parameters */
-				playbackDevice,
-				out_channels,
-				paInt16,
-				NULL,
-				/* general parameters */
-				wave_samplerate, FRAMES_PER_BUFFER, 0,
-				paNoFlag,
-				pa_callback, (void *)userdata);
-
-      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d (%s)\n",err, Pa_GetErrorText(err));
-
-      if(err == paInvalidChannelCount)
-	{
-	  SHOW_TIME("wave_open_sound > try stereo");
-	  // failed to open with mono, try stereo
-	  out_channels = 2;
-	  PaError err = Pa_OpenStream( &pa_stream,
-				       /* capture parameters */
-				       paNoDevice,
-				       0,
-				       paInt16,
-				       NULL,
-				       /* playback parameters */
-				       playbackDevice,
-				       out_channels,
-				       paInt16,
-				       NULL,
-				       /* general parameters */
-				       wave_samplerate, FRAMES_PER_BUFFER, 0,
-				       paNoFlag,
-				       pa_callback, (void *)userdata);
-	  SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d (%s)\n",err, Pa_GetErrorText(err));
-	  err=0; // avoid warning
-	}
-   mInCallbackFinishedState = false; // v18 only
+	active = Pa_StreamActive(pa_stream);
 #else
-      myOutputParameters.channelCount = out_channels;
-      unsigned long framesPerBuffer = paFramesPerBufferUnspecified;
-      err = Pa_OpenStream(
-			  &pa_stream,
-			  NULL, /* no input */
-			  &myOutputParameters,
-			  wave_samplerate,
-			  framesPerBuffer,
-			  paNoFlag,
-			  pa_callback,
-			  (void *)userdata);
-      if ((err!=paNoError)
-	  && (err!=paInvalidChannelCount)) //err==paUnanticipatedHostError
-	{
-	  fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d (%s)\n",err,Pa_GetErrorText(err));
-	  framesPerBuffer = FRAMES_PER_BUFFER;
-	  err = Pa_OpenStream(
-			      &pa_stream,
-			      NULL, /* no input */
-			      &myOutputParameters,
-			      wave_samplerate,
-			      framesPerBuffer,
-			      paNoFlag,
-			      //			  paClipOff | paDitherOff,
-			      pa_callback,
-			      (void *)userdata);
-	}
-      if(err == paInvalidChannelCount)
-	{
-	  SHOW_TIME("wave_open_sound > try stereo");
-	  // failed to open with mono, try stereo
-	  out_channels = 2;
-	  myOutputParameters.channelCount = out_channels;
-	  err = Pa_OpenStream(
-			       &pa_stream,
-			       NULL, /* no input */
-			       &myOutputParameters,
-			       wave_samplerate,
-			       framesPerBuffer,
-			       paNoFlag,
-			       //			       paClipOff | paDitherOff,
-			       pa_callback,
-			       (void *)userdata);
-	}
-      mInCallbackFinishedState = false;
+	active = Pa_IsStreamActive(pa_stream);
 #endif
-    }
 
-  SHOW("wave_open_sound > %s\n","LEAVE");
+	if(active == 1)
+	{
+		SHOW_TIME("wave_open_sound > already active");
+		return(0);
+	}
+	if(active < 0)
+	{
+		out_channels = 1;
 
-  return (err != paNoError);
+#if USE_PORTAUDIO == 18
+
+		PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
+
+		PaError err = Pa_OpenStream( &pa_stream,
+		                             /* capture parameters */
+		                             paNoDevice,
+		                             0,
+		                             paInt16,
+		                             NULL,
+		                             /* playback parameters */
+		                             playbackDevice,
+		                             out_channels,
+		                             paInt16,
+		                             NULL,
+		                             /* general parameters */
+		                             wave_samplerate, FRAMES_PER_BUFFER, 0,
+		                             paNoFlag,
+		                             pa_callback, (void *)userdata);
+
+		SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d (%s)\n",err, Pa_GetErrorText(err));
+
+		if(err == paInvalidChannelCount)
+		{
+			SHOW_TIME("wave_open_sound > try stereo");
+			// failed to open with mono, try stereo
+			out_channels = 2;
+			PaError err = Pa_OpenStream( &pa_stream,
+			                             /* capture parameters */
+			                             paNoDevice,
+			                             0,
+			                             paInt16,
+			                             NULL,
+			                             /* playback parameters */
+			                             playbackDevice,
+			                             out_channels,
+			                             paInt16,
+			                             NULL,
+			                             /* general parameters */
+			                             wave_samplerate, FRAMES_PER_BUFFER, 0,
+			                             paNoFlag,
+			                             pa_callback, (void *)userdata);
+			SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d (%s)\n",err, Pa_GetErrorText(err));
+			err=0; // avoid warning
+		}
+		mInCallbackFinishedState = false; // v18 only
+#else
+		myOutputParameters.channelCount = out_channels;
+		unsigned long framesPerBuffer = paFramesPerBufferUnspecified;
+		err = Pa_OpenStream(
+		    &pa_stream,
+		    NULL,   /* no input */
+		    &myOutputParameters,
+		    wave_samplerate,
+		    framesPerBuffer,
+		    paNoFlag,
+		    pa_callback,
+		    (void *)userdata);
+		if ((err!=paNoError)
+		    && (err!=paInvalidChannelCount)) //err==paUnanticipatedHostError
+		{
+			fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d (%s)\n",err,Pa_GetErrorText(err));
+			framesPerBuffer = FRAMES_PER_BUFFER;
+			err = Pa_OpenStream(
+			    &pa_stream,
+			    NULL,   /* no input */
+			    &myOutputParameters,
+			    wave_samplerate,
+			    framesPerBuffer,
+			    paNoFlag,
+			    //			  paClipOff | paDitherOff,
+			    pa_callback,
+			    (void *)userdata);
+		}
+		if(err == paInvalidChannelCount)
+		{
+			SHOW_TIME("wave_open_sound > try stereo");
+			// failed to open with mono, try stereo
+			out_channels = 2;
+			myOutputParameters.channelCount = out_channels;
+			err = Pa_OpenStream(
+			    &pa_stream,
+			    NULL,    /* no input */
+			    &myOutputParameters,
+			    wave_samplerate,
+			    framesPerBuffer,
+			    paNoFlag,
+			    //			       paClipOff | paDitherOff,
+			    pa_callback,
+			    (void *)userdata);
+		}
+		mInCallbackFinishedState = false;
+#endif
+	}
+
+	SHOW("wave_open_sound > %s\n","LEAVE");
+
+	return (err != paNoError);
 }
 
 #if (USE_PORTAUDIO == 19)
 static void update_output_parameters(int selectedDevice, const PaDeviceInfo *deviceInfo)
 {
-  myOutputParameters.device = selectedDevice;
-  myOutputParameters.channelCount = 1;
-  myOutputParameters.sampleFormat = paInt16;
+	myOutputParameters.device = selectedDevice;
+	myOutputParameters.channelCount = 1;
+	myOutputParameters.sampleFormat = paInt16;
 
-  // Latency greater than 100ms for avoiding glitches
-  // (e.g. when moving a window in a graphical desktop)
-  //  deviceInfo = Pa_GetDeviceInfo(selectedDevice);
-  if (deviceInfo)
-    {
-      double aLatency = deviceInfo->defaultLowOutputLatency;
-      myOutputParameters.suggestedLatency =  aLatency;          // for faster response ?
-      SHOW("Device=%d, myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",
-	   selectedDevice,
-	   myOutputParameters.suggestedLatency,
-	   aCoeff);
-    }
-  else
-    {
-      myOutputParameters.suggestedLatency = (double)0.1; // 100ms
-      SHOW("Device=%d, myOutputParameters.suggestedLatency=%f (default)\n",
-	   selectedDevice,
-	   myOutputParameters.suggestedLatency);
-    }
+	// Latency greater than 100ms for avoiding glitches
+	// (e.g. when moving a window in a graphical desktop)
+	//  deviceInfo = Pa_GetDeviceInfo(selectedDevice);
+	if (deviceInfo)
+	{
+		double aLatency = deviceInfo->defaultLowOutputLatency;
+		myOutputParameters.suggestedLatency =  aLatency;        // for faster response ?
+		SHOW("Device=%d, myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",
+		     selectedDevice,
+		     myOutputParameters.suggestedLatency,
+		     aCoeff);
+	}
+	else
+	{
+		myOutputParameters.suggestedLatency = (double)0.1; // 100ms
+		SHOW("Device=%d, myOutputParameters.suggestedLatency=%f (default)\n",
+		     selectedDevice,
+		     myOutputParameters.suggestedLatency);
+	}
 
-  myOutputParameters.hostApiSpecificStreamInfo = NULL;
+	myOutputParameters.hostApiSpecificStreamInfo = NULL;
 }
 #endif
 
@@ -606,7 +606,7 @@ static void select_device(const char* the_api)
 	{
 		for( i=0; i<numDevices; i++ )
 		{
-		deviceInfo = Pa_GetDeviceInfo( i );
+			deviceInfo = Pa_GetDeviceInfo( i );
 
 			if (deviceInfo == NULL)
 			{
@@ -642,7 +642,7 @@ static void select_device(const char* the_api)
 					SHOW( "select_device > ALSA, name=%s (#%d)\n", deviceInfo->name, i);
 
 					if (!selectedDeviceInfo
-						|| (selectedDeviceInfo->maxOutputChannels < deviceInfo->maxOutputChannels))
+					    || (selectedDeviceInfo->maxOutputChannels < deviceInfo->maxOutputChannels))
 					{
 						selectedIndex = i;
 						selectedDeviceInfo = deviceInfo;
@@ -668,40 +668,40 @@ static void select_device(const char* the_api)
 
 void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 {
-  my_callback_is_output_enabled = cb;
+	my_callback_is_output_enabled = cb;
 }
 
 int wave_init(int srate)
 {
-  ENTER("wave_init");
-  PaError err;
+	ENTER("wave_init");
+	PaError err;
 
-  pa_stream = NULL;
+	pa_stream = NULL;
 	wave_samplerate = srate;
-  mInCallbackFinishedState = false;
-  init_buffer();
+	mInCallbackFinishedState = false;
+	init_buffer();
 
-  // PortAudio sound output library
-  err = Pa_Initialize();
-  pa_init_err = err;
-  if(err != paNoError)
-    {
-      SHOW_TIME("wave_init > Failed to initialise the PortAudio sound");
-    }
-    return err == paNoError;
+	// PortAudio sound output library
+	err = Pa_Initialize();
+	pa_init_err = err;
+	if(err != paNoError)
+	{
+		SHOW_TIME("wave_init > Failed to initialise the PortAudio sound");
+	}
+	return err == paNoError;
 }
 
 void* wave_open(const char* the_api)
 {
-  ENTER("wave_open");
-  static int once=0;
+	ENTER("wave_open");
+	static int once=0;
 
-  if (!once)
-    {
-      select_device("alsa");
-      once=1;
-    }
-  return((void*)1);
+	if (!once)
+	{
+		select_device("alsa");
+		once=1;
+	}
+	return((void*)1);
 }
 
 static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes)
@@ -863,203 +863,222 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 
 int wave_close(void* theHandler)
 {
-  SHOW_TIME("wave_close > ENTER");
+	SHOW_TIME("wave_close > ENTER");
 
-  static int aStopStreamCount = 0;
-
-#if (USE_PORTAUDIO == 19)
-  if( pa_stream == NULL )
-    {
-      SHOW_TIME("wave_close > LEAVE (NULL stream)");
-      return 0;
-    }
-
-  if( Pa_IsStreamStopped( pa_stream ) )
-    {
-      SHOW_TIME("wave_close > LEAVE (stopped)");
-      return 0;
-    }
-#else
-  if( pa_stream == NULL )
-    {
-      SHOW_TIME("wave_close > LEAVE (NULL stream)");
-      return 0;
-    }
-
-  if( Pa_StreamActive( pa_stream ) == false && mInCallbackFinishedState == false )
-    {
-      SHOW_TIME("wave_close > LEAVE (not active)");
-      return 0;
-    }
-#endif
-
-  // Avoid race condition by making sure this function only
-  // gets called once at a time
-  aStopStreamCount++;
-  if (aStopStreamCount != 1)
-    {
-      SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
-      return 0;
-    }
-
-  // Comment from Audacity-1.2.4b adapted to the eSpeak context.
-  //
-  // We got here in one of two ways:
-  //
-  // 1. The calling program calls the espeak_Cancel function and we
-  //    therefore want to stop as quickly as possible.
-  //    So we use AbortStream().  If this is
-  //    the case the portaudio stream is still in the Running state
-  //    (see PortAudio state machine docs).
-  //
-  // 2. The callback told PortAudio to stop the stream since it had
-  //    reached the end of the selection.
-  //    The event polling thread discovered this by noticing that
-  //    wave_is_busy() returned false.
-  //    wave_is_busy() (which calls Pa_GetStreamActive()) will not return
-  //    false until all buffers have finished playing, so we can call
-  //    AbortStream without losing any samples.  If this is the case
-  //    we are in the "callback finished state" (see PortAudio state
-  //    machine docs).
-  //
-  // The moral of the story: We can call AbortStream safely, without
-  // losing samples.
-  //
-  // DMM: This doesn't seem to be true; it seems to be necessary to
-  // call StopStream if the callback brought us here, and AbortStream
-  // if the user brought us here.
-  //
+	static int aStopStreamCount = 0;
 
 #if (USE_PORTAUDIO == 19)
-  if (pa_stream)
-    {
-      Pa_AbortStream( pa_stream );
-      SHOW_TIME("wave_close > Pa_AbortStream (end)");
+	if( pa_stream == NULL )
+	{
+		SHOW_TIME("wave_close > LEAVE (NULL stream)");
+		return 0;
+	}
 
-      Pa_CloseStream( pa_stream );
-      SHOW_TIME("wave_close > Pa_CloseStream (end)");
-      pa_stream = NULL;
-      mInCallbackFinishedState = false;
-    }
+	if( Pa_IsStreamStopped( pa_stream ) )
+	{
+		SHOW_TIME("wave_close > LEAVE (stopped)");
+		return 0;
+	}
 #else
-  if (pa_stream)
-    {
-      if (mInCallbackFinishedState)
+	if( pa_stream == NULL )
 	{
-	  Pa_StopStream( pa_stream );
-	  SHOW_TIME("wave_close > Pa_StopStream (end)");
+		SHOW_TIME("wave_close > LEAVE (NULL stream)");
+		return 0;
 	}
-      else
-	{
-	  Pa_AbortStream( pa_stream );
-	  SHOW_TIME("wave_close > Pa_AbortStream (end)");
-	}
-      Pa_CloseStream( pa_stream );
-      SHOW_TIME("wave_close > Pa_CloseStream (end)");
 
-      pa_stream = NULL;
-      mInCallbackFinishedState = false;
-    }
+	if( Pa_StreamActive( pa_stream ) == false && mInCallbackFinishedState == false )
+	{
+		SHOW_TIME("wave_close > LEAVE (not active)");
+		return 0;
+	}
 #endif
-  init_buffer();
 
-  aStopStreamCount = 0; // last action
-  SHOW_TIME("wave_close > LEAVE");
-  return 0;
+	// Avoid race condition by making sure this function only
+	// gets called once at a time
+	aStopStreamCount++;
+	if (aStopStreamCount != 1)
+	{
+		SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
+		return 0;
+	}
+
+	// Comment from Audacity-1.2.4b adapted to the eSpeak context.
+	//
+	// We got here in one of two ways:
+	//
+	// 1. The calling program calls the espeak_Cancel function and we
+	//    therefore want to stop as quickly as possible.
+	//    So we use AbortStream().  If this is
+	//    the case the portaudio stream is still in the Running state
+	//    (see PortAudio state machine docs).
+	//
+	// 2. The callback told PortAudio to stop the stream since it had
+	//    reached the end of the selection.
+	//    The event polling thread discovered this by noticing that
+	//    wave_is_busy() returned false.
+	//    wave_is_busy() (which calls Pa_GetStreamActive()) will not return
+	//    false until all buffers have finished playing, so we can call
+	//    AbortStream without losing any samples.  If this is the case
+	//    we are in the "callback finished state" (see PortAudio state
+	//    machine docs).
+	//
+	// The moral of the story: We can call AbortStream safely, without
+	// losing samples.
+	//
+	// DMM: This doesn't seem to be true; it seems to be necessary to
+	// call StopStream if the callback brought us here, and AbortStream
+	// if the user brought us here.
+	//
+
+#if (USE_PORTAUDIO == 19)
+	if (pa_stream)
+	{
+		Pa_AbortStream( pa_stream );
+		SHOW_TIME("wave_close > Pa_AbortStream (end)");
+
+		Pa_CloseStream( pa_stream );
+		SHOW_TIME("wave_close > Pa_CloseStream (end)");
+		pa_stream = NULL;
+		mInCallbackFinishedState = false;
+	}
+#else
+	if (pa_stream)
+	{
+		if (mInCallbackFinishedState)
+		{
+			Pa_StopStream( pa_stream );
+			SHOW_TIME("wave_close > Pa_StopStream (end)");
+		}
+		else
+		{
+			Pa_AbortStream( pa_stream );
+			SHOW_TIME("wave_close > Pa_AbortStream (end)");
+		}
+		Pa_CloseStream( pa_stream );
+		SHOW_TIME("wave_close > Pa_CloseStream (end)");
+
+		pa_stream = NULL;
+		mInCallbackFinishedState = false;
+	}
+#endif
+	init_buffer();
+
+	aStopStreamCount = 0; // last action
+	SHOW_TIME("wave_close > LEAVE");
+	return 0;
 }
 
 int wave_is_busy(void* theHandler)
 {
-  PaError active=0;
+	PaError active=0;
 
-  SHOW_TIME("wave_is_busy");
+	SHOW_TIME("wave_is_busy");
 
-  if (pa_stream)
-    {
+	if (pa_stream)
+	{
 #if USE_PORTAUDIO == 18
-      active = Pa_StreamActive(pa_stream)
-	&& (mInCallbackFinishedState == false);
+		active = Pa_StreamActive(pa_stream)
+		         && (mInCallbackFinishedState == false);
 #else
-      active = Pa_IsStreamActive(pa_stream)
-	&& (mInCallbackFinishedState == false);
+		active = Pa_IsStreamActive(pa_stream)
+		         && (mInCallbackFinishedState == false);
 #endif
-    }
+	}
 
-  SHOW("wave_is_busy: %d\n",active);
+	SHOW("wave_is_busy: %d\n",active);
 
 
-  return (active==1);
+	return (active==1);
 }
 
 void wave_terminate()
 {
-  ENTER("wave_terminate");
+	ENTER("wave_terminate");
 
-  Pa_Terminate();
+	Pa_Terminate();
 
 }
 
 uint32_t wave_get_read_position(void* theHandler)
 {
-  SHOW("wave_get_read_position > myReadPosition=%u\n", myReadPosition);
-  return myReadPosition;
+	SHOW("wave_get_read_position > myReadPosition=%u\n", myReadPosition);
+	return myReadPosition;
 }
 
 uint32_t wave_get_write_position(void* theHandler)
 {
-  SHOW("wave_get_write_position > myWritePosition=%u\n", myWritePosition);
-  return myWritePosition;
+	SHOW("wave_get_write_position > myWritePosition=%u\n", myWritePosition);
+	return myWritePosition;
 }
 
 int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 {
-  double a_time=0;
+	double a_time=0;
 
-  if (!time || !pa_stream)
-    {
-      SHOW("event get_remaining_time> %s\n","audio device not available");
-      return -1;
-    }
+	if (!time || !pa_stream)
+	{
+		SHOW("event get_remaining_time> %s\n","audio device not available");
+		return -1;
+	}
 
-  if (sample > myReadPosition)
-    {
-      // TBD: take in account time suplied by portaudio V18 API
-      a_time = sample - myReadPosition;
-      a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
-    }
-  else
-    {
-      a_time = 0;
-    }
+	if (sample > myReadPosition)
+	{
+		// TBD: take in account time suplied by portaudio V18 API
+		a_time = sample - myReadPosition;
+		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
+	}
+	else
+	{
+		a_time = 0;
+	}
 
-  SHOW("wave_get_remaining_time > sample=%d, time=%d\n", sample, (uint32_t)a_time);
+	SHOW("wave_get_remaining_time > sample=%d, time=%d\n", sample, (uint32_t)a_time);
 
-  *time = (uint32_t)a_time;
+	*time = (uint32_t)a_time;
 
-  return 0;
+	return 0;
 }
 
 void *wave_test_get_write_buffer()
 {
-  return myWrite;
+	return myWrite;
 }
 
 
 #else
 
 
-int wave_init(int srate) {return 1;}
-void* wave_open(const char* the_api) {return (void *)1;}
-size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
-int wave_close(void* theHandler) {return 0;}
-int wave_is_busy(void* theHandler) {return 0;}
-void wave_terminate() {}
-uint32_t wave_get_read_position(void* theHandler) {return 0;}
-uint32_t wave_get_write_position(void* theHandler) {return 0;}
-void wave_flush(void* theHandler) {}
+int wave_init(int srate) {
+	return 1;
+}
+void* wave_open(const char* the_api) {
+	return (void *)1;
+}
+size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {
+	return theSize;
+}
+int wave_close(void* theHandler) {
+	return 0;
+}
+int wave_is_busy(void* theHandler) {
+	return 0;
+}
+void wave_terminate() {
+}
+uint32_t wave_get_read_position(void* theHandler) {
+	return 0;
+}
+uint32_t wave_get_write_position(void* theHandler) {
+	return 0;
+}
+void wave_flush(void* theHandler) {
+}
 typedef int (t_wave_callback)(void);
-void wave_set_callback_is_output_enabled(t_wave_callback* cb) {}
-extern void* wave_test_get_write_buffer() {return NULL;}
+void wave_set_callback_is_output_enabled(t_wave_callback* cb) {
+}
+extern void* wave_test_get_write_buffer() {
+	return NULL;
+}
 
 int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 {
@@ -1072,33 +1091,33 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 
 void clock_gettime2(struct timespec *ts)
 {
-  struct timeval tv;
+	struct timeval tv;
 
-  if (!ts)
-    {
-      return;
-    }
+	if (!ts)
+	{
+		return;
+	}
 
-  assert (gettimeofday(&tv, NULL) != -1);
-  ts->tv_sec = tv.tv_sec;
-  ts->tv_nsec = tv.tv_usec*1000;
+	assert (gettimeofday(&tv, NULL) != -1);
+	ts->tv_sec = tv.tv_sec;
+	ts->tv_nsec = tv.tv_usec*1000;
 }
 
 void add_time_in_ms(struct timespec *ts, int time_in_ms)
 {
-  if (!ts)
-    {
-      return;
-    }
+	if (!ts)
+	{
+		return;
+	}
 
-  uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
-  while(t_ns >= ONE_BILLION)
-    {
-      SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
-      ts->tv_sec += 1;
-      t_ns -= ONE_BILLION;
-    }
-  ts->tv_nsec = (long int)t_ns;
+	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
+	while(t_ns >= ONE_BILLION)
+	{
+		SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
+		ts->tv_sec += 1;
+		t_ns -= ONE_BILLION;
+	}
+	ts->tv_nsec = (long int)t_ns;
 }
 
 

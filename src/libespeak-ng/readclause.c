@@ -66,103 +66,103 @@ static int ssml_ignore_l_angle = 0;
 
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
-  0x00a1,  // inverted exclamation
-  0x00bf,  // inverted question
-  0x2013,  // en-dash
-  0x2014,  // em-dash
-  0x2026,  // elipsis
+	                                         0x00a1, // inverted exclamation
+	                                         0x00bf, // inverted question
+	                                         0x2013, // en-dash
+	                                         0x2014, // em-dash
+	                                         0x2026, // elipsis
 
-  0x037e,  // Greek question mark (looks like semicolon)
-  0x0387,  // Greek semicolon, ano teleia
-  0x0964,  // Devanagari Danda (fullstop)
+	                                         0x037e, // Greek question mark (looks like semicolon)
+	                                         0x0387, // Greek semicolon, ano teleia
+	                                         0x0964, // Devanagari Danda (fullstop)
 
-  0x0589,  // Armenian period
-  0x055d,  // Armenian comma
-  0x055c,  // Armenian exclamation
-  0x055e,  // Armenian question
-  0x055b,  // Armenian emphasis mark
+	                                         0x0589, // Armenian period
+	                                         0x055d, // Armenian comma
+	                                         0x055c, // Armenian exclamation
+	                                         0x055e, // Armenian question
+	                                         0x055b, // Armenian emphasis mark
 
-  0x060c,  // Arabic ,
-  0x061b,  // Arabic ;
-  0x061f,  // Arabic ?
-  0x06d4,  // Arabic .
+	                                         0x060c, // Arabic ,
+	                                         0x061b, // Arabic ;
+	                                         0x061f, // Arabic ?
+	                                         0x06d4, // Arabic .
 
-  0x0df4,  // Singhalese Kunddaliya
-  0x0f0d,  // Tibet Shad
-  0x0f0e,
+	                                         0x0df4, // Singhalese Kunddaliya
+	                                         0x0f0d, // Tibet Shad
+	                                         0x0f0e,
 
-  0x1362,  // Ethiopic period
-  0x1363,
-  0x1364,
-  0x1365,
-  0x1366,
-  0x1367,
-  0x1368,
-  0x10fb,  // Georgian paragraph
+	                                         0x1362, // Ethiopic period
+	                                         0x1363,
+	                                         0x1364,
+	                                         0x1365,
+	                                         0x1366,
+	                                         0x1367,
+	                                         0x1368,
+	                                         0x10fb, // Georgian paragraph
 
-  0x3001,  // ideograph comma
-  0x3002,  // ideograph period
+	                                         0x3001, // ideograph comma
+	                                         0x3002, // ideograph period
 
-  0xff01,  // fullwidth exclamation
-  0xff0c,  // fullwidth comma
-  0xff0e,  // fullwidth period
-  0xff1a,  // fullwidth colon
-  0xff1b,  // fullwidth semicolon
-  0xff1f,  // fullwidth question mark
+	                                         0xff01, // fullwidth exclamation
+	                                         0xff0c, // fullwidth comma
+	                                         0xff0e, // fullwidth period
+	                                         0xff1a, // fullwidth colon
+	                                         0xff1b, // fullwidth semicolon
+	                                         0xff1f, // fullwidth question mark
 
-  0};
+	                                         0};
 
 
 // indexed by (entry num. in punct_chars) + 1
 // bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
 static const unsigned int punct_attributes [] = { 0,
-  CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
-  CLAUSE_SEMICOLON | 0x8000,      // inverted exclamation
-  CLAUSE_SEMICOLON | 0x8000,      // inverted question
-  CLAUSE_SEMICOLON,  // en-dash
-  CLAUSE_SEMICOLON,  // em-dash
-  CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000,      // elipsis
+	                                              CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
+	                                              CLAUSE_SEMICOLON | 0x8000, // inverted exclamation
+	                                              CLAUSE_SEMICOLON | 0x8000, // inverted question
+	                                              CLAUSE_SEMICOLON, // en-dash
+	                                              CLAUSE_SEMICOLON, // em-dash
+	                                              CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000, // elipsis
 
-  CLAUSE_QUESTION,   // Greek question mark
-  CLAUSE_SEMICOLON,  // Greek semicolon
-  CLAUSE_PERIOD | 0x8000,     // Devanagari Danda (fullstop)
+	                                              CLAUSE_QUESTION, // Greek question mark
+	                                              CLAUSE_SEMICOLON, // Greek semicolon
+	                                              CLAUSE_PERIOD | 0x8000, // Devanagari Danda (fullstop)
 
-  CLAUSE_PERIOD | 0x8000,  // Armenian period
-  CLAUSE_COMMA,     // Armenian comma
-  CLAUSE_EXCLAMATION | PUNCT_IN_WORD,  // Armenian exclamation
-  CLAUSE_QUESTION | PUNCT_IN_WORD,  // Armenian question
-  CLAUSE_PERIOD | PUNCT_IN_WORD,  // Armenian emphasis mark
+	                                              CLAUSE_PERIOD | 0x8000, // Armenian period
+	                                              CLAUSE_COMMA, // Armenian comma
+	                                              CLAUSE_EXCLAMATION | PUNCT_IN_WORD, // Armenian exclamation
+	                                              CLAUSE_QUESTION | PUNCT_IN_WORD, // Armenian question
+	                                              CLAUSE_PERIOD | PUNCT_IN_WORD, // Armenian emphasis mark
 
-  CLAUSE_COMMA,      // Arabic ,
-  CLAUSE_SEMICOLON,  // Arabic ;
-  CLAUSE_QUESTION,   // Arabic question mark
-  CLAUSE_PERIOD,     // Arabic full stop
+	                                              CLAUSE_COMMA, // Arabic ,
+	                                              CLAUSE_SEMICOLON, // Arabic ;
+	                                              CLAUSE_QUESTION, // Arabic question mark
+	                                              CLAUSE_PERIOD, // Arabic full stop
 
-  CLAUSE_PERIOD+0x8000,     // Singhalese period
-  CLAUSE_PERIOD+0x8000,     // Tibet period
-  CLAUSE_PARAGRAPH,
+	                                              CLAUSE_PERIOD+0x8000, // Singhalese period
+	                                              CLAUSE_PERIOD+0x8000, // Tibet period
+	                                              CLAUSE_PARAGRAPH,
 
-  CLAUSE_PERIOD,     // Ethiopic period
-  CLAUSE_COMMA,      // Ethiopic comma
-  CLAUSE_SEMICOLON,  // Ethiopic semicolon
-  CLAUSE_COLON,      // Ethiopic colon
-  CLAUSE_COLON,      // Ethiopic preface colon
-  CLAUSE_QUESTION,   // Ethiopic question mark
-  CLAUSE_PARAGRAPH,     // Ethiopic paragraph
-  CLAUSE_PARAGRAPH,     // Georgian paragraph
+	                                              CLAUSE_PERIOD, // Ethiopic period
+	                                              CLAUSE_COMMA, // Ethiopic comma
+	                                              CLAUSE_SEMICOLON, // Ethiopic semicolon
+	                                              CLAUSE_COLON, // Ethiopic colon
+	                                              CLAUSE_COLON, // Ethiopic preface colon
+	                                              CLAUSE_QUESTION, // Ethiopic question mark
+	                                              CLAUSE_PARAGRAPH, // Ethiopic paragraph
+	                                              CLAUSE_PARAGRAPH, // Georgian paragraph
 
-  CLAUSE_COMMA+0x8000,      // ideograph comma
-  CLAUSE_PERIOD+0x8000,     // ideograph period
+	                                              CLAUSE_COMMA+0x8000, // ideograph comma
+	                                              CLAUSE_PERIOD+0x8000, // ideograph period
 
-  CLAUSE_EXCLAMATION+0x8000, // fullwidth
-  CLAUSE_COMMA+0x8000,
-  CLAUSE_PERIOD+0x8000,
-  CLAUSE_COLON+0x8000,
-  CLAUSE_SEMICOLON+0x8000,
-  CLAUSE_QUESTION+0x8000,
+	                                              CLAUSE_EXCLAMATION+0x8000, // fullwidth
+	                                              CLAUSE_COMMA+0x8000,
+	                                              CLAUSE_PERIOD+0x8000,
+	                                              CLAUSE_COLON+0x8000,
+	                                              CLAUSE_SEMICOLON+0x8000,
+	                                              CLAUSE_QUESTION+0x8000,
 
-  CLAUSE_SEMICOLON,  // spare
-  0 };
+	                                              CLAUSE_SEMICOLON, // spare
+	                                              0 };
 
 
 // stack for language and voice properties
@@ -193,21 +193,21 @@ static int speech_parameters[N_SPEECH_PARAM];     // current values, from param_
 int saved_parameters[N_SPEECH_PARAM];             //Parameters saved on synthesis start
 
 const int param_defaults[N_SPEECH_PARAM] = {
-   0,     // silence (internal use)
-  175,    // rate wpm
-  100,    // volume
-   50,    // pitch
-   50,    // range
-   0,     // punctuation
-   0,     // capital letters
-   0,     // wordgap
-   0,     // options
-   0,     // intonation
-   0,
-   0,
-   0,     // emphasis
-   0,     // line length
-   0,     // voice type
+	0,    // silence (internal use)
+	175,  // rate wpm
+	100,  // volume
+	50,   // pitch
+	50,   // range
+	0,    // punctuation
+	0,    // capital letters
+	0,    // wordgap
+	0,    // options
+	0,    // intonation
+	0,
+	0,
+	0,    // emphasis
+	0,    // line length
+	0,    // voice type
 };
 
 
@@ -217,35 +217,36 @@ const int param_defaults[N_SPEECH_PARAM] = {
 // 0=not alphabetic, 0xff=lower case, 0xfe=no case, 0xfd=use wchar_tolower
 //   other=value to add to upper case to convert to lower case
 static unsigned char walpha_tab[MAX_WALPHA-0x7f] = {
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 080
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 090
-    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0a0
-    0,    0,    0,    0,    0, 0xff,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0b0
-   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32, // 0c0
-   32,   32,   32,   32,   32,   32,   32,    0,   32,   32,   32,   32,   32,   32,   32, 0xff, // 0d0
- 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0e0
- 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,    0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0f0
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 100
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 110
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 120
- 0xfd, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, // 130
- 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff, // 140
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 150
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 160
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff, 0xff, // 170
- 0xff,  210,    1, 0xff,    1, 0xff,  206,    1, 0xff,  205,  205,    1, 0xff, 0xfe,   79,  202, // 180
-  203,    1, 0xff,  205,  207, 0xff,  211,  209,    1, 0xff, 0xff, 0xfe,  211,  213, 0xff,  214, // 190
-    1, 0xff,    1, 0xff,    1, 0xff,  218,    1, 0xff,  218, 0xfe, 0xfe,    1, 0xff,  218,    1, // 1a0
- 0xff,  217,  217,    1, 0xff,    1, 0xff,  219,    1, 0xff, 0xfe, 0xfe,    1, 0xff, 0xfe, 0xff, // 1b0
- 0xfe, 0xfe, 0xfe, 0xfe,    2, 0xff, 0xff,    2, 0xff, 0xff,    2, 0xff, 0xff,    1, 0xff,    1, // 1c0
- 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xff,    1, 0xff, // 1d0
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1e0
- 0xfe,    2, 0xff, 0xff,    1, 0xff, 0xfd, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1f0
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 200
-    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 210
- 0xfd, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 220
-    1, 0xff,    1, 0xff, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfd,    1, 0xff, 0xfd, 0xfd, 0xfe, // 230
- 0xfe,    1, 0xff, 0xfd,   69,   71,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff}; // 240
+	0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 080
+	0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 090
+	0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0a0
+	0,    0,    0,    0,    0, 0xff,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0b0
+	32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,// 0c0
+	32,   32,   32,   32,   32,   32,   32,    0,   32,   32,   32,   32,   32,   32,   32, 0xff,// 0d0
+	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0e0
+	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,    0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,// 0f0
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 100
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 110
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 120
+	0xfd, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1,// 130
+	0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,// 140
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 150
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 160
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff, 0xff, // 170
+	0xff,  210,    1, 0xff,    1, 0xff,  206,    1, 0xff,  205,  205,    1, 0xff, 0xfe,   79,  202,// 180
+	203,    1, 0xff,  205,  207, 0xff,  211,  209,    1, 0xff, 0xff, 0xfe,  211,  213, 0xff,  214,// 190
+	1, 0xff,    1, 0xff,    1, 0xff,  218,    1, 0xff,  218, 0xfe, 0xfe,    1, 0xff,  218,    1, // 1a0
+	0xff,  217,  217,    1, 0xff,    1, 0xff,  219,    1, 0xff, 0xfe, 0xfe,    1, 0xff, 0xfe, 0xff,// 1b0
+	0xfe, 0xfe, 0xfe, 0xfe,    2, 0xff, 0xff,    2, 0xff, 0xff,    2, 0xff, 0xff,    1, 0xff,    1,// 1c0
+	0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xff,    1, 0xff,// 1d0
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1e0
+	0xfe,    2, 0xff, 0xff,    1, 0xff, 0xfd, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,// 1f0
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 200
+	1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 210
+	0xfd, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,// 220
+	1, 0xff,    1, 0xff, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfd,    1, 0xff, 0xfd, 0xfd, 0xfe, // 230
+	0xfe,    1, 0xff, 0xfd,   69,   71,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff
+};                                                                                                // 240
 
 static const short wchar_tolower[] = {
 	0x130, 0x069,
@@ -257,7 +258,8 @@ static const short wchar_tolower[] = {
 	0x23d, 0x19a,
 	0x23e, 0x2c66,
 	0x243, 0x180,
-	0,0 };
+	0,0
+};
 
 static const short wchar_toupper[] = {
 	0x0b5, 0x39c,
@@ -275,7 +277,8 @@ static const short wchar_toupper[] = {
 	0x1cc, 0x1ca,
 	0x1dd, 0x18e,
 	0x1f3, 0x1f1,
-	0,0 };
+	0,0
+};
 
 
 #ifdef NEED_WCHAR_FUNCTIONS
@@ -382,13 +385,13 @@ int iswpunct(int c)
 
 const wchar_t *wcschr(const wchar_t *str, int c)
 {
-   while(*str != 0)
-   {
-      if(*str == c)
-         return(str);
-      str++;
-   }
-   return(NULL);
+	while(*str != 0)
+	{
+		if(*str == c)
+			return(str);
+		str++;
+	}
+	return(NULL);
 }
 
 #ifndef WINCE
@@ -407,17 +410,17 @@ const int wcslen(const wchar_t *str)
 
 float wcstod(const wchar_t *str, wchar_t **tailptr)
 {
-   int ix;
-   char buf[80];
-   while(isspace(*str)) str++;
-   for(ix=0; ix<80; ix++)
-   {
-      buf[ix] = str[ix];
-      if(isspace(buf[ix]))
-         break;
-   }
-   *tailptr = (wchar_t *)&str[ix];
-   return(atof(buf));
+	int ix;
+	char buf[80];
+	while(isspace(*str)) str++;
+	for(ix=0; ix<80; ix++)
+	{
+		buf[ix] = str[ix];
+		if(isspace(buf[ix]))
+			break;
+	}
+	*tailptr = (wchar_t *)&str[ix];
+	return(atof(buf));
 }
 #endif
 
@@ -700,7 +703,7 @@ static void UngetC(int c)
 const char *WordToString2(unsigned int word)
 {
 // Convert a language mnemonic word into a string
-	int  ix;
+	int ix;
 	static char buf[5];
 	char *p;
 
@@ -844,7 +847,7 @@ static int LoadSoundFile(const char *fname, int index)
 	FILE *f;
 	char *p;
 	int *ip;
-	int  length;
+	int length;
 	char fname_temp[100];
 	char fname2[sizeof(path_home)+13+40];
 
@@ -1059,7 +1062,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			else
 			{
 				sprintf(buf," %s %d %s",
-						punctname,punct_count,punctname);
+				        punctname,punct_count,punctname);
 			}
 		}
 		else
@@ -1163,7 +1166,8 @@ static MNEM_TAB ssmltags[] = {
 	{"strong", HTML_NOSPACE},
 	{"em", HTML_NOSPACE},
 	{"code", HTML_NOSPACE},
-	{NULL,0}};
+	{NULL,0}
+};
 
 
 
@@ -1311,7 +1315,7 @@ static void ProcessParamStack(char *outbuf, int *outix)
 
 static PARAM_STACK *PushParamStack(int tag_type)
 {
-	int  ix;
+	int ix;
 	PARAM_STACK *sp;
 
 	sp = &param_stack[n_param_stack];
@@ -1389,7 +1393,7 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
-	int  ix;
+	int ix;
 
 	if(string1 == NULL)
 		return(1);
@@ -1602,7 +1606,8 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 		{"male", 1},
 		{"female", 2},
 		{"neutral", 3},
-		{NULL, 0}};
+		{NULL, 0}
+	};
 
 	if(tag_type & SSML_CLOSE)
 	{
@@ -1673,7 +1678,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"medium",100},
 		{"loud",150},
 		{"x-loud",230},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_rate[] = {
 		{"default",100},
@@ -1682,7 +1688,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"medium",100},
 		{"fast",125},
 		{"x-fast",160},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_pitch[] = {
 		{"default",100},
@@ -1691,7 +1698,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"medium",100},
 		{"high",110},
 		{"x-high",120},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_range[] = {
 		{"default",100},
@@ -1700,10 +1708,12 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"medium",100},
 		{"high",140},
 		{"x-high",180},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB *mnem_tabs[5] = {
-		NULL, mnem_rate, mnem_volume, mnem_pitch, mnem_range };
+		NULL, mnem_rate, mnem_volume, mnem_pitch, mnem_range
+	};
 
 
 	if((value = attrlookup(attr1,mnem_tabs[param_type])) >= 0)
@@ -1736,11 +1746,12 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 {
 // Replace some key-names by single characters, so they can be pronounced in different languages
 	static MNEM_TAB keynames[] = {
-	{"space ",0xe020},
-	{"tab ", 0xe009},
-	{"underscore ", 0xe05f},
-	{"double-quote ", '"'},
-	{NULL, 0}};
+		{"space ",0xe020},
+		{"tab ", 0xe009},
+		{"underscore ", 0xe05f},
+		{"double-quote ", '"'},
+		{NULL, 0}
+	};
 
 	int ix;
 	int letter;
@@ -1785,20 +1796,23 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 	static const MNEM_TAB mnem_phoneme_alphabet[] = {
 		{"espeak",1},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_punct[] = {
 		{"none", 1},
 		{"all", 2},
 		{"some", 3},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_capitals[] = {
 		{"no", 0},
 		{"spelling", 2},
 		{"icon", 1},
 		{"pitch", 20},  // this is the amount by which to raise the pitch
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_interpret_as[] = {
 		{"characters",SAYAS_CHARS},
@@ -1806,11 +1820,13 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		{"tts:key",SAYAS_KEY},
 		{"tts:digits",SAYAS_DIGITS},
 		{"telephone",SAYAS_DIGITS1},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_sayas_format[] = {
 		{"glyphs",1},
-		{NULL, -1}};
+		{NULL, -1}
+	};
 
 	static const MNEM_TAB mnem_break[] = {
 		{"none",0},
@@ -1819,7 +1835,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		{"medium",3},
 		{"strong",4},
 		{"x-strong",5},
-		{NULL,-1}};
+		{NULL,-1}
+	};
 
 	static const MNEM_TAB mnem_emphasis[] = {
 		{"none",1},
@@ -1827,10 +1844,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		{"moderate",3},
 		{"strong",4},
 		{"x-strong",5},
-		{NULL,-1}};
+		{NULL,-1}
+	};
 
 	static const char *prosody_attr[5] = {
-	 NULL, "rate", "volume", "pitch", "range" };
+		NULL, "rate", "volume", "pitch", "range"
+	};
 
 	for(ix=0; ix<(sizeof(tag_name)-1); ix++)
 	{
@@ -2162,7 +2181,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			n_ssml_stack--;
 		}
 
-terminator=0;  // ??  Sentence intonation, but no pause ??
+		terminator=0; // ??  Sentence intonation, but no pause ??
 		return(terminator + GetVoiceAttributes(px, tag_type));
 
 	case HTML_BREAK:
@@ -2232,22 +2251,23 @@ static MNEM_TAB xml_char_mnemonics[] = {
 	{"quot", '"'},
 	{"nbsp", ' '},
 	{"apos", '\''},
-	{NULL,-1}};
+	{NULL,-1}
+};
 
 
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 /* Find the end of the current clause.
-	Write the clause into  buf
+    Write the clause into  buf
 
-	returns: clause type (bits 0-7: pause x10mS, bits 8-11 intonation type)
+    returns: clause type (bits 0-7: pause x10mS, bits 8-11 intonation type)
 
-	Also checks for blank line (paragraph) as end-of-clause indicator.
+    Also checks for blank line (paragraph) as end-of-clause indicator.
 
-	Does not end clause for:
-		punctuation immediately followed by alphanumeric  eg.  1.23  !Speak  :path
-		repeated punctuation, eg.   ...   !!!
-*/
+    Does not end clause for:
+        punctuation immediately followed by alphanumeric  eg.  1.23  !Speak  :path
+        repeated punctuation, eg.   ...   !!!
+ */
 	int c1=' ';  // current character
 	int c2;  // next character
 	int cprev=' ';  // previous character
@@ -2291,7 +2311,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	*tone_type = 0;
 	*voice_change = 0;
 
-f_input = f_in;  // for GetC etc
+	f_input = f_in; // for GetC etc
 
 	if(ungot_word != NULL)
 	{
@@ -2666,7 +2686,7 @@ f_input = f_in;  // for GetC etc
 				buf[ix+1] = 0;
 				if(parag > 3)
 					parag = 3;
-if(option_ssml) parag=1;
+				if(option_ssml) parag=1;
 				return((CLAUSE_PARAGRAPH-30) + 30*parag);  // several blank lines, longer pause
 			}
 
@@ -2804,7 +2824,7 @@ if(option_ssml) parag=1;
 					if(c1 == '.')
 					{
 						if((tr->langopts.numbers & NUM_ORDINAL_DOT) &&
-							(iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))  // lang=hu
+						   (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))   // lang=hu
 						{
 							// dot after a number indicates an ordinal number
 							if(!iswdigit(cprev))

@@ -95,37 +95,37 @@ typedef struct
 	float length_adjust;
 	double rms;
 
-   float time;
-   float pitch;
-   float length;
-   float dx;
-   unsigned short nx;
-   short markers;
-	int  max_y;
-   USHORT *spect;    // sqrt of harmonic amplitudes,  1-nx at 'pitch'
+	float time;
+	float pitch;
+	float length;
+	float dx;
+	unsigned short nx;
+	short markers;
+	int max_y;
+	USHORT *spect;   // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
-	short  klatt_param[N_KLATTP2];
+	short klatt_param[N_KLATTP2];
 
-   formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
-   peak_t peaks[N_PEAKS];
+	formant_t formants[N_PEAKS];  // this is just the estimate given by Praat
+	peak_t peaks[N_PEAKS];
 } SpectFrame;
 
 double GetFrameRms(SpectFrame *frame, int amp);
 
 typedef struct
 {
-	int  numframes;
+	int numframes;
 	short amplitude;
-	int  spare;
+	int spare;
 	char *name;
 
 	SpectFrame **frames;
 	PitchEnvelope pitchenv;
-	int  pitch1;
-	int  pitch2;
-	int  duration;
-	int  grid;
-	int  bass_reduction;
+	int pitch1;
+	int pitch2;
+	int duration;
+	int grid;
+	int bass_reduction;
 	int max_x;
 	short max_y;
 	int file_format;

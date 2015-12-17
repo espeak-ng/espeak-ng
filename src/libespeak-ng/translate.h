@@ -158,25 +158,25 @@ extern "C"
 
 
 // codes in dictionary rules
-#define RULE_PRE			1
-#define RULE_POST			2
-#define RULE_PHONEMES	3
-#define RULE_PH_COMMON	4	// At start of rule. Its phoneme string is used by subsequent rules
-#define RULE_CONDITION	5	// followed by condition number (byte)
+#define RULE_PRE            1
+#define RULE_POST           2
+#define RULE_PHONEMES   3
+#define RULE_PH_COMMON  4   // At start of rule. Its phoneme string is used by subsequent rules
+#define RULE_CONDITION  5   // followed by condition number (byte)
 #define RULE_GROUP_START 6
-#define RULE_GROUP_END	7
+#define RULE_GROUP_END  7
 #define RULE_PRE_ATSTART 8   // as RULE_PRE but also match with 'start of word'
-#define RULE_LINENUM		9  // next 2 bytes give a line number, for debugging purposes
+#define RULE_LINENUM        9  // next 2 bytes give a line number, for debugging purposes
 
-#define RULE_SPACE		32   // ascii space
-#define RULE_SYLLABLE	21    // @
-#define RULE_STRESSED	10   // &
-#define RULE_DOUBLE		11   // %
-#define RULE_INC_SCORE	12   // +
-#define RULE_DEL_FWD		13   // #
-#define RULE_ENDING		14   // S
-#define RULE_DIGIT		15   // D digit
-#define RULE_NONALPHA	16   // Z non-alpha
+#define RULE_SPACE      32   // ascii space
+#define RULE_SYLLABLE   21    // @
+#define RULE_STRESSED   10   // &
+#define RULE_DOUBLE     11   // %
+#define RULE_INC_SCORE  12   // +
+#define RULE_DEL_FWD        13   // #
+#define RULE_ENDING     14   // S
+#define RULE_DIGIT      15   // D digit
+#define RULE_NONALPHA   16   // Z non-alpha
 #define RULE_LETTERGP   17   // A B C H F G Y   letter group number
 #define RULE_LETTERGP2  18   // L + letter group number
 #define RULE_CAPITAL    19   // !   word starts with a capital letter
@@ -195,13 +195,13 @@ extern "C"
 #define DOLLAR_LIST     0x03
 
 
-#define LETTERGP_A	0
-#define LETTERGP_B	1
-#define LETTERGP_C	2
-#define LETTERGP_H	3
-#define LETTERGP_F	4
-#define LETTERGP_G	5
-#define LETTERGP_Y	6
+#define LETTERGP_A  0
+#define LETTERGP_B  1
+#define LETTERGP_C  2
+#define LETTERGP_H  3
+#define LETTERGP_F  4
+#define LETTERGP_G  5
+#define LETTERGP_Y  6
 #define LETTERGP_VOWEL2   7
 
 
@@ -256,15 +256,15 @@ extern "C"
 typedef const char *  constcharptr;
 
 typedef struct {
-	int  points;
+	int points;
 	const char *phonemes;
-	int  end_type;
+	int end_type;
 	char *del_fwd;
 } MatchRecord;
 
 
 // used to mark words with the source[] buffer
-typedef struct{
+typedef struct {
 	unsigned int flags;
 	unsigned short start;
 	unsigned char pre_pause;
@@ -284,11 +284,11 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 typedef struct {
-    const char *name;
-    int offset;
-    unsigned short range_min, range_max;
-    int language;
-    int flags;
+	const char *name;
+	int offset;
+	unsigned short range_min, range_max;
+	int language;
+	int flags;
 } ALPHABET;
 
 extern ALPHABET alphabets[];
@@ -303,85 +303,85 @@ extern ALPHABET *current_alphabet;
 
 #define N_LOPTS      21
 #define LOPT_DIERESES        1
- // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
- // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
+// 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
+// bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
 #define LOPT_IT_LENGTHEN        2
 
- // 1=german
+// 1=german
 #define LOPT_PREFIXES        3
 
- // non-zero, change voiced/unoiced to match last consonant in a cluster
- // bit 0=use regressive voicing
- // bit 1=LANG=cz,bg  don't propagate over [v]
- // bit 2=don't propagate acress word boundaries
- // bit 3=LANG=pl,  propagate over liquids and nasals
- // bit 4=LANG=cz,sk  don't progagate to [v]
- // bit 8=devoice word-final consonants
+// non-zero, change voiced/unoiced to match last consonant in a cluster
+// bit 0=use regressive voicing
+// bit 1=LANG=cz,bg  don't propagate over [v]
+// bit 2=don't propagate acress word boundaries
+// bit 3=LANG=pl,  propagate over liquids and nasals
+// bit 4=LANG=cz,sk  don't progagate to [v]
+// bit 8=devoice word-final consonants
 #define LOPT_REGRESSIVE_VOICING  4
 
- // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
+// 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE  5
 
- // select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
+// select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
 #define LOPT_LENGTH_MODS    6
 
- // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
+// increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN    7
 
- // bit 0: don't break vowels at word boundary
+// bit 0: don't break vowels at word boundary
 #define LOPT_WORD_MERGE      8
 
- // max. amplitude for vowel at the end of a clause
+// max. amplitude for vowel at the end of a clause
 #define LOPT_MAXAMP_EOC      9
 
- // bit 0=reduce even if phonemes are specified in the **_list file
- // bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
+// bit 0=reduce even if phonemes are specified in the **_list file
+// bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
 #define LOPT_REDUCE  10
 
- // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
- // bits 0-3  N syllables
- // bit 4=only if the second word has $alt attribute
- // bit 5=not if the second word is end-of-sentence
+// LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
+// bits 0-3  N syllables
+// bit 4=only if the second word has $alt attribute
+// bit 5=not if the second word is end-of-sentence
 #define LOPT_COMBINE_WORDS 11
 
- // change [t] when followed by unstressed vowel
+// change [t] when followed by unstressed vowel
 #define LOPT_REDUCE_T 12
 
- // 1 = allow capitals inside a word
- // 2 = stressed syllable is indicated by capitals
+// 1 = allow capitals inside a word
+// 2 = stressed syllable is indicated by capitals
 #define LOPT_CAPS_IN_WORD  13
 
- // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
- // bit 1=also after a word which ends with a stressed vowel
+// bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
+// bit 1=also after a word which ends with a stressed vowel
 #define LOPT_IT_DOUBLING    14
 
-  // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
-  // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
+// Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
+// bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
 #define LOPT_ALT  15
 
-  // pause for bracket (default=4), pause when annoucing bracket names (default=2)
+// pause for bracket (default=4), pause when annoucing bracket names (default=2)
 #define LOPT_BRACKET_PAUSE 16
 
-	// bit 1, don't break clause before annoucning . ? !
+// bit 1, don't break clause before annoucning . ? !
 #define LOPT_ANNOUNCE_PUNCT 17
 
-	// recognize long vowels (0 = don't recognize)
+// recognize long vowels (0 = don't recognize)
 #define LOPT_LONG_VOWEL_THRESHOLD 18
 
-	// bit 0:  Don't allow suffices if there is no previous syllable
+// bit 0:  Don't allow suffices if there is no previous syllable
 #define LOPT_SUFFIX  19
 
-	// bit 0  Apostrophe at start of word is part of the word
-	// bit 1  Apostrophe at end of word is part of the word
+// bit 0  Apostrophe at start of word is part of the word
+// bit 1  Apostrophe at end of word is part of the word
 #define LOPT_APOSTROPHE  20
 
 
 // stress_rule
-#define STRESSPOSN_1L	0	// 1st syllable
-#define STRESSPOSN_2L	1	// 2nd syllable
-#define STRESSPOSN_2R	2	// penultimate
-#define STRESSPOSN_1R	3	// final syllable
-#define STRESSPOSN_3R	4	// antipenultimate
+#define STRESSPOSN_1L   0   // 1st syllable
+#define STRESSPOSN_2L   1   // 2nd syllable
+#define STRESSPOSN_2R   2   // penultimate
+#define STRESSPOSN_1R   3   // final syllable
+#define STRESSPOSN_3R   4   // antipenultimate
 
 
 typedef struct {
@@ -494,7 +494,7 @@ typedef struct {
 	// bit5='and' between tens and units
 	// bit6=add "and" after hundred or thousand
 	// bit7=don't have "and" both after hundreds and also between tens and units
-   // bit8=only one primary stress in tens+units
+	// bit8=only one primary stress in tens+units
 	// bit9=only one vowel betwen tens and units
 	// bit10=omit "one" before "hundred"
 	// bit11=say 19** as nineteen hundred
@@ -514,7 +514,7 @@ typedef struct {
 	// bit25= Roman numbers only if upper case
 	// bit26= say "roman" after the number, not before
 	// bit27= Roman numbers are ordinal numbers
-   // bit28= only one primary stress in tens+units (on the tens)
+	// bit28= only one primary stress in tens+units (on the tens)
 	int numbers;
 
 #define NUM2_THOUSANDS_VAR1     0x40
@@ -613,8 +613,8 @@ typedef struct
 	char dictionary_name[40];
 
 	char phonemes_repeat[20];
-	int  phonemes_repeat_count;
-	int  phoneme_tab_ix;
+	int phonemes_repeat_count;
+	int phoneme_tab_ix;
 
 	unsigned char stress_amps[8];
 	unsigned char stress_amps_r[8];
@@ -798,7 +798,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 
-extern FILE *f_trans;		// for logging
+extern FILE *f_trans;       // for logging
 extern FILE *f_logespeak;
 extern int logging_type;  // from config file
 

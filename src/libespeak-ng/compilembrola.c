@@ -40,7 +40,7 @@ static const char *basename(const char *filename)
 static unsigned int StringToWord(const char *string)
 {
 	// Pack 4 characters into a word
-	int  ix;
+	int ix;
 	unsigned char c;
 	unsigned int word;
 

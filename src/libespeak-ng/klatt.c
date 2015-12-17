@@ -64,7 +64,7 @@ static void frame_init (klatt_frame_ptr);
 static void setabc (long,long,resonator_ptr);
 static void setzeroabc (long,long,resonator_ptr);
 
-static klatt_frame_t  kt_frame;
+static klatt_frame_t kt_frame;
 static klatt_global_t kt_globals;
 
 #define NUMBER_OF_SAMPLES 100
@@ -72,57 +72,57 @@ static klatt_global_t kt_globals;
 static int scale_wav_tab[] = {45,38,45,45,55};   // scale output from different voicing sources
 
 // For testing, this can be overwritten in KlattInit()
-	static short natural_samples2[256]= {
-  2583,  2516,  2450,  2384,  2319,  2254,  2191,  2127,
-  2067,  2005,  1946,  1890,  1832,  1779,  1726,  1675,
-  1626,  1579,  1533,  1491,  1449,  1409,  1372,  1336,
-  1302,  1271,  1239,  1211,  1184,  1158,  1134,  1111,
-  1089,  1069,  1049,  1031,  1013,   996,   980,   965,
-   950,   936,   921,   909,   895,   881,   869,   855,
-   843,   830,   818,   804,   792,   779,   766,   754,
-   740,   728,   715,   702,   689,   676,   663,   651,
-   637,   626,   612,   601,   588,   576,   564,   552,
-   540,   530,   517,   507,   496,   485,   475,   464,
-   454,   443,   434,   424,   414,   404,   394,   385,
-   375,   366,   355,   347,   336,   328,   317,   308,
-   299,   288,   280,   269,   260,   250,   240,   231,
-   220,   212,   200,   192,   181,   172,   161,   152,
-   142,   133,   123,   113,   105,    94,    86,    76,
-    67,    57,    49,    39,    30,    22,    11,     4,
-    -5,   -14,   -23,   -32,   -41,   -50,   -60,   -69,
-   -78,   -87,   -96,  -107,  -115,  -126,  -134,  -144,
-  -154,  -164,  -174,  -183,  -193,  -203,  -213,  -222,
-  -233,  -242,  -252,  -262,  -271,  -281,  -291,  -301,
-  -310,  -320,  -330,  -339,  -349,  -357,  -368,  -377,
-  -387,  -397,  -406,  -417,  -426,  -436,  -446,  -456,
-  -467,  -477,  -487,  -499,  -509,  -521,  -532,  -543,
-  -555,  -567,  -579,  -591,  -603,  -616,  -628,  -641,
-  -653,  -666,  -679,  -692,  -705,  -717,  -732,  -743,
-  -758,  -769,  -783,  -795,  -808,  -820,  -834,  -845,
-  -860,  -872,  -885,  -898,  -911,  -926,  -939,  -955,
-  -968,  -986,  -999, -1018, -1034, -1054, -1072, -1094,
- -1115, -1138, -1162, -1188, -1215, -1244, -1274, -1307,
- -1340, -1377, -1415, -1453, -1496, -1538, -1584, -1631,
- -1680, -1732, -1783, -1839, -1894, -1952, -2010, -2072,
- -2133, -2196, -2260, -2325, -2390, -2456, -2522, -2589,
+static short natural_samples2[256]= {
+	2583,  2516,  2450,  2384,  2319,  2254,  2191,  2127,
+	2067,  2005,  1946,  1890,  1832,  1779,  1726,  1675,
+	1626,  1579,  1533,  1491,  1449,  1409,  1372,  1336,
+	1302,  1271,  1239,  1211,  1184,  1158,  1134,  1111,
+	1089,  1069,  1049,  1031,  1013,   996,   980,   965,
+	950,   936,   921,   909,   895,   881,   869,   855,
+	843,   830,   818,   804,   792,   779,   766,   754,
+	740,   728,   715,   702,   689,   676,   663,   651,
+	637,   626,   612,   601,   588,   576,   564,   552,
+	540,   530,   517,   507,   496,   485,   475,   464,
+	454,   443,   434,   424,   414,   404,   394,   385,
+	375,   366,   355,   347,   336,   328,   317,   308,
+	299,   288,   280,   269,   260,   250,   240,   231,
+	220,   212,   200,   192,   181,   172,   161,   152,
+	142,   133,   123,   113,   105,    94,    86,    76,
+	67,    57,    49,    39,    30,    22,    11,     4,
+	-5,   -14,   -23,   -32,   -41,   -50,   -60,   -69,
+	-78,   -87,   -96,  -107,  -115,  -126,  -134,  -144,
+	-154,  -164,  -174,  -183,  -193,  -203,  -213,  -222,
+	-233,  -242,  -252,  -262,  -271,  -281,  -291,  -301,
+	-310,  -320,  -330,  -339,  -349,  -357,  -368,  -377,
+	-387,  -397,  -406,  -417,  -426,  -436,  -446,  -456,
+	-467,  -477,  -487,  -499,  -509,  -521,  -532,  -543,
+	-555,  -567,  -579,  -591,  -603,  -616,  -628,  -641,
+	-653,  -666,  -679,  -692,  -705,  -717,  -732,  -743,
+	-758,  -769,  -783,  -795,  -808,  -820,  -834,  -845,
+	-860,  -872,  -885,  -898,  -911,  -926,  -939,  -955,
+	-968,  -986,  -999, -1018, -1034, -1054, -1072, -1094,
+	-1115, -1138, -1162, -1188, -1215, -1244, -1274, -1307,
+	-1340, -1377, -1415, -1453, -1496, -1538, -1584, -1631,
+	-1680, -1732, -1783, -1839, -1894, -1952, -2010, -2072,
+	-2133, -2196, -2260, -2325, -2390, -2456, -2522, -2589,
 };
-	static short natural_samples[100]=
-	{
-		-310,-400,530,356,224,89,23,-10,-58,-16,461,599,536,701,770,
-		605,497,461,560,404,110,224,131,104,-97,155,278,-154,-1165,
-		-598,737,125,-592,41,11,-247,-10,65,92,80,-304,71,167,-1,122,
-		233,161,-43,278,479,485,407,266,650,134,80,236,68,260,269,179,
-		53,140,275,293,296,104,257,152,311,182,263,245,125,314,140,44,
-		203,230,-235,-286,23,107,92,-91,38,464,443,176,98,-784,-2449,
-		-1891,-1045,-1600,-1462,-1384,-1261,-949,-730
-	};
+static short natural_samples[100]=
+{
+	-310,-400,530,356,224,89,23,-10,-58,-16,461,599,536,701,770,
+	605,497,461,560,404,110,224,131,104,-97,155,278,-154,-1165,
+	-598,737,125,-592,41,11,-247,-10,65,92,80,-304,71,167,-1,122,
+	233,161,-43,278,479,485,407,266,650,134,80,236,68,260,269,179,
+	53,140,275,293,296,104,257,152,311,182,263,245,125,314,140,44,
+	203,230,-235,-286,23,107,92,-91,38,464,443,176,98,-784,-2449,
+	-1891,-1045,-1600,-1462,-1384,-1261,-949,-730
+};
 
 /*
-function RESONATOR
+   function RESONATOR
 
-This is a generic resonator function. Internal memory for the resonator
-is stored in the globals structure.
-*/
+   This is a generic resonator function. Internal memory for the resonator
+   is stored in the globals structure.
+ */
 
 static double resonator(resonator_ptr r, double input)
 {
@@ -166,16 +166,16 @@ static double antiresonator2(resonator_ptr r, double input)
 
 
 /*
-function FLUTTER
+   function FLUTTER
 
-This function adds F0 flutter, as specified in:
+   This function adds F0 flutter, as specified in:
 
-"Analysis, synthesis and perception of voice quality variations among
-female and male talkers" D.H. Klatt and L.C. Klatt JASA 87(2) February 1990.
+   "Analysis, synthesis and perception of voice quality variations among
+   female and male talkers" D.H. Klatt and L.C. Klatt JASA 87(2) February 1990.
 
-Flutter is added by applying a quasi-random element constructed from three
-slowly varying sine waves.
-*/
+   Flutter is added by applying a quasi-random element constructed from three
+   slowly varying sine waves.
+ */
 
 static void flutter(klatt_frame_ptr frame)
 {
@@ -196,11 +196,11 @@ static void flutter(klatt_frame_ptr frame)
 
 
 /*
-function SAMPLED_SOURCE
+   function SAMPLED_SOURCE
 
-Allows the use of a glottal excitation waveform sampled from a real
-voice.
-*/
+   Allows the use of a glottal excitation waveform sampled from a real
+   voice.
+ */
 
 static double sampled_source(int source_num)
 {
@@ -253,10 +253,10 @@ static double sampled_source(int source_num)
 
 
 /*
-function PARWAVE
+   function PARWAVE
 
-Converts synthesis parameters to a waveform.
-*/
+   Converts synthesis parameters to a waveform.
+ */
 
 
 static int parwave(klatt_frame_ptr frame)
@@ -281,14 +281,14 @@ static int parwave(klatt_frame_ptr frame)
 	flutter(frame);  /* add f0 flutter */
 
 #ifdef LOG_FRAMES
-if(option_log_frames)
-{
-	FILE *f;
-	f=fopen("log-klatt","a");
-	fprintf(f,"%4dhz %2dAV %4d %3d, %4d %3d, %4d %3d, %4d %3d, %4d, %3d, FNZ=%3d TLT=%2d\n",frame->F0hz10,frame->AVdb,
-	frame->Fhz[1],frame->Bhz[1],frame->Fhz[2],frame->Bhz[2],frame->Fhz[3],frame->Bhz[3],frame->Fhz[4],frame->Bhz[4],frame->Fhz[5],frame->Bhz[5],frame->Fhz[0],frame->TLTdb);
-	fclose(f);
-}
+	if(option_log_frames)
+	{
+		FILE *f;
+		f=fopen("log-klatt","a");
+		fprintf(f,"%4dhz %2dAV %4d %3d, %4d %3d, %4d %3d, %4d %3d, %4d, %3d, FNZ=%3d TLT=%2d\n",frame->F0hz10,frame->AVdb,
+		        frame->Fhz[1],frame->Bhz[1],frame->Fhz[2],frame->Bhz[2],frame->Fhz[3],frame->Bhz[3],frame->Fhz[4],frame->Bhz[4],frame->Fhz[5],frame->Bhz[5],frame->Fhz[0],frame->TLTdb);
+		fclose(f);
+	}
 #endif
 
 	/* MAIN LOOP, for each output sample of current frame: */
@@ -299,9 +299,9 @@ if(option_log_frames)
 		noise = gen_noise(noise);
 
 		/*
-		Amplitude modulate noise (reduce noise amplitude during
-		second half of glottal period) if voicing simultaneously present.
-		*/
+		   Amplitude modulate noise (reduce noise amplitude during
+		   second half of glottal period) if voicing simultaneously present.
+		 */
 
 		if (kt_globals.nper > kt_globals.nmod)
 		{
@@ -312,10 +312,10 @@ if(option_log_frames)
 		frics = kt_globals.amp_frica * noise;
 
 		/*
-			Compute voicing waveform. Run glottal source simulation at 4
-			times normal sample rate to minimize quantization noise in
-			period of female voice.
-		*/
+		    Compute voicing waveform. Run glottal source simulation at 4
+		    times normal sample rate to minimize quantization noise in
+		    period of female voice.
+		 */
 
 		for (n4=0; n4<4; n4++)
 		{
@@ -343,9 +343,9 @@ if(option_log_frames)
 			}
 
 			/*
-			Low-pass filter voicing waveform before downsampling from 4*samrate
-			to samrate samples/sec.  Resonator f=.09*samrate, bw=.06*samrate
-			*/
+			   Low-pass filter voicing waveform before downsampling from 4*samrate
+			   to samrate samples/sec.  Resonator f=.09*samrate, bw=.06*samrate
+			 */
 
 			voice = resonator(&(kt_globals.rsn[RLP]),voice);
 
@@ -354,18 +354,18 @@ if(option_log_frames)
 		}
 
 		/*
-			Tilt spectrum of voicing source down by soft low-pass filtering, amount
-			of tilt determined by TLTdb
-		*/
+		    Tilt spectrum of voicing source down by soft low-pass filtering, amount
+		    of tilt determined by TLTdb
+		 */
 
 		voice = (voice * kt_globals.onemd) + (vlast * kt_globals.decay);
 		vlast = voice;
 
 		/*
-			Add breathiness during glottal open phase. Amount of breathiness
-			determined by parameter Aturb Use nrand rather than noise because
-			noise is low-passed.
-		*/
+		    Add breathiness during glottal open phase. Amount of breathiness
+		    determined by parameter Aturb Use nrand rather than noise because
+		    noise is low-passed.
+		 */
 
 
 		if (kt_globals.nper < kt_globals.nopen)
@@ -384,9 +384,9 @@ if(option_log_frames)
 		par_glotout += aspiration;
 
 		/*
-			Cascade vocal tract, excited by laryngeal sources.
-			Nasal antiresonator, then formants FNP, F5, F4, F3, F2, F1
-		*/
+		    Cascade vocal tract, excited by laryngeal sources.
+		    Nasal antiresonator, then formants FNP, F5, F4, F3, F2, F1
+		 */
 
 		out=0;
 		if(kt_globals.synthesis_model != ALL_PARALLEL)
@@ -407,11 +407,11 @@ if(option_log_frames)
 		sourc = par_glotout;        /* Source is voicing plus aspiration */
 
 		/*
-			Standard parallel vocal tract Formants F6,F5,F4,F3,F2,
-			outputs added with alternating sign. Sound source for other
-			parallel resonators is frication plus first difference of
-			voicing waveform.
-		*/
+		    Standard parallel vocal tract Formants F6,F5,F4,F3,F2,
+		    outputs added with alternating sign. Sound source for other
+		    parallel resonators is frication plus first difference of
+		    voicing waveform.
+		 */
 
 		out += resonator(&(kt_globals.rsn[R1p]),sourc);
 		out += resonator(&(kt_globals.rsn[Rnpp]),sourc);
@@ -429,7 +429,7 @@ if(option_log_frames)
 		out = outbypas - out;
 
 		out = resonator(&(kt_globals.rsn[Rout]),out);
-		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0) ;   /* Convert back to integer */
+		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0);    /* Convert back to integer */
 
 
 		// mix with a recorded WAV if required for this phoneme
@@ -539,10 +539,10 @@ void KlattReset(int control)
 
 
 /*
-function FRAME_INIT
+   function FRAME_INIT
 
-Use parameters from the input frame to set up resonator coefficients.
-*/
+   Use parameters from the input frame to set up resonator coefficients.
+ */
 
 static void frame_init(klatt_frame_ptr frame)
 {
@@ -618,13 +618,13 @@ static void frame_init(klatt_frame_ptr frame)
 
 
 /*
-function IMPULSIVE_SOURCE
+   function IMPULSIVE_SOURCE
 
-Generate a low pass filtered train of impulses as an approximation of
-a natural excitation waveform. Low-pass filter the differentiated impulse
-with a critically-damped second-order filter, time constant proportional
-to Kopen.
-*/
+   Generate a low pass filtered train of impulses as an approximation of
+   a natural excitation waveform. Low-pass filter the differentiated impulse
+   with a critically-damped second-order filter, time constant proportional
+   to Kopen.
+ */
 
 
 static double impulsive_source()
@@ -647,11 +647,11 @@ static double impulsive_source()
 
 
 /*
-function NATURAL_SOURCE
+   function NATURAL_SOURCE
 
-Vwave is the differentiated glottal flow waveform, there is a weak
-spectral zero around 800 Hz, magic constants a,b reset pitch synchronously.
-*/
+   Vwave is the differentiated glottal flow waveform, there is a weak
+   spectral zero around 800 Hz, magic constants a,b reset pitch synchronously.
+ */
 
 static double natural_source()
 {
@@ -678,36 +678,36 @@ static double natural_source()
 
 
 /*
-function PITCH_SYNC_PAR_RESET
+   function PITCH_SYNC_PAR_RESET
 
-Reset selected parameters pitch-synchronously.
+   Reset selected parameters pitch-synchronously.
 
 
-Constant B0 controls shape of glottal pulse as a function
-of desired duration of open phase N0
-(Note that N0 is specified in terms of 40,000 samples/sec of speech)
+   Constant B0 controls shape of glottal pulse as a function
+   of desired duration of open phase N0
+   (Note that N0 is specified in terms of 40,000 samples/sec of speech)
 
-Assume voicing waveform V(t) has form: k1 t**2 - k2 t**3
+   Assume voicing waveform V(t) has form: k1 t**2 - k2 t**3
 
-  If the radiation characterivative, a temporal derivative
-  is folded in, and we go from continuous time to discrete
-  integers n:  dV/dt = vwave[n]
+   If the radiation characterivative, a temporal derivative
+   is folded in, and we go from continuous time to discrete
+   integers n:  dV/dt = vwave[n]
                         = sum over i=1,2,...,n of { a - (i * b) }
                         = a n  -  b/2 n**2
 
-  where the  constants a and b control the detailed shape
-  and amplitude of the voicing waveform over the open
-  potion of the voicing cycle "nopen".
+   where the  constants a and b control the detailed shape
+   and amplitude of the voicing waveform over the open
+   potion of the voicing cycle "nopen".
 
-  Let integral of dV/dt have no net dc flow --> a = (b * nopen) / 3
+   Let integral of dV/dt have no net dc flow --> a = (b * nopen) / 3
 
-  Let maximum of dUg(n)/dn be constant --> b = gain / (nopen * nopen)
-  meaning as nopen gets bigger, V has bigger peak proportional to n
+   Let maximum of dUg(n)/dn be constant --> b = gain / (nopen * nopen)
+   meaning as nopen gets bigger, V has bigger peak proportional to n
 
-  Thus, to generate the table below for 40 <= nopen <= 263:
+   Thus, to generate the table below for 40 <= nopen <= 263:
 
-  B0[nopen - 40] = 1920000 / (nopen * nopen)
-*/
+   B0[nopen - 40] = 1920000 / (nopen * nopen)
+ */
 
 static void pitch_synch_par_reset(klatt_frame_ptr frame)
 {
@@ -791,9 +791,9 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		kt_globals.rsn[RGL].a *= temp1 * temp1;
 
 		/*
-		Truncate skewness so as not to exceed duration of closed phase
-		of glottal period.
-		*/
+		   Truncate skewness so as not to exceed duration of closed phase
+		   of glottal period.
+		 */
 
 
 		temp = kt_globals.T0 - kt_globals.nopen;
@@ -807,12 +807,12 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		}
 		else
 		{
-			skew = - frame->Kskew;
+			skew = -frame->Kskew;
 		}
 
 		/* Add skewness to closed portion of voicing period */
 		kt_globals.T0 = kt_globals.T0 + skew;
-		skew = - skew;
+		skew = -skew;
 	}
 	else
 	{
@@ -846,11 +846,11 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 
 /*
-function SETABC
+   function SETABC
 
-Convert formant freqencies and bandwidth into resonator difference
-equation constants.
-*/
+   Convert formant freqencies and bandwidth into resonator difference
+   equation constants.
+ */
 
 
 static void setabc(long int f, long int bw, resonator_ptr rp)
@@ -875,11 +875,11 @@ static void setabc(long int f, long int bw, resonator_ptr rp)
 
 
 /*
-function SETZEROABC
+   function SETZEROABC
 
-Convert formant freqencies and bandwidth into anti-resonator difference
-equation constants.
-*/
+   Convert formant freqencies and bandwidth into anti-resonator difference
+   equation constants.
+ */
 
 static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 {
@@ -919,12 +919,12 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 
 
 /*
-function GEN_NOISE
+   function GEN_NOISE
 
-Random number generator (return a number between -8191 and +8191)
-Noise spectrum is tilted down by soft low-pass filter having a pole near
-the origin in the z-plane, i.e. output = input + (0.75 * lastoutput)
-*/
+   Random number generator (return a number between -8191 and +8191)
+   Noise spectrum is tilted down by soft low-pass filter having a pole near
+   the origin in the z-plane, i.e. output = input + (0.75 * lastoutput)
+ */
 
 
 static double gen_noise(double noise)
@@ -943,22 +943,22 @@ static double gen_noise(double noise)
 
 
 /*
-function DBTOLIN
+   function DBTOLIN
 
-Convert from decibels to a linear scale factor
+   Convert from decibels to a linear scale factor
 
 
-Conversion table, db to linear, 87 dB --> 32767
+   Conversion table, db to linear, 87 dB --> 32767
                                 86 dB --> 29491 (1 dB down = 0.5**1/6)
                                  ...
                                 81 dB --> 16384 (6 dB down = 0.5)
                                  ...
                                  0 dB -->     0
 
-The just noticeable difference for a change in intensity of a vowel
-is approximately 1 dB.  Thus all amplitudes are quantized to 1 dB
-steps.
-*/
+   The just noticeable difference for a change in intensity of a vowel
+   is approximately 1 dB.  Thus all amplitudes are quantized to 1 dB
+   steps.
+ */
 
 
 static double DBtoLIN(long dB)
@@ -966,14 +966,15 @@ static double DBtoLIN(long dB)
 	static short amptable[88] =
 	{
 		0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   6,   7,
-      8,   9,   10,  11,  13,  14,  16,  18,  20,  22,  25,  28,  32,
+		8,   9,   10,  11,  13,  14,  16,  18,  20,  22,  25,  28,  32,
 		35,  40,  45,  51,  57,  64,  71,  80,  90,  101,  114,  128,
 		142,  159,  179,  202,  227,  256,  284,  318,  359,  405,
 		455,  512,  568,  638,  719,  881,  911,  1024,  1137,  1276,
 		1438,  1622,  1823,  2048,  2273,  2552,  2875,  3244,  3645,
 		4096,  4547,  5104,  5751,  6488,  7291,  8192,  9093,  10207,
 		11502,  12976,  14582,  16384,  18350,  20644,  23429,
-		26214,  29491,  32767 };
+		26214,  29491,  32767
+	};
 
 	if ((dB < 0) || (dB > 87))
 	{
@@ -1132,7 +1133,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	if(control & 1)
 	{
 		end_wave = 1;
-		for(qix=wcmdq_head+1;;qix++)
+		for(qix=wcmdq_head+1;; qix++)
 		{
 			if(qix >= N_WCMDQ) qix = 0;
 			if(qix == wcmdq_tail) break;
@@ -1160,27 +1161,27 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	}
 
 #ifdef LOG_FRAMES
-if(option_log_frames)
-{
-	FILE *f_log;
-	f_log=fopen("log-espeakedit","a");
-	if(f_log != NULL)
+	if(option_log_frames)
 	{
-		fprintf(f_log,"K %3dmS  %3d %3d %4d %4d %4d %4d (%2d)  to  %3d %3d %4d %4d %4d %4d (%2d)\n",length*1000/samplerate,
-			fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr1->klattp[KLATT_AV],
-			fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr2->klattp[KLATT_AV] );
-		fclose(f_log);
-	}
-	f_log=fopen("log-klatt","a");
-	if(f_log != NULL)
-	{
-		fprintf(f_log,"K %3dmS  %3d %3d %4d %4d (%2d)  to  %3d %3d %4d %4d (%2d)\n",length*1000/samplerate,
-			fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->klattp[KLATT_AV],
-			fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->klattp[KLATT_AV] );
+		FILE *f_log;
+		f_log=fopen("log-espeakedit","a");
+		if(f_log != NULL)
+		{
+			fprintf(f_log,"K %3dmS  %3d %3d %4d %4d %4d %4d (%2d)  to  %3d %3d %4d %4d %4d %4d (%2d)\n",length*1000/samplerate,
+			        fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr1->klattp[KLATT_AV],
+			        fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr2->klattp[KLATT_AV] );
+			fclose(f_log);
+		}
+		f_log=fopen("log-klatt","a");
+		if(f_log != NULL)
+		{
+			fprintf(f_log,"K %3dmS  %3d %3d %4d %4d (%2d)  to  %3d %3d %4d %4d (%2d)\n",length*1000/samplerate,
+			        fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->klattp[KLATT_AV],
+			        fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->klattp[KLATT_AV] );
 
-		fclose(f_log);
+			fclose(f_log);
+		}
 	}
-}
 #endif
 
 	if(control & 1)

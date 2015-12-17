@@ -151,7 +151,7 @@ static int start_mbrola(const char *voice_path)
 		    dup2(p_stdout[1], 1) == -1 ||
 		    dup2(p_stderr[1], 2) == -1) {
 			snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
-					"dup2(): %s\n", strerror(errno));
+			         "dup2(): %s\n", strerror(errno));
 			written = write(p_stderr[1], mbr_errorbuf, strlen(mbr_errorbuf));
 			(void)written;   // suppress 'variable not used' warning
 			_exit(1);
@@ -166,10 +166,10 @@ static int start_mbrola(const char *voice_path)
 
 		snprintf(charbuf, sizeof(charbuf), "%g", mbr_volume);
 		execlp("mbrola", "mbrola", "-e", "-v", charbuf,
-				voice_path, "-", "-.wav", (char *)NULL);
+		       voice_path, "-", "-.wav", (char *)NULL);
 		/* if execution reaches this point then the exec() failed */
 		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
-				"mbrola: %s\n", strerror(errno));
+		         "mbrola: %s\n", strerror(errno));
 		written = write(2, mbr_errorbuf, strlen(mbr_errorbuf));
 		(void)written;   // suppress 'variable not used' warning
 		_exit(1);
@@ -255,12 +255,12 @@ static int mbrola_died(void)
 		if (WIFSIGNALED(status)) {
 			int sig = WTERMSIG(status);
 			snprintf(msgbuf, sizeof(msgbuf),
-					"mbrola died by signal %d", sig);
+			         "mbrola died by signal %d", sig);
 			msg = msgbuf;
 		} else if (WIFEXITED(status)) {
 			int exst = WEXITSTATUS(status);
 			snprintf(msgbuf, sizeof(msgbuf),
-					"mbrola exited with status %d", exst);
+			         "mbrola exited with status %d", exst);
 			msg = msgbuf;
 		} else {
 			msg = "mbrola died and wait status is weird";
@@ -274,7 +274,7 @@ static int mbrola_died(void)
 		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf), "%s", msg);
 	else
 		snprintf(mbr_errorbuf + len, sizeof(mbr_errorbuf) - len,
-						", (%s)", msg);
+		         ", (%s)", msg);
 	return -1;
 }
 
@@ -285,9 +285,9 @@ static int mbrola_has_errors(void)
 	char *buf_ptr, *lf;
 
 	buf_ptr = buffer;
-	for (;;) {
+	for (;; ) {
 		result = read(mbr_error_fd, buf_ptr,
-				sizeof(buffer) - (buf_ptr - buffer) - 1);
+		              sizeof(buffer) - (buf_ptr - buffer) - 1);
 		if (result == -1) {
 			if (errno == EAGAIN)
 				return 0;
@@ -312,7 +312,7 @@ static int mbrola_has_errors(void)
 			/* is this the last line? */
 			if (lf == &buf_ptr[result - 1]) {
 				snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
-						"%s", buf_ptr);
+				         "%s", buf_ptr);
 				/* don't consider this fatal at this point */
 				return 0;
 			}
@@ -327,7 +327,7 @@ static int send_to_mbrola(const char *cmd)
 {
 	ssize_t result;
 	int len;
-	
+
 	if (!mbr_pid)
 		return -1;
 
@@ -345,7 +345,7 @@ static int send_to_mbrola(const char *cmd)
 			return -1;
 		}
 	}
-	
+
 	if (result != len) {
 		struct datablock *data;
 		data = (struct datablock *)malloc(sizeof(*data) + len - result);
@@ -511,14 +511,14 @@ int init_MBR(const char *voice_path)
 		return -1;
 	}
 	mbr_samplerate = wavhdr[24] + (wavhdr[25]<<8) +
-			 (wavhdr[26]<<16) + (wavhdr[27]<<24);
+	                 (wavhdr[26]<<16) + (wavhdr[27]<<24);
 	//log("mbrowrap: voice samplerate = %d", mbr_samplerate);
 
 	/* remember the voice path for setVolumeRatio_MBR() */
 	if (mbr_voice_path != voice_path) {
 		free(mbr_voice_path);
 		mbr_voice_path = strdup(voice_path);
-	} 
+	}
 
 	return 0;
 }

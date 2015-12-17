@@ -67,60 +67,60 @@ unsigned int wavefile_count = 0;
 int end_of_sentence = 0;
 
 static const char *help_text =
-"\nspeak-ng [options] [\"<words>\"]\n\n"
-"-f <text file>   Text file to speak\n"
-"--stdin    Read text input from stdin instead of a file\n\n"
-"If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
-"is spoken from stdin, each line separately.\n\n"
-"-a <integer>\n"
-"\t   Amplitude, 0 to 200, default is 100\n"
-"-g <integer>\n"
-"\t   Word gap. Pause between words, units of 10mS at the default speed\n"
-"-k <integer>\n"
-"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
-"\t   higher values indicate a pitch increase (try -k20).\n"
-"-l <integer>\n"
-"\t   Line length. If not zero (which is the default), consider\n"
-"\t   lines less than this length as end-of-clause\n"
-"-p <integer>\n"
-"\t   Pitch adjustment, 0 to 99, default is 50\n"
-"-s <integer>\n"
-"\t   Speed in approximate words per minute. The default is 175\n"
-"-v <voice name>\n"
-"\t   Use voice file of this name from espeak-data/voices\n"
-"-w <wave file name>\n"
-"\t   Write speech to this WAV file, rather than speaking it directly\n"
-"-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
-"-m\t   Interpret SSML markup, and ignore other < > tags\n"
-"-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
-"-x\t   Write phoneme mnemonics to stdout\n"
-"-X\t   Write phonemes mnemonics and translation trace to stdout\n"
-"-z\t   No final sentence pause at the end of the text\n"
-"--compile=<voice name>\n"
-"\t   Compile pronunciation rules and dictionary from the current\n"
-"\t   directory. <voice name> specifies the language\n"
-"--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
-"--path=\"<path>\"\n"
-"\t   Specifies the directory containing the espeak-data directory\n"
-"--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
-"--phonout=\"<filename>\"\n"
-"\t   Write phoneme output from -x -X --ipa and --pho to this file\n"
-"--punct=\"<characters>\"\n"
-"\t   Speak the names of punctuation characters during speaking.  If\n"
-"\t   =<characters> is omitted, all punctuation is spoken.\n"
-"--sep=<character>\n"
-"\t   Separate phonemes (from -x --ipa) with <character>.\n"
-"\t   Default is space, z means ZWJN character.\n"
-"--split=<minutes>\n"
-"\t   Starts a new WAV file every <minutes>.  Used with -w\n"
-"--stdout   Write speech output to stdout\n"
-"--tie=<character>\n"
-"\t   Use a tie character within multi-letter phoneme names.\n"
-"\t   Default is U+361, z means ZWJ character.\n"
-"--version  Shows version number and date, and location of espeak-data\n"
-"--voices=<language>\n"
-"\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n";
+    "\nspeak-ng [options] [\"<words>\"]\n\n"
+    "-f <text file>   Text file to speak\n"
+    "--stdin    Read text input from stdin instead of a file\n\n"
+    "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
+    "is spoken from stdin, each line separately.\n\n"
+    "-a <integer>\n"
+    "\t   Amplitude, 0 to 200, default is 100\n"
+    "-g <integer>\n"
+    "\t   Word gap. Pause between words, units of 10mS at the default speed\n"
+    "-k <integer>\n"
+    "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
+    "\t   higher values indicate a pitch increase (try -k20).\n"
+    "-l <integer>\n"
+    "\t   Line length. If not zero (which is the default), consider\n"
+    "\t   lines less than this length as end-of-clause\n"
+    "-p <integer>\n"
+    "\t   Pitch adjustment, 0 to 99, default is 50\n"
+    "-s <integer>\n"
+    "\t   Speed in approximate words per minute. The default is 175\n"
+    "-v <voice name>\n"
+    "\t   Use voice file of this name from espeak-data/voices\n"
+    "-w <wave file name>\n"
+    "\t   Write speech to this WAV file, rather than speaking it directly\n"
+    "-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
+    "-m\t   Interpret SSML markup, and ignore other < > tags\n"
+    "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
+    "-x\t   Write phoneme mnemonics to stdout\n"
+    "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
+    "-z\t   No final sentence pause at the end of the text\n"
+    "--compile=<voice name>\n"
+    "\t   Compile pronunciation rules and dictionary from the current\n"
+    "\t   directory. <voice name> specifies the language\n"
+    "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
+    "--path=\"<path>\"\n"
+    "\t   Specifies the directory containing the espeak-data directory\n"
+    "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
+    "--phonout=\"<filename>\"\n"
+    "\t   Write phoneme output from -x -X --ipa and --pho to this file\n"
+    "--punct=\"<characters>\"\n"
+    "\t   Speak the names of punctuation characters during speaking.  If\n"
+    "\t   =<characters> is omitted, all punctuation is spoken.\n"
+    "--sep=<character>\n"
+    "\t   Separate phonemes (from -x --ipa) with <character>.\n"
+    "\t   Default is space, z means ZWJN character.\n"
+    "--split=<minutes>\n"
+    "\t   Starts a new WAV file every <minutes>.  Used with -w\n"
+    "--stdout   Write speech output to stdout\n"
+    "--tie=<character>\n"
+    "\t   Use a tie character within multi-letter phoneme names.\n"
+    "\t   Default is U+361, z means ZWJ character.\n"
+    "--version  Shows version number and date, and location of espeak-data\n"
+    "--voices=<language>\n"
+    "\t   List the available voices for the specified language.\n"
+    "\t   If <language> is omitted, then list all voices.\n";
 
 
 void DisplayVoices(FILE *f_out, char *language);
@@ -187,7 +187,7 @@ void DisplayVoices(FILE *f_out, char *language)
 						break;
 				}
 				fprintf(f_out,"%2d  %-12s%s%c  %-20s %-13s ",
-               p[0],lang_name,age_buf,genders[v->gender],buf,v->identifier);
+				        p[0],lang_name,age_buf,genders[v->gender],buf,v->identifier);
 			}
 			else
 			{
@@ -208,7 +208,8 @@ static int OpenWaveFile(const char *path, int rate)
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0x24,0xf0,0xff,0x7f,'W','A','V','E','f','m','t',' ',
 		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
-		2,0,0x10,0,'d','a','t','a',  0x00,0xf0,0xff,0x7f};
+		2,0,0x10,0,'d','a','t','a',  0x00,0xf0,0xff,0x7f
+	};
 
 	if(path == NULL)
 		return(2);
@@ -246,13 +247,13 @@ static int OpenWaveFile(const char *path, int rate)
 
 static void CloseWaveFile()
 {
-   unsigned int pos;
+	unsigned int pos;
 
-   if((f_wave == NULL) || (f_wave == stdout))
-      return;
+	if((f_wave == NULL) || (f_wave == stdout))
+		return;
 
-   fflush(f_wave);
-   pos = ftell(f_wave);
+	fflush(f_wave);
+	pos = ftell(f_wave);
 
 	fseek(f_wave,4,SEEK_SET);
 	Write4Bytes(f_wave,pos - 8);
@@ -261,8 +262,8 @@ static void CloseWaveFile()
 	Write4Bytes(f_wave,pos - 44);
 
 
-   fclose(f_wave);
-   f_wave = NULL;
+	fclose(f_wave);
+	f_wave = NULL;
 
 }
 
@@ -352,14 +353,14 @@ static void init_path(char *argv0, char *path_specified)
 	sprintf(path_home,"%s\\espeak-data",buf);
 #else
 #ifdef PLATFORM_DOS
-		strcpy(path_home,PATH_ESPEAK_DATA);
+	strcpy(path_home,PATH_ESPEAK_DATA);
 #else
 	char *env;
 	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
 	{
 		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
 		if(GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists 
+			return;   // an espeak-data directory exists
 	}
 
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
@@ -382,7 +383,7 @@ static int initialise(void)
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
 #ifdef PLATFORM_RISCOS
-   setlocale(LC_CTYPE,"ISO8859-1");
+	setlocale(LC_CTYPE,"ISO8859-1");
 #else
 	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
 	{
@@ -416,16 +417,16 @@ static int initialise(void)
 
 
 #ifdef NEED_GETOPT
-	struct option {
-		char *name;
-		int has_arg;
-		int *flag;
-		int val;
-	};
-	int optind;
-	static int optional_argument;
-	static const char *arg_opts = "abfgklpsvw";  // which options have arguments
-	static char *opt_string="";
+struct option {
+	char *name;
+	int has_arg;
+	int *flag;
+	int val;
+};
+int optind;
+static int optional_argument;
+static const char *arg_opts = "abfgklpsvw";      // which options have arguments
+static char *opt_string="";
 #define no_argument 0
 #define required_argument 1
 #define optional_argument 2
@@ -434,7 +435,7 @@ static int initialise(void)
 int main (int argc, char **argv)
 {
 	static struct option long_options[] =
-		{
+	{
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
 		{"compile-debug", optional_argument, 0, 0x101},
@@ -451,7 +452,7 @@ int main (int argc, char **argv)
 		{"sep",     optional_argument, 0, 0x10c},
 		{"tie",     optional_argument, 0, 0x10d},
 		{0, 0, 0, 0}
-		};
+	};
 
 	static const char *err_load = "Failed to read ";
 
@@ -517,7 +518,7 @@ int main (int argc, char **argv)
 				break;   // -- means don't interpret further - as commands
 
 			opt_string="";
-			for(ix=0; ;ix++)
+			for(ix=0;; ix++)
 			{
 				if(long_options[ix].name == 0)
 					break;
@@ -549,7 +550,7 @@ int main (int argc, char **argv)
 	while(true)
 	{
 		c = getopt_long (argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",   // NOTE: also change arg_opts to indicate which commands have a numeric value
-					long_options, &option_index);
+		                 long_options, &option_index);
 
 		/* Detect the end of the options. */
 		if (c == -1)
@@ -631,23 +632,23 @@ int main (int argc, char **argv)
 			option_endpause = 0;
 			break;
 
-		case 0x100:		// --stdin
+		case 0x100:     // --stdin
 			flag_stdin = 1;
 			break;
 
-		case 0x105:		// --stdout
+		case 0x105:     // --stdout
 			option_waveout = 1;
 			strcpy(wavefile,"stdout");
 			break;
 
 		case 0x101:    // --compile-debug
-		case 0x102:		// --compile
+		case 0x102:     // --compile
 			if(optarg2 != NULL)
 				strncpy0(voicename,optarg2,sizeof(voicename));
 			flag_compile = c;
 			break;
 
-		case 0x103:		// --punct
+		case 0x103:     // --punct
 			option_punctuation = 1;
 			if(optarg2 != NULL)
 			{
@@ -693,19 +694,19 @@ int main (int argc, char **argv)
 				// deprecated and obsolete
 				switch(atoi(optarg2))
 				{
-					case 1:
-						phonemes_separator = '_';
-						break;
-					case 2:
-						phonemes_separator = 0x0361;
-						phoneme_options |= espeakPHONEMES_TIE;
-						break;
-					case 3:
-						phonemes_separator = 0x200d;  // ZWJ
-						phoneme_options |= espeakPHONEMES_TIE;
-						break;
+				case 1:
+					phonemes_separator = '_';
+					break;
+				case 2:
+					phonemes_separator = 0x0361;
+					phoneme_options |= espeakPHONEMES_TIE;
+					break;
+				case 3:
+					phonemes_separator = 0x200d;      // ZWJ
+					phoneme_options |= espeakPHONEMES_TIE;
+					break;
 				}
-				
+
 			}
 			break;
 
@@ -713,15 +714,15 @@ int main (int argc, char **argv)
 			init_path(argv[0],data_path);
 			printf("speak text-to-speech: %s   Data at: %s\n",version_string,path_home);
 			exit(0);
-			
+
 		case 0x10c:  // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
 			if(optarg2 == 0)
 				phonemes_separator = ' ';
 			else
 				utf8_in(&phonemes_separator, optarg2);
-				if(phonemes_separator == 'z')
-					phonemes_separator = 0x200c;  // ZWNJ
+			if(phonemes_separator == 'z')
+				phonemes_separator = 0x200c;      // ZWNJ
 			break;
 
 		case 0x10d:  // --tie
@@ -730,8 +731,8 @@ int main (int argc, char **argv)
 				phonemes_separator = 0x0361;   // default: combining-double-inverted-breve
 			else
 				utf8_in(&phonemes_separator, optarg2);
-				if(phonemes_separator == 'z')
-					phonemes_separator = 0x200d;  // ZWJ
+			if(phonemes_separator == 'z')
+				phonemes_separator = 0x200d;      // ZWJ
 			break;
 
 		default:
@@ -855,7 +856,7 @@ int main (int argc, char **argv)
 		SpeakNextClause(f_text,p_text,0);
 
 		ix = 1;
-		for(;;)
+		for(;; )
 		{
 			if(WavegenFile() != 0)
 			{

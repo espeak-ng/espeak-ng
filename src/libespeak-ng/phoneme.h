@@ -110,15 +110,15 @@ extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long,
 // main table of phonemes, index by phoneme number (1-254)
 
 typedef struct {
-	unsigned int  mnemonic;      // Up to 4 characters.  The first char is in the l.s.byte
-	unsigned int  phflags;       // bits 16-19 place of articulation
+	unsigned int mnemonic;       // Up to 4 characters.  The first char is in the l.s.byte
+	unsigned int phflags;        // bits 16-19 place of articulation
 	unsigned short program;      // index into phondata file
-	unsigned char  code;         // the phoneme number
-	unsigned char  type;         // phVOWEL, phPAUSE, phSTOP etc
-	unsigned char  start_type;
-	unsigned char  end_type;
-	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
-	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
+	unsigned char code;          // the phoneme number
+	unsigned char type;          // phVOWEL, phPAUSE, phSTOP etc
+	unsigned char start_type;
+	unsigned char end_type;
+	unsigned char std_length;    // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
+	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
 
 } PHONEME_TAB;
 

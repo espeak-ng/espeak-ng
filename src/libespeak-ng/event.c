@@ -51,15 +51,14 @@ static t_espeak_callback* my_callback = NULL;
 static int my_event_is_running=0;
 
 enum {MIN_TIMEOUT_IN_MS=10,
-      ACTIVITY_TIMEOUT=50, // in ms, check that the stream is active
-      MAX_ACTIVITY_CHECK=6
-};
+	  ACTIVITY_TIMEOUT=50, // in ms, check that the stream is active
+	  MAX_ACTIVITY_CHECK=6};
 
 
 typedef struct t_node
 {
-  void* data;
-  struct t_node *next;
+	void* data;
+	struct t_node *next;
 } node;
 
 static node* head=NULL;
@@ -72,40 +71,40 @@ static void* polling_thread(void*);
 
 void event_set_callback(t_espeak_callback* SynthCallback)
 {
-  my_callback = SynthCallback;
+	my_callback = SynthCallback;
 }
 
 void event_init(void)
 {
-  ENTER("event_init");
+	ENTER("event_init");
 
-  my_event_is_running=0;
+	my_event_is_running=0;
 
-  // security
-  pthread_mutex_init( &my_mutex, (const pthread_mutexattr_t *)NULL);
-  init();
+	// security
+	pthread_mutex_init( &my_mutex, (const pthread_mutexattr_t *)NULL);
+	init();
 
-  assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
-  assert(-1 != sem_init(&my_sem_stop_is_required, 0, 0));
-  assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
+	assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
+	assert(-1 != sem_init(&my_sem_stop_is_required, 0, 0));
+	assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
 
-  pthread_attr_t a_attrib;
+	pthread_attr_t a_attrib;
 
-  if (pthread_attr_init (&a_attrib) == 0
-      && pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE) == 0)
-  {
-    thread_inited = (0 == pthread_create(&my_thread,
-      &a_attrib,
-      polling_thread,
-      (void*)NULL));
-  }
-  assert(thread_inited);
-  pthread_attr_destroy(&a_attrib);
+	if (pthread_attr_init (&a_attrib) == 0
+	    && pthread_attr_setdetachstate(&a_attrib, PTHREAD_CREATE_JOINABLE) == 0)
+	{
+		thread_inited = (0 == pthread_create(&my_thread,
+		                                     &a_attrib,
+		                                     polling_thread,
+		                                     (void*)NULL));
+	}
+	assert(thread_inited);
+	pthread_attr_destroy(&a_attrib);
 }
 
 static void event_display(espeak_EVENT* event)
 {
-ENTER("event_display");
+	ENTER("event_display");
 
 #ifdef DEBUG_ENABLED
 	if (event==NULL)
@@ -115,16 +114,16 @@ ENTER("event_display");
 	else
 	{
 		static const char* label[] = {
-		"LIST_TERMINATED",
-		"WORD",
-		"SENTENCE",
-		"MARK",
-		"PLAY",
-		"END",
-		"MSG_TERMINATED",
-		"PHONEME",
-		"SAMPLERATE",
-		"??"
+			"LIST_TERMINATED",
+			"WORD",
+			"SENTENCE",
+			"MARK",
+			"PLAY",
+			"END",
+			"MSG_TERMINATED",
+			"PHONEME",
+			"SAMPLERATE",
+			"??"
 		};
 
 		SHOW("event_display > event=0x%x\n",event);
@@ -161,7 +160,7 @@ static espeak_EVENT* event_copy (espeak_EVENT* event)
 			{
 				a_event->id.name = strdup(event->id.name);
 			}
-		break;
+			break;
 
 		default:
 			break;
@@ -184,7 +183,7 @@ static espeak_EVENT* event_copy (espeak_EVENT* event)
 
 static void event_notify(espeak_EVENT* event)
 {
-ENTER("event_notify");
+	ENTER("event_notify");
 	static unsigned int a_old_uid = 0;
 
 	espeak_EVENT events[2];
@@ -223,16 +222,16 @@ ENTER("event_notify");
 		break;
 
 		default:
-			case espeakEVENT_LIST_TERMINATED:
-			case espeakEVENT_PLAY:
-		break;
+		case espeakEVENT_LIST_TERMINATED:
+		case espeakEVENT_PLAY:
+			break;
 		}
 	}
 }
 
 static int event_delete(espeak_EVENT* event)
 {
-ENTER("event_delete");
+	ENTER("event_delete");
 
 	event_display(event);
 
@@ -265,7 +264,7 @@ ENTER("event_delete");
 
 espeak_ERROR event_declare (espeak_EVENT* event)
 {
-ENTER("event_declare");
+	ENTER("event_declare");
 
 	event_display(event);
 
@@ -348,7 +347,7 @@ espeak_ERROR event_clear_all ()
 
 static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
 {
-ENTER("sleep_until_timeout_or_stop_request");
+	ENTER("sleep_until_timeout_or_stop_request");
 
 	int a_stop_is_required=0;
 	struct timespec ts;
@@ -366,18 +365,18 @@ ENTER("sleep_until_timeout_or_stop_request");
 	add_time_in_ms( &ts, time_in_ms);
 
 	SHOW("polling_thread > sleep_until_timeout_or_stop_request > start sem_timedwait from %d.%09lu to %d.%09lu \n",
-       to.tv_sec, to.tv_nsec,
-       ts.tv_sec, ts.tv_nsec);
+	     to.tv_sec, to.tv_nsec,
+	     ts.tv_sec, ts.tv_nsec);
 
 	while ((err = sem_timedwait(&my_sem_stop_is_required, &ts)) == -1
-		&& errno == EINTR)
+	       && errno == EINTR)
 	{
 		continue; // Restart when interrupted by handler
 	}
 
 	assert (gettimeofday(&tv, NULL) != -1);
 	SHOW("polling_thread > sleep_until_timeout_or_stop_request > stop sem_timedwait %d.%09lu \n",
-       tv.tv_sec, tv.tv_usec*1000);
+	     tv.tv_sec, tv.tv_usec*1000);
 
 	if (err == 0)
 	{
@@ -393,7 +392,7 @@ ENTER("sleep_until_timeout_or_stop_request");
 
 static int get_remaining_time(uint32_t sample, uint32_t* time_in_ms, int* stop_is_required)
 {
-ENTER("get_remaining_time");
+	ENTER("get_remaining_time");
 
 	int err = 0;
 	*stop_is_required = 0;
@@ -405,23 +404,23 @@ ENTER("get_remaining_time");
 
 		if (err || wave_is_busy(NULL) || (*time_in_ms == 0))
 		{ // if err, stream not available: quit
-	  // if wave is busy, time_in_ms is known: quit
-	  // if wave is not busy but remaining time == 0, event is reached: quit
-		break;
-	}
+			// if wave is busy, time_in_ms is known: quit
+			// if wave is not busy but remaining time == 0, event is reached: quit
+			break;
+		}
 
-      // stream opened but not active
-      //
-      // Several possible states:
-      //   * the stream is opened but not yet started:
-      //
-      //       wait for the start of stream
-      //
-      //   * some samples have already been played,
-      //      ** the end of stream is reached
-      //      ** or there is an underrun
-      //
-      //       wait for the close of stream
+		// stream opened but not active
+		//
+		// Several possible states:
+		//   * the stream is opened but not yet started:
+		//
+		//       wait for the start of stream
+		//
+		//   * some samples have already been played,
+		//      ** the end of stream is reached
+		//      ** or there is an underrun
+		//
+		//       wait for the close of stream
 
 		*stop_is_required = sleep_until_timeout_or_stop_request( ACTIVITY_TIMEOUT);
 	}
@@ -431,7 +430,7 @@ ENTER("get_remaining_time");
 
 static void* polling_thread(void*p)
 {
-ENTER("polling_thread");
+	ENTER("polling_thread");
 
 	while(1)
 	{
@@ -487,8 +486,8 @@ ENTER("polling_thread");
 			uint32_t time_in_ms = 0;
 
 			int err = get_remaining_time((uint32_t)event->sample,
-							&time_in_ms,
-							&a_stop_is_required);
+			                             &time_in_ms,
+			                             &a_stop_is_required);
 			if (a_stop_is_required > 0)
 			{
 				break;
@@ -666,7 +665,7 @@ static void init()
 
 void event_terminate()
 {
-ENTER("event_terminate");
+	ENTER("event_terminate");
 
 	if (thread_inited)
 	{

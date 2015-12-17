@@ -96,9 +96,9 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 
 #ifdef DEBUG_ENABLED
 	SHOW("*** dispatch_audio > uid=%d, [write=%p (%d bytes)], sample=%d, a_wave_can_be_played = %d\n",
-			(event) ? event->unique_identifier : 0, wave_test_get_write_buffer(), 2*length,
-			(event) ? event->sample : 0,
-			a_wave_can_be_played);
+	     (event) ? event->unique_identifier : 0, wave_test_get_write_buffer(), 2*length,
+	     (event) ? event->sample : 0,
+	     a_wave_can_be_played);
 #endif
 
 	switch(my_mode)
@@ -204,7 +204,7 @@ static int create_events(short* outbuf, int length, espeak_EVENT* event, uint32_
 		{
 			event = NULL;
 		}
-      else
+		else
 		{
 			event = event_list + i;
 #ifdef DEBUG_ENABLED
@@ -245,7 +245,7 @@ int sync_espeak_terminated_msg( uint32_t unique_identifier, void* user_data)
 			espeak_ERROR a_error = event_declare(event_list);
 			if (a_error != EE_BUFFER_FULL)
 			{
-		 		break;
+				break;
 			}
 			SHOW_TIME("sync_espeak_terminated_msg > EE_BUFFER_FULL\n");
 			usleep(10000);
@@ -269,7 +269,7 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 	my_mode = output_type;
 	my_audio = NULL;
 	synchronous_mode = 1;
- 	option_waveout = 1;   // inhibit portaudio callback from wavegen.cpp
+	option_waveout = 1;   // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
 
 	switch(my_mode)
@@ -431,7 +431,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 	ENTER("Synthesize");
 	if (text)
 	{
-	SHOW("Synthesize > uid=%d, flags=%d, >>>text=%s<<<\n", unique_identifier, flags, text);
+		SHOW("Synthesize > uid=%d, flags=%d, >>>text=%s<<<\n", unique_identifier, flags, text);
 	}
 #endif
 
@@ -461,7 +461,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 
 	if(my_mode == AUDIO_OUTPUT_SYNCH_PLAYBACK)
 	{
-		for(;;)
+		for(;; )
 		{
 #ifdef PLATFORM_WINDOWS
 			Sleep(300);   // 0.3s
@@ -482,7 +482,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		return(EE_OK);
 	}
 
-	for(;;)
+	for(;; )
 	{
 #ifdef DEBUG_ENABLED
 		SHOW("Synthesize > %s\n","for (next)");
@@ -554,16 +554,17 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 
 #ifdef DEBUG_ENABLED
 static const char* label[] = {
-  "END_OF_EVENT_LIST",
-  "WORD",
-  "SENTENCE",
-  "MARK",
-  "PLAY",
-  "END",
-  "MSG_TERMINATED",
-  "PHONEME",
-  "SAMPLERATE",
-  "??" };
+	"END_OF_EVENT_LIST",
+	"WORD",
+	"SENTENCE",
+	"MARK",
+	"PLAY",
+	"END",
+	"MSG_TERMINATED",
+	"PHONEME",
+	"SAMPLERATE",
+	"??"
+};
 #endif
 
 
@@ -591,8 +592,8 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 #ifdef DEBUG_ENABLED
 	SHOW("MarkerEvent > count_samples=%d, out_ptr=%x, out_start=0x%x\n",count_samples, out_ptr, out_start);
 	SHOW("*** MarkerEvent > type=%s, uid=%d, text_pos=%d, length=%d, audio_position=%d, sample=%d\n",
-			label[ep->type], ep->unique_identifier, ep->text_position, ep->length,
-			ep->audio_position, ep->sample);
+	     label[ep->type], ep->unique_identifier, ep->text_position, ep->length,
+	     ep->audio_position, ep->sample);
 #endif
 
 	if((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
@@ -615,8 +616,8 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 
 
 espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text, size_t size,
-		      unsigned int position, espeak_POSITION_TYPE position_type,
-		      unsigned int end_position, unsigned int flags, void* user_data)
+                               unsigned int position, espeak_POSITION_TYPE position_type,
+                               unsigned int end_position, unsigned int flags, void* user_data)
 {
 
 #ifdef DEBUG_ENABLED
@@ -634,20 +635,20 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 		saved_parameters[i] = param_stack[0].parameter[i];
 
 	switch(position_type)
-		{
-		case POS_CHARACTER:
-			skip_characters = position;
-			break;
+	{
+	case POS_CHARACTER:
+		skip_characters = position;
+		break;
 
-		case POS_WORD:
-			skip_words = position;
-			break;
+	case POS_WORD:
+		skip_words = position;
+		break;
 
-		case POS_SENTENCE:
-			skip_sentences = position;
-			break;
+	case POS_SENTENCE:
+		skip_sentences = position;
+		break;
 
-		}
+	}
 	if(skip_characters || skip_words || skip_sentences)
 		skipping_text = 1;
 
@@ -666,8 +667,8 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 
 
 espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size,
-			   const char *index_mark, unsigned int end_position,
-			   unsigned int flags, void* user_data)
+                                    const char *index_mark, unsigned int end_position,
+                                    unsigned int flags, void* user_data)
 {
 	espeak_ERROR aStatus;
 
@@ -677,10 +678,10 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 	my_user_data = user_data;
 
 	if(index_mark != NULL)
-		{
+	{
 		strncpy0(skip_marker, index_mark, sizeof(skip_marker));
 		skipping_text = 1;
-		}
+	}
 
 	end_character_position = end_position;
 
@@ -769,7 +770,7 @@ ESPEAK_API void espeak_SetPhonemeCallback(int (* PhonemeCallback)(const char*))
 
 ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
 {
-ENTER("espeak_Initialize");
+	ENTER("espeak_Initialize");
 	int param;
 
 	// It seems that the wctype functions don't work until the locale has been set
@@ -831,16 +832,16 @@ ENTER("espeak_Initialize");
 	fifo_init();
 #endif
 
-  return(samplerate);
+	return(samplerate);
 }
 
 
 
 ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
-				     unsigned int position,
-				     espeak_POSITION_TYPE position_type,
-				     unsigned int end_position, unsigned int flags,
-				     unsigned int* unique_identifier, void* user_data)
+                                     unsigned int position,
+                                     espeak_POSITION_TYPE position_type,
+                                     unsigned int end_position, unsigned int flags,
+                                     unsigned int* unique_identifier, void* user_data)
 {
 #ifdef DEBUG_ENABLED
 	ENTER("espeak_Synth");
@@ -901,15 +902,15 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 
 
 ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
-					  const char *index_mark,
-					  unsigned int end_position,
-					  unsigned int flags,
-					  unsigned int* unique_identifier,
-					  void* user_data)
+                                          const char *index_mark,
+                                          unsigned int end_position,
+                                          unsigned int flags,
+                                          unsigned int* unique_identifier,
+                                          void* user_data)
 {
 #ifdef DEBUG_ENABLED
-  ENTER("espeak_Synth_Mark");
-  SHOW("espeak_Synth_Mark > index_mark=%s, end_position=%d, flags=%d, text=%s\n", index_mark, end_position, flags, text);
+	ENTER("espeak_Synth_Mark");
+	SHOW("espeak_Synth_Mark > index_mark=%s, end_position=%d, flags=%d, text=%s\n", index_mark, end_position, flags, text);
 #endif
 
 	espeak_ERROR a_error=EE_OK;
@@ -935,7 +936,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 #ifdef USE_ASYNC
 	// Create the mark command
 	t_espeak_command* c1 = create_espeak_mark(text, size, index_mark, end_position,
-						flags, user_data);
+	                                          flags, user_data);
 
 	// Retrieve the unique identifier
 	*unique_identifier = c1->u.my_mark.unique_identifier;
@@ -993,14 +994,14 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 	}
 
 #endif
-  return a_error;
+	return a_error;
 }
 
 
 ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 {
-  ENTER("espeak_Char");
-  // is there a system resource of character names per language?
+	ENTER("espeak_Char");
+	// is there a system resource of character names per language?
 
 	if(f_logespeak)
 	{
@@ -1032,7 +1033,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
 {
-  ENTER("espeak_SetVoiceByName");
+	ENTER("espeak_SetVoiceByName");
 
 	return(SetVoiceByName(name));
 }
@@ -1041,7 +1042,7 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
 {
-  ENTER("espeak_SetVoiceByProperties");
+	ENTER("espeak_SetVoiceByProperties");
 
 	return(SetVoiceByProperties(voice_selector));
 }
@@ -1064,7 +1065,7 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 
 ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative)
 {
-  ENTER("espeak_SetParameter");
+	ENTER("espeak_SetParameter");
 
 	if(f_logespeak)
 	{
@@ -1096,8 +1097,8 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
 ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 {
-  ENTER("espeak_SetPunctuationList");
-  // Set the list of punctuation which are spoken for "some".
+	ENTER("espeak_SetPunctuationList");
+	// Set the list of punctuation which are spoken for "some".
 
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
@@ -1136,7 +1137,7 @@ ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
       bits 8-23:  separator character, between phoneme names
 
    stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
-*/
+ */
 	option_phonemes = phonememode;
 	f_trans = stream;
 	if(stream == NULL)
@@ -1149,9 +1150,9 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 {
 	/* phoneme_mode
 	    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
-        bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
-        bits 8-23:  separator character, between phoneme names
-	*/
+	    bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+	    bits 8-23:  separator character, between phoneme names
+	 */
 
 	option_multibyte = textmode & 7;
 	*textptr = TranslateClause(translator, NULL, *textptr, NULL, NULL);

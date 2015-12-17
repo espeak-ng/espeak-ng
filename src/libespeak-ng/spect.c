@@ -44,11 +44,11 @@ int pk_select;
 #define PEAKSHAPEW 256
 
 static int default_freq[N_PEAKS] =
-	{200,500,1200,3000,3500,4000,6900,7800,9000};
+{200,500,1200,3000,3500,4000,6900,7800,9000};
 static int default_width[N_PEAKS] =
-	{750,500,550,550,600,700,700,700,700};
+{750,500,550,550,600,700,700,700,700};
 static int default_klt_bw[N_PEAKS] =
-	{89,90,140,260,260,260,500,500,500};
+{89,90,140,260,260,260,500,500,500};
 
 static double read_double(FILE *stream)
 {
@@ -67,7 +67,7 @@ float polint(float xa[],float ya[],int n,float x)
 
 	dif=fabs(x-xa[1]);
 
-	for(i=1;i<=n;i++){
+	for(i=1; i<=n; i++) {
 		if((dift=fabs(x-xa[i])) < dif) {
 			ns=i;
 			dif=dift;
@@ -76,8 +76,8 @@ float polint(float xa[],float ya[],int n,float x)
 		d[i]=ya[i];
 	}
 	y=ya[ns--];
-	for(m=1;m<n;m++) {
-		for(i=1;i<=n-m;i++) {
+	for(m=1; m<n; m++) {
+		for(i=1; i<=n-m; i++) {
 			ho=xa[i]-x;
 			hp=xa[i+m]-x;
 			w=c[i+1]-d[i];
@@ -108,7 +108,7 @@ static void PeaksZero(peak_t *sp, peak_t *zero)
 
 static SpectFrame *SpectFrameCreate()
 {
-	int  ix;
+	int ix;
 	SpectFrame *frame;
 
 	frame = malloc(sizeof(SpectFrame));
@@ -123,7 +123,7 @@ static SpectFrame *SpectFrameCreate()
 	frame->length_adjust = 0;
 
 	for(ix=0; ix<N_PEAKS; ix++)
-   {
+	{
 		frame->formants[ix].freq = 0;
 		frame->peaks[ix].pkfreq = default_freq[ix];
 		frame->peaks[ix].pkheight = 0;
@@ -132,7 +132,7 @@ static SpectFrame *SpectFrameCreate()
 		frame->peaks[ix].klt_bw = default_klt_bw[ix];
 		frame->peaks[ix].klt_ap = 0;
 		frame->peaks[ix].klt_bp = default_klt_bw[ix];
-   }
+	}
 
 	memset(frame->klatt_param, 0, sizeof(frame->klatt_param));
 	frame->klatt_param[KLATT_AV] = 59;
@@ -212,7 +212,7 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 		spect_data[ix] = x;
 		if(x > frame->max_y) frame->max_y = x;
 	}
-   frame->spect = spect_data;
+	frame->spect = spect_data;
 
 	return(0);
 }
@@ -255,12 +255,12 @@ SpectSeq *SpectSeqCreate()
 	spect->numframes = 0;
 	spect->frames = NULL;
 	spect->name = NULL;
-	
+
 	pk_select = 1;
 	spect->grid = 1;
-   spect->duration = 0;
-   spect->pitch1 = 0;
-   spect->pitch2 = 0;
+	spect->duration = 0;
+	spect->pitch1 = 0;
+	spect->pitch2 = 0;
 	spect->bass_reduction = 0;
 
 	spect->max_x = 3000;
@@ -289,11 +289,11 @@ void SpectSeqDestroy(SpectSeq *spect)
 
 static float GetFrameLength(SpectSeq *spect, int frame)
 {
-	int  ix;
-	float  adjust=0;
+	int ix;
+	float adjust=0;
 
 	if(frame >= spect->numframes-1) return(0);
-	
+
 	for(ix=frame+1; ix<spect->numframes-1; ix++)
 	{
 		if(spect->frames[ix]->keyframe) break;  // reached next keyframe
@@ -324,17 +324,17 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
-			spect->file_format = 0;   // eSpeak formants
+		spect->file_format = 0;       // eSpeak formants
 	}
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
 	{
-			spect->file_format = 1;   // formants for Klatt synthesizer
+		spect->file_format = 1;       // formants for Klatt synthesizer
 	}
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
 	{
-			spect->file_format = 2;   // formants for Klatt synthesizer
+		spect->file_format = 2;       // formants for Klatt synthesizer
 	}
 	else
 	{
@@ -392,7 +392,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 			spect->max_y = frame->max_y;
 		if(frame->nx * frame->dx > spect->max_x) spect->max_x = (int)(frame->nx * frame->dx);
 	}
-spect->max_x = 9000;   // disable auto-xscaling
+	spect->max_x = 9000; // disable auto-xscaling
 
 	frame_width = (int)((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
 	if(frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
@@ -407,10 +407,10 @@ spect->max_x = 9000;   // disable auto-xscaling
 	spect->pitch2 = spect->pitchenv.pitch2;
 	spect->duration = (int)(spect->frames[spect->numframes-1]->time * 1000);
 
-if(spect->max_y < 400)
-	spect->max_y = 200;
-else
-	spect->max_y = 29000;  // disable auto height scaling
+	if(spect->max_y < 400)
+		spect->max_y = 200;
+	else
+		spect->max_y = 29000; // disable auto height scaling
 
 	for(ix=0; ix<spect->numframes; ix++)
 	{

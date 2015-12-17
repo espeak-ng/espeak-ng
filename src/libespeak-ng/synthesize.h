@@ -146,24 +146,24 @@ typedef struct {
 }  wavegen_peaks_t;
 
 typedef struct {
-unsigned char *pitch_env;
-int pitch;          // pitch Hz*256
-int pitch_ix;       // index into pitch envelope (*256)
-int pitch_inc;      // increment to pitch_ix
-int pitch_base;     // Hz*256 low, before modified by envelope
-int pitch_range;    // Hz*256 range of envelope
+	unsigned char *pitch_env;
+	int pitch;      // pitch Hz*256
+	int pitch_ix;   // index into pitch envelope (*256)
+	int pitch_inc;  // increment to pitch_ix
+	int pitch_base; // Hz*256 low, before modified by envelope
+	int pitch_range; // Hz*256 range of envelope
 
-unsigned char *mix_wavefile;  // wave file to be added to synthesis
-int n_mix_wavefile;       // length in bytes
-int mix_wave_scale;         // 0=2 byte samples
-int mix_wave_amp;
-int mix_wavefile_ix;
-int mix_wavefile_max;    // length of available WAV data (in bytes)
-int mix_wavefile_offset;
+	unsigned char *mix_wavefile; // wave file to be added to synthesis
+	int n_mix_wavefile;   // length in bytes
+	int mix_wave_scale;     // 0=2 byte samples
+	int mix_wave_amp;
+	int mix_wavefile_ix;
+	int mix_wavefile_max; // length of available WAV data (in bytes)
+	int mix_wavefile_offset;
 
-int amplitude;
-int amplitude_v;
-int amplitude_fmt;   // percentage amplitude adjustment for formant synthesis
+	int amplitude;
+	int amplitude_v;
+	int amplitude_fmt; // percentage amplitude adjustment for formant synthesis
 } WGEN_DATA;
 
 
@@ -177,17 +177,17 @@ typedef struct {
 
 
 typedef struct {
-   short length_total;  // not used
-   unsigned char  n_frames;
-   unsigned char  sqflags;
-   frame_t2  frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
+	short length_total; // not used
+	unsigned char n_frames;
+	unsigned char sqflags;
+	frame_t2 frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
 } SPECT_SEQ;   // sequence of espeak formant frames
 
 typedef struct {
-   short length_total;  // not used
-   unsigned char  n_frames;
-   unsigned char  sqflags;
-   frame_t  frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
+	short length_total; // not used
+	unsigned char n_frames;
+	unsigned char sqflags;
+	frame_t frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
 } SPECT_SEQK;   // sequence of klatt formants frames
 
 
@@ -277,7 +277,7 @@ typedef struct {
 } FMT_PARAMS;
 
 typedef struct {
-    PHONEME_LIST prev_vowel;
+	PHONEME_LIST prev_vowel;
 } WORD_PH_DATA;
 
 // instructions
@@ -373,12 +373,12 @@ typedef struct {
 } SOUND_ICON;
 
 typedef struct {
-	int  name;
-	unsigned int  next_phoneme;
-	int  mbr_name;
-	int  mbr_name2;
-	int  percent;         // percentage length of first component
-	int  control;
+	int name;
+	unsigned int next_phoneme;
+	int mbr_name;
+	int mbr_name2;
+	int percent;          // percentage length of first component
+	int control;
 } MBROLA_TAB;
 
 typedef struct {
@@ -457,16 +457,16 @@ extern unsigned char env_frise[128];
 extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 // queue of commands for wavegen
-#define WCMD_KLATT	1
-#define WCMD_KLATT2	2
-#define WCMD_SPECT	3
-#define WCMD_SPECT2	4
-#define WCMD_PAUSE	5
+#define WCMD_KLATT  1
+#define WCMD_KLATT2 2
+#define WCMD_SPECT  3
+#define WCMD_SPECT2 4
+#define WCMD_PAUSE  5
 #define WCMD_WAVE    6
 #define WCMD_WAVE2   7
 #define WCMD_AMPLITUDE 8
-#define WCMD_PITCH	9
-#define WCMD_MARKER	10
+#define WCMD_PITCH  9
+#define WCMD_MARKER 10
 #define WCMD_VOICE   11
 #define WCMD_EMBEDDED 12
 #define WCMD_MBROLA_DATA 13

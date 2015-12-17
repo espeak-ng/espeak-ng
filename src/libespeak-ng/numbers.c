@@ -73,7 +73,7 @@ static int number_control;
 
 typedef struct {
 	const char *name;
-	int  accent_flags;   // bit 0, say before the letter name
+	int accent_flags;    // bit 0, say before the letter name
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
@@ -301,7 +301,7 @@ static const unsigned short letter_accents_0e0[] = {
 
 // characters U+0250 to U+029F
 static const unsigned short letter_accents_250[] = {
-	LETTER('a',M_TURNED,0),		// U+250
+	LETTER('a',M_TURNED,0),     // U+250
 	LETTER(L_ALPHA,0,0),
 	LETTER(L_ALPHA,M_TURNED,0),
 	LETTER('b',M_IMPLOSIVE,0),
@@ -309,7 +309,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('c',M_CURL,0),
 	LETTER('d',M_RETROFLEX,0),
 	LETTER('d',M_IMPLOSIVE,0),
-	LETTER('e',M_REVERSED,0),	// U+258
+	LETTER('e',M_REVERSED,0),   // U+258
 	0,   // schwa
 	LETTER(L_SCHWA,M_HOOK,0),
 	0,   // open-e
@@ -317,7 +317,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER(L_OPEN_E,M_HOOK,M_REVERSED),
 	0,
 	LETTER('j',M_BAR,0),
-	LETTER('g',M_IMPLOSIVE,0),	// U+260
+	LETTER('g',M_IMPLOSIVE,0),  // U+260
 	LETTER('g',0,0),
 	LETTER('g',M_SMALLCAP,0),
 	LETTER(L_GAMMA,0,0),
@@ -325,7 +325,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('h',M_TURNED,0),
 	LETTER('h',M_HOOK,0),
 	0,
-	LETTER('i',M_BAR,0),		// U+268
+	LETTER('i',M_BAR,0),        // U+268
 	LETTER(L_IOTA,0,0),
 	LETTER('i',M_SMALLCAP,0),
 	LETTER('l',M_TILDE,0),
@@ -341,7 +341,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('o',M_BAR,0),
 	LIGATURE('o','e',M_SMALLCAP),
 	0,
-	LETTER(L_PHI,0,0),		// U+278
+	LETTER(L_PHI,0,0),      // U+278
 	LETTER('r',M_TURNED,0),
 	LETTER(L_RLONG,M_TURNED,0),
 	LETTER('r',M_RETROFLEX,M_TURNED),
@@ -349,7 +349,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('r',M_RETROFLEX,0),
 	0,  // r-tap
 	LETTER(L_RTAP,M_REVERSED,0),
-	LETTER('r',M_SMALLCAP,0),	// U+280
+	LETTER('r',M_SMALLCAP,0),   // U+280
 	LETTER('r',M_TURNED,M_SMALLCAP),
 	LETTER('s',M_RETROFLEX,0),
 	0,  // esh
@@ -357,7 +357,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER(L_ESH,M_REVERSED,0),
 	LETTER(L_ESH,M_CURL,0),
 	LETTER('t',M_TURNED,0),
-	LETTER('t',M_RETROFLEX,0),	// U+288
+	LETTER('t',M_RETROFLEX,0),  // U+288
 	LETTER('u',M_BAR,0),
 	LETTER(L_UPSILON,0,0),
 	LETTER('v',M_HOOK,0),
@@ -365,7 +365,7 @@ static const unsigned short letter_accents_250[] = {
 	LETTER('w',M_TURNED,0),
 	LETTER('y',M_TURNED,0),
 	LETTER('y',M_SMALLCAP,0),
-	LETTER('z',M_RETROFLEX,0),	// U+290
+	LETTER('z',M_RETROFLEX,0),  // U+290
 	LETTER('z',M_CURL,0),
 	0,  // ezh
 	LETTER(L_EZH,M_CURL,0),
@@ -588,7 +588,8 @@ static const int number_ranges[] = {
 	0x660, 0x6f0,  // arabic
 	0x966, 0x9e6, 0xa66, 0xae6, 0xb66, 0xbe6, 0xc66, 0xce6, 0xd66,  // indic
 	0xe50, 0xed0, 0xf20, 0x1040, 0x1090,
-	0 };  // these must be in ascending order
+	0
+};        // these must be in ascending order
 
 
 int NonAsciiNumber(int letter)
@@ -676,7 +677,8 @@ static unsigned short derived_letters[] = {
 	0x209a, 'p'+L_SUB,
 	0x209b, 's'+L_SUB,
 	0x209c, 't'+L_SUB,
-	0,0};
+	0,0
+};
 
 
 static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'ef"};  // names, using phonemes available to all languages
@@ -1856,7 +1858,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 			found = 0;
 			if((ordinal)
-					&& ((tensunits == 0) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
+			   && ((tensunits == 0) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 			{
 				// ordinal number
 				sprintf(string, "_%dCo", hundreds);
@@ -2060,7 +2062,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	digit_lookup = buf_digit_lookup;
 	number_control = control;
 
-	for(ix=0; IsDigit09(word[ix]); ix++) ;
+	for(ix=0; IsDigit09(word[ix]); ix++);
 	n_digits = ix;
 	value = this_value = atoi(word);
 
@@ -2241,16 +2243,16 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	}
 	else
 
-		if(speak_missing_thousands == 1)
+	if(speak_missing_thousands == 1)
+	{
+		// speak this thousandplex if there was no word for the previous thousandplex
+		sprintf(string,"_0M%d",thousandplex+1);
+		if(Lookup(tr, string, buf1)==0)
 		{
-			// speak this thousandplex if there was no word for the previous thousandplex
-			sprintf(string,"_0M%d",thousandplex+1);
-			if(Lookup(tr, string, buf1)==0)
-			{
-				sprintf(string,"_0M%d",thousandplex);
-				Lookup(tr, string, ph_append);
-			}
+			sprintf(string,"_0M%d",thousandplex);
+			Lookup(tr, string, ph_append);
 		}
+	}
 
 	if((ph_append[0] == 0) && (word[n_digits] == '.') && (thousandplex == 0))
 	{
@@ -2328,69 +2330,69 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		while(IsDigit09(word[n_digits+decimal_count]))
 			decimal_count++;
 
-			max_decimal_count = 2;
-			switch(decimal_mode = (tr->langopts.numbers & 0xe000))
+		max_decimal_count = 2;
+		switch(decimal_mode = (tr->langopts.numbers & 0xe000))
+		{
+		case NUM_DFRACTION_4:
+			max_decimal_count = 5;
+		case NUM_DFRACTION_2:
+			// French/Polish decimal fraction
+			while(word[n_digits] == '0')
 			{
-			case NUM_DFRACTION_4:
-				max_decimal_count = 5;
-			case NUM_DFRACTION_2:
-				// French/Polish decimal fraction
-				while(word[n_digits] == '0')
-				{
-					Lookup(tr, "_0", buf1);
-					strcat(ph_out,buf1);
-					decimal_count--;
-					n_digits++;
-				}
-				if((decimal_count <= max_decimal_count) && IsDigit09(word[n_digits]))
-				{
-					LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
-					strcat(ph_out,buf1);
-					n_digits += decimal_count;
-				}
-				break;
-
-			case NUM_DFRACTION_1:   // italian, say "hundredths" if leading zero
-			case NUM_DFRACTION_5:   // hungarian, always say "tenths" etc.
-			case NUM_DFRACTION_6:   // kazakh, always say "tenths" etc, before the decimal fraction
-				LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
-				if((word[n_digits]=='0') || (decimal_mode != NUM_DFRACTION_1))
-				{
-					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
-					sprintf(string,"_0Z%d",decimal_count);
-					if(Lookup(tr, string, buf1) == 0)
-						break;   // revert to speaking single digits
-
-					if(decimal_mode == NUM_DFRACTION_6)
-						strcat(ph_out, buf1);
-					else
-						strcat(ph_buf, buf1);
-				}
-				strcat(ph_out,ph_buf);
-				n_digits += decimal_count;
-				break;
-
-			case NUM_DFRACTION_3:
-				// Romanian decimal fractions
-				if((decimal_count <= 4) && (word[n_digits] != '0'))
-				{
-					LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
-					strcat(ph_out,buf1);
-					n_digits += decimal_count;
-				}
-				break;
-
-			case NUM_DFRACTION_7:
-				// alternative form of decimal fraction digits, except the final digit
-				while(decimal_count-- > 1)
-				{
-					sprintf(string,"_%cd", word[n_digits]);
-					if(Lookup(tr, string, buf1) == 0)
-						break;
-					n_digits++;
-					strcat(ph_out, buf1);
-				}
+				Lookup(tr, "_0", buf1);
+				strcat(ph_out,buf1);
+				decimal_count--;
+				n_digits++;
 			}
+			if((decimal_count <= max_decimal_count) && IsDigit09(word[n_digits]))
+			{
+				LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
+				strcat(ph_out,buf1);
+				n_digits += decimal_count;
+			}
+			break;
+
+		case NUM_DFRACTION_1:       // italian, say "hundredths" if leading zero
+		case NUM_DFRACTION_5:       // hungarian, always say "tenths" etc.
+		case NUM_DFRACTION_6:       // kazakh, always say "tenths" etc, before the decimal fraction
+			LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
+			if((word[n_digits]=='0') || (decimal_mode != NUM_DFRACTION_1))
+			{
+				// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
+				sprintf(string,"_0Z%d",decimal_count);
+				if(Lookup(tr, string, buf1) == 0)
+					break;       // revert to speaking single digits
+
+				if(decimal_mode == NUM_DFRACTION_6)
+					strcat(ph_out, buf1);
+				else
+					strcat(ph_buf, buf1);
+			}
+			strcat(ph_out,ph_buf);
+			n_digits += decimal_count;
+			break;
+
+		case NUM_DFRACTION_3:
+			// Romanian decimal fractions
+			if((decimal_count <= 4) && (word[n_digits] != '0'))
+			{
+				LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
+				strcat(ph_out,buf1);
+				n_digits += decimal_count;
+			}
+			break;
+
+		case NUM_DFRACTION_7:
+			// alternative form of decimal fraction digits, except the final digit
+			while(decimal_count-- > 1)
+			{
+				sprintf(string,"_%cd", word[n_digits]);
+				if(Lookup(tr, string, buf1) == 0)
+					break;
+				n_digits++;
+				strcat(ph_out, buf1);
+			}
+		}
 
 		while(IsDigit09(c = word[n_digits]) && (strlen(ph_out) < (N_WORD_PHONEMES - 10)))
 		{

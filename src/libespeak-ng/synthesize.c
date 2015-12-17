@@ -46,18 +46,18 @@ char mbrola_name[20];
 
 SPEED_FACTORS speed;
 
-static int  last_pitch_cmd;
-static int  last_amp_cmd;
+static int last_pitch_cmd;
+static int last_amp_cmd;
 static frame_t  *last_frame;
-static int  last_wcmdq;
-static int  pitch_length;
-static int  amp_length;
-static int  modn_flags;
-static int  fmt_amplitude=0;
+static int last_wcmdq;
+static int pitch_length;
+static int amp_length;
+static int modn_flags;
+static int fmt_amplitude=0;
 
-static int  syllable_start;
-static int  syllable_end;
-static int  syllable_centre;
+static int syllable_start;
+static int syllable_end;
+static int syllable_centre;
 
 static voice_t *new_voice=NULL;
 
@@ -78,7 +78,7 @@ static PHONEME_LIST next_pause;
 const char *WordToString(unsigned int word)
 {
 // Convert a phoneme mnemonic word into a string
-	int  ix;
+	int ix;
 	static char buf[5];
 
 	for(ix=0; ix<4; ix++)
@@ -457,19 +457,20 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	int ix;
 
 	static const short sqrt_tab[200] = {
-	  0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
-	256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
-	362,367,373,378,384,389,394,399,404,409,414,419,424,429,434,438,
-	443,448,452,457,461,465,470,474,478,483,487,491,495,499,503,507,
-	512,515,519,523,527,531,535,539,543,546,550,554,557,561,565,568,
-	572,576,579,583,586,590,593,596,600,603,607,610,613,617,620,623,
-	627,630,633,636,640,643,646,649,652,655,658,662,665,668,671,674,
-	677,680,683,686,689,692,695,698,701,704,706,709,712,715,718,721,
-	724,726,729,732,735,738,740,743,746,749,751,754,757,759,762,765,
-	768,770,773,775,778,781,783,786,789,791,794,796,799,801,804,807,
-	809,812,814,817,819,822,824,827,829,832,834,836,839,841,844,846,
-	849,851,853,856,858,861,863,865,868,870,872,875,877,879,882,884,
-	886,889,891,893,896,898,900,902};
+		0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
+		256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
+		362,367,373,378,384,389,394,399,404,409,414,419,424,429,434,438,
+		443,448,452,457,461,465,470,474,478,483,487,491,495,499,503,507,
+		512,515,519,523,527,531,535,539,543,546,550,554,557,561,565,568,
+		572,576,579,583,586,590,593,596,600,603,607,610,613,617,620,623,
+		627,630,633,636,640,643,646,649,652,655,658,662,665,668,671,674,
+		677,680,683,686,689,692,695,698,701,704,706,709,712,715,718,721,
+		724,726,729,732,735,738,740,743,746,749,751,754,757,759,762,765,
+		768,770,773,775,778,781,783,786,789,791,794,796,799,801,804,807,
+		809,812,814,817,819,822,824,827,829,832,834,836,839,841,844,846,
+		849,851,853,856,858,861,863,865,868,870,872,875,877,879,882,884,
+		886,889,891,893,896,898,900,902
+	};
 
 	if(voice->klattv[0])
 	{
@@ -498,8 +499,8 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 static void formants_reduce_hf(frame_t *fr, int level)
 {
 //  change height of peaks 2 to 8, percentage
-	int  ix;
-	int  x;
+	int ix;
+	int x;
 
 	if(voice->klattv[0])
 		return;
@@ -626,10 +627,10 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 
 #define N_VCOLOUR  2
 // percentage change for each formant in 256ths
-static short vcolouring[N_VCOLOUR][5] = {
-	{243,272,256,256,256},         // palatal consonant follows
-	{256,256,240,240,240},         // retroflex
-};
+	static short vcolouring[N_VCOLOUR][5] = {
+		{243,272,256,256,256},     // palatal consonant follows
+		{256,256,240,240,240},     // retroflex
+	};
 
 	frame_t *fr = NULL;
 
@@ -664,10 +665,10 @@ static short vcolouring[N_VCOLOUR][5] = {
 
 		next_rms = seq[1].frame->rms;
 
-if(voice->klattv[0])
-{
-   fr->klattp[KLATT_AV] = seq[1].frame->klattp[KLATT_AV] - 4;
-}
+		if(voice->klattv[0])
+		{
+			fr->klattp[KLATT_AV] = seq[1].frame->klattp[KLATT_AV] - 4;
+		}
 		if(f2 != 0)
 		{
 			if(rms & 0x20)
@@ -791,7 +792,7 @@ static void SmoothSpect(void)
 	// backwards
 	ix = syllable_centre -1;
 	frame = frame2 = frame_centre;
-	for(;;)
+	for(;; )
 	{
 		if(ix < 0) ix = N_WCMDQ-1;
 		q = wcmdq[ix];
@@ -879,7 +880,7 @@ static void SmoothSpect(void)
 	ix = syllable_centre;
 
 	frame = NULL;
-	for(;;)
+	for(;; )
 	{
 		q = wcmdq[ix];
 
@@ -979,21 +980,21 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	// length_mod: 256 = 100%
 	// modulation: -1 = don't write to wcmdq
 
-	int  n_frames;
+	int n_frames;
 	frameref_t *frames;
-	int  frameix;
+	int frameix;
 	frame_t *frame1;
 	frame_t *frame2;
 	frame_t *fr;
-	int  ix;
+	int ix;
 	long64 *q;
-	int  len;
-	int  frame_length;
-	int  length_factor;
-	int  length_mod;
-	int  length_sum;
-	int  length_min;
-	int  total_len = 0;
+	int len;
+	int frame_length;
+	int length_factor;
+	int length_mod;
+	int length_sum;
+	int length_min;
+	int total_len = 0;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
 	int frame_lengths[N_SEQ_FRAMES];
@@ -1011,17 +1012,17 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 			length_min *= 2;    // ensure long vowels are longer
 	}
 
-if(which==1)
-{
-	// limit the shortening of sonorants before shortened (eg. unstressed vowels)
-	if((this_ph->type==phLIQUID) || (plist[-1].type==phLIQUID) || (plist[-1].type==phNASAL))
+	if(which==1)
 	{
-		if(length_mod < (len = translator->langopts.param[LOPT_SONORANT_MIN]))
+		// limit the shortening of sonorants before shortened (eg. unstressed vowels)
+		if((this_ph->type==phLIQUID) || (plist[-1].type==phLIQUID) || (plist[-1].type==phNASAL))
 		{
-			length_mod = len;
+			if(length_mod < (len = translator->langopts.param[LOPT_SONORANT_MIN]))
+			{
+				length_mod = len;
+			}
 		}
 	}
-}
 
 	modn_flags = 0;
 	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist);
@@ -1069,7 +1070,7 @@ if(which==1)
 	if(last_frame != NULL)
 	{
 		if(((last_frame->length < 2) || (last_frame->frflags & FRFLAG_VOWEL_CENTRE))
-			&& !(last_frame->frflags & FRFLAG_BREAK))
+		   && !(last_frame->frflags & FRFLAG_BREAK))
 		{
 			// last frame of previous sequence was zero-length, replace with first of this sequence
 			wcmdq[last_wcmdq][3] = (long64)frame1;
@@ -1312,19 +1313,19 @@ void DoEmbedded(int *embix, int sourceix)
 
 int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
-	static int  ix;
-	static int  embedded_ix;
-	static int  word_count;
+	static int ix;
+	static int embedded_ix;
+	static int word_count;
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
 	PHONEME_LIST *next2;
 	PHONEME_LIST *p;
-	int  released;
-	int  stress;
-	int  modulation;
-	int  pre_voiced;
-	int  free_min;
-	int  value;
+	int released;
+	int stress;
+	int modulation;
+	int pre_voiced;
+	int free_min;
+	int value;
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
@@ -1395,7 +1396,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->newword)
 		{
 			if(((p->type == phVOWEL) && (translator->langopts.param[LOPT_WORD_MERGE] & 1)) ||
-				 (p->ph->phflags & phNOPAUSE))
+			   (p->ph->phflags & phNOPAUSE))
 			{
 			}
 			else
@@ -1439,7 +1440,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		{
 		case phPAUSE:
 			DoPause(p->length,0);
-            p->std_length = p->ph->std_length;
+			p->std_length = p->ph->std_length;
 			break;
 
 		case phSTOP:
@@ -1447,7 +1448,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			ph = p->ph;
 			if(next->type==phVOWEL)
 			{
-				 released = 1;
+				released = 1;
 			}
 			else
 			if(!next->newword)

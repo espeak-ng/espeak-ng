@@ -238,15 +238,15 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	unsigned char c;
 	char *p;
 	char *p_end;
-	int  ix;
-	int  match_type;
-	int  finished=0;
-	int  value;
-	int  linenum=0;
-	int  flags;
-	int  suffix_char;
-	int  condition_num=0;
-	int  at_start = 0;
+	int ix;
+	int match_type;
+	int finished=0;
+	int value;
+	int linenum=0;
+	int flags;
+	int suffix_char;
+	int condition_num=0;
+	int at_start = 0;
 	const char *name;
 	char buf[200];
 	char buf_pre[200];
@@ -254,9 +254,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	static char output[80];
 
 	static char symbols[] =
-		{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
-		'&','%','+','#','S','D','Z','A','L','!',' ','@','?','J','N','K','V','?','T','X','?','W'
-		};
+	{' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
+	 '&','%','+','#','S','D','Z','A','L','!',' ','@','?','J','N','K','V','?','T','X','?','W'};
 
 	static char symbols_lg[] = {'A','B','C','H','F','G','Y'};
 
@@ -409,25 +408,25 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 static int compile_line(char *linebuf, char *dict_line, int *hash)
 {
 // Compile a line in the language_list file
-	unsigned char  c;
+	unsigned char c;
 	char *p;
 	char *word;
 	char *phonetic;
-	unsigned int  ix;
-	int  step;
-	unsigned int  n_flag_codes = 0;
+	unsigned int ix;
+	int step;
+	unsigned int n_flag_codes = 0;
 	int flagnum;
-	int  flag_offset;
-	int  length;
-	int  multiple_words = 0;
-	int  multiple_numeric_hyphen = 0;
+	int flag_offset;
+	int length;
+	int multiple_words = 0;
+	int multiple_numeric_hyphen = 0;
 	char *multiple_string = NULL;
 	char *multiple_string_end = NULL;
 
 	int len_word;
 	int len_phonetic;
 	int text_not_phonemes;   // this word specifies replacement text, not phonemes
-	unsigned int  wc;
+	unsigned int wc;
 	int all_upper_case;
 
 	char *mnemptr;
@@ -679,7 +678,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 
 		all_upper_case = 1;
 		p = word;
-		for(p=word;;)
+		for(p=word;; )
 		{
 			// this assumes that the lower case char is the same length as the upper case char
 			// OK, except for Turkish "I", but use towlower() rather than towlower2()
@@ -823,10 +822,10 @@ static void compile_dictlist_end(FILE *f_out)
 
 static int compile_dictlist_file(const char *path, const char* filename)
 {
-	int  length;
-	int  hash;
+	int length;
+	int hash;
 	char *p;
-	int  count=0;
+	int count=0;
 	FILE *f_in;
 	char buf[200];
 	char fname[sizeof(path_home)+45];
@@ -890,7 +889,7 @@ static char rule_phonemes[80];
 static char group_name[LEN_GROUP_NAME+1];
 static int group3_ix;
 
-#define N_RULES 3000		// max rules for each group
+#define N_RULES 3000        // max rules for each group
 
 
 
@@ -917,10 +916,10 @@ static void copy_rule_string(char *string, int *state_out)
 	int len;
 	char c;
 	int c2, c3;
-	int  sxflags;
-	int  value;
-	int  literal;
-	int  hexdigit_input = 0;
+	int sxflags;
+	int value;
+	int literal;
+	int hexdigit_input = 0;
 	int state = *state_out;
 	MNEM_TAB *mr;
 
@@ -937,7 +936,7 @@ static void copy_rule_string(char *string, int *state_out)
 	}
 	sxflags = 0x808000;           // to ensure non-zero bytes
 
-	for(p=string,ix=0;;)
+	for(p=string,ix=0;; )
 	{
 		literal = 0;
 		c = *p++;
@@ -1127,7 +1126,7 @@ static void copy_rule_string(char *string, int *state_out)
 						case 'i':
 							sxflags |= SUFX_I;
 							break;
-						case 'p':	// obsolete, replaced by 'P' above
+						case 'p':   // obsolete, replaced by 'P' above
 							sxflags |= SUFX_P;
 							break;
 						case 'v':
@@ -1209,14 +1208,14 @@ static char *compile_rule(char *input)
 
 		switch(c = input[ix])
 		{
-		case ')':		// end of prefix section
+		case ')':       // end of prefix section
 			*p = 0;
 			state = 1;
 			copy_rule_string(buf,&state);
 			p = buf;
 			break;
 
-		case '(':		// start of suffix section
+		case '(':       // start of suffix section
 			*p = 0;
 			state = 2;
 			copy_rule_string(buf,&state);
@@ -1229,15 +1228,15 @@ static char *compile_rule(char *input)
 			}
 			break;
 
-		case '\n':		// end of line
+		case '\n':      // end of line
 		case '\r':
-		case 0:			// end of line
+		case 0:         // end of line
 			*p = 0;
 			copy_rule_string(buf,&state);
 			finish=1;
 			break;
 
-		case '\t':		// end of section section
+		case '\t':      // end of section section
 		case ' ':
 			*p = 0;
 			copy_rule_string(buf,&state);
@@ -1533,7 +1532,7 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 		if((common[0] != 0) && (strcmp(p,common)==0))
 		{
 			fwrite(p2,len2,1,f_out);
-			fputc(0,f_out);		// no phoneme string, it's the same as previous rule
+			fputc(0,f_out);     // no phoneme string, it's the same as previous rule
 		}
 		else
 		{
@@ -1671,7 +1670,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	if((f_temp = fopen_log(fname_temp,"wb")) == NULL)
 		return(1);
 
-	for(;;)
+	for(;; )
 	{
 		linenum++;
 		buf = fgets(buf1,sizeof(buf1),f_in);

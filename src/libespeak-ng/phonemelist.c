@@ -33,7 +33,7 @@ const unsigned char pause_phonemes[8] = {0, phonPAUSE_VSHORT, phonPAUSE_SHORT, p
 
 
 extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
+extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST];  // first stage of text->phonemes
 
 
 
@@ -107,9 +107,9 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 {
 
-	int  ix=0;
-	int  j;
-	int  insert_ph = 0;
+	int ix=0;
+	int j;
+	int insert_ph = 0;
 	PHONEME_LIST *phlist;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *next, *next2;
@@ -186,10 +186,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		if(plist2[j].phcode == phonSWITCH)
 		{
 			if((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
-				(plist2[j].tone_ph == current_phoneme_tab) ||
-			    (plist2[j+1].phcode == phonSWITCH) ||
-				((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
-				))
+			       (plist2[j].tone_ph == current_phoneme_tab) ||
+			       (plist2[j+1].phcode == phonSWITCH) ||
+			       ((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
+			       ))
 			{
 				// delete this phonSWITCH if it's switching to the current phoneme table, or
 				// delete this phonSWITCH if its followed by another phonSWITCH
@@ -302,7 +302,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 	n_ph_list3 = SubstitutePhonemes(tr,ph_list3) - 2;
 
-	for(j=0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);)
+	for(j=0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3); )
 	{
 		if(ph_list3[j].sourceix)
 		{
@@ -312,7 +312,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			word_stress = 0;
 
 			// find the highest stress level in this word
-			for(nextw=j; nextw < n_ph_list3;)
+			for(nextw=j; nextw < n_ph_list3; )
 			{
 				if(ph_list3[nextw].stresslevel > word_stress)
 					word_stress = ph_list3[nextw].stresslevel;

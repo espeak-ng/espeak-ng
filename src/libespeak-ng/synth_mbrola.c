@@ -49,25 +49,25 @@ typedef void (WINAPI *PROCVV)(void);
 typedef void (WINAPI *PROCVI)(int);
 typedef void (WINAPI *PROCVF)(float);
 typedef int (WINAPI *PROCIV)();
-typedef int (WINAPI *PROCIC) (char *);
+typedef int (WINAPI *PROCIC)(char *);
 typedef int (WINAPI *PROCISI)(short *,int);
 typedef char* (WINAPI *PROCVCI)(char *,int);
 
-PROCIC		init_MBR;
-PROCIC		write_MBR;
-PROCIV		flush_MBR;
-PROCISI		read_MBR;
-PROCVV		close_MBR;
-PROCVV		reset_MBR;
-PROCIV		lastError_MBR;
-PROCVCI		lastErrorStr_MBR;
-PROCVI		setNoError_MBR;
-PROCIV		getFreq_MBR;
-PROCVF		setVolumeRatio_MBR;
+PROCIC init_MBR;
+PROCIC write_MBR;
+PROCIV flush_MBR;
+PROCISI read_MBR;
+PROCVV close_MBR;
+PROCVV reset_MBR;
+PROCIV lastError_MBR;
+PROCVCI lastErrorStr_MBR;
+PROCVI setNoError_MBR;
+PROCIV getFreq_MBR;
+PROCVF setVolumeRatio_MBR;
 
 
 
-HINSTANCE	hinstDllMBR = NULL;
+HINSTANCE hinstDllMBR = NULL;
 
 
 BOOL load_MBR()
@@ -77,16 +77,16 @@ BOOL load_MBR()
 
 	if ((hinstDllMBR=LoadLibraryA("mbrola.dll")) == 0)
 		return FALSE;
-	init_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"init_MBR");
-	write_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"write_MBR");
-	flush_MBR			=(PROCIV) GetProcAddress(hinstDllMBR,"flush_MBR");
-	read_MBR			=(PROCISI) GetProcAddress(hinstDllMBR,"read_MBR");
-	close_MBR			=(PROCVV) GetProcAddress(hinstDllMBR,"close_MBR");
-	reset_MBR			=(PROCVV) GetProcAddress(hinstDllMBR,"reset_MBR");
-	lastError_MBR		=(PROCIV) GetProcAddress(hinstDllMBR,"lastError_MBR");
-	lastErrorStr_MBR	=(PROCVCI) GetProcAddress(hinstDllMBR,"lastErrorStr_MBR");
-	setNoError_MBR		=(PROCVI) GetProcAddress(hinstDllMBR,"setNoError_MBR");
-	setVolumeRatio_MBR	=(PROCVF) GetProcAddress(hinstDllMBR,"setVolumeRatio_MBR");
+	init_MBR            =(PROCIC) GetProcAddress(hinstDllMBR,"init_MBR");
+	write_MBR           =(PROCIC) GetProcAddress(hinstDllMBR,"write_MBR");
+	flush_MBR           =(PROCIV) GetProcAddress(hinstDllMBR,"flush_MBR");
+	read_MBR            =(PROCISI) GetProcAddress(hinstDllMBR,"read_MBR");
+	close_MBR           =(PROCVV) GetProcAddress(hinstDllMBR,"close_MBR");
+	reset_MBR           =(PROCVV) GetProcAddress(hinstDllMBR,"reset_MBR");
+	lastError_MBR       =(PROCIV) GetProcAddress(hinstDllMBR,"lastError_MBR");
+	lastErrorStr_MBR    =(PROCVCI) GetProcAddress(hinstDllMBR,"lastErrorStr_MBR");
+	setNoError_MBR      =(PROCVI) GetProcAddress(hinstDllMBR,"setNoError_MBR");
+	setVolumeRatio_MBR  =(PROCVF) GetProcAddress(hinstDllMBR,"setVolumeRatio_MBR");
 	return TRUE;
 }
 
@@ -134,7 +134,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	//   usr/share/mbrola/xx, /usr/share/mbrola/xx/xx, /usr/share/mbrola/voices/xx
 	if(GetFileLength(path) <= 0)
 	{
-     sprintf(path,"/usr/share/mbrola/%s",mbrola_voice);
+		sprintf(path,"/usr/share/mbrola/%s",mbrola_voice);
 
 		if(GetFileLength(path) <= 0)
 		{
@@ -243,8 +243,8 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 					other_ph = ph_next;
 
 				if((pr->next_phoneme == other_ph->mnemonic) ||
-					((pr->next_phoneme == 2) && (other_ph->type == phVOWEL)) ||
-					((pr->next_phoneme == '_') && (other_ph->type == phPAUSE)))
+				   ((pr->next_phoneme == 2) && (other_ph->type == phVOWEL)) ||
+				   ((pr->next_phoneme == '_') && (other_ph->type == phPAUSE)))
 				{
 					found = 1;
 				}

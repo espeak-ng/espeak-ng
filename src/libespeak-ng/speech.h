@@ -53,15 +53,15 @@ extern "C"
 #endif
 
 typedef unsigned short USHORT;
-typedef unsigned char  UCHAR;
+typedef unsigned char UCHAR;
 typedef double DOUBLEX;
 typedef unsigned long long64;   // use this for conversion between pointers and integers
 
 
 
 typedef struct {
-   const char *mnem;
-   int  value;
+	const char *mnem;
+	int value;
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, const char *string);
 

@@ -174,57 +174,57 @@ static unsigned char modulation_tab[N_ROUGHNESS][8] = {
 #define N_FLUTTER  0x170
 static int Flutter_inc;
 static const unsigned char Flutter_tab[N_FLUTTER] = {
-   0x80, 0x9b, 0xb5, 0xcb, 0xdc, 0xe8, 0xed, 0xec,
-   0xe6, 0xdc, 0xce, 0xbf, 0xb0, 0xa3, 0x98, 0x90,
-   0x8c, 0x8b, 0x8c, 0x8f, 0x92, 0x94, 0x95, 0x92,
-   0x8c, 0x83, 0x78, 0x69, 0x59, 0x49, 0x3c, 0x31,
-   0x2a, 0x29, 0x2d, 0x36, 0x44, 0x56, 0x69, 0x7d,
-   0x8f, 0x9f, 0xaa, 0xb1, 0xb2, 0xad, 0xa4, 0x96,
-   0x87, 0x78, 0x69, 0x5c, 0x53, 0x4f, 0x4f, 0x55,
-   0x5e, 0x6b, 0x7a, 0x88, 0x96, 0xa2, 0xab, 0xb0,
+	0x80, 0x9b, 0xb5, 0xcb, 0xdc, 0xe8, 0xed, 0xec,
+	0xe6, 0xdc, 0xce, 0xbf, 0xb0, 0xa3, 0x98, 0x90,
+	0x8c, 0x8b, 0x8c, 0x8f, 0x92, 0x94, 0x95, 0x92,
+	0x8c, 0x83, 0x78, 0x69, 0x59, 0x49, 0x3c, 0x31,
+	0x2a, 0x29, 0x2d, 0x36, 0x44, 0x56, 0x69, 0x7d,
+	0x8f, 0x9f, 0xaa, 0xb1, 0xb2, 0xad, 0xa4, 0x96,
+	0x87, 0x78, 0x69, 0x5c, 0x53, 0x4f, 0x4f, 0x55,
+	0x5e, 0x6b, 0x7a, 0x88, 0x96, 0xa2, 0xab, 0xb0,
 
-   0xb1, 0xae, 0xa8, 0xa0, 0x98, 0x91, 0x8b, 0x88,
-   0x89, 0x8d, 0x94, 0x9d, 0xa8, 0xb2, 0xbb, 0xc0,
-   0xc1, 0xbd, 0xb4, 0xa5, 0x92, 0x7c, 0x63, 0x4a,
-   0x32, 0x1e, 0x0e, 0x05, 0x02, 0x05, 0x0f, 0x1e,
-   0x30, 0x44, 0x59, 0x6d, 0x7f, 0x8c, 0x96, 0x9c,
-   0x9f, 0x9f, 0x9d, 0x9b, 0x99, 0x99, 0x9c, 0xa1,
-   0xa9, 0xb3, 0xbf, 0xca, 0xd5, 0xdc, 0xe0, 0xde,
-   0xd8, 0xcc, 0xbb, 0xa6, 0x8f, 0x77, 0x60, 0x4b,
+	0xb1, 0xae, 0xa8, 0xa0, 0x98, 0x91, 0x8b, 0x88,
+	0x89, 0x8d, 0x94, 0x9d, 0xa8, 0xb2, 0xbb, 0xc0,
+	0xc1, 0xbd, 0xb4, 0xa5, 0x92, 0x7c, 0x63, 0x4a,
+	0x32, 0x1e, 0x0e, 0x05, 0x02, 0x05, 0x0f, 0x1e,
+	0x30, 0x44, 0x59, 0x6d, 0x7f, 0x8c, 0x96, 0x9c,
+	0x9f, 0x9f, 0x9d, 0x9b, 0x99, 0x99, 0x9c, 0xa1,
+	0xa9, 0xb3, 0xbf, 0xca, 0xd5, 0xdc, 0xe0, 0xde,
+	0xd8, 0xcc, 0xbb, 0xa6, 0x8f, 0x77, 0x60, 0x4b,
 
-   0x3a, 0x2e, 0x28, 0x29, 0x2f, 0x3a, 0x48, 0x59,
-   0x6a, 0x7a, 0x86, 0x90, 0x94, 0x95, 0x91, 0x89,
-   0x80, 0x75, 0x6b, 0x62, 0x5c, 0x5a, 0x5c, 0x61,
-   0x69, 0x74, 0x80, 0x8a, 0x94, 0x9a, 0x9e, 0x9d,
-   0x98, 0x90, 0x86, 0x7c, 0x71, 0x68, 0x62, 0x60,
-   0x63, 0x6b, 0x78, 0x88, 0x9b, 0xaf, 0xc2, 0xd2,
-   0xdf, 0xe6, 0xe7, 0xe2, 0xd7, 0xc6, 0xb2, 0x9c,
-   0x84, 0x6f, 0x5b, 0x4b, 0x40, 0x39, 0x37, 0x38,
+	0x3a, 0x2e, 0x28, 0x29, 0x2f, 0x3a, 0x48, 0x59,
+	0x6a, 0x7a, 0x86, 0x90, 0x94, 0x95, 0x91, 0x89,
+	0x80, 0x75, 0x6b, 0x62, 0x5c, 0x5a, 0x5c, 0x61,
+	0x69, 0x74, 0x80, 0x8a, 0x94, 0x9a, 0x9e, 0x9d,
+	0x98, 0x90, 0x86, 0x7c, 0x71, 0x68, 0x62, 0x60,
+	0x63, 0x6b, 0x78, 0x88, 0x9b, 0xaf, 0xc2, 0xd2,
+	0xdf, 0xe6, 0xe7, 0xe2, 0xd7, 0xc6, 0xb2, 0x9c,
+	0x84, 0x6f, 0x5b, 0x4b, 0x40, 0x39, 0x37, 0x38,
 
-   0x3d, 0x43, 0x4a, 0x50, 0x54, 0x56, 0x55, 0x52,
-   0x4d, 0x48, 0x42, 0x3f, 0x3e, 0x41, 0x49, 0x56,
-   0x67, 0x7c, 0x93, 0xab, 0xc3, 0xd9, 0xea, 0xf6,
-   0xfc, 0xfb, 0xf4, 0xe7, 0xd5, 0xc0, 0xaa, 0x94,
-   0x80, 0x71, 0x64, 0x5d, 0x5a, 0x5c, 0x61, 0x68,
-   0x70, 0x77, 0x7d, 0x7f, 0x7f, 0x7b, 0x74, 0x6b,
-   0x61, 0x57, 0x4e, 0x48, 0x46, 0x48, 0x4e, 0x59,
-   0x66, 0x75, 0x84, 0x93, 0x9f, 0xa7, 0xab, 0xaa,
+	0x3d, 0x43, 0x4a, 0x50, 0x54, 0x56, 0x55, 0x52,
+	0x4d, 0x48, 0x42, 0x3f, 0x3e, 0x41, 0x49, 0x56,
+	0x67, 0x7c, 0x93, 0xab, 0xc3, 0xd9, 0xea, 0xf6,
+	0xfc, 0xfb, 0xf4, 0xe7, 0xd5, 0xc0, 0xaa, 0x94,
+	0x80, 0x71, 0x64, 0x5d, 0x5a, 0x5c, 0x61, 0x68,
+	0x70, 0x77, 0x7d, 0x7f, 0x7f, 0x7b, 0x74, 0x6b,
+	0x61, 0x57, 0x4e, 0x48, 0x46, 0x48, 0x4e, 0x59,
+	0x66, 0x75, 0x84, 0x93, 0x9f, 0xa7, 0xab, 0xaa,
 
-   0xa4, 0x99, 0x8b, 0x7b, 0x6a, 0x5b, 0x4e, 0x46,
-   0x43, 0x45, 0x4d, 0x5a, 0x6b, 0x7f, 0x92, 0xa6,
-   0xb8, 0xc5, 0xcf, 0xd3, 0xd2, 0xcd, 0xc4, 0xb9,
-   0xad, 0xa1, 0x96, 0x8e, 0x89, 0x87, 0x87, 0x8a,
-   0x8d, 0x91, 0x92, 0x91, 0x8c, 0x84, 0x78, 0x68,
-   0x55, 0x41, 0x2e, 0x1c, 0x0e, 0x05, 0x01, 0x05,
-   0x0f, 0x1f, 0x34, 0x4d, 0x68, 0x81, 0x9a, 0xb0,
-   0xc1, 0xcd, 0xd3, 0xd3, 0xd0, 0xc8, 0xbf, 0xb5,
+	0xa4, 0x99, 0x8b, 0x7b, 0x6a, 0x5b, 0x4e, 0x46,
+	0x43, 0x45, 0x4d, 0x5a, 0x6b, 0x7f, 0x92, 0xa6,
+	0xb8, 0xc5, 0xcf, 0xd3, 0xd2, 0xcd, 0xc4, 0xb9,
+	0xad, 0xa1, 0x96, 0x8e, 0x89, 0x87, 0x87, 0x8a,
+	0x8d, 0x91, 0x92, 0x91, 0x8c, 0x84, 0x78, 0x68,
+	0x55, 0x41, 0x2e, 0x1c, 0x0e, 0x05, 0x01, 0x05,
+	0x0f, 0x1f, 0x34, 0x4d, 0x68, 0x81, 0x9a, 0xb0,
+	0xc1, 0xcd, 0xd3, 0xd3, 0xd0, 0xc8, 0xbf, 0xb5,
 
-   0xab, 0xa4, 0x9f, 0x9c, 0x9d, 0xa0, 0xa5, 0xaa,
-   0xae, 0xb1, 0xb0, 0xab, 0xa3, 0x96, 0x87, 0x76,
-   0x63, 0x51, 0x42, 0x36, 0x2f, 0x2d, 0x31, 0x3a,
-   0x48, 0x59, 0x6b, 0x7e, 0x8e, 0x9c, 0xa6, 0xaa,
-   0xa9, 0xa3, 0x98, 0x8a, 0x7b, 0x6c, 0x5d, 0x52,
-   0x4a, 0x48, 0x4a, 0x50, 0x5a, 0x67, 0x75, 0x82
+	0xab, 0xa4, 0x9f, 0x9c, 0x9d, 0xa0, 0xa5, 0xaa,
+	0xae, 0xb1, 0xb0, 0xab, 0xa3, 0x96, 0x87, 0x76,
+	0x63, 0x51, 0x42, 0x36, 0x2f, 0x2d, 0x31, 0x3a,
+	0x48, 0x59, 0x6b, 0x7e, 0x8e, 0x9c, 0xa6, 0xaa,
+	0xa9, 0xa3, 0x98, 0x8a, 0x7b, 0x6c, 0x5d, 0x52,
+	0x4a, 0x48, 0x4a, 0x50, 0x5a, 0x67, 0x75, 0x82
 };
 
 // waveform shape table for HF peaks, formants 6,7,8
@@ -235,31 +235,33 @@ static int wavemult_max=0;
 // the presets are for 22050 Hz sample rate.
 // A different rate will need to recalculate the presets in WavegenInit()
 static unsigned char wavemult[N_WAVEMULT] = {
-  0,  0,  0,  2,  3,  5,  8, 11, 14, 18, 22, 27, 32, 37, 43, 49,
-    55, 62, 69, 76, 83, 90, 98,105,113,121,128,136,144,152,159,166,
-   174,181,188,194,201,207,213,218,224,228,233,237,240,244,246,249,
-   251,252,253,253,253,253,252,251,249,246,244,240,237,233,228,224,
-   218,213,207,201,194,188,181,174,166,159,152,144,136,128,121,113,
-   105, 98, 90, 83, 76, 69, 62, 55, 49, 43, 37, 32, 27, 22, 18, 14,
-    11,  8,  5,  3,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 };
+	0,  0,  0,  2,  3,  5,  8, 11, 14, 18, 22, 27, 32, 37, 43, 49,
+	55, 62, 69, 76, 83, 90, 98,105,113,121,128,136,144,152,159,166,
+	174,181,188,194,201,207,213,218,224,228,233,237,240,244,246,249,
+	251,252,253,253,253,253,252,251,249,246,244,240,237,233,228,224,
+	218,213,207,201,194,188,181,174,166,159,152,144,136,128,121,113,
+	105, 98, 90, 83, 76, 69, 62, 55, 49, 43, 37, 32, 27, 22, 18, 14,
+	11,  8,  5,  3,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+};
 
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
 unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
-    64, 65, 66, 67, 68, 69, 70, 71,
-    72, 73, 74, 75, 76, 77, 78, 79,
-    80, 81, 82, 83, 84, 86, 87, 88,
-    89, 91, 92, 93, 94, 96, 97, 98,
-   100,101,103,104,105,107,108,110,
-   111,113,115,116,118,119,121,123,
-   124,126,128,130,132,133,135,137,
-   139,141,143,145,147,149,151,153,
-   155,158,160,162,164,167,169,171,
-   174,176,179,181,184,186,189,191,
-   194,197,199,202,205,208,211,214,
-   217,220,223,226,229,232,236,239,
-   242,246,249,252, 254,255 };
+	64, 65, 66, 67, 68, 69, 70, 71,
+	72, 73, 74, 75, 76, 77, 78, 79,
+	80, 81, 82, 83, 84, 86, 87, 88,
+	89, 91, 92, 93, 94, 96, 97, 98,
+	100,101,103,104,105,107,108,110,
+	111,113,115,116,118,119,121,123,
+	124,126,128,130,132,133,135,137,
+	139,141,143,145,147,149,151,153,
+	155,158,160,162,164,167,169,171,
+	174,176,179,181,184,186,189,191,
+	194,197,199,202,205,208,211,214,
+	217,220,223,226,229,232,236,239,
+	242,246,249,252, 254,255
+};
 
 
 #ifdef LOG_FRAMES
@@ -324,7 +326,7 @@ int WcmdqFree()
 
 int WcmdqUsed()
 {
-   return(N_WCMDQ - WcmdqFree());
+	return(N_WCMDQ - WcmdqFree());
 }
 
 
@@ -346,48 +348,52 @@ static void WcmdqIncHead()
 #define PEAKSHAPEW 256
 static const float pk_shape_x[2][8] = {
 	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.5f, 4.5f, 5.5f},
-	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.0f, 4.5f, 5.5f }};
+	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.0f, 4.5f, 5.5f }
+};
 static const float pk_shape_y[2][8] = {
-	{0,  67,  81,  67,  31,  14,   0,  -6} ,
-	{0,  77,  81,  77,  31,   7,   0,  -6 }};
+	{0,  67,  81,  67,  31,  14,   0,  -6},
+	{0,  77,  81,  77,  31,   7,   0,  -6 }
+};
 
 unsigned char pk_shape1[PEAKSHAPEW+1] = {
-   255,254,254,254,254,254,253,253,252,251,251,250,249,248,247,246,
-   245,244,242,241,239,238,236,234,233,231,229,227,225,223,220,218,
-   216,213,211,209,207,205,203,201,199,197,195,193,191,189,187,185,
-   183,180,178,176,173,171,169,166,164,161,159,156,154,151,148,146,
-   143,140,138,135,132,129,126,123,120,118,115,112,108,105,102, 99,
-    96, 95, 93, 91, 90, 88, 86, 85, 83, 82, 80, 79, 77, 76, 74, 73,
-    72, 70, 69, 68, 67, 66, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55,
-    55, 54, 53, 52, 52, 51, 50, 50, 49, 48, 48, 47, 47, 46, 46, 46,
-    45, 45, 45, 44, 44, 44, 44, 44, 44, 44, 43, 43, 43, 43, 44, 43,
-    42, 42, 41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34, 33, 33,
-    32, 32, 31, 30, 30, 29, 29, 28, 28, 27, 26, 26, 25, 25, 24, 24,
-    23, 23, 22, 22, 21, 21, 20, 20, 19, 19, 18, 18, 18, 17, 17, 16,
-    16, 15, 15, 15, 14, 14, 13, 13, 13, 12, 12, 11, 11, 11, 10, 10,
-    10,  9,  9,  9,  8,  8,  8,  7,  7,  7,  7,  6,  6,  6,  5,  5,
-     5,  5,  4,  4,  4,  4,  4,  3,  3,  3,  3,  2,  2,  2,  2,  2,
-     2,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0 };
+	255,254,254,254,254,254,253,253,252,251,251,250,249,248,247,246,
+	245,244,242,241,239,238,236,234,233,231,229,227,225,223,220,218,
+	216,213,211,209,207,205,203,201,199,197,195,193,191,189,187,185,
+	183,180,178,176,173,171,169,166,164,161,159,156,154,151,148,146,
+	143,140,138,135,132,129,126,123,120,118,115,112,108,105,102, 99,
+	96, 95, 93, 91, 90, 88, 86, 85, 83, 82, 80, 79, 77, 76, 74, 73,
+	72, 70, 69, 68, 67, 66, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55,
+	55, 54, 53, 52, 52, 51, 50, 50, 49, 48, 48, 47, 47, 46, 46, 46,
+	45, 45, 45, 44, 44, 44, 44, 44, 44, 44, 43, 43, 43, 43, 44, 43,
+	42, 42, 41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34, 33, 33,
+	32, 32, 31, 30, 30, 29, 29, 28, 28, 27, 26, 26, 25, 25, 24, 24,
+	23, 23, 22, 22, 21, 21, 20, 20, 19, 19, 18, 18, 18, 17, 17, 16,
+	16, 15, 15, 15, 14, 14, 13, 13, 13, 12, 12, 11, 11, 11, 10, 10,
+	10,  9,  9,  9,  8,  8,  8,  7,  7,  7,  7,  6,  6,  6,  5,  5,
+	5,  5,  4,  4,  4,  4,  4,  3,  3,  3,  3,  2,  2,  2,  2,  2,
+	2,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0
+};
 
 static unsigned char pk_shape2[PEAKSHAPEW+1] = {
-   255,254,254,254,254,254,254,254,254,254,253,253,253,253,252,252,
-   252,251,251,251,250,250,249,249,248,248,247,247,246,245,245,244,
-   243,243,242,241,239,237,235,233,231,229,227,225,223,221,218,216,
-   213,211,208,205,203,200,197,194,191,187,184,181,178,174,171,167,
-   163,160,156,152,148,144,140,136,132,127,123,119,114,110,105,100,
-    96, 94, 91, 88, 86, 83, 81, 78, 76, 74, 71, 69, 66, 64, 62, 60,
-    57, 55, 53, 51, 49, 47, 44, 42, 40, 38, 36, 34, 32, 30, 29, 27,
-    25, 23, 21, 19, 18, 16, 14, 12, 11,  9,  7,  6,  4,  3,  1,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0 };
+	255,254,254,254,254,254,254,254,254,254,253,253,253,253,252,252,
+	252,251,251,251,250,250,249,249,248,248,247,247,246,245,245,244,
+	243,243,242,241,239,237,235,233,231,229,227,225,223,221,218,216,
+	213,211,208,205,203,200,197,194,191,187,184,181,178,174,171,167,
+	163,160,156,152,148,144,140,136,132,127,123,119,114,110,105,100,
+	96, 94, 91, 88, 86, 83, 81, 78, 76, 74, 71, 69, 66, 64, 62, 60,
+	57, 55, 53, 51, 49, 47, 44, 42, 40, 38, 36, 34, 32, 30, 29, 27,
+	25, 23, 21, 19, 18, 16, 14, 12, 11,  9,  7,  6,  4,  3,  1,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+	0
+};
 
 static unsigned char *pk_shape;
 
@@ -405,11 +411,11 @@ int outbuffer_size = 0;
 
 #if USE_PORTAUDIO == 18
 static int WaveCallback(void *inputBuffer, void *outputBuffer,
-		unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
+                        unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
 #else
 static int WaveCallback(const void *inputBuffer, void *outputBuffer,
-		long unsigned int framesPerBuffer, const PaStreamCallbackTimeInfo *outTime,
-		PaStreamCallbackFlags flags, void *userData )
+                        long unsigned int framesPerBuffer, const PaStreamCallbackTimeInfo *outTime,
+                        PaStreamCallbackFlags flags, void *userData )
 #endif
 {
 	int ix;
@@ -539,13 +545,13 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
    is broken */
 
 static PaError Pa_OpenDefaultStream2( PaStream** stream,
-                              int inputChannelCount,
-                              int outputChannelCount,
-                              PaSampleFormat sampleFormat,
-                              double sampleRate,
-                              unsigned long framesPerBuffer,
-                              PaStreamCallback *streamCallback,
-                              void *userData )
+                                      int inputChannelCount,
+                                      int outputChannelCount,
+                                      PaSampleFormat sampleFormat,
+                                      double sampleRate,
+                                      unsigned long framesPerBuffer,
+                                      PaStreamCallback *streamCallback,
+                                      void *userData )
 {
 	PaError result;
 	PaStreamParameters hostApiOutputParameters;
@@ -564,13 +570,13 @@ static PaError Pa_OpenDefaultStream2( PaStream** stream,
 	   defaultLowOutputLatency because it is more important for the default
 	   stream to work reliably than it is for it to work with the lowest
 	   latency.
-	*/
+	 */
 	hostApiOutputParameters.suggestedLatency =
-	      Pa_GetDeviceInfo( hostApiOutputParameters.device )->defaultHighOutputLatency;
+	    Pa_GetDeviceInfo( hostApiOutputParameters.device )->defaultHighOutputLatency;
 	hostApiOutputParameters.hostApiSpecificStreamInfo = NULL;
 
 	result = Pa_OpenStream(
-		stream, NULL, &hostApiOutputParameters, sampleRate, framesPerBuffer, paNoFlag, streamCallback, userData );
+	    stream, NULL, &hostApiOutputParameters, sampleRate, framesPerBuffer, paNoFlag, streamCallback, userData );
 
 	return(result);
 }
@@ -707,7 +713,7 @@ int WavegenInitSound()
 
 void WavegenInit(int rate, int wavemult_fact)
 {
-	int  ix;
+	int ix;
 	double x;
 
 	if(wavemult_fact == 0)
@@ -754,8 +760,8 @@ void WavegenInit(int rate, int wavemult_fact)
 #endif
 
 #ifdef LOG_FRAMES
-remove("log-espeakedit");
-remove("log-klatt");
+	remove("log-espeakedit");
+	remove("log-klatt");
 #endif
 }
 
@@ -823,7 +829,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 // control 0=initial call, 1=every 64 cycles
 
-   // pitch and freqs are Hz<<16
+	// pitch and freqs are Hz<<16
 
 	int f;
 	wavegen_peaks_t *p;
@@ -855,7 +861,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	if(hmax > hmax_samplerate)
 		hmax = hmax_samplerate;
 
-	for(h=0;h<=hmax;h++)
+	for(h=0; h<=hmax; h++)
 		htab[h]=0;
 
 	h=0;
@@ -879,23 +885,23 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		}
 	}
 
-{
-int y;
-int h2;
-	// increase bass
-	y = peaks[1].height * 10;   // addition as a multiple of 1/256s
-	h2 = (1000<<16)/pitch;       // decrease until 1000Hz
-	if(h2 > 0)
 	{
-		x = y/h2;
-		h = 1;
-		while(y > 0)
+		int y;
+		int h2;
+		// increase bass
+		y = peaks[1].height * 10; // addition as a multiple of 1/256s
+		h2 = (1000<<16)/pitch;   // decrease until 1000Hz
+		if(h2 > 0)
 		{
-			htab[h++] += y;
-			y -= x;
+			x = y/h2;
+			h = 1;
+			while(y > 0)
+			{
+				htab[h++] += y;
+				y -= x;
+			}
 		}
 	}
-}
 
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for(; pk<N_PEAKS; pk++)
@@ -993,7 +999,7 @@ static void AdvanceParameters()
 			peaks[ix].right = peaks[ix].left;
 		}
 	}
-	for(;ix < 8; ix++)
+	for(; ix < 8; ix++)
 	{
 		// formants 6,7,8 don't have a width parameter
 		if(ix < 7)
@@ -1026,7 +1032,7 @@ static double resonator(RESONATOR *r, double input)
 	r->x2 = r->x1;
 	r->x1 = x;
 
- return x;
+	return x;
 }
 
 
@@ -1146,7 +1152,7 @@ int Wavegen()
 	// continue until the output buffer is full, or
 	// the required number of samples have been produced
 
-	for(;;)
+	for(;; )
 	{
 		if((end_wave==0) && (samplecount==nsamples))
 			return(0);
@@ -1163,7 +1169,7 @@ int Wavegen()
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
 				amplitude2 = (wdata.amplitude * (wdata.pitch >> 8) * wdata.amplitude_fmt)/(10000 << 3);
 
-            // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
+				// switch sign of harmonics above about 900Hz, to reduce max peak amplitude
 				h_switch_sign = 890 / (wdata.pitch >> 12);
 			}
 			else
@@ -1646,16 +1652,16 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 // length in samples
 
 #ifdef LOG_FRAMES
-if(option_log_frames)
-{
-	f_log=fopen("log-espeakedit","a");
-	if(f_log != NULL)
+	if(option_log_frames)
 	{
-		fprintf(f_log,"	  pitch %3d %3d  %3dmS\n",pitch1,pitch2,(length*1000)/samplerate);
-		fclose(f_log);
-		f_log=NULL;
+		f_log=fopen("log-espeakedit","a");
+		if(f_log != NULL)
+		{
+			fprintf(f_log,"	  pitch %3d %3d  %3dmS\n",pitch1,pitch2,(length*1000)/samplerate);
+			fclose(f_log);
+			f_log=NULL;
+		}
 	}
-}
 #endif
 	if((wdata.pitch_env = env)==NULL)
 		wdata.pitch_env = env_fall;  // default
@@ -1690,19 +1696,19 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
 
 #ifdef LOG_FRAMES
-if(option_log_frames)
-{
-	f_log=fopen("log-espeakedit","a");
-	if(f_log != NULL)
+	if(option_log_frames)
 	{
-		fprintf(f_log,"%3dmS  %3d %3d %4d %4d (%3d %3d %3d %3d)  to  %3d %3d %4d %4d (%3d %3d %3d %3d)\n",length*1000/samplerate,
-			fr1->ffreq[0],fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->fheight[0],fr1->fheight[1],fr1->fheight[2],fr1->fheight[3],
-			fr2->ffreq[0],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->fheight[0],fr2->fheight[1],fr2->fheight[2],fr2->fheight[3] );
+		f_log=fopen("log-espeakedit","a");
+		if(f_log != NULL)
+		{
+			fprintf(f_log,"%3dmS  %3d %3d %4d %4d (%3d %3d %3d %3d)  to  %3d %3d %4d %4d (%3d %3d %3d %3d)\n",length*1000/samplerate,
+			        fr1->ffreq[0],fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->fheight[0],fr1->fheight[1],fr1->fheight[2],fr1->fheight[3],
+			        fr2->ffreq[0],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->fheight[0],fr2->fheight[1],fr2->fheight[2],fr2->fheight[3] );
 
-	fclose(f_log);
-	f_log=NULL;
+			fclose(f_log);
+			f_log=NULL;
+		}
 	}
-}
 #endif
 
 	harm_sqrt_n = 0;
@@ -1723,7 +1729,7 @@ if(option_log_frames)
 		glottal_reduce = glottal_reduce_tab2[(modn >> 8) & 3];
 	}
 
-	for(qix=wcmdq_head+1;;qix++)
+	for(qix=wcmdq_head+1;; qix++)
 	{
 		if(qix >= N_WCMDQ) qix = 0;
 		if(qix == wcmdq_tail) break;
@@ -1977,7 +1983,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 		}
 		if(sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
 		{
-		        sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
+			sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
 		}
 
 		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
