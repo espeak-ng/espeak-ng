@@ -339,6 +339,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	else
 	{
 		fprintf(stderr, "Unsupported spectral file format.\n");
+		fclose(stream);
 		return(1);
 	}
 
@@ -356,7 +357,11 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	fread(&spect->max_y,sizeof(short),1,stream);
 	fread(&temp,sizeof(short),1,stream); // unused
 
-	if(n==0) return(0);
+	if(n==0)
+	{
+		fclose(stream);
+		return(0);
+	}
 
 	if(spect->frames != NULL)
 	{
@@ -417,5 +422,6 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 		if(spect->frames[ix]->keyframe)
 			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(spect,ix);
 	}
+	fclose(stream);
 	return(0);
 }
