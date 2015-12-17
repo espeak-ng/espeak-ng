@@ -1,0 +1,276 @@
+// *   arabic Language ar ar_list
+// *   This file writen by Shadyar Khodayari 2012
+//*********
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT aaNY WaaRRaaNTY; without even the implied warranty of        *
+// *   MERCHaaNTaaBILITY or FITNESS FOR aa PaaRTICULaaR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+//*********
+// You can use the en_extra file, rather than this one
+// to add your own pronunciation definitions.
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+// all words must be LOWER CaaSE  (although the initial letter will be automatically
+//    converted if it's a 7bit ascii character)
+
+//stress symbols  ' primary  , secondary  % unstressed
+
+// letter names, as they are spoken as a single character in text
+// precede by _  to distinguish from pronunciation as a language word
+
+//arabic alphabet
+_آ	alif mamduudah
+_ا	alif
+ب	baa?
+پ	pi
+ت	taa?
+ث	Taa?
+ج	dZim
+ح	Haa?
+خ	Xaa?
+د	daal
+ذ	Daal
+ر	raa?
+ز	zaaj
+س	siin
+ش	Siin
+ص	s[aad
+ض	dHaad
+ط	t[aa?
+ظ	Zaa?
+ع	Aajn
+غ	gHajn
+ف	faa?
+ق	qaaf
+ك	kaaf
+گ	gaaf
+ل	laam
+م	miim
+ن	nuun
+و	waaw
+ه	haa?
+ي	jaa?
+َ	fatHah
+ُ	dhammah
+ِ	kasrah
+ّ	Saddah
+ْ	sukuun
+ً	fatHataan
+ٌ	dhammataan
+ٍ	kasrataan
+،	faas[ilah
+؛	nuqt[atah||faas[lah
+ـ	tat[wiil
+ئ	hamzah||Ala||?aljaa?
+ؤ	hamzah||Ala||?alwaa?
+إ	hamzah||taHta||?alwaa?
+أ	?alif
+ء	hamzah
+ة	taa?||marbuut[ah
+ى	?alif||maqs[uurah
+ةً   tan
+
+
+// numeric
+//_0    zero $text  // TEST
+_0	s[ifr
+_1	waaHid
+_2	?iTnaan
+_3	TalaaTah
+_4	?arbaAah
+_5	Xamsah
+_6	sittah
+_7	sabAah
+_8	Tamanijah
+_9	tisAah
+_10	AaSarah
+_11	?aHada||AaSarah
+_12	?iTnaa||AaSarah
+_13	TalaaTata||AaSarah
+_14	?arbaAata||AaSarah
+_15	Xamsata||AaSarah
+_16	sittata||AaSarah
+_17	sabAata||AaSarah
+_18	Tamaanijata||AaSarah
+_19	tisAata||AaSarah
+_2X	AiSruun
+_3X	TalaTuun
+_4X	?arbaAuun
+_5X	Xamsuun
+_6X	sittuun
+_7X	sabA:n
+_8X	Tamaanuun
+_9X	tisAuun
+
+_0C	mi?ah
+_1C	mi?ah
+_2C	mi?ataan
+_3C	TalaaTumi?ah
+_4C	?arbaAumi?ah
+_5C	Xamsumi?ah
+_6C	sittumi?ah
+_7C	sabAumi?ah
+_8C	Tamaanumi?ah
+_9C	tisAumi?ah
+
+_0M1	?alf
+_1M1	?alf
+_2M1	?alfaan
+_3M1	TalaaTat||?aalaaf
+_4M1	?arbaAat||?aalaaf
+_5M1	Xamsat||?aalaaf
+_6M1	sittat||?aalaaf
+_7M1	sabAat||?aalaaf
+_8M1	Tamaanijat||?aalaaf
+_9M1	tisAat||?aalaaf
+_10M1	AaSarat||?aalaaf
+
+
+
+_0M2	m%ilj%uun
+_1M2	m%iljuun
+_2M2	miljuunaan
+_3M2	TalaaTat||malaajiin
+_4M2	?arbaAat||malaajiin
+_5M2	Xamsat||malaajiin
+_6M2	sittat||malaajiin
+_7M2	sabAat||malaajiin
+_8M2	Tamaanijat||malaajiin
+_9M2	tisAat||malaajiin
+_10M2	AaSarat||malaajiin
+
+_0M3	miljaar
+_1M3	miljaar
+_2M3	miljaaraan
+_3M3	TalaaTat||miljaaraat
+_4M3	?arbaAat||miljaaraat
+_5M3	Xamsat||miljaaraat
+_6M3	sittat||miljaaraat
+_7M3	sabAat||miljaaraat
+_8M3	Tamaanijat||miljaaraat
+_9M3	tisAat||miljaaraat
+_10M3	AaSarat||miljaaraat
+
+
+_0and	wa
+_dpt	faas[il
+_roman	rumaanii
+
+_#st	om
+_#nd	va
+_#rd	om
+_#th	om
+
+
+// character names
+÷	taqsiim
+×	fii
+؟	Aalaaamat||?istifhaam
+!	Aalaaamat||taAadZdZub
+$	duulaar
+%	bilmi?ah
+[	AaaridHah||maftuuHah
+]	AaaridHah||mugHlaqah
+(	qaws||maftuuH
+)	qaws||mugHlaq
+*	nedZmah
+-	naaqis[
+/.	nuqt[ah
+/:	nuqt[ataan
+<	?as[gHar||min
+=	tusaawii
+>	?akbar||min
+{	HaadHinah||maftuuHah
+}	HaadHinah||mugHlaqah
+... TalaaT||niqaat[
+
+
+//characters and numbers and words with English alphabet is translated by English phonemes
+		th	_^_en
+
+
+
+
+
+
+// MaaIN WORD DICTIONaaRY
+//*********************
+
+// exceptional words with flags
+ای	?aj	$only
+
+// exceptional words,  (out of rules)
+// propoer nouns
+طه	t[aahaa
+عمرو	Aamr
+//abbriviation
+د	?ad'duktuur	$hasdot
+أنا	?nba?anaa	$hasdot
+اه	?intahaa	$hasdot
+ثنا	Had'daTanaa	$hasdot
+الخ	?ila||?aa_Xirih	$hasdot
+إلخ	?ila||?aaXirih	$hasdot
+رحه	raHimahullah	$hasdot
+رضه	radHijallahu||Anhu	$hasdot
+و 	wa  $pause
+//الألف اللينة
+إله	?ilaah
+أولئك	?ulaa?ika
+أولو	?uluu
+أولي	?ulii
+داود	daawuud
+ذلك		Daalika
+التي	?allatii
+الذي	?allaDii
+الذين	?allaDiina
+اللذين	?allaDajn
+اللذان	?allaDaani
+صلعم	s[allaa|?allahu|Alajhi||wa||sallam
+الرحمن	?arraHmaan
+لكن		laakin
+الله		?allaah
+اللهم	?allahumma
+هؤلاء	haa?ulaa?i
+هذا		haaDaa
+هذان	haaDaani
+هذه		haaDihi
+//الوحدات
+كغ		kiluu||gHraam
+كجم		kiluu||gHraam 
+كغم		kiluu||gHraam 
+طن		t[un
+كم		kiiluu||mitar
+سا 		saaAa 
+م		mitar
+س		su?aal
+ج		dZawaab	
+ص		s[afHah
+// العملات
+د.ج     diinaar||dZazaa?irij
+$	    duulaar
+€	    ?uurruu
+£		dZunajh
+¥		juwaan
+ج.م		juwaan||mis[ri
+ر.س		rijaal||saAuudii
+// مركب الاسم
+ابن	?ibn
+بن	ban
+
+//foreign language
+إنجليزية		?ingliizijah // probelm
+جوجل		guugal
+غوغل		guugal
+(بسم الله)	bismillaah
+
