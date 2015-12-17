@@ -61,7 +61,7 @@ docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
-src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread
+src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm
 src_libespeak_ng_la_CFLAGS = -Isrc/include/espeak-ng \
 	-fPIC -fvisibility=hidden -D LIBRARY -D _BSD_SOURCE -D _POSIX_C_SOURCE=200112L \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
