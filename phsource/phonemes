@@ -1983,6 +1983,5 @@ include ph_greenlandic
 phonemetable om base
 include ph_oromo
 
-phonemetable ar base
-include ph_arabic
+
 
