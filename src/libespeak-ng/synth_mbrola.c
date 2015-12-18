@@ -699,7 +699,7 @@ void MbrolaReset(void)
 
 // mbrola interface is not compiled, provide dummy functions.
 
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate)
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
 	return(EE_INTERNAL_ERROR);
 }
