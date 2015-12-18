@@ -143,14 +143,9 @@ all the voices. This will make it easier to spot errors.
 
 ## Adding New Voices
 
-Once you have added the necessary files to eSpeak NG to support the new voice,
-you can then run:
-
-    $ ./mkdictlist Makefile.am
-
-This will update the build system so that `make` will build the new voice
-in addition to building everything else, and add a `<lang-code>` target
-for building just that voice.
+In order to build a new voice with eSpeak NG, you need to update the
+`Makefile.am` file with the relevant dependency information. You can find
+out how to do this by looking at other voices in that file.
 
 ## Praat Changes
 
