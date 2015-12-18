@@ -17,10 +17,15 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 #include <wctype.h>
 #include <wchar.h>
@@ -153,7 +158,7 @@ static void InitGroups(Translator *tr)
 
 		if(p[0] == RULE_REPLACEMENTS)
 		{
-			pw = (unsigned int *)(((long64)p+4) & ~3);  // advance to next word boundary
+			pw = (unsigned int *)(((intptr_t)p+4) & ~3);  // advance to next word boundary
 			tr->langopts.replace_chars = pw;
 			while(pw[0] != 0)
 			{

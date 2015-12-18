@@ -17,12 +17,17 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <stdio.h>
 #include <ctype.h>
 #include <wctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 #include <wctype.h>
 

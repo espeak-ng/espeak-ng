@@ -24,7 +24,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include "speech.h"
 #include "sonic.h"
 
 struct sonicStreamStruct {

@@ -24,6 +24,8 @@
 // * prebuf,... size?
 // * 0.9.6: pb pulse_free using tlength=8820 (max size never returned -> tlength=10000 ok, but higher drain).
 //
+#include "config.h"
+
 #include "speech.h"
 
 #ifdef USE_ASYNC

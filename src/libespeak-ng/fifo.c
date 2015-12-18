@@ -18,6 +18,8 @@
 
 // This source file is only used for asynchronious modes
 
+#include "config.h"
+
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif

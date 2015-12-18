@@ -23,10 +23,15 @@
 
 // See URL: ftp://svr-ftp.eng.cam.ac.uk/pub/comp.speech/synthesis/klatt.3.04.tar.gz
 
+#include "config.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 #include "speak_lib.h"
 #include "speech.h"

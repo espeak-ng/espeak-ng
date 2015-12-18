@@ -18,11 +18,16 @@
  *             <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <wctype.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 #include "speak_lib.h"
 #include "speech.h"

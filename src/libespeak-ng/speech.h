@@ -64,10 +64,13 @@ extern "C"
 typedef unsigned short USHORT;
 typedef unsigned char UCHAR;
 typedef double DOUBLEX;
+
+#if !HAVE_STDINT_H
 #ifdef _WIN64
-typedef uint64_t long64;        // use this for conversion between pointers and integers
+typedef signed __int64 intptr_t;
 #else
-typedef unsigned long long64;   // use this for conversion between pointers and integers
+typedef signed __int32 intptr_t;
+#endif
 #endif
 
 

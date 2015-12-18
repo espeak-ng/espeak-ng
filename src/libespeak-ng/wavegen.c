@@ -20,10 +20,15 @@
 // this version keeps wavemult window as a constant fraction
 // of the cycle length - but that spreads out the HF peaks too much
 
+#include "config.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 
 
@@ -129,7 +134,7 @@ unsigned char *out_end;
 int outbuf_size = 0;
 
 // the queue of operations passed to wavegen from sythesize
-long64 wcmdq[N_WCMDQ][4];
+intptr_t wcmdq[N_WCMDQ][4];
 int wcmdq_head=0;
 int wcmdq_tail=0;
 
@@ -1823,7 +1828,7 @@ int WavegenFill2(int fill_zeros)
 // return: 0  output buffer has been filled
 // return: 1  input command queue is now empty
 
-	long64 *q;
+	intptr_t *q;
 	int length;
 	int result;
 	int marker_type;

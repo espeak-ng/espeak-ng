@@ -17,10 +17,15 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <wctype.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
 #include "speak_lib.h"
 #include "speech.h"
