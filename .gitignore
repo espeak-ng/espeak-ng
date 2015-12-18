@@ -43,7 +43,8 @@ libespeak-ng.so*
 
 # programs
 
-platforms/*/espeak-phoneme-data
+*.exe
+
 src/espeak-ng
 src/espeakedit
 src/speak-ng

@@ -6,6 +6,7 @@
   - [Audio Output Configuration](#audio-output-configuration)
   - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
   - [Extended Dictionary Configuration](#extended-dictionary-configuration)
+  - [Cross-Compiling For Windows](#cross-compiling-for-windows)
 - [Testing](#testing)
 - [Installing](#installing)
 - [Building Voices](#building-voices)
@@ -45,6 +46,13 @@ Optionally, you need:
 | c11 compiler  | `sudo apt-get install gcc`                                       |
 | pulseaudio    | `sudo apt-get install libpulse-dev`                              |
 | portaudio     | `sudo apt-get install libportaudio-dev`                          |
+
+Cross-compiling for windows:
+
+| Dependency              | Install                                                |
+|-------------------------|--------------------------------------------------------|
+| 32-bit Windows compiler | `sudo apt-get install mingw-w64-i686-dev`              |
+| 64-bit Windows compiler | `sudo apt-get install mingw-w64-x86-64-dev`            |
 
 ## Building
 
@@ -95,6 +103,27 @@ The extended dictionaries are taken from
 [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/) and
 provide better coverage for those languages, while increasing the resulting
 dictionary size.
+
+### Cross-Compiling For Windows
+
+To prepare the build, run:
+
+	./autogen.sh
+	export ac_cv_func_realloc_0_nonnull=yes
+	export ac_cv_func_malloc_0_nonnull=yes
+
+To build the 32-bit Windows executable, run:
+
+	./configure --host=i686-w64-mingw32 --with-mbrola=no --with-async=no
+	make
+
+To build the 64-bit Windows executable, run:
+
+	./configure --host=x86_64-w64-mingw32 --with-mbrola=no --with-async=no
+	make
+
+__NOTE:__ This currently fails to build `espeak-ng.exe`, but does build
+`speak-ng.exe`.
 
 ## Testing
 
