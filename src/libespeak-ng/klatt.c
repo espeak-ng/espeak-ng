@@ -18,8 +18,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, see:
- *             <http://www.gnu.org/licenses/>.
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
 // See URL: ftp://svr-ftp.eng.cam.ac.uk/pub/comp.speech/synthesis/klatt.3.04.tar.gz
