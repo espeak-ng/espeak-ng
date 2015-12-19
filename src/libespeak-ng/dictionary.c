@@ -84,12 +84,14 @@ static unsigned char remove_accent[N_REMOVE_ACCENT] = {
 
 
 
+#pragma GCC visibility push(default)
 void strncpy0(char *to,const char *from, int size)
 {
 // strcpy with limit, ensures a zero terminator
 	strncpy(to,from,size);
 	to[size-1] = 0;
 }
+#pragma GCC visibility pop
 
 
 int Reverse4Bytes(int word)

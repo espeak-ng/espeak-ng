@@ -297,6 +297,7 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 
 
 
+#pragma GCC visibility push(default)
 int GetFileLength(const char *filename)
 {
 	struct stat statbuf;
@@ -309,6 +310,7 @@ int GetFileLength(const char *filename)
 
 	return(statbuf.st_size);
 }
+#pragma GCC visibility pop
 
 
 char *Alloc(int size)

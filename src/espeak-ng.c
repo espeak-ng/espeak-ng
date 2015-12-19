@@ -31,9 +31,9 @@
 #include "speak_lib.h"
 #include "espeak_ng.h"
 
-#ifndef S_ISDIR
-#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
-#endif
+extern void strncpy0(char *to,const char *from, int size);
+extern int utf8_in(int *c, const char *buf);
+extern int GetFileLength(const char *filename);
 
 // This version of the command-line speak program uses the
 // libespeak.so.1  library
@@ -115,61 +115,6 @@ unsigned int wavefile_count = 0;
 FILE *f_wavfile = NULL;
 char filetype[5];
 char wavefile[200];
-
-
-int GetFileLength(const char *filename)
-{
-	struct stat statbuf;
-
-	if(stat(filename,&statbuf) != 0)
-		return(0);
-
-	if(S_ISDIR(statbuf.st_mode))
-		return(-2);  // a directory
-
-	return(statbuf.st_size);
-}
-
-
-void strncpy0(char *dest, const char *source, int size)
-{
-	if(source!=NULL)
-	{
-		strncpy(dest,source,size);
-		dest[size-1] = 0;
-	}
-}
-
-int utf8_in(int *c, const char *buf)
-{
-// Read a unicode characater from a UTF8 string
-// Returns the number of UTF8 bytes used.
-// backwards: set if we are moving backwards through the UTF8 string
-	int c1;
-	int n_bytes;
-	int ix;
-	static const unsigned char mask[4] = {0xff,0x1f,0x0f,0x07};
-
-	n_bytes = 0;
-
-	if((c1 = *buf++) & 0x80)
-	{
-		if((c1 & 0xe0) == 0xc0)
-			n_bytes = 1;
-		else if((c1 & 0xf0) == 0xe0)
-			n_bytes = 2;
-		else if((c1 & 0xf8) == 0xf0)
-			n_bytes = 3;
-
-		c1 &= mask[n_bytes];
-		for(ix=0; ix<n_bytes; ix++)
-		{
-			c1 = (c1 << 6) + (*buf++ & 0x3f);
-		}
-	}
-	*c = c1;
-	return(n_bytes+1);
-}
 
 
 void DisplayVoices(FILE *f_out, char *language)

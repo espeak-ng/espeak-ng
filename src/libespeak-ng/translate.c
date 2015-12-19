@@ -599,12 +599,14 @@ int utf8_in2(int *c, const char *buf, int backwards)
 }
 
 
+#pragma GCC visibility push(default)
 int utf8_in(int *c, const char *buf)
 {
 // Read a unicode characater from a UTF8 string
 // Returns the number of UTF8 bytes used.
 	return(utf8_in2(c,buf,0));
 }
+#pragma GCC visibility pop
 
 
 char *strchr_w(const char *s, int c)
