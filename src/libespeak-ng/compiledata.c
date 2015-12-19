@@ -894,30 +894,6 @@ int strcasecmp(const char *s1, const char *s2)
 #endif
 
 
-static int ph_sorter(char **a, char **b)
-{
-	int ix;
-	int t1, t2;
-	char mnem1[6];
-
-	PHONEME_TAB *p1 = (PHONEME_TAB *)(*a);
-	PHONEME_TAB *p2 = (PHONEME_TAB *)(*b);
-
-	t1 = p1->type;
-	if(t1 > phVOWEL) t1 = phVOWEL+1;
-
-	t2 = p2->type;
-	if(t2 > phVOWEL) t2 = phVOWEL+1;
-
-	if((ix = t1 - t2) != 0)
-		return(ix);
-
-	strcpy(mnem1,WordToString(p1->mnemonic));
-	return(strcasecmp(mnem1,WordToString(p2->mnemonic)));
-}
-
-
-
 static void error(const char *format, const char *string)
 {
 	if(string==NULL)
