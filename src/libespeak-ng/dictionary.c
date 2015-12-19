@@ -1187,7 +1187,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int final_ph;
 	int final_ph2;
 	int mnem;
-	int post_tonic;   // currently not used
 	int opt_length;
 	int done;
 	int stressflags;
@@ -1699,7 +1698,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	}
 
 	p = phonetic;
-	post_tonic = 0;
 	while(((phcode = *p++) != 0) && (output < max_output))
 	{
 		if((ph = phoneme_tab[phcode]) == NULL)
@@ -1715,9 +1713,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 			v_stress = vowel_stress[v];
 			tr->prev_last_stress = v_stress;
-
-			if(vowel_stress[v-1] >= max_stress)
-				post_tonic = 1;
 
 			if(v_stress <= 1)
 			{
