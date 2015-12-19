@@ -1354,7 +1354,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 				sprintf(string,"_%dM%do",value,thousandplex);
 				found_value = Lookup(tr, string, ph_thousands);
 			}
-			if(!found_value & (number_control & 1))
+			if(!found_value && (number_control & 1))
 			{
 				// look for the 'e' variant
 				sprintf(string,"_%dM%de",value,thousandplex);
