@@ -348,16 +348,7 @@ static void WcmdqIncHead()
 
 
 
-// data points from which to make the presets for pk_shape1 and pk_shape2
 #define PEAKSHAPEW 256
-static const float pk_shape_x[2][8] = {
-	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.5f, 4.5f, 5.5f},
-	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.0f, 4.5f, 5.5f }
-};
-static const float pk_shape_y[2][8] = {
-	{0,  67,  81,  67,  31,  14,   0,  -6},
-	{0,  77,  81,  77,  31,   7,   0,  -6 }
-};
 
 unsigned char pk_shape1[PEAKSHAPEW+1] = {
 	255,254,254,254,254,254,253,253,252,251,251,250,249,248,247,246,
