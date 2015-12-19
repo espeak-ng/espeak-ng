@@ -1113,7 +1113,6 @@ void CalcPitches(Translator *tr, int clause_type)
 	int n_st;
 	int option;
 	int group_tone;
-	int group_tone_emph;
 	int group_tone_comma;
 	int ph_start=0;
 	int st_start;
@@ -1169,13 +1168,11 @@ void CalcPitches(Translator *tr, int clause_type)
 	if(option == 0)
 	{
 		group_tone = tr->langopts.tunes[clause_type];
-		group_tone_emph = tr->langopts.tunes[5];
 		group_tone_comma = tr->langopts.tunes[1];
 	}
 	else
 	{
 		group_tone = tr->punct_to_tone[option][clause_type];
-		group_tone_emph = tr->punct_to_tone[option][5];   // emphatic form of statement
 		group_tone_comma = tr->punct_to_tone[option][1];   // emphatic form of statement
 	}
 
