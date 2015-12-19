@@ -99,17 +99,6 @@ float polint(float xa[],float ya[],int n,float x)
 }
 
 
-static void PeaksZero(peak_t *sp, peak_t *zero)
-{
-	int pk;
-
-	memcpy(zero,sp,sizeof(peak_t)*N_PEAKS);
-
-	for(pk=0; pk<N_PEAKS; pk++)
-		zero[pk].pkheight = 0;
-
-}
-
 static SpectFrame *SpectFrameCreate()
 {
 	int ix;
