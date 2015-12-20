@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 Sept  26 by Chris <llajta2012@gmail.com>
+// Last update: 2015 November  20 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -45,7 +45,7 @@
 	@) ander (L04_	'andE@-*
 		ate (L04_+	'ate
 	_L04Z) auguri (_	'awguRI
-	astano (_	'a:sta/no   // verbs
+	astano (_	'a:stano   // verbs
 
 .group à
 		à	''a
@@ -487,7 +487,7 @@
 	_)	r	@-*
 	A) r (_	=@-*
 		rr	R*
-	A)	r (A	R
+	A) r (A	R
 	a) r (a	*
 	A) r (à_	*
 	A) r (ò_	*
@@ -600,9 +600,11 @@
 	@) vo (cano_	=vo
 	in) via (toL04_	vI'a
 	in) via (L07_	v'ia
+	_in) vita (L07_	v'i:ta/
 	_a) vvisa (L07_	v:'iza
 	_in) vader (L04_	v'a:de@-*
 	_) vota (L07_	v'Ota
+	s) veglia (L07_	v'el^ia
 
 .group w
 		w	w2
@@ -662,6 +664,7 @@
 	man) zia (_	ts'i;a
 	man) zie (_	ts'i;e
 	me) zz	dz:
+	amma) zziamo (L04_	_tsi'a:mo
 
 .group 0xce   // Greek letters
 // 0xce is the first byte of the utf-8 code for these characters
@@ -710,7 +713,7 @@ _L16_)	: (_L17D_	_%%E_	// Say time
 
 		á	''a
 		é	''e
-	_) è (_	,E:
+	_) è (_	,E
 	A) è	''E
 	C) è	''E
 		èi (K	''Ej
