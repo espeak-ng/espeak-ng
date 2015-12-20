@@ -1,398 +1,437 @@
-
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Latvian
 
-
 // names of Latvian letters
-a	a
-ā	a:
-b	be
-c	tse
-č	tSe
-d	de
-e	e
-ē	e:
-f	ef
-// g	ga  // defined in lv_rules
-ģ	Je
-h	ha
-i	i
-ī	i:
-j	je
-k	ka
-ķ	ce
-l	el
-ļ	el^
-m	em
-n	en
-ņ	en^
-o	uo
-p	pe
-r	eRR2
-ŗ	er	// soft r
-s	es
-š	eS
-t	te:
-u	u
-ū	u:
-v	ve
-z	ze
-ž	Ze
+a   ''a_:: 
+ā   'a::_!
+b   b'E:_:
+c   ts'E:_:
+č   tS'E:_:
+d   d'E:_:
+e   ''E_::
+ē   'E::_!
+f   'Ef:_::
+g   g'a:_:
+ģ   J'E:_:
+h   h'a:_:
+ḩ   h'E:_:
+i   ''i_::
+ī   'i::_!
+j   j'E:_:
+k   k'a:_:
+ķ   c'E:_:
+l   'El:_::
+ļ   'El^:_::
+m   'Em:_::
+n   'En:_::
+ņ   'En^:_::
+o   'uo_::
+ō   'o:::_!
+p   p'e:_:
+q   k'u:_:
+r   'eR::_:
+ŗ   'Er::_:
+s   'es::_:
+š   'ES::_:
+t   'te:_:
+u   ''u_::
+ū   'u:::_!
+v   v'E:_:
+w   d'ubv,e:_:
+x   'iks_:
+y   'ig,Rek_:
+z   z'E:_:
+ž   Z'E:_:
 
 //  diphthong consonants
-dz	dze:
-dž	dZe:
-
-// Latin letters
-q	ku:
-w	dubult've
-x	iks
-y	igR2ek
-
+dz      dze:
+dž      dZe:
 
 // numbers
-_0	n'ulle
-_1	v'iens
-_2	d'ivi
-_3	tRi:s
-_4	tS'etR2i
-_5	p'ietsi
-_6	s'eSi
-_7	s'eptin^i
-_8	'astuon^i
-_9	d'evin^i
-_10	d'esmit
-_11	v'ienpadsmit
-_12	d'ivpadsmit
-_13	tR'i:spadsmit
-_14	tS'etR2padsmit
-_15	p'ietspadsmit
-_16	s'eSpadsmit
-_17	s'eptin^padsmit
-_18	'astuon^padsmit
-_19	d'evin^padsmit
-_2X	d'ivdesmit
-_3X	tR'i:sdesmit
-_4X	tS'etR2desmit
-_5X	p'ietsd,esmit
-_6X	s'eSdesmit
-_7X	s'eptin^desmit
-_8X	'astuon^desmit
-_9X	d'evin^desmit
-_0C	s'imti_
-_1C	s'imts
-_0M1	t'u:kstuo:Si
-_1M1	t'u:kstuo:tis
-_0M2	m'iljo:ni
-_1M2	m'iljo:ns
-_dpt	k'omats_
+_0      n'ulle
+_1      v'iens
+_2      d'ivi
+_3      tRi:s
+_4      tS'etRi
+_5      p'ietsi
+_6      s'eSi
+_7      s'eptin^i
+_8      'astuon^i
+_9      d'evin^i
+_10     d'esmit
+_11     v'ienpadsmit
+_12     d'ivpadsmit
+_13     tR'i:spadsmit
+_14     tS'etRpadsmit
+_15     p'ietspadsmit
+_16     s'eSpadsmit
+_17     s'eptin^padsmit
+_18     'astuon^padsmit
+_19     d'evin^padsmit
+_2X     d'ivdesmit
+_3X     tR'i:sdesmit
+_4X     tS'etRdesmit
+_5X     p'ietsd,esmit
+_6X     s'eSdesmit
+_7X     s'eptin^desmit
+_8X     'astuon^desmit
+_9X     d'evin^desmit
+_0C     s'imti_
+_1C     s'imts
+_0M1    t'u:kstuo:Si
+_1M1    t'u:kstuo:tis
+_0M2    m'iljo:ni
+_1M2    m'iljo:ns
+_dpt    k'omats_
 
 // ordinal numbers
-_ord	ais	// default ending
-_1o	p'iR2mais
-_2o	'otR2ais
-_3o	tR'eSais
-_4o	tS'etuRtais
-_5o	p'iektais
-_6o	s'estais
-_7o	s'epti:tais
-_8o	'astotais
-_9o	d'evi:tais
-_0Co	s'imtais
+_ord    ais     // default ending
+_1o     p'iRmais
+_2o     'otRais
+_3o     tR'eSais
+_4o     ts'etuRtais
+_5o     p'iektais
+_6o     s'estais
+_7o     s'epti:tais
+_8o     'astotais
+_9o     d'evi:tais
+_0Co    s'imtais
 
 
-// accent names  (Mostly English names, please fix)
-_lig	l'igatu:R2a
-_acu	'akju:t
-_ac2	d'ubultsakju:t
-_brv	'i:suma
-_ced	s'edi:la
-_cir	d'iakR2itiska:
-_dia	'umlauts
-_dot	p'unkts
-_grv	gR2'a:v
-_hac	h'atSek
-_mcn	m'akR2on
-_ogo	'ogonek
-_rng	R2'ing
-_stk	str'o:k
-_tld	t'ilde
+// accent names 
+_lig    l'igatu:Ra
+_acu    'aku:ts
+_ac2    d'ubultaku:ts
+_brv    'i:suma
+_ced    ts'edi:la
+_cir    d'iakRitiska:
+_dia    'umlauts
+_dot    p'unkts
+_grv    gR'a:v
+_hac    h'atSeks
+_mcn    m'akRon
+_ogo    'ogonek
+_rng    R'ing
+_stk    str'o:k
+_tld    t'ilde
 
 
 // character names
-_cap	lielais
-_?A	buR2ts
-_??	R2akstzi:me
-_#9	tabulato:R2s
-_#32	tukSums
+_cap    lielais
+_?A     buRts
+_??     Rakstzi:me
+_#9     tabulato:Rs
+_#32    tukSums
 
-_!	izsaukumzi:me
-_"	pe:din^as
-_#	resti:te
-_'	apostro:fs
-_(	'iekava
-_)	'iekava||ts'iet
-_,	komats
-_-	mi:nuss
-_.	punkts
-_:	ko:ls
-_;	semiko:ls
-_<	m'aza:ks||p'aR2
-_>	l'iela:ks||p'aR2
-_?	jauta:jumzi:me
-_@	at
-_[	kv'adR2a:tiekava
-_]	kv'adR2a:tiekava||ts'iet
-_^	sakne
-__	pasvi:tR2uojumzi:me
-_`	'apgR2ieztais||'apostR2ofs
-_{	f'igu:R2iekava
-_|	sta:vsvi:tR2a
-_}	f'igu:R2iekava||ts'iet
-_~	tilde
-_¦	s'adali:ta||st'a:vsvi:tR2a
-_«	p'e:din^as
-_´	aktsents
-_»	p'e:din^as||ts'iet
-_¿	'apgR2iezta:||j'auta:jumzi:me
-_‒	duomuzi:me
-_‖	d'ubultsta:st,a:vsvi:tR2a
+_!      izsaukumzi:me
+_"      pe:din^as
+_#      resti:te
+_'      apostro:fs
+_(      'iekava
+_)      'iekava||ts'iet
+_,      komats
+_-      defise
+_–      mi:nuss
+_—      duomuzi:me
+_.      punkts
+_:      ko:ls
+_;      semiko:ls
+_<      m'aza:ks||p'aR
+_>      l'iela:ks||p'aR
+_?      jauta:jumzi:me
+_@      at
+_[      kv'adRa:tiekava
+_]      kv'adRa:tiekava||ts'iet
+_^      sakne
+__      pasvi:tRuojumzi:me
+_`      'gravis
+_{      f'igu:Riekava
+_|      sta:vsvi:tRa
+_}      f'igu:Riekava||ts'iet
+_~      tilde
+_¦      s'adali:ta||st'a:vsvi:tRa
+_«      p'e:din^as
+_´      aku:ts
+_»      p'e:din^as||ts'iet
+_¿      'apgRiezta:||j'auta:jumzi:me
+_‒      duomuzi:me
+_‖      d'ubultsta:st,a:vsvi:tRa
 
-=	_viena:ds_  $max3
-*	zvaigzni:te  $max3
-%	pR2otsenti  $max3
-+	pluss  $max3
-@	at_:
-&	_!%un
-/	sli:psvi:tRa  $max3
-\	'apgR2iezta:||sl'i:psvi:tRa
-$	dola:R2i
-€	eiRo
-&	un
-¢	tsenti
-£	ma:R2tsin^as
-¥	je:nas
-₨	R2u:pi:jas
-§	sektsija
-¶	paR2agR2a:fs   // in en_rules
-©	auto:R2tiesi:bas
-®	R2eJistR2e:ts
-°	gR2a:di
-−	mi:nuss
-±	plusmi:nuss
-µ	mikRo:
-¼	ts'etuR2td,al^a
-½	puse
-¾	tR2'i:s||ts,etuR2tdal^as
-×	R2eiz
-÷	dali:ts
-€	eiR2o:
-♯	die:zs
-♭	bemo:ls
+=       _viena:ds_  $max3
+*       zvaigzni:te  $max3
+%       pRotsenti  $max3
++       pluss  $max3
+@       at_:
+&       _!%un
+/       sli:psvi:tRa  $max3
+\       'apgRiezta:||sl'i:psvi:tRa
+$       dola:Ri
+€       eiRo
+&       un
+¢       tsenti
+£       ma:Rtsin^as
+¥       je:nas
+₨       Ru:pi:jas
+§       sektsija
+¶       paRagRa:fs   // in en_rules
+©       auto:Rtiesi:bas
+®       ReJistRe:ts
+°       gRa:di
+±       plusmi:nuss
+µ       mikRo:
+¼       ts'etuRtd,al^a
+½       puse
+¾       tR'i:s||ts,etuRtdal^as
+×       Reiz
+÷       dali:ts
+♯       die:zs
+♭       bemo:ls
 
 // unstressed words
-aiz	$u
-ap	$u
-apakš	$u
-ar	$u
-bez	$u
-caur	$u
-dēļ	$u
-gar	$u
-iekš	$u
-iz	$u
-kopš	$u
-labad	$u
-līdz	$u
-no	$u
-nu	$u
-pa	$u
-par	$u
-pār	$u
-pēc	$u
-pie	$u
-pirms	$u
-pret	$u
-priekš	$u
-starp	$u
-uz	$u
-virs	$u
-zem	$u
+aiz     $u
+ap      $u
+apakš   $u
+ar      $u
+bez     $u
+caur    $u
+dēļ     $u
+gar     $u
+iekš    $u
+iz      $u
+kā      $u
+kopš    $u
+labad   $u
+līdz    $u
+no      $u
+nu      $u
+pa      $u
+par     $u
+pār     $u
+pēc     $u
+pie     $u
+pirms   $u
+pret    $u
+priekš  $u
+starp   $u
+uz      $u
+virs    $u
+zem     $u
 
 // pronouns
-es	$u
-tu	$u
-viņš	$u
-viņa	$u
-mēs	$u
-jūs	$u
-viņi	$u
-viņas	$u
+es      $u
+tu      $u
+viņš    $u
+viņa    $u
+mēs     $u
+jūs     $u
+viņi    $u
+viņas   $u
 
 // conjunctions
-un	$u $pause
-bet	$u $pause
-vai	$u $pause
+arī       $u $brk
+bet       $u $pause
+gan       $u $brk
+ne        $u $brk
+nedz      $u $brk
+nevis     $u $brk
+nu        $u $brk
+taču      $u $pause
+tiklab    $u $brk
+tomēr     $u $pause
+turpretim $u $pause
+turpretī  $u $pause
+un        $u $brk
+vai       $u $brk
+vien      $u $brk
 
 
 // exception words with stress on 2nd syllable
-aizvien	$2
-arvien	$2
-jebkad	$2
-jebkur	$2
-nekad	$2
-nekur	$2
-pagalam	$2
-palaikam	$2
-papilnam	$2
-paretam	$2
-patiešām	$2
-patlaban	$2
-pavisam	$2
-tāpat	$2
-tepat	$2
-tikpat	$2
-tikvien	$2
-turpat	$2
-turpretī	$2
+aizvien   $2
+arvien    $2
+jebkad    $2
+jebkur    $2
+labdien   $2
+labvakar  $2
+nekad     $2
+nekur     $2
+pagalam   $2
+palaikam  $2
+papilnam  $2
+paretam   $2
+patiešām  $2
+patlaban  $2
+pavisam   $2
+tāpat     $2
+tepat     $2
+tikpat    $2
+tikvien   $2
+turpat    $2
+turpretī  $2
 
 // 1st word unstressed, 2nd word stressed
-(kaut cik)	$2
-(kaut kā)	$2
-(nez kad)	$2
-(nezin kur)	$3
+(kaut cik)      $2
+(kaut kā)       $2
+(nez kad)       $2
+(nezin kad)     $2
+(nezin kur)     $3
 
 
 // stress on last syllable
-neparko	$3
-itnekur	$3
+neparko $3
+itnekur $3
+itnemaz $3
 
 //stress on 2nd syllable (international words)
-adadžo		$2
+adadžo          $2
 kakao           $2
-maestro		$2
-piano		$2
-solfedžo	$2
+maestro         $2
+piano           $2
+solfedžo        $2
 
 //stress on last syllable (international words)
-ateljē		$3
-dekoltē		$3
-foajē		$3
-frikasē		$3
-galifē		$3
-kanapē		$3
-komunikē	$4
-portjē		$2
-protežē		$3
+ateljē          $3
+dekoltē         $3
+foajē           $3
+frikasē         $3
+galifē          $3
+kanapē          $3
+komunikē        $4
+portjē          $2
+protežē         $3
 
 
 ///////////////////
 // Abbreviations //
 ///////////////////
-apr	apR2i:lis
-a/s	akciju sabiedR2i:ba
-//      aug	augusts      // confusing with augt
-b-ba	biedR2i:ba
-bij	bijuSais
-dec	decembR2is
-dr	dokto:R2s
-dz	dzimis
-dzīv	dzi:vuojis
-fak	fakulta:te
-febr	febR2ua:R2is
-iesk	ieskaituot
-janv	janva:R2is
-jūl	ju:lijs
-jūn	ju:nijs
-lp	lapa
-lat	lati:n^u
-latv	latvieSu
-Ls	lati  $capital
-lu	$abbrev
-lvu	$abbrev
-maks	maksima:lais
-min	minimums
-(min-ja)	ministR2ija
-nod	nuodal^a
-nos	nuosaukums
-nr	numuR2
-nov	novembR2is
-okt	okto:bR2is
-pad	paduome
-pag	pagasts
-pak	paka:pe
-piem	pieme:R2am
-pr-ks	pR2iekSnieks
-psrs	$abbrev
-raj	R2ajuons
-rpi	$abbrev
-(sav-ba)	savieni:ba
-(sab-ba)	sabiedR2i:ba
-sept	septembR2is
-skat	skati:t
-sv	sve:tais
-st	sant
-šķ	SciR2a
+a/s     $abbrev
+as      $abbrev
+b-ba    biedRi:ba
+dr      $abbrev
+dz      $abbrev
+lp      $abbrev
+ls      $abbrev
+lu      $abbrev
+lvu     $abbrev
+nr      $abbrev
+na      $abbrev
+pr-ks   $abbrev
+psrs    $abbrev
+rpi     $abbrev
+sia     sia: $pause
+st      $abbrev
+sv      $abbrev
+šķ      $abbrev
 
-// words with [o] 
-adadžo          $alt
-aikido	        $alt
-anno	        $alt
+// words with o 
+adadžo  $alt
+aerofoto        $alt
+aidaho  $alt
+aikido  $alt
+anno    $alt
 automoto        $alt
-bandžo          $alt
-bendžo          $alt
-bingo           $alt
-bolero          $alt
-bravo           $alt
-bruno           $alt
-bruto	        $alt
-depo            $alt
-dingo       	$alt
-domino	        $alt
-džudo           $alt
-čello	        $alt
-embargo	        $alt
-esperanto	$alt
-facto	        $alt
-fiasko	        $alt
-foto            $alt
-hallo	        $alt
-hugo            $alt
-indigo          $alt
+bandžo  $alt
+bendžo  $alt
+bingo   $alt
+bolero  $alt
+bordo   $alt
+borneo  $alt
+bravo   $alt
+bruno   $alt
+bruto   $alt
+bufalo  $alt
+burkinafaso     $alt
+depo    $alt
+dingo   $alt
+domino  $alt
+džudo   $alt
+eldorado        $alt
+embargo $alt
+esperanto       $alt
+facto   $alt
+fiasko  $alt
+fito    $alt
+flamenko        $alt
+folio   $alt
+fortisimo       $alt
+foto    $alt
+franko  $alt
+hallo   $alt
+ho      $alt
+hugo    $alt
+indigo  $alt
 inkognito       $alt
 intermeco       $alt
-kakao           $alt
-kastro          $alt
-kazino          $alt
+kakao   $alt
+kastro  $alt
+kazino  $alt
+kimono  $alt
+kioto   $alt
+kolombo $alt
+kolorado        $alt
+kolorādo        $alt
+kongo   $alt
+kvatročento     $alt
+lego    $alt
+leporello       $alt
+lesoto  $alt
+loto    $alt
+lumbago $alt
+maestro $alt
+majordomo       $alt
+mecotinto       $alt
+mehiko  $alt
+metro   $alt
 microsoft       $alt
-moto            $alt
-lego            $alt
-lumbago	        $alt
-maestro	        $alt
-metro           $alt
-moto            $alt
-odo             $alt
-oto             $alt
-panno	        $alt
-pianīno	        $alt
-rančo           $alt
-retro           $alt
-rokoko	        $alt
+monako  $alt
+mono    $alt
+montekarlo      $alt
+montevideo      $alt
+moto    $alt
+odo     $alt
+ohaio   $alt
+oho     $alt
+ontārio $alt
+oregano $alt
+orinoko $alt
+oslo    $alt
+otello  $alt
+oto     $alt
+panno   $alt
+pianīno $alt
+pikolo  $alt
+polo    $alt
+pončo   $alt
+porto   $alt
+puertoriko      $alt
+rančo   $alt
+retro   $alt
+riodežaneiro    $alt
+rodeo   $alt
+rodrigo $alt
+rokoko  $alt
 roks            $alt
-sambo           $alt
+rondo   $alt
+saldo   $alt
+sambo   $alt
+sanfrancisko    $alt
+santodomingo    $alt
+siroko  $alt
 solfedžo        $alt
+solo    $alt
+sombrēro        $alt
 sonera          $alt
-triko           $alt
-trimo           $alt
-uno             $alt
-veto            $alt
-žabo            $alt
-
-
-
-
-
-
-
-
+sorgo   $alt
+stereokino      $alt
+storno  $alt
+tehno   $alt
+tobago  $alt
+toronto $alt
+triko   $alt
+trimo   $alt
+uno     $alt
+veto    $alt
+čello   $alt
+ūdenspolo       $alt
+žabo    $alt
+žigolo  $alt
 

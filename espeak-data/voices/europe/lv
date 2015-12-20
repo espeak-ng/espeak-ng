@@ -1,6 +1,8 @@
+
 name latvian
 language lv
 gender male
 
-replace 03  o  o:
+//intonation 2
 
+tunes s5 c5 q5 e5
