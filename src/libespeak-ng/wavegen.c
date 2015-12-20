@@ -66,7 +66,6 @@ voice_t *wvoice;
 FILE *f_log = NULL;
 int option_waveout = 0;
 static int option_harmonic1 = 10;   // 10
-int option_log_frames = 0;
 static int flutter_amp = 64;
 
 static int general_amplitude = 60;
@@ -267,37 +266,6 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	242,246,249,252, 254,255
 };
 
-
-#ifdef LOG_FRAMES
-static void LogMarker(int type, int value, int value2)
-{
-	char buf[20];
-	int *p;
-
-	if(option_log_frames == 0)
-		return;
-
-	if((type == espeakEVENT_PHONEME) || (type == espeakEVENT_SENTENCE))
-	{
-		f_log=fopen("log-espeakedit","a");
-		if(f_log)
-		{
-			if(type == espeakEVENT_PHONEME)
-			{
-				p = (int *)buf;
-				p[0] = value;
-				p[1] = value2;
-				buf[8] = 0;
-				fprintf(f_log,"Phoneme [%s]\n", buf);
-			}
-			else
-				fprintf(f_log,"\n");
-			fclose(f_log);
-			f_log = NULL;
-		}
-	}
-}
-#endif
 
 void WcmdqStop()
 {
@@ -752,11 +720,6 @@ void WavegenInit(int rate, int wavemult_fact)
 
 #ifdef INCLUDE_KLATT
 	KlattInit();
-#endif
-
-#ifdef LOG_FRAMES
-	remove("log-espeakedit");
-	remove("log-klatt");
 #endif
 }
 
@@ -1646,18 +1609,6 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 {
 // length in samples
 
-#ifdef LOG_FRAMES
-	if(option_log_frames)
-	{
-		f_log=fopen("log-espeakedit","a");
-		if(f_log != NULL)
-		{
-			fprintf(f_log,"	  pitch %3d %3d  %3dmS\n",pitch1,pitch2,(length*1000)/samplerate);
-			fclose(f_log);
-			f_log=NULL;
-		}
-	}
-#endif
 	if((wdata.pitch_env = env)==NULL)
 		wdata.pitch_env = env_fall;  // default
 
@@ -1689,22 +1640,6 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 	int cmd;
 	static int glottal_reduce_tab1[4] = {0x30, 0x30, 0x40, 0x50};  // vowel before [?], amp * 1/256
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
-
-#ifdef LOG_FRAMES
-	if(option_log_frames)
-	{
-		f_log=fopen("log-espeakedit","a");
-		if(f_log != NULL)
-		{
-			fprintf(f_log,"%3dmS  %3d %3d %4d %4d (%3d %3d %3d %3d)  to  %3d %3d %4d %4d (%3d %3d %3d %3d)\n",length*1000/samplerate,
-			        fr1->ffreq[0],fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->fheight[0],fr1->fheight[1],fr1->fheight[2],fr1->fheight[3],
-			        fr2->ffreq[0],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->fheight[0],fr2->fheight[1],fr2->fheight[2],fr2->fheight[3] );
-
-			fclose(f_log);
-			f_log=NULL;
-		}
-	}
-#endif
 
 	harm_sqrt_n = 0;
 	end_wave = 1;
@@ -1913,9 +1848,6 @@ int WavegenFill2(int fill_zeros)
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
 			MarkerEvent(marker_type, q[1],q[2],q[3],out_ptr);
-#ifdef LOG_FRAMES
-			LogMarker(marker_type, q[2], q[3]);
-#endif
 			if(marker_type == 1)  // word marker
 			{
 				current_source_index = q[1] & 0xffffff;

@@ -556,7 +556,6 @@ extern unsigned char *out_end;
 extern int event_list_ix;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback* synth_callback;
-extern int option_log_frames;
 extern const char *version_string;
 extern const int version_phdata;
 extern double sonicSpeed;

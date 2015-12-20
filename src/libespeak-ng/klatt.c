@@ -284,17 +284,6 @@ static int parwave(klatt_frame_ptr frame)
 
 	flutter(frame);  /* add f0 flutter */
 
-#ifdef LOG_FRAMES
-	if(option_log_frames)
-	{
-		FILE *f;
-		f=fopen("log-klatt","a");
-		fprintf(f,"%4dhz %2dAV %4d %3d, %4d %3d, %4d %3d, %4d %3d, %4d, %3d, FNZ=%3d TLT=%2d\n",frame->F0hz10,frame->AVdb,
-		        frame->Fhz[1],frame->Bhz[1],frame->Fhz[2],frame->Bhz[2],frame->Fhz[3],frame->Bhz[3],frame->Fhz[4],frame->Bhz[4],frame->Fhz[5],frame->Bhz[5],frame->Fhz[0],frame->TLTdb);
-		fclose(f);
-	}
-#endif
-
 	/* MAIN LOOP, for each output sample of current frame: */
 
 	for (kt_globals.ns=0; kt_globals.ns<kt_globals.nspfr; kt_globals.ns++)
@@ -1163,30 +1152,6 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 				break;   // next is not from spectrum, so continue until end of wave cycle
 		}
 	}
-
-#ifdef LOG_FRAMES
-	if(option_log_frames)
-	{
-		FILE *f_log;
-		f_log=fopen("log-espeakedit","a");
-		if(f_log != NULL)
-		{
-			fprintf(f_log,"K %3dmS  %3d %3d %4d %4d %4d %4d (%2d)  to  %3d %3d %4d %4d %4d %4d (%2d)\n",length*1000/samplerate,
-			        fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr1->klattp[KLATT_AV],
-			        fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3],fr1->ffreq[4],fr1->ffreq[5], fr2->klattp[KLATT_AV] );
-			fclose(f_log);
-		}
-		f_log=fopen("log-klatt","a");
-		if(f_log != NULL)
-		{
-			fprintf(f_log,"K %3dmS  %3d %3d %4d %4d (%2d)  to  %3d %3d %4d %4d (%2d)\n",length*1000/samplerate,
-			        fr1->klattp[KLATT_FNZ]*2,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->klattp[KLATT_AV],
-			        fr2->klattp[KLATT_FNZ]*2,fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->klattp[KLATT_AV] );
-
-			fclose(f_log);
-		}
-	}
-#endif
 
 	if(control & 1)
 	{

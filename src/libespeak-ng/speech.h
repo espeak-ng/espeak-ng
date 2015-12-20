@@ -52,10 +52,6 @@ extern "C"
 
 #endif
 
-#ifdef _ESPEAKEDIT
-#define LOG_FRAMES      // write keyframe info to log-espeakedit
-#endif
-
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
    #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
