@@ -53,7 +53,6 @@ int n_manifest;
 
 extern int utf8_in(int *c, const char *buf);
 extern int utf8_out(unsigned int c, char *buf);
-extern void DrawEnvelopes();
 
 typedef struct {
 	const char *mnem;
@@ -3408,9 +3407,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	LoadPhData(NULL);
 
 	CompileReport();
-#ifdef MAKE_ENVELOPES
-	DrawEnvelopes();
-#endif
 
 	if(resample_count > 0)
 	{
