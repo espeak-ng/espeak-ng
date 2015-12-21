@@ -38,7 +38,7 @@
 #include "synthesize.h"
 #include "voice.h"
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 #include "sonic.h"
 #endif
 
@@ -153,7 +153,7 @@ static PortAudioStream *pa_stream=NULL;
 static PaStream *pa_stream=NULL;
 #endif
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 static sonicStream sonicSpeedupStream = NULL;
 double sonicSpeed = 1.0;
 #endif
@@ -272,7 +272,7 @@ void WcmdqStop()
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 	if(sonicSpeedupStream != NULL)
 	{
 		sonicDestroyStream(sonicSpeedupStream);
@@ -1876,7 +1876,7 @@ int WavegenFill2(int fill_zeros)
 				wdata.amplitude_fmt = 100;  // percentage, but value=0 means 100%
 			break;
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 		case WCMD_SONIC_SPEED:
 			sonicSpeed = (double)q[1] / 1024;
 			break;
@@ -1898,7 +1898,7 @@ int WavegenFill2(int fill_zeros)
 }
 
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 /* Speed up the audio samples with libsonic. */
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
 {
@@ -1939,7 +1939,7 @@ int WavegenFill(int fill_zeros)
 	// fill_zeros is ignored. It is now done in the portaudio callback
 	finished = WavegenFill2(0);
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 	if(sonicSpeed > 1.0)
 	{
 		int length;

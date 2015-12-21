@@ -1231,7 +1231,7 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name)
 }
 
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 void DoSonicSpeed(int value)
 {
 // value, multiplier * 1024

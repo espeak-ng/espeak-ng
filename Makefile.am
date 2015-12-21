@@ -97,11 +97,6 @@ src_libespeak_ng_la_CFLAGS  += -DINCLUDE_MBROLA
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/mbrowrap.c
 endif
 
-if OPT_SONIC
-src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SONIC
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/sonic.c
-endif
-
 if OPT_ASYNC
 src_libespeak_ng_la_CFLAGS  += -DUSE_ASYNC
 src_libespeak_ng_la_SOURCES += \

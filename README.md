@@ -36,7 +36,8 @@ In order to build eSpeak NG, you need:
 Optionally, you need:
 
 1.  the pulseaudio development library to enable pulseaudio output;
-2.  the portaudio development library to enable portaudio output.
+2.  the portaudio development library to enable portaudio output;
+3.  the sonic development library to enable sonic audio speed up support.
 
 ### Debian
 
@@ -46,6 +47,7 @@ Optionally, you need:
 | c11 compiler  | `sudo apt-get install gcc`                                       |
 | pulseaudio    | `sudo apt-get install libpulse-dev`                              |
 | portaudio     | `sudo apt-get install libportaudio-dev`                          |
+| sonic         | `sudo apt-get install libsonic-dev`                              |
 
 Cross-compiling for windows:
 
@@ -87,6 +89,9 @@ The following `configure` options control which eSpeak NG features are enabled:
 | `--with-mbrola` | Enable MBROLA voice support.                 | yes     |
 | `--with-sonic`  | Use the sonic library to support higher WPM. | yes     |
 | `--with-async`  | Enable asynchronous commands.                | yes     |
+
+__NOTE:__ The `--with-sonic` option requires that the sonic library and header
+is accessible on the system.
 
 ### Extended Dictionary Configuration
 

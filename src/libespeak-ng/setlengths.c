@@ -139,7 +139,7 @@ static int speed3 = 118;
 
 
 
-#ifdef INCLUDE_SONIC
+#if HAVE_SONIC_H
 
 void SetSpeed(int control)
 {
@@ -426,7 +426,7 @@ void SetSpeed(int control)
 	}
 }
 
-#endif   // of INCLUDE_SONIC
+#endif
 
 
 void SetParameter(int parameter, int value, int relative)

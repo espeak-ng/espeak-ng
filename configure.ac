@@ -234,9 +234,15 @@ AC_ARG_WITH([sonic],
     [])
 
 if test "$with_sonic" = "no" ; then
-	have_sonic=no
+    have_sonic=no
 else
-	have_sonic=yes
+    AC_CHECK_HEADERS([sonic.h],
+        [
+            AC_CHECK_LIB([sonic], [sonicCreateStream])
+            have_sonic=yes
+        ],[
+            have_sonic=no
+        ])
 fi
 
 AC_ARG_WITH([async],
@@ -251,7 +257,6 @@ fi
 
 AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
 AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
-AM_CONDITIONAL(OPT_SONIC,  [test x"$have_sonic"  = xyes])
 AM_CONDITIONAL(OPT_ASYNC,  [test x"$have_async"  = xyes])
 
 dnl ================================================================
