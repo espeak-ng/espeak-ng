@@ -21,7 +21,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <strings.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include <time.h>
@@ -871,26 +870,6 @@ static void CompileReport(void)
 	list = NULL;
 	fclose(f_report);
 }
-
-
-#ifdef PLATFORM_WINDOWS
-int strcasecmp(const char *s1, const char *s2)
-{
-	int ix=0;
-	int diff;
-
-	for(;; )
-	{
-		if((diff = (tolower(s1[ix]) - tolower(s2[ix]))) != 0)
-			return(diff);
-
-		if((s1[ix] == 0) || (s2[ix] == 0))
-			return(diff);
-
-		ix++;
-	}
-}
-#endif
 
 
 static void error(const char *format, const char *string)
