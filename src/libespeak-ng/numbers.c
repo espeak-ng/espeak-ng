@@ -413,7 +413,7 @@ static int LookupLetter2(Translator *tr, unsigned int letter, char *ph_buf)
 			TranslateRules(tr, &single_letter[2], ph_buf, 20, NULL, 0, NULL);
 		}
 	}
-	return (ph_buf[0]);
+	return ph_buf[0];
 }
 
 
@@ -582,9 +582,9 @@ int NonAsciiNumber(int letter)
 		if (letter < base)
 			break;  // not found
 		if (letter < (base+10))
-			return (letter-base+'0');
+			return letter-base+'0';
 	}
-	return (-1);
+	return -1;
 }
 
 #define L_SUB 0x4000   // subscript
@@ -673,9 +673,9 @@ int IsSuperscript(int letter)
 		if (c > letter)
 			break;
 		if (c == letter)
-			return (derived_letters[ix+1]);
+			return derived_letters[ix+1];
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -756,7 +756,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	if (ph_buf[0] == phonSWITCH) {
 		strcpy(phonemes, ph_buf);
-		return (0);
+		return 0;
 	}
 
 
@@ -925,7 +925,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	if ((len + strlen(ph_buf2)) < N_WORD_PHONEMES) {
 		strcpy(&phonemes[len], ph_buf2);
 	}
-	return (n_bytes);
+	return n_bytes;
 }
 
 
@@ -1036,7 +1036,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 			}
 		}
 	}
-	return (ordinal);
+	return ordinal;
 }
 
 
@@ -1046,14 +1046,14 @@ static int hu_number_e(const char *word, int thousandplex, int value)
 
 	if ((word[0] == 'a') || (word[0] == 'e')) {
 		if ((word[1] == ' ') || (word[1] == 'z') || ((word[1] == 't') && (word[2] == 't')))
-			return (0);
+			return 0;
 
 		if (((thousandplex == 1) || ((value % 1000) == 0)) && (word[1] == 'l'))
-			return (0);   // 1000-el
+			return 0;   // 1000-el
 
-		return (1);
+		return 1;
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -1086,39 +1086,39 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	flags[1] = 0;
 
 	if (((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER)) || IsDigit09(word[-2]))
-		return (0);    // not '2xx'
+		return 0;    // not '2xx'
 
 	if (word[1] == ' ') {
 		if ((tr->langopts.numbers & (NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL | NUM_ORDINAL_DOT)) && (wtab[0].flags & FLAG_HAS_DOT)) {
 			// allow single letter Roman ordinal followed by dot.
 		} else
-			return (0);  // only one letter, don't speak as a Roman Number
+			return 0;  // only one letter, don't speak as a Roman Number
 	}
 
 	word_start = word;
 	while ((c = *word++) != ' ') {
 		if ((p2 = strchr(roman_numbers, c)) == NULL)
-			return (0);
+			return 0;
 
 		value = roman_values[p2 - roman_numbers];
 		if (value == prev) {
 			repeat++;
 			if (repeat >= 3)
-				return (0);
+				return 0;
 		} else
 			repeat = 0;
 
 		if ((prev > 1) && (prev != 10) && (prev != 100)) {
 			if (value >= prev)
-				return (0);
+				return 0;
 		}
 		if ((prev != 0) && (prev < value)) {
 			if (((acc % 10) != 0) || ((prev*10) < value))
-				return (0);
+				return 0;
 			subtract = prev;
 			value -= subtract;
 		} else if (value >= subtract)
-			return (0);
+			return 0;
 		else
 			acc += prev;
 		prev = value;
@@ -1126,14 +1126,14 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	}
 
 	if (IsDigit09(word[0]))
-		return (0);      // eg. 'xx2'
+		return 0;      // eg. 'xx2'
 
 	acc += prev;
 	if (acc < tr->langopts.min_roman)
-		return (0);
+		return 0;
 
 	if (acc > tr->langopts.max_roman)
-		return (0);
+		return 0;
 
 
 	Lookup(tr, "_roman", ph_roman);   // precede by "roman" if _rom is defined in *_list
@@ -1148,7 +1148,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 
 	if (word[0] == '.') {
 		// dot has not been removed.  This implies that there was no space after it
-		return (0);
+		return 0;
 	}
 
 	if (CheckDotOrdinal(tr, word_start, word, wtab, 1))
@@ -1161,7 +1161,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 					// should use the 'e' form of the number
 					num_control |= 1;
 				} else
-					return (0);
+					return 0;
 			}
 		} else {
 			wtab[0].flags |= FLAG_ORDINAL;
@@ -1175,7 +1175,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	if (tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out, ph_roman);
 
-	return (1);
+	return 1;
 }
 
 
@@ -1192,36 +1192,36 @@ static const char *M_Variant(int value)
 	{
 	case 1:  // lang=ru  use singular for xx1 except for x11
 		if ((teens == 0) && ((value % 10) == 1))
-			return ("1M");
+			return "1M";
 		break;
 
 	case 2:  // lang=cs,sk
 		if ((value >= 2) && (value <= 4))
-			return ("0MA");
+			return "0MA";
 		break;
 
 	case 3:  // lang=pl
 		if ((teens == 0) && (((value % 10) >= 2) && ((value % 10) <= 4)))
-			return ("0MA");
+			return "0MA";
 		break;
 
 	case 4:  // lang=lt
 		if ((teens == 1) || ((value % 10) == 0))
-			return ("0MB");
+			return "0MB";
 		if ((value % 10) == 1)
-			return ("0MA");
+			return "0MA";
 		break;
 
 	case 5:  // lang=bs,hr,sr
 		if (teens == 0) {
 			if ((value % 10) == 1)
-				return ("1M");
+				return "1M";
 			if (((value % 10) >= 2) && ((value % 10) <= 4))
-				return ("0MA");
+				return "0MA";
 		}
 		break;
 	}
-	return ("0M");
+	return "0M";
 }
 
 
@@ -1310,9 +1310,9 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	sprintf(ph_out, "%s%s", ph_of, ph_thousands);
 
 	if ((value == 1) && (thousandplex == 1) && (tr->langopts.numbers & NUM_OMIT_1_THOUSAND))
-		return (1);
+		return 1;
 
-	return (found_value);
+	return found_value;
 }
 
 
@@ -1561,7 +1561,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 			}
 		}
 	}
-	return (used_and);
+	return used_and;
 }
 
 
@@ -1773,7 +1773,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 	sprintf(ph_out, "%s%s%c%s", buf1, ph_hundred_and, phonEND_WORD, buf2);
 
-	return (0);
+	return 0;
 }
 
 
@@ -1783,13 +1783,13 @@ bool CheckThousandsGroup(char *word, int group_len)
 	int ix;
 
 	if (IsDigit09(word[group_len]) || IsDigit09(-1))
-		return (false);
+		return false;
 
 	for (ix = 0; ix < group_len; ix++) {
 		if (!IsDigit09(word[ix]))
-			return (false);
+			return false;
 	}
-	return (true);
+	return true;
 }
 
 
@@ -1915,7 +1915,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		} else {
 			if (n_digits > 3) {
 				flags[0] &= ~FLAG_SKIPWORDS;
-				return (0);     // long number string with leading zero, speak as individual digits
+				return 0;     // long number string with leading zero, speak as individual digits
 			}
 
 			// speak leading zeros
@@ -2017,7 +2017,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				// Look for special pronunciation for this number in isolation (LANG=kl)
 				sprintf(string, "_%dn", value);
 				if (Lookup(tr, string, ph_out)) {
-					return (1);
+					return 1;
 				}
 			}
 
@@ -2147,7 +2147,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	if (skipwords)
 		dictionary_skipwords = skipwords;
-	return (1);
+	return 1;
 }
 
 
@@ -2155,10 +2155,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
 {
 	if ((option_sayas == SAYAS_DIGITS1) || (wtab[0].flags & FLAG_INDIVIDUAL_DIGITS))
-		return (0);  // speak digits individually
+		return 0;  // speak digits individually
 
 	if (tr->langopts.numbers != 0) {
-		return (TranslateNumber_1(tr, word1, ph_out, flags, wtab, control));
+		return TranslateNumber_1(tr, word1, ph_out, flags, wtab, control);
 	}
-	return (0);
+	return 0;
 }

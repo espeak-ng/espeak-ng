@@ -204,7 +204,7 @@ static int OpenWaveFile(const char *path, int rate)
 	};
 
 	if (path == NULL)
-		return (2);
+		return 2;
 
 	while (isspace(*path)) path++;
 
@@ -225,9 +225,9 @@ static int OpenWaveFile(const char *path, int rate)
 		Write4Bytes(f_wave, rate);
 		Write4Bytes(f_wave, rate * 2);
 		fwrite(&wave_hdr[32], 1, 12, f_wave);
-		return (0);
+		return 0;
 	}
-	return (1);
+	return 1;
 }
 
 
@@ -270,12 +270,12 @@ static int WavegenFile(void)
 	finished = WavegenFill(0);
 
 	if (quiet)
-		return (finished);
+		return finished;
 
 	if (f_wave == NULL) {
 		sprintf(fname, "%s_%.2d%s", wavefile, ++wavefile_count, filetype);
 		if (OpenWaveFile(fname, samplerate) != 0)
-			return (1);
+			return 1;
 	}
 
 	if (end_of_sentence) {
@@ -290,7 +290,7 @@ static int WavegenFile(void)
 		samples_total += (out_ptr - wav_outbuf)/2;
 		fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
 	}
-	return (finished);
+	return finished;
 }
 
 
@@ -386,7 +386,7 @@ static int initialise(void)
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
-	return (0);
+	return 0;
 }
 
 
@@ -816,7 +816,7 @@ int main(int argc, char **argv)
 
 		if (option_quiet) {
 			while (SpeakNextClause(NULL, NULL, 1) != 0) ;
-			return (0);
+			return 0;
 		}
 
 		speaking = 1;
@@ -843,5 +843,5 @@ int main(int argc, char **argv)
 
 	if ((f_trans != stdout) && (f_trans != stderr))
 		fclose(f_trans);  // needed for WinCe
-	return (0);
+	return 0;
 }

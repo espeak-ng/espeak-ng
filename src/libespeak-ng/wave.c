@@ -392,7 +392,7 @@ static int pa_callback(const void *inputBuffer, void *outputBuffer,
 	}
 #endif
 
-	return (aResult);
+	return aResult;
 }
 
 
@@ -420,7 +420,7 @@ static int wave_open_sound()
 
 	if (active == 1) {
 		SHOW_TIME("wave_open_sound > already active");
-		return (0);
+		return 0;
 	}
 	if (active < 0) {
 		out_channels = 1;
@@ -519,7 +519,7 @@ static int wave_open_sound()
 
 	SHOW("wave_open_sound > %s\n", "LEAVE");
 
-	return (err != paNoError);
+	return err != paNoError;
 }
 
 #if (USE_PORTAUDIO == 19)
@@ -656,7 +656,7 @@ void *wave_open(const char *the_api)
 		select_device("alsa");
 		once = 1;
 	}
-	return ((void *)1);
+	return (void *)1;
 }
 
 static size_t copyBuffer(char *dest, char *src, const size_t theSizeInBytes)
@@ -906,7 +906,7 @@ int wave_is_busy(void *theHandler)
 	SHOW("wave_is_busy: %d\n", active);
 
 
-	return (active == 1);
+	return active == 1;
 }
 
 void wave_terminate()
@@ -996,7 +996,7 @@ extern void *wave_test_get_write_buffer() {
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	if (!time) return (-1);
+	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;
 }

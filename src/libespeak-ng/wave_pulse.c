@@ -591,7 +591,7 @@ int wave_init(int srate)
 void *wave_open(const char *the_api)
 {
 	ENTER("wave_open");
-	return ((void *)1);
+	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
@@ -786,7 +786,7 @@ extern void *wave_test_get_write_buffer() {
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	if (!time) return (-1);
+	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;
 }

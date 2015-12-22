@@ -49,7 +49,7 @@ static unsigned int StringToWord(const char *string)
 	unsigned int word;
 
 	if (string == NULL)
-		return (0);
+		return 0;
 
 	word = 0;
 	for (ix = 0; ix < 4; ix++) {
@@ -57,7 +57,7 @@ static unsigned int StringToWord(const char *string)
 		c = string[ix];
 		word |= (c << (ix*8));
 	}
-	return (word);
+	return word;
 }
 
 #pragma GCC visibility push(default)

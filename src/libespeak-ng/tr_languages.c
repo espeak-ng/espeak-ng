@@ -115,9 +115,9 @@ ALPHABET *AlphabetFromName(const char *name)
 
 	for (alphabet = alphabets; alphabet->name != NULL; alphabet++) {
 		if (strcmp(name, &alphabet->name[1]) == 0)
-			return (alphabet);
+			return alphabet;
 	}
-	return (NULL);
+	return NULL;
 }
 
 
@@ -129,13 +129,13 @@ ALPHABET *AlphabetFromChar(int c)
 	while (alphabet->name != NULL) {
 		if (c <= alphabet->range_max) {
 			if (c >= alphabet->range_min)
-				return (alphabet);
+				return alphabet;
 			else
 				break;
 		}
 		alphabet++;
 	}
-	return (NULL);
+	return NULL;
 }
 
 
@@ -239,7 +239,7 @@ static Translator *NewTranslator(void)
 
 	tr = (Translator *)Alloc(sizeof(Translator));
 	if (tr == NULL)
-		return (NULL);
+		return NULL;
 
 	tr->charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
 	dictionary_name[0] = 0;
@@ -314,7 +314,7 @@ static Translator *NewTranslator(void)
 
 	memcpy(tr->langopts.tunes, default_tunes, sizeof(tr->langopts.tunes));
 
-	return (tr);
+	return tr;
 }
 
 // common letter pairs, encode these as a single byte
@@ -1629,7 +1629,7 @@ Translator *SelectTranslator(const char *name)
 	tr->translator_name = name2;
 
 	ProcessLanguageOptions(&tr->langopts);
-	return (tr);
+	return tr;
 }
 
 

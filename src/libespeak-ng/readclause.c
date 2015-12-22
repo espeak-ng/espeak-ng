@@ -291,26 +291,26 @@ static const short wchar_toupper[] = {
 int iswalpha(int c)
 {
 	if (c < 0x80)
-		return (isalpha(c));
+		return isalpha(c);
 	if ((c > 0x3040) && (c <= 0xa700))
-		return (1);  // japanese, chinese characters
+		return 1;  // japanese, chinese characters
 	if (c > MAX_WALPHA)
-		return (0);
-	return (walpha_tab[c-0x80]);
+		return 0;
+	return walpha_tab[c-0x80];
 }
 
 int iswdigit(int c)
 {
 	if (c < 0x80)
-		return (isdigit(c));
-	return (0);
+		return isdigit(c);
+	return 0;
 }
 
 int iswalnum(int c)
 {
 	if (iswdigit(c))
-		return (1);
-	return (iswalpha(c));
+		return 1;
+	return iswalpha(c);
 }
 
 int towlower(int c)
@@ -319,19 +319,19 @@ int towlower(int c)
 	int ix;
 
 	if (c < 0x80)
-		return (tolower(c));
+		return tolower(c);
 
 	if ((c > MAX_WALPHA) || ((x = walpha_tab[c-0x80]) >= 0xfe))
-		return (c);
+		return c;
 
 	if (x == 0xfd) {
 		// special cases, lookup translation table
 		for (ix = 0; wchar_tolower[ix] != 0; ix += 2) {
 			if (wchar_tolower[ix] == c)
-				return (wchar_tolower[ix+1]);
+				return wchar_tolower[ix+1];
 		}
 	}
-	return (c + x);  // convert to lower case
+	return c + x;  // convert to lower case
 }
 
 int towupper(int c)
@@ -339,59 +339,59 @@ int towupper(int c)
 	int ix;
 	// check whether a previous character code is the upper-case equivalent of this character
 	if (towlower(c-32) == c)
-		return (c-32); // yes, use it
+		return c-32; // yes, use it
 	if (towlower(c-1) == c)
-		return (c-1);
+		return c-1;
 	for (ix = 0; wchar_toupper[ix] != 0; ix += 2) {
 		if (wchar_toupper[ix] == c)
-			return (wchar_toupper[ix+1]);
+			return wchar_toupper[ix+1];
 	}
-	return (c);  // no
+	return c;  // no
 }
 
 int iswupper(int c)
 {
 	int x;
 	if (c < 0x80)
-		return (isupper(c));
+		return isupper(c);
 	if (((c > MAX_WALPHA) || (x = walpha_tab[c-0x80]) == 0) || (x == 0xff))
-		return (0);
-	return (1);
+		return 0;
+	return 1;
 }
 
 int iswlower(int c)
 {
 	if (c < 0x80)
-		return (islower(c));
+		return islower(c);
 	if ((c > MAX_WALPHA) || (walpha_tab[c-0x80] != 0xff))
-		return (0);
-	return (1);
+		return 0;
+	return 1;
 }
 
 int iswspace(int c)
 {
 	if (c < 0x80)
-		return (isspace(c));
+		return isspace(c);
 	if (c == 0xa0)
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 int iswpunct(int c)
 {
 	if (c < 0x100)
-		return (ispunct(c));
-	return (0);
+		return ispunct(c);
+	return 0;
 }
 
 const wchar_t *wcschr(const wchar_t *str, int c)
 {
 	while (*str != 0) {
 		if (*str == c)
-			return (str);
+			return str;
 		str++;
 	}
-	return (NULL);
+	return NULL;
 }
 
 #ifndef WINCE
@@ -403,7 +403,7 @@ const int wcslen(const wchar_t *str)
 	while (*str != 0) {
 		ix++;
 	}
-	return (ix);
+	return ix;
 }
 #endif
 
@@ -418,7 +418,7 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 			break;
 	}
 	*tailptr = (wchar_t *)&str[ix];
-	return (atof(buf));
+	return atof(buf);
 }
 #endif
 
@@ -428,35 +428,35 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 int iswalpha2(int c)
 {
 	if (c < 0x80)
-		return (isalpha(c));
+		return isalpha(c);
 	if ((c > 0x3040) && (c <= 0xa700))
-		return (1);  // japanese, chinese characters
+		return 1;  // japanese, chinese characters
 	if (c > MAX_WALPHA)
-		return (iswalpha(c));
-	return (walpha_tab[c-0x80]);
+		return iswalpha(c);
+	return walpha_tab[c-0x80];
 }
 
 int iswlower2(int c)
 {
 	if (c < 0x80)
-		return (islower(c));
+		return islower(c);
 	if (c > MAX_WALPHA)
-		return (iswlower(c));
+		return iswlower(c);
 	if (walpha_tab[c-0x80] == 0xff)
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 int iswupper2(int c)
 {
 	int x;
 	if (c < 0x80)
-		return (isupper(c));
+		return isupper(c);
 	if (c > MAX_WALPHA)
-		return (iswupper(c));
+		return iswupper(c);
 	if (((x = walpha_tab[c-0x80]) > 0) && (x < 0xfe))
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 int towlower2(unsigned int c)
@@ -472,47 +472,47 @@ int towlower2(unsigned int c)
 	}
 
 	if (c < 0x80)
-		return (tolower(c));
+		return tolower(c);
 
 	if (c > MAX_WALPHA)
-		return (towlower(c));
+		return towlower(c);
 
 	if ((x = walpha_tab[c-0x80]) >= 0xfe)
-		return (c);   // this is not an upper case letter
+		return c;   // this is not an upper case letter
 
 	if (x == 0xfd) {
 		// special cases, lookup translation table
 		for (ix = 0; wchar_tolower[ix] != 0; ix += 2) {
 			if (wchar_tolower[ix] == (int)c)
-				return (wchar_tolower[ix+1]);
+				return wchar_tolower[ix+1];
 		}
 	}
-	return (c + x);  // convert to lower case
+	return c + x;  // convert to lower case
 }
 
 int towupper2(unsigned int c)
 {
 	int ix;
 	if (c > MAX_WALPHA)
-		return (towupper(c));
+		return towupper(c);
 
 	// check whether a previous character code is the upper-case equivalent of this character
 	if (towlower2(c-32) == (int)c)
-		return (c-32); // yes, use it
+		return c-32; // yes, use it
 	if (towlower2(c-1) == (int)c)
-		return (c-1);
+		return c-1;
 	for (ix = 0; wchar_toupper[ix] != 0; ix += 2) {
 		if (wchar_toupper[ix] == (int)c)
-			return (wchar_toupper[ix+1]);
+			return wchar_toupper[ix+1];
 	}
-	return (c);  // no
+	return c;  // no
 }
 
 static int IsRomanU(unsigned int c)
 {
 	if ((c == 'I') || (c == 'V') || (c == 'X') || (c == 'L'))
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 
@@ -531,12 +531,12 @@ static void GetC_unget(int c)
 int Eof(void)
 {
 	if (ungot_char != 0)
-		return (0);
+		return 0;
 
 	if (f_input != 0)
-		return (feof(f_input));
+		return feof(f_input);
 
-	return (end_of_input);
+	return end_of_input;
 }
 
 
@@ -554,33 +554,33 @@ static int GetC_get(void)
 			if (feof(f_input)) c2 = 0;
 			c = c + (c2 << 8);
 		}
-		return (c);
+		return c;
 	}
 
 	if (option_multibyte == espeakCHARS_WCHAR) {
 		if (*p_wchar_input == 0) {
 			end_of_input = 1;
-			return (0);
+			return 0;
 		}
 
 		if (!end_of_input)
-			return (*p_wchar_input++);
+			return *p_wchar_input++;
 	} else {
 		if (*p_textinput == 0) {
 			end_of_input = 1;
-			return (0);
+			return 0;
 		}
 
 		if (!end_of_input) {
 			if (option_multibyte == espeakCHARS_16BIT) {
 				c = p_textinput[0] + (p_textinput[1] << 8);
 				p_textinput += 2;
-				return (c);
+				return c;
 			}
-			return (*p_textinput++ & 0xff);
+			return *p_textinput++ & 0xff;
 		}
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -600,7 +600,7 @@ static int GetC(void)
 
 	if ((c1 = ungot_char) != 0) {
 		ungot_char = 0;
-		return (c1);
+		return c1;
 	}
 
 	if (ungot2 != 0) {
@@ -612,7 +612,7 @@ static int GetC(void)
 
 	if ((option_multibyte == espeakCHARS_WCHAR) || (option_multibyte == espeakCHARS_16BIT)) {
 		count_characters++;
-		return (c1);   // wchar_t  text
+		return c1;   // wchar_t  text
 	}
 
 	if ((option_multibyte < 2) && (c1 & 0x80)) {
@@ -648,7 +648,7 @@ static int GetC(void)
 			}
 			if (ix == 0) {
 				count_characters++;
-				return (c);
+				return c;
 			}
 		}
 		// top-bit-set character is not utf8, drop through to 8bit charset case
@@ -659,8 +659,8 @@ static int GetC(void)
 	// 8 bit character set, convert to unicode if
 	count_characters++;
 	if (c1 >= 0xa0)
-		return (translator->charset_a0[c1-0xa0]);
-	return (c1);
+		return translator->charset_a0[c1-0xa0];
+	return c1;
 }
 
 
@@ -683,7 +683,7 @@ const char *WordToString2(unsigned int word)
 			p++;
 	}
 	*p = 0;
-	return (buf);
+	return buf;
 }
 
 
@@ -699,9 +699,9 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes, phonemes2);
 		sprintf(text_out, "[\002%s]]", phonemes2);
-		return (text_out);
+		return text_out;
 	}
-	return (NULL);
+	return NULL;
 }
 
 
@@ -774,7 +774,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
 	}
 
-	return (buf);
+	return buf;
 }
 
 int Read4Bytes(FILE *f)
@@ -788,7 +788,7 @@ int Read4Bytes(FILE *f)
 		c = fgetc(f) & 0xff;
 		acc += (c << (ix*8));
 	}
-	return (acc);
+	return acc;
 }
 
 
@@ -807,7 +807,7 @@ static int LoadSoundFile(const char *fname, int index)
 	}
 
 	if (fname == NULL)
-		return (1);
+		return 1;
 
 	if (fname[0] != '/') {
 		// a relative path, look in espeak-data/soundicons
@@ -848,7 +848,7 @@ static int LoadSoundFile(const char *fname, int index)
 		f = fopen(fname, "rb");
 		if (f == NULL) {
 			fprintf(stderr, "Can't read temp file: %s\n", fname);
-			return (3);
+			return 3;
 		}
 	}
 
@@ -856,7 +856,7 @@ static int LoadSoundFile(const char *fname, int index)
 	fseek(f, 0, SEEK_SET);
 	if ((p = (char *)realloc(soundicon_tab[index].data, length)) == NULL) {
 		fclose(f);
-		return (4);
+		return 4;
 	}
 	length = fread(p, 1, length, f);
 	fclose(f);
@@ -865,7 +865,7 @@ static int LoadSoundFile(const char *fname, int index)
 	ip = (int *)(&p[40]);
 	soundicon_tab[index].length = (*ip) / 2;  // length in samples
 	soundicon_tab[index].data = p;
-	return (0);
+	return 0;
 }
 
 
@@ -878,12 +878,12 @@ static int LookupSoundicon(int c)
 		if (soundicon_tab[ix].name == c) {
 			if (soundicon_tab[ix].length == 0) {
 				if (LoadSoundFile(NULL, ix) != 0)
-					return (-1);  // sound file is not available
+					return -1;  // sound file is not available
 			}
-			return (ix);
+			return ix;
 		}
 	}
-	return (-1);
+	return -1;
 }
 
 
@@ -897,7 +897,7 @@ static int LoadSoundFile2(const char *fname)
 
 	for (ix = 0; ix < n_soundicon_tab; ix++) {
 		if (((soundicon_tab[ix].filename != NULL) && strcmp(fname, soundicon_tab[ix].filename) == 0))
-			return (ix);   // already loaded
+			return ix;   // already loaded
 	}
 
 	// load the file into the next slot
@@ -906,11 +906,11 @@ static int LoadSoundFile2(const char *fname)
 		slot = 0;
 
 	if (LoadSoundFile(fname, slot) != 0)
-		return (-1);
+		return -1;
 
 	soundicon_tab[slot].filename = (char *)realloc(soundicon_tab[ix].filename, strlen(fname)+1);
 	strcpy(soundicon_tab[slot].filename, fname);
-	return (slot);
+	return slot;
 }
 
 
@@ -951,7 +951,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		}
 
 		if (punctname == NULL)
-			return (-1);
+			return -1;
 
 		if ((*bufix == 0) || (end_clause == 0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
 			punct_count = 1;
@@ -1003,10 +1003,10 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	*bufix += len;
 
 	if (end_clause == 0)
-		return (-1);
+		return -1;
 
 	if (c1 == '-')
-		return (CLAUSE_NONE);   // no pause
+		return CLAUSE_NONE;   // no pause
 
 	attributes = punct_attributes[lookupwchar(punct_chars, c1)];
 
@@ -1016,14 +1016,14 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 	if ((bufix1 > 0) && !(tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
 		if ((attributes & ~0x8000) == CLAUSE_SEMICOLON)
-			return (CLAUSE_SHORTFALL);
-		return (short_pause);
+			return CLAUSE_SHORTFALL;
+		return short_pause;
 	}
 
 	if (attributes & CLAUSE_BIT_SENTENCE)
-		return (attributes);
+		return attributes;
 
-	return (short_pause);
+	return short_pause;
 }
 
 #define SSML_SPEAK     1
@@ -1153,15 +1153,15 @@ static const char *VoiceFromStack()
 	voice_select.languages = language;
 	v_id = SelectVoice(&voice_select, &voice_found);
 	if (v_id == NULL)
-		return ("default");
+		return "default";
 
 	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == 0) || (voice_select.gender == base_voice.gender)) && (base_voice_variant_name[0] != 0)) {
 		// a voice variant has not been selected, use the original voice variant
 		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
 		strncpy0(voice_name, buf, sizeof(voice_name));
-		return (voice_name);
+		return voice_name;
 	}
-	return (v_id);
+	return v_id;
 }
 
 
@@ -1231,7 +1231,7 @@ static PARAM_STACK *PushParamStack(int tag_type)
 	for (ix = 0; ix < N_SPEECH_PARAM; ix++) {
 		sp->parameter[ix] = -1;
 	}
-	return (sp);
+	return sp;
 }
 
 
@@ -1277,14 +1277,14 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 				if (*pw == '=') pw++;
 				while (iswspace(*pw)) pw++;
 				if ((*pw == '"') || (*pw == '\''))  // allow single-quotes ?
-					return (pw+1);
+					return pw+1;
 				else
-					return (empty);
+					return empty;
 			}
 		}
 		pw++;
 	}
-	return (NULL);
+	return NULL;
 }
 
 
@@ -1293,13 +1293,13 @@ static int attrcmp(const wchar_t *string1, const char *string2)
 	int ix;
 
 	if (string1 == NULL)
-		return (1);
+		return 1;
 
 	for (ix = 0; (string1[ix] == string2[ix]) && (string1[ix] != 0); ix++) {
 	}
 	if (((string1[ix] == '"') || (string1[ix] == '\'')) && (string2[ix] == 0))
-		return (0);
-	return (1);
+		return 0;
+	return 1;
 }
 
 
@@ -1309,9 +1309,9 @@ static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 
 	for (ix = 0; mtab[ix].mnem != NULL; ix++) {
 		if (attrcmp(string1, mtab[ix].mnem) == 0)
-			return (mtab[ix].value);
+			return mtab[ix].value;
 	}
-	return (mtab[ix].value);
+	return mtab[ix].value;
 }
 
 
@@ -1320,7 +1320,7 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 	int value = 0;
 
 	if ((pw == NULL) || !IsDigit09(*pw))
-		return (default_value);
+		return default_value;
 
 	while (IsDigit09(*pw)) {
 		value = value*10 + *pw++ - '0';
@@ -1329,7 +1329,7 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 		// time: seconds rather than ms
 		value *= 1000;
 	}
-	return (value);
+	return value;
 }
 
 
@@ -1352,7 +1352,7 @@ static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 		}
 	}
 	buf[ix] = 0;
-	return (ix);
+	return ix;
 }
 
 
@@ -1376,14 +1376,14 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	if (tail == pw) {
 		// failed to find a number, return 100%
 		*value_out = 100;
-		return (2);
+		return 2;
 	}
 
 	if (*tail == '%') {
 		if (sign != 0)
 			value = 100 + (sign * value);
 		*value_out = (int)value;
-		return (2);   // percentage
+		return 2;   // percentage
 	}
 
 	if ((tail[0] == 's') && (tail[1] == 't')) {
@@ -1395,7 +1395,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 		x = pow((double)2.0, (double)((value*sign)/12)) * 100;
 		*value_out = (int)x;
 #endif
-		return (2);   // percentage
+		return 2;   // percentage
 	}
 
 	if (param_type == espeakRATE) {
@@ -1403,11 +1403,11 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 			*value_out = (int)(value * 100);
 		else
 			*value_out = 100 + (int)(sign * value * 100);
-		return (2);   // percentage
+		return 2;   // percentage
 	}
 
 	*value_out = (int)value;
-	return (sign);   // -1, 0, or 1
+	return sign;   // -1, 0, or 1
 }
 
 
@@ -1429,7 +1429,7 @@ int AddNameData(const char *name, int wide)
 	if (namedata_ix+len >= n_namedata) {
 		// allocate more space for marker names
 		if ((vp = realloc(namedata, namedata_ix+len + 1000)) == NULL)
-			return (-1);  // failed to allocate, original data is unchanged but ignore this new name
+			return -1;  // failed to allocate, original data is unchanged but ignore this new name
 // !!! Bug?? If the allocated data shifts position, then pointers given to user application will be invalid
 
 		namedata = (char *)vp;
@@ -1437,7 +1437,7 @@ int AddNameData(const char *name, int wide)
 	}
 	memcpy(&namedata[ix = namedata_ix], name, len);
 	namedata_ix += len;
-	return (ix);
+	return ix;
 }
 
 
@@ -1512,7 +1512,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 		}
 
 		if ((tag_type != SSML_VOICE) && (lang == NULL))
-			return (0);  // <s> or <p> without language spec, nothing to do
+			return 0;  // <s> or <p> without language spec, nothing to do
 
 		ssml_sp = &ssml_stack[n_ssml_stack++];
 
@@ -1530,10 +1530,10 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	if (strcmp(new_voice_id, current_voice_id) != 0) {
 		// add an embedded command to change the voice
 		strcpy(current_voice_id, new_voice_id);
-		return (CLAUSE_BIT_VOICE);    // change of voice
+		return CLAUSE_BIT_VOICE;    // change of voice
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -1627,9 +1627,9 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 	if ((letter = LookupMnem(keynames, p)) != 0) {
 		ix = utf8_out(letter, p);
 		*outix = index + ix;
-		return (letter);
+		return letter;
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -1737,7 +1737,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 
 		if (self_closing && ignore_if_self_closing[tag_type])
-			return (0);
+			return 0;
 	}
 
 
@@ -1879,7 +1879,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 				// This is the marker we are waiting for before starting to speak
 				clear_skipping_text = 1;
 				skip_marker[0] = 0;
-				return (CLAUSE_NONE);
+				return CLAUSE_NONE;
 			}
 
 			if ((index = AddNameData(buf, 0)) >= 0) {
@@ -1928,12 +1928,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			PopParamStack(tag_type, outbuf, outix);
 		else
 			audio_text = 1;
-		return (CLAUSE_NONE);
+		return CLAUSE_NONE;
 
 	case SSML_AUDIO + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
 		audio_text = 0;
-		return (CLAUSE_NONE);
+		return CLAUSE_NONE;
 
 	case SSML_BREAK:
 		value = 21;
@@ -1970,7 +1970,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 					value = 0xfff;
 				terminator |= CLAUSE_PAUSE_LONG;
 			}
-			return (terminator + value);
+			return terminator + value;
 		}
 		break;
 
@@ -1982,20 +1982,20 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			}
 		}
 		if (GetVoiceAttributes(px, tag_type) == 0)
-			return (0);   // no voice change
-		return (CLAUSE_VOICE);
+			return 0;   // no voice change
+		return CLAUSE_VOICE;
 
 	case SSML_VOICE:
 		if (GetVoiceAttributes(px, tag_type) == 0)
-			return (0);   // no voice change
-		return (CLAUSE_VOICE);
+			return 0;   // no voice change
+		return CLAUSE_VOICE;
 
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK)) {
 			n_ssml_stack--;
 		}
-		return (CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type));
+		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type);
 
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
@@ -2004,11 +2004,11 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
-		return (terminator + GetVoiceAttributes(px, tag_type));
+		return terminator + GetVoiceAttributes(px, tag_type);
 
 	case HTML_BREAK:
 	case HTML_BREAK + SSML_CLOSE:
-		return (CLAUSE_COLON);
+		return CLAUSE_COLON;
 
 	case SSML_SENTENCE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
@@ -2016,7 +2016,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
-		return (CLAUSE_PARAGRAPH + voice_change_flag);
+		return CLAUSE_PARAGRAPH + voice_change_flag;
 
 
 	case SSML_PARAGRAPH:
@@ -2029,7 +2029,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE);
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
-		return (CLAUSE_PARAGRAPH + voice_change_flag);
+		return CLAUSE_PARAGRAPH + voice_change_flag;
 
 
 	case SSML_SENTENCE + SSML_CLOSE:
@@ -2037,18 +2037,18 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			// end of a sentence which specified a language
 			voice_change_flag = GetVoiceAttributes(px, tag_type);
 		}
-		return (CLAUSE_PERIOD + voice_change_flag);
+		return CLAUSE_PERIOD + voice_change_flag;
 
 
 	case SSML_PARAGRAPH + SSML_CLOSE:
 		if ((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH)) {
 			// End of a paragraph which specified a language.
 			// (End-of-paragraph also implies end-of-sentence)
-			return (GetVoiceAttributes(px, tag_type) + CLAUSE_PARAGRAPH);
+			return GetVoiceAttributes(px, tag_type) + CLAUSE_PARAGRAPH;
 		}
-		return (CLAUSE_PARAGRAPH);
+		return CLAUSE_PARAGRAPH;
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -2145,7 +2145,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 		if (!iswalnum(c1)) {
 			if ((end_character_position > 0) && (count_characters > end_character_position)) {
 				end_of_input = 1;
-				return (CLAUSE_EOF);
+				return CLAUSE_EOF;
 			}
 
 			if ((skip_characters > 0) && (count_characters >= skip_characters)) {
@@ -2154,7 +2154,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				clear_skipping_text = 1;
 				skip_characters = 0;
 				UngetC(c2);
-				return (CLAUSE_NONE);
+				return CLAUSE_NONE;
 			}
 		}
 
@@ -2235,7 +2235,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 						ungot_char2 = c1;
 						buf[ix] = ' ';
 						buf[ix+1] = 0;
-						return (CLAUSE_NONE);
+						return CLAUSE_NONE;
 					}
 
 					// SSML Tag
@@ -2267,7 +2267,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 						if (terminator & CLAUSE_BIT_VOICE) {
 							strcpy(voice_change, current_voice_id);
 						}
-						return (terminator);
+						return terminator;
 					}
 					c1 = ' ';
 					c2 = GetC();
@@ -2292,7 +2292,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 			}
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
-			return (terminator);
+			return terminator;
 		}
 
 		if ((c1 == CTRL_EMBEDDED) || (c1 == ctrl_embedded)) {
@@ -2302,7 +2302,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				while (!iswspace(c1 = GetC()) && !Eof() && (ix < (n_buf-1)))
 					buf[ix++] = c1;  // add voice name to end of buffer, after the text
 				buf[ix++] = 0;
-				return (CLAUSE_VOICE);
+				return CLAUSE_VOICE;
 			} else if (c2 == 'B') {
 				// set the punctuation option from an embedded command
 				//  B0     B1     B<punct list><space>
@@ -2368,7 +2368,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 							ungot_word = "i ";
 							UngetC(c2);
 							p_word[0] = 0;
-							return (CLAUSE_PERIOD);
+							return CLAUSE_PERIOD;
 						}
 					}
 				}
@@ -2429,7 +2429,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				if (parag > 3)
 					parag = 3;
 				if (option_ssml) parag = 1;
-				return ((CLAUSE_PARAGRAPH-30) + 30*parag);  // several blank lines, longer pause
+				return (CLAUSE_PARAGRAPH-30) + 30*parag;  // several blank lines, longer pause
 			}
 
 			if (linelength <= option_linelength) {
@@ -2437,7 +2437,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				UngetC(c2);
 				buf[ix] = ' ';
 				buf[ix+1] = 0;
-				return (CLAUSE_COLON);
+				return CLAUSE_COLON;
 			}
 
 			linelength = 0;
@@ -2459,7 +2459,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 						ungot_char2 = c1;
 						buf[end_clause_index] = ' ';  // delete the end-clause punctuation
 						buf[end_clause_index+1] = 0;
-						return (end_clause_after_tag);
+						return end_clause_after_tag;
 					}
 					end_clause_after_tag = 0;
 				}
@@ -2502,7 +2502,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				if ((option_punctuation == 1) || (wcschr(option_punctlist, c1) != NULL)) {
 					tr->phonemes_repeat_count = 0;
 					if ((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
-						return (terminator);
+						return terminator;
 					announced_punctuation = c1;
 				}
 			}
@@ -2591,10 +2591,10 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					}
 					if (nl_count > 1) {
 						if ((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
-							return (punct_data + 35);   // with a longer pause
-						return (CLAUSE_PARAGRAPH);
+							return punct_data + 35;   // with a longer pause
+						return CLAUSE_PARAGRAPH;
 					}
-					return (punct_data);   // only recognise punctuation if followed by a blank or bracket/quote
+					return punct_data;   // only recognise punctuation if followed by a blank or bracket/quote
 				} else {
 					if (!Eof()) {
 						if (iswspace(c2))
@@ -2636,7 +2636,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
 			UngetC(c2);
-			return (CLAUSE_NONE);
+			return CLAUSE_NONE;
 		}
 	}
 
@@ -2648,7 +2648,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	}
 	buf[ix] = ' ';
 	buf[ix+1] = 0;
-	return (CLAUSE_EOF);   //  end of file
+	return CLAUSE_EOF;   //  end of file
 }
 
 

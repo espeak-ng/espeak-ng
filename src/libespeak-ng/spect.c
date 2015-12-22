@@ -86,7 +86,7 @@ float polint(float xa[], float ya[], int n, float x)
 			hp = xa[i+m]-x;
 			w = c[i+1]-d[i];
 			if ((den = ho-hp) == 0.0) {
-				return (ya[2]);  // two input xa are identical
+				return ya[2];  // two input xa are identical
 			}
 			den = w/den;
 			d[i] = hp*den;
@@ -94,7 +94,7 @@ float polint(float xa[], float ya[], int n, float x)
 		}
 		y += ((2*ns < (n-m) ? c[ns+1] : d[ns--]));
 	}
-	return (y);
+	return y;
 }
 
 
@@ -187,7 +187,7 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 
 	if (spect_data == NULL) {
 		fprintf(stderr, "Failed to allocate memory\n");
-		return (1);
+		return 1;
 	}
 
 	frame->max_y = 0;
@@ -198,7 +198,7 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 	}
 	frame->spect = spect_data;
 
-	return (0);
+	return 0;
 }
 
 
@@ -226,7 +226,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 		total += ((htab[h] * htab[h]) >> 10);
 	}
 	frame->rms = sqrt(total) / 7.25;
-	return (frame->rms);
+	return frame->rms;
 }
 
 
@@ -272,13 +272,13 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 	int ix;
 	float adjust = 0;
 
-	if (frame >= spect->numframes-1) return (0);
+	if (frame >= spect->numframes-1) return 0;
 
 	for (ix = frame+1; ix < spect->numframes-1; ix++) {
 		if (spect->frames[ix]->keyframe) break;  // reached next keyframe
 		adjust += spect->frames[ix]->length_adjust;
 	}
-	return ((spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust);
+	return (spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust;
 }
 
 
@@ -294,7 +294,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	FILE *stream = fopen(filename, "rb");
 	if (stream == NULL) {
 		fprintf(stderr, "Failed to open: '%s'", filename);
-		return (0);
+		return 0;
 	}
 
 	fread(&id1, sizeof(uint32_t), 1, stream);
@@ -309,7 +309,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	} else {
 		fprintf(stderr, "Unsupported spectral file format.\n");
 		fclose(stream);
-		return (1);
+		return 1;
 	}
 
 	fread(&name_len, sizeof(uint32_t), 1, stream);
@@ -326,7 +326,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 	if (n == 0) {
 		fclose(stream);
-		return (0);
+		return 0;
 	}
 
 	if (spect->frames != NULL) {
@@ -383,5 +383,5 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(spect, ix);
 	}
 	fclose(stream);
-	return (0);
+	return 0;
 }

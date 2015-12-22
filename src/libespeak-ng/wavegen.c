@@ -292,12 +292,12 @@ int WcmdqFree()
 	int i;
 	i = wcmdq_head - wcmdq_tail;
 	if (i <= 0) i += N_WCMDQ;
-	return (i);
+	return i;
 }
 
 int WcmdqUsed()
 {
-	return (N_WCMDQ - WcmdqFree());
+	return N_WCMDQ - WcmdqFree();
 }
 
 
@@ -470,7 +470,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 
 #if USE_PORTAUDIO == 18
 #ifdef PLATFORM_WINDOWS
-	return (result);
+	return result;
 #endif
 	if (result != 0) {
 		static int end_timer = 0;
@@ -479,12 +479,12 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 		if (end_timer > 0) {
 			end_timer--;
 			if (end_timer == 0)
-				return (1);
+				return 1;
 		}
 	}
-	return (0);
+	return 0;
 #else
-	return (result);
+	return result;
 #endif
 
 }
@@ -528,7 +528,7 @@ static PaError Pa_OpenDefaultStream2(PaStream **stream,
 	result = Pa_OpenStream(
 	    stream, NULL, &hostApiOutputParameters, sampleRate, framesPerBuffer, paNoFlag, streamCallback, userData);
 
-	return (result);
+	return result;
 }
 #endif
 
@@ -540,7 +540,7 @@ int WavegenOpenSound()
 
 	if (option_waveout || option_quiet) {
 		// writing to WAV file, not to portaudio
-		return (0);
+		return 0;
 	}
 
 #if USE_PORTAUDIO == 18
@@ -550,7 +550,7 @@ int WavegenOpenSound()
 #endif
 
 	if (active == 1)
-		return (0);
+		return 0;
 	if (active < 0) {
 		out_channels = 1;
 
@@ -587,7 +587,7 @@ int WavegenOpenSound()
 		exit(2);
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -607,13 +607,13 @@ int WavegenCloseSound()
 			if (active == 0) {
 				Pa_CloseStream(pa_stream);
 				pa_stream = NULL;
-				return (1);
+				return 1;
 			}
 		} else {
 			WavegenOpenSound();  // still items in the queue, shouldn't be closed
 		}
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -622,29 +622,29 @@ int WavegenInitSound()
 	PaError err;
 
 	if (option_quiet)
-		return (0);
+		return 0;
 
 	// PortAudio sound output library
 	err = Pa_Initialize();
 	pa_init_err = err;
 	if (err != paNoError) {
 		fprintf(stderr, "Failed to initialise the PortAudio sound\n");
-		return (1);
+		return 1;
 	}
-	return (0);
+	return 0;
 }
 #else
 int WavegenOpenSound()
 {
-	return (0);
+	return 0;
 }
 int WavegenCloseSound()
 {
-	return (0);
+	return 0;
 }
 int WavegenInitSound()
 {
-	return (0);
+	return 0;
 }
 #endif
 
@@ -706,7 +706,7 @@ int GetAmplitude(void)
 
 	amp = (embedded_value[EMBED_A])*55/100;
 	general_amplitude = amp * amp_emphasis[embedded_value[EMBED_F]] / 16;
-	return (general_amplitude);
+	return general_amplitude;
 }
 
 
@@ -775,12 +775,12 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 #ifdef SPECT_EDITOR
 	if (harm_sqrt_n > 0)
-		return (HarmToHarmspect(pitch, htab));
+		return HarmToHarmspect(pitch, htab);
 #endif
 
 	// initialise as much of *out as we will need
 	if (wvoice == NULL)
-		return (1);
+		return 1;
 	hmax = (peaks[wvoice->n_harmonic_peaks].freq + peaks[wvoice->n_harmonic_peaks].right)/pitch;
 	if (hmax >= MAX_HARMONIC)
 		hmax = MAX_HARMONIC-1;
@@ -866,7 +866,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		}
 	}
 
-	return (hmax);  // highest harmonic number
+	return hmax;  // highest harmonic number
 }
 
 
@@ -1029,7 +1029,7 @@ static int ApplyBreath(void)
 		}
 	}
 #endif
-	return (value);
+	return value;
 }
 
 
@@ -1060,7 +1060,7 @@ int Wavegen()
 
 	for (;;) {
 		if ((end_wave == 0) && (samplecount == nsamples))
-			return (0);
+			return 0;
 
 		if ((samplecount & 0x3f) == 0) {
 			// every 64 samples, adjust the parameters
@@ -1105,7 +1105,7 @@ int Wavegen()
 				// sign has changed, reached a quiet point in the waveform
 				cbytes = wavemult_offset - (cycle_samples)/2;
 				if (samplecount > nsamples)
-					return (0);
+					return 0;
 
 				cycle_count++;
 
@@ -1257,9 +1257,9 @@ int Wavegen()
 			echo_head = 0;
 
 		if (out_ptr >= out_end)
-			return (1);
+			return 1;
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -1273,7 +1273,7 @@ static int PlaySilence(int length, int resume)
 	wavephase = 0x7fffffff;
 
 	if (length == 0)
-		return (0);
+		return 0;
 
 	if (resume == 0)
 		n_samples = length;
@@ -1292,9 +1292,9 @@ static int PlaySilence(int length, int resume)
 			echo_head = 0;
 
 		if (out_ptr >= out_end)
-			return (1);
+			return 1;
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -1347,19 +1347,19 @@ static int PlayWave(int length, int resume, unsigned char *data, int scale, int 
 			echo_head = 0;
 
 		if (out_ptr >= out_end)
-			return (1);
+			return 1;
 	}
-	return (0);
+	return 0;
 }
 
 
 static int SetWithRange0(int value, int max)
 {
 	if (value < 0)
-		return (0);
+		return 0;
 	if (value > max)
-		return (max);
-	return (value);
+		return max;
+	return value;
 }
 
 
@@ -1615,7 +1615,7 @@ static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_
 	if (resume == 0)
 		SetSynth(length, modulation, fr1, fr2, wvoice);
 
-	return (Wavegen());
+	return Wavegen();
 }
 
 void Write4Bytes(FILE *f, int value)
@@ -1650,14 +1650,14 @@ int WavegenFill2(int fill_zeros)
 				// continue to play silence until echo is completed
 				resume = PlaySilence(echo_complete, resume);
 				if (resume == 1)
-					return (0);  // not yet finished
+					return 0;  // not yet finished
 			}
 
 			if (fill_zeros) {
 				while (out_ptr < out_end)
 					*out_ptr++ = 0;
 			}
-			return (1);              // queue empty, close sound channel
+			return 1;              // queue empty, close sound channel
 		}
 
 		result = 0;
@@ -1767,7 +1767,7 @@ int WavegenFill2(int fill_zeros)
 		}
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -1787,7 +1787,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 	}
 
 	if (sonicSpeedupStream == NULL)
-		return (0);
+		return 0;
 
 	if (end_of_text) {
 		sonicFlushStream(sonicSpeedupStream);

@@ -410,7 +410,7 @@ static int count_increments(int ix, int end_ix, int min_stress)
 		if (stress >= min_stress)
 			count++;
 	}
-	return (count);
+	return count;
 }
 
 
@@ -452,7 +452,7 @@ static int CountUnstressed(int start, int end, int limit)
 		if (syllable_tab[ix].stress >= limit)
 			break;
 	}
-	return (ix - start);
+	return ix - start;
 }
 
 static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
@@ -569,7 +569,7 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 
 		syl_ix++;
 	}
-	return (syl_ix);
+	return syl_ix;
 
 }
 
@@ -668,7 +668,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 
 		ix++;
 	}
-	return (ix);
+	return ix;
 }
 
 
@@ -746,7 +746,7 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	ix = SetHeadIntonation(tune, ix, tone_posn, 0);
 
 	if (no_tonic)
-		return (0);
+		return 0;
 
 	/* tonic syllable */
 	/******************/
@@ -770,7 +770,7 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	SetPitchGradient(ix, end, tune->tail_start, tune->tail_end);
 
-	return (tone_pitch_env);
+	return tone_pitch_env;
 }
 
 
@@ -785,7 +785,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	int continuing = 0;
 
 	if (control == 0) {
-		return (calc_pitches2(start, end, tune_number));
+		return calc_pitches2(start, end, tune_number);
 	}
 
 	if (start > 0)
@@ -810,7 +810,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	ix = calc_pitch_segment(ix, tone_posn, th, tn, PRIMARY, continuing);
 
 	if (no_tonic)
-		return (0);
+		return 0;
 
 	/* tonic syllable */
 	/******************/
@@ -838,7 +838,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 	SetPitchGradient(ix, end, tn->tail_start, tn->tail_end);
 
-	return (tone_pitch_env);
+	return tone_pitch_env;
 }
 
 

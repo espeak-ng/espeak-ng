@@ -168,8 +168,8 @@ int isspace2(unsigned int c)
 	int c2;
 
 	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
-		return (0);
-	return (1);
+		return 0;
+	return 1;
 }
 
 
@@ -183,7 +183,7 @@ static FILE *fopen_log(const char *fname, const char *access)
 		if (f_log != NULL)
 			fprintf(f_log, "Can't access (%s) file '%s'\n", access, fname);
 	}
-	return (f);
+	return f;
 }
 
 
@@ -192,10 +192,10 @@ const char *LookupMnemName(MNEM_TAB *table, const int value)
 {
 	while (table->mnem != NULL) {
 		if (table->value == value)
-			return (table->mnem);
+			return table->mnem;
 		table++;
 	}
-	return ("");   /* not found */
+	return "";   /* not found */
 }
 
 
@@ -382,7 +382,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	while (ix < 8)
 		output[ix++] = ' ';
 	output[ix] = 0;
-	return (output);
+	return output;
 }
 
 
@@ -555,7 +555,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	}
 
 	if (word[0] == 0) {
-		return (0);   /* blank line */
+		return 0;   /* blank line */
 	}
 
 	if (text_mode)
@@ -674,7 +674,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	dict_line[0] = length;
 
 
-	return (length);
+	return length;
 }
 
 
@@ -750,7 +750,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	if ((f_in = fopen(fname, "r")) == NULL) {
 		sprintf(fname, "%s%s", path, filename);
 		if ((f_in = fopen(fname, "r")) == NULL)
-			return (-1);
+			return -1;
 	}
 
 	if (f_log != NULL)
@@ -784,7 +784,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	if (f_log != NULL)
 		fprintf(f_log, "\t%d entries\n", count);
 	fclose(f_in);
-	return (0);
+	return 0;
 }
 
 
@@ -804,12 +804,12 @@ static int group3_ix;
 int isHexDigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
-		return (c - '0');
+		return c - '0';
 	if ((c >= 'a') && (c <= 'f'))
-		return (c - 'a' + 10);
+		return c - 'a' + 10;
 	if ((c >= 'A') && (c <= 'F'))
-		return (c - 'A' + 10);
-	return (-1);
+		return c - 'A' + 10;
+	return -1;
 }
 
 
@@ -1143,7 +1143,7 @@ static char *compile_rule(char *input)
 			fprintf(f_log, "%5d: Syntax error\n", linenum);
 			error_count++;
 		}
-		return (NULL);
+		return NULL;
 	}
 
 	EncodePhonemes(rule_phonemes, buf, &bad_phoneme);
@@ -1216,7 +1216,7 @@ static char *compile_rule(char *input)
 	output[len++] = 0;
 	prule = (char *)malloc(len);
 	memcpy(prule, output, len);
-	return (prule);
+	return prule;
 }
 
 
@@ -1226,10 +1226,10 @@ int __cdecl string_sorter(char **a, char **b)
 	int ix;
 
 	if ((ix = strcmp(pa = *a, pb = *b)) != 0)
-		return (ix);
+		return ix;
 	pa += (strlen(pa)+1);
 	pb += (strlen(pb)+1);
-	return (strcmp(pa, pb));
+	return strcmp(pa, pb);
 }
 
 
@@ -1238,10 +1238,10 @@ static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 // Sort long names before short names
 	int ix;
 	ix = strlen(b->name) - strlen(a->name);
-	if (ix != 0) return (ix);
+	if (ix != 0) return ix;
 	ix = strcmp(a->name, b->name);
-	if (ix != 0) return (ix);
-	return (a->start-b->start);
+	if (ix != 0) return ix;
+	return a->start-b->start;
 }
 
 
@@ -1425,14 +1425,14 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	if (!IsDigit09(p[0]) || !IsDigit09(p[1])) {
 		fprintf(f_log, "%5d: Expected 2 digits after '.L'\n", linenum);
 		error_count++;
-		return (1);
+		return 1;
 	}
 
 	group = atoi(&p[0]);
 	if (group >= N_LETTER_GROUPS) {
 		fprintf(f_log, "%5d: lettergroup out of range (01-%.2d)\n", linenum, N_LETTER_GROUPS-1);
 		error_count++;
-		return (1);
+		return 1;
 	}
 
 	while (!isspace2(*p)) p++;
@@ -1476,7 +1476,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 
 	fputc(RULE_GROUP_END, f_out);
 
-	return (0);
+	return 0;
 }
 
 
@@ -1508,7 +1508,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	group_name[0] = 0;
 
 	if ((f_temp = fopen_log(fname_temp, "wb")) == NULL)
-		return (1);
+		return 1;
 
 	for (;;) {
 		linenum++;
@@ -1655,7 +1655,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	qsort((void *)rgroup, n_rgroups, sizeof(rgroup[0]), (int(__cdecl *)(const void *, const void *))rgroup_sorter);
 
 	if ((f_temp = fopen(fname_temp, "rb")) == NULL)
-		return (2);
+		return 2;
 
 	prev_rgroup_name = "\n";
 
@@ -1693,7 +1693,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	remove(fname_temp);
 
 	fprintf(f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
-	return (0);
+	return 0;
 }
 
 
@@ -1733,7 +1733,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		if ((f_in = fopen_log(fname_in, "r")) == NULL) {
 			if (fname_err)
 				strcpy(fname_err, fname_in);
-			return (-1);
+			return -1;
 		}
 	}
 
@@ -1742,7 +1742,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		if (fname_err)
 			strcpy(fname_err, fname_out);
 		fclose(f_in);
-		return (-1);
+		return -1;
 	}
 	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
 
@@ -1778,5 +1778,5 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 	LoadDictionary(translator, dict_name, 0);
 
-	return (error_count);
+	return error_count;
 }

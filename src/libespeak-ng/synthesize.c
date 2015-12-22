@@ -88,7 +88,7 @@ const char *WordToString(unsigned int word)
 	for (ix = 0; ix < 4; ix++)
 		buf[ix] = word >> (ix*8);
 	buf[4] = 0;
-	return (buf);
+	return buf;
 }
 
 
@@ -199,7 +199,7 @@ int PauseLength(int pause, int control)
 	if (len < speed.min_pause) {
 		len = speed.min_pause;      // mS, limit the amount to which pauses can be shortened
 	}
-	return (len);
+	return len;
 }
 
 
@@ -258,7 +258,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	wav_length += p[0];    //  length in bytes
 
 	if (wav_length == 0)
-		return (0);
+		return 0;
 
 	min_length = speed.min_sample_len;
 
@@ -304,7 +304,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	}
 
 	if (amp < 0)
-		return (length);
+		return length;
 
 	len4 = wav_length / 4;
 
@@ -319,7 +319,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q[2] = (intptr_t)(&wavefile_data[index]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
-		return (length);
+		return length;
 	}
 
 	if (length > wav_length) {
@@ -368,7 +368,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		WcmdqInc();
 	}
 
-	return (length);
+	return length;
 }
 
 
@@ -397,7 +397,7 @@ int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
 		len = DoSample2(phdata->sound_addr[pd_WAV], 2, phdata->pd_param[pd_LENGTHMOD]*2, phdata->pd_control, length_mod, amp2);
 	}
 	last_frame = NULL;
-	return (len);
+	return len;
 }
 
 
@@ -416,7 +416,7 @@ static frame_t *AllocFrame()
 	ix++;
 	if (ix >= N_FRAME_POOL)
 		ix = 0;
-	return (&frame_pool[ix]);
+	return &frame_pool[ix];
 }
 
 
@@ -489,7 +489,7 @@ static frame_t *CopyFrame(frame_t *frame1, int copy)
 
 	if ((copy == 0) && (frame1->frflags & FRFLAG_COPIED)) {
 		// this frame has already been copied in temporary rw memory
-		return (frame1);
+		return frame1;
 	}
 
 	frame2 = AllocFrame();
@@ -498,7 +498,7 @@ static frame_t *CopyFrame(frame_t *frame1, int copy)
 		frame2->length = 0;
 		frame2->frflags |= FRFLAG_COPIED;
 	}
-	return (frame2);
+	return frame2;
 }
 
 
@@ -562,12 +562,12 @@ static int VowelCloseness(frame_t *fr)
 	int f1;
 
 	if ((f1 = fr->ffreq[1]) < 300)
-		return (3);
+		return 3;
 	if (f1 < 400)
-		return (2);
+		return 2;
 	if (f1 < 500)
-		return (1);
-	return (0);
+		return 1;
+	return 0;
 }
 
 
@@ -598,7 +598,7 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 	frame_t *fr = NULL;
 
 	if (*n_frames < 2)
-		return (0);
+		return 0;
 
 	len = (data1 & 0x3f) * 2;
 	rms = (data1 >> 6) & 0x3f;
@@ -699,8 +699,8 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 		DoPause(20, 0);  // add a short pause after the consonant
 
 	if (flags & 16)
-		return (len);
-	return (0);
+		return len;
+	return 0;
 }
 
 
@@ -914,7 +914,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	int frame_lengths[N_SEQ_FRAMES];
 
 	if (fmt_params->fmt_addr == 0)
-		return (0);
+		return 0;
 
 	length_mod = plist->length;
 	if (length_mod == 0) length_mod = 256;
@@ -937,7 +937,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	modn_flags = 0;
 	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist);
 	if (frames == NULL)
-		return (0);   // not found
+		return 0;   // not found
 
 	if (fmt_params->fmt_amp != fmt_amplitude) {
 		// an amplitude adjustment is specified for this sequence
@@ -1073,7 +1073,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	}
 
 
-	return (total_len);
+	return total_len;
 }
 
 
@@ -1223,13 +1223,13 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	static WORD_PH_DATA worddata;
 
 	if (option_quiet)
-		return (0);
+		return 0;
 
 	if (option_phoneme_events & espeakINITIALIZE_PHONEME_IPA)
 		use_ipa = 1;
 
 	if (mbrola_name[0] != 0)
-		return (MbrolaGenerate(phoneme_list, n_ph, resume));
+		return MbrolaGenerate(phoneme_list, n_ph, resume);
 
 	if (resume == 0) {
 		ix = 1;
@@ -1259,7 +1259,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			free_min = MIN_WCMDQ;  // 25
 
 		if (WcmdqFree() <= free_min)
-			return (1);  // wait
+			return 1;  // wait
 
 		prev = &phoneme_list[ix-1];
 		next = &phoneme_list[ix+1];
@@ -1614,7 +1614,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		*n_ph = 0;
 	}
 
-	return (0);  // finished the phoneme list
+	return 0;  // finished the phoneme list
 }
 
 
@@ -1626,7 +1626,7 @@ static int paused = 0;
 int SynthOnTimer()
 {
 	if (!timer_on) {
-		return (WavegenCloseSound());
+		return WavegenCloseSound();
 	}
 
 	do {
@@ -1638,13 +1638,13 @@ int SynthOnTimer()
 		}
 	} while (skipping_text);
 
-	return (0);
+	return 0;
 }
 
 
 int SynthStatus()
 {
-	return (timer_on | paused);
+	return timer_on | paused;
 }
 
 
@@ -1670,9 +1670,9 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	if (control == 4) {
 		if ((f_text == NULL) && (p_text == NULL))
-			return (0);
+			return 0;
 		else
-			return (1);
+			return 1;
 	}
 
 	if (control == 2) {
@@ -1686,7 +1686,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		n_phoneme_list = 0;
 		WcmdqStop();
 
-		return (0);
+		return 0;
 	}
 
 	if (control == 3) {
@@ -1700,14 +1700,14 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 			paused = 0;
 			Generate(phoneme_list, &n_phoneme_list, 0);   // re-start from beginning of clause
 		}
-		return (0);
+		return 0;
 	}
 
 	if (control == 5) {
 		// stop speaking, but continue looking for text
 		n_phoneme_list = 0;
 		WcmdqStop();
-		return (0);
+		return 0;
 	}
 
 	if ((f_in != NULL) || (text_in != NULL)) {
@@ -1720,14 +1720,14 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	if ((f_text == NULL) && (p_text == NULL)) {
 		skipping_text = 0;
 		timer_on = 0;
-		return (0);
+		return 0;
 	}
 
 	if ((f_text != NULL) && feof(f_text)) {
 		timer_on = 0;
 		fclose(f_text);
 		f_text = NULL;
-		return (0);
+		return 0;
 	}
 
 	if (current_phoneme_table != voice->phoneme_tab_ix) {
@@ -1754,7 +1754,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	if (skipping_text) {
 		n_phoneme_list = 0;
-		return (1);
+		return 1;
 	}
 
 	Generate(phoneme_list, &n_phoneme_list, 0);
@@ -1772,5 +1772,5 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		new_voice = NULL;
 	}
 
-	return (1);
+	return 1;
 }

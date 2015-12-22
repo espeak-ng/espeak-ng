@@ -127,7 +127,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	if (mbrola_voice == NULL) {
 		samplerate = samplerate_native;
 		SetParameter(espeakVOICETYPE, 0, 0);
-		return (EE_OK);
+		return EE_OK;
 	}
 
 	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
@@ -150,12 +150,12 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 #ifdef PLATFORM_WINDOWS
 	if (load_MBR() == FALSE) {   // load mbrola.dll
 		fprintf(stderr, "Can't load mbrola.dll\n");
-		return (EE_INTERNAL_ERROR);
+		return EE_INTERNAL_ERROR;
 	}
 #endif
 
 	if (init_MBR(path) != 0)      // initialise the required mbrola voice
-		return (EE_NOT_FOUND);
+		return EE_NOT_FOUND;
 
 	setNoError_MBR(1);     // don't stop on phoneme errors
 
@@ -164,13 +164,13 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	size = GetFileLength(path);
 	if ((f_in = fopen(path, "rb")) == NULL) {
 		close_MBR();
-		return (EE_NOT_FOUND);
+		return EE_NOT_FOUND;
 	}
 
 	if ((mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, size)) == NULL) {
 		fclose(f_in);
 		close_MBR();
-		return (EE_INTERNAL_ERROR);
+		return EE_INTERNAL_ERROR;
 	}
 
 	mbrola_control = Read4Bytes(f_in);
@@ -189,7 +189,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 		SetParameter(espeakVOICETYPE, 1, 0);
 	strcpy(mbrola_name, mbrola_voice);
 	mbrola_delay = 1000;  // improve synchronization of events
-	return (EE_OK);
+	return EE_OK;
 }
 
 
@@ -254,7 +254,7 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 
 				if (pr->control & 0x10) {
 					mbr_name_prefix = pr->mbr_name;
-					return (0);
+					return 0;
 				}
 				mnem = pr->mbr_name;
 				break;
@@ -268,7 +268,7 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 		mnem = (mnem << 8) | (mbr_name_prefix & 0xff);
 	}
 	mbr_name_prefix = 0;
-	return (mnem);
+	return mnem;
 }
 
 
@@ -368,7 +368,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 
 	if (final)
 		sprintf(output, "\t100 %d\n", p_end);
-	return (output);
+	return output;
 }
 
 
@@ -586,7 +586,7 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	FILE *f_mbrola = NULL;
 
 	if (*n_ph == 0)
-		return (0);
+		return 0;
 
 	if (option_phonemes & espeakPHONEMES_MBROLA) {
 		// send mbrola data to a file, not to the mbrola library
@@ -650,17 +650,17 @@ void MbrolaReset(void)
 
 espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
-	return (EE_INTERNAL_ERROR);
+	return EE_INTERNAL_ERROR;
 }
 
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
-	return (0);
+	return 0;
 }
 
 int MbrolaFill(int length, int resume, int amplitude)
 {
-	return (0);
+	return 0;
 }
 
 void MbrolaReset(void)

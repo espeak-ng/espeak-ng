@@ -395,7 +395,7 @@ static void *say_thread(void *p)
 int fifo_is_command_enabled()
 {
 	SHOW("ENTER fifo_is_command_enabled=%d\n", (int)(0 == my_stop_is_required));
-	return (0 == my_stop_is_required);
+	return 0 == my_stop_is_required;
 }
 
 typedef struct t_node {

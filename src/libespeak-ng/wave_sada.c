@@ -100,7 +100,7 @@ int wave_init(int srate) {
 	SHOW("wave_init() sun_audio_fd: %d\n", sun_audio_fd);
 
 	if (sun_audio_fd < 0) {
-		return (0);
+		return 0;
 	}
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
@@ -113,9 +113,9 @@ int wave_init(int srate) {
 	if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
 		SHOW("wave_init() failed to set audio params: %s\n", strerror(errno));
 		close(sun_audio_fd);
-		return (0);
+		return 0;
 	}
-	return (1);
+	return 1;
 }
 
 // wave_open
@@ -143,7 +143,7 @@ int wave_init(int srate) {
 void *wave_open(const char *the_api)
 {
 	ENTER("wave_open");
-	return ((void *)sun_audio_fd);
+	return (void *)sun_audio_fd;
 }
 
 // wave_write
@@ -471,7 +471,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	audio_info_t ainfo;
 	ENTER("wave_get_remaining_time");
 	if (!time) {
-		return (-1);
+		return -1;
 		SHOW_TIME("wave_get_remaining_time > LEAVE");
 	}
 
@@ -529,7 +529,7 @@ extern void *wave_test_get_write_buffer() {
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	if (!time) return (-1);
+	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;
 }

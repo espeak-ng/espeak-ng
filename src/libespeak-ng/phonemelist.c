@@ -98,7 +98,7 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 		plist_out[n_plist_out].type = plist_out[n_plist_out].ph->type;
 		n_plist_out++;
 	}
-	return (n_plist_out);
+	return n_plist_out;
 }
 
 

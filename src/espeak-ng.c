@@ -204,7 +204,7 @@ int OpenWavFile(char *path, int rate)
 	};
 
 	if (path == NULL)
-		return (2);
+		return 2;
 
 	while (isspace(*path)) path++;
 
@@ -218,7 +218,7 @@ int OpenWavFile(char *path, int rate)
 
 	if (f_wavfile == NULL) {
 		fprintf(stderr, "Can't write to: '%s'\n", path);
-		return (1);
+		return 1;
 	}
 
 
@@ -226,7 +226,7 @@ int OpenWavFile(char *path, int rate)
 	Write4Bytes(f_wavfile, rate);
 	Write4Bytes(f_wavfile, rate * 2);
 	fwrite(&wave_hdr[32], 1, 12, f_wavfile);
-	return (0);
+	return 0;
 }
 
 
@@ -257,11 +257,11 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {
 	char fname[210];
 
-	if (quiet) return (0);  // -q quiet mode
+	if (quiet) return 0;  // -q quiet mode
 
 	if (wav == NULL) {
 		CloseWavFile();
-		return (0);
+		return 0;
 	}
 
 	while (events->type != 0) {
@@ -283,10 +283,10 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 		if (samples_split > 0) {
 			sprintf(fname, "%s_%.2d%s", wavefile, wavefile_count+1, filetype);
 			if (OpenWavFile(fname, samplerate) != 0)
-				return (1);
+				return 1;
 		} else {
 			if (OpenWavFile(wavefile, samplerate) != 0)
-				return (1);
+				return 1;
 		}
 	}
 
@@ -294,7 +294,7 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 		samples_total += numsamples;
 		fwrite(wav, numsamples*2, 1, f_wavfile);
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -768,5 +768,5 @@ int main(int argc, char **argv)
 
 	if (f_phonemes_out != stdout)
 		fclose(f_phonemes_out);  // needed for WinCE
-	return (0);
+	return 0;
 }

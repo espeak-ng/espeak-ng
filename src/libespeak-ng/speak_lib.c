@@ -123,7 +123,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 				out_samplerate = voice_samplerate;
 				if (!wave_init(voice_samplerate)) {
 					err = EE_INTERNAL_ERROR;
-					return (-1);
+					return -1;
 				}
 				wave_set_callback_is_output_enabled(fifo_is_command_enabled);
 				my_audio = wave_open("alsa");
@@ -172,7 +172,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 
 	SHOW_TIME("LEAVE dispatch_audio\n");
 
-	return (a_wave_can_be_played == 0); // 1 = stop synthesis, -1 = error
+	return a_wave_can_be_played == 0; // 1 = stop synthesis, -1 = error
 }
 
 
@@ -283,12 +283,12 @@ int GetFileLength(const char *filename)
 	struct stat statbuf;
 
 	if (stat(filename, &statbuf) != 0)
-		return (0);
+		return 0;
 
 	if (S_ISDIR(statbuf.st_mode))
-		return (-2);  // a directory
+		return -2;  // a directory
 
-	return (statbuf.st_size);
+	return statbuf.st_size;
 }
 #pragma GCC visibility pop
 
@@ -298,7 +298,7 @@ char *Alloc(int size)
 	char *p;
 	if ((p = (char *)malloc(size)) == NULL)
 		fprintf(stderr, "Can't allocate memory\n");  // I was told that size+1 fixes a crash on 64-bit systems
-	return (p);
+	return p;
 }
 
 void Free(void *ptr)
@@ -387,7 +387,7 @@ static int initialise(int control)
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
-	return (0);
+	return 0;
 }
 
 
@@ -409,7 +409,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #endif
 
 	if ((outbuf == NULL) || (event_list == NULL))
-		return (EE_INTERNAL_ERROR);  // espeak_Initialize()  has not been called
+		return EE_INTERNAL_ERROR;  // espeak_Initialize()  has not been called
 
 	option_multibyte = flags & 7;
 	option_ssml = flags & espeakSSML;
@@ -448,7 +448,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 			if (SynthOnTimer() != 0)
 				break;
 		}
-		return (EE_OK);
+		return EE_OK;
 	}
 
 	for (;;) {
@@ -507,7 +507,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 			}
 		}
 	}
-	return (EE_OK);
+	return EE_OK;
 }
 
 #ifdef DEBUG_ENABLED
@@ -642,7 +642,7 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 	aStatus = Synthesize(unique_identifier, text, flags | espeakSSML);
 	SHOW_TIME("LEAVE sync_espeak_Synth_Mark");
 
-	return (aStatus);
+	return aStatus;
 }
 
 
@@ -755,13 +755,13 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	outbuf_size = (buf_length * samplerate)/500;
 	outbuf = (unsigned char *)realloc(outbuf, outbuf_size);
 	if ((out_start = outbuf) == NULL)
-		return (EE_INTERNAL_ERROR);
+		return EE_INTERNAL_ERROR;
 
 	// allocate space for event list.  Allow 200 events per second.
 	// Add a constant to allow for very small buf_length
 	n_event_list = (buf_length*200)/1000 + 20;
 	if ((event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list)) == NULL)
-		return (EE_INTERNAL_ERROR);
+		return EE_INTERNAL_ERROR;
 
 	option_phonemes = 0;
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
@@ -781,7 +781,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	fifo_init();
 #endif
 
-	return (samplerate);
+	return samplerate;
 }
 
 
@@ -811,7 +811,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 	*unique_identifier = 0;
 
 	if (synchronous_mode) {
-		return (sync_espeak_Synth(0, text, size, position, position_type, end_position, flags, user_data));
+		return sync_espeak_Synth(0, text, size, position, position_type, end_position, flags, user_data);
 	}
 
 #ifdef USE_ASYNC
@@ -869,7 +869,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 	*unique_identifier = 0;
 
 	if (synchronous_mode) {
-		return (sync_espeak_Synth_Mark(0, text, size, index_mark, end_position, flags, user_data));
+		return sync_espeak_Synth_Mark(0, text, size, index_mark, end_position, flags, user_data);
 	}
 
 #ifdef USE_ASYNC
@@ -915,7 +915,7 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 
 	if (synchronous_mode) {
 		sync_espeak_Key(key);
-		return (EE_OK);
+		return EE_OK;
 	}
 
 #ifdef USE_ASYNC
@@ -944,7 +944,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 
 	if (synchronous_mode) {
 		sync_espeak_Char(character);
-		return (EE_OK);
+		return EE_OK;
 	}
 
 	t_espeak_command *c = create_espeak_char(character, NULL);
@@ -955,7 +955,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 	return a_error;
 #else
 	sync_espeak_Char(character);
-	return (EE_OK);
+	return EE_OK;
 #endif
 }
 
@@ -964,7 +964,7 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
 {
 	ENTER("espeak_SetVoiceByName");
 
-	return (SetVoiceByName(name));
+	return SetVoiceByName(name);
 }
 
 
@@ -973,7 +973,7 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector
 {
 	ENTER("espeak_SetVoiceByProperties");
 
-	return (SetVoiceByProperties(voice_selector));
+	return SetVoiceByProperties(voice_selector);
 }
 
 
@@ -982,9 +982,9 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 	ENTER("espeak_GetParameter");
 	// current: 0=default value, 1=current value
 	if (current) {
-		return (param_stack[0].parameter[parameter]);
+		return param_stack[0].parameter[parameter];
 	} else {
-		return (param_defaults[parameter]);
+		return param_defaults[parameter];
 	}
 }
 
@@ -1001,7 +1001,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
 	if (synchronous_mode) {
 		SetParameter(parameter, value, relative);
-		return (EE_OK);
+		return EE_OK;
 	}
 
 	t_espeak_command *c = create_espeak_parameter(parameter, value, relative);
@@ -1013,7 +1013,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 	return a_error;
 #else
 	SetParameter(parameter, value, relative);
-	return (EE_OK);
+	return EE_OK;
 #endif
 }
 
@@ -1028,7 +1028,7 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 
 	if (synchronous_mode) {
 		sync_espeak_SetPunctuationList(punctlist);
-		return (EE_OK);
+		return EE_OK;
 	}
 
 	t_espeak_command *c = create_espeak_punctuation_list(punctlist);
@@ -1039,7 +1039,7 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 	return a_error;
 #else
 	sync_espeak_SetPunctuationList(punctlist);
-	return (EE_OK);
+	return EE_OK;
 #endif
 }
 
@@ -1077,7 +1077,7 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 	option_multibyte = textmode & 7;
 	*textptr = TranslateClause(translator, NULL, *textptr, NULL, NULL);
-	return (GetTranslatedPhonemeString(phonememode));
+	return GetTranslatedPhonemeString(phonememode);
 }
 
 
@@ -1113,11 +1113,11 @@ ESPEAK_API int espeak_IsPlaying(void)
 {
 #ifdef USE_ASYNC
 	if ((my_mode == AUDIO_OUTPUT_PLAYBACK) && wave_is_busy(my_audio))
-		return (1);
+		return 1;
 
-	return (fifo_is_busy());
+	return fifo_is_busy();
 #else
-	return (0);
+	return 0;
 #endif
 }
 
@@ -1175,7 +1175,7 @@ ESPEAK_API const char *espeak_Info(const char **ptr)
 	if (ptr != NULL) {
 		*ptr = path_home;
 	}
-	return (version_string);
+	return version_string;
 }
 
 #pragma GCC visibility pop

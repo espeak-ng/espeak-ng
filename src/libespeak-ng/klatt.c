@@ -243,7 +243,7 @@ static double sampled_source(int source_num)
 	} else {
 		result = 0;
 	}
-	return (result);
+	return result;
 }
 
 
@@ -461,10 +461,10 @@ static int parwave(klatt_frame_ptr frame)
 
 		sample_count++;
 		if (out_ptr >= out_end) {
-			return (1);
+			return 1;
 		}
 	}
-	return (0);
+	return 0;
 }
 
 
@@ -599,7 +599,7 @@ static double impulsive_source()
 		vwave = 0.0;
 	}
 
-	return (resonator(&(kt_globals.rsn[RGL]), vwave));
+	return resonator(&(kt_globals.rsn[RGL]), vwave);
 }
 
 
@@ -621,10 +621,10 @@ static double natural_source()
 		vwave += kt_globals.pulse_shape_a;
 		lgtemp = vwave * 0.028;
 
-		return (lgtemp);
+		return lgtemp;
 	} else {
 		vwave = 0.0;
-		return (0.0);
+		return 0.0;
 	}
 }
 
@@ -876,7 +876,7 @@ static double gen_noise(double noise)
 	noise = kt_globals.nrand + (0.75 * nlast);
 	nlast = noise;
 
-	return (noise);
+	return noise;
 }
 
 
@@ -914,10 +914,10 @@ static double DBtoLIN(long dB)
 	};
 
 	if ((dB < 0) || (dB > 87)) {
-		return (0);
+		return 0;
 	}
 
-	return ((double)(amptable[dB]) * 0.001);
+	return (double)(amptable[dB]) * 0.001;
 }
 
 
@@ -1009,7 +1009,7 @@ int Wavegen_Klatt(int resume)
 		frame_init(&kt_frame);  /* get parameters for next frame of speech */
 
 		if (parwave(&kt_frame) == 1) {
-			return (1);    // output buffer is full
+			return 1;    // output buffer is full
 		}
 	}
 
@@ -1022,11 +1022,11 @@ int Wavegen_Klatt(int resume)
 		sample_count -= fade;
 		kt_globals.nspfr = fade;
 		if (parwave(&kt_frame) == 1) {
-			return (1);    // output buffer is full
+			return 1;    // output buffer is full
 		}
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -1153,7 +1153,7 @@ int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t
 	if (resume == 0)
 		SetSynth_Klatt(length, modulation, fr1, fr2, wvoice, 1);
 
-	return (Wavegen_Klatt(resume));
+	return Wavegen_Klatt(resume);
 }
 
 

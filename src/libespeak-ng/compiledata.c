@@ -439,11 +439,11 @@ static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
 	while (ktab->mnem != NULL) {
 		if (ktab->data == value) {
 			if ((type == -1) || (type == ktab->type))
-				return (ktab->mnem);
+				return ktab->mnem;
 		}
 		ktab++;
 	}
-	return (NULL);
+	return NULL;
 }
 
 static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
@@ -745,7 +745,7 @@ static int ref_sorter(char **a, char **b)
 	if (ix != 0)
 		return ix;
 
-	return (p1->ph_mnemonic - p2->ph_mnemonic);
+	return p1->ph_mnemonic - p2->ph_mnemonic;
 }
 
 
@@ -855,7 +855,7 @@ static FILE *fopen_log(FILE *f_log, const char *fname, const char *access)
 		if (f_log != NULL)
 			fprintf(f_log, "Can't access (%s) file '%s'\n", access, fname);
 	}
-	return (f);
+	return f;
 }
 
 
@@ -867,7 +867,7 @@ static unsigned int StringToWord(const char *string)
 	unsigned int word;
 
 	if (string == NULL)
-		return (0);
+		return 0;
 
 	word = 0;
 	for (ix = 0; ix < 4; ix++) {
@@ -875,7 +875,7 @@ static unsigned int StringToWord(const char *string)
 		c = string[ix];
 		word |= (c << (ix*8));
 	}
-	return (word);
+	return word;
 }
 
 
@@ -948,7 +948,7 @@ static int LookupPhoneme(const char *string, int control)
 	unsigned int word;
 
 	if (strcmp(string, "NULL") == 0)
-		return (1);
+		return 1;
 
 	ix = strlen(string);
 	if ((ix == 0) || (ix > 4)) {
@@ -966,7 +966,7 @@ static int LookupPhoneme(const char *string, int control)
 	use = 0;
 	for (ix = start; ix < n_phcodes; ix++) {
 		if (phoneme_tab2[ix].mnemonic == word)
-			return (ix);
+			return ix;
 
 		if ((use == 0) && (phoneme_tab2[ix].mnemonic == 0)) {
 			use = ix;
@@ -975,9 +975,9 @@ static int LookupPhoneme(const char *string, int control)
 
 	if (use == 0) {
 		if (control == 0)
-			return (-1);
+			return -1;
 		if (n_phcodes >= N_PHONEME_TAB-1)
-			return (-1);   // phoneme table is full
+			return -1;   // phoneme table is full
 		use = n_phcodes++;
 	}
 
@@ -985,7 +985,7 @@ static int LookupPhoneme(const char *string, int control)
 	phoneme_tab2[use].mnemonic = word;
 	phoneme_tab2[use].type = phINVALID;
 	phoneme_tab2[use].program = linenum;  // for error report if the phoneme remains undeclared
-	return (use);
+	return use;
 }
 
 
@@ -996,7 +996,7 @@ static unsigned int get_char()
 	c = fgetc(f_in);
 	if (c == '\n')
 		linenum++;
-	return (c);
+	return c;
 }
 
 static void unget_char(unsigned int c)
@@ -1012,7 +1012,7 @@ int CheckNextChar()
 	int c;
 	while (((c = get_char()) == ' ') || (c == '\t')) ;
 	unget_char(c);
-	return (c);
+	return c;
 }
 
 
@@ -1046,12 +1046,12 @@ static int NextItem(int type)
 		}
 	}
 	if (feof(f_in))
-		return (-2);
+		return -2;
 
 	if (c == '(') {
 		if (type == tOPENBRACKET)
-			return (1);
-		return (-1);
+			return 1;
+		return -1;
 	}
 
 	ix = 0;
@@ -1082,7 +1082,7 @@ static int NextItem(int type)
 		unget_char(c);
 
 	if (type == tSTRING) {
-		return (0);
+		return 0;
 	}
 
 	if ((type == tNUMBER) || (type == tSIGNEDNUMBER)) {
@@ -1105,7 +1105,7 @@ static int NextItem(int type)
 			acc += (*p - '0');
 			p++;
 		}
-		return (acc * sign);
+		return acc * sign;
 	}
 
 
@@ -1114,17 +1114,17 @@ static int NextItem(int type)
 		while (pk->mnem != NULL) {
 			if (strcmp(item_string, pk->mnem) == 0) {
 				item_type = pk->type;
-				return (pk->data);
+				return pk->data;
 			}
 			pk++;
 		}
 		item_type = -1;
-		return (-1);   // keyword not found
+		return -1;   // keyword not found
 	}
 	if (type == tPHONEMEMNEM) {
-		return (LookupPhoneme(item_string, 2));
+		return LookupPhoneme(item_string, 2);
 	}
-	return (-1);
+	return -1;
 }
 
 
@@ -1141,7 +1141,7 @@ static int NextItemMax(int max)
 		error(msg, NULL);
 		value = max;
 	}
-	return (value);
+	return value;
 }
 
 
@@ -1162,12 +1162,12 @@ static int NextItemBrackets(int type, int control)
 
 	value = NextItem(type);
 	if ((control & 2) && (item_terminator == ','))
-		return (value);
+		return value;
 
 	if (item_terminator != ')') {
 		error("Expected ')'", NULL);
 	}
-	return (value);
+	return value;
 
 }
 
@@ -1193,7 +1193,7 @@ static int Range(int value, int divide, int min, int max)
 		value = max;
 	if (value < min)
 		value = min;
-	return (value - min);
+	return value - min;
 }
 
 
@@ -1300,7 +1300,7 @@ int CompileVowelTransition(int which)
 	prog_out[3] = word2;
 	prog_out += 4;
 
-	return (0);
+	return 0;
 }
 
 
@@ -1331,7 +1331,7 @@ int LoadSpect(const char *path, int control)
 	spectseq = SpectSeqCreate();
 	if (spectseq == NULL) {
 		Error("Failed to create SpectSeq");
-		return (0);
+		return 0;
 	}
 
 	snprintf(filename, sizeof(filename), "%s/../phsource/%s", path_home, path);
@@ -1340,7 +1340,7 @@ int LoadSpect(const char *path, int control)
 	if (spectseq->frames == NULL) {
 		error("Bad vowel file, no frames: '%s'", path);
 		SpectSeqDestroy(spectseq);
-		return (0);
+		return 0;
 	}
 
 	// do we need additional klatt data ?
@@ -1481,7 +1481,7 @@ int LoadSpect(const char *path, int control)
 	}
 
 	SpectSeqDestroy(spectseq);
-	return (displ);
+	return displ;
 }
 
 
@@ -1552,13 +1552,13 @@ static int LoadWavefile(FILE *f, const char *fname)
 				error("WAV file is not mono: %s", fname);
 			}
 			remove(fname_temp);
-			return (0);
+			return 0;
 		}
 
 		f = fopen(fname_temp, "rb");
 		if (f == NULL) {
 			error("Can't read temp file: %s", fname_temp);
-			return (0);
+			return 0;
 		}
 		if (f_report != NULL)
 			fprintf(f_report, "resampled  %s\n", fname);
@@ -1634,7 +1634,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 		fclose(f);
 		remove(fname_temp);
 	}
-	return (displ | 0x800000);  // set bit 23 to indicate a wave file rather than a spectrum
+	return displ | 0x800000;  // set bit 23 to indicate a wave file rather than a spectrum
 }
 
 
@@ -1658,7 +1658,7 @@ static int LoadEnvelope(FILE *f, const char *fname)
 		n_envelopes++;
 	}
 
-	return (displ);
+	return displ;
 }
 
 
@@ -1677,7 +1677,7 @@ static int Hash8(const char *string)
 		chars++;
 	}
 
-	return ((hash+chars) & 0xff);
+	return (hash+chars) & 0xff;
 }
 
 
@@ -1742,7 +1742,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 	displ = ftell(f_phdata);
 	fwrite(env, 1, 128, f_phdata);
 
-	return (displ);
+	return displ;
 }
 
 static int LoadDataFile(const char *path, int control)
@@ -1759,9 +1759,9 @@ static int LoadDataFile(const char *path, int control)
 	char buf[sizeof(path_home)+150];
 
 	if (strcmp(path, "NULL") == 0)
-		return (0);
+		return 0;
 	if (strcmp(path, "DFT") == 0)
-		return (1);
+		return 1;
 
 	count_references++;
 
@@ -1783,7 +1783,7 @@ static int LoadDataFile(const char *path, int control)
 			sprintf(buf, "%s/../phsource/%s.wav", path_home, path);
 			if ((f = fopen(buf, "rb")) == NULL) {
 				error("Can't read file: %s", path);
-				return (0);
+				return 0;
 			}
 		}
 
@@ -1825,7 +1825,7 @@ static int LoadDataFile(const char *path, int control)
 		ref_hash_tab[hash] = p2;
 	}
 
-	return (addr);
+	return addr;
 }
 
 
@@ -1866,7 +1866,7 @@ static int CompileToneSpec(void)
 		*prog_out++ = amp_env;
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -1904,7 +1904,7 @@ int CompileSound(int keyword, int isvowel)
 
 	*prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);
 	*prog_out++ = addr & 0xffff;
-	return (0);
+	return 0;
 }
 
 
@@ -1941,7 +1941,7 @@ int CompileIf(int elif)
 		word2 = 0;
 		if (prog_out >= prog_out_max) {
 			error("Phoneme program too large", NULL);
-			return (0);
+			return 0;
 		}
 
 		if ((key = NextItem(tCONDITION)) < 0)
@@ -1989,7 +1989,7 @@ int CompileIf(int elif)
 			error("Unexpected keyword '%s'", item_string);
 
 			if ((strcmp(item_string, "phoneme") == 0) || (strcmp(item_string, "endphoneme") == 0))
-				return (-1);
+				return -1;
 		}
 
 		// output the word
@@ -2031,7 +2031,7 @@ int CompileIf(int elif)
 	if_stack[if_level].p_then = prog_out;
 	*prog_out++ = i_JUMP_FALSE;
 
-	return (0);
+	return 0;
 }
 
 
@@ -2072,7 +2072,7 @@ int CompileElse(void)
 
 	if (if_level < 1) {
 		error("ELSE not expected", NULL);
-		return (0);
+		return 0;
 	}
 
 	if (if_stack[if_level].returned == 0) {
@@ -2091,7 +2091,7 @@ int CompileElse(void)
 		if_stack[if_level].p_else = ref;
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -2099,12 +2099,12 @@ int CompileElif(void)
 {
 	if (if_level < 1) {
 		error("ELIF not expected", NULL);
-		return (0);
+		return 0;
 	}
 
 	CompileElse();
 	CompileIf(1);
-	return (0);
+	return 0;
 }
 
 
@@ -2116,7 +2116,7 @@ int CompileEndif(void)
 
 	if (if_level < 1) {
 		error("ENDIF not expected", NULL);
-		return (0);
+		return 0;
 	}
 
 	FillThen(0);
@@ -2136,7 +2136,7 @@ int CompileEndif(void)
 	}
 
 	if_level--;
-	return (0);
+	return 0;
 }
 
 
@@ -2148,14 +2148,14 @@ static int CompileSwitch(int type)
 
 	if (type == 0) {
 		// check the instructions in the Switch
-		return (0);
+		return 0;
 	}
 
 	if (type == 1)
 		*prog_out++ = i_SWITCH_PREVVOWEL+6;
 	if (type == 2)
 		*prog_out++ = i_SWITCH_NEXTVOWEL+6;
-	return (0);
+	return 0;
 }
 
 
@@ -2166,11 +2166,11 @@ static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
 
 	for (ix = 0; ix < n_phoneme_tabs; ix++) {
 		if (strcmp(phoneme_tab_list2[ix].name, string) == 0) {
-			return (&phoneme_tab_list2[ix]);
+			return &phoneme_tab_list2[ix];
 		}
 	}
 	error("Unknown phoneme table: '%s'", string);
-	return (NULL);
+	return NULL;
 }
 
 
@@ -2185,7 +2185,7 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 
 	// is this the name of a phoneme which is in scope
 	if ((strlen(string) <= 4) && ((ix = LookupPhoneme(string, 0)) != -1)) {
-		return (&phoneme_tab2[ix]);
+		return &phoneme_tab2[ix];
 	}
 
 	// no, treat the name as phonemetable/phoneme
@@ -2196,18 +2196,18 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 
 	phtab = FindPhonemeTable(buf);
 	if (phtab == NULL) {
-		return (NULL);  // phoneme table not found
+		return NULL;  // phoneme table not found
 	}
 
 	mnem = StringToWord(phname);
 	for (ix = 1; ix < 256; ix++) {
 		if (mnem == phtab->phoneme_tab_ptr[ix].mnemonic) {
-			return (&phtab->phoneme_tab_ptr[ix]);
+			return &phtab->phoneme_tab_ptr[ix];
 		}
 	}
 
 	error("Phoneme reference not found: '%s'", string);
-	return (NULL);
+	return NULL;
 }
 
 
@@ -2316,13 +2316,13 @@ int CompilePhoneme(int compile_phoneme)
 	NextItem(tSTRING);
 	if (compile_phoneme) {
 		phcode = LookupPhoneme(item_string, 1);    // declare phoneme if not already there
-		if (phcode == -1) return (0);
+		if (phcode == -1) return 0;
 		phoneme_out = &phoneme_tab2[phcode];
 	} else {
 		// declare a procedure
 		if (n_procs >= N_PROCS) {
 			error("Too many procedures", NULL);
-			return (0);
+			return 0;
 		}
 		strcpy(proc_names[n_procs], item_string);
 		phoneme_out = &phoneme_out2;
@@ -2666,7 +2666,7 @@ int CompilePhoneme(int compile_phoneme)
 		fwrite(prog_buf, sizeof(USHORT), prog_out - prog_buf, f_phindex);
 	}
 
-	return (0);
+	return 0;
 }
 
 
@@ -3158,7 +3158,7 @@ MNEM_TAB envelope_names[] = {
 
 int LookupEnvelopeName(const char *name)
 {
-	return (LookupMnem(envelope_names, name));
+	return LookupMnem(envelope_names, name);
 }
 
 

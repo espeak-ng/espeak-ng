@@ -381,7 +381,7 @@ static int mbrola_is_idle(void)
 	p = (char *)memchr(buffer, ')', sizeof(buffer));
 	if (!p || (unsigned)(p - buffer) >= sizeof(buffer) - 2)
 		return 0;
-	return (p[1] == ' ' && p[2] == 'S');
+	return p[1] == ' ' && p[2] == 'S';
 }
 
 static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
