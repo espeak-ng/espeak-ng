@@ -39,22 +39,39 @@ Optionally, you need:
 2.  the portaudio development library to enable portaudio output;
 3.  the sonic development library to enable sonic audio speed up support.
 
+To build the documentation, you need:
+
+1.  the `kramdown` markdown processor.
+
 ### Debian
+
+Core dependencies:
 
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c11 compiler  | `sudo apt-get install gcc`                                       |
-| pulseaudio    | `sudo apt-get install libpulse-dev`                              |
-| portaudio     | `sudo apt-get install libportaudio-dev`                          |
-| sonic         | `sudo apt-get install libsonic-dev`                              |
+
+Optional dependencies:
+
+| Dependency | Install                                 |
+|------------|-----------------------------------------|
+| pulseaudio | `sudo apt-get install libpulse-dev`     |
+| portaudio  | `sudo apt-get install libportaudio-dev` |
+| sonic      | `sudo apt-get install libsonic-dev`     |
+
+Documentation dependencies:
+
+| Dependency    | Install                              |
+|---------------|--------------------------------------|
+| kramdown      | `sudo apt-get install ruby-kramdown` |
 
 Cross-compiling for windows:
 
-| Dependency              | Install                                                |
-|-------------------------|--------------------------------------------------------|
-| 32-bit Windows compiler | `sudo apt-get install mingw-w64-i686-dev`              |
-| 64-bit Windows compiler | `sudo apt-get install mingw-w64-x86-64-dev`            |
+| Dependency              | Install                                     |
+|-------------------------|---------------------------------------------|
+| 32-bit Windows compiler | `sudo apt-get install mingw-w64-i686-dev`   |
+| 64-bit Windows compiler | `sudo apt-get install mingw-w64-x86-64-dev` |
 
 ## Building
 
@@ -64,6 +81,10 @@ be built via the standard autotools commands:
 	$ ./autogen.sh
 	$ ./configure --prefix=/usr
 	$ make
+
+The documentation can be built by running:
+
+	make doc
 
 ### Audio Output Configuration
 

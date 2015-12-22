@@ -41,8 +41,9 @@ libespeak-ng.a
 libespeak-ng.la
 libespeak-ng.so*
 
-# programs
+# build output
 
+*.html
 *.exe
 
 src/espeak-ng
