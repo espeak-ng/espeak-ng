@@ -85,9 +85,8 @@ float polint(float xa[], float ya[], int n, float x)
 			ho = xa[i]-x;
 			hp = xa[i+m]-x;
 			w = c[i+1]-d[i];
-			if ((den = ho-hp) == 0.0) {
+			if ((den = ho-hp) == 0.0)
 				return ya[2];  // two input xa are identical
-			}
 			den = w/den;
 			d[i] = hp*den;
 			c[i] = ho*den;
@@ -178,9 +177,8 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 	}
 
 	if (file_format_type > 0) {
-		for (ix = 0; ix < N_KLATTP2; ix++) {
+		for (ix = 0; ix < N_KLATTP2; ix++)
 			fread(frame->klatt_param + ix, sizeof(short), 1, stream);
-		}
 	}
 
 	spect_data = malloc(sizeof(USHORT) * frame->nx);
@@ -222,9 +220,8 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 	}
 
 	maxh = PeaksToHarmspect(wpeaks, 90<<16, htab, 0);
-	for (h = 1; h < maxh; h++) {
+	for (h = 1; h < maxh; h++)
 		total += ((htab[h] * htab[h]) >> 10);
-	}
 	frame->rms = sqrt(total) / 7.25;
 	return frame->rms;
 }
@@ -300,13 +297,13 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	fread(&id1, sizeof(uint32_t), 1, stream);
 	fread(&id2, sizeof(uint32_t), 1, stream);
 
-	if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ)) {
+	if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 		spect->file_format = 0;       // eSpeak formants
-	} else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK)) {
+	else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
 		spect->file_format = 1;       // formants for Klatt synthesizer
-	} else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2)) {
+	else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
 		spect->file_format = 2;       // formants for Klatt synthesizer
-	} else {
+	else {
 		fprintf(stderr, "Unsupported spectral file format.\n");
 		fclose(stream);
 		return 1;

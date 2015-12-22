@@ -87,9 +87,8 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 				}
 			}
 
-			if (plist2->phcode == 0) {
+			if (plist2->phcode == 0)
 				continue;   // phoneme has been replaced by NULL, so don't copy it
-			}
 		}
 
 		// copy phoneme into the output list
@@ -166,13 +165,11 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	delete_count = 0;
 	current_phoneme_tab = tr->phoneme_tab_ix;
 	for (j = 0; j < n_ph_list2; j++) {
-		if (current_phoneme_tab != tr->phoneme_tab_ix) {
+		if (current_phoneme_tab != tr->phoneme_tab_ix)
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
-		}
 
-		if (delete_count > 0) {
+		if (delete_count > 0)
 			memcpy(&plist2[j-delete_count], &plist2[j], sizeof(plist2[0]));
-		}
 
 		if (plist2[j].phcode == phonSWITCH) {
 			if ((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
@@ -183,9 +180,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				// delete this phonSWITCH if it's switching to the current phoneme table, or
 				// delete this phonSWITCH if its followed by another phonSWITCH
 				delete_count++;
-			} else {
+			} else
 				current_phoneme_tab = plist2[j].tone_ph;
-			}
 		}
 
 	}
@@ -223,25 +219,22 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			}
 
 			if ((type == phSTOP) || type == (phFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf)) {
+				if ((voicing == 0) && (regression & 0xf))
 					voicing = 1;
-				} else if ((voicing == 2) && (ph->end_type != 0)) {   // use end_type field for voicing_switch for consonants
+				else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
 					plist2[j].phcode = ph->end_type;  // change to voiced equivalent
-				}
 			} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
-				if ((voicing == 0) && (regression & 0xf)) {
+				if ((voicing == 0) && (regression & 0xf))
 					voicing = 2;
-				} else if ((voicing == 1) && (ph->end_type != 0)) {
+				else if ((voicing == 1) && (ph->end_type != 0))
 					plist2[j].phcode = ph->end_type;  // change to unvoiced equivalent
-				}
 			} else {
 				if (regression & 0x8) {
 					// LANG=Polish, propagate through liquids and nasals
 					if ((type == phPAUSE) || (type == phVOWEL))
 						voicing = 0;
-				} else {
+				} else
 					voicing = 0;
-				}
 			}
 			if (stop_propagation) {
 				voicing = 0;
@@ -255,9 +248,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				}
 				if (regression & 0x100) {
 					// devoice word-final consonants, unless propagating voiced
-					if (voicing == 0) {
+					if (voicing == 0)
 						voicing = 1;
-					}
 				}
 			}
 		}
@@ -281,13 +273,11 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				if (ph_list3[nextw].sourceix)
 					break;   // start of the next word
 			}
-			for (k = j; k < nextw; k++) {
+			for (k = j; k < nextw; k++)
 				ph_list3[k].wordstress = word_stress;
-			}
 			j = nextw;
-		} else {
+		} else
 			j++;
-		}
 	}
 
 	// transfer all the phonemes of the clause into phoneme_list
@@ -314,9 +304,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				if (word_start > 0) {
 					k = word_start;
 					word_start--;
-				} else {
+				} else
 					k = 2;   // No more space, don't loose the start of word mark at ph_list2[word_start]
-				}
 				for (; k <= j; k++)
 					memcpy(&ph_list3[k-1], &ph_list3[k], sizeof(*plist3));
 			}
@@ -382,9 +371,9 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			plist3->ph = ph;
 			plist3->phcode = alternative;
 
-			if (alternative == 1) {
+			if (alternative == 1)
 				deleted = 1;   // NULL phoneme, discard
-			} else {
+			else {
 				if (ph->type == phVOWEL) {
 					plist3->synthflags |= SFLAG_SYLLABLE;
 					if (ph2->type != phVOWEL)
@@ -427,9 +416,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 						if ((tr->langopts.stress_flags & S_NO_DIM) || ((word_stress > 3) && ((plist3+1)->sourceix != 0))) {
 							// An unstressed final vowel of a stressed word
 							unstress_count = 1;    // try again for next syllable
-						} else {
+						} else
 							plist3->stresslevel = 0;    // change stress to 'diminished'
-						}
 					}
 				}
 			} else {
@@ -488,18 +476,16 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 						insert_ph = pause_phonemes[x];
 					}
 				}
-				if (option_wordgap > 0) {
+				if (option_wordgap > 0)
 					insert_ph = phonPAUSE_LONG;
-				}
 			}
 		}
 
 		next2 = phoneme_tab[plist3[2].phcode];
 		plist3[2].ph = next2;
 
-		if ((insert_ph == 0) && (phdata.pd_param[pd_APPENDPHONEME] != 0)) {
+		if ((insert_ph == 0) && (phdata.pd_param[pd_APPENDPHONEME] != 0))
 			insert_ph = phdata.pd_param[pd_APPENDPHONEME];
-		}
 
 		if (deleted == 0) {
 			phlist[ix].ph = ph;
@@ -520,9 +506,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					phlist[ix].newword = 5;  // start of sentence + start of word
 					start_sentence = 0;
 				}
-			} else {
+			} else
 				phlist[ix].newword = 0;
-			}
 
 			phlist[ix].length = phdata.pd_param[i_SET_LENGTH]*2;
 			if ((ph->code == phonPAUSE_LONG) && (option_wordgap > 0) && (plist3[1].sourceix != 0)) {

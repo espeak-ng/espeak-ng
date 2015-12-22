@@ -357,11 +357,10 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 		stress = syllable_tab[ix].stress;   /* marked stress level */
 
 		if (stress >= max_stress) {
-			if (stress > max_stress) {
+			if (stress > max_stress)
 				max_stress_posn2 = ix;
-			} else {
+			else
 				max_stress_posn2 = max_stress_posn;
-			}
 			max_stress_posn = ix;
 			max_stress = stress;
 		}
@@ -384,9 +383,8 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	if (no_tonic) {
 		tone_posn = tone_posn2 = end;  // next position after the end of the truncated clause
 	} else if (last_primary >= 0) {
-		if (end == clause_end) {
+		if (end == clause_end)
 			syllable_tab[last_primary].stress = PRIMARY_LAST;
-		}
 	} else {
 		// no primary stress. Use the highest stress
 		syllable_tab[tone_posn].stress = PRIMARY_LAST;
@@ -519,9 +517,9 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 				if (n_steps > tune->head_max_steps)
 					n_steps = tune->head_max_steps;
 
-				if (n_steps > 1) {
+				if (n_steps > 1)
 					increment = pitch_range / (n_steps -1);
-				} else
+				else
 					increment = 0;
 
 			} else if (syl_ix == head_final) {
@@ -538,9 +536,8 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 					pitch += increment;
 				else {
 					pitch = (tune->head_end << 8) + (pitch_range_abs * tune->head_extend[overflow_ix++])/64;
-					if (overflow_ix >= tune->n_head_extend) {
+					if (overflow_ix >= tune->n_head_extend)
 						overflow_ix = 0;
-					}
 				}
 			}
 
@@ -627,9 +624,9 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 				if (n_steps > th->body_max_steps)
 					n_steps = th->body_max_steps;
 
-				if (n_steps > 1) {
+				if (n_steps > 1)
 					increment = pitch_range / (n_steps -1);
-				} else
+				else
 					increment = 0;
 
 				pitch = th->body_start << 8;
@@ -648,17 +645,16 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 			n_steps--;
 
 			n_primary--;
-			if ((tn->backwards) && (n_primary < 2)) {
+			if ((tn->backwards) && (n_primary < 2))
 				pitch = tn->backwards[n_primary] << 8;
-			}
 		}
 
 		if (stress >= PRIMARY) {
 			syl->stress = PRIMARY_STRESSED;
 			set_pitch(syl, (pitch >> 8), drops[stress]);
-		} else if (stress >= SECONDARY) {
+		} else if (stress >= SECONDARY)
 			set_pitch(syl, (pitch >> 8), drops[stress]);
-		} else {
+		else {
 			/* unstressed, drop pitch if preceded by PRIMARY */
 			if ((syllable_tab[ix-1].stress & 0x3f) >= SECONDARY)
 				set_pitch(syl, (pitch >> 8) - th->body_lower_u, drops[stress]);
@@ -692,9 +688,8 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 	if (n_increments <= 0)
 		return;
 
-	if (n_increments > 1) {
+	if (n_increments > 1)
 		increment = increment / n_increments;
-	}
 
 	pitch = start_pitch << 8;
 
@@ -740,9 +735,8 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	/* body of tonic segment */
 	/*************************/
 
-	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE) {
+	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
 		tone_posn = tone_posn2;  // put tone on the penultimate stressed word
-	}
 	ix = SetHeadIntonation(tune, ix, tone_posn, 0);
 
 	if (no_tonic)
@@ -784,9 +778,8 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	int drop;
 	int continuing = 0;
 
-	if (control == 0) {
+	if (control == 0)
 		return calc_pitches2(start, end, tune_number);
-	}
 
 	if (start > 0)
 		continuing = 1;
@@ -804,9 +797,8 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	/* body of tonic segment */
 	/*************************/
 
-	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE) {
+	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
 		tone_posn = tone_posn2;  // put tone on the penultimate stressed word
-	}
 	ix = calc_pitch_segment(ix, tone_posn, th, tn, PRIMARY, continuing);
 
 	if (no_tonic)
@@ -905,9 +897,8 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			prevw_tph = phoneme_tab[phonPAUSE];  // forget previous tone
 		}
 
-		if (p->newword) {
+		if (p->newword)
 			prev_tph = phoneme_tab[phonPAUSE];  // forget across word boundaries
-		}
 
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			tone_ph = p->tone_ph;
@@ -919,16 +910,14 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 					if (pause || tone_promoted) {
 						tone_ph = PhonemeCode2('5', '5');  // no previous vowel, use tone 1
 						tone_promoted = 1;
-					} else {
+					} else
 						tone_ph = PhonemeCode2('1', '1');  // default tone 5
-					}
 
 					p->tone_ph = tone_ph;
 					tph = phoneme_tab[tone_ph];
 
-				} else {
+				} else
 					tone_promoted = 0;
-				}
 
 				if (ix == final_stressed) {
 					if ((tph->mnemonic == 0x3535 ) || (tph->mnemonic == 0x3135)) {
@@ -943,9 +932,8 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 					else
 						prev_p->tone_ph = PhonemeCode2('2', '1');
 				}
-				if ((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135)) { //  [51] + [51]
+				if ((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135)) //  [51] + [51]
 					prev_p->tone_ph = PhonemeCode2('5', '3');
-				}
 
 				if (tph->mnemonic == 0x3131) { // [11] Tone 5
 					// tone 5, change its level depending on the previous tone (across word boundaries)
@@ -1034,9 +1022,8 @@ void CalcPitches(Translator *tr, int clause_type)
 
 			if (p->stresslevel >= 4)
 				n_primary++;
-		} else if ((p->ph->code == phonPAUSE_CLAUSE) && (n_st > 0)) {
+		} else if ((p->ph->code == phonPAUSE_CLAUSE) && (n_st > 0))
 			syllable_tab[n_st-1].flags |= SYL_END_CLAUSE;
-		}
 	}
 	syllable_tab[n_st].stress = 0;   // extra 0 entry at the end
 
@@ -1159,9 +1146,9 @@ void CalcPitches(Translator *tr, int clause_type)
 			p->pitch2 = syl->pitch2;
 
 			p->env = PITCHfall;
-			if (syl->flags & SYL_RISE) {
+			if (syl->flags & SYL_RISE)
 				p->env = PITCHrise;
-			} else if (p->stresslevel > 5)
+			else if (p->stresslevel > 5)
 				p->env = syl->env;
 
 			if (p->pitch1 > p->pitch2) {
@@ -1178,9 +1165,8 @@ void CalcPitches(Translator *tr, int clause_type)
 				p->pitch1 = x + ph->start_type;
 			}
 
-			if (syl->flags & SYL_EMPHASIS) {
+			if (syl->flags & SYL_EMPHASIS)
 				p->stresslevel |= 8;      // emphasized
-			}
 
 			st_ix++;
 		}

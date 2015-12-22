@@ -492,11 +492,10 @@ static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
 
 	return;
 
-	if (compile_phoneme) {
+	if (compile_phoneme)
 		fprintf(f_out, "\nPhoneme %s (%d)\n", WordToString(ph->mnemonic), ph->code);
-	} else {
+	else
 		fprintf(f_out, "\nProcedure %s\n", proc_names[n_procs]);
-	}
 
 	pc = prog_buf;
 	while (pc < prog_out) {
@@ -772,9 +771,8 @@ static void CompileReport(void)
 
 	fprintf(f_report, "\n%d phoneme tables\n", n_phoneme_tabs);
 	fprintf(f_report, "          new total\n");
-	for (ix = 0; ix < n_phoneme_tabs; ix++) {
+	for (ix = 0; ix < n_phoneme_tabs; ix++)
 		fprintf(f_report, "%8s %3d %4d\n", phoneme_tab_list2[ix].name, phoneme_tab_list2[ix].n_phonemes, n_phcodes_list[ix]+1);
-	}
 	fputc('\n', f_report);
 
 	fprintf(f_report, "Data file      Used by\n");
@@ -814,9 +812,8 @@ static void CompileReport(void)
 			// a procedure, not a phoneme
 			procedure_num = atoi(WordToString(prev_mnemonic));
 			fprintf(f_report, "  %s  %s", phoneme_tab_list2[prev_table = list[ix]->ph_table].name, proc_names[procedure_num]);
-		} else {
+		} else
 			fprintf(f_report, "  [%s] %s", WordToString(prev_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
-		}
 		fputc('\n', f_report);
 	}
 
@@ -951,9 +948,8 @@ static int LookupPhoneme(const char *string, int control)
 		return 1;
 
 	ix = strlen(string);
-	if ((ix == 0) || (ix > 4)) {
+	if ((ix == 0) || (ix > 4))
 		error("Bad phoneme name '%s'", string);
-	}
 	word = StringToWord(string);
 
 	// don't use phoneme number 0, reserved for string terminator
@@ -968,9 +964,8 @@ static int LookupPhoneme(const char *string, int control)
 		if (phoneme_tab2[ix].mnemonic == word)
 			return ix;
 
-		if ((use == 0) && (phoneme_tab2[ix].mnemonic == 0)) {
+		if ((use == 0) && (phoneme_tab2[ix].mnemonic == 0))
 			use = ix;
-		}
 	}
 
 	if (use == 0) {
@@ -1037,13 +1032,11 @@ static int NextItem(int type)
 			if ((c2 = get_char()) == '/') {
 				// comment, ignore to end of line
 				while (!feof(f_in) && ((c = get_char()) != '\n')) ;
-			} else {
+			} else
 				unget_char(c2);
-			}
 		}
-		if (!isspace(c)) {
+		if (!isspace(c))
 			break;
-		}
 	}
 	if (feof(f_in))
 		return -2;
@@ -1067,9 +1060,8 @@ static int NextItem(int type)
 	}
 	item_string[ix] = 0;
 
-	while (isspace(c)) {
+	while (isspace(c))
 		c = get_char();
-	}
 
 	item_terminator = ' ';
 	if ((c == ')') || (c == '(') || (c == ','))
@@ -1081,9 +1073,8 @@ static int NextItem(int type)
 	if (!feof(f_in))
 		unget_char(c);
 
-	if (type == tSTRING) {
+	if (type == tSTRING)
 		return 0;
-	}
 
 	if ((type == tNUMBER) || (type == tSIGNEDNUMBER)) {
 		acc = 0;
@@ -1121,9 +1112,8 @@ static int NextItem(int type)
 		item_type = -1;
 		return -1;   // keyword not found
 	}
-	if (type == tPHONEMEMNEM) {
+	if (type == tPHONEMEMNEM)
 		return LookupPhoneme(item_string, 2);
-	}
 	return -1;
 }
 
@@ -1155,18 +1145,16 @@ static int NextItemBrackets(int type, int control)
 	int value;
 
 	if ((control & 1) == 0) {
-		if (!NextItem(tOPENBRACKET)) {
+		if (!NextItem(tOPENBRACKET))
 			error("Expected '('", NULL);
-		}
 	}
 
 	value = NextItem(type);
 	if ((control & 2) && (item_terminator == ','))
 		return value;
 
-	if (item_terminator != ')') {
+	if (item_terminator != ')')
 		error("Expected ')'", NULL);
-	}
 	return value;
 
 }
@@ -1360,9 +1348,8 @@ int LoadSpect(const char *path, int control)
 	total = 0;
 	for (frame = 0; frame < spectseq->numframes; frame++) {
 		if (spectseq->frames[frame]->keyframe) {
-			if (seq_out.n_frames == 1) {
+			if (seq_out.n_frames == 1)
 				frame_vowelbreak = frame;
-			}
 			if (spectseq->frames[frame]->markers & 0x2) {
 				// marker 1 is set
 				marker1_set = 1;
@@ -1442,9 +1429,8 @@ int LoadSpect(const char *path, int control)
 
 			if (klatt_flag) {
 				// additional klatt parameters
-				for (ix = 0; ix < 5; ix++) {
+				for (ix = 0; ix < 5; ix++)
 					fr_out->klattp2[ix] = fr->klatt_param[ix+5];
-				}
 
 				for (peak = 0; peak < 7; peak++) {
 					fr_out->klatt_ap[ix] = fr->peaks[peak].klt_ap;
@@ -1519,9 +1505,8 @@ static int LoadWavefile(FILE *f, const char *fname)
 
 #ifdef PLATFORM_POSIX
 		strcpy(fname_temp, "/tmp/espeakXXXXXX");
-		if ((fd_temp = mkstemp(fname_temp)) >= 0) {
+		if ((fd_temp = mkstemp(fname_temp)) >= 0)
 			close(fd_temp);
-		}
 #else
 		strcpy(fname_temp, tmpnam(NULL));
 #endif
@@ -1535,9 +1520,8 @@ static int LoadWavefile(FILE *f, const char *fname)
 		}
 
 		sprintf(command, "sox \"%s/../phsource/%s.wav\" -r %d -c1 -t wav %s\n", path_home, fname2, samplerate_native, fname_temp);
-		if (system(command) != 0) {
+		if (system(command) != 0)
 			failed = 1;
-		}
 
 
 		if (failed || (GetFileLength(fname_temp) <= 0)) {
@@ -1548,9 +1532,8 @@ static int LoadWavefile(FILE *f, const char *fname)
 			if (sr1 != samplerate_native) {
 				sprintf(msg, "Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
 				error("%s", msg);
-			} else {
+			} else
 				error("WAV file is not mono: %s", fname);
-			}
 			remove(fname_temp);
 			return 0;
 		}
@@ -1647,9 +1630,8 @@ static int LoadEnvelope(FILE *f, const char *fname)
 	displ = ftell(f_phdata);
 
 	fseek(f, 12, SEEK_SET);
-	if (fread(buf, 128, 1, f) == 0) {
+	if (fread(buf, 128, 1, f) == 0)
 		error("Failed to read envelope: %s", fname);
-	}
 	fwrite(buf, 128, 1, f_phdata);
 
 	if (n_envelopes < N_ENVELOPES) {
@@ -1808,9 +1790,8 @@ static int LoadDataFile(const char *path, int control)
 		}
 		fclose(f);
 
-		if (addr > 0) {
+		if (addr > 0)
 			fprintf(f_phcontents, "%c  0x%.5x  %s\n", type_code, addr & 0x7fffff, path);
-		}
 	}
 
 	// add this item to the hash table
@@ -1963,9 +1944,9 @@ int CompileIf(int elif)
 			key = key << 8;
 
 			data = NextItemBrackets(tPROPERTIES, 0);
-			if (data >= 0) {
+			if (data >= 0)
 				word = key + data + 0x700;
-			} else {
+			else {
 				data = LookupPhoneme(item_string, 2);
 				word = key + data;
 			}
@@ -1982,9 +1963,8 @@ int CompileIf(int elif)
 					brackets = 3;
 				} while (item_terminator == ',');
 				word = i_StressLevel | bitmap;
-			} else {
+			} else
 				word = key;
-			}
 		} else {
 			error("Unexpected keyword '%s'", item_string);
 
@@ -2019,9 +1999,6 @@ int CompileIf(int elif)
 		}
 	}
 
-	if (finish != 1) {
-	}
-
 	if (elif == 0) {
 		if_level++;
 		if_stack[if_level].p_else = NULL;
@@ -2053,9 +2030,8 @@ void FillThen(int add)
 			}
 			prog_out--;
 		} else {
-			if (offset > MAX_JUMP) {
+			if (offset > MAX_JUMP)
 				error("IF block is too long", NULL);
-			}
 			*p = i_JUMP_FALSE + offset;
 		}
 		if_stack[if_level].p_then = NULL;
@@ -2075,19 +2051,17 @@ int CompileElse(void)
 		return 0;
 	}
 
-	if (if_stack[if_level].returned == 0) {
+	if (if_stack[if_level].returned == 0)
 		FillThen(1);
-	} else {
+	else
 		FillThen(0);
-	}
 
 	if (if_stack[if_level].returned == 0) {
 		ref = prog_out;
 		*prog_out++ = 0;
 
-		if ((p = if_stack[if_level].p_else) != NULL) {
+		if ((p = if_stack[if_level].p_else) != NULL)
 			*ref = ref - p;    // backwards offset to the previous else
-		}
 		if_stack[if_level].p_else = ref;
 	}
 
@@ -2126,9 +2100,8 @@ int CompileEndif(void)
 			chain = *p;   // a chain of previous else links
 
 			offset = prog_out - p;
-			if (offset > MAX_JUMP) {
+			if (offset > MAX_JUMP)
 				error("IF block is too long", NULL);
-			}
 			*p = i_JUMP + offset;
 
 			p -= chain;
@@ -2165,9 +2138,8 @@ static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
 	int ix;
 
 	for (ix = 0; ix < n_phoneme_tabs; ix++) {
-		if (strcmp(phoneme_tab_list2[ix].name, string) == 0) {
+		if (strcmp(phoneme_tab_list2[ix].name, string) == 0)
 			return &phoneme_tab_list2[ix];
-		}
 	}
 	error("Unknown phoneme table: '%s'", string);
 	return NULL;
@@ -2184,26 +2156,22 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 	char buf[200];
 
 	// is this the name of a phoneme which is in scope
-	if ((strlen(string) <= 4) && ((ix = LookupPhoneme(string, 0)) != -1)) {
+	if ((strlen(string) <= 4) && ((ix = LookupPhoneme(string, 0)) != -1))
 		return &phoneme_tab2[ix];
-	}
 
 	// no, treat the name as phonemetable/phoneme
 	strcpy(buf, string);
-	if ((phname = strchr(buf, '/')) != 0) {
+	if ((phname = strchr(buf, '/')) != 0)
 		*phname++ = 0;
-	}
 
 	phtab = FindPhonemeTable(buf);
-	if (phtab == NULL) {
+	if (phtab == NULL)
 		return NULL;  // phoneme table not found
-	}
 
 	mnem = StringToWord(phname);
 	for (ix = 1; ix < 256; ix++) {
-		if (mnem == phtab->phoneme_tab_ptr[ix].mnemonic) {
+		if (mnem == phtab->phoneme_tab_ptr[ix].mnemonic)
 			return &phtab->phoneme_tab_ptr[ix];
-		}
 	}
 
 	error("Phoneme reference not found: '%s'", string);
@@ -2398,13 +2366,12 @@ int CompilePhoneme(int compile_phoneme)
 
 			case i_SET_LENGTH:
 				value = NextItemMax(511);
-				if (phoneme_out->type == phVOWEL) {
+				if (phoneme_out->type == phVOWEL)
 					value = (value * vowel_length_factor)/100;
-				}
 
-				if (after_if == 0) {
+				if (after_if == 0)
 					phoneme_out->std_length = value/2;
-				} else {
+				else {
 					*prog_out++ = (i_SET_LENGTH << 8) + value/2;
 					DecThenCount();
 				}
@@ -2469,9 +2436,8 @@ int CompilePhoneme(int compile_phoneme)
 				value = strlen(&ipa_buf[start]);   // number of UTF-8 bytes
 
 				*prog_out++ = (i_IPA_NAME << 8) + value;
-				for (ix = 0; ix < value; ix += 2) {
+				for (ix = 0; ix < value; ix += 2)
 					*prog_out++ = (ipa_buf[ix+start] << 8) + (ipa_buf[ix+start+1] & 0xff);
-				}
 				DecThenCount();
 				break;
 			}
@@ -2496,13 +2462,10 @@ int CompilePhoneme(int compile_phoneme)
 				phcode = NextItem(tPHONEMEMNEM);
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
-				if (phoneme_out->type == phVOWEL) {
+				if (phoneme_out->type == phVOWEL)
 					phoneme_out->end_type = phcode;
-				} else {
-					if (phcode != phoneme_out->start_type) {
-						error("endtype must equal starttype for consonants", NULL);
-					}
-				}
+				else if (phcode != phoneme_out->start_type)
+					error("endtype must equal starttype for consonants", NULL);
 				break;
 
 			case kVOICINGSWITCH:
@@ -2603,12 +2566,10 @@ int CompilePhoneme(int compile_phoneme)
 			case kENDPHONEME:
 			case kENDPROCEDURE:
 				endphoneme = 1;
-				if (if_level > 0) {
+				if (if_level > 0)
 					error("Missing ENDIF", NULL);
-				}
-				if ((prog_out > prog_buf) && (if_stack[0].returned == 0)) {
+				if ((prog_out > prog_buf) && (if_stack[0].returned == 0))
 					*prog_out++ = i_RETURN;
-				}
 				break;
 			}
 
@@ -2616,9 +2577,8 @@ int CompilePhoneme(int compile_phoneme)
 		}
 	}
 
-	if (endphoneme != 1) {
+	if (endphoneme != 1)
 		error("'endphoneme' not expected here", NULL);
-	}
 
 	if (compile_phoneme) {
 		if (phoneme_out->type == phINVALID) {
@@ -2642,9 +2602,8 @@ int CompilePhoneme(int compile_phoneme)
 
 		phoneme_out->phflags |= phLOCAL;  // declared in this phoneme table
 
-		if (phoneme_out->type == phDELETED) {
+		if (phoneme_out->type == phDELETED)
 			phoneme_out->mnemonic = 0x01;  // will not be recognised
-		}
 	}
 
 	DecompilePhoneme(f_errors, phoneme_out, compile_phoneme);
@@ -2660,9 +2619,8 @@ int CompilePhoneme(int compile_phoneme)
 			fwrite(&phoneme_prog_log, 1, sizeof(phoneme_prog_log), f_prog_log);
 		}
 
-		if (compile_phoneme == 0) {
+		if (compile_phoneme == 0)
 			proc_addr[n_procs++] =  ftell(f_phindex) / sizeof(USHORT);
-		}
 		fwrite(prog_buf, sizeof(USHORT), prog_out - prog_buf, f_phindex);
 	}
 
@@ -2808,9 +2766,8 @@ static void StartPhonemeTable(const char *name)
 		if (ix == n_phoneme_tabs) {
 			error("Can't find base phonemetable '%s'", item_string);
 		}
-	} else {
+	} else
 		ReservePhCodes();
-	}
 
 	n_phoneme_tabs++;
 }
@@ -2838,9 +2795,8 @@ static void CompileEquivalents()
 	strcpy(foreign_table_name, item_string);
 
 	if ((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0) {
-		if (strcmp(foreign_table_name, "NULL") != 0) {
+		if (strcmp(foreign_table_name, "NULL") != 0)
 			error("Unknown phoneme table '%s'", foreign_table_name);
-		}
 		foreign_error = 1;
 		foreign_phoneme = 0;
 	}
@@ -2889,9 +2845,8 @@ static void CompileEquivalents()
 			}
 		}
 
-		for (ix = 1; ix < n_names; ix++) {
+		for (ix = 1; ix < n_names; ix++)
 			phcode[ix] = LookupPhoneme(names[ix], 1);
-		}
 
 		// only write a translation if it has an effect
 		if ((n_names > 2) || (phcode[0] != phcode[1])) {
@@ -2960,9 +2915,8 @@ static void CompilePhonemeFiles()
 				strncpy0(current_fname, item_string, sizeof(current_fname));
 				linenum = 1;
 
-			} else {
+			} else
 				error("Missing file: %s", item_string);
-			}
 			break;
 
 		case kPHONEMETABLE:
@@ -3070,9 +3024,8 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	sprintf(fname, "%s/%s", path_home, "phontab");
 	f_phtab = fopen_log(f_errors, fname, "wb");
 
-	if (f_phdata == NULL || f_phindex == NULL || f_phtab == NULL) {
+	if (f_phdata == NULL || f_phindex == NULL || f_phtab == NULL)
 		return ENE_WRITE_ERROR;
-	}
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
 	f_prog_log = fopen_log(f_errors, fname, "wb");
@@ -3110,9 +3063,8 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	if (resample_count > 0) {
 		fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
 		fprintf(log, "Compiled phonemes: %d errors, %d files resampled to %d Hz.\n", error_count, resample_count, samplerate_native);
-	} else {
+	} else
 		fprintf(log, "Compiled phonemes: %d errors.\n", error_count);
-	}
 
 	if (f_errors != stderr)
 		fclose(f_errors);
@@ -3218,9 +3170,8 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 			while (isspace(*p)) p++;
 
 			ix = 0;
-			while ((ix < (int)(sizeof(name) - 1)) && !isspace(*p)) {
+			while ((ix < (int)(sizeof(name) - 1)) && !isspace(*p))
 				name[ix++] = *p++;
-			}
 			name[ix] = 0;
 
 			found = 0;
@@ -3265,8 +3216,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 		switch (keyword)
 		{
 		case kTUNE:
-			if (compiling_tune) {
-			}
 			compiling_tune = 1;
 			done_split = 0;
 
@@ -3286,12 +3235,10 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 					break;
 				}
 			}
-			if (found == 2) {
+			if (found == 2)
 				error("Duplicate tune name: '%s'", new_tune.name);
-			}
-			if (found == 0) {
+			if (found == 0)
 				error("Bad tune name: '%s;", new_tune.name);
-			}
 			break;
 
 		case kENDTUNE:
@@ -3420,9 +3367,8 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	}
 
 	for (ix = 0; ix < n_preset_tunes; ix++) {
-		if (tune_data[ix].name[0] == 0) {
+		if (tune_data[ix].name[0] == 0)
 			error("Tune '%s' not defined", preset_tune_names[ix]);
-		}
 	}
 	fwrite(tune_data, n_tune_names, sizeof(TUNE), f_out);
 	free(tune_data);

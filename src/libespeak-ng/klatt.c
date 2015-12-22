@@ -240,9 +240,8 @@ static double sampled_source(int source_num)
 
 		result = samples[itemp] + diff_value;
 		result = result * kt_globals.sample_factor;
-	} else {
+	} else
 		result = 0;
-	}
 	return result;
 }
 
@@ -288,9 +287,8 @@ static int parwave(klatt_frame_ptr frame)
 		   second half of glottal period) if voicing simultaneously present.
 		 */
 
-		if (kt_globals.nper > kt_globals.nmod) {
+		if (kt_globals.nper > kt_globals.nmod)
 			noise *= (double)0.5;
-		}
 
 		/* Compute frication noise */
 		frics = kt_globals.amp_frica * noise;
@@ -350,9 +348,8 @@ static int parwave(klatt_frame_ptr frame)
 		 */
 
 
-		if (kt_globals.nper < kt_globals.nopen) {
+		if (kt_globals.nper < kt_globals.nopen)
 			voice += kt_globals.amp_breth * kt_globals.nrand;
-		}
 
 		/* Set amplitude of voicing */
 		glotout = kt_globals.amp_voice * voice;
@@ -399,9 +396,8 @@ static int parwave(klatt_frame_ptr frame)
 		sourc = frics + par_glotout - glotlast;
 		glotlast = par_glotout;
 
-		for (ix = R2p; ix <= R6p; ix++) {
+		for (ix = R2p; ix <= R6p; ix++)
 			out = resonator(&(kt_globals.rsn[ix]), sourc) - out;
-		}
 
 		outbypas = kt_globals.amp_bypas * sourc;
 
@@ -444,13 +440,11 @@ static int parwave(klatt_frame_ptr frame)
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
-		if (value < -32768) {
+		if (value < -32768)
 			value = -32768;
-		}
 
-		if (value > 32767) {
+		if (value > 32767)
 			value =  32767;
-		}
 
 		*out_ptr++ = value;
 		*out_ptr++ = value >> 8;
@@ -460,9 +454,8 @@ static int parwave(klatt_frame_ptr frame)
 			echo_head = 0;
 
 		sample_count++;
-		if (out_ptr >= out_end) {
+		if (out_ptr >= out_end)
 			return 1;
-		}
 	}
 	return 0;
 }
@@ -521,9 +514,8 @@ static void frame_init(klatt_frame_ptr frame)
 	kt_globals.original_f0 = frame->F0hz10 / 10;
 
 	frame->AVdb_tmp  = frame->AVdb - 7;
-	if (frame->AVdb_tmp < 0) {
+	if (frame->AVdb_tmp < 0)
 		frame->AVdb_tmp = 0;
-	}
 
 	kt_globals.amp_aspir = DBtoLIN(frame->ASP) * 0.05;
 	kt_globals.amp_frica = DBtoLIN(frame->AF) * 0.25;
@@ -536,9 +528,8 @@ static void frame_init(klatt_frame_ptr frame)
 	}
 
 	Gain0_tmp = frame->Gain0 - 3;
-	if (Gain0_tmp <= 0) {
+	if (Gain0_tmp <= 0)
 		Gain0_tmp = 57;
-	}
 	kt_globals.amp_gain0 = DBtoLIN(Gain0_tmp) / kt_globals.scale_wav;
 
 	/* Set coefficients of variable cascade resonators */
@@ -593,11 +584,10 @@ static double impulsive_source()
 	static double doublet[] = { 0.0, 13000000.0, -13000000.0 };
 	static double vwave;
 
-	if (kt_globals.nper < 3) {
+	if (kt_globals.nper < 3)
 		vwave = doublet[kt_globals.nper];
-	} else {
+	else
 		vwave = 0.0;
-	}
 
 	return resonator(&(kt_globals.rsn[RGL]), vwave);
 }
@@ -622,10 +612,9 @@ static double natural_source()
 		lgtemp = vwave * 0.028;
 
 		return lgtemp;
-	} else {
-		vwave = 0.0;
-		return 0.0;
 	}
+	vwave = 0.0;
+	return 0.0;
 }
 
 
@@ -697,9 +686,8 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		/* Duration of period before amplitude modulation */
 
 		kt_globals.nmod = kt_globals.T0;
-		if (frame->AVdb_tmp > 0) {
+		if (frame->AVdb_tmp > 0)
 			kt_globals.nmod >>= 1;
-		}
 
 		/* Breathiness of voicing waveform */
 
@@ -709,13 +697,11 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 		kt_globals.nopen = 4 * frame->Kopen;
 
-		if ((kt_globals.glsource == IMPULSIVE) && (kt_globals.nopen > 263)) {
+		if ((kt_globals.glsource == IMPULSIVE) && (kt_globals.nopen > 263))
 			kt_globals.nopen = 263;
-		}
 
-		if (kt_globals.nopen >= (kt_globals.T0-1)) {
+		if (kt_globals.nopen >= (kt_globals.T0-1))
 			kt_globals.nopen = kt_globals.T0 - 2;
-		}
 
 		if (kt_globals.nopen < 40) {
 			/* F0 max = 1000 Hz */
@@ -746,14 +732,12 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 
 		temp = kt_globals.T0 - kt_globals.nopen;
-		if (frame->Kskew > temp) {
+		if (frame->Kskew > temp)
 			frame->Kskew = temp;
-		}
-		if (skew >= 0) {
+		if (skew >= 0)
 			skew = frame->Kskew;
-		} else {
+		else
 			skew = -frame->Kskew;
-		}
 
 		/* Add skewness to closed portion of voicing period */
 		kt_globals.T0 = kt_globals.T0 + skew;
@@ -774,11 +758,10 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 		kt_globals.decay = (0.033 * frame->TLTdb);
 
-		if (kt_globals.decay > 0.0) {
+		if (kt_globals.decay > 0.0)
 			kt_globals.onemd = 1.0 - kt_globals.decay;
-		} else {
+		else
 			kt_globals.onemd = 1.0;
-		}
 	}
 }
 
@@ -913,9 +896,8 @@ static double DBtoLIN(long dB)
 		26214,  29491,  32767
 	};
 
-	if ((dB < 0) || (dB > 87)) {
+	if ((dB < 0) || (dB > 87))
 		return 0;
-	}
 
 	return (double)(amptable[dB]) * 0.001;
 }
@@ -941,9 +923,8 @@ int Wavegen_Klatt(int resume)
 	int ix;
 	int fade;
 
-	if (resume == 0) {
+	if (resume == 0)
 		sample_count = 0;
-	}
 
 	while (sample_count < nsamples) {
 		kt_frame.F0hz10 = (wdata.pitch * 10) / 4096;
@@ -953,13 +934,11 @@ int Wavegen_Klatt(int resume)
 		// F0 is used for the nasal zero
 		for (ix = 0; ix < 6; ix++) {
 			kt_frame.Fhz[ix] = peaks[ix].freq;
-			if (ix < 4) {
+			if (ix < 4)
 				kt_frame.Bhz[ix] = peaks[ix].bw;
-			}
 		}
-		for (ix = 1; ix < 7; ix++) {
+		for (ix = 1; ix < 7; ix++)
 			kt_frame.Ap[ix] = peaks[ix].ap;
-		}
 
 		kt_frame.AVdb = klattp[KLATT_AV];
 		kt_frame.AVpdb = klattp[KLATT_AVp];
@@ -991,9 +970,8 @@ int Wavegen_Klatt(int resume)
 
 		for (ix = 0; ix <= 6; ix++) {
 			kt_frame.Fhz_next[ix] = peaks[ix].freq;
-			if (ix < 4) {
+			if (ix < 4)
 				kt_frame.Bhz_next[ix] = peaks[ix].bw;
-			}
 		}
 
 		// advance the pitch
@@ -1008,9 +986,8 @@ int Wavegen_Klatt(int resume)
 
 		frame_init(&kt_frame);  /* get parameters for next frame of speech */
 
-		if (parwave(&kt_frame) == 1) {
+		if (parwave(&kt_frame) == 1)
 			return 1;    // output buffer is full
-		}
 	}
 
 	if (end_wave > 0) {
@@ -1021,9 +998,8 @@ int Wavegen_Klatt(int resume)
 		end_wave = 0;
 		sample_count -= fade;
 		kt_globals.nspfr = fade;
-		if (parwave(&kt_frame) == 1) {
+		if (parwave(&kt_frame) == 1)
 			return 1;    // output buffer is full
-		}
 	}
 
 	return 0;
@@ -1048,9 +1024,8 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	}
 
 	end_wave = 0;
-	if (control & 2) {
+	if (control & 2)
 		end_wave = 1;   // fadeout at the end
-	}
 	if (control & 1) {
 		end_wave = 1;
 		for (qix = wcmdq_head+1;; qix++) {

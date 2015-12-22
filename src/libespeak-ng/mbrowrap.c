@@ -95,9 +95,9 @@ static int create_pipes(int p1[2], int p2[2], int p3[2])
 
 	if (pipe(p1) != -1) {
 		if (pipe(p2) != -1) {
-			if (pipe(p3) != -1) {
+			if (pipe(p3) != -1)
 				return 0;
-			} else
+			else
 				error = errno;
 			close(p2[0]);
 			close(p2[1]);
@@ -248,11 +248,11 @@ static int mbrola_died(void)
 	char msgbuf[80];
 
 	pid = waitpid(mbr_pid, &status, WNOHANG);
-	if (!pid) {
+	if (!pid)
 		msg = "mbrola closed stderr and did not exit";
-	} else if (pid != mbr_pid) {
+	else if (pid != mbr_pid)
 		msg = "waitpid() is confused";
-	} else {
+	else {
 		mbr_pid = 0;
 		if (WIFSIGNALED(status)) {
 			int sig = WTERMSIG(status);
@@ -264,9 +264,8 @@ static int mbrola_died(void)
 			snprintf(msgbuf, sizeof(msgbuf),
 			         "mbrola exited with status %d", exst);
 			msg = msgbuf;
-		} else {
+		} else
 			msg = "mbrola died and wait status is weird";
-		}
 	}
 
 	log("mbrowrap error: %s", msg);
@@ -338,11 +337,11 @@ static int send_to_mbrola(const char *cmd)
 
 	if (result == -1) {
 		int error = errno;
-		if (error == EPIPE && mbrola_has_errors()) {
+		if (error == EPIPE && mbrola_has_errors())
 			return -1;
-		} else if (error == EAGAIN) {
+		else if (error == EAGAIN)
 			result = 0;
-		} else {
+		else {
 			err("write(): %s", strerror(error));
 			return -1;
 		}
@@ -449,9 +448,9 @@ static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
 				err("write(): %s", strerror(error));
 				return -1;
 			}
-			if (result != left) {
+			if (result != left)
 				head->done += result;
-			} else {
+			else {
 				mbr_pending_data_head = head->next;
 				free(head);
 				if (!mbr_pending_data_head)

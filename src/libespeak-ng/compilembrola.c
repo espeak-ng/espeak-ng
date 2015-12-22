@@ -132,9 +132,8 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	Write4Bytes(f_out, mbrola_ctrl);
 
 	pw_end = (int *)(&data[count+1]);
-	for (pw = (int *)data; pw < pw_end; pw++) {
+	for (pw = (int *)data; pw < pw_end; pw++)
 		Write4Bytes(f_out, *pw);
-	}
 	fclose(f_out);
 	fprintf(log, "Mbrola translation file: %s -- %d phonemes\n", buf, count);
 	return ENS_OK;

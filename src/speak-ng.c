@@ -154,9 +154,8 @@ void DisplayVoices(FILE *f_out, char *language)
 		voice_select.gender = 0;
 		voice_select.name = NULL;
 		voices = espeak_ListVoices(&voice_select);
-	} else {
+	} else
 		voices = espeak_ListVoices(NULL);
-	}
 
 	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
@@ -182,9 +181,8 @@ void DisplayVoices(FILE *f_out, char *language)
 				}
 				fprintf(f_out, "%2d  %-12s%s%c  %-20s %-13s ",
 				        p[0], lang_name, age_buf, genders[v->gender], buf, v->identifier);
-			} else {
+			} else
 				fprintf(f_out, "(%s %d)", lang_name, p[0]);
-			}
 			count++;
 			p += len+2;
 		}
@@ -344,9 +342,8 @@ static void init_path(char *argv0, char *path_specified)
 	}
 
 	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
-	if (access(path_home, R_OK) != 0) {
+	if (access(path_home, R_OK) != 0)
 		strcpy(path_home, PATH_ESPEAK_DATA);
-	}
 #endif
 #endif
 }
@@ -497,9 +494,8 @@ int main(int argc, char **argv)
 					c = long_options[ix].val;
 					optarg2 = NULL;
 
-					if ((long_options[ix].has_arg != 0) && (p[len] == '=')) {
+					if ((long_options[ix].has_arg != 0) && (p[len] == '='))
 						optarg2 = &p[len+1];
-					}
 					break;
 				}
 			}
@@ -760,9 +756,8 @@ int main(int argc, char **argv)
 			if (flag_stdin == 0)
 				option_linelength = -1;  // single input lines on stdin
 		}
-	} else {
+	} else
 		f_text = fopen(filename, "r");
-	}
 
 	if ((f_text == NULL) && (p_text == NULL)) {
 		fprintf(stderr, "%sfile '%s'\n", err_load, filename);
@@ -802,9 +797,8 @@ int main(int argc, char **argv)
 					break;   // finished, wavegen command queue is empty
 			}
 
-			if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
+			if (Generate(phoneme_list, &n_phoneme_list, 1) == 0)
 				ix = SpeakNextClause(NULL, NULL, 1);
-			}
 		}
 
 		CloseWaveFile();

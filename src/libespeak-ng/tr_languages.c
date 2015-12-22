@@ -157,9 +157,8 @@ static void ResetLetterBits(Translator *tr, int groups)
 
 	mask = ~groups;
 
-	for (ix = 0; ix < sizeof(tr->letter_bits); ix++) {
+	for (ix = 0; ix < sizeof(tr->letter_bits); ix++)
 		tr->letter_bits[ix] &= mask;
-	}
 }
 
 static void SetLetterBits(Translator *tr, int group, const char *string)
@@ -178,9 +177,8 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 	int ix;
 
 	bits = (1L << group);
-	for (ix = first; ix <= last; ix++) {
+	for (ix = first; ix <= last; ix++)
 		tr->letter_bits[ix] |= bits;
-	}
 }
 
 // ignore these characters
@@ -767,9 +765,8 @@ Translator *SelectTranslator(const char *name)
 			// stress last syllable unless word ends with a vowel
 			tr->langopts.stress_rule = STRESSPOSN_1R;
 			tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
-		} else {
+		} else
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2;       // use es_rules for unpronouncable rules
-		}
 	}
 	break;
 
@@ -884,9 +881,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.break_numbers = 0x14aa8;      // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		tr->letter_bits_offset = OFFSET_DEVANAGARI;
 
-		if (name2 == L('p', 'a')) {
+		if (name2 == L('p', 'a'))
 			tr->letter_bits_offset = OFFSET_GURMUKHI;
-		} else if (name2 == L('g', 'u')) {
+		else if (name2 == L('g', 'u')) {
 			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
 			tr->letter_bits_offset = OFFSET_GUJARATI;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
@@ -895,9 +892,8 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.break_numbers = 0x2aaaa8;
 			tr->langopts.max_digits = 22;
 			tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
-		} else if (name2 == L('o', 'r')) {
+		} else if (name2 == L('o', 'r'))
 			tr->letter_bits_offset = OFFSET_ORIYA;
-		}
 		SetIndicLetters(tr);
 	}
 	break;
@@ -1485,9 +1481,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND;
 			tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;       // don't break vowels betwen words
-		} else if (name2 == L('m', 'r')) {
+		} else if (name2 == L('m', 'r'))
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
-		} else if (name2 == L('m', 'l')) {
+		else if (name2 == L('m', 'l')) {
 			static const short stress_lengths_ml[8] = { 180, 160,  240, 240,  0, 0,  260, 260 };
 			SetupTranslator(tr, stress_lengths_ml, stress_amps_equal);
 			tr->letter_bits_offset = OFFSET_MALAYALAM;
@@ -1521,11 +1517,10 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.dotless_i = 1;
 		tr->langopts.param[LOPT_SUFFIX] = 1;
 
-		if (name2 == L('a', 'z')) {
+		if (name2 == L('a', 'z'))
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA  | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
-		} else {
+		else
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
-		}
 		tr->langopts.max_initial_consonants = 2;
 	}
 	break;
@@ -1640,9 +1635,8 @@ void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts)
 		langopts->thousands_sep = '.';
 		langopts->decimal_sep = ',';
 	}
-	if (langopts->numbers & NUM_THOUS_SPACE) {
+	if (langopts->numbers & NUM_THOUS_SPACE)
 		langopts->thousands_sep = 0;   // don't allow thousands separator, except space
-	}
 }
 
 
