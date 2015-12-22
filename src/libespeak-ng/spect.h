@@ -87,8 +87,7 @@ typedef struct {
 }  peak_t;
 
 
-typedef struct
-{
+typedef struct {
 	int keyframe;
 	short amp_adjust;
 	float length_adjust;
@@ -111,8 +110,7 @@ typedef struct
 
 double GetFrameRms(SpectFrame *frame, int amp);
 
-typedef struct
-{
+typedef struct {
 	int numframes;
 	short amplitude;
 	int spare;

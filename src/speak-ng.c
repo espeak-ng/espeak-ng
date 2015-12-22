@@ -145,59 +145,50 @@ void DisplayVoices(FILE *f_out, char *language)
 	const espeak_VOICE **voices;
 	espeak_VOICE voice_select;
 
-	static char genders[4] = {'-','M','F','-'};
+	static char genders[4] = { '-', 'M', 'F', '-' };
 
-	if((language != NULL) && (language[0] != 0))
-	{
+	if ((language != NULL) && (language[0] != 0)) {
 		// display only voices for the specified language, in order of priority
 		voice_select.languages = language;
 		voice_select.age = 0;
 		voice_select.gender = 0;
 		voice_select.name = NULL;
 		voices = espeak_ListVoices(&voice_select);
-	}
-	else
-	{
+	} else {
 		voices = espeak_ListVoices(NULL);
 	}
 
-	fprintf(f_out,"Pty Language Age/Gender VoiceName          File          Other Languages\n");
+	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
-	for(ix=0; (v = voices[ix]) != NULL; ix++)
-	{
+	for (ix = 0; (v = voices[ix]) != NULL; ix++) {
 		count = 0;
 		p = v->languages;
-		while(*p != 0)
-		{
+		while (*p != 0) {
 			len = strlen(p+1);
 			lang_name = p+1;
 
-			if(v->age == 0)
-				strcpy(age_buf,"   ");
+			if (v->age == 0)
+				strcpy(age_buf, "   ");
 			else
-				sprintf(age_buf,"%3d",v->age);
+				sprintf(age_buf, "%3d", v->age);
 
-			if(count==0)
-			{
-				for(j=0; j < sizeof(buf); j++)
-				{
+			if (count == 0) {
+				for (j = 0; j < sizeof(buf); j++) {
 					// replace spaces in the name
-					if((c = v->name[j]) == ' ')
+					if ((c = v->name[j]) == ' ')
 						c = '_';
-					if((buf[j] = c) == 0)
+					if ((buf[j] = c) == 0)
 						break;
 				}
-				fprintf(f_out,"%2d  %-12s%s%c  %-20s %-13s ",
-				        p[0],lang_name,age_buf,genders[v->gender],buf,v->identifier);
-			}
-			else
-			{
-				fprintf(f_out,"(%s %d)",lang_name,p[0]);
+				fprintf(f_out, "%2d  %-12s%s%c  %-20s %-13s ",
+				        p[0], lang_name, age_buf, genders[v->gender], buf, v->identifier);
+			} else {
+				fprintf(f_out, "(%s %d)", lang_name, p[0]);
 			}
 			count++;
 			p += len+2;
 		}
-		fputc('\n',f_out);
+		fputc('\n', f_out);
 	}
 }
 
@@ -207,40 +198,36 @@ static int OpenWaveFile(const char *path, int rate)
 	// Set the length of 0x7ffff000 for --stdout
 	// This will be changed to the correct length for -w (write to file)
 	static unsigned char wave_hdr[44] = {
-		'R','I','F','F',0x24,0xf0,0xff,0x7f,'W','A','V','E','f','m','t',' ',
-		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
-		2,0,0x10,0,'d','a','t','a',  0x00,0xf0,0xff,0x7f
+		'R', 'I', 'F', 'F', 0x24, 0xf0, 0xff, 0x7f, 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
+		0x10, 0, 0, 0, 1, 0, 1, 0,  9, 0x3d, 0, 0, 0x12, 0x7a, 0, 0,
+		2, 0, 0x10, 0, 'd', 'a', 't', 'a',  0x00, 0xf0, 0xff, 0x7f
 	};
 
-	if(path == NULL)
-		return(2);
+	if (path == NULL)
+		return (2);
 
-	while(isspace(*path)) path++;
+	while (isspace(*path)) path++;
 
 	f_wave = NULL;
-	if(path[0] != 0)
-	{
-		if(strcmp(path,"stdout")==0)
-		{
+	if (path[0] != 0) {
+		if (strcmp(path, "stdout") == 0) {
 #ifdef PLATFORM_WINDOWS
 // prevent Windows adding 0x0d before 0x0a bytes
 			_setmode(_fileno(stdout), _O_BINARY);
 #endif
 			f_wave = stdout;
-		}
-		else
-			f_wave = fopen(path,"wb");
+		} else
+			f_wave = fopen(path, "wb");
 	}
 
-	if(f_wave != NULL)
-	{
-		fwrite(wave_hdr,1,24,f_wave);
-		Write4Bytes(f_wave,rate);
-		Write4Bytes(f_wave,rate * 2);
-		fwrite(&wave_hdr[32],1,12,f_wave);
-		return(0);
+	if (f_wave != NULL) {
+		fwrite(wave_hdr, 1, 24, f_wave);
+		Write4Bytes(f_wave, rate);
+		Write4Bytes(f_wave, rate * 2);
+		fwrite(&wave_hdr[32], 1, 12, f_wave);
+		return (0);
 	}
-	return(1);
+	return (1);
 }
 
 
@@ -250,17 +237,17 @@ static void CloseWaveFile()
 {
 	unsigned int pos;
 
-	if((f_wave == NULL) || (f_wave == stdout))
+	if ((f_wave == NULL) || (f_wave == stdout))
 		return;
 
 	fflush(f_wave);
 	pos = ftell(f_wave);
 
-	fseek(f_wave,4,SEEK_SET);
-	Write4Bytes(f_wave,pos - 8);
+	fseek(f_wave, 4, SEEK_SET);
+	Write4Bytes(f_wave, pos - 8);
 
-	fseek(f_wave,40,SEEK_SET);
-	Write4Bytes(f_wave,pos - 44);
+	fseek(f_wave, 40, SEEK_SET);
+	Write4Bytes(f_wave, pos - 44);
 
 
 	fclose(f_wave);
@@ -282,32 +269,28 @@ static int WavegenFile(void)
 
 	finished = WavegenFill(0);
 
-	if(quiet)
-		return(finished);
+	if (quiet)
+		return (finished);
 
-	if(f_wave == NULL)
-	{
-		sprintf(fname,"%s_%.2d%s",wavefile,++wavefile_count,filetype);
-		if(OpenWaveFile(fname, samplerate) != 0)
-			return(1);
+	if (f_wave == NULL) {
+		sprintf(fname, "%s_%.2d%s", wavefile, ++wavefile_count, filetype);
+		if (OpenWaveFile(fname, samplerate) != 0)
+			return (1);
 	}
 
-	if(end_of_sentence)
-	{
+	if (end_of_sentence) {
 		end_of_sentence = 0;
-		if((samples_split > 0 ) && (samples_total > samples_split))
-		{
+		if ((samples_split > 0 ) && (samples_total > samples_split)) {
 			CloseWaveFile();
 			samples_total = 0;
 		}
 	}
 
-	if(f_wave != NULL)
-	{
+	if (f_wave != NULL) {
 		samples_total += (out_ptr - wav_outbuf)/2;
 		fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
 	}
-	return(finished);
+	return (finished);
 }
 
 
@@ -315,9 +298,8 @@ static int WavegenFile(void)
 static void init_path(char *argv0, char *path_specified)
 {
 
-	if(path_specified)
-	{
-		sprintf(path_home,"%s/espeak-data",path_specified);
+	if (path_specified) {
+		sprintf(path_home, "%s/espeak-data", path_specified);
 		return;
 	}
 
@@ -329,18 +311,16 @@ static void init_path(char *argv0, char *path_specified)
 	char *env;
 	unsigned char buf[sizeof(path_home)-12];
 
-	if(((env = getenv("ESPEAK_DATA_PATH")) != NULL) && ((strlen(env)+12) < sizeof(path_home)))
-	{
-		sprintf(path_home,"%s\\espeak-data",env);
-		if(GetFileLength(path_home) == -2)
+	if (((env = getenv("ESPEAK_DATA_PATH")) != NULL) && ((strlen(env)+12) < sizeof(path_home))) {
+		sprintf(path_home, "%s\\espeak-data", env);
+		if (GetFileLength(path_home) == -2)
 			return;   // an espeak-data directory exists in the directory specified by environment variable
 	}
 
-	strcpy(path_home,argv0);
-	if((p = strrchr(path_home,'\\')) != NULL)
-	{
-		strcpy(&p[1],"espeak-data");
-		if(GetFileLength(path_home) == -2)
+	strcpy(path_home, argv0);
+	if ((p = strrchr(path_home, '\\')) != NULL) {
+		strcpy(&p[1], "espeak-data");
+		if (GetFileLength(path_home) == -2)
 			return;   // an espeak-data directory exists in the same directory as the espeak program
 	}
 
@@ -351,23 +331,21 @@ static void init_path(char *argv0, char *path_specified)
 	var_type = REG_SZ;
 	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
 
-	sprintf(path_home,"%s\\espeak-data",buf);
+	sprintf(path_home, "%s\\espeak-data", buf);
 #else
 #ifdef PLATFORM_DOS
-	strcpy(path_home,PATH_ESPEAK_DATA);
+	strcpy(path_home, PATH_ESPEAK_DATA);
 #else
 	char *env;
-	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
-	{
-		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
-		if(GetFileLength(path_home) == -2)
+	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
+		snprintf(path_home, sizeof(path_home), "%s/espeak-data", env);
+		if (GetFileLength(path_home) == -2)
 			return;   // an espeak-data directory exists
 	}
 
-	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
-	if(access(path_home,R_OK) != 0)
-	{
-		strcpy(path_home,PATH_ESPEAK_DATA);
+	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
+	if (access(path_home, R_OK) != 0) {
+		strcpy(path_home, PATH_ESPEAK_DATA);
 	}
 #endif
 #endif
@@ -384,35 +362,31 @@ static int initialise(void)
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
 #ifdef PLATFORM_RISCOS
-	setlocale(LC_CTYPE,"ISO8859-1");
+	setlocale(LC_CTYPE, "ISO8859-1");
 #else
-	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
-	{
-		if(setlocale(LC_CTYPE,"UTF-8") == NULL)
-			setlocale(LC_CTYPE,"");
+	if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL) {
+		if (setlocale(LC_CTYPE, "UTF-8") == NULL)
+			setlocale(LC_CTYPE, "");
 	}
 #endif
 
 
-	if((result = LoadPhData(&srate)) != 1)
-	{
-		if(result == -1)
-		{
-			fprintf(stderr,"Failed to load espeak-data\n");
+	if ((result = LoadPhData(&srate)) != 1) {
+		if (result == -1) {
+			fprintf(stderr, "Failed to load espeak-data\n");
 			exit(1);
-		}
-		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
+		} else
+			fprintf(stderr, "Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n", result, version_phdata, path_home);
 	}
-	WavegenInit(srate,0);
+	WavegenInit(srate, 0);
 	LoadConfig();
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 
-	for(param=0; param<N_SPEECH_PARAM; param++)
+	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
-	return(0);
+	return (0);
 }
 
 
@@ -427,44 +401,43 @@ struct option {
 int optind;
 static int optional_argument;
 static const char *arg_opts = "abfgklpsvw";      // which options have arguments
-static char *opt_string="";
+static char *opt_string = "";
 #define no_argument 0
 #define required_argument 1
 #define optional_argument 2
 #endif
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-	static struct option long_options[] =
-	{
-		{"help",    no_argument,       0, 'h'},
-		{"stdin",   no_argument,       0, 0x100},
-		{"compile-debug", optional_argument, 0, 0x101},
-		{"compile", optional_argument, 0, 0x102},
-		{"punct",   optional_argument, 0, 0x103},
-		{"voices",  optional_argument, 0, 0x104},
-		{"stdout",  no_argument,       0, 0x105},
-		{"split",   optional_argument, 0, 0x106},
-		{"path",    required_argument, 0, 0x107},
-		{"phonout", required_argument, 0, 0x108},
-		{"pho",     no_argument,       0, 0x109},
-		{"ipa",     optional_argument, 0, 0x10a},
-		{"version", no_argument,       0, 0x10b},
-		{"sep",     optional_argument, 0, 0x10c},
-		{"tie",     optional_argument, 0, 0x10d},
-		{0, 0, 0, 0}
+	static struct option long_options[] = {
+		{ "help",    no_argument,       0, 'h' },
+		{ "stdin",   no_argument,       0, 0x100 },
+		{ "compile-debug", optional_argument, 0, 0x101 },
+		{ "compile", optional_argument, 0, 0x102 },
+		{ "punct",   optional_argument, 0, 0x103 },
+		{ "voices",  optional_argument, 0, 0x104 },
+		{ "stdout",  no_argument,       0, 0x105 },
+		{ "split",   optional_argument, 0, 0x106 },
+		{ "path",    required_argument, 0, 0x107 },
+		{ "phonout", required_argument, 0, 0x108 },
+		{ "pho",     no_argument,       0, 0x109 },
+		{ "ipa",     optional_argument, 0, 0x10a },
+		{ "version", no_argument,       0, 0x10b },
+		{ "sep",     optional_argument, 0, 0x10c },
+		{ "tie",     optional_argument, 0, 0x10d },
+		{ 0, 0, 0, 0 }
 	};
 
 	static const char *err_load = "Failed to read ";
 
-	FILE *f_text=NULL;
-	const char *p_text=NULL;
+	FILE *f_text = NULL;
+	const char *p_text = NULL;
 	char *data_path = NULL;   // use default path for espeak-data
 
 	int option_index = 0;
 	int c;
 	int value;
-	int speed=175;
+	int speed = 175;
 	int ix;
 	char *optarg2;
 	int amp = 100;     // default
@@ -495,15 +468,13 @@ int main (int argc, char **argv)
 #ifdef NEED_GETOPT
 	optind = 1;
 	opt_string = "";
-	while(optind < argc)
-	{
+	while (optind < argc) {
 		int len;
 		char *p;
 
-		if((c = *opt_string) == 0)
-		{
+		if ((c = *opt_string) == 0) {
 			opt_string = argv[optind];
-			if(opt_string[0] != '-')
+			if (opt_string[0] != '-')
 				break;
 
 			optind++;
@@ -513,45 +484,36 @@ int main (int argc, char **argv)
 		opt_string++;
 		p = optarg2 = opt_string;
 
-		if(c == '-')
-		{
-			if(p[0] == 0)
+		if (c == '-') {
+			if (p[0] == 0)
 				break;   // -- means don't interpret further - as commands
 
-			opt_string="";
-			for(ix=0;; ix++)
-			{
-				if(long_options[ix].name == 0)
+			opt_string = "";
+			for (ix = 0;; ix++) {
+				if (long_options[ix].name == 0)
 					break;
 				len = strlen(long_options[ix].name);
-				if(memcmp(long_options[ix].name,p,len)==0)
-				{
+				if (memcmp(long_options[ix].name, p, len) == 0) {
 					c = long_options[ix].val;
 					optarg2 = NULL;
 
-					if((long_options[ix].has_arg != 0) && (p[len]=='='))
-					{
+					if ((long_options[ix].has_arg != 0) && (p[len] == '=')) {
 						optarg2 = &p[len+1];
 					}
 					break;
 				}
 			}
-		}
-		else
-		if(strchr(arg_opts,c) != NULL)
-		{
-			opt_string="";
-			if(optarg2[0]==0)
-			{
+		} else if (strchr(arg_opts, c) != NULL) {
+			opt_string = "";
+			if (optarg2[0] == 0) {
 				// the option's value is in the next argument
 				optarg2 = argv[optind++];
 			}
 		}
 #else
-	while(true)
-	{
-		c = getopt_long (argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",   // NOTE: also change arg_opts to indicate which commands have a numeric value
-		                 long_options, &option_index);
+	while (true) {
+		c = getopt_long(argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",    // NOTE: also change arg_opts to indicate which commands have a numeric value
+		                long_options, &option_index);
 
 		/* Detect the end of the options. */
 		if (c == -1)
@@ -564,13 +526,13 @@ int main (int argc, char **argv)
 		case 'b':
 			// input character encoding, 8bit, 16bit, UTF8
 			option_multibyte = espeakCHARS_8BIT;
-			if((sscanf(optarg2,"%d",&value) == 1) && (value <= 4))
-				option_multibyte= value;
+			if ((sscanf(optarg2, "%d", &value) == 1) && (value <= 4))
+				option_multibyte = value;
 			break;
 
 		case 'h':
-			init_path(argv[0],data_path);
-			printf("\nspeak text-to-speech: %s   Data at: %s\n%s",version_string,path_home,help_text);
+			init_path(argv[0], data_path);
+			printf("\nspeak text-to-speech: %s   Data at: %s\n%s", version_string, path_home, help_text);
 			exit(0);
 
 		case 'k':
@@ -591,7 +553,7 @@ int main (int argc, char **argv)
 
 		case 'p':
 			pitch_adjustment = atoi(optarg2);
-			if(pitch_adjustment > 99) pitch_adjustment = 99;
+			if (pitch_adjustment > 99) pitch_adjustment = 99;
 			break;
 
 		case 'q':
@@ -599,7 +561,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'f':
-			strncpy0(filename,optarg2,sizeof(filename));
+			strncpy0(filename, optarg2, sizeof(filename));
 			break;
 
 		case 'l':
@@ -621,12 +583,12 @@ int main (int argc, char **argv)
 			break;
 
 		case 'v':
-			strncpy0(voicename,optarg2,sizeof(voicename));
+			strncpy0(voicename, optarg2, sizeof(voicename));
 			break;
 
 		case 'w':
 			option_waveout = 1;
-			strncpy0(wavefile,optarg2,sizeof(wavefile));
+			strncpy0(wavefile, optarg2, sizeof(wavefile));
 			break;
 
 		case 'z':
@@ -639,34 +601,33 @@ int main (int argc, char **argv)
 
 		case 0x105:     // --stdout
 			option_waveout = 1;
-			strcpy(wavefile,"stdout");
+			strcpy(wavefile, "stdout");
 			break;
 
 		case 0x101:    // --compile-debug
 		case 0x102:     // --compile
-			if(optarg2 != NULL)
-				strncpy0(voicename,optarg2,sizeof(voicename));
+			if (optarg2 != NULL)
+				strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
 			break;
 
 		case 0x103:     // --punct
 			option_punctuation = 1;
-			if(optarg2 != NULL)
-			{
+			if (optarg2 != NULL) {
 				ix = 0;
-				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
+				while ((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
 				option_punctlist[N_PUNCTLIST-1] = 0;
 				option_punctuation = 2;
 			}
 			break;
 
 		case 0x104:   // --voices
-			init_path(argv[0],data_path);
-			DisplayVoices(stdout,optarg2);
+			init_path(argv[0], data_path);
+			DisplayVoices(stdout, optarg2);
 			exit(0);
 
 		case 0x106:   // -- split
-			if(optarg2 == NULL)
+			if (optarg2 == NULL)
 				samples_split = 30;  // default 30 minutes
 			else
 				samples_split = atoi(optarg2);
@@ -677,9 +638,8 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x108:  // --phonout
-			if((f_trans = fopen(optarg2,"w")) == NULL)
-			{
-				fprintf(stderr,"Can't write to: %s\n",optarg2);
+			if ((f_trans = fopen(optarg2, "w")) == NULL) {
+				fprintf(stderr, "Can't write to: %s\n", optarg2);
 				f_trans = stderr;
 			}
 			break;
@@ -690,10 +650,9 @@ int main (int argc, char **argv)
 
 		case 0x10a:  // --ipa
 			phoneme_options |= espeakPHONEMES_IPA;
-			if(optarg2 != NULL)
-			{
+			if (optarg2 != NULL) {
 				// deprecated and obsolete
-				switch(atoi(optarg2))
+				switch (atoi(optarg2))
 				{
 				case 1:
 					phonemes_separator = '_';
@@ -712,27 +671,27 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x10b:  // --version
-			init_path(argv[0],data_path);
-			printf("speak text-to-speech: %s   Data at: %s\n",version_string,path_home);
+			init_path(argv[0], data_path);
+			printf("speak text-to-speech: %s   Data at: %s\n", version_string, path_home);
 			exit(0);
 
 		case 0x10c:  // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
-			if(optarg2 == 0)
+			if (optarg2 == 0)
 				phonemes_separator = ' ';
 			else
 				utf8_in(&phonemes_separator, optarg2);
-			if(phonemes_separator == 'z')
+			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200c;      // ZWNJ
 			break;
 
 		case 0x10d:  // --tie
 			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
-			if(optarg2 == 0)
+			if (optarg2 == 0)
 				phonemes_separator = 0x0361;   // default: combining-double-inverted-breve
 			else
 				utf8_in(&phonemes_separator, optarg2);
-			if(phonemes_separator == 'z')
+			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200d;      // ZWJ
 			break;
 
@@ -741,154 +700,127 @@ int main (int argc, char **argv)
 		}
 	}
 
-	init_path(argv[0],data_path);
+	init_path(argv[0], data_path);
 	initialise();
 
-	if(voicename[0] == 0)
-		strcpy(voicename,"default");
+	if (voicename[0] == 0)
+		strcpy(voicename, "default");
 
-	if(SetVoiceByName(voicename) != EE_OK)
-	{
-		memset(&voice_select,0,sizeof(voice_select));
+	if (SetVoiceByName(voicename) != EE_OK) {
+		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
-		if(SetVoiceByProperties(&voice_select) != EE_OK)
-		{
-			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+		if (SetVoiceByProperties(&voice_select) != EE_OK) {
+			fprintf(stderr, "%svoice '%s'\n", err_load, voicename);
 			exit(2);
 		}
 	}
 
-	if(flag_compile)
-	{
+	if (flag_compile) {
 #ifdef PLATFORM_DOS
 		char path_dsource[sizeof(path_home)+20];
-		strcpy(path_dsource,path_home);
+		strcpy(path_dsource, path_home);
 		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
-		strcat(path_dsource,"dictsource\\");
-		CompileDictionary(path_dsource,dictionary_name,NULL,NULL, flag_compile & 0x1);
+		strcat(path_dsource, "dictsource\\");
+		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
 #else
 #ifdef PLATFORM_WINDOWS
 		char path_dsource[sizeof(path_home)+20];
-		strcpy(path_dsource,path_home);
+		strcpy(path_dsource, path_home);
 		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
-		strcat(path_dsource,"dictsource\\");
-		CompileDictionary(path_dsource,dictionary_name,NULL,NULL, flag_compile & 0x1);
+		strcat(path_dsource, "dictsource\\");
+		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
 #else
-		CompileDictionary(NULL,dictionary_name,NULL,NULL, flag_compile & 0x1);
+		CompileDictionary(NULL, dictionary_name, NULL, NULL, flag_compile & 0x1);
 #endif
 #endif
 		exit(0);
 	}
 
 
-	SetParameter(espeakRATE,speed,0);
-	SetParameter(espeakVOLUME,amp,0);
-	SetParameter(espeakCAPITALS,option_capitals,0);
-	SetParameter(espeakPUNCTUATION,option_punctuation,0);
-	SetParameter(espeakWORDGAP,wordgap,0);
+	SetParameter(espeakRATE, speed, 0);
+	SetParameter(espeakVOLUME, amp, 0);
+	SetParameter(espeakCAPITALS, option_capitals, 0);
+	SetParameter(espeakPUNCTUATION, option_punctuation, 0);
+	SetParameter(espeakWORDGAP, wordgap, 0);
 
 	option_phonemes = phoneme_options | (phonemes_separator << 8);
 
-	if(pitch_adjustment != 50)
-	{
-		SetParameter(espeakPITCH,pitch_adjustment,0);
+	if (pitch_adjustment != 50) {
+		SetParameter(espeakPITCH, pitch_adjustment, 0);
 	}
 	DoVoiceChange(voice);
 
-	if(filename[0]==0)
-	{
-		if((optind < argc) && (flag_stdin == 0))
-		{
+	if (filename[0] == 0) {
+		if ((optind < argc) && (flag_stdin == 0)) {
 			// there's a non-option parameter, and no -f or --stdin
 			// use it as text
 			p_text = argv[optind];
-		}
-		else
-		{
+		} else {
 			f_text = stdin;
-			if(flag_stdin == 0)
+			if (flag_stdin == 0)
 				option_linelength = -1;  // single input lines on stdin
 		}
-	}
-	else
-	{
-		f_text = fopen(filename,"r");
+	} else {
+		f_text = fopen(filename, "r");
 	}
 
-	if((f_text == NULL) && (p_text == NULL))
-	{
-		fprintf(stderr,"%sfile '%s'\n",err_load,filename);
+	if ((f_text == NULL) && (p_text == NULL)) {
+		fprintf(stderr, "%sfile '%s'\n", err_load, filename);
 		exit(1);
 	}
 
-	if(option_waveout || quiet)
-	{
-		if(quiet)
-		{
+	if (option_waveout || quiet) {
+		if (quiet) {
 			// no sound output
-			OpenWaveFile(NULL,samplerate);
+			OpenWaveFile(NULL, samplerate);
 			option_waveout = 1;
-		}
-		else
-		{
+		} else {
 			// write sound output to a WAV file
 			samples_split = (samplerate * samples_split) * 60;
 
-			if(samples_split)
-			{
+			if (samples_split) {
 				// don't open the wav file until we start generating speech
 				char *extn;
-				extn = strrchr(wavefile,'.');
-				if((extn != NULL) && ((wavefile + strlen(wavefile) - extn) <= 4))
-				{
-					strcpy(filetype,extn);
+				extn = strrchr(wavefile, '.');
+				if ((extn != NULL) && ((wavefile + strlen(wavefile) - extn) <= 4)) {
+					strcpy(filetype, extn);
 					*extn = 0;
 				}
-			}
-			else
-			if(OpenWaveFile(wavefile,samplerate) != 0)
-			{
-				fprintf(stderr,"Can't write to output file '%s'\n'",wavefile);
+			} else if (OpenWaveFile(wavefile, samplerate) != 0) {
+				fprintf(stderr, "Can't write to output file '%s'\n'", wavefile);
 				exit(3);
 			}
 		}
 
 		InitText(0);
-		SpeakNextClause(f_text,p_text,0);
+		SpeakNextClause(f_text, p_text, 0);
 
 		ix = 1;
-		for(;; )
-		{
-			if(WavegenFile() != 0)
-			{
-				if(ix == 0)
+		for (;;) {
+			if (WavegenFile() != 0) {
+				if (ix == 0)
 					break;   // finished, wavegen command queue is empty
 			}
 
-			if(Generate(phoneme_list,&n_phoneme_list,1)==0)
-			{
-				ix = SpeakNextClause(NULL,NULL,1);
+			if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
+				ix = SpeakNextClause(NULL, NULL, 1);
 			}
 		}
 
 		CloseWaveFile();
-	}
-	else
-	{
+	} else {
 		WavegenInitSound();
 
 		InitText(0);
-		SpeakNextClause(f_text,p_text,0);
+		SpeakNextClause(f_text, p_text, 0);
 
-		if(option_quiet)
-		{
-			while(SpeakNextClause(NULL,NULL,1) != 0);
-			return(0);
+		if (option_quiet) {
+			while (SpeakNextClause(NULL, NULL, 1) != 0) ;
+			return (0);
 		}
 
 		speaking = 1;
-		while(speaking)
-		{
+		while (speaking) {
 			// NOTE: if nanosleep() isn't recognised on your system, try replacing
 			// this by  sleep(1);
 #ifdef PLATFORM_WINDOWS
@@ -899,17 +831,17 @@ int main (int argc, char **argv)
 			struct timespec remaining;
 			period.tv_sec = 0;
 			period.tv_nsec = 300000000;  // 0.3 sec
-			nanosleep(&period,&remaining);
+			nanosleep(&period, &remaining);
 #else
 			sleep(1);
 #endif
 #endif
-			if(SynthOnTimer() != 0)
+			if (SynthOnTimer() != 0)
 				speaking = 0;
 		}
 	}
 
-	if((f_trans != stdout) && (f_trans != stderr))
+	if ((f_trans != stdout) && (f_trans != stderr))
 		fclose(f_trans);  // needed for WinCe
-	return(0);
+	return (0);
 }

@@ -51,13 +51,13 @@ extern "C"
 // the callback will be called when the event actually occurs.
 // The callback is detailled in speak_lib.h .
 void event_init(void);
-void event_set_callback(t_espeak_callback* cb);
+void event_set_callback(t_espeak_callback *cb);
 
 // Clear any pending event.
 //
 // Return: EE_OK: operation achieved
 //         EE_INTERNAL_ERROR.
-espeak_ERROR event_clear_all ();
+espeak_ERROR event_clear_all();
 
 // Declare a future event
 //
@@ -65,7 +65,7 @@ espeak_ERROR event_clear_all ();
 //         EE_BUFFER_FULL: the event can not be buffered;
 //           you may try after a while to call the function again.
 //         EE_INTERNAL_ERROR.
-espeak_ERROR event_declare (espeak_EVENT* event);
+espeak_ERROR event_declare(espeak_EVENT *event);
 
 // Terminate the event component.
 // Last function to be called.

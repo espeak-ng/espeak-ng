@@ -160,9 +160,9 @@ typedef struct {
 
 
 
-#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name
-#define PH3(c1,c2,c3) (c3<<16)+(c2<<8)+c1
-#define PhonemeCode2(c1,c2)  PhonemeCode((c2<<8)+c1)
+#define PH(c1, c2) (c2<<8)+c1          // combine two characters into an integer for phoneme name
+#define PH3(c1, c2, c3) (c3<<16)+(c2<<8)+c1
+#define PhonemeCode2(c1, c2) PhonemeCode((c2<<8)+c1)
 int LookupPhonemeString(const char *string);
 int PhonemeCode(unsigned int mnem);
 

@@ -29,8 +29,7 @@ extern "C"
 {
 #endif
 
-typedef enum
-{
+typedef enum {
 	ET_TEXT,
 	ET_MARK,
 	ET_KEY,
@@ -42,78 +41,69 @@ typedef enum
 	ET_TERMINATED_MSG
 } t_espeak_type;
 
-typedef struct
-{
+typedef struct {
 	unsigned int unique_identifier;
-	void* text;
+	void *text;
 	size_t size;
 	unsigned int position;
 	espeak_POSITION_TYPE position_type;
 	unsigned int end_position;
 	unsigned int flags;
-	void* user_data;
+	void *user_data;
 } t_espeak_text;
 
-typedef struct
-{
+typedef struct {
 	unsigned int unique_identifier;
-	void* text;
+	void *text;
 	size_t size;
-	const char* index_mark;
+	const char *index_mark;
 	unsigned int end_position;
 	unsigned int flags;
-	void* user_data;
+	void *user_data;
 } t_espeak_mark;
 
-typedef struct
-{
+typedef struct {
 	unsigned int unique_identifier;
-	void* user_data;
+	void *user_data;
 	wchar_t character;
 } t_espeak_character;
 
-typedef struct
-{
+typedef struct {
 	unsigned int unique_identifier;
-	void* user_data;
-	const char* key_name;
+	void *user_data;
+	const char *key_name;
 } t_espeak_key;
 
 
-typedef struct
-{
+typedef struct {
 	unsigned int unique_identifier;
-	void* user_data;
+	void *user_data;
 } t_espeak_terminated_msg;
 
 
-typedef struct
-{
+typedef struct {
 	espeak_PARAMETER parameter;
 	int value;
 	int relative;
 } t_espeak_parameter;
 
-typedef enum
-{
+typedef enum {
 	CS_UNDEFINED, // The command has just been created
 	CS_PENDING, // stored in the fifo
 	CS_PROCESSED // processed
 } t_command_state;
 
-typedef struct
-{
+typedef struct {
 	t_espeak_type type;
 	t_command_state state;
 
-	union command
-	{
+	union command {
 		t_espeak_text my_text;
 		t_espeak_mark my_mark;
 		t_espeak_key my_key;
 		t_espeak_character my_char;
 		t_espeak_parameter my_param;
-		const wchar_t* my_punctuation_list;
+		const wchar_t *my_punctuation_list;
 		const char *my_voice_name;
 		espeak_VOICE my_voice_spec;
 		t_espeak_terminated_msg my_terminated_msg;
@@ -121,37 +111,37 @@ typedef struct
 } t_espeak_command;
 
 
-t_espeak_command* create_espeak_text(const void *text, size_t size, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags, void* user_data);
+t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags, void *user_data);
 
-t_espeak_command* create_espeak_mark(const void *text, size_t size, const char *index_mark, unsigned int end_position, unsigned int flags, void* user_data);
+t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *index_mark, unsigned int end_position, unsigned int flags, void *user_data);
 
-t_espeak_command* create_espeak_terminated_msg(unsigned int unique_identifier, void* user_data);
+t_espeak_command *create_espeak_terminated_msg(unsigned int unique_identifier, void *user_data);
 
-t_espeak_command* create_espeak_key(const char *key_name, void *user_data);
+t_espeak_command *create_espeak_key(const char *key_name, void *user_data);
 
-t_espeak_command* create_espeak_char(wchar_t character, void *user_data);
+t_espeak_command *create_espeak_char(wchar_t character, void *user_data);
 
-t_espeak_command* create_espeak_parameter(espeak_PARAMETER parameter, int value, int relative);
+t_espeak_command *create_espeak_parameter(espeak_PARAMETER parameter, int value, int relative);
 
-t_espeak_command* create_espeak_punctuation_list(const wchar_t *punctlist);
+t_espeak_command *create_espeak_punctuation_list(const wchar_t *punctlist);
 
-t_espeak_command* create_espeak_voice_name(const char *name);
+t_espeak_command *create_espeak_voice_name(const char *name);
 
-t_espeak_command* create_espeak_voice_spec(espeak_VOICE *voice_spec);
+t_espeak_command *create_espeak_voice_spec(espeak_VOICE *voice_spec);
 
-void process_espeak_command( t_espeak_command* the_command);
+void process_espeak_command(t_espeak_command *the_command);
 
-int delete_espeak_command( t_espeak_command* the_command);
+int delete_espeak_command(t_espeak_command *the_command);
 
-void display_espeak_command(t_espeak_command* the_command);
+void display_espeak_command(t_espeak_command *the_command);
 
 
 espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text, size_t size,
                                unsigned int position, espeak_POSITION_TYPE position_type,
-                               unsigned int end_position, unsigned int flags, void* user_data);
+                               unsigned int end_position, unsigned int flags, void *user_data);
 espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size,
                                     const char *index_mark, unsigned int end_position,
-                                    unsigned int flags, void* user_data);
+                                    unsigned int flags, void *user_data);
 void sync_espeak_Key(const char *key);
 void sync_espeak_Char(wchar_t character);
 void sync_espeak_SetPunctuationList(const wchar_t *punctlist);
@@ -162,11 +152,11 @@ espeak_ERROR SetVoiceByName(const char *name);
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
 void SetParameter(int parameter, int value, int relative);
 
-int sync_espeak_terminated_msg(unsigned int unique_identifier, void* user_data);
+int sync_espeak_terminated_msg(unsigned int unique_identifier, void *user_data);
 
 #ifdef __cplusplus
 }
 #endif
 
-//>
+// >
 #endif

@@ -43,8 +43,7 @@ typedef long flag;
 
 /* Resonator Structure */
 
-typedef struct
-{
+typedef struct {
 	double a;
 	double b;
 	double c;
@@ -57,8 +56,7 @@ typedef struct
 
 /* Structure for Klatt Globals */
 
-typedef struct
-{
+typedef struct {
 	flag synthesis_model; /* cascade-parallel or all-parallel */
 	flag outsl;     /* Output waveform selector                      */
 	long samrate;   /* Number of output samples per second           */
@@ -136,8 +134,7 @@ typedef struct
 #define F_NP   9  // nasal pole formant
 
 
-typedef struct
-{
+typedef struct {
 	int F0hz10; /* Voicing fund freq in Hz                          */
 	int AVdb;   /* Amp of voicing in dB,            0 to   70       */
 	int Fhz[10];  // formant Hz, F_NZ to F6 to F_NP
@@ -156,7 +153,7 @@ typedef struct
 	int AVpdb;  /* Amp of voicing,  par in dB,      0 to   70       */
 	int Gain0;  /* Overall gain, 60 dB is unity,    0 to   60       */
 
-	int AVdb_tmp;      //copy of AVdb, which is changed within parwave()
+	int AVdb_tmp;      // copy of AVdb, which is changed within parwave()
 	int Fhz_next[10];    // Fhz for the next chunk, so we can do interpolation of resonator (a,b,c) parameters
 	int Bhz_next[10];
 } klatt_frame_t, *klatt_frame_ptr;
