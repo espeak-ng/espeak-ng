@@ -490,7 +490,7 @@ int  WavegenOpenSound();
 int  WavegenCloseSound();
 int  WavegenInitSound();
 void WavegenInit(int rate, int wavemult_fact);
-float polint(float xa[],float ya[],int n,float x);
+float polint(float xa[], float ya[], int n, float x);
 int WavegenFill(int fill_zeros);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
 
@@ -536,7 +536,7 @@ int  SelectPhonemeTableName(const char *name);
 void Write4Bytes(FILE *f, int value);
 int Read4Bytes(FILE *f);
 int Reverse4Bytes(int word);
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name, int flags);
 
 
 #define ENV_LEN  128    // length of pitch envelopes
@@ -555,7 +555,7 @@ extern unsigned char *out_start;
 extern unsigned char *out_end;
 extern int event_list_ix;
 extern espeak_EVENT *event_list;
-extern t_espeak_callback* synth_callback;
+extern t_espeak_callback *synth_callback;
 extern const char *version_string;
 extern const int version_phdata;
 extern double sonicSpeed;

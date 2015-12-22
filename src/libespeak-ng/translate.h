@@ -22,7 +22,7 @@ extern "C"
 {
 #endif
 
-#define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer for translator name
+#define L(c1, c2) (c1<<8)+c2          // combine two characters into an integer for translator name
 
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
@@ -252,7 +252,7 @@ extern "C"
 //     match 1 pre 2 post 0     - use common phoneme string
 //     match 1 pre 2 post 3 0   - empty phoneme string
 
-typedef const char *  constcharptr;
+typedef const char *constcharptr;
 
 typedef struct {
 	int points;
@@ -601,8 +601,7 @@ typedef struct {
 
 
 
-typedef struct
-{
+typedef struct {
 
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
@@ -723,8 +722,8 @@ extern unsigned char *p_textinput;
 extern wchar_t *p_wchar_input;
 extern int dictionary_skipwords;
 
-extern int (* uri_callback)(int, const char *, const char *);
-extern int (* phoneme_callback)(const char *);
+extern int (*uri_callback)(int, const char *, const char *);
+extern int (*phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
 void LoadConfig(void);
@@ -733,8 +732,8 @@ int utf8_in(int *c, const char *buf);
 int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int utf8_nbytes(const char *buf);
-int lookupwchar(const unsigned short *list,int c);
-int lookupwchar2(const unsigned short *list,int c);
+int lookupwchar(const unsigned short *list, int c);
+int lookupwchar2(const unsigned short *list, int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);

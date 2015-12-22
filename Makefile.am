@@ -50,14 +50,21 @@ distclean-local:
 	rm -rf espeak-data/phondata-manifest
 	rm -f espeak-data/*_dict
 
+##### documentation:
+
+%.html: %.md _layouts/webpage.html
+	cat $< | sed -e 's/\.md)/.html)/g' | kramdown --template _layouts/webpage.html > $@
+
+docs:	README.html
+
+docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
+	cp $< $@
+
 ##### build targets:
 
 libespeak_ng_includedir = $(includedir)/espeak-ng
 libespeak_ng_include_HEADERS = \
 	src/include/espeak-ng/speak_lib.h
-
-docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
-	cp $< $@
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 

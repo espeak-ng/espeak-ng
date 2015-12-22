@@ -35,13 +35,13 @@
 #include "wave.h"
 #include "debug.h"
 
-enum {ONE_BILLION=1000000000};
+enum { ONE_BILLION = 1000000000 };
 #define SAMPLE_RATE 22050
 #define SAMPLE_SIZE 16
 
 #ifdef USE_SADA
 
-static t_wave_callback* my_callback_is_output_enabled=NULL;
+static t_wave_callback *my_callback_is_output_enabled = NULL;
 
 static const char *sun_audio_device = "/dev/audio";
 static int sun_audio_fd = -1;
@@ -59,7 +59,7 @@ static uint32_t total_samples_skipped;
 
 // The last known playing index after a call to wave_close.
 //
-static uint32_t last_play_position=0;
+static uint32_t last_play_position = 0;
 
 static uint32_t wave_samplerate;
 
@@ -100,7 +100,7 @@ int wave_init(int srate) {
 	SHOW("wave_init() sun_audio_fd: %d\n", sun_audio_fd);
 
 	if (sun_audio_fd < 0) {
-		return(0);
+		return 0;
 	}
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
@@ -113,9 +113,9 @@ int wave_init(int srate) {
 	if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
 		SHOW("wave_init() failed to set audio params: %s\n", strerror(errno));
 		close(sun_audio_fd);
-		return(0);
+		return 0;
 	}
-	return(1);
+	return 1;
 }
 
 // wave_open
@@ -140,10 +140,10 @@ int wave_init(int srate) {
 // sun_audio_fd opened in wave_init, which is passed in as theHandler
 // parameter in all other methods
 //
-void* wave_open(const char* the_api)
+void *wave_open(const char *the_api)
 {
 	ENTER("wave_open");
-	return((void*) sun_audio_fd);
+	return (void *)sun_audio_fd;
 }
 
 // wave_write
@@ -172,13 +172,13 @@ void* wave_open(const char* the_api)
 //
 // the number of bytes (not 16-bit samples) sent
 //
-size_t wave_write(void* theHandler,
-                  char* theMono16BitsWaveBuffer,
+size_t wave_write(void *theHandler,
+                  char *theMono16BitsWaveBuffer,
                   size_t theSize)
 {
 	size_t num;
 	ENTER("wave_write");
-	if (my_callback_is_output_enabled && (0==my_callback_is_output_enabled())) {
+	if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled())) {
 		SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
 		return 0;
 	}
@@ -191,8 +191,7 @@ size_t wave_write(void* theHandler,
 		char *out_end;
 		out_ptr = (char *)theMono16BitsWaveBuffer;
 		out_end = out_ptr + theSize;
-		while(out_ptr < out_end)
-		{
+		while (out_ptr < out_end) {
 			c = out_ptr[0];
 			out_ptr[0] = out_ptr[1];
 			out_ptr[1] = c;
@@ -201,7 +200,7 @@ size_t wave_write(void* theHandler,
 	}
 #endif
 
-	num = write((int) theHandler, theMono16BitsWaveBuffer, theSize);
+	num = write((int)theHandler, theMono16BitsWaveBuffer, theSize);
 
 	// Keep track of the total number of samples sent -- we use this in
 	// wave_get_read_position and also use it to help calculate the
@@ -246,11 +245,11 @@ size_t wave_write(void* theHandler,
 //
 // The result of the ioctl call (non-0 means failure)
 //
-int wave_close(void* theHandler)
+int wave_close(void *theHandler)
 {
 	int ret;
 	audio_info_t ainfo;
-	int audio_fd = (int) theHandler;
+	int audio_fd = (int)theHandler;
 	if (!audio_fd) {
 		audio_fd = sun_audio_fd;
 	}
@@ -291,7 +290,7 @@ int wave_close(void* theHandler)
 //
 // A non-0 value if audio is being played
 //
-int wave_is_busy(void* theHandler)
+int wave_is_busy(void *theHandler)
 {
 	uint32_t time;
 	if (total_samples_sent >= 1) {
@@ -335,7 +334,7 @@ void wave_terminate()
 //
 // theHandler: the audio device file descriptor
 //
-void wave_flush(void* theHandler)
+void wave_flush(void *theHandler)
 {
 	ENTER("wave_flush");
 	SHOW_TIME("wave_flush > LEAVE");
@@ -353,7 +352,7 @@ void wave_flush(void* theHandler)
 //
 // cb: the callback to call from wave_write
 //
-void wave_set_callback_is_output_enabled(t_wave_callback* cb)
+void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
 	my_callback_is_output_enabled = cb;
 }
@@ -393,11 +392,11 @@ void *wave_test_get_write_buffer()
 // The total number of 16-bit samples played by the audio system
 // so far.
 //
-uint32_t wave_get_read_position(void* theHandler)
+uint32_t wave_get_read_position(void *theHandler)
 {
 	audio_info_t ainfo;
 	ENTER("wave_get_read_position");
-	ioctl((int) theHandler, AUDIO_GETINFO, &ainfo);
+	ioctl((int)theHandler, AUDIO_GETINFO, &ainfo);
 	SHOW("wave_get_read_position: %d\n", ainfo.play.samples);
 	SHOW_TIME("wave_get_read_position > LEAVE");
 	return ainfo.play.samples;
@@ -429,7 +428,7 @@ uint32_t wave_get_read_position(void* theHandler)
 // the index wraps back to 0.  We don't handle that wrapping, so
 // the behavior after 54 hours of play time is undefined.]]]
 //
-uint32_t wave_get_write_position(void* theHandler)
+uint32_t wave_get_write_position(void *theHandler)
 {
 	ENTER("wave_get_write_position");
 	SHOW("wave_get_write_position: %d\n", total_samples_sent);
@@ -464,15 +463,15 @@ uint32_t wave_get_write_position(void* theHandler)
 // Time in milliseconds before the sample is played or 0 if the sample
 // is currently playing or has already been played.
 //
-int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	uint32_t a_time=0;
+	uint32_t a_time = 0;
 	uint32_t actual_index;
 
 	audio_info_t ainfo;
 	ENTER("wave_get_remaining_time");
 	if (!time) {
-		return(-1);
+		return -1;
 		SHOW_TIME("wave_get_remaining_time > LEAVE");
 	}
 
@@ -487,7 +486,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 		*time = 0;
 	} else {
 		a_time = ((actual_index - ainfo.play.samples) * 1000) / wave_samplerate;
-		*time = (uint32_t) a_time;
+		*time = (uint32_t)a_time;
 	}
 	SHOW("wave_get_remaining_time for %d: %d\n", sample, *time);
 	SHOW_TIME("wave_get_remaining_time > LEAVE");
@@ -499,38 +498,38 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 init wave_init() {
 	return 1;
 }
-void* wave_open(const char* the_api) {
+void *wave_open(const char *the_api) {
 	return (void *)1;
 }
-size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {
+size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize) {
 	return theSize;
 }
-int wave_close(void* theHandler) {
+int wave_close(void *theHandler) {
 	return 0;
 }
-int wave_is_busy(void* theHandler) {
+int wave_is_busy(void *theHandler) {
 	return 0;
 }
 void wave_terminate() {
 }
-uint32_t wave_get_read_position(void* theHandler) {
+uint32_t wave_get_read_position(void *theHandler) {
 	return 0;
 }
-uint32_t wave_get_write_position(void* theHandler) {
+uint32_t wave_get_write_position(void *theHandler) {
 	return 0;
 }
-void wave_flush(void* theHandler) {
+void wave_flush(void *theHandler) {
 }
 typedef int (t_wave_callback)(void);
-void wave_set_callback_is_output_enabled(t_wave_callback* cb) {
+void wave_set_callback_is_output_enabled(t_wave_callback *cb) {
 }
-extern void* wave_test_get_write_buffer() {
+extern void *wave_test_get_write_buffer() {
 	return NULL;
 }
 
-int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	if (!time) return(-1);
+	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;
 }
@@ -541,26 +540,23 @@ void clock_gettime2(struct timespec *ts)
 {
 	struct timeval tv;
 
-	if (!ts)
-	{
+	if (!ts) {
 		return;
 	}
 
-	assert (gettimeofday(&tv, NULL) != -1);
+	assert(gettimeofday(&tv, NULL) != -1);
 	ts->tv_sec = tv.tv_sec;
 	ts->tv_nsec = tv.tv_usec*1000;
 }
 
 void add_time_in_ms(struct timespec *ts, int time_in_ms)
 {
-	if (!ts)
-	{
+	if (!ts) {
 		return;
 	}
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
-	while(t_ns >= ONE_BILLION)
-	{
+	while (t_ns >= ONE_BILLION) {
 		SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
 		ts->tv_sec += 1;
 		t_ns -= ONE_BILLION;

@@ -48,7 +48,7 @@
 #include "wave.h"
 #include "debug.h"
 
-enum {ONE_BILLION=1000000000};
+enum { ONE_BILLION = 1000000000 };
 
 enum {
 	/* return value */
@@ -59,7 +59,7 @@ enum {
 
 #ifdef USE_PULSEAUDIO
 
-static t_wave_callback* my_callback_is_output_enabled=NULL;
+static t_wave_callback *my_callback_is_output_enabled = NULL;
 
 #define SAMPLE_RATE 22050
 #define ESPEAK_FORMAT PA_SAMPLE_S16LE
@@ -126,7 +126,7 @@ static int wave_samplerate;
 				SHOW("Connection died: %s\n", context ? pa_strerror(pa_context_errno(context)) : "NULL"); \
 			goto label; \
 		}  \
-} while(0);
+} while (0);
 
 #define CHECK_CONNECTED(retval) \
 	do { \
@@ -154,7 +154,8 @@ static void context_state_cb(pa_context *c, void *userdata) {
 	ENTER(__FUNCTION__);
 	assert(c);
 
-	switch (pa_context_get_state(c)) {
+	switch (pa_context_get_state(c))
+	{
 	case PA_CONTEXT_READY:
 	case PA_CONTEXT_TERMINATED:
 	case PA_CONTEXT_FAILED:
@@ -169,11 +170,12 @@ static void context_state_cb(pa_context *c, void *userdata) {
 	}
 }
 
-static void stream_state_cb(pa_stream *s, void * userdata) {
+static void stream_state_cb(pa_stream *s, void *userdata) {
 	ENTER(__FUNCTION__);
 	assert(s);
 
-	switch (pa_stream_get_state(s)) {
+	switch (pa_stream_get_state(s))
+	{
 
 	case PA_STREAM_READY:
 	case PA_STREAM_FAILED:
@@ -192,7 +194,7 @@ static void stream_success_cb(pa_stream *s, int success, void *userdata) {
 	assert(s);
 
 	if (userdata)
-		*(int*) userdata = success;
+		*(int *)userdata = success;
 
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
@@ -202,7 +204,7 @@ static void context_success_cb(pa_context *c, int success, void *userdata) {
 	assert(c);
 
 	if (userdata)
-		*(int*) userdata = success;
+		*(int *)userdata = success;
 
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
@@ -231,7 +233,7 @@ static int pulse_free(void) {
 	pa_threaded_mainloop_lock(mainloop);
 	CHECK_DEAD_GOTO(fail, 1);
 
-	if ((l = pa_stream_writable_size(stream)) == (size_t) -1) {
+	if ((l = pa_stream_writable_size(stream)) == (size_t)-1) {
 		SHOW("pa_stream_writable_size() failed: %s", pa_strerror(pa_context_errno(context)));
 		l = 0;
 		goto fail;
@@ -271,7 +273,7 @@ fail:
 
 	do_trigger = !!l;
 	SHOW("pulse_free: %d (ret)\n", (int)l);
-	return (int) l;
+	return (int)l;
 }
 
 static int pulse_playing(const pa_timing_info *the_timing_info) {
@@ -285,11 +287,10 @@ static int pulse_playing(const pa_timing_info *the_timing_info) {
 
 	pa_threaded_mainloop_lock(mainloop);
 
-	for (;; ) {
+	for (;;) {
 		CHECK_DEAD_GOTO(fail, 1);
 
-		if ((i = pa_stream_get_timing_info(stream)))
-		{
+		if ((i = pa_stream_get_timing_info(stream))) {
 			break;
 		}
 		if (pa_context_errno(context) != PA_ERR_NODATA) {
@@ -301,7 +302,7 @@ static int pulse_playing(const pa_timing_info *the_timing_info) {
 	}
 
 	r = i->playing;
-	memcpy((void*)the_timing_info, (void*)i, sizeof(pa_timing_info));
+	memcpy((void *)the_timing_info, (void *)i, sizeof(pa_timing_info));
 
 fail:
 	pa_threaded_mainloop_unlock(mainloop);
@@ -309,7 +310,7 @@ fail:
 	return r;
 }
 
-static void pulse_write(void* ptr, int length) {
+static void pulse_write(void *ptr, int length) {
 	ENTER(__FUNCTION__);
 
 
@@ -360,8 +361,7 @@ static int drain(void) {
 
 	if (!success) {
 		SHOW("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
-	}
-	else {
+	} else {
 		ret = PULSE_OK;
 	}
 
@@ -420,7 +420,7 @@ static int pulse_open()
 	assert(!stream);
 	assert(!connected);
 
-	pthread_mutex_init( &pulse_mutex, (const pthread_mutexattr_t *)NULL);
+	pthread_mutex_init(&pulse_mutex, (const pthread_mutexattr_t *)NULL);
 
 	ss.format = ESPEAK_FORMAT;
 	ss.rate = wave_samplerate;
@@ -431,7 +431,7 @@ static int pulse_open()
 
 	SHOW_TIME("pa_threaded_mainloop_new (call)");
 	if (!(mainloop = pa_threaded_mainloop_new())) {
-		SHOW("Failed to allocate main loop\n","");
+		SHOW("Failed to allocate main loop\n", "");
 		goto fail;
 	}
 
@@ -439,7 +439,7 @@ static int pulse_open()
 
 	SHOW_TIME("pa_context_new (call)");
 	if (!(context = pa_context_new(pa_threaded_mainloop_get_api(mainloop), "eSpeak"))) {
-		SHOW("Failed to allocate context\n","");
+		SHOW("Failed to allocate context\n", "");
 		goto unlock_and_fail;
 	}
 
@@ -455,7 +455,7 @@ static int pulse_open()
 
 	SHOW_TIME("pa_threaded_mainloop_start (call)");
 	if (pa_threaded_mainloop_start(mainloop) < 0) {
-		SHOW("Failed to start main loop","");
+		SHOW("Failed to start main loop", "");
 		goto unlock_and_fail;
 	}
 
@@ -558,8 +558,7 @@ fail:
 			pa_threaded_mainloop_free(mainloop);
 			mainloop = NULL;
 		}
-	}
-	else {
+	} else {
 		pulse_close();
 	}
 
@@ -569,12 +568,12 @@ fail:
 
 }
 
-void wave_flush(void* theHandler)
+void wave_flush(void *theHandler)
 {
 	ENTER("wave_flush");
 }
 
-void wave_set_callback_is_output_enabled(t_wave_callback* cb)
+void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
 	my_callback_is_output_enabled = cb;
 }
@@ -589,52 +588,47 @@ int wave_init(int srate)
 	return pulse_open() == PULSE_OK;
 }
 
-void* wave_open(const char* the_api)
+void *wave_open(const char *the_api)
 {
 	ENTER("wave_open");
-	return((void*)1);
+	return (void *)1;
 }
 
-size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize)
+size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
 	ENTER("wave_write");
 	size_t bytes_to_write = theSize;
-	char* aBuffer=theMono16BitsWaveBuffer;
+	char *aBuffer = theMono16BitsWaveBuffer;
 
 	assert(stream);
 
-	size_t aTotalFreeMem=0;
+	size_t aTotalFreeMem = 0;
 
 	pthread_mutex_lock(&pulse_mutex);
 
-	while (1)
-	{
+	while (1) {
 		if (my_callback_is_output_enabled
-		    && (0==my_callback_is_output_enabled()))
-		{
+		    && (0 == my_callback_is_output_enabled())) {
 			SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
-			theSize=0;
+			theSize = 0;
 			goto terminate;
 		}
 
 		aTotalFreeMem = pulse_free();
-		if (aTotalFreeMem >= bytes_to_write)
-		{
+		if (aTotalFreeMem >= bytes_to_write) {
 			SHOW("wave_write > aTotalFreeMem(%d) >= bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 			break;
 		}
 
 		// TBD: check if really helpful
-		if (aTotalFreeMem >= MAXLENGTH*2)
-		{
+		if (aTotalFreeMem >= MAXLENGTH*2) {
 			aTotalFreeMem = MAXLENGTH*2;
 		}
 
 		SHOW("wave_write > wait: aTotalFreeMem(%d) < bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 
 		// 500: threshold for avoiding too many calls to pulse_write
-		if (aTotalFreeMem>500)
-		{
+		if (aTotalFreeMem > 500) {
 			pulse_write(aBuffer, aTotalFreeMem);
 			bytes_to_write -= aTotalFreeMem;
 			aBuffer += aTotalFreeMem;
@@ -652,7 +646,7 @@ terminate:
 	return theSize;
 }
 
-int wave_close(void* theHandler)
+int wave_close(void *theHandler)
 {
 	SHOW_TIME("wave_close > ENTER");
 	static int aStopStreamCount = 0;
@@ -660,15 +654,13 @@ int wave_close(void* theHandler)
 	// Avoid race condition by making sure this function only
 	// gets called once at a time
 	aStopStreamCount++;
-	if (aStopStreamCount != 1)
-	{
+	if (aStopStreamCount != 1) {
 		SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
 		return 0;
 	}
 
 	int a_status = pthread_mutex_lock(&pulse_mutex);
-	if (a_status)
-	{
+	if (a_status) {
 		SHOW("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
 		aStopStreamCount = 0; // last action
 		return PULSE_ERROR;
@@ -683,13 +675,13 @@ int wave_close(void* theHandler)
 	return PULSE_OK;
 }
 
-int wave_is_busy(void* theHandler)
+int wave_is_busy(void *theHandler)
 {
 	SHOW_TIME("wave_is_busy");
 
 	pa_timing_info a_timing_info;
 	int active = pulse_playing(&a_timing_info);
-	SHOW("wave_is_busy: %d\n",active);
+	SHOW("wave_is_busy: %d\n", active);
 	return active;
 }
 
@@ -698,7 +690,7 @@ void wave_terminate()
 	ENTER("wave_terminate");
 
 	int a_status;
-	pthread_mutex_t* a_mutex = NULL;
+	pthread_mutex_t *a_mutex = NULL;
 	a_mutex = &pulse_mutex;
 	a_status = pthread_mutex_lock(a_mutex);
 
@@ -709,7 +701,7 @@ void wave_terminate()
 	pthread_mutex_destroy(a_mutex);
 }
 
-uint32_t wave_get_read_position(void* theHandler)
+uint32_t wave_get_read_position(void *theHandler)
 {
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
@@ -717,7 +709,7 @@ uint32_t wave_get_read_position(void* theHandler)
 	return a_timing_info.read_index;
 }
 
-uint32_t wave_get_write_position(void* theHandler)
+uint32_t wave_get_write_position(void *theHandler)
 {
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
@@ -725,27 +717,23 @@ uint32_t wave_get_write_position(void* theHandler)
 	return a_timing_info.write_index;
 }
 
-int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	double a_time=0;
+	double a_time = 0;
 
-	if (!time || !stream)
-	{
-		SHOW("event get_remaining_time> %s\n","audio device not available");
+	if (!time || !stream) {
+		SHOW("event get_remaining_time> %s\n", "audio device not available");
 		return -1;
 	}
 
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
 
-	if (sample > a_timing_info.read_index)
-	{
+	if (sample > a_timing_info.read_index) {
 		// TBD: take in account time suplied by portaudio V18 API
 		a_time = sample - a_timing_info.read_index;
 		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
-	}
-	else
-	{
+	} else {
 		a_time = 0;
 	}
 
@@ -767,38 +755,38 @@ void *wave_test_get_write_buffer()
 
 int wave_init(return 1; ) {
 }
-void* wave_open(const char* the_api) {
+void *wave_open(const char *the_api) {
 	return (void *)1;
 }
-size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {
+size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize) {
 	return theSize;
 }
-int wave_close(void* theHandler) {
+int wave_close(void *theHandler) {
 	return 0;
 }
-int wave_is_busy(void* theHandler) {
+int wave_is_busy(void *theHandler) {
 	return 0;
 }
 void wave_terminate() {
 }
-uint32_t wave_get_read_position(void* theHandler) {
+uint32_t wave_get_read_position(void *theHandler) {
 	return 0;
 }
-uint32_t wave_get_write_position(void* theHandler) {
+uint32_t wave_get_write_position(void *theHandler) {
 	return 0;
 }
-void wave_flush(void* theHandler) {
+void wave_flush(void *theHandler) {
 }
 typedef int (t_wave_callback)(void);
-void wave_set_callback_is_output_enabled(t_wave_callback* cb) {
+void wave_set_callback_is_output_enabled(t_wave_callback *cb) {
 }
-extern void* wave_test_get_write_buffer() {
+extern void *wave_test_get_write_buffer() {
 	return NULL;
 }
 
-int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
-	if (!time) return(-1);
+	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;
 }
@@ -811,26 +799,23 @@ void clock_gettime2(struct timespec *ts)
 {
 	struct timeval tv;
 
-	if (!ts)
-	{
+	if (!ts) {
 		return;
 	}
 
-	assert (gettimeofday(&tv, NULL) != -1);
+	assert(gettimeofday(&tv, NULL) != -1);
 	ts->tv_sec = tv.tv_sec;
 	ts->tv_nsec = tv.tv_usec*1000;
 }
 
 void add_time_in_ms(struct timespec *ts, int time_in_ms)
 {
-	if (!ts)
-	{
+	if (!ts) {
 		return;
 	}
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
-	while(t_ns >= ONE_BILLION)
-	{
+	while (t_ns >= ONE_BILLION) {
 		SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
 		ts->tv_sec += 1;
 		t_ns -= ONE_BILLION;

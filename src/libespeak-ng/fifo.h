@@ -43,7 +43,7 @@ void fifo_init();
 //         EE_BUFFER_FULL: the command can not be buffered;
 //           you may try after a while to call the function again.
 //         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_add_command (t_espeak_command* c);
+espeak_ERROR fifo_add_command(t_espeak_command *c);
 
 // Add two espeak commands in a single transaction.
 //
@@ -54,16 +54,16 @@ espeak_ERROR fifo_add_command (t_espeak_command* c);
 //         EE_BUFFER_FULL: at least one command can not be buffered;
 //           you may try after a while to call the function again.
 //         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_add_commands (t_espeak_command* c1, t_espeak_command* c2);
+espeak_ERROR fifo_add_commands(t_espeak_command *c1, t_espeak_command *c2);
 
 // The current running command must be stopped and the awaiting commands are cleared.
 // Return: EE_OK: operation achieved
 //         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_stop ();
+espeak_ERROR fifo_stop();
 
 // Is there a running command?
 // Returns 1 if yes; 0 otherwise.
-int fifo_is_busy ();
+int fifo_is_busy();
 
 // Terminate the fifo component.
 // Last function to be called.

@@ -287,7 +287,7 @@ static int mbrola_has_errors(void)
 	char *buf_ptr, *lf;
 
 	buf_ptr = buffer;
-	for (;; ) {
+	for (;;) {
 		result = read(mbr_error_fd, buf_ptr,
 		              sizeof(buffer) - (buf_ptr - buffer) - 1);
 		if (result == -1) {
@@ -381,7 +381,7 @@ static int mbrola_is_idle(void)
 	p = (char *)memchr(buffer, ')', sizeof(buffer));
 	if (!p || (unsigned)(p - buffer) >= sizeof(buffer) - 2)
 		return 0;
-	return (p[1] == ' ' && p[2] == 'S');
+	return p[1] == ' ' && p[2] == 'S';
 }
 
 static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
@@ -514,7 +514,7 @@ int init_MBR(const char *voice_path)
 	}
 	mbr_samplerate = wavhdr[24] + (wavhdr[25]<<8) +
 	                 (wavhdr[26]<<16) + (wavhdr[27]<<24);
-	//log("mbrowrap: voice samplerate = %d", mbr_samplerate);
+	// log("mbrowrap: voice samplerate = %d", mbr_samplerate);
 
 	/* remember the voice path for setVolumeRatio_MBR() */
 	if (mbr_voice_path != voice_path) {
