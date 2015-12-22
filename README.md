@@ -78,9 +78,9 @@ Cross-compiling for windows:
 The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 be built via the standard autotools commands:
 
-	$ ./autogen.sh
-	$ ./configure --prefix=/usr
-	$ make
+	./autogen.sh
+	./configure --prefix=/usr
+	make
 
 The documentation can be built by running:
 
@@ -155,7 +155,7 @@ __NOTE:__ This currently fails to build `espeak-ng.exe`, but does build
 
 Before installing, you can test the built espeak-ng using the following command:
 
-    $ ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
 
 The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak-ng data from
 the source tree. Otherwise, espeak-ng will look in `$(HOME)` or
@@ -170,7 +170,7 @@ version).
 
 You can install eSpeak NG by running the following command:
 
-    $ sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
+    sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
 
 The `LIBDIR` path may be different to the one on your system (the above
 is for 64-bit Debian/Ubuntu releases that use the multi-arch package
@@ -179,19 +179,19 @@ structure -- that is, Debian Wheezy or later).
 You can find out where espeak-ng is installed to on your system if you
 already have an espeak-ng install by running:
 
-    $ find /usr/lib | grep libespeak-ng
+    find /usr/lib | grep libespeak-ng
 
 ## Building Voices
 
 If you are modifying a language's phoneme, voice or dictionary files, you
 can just build that voice by running:
 
-    $ make <lang-code>
+    make <lang-code>
 
 For example, if you add entries in the `dictsource/en_extra` file, you can
 run:
 
-    $ make en
+    make en
 
 to build an English voice file with those changes in without rebuilding
 all the voices. This will make it easier to spot errors.
@@ -227,7 +227,7 @@ These early releases have been checked into the historical branch,
 with the 1.24.02 release as the last entry. This makes it possible
 to use the replace functionality of git to see the earlier history:
 
-	$ git replace 8d59235f 63c1c019
+	git replace 8d59235f 63c1c019
 
 __NOTE:__ The source releases contain the `big_endian`, `espeak-edit`,
 `praat-mod`, `riskos`, `windows_dll` and `windows_sapi` folders. These
