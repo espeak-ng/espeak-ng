@@ -290,9 +290,8 @@ static int pulse_playing(const pa_timing_info *the_timing_info) {
 	for (;;) {
 		CHECK_DEAD_GOTO(fail, 1);
 
-		if ((i = pa_stream_get_timing_info(stream))) {
+		if ((i = pa_stream_get_timing_info(stream)))
 			break;
-		}
 		if (pa_context_errno(context) != PA_ERR_NODATA) {
 			SHOW("pa_stream_get_timing_info() failed: %s", pa_strerror(pa_context_errno(context)));
 			goto fail;
@@ -359,11 +358,10 @@ static int drain(void) {
 	}
 	SHOW_TIME("pa_threaded_mainloop_wait (ret)");
 
-	if (!success) {
+	if (!success)
 		SHOW("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
-	} else {
+	else
 		ret = PULSE_OK;
-	}
 
 fail:
 	SHOW_TIME("pa_operation_unref (call)");
@@ -558,9 +556,8 @@ fail:
 			pa_threaded_mainloop_free(mainloop);
 			mainloop = NULL;
 		}
-	} else {
+	} else
 		pulse_close();
-	}
 
 	SHOW_TIME("pulse_open (ret false)");
 
@@ -621,9 +618,8 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 		}
 
 		// TBD: check if really helpful
-		if (aTotalFreeMem >= MAXLENGTH*2) {
+		if (aTotalFreeMem >= MAXLENGTH*2)
 			aTotalFreeMem = MAXLENGTH*2;
-		}
 
 		SHOW("wave_write > wait: aTotalFreeMem(%d) < bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 
@@ -799,9 +795,8 @@ void clock_gettime2(struct timespec *ts)
 {
 	struct timeval tv;
 
-	if (!ts) {
+	if (!ts)
 		return;
-	}
 
 	assert(gettimeofday(&tv, NULL) != -1);
 	ts->tv_sec = tv.tv_sec;
@@ -810,9 +805,8 @@ void clock_gettime2(struct timespec *ts)
 
 void add_time_in_ms(struct timespec *ts, int time_in_ms)
 {
-	if (!ts) {
+	if (!ts)
 		return;
-	}
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
 	while (t_ns >= ONE_BILLION) {

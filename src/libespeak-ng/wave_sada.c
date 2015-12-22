@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008, Sun Microsystems, Inc.
+ * Copyright (C) 2015 Reece H. Dunn
  * eSpeak driver for Solaris Audio Device Architecture (SADA)
  * Written by Willie Walker, based on the eSpeak PulseAudio driver
  * from Gilles Casse
@@ -99,9 +100,8 @@ int wave_init(int srate) {
 
 	SHOW("wave_init() sun_audio_fd: %d\n", sun_audio_fd);
 
-	if (sun_audio_fd < 0) {
+	if (sun_audio_fd < 0)
 		return 0;
-	}
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
 	SHOW("wave_init() play buffer size: %d\n", ainfo.play.buffer_size);
@@ -184,19 +184,17 @@ size_t wave_write(void *theHandler,
 	}
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
-	{
-		// BIG-ENDIAN, swap the order of bytes in each sound sample
-		int c;
-		char *out_ptr;
-		char *out_end;
-		out_ptr = (char *)theMono16BitsWaveBuffer;
-		out_end = out_ptr + theSize;
-		while (out_ptr < out_end) {
-			c = out_ptr[0];
-			out_ptr[0] = out_ptr[1];
-			out_ptr[1] = c;
-			out_ptr += 2;
-		}
+	// BIG-ENDIAN, swap the order of bytes in each sound sample
+	int c;
+	char *out_ptr;
+	char *out_end;
+	out_ptr = (char *)theMono16BitsWaveBuffer;
+	out_end = out_ptr + theSize;
+	while (out_ptr < out_end) {
+		c = out_ptr[0];
+		out_ptr[0] = out_ptr[1];
+		out_ptr[1] = c;
+		out_ptr += 2;
 	}
 #endif
 
@@ -208,11 +206,10 @@ size_t wave_write(void *theHandler,
 	//
 	total_samples_sent += num / 2;
 
-	if (num < theSize) {
+	if (num < theSize)
 		SHOW("ERROR: wave_write only wrote %d of %d bytes\n", num, theSize);
-	} else {
+	else
 		SHOW("wave_write wrote %d bytes\n", theSize);
-	}
 
 	SHOW_TIME("wave_write > LEAVE");
 	return num;
@@ -293,11 +290,10 @@ int wave_close(void *theHandler)
 int wave_is_busy(void *theHandler)
 {
 	uint32_t time;
-	if (total_samples_sent >= 1) {
+	if (total_samples_sent >= 1)
 		wave_get_remaining_time(total_samples_sent - 1, &time);
-	} else {
+	else
 		time = 0;
-	}
 	return time != 0;
 }
 
@@ -540,9 +536,8 @@ void clock_gettime2(struct timespec *ts)
 {
 	struct timeval tv;
 
-	if (!ts) {
+	if (!ts)
 		return;
-	}
 
 	assert(gettimeofday(&tv, NULL) != -1);
 	ts->tv_sec = tv.tv_sec;
@@ -551,9 +546,8 @@ void clock_gettime2(struct timespec *ts)
 
 void add_time_in_ms(struct timespec *ts, int time_in_ms)
 {
-	if (!ts) {
+	if (!ts)
 		return;
-	}
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
 	while (t_ns >= ONE_BILLION) {

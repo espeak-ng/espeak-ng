@@ -400,9 +400,8 @@ const int wcslen(const wchar_t *str)
 {
 	int ix = 0;
 
-	while (*str != 0) {
+	while (*str != 0)
 		ix++;
-	}
 	return ix;
 }
 #endif
@@ -466,9 +465,8 @@ int towlower2(unsigned int c)
 
 	// check for non-standard upper to lower case conversions
 	if (c == 'I') {
-		if (translator->langopts.dotless_i) {
+		if (translator->langopts.dotless_i)
 			c = 0x131;   // I -> ı
-		}
 	}
 
 	if (c < 0x80)
@@ -606,9 +604,8 @@ static int GetC(void)
 	if (ungot2 != 0) {
 		c1 = ungot2;
 		ungot2 = 0;
-	} else {
+	} else
 		c1 = GetC_get();
-	}
 
 	if ((option_multibyte == espeakCHARS_WCHAR) || (option_multibyte == espeakCHARS_16BIT)) {
 		count_characters++;
@@ -752,11 +749,10 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 			string = &single_letter[2];
 			LookupDictList(translator2, &string, phonemes, flags, 0, NULL);
 		}
-		if (phonemes[0]) {
+		if (phonemes[0])
 			lang_name = "en";
-		} else {
+		else
 			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
-		}
 	}
 
 	if (phonemes[0]) {
@@ -770,9 +766,8 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 			DecodePhonemes(phonemes, phonemes2);
 			sprintf(buf, "[\002%s]] ", phonemes2);
 		}
-	} else if (only == 0) {
+	} else if (only == 0)
 		strcpy(buf, "[\002(X1)(X1)(X1)]]");
-	}
 
 	return buf;
 }
@@ -836,9 +831,8 @@ static int LoadSoundFile(const char *fname, int index)
 			if ((fd_temp = mkstemp(fname_temp)) >= 0) {
 				close(fd_temp);
 				sprintf(command, "sox \"%s\" -r %d -c1 -t wav %s\n", fname, samplerate, fname_temp);
-				if (system(command) == 0) {
+				if (system(command) == 0)
 					fname = fname_temp;
-				}
 			}
 		}
 	}
@@ -942,13 +936,11 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		UngetC(c2);
 	} else {
 		if ((c1 == '.') && (end_clause) && (c2 != '.')) {
-			if (LookupSpecial(tr, "_.p", ph_buf)) {
+			if (LookupSpecial(tr, "_.p", ph_buf))
 				punctname = ph_buf;  // use word for 'period' instead of 'dot'
-			}
 		}
-		if (punctname == NULL) {
+		if (punctname == NULL)
 			punctname = LookupCharName(tr, c1, 0);
-		}
 
 		if (punctname == NULL)
 			return -1;
@@ -960,13 +952,12 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 				c2 = GetC();
 			}
 			*c2_ptr = c2;
-			if (end_clause) {
+			if (end_clause)
 				UngetC(c2);
-			}
 
-			if (punct_count == 1) {
+			if (punct_count == 1)
 				sprintf(buf, " %s", punctname);   // we need the space before punctname, to ensure it doesn't merge with the previous word  (eg.  "2.-a")
-			} else if (punct_count < 4) {
+			else if (punct_count < 4) {
 				buf[0] = 0;
 				if (embedded_value[EMBED_S] < 300)
 					sprintf(buf, "\001+10S");  // Speak punctuation name faster, unless we are already speaking fast.  It would upset Sonic SpeedUp
@@ -980,10 +971,9 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 					sprintf(buf2, " \001-10S");
 					strcat(buf, buf2);
 				}
-			} else {
+			} else
 				sprintf(buf, " %s %d %s",
 				        punctname, punct_count, punctname);
-			}
 		} else {
 			// end the clause now and pick up the punctuation next time
 			UngetC(c2);
@@ -1139,9 +1129,8 @@ static const char *VoiceFromStack()
 			if (voice_name_specified == 0)
 				voice_name[0] = 0;  // forget a previous voice name if a language is specified
 		}
-		if (sp->voice_gender != 0) {
+		if (sp->voice_gender != 0)
 			voice_select.gender = sp->voice_gender;
-		}
 
 		if (sp->voice_age != 0)
 			voice_select.age = sp->voice_age;
@@ -1228,9 +1217,8 @@ static PARAM_STACK *PushParamStack(int tag_type)
 		n_param_stack++;
 
 	sp->type = tag_type;
-	for (ix = 0; ix < N_SPEECH_PARAM; ix++) {
+	for (ix = 0; ix < N_SPEECH_PARAM; ix++)
 		sp->parameter[ix] = -1;
-	}
 	return sp;
 }
 
@@ -1245,13 +1233,11 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix)
 		tag_type -= SSML_CLOSE;
 
 	for (ix = 0; ix < n_param_stack; ix++) {
-		if (param_stack[ix].type == tag_type) {
+		if (param_stack[ix].type == tag_type)
 			top = ix;
-		}
 	}
-	if (top > 0) {
+	if (top > 0)
 		n_param_stack = top;
-	}
 	ProcessParamStack(outbuf, outix);
 }
 
@@ -1322,9 +1308,8 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 	if ((pw == NULL) || !IsDigit09(*pw))
 		return default_value;
 
-	while (IsDigit09(*pw)) {
+	while (IsDigit09(*pw))
 		value = value*10 + *pw++ - '0';
-	}
 	if ((type == 1) && (towlower(*pw) == 's')) {
 		// time: seconds rather than ms
 		value *= 1000;
@@ -1422,9 +1407,8 @@ int AddNameData(const char *name, int wide)
 	if (wide) {
 		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
 		n_namedata = (n_namedata + sizeof(wchar_t) - 1) % sizeof(wchar_t);  // round to wchar_t boundary
-	} else {
+	} else
 		len = strlen(name)+1;
-	}
 
 	if (namedata_ix+len >= n_namedata) {
 		// allocate more space for marker names
@@ -1491,9 +1475,8 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 
 	if (tag_type & SSML_CLOSE) {
 		// delete a stack frame
-		if (n_ssml_stack > 1) {
+		if (n_ssml_stack > 1)
 			n_ssml_stack--;
-		}
 	} else {
 		// add a stack frame if any voice details are specified
 		lang = GetSsmlAttribute(pw, "xml:lang");
@@ -1726,9 +1709,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 	if (tag_name[0] == '/') {
 		// closing tag
-		if ((tag_type = LookupMnem(ssmltags, &tag_name[1])) != HTML_NOSPACE) {
+		if ((tag_type = LookupMnem(ssmltags, &tag_name[1])) != HTML_NOSPACE)
 			outbuf[(*outix)++] = ' ';
-		}
 		tag_type += SSML_CLOSE;
 	} else {
 		if ((tag_type = LookupMnem(ssmltags, tag_name)) != HTML_NOSPACE) {
@@ -1768,9 +1750,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 		// look for attributes:  rate, volume, pitch, range
 		for (param_type = espeakRATE; param_type <= espeakRANGE; param_type++) {
-			if ((attr1 = GetSsmlAttribute(px, prosody_attr[param_type])) != NULL) {
+			if ((attr1 = GetSsmlAttribute(px, prosody_attr[param_type])) != NULL)
 				SetProsodyParameter(param_type, attr1, sp);
-			}
 		}
 
 		ProcessParamStack(outbuf, outix);
@@ -1779,9 +1760,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	case SSML_EMPHASIS:
 		sp = PushParamStack(tag_type);
 		value = 3;   // default is "moderate"
-		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL) {
+		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL)
 			value = attrlookup(attr1, mnem_emphasis);
-		}
 
 		if (translator->langopts.tone_language == 1) {
 			static unsigned char emphasis_to_pitch_range[] = { 50, 50, 40, 70, 90, 100 };
@@ -1901,9 +1881,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 				if ((xmlbase != NULL) && (buf[0] != '/')) {
 					sprintf(fname, "%s/%s", xmlbase, buf);
 					index = LoadSoundFile2(fname);
-				} else {
+				} else
 					index = LoadSoundFile2(buf);
-				}
 				if (index >= 0) {
 					sprintf(buf, "%c%dI", CTRL_EMBEDDED, index);
 					strcpy(&outbuf[*outix], buf);
@@ -1977,9 +1956,8 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	case SSML_SPEAK:
 		if ((attr1 = GetSsmlAttribute(px, "xml:base")) != NULL) {
 			attrcopy_utf8(buf, attr1, sizeof(buf));
-			if ((index = AddNameData(buf, 0)) >= 0) {
+			if ((index = AddNameData(buf, 0)) >= 0)
 				xmlbase = &namedata[index];
-			}
 		}
 		if (GetVoiceAttributes(px, tag_type) == 0)
 			return 0;   // no voice change
@@ -1992,16 +1970,14 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
-		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK)) {
+		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK))
 			n_ssml_stack--;
-		}
 		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type);
 
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
-		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE)) {
+		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE))
 			n_ssml_stack--;
-		}
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
 		return terminator + GetVoiceAttributes(px, tag_type);
@@ -2135,11 +2111,10 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 		ungot_word = NULL;
 	}
 
-	if (ungot_char2 != 0) {
+	if (ungot_char2 != 0)
 		c2 = ungot_char2;
-	} else {
+	else
 		c2 = GetC();
-	}
 
 	while (!Eof() || (ungot_char != 0) || (ungot_char2 != 0) || (ungot_string_ix >= 0)) {
 		if (!iswalnum(c1)) {
@@ -2167,17 +2142,15 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				ungot_string_ix = -1;
 		}
 
-		if ((ungot_string_ix == 0) && (ungot_char2 == 0)) {
+		if ((ungot_string_ix == 0) && (ungot_char2 == 0))
 			c1 = ungot_string[ungot_string_ix++];
-		}
-		if (ungot_string_ix >= 0) {
+		if (ungot_string_ix >= 0)
 			c2 = ungot_string[ungot_string_ix++];
-		} else {
+		else {
 			c2 = GetC();
 
-			if (Eof()) {
+			if (Eof())
 				c2 = ' ';
-			}
 		}
 		ungot_char2 = 0;
 
@@ -2207,9 +2180,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 								c2 = ' ';
 						}
 					}
-				} else {
+				} else
 					found = -1;
-				}
 
 				if (found <= 0) {
 					ungot_string_ix = 0;
@@ -2223,9 +2195,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 			} else if ((c1 == '<') && (ssml_ignore_l_angle != '<')) {
 				if ((c2 == '!') || (c2 == '?')) {
 					// a comment, ignore until closing '<'  (or <?xml tag )
-					while (!Eof() && (c1 != '>')) {
+					while (!Eof() && (c1 != '>'))
 						c1 = GetC();
-					}
 					c2 = ' ';
 				} else if ((c2 == '/') || iswalpha2(c2)) {
 					// check for space in the output buffer for embedded commands produced by the SSML tag
@@ -2264,9 +2235,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 						buf[ix] = ' ';
 						buf[ix++] = 0;
 
-						if (terminator & CLAUSE_BIT_VOICE) {
+						if (terminator & CLAUSE_BIT_VOICE)
 							strcpy(voice_change, current_voice_id);
-						}
 						return terminator;
 					}
 					c1 = ' ';
@@ -2287,9 +2257,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				*charix_top = ix;
 				ix += utf8_out(c1, &buf[ix]);
 				terminator = CLAUSE_PERIOD;  // line doesn't end in punctuation, assume period
-			} else {
+			} else
 				terminator = punct_attributes[punct];
-			}
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
 			return terminator;
@@ -2376,9 +2345,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 
 			if (c1 == 0xd4d) {
 				// Malayalam virama, check if next character is Zero-width-joiner
-				if (c2 == 0x200d) {
+				if (c2 == 0x200d)
 					c1 = 0xd4e;   // use this unofficial code for chillu-virama
-				}
 			}
 		}
 
@@ -2421,9 +2389,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				// 2nd newline, assume paragraph
 				UngetC(c2);
 
-				if (end_clause_after_tag) {
+				if (end_clause_after_tag)
 					RemoveChar(&buf[end_clause_index]);  // delete clause-end punctiation
-				}
 				buf[ix] = ' ';
 				buf[ix+1] = 0;
 				if (parag > 3)
@@ -2532,9 +2499,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					}
 				}
 
-				if ((c1 == '.') && (nl_count < 2)) {
+				if ((c1 == '.') && (nl_count < 2))
 					punct_data |= CLAUSE_DOT;
-				}
 
 				if (nl_count == 0) {
 					if ((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h', 'u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower2(c_next)))) {
@@ -2547,15 +2513,14 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 						if ((tr->langopts.numbers & NUM_ORDINAL_DOT) &&
 						    (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2))))) { // lang=hu
 							// dot after a number indicates an ordinal number
-							if (!iswdigit(cprev)) {
+							if (!iswdigit(cprev))
 								is_end_clause = 0;  // Roman number followed by dot
-							} else {
+							else {
 								if (iswlower2(c_next) || (c_next == '-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
 									is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 							}
-						} else if (c_next == '\'') {
+						} else if (c_next == '\'')
 							is_end_clause = 0;    // eg. u.s.a.'s
-						}
 						if (iswlower2(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
 							is_end_clause = 0;
@@ -2586,9 +2551,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					buf[ix] = ' ';
 					buf[ix+1] = 0;
 
-					if (iswdigit(cprev) && !IsAlpha(c_next)) { // ????
+					if (iswdigit(cprev) && !IsAlpha(c_next)) // ????
 						punct_data &= ~CLAUSE_DOT;
-					}
 					if (nl_count > 1) {
 						if ((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
 							return punct_data + 35;   // with a longer pause
@@ -2610,11 +2574,10 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 		if (c1 == announced_punctuation) {
 			// This character has already been announced, so delete it so that it isn't spoken a second time.
 			// Unless it's a hyphen or apostrophe (which is used by TranslateClause() )
-			if (IsBracket(c1)) {
+			if (IsBracket(c1))
 				c1 = 0xe000 + '(';   // Unicode private useage area.  So TranslateRules() knows the bracket name has been spoken
-			} else if (c1 != '-') {
+			else if (c1 != '-')
 				c1 = ' ';
-			}
 		}
 
 		j = ix+1;
@@ -2640,12 +2603,10 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 		}
 	}
 
-	if (stressed_word) {
+	if (stressed_word)
 		ix += utf8_out(CHAR_EMPHASIS, &buf[ix]);
-	}
-	if (end_clause_after_tag) {
+	if (end_clause_after_tag)
 		RemoveChar(&buf[end_clause_index]);  // delete clause-end punctiation
-	}
 	buf[ix] = ' ';
 	buf[ix+1] = 0;
 	return CLAUSE_EOF;   //  end of file

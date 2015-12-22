@@ -262,9 +262,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	match_type = 0;
 	buf_pre[0] = 0;
 
-	for (ix = 0; ix < group_length; ix++) {
+	for (ix = 0; ix < group_length; ix++)
 		buf[ix] = group_chars[ix];
-	}
 	buf[ix] = 0;
 
 	p = &buf[strlen(buf)];
@@ -332,9 +331,9 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			strcpy(p, suffix);
 			p += strlen(suffix);
 			c = ' ';
-		} else if (rb == RULE_LETTERGP) {
+		} else if (rb == RULE_LETTERGP)
 			c = symbols_lg[*rule++ - 'A'];
-		} else if (rb == RULE_LETTERGP2) {
+		else if (rb == RULE_LETTERGP2) {
 			value = *rule++ - 'A';
 			p[0] = 'L';
 			p[1] = (value / 10) + '0';
@@ -462,15 +461,14 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 
 			flagnum = LookupMnem(mnem_flags, mnemptr);
 			if (flagnum > 0) {
-				if (flagnum == 200) {
+				if (flagnum == 200)
 					text_mode = 1;
-				} else if (flagnum == 201) {
+				else if (flagnum == 201)
 					text_mode = 0;
-				} else if (flagnum == BITNUM_FLAG_TEXTMODE) {
+				else if (flagnum == BITNUM_FLAG_TEXTMODE)
 					text_not_phonemes = 1;
-				} else {
+				else
 					flag_codes[n_flag_codes++] = flagnum;
-				}
 			} else {
 				fprintf(f_log, "%5d: Unknown keyword: %s\n", linenum, mnemptr);
 				error_count++;
@@ -496,9 +494,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 
 		case 1:
 			if ((c == '-') && multiple_words) {
-				if (IsDigit09(word[0])) {
+				if (IsDigit09(word[0]))
 					multiple_numeric_hyphen = 1;
-				}
 				flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
 				c = ' ';
 			}
@@ -508,9 +505,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 				if (multiple_words) {
 					multiple_string = multiple_string_end = p+1;
 					step = 2;
-				} else {
+				} else
 					step = 3;
-				}
 			} else if (c == ')') {
 				if (multiple_words) {
 					p[0] = 0;
@@ -525,9 +521,9 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			break;
 
 		case 2:
-			if (isspace2(c)) {
+			if (isspace2(c))
 				multiple_words++;
-			} else if (c == ')') {
+			else if (c == ')') {
 				p[0] = ' ';   // terminate extra string
 				multiple_string_end = p+1;
 				step = 3;
@@ -554,9 +550,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		p++;
 	}
 
-	if (word[0] == 0) {
+	if (word[0] == 0)
 		return 0;   /* blank line */
-	}
 
 	if (text_mode)
 		text_not_phonemes = 1;
@@ -577,15 +572,13 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 				error_need_dictionary++;
 				fprintf(f_log, "%5d: Need to compile dictionary again\n", linenum);
 			}
-		} else {
+		} else
 			// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
 			strncpy0(encoded_ph, phonetic, N_WORD_BYTES-4);
-		}
 	} else {
 		EncodePhonemes(phonetic, encoded_ph, &bad_phoneme);
-		if (strchr(encoded_ph, phonSWITCH) != 0) {
+		if (strchr(encoded_ph, phonSWITCH) != 0)
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
-		}
 
 		// check for errors in the phonemes codes
 		if (bad_phoneme != 0) {
@@ -596,9 +589,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		}
 	}
 
-	if (text_not_phonemes != translator->langopts.textmode) {
+	if (text_not_phonemes != translator->langopts.textmode)
 		flag_codes[n_flag_codes++] = BITNUM_FLAG_TEXTMODE;
-	}
 
 
 	if (sscanf(word, "U+%x", &wc) == 1) {
@@ -617,23 +609,20 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			ix = utf8_in(&c2, p);
 			if (c2 == 0)
 				break;
-			if (iswupper2(c2)) {
+			if (iswupper2(c2))
 				utf8_out(towlower2(c2), p);
-			} else {
+			else
 				all_upper_case = 0;
-			}
 			p += ix;
 		}
-		if (all_upper_case) {
+		if (all_upper_case)
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ALLCAPS;
-		}
 	}
 
 	len_word = strlen(word);
 
-	if (translator->transpose_min > 0) {
+	if (translator->transpose_min > 0)
 		len_word = TransposeAlphabet(translator, word);
-	}
 
 	*hash = HashDictionary(word);
 	len_phonetic = strlen(encoded_ph);
@@ -652,9 +641,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		strcpy(&dict_line[(len_word)+2], encoded_ph);
 	}
 
-	for (ix = 0; ix < n_flag_codes; ix++) {
+	for (ix = 0; ix < n_flag_codes; ix++)
 		dict_line[ix+length] = flag_codes[ix];
-	}
 	length += n_flag_codes;
 
 	if ((multiple_string != NULL) && (multiple_words > 0)) {
@@ -664,9 +652,8 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		} else {
 			dict_line[length++] = 80 + multiple_words;
 			ix = multiple_string_end - multiple_string;
-			if (multiple_numeric_hyphen) {
+			if (multiple_numeric_hyphen)
 				dict_line[length++] = ' ';   // ???
-			}
 			memcpy(&dict_line[length], multiple_string, ix);
 			length += ix;
 		}
@@ -865,9 +852,8 @@ static void copy_rule_string(char *string, int *state_out)
 				c = c2 * 16 + c3;
 				literal = 1;
 				p++;
-			} else {
+			} else
 				hexdigit_input = 0;
-			}
 		}
 		if ((state == 1) || (state == 3)) {
 			// replace special characters (note: 'E' is reserved for a replaced silent 'e')
@@ -960,9 +946,8 @@ static void copy_rule_string(char *string, int *state_out)
 						// pre-rule, put the group number before the RULE_LETTERGP command
 						output[ix++] = c;
 						c = RULE_LETTERGP2;
-					} else {
+					} else
 						output[ix++] = RULE_LETTERGP2;
-					}
 					break;
 
 				case '$':
@@ -1199,9 +1184,8 @@ static char *compile_rule(char *input)
 			// omit '_' at the beginning of the pre-string and imply it by using RULE_PRE_ATSTART
 			c = RULE_PRE_ATSTART;
 			start = 1;
-		} else {
+		} else
 			c = RULE_PRE;
-		}
 		output[len++] = c;
 
 		// output PRE string in reverse order
@@ -1574,17 +1558,15 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 					// group character is given as a character code (max 16 bits)
 					p = (unsigned char *)group_name;
 
-					if (char_code > 0x100) {
+					if (char_code > 0x100)
 						*p++ = (char_code >> 8);
-					}
 					*p++ = char_code;
 					*p = 0;
 				} else {
 					if (translator->letter_bits_offset > 0) {
 						utf8_in(&wc, group_name);
-						if (((ix = (wc - translator->letter_bits_offset)) >= 0) && (ix < 128)) {
+						if (((ix = (wc - translator->letter_bits_offset)) >= 0) && (ix < 128))
 							group3_ix = ix+1;   // not zero
-						}
 					}
 				}
 
@@ -1606,9 +1588,9 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 		case 1:    //  .group
 			prule = compile_rule(buf);
 			if (prule != NULL) {
-				if (n_rules < N_RULES) {
+				if (n_rules < N_RULES)
 					rules[n_rules++] = prule;
-				} else {
+				else {
 					if (err_n_rules == 0) {
 						fprintf(stderr, "\nExceeded limit of rules (%d) in group '%s'\n", N_RULES, group_name);
 						error_count++;
@@ -1672,18 +1654,14 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				n_groups3++;
 				fputc(1, f_out);
 				fputc(rgroup[gp].group3_ix, f_out);
-			} else {
+			} else
 				fprintf(f_out, "%s", prev_rgroup_name = rgroup[gp].name);
-			}
 			fputc(0, f_out);
 		}
 
 		for (ix = rgroup[gp].length; ix > 0; ix--) {
 			c = fgetc(f_temp);
 			fputc(c, f_out);
-		}
-
-		if (different) {
 		}
 	}
 	fputc(RULE_GROUP_END, f_out);

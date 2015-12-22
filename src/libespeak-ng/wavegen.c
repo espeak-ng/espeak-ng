@@ -609,9 +609,8 @@ int WavegenCloseSound()
 				pa_stream = NULL;
 				return 1;
 			}
-		} else {
+		} else
 			WavegenOpenSound();  // still items in the queue, shouldn't be closed
-		}
 	}
 	return 0;
 }
@@ -804,27 +803,23 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		h = ((p->freq - p->left) / pitch) + 1;
 		if (h <= 0) h = 1;
 
-		for (f = pitch*h; f < fp; f += pitch) {
+		for (f = pitch*h; f < fp; f += pitch)
 			htab[h++] += pk_shape[(fp-f)/(p->left>>8)] * p->height;
-		}
-		for (; f < fhi; f += pitch) {
+		for (; f < fhi; f += pitch)
 			htab[h++] += pk_shape[(f-fp)/(p->right>>8)] * p->height;
-		}
 	}
 
-	{
-		int y;
-		int h2;
-		// increase bass
-		y = peaks[1].height * 10; // addition as a multiple of 1/256s
-		h2 = (1000<<16)/pitch;   // decrease until 1000Hz
-		if (h2 > 0) {
-			x = y/h2;
-			h = 1;
-			while (y > 0) {
-				htab[h++] += y;
-				y -= x;
-			}
+	int y;
+	int h2;
+	// increase bass
+	y = peaks[1].height * 10; // addition as a multiple of 1/256s
+	h2 = (1000<<16)/pitch;   // decrease until 1000Hz
+	if (h2 > 0) {
+		x = y/h2;
+		h = 1;
+		while (y > 0) {
+			htab[h++] += y;
+			y -= x;
 		}
 	}
 
@@ -849,9 +844,8 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		x = htab[h] >> 15;
 		htab[h] = (x * x) >> 8;
 
-		if ((ix = (f >> 19)) < N_TONE_ADJUST) {
+		if ((ix = (f >> 19)) < N_TONE_ADJUST)
 			htab[h] = (htab[h] * wvoice->tone_adjust[ix]) >> 13;  // index tone_adjust with Hz/8
-		}
 	}
 
 	// adjust the amplitude of the first harmonic, affects tonal quality
@@ -861,9 +855,8 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 
 	// calc intermediate increments of LF harmonics
 	if (control & 1) {
-		for (h = 1; h < N_LOWHARM; h++) {
+		for (h = 1; h < N_LOWHARM; h++)
 			harm_inc[h] = (htab[h] - harmspect[h]) >> 3;
-		}
 	}
 
 	return hmax;  // highest harmonic number
@@ -910,9 +903,8 @@ static void AdvanceParameters()
 		if (ix < 3) {
 			peaks[ix].right1 += peaks[ix].right_inc;
 			peaks[ix].right = (int)peaks[ix].right1;
-		} else {
+		} else
 			peaks[ix].right = peaks[ix].left;
-		}
 	}
 	for (; ix < 8; ix++) {
 		// formants 6,7,8 don't have a width parameter
@@ -984,9 +976,8 @@ void InitBreath(void)
 	minus_pi_t = -PI / samplerate;
 	two_pi_t = -2.0 * minus_pi_t;
 
-	for (ix = 0; ix < N_PEAKS; ix++) {
+	for (ix = 0; ix < N_PEAKS; ix++)
 		setresonator(&rbreath[ix], 2000, 200, 1);
-	}
 #endif
 }
 
@@ -1089,9 +1080,8 @@ int Wavegen()
 
 			SetBreath();
 		} else if ((samplecount & 0x07) == 0) {
-			for (h = 1; h < N_LOWHARM && h <= maxh2 && h <= maxh; h++) {
+			for (h = 1; h < N_LOWHARM && h <= maxh2 && h <= maxh; h++)
 				harmspect[h] += harm_inc[h];
-			}
 
 			// bring automctic gain control back towards unity
 			if (agc < 256) agc++;
@@ -1130,9 +1120,8 @@ int Wavegen()
 						// This is the start of the second cycle, reduce its amplitude
 						glottal_flag = 2;
 						amplitude2 = (amplitude2 * glottal_reduce)/256;
-					} else {
+					} else
 						glottal_flag--;
-					}
 				}
 
 				if (amplitude_env != NULL) {
@@ -1162,9 +1151,8 @@ int Wavegen()
 					}
 				}
 			}
-		} else {
+		} else
 			wavephase += phaseinc;
-		}
 		waveph = (unsigned short)(wavephase >> 16);
 		total = 0;
 
@@ -1201,14 +1189,12 @@ int Wavegen()
 		}
 #endif
 
-		if (voicing != 64) {
+		if (voicing != 64)
 			total = (total >> 6) * voicing;
-		}
 
 #ifndef PLATFORM_RISCOS
-		if (wvoice->breath[0]) {
+		if (wvoice->breath[0])
 			total +=  ApplyBreath();
-		}
 #endif
 
 		// mix with sampled wave if required
@@ -1378,9 +1364,8 @@ static void SetPitchFormants()
 		factor = 256 + (25 * (pitch_value - 50))/50;
 	}
 
-	for (ix = 0; ix <= 5; ix++) {
+	for (ix = 0; ix <= 5; ix++)
 		wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
-	}
 
 	factor = embedded_value[EMBED_T]*3;
 	wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
@@ -1671,9 +1656,8 @@ int WavegenFill2(int fill_zeros)
 			break;
 
 		case WCMD_PAUSE:
-			if (resume == 0) {
+			if (resume == 0)
 				echo_complete -= length;
-			}
 			wdata.n_mix_wavefile = 0;
 			wdata.amplitude_fmt = 100;
 #ifdef INCLUDE_KLATT
@@ -1725,9 +1709,8 @@ int WavegenFill2(int fill_zeros)
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
 			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
-			if (marker_type == 1) { // word marker
+			if (marker_type == 1) // word marker
 				current_source_index = q[1] & 0xffffff;
-			}
 			break;
 
 		case WCMD_AMPLITUDE:
@@ -1762,9 +1745,8 @@ int WavegenFill2(int fill_zeros)
 		if (result == 0) {
 			WcmdqIncHead();
 			resume = 0;
-		} else {
+		} else
 			resume = 1;
-		}
 	}
 
 	return 0;
@@ -1776,12 +1758,10 @@ int WavegenFill2(int fill_zeros)
 static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
 {
 	if (length_in > 0) {
-		if (sonicSpeedupStream == NULL) {
+		if (sonicSpeedupStream == NULL)
 			sonicSpeedupStream = sonicCreateStream(22050, 1);
-		}
-		if (sonicGetSpeed(sonicSpeedupStream) != sonicSpeed) {
+		if (sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
 			sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
-		}
 
 		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
 	}
@@ -1789,9 +1769,8 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 	if (sonicSpeedupStream == NULL)
 		return 0;
 
-	if (end_of_text) {
+	if (end_of_text)
 		sonicFlushStream(sonicSpeedupStream);
-	}
 	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
 }
 #endif

@@ -141,9 +141,8 @@ void DisplayVoices(FILE *f_out, char *language)
 		voice_select.gender = 0;
 		voice_select.name = NULL;
 		voices = espeak_ListVoices(&voice_select);
-	} else {
+	} else
 		voices = espeak_ListVoices(NULL);
-	}
 
 	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
@@ -169,9 +168,8 @@ void DisplayVoices(FILE *f_out, char *language)
 				}
 				fprintf(f_out, "%2d  %-12s%s%c  %-20s %-13s ",
 				        p[0], lang_name, age_buf, genders[v->gender], buf, v->identifier);
-			} else {
+			} else
 				fprintf(f_out, "(%s %d)", lang_name, p[0]);
-			}
 			count++;
 			p += len+2;
 		}
@@ -421,9 +419,8 @@ int main(int argc, char **argv)
 					c = long_options[ix].val;
 					optarg2 = NULL;
 
-					if ((long_options[ix].has_arg != 0) && (p[len] == '=')) {
+					if ((long_options[ix].has_arg != 0) && (p[len] == '='))
 						optarg2 = &p[len+1];
-					}
 					break;
 				}
 			}
@@ -562,9 +559,8 @@ int main(int argc, char **argv)
 			break;
 
 		case 0x108:  // --phonout
-			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL) {
+			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL)
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
-			}
 			break;
 
 		case 0x109:  // --pho
@@ -704,9 +700,8 @@ int main(int argc, char **argv)
 			p_text = argv[optind];
 		} else {
 			f_text = stdin;
-			if (flag_stdin == 0) {
+			if (flag_stdin == 0)
 				flag_stdin = 2;
-			}
 		}
 	} else {
 		filesize = GetFileLength(filename);

@@ -156,9 +156,8 @@ static void InitGroups(Translator *tr)
 		if (p[0] == RULE_REPLACEMENTS) {
 			pw = (unsigned int *)(((intptr_t)p+4) & ~3);  // advance to next word boundary
 			tr->langopts.replace_chars = pw;
-			while (pw[0] != 0) {
+			while (pw[0] != 0)
 				pw += 2;   // find the end of the replacement list, each entry is 2 words.
-			}
 			p = (char *)(pw+1);
 
 #ifdef ARCH_BIG
@@ -176,9 +175,8 @@ static void InitGroups(Translator *tr)
 		if (p[0] == RULE_LETTERGP2) {
 			ix = p[1] - 'A';
 			p += 2;
-			if ((ix >= 0) && (ix < N_LETTER_GROUPS)) {
+			if ((ix >= 0) && (ix < N_LETTER_GROUPS))
 				tr->letterGroups[ix] = p;
-			}
 		} else {
 			len = strlen(p);
 			p_name = p;
@@ -186,11 +184,11 @@ static void InitGroups(Translator *tr)
 			c2 = p_name[1];
 
 			p += (len+1);
-			if (len == 1) {
+			if (len == 1)
 				tr->groups1[c] = p;
-			} else if (len == 0) {
+			else if (len == 0)
 				tr->groups1[0] = p;
-			} else if (c == 1) {
+			else if (c == 1) {
 				// index by offset from letter base
 				tr->groups3[c2 - 1] = p;
 			} else {
@@ -204,9 +202,8 @@ static void InitGroups(Translator *tr)
 		}
 
 		// skip over all the rules in this group
-		while (*p != RULE_GROUP_END) {
+		while (*p != RULE_GROUP_END)
 			p += (strlen(p) + 1);
-		}
 		p++;
 	}
 
@@ -240,9 +237,8 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	f = fopen(fname, "rb");
 	if ((f == NULL) || (size <= 0)) {
-		if (no_error == 0) {
+		if (no_error == 0)
 			fprintf(stderr, "Can't read dictionary file: '%s'\n", fname);
-		}
 		if (f != NULL)
 			fclose(f);
 		return 1;
@@ -276,15 +272,13 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
-		while ((length = *p) != 0) {
+		while ((length = *p) != 0)
 			p += length;
-		}
 		p++;   // skip over the zero which terminates the list for this hash value
 	}
 
-	if ((tr->dict_min_size > 0) && (size < (unsigned int)tr->dict_min_size)) {
+	if ((tr->dict_min_size > 0) && (size < (unsigned int)tr->dict_min_size))
 		fprintf(stderr, "Full dictionary is not installed for '%s'\n", name);
-	}
 
 	return 0;
 }
@@ -330,9 +324,8 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 		*bad_phoneme = 0;
 
 	// skip initial blanks
-	while (isspace(*p)) {
+	while (isspace(*p))
 		p++;
-	}
 
 	while (((c = *p) != 0) && !isspace(c)) {
 		consumed = 0;
@@ -379,9 +372,8 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 
 			if (max_ph == 0) {
 				// not recognised, report and ignore
-				if (bad_phoneme != NULL) {
+				if (bad_phoneme != NULL)
 					utf8_in(bad_phoneme, p);
-				}
 				*outptr++ = 0;
 				return p+1;
 			}
@@ -404,9 +396,8 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 						*p_lang = 0;   // don't need "en", it's assumed by default
 						return p;
 					}
-				} else {
+				} else
 					*outptr++ = '|';  // more phonemes follow, terminate language string with separator
-				}
 			}
 			break;
 		}
@@ -445,9 +436,8 @@ void DecodePhonemes(const char *inptr, char *outptr)
 				mnem = mnem >> 8;
 			}
 			if (phcode == phonSWITCH) {
-				while (isalpha(*inptr)) {
+				while (isalpha(*inptr))
 					*outptr++ = *inptr++;
-				}
 			}
 		}
 	}
@@ -497,11 +487,10 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		// has an ipa name been defined for this phoneme ?
 		phdata.ipa_string[0] = 0;
 
-		if (plist == NULL) {
+		if (plist == NULL)
 			InterpretPhoneme2(ph->code, &phdata);
-		} else {
+		else
 			InterpretPhoneme(NULL, 0, plist, &phdata, NULL);
-		}
 
 		p = phdata.ipa_string;
 		if (*p == 0x20) {
@@ -546,9 +535,8 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 				c = ipa1[c-0x20];
 
 			ix += utf8_out(c, &phon_out[ix]);
-		} else {
+		} else
 			phon_out[ix++] = c;
-		}
 		first = 0;
 	}
 
@@ -619,9 +607,8 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		if ((!plist->newword) || (separate_phonemes == ' ')) {
 			if ((separate_phonemes != 0) && (ix > 1)) {
 				utf8_in(&c, phon_buf2);
-				if ((c < 0x2b0) || (c > 0x36f)) { // not if the phoneme starts with a superscript letter
+				if ((c < 0x2b0) || (c > 0x36f)) // not if the phoneme starts with a superscript letter
 					buf += utf8_out(separate_phonemes, buf);
-				}
 			}
 		}
 
@@ -634,13 +621,11 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 					c = 0x2cc;  // ipa, secondary stress
 					if (stress > 3)
 						c = 0x02c8;  // ipa, primary stress
-				} else {
+				} else
 					c = stress_chars[stress];
-				}
 
-				if (c != 0) {
+				if (c != 0)
 					buf += utf8_out(c, buf);
-				}
 			}
 		}
 
@@ -650,25 +635,22 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 			p += utf8_in(&c, p);
 			if (use_tie != 0) {
 				// look for non-inital alphabetic character, but not diacritic, superscript etc.
-				if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c)) {
+				if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c))
 					buf += utf8_out(use_tie, buf);
-				}
 			}
 			buf += utf8_out(c, buf);
 			count++;
 		}
 
 		if (plist->ph->code != phonSWITCH) {
-			if (plist->synthflags & SFLAG_LENGTHEN) {
+			if (plist->synthflags & SFLAG_LENGTHEN)
 				buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa, NULL);
-			}
 			if ((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL)) {
 				// syllablic consonant
 				buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa, NULL);
 			}
-			if (plist->tone_ph > 0) {
+			if (plist->tone_ph > 0)
 				buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa, NULL);
-			}
 		}
 
 		len = buf - phon_buf;
@@ -711,9 +693,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		if (pre) {
 			len = strlen(p);
 			w = word - len + 1;
-		} else {
+		} else
 			w = word;
-		}
 		while ((*p == *w) && (*w != 0)) {
 			w++;
 			p++;
@@ -1108,9 +1089,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	}
 
 	max_stress = max_stress_input = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 1);
-	if ((max_stress < 0) && dictionary_flags) {
+	if ((max_stress < 0) && dictionary_flags)
 		max_stress = 0;
-	}
 
 	// heavy or light syllables
 	ix = 1;
@@ -1151,9 +1131,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		// stress on second syllable
 		if ((stressed_syllable == 0) && (vowel_count > 2)) {
 			stressed_syllable = 2;
-			if (max_stress == 0) {
+			if (max_stress == 0)
 				vowel_stress[stressed_syllable] = 4;
-			}
 			max_stress = 4;
 		}
 		break;
@@ -1191,18 +1170,16 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 						} else {
 							if ((mnem == 's') && (phoneme_tab[final_ph2]->type == phNASAL)) {
 								// -ns  stress remains on penultimate syllable
-							} else if (((phoneme_tab[final_ph]->type != phNASAL) && (mnem != 's')) || (phoneme_tab[final_ph2]->type != phVOWEL)) {
+							} else if (((phoneme_tab[final_ph]->type != phNASAL) && (mnem != 's')) || (phoneme_tab[final_ph2]->type != phVOWEL))
 								stressed_syllable = vowel_count - 1;
-							}
 						}
 					}
 				}
 
 				if (stressflags & S_FINAL_LONG) {
 					// stress on last syllable if it has a long vowel, but previous syllable has a short vowel
-					if (vowel_length[vowel_count - 1] > vowel_length[vowel_count - 2]) {
+					if (vowel_length[vowel_count - 1] > vowel_length[vowel_count - 2])
 						stressed_syllable = vowel_count - 1;
-					}
 				}
 
 				if ((vowel_stress[stressed_syllable] == 0) || (vowel_stress[stressed_syllable] == 1)) {
@@ -1249,9 +1226,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			if (stressed_syllable < 1)
 				stressed_syllable = 1;
 
-			if (max_stress == 0) {
+			if (max_stress == 0)
 				vowel_stress[stressed_syllable] = 4;
-			}
 			max_stress = 4;
 		}
 		break;
@@ -1394,9 +1370,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 		if ((stressflags & S_INITIAL_2) && (vowel_stress[1] < 0)) {
 			// If there is only one syllable before the primary stress, give it a secondary stress
-			if ((vowel_count > 3) && (vowel_stress[2] >= 4)) {
+			if ((vowel_count > 3) && (vowel_stress[2] >= 4))
 				vowel_stress[1] = 3;
-			}
 		}
 	}
 
@@ -1479,11 +1454,10 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		if ((tr->langopts.vowel_pause & 0x30) && (ph->type == phVOWEL)) {
 			// word starts with a vowel
 
-			if ((tr->langopts.vowel_pause & 0x20) && (vowel_stress[1] >= 4)) {
+			if ((tr->langopts.vowel_pause & 0x20) && (vowel_stress[1] >= 4))
 				*output++ = phonPAUSE_NOLINK;       // not to be replaced by link
-			} else {
+			else
 				*output++ = phonPAUSE_VSHORT;         // break, but no pause
-			}
 		}
 	}
 
@@ -1492,9 +1466,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		if ((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 
-		if (ph->type == phPAUSE) {
+		if (ph->type == phPAUSE)
 			tr->prev_last_stress = 0;
-		} else if (((ph->type == phVOWEL) && !(ph->phflags & phNONSYLLABIC)) || (*p == phonSYLLABIC)) {
+		else if (((ph->type == phVOWEL) && !(ph->phflags & phNONSYLLABIC)) || (*p == phonSYLLABIC)) {
 			// a vowel, or a consonant followed by a syllabic consonant marker
 
 			v_stress = vowel_stress[v];
@@ -1523,9 +1497,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 1 (unstressed)
 
 
-			if (vowel_stress[v] > max_stress) {
+			if (vowel_stress[v] > max_stress)
 				max_stress = vowel_stress[v];
-			}
 
 			if ((*p == phonLENGTHEN) && ((opt_length = tr->langopts.param[LOPT_IT_LENGTHEN]) & 1)) {
 				// remove lengthen indicator from non-stressed syllables
@@ -1577,9 +1550,8 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 	int length;
 
 	length = strlen(ph) + strlen(string);
-	if (length >= size) {
+	if (length >= size)
 		return;
-	}
 
 	/* any stressable vowel ? */
 	unstress_mark = 0;
@@ -1718,9 +1690,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 							if (rb == RULE_LINENUM)
 								match.phonemes += 2;  // skip over line number
 						}
-					} else {
+					} else
 						match.phonemes = "";
-					}
 					rule--;      // so we are still pointing at the 0
 					failed = 2;    // matched OK
 					break;
@@ -1826,9 +1797,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_NOTVOWEL:
-					if (IsLetter(tr, letter_w, 0) || ((letter_w == ' ') && (word_flags & FLAG_SUFFIX_VOWEL))) {
+					if (IsLetter(tr, letter_w, 0) || ((letter_w == ' ') && (word_flags & FLAG_SUFFIX_VOWEL)))
 						failed = 1;
-					} else {
+					else {
 						add_points = (20-distance_right);
 						post_ptr += letter_xbytes;
 					}
@@ -1863,9 +1834,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 				case RULE_DOLLAR:
 					command = *rule++;
-					if (command == DOLLAR_UNPR) {
+					if (command == DOLLAR_UNPR)
 						match.end_type = SUFX_UNPRON;    // $unpron
-					} else if (command == DOLLAR_NOPREFIX) {   // $noprefix
+					else if (command == DOLLAR_NOPREFIX) {   // $noprefix
 						if (word_flags & FLAG_PREFIX_REMOVED)
 							failed = 1;             // a prefix has been removed
 						else
@@ -1895,9 +1866,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case '-':
-					if ((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER))) {
+					if ((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER)))
 						add_points = (22-distance_right);    // one point more than match against space
-					} else
+					else
 						failed = 1;
 					break;
 
@@ -1956,9 +1927,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						p2 = p;
 						p += utf8_in(&letter_w, p);
 					}
-					if (letter_w == rule_w) {
+					if (letter_w == rule_w)
 						post_ptr = p2;
-					}
 				}
 				break;
 
@@ -2158,9 +2128,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case '-':
-					if ((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN))) {
+					if ((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN)))
 						add_points = (22-distance_right);       // one point more than match against space
-					} else
+					else
 						failed = 1;
 					break;
 
@@ -2168,11 +2138,9 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					if (letter == rb) {
 						if (letter == RULE_SPACE)
 							add_points = 4;
-						else {
-							if ((letter & 0xc0) != 0x80) {
-								// not for non-initial UTF-8 bytes
-								add_points = (21-distance_left);
-							}
+						else if ((letter & 0xc0) != 0x80) {
+							// not for non-initial UTF-8 bytes
+							add_points = (21-distance_left);
 						}
 					} else
 						failed = 1;
@@ -2276,9 +2244,8 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		char wordbuf[120];
 		unsigned int ix;
 
-		for (ix = 0; ((c = p_start[ix]) != ' ') && (c != 0) && (ix < (sizeof(wordbuf)-1)); ix++) {
+		for (ix = 0; ((c = p_start[ix]) != ' ') && (c != 0) && (ix < (sizeof(wordbuf)-1)); ix++)
 			wordbuf[ix] = c;
-		}
 		wordbuf[ix] = 0;
 		if (word_flags & FLAG_UNPRON_TEST)
 			fprintf(f_trans, "Unpronouncable? '%s'\n", wordbuf);
@@ -2457,9 +2424,8 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				return 0;
 			}
 
-			if ((option_phonemes & espeakPHONEMES_TRACE) && ((word_flags & FLAG_NO_TRACE) == 0)) {
+			if ((option_phonemes & espeakPHONEMES_TRACE) && ((word_flags & FLAG_NO_TRACE) == 0))
 				fprintf(f_trans, "\n");
-			}
 
 			match1.end_type &= ~SUFX_UNPRON;
 
@@ -2555,13 +2521,13 @@ int TransposeAlphabet(Translator *tr, char *text)
 		p += utf8_in(&c, p);
 		if (c != 0) {
 			if ((c >= min) && (c <= max)) {
-				if (map == NULL) {
+				if (map == NULL)
 					buf[bufix++] = c - offset;
-				} else {
+				else {
 					// get the code from the transpose map
-					if (map[c - min] > 0) {
+					if (map[c - min] > 0)
 						buf[bufix++] = map[c - min];
-					} else {
+					else {
 						all_alpha = 0;
 						break;
 					}
@@ -2608,9 +2574,8 @@ int TransposeAlphabet(Translator *tr, char *text)
 		ix = p2 - buf;
 		memcpy(text, buf, ix);
 		return ix | 0x40;  // bit 6 indicates compressed characters
-	} else {
-		return strlen(text);
 	}
+	return strlen(text);
 }
 
 
@@ -2650,9 +2615,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	char word_buf[N_WORD_BYTES+1];
 	char dict_flags_buf[80];
 
-	if (wtab != NULL) {
+	if (wtab != NULL)
 		wflags = wtab->flags;
-	}
 
 	lookup_symbol = flags[1] & FLAG_LOOKUP_SYMBOL;
 	word1 = word;
@@ -2660,9 +2624,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		strncpy0(word_buf, word, N_WORD_BYTES);
 		wlen = TransposeAlphabet(tr, word_buf);  // bit 6 indicates compressed characters
 		word = word_buf;
-	} else {
+	} else
 		wlen = strlen(word);
-	}
 
 	hash = HashDictionary(word);
 	p = tr->dict_hashtab[hash];
@@ -2728,9 +2691,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				//  or has an embedded command, such as MARK
 				if (wtab != NULL) {
 					for (ix = 0; ix <= skipwords; ix++) {
-						if (wtab[ix].flags & FLAG_EMPHASIZED2) {
+						if (wtab[ix].flags & FLAG_EMPHASIZED2)
 							condition_failed = 1;
-						}
 					}
 				}
 
@@ -2751,11 +2713,10 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				dictionary_flags = (dictionary_flags & ~0xf) | (flag & 0xf);
 				if ((flag & 0xc) == 0xc)
 					dictionary_flags |= FLAG_STRESS_END;
-			} else if (flag >= 32) {
+			} else if (flag >= 32)
 				dictionary_flags2 |= (1L << (flag-32));
-			} else {
+			else
 				dictionary_flags |= (1L << flag);
-			}
 		}
 
 		if (condition_failed) {
@@ -2784,19 +2745,16 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		}
 
 		if (dictionary_flags2 & FLAG_HYPHENATED) {
-			if (!(wflags & FLAG_HYPHEN_AFTER)) {
+			if (!(wflags & FLAG_HYPHEN_AFTER))
 				continue;
-			}
 		}
 		if (dictionary_flags2 & FLAG_CAPITAL) {
-			if (!(wflags & FLAG_FIRST_UPPER)) {
+			if (!(wflags & FLAG_FIRST_UPPER))
 				continue;
-			}
 		}
 		if (dictionary_flags2 & FLAG_ALLCAPS) {
-			if (!(wflags & FLAG_ALL_UPPER)) {
+			if (!(wflags & FLAG_ALL_UPPER))
 				continue;
-			}
 		}
 		if (dictionary_flags & FLAG_NEEDS_DOT) {
 			if (!(wflags & FLAG_HAS_DOT))
@@ -2892,18 +2850,16 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 					memcpy(word_buf, word2, word_end-word2);
 					word_buf[word_end-word2-1] = 0;
 					fprintf(f_trans, "Found: '%s %s\n", word1, word_buf);
-				} else {
+				} else
 					fprintf(f_trans, "Found: '%s", word1);
-				}
 				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
 				fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
 			}
 		}
 
 		ix = utf8_in(&c, word);
-		if ((word[ix] == 0) && !IsAlpha(c)) {
+		if ((word[ix] == 0) && !IsAlpha(c))
 			flags[0] |= FLAG_MAX3;
-		}
 		return word_end;
 
 	}
@@ -2943,9 +2899,8 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	if (length > 0) {
 		// found an abbreviation containing dots
 		nbytes = 0;
-		while (((c = word2[nbytes]) != 0) && (c != ' ')) {
+		while (((c = word2[nbytes]) != 0) && (c != ' '))
 			nbytes++;
-		}
 		memcpy(&word[length], word2, nbytes);
 		word[length+nbytes] = 0;
 		found =  LookupDict2(tr, word, word2, ph_out, flags, end_flags, wtab);
@@ -2974,16 +2929,14 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	if (flags[0] & FLAG_MAX3) {
 		if (strcmp(ph_out, tr->phonemes_repeat) == 0) {
 			tr->phonemes_repeat_count++;
-			if (tr->phonemes_repeat_count > 3) {
+			if (tr->phonemes_repeat_count > 3)
 				ph_out[0] = 0;
-			}
 		} else {
 			strncpy0(tr->phonemes_repeat, ph_out, sizeof(tr->phonemes_repeat));
 			tr->phonemes_repeat_count = 1;
 		}
-	} else {
+	} else
 		tr->phonemes_repeat_count = 0;
-	}
 
 
 	if ((found == 0) && (flags[1] & FLAG_ACCENT)) {
@@ -3062,9 +3015,8 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	flags[0] = 0;
 	flags[1] = FLAG_LOOKUP_SYMBOL;
-	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL)) != 0) {
+	if ((flags0 = LookupDictList(tr, &word1, ph_out, flags, FLAG_ALLOW_TEXTMODE, NULL)) != 0)
 		flags0 = flags[0];
-	}
 
 	if (flags[0] & FLAG_TEXTMODE) {
 		say_as = option_sayas;
@@ -3176,9 +3128,8 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 
 				for (i = 0; (p = add_e_exceptions[i]) != NULL; i++) {
 					len = strlen(p);
-					if (memcmp(p, &word_end[1-len], len) == 0) {
+					if (memcmp(p, &word_end[1-len], len) == 0)
 						break;
-					}
 				}
 				if (p == NULL)
 					end_flags |= FLAG_SUFX_E_ADDED;  // no exception found
@@ -3191,16 +3142,14 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 					}
 				}
 			}
-		} else if (tr->langopts.suffix_add_e != 0) {
+		} else if (tr->langopts.suffix_add_e != 0)
 			end_flags |= FLAG_SUFX_E_ADDED;
-		}
 
 		if (end_flags & FLAG_SUFX_E_ADDED) {
 			utf8_out(tr->langopts.suffix_add_e, &word_end[1]);
 
-			if (option_phonemes & espeakPHONEMES_TRACE) {
+			if (option_phonemes & espeakPHONEMES_TRACE)
 				fprintf(f_trans, "add e\n");
-			}
 		}
 	}
 

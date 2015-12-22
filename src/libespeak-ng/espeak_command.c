@@ -37,14 +37,12 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 	t_espeak_text *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!text || !size || !a_command) {
+	if (!text || !size || !a_command)
 		goto text_error;
-	}
 
 	a_text = malloc(size+1);
-	if (!a_text) {
+	if (!a_text)
 		goto text_error;
-	}
 	memcpy(a_text, text, size);
 
 	a_command->type = ET_TEXT;
@@ -64,12 +62,10 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 
 text_error:
 	if (a_error) {
-		if (a_text) {
+		if (a_text)
 			free(a_text);
-		}
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -85,9 +81,8 @@ t_espeak_command *create_espeak_terminated_msg(unsigned int unique_identifier, v
 	t_espeak_terminated_msg *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!a_command) {
+	if (!a_command)
 		goto msg_error;
-	}
 
 	a_command->type = ET_TERMINATED_MSG;
 	a_command->state = CS_UNDEFINED;
@@ -100,9 +95,8 @@ t_espeak_command *create_espeak_terminated_msg(unsigned int unique_identifier, v
 
 msg_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -121,14 +115,12 @@ t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *
 	t_espeak_mark *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!text || !size || !index_mark || !a_command) {
+	if (!text || !size || !index_mark || !a_command)
 		goto mark_error;
-	}
 
 	a_text = malloc(size);
-	if (!a_text) {
+	if (!a_text)
 		goto mark_error;
-	}
 	memcpy(a_text, text, size);
 
 	a_index_mark = strdup(index_mark);
@@ -147,16 +139,13 @@ t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *
 
 mark_error:
 	if (a_error) {
-		if (a_text) {
+		if (a_text)
 			free(a_text);
-		}
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
-		if (a_index_mark) {
+		if (a_index_mark)
 			free(a_index_mark);
-		}
 	}
 
 	SHOW("ET_MARK malloc text=%x, command=%x (uid=%d)\n", a_text, a_command, data->unique_identifier);
@@ -170,9 +159,8 @@ t_espeak_command *create_espeak_key(const char *key_name, void *user_data)
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!key_name || !a_command) {
+	if (!key_name || !a_command)
 		goto key_error;
-	}
 
 	a_command->type = ET_KEY;
 	a_command->state = CS_UNDEFINED;
@@ -183,9 +171,8 @@ t_espeak_command *create_espeak_key(const char *key_name, void *user_data)
 
 key_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -199,9 +186,8 @@ t_espeak_command *create_espeak_char(wchar_t character, void *user_data)
 	ENTER("create_espeak_char");
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
-	if (!a_command) {
+	if (!a_command)
 		goto char_error;
-	}
 
 	a_command->type = ET_CHAR;
 	a_command->state = CS_UNDEFINED;
@@ -212,9 +198,8 @@ t_espeak_command *create_espeak_char(wchar_t character, void *user_data)
 
 char_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -229,9 +214,8 @@ t_espeak_command *create_espeak_parameter(espeak_PARAMETER parameter, int value,
 	int a_error = 1;
 	t_espeak_parameter *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
-	if (!a_command) {
+	if (!a_command)
 		goto param_error;
-	}
 
 	a_command->type = ET_PARAMETER;
 	a_command->state = CS_UNDEFINED;
@@ -243,9 +227,8 @@ t_espeak_command *create_espeak_parameter(espeak_PARAMETER parameter, int value,
 
 param_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -260,27 +243,23 @@ t_espeak_command *create_espeak_punctuation_list(const wchar_t *punctlist)
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!punctlist || !a_command) {
+	if (!punctlist || !a_command)
 		goto list_error;
-	}
 
 	a_command->type = ET_PUNCTUATION_LIST;
 	a_command->state = CS_UNDEFINED;
 
-	{
-		size_t len = (wcslen(punctlist) + 1)*sizeof(wchar_t);
-		wchar_t *a_list = (wchar_t *)malloc(len);
-		memcpy(a_list, punctlist, len);
-		a_command->u.my_punctuation_list = a_list;
-	}
+	size_t len = (wcslen(punctlist) + 1)*sizeof(wchar_t);
+	wchar_t *a_list = (wchar_t *)malloc(len);
+	memcpy(a_list, punctlist, len);
+	a_command->u.my_punctuation_list = a_list;
 
 	a_error = 0;
 
 list_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -296,9 +275,8 @@ t_espeak_command *create_espeak_voice_name(const char *name)
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!name || !a_command) {
+	if (!name || !a_command)
 		goto name_error;
-	}
 
 	a_command->type = ET_VOICE_NAME;
 	a_command->state = CS_UNDEFINED;
@@ -307,9 +285,8 @@ t_espeak_command *create_espeak_voice_name(const char *name)
 
 name_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -324,36 +301,30 @@ t_espeak_command *create_espeak_voice_spec(espeak_VOICE *voice)
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
-	if (!voice || !a_command) {
+	if (!voice || !a_command)
 		goto spec_error;
-	}
 
 	a_command->type = ET_VOICE_SPEC;
 	a_command->state = CS_UNDEFINED;
-	{
-		espeak_VOICE *data = &(a_command->u.my_voice_spec);
-		memcpy(data, voice, sizeof(espeak_VOICE));
 
-		if (voice->name) {
-			data->name = strdup(voice->name);
-		}
+	espeak_VOICE *data = &(a_command->u.my_voice_spec);
+	memcpy(data, voice, sizeof(espeak_VOICE));
 
-		if (voice->languages) {
-			data->languages = strdup(voice->languages);
-		}
+	if (voice->name)
+		data->name = strdup(voice->name);
 
-		if (voice->identifier) {
-			data->identifier = strdup(voice->identifier);
-		}
+	if (voice->languages)
+		data->languages = strdup(voice->languages);
 
-		a_error = 0;
-	}
+	if (voice->identifier)
+		data->identifier = strdup(voice->identifier);
+
+	a_error = 0;
 
 spec_error:
 	if (a_error) {
-		if (a_command) {
+		if (a_command)
 			free(a_command);
-		}
 		a_command = NULL;
 	}
 
@@ -377,12 +348,10 @@ int delete_espeak_command(t_espeak_command *the_command)
 			break;
 
 		case ET_MARK:
-			if (the_command->u.my_mark.text) {
+			if (the_command->u.my_mark.text)
 				free(the_command->u.my_mark.text);
-			}
-			if (the_command->u.my_mark.index_mark) {
+			if (the_command->u.my_mark.index_mark)
 				free((void *)(the_command->u.my_mark.index_mark));
-			}
 			break;
 
 		case ET_TERMINATED_MSG:
@@ -401,9 +370,8 @@ int delete_espeak_command(t_espeak_command *the_command)
 		break;
 
 		case ET_KEY:
-			if (the_command->u.my_key.key_name) {
+			if (the_command->u.my_key.key_name)
 				free((void *)(the_command->u.my_key.key_name));
-			}
 			break;
 
 		case ET_CHAR:
@@ -412,32 +380,27 @@ int delete_espeak_command(t_espeak_command *the_command)
 			break;
 
 		case ET_PUNCTUATION_LIST:
-			if (the_command->u.my_punctuation_list) {
+			if (the_command->u.my_punctuation_list)
 				free((void *)(the_command->u.my_punctuation_list));
-			}
 			break;
 
 		case ET_VOICE_NAME:
-			if (the_command->u.my_voice_name) {
+			if (the_command->u.my_voice_name)
 				free((void *)(the_command->u.my_voice_name));
-			}
 			break;
 
 		case ET_VOICE_SPEC:
 		{
 			espeak_VOICE *data = &(the_command->u.my_voice_spec);
 
-			if (data->name) {
+			if (data->name)
 				free((void *)data->name);
-			}
 
-			if (data->languages) {
+			if (data->languages)
 				free((void *)data->languages);
-			}
 
-			if (data->identifier) {
+			if (data->identifier)
 				free((void *)data->identifier);
-			}
 		}
 		break;
 
@@ -457,9 +420,8 @@ void process_espeak_command(t_espeak_command *the_command)
 
 	SHOW("command=0x%x\n", the_command);
 
-	if (the_command == NULL) {
+	if (the_command == NULL)
 		return;
-	}
 
 	the_command->state = CS_PROCESSED;
 

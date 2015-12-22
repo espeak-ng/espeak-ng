@@ -105,9 +105,9 @@ static void event_display(espeak_EVENT *event)
 	ENTER("event_display");
 
 #ifdef DEBUG_ENABLED
-	if (event == NULL) {
+	if (event == NULL)
 		SHOW("event_display > event=%s\n", "NULL");
-	} else {
+	else {
 		static const char *label[] = {
 			"LIST_TERMINATED",
 			"WORD",
@@ -137,9 +137,8 @@ static espeak_EVENT *event_copy(espeak_EVENT *event)
 {
 	ENTER("event_copy");
 
-	if (event == NULL) {
+	if (event == NULL)
 		return NULL;
-	}
 
 	espeak_EVENT *a_event = (espeak_EVENT *)malloc(sizeof(espeak_EVENT));
 	if (a_event) {
@@ -149,9 +148,8 @@ static espeak_EVENT *event_copy(espeak_EVENT *event)
 		{
 		case espeakEVENT_MARK:
 		case espeakEVENT_PLAY:
-			if (event->id.name) {
+			if (event->id.name)
 				a_event->id.name = strdup(event->id.name);
-			}
 			break;
 
 		default:
@@ -225,9 +223,8 @@ static int event_delete(espeak_EVENT *event)
 
 	event_display(event);
 
-	if (event == NULL) {
+	if (event == NULL)
 		return 0;
-	}
 
 	switch (event->type)
 	{
@@ -237,9 +234,8 @@ static int event_delete(espeak_EVENT *event)
 
 	case espeakEVENT_MARK:
 	case espeakEVENT_PLAY:
-		if (event->id.name) {
+		if (event->id.name)
 			free((void *)(event->id.name));
-		}
 		break;
 
 	default:
@@ -256,9 +252,8 @@ espeak_ERROR event_declare(espeak_EVENT *event)
 
 	event_display(event);
 
-	if (!event) {
+	if (!event)
 		return EE_INTERNAL_ERROR;
-	}
 
 	int a_status = pthread_mutex_lock(&my_mutex);
 	espeak_ERROR a_error = EE_OK;
@@ -267,9 +262,8 @@ espeak_ERROR event_declare(espeak_EVENT *event)
 		SHOW_TIME("event_declare > locked\n");
 		espeak_EVENT *a_event = event_copy(event);
 		a_error = push(a_event);
-		if (a_error != EE_OK) {
+		if (a_error != EE_OK)
 			event_delete(a_event);
-		}
 		SHOW_TIME("event_declare > unlocking\n");
 		a_status = pthread_mutex_unlock(&my_mutex);
 	}
@@ -277,9 +271,8 @@ espeak_ERROR event_declare(espeak_EVENT *event)
 	SHOW_TIME("event_declare > post my_sem_start_is_required\n");
 	sem_post(&my_sem_start_is_required);
 
-	if (a_status != 0) {
+	if (a_status != 0)
 		a_error = EE_INTERNAL_ERROR;
-	}
 
 	return a_error;
 }
@@ -292,28 +285,24 @@ espeak_ERROR event_clear_all()
 	int a_event_is_running = 0;
 
 	SHOW_TIME("event_stop > locked\n");
-	if (a_status != 0) {
+	if (a_status != 0)
 		return EE_INTERNAL_ERROR;
-	}
 
 	if (my_event_is_running) {
 		SHOW_TIME("event_stop > post my_sem_stop_is_required\n");
 		sem_post(&my_sem_stop_is_required);
 		a_event_is_running = 1;
-	} else {
+	} else
 		init(); // clear pending events
-	}
 	SHOW_TIME("event_stop > unlocking\n");
 	a_status = pthread_mutex_unlock(&my_mutex);
-	if (a_status != 0) {
+	if (a_status != 0)
 		return EE_INTERNAL_ERROR;
-	}
 
 	if (a_event_is_running) {
 		SHOW_TIME("event_stop > wait for my_sem_stop_is_acknowledged\n");
-		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR) {
+		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
-		}
 		SHOW_TIME("event_stop > get my_sem_stop_is_acknowledged\n");
 	}
 
@@ -346,9 +335,8 @@ static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
 	     ts.tv_sec, ts.tv_nsec);
 
 	while ((err = sem_timedwait(&my_sem_stop_is_required, &ts)) == -1
-	       && errno == EINTR) {
+	       && errno == EINTR)
 		continue; // Restart when interrupted by handler
-	}
 
 	assert(gettimeofday(&tv, NULL) != -1);
 	SHOW("polling_thread > sleep_until_timeout_or_stop_request > stop sem_timedwait %d.%09lu \n",
@@ -417,9 +405,8 @@ static void *polling_thread(void *p)
 
 		SHOW_TIME("polling_thread > wait for my_sem_start_is_required\n");
 
-		while ((sem_wait(&my_sem_start_is_required) == -1) && errno == EINTR) {
+		while ((sem_wait(&my_sem_start_is_required) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
-		}
 
 		SHOW_TIME("polling_thread > get my_sem_start_is_required\n");
 
@@ -436,16 +423,14 @@ static void *polling_thread(void *p)
 			while (0 == sem_trywait(&my_sem_stop_is_required)) {
 			}
 			;
-		} else {
+		} else
 			a_stop_is_required = 0;
-		}
 
 		// In this loop, my_event_is_running = 1
 		while (head && (a_stop_is_required <= 0)) {
 			SHOW_TIME("polling_thread > check head\n");
 			while (0 == sem_trywait(&my_sem_start_is_required)) {
 			}
-			;
 
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
@@ -455,9 +440,9 @@ static void *polling_thread(void *p)
 			int err = get_remaining_time((uint32_t)event->sample,
 			                             &time_in_ms,
 			                             &a_stop_is_required);
-			if (a_stop_is_required > 0) {
+			if (a_stop_is_required > 0)
 				break;
-			} else if (err != 0) {
+			else if (err != 0) {
 				// No available time: the event is deleted.
 				SHOW("polling_thread > %s\n", "audio device down");
 				a_status = pthread_mutex_lock(&my_mutex);
@@ -487,13 +472,10 @@ static void *polling_thread(void *p)
 					SHOW("polling_thread > stop required (%d)\n", __LINE__);
 					while (0 == sem_trywait(&my_sem_stop_is_required)) {
 					}
-					;
-				} else {
+				} else
 					a_stop_is_required = 0;
-				}
-			} else { // The event will be notified soon: sleep until timeout or stop request
+			} else // The event will be notified soon: sleep until timeout or stop request
 				a_stop_is_required = sleep_until_timeout_or_stop_request(time_in_ms);
-			}
 		}
 
 		a_status = pthread_mutex_lock(&my_mutex);
@@ -508,10 +490,8 @@ static void *polling_thread(void *p)
 				SHOW("polling_thread > stop required (%d)\n", __LINE__);
 				while (0 == sem_trywait(&my_sem_stop_is_required)) {
 				}
-				;
-			} else {
+			} else
 				a_stop_is_required = 0;
-			}
 		}
 
 		a_status = pthread_mutex_unlock(&my_mutex);
@@ -551,9 +531,8 @@ static espeak_ERROR push(void *the_data)
 	}
 
 	node *n = (node *)malloc(sizeof(node));
-	if (n == NULL) {
+	if (n == NULL)
 		return EE_INTERNAL_ERROR;
-	}
 
 	if (head == NULL) {
 		head = n;
@@ -588,9 +567,8 @@ static void *pop()
 		SHOW("event > pop > event=0x%x (counter=%d, uid=%d)\n", the_data, node_counter, ((espeak_EVENT *)the_data)->unique_identifier);
 	}
 
-	if (head == NULL) {
+	if (head == NULL)
 		tail = NULL;
-	}
 
 	return the_data;
 }

@@ -162,13 +162,11 @@ void SetSpeed(int control)
 
 	wpm_value = wpm;
 
-	if (voice->speed_percent > 0) {
+	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
-	}
 
-	if (control & 2) {
+	if (control & 2)
 		DoSonicSpeed(1 * 1024);
-	}
 	if ((wpm_value >= 450) || ((wpm_value > speed.fast_settings[0]) && (wpm > 350))) {
 		wpm2 = wpm;
 		wpm = 175;
@@ -198,9 +196,8 @@ void SetSpeed(int control)
 	if (wpm > 450)
 		wpm = 450;
 
-	if (wpm > 360) {
+	if (wpm > 360)
 		speed.loud_consonants = (wpm - 360) / 8;
-	}
 
 	wpm2 = wpm;
 	if (wpm > 359) wpm2 = 359;
@@ -243,9 +240,8 @@ void SetSpeed(int control)
 		else
 			speed.wav_factor = 128 + (128*s1)/130;  // = 215 at 170 wpm
 
-		if (wpm >= 350) {
+		if (wpm >= 350)
 			speed.wav_factor = wav_factor_350[wpm-350];
-		}
 
 		if (wpm >= 390) {
 			speed.min_sample_len = 450 - (wpm - 400)/2;
@@ -259,15 +255,14 @@ void SetSpeed(int control)
 		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;
 
-		if (wpm > 430) {
+		if (wpm > 430)
 			speed.pause_factor = 12;
-		} else if (wpm > 400) {
+		else if (wpm > 400)
 			speed.pause_factor = 13;
-		} else if (wpm > 374) {
+		else if (wpm > 374)
 			speed.pause_factor = 14;
-		} else if (wpm > 350) {
+		else if (wpm > 350)
 			speed.pause_factor = pause_factor_350[wpm - 350];
-		}
 
 		if (speed.clause_pause_factor == 0) {
 			// restrict the reduction of pauses between clauses
@@ -296,15 +291,13 @@ void SetSpeed(int control)
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
 
-	if (voice->speed_percent > 0) {
+	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
-	}
 	if (wpm > 450)
 		wpm = 450;
 
-	if (wpm > 360) {
+	if (wpm > 360)
 		speed.loud_consonants = (wpm - 360) / 8;
-	}
 
 	wpm2 = wpm;
 	if (wpm > 359) wpm2 = 359;
@@ -347,9 +340,8 @@ void SetSpeed(int control)
 		else
 			speed.wav_factor = 128 + (128*s1)/130;  // = 215 at 170 wpm
 
-		if (wpm >= 350) {
+		if (wpm >= 350)
 			speed.wav_factor = wav_factor_350[wpm-350];
-		}
 
 		if (wpm >= 390) {
 			speed.min_sample_len = 450 - (wpm - 400)/2;
@@ -360,15 +352,14 @@ void SetSpeed(int control)
 		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;
 
-		if (wpm > 430) {
+		if (wpm > 430)
 			speed.pause_factor = 12;
-		} else if (wpm > 400) {
+		else if (wpm > 400)
 			speed.pause_factor = 13;
-		} else if (wpm > 374) {
+		else if (wpm > 374)
 			speed.pause_factor = 14;
-		} else if (wpm > 350) {
+		else if (wpm > 350)
 			speed.pause_factor = pause_factor_350[wpm - 350];
-		}
 
 		if (speed.clause_pause_factor == 0) {
 			// restrict the reduction of pauses between clauses
@@ -500,9 +491,8 @@ void CalcLengths(Translator *tr)
 
 		next = &phoneme_list[ix+1];
 
-		if (p->synthflags & SFLAG_EMBEDDED) {
+		if (p->synthflags & SFLAG_EMBEDDED)
 			DoEmbedded2(&embedded_ix);
-		}
 
 		type = p->type;
 		if (p->synthflags & SFLAG_SYLLABLE)
@@ -540,9 +530,8 @@ void CalcLengths(Translator *tr)
 		case phFRICATIVE:
 			if (p->newword) {
 				if ((prev->type == phVOWEL) && (p->ph->phflags & phNOPAUSE)) {
-				} else {
+				} else
 					p->prepause = 15;
-				}
 			}
 
 			if (next->type == phPAUSE && prev->type == phNASAL && !(p->ph->phflags&phFORTIS))
@@ -563,12 +552,10 @@ void CalcLengths(Translator *tr)
 				p->length = 256;
 
 			if (type == phVFRICATIVE) {
-				if (next->type == phVOWEL) {
+				if (next->type == phVOWEL)
 					pre_voiced = 1;
-				}
-				if ((prev->type == phVOWEL) || (prev->type == phLIQUID)) {
+				if ((prev->type == phVOWEL) || (prev->type == phLIQUID))
 					p->length = (255 + prev->length)/2;
-				}
 			}
 			break;
 
@@ -620,24 +607,21 @@ void CalcLengths(Translator *tr)
 				}
 			}
 
-			if (next->type == phVOWEL) {
+			if (next->type == phVOWEL)
 				pre_sonorant = 1;
-			} else {
+			else {
 				p->pitch2 = last_pitch;
 
 				if ((prev->type == phVOWEL) || (prev->type == phLIQUID)) {
 					p->length = prev->length;
 
-					if (p->type == phLIQUID) {
+					if (p->type == phLIQUID)
 						p->length = speed1;
-					}
 
-					if (next->type == phVSTOP) {
+					if (next->type == phVSTOP)
 						p->length = (p->length * 160)/100;
-					}
-					if (next->type == phVFRICATIVE) {
+					if (next->type == phVFRICATIVE)
 						p->length = (p->length * 120)/100;
-					}
 				} else {
 					for (ix2 = ix; ix2 < n_phoneme_list; ix2++) {
 						if (phoneme_list[ix2].type == phVOWEL) {
@@ -648,9 +632,8 @@ void CalcLengths(Translator *tr)
 				}
 
 				p->pitch1 = p->pitch2-16;
-				if (p->pitch2 < 16) {
+				if (p->pitch2 < 16)
 					p->pitch1 = 0;
-				}
 				p->env = PITCHfall;
 				pre_voiced = 0;
 			}
@@ -663,9 +646,8 @@ void CalcLengths(Translator *tr)
 
 			if (stress > 7) stress = 7;
 
-			if (stress <= 1) {
+			if (stress <= 1)
 				stress = stress ^ 1; // swap diminished and unstressed (until we swap stress_amps,stress_lengths in tr_languages)
-			}
 			if (pre_sonorant)
 				p->amp = tr->stress_amps[stress]-1;
 			else
@@ -693,9 +675,8 @@ void CalcLengths(Translator *tr)
 			if (p2->ph->code == phonPAUSE_CLAUSE)
 				end_of_clause = 2;
 
-			if ((p2->newword & 2) && (more_syllables == 0)) {
+			if ((p2->newword & 2) && (more_syllables == 0))
 				end_of_clause = 2;
-			}
 
 			// calc length modifier
 			if ((next->ph->code == phonPAUSE_VSHORT) && (next2->type == phPAUSE)) {
@@ -744,9 +725,8 @@ void CalcLengths(Translator *tr)
 				length_mod += tr->langopts.lengthen_tonic;
 				if (emphasized)
 					length_mod += (tr->langopts.lengthen_tonic/2);
-			} else if (emphasized) {
+			} else if (emphasized)
 				length_mod += tr->langopts.lengthen_tonic;
-			}
 
 			if ((len = tr->stress_lengths[stress]) == 0)
 				len = tr->stress_lengths[6];
@@ -794,9 +774,8 @@ void CalcLengths(Translator *tr)
 			if (p->tone_ph != 0) {
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
 				pitch_env = GetEnvelope(phdata_tone.pitch_env);
-			} else {
+			} else
 				pitch_env = envelope_data[env2];
-			}
 
 			pitch_start = p->pitch1 + ((p->pitch2-p->pitch1)*pitch_env[0])/256;
 
@@ -813,9 +792,8 @@ void CalcLengths(Translator *tr)
 				if (last_pitch < pitch_start) {
 					prev->env = PITCHrise;
 					p->env = env2;
-				} else {
+				} else
 					prev->env = PITCHfall;
-				}
 
 				prev->length = length_mod;
 
@@ -832,14 +810,12 @@ void CalcLengths(Translator *tr)
 			if (next->type == phLIQUID) {
 				next->synthflags |= SFLAG_SEQCONTINUE;
 
-				if (next2->type == phVOWEL) {
+				if (next2->type == phVOWEL)
 					next->synthflags &= ~SFLAG_SEQCONTINUE;
-				}
 
 				if (next2->type != phVOWEL) {
-					if (next->ph->mnemonic == ('/'*256+'r')) {
+					if (next->ph->mnemonic == ('/'*256+'r'))
 						next->synthflags &= ~SFLAG_SEQCONTINUE;
-					}
 				}
 			}
 
