@@ -9,6 +9,7 @@
   - [Cross-Compiling For Windows](#cross-compiling-for-windows)
 - [Testing](#testing)
 - [Installing](#installing)
+- [Documentation](#documentation)
 - [Building Voices](#building-voices)
 - [Adding New Voices](#adding-new-voices)
 - [Praat Changes](#praat-changes)
@@ -180,6 +181,11 @@ You can find out where espeak-ng is installed to on your system if you
 already have an espeak-ng install by running:
 
     find /usr/lib | grep libespeak-ng
+
+## Documentation
+
+The [main documentation](docs/index.md) for eSpeak NG provides more information
+on using and creating voices/languages for for eSpeak NG.
 
 ## Building Voices
 
