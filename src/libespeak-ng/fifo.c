@@ -38,7 +38,6 @@
 #include "wave.h"
 #include "debug.h"
 
-
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
 static pthread_mutex_t my_mutex;

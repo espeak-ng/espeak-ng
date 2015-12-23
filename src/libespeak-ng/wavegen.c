@@ -30,8 +30,6 @@
 #include <stdint.h>
 #endif
 
-
-
 #include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
@@ -55,7 +53,6 @@
 
 #define N_SINTAB  2048
 #include "sintab.h"
-
 
 #define PI  3.1415927
 #define PI2 6.283185307
@@ -94,7 +91,6 @@ static RESONATOR rbreath[N_PEAKS];
 
 static int harm_sqrt_n = 0;
 
-
 #define N_LOWHARM  30
 static int harm_inc[N_LOWHARM];    // only for these harmonics do we interpolate amplitude between steps
 static int *harmspect;
@@ -106,7 +102,6 @@ static int nsamples = 0;       // number to do
 static int modulation_type = 0;
 static int glottal_flag = 0;
 static int glottal_reduce = 0;
-
 
 WGEN_DATA wdata;
 
@@ -125,7 +120,6 @@ static int hf_factor;
 
 static double minus_pi_t;
 static double two_pi_t;
-
 
 unsigned char *out_ptr;
 unsigned char *out_start;
@@ -248,7 +242,6 @@ static unsigned char wavemult[N_WAVEMULT] = {
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 };
 
-
 // set from y = pow(2,x) * 128,  x=-1 to 1
 unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	64, 65, 66, 67, 68, 69, 70, 71,
@@ -265,7 +258,6 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 	217, 220, 223, 226, 229, 232, 236, 239,
 	242, 246, 249, 252, 254, 255
 };
-
 
 void WcmdqStop()
 {
@@ -286,7 +278,6 @@ void WcmdqStop()
 		MbrolaReset();
 }
 
-
 int WcmdqFree()
 {
 	int i;
@@ -300,7 +291,6 @@ int WcmdqUsed()
 	return N_WCMDQ - WcmdqFree();
 }
 
-
 void WcmdqInc()
 {
 	wcmdq_tail++;
@@ -312,8 +302,6 @@ static void WcmdqIncHead()
 	wcmdq_head++;
 	if (wcmdq_head >= N_WCMDQ) wcmdq_head = 0;
 }
-
-
 
 #define PEAKSHAPEW 256
 
@@ -359,7 +347,6 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 
 static unsigned char *pk_shape;
 
-
 #ifdef USE_PORTAUDIO
 // PortAudio interface
 
@@ -369,7 +356,6 @@ static int out_channels = 1;
 
 unsigned char *outbuffer = NULL;
 int outbuffer_size = 0;
-
 
 #if USE_PORTAUDIO == 18
 static int WaveCallback(void *inputBuffer, void *outputBuffer,
@@ -486,9 +472,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 #else
 	return result;
 #endif
-
 }
-
 
 #if USE_PORTAUDIO == 19
 /* This is a fixed version of Pa_OpenDefaultStream() for use if the version in portaudio V19
@@ -531,7 +515,6 @@ static PaError Pa_OpenDefaultStream2(PaStream **stream,
 	return result;
 }
 #endif
-
 
 int WavegenOpenSound()
 {
@@ -590,8 +573,6 @@ int WavegenOpenSound()
 	return 0;
 }
 
-
-
 int WavegenCloseSound()
 {
 	PaError active;
@@ -614,7 +595,6 @@ int WavegenCloseSound()
 	}
 	return 0;
 }
-
 
 int WavegenInitSound()
 {
@@ -647,7 +627,6 @@ int WavegenInitSound()
 }
 #endif
 
-
 void WavegenInit(int rate, int wavemult_fact)
 {
 	int ix;
@@ -670,7 +649,6 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	for (ix = 0; ix < N_EMBEDDED_VALUES; ix++)
 		embedded_value[ix] = embedded_default[ix];
-
 
 	// set up window to generate a spread of harmonics from a
 	// single peak for HF peaks
@@ -695,7 +673,6 @@ void WavegenInit(int rate, int wavemult_fact)
 #endif
 }
 
-
 int GetAmplitude(void)
 {
 	int amp;
@@ -707,7 +684,6 @@ int GetAmplitude(void)
 	general_amplitude = amp * amp_emphasis[embedded_value[EMBED_F]] / 16;
 	return general_amplitude;
 }
-
 
 static void WavegenSetEcho(void)
 {
@@ -748,8 +724,6 @@ static void WavegenSetEcho(void)
 	general_amplitude = GetAmplitude();
 	general_amplitude = ((general_amplitude * (500-amp))/500);
 }
-
-
 
 int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 {
@@ -862,8 +836,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	return hmax;  // highest harmonic number
 }
 
-
-
 static void AdvanceParameters()
 {
 // Called every 64 samples to increment the formant freq, height, and widths
@@ -926,7 +898,6 @@ static void AdvanceParameters()
 #endif
 }
 
-
 #ifndef PLATFORM_RISCOS
 static double resonator(RESONATOR *r, double input)
 {
@@ -938,8 +909,6 @@ static double resonator(RESONATOR *r, double input)
 
 	return x;
 }
-
-
 
 static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
 {
@@ -967,7 +936,6 @@ static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
 }
 #endif
 
-
 void InitBreath(void)
 {
 #ifndef PLATFORM_RISCOS
@@ -980,8 +948,6 @@ void InitBreath(void)
 		setresonator(&rbreath[ix], 2000, 200, 1);
 #endif
 }
-
-
 
 static void SetBreath()
 {
@@ -1000,7 +966,6 @@ static void SetBreath()
 	}
 #endif
 }
-
 
 static int ApplyBreath(void)
 {
@@ -1022,8 +987,6 @@ static int ApplyBreath(void)
 #endif
 	return value;
 }
-
-
 
 int Wavegen()
 {
@@ -1248,7 +1211,6 @@ int Wavegen()
 	return 0;
 }
 
-
 static int PlaySilence(int length, int resume)
 {
 	static int n_samples;
@@ -1282,8 +1244,6 @@ static int PlaySilence(int length, int resume)
 	}
 	return 0;
 }
-
-
 
 static int PlayWave(int length, int resume, unsigned char *data, int scale, int amp)
 {
@@ -1338,7 +1298,6 @@ static int PlayWave(int length, int resume, unsigned char *data, int scale, int 
 	return 0;
 }
 
-
 static int SetWithRange0(int value, int max)
 {
 	if (value < 0)
@@ -1347,7 +1306,6 @@ static int SetWithRange0(int value, int max)
 		return max;
 	return value;
 }
-
 
 static void SetPitchFormants()
 {
@@ -1371,7 +1329,6 @@ static void SetPitchFormants()
 	wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
 	wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
 }
-
 
 void SetEmbedded(int control, int value)
 {
@@ -1400,21 +1357,17 @@ void SetEmbedded(int control, int value)
 	case EMBED_P:
 		SetPitchFormants();
 		break;
-
 	case EMBED_A:  // amplitude
 		general_amplitude = GetAmplitude();
 		break;
-
 	case EMBED_F:   // emphasis
 		general_amplitude = GetAmplitude();
 		break;
-
 	case EMBED_H:
 		WavegenSetEcho();
 		break;
 	}
 }
-
 
 void WavegenSetVoice(voice_t *v)
 {
@@ -1438,7 +1391,6 @@ void WavegenSetVoice(voice_t *v)
 	MarkerEvent(espeakEVENT_SAMPLERATE, 0, wvoice->samplerate, 0, out_ptr);
 }
 
-
 static void SetAmplitude(int length, unsigned char *amp_env, int value)
 {
 	amp_ix = 0;
@@ -1452,7 +1404,6 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 
 	amplitude_env = amp_env;
 }
-
 
 void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
 {
@@ -1483,7 +1434,6 @@ void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pit
 	*pitch_range = base + (pitch2 * range)/2 - *pitch_base;
 }
 
-
 void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 {
 // length in samples
@@ -1502,12 +1452,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	wdata.pitch = ((wdata.pitch_env[0] * wdata.pitch_range) >>8) + wdata.pitch_base;   // Hz << 12
 
 	flutter_amp = wvoice->flutter;
-
 }
-
-
-
-
 
 void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 {
@@ -1594,7 +1539,6 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 	}
 }
 
-
 static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
 {
 	if (resume == 0)
@@ -1613,8 +1557,6 @@ void Write4Bytes(FILE *f, int value)
 		value = value >> 8;
 	}
 }
-
-
 
 int WavegenFill2(int fill_zeros)
 {
@@ -1654,7 +1596,6 @@ int WavegenFill2(int fill_zeros)
 		case WCMD_PITCH:
 			SetPitch(length, (unsigned char *)q[2], q[3] >> 16, q[3] & 0xffff);
 			break;
-
 		case WCMD_PAUSE:
 			if (resume == 0)
 				echo_complete -= length;
@@ -1665,7 +1606,6 @@ int WavegenFill2(int fill_zeros)
 #endif
 			result = PlaySilence(length, resume);
 			break;
-
 		case WCMD_WAVE:
 			echo_complete = echo_length;
 			wdata.n_mix_wavefile = 0;
@@ -1674,7 +1614,6 @@ int WavegenFill2(int fill_zeros)
 #endif
 			result = PlayWave(length, resume, (unsigned char *)q[2], q[3] & 0xff, q[3] >> 8);
 			break;
-
 		case WCMD_WAVE2:
 			// wave file to be played at the same time as synthesis
 			wdata.mix_wave_amp = q[3] >> 8;
@@ -1689,14 +1628,12 @@ int WavegenFill2(int fill_zeros)
 			wdata.mix_wavefile_offset = 0;
 			wdata.mix_wavefile = (unsigned char *)q[2];
 			break;
-
 		case WCMD_SPECT2:   // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
 			result = Wavegen2(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3]);
 			break;
-
 #ifdef INCLUDE_KLATT
 		case WCMD_KLATT2:   // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
@@ -1705,36 +1642,29 @@ int WavegenFill2(int fill_zeros)
 			result = Wavegen_Klatt2(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3]);
 			break;
 #endif
-
 		case WCMD_MARKER:
 			marker_type = q[0] >> 8;
 			MarkerEvent(marker_type, q[1], q[2], q[3], out_ptr);
 			if (marker_type == 1) // word marker
 				current_source_index = q[1] & 0xffffff;
 			break;
-
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length, (unsigned char *)q[2], q[3]);
 			break;
-
 		case WCMD_VOICE:
 			WavegenSetVoice((voice_t *)q[2]);
 			free((voice_t *)q[2]);
 			break;
-
 		case WCMD_EMBEDDED:
 			SetEmbedded(q[1], q[2]);
 			break;
-
 		case WCMD_MBROLA_DATA:
 			result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
 			break;
-
 		case WCMD_FMT_AMPLITUDE:
 			if ((wdata.amplitude_fmt = q[1]) == 0)
 				wdata.amplitude_fmt = 100;  // percentage, but value=0 means 100%
 			break;
-
 #if HAVE_SONIC_H
 		case WCMD_SONIC_SPEED:
 			sonicSpeed = (double)q[1] / 1024;
@@ -1751,7 +1681,6 @@ int WavegenFill2(int fill_zeros)
 
 	return 0;
 }
-
 
 #if HAVE_SONIC_H
 /* Speed up the audio samples with libsonic. */
@@ -1774,7 +1703,6 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
 }
 #endif
-
 
 /* Call WavegenFill2, and then speed up the output samples. */
 int WavegenFill(int fill_zeros)

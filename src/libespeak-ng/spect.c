@@ -96,7 +96,6 @@ float polint(float xa[], float ya[], int n, float x)
 	return y;
 }
 
-
 static SpectFrame *SpectFrameCreate()
 {
 	int ix;
@@ -137,8 +136,6 @@ static void SpectFrameDestroy(SpectFrame *frame)
 		free(frame->spect);
 	free(frame);
 }
-
-
 
 int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 {
@@ -199,8 +196,6 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 	return 0;
 }
 
-
-
 double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 {
 	int h;
@@ -225,7 +220,6 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 	frame->rms = sqrt(total) / 7.25;
 	return frame->rms;
 }
-
 
 SpectSeq *SpectSeqCreate()
 {
@@ -263,7 +257,6 @@ void SpectSeqDestroy(SpectSeq *spect)
 	free(spect);
 }
 
-
 static float GetFrameLength(SpectSeq *spect, int frame)
 {
 	int ix;
@@ -277,8 +270,6 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 	}
 	return (spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust;
 }
-
-
 
 int LoadSpectSeq(SpectSeq *spect, const char *filename)
 {
@@ -359,7 +350,6 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 	frame_width = (int)((FRAME_WIDTH*spect->max_x)/MAX_DISPLAY_FREQ);
 	if (frame_width > FRAME_WIDTH) frame_width = FRAME_WIDTH;
-
 
 	// start times from zero
 	time_offset = spect->frames[0]->time;

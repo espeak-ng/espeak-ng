@@ -37,7 +37,6 @@ extern int GetAmplitude(void);
 extern void DoSonicSpeed(int value);
 extern int saved_parameters[];
 
-
 // convert from words-per-minute to internal speed factor
 // Use this to calibrate speed for wpm 80-350
 static unsigned char speed_lookup[] = {
@@ -99,7 +98,6 @@ static unsigned char speed_lookup[] = {
 	9,   9,   8,   8,   8,  // 355
 };
 
-
 // speed_factor1 adjustments for speeds 350 to 374: pauses
 static unsigned char pause_factor_350[] = {
 	22, 22, 22, 22, 22, 22, 22, 21, 21, 21, // 350
@@ -136,8 +134,6 @@ static unsigned char wav_factor_350[] = {
 static int speed1 = 130;
 static int speed2 = 121;
 static int speed3 = 118;
-
-
 
 #if HAVE_SONIC_H
 
@@ -396,43 +392,34 @@ void SetParameter(int parameter, int value, int relative)
 		embedded_value[EMBED_S2] = new_value;
 		SetSpeed(3);
 		break;
-
 	case espeakVOLUME:
 		embedded_value[EMBED_A] = new_value;
 		GetAmplitude();
 		break;
-
 	case espeakPITCH:
 		if (new_value > 99) new_value = 99;
 		if (new_value < 0) new_value = 0;
 		embedded_value[EMBED_P] = new_value;
 		break;
-
 	case espeakRANGE:
 		if (new_value > 99) new_value = 99;
 		embedded_value[EMBED_R] = new_value;
 		break;
-
 	case espeakLINELENGTH:
 		option_linelength = new_value;
 		break;
-
 	case espeakWORDGAP:
 		option_wordgap = new_value;
 		break;
-
 	case espeakINTONATION:
 		if ((new_value & 0xff) != 0)
 			translator->langopts.intonation_group = new_value & 0xff;
 		option_tone_flags = new_value;
 		break;
-
 	default:
 		break;
 	}
 }
-
-
 
 static void DoEmbedded2(int *embix)
 {
@@ -450,7 +437,6 @@ static void DoEmbedded2(int *embix)
 		}
 	} while ((word & 0x80) == 0);
 }
-
 
 void CalcLengths(Translator *tr)
 {
@@ -503,7 +489,6 @@ void CalcLengths(Translator *tr)
 		case phPAUSE:
 			last_pitch = 0;
 			break;
-
 		case phSTOP:
 			last_pitch = 0;
 			if (prev->type == phFRICATIVE)
@@ -525,7 +510,6 @@ void CalcLengths(Translator *tr)
 			if (p->synthflags & SFLAG_LENGTHEN)
 				p->prepause += tr->langopts.long_stop;
 			break;
-
 		case phVFRICATIVE:
 		case phFRICATIVE:
 			if (p->newword) {
@@ -558,7 +542,6 @@ void CalcLengths(Translator *tr)
 					p->length = (255 + prev->length)/2;
 			}
 			break;
-
 		case phVSTOP:
 			if (prev->type == phVFRICATIVE || prev->type == phFRICATIVE || (prev->ph->phflags & phSIBILANT) || (prev->type == phLIQUID))
 				p->prepause = 30;
@@ -589,9 +572,7 @@ void CalcLengths(Translator *tr)
 			}
 			if ((tr->langopts.word_gap & 0x10) && (p->newword) && (p->prepause < 20))
 				p->prepause = 20;
-
 			break;
-
 		case phLIQUID:
 		case phNASAL:
 			p->amp = tr->stress_amps[0];  // unless changed later
@@ -638,7 +619,6 @@ void CalcLengths(Translator *tr)
 				pre_voiced = 0;
 			}
 			break;
-
 		case phVOWEL:
 			min_drop = 0;
 			next2 = &phoneme_list[ix+2];
@@ -739,7 +719,6 @@ void CalcLengths(Translator *tr)
 					length_mod = (length_mod * tone_mod) / 100;
 				}
 			}
-
 
 			if ((end_of_clause == 2) && !(tr->langopts.stress_flags & S_NO_EOC_LENGTHEN)) {
 				// this is the last syllable in the clause, lengthen it - more for short vowels

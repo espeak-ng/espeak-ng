@@ -39,7 +39,6 @@
 
 #define WORD_STRESS_CHAR   '*'
 
-
 Translator *translator = NULL;    // the main translator
 Translator *translator2 = NULL;   // secondary translator for certain words
 static char translator2_language[20] = { 0 };
@@ -82,7 +81,6 @@ static int any_stressed_words;
 int pre_pause;
 ALPHABET *current_alphabet;
 
-
 // these were previously in translator class
 #ifdef PLATFORM_WINDOWS
 char word_phonemes[N_WORD_PHONEMES*2];    // longer, because snprint() is not available
@@ -91,8 +89,6 @@ char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 #endif
 int n_ph_list2;
 PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
-
-
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
 char ctrl_embedded = '\001';    // to allow an alternative CTRL for embedded commands
@@ -111,7 +107,6 @@ static char source[N_TR_SOURCE+40];     // extra space for embedded command & vo
 
 int n_replace_phonemes;
 REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
-
 
 // brackets, also 0x2014 to 0x021f which don't need to be in this list
 static const unsigned short brackets[] = {
@@ -349,7 +344,6 @@ static unsigned char length_mods_equal[100] = {
 	110, 120, 100, 110, 110, 110, 110, 110, 110, 110
 };
 
-
 static unsigned char *length_mod_tabs[6] = {
 	length_mods_en,
 	length_mods_en,     // 1
@@ -359,7 +353,6 @@ static unsigned char *length_mod_tabs[6] = {
 	length_mods_equal   // 5
 };
 
-
 void SetLengthMods(Translator *tr, int value)
 {
 	int value2;
@@ -368,8 +361,6 @@ void SetLengthMods(Translator *tr, int value)
 	if ((value2 = value / 100) != 0)
 		tr->langopts.length_mods0 = length_mod_tabs[value2];
 }
-
-
 
 int IsAlpha(unsigned int c)
 {
@@ -457,14 +448,12 @@ int IsSpace(unsigned int c)
 	return iswspace(c);
 }
 
-
 void DeleteTranslator(Translator *tr)
 {
 	if (tr->data_dictlist != NULL)
 		Free(tr->data_dictlist);
 	Free(tr);
 }
-
 
 int lookupwchar(const unsigned short *list, int c)
 {
@@ -477,7 +466,6 @@ int lookupwchar(const unsigned short *list, int c)
 	}
 	return 0;
 }
-
 
 int lookupwchar2(const unsigned short *list, int c)
 {
@@ -492,14 +480,12 @@ int lookupwchar2(const unsigned short *list, int c)
 	return 0;
 }
 
-
 int IsBracket(int c)
 {
 	if ((c >= 0x2014) && (c <= 0x201f))
 		return 1;
 	return lookupwchar(brackets, c);
 }
-
 
 int utf8_out(unsigned int c, char *buf)
 {
@@ -534,7 +520,6 @@ int utf8_out(unsigned int c, char *buf)
 	return n_bytes+1;
 }
 
-
 int utf8_nbytes(const char *buf)
 {
 // Returns the number of bytes for the first UTF-8 character in buf
@@ -547,7 +532,6 @@ int utf8_nbytes(const char *buf)
 		return 3;
 	return 4;
 }
-
 
 int utf8_in2(int *c, const char *buf, int backwards)
 {
@@ -586,7 +570,6 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	return n_bytes+1;
 }
 
-
 #pragma GCC visibility push(default)
 int utf8_in(int *c, const char *buf)
 {
@@ -596,7 +579,6 @@ int utf8_in(int *c, const char *buf)
 }
 #pragma GCC visibility pop
 
-
 char *strchr_w(const char *s, int c)
 {
 // return NULL for any non-ascii character
@@ -604,7 +586,6 @@ char *strchr_w(const char *s, int c)
 		return NULL;
 	return strchr((char *)s, c);    // (char *) is needed for Borland compiler
 }
-
 
 int IsAllUpper(const char *word)
 {
@@ -616,7 +597,6 @@ int IsAllUpper(const char *word)
 	}
 	return 1;
 }
-
 
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
 {
@@ -642,8 +622,6 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 	SetSpellingStress(tr, phonemes, spell_word, posn);
 	return word;
 }
-
-
 
 static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 {
@@ -700,7 +678,6 @@ static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 	}
 	return count;
 }
-
 
 extern char *phondata_ptr;
 
@@ -782,9 +759,6 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 	}
 	return 1;
 }
-
-
-
 
 int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wtab, char *word_out)
 {
@@ -908,7 +882,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		if (!found)
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
 
-
 		if ((dictionary_flags[0] & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (wordx[1] == '.'))
 			wordx[1] = ' ';   // remove a Dot after this word
 
@@ -950,7 +923,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 					dictionary_flags[0] = FLAG_SKIPWORDS;
 			}
 		}
-
 
 		// if textmode, LookupDictList() replaces word1 by the new text and returns found=0
 
@@ -1196,9 +1168,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				}
 			}
 
-
-
-
 			if ((end_type != 0) && !(end_type & SUFX_P)) {
 				end_type1 = end_type;
 				strcpy(phonemes2, phonemes);
@@ -1293,9 +1262,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				memcpy(wordx, word_copy, strlen(word_copy));
 			}
 
-
-
-
 			wordx[-1] = c_temp;
 		}
 	}
@@ -1311,7 +1277,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	}
 
 	wflags |= emphasize_allcaps;
-
 
 	/* determine stress pattern for this word */
 	/******************************************/
@@ -1400,7 +1365,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 			ChangeWordStress(tr, word_phonemes, 3);
 	}
 
-
 	// dictionary flags for this word give a clue about which alternative pronunciations of
 	// following words to use.
 	if (end_type1 & SUFX_F) {
@@ -1461,8 +1425,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	return dictionary_flags[0];
 }
 
-
-
 static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 {
 	p->phcode = phcode;
@@ -1483,7 +1445,6 @@ static int CountSyllables(unsigned char *phonemes)
 	}
 	return count;
 }
-
 
 void Word_EmbeddedCmd()
 {
@@ -1515,7 +1476,6 @@ void Word_EmbeddedCmd()
 		}
 	} while (((embedded_cmd & 0x80) == 0) && (embedded_read < embedded_ix));
 }
-
 
 int SetTranslator2(const char *new_language)
 {
@@ -1568,8 +1528,6 @@ int SetTranslator2(const char *new_language)
 		translator2->phonemes_repeat[0] = 0;
 	return new_phoneme_tab;
 }
-
-
 
 static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause, int next_pause)
 {
@@ -2020,8 +1978,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	return flags;
 }
 
-
-
 static int EmbeddedCommand(unsigned int *source_index_out)
 {
 	// An embedded command to change the pitch, volume, etc.
@@ -2078,8 +2034,6 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	*source_index_out = source_index;
 	return 1;
 }
-
-
 
 static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
@@ -2139,9 +2093,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	return new_c;
-
 }
-
 
 static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
@@ -2192,7 +2144,6 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	case L('n', 'l'):
 		// look for 'n  and replace by a special character (unicode: schwa)
 
-
 		if (!iswalpha2(prev_in)) {
 			utf8_in(&next2, &ptr[1]);
 
@@ -2212,7 +2163,6 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	}
 	return SubstituteChar(tr, c, next_in, insert, wordflags);
 }
-
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
@@ -2237,7 +2187,6 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	}
 	return 0;
 }
-
 
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone_out, char **voice_change)
 {
@@ -2820,7 +2769,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	}
 	words[0].flags |= FLAG_FIRST_WORD;
 
-
 	for (ix = 0; ix < word_count; ix++) {
 		int nx;
 		int c_temp;
@@ -2989,7 +2937,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		embedded_list[embedded_ix] = 0x80;
 	}
 
-
 	prev_clause_pause = clause_pause;
 
 	if (tone_out != NULL)
@@ -2998,7 +2945,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	new_sentence = 0;
 	if (terminator & CLAUSE_BIT_SENTENCE)
 		new_sentence = 1;  // next clause is a new sentence
-
 
 	if (voice_change != NULL) {
 		// return new voice name if an embedded voice change command terminated the clause
@@ -3016,10 +2962,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	else
 		return (void *)p_textinput;
 }
-
-
-
-
 
 void InitText(int control)
 {

@@ -47,13 +47,11 @@ extern WGEN_DATA wdata;
 static int nsamples;
 static int sample_count;
 
-
 #ifdef _MSC_VER
 #define getrandom(min, max) ((rand()%(int)(((max)+1)-(min)))+(min))
 #else
 #define getrandom(min, max) ((rand()%(long)(((max)+1)-(min)))+(min))
 #endif
-
 
 /* function prototypes for functions private to this file */
 
@@ -152,8 +150,6 @@ static double resonator2(resonator_ptr r, double input)
 	return (double)x;
 }
 
-
-
 static double antiresonator2(resonator_ptr r, double input)
 {
 	register double x = (double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2;
@@ -165,8 +161,6 @@ static double antiresonator2(resonator_ptr r, double input)
 	r->c += r->c_inc;
 	return (double)x;
 }
-
-
 
 /*
    function FLUTTER
@@ -195,8 +189,6 @@ static void flutter(klatt_frame_ptr frame)
 	frame->F0hz10 = frame->F0hz10 + (long)delta_f0;
 	time_count++;
 }
-
-
 
 /*
    function SAMPLED_SOURCE
@@ -245,15 +237,11 @@ static double sampled_source(int source_num)
 	return result;
 }
 
-
-
-
 /*
    function PARWAVE
 
    Converts synthesis parameters to a waveform.
  */
-
 
 static int parwave(klatt_frame_ptr frame)
 {
@@ -460,10 +448,6 @@ static int parwave(klatt_frame_ptr frame)
 	return 0;
 }
 
-
-
-
-
 void KlattReset(int control)
 {
 	int r_ix;
@@ -488,7 +472,6 @@ void KlattReset(int control)
 			kt_globals.rsn[r_ix].p1 = 0;
 			kt_globals.rsn[r_ix].p2 = 0;
 		}
-
 	}
 
 	for (r_ix = 0; r_ix <= R6p; r_ix++) {
@@ -496,7 +479,6 @@ void KlattReset(int control)
 		kt_globals.rsn[r_ix].p2 = 0;
 	}
 }
-
 
 /*
    function FRAME_INIT
@@ -553,7 +535,6 @@ static void frame_init(klatt_frame_ptr frame)
 	kt_globals.rsn[F_NZ].b_inc = (kt_globals.rsn_next[F_NZ].b - kt_globals.rsn[F_NZ].b) / 64.0;
 	kt_globals.rsn[F_NZ].c_inc = (kt_globals.rsn_next[F_NZ].c - kt_globals.rsn[F_NZ].c) / 64.0;
 
-
 	/* Set coefficients of parallel resonators, and amplitude of outputs */
 
 	for (ix = 0; ix <= 6; ix++) {
@@ -564,10 +545,7 @@ static void frame_init(klatt_frame_ptr frame)
 	/* output low-pass filter */
 
 	setabc((long)0.0, (long)(kt_globals.samrate/2), &(kt_globals.rsn[Rout]));
-
 }
-
-
 
 /*
    function IMPULSIVE_SOURCE
@@ -577,7 +555,6 @@ static void frame_init(klatt_frame_ptr frame)
    with a critically-damped second-order filter, time constant proportional
    to Kopen.
  */
-
 
 static double impulsive_source()
 {
@@ -591,8 +568,6 @@ static double impulsive_source()
 
 	return resonator(&(kt_globals.rsn[RGL]), vwave);
 }
-
-
 
 /*
    function NATURAL_SOURCE
@@ -616,10 +591,6 @@ static double natural_source()
 	vwave = 0.0;
 	return 0.0;
 }
-
-
-
-
 
 /*
    function PITCH_SYNC_PAR_RESET
@@ -708,7 +679,6 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 			kt_globals.nopen = 40;
 		}
 
-
 		/* Reset a & b, which determine shape of "natural" glottal waveform */
 
 		kt_globals.pulse_shape_b = B0[kt_globals.nopen-40];
@@ -765,15 +735,12 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 	}
 }
 
-
-
 /*
    function SETABC
 
    Convert formant freqencies and bandwidth into resonator difference
    equation constants.
  */
-
 
 static void setabc(long int f, long int bw, resonator_ptr rp)
 {
@@ -794,7 +761,6 @@ static void setabc(long int f, long int bw, resonator_ptr rp)
 	/* Let a = 1.0 - b - c */
 	rp->a = 1.0 - rp->b - rp->c;
 }
-
 
 /*
    function SETZEROABC
@@ -838,7 +804,6 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 	}
 }
 
-
 /*
    function GEN_NOISE
 
@@ -846,7 +811,6 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
    Noise spectrum is tilted down by soft low-pass filter having a pole near
    the origin in the z-plane, i.e. output = input + (0.75 * lastoutput)
  */
-
 
 static double gen_noise(double noise)
 {
@@ -861,7 +825,6 @@ static double gen_noise(double noise)
 
 	return noise;
 }
-
 
 /*
    function DBTOLIN
@@ -880,7 +843,6 @@ static double gen_noise(double noise)
    is approximately 1 dB.  Thus all amplitudes are quantized to 1 dB
    steps.
  */
-
 
 static double DBtoLIN(long dB)
 {
@@ -902,19 +864,12 @@ static double DBtoLIN(long dB)
 	return (double)(amptable[dB]) * 0.001;
 }
 
-
-
-
-
 extern voice_t *wvoice;
 static klatt_peaks_t peaks[N_PEAKS];
 static int end_wave;
 static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
-
-
-
 
 int Wavegen_Klatt(int resume)
 {
@@ -1004,7 +959,6 @@ int Wavegen_Klatt(int resume)
 
 	return 0;
 }
-
 
 void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
 {
@@ -1122,7 +1076,6 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	}
 }
 
-
 int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
 {
 	if (resume == 0)
@@ -1130,8 +1083,6 @@ int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t
 
 	return Wavegen_Klatt(resume);
 }
-
-
 
 void KlattInit()
 {

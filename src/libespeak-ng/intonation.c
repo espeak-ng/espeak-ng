@@ -34,7 +34,6 @@
 #include "voice.h"
 #include "translate.h"
 
-
 /* Note this module is mostly old code that needs to be rewritten to
    provide a more flexible intonation system.
  */
@@ -55,14 +54,10 @@ typedef struct {
 
 static SYLLABLE *syllable_tab;
 
-
 static int tone_pitch_env;    /* used to return pitch envelope */
-
-
 
 /* Pitch data for tone types */
 /*****************************/
-
 
 #define    PITCHfall   0
 #define    PITCHrise   2
@@ -204,9 +199,6 @@ static unsigned char env_risefallrise[128] = {
 	0x50, 0x5a, 0x64, 0x70, 0x7c, 0x83, 0x85, 0x88, 0x8a, 0x8c, 0x8e, 0x8f, 0x91, 0x92, 0x93, 0x93
 };
 
-
-
-
 unsigned char *envelope_data[N_ENVELOPE_DATA] = {
 	env_fall,  env_fall,
 	env_rise,  env_rise,
@@ -221,8 +213,6 @@ unsigned char *envelope_data[N_ENVELOPE_DATA] = {
 	env_risefallrise, env_risefallrise
 };
 
-
-
 /* indexed by stress */
 static int min_drop[] =  { 6, 7, 9, 9, 20, 20, 20, 25 };
 
@@ -234,10 +224,8 @@ static signed char oflow[] = { 0, 40, 24, 8, 0 };
 static signed char oflow_emf[] = { 10, 52, 32, 20, 10 };
 static signed char oflow_less[] = { 6, 38, 24, 14, 4 };
 
-
 #define N_TONE_HEAD_TABLE  13
 #define N_TONE_NUCLEUS_TABLE  13
-
 
 typedef struct {
 	unsigned char pre_start;
@@ -253,7 +241,6 @@ typedef struct {
 	unsigned char n_overflow;
 	signed char *overflow;
 } TONE_HEAD;
-
 
 typedef struct {
 	unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
@@ -306,8 +293,6 @@ static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
 	{ PITCHfall,   70, 18,  PITCHfall,   70, 24, NULL, 32, 20, 0 },    // 12 test
 };
 
-
-
 /* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
 unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
 	{ 0, 1, 2, 3, 0, 4 },
@@ -320,16 +305,13 @@ unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
 	{ 12, 12, 12, 12, 0, 0 }
 };
 
-
 int n_tunes = 0;
 TUNE *tunes = NULL;
-
 
 #define SECONDARY  3
 #define PRIMARY    4
 #define PRIMARY_STRESSED 6
 #define PRIMARY_LAST 7
-
 
 static int number_pre;
 static int number_body;
@@ -338,7 +320,6 @@ static int last_primary;
 static int tone_posn;
 static int tone_posn2;
 static int no_tonic;
-
 
 static void count_pitch_vowels(int start, int end, int clause_end)
 {
@@ -370,7 +351,6 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 
 			last_primary = ix;
 		}
-
 	}
 
 	if (number_pre < 0)
@@ -391,9 +371,6 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	}
 }
 
-
-
-
 /* Count number of primary stresses up to tonic syllable or body_reset */
 static int count_increments(int ix, int end_ix, int min_stress)
 {
@@ -410,9 +387,6 @@ static int count_increments(int ix, int end_ix, int min_stress)
 	}
 	return count;
 }
-
-
-
 
 // Set the pitch of a vowel in syllable_tab
 static void set_pitch(SYLLABLE *syl, int base, int drop)
@@ -440,7 +414,6 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 	syl->pitch2 = pitch2;
 	syl->flags |= flags;
 }
-
 
 static int CountUnstressed(int start, int end, int limit)
 {
@@ -521,7 +494,6 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 					increment = pitch_range / (n_steps -1);
 				else
 					increment = 0;
-
 			} else if (syl_ix == head_final) {
 				// a pitch has been specified for the last primary stress before the nucleus
 				pitch = tune->head_last << 8;
@@ -567,10 +539,7 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 		syl_ix++;
 	}
 	return syl_ix;
-
 }
-
-
 
 /* Calculate pitches until next RESET or tonic syllable, or end.
     Increment pitch if stress is >= min_stress.
@@ -667,8 +636,6 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 	return ix;
 }
 
-
-
 static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_pitch)
 {
 // Set a linear pitch change over a number of syllables.
@@ -713,8 +680,6 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 		}
 	}
 }
-
-
 
 // Calculate pitch values for the vowels in this tone group
 static int calc_pitches2(int start, int end,  int tune_number)
@@ -766,8 +731,6 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	return tone_pitch_env;
 }
-
-
 
 // Calculate pitch values for the vowels in this tone group
 static int calc_pitches(int control, int start, int end,  int tune_number)
@@ -833,11 +796,6 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	return tone_pitch_env;
 }
 
-
-
-
-
-
 static void CalcPitches_Tone(Translator *tr, int clause_tone)
 {
 //  clause_tone: 0=. 1=, 2=?, 3=! 4=none
@@ -883,7 +841,6 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			p->tone_ph = PhonemeCode('7');   // change default tone (tone 1) to falling tone at end of clause
 	}
 
-
 	pause = 1;
 	tone_promoted = 0;
 
@@ -915,7 +872,6 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 
 					p->tone_ph = tone_ph;
 					tph = phoneme_tab[tone_ph];
-
 				} else
 					tone_promoted = 0;
 
@@ -980,11 +936,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			p->pitch2 = pitch_adjust + phoneme_tab[tone_ph]->end_type;
 		}
 	}
-
-
 }
-
-
 
 void CalcPitches(Translator *tr, int clause_type)
 {
@@ -1030,13 +982,10 @@ void CalcPitches(Translator *tr, int clause_type)
 	if (n_st == 0)
 		return;  // nothing to do
 
-
-
 	if (tr->langopts.tone_language == 1) {
 		CalcPitches_Tone(tr, clause_type);
 		return;
 	}
-
 
 	option = tr->langopts.intonation_group;
 	if (option >= INTONATION_TYPES)
@@ -1132,7 +1081,6 @@ void CalcPitches(Translator *tr, int clause_type)
 		calc_pitches(option, st_start, st_ix, group_tone);
 	}
 
-
 	// unpack pitch data
 	st_ix = 0;
 	for (ix = ph_start; ix < ph_end; ix++) {
@@ -1171,5 +1119,4 @@ void CalcPitches(Translator *tr, int clause_type)
 			st_ix++;
 		}
 	}
-
 }

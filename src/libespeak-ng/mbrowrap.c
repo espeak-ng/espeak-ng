@@ -34,7 +34,6 @@
 
 #include "mbrowrap.h"
 
-
 /*
  * mbrola instance parameters
  */

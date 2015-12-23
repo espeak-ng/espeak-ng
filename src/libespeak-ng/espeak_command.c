@@ -346,14 +346,12 @@ int delete_espeak_command(t_espeak_command *the_command)
 				free(the_command->u.my_text.text);
 			}
 			break;
-
 		case ET_MARK:
 			if (the_command->u.my_mark.text)
 				free(the_command->u.my_mark.text);
 			if (the_command->u.my_mark.index_mark)
 				free((void *)(the_command->u.my_mark.index_mark));
 			break;
-
 		case ET_TERMINATED_MSG:
 		{
 			// if the terminated msg is pending,
@@ -367,28 +365,23 @@ int delete_espeak_command(t_espeak_command *the_command)
 				sync_espeak_terminated_msg(data->unique_identifier, data->user_data);
 			}
 		}
-		break;
-
+			break;
 		case ET_KEY:
 			if (the_command->u.my_key.key_name)
 				free((void *)(the_command->u.my_key.key_name));
 			break;
-
 		case ET_CHAR:
 		case ET_PARAMETER:
 			// No allocation
 			break;
-
 		case ET_PUNCTUATION_LIST:
 			if (the_command->u.my_punctuation_list)
 				free((void *)(the_command->u.my_punctuation_list));
 			break;
-
 		case ET_VOICE_NAME:
 			if (the_command->u.my_voice_name)
 				free((void *)(the_command->u.my_voice_name));
 			break;
-
 		case ET_VOICE_SPEC:
 		{
 			espeak_VOICE *data = &(the_command->u.my_voice_spec);
@@ -402,8 +395,7 @@ int delete_espeak_command(t_espeak_command *the_command)
 			if (data->identifier)
 				free((void *)data->identifier);
 		}
-		break;
-
+			break;
 		default:
 			assert(0);
 		}
@@ -434,8 +426,7 @@ void process_espeak_command(t_espeak_command *the_command)
 		                  data->position, data->position_type,
 		                  data->end_position, data->flags, data->user_data);
 	}
-	break;
-
+		break;
 	case ET_MARK:
 	{
 		t_espeak_mark *data = &(the_command->u.my_mark);
@@ -443,57 +434,49 @@ void process_espeak_command(t_espeak_command *the_command)
 		                       data->index_mark, data->end_position, data->flags,
 		                       data->user_data);
 	}
-	break;
-
+		break;
 	case ET_TERMINATED_MSG:
 	{
 		t_espeak_terminated_msg *data = &(the_command->u.my_terminated_msg);
 		sync_espeak_terminated_msg(data->unique_identifier, data->user_data);
 	}
-	break;
-
+		break;
 	case ET_KEY:
 	{
 		const char *data = the_command->u.my_key.key_name;
 		sync_espeak_Key(data);
 	}
-	break;
-
+		break;
 	case ET_CHAR:
 	{
 		const wchar_t data = the_command->u.my_char.character;
 		sync_espeak_Char(data);
 	}
-	break;
-
+		break;
 	case ET_PARAMETER:
 	{
 		t_espeak_parameter *data = &(the_command->u.my_param);
 		SetParameter(data->parameter, data->value, data->relative);
 	}
-	break;
-
+		break;
 	case ET_PUNCTUATION_LIST:
 	{
 		const wchar_t *data = the_command->u.my_punctuation_list;
 		sync_espeak_SetPunctuationList(data);
 	}
-	break;
-
+		break;
 	case ET_VOICE_NAME:
 	{
 		const char *data = the_command->u.my_voice_name;
 		SetVoiceByName(data);
 	}
-	break;
-
+		break;
 	case ET_VOICE_SPEC:
 	{
 		espeak_VOICE *data = &(the_command->u.my_voice_spec);
 		SetVoiceByProperties(data);
 	}
-	break;
-
+		break;
 	default:
 		assert(0);
 		break;
@@ -518,22 +501,19 @@ void display_espeak_command(t_espeak_command *the_command)
 		t_espeak_text *data = &(the_command->u.my_text);
 		SHOW("display_espeak_command > (0x%x) uid=%d, TEXT=%s, user_data=0x%x\n", the_command, data->unique_identifier, (char *)data->text, (int)(data->user_data));
 	}
-	break;
-
+		break;
 	case ET_MARK:
 	{
 		t_espeak_mark *data = &(the_command->u.my_mark);
 		SHOW("display_espeak_command > (0x%x) uid=%d, MARK=%s, user_data=0x%x\n", the_command, data->unique_identifier, (char *)data->text, (int)(data->user_data));
 	}
-	break;
-
+		break;
 	case ET_KEY:
 	{
 		const char *data = the_command->u.my_key.key_name;
 		SHOW("display_espeak_command > (0x%x) KEY=%c\n", the_command, data);
 	}
-	break;
-
+		break;
 	case ET_TERMINATED_MSG:
 	{
 		t_espeak_terminated_msg *data = &(the_command->u.my_terminated_msg);
@@ -542,44 +522,38 @@ void display_espeak_command(t_espeak_command *the_command)
 		     the_command, data->unique_identifier, data->user_data,
 		     the_command->state);
 	}
-	break;
-
+		break;
 	case ET_CHAR:
 	{
 		const wchar_t data = the_command->u.my_char.character;
 		SHOW("display_espeak_command > (0x%x) CHAR=%c\n", the_command, (char)data);
 	}
-	break;
-
+		break;
 	case ET_PARAMETER:
 	{
 		t_espeak_parameter *data = &(the_command->u.my_param);
 		SHOW("display_espeak_command > (0x%x) PARAMETER=%d, value=%d, relative=%d\n",
 		     the_command, data->parameter, data->value, data->relative);
 	}
-	break;
-
+		break;
 	case ET_PUNCTUATION_LIST:
 	{
 		const wchar_t *data = the_command->u.my_punctuation_list;
 		sync_espeak_SetPunctuationList(data);
 		SHOW("display_espeak_command > (0x%x) PUNCTLIST=%s\n", the_command, (char *)data);
 	}
-	break;
-
+		break;
 	case ET_VOICE_NAME:
 	{
 		const char *data = the_command->u.my_voice_name;
 		SHOW("display_espeak_command > (0x%x) VOICE_NAME=%s\n", the_command, data);
 	}
-	break;
-
+		break;
 	case ET_VOICE_SPEC:
 	{
 		SHOW("display_espeak_command > (0x%x) VOICE_SPEC", the_command);
 	}
-	break;
-
+		break;
 	default:
 		assert(0);
 		break;

@@ -32,14 +32,10 @@
 #include "synthesize.h"
 #include "translate.h"
 
-
 const unsigned char pause_phonemes[8] = { 0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG };
-
 
 extern int n_ph_list2;
 extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST];  // first stage of text->phonemes
-
-
 
 static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 {
@@ -100,11 +96,8 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 	return n_plist_out;
 }
 
-
-
 void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 {
-
 	int ix = 0;
 	int j;
 	int insert_ph = 0;

@@ -36,10 +36,8 @@
 #include "voice.h"
 #include "translate.h"
 
-
 extern FILE *f_log;
 static void SmoothSpect(void);
-
 
 // list of phonemes in a clause
 int n_phoneme_list = 0;
@@ -73,11 +71,8 @@ SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 #define VOWEL_FRONT_LENGTH  50
 
-
-
 // a dummy phoneme_list entry which looks like a pause
 static PHONEME_LIST next_pause;
-
 
 const char *WordToString(unsigned int word)
 {
@@ -91,8 +86,6 @@ const char *WordToString(unsigned int word)
 	return buf;
 }
 
-
-
 void SynthesizeInit()
 {
 	last_pitch_cmd = 0;
@@ -105,8 +98,6 @@ void SynthesizeInit()
 	next_pause.newword = 0;
 }
 
-
-
 static void EndAmplitude(void)
 {
 	if (amp_length > 0) {
@@ -115,8 +106,6 @@ static void EndAmplitude(void)
 		amp_length = 0;
 	}
 }
-
-
 
 static void EndPitch(int voice_break)
 {
@@ -137,8 +126,6 @@ static void EndPitch(int voice_break)
 	}
 }
 
-
-
 static void DoAmplitude(int amp, unsigned char *amp_env)
 {
 	intptr_t *q;
@@ -153,8 +140,6 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 	q[3] = amp;
 	WcmdqInc();
 }
-
-
 
 static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 {
@@ -182,8 +167,6 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 	WcmdqInc();
 }
 
-
-
 int PauseLength(int pause, int control)
 {
 	unsigned int len;
@@ -201,7 +184,6 @@ int PauseLength(int pause, int control)
 	}
 	return len;
 }
-
 
 static void DoPause(int length, int control)
 {
@@ -236,9 +218,7 @@ static void DoPause(int length, int control)
 	}
 }
 
-
 extern int seq_len_adjust;   // temporary fix to advance the start point for playing the wav sample
-
 
 static int DoSample2(int index, int which, int std_length, int control, int length_mod, int amp)
 {
@@ -337,7 +317,6 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	q[3] = wav_scale + (amp << 8);
 	WcmdqInc();
 
-
 	while (length > len4*3) {
 		x = len4;
 		if (wav_scale == 0)
@@ -370,8 +349,6 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	return length;
 }
 
-
-
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
 {
 	int amp2;
@@ -398,9 +375,6 @@ int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
 	return len;
 }
 
-
-
-
 static frame_t *AllocFrame()
 {
 	// Allocate a temporary spectrum frame for the wavegen queue. Use a pool which is big
@@ -416,7 +390,6 @@ static frame_t *AllocFrame()
 		ix = 0;
 	return &frame_pool[ix];
 }
-
 
 static void set_frame_rms(frame_t *fr, int new_rms)
 {
@@ -461,8 +434,6 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	}
 }
 
-
-
 static void formants_reduce_hf(frame_t *fr, int level)
 {
 //  change height of peaks 2 to 8, percentage
@@ -477,7 +448,6 @@ static void formants_reduce_hf(frame_t *fr, int level)
 		fr->fheight[ix] = x/100;
 	}
 }
-
 
 static frame_t *CopyFrame(frame_t *frame1, int copy)
 {
@@ -498,7 +468,6 @@ static frame_t *CopyFrame(frame_t *frame1, int copy)
 	return frame2;
 }
 
-
 static frame_t *DuplicateLastFrame(frameref_t *seq, int n_frames, int length)
 {
 	frame_t *fr;
@@ -509,7 +478,6 @@ static frame_t *DuplicateLastFrame(frameref_t *seq, int n_frames, int length)
 	seq[n_frames].length = 0;
 	return fr;
 }
-
 
 static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj, int f3_adj, int hf_reduce, int flags)
 {
@@ -551,7 +519,6 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 	formants_reduce_hf(fr, hf_reduce);
 }
 
-
 static int VowelCloseness(frame_t *fr)
 {
 // return a value 0-3 depending on the vowel's f1
@@ -565,7 +532,6 @@ static int VowelCloseness(frame_t *fr)
 		return 1;
 	return 0;
 }
-
 
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
 {
@@ -694,8 +660,6 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 	return 0;
 }
 
-
-
 static void SmoothSpect(void)
 {
 	// Limit the rate of frequence change of formants, to reduce chirping
@@ -806,7 +770,6 @@ static void SmoothSpect(void)
 			break;
 
 		if (q[0] <= WCMD_SPECT2) {
-
 			len = q[1] & 0xffff;
 
 			frame1 = (frame_t *)q[2];
@@ -867,15 +830,12 @@ static void SmoothSpect(void)
 	syllable_start = syllable_end;
 }
 
-
 static void StartSyllable(void)
 {
 	// start of syllable, if not already started
 	if (syllable_end == syllable_start)
 		syllable_end = wcmdq_tail;
 }
-
-
 
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation)
 {
@@ -1058,12 +1018,8 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 		WcmdqInc();
 	}
 
-
 	return total_len;
 }
-
-
-
 
 void DoMarker(int type, int char_posn, int length, int value)
 {
@@ -1076,7 +1032,6 @@ void DoMarker(int type, int char_posn, int length, int value)
 		WcmdqInc();
 	}
 }
-
 
 void DoPhonemeMarker(int type, int char_posn, int length, char *name)
 {
@@ -1094,7 +1049,6 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name)
 	}
 }
 
-
 #if HAVE_SONIC_H
 void DoSonicSpeed(int value)
 {
@@ -1104,7 +1058,6 @@ void DoSonicSpeed(int value)
 	WcmdqInc();
 }
 #endif
-
 
 void DoVoiceChange(voice_t *v)
 {
@@ -1117,7 +1070,6 @@ void DoVoiceChange(voice_t *v)
 	wcmdq[wcmdq_tail][2] = (intptr_t)v2;
 	WcmdqInc();
 }
-
 
 void DoEmbedded(int *embix, int sourceix)
 {
@@ -1142,7 +1094,6 @@ void DoEmbedded(int *embix, int sourceix)
 			SetEmbedded((command & 0x60) + EMBED_S2, value);   // adjusts embedded_value[EMBED_S2]
 			SetSpeed(2);
 			break;
-
 		case EMBED_I:   // play dynamically loaded wav data (sound icon)
 			if ((int)value < n_soundicon_tab) {
 				if (soundicon_tab[value].length != 0) {
@@ -1155,15 +1106,12 @@ void DoEmbedded(int *embix, int sourceix)
 				}
 			}
 			break;
-
 		case EMBED_M:   // named marker
 			DoMarker(espeakEVENT_MARK, (sourceix & 0x7ff) + clause_start_char, 0, value);
 			break;
-
 		case EMBED_U:   // play sound
 			DoMarker(espeakEVENT_PLAY, count_characters+1, 0, value);  // always occurs at end of clause
 			break;
-
 		default:
 			DoPause(10, 0);   // ensure a break in the speech
 			wcmdq[wcmdq_tail][0] = WCMD_EMBEDDED;
@@ -1174,8 +1122,6 @@ void DoEmbedded(int *embix, int sourceix)
 		}
 	} while ((word & 0x80) == 0);
 }
-
-
 
 int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
@@ -1291,7 +1237,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			DoPause(p->length, 0);
 			p->std_length = p->ph->std_length;
 			break;
-
 		case phSTOP:
 			released = 0;
 			ph = p->ph;
@@ -1322,7 +1267,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			phdata.pd_control |= pd_DONTLENGTHEN;
 			DoSample3(&phdata, 0, 0);
 			break;
-
 		case phFRICATIVE:
 			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 
@@ -1330,7 +1274,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSample3(&phdata, p->length, 0);  // play it twice for [s:] etc.
 			DoSample3(&phdata, p->length, 0);
 			break;
-
 		case phVSTOP:
 			ph = p->ph;
 			memset(&fmtp, 0, sizeof(fmtp));
@@ -1387,7 +1330,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 					DoPause(12, 0);
 			}
 			break;
-
 		case phVFRICATIVE:
 			if (next->type == phVOWEL) {
 				DoAmplitude(p->amp, NULL);
@@ -1418,7 +1360,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSpect2(p->ph, 0, &fmtp, p, 0);
 			DoSpect2(p->ph, 0, &fmtp, p, 0);
 			break;
-
 		case phNASAL:
 			memset(&fmtp, 0, sizeof(fmtp));
 			if (!(p->synthflags & SFLAG_SEQCONTINUE)) {
@@ -1446,7 +1387,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 
 			break;
-
 		case phLIQUID:
 			memset(&fmtp, 0, sizeof(fmtp));
 			modulation = 0;
@@ -1473,9 +1413,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 			DoSpect2(p->ph, 0, &fmtp, p, modulation);
-
 			break;
-
 		case phVOWEL:
 			ph = p->ph;
 			stress = p->stresslevel & 0xf;
@@ -1576,7 +1514,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 
 			DoSpect2(ph, 2, &fmtp, p, modulation);
-
 			break;
 		}
 		ix++;
@@ -1589,9 +1526,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 	return 0;  // finished the phoneme list
 }
-
-
-
 
 static int timer_on = 0;
 static int paused = 0;
@@ -1612,13 +1546,10 @@ int SynthOnTimer()
 	return 0;
 }
 
-
 int SynthStatus()
 {
 	return timer_on | paused;
 }
-
-
 
 int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 {

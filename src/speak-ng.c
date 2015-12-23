@@ -52,8 +52,6 @@
 #include "voice.h"
 #include "translate.h"
 
-
-
 extern void Write4Bytes(FILE *f, int value);
 char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
@@ -123,12 +121,9 @@ static const char *help_text =
     "\t   List the available voices for the specified language.\n"
     "\t   If <language> is omitted, then list all voices.\n";
 
-
 void DisplayVoices(FILE *f_out, char *language);
 
 USHORT voice_pcnt[N_PEAKS+1][3];
-
-
 
 void DisplayVoices(FILE *f_out, char *language)
 {
@@ -190,7 +185,6 @@ void DisplayVoices(FILE *f_out, char *language)
 	}
 }
 
-
 static int OpenWaveFile(const char *path, int rate)
 {
 	// Set the length of 0x7ffff000 for --stdout
@@ -228,9 +222,6 @@ static int OpenWaveFile(const char *path, int rate)
 	return 1;
 }
 
-
-
-
 static void CloseWaveFile()
 {
 	unsigned int pos;
@@ -250,11 +241,7 @@ static void CloseWaveFile()
 
 	fclose(f_wave);
 	f_wave = NULL;
-
 }
-
-
-
 
 static int WavegenFile(void)
 {
@@ -291,11 +278,8 @@ static int WavegenFile(void)
 	return finished;
 }
 
-
-
 static void init_path(char *argv0, char *path_specified)
 {
-
 	if (path_specified) {
 		sprintf(path_home, "%s/espeak-data", path_specified);
 		return;
@@ -348,7 +332,6 @@ static void init_path(char *argv0, char *path_specified)
 #endif
 }
 
-
 static int initialise(void)
 {
 	int param;
@@ -367,7 +350,6 @@ static int initialise(void)
 	}
 #endif
 
-
 	if ((result = LoadPhData(&srate)) != 1) {
 		if (result == -1) {
 			fprintf(stderr, "Failed to load espeak-data\n");
@@ -385,8 +367,6 @@ static int initialise(void)
 
 	return 0;
 }
-
-
 
 #ifdef NEED_GETOPT
 struct option {
@@ -525,88 +505,69 @@ int main(int argc, char **argv)
 			if ((sscanf(optarg2, "%d", &value) == 1) && (value <= 4))
 				option_multibyte = value;
 			break;
-
 		case 'h':
 			init_path(argv[0], data_path);
 			printf("\nspeak text-to-speech: %s   Data at: %s\n%s", version_string, path_home, help_text);
 			exit(0);
-
 		case 'k':
 			option_capitals = atoi(optarg2);
 			break;
-
 		case 'x':
 			phoneme_options |= espeakPHONEMES_SHOW;
 			break;
-
 		case 'X':
 			phoneme_options |= espeakPHONEMES_TRACE;
 			break;
-
 		case 'm':
 			option_ssml = 1;
 			break;
-
 		case 'p':
 			pitch_adjustment = atoi(optarg2);
 			if (pitch_adjustment > 99) pitch_adjustment = 99;
 			break;
-
 		case 'q':
 			quiet = 1;
 			break;
-
 		case 'f':
 			strncpy0(filename, optarg2, sizeof(filename));
 			break;
-
 		case 'l':
 			value = 0;
 			value = atoi(optarg2);
 			option_linelength = value;
 			break;
-
 		case 'a':
 			amp = atoi(optarg2);
 			break;
-
 		case 's':
 			speed = atoi(optarg2);
 			break;
-
 		case 'g':
 			wordgap = atoi(optarg2);
 			break;
-
 		case 'v':
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			break;
-
 		case 'w':
 			option_waveout = 1;
 			strncpy0(wavefile, optarg2, sizeof(wavefile));
 			break;
-
 		case 'z':
 			option_endpause = 0;
 			break;
-
 		case 0x100:     // --stdin
 			flag_stdin = 1;
 			break;
-
 		case 0x105:     // --stdout
 			option_waveout = 1;
 			strcpy(wavefile, "stdout");
 			break;
-
 		case 0x101:    // --compile-debug
 		case 0x102:     // --compile
 			if (optarg2 != NULL)
 				strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
 			break;
-
 		case 0x103:     // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
@@ -616,34 +577,28 @@ int main(int argc, char **argv)
 				option_punctuation = 2;
 			}
 			break;
-
 		case 0x104:   // --voices
 			init_path(argv[0], data_path);
 			DisplayVoices(stdout, optarg2);
 			exit(0);
-
 		case 0x106:   // -- split
 			if (optarg2 == NULL)
 				samples_split = 30;  // default 30 minutes
 			else
 				samples_split = atoi(optarg2);
 			break;
-
 		case 0x107:  // --path
 			data_path = optarg2;
 			break;
-
 		case 0x108:  // --phonout
 			if ((f_trans = fopen(optarg2, "w")) == NULL) {
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
 				f_trans = stderr;
 			}
 			break;
-
 		case 0x109:  // --pho
 			phoneme_options |= espeakPHONEMES_MBROLA;
 			break;
-
 		case 0x10a:  // --ipa
 			phoneme_options |= espeakPHONEMES_IPA;
 			if (optarg2 != NULL) {
@@ -662,15 +617,12 @@ int main(int argc, char **argv)
 					phoneme_options |= espeakPHONEMES_TIE;
 					break;
 				}
-
 			}
 			break;
-
 		case 0x10b:  // --version
 			init_path(argv[0], data_path);
 			printf("speak text-to-speech: %s   Data at: %s\n", version_string, path_home);
 			exit(0);
-
 		case 0x10c:  // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
 			if (optarg2 == 0)
@@ -680,7 +632,6 @@ int main(int argc, char **argv)
 			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200c;      // ZWNJ
 			break;
-
 		case 0x10d:  // --tie
 			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
 			if (optarg2 == 0)
@@ -690,7 +641,6 @@ int main(int argc, char **argv)
 			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200d;      // ZWJ
 			break;
-
 		default:
 			exit(0);
 		}
@@ -731,7 +681,6 @@ int main(int argc, char **argv)
 #endif
 		exit(0);
 	}
-
 
 	SetParameter(espeakRATE, speed, 0);
 	SetParameter(espeakVOLUME, amp, 0);
