@@ -11,7 +11,7 @@ languages.
 
 ## OPTIONS
 
-  * `-h`:
+  * `-h`, `--help`:
     Show summary of options.
 
   * `--version`:
@@ -51,10 +51,15 @@ words are provided then text is spoken from stdin a line at a time.
     Speed in words per minute, default is 160.
 
   * `-v <voice name>`:
-    Use voice file of this name from espeak-data/voices.
+    Use voice file of this name from espeak-data/voices. A variant can be
+    specified using <voice>+<variant>, such as af+m3.
 
   * `-w <wave file name>`:
     Write output to this WAV file, rather than speaking it directly.
+
+  * `--split=<minutes>`:
+    Used with `-w` to split the audio output into &lt;minutes&gt; recorded
+    chunks.
 
   * `-b`:
     Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit.
@@ -81,15 +86,18 @@ words are provided then text is spoken from stdin a line at a time.
 
   * `--compile=voicename`:
     Compile the pronunciation rules and dictionary in the current directory.
-    =&lt;voice name&lt; is optional and specifies which language.
+    =&lt;voicename&lt; is optional and specifies which language is compiled.
 
-  * `--compile=debug`:
+  * `--compile-debug=voicename`:
     Compile the pronunciation rules and dictionary in the current directory as
     above, but include line numbers, that get shown when -X is used.
 
   * `--ipa`:
     Write phonemes to stdout using International Phonetic Alphabet. --ipa=1 Use
     ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _.
+
+  * `--tie=<character>`:
+    The character to use to join multi-letter phonemes in -x and --ipa output.
 
   * `--path=<path>`:
     Specifies the directory containing the espeak-data directory.
@@ -104,12 +112,33 @@ words are provided then text is spoken from stdin a line at a time.
     Speak the names of punctuation characters during speaking. If
     =&lt;characters&gt; is omitted, all punctuation is spoken.
 
+  * `--sep=<character>`:
+    The character to separate phonemes from the -x and --ipa output.
+
   * `--voices[=<language code>]`:
     Lists the available voices. If =&lt;language code&gt; is present then only
     those voices which are suitable for that language are listed.
 
   * `--voices=<directory>`:
     Lists the voices in the specified subdirectory.
+
+## EXAMPLES
+
+  * `espeak-ng "This is a test"`:
+    Speak the sentence "This is a test" using the default English voice.
+
+  * `espeak-ng -f hello.txt`:
+    Speak the contents of hello.txt using the default English voice.
+
+  * `cat hello.txt | espeak-ng`:
+    Speak the contents of hello.txt using the default English voice.
+
+  * `espeak-ng -x hello`:
+    Speak the word "hello" using the default English voice, and print the
+    phonemes that were spoken.
+
+  * `espeak-ng -ven-us "[[h@'loU]]"`:
+    Speak the phonemes "h@'loU" using the American English voice.
 
 ## AUTHOR
 

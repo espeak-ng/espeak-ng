@@ -2,7 +2,6 @@
 
 - [Features](#features)
 - [History](#history)
-- [Installation](commands.html)
 - [Languages](languages.html)
 - [Documents](docindex.html)
 - [License](../COPYING)
