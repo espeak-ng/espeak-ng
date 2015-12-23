@@ -1,0 +1,9 @@
+name arabic-mbrola-1
+language ar 1
+
+gender male
+
+voicing 150 
+speed 60
+
+mbrola 	ar1 ar1_phtrans
