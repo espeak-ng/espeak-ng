@@ -37,12 +37,14 @@
 
 .group a
         a        a
+        a  (a    a_!
         ai       ai
         au       au
         ap       ap     // prefix
 
 .group ā
         ā        a:
+        ā  (ā    a:_!
 
 .group b
         b        b
@@ -109,6 +111,8 @@
 
 .group i
         i        i
+        i (i     i_!
+        i (ī     i_!
         ie       ie
         iu       iu
 
@@ -1150,6 +1154,7 @@
 
 .group u
         u        u
+        u  (u    u_!
         ui       ui
 
 .group ū

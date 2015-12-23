@@ -1,126 +1,154 @@
-MBROLA VOICES {.western}
--------------
+# Table of contents
+
+  * [Mbrola voices](#mbrola-voices)
+    * [Voice Names](#voice-names)
+    * [Windows Installation](#windows-installation)
+    * [Linux Installation](#linux-installation)
+    * [Mbrola Voice Files](#mbrola-voice-files)
+    * [Mbrola Phoneme Translation Data](#mbrola-phoneme-translation-data)
+
+# Mbrola voices
 
 The Mbrola project is a collection of diphone voices for speech
 synthesis. They do not include any text-to-phoneme translation, so this
 must be done by another program. The Mbrola voices are cost-free but are
-not open source. They are available from the Mbrola website at:\
+not open source. They are available from the Mbrola website at:
 
 [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html)
 
-eSpeak can be used as a front-end to Mbrola. It provides the
+eSpeak NG can be used as a front-end to Mbrola. It provides the
 spelling-to-phoneme translation and intonation, which Mbrola then uses
 to generate speech sound.
 
-### Voice Names {.western}
+## Voice Names
 
-To use a Mbrola voice, eSpeak needs information to translate from its
+To use a Mbrola voice, eSpeak NG needs information to translate from its
 own phonemes to the equivalent Mbrola phonemes. This has been set up for
 only some voices so far.
 
-The eSpeak voices which use Mbrola are named as:\
+The eSpeak NG voices which use Mbrola are named as:\
    **mb-**xxx
 
 where xxx is the name of a Mbrola voice (eg. **mb-en1** for the Mbrola
-"**en1**" English voice). These voice files are in eSpeak's directory
-`espeak-data/voices/mbrola`{.western}.
+"**en1**" English voice). These voice files are in eSpeak NG's directory
+`espeak-data/voices/mbrola`.
 
 The installation instructions below use the Mbrola voice "en1" as an
 example. You can use other mbrola voices for which there is an
-equivalent eSpeak voice in `espeak-data/voices/mbrola`{.western}.
+equivalent eSpeak NG voice in `espeak-data/voices/mbrola`.
 
-There are some additional eSpeak Mbrola voices which speak English text
+There are some additional eSpeak NG Mbrola voices which speak English text
 using a Mbrola voice for a different language. These contain the name of
 the Mbrola voice with a suffix **-en**. For example, the voice
 **mb-de4-en** will speak English text with a German accent by using the
 Mbrola **de4** voice.
 
-### Windows Installation {.western}
+## Windows Installation
 
-The SAPI5 version of eSpeak uses the mbrola.dll.
+The SAPI5 version of eSpeak NG uses the mbrola.dll.
 
-1.  2.  3.  4.  
+1.  Install eSpeak. Include the voice **mb-en1** in the list of voices during the eSpeak installation.
+2.  Install the PC/Windows version of Mbrola (MbrolaTools35.exe) from: [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe).
+3.  Get the **en1** voice from: [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html) unpack the archive, and copy the "**en1**" data file (not the whole "en1" directory) into `C:/Program Files/eSpeak/espeak-data/mbrola`.
+4.  Use the voice **espeak-MB-EN1** from the list of SAPI5 voices.
 
-### Linux Installation {.western}
+        
 
-From eSpeak version 1.44 onwards, eSpeak calls the mbrola program
+## Linux Installation
+
+From eSpeak NG version 44 onwards, eSpeak NG calls the mbrola program
 directly, rather than passing phoneme data to it using a pipe.
 
-1.  2.  3.  
+1.  To install the Linux Mbrola binary, download: [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip). Unpack the archive, and copy and rename the file from: `mbrola-linux-i386` to `mbrola` somewhere in your executable path (eg. `/usr/bin/mbrola` ).
+2.  Get the en1 voice from: [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html). Unpack the archive, and copy the "**en1**" data file (not the whole "en1" directory) to `/usr/share/mbrola/en1`.
 
-### Mbrola Voice Files {.western}
+    eSpeak will look for mbrola voices firstly in `espeak-data/mbrola` and then in `/usr/share/mbrola`
 
-eSpeak's voice files for Mbrola voices are in directory
-`espeak-data/voices/mbrola`{.western}. They contain a line:\
-   `mbrola <voice> <translation>`{.western} \
- eg.\
-   `mbrola en1 en1_phtrans`{.western}
+3.  If you use the eSpeak voice such as "**mb-en1**" then eSpeak will use the mbrola "en1" voice, eg:  
+    `espeak-ng -v mb-en1 "Hello world"`
 
--   -   
+    To generate mbrola phoneme data (.pho file) you can use:  
+    `espeak-ng -v mb-en1 -q --pho "Hello world"`  
+    or  
+    `espeak-ng -v mb-en1 -q --pho --phonout=out.pho "Hello world"`
 
-They are binary files which are compiled, using espeakedit, from source
-files in `phsource/mbrola`{.western}, see below.
 
-### Mbrola Phoneme Translation Data {.western}
+## Mbrola Voice Files
 
-Mbrola phoneme translation files specify translations from eSpeak
+eSpeak NG's voice files for Mbrola voices are in directory  `espeak-data/voices/mbrola`.  
+They contain a line: `mbrola <voice> <translation>`
+
+eg.  
+`mbrola en1 en1_phtrans`
+
+* **\<voice\>**  
+  is the name of the Mbrola voice.
+* **\<translation\>**  
+  is a translation file to convert between eSpeak phonemes and the equivalent Mbrola phonemes.  
+  These are kept in: `espeak-data/mbrola_ph`
+
+They are binary files which are compiled, using espeakedit, from source files in `phsource/mbrola`, see below.
+
+## Mbrola Phoneme Translation Data
+
+Mbrola phoneme translation files specify translations from eSpeak NG
 phoneme names to mbrola phoneme names. They are referenced from voice
 files.
 
-The source files are in `phsource/mbrola`{.western}. These are compiled
-using the `espeakedit`{.western} program
-(`Compile->Compile mbrola phonemes list`{.western}) to produce data
-files in `espeak-data/mbrola_ph`{.western} which are used by eSpeak.
+The source files are in `phsource/mbrola`. These are compiled
+using the `espeakedit` program
+(`Compile->Compile mbrola phonemes list`) to produce data
+files in `espeak-data/mbrola_ph` which are used by eSpeak NG.
 
 Each line in the mbrola phoneme translation file contains:
 
-`<control> <espeak ph1> <espeak ph2> <percent> <mbrola ph1> [<mbrola ph2>] `{.western}
+`<control> <espeak ph1> <espeak ph2> <percent> <mbrola ph1> [<mbrola ph2>] `
 
-**\<control\>**
+* **\<control\>**  
+  bit 0   skip the next phoneme  
+  bit 1   match this and Previous phoneme  
+  bit 2   only at the start of a word  
+  bit 3   don't match two phonemes across a word boundary
 
--   -   -   -   
+* **\<espeak ph1\>**  
+  The eSpeak NG phoneme which is to be translated to an mbrola phoneme.
 
-**\<espeak ph1\>**\
- The eSpeak phoneme which is to be translated to an mbrola phoneme.
-
-**\<espeak ph2\>**\
- If this field is not `NULL`{.western}, then the match only occurs if
+* **\<espeak ph2\>**  
+  If this field is not `NULL`, then the match only occurs if
 this field matches the next phoneme. If control bit 1 is set, then the
 *previous* rather than the *next* phoneme is matched. This field may
-also have the following values:\
- `VWL`{.western}   matches any Vowel phoneme.
+also have the following values:  
+  `VWL`   matches any Vowel phoneme.
 
-**\<percent\>**\
- If this field is zero then only one mbrola phoneme is used. If this
+* **\<percent\>**  
+  If this field is zero then only one mbrola phoneme is used. If this
 field is non-zero, then two mbrola phonemes are used, and this value
 gives the percentage length of the first mbrola phoneme.
 
-**\<mbrola ph1\>**\
- The mbrola phoneme to which the eSpeak phoneme is translated. This
-field may be `NULL`{.western}.
+* **\<mbrola ph1\>**  
+  The mbrola phoneme to which the eSpeak NG phoneme is translated. This
+field may be `NULL`.
 
-**\<mbrola ph2\>**\
- The second mbrola phoneme. This field is only used if the \<percent\>
+* **\<mbrola ph2\>**  
+  The second mbrola phoneme. This field is only used if the \<percent\>
 field is not zero.
 
 The list is searched from start to finish, until a match is found.
 Therefore, a line with more specific match condition should appear
-before a line which matches the same eSpeak phoneme but with a more
+before a line which matches the same eSpeak NG phoneme but with a more
 general condition.
 
-The file `dictsource/dict_phonemes`{.western} lists the eSpeak phonemes
+The file `dictsource/dict_phonemes` lists the eSpeak NG phonemes
 which are used for each language. Translations for all these should be
 given in the mbrola phoneme translation file. In addition, some phonemes
 which are referenced from phoneme files (eg.
-`phsource/ph_language, phsource/phonemes`{.western}) in lines such as:
+`phsource/ph_language, phsource/phonemes`) in lines such as:
 
-~~~~ {.western}
-   beforenotvowel   l/
-   reduceto  a#  0
-~~~~
+    beforenotvowel   l/
+    reduceto  a#  0
 
 should also be included, even though they don't appear in
-`dictsource/dict_phonemes`{.western}.
+`dictsource/dict_phonemes`.
 
 If the language's \*\_list or \*\_rules files includes rules to speak
 words "as English" the mbrola phoneme translation file should include

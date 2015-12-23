@@ -1,8 +1,6 @@
 phoneme i
-
   vowel starttype #i endtype #i
   length 100
-  IfNextVowelAppend(;)
   FMT(vowel/i_6)
 endphoneme
 
@@ -59,8 +57,7 @@ endphoneme
 phoneme i:
   vowel starttype #i endtype #i
   length 250
-  IfNextVowelAppend(;)
-  FMT(vowel/i_6)
+  FMT(vowel/i_7)
 endphoneme
 
 phoneme E
@@ -91,7 +88,7 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 100
-  FMT(vowel/aa_7) //  a_5 or aa_7
+  FMT(vowel/aa_7) // possible variants: a_3, a_5 or aa_7
 endphoneme
 
 phoneme a:
@@ -99,52 +96,6 @@ phoneme a:
   length 300
   long
   FMT(vowel/aa_9) // was a_3 or aa_9
-endphoneme
-
-phoneme a3
-  vowel starttype #a endtype #a
-  length 100
-  //ChangeIfDiminished(a#)
-  FMT(vowel/a_3)
-endphoneme
-
-phoneme a5
-  vowel starttype #a endtype #a
-  length 100
-  //ChangeIfDiminished(a#)
-  FMT(vowel/a_5)
-endphoneme
-
-phoneme a5:
-  vowel starttype #a endtype #a
-  length 350
-  FMT(vowel/a_5)
-endphoneme
-
-phoneme a77
-  vowel starttype #a endtype #a
-  length 100
-  //ChangeIfDiminished(a#)
-  FMT(vowel/aa_7)
-endphoneme
-
-phoneme a77:
-  vowel starttype #a endtype #a
-  length 350
-  FMT(vowel/aa_7)
-endphoneme
-
-phoneme a22
-  vowel starttype #a endtype #a
-  length 100
-  //ChangeIfDiminished(a#)
-  FMT(vowel/aa_2)
-endphoneme
-
-phoneme a22:
-  vowel starttype #a endtype #a
-  length 350
-  FMT(vowel/aa_2)
 endphoneme
 
 phoneme o
@@ -168,7 +119,7 @@ endphoneme
 phoneme u:
   vowel starttype #u endtype #u
   length 250
-  FMT(vowel/u)
+  FMT(vowel/u_3)
 endphoneme
 
 
@@ -300,7 +251,7 @@ phoneme c
   vls pal stop palatal
   voicingswitch J
   lengthmod 2
-  WAV(ustop/c, 80)
+  WAV(ustop/c, 90)
 endphoneme
 
 phoneme l 

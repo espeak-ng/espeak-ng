@@ -32,7 +32,6 @@ EXTRA_DIST += ChangeLog
 
 all-local: \
 	espeak-data/phontab \
-	docs/speak_lib.h \
 	dictionaries \
 	mbrola
 
@@ -53,12 +52,19 @@ distclean-local:
 ##### documentation:
 
 %.html: %.md _layouts/webpage.html
-	cat $< | sed -e 's/\.md)/.html)/g' | kramdown --template _layouts/webpage.html > $@
+	cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
+		kramdown --template _layouts/webpage.html > $@
 
-docs:	README.html
+%.html: %.ronn
+	ronn --html $<
 
-docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
-	cp $< $@
+src/espeak-ng.1: src/espeak-ng.1.ronn
+	ronn --roff $<
+
+docs:	docs/index.html \
+	src/espeak-ng.1.html \
+	README.html \
+	src/espeak-ng.1
 
 ##### build targets:
 

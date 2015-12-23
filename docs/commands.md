@@ -43,7 +43,7 @@ in the file speech.h.
 ## Windows
 
 The installer: **setup\_espeak.exe** installs the SAPI5 version of
-eSpeak. During installation you need to specify which voices you want to
+eSpeak NG. During installation you need to specify which voices you want to
 appear in SAPI5 voice menus.
 
 It also installs a command line program **espeak-ng** in the espeak-ng
@@ -104,7 +104,7 @@ practical maximum.
 > 1   UTF-8. This is the default.
 > 2   The 8-bit character set which corresponds to the language (eg. Latin-2 for Polish).
 > 4   16 bit Unicode.
-> Without this option, eSpeak assumes text is UTF-8, but will
+> Without this option, eSpeak NG assumes text is UTF-8, but will
 automatically switch to the 8-bit character set if it finds an
 illegal UTF-8 sequence.
 
@@ -116,16 +116,16 @@ the length of the pause, in units of 10 mS (at the default speed of
 
 **-h** or **--help**
 
-> The first line of output gives the eSpeak version number.
+> The first line of output gives the eSpeak NG version number.
 
 **-k \<integer\>**
 
 > Indicate words which begin with capital letters.
-> 1   eSpeak uses a click sound to indicate when a word starts with a
+> 1   eSpeak NG uses a click sound to indicate when a word starts with a
 capital letter, or double click if word is all capitals.
-> 2   eSpeak speaks the word "capital" before a word which begins with
+> 2   eSpeak NG speaks the word "capital" before a word which begins with
 a capital letter.
-> Other values:   eSpeak increases the pitch for words which begin
+> Other values:   eSpeak NG increases the pitch for words which begin
 with a capital letter. The greater the value, the greater the
 increase in pitch. Try -k20.
 

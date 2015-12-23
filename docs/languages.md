@@ -1,12 +1,24 @@
-3. LANGUAGES {.western}
-------------
+# Table of contents
 
-**Languages**. The eSpeak speech synthesizer supports several languages,
+  * [Languages](#languages)
+      * [Help Needed](#help-needed)
+      * [Character sets](#character-sets)
+    * [Voice Files](#voice-files)
+      * [Default Voice](#default-voice)
+    * [English Voices](#english-voices)
+    * [Voice Variants](#voice-variants)
+    * [Other Languages](#other-languages)
+    * [Provisional Languages](#provisional-languages)
+    * [Mbrola Voices](#mbrola-voices)
+
+# Languages
+
+The eSpeak NG speech synthesizer supports several languages,
 however in many cases these are initial drafts and need more work to
 improve them. Assistance from native speakers is welcome for these, or
 other new languages. Please contact me if you want to help.
 
-eSpeak does text to speech synthesis for the following languages, some
+eSpeak NG does text to speech synthesis for the following languages, some
 better than others. Afrikaans, Albanian, Armenian, Cantonese, Catalan,
 Croatian, Czech, Danish, Dutch, English, Esperanto, Finnish, French,
 German, Greek, Hindi, Hungarian, Icelandic, Indonesian, Italian,
@@ -15,7 +27,7 @@ Portuguese, Romanian, Russian, Serbian, Slovak, Spanish, Swahili,
 Swedish, Tamil, Turkish, Vietnamese, Welsh.
 
 
-#### Help Needed {.western}
+### Help Needed
 
 Many of these are just experimental attempts at these languages,
 produced after a quick reading of the corresponding article on
@@ -31,9 +43,9 @@ Italian voice improved from "difficult to understand" to "good" by
 changing the relative length of stressed syllables. Identifying
 unstressed function words in the xx\_list file is also important to make
 the speech flow well. See [Adding or Improving a
-Language](add_language.html)
+Language](add_language.md)
 
-#### Character sets {.western}
+### Character sets
 
 Languages recognise text either as UTF8 or alternatively in an 8-bit
 character set which is appropriate for that language. For example, for
@@ -41,9 +53,7 @@ Polish this is Latin2, for Russian it is KOI8-R. This choice can be
 overridden by a line in the voices file to specify an ISO 8859 character
 set, eg. for Russian the line:
 
-~~~~ {.western style="margin-bottom: 0.5cm"}
      charset 5
-~~~~
 
 will mean that ISO 8859-5 is used as the 8-bit character set rather than
 KOI8-R.
@@ -56,18 +66,16 @@ or Russian voice will sound OK, but each word is spoken separately so it
 won't flow properly.
 
 Sample texts in various languages can be found at
-[http://\<language\>.wikipedia.org](http://meta.wikimedia.org/wiki/List_of_Wikipedias)
-and [www.gutenberg.org](http://www.gutenberg.org/)
+[wikipedia](http://meta.wikimedia.org/wiki/List_of_Wikipedias)
+and [gutenberg](http://www.gutenberg.org/)
 
-### 3.1 Voice Files {.western}
+## Voice Files
 
 A number of Voice files are provided in the
-`espeak-data/voices`{.western} directory. You can select one of these
-with the **-v \<voice filename\>** parameter to the speak command, eg:
+`espeak-data/voices` directory. You can select one of these
+with the `-v \<voice filename\>` parameter to the speak command, eg:
 
-~~~~ {.western style="margin-bottom: 0.5cm"}
    espeak-ng -vaf
-~~~~
 
 to speak using the Afrikaans voice.
 
@@ -78,48 +86,61 @@ code](http://www.sil.org/iso639-3/codes.asp) can be used.
 
 For details of the voice files see [Voices](voices.html).
 
-#### Default Voice {.western}
+### Default Voice
 
-### 3.2 English Voices {.western}
+**default**  
+  This voice is used if none is specified in the speak command. Copy your preferred voice to "default" so you can use the speak command without the need to specify a voice.
 
-### 3.3 Voice Variants {.western}
+## English Voices
+
+* **en**  
+  is the standard default English voice.
+
+* **en-us**  
+  American English.
+
+* **en-sc**  
+  English with a Scottish accent.
+
+* **en-n**  
+  en-rp  
+  en-wm**  
+  are different English voices. These can be considered caricatures of various British accents: Northern, Received Pronunciation, West Midlands respectively.
+
+## Voice Variants
 
 To make alternative voices for a language, you can make additional voice
 files in espeak-data/voices which contains commands to change various
-voice and pronunciation attributes. See [voices.html](voices.html).
+voice and pronunciation attributes. See [voices](voices.md).
 
 Alternatively there are some preset voice variants which can be applied
-to any of the language voices, by appending `+`{.western} and a variant
+to any of the language voices, by appending **+** and a variant
 name. Their effects are defined by files in
-`espeak-data/voices/!v`{.western}.
+`espeak-data/voices/!v`.
 
-The variants are `+m1 +m2 +m3 +m4 +m5 +m6 +m7`{.western} for male
-voices, `+f1 +f2 +f3 +f4 +f5 `{.western}for female voices, and
-`+croak +whisper`{.western} for other effects. For example:
+The variants are `+m1 +m2 +m3 +m4 +m5 +m6 +m7` for male
+voices, `+f1 +f2 +f3 +f4 +f5 `for female voices, and
+`+croak +whisper` for other effects. For example:
 
-~~~~ {.western style="margin-bottom: 0.5cm"}
    espeak-ng -ven+m3
-~~~~
 
 The available voice variants can be listed with:
 
-~~~~ {.western style="margin-bottom: 0.5cm"}
    espeak-ng --voices=variant
-~~~~
 
-### 3.4 Other Languages {.western}
+## Other Languages
 
-The eSpeak speech synthesizer does text to speech for the following
+The eSpeak NG speech synthesizer does text to speech for the following
 additional langauges.
 
-### 3.5 Provisional Languages {.western}
+## Provisional Languages
 
 These languages are only initial naive implementations which have had
 little or no feedback and improvement from native speakers.
 
-### 3.6 Mbrola Voices {.western}
+## Mbrola Voices
 
 Some additional voices, whose name start with **mb-** (for example
-**mb-en1**) use eSpeak as a front-end to Mbrola diphone voices. eSpeak
+**mb-en1**) use eSpeak NG as a front-end to Mbrola diphone voices. eSpeak NG
 does the spelling-to-phoneme translation and intonation. See
-[mbrola.html](mbrola.html).
+[mbrola](mbrola.md).
