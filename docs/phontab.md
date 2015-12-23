@@ -118,77 +118,48 @@ indicates only for vowels, (C) only for consonants)
 
 Type. One of these must be present.
 
-+------------+-----------------------------------------------+
-| **vowel**  |                                               |
-+------------+-----------------------------------------------+
-| **liquid** | semi-vowels, such as:  `r, l, j, w`           |
-+------------+-----------------------------------------------+
-| **nasal**  | nasal eg:  `m, n, N`                          |
-+------------+-----------------------------------------------+
-| **stop**   | stop eg:  `p, b, t, d, k, g`                  |
-+------------+-----------------------------------------------+
-| **frc**    | fricative eg:  `f, v, T, D, s, z, S, Z, C, x` |
-+------------+-----------------------------------------------+
-| **afr**    | affricate eg:  `tS, dZ`                       |
-+------------+-----------------------------------------------+
-| **pause**  |                                               |
-+------------+-----------------------------------------------+
-| **stress** | used for stress symbols, eg: ' , = %          |
-+------------+-----------------------------------------------+
-| **virtual**| Used to represent a class of phonemes.        |
-+------------+-----------------------------------------------+
+Type|Description
+-----------|----------------------------------------------
+**vowel**  |
+**liquid** | semi-vowels, such as:  `r, l, j, w`
+**nasal**  | nasal eg:  `m, n, N`
+**stop**   | stop eg:  `p, b, t, d, k, g`
+**frc**    | fricative eg:  `f, v, T, D, s, z, S, Z, C, x` 
+**afr**    | affricate eg:  `tS, dZ`
+**pause**  |
+**stress** | used for stress symbols, eg: ' , = %
+**virtual**| Used to represent a class of phonemes.
 
 Properties:
 
-+--------------+----------------------------------------------------------------------------------+
-|**vls**       | (C) voiceless eg. `p, t, k, f, s`                                                |
-+--------------+----------------------------------------------------------------------------------+
-|**vcd**       | (C) voiced eg. `b, d, g, v, z`                                                   |
-+--------------+----------------------------------------------------------------------------------+
-|**sibilant**  | (C) eg: `s, z, S, Z, tS, dZ`                                                     |
-+--------------+----------------------------------------------------------------------------------+
-|**palatal**   | (C) A palatal or palatalized consonant.                                          |
-+--------------+----------------------------------------------------------------------------------+
-|**rhotic**    | (C) An "r" type consonant.                                                       |
-+--------------+----------------------------------------------------------------------------------+
-|**unstressed**| (V) This vowel is always unstressed, unless explicitly marked otherwise.         |
-+--------------+----------------------------------------------------------------------------------+
-|**nolink**    | Prevent any linking from the previous phoneme.                                   |
-+--------------+----------------------------------------------------------------------------------+
-|**nopause**   | Used in a `liquid` or `nasal` phoneme to prevent eSpeak inserting a short        |
-|              | pause if a word starts with this phoneme and the previous word ends with a vowel.|
-+--------------+----------------------------------------------------------------------------------+
-|**trill**     | (C) Apply trill to the voicing.                                                  |
-+--------------+----------------------------------------------------------------------------------+
+Property|Description
+--------------|--------------------------------------
+**vls**       | (C) voiceless eg. `p, t, k, f, s`
+**vcd**       | (C) voiced eg. `b, d, g, v, z`
+**sibilant**  | (C) eg: `s, z, S, Z, tS, dZ`
+**palatal**   | (C) A palatal or palatalized consonant.
+**rhotic**    | (C) An "r" type consonant.
+**unstressed**| (V) This vowel is always unstressed, unless explicitly marked otherwise.
+**nolink**    | Prevent any linking from the previous phoneme.
+**nopause**   | Used in a `liquid` or `nasal` phoneme to prevent eSpeak inserting a short pause if a word starts with this phoneme and the previous word ends with a vowel.
+**trill**     | \(C\) Apply trill to the voicing.
 
 Place of Articulation (C):
 
-+--------+------------------+
-|**blb** | bi-labial        |
-+--------+------------------+
-|**ldb** | labio-dental     |
-+--------+------------------+
-|**dnt** | dental           |
-+--------+------------------+
-|**alv** | alveolar         |
-+--------+------------------+
-|**rfx** | retroflex        |
-+--------+------------------+
-|**pla** | palato-alveolar  |
-+--------+------------------+
-|**pal** | palatal          |
-+--------+------------------+
-|**vel** | velar            |
-+--------+------------------+
-|**lbv** | labio-velar      |
-+--------+------------------+
-|**uvl** | uvular           |
-+--------+------------------+
-|**phr** | pharyngeal       |
-+--------+------------------+
-|**glt** | glottal          |
-+--------+------------------+
-
+Articulation|Description
+--------|------------------
+**blb** | bi-labial
+**ldb** | labio-dental
+**dnt** | dental
+**alv** | alveolar
+**rfx** | retroflex
+**pla** | palato-alveolar
+**pal** | palatal
+**vel** | velar
+**lbv** | labio-velar
+**uvl** | uvular
+**phr** | pharyngeal
+**glt** | glottal
 
 * **starttype** \<phoneme\>  
   Allocates this phoneme to a group so that conditions such as nextPh(#e) can test for any of a group of phonemes. Pre-defined groups for use for vowels are: #@ #a #e #i #o #u. Additional groups can be defined as phonemes with type "virtual".
@@ -441,13 +412,13 @@ is limited by the speak program.
   2:   f1 formant frequency decreases more.
 
 * **f2=<freq> <min> <max>**  
-  <freq>:   The frequency towards which the f2 formant moves (Hz).  
-  <min>:   Signed integer (Hz).  The minimum f2 frequency change.  
-  <max>:   Signed integer (Hz).  The maximum f2 frequency change.
+  \<freq\>: The frequency towards which the f2 formant moves (Hz).  
+  \<min\>: Signed integer (Hz).  The minimum f2 frequency change.  
+  \<max\>: Signed integer (Hz).  The maximum f2 frequency change.
 
-* **f3=<change> <amplitude>** 
-  <change>:   Signed integer (Hz).  Frequence change of f3, f4, and f5 formants.  
-  <amplitude>:   Amplitude of the f3, f4, and f5 formants at the end of the transition. 100 = no change.
+* **f3=<change> <amplitude>**   
+  \<change\>: Signed integer (Hz).  Frequence change of f3, f4, and f5 formants.  
+  \<amplitude\>: Amplitude of the f3, f4, and f5 formants at the end of the transition. 100 = no change.
 
 * **brk**  
   Break. Do not merge the synthesized wave of the consonant into the vowel. This will produce a discontinuity in the formants.

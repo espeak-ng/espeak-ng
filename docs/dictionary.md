@@ -141,9 +141,8 @@ are used in \<pre\> and \<post\> with special meanings.
 ### Special characters in \<phoneme string\>:
 
 
-**_^_\<language code\>**
-
-> Translate using a different language.
+* **_^_\<language code\>**  
+  Translate using a different language.
 If this rule is selected when translating a word, then the translation is aborted and the word is re-translated using the specified different language. \<language code\> may be upper or lower case. This can be used to recognise certain letter combinations as being foreign words and to use the foreign pronunciation for them. eg:
  `th (_    _^_EN`
 
@@ -326,7 +325,7 @@ $u                        | The word is unstressed. In the case of a multi-sylla
 $u1                       | The word is unstressed, with a slight stress on its 1st syllable.  
 $u2                       | The word is unstressed, with a slight stress on its 2nd syllable.  
 $u3                       | The word is unstressed, with a slight stress on its 3rd syllable.  
-$u+ $u1+ $u2+ $u3+     | As above, but the word has full stress if it's at the end of a clause.                             
+$u+ $u1+ $u2+ $u3+        | As above, but the word has full stress if it's at the end of a clause.                             
 $1                        | Primary stress on the 1st syllable. 
 $2                        | Primary stress on the 2nd syllable. 
 $3                        | Primary stress on the 3rd syllable. 
@@ -352,7 +351,7 @@ $sentence                 | The rule only applies if the clause includes end-of-
 $abbrev                   | This has two meanings. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c"). If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does not indicate emphasis (if the "emphasize all-caps" is on).                   
 $accent                   | Used for the pronunciation of a single alphabetic character. The character name is spoken as the base-letter name plus the accent (diacritic) name. eg. It can be used to specify that "â" is spoken as "a" "circumflex".                       
 $combine                  | This word is treated as though it is combined with the following word with a hyphen. This may be subject to fuither conditions for certain languages.                          
-$alt   $alt2   $alt3    | These are language specific. Their use should be described in the language's \*\*\_list file 
+$alt   $alt2   $alt3      | These are language specific. Their use should be described in the language's \*\*\_list file 
 $verb                     | Use this pronunciation if it's a verb.                               
 $noun                     | Use this pronunciation if it's a noun.                               
 $past                     | Use this pronunciation if it's past tense.                              
