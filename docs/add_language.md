@@ -130,6 +130,10 @@ the `fr_rules` and `fr_list` sources by the command:
 
 	espeak-ng --compile=fr
 
+or by:
+
+	make fr
+
 Details of the contents of the dictionary files are given in
 [Dictionary](dictionary.md).
 

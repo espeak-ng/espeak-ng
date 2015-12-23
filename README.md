@@ -10,8 +10,6 @@
 - [Testing](#testing)
 - [Installing](#installing)
 - [Documentation](#documentation)
-- [Building Voices](#building-voices)
-- [Adding New Voices](#adding-new-voices)
 - [Praat Changes](#praat-changes)
 - [eSpeak for Android](#espeak-for-android)
 - [Historical Versions](#historical-versions)
@@ -191,27 +189,6 @@ on using and creating voices/languages for for eSpeak NG.
 
 The [espeak-ng](src/espeak-ng.1.ronn) command-line documentation provides a
 reference of the different command-line options available, with example usage.
-
-## Building Voices
-
-If you are modifying a language's phoneme, voice or dictionary files, you
-can just build that voice by running:
-
-    make <lang-code>
-
-For example, if you add entries in the `dictsource/en_extra` file, you can
-run:
-
-    make en
-
-to build an English voice file with those changes in without rebuilding
-all the voices. This will make it easier to spot errors.
-
-## Adding New Voices
-
-In order to build a new voice with eSpeak NG, you need to update the
-`Makefile.am` file with the relevant dependency information. You can find
-out how to do this by looking at other voices in that file.
 
 ## Praat Changes
 
