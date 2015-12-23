@@ -32,7 +32,6 @@ EXTRA_DIST += ChangeLog
 
 all-local: \
 	espeak-data/phontab \
-	docs/speak_lib.h \
 	dictionaries \
 	mbrola
 
@@ -66,9 +65,6 @@ docs:	docs/index.html \
 	src/espeak-ng.1.html \
 	README.html \
 	src/espeak-ng.1
-
-docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
-	cp $< $@
 
 ##### build targets:
 

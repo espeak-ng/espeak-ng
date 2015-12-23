@@ -3,7 +3,14 @@
 - [Features](#features)
 - [History](#history)
 - [Languages](languages.html)
-- [Documents](docindex.html)
+  - [Adding a Language](add_language.html)
+  - [Pronunciation Dictionary](dictionary.html)
+- [Voice Files](voices.html)
+  - [MBROLA Voices](mbrola.html)
+  - [Phonemes](phonemes.html)
+  - [Phoneme Tables](phontab.html)
+- [Intonation](intonation.html)
+- [Markup Tags](ssml.html)
 - [License](../COPYING)
 
 ----------
