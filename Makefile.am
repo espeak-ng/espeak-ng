@@ -53,10 +53,19 @@ distclean-local:
 ##### documentation:
 
 %.html: %.md _layouts/webpage.html
-	cat $< | sed -e 's/\.md)/.html)/g' | kramdown --template _layouts/webpage.html > $@
+	cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
+		kramdown --template _layouts/webpage.html > $@
+
+%.html: %.ronn
+	ronn --html $<
+
+src/espeak-ng.1: src/espeak-ng.1.ronn
+	ronn --roff $<
 
 docs:	docs/index.html \
-	README.html
+	src/espeak-ng.1.html \
+	README.html \
+	src/espeak-ng.1
 
 docs/speak_lib.h: src/include/espeak-ng/speak_lib.h
 	cp $< $@

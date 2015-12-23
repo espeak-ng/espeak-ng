@@ -43,6 +43,7 @@ Optionally, you need:
 To build the documentation, you need:
 
 1.  the `kramdown` markdown processor.
+2.  the `ronn` man-page markdown processor.
 
 ### Debian
 
@@ -66,6 +67,7 @@ Documentation dependencies:
 | Dependency    | Install                              |
 |---------------|--------------------------------------|
 | kramdown      | `sudo apt-get install ruby-kramdown` |
+| ronn          | `sudo apt-get install ruby-ronn`     |
 
 Cross-compiling for windows:
 
@@ -186,6 +188,9 @@ already have an espeak-ng install by running:
 
 The [main documentation](docs/index.md) for eSpeak NG provides more information
 on using and creating voices/languages for for eSpeak NG.
+
+The [espeak-ng](src/espeak-ng.1.ronn) command-line documentation provides a
+reference of the different command-line options available, with example usage.
 
 ## Building Voices
 
