@@ -48,29 +48,18 @@ marks and pauses), these are defined in the phoneme data file (_TODO_).
 
 The utility 'phonemes' are:
 
-+-----------+--------------------------------------+
-| **'**     | primary stress                       |
-+-----------+--------------------------------------+
-| **,**     | secondary stress                     |
-+-----------+--------------------------------------+
-| **%**     | unstressed syllable                  |
-+-----------+--------------------------------------+
-| **=**     | put the primary stress on the        |
-|           | preceding syllable                   |
-+-----------+--------------------------------------+
-| **\_:**   | short pause                          |
-+-----------+--------------------------------------+
-| **\_**    | a shorter pause                      |
-+-----------+--------------------------------------+
-| **||**    | indicates a word boundary within a   |
-|           | phoneme string                       |
-+-----------+--------------------------------------+
-| **|**     | can be used to separate two adjacent |
-|           | characters, to prevent them from     |
-|           | being considered as a                |
-|           | multi-character phoneme mnemonic     |
-+-----------+--------------------------------------+
 
+Symbol    | Description
+--------- | -------------
+**'**     | primary stress
+**,**     | secondary stress
+**%**     | unstressed syllable
+**=**     | put the primary stress on the preceding syllable
+**\_:**   | short pause
+**\_**    | a shorter pause
+**\|\|**  | indicates a word boundary within a phoneme string
+**\|**    | can be used to separate two adjacent characters, to prevent them from being considered as a multi-character phoneme mnemonic 
+ 
 It is not necessary to specify the stress of every syllable. Stress
 markers are only needed in order to change the effect of the language's
 default stress rule.
@@ -100,26 +89,21 @@ repeated until all the letters of the word have been processed.
 
 The rules are organized in groups, each starting with a ".group" line:
 
-**.group \<character\>**
+* **.group \<character\>**  
+  A group for each letter or character.
 
-> A group for each letter or character.
+* **.group \<2 characters\>**  
+  Optional groups for some common 2 letter combinations. This is only needed, for efficiency, in cases where there are many rules for a particular letter. They would not be needed for a language which has regular spelling rules. The first character can only be an ascii character (less than 0x80).
 
-**.group \<2 characters\>**
+* **.group**  
+  A group for other characters which don't have their own group.
 
-> Optional groups for some common 2 letter combinations. This is only needed, for efficiency, in cases where there are many rules for a particular letter. They would not be needed for a language which has regular spelling rules. The first character can only be an ascii character (less than 0x80).
+* **.L\<nn\>**  
+  Defines a group of letter sequences, any of which can match with Lnn in a pre or post rule (see below). nn is a 2 digit decimal number in the range 01 to 25. eg:  
+  `.L01 b bl br pl pr`
 
-**.group**
-
-> A group for other characters which don't have their own group.
-
-**.L\<nn\>**
-
-> Defines a group of letter sequences, any of which can match with Lnn in a pre or post rule (see below). nn is a 2 digit decimal number in the range 01 to 25. eg:
-`.L01 b bl br pl pr`
-
-**.replace**
-
-> See section [Character Substitution](#character-substitution).
+* **.replace**  
+  See section [Character Substitution](#character-substitution).
 
 
 When matching a word, firstly the 2-letter group for the two letters at
@@ -167,43 +151,21 @@ indicates that a word which ends in "th" is translated using the English transla
 
 ### Special Characters in both \<pre\> and \<post\>
 
-+------------------+--------------------------------------+
-| **\_**           | Beginning or end of a word (or a     |
-|                  | hyphen).                             |
-+------------------+--------------------------------------+
-| **-**            | Hyphen.                              |
-+------------------+--------------------------------------+
-| **A**            | Any vowel (the set of vowel          |
-|                  | characters may be defined for a      |
-|                  | particular language).                |
-+------------------+--------------------------------------+
-| **C**            | Any consonant.                       |
-+------------------+--------------------------------------+
-| **B H F G Y**    | These may indicate other sets of     |
-|                  | characters (defined for a particular |
-|                  | language).                           |
-+------------------+--------------------------------------+
-| **L\<nn\>**      | Any of the sequence of characters    |
-|                  | defined as a letter group (see 1 |
-|                  | above).                              |
-+------------------+--------------------------------------+
-| **D**            | Any digit.                           |
-+------------------+--------------------------------------+
-| **K**            | Not a vowel (i.e. a consonant or     |
-|                  | word boundary or non-alphabetic      |
-|                  | character).                          |
-+------------------+--------------------------------------+
-| **X**            | There is no vowel until the word     |
-|                  | boundary.                            |
-+------------------+--------------------------------------+
-| **Z**            | A non-alphabetic character.          |
-+------------------+--------------------------------------+
-| **%**            | Doubled (placed before a character   |
-|                  | in \<pre\> and after it in \<post\>. |
-+------------------+--------------------------------------+
-| **/**            | The following character is treated   |
-|                  | literally.                           |
-+------------------+--------------------------------------+
+
+Symbol           | Description
+-----------------| -----------
+**\_**           | Beginning or end of a word (or a hyphen)
+**-**            | Hyphen.                              
+**A**            | Any vowel (the set of vowel characters may be defined for a particular language).                
+**C**            | Any consonant.                       
+**B H F G Y**    | These may indicate other sets of characters (defined for a particular language).                           
+**L\<nn\>**      | Any of the sequence of characters defined as a letter group (see above).                              
+**D**            | Any digit.                           
+**K**            | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character).                          
+**X**            | There is no vowel until the word boundary.                            
+**Z**            | A non-alphabetic character.          
+**%**            | Doubled (placed before a character in \<pre\> and after it in \<post\>. 
+**/**            | The following character is treated literally.                           
 
 The sets of letters indicated by A, B, C, E, F G may be defined
 differently for each language.
@@ -220,16 +182,10 @@ Examples of rules:
 
 ### Special characters only in \<pre\>:
 
-+-----------------+--------------------------------------+
-| **@**           | Any syllable.                        |
-+-----------------+--------------------------------------+
-| **&**           | A syllable which may be stressed     |
-|                 | (i.e. is not defined as unstressed). |
-+-----------------+--------------------------------------+
-| **V**           | Matches only if a previous word has  |
-|                 | indicated that a verb form is        |
-|                 | expected.                            |
-+-----------------+--------------------------------------+
+Symbol          | Description
+**@**           | Any syllable.   
+**&**           | A syllable which may be stressed (i.e. is not defined as unstressed).
+**V**           | Matches only if a previous word has  indicated that a verb form is expected.                            
 
 eg.
 ```
@@ -242,51 +198,19 @@ syllable counting.
 
 ### Special characters only in \<post\>
 
-+--------------------+--------------------------------------+
-| **@**              | A vowel follows somewhere in the     |
-|                    | word.                                |
-+--------------------+--------------------------------------+
-| **+**              | Force an increase in the score in    |
-|                    | this rule (may be repeated for more  |
-|                    | effect).                             |
-+--------------------+--------------------------------------+
-| **S\<number\>**    | This number of matching characters   |
-|                    | are a standard suffix, remove them   |
-|                    | and retranslate the word.            |
-+--------------------+--------------------------------------+
-| **P\<number\>**    | This number of matching characters   |
-|                    | are a standard prefix, remove them   |
-|                    | and retranslate the word.            |
-+--------------------+--------------------------------------+
-| **Lnn**            | **nn** is a 2-digit decimal number   |
-|                    | in the range 01 to 20\               |
-|                    |  Matches with any of the letter      |
-|                    | sequences which have been defined    |
-|                    | for letter group **nn**              |
-+--------------------+--------------------------------------+
-| **N**              | Only use this rule if the word is    |
-|                    | not a retranslation after removing a |
-|                    | suffix.                              |
-+--------------------+--------------------------------------+
-| **\#**             | (English specific) change the next   |
-|                    | "e" into a special character "E"     |
-+--------------------+--------------------------------------+
-| **\$noprefix**     | Only use this rule if the word is    |
-|                    | not a retranslation after removing a |
-|                    | prefix.                              |
-+--------------------+--------------------------------------+
-| **\$w\_alt\        | Only use this rule if the word is    |
-|  \$w\_alt2\        | found in the \*\_list file with the  |
-|  \$w\_alt3**       | **\$alt**, **\$alt2** or **\$alt3**  |
-|                    | attribute respectively.              |
-+--------------------+--------------------------------------+
-| **\$p\_alt\        | Only use this rule if the part-word, |
-|  \$p\_alt2\        | up to and including the pre and      |
-|  \$p\_alt3**       | match parts of this rule, is found   |
-|                    | in the \*\_list file with the        |
-|                    | **\$alt**, **\$alt2** or **\$alt3**  |
-|                    | attribute respectively.              |
-+--------------------+--------------------------------------+
+
+Symbol             | Description
+-------------------| -----------
+**@**              | A vowel follows somewhere in the word.                               
+**+**              | Force an increase in the score in this rule (may be repeated for more effect).                            
+**S\<number\>**    | This number of matching characters are a standard suffix, remove them and retranslate the word.           
+**P\<number\>**    | This number of matching characters are a standard prefix, remove them and retranslate the word.           
+**Lnn**            | **nn** is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group **nn** 
+**N**              | Only use this rule if the word is not a retranslation after removing a suffix.                             
+**\#**             | (English specific) change the next "e" into a special character "E"    
+**$noprefix**     | Only use this rule if the word is not a retranslation after removing a prefix.                             
+**$w\_alt**       | Only use this rule if the word is $w\_alt2 found in the \*\_list file with the **$w\_alt3** **$alt**, **$alt2** or **$alt3** attribute respectively.             
+**$p\_alt**       | Only use this rule if the part-word, $p\_alt2\ up to and including the pre and $p\_alt3 match parts of this rule, is found in the \*\_list file with the **$alt**, **$alt2** or **$alt3** attribute respectively.             
 
 eg.
 ```
@@ -306,41 +230,23 @@ S\<number\> may be followed by additional letters (eg. S2ei ). Some of
 these are probably specific to English, but similar functions could be
 made for other languages.
 
-+-------+--------------------------------------+
-| **q** | query the \_list file to find stress |
-|       | position or other attributes for the |
-|       | stem, but don't re-translate the     |
-|       | word with the suffix removed.        |
-+-------+--------------------------------------+
-| **t** | determine the stress pattern of the  |
-|       | word **before** adding the suffix    |
-+-------+--------------------------------------+
-| **d** | the previous letter may have been    |
-|       | doubled when the suffix was added.   |
-+-------+--------------------------------------+
-| **e** | "e" may have been removed.           |
-+-------+--------------------------------------+
-| **i** | "y" may have been changed to "i."    |
-+-------+--------------------------------------+
-| **v** | the suffix means the verb form of    |
-|       | pronunciation should be used.        |
-+-------+--------------------------------------+
-| **f** | the suffix means the next word is    |
-|       | likely to be a verb.                 |
-+-------+--------------------------------------+
-| **m** | after this suffix has been removed,  |
-|       | additional suffixes may be removed.  |
-+-------+--------------------------------------+
+Symbol| Description
+----- | -----------
+**q** | query the \_list file to find stress position or other attributes for the stem, but don't re-translate the word with the suffix removed.       
+**t** | determine the stress pattern of the word **before** adding the suffix   
+**d** | the previous letter may have been doubled when the suffix was added.  
+**e** | "e" may have been removed.          
+**i** | "y" may have been changed to "i."   
+**v** | the suffix means the verb form of pronunciation should be used.       
+**f** | the suffix means the next word is likely to be a verb.                
+**m** | after this suffix has been removed, additional suffixes may be removed. 
 
 P\<number\> may be followed by additonal letters (eg. P3v ).
 
-+--------+--------------------------------------+
-| **t**  | determine the stress pattern of the  |
-|        | word **before** adding the prefix    |
-+--------+--------------------------------------+
-| **v**  | the suffix means the verb form of    |
-|        | pronunciation should be used.        |
-+--------+--------------------------------------+
+Symbol| Description
+----- | -----------
+**t** | determine the stress pattern of the word **before** adding the prefix  
+**v** | the suffix means the verb form of pronunciation should be used.      
 
 ## Pronunciation Dictionary List
 
@@ -405,171 +311,56 @@ separate words.
 
 ### Special characters in \<phoneme string\>:
 
-+--------------------------------------+--------------------------------------+
-| **\_\^\_\<language code\>**          | Translate using a different          |
-|                                      | language. See explanation in 3       |
-|                                      | above.                               |
-+--------------------------------------+--------------------------------------+
+Symbol| Description
+----- | -----------
+**\_\^\_\<language code\>**  | Translate using a different language. See explanation above.                         
 
 ### 3 Flags
 
 A word (or group of words) may be given one or more flags, either
 instead of, or as well as, the phonetic translation.
 
-+--------------------------------------+--------------------------------------+
-| \$u                                  | The word is unstressed. In the case  |
-|                                      | of a multi-syllable word, a slight   |
-|                                      | stress is applied according to the   |
-|                                      | default stress rules.                |
-+--------------------------------------+--------------------------------------+
-| \$u1                                 | The word is unstressed, with a       |
-|                                      | slight stress on its 1st syllable.   |
-+--------------------------------------+--------------------------------------+
-| \$u2                                 | The word is unstressed, with a       |
-|                                      | slight stress on its 2nd syllable.   |
-+--------------------------------------+--------------------------------------+
-| \$u3                                 | The word is unstressed, with a       |
-|                                      | slight stress on its 3rd syllable.   |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| \$u+ \$u1+ \$u2+ \$u3+               | As above, but the word has full      |
-|                                      | stress if it's at the end of a       |
-|                                      | clause.                              |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| \$1                                  | Primary stress on the 1st syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$2                                  | Primary stress on the 2nd syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$3                                  | Primary stress on the 3rd syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$4                                  | Primary stress on the 4th syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$5                                  | Primary stress on the 5th syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$6                                  | Primary stress on the 6th syllable.  |
-+--------------------------------------+--------------------------------------+
-| \$7                                  | Primary stress on the 7th syllable.  |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| \$pause                              | Ensure a short pause before this     |
-|                                      | word (eg. for conjunctions such as   |
-|                                      | "and", some prepositions, etc).      |
-+--------------------------------------+--------------------------------------+
-| \$brk                                | Ensure a very short pause before     |
-|                                      | this word, shorter than \$pause (eg. |
-|                                      | for some prepositions, etc).         |
-+--------------------------------------+--------------------------------------+
-| \$only                               | The rule does not apply if a prefix  |
-|                                      | or suffix has already been removed.  |
-+--------------------------------------+--------------------------------------+
-| \$onlys                              | As \$only, except that a standard    |
-|                                      | plural ending is allowed.            |
-+--------------------------------------+--------------------------------------+
-| \$stem                               | The rule only applies if a suffix    |
-|                                      | has already been removed.            |
-+--------------------------------------+--------------------------------------+
-| \$strend                             | Word is fully stressed if it's at    |
-|                                      | the end of a clause.                 |
-+--------------------------------------+--------------------------------------+
-| \$strend2                            | As \$strend, but the word is also    |
-|                                      | stressed if followed only by         |
-|                                      | unstressed word(s).                  |
-+--------------------------------------+--------------------------------------+
-| \$unstressend                        | Word is unstressed if it's at the    |
-|                                      | end of a clause.                     |
-+--------------------------------------+--------------------------------------+
-| \$atend                              | Use this pronunciation if it's at    |
-|                                      | the end of a clause.                 |
-+--------------------------------------+--------------------------------------+
-| \$double                             | Cause a doubling of the initial      |
-|                                      | consonant of the following word      |
-|                                      | (used for Italian).                  |
-+--------------------------------------+--------------------------------------+
-| \$capital                            | Use this pronunciation if the word   |
-|                                      | has initial capital letter (eg.      |
-|                                      | polish v Polish).                    |
-+--------------------------------------+--------------------------------------+
-| \$allcaps                            | Use this pronunciation if the word   |
-|                                      | is all capitals.                     |
-+--------------------------------------+--------------------------------------+
-| \$dot                                | Ignore a . after this word even when |
-|                                      | followed by a capital letter (eg.    |
-|                                      | Mr. Dr. ).                           |
-+--------------------------------------+--------------------------------------+
-| \$hasdot                             | Use this pronunciation if the word   |
-|                                      | is followed by a dot. (This          |
-|                                      | attribute also implies \$dot).       |
-+--------------------------------------+--------------------------------------+
-| \$sentence                           | The rule only applies if the clause  |
-|                                      | includes end-of-sentence (i.e. it is |
-|                                      | not terminated by a comma). For      |
-|                                      | example, "\$atend \$sentence" means  |
-|                                      | that the rule only applies at the    |
-|                                      | end of a sentence.                   |
-+--------------------------------------+--------------------------------------+
-| \$abbrev                             | This has two meanings.\              |
-|                                      |   If there is no phoneme string:   |
-|                                      | Speak the word as individual         |
-|                                      | letters, even if it contains a vowel |
-|                                      | (eg. "abc" should be spoken as "a"   |
-|                                      | "b" "c").\                           |
-|                                      |   If there is a phoneme string:    |
-|                                      | This word is capitalized because it  |
-|                                      | is an abbreviation and               |
-|                                      | capitalization does not indicate     |
-|                                      | emphasis (if the "emphasize          |
-|                                      | all-caps" is on).                    |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| \$accent                             | Used for the pronunciation of a      |
-|                                      | single alphabetic character. The     |
-|                                      | character name is spoken as the      |
-|                                      | base-letter name plus the accent     |
-|                                      | (diacritic) name. eg. It can be used |
-|                                      | to specify that "â" is spoken as "a" |
-|                                      | "circumflex".                        |
-+--------------------------------------+--------------------------------------+
-| \$combine                            | This word is treated as though it is |
-|                                      | combined with the following word     |
-|                                      | with a hyphen. This may be subject   |
-|                                      | to fuither conditions for certain    |
-|                                      | languages.                           |
-+--------------------------------------+--------------------------------------+
-| \$alt   \$alt2   \$alt3              | These are language specific. Their   |
-|                                      | use should be described in the       |
-|                                      | language's \*\*\_list file           |
-+--------------------------------------+--------------------------------------+
-|                                      |                                      |
-+--------------------------------------+--------------------------------------+
-| \$verb                               | Use this pronunciation if it's a     |
-|                                      | verb.                                |
-+--------------------------------------+--------------------------------------+
-| \$noun                               | Use this pronunciation if it's a     |
-|                                      | noun.                                |
-+--------------------------------------+--------------------------------------+
-| \$past                               | Use this pronunciation if it's past  |
-|                                      | tense.                               |
-+--------------------------------------+--------------------------------------+
-| \$verbf                              | The following word is probably is a  |
-|                                      | verb.                                |
-+--------------------------------------+--------------------------------------+
-| \$verbsf                             | The following word is probably is a  |
-|                                      | if it has an "s" suffix.             |
-+--------------------------------------+--------------------------------------+
-| \$nounf                              | The following word is probably not a |
-|                                      | verb.                                |
-+--------------------------------------+--------------------------------------+
-| \$pastf                              | The following word is probably past  |
-|                                      | tense.                               |
-+--------------------------------------+--------------------------------------+
-| \$verbextend                         | Extend the influence of \$verbf and  |
-|                                      | \$verbsf.                            |
-+--------------------------------------+--------------------------------------+
+Symbol| Description
+----- | -----------
+$u                        | The word is unstressed. In the case of a multi-syllable word, a slight stress is applied according to the default stress rules.               
+$u1                       | The word is unstressed, with a slight stress on its 1st syllable.  
+$u2                       | The word is unstressed, with a slight stress on its 2nd syllable.  
+$u3                       | The word is unstressed, with a slight stress on its 3rd syllable.  
+$u+ $u1+ $u2+ $u3+     | As above, but the word has full stress if it's at the end of a clause.                             
+$1                        | Primary stress on the 1st syllable. 
+$2                        | Primary stress on the 2nd syllable. 
+$3                        | Primary stress on the 3rd syllable. 
+$4                        | Primary stress on the 4th syllable. 
+$5                        | Primary stress on the 5th syllable. 
+$6                        | Primary stress on the 6th syllable. 
+$7                        | Primary stress on the 7th syllable. 
+$pause                    | Ensure a short pause before this word (eg. for conjunctions such as "and", some prepositions, etc).     
+$brk                      | Ensure a very short pause before this word, shorter than $pause (eg. for some prepositions, etc).        
+$only                     | The rule does not apply if a prefix or suffix has already been removed. 
+$onlys                    | As $only, except that a standard  plural ending is allowed.           
+$stem                     | The rule only applies if a suffix has already been removed.           
+$strend                   | Word is fully stressed if it's at the end of a clause.                
+$strend2                  | As $strend, but the word is also stressed if followed only by unstressed word(s).                 
+$unstressend              | Word is unstressed if it's at the end of a clause.                    
+$atend                    | Use this pronunciation if it's at the end of a clause.                
+$double                   | Cause a doubling of the initial consonant of the following word (used for Italian).                 
+$capital                  | Use this pronunciation if the word has initial capital letter (eg. polish v Polish).                   
+$allcaps                  | Use this pronunciation if the word is all capitals.                    
+$dot                      | Ignore a . after this word even when followed by a capital letter (eg. Mr. Dr. ).                          
+$hasdot                   | Use this pronunciation if the word is followed by a dot. (This attribute also implies $dot).      
+$sentence                 | The rule only applies if the clause includes end-of-sentence (i.e. it is not terminated by a comma). For example, "$atend $sentence" means that the rule only applies at the end of a sentence.                  
+$abbrev                   | This has two meanings. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c"). If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does not indicate emphasis (if the "emphasize all-caps" is on).                   
+$accent                   | Used for the pronunciation of a single alphabetic character. The character name is spoken as the base-letter name plus the accent (diacritic) name. eg. It can be used to specify that "â" is spoken as "a" "circumflex".                       
+$combine                  | This word is treated as though it is combined with the following word with a hyphen. This may be subject to fuither conditions for certain languages.                          
+$alt   $alt2   $alt3    | These are language specific. Their use should be described in the language's \*\*\_list file 
+$verb                     | Use this pronunciation if it's a verb.                               
+$noun                     | Use this pronunciation if it's a noun.                               
+$past                     | Use this pronunciation if it's past tense.                              
+$verbf                    | The following word is probably is a verb.                               
+$verbsf                   | The following word is probably is a if it has an "s" suffix.            
+$nounf                    | The following word is probably not a verb.                               
+$pastf                    | The following word is probably past tense.                              
+$verbextend               | Extend the influence of $verbf and $verbsf.                           
 
 The last group are probably English specific, but something similar may
 be useful in other languages. They are a crude attempt to improve the
@@ -593,14 +384,14 @@ get [t@].
 Rather than specifying the pronunciation of a word by a phoneme string,
 you can specify another "sounds like" word.
 
-Use the attribute **\$text** eg.
+Use the attribute **$text** eg.
 ```
     cough    coff   $text
 ```
 
-Alternatively, use the command **\$textmode** on a line by itself to
+Alternatively, use the command **$textmode** on a line by itself to
 turn this on for all subsequent entries in the file, until it's turned
-off by **\$phonememode**. eg.
+off by **$phonememode**. eg.
 ```
     $textmode
     cough     coff
@@ -657,45 +448,21 @@ language's `langopts.numbers` option. This constructs spoken
 numbers from fragments according to various options which can be set for
 each language. The number fragments are given in the **\_list** file.
 
-+--------------------------------------+--------------------------------------+
-| \_0 to \_9                           | The numbers 0 to 9                   |
-+--------------------------------------+--------------------------------------+
-| \_13                                 | etc. Any pronunciations which are    |
-|                                      | needed for specific numbers in the   |
-|                                      | range \_10 to \_99                   |
-+--------------------------------------+--------------------------------------+
-| \_2X  \_3X                           | Twenty, thirty, etc., used to make   |
-|                                      | numbers 10 to 99                     |
-+--------------------------------------+--------------------------------------+
-| \_0C                                 | The word for "hundred"               |
-+--------------------------------------+--------------------------------------+
-| \_1C  \_2C                           | Special pronunciation for one        |
-|                                      | hundred, two hundred, etc., if       |
-|                                      | needed.                              |
-+--------------------------------------+--------------------------------------+
-| \_1C0                                | Special pronunciation (if needed)    |
-|                                      | for 100 exactly                      |
-+--------------------------------------+--------------------------------------+
-| \_0M1                                | The word for "thousand"              |
-+--------------------------------------+--------------------------------------+
-| \_0M2                                | The word for "million"               |
-+--------------------------------------+--------------------------------------+
-| \_0M3                                | The word for 1000000000              |
-+--------------------------------------+--------------------------------------+
-| \_1M1  \_2M1                         | Special pronunciation for one        |
-|                                      | thousand, two thousand, etc, if      |
-|                                      | needed                               |
-+--------------------------------------+--------------------------------------+
-| \_0and                               | Word for "and" when speaking numbers |
-|                                      | (eg. "two hundred and twenty").      |
-+--------------------------------------+--------------------------------------+
-| \_dpt                                | Word spoken for the decimnal         |
-|                                      | point/comma                          |
-+--------------------------------------+--------------------------------------+
-| \_dpt2                               | Word spoken (if any) at the end of   |
-|                                      | all the digits after a decimal       |
-|                                      | point.                               |
-+--------------------------------------+--------------------------------------+
+Symbol| Description
+----- | -----------
+\_0 to \_9      | The numbers 0 to 9                  
+\_13            | etc. Any pronunciations which are needed for specific numbers in the range \_10 to \_99                  
+\_2X  \_3X      | Twenty, thirty, etc., used to make  numbers 10 to 99                    
+\_0C            | The word for "hundred"              
+\_1C  \_2C      | Special pronunciation for one hundred, two hundred, etc., if needed.                             
+\_1C0           | Special pronunciation (if needed) for 100 exactly                     
+\_0M1           | The word for "thousand"             
+\_0M2           | The word for "million"              
+\_0M3           | The word for 1000000000             
+\_1M1  \_2M1    | Special pronunciation for one thousand, two thousand, etc, if needed                              
+\_0and          | Word for "and" when speaking numbers (eg. "two hundred and twenty").     
+\_dpt           | Word spoken for the decimnal point/comma                         
+\_dpt2          | Word spoken (if any) at the end of all the digits after a decimal point.                              
 
 ## Character Substitution
 
@@ -707,7 +474,7 @@ translated using the spelling-to-phoneme rules. Only the lower-case
 version of the characters needs to be specified. eg.
 
 ```
-  .replace\
+  .replace
      ô   ő   // (Hungarian) allow the use of o-circumflex instead of o-double-accute
      û   ű
     cx   ĉ   // (Esperanto) allow "cx" as an alternative to c-circumflex
