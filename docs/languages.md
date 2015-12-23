@@ -103,8 +103,8 @@ For details of the voice files see [Voices](voices.html).
   English with a Scottish accent.
 
 * **en-n**  
-  en-rp  
-  en-wm**  
+  **en-rp**  
+  **en-wm**  
   are different English voices. These can be considered caricatures of various British accents: Northern, Received Pronunciation, West Midlands respectively.
 
 ## Voice Variants
