@@ -38,8 +38,6 @@ extern int GetFileLength(const char *filename);
 // This version of the command-line speak program uses the
 // libespeak.so.1  library
 
-
-
 static const char *help_text =
     "\nespeak-ng [options] [\"<words>\"]\n\n"
     "-f <text file>   Text file to speak\n"
@@ -102,9 +100,6 @@ static const char *help_text =
     "\t   List the available voices for the specified language.\n"
     "\t   If <language> is omitted, then list all voices.\n";
 
-
-
-
 int samplerate;
 int quiet = 0;
 unsigned int samples_total = 0;
@@ -115,7 +110,6 @@ unsigned int wavefile_count = 0;
 FILE *f_wavfile = NULL;
 char filetype[5];
 char wavefile[200];
-
 
 void DisplayVoices(FILE *f_out, char *language)
 {
@@ -177,9 +171,6 @@ void DisplayVoices(FILE *f_out, char *language)
 	}
 }
 
-
-
-
 static void Write4Bytes(FILE *f, int value)
 {
 // Write 4 bytes to a file, least significant first
@@ -190,8 +181,6 @@ static void Write4Bytes(FILE *f, int value)
 		value = value >> 8;
 	}
 }
-
-
 
 int OpenWavFile(char *path, int rate)
 {
@@ -219,15 +208,12 @@ int OpenWavFile(char *path, int rate)
 		return 1;
 	}
 
-
 	fwrite(wave_hdr, 1, 24, f_wavfile);
 	Write4Bytes(f_wavfile, rate);
 	Write4Bytes(f_wavfile, rate * 2);
 	fwrite(&wave_hdr[32], 1, 12, f_wavfile);
 	return 0;
 }
-
-
 
 static void CloseWavFile()
 {
@@ -249,7 +235,6 @@ static void CloseWavFile()
 	f_wavfile = NULL;
 
 }
-
 
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {
@@ -295,7 +280,6 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 	return 0;
 }
 
-
 static void PrintVersion()
 {
 	const char *version;
@@ -304,8 +288,6 @@ static void PrintVersion()
 	version = espeak_Info(&path_data);
 	printf("eSpeak text-to-speech: %s  Data at: %s\n", version, path_data);
 }
-
-
 
 #ifdef NEED_GETOPT
 struct option {
@@ -348,7 +330,6 @@ int main(int argc, char **argv)
 	};
 
 	static const char *err_load = "Failed to read ";
-
 
 	FILE *f_text = NULL;
 	char *p_text = NULL;
@@ -451,87 +432,68 @@ int main(int argc, char **argv)
 			else
 				synth_flags |= espeakCHARS_8BIT;
 			break;
-
 		case 'h':
 			printf("\n");
 			PrintVersion();
 			printf("%s", help_text);
 			exit(0);
 			break;
-
 		case 'k':
 			option_capitals = atoi(optarg2);
 			break;
-
 		case 'x':
 			phoneme_options |= espeakPHONEMES_SHOW;
 			break;
-
 		case 'X':
 			phoneme_options |= espeakPHONEMES_TRACE;
 			break;
-
 		case 'm':
 			synth_flags |= espeakSSML;
 			break;
-
 		case 'p':
 			pitch = atoi(optarg2);
 			break;
-
 		case 'q':
 			quiet = 1;
 			break;
-
 		case 'f':
 			strncpy0(filename, optarg2, sizeof(filename));
 			break;
-
 		case 'l':
 			option_linelength = atoi(optarg2);
 			break;
-
 		case 'a':
 			volume = atoi(optarg2);
 			break;
-
 		case 's':
 			speed = atoi(optarg2);
 			break;
-
 		case 'g':
 			wordgap = atoi(optarg2);
 			break;
-
 		case 'v':
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			break;
-
 		case 'w':
 			option_waveout = 1;
 			strncpy0(wavefile, optarg2, sizeof(filename));
 			break;
-
 		case 'z':  // remove pause from the end of a sentence
 			synth_flags &= ~espeakENDPAUSE;
 			break;
-
 		case 0x100:     // --stdin
 			flag_stdin = 1;
 			break;
-
 		case 0x105:     // --stdout
 			option_waveout = 1;
 			strcpy(wavefile, "stdout");
 			break;
-
 		case 0x101:    // --compile-debug
 		case 0x102:     // --compile
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
 			quiet = 1;
 			break;
-
 		case 0x103:     // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
@@ -541,32 +503,26 @@ int main(int argc, char **argv)
 				option_punctuation = 2;
 			}
 			break;
-
 		case 0x104:   // --voices
 			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, data_path, 0);
 			DisplayVoices(stdout, optarg2);
 			exit(0);
-
 		case 0x106:   // -- split
 			if (optarg2 == NULL)
 				samples_split_seconds = 30 * 60;  // default 30 minutes
 			else
 				samples_split_seconds = atoi(optarg2) * 60;
 			break;
-
 		case 0x107:  // --path
 			data_path = optarg2;
 			break;
-
 		case 0x108:  // --phonout
 			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL)
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
 			break;
-
 		case 0x109:  // --pho
 			phoneme_options |= espeakPHONEMES_MBROLA;
 			break;
-
 		case 0x10a:  // --ipa
 			phoneme_options |= espeakPHONEMES_IPA;
 			if (optarg2 != NULL) {
@@ -588,11 +544,9 @@ int main(int argc, char **argv)
 
 			}
 			break;
-
 		case 0x10b:  // --version
 			PrintVersion();
 			exit(0);
-
 		case 0x10c:  // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
 			if (optarg2 == 0)
@@ -602,7 +556,6 @@ int main(int argc, char **argv)
 			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200c;      // ZWNJ
 			break;
-
 		case 0x10d:  // --tie
 			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
 			if (optarg2 == 0)
@@ -612,27 +565,22 @@ int main(int argc, char **argv)
 			if (phonemes_separator == 'z')
 				phonemes_separator = 0x200d;      // ZWJ
 			break;
-
 		case 0x10e:  // --compile-mbrola
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
 			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
 			exit(0);
-
 		case 0x10f:  // --compile-intonations
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
 			espeak_ng_CompileIntonation(stdout);
 			exit(0);
-
 		case 0x110:  // --compile-phonemes
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
 			espeak_ng_CompilePhonemeData(22050, stdout);
 			exit(0);
-
 		default:
 			exit(0);
 		}
 	}
-
 
 	if (option_waveout || quiet) {
 		// writing to a file (or no output), we can use synchronous mode
@@ -652,7 +600,6 @@ int main(int argc, char **argv)
 		// play the sound output
 		samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
 	}
-
 
 	if (voicename[0] == 0)
 		strcpy(voicename, "default");
@@ -690,7 +637,6 @@ int main(int argc, char **argv)
 	if (option_punctuation == 2)
 		espeak_SetPunctuationList(option_punctlist);
 
-
 	espeak_SetPhonemeTrace(phoneme_options | (phonemes_separator << 8), f_phonemes_out);
 
 	if (filename[0] == 0) {
@@ -712,7 +658,6 @@ int main(int argc, char **argv)
 		fprintf(stderr, "%sfile '%s'\n", err_load, filename);
 		exit(1);
 	}
-
 
 	if (p_text != NULL) {
 		int size;

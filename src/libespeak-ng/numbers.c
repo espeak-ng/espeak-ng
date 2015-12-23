@@ -38,7 +38,6 @@
 #include "voice.h"
 #include "translate.h"
 
-
 #define M_LIGATURE  0x8000
 #define M_NAME      0
 #define M_SMALLCAP  1
@@ -65,7 +64,6 @@
 #define M_RETROFLEX 20
 #define M_HOOK      21
 
-
 #define M_MIDDLE_DOT  M_DOT_ABOVE  // duplicate of M_DOT_ABOVE
 #define M_IMPLOSIVE   M_HOOK
 
@@ -73,7 +71,6 @@ static int n_digit_lookup;
 static char *digit_lookup;
 static int speak_missing_thousands;
 static int number_control;
-
 
 typedef struct {
 	const char *name;
@@ -108,7 +105,6 @@ static ACCENTS accents_tab[] = {
 	{ "_hok", 0 },  // hook
 };
 
-
 #define CAPITAL  0
 #define LETTER(ch, mod1, mod2) (ch-59)+(mod1 << 6)+(mod2 << 11)
 #define LIGATURE(ch1, ch2, mod1) (ch1-59)+((ch2-59) << 6)+(mod1 << 12)+M_LIGATURE
@@ -130,12 +126,10 @@ static ACCENTS accents_tab[] = {
 #define L_RTAP    72 // U+27E
 #define L_RLONG   73 // U+27C
 
-
 static const short non_ascii_tab[] = {
 	0, 0x3b1, 0x259, 0x25b, 0x3b3, 0x3b9, 0x153, 0x3c9,
 	0x3c6, 0x283, 0x3c5, 0x292, 0x294, 0x27e, 0x27c
 };
-
 
 // characters U+00e0 to U+017f
 static const unsigned short letter_accents_0e0[] = {
@@ -299,9 +293,7 @@ static const unsigned short letter_accents_0e0[] = {
 	CAPITAL,
 	LETTER('z', M_CARON, 0),
 	LETTER('s', M_NAME, 0), // long-s  // U+17f
-
 };
-
 
 // characters U+0250 to U+029F
 static const unsigned short letter_accents_250[] = {
@@ -415,7 +407,6 @@ static int LookupLetter2(Translator *tr, unsigned int letter, char *ph_buf)
 	return ph_buf[0];
 }
 
-
 void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 {
 	// lookup the character in the accents table
@@ -451,14 +442,12 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 			accent2 = (accent_data >> 11) & 0xf;
 		}
 
-
 		if ((accent1 == 0) && !(accent_data & M_LIGATURE)) {
 			// just a letter name, not an accented character or ligature
 			return;
 		}
 
 		if ((flags1 = Lookup(tr, accents_tab[accent1].name, ph_accent1)) != 0) {
-
 			if (LookupLetter2(tr, basic_letter, ph_letter1) != 0) {
 				if (accent2 != 0) {
 					flags2 = Lookup(tr, accents_tab[accent2].name, ph_accent2);
@@ -484,8 +473,6 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 		}
 	}
 }
-
-
 
 void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1, int control)
 {
@@ -554,9 +541,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 	dict_flags[0] = 0;
 	dict_flags[1] = 0;
 	SetWordStress(tr, ph_buf1, dict_flags, -1, control & 1);
-
 }
-
 
 // unicode ranges for non-ascii digits 0-9
 static const int number_ranges[] = {
@@ -565,7 +550,6 @@ static const int number_ranges[] = {
 	0xe50, 0xed0, 0xf20, 0x1040, 0x1090,
 	0
 };        // these must be in ascending order
-
 
 int NonAsciiNumber(int letter)
 {
@@ -654,9 +638,7 @@ static unsigned short derived_letters[] = {
 	0, 0
 };
 
-
 static const char *hex_letters[] = { "'e:j", "b'i:", "s'i:", "d'i:", "'i:", "'ef" };  // names, using phonemes available to all languages
-
 
 int IsSuperscript(int letter)
 {
@@ -672,8 +654,6 @@ int IsSuperscript(int letter)
 	}
 	return 0;
 }
-
-
 
 int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {
@@ -797,7 +777,6 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		}
 	}
 
-
 // caution: SetWordStress() etc don't expect phonSWITCH + phoneme table number
 
 	if (ph_buf[0] == 0) {
@@ -918,8 +897,6 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	return n_bytes;
 }
 
-
-
 void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 {
 // Individual letter names, reduce the stress of some.
@@ -971,17 +948,13 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 	*phonemes = 0;
 }
 
-
-
 // Numbers
 
 static char ph_ordinal2[12];
 static char ph_ordinal2x[12];
 
-
 static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int roman)
 {
-
 	int ordinal = 0;
 	int c2;
 	int nextflags;
@@ -1027,7 +1000,6 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 	return ordinal;
 }
 
-
 static int hu_number_e(const char *word, int thousandplex, int value)
 {
 // lang-hu: variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt, att. ett
@@ -1043,8 +1015,6 @@ static int hu_number_e(const char *word, int thousandplex, int value)
 	}
 	return 0;
 }
-
-
 
 int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 {
@@ -1123,7 +1093,6 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	if (acc > tr->langopts.max_roman)
 		return 0;
 
-
 	Lookup(tr, "_roman", ph_roman);   // precede by "roman" if _rom is defined in *_list
 	p = &ph_out[0];
 
@@ -1165,7 +1134,6 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	return 1;
 }
 
-
 static const char *M_Variant(int value)
 {
 	// returns M, or perhaps MA or MB for some cases
@@ -1181,24 +1149,20 @@ static const char *M_Variant(int value)
 		if ((teens == 0) && ((value % 10) == 1))
 			return "1M";
 		break;
-
 	case 2:  // lang=cs,sk
 		if ((value >= 2) && (value <= 4))
 			return "0MA";
 		break;
-
 	case 3:  // lang=pl
 		if ((teens == 0) && (((value % 10) >= 2) && ((value % 10) <= 4)))
 			return "0MA";
 		break;
-
 	case 4:  // lang=lt
 		if ((teens == 1) || ((value % 10) == 0))
 			return "0MB";
 		if ((value % 10) == 1)
 			return "0MA";
 		break;
-
 	case 5:  // lang=bs,hr,sr
 		if (teens == 0) {
 			if ((value % 10) == 1)
@@ -1210,7 +1174,6 @@ static const char *M_Variant(int value)
 	}
 	return "0M";
 }
-
 
 static int LookupThousands(Translator *tr, int value, int thousandplex, int thousands_exact, char *ph_out)
 {
@@ -1300,7 +1263,6 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 
 	return found_value;
 }
-
 
 static int LookupNum2(Translator *tr, int value, int thousandplex, const int control, char *ph_out)
 {
@@ -1410,7 +1372,6 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 			if (found) {
 				ph_tens[0] = 0;
 			} else {
-
 				if (is_ordinal) {
 					sprintf(string, "_%dX%c", tens, ord_type);
 					if (Lookup(tr, string, ph_tens) != 0) {
@@ -1547,7 +1508,6 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	}
 	return used_and;
 }
-
 
 static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null, int thousandplex, int control)
 {
@@ -1709,7 +1669,6 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		}
 	}
 
-
 	buf2[0] = 0;
 
 	if ((tensunits != 0) || (suppress_null == 0)) {
@@ -1751,7 +1710,6 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	return 0;
 }
 
-
 bool CheckThousandsGroup(char *word, int group_len)
 {
 // Is this a group of 3 digits which looks like a thousands group?
@@ -1766,7 +1724,6 @@ bool CheckThousandsGroup(char *word, int group_len)
 	}
 	return true;
 }
-
 
 static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
 {
@@ -1879,7 +1836,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	ph_append[0] = 0;
 	ph_buf2[0] = 0;
-
 
 	if ((word[0] == '0') && (prev_thousands == 0) && (word[1] != ' ') && (word[1] != tr->langopts.decimal_sep)) {
 		if ((n_digits == 2) && (word[3] == ':') && IsDigit09(word[5]) && isspace(word[7])) {
@@ -2020,6 +1976,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		{
 		case NUM_DFRACTION_4:
 			max_decimal_count = 5;
+			// fallthrough
 		case NUM_DFRACTION_2:
 			// French/Polish decimal fraction
 			while (word[n_digits] == '0') {
@@ -2034,7 +1991,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				n_digits += decimal_count;
 			}
 			break;
-
 		case NUM_DFRACTION_1:       // italian, say "hundredths" if leading zero
 		case NUM_DFRACTION_5:       // hungarian, always say "tenths" etc.
 		case NUM_DFRACTION_6:       // kazakh, always say "tenths" etc, before the decimal fraction
@@ -2053,7 +2009,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			strcat(ph_out, ph_buf);
 			n_digits += decimal_count;
 			break;
-
 		case NUM_DFRACTION_3:
 			// Romanian decimal fractions
 			if ((decimal_count <= 4) && (word[n_digits] != '0')) {
@@ -2062,7 +2017,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				n_digits += decimal_count;
 			}
 			break;
-
 		case NUM_DFRACTION_7:
 			// alternative form of decimal fraction digits, except the final digit
 			while (decimal_count-- > 1) {
@@ -2112,8 +2066,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		dictionary_skipwords = skipwords;
 	return 1;
 }
-
-
 
 int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
 {

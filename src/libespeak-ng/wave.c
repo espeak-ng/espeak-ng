@@ -50,7 +50,6 @@ struct timespec {
 };
 #endif /* HAVE_STRUCT_TIMESPEC */
 
-
 enum { ONE_BILLION = 1000000000 };
 
 #ifdef USE_PORTAUDIO
@@ -63,9 +62,6 @@ enum { ONE_BILLION = 1000000000 };
 #else
 #define USE_PORTAUDIO   18
 #endif
-
-
-
 
 #ifdef USE_PULSEAUDIO
 // create some wrappers for runtime detection
@@ -205,7 +201,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 #define wave_get_remaining_time wave_port_get_remaining_time
 
 #endif  // USE_PULSEAUDIO
-
 
 static t_wave_callback *my_callback_is_output_enabled = NULL;
 
@@ -392,7 +387,6 @@ static int pa_callback(const void *inputBuffer, void *outputBuffer,
 	return aResult;
 }
 
-
 void wave_flush(void *theHandler)
 {
 	ENTER("wave_flush");
@@ -421,7 +415,6 @@ static int wave_open_sound()
 		out_channels = 1;
 
 #if USE_PORTAUDIO == 18
-
 		PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
 
 		PaError err = Pa_OpenStream(&pa_stream,
@@ -892,7 +885,6 @@ int wave_is_busy(void *theHandler)
 
 	SHOW("wave_is_busy: %d\n", active);
 
-
 	return active == 1;
 }
 
@@ -901,7 +893,6 @@ void wave_terminate()
 	ENTER("wave_terminate");
 
 	Pa_Terminate();
-
 }
 
 uint32_t wave_get_read_position(void *theHandler)
@@ -944,9 +935,7 @@ void *wave_test_get_write_buffer()
 	return myWrite;
 }
 
-
 #else
-
 
 int wave_init(int srate) {
 	return 1;
@@ -1014,6 +1003,5 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 	}
 	ts->tv_nsec = (long int)t_ns;
 }
-
 
 #endif   // USE_ASYNC

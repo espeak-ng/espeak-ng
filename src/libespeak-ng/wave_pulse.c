@@ -161,7 +161,6 @@ static void context_state_cb(pa_context *c, void *userdata) {
 	case PA_CONTEXT_FAILED:
 		pa_threaded_mainloop_signal(mainloop, 0);
 		break;
-
 	case PA_CONTEXT_UNCONNECTED:
 	case PA_CONTEXT_CONNECTING:
 	case PA_CONTEXT_AUTHORIZING:
@@ -176,13 +175,11 @@ static void stream_state_cb(pa_stream *s, void *userdata) {
 
 	switch (pa_stream_get_state(s))
 	{
-
 	case PA_STREAM_READY:
 	case PA_STREAM_FAILED:
 	case PA_STREAM_TERMINATED:
 		pa_threaded_mainloop_signal(mainloop, 0);
 		break;
-
 	case PA_STREAM_UNCONNECTED:
 	case PA_STREAM_CREATING:
 		break;
@@ -312,7 +309,6 @@ fail:
 static void pulse_write(void *ptr, int length) {
 	ENTER(__FUNCTION__);
 
-
 	SHOW("pulse_write > length=%d\n", length);
 
 	CHECK_CONNECTED_NO_RETVAL();
@@ -327,9 +323,7 @@ static void pulse_write(void *ptr, int length) {
 
 	do_trigger = 0;
 	written += length;
-
 fail:
-
 	pa_threaded_mainloop_unlock(mainloop);
 }
 
@@ -362,7 +356,6 @@ static int drain(void) {
 		SHOW("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
 	else
 		ret = PULSE_OK;
-
 fail:
 	SHOW_TIME("pa_operation_unref (call)");
 	if (o)
@@ -373,7 +366,6 @@ fail:
 
 	return ret;
 }
-
 
 static void pulse_close(void) {
 
@@ -403,7 +395,6 @@ static void pulse_close(void) {
 	SHOW_TIME("pulse_close (ret)");
 
 }
-
 
 static int pulse_open()
 {
@@ -533,16 +524,12 @@ static int pulse_open()
 	SHOW_TIME("pulse_open (ret true)");
 
 	return PULSE_OK;
-
 unlock_and_fail:
-
 	if (o)
 		pa_operation_unref(o);
 
 	pa_threaded_mainloop_unlock(mainloop);
-
 fail:
-
 	if (ret == PULSE_NO_CONNECTION) {
 		if (context) {
 			SHOW_TIME("pa_context_disconnect (call)");
@@ -562,7 +549,6 @@ fail:
 	SHOW_TIME("pulse_open (ret false)");
 
 	return ret;
-
 }
 
 void wave_flush(void *theHandler)
@@ -634,7 +620,6 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 	}
 
 	pulse_write(aBuffer, bytes_to_write);
-
 terminate:
 	pthread_mutex_unlock(&pulse_mutex);
 	SHOW("wave_write: theSize=%d", theSize);
@@ -745,9 +730,7 @@ void *wave_test_get_write_buffer()
 	return NULL;
 }
 
-
 #else
-
 
 int wave_init(return 1; ) {
 }
@@ -817,6 +800,5 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 	ts->tv_nsec = (long int)t_ns;
 }
 #endif  // ifndef USE_PORTAUDIO
-
 
 #endif   // USE_ASYNC

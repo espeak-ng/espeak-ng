@@ -54,7 +54,6 @@ enum { MIN_TIMEOUT_IN_MS = 10,
 	   ACTIVITY_TIMEOUT = 50, // in ms, check that the stream is active
 	   MAX_ACTIVITY_CHECK = 6 };
 
-
 typedef struct t_node {
 	void *data;
 	struct t_node *next;
@@ -190,7 +189,6 @@ static void event_notify(espeak_EVENT *event)
 			my_callback(NULL, 0, events);
 			a_old_uid = event->unique_identifier;
 			break;
-
 		case espeakEVENT_MSG_TERMINATED:
 		case espeakEVENT_MARK:
 		case espeakEVENT_WORD:
@@ -207,11 +205,10 @@ static void event_notify(espeak_EVENT *event)
 			my_callback(NULL, 0, events);
 			a_old_uid = event->unique_identifier;
 		}
-		break;
-
-		default:
+			break;
 		case espeakEVENT_LIST_TERMINATED:
 		case espeakEVENT_PLAY:
+		default:
 			break;
 		}
 	}
@@ -231,13 +228,11 @@ static int event_delete(espeak_EVENT *event)
 	case espeakEVENT_MSG_TERMINATED:
 		event_notify(event);
 		break;
-
 	case espeakEVENT_MARK:
 	case espeakEVENT_PLAY:
 		if (event->id.name)
 			free((void *)(event->id.name));
 		break;
-
 	default:
 		break;
 	}

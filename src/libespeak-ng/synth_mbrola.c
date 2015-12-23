@@ -36,7 +36,6 @@
 #include "translate.h"
 #include "voice.h"
 
-
 #ifdef INCLUDE_MBROLA
 
 extern int Read4Bytes(FILE *f);
@@ -69,10 +68,7 @@ PROCVI setNoError_MBR;
 PROCIV getFreq_MBR;
 PROCVF setVolumeRatio_MBR;
 
-
-
 HINSTANCE hinstDllMBR = NULL;
-
 
 BOOL load_MBR()
 {
@@ -94,7 +90,6 @@ BOOL load_MBR()
 	return TRUE;
 }
 
-
 void unload_MBR()
 {
 	if (hinstDllMBR) {
@@ -104,7 +99,6 @@ void unload_MBR()
 }
 
 #endif   // windows
-
 
 static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
@@ -190,7 +184,6 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	return EE_OK;
 }
 
-
 static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)
 {
 // Look up a phoneme in the mbrola phoneme name translation table
@@ -267,7 +260,6 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 	return mnem;
 }
 
-
 static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 {
 // final=1:  only give the final pitch value.
@@ -291,9 +283,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	output[0] = 0;
 	pitch_env = envelope_data[env];
 
-
 	SetPitch2(voice, pitch1, pitch2, &pitch_base, &pitch_range);
-
 
 	env_split = (split * 128)/100;
 	if (env_split < 0)
@@ -323,7 +313,6 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	// set initial pitch
 	p1 = ((pitch_env[0]*pitch_range)>>8) + pitch_base;   // Hz << 12
 	p_end = ((pitch_env[127]*pitch_range)>>8) + pitch_base;
-
 
 	if (split >= 0) {
 		sprintf(buf, " 0 %d", p1/4096);
@@ -363,7 +352,6 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 		sprintf(output, "\t100 %d\n", p_end);
 	return output;
 }
-
 
 int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola)
 {
@@ -479,7 +467,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 			}
 			done = 1;
 			break;
-
 		case phSTOP:
 			released = 0;
 			if (next->type == phVOWEL) released = 1;
@@ -493,11 +480,9 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 			len = (len * 1000)/samplerate;  // convert to mS
 			len += PauseLength(p->prepause, 1);
 			break;
-
 		case phVSTOP:
 			len = (80 * speed.wav_factor)/256;
 			break;
-
 		case phFRICATIVE:
 			len = 0;
 			InterpretPhoneme(NULL, 0, p, &phdata, NULL);
@@ -507,7 +492,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 
 			len = (len * 1000)/samplerate;  // convert to mS
 			break;
-
 		case phNASAL:
 			if (next->type != phVOWEL) {
 				memset(&fmtp, 0, sizeof(fmtp));
@@ -520,7 +504,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 				final_pitch = WritePitch(p->env, p->pitch1, p->pitch2, 0, 1);
 			}
 			break;
-
 		case phLIQUID:
 			if (next->type == phPAUSE) {
 				len += 50;
@@ -572,7 +555,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	return 0;
 }
 
-
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
 	FILE *f_mbrola = NULL;
@@ -590,7 +572,6 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		*n_ph = 0;
 	return again;
 }
-
 
 int MbrolaFill(int length, int resume, int amplitude)
 {
@@ -628,7 +609,6 @@ int MbrolaFill(int length, int resume, int amplitude)
 	return n_samples ? 1 : 0;
 }
 
-
 void MbrolaReset(void)
 {
 // Reset the Mbrola engine and flush the pending audio
@@ -658,6 +638,5 @@ int MbrolaFill(int length, int resume, int amplitude)
 void MbrolaReset(void)
 {
 }
-
 
 #endif  // INCLUDE_MBROLA

@@ -44,13 +44,11 @@
 #include <locale.h>
 #define N_XML_BUF   500
 
-
 static const char *xmlbase = "";    // base URL from <speak>
 
 static int namedata_ix = 0;
 static int n_namedata = 0;
 char *namedata = NULL;
-
 
 static FILE *f_input = NULL;
 static int ungot_char2 = 0;
@@ -116,7 +114,6 @@ static const unsigned short punct_chars[] = { ',', '.', '?', '!', ':', ';',
 
 	                                          0 };
 
-
 // indexed by (entry num. in punct_chars) + 1
 // bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
 static const unsigned int punct_attributes[] = { 0,
@@ -168,7 +165,6 @@ static const unsigned int punct_attributes[] = { 0,
 	                                             CLAUSE_SEMICOLON,  // spare
 	                                             0 };
 
-
 // stack for language and voice properties
 // frame 0 is for the defaults, before any ssml tags.
 typedef struct {
@@ -187,7 +183,6 @@ static SSML_STACK ssml_stack[N_SSML_STACK];
 static espeak_VOICE base_voice;
 static char base_voice_variant_name[40] = { 0 };
 static char current_voice_id[40] = { 0 };
-
 
 #define N_PARAM_STACK  20
 static int n_param_stack;
@@ -213,7 +208,6 @@ const int param_defaults[N_SPEECH_PARAM] = {
 	0,    // line length
 	0,    // voice type
 };
-
 
 // additional Latin characters beyond the ascii character set
 #define MAX_WALPHA  0x24f
@@ -283,7 +277,6 @@ static const short wchar_toupper[] = {
 	0x1f3, 0x1f1,
 	0, 0
 };
-
 
 #ifdef NEED_WCHAR_FUNCTIONS
 
@@ -421,7 +414,6 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 }
 #endif
 
-
 // use internal data for iswalpha up to U+024F
 // iswalpha() on Windows is unreliable  (U+AA, U+BA).
 int iswalpha2(int c)
@@ -513,7 +505,6 @@ static int IsRomanU(unsigned int c)
 	return 0;
 }
 
-
 static void GetC_unget(int c)
 {
 // This is only called with UTF8 input, not wchar input
@@ -536,7 +527,6 @@ int Eof(void)
 
 	return end_of_input;
 }
-
 
 static int GetC_get(void)
 {
@@ -580,7 +570,6 @@ static int GetC_get(void)
 	}
 	return 0;
 }
-
 
 static int GetC(void)
 {
@@ -660,12 +649,10 @@ static int GetC(void)
 	return c1;
 }
 
-
 static void UngetC(int c)
 {
 	ungot_char = c;
 }
-
 
 const char *WordToString2(unsigned int word)
 {
@@ -683,7 +670,6 @@ const char *WordToString2(unsigned int word)
 	return buf;
 }
 
-
 static const char *LookupSpecial(Translator *tr, const char *string, char *text_out)
 {
 	unsigned int flags[2];
@@ -700,7 +686,6 @@ static const char *LookupSpecial(Translator *tr, const char *string, char *text_
 	}
 	return NULL;
 }
-
 
 static const char *LookupCharName(Translator *tr, int c, int only)
 {
@@ -786,7 +771,6 @@ int Read4Bytes(FILE *f)
 	return acc;
 }
 
-
 static int LoadSoundFile(const char *fname, int index)
 {
 	FILE *f;
@@ -862,7 +846,6 @@ static int LoadSoundFile(const char *fname, int index)
 	return 0;
 }
 
-
 static int LookupSoundicon(int c)
 {
 // Find the sound icon number for a punctuation chatacter
@@ -879,7 +862,6 @@ static int LookupSoundicon(int c)
 	}
 	return -1;
 }
-
 
 static int LoadSoundFile2(const char *fname)
 {
@@ -906,8 +888,6 @@ static int LoadSoundFile2(const char *fname)
 	strcpy(soundicon_tab[slot].filename, fname);
 	return slot;
 }
-
-
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
 {
@@ -1037,7 +1017,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 // these tags have no effect if they are self-closing, eg. <voice />
 static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
 
-
 static MNEM_TAB ssmltags[] = {
 	{ "speak", SSML_SPEAK },
 	{ "voice", SSML_VOICE },
@@ -1074,9 +1053,6 @@ static MNEM_TAB ssmltags[] = {
 	{ "code", HTML_NOSPACE },
 	{ NULL, 0 }
 };
-
-
-
 
 static const char *VoiceFromStack()
 {
@@ -1153,8 +1129,6 @@ static const char *VoiceFromStack()
 	return v_id;
 }
 
-
-
 static void ProcessParamStack(char *outbuf, int *outix)
 {
 // Set the speech parameters from the parameter stack
@@ -1164,7 +1138,6 @@ static void ProcessParamStack(char *outbuf, int *outix)
 	char buf[20];
 	int new_parameters[N_SPEECH_PARAM];
 	static char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' };  // embedded command letters
-
 
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		new_parameters[param] = -1;
@@ -1185,11 +1158,9 @@ static void ProcessParamStack(char *outbuf, int *outix)
 			case espeakPUNCTUATION:
 				option_punctuation = value-1;
 				break;
-
 			case espeakCAPITALS:
 				option_capitals = value;
 				break;
-
 			case espeakRATE:
 			case espeakVOLUME:
 			case espeakPITCH:
@@ -1206,7 +1177,6 @@ static void ProcessParamStack(char *outbuf, int *outix)
 	}
 }
 
-
 static PARAM_STACK *PushParamStack(int tag_type)
 {
 	int ix;
@@ -1221,7 +1191,6 @@ static PARAM_STACK *PushParamStack(int tag_type)
 		sp->parameter[ix] = -1;
 	return sp;
 }
-
 
 static void PopParamStack(int tag_type, char *outbuf, int *outix)
 {
@@ -1240,8 +1209,6 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix)
 		n_param_stack = top;
 	ProcessParamStack(outbuf, outix);
 }
-
-
 
 static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 {
@@ -1273,7 +1240,6 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 	return NULL;
 }
 
-
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
@@ -1288,7 +1254,6 @@ static int attrcmp(const wchar_t *string1, const char *string2)
 	return 1;
 }
 
-
 static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 {
 	int ix;
@@ -1299,7 +1264,6 @@ static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 	}
 	return mtab[ix].value;
 }
-
 
 static int attrnumber(const wchar_t *pw, int default_value, int type)
 {
@@ -1316,8 +1280,6 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 	}
 	return value;
 }
-
-
 
 static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 {
@@ -1339,8 +1301,6 @@ static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 	buf[ix] = 0;
 	return ix;
 }
-
-
 
 static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 {
@@ -1395,7 +1355,6 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-
 int AddNameData(const char *name, int wide)
 {
 // Add the name to the namedata and return its position
@@ -1424,7 +1383,6 @@ int AddNameData(const char *name, int wide)
 	return ix;
 }
 
-
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 {
 	SSML_STACK *sp;
@@ -1447,7 +1405,6 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
 	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
 }
-
 
 static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 {
@@ -1519,7 +1476,6 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	return 0;
 }
 
-
 static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 {
 	int value;
@@ -1570,7 +1526,6 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		NULL, mnem_rate, mnem_volume, mnem_pitch, mnem_range
 	};
 
-
 	if ((value = attrlookup(attr1, mnem_tabs[param_type])) >= 0) {
 		// mnemonic specifies a value as a percentage of the base pitch/range/rate/volume
 		sp->parameter[param_type] = (param_stack[0].parameter[param_type] * value)/100;
@@ -1588,7 +1543,6 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		}
 	}
 }
-
 
 static int ReplaceKeyName(char *outbuf, int index, int *outix)
 {
@@ -1614,7 +1568,6 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 	}
 	return 0;
 }
-
 
 static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, int self_closing)
 {
@@ -1722,7 +1675,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			return 0;
 	}
 
-
 	voice_change_flag = 0;
 	terminator = CLAUSE_NONE;
 	ssml_sp = &ssml_stack[n_ssml_stack-1];
@@ -1744,7 +1696,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		ProcessParamStack(outbuf, outix);
 		break;
-
 	case SSML_PROSODY:
 		sp = PushParamStack(tag_type);
 
@@ -1756,7 +1707,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 		ProcessParamStack(outbuf, outix);
 		break;
-
 	case SSML_EMPHASIS:
 		sp = PushParamStack(tag_type);
 		value = 3;   // default is "moderate"
@@ -1776,13 +1726,11 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		ProcessParamStack(outbuf, outix);
 		break;
-
 	case SSML_STYLE + SSML_CLOSE:
 	case SSML_PROSODY + SSML_CLOSE:
 	case SSML_EMPHASIS + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
 		break;
-
 	case SSML_PHONEME:
 		attr1 = GetSsmlAttribute(px, "alphabet");
 		attr2 = GetSsmlAttribute(px, "ph");
@@ -1795,7 +1743,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			outbuf[(*outix)++] = ']';
 		}
 		break;
-
 	case SSML_SAYAS:
 		attr1 = GetSsmlAttribute(px, "interpret-as");
 		attr2 = GetSsmlAttribute(px, "format");
@@ -1821,7 +1768,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		sayas_start = *outix;
 		sayas_mode = value;   // punctuation doesn't end clause during SAY-AS
 		break;
-
 	case SSML_SAYAS + SSML_CLOSE:
 		if (sayas_mode == SAYAS_KEY) {
 			outbuf[*outix] = 0;
@@ -1832,7 +1778,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		outbuf[(*outix)++] = 'Y';
 		sayas_mode = 0;
 		break;
-
 	case SSML_SUB:
 		if ((attr1 = GetSsmlAttribute(px, "alias")) != NULL) {
 			// use the alias  rather than the text
@@ -1840,16 +1785,13 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			*outix += attrcopy_utf8(&outbuf[*outix], attr1, n_outbuf-*outix);
 		}
 		break;
-
 	case SSML_IGNORE_TEXT:
 		ignore_text = 1;
 		break;
-
 	case SSML_SUB + SSML_CLOSE:
 	case SSML_IGNORE_TEXT + SSML_CLOSE:
 		ignore_text = 0;
 		break;
-
 	case SSML_MARK:
 		if ((attr1 = GetSsmlAttribute(px, "name")) != NULL) {
 			// add name to circular buffer of marker names
@@ -1869,7 +1811,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			}
 		}
 		break;
-
 	case SSML_AUDIO:
 		sp = PushParamStack(tag_type);
 
@@ -1908,12 +1849,10 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		else
 			audio_text = 1;
 		return CLAUSE_NONE;
-
 	case SSML_AUDIO + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
 		audio_text = 0;
 		return CLAUSE_NONE;
-
 	case SSML_BREAK:
 		value = 21;
 		terminator = CLAUSE_NONE;
@@ -1952,7 +1891,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			return terminator + value;
 		}
 		break;
-
 	case SSML_SPEAK:
 		if ((attr1 = GetSsmlAttribute(px, "xml:base")) != NULL) {
 			attrcopy_utf8(buf, attr1, sizeof(buf));
@@ -1962,18 +1900,15 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		if (GetVoiceAttributes(px, tag_type) == 0)
 			return 0;   // no voice change
 		return CLAUSE_VOICE;
-
 	case SSML_VOICE:
 		if (GetVoiceAttributes(px, tag_type) == 0)
 			return 0;   // no voice change
 		return CLAUSE_VOICE;
-
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK))
 			n_ssml_stack--;
 		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type);
-
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE))
@@ -1981,11 +1916,9 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
 		return terminator + GetVoiceAttributes(px, tag_type);
-
 	case HTML_BREAK:
 	case HTML_BREAK + SSML_CLOSE:
 		return CLAUSE_COLON;
-
 	case SSML_SENTENCE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new sentence implies end-of-sentence
@@ -1993,8 +1926,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
-
-
 	case SSML_PARAGRAPH:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new paragraph implies end-of-sentence or end-of-paragraph
@@ -2006,16 +1937,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
-
-
 	case SSML_SENTENCE + SSML_CLOSE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// end of a sentence which specified a language
 			voice_change_flag = GetVoiceAttributes(px, tag_type);
 		}
 		return CLAUSE_PERIOD + voice_change_flag;
-
-
 	case SSML_PARAGRAPH + SSML_CLOSE:
 		if ((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH)) {
 			// End of a paragraph which specified a language.
@@ -2027,7 +1954,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	return 0;
 }
 
-
 static void RemoveChar(char *p)
 {
 // Replace a UTF-8 character by spaces
@@ -2035,7 +1961,6 @@ static void RemoveChar(char *p)
 
 	memset(p, ' ', utf8_in(&c, p));
 }
-
 
 static MNEM_TAB xml_char_mnemonics[] = {
 	{ "gt", '>' },
@@ -2046,7 +1971,6 @@ static MNEM_TAB xml_char_mnemonics[] = {
 	{ "apos", '\'' },
 	{ NULL, -1 }
 };
-
 
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
@@ -2612,7 +2536,6 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	return CLAUSE_EOF;   //  end of file
 }
 
-
 void InitNamedata(void)
 {
 	namedata_ix = 0;
@@ -2622,7 +2545,6 @@ void InitNamedata(void)
 		n_namedata = 0;
 	}
 }
-
 
 void InitText2(void)
 {
