@@ -3,7 +3,7 @@
 - [Features](#features)
 - [History](#history)
 - [Adding a Language](add_language.md)
-  - [Pronunciation Dictionary](dictionary.md)
+  - [Text to Phoneme Translation](dictionary.md)
 - [Voice Files](voices.md)
   - [MBROLA Voices](mbrola.md)
   - [Phonemes](phonemes.md)
