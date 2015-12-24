@@ -64,6 +64,7 @@ src/espeak-ng.1: src/espeak-ng.1.ronn
 docs:	docs/index.html \
 	docs/add_language.html \
 	docs/dictionary.html \
+	docs/voices.html \
 	src/espeak-ng.1.html \
 	README.html \
 	src/espeak-ng.1
