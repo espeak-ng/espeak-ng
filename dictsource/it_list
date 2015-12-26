@@ -1,6 +1,6 @@
-
+﻿
 // This file is UTF-8 encoded
-// Updated 2015 December 10 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2015 December 23 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -700,6 +700,7 @@ u	u: $atend
 
 abajour	abaZ'u@-*
 account	ak:'aw2nt
+adobe	ad'Ob@ $only
 after	$1
 amnesty	'amn@stI
 anonymous 	an'OnimUs
@@ -731,6 +732,7 @@ blind	bl'aInd $onlys
 blues	bl'u:z
 boiler	$1
 bonjour	b,O:_Z'u:r
+brioche	b@-*I'oS
 boogie	b'ugi
 boom	bum
 bordeaux	_^_FR
@@ -825,7 +827,7 @@ download	d'a/:w2nl,o:d
 drive	_^_EN
 driver	_^_EN
 ebook	'i:b,Uk
-edition	ed'iSon $only
+edition	ed'iSon $onlys
 editor	'Edito@-*	$onlys
 l'editor	l'Edito@-* $only
 eloquence		_^_EN
@@ -2139,6 +2141,7 @@ anastasia $3
 andersson	'a:nde@-*son
 anderson	$1
 andromeda	$2
+angelis	$1 $only
 anita	$2
 annamaria	$4
 annapaola	$3
@@ -2238,6 +2241,7 @@ fabiola	$3
 fahrenheit	f'aRenaIt
 federic	$3
 felicita	$2
+fenice	$2
 ferrer	$2	$alt2
 françois	f@-*,a/NsU'a
 francisco	f@-*ans'isko
@@ -2934,6 +2938,7 @@ contrattaccano	$3
 conversano	$2
 conversino	$2
 convoc	$1
+convochi	$1
 convochino	$1
 convogliano	$2
 coordin	$2
@@ -4581,7 +4586,7 @@ dammel	$1
 dammene	$1
 deciditi	$2
 dedical	$1
-digitalo	$1
+digital	$1
 digliel	$1
 digliene	$1
 dimmelo	$1
@@ -4741,3 +4746,5 @@ risolver	$2
 saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
+
+
