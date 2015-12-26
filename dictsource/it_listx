@@ -1,4 +1,4 @@
-
+﻿
 abazia $3
 abbadia $3
 abbain	ab:a'i:n
@@ -1175,7 +1175,7 @@ davver $2  $alt2
 debit $1  $alt2
 debole $1
 dec  $alt
-decameron $2
+decameron	$2 $only
 decapoli $2
 decebal $2  $alt
 decenni  $alt
@@ -3073,7 +3073,7 @@ porzioncine	$4
 pos  $alt
 posillip $2
 post  $alt2
-posta	$alt
+posta	p'O:sta/
 poste	$alt
 posteri $1
 posteriori  $alt2

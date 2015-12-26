@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 November  20 by Chris <llajta2012@gmail.com>
+// Last update: 2015 December 23 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -25,7 +25,7 @@
 	ai (_	'aj
 		ai (C   aI
 	au	a|%U
-	@C)	a (_S1q  a     // lookup it_list without suffix
+	@C)	a (_S1q  a/     // lookup it_list without suffix
 	@i)	a (_S1q  a     // lookup it_list without suffix
 	C) a (cY_	'a
 	@)	a (co_	=a
@@ -123,7 +123,7 @@
 	@d) ei (_	'eI
 	@t) ei (_	'eI
 	@) ey (_	=eI
-	@C)	e (_S1q  e     // lookup it_list without suffix
+	@C)	e (_S1q  e/     // lookup it_list without suffix
 		e (C_    E
 		e (A     E
 		e (C%A_  E
@@ -733,3 +733,4 @@ _L16_)	: (_L17D_	_%%E_	// Say time
         A_)  - (_D        _
         C_)  - (_D        _
 		§	pa*'ag@-*afO
+
