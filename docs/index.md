@@ -6,7 +6,6 @@
   - [Text to Phoneme Translation](dictionary.md)
 - [Voice Files](voices.md)
   - [MBROLA Voices](mbrola.md)
-  - [Phonemes](phonemes.md)
   - [Phoneme Tables](phontab.md)
 - [Intonation](intonation.md)
 - [Markup Tags](ssml.md)

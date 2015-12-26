@@ -65,6 +65,7 @@ docs:	docs/index.html \
 	docs/add_language.html \
 	docs/dictionary.html \
 	docs/mbrola.html \
+	docs/phontab.html \
 	docs/voices.html \
 	src/espeak-ng.1.html \
 	README.html \
