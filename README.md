@@ -85,7 +85,7 @@ be built via the standard autotools commands:
 
 The documentation can be built by running:
 
-	make doc
+	make docs
 
 ### Audio Output Configuration
 
