@@ -1,5 +1,9 @@
+# Text Markup
 
-# Text markup
+- [SSML: Speech Synthesis Markup Language](#ssml-speech-synthesis-markup-language)
+- [HTML](#html)
+
+-----
 
 ## SSML: Speech Synthesis Markup Language
 
@@ -48,7 +52,7 @@ The following markup tags and attributes are recognised:
 **\<tts:style\>**
 
 *   field="punctuation"   mode=none,all,some
-*   field="capital_letters"   mode=no,spelling,icon,pitch
+*   field="capital\_letters"   mode=no,spelling,icon,pitch
 
 **\<audio\>** src
 
