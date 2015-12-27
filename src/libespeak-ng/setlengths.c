@@ -40,10 +40,10 @@ extern int saved_parameters[];
 // convert from words-per-minute to internal speed factor
 // Use this to calibrate speed for wpm 80-350
 static unsigned char speed_lookup[] = {
-	255, 255, 255, 255, 255, // 80
-	253, 249, 245, 242, 238, // 85
-	235, 232, 228, 225, 222, // 90
-	218, 216, 213, 210, 207, // 95
+	255, 255, 255, 255, 255, //  80
+	253, 249, 245, 242, 238, //  85
+	235, 232, 228, 225, 222, //  90
+	218, 216, 213, 210, 207, //  95
 	204, 201, 198, 196, 193, // 100
 	191, 188, 186, 183, 181, // 105
 	179, 176, 174, 172, 169, // 110
@@ -56,54 +56,54 @@ static unsigned char speed_lookup[] = {
 	118, 117, 115, 114, 113, // 145
 	112, 111, 110, 109, 107, // 150
 	106, 105, 104, 103, 102, // 155
-	101, 100,  99,  98,  97,// 160
-	96,  95,  94,  93,  92, // 165
-	91,  90,  89,  89,  88, // 170
-	87,  86,  85,  84,  83, // 175
-	82,  82,  81,  80,  80, // 180
-	79,  78,  77,  76,  76, // 185
-	75,  75,  74,  73,  72, // 190
-	71,  71,  70,  69,  69, // 195
-	68,  67,  67,  66,  66, // 200
-	65,  64,  64,  63,  62, // 205
-	62,  61,  61,  60,  59, // 210
-	59,  58,  58,  57,  57, // 215
-	56,  56,  55,  54,  54, // 220
-	53,  53,  52,  52,  52, // 225
-	51,  50,  50,  49,  49, // 230
-	48,  48,  47,  47,  46, // 235
-	46,  46,  45,  45,  44, // 240
-	44,  44,  43,  43,  42, // 245
-	41,  40,  40,  40,  39, // 250
-	39,  39,  38,  38,  38, // 255
-	37,  37,  37,  36,  36, // 260
-	35,  35,  35,  35,  34, // 265
-	34,  34,  33,  33,  33, // 270
-	32,  32,  31,  31,  31, // 275
-	30,  30,  30,  29,  29, // 280
-	29,  29,  28,  28,  27, // 285
-	27,  27,  27,  26,  26, // 290
-	26,  26,  25,  25,  25, // 295
-	24,  24,  24,  24,  23, // 300
-	23,  23,  23,  22,  22, // 305
-	22,  21,  21,  21,  21, // 310
-	20,  20,  20,  20,  19, // 315
-	19,  19,  18,  18,  17, // 320
-	17,  17,  16,  16,  16, // 325
-	16,  16,  16,  15,  15, // 330
-	15,  15,  14,  14,  14, // 335
-	13,  13,  13,  12,  12, // 340
-	12,  12,  11,  11,  11, // 345
-	11,  10,  10,  10,   9, // 350
-	9,   9,   8,   8,   8,  // 355
+	101, 100,  99,  98,  97, // 160
+	 96,  95,  94,  93,  92, // 165
+	 91,  90,  89,  89,  88, // 170
+	 87,  86,  85,  84,  83, // 175
+	 82,  82,  81,  80,  80, // 180
+	 79,  78,  77,  76,  76, // 185
+	 75,  75,  74,  73,  72, // 190
+	 71,  71,  70,  69,  69, // 195
+	 68,  67,  67,  66,  66, // 200
+	 65,  64,  64,  63,  62, // 205
+	 62,  61,  61,  60,  59, // 210
+	 59,  58,  58,  57,  57, // 215
+	 56,  56,  55,  54,  54, // 220
+	 53,  53,  52,  52,  52, // 225
+	 51,  50,  50,  49,  49, // 230
+	 48,  48,  47,  47,  46, // 235
+	 46,  46,  45,  45,  44, // 240
+	 44,  44,  43,  43,  42, // 245
+	 41,  40,  40,  40,  39, // 250
+	 39,  39,  38,  38,  38, // 255
+	 37,  37,  37,  36,  36, // 260
+	 35,  35,  35,  35,  34, // 265
+	 34,  34,  33,  33,  33, // 270
+	 32,  32,  31,  31,  31, // 275
+	 30,  30,  30,  29,  29, // 280
+	 29,  29,  28,  28,  27, // 285
+	 27,  27,  27,  26,  26, // 290
+	 26,  26,  25,  25,  25, // 295
+	 24,  24,  24,  24,  23, // 300
+	 23,  23,  23,  22,  22, // 305
+	 22,  21,  21,  21,  21, // 310
+	 20,  20,  20,  20,  19, // 315
+	 19,  19,  18,  18,  17, // 320
+	 17,  17,  16,  16,  16, // 325
+	 16,  16,  16,  15,  15, // 330
+	 15,  15,  14,  14,  14, // 335
+	 13,  13,  13,  12,  12, // 340
+	 12,  12,  11,  11,  11, // 345
+	 11,  10,  10,  10,   9, // 350
+	  9,   9,   8,   8,   8, // 355
 };
 
 // speed_factor1 adjustments for speeds 350 to 374: pauses
 static unsigned char pause_factor_350[] = {
 	22, 22, 22, 22, 22, 22, 22, 21, 21, 21, // 350
 	21, 20, 20, 19, 19, 18, 17, 16, 15, 15, // 360
-	15, 15, 15, 15, 15
-};                              // 370
+	15, 15, 15, 15, 15                      // 370
+};
 
 // wav_factor adjustments for speeds 350 to 450
 // Use this to calibrate speed for wpm 350-450
@@ -114,22 +114,22 @@ static unsigned char wav_factor_350[] = {
 	111, 111, 110, 109, 108, // 365
 	107, 106, 106, 104, 103, // 370
 	103, 102, 102, 102, 101, // 375
-	101,  99,  98,  98,  97,// 380
-	96,  96,  95,  94,  93, // 385
-	91,  90,  91,  90,  89, // 390
-	88,  86,  85,  86,  85, // 395
-	85,  84,  82,  81,  80, // 400
-	79,  77,  78,  78,  76, // 405
-	77,  75,  75,  74,  73, // 410
-	71,  72,  70,  69,  69, // 415
-	69,  67,  65,  64,  63, // 420
-	63,  63,  61,  61,  59, // 425
-	59,  59,  58,  56,  57, // 430
-	58,  56,  54,  53,  52, // 435
-	52,  53,  52,  52,  50, // 440
-	48,  47,  47,  45,  46, // 445
-	45
-};       // 450
+	101,  99,  98,  98,  97, // 380
+	 96,  96,  95,  94,  93, // 385
+	 91,  90,  91,  90,  89, // 390
+	 88,  86,  85,  86,  85, // 395
+	 85,  84,  82,  81,  80, // 400
+	 79,  77,  78,  78,  76, // 405
+	 77,  75,  75,  74,  73, // 410
+	 71,  72,  70,  69,  69, // 415
+	 69,  67,  65,  64,  63, // 420
+	 63,  63,  61,  61,  59, // 425
+	 59,  59,  58,  56,  57, // 430
+	 58,  56,  54,  53,  52, // 435
+	 52,  53,  52,  52,  50, // 440
+	 48,  47,  47,  45,  46, // 445
+	 45                      // 450
+};
 
 static int speed1 = 130;
 static int speed2 = 121;
@@ -148,7 +148,7 @@ void SetSpeed(int control)
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
-	speed.lenmod_factor = 110;   // controls the effect of FRFLAG_LEN_MOD reduce length change
+	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
 	speed.min_pause = 5;
 
@@ -232,9 +232,9 @@ void SetSpeed(int control)
 		s1 = (x * voice->speedf1)/256;
 
 		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
 		else
-			speed.wav_factor = 128 + (128*s1)/130;  // = 215 at 170 wpm
+			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
 
 		if (wpm >= 350)
 			speed.wav_factor = wav_factor_350[wpm-350];
@@ -245,10 +245,10 @@ void SetSpeed(int control)
 				speed.min_sample_len = 420 - (wpm - 440);
 		}
 
-// adjust for different sample rates
+		// adjust for different sample rates
 		speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
 
-		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
+		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;
 
 		if (wpm > 430)
@@ -268,11 +268,11 @@ void SetSpeed(int control)
 	}
 }
 
-#else  // not using sonic speed-up
+#else
 
 void SetSpeed(int control)
 {
-// This is the earlier version of SetSpeed() before sonic speed-up was added
+	// This is the earlier version of SetSpeed() before sonic speed-up was added
 	int x;
 	int s1;
 	int wpm;
@@ -280,7 +280,7 @@ void SetSpeed(int control)
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
-	speed.lenmod_factor = 110;   // controls the effect of FRFLAG_LEN_MOD reduce length change
+	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
 
 	wpm = embedded_value[EMBED_S];
@@ -332,9 +332,9 @@ void SetSpeed(int control)
 		s1 = (x * voice->speedf1)/256;
 
 		if (wpm >= 170)
-			speed.wav_factor = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
 		else
-			speed.wav_factor = 128 + (128*s1)/130;  // = 215 at 170 wpm
+			speed.wav_factor = 128 + (128*s1)/130; // = 215 at 170 wpm
 
 		if (wpm >= 350)
 			speed.wav_factor = wav_factor_350[wpm-350];
@@ -345,7 +345,7 @@ void SetSpeed(int control)
 				speed.min_sample_len = 420 - (wpm - 440);
 		}
 
-		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
+		speed.pause_factor = (256 * s1)/115; // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;
 
 		if (wpm > 430)
@@ -367,11 +367,10 @@ void SetSpeed(int control)
 
 #endif
 
-
 void SetParameter(int parameter, int value, int relative)
 {
-// parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
-// relative 0=absolute  1=relative
+	// parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
+	// relative 0=absolute  1=relative
 
 	int new_value = value;
 	int default_value;
@@ -432,7 +431,7 @@ static void DoEmbedded2(int *embix)
 
 		if ((word & 0x1f) == EMBED_S) {
 			// speed
-			SetEmbedded(word & 0x7f, word >> 8);   // adjusts embedded_value[EMBED_S]
+			SetEmbedded(word & 0x7f, word >> 8); // adjusts embedded_value[EMBED_S]
 			SetSpeed(1);
 		}
 	} while ((word & 0x80) == 0);
@@ -529,7 +528,7 @@ void CalcLengths(Translator *tr)
 
 			if ((p->ph->phflags & phSIBILANT) && next->type == phSTOP && !next->newword) {
 				if (prev->type == phVOWEL)
-					p->length = 200;      // ?? should do this if it's from a prefix
+					p->length = 200; // ?? should do this if it's from a prefix
 				else
 					p->length = 150;
 			} else
@@ -553,7 +552,7 @@ void CalcLengths(Translator *tr)
 				p->prepause = 40;
 
 				if (prev->type == phVOWEL) {
-					p->prepause = 0;   // use murmur instead to link from the preceding vowel
+					p->prepause = 0; // use murmur instead to link from the preceding vowel
 				} else if (prev->type == phPAUSE) {
 					// reduce by the length of the preceding pause
 					if (prev->length < p->prepause)
@@ -575,8 +574,8 @@ void CalcLengths(Translator *tr)
 			break;
 		case phLIQUID:
 		case phNASAL:
-			p->amp = tr->stress_amps[0];  // unless changed later
-			p->length = 256;  //  TEMPORARY
+			p->amp = tr->stress_amps[0]; // unless changed later
+			p->length = 256; //  TEMPORARY
 			min_drop = 0;
 
 			if (p->newword) {
@@ -698,7 +697,7 @@ void CalcLengths(Translator *tr)
 			length_mod = length_mod / 128;
 
 			if (length_mod < 8)
-				length_mod = 8;     // restrict how much lengths can be reduced
+				length_mod = 8; // restrict how much lengths can be reduced
 
 			if (stress >= 7) {
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
@@ -724,7 +723,7 @@ void CalcLengths(Translator *tr)
 				// this is the last syllable in the clause, lengthen it - more for short vowels
 				len = (p->ph->std_length * 2);
 				if (tr->langopts.stress_flags & S_EO_CLAUSE1)
-					len = 200;  // don't lengthen short vowels more than long vowels at end-of-clause
+					len = 200; // don't lengthen short vowels more than long vowels at end-of-clause
 				length_mod = length_mod * (256 + (280 - len)/3)/256;
 			}
 
@@ -748,7 +747,7 @@ void CalcLengths(Translator *tr)
 
 			// pre-vocalic part
 			// set last-pitch
-			env2 = p->env + 1;  // version for use with preceding semi-vowel
+			env2 = p->env + 1; // version for use with preceding semi-vowel
 
 			if (p->tone_ph != 0) {
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
@@ -761,7 +760,7 @@ void CalcLengths(Translator *tr)
 			if (pre_sonorant || pre_voiced) {
 				// set pitch for pre-vocalic part
 				if (pitch_start == 255)
-					last_pitch = pitch_start;    // pitch is not set
+					last_pitch = pitch_start; // pitch is not set
 
 				if (pitch_start - last_pitch > 16)
 					last_pitch = pitch_start - 16;

@@ -59,7 +59,7 @@ struct datablock {
 	struct datablock *next;
 	int done;
 	int size;
-	char buffer[1];  /* 1 or more, dynamically allocated */
+	char buffer[1]; // 1 or more, dynamically allocated
 };
 
 static struct datablock *mbr_pending_data_head, *mbr_pending_data_tail;
@@ -296,24 +296,24 @@ static int mbrola_has_errors(void)
 		}
 
 		if (result == 0) {
-			/* EOF on stderr, assume mbrola died. */
+			// EOF on stderr, assume mbrola died.
 			return mbrola_died();
 		}
 
 		buf_ptr[result] = 0;
 
 		for (; (lf = strchr(buf_ptr, '\n')); buf_ptr = lf + 1) {
-			/* inhibit the reset signal messages */
+			// inhibit the reset signal messages
 			if (strncmp(buf_ptr, "Got a reset signal", 18) == 0 ||
 			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
 				continue;
 			*lf = 0;
 			log("mbrola: %s", buf_ptr);
-			/* is this the last line? */
+			// is this the last line?
 			if (lf == &buf_ptr[result - 1]) {
 				snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
 				         "%s", buf_ptr);
-				/* don't consider this fatal at this point */
+				// don't consider this fatal at this point
 				return 0;
 			}
 		}
@@ -369,9 +369,9 @@ static int send_to_mbrola(const char *cmd)
 static int mbrola_is_idle(void)
 {
 	char *p;
-	char buffer[20]; /* looking for "12345 (mbrola) S" so 20 is plenty*/
+	char buffer[20]; // looking for "12345 (mbrola) S" so 20 is plenty
 
-	/* look in /proc to determine if mbrola is still running or sleeping */
+	// look in /proc to determine if mbrola is still running or sleeping
 	if (lseek(mbr_proc_stat, 0, SEEK_SET) != 0)
 		return 0;
 	if (read(mbr_proc_stat, buffer, sizeof(buffer)) != sizeof(buffer))
@@ -494,7 +494,7 @@ int init_MBR(const char *voice_path)
 		return -1;
 	}
 
-	/* we should actually be getting only 44 bytes */
+	// we should actually be getting only 44 bytes
 	result = receive_from_mbrola(wavhdr, 45);
 	if (result != 44) {
 		if (result >= 0)
@@ -503,7 +503,7 @@ int init_MBR(const char *voice_path)
 		return -1;
 	}
 
-	/* parse wavhdr to get mbrola voice samplerate */
+	// parse wavhdr to get mbrola voice samplerate
 	if (memcmp(wavhdr, "RIFF", 4) != 0 ||
 	    memcmp(wavhdr+8, "WAVEfmt ", 8) != 0) {
 		err("mbrola did not return a .wav header");
@@ -512,9 +512,8 @@ int init_MBR(const char *voice_path)
 	}
 	mbr_samplerate = wavhdr[24] + (wavhdr[25]<<8) +
 	                 (wavhdr[26]<<16) + (wavhdr[27]<<24);
-	// log("mbrowrap: voice samplerate = %d", mbr_samplerate);
 
-	/* remember the voice path for setVolumeRatio_MBR() */
+	// remember the voice path for setVolumeRatio_MBR()
 	if (mbr_voice_path != voice_path) {
 		free(mbr_voice_path);
 		mbr_voice_path = strdup(voice_path);

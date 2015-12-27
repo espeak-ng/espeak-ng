@@ -53,7 +53,7 @@ static int sample_count;
 #define getrandom(min, max) ((rand()%(long)(((max)+1)-(min)))+(min))
 #endif
 
-/* function prototypes for functions private to this file */
+// function prototypes for functions private to this file
 
 static void flutter(klatt_frame_ptr);
 static double sampled_source(int);
@@ -71,50 +71,50 @@ static klatt_global_t kt_globals;
 
 #define NUMBER_OF_SAMPLES 100
 
-static int scale_wav_tab[] = { 45, 38, 45, 45, 55 };   // scale output from different voicing sources
+static int scale_wav_tab[] = { 45, 38, 45, 45, 55 }; // scale output from different voicing sources
 
 // For testing, this can be overwritten in KlattInit()
 static short natural_samples2[256] = {
-	2583,  2516,  2450,  2384,  2319,  2254,  2191,  2127,
-	2067,  2005,  1946,  1890,  1832,  1779,  1726,  1675,
-	1626,  1579,  1533,  1491,  1449,  1409,  1372,  1336,
-	1302,  1271,  1239,  1211,  1184,  1158,  1134,  1111,
-	1089,  1069,  1049,  1031,  1013,   996,   980,   965,
-	950,   936,   921,   909,   895,   881,   869,   855,
-	843,   830,   818,   804,   792,   779,   766,   754,
-	740,   728,   715,   702,   689,   676,   663,   651,
-	637,   626,   612,   601,   588,   576,   564,   552,
-	540,   530,   517,   507,   496,   485,   475,   464,
-	454,   443,   434,   424,   414,   404,   394,   385,
-	375,   366,   355,   347,   336,   328,   317,   308,
-	299,   288,   280,   269,   260,   250,   240,   231,
-	220,   212,   200,   192,   181,   172,   161,   152,
-	142,   133,   123,   113,   105,    94,    86,    76,
-	67,    57,    49,    39,    30,    22,    11,     4,
-	-5,   -14,   -23,   -32,   -41,   -50,   -60,   -69,
-	-78,   -87,   -96,  -107,  -115,  -126,  -134,  -144,
-	-154,  -164,  -174,  -183,  -193,  -203,  -213,  -222,
-	-233,  -242,  -252,  -262,  -271,  -281,  -291,  -301,
-	-310,  -320,  -330,  -339,  -349,  -357,  -368,  -377,
-	-387,  -397,  -406,  -417,  -426,  -436,  -446,  -456,
-	-467,  -477,  -487,  -499,  -509,  -521,  -532,  -543,
-	-555,  -567,  -579,  -591,  -603,  -616,  -628,  -641,
-	-653,  -666,  -679,  -692,  -705,  -717,  -732,  -743,
-	-758,  -769,  -783,  -795,  -808,  -820,  -834,  -845,
-	-860,  -872,  -885,  -898,  -911,  -926,  -939,  -955,
-	-968,  -986,  -999, -1018, -1034, -1054, -1072, -1094,
+	 2583,  2516,  2450,  2384,  2319,  2254,  2191,  2127,
+	 2067,  2005,  1946,  1890,  1832,  1779,  1726,  1675,
+	 1626,  1579,  1533,  1491,  1449,  1409,  1372,  1336,
+	 1302,  1271,  1239,  1211,  1184,  1158,  1134,  1111,
+	 1089,  1069,  1049,  1031,  1013,   996,   980,   965,
+	  950,   936,   921,   909,   895,   881,   869,   855,
+	  843,   830,   818,   804,   792,   779,   766,   754,
+	  740,   728,   715,   702,   689,   676,   663,   651,
+	  637,   626,   612,   601,   588,   576,   564,   552,
+	  540,   530,   517,   507,   496,   485,   475,   464,
+	  454,   443,   434,   424,   414,   404,   394,   385,
+	  375,   366,   355,   347,   336,   328,   317,   308,
+	  299,   288,   280,   269,   260,   250,   240,   231,
+	  220,   212,   200,   192,   181,   172,   161,   152,
+	  142,   133,   123,   113,   105,    94,    86,    76,
+	   67,    57,    49,    39,    30,    22,    11,     4,
+	   -5,   -14,   -23,   -32,   -41,   -50,   -60,   -69,
+	  -78,   -87,   -96,  -107,  -115,  -126,  -134,  -144,
+	 -154,  -164,  -174,  -183,  -193,  -203,  -213,  -222,
+	 -233,  -242,  -252,  -262,  -271,  -281,  -291,  -301,
+	 -310,  -320,  -330,  -339,  -349,  -357,  -368,  -377,
+	 -387,  -397,  -406,  -417,  -426,  -436,  -446,  -456,
+	 -467,  -477,  -487,  -499,  -509,  -521,  -532,  -543,
+	 -555,  -567,  -579,  -591,  -603,  -616,  -628,  -641,
+	 -653,  -666,  -679,  -692,  -705,  -717,  -732,  -743,
+	 -758,  -769,  -783,  -795,  -808,  -820,  -834,  -845,
+	 -860,  -872,  -885,  -898,  -911,  -926,  -939,  -955,
+	 -968,  -986,  -999, -1018, -1034, -1054, -1072, -1094,
 	-1115, -1138, -1162, -1188, -1215, -1244, -1274, -1307,
 	-1340, -1377, -1415, -1453, -1496, -1538, -1584, -1631,
 	-1680, -1732, -1783, -1839, -1894, -1952, -2010, -2072,
 	-2133, -2196, -2260, -2325, -2390, -2456, -2522, -2589,
 };
 static short natural_samples[100] = {
-	-310, -400, 530, 356, 224, 89, 23, -10, -58, -16, 461, 599, 536, 701, 770,
-	605, 497, 461, 560, 404, 110, 224, 131, 104, -97, 155, 278, -154, -1165,
-	-598, 737, 125, -592, 41, 11, -247, -10, 65, 92, 80, -304, 71, 167, -1, 122,
-	233, 161, -43, 278, 479, 485, 407, 266, 650, 134, 80, 236, 68, 260, 269, 179,
-	53, 140, 275, 293, 296, 104, 257, 152, 311, 182, 263, 245, 125, 314, 140, 44,
-	203, 230, -235, -286, 23, 107, 92, -91, 38, 464, 443, 176, 98, -784, -2449,
+	 -310,  -400,   530,   356,   224,    89,   23,  -10, -58, -16, 461,  599,  536,   701,   770,
+	  605,   497,   461,   560,   404,   110,  224,  131, 104, -97, 155,  278, -154, -1165,
+	 -598,   737,   125,  -592,    41,    11, -247,  -10,  65,  92,  80, -304,   71,   167,    -1, 122,
+	  233,   161,   -43,   278,   479,   485,  407,  266, 650, 134,  80,  236,   68,   260,   269, 179,
+	   53,   140,   275,   293,   296,   104,  257,  152, 311, 182, 263,  245,  125,   314,   140, 44,
+	  203,   230,  -235,  -286,    23,   107,   92,  -91,  38, 464, 443,  176,   98,  -784, -2449,
 	-1891, -1045, -1600, -1462, -1384, -1261, -949, -730
 };
 
@@ -182,7 +182,7 @@ static void flutter(klatt_frame_ptr frame)
 
 	fla = (double)kt_globals.f0_flutter / 50;
 	flb = (double)kt_globals.original_f0 / 100;
-	flc = sin(PI*12.7*time_count);  // because we are calling flutter() more frequently, every 2.9mS
+	flc = sin(PI*12.7*time_count); // because we are calling flutter() more frequently, every 2.9mS
 	fld = sin(PI*7.1*time_count);
 	fle = sin(PI*4.7*time_count);
 	delta_f0 =  fla * flb * (flc + fld + fle) * 10;
@@ -262,30 +262,26 @@ static int parwave(klatt_frame_ptr frame)
 	static double sourc;
 	int ix;
 
-	flutter(frame);  /* add f0 flutter */
+	flutter(frame); // add f0 flutter
 
-	/* MAIN LOOP, for each output sample of current frame: */
+	// MAIN LOOP, for each output sample of current frame:
 
 	for (kt_globals.ns = 0; kt_globals.ns < kt_globals.nspfr; kt_globals.ns++) {
-		/* Get low-passed random number for aspiration and frication noise */
+		// Get low-passed random number for aspiration and frication noise
 		noise = gen_noise(noise);
 
-		/*
-		   Amplitude modulate noise (reduce noise amplitude during
-		   second half of glottal period) if voicing simultaneously present.
-		 */
+		// Amplitude modulate noise (reduce noise amplitude during
+		// second half of glottal period) if voicing simultaneously present.
 
 		if (kt_globals.nper > kt_globals.nmod)
 			noise *= (double)0.5;
 
-		/* Compute frication noise */
+		// Compute frication noise
 		frics = kt_globals.amp_frica * noise;
 
-		/*
-		    Compute voicing waveform. Run glottal source simulation at 4
-		    times normal sample rate to minimize quantization noise in
-		    period of female voice.
-		 */
+		// Compute voicing waveform. Run glottal source simulation at 4
+		// times normal sample rate to minimize quantization noise in
+		// period of female voice.
 
 		for (n4 = 0; n4 < 4; n4++) {
 			switch (kt_globals.glsource)
@@ -304,55 +300,46 @@ static int parwave(klatt_frame_ptr frame)
 				break;
 			}
 
-			/* Reset period when counter 'nper' reaches T0 */
+			// Reset period when counter 'nper' reaches T0
 			if (kt_globals.nper >= kt_globals.T0) {
 				kt_globals.nper = 0;
 				pitch_synch_par_reset(frame);
 			}
 
-			/*
-			   Low-pass filter voicing waveform before downsampling from 4*samrate
-			   to samrate samples/sec.  Resonator f=.09*samrate, bw=.06*samrate
-			 */
+			// Low-pass filter voicing waveform before downsampling from 4*samrate
+			// to samrate samples/sec.  Resonator f=.09*samrate, bw=.06*samrate
 
 			voice = resonator(&(kt_globals.rsn[RLP]), voice);
 
-			/* Increment counter that keeps track of 4*samrate samples per sec */
+			// Increment counter that keeps track of 4*samrate samples per sec
 			kt_globals.nper++;
 		}
 
-		/*
-		    Tilt spectrum of voicing source down by soft low-pass filtering, amount
-		    of tilt determined by TLTdb
-		 */
+		// Tilt spectrum of voicing source down by soft low-pass filtering, amount
+		// of tilt determined by TLTdb
 
 		voice = (voice * kt_globals.onemd) + (vlast * kt_globals.decay);
 		vlast = voice;
 
-		/*
-		    Add breathiness during glottal open phase. Amount of breathiness
-		    determined by parameter Aturb Use nrand rather than noise because
-		    noise is low-passed.
-		 */
-
+		// Add breathiness during glottal open phase. Amount of breathiness
+		// determined by parameter Aturb Use nrand rather than noise because
+		// noise is low-passed.
 
 		if (kt_globals.nper < kt_globals.nopen)
 			voice += kt_globals.amp_breth * kt_globals.nrand;
 
-		/* Set amplitude of voicing */
+		// Set amplitude of voicing
 		glotout = kt_globals.amp_voice * voice;
 		par_glotout = kt_globals.par_amp_voice * voice;
 
-		/* Compute aspiration amplitude and add to voicing source */
+		// Compute aspiration amplitude and add to voicing source
 		aspiration = kt_globals.amp_aspir * noise;
 		glotout += aspiration;
 
 		par_glotout += aspiration;
 
-		/*
-		    Cascade vocal tract, excited by laryngeal sources.
-		    Nasal antiresonator, then formants FNP, F5, F4, F3, F2, F1
-		 */
+		// Cascade vocal tract, excited by laryngeal sources.
+		// Nasal antiresonator, then formants FNP, F5, F4, F3, F2, F1
 
 		out = 0;
 		if (kt_globals.synthesis_model != ALL_PARALLEL) {
@@ -368,15 +355,13 @@ static int parwave(klatt_frame_ptr frame)
 			out = resonator2(&(kt_globals.rsn[R1c]), casc_next_in);
 		}
 
-		/* Excite parallel F1 and FNP by voicing waveform */
-		sourc = par_glotout;        /* Source is voicing plus aspiration */
+		// Excite parallel F1 and FNP by voicing waveform
+		sourc = par_glotout; // Source is voicing plus aspiration
 
-		/*
-		    Standard parallel vocal tract Formants F6,F5,F4,F3,F2,
-		    outputs added with alternating sign. Sound source for other
-		    parallel resonators is frication plus first difference of
-		    voicing waveform.
-		 */
+		// Standard parallel vocal tract Formants F6,F5,F4,F3,F2,
+		// outputs added with alternating sign. Sound source for other
+		// parallel resonators is frication plus first difference of
+		// voicing waveform.
 
 		out += resonator(&(kt_globals.rsn[R1p]), sourc);
 		out += resonator(&(kt_globals.rsn[Rnpp]), sourc);
@@ -392,30 +377,27 @@ static int parwave(klatt_frame_ptr frame)
 		out = outbypas - out;
 
 		out = resonator(&(kt_globals.rsn[Rout]), out);
-		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0);    /* Convert back to integer */
-
+		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0); // Convert back to integer
 
 		// mix with a recorded WAV if required for this phoneme
-		{
-			int z2;
-			signed char c;
-			int sample;
+		int z2;
+		signed char c;
+		int sample;
 
-			z2 = 0;
-			if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {
-				if (wdata.mix_wave_scale == 0) {
-					// a 16 bit sample
-					c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
-					sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
-					wdata.mix_wavefile_ix += 2;
-				} else {
-					// a 8 bit sample, scaled
-					sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
-				}
-				z2 = sample * wdata.amplitude_v / 1024;
-				z2 = (z2 * wdata.mix_wave_amp)/40;
-				temp += z2;
+		z2 = 0;
+		if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {
+			if (wdata.mix_wave_scale == 0) {
+				// a 16 bit sample
+				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
+				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
+				wdata.mix_wavefile_ix += 2;
+			} else {
+				// a 8 bit sample, scaled
+				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
 			}
+			z2 = sample * wdata.amplitude_v / 1024;
+			z2 = (z2 * wdata.mix_wave_amp)/40;
+			temp += z2;
 		}
 
 		// if fadeout is set, fade to zero over 64 samples, to avoid clicks at end of synthesis
@@ -459,7 +441,6 @@ void KlattReset(int control)
 		kt_globals.minus_pi_t = -PI / kt_globals.samrate;
 		kt_globals.two_pi_t = -2.0 * kt_globals.minus_pi_t;
 		setabc(kt_globals.FLPhz, kt_globals.BLPhz, &(kt_globals.rsn[RLP]));
-
 	}
 
 	if (control > 0) {
@@ -514,7 +495,7 @@ static void frame_init(klatt_frame_ptr frame)
 		Gain0_tmp = 57;
 	kt_globals.amp_gain0 = DBtoLIN(Gain0_tmp) / kt_globals.scale_wav;
 
-	/* Set coefficients of variable cascade resonators */
+	// Set coefficients of variable cascade resonators
 	for (ix = 1; ix <= 9; ix++) {
 		// formants 1 to 8, plus nasal pole
 		setabc(frame->Fhz[ix], frame->Bhz[ix], &(kt_globals.rsn[ix]));
@@ -535,14 +516,14 @@ static void frame_init(klatt_frame_ptr frame)
 	kt_globals.rsn[F_NZ].b_inc = (kt_globals.rsn_next[F_NZ].b - kt_globals.rsn[F_NZ].b) / 64.0;
 	kt_globals.rsn[F_NZ].c_inc = (kt_globals.rsn_next[F_NZ].c - kt_globals.rsn[F_NZ].c) / 64.0;
 
-	/* Set coefficients of parallel resonators, and amplitude of outputs */
+	// Set coefficients of parallel resonators, and amplitude of outputs
 
 	for (ix = 0; ix <= 6; ix++) {
 		setabc(frame->Fhz[ix], frame->Bphz[ix], &(kt_globals.rsn[Rparallel+ix]));
 		kt_globals.rsn[Rparallel+ix].a *= amp_par[ix];
 	}
 
-	/* output low-pass filter */
+	// output low-pass filter
 
 	setabc((long)0.0, (long)(kt_globals.samrate/2), &(kt_globals.rsn[Rout]));
 }
@@ -631,40 +612,39 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 	static long skew;
 	static short B0[224] = {
 		1200, 1142, 1088, 1038, 991, 948, 907, 869, 833, 799, 768, 738, 710, 683, 658,
-		634, 612, 590, 570, 551, 533, 515, 499, 483, 468, 454, 440, 427, 415, 403,
-		391, 380, 370, 360, 350, 341, 332, 323, 315, 307, 300, 292, 285, 278, 272,
-		265, 259, 253, 247, 242, 237, 231, 226, 221, 217, 212, 208, 204, 199, 195,
-		192, 188, 184, 180, 177, 174, 170, 167, 164, 161, 158, 155, 153, 150, 147,
-		145, 142, 140, 137, 135, 133, 131, 128, 126, 124, 122, 120, 119, 117, 115,
-		113, 111, 110, 108, 106, 105, 103, 102, 100, 99, 97, 96, 95, 93, 92, 91, 90,
-		88, 87, 86, 85, 84, 83, 82, 80, 79, 78, 77, 76, 75, 75, 74, 73, 72, 71,
-		70, 69, 68, 68, 67, 66, 65, 64, 64, 63, 62, 61, 61, 60, 59, 59, 58, 57,
-		57, 56, 56, 55, 55, 54, 54, 53, 53, 52, 52, 51, 51, 50, 50, 49, 49, 48, 48,
-		47, 47, 46, 46, 45, 45, 44, 44, 43, 43, 42, 42, 41, 41, 41, 41, 40, 40,
-		39, 39, 38, 38, 38, 38, 37, 37, 36, 36, 36, 36, 35, 35, 35, 35, 34, 34, 33,
-		33, 33, 33, 32, 32, 32, 32, 31, 31, 31, 31, 30, 30, 30, 30, 29, 29, 29, 29,
-		28, 28, 28, 28, 27, 27
+		 634,  612,  590,  570, 551, 533, 515, 499, 483, 468, 454, 440, 427, 415, 403,
+		 391,  380,  370,  360, 350, 341, 332, 323, 315, 307, 300, 292, 285, 278, 272,
+		 265,  259,  253,  247, 242, 237, 231, 226, 221, 217, 212, 208, 204, 199, 195,
+		 192,  188,  184,  180, 177, 174, 170, 167, 164, 161, 158, 155, 153, 150, 147,
+		 145,  142,  140,  137, 135, 133, 131, 128, 126, 124, 122, 120, 119, 117, 115,
+		 113,  111,  110,  108, 106, 105, 103, 102, 100,  99,  97,  96,  95,  93,  92, 91, 90,
+		  88,   87,   86,   85,  84,  83,  82,  80,  79,  78,  77,  76,  75,  75,  74, 73, 72, 71,
+		  70,   69,   68,   68,  67,  66,  65,  64,  64,  63,  62,  61,  61,  60,  59, 59, 58, 57,
+		  57,   56,   56,   55,  55,  54,  54,  53,  53,  52,  52,  51,  51,  50,  50, 49, 49, 48, 48,
+		  47,   47,   46,   46,  45,  45,  44,  44,  43,  43,  42,  42,  41,  41,  41, 41, 40, 40,
+		  39,   39,   38,   38,  38,  38,  37,  37,  36,  36,  36,  36,  35,  35,  35, 35, 34, 34, 33,
+		  33,   33,   33,   32,  32,  32,  32,  31,  31,  31,  31,  30,  30,  30,  30, 29, 29, 29, 29,
+		  28,   28,   28,   28,  27,  27
 	};
 
 	if (frame->F0hz10 > 0) {
-		/* T0 is 4* the number of samples in one pitch period */
+		// T0 is 4* the number of samples in one pitch period
 
 		kt_globals.T0 = (40 * kt_globals.samrate) / frame->F0hz10;
 
-
 		kt_globals.amp_voice = DBtoLIN(frame->AVdb_tmp);
 
-		/* Duration of period before amplitude modulation */
+		// Duration of period before amplitude modulation
 
 		kt_globals.nmod = kt_globals.T0;
 		if (frame->AVdb_tmp > 0)
 			kt_globals.nmod >>= 1;
 
-		/* Breathiness of voicing waveform */
+		// Breathiness of voicing waveform
 
 		kt_globals.amp_breth = DBtoLIN(frame->Aturb) * 0.1;
 
-		/* Set open phase of glottal period where  40 <= open phase <= 263 */
+		// Set open phase of glottal period where  40 <= open phase <= 263
 
 		kt_globals.nopen = 4 * frame->Kopen;
 
@@ -675,31 +655,28 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 			kt_globals.nopen = kt_globals.T0 - 2;
 
 		if (kt_globals.nopen < 40) {
-			/* F0 max = 1000 Hz */
+			// F0 max = 1000 Hz
 			kt_globals.nopen = 40;
 		}
 
-		/* Reset a & b, which determine shape of "natural" glottal waveform */
+		// Reset a & b, which determine shape of "natural" glottal waveform
 
 		kt_globals.pulse_shape_b = B0[kt_globals.nopen-40];
 		kt_globals.pulse_shape_a = (kt_globals.pulse_shape_b * kt_globals.nopen) * 0.333;
 
-		/* Reset width of "impulsive" glottal pulse */
+		// Reset width of "impulsive" glottal pulse
 
 		temp = kt_globals.samrate / kt_globals.nopen;
 
 		setabc((long)0, temp, &(kt_globals.rsn[RGL]));
 
-		/* Make gain at F1 about constant */
+		// Make gain at F1 about constant
 
 		temp1 = kt_globals.nopen *.00833;
 		kt_globals.rsn[RGL].a *= temp1 * temp1;
 
-		/*
-		   Truncate skewness so as not to exceed duration of closed phase
-		   of glottal period.
-		 */
-
+		// Truncate skewness so as not to exceed duration of closed phase
+		// of glottal period.
 
 		temp = kt_globals.T0 - kt_globals.nopen;
 		if (frame->Kskew > temp)
@@ -709,11 +686,11 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		else
 			skew = -frame->Kskew;
 
-		/* Add skewness to closed portion of voicing period */
+		// Add skewness to closed portion of voicing period
 		kt_globals.T0 = kt_globals.T0 + skew;
 		skew = -skew;
 	} else {
-		kt_globals.T0 = 4;                     /* Default for f0 undefined */
+		kt_globals.T0 = 4; // Default for f0 undefined
 		kt_globals.amp_voice = 0.0;
 		kt_globals.nmod = kt_globals.T0;
 		kt_globals.amp_breth = 0.0;
@@ -721,10 +698,10 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 		kt_globals.pulse_shape_b = 0.0;
 	}
 
-	/* Reset these pars pitch synchronously or at update rate if f0=0 */
+	// Reset these pars pitch synchronously or at update rate if f0=0
 
 	if ((kt_globals.T0 != 4) || (kt_globals.ns == 0)) {
-		/* Set one-pole low-pass filter that tilts glottal source */
+		// Set one-pole low-pass filter that tilts glottal source
 
 		kt_globals.decay = (0.033 * frame->TLTdb);
 
@@ -747,18 +724,18 @@ static void setabc(long int f, long int bw, resonator_ptr rp)
 	double r;
 	double arg;
 
-	/* Let r  =  exp(-pi bw t) */
+	// Let r  =  exp(-pi bw t)
 	arg = kt_globals.minus_pi_t * bw;
 	r = exp(arg);
 
-	/* Let c  =  -r**2 */
+	// Let c  =  -r**2
 	rp->c = -(r * r);
 
-	/* Let b = r * 2*cos(2 pi f t) */
+	// Let b = r * 2*cos(2 pi f t)
 	arg = kt_globals.two_pi_t * f;
 	rp->b = r * cos(arg) * 2.0;
 
-	/* Let a = 1.0 - b - c */
+	// Let a = 1.0 - b - c
 	rp->a = 1.0 - rp->b - rp->c;
 }
 
@@ -776,28 +753,28 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 
 	f = -f;
 
-	/* First compute ordinary resonator coefficients */
-	/* Let r  =  exp(-pi bw t) */
+	// First compute ordinary resonator coefficients
+	// Let r  =  exp(-pi bw t)
 	arg = kt_globals.minus_pi_t * bw;
 	r = exp(arg);
 
-	/* Let c  =  -r**2 */
+	// Let c  =  -r**2
 	rp->c = -(r * r);
 
-	/* Let b = r * 2*cos(2 pi f t) */
+	// Let b = r * 2*cos(2 pi f t)
 	arg = kt_globals.two_pi_t * f;
 	rp->b = r * cos(arg) * 2.;
 
-	/* Let a = 1.0 - b - c */
+	// Let a = 1.0 - b - c
 	rp->a = 1.0 - rp->b - rp->c;
 
-	/* Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a) */
-	/* If f == 0 then rp->a gets set to 0 which makes a'=1/a set a', b' and c' to
-	 * INF, causing an audible sound spike when triggered (e.g. apiration with the
-	 * nasal register set to f=0, bw=0).
-	 */
+	// Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a)
+
+	// If f == 0 then rp->a gets set to 0 which makes a'=1/a set a', b' and c' to
+	// INF, causing an audible sound spike when triggered (e.g. apiration with the
+	// nasal register set to f=0, bw=0).
 	if (rp->a != 0) {
-		/* Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a) */
+		// Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a)
 		rp->a = 1.0 / rp->a;
 		rp->c *= -rp->a;
 		rp->b *= -rp->a;
@@ -847,15 +824,15 @@ static double gen_noise(double noise)
 static double DBtoLIN(long dB)
 {
 	static short amptable[88] = {
-		0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   6,   7,
-		8,   9,   10,  11,  13,  14,  16,  18,  20,  22,  25,  28,  32,
-		35,  40,  45,  51,  57,  64,  71,  80,  90,  101,  114,  128,
-		142,  159,  179,  202,  227,  256,  284,  318,  359,  405,
-		455,  512,  568,  638,  719,  881,  911,  1024,  1137,  1276,
-		1438,  1622,  1823,  2048,  2273,  2552,  2875,  3244,  3645,
-		4096,  4547,  5104,  5751,  6488,  7291,  8192,  9093,  10207,
-		11502,  12976,  14582,  16384,  18350,  20644,  23429,
-		26214,  29491,  32767
+		   0,      0,     0,     0,     0,     0,     0,    0,     0,    0,   0,   0,  0, 6, 7,
+		   8,      9,    10,    11,    13,    14,    16,   18,    20,   22,  25,  28, 32,
+		   35,    40,    45,    51,    57,    64,    71,   80,    90,  101, 114, 128,
+		  142,   159,   179,   202,   227,   256,   284,  318,   359,  405,
+		  455,   512,   568,   638,   719,   881,   911, 1024,  1137, 1276,
+		 1438,  1622,  1823,  2048,  2273,  2552,  2875, 3244,  3645,
+		 4096,  4547,  5104,  5751,  6488,  7291,  8192, 9093, 10207,
+		11502, 12976, 14582, 16384, 18350, 20644, 23429,
+		26214, 29491, 32767
 	};
 
 	if ((dB < 0) || (dB > 87))
@@ -939,14 +916,14 @@ int Wavegen_Klatt(int resume)
 		if (kt_globals.nspfr > STEPSIZE)
 			kt_globals.nspfr = STEPSIZE;
 
-		frame_init(&kt_frame);  /* get parameters for next frame of speech */
+		frame_init(&kt_frame); // get parameters for next frame of speech
 
 		if (parwave(&kt_frame) == 1)
-			return 1;    // output buffer is full
+			return 1; // output buffer is full
 	}
 
 	if (end_wave > 0) {
-		fade = 64;   // not followd by formant synthesis
+		fade = 64; // not followed by formant synthesis
 
 		// fade out to avoid a click
 		kt_globals.fadeout = fade;
@@ -954,7 +931,7 @@ int Wavegen_Klatt(int resume)
 		sample_count -= fade;
 		kt_globals.nspfr = fade;
 		if (parwave(&kt_frame) == 1)
-			return 1;    // output buffer is full
+			return 1; // output buffer is full
 	}
 
 	return 0;
@@ -979,7 +956,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 
 	end_wave = 0;
 	if (control & 2)
-		end_wave = 1;   // fadeout at the end
+		end_wave = 1; // fadeout at the end
 	if (control & 1) {
 		end_wave = 1;
 		for (qix = wcmdq_head+1;; qix++) {
@@ -988,7 +965,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 
 			cmd = wcmdq[qix][0];
 			if (cmd == WCMD_KLATT) {
-				end_wave = 0;  // next wave generation is from another spectrum
+				end_wave = 0; // next wave generation is from another spectrum
 
 				fr3 = (frame_t *)wcmdq[qix][2];
 				for (ix = 1; ix < 6; ix++) {
@@ -1001,7 +978,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 				break;
 			}
 			if ((cmd == WCMD_WAVE) || (cmd == WCMD_PAUSE))
-				break;   // next is not from spectrum, so continue until end of wave cycle
+				break; // next is not from spectrum, so continue until end of wave cycle
 		}
 	}
 
@@ -1047,7 +1024,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	// nasal zero frequency
 	peaks[0].freq1 = fr1->klattp[KLATT_FNZ] * 2;
 	if (peaks[0].freq1 == 0)
-		peaks[0].freq1 = kt_frame.Fhz[F_NP];   // if no nasal zero, set it to same freq as nasal pole
+		peaks[0].freq1 = kt_frame.Fhz[F_NP]; // if no nasal zero, set it to same freq as nasal pole
 
 	peaks[0].freq = (int)peaks[0].freq1;
 	next = fr2->klattp[KLATT_FNZ] * 2;
@@ -1063,12 +1040,12 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	if (fr1->frflags & FRFLAG_KLATT) {
 		// the frame contains additional parameters for parallel resonators
 		for (ix = 1; ix < 7; ix++) {
-			peaks[ix].bp1 = fr1->klatt_bp[ix] * 4;  // parallel bandwidth
+			peaks[ix].bp1 = fr1->klatt_bp[ix] * 4; // parallel bandwidth
 			peaks[ix].bp = (int)peaks[ix].bp1;
 			next = fr2->klatt_bp[ix] * 4;
 			peaks[ix].bp_inc =  ((next - peaks[ix].bp1) * STEPSIZE) / length;
 
-			peaks[ix].ap1 = fr1->klatt_ap[ix];   // parallal amplitude
+			peaks[ix].ap1 = fr1->klatt_ap[ix]; // parallal amplitude
 			peaks[ix].ap = (int)peaks[ix].ap1;
 			next = fr2->klatt_ap[ix];
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
@@ -1099,7 +1076,7 @@ void KlattInit()
 	kt_globals.synthesis_model = CASCADE_PARALLEL;
 	kt_globals.samrate = 22050;
 
-	kt_globals.glsource = IMPULSIVE; // IMPULSIVE, NATURAL, SAMPLED
+	kt_globals.glsource = IMPULSIVE;
 	kt_globals.scale_wav = scale_wav_tab[kt_globals.glsource];
 	kt_globals.natural_samples = natural_samples;
 	kt_globals.num_samples = NUMBER_OF_SAMPLES;
@@ -1120,14 +1097,14 @@ void KlattInit()
 	kt_frame.Bhz_next[F_NZ] = bandwidth[F_NZ];
 
 	kt_frame.F0hz10 = 1000;
-	kt_frame.AVdb = 59;  // 59
+	kt_frame.AVdb = 59;
 	kt_frame.ASP = 0;
-	kt_frame.Kopen = 40;  // 40
+	kt_frame.Kopen = 40;
 	kt_frame.Aturb = 0;
 	kt_frame.TLTdb = 0;
 	kt_frame.AF = 50;
 	kt_frame.Kskew = 0;
 	kt_frame.AB = 0;
 	kt_frame.AVpdb = 0;
-	kt_frame.Gain0 = 62;   // 60
+	kt_frame.Gain0 = 62;
 }

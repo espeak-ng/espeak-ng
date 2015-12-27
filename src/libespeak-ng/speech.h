@@ -69,8 +69,6 @@ typedef signed __int32 intptr_t;
 #endif
 #endif
 
-
-
 typedef struct {
 	const char *mnem;
 	int value;

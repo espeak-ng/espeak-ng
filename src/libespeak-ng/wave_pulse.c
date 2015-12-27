@@ -102,7 +102,8 @@ int is_pulse_running()
 	} else
 		return 0;
 }
-#endif // USE_PORTAUDIO
+
+#endif
 
 static pthread_mutex_t pulse_mutex;
 
@@ -138,7 +139,8 @@ static int wave_samplerate;
 		if (!connected) { SHOW("CHECK_CONNECTED_NO_RETVAL: !pulse_connected\n", ""); return; } \
 	} while (0);
 
-static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata) {
+static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata)
+{
 	ENTER(__FUNCTION__);
 
 	assert(c);
@@ -150,7 +152,8 @@ static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t
 		return;
 }
 
-static void context_state_cb(pa_context *c, void *userdata) {
+static void context_state_cb(pa_context *c, void *userdata)
+{
 	ENTER(__FUNCTION__);
 	assert(c);
 
@@ -169,7 +172,8 @@ static void context_state_cb(pa_context *c, void *userdata) {
 	}
 }
 
-static void stream_state_cb(pa_stream *s, void *userdata) {
+static void stream_state_cb(pa_stream *s, void *userdata)
+{
 	ENTER(__FUNCTION__);
 	assert(s);
 
@@ -186,7 +190,8 @@ static void stream_state_cb(pa_stream *s, void *userdata) {
 	}
 }
 
-static void stream_success_cb(pa_stream *s, int success, void *userdata) {
+static void stream_success_cb(pa_stream *s, int success, void *userdata)
+{
 	ENTER(__FUNCTION__);
 	assert(s);
 
@@ -196,7 +201,8 @@ static void stream_success_cb(pa_stream *s, int success, void *userdata) {
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
 
-static void context_success_cb(pa_context *c, int success, void *userdata) {
+static void context_success_cb(pa_context *c, int success, void *userdata)
+{
 	ENTER(__FUNCTION__);
 	assert(c);
 
@@ -206,20 +212,23 @@ static void context_success_cb(pa_context *c, int success, void *userdata) {
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
 
-static void stream_request_cb(pa_stream *s, size_t length, void *userdata) {
+static void stream_request_cb(pa_stream *s, size_t length, void *userdata)
+{
 	ENTER(__FUNCTION__);
 	assert(s);
 
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
 
-static void stream_latency_update_cb(pa_stream *s, void *userdata) {
+static void stream_latency_update_cb(pa_stream *s, void *userdata)
+{
 	assert(s);
 
 	pa_threaded_mainloop_signal(mainloop, 0);
 }
 
-static int pulse_free(void) {
+static int pulse_free(void)
+{
 	ENTER(__FUNCTION__);
 	size_t l = 0;
 	pa_operation *o = NULL;
@@ -273,7 +282,8 @@ fail:
 	return (int)l;
 }
 
-static int pulse_playing(const pa_timing_info *the_timing_info) {
+static int pulse_playing(const pa_timing_info *the_timing_info)
+{
 	ENTER(__FUNCTION__);
 	int r = 0;
 	const pa_timing_info *i;
@@ -306,7 +316,8 @@ fail:
 	return r;
 }
 
-static void pulse_write(void *ptr, int length) {
+static void pulse_write(void *ptr, int length)
+{
 	ENTER(__FUNCTION__);
 
 	SHOW("pulse_write > length=%d\n", length);
@@ -327,7 +338,8 @@ fail:
 	pa_threaded_mainloop_unlock(mainloop);
 }
 
-static int drain(void) {
+static int drain(void)
+{
 	pa_operation *o = NULL;
 	int success = 0;
 	int ret = PULSE_ERROR;
@@ -367,8 +379,8 @@ fail:
 	return ret;
 }
 
-static void pulse_close(void) {
-
+static void pulse_close(void)
+{
 	ENTER(__FUNCTION__);
 
 	drain();
@@ -448,7 +460,7 @@ static int pulse_open()
 		goto unlock_and_fail;
 	}
 
-	/* Wait until the context is ready */
+	// Wait until the context is ready
 	SHOW_TIME("pa_threaded_mainloop_wait");
 	pa_threaded_mainloop_wait(mainloop);
 
@@ -484,7 +496,7 @@ static int pulse_open()
 		goto unlock_and_fail;
 	}
 
-	/* Wait until the stream is ready */
+	// Wait until the stream is ready
 	SHOW_TIME("pa_threaded_mainloop_wait");
 	pa_threaded_mainloop_wait(mainloop);
 
@@ -493,7 +505,7 @@ static int pulse_open()
 		goto unlock_and_fail;
 	}
 
-	/* Now subscribe to events */
+	// Now subscribe to events
 	SHOW_TIME("pa_context_subscribe");
 	if (!(o = pa_context_subscribe(context, PA_SUBSCRIPTION_MASK_SINK_INPUT, context_success_cb, &success))) {
 		SHOW("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
@@ -714,9 +726,8 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 		// TBD: take in account time suplied by portaudio V18 API
 		a_time = sample - a_timing_info.read_index;
 		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
-	} else {
+	} else
 		a_time = 0;
-	}
 
 	SHOW("wave_get_remaining_time > sample=%d, time=%d\n", sample, (uint32_t)a_time);
 
@@ -732,34 +743,57 @@ void *wave_test_get_write_buffer()
 
 #else
 
-int wave_init(return 1; ) {
+int wave_init(int srate)
+{
+	return 1;
 }
-void *wave_open(const char *the_api) {
+
+void *wave_open(const char *the_api)
+{
 	return (void *)1;
 }
-size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize) {
+
+size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
+{
 	return theSize;
 }
-int wave_close(void *theHandler) {
+
+int wave_close(void *theHandler)
+{
 	return 0;
 }
-int wave_is_busy(void *theHandler) {
+
+int wave_is_busy(void *theHandler)
+{
 	return 0;
 }
-void wave_terminate() {
+
+void wave_terminate()
+{
 }
-uint32_t wave_get_read_position(void *theHandler) {
+
+uint32_t wave_get_read_position(void *theHandler)
+{
 	return 0;
 }
-uint32_t wave_get_write_position(void *theHandler) {
+
+uint32_t wave_get_write_position(void *theHandler)
+{
 	return 0;
 }
-void wave_flush(void *theHandler) {
+
+void wave_flush(void *theHandler)
+{
 }
+
 typedef int (t_wave_callback)(void);
-void wave_set_callback_is_output_enabled(t_wave_callback *cb) {
+
+void wave_set_callback_is_output_enabled(t_wave_callback *cb)
+{
 }
-extern void *wave_test_get_write_buffer() {
+
+extern void *wave_test_get_write_buffer()
+{
 	return NULL;
 }
 
@@ -770,7 +804,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	return 0;
 }
 
-#endif  // of USE_PULSEAUDIO
+#endif
 
 #ifndef USE_PORTAUDIO
 
@@ -799,6 +833,6 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 	}
 	ts->tv_nsec = (long int)t_ns;
 }
-#endif  // ifndef USE_PORTAUDIO
 
-#endif   // USE_ASYNC
+#endif
+#endif

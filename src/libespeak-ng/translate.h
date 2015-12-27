@@ -22,99 +22,96 @@ extern "C"
 {
 #endif
 
-#define L(c1, c2) (c1<<8)+c2          // combine two characters into an integer for translator name
+#define L(c1, c2) (c1<<8)+c2 // combine two characters into an integer for translator name
 
-#define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
-#define REPLACED_E       'E'          // 'e' replaced by silent e
+#define CTRL_EMBEDDED    0x01 // control character at the start of an embedded command
+#define REPLACED_E       'E' // 'e' replaced by silent e
 
-#define N_WORD_PHONEMES  200          // max phonemes in a word
-#define N_WORD_BYTES     160          // max bytes for the UTF8 characters in a word
-#define N_CLAUSE_WORDS   300          // max words in a clause
-#define N_TR_SOURCE    800            // the source text of a single clause (UTF8 bytes)
+#define N_WORD_PHONEMES  200 // max phonemes in a word
+#define N_WORD_BYTES     160 // max bytes for the UTF8 characters in a word
+#define N_CLAUSE_WORDS   300 // max words in a clause
+#define N_TR_SOURCE      800 // the source text of a single clause (UTF8 bytes)
 
-
-#define N_RULE_GROUP2    120          // max num of two-letter rule chains
+#define N_RULE_GROUP2    120 // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
-#define N_LETTER_GROUPS   95          // maximum is 127-32
+#define N_LETTER_GROUPS   95 // maximum is 127-32
 
-
-/* dictionary flags, word 1 */
+// dictionary flags, word 1
 // bits 0-3  stressed syllable,  bit 6=unstressed
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
 
-#define FLAG_STRESS_END      0x200  // full stress if at end of clause
-#define FLAG_STRESS_END2     0x400  // full stress if at end of clause, or only followed by unstressed
-#define FLAG_UNSTRESS_END    0x800  // reduce stress at end of clause
-#define FLAG_SPELLWORD      0x1000  // re-translate the word as individual letters, separated by spaces
-#define FLAG_ACCENT_BEFORE  0x1000  // say this accent name before the letter name
-#define FLAG_ABBREV         0x2000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
-#define FLAG_DOUBLING       0x4000  // doubles the following consonant
+#define FLAG_STRESS_END      0x200 // full stress if at end of clause
+#define FLAG_STRESS_END2     0x400 // full stress if at end of clause, or only followed by unstressed
+#define FLAG_UNSTRESS_END    0x800 // reduce stress at end of clause
+#define FLAG_SPELLWORD      0x1000 // re-translate the word as individual letters, separated by spaces
+#define FLAG_ACCENT_BEFORE  0x1000 // say this accent name before the letter name
+#define FLAG_ABBREV         0x2000 // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
+#define FLAG_DOUBLING       0x4000 // doubles the following consonant
 
-#define BITNUM_FLAG_ALT         14  // bit number of FLAG_ALT_TRANS - 1
-#define FLAG_ALT_TRANS      0x8000  // language specific
-#define FLAG_ALT2_TRANS    0x10000  // language specific
-#define FLAG_ALT3_TRANS    0x20000  // language specific
-#define FLAG_ALT4_TRANS    0x40000  // language specific
-#define FLAG_ALT5_TRANS    0x80000  // language specific
-#define FLAG_ALT6_TRANS   0x100000  // language specific
-#define FLAG_ALT7_TRANS   0x200000  // language specific
+#define BITNUM_FLAG_ALT         14 // bit number of FLAG_ALT_TRANS - 1
+#define FLAG_ALT_TRANS      0x8000 // language specific
+#define FLAG_ALT2_TRANS    0x10000 // language specific
+#define FLAG_ALT3_TRANS    0x20000 // language specific
+#define FLAG_ALT4_TRANS    0x40000 // language specific
+#define FLAG_ALT5_TRANS    0x80000 // language specific
+#define FLAG_ALT6_TRANS   0x100000 // language specific
+#define FLAG_ALT7_TRANS   0x200000 // language specific
 
-#define FLAG_COMBINE      0x800000  // combine with the next word
-#define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
-#define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
+#define FLAG_COMBINE      0x800000 // combine with the next word
+#define FLAG_ALLOW_DOT  0x01000000 // ignore '.' after word (abbreviation)
+#define FLAG_NEEDS_DOT  0x02000000 // only if the word is followed by a dot
 #define FLAG_WAS_UNPRONOUNCABLE  0x04000000  // the unpronounceable routine was used
-#define FLAG_MAX3       0x08000000  // limit to 3 repeats
-#define FLAG_PAUSE1     0x10000000  // shorter prepause
-#define FLAG_TEXTMODE   0x20000000  // word translates to replacement text, not phonemes
+#define FLAG_MAX3       0x08000000 // limit to 3 repeats
+#define FLAG_PAUSE1     0x10000000 // shorter prepause
+#define FLAG_TEXTMODE   0x20000000 // word translates to replacement text, not phonemes
 #define BITNUM_FLAG_TEXTMODE    29
 
-#define FLAG_FOUND_ATTRIBUTES     0x40000000  // word was found in the dictionary list (has attributes)
-#define FLAG_FOUND      0x80000000  // pronunciation was found in the dictionary list
+#define FLAG_FOUND_ATTRIBUTES 0x40000000 // word was found in the dictionary list (has attributes)
+#define FLAG_FOUND            0x80000000 // pronunciation was found in the dictionary list
 
 // dictionary flags, word 2
-#define FLAG_VERBF             0x1  /* verb follows */
-#define FLAG_VERBSF            0x2  /* verb follows, may have -s suffix */
-#define FLAG_NOUNF             0x4  /* noun follows */
-#define FLAG_PASTF             0x8  /* past tense follows */
-#define FLAG_VERB             0x10  /* pronunciation for verb */
-#define FLAG_NOUN             0x20  /* pronunciation for noun */
-#define FLAG_PAST             0x40  /* pronunciation for past tense */
-#define FLAG_VERB_EXT        0x100  /* extend the 'verb follows' */
-#define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
-#define FLAG_ALLCAPS         0x400  // only if the word is all capitals
-#define FLAG_ACCENT          0x800  // character name is base-character name + accent name
-#define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
-#define FLAG_SENTENCE       0x2000  // only if the clause is a sentence
+#define FLAG_VERBF             0x1 // verb follows
+#define FLAG_VERBSF            0x2 // verb follows, may have -s suffix
+#define FLAG_NOUNF             0x4 // noun follows
+#define FLAG_PASTF             0x8 // past tense follows
+#define FLAG_VERB             0x10 // pronunciation for verb
+#define FLAG_NOUN             0x20 // pronunciation for noun
+#define FLAG_PAST             0x40 // pronunciation for past tense
+#define FLAG_VERB_EXT        0x100 // extend the 'verb follows'
+#define FLAG_CAPITAL         0x200 // pronunciation if initial letter is upper case
+#define FLAG_ALLCAPS         0x400 // only if the word is all capitals
+#define FLAG_ACCENT          0x800 // character name is base-character name + accent name
+#define FLAG_HYPHENATED     0x1000 // multiple-words, but needs hyphen between parts 1 and 2
+#define FLAG_SENTENCE       0x2000 // only if the clause is a sentence
 #define FLAG_ONLY           0x4000
 #define FLAG_ONLY_S         0x8000
-#define FLAG_STEM          0x10000  // must have a suffix
-#define FLAG_ATEND         0x20000  // use this pronunciation if at end of clause
-#define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
-#define FLAG_NATIVE        0x80000  // not if we've switched translators
-#define FLAG_LOOKUP_SYMBOL 0x40000000  // to indicate called from Lookup()
+#define FLAG_STEM          0x10000 // must have a suffix
+#define FLAG_ATEND         0x20000 // use this pronunciation if at end of clause
+#define FLAG_ATSTART       0x40000 // use this pronunciation if at start of clause
+#define FLAG_NATIVE        0x80000 // not if we've switched translators
+#define FLAG_LOOKUP_SYMBOL 0x40000000 // to indicate called from Lookup()
 
-#define BITNUM_FLAG_ALLCAPS   0x2a
-#define BITNUM_FLAG_HYPHENATED  0x2c
-#define BITNUM_FLAG_ONLY      0x2e
-#define BITNUM_FLAG_ONLY_S    0x2f
-
+#define BITNUM_FLAG_ALLCAPS    0x2a
+#define BITNUM_FLAG_HYPHENATED 0x2c
+#define BITNUM_FLAG_ONLY       0x2e
+#define BITNUM_FLAG_ONLY_S     0x2f
 
 // wordflags, flags in source word
-#define FLAG_ALL_UPPER     0x1    /* no lower case letters in the word */
-#define FLAG_FIRST_UPPER   0x2    /* first letter is upper case */
-#define FLAG_UPPERS        0x3    // FLAG_ALL_UPPER | FLAG_FIRST_UPPER
-#define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
-#define FLAG_PHONEMES      0x8    /* word is phonemes */
-#define FLAG_LAST_WORD     0x10   /* last word in clause */
-#define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
+#define FLAG_ALL_UPPER     0x1   // no lower case letters in the word
+#define FLAG_FIRST_UPPER   0x2   // first letter is upper case
+#define FLAG_UPPERS        0x3   // FLAG_ALL_UPPER | FLAG_FIRST_UPPER
+#define FLAG_HAS_PLURAL    0x4   // upper-case word with s or 's lower-case ending
+#define FLAG_PHONEMES      0x8   // word is phonemes
+#define FLAG_LAST_WORD     0x10  // last word in clause
+#define FLAG_EMBEDDED      0x40  // word is preceded by embedded commands
 #define FLAG_HYPHEN        0x80
-#define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
-#define FLAG_FIRST_WORD    0x200  // first word in clause
-#define FLAG_FOCUS         0x400   // the focus word of a clause
+#define FLAG_NOSPACE       0x100 // word is not seperated from previous word by a space
+#define FLAG_FIRST_WORD    0x200 // first word in clause
+#define FLAG_FOCUS         0x400 // the focus word of a clause
 #define FLAG_EMPHASIZED    0x800
-#define FLAG_EMPHASIZED2   0xc00  // FLAG_FOCUS | FLAG_EMPHASIZED
+#define FLAG_EMPHASIZED2   0xc00 // FLAG_FOCUS | FLAG_EMPHASIZED
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
@@ -128,11 +125,10 @@ extern "C"
 #define FLAG_TRANSLATOR2     0x400000   // retranslating using a different language
 #define FLAG_PREFIX_REMOVED  0x800000   // a prefix has been removed from this word
 
-#define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
-#define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
+#define FLAG_SUFFIX_VOWEL  0x08000000 // remember an initial vowel from the suffix
+#define FLAG_NO_TRACE      0x10000000 // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000000
-#define FLAG_UNPRON_TEST   0x80000000   // do unpronounability test on the beginning of the word
-
+#define FLAG_UNPRON_TEST   0x80000000 // do unpronounability test on the beginning of the word
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
@@ -149,60 +145,56 @@ extern "C"
 
 #define SUFX_UNPRON     0x8000   // used to return $unpron flag from *_rules
 
-
 #define FLAG_ALLOW_TEXTMODE  0x02  // allow dictionary to translate to text rather than phonemes
 #define FLAG_SUFX       0x04
 #define FLAG_SUFX_S     0x08
 #define FLAG_SUFX_E_ADDED 0x10
 
-
 // codes in dictionary rules
-#define RULE_PRE            1
-#define RULE_POST           2
-#define RULE_PHONEMES   3
-#define RULE_PH_COMMON  4   // At start of rule. Its phoneme string is used by subsequent rules
-#define RULE_CONDITION  5   // followed by condition number (byte)
+#define RULE_PRE         1
+#define RULE_POST        2
+#define RULE_PHONEMES    3
+#define RULE_PH_COMMON   4 // At start of rule. Its phoneme string is used by subsequent rules
+#define RULE_CONDITION   5 // followed by condition number (byte)
 #define RULE_GROUP_START 6
-#define RULE_GROUP_END  7
-#define RULE_PRE_ATSTART 8   // as RULE_PRE but also match with 'start of word'
-#define RULE_LINENUM        9  // next 2 bytes give a line number, for debugging purposes
+#define RULE_GROUP_END   7
+#define RULE_PRE_ATSTART 8 // as RULE_PRE but also match with 'start of word'
+#define RULE_LINENUM     9 // next 2 bytes give a line number, for debugging purposes
 
-#define RULE_SPACE      32   // ascii space
-#define RULE_SYLLABLE   21    // @
-#define RULE_STRESSED   10   // &
-#define RULE_DOUBLE     11   // %
-#define RULE_INC_SCORE  12   // +
-#define RULE_DEL_FWD        13   // #
-#define RULE_ENDING     14   // S
-#define RULE_DIGIT      15   // D digit
-#define RULE_NONALPHA   16   // Z non-alpha
-#define RULE_LETTERGP   17   // A B C H F G Y   letter group number
-#define RULE_LETTERGP2  18   // L + letter group number
-#define RULE_CAPITAL    19   // !   word starts with a capital letter
-#define RULE_REPLACEMENTS 20  // section for character replacements
-#define RULE_SKIPCHARS  23   // J
-#define RULE_NO_SUFFIX  24   // N
-#define RULE_NOTVOWEL   25   // K
-#define RULE_IFVERB     26   // V
-#define RULE_DOLLAR     28   // $ commands
-#define RULE_NOVOWELS   29   // X no vowels up to word boundary
-#define RULE_SPELLING   31   // W while spelling letter-by-letter
-#define RULE_LAST_RULE   31
+#define RULE_SPACE        32 // ascii space
+#define RULE_SYLLABLE     21 // @
+#define RULE_STRESSED     10 // &
+#define RULE_DOUBLE       11 // %
+#define RULE_INC_SCORE    12 // +
+#define RULE_DEL_FWD      13 // #
+#define RULE_ENDING       14 // S
+#define RULE_DIGIT        15 // D digit
+#define RULE_NONALPHA     16 // Z non-alpha
+#define RULE_LETTERGP     17 // A B C H F G Y   letter group number
+#define RULE_LETTERGP2    18 // L + letter group number
+#define RULE_CAPITAL      19 // !   word starts with a capital letter
+#define RULE_REPLACEMENTS 20 // section for character replacements
+#define RULE_SKIPCHARS    23 // J
+#define RULE_NO_SUFFIX    24 // N
+#define RULE_NOTVOWEL     25 // K
+#define RULE_IFVERB       26 // V
+#define RULE_DOLLAR       28 // $ commands
+#define RULE_NOVOWELS     29 // X no vowels up to word boundary
+#define RULE_SPELLING     31 // W while spelling letter-by-letter
+#define RULE_LAST_RULE    31
 
 #define DOLLAR_UNPR     0x01
 #define DOLLAR_NOPREFIX 0x02
 #define DOLLAR_LIST     0x03
 
-
-#define LETTERGP_A  0
-#define LETTERGP_B  1
-#define LETTERGP_C  2
-#define LETTERGP_H  3
-#define LETTERGP_F  4
-#define LETTERGP_G  5
-#define LETTERGP_Y  6
-#define LETTERGP_VOWEL2   7
-
+#define LETTERGP_A      0
+#define LETTERGP_B      1
+#define LETTERGP_C      2
+#define LETTERGP_H      3
+#define LETTERGP_F      4
+#define LETTERGP_G      5
+#define LETTERGP_Y      6
+#define LETTERGP_VOWEL2 7
 
 // Punctuation types  returned by ReadClause()
 // bits 0-11 pause x 10mS
@@ -215,14 +207,14 @@ extern "C"
 // bit 22= dot after the last word
 // bit 23= pause is x 320mS (not x 10mS)
 
-#define CLAUSE_BIT_SENTENCE  0x80000
-#define CLAUSE_BIT_CLAUSE    0x40000
-#define CLAUSE_BIT_VOICE     0x20000
-#define CLAUSE_BITS_INTONATION 0x7000
-#define PUNCT_IN_WORD        0x100000
-#define PUNCT_SAY_NAME       0x200000
-#define CLAUSE_DOT           0x400000
-#define CLAUSE_PAUSE_LONG 0x800000
+#define CLAUSE_BIT_SENTENCE     0x80000
+#define CLAUSE_BIT_CLAUSE       0x40000
+#define CLAUSE_BIT_VOICE        0x20000
+#define CLAUSE_BITS_INTONATION   0x7000
+#define PUNCT_IN_WORD          0x100000
+#define PUNCT_SAY_NAME         0x200000
+#define CLAUSE_DOT             0x400000
+#define CLAUSE_PAUSE_LONG      0x800000
 
 #define CLAUSE_NONE        ( 0 + 0x04000)
 #define CLAUSE_PARAGRAPH   (70 + 0x80000)
@@ -237,15 +229,15 @@ extern "C"
 #define CLAUSE_COLON       (30 + 0x40000)
 #define CLAUSE_SEMICOLON   (30 + 0x41000)
 
-#define SAYAS_CHARS     0x12
-#define SAYAS_GLYPHS    0x13
+#define SAYAS_CHARS        0x12
+#define SAYAS_GLYPHS       0x13
 #define SAYAS_SINGLE_CHARS 0x14
-#define SAYAS_KEY       0x24
-#define SAYAS_DIGITS    0x40  // + number of digits
-#define SAYAS_DIGITS1   0xc1
+#define SAYAS_KEY          0x24
+#define SAYAS_DIGITS       0x40 // + number of digits
+#define SAYAS_DIGITS1      0xc1
 
-#define CHAR_EMPHASIS   0x0530  // this is an unused character code
-#define CHAR_COMMA_BREAK  0x0557  // unused character code
+#define CHAR_EMPHASIS    0x0530 // this is an unused character code
+#define CHAR_COMMA_BREAK 0x0557 // unused character code
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -261,7 +253,6 @@ typedef struct {
 	char *del_fwd;
 } MatchRecord;
 
-
 // used to mark words with the source[] buffer
 typedef struct {
 	unsigned int flags;
@@ -272,7 +263,6 @@ typedef struct {
 	unsigned char length;
 } WORD_TAB;
 
-
 typedef struct {
 	int type;
 	int parameter[N_SPEECH_PARAM];
@@ -280,7 +270,6 @@ typedef struct {
 
 extern PARAM_STACK param_stack[];
 extern const int param_defaults[N_SPEECH_PARAM];
-
 
 typedef struct {
 	const char *name;
@@ -293,21 +282,20 @@ typedef struct {
 extern ALPHABET alphabets[];
 extern ALPHABET *current_alphabet;
 // alphabet flags
-#define AL_DONT_NAME  0x01    // don't speak the alphabet name
-#define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
-#define AL_WORDS      0x04    // use the language to speak words
-#define AL_NOT_CODE   0x08    // don't speak the character code
-#define AL_NO_SYMBOL  0x10    // don't repeat "symbol" or "character"
+#define AL_DONT_NAME    0x01 // don't speak the alphabet name
+#define AL_NOT_LETTERS  0x02 // don't use the language for speaking letters
+#define AL_WORDS        0x04 // use the language to speak words
+#define AL_NOT_CODE     0x08 // don't speak the character code
+#define AL_NO_SYMBOL    0x10 // don't repeat "symbol" or "character"
 
-
-#define N_LOPTS      21
-#define LOPT_DIERESES        1
+#define N_LOPTS       21
+#define LOPT_DIERESES  1
 // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
 // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
-#define LOPT_IT_LENGTHEN        2
+#define LOPT_IT_LENGTHEN 2
 
 // 1=german
-#define LOPT_PREFIXES        3
+#define LOPT_PREFIXES 3
 
 // non-zero, change voiced/unoiced to match last consonant in a cluster
 // bit 0=use regressive voicing
@@ -316,26 +304,26 @@ extern ALPHABET *current_alphabet;
 // bit 3=LANG=pl,  propagate over liquids and nasals
 // bit 4=LANG=cz,sk  don't progagate to [v]
 // bit 8=devoice word-final consonants
-#define LOPT_REGRESSIVE_VOICING  4
+#define LOPT_REGRESSIVE_VOICING 4
 
 // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
-#define LOPT_UNPRONOUNCABLE  5
+#define LOPT_UNPRONOUNCABLE 5
 
 // select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
-#define LOPT_LENGTH_MODS    6
+#define LOPT_LENGTH_MODS 6
 
 // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
-#define LOPT_SONORANT_MIN    7
+#define LOPT_SONORANT_MIN 7
 
 // bit 0: don't break vowels at word boundary
-#define LOPT_WORD_MERGE      8
+#define LOPT_WORD_MERGE 8
 
 // max. amplitude for vowel at the end of a clause
-#define LOPT_MAXAMP_EOC      9
+#define LOPT_MAXAMP_EOC 9
 
 // bit 0=reduce even if phonemes are specified in the **_list file
 // bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
-#define LOPT_REDUCE  10
+#define LOPT_REDUCE 10
 
 // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
 // bits 0-3  N syllables
@@ -348,15 +336,15 @@ extern ALPHABET *current_alphabet;
 
 // 1 = allow capitals inside a word
 // 2 = stressed syllable is indicated by capitals
-#define LOPT_CAPS_IN_WORD  13
+#define LOPT_CAPS_IN_WORD 13
 
 // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
 // bit 1=also after a word which ends with a stressed vowel
-#define LOPT_IT_DOUBLING    14
+#define LOPT_IT_DOUBLING 14
 
 // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
 // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
-#define LOPT_ALT  15
+#define LOPT_ALT 15
 
 // pause for bracket (default=4), pause when annoucing bracket names (default=2)
 #define LOPT_BRACKET_PAUSE 16
@@ -368,20 +356,18 @@ extern ALPHABET *current_alphabet;
 #define LOPT_LONG_VOWEL_THRESHOLD 18
 
 // bit 0:  Don't allow suffices if there is no previous syllable
-#define LOPT_SUFFIX  19
+#define LOPT_SUFFIX 19
 
 // bit 0  Apostrophe at start of word is part of the word
 // bit 1  Apostrophe at end of word is part of the word
-#define LOPT_APOSTROPHE  20
-
+#define LOPT_APOSTROPHE 20
 
 // stress_rule
-#define STRESSPOSN_1L   0   // 1st syllable
-#define STRESSPOSN_2L   1   // 2nd syllable
-#define STRESSPOSN_2R   2   // penultimate
-#define STRESSPOSN_1R   3   // final syllable
-#define STRESSPOSN_3R   4   // antipenultimate
-
+#define STRESSPOSN_1L 0 // 1st syllable
+#define STRESSPOSN_2L 1 // 2nd syllable
+#define STRESSPOSN_2R 2 // penultimate
+#define STRESSPOSN_1R 3 // final syllable
+#define STRESSPOSN_3R 4 // antipenultimate
 
 typedef struct {
 // bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)
@@ -444,7 +430,6 @@ typedef struct {
 // bit21= don't lengthen vowels at end-of-clause
 
 // bit15= Give stress to the first unstressed syllable
-
 
 	int stress_flags;
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -531,7 +516,7 @@ typedef struct {
 #define NUM2_PERCENT_BEFORE     0x10000
 #define NUM2_OMIT_1_HUNDRED_ONLY 0x20000
 #define NUM2_ORDINAL_AND_THOUSANDS 0x40000
-#define NUM2_ORDINAL_DROP_VOWEL  0x80000        // currently only for tens and units
+#define NUM2_ORDINAL_DROP_VOWEL  0x80000 // currently only for tens and units
 #define NUM2_ZERO_TENS          0x100000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
@@ -588,7 +573,6 @@ typedef struct {
 	int dict_dialect;         // bitmap, use a dialect for foreign words
 } LANGUAGE_OPTIONS;
 
-
 // a parameter of ChangePhonemes()
 typedef struct {
 	int flags;
@@ -599,10 +583,7 @@ typedef struct {
 	unsigned char vowel_stressed;  // syllable number of the highest stressed vowel
 } CHANGEPH;
 
-
-
 typedef struct {
-
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
 	int transpose_max;
@@ -630,8 +611,8 @@ typedef struct {
 	const wchar_t *letter_groups[8];
 
 	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
-#define INTONATION_TYPES 8
-#define PUNCT_INTONATIONS 6
+	#define INTONATION_TYPES 8
+	#define PUNCT_INTONATIONS 6
 	unsigned char punct_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 
 	char *data_dictrules;     // language_1   translation rules file
@@ -671,7 +652,6 @@ typedef struct {
 	int clause_terminator;
 } Translator;
 
-
 extern int option_tone2;
 #define OPTION_EMPHASIZE_ALLCAPS  0x100
 #define OPTION_EMPHASIZE_PENULTIMATE 0x200
@@ -703,8 +683,6 @@ extern int clause_start_char;
 extern int clause_start_word;
 extern char *namedata;
 extern int pre_pause;
-
-
 
 #define N_MARKER_LENGTH 50   // max.length of a mark name
 extern char skip_marker[N_MARKER_LENGTH];
@@ -796,9 +774,9 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 
-extern FILE *f_trans;       // for logging
+extern FILE *f_trans; // for logging
 extern FILE *f_logespeak;
-extern int logging_type;  // from config file
+extern int logging_type; // from config file
 
 #ifdef __cplusplus
 }

@@ -63,10 +63,10 @@ static double read_double(FILE *stream)
 
 float polint(float xa[], float ya[], int n, float x)
 {
-// General polinomial interpolation routine, xa[1...n] ya[1...n]
+	// General polinomial interpolation routine, xa[1...n] ya[1...n]
 	int i, m, ns = 1;
 	float den, dif, dift, ho, hp, w;
-	float y;  // result
+	float y; // result
 	float c[9], d[9];
 
 	dif = fabs(x-xa[1]);
@@ -86,7 +86,7 @@ float polint(float xa[], float ya[], int n, float x)
 			hp = xa[i+m]-x;
 			w = c[i+1]-d[i];
 			if ((den = ho-hp) == 0.0)
-				return ya[2];  // two input xa are identical
+				return ya[2]; // two input xa are identical
 			den = w/den;
 			d[i] = hp*den;
 			c[i] = ho*den;
@@ -265,7 +265,8 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 	if (frame >= spect->numframes-1) return 0;
 
 	for (ix = frame+1; ix < spect->numframes-1; ix++) {
-		if (spect->frames[ix]->keyframe) break;  // reached next keyframe
+		if (spect->frames[ix]->keyframe)
+			break; // reached next keyframe
 		adjust += spect->frames[ix]->length_adjust;
 	}
 	return (spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust;
@@ -289,11 +290,11 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	fread(&id2, sizeof(uint32_t), 1, stream);
 
 	if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
-		spect->file_format = 0;       // eSpeak formants
+		spect->file_format = 0; // eSpeak formants
 	else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
-		spect->file_format = 1;       // formants for Klatt synthesizer
+		spect->file_format = 1; // formants for Klatt synthesizer
 	else if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
-		spect->file_format = 2;       // formants for Klatt synthesizer
+		spect->file_format = 2; // formants for Klatt synthesizer
 	else {
 		fprintf(stderr, "Unsupported spectral file format.\n");
 		fclose(stream);

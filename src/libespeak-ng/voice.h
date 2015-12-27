@@ -22,15 +22,13 @@ extern "C"
 {
 #endif
 
-
-
 typedef struct {
 	char v_name[40];
 	char language_name[20];
 
-	int phoneme_tab_ix;  // phoneme table number
-	int pitch_base;    // Hz<<12
-	int pitch_range;   // standard = 0x1000
+	int phoneme_tab_ix; // phoneme table number
+	int pitch_base; // Hz<<12
+	int pitch_range; // standard = 0x1000
 
 	int speedf1;
 	int speedf2;
@@ -44,7 +42,7 @@ typedef struct {
 	int n_harmonic_peaks;  // highest formant which is formed from adding harmonics
 	int peak_shape;        // alternative shape for formant peaks (0=standard 1=squarer)
 	int voicing;           // 100% = 64, level of formant-synthesized sound
-	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
+	int formant_factor;    // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 	int consonant_amp;     // amplitude of unvoiced consonants
 	int consonant_ampv;    // amplitude of the noise component of voiced consonants
 	int samplerate;
@@ -54,7 +52,7 @@ typedef struct {
 	short freq[N_PEAKS];    // 100% = 256
 	short height[N_PEAKS];  // 100% = 256
 	short width[N_PEAKS];   // 100% = 256
-	short freqadd[N_PEAKS];  // Hz
+	short freqadd[N_PEAKS]; // Hz
 
 	// copies without temporary adjustments from embedded commands
 	short freq2[N_PEAKS];    // 100% = 256
@@ -62,7 +60,7 @@ typedef struct {
 	short width2[N_PEAKS];   // 100% = 256
 
 	int breath[N_PEAKS];  // amount of breath for each formant. breath[0] indicates whether any are set.
-	int breathw[N_PEAKS];  // width of each breath formant
+	int breathw[N_PEAKS]; // width of each breath formant
 
 	// This table provides the opportunity for tone control.
 	// Adjustment of harmonic amplitudes, steps of 8Hz

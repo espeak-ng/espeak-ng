@@ -50,9 +50,11 @@ static bool thread_inited;
 static t_espeak_callback *my_callback = NULL;
 static int my_event_is_running = 0;
 
-enum { MIN_TIMEOUT_IN_MS = 10,
-	   ACTIVITY_TIMEOUT = 50, // in ms, check that the stream is active
-	   MAX_ACTIVITY_CHECK = 6 };
+enum {
+	MIN_TIMEOUT_IN_MS = 10,
+	ACTIVITY_TIMEOUT = 50, // in ms, check that the stream is active
+	MAX_ACTIVITY_CHECK = 6
+};
 
 typedef struct t_node {
 	void *data;
@@ -359,9 +361,9 @@ static int get_remaining_time(uint32_t sample, uint32_t *time_in_ms, int *stop_i
 	for (i = 0; i < MAX_ACTIVITY_CHECK && (*stop_is_required == 0); i++) {
 		err = wave_get_remaining_time(sample, time_in_ms);
 
-		if (err || wave_is_busy(NULL) || (*time_in_ms == 0)) { // if err, stream not available: quit
-			                                                   // if wave is busy, time_in_ms is known: quit
-			                                                   // if wave is not busy but remaining time == 0, event is reached: quit
+		if (err ||                // if err, stream not available: quit
+		    wave_is_busy(NULL) || // if wave is busy, time_in_ms is known: quit
+		    (*time_in_ms == 0)) { // if wave is not busy but remaining time == 0, event is reached: quit
 			break;
 		}
 
@@ -412,20 +414,19 @@ static void *polling_thread(void *p)
 		SHOW_TIME("polling_thread > unlocked\n");
 
 		a_stop_is_required = 0;
-		a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);  // NOTE: may set a_stop_is_required to -1
+		a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required); // NOTE: may set a_stop_is_required to -1
 		if ((a_status == 0) && (a_stop_is_required > 0)) {
 			SHOW("polling_thread > stop required (%d)\n", __LINE__);
-			while (0 == sem_trywait(&my_sem_stop_is_required)) {
-			}
-			;
+			while (0 == sem_trywait(&my_sem_stop_is_required))
+				;
 		} else
 			a_stop_is_required = 0;
 
 		// In this loop, my_event_is_running = 1
 		while (head && (a_stop_is_required <= 0)) {
 			SHOW_TIME("polling_thread > check head\n");
-			while (0 == sem_trywait(&my_sem_start_is_required)) {
-			}
+			while (0 == sem_trywait(&my_sem_start_is_required))
+				;
 
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
@@ -465,8 +466,8 @@ static void *polling_thread(void *p)
 
 				if ((a_status == 0) && (a_stop_is_required > 0)) {
 					SHOW("polling_thread > stop required (%d)\n", __LINE__);
-					while (0 == sem_trywait(&my_sem_stop_is_required)) {
-					}
+					while (0 == sem_trywait(&my_sem_stop_is_required))
+						;
 				} else
 					a_stop_is_required = 0;
 			} else // The event will be notified soon: sleep until timeout or stop request
@@ -483,8 +484,8 @@ static void *polling_thread(void *p)
 			a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);
 			if ((a_status == 0) && (a_stop_is_required > 0)) {
 				SHOW("polling_thread > stop required (%d)\n", __LINE__);
-				while (0 == sem_trywait(&my_sem_stop_is_required)) {
-				}
+				while (0 == sem_trywait(&my_sem_stop_is_required))
+					;
 			} else
 				a_stop_is_required = 0;
 		}
@@ -573,8 +574,8 @@ static void init()
 {
 	ENTER("event > init");
 
-	while (event_delete((espeak_EVENT *)pop())) {
-	}
+	while (event_delete((espeak_EVENT *)pop()))
+		;
 
 	node_counter = 0;
 }

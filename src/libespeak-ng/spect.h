@@ -26,7 +26,6 @@ extern "C"
 #define MAX_DISPLAY_FREQ 9500
 #define FRAME_HEIGHT 240
 
-
 #define T_ZOOMOUT  301
 #define T_ZOOMIN   302
 #define T_USEPITCHENV 303
@@ -50,7 +49,6 @@ extern "C"
 #define T_KOPEN   320
 #define T_FNZ     321
 
-
 #define FILEID1_SPECTSEQ 0x43455053
 #define FILEID2_SPECTSEQ 0x51455354  // for eSpeak sequence
 #define FILEID2_SPECTSEK 0x4b455354  // for Klatt sequence
@@ -64,7 +62,6 @@ extern "C"
 #define FILEID1_PRAATSEQ 0x41415250
 #define FILEID2_PRAATSEQ 0x51455354
 
-
 typedef struct {
 	unsigned short pitch1;
 	unsigned short pitch2;
@@ -74,7 +71,7 @@ typedef struct {
 typedef struct {
 	short freq;
 	short bandw;
-}  formant_t;
+} formant_t;
 
 typedef struct {
 	short pkfreq;
@@ -84,8 +81,7 @@ typedef struct {
 	short klt_bw;
 	short klt_ap;
 	short klt_bp;
-}  peak_t;
-
+} peak_t;
 
 typedef struct {
 	int keyframe;
@@ -100,11 +96,11 @@ typedef struct {
 	unsigned short nx;
 	short markers;
 	int max_y;
-	USHORT *spect;   // sqrt of harmonic amplitudes,  1-nx at 'pitch'
+	USHORT *spect; // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
 	short klatt_param[N_KLATTP2];
 
-	formant_t formants[N_PEAKS];  // this is just the estimate given by Praat
+	formant_t formants[N_PEAKS]; // this is just the estimate given by Praat
 	peak_t peaks[N_PEAKS];
 } SpectFrame;
 

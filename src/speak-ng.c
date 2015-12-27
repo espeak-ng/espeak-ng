@@ -53,7 +53,7 @@
 #include "translate.h"
 
 extern void Write4Bytes(FILE *f, int value);
-char path_home[N_PATH_HOME];    // this is the espeak-data directory
+char path_home[N_PATH_HOME]; // this is the espeak-data directory
 
 char filetype[5];
 char wavefile[200];
@@ -204,7 +204,7 @@ static int OpenWaveFile(const char *path, int rate)
 	if (path[0] != 0) {
 		if (strcmp(path, "stdout") == 0) {
 #ifdef PLATFORM_WINDOWS
-// prevent Windows adding 0x0d before 0x0a bytes
+			// prevent Windows adding 0x0d before 0x0a bytes
 			_setmode(_fileno(stdout), _O_BINARY);
 #endif
 			f_wave = stdout;
@@ -296,14 +296,14 @@ static void init_path(char *argv0, char *path_specified)
 	if (((env = getenv("ESPEAK_DATA_PATH")) != NULL) && ((strlen(env)+12) < sizeof(path_home))) {
 		sprintf(path_home, "%s\\espeak-data", env);
 		if (GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists in the directory specified by environment variable
+			return; // an espeak-data directory exists in the directory specified by environment variable
 	}
 
 	strcpy(path_home, argv0);
 	if ((p = strrchr(path_home, '\\')) != NULL) {
 		strcpy(&p[1], "espeak-data");
 		if (GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists in the same directory as the espeak program
+			return; // an espeak-data directory exists in the same directory as the espeak program
 	}
 
 	// otherwise, look in the Windows Registry
@@ -322,7 +322,7 @@ static void init_path(char *argv0, char *path_specified)
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
 		snprintf(path_home, sizeof(path_home), "%s/espeak-data", env);
 		if (GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists
+			return; // an espeak-data directory exists
 	}
 
 	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
@@ -336,7 +336,7 @@ static int initialise(void)
 {
 	int param;
 	int result;
-	int srate = 22050;   // default sample rate
+	int srate = 22050; // default sample rate
 
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
@@ -409,7 +409,7 @@ int main(int argc, char **argv)
 
 	FILE *f_text = NULL;
 	const char *p_text = NULL;
-	char *data_path = NULL;   // use default path for espeak-data
+	char *data_path = NULL; // use default path for espeak-data
 
 	int option_index = 0;
 	int c;
@@ -417,7 +417,7 @@ int main(int argc, char **argv)
 	int speed = 175;
 	int ix;
 	char *optarg2;
-	int amp = 100;     // default
+	int amp = 100; // default
 	int wordgap = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
@@ -439,7 +439,7 @@ int main(int argc, char **argv)
 	option_wordgap = 0;
 	option_endpause = 1;
 	option_phoneme_input = 1;
-	option_multibyte = espeakCHARS_AUTO;  // auto
+	option_multibyte = espeakCHARS_AUTO;
 	f_trans = stdout;
 
 #ifdef NEED_GETOPT
@@ -463,7 +463,7 @@ int main(int argc, char **argv)
 
 		if (c == '-') {
 			if (p[0] == 0)
-				break;   // -- means don't interpret further - as commands
+				break; // -- means don't interpret further - as commands
 
 			opt_string = "";
 			for (ix = 0;; ix++) {
@@ -488,10 +488,10 @@ int main(int argc, char **argv)
 		}
 #else
 	while (true) {
-		c = getopt_long(argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",    // NOTE: also change arg_opts to indicate which commands have a numeric value
+		c = getopt_long(argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz", // NOTE: also change arg_opts to indicate which commands have a numeric value
 		                long_options, &option_index);
 
-		/* Detect the end of the options. */
+		// Detect the end of the options.
 		if (c == -1)
 			break;
 		optarg2 = optarg;
@@ -555,20 +555,20 @@ int main(int argc, char **argv)
 		case 'z':
 			option_endpause = 0;
 			break;
-		case 0x100:     // --stdin
+		case 0x100: // --stdin
 			flag_stdin = 1;
 			break;
-		case 0x105:     // --stdout
+		case 0x105: // --stdout
 			option_waveout = 1;
 			strcpy(wavefile, "stdout");
 			break;
-		case 0x101:    // --compile-debug
-		case 0x102:     // --compile
+		case 0x101: // --compile-debug
+		case 0x102: // --compile
 			if (optarg2 != NULL)
 				strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
 			break;
-		case 0x103:     // --punct
+		case 0x103: // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
 				ix = 0;
@@ -577,29 +577,29 @@ int main(int argc, char **argv)
 				option_punctuation = 2;
 			}
 			break;
-		case 0x104:   // --voices
+		case 0x104: // --voices
 			init_path(argv[0], data_path);
 			DisplayVoices(stdout, optarg2);
 			exit(0);
-		case 0x106:   // -- split
+		case 0x106: // -- split
 			if (optarg2 == NULL)
-				samples_split = 30;  // default 30 minutes
+				samples_split = 30; // default 30 minutes
 			else
 				samples_split = atoi(optarg2);
 			break;
-		case 0x107:  // --path
+		case 0x107: // --path
 			data_path = optarg2;
 			break;
-		case 0x108:  // --phonout
+		case 0x108: // --phonout
 			if ((f_trans = fopen(optarg2, "w")) == NULL) {
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
 				f_trans = stderr;
 			}
 			break;
-		case 0x109:  // --pho
+		case 0x109: // --pho
 			phoneme_options |= espeakPHONEMES_MBROLA;
 			break;
-		case 0x10a:  // --ipa
+		case 0x10a: // --ipa
 			phoneme_options |= espeakPHONEMES_IPA;
 			if (optarg2 != NULL) {
 				// deprecated and obsolete
@@ -613,33 +613,33 @@ int main(int argc, char **argv)
 					phoneme_options |= espeakPHONEMES_TIE;
 					break;
 				case 3:
-					phonemes_separator = 0x200d;      // ZWJ
+					phonemes_separator = 0x200d; // ZWJ
 					phoneme_options |= espeakPHONEMES_TIE;
 					break;
 				}
 			}
 			break;
-		case 0x10b:  // --version
+		case 0x10b: // --version
 			init_path(argv[0], data_path);
 			printf("speak text-to-speech: %s   Data at: %s\n", version_string, path_home);
 			exit(0);
-		case 0x10c:  // --sep
+		case 0x10c: // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
 			if (optarg2 == 0)
 				phonemes_separator = ' ';
 			else
 				utf8_in(&phonemes_separator, optarg2);
 			if (phonemes_separator == 'z')
-				phonemes_separator = 0x200c;      // ZWNJ
+				phonemes_separator = 0x200c; // ZWNJ
 			break;
-		case 0x10d:  // --tie
+		case 0x10d: // --tie
 			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
 			if (optarg2 == 0)
-				phonemes_separator = 0x0361;   // default: combining-double-inverted-breve
+				phonemes_separator = 0x0361; // default: combining-double-inverted-breve
 			else
 				utf8_in(&phonemes_separator, optarg2);
 			if (phonemes_separator == 'z')
-				phonemes_separator = 0x200d;      // ZWJ
+				phonemes_separator = 0x200d; // ZWJ
 			break;
 		default:
 			exit(0);
@@ -665,14 +665,14 @@ int main(int argc, char **argv)
 #ifdef PLATFORM_DOS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource, path_home);
-		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
+		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
 		strcat(path_dsource, "dictsource\\");
 		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
 #else
 #ifdef PLATFORM_WINDOWS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource, path_home);
-		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
+		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
 		strcat(path_dsource, "dictsource\\");
 		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
 #else
@@ -690,9 +690,8 @@ int main(int argc, char **argv)
 
 	option_phonemes = phoneme_options | (phonemes_separator << 8);
 
-	if (pitch_adjustment != 50) {
+	if (pitch_adjustment != 50)
 		SetParameter(espeakPITCH, pitch_adjustment, 0);
-	}
 	DoVoiceChange(voice);
 
 	if (filename[0] == 0) {
@@ -703,7 +702,7 @@ int main(int argc, char **argv)
 		} else {
 			f_text = stdin;
 			if (flag_stdin == 0)
-				option_linelength = -1;  // single input lines on stdin
+				option_linelength = -1; // single input lines on stdin
 		}
 	} else
 		f_text = fopen(filename, "r");
@@ -743,7 +742,7 @@ int main(int argc, char **argv)
 		for (;;) {
 			if (WavegenFile() != 0) {
 				if (ix == 0)
-					break;   // finished, wavegen command queue is empty
+					break; // finished, wavegen command queue is empty
 			}
 
 			if (Generate(phoneme_list, &n_phoneme_list, 1) == 0)
@@ -767,13 +766,13 @@ int main(int argc, char **argv)
 			// NOTE: if nanosleep() isn't recognised on your system, try replacing
 			// this by  sleep(1);
 #ifdef PLATFORM_WINDOWS
-			Sleep(300);   // 0.3s
+			Sleep(300); // 0.3s
 #else
 #ifdef USE_NANOSLEEP
 			struct timespec period;
 			struct timespec remaining;
 			period.tv_sec = 0;
-			period.tv_nsec = 300000000;  // 0.3 sec
+			period.tv_nsec = 300000000; // 0.3 sec
 			nanosleep(&period, &remaining);
 #else
 			sleep(1);
@@ -785,6 +784,6 @@ int main(int argc, char **argv)
 	}
 
 	if ((f_trans != stdout) && (f_trans != stderr))
-		fclose(f_trans);  // needed for WinCe
+		fclose(f_trans);
 	return 0;
 }

@@ -55,7 +55,6 @@ extern int wave_get_remaining_time(uint32_t sample, uint32_t *time);
 typedef int (t_wave_callback)(void);
 extern void wave_set_callback_is_output_enabled(t_wave_callback *cb);
 
-
 // general functions
 extern void clock_gettime2(struct timespec *ts);
 extern void add_time_in_ms(struct timespec *ts, int time_in_ms);

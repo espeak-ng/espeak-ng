@@ -43,8 +43,6 @@
 static pthread_mutex_t my_mutex;
 static int my_command_is_running = 0;
 static int my_stop_is_required = 0;
-// + fifo
-//
 
 // my_thread: reads commands from the fifo, and runs them.
 static pthread_t my_thread;
@@ -57,9 +55,12 @@ static espeak_ERROR push(t_espeak_command *the_command);
 static t_espeak_command *pop();
 static void init(int process_parameters);
 static int node_counter = 0;
-enum { MAX_NODE_COUNTER = 400,
-	   INACTIVITY_TIMEOUT = 50, // in ms, check that the stream is inactive
-	   MAX_INACTIVITY_CHECK = 2 };
+
+enum {
+	MAX_NODE_COUNTER = 400,
+	INACTIVITY_TIMEOUT = 50, // in ms, check that the stream is inactive
+	MAX_INACTIVITY_CHECK = 2
+};
 
 void fifo_init()
 {
@@ -338,8 +339,8 @@ static void *say_thread(void *p)
 				display_espeak_command(a_command);
 				// purge start semaphore
 				SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
-				while (0 == sem_trywait(&my_sem_start_is_required)) {
-				}
+				while (0 == sem_trywait(&my_sem_start_is_required))
+					;
 
 				if (my_stop_is_required) {
 					SHOW_TIME("say_thread > my_command_is_running = 0\n");
@@ -361,8 +362,8 @@ static void *say_thread(void *p)
 
 			// purge start semaphore
 			SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
-			while (0 == sem_trywait(&my_sem_start_is_required)) {
-			}
+			while (0 == sem_trywait(&my_sem_start_is_required))
+				;
 
 			// acknowledge the stop request
 			SHOW_TIME("say_thread > post my_sem_stop_is_acknowledged\n");

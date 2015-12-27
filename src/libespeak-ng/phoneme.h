@@ -22,7 +22,6 @@ extern "C"
 {
 #endif
 
-
 // phoneme types
 #define phPAUSE   0
 #define phSTRESS  1
@@ -36,7 +35,6 @@ extern "C"
 #define phVIRTUAL 9
 #define phDELETED 14
 #define phINVALID 15
-
 
 // phoneme properties
 //   bits 16-19 give place of articulation
@@ -118,10 +116,7 @@ typedef struct {
 	unsigned char end_type;
 	unsigned char std_length;    // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
 	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
-
 } PHONEME_TAB;
-
-
 
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
@@ -138,8 +133,6 @@ typedef struct {
 	int equivalence_tables;   // lists of equivalent phonemes to match other languages, byte index into phondata
 } PHONEME_TAB_LIST;
 
-
-
 // table of phonemes to be replaced with different phonemes, for the current voice
 #define N_REPLACE_PHONEMES   60
 typedef struct {
@@ -151,14 +144,11 @@ typedef struct {
 extern int n_replace_phonemes;
 extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
-
 // Table of phoneme programs and lengths.  Used by MakeVowelLists
 typedef struct {
 	unsigned int addr;
 	unsigned int length;
 } PHONEME_PROG_LOG;
-
-
 
 #define PH(c1, c2) (c2<<8)+c1          // combine two characters into an integer for phoneme name
 #define PH3(c1, c2, c3) (c3<<16)+(c2<<8)+c1

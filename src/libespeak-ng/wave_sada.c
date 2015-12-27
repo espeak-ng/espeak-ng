@@ -75,7 +75,8 @@ static uint32_t wave_samplerate;
 // sun_audio_fd: modified to hold the file descriptor of the opened
 // audio device.
 //
-int wave_init(int srate) {
+int wave_init(int srate)
+{
 	ENTER("wave_init");
 
 	audio_info_t ainfo;
@@ -478,9 +479,9 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	//
 	actual_index = sample - total_samples_skipped;
 	if ((sample < total_samples_skipped) ||
-	    (actual_index <= ainfo.play.samples)) {
+	    (actual_index <= ainfo.play.samples))
 		*time = 0;
-	} else {
+	else {
 		a_time = ((actual_index - ainfo.play.samples) * 1000) / wave_samplerate;
 		*time = (uint32_t)a_time;
 	}
@@ -491,35 +492,57 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 
 #else
 
-init wave_init() {
+int wave_init(int srate)
+{
 	return 1;
 }
-void *wave_open(const char *the_api) {
+
+void *wave_open(const char *the_api)
+{
 	return (void *)1;
 }
-size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize) {
+
+size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
+{
 	return theSize;
 }
-int wave_close(void *theHandler) {
+
+int wave_close(void *theHandler)
+{
 	return 0;
 }
-int wave_is_busy(void *theHandler) {
+
+int wave_is_busy(void *theHandler)
+{
 	return 0;
 }
-void wave_terminate() {
+
+void wave_terminate()
+{
 }
-uint32_t wave_get_read_position(void *theHandler) {
+
+uint32_t wave_get_read_position(void *theHandler)
+{
 	return 0;
 }
-uint32_t wave_get_write_position(void *theHandler) {
+
+uint32_t wave_get_write_position(void *theHandler)
+{
 	return 0;
 }
-void wave_flush(void *theHandler) {
+
+void wave_flush(void *theHandler)
+{
 }
+
 typedef int (t_wave_callback)(void);
-void wave_set_callback_is_output_enabled(t_wave_callback *cb) {
+
+void wave_set_callback_is_output_enabled(t_wave_callback *cb)
+{
 }
-extern void *wave_test_get_write_buffer() {
+
+extern void *wave_test_get_write_buffer()
+{
 	return NULL;
 }
 
@@ -530,7 +553,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	return 0;
 }
 
-#endif  // of USE_PORTAUDIO
+#endif
 
 void clock_gettime2(struct timespec *ts)
 {
@@ -558,4 +581,4 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 	ts->tv_nsec = (long int)t_ns;
 }
 
-#endif   // USE_ASYNC
+#endif

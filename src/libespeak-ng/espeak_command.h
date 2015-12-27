@@ -89,8 +89,8 @@ typedef struct {
 
 typedef enum {
 	CS_UNDEFINED, // The command has just been created
-	CS_PENDING, // stored in the fifo
-	CS_PROCESSED // processed
+	CS_PENDING,   // stored in the fifo
+	CS_PROCESSED  // processed
 } t_command_state;
 
 typedef struct {

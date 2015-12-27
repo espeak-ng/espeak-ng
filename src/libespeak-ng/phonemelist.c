@@ -32,15 +32,17 @@
 #include "synthesize.h"
 #include "translate.h"
 
-const unsigned char pause_phonemes[8] = { 0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG };
+const unsigned char pause_phonemes[8] = {
+	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
+};
 
 extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST];  // first stage of text->phonemes
+extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
 static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 {
-// Copy the phonemes list and perform any substitutions that are required for the
-// current voice
+	// Copy the phonemes list and perform any substitutions that are required for the
+	// current voice
 	int ix;
 	int k;
 	int replace_flags;
@@ -67,24 +69,24 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 					replace_flags = replace_phonemes[k].type;
 
 					if ((replace_flags & 1) && (word_end == 0))
-						continue;     // this replacement only occurs at the end of a word
+						continue; // this replacement only occurs at the end of a word
 
 					if ((replace_flags & 2) && ((plist2->stresslevel & 0x7) > 3))
-						continue;     // this replacement doesn't occur in stressed syllables
+						continue; // this replacement doesn't occur in stressed syllables
 
 					if ((replace_flags & 4) && (plist2->sourceix == 0))
-						continue;     // this replacement only occurs at the start of a word
+						continue; // this replacement only occurs at the start of a word
 
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
 					if ((plist2->stresslevel > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
-						plist2->stresslevel = 0;   // the replacement must be unstressed
+						plist2->stresslevel = 0; // the replacement must be unstressed
 					break;
 				}
 			}
 
 			if (plist2->phcode == 0)
-				continue;   // phoneme has been replaced by NULL, so don't copy it
+				continue; // phoneme has been replaced by NULL, so don't copy it
 		}
 
 		// copy phoneme into the output list
@@ -144,7 +146,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		// the last word is unstressed, look for a previous word that can be stressed
 		while (--j >= 0) {
 			if (plist2[j].synthflags & SFLAG_PROMOTE_STRESS) { // dictionary flags indicated that this stress can be promoted
-				plist2[j].stresslevel = 4;   // promote to stressed
+				plist2[j].stresslevel = 4; // promote to stressed
 				break;
 			}
 			if (plist2[j].stresslevel >= 4) {
@@ -196,7 +198,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				stop_propagation = 0;
 				voicing = 0;
 				if (regression & 0x100)
-					voicing = 1;   // word-end devoicing
+					voicing = 1; // word-end devoicing
 				continue;
 			}
 
@@ -215,12 +217,12 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				if ((voicing == 0) && (regression & 0xf))
 					voicing = 1;
 				else if ((voicing == 2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
-					plist2[j].phcode = ph->end_type;  // change to voiced equivalent
+					plist2[j].phcode = ph->end_type; // change to voiced equivalent
 			} else if ((type == phVSTOP) || type == (phVFRICATIVE)) {
 				if ((voicing == 0) && (regression & 0xf))
 					voicing = 2;
 				else if ((voicing == 1) && (ph->end_type != 0))
-					plist2[j].phcode = ph->end_type;  // change to unvoiced equivalent
+					plist2[j].phcode = ph->end_type; // change to unvoiced equivalent
 			} else {
 				if (regression & 0x8) {
 					// LANG=Polish, propagate through liquids and nasals
@@ -264,7 +266,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 				nextw++;
 				if (ph_list3[nextw].sourceix)
-					break;   // start of the next word
+					break; // start of the next word
 			}
 			for (k = j; k < nextw; k++)
 				ph_list3[k].wordstress = word_stress;
@@ -307,7 +309,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			ph = phoneme_tab[insert_ph];
 			plist3->ph = ph;
 			insert_ph = 0;
-			inserted = 1;    // don't insert the same phoneme repeatedly
+			inserted = 1; // don't insert the same phoneme repeatedly
 		} else {
 			// otherwise get the next phoneme from the list
 			if (plist3->sourceix != 0)
@@ -320,7 +322,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
 			}
-			next = phoneme_tab[plist3[1].phcode];      // the phoneme after this one
+			next = phoneme_tab[plist3[1].phcode]; // the phoneme after this one
 			plist3[1].ph = next;
 		}
 
@@ -348,7 +350,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			if (ph->type == phVOWEL) {
 				plist3->synthflags |= SFLAG_SYLLABLE;
 				if (ph2->type != phVOWEL)
-					plist3->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
+					plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
 			} else
 				plist3->synthflags &= ~SFLAG_SYLLABLE;
 
@@ -365,12 +367,12 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			plist3->phcode = alternative;
 
 			if (alternative == 1)
-				deleted = 1;   // NULL phoneme, discard
+				deleted = 1; // NULL phoneme, discard
 			else {
 				if (ph->type == phVOWEL) {
 					plist3->synthflags |= SFLAG_SYLLABLE;
 					if (ph2->type != phVOWEL)
-						plist3->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
+						plist3->stresslevel = 0; // change from non-vowel to vowel, make sure it's unstressed
 				} else
 					plist3->synthflags &= ~SFLAG_SYLLABLE;
 
@@ -408,14 +410,13 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 						// stress.  But not for the last phoneme of a stressed word
 						if ((tr->langopts.stress_flags & S_NO_DIM) || ((word_stress > 3) && ((plist3+1)->sourceix != 0))) {
 							// An unstressed final vowel of a stressed word
-							unstress_count = 1;    // try again for next syllable
+							unstress_count = 1; // try again for next syllable
 						} else
-							plist3->stresslevel = 0;    // change stress to 'diminished'
+							plist3->stresslevel = 0; // change stress to 'diminished'
 					}
 				}
-			} else {
+			} else
 				unstress_count = 0;
-			}
 		}
 
 		if ((plist3+1)->synthflags & SFLAG_LENGTHEN) {
@@ -483,7 +484,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		if (deleted == 0) {
 			phlist[ix].ph = ph;
 			phlist[ix].type = ph->type;
-			phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
+			phlist[ix].env = PITCHfall; // default, can be changed in the "intonation" module
 			phlist[ix].synthflags = plist3->synthflags;
 			phlist[ix].stresslevel = plist3->stresslevel & 0xf;
 			phlist[ix].wordstress = plist3->wordstress;
@@ -493,10 +494,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if (plist3->sourceix != 0) {
 				phlist[ix].sourceix = plist3->sourceix;
-				phlist[ix].newword = 1;     // this phoneme is the start of a word
+				phlist[ix].newword = 1; // this phoneme is the start of a word
 
 				if (start_sentence) {
-					phlist[ix].newword = 5;  // start of sentence + start of word
+					phlist[ix].newword = 5; // start of sentence + start of word
 					start_sentence = 0;
 				}
 			} else
@@ -505,26 +506,26 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			phlist[ix].length = phdata.pd_param[i_SET_LENGTH]*2;
 			if ((ph->code == phonPAUSE_LONG) && (option_wordgap > 0) && (plist3[1].sourceix != 0)) {
 				phlist[ix].ph = phoneme_tab[phonPAUSE_SHORT];
-				phlist[ix].length = option_wordgap*14;   // 10mS per unit at the default speed
+				phlist[ix].length = option_wordgap*14; // 10mS per unit at the default speed
 			}
 
 			if (ph->type == phVOWEL || ph->type == phLIQUID || ph->type == phNASAL || ph->type == phVSTOP || ph->type == phVFRICATIVE || (ph->phflags & phPREVOICE)) {
-				phlist[ix].length = 128;  // length_mod
+				phlist[ix].length = 128; // length_mod
 				phlist[ix].env = PITCHfall;
 			}
 
 			phlist[ix].prepause = 0;
-			phlist[ix].amp = 20;          // default, will be changed later
+			phlist[ix].amp = 20; // default, will be changed later
 			phlist[ix].pitch1 = 255;
 			phlist[ix].pitch2 = 255;
 			ix++;
 		}
 	}
-	phlist[ix].newword = 2;     // end of clause
+	phlist[ix].newword = 2; // end of clause
 
 	phlist[ix].phcode = phonPAUSE;
-	phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
-	phlist[ix].length = post_pause;  // length of the pause, depends on the punctuation
+	phlist[ix].type = phPAUSE; // terminate with 2 Pause phonemes
+	phlist[ix].length = post_pause; // length of the pause, depends on the punctuation
 	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
 	phlist[ix++].ph = phoneme_tab[phonPAUSE];

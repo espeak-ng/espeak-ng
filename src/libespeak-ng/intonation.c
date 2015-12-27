@@ -46,7 +46,7 @@
 typedef struct {
 	char stress;
 	char env;
-	char flags;   // bit 0=pitch rising, bit1=emnphasized, bit2=end of clause
+	char flags; // bit 0=pitch rising, bit1=emnphasized, bit2=end of clause
 	char nextph_type;
 	unsigned char pitch1;
 	unsigned char pitch2;
@@ -54,18 +54,17 @@ typedef struct {
 
 static SYLLABLE *syllable_tab;
 
-static int tone_pitch_env;    /* used to return pitch envelope */
+static int tone_pitch_env; // used to return pitch envelope
 
 /* Pitch data for tone types */
 /*****************************/
 
-#define    PITCHfall   0
-#define    PITCHrise   2
-#define    PITCHfrise  4   // and 3 must be for the variant preceded by 'r'
-#define    PITCHfrise2 6   // and 5 must be the 'r' variant
-#define    PITCHrisefall   8
+#define PITCHfall     0
+#define PITCHrise     2
+#define PITCHfrise    4 // and 3 must be for the variant preceded by 'r'
+#define PITCHfrise2   6 // and 5 must be the 'r' variant
+#define PITCHrisefall 8
 
-/*  0  fall */
 unsigned char env_fall[128] = {
 	0xff, 0xfd, 0xfa, 0xf8, 0xf6, 0xf4, 0xf2, 0xf0, 0xee, 0xec, 0xea, 0xe8, 0xe6, 0xe4, 0xe2, 0xe0,
 	0xde, 0xdc, 0xda, 0xd8, 0xd6, 0xd4, 0xd2, 0xd0, 0xce, 0xcc, 0xca, 0xc8, 0xc6, 0xc4, 0xc2, 0xc0,
@@ -77,7 +76,6 @@ unsigned char env_fall[128] = {
 	0x1e, 0x1c, 0x1a, 0x18, 0x16, 0x14, 0x12, 0x10, 0x0e, 0x0c, 0x0a, 0x08, 0x06, 0x04, 0x02, 0x00
 };
 
-/*  1  rise */
 unsigned char env_rise[128] = {
 	0x00, 0x02, 0x04, 0x06, 0x08, 0x0a, 0x0c, 0x0e, 0x10, 0x12, 0x14, 0x16, 0x18, 0x1a, 0x1c, 0x1e,
 	0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 0x2c, 0x2e, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3a, 0x3c, 0x3e,
@@ -213,7 +211,7 @@ unsigned char *envelope_data[N_ENVELOPE_DATA] = {
 	env_risefallrise, env_risefallrise
 };
 
-/* indexed by stress */
+// indexed by stress
 static int min_drop[] =  { 6, 7, 9, 9, 20, 20, 20, 25 };
 
 // pitch change during the main part of the clause
@@ -224,8 +222,8 @@ static signed char oflow[] = { 0, 40, 24, 8, 0 };
 static signed char oflow_emf[] = { 10, 52, 32, 20, 10 };
 static signed char oflow_less[] = { 6, 38, 24, 14, 4 };
 
-#define N_TONE_HEAD_TABLE  13
-#define N_TONE_NUCLEUS_TABLE  13
+#define N_TONE_HEAD_TABLE    13
+#define N_TONE_NUCLEUS_TABLE 13
 
 typedef struct {
 	unsigned char pre_start;
@@ -243,11 +241,11 @@ typedef struct {
 } TONE_HEAD;
 
 typedef struct {
-	unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
+	unsigned char pitch_env0; // pitch envelope, tonic syllable at end
 	unsigned char tonic_max0;
 	unsigned char tonic_min0;
 
-	unsigned char pitch_env1;     /*     followed by unstressed */
+	unsigned char pitch_env1; // followed by unstressed
 	unsigned char tonic_max1;
 	unsigned char tonic_min1;
 
@@ -261,57 +259,56 @@ typedef struct {
 #define T_EMPH  1
 
 static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
-	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },     // 0 statement
-	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },     // 1 comma
-	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },     // 2 question
-	{ 46, 57,   90, 50,  drops_0, 3, 9,   5, oflow_emf }, // 3 exclamation
-	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },     // 4 statement, emphatic
-	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less },// 5 statement, less intonation
-	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less },// 6 comma, less intonation
-	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less },// 7 comma, less intonation, less rise
-	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },     // 8 pitch raises at end of sentence
-	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },     // 9 comma
-	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },     // 10  question
-	{ 34, 41,   41, 32,  drops_0, 3, 7,   5, oflow_less },  // 11 test
-	{ 46, 57,   55, 50,  drops_0, 3, 7,   5, oflow_less },  // 12 test
+	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },      // 0 statement
+	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },      // 1 comma
+	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },      // 2 question
+	{ 46, 57,   90, 50,  drops_0, 3, 9,   5, oflow_emf },  // 3 exclamation
+	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },      // 4 statement, emphatic
+	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less }, // 5 statement, less intonation
+	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less }, // 6 comma, less intonation
+	{ 46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less }, // 7 comma, less intonation, less rise
+	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },      // 8 pitch raises at end of sentence
+	{ 46, 57,   78, 46,  drops_0, 3, 7,   5, oflow },      // 9 comma
+	{ 46, 57,   78, 50,  drops_0, 3, 7,   5, oflow },      // 10  question
+	{ 34, 41,   41, 32,  drops_0, 3, 7,   5, oflow_less }, // 11 test
+	{ 46, 57,   55, 50,  drops_0, 3, 7,   5, oflow_less }, // 12 test
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
-	{ PITCHfall,   64, 8,  PITCHfall,   70, 18, NULL, 24, 12, 0 },    // 0 statement
-	{ PITCHfrise,  80, 18,  PITCHfrise2, 78, 22, NULL, 34, 52, 0 },    // 1 comma
-	{ PITCHfrise,  88, 22,  PITCHfrise2, 82, 22, NULL, 34, 64, 0 },    // 2 question
-	{ PITCHfall,   92, 8,  PITCHfall,   92, 80, NULL, 76,  8, T_EMPH }, // 3 exclamation
-
-	{ PITCHfall,   86, 4,  PITCHfall,   94, 66, NULL, 34, 10, 0 },    // 4 statement, emphatic
-	{ PITCHfall,   62, 10,  PITCHfall,   62, 20, NULL, 28, 16, 0 },    // 5 statement, less intonation
-	{ PITCHfrise,  68, 18,  PITCHfrise2, 68, 22, NULL, 30, 44, 0 },    // 6 comma, less intonation
-	{ PITCHfrise2, 64, 16,  PITCHfall,   66, 32, NULL, 32, 18, 0 },    // 7 comma, less intonation, less rise
-	{ PITCHrise,   68, 46,  PITCHfall,   42, 32, NULL, 46, 58, 0 },    // 8 pitch raises at end of sentence
-	{ PITCHfrise,  78, 24,  PITCHfrise2, 72, 22, NULL, 42, 52, 0 },    // 9 comma
-	{ PITCHfrise,  88, 34,  PITCHfall,   64, 32, NULL, 46, 82, 0 },    // 10  question
-	{ PITCHfall,   56, 12,  PITCHfall,   56, 20, NULL, 24, 12, 0 },    // 11 test
-	{ PITCHfall,   70, 18,  PITCHfall,   70, 24, NULL, 32, 20, 0 },    // 12 test
+	{ PITCHfall,   64,  8, PITCHfall,   70, 18, NULL, 24, 12, 0 },      //  0 statement
+	{ PITCHfrise,  80, 18, PITCHfrise2, 78, 22, NULL, 34, 52, 0 },      //  1 comma
+	{ PITCHfrise,  88, 22, PITCHfrise2, 82, 22, NULL, 34, 64, 0 },      //  2 question
+	{ PITCHfall,   92,  8, PITCHfall,   92, 80, NULL, 76,  8, T_EMPH }, //  3 exclamation
+	{ PITCHfall,   86,  4, PITCHfall,   94, 66, NULL, 34, 10, 0 },      //  4 statement, emphatic
+	{ PITCHfall,   62, 10, PITCHfall,   62, 20, NULL, 28, 16, 0 },      //  5 statement, less intonation
+	{ PITCHfrise,  68, 18, PITCHfrise2, 68, 22, NULL, 30, 44, 0 },      //  6 comma, less intonation
+	{ PITCHfrise2, 64, 16, PITCHfall,   66, 32, NULL, 32, 18, 0 },      //  7 comma, less intonation, less rise
+	{ PITCHrise,   68, 46, PITCHfall,   42, 32, NULL, 46, 58, 0 },      //  8 pitch raises at end of sentence
+	{ PITCHfrise,  78, 24, PITCHfrise2, 72, 22, NULL, 42, 52, 0 },      //  9 comma
+	{ PITCHfrise,  88, 34, PITCHfall,   64, 32, NULL, 46, 82, 0 },      // 10 question
+	{ PITCHfall,   56, 12, PITCHfall,   56, 20, NULL, 24, 12, 0 },      // 11 test
+	{ PITCHfall,   70, 18, PITCHfall,   70, 24, NULL, 32, 20, 0 },      // 12 test
 };
 
-/* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
+// index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized
 unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
-	{ 0, 1, 2, 3, 0, 4 },
-	{ 0, 1, 2, 3, 0, 4 },
-	{ 5, 6, 2, 3, 0, 4 },
-	{ 5, 7, 1, 3, 0, 4 },
-	{ 8, 9, 10, 3, 0, 0 },
-	{ 8, 8, 10, 3, 0, 0 },
-	{ 11, 11, 11, 11, 0, 0 },  // 6 test
+	{  0,  1,  2,  3, 0, 4 },
+	{  0,  1,  2,  3, 0, 4 },
+	{  5,  6,  2,  3, 0, 4 },
+	{  5,  7,  1,  3, 0, 4 },
+	{  8,  9, 10,  3, 0, 0 },
+	{  8,  8, 10,  3, 0, 0 },
+	{ 11, 11, 11, 11, 0, 0 }, // 6 test
 	{ 12, 12, 12, 12, 0, 0 }
 };
 
 int n_tunes = 0;
 TUNE *tunes = NULL;
 
-#define SECONDARY  3
-#define PRIMARY    4
+#define SECONDARY        3
+#define PRIMARY          4
 #define PRIMARY_STRESSED 6
-#define PRIMARY_LAST 7
+#define PRIMARY_LAST     7
 
 static int number_pre;
 static int number_body;
@@ -326,16 +323,16 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	int ix;
 	int stress;
 	int max_stress = 0;
-	int max_stress_posn = 0;   // last syllable ot the highest stress
-	int max_stress_posn2 = 0;   // penuntimate syllable of the highest stress
+	int max_stress_posn = 0;  // last syllable ot the highest stress
+	int max_stress_posn2 = 0; // penuntimate syllable of the highest stress
 
-	number_pre = -1;    /* number of vowels before 1st primary stress */
+	number_pre = -1; // number of vowels before 1st primary stress
 	number_body = 0;
-	number_tail = 0;   /* number between tonic syllable and next primary */
+	number_tail = 0; // number between tonic syllable and next primary
 	last_primary = -1;
 
 	for (ix = start; ix < end; ix++) {
-		stress = syllable_tab[ix].stress;   /* marked stress level */
+		stress = syllable_tab[ix].stress; // marked stress level
 
 		if (stress >= max_stress) {
 			if (stress > max_stress)
@@ -360,9 +357,9 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	tone_posn = max_stress_posn;
 	tone_posn2 = max_stress_posn2;
 
-	if (no_tonic) {
-		tone_posn = tone_posn2 = end;  // next position after the end of the truncated clause
-	} else if (last_primary >= 0) {
+	if (no_tonic)
+		tone_posn = tone_posn2 = end; // next position after the end of the truncated clause
+	else if (last_primary >= 0) {
 		if (end == clause_end)
 			syllable_tab[last_primary].stress = PRIMARY_LAST;
 	} else {
@@ -371,7 +368,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	}
 }
 
-/* Count number of primary stresses up to tonic syllable or body_reset */
+// Count number of primary stresses up to tonic syllable or body_reset
 static int count_increments(int ix, int end_ix, int min_stress)
 {
 	int count = 0;
@@ -434,7 +431,7 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 	int pitch = 0;
 	int increment = 0;
 	int n_steps = 0;
-	int stage;   // onset, head, last
+	int stage; // onset, head, last
 	int initial;
 	int overflow_ix = 0;
 	int pitch_range;
@@ -445,16 +442,16 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 	int unstressed_inc;
 	int used_onset = 0;
 	int head_final = end_ix;
-	int secondary = 2; // 2
+	int secondary = 2;
 
 	pitch_range = (tune->head_end - tune->head_start) << 8;
 	pitch_range_abs = abs(pitch_range);
-	drops = drops_0;   // this should be controled by tune->head_drops
+	drops = drops_0; // this should be controled by tune->head_drops
 	initial = 1;
 
 	stage = 0;
 	if (tune->onset == 255)
-		stage = 1;   // no onset specified
+		stage = 1; // no onset specified
 
 	if (tune->head_last != 255) {
 		// find the last primary stress in the body
@@ -624,7 +621,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 		} else if (stress >= SECONDARY)
 			set_pitch(syl, (pitch >> 8), drops[stress]);
 		else {
-			/* unstressed, drop pitch if preceded by PRIMARY */
+			// unstressed, drop pitch if preceded by PRIMARY
 			if ((syllable_tab[ix-1].stress & 0x3f) >= SECONDARY)
 				set_pitch(syl, (pitch >> 8) - th->body_lower_u, drops[stress]);
 			else
@@ -638,8 +635,8 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 
 static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_pitch)
 {
-// Set a linear pitch change over a number of syllables.
-// Used for pre-head, unstressed syllables in the body, and the tail
+	// Set a linear pitch change over a number of syllables.
+	// Used for pre-head, unstressed syllables in the body, and the tail
 
 	int ix;
 	int stress;
@@ -691,24 +688,21 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	tune = &tunes[tune_number];
 	ix = start;
 
-	/* vowels before the first primary stress */
-	/******************************************/
+	// vowels before the first primary stress
 
 	SetPitchGradient(ix, ix+number_pre, tune->prehead_start, tune->prehead_end);
 	ix += number_pre;
 
-	/* body of tonic segment */
-	/*************************/
+	// body of tonic segment
 
 	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
-		tone_posn = tone_posn2;  // put tone on the penultimate stressed word
+		tone_posn = tone_posn2; // put tone on the penultimate stressed word
 	ix = SetHeadIntonation(tune, ix, tone_posn, 0);
 
 	if (no_tonic)
 		return 0;
 
-	/* tonic syllable */
-	/******************/
+	// tonic syllable
 
 	if (number_tail == 0) {
 		tone_pitch_env = tune->nucleus0_env;
@@ -724,8 +718,7 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	if (syllable_tab[tone_posn].stress == PRIMARY)
 		syllable_tab[tone_posn].stress = PRIMARY_STRESSED;
 
-	/* tail, after the tonic syllable */
-	/**********************************/
+	// tail, after the tonic syllable
 
 	SetPitchGradient(ix, end, tune->tail_start, tune->tail_end);
 
@@ -751,28 +744,24 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	tn = &tone_nucleus_table[tune_number];
 	ix = start;
 
-	/* vowels before the first primary stress */
-	/******************************************/
+	// vowels before the first primary stress
 
 	SetPitchGradient(ix, ix+number_pre, th->pre_start, th->pre_end);
 	ix += number_pre;
 
-	/* body of tonic segment */
-	/*************************/
+	// body of tonic segment
 
 	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
-		tone_posn = tone_posn2;  // put tone on the penultimate stressed word
+		tone_posn = tone_posn2; // put tone on the penultimate stressed word
 	ix = calc_pitch_segment(ix, tone_posn, th, tn, PRIMARY, continuing);
 
 	if (no_tonic)
 		return 0;
 
-	/* tonic syllable */
-	/******************/
+	// tonic syllable
 
-	if (tn->flags & T_EMPH) {
+	if (tn->flags & T_EMPH)
 		syllable_tab[ix].flags |= SYL_EMPHASIS;
-	}
 
 	if (number_tail == 0) {
 		tone_pitch_env = tn->pitch_env0;
@@ -788,8 +777,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	if (syllable_tab[tone_posn].stress == PRIMARY)
 		syllable_tab[tone_posn].stress = PRIMARY_STRESSED;
 
-	/* tail, after the tonic syllable */
-	/**********************************/
+	// tail, after the tonic syllable
 
 	SetPitchGradient(ix, end, tn->tail_start, tn->tail_end);
 
@@ -798,7 +786,8 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 static void CalcPitches_Tone(Translator *tr, int clause_tone)
 {
-//  clause_tone: 0=. 1=, 2=?, 3=! 4=none
+	// clause_tone: 0=. 1=, 2=?, 3=! 4=none
+
 	PHONEME_LIST *p;
 	int ix;
 	int count_stressed = 0;
@@ -808,14 +797,14 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	int pause;
 	int tone_promoted;
 	PHONEME_TAB *tph;
-	PHONEME_TAB *prev_tph;   // forget across word boundary
-	PHONEME_TAB *prevw_tph;  // remember across word boundary
+	PHONEME_TAB *prev_tph; // forget across word boundary
+	PHONEME_TAB *prevw_tph; // remember across word boundary
 	PHONEME_LIST *prev_p;
 
-	int pitch_adjust = 0;      // pitch gradient through the clause - inital value
-	int pitch_decrement = 0;    //   decrease by this for each stressed syllable
-	int pitch_low = 0;          //   until it drops to this
-	int pitch_high = 0;        //   then reset to this
+	int pitch_adjust = 0;    // pitch gradient through the clause - inital value
+	int pitch_decrement = 0; // decrease by this for each stressed syllable
+	int pitch_low = 0;       // until it drops to this
+	int pitch_high = 0;      // then reset to this
 
 	// count number of stressed syllables
 	p = &phoneme_list[0];
@@ -838,7 +827,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 		// LANG=vi
 		p = &phoneme_list[final_stressed];
 		if (p->tone_ph == 0)
-			p->tone_ph = PhonemeCode('7');   // change default tone (tone 1) to falling tone at end of clause
+			p->tone_ph = PhonemeCode('7'); // change default tone (tone 1) to falling tone at end of clause
 	}
 
 	pause = 1;
@@ -850,12 +839,12 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	// perform tone sandhi
 	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if ((p->type == phPAUSE) && (p->ph->std_length > 50)) {
-			pause = 1;  // there is a pause since the previous vowel
-			prevw_tph = phoneme_tab[phonPAUSE];  // forget previous tone
+			pause = 1; // there is a pause since the previous vowel
+			prevw_tph = phoneme_tab[phonPAUSE]; // forget previous tone
 		}
 
 		if (p->newword)
-			prev_tph = phoneme_tab[phonPAUSE];  // forget across word boundaries
+			prev_tph = phoneme_tab[phonPAUSE]; // forget across word boundaries
 
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			tone_ph = p->tone_ph;
@@ -865,10 +854,10 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			if (tr->translator_name == L('z', 'h')) {
 				if (tone_ph == 0) {
 					if (pause || tone_promoted) {
-						tone_ph = PhonemeCode2('5', '5');  // no previous vowel, use tone 1
+						tone_ph = PhonemeCode2('5', '5'); // no previous vowel, use tone 1
 						tone_promoted = 1;
 					} else
-						tone_ph = PhonemeCode2('1', '1');  // default tone 5
+						tone_ph = PhonemeCode2('1', '1'); // default tone 5
 
 					p->tone_ph = tone_ph;
 					tph = phoneme_tab[tone_ph];
@@ -883,12 +872,12 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 				}
 
 				if (prevw_tph->mnemonic == 0x343132) { // [214]
-					if (tph->mnemonic == 0x343132)   // [214]
+					if (tph->mnemonic == 0x343132) // [214]
 						prev_p->tone_ph = PhonemeCode2('3', '5');
 					else
 						prev_p->tone_ph = PhonemeCode2('2', '1');
 				}
-				if ((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135)) //  [51] + [51]
+				if ((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135)) // [51] + [51]
 					prev_p->tone_ph = PhonemeCode2('5', '3');
 
 				if (tph->mnemonic == 0x3131) { // [11] Tone 5
@@ -901,7 +890,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 						p->tone_ph = PhonemeCode2('4', '4');
 
 					// tone 5 is unstressed (shorter)
-					p->stresslevel = 0;   // diminished stress
+					p->stresslevel = 0; // diminished stress
 				}
 			}
 
@@ -929,7 +918,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			}
 
 			if (tone_ph == 0) {
-				tone_ph = phonDEFAULTTONE;  // no tone specified, use default tone 1
+				tone_ph = phonDEFAULTTONE; // no tone specified, use default tone 1
 				p->tone_ph = tone_ph;
 			}
 			p->pitch1 = pitch_adjust + phoneme_tab[tone_ph]->start_type;
@@ -940,7 +929,8 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 
 void CalcPitches(Translator *tr, int clause_type)
 {
-//  clause_type: 0=. 1=, 2=?, 3=! 4=none
+	// clause_type: 0=. 1=, 2=?, 3=! 4=none
+
 	PHONEME_LIST *p;
 	SYLLABLE *syl;
 	int ix;
@@ -961,7 +951,7 @@ void CalcPitches(Translator *tr, int clause_type)
 
 	SYLLABLE syllable_tab2[N_PHONEME_LIST];
 
-	syllable_tab = syllable_tab2;   // don't use permanent storage. it's only needed during the call of CalcPitches()
+	syllable_tab = syllable_tab2; // don't use permanent storage. it's only needed during the call of CalcPitches()
 	n_st = 0;
 	n_primary = 0;
 	for (ix = 0; ix < (n_phoneme_list-1); ix++) {
@@ -977,10 +967,10 @@ void CalcPitches(Translator *tr, int clause_type)
 		} else if ((p->ph->code == phonPAUSE_CLAUSE) && (n_st > 0))
 			syllable_tab[n_st-1].flags |= SYL_END_CLAUSE;
 	}
-	syllable_tab[n_st].stress = 0;   // extra 0 entry at the end
+	syllable_tab[n_st].stress = 0; // extra 0 entry at the end
 
 	if (n_st == 0)
-		return;  // nothing to do
+		return; // nothing to do
 
 	if (tr->langopts.tone_language == 1) {
 		CalcPitches_Tone(tr, clause_type);
@@ -996,11 +986,11 @@ void CalcPitches(Translator *tr, int clause_type)
 		group_tone_comma = tr->langopts.tunes[1];
 	} else {
 		group_tone = tr->punct_to_tone[option][clause_type];
-		group_tone_comma = tr->punct_to_tone[option][1];   // emphatic form of statement
+		group_tone_comma = tr->punct_to_tone[option][1]; // emphatic form of statement
 	}
 
 	if (clause_type == 4)
-		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
+		no_tonic = 1; // incomplete clause, used for abbreviations such as Mr. Dr. Mrs.
 	else
 		no_tonic = 0;
 
@@ -1056,12 +1046,12 @@ void CalcPitches(Translator *tr, int clause_type)
 
 			count_pitch_vowels(st_start, ix, n_st);
 			if ((ix < n_st) || (clause_type == 0)) {
-				calc_pitches(option, st_start, ix, group_tone);   // split into > 1 tone groups
+				calc_pitches(option, st_start, ix, group_tone); // split into > 1 tone groups
 
 				if ((clause_type == 1) || (clause_type == 2))
-					group_tone = tr->langopts.tunes[1];  // , or ?  remainder has comma-tone
+					group_tone = tr->langopts.tunes[1]; // , or ?  remainder has comma-tone
 				else
-					group_tone = tr->langopts.tunes[0];  // . or !  remainder has statement tone
+					group_tone = tr->langopts.tunes[0]; // . or !  remainder has statement tone
 			} else
 				calc_pitches(option, st_start, ix, group_tone);
 
@@ -1114,7 +1104,7 @@ void CalcPitches(Translator *tr, int clause_type)
 			}
 
 			if (syl->flags & SYL_EMPHASIS)
-				p->stresslevel |= 8;      // emphasized
+				p->stresslevel |= 8; // emphasized
 
 			st_ix++;
 		}

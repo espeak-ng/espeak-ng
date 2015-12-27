@@ -76,12 +76,12 @@ t_espeak_callback *synth_callback = NULL;
 int (*uri_callback)(int, const char *, const char *) = NULL;
 int (*phoneme_callback)(const char *) = NULL;
 
-char path_home[N_PATH_HOME];   // this is the espeak-data directory
+char path_home[N_PATH_HOME]; // this is the espeak-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
 void WVoiceChanged(voice_t *wvoice)
 {
-// Voice change in wavegen
+	// Voice change in wavegen
 	voice_samplerate = wvoice->samplerate;
 }
 
@@ -235,7 +235,7 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 	my_mode = output_type;
 	my_audio = NULL;
 	synchronous_mode = 1;
-	option_waveout = 1;   // inhibit portaudio callback from wavegen.cpp
+	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
 
 	switch (my_mode)
@@ -265,7 +265,7 @@ int GetFileLength(const char *filename)
 		return 0;
 
 	if (S_ISDIR(statbuf.st_mode))
-		return -2;  // a directory
+		return -2; // a directory
 
 	return statbuf.st_size;
 }
@@ -275,7 +275,7 @@ char *Alloc(int size)
 {
 	char *p;
 	if ((p = (char *)malloc(size)) == NULL)
-		fprintf(stderr, "Can't allocate memory\n");  // I was told that size+1 fixes a crash on 64-bit systems
+		fprintf(stderr, "Can't allocate memory\n"); // I was told that size+1 fixes a crash on 64-bit systems
 	return p;
 }
 
@@ -302,7 +302,7 @@ static void init_path(const char *path)
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
 		sprintf(path_home, "%s/espeak-data", env);
 		if (GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists
+			return; // an espeak-data directory exists
 	}
 
 	buf[0] = 0;
@@ -324,7 +324,7 @@ static void init_path(const char *path)
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
 		snprintf(path_home, sizeof(path_home), "%s/espeak-data", env);
 		if (GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists
+			return; // an espeak-data directory exists
 	}
 
 	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
@@ -337,7 +337,7 @@ static int initialise(int control)
 {
 	int param;
 	int result;
-	int srate = 22050;  // default sample rate 22050 Hz
+	int srate = 22050; // default sample rate 22050 Hz
 
 	err = EE_OK;
 	LoadConfig();
@@ -380,7 +380,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #endif
 
 	if ((outbuf == NULL) || (event_list == NULL))
-		return EE_INTERNAL_ERROR;  // espeak_Initialize()  has not been called
+		return EE_INTERNAL_ERROR; // espeak_Initialize()  has not been called
 
 	option_multibyte = flags & 7;
 	option_ssml = flags & espeakSSML;
@@ -402,13 +402,13 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 	if (my_mode == AUDIO_OUTPUT_SYNCH_PLAYBACK) {
 		for (;;) {
 #ifdef PLATFORM_WINDOWS
-			Sleep(300);   // 0.3s
+			Sleep(300); // 0.3s
 #else
 #ifdef USE_NANOSLEEP
 			struct timespec period;
 			struct timespec remaining;
 			period.tv_sec = 0;
-			period.tv_nsec = 300000000;  // 0.3 sec
+			period.tv_nsec = 300000000; // 0.3 sec
 			nanosleep(&period, &remaining);
 #else
 			sleep(1);
@@ -446,7 +446,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		} else
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
-			SpeakNextClause(NULL, 0, 2);  // stop
+			SpeakNextClause(NULL, 0, 2); // stop
 			break;
 		}
 
@@ -465,9 +465,9 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 						if (dispatch_audio(NULL, 0, NULL) < 0) // TBD: test case
 							return err = EE_INTERNAL_ERROR;
 					} else
-						synth_callback(NULL, 0, event_list);  // NULL buffer ptr indicates end of data
+						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 #else
-					synth_callback(NULL, 0, event_list);  // NULL buffer ptr indicates end of data
+					synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 #endif
 					break;
 				}
@@ -615,7 +615,7 @@ void sync_espeak_Key(const char *key)
 
 	my_unique_identifier = 0;
 	my_user_data = NULL;
-	Synthesize(0, key, 0);   // speak key as a text string
+	Synthesize(0, key, 0); // speak key as a text string
 }
 
 void sync_espeak_Char(wchar_t character)
@@ -959,18 +959,19 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 ESPEAK_API void espeak_SetPhonemeTrace(int phonememode, FILE *stream)
 {
 	ENTER("espeak_SetPhonemes");
-/* phonememode:  Controls the output of phoneme symbols for the text
-      bits 0-2:
-         value=0  No phoneme output (default)
-         value=1  Output the translated phoneme symbols for the text
-         value=2  as (1), but produces IPA phoneme names rather than ascii
-      bit 3:   output a trace of how the translation was done (showing the matching rules and list entries)
-      bit 4:   produce pho data for mbrola
-      bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
-      bits 8-23:  separator character, between phoneme names
+	/* phonememode:  Controls the output of phoneme symbols for the text
+	      bits 0-2:
+	         value=0  No phoneme output (default)
+	         value=1  Output the translated phoneme symbols for the text
+	         value=2  as (1), but produces IPA phoneme names rather than ascii
+	      bit 3:   output a trace of how the translation was done (showing the matching rules and list entries)
+	      bit 4:   produce pho data for mbrola
+	      bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+	      bits 8-23:  separator character, between phoneme names
 
-   stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
- */
+	   stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
+	*/
+
 	option_phonemes = phonememode;
 	f_trans = stream;
 	if (stream == NULL)
@@ -1007,7 +1008,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 		wave_close(my_audio);
 	SHOW_TIME("espeak_Cancel > LEAVE");
 #endif
-	embedded_value[EMBED_T] = 0;    // reset echo for pronunciation announcements
+	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
 		SetParameter(i, saved_parameters[i], 0);

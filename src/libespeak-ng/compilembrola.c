@@ -78,7 +78,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	char name2[40];
 	char mbrola_voice[40];
 	char buf[sizeof(path_home)+30];
-	int mbrola_ctrl = 20;   // volume in 1/16 ths
+	int mbrola_ctrl = 20; // volume in 1/16 ths
 	MBROLA_TAB data[N_PHONEME_TAB];
 
 	strcpy(buf, filepath);
@@ -91,7 +91,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 		buf[sizeof(phoneme)-1] = 0;
 
 		if ((p = strstr(buf, "//")) != NULL)
-			*p = 0;   // truncate line at comment
+			*p = 0; // truncate line at comment
 
 		if (memcmp(buf, "volume", 6) == 0) {
 			mbrola_ctrl = atoi(&buf[6]);
@@ -128,7 +128,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 		return ENE_WRITE_ERROR;
 	}
 
-	data[count].name = 0;  // list terminator
+	data[count].name = 0; // list terminator
 	Write4Bytes(f_out, mbrola_ctrl);
 
 	pw_end = (int *)(&data[count+1]);

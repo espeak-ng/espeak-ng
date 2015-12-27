@@ -173,7 +173,7 @@ void DisplayVoices(FILE *f_out, char *language)
 
 static void Write4Bytes(FILE *f, int value)
 {
-// Write 4 bytes to a file, least significant first
+	// Write 4 bytes to a file, least significant first
 	int ix;
 
 	for (ix = 0; ix < 4; ix++) {
@@ -233,14 +233,13 @@ static void CloseWavFile()
 
 	fclose(f_wavfile);
 	f_wavfile = NULL;
-
 }
 
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {
 	char fname[210];
 
-	if (quiet) return 0;  // -q quiet mode
+	if (quiet) return 0; // -q quiet mode
 
 	if (wav == NULL) {
 		CloseWavFile();
@@ -267,10 +266,8 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 			sprintf(fname, "%s_%.2d%s", wavefile, wavefile_count+1, filetype);
 			if (OpenWavFile(fname, samplerate) != 0)
 				return 1;
-		} else {
-			if (OpenWavFile(wavefile, samplerate) != 0)
-				return 1;
-		}
+		} else if (OpenWavFile(wavefile, samplerate) != 0)
+			return 1;
 	}
 
 	if (numsamples > 0) {
@@ -298,7 +295,7 @@ struct option {
 };
 int optind;
 static int optional_argument;
-static const char *arg_opts = "abfgklpsvw";      // which options have arguments
+static const char *arg_opts = "abfgklpsvw"; // which options have arguments
 static char *opt_string = "";
 #define no_argument 0
 #define required_argument 1
@@ -334,7 +331,7 @@ int main(int argc, char **argv)
 	FILE *f_text = NULL;
 	char *p_text = NULL;
 	FILE *f_phonemes_out = stdout;
-	char *data_path = NULL;   // use default path for espeak-data
+	char *data_path = NULL; // use default path for espeak-data
 
 	int option_index = 0;
 	int c;
@@ -360,7 +357,7 @@ int main(int argc, char **argv)
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
-#define N_PUNCTLIST  100
+	#define N_PUNCTLIST 100
 	wchar_t option_punctlist[N_PUNCTLIST];
 
 	voicename[0] = 0;
@@ -389,7 +386,7 @@ int main(int argc, char **argv)
 
 		if (c == '-') {
 			if (p[0] == 0)
-				break;   // -- means don't interpret further - as commands
+				break; // -- means don't interpret further - as commands
 
 			opt_string = "";
 			for (ix = 0;; ix++) {
@@ -417,7 +414,7 @@ int main(int argc, char **argv)
 		c = getopt_long(argc, argv, "a:b:f:g:hk:l:mp:qs:v:w:xXz",
 		                long_options, &option_index);
 
-		/* Detect the end of the options. */
+		// Detect the end of the options.
 		if (c == -1)
 			break;
 		optarg2 = optarg;
@@ -478,23 +475,23 @@ int main(int argc, char **argv)
 			option_waveout = 1;
 			strncpy0(wavefile, optarg2, sizeof(filename));
 			break;
-		case 'z':  // remove pause from the end of a sentence
+		case 'z': // remove pause from the end of a sentence
 			synth_flags &= ~espeakENDPAUSE;
 			break;
-		case 0x100:     // --stdin
+		case 0x100: // --stdin
 			flag_stdin = 1;
 			break;
-		case 0x105:     // --stdout
+		case 0x105: // --stdout
 			option_waveout = 1;
 			strcpy(wavefile, "stdout");
 			break;
-		case 0x101:    // --compile-debug
-		case 0x102:     // --compile
+		case 0x101: // --compile-debug
+		case 0x102: // --compile
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
 			quiet = 1;
 			break;
-		case 0x103:     // --punct
+		case 0x103: // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
 				ix = 0;
@@ -503,27 +500,27 @@ int main(int argc, char **argv)
 				option_punctuation = 2;
 			}
 			break;
-		case 0x104:   // --voices
+		case 0x104: // --voices
 			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, data_path, 0);
 			DisplayVoices(stdout, optarg2);
 			exit(0);
-		case 0x106:   // -- split
+		case 0x106: // -- split
 			if (optarg2 == NULL)
-				samples_split_seconds = 30 * 60;  // default 30 minutes
+				samples_split_seconds = 30 * 60; // default 30 minutes
 			else
 				samples_split_seconds = atoi(optarg2) * 60;
 			break;
-		case 0x107:  // --path
+		case 0x107: // --path
 			data_path = optarg2;
 			break;
-		case 0x108:  // --phonout
+		case 0x108: // --phonout
 			if ((f_phonemes_out = fopen(optarg2, "w")) == NULL)
 				fprintf(stderr, "Can't write to: %s\n", optarg2);
 			break;
-		case 0x109:  // --pho
+		case 0x109: // --pho
 			phoneme_options |= espeakPHONEMES_MBROLA;
 			break;
-		case 0x10a:  // --ipa
+		case 0x10a: // --ipa
 			phoneme_options |= espeakPHONEMES_IPA;
 			if (optarg2 != NULL) {
 				// deprecated and obsolete
@@ -537,43 +534,43 @@ int main(int argc, char **argv)
 					phoneme_options |= espeakPHONEMES_TIE;
 					break;
 				case 3:
-					phonemes_separator = 0x200d;      // ZWJ
+					phonemes_separator = 0x200d; // ZWJ
 					phoneme_options |= espeakPHONEMES_TIE;
 					break;
 				}
 
 			}
 			break;
-		case 0x10b:  // --version
+		case 0x10b: // --version
 			PrintVersion();
 			exit(0);
-		case 0x10c:  // --sep
+		case 0x10c: // --sep
 			phoneme_options |= espeakPHONEMES_SHOW;
 			if (optarg2 == 0)
 				phonemes_separator = ' ';
 			else
 				utf8_in(&phonemes_separator, optarg2);
 			if (phonemes_separator == 'z')
-				phonemes_separator = 0x200c;      // ZWNJ
+				phonemes_separator = 0x200c; // ZWNJ
 			break;
-		case 0x10d:  // --tie
+		case 0x10d: // --tie
 			phoneme_options |= (espeakPHONEMES_SHOW | espeakPHONEMES_TIE);
 			if (optarg2 == 0)
-				phonemes_separator = 0x0361;   // default: combining-double-inverted-breve
+				phonemes_separator = 0x0361; // default: combining-double-inverted-breve
 			else
 				utf8_in(&phonemes_separator, optarg2);
 			if (phonemes_separator == 'z')
-				phonemes_separator = 0x200d;      // ZWJ
+				phonemes_separator = 0x200d; // ZWJ
 			break;
-		case 0x10e:  // --compile-mbrola
+		case 0x10e: // --compile-mbrola
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
 			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
 			exit(0);
-		case 0x10f:  // --compile-intonations
+		case 0x10f: // --compile-intonations
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
 			espeak_ng_CompileIntonation(stdout);
 			exit(0);
-		case 0x110:  // --compile-phonemes
+		case 0x110: // --compile-phonemes
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
 			espeak_ng_CompilePhonemeData(22050, stdout);
 			exit(0);
@@ -707,6 +704,6 @@ int main(int argc, char **argv)
 	}
 
 	if (f_phonemes_out != stdout)
-		fclose(f_phonemes_out);  // needed for WinCE
+		fclose(f_phonemes_out);
 	return 0;
 }
