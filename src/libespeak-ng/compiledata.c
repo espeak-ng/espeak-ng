@@ -2836,10 +2836,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	char fname[sizeof(path_home)+40];
 	sprintf(fname, "%s/../phsource", path_home);
 
-#ifdef MAKE_ENVELOPES
-	make_envs();
-#endif
-
 	fprintf(log, "Compiling phoneme data: %s\n", fname);
 	n_envelopes = 0;
 	error_count = 0;
