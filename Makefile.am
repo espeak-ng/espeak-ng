@@ -83,7 +83,7 @@ lib_LTLIBRARIES += src/libespeak-ng.la
 
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm
 src_libespeak_ng_la_CFLAGS = -Isrc/include/espeak-ng \
-	-fPIC -fvisibility=hidden -D LIBRARY -D _BSD_SOURCE -D _POSIX_C_SOURCE=200112L \
+	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D _POSIX_C_SOURCE=200112L \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledata.c \

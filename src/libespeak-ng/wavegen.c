@@ -391,9 +391,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	}
 	out_end2 = &outbuffer[pa_size]; // top of data needed for the portaudio buffer
 
-#ifdef LIBRARY
 	event_list_ix = 0;
-#endif
 
 	result = WavegenFill(1);
 
@@ -411,7 +409,6 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 		p[-pa_size] = p[0];
 	out_ptr -= pa_size;
 
-#ifdef LIBRARY
 	count_samples += framesPerBuffer;
 	if (synth_callback) {
 		// synchronous-playback mode, allow the calling process to abort the speech
@@ -423,7 +420,6 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 			result = 1;
 		}
 	}
-#endif
 
 #ifdef ARCH_BIG
 	// swap the order of bytes in each sound sample in the portaudio buffer
