@@ -46,7 +46,6 @@
 #include <unistd.h>
 #endif
 #include "wave.h"
-#include "debug.h"
 
 enum { ONE_BILLION = 1000000000 };
 
@@ -124,7 +123,7 @@ static int wave_samplerate;
 		    !context || pa_context_get_state(context) != PA_CONTEXT_READY || \
 		    !stream || pa_stream_get_state(stream) != PA_STREAM_READY) { \
 			if (warn) \
-				SHOW("Connection died: %s\n", context ? pa_strerror(pa_context_errno(context)) : "NULL"); \
+				fprintf(stderr, "Connection died: %s\n", context ? pa_strerror(pa_context_errno(context)) : "NULL"); \
 			goto label; \
 		}  \
 } while (0);
@@ -136,13 +135,11 @@ static int wave_samplerate;
 
 #define CHECK_CONNECTED_NO_RETVAL(id)                   \
 	do {                                  \
-		if (!connected) { SHOW("CHECK_CONNECTED_NO_RETVAL: !pulse_connected\n", ""); return; } \
+		if (!connected) { return; } \
 	} while (0);
 
 static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata)
 {
-	ENTER(__FUNCTION__);
-
 	assert(c);
 
 	if (!stream ||
@@ -154,7 +151,6 @@ static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t
 
 static void context_state_cb(pa_context *c, void *userdata)
 {
-	ENTER(__FUNCTION__);
 	assert(c);
 
 	switch (pa_context_get_state(c))
@@ -174,7 +170,6 @@ static void context_state_cb(pa_context *c, void *userdata)
 
 static void stream_state_cb(pa_stream *s, void *userdata)
 {
-	ENTER(__FUNCTION__);
 	assert(s);
 
 	switch (pa_stream_get_state(s))
@@ -192,7 +187,6 @@ static void stream_state_cb(pa_stream *s, void *userdata)
 
 static void stream_success_cb(pa_stream *s, int success, void *userdata)
 {
-	ENTER(__FUNCTION__);
 	assert(s);
 
 	if (userdata)
@@ -203,7 +197,6 @@ static void stream_success_cb(pa_stream *s, int success, void *userdata)
 
 static void context_success_cb(pa_context *c, int success, void *userdata)
 {
-	ENTER(__FUNCTION__);
 	assert(c);
 
 	if (userdata)
@@ -214,7 +207,6 @@ static void context_success_cb(pa_context *c, int success, void *userdata)
 
 static void stream_request_cb(pa_stream *s, size_t length, void *userdata)
 {
-	ENTER(__FUNCTION__);
 	assert(s);
 
 	pa_threaded_mainloop_signal(mainloop, 0);
@@ -229,62 +221,51 @@ static void stream_latency_update_cb(pa_stream *s, void *userdata)
 
 static int pulse_free(void)
 {
-	ENTER(__FUNCTION__);
 	size_t l = 0;
 	pa_operation *o = NULL;
 
 	CHECK_CONNECTED(0);
 
-	SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop_lock");
 	pa_threaded_mainloop_lock(mainloop);
 	CHECK_DEAD_GOTO(fail, 1);
 
 	if ((l = pa_stream_writable_size(stream)) == (size_t)-1) {
-		SHOW("pa_stream_writable_size() failed: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_stream_writable_size() failed: %s", pa_strerror(pa_context_errno(context)));
 		l = 0;
 		goto fail;
 	}
-
-	SHOW("pulse_free: %s (ret=%d)\n", "pa_stream_writable_size", l);
 
 	/* If this function is called twice with no pulse_write() call in
 	 * between this means we should trigger the playback */
 	if (do_trigger) {
 		int success = 0;
 
-		SHOW("pulse_free: %s (call)\n", "pa_stream_trigger");
 		if (!(o = pa_stream_trigger(stream, stream_success_cb, &success))) {
-			SHOW("pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
+			fprintf(stderr, "pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
 			goto fail;
 		}
 
-		SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop");
 		while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
 			CHECK_DEAD_GOTO(fail, 1);
 			pa_threaded_mainloop_wait(mainloop);
 		}
-		SHOW("pulse_free: %s (ret)\n", "pa_threaded_main_loop");
 
 		if (!success)
-			SHOW("pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
+			fprintf(stderr, "pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
 	}
 
 fail:
-	SHOW("pulse_free: %s (call)\n", "pa_operation_unref");
 	if (o)
 		pa_operation_unref(o);
 
-	SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop_unlock");
 	pa_threaded_mainloop_unlock(mainloop);
 
 	do_trigger = !!l;
-	SHOW("pulse_free: %d (ret)\n", (int)l);
 	return (int)l;
 }
 
 static int pulse_playing(const pa_timing_info *the_timing_info)
 {
-	ENTER(__FUNCTION__);
 	int r = 0;
 	const pa_timing_info *i;
 
@@ -300,7 +281,7 @@ static int pulse_playing(const pa_timing_info *the_timing_info)
 		if ((i = pa_stream_get_timing_info(stream)))
 			break;
 		if (pa_context_errno(context) != PA_ERR_NODATA) {
-			SHOW("pa_stream_get_timing_info() failed: %s", pa_strerror(pa_context_errno(context)));
+			fprintf(stderr, "pa_stream_get_timing_info() failed: %s", pa_strerror(pa_context_errno(context)));
 			goto fail;
 		}
 
@@ -318,17 +299,13 @@ fail:
 
 static void pulse_write(void *ptr, int length)
 {
-	ENTER(__FUNCTION__);
-
-	SHOW("pulse_write > length=%d\n", length);
-
 	CHECK_CONNECTED_NO_RETVAL();
 
 	pa_threaded_mainloop_lock(mainloop);
 	CHECK_DEAD_GOTO(fail, 1);
 
 	if (pa_stream_write(stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0) {
-		SHOW("pa_stream_write() failed: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_stream_write() failed: %s", pa_strerror(pa_context_errno(context)));
 		goto fail;
 	}
 
@@ -344,45 +321,36 @@ static int drain(void)
 	int success = 0;
 	int ret = PULSE_ERROR;
 
-	ENTER(__FUNCTION__);
-
 	CHECK_CONNECTED(ret);
 
 	pa_threaded_mainloop_lock(mainloop);
 	CHECK_DEAD_GOTO(fail, 0);
 
-	SHOW_TIME("pa_stream_drain (call)");
 	if (!(o = pa_stream_drain(stream, stream_success_cb, &success))) {
-		SHOW("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
 		goto fail;
 	}
 
-	SHOW_TIME("pa_threaded_mainloop_wait (call)");
 	while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
 		CHECK_DEAD_GOTO(fail, 1);
 		pa_threaded_mainloop_wait(mainloop);
 	}
-	SHOW_TIME("pa_threaded_mainloop_wait (ret)");
 
 	if (!success)
-		SHOW("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
 	else
 		ret = PULSE_OK;
 fail:
-	SHOW_TIME("pa_operation_unref (call)");
 	if (o)
 		pa_operation_unref(o);
 
 	pa_threaded_mainloop_unlock(mainloop);
-	SHOW_TIME("drain (ret)");
 
 	return ret;
 }
 
 static void pulse_close(void)
 {
-	ENTER(__FUNCTION__);
-
 	drain();
 
 	connected = 0;
@@ -393,24 +361,19 @@ static void pulse_close(void)
 	connected = 0;
 
 	if (context) {
-		SHOW_TIME("pa_context_disconnect (call)");
 		pa_context_disconnect(context);
 		pa_context_unref(context);
 		context = NULL;
 	}
 
 	if (mainloop) {
-		SHOW_TIME("pa_threaded_mainloop_free (call)");
 		pa_threaded_mainloop_free(mainloop);
 		mainloop = NULL;
 	}
-	SHOW_TIME("pulse_close (ret)");
-
 }
 
 static int pulse_open()
 {
-	ENTER(__FUNCTION__);
 	pa_sample_spec ss;
 	pa_operation *o = NULL;
 	int success;
@@ -430,51 +393,39 @@ static int pulse_open()
 	if (!pa_sample_spec_valid(&ss))
 		return false;
 
-	SHOW_TIME("pa_threaded_mainloop_new (call)");
-	if (!(mainloop = pa_threaded_mainloop_new())) {
-		SHOW("Failed to allocate main loop\n", "");
+	if (!(mainloop = pa_threaded_mainloop_new()))
 		goto fail;
-	}
 
 	pa_threaded_mainloop_lock(mainloop);
 
-	SHOW_TIME("pa_context_new (call)");
-	if (!(context = pa_context_new(pa_threaded_mainloop_get_api(mainloop), "eSpeak"))) {
-		SHOW("Failed to allocate context\n", "");
+	if (!(context = pa_context_new(pa_threaded_mainloop_get_api(mainloop), "eSpeak")))
 		goto unlock_and_fail;
-	}
 
 	pa_context_set_state_callback(context, context_state_cb, NULL);
 	pa_context_set_subscribe_callback(context, subscribe_cb, NULL);
 
-	SHOW_TIME("pa_context_connect (call)");
 	if (pa_context_connect(context, NULL, (pa_context_flags_t)0, NULL) < 0) {
-		SHOW("Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
 		ret = PULSE_NO_CONNECTION;
 		goto unlock_and_fail;
 	}
 
-	SHOW_TIME("pa_threaded_mainloop_start (call)");
-	if (pa_threaded_mainloop_start(mainloop) < 0) {
-		SHOW("Failed to start main loop", "");
+	if (pa_threaded_mainloop_start(mainloop) < 0)
 		goto unlock_and_fail;
-	}
 
 	// Wait until the context is ready
-	SHOW_TIME("pa_threaded_mainloop_wait");
 	pa_threaded_mainloop_wait(mainloop);
 
 	if (pa_context_get_state(context) != PA_CONTEXT_READY) {
-		SHOW("Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
 		ret = PULSE_NO_CONNECTION;
 		if (mainloop)
 			pa_threaded_mainloop_stop(mainloop);
 		goto unlock_and_fail;
 	}
 
-	SHOW_TIME("pa_stream_new");
 	if (!(stream = pa_stream_new(context, "unknown", &ss, NULL))) {
-		SHOW("Failed to create stream: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "Failed to create stream: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
 
@@ -490,30 +441,26 @@ static int pulse_open()
 	a_attr.minreq = MINREQ;
 	a_attr.fragsize = 0;
 
-	SHOW_TIME("pa_connect_playback");
 	if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), NULL, NULL) < 0) {
-		SHOW("Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
 
 	// Wait until the stream is ready
-	SHOW_TIME("pa_threaded_mainloop_wait");
 	pa_threaded_mainloop_wait(mainloop);
 
 	if (pa_stream_get_state(stream) != PA_STREAM_READY) {
-		SHOW("Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
 
 	// Now subscribe to events
-	SHOW_TIME("pa_context_subscribe");
 	if (!(o = pa_context_subscribe(context, PA_SUBSCRIPTION_MASK_SINK_INPUT, context_success_cb, &success))) {
-		SHOW("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
 
 	success = 0;
-	SHOW_TIME("pa_threaded_mainloop_wait");
 	while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
 		CHECK_DEAD_GOTO(fail, 1);
 		pa_threaded_mainloop_wait(mainloop);
@@ -522,7 +469,7 @@ static int pulse_open()
 	pa_operation_unref(o);
 
 	if (!success) {
-		SHOW("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
+		fprintf(stderr, "pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
 
@@ -533,7 +480,6 @@ static int pulse_open()
 	connected = 1;
 
 	pa_threaded_mainloop_unlock(mainloop);
-	SHOW_TIME("pulse_open (ret true)");
 
 	return PULSE_OK;
 unlock_and_fail:
@@ -544,28 +490,23 @@ unlock_and_fail:
 fail:
 	if (ret == PULSE_NO_CONNECTION) {
 		if (context) {
-			SHOW_TIME("pa_context_disconnect (call)");
 			pa_context_disconnect(context);
 			pa_context_unref(context);
 			context = NULL;
 		}
 
 		if (mainloop) {
-			SHOW_TIME("pa_threaded_mainloop_free (call)");
 			pa_threaded_mainloop_free(mainloop);
 			mainloop = NULL;
 		}
 	} else
 		pulse_close();
 
-	SHOW_TIME("pulse_open (ret false)");
-
 	return ret;
 }
 
 void wave_flush(void *theHandler)
 {
-	ENTER("wave_flush");
 }
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
@@ -575,8 +516,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 
 int wave_init(int srate)
 {
-	ENTER("wave_init");
-
 	stream = NULL;
 	wave_samplerate = srate;
 
@@ -585,13 +524,11 @@ int wave_init(int srate)
 
 void *wave_open(const char *the_api)
 {
-	ENTER("wave_open");
 	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
-	ENTER("wave_write");
 	size_t bytes_to_write = theSize;
 	char *aBuffer = theMono16BitsWaveBuffer;
 
@@ -604,22 +541,17 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 	while (1) {
 		if (my_callback_is_output_enabled
 		    && (0 == my_callback_is_output_enabled())) {
-			SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
 			theSize = 0;
 			goto terminate;
 		}
 
 		aTotalFreeMem = pulse_free();
-		if (aTotalFreeMem >= bytes_to_write) {
-			SHOW("wave_write > aTotalFreeMem(%d) >= bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
+		if (aTotalFreeMem >= bytes_to_write)
 			break;
-		}
 
 		// TBD: check if really helpful
 		if (aTotalFreeMem >= MAXLENGTH*2)
 			aTotalFreeMem = MAXLENGTH*2;
-
-		SHOW("wave_write > wait: aTotalFreeMem(%d) < bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 
 		// 500: threshold for avoiding too many calls to pulse_write
 		if (aTotalFreeMem > 500) {
@@ -634,27 +566,21 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 	pulse_write(aBuffer, bytes_to_write);
 terminate:
 	pthread_mutex_unlock(&pulse_mutex);
-	SHOW("wave_write: theSize=%d", theSize);
-	SHOW_TIME("wave_write > LEAVE");
 	return theSize;
 }
 
 int wave_close(void *theHandler)
 {
-	SHOW_TIME("wave_close > ENTER");
 	static int aStopStreamCount = 0;
 
 	// Avoid race condition by making sure this function only
 	// gets called once at a time
 	aStopStreamCount++;
-	if (aStopStreamCount != 1) {
-		SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
+	if (aStopStreamCount != 1)
 		return 0;
-	}
 
 	int a_status = pthread_mutex_lock(&pulse_mutex);
 	if (a_status) {
-		SHOW("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
 		aStopStreamCount = 0; // last action
 		return PULSE_ERROR;
 	}
@@ -662,7 +588,6 @@ int wave_close(void *theHandler)
 	drain();
 
 	pthread_mutex_unlock(&pulse_mutex);
-	SHOW_TIME("wave_close (ret)");
 
 	aStopStreamCount = 0; // last action
 	return PULSE_OK;
@@ -670,18 +595,13 @@ int wave_close(void *theHandler)
 
 int wave_is_busy(void *theHandler)
 {
-	SHOW_TIME("wave_is_busy");
-
 	pa_timing_info a_timing_info;
 	int active = pulse_playing(&a_timing_info);
-	SHOW("wave_is_busy: %d\n", active);
 	return active;
 }
 
 void wave_terminate()
 {
-	ENTER("wave_terminate");
-
 	int a_status;
 	pthread_mutex_t *a_mutex = NULL;
 	a_mutex = &pulse_mutex;
@@ -689,7 +609,6 @@ void wave_terminate()
 
 	pulse_close();
 
-	SHOW_TIME("unlock mutex");
 	a_status = pthread_mutex_unlock(a_mutex);
 	pthread_mutex_destroy(a_mutex);
 }
@@ -698,7 +617,6 @@ uint32_t wave_get_read_position(void *theHandler)
 {
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
-	SHOW("wave_get_read_position > %lx\n", a_timing_info.read_index);
 	return a_timing_info.read_index;
 }
 
@@ -706,7 +624,6 @@ uint32_t wave_get_write_position(void *theHandler)
 {
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
-	SHOW("wave_get_read_position > %lx\n", a_timing_info.write_index);
 	return a_timing_info.write_index;
 }
 
@@ -714,10 +631,8 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
 	double a_time = 0;
 
-	if (!time || !stream) {
-		SHOW("event get_remaining_time> %s\n", "audio device not available");
+	if (!time || !stream)
 		return -1;
-	}
 
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
@@ -728,8 +643,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
 	} else
 		a_time = 0;
-
-	SHOW("wave_get_remaining_time > sample=%d, time=%d\n", sample, (uint32_t)a_time);
 
 	*time = (uint32_t)a_time;
 
@@ -827,7 +740,6 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
 	while (t_ns >= ONE_BILLION) {
-		SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
 		ts->tv_sec += 1;
 		t_ns -= ONE_BILLION;
 	}

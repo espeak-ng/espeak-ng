@@ -36,7 +36,6 @@
 #include "speech.h"
 #include "fifo.h"
 #include "wave.h"
-#include "debug.h"
 
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
@@ -64,8 +63,6 @@ enum {
 
 void fifo_init()
 {
-	ENTER("fifo_init");
-
 	// security
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
 	init(0);
@@ -86,30 +83,23 @@ void fifo_init()
 	pthread_attr_destroy(&a_attrib);
 
 	// leave once the thread is actually started
-	SHOW_TIME("fifo > wait for my_sem_stop_is_acknowledged\n");
 	while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
 		continue; // Restart when interrupted by handler
-	SHOW_TIME("fifo > get my_sem_stop_is_acknowledged\n");
 }
 
 espeak_ERROR fifo_add_command(t_espeak_command *the_command)
 {
-	ENTER("fifo_add_command");
-
 	int a_status = pthread_mutex_lock(&my_mutex);
 	espeak_ERROR a_error = EE_OK;
 
 	if (!a_status) {
-		SHOW_TIME("fifo_add_command > locked\n");
 		a_error = push(the_command);
-		SHOW_TIME("fifo_add_command > unlocking\n");
 		a_status = pthread_mutex_unlock(&my_mutex);
 	}
 
 	if (!a_status && !my_command_is_running && (a_error == EE_OK)) {
 		// quit when command is actually started
 		// (for possible forthcoming 'end of command' checks)
-		SHOW_TIME("fifo_add_command > post my_sem_start_is_required\n");
 		sem_post(&my_sem_start_is_required);
 		int val = 1;
 		while (val > 0) {
@@ -121,35 +111,27 @@ espeak_ERROR fifo_add_command(t_espeak_command *the_command)
 	if (a_status != 0)
 		a_error = EE_INTERNAL_ERROR;
 
-	SHOW_TIME("LEAVE fifo_add_command");
 	return a_error;
 }
 
 espeak_ERROR fifo_add_commands(t_espeak_command *command1, t_espeak_command *command2)
 {
-	ENTER("fifo_add_command");
-
 	int a_status = pthread_mutex_lock(&my_mutex);
 	espeak_ERROR a_error = EE_OK;
 
 	if (!a_status) {
-		SHOW_TIME("fifo_add_commands > locked\n");
-
-		if (node_counter+1 >= MAX_NODE_COUNTER) {
-			SHOW("push > %s\n", "EE_BUFFER_FULL");
+		if (node_counter+1 >= MAX_NODE_COUNTER)
 			a_error = EE_BUFFER_FULL;
-		} else {
+		else {
 			push(command1);
 			push(command2);
 		}
-		SHOW_TIME("fifo_add_command > unlocking\n");
 		a_status = pthread_mutex_unlock(&my_mutex);
 	}
 
 	if (!a_status && !my_command_is_running && (a_error == EE_OK)) {
 		// quit when one command is actually started
 		// (for possible forthcoming 'end of command' checks)
-		SHOW_TIME("fifo_add_command > post my_sem_start_is_required\n");
 		sem_post(&my_sem_start_is_required);
 		int val = 1;
 		while (val > 0) {
@@ -161,53 +143,41 @@ espeak_ERROR fifo_add_commands(t_espeak_command *command1, t_espeak_command *com
 	if (a_status != 0)
 		a_error = EE_INTERNAL_ERROR;
 
-	SHOW_TIME("LEAVE fifo_add_commands");
 	return a_error;
 }
 
 espeak_ERROR fifo_stop()
 {
-	ENTER("fifo_stop");
-
 	int a_command_is_running = 0;
 	int a_status = pthread_mutex_lock(&my_mutex);
-	SHOW_TIME("fifo_stop > locked\n");
 	if (a_status != 0)
 		return EE_INTERNAL_ERROR;
 
 	if (my_command_is_running) {
 		a_command_is_running = 1;
 		my_stop_is_required = 1;
-		SHOW_TIME("fifo_stop > my_stop_is_required = 1\n");
 	}
-	SHOW_TIME("fifo_stop > unlocking\n");
 	a_status = pthread_mutex_unlock(&my_mutex);
 	if (a_status != 0)
 		return EE_INTERNAL_ERROR;
 
 	if (a_command_is_running) {
-		SHOW_TIME("fifo_stop > wait for my_sem_stop_is_acknowledged\n");
 		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
-		SHOW_TIME("fifo_stop > get my_sem_stop_is_acknowledged\n");
 	}
 
-	SHOW_TIME("fifo_stop > my_stop_is_required = 0\n");
 	my_stop_is_required = 0;
-	SHOW_TIME("LEAVE fifo_stop\n");
 
 	return EE_OK;
 }
 
 int fifo_is_busy()
 {
-	SHOW("fifo_is_busy > aResult = %d\n", my_command_is_running);
 	return my_command_is_running;
 }
 
 static int sleep_until_start_request_or_inactivity()
 {
-	SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > ENTER");
 	int a_start_is_required = 0;
 
 	// Wait for the start request (my_sem_start_is_required).
@@ -229,37 +199,22 @@ static int sleep_until_start_request_or_inactivity()
 
 		clock_gettime2(&ts);
 
-#ifdef DEBUG_ENABLED
-		struct timespec to;
-		to.tv_sec = ts.tv_sec;
-		to.tv_nsec = ts.tv_nsec;
-#endif
-
 		add_time_in_ms(&ts, INACTIVITY_TIMEOUT);
-
-		SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n",
-		     to.tv_sec, to.tv_nsec,
-		     ts.tv_sec, ts.tv_nsec);
 
 		while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1
 		       && errno == EINTR)
 			continue;
 
 		assert(gettimeofday(&tv, NULL) != -1);
-		SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err,
-		     tv.tv_sec, tv.tv_usec*1000);
 
 		if (err == 0)
 			a_start_is_required = 1;
 	}
-	SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > LEAVE");
 	return a_start_is_required;
 }
 
 static void close_stream()
 {
-	SHOW_TIME("fifo > close_stream > ENTER\n");
-
 	// Warning: a wave_close can be already required by
 	// an external command (espeak_Cancel + fifo_stop), if so:
 	// my_stop_is_required = 1;
@@ -283,29 +238,20 @@ static void close_stream()
 
 		if (a_stop_is_required) {
 			// acknowledge the stop request
-			SHOW_TIME("fifo > close_stream > post my_sem_stop_is_acknowledged\n");
 			int a_status = sem_post(&my_sem_stop_is_acknowledged);
 			assert(a_status != -1);
 		}
 	}
-
-	SHOW_TIME("fifo > close_stream > LEAVE\n");
 }
 
 static void *say_thread(void *p)
 {
-	ENTER("say_thread");
-
-	SHOW_TIME("say_thread > post my_sem_stop_is_acknowledged\n");
-
 	// announce that thread is started
 	sem_post(&my_sem_stop_is_acknowledged);
 
 	int look_for_inactivity = 0;
 
 	while (1) {
-		SHOW_TIME("say_thread > wait for my_sem_start_is_required\n");
-
 		int a_start_is_required = 0;
 		if (look_for_inactivity) {
 			a_start_is_required = sleep_until_start_request_or_inactivity();
@@ -318,35 +264,24 @@ static void *say_thread(void *p)
 			while ((sem_wait(&my_sem_start_is_required) == -1) && errno == EINTR)
 				continue; // Restart when interrupted by handler
 		}
-		SHOW_TIME("say_thread > get my_sem_start_is_required\n");
 
-		SHOW_TIME("say_thread > my_command_is_running = 1\n");
 		my_command_is_running = 1;
 
 		while (my_command_is_running) {
-			SHOW_TIME("say_thread > locking\n");
 			int a_status = pthread_mutex_lock(&my_mutex);
 			assert(!a_status);
 			t_espeak_command *a_command = (t_espeak_command *)pop();
 
 			if (a_command == NULL) {
-				SHOW_TIME("say_thread > text empty (talking=0) \n");
 				a_status = pthread_mutex_unlock(&my_mutex);
-				SHOW_TIME("say_thread > unlocked\n");
-				SHOW_TIME("say_thread > my_command_is_running = 0\n");
 				my_command_is_running = 0;
 			} else {
-				display_espeak_command(a_command);
 				// purge start semaphore
-				SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
 				while (0 == sem_trywait(&my_sem_start_is_required))
 					;
 
-				if (my_stop_is_required) {
-					SHOW_TIME("say_thread > my_command_is_running = 0\n");
+				if (my_stop_is_required)
 					my_command_is_running = 0;
-				}
-				SHOW_TIME("say_thread > unlocking\n");
 				a_status = pthread_mutex_unlock(&my_mutex);
 
 				if (my_command_is_running)
@@ -361,17 +296,14 @@ static void *say_thread(void *p)
 			init(1);
 
 			// purge start semaphore
-			SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
 			while (0 == sem_trywait(&my_sem_start_is_required))
 				;
 
 			// acknowledge the stop request
-			SHOW_TIME("say_thread > post my_sem_stop_is_acknowledged\n");
 			int a_status = sem_post(&my_sem_stop_is_acknowledged);
 			assert(a_status != -1);
 		}
 		// and wait for the next start
-		SHOW_TIME("say_thread > wait for my_sem_start_is_required\n");
 	}
 
 	return NULL;
@@ -379,7 +311,6 @@ static void *say_thread(void *p)
 
 int fifo_is_command_enabled()
 {
-	SHOW("ENTER fifo_is_command_enabled=%d\n", (int)(0 == my_stop_is_required));
 	return 0 == my_stop_is_required;
 }
 
@@ -393,19 +324,13 @@ static node *tail = NULL;
 
 static espeak_ERROR push(t_espeak_command *the_command)
 {
-	ENTER("fifo > push");
-
 	assert((!head && !tail) || (head && tail));
 
-	if (the_command == NULL) {
-		SHOW("push > command=0x%x\n", NULL);
+	if (the_command == NULL)
 		return EE_INTERNAL_ERROR;
-	}
 
-	if (node_counter >= MAX_NODE_COUNTER) {
-		SHOW("push > %s\n", "EE_BUFFER_FULL");
+	if (node_counter >= MAX_NODE_COUNTER)
 		return EE_BUFFER_FULL;
-	}
 
 	node *n = (node *)malloc(sizeof(node));
 	if (n == NULL)
@@ -423,17 +348,14 @@ static espeak_ERROR push(t_espeak_command *the_command)
 	tail->data = the_command;
 
 	node_counter++;
-	SHOW("push > counter=%d\n", node_counter);
 
 	the_command->state = CS_PENDING;
-	display_espeak_command(the_command);
 
 	return EE_OK;
 }
 
 static t_espeak_command *pop()
 {
-	ENTER("fifo > pop");
 	t_espeak_command *the_command = NULL;
 
 	assert((!head && !tail) || (head && tail));
@@ -444,13 +366,10 @@ static t_espeak_command *pop()
 		head = n->next;
 		free(n);
 		node_counter--;
-		SHOW("pop > command=0x%x (counter=%d)\n", the_command, node_counter);
 	}
 
 	if (head == NULL)
 		tail = NULL;
-
-	display_espeak_command(the_command);
 
 	return the_command;
 }
@@ -458,7 +377,6 @@ static t_espeak_command *pop()
 static void init(int process_parameters)
 {
 	t_espeak_command *c = NULL;
-	ENTER("fifo > init");
 	c = pop();
 	while (c != NULL) {
 		if (process_parameters && (c->type == ET_PARAMETER || c->type == ET_VOICE_NAME || c->type == ET_VOICE_SPEC))
@@ -471,8 +389,6 @@ static void init(int process_parameters)
 
 void fifo_terminate()
 {
-	ENTER("fifo_terminate");
-
 	pthread_cancel(my_thread);
 	pthread_join(my_thread, NULL);
 	pthread_mutex_destroy(&my_mutex);

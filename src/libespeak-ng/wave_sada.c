@@ -34,7 +34,6 @@
 #include <sys/audioio.h>
 
 #include "wave.h"
-#include "debug.h"
 
 enum { ONE_BILLION = 1000000000 };
 #define SAMPLE_RATE 22050
@@ -77,8 +76,6 @@ static uint32_t wave_samplerate;
 //
 int wave_init(int srate)
 {
-	ENTER("wave_init");
-
 	audio_info_t ainfo;
 	char *audio_device = NULL;
 
@@ -87,32 +84,29 @@ int wave_init(int srate)
 	audio_device = getenv("AUDIODEV");
 	if (audio_device != NULL) {
 		if ((sun_audio_fd = open(audio_device, O_WRONLY)) < 0) {
-			SHOW("wave_init() could not open: %s (%d)\n",
-			     audio_device, sun_audio_fd);
+			fprintf(stderr, "wave_init() could not open: %s (%d)\n",
+			        audio_device, sun_audio_fd);
 		}
 	}
 
 	if (sun_audio_fd < 0) {
 		if ((sun_audio_fd = open(sun_audio_device, O_WRONLY)) < 0) {
-			SHOW("wave_init() could not open: %s (%d)\n",
-			     sun_audio_device, sun_audio_fd);
+			fprintf(stderr, "wave_init() could not open: %s (%d)\n",
+			        sun_audio_device, sun_audio_fd);
 		}
 	}
-
-	SHOW("wave_init() sun_audio_fd: %d\n", sun_audio_fd);
 
 	if (sun_audio_fd < 0)
 		return 0;
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
-	SHOW("wave_init() play buffer size: %d\n", ainfo.play.buffer_size);
 	ainfo.play.encoding = AUDIO_ENCODING_LINEAR;
 	ainfo.play.channels = 1;
 	ainfo.play.sample_rate = wave_samplerate;
 	ainfo.play.precision = SAMPLE_SIZE;
 
 	if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
-		SHOW("wave_init() failed to set audio params: %s\n", strerror(errno));
+		fprintf(stderr, "wave_init() failed to set audio params: %s\n", strerror(errno));
 		close(sun_audio_fd);
 		return 0;
 	}
@@ -143,7 +137,6 @@ int wave_init(int srate)
 //
 void *wave_open(const char *the_api)
 {
-	ENTER("wave_open");
 	return (void *)sun_audio_fd;
 }
 
@@ -178,11 +171,8 @@ size_t wave_write(void *theHandler,
                   size_t theSize)
 {
 	size_t num;
-	ENTER("wave_write");
-	if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled())) {
-		SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
+	if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled()))
 		return 0;
-	}
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 	// BIG-ENDIAN, swap the order of bytes in each sound sample
@@ -207,12 +197,6 @@ size_t wave_write(void *theHandler,
 	//
 	total_samples_sent += num / 2;
 
-	if (num < theSize)
-		SHOW("ERROR: wave_write only wrote %d of %d bytes\n", num, theSize);
-	else
-		SHOW("wave_write wrote %d bytes\n", theSize);
-
-	SHOW_TIME("wave_write > LEAVE");
 	return num;
 }
 
@@ -248,10 +232,8 @@ int wave_close(void *theHandler)
 	int ret;
 	audio_info_t ainfo;
 	int audio_fd = (int)theHandler;
-	if (!audio_fd) {
+	if (!audio_fd)
 		audio_fd = sun_audio_fd;
-	}
-	ENTER("wave_close");
 	// [[[WDW: maybe do a pause/resume ioctl???]]]
 	ret = ioctl(audio_fd, I_FLUSH, FLUSHRW);
 	ioctl(audio_fd, AUDIO_GETINFO, &ainfo);
@@ -265,7 +247,6 @@ int wave_close(void *theHandler)
 		last_play_position = ainfo.play.samples;
 		total_samples_skipped = total_samples_sent - last_play_position;
 	}
-	SHOW_TIME("wave_close > LEAVE");
 	return ret;
 }
 
@@ -310,10 +291,8 @@ int wave_is_busy(void *theHandler)
 //
 void wave_terminate()
 {
-	ENTER("wave_terminate");
 	close(sun_audio_fd);
 	sun_audio_fd = -1;
-	SHOW_TIME("wave_terminate > LEAVE");
 }
 
 // wave_flush
@@ -333,8 +312,6 @@ void wave_terminate()
 //
 void wave_flush(void *theHandler)
 {
-	ENTER("wave_flush");
-	SHOW_TIME("wave_flush > LEAVE");
 }
 
 // wave_set_callback_is_output_enabled
@@ -392,10 +369,7 @@ void *wave_test_get_write_buffer()
 uint32_t wave_get_read_position(void *theHandler)
 {
 	audio_info_t ainfo;
-	ENTER("wave_get_read_position");
 	ioctl((int)theHandler, AUDIO_GETINFO, &ainfo);
-	SHOW("wave_get_read_position: %d\n", ainfo.play.samples);
-	SHOW_TIME("wave_get_read_position > LEAVE");
 	return ainfo.play.samples;
 }
 
@@ -427,9 +401,6 @@ uint32_t wave_get_read_position(void *theHandler)
 //
 uint32_t wave_get_write_position(void *theHandler)
 {
-	ENTER("wave_get_write_position");
-	SHOW("wave_get_write_position: %d\n", total_samples_sent);
-	SHOW_TIME("wave_get_write_position > LEAVE");
 	return total_samples_sent;
 }
 
@@ -466,11 +437,8 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	uint32_t actual_index;
 
 	audio_info_t ainfo;
-	ENTER("wave_get_remaining_time");
-	if (!time) {
+	if (!time)
 		return -1;
-		SHOW_TIME("wave_get_remaining_time > LEAVE");
-	}
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
 
@@ -485,8 +453,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 		a_time = ((actual_index - ainfo.play.samples) * 1000) / wave_samplerate;
 		*time = (uint32_t)a_time;
 	}
-	SHOW("wave_get_remaining_time for %d: %d\n", sample, *time);
-	SHOW_TIME("wave_get_remaining_time > LEAVE");
 	return 0;
 }
 
@@ -574,7 +540,6 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 
 	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
 	while (t_ns >= ONE_BILLION) {
-		SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
 		ts->tv_sec += 1;
 		t_ns -= ONE_BILLION;
 	}

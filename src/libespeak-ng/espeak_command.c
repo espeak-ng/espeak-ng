@@ -25,13 +25,10 @@
 #include <assert.h>
 #include <wchar.h>
 
-#include "debug.h"
-
 static unsigned int my_current_text_id = 0;
 
 t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags, void *user_data)
 {
-	ENTER("create_espeak_text");
 	int a_error = 1;
 	void *a_text = NULL;
 	t_espeak_text *data = NULL;
@@ -58,8 +55,6 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 	data->user_data = user_data;
 	a_error = 0;
 
-	SHOW("ET_TEXT malloc text=%x, command=%x (uid=%d)\n", a_text, a_command, data->unique_identifier);
-
 text_error:
 	if (a_error) {
 		if (a_text)
@@ -69,14 +64,11 @@ text_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_terminated_msg(unsigned int unique_identifier, void *user_data)
 {
-	ENTER("create_espeak_terminated_msg");
 	int a_error = 1;
 	t_espeak_terminated_msg *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
@@ -91,8 +83,6 @@ t_espeak_command *create_espeak_terminated_msg(unsigned int unique_identifier, v
 	data->user_data = user_data;
 	a_error = 0;
 
-	SHOW("ET_TERMINATED_MSG command=%x (uid=%d, user_data=0x%x)\n", a_command, unique_identifier, (int)user_data);
-
 msg_error:
 	if (a_error) {
 		if (a_command)
@@ -100,15 +90,12 @@ msg_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 
 }
 
 t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *index_mark, unsigned int end_position, unsigned int flags, void *user_data)
 {
-	ENTER("create_espeak_mark");
 	int a_error = 1;
 	void *a_text = NULL;
 	char *a_index_mark = NULL;
@@ -148,14 +135,11 @@ mark_error:
 			free(a_index_mark);
 	}
 
-	SHOW("ET_MARK malloc text=%x, command=%x (uid=%d)\n", a_text, a_command, data->unique_identifier);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_key(const char *key_name, void *user_data)
 {
-	ENTER("create_espeak_key");
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
@@ -176,14 +160,11 @@ key_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_char(wchar_t character, void *user_data)
 {
-	ENTER("create_espeak_char");
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 	if (!a_command)
@@ -203,14 +184,11 @@ char_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_parameter(espeak_PARAMETER parameter, int value, int relative)
 {
-	ENTER("create_espeak_parameter");
 	int a_error = 1;
 	t_espeak_parameter *data = NULL;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
@@ -232,14 +210,11 @@ param_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_punctuation_list(const wchar_t *punctlist)
 {
-	ENTER("create_espeak_punctuation_list");
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
@@ -263,15 +238,11 @@ list_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_voice_name(const char *name)
 {
-	ENTER("create_espeak_voice_name");
-
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
@@ -290,14 +261,11 @@ name_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 t_espeak_command *create_espeak_voice_spec(espeak_VOICE *voice)
 {
-	ENTER("create_espeak_voice_spec");
 	int a_error = 1;
 	t_espeak_command *a_command = (t_espeak_command *)malloc(sizeof(t_espeak_command));
 
@@ -328,23 +296,18 @@ spec_error:
 		a_command = NULL;
 	}
 
-	SHOW("command=0x%x\n", a_command);
-
 	return a_command;
 }
 
 int delete_espeak_command(t_espeak_command *the_command)
 {
-	ENTER("delete_espeak_command");
 	int a_status = 0;
 	if (the_command) {
 		switch (the_command->type)
 		{
 		case ET_TEXT:
-			if (the_command->u.my_text.text) {
-				SHOW("delete_espeak_command > ET_TEXT free text=%x, command=%x, uid=%d\n", the_command->u.my_text.text, the_command, the_command->u.my_text.unique_identifier);
+			if (the_command->u.my_text.text)
 				free(the_command->u.my_text.text);
-			}
 			break;
 		case ET_MARK:
 			if (the_command->u.my_mark.text)
@@ -361,7 +324,6 @@ int delete_espeak_command(t_espeak_command *the_command)
 			t_espeak_terminated_msg *data = &(the_command->u.my_terminated_msg);
 			if (the_command->state == CS_PENDING) {
 				the_command->state = CS_PROCESSED;
-				SHOW("delete_espeak_command > ET_TERMINATED_MSG callback (command=0x%x, uid=%d) \n", the_command, data->unique_identifier);
 				sync_espeak_terminated_msg(data->unique_identifier, data->user_data);
 			}
 		}
@@ -399,7 +361,6 @@ int delete_espeak_command(t_espeak_command *the_command)
 		default:
 			assert(0);
 		}
-		SHOW("delete_espeak_command > free command=0x%x\n", the_command);
 		free(the_command);
 		a_status = 1;
 	}
@@ -408,10 +369,6 @@ int delete_espeak_command(t_espeak_command *the_command)
 
 void process_espeak_command(t_espeak_command *the_command)
 {
-	ENTER("process_espeak_command");
-
-	SHOW("command=0x%x\n", the_command);
-
 	if (the_command == NULL)
 		return;
 
@@ -481,82 +438,4 @@ void process_espeak_command(t_espeak_command *the_command)
 		assert(0);
 		break;
 	}
-}
-
-void display_espeak_command(t_espeak_command *the_command)
-{
-	ENTER("display_espeak_command");
-#ifdef DEBUG_ENABLED
-	if (the_command == NULL) {
-		SHOW("display_espeak_command > command=%s\n", "NULL");
-		return;
-	}
-
-	SHOW("display_espeak_command > state=%d\n", the_command->state);
-
-	switch (the_command->type)
-	{
-	case ET_TEXT:
-	{
-		t_espeak_text *data = &(the_command->u.my_text);
-		SHOW("display_espeak_command > (0x%x) uid=%d, TEXT=%s, user_data=0x%x\n", the_command, data->unique_identifier, (char *)data->text, (int)(data->user_data));
-	}
-		break;
-	case ET_MARK:
-	{
-		t_espeak_mark *data = &(the_command->u.my_mark);
-		SHOW("display_espeak_command > (0x%x) uid=%d, MARK=%s, user_data=0x%x\n", the_command, data->unique_identifier, (char *)data->text, (int)(data->user_data));
-	}
-		break;
-	case ET_KEY:
-	{
-		const char *data = the_command->u.my_key.key_name;
-		SHOW("display_espeak_command > (0x%x) KEY=%c\n", the_command, data);
-	}
-		break;
-	case ET_TERMINATED_MSG:
-	{
-		t_espeak_terminated_msg *data = &(the_command->u.my_terminated_msg);
-
-		SHOW("display_espeak_command > (0x%x) TERMINATED_MSG uid=%d, user_data=0x%x, state=%d\n",
-		     the_command, data->unique_identifier, data->user_data,
-		     the_command->state);
-	}
-		break;
-	case ET_CHAR:
-	{
-		const wchar_t data = the_command->u.my_char.character;
-		SHOW("display_espeak_command > (0x%x) CHAR=%c\n", the_command, (char)data);
-	}
-		break;
-	case ET_PARAMETER:
-	{
-		t_espeak_parameter *data = &(the_command->u.my_param);
-		SHOW("display_espeak_command > (0x%x) PARAMETER=%d, value=%d, relative=%d\n",
-		     the_command, data->parameter, data->value, data->relative);
-	}
-		break;
-	case ET_PUNCTUATION_LIST:
-	{
-		const wchar_t *data = the_command->u.my_punctuation_list;
-		sync_espeak_SetPunctuationList(data);
-		SHOW("display_espeak_command > (0x%x) PUNCTLIST=%s\n", the_command, (char *)data);
-	}
-		break;
-	case ET_VOICE_NAME:
-	{
-		const char *data = the_command->u.my_voice_name;
-		SHOW("display_espeak_command > (0x%x) VOICE_NAME=%s\n", the_command, data);
-	}
-		break;
-	case ET_VOICE_SPEC:
-	{
-		SHOW("display_espeak_command > (0x%x) VOICE_SPEC", the_command);
-	}
-		break;
-	default:
-		assert(0);
-		break;
-	}
-#endif
 }

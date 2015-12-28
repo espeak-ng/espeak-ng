@@ -89,7 +89,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
-	src/libespeak-ng/debug.c \
 	src/libespeak-ng/dictionary.c \
 	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
