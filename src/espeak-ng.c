@@ -113,6 +113,7 @@ char wavefile[200];
 
 void DisplayVoices(FILE *f_out, char *language)
 {
+	int ix;
 	const char *p;
 	int len;
 	int count;
@@ -139,7 +140,7 @@ void DisplayVoices(FILE *f_out, char *language)
 
 	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
-	for (int ix = 0; (v = voices[ix]) != NULL; ix++) {
+	for (ix = 0; (v = voices[ix]) != NULL; ix++) {
 		count = 0;
 		p = v->languages;
 		while (*p != 0) {
@@ -173,7 +174,9 @@ void DisplayVoices(FILE *f_out, char *language)
 static void Write4Bytes(FILE *f, int value)
 {
 	// Write 4 bytes to a file, least significant first
-	for (int ix = 0; ix < 4; ix++) {
+	int ix;
+
+	for (ix = 0; ix < 4; ix++) {
 		fputc(value & 0xff, f);
 		value = value >> 8;
 	}
@@ -214,11 +217,13 @@ int OpenWavFile(char *path, int rate)
 
 static void CloseWavFile()
 {
+	unsigned int pos;
+
 	if ((f_wavfile == NULL) || (f_wavfile == stdout))
 		return;
 
 	fflush(f_wavfile);
-	unsigned int pos = ftell(f_wavfile);
+	pos = ftell(f_wavfile);
 
 	fseek(f_wavfile, 4, SEEK_SET);
 	Write4Bytes(f_wavfile, pos - 8);
@@ -232,6 +237,8 @@ static void CloseWavFile()
 
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {
+	char fname[210];
+
 	if (quiet) return 0; // -q quiet mode
 
 	if (wav == NULL) {
@@ -255,7 +262,6 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 	}
 
 	if (f_wavfile == NULL) {
-                char fname[210];
 		if (samples_split > 0) {
 			sprintf(fname, "%s_%.2d%s", wavefile, wavefile_count+1, filetype);
 			if (OpenWavFile(fname, samplerate) != 0)
@@ -329,6 +335,7 @@ int main(int argc, char **argv)
 
 	int option_index = 0;
 	int c;
+	int ix;
 	char *optarg2;
 	int value;
 	int flag_stdin = 0;
@@ -362,6 +369,7 @@ int main(int argc, char **argv)
 	optind = 1;
 	opt_string = "";
 	while (optind < argc) {
+		int len;
 		char *p;
 
 		if ((c = *opt_string) == 0) {
@@ -381,10 +389,10 @@ int main(int argc, char **argv)
 				break; // -- means don't interpret further - as commands
 
 			opt_string = "";
-			for (int ix = 0;; ix++) {
+			for (ix = 0;; ix++) {
 				if (long_options[ix].name == 0)
 					break;
-				size_t len = strlen(long_options[ix].name);
+				len = strlen(long_options[ix].name);
 				if (memcmp(long_options[ix].name, p, len) == 0) {
 					c = long_options[ix].val;
 					optarg2 = NULL;
@@ -486,7 +494,7 @@ int main(int argc, char **argv)
 		case 0x103: // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
-				int ix = 0;
+				ix = 0;
 				while ((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
 				option_punctlist[N_PUNCTLIST-1] = 0;
 				option_punctuation = 2;
@@ -665,7 +673,7 @@ int main(int argc, char **argv)
 			}
 		} else {
 			// bulk input on stdin
-			int ix = 0;
+			ix = 0;
 			while (!feof(stdin)) {
 				p_text[ix++] = fgetc(stdin);
 				if (ix >= (max-1)) {

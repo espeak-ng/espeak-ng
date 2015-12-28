@@ -108,6 +108,8 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 {
 	// Load a phoneme name translation table from espeak-data/mbrola
 
+	int size;
+	int ix;
 	int *pw;
 	FILE *f_in;
 	char path[sizeof(path_home)+15];
@@ -152,7 +154,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 
 	// read eSpeak's mbrola phoneme translation data, eg. en1_phtrans
 	sprintf(path, "%s/mbrola_ph/%s", path_home, phtrans);
-	int size = GetFileLength(path);
+	size = GetFileLength(path);
 	if ((f_in = fopen(path, "rb")) == NULL) {
 		close_MBR();
 		return EE_NOT_FOUND;
@@ -166,7 +168,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 
 	mbrola_control = Read4Bytes(f_in);
 	pw = (int *)mbrola_tab;
-	for (int ix = 4; ix < size; ix += 4)
+	for (ix = 4; ix < size; ix += 4)
 		*pw++ = Read4Bytes(f_in);
 	size = fread(mbrola_tab, 1, size, f_in);
 	fclose(f_in);
@@ -262,9 +264,11 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 {
 	// final=1:  only give the final pitch value.
+	int x;
+	int ix;
 	int pitch_base;
 	int pitch_range;
-	int p2;
+	int p1, p2, p_end;
 	unsigned char *pitch_env;
 	int max = -1;
 	int min = 999;
@@ -273,6 +277,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	int env100 = 80; // apply the pitch change only over this proportion of the mbrola phoneme(s)
 	int y2;
 	int y[4];
+	int env_split;
 	char buf[50];
 	static char output[50];
 
@@ -281,12 +286,12 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 
 	SetPitch2(voice, pitch1, pitch2, &pitch_base, &pitch_range);
 
-	int env_split = (split * 128)/100;
+	env_split = (split * 128)/100;
 	if (env_split < 0)
 		env_split = 0-env_split;
 
 	// find max and min in the pitch envelope
-	for (int x = 0; x < 128; x++) {
+	for (x = 0; x < 128; x++) {
 		if (pitch_env[x] > max) {
 			max = pitch_env[x];
 			y_max = x;
@@ -307,8 +312,8 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	y[3] = y[2] + (127 - y[2])/2;
 
 	// set initial pitch
-	int p1 = ((pitch_env[0]*pitch_range)>>8) + pitch_base; // Hz << 12
-	int p_end = ((pitch_env[127]*pitch_range)>>8) + pitch_base;
+	p1 = ((pitch_env[0]*pitch_range)>>8) + pitch_base; // Hz << 12
+	p_end = ((pitch_env[127]*pitch_range)>>8) + pitch_base;
 
 	if (split >= 0) {
 		sprintf(buf, " 0 %d", p1/4096);
@@ -317,7 +322,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 
 	// don't use intermediate pitch points for linear rise and fall
 	if (env > 1) {
-		for (int ix = 1; ix < 4; ix++) {
+		for (ix = 1; ix < 4; ix++) {
 			p2 = ((pitch_env[y[ix]]*pitch_range)>>8) + pitch_base;
 
 			if (split > 0)
@@ -574,20 +579,22 @@ int MbrolaFill(int length, int resume, int amplitude)
 	// Read audio data from Mbrola (length is in millisecs)
 
 	static int n_samples;
+	int req_samples, result;
+	int ix;
 	short value16;
 	int value;
 
 	if (!resume)
 		n_samples = samplerate * length / 1000;
 
-	int req_samples = (out_end - out_ptr)/2;
+	req_samples = (out_end - out_ptr)/2;
 	if (req_samples > n_samples)
 		req_samples = n_samples;
-	int result = read_MBR((short *)out_ptr, req_samples);
+	result = read_MBR((short *)out_ptr, req_samples);
 	if (result <= 0)
 		return 0;
 
-	for (int ix = 0; ix < result; ix++) {
+	for (ix = 0; ix < result; ix++) {
 		value16 = out_ptr[0] + (out_ptr[1] << 8);
 		value = value16 * amplitude;
 		value = value / 40; // adjust this constant to give a suitable amplitude for mbrola voices

@@ -390,11 +390,12 @@ static const unsigned short letter_accents_250[] = {
 
 static int LookupLetter2(Translator *tr, unsigned int letter, char *ph_buf)
 {
+	int len;
 	char single_letter[10];
 
 	single_letter[0] = 0;
 	single_letter[1] = '_';
-	int len = utf8_out(letter, &single_letter[2]);
+	len = utf8_out(letter, &single_letter[2]);
 	single_letter[len+2] = ' ';
 	single_letter[len+3] = 0;
 
@@ -477,12 +478,13 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 {
 	// control, bit 0:  not the first letter of a word
 
+	int len;
 	static char single_letter[10] = { 0, 0 };
 	unsigned int dict_flags[2];
 	char ph_buf3[40];
 
 	ph_buf1[0] = 0;
-	int len = utf8_out(letter, &single_letter[2]);
+	len = utf8_out(letter, &single_letter[2]);
 	single_letter[len+2] = ' ';
 
 	if (next_byte == -1) {
@@ -649,8 +651,10 @@ static const char *hex_letters[] = {
 int IsSuperscript(int letter)
 {
 	// is this a subscript or superscript letter ?
+	int ix;
 	int c;
-	for (int ix = 0; (c = derived_letters[ix]) != 0; ix += 2) {
+
+	for (ix = 0; (c = derived_letters[ix]) != 0; ix += 2) {
 		if (c > letter)
 			break;
 		if (c == letter)
@@ -667,6 +671,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	//         bit 1:  say 'capital'
 	//         bit 2:  say character code for unknown letters
 
+	int n_bytes;
 	int letter;
 	int len;
 	int ix;
@@ -675,8 +680,11 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	char *pbuf;
 	const char *modifier;
 	ALPHABET *alphabet;
+	int al_offset;
+	int al_flags;
 	int language;
 	int number;
+	int phontab_1;
 	int speak_letter_number;
 	char capital[30];
 	char ph_buf[80];
@@ -688,9 +696,9 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	ph_buf[0] = 0;
 	ph_alphabet[0] = 0;
 	capital[0] = 0;
-	int phontab_1 = translator->phoneme_tab_ix;
+	phontab_1 = translator->phoneme_tab_ix;
 
-	int n_bytes = utf8_in(&letter, word);
+	n_bytes = utf8_in(&letter, word);
 
 	if ((letter & 0xfff00) == 0x0e000)
 		letter &= 0xff; // uncode private usage area
@@ -738,8 +746,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		LookupLetter(tr, number, 0, ph_buf, control & 1);
 	}
 
-	int al_offset = 0;
-	int al_flags = 0;
+	al_offset = 0;
+	al_flags = 0;
 	if ((alphabet = AlphabetFromChar(letter)) != NULL) {
 		al_offset = alphabet->offset;
 		al_flags = alphabet->flags;
@@ -903,6 +911,7 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 	unsigned int c;
 	int n_stress = 0;
 	int prev = 0;
+	int count;
 	unsigned char buf[N_WORD_PHONEMES];
 
 	for (ix = 0; (c = phonemes[ix]) != 0; ix++) {
@@ -912,7 +921,7 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 	}
 	buf[ix] = 0;
 
-	int count = 0;
+	count = 0;
 	prev = 0;
 	for (ix = 0; (c = buf[ix]) != 0; ix++) {
 		if ((c == phonSTRESS_P) && (n_chars > 1) && (prev != phonSWITCH)) {
@@ -1019,7 +1028,10 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	int c;
 	char *p;
 	const char *p2;
+	int acc;
+	int prev;
 	int value;
+	int subtract;
 	int repeat = 0;
 	int n_digits = 0;
 	char *word_start;
@@ -1031,9 +1043,9 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	static const char *roman_numbers = "ixcmvld";
 	static int roman_values[] = { 1, 10, 100, 1000, 5, 50, 500 };
 
-	int acc = 0;
-	int prev = 0;
-	int subtract = 0x7fff;
+	acc = 0;
+	prev = 0;
+	subtract = 0x7fff;
 	ph_out[0] = 0;
 	flags[0] = 0;
 	flags[1] = 0;
@@ -1271,7 +1283,11 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	//         bit 8   followed by decimal fraction
 	//         bit 9: use #f form for both tens and units (lang=ml)
 
+	int found;
 	int ix;
+	int units;
+	int tens;
+	int is_ordinal;
 	int used_and = 0;
 	int found_ordinal = 0;
 	int next_phtype;
@@ -1282,10 +1298,10 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	char ph_digits[50];
 	char ph_and[12];
 
-	int units = value % 10;
-	int tens = value / 10;
+	units = value % 10;
+	tens = value / 10;
 
-	int found = 0;
+	found = 0;
 	ph_ordinal[0] = 0;
 	ph_tens[0] = 0;
 	ph_digits[0] = 0;
@@ -1294,7 +1310,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	if (control & 0x20)
 		ord_type = 'q';
 
-	int is_ordinal = control & 1;
+	is_ordinal = control & 1;
 
 	if ((control & 2) && (n_digit_lookup == 2)) {
 		// pronunciation of the final 2 digits has already been found
@@ -1508,8 +1524,15 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	//           bit 8   followed by decimal fraction
 
 	int found;
+	int hundreds;
+	int tensunits;
 	int x;
+	int ix;
+	int exact;
+	int ordinal;
+	int tplex;
 	int say_zero_hundred = 0;
+	int say_one_hundred;
 	char string[12]; // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
@@ -1520,9 +1543,9 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
 
-	int ordinal = control & 0x22;
-	int hundreds = value / 100;
-	int tensunits = value % 100;
+	ordinal = control & 0x22;
+	hundreds = value / 100;
+	tensunits = value % 100;
 	buf1[0] = 0;
 
 	ph_thousands[0] = 0;
@@ -1551,11 +1574,11 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		} else if (hundreds >= 10) {
 			ph_digits[0] = 0;
 
-			int exact = 0;
+			exact = 0;
 			if ((value % 1000) == 0)
 				exact = 1;
 
-			int tplex = thousandplex+1;
+			tplex = thousandplex+1;
 			if (tr->langopts.numbers2 & NUM2_MYRIADS)
 				tplex = 0;
 
@@ -1623,7 +1646,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				if (found)
 					ph_100[0] = 0;
 				else {
-					int say_one_hundred = 1;
+					say_one_hundred = 1;
 					if (hundreds == 1) {
 						if ((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) != 0)
 							say_one_hundred = 0;
@@ -1681,7 +1704,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		}
 	} else {
 		if (ph_ordinal2[0] != 0) {
-			int ix = strlen(buf1);
+			ix = strlen(buf1);
 			if ((ix > 0) && (buf1[ix-1] == phonPAUSE_SHORT))
 				buf1[ix-1] = 0; // remove pause before addding ordinal suffix
 			strcpy(buf2, ph_ordinal2);

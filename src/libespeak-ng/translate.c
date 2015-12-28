@@ -458,8 +458,9 @@ void DeleteTranslator(Translator *tr)
 int lookupwchar(const unsigned short *list, int c)
 {
 	// Is the character c in the list ?
+	int ix;
 
-	for (int ix = 0; list[ix] != 0; ix++) {
+	for (ix = 0; list[ix] != 0; ix++) {
 		if (list[ix] == c)
 			return ix+1;
 	}
@@ -471,7 +472,9 @@ int lookupwchar2(const unsigned short *list, int c)
 	// Replace character c by another character.
 	// Returns 0 = not found, 1 = delete character
 
-	for (int ix = 0; list[ix] != 0; ix += 2) {
+	int ix;
+
+	for (ix = 0; list[ix] != 0; ix += 2) {
 		if (list[ix] == c)
 			return list[ix+1];
 	}
@@ -491,6 +494,8 @@ int utf8_out(unsigned int c, char *buf)
 	// returns the number of bytes written
 
 	int n_bytes;
+	int j;
+	int shift;
 	static char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
 
 	if (c < 0x80) {
@@ -508,9 +513,9 @@ int utf8_out(unsigned int c, char *buf)
 	else
 		n_bytes = 3;
 
-	int shift = 6*n_bytes;
+	shift = 6*n_bytes;
 	buf[0] = code[n_bytes] | (c >> shift);
-	for (int j = 0; j < n_bytes; j++) {
+	for (j = 0; j < n_bytes; j++) {
 		shift -= 6;
 		buf[j+1] = 0x80 + ((c >> shift) & 0x3f);
 	}
@@ -538,6 +543,8 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	// backwards: set if we are moving backwards through the UTF8 string
 
 	int c1;
+	int n_bytes;
+	int ix;
 	static const unsigned char mask[4] = { 0xff, 0x1f, 0x0f, 0x07 };
 
 	// find the start of the next/previous character
@@ -549,7 +556,7 @@ int utf8_in2(int *c, const char *buf, int backwards)
 			buf++;
 	}
 
-	int n_bytes = 0;
+	n_bytes = 0;
 
 	if ((c1 = *buf++) & 0x80) {
 		if ((c1 & 0xe0) == 0xc0)
@@ -560,7 +567,7 @@ int utf8_in2(int *c, const char *buf, int backwards)
 			n_bytes = 3;
 
 		c1 &= mask[n_bytes];
-		for (int ix = 0; ix < n_bytes; ix++)
+		for (ix = 0; ix < n_bytes; ix++)
 			c1 = (c1 << 6) + (*buf++ & 0x3f);
 	}
 	*c = c1;
@@ -626,13 +633,14 @@ static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 	int count = 0;
 	int nbytes;
 	int ok;
+	int ix;
 	char *word;
 	char *wbuf;
 	char word_buf[80];
 
 	word = word1;
 	wbuf = word_buf;
-	int ix = 0;
+	ix = 0;
 
 	for (;;) {
 		ok = 0;
@@ -691,6 +699,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 	char *eqlist;
 	char *p_out;
 	char *p_in;
+	int remove_stress = 0;
 	char phonbuf[N_WORD_PHONEMES];
 
 	// has a phoneme equivalence table been specified for this language pair?
@@ -709,7 +718,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 		len = (pb[2] << 8) + pb[3]; // size of this table in words
 		pb += (len * 4);
 	}
-	int remove_stress = pb[1];
+	remove_stress = pb[1];
 
 	if (option_phonemes & espeakPHONEMES_TRACE) {
 		DecodePhonemes(phonemes, phonbuf);
@@ -760,6 +769,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	// word1 is terminated by space (0x20) character
 
 	char *word1;
+	int word_length;
 	int ix;
 	char *p;
 	int pfix;
@@ -779,6 +789,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	char end_phonemes2[N_WORD_PHONEMES];
 	char word_copy[N_WORD_BYTES];
 	char word_copy2[N_WORD_BYTES];
+	int word_copy_length;
 	char prefix_chars[0x3f + 2];
 	int found = 0;
 	int end_flags;
@@ -792,6 +803,8 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int spell_word;
 	int stress_bits;
 	int emphasize_allcaps = 0;
+	int wflags;
+	int wmark;
 	int was_unpronouncable = 0;
 	int loopcount;
 	int add_suffix_phonemes = 0;
@@ -807,8 +820,8 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		memset(wtab_null, 0, sizeof(wtab_null));
 		wtab = wtab_null;
 	}
-	int wflags = wtab->flags;
-	int wmark = wtab->wmark;
+	wflags = wtab->flags;
+	wmark = wtab->wmark;
 
 	dictionary_flags[0] = 0;
 	dictionary_flags[1] = 0;
@@ -833,13 +846,13 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	wordx = word1;
 
 	utf8_in(&first_char, wordx);
-	int word_length = 0;
+	word_length = 0;
 	while ((*wordx != 0) && (*wordx != ' ')) {
 		wordx += utf8_in(&last_char, wordx);
 		word_length++;
 	}
 
-	int word_copy_length = wordx - word_start;
+	word_copy_length = wordx - word_start;
 	if (word_copy_length >= N_WORD_BYTES)
 		word_copy_length = N_WORD_BYTES-1;
 	memcpy(word_copy2, word_start, word_copy_length);
@@ -987,9 +1000,13 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		// word's pronunciation is not given in the dictionary list, although
 		// dictionary_flags may have ben set there
 
-		int posn = 0;
-		int non_initial = 0;
-		int length = 999;
+		int posn;
+		int non_initial;
+		int length;
+
+		posn = 0;
+		non_initial = 0;
+		length = 999;
 		wordx = word1;
 
 		while (((length < 3) && (length > 0)) || (word_length > 1 && Unpronouncable(tr, wordx, posn))) {
@@ -2149,12 +2166,13 @@ static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng
 
 int UpperCaseInWord(Translator *tr, char *word, int c)
 {
+	int ix;
 	int len;
 	const char *p;
 
 	if (tr->translator_name == L('g', 'a')) {
 		// Irish
-		for (int ix = 0;; ix++) {
+		for (ix = 0;; ix++) {
 			if ((p = UCase_ga[ix]) == NULL)
 				break;
 

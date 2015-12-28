@@ -170,6 +170,7 @@ size_t wave_write(void *theHandler,
                   char *theMono16BitsWaveBuffer,
                   size_t theSize)
 {
+	size_t num;
 	if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled()))
 		return 0;
 
@@ -188,7 +189,7 @@ size_t wave_write(void *theHandler,
 	}
 #endif
 
-	size_t num = write((int)theHandler, theMono16BitsWaveBuffer, theSize);
+	num = write((int)theHandler, theMono16BitsWaveBuffer, theSize);
 
 	// Keep track of the total number of samples sent -- we use this in
 	// wave_get_read_position and also use it to help calculate the
@@ -228,12 +229,13 @@ size_t wave_write(void *theHandler,
 //
 int wave_close(void *theHandler)
 {
+	int ret;
 	audio_info_t ainfo;
 	int audio_fd = (int)theHandler;
 	if (!audio_fd)
 		audio_fd = sun_audio_fd;
 	// [[[WDW: maybe do a pause/resume ioctl???]]]
-	int ret = ioctl(audio_fd, I_FLUSH, FLUSHRW);
+	ret = ioctl(audio_fd, I_FLUSH, FLUSHRW);
 	ioctl(audio_fd, AUDIO_GETINFO, &ainfo);
 
 	// Calculate the number of samples that won't get

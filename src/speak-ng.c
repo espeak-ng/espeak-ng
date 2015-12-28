@@ -127,6 +127,7 @@ USHORT voice_pcnt[N_PEAKS+1][3];
 
 void DisplayVoices(FILE *f_out, char *language)
 {
+	int ix;
 	const char *p;
 	int len;
 	int count;
@@ -153,7 +154,7 @@ void DisplayVoices(FILE *f_out, char *language)
 
 	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
-	for (int ix = 0; (v = voices[ix]) != NULL; ix++) {
+	for (ix = 0; (v = voices[ix]) != NULL; ix++) {
 		count = 0;
 		p = v->languages;
 		while (*p != 0) {
@@ -223,11 +224,13 @@ static int OpenWaveFile(const char *path, int rate)
 
 static void CloseWaveFile()
 {
+	unsigned int pos;
+
 	if ((f_wave == NULL) || (f_wave == stdout))
 		return;
 
 	fflush(f_wave);
-	unsigned int pos = ftell(f_wave);
+	pos = ftell(f_wave);
 
 	fseek(f_wave, 4, SEEK_SET);
 	Write4Bytes(f_wave, pos - 8);
@@ -235,19 +238,21 @@ static void CloseWaveFile()
 	fseek(f_wave, 40, SEEK_SET);
 	Write4Bytes(f_wave, pos - 44);
 
+
 	fclose(f_wave);
 	f_wave = NULL;
 }
 
 static int WavegenFile(void)
 {
+	int finished;
 	unsigned char wav_outbuf[1024];
 	char fname[210];
 
 	out_ptr = out_start = wav_outbuf;
 	out_end = wav_outbuf + sizeof(wav_outbuf);
 
-	int finished = WavegenFill(0);
+	finished = WavegenFill(0);
 
 	if (quiet)
 		return finished;
@@ -329,6 +334,8 @@ static void init_path(char *argv0, char *path_specified)
 
 static int initialise(void)
 {
+	int param;
+	int result;
 	int srate = 22050; // default sample rate
 
 	// It seems that the wctype functions don't work until the locale has been set
@@ -339,7 +346,6 @@ static int initialise(void)
 			setlocale(LC_CTYPE, "");
 	}
 
-        int result;
 	if ((result = LoadPhData(&srate)) != 1) {
 		if (result == -1) {
 			fprintf(stderr, "Failed to load espeak-data\n");
@@ -352,7 +358,7 @@ static int initialise(void)
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 
-	for (int param = 0; param < N_SPEECH_PARAM; param++)
+	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
 	return 0;
@@ -405,6 +411,7 @@ int main(int argc, char **argv)
 	int c;
 	int value;
 	int speed = 175;
+	int ix;
 	char *optarg2;
 	int amp = 100; // default
 	int wordgap = 0;
@@ -435,6 +442,7 @@ int main(int argc, char **argv)
 	optind = 1;
 	opt_string = "";
 	while (optind < argc) {
+		int len;
 		char *p;
 
 		if ((c = *opt_string) == 0) {
@@ -454,10 +462,10 @@ int main(int argc, char **argv)
 				break; // -- means don't interpret further - as commands
 
 			opt_string = "";
-			for (int ix = 0;; ix++) {
+			for (ix = 0;; ix++) {
 				if (long_options[ix].name == 0)
 					break;
-				size_t len = strlen(long_options[ix].name);
+				len = strlen(long_options[ix].name);
 				if (memcmp(long_options[ix].name, p, len) == 0) {
 					c = long_options[ix].val;
 					optarg2 = NULL;
@@ -559,7 +567,7 @@ int main(int argc, char **argv)
 		case 0x103: // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
-				int ix = 0;
+				ix = 0;
 				while ((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
 				option_punctlist[N_PUNCTLIST-1] = 0;
 				option_punctuation = 2;
@@ -726,7 +734,7 @@ int main(int argc, char **argv)
 		InitText(0);
 		SpeakNextClause(f_text, p_text, 0);
 
-		int ix = 1;
+		ix = 1;
 		for (;;) {
 			if (WavegenFile() != 0) {
 				if (ix == 0)

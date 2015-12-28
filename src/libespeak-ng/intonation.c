@@ -320,6 +320,7 @@ static int no_tonic;
 
 static void count_pitch_vowels(int start, int end, int clause_end)
 {
+	int ix;
 	int stress;
 	int max_stress = 0;
 	int max_stress_posn = 0;  // last syllable ot the highest stress
@@ -330,7 +331,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	number_tail = 0; // number between tonic syllable and next primary
 	last_primary = -1;
 
-	for (int ix = start; ix < end; ix++) {
+	for (ix = start; ix < end; ix++) {
 		stress = syllable_tab[ix].stress; // marked stress level
 
 		if (stress >= max_stress) {
@@ -387,18 +388,19 @@ static int count_increments(int ix, int end_ix, int min_stress)
 // Set the pitch of a vowel in syllable_tab
 static void set_pitch(SYLLABLE *syl, int base, int drop)
 {
+	int pitch1, pitch2;
 	int flags = 0;
 
 	if (base < 0)  base = 0;
 
-	int pitch2 = base;
+	pitch2 = base;
 
 	if (drop < 0) {
 		flags = SYL_RISE;
 		drop = -drop;
 	}
 
-	int pitch1 = pitch2 + drop;
+	pitch1 = pitch2 + drop;
 	if (pitch1 < 0)
 		pitch1 = 0;
 
@@ -412,7 +414,8 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 
 static int CountUnstressed(int start, int end, int limit)
 {
-        int ix;
+	int ix;
+
 	for (ix = start; ix <= end; ix++) {
 		if (syllable_tab[ix].stress >= limit)
 			break;
@@ -429,7 +432,10 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 	int increment = 0;
 	int n_steps = 0;
 	int stage; // onset, head, last
+	int initial;
 	int overflow_ix = 0;
+	int pitch_range;
+	int pitch_range_abs;
 	int *drops;
 	int n_unstressed = 0;
 	int unstressed_ix = 0;
@@ -438,10 +444,10 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
 	int head_final = end_ix;
 	int secondary = 2;
 
-	int pitch_range = (tune->head_end - tune->head_start) << 8;
-	int pitch_range_abs = abs(pitch_range);
+	pitch_range = (tune->head_end - tune->head_start) << 8;
+	pitch_range_abs = abs(pitch_range);
 	drops = drops_0; // this should be controled by tune->head_drops
-	int initial = 1;
+	initial = 1;
 
 	stage = 0;
 	if (tune->onset == 255)
@@ -545,6 +551,8 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 	int initial;
 	int overflow = 0;
 	int n_overflow;
+	int pitch_range;
+	int pitch_range_abs;
 	int *drops;
 	signed char *overflow_tab;
 	SYLLABLE *syl;
@@ -552,8 +560,8 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 	static signed char continue_tab[5] = { -26, 32, 20, 8, 0 };
 
 	drops = th->body_drops;
-	int pitch_range = (th->body_end - th->body_start) << 8;
-	int pitch_range_abs = abs(pitch_range);
+	pitch_range = (th->body_end - th->body_start) << 8;
+	pitch_range_abs = abs(pitch_range);
 
 	if (continuing) {
 		initial = 0;
@@ -630,12 +638,16 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 	// Set a linear pitch change over a number of syllables.
 	// Used for pre-head, unstressed syllables in the body, and the tail
 
+	int ix;
 	int stress;
+	int pitch;
+	int increment;
+	int n_increments;
 	int drop;
 	SYLLABLE *syl;
 
-	int increment = (end_pitch - start_pitch) << 8;
-	int n_increments = end_ix - start_ix;
+	increment = (end_pitch - start_pitch) << 8;
+	n_increments = end_ix - start_ix;
 
 	if (n_increments <= 0)
 		return;
@@ -643,9 +655,9 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 	if (n_increments > 1)
 		increment = increment / n_increments;
 
-	int pitch = start_pitch << 8;
+	pitch = start_pitch << 8;
 
-	for (int ix = start_ix; ix < end_ix; ix++) {
+	for (ix = start_ix; ix < end_ix; ix++) {
 		syl = &syllable_tab[ix];
 		stress = syl->stress;
 
@@ -669,10 +681,12 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 // Calculate pitch values for the vowels in this tone group
 static int calc_pitches2(int start, int end,  int tune_number)
 {
+	int ix;
 	TUNE *tune;
+	int drop;
 
 	tune = &tunes[tune_number];
-	int ix = start;
+	ix = start;
 
 	// vowels before the first primary stress
 
@@ -690,7 +704,6 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	// tonic syllable
 
-	int drop;
 	if (number_tail == 0) {
 		tone_pitch_env = tune->nucleus0_env;
 		drop = tune->nucleus0_max - tune->nucleus0_min;
@@ -715,8 +728,10 @@ static int calc_pitches2(int start, int end,  int tune_number)
 // Calculate pitch values for the vowels in this tone group
 static int calc_pitches(int control, int start, int end,  int tune_number)
 {
+	int ix;
 	TONE_HEAD *th;
 	TONE_NUCLEUS *tn;
+	int drop;
 	int continuing = 0;
 
 	if (control == 0)
@@ -727,7 +742,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 	th = &tone_head_table[tune_number];
 	tn = &tone_nucleus_table[tune_number];
-	int ix = start;
+	ix = start;
 
 	// vowels before the first primary stress
 
@@ -748,7 +763,6 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	if (tn->flags & T_EMPH)
 		syllable_tab[ix].flags |= SYL_EMPHASIS;
 
-	int drop;
 	if (number_tail == 0) {
 		tone_pitch_env = tn->pitch_env0;
 		drop = tn->tonic_max0 - tn->tonic_min0;
@@ -775,6 +789,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	// clause_tone: 0=. 1=, 2=?, 3=! 4=none
 
 	PHONEME_LIST *p;
+	int ix;
 	int count_stressed = 0;
 	int final_stressed = 0;
 
@@ -793,7 +808,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 
 	// count number of stressed syllables
 	p = &phoneme_list[0];
-	for (int ix = 0; ix < n_phoneme_list; ix++, p++) {
+	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if ((p->type == phVOWEL) && (p->stresslevel >= 4)) {
 			if (count_stressed == 0)
 				final_stressed = ix;
@@ -822,7 +837,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	prev_tph = prevw_tph = phoneme_tab[phonPAUSE];
 
 	// perform tone sandhi
-	for (int ix = 0; ix < n_phoneme_list; ix++, p++) {
+	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if ((p->type == phPAUSE) && (p->ph->std_length > 50)) {
 			pause = 1; // there is a pause since the previous vowel
 			prevw_tph = phoneme_tab[phonPAUSE]; // forget previous tone
@@ -887,7 +902,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 
 	// convert tone numbers to pitch
 	p = &phoneme_list[0];
-	for (int ix = 0; ix < n_phoneme_list; ix++, p++) {
+	for (ix = 0; ix < n_phoneme_list; ix++, p++) {
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			tone_ph = p->tone_ph;
 
@@ -921,21 +936,24 @@ void CalcPitches(Translator *tr, int clause_type)
 	int ix;
 	int x;
 	int st_ix;
+	int n_st;
 	int option;
 	int group_tone;
 	int group_tone_comma;
 	int ph_start = 0;
+	int st_start;
 	int st_clause_end;
 	int count;
+	int n_primary;
+	int count_primary;
 	PHONEME_TAB *ph;
 	int ph_end = n_phoneme_list;
 
 	SYLLABLE syllable_tab2[N_PHONEME_LIST];
 
 	syllable_tab = syllable_tab2; // don't use permanent storage. it's only needed during the call of CalcPitches()
-	int n_st = 0;
-	int n_primary = 0;
-
+	n_st = 0;
+	n_primary = 0;
 	for (ix = 0; ix < (n_phoneme_list-1); ix++) {
 		p = &phoneme_list[ix];
 		if (p->synthflags & SFLAG_SYLLABLE) {
@@ -976,8 +994,8 @@ void CalcPitches(Translator *tr, int clause_type)
 	else
 		no_tonic = 0;
 
-	int st_start = 0;
-	int count_primary = 0;
+	st_start = 0;
+	count_primary = 0;
 	for (st_ix = 0; st_ix < n_st; st_ix++) {
 		syl = &syllable_tab[st_ix];
 

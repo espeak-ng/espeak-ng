@@ -44,6 +44,7 @@ static const char *basename(const char *filename)
 static unsigned int StringToWord(const char *string)
 {
 	// Pack 4 characters into a word
+	int ix;
 	unsigned char c;
 	unsigned int word;
 
@@ -51,7 +52,7 @@ static unsigned int StringToWord(const char *string)
 		return 0;
 
 	word = 0;
-	for (int ix = 0; ix < 4; ix++) {
+	for (ix = 0; ix < 4; ix++) {
 		if (string[ix] == 0) break;
 		c = string[ix];
 		word |= (c << (ix*8));

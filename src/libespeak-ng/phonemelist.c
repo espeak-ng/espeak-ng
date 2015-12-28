@@ -43,7 +43,7 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 {
 	// Copy the phonemes list and perform any substitutions that are required for the
 	// current voice
-
+	int ix;
 	int k;
 	int replace_flags;
 	int n_plist_out = 0;
@@ -51,7 +51,7 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *next = NULL;
 
-	for (int ix = 0; (ix < n_ph_list2) && (n_plist_out < N_PHONEME_LIST); ix++) {
+	for (ix = 0; (ix < n_ph_list2) && (n_plist_out < N_PHONEME_LIST); ix++) {
 		plist2 = &ph_list2[ix];
 
 		// don't do any substitution if the language has been temporarily changed
@@ -108,13 +108,19 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_TAB *next, *next2;
 	int unstress_count = 0;
 	int word_stress = 0;
+	int current_phoneme_tab;
+	int max_stress;
 	int voicing;
 	int regression;
+	int end_sourceix;
 	int alternative;
+	int delete_count;
+	int word_start;
 	int inserted;
 	int deleted;
 	PHONEME_DATA phdata;
 
+	int n_ph_list3;
 	PHONEME_LIST *plist3;
 	PHONEME_LIST *plist3_inserted = NULL;
 	PHONEME_LIST ph_list3[N_PHONEME_LIST];
@@ -125,10 +131,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	memset(&worddata, 0, sizeof(worddata));
 	plist2 = ph_list2;
 	phlist = phoneme_list;
-	int end_sourceix = plist2[n_ph_list2-1].sourceix;
+	end_sourceix = plist2[n_ph_list2-1].sourceix;
 
 	// is the last word of the clause unstressed ?
-	int max_stress = 0;
+	max_stress = 0;
 	for (j = n_ph_list2-3; j >= 0; j--) {
 		// start with the last phoneme (before the terminating pauses) and move backwards
 		if ((plist2[j].stresslevel & 0x7f) > max_stress)
@@ -151,8 +157,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	}
 
 	// look for switch of phoneme tables
-	int delete_count = 0;
-	int current_phoneme_tab = tr->phoneme_tab_ix;
+	delete_count = 0;
+	current_phoneme_tab = tr->phoneme_tab_ix;
 	for (j = 0; j < n_ph_list2; j++) {
 		if (current_phoneme_tab != tr->phoneme_tab_ix)
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
@@ -244,7 +250,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		}
 	}
 
-	int n_ph_list3 = SubstitutePhonemes(tr, ph_list3) - 2;
+	n_ph_list3 = SubstitutePhonemes(tr, ph_list3) - 2;
 
 	for (j = 0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);) {
 		if (ph_list3[j].sourceix) {
@@ -272,7 +278,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
 	ph_list3[0].ph = ph;
-	int word_start = 1;
+	word_start = 1;
 
 	for (j = 0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++) {
 		plist3 = &ph_list3[j];

@@ -123,7 +123,7 @@ static void close_pipes(int p1[2], int p2[2], int p3[2])
 
 static int start_mbrola(const char *voice_path)
 {
-	int p_stdin[2], p_stdout[2], p_stderr[2];
+	int error, p_stdin[2], p_stdout[2], p_stderr[2];
 	ssize_t written;
 	char charbuf[20];
 
@@ -132,7 +132,7 @@ static int start_mbrola(const char *voice_path)
 		return -1;
 	}
 
-	int error = create_pipes(p_stdin, p_stdout, p_stderr);
+	error = create_pipes(p_stdin, p_stdout, p_stderr);
 	if (error)
 		return -1;
 
@@ -146,6 +146,8 @@ static int start_mbrola(const char *voice_path)
 	}
 
 	if (mbr_pid == 0) {
+		int i;
+
 		if (dup2(p_stdin[0], 0) == -1 ||
 		    dup2(p_stdout[1], 1) == -1 ||
 		    dup2(p_stderr[1], 2) == -1) {
@@ -155,7 +157,8 @@ static int start_mbrola(const char *voice_path)
 			(void)written;   // suppress 'variable not used' warning
 			_exit(1);
 		}
-		for (int i = p_stderr[1]; i > 2; i--)
+
+		for (i = p_stderr[1]; i > 2; i--)
 			close(i);
 		signal(SIGHUP, SIG_IGN);
 		signal(SIGINT, SIG_IGN);
@@ -239,7 +242,7 @@ static void free_pending_data(void)
 static int mbrola_died(void)
 {
 	pid_t pid;
-	int status;
+	int status, len;
 	const char *msg;
 	char msgbuf[80];
 
@@ -266,7 +269,7 @@ static int mbrola_died(void)
 
 	log("mbrowrap error: %s", msg);
 
-	size_t len = strlen(mbr_errorbuf);
+	len = strlen(mbr_errorbuf);
 	if (!len)
 		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf), "%s", msg);
 	else
@@ -323,11 +326,12 @@ static int mbrola_has_errors(void)
 static int send_to_mbrola(const char *cmd)
 {
 	ssize_t result;
+	int len;
 
 	if (!mbr_pid)
 		return -1;
 
-	int len = strlen(cmd);
+	len = strlen(cmd);
 	result = write(mbr_cmd_fd, cmd, len);
 
 	if (result == -1) {
@@ -477,13 +481,14 @@ static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
 
 int init_MBR(const char *voice_path)
 {
+	int error, result;
 	unsigned char wavhdr[45];
 
-	int error = start_mbrola(voice_path);
+	error = start_mbrola(voice_path);
 	if (error)
 		return -1;
 
-	int result = send_to_mbrola("#\n");
+	result = send_to_mbrola("#\n");
 	if (result != 2) {
 		stop_mbrola();
 		return -1;
@@ -528,7 +533,7 @@ void close_MBR(void)
 
 int reset_MBR()
 {
-	int success = 1;
+	int result, success = 1;
 	char dummybuf[4096];
 
 	if (mbr_state == MBR_IDLE)
@@ -538,7 +543,7 @@ int reset_MBR()
 	if (kill(mbr_pid, SIGUSR1) == -1)
 		success = 0;
 	free_pending_data();
-	int result = write(mbr_cmd_fd, "\n#\n", 3);
+	result = write(mbr_cmd_fd, "\n#\n", 3);
 	if (result != 3)
 		success = 0;
 	do {
@@ -592,9 +597,10 @@ void setVolumeRatio_MBR(float value)
 
 int lastErrorStr_MBR(char *buffer, int bufsize)
 {
+	int result;
 	if (mbr_pid)
 		mbrola_has_errors();
-	int result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
+	result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
 	return result >= bufsize ? (bufsize - 1) : result;
 }
 
