@@ -50,14 +50,18 @@ distclean-local:
 	rm -rf espeak-data/phondata-manifest
 	rm -f espeak-data/*_dict
 
-##### documentation:
+##### custom rules:
 
-%.html: %.md _layouts/webpage.html
+SUFFIXES=.html .md .ronn
+
+.md.html: _layouts/webpage.html
 	cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
 		kramdown --template _layouts/webpage.html > $@
 
-%.html: %.ronn
+.ronn.html:
 	ronn --html $<
+
+##### documentation:
 
 src/espeak-ng.1: src/espeak-ng.1.ronn
 	ronn --roff $<
