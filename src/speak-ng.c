@@ -341,14 +341,10 @@ static int initialise(void)
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
-#ifdef PLATFORM_RISCOS
-	setlocale(LC_CTYPE, "ISO8859-1");
-#else
 	if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL) {
 		if (setlocale(LC_CTYPE, "UTF-8") == NULL)
 			setlocale(LC_CTYPE, "");
 	}
-#endif
 
 	if ((result = LoadPhData(&srate)) != 1) {
 		if (result == -1) {

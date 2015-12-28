@@ -605,15 +605,11 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
-#ifdef PLATFORM_RISCOS
-	setlocale(LC_CTYPE, "ISO8859-1");
-#else
 	if (setlocale(LC_CTYPE, "C.UTF-8") == NULL) {
 		if (setlocale(LC_CTYPE, "UTF-8") == NULL)
 			if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL)
 				setlocale(LC_CTYPE, "");
 	}
-#endif
 
 	init_path(path);
 	if (options & espeakINITIALIZE_PATH_ONLY)

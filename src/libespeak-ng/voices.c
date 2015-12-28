@@ -33,11 +33,7 @@
 #ifdef PLATFORM_WINDOWS
 #include "windows.h"
 #else
-#ifdef PLATFORM_RISCOS
-#include "kernel.h"
-#else
 #include "dirent.h"
-#endif
 #endif
 
 #include "speak_lib.h"
@@ -396,11 +392,7 @@ void VoiceReset(int tone_only)
 	speed.fast_settings[1] = 800;
 	speed.fast_settings[2] = 175;
 
-#ifdef PLATFORM_RISCOS
-	voice->roughness = 1;
-#else
 	voice->roughness = 2;
-#endif
 
 	InitBreath();
 	for (pk = 0; pk < N_PEAKS; pk++) {
@@ -1438,48 +1430,6 @@ static void GetVoices(const char *path)
 	int ftype;
 	char fname[sizeof(path_home)+100];
 
-#ifdef PLATFORM_RISCOS
-	int len;
-	int *type;
-	char *p;
-	_kernel_swi_regs regs;
-	_kernel_oserror *error;
-	char buf[80];
-	char directory2[sizeof(path_home)+100];
-
-	regs.r[0] = 10;
-	regs.r[1] = (int)path;
-	regs.r[2] = (int)buf;
-	regs.r[3] = 1;
-	regs.r[4] = 0;
-	regs.r[5] = sizeof(buf);
-	regs.r[6] = 0;
-
-	while (regs.r[3] > 0) {
-		error = _kernel_swi(0x0c+0x20000, &regs, &regs); // OS_GBPB 10, read directory entries
-		if ((error != NULL) || (regs.r[3] == 0))
-			break;
-		type = (int *)(&buf[16]);
-		len = strlen(&buf[20]);
-		sprintf(fname, "%s.%s", path, &buf[20]);
-
-		if (*type == 2) {
-			// a sub-directory
-			GetVoices(fname);
-		} else {
-			// a regular line, add it to the voices list
-			if ((f_voice = fopen(fname, "r")) == NULL)
-				continue;
-
-			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, &buf[20]);
-			fclose(f_voice);
-
-			if (voice_data != NULL)
-				voices_list[n_voices_list++] = voice_data;
-		}
-	}
-#else
 #ifdef PLATFORM_WINDOWS
 	WIN32_FIND_DATAA FindFileData;
 	HANDLE hFind = INVALID_HANDLE_VALUE;
@@ -1551,7 +1501,6 @@ static void GetVoices(const char *path)
 		}
 	}
 	closedir(dir);
-#endif
 #endif
 }
 
@@ -1640,15 +1589,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {
 	char path_voices[sizeof(path_home)+12];
 
-#ifdef PLATFORM_RISCOS
-	if (n_voices_list == 0) {
-		sprintf(path_voices, "%s%cvoices", path_home, PATHSEP);
-		len_path_voices = strlen(path_voices)+1;
-		GetVoices(path_voices);
-		voices_list[n_voices_list] = NULL; // voices list terminator
-	}
-	return (const espeak_VOICE **)voices_list;
-#else
 	int ix;
 	int j;
 	espeak_VOICE *v;
@@ -1682,7 +1622,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 		voices[j] = NULL;
 	}
 	return (const espeak_VOICE **)voices;
-#endif
 }
 
 ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)

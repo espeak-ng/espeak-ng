@@ -1347,14 +1347,10 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	}
 
 	if ((tail[0] == 's') && (tail[1] == 't')) {
-#ifdef PLATFORM_RISCOS
-		*value_out = 100;
-#else
 		double x;
 		// convert from semitones to a  frequency percentage
 		x = pow((double)2.0, (double)((value*sign)/12)) * 100;
 		*value_out = (int)x;
-#endif
 		return 2; // percentage
 	}
 
