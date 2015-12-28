@@ -127,9 +127,7 @@ static short natural_samples[100] = {
 
 static double resonator(resonator_ptr r, double input)
 {
-	double x;
-
-	x = (double)((double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2);
+	double x = (double)((double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2);
 	r->p2 = (double)r->p1;
 	r->p1 = (double)x;
 
@@ -138,9 +136,7 @@ static double resonator(resonator_ptr r, double input)
 
 static double resonator2(resonator_ptr r, double input)
 {
-	double x;
-
-	x = (double)((double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2);
+	double x = (double)((double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2);
 	r->p2 = (double)r->p1;
 	r->p1 = (double)x;
 
@@ -177,15 +173,12 @@ static double antiresonator2(resonator_ptr r, double input)
 static void flutter(klatt_frame_ptr frame)
 {
 	static int time_count;
-	double delta_f0;
-	double fla, flb, flc, fld, fle;
-
-	fla = (double)kt_globals.f0_flutter / 50;
-	flb = (double)kt_globals.original_f0 / 100;
-	flc = sin(PI*12.7*time_count); // because we are calling flutter() more frequently, every 2.9mS
-	fld = sin(PI*7.1*time_count);
-	fle = sin(PI*4.7*time_count);
-	delta_f0 =  fla * flb * (flc + fld + fle) * 10;
+	double fla = (double)kt_globals.f0_flutter / 50;
+	double flb = (double)kt_globals.original_f0 / 100;
+	double flc = sin(PI*12.7*time_count); // because we are calling flutter() more frequently, every 2.9mS
+	double fld = sin(PI*7.1*time_count);
+	double fle = sin(PI*4.7*time_count);
+	double delta_f0 =  fla * flb * (flc + fld + fle) * 10;
 	frame->F0hz10 = frame->F0hz10 + (long)delta_f0;
 	time_count++;
 }
@@ -199,13 +192,7 @@ static void flutter(klatt_frame_ptr frame)
 
 static double sampled_source(int source_num)
 {
-	int itemp;
-	double ftemp;
 	double result;
-	double diff_value;
-	int current_value;
-	int next_value;
-	double temp_diff;
 	short *samples;
 
 	if (source_num == 0) {
@@ -217,17 +204,17 @@ static double sampled_source(int source_num)
 	}
 
 	if (kt_globals.T0 != 0) {
-		ftemp = (double)kt_globals.nper;
+		double ftemp = (double)kt_globals.nper;
 		ftemp = ftemp / kt_globals.T0;
 		ftemp = ftemp * kt_globals.num_samples;
-		itemp = (int)ftemp;
+		int itemp = (int)ftemp;
 
-		temp_diff = ftemp - (double)itemp;
+		double temp_diff = ftemp - (double)itemp;
 
-		current_value = samples[itemp];
-		next_value = samples[itemp+1];
+		int current_value = samples[itemp];
+		int next_value = samples[itemp+1];
 
-		diff_value = (double)next_value - (double)current_value;
+		double diff_value = (double)next_value - (double)current_value;
 		diff_value = diff_value * temp_diff;
 
 		result = samples[itemp] + diff_value;
@@ -559,13 +546,12 @@ static double impulsive_source()
 
 static double natural_source()
 {
-	double lgtemp;
 	static double vwave;
 
 	if (kt_globals.nper < kt_globals.nopen) {
 		kt_globals.pulse_shape_a -= kt_globals.pulse_shape_b;
 		vwave += kt_globals.pulse_shape_a;
-		lgtemp = vwave * 0.028;
+		double lgtemp = vwave * 0.028;
 
 		return lgtemp;
 	}
@@ -721,12 +707,9 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 
 static void setabc(long int f, long int bw, resonator_ptr rp)
 {
-	double r;
-	double arg;
-
 	// Let r  =  exp(-pi bw t)
-	arg = kt_globals.minus_pi_t * bw;
-	r = exp(arg);
+	double arg = kt_globals.minus_pi_t * bw;
+	double r = exp(arg);
 
 	// Let c  =  -r**2
 	rp->c = -(r * r);
@@ -748,15 +731,12 @@ static void setabc(long int f, long int bw, resonator_ptr rp)
 
 static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 {
-	double r;
-	double arg;
-
 	f = -f;
 
 	// First compute ordinary resonator coefficients
 	// Let r  =  exp(-pi bw t)
-	arg = kt_globals.minus_pi_t * bw;
-	r = exp(arg);
+	double arg = kt_globals.minus_pi_t * bw;
+	double r = exp(arg);
 
 	// Let c  =  -r**2
 	rp->c = -(r * r);
@@ -791,10 +771,9 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 
 static double gen_noise(double noise)
 {
-	long temp;
 	static double nlast;
 
-	temp = (long)getrandom(-8191, 8191);
+	long temp = (long)getrandom(-8191, 8191);
 	kt_globals.nrand = (long)temp;
 
 	noise = kt_globals.nrand + (0.75 * nlast);
@@ -1063,13 +1042,10 @@ int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t
 
 void KlattInit()
 {
-
 	static short formant_hz[10] = { 280, 688, 1064, 2806, 3260, 3700, 6500, 7000, 8000, 280 };
 	static short bandwidth[10] = { 89, 160, 70, 160, 200, 200, 500, 500, 500, 89 };
 	static short parallel_amp[10] = { 0, 59, 59, 59, 59, 59, 59, 0, 0, 0 };
 	static short parallel_bw[10] = { 59, 59, 89, 149, 200, 200, 500, 0, 0, 0 };
-
-	int ix;
 
 	sample_count = 0;
 
@@ -1088,7 +1064,7 @@ void KlattInit()
 	KlattReset(2);
 
 	// set default values for frame parameters
-	for (ix = 0; ix <= 9; ix++) {
+	for (int ix = 0; ix <= 9; ix++) {
 		kt_frame.Fhz[ix] = formant_hz[ix];
 		kt_frame.Bhz[ix] = bandwidth[ix];
 		kt_frame.Ap[ix] = parallel_amp[ix];

@@ -77,10 +77,9 @@ static PHONEME_LIST next_pause;
 const char *WordToString(unsigned int word)
 {
 	// Convert a phoneme mnemonic word into a string
-	int ix;
 	static char buf[5];
 
-	for (ix = 0; ix < 4; ix++)
+	for (int ix = 0; ix < 4; ix++)
 		buf[ix] = word >> (ix*8);
 	buf[4] = 0;
 	return buf;
@@ -190,7 +189,6 @@ static void DoPause(int length, int control)
 	// control = 1, less shortening at fast speeds
 
 	unsigned int len;
-	int srate2;
 
 	if (length == 0)
 		len = 0;
@@ -200,7 +198,7 @@ static void DoPause(int length, int control)
 		if (len < 90000)
 			len = (len * samplerate) / 1000; // convert from mS to number of samples
 		else {
-			srate2 = samplerate / 25; // avoid overflow
+			int srate2 = samplerate / 25; // avoid overflow
 			len = (len * srate2) / 40;
 		}
 	}
@@ -222,25 +220,20 @@ extern int seq_len_adjust; // temporary fix to advance the start point for playi
 
 static int DoSample2(int index, int which, int std_length, int control, int length_mod, int amp)
 {
-	int length;
-	int wav_length;
-	int wav_scale;
-	int min_length;
 	int x;
-	int len4;
 	intptr_t *q;
 	unsigned char *p;
 
 	index = index & 0x7fffff;
 	p = &wavefile_data[index];
-	wav_scale = p[2];
-	wav_length = (p[1] * 256);
+	int wav_scale = p[2];
+	int wav_length = (p[1] * 256);
 	wav_length += p[0]; // length in bytes
 
 	if (wav_length == 0)
 		return 0;
 
-	min_length = speed.min_sample_len;
+	int min_length = speed.min_sample_len;
 
 	if (wav_scale == 0)
 		min_length *= 2; // 16 bit samples
@@ -261,7 +254,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	if (length_mod > 0)
 		std_length = (std_length * length_mod)/256;
 
-	length = (std_length * speed.wav_factor)/256;
+	int length = (std_length * speed.wav_factor)/256;
 
 	if (control & pd_DONTLENGTHEN) {
 		// this option is used for Stops, with short noise bursts.
@@ -285,7 +278,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	if (amp < 0)
 		return length;
 
-	len4 = wav_length / 4;
+	int len4 = wav_length / 4;
 
 	index += 4;
 
@@ -396,10 +389,6 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	// Each frame includes its RMS amplitude value, so to set a new
 	// RMS just adjust the formant amplitudes by the appropriate ratio
 
-	int x;
-	int h;
-	int ix;
-
 	static const short sqrt_tab[200] = {
 		  0,  64,  90, 110, 128, 143, 156, 169, 181, 192, 202, 212, 221, 230, 239, 247,
 		256, 263, 271, 278, 286, 293, 300, 306, 313, 320, 326, 332, 338, 344, 350, 356,
@@ -423,12 +412,13 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	}
 
 	if (fr->rms == 0) return; // check for divide by zero
-	x = (new_rms * 64)/fr->rms;
+	int x = (new_rms * 64)/fr->rms;
 	if (x >= 200) x = 199;
 
 	x = sqrt_tab[x]; // sqrt(new_rms/fr->rms)*0x200;
 
-	for (ix = 0; ix < 8; ix++) {
+	int h;
+	for (int ix = 0; ix < 8; ix++) {
 		h = fr->fheight[ix] * x;
 		fr->fheight[ix] = h/0x200;
 	}
@@ -437,13 +427,12 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 static void formants_reduce_hf(frame_t *fr, int level)
 {
 	// change height of peaks 2 to 8, percentage
-	int ix;
-	int x;
 
 	if (voice->klattv[0])
 		return;
 
-	for (ix = 2; ix < 8; ix++) {
+	int x;
+	for (int ix = 2; ix < 8; ix++) {
 		x = fr->fheight[ix] * level;
 		fr->fheight[ix] = x/100;
 	}
@@ -482,11 +471,9 @@ static frame_t *DuplicateLastFrame(frameref_t *seq, int n_frames, int length)
 
 static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj, int f3_adj, int hf_reduce, int flags)
 {
-	int x;
-
 	target = (target * voice->formant_factor)/256;
 
-	x = (target - fr->ffreq[2]) / 2;
+	int x = (target - fr->ffreq[2]) / 2;
 	if (x > max) x = max;
 	if (x < min) x = min;
 	fr->ffreq[2] += x;
@@ -536,21 +523,6 @@ static int VowelCloseness(frame_t *fr)
 
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
 {
-	int ix;
-	int formant;
-	int next_rms;
-
-	int len;
-	int rms;
-	int f1;
-	int f2;
-	int f2_min;
-	int f2_max;
-	int f3_adj;
-	int f3_amp;
-	int flags;
-	int vcolour;
-
 	#define N_VCOLOUR 2
 	// percentage change for each formant in 256ths
 	static short vcolouring[N_VCOLOUR][5] = {
@@ -563,17 +535,17 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 	if (*n_frames < 2)
 		return 0;
 
-	len = (data1 & 0x3f) * 2;
-	rms = (data1 >> 6) & 0x3f;
-	flags = (data1 >> 12);
+	int len = (data1 & 0x3f) * 2;
+	int rms = (data1 >> 6) & 0x3f;
+	int flags = (data1 >> 12);
 
-	f2 = (data2 & 0x3f) * 50;
-	f2_min = (((data2 >> 6) & 0x1f) - 15) * 50;
-	f2_max = (((data2 >> 11) & 0x1f) - 15) * 50;
-	f3_adj = (((data2 >> 16) & 0x1f) - 15) * 50;
-	f3_amp = ((data2 >> 21) & 0x1f) * 8;
-	f1 = ((data2 >> 26) & 0x7);
-	vcolour = (data2 >> 29);
+	int f2 = (data2 & 0x3f) * 50;
+	int f2_min = (((data2 >> 6) & 0x1f) - 15) * 50;
+	int f2_max = (((data2 >> 11) & 0x1f) - 15) * 50;
+	int f3_adj = (((data2 >> 16) & 0x1f) - 15) * 50;
+	int f3_amp = ((data2 >> 21) & 0x1f) * 8;
+	int f1 = ((data2 >> 26) & 0x7);
+	int vcolour = (data2 >> 29);
 
 	if ((other_ph != NULL) && (other_ph->mnemonic == '?'))
 		flags |= 8;
@@ -588,7 +560,7 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 		seq[0].frflags |= FRFLAG_LEN_MOD2; // reduce length modification
 		fr->frflags |= FRFLAG_LEN_MOD2;
 
-		next_rms = seq[1].frame->rms;
+		int next_rms = seq[1].frame->rms;
 
 		if (voice->klattv[0])
 			fr->klattp[KLATT_AV] = seq[1].frame->klattp[KLATT_AV] - 4;
@@ -632,11 +604,11 @@ int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsig
 			set_frame_rms(fr, rms);
 
 			if ((vcolour > 0) && (vcolour <= N_VCOLOUR)) {
-				for (ix = 0; ix < *n_frames; ix++) {
+				for (int ix = 0; ix < *n_frames; ix++) {
 					fr = CopyFrame(seq[ix].frame, 0);
 					seq[ix].frame = fr;
 
-					for (formant = 1; formant <= 5; formant++) {
+					for (int formant = 1; formant <= 5; formant++) {
 						int x;
 						x = fr->ffreq[formant] * vcolouring[vcolour-1][formant-1];
 						fr->ffreq[formant] = x / 256;
@@ -670,7 +642,6 @@ static void SmoothSpect(void)
 	frame_t *frame2;
 	frame_t *frame1;
 	frame_t *frame_centre;
-	int ix;
 	int len;
 	int pk;
 	int modified;
@@ -689,7 +660,7 @@ static void SmoothSpect(void)
 	frame_centre = (frame_t *)q[2];
 
 	// backwards
-	ix = syllable_centre -1;
+	int ix = syllable_centre -1;
 	frame = frame2 = frame_centre;
 	for (;;) {
 		if (ix < 0) ix = N_WCMDQ-1;
@@ -855,9 +826,6 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	int len;
 	int frame_length;
 	int length_factor;
-	int length_mod;
-	int length_sum;
-	int length_min;
 	int total_len = 0;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
@@ -866,10 +834,10 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	if (fmt_params->fmt_addr == 0)
 		return 0;
 
-	length_mod = plist->length;
+	int length_mod = plist->length;
 	if (length_mod == 0) length_mod = 256;
 
-	length_min = (samplerate/70); // greater than one cycle at low pitch (Hz)
+	int length_min = (samplerate/70); // greater than one cycle at low pitch (Hz)
 	if (which == 2) {
 		if ((translator->langopts.param[LOPT_LONG_VOWEL_THRESHOLD] > 0) && ((this_ph->std_length >= translator->langopts.param[LOPT_LONG_VOWEL_THRESHOLD]) || (plist->synthflags & SFLAG_LENGTHEN) || (this_ph->phflags & phLONG)))
 			length_min *= 2; // ensure long vowels are longer
@@ -947,7 +915,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 		syllable_centre = wcmdq_tail;
 	}
 
-	length_sum = 0;
+	int length_sum = 0;
 	for (frameix = 1; frameix < n_frames; frameix++) {
 		length_factor = length_mod;
 		if (frames[frameix-1].frflags & FRFLAG_LEN_MOD) // reduce effect of length mod

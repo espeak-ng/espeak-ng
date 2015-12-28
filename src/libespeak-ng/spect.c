@@ -65,11 +65,11 @@ float polint(float xa[], float ya[], int n, float x)
 {
 	// General polinomial interpolation routine, xa[1...n] ya[1...n]
 	int i, m, ns = 1;
-	float den, dif, dift, ho, hp, w;
+	float den, dift, ho, hp, w;
 	float y; // result
 	float c[9], d[9];
 
-	dif = fabs(x-xa[1]);
+	float dif = fabs(x-xa[1]);
 
 	for (i = 1; i <= n; i++) {
 		if ((dift = fabs(x-xa[i])) < dif) {
@@ -98,7 +98,6 @@ float polint(float xa[], float ya[], int n, float x)
 
 static SpectFrame *SpectFrameCreate()
 {
-	int ix;
 	SpectFrame *frame;
 
 	frame = malloc(sizeof(SpectFrame));
@@ -112,7 +111,7 @@ static SpectFrame *SpectFrameCreate()
 	frame->amp_adjust = 100;
 	frame->length_adjust = 0;
 
-	for (ix = 0; ix < N_PEAKS; ix++) {
+	for (int ix = 0; ix < N_PEAKS; ix++) {
 		frame->formants[ix].freq = 0;
 		frame->peaks[ix].pkfreq = default_freq[ix];
 		frame->peaks[ix].pkheight = 0;
@@ -200,7 +199,6 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 {
 	int h;
 	float total = 0;
-	int maxh;
 	int height;
 	int htab[400];
 	wavegen_peaks_t wpeaks[9];
@@ -214,7 +212,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 		wpeaks[h].right = frame->peaks[h].pkright << 16;
 	}
 
-	maxh = PeaksToHarmspect(wpeaks, 90<<16, htab, 0);
+	int maxh = PeaksToHarmspect(wpeaks, 90<<16, htab, 0);
 	for (h = 1; h < maxh; h++)
 		total += ((htab[h] * htab[h]) >> 10);
 	frame->rms = sqrt(total) / 7.25;
@@ -245,9 +243,8 @@ SpectSeq *SpectSeqCreate()
 
 void SpectSeqDestroy(SpectSeq *spect)
 {
-	int ix;
 	if (spect->frames != NULL) {
-		for (ix = 0; ix < spect->numframes; ix++) {
+		for (int ix = 0; ix < spect->numframes; ix++) {
 			if (spect->frames[ix] != NULL)
 				SpectFrameDestroy(spect->frames[ix]);
 		}

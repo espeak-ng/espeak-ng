@@ -49,15 +49,13 @@
 double ConvertFromIeeeExtended(unsigned char *bytes /* LCN */)
 {
     double    f;
-    int    expon;
-    unsigned long hiMant, loMant;
     
-    expon = ((bytes[0] & 0x7F) << 8) | (bytes[1] & 0xFF);
-    hiMant    =    ((unsigned long)(bytes[2] & 0xFF) << 24)
+    int expon = ((bytes[0] & 0x7F) << 8) | (bytes[1] & 0xFF);
+    int hiMant    =    ((unsigned long)(bytes[2] & 0xFF) << 24)
             |    ((unsigned long)(bytes[3] & 0xFF) << 16)
             |    ((unsigned long)(bytes[4] & 0xFF) << 8)
             |    ((unsigned long)(bytes[5] & 0xFF));
-    loMant    =    ((unsigned long)(bytes[6] & 0xFF) << 24)
+    int loMant    =    ((unsigned long)(bytes[6] & 0xFF) << 24)
             |    ((unsigned long)(bytes[7] & 0xFF) << 16)
             |    ((unsigned long)(bytes[8] & 0xFF) << 8)
             |    ((unsigned long)(bytes[9] & 0xFF));

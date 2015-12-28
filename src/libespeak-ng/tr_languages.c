@@ -143,32 +143,25 @@ static void SetLetterVowel(Translator *tr, int c)
 static void ResetLetterBits(Translator *tr, int groups)
 {
 	// Clear all the specified groups
-	unsigned int ix;
-	unsigned int mask;
+	unsigned int mask = ~groups;
 
-	mask = ~groups;
-
-	for (ix = 0; ix < sizeof(tr->letter_bits); ix++)
+	for (int ix = 0; ix < sizeof(tr->letter_bits); ix++)
 		tr->letter_bits[ix] &= mask;
 }
 
 static void SetLetterBits(Translator *tr, int group, const char *string)
 {
-	int bits;
 	unsigned char c;
 
-	bits = (1L << group);
+	int bits = (1L << group);
 	while ((c = *string++) != 0)
 		tr->letter_bits[c] |= bits;
 }
 
 static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 {
-	int bits;
-	int ix;
-
-	bits = (1L << group);
-	for (ix = first; ix <= last; ix++)
+	int bits = (1L << group);
+	for (int ix = first; ix <= last; ix++)
 		tr->letter_bits[ix] |= bits;
 }
 
@@ -194,7 +187,6 @@ const char string_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character,
 static Translator *NewTranslator(void)
 {
 	Translator *tr;
-	int ix;
 	static const unsigned char stress_amps2[] = { 18, 18, 20, 20, 20, 22, 22, 20 };
 	static const short stress_lengths2[8] = { 182, 140, 220, 220, 220, 240, 260, 280 };
 	static const wchar_t empty_wstring[1] = { 0 };
@@ -262,7 +254,7 @@ static Translator *NewTranslator(void)
 	tr->punct_within_word = punct_in_word;
 	tr->chars_ignore = chars_ignore_default;
 
-	for (ix = 0; ix < 8; ix++) {
+	for (int ix = 0; ix < 8; ix++) {
 		tr->stress_amps[ix] = stress_amps2[ix];
 		tr->stress_amps_r[ix] = stress_amps2[ix] - 1;
 		tr->stress_lengths[ix] = stress_lengths2[ix];
