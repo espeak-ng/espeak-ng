@@ -264,8 +264,6 @@ static void init_path(const char *path)
 {
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
-	unsigned long size;
-	unsigned long var_type;
 	char *env;
 	unsigned char buf[sizeof(path_home)-13];
 
@@ -282,8 +280,8 @@ static void init_path(const char *path)
 
 	buf[0] = 0;
 	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
-	size = sizeof(buf);
-	var_type = REG_SZ;
+	unsigned long size = sizeof(buf);
+	unsigned long var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "path", 0, &var_type, buf, &size);
 
 	sprintf(path_home, "%s\\espeak-data", buf);
@@ -310,7 +308,6 @@ static void init_path(const char *path)
 
 static int initialise(int control)
 {
-	int param;
 	int result;
 	int srate = 22050; // default sample rate 22050 Hz
 
@@ -332,7 +329,7 @@ static int initialise(int control)
 	SynthesizeInit();
 	InitNamedata();
 
-	for (param = 0; param < N_SPEECH_PARAM; param++)
+	for (int param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
 	return 0;
@@ -447,7 +444,6 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 {
 	// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end, 7=phoneme
 	espeak_EVENT *ep;
-	double time;
 
 	if ((event_list == NULL) || (event_list_ix >= (n_event_list-2)))
 		return;
@@ -459,7 +455,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	ep->text_position = char_position & 0xffffff;
 	ep->length = char_position >> 24;
 
-	time = ((double)(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
+	double time = ((double)(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
 	ep->audio_position = (int)time;
 	ep->sample = (count_samples + mbrola_delay + (out_ptr - out_start)/2);
 
@@ -540,9 +536,8 @@ void sync_espeak_Key(const char *key)
 {
 	// symbolic name, symbolicname_character  - is there a system resource of symbolic names per language?
 	int letter;
-	int ix;
 
-	ix = utf8_in(&letter, key);
+	int ix = utf8_in(&letter, key);
 	if (key[ix] == 0) {
 		// a single character
 		sync_espeak_Char(letter);
@@ -600,8 +595,6 @@ ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
 
 ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
 {
-	int param;
-
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
@@ -641,7 +634,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 
 	VoiceReset(0);
 
-	for (param = 0; param < N_SPEECH_PARAM; param++)
+	for (int param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
 
 	SetParameter(espeakRATE, 175, 0);

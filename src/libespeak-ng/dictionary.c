@@ -92,10 +92,9 @@ int Reverse4Bytes(int word)
 {
 	// reverse the order of bytes from little-endian to big-endian
 #ifdef ARCH_BIG
-	int ix;
 	int word2 = 0;
 
-	for (ix = 0; ix <= 24; ix += 8) {
+	for (int ix = 0; ix <= 24; ix += 8) {
 		word2 = word2 << 8;
 		word2 |= (word >> ix) & 0xff;
 	}
@@ -201,12 +200,9 @@ static void InitGroups(Translator *tr)
 
 int LoadDictionary(Translator *tr, const char *name, int no_error)
 {
-	int hash;
 	char *p;
 	int *pw;
-	int length;
 	FILE *f;
-	unsigned int size;
 	char fname[sizeof(path_home)+20];
 
 	strcpy(dictionary_name, name); // currently loaded dictionary name
@@ -216,7 +212,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	// bytes 0-3:  offset to rules data
 	// bytes 4-7:  number of hash table entries
 	sprintf(fname, "%s%c%s_dict", path_home, PATHSEP, name);
-	size = GetFileLength(fname);
+	unsigned int size = GetFileLength(fname);
 
 	if (tr->data_dictlist != NULL) {
 		Free(tr->data_dictlist);
@@ -237,7 +233,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	fclose(f);
 
 	pw = (int *)(tr->data_dictlist);
-	length = Reverse4Bytes(pw[1]);
+	int length = Reverse4Bytes(pw[1]);
 
 	if (size <= (N_HASH_DICT + sizeof(int)*2)) {
 		fprintf(stderr, "Empty _dict file: '%s\n", fname);
@@ -257,7 +253,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	// set up hash table for data_dictlist
 	p = &(tr->data_dictlist[8]);
 
-	for (hash = 0; hash < N_HASH_DICT; hash++) {
+	for (int hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
 		while ((length = *p) != 0)
 			p += length;
@@ -296,7 +292,6 @@ int HashDictionary(const char *string)
  */
 const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 {
-	int ix;
 	unsigned char c;
 	int count;     // num. of matching characters
 	int max;       // highest num. of matching found so far
@@ -333,7 +328,7 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 			max = -1;
 			max_ph = 0;
 
-			for (ix = 1; ix < n_phoneme_tab; ix++) {
+			for (int ix = 1; ix < n_phoneme_tab; ix++) {
 				if (phoneme_tab[ix] == NULL)
 					continue;
 				if (phoneme_tab[ix]->type == phINVALID)
@@ -442,9 +437,6 @@ static unsigned int phon_out_size = 0;
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
 {
 	int c;
-	int mnem;
-	int len;
-	int first;
 	int ix = 0;
 	char *p;
 	PHONEME_DATA phdata;
@@ -484,7 +476,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 			p++;
 		}
 
-		len = strlen(p);
+		int len = strlen(p);
 		if (len > 0) {
 			strcpy(phon_out, p);
 			phon_out += len;
@@ -493,8 +485,8 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		}
 	}
 
-	first = 1;
-	for (mnem = ph->mnemonic; (c = mnem & 0xff) != 0; mnem = mnem >> 8) {
+	int first = 1;
+	for (int mnem = ph->mnemonic; (c = mnem & 0xff) != 0; mnem = mnem >> 8) {
 		if ((c == '/') && (option_phoneme_variants == 0))
 			break; // discard phoneme variant indicator
 
@@ -536,7 +528,6 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 	 */
 
-	int ix;
 	unsigned int len;
 	int phon_out_ix = 0;
 	int stress;
@@ -571,7 +562,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		use_tie = 0;
 	}
 
-	for (ix = 1; ix < (n_phoneme_list-2); ix++) {
+	for (int ix = 1; ix < (n_phoneme_list-2); ix++) {
 		buf = phon_buf;
 
 		plist = &phoneme_list[ix];
@@ -719,14 +710,12 @@ int IsVowel(Translator *tr, int letter)
 
 static int Unpronouncable2(Translator *tr, char *word)
 {
-	int c;
-	int end_flags;
 	char ph_buf[N_WORD_PHONEMES];
 
 	ph_buf[0] = 0;
-	c = word[-1];
+	int c = word[-1];
 	word[-1] = ' '; // ensure there is a space before the "word"
-	end_flags = TranslateRules(tr, word, ph_buf, sizeof(ph_buf), NULL, FLAG_UNPRON_TEST, NULL);
+	int end_flags = TranslateRules(tr, word, ph_buf, sizeof(ph_buf), NULL, FLAG_UNPRON_TEST, NULL);
 	word[-1] = c;
 	if ((end_flags == 0) || (end_flags & SUFX_UNPRON))
 		return 1;
@@ -744,8 +733,6 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 	int c;
 	int c1 = 0;
 	int vowel_posn = 9;
-	int index;
-	int count;
 	ALPHABET *alphabet;
 
 	utf8_in(&c, word);
@@ -765,8 +752,8 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 	if (((c = *word) == ' ') || (c == 0) || (c == '\''))
 		return 0;
 
-	index = 0;
-	count = 0;
+	int index = 0;
+	int count = 0;
 	for (;;) {
 		index += utf8_in(&c, &word[index]);
 		if ((c == 0) || (c == ' '))
@@ -926,14 +913,13 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 {
 	int ix;
 	unsigned char *p;
-	int max_stress;
 	int vowel_count; // num of vowels + 1
 	int stressed_syllable = 0; // position of stressed syllable
 	unsigned char phonetic[N_WORD_PHONEMES];
 	signed char vowel_stress[N_WORD_PHONEMES/2];
 
 	strcpy((char *)phonetic, word);
-	max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 0);
+	int max_stress = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 0);
 
 	if (new_stress >= 4) {
 		// promote to primary stress
@@ -1001,7 +987,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int mnem;
 	int opt_length;
 	int done;
-	int stressflags;
 	int dflags = 0;
 	int first_primary;
 	int long_vowel;
@@ -1020,7 +1005,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	    3  secondary stress
 	    4  main stress */
 
-	stressflags = tr->langopts.stress_flags;
+	int stressflags = tr->langopts.stress_flags;
 
 	if (dictionary_flags != NULL)
 		dflags = dictionary_flags[0];
@@ -2358,14 +2343,12 @@ void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
 {
 	// apply after the translation is complete
 
-	int ix;
-	int len;
 	char *p;
 
-	len = strlen(phonemes);
+	int len = strlen(phonemes);
 
 	if (tr->langopts.param[LOPT_ALT] & 2) {
-		for (ix = 0; ix < (len-1); ix++) {
+		for (int ix = 0; ix < (len-1); ix++) {
 			if (phonemes[ix] == phonSTRESS_P) {
 				p = &phonemes[ix+1];
 				if ((dict_flags & FLAG_ALT2_TRANS) != 0) {
@@ -2393,28 +2376,23 @@ int TransposeAlphabet(Translator *tr, char *text)
 	int c;
 	int c2;
 	int ix;
-	int offset;
-	int min;
-	int max;
 	const char *map;
 	char *p = text;
 	char *p2;
 	int all_alpha = 1;
 	int bits;
 	int acc;
-	int pairs_start;
 	const short *pairs_list;
-	int bufix;
 	char buf[N_WORD_BYTES+1];
 
-	offset = tr->transpose_min - 1;
-	min = tr->transpose_min;
-	max = tr->transpose_max;
+	int offset = tr->transpose_min - 1;
+	int min = tr->transpose_min;
+	int max = tr->transpose_max;
 	map = tr->transpose_map;
 
-	pairs_start = max - min + 2;
+	int pairs_start = max - min + 2;
 
-	bufix = 0;
+	int bufix = 0;
 	do {
 		p += utf8_in(&c, p);
 		if (c != 0) {
@@ -2490,7 +2468,6 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 {
 	char *p;
 	char *next;
-	int hash;
 	int phoneme_len;
 	int wlen;
 	unsigned char flag;
@@ -2505,14 +2482,13 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	const char *word_end;
 	const char *word1;
 	int wflags = 0;
-	int lookup_symbol;
 	char word_buf[N_WORD_BYTES+1];
 	char dict_flags_buf[80];
 
 	if (wtab != NULL)
 		wflags = wtab->flags;
 
-	lookup_symbol = flags[1] & FLAG_LOOKUP_SYMBOL;
+	int lookup_symbol = flags[1] & FLAG_LOOKUP_SYMBOL;
 	word1 = word;
 	if (tr->transpose_min > 0) {
 		strncpy0(word_buf, word, N_WORD_BYTES);
@@ -2521,7 +2497,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	} else
 		wlen = strlen(word);
 
-	hash = HashDictionary(word);
+	int hash = HashDictionary(word);
 	p = tr->dict_hashtab[hash];
 
 	if (p == NULL) {
@@ -2764,7 +2740,6 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
  */
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab)
 {
-	int length;
 	const char *found;
 	const char *word1;
 	const char *word2;
@@ -2774,7 +2749,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	char word[N_WORD_BYTES];
 	static char word_replacement[N_WORD_BYTES];
 
-	length = 0;
+	int length = 0;
 	word2 = word1 = *wordptr;
 
 	while ((word2[nbytes = utf8_nbytes(word2)] == ' ') && (word2[nbytes+1] == '.')) {
@@ -2895,7 +2870,6 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 
 	int flags0;
 	unsigned int flags[2];
-	int say_as;
 	char *word1 = (char *)word;
 	char text[80];
 
@@ -2905,7 +2879,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		flags0 = flags[0];
 
 	if (flags[0] & FLAG_TEXTMODE) {
-		say_as = option_sayas;
+		int say_as = option_sayas;
 		option_sayas = 0; // don't speak replacement word as letter names
 		text[0] = 0;
 		strncpy0(&text[1], word1, sizeof(text));
@@ -2939,10 +2913,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	    that were done when the suffix was added to the original word.
 	 */
 
-	int i;
 	char *word_end;
-	int len_ending;
-	int end_flags;
 	const char *p;
 	int len;
 	char ending[50];
@@ -2961,7 +2932,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 		if (*word_end == REPLACED_E)
 			*word_end = 'e';
 	}
-	i = word_end - word;
+	int i = word_end - word;
 
 	if (word_copy != NULL) {
 		memcpy(word_copy, word, i);
@@ -2969,6 +2940,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	}
 
 	// look for multibyte characters to increase the number of bytes to remove
+	int len_ending;
 	for (len_ending = i = (end_type & 0x3f); i > 0; i--) { // num.of characters of the suffix
 		word_end--;
 		while ((*word_end & 0xc0) == 0x80) {
@@ -2985,7 +2957,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	ending[i] = 0;
 	word_end--; // now pointing at last character of stem
 
-	end_flags = (end_type & 0xfff0) | FLAG_SUFX;
+	int end_flags = (end_type & 0xfff0) | FLAG_SUFX;
 
 	/* add an 'e' to the stem if appropriate,
 	    if  stem ends in vowel+consonant

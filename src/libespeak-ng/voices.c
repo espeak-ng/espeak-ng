@@ -256,9 +256,8 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 void ReadTonePoints(char *string, int *tone_pts)
 {
 	// tone_pts[] is int[12]
-	int ix;
 
-	for (ix = 0; ix < 12; ix++)
+	for (int ix = 0; ix < 12; ix++)
 		tone_pts[ix] = -1;
 
 	sscanf(string, "%d %d %d %d %d %d %d %d %d %d",
@@ -284,9 +283,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *le
 	char *p;
 	espeak_VOICE *voice_data;
 	int priority;
-	int age;
 	int n_variants = 4; // default, number of variants of this voice before using another voice
-	int gender;
 
 #ifdef PLATFORM_WINDOWS
 	char fname_buf[sizeof(path_home)+15];
@@ -303,7 +300,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *le
 
 	vname[0] = 0;
 	vgender[0] = 0;
-	age = 0;
+	int age = 0;
 
 	while (fgets_strip(linebuf, sizeof(linebuf), f_in) != NULL) {
 		if (memcmp(linebuf, "name", 4) == 0) {
@@ -331,7 +328,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *le
 	}
 	languages[langix++] = 0;
 
-	gender = LookupMnem(genders, vgender);
+	int gender = LookupMnem(genders, vgender);
 
 	if (n_languages == 0)
 		return NULL; // no language lines in the voice file
@@ -364,7 +361,6 @@ void VoiceReset(int tone_only)
 {
 	// Set voice to the default values
 
-	int pk;
 	static unsigned char default_heights[N_PEAKS] = { 130, 128, 120, 116, 100, 100, 128, 128, 128 }; // changed for v.1.47
 	static unsigned char default_widths[N_PEAKS] = { 140, 128, 128, 160, 171, 171, 128, 128, 128 };
 
@@ -395,7 +391,7 @@ void VoiceReset(int tone_only)
 	voice->roughness = 2;
 
 	InitBreath();
-	for (pk = 0; pk < N_PEAKS; pk++) {
+	for (int pk = 0; pk < N_PEAKS; pk++) {
 		voice->freq[pk] = 256;
 		voice->height[pk] = default_heights[pk]*2;
 		voice->width[pk] = default_widths[pk]*2;
@@ -427,14 +423,13 @@ void VoiceReset(int tone_only)
 static void VoiceFormant(char *p)
 {
 	// Set parameters for a formant
-	int ix;
 	int formant;
 	int freq = 100;
 	int height = 100;
 	int width = 100;
 	int freqadd = 0;
 
-	ix = sscanf(p, "%d %d %d %d %d", &formant, &freq, &height, &width, &freqadd);
+	int ix = sscanf(p, "%d %d %d %d %d", &formant, &freq, &height, &width, &freqadd);
 	if (ix < 2)
 		return;
 
@@ -452,14 +447,13 @@ static void VoiceFormant(char *p)
 
 static void PhonemeReplacement(int type, char *p)
 {
-	int n;
 	int phon;
 	int flags = 0;
 	char phon_string1[12];
 	char phon_string2[12];
 
 	strcpy(phon_string2, "NULL");
-	n = sscanf(p, "%d %s %s", &flags, phon_string1, phon_string2);
+	int n = sscanf(p, "%d %s %s", &flags, phon_string1, phon_string2);
 	if ((n < 2) || (n_replace_phonemes >= N_REPLACE_PHONEMES))
 		return;
 
@@ -482,11 +476,10 @@ static int Read8Numbers(char *data_in, int *data)
 static unsigned int StringToWord2(const char *string)
 {
 	// Convert a language name string to a word such as L('e','n')
-	int ix;
 	int c;
 	unsigned int value = 0;
 
-	for (ix = 0; (ix < 4) && ((c = string[ix]) != 0); ix++)
+	for (int ix = 0; (ix < 4) && ((c = string[ix]) != 0); ix++)
 		value = (value << 8) | (c & 0xff);
 	return value;
 }
@@ -1182,7 +1175,6 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int control)
 {
 	// control: bit0=1  include mbrola voices
-	int ix;
 	int score;
 	int nv; // number of candidates
 	int n_parts = 0;
@@ -1195,7 +1187,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	if ((voice_select->languages != NULL) && (voice_select->languages[0] != 0)) {
 		n_parts = 1;
 		lang_len = strlen(voice_select->languages);
-		for (ix = 0; (ix <= lang_len) && ((unsigned)ix < sizeof(language)); ix++) {
+		for (int ix = 0; (ix <= lang_len) && ((unsigned)ix < sizeof(language)); ix++) {
 			if ((language[ix] = tolower(voice_select->languages[ix])) == '-')
 				n_parts++;
 		}
@@ -1218,7 +1210,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 
 	// select those voices which match the specified language
 	nv = 0;
-	for (ix = 0; ix < n_voices_list; ix++) {
+	for (int ix = 0; ix < n_voices_list; ix++) {
 		vp = voices_list[ix];
 
 		if (((control & 1) == 0) && (memcmp(vp->identifier, "mb/", 3) == 0))
@@ -1242,13 +1234,11 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 
 espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 {
-	int ix;
 	int match_fname = -1;
 	int match_fname2 = -1;
 	int match_name = -1;
 	const char *id; // this is the filename within espeak-data/voices
 	char *variant_name;
-	int last_part_len;
 	char last_part[41];
 	char name[40];
 
@@ -1265,9 +1255,9 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	}
 
 	sprintf(last_part, "%c%s", PATHSEP, name);
-	last_part_len = strlen(last_part);
+	int last_part_len = strlen(last_part);
 
-	for (ix = 0; voices[ix] != NULL; ix++) {
+	for (int ix = 0; voices[ix] != NULL; ix++) {
 		if (strcmp(name, voices[ix]->name) == 0) {
 			match_name = ix; // found matching voice name
 			break;
@@ -1507,7 +1497,6 @@ static void GetVoices(const char *path)
 espeak_ERROR SetVoiceByName(const char *name)
 {
 	espeak_VOICE *v;
-	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
 	static char buf[60];
@@ -1516,7 +1505,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 
 	variant_name = ExtractVoiceVariantName(buf, 0, 1);
 
-	for (ix = 0;; ix++) {
+	for (int ix = 0;; ix++) {
 		// convert voice name to lower case  (ascii)
 		if ((buf[ix] = tolower(buf[ix])) == 0)
 			break;
@@ -1573,8 +1562,7 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 
 void FreeVoiceList()
 {
-	int ix;
-	for (ix = 0; ix < n_voices_list; ix++) {
+	for (int ix = 0; ix < n_voices_list; ix++) {
 		if (voices_list[ix] != NULL) {
 			free(voices_list[ix]);
 			voices_list[ix] = NULL;
@@ -1589,8 +1577,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {
 	char path_voices[sizeof(path_home)+12];
 
-	int ix;
-	int j;
 	espeak_VOICE *v;
 	static espeak_VOICE **voices = NULL;
 
@@ -1613,8 +1599,8 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 		SetVoiceScores(voice_spec, voices, 1);
 	} else {
 		// list all: omit variant voices and mbrola voices and test voices
-		j = 0;
-		for (ix = 0; (v = voices_list[ix]) != NULL; ix++) {
+		int j = 0;
+		for (int ix = 0; (v = voices_list[ix]) != NULL; ix++) {
 			if ((v->languages[0] != 0) && (strcmp(&v->languages[1], "variant") != 0)
 			    && (memcmp(v->identifier, "mb/", 3) != 0) && (memcmp(v->identifier, "test/", 5) != 0))
 				voices[j++] = v;

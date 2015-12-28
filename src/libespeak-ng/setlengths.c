@@ -140,11 +140,7 @@ static int speed3 = 118;
 void SetSpeed(int control)
 {
 	int x;
-	int s1;
-	int wpm;
 	int wpm2;
-	int wpm_value;
-	double sonic;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
@@ -152,11 +148,11 @@ void SetSpeed(int control)
 	speed.lenmod2_factor = 100;
 	speed.min_pause = 5;
 
-	wpm = embedded_value[EMBED_S];
+	int wpm = embedded_value[EMBED_S];
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
 
-	wpm_value = wpm;
+	int wpm_value = wpm;
 
 	if (voice->speed_percent > 0)
 		wpm = (wpm * voice->speed_percent)/100;
@@ -176,7 +172,7 @@ void SetSpeed(int control)
 			speed3 = (x * voice->speedf3)/256;
 		}
 		if (control & 2) {
-			sonic = ((double)wpm2)/wpm;
+			double sonic = ((double)wpm2)/wpm;
 			DoSonicSpeed((int)(sonic * 1024));
 			speed.pause_factor = 85;
 			speed.clause_pause_factor = 80;
@@ -229,7 +225,7 @@ void SetSpeed(int control)
 			speed.lenmod2_factor = 110 - (wpm - 250)/2;
 		}
 
-		s1 = (x * voice->speedf1)/256;
+		int s1 = (x * voice->speedf1)/256;
 
 		if (wpm >= 170)
 			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
@@ -273,17 +269,13 @@ void SetSpeed(int control)
 void SetSpeed(int control)
 {
 	// This is the earlier version of SetSpeed() before sonic speed-up was added
-	int x;
-	int s1;
-	int wpm;
-	int wpm2;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
 	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
 
-	wpm = embedded_value[EMBED_S];
+	int wpm = embedded_value[EMBED_S];
 	if (control == 2)
 		wpm = embedded_value[EMBED_S2];
 
@@ -295,10 +287,10 @@ void SetSpeed(int control)
 	if (wpm > 360)
 		speed.loud_consonants = (wpm - 360) / 8;
 
-	wpm2 = wpm;
+	int wpm2 = wpm;
 	if (wpm > 359) wpm2 = 359;
 	if (wpm < 80) wpm2 = 80;
-	x = speed_lookup[wpm2-80];
+	int x = speed_lookup[wpm2-80];
 
 	if (wpm >= 380)
 		x = 7;
@@ -329,7 +321,7 @@ void SetSpeed(int control)
 			speed.lenmod2_factor = 110 - (wpm - 250)/2;
 		}
 
-		s1 = (x * voice->speedf1)/256;
+		int s1 = (x * voice->speedf1)/256;
 
 		if (wpm >= 170)
 			speed.wav_factor = 110 + (150*s1)/128; // reduced speed adjustment, used for playing recorded sounds
@@ -373,11 +365,10 @@ void SetParameter(int parameter, int value, int relative)
 	// relative 0=absolute  1=relative
 
 	int new_value = value;
-	int default_value;
 
 	if (relative) {
 		if (parameter < 5) {
-			default_value = param_defaults[parameter];
+			int default_value = param_defaults[parameter];
 			new_value = default_value + (default_value * value)/100;
 		}
 	}
@@ -439,7 +430,6 @@ static void DoEmbedded2(int *embix)
 
 void CalcLengths(Translator *tr)
 {
-	int ix;
 	int ix2;
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
@@ -468,7 +458,7 @@ void CalcLengths(Translator *tr)
 	unsigned char *pitch_env = NULL;
 	PHONEME_DATA phdata_tone;
 
-	for (ix = 1; ix < n_phoneme_list; ix++) {
+	for (int ix = 1; ix < n_phoneme_list; ix++) {
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
 		stress = p->stresslevel & 0x7;
