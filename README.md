@@ -1,14 +1,18 @@
 # eSpeak NG Text-to-Speech
 
+# Table of contents
+
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
+  - [General Building Parameters](#general-building-parameters)
   - [Audio Output Configuration](#audio-output-configuration)
   - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
   - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Cross-Compiling For Windows](#cross-compiling-for-windows)
 - [Testing](#testing)
 - [Installing](#installing)
+  - [Installing Parameters](#installing-parameters)
 - [Documentation](#documentation)
 - [Praat Changes](#praat-changes)
 - [eSpeak for Android](#espeak-for-android)
@@ -80,12 +84,21 @@ The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 be built via the standard autotools commands:
 
 	./autogen.sh
-	./configure --prefix=/usr
+	./configure
 	make
 
-The documentation can be built by running:
+### General Building Parameters
 
-	make docs
+* You need to run `./autogen.sh` and `./configure` only for the first compilation time and/or when your compilation target (platform) is changed.
+Usually after updates you need to run just `make` to recompile changed parts of the project.
+
+* If you need different location than default for libraries (e.g. to run development and stable version in different places) add`--prefix=/my-target` switch for `./configure` command. E.g. on Debian configuration can be prepared with command:
+
+   `./configure --prefix=/usr`
+
+* To compile just changed language look at [Adding or Improving a Language](docs/add_language.md) page
+
+* The documentation can be built by running: `make docs`
 
 ### Audio Output Configuration
 
@@ -154,7 +167,7 @@ __NOTE:__ This currently fails to build `espeak-ng.exe`, but does build
 
 ## Testing
 
-Before installing, you can test the built espeak-ng using the following command:
+Before installing, you can test the built espeak-ng using the following command from the `espeak-ng` project folder:
 
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
 
@@ -171,16 +184,18 @@ version).
 
 You can install eSpeak NG by running the following command:
 
-    sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
+    sudo make install
 
-The `LIBDIR` path may be different to the one on your system (the above
-is for 64-bit Debian/Ubuntu releases that use the multi-arch package
-structure -- that is, Debian Wheezy or later).
+### Installing Parameters
 
-You can find out where espeak-ng is installed to on your system if you
+* If you need to use other than default `LIBDIR` folder for your system, specify it passing parameter `LIBDIR=your-target`. For example, for 64-bit Debian/Ubuntu releases that use the multi-arch package structure (that is, Debian Wheezy or later) it should be `LIBDIR=/usr/lib/x86_64-linux-gnu`. In this case you can install it with following invocation command:
+
+    `sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install`
+
+* You can find out where espeak-ng is installed to on your system if you
 already have an espeak-ng install by running:
 
-    find /usr/lib | grep libespeak-ng
+    `find /usr/lib | grep libespeak-ng`
 
 ## Documentation
 
