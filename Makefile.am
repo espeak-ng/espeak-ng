@@ -17,6 +17,7 @@ EXTRA_DIST=
 
 bin_PROGRAMS =
 lib_LTLIBRARIES =
+man1_MANS =
 
 ##### ChangeLog:
 
@@ -79,9 +80,7 @@ docs:	docs/index.html \
 	docs/voices.html \
 	src/espeak-ng.1.html \
 	src/speak-ng.1.html \
-	README.html \
-	src/espeak-ng.1 \
-	src/speak-ng.1
+	README.html
 
 ##### build targets:
 
@@ -162,6 +161,7 @@ endif
 endif
 
 bin_PROGRAMS += src/speak-ng
+man1_MANS += src/speak-ng.1
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static
@@ -169,6 +169,7 @@ src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include/espeak-ng -D _POSIX_C_SO
 src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
+man1_MANS += src/espeak-ng.1
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la
 src_espeak_ng_CFLAGS  = -Isrc/include/espeak-ng
