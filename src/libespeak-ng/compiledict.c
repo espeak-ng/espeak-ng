@@ -29,7 +29,9 @@
 #include <stdint.h>
 #endif
 
+#include "espeak_ng.h"
 #include "speak_lib.h"
+
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -1510,8 +1512,12 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	return 0;
 }
 
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname_err, int flags)
+#pragma GCC visibility push(default)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, const char *dict_name, FILE *log, int flags)
 {
+	if (!log) log = stderr;
+	if (!dict_name) dict_name = dictionary_name;
+
 	// fname:  space to write the filename in case of error
 	// flags: bit 0:  include source line number information, for debug purposes.
 
@@ -1542,19 +1548,14 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	sprintf(fname_in, "%srules.txt", path);
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
 		sprintf(fname_in, "%srules", path);
-		if ((f_in = fopen_log(fname_in, "r")) == NULL) {
-			if (fname_err)
-				strcpy(fname_err, fname_in);
-			return -1;
-		}
+		if ((f_in = fopen_log(fname_in, "r")) == NULL)
+			return ENE_READ_ERROR;
 	}
 
 	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen_log(fname_out, "wb+")) == NULL) {
-		if (fname_err)
-			strcpy(fname_err, fname_out);
 		fclose(f_in);
-		return -1;
+		return ENE_WRITE_ERROR;
 	}
 	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
 
@@ -1590,5 +1591,6 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 	LoadDictionary(translator, dict_name, 0);
 
-	return error_count;
+	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
 }
+#pragma GCC visibility pop

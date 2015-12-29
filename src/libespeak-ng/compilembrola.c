@@ -63,6 +63,8 @@ static unsigned int StringToWord(const char *string)
 #pragma GCC visibility push(default)
 espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 {
+	if (!log) log = stderr;
+
 	char *p;
 	FILE *f_in;
 	FILE *f_out;

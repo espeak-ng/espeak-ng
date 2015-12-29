@@ -46,10 +46,18 @@ typedef enum {
 #define espeakINITIALIZE_PATH_ONLY 0x4000
 
 ESPEAK_NG_API espeak_ng_STATUS
-espeak_ng_CompileMbrolaVoice(const char *path, FILE *log);
+espeak_ng_CompileDictionary(const char *dsource,
+                            const char *dict_name,
+                            FILE *log,
+                            int flags);
 
 ESPEAK_NG_API espeak_ng_STATUS
-espeak_ng_CompilePhonemeData(long rate, FILE *log);
+espeak_ng_CompileMbrolaVoice(const char *path,
+                             FILE *log);
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_CompilePhonemeData(long rate,
+                             FILE *log);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileIntonation(FILE *log);

@@ -648,16 +648,13 @@ int main(int argc, char **argv)
 			break;
 		case 0x10e: // --compile-mbrola
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
-			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
-			exit(0);
+			return (espeak_ng_CompileMbrolaVoice(optarg2, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x10f: // --compile-intonations
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
-			espeak_ng_CompileIntonation(stdout);
-			exit(0);
+			return (espeak_ng_CompileIntonation(stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x110: // --compile-phonemes
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
-			espeak_ng_CompilePhonemeData(22050, stdout);
-			exit(0);
+			return (espeak_ng_CompilePhonemeData(22050, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		default:
 			exit(0);
 		}
@@ -684,19 +681,19 @@ int main(int argc, char **argv)
 		strcpy(path_dsource, path_home);
 		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
 		strcat(path_dsource, "dictsource\\");
-		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
+		espeak_ng_STATUS status = espeak_ng_CompileDictionary(path_dsource, dictionary_name, NULL, flag_compile & 0x1);
 #else
 #ifdef PLATFORM_WINDOWS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource, path_home);
 		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
 		strcat(path_dsource, "dictsource\\");
-		CompileDictionary(path_dsource, dictionary_name, NULL, NULL, flag_compile & 0x1);
+		espeak_ng_STATUS status = espeak_ng_CompileDictionary(path_dsource, dictionary_name, NULL, flag_compile & 0x1);
 #else
-		CompileDictionary(NULL, dictionary_name, NULL, NULL, flag_compile & 0x1);
+		espeak_ng_STATUS status = espeak_ng_CompileDictionary(NULL, dictionary_name, NULL, flag_compile & 0x1);
 #endif
 #endif
-		exit(0);
+		return (status == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 	}
 
 	SetParameter(espeakRATE, speed, 0);

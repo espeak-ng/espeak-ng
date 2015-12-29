@@ -568,16 +568,13 @@ int main(int argc, char **argv)
 			break;
 		case 0x10e: // --compile-mbrola
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
-			espeak_ng_CompileMbrolaVoice(optarg2, stdout);
-			exit(0);
+			return (espeak_ng_CompileMbrolaVoice(optarg2, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x10f: // --compile-intonations
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
-			espeak_ng_CompileIntonation(stdout);
-			exit(0);
+			return (espeak_ng_CompileIntonation(stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x110: // --compile-phonemes
 			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
-			espeak_ng_CompilePhonemeData(22050, stdout);
-			exit(0);
+			return (espeak_ng_CompilePhonemeData(22050, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		default:
 			exit(0);
 		}
@@ -616,8 +613,8 @@ int main(int argc, char **argv)
 
 	if (flag_compile) {
 		// This must be done after the voice is set
-		espeak_CompileDictionary("", stderr, flag_compile & 0x1);
-		exit(0);
+		return (espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1) == ENS_OK)
+		     ? EXIT_SUCCESS : EXIT_FAILURE;
 	}
 
 	// set any non-default values of parameters. This must be done after espeak_Initialize()

@@ -901,7 +901,7 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
 {
-	CompileDictionary(path, dictionary_name, log, NULL, flags);
+	espeak_ng_CompileDictionary(path, dictionary_name, log, flags);
 }
 
 ESPEAK_API espeak_ERROR espeak_Cancel(void)
