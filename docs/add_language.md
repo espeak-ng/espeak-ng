@@ -111,7 +111,7 @@ To build the phoneme files, run:
 
 or:
 
-	make
+	make phsource/phonemes.stamp
 
 For many languages, the consonant phonemes which are already available
 in eSpeak, together with the available vowel files which can be used to
