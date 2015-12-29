@@ -47,6 +47,7 @@ libespeak-ng.so*
 *.exe
 
 src/espeak-ng.1
+src/speak-ng.1
 
 src/espeak-ng
 src/espeakedit
