@@ -364,7 +364,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #endif
 
 	if (translator == NULL)
-		SetVoiceByName("default");
+		espeak_SetVoiceByName("default");
 
 	SpeakNextClause(NULL, text, 0);
 
@@ -798,11 +798,6 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 	sync_espeak_Char(character);
 	return EE_OK;
 #endif
-}
-
-ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
-{
-	return SetVoiceByName(name);
 }
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)

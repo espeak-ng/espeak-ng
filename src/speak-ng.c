@@ -666,7 +666,7 @@ int main(int argc, char **argv)
 	if (voicename[0] == 0)
 		strcpy(voicename, "default");
 
-	if (SetVoiceByName(voicename) != EE_OK) {
+	if (espeak_SetVoiceByName(voicename) != EE_OK) {
 		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
 		if (SetVoiceByProperties(&voice_select) != EE_OK) {

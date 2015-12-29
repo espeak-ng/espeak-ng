@@ -1504,7 +1504,9 @@ static void GetVoices(const char *path)
 #endif
 }
 
-espeak_ERROR SetVoiceByName(const char *name)
+#pragma GCC visibility push(default)
+
+espeak_ERROR espeak_SetVoiceByName(const char *name)
 {
 	espeak_VOICE *v;
 	int ix;
@@ -1553,6 +1555,8 @@ espeak_ERROR SetVoiceByName(const char *name)
 	}
 	return EE_INTERNAL_ERROR; // voice name not found
 }
+
+#pragma GCC visibility pop
 
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 {

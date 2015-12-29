@@ -425,7 +425,7 @@ void process_espeak_command(t_espeak_command *the_command)
 	case ET_VOICE_NAME:
 	{
 		const char *data = the_command->u.my_voice_name;
-		SetVoiceByName(data);
+		espeak_SetVoiceByName(data);
 	}
 		break;
 	case ET_VOICE_SPEC:
