@@ -207,8 +207,9 @@ already have an espeak-ng install by running:
 The [main documentation](docs/index.md) for eSpeak NG provides more information
 on using and creating voices/languages for for eSpeak NG.
 
-The [espeak-ng](src/espeak-ng.1.ronn) command-line documentation provides a
-reference of the different command-line options available, with example usage.
+The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
+command-line documentation provide a reference of the different command-line
+options available to these commands with example usage.
 
 ## Praat Changes
 
