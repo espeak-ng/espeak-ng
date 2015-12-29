@@ -602,14 +602,13 @@ int wave_is_busy(void *theHandler)
 
 void wave_terminate()
 {
-	int a_status;
 	pthread_mutex_t *a_mutex = NULL;
 	a_mutex = &pulse_mutex;
-	a_status = pthread_mutex_lock(a_mutex);
+	pthread_mutex_lock(a_mutex);
 
 	pulse_close();
 
-	a_status = pthread_mutex_unlock(a_mutex);
+	pthread_mutex_unlock(a_mutex);
 	pthread_mutex_destroy(a_mutex);
 }
 

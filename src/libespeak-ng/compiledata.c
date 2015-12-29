@@ -2978,7 +2978,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	char *p;
 	char c;
 	int keyword;
-	int compiling_tune = 0;
 	int n_tune_names = 0;
 	int done_split;
 	int done_onset = 0;
@@ -3068,7 +3067,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 		switch (keyword)
 		{
 		case kTUNE:
-			compiling_tune = 1;
 			done_split = 0;
 
 			memcpy(&new_tune, &default_tune, sizeof(TUNE));
@@ -3093,8 +3091,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 				error("Bad tune name: '%s;", new_tune.name);
 			break;
 		case kENDTUNE:
-			compiling_tune = 0;
-
 			if (done_onset == 0) {
 				new_tune.unstr_start[0] = new_tune.unstr_start[1];
 				new_tune.unstr_end[0] = new_tune.unstr_end[1];

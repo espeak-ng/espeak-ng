@@ -274,7 +274,7 @@ static unsigned int get_used_mem()
 	return used;
 }
 
-static void start_stream()
+static PaError start_stream()
 {
 	PaError err;
 
@@ -290,6 +290,8 @@ static void start_stream()
 		err = Pa_StartStream(pa_stream);
 	}
 #endif
+
+	return err;
 }
 
 /* This routine will be called by the PortAudio engine when audio is needed.
@@ -404,41 +406,40 @@ static int wave_open_sound()
 #if USE_PORTAUDIO == 18
 		PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
 
-		PaError err = Pa_OpenStream(&pa_stream,
-		                            // capture parameters
-		                            paNoDevice,
-		                            0,
-		                            paInt16,
-		                            NULL,
-		                            // playback parameters
-		                            playbackDevice,
-		                            out_channels,
-		                            paInt16,
-		                            NULL,
-		                            // general parameters
-		                            wave_samplerate, FRAMES_PER_BUFFER, 0,
-		                            paNoFlag,
-		                            pa_callback, (void *)userdata);
+		err = Pa_OpenStream(&pa_stream,
+		                    // capture parameters
+		                    paNoDevice,
+		                    0,
+		                    paInt16,
+		                    NULL,
+		                    // playback parameters
+		                    playbackDevice,
+		                    out_channels,
+		                    paInt16,
+		                    NULL,
+		                    // general parameters
+		                    wave_samplerate, FRAMES_PER_BUFFER, 0,
+		                    paNoFlag,
+		                    pa_callback, (void *)userdata);
 
 		if (err == paInvalidChannelCount) {
 			// failed to open with mono, try stereo
 			out_channels = 2;
-			PaError err = Pa_OpenStream(&pa_stream,
-			                            // capture parameters
-			                            paNoDevice,
-			                            0,
-			                            paInt16,
-			                            NULL,
-			                            // playback parameters
-			                            playbackDevice,
-			                            out_channels,
-			                            paInt16,
-			                            NULL,
-			                            // general parameters
-			                            wave_samplerate, FRAMES_PER_BUFFER, 0,
-			                            paNoFlag,
-			                            pa_callback, (void *)userdata);
-			err = 0; // avoid warning
+			err = Pa_OpenStream(&pa_stream,
+			                    // capture parameters
+			                    paNoDevice,
+			                    0,
+			                    paInt16,
+			                    NULL,
+			                    // playback parameters
+			                    playbackDevice,
+			                    out_channels,
+			                    paInt16,
+			                    NULL,
+			                    // general parameters
+			                    wave_samplerate, FRAMES_PER_BUFFER, 0,
+			                    paNoFlag,
+			                    pa_callback, (void *)userdata);
 		}
 		mInCallbackFinishedState = false; // v18 only
 #else
