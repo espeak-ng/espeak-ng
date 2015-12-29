@@ -103,7 +103,7 @@ The rules are organized in groups, each starting with a `.group` line:
 * `.L<nn>`
   Defines a group of letter sequences, any of which can match with `Lnn` in a
   pre or post rule (see below). nn is a 2 digit decimal number in the range 01
-  to 25. e.g.:
+  to 94. e.g.:
 
 	.L01 b bl br pl pr
 
