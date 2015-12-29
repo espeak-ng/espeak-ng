@@ -76,16 +76,35 @@ Cross-compiling for windows:
 
 ## Building
 
-The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
-be built via the standard autotools commands:
+The first time you build eSpeak NG, or when you want to change how to build
+eSpeak NG, you need to run the following standard autotools commands:
 
 	./autogen.sh
 	./configure --prefix=/usr
+
+__NOTE:__ The `--prefix` option above will install the files to the `/usr`
+directory, instead of the default `/usr/local` location. You can use other
+standard `configure` options to control the output. For more information,
+you can run:
+
+	./configure --help
+
+The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
+then be built with:
+
 	make
 
 The documentation can be built by running:
 
 	make docs
+
+Specific languages can be compiled by running:
+
+	make LANG
+
+where `LANG` is the language code of the given language. More information can
+be found in the [Adding or Improving a Language](docs/add_language.md)
+documentation.
 
 ### Audio Output Configuration
 
@@ -154,7 +173,8 @@ __NOTE:__ This currently fails to build `espeak-ng.exe`, but does build
 
 ## Testing
 
-Before installing, you can test the built espeak-ng using the following command:
+Before installing, you can test the built espeak-ng using the following command
+from the top-level directory of this project:
 
     ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} src/espeak-ng ...
 
@@ -173,8 +193,8 @@ You can install eSpeak NG by running the following command:
 
     sudo make LIBDIR=/usr/lib/x86_64-linux-gnu install
 
-The `LIBDIR` path may be different to the one on your system (the above
-is for 64-bit Debian/Ubuntu releases that use the multi-arch package
+__NOTE:__ The `LIBDIR` path may be different to the one on your system (the
+above is for 64-bit Debian/Ubuntu releases that use the multi-arch package
 structure -- that is, Debian Wheezy or later).
 
 You can find out where espeak-ng is installed to on your system if you
