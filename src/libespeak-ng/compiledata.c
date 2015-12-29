@@ -23,6 +23,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <time.h>
 #if HAVE_STDINT_H
 #include <stdint.h>
@@ -801,14 +802,17 @@ static void CompileReport(void)
 	fclose(f_report);
 }
 
-static void error(const char *format, const char *string)
+static void error(const char *format, ...)
 {
-	if (string == NULL)
-		string = "";
+	va_list args;
+	va_start(args, format);
+
 	fprintf(f_errors, "%s(%d): ", current_fname, linenum-1);
-	fprintf(f_errors, format, string);
+	vfprintf(f_errors, format, args);
 	fprintf(f_errors, "\n");
 	error_count++;
+
+	va_end(args);
 }
 
 static void Error(const char *string)
@@ -1057,9 +1061,9 @@ static int NextItem(int type)
 		}
 		if (!isdigit(*p)) {
 			if ((type == tNUMBER) && (*p == '-'))
-				error("Expected an unsigned number", NULL);
+				error("Expected an unsigned number");
 			else
-				error("Expected a number", NULL);
+				error("Expected a number");
 		}
 		while (isdigit(*p)) {
 			acc *= 10;
@@ -1090,12 +1094,10 @@ static int NextItemMax(int max)
 {
 	// Get a number, but restrict value to max
 	int value;
-	char msg[80];
 
 	value = NextItem(tNUMBER);
 	if (value > max) {
-		sprintf(msg, "Value %d is greater than maximum %d", value, max);
-		error(msg, NULL);
+		error("Value %d is greater than maximum %d", value, max);
 		value = max;
 	}
 	return value;
@@ -1111,7 +1113,7 @@ static int NextItemBrackets(int type, int control)
 
 	if ((control & 1) == 0) {
 		if (!NextItem(tOPENBRACKET))
-			error("Expected '('", NULL);
+			error("Expected '('");
 	}
 
 	value = NextItem(type);
@@ -1119,7 +1121,7 @@ static int NextItemBrackets(int type, int control)
 		return value;
 
 	if (item_terminator != ')')
-		error("Expected ')'", NULL);
+		error("Expected ')'");
 	return value;
 }
 
@@ -1483,10 +1485,9 @@ static int LoadWavefile(FILE *f, const char *fname)
 				error("Resample command failed: %s", command);
 			resample_fails++;
 
-			if (sr1 != samplerate_native) {
-				sprintf(msg, "Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
-				error("%s", msg);
-			} else
+			if (sr1 != samplerate_native)
+				error("Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
+			else
 				error("WAV file is not mono: %s", fname);
 			remove(fname_temp);
 			return 0;
@@ -1811,17 +1812,17 @@ int CompileSound(int keyword, int isvowel)
 			value = NextItemBrackets(tSIGNEDNUMBER, 1);
 			if (value > 127) {
 				value = 127;
-				error("Parameter > 127", NULL);
+				error("Parameter > 127");
 			}
 			if (value < -128) {
 				value = -128;
-				error("Parameter < -128", NULL);
+				error("Parameter < -128");
 			}
 		} else {
 			value = NextItemBrackets(tNUMBER, 1);
 			if (value > 255) {
 				value = 255;
-				error("Parameter > 255", NULL);
+				error("Parameter > 255");
 			}
 		}
 	}
@@ -1863,7 +1864,7 @@ int CompileIf(int elif)
 		not_flag = 0;
 		word2 = 0;
 		if (prog_out >= prog_out_max) {
-			error("Phoneme program too large", NULL);
+			error("Phoneme program too large");
 			return 0;
 		}
 
@@ -1899,7 +1900,7 @@ int CompileIf(int elif)
 				do {
 					data = NextItemBrackets(tNUMBER, brackets);
 					if (data > 7)
-						error("Expected list of stress levels", NULL);
+						error("Expected list of stress levels");
 					bitmap |= (1 << data);
 
 					brackets = 3;
@@ -1936,7 +1937,7 @@ int CompileIf(int elif)
 			finish = 1;
 			break;
 		default:
-			error("Expected AND, OR, THEN", NULL);
+			error("Expected AND, OR, THEN");
 			break;
 		}
 	}
@@ -1972,7 +1973,7 @@ void FillThen(int add)
 			prog_out--;
 		} else {
 			if (offset > MAX_JUMP)
-				error("IF block is too long", NULL);
+				error("IF block is too long");
 			*p = i_JUMP_FALSE + offset;
 		}
 		if_stack[if_level].p_then = NULL;
@@ -1987,7 +1988,7 @@ int CompileElse(void)
 	USHORT *p;
 
 	if (if_level < 1) {
-		error("ELSE not expected", NULL);
+		error("ELSE not expected");
 		return 0;
 	}
 
@@ -2011,7 +2012,7 @@ int CompileElse(void)
 int CompileElif(void)
 {
 	if (if_level < 1) {
-		error("ELIF not expected", NULL);
+		error("ELIF not expected");
 		return 0;
 	}
 
@@ -2027,7 +2028,7 @@ int CompileEndif(void)
 	int offset;
 
 	if (if_level < 1) {
-		error("ENDIF not expected", NULL);
+		error("ENDIF not expected");
 		return 0;
 	}
 
@@ -2039,7 +2040,7 @@ int CompileEndif(void)
 
 			offset = prog_out - p;
 			if (offset > MAX_JUMP)
-				error("IF block is too long", NULL);
+				error("IF block is too long");
 			*p = i_JUMP + offset;
 
 			p -= chain;
@@ -2216,7 +2217,7 @@ int CompilePhoneme(int compile_phoneme)
 	} else {
 		// declare a procedure
 		if (n_procs >= N_PROCS) {
-			error("Too many procedures", NULL);
+			error("Too many procedures");
 			return 0;
 		}
 		strcpy(proc_names[n_procs], item_string);
@@ -2236,7 +2237,7 @@ int CompilePhoneme(int compile_phoneme)
 	while (!endphoneme && !feof(f_in)) {
 		if ((keyword = NextItem(tKEYWORD)) < 0) {
 			if (keyword == -2) {
-				error("Missing 'endphoneme' before end-of-file", NULL); // end of file
+				error("Missing 'endphoneme' before end-of-file"); // end of file
 				break;
 			}
 			error("Bad keyword in phoneme definition '%s'", item_string);
@@ -2380,7 +2381,7 @@ int CompilePhoneme(int compile_phoneme)
 				if (phoneme_out->type == phVOWEL)
 					phoneme_out->end_type = phcode;
 				else if (phcode != phoneme_out->start_type)
-					error("endtype must equal starttype for consonants", NULL);
+					error("endtype must equal starttype for consonants");
 				break;
 			case kVOICINGSWITCH:
 				phcode = NextItem(tPHONEMEMNEM);
@@ -2392,7 +2393,7 @@ int CompilePhoneme(int compile_phoneme)
 				value = NextItem(tNUMBER);
 				phoneme_out->std_length = value;
 				if (prog_out > prog_buf) {
-					error("stress phonemes can't contain program instructions", NULL);
+					error("stress phonemes can't contain program instructions");
 					prog_out = prog_buf;
 				}
 				break;
@@ -2466,7 +2467,7 @@ int CompilePhoneme(int compile_phoneme)
 			case kENDPROCEDURE:
 				endphoneme = 1;
 				if (if_level > 0)
-					error("Missing ENDIF", NULL);
+					error("Missing ENDIF");
 				if ((prog_out > prog_buf) && (if_stack[0].returned == 0))
 					*prog_out++ = i_RETURN;
 				break;
@@ -2476,11 +2477,11 @@ int CompilePhoneme(int compile_phoneme)
 	}
 
 	if (endphoneme != 1)
-		error("'endphoneme' not expected here", NULL);
+		error("'endphoneme' not expected here");
 
 	if (compile_phoneme) {
 		if (phoneme_out->type == phINVALID) {
-			error("Phoneme type is missing", NULL);
+			error("Phoneme type is missing");
 			phoneme_out->type = 0;
 		}
 		phoneme_out->phflags = place_articulation << 16;
@@ -2589,8 +2590,8 @@ static void EndPhonemeTable()
 	// check that all referenced phonemes have been declared
 	for (ix = 0; ix < n_phcodes; ix++) {
 		if (phoneme_tab2[ix].type == phINVALID) {
-			fprintf(f_errors, "%3d: Phoneme [%s] not declared, referenced at line %d\n", linenum,
-			        WordToString(phoneme_tab2[ix].mnemonic), (int)(phoneme_tab2[ix].program));
+			error("Phoneme [%s] not declared, referenced at line %d",
+			      WordToString(phoneme_tab2[ix].mnemonic), (int)(phoneme_tab2[ix].program));
 			error_count++;
 			phoneme_tab2[ix].type = 0; // prevent the error message repeating
 		}
@@ -2719,7 +2720,7 @@ static void CompileEquivalents()
 		}
 
 		if (p_equivalence > &equivalence_buf[sizeof(equivalence_buf) - 16]) {
-			error("'equivalents' tables are too large", NULL);
+			error("'equivalents' tables are too large");
 			break;
 		}
 
