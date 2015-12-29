@@ -316,7 +316,7 @@ endphoneme
 
 
 phoneme 02   // becomes V in en-us
-  vowel  starttype #o  endtype #o/
+  vowel  starttype #o  endtype #o
   dontlist
   length 140
   ChangePhoneme(0)

@@ -189,7 +189,7 @@ phoneme R
 endphoneme
 
 phoneme ts
-  vls alv afrc stop nolink 
+  vls alv afr nolink 
   voicingswitch J
   length 55
   lengthmod 1

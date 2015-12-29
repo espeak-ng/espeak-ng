@@ -983,7 +983,7 @@ endphoneme
 
 phoneme j.
   liquid
-  lengthmode 7
+  lengthmod 7
   ipa U+0265
 endphoneme
 
