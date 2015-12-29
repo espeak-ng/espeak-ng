@@ -676,22 +676,15 @@ int main(int argc, char **argv)
 	}
 
 	if (flag_compile) {
-#ifdef PLATFORM_DOS
+#if defined(PLATFORM_DOS) || defined(PLATFORM_WINDOWS)
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource, path_home);
 		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
 		strcat(path_dsource, "dictsource\\");
-		espeak_ng_STATUS status = espeak_ng_CompileDictionary(path_dsource, dictionary_name, NULL, flag_compile & 0x1);
-#else
-#ifdef PLATFORM_WINDOWS
-		char path_dsource[sizeof(path_home)+20];
-		strcpy(path_dsource, path_home);
-		path_dsource[strlen(path_home)-11] = 0; // remove "espeak-data" from the end
-		strcat(path_dsource, "dictsource\\");
+
 		espeak_ng_STATUS status = espeak_ng_CompileDictionary(path_dsource, dictionary_name, NULL, flag_compile & 0x1);
 #else
 		espeak_ng_STATUS status = espeak_ng_CompileDictionary(NULL, dictionary_name, NULL, flag_compile & 0x1);
-#endif
 #endif
 		return (status == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 	}
