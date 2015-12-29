@@ -542,7 +542,6 @@ extern double sonicSpeed;
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
 espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate);
 void SetParameter(int parameter, int value, int relative);
 int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola);

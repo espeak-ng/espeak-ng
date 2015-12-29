@@ -669,7 +669,7 @@ int main(int argc, char **argv)
 	if (espeak_SetVoiceByName(voicename) != EE_OK) {
 		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
-		if (SetVoiceByProperties(&voice_select) != EE_OK) {
+		if (espeak_SetVoiceByProperties(&voice_select) != EE_OK) {
 			fprintf(stderr, "%svoice '%s'\n", err_load, voicename);
 			exit(2);
 		}

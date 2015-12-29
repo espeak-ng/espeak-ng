@@ -145,7 +145,6 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist);
 void sync_espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative);
 int sync_espeak_SetVoiceByName(const char *name);
 int sync_espeak_SetVoiceByProperties(espeak_VOICE *voice_selector);
-espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
 void SetParameter(int parameter, int value, int relative);
 
 int sync_espeak_terminated_msg(unsigned int unique_identifier, void *user_data);

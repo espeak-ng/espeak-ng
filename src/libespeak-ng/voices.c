@@ -1556,9 +1556,7 @@ espeak_ERROR espeak_SetVoiceByName(const char *name)
 	return EE_INTERNAL_ERROR; // voice name not found
 }
 
-#pragma GCC visibility pop
-
-espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
+espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
 {
 	const char *voice_id;
 	int voice_found;
@@ -1574,6 +1572,8 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 
 	return EE_OK;
 }
+
+#pragma GCC visibility pop
 
 void FreeVoiceList()
 {

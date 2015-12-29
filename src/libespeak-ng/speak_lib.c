@@ -800,11 +800,6 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 #endif
 }
 
-ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
-{
-	return SetVoiceByProperties(voice_selector);
-}
-
 ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 {
 	// current: 0=default value, 1=current value

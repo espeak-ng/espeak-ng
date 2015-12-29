@@ -431,7 +431,7 @@ void process_espeak_command(t_espeak_command *the_command)
 	case ET_VOICE_SPEC:
 	{
 		espeak_VOICE *data = &(the_command->u.my_voice_spec);
-		SetVoiceByProperties(data);
+		espeak_SetVoiceByProperties(data);
 	}
 		break;
 	default:
