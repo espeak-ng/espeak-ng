@@ -815,11 +815,6 @@ static void error(const char *format, ...)
 	va_end(args);
 }
 
-static void Error(const char *string)
-{
-	error("%s", string);
-}
-
 static FILE *fopen_log(FILE *f_log, const char *fname, const char *access)
 {
 	// performs fopen, but produces error message to f_log if it fails
@@ -1277,7 +1272,7 @@ int LoadSpect(const char *path, int control)
 	// create SpectSeq and import data
 	spectseq = SpectSeqCreate();
 	if (spectseq == NULL) {
-		Error("Failed to create SpectSeq");
+		error("Failed to create SpectSeq");
 		return 0;
 	}
 
@@ -2619,13 +2614,13 @@ static void StartPhonemeTable(const char *name)
 	PHONEME_TAB *p;
 
 	if (n_phoneme_tabs >= N_PHONEME_TABS-1) {
-		Error("Too many phonemetables");
+		error("Too many phonemetables");
 		return;
 	}
 	p = (PHONEME_TAB *)calloc(sizeof(PHONEME_TAB), N_PHONEME_TAB);
 
 	if (p == NULL) {
-		Error("Out of memory");
+		error("Out of memory");
 		return;
 	}
 
@@ -2806,7 +2801,7 @@ static void CompilePhonemeFiles()
 			break;
 		case kPHONEMESTART:
 			if (n_phoneme_tabs == 0) {
-				Error("phonemetable is missing");
+				error("phonemetable is missing");
 				return;
 			}
 			CompilePhoneme(1);
@@ -2819,7 +2814,7 @@ static void CompilePhonemeFiles()
 			break;
 		default:
 			if (!feof(f_in))
-				Error("Keyword 'phoneme' expected");
+				error("Keyword 'phoneme' expected");
 			break;
 		}
 	}
