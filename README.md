@@ -10,7 +10,6 @@
 - [Testing](#testing)
 - [Installing](#installing)
 - [Documentation](#documentation)
-- [Praat Changes](#praat-changes)
 - [eSpeak for Android](#espeak-for-android)
 - [Historical Versions](#historical-versions)
 - [Bugs](#bugs)
@@ -210,12 +209,6 @@ on using and creating voices/languages for for eSpeak NG.
 The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
 command-line documentation provide a reference of the different command-line
 options available to these commands with example usage.
-
-## Praat Changes
-
-The `praat` program is used to create and edit the spectral data files for
-espeak-ng. The changes to that program to support this are located on the
-*espeak* branch of the [praat](https://github.com/rhdunn/praat) mirror.
 
 ## eSpeak for Android
 
