@@ -805,7 +805,7 @@ static void error(const char *format, const char *string)
 {
 	if (string == NULL)
 		string = "";
-	fprintf(f_errors, "%4d:  ", linenum-1);
+	fprintf(f_errors, "%s(%d): ", current_fname, linenum-1);
 	fprintf(f_errors, format, string);
 	fprintf(f_errors, "\n");
 	error_count++;
@@ -2586,8 +2586,6 @@ static void EndPhonemeTable()
 	if (n_phoneme_tabs == 0)
 		return;
 
-	fprintf(f_errors, "\n");
-
 	// check that all referenced phonemes have been declared
 	for (ix = 0; ix < n_phcodes; ix++) {
 		if (phoneme_tab2[ix].type == phINVALID) {
@@ -2618,8 +2616,6 @@ static void StartPhonemeTable(const char *name)
 	int ix;
 	int j;
 	PHONEME_TAB *p;
-
-	fprintf(f_errors, "______________________________\nPhoneme Table: '%s'\n", name);
 
 	if (n_phoneme_tabs >= N_PHONEME_TABS-1) {
 		Error("Too many phonemetables");
@@ -2779,7 +2775,6 @@ static void CompilePhonemeFiles()
 			f_in = stack[--stack_ix].file;
 			strcpy(current_fname, stack[stack_ix].fname);
 			linenum = stack[stack_ix].linenum;
-			fprintf(f_errors, "\n\n");
 		}
 
 		item = NextItem(tKEYWORD);
@@ -2793,7 +2788,6 @@ static void CompilePhonemeFiles()
 			sprintf(buf, "%s/../phsource/%s", path_home, item_string);
 
 			if ((stack_ix < N_STACK) && (f = fopen_log(f_errors, buf, "rb")) != NULL) {
-				fprintf(f_errors, "include %s\n", item_string);
 				stack[stack_ix].linenum = linenum;
 				strcpy(stack[stack_ix].fname, current_fname);
 				stack[stack_ix++].file = f_in;
@@ -2858,10 +2852,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 		return ENE_READ_ERROR;
 	}
 
-	sprintf(fname, "%s/../phsource/%s", path_home, "error_log");
-	if ((f_errors = fopen_log(f_errors, fname, "w")) == NULL)
-		f_errors = stderr;
-
 	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
 	f_report = fopen_log(f_errors, fname, "w");
 
@@ -2884,10 +2874,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	        "#\n"
 	        "#  Address  Data file\n"
 	        "#  -------  ---------\n");
-
-	fprintf(f_errors, "Source data path = '%s/../phsource'\n", path_home);
-	fprintf(f_errors, "Master phonemes file = '%s/../phsource/phonemes'\n", path_home);
-	fprintf(f_errors, "Output to '%s/'\n\n", path_home);
 
 	sprintf(fname, "%s/%s", path_home, "phondata");
 	f_phdata = fopen_log(f_errors, fname, "wb");
@@ -2940,7 +2926,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	} else
 		fprintf(log, "Compiled phonemes: %d errors.\n", error_count);
 
-	if (f_errors != stderr)
+	if (f_errors != stderr && f_errors != stdout)
 		fclose(f_errors);
 
 	ReadPhondataManifest();
