@@ -12,7 +12,7 @@ before_install:
 
 install:
   - sudo apt-get install -qq libpulse-dev portaudio19-dev libsonic-dev
-  - sudo apt-get install -qq ruby-ronn ruby-rdiscount
+  - sudo gem install ronn
 
 script:
   - ./autogen.sh
