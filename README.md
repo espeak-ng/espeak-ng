@@ -55,6 +55,7 @@ Core dependencies:
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c11 compiler  | `sudo apt-get install gcc`                                       |
+| ronn          | `sudo apt-get install ruby-ronn`                                 |
 
 Optional dependencies:
 
@@ -70,7 +71,6 @@ Documentation dependencies:
 | Dependency    | Install                              |
 |---------------|--------------------------------------|
 | kramdown      | `sudo apt-get install ruby-kramdown` |
-| ronn          | `sudo apt-get install ruby-ronn`     |
 
 Cross-compiling for windows:
 
