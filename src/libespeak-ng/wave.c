@@ -214,7 +214,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 
 static t_wave_callback *my_callback_is_output_enabled = NULL;
 
-#define N_WAV_BUF   10
 #define MAX_SAMPLE_RATE 22050
 #define FRAMES_PER_BUFFER 512
 #define BUFFER_LENGTH (MAX_SAMPLE_RATE*2*sizeof(uint16_t))

@@ -68,7 +68,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 #define TLENGTH 4410
 #define PREBUF 2200
 #define MINREQ 880
-#define FRAGSIZE 0
 
 #ifdef USE_PORTAUDIO
 // rename functions to be wrapped

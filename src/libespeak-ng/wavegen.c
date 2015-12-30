@@ -51,7 +51,6 @@
 #endif
 #endif
 
-#define N_SINTAB  2048
 #include "sintab.h"
 
 #define PI  3.1415927
@@ -135,7 +134,6 @@ int wcmdq_tail = 0;
 int embedded_default[N_EMBEDDED_VALUES]    = { 0,     50, 175, 100, 50,  0,  0, 0, 175, 0, 0, 0, 0, 0, 0 };
 static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 0, 750, 0, 0, 0, 0, 4, 0 };
 
-#define N_CALLBACK_IX N_WAV_BUF-2 // adjust this delay to match display with the currently spoken word
 int current_source_index = 0;
 
 extern FILE *f_wave;

@@ -63,7 +63,6 @@ static int tone_pitch_env; // used to return pitch envelope
 #define PITCHrise     2
 #define PITCHfrise    4 // and 3 must be for the variant preceded by 'r'
 #define PITCHfrise2   6 // and 5 must be the 'r' variant
-#define PITCHrisefall 8
 
 unsigned char env_fall[128] = {
 	0xff, 0xfd, 0xfa, 0xf8, 0xf6, 0xf4, 0xf2, 0xf0, 0xee, 0xec, 0xea, 0xe8, 0xe6, 0xe4, 0xe2, 0xe0,

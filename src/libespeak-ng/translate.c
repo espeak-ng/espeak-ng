@@ -37,8 +37,6 @@
 #include "voice.h"
 #include "translate.h"
 
-#define WORD_STRESS_CHAR   '*'
-
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
 static char translator2_language[20] = { 0 };

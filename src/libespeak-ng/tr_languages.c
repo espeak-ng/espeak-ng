@@ -37,13 +37,10 @@
 #include "synthesize.h"
 #include "translate.h"
 
-#define L_qa   0x716100
 #define L_grc  0x677263 // grc  Ancient Greek
 #define L_jbo  0x6a626f // jbo  Lojban
 #define L_mni  0x6d6e69 // mni  Manipuri
 #define L_pap  0x706170 // pap  Papiamento]
-#define L_qvi  0x717669 // qvi  Kichwa
-#define L_shs  0x736873 // shs  Shuswap / Secwepemctsin
 #define L_zhy  0x7a6879 // zhy
 
 // start of unicode pages for character sets

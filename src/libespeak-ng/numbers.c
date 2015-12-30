@@ -114,8 +114,6 @@ static ACCENTS accents_tab[] = {
 #define L_OPEN_E  62 // U+25B
 #define L_GAMMA   63 // U+3B3
 #define L_IOTA    64 // U+3B9
-#define L_OE      65 // U+153
-#define L_OMEGA   66 // U+3C9
 
 #define L_PHI     67 // U+3C6
 #define L_ESH     68 // U+283

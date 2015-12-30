@@ -44,9 +44,6 @@ extern char voice_name[];
 static int frame_width;
 int pk_select;
 
-#define DRAWPEAKWIDTH 2000
-#define PEAKSHAPEW 256
-
 static int default_freq[N_PEAKS] =
 { 200, 500, 1200, 3000, 3500, 4000, 6900, 7800, 9000 };
 static int default_width[N_PEAKS] =
