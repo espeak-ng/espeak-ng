@@ -1,0 +1,19 @@
+language: c
+compiler:
+  - gcc
+  - clang
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -qq libpulse-dev portaudio19-dev libsonic-dev
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make
