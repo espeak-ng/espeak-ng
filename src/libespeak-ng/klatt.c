@@ -937,7 +937,7 @@ int Wavegen_Klatt(int resume)
 	return 0;
 }
 
-void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
+void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
 {
 	int ix;
 	DOUBLEX next;
@@ -1053,10 +1053,10 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	}
 }
 
-int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
+int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2)
 {
 	if (resume == 0)
-		SetSynth_Klatt(length, modulation, fr1, fr2, wvoice, 1);
+		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
 
 	return Wavegen_Klatt(resume);
 }
