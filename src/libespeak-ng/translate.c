@@ -764,7 +764,7 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 	return 1;
 }
 
-int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wtab, char *word_out)
+int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
 	// word1 is terminated by space (0x20) character
 
@@ -1531,7 +1531,7 @@ int SetTranslator2(const char *new_language)
 	return new_phoneme_tab;
 }
 
-static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause, int next_pause)
+static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause)
 {
 	int flags = 0;
 	int stress;
@@ -1654,7 +1654,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		word_copy_len = ix;
 
 		word_replaced[2] = 0;
-		flags = TranslateWord(translator, word, next_pause, wtab, &word_replaced[2]);
+		flags = TranslateWord(translator, word, wtab, &word_replaced[2]);
 
 		if (flags & FLAG_SPELLWORD) {
 			// re-translate the word as individual letters, separated by spaces
@@ -1684,7 +1684,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if (ok != 0) {
 				strcpy(ph_buf, word_phonemes);
 
-				flags2[0] = TranslateWord(translator, p2+1, 0, wtab+1, NULL);
+				flags2[0] = TranslateWord(translator, p2+1, wtab+1, NULL);
 				if ((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
 					ok = 0;
 
@@ -1706,11 +1706,11 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if (ok) {
 				*p2 = '-'; // replace next space by hyphen
 				wtab[0].flags &= ~FLAG_ALL_UPPER; // prevent it being considered an abbreviation
-				flags = TranslateWord(translator, word, next_pause, wtab, NULL); // translate the combined word
+				flags = TranslateWord(translator, word, wtab, NULL); // translate the combined word
 				if ((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f))) {
 					// revert to separate words
 					*p2 = ' ';
-					flags = TranslateWord(translator, word, next_pause, wtab, NULL);
+					flags = TranslateWord(translator, word, wtab, NULL);
 				} else {
 					if (flags == 0)
 						flags = flags2[0]; // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
@@ -1739,9 +1739,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 					if (word_replaced[2] != 0) {
 						word_replaced[0] = 0; // byte before the start of the word
 						word_replaced[1] = ' ';
-						flags = TranslateWord(translator2, &word_replaced[1], next_pause, wtab, NULL);
+						flags = TranslateWord(translator2, &word_replaced[1], wtab, NULL);
 					} else
-						flags = TranslateWord(translator2, word, next_pause, wtab, &word_replaced[2]);
+						flags = TranslateWord(translator2, word, wtab, &word_replaced[2]);
 				}
 
 				if (p[0] != phonSWITCH)
@@ -2865,7 +2865,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 			for (pw = &number_buf[1]; pw < pn;) {
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
-				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause, 0);
+				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause);
 				while (*pw++ != ' ')
 					;
 				words[ix].pre_pause = 0;
@@ -2873,7 +2873,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		} else {
 			pre_pause = 0;
 
-			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause, words[ix+1].pre_pause);
+			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause);
 
 			if (pre_pause > words[ix+1].pre_pause) {
 				words[ix+1].pre_pause = pre_pause;
@@ -2886,7 +2886,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 					memset(number_buf, ' ', 9);
 					nx = utf8_in(&c_temp, pw);
 					memcpy(&number_buf[2], pw, nx);
-					TranslateWord2(tr, &number_buf[2], &words[ix], 0, 0);
+					TranslateWord2(tr, &number_buf[2], &words[ix], 0);
 					pw += nx;
 				}
 			}

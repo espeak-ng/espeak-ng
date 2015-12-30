@@ -2909,7 +2909,7 @@ int Lookup(Translator *tr, const char *word, char *ph_out)
 		option_sayas = 0; // don't speak replacement word as letter names
 		text[0] = 0;
 		strncpy0(&text[1], word1, sizeof(text));
-		flags0 = TranslateWord(tr, &text[1], 0, NULL, NULL);
+		flags0 = TranslateWord(tr, &text[1], NULL, NULL);
 		strcpy(ph_out, word_phonemes);
 		option_sayas = say_as;
 	}

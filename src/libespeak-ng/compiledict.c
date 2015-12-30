@@ -552,7 +552,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 
 			// PROBLEM  vowel reductions are not applied to the translated phonemes
 			// condition rules are not applied
-			TranslateWord(translator, phonetic, 0, NULL, NULL);
+			TranslateWord(translator, phonetic, NULL, NULL);
 			text_not_phonemes = 0;
 			strncpy0(encoded_ph, word_phonemes, N_WORD_BYTES-4);
 
