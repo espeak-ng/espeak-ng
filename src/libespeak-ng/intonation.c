@@ -423,7 +423,7 @@ static int CountUnstressed(int start, int end, int limit)
 	return ix - start;
 }
 
-static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix, int control)
+static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix)
 {
 	int stress;
 	SYLLABLE *syl;
@@ -697,7 +697,7 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
 		tone_posn = tone_posn2; // put tone on the penultimate stressed word
-	ix = SetHeadIntonation(tune, ix, tone_posn, 0);
+	ix = SetHeadIntonation(tune, ix, tone_posn);
 
 	if (no_tonic)
 		return 0;
@@ -784,10 +784,8 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	return tone_pitch_env;
 }
 
-static void CalcPitches_Tone(Translator *tr, int clause_tone)
+static void CalcPitches_Tone(Translator *tr)
 {
-	// clause_tone: 0=. 1=, 2=?, 3=! 4=none
-
 	PHONEME_LIST *p;
 	int ix;
 	int count_stressed = 0;
@@ -973,7 +971,7 @@ void CalcPitches(Translator *tr, int clause_type)
 		return; // nothing to do
 
 	if (tr->langopts.tone_language == 1) {
-		CalcPitches_Tone(tr, clause_type);
+		CalcPitches_Tone(tr);
 		return;
 	}
 

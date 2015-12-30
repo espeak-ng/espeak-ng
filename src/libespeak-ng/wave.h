@@ -32,7 +32,7 @@ extern "C"
 extern int option_device_number;
 
 extern int wave_init(int samplerate);
-extern void *wave_open(const char *the_api);
+extern void *wave_open();
 
 extern size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 extern int wave_close(void *theHandler);

@@ -117,14 +117,9 @@ int wave_init(int srate)
 //
 // DESCRIPTION:
 //
-// opens the audio subsystem given a specific API (e.g., "alsa",
-// "oss", ...).  We ignore the_api and just return the sun_audio_fd we
+// opens the audio subsystem. We just return the sun_audio_fd we
 // opened in wave_init.  This return value will be passed in as the
 // theHandler parameter in all other methods.
-//
-// PARAMETERS:
-//
-// the_api: "alsa", "oss" (ignored)
 //
 // GLOBALS USED/MODIFIED:
 //
@@ -135,7 +130,7 @@ int wave_init(int srate)
 // sun_audio_fd opened in wave_init, which is passed in as theHandler
 // parameter in all other methods
 //
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	return (void *)sun_audio_fd;
 }
@@ -271,6 +266,8 @@ int wave_close(void *theHandler)
 //
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	uint32_t time;
 	if (total_samples_sent >= 1)
 		wave_get_remaining_time(total_samples_sent - 1, &time);
@@ -312,6 +309,7 @@ void wave_terminate()
 //
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
 }
 
 // wave_set_callback_is_output_enabled
@@ -401,6 +399,8 @@ uint32_t wave_get_read_position(void *theHandler)
 //
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return total_samples_sent;
 }
 
@@ -460,26 +460,35 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 
 int wave_init(int srate)
 {
+	(void)srate; // unused
+
 	return 1;
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
+	(void)theHandler; // unused
+	(void)theMono16BitsWaveBuffer; // unused
+
 	return theSize;
 }
 
 int wave_close(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
@@ -489,22 +498,28 @@ void wave_terminate()
 
 uint32_t wave_get_read_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
 }
 
 typedef int (t_wave_callback)(void);
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
+	(void)cb; // unused
 }
 
 extern void *wave_test_get_write_buffer()
@@ -514,6 +529,8 @@ extern void *wave_test_get_write_buffer()
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
+	(void)sample; // unused
+
 	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;

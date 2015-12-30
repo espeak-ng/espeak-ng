@@ -246,6 +246,8 @@ static void close_stream()
 
 static void *say_thread(void *p)
 {
+	(void)p; // unused
+
 	// announce that thread is started
 	sem_post(&my_sem_stop_is_acknowledged);
 

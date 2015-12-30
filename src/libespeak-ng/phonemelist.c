@@ -39,7 +39,7 @@ const unsigned char pause_phonemes[8] = {
 extern int n_ph_list2;
 extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
-static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
+static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 {
 	// Copy the phonemes list and perform any substitutions that are required for the
 	// current voice
@@ -250,7 +250,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		}
 	}
 
-	n_ph_list3 = SubstitutePhonemes(tr, ph_list3) - 2;
+	n_ph_list3 = SubstitutePhonemes(ph_list3) - 2;
 
 	for (j = 0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);) {
 		if (ph_list3[j].sourceix) {

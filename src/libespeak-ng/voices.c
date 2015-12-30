@@ -267,7 +267,7 @@ void ReadTonePoints(char *string, int *tone_pts)
 	       &tone_pts[8], &tone_pts[9]);
 }
 
-static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *leafname)
+static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 {
 	// Read a Voice file, allocate a VOICE_DATA and set data from the
 	// file's  language, gender, name  lines
@@ -450,7 +450,7 @@ static void VoiceFormant(char *p)
 	voice->freqadd[formant] = freqadd;
 }
 
-static void PhonemeReplacement(int type, char *p)
+static void PhonemeReplacement(char *p)
 {
 	int n;
 	int phon;
@@ -785,7 +785,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				SelectPhonemeTableName(phonemes_name);
 				phonemes_set = 1;
 			}
-			PhonemeReplacement(key, p);
+			PhonemeReplacement(p);
 			break;
 		case V_WORDGAP: // words
 			sscanf(p, "%d %d", &langopts->word_gap, &langopts->vowel_pause);
@@ -1457,7 +1457,7 @@ static void GetVoices(const char *path)
 					continue;
 
 				// pass voice file name within the voices directory
-				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
+				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
 				fclose(f_voice);
 
 				if (voice_data != NULL)
@@ -1493,7 +1493,7 @@ static void GetVoices(const char *path)
 				continue;
 
 			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, ent->d_name);
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
 			fclose(f_voice);
 
 			if (voice_data != NULL)

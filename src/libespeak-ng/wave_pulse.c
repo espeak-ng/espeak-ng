@@ -140,6 +140,8 @@ static int wave_samplerate;
 
 static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata)
 {
+	(void)userdata; // unused
+
 	assert(c);
 
 	if (!stream ||
@@ -151,6 +153,8 @@ static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t
 
 static void context_state_cb(pa_context *c, void *userdata)
 {
+	(void)userdata; // unused
+
 	assert(c);
 
 	switch (pa_context_get_state(c))
@@ -170,6 +174,8 @@ static void context_state_cb(pa_context *c, void *userdata)
 
 static void stream_state_cb(pa_stream *s, void *userdata)
 {
+	(void)userdata; // unused
+
 	assert(s);
 
 	switch (pa_stream_get_state(s))
@@ -207,6 +213,9 @@ static void context_success_cb(pa_context *c, int success, void *userdata)
 
 static void stream_request_cb(pa_stream *s, size_t length, void *userdata)
 {
+	(void)length; // unused
+	(void)userdata; // unused
+
 	assert(s);
 
 	pa_threaded_mainloop_signal(mainloop, 0);
@@ -214,6 +223,8 @@ static void stream_request_cb(pa_stream *s, size_t length, void *userdata)
 
 static void stream_latency_update_cb(pa_stream *s, void *userdata)
 {
+	(void)userdata; // unused
+
 	assert(s);
 
 	pa_threaded_mainloop_signal(mainloop, 0);
@@ -507,6 +518,7 @@ fail:
 
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
 }
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
@@ -522,13 +534,15 @@ int wave_init(int srate)
 	return pulse_open() == PULSE_OK;
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
+	(void)theHandler; // unused
+
 	size_t bytes_to_write = theSize;
 	char *aBuffer = theMono16BitsWaveBuffer;
 
@@ -571,6 +585,8 @@ terminate:
 
 int wave_close(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	static int aStopStreamCount = 0;
 
 	// Avoid race condition by making sure this function only
@@ -595,6 +611,8 @@ int wave_close(void *theHandler)
 
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	pa_timing_info a_timing_info;
 	int active = pulse_playing(&a_timing_info);
 	return active;
@@ -614,6 +632,8 @@ void wave_terminate()
 
 uint32_t wave_get_read_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
 	return a_timing_info.read_index;
@@ -621,6 +641,8 @@ uint32_t wave_get_read_position(void *theHandler)
 
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	pa_timing_info a_timing_info;
 	pulse_playing(&a_timing_info);
 	return a_timing_info.write_index;
@@ -657,26 +679,35 @@ void *wave_test_get_write_buffer()
 
 int wave_init(int srate)
 {
+	(void)srate; // unused
+
 	return 1;
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
+	(void)theHandler; // unused
+	(void)theMono16BitsWaveBuffer; // unused
+
 	return theSize;
 }
 
 int wave_close(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
@@ -686,22 +717,28 @@ void wave_terminate()
 
 uint32_t wave_get_read_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
 }
 
 typedef int (t_wave_callback)(void);
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
+	(void)cb; // unused
 }
 
 extern void *wave_test_get_write_buffer()
@@ -711,6 +748,8 @@ extern void *wave_test_get_write_buffer()
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
+	(void)sample; // unused
+
 	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;

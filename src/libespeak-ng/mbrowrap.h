@@ -99,7 +99,9 @@ void resetError_MBR(void);
 /*
  * Tolerance to missing diphones (always active so this is ignored)
  */
-static inline void setNoError_MBR(int no_error) {
+static inline void setNoError_MBR(int no_error)
+{
+	(void)no_error; // unused
 }
 
 #ifdef __cplusplus

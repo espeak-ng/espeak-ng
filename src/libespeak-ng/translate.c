@@ -627,7 +627,7 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 	return word;
 }
 
-static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
+static int CheckDottedAbbrev(char *word1)
 {
 	int wc;
 	int count = 0;
@@ -919,7 +919,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 
 		if ((word_length == 1) && (dictionary_skipwords == 0)) {
 			// is this a series of single letters separated by dots?
-			if (CheckDottedAbbrev(word1, wtab)) {
+			if (CheckDottedAbbrev(word1)) {
 				dictionary_flags[0] = 0;
 				dictionary_flags[1] = 0;
 				spell_word = 1;

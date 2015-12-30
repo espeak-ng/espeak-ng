@@ -307,6 +307,8 @@ static int get_remaining_time(uint32_t sample, uint32_t *time_in_ms, int *stop_i
 
 static void *polling_thread(void *p)
 {
+	(void)p; // unused
+
 	while (1) {
 		int a_stop_is_required = 0;
 

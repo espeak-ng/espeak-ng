@@ -70,7 +70,7 @@ static int pulse_running;
 
 // wave.cpp (this file)
 int wave_port_init(int);
-void *wave_port_open(const char *the_api);
+void *wave_port_open();
 size_t wave_port_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_port_close(void *theHandler);
 int wave_port_is_busy(void *theHandler);
@@ -85,7 +85,7 @@ int wave_port_get_remaining_time(uint32_t sample, uint32_t *time);
 // wave_pulse.cpp
 int is_pulse_running();
 int wave_pulse_init(int);
-void *wave_pulse_open(const char *the_api);
+void *wave_pulse_open();
 size_t wave_pulse_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_pulse_close(void *theHandler);
 int wave_pulse_is_busy(void *theHandler);
@@ -108,12 +108,12 @@ int wave_init(int srate)
 		return wave_port_init(srate);
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	if (pulse_running)
-		return wave_pulse_open(the_api);
+		return wave_pulse_open();
 	else
-		return wave_port_open(the_api);
+		return wave_port_open();
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
@@ -307,6 +307,10 @@ static int pa_callback(const void *inputBuffer, void *outputBuffer,
                        PaStreamCallbackFlags flags, void *userData)
 #endif
 {
+	(void)inputBuffer; // unused
+	(void)outTime; // unused
+	(void)userData; // unused
+
 	int aResult = 0; // paContinue
 	char *aWrite = myWrite;
 	size_t n = out_channels*sizeof(uint16_t)*framesPerBuffer;
@@ -383,6 +387,8 @@ static int pa_callback(const void *inputBuffer, void *outputBuffer,
 
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	if (my_stream_could_start)
 		start_stream();
 }
@@ -506,7 +512,7 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
 }
 #endif
 
-static void select_device(const char *the_api)
+static void select_device()
 {
 #if (USE_PORTAUDIO == 19)
 	int numDevices = Pa_GetDeviceCount();
@@ -590,12 +596,12 @@ int wave_init(int srate)
 	return err == paNoError;
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	static int once = 0;
 
 	if (!once) {
-		select_device("alsa");
+		select_device();
 		once = 1;
 	}
 	return (void *)1;
@@ -631,6 +637,8 @@ static size_t copyBuffer(char *dest, char *src, const size_t theSizeInBytes)
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
+	(void)theHandler; // unused
+
 	size_t bytes_written = 0;
 	// space in ringbuffer for the sample needed: 1x mono channel but 2x for 1 stereo channel
 	size_t bytes_to_write = (out_channels == 1) ? theSize : theSize*2;
@@ -712,6 +720,8 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 
 int wave_close(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	static int aStopStreamCount = 0;
 
 #if (USE_PORTAUDIO == 19)
@@ -790,6 +800,8 @@ int wave_close(void *theHandler)
 
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	PaError active = 0;
 
 	if (pa_stream) {
@@ -812,11 +824,15 @@ void wave_terminate()
 
 uint32_t wave_get_read_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return myReadPosition;
 }
 
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return myWritePosition;
 }
 
@@ -848,26 +864,35 @@ void *wave_test_get_write_buffer()
 
 int wave_init(int srate)
 {
+	(void)srate; // unused
+
 	return 1;
 }
 
-void *wave_open(const char *the_api)
+void *wave_open()
 {
 	return (void *)1;
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
 {
+	(void)theHandler; // unused
+	(void)theMono16BitsWaveBuffer; // unused
+
 	return theSize;
 }
 
 int wave_close(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 int wave_is_busy(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
@@ -877,22 +902,28 @@ void wave_terminate()
 
 uint32_t wave_get_read_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 uint32_t wave_get_write_position(void *theHandler)
 {
+	(void)theHandler; // unused
+
 	return 0;
 }
 
 void wave_flush(void *theHandler)
 {
+	(void)theHandler; // unused
 }
 
 typedef int (t_wave_callback)(void);
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
+	(void)cb; // unused
 }
 
 extern void *wave_test_get_write_buffer()
@@ -902,6 +933,8 @@ extern void *wave_test_get_write_buffer()
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
+	(void)sample; // unused
+
 	if (!time) return -1;
 	*time = (uint32_t)0;
 	return 0;

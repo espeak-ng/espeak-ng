@@ -286,6 +286,8 @@ static int WavegenFile(void)
 
 static void init_path(char *argv0, char *path_specified)
 {
+	(void)argv0; // unused (except with PLATFORM_WINDOWS)
+
 	if (path_specified) {
 		sprintf(path_home, "%s/espeak-data", path_specified);
 		return;

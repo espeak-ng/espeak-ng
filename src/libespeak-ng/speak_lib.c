@@ -113,7 +113,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					return -1;
 				}
 				wave_set_callback_is_output_enabled(fifo_is_command_enabled);
-				my_audio = wave_open("alsa");
+				my_audio = wave_open();
 				event_init();
 			}
 		}
@@ -150,7 +150,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 	return a_wave_can_be_played == 0; // 1 = stop synthesis, -1 = error
 }
 
-static int create_events(short *outbuf, int length, espeak_EVENT *event, uint32_t the_write_pos)
+static int create_events(short *outbuf, int length, espeak_EVENT *event_list, uint32_t the_write_pos)
 {
 	int finished;
 	int i = 0;
@@ -398,7 +398,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		length = (out_ptr - outbuf)/2;
 		count_samples += length;
 		event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
-		event_list[event_list_ix].unique_identifier = my_unique_identifier;
+		event_list[event_list_ix].unique_identifier = unique_identifier;
 		event_list[event_list_ix].user_data = my_user_data;
 
 		count_buffers++;
@@ -478,6 +478,8 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
                                unsigned int position, espeak_POSITION_TYPE position_type,
                                unsigned int end_position, unsigned int flags, void *user_data)
 {
+	(void)size; // unused
+
 	espeak_ERROR aStatus;
 
 	InitText(flags);
@@ -517,6 +519,8 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
                                     const char *index_mark, unsigned int end_position,
                                     unsigned int flags, void *user_data)
 {
+	(void)size; // unused
+
 	espeak_ERROR aStatus;
 
 	InitText(flags);

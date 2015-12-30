@@ -366,6 +366,10 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
                         PaStreamCallbackFlags flags, void *userData)
 #endif
 {
+	(void)inputBuffer; // unused
+	(void)outTime; // unused
+	(void)userData; // unused
+
 	int ix;
 	int result;
 	unsigned char *p;
