@@ -1185,7 +1185,6 @@ int Wavegen()
 		if (out_ptr >= out_end)
 			return 1;
 	}
-	return 0;
 }
 
 static int PlaySilence(int length, int resume)
