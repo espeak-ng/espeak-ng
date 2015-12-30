@@ -56,11 +56,12 @@ Core dependencies:
 
 Optional dependencies:
 
-| Dependency | Install                                 |
-|------------|-----------------------------------------|
-| pulseaudio | `sudo apt-get install libpulse-dev`     |
-| portaudio  | `sudo apt-get install libportaudio-dev` |
-| sonic      | `sudo apt-get install libsonic-dev`     |
+| Dependency   | Install                                 |
+|--------------|-----------------------------------------|
+| pulseaudio   | `sudo apt-get install libpulse-dev`     |
+| portaudio 18 | `sudo apt-get install libportaudio-dev` |
+| portaudio 19 | `sudo apt-get install portaudio19-dev`  |
+| sonic        | `sudo apt-get install libsonic-dev`     |
 
 Documentation dependencies:
 
