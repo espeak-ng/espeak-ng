@@ -393,7 +393,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 
 	event_list_ix = 0;
 
-	result = WavegenFill(1);
+	result = WavegenFill();
 
 	// copy from the outbut buffer into the portaudio buffer
 	if (result && (out_ptr > out_end2))
@@ -1530,7 +1530,7 @@ void Write4Bytes(FILE *f, int value)
 	}
 }
 
-int WavegenFill2(int fill_zeros)
+int WavegenFill2()
 {
 	// Pick up next wavegen commands from the queue
 	// return: 0  output buffer has been filled
@@ -1550,11 +1550,6 @@ int WavegenFill2(int fill_zeros)
 				resume = PlaySilence(echo_complete, resume);
 				if (resume == 1)
 					return 0; // not yet finished
-			}
-
-			if (fill_zeros) {
-				while (out_ptr < out_end)
-					*out_ptr++ = 0;
 			}
 			return 1; // queue empty, close sound channel
 		}
@@ -1677,15 +1672,14 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 #endif
 
 // Call WavegenFill2, and then speed up the output samples.
-int WavegenFill(int fill_zeros)
+int WavegenFill()
 {
 	int finished;
 	unsigned char *p_start;
 
 	p_start = out_ptr;
 
-	// fill_zeros is ignored. It is now done in the portaudio callback
-	finished = WavegenFill2(0);
+	finished = WavegenFill2();
 
 #if HAVE_SONIC_H
 	if (sonicSpeed > 1.0) {

@@ -393,7 +393,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		out_ptr = outbuf;
 		out_end = &outbuf[outbuf_size];
 		event_list_ix = 0;
-		WavegenFill(0);
+		WavegenFill();
 
 		length = (out_ptr - outbuf)/2;
 		count_samples += length;

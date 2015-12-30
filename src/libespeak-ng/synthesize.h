@@ -471,7 +471,7 @@ int  WavegenCloseSound();
 int  WavegenInitSound();
 void WavegenInit(int rate, int wavemult_fact);
 float polint(float xa[], float ya[], int n, float x);
-int WavegenFill(int fill_zeros);
+int WavegenFill();
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
 
 extern unsigned char *wavefile_data;
