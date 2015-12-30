@@ -9,10 +9,8 @@ branches:
 
 before_install:
   - sudo apt-get update -qq
-
-install:
   - sudo apt-get install -qq libpulse-dev portaudio19-dev libsonic-dev
-  - sudo gem install ronn
+  - sudo apt-get install -qq ruby-ronn
 
 script:
   - ./autogen.sh
