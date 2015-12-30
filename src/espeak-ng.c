@@ -122,7 +122,7 @@ void DisplayVoices(FILE *f_out, char *language)
 	int len;
 	int count;
 	int c;
-	int j;
+	size_t j;
 	const espeak_VOICE *v;
 	const char *lang_name;
 	char age_buf[12];
