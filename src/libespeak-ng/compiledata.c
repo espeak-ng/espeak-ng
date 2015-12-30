@@ -2792,7 +2792,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	char c;
 	int keyword;
 	int n_tune_names = 0;
-	int done_split;
+	int done_split = 0;
 	int done_onset = 0;
 	int done_last = 0;
 	int n_preset_tunes = 0;

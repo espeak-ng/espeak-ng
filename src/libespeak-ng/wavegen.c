@@ -980,7 +980,7 @@ int Wavegen()
 	signed char c;
 	int sample;
 	int amp;
-	int modn_amp, modn_period;
+	int modn_amp = 1, modn_period;
 	static int agc = 256;
 	static int h_switch_sign = 0;
 	static int cycle_count = 0;

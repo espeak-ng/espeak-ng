@@ -2188,7 +2188,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 {
 	int ix;
 	int c;
-	int cc;
+	int cc = 0;
 	unsigned int source_index = 0;
 	unsigned int prev_source_index = 0;
 	int source_index_word = 0;
