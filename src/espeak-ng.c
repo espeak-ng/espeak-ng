@@ -437,8 +437,7 @@ int main(int argc, char **argv)
 			printf("\n");
 			PrintVersion();
 			printf("%s", help_text);
-			exit(0);
-			break;
+			return 0;
 		case 'k':
 			option_capitals = atoi(optarg2);
 			break;

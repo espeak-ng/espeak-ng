@@ -651,15 +651,12 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		case 0x00:
 			// phoneme type, vowel, nasal, fricative, etc
 			return ph->type == data;
-			break;
 		case 0x20:
 			// place of articulation
 			return ((ph->phflags >> 16) & 0xf) == data;
-			break;
 		case 0x40:
 			// is a bit set in phoneme flags
 			return (ph->phflags & (1 << data)) != 0;
-			break;
 		case 0x80:
 			switch (data)
 			{
@@ -677,7 +674,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				return plist->sourceix == 0;
 			case 8: // isWordEnd
 				return plist[1].sourceix || (plist[1].ph->type == phPAUSE);
-				break;
 			case 9: // isAfterStress
 				if (plist->sourceix != 0)
 					return false;
@@ -698,7 +694,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 					if (plist->ph->type == phVOWEL)
 						return false;
 				}
-				break;
 			case 12: // isVoiced
 				return (ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED);
 			case 13: // isFirstVowel
