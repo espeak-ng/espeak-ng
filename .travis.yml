@@ -11,7 +11,8 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install -qq libpulse-dev portaudio19-dev libsonic-dev ruby-ronn
+  - sudo apt-get install -qq libpulse-dev portaudio19-dev libsonic-dev
+  - sudo apt-get install -qq ruby-ronn ruby-rdiscount
 
 script:
   - ./autogen.sh
