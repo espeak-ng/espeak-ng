@@ -23,6 +23,9 @@ created by Jonathan Duddington. It uses spectral formant synthesis by default
 which sounds robotic, but can be configured to use Klatt formant synthesis or
 MBROLA to give it a more natural sound.
 
+See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
+various releases and with the eSpeak project.
+
 ## Build Dependencies
 
 In order to build eSpeak NG, you need:
