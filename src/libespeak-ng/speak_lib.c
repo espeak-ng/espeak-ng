@@ -108,7 +108,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					sleep(1);
 				}
 				out_samplerate = voice_samplerate;
-				my_audio = wave_open(voice_samplerate);
+				my_audio = wave_open(voice_samplerate, NULL);
 				if (!my_audio) {
 					err = EE_INTERNAL_ERROR;
 					return -1;

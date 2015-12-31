@@ -74,8 +74,10 @@ static uint32_t wave_samplerate;
 // sun_audio_fd: modified to hold the file descriptor of the opened
 // audio device.
 //
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
+	(void)device; // unused
+
 	audio_info_t ainfo;
 	char *audio_device = NULL;
 
@@ -437,9 +439,10 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 
 #else
 
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
 	(void)srate; // unused
+	(void)device; // unused
 
 	return (void *)1;
 }

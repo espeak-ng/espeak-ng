@@ -524,8 +524,10 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
+	(void)device; // unused
+
 	stream = NULL;
 	wave_samplerate = srate;
 
@@ -673,9 +675,10 @@ void *wave_test_get_write_buffer()
 
 #else
 
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
 	(void)srate; // unused
+	(void)device; // unused
 
 	return (void *)1;
 }

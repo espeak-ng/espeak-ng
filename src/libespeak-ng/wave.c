@@ -69,7 +69,7 @@ enum { ONE_BILLION = 1000000000 };
 static int pulse_running;
 
 // wave.cpp (this file)
-void *wave_port_open(int);
+void *wave_port_open(int, const char *);
 size_t wave_port_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_port_close(void *theHandler);
 int wave_port_is_busy(void *theHandler);
@@ -83,7 +83,7 @@ int wave_port_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wave_pulse.cpp
 int is_pulse_running();
-void *wave_pulse_open(int);
+void *wave_pulse_open(int, const char *);
 size_t wave_pulse_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_pulse_close(void *theHandler);
 int wave_pulse_is_busy(void *theHandler);
@@ -96,12 +96,12 @@ void *wave_pulse_test_get_write_buffer();
 int wave_pulse_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wrappers
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
 	if (pulse_running)
-		return wave_pulse_open(srate);
+		return wave_pulse_open(srate, device);
 	else
-		return wave_port_open(srate);
+		return wave_port_open(srate, device);
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
@@ -567,8 +567,10 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
+	(void)device; // unused
+
 	PaError err;
 
 	pa_stream = NULL;
@@ -847,9 +849,10 @@ void *wave_test_get_write_buffer()
 
 #else
 
-void *wave_open(int srate)
+void *wave_open(int srate, const char *device)
 {
 	(void)srate; // unused
+	(void)device; // unused
 
 	return (void *)1;
 }
