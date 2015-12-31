@@ -71,7 +71,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 
 #ifdef USE_PORTAUDIO
 // rename functions to be wrapped
-#define wave_init wave_pulse_init
 #define wave_open wave_pulse_open
 #define wave_write wave_pulse_write
 #define wave_close wave_pulse_close
@@ -525,16 +524,14 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	stream = NULL;
 	wave_samplerate = srate;
 
-	return pulse_open() == PULSE_OK;
-}
+	if (pulse_open() != PULSE_OK)
+		return NULL;
 
-void *wave_open()
-{
 	return (void *)1;
 }
 
@@ -676,15 +673,10 @@ void *wave_test_get_write_buffer()
 
 #else
 
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	(void)srate; // unused
 
-	return 1;
-}
-
-void *wave_open()
-{
 	return (void *)1;
 }
 

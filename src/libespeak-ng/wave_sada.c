@@ -63,7 +63,7 @@ static uint32_t last_play_position = 0;
 
 static uint32_t wave_samplerate;
 
-// wave_init
+// wave_open
 //
 // DESCRIPTION:
 //
@@ -74,7 +74,7 @@ static uint32_t wave_samplerate;
 // sun_audio_fd: modified to hold the file descriptor of the opened
 // audio device.
 //
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	audio_info_t ainfo;
 	char *audio_device = NULL;
@@ -84,20 +84,20 @@ int wave_init(int srate)
 	audio_device = getenv("AUDIODEV");
 	if (audio_device != NULL) {
 		if ((sun_audio_fd = open(audio_device, O_WRONLY)) < 0) {
-			fprintf(stderr, "wave_init() could not open: %s (%d)\n",
+			fprintf(stderr, "wave_open() could not open: %s (%d)\n",
 			        audio_device, sun_audio_fd);
 		}
 	}
 
 	if (sun_audio_fd < 0) {
 		if ((sun_audio_fd = open(sun_audio_device, O_WRONLY)) < 0) {
-			fprintf(stderr, "wave_init() could not open: %s (%d)\n",
+			fprintf(stderr, "wave_open() could not open: %s (%d)\n",
 			        sun_audio_device, sun_audio_fd);
 		}
 	}
 
 	if (sun_audio_fd < 0)
-		return 0;
+		return NULL;
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
 	ainfo.play.encoding = AUDIO_ENCODING_LINEAR;
@@ -106,32 +106,11 @@ int wave_init(int srate)
 	ainfo.play.precision = SAMPLE_SIZE;
 
 	if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
-		fprintf(stderr, "wave_init() failed to set audio params: %s\n", strerror(errno));
+		fprintf(stderr, "wave_open() failed to set audio params: %s\n", strerror(errno));
 		close(sun_audio_fd);
-		return 0;
+		return NULL;
 	}
-	return 1;
-}
 
-// wave_open
-//
-// DESCRIPTION:
-//
-// opens the audio subsystem. We just return the sun_audio_fd we
-// opened in wave_init.  This return value will be passed in as the
-// theHandler parameter in all other methods.
-//
-// GLOBALS USED/MODIFIED:
-//
-// sun_audio_fd: used as return value
-//
-// RETURNS:
-//
-// sun_audio_fd opened in wave_init, which is passed in as theHandler
-// parameter in all other methods
-//
-void *wave_open()
-{
 	return (void *)sun_audio_fd;
 }
 
@@ -458,15 +437,10 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 
 #else
 
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	(void)srate; // unused
 
-	return 1;
-}
-
-void *wave_open()
-{
 	return (void *)1;
 }
 

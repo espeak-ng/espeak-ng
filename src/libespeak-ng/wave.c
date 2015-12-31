@@ -65,12 +65,11 @@ enum { ONE_BILLION = 1000000000 };
 #ifdef USE_PULSEAUDIO
 // create some wrappers for runtime detection
 
-// checked on wave_init
+// checked on wave_open
 static int pulse_running;
 
 // wave.cpp (this file)
-int wave_port_init(int);
-void *wave_port_open();
+void *wave_port_open(int);
 size_t wave_port_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_port_close(void *theHandler);
 int wave_port_is_busy(void *theHandler);
@@ -84,8 +83,7 @@ int wave_port_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wave_pulse.cpp
 int is_pulse_running();
-int wave_pulse_init(int);
-void *wave_pulse_open();
+void *wave_pulse_open(int);
 size_t wave_pulse_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_pulse_close(void *theHandler);
 int wave_pulse_is_busy(void *theHandler);
@@ -98,22 +96,12 @@ void *wave_pulse_test_get_write_buffer();
 int wave_pulse_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wrappers
-int wave_init(int srate)
-{
-	pulse_running = is_pulse_running();
-
-	if (pulse_running)
-		return wave_pulse_init(srate);
-	else
-		return wave_port_init(srate);
-}
-
-void *wave_open()
+void *wave_open(int srate)
 {
 	if (pulse_running)
-		return wave_pulse_open();
+		return wave_pulse_open(srate);
 	else
-		return wave_port_open();
+		return wave_port_open(srate);
 }
 
 size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize)
@@ -197,7 +185,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 }
 
 // rename functions to be wrapped
-#define wave_init wave_port_init
 #define wave_open wave_port_open
 #define wave_write wave_port_write
 #define wave_close wave_port_close
@@ -580,7 +567,7 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	PaError err;
 
@@ -592,17 +579,16 @@ int wave_init(int srate)
 	// PortAudio sound output library
 	err = Pa_Initialize();
 	pa_init_err = err;
-	return err == paNoError;
-}
+	if (err != paNoError)
+		return NULL;
 
-void *wave_open()
-{
 	static int once = 0;
 
 	if (!once) {
 		select_device();
 		once = 1;
 	}
+
 	return (void *)1;
 }
 
@@ -861,15 +847,10 @@ void *wave_test_get_write_buffer()
 
 #else
 
-int wave_init(int srate)
+void *wave_open(int srate)
 {
 	(void)srate; // unused
 
-	return 1;
-}
-
-void *wave_open()
-{
 	return (void *)1;
 }
 

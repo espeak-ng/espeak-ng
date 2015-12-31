@@ -108,12 +108,12 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					sleep(1);
 				}
 				out_samplerate = voice_samplerate;
-				if (!wave_init(voice_samplerate)) {
+				my_audio = wave_open(voice_samplerate);
+				if (!my_audio) {
 					err = EE_INTERNAL_ERROR;
 					return -1;
 				}
 				wave_set_callback_is_output_enabled(fifo_is_command_enabled);
-				my_audio = wave_open();
 				event_init();
 			}
 		}
@@ -216,9 +216,6 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 	switch (my_mode)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
-		// wave_init() is now called just before the first wave_write()
-		synchronous_mode = 0;
-		break;
 	case AUDIO_OUTPUT_RETRIEVAL:
 		synchronous_mode = 0;
 		break;
