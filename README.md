@@ -34,7 +34,7 @@ In order to build eSpeak NG, you need:
 
 1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
     and `pkg-config`);
-2.  a functional c compiler that supports C11.
+2.  a functional c compiler that supports C99 (e.g. gcc or clang).
 
 Optionally, you need:
 
@@ -54,7 +54,7 @@ Core dependencies:
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
-| c11 compiler  | `sudo apt-get install gcc`                                       |
+| c99 compiler  | `sudo apt-get install gcc`                                       |
 
 Optional dependencies:
 
@@ -93,6 +93,11 @@ standard `configure` options to control the output. For more information,
 you can run:
 
 	./configure --help
+
+To use a different compiler, or compiler flags, you can specify these before
+the `configure` command. For example:
+
+	CC=clang-3.5 CFLAGS=-Wextra ./configure --prefix=/usr
 
 The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 then be built with:
