@@ -44,8 +44,6 @@
 #endif
 #include "wave.h"
 
-enum { ONE_BILLION = 1000000000 };
-
 enum {
 	/* return value */
 	PULSE_OK = 0,
@@ -666,35 +664,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 void *wave_test_get_write_buffer()
 {
 	return NULL;
-}
-
-#endif
-
-#ifndef USE_PORTAUDIO
-
-void clock_gettime2(struct timespec *ts)
-{
-	struct timeval tv;
-
-	if (!ts)
-		return;
-
-	assert(gettimeofday(&tv, NULL) != -1);
-	ts->tv_sec = tv.tv_sec;
-	ts->tv_nsec = tv.tv_usec*1000;
-}
-
-void add_time_in_ms(struct timespec *ts, int time_in_ms)
-{
-	if (!ts)
-		return;
-
-	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
-	while (t_ns >= ONE_BILLION) {
-		ts->tv_sec += 1;
-		t_ns -= ONE_BILLION;
-	}
-	ts->tv_nsec = (long int)t_ns;
 }
 
 #endif
