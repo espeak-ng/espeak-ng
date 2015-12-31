@@ -267,8 +267,10 @@ void ReadTonePoints(char *string, int *tone_pts)
 	       &tone_pts[8], &tone_pts[9]);
 }
 
-static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
+static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *leafname)
 {
+	(void)leafname; // unused (except for PLATFORM_WINDOWS)
+
 	// Read a Voice file, allocate a VOICE_DATA and set data from the
 	// file's  language, gender, name  lines
 
@@ -1457,7 +1459,7 @@ static void GetVoices(const char *path)
 					continue;
 
 				// pass voice file name within the voices directory
-				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
+				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
 				fclose(f_voice);
 
 				if (voice_data != NULL)
@@ -1493,7 +1495,7 @@ static void GetVoices(const char *path)
 				continue;
 
 			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, ent->d_name);
 			fclose(f_voice);
 
 			if (voice_data != NULL)
