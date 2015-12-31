@@ -161,7 +161,10 @@ endif
 endif
 
 bin_PROGRAMS += src/speak-ng
+
+if HAVE_RONN
 man1_MANS += src/speak-ng.1
+endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static
@@ -169,7 +172,10 @@ src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include/espeak-ng -D _POSIX_C_SO
 src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
+
+if HAVE_RONN
 man1_MANS += src/espeak-ng.1
+endif
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la
 src_espeak_ng_CFLAGS  = -Isrc/include/espeak-ng

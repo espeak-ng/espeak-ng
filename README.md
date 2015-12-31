@@ -45,7 +45,7 @@ Optionally, you need:
 To build the documentation, you need:
 
 1.  the `kramdown` markdown processor.
-2.  the `ronn` man-page markdown processor.
+2.  the `ronn` man-page markdown processor to build the man pages.
 
 ### Debian
 
@@ -55,7 +55,6 @@ Core dependencies:
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c11 compiler  | `sudo apt-get install gcc`                                       |
-| ronn          | `sudo apt-get install ruby-ronn`                                 |
 
 Optional dependencies:
 
@@ -65,6 +64,7 @@ Optional dependencies:
 | portaudio 18 | `sudo apt-get install libportaudio-dev` |
 | portaudio 19 | `sudo apt-get install portaudio19-dev`  |
 | sonic        | `sudo apt-get install libsonic-dev`     |
+| ronn         | `sudo apt-get install ruby-ronn`        |
 
 Documentation dependencies:
 
