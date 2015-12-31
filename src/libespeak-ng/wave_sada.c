@@ -76,30 +76,17 @@ static uint32_t wave_samplerate;
 //
 void *wave_open(int srate, const char *device)
 {
-	(void)device; // unused
+	if (device == NULL)
+		device = sun_audio_device;
 
 	audio_info_t ainfo;
-	char *audio_device = NULL;
 
 	wave_samplerate = srate;
 
-	audio_device = getenv("AUDIODEV");
-	if (audio_device != NULL) {
-		if ((sun_audio_fd = open(audio_device, O_WRONLY)) < 0) {
-			fprintf(stderr, "wave_open() could not open: %s (%d)\n",
-			        audio_device, sun_audio_fd);
-		}
-	}
-
-	if (sun_audio_fd < 0) {
-		if ((sun_audio_fd = open(sun_audio_device, O_WRONLY)) < 0) {
-			fprintf(stderr, "wave_open() could not open: %s (%d)\n",
-			        sun_audio_device, sun_audio_fd);
-		}
-	}
-
-	if (sun_audio_fd < 0)
+	if ((sun_audio_fd = open(device, O_WRONLY)) < 0) {
+		fprintf(stderr, "wave_open() could not open: %s (%d)\n", device, sun_audio_fd);
 		return NULL;
+	}
 
 	ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
 	ainfo.play.encoding = AUDIO_ENCODING_LINEAR;
