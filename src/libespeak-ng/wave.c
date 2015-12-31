@@ -213,6 +213,7 @@ static int wave_samplerate;
 
 static int mInCallbackFinishedState = false;
 #if (USE_PORTAUDIO == 18)
+static PaDeviceID myOutputDevice = 0;
 static PortAudioStream *pa_stream = NULL;
 #endif
 #if (USE_PORTAUDIO == 19)
@@ -396,8 +397,6 @@ static int wave_open_sound()
 		out_channels = 1;
 
 #if USE_PORTAUDIO == 18
-		PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
-
 		err = Pa_OpenStream(&pa_stream,
 		                    // capture parameters
 		                    paNoDevice,
@@ -405,7 +404,7 @@ static int wave_open_sound()
 		                    paInt16,
 		                    NULL,
 		                    // playback parameters
-		                    playbackDevice,
+		                    myOutputDevice,
 		                    out_channels,
 		                    paInt16,
 		                    NULL,
@@ -424,7 +423,7 @@ static int wave_open_sound()
 			                    paInt16,
 			                    NULL,
 			                    // playback parameters
-			                    playbackDevice,
+			                    myOutputDevice,
 			                    out_channels,
 			                    paInt16,
 			                    NULL,
@@ -478,9 +477,9 @@ static int wave_open_sound()
 	return err != paNoError;
 }
 
-#if (USE_PORTAUDIO == 19)
 static void update_output_parameters(int selectedDevice, const PaDeviceInfo *deviceInfo)
 {
+#if (USE_PORTAUDIO == 19)
 	myOutputParameters.device = selectedDevice;
 	myOutputParameters.channelCount = 1;
 	myOutputParameters.sampleFormat = paInt16;
@@ -495,17 +494,26 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
 		myOutputParameters.suggestedLatency = (double)0.1; // 100ms
 
 	myOutputParameters.hostApiSpecificStreamInfo = NULL;
-}
+#else
+	myOutputDevice = selectedDevice;
 #endif
+}
 
-static void select_device()
+static const PaDeviceInfo *select_device(const char *device)
 {
 #if (USE_PORTAUDIO == 19)
 	int numDevices = Pa_GetDeviceCount();
+#else
+	int numDevices = Pa_CountDevices();
+#endif
 	if (numDevices < 0)
-		assert(0);
+		return NULL;
 
-	PaDeviceIndex i = 0, selectedIndex = 0, defaultAlsaIndex = numDevices;
+#if (USE_PORTAUDIO == 19)
+	PaDeviceIndex i = 0, selectedIndex = 0;
+#else
+	PaDeviceID i = 0, selectedIndex = 0;
+#endif
 	const PaDeviceInfo *deviceInfo = NULL;
 	const PaDeviceInfo *selectedDeviceInfo = NULL;
 
@@ -514,52 +522,29 @@ static void select_device()
 		selectedDeviceInfo = Pa_GetDeviceInfo(selectedIndex);
 	}
 
+	if (device == NULL) {
+#if (USE_PORTAUDIO == 19)
+		selectedIndex = Pa_GetDefaultOutputDevice();
+#else
+		selectedIndex = Pa_GetDefaultOutputDeviceID();
+#endif
+		selectedDeviceInfo = Pa_GetDeviceInfo(selectedIndex);
+	}
+
 	if (selectedDeviceInfo == NULL) {
 		for (i = 0; i < numDevices; i++) {
 			deviceInfo = Pa_GetDeviceInfo(i);
 
-			if (deviceInfo == NULL)
-				break;
-			const PaHostApiInfo *hostInfo = Pa_GetHostApiInfo(deviceInfo->hostApi);
-
-			if (hostInfo && hostInfo->type == paALSA) {
-				// Check (once) the default output device
-				if (defaultAlsaIndex == numDevices) {
-					defaultAlsaIndex = hostInfo->defaultOutputDevice;
-					const PaDeviceInfo *deviceInfo = Pa_GetDeviceInfo(defaultAlsaIndex);
-					update_output_parameters(defaultAlsaIndex, deviceInfo);
-					if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0) {
-						selectedIndex = defaultAlsaIndex;
-						selectedDeviceInfo = deviceInfo;
-						break;
-					}
-				}
-
-				// if the default output device does not match,
-				// look for the device with the highest number of output channels
-
-				update_output_parameters(i, deviceInfo);
-
-				if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0) {
-					if (!selectedDeviceInfo
-					    || (selectedDeviceInfo->maxOutputChannels < deviceInfo->maxOutputChannels)) {
-						selectedIndex = i;
-						selectedDeviceInfo = deviceInfo;
-					}
-				}
+			if (deviceInfo != NULL && !strcmp(device, deviceInfo->name)) {
+				selectedIndex = i;
+				selectedDeviceInfo = deviceInfo;
 			}
 		}
 	}
 
 	if (selectedDeviceInfo)
 		update_output_parameters(selectedIndex, selectedDeviceInfo);
-	else {
-		i = Pa_GetDefaultOutputDevice();
-		deviceInfo = Pa_GetDeviceInfo(i);
-		update_output_parameters(i, deviceInfo);
-	}
-
-#endif
+	return selectedDeviceInfo;
 }
 
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
@@ -569,8 +554,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 
 void *wave_open(int srate, const char *device)
 {
-	(void)device; // unused
-
 	PaError err;
 
 	pa_stream = NULL;
@@ -587,7 +570,8 @@ void *wave_open(int srate, const char *device)
 	static int once = 0;
 
 	if (!once) {
-		select_device();
+		if (!select_device(device))
+			return NULL;
 		once = 1;
 	}
 
