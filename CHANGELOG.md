@@ -16,7 +16,7 @@
 
 restructuring:
 
-*  Build the code with a C11 compiler, instead of a C++ compiler.
+*  Build the code with a C99 compiler, instead of a C++ compiler.
 *  Moved the library code to `src/libespeak-ng`.
 *  Renamed `espeak` to `espeak-ng`.
 *  Renamed `speak` to `speak-ng`.
