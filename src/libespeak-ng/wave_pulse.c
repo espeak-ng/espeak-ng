@@ -28,9 +28,6 @@
 
 #include "speech.h"
 
-#ifdef USE_ASYNC
-// This source file is only used for asynchronious modes
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -776,5 +773,4 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
 	ts->tv_nsec = (long int)t_ns;
 }
 
-#endif
 #endif
