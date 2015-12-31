@@ -381,7 +381,7 @@ static void pulse_close(void)
 	}
 }
 
-static int pulse_open()
+static int pulse_open(const char *device)
 {
 	pa_sample_spec ss;
 	pa_operation *o = NULL;
@@ -450,7 +450,7 @@ static int pulse_open()
 	a_attr.minreq = MINREQ;
 	a_attr.fragsize = 0;
 
-	if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), NULL, NULL) < 0) {
+	if (pa_stream_connect_playback(stream, device, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), NULL, NULL) < 0) {
 		fprintf(stderr, "Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
 		goto unlock_and_fail;
 	}
@@ -526,12 +526,10 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 
 void *wave_open(int srate, const char *device)
 {
-	(void)device; // unused
-
 	stream = NULL;
 	wave_samplerate = srate;
 
-	if (pulse_open() != PULSE_OK)
+	if (pulse_open(device) != PULSE_OK)
 		return NULL;
 
 	return (void *)1;
