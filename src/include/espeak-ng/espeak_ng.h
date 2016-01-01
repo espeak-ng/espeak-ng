@@ -44,6 +44,11 @@ typedef enum {
 	ENE_VERSION_MISMATCH = -5,
 } espeak_ng_STATUS;
 
+typedef enum {
+	ENOUTPUT_MODE_SYNCHRONOUS = 0x0001,
+	ENOUTPUT_MODE_SPEAK_AUDIO = 0x0002,
+} espeak_ng_OUTPUT_MODE;
+
 ESPEAK_NG_API void
 espeak_ng_InitializePath(const char *path);
 

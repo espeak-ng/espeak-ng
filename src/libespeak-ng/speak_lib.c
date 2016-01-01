@@ -66,8 +66,7 @@ void *my_audio = NULL;
 
 static unsigned int my_unique_identifier = 0;
 static void *my_user_data = NULL;
-static espeak_AUDIO_OUTPUT my_mode = AUDIO_OUTPUT_SYNCHRONOUS;
-static int synchronous_mode = 1;
+static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
 static espeak_ERROR err = EE_OK;
@@ -93,7 +92,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 
 	switch (my_mode)
 	{
-	case AUDIO_OUTPUT_PLAYBACK:
+	case ENOUTPUT_MODE_SPEAK_AUDIO:
 	{
 		int event_type = 0;
 		if (event)
@@ -139,12 +138,9 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		}
 	}
 		break;
-	case AUDIO_OUTPUT_RETRIEVAL:
+	case 0:
 		if (synth_callback)
 			synth_callback(outbuf, length, event);
-		break;
-	case AUDIO_OUTPUT_SYNCHRONOUS:
-	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
 		break;
 	}
 
@@ -190,7 +186,7 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 	event_list[1].unique_identifier = unique_identifier;
 	event_list[1].user_data = user_data;
 
-	if (my_mode == AUDIO_OUTPUT_PLAYBACK) {
+	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		while (1) {
 			espeak_ERROR a_error = event_declare(event_list);
 			if (a_error != EE_BUFFER_FULL)
@@ -206,26 +202,16 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 
 #endif
 
-static void select_output(espeak_AUDIO_OUTPUT output_type)
+static void select_output(espeak_ng_OUTPUT_MODE output_mode)
 {
-	my_mode = output_type;
+	my_mode = output_mode;
 	my_audio = NULL;
-	synchronous_mode = 1;
 	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
 
-	switch (my_mode)
-	{
-	case AUDIO_OUTPUT_PLAYBACK:
-	case AUDIO_OUTPUT_RETRIEVAL:
-		synchronous_mode = 0;
-		break;
-	case AUDIO_OUTPUT_SYNCHRONOUS:
-		break;
-	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
+	if (output_mode == ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO) {
 		option_waveout = 0;
 		WavegenInitSound();
-		break;
 	}
 }
 
@@ -371,7 +357,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 	count_samples = 0;
 
 #ifdef USE_ASYNC
-	if (my_mode == AUDIO_OUTPUT_PLAYBACK)
+	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO)
 		a_write_pos = wave_get_write_position(my_audio);
 #endif
 
@@ -380,7 +366,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 
 	SpeakNextClause(NULL, text, 0);
 
-	if (my_mode == AUDIO_OUTPUT_SYNCH_PLAYBACK) {
+	if (my_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
 		for (;;) {
 #ifdef PLATFORM_WINDOWS
 			Sleep(300); // 0.3s
@@ -414,7 +400,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		event_list[event_list_ix].user_data = my_user_data;
 
 		count_buffers++;
-		if (my_mode == AUDIO_OUTPUT_PLAYBACK) {
+		if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
 #ifdef USE_ASYNC
 			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
 			if (finished < 0)
@@ -439,7 +425,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 
 				if (SpeakNextClause(NULL, NULL, 1) == 0) {
 #ifdef USE_ASYNC
-					if (my_mode == AUDIO_OUTPUT_PLAYBACK) {
+					if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
 						if (dispatch_audio(NULL, 0, NULL) < 0) // TBD: test case
 							return err = EE_INTERNAL_ERROR;
 					} else
@@ -628,7 +614,22 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 		} else
 			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
 	}
-	select_output(output_type);
+
+	switch (output_type)
+	{
+	case AUDIO_OUTPUT_PLAYBACK:
+		select_output(ENOUTPUT_MODE_SPEAK_AUDIO);
+		break;
+	case AUDIO_OUTPUT_RETRIEVAL:
+		select_output(0);
+		break;
+	case AUDIO_OUTPUT_SYNCHRONOUS:
+		select_output(ENOUTPUT_MODE_SYNCHRONOUS);
+		break;
+	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
+		select_output(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO);
+		break;
+	}
 
 	if (f_logespeak)
 		fprintf(f_logespeak, "INIT mode %d options 0x%x\n", output_type, options);
@@ -672,7 +673,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 		unique_identifier = &temp_identifier;
 	*unique_identifier = 0;
 
-	if (synchronous_mode)
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Synth(0, text, size, position, position_type, end_position, flags, user_data);
 
 #ifdef USE_ASYNC
@@ -718,7 +719,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 		unique_identifier = &temp_identifier;
 	*unique_identifier = 0;
 
-	if (synchronous_mode)
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
 		return sync_espeak_Synth_Mark(0, text, size, index_mark, end_position, flags, user_data);
 
 #ifdef USE_ASYNC
@@ -757,7 +758,7 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 
 	espeak_ERROR a_error = EE_OK;
 
-	if (synchronous_mode) {
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_Key(key);
 		return EE_OK;
 	}
@@ -781,7 +782,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
 
-	if (synchronous_mode) {
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_Char(character);
 		return EE_OK;
 	}
@@ -812,7 +813,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
 
-	if (synchronous_mode) {
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		SetParameter(parameter, value, relative);
 		return EE_OK;
 	}
@@ -836,7 +837,7 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
 
-	if (synchronous_mode) {
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_SetPunctuationList(punctlist);
 		return EE_OK;
 	}
@@ -897,7 +898,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 	fifo_stop();
 	event_clear_all();
 
-	if (my_mode == AUDIO_OUTPUT_PLAYBACK)
+	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO)
 		wave_close(my_audio);
 #endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
@@ -911,7 +912,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 ESPEAK_API int espeak_IsPlaying(void)
 {
 #ifdef USE_ASYNC
-	if ((my_mode == AUDIO_OUTPUT_PLAYBACK) && wave_is_busy(my_audio))
+	if ((my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) && wave_is_busy(my_audio))
 		return 1;
 
 	return fifo_is_busy();
@@ -941,7 +942,7 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	fifo_terminate();
 	event_terminate();
 
-	if (my_mode == AUDIO_OUTPUT_PLAYBACK) {
+	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		wave_close(my_audio);
 		wave_terminate();
 		out_samplerate = 0;
