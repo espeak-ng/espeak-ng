@@ -613,9 +613,6 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	}
 
 	espeak_ng_InitializePath(path);
-	if (options & espeakINITIALIZE_PATH_ONLY)
-		return 0;
-
 	initialise(options);
 	select_output(output_type);
 

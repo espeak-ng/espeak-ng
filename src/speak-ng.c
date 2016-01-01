@@ -593,13 +593,13 @@ int main(int argc, char **argv)
 				phonemes_separator = 0x200d; // ZWJ
 			break;
 		case 0x10e: // --compile-mbrola
-			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
+			espeak_ng_InitializePath(data_path);
 			return (espeak_ng_CompileMbrolaVoice(optarg2, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x10f: // --compile-intonations
-			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
+			espeak_ng_InitializePath(data_path);
 			return (espeak_ng_CompileIntonation(stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		case 0x110: // --compile-phonemes
-			samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, espeakINITIALIZE_PATH_ONLY);
+			espeak_ng_InitializePath(data_path);
 			return (espeak_ng_CompilePhonemeData(22050, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 		default:
 			exit(0);

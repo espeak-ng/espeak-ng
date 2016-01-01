@@ -44,8 +44,6 @@ typedef enum {
 	ENE_VERSION_MISMATCH = -5,
 } espeak_ng_STATUS;
 
-#define espeakINITIALIZE_PATH_ONLY 0x4000
-
 ESPEAK_NG_API void
 espeak_ng_InitializePath(const char *path);
 
