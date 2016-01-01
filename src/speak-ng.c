@@ -284,62 +284,6 @@ static int WavegenFile(void)
 	return finished;
 }
 
-static void init_path(char *argv0, char *path_specified)
-{
-	(void)argv0; // unused (except with PLATFORM_WINDOWS)
-
-	if (path_specified) {
-		sprintf(path_home, "%s/espeak-data", path_specified);
-		return;
-	}
-
-#ifdef PLATFORM_WINDOWS
-	HKEY RegKey;
-	unsigned long size;
-	unsigned long var_type;
-	char *p;
-	char *env;
-	unsigned char buf[sizeof(path_home)-12];
-
-	if (((env = getenv("ESPEAK_DATA_PATH")) != NULL) && ((strlen(env)+12) < sizeof(path_home))) {
-		sprintf(path_home, "%s\\espeak-data", env);
-		if (GetFileLength(path_home) == -2)
-			return; // an espeak-data directory exists in the directory specified by environment variable
-	}
-
-	strcpy(path_home, argv0);
-	if ((p = strrchr(path_home, '\\')) != NULL) {
-		strcpy(&p[1], "espeak-data");
-		if (GetFileLength(path_home) == -2)
-			return; // an espeak-data directory exists in the same directory as the espeak program
-	}
-
-	// otherwise, look in the Windows Registry
-	buf[0] = 0;
-	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
-	size = sizeof(buf);
-	var_type = REG_SZ;
-	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
-
-	sprintf(path_home, "%s\\espeak-data", buf);
-#else
-#ifdef PLATFORM_DOS
-	strcpy(path_home, PATH_ESPEAK_DATA);
-#else
-	char *env;
-	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
-		snprintf(path_home, sizeof(path_home), "%s/espeak-data", env);
-		if (GetFileLength(path_home) == -2)
-			return; // an espeak-data directory exists
-	}
-
-	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
-	if (access(path_home, R_OK) != 0)
-		strcpy(path_home, PATH_ESPEAK_DATA);
-#endif
-#endif
-}
-
 static int initialise(void)
 {
 	int param;
@@ -513,7 +457,7 @@ int main(int argc, char **argv)
 				option_multibyte = value;
 			break;
 		case 'h':
-			init_path(argv[0], data_path);
+			espeak_ng_InitializePath(data_path);
 			printf("\nspeak text-to-speech: %s   Data at: %s\n%s", version_string, path_home, help_text);
 			exit(0);
 		case 'k':
@@ -585,7 +529,7 @@ int main(int argc, char **argv)
 			}
 			break;
 		case 0x104: // --voices
-			init_path(argv[0], data_path);
+			espeak_ng_InitializePath(data_path);
 			DisplayVoices(stdout, optarg2);
 			exit(0);
 		case 0x106: // -- split
@@ -627,7 +571,7 @@ int main(int argc, char **argv)
 			}
 			break;
 		case 0x10b: // --version
-			init_path(argv[0], data_path);
+			espeak_ng_InitializePath(data_path);
 			printf("speak text-to-speech: %s   Data at: %s\n", version_string, path_home);
 			exit(0);
 		case 0x10c: // --sep
@@ -662,7 +606,7 @@ int main(int argc, char **argv)
 		}
 	}
 
-	init_path(argv[0], data_path);
+	espeak_ng_InitializePath(data_path);
 	initialise();
 
 	if (voicename[0] == 0)

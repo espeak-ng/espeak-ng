@@ -258,19 +258,20 @@ void Free(void *ptr)
 		free(ptr);
 }
 
-static void init_path(const char *path)
+#pragma GCC visibility push(default)
+ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
+	if (path != NULL) {
+		sprintf(path_home, "%s/espeak-data", path);
+		return;
+	}
+
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
 	char *env;
 	unsigned char buf[sizeof(path_home)-13];
-
-	if (path != NULL) {
-		sprintf(path_home, "%s/espeak-data", path);
-		return;
-	}
 
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
 		sprintf(path_home, "%s/espeak-data", env);
@@ -285,13 +286,10 @@ static void init_path(const char *path)
 	RegQueryValueExA(RegKey, "path", 0, &var_type, buf, &size);
 
 	sprintf(path_home, "%s\\espeak-data", buf);
+#elif defined(PLATFORM_DOS)
+	strcpy(path_home, PATH_ESPEAK_DATA);
 #else
 	char *env;
-
-	if (path != NULL) {
-		snprintf(path_home, sizeof(path_home), "%s/espeak-data", path);
-		return;
-	}
 
 	// check for environment variable
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
@@ -305,6 +303,7 @@ static void init_path(const char *path)
 		strcpy(path_home, PATH_ESPEAK_DATA);
 #endif
 }
+#pragma GCC visibility pop
 
 static int initialise(int control)
 {
@@ -613,7 +612,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 				setlocale(LC_CTYPE, "");
 	}
 
-	init_path(path);
+	espeak_ng_InitializePath(path);
 	if (options & espeakINITIALIZE_PATH_ONLY)
 		return 0;
 

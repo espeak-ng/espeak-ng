@@ -46,6 +46,9 @@ typedef enum {
 
 #define espeakINITIALIZE_PATH_ONLY 0x4000
 
+ESPEAK_NG_API void
+espeak_ng_InitializePath(const char *path);
+
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
