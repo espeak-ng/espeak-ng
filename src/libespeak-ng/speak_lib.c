@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2013 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,8 +40,9 @@
 #include <unistd.h>
 #endif
 
-#include "speak_lib.h"
 #include "espeak_ng.h"
+#include "speak_lib.h"
+
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
@@ -308,19 +309,19 @@ static void init_path(const char *path)
 static int initialise(int control)
 {
 	int param;
-	int result;
 	int srate = 22050; // default sample rate 22050 Hz
 
 	err = EE_OK;
 	LoadConfig();
 
-	if ((result = LoadPhData(&srate)) != 1) { // reads sample rate from espeak-data/phontab
-		if (result == -1) {
+	espeak_ng_STATUS result = LoadPhData(&srate);
+	if (result != ENS_OK) {
+		if (result == ENE_READ_ERROR) {
 			fprintf(stderr, "Failed to load espeak-data\n");
 			if ((control & espeakINITIALIZE_DONT_EXIT) == 0)
 				exit(1);
 		} else
-			fprintf(stderr, "Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n", result, version_phdata, path_home);
+			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
 	}
 	WavegenInit(srate, 0);
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2011 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,9 @@
 #include <stdint.h>
 #endif
 
+#include "espeak_ng.h"
 #include "speak_lib.h"
+
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"

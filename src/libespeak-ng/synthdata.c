@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,9 @@
 #include <stdint.h>
 #endif
 
+#include "espeak_ng.h"
 #include "speak_lib.h"
+
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -105,25 +107,24 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 	return p;
 }
 
-int LoadPhData(int *srate)
+espeak_ng_STATUS LoadPhData(int *srate)
 {
 	int ix;
 	int n_phonemes;
 	int version;
-	int result = 1;
 	int length;
 	int rate;
 	unsigned char *p;
 	int *pw;
 
 	if ((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data), "phontab", NULL)) == NULL)
-		return -1;
+		return ENE_READ_ERROR;
 	if ((phoneme_index = (USHORT *)ReadPhFile((void *)(phoneme_index), "phonindex", NULL)) == NULL)
-		return -1;
+		return ENE_READ_ERROR;
 	if ((phondata_ptr = ReadPhFile((void *)(phondata_ptr), "phondata", NULL)) == NULL)
-		return -1;
+		return ENE_READ_ERROR;
 	if ((tunes = (TUNE *)ReadPhFile((void *)(tunes), "intonations", &length)) == NULL)
-		return -1;
+		return ENE_READ_ERROR;
 	wavefile_data = (unsigned char *)phondata_ptr;
 	n_tunes = length / sizeof(TUNE);
 
@@ -136,7 +137,7 @@ int LoadPhData(int *srate)
 	}
 
 	if (version != version_phdata)
-		result = version;
+		return ENE_VERSION_MISMATCH;
 
 	// set up phoneme tables
 	p = phoneme_tab_data;
@@ -161,7 +162,7 @@ int LoadPhData(int *srate)
 
 	if (srate != NULL)
 		*srate = rate;
-	return result;
+	return ENS_OK;
 }
 
 void FreePhData(void)

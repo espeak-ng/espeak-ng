@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2008 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * Based on a re-implementation by:
  * (c) 1993,94 Jon Iles and Nick Ing-Simmons
@@ -33,7 +33,9 @@
 #include <stdint.h>
 #endif
 
+#include "espeak_ng.h"
 #include "speak_lib.h"
+
 #include "speech.h"
 #include "klatt.h"
 #include "phoneme.h"

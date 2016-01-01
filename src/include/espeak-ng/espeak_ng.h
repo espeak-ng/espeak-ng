@@ -1,6 +1,6 @@
 /* eSpeak NG API.
  *
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,7 @@ typedef enum {
 	ENE_WRITE_ERROR = -2,
 	ENE_OUT_OF_MEMORY = -3,
 	ENE_COMPILE_ERRORS = -4,
+	ENE_VERSION_MISMATCH = -5,
 } espeak_ng_STATUS;
 
 #define espeakINITIALIZE_PATH_ONLY 0x4000
