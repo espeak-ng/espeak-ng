@@ -331,10 +331,22 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
 	SynthesizeInit();
 	InitNamedata();
 
+	VoiceReset(0);
+
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
-	return 0;
+	SetParameter(espeakRATE, 175, 0);
+	SetParameter(espeakVOLUME, 100, 0);
+	SetParameter(espeakCAPITALS, option_capitals, 0);
+	SetParameter(espeakPUNCTUATION, option_punctuation, 0);
+	SetParameter(espeakWORDGAP, 0, 0);
+
+#ifdef USE_ASYNC
+	fifo_init();
+#endif
+
+	return ENS_OK;
 }
 #pragma GCC visibility pop
 
@@ -638,21 +650,6 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 
 	option_phonemes = 0;
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
-
-	VoiceReset(0);
-
-	for (param = 0; param < N_SPEECH_PARAM; param++)
-		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
-
-	SetParameter(espeakRATE, 175, 0);
-	SetParameter(espeakVOLUME, 100, 0);
-	SetParameter(espeakCAPITALS, option_capitals, 0);
-	SetParameter(espeakPUNCTUATION, option_punctuation, 0);
-	SetParameter(espeakWORDGAP, 0, 0);
-
-#ifdef USE_ASYNC
-	fifo_init();
-#endif
 
 	return samplerate;
 }
