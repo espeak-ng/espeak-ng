@@ -6,17 +6,22 @@
 *  Support the `--compile-phonemes` command-line option.
 *  Support the `--compile-intonations` command-line option.
 *  Support SSML &lt;phoneme alphabet="espeak" ph="..."&gt; tags.
+*  Added man files for the `speak-ng` and `espeak-ng` command-line programs.
+*  Created a companion espeak-ng API to provide more detailed error codes and
+   provide access to the new espeak-ng functionality.
+
+build:
+
+*  Build the code with a C99 compiler, instead of a C++ compiler.
 *  Use -fPIC to support sparc/sparc64 architectures.
 *  Use the system's portaudio header files.
 *  Use the system's sonic library and header files.
-*  Added man files for the `speak-ng` and `espeak-ng` command-line programs.
 *  Output phoneme compilation errors to stderr.
 *  Generate build failures if building phoneme, intonation or dictionary files
    contain errors.
 
 restructuring:
 
-*  Build the code with a C99 compiler, instead of a C++ compiler.
 *  Moved the library code to `src/libespeak-ng`.
 *  Renamed `espeak` to `espeak-ng`.
 *  Renamed `speak` to `speak-ng`.

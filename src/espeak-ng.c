@@ -46,6 +46,9 @@ static const char *help_text =
     "is spoken from stdin, each line separately.\n\n"
     "-a <integer>\n"
     "\t   Amplitude, 0 to 200, default is 100\n"
+    "-d <device>\n"
+    "\t   Use the specified device to speak the audio on. If not specified, the\n"
+    "\t   default audio device is used.\n"
     "-g <integer>\n"
     "\t   Word gap. Pause between words, units of 10mS at the default speed\n"
     "-k <integer>\n"
@@ -299,7 +302,7 @@ struct option {
 };
 int optind;
 static int optional_argument;
-static const char *arg_opts = "abfgklpsvw"; // which options have arguments
+static const char *arg_opts = "abdfgklpsvw"; // which options have arguments
 static char *opt_string = "";
 #define no_argument 0
 #define required_argument 1
@@ -361,12 +364,14 @@ int main(int argc, char **argv)
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
+	char devicename[200];
 	#define N_PUNCTLIST 100
 	wchar_t option_punctlist[N_PUNCTLIST];
 
 	voicename[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
+	devicename[0] = 0;
 	option_punctlist[0] = 0;
 
 #ifdef NEED_GETOPT
@@ -415,7 +420,7 @@ int main(int argc, char **argv)
 		}
 #else
 	while (true) {
-		c = getopt_long(argc, argv, "a:b:f:g:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long(argc, argv, "a:b:d:f:g:hk:l:mp:qs:v:w:xXz",
 		                long_options, &option_index);
 
 		// Detect the end of the options.
@@ -432,6 +437,9 @@ int main(int argc, char **argv)
 				synth_flags |= value;
 			else
 				synth_flags |= espeakCHARS_8BIT;
+			break;
+		case 'd':
+			strncpy0(devicename, optarg2, sizeof(devicename));
 			break;
 		case 'h':
 			printf("\n");
@@ -591,7 +599,7 @@ int main(int argc, char **argv)
 
 	if (option_waveout || quiet) {
 		// writing to a file (or no output), we can use synchronous mode
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL);
+		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, devicename[0] ? devicename : NULL);
 		samplerate = espeak_ng_GetSampleRate();
 		samples_split = samplerate * samples_split_seconds;
 
@@ -606,8 +614,13 @@ int main(int argc, char **argv)
 		}
 	} else {
 		// play the sound output
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, NULL);
+		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, devicename[0] ? devicename : NULL);
 		samplerate = espeak_ng_GetSampleRate();
+	}
+
+	if (result != ENS_OK) {
+		fprintf(stderr, "Initialization failed.\n");
+		exit(1);
 	}
 
 	if (voicename[0] == 0)

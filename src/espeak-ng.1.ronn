@@ -27,6 +27,10 @@ languages.
 If neither -f nor --stdin are provided, &lt;words&gt; are spoken, or if no
 words are provided then text is spoken from stdin a line at a time.
 
+  * `-d <device>`:
+    Use the specified device to speak the audio on. If not specified, the
+    default audio device is used.
+
   * `-q`:
     Quiet, don't produce any speech (may be useful with -x).
 
