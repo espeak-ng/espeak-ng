@@ -349,6 +349,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
 	fifo_init();
 #endif
 
+	option_phonemes = 0;
+	option_phoneme_events = 0;
+
 	return ENS_OK;
 }
 #pragma GCC visibility pop
@@ -648,7 +651,6 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 		break;
 	}
 
-	option_phonemes = 0;
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	return samplerate;
