@@ -203,7 +203,7 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 #endif
 
 #pragma GCC visibility push(default)
-ESPEAK_NG_API void espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length)
 {
 	my_mode = output_mode;
 	my_audio = NULL;
@@ -214,6 +214,23 @@ ESPEAK_NG_API void espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode)
 		option_waveout = 0;
 		WavegenInitSound();
 	}
+
+	// buflength is in mS, allocate 2 bytes per sample
+	if ((buffer_length == 0) || (output_mode & ENOUTPUT_MODE_SPEAK_AUDIO))
+		buffer_length = 200;
+
+	outbuf_size = (buffer_length * samplerate)/500;
+	outbuf = (unsigned char *)realloc(outbuf, outbuf_size);
+	if ((out_start = outbuf) == NULL)
+		return ENE_OUT_OF_MEMORY;
+
+	// allocate space for event list.  Allow 200 events per second.
+	// Add a constant to allow for very small buf_length
+	n_event_list = (buffer_length*200)/1000 + 20;
+	if ((event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list)) == NULL)
+		return ENE_OUT_OF_MEMORY;
+
+	return ENS_OK;
 }
 
 int GetFileLength(const char *filename)
@@ -618,36 +635,18 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	switch (output_type)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, buf_length);
 		break;
 	case AUDIO_OUTPUT_RETRIEVAL:
-		espeak_ng_InitializeOutput(0);
+		espeak_ng_InitializeOutput(0, buf_length);
 		break;
 	case AUDIO_OUTPUT_SYNCHRONOUS:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, buf_length);
 		break;
 	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO, buf_length);
 		break;
 	}
-
-	if (f_logespeak)
-		fprintf(f_logespeak, "INIT mode %d options 0x%x\n", output_type, options);
-
-	// buflength is in mS, allocate 2 bytes per sample
-	if ((buf_length == 0) || (output_type == AUDIO_OUTPUT_PLAYBACK) || (output_type == AUDIO_OUTPUT_SYNCH_PLAYBACK))
-		buf_length = 200;
-
-	outbuf_size = (buf_length * samplerate)/500;
-	outbuf = (unsigned char *)realloc(outbuf, outbuf_size);
-	if ((out_start = outbuf) == NULL)
-		return EE_INTERNAL_ERROR;
-
-	// allocate space for event list.  Allow 200 events per second.
-	// Add a constant to allow for very small buf_length
-	n_event_list = (buf_length*200)/1000 + 20;
-	if ((event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list)) == NULL)
-		return EE_INTERNAL_ERROR;
 
 	option_phonemes = 0;
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
