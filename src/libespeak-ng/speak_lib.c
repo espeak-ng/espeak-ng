@@ -202,7 +202,8 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 
 #endif
 
-static void select_output(espeak_ng_OUTPUT_MODE output_mode)
+#pragma GCC visibility push(default)
+ESPEAK_NG_API void espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode)
 {
 	my_mode = output_mode;
 	my_audio = NULL;
@@ -215,7 +216,6 @@ static void select_output(espeak_ng_OUTPUT_MODE output_mode)
 	}
 }
 
-#pragma GCC visibility push(default)
 int GetFileLength(const char *filename)
 {
 	struct stat statbuf;
@@ -618,16 +618,16 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	switch (output_type)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
-		select_output(ENOUTPUT_MODE_SPEAK_AUDIO);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO);
 		break;
 	case AUDIO_OUTPUT_RETRIEVAL:
-		select_output(0);
+		espeak_ng_InitializeOutput(0);
 		break;
 	case AUDIO_OUTPUT_SYNCHRONOUS:
-		select_output(ENOUTPUT_MODE_SYNCHRONOUS);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS);
 		break;
 	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
-		select_output(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO);
 		break;
 	}
 
