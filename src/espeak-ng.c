@@ -579,9 +579,20 @@ int main(int argc, char **argv)
 		}
 	}
 
+	espeak_ng_InitializePath(data_path);
+	espeak_ng_STATUS result = espeak_ng_Initialize();
+	if (result != ENS_OK) {
+		if (result == ENE_READ_ERROR)
+			fprintf(stderr, "Failed to load espeak-data\n");
+		else
+			fprintf(stderr, "Wrong version of espeak-data\n");
+		exit(1);
+	}
+
 	if (option_waveout || quiet) {
 		// writing to a file (or no output), we can use synchronous mode
-		samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, data_path, 0);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL);
+		samplerate = espeak_ng_GetSampleRate();
 		samples_split = samplerate * samples_split_seconds;
 
 		espeak_SetSynthCallback(SynthCallback);
@@ -595,7 +606,8 @@ int main(int argc, char **argv)
 		}
 	} else {
 		// play the sound output
-		samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, data_path, 0);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, NULL);
+		samplerate = espeak_ng_GetSampleRate();
 	}
 
 	if (voicename[0] == 0)

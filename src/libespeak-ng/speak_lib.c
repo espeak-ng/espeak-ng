@@ -356,6 +356,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
 
 	return ENS_OK;
 }
+
+ESPEAK_NG_API int espeak_ng_GetSampleRate(void)
+{
+	return samplerate;
+}
 #pragma GCC visibility pop
 
 static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text, int flags)

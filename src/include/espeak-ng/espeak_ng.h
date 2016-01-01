@@ -60,6 +60,9 @@ espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode,
                            int buffer_length,
                            const char *device);
 
+ESPEAK_NG_API int
+espeak_ng_GetSampleRate(void);
+
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
