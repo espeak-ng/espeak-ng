@@ -64,6 +64,7 @@ int n_event_list;
 long count_samples;
 void *my_audio = NULL;
 
+static const char *option_device = NULL;
 static unsigned int my_unique_identifier = 0;
 static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
@@ -108,7 +109,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					sleep(1);
 				}
 				out_samplerate = voice_samplerate;
-				my_audio = wave_open(voice_samplerate, NULL);
+				my_audio = wave_open(voice_samplerate, option_device);
 				if (!my_audio) {
 					err = EE_INTERNAL_ERROR;
 					return -1;
@@ -203,8 +204,9 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 #endif
 
 #pragma GCC visibility push(default)
-ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
+	option_device = device;
 	my_mode = output_mode;
 	my_audio = NULL;
 	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
@@ -638,16 +640,16 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	switch (output_type)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, buf_length);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, buf_length, NULL);
 		break;
 	case AUDIO_OUTPUT_RETRIEVAL:
-		espeak_ng_InitializeOutput(0, buf_length);
+		espeak_ng_InitializeOutput(0, buf_length, NULL);
 		break;
 	case AUDIO_OUTPUT_SYNCHRONOUS:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, buf_length);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, buf_length, NULL);
 		break;
 	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO, buf_length);
+		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO, buf_length, NULL);
 		break;
 	}
 
