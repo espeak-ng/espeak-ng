@@ -303,26 +303,28 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 		strcpy(path_home, PATH_ESPEAK_DATA);
 #endif
 }
-#pragma GCC visibility pop
 
-static int initialise(int control)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
 {
 	int param;
 	int srate = 22050; // default sample rate 22050 Hz
 
-	err = EE_OK;
-	LoadConfig();
+	// It seems that the wctype functions don't work until the locale has been set
+	// to something other than the default "C".  Then, not only Latin1 but also the
+	// other characters give the correct results with iswalpha() etc.
+	if (setlocale(LC_CTYPE, "C.UTF-8") == NULL) {
+		if (setlocale(LC_CTYPE, "UTF-8") == NULL) {
+			if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL)
+				setlocale(LC_CTYPE, "");
+		}
+	}
 
 	espeak_ng_STATUS result = LoadPhData(&srate);
-	if (result != ENS_OK) {
-		if (result == ENE_READ_ERROR) {
-			fprintf(stderr, "Failed to load espeak-data\n");
-			if ((control & espeakINITIALIZE_DONT_EXIT) == 0)
-				exit(1);
-		} else
-			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
-	}
+	if (result != ENS_OK)
+		return result;
+
 	WavegenInit(srate, 0);
+	LoadConfig();
 
 	memset(&current_voice_selected, 0, sizeof(current_voice_selected));
 	SetVoiceStack(NULL, "");
@@ -334,6 +336,7 @@ static int initialise(int control)
 
 	return 0;
 }
+#pragma GCC visibility pop
 
 static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text, int flags)
 {
@@ -603,17 +606,16 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 {
 	int param;
 
-	// It seems that the wctype functions don't work until the locale has been set
-	// to something other than the default "C".  Then, not only Latin1 but also the
-	// other characters give the correct results with iswalpha() etc.
-	if (setlocale(LC_CTYPE, "C.UTF-8") == NULL) {
-		if (setlocale(LC_CTYPE, "UTF-8") == NULL)
-			if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL)
-				setlocale(LC_CTYPE, "");
-	}
-
 	espeak_ng_InitializePath(path);
-	initialise(options);
+	espeak_ng_STATUS result = espeak_ng_Initialize();
+	if (result != ENS_OK) {
+		if (result == ENE_READ_ERROR) {
+			fprintf(stderr, "Failed to load espeak-data\n");
+			if ((options & espeakINITIALIZE_DONT_EXIT) == 0)
+				exit(1);
+		} else
+			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
+	}
 	select_output(output_type);
 
 	if (f_logespeak)

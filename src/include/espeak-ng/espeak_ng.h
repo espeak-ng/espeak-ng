@@ -48,6 +48,9 @@ ESPEAK_NG_API void
 espeak_ng_InitializePath(const char *path);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_Initialize(void);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
                             FILE *log,

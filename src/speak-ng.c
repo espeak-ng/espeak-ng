@@ -284,38 +284,6 @@ static int WavegenFile(void)
 	return finished;
 }
 
-static int initialise(void)
-{
-	int param;
-	int srate = 22050; // default sample rate
-
-	// It seems that the wctype functions don't work until the locale has been set
-	// to something other than the default "C".  Then, not only Latin1 but also the
-	// other characters give the correct results with iswalpha() etc.
-	if (setlocale(LC_CTYPE, "en_US.UTF-8") == NULL) {
-		if (setlocale(LC_CTYPE, "UTF-8") == NULL)
-			setlocale(LC_CTYPE, "");
-	}
-
-	espeak_ng_STATUS result = LoadPhData(&srate);
-	if (result != ENS_OK) {
-		if (result == ENE_READ_ERROR) {
-			fprintf(stderr, "Failed to load espeak-data\n");
-			exit(1);
-		} else
-			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
-	}
-	WavegenInit(srate, 0);
-	LoadConfig();
-	SetVoiceStack(NULL, "");
-	SynthesizeInit();
-
-	for (param = 0; param < N_SPEECH_PARAM; param++)
-		param_stack[0].parameter[param] = param_defaults[param];
-
-	return 0;
-}
-
 #ifdef NEED_GETOPT
 struct option {
 	char *name;
@@ -607,7 +575,14 @@ int main(int argc, char **argv)
 	}
 
 	espeak_ng_InitializePath(data_path);
-	initialise();
+	espeak_ng_STATUS result = espeak_ng_Initialize();
+	if (result != ENS_OK) {
+		if (result == ENE_READ_ERROR)
+			fprintf(stderr, "Failed to load espeak-data\n");
+		else
+			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
+		exit(1);
+	}
 
 	if (voicename[0] == 0)
 		strcpy(voicename, "default");
