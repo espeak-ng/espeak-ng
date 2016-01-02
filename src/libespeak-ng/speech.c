@@ -511,12 +511,10 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 		ep->id.number = value;
 }
 
-espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text, size_t size,
+espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
                                unsigned int position, espeak_POSITION_TYPE position_type,
                                unsigned int end_position, unsigned int flags, void *user_data)
 {
-	(void)size; // unused
-
 	espeak_ERROR aStatus;
 
 	InitText(flags);
@@ -552,12 +550,10 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 	return aStatus;
 }
 
-espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size,
+espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
                                     const char *index_mark, unsigned int end_position,
                                     unsigned int flags, void *user_data)
 {
-	(void)size; // unused
-
 	espeak_ERROR aStatus;
 
 	InitText(flags);
@@ -645,6 +641,8 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
                                      unsigned int end_position, unsigned int flags,
                                      unsigned int *unique_identifier, void *user_data)
 {
+	(void)size; // unused
+
 	if (f_logespeak) {
 		fprintf(f_logespeak, "\nSYNTH posn %d %d %d flags 0x%x\n%s\n", position, end_position, position_type, flags, (const char *)text);
 		fflush(f_logespeak);
@@ -658,7 +656,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 	*unique_identifier = 0;
 
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
-		return sync_espeak_Synth(0, text, size, position, position_type, end_position, flags, user_data);
+		return sync_espeak_Synth(0, text, position, position_type, end_position, flags, user_data);
 
 #ifdef USE_ASYNC
 	// Create the text command
@@ -693,6 +691,8 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
                                           unsigned int *unique_identifier,
                                           void *user_data)
 {
+	(void)size; // unused
+
 	espeak_ERROR a_error = EE_OK;
 	static unsigned int temp_identifier;
 
@@ -704,7 +704,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 	*unique_identifier = 0;
 
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
-		return sync_espeak_Synth_Mark(0, text, size, index_mark, end_position, flags, user_data);
+		return sync_espeak_Synth_Mark(0, text, index_mark, end_position, flags, user_data);
 
 #ifdef USE_ASYNC
 	// Create the mark command

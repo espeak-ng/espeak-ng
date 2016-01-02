@@ -379,7 +379,7 @@ void process_espeak_command(t_espeak_command *the_command)
 	case ET_TEXT:
 	{
 		t_espeak_text *data = &(the_command->u.my_text);
-		sync_espeak_Synth(data->unique_identifier, data->text, data->size,
+		sync_espeak_Synth(data->unique_identifier, data->text,
 		                  data->position, data->position_type,
 		                  data->end_position, data->flags, data->user_data);
 	}
@@ -387,7 +387,7 @@ void process_espeak_command(t_espeak_command *the_command)
 	case ET_MARK:
 	{
 		t_espeak_mark *data = &(the_command->u.my_mark);
-		sync_espeak_Synth_Mark(data->unique_identifier, data->text, data->size,
+		sync_espeak_Synth_Mark(data->unique_identifier, data->text,
 		                       data->index_mark, data->end_position, data->flags,
 		                       data->user_data);
 	}
