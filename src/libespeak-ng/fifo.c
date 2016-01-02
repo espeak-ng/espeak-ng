@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,8 @@
 #include <sys/time.h>
 #include <time.h>
 
+#include "espeak_ng.h"
+
 #include "speech.h"
 #include "fifo.h"
 #include "wave.h"
@@ -50,7 +52,7 @@ static sem_t my_sem_stop_is_acknowledged;
 
 static void *say_thread(void *);
 
-static espeak_ERROR push(t_espeak_command *the_command);
+static espeak_ng_STATUS push(t_espeak_command *the_command);
 static t_espeak_command *pop();
 static void init(int process_parameters);
 static int node_counter = 0;
@@ -87,17 +89,19 @@ void fifo_init()
 		continue; // Restart when interrupted by handler
 }
 
-espeak_ERROR fifo_add_command(t_espeak_command *the_command)
+espeak_ng_STATUS fifo_add_command(t_espeak_command *the_command)
 {
-	int a_status = pthread_mutex_lock(&my_mutex);
-	espeak_ERROR a_error = EE_OK;
+	espeak_ng_STATUS status;
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+		return status;
 
-	if (!a_status) {
-		a_error = push(the_command);
-		a_status = pthread_mutex_unlock(&my_mutex);
-	}
+	if ((status = push(the_command)) != ENS_OK)
+		return status;
 
-	if (!a_status && !my_command_is_running && (a_error == EE_OK)) {
+	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
+		return status;
+
+	if (!my_command_is_running) {
 		// quit when command is actually started
 		// (for possible forthcoming 'end of command' checks)
 		sem_post(&my_sem_start_is_required);
@@ -108,28 +112,28 @@ espeak_ERROR fifo_add_command(t_espeak_command *the_command)
 		}
 	}
 
-	if (a_status != 0)
-		a_error = EE_INTERNAL_ERROR;
-
-	return a_error;
+	return ENS_OK;
 }
 
-espeak_ERROR fifo_add_commands(t_espeak_command *command1, t_espeak_command *command2)
+espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command *command2)
 {
-	int a_status = pthread_mutex_lock(&my_mutex);
-	espeak_ERROR a_error = EE_OK;
+	espeak_ng_STATUS status;
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+		return status;
 
-	if (!a_status) {
-		if (node_counter+1 >= MAX_NODE_COUNTER)
-			a_error = EE_BUFFER_FULL;
-		else {
-			push(command1);
-			push(command2);
-		}
-		a_status = pthread_mutex_unlock(&my_mutex);
-	}
+	if (node_counter+1 >= MAX_NODE_COUNTER)
+		return ENS_FIFO_BUFFER_FULL;
 
-	if (!a_status && !my_command_is_running && (a_error == EE_OK)) {
+	if ((status = push(command1)) != ENS_OK)
+		return status;
+
+	if ((status = push(command2)) != ENS_OK)
+		return status;
+
+	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
+		return status;
+
+	if (!my_command_is_running) {
 		// quit when one command is actually started
 		// (for possible forthcoming 'end of command' checks)
 		sem_post(&my_sem_start_is_required);
@@ -140,26 +144,23 @@ espeak_ERROR fifo_add_commands(t_espeak_command *command1, t_espeak_command *com
 		}
 	}
 
-	if (a_status != 0)
-		a_error = EE_INTERNAL_ERROR;
-
-	return a_error;
+	return ENS_OK;
 }
 
-espeak_ERROR fifo_stop()
+espeak_ng_STATUS fifo_stop()
 {
-	int a_command_is_running = 0;
-	int a_status = pthread_mutex_lock(&my_mutex);
-	if (a_status != 0)
-		return EE_INTERNAL_ERROR;
+	espeak_ng_STATUS status;
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+		return status;
 
+	int a_command_is_running = 0;
 	if (my_command_is_running) {
 		a_command_is_running = 1;
 		my_stop_is_required = 1;
 	}
-	a_status = pthread_mutex_unlock(&my_mutex);
-	if (a_status != 0)
-		return EE_INTERNAL_ERROR;
+
+	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
+		return status;
 
 	if (a_command_is_running) {
 		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
@@ -168,7 +169,7 @@ espeak_ERROR fifo_stop()
 
 	my_stop_is_required = 0;
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 int fifo_is_busy()
@@ -324,19 +325,19 @@ typedef struct t_node {
 static node *head = NULL;
 static node *tail = NULL;
 
-static espeak_ERROR push(t_espeak_command *the_command)
+static espeak_ng_STATUS push(t_espeak_command *the_command)
 {
 	assert((!head && !tail) || (head && tail));
 
 	if (the_command == NULL)
-		return EE_INTERNAL_ERROR;
+		return EINVAL;
 
 	if (node_counter >= MAX_NODE_COUNTER)
-		return EE_BUFFER_FULL;
+		return ENS_FIFO_BUFFER_FULL;
 
 	node *n = (node *)malloc(sizeof(node));
 	if (n == NULL)
-		return EE_INTERNAL_ERROR;
+		return ENOMEM;
 
 	if (head == NULL) {
 		head = n;
@@ -353,7 +354,7 @@ static espeak_ERROR push(t_espeak_command *the_command)
 
 	the_command->state = CS_PENDING;
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 static t_espeak_command *pop()

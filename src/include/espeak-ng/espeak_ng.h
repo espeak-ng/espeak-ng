@@ -38,6 +38,7 @@ typedef enum {
 	ENS_OK                       = 0,
 	ENS_COMPILE_ERROR            = 0x100001FF,
 	ENS_VERSION_MISMATCH         = 0x100002FF,
+	ENS_FIFO_BUFFER_FULL         = 0x100003FF,
 } espeak_ng_STATUS;
 
 typedef enum {

@@ -86,6 +86,17 @@ void WVoiceChanged(voice_t *wvoice)
 	voice_samplerate = wvoice->samplerate;
 }
 
+static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
+{
+	switch (status)
+	{
+	case ENS_OK:               return EE_OK;
+	case ENOENT:               return EE_NOT_FOUND;
+	case ENS_FIFO_BUFFER_FULL: return EE_BUFFER_FULL;
+	default:                   return EE_INTERNAL_ERROR;
+	}
+}
+
 #ifdef USE_ASYNC
 
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
@@ -698,7 +709,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 
 	// Try to add these 2 commands (single transaction)
 	if (c1 && c2) {
-		a_error = fifo_add_commands(c1, c2);
+		a_error = status_to_espeak_error(fifo_add_commands(c1, c2));
 		if (a_error != EE_OK) {
 			delete_espeak_command(c1);
 			delete_espeak_command(c2);
@@ -745,7 +756,7 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 
 	// Try to add these 2 commands (single transaction)
 	if (c1 && c2) {
-		a_error = fifo_add_commands(c1, c2);
+		a_error = status_to_espeak_error(fifo_add_commands(c1, c2));
 		if (a_error != EE_OK) {
 			delete_espeak_command(c1);
 			delete_espeak_command(c2);
@@ -775,7 +786,7 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 
 #ifdef USE_ASYNC
 	t_espeak_command *c = create_espeak_key(key, NULL);
-	a_error = fifo_add_command(c);
+	a_error = status_to_espeak_error(fifo_add_command(c));
 	if (a_error != EE_OK)
 		delete_espeak_command(c);
 #endif
@@ -798,7 +809,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 	}
 
 	t_espeak_command *c = create_espeak_char(character, NULL);
-	a_error = fifo_add_command(c);
+	a_error = status_to_espeak_error(fifo_add_command(c));
 	if (a_error != EE_OK)
 		delete_espeak_command(c);
 	return a_error;
@@ -830,7 +841,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
 	t_espeak_command *c = create_espeak_parameter(parameter, value, relative);
 
-	a_error = fifo_add_command(c);
+	a_error = status_to_espeak_error(fifo_add_command(c));
 	if (a_error != EE_OK)
 		delete_espeak_command(c);
 	return a_error;
@@ -853,7 +864,7 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 	}
 
 	t_espeak_command *c = create_espeak_punctuation_list(punctlist);
-	a_error = fifo_add_command(c);
+	a_error = status_to_espeak_error(fifo_add_command(c));
 	if (a_error != EE_OK)
 		delete_espeak_command(c);
 	return a_error;

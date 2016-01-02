@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,28 +38,16 @@ void fifo_init();
 //
 // Note: this function fails if too many commands are already buffered.
 // In such a case, the calling function could wait and then add again its command.
-//
-// Return: EE_OK: operation achieved
-//         EE_BUFFER_FULL: the command can not be buffered;
-//           you may try after a while to call the function again.
-//         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_add_command(t_espeak_command *c);
+espeak_ng_STATUS fifo_add_command(t_espeak_command *c);
 
 // Add two espeak commands in a single transaction.
 //
 // Note: this function fails if too many commands are already buffered.
 // In such a case, the calling function could wait and then add again these commands.
-//
-// Return: EE_OK: operation achieved
-//         EE_BUFFER_FULL: at least one command can not be buffered;
-//           you may try after a while to call the function again.
-//         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_add_commands(t_espeak_command *c1, t_espeak_command *c2);
+espeak_ng_STATUS fifo_add_commands(t_espeak_command *c1, t_espeak_command *c2);
 
 // The current running command must be stopped and the awaiting commands are cleared.
-// Return: EE_OK: operation achieved
-//         EE_INTERNAL_ERROR.
-espeak_ERROR fifo_stop();
+espeak_ng_STATUS fifo_stop();
 
 // Is there a running command?
 // Returns 1 if yes; 0 otherwise.
