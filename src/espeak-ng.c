@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2006 to 2013 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -590,10 +590,10 @@ int main(int argc, char **argv)
 	espeak_ng_InitializePath(data_path);
 	espeak_ng_STATUS result = espeak_ng_Initialize();
 	if (result != ENS_OK) {
-		if (result == ENE_READ_ERROR)
-			fprintf(stderr, "Failed to load espeak-data\n");
-		else
+		if (result == ENE_VERSION_MISMATCH)
 			fprintf(stderr, "Wrong version of espeak-data\n");
+		else
+			fprintf(stderr, "Failed to load espeak-data\n");
 		exit(1);
 	}
 
