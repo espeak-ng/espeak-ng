@@ -132,8 +132,8 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			// TBD: the last one has its size=0.
 			if (event && (event->type == espeakEVENT_WORD) && (event->length == 0))
 				break;
-			espeak_ERROR a_error = event_declare(event);
-			if (a_error != EE_BUFFER_FULL)
+			err = event_declare(event);
+			if (err != ENS_EVENT_BUFFER_FULL)
 				break;
 			usleep(10000);
 			a_wave_can_be_played = fifo_is_command_enabled();
@@ -190,8 +190,8 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 
 	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		while (1) {
-			espeak_ERROR a_error = event_declare(event_list);
-			if (a_error != EE_BUFFER_FULL)
+			err = event_declare(event_list);
+			if (err != ENS_EVENT_BUFFER_FULL)
 				break;
 			usleep(10000);
 		}

@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include <stdbool.h>
 
 #include "speech.h"
+#include "espeak_ng.h"
 #include "speak_lib.h"
 #include "event.h"
 #include "wave.h"
@@ -63,7 +64,7 @@ typedef struct t_node {
 static node *head = NULL;
 static node *tail = NULL;
 static int node_counter = 0;
-static espeak_ERROR push(void *data);
+static espeak_ng_STATUS push(void *data);
 static void *pop();
 static void init();
 static void *polling_thread(void *);
@@ -196,53 +197,51 @@ static int event_delete(espeak_EVENT *event)
 	return 1;
 }
 
-espeak_ERROR event_declare(espeak_EVENT *event)
+espeak_ng_STATUS event_declare(espeak_EVENT *event)
 {
 	if (!event)
-		return EE_INTERNAL_ERROR;
+		return EINVAL;
 
-	int a_status = pthread_mutex_lock(&my_mutex);
-	espeak_ERROR a_error = EE_OK;
+	espeak_ng_STATUS status;
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+		return status;
 
-	if (!a_status) {
-		espeak_EVENT *a_event = event_copy(event);
-		a_error = push(a_event);
-		if (a_error != EE_OK)
-			event_delete(a_event);
-		a_status = pthread_mutex_unlock(&my_mutex);
+	espeak_EVENT *a_event = event_copy(event);
+	if ((status = push(a_event)) != ENS_OK) {
+		event_delete(a_event);
+		pthread_mutex_unlock(&my_mutex);
+		return status;
 	}
+
+	status = pthread_mutex_lock(&my_mutex);
 
 	sem_post(&my_sem_start_is_required);
 
-	if (a_status != 0)
-		a_error = EE_INTERNAL_ERROR;
-
-	return a_error;
+	return status;
 }
 
-espeak_ERROR event_clear_all()
+espeak_ng_STATUS event_clear_all()
 {
-	int a_status = pthread_mutex_lock(&my_mutex);
+	espeak_ng_STATUS status;
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+		return status;
+
 	int a_event_is_running = 0;
-
-	if (a_status != 0)
-		return EE_INTERNAL_ERROR;
-
 	if (my_event_is_running) {
 		sem_post(&my_sem_stop_is_required);
 		a_event_is_running = 1;
 	} else
 		init(); // clear pending events
-	a_status = pthread_mutex_unlock(&my_mutex);
-	if (a_status != 0)
-		return EE_INTERNAL_ERROR;
+
+	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
+		return status;
 
 	if (a_event_is_running) {
 		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
 	}
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
@@ -406,19 +405,19 @@ static void *polling_thread(void *p)
 
 enum { MAX_NODE_COUNTER = 1000 };
 
-static espeak_ERROR push(void *the_data)
+static espeak_ng_STATUS push(void *the_data)
 {
 	assert((!head && !tail) || (head && tail));
 
 	if (the_data == NULL)
-		return EE_INTERNAL_ERROR;
+		return EINVAL;
 
 	if (node_counter >= MAX_NODE_COUNTER)
-		return EE_BUFFER_FULL;
+		return ENS_EVENT_BUFFER_FULL;
 
 	node *n = (node *)malloc(sizeof(node));
 	if (n == NULL)
-		return EE_INTERNAL_ERROR;
+		return ENOMEM;
 
 	if (head == NULL) {
 		head = n;
@@ -433,7 +432,7 @@ static espeak_ERROR push(void *the_data)
 
 	node_counter++;
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 static void *pop()

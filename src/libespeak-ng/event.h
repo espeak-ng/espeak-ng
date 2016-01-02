@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,18 +54,10 @@ void event_init(void);
 void event_set_callback(t_espeak_callback *cb);
 
 // Clear any pending event.
-//
-// Return: EE_OK: operation achieved
-//         EE_INTERNAL_ERROR.
-espeak_ERROR event_clear_all();
+espeak_ng_STATUS event_clear_all();
 
 // Declare a future event
-//
-// Return: EE_OK: operation achieved
-//         EE_BUFFER_FULL: the event can not be buffered;
-//           you may try after a while to call the function again.
-//         EE_INTERNAL_ERROR.
-espeak_ERROR event_declare(espeak_EVENT *event);
+espeak_ng_STATUS event_declare(espeak_EVENT *event);
 
 // Terminate the event component.
 // Last function to be called.
