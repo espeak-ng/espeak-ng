@@ -554,8 +554,6 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
                                     const char *index_mark, unsigned int end_position,
                                     unsigned int flags, void *user_data)
 {
-	espeak_ERROR aStatus;
-
 	InitText(flags);
 
 	my_unique_identifier = unique_identifier;
@@ -568,9 +566,7 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 
 	end_character_position = end_position;
 
-	aStatus = Synthesize(unique_identifier, text, flags | espeakSSML);
-
-	return aStatus;
+	return Synthesize(unique_identifier, text, flags | espeakSSML);
 }
 
 void sync_espeak_Key(const char *key)
