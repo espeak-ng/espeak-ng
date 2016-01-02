@@ -86,17 +86,6 @@ void WVoiceChanged(voice_t *wvoice)
 	voice_samplerate = wvoice->samplerate;
 }
 
-static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
-{
-	switch (status)
-	{
-	case ENS_OK:               return EE_OK;
-	case ENOENT:               return EE_NOT_FOUND;
-	case ENS_FIFO_BUFFER_FULL: return EE_BUFFER_FULL;
-	default:                   return EE_INTERNAL_ERROR;
-	}
-}
-
 #ifdef USE_ASYNC
 
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
@@ -764,26 +753,24 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetParameter(espeak_PARAMETER parameter
 #endif
 }
 
-ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetPunctuationList(const wchar_t *punctlist)
 {
 	// Set the list of punctuation which are spoken for "some".
 
 #ifdef USE_ASYNC
-	espeak_ERROR a_error;
-
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_SetPunctuationList(punctlist);
-		return EE_OK;
+		return ENS_OK;
 	}
 
 	t_espeak_command *c = create_espeak_punctuation_list(punctlist);
-	a_error = status_to_espeak_error(fifo_add_command(c));
-	if (a_error != EE_OK)
+	espeak_ng_STATUS status = fifo_add_command(c);
+	if (status != ENS_OK)
 		delete_espeak_command(c);
-	return a_error;
+	return status;
 #else
 	sync_espeak_SetPunctuationList(punctlist);
-	return EE_OK;
+	return ENS_OK;
 #endif
 }
 

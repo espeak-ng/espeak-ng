@@ -70,6 +70,9 @@ espeak_ng_SetParameter(espeak_PARAMETER parameter,
                        int relative);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetPunctuationList(const wchar_t *punctlist);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_Synthesize(const void *text,
                      size_t size,
                      unsigned int position,

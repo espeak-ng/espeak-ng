@@ -136,6 +136,11 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 	return status_to_espeak_error(espeak_ng_SetParameter(parameter, value, relative));
 }
 
+ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
+{
+	return status_to_espeak_error(espeak_ng_SetPunctuationList(punctlist));
+}
+
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
 {
 	espeak_ng_CompileDictionary(path, dictionary_name, log, flags);
