@@ -137,8 +137,8 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
                                     const char *index_mark, unsigned int end_position,
                                     unsigned int flags, void *user_data);
-void sync_espeak_Key(const char *key);
-void sync_espeak_Char(wchar_t character);
+espeak_ng_STATUS sync_espeak_Key(const char *key);
+espeak_ng_STATUS sync_espeak_Char(wchar_t character);
 void sync_espeak_SetPunctuationList(const wchar_t *punctlist);
 void sync_espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative);
 int sync_espeak_SetVoiceByName(const char *name);

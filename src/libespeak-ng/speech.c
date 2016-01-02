@@ -567,25 +567,22 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 	return status_to_espeak_error(Synthesize(unique_identifier, text, flags | espeakSSML));
 }
 
-void sync_espeak_Key(const char *key)
+espeak_ng_STATUS sync_espeak_Key(const char *key)
 {
 	// symbolic name, symbolicname_character  - is there a system resource of symbolic names per language?
 	int letter;
 	int ix;
 
 	ix = utf8_in(&letter, key);
-	if (key[ix] == 0) {
-		// a single character
-		sync_espeak_Char(letter);
-		return;
-	}
+	if (key[ix] == 0) // a single character
+		return sync_espeak_Char(letter);
 
 	my_unique_identifier = 0;
 	my_user_data = NULL;
-	Synthesize(0, key, 0); // speak key as a text string
+	return Synthesize(0, key, 0); // speak key as a text string
 }
 
-void sync_espeak_Char(wchar_t character)
+espeak_ng_STATUS sync_espeak_Char(wchar_t character)
 {
 	// is there a system resource of character names per language?
 	char buf[80];
@@ -593,7 +590,7 @@ void sync_espeak_Char(wchar_t character)
 	my_user_data = NULL;
 
 	sprintf(buf, "<say-as interpret-as=\"tts:char\">&#%d;</say-as>", character);
-	Synthesize(0, buf, espeakSSML);
+	return Synthesize(0, buf, espeakSSML);
 }
 
 void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
@@ -705,10 +702,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakKeyName(const char *key_name)
 {
 	// symbolic name, symbolicname_character  - is there a system resource of symbolicnames per language
 
-	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
-		sync_espeak_Key(key_name);
-		return ENS_OK;
-	}
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
+		return sync_espeak_Key(key_name);
 
 #ifdef USE_ASYNC
 	t_espeak_command *c = create_espeak_key(key_name, NULL);
@@ -717,8 +712,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakKeyName(const char *key_name)
 		delete_espeak_command(c);
 	return status;
 #else
-	sync_espeak_Key(key_name);
-	return ENS_OK;
+	return sync_espeak_Key(key_name);
 #endif
 }
 
@@ -727,10 +721,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
 	// is there a system resource of character names per language?
 
 #ifdef USE_ASYNC
-	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
-		sync_espeak_Char(character);
-		return ENS_OK;
-	}
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
+		return sync_espeak_Char(character);
 
 	t_espeak_command *c = create_espeak_char(character, NULL);
 	espeak_ng_STATUS status = fifo_add_command(c);
@@ -738,8 +730,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
 		delete_espeak_command(c);
 	return status;
 #else
-	sync_espeak_Char(character);
-	return ENS_OK;
+	return sync_espeak_Char(character);
 #endif
 }
 

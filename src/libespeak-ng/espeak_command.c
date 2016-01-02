@@ -18,6 +18,8 @@
 
 #include "config.h"
 
+#include "espeak_ng.h"
+
 #include "speech.h"
 #include "espeak_command.h"
 #include <stdlib.h>
