@@ -31,15 +31,14 @@ extern "C"
 #endif
 
 typedef enum {
-	/* Success Codes (>= 0) */
-
 	ENS_OK = 0,
+
+	/* 0 to 255 : errno */
 
 	/* Error Codes (< 0) */
 
 	ENE_READ_ERROR = -1,
 	ENE_WRITE_ERROR = -2,
-	ENE_OUT_OF_MEMORY = -3,
 	ENE_COMPILE_ERRORS = -4,
 	ENE_VERSION_MISMATCH = -5,
 } espeak_ng_STATUS;

@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -2862,7 +2863,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 		fprintf(f_errors, "Failed to allocate data for tunes\n");
 		fclose(f_in);
 		fclose(f_errors);
-		return ENE_OUT_OF_MEMORY;
+		return ENOMEM;
 	}
 
 	sprintf(buf, "%s/intonations", path_home);

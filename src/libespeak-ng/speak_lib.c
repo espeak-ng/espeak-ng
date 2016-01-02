@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include "errno.h"
 #include "stdio.h"
 #include "ctype.h"
 #include "string.h"
@@ -224,13 +225,13 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	outbuf_size = (buffer_length * samplerate)/500;
 	outbuf = (unsigned char *)realloc(outbuf, outbuf_size);
 	if ((out_start = outbuf) == NULL)
-		return ENE_OUT_OF_MEMORY;
+		return ENOMEM;
 
 	// allocate space for event list.  Allow 200 events per second.
 	// Add a constant to allow for very small buf_length
 	n_event_list = (buffer_length*200)/1000 + 20;
 	if ((event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list)) == NULL)
-		return ENE_OUT_OF_MEMORY;
+		return ENOMEM;
 
 	return ENS_OK;
 }
