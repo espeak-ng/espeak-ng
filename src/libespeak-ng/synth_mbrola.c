@@ -625,9 +625,9 @@ void MbrolaReset(void)
 
 // mbrola interface is not compiled, provide dummy functions.
 
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
+espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
-	return EE_INTERNAL_ERROR;
+	return ENS_NOT_SUPPORTED;
 }
 
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)

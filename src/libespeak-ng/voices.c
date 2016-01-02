@@ -1554,7 +1554,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 			DoVoiceChange(voice);
 			voice_selector.languages = voice->language_name;
 			SetVoiceStack(&voice_selector, variant_name);
-			return EE_OK;
+			return ENS_OK;
 		}
 	}
 	return ENS_VOICE_NOT_FOUND;

@@ -47,6 +47,7 @@ typedef enum {
 	ENS_MBROLA_NOT_FOUND         = 0x100007FF,
 	ENS_MBROLA_VOICE_NOT_FOUND   = 0x100008FF,
 	ENS_EVENT_BUFFER_FULL        = 0x100009FF,
+	ENS_NOT_SUPPORTED            = 0x10000AFF,
 } espeak_ng_STATUS;
 
 typedef enum {

@@ -763,7 +763,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetParameter(espeak_PARAMETER parameter
 	t_espeak_command *c = create_espeak_parameter(parameter, value, relative);
 
 	espeak_ng_STATUS status = fifo_add_command(c);
-	if (status != EE_OK)
+	if (status != ENS_OK)
 		delete_espeak_command(c);
 	return status;
 #else
