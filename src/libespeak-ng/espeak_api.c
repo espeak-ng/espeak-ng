@@ -42,6 +42,7 @@ static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
 	{
 	case ENS_OK:               return EE_OK;
 	case ENOENT:               return EE_NOT_FOUND;
+	case ENS_VOICE_NOT_FOUND:  return EE_NOT_FOUND;
 	case ENS_FIFO_BUFFER_FULL: return EE_BUFFER_FULL;
 	default:                   return EE_INTERNAL_ERROR;
 	}
