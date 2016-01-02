@@ -639,43 +639,6 @@ ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
 	phoneme_callback = PhonemeCallback;
 }
 
-ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
-{
-	int param;
-
-	espeak_ng_InitializePath(path);
-	espeak_ng_STATUS result = espeak_ng_Initialize();
-	if (result != ENS_OK) {
-		if (result == ENS_VERSION_MISMATCH)
-			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
-		else {
-			fprintf(stderr, "Failed to load espeak-data\n");
-			if ((options & espeakINITIALIZE_DONT_EXIT) == 0)
-				exit(1);
-		}
-	}
-
-	switch (output_type)
-	{
-	case AUDIO_OUTPUT_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, buf_length, NULL);
-		break;
-	case AUDIO_OUTPUT_RETRIEVAL:
-		espeak_ng_InitializeOutput(0, buf_length, NULL);
-		break;
-	case AUDIO_OUTPUT_SYNCHRONOUS:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, buf_length, NULL);
-		break;
-	case AUDIO_OUTPUT_SYNCH_PLAYBACK:
-		espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO, buf_length, NULL);
-		break;
-	}
-
-	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
-
-	return samplerate;
-}
-
 ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
                                      unsigned int position,
                                      espeak_POSITION_TYPE position_type,
