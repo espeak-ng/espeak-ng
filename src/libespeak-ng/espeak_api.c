@@ -126,12 +126,12 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist)
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name)
 {
-	return status_to_espeak_error(espeak_SetVoiceByName(name));
+	return status_to_espeak_error(espeak_ng_SetVoiceByName(name));
 }
 
 ESPEAK_API espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
 {
-	return status_to_espeak_error(espeak_SetVoiceByProperties(voice_selector));
+	return status_to_espeak_error(espeak_ng_SetVoiceByProperties(voice_selector));
 }
 
 ESPEAK_API espeak_ERROR espeak_Cancel(void)
