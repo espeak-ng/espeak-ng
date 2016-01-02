@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,10 +74,11 @@ int vowel_transition1;
 
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
-static char *ReadPhFile(void *ptr, const char *fname, int *size)
+static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size)
 {
+	if (!ptr) return EINVAL;
+
 	FILE *f_in;
-	char *p;
 	unsigned int length;
 	char buf[sizeof(path_home)+40];
 
@@ -85,26 +87,27 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 
 	if ((f_in = fopen(buf, "rb")) == NULL) {
 		fprintf(stderr, "Can't read data file: '%s'\n", buf);
-		return NULL;
+		return errno;
 	}
 
-	if (ptr != NULL)
-		Free(ptr);
+	if (*ptr != NULL)
+		Free(*ptr);
 
-	if ((p = Alloc(length)) == NULL) {
+	if ((*ptr = Alloc(length)) == NULL) {
 		fclose(f_in);
-		return NULL;
+		return ENOMEM;
 	}
-	if (fread(p, 1, length, f_in) != length) {
+	if (fread(*ptr, 1, length, f_in) != length) {
+		int error = errno;
 		fclose(f_in);
-		Free(p);
-		return NULL;
+		Free(*ptr);
+		return error;
 	}
 
 	fclose(f_in);
 	if (size != NULL)
 		*size = length;
-	return p;
+	return ENS_OK;
 }
 
 espeak_ng_STATUS LoadPhData(int *srate)
@@ -117,14 +120,15 @@ espeak_ng_STATUS LoadPhData(int *srate)
 	unsigned char *p;
 	int *pw;
 
-	if ((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data), "phontab", NULL)) == NULL)
-		return ENE_READ_ERROR;
-	if ((phoneme_index = (USHORT *)ReadPhFile((void *)(phoneme_index), "phonindex", NULL)) == NULL)
-		return ENE_READ_ERROR;
-	if ((phondata_ptr = ReadPhFile((void *)(phondata_ptr), "phondata", NULL)) == NULL)
-		return ENE_READ_ERROR;
-	if ((tunes = (TUNE *)ReadPhFile((void *)(tunes), "intonations", &length)) == NULL)
-		return ENE_READ_ERROR;
+	espeak_ng_STATUS status;
+	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL)) != ENS_OK)
+		return status;
+	if ((status = ReadPhFile((void **)&phoneme_index, "phonindex", NULL)) != ENS_OK)
+		return status;
+	if ((status = ReadPhFile((void **)&phondata_ptr, "phondata", NULL)) != ENS_OK)
+		return status;
+	if ((status = ReadPhFile((void **)&tunes, "intonations", &length)) != ENS_OK)
+		return status;
 	wavefile_data = (unsigned char *)phondata_ptr;
 	n_tunes = length / sizeof(TUNE);
 
