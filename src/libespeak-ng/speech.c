@@ -613,24 +613,6 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 
 #pragma GCC visibility push(default)
 
-ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback)
-{
-	synth_callback = SynthCallback;
-#ifdef USE_ASYNC
-	event_set_callback(synth_callback);
-#endif
-}
-
-ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
-{
-	uri_callback = UriCallback;
-}
-
-ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
-{
-	phoneme_callback = PhonemeCallback;
-}
-
 ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
                                      unsigned int position,
                                      espeak_POSITION_TYPE position_type,

@@ -1,5 +1,7 @@
 /* An implementation of the eSpeak API using the espeak-ng API.
  *
+ * Copyright (C) 2005 to 2013 by Jonathan Duddington
+ * email: jonsd@users.sourceforge.net
  * Copyright (C) 2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
@@ -31,6 +33,8 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+
+#include "event.h"
 
 static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
 {
@@ -78,6 +82,24 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	return espeak_ng_GetSampleRate();
+}
+
+ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback)
+{
+	synth_callback = SynthCallback;
+#ifdef USE_ASYNC
+	event_set_callback(synth_callback);
+#endif
+}
+
+ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, const char *))
+{
+	uri_callback = UriCallback;
+}
+
+ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
+{
+	phoneme_callback = PhonemeCallback;
 }
 
 ESPEAK_API espeak_ERROR espeak_Key(const char *key_name)
