@@ -808,7 +808,7 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 	return GetTranslatedPhonemeString(phonememode);
 }
 
-ESPEAK_API espeak_ERROR espeak_Cancel(void)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 {
 #ifdef USE_ASYNC
 	fifo_stop();
@@ -822,7 +822,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
 		SetParameter(i, saved_parameters[i], 0);
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 ESPEAK_API int espeak_IsPlaying(void)

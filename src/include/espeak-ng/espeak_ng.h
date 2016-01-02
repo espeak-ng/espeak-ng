@@ -98,6 +98,9 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SpeakCharacter(wchar_t character);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_Cancel(void);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
                             FILE *log,
