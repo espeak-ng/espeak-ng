@@ -111,6 +111,16 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 	return status_to_espeak_error(espeak_ng_Synthesize(text, size, position, position_type, end_position, flags, unique_identifier, user_data));
 }
 
+ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
+                                          const char *index_mark,
+                                          unsigned int end_position,
+                                          unsigned int flags,
+                                          unsigned int *unique_identifier,
+                                          void *user_data)
+{
+	return status_to_espeak_error(espeak_ng_SynthesizeMark(text, size, index_mark, end_position, flags, unique_identifier, user_data));
+}
+
 ESPEAK_API espeak_ERROR espeak_Key(const char *key_name)
 {
 	return status_to_espeak_error(espeak_ng_SpeakKeyName(key_name));

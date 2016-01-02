@@ -75,6 +75,15 @@ espeak_ng_Synthesize(const void *text,
                      void *user_data);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SynthesizeMark(const void *text,
+                         size_t size,
+                         const char *index_mark,
+                         unsigned int end_position,
+                         unsigned int flags,
+                         unsigned int *unique_identifier,
+                         void *user_data);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SpeakKeyName(const char *key_name);
 
 ESPEAK_NG_API espeak_ng_STATUS

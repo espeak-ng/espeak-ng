@@ -548,9 +548,9 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	return aStatus;
 }
 
-espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
-                                    const char *index_mark, unsigned int end_position,
-                                    unsigned int flags, void *user_data)
+espeak_ng_STATUS sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
+                                        const char *index_mark, unsigned int end_position,
+                                        unsigned int flags, void *user_data)
 {
 	InitText(flags);
 
@@ -564,7 +564,7 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 
 	end_character_position = end_position;
 
-	return status_to_espeak_error(Synthesize(unique_identifier, text, flags | espeakSSML));
+	return Synthesize(unique_identifier, text, flags | espeakSSML);
 }
 
 espeak_ng_STATUS sync_espeak_Key(const char *key)
@@ -654,16 +654,17 @@ espeak_ng_Synthesize(const void *text, size_t size,
 #endif
 }
 
-ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
-                                          const char *index_mark,
-                                          unsigned int end_position,
-                                          unsigned int flags,
-                                          unsigned int *unique_identifier,
-                                          void *user_data)
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SynthesizeMark(const void *text,
+                         size_t size,
+                         const char *index_mark,
+                         unsigned int end_position,
+                         unsigned int flags,
+                         unsigned int *unique_identifier,
+                         void *user_data)
 {
-	(void)size; // unused
+	(void)size; // unused in non-async modes
 
-	espeak_ERROR a_error = EE_OK;
 	static unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
@@ -686,18 +687,20 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 
 	// Try to add these 2 commands (single transaction)
 	if (c1 && c2) {
-		a_error = status_to_espeak_error(fifo_add_commands(c1, c2));
-		if (a_error != EE_OK) {
+		espeak_ng_STATUS status = fifo_add_commands(c1, c2);
+		if (status != ENS_OK) {
 			delete_espeak_command(c1);
 			delete_espeak_command(c2);
-			c1 = c2 = NULL;
 		}
-	} else {
-		delete_espeak_command(c1);
-		delete_espeak_command(c2);
+		return status;
 	}
+
+	delete_espeak_command(c1);
+	delete_espeak_command(c2);
+	return ENOMEM;
+#else
+	return sync_espeak_Synth_Mark(0, text, index_mark, end_position, flags, user_data);
 #endif
-	return a_error;
 }
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakKeyName(const char *key_name)

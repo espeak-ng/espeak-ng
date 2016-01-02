@@ -134,9 +134,9 @@ int delete_espeak_command(t_espeak_command *the_command);
 espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *text,
                                    unsigned int position, espeak_POSITION_TYPE position_type,
                                    unsigned int end_position, unsigned int flags, void *user_data);
-espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
-                                    const char *index_mark, unsigned int end_position,
-                                    unsigned int flags, void *user_data);
+espeak_ng_STATUS sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text,
+                                        const char *index_mark, unsigned int end_position,
+                                        unsigned int flags, void *user_data);
 espeak_ng_STATUS sync_espeak_Key(const char *key);
 espeak_ng_STATUS sync_espeak_Char(wchar_t character);
 void sync_espeak_SetPunctuationList(const wchar_t *punctlist);
