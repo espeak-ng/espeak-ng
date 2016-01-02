@@ -511,9 +511,9 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 		ep->id.number = value;
 }
 
-espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
-                               unsigned int position, espeak_POSITION_TYPE position_type,
-                               unsigned int end_position, unsigned int flags, void *user_data)
+espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *text,
+                                   unsigned int position, espeak_POSITION_TYPE position_type,
+                                   unsigned int end_position, unsigned int flags, void *user_data)
 {
 	InitText(flags);
 	my_unique_identifier = unique_identifier;
@@ -540,7 +540,7 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 
 	end_character_position = end_position;
 
-	espeak_ERROR aStatus = status_to_espeak_error(Synthesize(unique_identifier, text, flags));
+	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
 	#ifdef USE_ASYNC
 	wave_flush(my_audio);
 	#endif
@@ -608,15 +608,15 @@ void sync_espeak_SetPunctuationList(const wchar_t *punctlist)
 
 #pragma GCC visibility push(default)
 
-ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
-                                     unsigned int position,
-                                     espeak_POSITION_TYPE position_type,
-                                     unsigned int end_position, unsigned int flags,
-                                     unsigned int *unique_identifier, void *user_data)
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_Synthesize(const void *text, size_t size,
+                     unsigned int position,
+                     espeak_POSITION_TYPE position_type,
+                     unsigned int end_position, unsigned int flags,
+                     unsigned int *unique_identifier, void *user_data)
 {
-	(void)size; // unused
+	(void)size; // unused in non-async modes
 
-	espeak_ERROR a_error = EE_INTERNAL_ERROR;
 	static unsigned int temp_identifier;
 
 	if (unique_identifier == NULL)
@@ -638,18 +638,20 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 
 	// Try to add these 2 commands (single transaction)
 	if (c1 && c2) {
-		a_error = status_to_espeak_error(fifo_add_commands(c1, c2));
-		if (a_error != EE_OK) {
+		espeak_ng_STATUS status = fifo_add_commands(c1, c2);
+		if (status != ENS_OK) {
 			delete_espeak_command(c1);
 			delete_espeak_command(c2);
-			c1 = c2 = NULL;
 		}
-	} else {
-		delete_espeak_command(c1);
-		delete_espeak_command(c2);
+		return status;
 	}
+
+	delete_espeak_command(c1);
+	delete_espeak_command(c2);
+	return ENOMEM;
+#else
+	return sync_espeak_Synth(0, text, position, position_type, end_position, flags, user_data);
 #endif
-	return a_error;
 }
 
 ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,

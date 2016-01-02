@@ -102,6 +102,15 @@ ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
 	phoneme_callback = PhonemeCallback;
 }
 
+ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
+                                     unsigned int position,
+                                     espeak_POSITION_TYPE position_type,
+                                     unsigned int end_position, unsigned int flags,
+                                     unsigned int *unique_identifier, void *user_data)
+{
+	return status_to_espeak_error(espeak_ng_Synthesize(text, size, position, position_type, end_position, flags, unique_identifier, user_data));
+}
+
 ESPEAK_API espeak_ERROR espeak_Key(const char *key_name)
 {
 	return status_to_espeak_error(espeak_ng_SpeakKeyName(key_name));

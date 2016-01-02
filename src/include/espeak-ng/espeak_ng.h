@@ -19,7 +19,7 @@
 #ifndef ESPEAK_NG_H
 #define ESPEAK_NG_H
 
-#include <wchar.h>
+#include "speak_lib.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -63,6 +63,16 @@ espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode,
 
 ESPEAK_NG_API int
 espeak_ng_GetSampleRate(void);
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_Synthesize(const void *text,
+                     size_t size,
+                     unsigned int position,
+                     espeak_POSITION_TYPE position_type,
+                     unsigned int end_position,
+                     unsigned int flags,
+                     unsigned int *unique_identifier,
+                     void *user_data);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SpeakKeyName(const char *key_name);
