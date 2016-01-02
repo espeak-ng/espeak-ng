@@ -22,8 +22,14 @@
 #include "espeak_ng.h"
 
 #include <stdlib.h>
+#if HAVE_STDINT_H
+#include <stdint.h>
+#endif
 
-extern int option_phoneme_events; // from translate.h
+#include "speech.h"
+#include "phoneme.h"
+#include "synthesize.h"
+#include "translate.h"
 
 #pragma GCC visibility push(default)
 
@@ -60,6 +66,11 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	return espeak_ng_GetSampleRate();
+}
+
+ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
+{
+	espeak_ng_CompileDictionary(path, dictionary_name, log, flags);
 }
 
 #pragma GCC visibility pop
