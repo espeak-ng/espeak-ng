@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2650,7 +2650,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 
 	if (!access(fname, 755)) {
 		fprintf(log, "Can't find phoneme source directory: %s\n", fname);
-		return ENE_READ_ERROR;
+		return errno;
 	}
 
 	strncpy0(current_fname, source, sizeof(current_fname));
@@ -2659,7 +2659,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	f_in = fopen_log(f_errors, fname, "rb");
 	if (f_in == NULL) {
 		fprintf(log, "Can't read master phonemes file: %s\n", fname);
-		return ENE_READ_ERROR;
+		return errno;
 	}
 
 	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
@@ -2695,7 +2695,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	f_phtab = fopen_log(f_errors, fname, "wb");
 
 	if (f_phdata == NULL || f_phindex == NULL || f_phtab == NULL)
-		return ENE_WRITE_ERROR;
+		return errno;
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
 	f_prog_log = fopen_log(f_errors, fname, "wb");
@@ -2814,9 +2814,10 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	if ((f_in = fopen(buf, "r")) == NULL) {
 		sprintf(buf, "%s/../phsource/intonation", path_home);
 		if ((f_in = fopen_log(f_errors, buf, "r")) == NULL) {
+			int error = errno;
 			fprintf(log, "Can't read file: %s\n", buf);
 			fclose(f_errors);
-			return ENE_READ_ERROR;
+			return error;
 		}
 	}
 
@@ -2869,10 +2870,11 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	sprintf(buf, "%s/intonations", path_home);
 	f_out = fopen_log(f_errors, buf, "wb");
 	if (f_out == NULL) {
+		int error = errno;
 		fclose(f_in);
 		fclose(f_errors);
 		free(tune_data);
-		return ENE_WRITE_ERROR;
+		return error;
 	}
 
 	while (!feof(f_in)) {

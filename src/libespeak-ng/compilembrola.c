@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -86,7 +87,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	strcpy(buf, filepath);
 	if ((f_in = fopen(buf, "r")) == NULL) {
 		fprintf(log, "Can't read: %s\n", filepath);
-		return ENE_READ_ERROR;
+		return errno;
 	}
 
 	while (fgets(buf, sizeof(phoneme), f_in) != NULL) {
@@ -127,7 +128,7 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	sprintf(buf, "%s/mbrola_ph/%s_phtrans", path_home, mbrola_voice);
 	if ((f_out = fopen(buf, "wb")) == NULL) {
 		fprintf(log, "Can't write to: %s\n", buf);
-		return ENE_WRITE_ERROR;
+		return errno;
 	}
 
 	data[count].name = 0; // list terminator

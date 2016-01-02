@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -1549,13 +1550,14 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
 		sprintf(fname_in, "%srules", path);
 		if ((f_in = fopen_log(fname_in, "r")) == NULL)
-			return ENE_READ_ERROR;
+			return errno;
 	}
 
 	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
 	if ((f_out = fopen_log(fname_out, "wb+")) == NULL) {
+		int error = errno;
 		fclose(f_in);
-		return ENE_WRITE_ERROR;
+		return error;
 	}
 	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
 

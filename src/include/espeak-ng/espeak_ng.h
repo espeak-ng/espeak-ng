@@ -37,8 +37,6 @@ typedef enum {
 
 	/* Error Codes (< 0) */
 
-	ENE_READ_ERROR = -1,
-	ENE_WRITE_ERROR = -2,
 	ENE_COMPILE_ERRORS = -4,
 	ENE_VERSION_MISMATCH = -5,
 } espeak_ng_STATUS;
