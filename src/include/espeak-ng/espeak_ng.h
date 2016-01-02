@@ -44,6 +44,8 @@ typedef enum {
 	ENS_NOT_INITIALIZED          = 0x100004FF,
 	ENS_AUDIO_ERROR              = 0x100005FF,
 	ENS_VOICE_NOT_FOUND          = 0x100006FF,
+	ENS_MBROLA_NOT_FOUND         = 0x100007FF,
+	ENS_MBROLA_VOICE_NOT_FOUND   = 0x100008FF,
 } espeak_ng_STATUS;
 
 typedef enum {

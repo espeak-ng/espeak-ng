@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <wctype.h>
@@ -106,7 +107,7 @@ static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
 static int mbr_name_prefix = 0;
 
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
+espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
 	// Load a phoneme name translation table from espeak-data/mbrola
 
@@ -123,7 +124,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	if (mbrola_voice == NULL) {
 		samplerate = samplerate_native;
 		SetParameter(espeakVOICETYPE, 0, 0);
-		return EE_OK;
+		return ENS_OK;
 	}
 
 	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
@@ -145,12 +146,12 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 #ifdef PLATFORM_WINDOWS
 	if (load_MBR() == FALSE) { // load mbrola.dll
 		fprintf(stderr, "Can't load mbrola.dll\n");
-		return EE_INTERNAL_ERROR;
+		return ENS_MBROLA_NOT_FOUND;
 	}
 #endif
 
 	if (init_MBR(path) != 0) // initialise the required mbrola voice
-		return EE_NOT_FOUND;
+		return ENS_MBROLA_VOICE_NOT_FOUND;
 
 	setNoError_MBR(1); // don't stop on phoneme errors
 
@@ -158,14 +159,15 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	sprintf(path, "%s/mbrola_ph/%s", path_home, phtrans);
 	size = GetFileLength(path);
 	if ((f_in = fopen(path, "rb")) == NULL) {
+		int error = errno;
 		close_MBR();
-		return EE_NOT_FOUND;
+		return error;
 	}
 
 	if ((mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, size)) == NULL) {
 		fclose(f_in);
 		close_MBR();
-		return EE_INTERNAL_ERROR;
+		return ENOMEM;
 	}
 
 	mbrola_control = Read4Bytes(f_in);
@@ -183,7 +185,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 		SetParameter(espeakVOICETYPE, 1, 0);
 	strcpy(mbrola_name, mbrola_voice);
 	mbrola_delay = 1000; // improve synchronization of events
-	return EE_OK;
+	return ENS_OK;
 }
 
 static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)

@@ -869,7 +869,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 			name2[0] = 0;
 			sscanf(p, "%s %s %d", name1, name2, &srate);
-			if (LoadMbrolaTable(name1, name2, &srate) != EE_OK)
+			if (LoadMbrolaTable(name1, name2, &srate) != ENS_OK)
 				fprintf(stderr, "mbrola voice not found\n");
 			voice->samplerate = srate;
 		}
