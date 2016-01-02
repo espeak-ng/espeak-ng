@@ -44,7 +44,6 @@ typedef enum {
 typedef struct {
 	unsigned int unique_identifier;
 	void *text;
-	size_t size;
 	unsigned int position;
 	espeak_POSITION_TYPE position_type;
 	unsigned int end_position;
@@ -55,7 +54,6 @@ typedef struct {
 typedef struct {
 	unsigned int unique_identifier;
 	void *text;
-	size_t size;
 	const char *index_mark;
 	unsigned int end_position;
 	unsigned int flags;

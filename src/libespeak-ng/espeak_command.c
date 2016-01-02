@@ -47,7 +47,6 @@ t_espeak_command *create_espeak_text(const void *text, size_t size, unsigned int
 	data = &(a_command->u.my_text);
 	data->unique_identifier = ++my_current_text_id;
 	data->text = a_text;
-	data->size = size;
 	data->position = position;
 	data->position_type = position_type;
 	data->end_position = end_position;
@@ -117,7 +116,6 @@ t_espeak_command *create_espeak_mark(const void *text, size_t size, const char *
 	data = &(a_command->u.my_mark);
 	data->unique_identifier = ++my_current_text_id;
 	data->text = a_text;
-	data->size = size;
 	data->index_mark = a_index_mark;
 	data->end_position = end_position;
 	data->flags = flags;
