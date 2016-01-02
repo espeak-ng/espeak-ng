@@ -63,6 +63,9 @@ ESPEAK_NG_API int
 espeak_ng_GetSampleRate(void);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SpeakKeyName(const char *key_name);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SpeakCharacter(wchar_t character);
 
 ESPEAK_NG_API espeak_ng_STATUS

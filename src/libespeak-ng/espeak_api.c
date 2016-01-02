@@ -80,6 +80,11 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	return espeak_ng_GetSampleRate();
 }
 
+ESPEAK_API espeak_ERROR espeak_Key(const char *key_name)
+{
+	return status_to_espeak_error(espeak_ng_SpeakKeyName(key_name));
+}
+
 ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 {
 	return status_to_espeak_error(espeak_ng_SpeakCharacter(character));

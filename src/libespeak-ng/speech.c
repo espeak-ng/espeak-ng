@@ -733,27 +733,25 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 	return a_error;
 }
 
-ESPEAK_API espeak_ERROR espeak_Key(const char *key)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakKeyName(const char *key_name)
 {
 	// symbolic name, symbolicname_character  - is there a system resource of symbolicnames per language
 
-	if (f_logespeak)
-		fprintf(f_logespeak, "\nKEY %s\n", key);
-
-	espeak_ERROR a_error = EE_OK;
-
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
-		sync_espeak_Key(key);
-		return EE_OK;
+		sync_espeak_Key(key_name);
+		return ENS_OK;
 	}
 
 #ifdef USE_ASYNC
-	t_espeak_command *c = create_espeak_key(key, NULL);
-	a_error = status_to_espeak_error(fifo_add_command(c));
-	if (a_error != EE_OK)
+	t_espeak_command *c = create_espeak_key(key_name, NULL);
+	espeak_ng_STATUS status = fifo_add_command(c);
+	if (status != ENS_OK)
 		delete_espeak_command(c);
+	return status;
+#else
+	sync_espeak_Key(key_name);
+	return ENS_OK;
 #endif
-	return a_error;
 }
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
