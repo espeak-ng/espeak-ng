@@ -21,6 +21,7 @@
 #include "speak_lib.h"
 #include "espeak_ng.h"
 
+#include <errno.h>
 #include <stdlib.h>
 #if HAVE_STDINT_H
 #include <stdint.h>
@@ -30,6 +31,17 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+
+static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
+{
+	switch (status)
+	{
+	case ENS_OK:               return EE_OK;
+	case ENOENT:               return EE_NOT_FOUND;
+	case ENS_FIFO_BUFFER_FULL: return EE_BUFFER_FULL;
+	default:                   return EE_INTERNAL_ERROR;
+	}
+}
 
 #pragma GCC visibility push(default)
 
@@ -66,6 +78,11 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	return espeak_ng_GetSampleRate();
+}
+
+ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
+{
+	return status_to_espeak_error(espeak_ng_SpeakCharacter(character));
 }
 
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)

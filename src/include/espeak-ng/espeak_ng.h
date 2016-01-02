@@ -19,6 +19,8 @@
 #ifndef ESPEAK_NG_H
 #define ESPEAK_NG_H
 
+#include <wchar.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -59,6 +61,9 @@ espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode,
 
 ESPEAK_NG_API int
 espeak_ng_GetSampleRate(void);
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SpeakCharacter(wchar_t character);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,

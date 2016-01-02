@@ -756,29 +756,24 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 	return a_error;
 }
 
-ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SpeakCharacter(wchar_t character)
 {
 	// is there a system resource of character names per language?
 
-	if (f_logespeak)
-		fprintf(f_logespeak, "\nCHAR U+%x\n", character);
-
 #ifdef USE_ASYNC
-	espeak_ERROR a_error;
-
 	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
 		sync_espeak_Char(character);
-		return EE_OK;
+		return ENS_OK;
 	}
 
 	t_espeak_command *c = create_espeak_char(character, NULL);
-	a_error = status_to_espeak_error(fifo_add_command(c));
-	if (a_error != EE_OK)
+	espeak_ng_STATUS status = fifo_add_command(c);
+	if (status != ENS_OK)
 		delete_espeak_command(c);
-	return a_error;
+	return status;
 #else
 	sync_espeak_Char(character);
-	return EE_OK;
+	return ENS_OK;
 #endif
 }
 
