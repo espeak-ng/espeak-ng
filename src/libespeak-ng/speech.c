@@ -375,7 +375,7 @@ ESPEAK_NG_API int espeak_ng_GetSampleRate(void)
 }
 #pragma GCC visibility pop
 
-static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text, int flags)
+static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *text, int flags)
 {
 	// Fill the buffer with output sound
 	int length;
@@ -386,7 +386,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #endif
 
 	if ((outbuf == NULL) || (event_list == NULL))
-		return EE_INTERNAL_ERROR; // espeak_Initialize()  has not been called
+		return ENS_NOT_INITIALIZED;
 
 	option_multibyte = flags & 7;
 	option_ssml = flags & espeakSSML;
@@ -423,7 +423,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 			if (SynthOnTimer() != 0)
 				break;
 		}
-		return EE_OK;
+		return ENS_OK;
 	}
 
 	for (;;) {
@@ -443,7 +443,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #ifdef USE_ASYNC
 			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
 			if (finished < 0)
-				return EE_INTERNAL_ERROR;
+				return ENS_AUDIO_ERROR;
 			length = 0; // the wave data are played once.
 #endif
 		} else
@@ -465,8 +465,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 				if (SpeakNextClause(NULL, NULL, 1) == 0) {
 #ifdef USE_ASYNC
 					if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
-						if (dispatch_audio(NULL, 0, NULL) < 0) // TBD: test case
-							return err = EE_INTERNAL_ERROR;
+						if (dispatch_audio(NULL, 0, NULL) < 0)
+							return ENS_AUDIO_ERROR;
 					} else
 						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 #else
@@ -477,7 +477,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 			}
 		}
 	}
-	return EE_OK;
+	return ENS_OK;
 }
 
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
@@ -515,8 +515,6 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
                                unsigned int position, espeak_POSITION_TYPE position_type,
                                unsigned int end_position, unsigned int flags, void *user_data)
 {
-	espeak_ERROR aStatus;
-
 	InitText(flags);
 	my_unique_identifier = unique_identifier;
 	my_user_data = user_data;
@@ -542,7 +540,7 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 
 	end_character_position = end_position;
 
-	aStatus = Synthesize(unique_identifier, text, flags);
+	espeak_ERROR aStatus = status_to_espeak_error(Synthesize(unique_identifier, text, flags));
 	#ifdef USE_ASYNC
 	wave_flush(my_audio);
 	#endif
@@ -566,7 +564,7 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 
 	end_character_position = end_position;
 
-	return Synthesize(unique_identifier, text, flags | espeakSSML);
+	return status_to_espeak_error(Synthesize(unique_identifier, text, flags | espeakSSML));
 }
 
 void sync_espeak_Key(const char *key)
