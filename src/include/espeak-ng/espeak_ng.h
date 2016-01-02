@@ -65,6 +65,11 @@ ESPEAK_NG_API int
 espeak_ng_GetSampleRate(void);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetParameter(espeak_PARAMETER parameter,
+                       int value,
+                       int relative);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_Synthesize(const void *text,
                      size_t size,
                      unsigned int position,

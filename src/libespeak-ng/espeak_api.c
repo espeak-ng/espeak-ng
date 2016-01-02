@@ -131,6 +131,11 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 	return status_to_espeak_error(espeak_ng_SpeakCharacter(character));
 }
 
+ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative)
+{
+	return status_to_espeak_error(espeak_ng_SetParameter(parameter, value, relative));
+}
+
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
 {
 	espeak_ng_CompileDictionary(path, dictionary_name, log, flags);

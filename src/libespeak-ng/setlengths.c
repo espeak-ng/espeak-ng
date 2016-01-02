@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <wctype.h>
@@ -369,7 +370,7 @@ void SetSpeed(int control)
 
 #endif
 
-void SetParameter(int parameter, int value, int relative)
+espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 {
 	// parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
 	// relative 0=absolute  1=relative
@@ -418,8 +419,9 @@ void SetParameter(int parameter, int value, int relative)
 		option_tone_flags = new_value;
 		break;
 	default:
-		break;
+		return EINVAL;
 	}
+	return ENS_OK;
 }
 
 static void DoEmbedded2(int *embix)

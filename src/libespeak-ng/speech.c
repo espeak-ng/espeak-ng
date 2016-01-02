@@ -747,25 +747,20 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 	return param_defaults[parameter];
 }
 
-ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetParameter(espeak_PARAMETER parameter, int value, int relative)
 {
 #ifdef USE_ASYNC
-	espeak_ERROR a_error;
-
-	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS) {
-		SetParameter(parameter, value, relative);
-		return EE_OK;
-	}
+	if (my_mode & ENOUTPUT_MODE_SYNCHRONOUS)
+		return SetParameter(parameter, value, relative);
 
 	t_espeak_command *c = create_espeak_parameter(parameter, value, relative);
 
-	a_error = status_to_espeak_error(fifo_add_command(c));
-	if (a_error != EE_OK)
+	espeak_ng_STATUS status = fifo_add_command(c);
+	if (status != EE_OK)
 		delete_espeak_command(c);
-	return a_error;
+	return status;
 #else
-	SetParameter(parameter, value, relative);
-	return EE_OK;
+	return SetParameter(parameter, value, relative);
 #endif
 }
 
