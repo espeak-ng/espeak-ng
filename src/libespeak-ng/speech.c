@@ -639,11 +639,6 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 {
 	(void)size; // unused
 
-	if (f_logespeak) {
-		fprintf(f_logespeak, "\nSYNTH posn %d %d %d flags 0x%x\n%s\n", position, end_position, position_type, flags, (const char *)text);
-		fflush(f_logespeak);
-	}
-
 	espeak_ERROR a_error = EE_INTERNAL_ERROR;
 	static unsigned int temp_identifier;
 
@@ -691,9 +686,6 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 
 	espeak_ERROR a_error = EE_OK;
 	static unsigned int temp_identifier;
-
-	if (f_logespeak)
-		fprintf(f_logespeak, "\nSYNTH MARK %s posn %d flags 0x%x\n%s\n", index_mark, end_position, flags, (const char *)text);
 
 	if (unique_identifier == NULL)
 		unique_identifier = &temp_identifier;
@@ -781,8 +773,6 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 
 ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative)
 {
-	if (f_logespeak)
-		fprintf(f_logespeak, "SETPARAM %d %d %d\n", parameter, value, relative);
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
 
@@ -922,11 +912,6 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	outbuf = NULL;
 	FreePhData();
 	FreeVoiceList();
-
-	if (f_logespeak) {
-		fclose(f_logespeak);
-		f_logespeak = NULL;
-	}
 
 	return EE_OK;
 }

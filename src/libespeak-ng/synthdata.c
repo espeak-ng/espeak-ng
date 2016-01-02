@@ -44,8 +44,6 @@ const char *version_string = "1.48.15  16.Apr.15";
 const int version_phdata  = 0x014801;
 
 int option_device_number = -1;
-FILE *f_logespeak = NULL;
-int logging_type;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
@@ -419,8 +417,6 @@ void LoadConfig(void)
 	char *p;
 	char string[200];
 
-	logging_type = 0;
-
 	for (ix = 0; ix < N_SOUNDICON_SLOTS; ix++) {
 		soundicon_tab[ix].filename = NULL;
 		soundicon_tab[ix].data = NULL;
@@ -433,13 +429,7 @@ void LoadConfig(void)
 	while (fgets(buf, sizeof(buf), f) != NULL) {
 		if (buf[0] == '/')  continue;
 
-		if (memcmp(buf, "log", 3) == 0) {
-			if (sscanf(&buf[4], "%d %s", &logging_type, string) == 2) {
-				if (f_logespeak)
-					fclose(f_logespeak);
-				f_logespeak = fopen(string, "w");
-			}
-		} else if (memcmp(buf, "tone", 4) == 0)
+		if (memcmp(buf, "tone", 4) == 0)
 			ReadTonePoints(&buf[5], tone_points);
 		else if (memcmp(buf, "pa_device", 9) == 0)
 			sscanf(&buf[10], "%d", &option_device_number);
