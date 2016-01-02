@@ -141,7 +141,7 @@ espeak_ng_STATUS LoadPhData(int *srate)
 	}
 
 	if (version != version_phdata)
-		return ENE_VERSION_MISMATCH;
+		return ENS_VERSION_MISMATCH;
 
 	// set up phoneme tables
 	p = phoneme_tab_data;

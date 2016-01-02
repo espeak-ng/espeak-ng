@@ -1593,6 +1593,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 
 	LoadDictionary(translator, dict_name, 0);
 
-	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
+	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
 #pragma GCC visibility pop

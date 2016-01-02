@@ -31,14 +31,13 @@ extern "C"
 #endif
 
 typedef enum {
-	ENS_OK = 0,
+	ENS_GROUP_MASK               = 0x70000000,
+	ENS_GROUP_ERRNO              = 0x00000000, /* Values 0-255 map to errno error codes. */
+	ENS_GROUP_ESPEAK_NG          = 0x10000000, /* eSpeak NG error codes. */
 
-	/* 0 to 255 : errno */
-
-	/* Error Codes (< 0) */
-
-	ENE_COMPILE_ERRORS = -4,
-	ENE_VERSION_MISMATCH = -5,
+	ENS_OK                       = 0,
+	ENS_COMPILE_ERROR            = 0x100001FF,
+	ENS_VERSION_MISMATCH         = 0x100002FF,
 } espeak_ng_STATUS;
 
 typedef enum {

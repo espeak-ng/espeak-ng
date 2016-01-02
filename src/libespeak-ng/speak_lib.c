@@ -635,7 +635,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 	espeak_ng_InitializePath(path);
 	espeak_ng_STATUS result = espeak_ng_Initialize();
 	if (result != ENS_OK) {
-		if (result == ENE_VERSION_MISMATCH)
+		if (result == ENS_VERSION_MISMATCH)
 			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
 		else {
 			fprintf(stderr, "Failed to load espeak-data\n");

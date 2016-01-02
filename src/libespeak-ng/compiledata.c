@@ -2740,7 +2740,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 		fclose(f_errors);
 
 	ReadPhondataManifest();
-	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
+	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
 
 static const char *preset_tune_names[] = {
@@ -3032,7 +3032,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 
 	LoadPhData(NULL);
 
-	return error_count > 0 ? ENE_COMPILE_ERRORS : ENS_OK;
+	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
 
 espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log)
