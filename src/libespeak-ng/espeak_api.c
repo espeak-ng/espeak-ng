@@ -151,6 +151,11 @@ ESPEAK_API espeak_ERROR espeak_Synchronize(void)
 	return status_to_espeak_error(espeak_ng_Synchronize());
 }
 
+ESPEAK_API espeak_ERROR espeak_Terminate(void)
+{
+	return status_to_espeak_error(espeak_ng_Terminate());
+}
+
 ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
 {
 	espeak_ng_CompileDictionary(path, dictionary_name, log, flags);

@@ -851,7 +851,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 extern void FreePhData(void);
 extern void FreeVoiceList(void);
 
-ESPEAK_API espeak_ERROR espeak_Terminate(void)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {
 #ifdef USE_ASYNC
 	fifo_stop();
@@ -871,7 +871,7 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	FreePhData();
 	FreeVoiceList();
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 ESPEAK_API const char *espeak_Info(const char **ptr)
