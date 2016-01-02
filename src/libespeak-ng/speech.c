@@ -71,7 +71,7 @@ static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
-static espeak_ERROR err = EE_OK;
+static espeak_ng_STATUS err = ENS_OK;
 
 t_espeak_callback *synth_callback = NULL;
 int (*uri_callback)(int, const char *, const char *) = NULL;
@@ -112,7 +112,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 				out_samplerate = voice_samplerate;
 				my_audio = wave_open(voice_samplerate, option_device);
 				if (!my_audio) {
-					err = EE_INTERNAL_ERROR;
+					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
 				wave_set_callback_is_output_enabled(fifo_is_command_enabled);
@@ -837,14 +837,14 @@ ESPEAK_API int espeak_IsPlaying(void)
 #endif
 }
 
-ESPEAK_API espeak_ERROR espeak_Synchronize(void)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 {
-	espeak_ERROR berr = err;
+	espeak_ng_STATUS berr = err;
 #ifdef USE_ASYNC
 	while (espeak_IsPlaying())
 		usleep(20000);
 #endif
-	err = EE_OK;
+	err = ENS_OK;
 	return berr;
 }
 

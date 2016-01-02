@@ -101,6 +101,9 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_Cancel(void);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_Synchronize(void);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
                             FILE *log,
