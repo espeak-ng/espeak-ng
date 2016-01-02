@@ -1510,7 +1510,7 @@ static void GetVoices(const char *path)
 
 #pragma GCC visibility push(default)
 
-espeak_ERROR espeak_SetVoiceByName(const char *name)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 {
 	espeak_VOICE *v;
 	int ix;
@@ -1541,7 +1541,7 @@ espeak_ERROR espeak_SetVoiceByName(const char *name)
 		DoVoiceChange(voice);
 		voice_selector.languages = voice->language_name;
 		SetVoiceStack(&voice_selector, variant_name);
-		return EE_OK;
+		return ENS_OK;
 	}
 
 	if (n_voices_list == 0)
@@ -1557,24 +1557,23 @@ espeak_ERROR espeak_SetVoiceByName(const char *name)
 			return EE_OK;
 		}
 	}
-	return EE_INTERNAL_ERROR; // voice name not found
+	return ENS_VOICE_NOT_FOUND;
 }
 
-espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByProperties(espeak_VOICE *voice_selector)
 {
 	const char *voice_id;
 	int voice_found;
 
 	voice_id = SelectVoice(voice_selector, &voice_found);
-
 	if (voice_found == 0)
-		return EE_NOT_FOUND;
+		return ENS_VOICE_NOT_FOUND;
 
 	LoadVoiceVariant(voice_id, 0);
 	DoVoiceChange(voice);
 	SetVoiceStack(voice_selector, "");
 
-	return EE_OK;
+	return ENS_OK;
 }
 
 #pragma GCC visibility pop

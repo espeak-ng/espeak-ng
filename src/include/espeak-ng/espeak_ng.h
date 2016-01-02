@@ -43,6 +43,7 @@ typedef enum {
 	ENS_FIFO_BUFFER_FULL         = 0x100003FF,
 	ENS_NOT_INITIALIZED          = 0x100004FF,
 	ENS_AUDIO_ERROR              = 0x100005FF,
+	ENS_VOICE_NOT_FOUND          = 0x100006FF,
 } espeak_ng_STATUS;
 
 typedef enum {
@@ -71,6 +72,12 @@ espeak_ng_SetParameter(espeak_PARAMETER parameter,
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetPunctuationList(const wchar_t *punctlist);
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetVoiceByName(const char *name);
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetVoiceByProperties(espeak_VOICE *voice_selector);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_Synthesize(const void *text,
