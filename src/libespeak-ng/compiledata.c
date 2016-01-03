@@ -1063,11 +1063,10 @@ int CompileVowelTransition(int which)
 	return 0;
 }
 
-int LoadSpect(const char *path, int control)
+espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 {
 	SpectSeq *spectseq;
 	int peak;
-	int displ;
 	int frame;
 	int n_frames;
 	int ix;
@@ -1087,16 +1086,15 @@ int LoadSpect(const char *path, int control)
 
 	// create SpectSeq and import data
 	spectseq = SpectSeqCreate();
-	if (spectseq == NULL) {
-		error("Failed to create SpectSeq");
-		return 0;
-	}
+	if (spectseq == NULL)
+		return ENOMEM;
 
 	snprintf(filename, sizeof(filename), "%s/../phsource/%s", path_home, path);
-	if (LoadSpectSeq(spectseq, filename) != ENS_OK) {
+	espeak_ng_STATUS status = LoadSpectSeq(spectseq, filename);
+	if (status != ENS_OK) {
 		error("Bad vowel file: '%s'", path);
 		SpectSeqDestroy(spectseq);
-		return 0;
+		return status;
 	}
 
 	// do we need additional klatt data ?
@@ -1107,7 +1105,7 @@ int LoadSpect(const char *path, int control)
 		}
 	}
 
-	displ = ftell(f_phdata);
+	*addr = ftell(f_phdata);
 
 	seq_out.n_frames = 0;
 	seq_out.sqflags = 0;
@@ -1235,7 +1233,7 @@ int LoadSpect(const char *path, int control)
 	}
 
 	SpectSeqDestroy(spectseq);
-	return displ;
+	return ENS_OK;
 }
 
 static int LoadWavefile(FILE *f, const char *fname)
@@ -1529,8 +1527,9 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 		id = Read4Bytes(f);
 		rewind(f);
 
+		espeak_ng_STATUS status = ENS_OK;
 		if (id == 0x43455053) {
-			*addr = LoadSpect(path, control);
+			status = LoadSpect(path, control, addr);
 			type_code = 'S';
 		} else if (id == 0x46464952) {
 			*addr = LoadWavefile(f, path);
@@ -1544,10 +1543,12 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 		} else {
 			error("File not SPEC or RIFF: %s", path);
 			*addr = -1;
-			fclose(f);
-			return ENS_UNSUPPORTED_PHON_FORMAT;
+			status = ENS_UNSUPPORTED_PHON_FORMAT;
 		}
 		fclose(f);
+
+		if (status != ENS_OK)
+			return status;
 
 		if (*addr > 0)
 			fprintf(f_phcontents, "%c  0x%.5x  %s\n", type_code, *addr & 0x7fffff, path);

@@ -225,6 +225,8 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 SpectSeq *SpectSeqCreate()
 {
 	SpectSeq *spect = malloc(sizeof(SpectSeq));
+	if (!spect)
+		return NULL;
 
 	spect->numframes = 0;
 	spect->frames = NULL;
