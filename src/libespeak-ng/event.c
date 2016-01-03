@@ -203,17 +203,17 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event)
 		return EINVAL;
 
 	espeak_ng_STATUS status;
-	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
+	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK) {
+		sem_post(&my_sem_start_is_required);
 		return status;
+	}
 
 	espeak_EVENT *a_event = event_copy(event);
 	if ((status = push(a_event)) != ENS_OK) {
 		event_delete(a_event);
 		pthread_mutex_unlock(&my_mutex);
-		return status;
-	}
-
-	status = pthread_mutex_lock(&my_mutex);
+	} else
+		status = pthread_mutex_unlock(&my_mutex);
 
 	sem_post(&my_sem_start_is_required);
 
