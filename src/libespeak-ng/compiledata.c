@@ -1607,7 +1607,7 @@ static int CompileToneSpec(void)
 
 
 
-int CompileSound(int keyword, int isvowel)
+static void CompileSound(int keyword, int isvowel)
 {
 	int addr;
 	int value = 0;
@@ -1640,7 +1640,6 @@ int CompileSound(int keyword, int isvowel)
 
 	*prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);
 	*prog_out++ = addr & 0xffff;
-	return 0;
 }
 
 /*
@@ -2234,9 +2233,9 @@ int CompilePhoneme(int compile_phoneme)
 				if_stack[if_level].returned = 1;
 				DecThenCount();
 				if (phoneme_out->type == phVOWEL)
-					endphoneme = CompileSound(keyword, 1);
+					CompileSound(keyword, 1);
 				else
-					endphoneme = CompileSound(keyword, 0);
+					CompileSound(keyword, 0);
 				break;
 			case kWAV:
 				if_stack[if_level].returned = 1;
@@ -2245,7 +2244,7 @@ int CompilePhoneme(int compile_phoneme)
 			case kVOWELENDING:
 			case kANDWAV:
 				DecThenCount();
-				endphoneme = CompileSound(keyword, 0);
+				CompileSound(keyword, 0);
 				break;
 			case kVOWELIN:
 				DecThenCount();
