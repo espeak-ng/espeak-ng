@@ -577,10 +577,7 @@ int main(int argc, char **argv)
 	espeak_ng_InitializePath(data_path);
 	espeak_ng_STATUS result = espeak_ng_Initialize();
 	if (result != ENS_OK) {
-		if (result == ENS_VERSION_MISMATCH)
-			fprintf(stderr, "Wrong version of espeak-data (expected 0x%x) at %s\n", version_phdata, path_home);
-		else
-			fprintf(stderr, "Failed to load espeak-data\n");
+		espeak_ng_PrintStatusCodeMessage(result, stderr);
 		exit(1);
 	}
 
