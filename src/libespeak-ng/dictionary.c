@@ -622,13 +622,13 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 		if (plist->ph->code != phonSWITCH) {
 			if (plist->synthflags & SFLAG_LENGTHEN)
-				buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa, NULL);
+				buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], plist, use_ipa, NULL);
 			if ((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL)) {
 				// syllablic consonant
-				buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa, NULL);
+				buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], plist, use_ipa, NULL);
 			}
 			if (plist->tone_ph > 0)
-				buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa, NULL);
+				buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], plist, use_ipa, NULL);
 		}
 
 		len = buf - phon_buf;
