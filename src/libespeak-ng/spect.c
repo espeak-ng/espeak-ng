@@ -325,7 +325,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 		}
 		free(spect->frames);
 	}
-	spect->frames = malloc(sizeof(SpectFrame) * n);
+	spect->frames = calloc(n, sizeof(SpectFrame *));
 
 	spect->numframes = 0;
 	spect->max_x = 3000;
