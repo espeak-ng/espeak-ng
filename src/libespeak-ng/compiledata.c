@@ -1513,7 +1513,7 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 		p = (REF_HASH_TAB *)p->link;
 	}
 
-	if (addr == 0) {
+	if (*addr == 0) {
 		sprintf(buf, "%s/../phsource/%s", path_home, path);
 
 		if ((f = fopen(buf, "rb")) == NULL) {
@@ -1611,7 +1611,7 @@ static void CompileToneSpec(void)
 
 static void CompileSound(int keyword, int isvowel)
 {
-	int addr;
+	int addr = 0;
 	int value = 0;
 	char path[N_ITEM_STRING];
 	static int sound_instns[] = { i_FMT, i_WAV, i_VWLSTART, i_VWLENDING, i_WAVADD };
