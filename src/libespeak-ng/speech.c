@@ -205,6 +205,7 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 #endif
 
 #pragma GCC visibility push(default)
+
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
 	option_device = device;
@@ -248,6 +249,7 @@ int GetFileLength(const char *filename)
 
 	return statbuf.st_size;
 }
+
 #pragma GCC visibility pop
 
 char *Alloc(int size)
@@ -265,6 +267,7 @@ void Free(void *ptr)
 }
 
 #pragma GCC visibility push(default)
+
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
 	if (path != NULL) {
@@ -362,6 +365,72 @@ ESPEAK_NG_API int espeak_ng_GetSampleRate(void)
 {
 	return samplerate;
 }
+
+ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char *buffer, size_t length)
+{
+	switch (status)
+	{
+	case ENS_COMPILE_ERROR:
+		strncpy0(buffer, "Compile error.", length);
+		break;
+	case ENS_VERSION_MISMATCH:
+#ifdef PLATFORM_WINDOWS
+		sprintf(buffer, "Wrong version of espeak-data (expected 0x%x) at '%s'.", version_phdata, path_home);
+#else
+		snprintf(buffer, length, "Wrong version of espeak-data (expected 0x%x) at '%s'.", version_phdata, path_home);
+#endif
+		break;
+	case ENS_FIFO_BUFFER_FULL:
+		strncpy0(buffer, "The FIFO buffer is full.", length);
+		break;
+	case ENS_NOT_INITIALIZED:
+		strncpy0(buffer, "The espeak-ng library has not been initialized.", length);
+		break;
+	case ENS_AUDIO_ERROR:
+		strncpy0(buffer, "Cannot initialize the audio device.", length);
+		break;
+	case ENS_VOICE_NOT_FOUND:
+		strncpy0(buffer, "The specified espeak-ng voice does not exist.", length);
+		break;
+	case ENS_MBROLA_NOT_FOUND:
+		strncpy0(buffer, "Could not load the mbrola.dll file.", length);
+		break;
+	case ENS_MBROLA_VOICE_NOT_FOUND:
+		strncpy0(buffer, "Could not load the specified mbrola voice file.", length);
+		break;
+	case ENS_EVENT_BUFFER_FULL:
+		strncpy0(buffer, "The event buffer is full.", length);
+		break;
+	case ENS_NOT_SUPPORTED:
+		strncpy0(buffer, "The requested functionality has not been built into espeak-ng.", length);
+		break;
+	case ENS_UNSUPPORTED_SPECT_FORMAT:
+		strncpy0(buffer, "The spectral file is not in a supported format.", length);
+		break;
+	case ENS_NO_SPECT_FRAMES:
+		strncpy0(buffer, "The spectral file does not contain any frame data.", length);
+		break;
+	default:
+		if ((status & ENS_GROUP_MASK) == ENS_GROUP_ERRNO)
+			strerror_r(status, buffer, length);
+		else {
+#ifdef PLATFORM_WINDOWS
+			sprintf(buffer, "Unspecified error 0x%x.", status);
+#else
+			snprintf(buffer, length, "Unspecified error 0x%x.", status);
+#endif
+		}
+		break;
+	}
+}
+
+ESPEAK_NG_API void espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status, FILE *out)
+{
+	char error[512];
+	espeak_ng_GetStatusCodeMessage(status, error, sizeof(error));
+	fprintf(out, "%s\n", error);
+}
+
 #pragma GCC visibility pop
 
 static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *text, int flags)

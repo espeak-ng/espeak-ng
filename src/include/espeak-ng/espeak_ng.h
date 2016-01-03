@@ -58,6 +58,15 @@ typedef enum {
 } espeak_ng_OUTPUT_MODE;
 
 ESPEAK_NG_API void
+espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
+                               char *buffer,
+                               size_t length);
+
+ESPEAK_NG_API void
+espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status,
+                                 FILE *out);
+
+ESPEAK_NG_API void
 espeak_ng_InitializePath(const char *path);
 
 ESPEAK_NG_API espeak_ng_STATUS
