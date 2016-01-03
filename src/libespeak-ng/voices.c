@@ -801,8 +801,12 @@ voice_t *LoadVoice(const char *vname, int control)
 			       &langopts->unstressed_wd2);
 			break;
 		case V_CHARSET:
-			if ((sscanf(p, "%d", &value) == 1) && (value < N_CHARSETS))
-				new_translator->charset_a0 = charsets[value];
+			if ((sscanf(p, "%d", &value) == 1) && (value < N_CHARSETS)) {
+				if (new_translator != NULL)
+					new_translator->charset_a0 = charsets[value];
+				else
+					fprintf(stderr, "The charset attribute is specified before language.\n");
+			}
 			break;
 		case V_OPTION:
 			value2 = 0;
