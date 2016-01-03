@@ -1,182 +1,247 @@
 phoneme i
   vowel starttype #i endtype #i
-  length 100
-  FMT(vowel/i_6)
+  length 120
+  ChangeIfStressed(i+)
+  ChangeIfDiminished(i-) 
+  FMT(vowel/i_6, 70)
 endphoneme
 
-phoneme i2
+phoneme i+
   vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_2)
+  length 120
+  FMT(vowel/i_6, 100)
 endphoneme
 
-
-phoneme i3
+phoneme i-
   vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_3)
-endphoneme
-
-phoneme i4
-  vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_4)
-endphoneme
-
-phoneme i5
-  vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_5)
-endphoneme
-
-phoneme i6
-  vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_6)
-endphoneme
-
-phoneme i7
-  vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_7)
-endphoneme
-
-phoneme i8
-  vowel starttype #i endtype #i
-  length 100
-  IfNextVowelAppend(;)
-  FMT(vowel/i_8)
+  length 120
+  FMT(vowel/i_6, 60)
 endphoneme
 
 phoneme i:
   vowel starttype #i endtype #i
-  length 250
-  FMT(vowel/i_7)
+  length 300
+  ChangeIfStressed(i:+)
+  ChangeIfDiminished(i:-) 
+  FMT(vowel/i_7, 70)
+endphoneme
+
+phoneme i:+
+  vowel starttype #i endtype #i
+  length 300
+  FMT(vowel/i_7, 100)
+endphoneme
+
+
+phoneme i:-
+  vowel starttype #i endtype #i
+  length 300
+  FMT(vowel/i_7, 60)
 endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 100
-  FMT(vowel/ee_5)
+  length 120
+  ChangeIfStressed(E+)
+  ChangeIfDiminished(E-)
+  FMT(vowel/ee_3, 70)
+endphoneme
+
+phoneme E+
+  vowel starttype #e endtype #e
+  length 120
+  FMT(vowel/ee_3, 100)
+endphoneme
+
+phoneme E-
+  vowel starttype #e endtype #e
+  length 120
+  FMT(vowel/ee_3, 60)
 endphoneme
 
 phoneme E:
   vowel starttype #e endtype #e
-  length 250
-  FMT(vowel/e_mid)
+  length 300
+  ChangeIfStressed(E:+)
+  ChangeIfDiminished(E:-)
+  FMT(vowel/ee_5, 70)
+endphoneme
+
+phoneme E:+
+  vowel starttype #e endtype #e
+  length 300
+  FMT(vowel/ee_5, 100)
+endphoneme
+
+phoneme E:-
+  vowel starttype #e endtype #e
+  length 300
+  FMT(vowel/ee_5, 60)
 endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 150
-  FMT(vowel/e_mid)
+  length 120
+  ChangeIfStressed(e+)
+  ChangeIfDiminished(e-)
+  FMT(vowel/e_9, 70) // e_5
+endphoneme
+
+phoneme e+
+  vowel starttype #e endtype #e
+  length 120
+  FMT(vowel/e_9, 100)
+endphoneme
+
+phoneme e-
+  vowel starttype #e endtype #e
+  length 120
+  FMT(vowel/e_9, 60)
 endphoneme
 
 phoneme e:
   vowel starttype #e endtype #e
-  length 250
-  FMT(vowel/e_mid)
+  length 300
+  ChangeIfStressed(e:+)
+  ChangeIfDiminished(e:-)
+  FMT(vowel/e_mid2, 70) // e_8
 endphoneme
 
+phoneme e:+
+  vowel starttype #e endtype #e
+  length 300
+  FMT(vowel/e_mid2, 100)
+endphoneme
+
+phoneme e:-
+  vowel starttype #e endtype #e
+  length 300
+  FMT(vowel/e_mid2, 60)
+endphoneme
 
 phoneme a
   vowel starttype #a endtype #a
-  length 100
-  FMT(vowel/aa_7) // possible variants: a_3, a_5 or aa_7
+  length 120
+  ChangeIfStressed(a+)
+  ChangeIfDiminished(a-)
+  ChangeIfNotStressed(a-)
+  FMT(vowel/aa_7, 70) // possible variants: a_3, a_5 or aa_7
+endphoneme
+
+phoneme a+
+  vowel starttype #a endtype #a
+  length 120
+  FMT(vowel/aa_7, 100)
+endphoneme
+
+phoneme a-
+  vowel starttype #a endtype #a
+  length 120
+  FMT(vowel/aa_7, 60)
 endphoneme
 
 phoneme a:
   vowel starttype #a endtype #a
   length 300
+  ChangeIfStressed(a:+)
+  ChangeIfDiminished(a:-)
   long
-  FMT(vowel/aa_9) // was a_3 or aa_9
+  FMT(vowel/aa_9, 60) // was a_3 or aa_9
+endphoneme
+
+phoneme a:+
+  vowel starttype #a endtype #a
+  length 300
+  long
+  FMT(vowel/aa_9, 100)
+endphoneme
+
+phoneme a:-
+  vowel starttype #a endtype #a
+  length 300
+  long
+  FMT(vowel/aa_9, 60)
 endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 100
-  FMT(vowel/oo_1)
+  length 120
+  FMT(vowel/oo_1, 70)
 endphoneme
 
 phoneme o:
   vowel starttype #o endtype #o
-  length 200
-  FMT(vowel/oo_1)
+  length 300
+  FMT(vowel/oo_1, 70)
 endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 100
-  FMT(vowel/u)
+  length 120
+  FMT(vowel/u, 70)
 endphoneme
 
 phoneme u:
   vowel starttype #u endtype #u
-  length 250
-  FMT(vowel/u_3)
+  length 300
+  FMT(vowel/u_3, 70)
 endphoneme
 
 
 phoneme ai
   vowel starttype #a endtype #i
-  length 250
+  length 230
   long
-  FMT(vdiph/aai)
+  FMT(vdiph/aai, 70)
 endphoneme
 
 phoneme ei
   vowel starttype #e endtype #i
   length 250
   long
-  FMT(vdiph/eei_2)
+  FMT(vdiph/eei_2, 70)
 endphoneme
 
 phoneme au
   vowel starttype #a endtype #u
   length 250
   long
-  FMT(vdiph/aau)
+  FMT(vdiph/aau, 70)
 endphoneme
 
 phoneme uo
   vowel starttype #u endtype #a
   length 200
   //long
-  FMT(vdiph2/uaa)
+  FMT(vdiph2/uaa, 70)
 endphoneme
 
 phoneme oi
   vowel starttype #o endtype #i
   length 250
   long
-  FMT(vdiph/ooi)
+  FMT(vdiph/ooi, 70)
 endphoneme
 
 phoneme ui
   vowel starttype #u endtype #i
   length 250
   long
-  FMT(vdiph/ui)
+  FMT(vdiph/ui, 70)
 endphoneme
 
 phoneme ie
   vowel starttype #i endtype #e
   length 250
   long
-  FMT(vdiph2/ie_2)
+  FMT(vdiph2/ie_2, 70)
 endphoneme
 
 phoneme iu
   vowel starttype #i endtype #u
   length 250
   long
-  FMT(vdiph2/iu_2)
+  FMT(vdiph2/iu_2, 70)
 endphoneme
 
 phoneme R
