@@ -1093,10 +1093,8 @@ int LoadSpect(const char *path, int control)
 	}
 
 	snprintf(filename, sizeof(filename), "%s/../phsource/%s", path_home, path);
-	LoadSpectSeq(spectseq, filename);
-
-	if (spectseq->frames == NULL) {
-		error("Bad vowel file, no frames: '%s'", path);
+	if (LoadSpectSeq(spectseq, filename) != ENS_OK) {
+		error("Bad vowel file: '%s'", path);
 		SpectSeqDestroy(spectseq);
 		return 0;
 	}

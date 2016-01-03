@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <errno.h>
 #include <stdio.h>
 #if HAVE_STDINT_H
 #include <stdint.h>
@@ -272,7 +273,7 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 	return (spect->frames[ix]->time - spect->frames[frame]->time) * 1000.0 + adjust;
 }
 
-int LoadSpectSeq(SpectSeq *spect, const char *filename)
+espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 {
 	short n, temp;
 	int ix;
@@ -283,7 +284,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	FILE *stream = fopen(filename, "rb");
 	if (stream == NULL) {
 		fprintf(stderr, "Failed to open: '%s'", filename);
-		return 0;
+		return errno;
 	}
 
 	fread(&id1, sizeof(uint32_t), 1, stream);
@@ -298,7 +299,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 	else {
 		fprintf(stderr, "Unsupported spectral file format.\n");
 		fclose(stream);
-		return 1;
+		return ENS_UNSUPPORTED_SPECT_FORMAT;
 	}
 
 	fread(&name_len, sizeof(uint32_t), 1, stream);
@@ -315,7 +316,7 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 	if (n == 0) {
 		fclose(stream);
-		return 0;
+		return ENS_NO_SPECT_FRAMES;
 	}
 
 	if (spect->frames != NULL) {
@@ -371,5 +372,5 @@ int LoadSpectSeq(SpectSeq *spect, const char *filename)
 			spect->frames[ix]->length_adjust = spect->frames[ix]->length - GetFrameLength(spect, ix);
 	}
 	fclose(stream);
-	return 0;
+	return ENS_OK;
 }
