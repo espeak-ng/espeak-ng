@@ -1565,7 +1565,7 @@ static int LoadDataFile(const char *path, int control)
 	return addr;
 }
 
-static int CompileToneSpec(void)
+static void CompileToneSpec(void)
 {
 	int pitch1 = 0;
 	int pitch2 = 0;
@@ -1601,8 +1601,6 @@ static int CompileToneSpec(void)
 		*prog_out++ = i_AMPENV + ((amp_env >> 16) & 0xf);
 		*prog_out++ = amp_env;
 	}
-
-	return 0;
 }
 
 
@@ -2256,7 +2254,7 @@ int CompilePhoneme(int compile_phoneme)
 				break;
 			case kTONESPEC:
 				DecThenCount();
-				endphoneme = CompileToneSpec();
+				CompileToneSpec();
 				break;
 			case kCONTINUE:
 				*prog_out++ = i_CONTINUE;
