@@ -1483,7 +1483,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 	return displ;
 }
 
-static int LoadDataFile(const char *path, int control)
+static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 {
 	// load spectrum sequence or sample data from a file.
 	// return index into spect or sample data area. bit 23=1 if a sample
@@ -1491,15 +1491,16 @@ static int LoadDataFile(const char *path, int control)
 	FILE *f;
 	int id;
 	int hash;
-	int addr = 0;
 	int type_code = ' ';
 	REF_HASH_TAB *p, *p2;
 	char buf[sizeof(path_home)+150];
 
 	if (strcmp(path, "NULL") == 0)
-		return 0;
-	if (strcmp(path, "DFT") == 0)
-		return 1;
+		return ENS_OK;
+	if (strcmp(path, "DFT") == 0) {
+		*addr = 1;
+		return ENS_OK;
+	}
 
 	count_references++;
 
@@ -1508,7 +1509,7 @@ static int LoadDataFile(const char *path, int control)
 	while (p != NULL) {
 		if (strcmp(path, p->string) == 0) {
 			duplicate_references++;
-			addr = p->value; // already loaded this data
+			*addr = p->value; // already loaded this data
 			break;
 		}
 		p = (REF_HASH_TAB *)p->link;
@@ -1521,7 +1522,7 @@ static int LoadDataFile(const char *path, int control)
 			sprintf(buf, "%s/../phsource/%s.wav", path_home, path);
 			if ((f = fopen(buf, "rb")) == NULL) {
 				error("Can't read file: %s", path);
-				return 0;
+				return errno;
 			}
 		}
 
@@ -1529,32 +1530,34 @@ static int LoadDataFile(const char *path, int control)
 		rewind(f);
 
 		if (id == 0x43455053) {
-			addr = LoadSpect(path, control);
+			*addr = LoadSpect(path, control);
 			type_code = 'S';
 		} else if (id == 0x46464952) {
-			addr = LoadWavefile(f, path);
+			*addr = LoadWavefile(f, path);
 			type_code = 'W';
 		} else if (id == 0x43544950) {
-			addr = LoadEnvelope(f, path);
+			*addr = LoadEnvelope(f, path);
 			type_code = 'E';
 		} else if (id == 0x45564E45) {
-			addr = LoadEnvelope2(f, path);
+			*addr = LoadEnvelope2(f, path);
 			type_code = 'E';
 		} else {
 			error("File not SPEC or RIFF: %s", path);
-			addr = -1;
+			*addr = -1;
+			fclose(f);
+			return ENS_UNSUPPORTED_PHON_FORMAT;
 		}
 		fclose(f);
 
-		if (addr > 0)
-			fprintf(f_phcontents, "%c  0x%.5x  %s\n", type_code, addr & 0x7fffff, path);
+		if (*addr > 0)
+			fprintf(f_phcontents, "%c  0x%.5x  %s\n", type_code, *addr & 0x7fffff, path);
 	}
 
 	// add this item to the hash table
-	if (addr > 0) {
+	if (*addr > 0) {
 		p = ref_hash_tab[hash];
 		p2 = (REF_HASH_TAB *)malloc(sizeof(REF_HASH_TAB)+strlen(path)+1);
-		p2->value = addr;
+		p2->value = *addr;
 		p2->ph_mnemonic = phoneme_out->mnemonic; // phoneme which uses this file
 		p2->ph_table = n_phoneme_tabs-1;
 		strcpy(p2->string, path);
@@ -1562,7 +1565,7 @@ static int LoadDataFile(const char *path, int control)
 		ref_hash_tab[hash] = p2;
 	}
 
-	return addr;
+	return ENS_OK;
 }
 
 static void CompileToneSpec(void)
@@ -1577,12 +1580,12 @@ static void CompileToneSpec(void)
 
 	if (item_terminator == ',') {
 		NextItemBrackets(tSTRING, 3);
-		pitch_env = LoadDataFile(item_string, 0);
+		LoadDataFile(item_string, 0, &pitch_env);
 	}
 
 	if (item_terminator == ',') {
 		NextItemBrackets(tSTRING, 1);
-		amp_env = LoadDataFile(item_string, 0);
+		LoadDataFile(item_string, 0, &amp_env);
 	}
 
 	if (pitch1 < pitch2) {
@@ -1633,7 +1636,7 @@ static void CompileSound(int keyword, int isvowel)
 			}
 		}
 	}
-	addr = LoadDataFile(path, isvowel);
+	LoadDataFile(path, isvowel, &addr);
 	addr = addr / 4; // addr is words not bytes
 
 	*prog_out++ = sound_instns[keyword-kFMT] + ((value & 0xff) << 4) + ((addr >> 16) & 0xf);

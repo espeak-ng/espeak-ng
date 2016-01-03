@@ -404,8 +404,8 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 	case ENS_NOT_SUPPORTED:
 		strncpy0(buffer, "The requested functionality has not been built into espeak-ng.", length);
 		break;
-	case ENS_UNSUPPORTED_SPECT_FORMAT:
-		strncpy0(buffer, "The spectral file is not in a supported format.", length);
+	case ENS_UNSUPPORTED_PHON_FORMAT:
+		strncpy0(buffer, "The phoneme file is not in a supported format.", length);
 		break;
 	case ENS_NO_SPECT_FRAMES:
 		strncpy0(buffer, "The spectral file does not contain any frame data.", length);

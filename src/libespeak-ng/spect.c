@@ -299,7 +299,7 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	else {
 		fprintf(stderr, "Unsupported spectral file format.\n");
 		fclose(stream);
-		return ENS_UNSUPPORTED_SPECT_FORMAT;
+		return ENS_UNSUPPORTED_PHON_FORMAT;
 	}
 
 	fread(&name_len, sizeof(uint32_t), 1, stream);
