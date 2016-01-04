@@ -586,8 +586,17 @@ int main(int argc, char **argv)
 			return EXIT_SUCCESS;
 		}
 		case 0x10f: // --compile-intonations
+		{
 			espeak_ng_InitializePath(data_path);
-			return (espeak_ng_CompileIntonation(stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
+			espeak_ng_ERROR_CONTEXT context = NULL;
+			espeak_ng_STATUS result = espeak_ng_CompileIntonation(stdout, &context);
+			if (result != ENS_OK) {
+				espeak_ng_PrintStatusCodeMessage(result, stderr, context);
+				espeak_ng_ClearErrorContext(&context);
+				return EXIT_FAILURE;
+			}
+			return EXIT_SUCCESS;
+		}
 		case 0x110: // --compile-phonemes
 			espeak_ng_InitializePath(data_path);
 			return (espeak_ng_CompilePhonemeData(22050, stdout) == ENS_OK) ? EXIT_SUCCESS : EXIT_FAILURE;

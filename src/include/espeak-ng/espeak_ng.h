@@ -151,7 +151,8 @@ espeak_ng_CompilePhonemeData(long rate,
                              FILE *log);
 
 ESPEAK_NG_API espeak_ng_STATUS
-espeak_ng_CompileIntonation(FILE *log);
+espeak_ng_CompileIntonation(FILE *log,
+                            espeak_ng_ERROR_CONTEXT *context);
 
 #ifdef __cplusplus
 }

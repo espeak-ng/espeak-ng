@@ -33,6 +33,7 @@
 #include "speak_lib.h"
 #include "espeak_ng.h"
 
+#include "error.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -2783,7 +2784,7 @@ int LookupEnvelopeName(const char *name)
 
 #pragma GCC visibility push(default)
 
-espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
+espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
 
@@ -2812,11 +2813,10 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 	sprintf(buf, "%s/../phsource/intonation.txt", path_home);
 	if ((f_in = fopen(buf, "r")) == NULL) {
 		sprintf(buf, "%s/../phsource/intonation", path_home);
-		if ((f_in = fopen_log(f_errors, buf, "r")) == NULL) {
+		if ((f_in = fopen(buf, "r")) == NULL) {
 			int error = errno;
-			fprintf(log, "Can't read file: %s\n", buf);
 			fclose(f_errors);
-			return error;
+			return create_file_error_context(context, error, buf);
 		}
 	}
 
@@ -2860,20 +2860,19 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log)
 
 	tune_data = (TUNE *)calloc(sizeof(TUNE), n_tune_names);
 	if (tune_data == NULL) {
-		fprintf(f_errors, "Failed to allocate data for tunes\n");
 		fclose(f_in);
 		fclose(f_errors);
 		return ENOMEM;
 	}
 
 	sprintf(buf, "%s/intonations", path_home);
-	f_out = fopen_log(f_errors, buf, "wb");
+	f_out = fopen(buf, "wb");
 	if (f_out == NULL) {
 		int error = errno;
 		fclose(f_in);
 		fclose(f_errors);
 		free(tune_data);
-		return error;
+		return create_file_error_context(context, error, buf);
 	}
 
 	while (!feof(f_in)) {
