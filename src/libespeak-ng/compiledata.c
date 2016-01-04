@@ -616,7 +616,6 @@ static void CompileReport(void)
 
 	free(list);
 	list = NULL;
-	fclose(f_report);
 }
 
 static void error(const char *format, ...)
@@ -2660,7 +2659,11 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 
 	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
 	f_report = fopen_log(f_errors, fname, "w");
-
+	if (f_report == NULL) {
+		int error = errno;
+		fclose(f_in);
+		return create_file_error_context(context, error, fname);
+	}
 
 	sprintf(fname, "%s/%s", path_home, "phondata-manifest");
 	if ((f_phcontents = fopen_log(f_phcontents, fname, "w")) == NULL)
@@ -2686,6 +2689,8 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	if (f_phdata == NULL) {
 		int error = errno;
 		fclose(f_in);
+		fclose(f_report);
+		fclose(f_phcontents);
 		return create_file_error_context(context, errno, fname);
 	}
 
@@ -2694,6 +2699,8 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	if (f_phindex == NULL) {
 		int error = errno;
 		fclose(f_in);
+		fclose(f_report);
+		fclose(f_phcontents);
 		fclose(f_phdata);
 		return create_file_error_context(context, errno, fname);
 	}
@@ -2703,6 +2710,8 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	if (f_phtab == NULL) {
 		int error = errno;
 		fclose(f_in);
+		fclose(f_report);
+		fclose(f_phcontents);
 		fclose(f_phdata);
 		fclose(f_phindex);
 		return create_file_error_context(context, errno, fname);
@@ -2729,17 +2738,20 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	WritePhonemeTables();
 
 	fprintf(f_errors, "\nRefs %d,  Reused %d\n", count_references, duplicate_references);
+
 	fclose(f_in);
+	fclose(f_phcontents);
 	fclose(f_phdata);
-	if (f_prog_log != NULL)
-		fclose(f_prog_log);
 	fclose(f_phindex);
 	fclose(f_phtab);
-	fclose(f_phcontents);
+	if (f_prog_log != NULL)
+		fclose(f_prog_log);
 
 	LoadPhData(NULL, NULL);
 
 	CompileReport();
+
+	fclose(f_report);
 
 	if (resample_count > 0) {
 		fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
