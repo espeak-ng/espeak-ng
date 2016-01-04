@@ -39,8 +39,6 @@
 
  */
 
-#include "speak_lib.h"
-
 #ifdef __cplusplus
 extern "C"
 {

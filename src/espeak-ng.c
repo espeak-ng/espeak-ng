@@ -28,8 +28,8 @@
 #include <time.h>
 #include <sys/stat.h>
 
-#include "speak_lib.h"
-#include "espeak_ng.h"
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
 
 extern void strncpy0(char *to, const char *from, int size);
 extern int utf8_in(int *c, const char *buf);

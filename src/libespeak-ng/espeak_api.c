@@ -20,8 +20,8 @@
 
 #include "config.h"
 
-#include "speak_lib.h"
-#include "espeak_ng.h"
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
 
 #include <stdlib.h>
 #if HAVE_STDINT_H
