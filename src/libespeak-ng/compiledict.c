@@ -33,6 +33,7 @@
 #include "espeak_ng.h"
 #include "speak_lib.h"
 
+#include "error.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -172,18 +173,6 @@ int isspace2(unsigned int c)
 	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
 		return 0;
 	return 1;
-}
-
-static FILE *fopen_log(const char *fname, const char *access)
-{
-	// performs fopen, but produces error message to f_log if it fails
-	FILE *f;
-
-	if ((f = fopen(fname, access)) == NULL) {
-		if (f_log != NULL)
-			fprintf(f_log, "Can't access (%s) file '%s'\n", access, fname);
-	}
-	return f;
 }
 
 // Lookup a mnemonic string in a table, return its name
@@ -1304,7 +1293,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	return 0;
 }
 
-static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
+static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp, espeak_ng_ERROR_CONTEXT *context)
 {
 	char *prule;
 	unsigned char *p;
@@ -1331,8 +1320,8 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	linenum = 0;
 	group_name[0] = 0;
 
-	if ((f_temp = fopen_log(fname_temp, "wb")) == NULL)
-		return 1;
+	if ((f_temp = fopen(fname_temp, "wb")) == NULL)
+		return create_file_error_context(context, errno, fname_temp);
 
 	for (;;) {
 		linenum++;
@@ -1476,7 +1465,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	qsort((void *)rgroup, n_rgroups, sizeof(rgroup[0]), (int(__cdecl *)(const void *, const void *))rgroup_sorter);
 
 	if ((f_temp = fopen(fname_temp, "rb")) == NULL)
-		return 2;
+		return create_file_error_context(context, errno, fname_temp);
 
 	prev_rgroup_name = "\n";
 
@@ -1510,7 +1499,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	remove(fname_temp);
 
 	fprintf(f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
-	return 0;
+	return ENS_OK;
 }
 
 #pragma GCC visibility push(default)
@@ -1583,13 +1572,16 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 
 	fprintf(f_log, "Compiling: '%s'\n", fname_in);
 
-	compile_dictrules(f_in, f_out, fname_temp);
+	espeak_ng_STATUS status = compile_dictrules(f_in, f_out, fname_temp, context);
 	fclose(f_in);
 
 	fseek(f_out, 4, SEEK_SET);
 	Write4Bytes(f_out, offset_rules);
 	fclose(f_out);
 	fflush(f_log);
+
+	if (status != ENS_OK)
+		return status;
 
 	LoadDictionary(translator, dict_name, 0);
 
