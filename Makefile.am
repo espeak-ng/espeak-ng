@@ -44,6 +44,11 @@ install-data-hook: uninstall-hook
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
+install-exec-hook:
+	cd $(DESTDIR)$(BINDIR) && rm -f espeak && $(LN_S) espeak-ng espeak
+	cd $(DESTDIR)$(BINDIR) && rm -f speak  && $(LN_S) speak-ng speak
+	cd $(DESTDIR)$(LIBDIR) && rm -f libespeak.la && $(LN_S) libespeak-ng.la libespeak.la
+
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
 
