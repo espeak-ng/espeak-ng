@@ -631,18 +631,6 @@ static void error(const char *format, ...)
 	va_end(args);
 }
 
-static FILE *fopen_log(FILE *f_log, const char *fname, const char *access)
-{
-	// performs fopen, but produces error message to f_log if it fails
-	FILE *f;
-
-	if ((f = fopen(fname, access)) == NULL) {
-		if (f_log != NULL)
-			fprintf(f_log, "Can't access (%s) file '%s'\n", access, fname);
-	}
-	return f;
-}
-
 static unsigned int StringToWord(const char *string)
 {
 	// Pack 4 characters into a word
@@ -2596,7 +2584,7 @@ static void CompilePhonemeFiles()
 			NextItem(tSTRING);
 			sprintf(buf, "%s/../phsource/%s", path_home, item_string);
 
-			if ((stack_ix < N_STACK) && (f = fopen_log(f_errors, buf, "rb")) != NULL) {
+			if ((stack_ix < N_STACK) && (f = fopen(buf, "rb")) != NULL) {
 				stack[stack_ix].linenum = linenum;
 				strcpy(stack[stack_ix].fname, current_fname);
 				stack[stack_ix++].file = f_in;
@@ -2658,7 +2646,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 		return create_file_error_context(context, errno, fname);
 
 	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
-	f_report = fopen_log(f_errors, fname, "w");
+	f_report = fopen(fname, "w");
 	if (f_report == NULL) {
 		int error = errno;
 		fclose(f_in);
@@ -2666,7 +2654,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	}
 
 	sprintf(fname, "%s/%s", path_home, "phondata-manifest");
-	if ((f_phcontents = fopen_log(f_phcontents, fname, "w")) == NULL)
+	if ((f_phcontents = fopen(fname, "w")) == NULL)
 		f_phcontents = stderr;
 
 	fprintf(f_phcontents,
@@ -2718,7 +2706,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	}
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
-	f_prog_log = fopen_log(f_errors, fname, "wb");
+	f_prog_log = fopen(fname, "wb");
 
 	fprintf(log, "Compiling phoneme data: %s/../phsource\n", path_home);
 
