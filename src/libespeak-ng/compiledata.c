@@ -2635,7 +2635,7 @@ static void CompilePhonemeFiles()
 	phoneme_tab2[n_phcodes+1].mnemonic = 0; // terminator
 }
 
-static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
+static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	char fname[sizeof(path_home)+40];
 	sprintf(fname, "%s/../phsource", path_home);
@@ -2648,19 +2648,15 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 
 	f_errors = log;
 
-	if (!access(fname, 755)) {
-		fprintf(log, "Can't find phoneme source directory: %s\n", fname);
-		return errno;
-	}
+	if (!access(fname, 755))
+		return create_file_error_context(context, errno, fname);
 
 	strncpy0(current_fname, source, sizeof(current_fname));
 
 	sprintf(fname, "%s/../phsource/phonemes", path_home);
-	f_in = fopen_log(f_errors, fname, "rb");
-	if (f_in == NULL) {
-		fprintf(log, "Can't read master phonemes file: %s\n", fname);
-		return errno;
-	}
+	f_in = fopen(fname, "rb");
+	if (f_in == NULL)
+		return create_file_error_context(context, errno, fname);
 
 	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
 	f_report = fopen_log(f_errors, fname, "w");
@@ -2686,16 +2682,31 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log)
 	        "#  -------  ---------\n");
 
 	sprintf(fname, "%s/%s", path_home, "phondata");
-	f_phdata = fopen_log(f_errors, fname, "wb");
+	f_phdata = fopen(fname, "wb");
+	if (f_phdata == NULL) {
+		int error = errno;
+		fclose(f_in);
+		return create_file_error_context(context, errno, fname);
+	}
 
 	sprintf(fname, "%s/%s", path_home, "phonindex");
-	f_phindex = fopen_log(f_errors, fname, "wb");
+	f_phindex = fopen(fname, "wb");
+	if (f_phindex == NULL) {
+		int error = errno;
+		fclose(f_in);
+		fclose(f_phdata);
+		return create_file_error_context(context, errno, fname);
+	}
 
 	sprintf(fname, "%s/%s", path_home, "phontab");
-	f_phtab = fopen_log(f_errors, fname, "wb");
-
-	if (f_phdata == NULL || f_phindex == NULL || f_phtab == NULL)
-		return errno;
+	f_phtab = fopen(fname, "wb");
+	if (f_phtab == NULL) {
+		int error = errno;
+		fclose(f_in);
+		fclose(f_phdata);
+		fclose(f_phindex);
+		return create_file_error_context(context, errno, fname);
+	}
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
 	f_prog_log = fopen_log(f_errors, fname, "wb");
@@ -3033,12 +3044,12 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
 
-espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log)
+espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
-	return CompilePhonemeData2("phonemes", log);
+	return CompilePhonemeData2("phonemes", log, context);
 }
 
 #pragma GCC visibility pop

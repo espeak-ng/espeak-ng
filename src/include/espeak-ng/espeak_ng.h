@@ -148,7 +148,8 @@ espeak_ng_CompileMbrolaVoice(const char *path,
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompilePhonemeData(long rate,
-                             FILE *log);
+                             FILE *log,
+                             espeak_ng_ERROR_CONTEXT *context);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileIntonation(FILE *log,
