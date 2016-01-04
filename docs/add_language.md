@@ -1,11 +1,14 @@
 # Adding or Improving a Language
 
+# Table of contents
+
 - [Language Code](#language-code)
 - [Language Files](#language-files)
 - [Voice File](#voice-file)
 - [Phoneme Definition File](#phoneme-definition-file)
 - [Dictionary Files](#dictionary-files)
 - [Program Code](#program-code)
+- [Compiling rules file for debugging](#compiling-rules-file-for-debugging)
 - [Improving a Language](#improving-a-language)
 
 ----------
@@ -162,6 +165,35 @@ options. For a new language, you would add its language code and the
 required options in `SetTranslator()`. However, this may not be necessary
 during testing because most of the options can also be set in the voice
 file in espeak-data/voices (see [Voice Files](voices.md)).
+
+## Compiling rules file for debugging
+
+When `espeak-ng` is invoked with `-X` parameter, it shows more detailed trace of 
+chosen language rules for pronunciation. This trace can show line numbers also, 
+if language is compiled with `--compile-debug` option.
+
+To do this, go to `espeak-ng` project root folder, then:
+
+    cd dictsource/
+    ../src/espeak-ng --compile-debug=en
+
+When invoked in following way:
+
+    es -ven -X "Test."
+
+It will show:
+
+    --------------
+    Translate 'test'
+      1  5965:  t [t]
+    
+      1  2104:  e [E]
+    
+      1  5725:  s [s]
+    
+      1  5965:  t [t]
+    
+     t'Est
 
 ## Improving a Language
 
