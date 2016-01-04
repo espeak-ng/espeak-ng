@@ -30,6 +30,7 @@
 #include "speak_lib.h"
 #include "espeak_ng.h"
 
+#include "error.h"
 #include "phoneme.h"
 #include "speech.h"
 #include "synthesize.h"
@@ -62,7 +63,7 @@ static unsigned int StringToWord(const char *string)
 }
 
 #pragma GCC visibility push(default)
-espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
+espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
 
@@ -85,10 +86,8 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 	MBROLA_TAB data[N_PHONEME_TAB];
 
 	strcpy(buf, filepath);
-	if ((f_in = fopen(buf, "r")) == NULL) {
-		fprintf(log, "Can't read: %s\n", filepath);
-		return errno;
-	}
+	if ((f_in = fopen(buf, "r")) == NULL)
+		return create_file_error_context(context, errno, buf);
 
 	while (fgets(buf, sizeof(phoneme), f_in) != NULL) {
 		buf[sizeof(phoneme)-1] = 0;
@@ -126,10 +125,8 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log)
 
 	strcpy(mbrola_voice, basename(filepath));
 	sprintf(buf, "%s/mbrola_ph/%s_phtrans", path_home, mbrola_voice);
-	if ((f_out = fopen(buf, "wb")) == NULL) {
-		fprintf(log, "Can't write to: %s\n", buf);
-		return errno;
-	}
+	if ((f_out = fopen(buf, "wb")) == NULL)
+		return create_file_error_context(context, errno, buf);
 
 	data[count].name = 0; // list terminator
 	Write4Bytes(f_out, mbrola_ctrl);
