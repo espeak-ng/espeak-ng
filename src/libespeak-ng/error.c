@@ -41,6 +41,7 @@ espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, esp
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
 		}
+		(*context)->type = ERROR_CONTEXT_FILE;
 		(*context)->path = strdup(filename);
 		(*context)->version = 0;
 		(*context)->expected_version = 0;
@@ -56,6 +57,7 @@ espeak_ng_STATUS create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
 		}
+		(*context)->type = ERROR_CONTEXT_VERSION;
 		(*context)->path = strdup(path_home);
 		(*context)->version = version;
 		(*context)->expected_version = expected_version;
@@ -79,64 +81,72 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 	switch (status)
 	{
 	case ENS_COMPILE_ERROR:
-		strncpy0(buffer, "Compile error.", length);
+		strncpy0(buffer, "Compile error", length);
 		break;
 	case ENS_VERSION_MISMATCH:
-#ifdef PLATFORM_WINDOWS
-		sprintf(buffer, "Wrong version of espeak-data (expected 0x%x) at '%s'.", version_phdata, path_home);
-#else
-		snprintf(buffer, length, "Wrong version of espeak-data (expected 0x%x) at '%s'.", version_phdata, path_home);
-#endif
+		strncpy0(buffer, "Wrong version of espeak-data", length);
 		break;
 	case ENS_FIFO_BUFFER_FULL:
-		strncpy0(buffer, "The FIFO buffer is full.", length);
+		strncpy0(buffer, "The FIFO buffer is full", length);
 		break;
 	case ENS_NOT_INITIALIZED:
-		strncpy0(buffer, "The espeak-ng library has not been initialized.", length);
+		strncpy0(buffer, "The espeak-ng library has not been initialized", length);
 		break;
 	case ENS_AUDIO_ERROR:
-		strncpy0(buffer, "Cannot initialize the audio device.", length);
+		strncpy0(buffer, "Cannot initialize the audio device", length);
 		break;
 	case ENS_VOICE_NOT_FOUND:
-		strncpy0(buffer, "The specified espeak-ng voice does not exist.", length);
+		strncpy0(buffer, "The specified espeak-ng voice does not exist", length);
 		break;
 	case ENS_MBROLA_NOT_FOUND:
-		strncpy0(buffer, "Could not load the mbrola.dll file.", length);
+		strncpy0(buffer, "Could not load the mbrola.dll file", length);
 		break;
 	case ENS_MBROLA_VOICE_NOT_FOUND:
-		strncpy0(buffer, "Could not load the specified mbrola voice file.", length);
+		strncpy0(buffer, "Could not load the specified mbrola voice file", length);
 		break;
 	case ENS_EVENT_BUFFER_FULL:
-		strncpy0(buffer, "The event buffer is full.", length);
+		strncpy0(buffer, "The event buffer is full", length);
 		break;
 	case ENS_NOT_SUPPORTED:
-		strncpy0(buffer, "The requested functionality has not been built into espeak-ng.", length);
+		strncpy0(buffer, "The requested functionality has not been built into espeak-ng", length);
 		break;
 	case ENS_UNSUPPORTED_PHON_FORMAT:
-		strncpy0(buffer, "The phoneme file is not in a supported format.", length);
+		strncpy0(buffer, "The phoneme file is not in a supported format", length);
 		break;
 	case ENS_NO_SPECT_FRAMES:
-		strncpy0(buffer, "The spectral file does not contain any frame data.", length);
+		strncpy0(buffer, "The spectral file does not contain any frame data", length);
 		break;
 	default:
 		if ((status & ENS_GROUP_MASK) == ENS_GROUP_ERRNO)
 			strerror_r(status, buffer, length);
 		else {
 #ifdef PLATFORM_WINDOWS
-			sprintf(buffer, "Unspecified error 0x%x.", status);
+			sprintf(buffer, "Unspecified error 0x%x", status);
 #else
-			snprintf(buffer, length, "Unspecified error 0x%x.", status);
+			snprintf(buffer, length, "Unspecified error 0x%x", status);
 #endif
 		}
 		break;
 	}
 }
 
-ESPEAK_NG_API void espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status, FILE *out)
+ESPEAK_NG_API void espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status, FILE *out, espeak_ng_ERROR_CONTEXT context)
 {
 	char error[512];
 	espeak_ng_GetStatusCodeMessage(status, error, sizeof(error));
-	fprintf(out, "%s\n", error);
+	if (context) {
+		switch (context->type)
+		{
+		case ERROR_CONTEXT_FILE:
+			fprintf(out, "Error processing file '%s': %s.\n", context->path, error);
+			break;
+		case ERROR_CONTEXT_VERSION:
+			fprintf(out, "Error: %s at '%s' (expected 0x%x, got 0x%x).\n",
+			        error, context->path, context->expected_version, context->version);
+			break;
+		}
+	} else
+		fprintf(out, "Error: %s.\n", error);
 }
 
 #pragma GCC visibility pop

@@ -578,7 +578,7 @@ int main(int argc, char **argv)
 	espeak_ng_ERROR_CONTEXT context = NULL;
 	espeak_ng_STATUS result = espeak_ng_Initialize(&context);
 	if (result != ENS_OK) {
-		espeak_ng_PrintStatusCodeMessage(result, stderr);
+		espeak_ng_PrintStatusCodeMessage(result, stderr, context);
 		espeak_ng_ClearErrorContext(&context);
 		exit(1);
 	}

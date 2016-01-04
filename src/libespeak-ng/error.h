@@ -23,8 +23,15 @@ extern "C"
 {
 #endif
 
+typedef enum
+{
+	ERROR_CONTEXT_FILE,
+	ERROR_CONTEXT_VERSION,
+} espeak_ng_CONTEXT_TYPE;
+
 typedef struct espeak_ng_ERROR_CONTEXT_
 {
+	espeak_ng_CONTEXT_TYPE type;
 	char *path;
 	int version;
 	int expected_version;

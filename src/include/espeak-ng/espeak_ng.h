@@ -69,7 +69,8 @@ espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
 
 ESPEAK_NG_API void
 espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status,
-                                 FILE *out);
+                                 FILE *out,
+                                 espeak_ng_ERROR_CONTEXT context);
 
 ESPEAK_NG_API void
 espeak_ng_InitializePath(const char *path);
