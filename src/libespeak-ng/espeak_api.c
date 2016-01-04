@@ -53,9 +53,11 @@ static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
 ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
 {
 	espeak_ng_InitializePath(path);
-	espeak_ng_STATUS result = espeak_ng_Initialize();
+	espeak_ng_ERROR_CONTEXT context = NULL;
+	espeak_ng_STATUS result = espeak_ng_Initialize(&context);
 	if (result != ENS_OK) {
 		espeak_ng_PrintStatusCodeMessage(result, stderr);
+		espeak_ng_ClearErrorContext(&context);
 		if ((options & espeakINITIALIZE_DONT_EXIT) == 0)
 			exit(1);
 	}

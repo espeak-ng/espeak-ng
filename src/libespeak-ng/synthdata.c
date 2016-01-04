@@ -33,6 +33,7 @@
 #include "espeak_ng.h"
 #include "speak_lib.h"
 
+#include "error.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -72,7 +73,7 @@ int vowel_transition1;
 
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
-static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size)
+static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!ptr) return EINVAL;
 
@@ -83,10 +84,8 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size)
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, fname);
 	length = GetFileLength(buf);
 
-	if ((f_in = fopen(buf, "rb")) == NULL) {
-		fprintf(stderr, "Can't read data file: '%s'\n", buf);
-		return errno;
-	}
+	if ((f_in = fopen(buf, "rb")) == NULL)
+		return create_file_error_context(context, errno, buf);
 
 	if (*ptr != NULL)
 		Free(*ptr);
@@ -99,7 +98,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size)
 		int error = errno;
 		fclose(f_in);
 		Free(*ptr);
-		return error;
+		return create_file_error_context(context, error, buf);
 	}
 
 	fclose(f_in);
@@ -108,7 +107,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size)
 	return ENS_OK;
 }
 
-espeak_ng_STATUS LoadPhData(int *srate)
+espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 {
 	int ix;
 	int n_phonemes;
@@ -119,13 +118,13 @@ espeak_ng_STATUS LoadPhData(int *srate)
 	int *pw;
 
 	espeak_ng_STATUS status;
-	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL, context)) != ENS_OK)
 		return status;
-	if ((status = ReadPhFile((void **)&phoneme_index, "phonindex", NULL)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&phoneme_index, "phonindex", NULL, context)) != ENS_OK)
 		return status;
-	if ((status = ReadPhFile((void **)&phondata_ptr, "phondata", NULL)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&phondata_ptr, "phondata", NULL, context)) != ENS_OK)
 		return status;
-	if ((status = ReadPhFile((void **)&tunes, "intonations", &length)) != ENS_OK)
+	if ((status = ReadPhFile((void **)&tunes, "intonations", &length, context)) != ENS_OK)
 		return status;
 	wavefile_data = (unsigned char *)phondata_ptr;
 	n_tunes = length / sizeof(TUNE);
@@ -139,7 +138,7 @@ espeak_ng_STATUS LoadPhData(int *srate)
 	}
 
 	if (version != version_phdata)
-		return ENS_VERSION_MISMATCH;
+		return create_version_mismatch_error_context(context, path_home, version, version_phdata);
 
 	// set up phoneme tables
 	p = phoneme_tab_data;

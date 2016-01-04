@@ -37,13 +37,30 @@ espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, esp
 {
 	if (context) {
 		if (*context) {
-			free((*context)->filename);
+			free((*context)->path);
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
 		}
-		(*context)->filename = strdup(filename);
+		(*context)->path = strdup(filename);
+		(*context)->version = 0;
+		(*context)->expected_version = 0;
 	}
 	return status;
+}
+
+espeak_ng_STATUS create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context, const char *path_home, int version, int expected_version)
+{
+	if (context) {
+		if (*context) {
+			free((*context)->path);
+		} else {
+			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
+		}
+		(*context)->path = strdup(path_home);
+		(*context)->version = version;
+		(*context)->expected_version = expected_version;
+	}
+	return ENS_VERSION_MISMATCH;
 }
 
 #pragma GCC visibility push(default)
@@ -51,7 +68,7 @@ espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, esp
 ESPEAK_NG_API void espeak_ng_ClearErrorContext(espeak_ng_ERROR_CONTEXT *context)
 {
 	if (context && *context) {
-		free((*context)->filename);
+		free((*context)->path);
 		free(*context);
 		*context = NULL;
 	}

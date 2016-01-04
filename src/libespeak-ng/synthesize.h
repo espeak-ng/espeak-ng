@@ -499,7 +499,7 @@ unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *mat
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
 
 unsigned char *LookupEnvelope(int ix);
-espeak_ng_STATUS LoadPhData(int *srate);
+espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
 
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);

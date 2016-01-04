@@ -25,13 +25,21 @@ extern "C"
 
 typedef struct espeak_ng_ERROR_CONTEXT_
 {
-	char *filename;
+	char *path;
+	int version;
+	int expected_version;
 } espeak_ng_ERROR_CONTEXT_;
 
 espeak_ng_STATUS
 create_file_error_context(espeak_ng_ERROR_CONTEXT *context,
                           espeak_ng_STATUS status,
                           const char *filename);
+
+espeak_ng_STATUS
+create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context,
+                                      const char *path,
+                                      int version,
+                                      int expected_version);
 
 #ifdef __cplusplus
 }

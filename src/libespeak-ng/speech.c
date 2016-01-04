@@ -313,7 +313,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 #endif
 }
 
-ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *context)
 {
 	int param;
 	int srate = 22050; // default sample rate 22050 Hz
@@ -328,7 +328,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(void)
 		}
 	}
 
-	espeak_ng_STATUS result = LoadPhData(&srate);
+	espeak_ng_STATUS result = LoadPhData(&srate, context);
 	if (result != ENS_OK)
 		return result;
 
