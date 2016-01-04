@@ -138,7 +138,8 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileDictionary(const char *dsource,
                             const char *dict_name,
                             FILE *log,
-                            int flags);
+                            int flags,
+                            espeak_ng_ERROR_CONTEXT *context);
 
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileMbrolaVoice(const char *path,

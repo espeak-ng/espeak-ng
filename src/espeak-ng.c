@@ -636,8 +636,14 @@ int main(int argc, char **argv)
 
 	if (flag_compile) {
 		// This must be done after the voice is set
-		return (espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1) == ENS_OK)
-		     ? EXIT_SUCCESS : EXIT_FAILURE;
+		espeak_ng_ERROR_CONTEXT context = NULL;
+		espeak_ng_STATUS result = espeak_ng_CompileDictionary("", NULL, stderr, flag_compile & 0x1, &context);
+		if (result != ENS_OK) {
+			espeak_ng_PrintStatusCodeMessage(result, stderr, context);
+			espeak_ng_ClearErrorContext(&context);
+			return EXIT_FAILURE;
+		}
+		return EXIT_SUCCESS;
 	}
 
 	// set any non-default values of parameters. This must be done after espeak_Initialize()

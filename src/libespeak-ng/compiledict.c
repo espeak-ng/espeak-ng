@@ -1514,7 +1514,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 }
 
 #pragma GCC visibility push(default)
-ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, const char *dict_name, FILE *log, int flags)
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, const char *dict_name, FILE *log, int flags, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
 	if (!dict_name) dict_name = dictionary_name;
@@ -1549,15 +1549,15 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	sprintf(fname_in, "%srules.txt", path);
 	if ((f_in = fopen(fname_in, "r")) == NULL) {
 		sprintf(fname_in, "%srules", path);
-		if ((f_in = fopen_log(fname_in, "r")) == NULL)
-			return errno;
+		if ((f_in = fopen(fname_in, "r")) == NULL)
+			return create_file_error_context(context, errno, fname_in);
 	}
 
 	sprintf(fname_out, "%s%c%s_dict", path_home, PATHSEP, dict_name);
-	if ((f_out = fopen_log(fname_out, "wb+")) == NULL) {
+	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
 		int error = errno;
 		fclose(f_in);
-		return error;
+		return create_file_error_context(context, errno, fname_out);
 	}
 	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
 
