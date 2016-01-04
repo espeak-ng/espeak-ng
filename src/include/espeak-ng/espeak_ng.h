@@ -57,6 +57,11 @@ typedef enum {
 	ENOUTPUT_MODE_SPEAK_AUDIO = 0x0002,
 } espeak_ng_OUTPUT_MODE;
 
+typedef struct espeak_ng_ERROR_CONTEXT_ *espeak_ng_ERROR_CONTEXT;
+
+ESPEAK_NG_API void
+espeak_ng_ClearErrorContext(espeak_ng_ERROR_CONTEXT *context);
+
 ESPEAK_NG_API void
 espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
                                char *buffer,

@@ -24,14 +24,38 @@
 #include <stdint.h>
 #endif
 #include <string.h>
+#include <malloc.h>
 
 #include "espeak_ng.h"
 
+#include "error.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 
+espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, espeak_ng_STATUS status, const char *filename)
+{
+	if (context) {
+		if (*context) {
+			free((*context)->filename);
+		} else {
+			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
+		}
+		(*context)->filename = strdup(filename);
+	}
+	return status;
+}
+
 #pragma GCC visibility push(default)
+
+ESPEAK_NG_API void espeak_ng_ClearErrorContext(espeak_ng_ERROR_CONTEXT *context)
+{
+	if (context && *context) {
+		free((*context)->filename);
+		free(*context);
+		*context = NULL;
+	}
+}
 
 ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char *buffer, size_t length)
 {
