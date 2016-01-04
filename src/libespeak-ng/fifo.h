@@ -23,7 +23,6 @@
 // and run them asynchronously.
 
 #include "espeak_command.h"
-#include "speak_lib.h"
 
 #ifdef __cplusplus
 extern "C"

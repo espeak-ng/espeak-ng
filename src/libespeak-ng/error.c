@@ -26,7 +26,7 @@
 #include <string.h>
 #include <malloc.h>
 
-#include "espeak_ng.h"
+#include <espeak-ng/espeak_ng.h>
 
 #include "error.h"
 #include "speech.h"

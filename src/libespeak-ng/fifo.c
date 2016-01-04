@@ -33,7 +33,7 @@
 #include <sys/time.h>
 #include <time.h>
 
-#include "espeak_ng.h"
+#include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
 #include "fifo.h"

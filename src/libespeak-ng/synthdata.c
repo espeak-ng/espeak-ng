@@ -30,8 +30,8 @@
 #include <stdint.h>
 #endif
 
-#include "espeak_ng.h"
-#include "speak_lib.h"
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
 
 #include "error.h"
 #include "speech.h"

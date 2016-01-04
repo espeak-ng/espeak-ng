@@ -44,6 +44,11 @@ install-data-hook: uninstall-hook
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	cp -prf espeak-data/* $(DESTDIR)$(DATADIR)
 
+install-exec-hook:
+	cd $(DESTDIR)$(BINDIR) && rm -f espeak && $(LN_S) espeak-ng espeak
+	cd $(DESTDIR)$(BINDIR) && rm -f speak  && $(LN_S) speak-ng speak
+	cd $(DESTDIR)$(LIBDIR) && rm -f libespeak.la && $(LN_S) libespeak-ng.la libespeak.la
+
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
 
@@ -84,14 +89,18 @@ docs:	docs/index.html \
 
 ##### build targets:
 
-libespeak_ng_includedir = $(includedir)/espeak-ng
-libespeak_ng_include_HEADERS = \
-	src/include/espeak-ng/speak_lib.h
+espeak_includedir = $(includedir)/espeak
+espeak_include_HEADERS = \
+	src/include/espeak/speak_lib.h
+
+espeak_ng_includedir = $(includedir)/espeak-ng
+espeak_ng_include_HEADERS = \
+	src/include/espeak-ng/espeak_ng.h
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm
-src_libespeak_ng_la_CFLAGS = -Isrc/include/espeak-ng \
+src_libespeak_ng_la_CFLAGS = -Isrc/include \
 	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D _POSIX_C_SOURCE=200112L \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 src_libespeak_ng_la_SOURCES = \
@@ -170,7 +179,7 @@ endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static
-src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include/espeak-ng -D _POSIX_C_SOURCE=200112L
+src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L
 src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
@@ -180,7 +189,7 @@ man1_MANS += src/espeak-ng.1
 endif
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la
-src_espeak_ng_CFLAGS  = -Isrc/include/espeak-ng
+src_espeak_ng_CFLAGS  = -Isrc/include
 src_espeak_ng_SOURCES = src/espeak-ng.c
 
 ##### phoneme data:

@@ -36,8 +36,8 @@
 #include "dirent.h"
 #endif
 
-#include "espeak_ng.h"
-#include "speak_lib.h"
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
 
 #include "phoneme.h"
 #include "synthesize.h"

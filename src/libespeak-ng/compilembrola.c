@@ -27,8 +27,8 @@
 #include <stdint.h>
 #endif
 
-#include "speak_lib.h"
-#include "espeak_ng.h"
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
 
 #include "error.h"
 #include "phoneme.h"

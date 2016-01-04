@@ -22,7 +22,6 @@
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif
-#include "speak_lib.h"
 
 #ifdef __cplusplus
 extern "C"

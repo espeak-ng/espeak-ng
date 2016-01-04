@@ -229,16 +229,16 @@ Phoneme Instructions may be included within conditional statements.
 
 During the first phase of phoneme interpretation, an instruction which
 causes a change to a different phoneme will terminate the instructions.
-During the second phase, FMT() and WAV() instructions will terminate the
+During the second phase, `FMT()` and `WAV()` instructions will terminate the
 instructions.
 
 ### length
 
 	length <length>
 
-The relative length of the phoneme, typically about 140 for a short vowel and
-from 200 to 300 for a long vowel or diphong. A `length()` instruction is
-needed for vowels. It is optional for consonants.
+The relative length of the phoneme in miliseconds. Typical values are about 
+140 for a short vowel and from 200 to 300 for a long vowel or diphong. 
+A `length()` instruction is needed for vowels. It is optional for consonants.
 
 ### ipa
 
@@ -263,6 +263,7 @@ the file to which it refers may or may not have one.
 
 \<amplitude\> is optional. It is a percentage change to the amplitude of the
 WAV file. So, `WAV(ufric/s, 50)` means: play file 'ufric/s.wav' at 50% amplitude.
+Default value is 100.
 
 ### FMT
 
@@ -270,10 +271,11 @@ WAV file. So, `WAV(ufric/s, 50)` means: play file 'ufric/s.wav' at 50% amplitude
 
 \<vowel file\> is a path to a file (within `phsource/`) which defines how to
 generate the sound (a vowel or voiced consonant) from a sequence of formant
-values. Vowel files are made using the espeakedit program.
+values. Vowel files are made using the `espeakedit` program which is not part
+of this project.
 
 \<amplitude\> is optional. It is a percentage change to the amplitude of the
-sound which is synthesized from the `FMT()` instruction.
+sound which is synthesized from the `FMT()` instruction. Default value is 100.
 
 	FMT(<vowel file>, <amplitude>) addWav(<wav file>, <amplitude>)
 
@@ -285,7 +287,7 @@ WAV file is mixed with the sound which is synthesized from the `FMT()` instructi
 
 	VowelStart(<vowel file>, <length adjust>)
 
-This is used to modify the start of a vowel when it follows a sonorant consonant
+This is used to modify the start of a vowel when it follows after a sonorant consonant
 (such as `[l]` or `[j]`). It replaces the first frame of the \<vowel file\> which
 is specified in a `FMT()` instruction by this \<vowel file\>, and adjusts the
 length of the original by a signed value \<length adjust\>. The `VowelStart()`
@@ -310,14 +312,14 @@ The former takes precedence.
 	Vowelin <vowel transition data>
 
 (C) Specifies the effects of this consonant on the formants of a following
-vowel. See "vowel transitions", below.
+vowel. See [vowel transitions](#vowel-transitions).
 
 ### Vowelout
 
 	Vowelout <vowel transition data>
 
 (C) Specifies the effects of this consonant on the formants of a preceding
-vowel. See "vowel transitions", below.
+vowel. See [vowel transitions](#vowel-transitions).
 
 ### ChangePhoneme
 
@@ -356,7 +358,8 @@ Change to the specified phoneme if this syllable has "primary" stress.
 	IfNextVowelAppend(<phoneme>)
 
 If the following phoneme is a vowel then this additional phoneme will be
-inserted before it.
+inserted before it. Usually it is short pause to distinguish two vowels from
+diphthongs.
 
 ### RETURN
 
@@ -544,9 +547,9 @@ True if this is the highest stressed syllable in the word.
 There are three ways to produce sounds:
 
 * Playing a WAV file, by using a `WAV()` instruction. This is used for unvoiced
-  consonants such as `[p]`, `[t]` and [s]`.
+  consonants such as `[p]`, `[t]` and `[s]`.
 * Generating a wave from a sequence of formant parameters, by using a `FMT()`
-  instruction. This is used for vowels and also for sonorants such as ``[l]`,
+  instruction. This is used for vowels and also for sonorants such as `[l]`,
   `[j]` and `[n]`.
 * A mixture of these. A stored `WAV` file is mixed with a wave generated from
   formant parameters. Use a `FMT()` instruction followed by `addWav()`. This is
@@ -562,7 +565,7 @@ is limited by the program.
 
 	len=<integer>
 
-Nominal length of the transition in mS. If omitted a default value is used.
+Nominal length of the transition in miliseconds. If omitted a default value is used.
 
 	rms=<integer>
 
@@ -587,7 +590,7 @@ a default value is used.
 
 	f3=<change> <amplitude>
 
-\<change\>: Signed integer (Hz).  Frequence change of f3, f4, and f5 formants.
+\<change\>: Signed integer (Hz).  Frequency change of f3, f4, and f5 formants.
 
 \<amplitude\>: Amplitude of the f3, f4, and f5 formants at the end of the
 transition. 100 = no change.
