@@ -108,7 +108,7 @@ are specified.
 
 `start pitch` give a pitch path for the stressed syllables of the head.
 
-steps` is the maximum number of stressed syllables for which this applies. If
+`steps` is the maximum number of stressed syllables for which this applies. If
 there are additional stressed syllables, then the `headextend` statement is used
 for them.
 
@@ -122,7 +122,7 @@ than the previous stressed syllable.
 	headextend <percentage list>
 
 If the head contains more stressed syllables than is specified by `steps` is used.
-Itmcontains up to 8 numbers which are used repeatedly for the additional stressed
+It contains up to 8 numbers which are used repeatedly for the additional stressed
 syllables. A value of 0 corresponds to the lower the `start pitch` values of the
 `head` statement. 100 corresponds to the higher value.
 
