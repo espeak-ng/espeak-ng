@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  * based on AudioIO.cc (Audacity-1.2.4b) and wavegen.cpp
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,7 +30,6 @@
 #include <sys/time.h>
 #include <time.h>
 
-#include "portaudio.h"
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
 #else
