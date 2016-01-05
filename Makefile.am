@@ -178,7 +178,7 @@ man1_MANS += src/speak-ng.1
 endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
-src_speak_ng_LDFLAGS = -static
+src_speak_ng_LDFLAGS = -static -lm
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L
 src_speak_ng_SOURCES = src/speak-ng.c
 
