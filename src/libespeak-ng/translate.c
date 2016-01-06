@@ -2244,8 +2244,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		charix[ix] = 0;
 	terminator = ReadClause(tr, f_text, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name);
 
-	p = source;
-
 	charix[charix_top+1] = 0;
 	charix[charix_top+2] = 0x7fff;
 	charix[charix_top+3] = 0;
