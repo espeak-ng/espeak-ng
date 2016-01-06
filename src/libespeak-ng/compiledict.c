@@ -580,7 +580,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		int c2;
 
 		all_upper_case = 1;
-		p = word;
 		for (p = word;;) {
 			// this assumes that the lower case char is the same length as the upper case char
 			// OK, except for Turkish "I", but use towlower() rather than towlower2()
