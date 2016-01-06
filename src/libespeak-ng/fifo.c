@@ -220,35 +220,45 @@ static int sleep_until_start_request_or_inactivity()
 	return a_start_is_required;
 }
 
-static void close_stream()
+static espeak_ng_STATUS close_stream()
 {
 	// Warning: a wave_close can be already required by
 	// an external command (espeak_Cancel + fifo_stop), if so:
 	// my_stop_is_required = 1;
 
-	int a_status = pthread_mutex_lock(&my_mutex);
-	assert(!a_status);
+	espeak_ng_STATUS status = pthread_mutex_lock(&my_mutex);
+	if (status != ENS_OK)
+		return status;
+
 	int a_stop_is_required = my_stop_is_required;
 	if (!a_stop_is_required)
 		my_command_is_running = 1;
-	a_status = pthread_mutex_unlock(&my_mutex);
+
+	status = pthread_mutex_unlock(&my_mutex);
 
 	if (!a_stop_is_required) {
 		wave_close(NULL);
 
 		int a_status = pthread_mutex_lock(&my_mutex);
-		assert(!a_status);
-		my_command_is_running = 0;
+		if (status == ENS_OK)
+			status = a_status;
 
+		my_command_is_running = 0;
 		a_stop_is_required = my_stop_is_required;
+
 		a_status = pthread_mutex_unlock(&my_mutex);
+		if (status == ENS_OK)
+			status = a_status;
 
 		if (a_stop_is_required) {
 			// acknowledge the stop request
-			int a_status = sem_post(&my_sem_stop_is_acknowledged);
-			assert(a_status != -1);
+			a_status = sem_post(&my_sem_stop_is_acknowledged);
+			if (status == ENS_OK)
+				status = a_status;
 		}
 	}
+
+	return status;
 }
 
 static void *say_thread(void *p)
