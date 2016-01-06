@@ -382,11 +382,9 @@ static int parwave(klatt_frame_ptr frame)
 		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0); // Convert back to integer
 
 		// mix with a recorded WAV if required for this phoneme
-		int z2;
 		signed char c;
 		int sample;
 
-		z2 = 0;
 		if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {
 			if (wdata.mix_wave_scale == 0) {
 				// a 16 bit sample
@@ -397,7 +395,7 @@ static int parwave(klatt_frame_ptr frame)
 				// a 8 bit sample, scaled
 				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
 			}
-			z2 = sample * wdata.amplitude_v / 1024;
+			int z2 = sample * wdata.amplitude_v / 1024;
 			z2 = (z2 * wdata.mix_wave_amp)/40;
 			temp += z2;
 		}
