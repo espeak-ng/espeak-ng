@@ -1542,7 +1542,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 	if ((f_out = fopen(fname_out, "wb+")) == NULL) {
 		int error = errno;
 		fclose(f_in);
-		return create_file_error_context(context, errno, fname_out);
+		return create_file_error_context(context, error, fname_out);
 	}
 	sprintf(fname_temp, "%s%ctemp", path_home, PATHSEP);
 
