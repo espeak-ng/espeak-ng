@@ -719,15 +719,13 @@ voice_t *LoadVoice(const char *vname, int control)
 			VoiceFormant(p);
 			break;
 		case V_PITCH:
-		{
-			double factor;
 			// default is  pitch 82 118
-			n = sscanf(p, "%d %d", &pitch1, &pitch2);
-			voice->pitch_base = (pitch1 - 9) << 12;
-			voice->pitch_range = (pitch2 - pitch1) * 108;
-			factor = (double)(pitch1 - 82)/82;
-			voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
-		}
+			if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {
+				voice->pitch_base = (pitch1 - 9) << 12;
+				voice->pitch_range = (pitch2 - pitch1) * 108;
+				double factor = (double)(pitch1 - 82)/82;
+				voice->formant_factor = (int)((1+factor/4) * 256); // nominal formant shift for a different voice pitch
+			}
 			break;
 		case V_STRESSLENGTH: // stressLength
 			stress_lengths_set = Read8Numbers(p, stress_lengths);
