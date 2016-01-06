@@ -580,7 +580,6 @@ void CalcLengths(Translator *tr)
 		case phNASAL:
 			p->amp = tr->stress_amps[0]; // unless changed later
 			p->length = 256; //  TEMPORARY
-			min_drop = 0;
 
 			if (p->newword) {
 				if (prev->type == phLIQUID)
