@@ -620,7 +620,7 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 		myWrite = myBuffer;
 
 	size_t aTotalFreeMem = 0;
-	char *aRead = myRead;
+	char *aRead;
 
 	while (1) {
 		if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled()))
