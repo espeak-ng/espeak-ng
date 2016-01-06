@@ -1692,7 +1692,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 			{
 			case 0:
 				// match and consume this letter
-				last_letter = letter;
 				letter = *post_ptr++;
 
 				if ((letter == rb) || ((letter == (unsigned char)REPLACED_E) && (rb == 'e'))) {
