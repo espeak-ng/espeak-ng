@@ -585,7 +585,6 @@ static size_t copyBuffer(char *dest, char *src, const size_t theSizeInBytes)
 			memcpy(dest, src, theSizeInBytes);
 			bytes_written = theSizeInBytes;
 		} else { // copy for 2 channels (stereo)
-			i = 0;
 			a_dest = (uint16_t *)dest;
 			a_src = (uint16_t *)src;
 
