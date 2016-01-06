@@ -1110,7 +1110,6 @@ static char *compile_rule(char *input)
 	}
 
 	if (rule_cond[0] != 0) {
-		ix = -1;
 		if (rule_cond[0] == '!') {
 			// allow the rule only if the condition number is NOT set for the voice
 			ix = atoi(&rule_cond[1]) + 32;
