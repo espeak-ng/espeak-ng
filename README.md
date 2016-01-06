@@ -40,7 +40,8 @@ Optionally, you need:
 
 1.  the pulseaudio development library to enable pulseaudio output;
 2.  the portaudio development library to enable portaudio output;
-3.  the sonic development library to enable sonic audio speed up support;
+3.  the [sonic](https://github.com/waywardgeek/sonic) development library to
+    enable sonic audio speed up support;
 4.  the `ronn` man-page markdown processor to build the man pages.
 
 To build the documentation, you need:
