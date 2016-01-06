@@ -844,7 +844,6 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 	for (prog = &phoneme_index[ph->program]; end_flag != 1; prog++) {
 		instn = *prog;
 		instn2 = (instn >> 8) & 0xf;
-		or_flag = 0;
 
 		switch (instn >> 12)
 		{
