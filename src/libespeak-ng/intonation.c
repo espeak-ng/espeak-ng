@@ -54,8 +54,6 @@ typedef struct {
 	unsigned char pitch2;
 } SYLLABLE;
 
-static SYLLABLE *syllable_tab;
-
 static int tone_pitch_env; // used to return pitch envelope
 
 /* Pitch data for tone types */
@@ -319,7 +317,7 @@ static int tone_posn;
 static int tone_posn2;
 static int no_tonic;
 
-static void count_pitch_vowels(int start, int end, int clause_end)
+static void count_pitch_vowels(SYLLABLE *syllable_tab, int start, int end, int clause_end)
 {
 	int ix;
 	int stress;
@@ -370,7 +368,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 }
 
 // Count number of primary stresses up to tonic syllable or body_reset
-static int count_increments(int ix, int end_ix, int min_stress)
+static int count_increments(SYLLABLE *syllable_tab, int ix, int end_ix, int min_stress)
 {
 	int count = 0;
 	int stress;
@@ -413,7 +411,7 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 	syl->flags |= flags;
 }
 
-static int CountUnstressed(int start, int end, int limit)
+static int CountUnstressed(SYLLABLE *syllable_tab, int start, int end, int limit)
 {
 	int ix;
 
@@ -424,7 +422,7 @@ static int CountUnstressed(int start, int end, int limit)
 	return ix - start;
 }
 
-static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix)
+static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int end_ix)
 {
 	int stress;
 	SYLLABLE *syl;
@@ -476,11 +474,11 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix)
 				overflow_ix = 0;
 
 				if (tune->onset == 255) {
-					n_steps = count_increments(syl_ix, head_final, 4);
+					n_steps = count_increments(syllable_tab, syl_ix, head_final, 4);
 					pitch = tune->head_start << 8;
 				} else {
 					// a pitch has been specified for the onset syllable, don't include it in the pitch incrementing
-					n_steps = count_increments(syl_ix+1, head_final, 4);
+					n_steps = count_increments(syllable_tab, syl_ix+1, head_final, 4);
 					pitch = tune->onset << 8;
 					used_onset = 1;
 				}
@@ -515,13 +513,13 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix)
 		}
 
 		if (stress >= PRIMARY) {
-			n_unstressed = CountUnstressed(syl_ix+1, end_ix, secondary);
+			n_unstressed = CountUnstressed(syllable_tab, syl_ix+1, end_ix, secondary);
 			unstressed_ix = 0;
 			syl->stress = PRIMARY_STRESSED;
 			syl->env = tune->stressed_env;
 			set_pitch(syl, (pitch >> 8), tune->stressed_drop);
 		} else if (stress >= secondary) {
-			n_unstressed = CountUnstressed(syl_ix+1, end_ix, secondary);
+			n_unstressed = CountUnstressed(syllable_tab, syl_ix+1, end_ix, secondary);
 			unstressed_ix = 0;
 			set_pitch(syl, (pitch >> 8), drops[stress]);
 		} else {
@@ -542,7 +540,7 @@ static int SetHeadIntonation(TUNE *tune, int syl_ix, int end_ix)
 /* Calculate pitches until next RESET or tonic syllable, or end.
     Increment pitch if stress is >= min_stress.
     Used for tonic segment */
-static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *tn, int min_stress, int continuing)
+static int calc_pitch_segment(SYLLABLE *syllable_tab, int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *tn, int min_stress, int continuing)
 {
 	int stress;
 	int pitch = 0;
@@ -586,7 +584,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 			if ((initial) || (stress == 5)) {
 				initial = 0;
 				overflow = 0;
-				n_steps = n_primary = count_increments(ix, end_ix, min_stress);
+				n_steps = n_primary = count_increments(syllable_tab, ix, end_ix, min_stress);
 
 				if (n_steps > th->body_max_steps)
 					n_steps = th->body_max_steps;
@@ -634,7 +632,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 	return ix;
 }
 
-static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_pitch)
+static void SetPitchGradient(SYLLABLE *syllable_tab, int start_ix, int end_ix, int start_pitch, int end_pitch)
 {
 	// Set a linear pitch change over a number of syllables.
 	// Used for pre-head, unstressed syllables in the body, and the tail
@@ -680,7 +678,7 @@ static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_
 }
 
 // Calculate pitch values for the vowels in this tone group
-static int calc_pitches2(int start, int end,  int tune_number)
+static int calc_pitches2(SYLLABLE *syllable_tab, int start, int end,  int tune_number)
 {
 	int ix;
 	TUNE *tune;
@@ -691,14 +689,14 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	// vowels before the first primary stress
 
-	SetPitchGradient(ix, ix+number_pre, tune->prehead_start, tune->prehead_end);
+	SetPitchGradient(syllable_tab, ix, ix+number_pre, tune->prehead_start, tune->prehead_end);
 	ix += number_pre;
 
 	// body of tonic segment
 
 	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
 		tone_posn = tone_posn2; // put tone on the penultimate stressed word
-	ix = SetHeadIntonation(tune, ix, tone_posn);
+	ix = SetHeadIntonation(syllable_tab, tune, ix, tone_posn);
 
 	if (no_tonic)
 		return 0;
@@ -721,13 +719,13 @@ static int calc_pitches2(int start, int end,  int tune_number)
 
 	// tail, after the tonic syllable
 
-	SetPitchGradient(ix, end, tune->tail_start, tune->tail_end);
+	SetPitchGradient(syllable_tab, ix, end, tune->tail_start, tune->tail_end);
 
 	return tone_pitch_env;
 }
 
 // Calculate pitch values for the vowels in this tone group
-static int calc_pitches(int control, int start, int end,  int tune_number)
+static int calc_pitches(SYLLABLE *syllable_tab, int control, int start, int end,  int tune_number)
 {
 	int ix;
 	TONE_HEAD *th;
@@ -736,7 +734,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 	int continuing = 0;
 
 	if (control == 0)
-		return calc_pitches2(start, end, tune_number);
+		return calc_pitches2(syllable_tab, start, end, tune_number);
 
 	if (start > 0)
 		continuing = 1;
@@ -747,14 +745,14 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 	// vowels before the first primary stress
 
-	SetPitchGradient(ix, ix+number_pre, th->pre_start, th->pre_end);
+	SetPitchGradient(syllable_tab, ix, ix+number_pre, th->pre_start, th->pre_end);
 	ix += number_pre;
 
 	// body of tonic segment
 
 	if (option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
 		tone_posn = tone_posn2; // put tone on the penultimate stressed word
-	ix = calc_pitch_segment(ix, tone_posn, th, tn, PRIMARY, continuing);
+	ix = calc_pitch_segment(syllable_tab, ix, tone_posn, th, tn, PRIMARY, continuing);
 
 	if (no_tonic)
 		return 0;
@@ -780,7 +778,7 @@ static int calc_pitches(int control, int start, int end,  int tune_number)
 
 	// tail, after the tonic syllable
 
-	SetPitchGradient(ix, end, tn->tail_start, tn->tail_end);
+	SetPitchGradient(syllable_tab, ix, end, tn->tail_start, tn->tail_end);
 
 	return tone_pitch_env;
 }
@@ -948,9 +946,7 @@ void CalcPitches(Translator *tr, int clause_type)
 	PHONEME_TAB *ph;
 	int ph_end = n_phoneme_list;
 
-	SYLLABLE syllable_tab2[N_PHONEME_LIST];
-
-	syllable_tab = syllable_tab2; // don't use permanent storage. it's only needed during the call of CalcPitches()
+	SYLLABLE syllable_tab[N_PHONEME_LIST];
 	n_st = 0;
 	n_primary = 0;
 	for (ix = 0; ix < (n_phoneme_list-1); ix++) {
@@ -1043,31 +1039,31 @@ void CalcPitches(Translator *tr, int clause_type)
 				}
 			}
 
-			count_pitch_vowels(st_start, ix, n_st);
+			count_pitch_vowels(syllable_tab, st_start, ix, n_st);
 			if ((ix < n_st) || (clause_type == 0)) {
-				calc_pitches(option, st_start, ix, group_tone); // split into > 1 tone groups
+				calc_pitches(syllable_tab, option, st_start, ix, group_tone); // split into > 1 tone groups
 
 				if ((clause_type == 1) || (clause_type == 2))
 					group_tone = tr->langopts.tunes[1]; // , or ?  remainder has comma-tone
 				else
 					group_tone = tr->langopts.tunes[0]; // . or !  remainder has statement tone
 			} else
-				calc_pitches(option, st_start, ix, group_tone);
+				calc_pitches(syllable_tab, option, st_start, ix, group_tone);
 
 			st_start = ix;
 		}
 		if ((st_start < st_ix) && (syl->flags & SYL_END_CLAUSE)) {
 			// end of clause after this syllable, indicated by a phonPAUSE_CLAUSE phoneme
 			st_clause_end = st_ix+1;
-			count_pitch_vowels(st_start, st_clause_end, st_clause_end);
-			calc_pitches(option, st_start, st_clause_end, group_tone_comma);
+			count_pitch_vowels(syllable_tab, st_start, st_clause_end, st_clause_end);
+			calc_pitches(syllable_tab, option, st_start, st_clause_end, group_tone_comma);
 			st_start = st_clause_end;
 		}
 	}
 
 	if (st_start < st_ix) {
-		count_pitch_vowels(st_start, st_ix, n_st);
-		calc_pitches(option, st_start, st_ix, group_tone);
+		count_pitch_vowels(syllable_tab, st_start, st_ix, n_st);
+		calc_pitches(syllable_tab, option, st_start, st_ix, group_tone);
 	}
 
 	// unpack pitch data
