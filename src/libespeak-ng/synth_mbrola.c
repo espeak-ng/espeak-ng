@@ -174,7 +174,11 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	pw = (int *)mbrola_tab;
 	for (ix = 4; ix < size; ix += 4)
 		*pw++ = Read4Bytes(f_in);
-	size = fread(mbrola_tab, 1, size, f_in);
+	if (fread(mbrola_tab, 1, size, f_in) != size) {
+		int error = errno;
+		fclose(f_in);
+		return error;
+	}
 	fclose(f_in);
 
 	setVolumeRatio_MBR((float)(mbrola_control & 0xff) /16.0f);
