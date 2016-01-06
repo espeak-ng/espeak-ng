@@ -2677,7 +2677,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 		fclose(f_in);
 		fclose(f_report);
 		fclose(f_phcontents);
-		return create_file_error_context(context, errno, fname);
+		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/%s", path_home, "phonindex");
@@ -2688,7 +2688,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 		fclose(f_report);
 		fclose(f_phcontents);
 		fclose(f_phdata);
-		return create_file_error_context(context, errno, fname);
+		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/%s", path_home, "phontab");
@@ -2700,7 +2700,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 		fclose(f_phcontents);
 		fclose(f_phdata);
 		fclose(f_phindex);
-		return create_file_error_context(context, errno, fname);
+		return create_file_error_context(context, error, fname);
 	}
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
