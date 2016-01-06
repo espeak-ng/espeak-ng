@@ -1023,8 +1023,6 @@ static char *compile_rule(char *input)
 	p = buf;
 
 	for (ix = 0; finish == 0; ix++) {
-		c = input[ix];
-
 		switch (c = input[ix])
 		{
 		case ')': // end of prefix section
