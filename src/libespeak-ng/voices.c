@@ -577,13 +577,13 @@ voice_t *LoadVoice(const char *vname, int control)
 					voice_dir = "asia";
 				else
 					voice_dir = "other";
+			}
 
-				sprintf(buf, "%s%s%c%s", path_voices, voice_dir, PATHSEP, voicename);
+			sprintf(buf, "%s%s%c%s", path_voices, voice_dir, PATHSEP, voicename);
 
-				if (GetFileLength(buf) <= 0) {
-					// if not found, look in "test" sub-directory
-					sprintf(buf, "%stest%c%s", path_voices, PATHSEP, voicename);
-				}
+			if (GetFileLength(buf) <= 0) {
+				// if not found, look in "test" sub-directory
+				sprintf(buf, "%stest%c%s", path_voices, PATHSEP, voicename);
 			}
 		}
 	}
