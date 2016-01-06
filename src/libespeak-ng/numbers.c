@@ -941,8 +941,6 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 			if ((control < 2) || (ix == 0))
 				continue; // don't insert pauses
 
-			if (control == 4)
-				c = phonPAUSE; // pause after each character
 			if (((count % 3) == 0) || (control > 2))
 				c = phonPAUSE_NOLINK; // pause following a primary stress
 			else
