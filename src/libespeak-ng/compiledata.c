@@ -2463,7 +2463,6 @@ static void CompileEquivalents()
 	int ix;
 	int n_names;
 	int n_bytes;
-	int foreign_phoneme;
 	int foreign_error = 0;
 	int remove_stress = 0;
 	char *p_start;
@@ -2481,7 +2480,6 @@ static void CompileEquivalents()
 		if (strcmp(foreign_table_name, "NULL") != 0)
 			error("Unknown phoneme table '%s'", foreign_table_name);
 		foreign_error = 1;
-		foreign_phoneme = 0;
 	}
 
 	p_start = p_equivalence;
@@ -2521,8 +2519,8 @@ static void CompileEquivalents()
 		}
 
 		if (foreign_error == 0) {
-			phcode[0] = foreign_phoneme = LookupPhonemeString(names[0]);
-			if (foreign_phoneme == 0) {
+			phcode[0] = LookupPhonemeString(names[0]);
+			if (phcode[0] == 0) {
 				sprintf(line_buf, "%s/%s", foreign_table_name, names[0]);
 				error("Unknown phoneme '%s'", line_buf);
 			}
