@@ -437,7 +437,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
 			if (finished < 0)
 				return ENS_AUDIO_ERROR;
-			length = 0; // the wave data are played once.
 #endif
 		} else
 			finished = synth_callback((short *)outbuf, length, event_list);
