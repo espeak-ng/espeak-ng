@@ -762,7 +762,6 @@ voice_t *LoadVoice(const char *vname, int control)
 			// expect a list of numbers
 			while (*p != 0) {
 				while (isspace(*p)) p++;
-				n = -1;
 				if ((n = atoi(p)) > 0) {
 					p++;
 					if (n < 32) {
