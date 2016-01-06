@@ -763,7 +763,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	for (h = 0; h <= hmax; h++)
 		htab[h] = 0;
 
-	h = 0;
 	for (pk = 0; pk <= wvoice->n_harmonic_peaks; pk++) {
 		p = &peaks[pk];
 		if ((p->height == 0) || (fp = p->freq) == 0)
