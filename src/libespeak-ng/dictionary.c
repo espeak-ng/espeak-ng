@@ -1590,7 +1590,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 	total_consumed = 0;
 	common_phonemes = NULL;
-	match_type = 0;
 
 	best.points = 0;
 	best.phonemes = "";
