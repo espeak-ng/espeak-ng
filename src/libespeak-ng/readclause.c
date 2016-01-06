@@ -1690,7 +1690,6 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	}
 
 	voice_change_flag = 0;
-	terminator = CLAUSE_NONE;
 	ssml_sp = &ssml_stack[n_ssml_stack-1];
 
 	switch (tag_type)
