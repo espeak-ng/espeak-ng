@@ -985,7 +985,6 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 	if (spell_word > 0) {
 		// Speak as individual letters
 		phonemes[0] = 0;
-		end_type = 0;
 
 		if (SpeakIndividualLetters(tr, word1, phonemes, spell_word) == NULL) {
 			if (word_length > 1)
