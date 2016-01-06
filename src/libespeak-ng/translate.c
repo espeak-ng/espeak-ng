@@ -640,7 +640,6 @@ static int CheckDottedAbbrev(char *word1)
 
 	word = word1;
 	wbuf = word_buf;
-	ix = 0;
 
 	for (;;) {
 		ok = 0;
