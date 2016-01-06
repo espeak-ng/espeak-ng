@@ -850,7 +850,12 @@ static int LoadSoundFile(const char *fname, int index)
 		fclose(f);
 		return 4;
 	}
-	length = fread(p, 1, length, f);
+	if (fread(p, 1, length, f) != length) {
+		fclose(f);
+		remove(fname_temp);
+		free(p);
+		return 5;
+	}
 	fclose(f);
 	remove(fname_temp);
 
