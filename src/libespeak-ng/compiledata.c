@@ -2867,7 +2867,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	rewind(f_in);
 	linenum = 1;
 
-	tune_data = (TUNE *)calloc(sizeof(TUNE), n_tune_names);
+	tune_data = (n_tune_names == 0) ? NULL : (TUNE *)calloc(n_tune_names, sizeof(TUNE));
 	if (tune_data == NULL) {
 		fclose(f_in);
 		fclose(f_errors);
