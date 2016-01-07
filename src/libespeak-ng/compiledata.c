@@ -384,7 +384,7 @@ USHORT *prog_out;
 USHORT *prog_out_max;
 USHORT prog_buf[MAX_PROG_BUF+20];
 
-static void ReadPhondataManifest()
+static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
 {
 	// Read the phondata-manifest file
 	FILE *f;
@@ -397,7 +397,7 @@ static void ReadPhondataManifest()
 
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, "phondata-manifest");
 	if ((f = fopen(buf, "r")) == NULL)
-		return;
+		return create_file_error_context(context, errno, buf);
 
 	while (fgets(buf, sizeof(buf), f) != NULL)
 		n_lines++;
@@ -411,7 +411,7 @@ static void ReadPhondataManifest()
 
 	if ((manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB))) == NULL) {
 		fclose(f);
-		return;
+		return ENOMEM;
 	}
 
 	n_manifest = 0;
@@ -429,6 +429,8 @@ static void ReadPhondataManifest()
 		}
 	}
 	fclose(f);
+
+	return ENS_OK;
 }
 
 static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
@@ -2748,7 +2750,10 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	if (f_errors != stderr && f_errors != stdout)
 		fclose(f_errors);
 
-	ReadPhondataManifest();
+	espeak_ng_STATUS status = ReadPhondataManifest(context);
+	if (status != ENS_OK)
+		return status;
+
 	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
 
