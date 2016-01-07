@@ -669,8 +669,8 @@ espeak-data/ms_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ms_list di
 my: espeak-data/my_dict
 dictsource/my_extra:
 	touch dictsource/my_extra
-espeak-data/my_dict: src/espeak phsource/phonemes.stamp dictsource/my_list dictsource/my_rules dictsource/my_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak --compile=my && cd ..
+espeak-data/my_dict: src/espeak-ng phsource/phonemes.stamp dictsource/my_list dictsource/my_rules dictsource/my_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=my && cd ..
 
 nci: espeak-data/nci_dict
 dictsource/nci_extra:
