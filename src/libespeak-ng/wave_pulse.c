@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  * eSpeak driver for PulseAudio
  * based on the XMMS PulseAudio Plugin
  *
@@ -604,7 +604,7 @@ int wave_is_busy(void *theHandler)
 {
 	(void)theHandler; // unused
 
-	pa_timing_info a_timing_info;
+	pa_timing_info a_timing_info = {0};
 	int active = pulse_playing(&a_timing_info);
 	return active;
 }
@@ -625,7 +625,7 @@ uint32_t wave_get_read_position(void *theHandler)
 {
 	(void)theHandler; // unused
 
-	pa_timing_info a_timing_info;
+	pa_timing_info a_timing_info = {0};
 	pulse_playing(&a_timing_info);
 	return a_timing_info.read_index;
 }
@@ -634,7 +634,7 @@ uint32_t wave_get_write_position(void *theHandler)
 {
 	(void)theHandler; // unused
 
-	pa_timing_info a_timing_info;
+	pa_timing_info a_timing_info = {0};
 	pulse_playing(&a_timing_info);
 	return a_timing_info.write_index;
 }
@@ -646,7 +646,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	if (!time || !stream)
 		return -1;
 
-	pa_timing_info a_timing_info;
+	pa_timing_info a_timing_info = {0};
 	pulse_playing(&a_timing_info);
 
 	if (sample > a_timing_info.read_index) {
