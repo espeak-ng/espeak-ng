@@ -324,8 +324,6 @@ int main(int argc, char **argv)
 		{ 0, 0, 0, 0 }
 	};
 
-	static const char *err_load = "Failed to read ";
-
 	FILE *f_text = NULL;
 	const char *p_text = NULL;
 	char *data_path = NULL; // use default path for espeak-data
@@ -613,12 +611,14 @@ int main(int argc, char **argv)
 	if (voicename[0] == 0)
 		strcpy(voicename, "default");
 
-	if (espeak_SetVoiceByName(voicename) != EE_OK) {
+	result = espeak_ng_SetVoiceByName(voicename);
+	if (result != ENS_OK) {
 		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
-		if (espeak_SetVoiceByProperties(&voice_select) != EE_OK) {
-			fprintf(stderr, "%svoice '%s'\n", err_load, voicename);
-			exit(2);
+		result = espeak_ng_SetVoiceByProperties(&voice_select);
+		if (result != ENS_OK) {
+			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
+			exit(EXIT_FAILURE);
 		}
 	}
 
@@ -664,12 +664,12 @@ int main(int argc, char **argv)
 			if (flag_stdin == 0)
 				option_linelength = -1; // single input lines on stdin
 		}
-	} else
+	} else {
 		f_text = fopen(filename, "r");
-
-	if ((f_text == NULL) && (p_text == NULL)) {
-		fprintf(stderr, "%sfile '%s'\n", err_load, filename);
-		exit(1);
+		if (f_text == NULL) {
+			fprintf(stderr, "Failed to read file '%s'\n", filename);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	if (option_waveout || quiet) {
@@ -691,7 +691,7 @@ int main(int argc, char **argv)
 				}
 			} else if (OpenWaveFile(wavefile, samplerate) != 0) {
 				fprintf(stderr, "Can't write to output file '%s'\n'", wavefile);
-				exit(3);
+				exit(EXIT_FAILURE);
 			}
 		}
 
