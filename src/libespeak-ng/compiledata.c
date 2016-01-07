@@ -409,6 +409,11 @@ static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
 			free(manifest[ix].name);
 	}
 
+	if (n_lines == 0) {
+		fclose(f);
+		return ENS_EMPTY_PHONEME_MANIFEST;
+	}
+
 	if ((manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB))) == NULL) {
 		fclose(f);
 		return ENOMEM;

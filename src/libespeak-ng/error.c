@@ -116,6 +116,9 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 	case ENS_NO_SPECT_FRAMES:
 		strncpy0(buffer, "The spectral file does not contain any frame data", length);
 		break;
+	case ENS_EMPTY_PHONEME_MANIFEST:
+		strncpy0(buffer, "The phoneme manifest file does not contain any phonemes", length);
+		break;
 	default:
 		if ((status & ENS_GROUP_MASK) == ENS_GROUP_ERRNO)
 			strerror_r(status, buffer, length);

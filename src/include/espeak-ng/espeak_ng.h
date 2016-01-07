@@ -50,6 +50,7 @@ typedef enum {
 	ENS_NOT_SUPPORTED            = 0x10000AFF,
 	ENS_UNSUPPORTED_PHON_FORMAT  = 0x10000BFF,
 	ENS_NO_SPECT_FRAMES          = 0x10000CFF,
+	ENS_EMPTY_PHONEME_MANIFEST   = 0x10000DFF,
 } espeak_ng_STATUS;
 
 typedef enum {
