@@ -124,13 +124,13 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			wave_write(my_audio, (char *)outbuf, 2*length);
 		}
 
-		while (a_wave_can_be_played) {
+		while (event && a_wave_can_be_played) {
 			// TBD: some event are filtered here but some insight might be given
 			// TBD: in synthesise.cpp for avoiding to create WORDs with size=0.
 			// TBD: For example sentence "or ALT)." returns three words
 			// "or", "ALT" and "".
 			// TBD: the last one has its size=0.
-			if (event && (event->type == espeakEVENT_WORD) && (event->length == 0))
+			if ((event->type == espeakEVENT_WORD) && (event->length == 0))
 				break;
 			err = event_declare(event);
 			if (err != ENS_EVENT_BUFFER_FULL)
