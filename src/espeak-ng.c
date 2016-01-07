@@ -17,6 +17,7 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -333,8 +334,6 @@ int main(int argc, char **argv)
 		{ 0, 0, 0, 0 }
 	};
 
-	static const char *err_load = "Failed to read ";
-
 	FILE *f_text = NULL;
 	char *p_text = NULL;
 	FILE *f_phonemes_out = stdout;
@@ -645,19 +644,21 @@ int main(int argc, char **argv)
 	}
 
 	if (result != ENS_OK) {
-		fprintf(stderr, "Initialization failed.\n");
-		exit(1);
+		espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
+		exit(EXIT_FAILURE);
 	}
 
 	if (voicename[0] == 0)
 		strcpy(voicename, "default");
 
-	if (espeak_SetVoiceByName(voicename) != EE_OK) {
+	result = espeak_ng_SetVoiceByName(voicename);
+	if (result != ENS_OK) {
 		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
-		if (espeak_SetVoiceByProperties(&voice_select) != EE_OK) {
-			fprintf(stderr, "%svoice '%s'\n", err_load, voicename);
-			exit(2);
+		result = espeak_ng_SetVoiceByProperties(&voice_select);
+		if (result != ENS_OK) {
+			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
+			exit(EXIT_FAILURE);
 		}
 	}
 
@@ -706,11 +707,10 @@ int main(int argc, char **argv)
 	} else {
 		filesize = GetFileLength(filename);
 		f_text = fopen(filename, "r");
-	}
-
-	if ((f_text == NULL) && (p_text == NULL)) {
-		fprintf(stderr, "%sfile '%s'\n", err_load, filename);
-		exit(1);
+		if (f_text == NULL) {
+			fprintf(stderr, "Failed to read file '%s'\n", filename);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	if (p_text != NULL) {
@@ -745,8 +745,8 @@ int main(int argc, char **argv)
 		}
 	} else if (f_text != NULL) {
 		if ((p_text = (char *)malloc(filesize+1)) == NULL) {
-			fprintf(stderr, "Failed to allocate memory %d bytes", filesize);
-			exit(3);
+			espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
+			exit(EXIT_FAILURE);
 		}
 
 		fread(p_text, 1, filesize, f_text);
@@ -755,9 +755,10 @@ int main(int argc, char **argv)
 		fclose(f_text);
 	}
 
-	if (espeak_Synchronize() != EE_OK) {
-		fprintf(stderr, "espeak_Synchronize() failed, maybe error when opening output device\n");
-		exit(4);
+	result = espeak_ng_Synchronize();
+	if (result != ENS_OK) {
+		espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
+		exit(EXIT_FAILURE);
 	}
 
 	if (f_phonemes_out != stdout)
