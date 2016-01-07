@@ -112,7 +112,7 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	int ix;
 	int n_phonemes;
 	int version;
-	int length;
+	int length = 0;
 	int rate;
 	unsigned char *p;
 	int *pw;
