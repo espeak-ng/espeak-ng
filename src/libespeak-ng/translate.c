@@ -1323,10 +1323,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			SetWordStress(tr, word_phonemes, dictionary_flags, -1, 0);
 		}
 	} else {
-		if (prefix_phonemes[0] == 0)
-			SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
-		else
-			SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
+		SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
 #ifdef PLATFORM_WINDOWS
 		sprintf(word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
 #else
