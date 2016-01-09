@@ -26,6 +26,9 @@
 #include "stdlib.h"
 #include <stdint.h>
 
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
+
 #include "speech.h"
 
 #ifdef PLATFORM_WINDOWS
@@ -33,9 +36,6 @@
 #else
 #include "dirent.h"
 #endif
-
-#include <espeak-ng/espeak_ng.h>
-#include <espeak/speak_lib.h>
 
 #include "phoneme.h"
 #include "synthesize.h"

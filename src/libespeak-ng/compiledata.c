@@ -51,7 +51,7 @@ typedef struct {
 NAMETAB *manifest = NULL;
 int n_manifest;
 
-extern int utf8_in(int *c, const char *buf);
+extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 extern int utf8_out(unsigned int c, char *buf);
 
 typedef struct {

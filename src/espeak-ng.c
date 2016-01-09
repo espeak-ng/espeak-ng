@@ -34,9 +34,9 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
 
-extern void strncpy0(char *to, const char *from, int size);
-extern int utf8_in(int *c, const char *buf);
-extern int GetFileLength(const char *filename);
+extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
+extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
+extern ESPEAK_NG_API int GetFileLength(const char *filename);
 
 // This version of the command-line speak program uses the
 // libespeak.so.1  library

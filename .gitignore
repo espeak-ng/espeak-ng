@@ -57,9 +57,11 @@ src/speak-ng
 !src/windows/config.h
 
 *.obj
+*.lib
 *.dll
 *.exe
 
+*.exp
 *.idb
 *.pdb
 *.ilk
@@ -69,6 +71,7 @@ src/speak-ng
 .vs/
 *.VC.opendb
 *.sdf
+*.cache
 
 # Linux/Source distribution files
 

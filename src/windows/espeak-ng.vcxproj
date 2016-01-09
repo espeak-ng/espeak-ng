@@ -19,33 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A47A0CFD-FE52-40B4-8CEC-EE1BD4282CDD}</ProjectGuid>
+    <ProjectGuid>{A745D521-5B19-49DB-89D3-D0A3BE64D97B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libespeakng</RootNamespace>
+    <RootNamespace>espeakng</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -87,12 +87,12 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)espeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -102,11 +102,12 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)espeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -118,12 +119,12 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)espeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -137,51 +138,27 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(IntDir)espeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\libespeak-ng\compiledata.c" />
-    <ClCompile Include="..\libespeak-ng\compiledict.c" />
-    <ClCompile Include="..\libespeak-ng\compilembrola.c" />
-    <ClCompile Include="..\libespeak-ng\dictionary.c" />
-    <ClCompile Include="..\libespeak-ng\error.c" />
-    <ClCompile Include="..\libespeak-ng\espeak_api.c" />
-    <ClCompile Include="..\libespeak-ng\ieee80.c" />
-    <ClCompile Include="..\libespeak-ng\intonation.c" />
-    <ClCompile Include="..\libespeak-ng\numbers.c" />
-    <ClCompile Include="..\libespeak-ng\phonemelist.c" />
-    <ClCompile Include="..\libespeak-ng\readclause.c" />
-    <ClCompile Include="..\libespeak-ng\setlengths.c" />
-    <ClCompile Include="..\libespeak-ng\spect.c" />
-    <ClCompile Include="..\libespeak-ng\speech.c" />
-    <ClCompile Include="..\libespeak-ng\synthdata.c" />
-    <ClCompile Include="..\libespeak-ng\synthesize.c" />
-    <ClCompile Include="..\libespeak-ng\synth_mbrola.c" />
-    <ClCompile Include="..\libespeak-ng\translate.c" />
-    <ClCompile Include="..\libespeak-ng\tr_languages.c" />
-    <ClCompile Include="..\libespeak-ng\voices.c" />
-    <ClCompile Include="..\libespeak-ng\wavegen.c" />
+    <ClCompile Include="..\espeak-ng.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\espeak-ng\espeak_ng.h" />
-    <ClInclude Include="..\include\espeak\speak_lib.h" />
-    <ClInclude Include="..\libespeak-ng\error.h" />
-    <ClInclude Include="..\libespeak-ng\phoneme.h" />
-    <ClInclude Include="..\libespeak-ng\sintab.h" />
-    <ClInclude Include="..\libespeak-ng\spect.h" />
-    <ClInclude Include="..\libespeak-ng\speech.h" />
-    <ClInclude Include="..\libespeak-ng\synthesize.h" />
-    <ClInclude Include="..\libespeak-ng\translate.h" />
-    <ClInclude Include="..\libespeak-ng\voice.h" />
     <ClInclude Include="config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libespeak-ng.vcxproj">
+      <Project>{a47a0cfd-fe52-40b4-8cec-ee1bd4282cdd}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

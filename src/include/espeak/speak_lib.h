@@ -28,8 +28,12 @@
 #include <stdio.h>
 #include <stddef.h>
 
-#ifdef __WIN32__
+#if defined(_WIN32) || defined(_WIN64)
+#ifdef LIBESPEAK_NG_EXPORT
 #define ESPEAK_API __declspec(dllexport)
+#else
+#define ESPEAK_API __declspec(dllimport)
+#endif
 #else
 #define ESPEAK_API
 #endif

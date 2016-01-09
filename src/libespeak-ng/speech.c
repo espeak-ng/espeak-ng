@@ -29,6 +29,9 @@
 #include <assert.h>
 #include <time.h>
 
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
+
 #include "speech.h"
 
 #include <sys/stat.h>
@@ -40,9 +43,6 @@
 #else  /* PLATFORM_POSIX */
 #include <unistd.h>
 #endif
-
-#include <espeak-ng/espeak_ng.h>
-#include <espeak/speak_lib.h>
 
 #include "phoneme.h"
 #include "synthesize.h"
