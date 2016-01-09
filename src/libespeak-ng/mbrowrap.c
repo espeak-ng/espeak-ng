@@ -42,7 +42,6 @@ BOOL load_MBR()
 	read_MBR = (PROCISI)GetProcAddress(hinstDllMBR, "read_MBR");
 	close_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "close_MBR");
 	reset_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "reset_MBR");
-	lastError_MBR = (PROCIV)GetProcAddress(hinstDllMBR, "lastError_MBR");
 	lastErrorStr_MBR = (PROCVCI)GetProcAddress(hinstDllMBR, "lastErrorStr_MBR");
 	setNoError_MBR = (PROCVI)GetProcAddress(hinstDllMBR, "setNoError_MBR");
 	setVolumeRatio_MBR = (PROCVF)GetProcAddress(hinstDllMBR, "setVolumeRatio_MBR");
@@ -635,13 +634,13 @@ void setVolumeRatio_mbrola(float value)
 	init_MBR(mbr_voice_path);
 }
 
-int lastErrorStr_mbrola(char *buffer, int bufsize)
+char *lastErrorStr_mbrola(char *buffer, int bufsize)
 {
 	int result;
 	if (mbr_pid)
 		mbrola_has_errors();
 	result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
-	return result >= bufsize ? (bufsize - 1) : result;
+	return buffer;
 }
 
 void setNoError_mbrola(int no_error)

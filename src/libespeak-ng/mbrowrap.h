@@ -29,7 +29,7 @@ extern "C"
 typedef void (WINAPI *PROCVV)(void);
 typedef void (WINAPI *PROCVI)(int);
 typedef void (WINAPI *PROCVF)(float);
-typedef int (WINAPI *PROCIV)();
+typedef int (WINAPI *PROCIV)(void);
 typedef int (WINAPI *PROCIC)(char *);
 typedef int (WINAPI *PROCISI)(short *, int);
 typedef char * (WINAPI *PROCVCI)(char *, int);
@@ -99,13 +99,11 @@ void (WINAPI *setVolumeRatio_MBR)(float value);
 
 /*
  * Copy into 'buffer' at most 'bufsize' bytes from the latest error
- * message.  This may also contain non-fatal errors from mbrola.  The
- * returned value is the actual number of bytes copied.  When no error
- * message is pending then an empty string is returned.  Consecutive
- * calls to lastErrorStr_MBR() will return the same message unless it
- * is explicitly cleared with resetError_MBR().
+ * message.  This may also contain non-fatal errors from mbrola.  When
+ * no error message is pending then an empty string is returned.
+ * Consecutive calls to lastErrorStr_MBR() will return the same message.
  */
-int (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
+char * (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
 
 /*
  * Tolerance to missing diphones.
