@@ -24,9 +24,7 @@
 #include <espeak/speak_lib.h>
 
 #include <stdlib.h>
-#if HAVE_STDINT_H
 #include <stdint.h>
-#endif
 
 #include "speech.h"
 #include "phoneme.h"

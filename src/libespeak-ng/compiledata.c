@@ -26,9 +26,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
-#if HAVE_STDINT_H
 #include <stdint.h>
-#endif
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>

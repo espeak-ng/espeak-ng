@@ -61,14 +61,6 @@ typedef unsigned short USHORT;
 typedef unsigned char UCHAR;
 typedef double DOUBLEX;
 
-#if !HAVE_STDINT_H
-#ifdef _WIN64
-typedef signed __int64 intptr_t;
-#else
-typedef signed __int32 intptr_t;
-#endif
-#endif
-
 typedef struct {
 	const char *mnem;
 	int value;

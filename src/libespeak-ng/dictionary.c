@@ -23,9 +23,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#if HAVE_STDINT_H
 #include <stdint.h>
-#endif
 
 #include <wctype.h>
 #include <wchar.h>

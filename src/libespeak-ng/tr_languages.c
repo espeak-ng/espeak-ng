@@ -25,9 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-#if HAVE_STDINT_H
 #include <stdint.h>
-#endif
 
 #include <wctype.h>
 
