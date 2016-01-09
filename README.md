@@ -8,7 +8,7 @@
   - [Audio Output Configuration](#audio-output-configuration)
   - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
   - [Extended Dictionary Configuration](#extended-dictionary-configuration)
-  - [Cross-Compiling For Windows](#cross-compiling-for-windows)
+  - [Compiling on Windows](#compiling-on-windows)
 - [Testing](#testing)
 - [Installing](#installing)
 - [Documentation](#documentation)
@@ -72,13 +72,6 @@ Documentation dependencies:
 | Dependency    | Install                              |
 |---------------|--------------------------------------|
 | kramdown      | `sudo apt-get install ruby-kramdown` |
-
-Cross-compiling for windows:
-
-| Dependency              | Install                                     |
-|-------------------------|---------------------------------------------|
-| 32-bit Windows compiler | `sudo apt-get install mingw-w64-i686-dev`   |
-| 64-bit Windows compiler | `sudo apt-get install mingw-w64-x86-64-dev` |
 
 ## Building
 
@@ -161,26 +154,17 @@ The extended dictionaries are taken from
 provide better coverage for those languages, while increasing the resulting
 dictionary size.
 
-### Cross-Compiling For Windows
+## Compiling on Windows
 
-To prepare the build, run:
+__NOTE:__ This is currently experimental. It does not build the voice data, and
+may contain runtime errors and missing functionality.
 
-	./autogen.sh
-	export ac_cv_func_realloc_0_nonnull=yes
-	export ac_cv_func_malloc_0_nonnull=yes
+To build eSpeak NG on Windows, you will need a copy of Visual Studio, such as
+the Microsoft Visual Studio Community 2015 edition. Additionally, you will need
+the Windows 8.1 SDK.
 
-To build the 32-bit Windows executable, run:
-
-	./configure --host=i686-w64-mingw32 --with-mbrola=no --with-async=no
-	make
-
-To build the 64-bit Windows executable, run:
-
-	./configure --host=x86_64-w64-mingw32 --with-mbrola=no --with-async=no
-	make
-
-__NOTE:__ This currently fails to build `espeak-ng.exe`, but does build
-`speak-ng.exe`.
+You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
+Studio.
 
 ## Testing
 
