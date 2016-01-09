@@ -63,9 +63,11 @@ src/speak-ng
 
 *.exp
 *.idb
-*.pdb
 *.ilk
+*.iobj
+*.ipdb
 *.log
+*.pdb
 *.tlog/
 
 .vs/
