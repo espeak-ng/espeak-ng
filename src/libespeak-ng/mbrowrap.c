@@ -2,8 +2,9 @@
  * mbrowrap -- A wrapper library around the mbrola binary
  * providing a subset of the API from the Windows mbrola DLL.
  *
+ * Copyright (C) 2005 to 2013 by Jonathan Duddington
  * Copyright (C) 2010 by Nicolas Pitre <nico@fluxnic.net>
- * Copyright (C) 2013 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +18,46 @@
  */
 
 #include "config.h"
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <windows.h>
+#endif
+
+#include "mbrowrap.h"
+
+#if defined(_WIN32) || defined(_WIN64)
+
+HINSTANCE hinstDllMBR = NULL;
+
+BOOL load_MBR()
+{
+	if (hinstDllMBR != NULL)
+		return TRUE;   // already loaded
+
+	if ((hinstDllMBR = LoadLibraryA("mbrola.dll")) == 0)
+		return FALSE;
+	init_MBR = (PROCIC)GetProcAddress(hinstDllMBR, "init_MBR");
+	write_MBR = (PROCIC)GetProcAddress(hinstDllMBR, "write_MBR");
+	flush_MBR = (PROCIV)GetProcAddress(hinstDllMBR, "flush_MBR");
+	read_MBR = (PROCISI)GetProcAddress(hinstDllMBR, "read_MBR");
+	close_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "close_MBR");
+	reset_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "reset_MBR");
+	lastError_MBR = (PROCIV)GetProcAddress(hinstDllMBR, "lastError_MBR");
+	lastErrorStr_MBR = (PROCVCI)GetProcAddress(hinstDllMBR, "lastErrorStr_MBR");
+	setNoError_MBR = (PROCVI)GetProcAddress(hinstDllMBR, "setNoError_MBR");
+	setVolumeRatio_MBR = (PROCVF)GetProcAddress(hinstDllMBR, "setVolumeRatio_MBR");
+	return TRUE;
+}
+
+void unload_MBR()
+{
+	if (hinstDllMBR) {
+		FreeLibrary(hinstDllMBR);
+		hinstDllMBR = NULL;
+	}
+}
+
+#else
 
 #include <espeak-ng/espeak_ng.h>
 
@@ -33,8 +74,6 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
-#include "mbrowrap.h"
 
 /*
  * mbrola instance parameters
@@ -610,3 +649,5 @@ void resetError_MBR(void)
 {
 	mbr_errorbuf[0] = 0;
 }
+
+#endif

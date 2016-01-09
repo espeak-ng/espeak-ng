@@ -84,6 +84,9 @@
     <ClCompile Include="..\libespeak-ng\klatt.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\libespeak-ng\mbrowrap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">

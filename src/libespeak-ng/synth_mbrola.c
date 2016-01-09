@@ -43,46 +43,11 @@ extern int Read4Bytes(FILE *f);
 extern void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
 extern unsigned char *outbuf;
 
-#ifndef PLATFORM_WINDOWS
-
-#include "mbrowrap.h"
-
-#else
-
+#if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
+#endif
+
 #include "mbrowrap.h"
-
-HINSTANCE hinstDllMBR = NULL;
-
-BOOL load_MBR()
-{
-	if (hinstDllMBR != NULL)
-		return TRUE;   // already loaded
-
-	if ((hinstDllMBR = LoadLibraryA("mbrola.dll")) == 0)
-		return FALSE;
-	init_MBR            = (PROCIC)GetProcAddress(hinstDllMBR, "init_MBR");
-	write_MBR           = (PROCIC)GetProcAddress(hinstDllMBR, "write_MBR");
-	flush_MBR           = (PROCIV)GetProcAddress(hinstDllMBR, "flush_MBR");
-	read_MBR            = (PROCISI)GetProcAddress(hinstDllMBR, "read_MBR");
-	close_MBR           = (PROCVV)GetProcAddress(hinstDllMBR, "close_MBR");
-	reset_MBR           = (PROCVV)GetProcAddress(hinstDllMBR, "reset_MBR");
-	lastError_MBR       = (PROCIV)GetProcAddress(hinstDllMBR, "lastError_MBR");
-	lastErrorStr_MBR    = (PROCVCI)GetProcAddress(hinstDllMBR, "lastErrorStr_MBR");
-	setNoError_MBR      = (PROCVI)GetProcAddress(hinstDllMBR, "setNoError_MBR");
-	setVolumeRatio_MBR  = (PROCVF)GetProcAddress(hinstDllMBR, "setVolumeRatio_MBR");
-	return TRUE;
-}
-
-void unload_MBR()
-{
-	if (hinstDllMBR) {
-		FreeLibrary(hinstDllMBR);
-		hinstDllMBR = NULL;
-	}
-}
-
-#endif   // windows
 
 static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
