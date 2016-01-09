@@ -9,6 +9,8 @@
 *  Added man files for the `speak-ng` and `espeak-ng` command-line programs.
 *  Created a companion espeak-ng API to provide more detailed error codes and
    provide access to the new espeak-ng functionality.
+*  Fixed many logic and security issues reported by clang scan-build and
+   Coverity.
 
 build:
 
@@ -19,6 +21,7 @@ build:
 *  Output phoneme compilation errors to stderr.
 *  Generate build failures if building phoneme, intonation or dictionary files
    contain errors.
+*  Provide modern Visual Studio project files to build eSpeak NG on Windows.
 
 restructuring:
 
@@ -28,7 +31,8 @@ restructuring:
 *  Moved the code to build the mbrola voice data, phoneme tables and intonation
    data to libespeak-ng.
 *  Removed the `espeakedit` program and the associated wxWidgets dependency.
-*  Removed the platforms directory.
+*  Removed the platforms directory and approaching portability in a similar way
+   to how libressl handles portability.
 *  Converted the documentation to markdown.
 
 cleanup:
@@ -37,6 +41,8 @@ cleanup:
 *  Removed unused and commented out code.
 *  Reformatted the code to use a consistent style and indentation.
 *  Fixed many GCC and clang warnings.
+*  Improved the error handling within the codebase to report the underlying
+   error where possible.
 
 updated languages:
 
@@ -51,6 +57,7 @@ new languages:
 *  mb-lt1 (Lithuanian) -- embar
 *  mb-lt2 (Lithuanian) -- embar
 *  mt (Maltese)
+*  my (Myanmar/Burmese) -- Min Maung, Lwin Moe
 *  tn (Setswana)
 *  tt (Tatar)
 
