@@ -22,7 +22,7 @@ Makefile.in
 aclocal.m4
 autom4te.cache/
 compile
-./config.*
+config.*
 configure
 depcomp
 install-sh
