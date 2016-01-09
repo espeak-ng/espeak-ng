@@ -73,6 +73,9 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 		return ENS_OK;
 	}
 
+	if (!load_MBR())
+		return ENS_MBROLA_NOT_FOUND;
+
 	sprintf(path, "%s/mbrola/%s", path_home, mbrola_voice);
 #ifdef PLATFORM_POSIX
 	// if not found, then also look in
@@ -88,12 +91,6 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 		}
 	}
 	close_MBR();
-#endif
-#ifdef PLATFORM_WINDOWS
-	if (load_MBR() == FALSE) { // load mbrola.dll
-		fprintf(stderr, "Can't load mbrola.dll\n");
-		return ENS_MBROLA_NOT_FOUND;
-	}
 #endif
 
 	if (init_MBR(path) != 0) // initialise the required mbrola voice

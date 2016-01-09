@@ -520,7 +520,7 @@ static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
  * API functions.
  */
 
-int init_MBR(const char *voice_path)
+int init_mbrola(char *voice_path)
 {
 	int error, result;
 	unsigned char wavhdr[45];
@@ -563,7 +563,7 @@ int init_MBR(const char *voice_path)
 	return 0;
 }
 
-void close_MBR(void)
+void close_mbrola(void)
 {
 	stop_mbrola();
 	free_pending_data();
@@ -572,15 +572,15 @@ void close_MBR(void)
 	mbr_volume = 1.0;
 }
 
-int reset_MBR()
+void reset_mbrola(void)
 {
 	int result, success = 1;
 	char dummybuf[4096];
 
 	if (mbr_state == MBR_IDLE)
-		return 1;
+		return;
 	if (!mbr_pid)
-		return 0;
+		return;
 	if (kill(mbr_pid, SIGUSR1) == -1)
 		success = 0;
 	free_pending_data();
@@ -594,10 +594,9 @@ int reset_MBR()
 		success = 0;
 	if (!mbrola_has_errors() && success)
 		mbr_state = MBR_IDLE;
-	return success;
 }
 
-int read_MBR(void *buffer, int nb_samples)
+int read_mbrola(short *buffer, int nb_samples)
 {
 	int result = receive_from_mbrola(buffer, nb_samples * 2);
 	if (result > 0)
@@ -605,23 +604,23 @@ int read_MBR(void *buffer, int nb_samples)
 	return result;
 }
 
-int write_MBR(const char *data)
+int write_mbrola(char *data)
 {
 	mbr_state = MBR_NEWDATA;
 	return send_to_mbrola(data);
 }
 
-int flush_MBR(void)
+int flush_mbrola(void)
 {
 	return send_to_mbrola("\n#\n") == 3;
 }
 
-int getFreq_MBR(void)
+int getFreq_mbrola(void)
 {
 	return mbr_samplerate;
 }
 
-void setVolumeRatio_MBR(float value)
+void setVolumeRatio_mbrola(float value)
 {
 	if (value == mbr_volume)
 		return;
@@ -636,7 +635,7 @@ void setVolumeRatio_MBR(float value)
 	init_MBR(mbr_voice_path);
 }
 
-int lastErrorStr_MBR(char *buffer, int bufsize)
+int lastErrorStr_mbrola(char *buffer, int bufsize)
 {
 	int result;
 	if (mbr_pid)
@@ -645,9 +644,28 @@ int lastErrorStr_MBR(char *buffer, int bufsize)
 	return result >= bufsize ? (bufsize - 1) : result;
 }
 
-void resetError_MBR(void)
+void setNoError_mbrola(int no_error)
 {
-	mbr_errorbuf[0] = 0;
+	(void)no_error; // unused
+}
+
+BOOL load_MBR(void)
+{
+	init_MBR = init_mbrola;
+	close_MBR = close_mbrola;
+	reset_MBR = reset_mbrola;
+	read_MBR = read_mbrola;
+	write_MBR = write_mbrola;
+	flush_MBR = flush_mbrola;
+	getFreq_MBR = getFreq_mbrola;
+	setVolumeRatio_MBR = setVolumeRatio_mbrola;
+	lastErrorStr_MBR = lastErrorStr_mbrola;
+	setNoError_MBR = setNoError_mbrola;
+	return 1;
+}
+
+void unload_MBR(void)
+{
 }
 
 #endif
