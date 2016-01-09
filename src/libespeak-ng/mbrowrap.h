@@ -24,21 +24,9 @@ extern "C"
 {
 #endif
 
-#if defined(_WIN32) || defined(_WIN64)
-
-typedef void (WINAPI *PROCVV)(void);
-typedef void (WINAPI *PROCVI)(int);
-typedef void (WINAPI *PROCVF)(float);
-typedef int (WINAPI *PROCIV)(void);
-typedef int (WINAPI *PROCIC)(char *);
-typedef int (WINAPI *PROCISI)(short *, int);
-typedef char * (WINAPI *PROCVCI)(char *, int);
-
-#else
-
+#if !defined(_WIN32) && !defined(_WIN64)
 #define WINAPI
 typedef int BOOL;
-
 #endif
 
 /*

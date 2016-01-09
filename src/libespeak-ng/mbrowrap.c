@@ -36,15 +36,15 @@ BOOL load_MBR()
 
 	if ((hinstDllMBR = LoadLibraryA("mbrola.dll")) == 0)
 		return FALSE;
-	init_MBR = (PROCIC)GetProcAddress(hinstDllMBR, "init_MBR");
-	write_MBR = (PROCIC)GetProcAddress(hinstDllMBR, "write_MBR");
-	flush_MBR = (PROCIV)GetProcAddress(hinstDllMBR, "flush_MBR");
-	read_MBR = (PROCISI)GetProcAddress(hinstDllMBR, "read_MBR");
-	close_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "close_MBR");
-	reset_MBR = (PROCVV)GetProcAddress(hinstDllMBR, "reset_MBR");
-	lastErrorStr_MBR = (PROCVCI)GetProcAddress(hinstDllMBR, "lastErrorStr_MBR");
-	setNoError_MBR = (PROCVI)GetProcAddress(hinstDllMBR, "setNoError_MBR");
-	setVolumeRatio_MBR = (PROCVF)GetProcAddress(hinstDllMBR, "setVolumeRatio_MBR");
+	init_MBR = (void *)GetProcAddress(hinstDllMBR, "init_MBR");
+	write_MBR = (void *)GetProcAddress(hinstDllMBR, "write_MBR");
+	flush_MBR = (void *)GetProcAddress(hinstDllMBR, "flush_MBR");
+	read_MBR = (void *)GetProcAddress(hinstDllMBR, "read_MBR");
+	close_MBR = (void *)GetProcAddress(hinstDllMBR, "close_MBR");
+	reset_MBR = (void *)GetProcAddress(hinstDllMBR, "reset_MBR");
+	lastErrorStr_MBR = (void *)GetProcAddress(hinstDllMBR, "lastErrorStr_MBR");
+	setNoError_MBR = (void *)GetProcAddress(hinstDllMBR, "setNoError_MBR");
+	setVolumeRatio_MBR = (void *)GetProcAddress(hinstDllMBR, "setVolumeRatio_MBR");
 	return TRUE;
 }
 
