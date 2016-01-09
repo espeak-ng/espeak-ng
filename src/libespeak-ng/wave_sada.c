@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2008, Sun Microsystems, Inc.
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2016 Reece H. Dunn
  * eSpeak driver for Solaris Audio Device Architecture (SADA)
  * Written by Willie Walker, based on the eSpeak PulseAudio driver
  * from Gilles Casse
@@ -18,6 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
+
+#include "config.h"
+
+#include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
 

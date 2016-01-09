@@ -19,6 +19,8 @@
 
 #include "config.h"
 
+#include <espeak-ng/espeak_ng.h>
+
 #include "speech.h"
 
 #include <stdbool.h>
