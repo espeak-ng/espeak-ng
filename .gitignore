@@ -22,7 +22,7 @@ Makefile.in
 aclocal.m4
 autom4te.cache/
 compile
-config.*
+./config.*
 configure
 depcomp
 install-sh
@@ -44,7 +44,6 @@ libespeak-ng.so*
 # build output
 
 *.html
-*.exe
 
 src/espeak-ng.1
 src/speak-ng.1
@@ -52,6 +51,24 @@ src/speak-ng.1
 src/espeak-ng
 src/espeakedit
 src/speak-ng
+
+# Windows builds
+
+!src/windows/config.h
+
+*.obj
+*.dll
+*.exe
+
+*.idb
+*.pdb
+*.ilk
+*.log
+*.tlog/
+
+.vs/
+*.VC.opendb
+*.sdf
 
 # Linux/Source distribution files
 
