@@ -3,6 +3,7 @@
  * providing a subset of the API from the Windows mbrola DLL.
  *
  * Copyright (C) 2010 by Nicolas Pitre <nico@fluxnic.net>
+ * Copyright (C) 2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,33 @@
 extern "C"
 {
 #endif
+
+#if defined(_WIN32) || defined(_WIN64)
+
+typedef void (WINAPI *PROCVV)(void);
+typedef void (WINAPI *PROCVI)(int);
+typedef void (WINAPI *PROCVF)(float);
+typedef int (WINAPI *PROCIV)();
+typedef int (WINAPI *PROCIC)(char *);
+typedef int (WINAPI *PROCISI)(short *, int);
+typedef char * (WINAPI *PROCVCI)(char *, int);
+
+PROCIC init_MBR;
+PROCIC write_MBR;
+PROCIV flush_MBR;
+PROCISI read_MBR;
+PROCVV close_MBR;
+PROCVV reset_MBR;
+PROCIV lastError_MBR;
+PROCVCI lastErrorStr_MBR;
+PROCVI setNoError_MBR;
+PROCIV getFreq_MBR;
+PROCVF setVolumeRatio_MBR;
+
+BOOL load_MBR();
+void unload_MBR();
+
+#else
 
 /*
  * Initialize mbrola.  The 'voice_path' argument must contain the
@@ -103,6 +131,8 @@ static inline void setNoError_MBR(int no_error)
 {
 	(void)no_error; // unused
 }
+
+#endif
 
 #ifdef __cplusplus
 }

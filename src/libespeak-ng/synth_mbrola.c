@@ -48,26 +48,9 @@ extern unsigned char *outbuf;
 #include "mbrowrap.h"
 
 #else
-#include <windows.h>
-typedef void (WINAPI *PROCVV)(void);
-typedef void (WINAPI *PROCVI)(int);
-typedef void (WINAPI *PROCVF)(float);
-typedef int (WINAPI *PROCIV)();
-typedef int (WINAPI *PROCIC)(char *);
-typedef int (WINAPI *PROCISI)(short *, int);
-typedef char * (WINAPI *PROCVCI)(char *, int);
 
-PROCIC init_MBR;
-PROCIC write_MBR;
-PROCIV flush_MBR;
-PROCISI read_MBR;
-PROCVV close_MBR;
-PROCVV reset_MBR;
-PROCIV lastError_MBR;
-PROCVCI lastErrorStr_MBR;
-PROCVI setNoError_MBR;
-PROCIV getFreq_MBR;
-PROCVF setVolumeRatio_MBR;
+#include <windows.h>
+#include "mbrowrap.h"
 
 HINSTANCE hinstDllMBR = NULL;
 

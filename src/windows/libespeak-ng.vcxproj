@@ -178,6 +178,7 @@
     <ClInclude Include="..\include\espeak\speak_lib.h" />
     <ClInclude Include="..\libespeak-ng\error.h" />
     <ClInclude Include="..\libespeak-ng\klatt.h" />
+    <ClInclude Include="..\libespeak-ng\mbrowrap.h" />
     <ClInclude Include="..\libespeak-ng\phoneme.h" />
     <ClInclude Include="..\libespeak-ng\sintab.h" />
     <ClInclude Include="..\libespeak-ng\spect.h" />

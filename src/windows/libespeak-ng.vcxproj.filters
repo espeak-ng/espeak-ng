@@ -122,5 +122,8 @@
     <ClInclude Include="..\libespeak-ng\klatt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\libespeak-ng\mbrowrap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
