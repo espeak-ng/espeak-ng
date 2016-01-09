@@ -17,13 +17,15 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#ifndef NEED_GETOPT
+#ifdef HAVE_GETOPT_H
 #include <getopt.h>
 #endif
 #include <time.h>
@@ -294,7 +296,7 @@ static void PrintVersion()
 	printf("eSpeak text-to-speech: %s  Data at: %s\n", version, path_data);
 }
 
-#ifdef NEED_GETOPT
+#ifndef HAVE_GETOPT_H
 struct option {
 	char *name;
 	int has_arg;
@@ -373,7 +375,7 @@ int main(int argc, char **argv)
 	devicename[0] = 0;
 	option_punctlist[0] = 0;
 
-#ifdef NEED_GETOPT
+#ifndef HAVE_GETOPT_H
 	optind = 1;
 	opt_string = "";
 	while (optind < argc) {

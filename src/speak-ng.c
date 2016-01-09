@@ -38,7 +38,7 @@
 #endif
 #endif
 
-#ifndef NEED_GETOPT
+#ifdef HAVE_GETOPT_H
 #include <getopt.h>
 #endif
 #include <time.h>
@@ -284,7 +284,7 @@ static int WavegenFile(void)
 	return finished;
 }
 
-#ifdef NEED_GETOPT
+#ifndef HAVE_GETOPT_H
 struct option {
 	char *name;
 	int has_arg;
@@ -359,7 +359,7 @@ int main(int argc, char **argv)
 	option_multibyte = espeakCHARS_AUTO;
 	f_trans = stdout;
 
-#ifdef NEED_GETOPT
+#ifndef HAVE_GETOPT_H
 	optind = 1;
 	opt_string = "";
 	while (optind < argc) {

@@ -32,7 +32,6 @@ extern "C"
 #endif
 
 #ifdef __QNX__
-#define NEED_GETOPT
 #define NO_VARIADIC_MACROS
 #endif
 
@@ -40,7 +39,6 @@ extern "C"
 
 #define PLATFORM_WINDOWS
 #define PATHSEP '\\'
-#define NEED_GETOPT
 #define NO_VARIADIC_MACROS
 
 #else
