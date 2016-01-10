@@ -65,7 +65,7 @@ char wavefile[200];
 FILE *f_wave = NULL;
 int quiet = 0;
 unsigned int samples_total = 0;
-unsigned int samples_split = 0;
+int samples_split = 0;
 unsigned int wavefile_count = 0;
 int end_of_sentence = 0;
 
@@ -232,7 +232,7 @@ static int OpenWaveFile(const char *path, int rate)
 
 static void CloseWaveFile()
 {
-	unsigned int pos;
+	int pos;
 
 	if ((f_wave == NULL) || (f_wave == stdout))
 		return;
@@ -281,7 +281,7 @@ static int WavegenFile(void)
 
 	if (f_wave != NULL) {
 		samples_total += (out_ptr - wav_outbuf)/2;
-		fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
+		fwrite(wav_outbuf, 1, (size_t)(out_ptr - wav_outbuf), f_wave);
 	}
 	return finished;
 }
