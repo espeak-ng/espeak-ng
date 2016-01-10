@@ -355,10 +355,10 @@ typedef struct {
 } SOUND_ICON;
 
 typedef struct {
-	int name;
+	unsigned int name;
 	unsigned int next_phoneme;
-	int mbr_name;
-	int mbr_name2;
+	unsigned int mbr_name;
+	unsigned int mbr_name2;
 	int percent; // percentage length of first component
 	int control;
 } MBROLA_TAB;
