@@ -493,12 +493,12 @@ void clock_gettime2(struct timespec *ts)
 	ts->tv_nsec = tv.tv_usec*1000;
 }
 
-void add_time_in_ms(struct timespec *ts, int time_in_ms)
+void add_time_in_ms(struct timespec *ts, uint64_t time_in_ms)
 {
 	if (!ts)
 		return;
 
-	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
+	uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * time_in_ms;
 	while (t_ns >= ONE_BILLION) {
 		ts->tv_sec += 1;
 		t_ns -= ONE_BILLION;
