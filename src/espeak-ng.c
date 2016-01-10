@@ -36,7 +36,7 @@
 
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
-extern ESPEAK_NG_API int GetFileLength(const char *filename);
+extern ESPEAK_NG_API size_t GetFileLength(const char *filename);
 
 // This version of the command-line speak program uses the
 // libespeak.so.1  library
@@ -112,9 +112,9 @@ static const char *help_text =
 
 int samplerate;
 int quiet = 0;
-unsigned int samples_total = 0;
-unsigned int samples_split = 0;
-unsigned int samples_split_seconds = 0;
+int samples_total = 0;
+int samples_split = 0;
+int samples_split_seconds = 0;
 unsigned int wavefile_count = 0;
 
 FILE *f_wavfile = NULL;
@@ -227,7 +227,7 @@ int OpenWavFile(char *path, int rate)
 
 static void CloseWavFile()
 {
-	unsigned int pos;
+	int pos;
 
 	if ((f_wavfile == NULL) || (f_wavfile == stdout))
 		return;
@@ -282,7 +282,7 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 
 	if (numsamples > 0) {
 		samples_total += numsamples;
-		fwrite(wav, numsamples*2, 1, f_wavfile);
+		fwrite(wav, (size_t)(numsamples*2), 1, f_wavfile);
 	}
 	return 0;
 }
@@ -343,13 +343,13 @@ int main(int argc, char **argv)
 
 	int option_index = 0;
 	int c;
-	int ix;
+	size_t ix;
 	char *optarg2;
-	int value;
+	unsigned int value;
 	int flag_stdin = 0;
 	int flag_compile = 0;
-	int filesize = 0;
-	int synth_flags = espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE;
+	size_t filesize = 0;
+	unsigned int synth_flags = espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE;
 
 	int volume = -1;
 	int speed = -1;
@@ -488,7 +488,7 @@ int main(int argc, char **argv)
 			strncpy0(wavefile, optarg2, sizeof(filename));
 			break;
 		case 'z': // remove pause from the end of a sentence
-			synth_flags &= ~espeakENDPAUSE;
+			synth_flags &= (unsigned int)~espeakENDPAUSE;
 			break;
 		case 0x100: // --stdin
 			flag_stdin = 1;
@@ -716,11 +716,10 @@ int main(int argc, char **argv)
 	}
 
 	if (p_text != NULL) {
-		int size;
-		size = strlen(p_text);
+		size_t size = strlen(p_text);
 		espeak_Synth(p_text, size+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 	} else if (flag_stdin) {
-		int max = 1000;
+		size_t max = 1000;
 		p_text = (char *)malloc(max);
 
 		if (flag_stdin == 2) {
