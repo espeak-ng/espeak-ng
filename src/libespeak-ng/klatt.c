@@ -380,7 +380,7 @@ static int parwave(klatt_frame_ptr frame)
 		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0); // Convert back to integer
 
 		// mix with a recorded WAV if required for this phoneme
-		unsigned char c;
+		signed char c;
 		int sample;
 
 		if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {

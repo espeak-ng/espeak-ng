@@ -237,7 +237,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	return ENS_OK;
 }
 
-size_t GetFileLength(const char *filename)
+int GetFileLength(const char *filename)
 {
 	struct stat statbuf;
 

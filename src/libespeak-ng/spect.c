@@ -139,7 +139,7 @@ static void SpectFrameDestroy(SpectFrame *frame)
 int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 {
 	short ix;
-	unsigned short x;
+	short x;
 	unsigned short *spect_data;
 
 	frame->time = read_double(stream);
@@ -275,8 +275,7 @@ static float GetFrameLength(SpectSeq *spect, int frame)
 
 espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 {
-	unsigned short n;
-	short temp;
+	short n, temp;
 	int ix;
 	uint32_t id1, id2, name_len;
 	int set_max_y = 0;
@@ -310,7 +309,7 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	} else
 		spect->name = NULL;
 
-	fread(&n, sizeof(unsigned short), 1, stream);
+	fread(&n, sizeof(short), 1, stream);
 	fread(&spect->amplitude, sizeof(short), 1, stream);
 	fread(&spect->max_y, sizeof(short), 1, stream);
 	fread(&temp, sizeof(short), 1, stream); // unused

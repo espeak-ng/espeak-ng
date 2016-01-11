@@ -45,6 +45,7 @@ static unsigned int StringToWord(const char *string)
 {
 	// Pack 4 characters into a word
 	int ix;
+	unsigned char c;
 	unsigned int word;
 
 	if (string == NULL)
@@ -53,7 +54,8 @@ static unsigned int StringToWord(const char *string)
 	word = 0;
 	for (ix = 0; ix < 4; ix++) {
 		if (string[ix] == 0) break;
-		word |= ((unsigned int)string[ix] << (ix*8));
+		c = string[ix];
+		word |= (c << (ix*8));
 	}
 	return word;
 }
