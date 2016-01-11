@@ -101,6 +101,9 @@ static SpectFrame *SpectFrameCreate()
 	SpectFrame *frame;
 
 	frame = malloc(sizeof(SpectFrame));
+	if (!frame)
+		return NULL;
+
 	frame->keyframe = 0;
 	frame->spect = NULL;
 	frame->markers = 0;
@@ -336,6 +339,8 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	}
 	for (ix = 0; ix < n; ix++) {
 		SpectFrame *frame = SpectFrameCreate();
+		if (!frame)
+			return ENOMEM;
 
 		if (LoadFrame(frame, stream, spect->file_format) != 0) {
 			free(frame);
