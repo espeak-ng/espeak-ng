@@ -412,10 +412,13 @@ static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
 		return ENS_EMPTY_PHONEME_MANIFEST;
 	}
 
-	if ((manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB))) == NULL) {
+	NAMETAB *new_manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB));
+	if (new_manifest == NULL) {
 		fclose(f);
+		free(manifest);
 		return ENOMEM;
-	}
+	} else
+		manifest = new_manifest;
 
 	n_manifest = 0;
 	while (fgets(buf, sizeof(buf), f) != NULL) {
