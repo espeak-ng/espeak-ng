@@ -38,6 +38,8 @@ espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, esp
 			free((*context)->path);
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
+			if (!*context)
+				return ENOMEM;
 		}
 		(*context)->type = ERROR_CONTEXT_FILE;
 		(*context)->path = strdup(filename);
@@ -54,6 +56,8 @@ espeak_ng_STATUS create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *
 			free((*context)->path);
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
+			if (!*context)
+				return ENOMEM;
 		}
 		(*context)->type = ERROR_CONTEXT_VERSION;
 		(*context)->path = strdup(path_home);
