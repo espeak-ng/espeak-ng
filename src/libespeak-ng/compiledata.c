@@ -1551,6 +1551,8 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 	if (*addr > 0) {
 		p = ref_hash_tab[hash];
 		p2 = (REF_HASH_TAB *)malloc(sizeof(REF_HASH_TAB)+strlen(path)+1);
+		if (p2 == NULL)
+			return ENOMEM;
 		p2->value = *addr;
 		p2->ph_mnemonic = phoneme_out->mnemonic; // phoneme which uses this file
 		p2->ph_table = n_phoneme_tabs-1;
