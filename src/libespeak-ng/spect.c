@@ -139,7 +139,7 @@ static void SpectFrameDestroy(SpectFrame *frame)
 	free(frame);
 }
 
-int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
+static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 {
 	short ix;
 	short x;
@@ -182,10 +182,8 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 
 	spect_data = malloc(sizeof(USHORT) * frame->nx);
 
-	if (spect_data == NULL) {
-		fprintf(stderr, "Failed to allocate memory\n");
-		return 1;
-	}
+	if (spect_data == NULL)
+		return ENOMEM;
 
 	frame->max_y = 0;
 	for (ix = 0; ix < frame->nx; ix++) {
@@ -195,7 +193,7 @@ int LoadFrame(SpectFrame *frame, FILE *stream, int file_format_type)
 	}
 	frame->spect = spect_data;
 
-	return 0;
+	return ENS_OK;
 }
 
 double GetFrameRms(SpectFrame *frame, int seq_amplitude)
@@ -342,9 +340,10 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 		if (!frame)
 			return ENOMEM;
 
-		if (LoadFrame(frame, stream, spect->file_format) != 0) {
+		espeak_ng_STATUS status = LoadFrame(frame, stream, spect->file_format);
+		if (status != ENS_OK) {
 			free(frame);
-			break;
+			return status;
 		}
 
 		spect->frames[spect->numframes++] = frame;
