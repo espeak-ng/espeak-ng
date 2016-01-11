@@ -98,6 +98,12 @@ then be built with:
 
 	make
 
+__NOTE:__ Building the voice data does not work when using the `-jN` option.
+If you want to use that option, you can run:
+
+	make -j8 src/espeak-ng src/speak-ng
+	make
+
 The documentation can be built by running:
 
 	make docs
