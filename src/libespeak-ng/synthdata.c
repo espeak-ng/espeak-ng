@@ -879,8 +879,6 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 				}
 				phdata->ipa_string[ix] = 0;
 			} else if (instn2 < N_PHONEME_DATA_PARAM) {
-				if (instn2 == i_CHANGE_PHONEME2)
-					phdata->pd_param[i_CHANGE_PHONEME] = data; // also set ChangePhoneme
 				phdata->pd_param[instn2] = data;
 				if ((instn2 == i_CHANGE_PHONEME) && (control & 0x100)) {
 					// found ChangePhoneme() in PhonemeList mode, exit

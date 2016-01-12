@@ -284,12 +284,10 @@ typedef struct {
 #define i_LENGTH_MOD     0x09
 #define i_SET_LENGTH     0x0a
 #define i_LONG_LENGTH    0x0b
-#define i_CHANGE_PHONEME2 0x0c  // not yet used
+#define i_ADD_LENGTH     0x0c
 #define i_IPA_NAME       0x0d
 
 #define i_CHANGE_IF      0x10  // 0x10 to 0x14
-
-#define i_ADD_LENGTH     0x0c
 
 // conditions and jumps
 #define i_CONDITION  0x2000
