@@ -556,7 +556,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 	if (phon_out_buf == NULL) {
 		phon_out_size = N_PHON_OUT;
-		if ((phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size)) == NULL) {
+		if ((phon_out_buf = (char *)malloc(phon_out_size)) == NULL) {
 			phon_out_size = 0;
 			return "";
 		}
@@ -633,10 +633,12 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		if ((phon_out_ix + len) >= phon_out_size) {
 			// enlarge the phoneme buffer
 			phon_out_size = phon_out_ix + len + N_PHON_OUT;
-			if ((phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size)) == NULL) {
+			char *new_phon_out_buf = (char *)realloc(phon_out_buf, phon_out_size);
+			if (new_phon_out_buf == NULL) {
 				phon_out_size = 0;
 				return "";
-			}
+			} else
+				phon_out_buf = new_phon_out_buf;
 		}
 
 		phon_buf[len] = 0;
