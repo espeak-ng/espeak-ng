@@ -233,8 +233,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	// allocate space for event list.  Allow 200 events per second.
 	// Add a constant to allow for very small buf_length
 	n_event_list = (buffer_length*200)/1000 + 20;
-	if ((event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list)) == NULL)
+	espeak_EVENT *new_event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list);
+	if (new_event_list == NULL)
 		return ENOMEM;
+	event_list = new_event_list;
 
 	return ENS_OK;
 }
