@@ -224,9 +224,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		buffer_length = 200;
 
 	outbuf_size = (buffer_length * samplerate)/500;
-	outbuf = (unsigned char *)realloc(outbuf, outbuf_size);
-	if ((out_start = outbuf) == NULL)
+	out_start = (unsigned char *)realloc(outbuf, outbuf_size);
+	if (out_start == NULL)
 		return ENOMEM;
+	else
+		outbuf = out_start;
 
 	// allocate space for event list.  Allow 200 events per second.
 	// Add a constant to allow for very small buf_length
