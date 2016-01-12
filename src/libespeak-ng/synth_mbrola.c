@@ -107,11 +107,13 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 		return error;
 	}
 
-	if ((mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, size)) == NULL) {
+	MBROLA_TAB *new_mbrola_tab = (MBROLA_TAB *)realloc(mbrola_tab, size);
+	if (new_mbrola_tab == NULL) {
 		fclose(f_in);
 		close_MBR();
 		return ENOMEM;
 	}
+	mbrola_tab = new_mbrola_tab;
 
 	mbrola_control = Read4Bytes(f_in);
 	pw = (int *)mbrola_tab;
