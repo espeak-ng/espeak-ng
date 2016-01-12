@@ -1610,7 +1610,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	voices_list[n_voices_list] = NULL; // voices list terminator
 	espeak_VOICE **new_voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));
 	if (new_voices == NULL)
-		return voices;
+		return (const espeak_VOICE **)voices;
 	voices = new_voices;
 
 	// sort the voices list
