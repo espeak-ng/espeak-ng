@@ -1608,7 +1608,10 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 	GetVoices(path_voices);
 	voices_list[n_voices_list] = NULL; // voices list terminator
-	voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));
+	espeak_VOICE **new_voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));
+	if (new_voices == NULL)
+		return voices;
+	voices = new_voices;
 
 	// sort the voices list
 	qsort(voices_list, n_voices_list, sizeof(espeak_VOICE *),
