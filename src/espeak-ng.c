@@ -721,7 +721,10 @@ int main(int argc, char **argv)
 		espeak_Synth(p_text, size+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 	} else if (flag_stdin) {
 		int max = 1000;
-		p_text = (char *)malloc(max);
+		if ((p_text = (char *)malloc(max)) == NULL) {
+			espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
+			exit(EXIT_FAILURE);
+		}
 
 		if (flag_stdin == 2) {
 			// line by line input on stdin
@@ -737,7 +740,12 @@ int main(int argc, char **argv)
 				p_text[ix++] = fgetc(stdin);
 				if (ix >= (max-1)) {
 					max += 1000;
-					p_text = (char *)realloc(p_text, max);
+					char *new_text = (char *)realloc(p_text, max);
+					if (new_text == NULL) {
+						free(p_text);
+						espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
+						exit(EXIT_FAILURE);
+					}
 				}
 			}
 			if (ix > 0) {
