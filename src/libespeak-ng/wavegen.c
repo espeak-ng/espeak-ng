@@ -380,10 +380,11 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	// make a buffer 3x size of the portaudio output
 	ix = pa_size*3;
 	if (ix > outbuffer_size) {
-		outbuffer = (unsigned char *)realloc(outbuffer, ix);
-		if (outbuffer == NULL) {
+		unsigned char *new_outbuffer = (unsigned char *)realloc(outbuffer, ix);
+		if (new_outbuffer == NULL)
 			fprintf(stderr, "espeak: out of memory\n");
-		}
+		else
+			outbuffer = new_outbuffer;
 		outbuffer_size = ix;
 		out_ptr = NULL;
 	}
