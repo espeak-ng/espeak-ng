@@ -13,7 +13,7 @@ endphoneme
 
 phoneme a#
   vowel starttype #a endtype #a
-  ipa ɐ
+  ipa a
   length 170
   FMT(vowel/a#_2)
 endphoneme
