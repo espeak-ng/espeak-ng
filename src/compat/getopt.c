@@ -29,29 +29,19 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#if HAVE_NBTOOL_CONFIG_H
-#include "nbtool_config.h"
-#endif
-
-#include <sys/cdefs.h>
-__RCSID("$NetBSD: getopt_long.c,v 1.27 2015/09/01 19:39:57 kamil Exp $");
-
-#include "namespace.h"
+#include "config.h"
 
 #include <assert.h>
-#include <err.h>
 #include <errno.h>
-#if HAVE_NBTOOL_CONFIG_H
-#include "compat_getopt.h"
-#else
 #include <getopt.h>
-#endif
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#if HAVE_NBTOOL_CONFIG_H && !HAVE_GETOPT_LONG && !HAVE_DECL_OPTIND
 #define REPLACE_GETOPT
-#endif
+
+#define _DIAGASSERT(x) assert(x)
+#define __UNCONST(x) (char *)(x)
 
 #ifdef REPLACE_GETOPT
 #ifdef __weak_alias
@@ -251,7 +241,7 @@ start:
 		if (!*place)
 			++optind;
 		if (PRINT_ERROR)
-			warnx(illoptchar, optchar);
+			fprintf(stderr, illoptchar, optchar);
 		optopt = optchar;
 		return BADCH;
 	}
@@ -263,7 +253,7 @@ start:
 		if (++optind >= nargc) {	/* no arg */
 			place = EMSG;
 			if (PRINT_ERROR)
-				warnx(recargchar, optchar);
+				fprintf(stderr, recargchar, optchar);
 			optopt = optchar;
 			return BADARG;
 		} else				/* white space */
@@ -286,7 +276,7 @@ start:
 			if (++optind >= nargc) {	/* no arg */
 				place = EMSG;
 				if (PRINT_ERROR)
-					warnx(recargchar, optchar);
+					fprintf(stderr, recargchar, optchar);
 				optopt = optchar;
 				return BADARG;
 			} else
@@ -407,7 +397,7 @@ getopt_long(int nargc, char * const *nargv, const char *options,
 		if (ambiguous) {
 			/* ambiguous abbreviation */
 			if (PRINT_ERROR)
-				warnx(ambig, (int)current_argv_len,
+				fprintf(stderr, ambig, (int)current_argv_len,
 				     current_argv);
 			optopt = 0;
 			return BADCH;
@@ -416,7 +406,7 @@ getopt_long(int nargc, char * const *nargv, const char *options,
 		        if (long_options[match].has_arg == no_argument
 			    && has_equal) {
 				if (PRINT_ERROR)
-					warnx(noarg, (int)current_argv_len,
+					fprintf(stderr, noarg, (int)current_argv_len,
 					     current_argv);
 				/*
 				 * XXX: GNU sets optopt to val regardless of
@@ -448,7 +438,7 @@ getopt_long(int nargc, char * const *nargv, const char *options,
 				 * indicates no error should be generated
 				 */
 				if (PRINT_ERROR)
-					warnx(recargstring, current_argv);
+					fprintf(stderr, recargstring, current_argv);
 				/*
 				 * XXX: GNU sets optopt to val regardless
 				 * of flag
@@ -462,7 +452,7 @@ getopt_long(int nargc, char * const *nargv, const char *options,
 			}
 		} else {			/* unknown option */
 			if (PRINT_ERROR)
-				warnx(illoptstring, current_argv);
+				fprintf(stderr, illoptstring, current_argv);
 			optopt = 0;
 			return BADCH;
 		}

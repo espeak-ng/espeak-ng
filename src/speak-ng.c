@@ -40,9 +40,7 @@
 #endif
 #endif
 
-#ifdef HAVE_GETOPT_H
 #include <getopt.h>
-#endif
 #include <time.h>
 #include <signal.h>
 #include <locale.h>
@@ -286,22 +284,6 @@ static int WavegenFile(void)
 	return finished;
 }
 
-#ifndef HAVE_GETOPT_H
-struct option {
-	char *name;
-	int has_arg;
-	int *flag;
-	int val;
-};
-int optind;
-static int optional_argument;
-static const char *arg_opts = "abfgklpsvw";      // which options have arguments
-static char *opt_string = "";
-#define no_argument 0
-#define required_argument 1
-#define optional_argument 2
-#endif
-
 int main(int argc, char **argv)
 {
 	static struct option long_options[] = {
@@ -361,51 +343,6 @@ int main(int argc, char **argv)
 	option_multibyte = espeakCHARS_AUTO;
 	f_trans = stdout;
 
-#ifndef HAVE_GETOPT_H
-	optind = 1;
-	opt_string = "";
-	while (optind < argc) {
-		int len;
-		char *p;
-
-		if ((c = *opt_string) == 0) {
-			opt_string = argv[optind];
-			if (opt_string[0] != '-')
-				break;
-
-			optind++;
-			opt_string++;
-			c = *opt_string;
-		}
-		opt_string++;
-		p = optarg2 = opt_string;
-
-		if (c == '-') {
-			if (p[0] == 0)
-				break; // -- means don't interpret further - as commands
-
-			opt_string = "";
-			for (ix = 0;; ix++) {
-				if (long_options[ix].name == 0)
-					break;
-				len = strlen(long_options[ix].name);
-				if (memcmp(long_options[ix].name, p, len) == 0) {
-					c = long_options[ix].val;
-					optarg2 = NULL;
-
-					if ((long_options[ix].has_arg != 0) && (p[len] == '='))
-						optarg2 = &p[len+1];
-					break;
-				}
-			}
-		} else if (strchr(arg_opts, c) != NULL) {
-			opt_string = "";
-			if (optarg2[0] == 0) {
-				// the option's value is in the next argument
-				optarg2 = argv[optind++];
-			}
-		}
-#else
 	while (true) {
 		c = getopt_long(argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz", // NOTE: also change arg_opts to indicate which commands have a numeric value
 		                long_options, &option_index);
@@ -414,7 +351,6 @@ int main(int argc, char **argv)
 		if (c == -1)
 			break;
 		optarg2 = optarg;
-#endif
 
 		switch (c)
 		{

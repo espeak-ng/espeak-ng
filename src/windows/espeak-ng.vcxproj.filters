@@ -13,15 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\compat">
+      <UniqueIdentifier>{c530f203-dd49-4aa0-a7a3-5116f781f03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\compat">
+      <UniqueIdentifier>{2ab8716c-709b-4284-9dc7-ec9610d37eab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\espeak-ng.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\compat\getopt.c">
+      <Filter>Source Files\compat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\compat\getopt.h">
+      <Filter>Header Files\compat</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

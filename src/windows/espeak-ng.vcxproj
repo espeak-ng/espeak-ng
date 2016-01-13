@@ -150,9 +150,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\compat\getopt.c" />
     <ClCompile Include="..\espeak-ng.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\compat\getopt.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
