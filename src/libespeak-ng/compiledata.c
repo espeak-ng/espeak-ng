@@ -2633,7 +2633,6 @@ static void CompilePhonemeFiles()
 static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	char fname[sizeof(path_home)+40];
-	sprintf(fname, "%s/../phsource", path_home);
 
 	fprintf(log, "Compiling phoneme data: %s\n", fname);
 	n_envelopes = 0;
@@ -2642,9 +2641,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	memset(markers_used, 0, sizeof(markers_used));
 
 	f_errors = log;
-
-	if (!access(fname, 755))
-		return create_file_error_context(context, errno, fname);
 
 	strncpy0(current_fname, source, sizeof(current_fname));
 
