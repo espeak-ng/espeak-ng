@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8C406BE8-2F85-426B-8009-A2DD540DF7CD}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <Target Name="Intonations" Outputs="$(ProjectDir)..\..\espeak-data\intonations">
+    <Exec Command="$(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile-intonations" />
+  </Target>
+  <Target Name="Phonemes" Outputs="$(ProjectDir)..\..\espeak-data\phondata">
+    <Exec Command="$(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile-phonemes" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="Intonations;Phonemes;Dictionaries" />
+  <Target Name="af" Outputs="$(ProjectDir)..\..\espeak-data\af_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=af"/>
+  </Target>
+  <Target Name="am" Outputs="$(ProjectDir)..\..\espeak-data\am_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=am"/>
+  </Target>
+  <Target Name="an" Outputs="$(ProjectDir)..\..\espeak-data\an_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=an"/>
+  </Target>
+  <Target Name="as" Outputs="$(ProjectDir)..\..\espeak-data\as_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=as"/>
+  </Target>
+  <Target Name="az" Outputs="$(ProjectDir)..\..\espeak-data\az_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=az"/>
+  </Target>
+  <Target Name="bg" Outputs="$(ProjectDir)..\..\espeak-data\bg_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=bg"/>
+  </Target>
+  <Target Name="bn" Outputs="$(ProjectDir)..\..\espeak-data\bn_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=bn"/>
+  </Target>
+  <Target Name="ca" Outputs="$(ProjectDir)..\..\espeak-data\ca_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ca"/>
+  </Target>
+  <Target Name="cs" Outputs="$(ProjectDir)..\..\espeak-data\cs_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=cs"/>
+  </Target>
+  <Target Name="cy" Outputs="$(ProjectDir)..\..\espeak-data\cy_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=cy"/>
+  </Target>
+  <Target Name="da" Outputs="$(ProjectDir)..\..\espeak-data\da_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=da"/>
+  </Target>
+  <Target Name="de" Outputs="$(ProjectDir)..\..\espeak-data\de_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=de"/>
+  </Target>
+  <Target Name="el" Outputs="$(ProjectDir)..\..\espeak-data\el_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=el"/>
+  </Target>
+  <Target Name="en" Outputs="$(ProjectDir)..\..\espeak-data\en_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=en"/>
+  </Target>
+  <Target Name="eo" Outputs="$(ProjectDir)..\..\espeak-data\eo_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=eo"/>
+  </Target>
+  <Target Name="es" Outputs="$(ProjectDir)..\..\espeak-data\es_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=es"/>
+  </Target>
+  <Target Name="et" Outputs="$(ProjectDir)..\..\espeak-data\et_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=et"/>
+  </Target>
+  <Target Name="eu" Outputs="$(ProjectDir)..\..\espeak-data\eu_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=eu"/>
+  </Target>
+  <Target Name="fa" Outputs="$(ProjectDir)..\..\espeak-data\fa_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=fa"/>
+  </Target>
+  <Target Name="fi" Outputs="$(ProjectDir)..\..\espeak-data\fi_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=fi"/>
+  </Target>
+  <Target Name="fr" Outputs="$(ProjectDir)..\..\espeak-data\fr_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=fr"/>
+  </Target>
+  <Target Name="ga" Outputs="$(ProjectDir)..\..\espeak-data\ga_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ga"/>
+  </Target>
+  <Target Name="gd" Outputs="$(ProjectDir)..\..\espeak-data\gd_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gd"/>
+  </Target>
+  <Target Name="grc" Outputs="$(ProjectDir)..\..\espeak-data\grc_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=grc"/>
+  </Target>
+  <Target Name="gu" Outputs="$(ProjectDir)..\..\espeak-data\gu_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gu"/>
+  </Target>
+  <Target Name="hbs" Outputs="$(ProjectDir)..\..\espeak-data\hbs_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hbs"/>
+  </Target>
+  <Target Name="hi" Outputs="$(ProjectDir)..\..\espeak-data\hi_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hi"/>
+  </Target>
+  <Target Name="hu" Outputs="$(ProjectDir)..\..\espeak-data\hu_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hu"/>
+  </Target>
+  <Target Name="hy" Outputs="$(ProjectDir)..\..\espeak-data\hy_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hy"/>
+  </Target>
+  <Target Name="ia" Outputs="$(ProjectDir)..\..\espeak-data\ia_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ia"/>
+  </Target>
+  <Target Name="id" Outputs="$(ProjectDir)..\..\espeak-data\id_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=id"/>
+  </Target>
+  <Target Name="is" Outputs="$(ProjectDir)..\..\espeak-data\is_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=is"/>
+  </Target>
+  <Target Name="it" Outputs="$(ProjectDir)..\..\espeak-data\it_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=it"/>
+  </Target>
+  <Target Name="jbo" Outputs="$(ProjectDir)..\..\espeak-data\jbo_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=jbo"/>
+  </Target>
+  <Target Name="ka" Outputs="$(ProjectDir)..\..\espeak-data\ka_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ka"/>
+  </Target>
+  <Target Name="kl" Outputs="$(ProjectDir)..\..\espeak-data\kl_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=kl"/>
+  </Target>
+  <Target Name="kn" Outputs="$(ProjectDir)..\..\espeak-data\kn_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=kn"/>
+  </Target>
+  <Target Name="ko" Outputs="$(ProjectDir)..\..\espeak-data\ko_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ko"/>
+  </Target>
+  <Target Name="ku" Outputs="$(ProjectDir)..\..\espeak-data\ku_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ku"/>
+  </Target>
+  <Target Name="la" Outputs="$(ProjectDir)..\..\espeak-data\la_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=la"/>
+  </Target>
+  <Target Name="lfn" Outputs="$(ProjectDir)..\..\espeak-data\lfn_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=lfn"/>
+  </Target>
+  <Target Name="lt" Outputs="$(ProjectDir)..\..\espeak-data\lt_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=lt"/>
+  </Target>
+  <Target Name="lv" Outputs="$(ProjectDir)..\..\espeak-data\lv_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=lv"/>
+  </Target>
+  <Target Name="mk" Outputs="$(ProjectDir)..\..\espeak-data\mk_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mk"/>
+  </Target>
+  <Target Name="ml" Outputs="$(ProjectDir)..\..\espeak-data\ml_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ml"/>
+  </Target>
+  <Target Name="mr" Outputs="$(ProjectDir)..\..\espeak-data\mr_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=mr"/>
+  </Target>
+  <Target Name="ms" Outputs="$(ProjectDir)..\..\espeak-data\ms_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ms"/>
+  </Target>
+  <Target Name="my" Outputs="$(ProjectDir)..\..\espeak-data\my_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=my"/>
+  </Target>
+  <Target Name="nci" Outputs="$(ProjectDir)..\..\espeak-data\nci_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=nci"/>
+  </Target>
+  <Target Name="ne" Outputs="$(ProjectDir)..\..\espeak-data\ne_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ne"/>
+  </Target>
+  <Target Name="nl" Outputs="$(ProjectDir)..\..\espeak-data\nl_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=nl"/>
+  </Target>
+  <Target Name="no" Outputs="$(ProjectDir)..\..\espeak-data\no_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=no"/>
+  </Target>
+  <Target Name="om" Outputs="$(ProjectDir)..\..\espeak-data\om_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=om"/>
+  </Target>
+  <Target Name="or" Outputs="$(ProjectDir)..\..\espeak-data\or_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=or"/>
+  </Target>
+  <Target Name="pa" Outputs="$(ProjectDir)..\..\espeak-data\pa_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pa"/>
+  </Target>
+  <Target Name="pap" Outputs="$(ProjectDir)..\..\espeak-data\pap_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pap"/>
+  </Target>
+  <Target Name="pl" Outputs="$(ProjectDir)..\..\espeak-data\pl_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pl"/>
+  </Target>
+  <Target Name="pt" Outputs="$(ProjectDir)..\..\espeak-data\pt_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=pt"/>
+  </Target>
+  <Target Name="ro" Outputs="$(ProjectDir)..\..\espeak-data\ro_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ro"/>
+  </Target>
+  <Target Name="ru" Outputs="$(ProjectDir)..\..\espeak-data\ru_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ru"/>
+  </Target>
+  <Target Name="si" Outputs="$(ProjectDir)..\..\espeak-data\si_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=si"/>
+  </Target>
+  <Target Name="sk" Outputs="$(ProjectDir)..\..\espeak-data\sk_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sk"/>
+  </Target>
+  <Target Name="sl" Outputs="$(ProjectDir)..\..\espeak-data\sl_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sl"/>
+  </Target>
+  <Target Name="sq" Outputs="$(ProjectDir)..\..\espeak-data\sq_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sq"/>
+  </Target>
+  <Target Name="sv" Outputs="$(ProjectDir)..\..\espeak-data\sv_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sv"/>
+  </Target>
+  <Target Name="sw" Outputs="$(ProjectDir)..\..\espeak-data\sw_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sw"/>
+  </Target>
+  <Target Name="ta" Outputs="$(ProjectDir)..\..\espeak-data\ta_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ta"/>
+  </Target>
+  <Target Name="te" Outputs="$(ProjectDir)..\..\espeak-data\te_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=te"/>
+  </Target>
+  <Target Name="tr" Outputs="$(ProjectDir)..\..\espeak-data\tr_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=tr"/>
+  </Target>
+  <Target Name="ur" Outputs="$(ProjectDir)..\..\espeak-data\ur_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ur"/>
+  </Target>
+  <Target Name="vi" Outputs="$(ProjectDir)..\..\espeak-data\vi_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=vi"/>
+  </Target>
+  <Target Name="zh" Outputs="$(ProjectDir)..\..\espeak-data\zh_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=zh"/>
+  </Target>
+  <Target Name="zhy" Outputs="$(ProjectDir)..\..\espeak-data\zhy_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=zhy"/>
+  </Target>
+  <!-- NOTE: Compiling 'my' triggers an assertion, so is disabled for now. -->
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;ka;kl;kn;ko;ku;la;lfn;lt;lv;mk;ml;mr;ms;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tr;ur;vi;zh;zhy"/>
+</Project>
