@@ -2634,7 +2634,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 {
 	char fname[sizeof(path_home)+40];
 
-	fprintf(log, "Compiling phoneme data: %s\n", fname);
 	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
@@ -2645,6 +2644,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 	strncpy0(current_fname, source, sizeof(current_fname));
 
 	sprintf(fname, "%s/../phsource/phonemes", path_home);
+	fprintf(log, "Compiling phoneme data: %s\n", fname);
 	f_in = fopen(fname, "rb");
 	if (f_in == NULL)
 		return create_file_error_context(context, errno, fname);
@@ -2711,8 +2711,6 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 
 	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
 	f_prog_log = fopen(fname, "wb");
-
-	fprintf(log, "Compiling phoneme data: %s/../phsource\n", path_home);
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(f_phdata, version_phdata);
