@@ -128,13 +128,8 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 #else
 			strerror_r(status, buffer, length);
 #endif
-		} else {
-#ifdef PLATFORM_WINDOWS
-			sprintf(buffer, "Unspecified error 0x%x", status);
-#else
+		} else
 			snprintf(buffer, length, "Unspecified error 0x%x", status);
-#endif
-		}
 		break;
 	}
 }

@@ -80,11 +80,7 @@ int pre_pause;
 ALPHABET *current_alphabet;
 
 // these were previously in translator class
-#ifdef PLATFORM_WINDOWS
-char word_phonemes[N_WORD_PHONEMES*2]; // longer, because snprint() is not available
-#else
 char word_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
-#endif
 int n_ph_list2;
 PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
@@ -1303,30 +1299,18 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 						*p = phonSTRESS_3;
 				}
 			}
-#ifdef PLATFORM_WINDOWS
-			sprintf(word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#else
 			snprintf(word_phonemes, sizeof(word_phonemes), "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#endif
 			word_phonemes[N_WORD_PHONEMES-1] = 0;
 			SetWordStress(tr, word_phonemes, dictionary_flags, -1, 0);
 		} else {
 			// stress position affects the whole word, including prefix
-#ifdef PLATFORM_WINDOWS
-			sprintf(word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#else
 			snprintf(word_phonemes, sizeof(word_phonemes), "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#endif
 			word_phonemes[N_WORD_PHONEMES-1] = 0;
 			SetWordStress(tr, word_phonemes, dictionary_flags, -1, 0);
 		}
 	} else {
 		SetWordStress(tr, phonemes, dictionary_flags, -1, add_suffix_phonemes);
-#ifdef PLATFORM_WINDOWS
-		sprintf(word_phonemes, "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#else
 		snprintf(word_phonemes, sizeof(word_phonemes), "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
-#endif
 		word_phonemes[N_WORD_PHONEMES-1] = 0;
 	}
 
