@@ -39,12 +39,14 @@ extern "C"
 
 #define PLATFORM_WINDOWS
 #define PATHSEP '\\'
+#define N_PATH_HOME  230
 #define NO_VARIADIC_MACROS
 
 #else
 
 #define PLATFORM_POSIX
 #define PATHSEP  '/'
+#define N_PATH_HOME  160
 #define USE_NANOSLEEP
 #define __cdecl
 
@@ -64,13 +66,6 @@ typedef struct {
 	int value;
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, const char *string);
-
-
-#ifdef PLATFORM_WINDOWS
-#define N_PATH_HOME  230
-#else
-#define N_PATH_HOME  160
-#endif
 
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
