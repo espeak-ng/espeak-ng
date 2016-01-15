@@ -37,9 +37,7 @@
 #include "voice.h"
 #include "translate.h"
 
-#ifdef PLATFORM_POSIX
 #include <unistd.h>
-#endif
 
 #include <locale.h>
 #define N_XML_BUF   500

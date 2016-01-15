@@ -34,9 +34,8 @@
 
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
-#else
-#include <unistd.h>
 #endif
+#include <unistd.h>
 #include "wave.h"
 
 #ifdef NEED_STRUCT_TIMESPEC

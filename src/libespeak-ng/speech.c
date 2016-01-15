@@ -35,13 +35,12 @@
 #include "speech.h"
 
 #include <sys/stat.h>
+#include <unistd.h>
 #ifdef PLATFORM_WINDOWS
 #include <fcntl.h>
 #include <io.h>
 #include <windows.h>
 #include <winreg.h>
-#else  /* PLATFORM_POSIX */
-#include <unistd.h>
 #endif
 
 #include "phoneme.h"

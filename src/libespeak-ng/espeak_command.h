@@ -19,9 +19,7 @@
 #ifndef ESPEAK_COMMAND_H
 #define ESPEAK_COMMAND_H
 
-#ifndef PLATFORM_WINDOWS
 #include <unistd.h>
-#endif
 
 #ifdef __cplusplus
 extern "C"

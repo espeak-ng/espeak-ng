@@ -40,10 +40,8 @@
 #include <time.h>
 #include <pulse/pulseaudio.h>
 #include <pthread.h>
-
-#ifndef PLATFORM_WINDOWS
 #include <unistd.h>
-#endif
+
 #include "wave.h"
 
 enum {

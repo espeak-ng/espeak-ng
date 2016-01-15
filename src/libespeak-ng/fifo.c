@@ -20,9 +20,7 @@
 
 #include "config.h"
 
-#ifndef PLATFORM_WINDOWS
 #include <unistd.h>
-#endif
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>

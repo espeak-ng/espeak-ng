@@ -39,9 +39,7 @@
 #include "spect.h"
 
 #include <sys/stat.h>
-#ifdef PLATFORM_POSIX
 #include <unistd.h>
-#endif
 
 typedef struct {
 	unsigned int value;

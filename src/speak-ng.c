@@ -35,11 +35,10 @@
 #include <io.h>
 #include <windows.h>
 #include <winreg.h>
-#else
-#include <unistd.h>
 #endif
 #endif
 
+#include <unistd.h>
 #include <getopt.h>
 #include <time.h>
 #include <signal.h>
