@@ -19,14 +19,14 @@
 
 #include "config.h"
 
+#include <ctype.h>
 #include <errno.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <wctype.h>
 #include <string.h>
-#include <stdint.h>
+#include <wctype.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>

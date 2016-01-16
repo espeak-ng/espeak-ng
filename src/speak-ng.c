@@ -19,15 +19,17 @@
 
 #include "config.h"
 
-#include <espeak-ng/espeak_ng.h>
-
-#include "speech.h"
-
+#include <ctype.h>
+#include <getopt.h>
+#include <locale.h>
+#include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
 
 #ifndef PLATFORM_DOS
 #ifdef PLATFORM_WINDOWS
@@ -38,16 +40,10 @@
 #endif
 #endif
 
-#include <unistd.h>
-#include <getopt.h>
-#include <time.h>
-#include <signal.h>
-#include <locale.h>
-#include <sys/stat.h>
-
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
 
+#include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"

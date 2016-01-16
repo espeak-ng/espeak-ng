@@ -19,23 +19,18 @@
 
 #include "config.h"
 
-#include "errno.h"
-#include "stdio.h"
-#include "ctype.h"
-#include "string.h"
-#include "stdlib.h"
-#include "wchar.h"
-#include "locale.h"
 #include <assert.h>
-#include <time.h>
-
-#include <espeak-ng/espeak_ng.h>
-#include <espeak/speak_lib.h>
-
-#include "speech.h"
-
+#include <ctype.h>
+#include <errno.h>
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/stat.h>
+#include <time.h>
 #include <unistd.h>
+#include <wchar.h>
+
 #ifdef PLATFORM_WINDOWS
 #include <fcntl.h>
 #include <io.h>
@@ -43,11 +38,14 @@
 #include <winreg.h>
 #endif
 
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
+
+#include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
 #include "translate.h"
-
 #include "fifo.h"
 #include "event.h"
 #include "wave.h"

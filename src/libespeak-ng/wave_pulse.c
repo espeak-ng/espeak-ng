@@ -26,22 +26,21 @@
 //
 #include "config.h"
 
+#include <assert.h>
+#include <math.h>
+#include <pthread.h>
+#include <pulse/pulseaudio.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+
 #include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
-
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <assert.h>
-#include <sys/time.h>
-#include <time.h>
-#include <pulse/pulseaudio.h>
-#include <pthread.h>
-#include <unistd.h>
-
 #include "wave.h"
 
 enum {

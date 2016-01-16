@@ -20,12 +20,10 @@
 #include "config.h"
 
 #if defined(_WIN32) || defined(_WIN64)
+
 #include <windows.h>
-#endif
 
 #include "mbrowrap.h"
-
-#if defined(_WIN32) || defined(_WIN64)
 
 HINSTANCE hinstDllMBR = NULL;
 
@@ -58,21 +56,22 @@ void unload_MBR()
 
 #else
 
-#include <espeak-ng/espeak_ng.h>
-
-#include "speech.h"
-
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <signal.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <poll.h>
-#include <errno.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
+
+#include <espeak-ng/espeak_ng.h>
+
+#include "mbrowrap.h"
+#include "speech.h"
 
 /*
  * mbrola instance parameters

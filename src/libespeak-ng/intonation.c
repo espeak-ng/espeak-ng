@@ -19,11 +19,11 @@
 
 #include "config.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <wctype.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <wctype.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>

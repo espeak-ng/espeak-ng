@@ -19,14 +19,16 @@
 
 #include "config.h"
 
-#include <stdio.h>
 #include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
-#include <wctype.h>
-#include <wchar.h>
+#include <locale.h>
 #include <math.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <wchar.h>
+#include <wctype.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
@@ -37,9 +39,6 @@
 #include "voice.h"
 #include "translate.h"
 
-#include <unistd.h>
-
-#include <locale.h>
 #define N_XML_BUF   500
 
 static const char *xmlbase = ""; // base URL from <speak>

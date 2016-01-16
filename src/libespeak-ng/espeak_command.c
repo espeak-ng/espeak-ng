@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>
- * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2013-2016 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +18,15 @@
 
 #include "config.h"
 
+#include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+#include <wchar.h>
+
 #include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
 #include "espeak_command.h"
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
-#include <wchar.h>
 
 static unsigned int my_current_text_id = 0;
 

@@ -19,23 +19,23 @@
 
 #include "config.h"
 
-#include <espeak-ng/espeak_ng.h>
-
-#include "speech.h"
-
+#include <assert.h>
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <math.h>
-#include <assert.h>
+#include <string.h>
 #include <sys/time.h>
 #include <time.h>
+#include <unistd.h>
 
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
 #endif
-#include <unistd.h>
+
+#include <espeak-ng/espeak_ng.h>
+
+#include "speech.h"
 #include "wave.h"
 
 #ifdef NEED_STRUCT_TIMESPEC

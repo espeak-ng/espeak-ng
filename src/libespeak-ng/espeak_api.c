@@ -20,17 +20,16 @@
 
 #include "config.h"
 
+#include <stdint.h>
+#include <stdlib.h>
+
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
-
-#include <stdlib.h>
-#include <stdint.h>
 
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-
 #include "event.h"
 
 static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)

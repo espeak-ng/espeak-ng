@@ -19,24 +19,23 @@
 
 #include "config.h"
 
-#include "stdio.h"
-#include "ctype.h"
-#include "wctype.h"
-#include "string.h"
-#include "stdlib.h"
+#include <ctype.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <wctype.h>
+
+#ifdef PLATFORM_WINDOWS
+#include <windows.h>
+#else
+#include <dirent.h>
+#endif
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
 
 #include "speech.h"
-
-#ifdef PLATFORM_WINDOWS
-#include "windows.h"
-#else
-#include "dirent.h"
-#endif
-
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"

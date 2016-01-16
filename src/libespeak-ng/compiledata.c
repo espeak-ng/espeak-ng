@@ -19,14 +19,16 @@
 
 #include "config.h"
 
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
+#include <errno.h>
 #include <stdarg.h>
-#include <time.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
@@ -37,9 +39,6 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
-
-#include <sys/stat.h>
-#include <unistd.h>
 
 typedef struct {
 	unsigned int value;

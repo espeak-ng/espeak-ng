@@ -20,8 +20,11 @@
 #include "config.h"
 
 #include <errno.h>
-#include <stdio.h>
+#include <math.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
@@ -31,10 +34,6 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
-
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
 
 extern double ConvertFromIeeeExtended(unsigned char *bytes);
 extern int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);

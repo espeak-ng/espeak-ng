@@ -25,11 +25,11 @@
 
 #include "config.h"
 
+#include <math.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <string.h>
-#include <stdint.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>

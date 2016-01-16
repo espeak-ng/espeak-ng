@@ -21,19 +21,18 @@
 
 #include "config.h"
 
+#include <assert.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stropts.h>
+#include <sys/audioio.h>
+#include <unistd.h>
+
 #include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
-
-#include <errno.h>
-#include <string.h>
-#include <stropts.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/audioio.h>
-
 #include "wave.h"
 
 #define SAMPLE_RATE 22050
