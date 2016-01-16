@@ -458,15 +458,13 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 				event_list[0].user_data = my_user_data;
 
 				if (SpeakNextClause(NULL, NULL, 1) == 0) {
-#ifdef USE_ASYNC
 					if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
+#ifdef USE_ASYNC
 						if (dispatch_audio(NULL, 0, NULL) < 0)
 							return ENS_AUDIO_ERROR;
+#endif
 					} else
 						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
-#else
-					synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
-#endif
 					break;
 				}
 			}
