@@ -194,10 +194,8 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 				break;
 			usleep(10000);
 		}
-	} else {
-		if (synth_callback)
-			finished = synth_callback(NULL, 0, event_list);
-	}
+	} else if (synth_callback)
+		finished = synth_callback(NULL, 0, event_list);
 	return finished;
 }
 
@@ -441,7 +439,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 			if (finished < 0)
 				return ENS_AUDIO_ERROR;
 #endif
-		} else
+		} else if (synth_callback)
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
 			SpeakNextClause(NULL, 0, 2); // stop
@@ -463,7 +461,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 						if (dispatch_audio(NULL, 0, NULL) < 0)
 							return ENS_AUDIO_ERROR;
 #endif
-					} else
+					} else if (synth_callback)
 						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 					break;
 				}
