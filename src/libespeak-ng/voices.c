@@ -26,7 +26,7 @@
 #include <string.h>
 #include <wctype.h>
 
-#ifdef PLATFORM_WINDOWS
+#if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #else
 #include <dirent.h>

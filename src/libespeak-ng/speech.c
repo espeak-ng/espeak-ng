@@ -32,7 +32,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
-#ifdef PLATFORM_WINDOWS
+#if defined(_WIN32) || defined(_WIN64)
 #include <fcntl.h>
 #include <io.h>
 #include <windows.h>
