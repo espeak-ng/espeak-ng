@@ -22,8 +22,6 @@
 // Helps to add espeak commands in a first-in first-out queue
 // and run them asynchronously.
 
-#include "espeak_command.h"
-
 #ifdef __cplusplus
 extern "C"
 {

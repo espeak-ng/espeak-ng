@@ -23,6 +23,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <locale.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -46,6 +47,7 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "translate.h"
+#include "espeak_command.h"
 #include "fifo.h"
 #include "event.h"
 #include "wave.h"

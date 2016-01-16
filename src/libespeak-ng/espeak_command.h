@@ -19,8 +19,6 @@
 #ifndef ESPEAK_COMMAND_H
 #define ESPEAK_COMMAND_H
 
-#include <unistd.h>
-
 #ifdef __cplusplus
 extern "C"
 {

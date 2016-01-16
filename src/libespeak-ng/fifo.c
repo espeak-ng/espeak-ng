@@ -24,6 +24,7 @@
 #include <errno.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
@@ -34,6 +35,7 @@
 #include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
+#include "espeak_command.h"
 #include "fifo.h"
 #include "wave.h"
 

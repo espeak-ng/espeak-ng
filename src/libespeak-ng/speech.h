@@ -20,8 +20,6 @@
 #ifndef SPEECH_H
 #define SPEECH_H
 
-#include <sys/types.h>
-
 #ifdef __cplusplus
 extern "C"
 {
