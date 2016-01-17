@@ -53,9 +53,6 @@ extern void wave_set_callback_is_output_enabled(t_wave_callback *cb);
 extern void clock_gettime2(struct timespec *ts);
 extern void add_time_in_ms(struct timespec *ts, int time_in_ms);
 
-// for tests
-extern void *wave_test_get_write_buffer();
-
 #ifdef __cplusplus
 }
 #endif

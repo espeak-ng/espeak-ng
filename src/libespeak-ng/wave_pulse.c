@@ -74,7 +74,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 #define wave_get_write_position wave_pulse_get_write_position
 #define wave_flush wave_pulse_flush
 #define wave_set_callback_is_output_enabled wave_pulse_set_callback_is_output_enabled
-#define wave_test_get_write_buffer wave_pulse_test_get_write_buffer
 #define wave_get_remaining_time wave_pulse_get_remaining_time
 
 // check whether we can connect to PulseAudio
@@ -658,11 +657,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	*time = (uint32_t)a_time;
 
 	return 0;
-}
-
-void *wave_test_get_write_buffer()
-{
-	return NULL;
 }
 
 #endif

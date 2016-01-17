@@ -164,14 +164,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 		wave_port_set_callback_is_output_enabled(cb);
 }
 
-void *wave_test_get_write_buffer()
-{
-	if (pulse_running)
-		return wave_pulse_test_get_write_buffer();
-	else
-		return wave_port_test_get_write_buffer();
-}
-
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 {
 	if (pulse_running)
@@ -190,7 +182,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 #define wave_get_write_position wave_port_get_write_position
 #define wave_flush wave_port_flush
 #define wave_set_callback_is_output_enabled wave_port_set_callback_is_output_enabled
-#define wave_test_get_write_buffer wave_port_test_get_write_buffer
 #define wave_get_remaining_time wave_port_get_remaining_time
 
 #endif
@@ -821,11 +812,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 	return 0;
 }
 
-void *wave_test_get_write_buffer()
-{
-	return myWrite;
-}
-
 #else
 
 void *wave_open(int srate, const char *device)
@@ -886,11 +872,6 @@ typedef int (t_wave_callback)(void);
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
 	(void)cb; // unused
-}
-
-extern void *wave_test_get_write_buffer()
-{
-	return NULL;
 }
 
 int wave_get_remaining_time(uint32_t sample, uint32_t *time)

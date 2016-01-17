@@ -296,22 +296,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-// wave_test_get_write_buffer
-//
-// DESCRIPTION:
-//
-// Unnecessary and is used for debug output from
-// speak_lib.cpp:dispatch_audio.
-//
-// RETURNS:
-//
-// NULL
-//
-void *wave_test_get_write_buffer()
-{
-	return NULL;
-}
-
 // wave_get_read_position
 //
 // DESCRIPTION:
