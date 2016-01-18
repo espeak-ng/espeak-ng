@@ -182,9 +182,9 @@ static void flutter(klatt_frame_ptr frame)
 
 	fla = (double)kt_globals.f0_flutter / 50;
 	flb = (double)kt_globals.original_f0 / 100;
-	flc = sin(PI*12.7*time_count); // because we are calling flutter() more frequently, every 2.9mS
-	fld = sin(PI*7.1*time_count);
-	fle = sin(PI*4.7*time_count);
+	flc = sin(M_PI*12.7*time_count); // because we are calling flutter() more frequently, every 2.9mS
+	fld = sin(M_PI*7.1*time_count);
+	fle = sin(M_PI*4.7*time_count);
 	delta_f0 =  fla * flb * (flc + fld + fle) * 10;
 	frame->F0hz10 = frame->F0hz10 + (long)delta_f0;
 	time_count++;
@@ -436,7 +436,7 @@ void KlattReset(int control)
 		// Full reset
 		kt_globals.FLPhz = (950 * kt_globals.samrate) / 10000;
 		kt_globals.BLPhz = (630 * kt_globals.samrate) / 10000;
-		kt_globals.minus_pi_t = -PI / kt_globals.samrate;
+		kt_globals.minus_pi_t = -M_PI / kt_globals.samrate;
 		kt_globals.two_pi_t = -2.0 * kt_globals.minus_pi_t;
 		setabc(kt_globals.FLPhz, kt_globals.BLPhz, &(kt_globals.rsn[RLP]));
 	}

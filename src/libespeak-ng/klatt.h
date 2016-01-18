@@ -34,9 +34,6 @@ extern "C"
 #define SAMPLED          3
 #define SAMPLED2         4
 
-#define PI               3.1415927
-
-
 /* typedef's that need to be exported */
 
 typedef long flag;

@@ -53,8 +53,6 @@
 
 #include "sintab.h"
 
-#define PI  3.1415927
-#define PI2 6.283185307
 #define N_WAV_BUF   10
 
 voice_t *wvoice;
@@ -661,7 +659,7 @@ void WavegenInit(int rate, int wavemult_fact)
 		// wavemult table has preset values for 22050 Hz, we only need to
 		// recalculate them if we have a different sample rate
 		for (ix = 0; ix < wavemult_max; ix++) {
-			x = 127*(1.0 - cos(PI2*ix/wavemult_max));
+			x = 127*(1.0 - cos((M_PI*2)*ix/wavemult_max));
 			wavemult[ix] = (int)x;
 		}
 	}
@@ -923,7 +921,7 @@ void InitBreath(void)
 {
 	int ix;
 
-	minus_pi_t = -PI / samplerate;
+	minus_pi_t = -M_PI / samplerate;
 	two_pi_t = -2.0 * minus_pi_t;
 
 	for (ix = 0; ix < N_PEAKS; ix++)
