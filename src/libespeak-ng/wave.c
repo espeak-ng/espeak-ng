@@ -86,6 +86,7 @@ int wave_pulse_get_remaining_time(uint32_t sample, uint32_t *time);
 // wrappers
 void *wave_open(int srate, const char *device)
 {
+	pulse_running = is_pulse_running();
 	if (pulse_running)
 		return wave_pulse_open(srate, device);
 	else
