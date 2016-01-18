@@ -261,12 +261,6 @@ char *Alloc(int size)
 	return p;
 }
 
-void Free(void *ptr)
-{
-	if (ptr != NULL)
-		free(ptr);
-}
-
 #pragma GCC visibility push(default)
 
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
@@ -884,9 +878,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 		out_samplerate = 0;
 	}
 #endif
-	Free(event_list);
+	free(event_list);
 	event_list = NULL;
-	Free(outbuf);
+	free(outbuf);
 	outbuf = NULL;
 	FreePhData();
 	FreeVoiceList();

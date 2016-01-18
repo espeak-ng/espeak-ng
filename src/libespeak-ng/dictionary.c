@@ -218,7 +218,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	size = GetFileLength(fname);
 
 	if (tr->data_dictlist != NULL) {
-		Free(tr->data_dictlist);
+		free(tr->data_dictlist);
 		tr->data_dictlist = NULL;
 	}
 

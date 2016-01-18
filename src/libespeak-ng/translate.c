@@ -444,8 +444,8 @@ int IsSpace(unsigned int c)
 void DeleteTranslator(Translator *tr)
 {
 	if (tr->data_dictlist != NULL)
-		Free(tr->data_dictlist);
-	Free(tr);
+		free(tr->data_dictlist);
+	free(tr);
 }
 
 int lookupwchar(const unsigned short *list, int c)

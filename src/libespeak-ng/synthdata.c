@@ -86,7 +86,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 		return create_file_error_context(context, errno, buf);
 
 	if (*ptr != NULL)
-		Free(*ptr);
+		free(*ptr);
 
 	if ((*ptr = Alloc(length)) == NULL) {
 		fclose(f_in);
@@ -95,7 +95,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if (fread(*ptr, 1, length, f_in) != length) {
 		int error = errno;
 		fclose(f_in);
-		Free(*ptr);
+		free(*ptr);
 		return create_file_error_context(context, error, buf);
 	}
 
@@ -166,10 +166,10 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 
 void FreePhData(void)
 {
-	Free(phoneme_tab_data);
-	Free(phoneme_index);
-	Free(phondata_ptr);
-	Free(tunes);
+	free(phoneme_tab_data);
+	free(phoneme_index);
+	free(phondata_ptr);
+	free(tunes);
 	phoneme_tab_data = NULL;
 	phoneme_index = NULL;
 	phondata_ptr = NULL;
