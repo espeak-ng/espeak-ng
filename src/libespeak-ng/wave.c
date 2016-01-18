@@ -39,14 +39,6 @@
 #include "speech.h"
 #include "wave.h"
 
-#ifdef NEED_STRUCT_TIMESPEC
-#define HAVE_STRUCT_TIMESPEC 1
-struct timespec {
-	long tv_sec;
-	long tv_nsec;
-};
-#endif
-
 #ifdef USE_PORTAUDIO
 #include "portaudio.h"
 
