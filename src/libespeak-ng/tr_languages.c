@@ -220,8 +220,7 @@ static Translator *NewTranslator(void)
 		 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 55,  0, 56,  0, 57,  0, // 0x170
 	};
 
-	tr = (Translator *)Alloc(sizeof(Translator));
-	if (tr == NULL)
+	if ((tr = (Translator *)malloc(sizeof(Translator))) == NULL)
 		return NULL;
 
 	tr->charset_a0 = charsets[1]; // ISO-8859-1, this is for when the input is not utf8

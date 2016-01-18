@@ -231,7 +231,10 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		return 1;
 	}
 
-	tr->data_dictlist = Alloc(size);
+	if ((tr->data_dictlist = malloc(size)) == NULL) {
+		fclose(f);
+		return 3;
+	}
 	size = fread(tr->data_dictlist, 1, size, f);
 	fclose(f);
 

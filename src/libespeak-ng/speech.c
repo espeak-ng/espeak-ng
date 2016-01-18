@@ -251,18 +251,6 @@ int GetFileLength(const char *filename)
 	return statbuf.st_size;
 }
 
-#pragma GCC visibility pop
-
-char *Alloc(int size)
-{
-	char *p;
-	if ((p = (char *)malloc(size)) == NULL)
-		fprintf(stderr, "Can't allocate memory\n"); // I was told that size+1 fixes a crash on 64-bit systems
-	return p;
-}
-
-#pragma GCC visibility push(default)
-
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
 	if (path != NULL) {

@@ -88,7 +88,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if (*ptr != NULL)
 		free(*ptr);
 
-	if ((*ptr = Alloc(length)) == NULL) {
+	if ((*ptr = malloc(length)) == NULL) {
 		fclose(f_in);
 		return ENOMEM;
 	}
@@ -411,7 +411,6 @@ void LoadConfig(void)
 	FILE *f;
 	int ix;
 	char c1;
-	char *p;
 	char string[200];
 
 	for (ix = 0; ix < N_SOUNDICON_SLOTS; ix++) {
@@ -434,9 +433,7 @@ void LoadConfig(void)
 			ix = sscanf(&buf[10], "_%c %s", &c1, string);
 			if (ix == 2) {
 				soundicon_tab[n_soundicon_tab].name = c1;
-				p = Alloc(strlen(string)+1);
-				strcpy(p, string);
-				soundicon_tab[n_soundicon_tab].filename = p;
+				soundicon_tab[n_soundicon_tab].filename = strdup(string);
 				soundicon_tab[n_soundicon_tab++].length = 0;
 			}
 		}
