@@ -3,18 +3,18 @@
 //  ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
 //    FMT(vowel/..., 50)
 //  ELSE
-//    FMT(vowel/..., 75)
+//    FMT(vowel/..., 80)
 //  ENDIF
 
 phoneme a
   vowel starttype #a endtype #a
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vowel/aa_7, 90)           // other possible variants: a_3, a_5 or aa_7
+    FMT(vwl_lv/a, 100)           // adjusted from aa_3
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/aa_7, 45)
+    FMT(vwl_lv/a, 50)
   ELSE
-    FMT(vowel/aa_7, 68)
+    FMT(vwl_lv/a, 80)
   ENDIF
 endphoneme
 
@@ -23,11 +23,11 @@ phoneme a:
   length 300
   long
   IF thisPh(isStressed) THEN
-    FMT(vowel/aa_9, 80)           // other possible variants: a_3
+    FMT(vwl_lv/aa, 100)           
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/aa_9, 40)
+    FMT(vwl_lv/aa, 50)
   ELSE
-    FMT(vowel/aa_9, 60)
+    FMT(vwl_lv/aa, 80)
   ENDIF
 endphoneme
 
@@ -35,11 +35,11 @@ phoneme E
   vowel starttype #e endtype #e
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vowel/ee_3, 90)
+    FMT(vwl_lv/E, 100)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/ee_3, 45)
+    FMT(vwl_lv/E, 50)
   ELSE
-    FMT(vowel/ee_3, 68)
+    FMT(vwl_lv/E, 80)
   ENDIF
 endphoneme
 
@@ -47,11 +47,11 @@ phoneme E:
   vowel starttype #e endtype #e
   length 300
   IF thisPh(isStressed) THEN
-    FMT(vowel/ee_5, 60)
+    FMT(vwl_lv/EE, 100)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/ee_5, 30)
+    FMT(vwl_lv/EE, 50)
   ELSE
-    FMT(vowel/ee_5, 45)
+    FMT(vwl_lv/EE, 80)
   ENDIF
 endphoneme
 
@@ -59,11 +59,11 @@ phoneme e
   vowel starttype #e endtype #e
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vowel/e_9, 100)  // other alternative e_5
+    FMT(vwl_lv/e, 100)  // other alternative e_5
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/e_9, 50)
+    FMT(vwl_lv/e, 50)
   ELSE
-    FMT(vowel/e_9, 75)
+    FMT(vwl_lv/e, 80)
   ENDIF
 endphoneme
 
@@ -71,11 +71,11 @@ phoneme e:
   vowel starttype #e endtype #e
   length 300
   IF thisPh(isStressed) THEN
-    FMT(vowel/e_mid2, 100) // other alternative e_8
+    FMT(vwl_lv/ee, 100) // other alternative e_8
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/e_mid2, 50)
+    FMT(vwl_lv/ee, 50)
   ELSE
-    FMT(vowel/e_mid2, 75)
+    FMT(vwl_lv/ee, 80)
   ENDIF
 endphoneme
 
@@ -83,11 +83,11 @@ phoneme i
   vowel starttype #i endtype #i
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vowel/i_6, 140)
+    FMT(vwl_lv/i, 110) // was i_6
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/i_6, 70)
+    FMT(vwl_lv/i, 55)
   ELSE
-    FMT(vowel/i_6, 105)
+    FMT(vwl_lv/i, 88)
   ENDIF
 endphoneme
 
@@ -95,11 +95,11 @@ phoneme i:
   vowel starttype #i endtype #i
   length 300
   IF thisPh(isStressed) THEN
-    FMT(vowel/i_7, 120)
+    FMT(vwl_lv/ii, 110) // was i_7
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/i_7, 60)
+    FMT(vwl_lv/ii, 55)
   ELSE
-    FMT(vowel/i_7, 90)
+    FMT(vwl_lv/ii, 88)
   ENDIF
 endphoneme
 
@@ -107,11 +107,11 @@ phoneme o
   vowel starttype #o endtype #o
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vowel/oo_2, 100)
+    FMT(vwl_lv/o, 90)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/oo_2, 50)
+    FMT(vwl_lv/o, 45)
   ELSE
-    FMT(vowel/oo_2, 75)
+    FMT(vwl_lv/o, 68)
   ENDIF
 endphoneme
 
@@ -119,11 +119,11 @@ phoneme o:
   vowel starttype #o endtype #o
   length 300
   IF thisPh(isStressed) THEN
-    FMT(vowel/oo_1, 90)
+    FMT(vwl_lv/oo, 80)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/oo_1, 45)
+    FMT(vwl_lv/oo, 40)
   ELSE
-    FMT(vowel/oo_1, 68)
+    FMT(vwl_lv/oo, 60)
   ENDIF
 endphoneme
 
@@ -131,11 +131,11 @@ phoneme u
   vowel starttype #u endtype #u
   length 120
   IF thisPh(isMaxStress) THEN
-    FMT(vowel/u, 140)
+    FMT(vwl_lv/u, 140)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/u, 70)
+    FMT(vwl_lv/u, 70)
   ELSE
-    FMT(vowel/u, 105)
+    FMT(vwl_lv/u, 105)
   ENDIF
 endphoneme
 
@@ -143,11 +143,11 @@ phoneme u:
   vowel starttype #u endtype #u
   length 300
   IF thisPh(isMaxStress) THEN
-    FMT(vowel/u_3, 120)
+    FMT(vwl_lv/uu, 120)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vowel/u_3, 60)
+    FMT(vwl_lv/uu, 60)
   ELSE
-    FMT(vowel/u_3, 90)
+    FMT(vwl_lv/uu, 90)
   ENDIF
 endphoneme
 
@@ -160,7 +160,7 @@ phoneme ai
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph/aai, 50)
   ELSE
-    FMT(vdiph/aai, 75)
+    FMT(vdiph/aai, 80)
   ENDIF
 endphoneme
 
@@ -173,7 +173,7 @@ phoneme au
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph/aau, 50)
   ELSE
-    FMT(vdiph/aau, 75)
+    FMT(vdiph/aau, 80)
   ENDIF
 endphoneme
 
@@ -186,7 +186,7 @@ phoneme ei
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph/eei_2, 50)
   ELSE
-    FMT(vdiph/eei_2, 75)
+    FMT(vdiph/eei_2, 80)
   ENDIF
 endphoneme
 
@@ -199,7 +199,7 @@ phoneme ie
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph2/ie_2, 50)
   ELSE
-    FMT(vdiph2/ie_2, 75)
+    FMT(vdiph2/ie_2, 80)
   ENDIF
 endphoneme
 
@@ -212,7 +212,7 @@ phoneme iu
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph2/iu_2, 50)
   ELSE
-    FMT(vdiph2/iu_2, 75)
+    FMT(vdiph2/iu_2, 80)
   ENDIF
 endphoneme
 
@@ -225,7 +225,7 @@ phoneme ui
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph/ui, 50)
   ELSE
-    FMT(vdiph/ui, 75)
+    FMT(vdiph/ui, 80)
   ENDIF
 endphoneme
 
@@ -234,11 +234,11 @@ phoneme uo
   length 200
   //long
   IF thisPh(isMaxStress) THEN
-    FMT(vdiph2/uaa, 100)
+    FMT(vdiph2/uaa 100)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vdiph2/uaa, 50)
+    FMT(vdiph2/uaa 50)
   ELSE
-    FMT(vdiph2/uaa, 75)
+    FMT(vdiph2/uaa 80)
   ENDIF
 endphoneme
 
@@ -251,7 +251,7 @@ phoneme oi
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
     FMT(vdiph/ooi, 50)
   ELSE
-    FMT(vdiph/ooi, 75)
+    FMT(vdiph/ooi, 80)
   ENDIF
 endphoneme
 

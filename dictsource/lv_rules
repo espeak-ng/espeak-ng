@@ -33,9 +33,9 @@
 // +---------------------------+
 
 // E narrowers
-.L21    i ī ie ei                  // vowel narrowers of e
+.L21    i ī ie ei y                // vowel narrowers of e
 .L22    j k ģ ļ ņ ŗ š ž č dž       // consonant narrowers of e
-.L26    f h ḩ                      // international consonants as a narrowers of e 
+.L26    f h ḩ q x w                // international consonants as a narrowers of e 
 .L23    s i m                      // remaining ending of the 2. and 5. decl. words
 
 // E wideners
@@ -48,8 +48,8 @@
 // +---------------------------+
 
 // Default rules for o with succeeding consonants
-.L40     č ģ ķ ļ ņ ŗ š ž           // uo indicator letters o is spelled as uo with Latvian soft consonants
-.L41    f h w x y                 // o indicators — o is spelled as o with Latin letters
+.L40    č ģ ķ ļ ņ ŗ š ž             // uo indicator letters o is spelled as uo with Latvian soft consonants
+.L41    f h q w x y                 // o indicators — o is spelled as o with Latin letters
 
 .L42  i e o  // o vowel pre/postfixes
 .L43  lg ng zn // o postfixes
@@ -73,7 +73,7 @@
 // |        All letters        |
 // +---------------------------+
 // These are used for "." like padding
-.L88    a ā b c č d e ē f g ģ h ḩ i ī j k ķ l ļ m n ņ o ō p r ŗ s š t u ū v w x y z ž - 
+.L88 a ā b c č d e ē f g ģ h ḩ i ī j k ķ l ļ m n ņ o ō p q r ŗ s š t u ū v w x y z ž 
 
 // +---------------------------+
 // |   Pronunciation groups    |
@@ -278,10 +278,10 @@
    
       L42) o               o:        // o prefixes
            o (L43          o         // o postfixes
-      L41) o (L88          o         // o indicators before
-   L41L88) o (L88          o
-   L41L88L88) o (L88       o
-   L41L88L88L88) o (L88    o
+      L41) o               o         // o indicators before
+      L41L88) o            o
+   L41L88L88) o            o
+L41L88L88L88) o            o
            o (L41          o         // o indicators after
            o (L88L41       o
            o (L88L88L41    o
@@ -293,12 +293,15 @@
    
            o (L44          uo        // uo postfixes
    
+    _femt) o               o
      _kil) o               o         // international prefixes
     _mikr) o (+            o         // otherwise conflicts with ..kroko(t/d)..
     _micr) o               o
      _nan) o               o
      _pik) o               o
     _hekt) o               o
+    _yokt) o               o
+    _zept) o               o
        _m) ono             ono:
    _stere) o               o:
    
@@ -707,7 +710,7 @@
        lj) o               o:
         l) o (ģ            o:
         l) o (ģiz+         o
-        l) o (jL50 l        o
+        l) o (jL50         o
        _l) o (litL04_      o         // Lolita
         l) o (kal          o
         l) okomo           okomo
@@ -877,7 +880,7 @@
         _) o (mi           o:
            o (ng           o
            o (nko          o
-           o (pL01_+       o:        // ..ops
+        @) o (pL01_+       o:        // ..ops
            o (nL01_+       o:        // ..ons
            o (no           o
        on) o               o
@@ -1182,6 +1185,7 @@
        _t) opo (n          opo
         t) opo (t          uopuo
         t) opo (š          uopuo
+       _t) o (pL01_        o
         t) o (ra           o
         t) o (rā           o
        _t) o (reiz_        uo        // toreiz
