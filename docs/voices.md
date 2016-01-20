@@ -1,7 +1,5 @@
 # Voice Files
 
-# Table of contents
-
 - [Contents of Voice Files](#contents-of-voice-files)
   - [Identification Attributes](#identification-attributes)
     - [name](#name)
@@ -258,24 +256,24 @@ voices.
 
 #### words
 
-    words <integer value> <integer value>
+	words <integer value> <integer value>
 
-The first parameter  puts a pause between all words, the value can be **0** to **4**.
+The first parameter  puts a pause between all words, the value can be between
+`0` and `4`.
 
-The second parameter adds a short pause if a word ends with a vowel and 
+The second parameter adds a short pause if a word ends with a vowel and
 the next words starts with a vowel. Values may be:
 
-* **0**  no pause   
-**1**  no pause, but the two vowels are kept separate.  
-**2**  short pause.
+* `0`: no pause
+* `1`: no pause, but the two vowels are kept separate
+* `2`: short pause
 
 For example:
 
-    words 0 1
+	words 0 1
 
-Will put a short pause between two words where the first word end with a 
-vowel and the next start with a vowel. 
-
+will put a short pause between two words where the first word end with a
+vowel and the next start with a vowel.
 
 ### Language Attributes
 
