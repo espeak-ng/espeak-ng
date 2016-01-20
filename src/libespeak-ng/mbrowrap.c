@@ -107,16 +107,6 @@ static struct datablock *mbr_pending_data_head, *mbr_pending_data_tail;
  * Private support code.
  */
 
-static void log(const char *msg, ...)
-{
-	va_list params;
-
-	va_start(params, msg);
-	vfprintf(stderr, msg, params);
-	fputc('\n', stderr);
-	va_end(params);
-}
-
 static void err(const char *errmsg, ...)
 {
 	va_list params;
@@ -124,7 +114,7 @@ static void err(const char *errmsg, ...)
 	va_start(params, errmsg);
 	vsnprintf(mbr_errorbuf, sizeof(mbr_errorbuf), errmsg, params);
 	va_end(params);
-	log("mbrowrap error: %s", mbr_errorbuf);
+	fprintf(stderr, "mbrowrap error: %s\n", mbr_errorbuf);
 }
 
 static int create_pipes(int p1[2], int p2[2], int p3[2])
@@ -306,7 +296,7 @@ static int mbrola_died(void)
 			msg = "mbrola died and wait status is weird";
 	}
 
-	log("mbrowrap error: %s", msg);
+	fprintf(stderr, "mbrowrap error: %s\n", msg);
 
 	len = strlen(mbr_errorbuf);
 	if (!len)
@@ -347,7 +337,7 @@ static int mbrola_has_errors(void)
 			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
 				continue;
 			*lf = 0;
-			log("mbrola: %s", buf_ptr);
+			fprintf(stderr, "mbrola: %s\n", buf_ptr);
 			// is this the last line?
 			if (lf == &buf_ptr[result - 1]) {
 				snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
