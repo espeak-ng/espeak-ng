@@ -462,18 +462,12 @@ static int pulse_open(const char *device)
 		goto unlock_and_fail;
 	}
 
-	success = 0;
 	while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
 		CHECK_DEAD_GOTO(fail, 1);
 		pa_threaded_mainloop_wait(mainloop);
 	}
 
 	pa_operation_unref(o);
-
-	if (!success) {
-		fprintf(stderr, "pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
-		goto unlock_and_fail;
-	}
 
 	do_trigger = 0;
 	written = 0;
