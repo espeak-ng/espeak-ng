@@ -123,8 +123,10 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
 		return status;
 
-	if (node_counter+1 >= MAX_NODE_COUNTER)
+	if (node_counter+1 >= MAX_NODE_COUNTER) {
+		pthread_mutex_unlock(&my_mutex);
 		return ENS_FIFO_BUFFER_FULL;
+	}
 
 	if ((status = push(command1)) != ENS_OK) {
 		pthread_mutex_unlock(&my_mutex);
