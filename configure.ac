@@ -315,8 +315,8 @@ AC_MSG_NOTICE([
 
         Source code location:          ${srcdir}
 
-        C11 Compiler:                  ${CC}
-        C11 Compiler flags:            ${CFLAGS}
+        C99 Compiler:                  ${CC}
+        C99 Compiler flags:            ${CFLAGS}
 
         pulseaudio:                    ${have_pulseaudio}
         portaudio:                     ${have_portaudio}
