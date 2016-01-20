@@ -9,8 +9,8 @@
 *  Added man files for the `speak-ng` and `espeak-ng` command-line programs.
 *  Created a companion espeak-ng API to provide more detailed error codes and
    provide access to the new espeak-ng functionality.
-*  Fixed many logic and security issues reported by clang scan-build and
-   Coverity.
+*  Fixed many logic and security issues reported by clang scan-build, Coverity
+   and msvc /analyze.
 
 build:
 
@@ -22,6 +22,7 @@ build:
 *  Generate build failures if building phoneme, intonation or dictionary files
    contain errors.
 *  Provide modern Visual Studio project files to build eSpeak NG on Windows.
+*  Use the NetBSD `getopt_long` implementation on Windows.
 
 restructuring:
 
@@ -34,6 +35,8 @@ restructuring:
 *  Removed the platforms directory and approaching portability in a similar way
    to how libressl handles portability.
 *  Converted the documentation to markdown.
+*  Group the Windows and POSIX mbrowrap code to provide the `mbrowrap.h`
+   implementation in a single place.
 
 cleanup:
 
@@ -43,6 +46,7 @@ cleanup:
 *  Fixed many GCC and clang warnings.
 *  Improved the error handling within the codebase to report the underlying
    error where possible.
+*  Inlined several wrapper methods that were adding little/no value.
 
 updated languages:
 
