@@ -11,7 +11,7 @@ SHARED_VERSION=2:48:1 # = *.so.1.1.48
 
 MKDIR=mkdir -p
 
-AM_CXXFLAGS = -Wall
+AM_CFLAGS = -Wall
 
 EXTRA_DIST=
 
