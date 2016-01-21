@@ -620,9 +620,10 @@ espeak_ng_Synthesize(const void *text, size_t size,
 #ifdef USE_ASYNC
 	// Create the text command
 	t_espeak_command *c1 = create_espeak_text(text, size, position, position_type, end_position, flags, user_data);
-
-	// Retrieve the unique identifier
-	*unique_identifier = c1->u.my_text.unique_identifier;
+	if (c1) {
+		// Retrieve the unique identifier
+		*unique_identifier = c1->u.my_text.unique_identifier;
+	}
 
 	// Create the "terminated msg" command (same uid)
 	t_espeak_command *c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
