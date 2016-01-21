@@ -670,9 +670,10 @@ espeak_ng_SynthesizeMark(const void *text,
 	// Create the mark command
 	t_espeak_command *c1 = create_espeak_mark(text, size, index_mark, end_position,
 	                                          flags, user_data);
-
-	// Retrieve the unique identifier
-	*unique_identifier = c1->u.my_mark.unique_identifier;
+	if (c1) {
+		// Retrieve the unique identifier
+		*unique_identifier = c1->u.my_mark.unique_identifier;
+	}
 
 	// Create the "terminated msg" command (same uid)
 	t_espeak_command *c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
