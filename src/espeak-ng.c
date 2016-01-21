@@ -672,8 +672,10 @@ int main(int argc, char **argv)
 		} else {
 			// bulk input on stdin
 			ix = 0;
-			while (!feof(stdin)) {
-				p_text[ix++] = fgetc(stdin);
+			while (true) {
+				if ((c = fgetc(stdin)) == EOF)
+					break;
+				p_text[ix++] = (char)c;
 				if (ix >= (max-1)) {
 					max += 1000;
 					char *new_text = (char *)realloc(p_text, max);
