@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <stdarg.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -1310,10 +1311,16 @@ static int LoadWavefile(FILE *f, const char *fname)
 	// data contains:  4 bytes of length (n_samples * 2), followed by 2-byte samples (lsb byte first)
 	length = Read4Bytes(f);
 
-	while (!feof(f)) {
-		c1 = fgetc(f);
-		c3 = fgetc(f);
-		if (feof(f)) break;
+	while (true) {
+		int c;
+
+		if ((c = fgetc(f)) == EOF)
+			break;
+		c1 = (unsigned char)c;
+
+		if ((c = fgetc(f)) == EOF)
+			break;
+		c3 = (unsigned char)c;
 
 		c2 = c3 << 24;
 		c2 = c2 >> 16; // sign extend
