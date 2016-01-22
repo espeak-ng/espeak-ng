@@ -1141,8 +1141,8 @@ static char *compile_rule(char *input)
 		len += (strlen(rule_post)+1);
 	}
 	output[len++] = 0;
-	prule = (char *)malloc(len);
-	memcpy(prule, output, len);
+	if ((prule = (char *)malloc(len)) != NULL)
+		memcpy(prule, output, len);
 	return prule;
 }
 
