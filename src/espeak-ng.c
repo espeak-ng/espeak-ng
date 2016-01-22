@@ -233,11 +233,11 @@ static void CloseWavFile()
 	fflush(f_wavfile);
 	pos = ftell(f_wavfile);
 
-	fseek(f_wavfile, 4, SEEK_SET);
-	Write4Bytes(f_wavfile, pos - 8);
+	if (fseek(f_wavfile, 4, SEEK_SET) != -1)
+		Write4Bytes(f_wavfile, pos - 8);
 
-	fseek(f_wavfile, 40, SEEK_SET);
-	Write4Bytes(f_wavfile, pos - 44);
+	if (fseek(f_wavfile, 40, SEEK_SET) != -1)
+		Write4Bytes(f_wavfile, pos - 44);
 
 	fclose(f_wavfile);
 	f_wavfile = NULL;
