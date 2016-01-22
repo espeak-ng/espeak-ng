@@ -20,6 +20,7 @@
 #include "config.h"
 
 #include <ctype.h>
+#include <errno.h>
 #include <locale.h>
 #include <math.h>
 #include <stdint.h>
@@ -33,6 +34,7 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
 
+#include "error.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -780,7 +782,7 @@ int Read4Bytes(FILE *f)
 	return acc;
 }
 
-static int LoadSoundFile(const char *fname, int index)
+static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ERROR_CONTEXT *context)
 {
 	FILE *f;
 	char *p;
@@ -795,7 +797,7 @@ static int LoadSoundFile(const char *fname, int index)
 	}
 
 	if (fname == NULL)
-		return 1;
+		return EINVAL;
 
 	if (fname[0] != '/') {
 		// a relative path, look in espeak-data/soundicons
@@ -811,7 +813,12 @@ static int LoadSoundFile(const char *fname, int index)
 		int header[3];
 		char command[sizeof(fname2)+sizeof(fname2)+40];
 
-		fseek(f, 20, SEEK_SET);
+		if (fseek(f, 20, SEEK_SET) == -1) {
+			int error = errno;
+			fclose(f);
+			return create_file_error_context(context, error, fname);
+		}
+
 		for (ix = 0; ix < 3; ix++)
 			header[ix] = Read4Bytes(f);
 
@@ -833,23 +840,26 @@ static int LoadSoundFile(const char *fname, int index)
 
 	if (f == NULL) {
 		f = fopen(fname, "rb");
-		if (f == NULL) {
-			fprintf(stderr, "Can't read temp file: %s\n", fname);
-			return 3;
-		}
+		if (f == NULL)
+			return create_file_error_context(context, errno, fname);
 	}
 
 	length = GetFileLength(fname);
-	fseek(f, 0, SEEK_SET);
+	if (fseek(f, 0, SEEK_SET) == -1) {
+		int error = errno;
+		fclose(f);
+		return create_file_error_context(context, error, fname);
+	}
 	if ((p = (char *)realloc(soundicon_tab[index].data, length)) == NULL) {
 		fclose(f);
-		return 4;
+		return ENOMEM;
 	}
 	if (fread(p, 1, length, f) != length) {
+		int error = errno;
 		fclose(f);
 		remove(fname_temp);
 		free(p);
-		return 5;
+		return create_file_error_context(context, error, fname);
 	}
 	fclose(f);
 	remove(fname_temp);
@@ -857,7 +867,7 @@ static int LoadSoundFile(const char *fname, int index)
 	ip = (int *)(&p[40]);
 	soundicon_tab[index].length = (*ip) / 2; // length in samples
 	soundicon_tab[index].data = p;
-	return 0;
+	return ENS_OK;
 }
 
 static int LookupSoundicon(int c)
@@ -868,7 +878,7 @@ static int LookupSoundicon(int c)
 	for (ix = N_SOUNDICON_SLOTS; ix < n_soundicon_tab; ix++) {
 		if (soundicon_tab[ix].name == c) {
 			if (soundicon_tab[ix].length == 0) {
-				if (LoadSoundFile(NULL, ix) != 0)
+				if (LoadSoundFile(NULL, ix, NULL) != ENS_OK)
 					return -1; // sound file is not available
 			}
 			return ix;
@@ -895,7 +905,7 @@ static int LoadSoundFile2(const char *fname)
 	if (slot >= N_SOUNDICON_SLOTS)
 		slot = 0;
 
-	if (LoadSoundFile(fname, slot) != 0)
+	if (LoadSoundFile(fname, slot, NULL) != ENS_OK)
 		return -1;
 
 	soundicon_tab[slot].filename = (char *)realloc(soundicon_tab[ix].filename, strlen(fname)+1);
