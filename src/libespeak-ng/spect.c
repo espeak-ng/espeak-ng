@@ -304,7 +304,10 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 
 	fread(&name_len, sizeof(uint32_t), 1, stream);
 	if (name_len > 0) {
-		spect->name = (char *)malloc(name_len);
+		if ((spect->name = (char *)malloc(name_len)) == NULL) {
+			fclose(stream);
+			return ENOMEM;
+		}
 		fread(spect->name, sizeof(char), name_len, stream);
 	} else
 		spect->name = NULL;
