@@ -401,7 +401,7 @@ static int pulse_open(const char *device)
 	pa_threaded_mainloop_lock(mainloop);
 
 	if (!(context = pa_context_new(pa_threaded_mainloop_get_api(mainloop), "eSpeak")))
-		goto unlock_and_fail;
+		goto fail;
 
 	pa_context_set_state_callback(context, context_state_cb, NULL);
 	pa_context_set_subscribe_callback(context, subscribe_cb, NULL);
@@ -409,11 +409,11 @@ static int pulse_open(const char *device)
 	if (pa_context_connect(context, NULL, (pa_context_flags_t)0, NULL) < 0) {
 		fprintf(stderr, "Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
 		ret = PULSE_NO_CONNECTION;
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	if (pa_threaded_mainloop_start(mainloop) < 0)
-		goto unlock_and_fail;
+		goto fail;
 
 	// Wait until the context is ready
 	pa_threaded_mainloop_wait(mainloop);
@@ -423,12 +423,12 @@ static int pulse_open(const char *device)
 		ret = PULSE_NO_CONNECTION;
 		if (mainloop)
 			pa_threaded_mainloop_stop(mainloop);
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	if (!(stream = pa_stream_new(context, "unknown", &ss, NULL))) {
 		fprintf(stderr, "Failed to create stream: %s", pa_strerror(pa_context_errno(context)));
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	pa_stream_set_state_callback(stream, stream_state_cb, NULL);
@@ -445,7 +445,7 @@ static int pulse_open(const char *device)
 
 	if (pa_stream_connect_playback(stream, device, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), NULL, NULL) < 0) {
 		fprintf(stderr, "Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	// Wait until the stream is ready
@@ -453,13 +453,13 @@ static int pulse_open(const char *device)
 
 	if (pa_stream_get_state(stream) != PA_STREAM_READY) {
 		fprintf(stderr, "Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	// Now subscribe to events
 	if (!(o = pa_context_subscribe(context, PA_SUBSCRIPTION_MASK_SINK_INPUT, context_success_cb, &success))) {
 		fprintf(stderr, "pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
-		goto unlock_and_fail;
+		goto fail;
 	}
 
 	while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
@@ -478,9 +478,10 @@ static int pulse_open(const char *device)
 	pa_threaded_mainloop_unlock(mainloop);
 
 	return PULSE_OK;
-unlock_and_fail:
-	pa_threaded_mainloop_unlock(mainloop);
 fail:
+	if (mainloop)
+		pa_threaded_mainloop_unlock(mainloop);
+
 	if (ret == PULSE_NO_CONNECTION) {
 		if (context) {
 			pa_context_disconnect(context);
