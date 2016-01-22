@@ -479,9 +479,6 @@ static int pulse_open(const char *device)
 
 	return PULSE_OK;
 unlock_and_fail:
-	if (o)
-		pa_operation_unref(o);
-
 	pa_threaded_mainloop_unlock(mainloop);
 fail:
 	if (ret == PULSE_NO_CONNECTION) {
