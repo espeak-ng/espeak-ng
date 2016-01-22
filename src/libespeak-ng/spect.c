@@ -336,12 +336,15 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	}
 	for (ix = 0; ix < n; ix++) {
 		SpectFrame *frame = SpectFrameCreate();
-		if (!frame)
+		if (!frame) {
+			fclose(stream);
 			return ENOMEM;
+		}
 
 		espeak_ng_STATUS status = LoadFrame(frame, stream, spect->file_format);
 		if (status != ENS_OK) {
 			free(frame);
+			fclose(stream);
 			return status;
 		}
 
