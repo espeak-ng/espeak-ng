@@ -1381,16 +1381,18 @@ static int LoadWavefile(FILE *f, const char *fname)
 	return displ | 0x800000; // set bit 23 to indicate a wave file rather than a spectrum
 }
 
-static int LoadEnvelope(FILE *f, const char *fname)
+static espeak_ng_STATUS LoadEnvelope(FILE *f, const char *fname, int *displ)
 {
-	int displ;
 	char buf[128];
 
-	displ = ftell(f_phdata);
+	if (displ)
+		*displ = ftell(f_phdata);
 
-	fseek(f, 12, SEEK_SET);
-	if (fread(buf, 128, 1, f) == 0)
-		error("Failed to read envelope: %s", fname);
+	if (fseek(f, 12, SEEK_SET) == -1)
+		return errno;
+
+	if (fread(buf, 128, 1, f) != 128)
+		return errno;
 	fwrite(buf, 128, 1, f_phdata);
 
 	if (n_envelopes < N_ENVELOPES) {
@@ -1399,7 +1401,7 @@ static int LoadEnvelope(FILE *f, const char *fname)
 		n_envelopes++;
 	}
 
-	return displ;
+	return ENS_OK;
 }
 
 // Generate a hash code from the specified string
@@ -1535,7 +1537,7 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 			*addr = LoadWavefile(f, path);
 			type_code = 'W';
 		} else if (id == 0x43544950) {
-			*addr = LoadEnvelope(f, path);
+			status = LoadEnvelope(f, path, addr);
 			type_code = 'E';
 		} else if (id == 0x45564E45) {
 			*addr = LoadEnvelope2(f, path);
