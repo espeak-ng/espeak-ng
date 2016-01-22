@@ -179,6 +179,10 @@ t_espeak_command *create_espeak_punctuation_list(const wchar_t *punctlist)
 
 	size_t len = (wcslen(punctlist) + 1)*sizeof(wchar_t);
 	wchar_t *a_list = (wchar_t *)malloc(len);
+	if (a_list == NULL) {
+		free(a_command);
+		return NULL;
+	}
 	memcpy(a_list, punctlist, len);
 	a_command->u.my_punctuation_list = a_list;
 
