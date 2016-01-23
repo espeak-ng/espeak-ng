@@ -74,6 +74,7 @@ src/speak-ng
 *.VC.opendb
 *.sdf
 *.cache
+*.user
 
 # Linux/Source distribution files
 
