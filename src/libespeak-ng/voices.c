@@ -544,12 +544,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_name[40];       // voice name for current_voice_selected
 	static char voice_languages[100]; // list of languages and priorities for current_voice_selected
 
-	// which directory to look for a named voice. List of voice names, must end in a space.
-	static const char *voices_asia =
-	    "az bn fa fa-pin gu hi hy hy-west id ka kn ku ml ms ne pa ta te tr vi vi-hue vi-sgn zh zh-yue ";
-	static const char *voices_europe =
-	    "an bg bs ca cs cy da de el en en-us es et eu fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
-
 	strncpy0(voicename, vname, sizeof(voicename));
 	if (control & 0x10) {
 		strcpy(buf, vname);
@@ -560,29 +554,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			strcpy(voicename, "default");
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
-		sprintf(buf, "%s%s", path_voices, voicename); // first, look in the main voices directory
-
-		if (GetFileLength(buf) <= 0) {
-			// then look in the appropriate subdirectory
-			if ((voicename[0] == 'm') && (voicename[1] == 'b'))
-				voice_dir = "mb"; // mbrola voices
-			else {
-				sprintf(name2, "%s ", voicename);
-				if (strstr(voices_europe, voicename) != NULL)
-					voice_dir = "europe";
-				else if (strstr(voices_asia, voicename) != NULL)
-					voice_dir = "asia";
-				else
-					voice_dir = "other";
-			}
-
-			sprintf(buf, "%s%s%c%s", path_voices, voice_dir, PATHSEP, voicename);
-
-			if (GetFileLength(buf) <= 0) {
-				// if not found, look in "test" sub-directory
-				sprintf(buf, "%stest%c%s", path_voices, PATHSEP, voicename);
-			}
-		}
+		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory
 	}
 
 	f_voice = fopen(buf, "r");
