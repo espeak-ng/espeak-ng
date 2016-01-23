@@ -153,7 +153,7 @@ void DisplayVoices(FILE *f_out, char *language)
 	} else
 		voices = espeak_ListVoices(NULL);
 
-	fprintf(f_out, "Pty Language Age/Gender VoiceName          File          Other Languages\n");
+	fprintf(f_out, "Pty Language       Age/Gender VoiceName          File                 Other Languages\n");
 
 	for (ix = 0; (v = voices[ix]) != NULL; ix++) {
 		count = 0;
@@ -163,7 +163,7 @@ void DisplayVoices(FILE *f_out, char *language)
 			lang_name = p+1;
 
 			if (v->age == 0)
-				strcpy(age_buf, "   ");
+				strcpy(age_buf, " --");
 			else
 				sprintf(age_buf, "%3d", v->age);
 
@@ -175,7 +175,7 @@ void DisplayVoices(FILE *f_out, char *language)
 					if ((buf[j] = c) == 0)
 						break;
 				}
-				fprintf(f_out, "%2d  %-12s%s%c  %-20s %-13s ",
+				fprintf(f_out, "%2d  %-15s%s/%c      %-18s %-20s ",
 				        p[0], lang_name, age_buf, genders[v->gender], buf, v->identifier);
 			} else
 				fprintf(f_out, "(%s %d)", lang_name, p[0]);

@@ -84,9 +84,20 @@ listed below.
 
 It selects the default behaviour and characteristics for the language,
 and sets default values for "phonemes", "dictionary" and other
-attributes. The \<language code\> should be a two-letter ISO 639-1
-language code. One or more language variant codes may be appended,
-separated by hyphens. (eg. en-uk-north).
+attributes.
+
+The \<language code\> is a
+[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
+When this is not enough to identify an accent, the
+[bcp47-data](https://github.com/rhdunn/bcp47-data) accents file describes
+the private use tags used by eSpeak NG. For example:
+
+*  `en` -- English
+*  `en-GB-scotland` -- English with a Scottish accent
+*  `en-GB-x-rp` -- English with a Received Pronunciation accent
+*  `es-419` -- Spanish with a Latin American accent
+*  `fr-CA` -- French with a Canadian accent
+
  
 The optional \<priority\> value gives the preference of this voice
 compared with others for the specified language. A low value indicates a

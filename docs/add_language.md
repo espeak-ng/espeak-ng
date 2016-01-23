@@ -23,18 +23,17 @@ gradual process of improvement.
 
 ## Language Code
 
-Generally, the language's international
-[ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) code is used to identify
-the language. It is used in the filenames which contain the language's
-data. In the examples below the code **"fr"** is used as an example.
-Replace this with the code of your language.
+The language is identified using the
+[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
+When this is not enough to identify an accent, the
+[bcp47-data](https://github.com/rhdunn/bcp47-data) accents file describes
+the private use tags used by eSpeak NG. For example:
 
-If the language does not have a 2-letter ISO\_639-1 code, then use the
-3-letter ISO\_639-3 code. Language codes may differ from country codes.
-
-It is possible to have different variants of a language for different
-dialects. For example the sound of some phonemes are changed, or some of
-the pronunciation rules differ.
+*  `en` -- English
+*  `en-GB-scotland` -- English with a Scottish accent
+*  `en-GB-x-rp` -- English with a Received Pronunciation accent
+*  `es-419` -- Spanish with a Latin American accent
+*  `fr-CA` -- French with a Canadian accent
 
 ## Language Files
 
