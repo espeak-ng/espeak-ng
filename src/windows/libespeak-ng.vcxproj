@@ -94,6 +94,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>libespeak-ng.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,6 +110,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>libespeak-ng.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,6 +130,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>libespeak-ng.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,6 +150,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>libespeak-ng.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -173,6 +177,7 @@
     <ClCompile Include="..\libespeak-ng\tr_languages.c" />
     <ClCompile Include="..\libespeak-ng\voices.c" />
     <ClCompile Include="..\libespeak-ng\wavegen.c" />
+    <ClCompile Include="com\comentrypoints.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\espeak-ng\espeak_ng.h" />
@@ -188,6 +193,9 @@
     <ClInclude Include="..\libespeak-ng\translate.h" />
     <ClInclude Include="..\libespeak-ng\voice.h" />
     <ClInclude Include="config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libespeak-ng.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

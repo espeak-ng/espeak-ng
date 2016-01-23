@@ -16,6 +16,9 @@
     <Filter Include="Header Files\api">
       <UniqueIdentifier>{7bec9d7b-17d5-4ff3-b0c8-0b6f746548a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\com">
+      <UniqueIdentifier>{77d943b9-0670-4e38-b6ad-592ad6c85094}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libespeak-ng\compiledata.c">
@@ -87,6 +90,9 @@
     <ClCompile Include="..\libespeak-ng\mbrowrap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="com\comentrypoints.c">
+      <Filter>Source Files\com</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -128,5 +134,10 @@
     <ClInclude Include="..\libespeak-ng\mbrowrap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libespeak-ng.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
