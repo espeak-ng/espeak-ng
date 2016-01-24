@@ -59,10 +59,12 @@ struct TtsEngine
 	                WAVEFORMATEX **format);
 private:
 	ULONG refCount;
+	ISpObjectToken *objectToken;
 };
 
 TtsEngine::TtsEngine()
 	: refCount(1)
+	, objectToken(NULL)
 {
 	InterlockedIncrement(&ObjectCount);
 }
@@ -70,6 +72,8 @@ TtsEngine::TtsEngine()
 TtsEngine::~TtsEngine()
 {
 	InterlockedDecrement(&ObjectCount);
+	if (objectToken)
+		objectToken->Release();
 }
 
 ULONG __stdcall TtsEngine::AddRef()
@@ -101,12 +105,23 @@ HRESULT __stdcall TtsEngine::QueryInterface(REFIID iid, void **object)
 
 HRESULT __stdcall TtsEngine::GetObjectToken(ISpObjectToken **token)
 {
-	return E_NOTIMPL;
+	if (!token)
+		return E_POINTER;
+
+	*token = objectToken;
+	if (objectToken)
+		objectToken->AddRef();
+	return S_OK;
 }
 
 HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 {
-	return E_NOTIMPL;
+	if (objectToken)
+		objectToken->Release();
+	objectToken = token;
+	if (objectToken)
+		objectToken->AddRef();
+	return S_OK;
 }
 
 HRESULT __stdcall
