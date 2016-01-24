@@ -140,7 +140,18 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
                            GUID *formatId,
                            WAVEFORMATEX **format)
 {
-	return E_NOTIMPL;
+	*format = (WAVEFORMATEX *)CoTaskMemAlloc(sizeof(WAVEFORMATEX));
+	if (!*format)
+		return E_OUTOFMEMORY;
+	(*format)->wFormatTag = WAVE_FORMAT_PCM;
+	(*format)->nChannels = 1;
+	(*format)->nBlockAlign = 2;
+	(*format)->nSamplesPerSec = 22050;
+	(*format)->wBitsPerSample = 16;
+	(*format)->nAvgBytesPerSec = (*format)->nAvgBytesPerSec * (*format)->nBlockAlign;
+	(*format)->cbSize = 0;
+	*formatId = SPDFID_WaveFormatEx;
+	return S_OK;
 }
 
 extern "C" HRESULT __stdcall TtsEngine_CreateInstance(IClassFactory *iface, IUnknown *outer, REFIID iid, void **object)
