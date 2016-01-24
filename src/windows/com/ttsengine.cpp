@@ -19,6 +19,7 @@
 
 #include <windows.h>
 #include <sapiddk.h>
+#include <sperror.h>
 
 #include <new>
 
@@ -109,18 +110,24 @@ HRESULT __stdcall TtsEngine::GetObjectToken(ISpObjectToken **token)
 		return E_POINTER;
 
 	*token = objectToken;
-	if (objectToken)
+	if (objectToken) {
 		objectToken->AddRef();
-	return S_OK;
+		return S_OK;
+	}
+	return S_FALSE;
 }
 
 HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 {
+	if (!token)
+		return E_INVALIDARG;
+
 	if (objectToken)
-		objectToken->Release();
+		return SPERR_ALREADY_INITIALIZED;
+
 	objectToken = token;
-	if (objectToken)
-		objectToken->AddRef();
+	objectToken->AddRef();
+
 	return S_OK;
 }
 
