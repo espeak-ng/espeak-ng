@@ -93,6 +93,9 @@
     <ClCompile Include="com\comentrypoints.c">
       <Filter>Source Files\com</Filter>
     </ClCompile>
+    <ClCompile Include="com\ttsengine.cpp">
+      <Filter>Source Files\com</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">

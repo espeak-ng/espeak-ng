@@ -178,6 +178,7 @@
     <ClCompile Include="..\libespeak-ng\voices.c" />
     <ClCompile Include="..\libespeak-ng\wavegen.c" />
     <ClCompile Include="com\comentrypoints.c" />
+    <ClCompile Include="com\ttsengine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\espeak-ng\espeak_ng.h" />

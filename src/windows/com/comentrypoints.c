@@ -16,19 +16,68 @@
  */
 
 #include "config.h"
+#define INITGUID
 
 #include <windows.h>
 
-HRESULT __stdcall DllGetClassObject(REFCLSID classId, REFIID iface, void **pObject)
-{
-	if (!pObject)
-		return E_POINTER;
+// {61D23633-CE59-4101-8158-569FC6B51B49}
+DEFINE_GUID(CLSID_TtsEngine, 0x61d23633, 0xce59, 0x4101, 0x81, 0x58, 0x56, 0x9f, 0xc6, 0xb5, 0x1b, 0x49);
 
-	*pObject = NULL;
+extern HRESULT __stdcall TtsEngine_CreateInstance(IClassFactory *iface, IUnknown *outer, REFIID iid, void **object);
+
+ULONG ObjectCount = 0;
+static ULONG LockCount = 0;
+
+static ULONG __stdcall ClassFactory_AddRef(IClassFactory *iface)
+{
+	return 1;
+}
+
+static ULONG __stdcall ClassFactory_Release(IClassFactory *iface)
+{
+	return 1;
+}
+
+static HRESULT __stdcall ClassFactory_QueryInterface(IClassFactory *iface, REFIID iid, void **object)
+{
+	if (IsEqualGUID(iid, &IID_IUnknown) || IsEqualGUID(iid, &IID_IClassFactory)) {
+		*object = iface;
+		iface->lpVtbl->AddRef(iface);
+		return S_OK;
+	}
+
+	*object = NULL;
+	return E_NOINTERFACE;
+}
+
+static HRESULT __stdcall ClassFactory_LockServer(IClassFactory *iface, BOOL lock)
+{
+	if (lock)
+		InterlockedIncrement(&LockCount);
+	else
+		InterlockedDecrement(&LockCount);
+	return S_OK;
+}
+
+static const IClassFactoryVtbl TtsEngine_ClassFactoryVtbl = {
+	ClassFactory_QueryInterface,
+	ClassFactory_AddRef,
+	ClassFactory_Release,
+	TtsEngine_CreateInstance,
+	ClassFactory_LockServer
+};
+static IClassFactory TtsEngine_ClassFactory = { &TtsEngine_ClassFactoryVtbl };
+
+HRESULT __stdcall DllGetClassObject(REFCLSID classId, REFIID iid, void **object)
+{
+	if (IsEqualCLSID(classId, &CLSID_TtsEngine))
+		return ClassFactory_QueryInterface(&TtsEngine_ClassFactory, iid, object);
+
+	*object = NULL;
 	return CLASS_E_CLASSNOTAVAILABLE;
 }
 
 HRESULT __stdcall DllCanUnloadNow(void)
 {
-	return S_OK;
+	return (ObjectCount == 0 && LockCount == 0) ? S_OK : S_FALSE;
 }
