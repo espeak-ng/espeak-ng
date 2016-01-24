@@ -21,9 +21,26 @@
 #include <sapiddk.h>
 #include <sperror.h>
 
+#include <espeak-ng/espeak_ng.h>
+#include <espeak/speak_lib.h>
+
 #include <new>
+#include <errno.h>
 
 extern "C" ULONG ObjectCount;
+
+static HRESULT espeak_status_to_hresult(espeak_ng_STATUS status)
+{
+	switch (status)
+	{
+	case ENS_OK: return S_OK;
+	case EACCES: return E_ACCESSDENIED;
+	case EINVAL: return E_INVALIDARG;
+	case ENOENT: return HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND);
+	case ENOMEM: return E_OUTOFMEMORY;
+	default:     return E_FAIL;
+	}
+}
 
 struct TtsEngine
 	: public ISpObjectWithToken
@@ -59,6 +76,8 @@ struct TtsEngine
 	                GUID *formatId,
 	                WAVEFORMATEX **format);
 private:
+	HRESULT GetStringValue(LPCWSTR key, char *&value);
+
 	ULONG refCount;
 	ISpObjectToken *objectToken;
 };
@@ -128,7 +147,25 @@ HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 	objectToken = token;
 	objectToken->AddRef();
 
-	return S_OK;
+	espeak_ng_STATUS status = ENS_OK;
+
+	char *path = NULL;
+	if (SUCCEEDED(GetStringValue(L"Path", path))) {
+		espeak_ng_InitializePath(path);
+		status = espeak_ng_Initialize(NULL);
+		if (status == ENS_OK)
+			status = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 100, NULL);
+		free(path);
+	}
+
+	char *voiceName = NULL;
+	if (SUCCEEDED(GetStringValue(L"VoiceName", voiceName))) {
+		if (status == ENS_OK)
+			status = espeak_ng_SetVoiceByName(voiceName);
+		free(voiceName);
+	}
+
+	return espeak_status_to_hresult(status);
 }
 
 HRESULT __stdcall
@@ -158,6 +195,29 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
 	(*format)->nAvgBytesPerSec = (*format)->nAvgBytesPerSec * (*format)->nBlockAlign;
 	(*format)->cbSize = 0;
 	*formatId = SPDFID_WaveFormatEx;
+	return S_OK;
+}
+
+HRESULT TtsEngine::GetStringValue(LPCWSTR key, char *&value)
+{
+	if (!objectToken)
+		return E_FAIL;
+
+	LPWSTR wvalue = NULL;
+	HRESULT hr = objectToken->GetStringValue(key, &wvalue);
+	if (FAILED(hr))
+		return hr;
+
+	size_t len = wcslen(wvalue);
+	value = (char *)malloc(len + 1);
+	if (!value) {
+		CoTaskMemFree(wvalue);
+		return E_OUTOFMEMORY;
+	}
+
+	wcstombs(value, wvalue, len + 1);
+	CoTaskMemFree(wvalue);
+
 	return S_OK;
 }
 
