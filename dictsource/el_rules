@@ -10,6 +10,9 @@
 // Letter group B:   θ κ ξ π ς σ τ φ χ  (voiceless consonants)
 // Letter group Y:   ε η ι υ  έ ή ί ύ  (front vowels).
 
+// TODO: Support combining marks/diacritics in the main rules.
+// TODO: Properly handle preserved polytonic combining marks (convert to standard combining mark codepoints).
+
 .L01 αι ε ι η υ οι ει  αί έ ί ή ύ οί εί 
 
 .replace
@@ -89,24 +92,54 @@
 ώ	ώ // U+1f7d
 
 ᾠ	ω // U+1fa0
+ᾡ	ω // U+1fa1
+ᾢ	ώ // U+1fa2
+ᾣ	ώ // U+1fa3
+ᾤ	ώ // U+1fa4
+ᾥ	ώ // U+1fa5
+ᾦ	ώ // U+1fa6
+ᾧ	ώ // U+1fa7
 
+ᾰ	α // U+1fb0
+ᾱ	α // U+1fb1
+ᾲ	ά // U+1fb2
 ᾳ	α // U+1fb3
+ᾴ	ά // U+1fb4
 ᾶ	ά // U+1fb6
+ᾷ	ά // U+1fb7
 
+῁	 ̈ // U+1fc1
+ῂ	ή // U+1fc2
 ῃ	η // U+1fc3
+ῄ	ή // U+1fc4
 ῆ	ή // U+1fc6
+ῇ	ή // U+1fc7
+῍	´ // U+1fcd
+῎	´ // U+1fce
 
+ῐ	ι // U+1fd0
+ῑ	ι // U+1fd1
 ῒ	ΐ // U+1fd2
 ΐ	ΐ // U+1fd3
 ῖ	ί // U+1fd6
 ῗ	ΐ // U+1fd7
+῝	´ // U+1fdd
+῞	´ // U+1fde
 
+ῠ	υ // U+1fe0
+ῡ	υ // U+1fe1
 ῢ	ΰ // U+1fe2
 ΰ	ΰ // U+1fe3
+ῤ	ρ // U+1fe4
+ῥ	ρ // U+1fe5
 ῦ	ύ // U+1fe6
 ῧ	ΰ // U+1fe7
+῭	΅ // U+1fed
+`	´ // U+1fef
 
+ῲ	ώ // U+1ff2
 ῳ	ω // U+1ff3
+ῴ	ώ // U+1ff4
 ῶ	ώ // U+1ff6
 ῷ	ώ // U+1ff7
 
@@ -350,9 +383,18 @@
            ΰ        'i   // dialytika + tonos
            ώ        'o
 
+            ̓            // U+1fbd
+           ι            // U+1fbe
+            ̓            // U+1fbf
+
+             ͂           // U+1fc0
+           ῏            // U+1fcf
+
+           ῟            // U+1fdf
+
+            ̔            // U+1ffe
 
            ͅ		// combining ypogegrammeni
-           ͺ		// ypogegrammeni
            
            .        tel'ia
            , (D     k'oma

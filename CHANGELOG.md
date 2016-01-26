@@ -50,6 +50,7 @@ cleanup:
 
 updated languages:
 
+*  el (Greek) : improved polytonic Greek support
 *  fr (French) -- Thomas Guillory
 *  ga (Irish Gaelic) -- Jim Regan
 *  it (Italian) -- ChrisLeo
