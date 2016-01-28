@@ -306,7 +306,7 @@ dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile espeak-ng.pc])
 AC_OUTPUT
 
 AC_MSG_NOTICE([

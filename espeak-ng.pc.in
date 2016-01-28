@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: @PACKAGE_NAME@
+Description: @PACKAGE_NAME@ is a multi-lingual software speech synthesizer
+Version: @VERSION@
+Requires:
+Libs: -L${libdir} -lespeak-ng
+Cflags: -I${includedir}

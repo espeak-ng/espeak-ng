@@ -7,6 +7,9 @@ INCDIR=@includedir@/espeak
 LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = espeak-ng.pc
+
 SHARED_VERSION=2:48:1 # = *.so.1.1.48
 
 MKDIR=mkdir -p
