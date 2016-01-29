@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update 23 dec 2015 by Chris <llajta2012@gmail.com>
+//  Italian, last update 2 jan 2016 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -39,17 +39,16 @@ phoneme e/
   length 140
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vowel/e_mid2)
-  ELSE
+  ELIF thisPh(isWordEnd) THEN
     FMT(vowel/e, 65)
   ENDIF
+    FMT(vowel/e)
 endphoneme
-
-
 
 phoneme E
   vowel starttype #e endtype #e
   length 145
-  ChangeIfUnstressed(e/)   // [E] only in stressed syllables ?
+  ChangeIfUnstressed(e/)
   FMT(vowel/e_mid)
 endphoneme
 
@@ -93,17 +92,18 @@ phoneme o/
   vowel starttype #o endtype #o
   length 140
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
-    FMT(vowel/o_2)
-  ELSE
-    FMT(vowel/o, 66)
+    FMT(vowel/o_8)
   ENDIF
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/o, 65)
+  ENDIF
+    FMT(vowel/o)
 endphoneme
-
 
 phoneme O
   vowel starttype #o endtype #o
   length 150
-  ChangeIfUnstressed(o/)   // [O] only in stressed syllables ?
+  ChangeIfUnstressed(o/)
   FMT(vowel/oo_4)
 endphoneme
 
@@ -112,7 +112,7 @@ phoneme u
   vowel starttype #u endtype #u
   length 160
   ChangeIfNotStressed(U)
-  FMT(vowel/u_bck, 120)
+  FMT(vowel/u_bck3)
 endphoneme
 
 phoneme U
@@ -128,21 +128,17 @@ phoneme aU
   FMT(vdiph/au_4)
 endphoneme
 
-
-
 phoneme aI
   vowel starttype #a endtype #i
   length 250
   FMT(vdiph/ai)
 endphoneme
 
-
 phoneme oI
   vowel starttype #o endtype #i
   length 230
   FMT(vdiph/oi)
 endphoneme
-
 
 
 // CONSONANTS
@@ -160,9 +156,9 @@ phoneme ts
   Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
   Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
   IF nextPh(isPause2) THEN
-    WAV(ustop/ts)
+    WAV(ustop/ts_, 80)
   ENDIF
-  WAV(ustop/ts, 80)
+  WAV(ustop/ts_, 70)
 endphoneme
 
 phoneme dz
@@ -171,4 +167,13 @@ phoneme dz
   lengthmod 3
 endphoneme
 
+phoneme ss
+  vls alv frc sibilant
+  voicingswitch z
+  lengthmod 6
+  Vowelin  f1=2  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  length 170
+  WAV(ufric/s, 86)
+endphoneme
 
