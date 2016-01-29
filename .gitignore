@@ -52,6 +52,8 @@ src/espeak-ng
 src/espeakedit
 src/speak-ng
 
+espeak-ng.pc
+
 # Windows builds
 
 !src/windows/config.h
