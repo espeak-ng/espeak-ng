@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2015 December 23 by Chris <llajta2012@gmail.com>
+// Last update: 2016 January 12 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -170,7 +170,7 @@
 		CC) eggia (no_	'EdZ:a
 	C) ender (L04_	'ende@-*  // Pron.s verbs
 	C) erder (L04_	'E@-*de@-*
-	esser (L04_		'Es:eR
+	esser (L04_		'EsseR
 	_) ecco (L04	'Ek:o
 		ete (L04_	'ete
 	fl) etter (L04_	'Et:e@-*
@@ -342,6 +342,7 @@
 		lascia (L07_	l'aSa
 	_) lecca (L07_	l'ek:a
 	leggi (L04_	l'EdZ:I
+	e) limina (L07_	l'imina
 
 .group m
 		m	m
@@ -385,7 +386,7 @@
 		o (CACA_  O
 		o (CrA	O
 		o (CC_    O
-	@C)	o (_S1q  o     // lookup it_list without suffix 
+	@C)	o (_S1q  o/     // lookup it_list without suffix 
 	@i)	o (_S1q  o     // lookup it_list without suffix 
 	i)	o          O
 	i)	o (ne      o
@@ -496,6 +497,7 @@
 	_) rader (L04_	@-*'ade@-*
 	_) ripeter (L04_	@-*ip'E:te@-*
 	_) romper (L04_	@-*'ompe@-*
+	ca) re (zzaL07_	R'e
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -515,7 +517,7 @@
 		s (p	s
 		s (q	s
 		ss	ss
-	A) ss (A	s:
+	A) ss (A	ss
 		s (t	s
 		s (x	s
 		sc (Y	S
@@ -547,9 +549,9 @@
 	sciano (_	=Sano
 	A) schiano (_	=skiano
 	A) siono (_	zi'Ono
-	ssiono (_	s:i'ono
+	ssiono (_	ssi'ono
 	C) siono (_	si'ono
-	A) ssano (_	=s:ano
+	A) ssano (_	=ssano
 
 .group t
 		t	t
