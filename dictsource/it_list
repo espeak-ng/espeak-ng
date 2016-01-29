@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2015 December 23 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 january 29 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -66,12 +66,13 @@ _rng	an'ello
 _stk	baR*'a:ta
 _tld	kon||t'ilde
 _smc	m,ajuskol'e:t:o
+_rev	inv'E:@-*sa
 _tur	@-*oveS'a:ta
 _bar	baR*'a:ta
-_rfx	@-*et@-*ofl'E:s:a
-_hok	untSin'ata
+_rfx	@-*et@-*ofl'E:ssa
 _crl	k'u@-*lI
-_rev	inv'E:@-*sa
+_hok	untSin'ata
+
 
 // character names
 
@@ -151,7 +152,7 @@ _‣	punt'ato
 ↓	f@-*'etS:a||_dZ'u
 ♭	bem'Ol:e
 ♯	dI'ezis
-♥	'as:o||di||kw'ORI
+♥	'asso||di||kw'ORI
 ❓	p'unto||inteR*ogat'ivo
 _‧	sepaRat'oRe/
 
@@ -209,14 +210,14 @@ U+2cc	atS:'ento||_sekoNd'aRio   // ˌ
 
 U+300	g@-*'a:ve_   // ̀
 U+301	ak'u:to_   // ́
-U+302	tSi@-*konfl'Es:o_   // ̂
+U+302	tSi@-*konfl'Esso_   // ̂
 U+303	t'Ilde_   // ̃
 U+304	m'ak@-*ON_   // ̄
 U+306	b@-*'E:ve_   // ̆
 U+308	di'ERezi   // ̈
 U+30a	an'e:l:o||in||'alto_   //̊ 
-U+31e	ap@-*os:im'ante_   // ̞
-U+325	an'e:l:o||in||b'as:o_   // ̥
+U+31e	ap@-*ossim'ante_   // ̞
+U+325	an'e:l:o||in||b'asso_   // ̥
 U+32a	dent'ale_   // ̪
 U+32f	n,onsil:'abika   // ̯
 
@@ -303,9 +304,9 @@ _13     t@-*'editSi
 _14     kw2at:'oRditSi
 _15     kw2'imditSi
 _16     s'editSi
-_17     ditSas:'Et:e
+_17     ditSass'Et:e
 _18     ditS'Ot:o
-_19     ditSann'ove
+_19     ditSann'Ove
 _2X	v'entI
 _21     vent'uno
 _23	ventit@-*'e
@@ -367,7 +368,7 @@ _13o	t@-*editS'Ezim
 _14o	kwat:o@-*ditS'Ezim
 _15o	kwinditS'Ezim
 _16o	seditS'Ezim
-_17o	ditSas:Et:'Ezim
+_17o	ditSassEt:'Ezim
 _18o	ditSOt:'Ezim
 _19o	ditSan:Ov'Ezim
 
@@ -388,7 +389,7 @@ _1M1o	mil'Ezim
 
 abc	a||bi||tS'i
 acdc	$abbrev
-adsl	a||di||es:e||'El:e
+adsl	a||di||esse||'El:e
 ascii	'askIi
 atp	a||ti||p'i
 avg	$abbrev
@@ -534,6 +535,7 @@ non	$u	$only
 o	$u+ $brk
 ogni	$u+
 oltre	$u+
+ora	'oRa/
 ormai	o@-*m'aI
 perché	$u+ $brk
 pure	$u+
@@ -785,6 +787,7 @@ choc	S'Ok	$only
 city	s'i:ti
 cleaner	_^_EN
 cliché		kli:S'e
+clochard	kloS'a@-*
 cocker	$1
 cocktail	k'Ok_t,El
 college	k'Ol:edZ
@@ -804,19 +807,20 @@ couscous	k,us||k'us
 cover	$1
 cowboy	k'aw||b'oI
 cracker	$1
-croissant	k@-*uas:'an
+croissant	k@-*uass'an
 club	kl'a/:b $onlys
 cult	k'a/:lt	$onlys
 database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
 desaparecido	d,EzapaReT'ido
-dessert	des:'e@-*	$only
+dessert	dess'e@-*	$only
 desktop	d'Eskt,op
 detector	$2
 designer	d,ez'aIne@-*
 design	d,ez'aIn	$only
 devolution	devol'uSon
+digital	$1 $onlys
 disney	$1
 disneyland	$1
 display	displ'ei
@@ -883,7 +887,7 @@ girl	_^_EN
 google		_^_EN
 green	g@-*i:n $onlys
 greenpeace	g@-*,iN||p'i:s
-guinness	g'ines:
+guinness	g'iness
 hacker	'ake@-*
 hall	h'O:l: $only
 hamburger	hamb'u@-*ge@-*
@@ -1073,6 +1077,7 @@ sitar	$1	$only
 sitter	$1	$onlys
 skipper	$1
 skype	sk'a/:ip
+slider	sl'aIde@-*
 smartphone	zm'a@-*tfon
 smile	zmaIl
 smiley	_^_EN
@@ -1140,6 +1145,7 @@ valzer	$1
 videogames		v,ideo||g'eIm
 videomaker	vidEom'eIke@-*
 viewer	vj'u:Er
+virtual	$1 $onlys
 visual	v'iZwal $only
 voodoo	vud'u
 vodafone	v'odafon
@@ -1165,7 +1171,7 @@ yahoo		_^_EN
 yacht	j'Ot[
 youtube	ju:||tj'u:b
 yoghourt	'jogurt
-zoom	z'u:m
+zoom	dz'u:m
 zoster	$1
 élysées	eliz''e
 
@@ -1204,8 +1210,8 @@ arbore	$1
 aree	'a:REe
 areoplano	aREopl'ano
 artifici	a@-*tif'itSi  $only
-asfissie	asfis:'ie
-assol	as:'o:l
+asfissie	asfiss'ie
+assol	ass'o:l
 aspirapolveri	$4
 astronom	ast@-*'Onom
 atenei	$3
@@ -1640,7 +1646,7 @@ l'ancora	l'ankoRa
 un'ancora	un'a:nkoRa
 quand'è	kw2aNd'E
 senz'altro	sents'a:lt@-*o
-nessun'altra	nes:un'alt@-*a
+nessun'altra	nessun'alt@-*a
 ultim'ora	ultim'ORa
 trent'anni	t@-*ent'a:n:I
 vent'anni	vent'an:I
@@ -2007,6 +2013,7 @@ ripoli $1
 rivanazzano	$4
 rofrano	$2
 rognano	$2
+roma	$alt2
 romagnol $3
 rosciano	$2
 rossano	$2
@@ -2207,6 +2214,7 @@ consoli	$1 $capital $only
 corine	k'ORIn $capital
 corrias	$2
 cristofor $2
+cupido	$2
 danilo	$2
 davidson	$1
 debor $1  $alt
@@ -2214,6 +2222,7 @@ deborah	$1 $alt2
 deidda	de'i:d:a
 delrio	del||@-*'io/
 diaz	d'iats $only
+Dickinson	$1
 diocle $1
 diomede  $alt
 duddington	d'a/dINt@n
@@ -2381,6 +2390,7 @@ paul	p'O:l	$only
 peggy	p'Eg:I
 pericle $1
 peter	$1 $onlys
+pettarin	$3 $only
 peugeot	p,EZ'o
 piquet	pik'E $only
 pierangel	$2
@@ -2414,7 +2424,7 @@ sandokan	$1
 sandoval	$3
 santangelo	$2
 savino	$2
-scalfaro	$1
+scalfar	$1
 schopenhauer	S,Open'a:w2e@-*
 schumann	S'u:man
 schumacher	_^_DE
@@ -3205,7 +3215,9 @@ fiutano	$1
 flagellino	$2
 fluttuano	$1
 forano	$1
-formino	$1
+formano	$alt2
+formino	$1 $alt2
+formulano	$1
 forzino	$1
 fotografano	$2
 franino	$1
@@ -3245,7 +3257,7 @@ gioirono	dZo'iRono
 gioiscano	dZo'i:skano
 gioiscono	dZo'iskono
 gioissero	$2
-gioissimo	dZo'i:s:imo
+gioissimo	dZo'i:ssimo
 gioit	dZo'i:t
 gioiv	dZo'i:v
 gioivano	dZo'ivano
@@ -3271,9 +3283,9 @@ guaimmo	gw2a'i:m:o
 guaire	gw2a'i:Re
 guairono	gwa'iRono
 guaiscano	gw2a'i:skano
-guaiss	gw2a'i:s:
-guaissero	gw2a'i:s:eRo
-guaissimo	gw2a'i:s:imo
+guaiss	gw2a'i:ss
+guaissero	gw2a'i:sseRo
+guaissimo	gw2a'i:ssimo
 guaist	gw2a'i:st
 guait	gw2a'i:t
 guaiv	gw2a'i:v
@@ -3383,6 +3395,7 @@ indirizzino	$3
 individuano	$3
 individuino	$3
 indossino	$2
+indott	$alt2
 inducano	$2
 indugia	$2
 inequivoc	$3
@@ -3400,6 +3413,7 @@ influenzino	$3
 informino	$2
 infuriano	$2
 ingannino	$2
+ingarbugliano	$3
 ingegnano	$2
 ingegnino	$2
 inglobano	$2	$alt2
@@ -3733,6 +3747,7 @@ precisano	$2
 precisino	$2
 predicano	$1
 predichino	$1
+predice	$2
 predici	$2
 predomin	$2
 preghino	$1
@@ -3861,6 +3876,7 @@ riabbraccino	$3
 riabilita	$3
 riabituano	$3
 riabituino	$3
+riaccadere	$4 $alt2
 riaccompagnano	$4
 riacquistino	$3
 riadagia	$3
@@ -4503,7 +4519,7 @@ zuccherano	$1
 (capita ad)	k'a:pita||ad
 (capita che)	k'a:pita||ke
 (capita di)	k'a:pita||_d'I
-(capita spesso)	k'apita||sp'es:o
+(capita spesso)	k'apita||sp'esso
 (che capita)	ke||k'a:pita
 (chi capita)	ki||k'a:pita
 (dove capita)	dove||k'apita
@@ -4586,7 +4602,8 @@ dammel	$1
 dammene	$1
 deciditi	$2
 dedical	$1
-digital	$1
+dicasi	$1
+digitalo	$1
 digliel	$1
 digliene	$1
 dimmelo	$1
@@ -4624,7 +4641,9 @@ indirizzati	indiRits:'ati
 informaci	$2 $alt2
 informati	$2 $alt2 $atstart
 insediatisi	$3
-insegnagli	$2	$alt
+insegnaci	$2
+insegnagli	$2
+insegnale	$2
 installal	$2
 intonaci	$2
 invaghitosi	$3
@@ -4727,7 +4746,7 @@ batter	$1
 commetter	$2
 comprender	$2
 dipender	$2
-esser	'Es:eR
+esser	'EsseR
 gioir	dZo'i@-*
 legger	l'EdZ:e/@-* $only
 metter	$1 $alt2
@@ -4743,8 +4762,10 @@ reger	$1
 render	$1
 riscuoter	$3
 risolver	$2
+suol	sU'Ol
 saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
+
 
 
