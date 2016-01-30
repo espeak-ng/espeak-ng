@@ -14,7 +14,7 @@
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="$(var.Platform)" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    <MediaTemplate />
+    <MediaTemplate EmbedCab="yes"/>
 
     <Feature Id="All" Title="eSpeak NG" Level="1">
       <ComponentGroupRef Id="CoreComponents"/>
