@@ -806,7 +806,6 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	}
 
 	f = NULL;
-#ifdef PLATFORM_POSIX
 	if ((f = fopen(fname, "rb")) != NULL) {
 		int ix;
 		int fd_temp;
@@ -827,16 +826,19 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 			fclose(f);
 			f = NULL;
 
+#ifdef PLATFORM_POSIX
 			strcpy(fname_temp, "/tmp/espeakXXXXXX");
-			if ((fd_temp = mkstemp(fname_temp)) >= 0) {
+			if ((fd_temp = mkstemp(fname_temp)) >= 0)
 				close(fd_temp);
-				sprintf(command, "sox \"%s\" -r %d -c1 -t wav %s\n", fname, samplerate, fname_temp);
-				if (system(command) == 0)
-					fname = fname_temp;
-			}
+#else
+			strcpy(fname_temp, tmpnam(NULL));
+#endif
+
+			sprintf(command, "sox \"%s\" -r %d -c1 -t wav %s\n", fname, samplerate, fname_temp);
+			if (system(command) == 0)
+				fname = fname_temp;
 		}
 	}
-#endif
 
 	if (f == NULL) {
 		f = fopen(fname, "rb");
