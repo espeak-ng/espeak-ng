@@ -360,6 +360,7 @@ dictionaries: \
 	espeak-data/ml_dict \
 	espeak-data/mr_dict \
 	espeak-data/ms_dict \
+	espeak-data/mt_dict \
 	espeak-data/my_dict \
 	espeak-data/nci_dict \
 	espeak-data/ne_dict \
@@ -381,7 +382,9 @@ dictionaries: \
 	espeak-data/sw_dict \
 	espeak-data/ta_dict \
 	espeak-data/te_dict \
+	espeak-data/tn_dict \
 	espeak-data/tr_dict \
+	espeak-data/tt_dict \
 	espeak-data/ur_dict \
 	espeak-data/vi_dict \
 	espeak-data/zh_dict \
@@ -669,6 +672,12 @@ dictsource/ms_extra:
 espeak-data/ms_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ms_list dictsource/ms_rules dictsource/ms_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ms && cd ..
 
+mt: espeak-data/mt_dict
+dictsource/mt_extra:
+	touch dictsource/mt_extra
+espeak-data/mt_dict: src/espeak-ng phsource/phonemes.stamp dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=mt && cd ..
+
 my: espeak-data/my_dict
 dictsource/my_extra:
 	touch dictsource/my_extra
@@ -801,11 +810,23 @@ dictsource/te_extra:
 espeak-data/te_dict: src/espeak-ng phsource/phonemes.stamp dictsource/te_list dictsource/te_rules dictsource/te_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=te && cd ..
 
+tn: espeak-data/tn_dict
+dictsource/tn_extra:
+	touch dictsource/tn_extra
+espeak-data/tn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/tn_list dictsource/tn_rules dictsource/tn_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=tn && cd ..
+
 tr: espeak-data/tr_dict
 dictsource/tr_extra:
 	touch dictsource/tr_extra
 espeak-data/tr_dict: src/espeak-ng phsource/phonemes.stamp dictsource/tr_list dictsource/tr_rules dictsource/tr_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=tr && cd ..
+
+tt: espeak-data/tt_dict
+dictsource/tt_extra:
+	touch dictsource/tt_extra
+espeak-data/tt_dict: src/espeak-ng phsource/phonemes.stamp dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=tt && cd ..
 
 ur: espeak-data/ur_dict
 dictsource/ur_extra:
