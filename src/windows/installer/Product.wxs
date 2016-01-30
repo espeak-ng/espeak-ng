@@ -31,12 +31,12 @@
 
   <Fragment>
     <ComponentGroup Id="CoreComponents" Directory="INSTALLDIR">
-      <Component Id="espeak_ng" Win64="$(var.Win64)" Guid="220D42BC-89CD-4230-A458-CD31285EB152">
-        <File Id="espeak_ng_exe" Name="$(var.espeak-ng.TargetFileName)" Source="$(var.espeak-ng.TargetPath)" KeyPath="yes"/>
+      <Component Win64="$(var.Win64)" Guid="220D42BC-89CD-4230-A458-CD31285EB152">
+        <File Name="$(var.espeak-ng.TargetFileName)" Source="$(var.espeak-ng.TargetPath)" KeyPath="yes"/>
       </Component>
-      <Component Id="libespeak_ng" Win64="$(var.Win64)" Guid="AFDF57DE-D7E9-4781-BA0F-5D92FD56B045">
-        <File Id="libespeak_ng_dll" Name="$(var.libespeak-ng.TargetFileName)" Source="$(var.libespeak-ng.TargetPath)" KeyPath="yes"/>
-        <RegistryKey Id="espeakngReg" Root="HKLM" Key="SOFTWARE\eSpeak NG" Action="createAndRemoveOnUninstall">
+      <Component Win64="$(var.Win64)" Guid="AFDF57DE-D7E9-4781-BA0F-5D92FD56B045">
+        <File Name="$(var.libespeak-ng.TargetFileName)" Source="$(var.libespeak-ng.TargetPath)" KeyPath="yes"/>
+        <RegistryKey Root="HKLM" Key="SOFTWARE\eSpeak NG" Action="createAndRemoveOnUninstall">
           <RegistryValue Name="Path" Type="string" Value="[INSTALLDIR]"/>
         </RegistryKey>
       </Component>
