@@ -165,9 +165,11 @@ dictionary size.
 __NOTE:__ This is currently experimental. It does not build the voice data, and
 may contain runtime errors and missing functionality.
 
-To build eSpeak NG on Windows, you will need a copy of Visual Studio, such as
-the Microsoft Visual Studio Community 2015 edition. Additionally, you will need
-the Windows 8.1 SDK.
+To build eSpeak NG on Windows, you will need:
+
+1. a copy of Visual Studio 2015, such as the Community Edition;
+2. the Windows 8.1 SDK;
+3. the [WiX installer](http://wixtoolset.org) plugin.
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
