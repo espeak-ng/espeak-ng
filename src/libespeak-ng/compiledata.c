@@ -1261,7 +1261,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 
 		failed = 0;
 
-#ifdef PLATFORM_POSIX
+#ifdef HAVE_MKSTEMP
 		strcpy(fname_temp, "/tmp/espeakXXXXXX");
 		if ((fd_temp = mkstemp(fname_temp)) >= 0)
 			close(fd_temp);
