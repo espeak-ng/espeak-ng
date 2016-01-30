@@ -50,6 +50,7 @@ cleanup:
 
 updated languages:
 
+*  en (English) -- Thanks to Kendell Clark for identifying mispronunciations.
 *  el (Greek) : improved polytonic Greek support
 *  fr (French) -- Thomas Guillory
 *  ga (Irish Gaelic) -- Jim Regan

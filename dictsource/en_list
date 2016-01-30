@@ -775,6 +775,7 @@ absolutely	$3           $verbf
 abstemious	a#bst'i:mi@s
 abstract	abstrakt      $only
 abstract	a#bstr'akt    $verb
+abuse		a#bju:z       $verb
 academe		a#kad@mi
 acapela		aka#p'El@
 access		aksEs
@@ -1910,6 +1911,7 @@ façade		f@sA:d
 facet		fasI#t
 facetious	fa#si:S@s
 faculty		fak@Lt2i
+fae		f'eI $onlys
 faeces		fi:si:z
 fahrenheit	far@nhaIt
 fairest		fe@r@st
@@ -3150,7 +3152,6 @@ referral	rI2f3:r@L
 referring	rI2f3:rIN 
 refinery	rI2faIn@ri
 refit		ri:fIt
-reflex		ri:flEks
 reflux		ri:flVks
 refund		ri:fVnd $noun
 refuse		rEfju:s	$noun $only
@@ -3850,7 +3851,6 @@ whoe're		hu:'e@
 whois		hu:'Iz
 whol		hoUl          // for wholly
 wholehearted	$2
-whore		ho@
 wicked		wIkI#d
 wilderness	wIld3n@s
 wifi		waIfaI
@@ -4114,6 +4114,7 @@ Dehradun	de@a#d'u:n
 Delhi		dEli
 (Des moines)	d@mOIn
 Dhabi		dA:bi
+Dijon           d'i:Z0n
 Dispur		dI2spU@
 Djibouti	dZIb'u:ti
 Donegal		d0nI2g'O:l

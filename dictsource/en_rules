@@ -1,7 +1,7 @@
-
 // ***************************************************************************
 // *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
+// *   Copyright (C) 2016 Reece H. Dunn                                      *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -2206,6 +2206,7 @@ _it_separ) ate (_  @t
         equiv (@   %IkwIv
      h) e (sion_   'i:
      @) e (tio     i:
+   _pr) e (au      i
  discr) e (tion    E
         ew         ju:
     _s) ew         u:
@@ -2546,7 +2547,7 @@ _it_separ) ate (_  @t
     eg) en (d      @n
         en (dea    %En
         en (der    En
-   cal) en (der    @n
+   cal) en (dAr    @n
         en (dous   En
      _) endo       EndoU
      @) en (do_    'En
@@ -2651,6 +2652,7 @@ _it_separ) ate (_  @t
   L01v) en (t_     @n
    @@v) en (t_     @n
      &) en (th_    @n
+     &) en (ty_    @n
      &) en (ce_    @n
 ?8   &) en (ce_    En
      f) en (ce_    En
@@ -4931,7 +4933,8 @@ multip) ly         laI
     st) ore (_     o@
      @) orily (_   =3r@li
 ?3   @) orily (_   o@r@li
-        or (izA    3r
+     &) or (isA    3r
+     &) or (izA    3r
      h) ori (zont  0rI
      b) oro (_     @roU
 ?!3 _h) or (o      0r
@@ -5326,7 +5329,6 @@ multip) ly         laI
         pkg        pi:keIdZ'i: // makepkg
         por (tray  p%o@
 //         _) post (@@P4   p,oUst           // prefix
-        pneu       nju:
         poly (@@   p,0lI
         poly (@    p0lI
         pota (t    p@teI
@@ -5582,6 +5584,8 @@ multip) ly         laI
 
 .group re
      _) re (C@     rI2
+     _) reflex     ri:flE2ks
+     _) reflexive  rI2fl'EksIv
    &Ct) red (_     @d
     &B) red (_     rI#d
     Cb) red (_+    rEd
@@ -5857,6 +5861,7 @@ multip) ly         laI
    @@o) some (_S4  soUm
      &) speak (_S5 spi:k
    cro) ss (h      s
+        ss (hood_  s
         ssion      =S@n
 ?8      ssion (_   =SVn
     1_) st (_ 
@@ -6451,6 +6456,7 @@ contin) u          ju:
 ?5      urr (_     VR
 ?3      urr        3:
      C) ur (A      jUr
+    _p) ure (b     jU@
      C) ur (a_     'jU@
      p) ur (a_     U@
      l) ur (A+     U@
@@ -6533,7 +6539,11 @@ contin) u          ju:
         who (d     hu:
         who (m     hu:
         who (s     hu:
-        wh (ol     h
+        wh (oC     h
+        wh (orl    w
+?2      wh (orl    w#
+        wh (op     w
+?2      wh (op     w#
      m) w (ich_ 
         wiki       wIki
      B) wing (_    wIN
