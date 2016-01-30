@@ -14,27 +14,27 @@
 <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="$(var.ProductId)" Name="$(var.ProductDisplayName)" Language="1033" Version="1.48.15.0" Manufacturer="Cainteoir Technologies" UpgradeCode="$(var.ProductUpgradeCode)">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="$(var.Platform)" />
+  <Product Id="$(var.ProductId)" Name="$(var.ProductDisplayName)" Language="1033" Version="1.48.15.0" Manufacturer="Cainteoir Technologies" UpgradeCode="$(var.ProductUpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="$(var.Platform)" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
-		<Feature Id="Core" Title="eSpeak NG" Level="1">
-			<ComponentGroupRef Id="CoreComponents" />
-		</Feature>
-	</Product>
+    <Feature Id="Core" Title="eSpeak NG" Level="1">
+      <ComponentGroupRef Id="CoreComponents" />
+    </Feature>
+  </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="$(var.PlatformProgramFilesFolder)">
-				<Directory Id="INSTALLDIR" Name="eSpeak NG" />
-			</Directory>
-		</Directory>
-	</Fragment>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="INSTALLDIR" Name="eSpeak NG" />
+      </Directory>
+    </Directory>
+  </Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="CoreComponents" Directory="INSTALLDIR">
+  <Fragment>
+    <ComponentGroup Id="CoreComponents" Directory="INSTALLDIR">
       <Component Id="espeak_ng" Win64="$(var.Win64)">
         <File Id="espeak_ng_exe" Name="$(var.espeak-ng.TargetFileName)" Source="$(var.espeak-ng.TargetPath)" KeyPath="yes"/>
       </Component>
@@ -45,5 +45,5 @@
         </RegistryKey>
       </Component>
     </ComponentGroup>
-	</Fragment>
+  </Fragment>
 </Wix>
