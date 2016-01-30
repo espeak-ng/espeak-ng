@@ -272,10 +272,10 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	}
 
 	buf[0] = 0;
-	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
+	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
 	var_type = REG_SZ;
-	RegQueryValueExA(RegKey, "path", 0, &var_type, buf, &size);
+	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
 
 	sprintf(path_home, "%s\\espeak-data", buf);
 #elif defined(PLATFORM_DOS)

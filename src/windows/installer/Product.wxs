@@ -28,18 +28,21 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="$(var.PlatformProgramFilesFolder)">
-				<Directory Id="INSTALLFOLDER" Name="eSpeak NG" />
+				<Directory Id="INSTALLDIR" Name="eSpeak NG" />
 			</Directory>
 		</Directory>
 	</Fragment>
 
 	<Fragment>
-		<ComponentGroup Id="CoreComponents" Directory="INSTALLFOLDER">
+		<ComponentGroup Id="CoreComponents" Directory="INSTALLDIR">
       <Component Id="espeak_ng" Win64="$(var.Win64)">
         <File Id="espeak_ng_exe" Name="$(var.espeak-ng.TargetFileName)" Source="$(var.espeak-ng.TargetPath)" KeyPath="yes"/>
       </Component>
       <Component Id="libespeak_ng" Win64="$(var.Win64)">
         <File Id="libespeak_ng_dll" Name="$(var.libespeak-ng.TargetFileName)" Source="$(var.libespeak-ng.TargetPath)" KeyPath="yes"/>
+        <RegistryKey Id="espeakngReg" Root="HKLM" Key="SOFTWARE\eSpeak NG" Action="createAndRemoveOnUninstall">
+          <RegistryValue Name="Path" Type="string" Value="[INSTALLDIR]"/>
+        </RegistryKey>
       </Component>
     </ComponentGroup>
 	</Fragment>
