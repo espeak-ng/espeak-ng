@@ -31,6 +31,7 @@
       <ComponentGroupRef Id="LangBengali"/>
       <ComponentGroupRef Id="LangBosnian"/>
       <ComponentGroupRef Id="LangBulgarian"/>
+      <ComponentGroupRef Id="LangBurmese"/>
       <ComponentGroupRef Id="LangCatalan"/>
       <ComponentGroupRef Id="LangChineseCantonese"/>
       <ComponentGroupRef Id="LangChineseMandarin"/>
@@ -283,6 +284,9 @@
             </Component>
             <Component Id="mt_dict" Win64="$(var.Win64)" Guid="5FE13F53-1532-46FD-BD77-EFFEDEFF0EEB">
               <File Name="mt_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\mt_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="my_dict" Win64="$(var.Win64)" Guid="2C066949-D649-4A1C-AFBF-C8642547F075">
+              <File Name="my_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\my_dict" KeyPath="yes"/>
             </Component>
             <Component Id="nci_dict" Win64="$(var.Win64)" Guid="992FEB10-C20E-4981-A348-818DB186B5DF">
               <File Name="nci_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\nci_dict" KeyPath="yes"/>
@@ -623,6 +627,9 @@
                 <Component Id="cmn" Win64="$(var.Win64)" Guid="B9F21B2A-BD29-42DF-84D6-AD1CA29799B5">
                   <File Name="cmn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\cmn" KeyPath="yes"/>
                 </Component>
+                <Component Id="my" Win64="$(var.Win64)" Guid="0927A4D6-4DA1-431C-ABFA-E9871165B3EC">
+                  <File Name="my" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\my" KeyPath="yes"/>
+                </Component>
                 <Component Id="yue" Win64="$(var.Win64)" Guid="C08D04D1-B17B-40CA-B6B6-3C78F1D4E94A">
                   <File Name="yue" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\yue" KeyPath="yes"/>
                 </Component>
@@ -757,6 +764,10 @@
     <ComponentGroup Id="LangBulgarian">
       <ComponentRef Id="bg"/>
       <ComponentRef Id="bg_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangBurmese">
+      <ComponentRef Id="my"/>
+      <ComponentRef Id="my_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangCatalan">
       <ComponentRef Id="ca"/>

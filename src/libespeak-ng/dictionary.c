@@ -310,7 +310,7 @@ const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme)
 		*bad_phoneme = 0;
 
 	// skip initial blanks
-	while (isspace(*p))
+	while ((uint8_t)*p < 0x80 && isspace(*p))
 		p++;
 
 	while (((c = *p) != 0) && !isspace(c)) {
