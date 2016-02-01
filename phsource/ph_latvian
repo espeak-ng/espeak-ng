@@ -35,11 +35,11 @@ phoneme E
   vowel starttype #e endtype #e
   length 120
   IF thisPh(isStressed) THEN
-    FMT(vwl_lv/E, 100)
+    FMT(vwl_lv/e2, 100)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vwl_lv/E, 50)
+    FMT(vwl_lv/e2, 50)
   ELSE
-    FMT(vwl_lv/E, 80)
+    FMT(vwl_lv/e2, 80)
   ENDIF
 endphoneme
 
@@ -47,11 +47,11 @@ phoneme E:
   vowel starttype #e endtype #e
   length 300
   IF thisPh(isStressed) THEN
-    FMT(vwl_lv/EE, 100)
+    FMT(vwl_lv/ee2, 100)
   ELIF thisPh(isDiminished) AND NOT prevVowel(isStressed) THEN
-    FMT(vwl_lv/EE, 50)
+    FMT(vwl_lv/ee2, 50)
   ELSE
-    FMT(vwl_lv/EE, 80)
+    FMT(vwl_lv/ee2, 80)
   ENDIF
 endphoneme
 
