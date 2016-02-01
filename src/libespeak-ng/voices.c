@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <wctype.h>
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -1242,14 +1243,14 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	last_part_len = strlen(last_part);
 
 	for (ix = 0; voices[ix] != NULL; ix++) {
-		if (strcmp(name, voices[ix]->name) == 0) {
+		if (strcasecmp(name, voices[ix]->name) == 0) {
 			match_name = ix; // found matching voice name
 			break;
 		} else {
 			id = voices[ix]->identifier;
-			if (strcmp(name, id) == 0)
+			if (strcasecmp(name, id) == 0)
 				match_fname = ix; // matching identifier, use this if no matching name
-			else if (strcmp(last_part, &id[strlen(id)-last_part_len]) == 0)
+			else if (strcasecmp(last_part, &id[strlen(id)-last_part_len]) == 0)
 				match_fname2 = ix;
 		}
 	}
