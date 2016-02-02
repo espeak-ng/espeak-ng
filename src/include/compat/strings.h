@@ -25,6 +25,9 @@
 
 #define strcasecmp stricmp
 
+#else
+#pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
+#include_next <strings.h>
 #endif
 
 #endif
