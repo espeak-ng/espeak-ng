@@ -32,15 +32,20 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak/speak_lib.h>
 
+#ifndef PROGRAM_NAME
+#define PROGRAM_NAME "espeak-ng"
+#endif
+
+#ifndef PLAYBACK_MODE
+#define PLAYBACK_MODE ENOUTPUT_MODE_SPEAK_AUDIO
+#endif
+
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 
-// This version of the command-line speak program uses the
-// libespeak.so.1  library
-
 static const char *help_text =
-    "\nespeak-ng [options] [\"<words>\"]\n\n"
+    "\n" PROGRAM_NAME " [options] [\"<words>\"]\n\n"
     "-f <text file>   Text file to speak\n"
     "--stdin    Read text input from stdin instead of a file\n\n"
     "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
@@ -205,9 +210,13 @@ int OpenWavFile(char *path, int rate)
 
 	f_wavfile = NULL;
 	if (path[0] != 0) {
-		if (strcmp(path, "stdout") == 0)
+		if (strcmp(path, "stdout") == 0) {
+#ifdef PLATFORM_WINDOWS
+			// prevent Windows adding 0x0d before 0x0a bytes
+			_setmode(_fileno(stdout), _O_BINARY);
+#endif
 			f_wavfile = stdout;
-		else
+		} else
 			f_wavfile = fopen(path, "wb");
 	}
 
@@ -577,7 +586,7 @@ int main(int argc, char **argv)
 		}
 	} else {
 		// play the sound output
-		result = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SPEAK_AUDIO, 0, devicename[0] ? devicename : NULL);
+		result = espeak_ng_InitializeOutput(PLAYBACK_MODE, 0, devicename[0] ? devicename : NULL);
 		samplerate = espeak_ng_GetSampleRate();
 	}
 
