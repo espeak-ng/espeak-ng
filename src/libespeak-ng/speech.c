@@ -212,7 +212,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
 
+#ifdef USE_ASYNC
 	if (output_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
+#else
+	if ((output_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
+#endif
 		option_waveout = 0;
 		WavegenInitSound();
 	}
@@ -382,7 +386,11 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	SpeakNextClause(NULL, text, 0);
 
+#ifdef USE_ASYNC
 	if (my_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
+#else
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
+#endif
 		bool continue_speaking = true;
 		while (continue_speaking) {
 #ifdef PLATFORM_WINDOWS
