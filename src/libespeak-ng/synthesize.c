@@ -1531,7 +1531,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 }
 
 static int timer_on = 0;
-static int paused = 0;
 
 int SynthOnTimer()
 {
@@ -1551,7 +1550,7 @@ int SynthOnTimer()
 
 int SynthStatus()
 {
-	return timer_on | paused;
+	return timer_on;
 }
 
 int SpeakNextClause(FILE *f_in, const void *text_in, int control)
@@ -1588,7 +1587,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		f_text = f_in;
 		p_text = text_in;
 		timer_on = 1;
-		paused = 0;
 	}
 
 	if ((f_text == NULL) && (p_text == NULL)) {
