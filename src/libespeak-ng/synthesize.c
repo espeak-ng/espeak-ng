@@ -1548,11 +1548,6 @@ int SynthOnTimer()
 	return 0;
 }
 
-int SynthStatus()
-{
-	return timer_on;
-}
-
 int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 {
 	// Speak text from file (f_in) or memory (text_in)

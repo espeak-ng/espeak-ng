@@ -504,7 +504,6 @@ int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SynthOnTimer(void);
 int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
-int  SynthStatus(void);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);
