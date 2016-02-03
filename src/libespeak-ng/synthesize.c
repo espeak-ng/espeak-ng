@@ -1563,22 +1563,12 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	// The other calls have f_in and text_in = NULL
 	// control 1: speak next text
 	//         2: stop
-	//         3: pause (toggle)
-	//         4: is file being read (0=no, 1=yes)
-	//         5: interrupt and flush current text.
 
 	int clause_tone;
 	char *voice_change;
 	static FILE *f_text = NULL;
 	static const void *p_text = NULL;
 	const char *phon_out;
-
-	if (control == 4) {
-		if ((f_text == NULL) && (p_text == NULL))
-			return 0;
-		else
-			return 1;
-	}
 
 	if (control == 2) {
 		// stop speaking
@@ -1591,27 +1581,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		n_phoneme_list = 0;
 		WcmdqStop();
 
-		return 0;
-	}
-
-	if (control == 3) {
-		// toggle pause
-		if (paused == 0) {
-			timer_on = 0;
-			paused = 2;
-		} else {
-			WavegenOpenSound();
-			timer_on = 1;
-			paused = 0;
-			Generate(phoneme_list, &n_phoneme_list, 0); // re-start from beginning of clause
-		}
-		return 0;
-	}
-
-	if (control == 5) {
-		// stop speaking, but continue looking for text
-		n_phoneme_list = 0;
-		WcmdqStop();
 		return 0;
 	}
 
