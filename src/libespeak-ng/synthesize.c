@@ -1614,7 +1614,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	}
 
 	Generate(phoneme_list, &n_phoneme_list, 0);
-	WavegenOpenSound();
 
 	if (voice_change != NULL) {
 		// voice change at the end of the clause (i.e. clause was terminated by a voice change)
