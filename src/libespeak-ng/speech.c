@@ -23,6 +23,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <locale.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -382,7 +383,8 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	SpeakNextClause(NULL, text, 0);
 
 	if (my_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
-		for (;;) {
+		bool continue_speaking = true;
+		while (continue_speaking) {
 #ifdef PLATFORM_WINDOWS
 			Sleep(300); // 0.3s
 #else
@@ -396,8 +398,15 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 			sleep(1);
 #endif
 #endif
-			if (SynthOnTimer() != 0)
-				break;
+			do {
+				if (WcmdqUsed() > 0)
+					WavegenOpenSound();
+
+				if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
+					if (SpeakNextClause(NULL, NULL, 1) == 0)
+						continue_speaking = WavegenCloseSound() == 0;
+				}
+			} while (skipping_text);
 		}
 		return ENS_OK;
 	}

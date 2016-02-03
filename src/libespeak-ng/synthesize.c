@@ -1530,21 +1530,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	return 0; // finished the phoneme list
 }
 
-int SynthOnTimer()
-{
-	do {
-		if (WcmdqUsed() > 0)
-			WavegenOpenSound();
-
-		if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
-			if (SpeakNextClause(NULL, NULL, 1) == 0)
-				return WavegenCloseSound();
-		}
-	} while (skipping_text);
-
-	return 0;
-}
-
 int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 {
 	// Speak text from file (f_in) or memory (text_in)
