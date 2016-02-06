@@ -860,8 +860,6 @@ void wave_flush(void *theHandler)
 	(void)theHandler; // unused
 }
 
-typedef int (t_wave_callback)(void);
-
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
 	(void)cb; // unused
