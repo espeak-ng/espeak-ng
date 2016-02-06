@@ -86,15 +86,18 @@ void WVoiceChanged(voice_t *wvoice)
 	voice_samplerate = wvoice->samplerate;
 }
 
-#ifdef USE_ASYNC
-
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 {
-	int a_wave_can_be_played = fifo_is_command_enabled();
+	int a_wave_can_be_played = 1;
+#ifdef USE_ASYNC
+	if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
+		a_wave_can_be_played = fifo_is_command_enabled();
+#endif
 
 	switch (my_mode)
 	{
 	case ENOUTPUT_MODE_SPEAK_AUDIO:
+	case ENOUTPUT_MODE_SPEAK_AUDIO | ENOUTPUT_MODE_SYNCHRONOUS:
 	{
 		int event_type = 0;
 		if (event)
@@ -115,8 +118,12 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
-				wave_set_callback_is_output_enabled(fifo_is_command_enabled);
-				event_init();
+#ifdef USE_ASYNC
+				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0) {
+					wave_set_callback_is_output_enabled(fifo_is_command_enabled);
+					event_init();
+				}
+#endif
 			}
 		}
 
@@ -124,6 +131,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			wave_write(my_audio, (char *)outbuf, 2*length);
 		}
 
+#ifdef USE_ASYNC
 		while (event && a_wave_can_be_played) {
 			// TBD: some event are filtered here but some insight might be given
 			// TBD: in synthesise.cpp for avoiding to create WORDs with size=0.
@@ -132,12 +140,16 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			// TBD: the last one has its size=0.
 			if ((event->type == espeakEVENT_WORD) && (event->length == 0))
 				break;
-			err = event_declare(event);
-			if (err != ENS_EVENT_BUFFER_FULL)
+			if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0) {
+				err = event_declare(event);
+				if (err != ENS_EVENT_BUFFER_FULL)
+					break;
+				usleep(10000);
+				a_wave_can_be_played = fifo_is_command_enabled();
+			} else
 				break;
-			usleep(10000);
-			a_wave_can_be_played = fifo_is_command_enabled();
 		}
+#endif
 	}
 		break;
 	case 0:
@@ -175,6 +187,8 @@ static int create_events(short *outbuf, int length, espeak_EVENT *event_list, ui
 	return finished;
 }
 
+#ifdef USE_ASYNC
+
 int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 {
 	int finished = 0;
@@ -211,15 +225,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	my_audio = NULL;
 	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
-
-#ifdef USE_ASYNC
-	if (output_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
-#else
-	if ((output_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-#endif
-		option_waveout = 0;
-		WavegenInitSound();
-	}
 
 	// buflength is in mS, allocate 2 bytes per sample
 	if ((buffer_length == 0) || (output_mode & ENOUTPUT_MODE_SPEAK_AUDIO))
@@ -362,9 +367,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	int length;
 	int finished = 0;
 	int count_buffers = 0;
-#ifdef USE_ASYNC
 	uint32_t a_write_pos = 0;
-#endif
 
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
@@ -376,48 +379,13 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	count_samples = 0;
 
-#ifdef USE_ASYNC
 	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO)
 		a_write_pos = wave_get_write_position(my_audio);
-#endif
 
 	if (translator == NULL)
 		espeak_SetVoiceByName("default");
 
 	SpeakNextClause(NULL, text, 0);
-
-#ifdef USE_ASYNC
-	if (my_mode == (ENOUTPUT_MODE_SYNCHRONOUS | ENOUTPUT_MODE_SPEAK_AUDIO)) {
-#else
-	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-#endif
-		bool continue_speaking = true;
-		while (continue_speaking) {
-#ifdef PLATFORM_WINDOWS
-			Sleep(300); // 0.3s
-#else
-#ifdef USE_NANOSLEEP
-			struct timespec period;
-			struct timespec remaining;
-			period.tv_sec = 0;
-			period.tv_nsec = 300000000; // 0.3 sec
-			nanosleep(&period, &remaining);
-#else
-			sleep(1);
-#endif
-#endif
-			do {
-				if (WcmdqUsed() > 0)
-					WavegenOpenSound();
-
-				if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
-					if (SpeakNextClause(NULL, NULL, 1) == 0)
-						continue_speaking = WavegenCloseSound() == 0;
-				}
-			} while (skipping_text);
-		}
-		return ENS_OK;
-	}
 
 	for (;;) {
 		out_ptr = outbuf;
@@ -432,12 +400,10 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		event_list[event_list_ix].user_data = my_user_data;
 
 		count_buffers++;
-		if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
-#ifdef USE_ASYNC
+		if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
 			if (finished < 0)
 				return ENS_AUDIO_ERROR;
-#endif
 		} else if (synth_callback)
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
