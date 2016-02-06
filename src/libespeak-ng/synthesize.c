@@ -1158,9 +1158,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	FMT_PARAMS fmtp;
 	static WORD_PH_DATA worddata;
 
-	if (option_quiet)
-		return 0;
-
 	if (option_phoneme_events & espeakINITIALIZE_PHONEME_IPA)
 		use_ipa = 1;
 

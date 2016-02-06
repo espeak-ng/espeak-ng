@@ -421,7 +421,6 @@ void VoiceReset(int tone_only)
 
 	if (tone_only == 0) {
 		n_replace_phonemes = 0;
-		option_quiet = 0;
 		LoadMbrolaTable(NULL, NULL, 0);
 	}
 }

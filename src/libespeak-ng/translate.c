@@ -45,7 +45,6 @@ int option_tone2 = 0;
 int option_tone_flags = 0; // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
 int option_phonemes = 0;
 int option_phoneme_events = 0;
-int option_quiet = 0;
 int option_endpause = 0; // suppress pause after end of text
 int option_capitals = 0;
 int option_punctuation = 0;

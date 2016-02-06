@@ -70,7 +70,6 @@ static int PHASE_INC_FACTOR;
 int samplerate = 0; // this is set by Wavegeninit()
 int samplerate_native = 0;
 extern int option_device_number;
-extern int option_quiet;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
@@ -513,11 +512,6 @@ int WavegenOpenSound()
 	PaError err, err2;
 	PaError active;
 
-	if (option_quiet) {
-		// writing to WAV file, not to portaudio
-		return 0;
-	}
-
 #if USE_PORTAUDIO == 18
 	active = Pa_StreamActive(pa_stream);
 #else
@@ -591,9 +585,6 @@ int WavegenCloseSound()
 int WavegenInitSound()
 {
 	PaError err;
-
-	if (option_quiet)
-		return 0;
 
 	// PortAudio sound output library
 	err = Pa_Initialize();
