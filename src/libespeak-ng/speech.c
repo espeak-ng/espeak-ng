@@ -223,7 +223,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	option_device = device;
 	my_mode = output_mode;
 	my_audio = NULL;
-	option_waveout = 1; // inhibit portaudio callback from wavegen.cpp
 	out_samplerate = 0;
 
 	// buflength is in mS, allocate 2 bytes per sample

@@ -656,7 +656,6 @@ extern int option_tone2;
 #define OPTION_EMPHASIZE_ALLCAPS  0x100
 #define OPTION_EMPHASIZE_PENULTIMATE 0x200
 extern int option_tone_flags;
-extern int option_waveout;
 extern int option_quiet;
 extern int option_phonemes;
 extern int option_phoneme_events;

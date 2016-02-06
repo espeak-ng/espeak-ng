@@ -58,7 +58,6 @@
 voice_t *wvoice;
 
 FILE *f_log = NULL;
-int option_waveout = 0;
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
 
@@ -514,7 +513,7 @@ int WavegenOpenSound()
 	PaError err, err2;
 	PaError active;
 
-	if (option_waveout || option_quiet) {
+	if (option_quiet) {
 		// writing to WAV file, not to portaudio
 		return 0;
 	}
