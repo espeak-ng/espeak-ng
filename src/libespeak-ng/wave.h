@@ -33,7 +33,6 @@ extern int wave_close(void *theHandler);
 extern void wave_flush(void *theHandler);
 extern int wave_is_busy(void *theHandler);
 extern void wave_terminate();
-extern uint32_t wave_get_read_position(void *theHandler);
 extern uint32_t wave_get_write_position(void *theHandler);
 
 // Supply the remaining time in ms before the sample is played

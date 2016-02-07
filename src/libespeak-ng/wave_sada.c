@@ -296,32 +296,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-// wave_get_read_position
-//
-// DESCRIPTION:
-//
-// Concerns the sample which is currently played by the audio layer,
-// where 'sample' is a small buffer of synthesized wave data,
-// identified so that the user callback could be called when the
-// 'sample' is really played. The identifier is returned by
-// wave_get_write_position.  This method is unused.
-//
-// PARAMETERS:
-//
-// theHandler: the audio device file descriptor
-//
-// RETURNS:
-//
-// The total number of 16-bit samples played by the audio system
-// so far.
-//
-uint32_t wave_get_read_position(void *theHandler)
-{
-	audio_info_t ainfo;
-	ioctl((int)theHandler, AUDIO_GETINFO, &ainfo);
-	return ainfo.play.samples;
-}
-
 // wave_get_write_position
 //
 // DESCRIPTION:
