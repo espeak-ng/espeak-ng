@@ -20,7 +20,7 @@ build:
 *  Build the code with a C99 compiler, instead of a C++ compiler.
 *  Provide a pkg-config file (patch by Luke Yelavich).
 *  Use -fPIC to support sparc/sparc64 architectures.
-*  Use the system's portaudio header files.
+*  Removed the local portaudio header files.
 *  Use the system's sonic library and header files.
 *  Output phoneme compilation errors to stderr.
 *  Generate build failures if building phoneme, intonation or dictionary files
@@ -44,7 +44,10 @@ restructuring:
 *  Converted the documentation to markdown.
 *  Group the Windows and POSIX mbrowrap code to provide the `mbrowrap.h`
    implementation in a single place.
-*  Use the `wave_*` APIs in synchronous playback mode.
+*  Replaced the audio APIs with PCAudioLib to improve portability of the audio
+   and to share that across different projects.
+*  Reworked the synchronous audio to share the code paths with asynchronous
+   audio.
 
 cleanup:
 

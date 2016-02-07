@@ -38,8 +38,8 @@ In order to build eSpeak NG, you need:
 
 Optionally, you need:
 
-1.  the pulseaudio development library to enable pulseaudio output;
-2.  the portaudio development library to enable portaudio output;
+1.  the [pcaudiolib](https://github.com/rhdunn/pcaudiolib) development library
+    to enable audio output;
 3.  the [sonic](https://github.com/waywardgeek/sonic) development library to
     enable sonic audio speed up support;
 4.  the `ronn` man-page markdown processor to build the man pages.
@@ -61,9 +61,6 @@ Optional dependencies:
 
 | Dependency   | Install                                 |
 |--------------|-----------------------------------------|
-| pulseaudio   | `sudo apt-get install libpulse-dev`     |
-| portaudio 18 | `sudo apt-get install libportaudio-dev` |
-| portaudio 19 | `sudo apt-get install portaudio19-dev`  |
 | sonic        | `sudo apt-get install libsonic-dev`     |
 | ronn         | `sudo apt-get install ruby-ronn`        |
 

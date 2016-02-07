@@ -102,10 +102,14 @@ espeak_ng_include_HEADERS = \
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
-src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm
+src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
+	${PCAUDIOLIB_LIBS}
+
 src_libespeak_ng_la_CFLAGS = -Isrc/include -Isrc/include/compat \
 	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D_DEFAULT_SOURCE -D _POSIX_C_SOURCE=200112L \
-	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT
+	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
+	${PCAUDIOLIB_CFLAGS}
+
 src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
@@ -147,33 +151,6 @@ src_libespeak_ng_la_SOURCES += \
 	src/libespeak-ng/fifo.c
 endif
 
-if AUDIO_RUNTIME
-src_libespeak_ng_la_LDFLAGS += -lpulse -lpulse-simple -lportaudio
-src_libespeak_ng_la_CFLAGS  += -DUSE_PULSEAUDIO -DUSE_PORTAUDIO
-src_libespeak_ng_la_SOURCES += \
-	src/libespeak-ng/wave.c \
-	src/libespeak-ng/wave_pulse.c
-else
-if AUDIO_PULSEAUDIO
-src_libespeak_ng_la_LDFLAGS += -lpulse
-src_libespeak_ng_la_CFLAGS  += -DUSE_PULSEAUDIO
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave_pulse.c
-else
-if AUDIO_PORTAUDIO
-src_libespeak_ng_la_LDFLAGS += -lportaudio
-src_libespeak_ng_la_CFLAGS  += -DUSE_PORTAUDIO
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave.c
-else
-if AUDIO_SADA
-src_libespeak_ng_la_CFLAGS  += -DUSE_SADA
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave_sada.c
-else
-src_libespeak_ng_la_SOURCES += src/libespeak-ng/wave.c
-endif
-endif
-endif
-endif
-
 bin_PROGRAMS += src/speak-ng
 
 if HAVE_RONN
@@ -181,7 +158,7 @@ man1_MANS += src/speak-ng.1
 endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
-src_speak_ng_LDFLAGS = -static -lm
+src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L
 src_speak_ng_SOURCES = src/speak-ng.c
 
@@ -191,7 +168,7 @@ if HAVE_RONN
 man1_MANS += src/espeak-ng.1
 endif
 
-src_espeak_ng_LDADD   = src/libespeak-ng.la
+src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
 src_espeak_ng_CFLAGS  = -Isrc/include
 src_espeak_ng_SOURCES = src/espeak-ng.c
 

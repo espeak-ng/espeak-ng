@@ -33,6 +33,10 @@
 #include <unistd.h>
 #include <wchar.h>
 
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+#include <pcaudiolib/audio.h>
+#endif
+
 #if defined(_WIN32) || defined(_WIN64)
 #include <fcntl.h>
 #include <io.h>
@@ -51,7 +55,6 @@
 #include "espeak_command.h"
 #include "fifo.h"
 #include "event.h"
-#include "wave.h"
 
 #ifndef S_ISDIR
 #define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
@@ -63,7 +66,9 @@ espeak_EVENT *event_list = NULL;
 int event_list_ix = 0;
 int n_event_list;
 long count_samples;
-void *my_audio = NULL;
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+struct audio_object *my_audio = NULL;
+#endif
 
 static const char *option_device = NULL;
 static unsigned int my_unique_identifier = 0;
@@ -107,17 +112,21 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			voice_samplerate = event->id.number;
 
 			if (out_samplerate != voice_samplerate) {
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
 				if (out_samplerate != 0) {
 					// sound was previously open with a different sample rate
-					wave_close(my_audio);
+					audio_object_close(my_audio);
 					sleep(1);
 				}
+#endif
 				out_samplerate = voice_samplerate;
-				my_audio = wave_open(voice_samplerate, option_device);
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+				audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 				if (!my_audio) {
 					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
+#endif
 #ifdef USE_ASYNC
 				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
 					event_init();
@@ -125,9 +134,10 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 			}
 		}
 
-		if (outbuf && length && a_wave_can_be_played) {
-			wave_write(my_audio, (char *)outbuf, 2*length);
-		}
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+		if (outbuf && length && a_wave_can_be_played)
+			audio_object_write(my_audio, (char *)outbuf, 2*length);
+#endif
 
 #ifdef USE_ASYNC
 		while (event && a_wave_can_be_played) {
@@ -218,8 +228,11 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 {
 	option_device = device;
 	my_mode = output_mode;
-	my_audio = NULL;
 	out_samplerate = 0;
+
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+	my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
+#endif
 
 	// buflength is in mS, allocate 2 bytes per sample
 	if ((buffer_length == 0) || (output_mode & ENOUTPUT_MODE_SPEAK_AUDIO))
@@ -486,8 +499,10 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	end_character_position = end_position;
 
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		wave_flush(my_audio);
+		audio_object_drain(my_audio);
+#endif
 
 	return aStatus;
 }
@@ -790,8 +805,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 	event_clear_all();
 #endif
 
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		wave_close(my_audio);
+		audio_object_close(my_audio);
+#endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
@@ -832,8 +849,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 #endif
 
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-		wave_close(my_audio);
-		wave_terminate();
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+		audio_object_close(my_audio);
+		audio_object_destroy(my_audio);
+#endif
 		out_samplerate = 0;
 	}
 
