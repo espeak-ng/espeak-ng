@@ -36,7 +36,6 @@
 
 #include "speech.h"
 #include "event.h"
-#include "wave.h"
 
 // my_mutex: protects my_thread_is_talking,
 static pthread_mutex_t my_mutex;

@@ -61,6 +61,10 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event);
 // Last function to be called.
 void event_terminate();
 
+// general functions
+void clock_gettime2(struct timespec *ts);
+void add_time_in_ms(struct timespec *ts, int time_in_ms);
+
 #ifdef __cplusplus
 }
 #endif

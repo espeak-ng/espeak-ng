@@ -31,10 +31,6 @@ extern int wave_close(void *theHandler);
 extern void wave_flush(void *theHandler);
 extern void wave_terminate();
 
-// general functions
-extern void clock_gettime2(struct timespec *ts);
-extern void add_time_in_ms(struct timespec *ts, int time_in_ms);
-
 #ifdef __cplusplus
 }
 #endif

@@ -37,7 +37,7 @@
 #include "speech.h"
 #include "espeak_command.h"
 #include "fifo.h"
-#include "wave.h"
+#include "event.h"
 
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
