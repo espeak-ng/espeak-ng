@@ -221,10 +221,6 @@ static int sleep_until_start_request_or_inactivity()
 
 static espeak_ng_STATUS close_stream()
 {
-	// Warning: a wave_close can be already required by
-	// an external command (espeak_Cancel + fifo_stop), if so:
-	// my_stop_is_required = 1;
-
 	espeak_ng_STATUS status = pthread_mutex_lock(&my_mutex);
 	if (status != ENS_OK)
 		return status;
@@ -236,8 +232,6 @@ static espeak_ng_STATUS close_stream()
 	status = pthread_mutex_unlock(&my_mutex);
 
 	if (!a_stop_is_required) {
-		wave_close(NULL);
-
 		int a_status = pthread_mutex_lock(&my_mutex);
 		if (status == ENS_OK)
 			status = a_status;
