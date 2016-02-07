@@ -802,9 +802,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 
 ESPEAK_API int espeak_IsPlaying(void)
 {
-	if (((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) && wave_is_busy(my_audio))
-		return 1;
-
 #ifdef USE_ASYNC
 	return fifo_is_busy();
 #else

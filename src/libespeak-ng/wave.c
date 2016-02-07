@@ -60,7 +60,6 @@ static int pulse_running;
 void *wave_port_open(int, const char *);
 size_t wave_port_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_port_close(void *theHandler);
-int wave_port_is_busy(void *theHandler);
 void wave_port_terminate();
 void wave_port_flush(void *theHandler);
 void *wave_port_test_get_write_buffer();
@@ -70,7 +69,6 @@ int is_pulse_running();
 void *wave_pulse_open(int, const char *);
 size_t wave_pulse_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 int wave_pulse_close(void *theHandler);
-int wave_pulse_is_busy(void *theHandler);
 void wave_pulse_terminate();
 void wave_pulse_flush(void *theHandler);
 void *wave_pulse_test_get_write_buffer();
@@ -101,14 +99,6 @@ int wave_close(void *theHandler)
 		return wave_port_close(theHandler);
 }
 
-int wave_is_busy(void *theHandler)
-{
-	if (pulse_running)
-		return wave_pulse_is_busy(theHandler);
-	else
-		return wave_port_is_busy(theHandler);
-}
-
 void wave_terminate()
 {
 	if (pulse_running)
@@ -129,7 +119,6 @@ void wave_flush(void *theHandler)
 #define wave_open wave_port_open
 #define wave_write wave_port_write
 #define wave_close wave_port_close
-#define wave_is_busy wave_port_is_busy
 #define wave_terminate wave_port_terminate
 #define wave_flush wave_port_flush
 
@@ -547,8 +536,7 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 		if (0 != wave_open_sound())
 			return 0;
 		my_stream_could_start = 1;
-	} else if (!wave_is_busy(NULL))
-		my_stream_could_start = 1;
+	}
 	assert(BUFFER_LENGTH >= bytes_to_write);
 
 	if (myWrite >= myBuffer + BUFFER_LENGTH)
@@ -694,25 +682,6 @@ int wave_close(void *theHandler)
 	return 0;
 }
 
-int wave_is_busy(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	PaError active = 0;
-
-	if (pa_stream) {
-#if USE_PORTAUDIO == 18
-		active = Pa_StreamActive(pa_stream)
-		         && (mInCallbackFinishedState == false);
-#else
-		active = Pa_IsStreamActive(pa_stream)
-		         && (mInCallbackFinishedState == false);
-#endif
-	}
-
-	return active == 1;
-}
-
 void wave_terminate()
 {
 	Pa_Terminate();
@@ -737,13 +706,6 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 }
 
 int wave_close(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	return 0;
-}
-
-int wave_is_busy(void *theHandler)
 {
 	(void)theHandler; // unused
 

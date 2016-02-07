@@ -66,7 +66,6 @@ enum {
 #define wave_open wave_pulse_open
 #define wave_write wave_pulse_write
 #define wave_close wave_pulse_close
-#define wave_is_busy wave_pulse_is_busy
 #define wave_terminate wave_pulse_terminate
 #define wave_flush wave_pulse_flush
 
@@ -571,15 +570,6 @@ int wave_close(void *theHandler)
 
 	aStopStreamCount = 0; // last action
 	return PULSE_OK;
-}
-
-int wave_is_busy(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	pa_timing_info a_timing_info = {0};
-	int active = pulse_playing(&a_timing_info);
-	return active;
 }
 
 void wave_terminate()

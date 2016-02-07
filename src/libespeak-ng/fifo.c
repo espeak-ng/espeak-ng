@@ -197,10 +197,7 @@ static int sleep_until_start_request_or_inactivity()
 	//
 	int i = 0;
 	while ((i <= MAX_INACTIVITY_CHECK) && !a_start_is_required) {
-		if (wave_is_busy(NULL))
-			i = 0;
-		else
-			i++;
+		i++;
 
 		int err = 0;
 		struct timespec ts;
