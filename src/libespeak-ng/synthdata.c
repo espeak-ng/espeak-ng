@@ -42,8 +42,6 @@
 const char *version_string = "1.48.15  16.Apr.15";
 const int version_phdata  = 0x014801;
 
-int option_device_number = -1;
-
 // copy the current phoneme table into here
 int n_phoneme_tab;
 int current_phoneme_table;
@@ -427,8 +425,6 @@ void LoadConfig(void)
 
 		if (memcmp(buf, "tone", 4) == 0)
 			ReadTonePoints(&buf[5], tone_points);
-		else if (memcmp(buf, "pa_device", 9) == 0)
-			sscanf(&buf[10], "%d", &option_device_number);
 		else if (memcmp(buf, "soundicon", 9) == 0) {
 			ix = sscanf(&buf[10], "_%c %s", &c1, string);
 			if (ix == 2) {

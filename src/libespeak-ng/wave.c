@@ -440,11 +440,6 @@ static const PaDeviceInfo *select_device(const char *device)
 	const PaDeviceInfo *deviceInfo = NULL;
 	const PaDeviceInfo *selectedDeviceInfo = NULL;
 
-	if (option_device_number >= 0) {
-		selectedIndex = option_device_number;
-		selectedDeviceInfo = Pa_GetDeviceInfo(selectedIndex);
-	}
-
 	if (device == NULL) {
 #if (USE_PORTAUDIO == 19)
 		selectedIndex = Pa_GetDefaultOutputDevice();

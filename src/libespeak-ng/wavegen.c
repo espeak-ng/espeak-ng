@@ -58,7 +58,6 @@ int embedded_value[N_EMBEDDED_VALUES];
 static int PHASE_INC_FACTOR;
 int samplerate = 0; // this is set by Wavegeninit()
 int samplerate_native = 0;
-extern int option_device_number;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];

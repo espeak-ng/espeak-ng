@@ -25,8 +25,6 @@ extern "C"
 {
 #endif
 
-extern int option_device_number;
-
 extern void *wave_open(int samplerate, const char *device);
 extern size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSize);
 extern int wave_close(void *theHandler);
