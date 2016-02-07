@@ -161,7 +161,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 	return a_wave_can_be_played == 0; // 1 = stop synthesis, -1 = error
 }
 
-static int create_events(short *outbuf, int length, espeak_EVENT *event_list, uint32_t the_write_pos)
+static int create_events(short *outbuf, int length, espeak_EVENT *event_list)
 {
 	int finished;
 	int i = 0;
@@ -176,10 +176,8 @@ static int create_events(short *outbuf, int length, espeak_EVENT *event_list, ui
 		espeak_EVENT *event;
 		if (event_list_ix == 0)
 			event = NULL;
-		else {
+		else
 			event = event_list + i;
-			event->sample += the_write_pos;
-		}
 		finished = dispatch_audio((short *)outbuf, length, event);
 		length = 0; // the wave data are played once.
 		i++;
@@ -366,7 +364,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	int length;
 	int finished = 0;
 	int count_buffers = 0;
-	uint32_t a_write_pos = 0;
 
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
@@ -377,9 +374,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	option_endpause = flags & espeakENDPAUSE;
 
 	count_samples = 0;
-
-	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		a_write_pos = wave_get_write_position(my_audio);
 
 	if (translator == NULL)
 		espeak_SetVoiceByName("default");
@@ -400,7 +394,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 		count_buffers++;
 		if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
+			finished = create_events((short *)outbuf, length, event_list);
 			if (finished < 0)
 				return ENS_AUDIO_ERROR;
 		} else if (synth_callback)

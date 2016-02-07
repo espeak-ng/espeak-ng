@@ -70,7 +70,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 #define wave_close wave_pulse_close
 #define wave_is_busy wave_pulse_is_busy
 #define wave_terminate wave_pulse_terminate
-#define wave_get_write_position wave_pulse_get_write_position
 #define wave_flush wave_pulse_flush
 #define wave_set_callback_is_output_enabled wave_pulse_set_callback_is_output_enabled
 
@@ -607,15 +606,6 @@ void wave_terminate()
 
 	pthread_mutex_unlock(a_mutex);
 	pthread_mutex_destroy(a_mutex);
-}
-
-uint32_t wave_get_write_position(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	pa_timing_info a_timing_info = {0};
-	pulse_playing(&a_timing_info);
-	return a_timing_info.write_index;
 }
 
 #endif

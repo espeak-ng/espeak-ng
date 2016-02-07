@@ -298,39 +298,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 	my_callback_is_output_enabled = cb;
 }
 
-// wave_get_write_position
-//
-// DESCRIPTION:
-//
-// Returns an identifier for a new sample, where 'sample' is a small
-// buffer of synthesized wave data, identified so that the user
-// callback could be called when the 'sample' is really played.  This
-// implementation views the audio as one long continuous stream of
-// 16-bit samples.
-//
-// PARAMETERS:
-//
-// theHandler: the audio device file descriptor
-//
-// GLOBALS USED/MODIFIED:
-//
-// total_samples_sent: used as the return value
-//
-// RETURNS:
-//
-// total_samples_sent, which is the index for the end of this long
-// continuous stream.  [[[WDW: with a unit32_t managing 16-bit
-// samples at 22050Hz, we have about 54 hours of play time before
-// the index wraps back to 0.  We don't handle that wrapping, so
-// the behavior after 54 hours of play time is undefined.]]]
-//
-uint32_t wave_get_write_position(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	return total_samples_sent;
-}
-
 // wave_get_remaining_time
 //
 // DESCRIPTION:

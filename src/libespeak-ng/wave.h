@@ -33,7 +33,6 @@ extern int wave_close(void *theHandler);
 extern void wave_flush(void *theHandler);
 extern int wave_is_busy(void *theHandler);
 extern void wave_terminate();
-extern uint32_t wave_get_write_position(void *theHandler);
 
 // set the callback which informs if the output is still enabled.
 // Helpful if a new sample is waiting for free space whereas sound must be stopped.

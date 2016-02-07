@@ -62,7 +62,6 @@ size_t wave_port_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t t
 int wave_port_close(void *theHandler);
 int wave_port_is_busy(void *theHandler);
 void wave_port_terminate();
-uint32_t wave_port_get_write_position(void *theHandler);
 void wave_port_flush(void *theHandler);
 void wave_port_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_port_test_get_write_buffer();
@@ -74,7 +73,6 @@ size_t wave_pulse_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t 
 int wave_pulse_close(void *theHandler);
 int wave_pulse_is_busy(void *theHandler);
 void wave_pulse_terminate();
-uint32_t wave_pulse_get_write_position(void *theHandler);
 void wave_pulse_flush(void *theHandler);
 void wave_pulse_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_pulse_test_get_write_buffer();
@@ -121,14 +119,6 @@ void wave_terminate()
 		wave_port_terminate();
 }
 
-uint32_t wave_get_write_position(void *theHandler)
-{
-	if (pulse_running)
-		return wave_pulse_get_write_position(theHandler);
-	else
-		return wave_port_get_write_position(theHandler);
-}
-
 void wave_flush(void *theHandler)
 {
 	if (pulse_running)
@@ -151,7 +141,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 #define wave_close wave_port_close
 #define wave_is_busy wave_port_is_busy
 #define wave_terminate wave_port_terminate
-#define wave_get_write_position wave_port_get_write_position
 #define wave_flush wave_port_flush
 #define wave_set_callback_is_output_enabled wave_port_set_callback_is_output_enabled
 
@@ -750,13 +739,6 @@ void wave_terminate()
 	Pa_Terminate();
 }
 
-uint32_t wave_get_write_position(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	return myWritePosition;
-}
-
 #else
 
 void *wave_open(int srate, const char *device)
@@ -791,13 +773,6 @@ int wave_is_busy(void *theHandler)
 
 void wave_terminate()
 {
-}
-
-uint32_t wave_get_write_position(void *theHandler)
-{
-	(void)theHandler; // unused
-
-	return 0;
 }
 
 void wave_flush(void *theHandler)
