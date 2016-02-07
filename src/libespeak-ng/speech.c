@@ -378,7 +378,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	count_samples = 0;
 
-	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO)
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
 		a_write_pos = wave_get_write_position(my_audio);
 
 	if (translator == NULL)
@@ -420,11 +420,9 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 				event_list[0].user_data = my_user_data;
 
 				if (SpeakNextClause(NULL, NULL, 1) == 0) {
-					if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
-#ifdef USE_ASYNC
+					if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 						if (dispatch_audio(NULL, 0, NULL) < 0)
 							return ENS_AUDIO_ERROR;
-#endif
 					} else if (synth_callback)
 						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 					break;
@@ -496,9 +494,8 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	end_character_position = end_position;
 
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
-	#ifdef USE_ASYNC
-	wave_flush(my_audio);
-	#endif
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
+		wave_flush(my_audio);
 
 	return aStatus;
 }
@@ -799,10 +796,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 #ifdef USE_ASYNC
 	fifo_stop();
 	event_clear_all();
-
-	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO)
-		wave_close(my_audio);
 #endif
+
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
+		wave_close(my_audio);
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
@@ -813,10 +810,10 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 
 ESPEAK_API int espeak_IsPlaying(void)
 {
-#ifdef USE_ASYNC
-	if ((my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) && wave_is_busy(my_audio))
+	if (((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) && wave_is_busy(my_audio))
 		return 1;
 
+#ifdef USE_ASYNC
 	return fifo_is_busy();
 #else
 	return 0;
@@ -843,13 +840,14 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 	fifo_stop();
 	fifo_terminate();
 	event_terminate();
+#endif
 
-	if (my_mode == ENOUTPUT_MODE_SPEAK_AUDIO) {
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 		wave_close(my_audio);
 		wave_terminate();
 		out_samplerate = 0;
 	}
-#endif
+
 	free(event_list);
 	event_list = NULL;
 	free(outbuf);
