@@ -63,7 +63,6 @@ int wave_port_close(void *theHandler);
 int wave_port_is_busy(void *theHandler);
 void wave_port_terminate();
 void wave_port_flush(void *theHandler);
-void wave_port_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_port_test_get_write_buffer();
 
 // wave_pulse.cpp
@@ -74,7 +73,6 @@ int wave_pulse_close(void *theHandler);
 int wave_pulse_is_busy(void *theHandler);
 void wave_pulse_terminate();
 void wave_pulse_flush(void *theHandler);
-void wave_pulse_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_pulse_test_get_write_buffer();
 
 // wrappers
@@ -127,14 +125,6 @@ void wave_flush(void *theHandler)
 		wave_port_flush(theHandler);
 }
 
-void wave_set_callback_is_output_enabled(t_wave_callback *cb)
-{
-	if (pulse_running)
-		wave_pulse_set_callback_is_output_enabled(cb);
-	else
-		wave_port_set_callback_is_output_enabled(cb);
-}
-
 // rename functions to be wrapped
 #define wave_open wave_port_open
 #define wave_write wave_port_write
@@ -142,11 +132,8 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 #define wave_is_busy wave_port_is_busy
 #define wave_terminate wave_port_terminate
 #define wave_flush wave_port_flush
-#define wave_set_callback_is_output_enabled wave_port_set_callback_is_output_enabled
 
 #endif
-
-static t_wave_callback *my_callback_is_output_enabled = NULL;
 
 #define MAX_SAMPLE_RATE 22050
 #define FRAMES_PER_BUFFER 512
@@ -494,11 +481,6 @@ static const PaDeviceInfo *select_device(const char *device)
 	return selectedDeviceInfo;
 }
 
-void wave_set_callback_is_output_enabled(t_wave_callback *cb)
-{
-	my_callback_is_output_enabled = cb;
-}
-
 void *wave_open(int srate, const char *device)
 {
 	PaError err;
@@ -576,9 +558,6 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 	char *aRead;
 
 	while (1) {
-		if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled()))
-			return 0;
-
 		aRead = myRead;
 
 		// write pointer is before read pointer?
@@ -778,11 +757,6 @@ void wave_terminate()
 void wave_flush(void *theHandler)
 {
 	(void)theHandler; // unused
-}
-
-void wave_set_callback_is_output_enabled(t_wave_callback *cb)
-{
-	(void)cb; // unused
 }
 
 #endif

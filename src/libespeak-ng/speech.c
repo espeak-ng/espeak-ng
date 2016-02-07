@@ -119,10 +119,8 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					return -1;
 				}
 #ifdef USE_ASYNC
-				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0) {
-					wave_set_callback_is_output_enabled(fifo_is_command_enabled);
+				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
 					event_init();
-				}
 #endif
 			}
 		}

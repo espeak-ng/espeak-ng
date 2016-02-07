@@ -52,8 +52,6 @@ enum {
 
 #ifdef USE_PULSEAUDIO
 
-static t_wave_callback *my_callback_is_output_enabled = NULL;
-
 #define SAMPLE_RATE 22050
 #define ESPEAK_FORMAT PA_SAMPLE_S16LE
 #define ESPEAK_CHANNEL 1
@@ -71,7 +69,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 #define wave_is_busy wave_pulse_is_busy
 #define wave_terminate wave_pulse_terminate
 #define wave_flush wave_pulse_flush
-#define wave_set_callback_is_output_enabled wave_pulse_set_callback_is_output_enabled
 
 // check whether we can connect to PulseAudio
 #include <pulse/simple.h>
@@ -501,11 +498,6 @@ void wave_flush(void *theHandler)
 	(void)theHandler; // unused
 }
 
-void wave_set_callback_is_output_enabled(t_wave_callback *cb)
-{
-	my_callback_is_output_enabled = cb;
-}
-
 void *wave_open(int srate, const char *device)
 {
 	stream = NULL;
@@ -531,12 +523,6 @@ size_t wave_write(void *theHandler, char *theMono16BitsWaveBuffer, size_t theSiz
 	pthread_mutex_lock(&pulse_mutex);
 
 	while (1) {
-		if (my_callback_is_output_enabled
-		    && (0 == my_callback_is_output_enabled())) {
-			theSize = 0;
-			goto terminate;
-		}
-
 		aTotalFreeMem = pulse_free();
 		if (aTotalFreeMem >= bytes_to_write)
 			break;

@@ -34,11 +34,6 @@ extern void wave_flush(void *theHandler);
 extern int wave_is_busy(void *theHandler);
 extern void wave_terminate();
 
-// set the callback which informs if the output is still enabled.
-// Helpful if a new sample is waiting for free space whereas sound must be stopped.
-typedef int (t_wave_callback)(void);
-extern void wave_set_callback_is_output_enabled(t_wave_callback *cb);
-
 // general functions
 extern void clock_gettime2(struct timespec *ts);
 extern void add_time_in_ms(struct timespec *ts, int time_in_ms);

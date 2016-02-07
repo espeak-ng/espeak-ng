@@ -40,8 +40,6 @@
 
 #ifdef USE_SADA
 
-static t_wave_callback *my_callback_is_output_enabled = NULL;
-
 static const char *sun_audio_device = "/dev/audio";
 static int sun_audio_fd = -1;
 
@@ -135,8 +133,6 @@ size_t wave_write(void *theHandler,
                   size_t theSize)
 {
 	size_t num;
-	if (my_callback_is_output_enabled && (0 == my_callback_is_output_enabled()))
-		return 0;
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 	// BIG-ENDIAN, swap the order of bytes in each sound sample
@@ -279,23 +275,6 @@ void wave_terminate()
 void wave_flush(void *theHandler)
 {
 	(void)theHandler; // unused
-}
-
-// wave_set_callback_is_output_enabled
-//
-// DESCRIPTION:
-//
-// Sets the callback to call from wave_write before it sends data to
-// be played.  It helps wave_write determine if the data should be
-// thrown away or not.
-//
-// PARAMETERS:
-//
-// cb: the callback to call from wave_write
-//
-void wave_set_callback_is_output_enabled(t_wave_callback *cb)
-{
-	my_callback_is_output_enabled = cb;
 }
 
 // wave_get_remaining_time
