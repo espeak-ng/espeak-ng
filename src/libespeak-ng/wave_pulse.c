@@ -73,7 +73,6 @@ static t_wave_callback *my_callback_is_output_enabled = NULL;
 #define wave_get_write_position wave_pulse_get_write_position
 #define wave_flush wave_pulse_flush
 #define wave_set_callback_is_output_enabled wave_pulse_set_callback_is_output_enabled
-#define wave_get_remaining_time wave_pulse_get_remaining_time
 
 // check whether we can connect to PulseAudio
 #include <pulse/simple.h>
@@ -617,28 +616,6 @@ uint32_t wave_get_write_position(void *theHandler)
 	pa_timing_info a_timing_info = {0};
 	pulse_playing(&a_timing_info);
 	return a_timing_info.write_index;
-}
-
-int wave_get_remaining_time(uint32_t sample, uint32_t *time)
-{
-	double a_time = 0;
-
-	if (!time || !stream)
-		return -1;
-
-	pa_timing_info a_timing_info = {0};
-	pulse_playing(&a_timing_info);
-
-	if (sample > a_timing_info.read_index) {
-		// TBD: take in account time suplied by portaudio V18 API
-		a_time = sample - a_timing_info.read_index;
-		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
-	} else
-		a_time = 0;
-
-	*time = (uint32_t)a_time;
-
-	return 0;
 }
 
 #endif

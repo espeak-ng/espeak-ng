@@ -266,44 +266,6 @@ static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
 	return a_stop_is_required;
 }
 
-// Asked for the time interval required for reaching the sample.
-// If the stream is opened but the audio samples are not played,
-// a timeout is started.
-
-static int get_remaining_time(uint32_t sample, uint32_t *time_in_ms, int *stop_is_required)
-{
-	int err = 0;
-	*stop_is_required = 0;
-	int i = 0;
-
-	for (i = 0; i < MAX_ACTIVITY_CHECK && (*stop_is_required == 0); i++) {
-		err = wave_get_remaining_time(sample, time_in_ms);
-
-		if (err ||                // if err, stream not available: quit
-		    wave_is_busy(NULL) || // if wave is busy, time_in_ms is known: quit
-		    (*time_in_ms == 0)) { // if wave is not busy but remaining time == 0, event is reached: quit
-			break;
-		}
-
-		// stream opened but not active
-		//
-		// Several possible states:
-		//   * the stream is opened but not yet started:
-		//
-		//       wait for the start of stream
-		//
-		//   * some samples have already been played,
-		//      ** the end of stream is reached
-		//      ** or there is an underrun
-		//
-		//       wait for the close of stream
-
-		*stop_is_required = sleep_until_timeout_or_stop_request(ACTIVITY_TIMEOUT);
-	}
-
-	return err;
-}
-
 static void *polling_thread(void *p)
 {
 	(void)p; // unused
@@ -338,41 +300,26 @@ static void *polling_thread(void *p)
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
 
-			uint32_t time_in_ms = 0;
+			if (my_callback) {
+				event_notify(event);
+				// the user_data (and the type) are cleaned to be sure
+				// that MSG_TERMINATED is called twice (at delete time too).
+				event->type = espeakEVENT_LIST_TERMINATED;
+				event->user_data = NULL;
+			}
 
-			int err = get_remaining_time((uint32_t)event->sample,
-			                             &time_in_ms,
-			                             &a_stop_is_required);
-			if (a_stop_is_required > 0)
-				break;
-			else if (err != 0) {
-				// No available time: the event is deleted.
-				a_status = pthread_mutex_lock(&my_mutex);
-				event_delete((espeak_EVENT *)pop());
-				a_status = pthread_mutex_unlock(&my_mutex);
-			} else if (time_in_ms == 0) {   // the event is already reached.
-				if (my_callback) {
-					event_notify(event);
-					// the user_data (and the type) are cleaned to be sure
-					// that MSG_TERMINATED is called twice (at delete time too).
-					event->type = espeakEVENT_LIST_TERMINATED;
-					event->user_data = NULL;
-				}
+			a_status = pthread_mutex_lock(&my_mutex);
+			event_delete((espeak_EVENT *)pop());
+			a_status = pthread_mutex_unlock(&my_mutex);
 
-				a_status = pthread_mutex_lock(&my_mutex);
-				event_delete((espeak_EVENT *)pop());
-				a_status = pthread_mutex_unlock(&my_mutex);
+			a_stop_is_required = 0;
+			a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);
 
+			if ((a_status == 0) && (a_stop_is_required > 0)) {
+				while (0 == sem_trywait(&my_sem_stop_is_required))
+					;
+			} else
 				a_stop_is_required = 0;
-				a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);
-
-				if ((a_status == 0) && (a_stop_is_required > 0)) {
-					while (0 == sem_trywait(&my_sem_stop_is_required))
-						;
-				} else
-					a_stop_is_required = 0;
-			} else // The event will be notified soon: sleep until timeout or stop request
-				a_stop_is_required = sleep_until_timeout_or_stop_request(time_in_ms);
 		}
 
 		a_status = pthread_mutex_lock(&my_mutex);

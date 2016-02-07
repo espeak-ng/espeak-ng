@@ -35,14 +35,6 @@ extern int wave_is_busy(void *theHandler);
 extern void wave_terminate();
 extern uint32_t wave_get_write_position(void *theHandler);
 
-// Supply the remaining time in ms before the sample is played
-// (or 0 if the event has been already played).
-// sample: sample identifier
-// time: supplied value in ms
-//
-// return 0 if ok or -1 otherwise (stream not opened).
-extern int wave_get_remaining_time(uint32_t sample, uint32_t *time);
-
 // set the callback which informs if the output is still enabled.
 // Helpful if a new sample is waiting for free space whereas sound must be stopped.
 typedef int (t_wave_callback)(void);

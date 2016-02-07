@@ -62,6 +62,8 @@ static uint32_t last_play_position = 0;
 
 static uint32_t wave_samplerate;
 
+static int wave_get_remaining_time(uint32_t sample, uint32_t *time);
+
 // wave_open
 //
 // DESCRIPTION:

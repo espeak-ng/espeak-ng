@@ -66,7 +66,6 @@ uint32_t wave_port_get_write_position(void *theHandler);
 void wave_port_flush(void *theHandler);
 void wave_port_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_port_test_get_write_buffer();
-int wave_port_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wave_pulse.cpp
 int is_pulse_running();
@@ -79,7 +78,6 @@ uint32_t wave_pulse_get_write_position(void *theHandler);
 void wave_pulse_flush(void *theHandler);
 void wave_pulse_set_callback_is_output_enabled(t_wave_callback *cb);
 void *wave_pulse_test_get_write_buffer();
-int wave_pulse_get_remaining_time(uint32_t sample, uint32_t *time);
 
 // wrappers
 void *wave_open(int srate, const char *device)
@@ -147,14 +145,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 		wave_port_set_callback_is_output_enabled(cb);
 }
 
-int wave_get_remaining_time(uint32_t sample, uint32_t *time)
-{
-	if (pulse_running)
-		return wave_pulse_get_remaining_time(sample, time);
-	else
-		return wave_port_get_remaining_time(sample, time);
-}
-
 // rename functions to be wrapped
 #define wave_open wave_port_open
 #define wave_write wave_port_write
@@ -164,7 +154,6 @@ int wave_get_remaining_time(uint32_t sample, uint32_t *time)
 #define wave_get_write_position wave_port_get_write_position
 #define wave_flush wave_port_flush
 #define wave_set_callback_is_output_enabled wave_port_set_callback_is_output_enabled
-#define wave_get_remaining_time wave_port_get_remaining_time
 
 #endif
 
@@ -768,25 +757,6 @@ uint32_t wave_get_write_position(void *theHandler)
 	return myWritePosition;
 }
 
-int wave_get_remaining_time(uint32_t sample, uint32_t *time)
-{
-	double a_time = 0;
-
-	if (!time || !pa_stream)
-		return -1;
-
-	if (sample > myReadPosition) {
-		// TBD: take in account time suplied by portaudio V18 API
-		a_time = sample - myReadPosition;
-		a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
-	} else
-		a_time = 0;
-
-	*time = (uint32_t)a_time;
-
-	return 0;
-}
-
 #else
 
 void *wave_open(int srate, const char *device)
@@ -838,15 +808,6 @@ void wave_flush(void *theHandler)
 void wave_set_callback_is_output_enabled(t_wave_callback *cb)
 {
 	(void)cb; // unused
-}
-
-int wave_get_remaining_time(uint32_t sample, uint32_t *time)
-{
-	(void)sample; // unused
-
-	if (!time) return -1;
-	*time = (uint32_t)0;
-	return 0;
 }
 
 #endif
