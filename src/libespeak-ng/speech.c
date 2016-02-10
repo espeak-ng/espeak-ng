@@ -121,8 +121,9 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 #endif
 				out_samplerate = voice_samplerate;
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-				audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
-				if (!my_audio) {
+				int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
+				if (error != 0) {
+					fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
 					err = ENS_AUDIO_ERROR;
 					return -1;
 				}
@@ -135,8 +136,11 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		}
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-		if (outbuf && length && a_wave_can_be_played)
-			audio_object_write(my_audio, (char *)outbuf, 2*length);
+		if (outbuf && length && a_wave_can_be_played) {
+			int error = audio_object_write(my_audio, (char *)outbuf, 2*length);
+			if (error != 0)
+				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+		}
 #endif
 
 #ifdef USE_ASYNC
@@ -500,8 +504,11 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		audio_object_drain(my_audio);
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
+		int error = audio_object_drain(my_audio);
+		if (error != 0)
+			fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+	}
 #endif
 
 	return aStatus;
