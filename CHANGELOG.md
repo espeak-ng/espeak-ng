@@ -71,6 +71,7 @@ updated languages:
 new languages:
 
 *  mb-br2 (Brazillian Portuguese)
+*  mb-de\* (German) : extend support coverage of the German MBROLA voices
 *  mb-lt1 (Lithuanian) -- embar
 *  mb-lt2 (Lithuanian) -- embar
 *  mt (Maltese)
