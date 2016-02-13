@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ProductName = "eSpeak NG Text-to-Speech" ?>
+<?define ProductVendor = "Cainteoir Text-to-Speech" ?>
+<?define ProductVersion = "1.49.0" ?>
 <?define CLSID_TtsEngine = "{61D23633-CE59-4101-8158-569FC6B51B49}" ?>
 <?if $(var.Platform) = x64 ?>
 <?define ProductDisplayName = "$(var.ProductName) 64-bit" ?>
@@ -42,6 +44,7 @@
       <ComponentGroupRef Id="LangDefault"/>
       <ComponentGroupRef Id="LangDutch"/>
       <ComponentGroupRef Id="LangEnglish"/>
+      <ComponentGroupRef Id="SapiEnglish"/>
       <ComponentGroupRef Id="LangEnglishAmerica"/>
       <ComponentGroupRef Id="LangEnglishCaribbean"/>
       <ComponentGroupRef Id="LangEnglishLancashire"/>
@@ -812,6 +815,22 @@
     <ComponentGroup Id="LangEnglish">
       <ComponentRef Id="en"/>
       <ComponentRef Id="en_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="SapiEnglish">
+      <Component Id="SapiEnglish" Win64="$(var.Win64)" Directory="TARGETDIR" Guid="C8A141F7-F2A2-4141-8438-89BABF371CFD" KeyPath="yes">
+        <RegistryKey Root="HKLM" Key="Software\Microsoft\Speech\Voices\Tokens\eSpeakNG_en">
+          <RegistryValue Type="string" Value="eSpeak NG - English"/>
+          <RegistryValue Name="CLSID" Type="string" Value="$(var.CLSID_TtsEngine)"/>
+          <RegistryValue Name="VoiceName" Type="string" Value="en"/>
+          <RegistryKey Key="Attributes">
+            <RegistryValue Name="Age" Type="string" Value="Adult"/>
+            <RegistryValue Name="Gender" Type="string" Value="Male"/>
+            <RegistryValue Name="Language" Type="string" Value="9"/>
+            <RegistryValue Name="Vendor" Type="string" Value="$(var.ProductVendor)"/>
+            <RegistryValue Name="Version" Type="string" Value="$(var.ProductVersion)"/>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
     </ComponentGroup>
     <ComponentGroup Id="LangEnglishAmerica">
       <ComponentRef Id="en_US"/>
