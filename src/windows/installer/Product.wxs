@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?define ProductName = "eSpeak NG Text-to-Speech" ?>
+<?define CLSID_TtsEngine = "{61D23633-CE59-4101-8158-569FC6B51B49}" ?>
 <?if $(var.Platform) = x64 ?>
 <?define ProductDisplayName = "$(var.ProductName) 64-bit" ?>
 <?define Win64 = "yes" ?>
@@ -126,6 +127,13 @@
             <File Name="$(var.libespeak-ng.TargetFileName)" Source="$(var.libespeak-ng.TargetPath)" KeyPath="yes"/>
             <RegistryKey Root="HKLM" Key="SOFTWARE\eSpeak NG">
               <RegistryValue Name="Path" Type="string" Value="[INSTALLDIR]"/>
+            </RegistryKey>
+            <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\$(var.CLSID_TtsEngine)">
+              <RegistryValue Type="string" Value="eSpeakNG.TtsEngine"/>
+              <RegistryKey Key="InprocServer32">
+                <RegistryValue Type="string" Value="[INSTALLDIR]$(var.libespeak-ng.TargetFileName)"/>
+                <RegistryValue Name="ThreadingModel" Type="string" Value="Both"/>
+              </RegistryKey>
             </RegistryKey>
           </Component>
           <Directory Id="ESPEAKDATA" Name="espeak-data">
