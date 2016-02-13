@@ -19,6 +19,9 @@
     <Filter Include="Source Files\com">
       <UniqueIdentifier>{77d943b9-0670-4e38-b6ad-592ad6c85094}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pcaudiolib">
+      <UniqueIdentifier>{2e01ca9c-ccf8-4acf-b2aa-0ac89b34fc31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libespeak-ng\compiledata.c">
@@ -96,6 +99,15 @@
     <ClCompile Include="com\ttsengine.cpp">
       <Filter>Source Files\com</Filter>
     </ClCompile>
+    <ClCompile Include="..\pcaudiolib\src\audio.c">
+      <Filter>pcaudiolib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pcaudiolib\src\windows.c">
+      <Filter>pcaudiolib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pcaudiolib\src\xaudio2.cpp">
+      <Filter>pcaudiolib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -136,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="..\libespeak-ng\mbrowrap.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pcaudiolib\src\audio_priv.h">
+      <Filter>pcaudiolib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pcaudiolib\src\include\pcaudiolib\audio.h">
+      <Filter>pcaudiolib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
