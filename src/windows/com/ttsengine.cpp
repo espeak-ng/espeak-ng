@@ -192,7 +192,7 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
 	(*format)->nBlockAlign = 2;
 	(*format)->nSamplesPerSec = 22050;
 	(*format)->wBitsPerSample = 16;
-	(*format)->nAvgBytesPerSec = (*format)->nAvgBytesPerSec * (*format)->nBlockAlign;
+	(*format)->nAvgBytesPerSec = (*format)->nSamplesPerSec * (*format)->nBlockAlign;
 	(*format)->cbSize = 0;
 	*formatId = SPDFID_WaveFormatEx;
 	return S_OK;
