@@ -75,16 +75,27 @@ struct TtsEngine
 	                const WAVEFORMATEX *targetFormat,
 	                GUID *formatId,
 	                WAVEFORMATEX **format);
+
+	int OnEvent(short *data, int samples, espeak_EVENT *events);
 private:
 	HRESULT GetStringValue(LPCWSTR key, char *&value);
 
 	ULONG refCount;
 	ISpObjectToken *objectToken;
+	ISpTTSEngineSite *site;
 };
+
+static int
+espeak_callback(short *data, int samples, espeak_EVENT *events)
+{
+	TtsEngine *engine = (TtsEngine *)events->user_data;
+	return engine->OnEvent(data, samples, events);
+}
 
 TtsEngine::TtsEngine()
 	: refCount(1)
 	, objectToken(NULL)
+	, site(NULL)
 {
 	InterlockedIncrement(&ObjectCount);
 }
@@ -158,6 +169,8 @@ HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 		free(path);
 	}
 
+	espeak_SetSynthCallback(espeak_callback);
+
 	char *voiceName = NULL;
 	if (SUCCEEDED(GetStringValue(L"VoiceName", voiceName))) {
 		if (status == ENS_OK)
@@ -175,6 +188,27 @@ TtsEngine::Speak(DWORD flags,
                  const SPVTEXTFRAG *textFragList,
                  ISpTTSEngineSite *site)
 {
+	if (!site || !textFragList)
+		return E_INVALIDARG;
+
+	this->site = site;
+
+	while (textFragList != NULL)
+	{
+		DWORD actions = site->GetActions();
+		if (actions & SPVES_ABORT)
+			return S_OK;
+
+		switch (textFragList->State.eAction)
+		{
+		case SPVA_Speak:
+			espeak_ng_Synthesize(textFragList->pTextStart, 0, 0, POS_CHARACTER, 0, espeakCHARS_WCHAR, NULL, this);
+			break;
+		}
+
+		textFragList = textFragList->pNext;
+	}
+
 	return E_NOTIMPL;
 }
 
@@ -196,6 +230,18 @@ TtsEngine::GetOutputFormat(const GUID *targetFormatId,
 	(*format)->cbSize = 0;
 	*formatId = SPDFID_WaveFormatEx;
 	return S_OK;
+}
+
+int
+TtsEngine::OnEvent(short *data, int samples, espeak_EVENT *events)
+{
+	DWORD actions = site->GetActions();
+	if (actions & SPVES_ABORT)
+		return 1;
+
+	if (data)
+		site->Write(data, samples * 2, NULL);
+	return 0;
 }
 
 HRESULT TtsEngine::GetStringValue(LPCWSTR key, char *&value)
