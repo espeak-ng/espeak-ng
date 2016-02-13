@@ -158,16 +158,16 @@ HRESULT __stdcall TtsEngine::SetObjectToken(ISpObjectToken *token)
 	objectToken = token;
 	objectToken->AddRef();
 
-	espeak_ng_STATUS status = ENS_OK;
-
 	char *path = NULL;
-	if (SUCCEEDED(GetStringValue(L"Path", path))) {
-		espeak_ng_InitializePath(path);
-		status = espeak_ng_Initialize(NULL);
-		if (status == ENS_OK)
-			status = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 100, NULL);
+	GetStringValue(L"Path", path);
+	espeak_ng_InitializePath(path);
+	if (path)
 		free(path);
-	}
+
+	espeak_ng_STATUS status;
+	status = espeak_ng_Initialize(NULL);
+	if (status == ENS_OK)
+		status = espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 100, NULL);
 
 	espeak_SetSynthCallback(espeak_callback);
 
