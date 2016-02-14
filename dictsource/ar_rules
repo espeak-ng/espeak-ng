@@ -1,4 +1,4 @@
-// *   aarabic Language ar ar_rules
+// *   Arabic Language ar ar_rules
 // *   This file writen by Taha Zerrouki 2012
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -7,8 +7,8 @@
 // *   (at your option) any later version.                                   *
 // *                                                                         *
 // *   This program is distributed in the hope that it will be useful,       *
-// *   but WITHOUT aaNY WaaRRaaNTY; without even the implied warranty of        *
-// *   MERCHaaNTaaBILITY or FITNESS FOR aa PaaRTICULaaR PURPOSE.  See the         *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
 // *   GNU General Public License for more details.                          *
 // *                                                                         *
 // *   You should have received a copy of the GNU General Public License     *
@@ -17,11 +17,11 @@
 // ***************************************************************************/
 
 // This file is UTF-8 encoded
-// all words must be LOWER CaaSE  (although the initial letter will be automatically
+// all words must be LOWER CASE  (although the initial letter will be automatically
 //    converted if it's a 7bit ascii character)
-// Text to phoneme rules for aarabic
+// Text to phoneme rules for Arabic
 
-// replace aarabic  eastern  character numbers with aarabic western character numbers
+// replace Arabic  eastern  character numbers with Arabic western character numbers
 .replace
 		٠	0
 		۰	0

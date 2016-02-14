@@ -36,7 +36,7 @@ phoneme gH	//arabic Ghain
   lengthmod 5 
    Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
     Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-  //ipa U+0280
+  ipa ɣ
   WAV(vwl_ar/GH2)
 endphoneme
 
