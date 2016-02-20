@@ -19,103 +19,298 @@
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <MediaTemplate EmbedCab="yes"/>
 
+    <UIRef Id="WixUI_FeatureTree"/>
+    <WixVariable Id="WixUILicenseRtf" Value="License_GPLv3.rtf"/>
+
     <Feature Id="All" Title="eSpeak NG" Level="1">
       <ComponentGroupRef Id="CoreComponents"/>
       <ComponentGroupRef Id="VoiceData"/>
-      <ComponentGroupRef Id="LangAfrikaans"/>
-      <ComponentGroupRef Id="LangAlbanian"/>
-      <ComponentGroupRef Id="LangAmharic"/>
-      <ComponentGroupRef Id="LangAragonese"/>
-      <ComponentGroupRef Id="LangArmenian"/>
-      <ComponentGroupRef Id="LangArmenianWest"/>
-      <ComponentGroupRef Id="LangAssamese"/>
-      <ComponentGroupRef Id="LangAzerbaijani"/>
-      <ComponentGroupRef Id="LangBasque"/>
-      <ComponentGroupRef Id="LangBengali"/>
-      <ComponentGroupRef Id="LangBosnian"/>
-      <ComponentGroupRef Id="LangBulgarian"/>
-      <ComponentGroupRef Id="LangBurmese"/>
-      <ComponentGroupRef Id="LangCatalan"/>
-      <ComponentGroupRef Id="LangChineseCantonese"/>
-      <ComponentGroupRef Id="LangChineseMandarin"/>
-      <ComponentGroupRef Id="LangCroatian"/>
-      <ComponentGroupRef Id="LangCzech"/>
-      <ComponentGroupRef Id="LangDanish"/>
       <ComponentGroupRef Id="LangDefault"/>
-      <ComponentGroupRef Id="LangDutch"/>
-      <ComponentGroupRef Id="LangEnglish"/>
-      <ComponentGroupRef Id="SapiEnglish"/>
-      <ComponentGroupRef Id="LangEnglishAmerica"/>
-      <ComponentGroupRef Id="LangEnglishCaribbean"/>
-      <ComponentGroupRef Id="LangEnglishLancashire"/>
-      <ComponentGroupRef Id="LangEnglishReceivedPronunciation"/>
-      <ComponentGroupRef Id="LangEnglishScotland"/>
-      <ComponentGroupRef Id="LangEnglishWestMidlands"/>
-      <ComponentGroupRef Id="LangEsperanto"/>
-      <ComponentGroupRef Id="LangEstonian"/>
-      <ComponentGroupRef Id="LangFinnish"/>
-      <ComponentGroupRef Id="LangFrench"/>
-      <ComponentGroupRef Id="LangFrenchBelgium"/>
-      <ComponentGroupRef Id="LangGaelicIrish"/>
-      <ComponentGroupRef Id="LangGaelicScottish"/>
-      <ComponentGroupRef Id="LangGeorgian"/>
-      <ComponentGroupRef Id="LangGerman"/>
-      <ComponentGroupRef Id="LangGreek"/>
-      <ComponentGroupRef Id="LangGreekAncient"/>
-      <ComponentGroupRef Id="LangGreenlandic"/>
-      <ComponentGroupRef Id="LangGujarati"/>
-      <ComponentGroupRef Id="LangHindi"/>
-      <ComponentGroupRef Id="LangHungarian"/>
-      <ComponentGroupRef Id="LangIcelandic"/>
-      <ComponentGroupRef Id="LangIndonesian"/>
-      <ComponentGroupRef Id="LangInterlingua"/>
-      <ComponentGroupRef Id="LangItalian"/>
-      <ComponentGroupRef Id="LangKannada"/>
-      <ComponentGroupRef Id="LangKorean"/>
-      <ComponentGroupRef Id="LangKurdish"/>
-      <ComponentGroupRef Id="LangLatin"/>
-      <ComponentGroupRef Id="LangLatvian"/>
-      <ComponentGroupRef Id="LangLinguaFrancaNova"/>
-      <ComponentGroupRef Id="LangLithuanian"/>
-      <ComponentGroupRef Id="LangLojban"/>
-      <ComponentGroupRef Id="LangMacedonian"/>
-      <ComponentGroupRef Id="LangMalay"/>
-      <ComponentGroupRef Id="LangMalayalam"/>
-      <ComponentGroupRef Id="LangMaltese"/>
-      <ComponentGroupRef Id="LangMarathi"/>
-      <ComponentGroupRef Id="LangNepali"/>
-      <ComponentGroupRef Id="LangNorwegian"/>
-      <ComponentGroupRef Id="LangNahuatlClassical"/>
-      <ComponentGroupRef Id="LangOriya"/>
-      <ComponentGroupRef Id="LangOromo"/>
-      <ComponentGroupRef Id="LangPapiamento"/>
-      <ComponentGroupRef Id="LangPersian_EnglishAmerica"/>
-      <ComponentGroupRef Id="LangPersian_EnglishBritain"/>
-      <ComponentGroupRef Id="LangPersian_Pinglish"/>
-      <ComponentGroupRef Id="LangPolish"/>
-      <ComponentGroupRef Id="LangPortugueseBrazil"/>
-      <ComponentGroupRef Id="LangPortuguesePortugal"/>
-      <ComponentGroupRef Id="LangPunjabi"/>
-      <ComponentGroupRef Id="LangRomanian"/>
-      <ComponentGroupRef Id="LangRussian"/>
-      <ComponentGroupRef Id="LangSerbian"/>
-      <ComponentGroupRef Id="LangSetswana"/>
-      <ComponentGroupRef Id="LangSinhala"/>
-      <ComponentGroupRef Id="LangSlovak"/>
-      <ComponentGroupRef Id="LangSlovenian"/>
-      <ComponentGroupRef Id="LangSpanish"/>
-      <ComponentGroupRef Id="LangSpanishLatinAmerica"/>
-      <ComponentGroupRef Id="LangSwahili"/>
-      <ComponentGroupRef Id="LangSwedish"/>
-      <ComponentGroupRef Id="LangTamil"/>
-      <ComponentGroupRef Id="LangTatar"/>
-      <ComponentGroupRef Id="LangTelugu"/>
-      <ComponentGroupRef Id="LangTurkish"/>
-      <ComponentGroupRef Id="LangUrdu"/>
-      <ComponentGroupRef Id="LangVietnamese"/>
-      <ComponentGroupRef Id="LangVietnameseCentral"/>
-      <ComponentGroupRef Id="LangVietnameseSouth"/>
-      <ComponentGroupRef Id="LangWelsh"/>
+    </Feature>
+    <Feature Id="lang" Title="Languages">
+      <Feature Id="lang_af" Title="Afrikaans" Level="1">
+        <ComponentGroupRef Id="LangAfrikaans"/>
+      </Feature>
+      <Feature Id="lang_sq" Title="Albanian" Level="1">
+        <ComponentGroupRef Id="LangAlbanian"/>
+      </Feature>
+      <Feature Id="lang_am" Title="Amharic" Level="1">
+        <ComponentGroupRef Id="LangAmharic"/>
+      </Feature>
+      <Feature Id="lang_an" Title="Aragonese" Level="1">
+        <ComponentGroupRef Id="LangAragonese"/>
+      </Feature>
+      <Feature Id="lang_hy" Title="Armenian" Level="1">
+        <ComponentGroupRef Id="LangArmenian"/>
+      </Feature>
+      <Feature Id="lang_hy_arevmda" Title="Armenian (West)" Level="1">
+        <ComponentGroupRef Id="LangArmenianWest"/>
+      </Feature>
+      <Feature Id="lang_as" Title="Assamese" Level="1">
+        <ComponentGroupRef Id="LangAssamese"/>
+      </Feature>
+      <Feature Id="lang_az" Title="Azerbaijani" Level="1">
+        <ComponentGroupRef Id="LangAzerbaijani"/>
+      </Feature>
+      <Feature Id="lang_eu" Title="Basque" Level="1">
+        <ComponentGroupRef Id="LangBasque"/>
+      </Feature>
+      <Feature Id="lang_bn" Title="Bengali" Level="1">
+        <ComponentGroupRef Id="LangBengali"/>
+      </Feature>
+      <Feature Id="lang_bs" Title="Bosnian" Level="1">
+        <ComponentGroupRef Id="LangBosnian"/>
+      </Feature>
+      <Feature Id="lang_bg" Title="Bulgarian" Level="1">
+        <ComponentGroupRef Id="LangBulgarian"/>
+      </Feature>
+      <Feature Id="lang_my" Title="Burmese" Level="1">
+        <ComponentGroupRef Id="LangBurmese"/>
+      </Feature>
+      <Feature Id="lang_ca" Title="Catalan" Level="1">
+        <ComponentGroupRef Id="LangCatalan"/>
+      </Feature>
+      <Feature Id="lang_yue" Title="Chinese (Cantonese)" Level="1">
+        <ComponentGroupRef Id="LangChineseCantonese"/>
+      </Feature>
+      <Feature Id="lang_cmn" Title="Chinese (Mandarin)" Level="1">
+        <ComponentGroupRef Id="LangChineseMandarin"/>
+      </Feature>
+      <Feature Id="lang_hr" Title="Croatian" Level="1">
+        <ComponentGroupRef Id="LangCroatian"/>
+      </Feature>
+      <Feature Id="lang_cs" Title="Czech" Level="1">
+        <ComponentGroupRef Id="LangCzech"/>
+      </Feature>
+      <Feature Id="lang_da" Title="Danish" Level="1">
+        <ComponentGroupRef Id="LangDanish"/>
+      </Feature>
+      <Feature Id="lang_nl" Title="Dutch" Level="1">
+        <ComponentGroupRef Id="LangDutch"/>
+      </Feature>
+      <Feature Id="lang_en" Title="English" Level="1">
+        <ComponentGroupRef Id="LangEnglish"/>
+        <ComponentGroupRef Id="SapiEnglish"/>
+      </Feature>
+      <Feature Id="lang_en_US" Title="English (America)" Level="1">
+        <ComponentGroupRef Id="LangEnglishAmerica"/>
+      </Feature>
+      <Feature Id="lang_en_029" Title="English (Caribbean)" Level="1">
+        <ComponentGroupRef Id="LangEnglishCaribbean"/>
+      </Feature>
+      <Feature Id="lang_en_GB_x_gbclan" Title="English (Lancashire, Great Britain)" Level="1">
+        <ComponentGroupRef Id="LangEnglishLancashire"/>
+      </Feature>
+      <Feature Id="lang_eb_GB_x_rp" Title="English (Received Pronunciation)" Level="1">
+        <ComponentGroupRef Id="LangEnglishReceivedPronunciation"/>
+      </Feature>
+      <Feature Id="lang_en_GB_scotland" Title="English (Scotland)" Level="1">
+        <ComponentGroupRef Id="LangEnglishScotland"/>
+      </Feature>
+      <Feature Id="lang_en_GB_x_gbcwmd" Title="English (West Midlands, Great Britain)" Level="1">
+        <ComponentGroupRef Id="LangEnglishWestMidlands"/>
+      </Feature>
+      <Feature Id="lang_eo" Title="Esperanto" Level="1">
+        <ComponentGroupRef Id="LangEsperanto"/>
+      </Feature>
+      <Feature Id="lang_et" Title="Estonian" Level="1">
+        <ComponentGroupRef Id="LangEstonian"/>
+      </Feature>
+      <Feature Id="lang_fi" Title="Finnish" Level="1">
+        <ComponentGroupRef Id="LangFinnish"/>
+      </Feature>
+      <Feature Id="lang_fr" Title="French" Level="1">
+        <ComponentGroupRef Id="LangFrench"/>
+      </Feature>
+      <Feature Id="lang_fr_BE" Title="French (Belgium)" Level="1">
+        <ComponentGroupRef Id="LangFrenchBelgium"/>
+      </Feature>
+      <Feature Id="lang_ga" Title="Gaelic (Irish)" Level="1">
+        <ComponentGroupRef Id="LangGaelicIrish"/>
+      </Feature>
+      <Feature Id="lang_gd" Title="Gaelic (Scottish)" Level="1">
+        <ComponentGroupRef Id="LangGaelicScottish"/>
+      </Feature>
+      <Feature Id="lang_ka" Title="Georgian" Level="1">
+        <ComponentGroupRef Id="LangGeorgian"/>
+      </Feature>
+      <Feature Id="lang_de" Title="German" Level="1">
+        <ComponentGroupRef Id="LangGerman"/>
+      </Feature>
+      <Feature Id="lang_el" Title="Greek" Level="1">
+        <ComponentGroupRef Id="LangGreek"/>
+      </Feature>
+      <Feature Id="lang_grc" Title="Greek (Ancient)" Level="1">
+        <ComponentGroupRef Id="LangGreekAncient"/>
+      </Feature>
+      <Feature Id="lang_kl" Title="Greenlandic" Level="1">
+        <ComponentGroupRef Id="LangGreenlandic"/>
+      </Feature>
+      <Feature Id="lang_gu" Title="Gujarati" Level="1">
+        <ComponentGroupRef Id="LangGujarati"/>
+      </Feature>
+      <Feature Id="lang_hi" Title="Hindi" Level="1">
+        <ComponentGroupRef Id="LangHindi"/>
+      </Feature>
+      <Feature Id="lang_hu" Title="Hungarian" Level="1">
+        <ComponentGroupRef Id="LangHungarian"/>
+      </Feature>
+      <Feature Id="lang_is" Title="Icelandic" Level="1">
+        <ComponentGroupRef Id="LangIcelandic"/>
+      </Feature>
+      <Feature Id="lang_id" Title="Indonesian" Level="1">
+        <ComponentGroupRef Id="LangIndonesian"/>
+      </Feature>
+      <Feature Id="lang_ia" Title="Interlingua" Level="1">
+        <ComponentGroupRef Id="LangInterlingua"/>
+      </Feature>
+      <Feature Id="lang_it" Title="Italian" Level="1">
+        <ComponentGroupRef Id="LangItalian"/>
+      </Feature>
+      <Feature Id="lang_kn" Title="Kannada" Level="1">
+        <ComponentGroupRef Id="LangKannada"/>
+      </Feature>
+      <Feature Id="lang_ko" Title="Korean" Level="1">
+        <ComponentGroupRef Id="LangKorean"/>
+      </Feature>
+      <Feature Id="lang_ku" Title="Kurdish" Level="1">
+        <ComponentGroupRef Id="LangKurdish"/>
+      </Feature>
+      <Feature Id="lang_la" Title="Latin" Level="1">
+        <ComponentGroupRef Id="LangLatin"/>
+      </Feature>
+      <Feature Id="lang_lv" Title="Latvian" Level="1">
+        <ComponentGroupRef Id="LangLatvian"/>
+      </Feature>
+      <Feature Id="lang_lfn" Title="Lingua Franca Nova" Level="1">
+        <ComponentGroupRef Id="LangLinguaFrancaNova"/>
+      </Feature>
+      <Feature Id="lang_lt" Title="Lithuanian" Level="1">
+        <ComponentGroupRef Id="LangLithuanian"/>
+      </Feature>
+      <Feature Id="lang_jbo" Title="Lojban" Level="1">
+        <ComponentGroupRef Id="LangLojban"/>
+      </Feature>
+      <Feature Id="lang_mk" Title="Macedonian" Level="1">
+        <ComponentGroupRef Id="LangMacedonian"/>
+      </Feature>
+      <Feature Id="lang_ms" Title="Malay" Level="1">
+        <ComponentGroupRef Id="LangMalay"/>
+      </Feature>
+      <Feature Id="lang_ml" Title="Malayalam" Level="1">
+        <ComponentGroupRef Id="LangMalayalam"/>
+      </Feature>
+      <Feature Id="lang_mt" Title="Maltese" Level="1">
+        <ComponentGroupRef Id="LangMaltese"/>
+      </Feature>
+      <Feature Id="lang_mr" Title="Marathi" Level="1">
+        <ComponentGroupRef Id="LangMarathi"/>
+      </Feature>
+      <Feature Id="lang_nci" Title="Nahuatl (Classical)" Level="1">
+        <ComponentGroupRef Id="LangNahuatlClassical"/>
+      </Feature>
+      <Feature Id="lang_ne" Title="Nepali" Level="1">
+        <ComponentGroupRef Id="LangNepali"/>
+      </Feature>
+      <Feature Id="lang_no" Title="Norwegian" Level="1">
+        <ComponentGroupRef Id="LangNorwegian"/>
+      </Feature>
+      <Feature Id="lang_or" Title="Oriya" Level="1">
+        <ComponentGroupRef Id="LangOriya"/>
+      </Feature>
+      <Feature Id="lang_om" Title="Oromo" Level="1">
+        <ComponentGroupRef Id="LangOromo"/>
+      </Feature>
+      <Feature Id="lang_pap" Title="Papiamento" Level="1">
+        <ComponentGroupRef Id="LangPapiamento"/>
+      </Feature>
+      <Feature Id="lang_fa__en_US" Title="Persian with English (America)" Level="1">
+        <ComponentGroupRef Id="LangPersian_EnglishAmerica"/>
+      </Feature>
+      <Feature Id="lang_fa__en_GB" Title="Persian with English (Britain)" Level="1">
+        <ComponentGroupRef Id="LangPersian_EnglishBritain"/>
+      </Feature>
+      <Feature Id="lang_fa_Latn" Title="Persian (Pinglish)" Level="1">
+        <ComponentGroupRef Id="LangPersian_Pinglish"/>
+      </Feature>
+      <Feature Id="lang_pl" Title="Polish" Level="1">
+        <ComponentGroupRef Id="LangPolish"/>
+      </Feature>
+      <Feature Id="lang_pt_BR" Title="Portuguese (Brazil)" Level="1">
+        <ComponentGroupRef Id="LangPortugueseBrazil"/>
+      </Feature>
+      <Feature Id="lang_pt_PT" Title="Portuguese (Portugal)" Level="1">
+        <ComponentGroupRef Id="LangPortuguesePortugal"/>
+      </Feature>
+      <Feature Id="lang_pa" Title="Punjabi" Level="1">
+        <ComponentGroupRef Id="LangPunjabi"/>
+      </Feature>
+      <Feature Id="lang_ro" Title="Romanian" Level="1">
+        <ComponentGroupRef Id="LangRomanian"/>
+      </Feature>
+      <Feature Id="lang_ru" Title="Russian" Level="1">
+        <ComponentGroupRef Id="LangRussian"/>
+      </Feature>
+      <Feature Id="lang_sr" Title="Serbian" Level="1">
+        <ComponentGroupRef Id="LangSerbian"/>
+      </Feature>
+      <Feature Id="lang_tn" Title="Setswana" Level="1">
+        <ComponentGroupRef Id="LangSetswana"/>
+      </Feature>
+      <Feature Id="lang_si" Title="Sinhala" Level="1">
+        <ComponentGroupRef Id="LangSinhala"/>
+      </Feature>
+      <Feature Id="lang_sk" Title="Slovak" Level="1">
+        <ComponentGroupRef Id="LangSlovak"/>
+      </Feature>
+      <Feature Id="lang_sl" Title="Slovenian" Level="1">
+        <ComponentGroupRef Id="LangSlovenian"/>
+      </Feature>
+      <Feature Id="lang_es" Title="Spanish" Level="1">
+        <ComponentGroupRef Id="LangSpanish"/>
+      </Feature>
+      <Feature Id="lang_es_419" Title="Spanish (Latin America)" Level="1">
+        <ComponentGroupRef Id="LangSpanishLatinAmerica"/>
+      </Feature>
+      <Feature Id="lang_sw" Title="Swahili" Level="1">
+        <ComponentGroupRef Id="LangSwahili"/>
+      </Feature>
+      <Feature Id="lang_sv" Title="Swedish" Level="1">
+        <ComponentGroupRef Id="LangSwedish"/>
+      </Feature>
+      <Feature Id="lang_ta" Title="Tamil" Level="1">
+        <ComponentGroupRef Id="LangTamil"/>
+      </Feature>
+      <Feature Id="lang_tt" Title="Tatar" Level="1">
+        <ComponentGroupRef Id="LangTatar"/>
+      </Feature>
+      <Feature Id="lang_te" Title="Telugu" Level="1">
+        <ComponentGroupRef Id="LangTelugu"/>
+      </Feature>
+      <Feature Id="lang_tr" Title="Turkish" Level="1">
+        <ComponentGroupRef Id="LangTurkish"/>
+      </Feature>
+      <Feature Id="lang_ur" Title="Urdu" Level="1">
+        <ComponentGroupRef Id="LangUrdu"/>
+      </Feature>
+      <Feature Id="lang_vi" Title="Vietnamese" Level="1">
+        <ComponentGroupRef Id="LangVietnamese"/>
+      </Feature>
+      <Feature Id="lang_vi_VN_x_central" Title="Vietnamese (Central)" Level="1">
+        <ComponentGroupRef Id="LangVietnameseCentral"/>
+      </Feature>
+      <Feature Id="lang_vi_VN_x_south" Title="Vietnamese (South)" Level="1">
+        <ComponentGroupRef Id="LangVietnameseSouth"/>
+      </Feature>
+      <Feature Id="lang_cy" Title="Welsh" Level="1">
+        <ComponentGroupRef Id="LangWelsh"/>
+      </Feature>
+    </Feature>
+    <Feature Id="sapi" Title="SAPI Voices">
+      <Feature Id="sapi_en" Title="English" Level="1">
+        <ComponentGroupRef Id="LangEnglish"/>
+        <ComponentGroupRef Id="SapiEnglish"/>
+      </Feature>      
     </Feature>
   </Product>
 
@@ -952,10 +1147,6 @@
       <ComponentRef Id="lv"/>
       <ComponentRef Id="lv_dict"/>
     </ComponentGroup>
-    <ComponentGroup Id="LangLojban">
-      <ComponentRef Id="jbo"/>
-      <ComponentRef Id="jbo_dict"/>
-    </ComponentGroup>
     <ComponentGroup Id="LangLinguaFrancaNova">
       <ComponentRef Id="lfn"/>
       <ComponentRef Id="lfn_dict"/>
@@ -963,6 +1154,10 @@
     <ComponentGroup Id="LangLithuanian">
       <ComponentRef Id="lt"/>
       <ComponentRef Id="lt_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangLojban">
+      <ComponentRef Id="jbo"/>
+      <ComponentRef Id="jbo_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangMacedonian">
       <ComponentRef Id="mk"/>
@@ -976,13 +1171,13 @@
       <ComponentRef Id="ml"/>
       <ComponentRef Id="ml_dict"/>
     </ComponentGroup>
-    <ComponentGroup Id="LangMarathi">
-      <ComponentRef Id="mr"/>
-      <ComponentRef Id="mr_dict"/>
-    </ComponentGroup>
     <ComponentGroup Id="LangMaltese">
       <ComponentRef Id="mt"/>
       <ComponentRef Id="mt_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangMarathi">
+      <ComponentRef Id="mr"/>
+      <ComponentRef Id="mr_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangNahuatlClassical">
       <ComponentRef Id="nci"/>
