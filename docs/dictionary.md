@@ -403,7 +403,7 @@ specify different pronunciations for different variants of a language
 Conditional rules have `?` and a condition number at the start if
 the line in the `*_rules` or `*_list` file. This means that the rule
 only applies of that condition number is specified in a `dictrules`
-line in the [voice file](voices.html).
+line in the [voice file](voices.md).
 
 If the rule starts with `?!` then the rule only applies if the
 condition number is `not` specified in the voice file. e.g.
