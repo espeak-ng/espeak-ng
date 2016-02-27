@@ -85,12 +85,6 @@ int (*phoneme_callback)(const char *) = NULL;
 char path_home[N_PATH_HOME]; // this is the espeak-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
-void WVoiceChanged(voice_t *wvoice)
-{
-	// Voice change in wavegen
-	voice_samplerate = wvoice->samplerate;
-}
-
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 {
 	int a_wave_can_be_played = 1;
