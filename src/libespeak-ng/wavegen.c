@@ -44,7 +44,7 @@
 
 #define N_WAV_BUF   10
 
-voice_t *wvoice;
+voice_t *wvoice = NULL;
 
 FILE *f_log = NULL;
 static int option_harmonic1 = 10;
@@ -379,6 +379,9 @@ int GetAmplitude(void)
 
 static void WavegenSetEcho(void)
 {
+	if (wvoice == NULL)
+		return;
+
 	int delay;
 	int amp;
 
@@ -419,6 +422,9 @@ static void WavegenSetEcho(void)
 
 int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 {
+	if (wvoice == NULL)
+		return 1;
+
 	// Calculate the amplitude of each  harmonics from the formants
 	// Only for formants 0 to 5
 
@@ -439,8 +445,6 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int h1;
 
 	// initialise as much of *out as we will need
-	if (wvoice == NULL)
-		return 1;
 	hmax = (peaks[wvoice->n_harmonic_peaks].freq + peaks[wvoice->n_harmonic_peaks].right)/pitch;
 	if (hmax >= MAX_HARMONIC)
 		hmax = MAX_HARMONIC-1;
@@ -524,6 +528,8 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 static void AdvanceParameters()
 {
 	// Called every 64 samples to increment the formant freq, height, and widths
+	if (wvoice == NULL)
+		return;
 
 	int x;
 	int ix;
@@ -626,7 +632,7 @@ static void SetBreath()
 {
 	int pk;
 
-	if (wvoice->breath[0] == 0)
+	if (wvoice == NULL || wvoice->breath[0] == 0)
 		return;
 
 	for (pk = 1; pk < N_PEAKS; pk++) {
@@ -640,6 +646,9 @@ static void SetBreath()
 
 static int ApplyBreath(void)
 {
+	if (wvoice == NULL)
+		return 0;
+
 	int value = 0;
 	int noise;
 	int ix;
@@ -659,6 +668,9 @@ static int ApplyBreath(void)
 
 int Wavegen()
 {
+	if (wvoice == NULL)
+		return 0;
+
 	unsigned short waveph;
 	unsigned short theta;
 	int total;
@@ -975,6 +987,9 @@ static int SetWithRange0(int value, int max)
 
 static void SetPitchFormants()
 {
+	if (wvoice == NULL)
+		return;
+
 	int ix;
 	int factor = 256;
 	int pitch_value;
@@ -1059,6 +1074,9 @@ void WavegenSetVoice(voice_t *v)
 
 static void SetAmplitude(int length, unsigned char *amp_env, int value)
 {
+	if (wvoice == NULL)
+		return;
+
 	amp_ix = 0;
 	if (length == 0)
 		amp_inc = 0;
@@ -1102,6 +1120,9 @@ void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pit
 
 void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 {
+	if (wvoice == NULL)
+		return;
+
 	// length in samples
 
 	if ((wdata.pitch_env = env) == NULL)
@@ -1122,6 +1143,9 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 
 void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 {
+	if (wvoice == NULL || v == NULL)
+		return;
+
 	int ix;
 	DOUBLEX next;
 	int length2;
@@ -1228,7 +1252,6 @@ int WavegenFill2()
 	// Pick up next wavegen commands from the queue
 	// return: 0  output buffer has been filled
 	// return: 1  input command queue is now empty
-
 	intptr_t *q;
 	int length;
 	int result;
@@ -1319,7 +1342,8 @@ int WavegenFill2()
 			SetEmbedded(q[1], q[2]);
 			break;
 		case WCMD_MBROLA_DATA:
-			result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
+			if (wvoice != NULL)
+				result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
 			break;
 		case WCMD_FMT_AMPLITUDE:
 			if ((wdata.amplitude_fmt = q[1]) == 0)
