@@ -1188,7 +1188,8 @@ deg  $alt
 deiotar $2
 delebi  $alt
 deleg $1
-delianuov  $alt
+deleteria	$3 $alt
+deleterie	$3 $alt
 deliber $2
 demerit	$2
 democrit $2
@@ -1209,6 +1210,7 @@ devot  $alt
 diabete  $alt
 diacon $1
 diaconia $3
+diacronia	$3
 diadem  $alt
 diagnosi $1
 dialett  $alt
@@ -1293,13 +1295,12 @@ dogli  $alt
 dol  $alt
 dolcett  $alt2
 dolfin $2
-dolianov  $alt
 dollar $1  $alt
 dolman  $alt
 dolmen  $alt
 dolomia $2  $alt
 doma	$alt
-domenic  $alt2
+domandone	$3
 domicili	$3
 domin $1
 domusnovas  $alt
@@ -1339,7 +1340,7 @@ ec  $alt
 ecate $1  $alt
 eccentric  $alt
 ecceter $2  $alt
-ecij $1  $alt2
+echo	'e:ko
 economy	$2
 ecosistem  $alt
 ecstasy	'EkstazI
@@ -2536,7 +2537,7 @@ naufraghi	$1
 naumachia $4
 nausea $1
 nausee	$1
-nausei	$1
+nausei	n'aw2zeI
 nauseo	$1
 ndrangheta	$1
 neb  $alt
@@ -3212,7 +3213,6 @@ quiete  $alt
 quindicesim  $alt
 quindicine	$3
 quot  $alt
-raab $2
 rabarbar $2
 racale $1
 racem  $alt
@@ -3239,8 +3239,11 @@ razzi	@-*'adz:I
 razzia $2
 razzie	@-*a/ts:'ie
 razzo	@-*'a|dz:o
-re	@-*'E	$capital
-re	@-*e
+ra	@-*'a
+re	@-*'E
+re	@-*'e	$capital
+ri	@-*I $only
+ro	@-*'O
 rebbi  $alt2
 recapit $2
 recared  $alt
@@ -3402,7 +3405,6 @@ sabat $1
 sabir $2
 saccarosi  $alt
 sacerdote  $alt
-sacha $2
 sacrilegi  $alt
 sagam $1
 sagom $1
@@ -3936,6 +3938,7 @@ tiberiade $3
 tiburon $3
 tiepol  $alt
 timpan $1
+timoria	$3
 tindari $1
 tinian $2
 tintoria $3
@@ -4014,11 +4017,11 @@ tratalias $3
 traversie	$2
 travesi  $alt
 trebaseleghe $3  $alt2
+tre	t@-*'e
 tredicesim  $alt
 tredici  $alt2
 tremil $2
 tremolio	$3
-trentasei	t@-*entas'Ei
 trentenn	$alt
 treppied	$alt
 tres  $alt

@@ -13,7 +13,7 @@ phoneme a
   vowel starttype #a endtype #a
   length 160
   ChangeIfNotStressed(a/)
-  FMT(vowel/a, 80)
+  FMT(vwl_it/a)
 endphoneme
 
 
@@ -49,7 +49,7 @@ phoneme E
   vowel starttype #e endtype #e
   length 145
   ChangeIfUnstressed(e/)
-  FMT(vowel/e_mid)
+  FMT(vwl_it/e_open)
 endphoneme
 
 
@@ -61,7 +61,7 @@ phoneme i
    IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND NOT prevPhW(E) THEN
    ChangePhoneme(I)
    ENDIF
-  FMT(vowel/i)
+  FMT(vwl_it/i)
 endphoneme
 
 
@@ -85,14 +85,14 @@ phoneme o
   vowel starttype #o endtype #o
   length 150
   ChangeIfNotStressed(o/)
-  FMT(vowel/o)
+  FMT(vwl_it/o)
 endphoneme
 
 phoneme o/
   vowel starttype #o endtype #o
   length 140
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
-    FMT(vowel/o_8)
+    FMT(vwl_it/o_open, 80)
   ENDIF
   IF thisPh(isWordEnd) THEN
     FMT(vowel/o, 65)
@@ -104,7 +104,7 @@ phoneme O
   vowel starttype #o endtype #o
   length 150
   ChangeIfUnstressed(o/)
-  FMT(vowel/oo_4)
+  FMT(vwl_it/o_open)
 endphoneme
 
 
@@ -112,7 +112,7 @@ phoneme u
   vowel starttype #u endtype #u
   length 160
   ChangeIfNotStressed(U)
-  FMT(vowel/u_bck3)
+  FMT(vwl_it/u)
 endphoneme
 
 phoneme U
@@ -142,7 +142,42 @@ endphoneme
 
 
 // CONSONANTS
-//===========
+//==========
+
+phoneme l
+  liquid
+  lengthmod 7
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la, -10)
+    VowelStart(l/le, -15)
+    VowelStart(l/li, -15)
+    VowelStart(l/lo, -20)
+    VowelStart(l/lu, -17)
+  EndSwitch
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)
+  ENDIF
+  FMT(l/l)
+endphoneme
 
 phoneme l^
   import_phoneme base/l^
@@ -152,7 +187,7 @@ endphoneme
 phoneme ts
   vls alv afr sibilant
   voicingswitch dz
-  lengthmod 2
+  lengthmod 9
   Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
   Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
   IF nextPh(isPause2) THEN

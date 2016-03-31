@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 january 29 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 march 30 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -56,10 +56,10 @@ _ac2	d'op:i;o_|ak'u:to
 _brv	b@-*'E:ve
 _ced	tSed'il^a
 _cir	tSi;@-*konfl'esso
-_dia	djeR'e:zI
+_dia	di'ERezI
 _dot	p'unto||s,ov@-*ask@-*'it:o
-_grv	g@-*'a:ve
-_hac	h'atSek
+_grv	g@-*'ave
+_hac	antifl'Esso/ // Hatchek
 _mcn	m'ak@-*on
 _ogo	og'o:nek
 _rng	an'ello
@@ -100,6 +100,7 @@ _}	kj,uzag@-*'af:a
 _<	min'oRe||d'I
 _>	madZ:'oRe||d'I
 *	aste@-*'isko $max3
+$	d'Ol:aRI
 %	pe@-*tS'ENto $max3
 =	ugwale	$max3
 +	pju	$max3
@@ -297,7 +298,7 @@ _6	s'Ej
 _7	s'Et:e
 _8	'Ot:o
 _9	n'Ove
-_10     di'etSi
+_10	dj'EtSI
 _11     'unditSi
 _12     d'oditSi
 _13     t@-*'editSi
@@ -438,6 +439,7 @@ xml	iks||em:e||'El:e
 // articles
 i	$u+ $only $nounf
 il	$u $only $nounf
+il	'i:l	$atend
 la	$u+ $only
 le	$u+ $only
 lo	$u+ $only
@@ -576,8 +578,8 @@ dei	d,eI $nounf
 degli	$u+ $nounf
 delle	$u+
 de      $u+ $only
-
-in	$u+ 	$only $nounf
+in	$u 	$only $nounf
+in	'i:n	$atend
 nel	 $u+	$only
 nello	$u+
 nella	$u+
@@ -782,6 +784,7 @@ cheque	S'ek
 (chewing gum)	tS'uIN||g'am
 chewinggum	tS'uIN||gam
 chic	S'ik	$only
+chignon	Sin^'On
 chihuahua	tSiw'awa
 choc	S'Ok	$only
 city	s'i:ti
@@ -1016,6 +1019,7 @@ plugin	pl,a/g||'in
 (plug in)	pl,a/g||'in
 pointer	$1
 poker	$1 $alt
+police	p,Ol'i:s	$onlys
 portacontainer	$4
 poster	$1	$onlys
 power	p'a:|we@-*
@@ -1077,7 +1081,7 @@ sitar	$1	$only
 sitter	$1	$onlys
 skipper	$1
 skype	sk'a/:ip
-slider	sl'aIde@-*
+slider	zl'aIde@-*
 smartphone	zm'a@-*tfon
 smile	zmaIl
 smiley	_^_EN
@@ -1652,6 +1656,7 @@ trent'anni	t@-*ent'a:n:I
 vent'anni	vent'an:I
 
 (in balia)	in||bal'i:a
+(presidi sanitari)	p@-*ez'idi||sanit'aRI
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
@@ -1700,7 +1705,7 @@ atene	$2
 auschwitz	'aUSw2its
 avezzano	$3
 azerbaigian	$5
-azerbaijan	a@-*dz,eb,ajdZ'an
+azerbaijan	adz,e@-*b,ajdZ'an
 azzano	$2
 bagdad	$2 $only
 baghdad	$2
@@ -2011,6 +2016,7 @@ ricciano	$2
 rimini	$1
 ripoli $1
 rivanazzano	$4
+rodigin	$3
 rofrano	$2
 rognano	$2
 roma	$alt2
@@ -2060,7 +2066,7 @@ stazzano	$2
 stezzano	$2
 submontano	$3
 survoltano	$3
-svizzer	zv'i:ts:eR
+svizzer	zv'its:eR
 swahili	swah'ilI
 sydney	$1
 tagikistan	$2
@@ -2093,7 +2099,8 @@ ultramontano	$4
 uzzano	$2
 vajont	vaj'O:nt
 valdostano	$3
-valentano	$3 $capital
+valentano	$3
+valentia	val'Entsja
 vallombrosano	$4
 vancouver	vank'u:ve@-*
 vazzano	$2
@@ -2101,6 +2108,7 @@ vecchiano	$3
 venet $1  $alt
 venezuelano	venetsUel'ano
 vezzano	$2
+viareggin	$3
 villamassargia $4
 villasimius	vil:a/sim'i:us
 visciano	$2
@@ -2134,7 +2142,9 @@ alejandro	_^_ES
 alessi  $alt
 alessia	$2 $capital
 alexander	$3
+alicia	al'i:sia	$only
 alice $2
+allah	all'a/
 allende	al^'Ende
 alzeimer	alts'aime@-*
 alzheimer	alts'aIme@-*
@@ -2160,6 +2170,7 @@ antony	'E:ntonI
 arafat	$3 $only
 archimede  $alt
 aristofane $3
+ariston	$1
 aristotele $3
 armida	$2
 asdrubale	$2
@@ -2252,6 +2263,7 @@ federic	$3
 felicita	$2
 fenice	$2
 ferrer	$2	$alt2
+florencio	fl,OR'ensIo
 françois	f@-*,a/NsU'a
 francisco	f@-*ans'isko
 frederic	$1
@@ -2265,13 +2277,16 @@ geremy	$1
 gerolam $2
 gesu $2
 giacom $1
+giampaol	$2
 giangiacomo	$2
 gianmaria	$3
+gianpaol	dZan_p'aol
 gibson	g'Ibson
 giordano	$2
 giorgia	$1
 girolamo	$2
 gorbaciov	$1
+gregoria	$2 $alt2
 grace	g@-*'Eis	$only
 gray	g@-*'eI
 halen	'alen
@@ -2423,6 +2438,7 @@ samuel	$1 $only
 sandokan	$1
 sandoval	$3
 santangelo	$2
+saša	s'aSa/
 savino	$2
 scalfar	$1
 schopenhauer	S,Open'a:w2e@-*
@@ -2453,6 +2469,7 @@ thatcher	t'a/tSe@-*
 tiffany	$1
 timoteo	$2
 tobia $2
+toffan	$2
 tracy	t@-*'E:sI
 troisi	t@-*o'izI
 turner	t'@:ne@-* $onlys
@@ -2462,6 +2479,7 @@ vainer	v'aIne@-*	$only
 valeria	$2 $alt2
 valter	$1 $onlys
 van	$u $capital $only
+vedder	$1 $onlys
 vermouth	v'E@-*mut
 victor	$1 $only
 vincent	v'inseNt[ $only
@@ -2719,6 +2737,7 @@ arredano	$2
 arrenditi	$2
 arrestino	$2
 arrotol	$2
+articolano	$2
 ascoltino	$2
 aspettino	$2
 aspirano	$2
@@ -2856,6 +2875,7 @@ censurano	$2
 censurino	$2
 cessino	$1
 centrano	$1 $alt
+cerchino	$1
 chiacchier	$1
 chiacchierano	$1
 chiacchierino	$1
@@ -3218,6 +3238,7 @@ forano	$1
 formano	$alt2
 formino	$1 $alt2
 formulano	$1
+forviano	$1 $alt2
 forzino	$1
 fotografano	$2
 franino	$1
@@ -3529,6 +3550,7 @@ leggere	$1 $alt
 leghino	$1
 legiferino	$2
 legittimano	$2
+legittimino	$2
 lessino	$1
 levig	$1
 levigano	$1
@@ -4511,7 +4533,7 @@ volano	$1
 vomitano	$1
 votano	$1	$alt2
 votino	$1
-vuol	vu'ol	$u+
+vuol	vu'Ol	$u+
 zappano	$1
 zuccherano	$1
 
@@ -4554,6 +4576,7 @@ zuccherano	$1
 
 accadutomi	$3
 accertati	$2 $atstart
+affittasi	$2
 affrettati	$2 $atstart
 aiutaci	$2
 aiutal	aj'utal
@@ -4594,6 +4617,7 @@ copial	$1 $alt
 copriti	$1
 coprimi	$1
 costituitosi	$4
+creal	k@-*'Ea/l
 dacel	$1
 daccene	$1
 dagliel	$1
@@ -4618,6 +4642,7 @@ espellerl	$2
 esprimiti	$2
 evolverci	$2
 evolversi	$2
+fammel	$1
 fattel	f'at:el
 fermatosi	$2
 formatosi	$2
@@ -4633,6 +4658,7 @@ guidaci	$1
 illuminaci	$2
 illuminami	$2
 illuminal	$2
+immergiti	$2
 impostaci	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
@@ -4728,6 +4754,8 @@ svoltosi	$1 $alt
 svuotal	$2 $alt2
 tenutasi	$2
 tenutosi	$2
+tenutisi	$2
+tornaci	$1
 trattasi	$1
 tuffati	$1 $atstart
 usal	'u:za/l

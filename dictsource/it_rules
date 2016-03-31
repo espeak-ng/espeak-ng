@@ -1,15 +1,16 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2016 January 12 by Chris <llajta2012@gmail.com>
+// Last update: 2016 march 3 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
 // K  not a vowel (i.e. consonant or end-of-word)
 // Y  front vowels: e i (& accents)
-.L01 a à o ò ó u ù
-.L02 e é è
-.L03 b d g l m n r v     // 's' is [z] before these
+
+.L01 b d g l m n r v     // 's' is [z] before these
+.L02 venti trenta quaranta cinquanta sessanta settanta ottanta novanta cento mille mila // Literal name numbers
+
 // pronominal verbs
 .L04 mi ti gli lo la le si ci vi li ne melo telo selo celo velo mela tela sela cela vela meli teli seli celi veli mele tele sele cele vele mene tene sene cene vene glielo gliela glieli gliele gliene
 .L05 melo telo selo celo velo mela tela sela cela vela meli teli seli celi veli mele tele sele cele vele mene tene sene cene vene glielo gliela glieli gliele gliene mi ci gli ne
@@ -25,21 +26,21 @@
 	ai (_	'aj
 		ai (C   aI
 	au	a|%U
-	@C)	a (_S1q  a/     // lookup it_list without suffix
-	@i)	a (_S1q  a     // lookup it_list without suffix
+	@C) a (_S1q	a/  // lookup it_list without suffix
+	@i) a (_S1q	a  // lookup it_list without suffix
 	C) a (cY_	'a
-	@)	a (co_	=a
+	@) a (co_	=a
 	@) a (ca_	=a
-	@)	a (che_	=a
-		a (istA_  a
-	ai (smo_	a'i:
-	@)	a (bile_  'a
-	@)	a (ggine_ 'a
-	_)	ae (r    aE
+	@) a (che_	=a/
+	a (istA_	a
+	ai (smo_	a/'i:
+	@) a (bile_	'a
+	@) a (ggine_	'a
+	_) ae (r	aE
 	avano (_	'avano
-		a (tterA_   'a
-     _) all' (P4t     all
-     _) anch' (P5t     ank
+	a (tterA_	'a
+	_) all' (P4t	all
+	_) anch' (P5t	ank
 	@) amo (L04_	'amo  // Pron.s verbs
 	Ci) amo (L04_	'amo
 	@) ander (L04_	'andE@-*
@@ -48,24 +49,24 @@
 	astano (_	'a:stano   // verbs
 
 .group à
-		à	''a
-		ài (K   ''aI
-                àu	''a|%U
+	à	''a
+	ài (K	''aI
+	àu	''a|U
 
 .group b
-		b       b
-		bb      b:
+	b	b
+	bb	b:
 	bbano (_	=b:ano // verbs
 	bacia (L07_	b'atSa
 
 .group c
-		c	k
-		cc	k:
-		ck	k:
-		cqu (A	k:w2
-		cqui (A	k:wj
-		c (Y    tS
-		cc (Y   tS:
+	c	k
+	cc	k:
+	ck	k:
+	cqu (A	k:w2
+	cqui (A	k:wj
+	c (Y	tS
+	cc (Y	tS:
 		ch (Y	k
 		cch (Y	k:
 	s) ch (A	k
@@ -313,13 +314,14 @@
 	iver (L04_	'ivE@-*
 	d) iver (L04_	iv'E@-*
 	imer (L04_	'Ime@-*
+	ass) ister (L04_	'iste@-*
 	ivano (_	'ivano   // verbs
 	i (ficano_	'i    // verbs
 	ifichino (_	'ifikino   // verbs
 	ACCC) i (cano_	=i   // verbs
 	i (Ccano_	'i   // verbs
 	ilitano (_	'ilitano   // verbs
-	istano (_	'istano   // verbs
+	istano (_	'istano
 
 .group j
 
@@ -507,7 +509,7 @@
 .group s
 		s	s
 	A)	s (A	z
-		s (L03	z
+		s (L01	z
 	l)      s       s
 	p) s	s
 	k) s	s
@@ -552,6 +554,7 @@
 	ssiono (_	ssi'ono
 	C) siono (_	si'ono
 	A) ssano (_	=ssano
+	L02) sei (_	_s'Ej
 
 .group t
 		t	t
@@ -572,6 +575,7 @@
 	_) togli (L04_	t'Ol^i
 	trova (L07_	t@-*'Ova
 	_) tutt' (P5t	tut:
+	L02) tre (_	t@-*'e
 
 .group u
 		u	u
@@ -586,6 +590,7 @@
 	C) ura (L07_	'uRa   // Pron.s verbs
 	uder (L04_	'udE@-*
 	uter (L04_	'ute@-*
+	s) ucch (iaL07_	'uk:
 	uvano (_	'uvano // verbs
 	ubano (_	'ubano
 	ustano (_	'u:stano
@@ -729,7 +734,6 @@ _L16_)	: (_L17D_	_%%E_	// Say time
 		ú	''u
 		ù	''u
 
-		$	d'ollaRo
 	D) , (D	v'i@-*gola
         __)  - (_D         meno
         A_)  - (_D        _
