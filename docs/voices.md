@@ -176,11 +176,11 @@ Controls the tone of the sound.
 
 `tone` is followed by up to 4 pairs of `<frequency> <amplitude>`
 which define a frequency response graph. Frequency is in Hz and
-amplitude is in the range 0 to 25 The default is:
+amplitude is in the range 0 to 255 The default is:
 
 	tone 600 170  1200 135  2000 110
 
-This means that from frequency 0Hz to 600Hz the amplitude is 17 From
+This means that from frequency 0Hz to 600Hz the amplitude is 170 From
 600Hz to 1200Hz the amplitude decreases from 170 to 135, then decreases
 to 110 at 2000Hz and remains at 110 at higher frequencies. This
 adjustment applies only to voiced sounds such as vowels and sonorant
