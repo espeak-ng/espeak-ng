@@ -2,46 +2,46 @@
 // Spelling-to-phoneme words for Latvian
 
 // names of Latvian letters
-a   ''a_: 
-ā   'a::_!
-b   b'e:_:
-c   ts'e:_:
-č   tS'e:_:
-d   d'e:_:
-e   ''e_:
-ē   'e::_!
-f   'ef:_:
-g   g'a:_:
-ģ   J'e:_:
-h   h'a:_:
-ḩ   h'e:_:
-i   ''i_:
-ī   'i::_!
-j   j'e:_:
-k   k'a:_:
-ķ   c'e:_:
-l   'el:_:
-ļ   'el^:_:
-m   'em:_:
-n   'en:_:
-ņ   'en^:_:
-o   'uo_:
-ō   'o::_!
-p   p'e:_:
-q   k'u:_:
-r   'eR::_!
-ŗ   'er::_!
-s   'es::_!
-š   'eS::_!
-t   'te:_:
-u   ''u_:
-ū   'u::_!
-v   v'e:_:
-w   d'ubv,e:_:
-x   'iks_:
-y   'ig,Rek_:
-z   z'e:_:
-ž   Z'e:_:
+a   ,a_: 
+ā   ,a::_!
+b   b,e:_:
+c   ts,e:_:
+č   tS,e:_:
+d   d,e:_:
+e   ,e_:
+ē   ,e::_!
+f   ,ef:_:
+g   g,a:_:
+ģ   J,e:_:
+h   h,a:_:
+ḩ   h,e:_:
+i   ,i_:
+ī   ,i::_!
+j   j,e:_:
+k   k,a:_:
+ķ   c,e:_:
+l   ,el:_:
+ļ   ,el^:_:
+m   ,em:_:
+n   ,en:_:
+ņ   ,en^:_:
+o   ,uo_:
+ō   ,o::_!
+p   p,e:_:
+q   k,u:_:
+r   ,eR::_!
+ŗ   ,er::_!
+s   ,es::_!
+š   ,eS::_!
+t   ,te:_:
+u   ,u_:
+ū   ,u::_!
+v   v,e:_:
+w   d,ubv,e:_:
+x   ,iks_:
+y   ,ig,Rek_:
+z   z,e:_:
+ž   Z,e:_:
 
 //  diphthong consonants
 dz      dze:
@@ -198,8 +198,11 @@ dēļ     $u
 gar     $u
 iekš    $u
 iz      $u
-kā      $u
+jau     $u
+kam     $u
+kā      $u $brk
 kopš    $u
+lai     $u
 labad   $u
 līdz    $u
 no      $u
@@ -213,6 +216,7 @@ pirms   $u
 pret    $u
 priekš  $u
 starp   $u
+tā      $u
 uz      $u
 virs    $u
 zem     $u
@@ -240,7 +244,7 @@ tiklab    $u $brk
 tomēr     $u $pause
 turpretim $u $pause
 turpretī  $u $pause
-un        $u $brk
+un        $u $pause
 vai       $u $brk
 vien      $u $brk
 

@@ -6,3 +6,9 @@ words 0 2
 //intonation 2
 
 //tunes s5 c5 q5 e5
+
+// Set volume to equal, as attack is defined in vowel definitions already
+tone 600 250 1200 250 2000 250
+
+stressAmp 14 8 30 8 0 0 40 30
+stressLength 180 160 180 160 0 0 200 200
