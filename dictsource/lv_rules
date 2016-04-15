@@ -12,21 +12,24 @@
 .L05    e es ei i ē u ēm ēs        // suffixes for feminine words finishing with -e  (5. declination)
 .L06    s ij i ī is u īm īs        // suffixes for feminine words finishing with -s  (6. declination) 
 
-.L07    iem os i u                 // suffixes for plural masculine words finishing with i
+.L07    iem os i u                 // suffixes for plural masculine words finishing with -i
+.L08    as u ām ās                 // suffixes for plural feminine words finishing with -as
+.L09    es u ēm ēs                 // suffixes for plural feminine words finishing with -es
 
 // +---------------------------+
 // |    Suffixes of verbs      |
 // +---------------------------+
 
-.L11    t ties                     // suffixes of verbs in infinitive
-.L12    amies amas amās ama ami  ams
+.L11 t ties                                          // infinitive suffixes of reflective verbs
+//.L11 āt bt ēt gt īt kt lt mt ot pt rt st ut ūt zt    // infinitive suffixes of direct verbs 
+.L12 a am at ām āt i iet u                     // suffixes of direct verbs (without im, it)
+.L13 amies as aties āmies ās āties ies ieties os // suffixes for reflective verbs (without imies ities)
 
 // +---------------------------+
 // |      Other suffixes       |
 // +---------------------------+
 
-.L13 li ni ti                      // suffixes of adverbs
-
+.L18 li ni ti                      // suffixes of adverbs
 
 // +---------------------------+
 // | Pronunciation of e and ē  |
@@ -43,6 +46,11 @@
                                    // by language rules o should be also included, but it is mixed with ȯ and ō
 .L25    r                          // consonant wideners of e
 
+// +---------------------------+
+// |   consonant alternation   |
+// +---------------------------+
+
+.L30 s š t 
 
 // +---------------------------+
 // |     Pronunciation of o    |
@@ -82,15 +90,14 @@
 
 .group a
            a               a
-           a (a            a_!
+           a (A            a_!
            ai              ai
-           ai (j           ai:       // maijs, kaija
+           ai (j           ai:_!     
            au              au
-           ap              ap        // prefix
    
 .group ā
            ā               a:
-           ā (A            a:_
+           ā (A            a:_!
    
 .group b
            b               b
@@ -237,7 +244,7 @@ L26L10L10L10) ē            e:         // narrowing international consonants bef
            ē (CL24         E:
            ē (CCL24        E:
            ē (CCCL24       E:
-           ē (L13_+        E:E:        // cēli, lēni, necerēti
+           ē (L18_+        E:E:        // cēli, lēni, necerēti
 
 .group f
            f               f
@@ -255,10 +262,10 @@ L26L10L10L10) ē            e:         // narrowing international consonants bef
    
 .group i
            i               i
-           i (i            i_!
-           i (ī            i_!
            ie              ie
+           i (A            i_!
            iu              iu
+      ikv) ie (n           'ie      // stress on 2nd syllable
    
 .group ī
            ī               i:
@@ -282,11 +289,10 @@ L26L10L10L10) ē            e:         // narrowing international consonants bef
    
 .group m
            m               m
-           mm              mm:
-        _) maz             maz
    
 .group n
            n               n
+        _) ne (vien        ne'       // stress on 2nd syllable
            n (g            N         // now sounds acceptable
            n (k            N
            nn              nn:       // espeak says doubled nn shorter that doubled ņņ
@@ -389,7 +395,10 @@ L41L10L10L10L10L10) o      o
       _ād) o (lfL01        o         // Ādolfs
    
    //b
-     _bar) o (L11_         uo
+     _bar) o (_            uo        // barot
+     _bar) o (L11_         uo        
+     _bar) o (jL12_        uo
+     _bar) o (jL13_        uo
       bar) o               o
       beg) o (ni           o:
       bet) o               o
@@ -402,12 +411,12 @@ L41L10L10L10L10L10) o      o
         b) o (b            o
         b) o (jL04_        o         // ..boja
         b) o (mb           o
-       _b) o (la_          uo        // (ko) bola
-       _b) o (lām_         uo
-        b) o (līL11_      uo
-       _b) o (lījL12_      uo
+       _b) o (līL11_       uo        // bolīt
+       _b) o (lL12_        uo
+       _b) o (lL13_        uo
        _b) o (līdL01_      o         // bolīds
-        b) o (loš          uo        // bološ..
+       _b) o (līšaL08_     uo        // bolīšanās
+       _b) o (lošL01_      uo        // bološs
        _b) o (lL05_        uo        // bole
        _b) o (l            o
         b) o (l            o:
@@ -430,16 +439,19 @@ L41L10L10L10L10L10) o      o
    
    //c
      celm) o               uo
-      cēl) o               uo
+      cēl) o (n            uo
      cikl) o               o:
      ciet) o (k            uo
       cit) o               o
+     _cit) o (s_           uo         // citos
         c) o (ll           o
    
    //d
      daig) o (n            uo
      dail) o (n            uo
+   daktil) o               o
      dalt) o (n            o:
+     darb) o               uo
      _dat) o (s_           uo
       dat) o               o
       dil) o (n            uo
@@ -564,6 +576,7 @@ L41L10L10L10L10L10) o      o
       _ig) o (rL01_        o:        // Igors
        il) o (g            o:
       ilg) o (nL02_        uo        // Ilgonis
+   indukt) o               o
        im) o (n            o
      impr) o               o
      _ind) o               o
@@ -674,6 +687,7 @@ L41L10L10L10L10L10) o      o
         k) o (rv           o
         k) o (sin          o
         k) o (sm           o
+       _k) osmo (sL01_     osmo      // kosmoss
         k) o (stīm         o
         k) o (tan          o
         k) o (te           o
@@ -689,7 +703,7 @@ L41L10L10L10L10L10) o      o
        kr) o (s            o
      _kum) o (dL05_        uo        // kumode
       kūk) o               uo        // kūko
-       _k) o (vārnL02_     uo       // kovārnis
+       _k) o (vārnL02_     uo        // kovārnis
         k) o (v            o
        kv) o               o
    
@@ -706,7 +720,8 @@ L41L10L10L10L10L10) o      o
        _l) o (litL04_      o         // Lolita
         l) o (kal          o
         l) okomo           okomo
-        l) olo (L61        uoluo
+        l) olo (L11_       uoluo     // lolot
+        l) olo (jL12_      uoluo
        _l) omonoso (vL01_  omon'oso  // Lomonosovs
        _l) o (n            o
         l) o (n            o:
@@ -1182,6 +1197,7 @@ L41L10L10L10L10L10) o      o
        @t) o (r            o
        _t) o (rpAd         o
        _t) o (rtL05_       o         // torte
+        t) o (tal          o
         t) o (tēm          o
      trak) o               uo
       _tr) o (j            o         // Troja

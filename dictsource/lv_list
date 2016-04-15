@@ -87,13 +87,13 @@ _dpt    k'omats_
 // ordinal numbers
 _ord    ais     // default ending
 _1o     p'iRmais
-_2o     'otRais
+_2o     'uotRais
 _3o     tR'eSais
 _4o     ts'etuRtais
 _5o     p'iektais
 _6o     s'estais
 _7o     s'epti:tais
-_8o     'astotais
+_8o     'astuotais
 _9o     d'evi:tais
 _0Co    s'imtais
 
@@ -163,10 +163,10 @@ _‖      d'ubultsta:st,a:vsvi:tRa
 +       pluss  $max3
 @       at_:
 &       _!%un
-/       sli:psvi:tRa  $max3
-\       'apgRiezta:||sl'i:psvi:tRa
+/       'esvi:tRa  $max3
+\       'a:svi:tRa
 $       dola:Ri
-€       eiRo
+€       eiRo:
 &       un
 ¢       tsenti
 £       ma:Rtsin^as
@@ -258,6 +258,7 @@ joprojām  $2
 kautko    $2
 labdien   $2
 labvakar  $2
+mazliet   $2
 nekad     $2
 neko      $2
 nekur     $2
@@ -272,6 +273,7 @@ tāpat     $2
 tepat     $2
 tikpat    $2
 tikvien   $2
+to        $2
 turpat    $2
 turpretī  $2
 
