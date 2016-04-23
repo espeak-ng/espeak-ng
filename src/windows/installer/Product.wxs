@@ -146,6 +146,9 @@
       <Feature Id="lang_kl" Title="Greenlandic" Level="1">
         <ComponentGroupRef Id="LangGreenlandic"/>
       </Feature>
+      <Feature Id="lang_gn" Title="Guarani" Level="1">
+        <ComponentGroupRef Id="LangGuarani"/>
+      </Feature>
       <Feature Id="lang_gu" Title="Gujarati" Level="1">
         <ComponentGroupRef Id="LangGujarati"/>
       </Feature>
@@ -415,6 +418,9 @@
             </Component>
             <Component Id="gd_dict" Win64="$(var.Win64)" Guid="B2D1B94F-796A-41AB-A908-C55D385ABB0A">
               <File Name="gd_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\gd_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="gn_dict" Win64="$(var.Win64)" Guid="5E0A35C9-D7F1-4511-8054-25BC405E85EC">
+              <File Name="gn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\gn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="grc_dict" Win64="$(var.Win64)" Guid="341E54AE-9EB1-4F2A-8FEE-B2E19F825041">
               <File Name="grc_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\grc_dict" KeyPath="yes"/>
@@ -821,6 +827,11 @@
                   <File Name="ro" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\ro" KeyPath="yes"/>
                 </Component>
               </Directory>
+              <Directory Id="SAI" Name="sai">
+                <Component Id="gn" Win64="$(var.Win64)" Guid="D11B73FF-7A67-49B0-8BE6-1345BA1EB00D">
+                  <File Name="gn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sai\gn" KeyPath="yes"/>
+                </Component>
+              </Directory>
               <Directory Id="SEM" Name="sem">
                 <Component Id="am" Win64="$(var.Win64)" Guid="B28850DE-493A-464F-8889-8AA746F31596">
                   <File Name="am" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sem\am" KeyPath="yes"/>
@@ -1098,6 +1109,10 @@
     <ComponentGroup Id="LangGreenlandic">
       <ComponentRef Id="kl"/>
       <ComponentRef Id="kl_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangGuarani">
+      <ComponentRef Id="gn"/>
+      <ComponentRef Id="gn_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangGujarati">
       <ComponentRef Id="gu"/>

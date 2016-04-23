@@ -70,6 +70,7 @@ updated languages:
 
 new languages:
 
+*  gn (Guarani) -- ChrisLeo
 *  mb-br2 (Brazillian Portuguese)
 *  mb-de\* (German) : extend support coverage of the German MBROLA voices
 *  mb-lt1 (Lithuanian) -- embar
