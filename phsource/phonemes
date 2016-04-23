@@ -1974,3 +1974,6 @@ include ph_oromo
 phonemetable my base
 include ph_burmese
 
+phonemetable gn base
+include ph_guarani
+

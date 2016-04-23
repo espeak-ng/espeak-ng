@@ -1,0 +1,171 @@
+
+// guaraní translation rules
+// This file is UTF-8 encoded
+// Last update: 22 april 2016
+
+.replace
+ʻ	' // guarani puso U+02BB
+â	ã
+î	ĩ
+ô	õ
+û	ũ
+ŷ	ỹ
+ğ	ĝ
+
+.group '
+	'	_!
+	A) ' (A	_!
+
+.group a
+	a	a
+
+.group á
+	á	''a
+
+.group ã
+	ã	''a~
+
+.group e
+	e	e
+
+.group é
+	é	''e
+
+.group ẽ // latin e with tilde
+	ẽ	''e~
+
+.group ê
+	ê	''e~
+
+.group i
+	i	i
+
+.group í
+	í	''i
+
+.group ĩ
+	ĩ	''i~
+
+.group o
+	o	o
+
+.group ó
+	ó	''o
+
+.group õ
+	õ	''o~
+
+.group u
+	u	u
+
+.group ú
+	ú	''u
+
+.group ũ
+	ũ	''u~
+
+.group y
+	y 	y
+
+.group ý
+	ý	''y
+
+.group ỹ // latin y with tilde
+	ỹ	''y~
+
+// consonants
+
+.group g
+	g	g
+
+.group ĝ
+	ĝ	n.
+
+.group h
+	h	h
+
+.group j
+	j	J^
+
+.group k
+	k	k
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group ñ
+	ñ	n^
+
+.group p
+	p	p
+
+.group r
+	r	r
+	A) r (A	r
+	rr	R2
+
+.group s
+	s	s
+
+.group t
+	t	t
+
+.group v
+	v	b
+	A) v (A	B
+
+.group ch
+	ch	S
+
+.group mb
+	mb	mb
+
+.group nd
+	nd	Nd
+
+.group ng
+	ng	Ng
+
+.group nt
+	nt	Nt
+
+.group rr
+	rr	R2
+
+// Characters not included in achegety
+
+.group b
+	b	b
+
+.group c
+	c	k
+	_) ch	S
+	c (Y	T // spanish words
+	ck	k:
+
+.group d
+	d	d
+
+.group f
+	f	f
+
+.group q
+	q	k
+	qu (Y	 k
+
+.group w
+	w	w
+	wh	w
+
+.group x
+	x	ks
+
+.group z
+	z	T
+	zz	ts

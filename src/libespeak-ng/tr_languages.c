@@ -814,6 +814,12 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 1; // remove [:] phoneme from non-stressed syllables (Lang=gd)
 	}
 		break;
+	case L('g','n'):   // guarani
+		{
+			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+		}
+		break;
 	case L('h', 'i'): // Hindi
 	case L('n', 'e'): // Nepali
 	case L('o', 'r'): // Oriya
