@@ -148,6 +148,9 @@
   <Target Name="gd" Inputs="$(ProjectDir)..\..\dictsource\gd_rules;$(ProjectDir)..\..\dictsource\gd_list" Outputs="$(ProjectDir)..\..\espeak-data\gd_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gd"/>
   </Target>
+  <Target Name="gn" Inputs="$(ProjectDir)..\..\dictsource\gn_rules;$(ProjectDir)..\..\dictsource\gn_list" Outputs="$(ProjectDir)..\..\espeak-data\gn_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gn"/>
+  </Target>
   <Target Name="grc" Inputs="$(ProjectDir)..\..\dictsource\grc_rules;$(ProjectDir)..\..\dictsource\grc_list" Outputs="$(ProjectDir)..\..\espeak-data\grc_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=grc"/>
   </Target>
@@ -308,5 +311,5 @@
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=zhy"/>
   </Target>
   <!-- NOTE: Compiling 'my' triggers an assertion, so is disabled for now. -->
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;ka;kl;kn;ko;ku;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy"/>
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;ka;kl;kn;ko;ku;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy"/>
 </Project>

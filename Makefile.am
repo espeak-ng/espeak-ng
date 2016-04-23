@@ -505,6 +505,12 @@ dictsource/gd_extra:
 espeak-data/gd_dict: src/espeak-ng phsource/phonemes.stamp dictsource/gd_list dictsource/gd_rules dictsource/gd_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=gd && cd ..
 
+gn: espeak-data/gn_dict
+dictsource/gn_extra:
+	touch dictsource/gn_extra
+espeak-data/gn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/gn_list dictsource/gn_rules dictsource/gn_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=gn && cd ..
+
 grc: espeak-data/grc_dict
 dictsource/grc_extra:
 	touch dictsource/grc_extra
