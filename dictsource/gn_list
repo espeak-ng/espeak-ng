@@ -1,0 +1,168 @@
+﻿
+// This file is UTF-8 encoded
+// Updated 2016 april 20 by Chris, Christian Leo M, <llajta2012@gmail.com>
+
+// letter names
+
+a	a
+ch	Se
+e	e:
+g	ge:
+ĝ	n.e~
+h	he
+i	i:
+j	dZe
+k	ke
+l	le
+m	me
+mb	mbe:
+n	ne
+nd	Nde
+ng	Nge:
+nt	Nte
+ñ	n^e
+o	o:
+p	pe:
+r	r'e:
+rr	R2e:
+s	se
+t	te:
+u	u:
+v	ve:
+y	y:
+_'	pus'o
+ʻ	pus'o
+
+b	be
+c	Te
+d	de
+f	'efe
+q	ku
+w	v'e||_k'o~i
+x	'ekis
+z	T'eta
+
+_á	$accent
+_é	$accent
+_í	$accent
+_ó	$accent
+_ú	$accent
+_ý	$accent
+_ã	$accent
+_ẽ	e~
+_ê	e~:
+_ĩ	$accent
+_õ	$accent
+_ũ	$accent
+_ỹ	y~
+_ĝ	$accent
+
+
+// Accent names
+_acu	muanduh'e~
+// _cir	muanduh,e~||tigu'a~
+_cir	Tirkumfl'exo
+_tld	muanduh,e~||tigu'a~
+_brv	br'eBe
+
+// numbers
+?1  _0lang   _^_es   // speak numbers in Spanish
+
+// character names
+
+_.	kyt'a	$max3
+_:	kytak'o~i
+_,	kygu'ai
+_?	kyporandu||pah'a
+_¿	kyporandu||n^epyr'y~
+_¡	kyNd'yi||n^epyr'y~
+_!	kyNd'yi||pah'a
+_(	rok'ai||dZepe_!'a
+_)	rok'ai||n^embot'y
+_-	taik'y $max3
+__	taiky||karap'e	$max3
+
+// foreign words
+
+(e speak) 'isp'ik
+android	'andr,oid
+audácity	awd'asiti
+english	_^_en
+espeak	i||sp'ik
+facebook	f'eisbuk
+firefox	f'airfoks
+gmail	dZi||m'eil
+google	g'u:g@l
+hardware	h'ardwer
+linux	$1
+microsoft	m'aikrosoft
+mozilla	_^_es
+office	_^_en
+periscope	p'erisk,op
+skype	sk'aip
+software	s'oftwer
+spanish	sp'a:niS
+twitter	tw'iter
+windows	w'i:ndows
+youtube	_^_en
+
+// abbreviations
+nvda	,ene||B,e||D,e_'a
+txt	$abbrev
+gn	$abbrev
+
+//  Proper names
+felipe	_^_es
+chris	kr'is
+
+// countries
+
+américa	_^_es
+argentina	_^_es
+asunción	_^_es
+barcelona	_^_es
+berlín	_^_es
+bolivia	_^_es
+brasilia	_^_es
+brucelas	_^_es
+cagliari	_^_it // k'al^ari
+caracas	_^_es
+chile	_^_es
+colombia	_^_es
+concepción	_^_es
+costa	_^_es
+cuba	_^_es
+dominicana	_^_es
+ecuador	_^_es
+encarnación	_^_es
+españa	_^_es
+estigarribia	_^_es
+guatemala	_^_es
+guatemala	_^_es
+honduras	_^_es
+latina	_^_es
+lima	_^_es
+lisboa	_^_es
+londres	_^_es
+méxico	_^_es
+méxico	_^_es
+madrid	_^_es
+managua	_^_es
+milán	_^_es
+misiones	_^_es
+nápoles	_^_es
+nicaragua	_^_es
+ottawa	_^_es
+parís	_^_es
+paraguay	_^_es
+república	_^_es
+rica	_^_es
+roma	_^_es
+salvador	_^_es
+santiago	_^_es
+tegucigalpa	_^_es
+uruguay	_^_es
+venezuela	_^_es
+washington	_^_en
+zúrich	_^_es
+
