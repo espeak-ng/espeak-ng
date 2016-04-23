@@ -3058,6 +3058,12 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
+
+	samplerate_native = samplerate = rate;
+	LoadPhData(NULL, NULL);
+	if (LoadVoice("", 0) == NULL)
+		return ENS_VOICE_NOT_FOUND;
+
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
 	return CompilePhonemeData2("phonemes", log, context);
