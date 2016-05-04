@@ -235,13 +235,14 @@ viņas   $u
 arī       $u $brk
 bet       $u $pause
 gan       $u $brk
-ne        $u $brk
+ne        $brk    // stressed because can be used as noun
 nedz      $u $brk
 nevis     $u $brk
 nu        $u $brk
 taču      $u $pause
 tiklab    $u $brk
 tomēr     $u $pause
+to        $u
 turpretim $u $pause
 turpretī  $u $pause
 un        $u $pause
@@ -252,16 +253,17 @@ vien      $u $brk
 // exception words with stress on 2nd syllable
 aizvien   $2
 arvien    $2
-jebkad    $2
-jebkur    $2
 joprojām  $2
 kautko    $2
 labdien   $2
+labrīt    $2
 labvakar  $2
 mazliet   $2
 nekad     $2
+nekas     $2
 neko      $2
 nekur     $2
+nemaz     $2
 pagalam   $2
 palaikam  $2
 papilnam  $2
@@ -273,17 +275,22 @@ tāpat     $2
 tepat     $2
 tikpat    $2
 tikvien   $2
-to        $2
 turpat    $2
 turpretī  $2
 
 // 1st word unstressed, 2nd word stressed
 (kaut cik)      $2
 (kaut kā)       $2
-(nez kad)       $2
 (nezin kad)     $3
 (nezin kur)     $3
-
+(nez kad)       $2
+(tai tur)       $2
+(tajā tur)      $3
+(tam tur)       $2
+(tas tur)       $2
+(tās tur)       $2
+(tā tur)        $2
+(to tur)        $2
 
 // stress on last syllable
 neparko $3
@@ -296,6 +303,7 @@ kakao           $2
 maestro         $2
 piano           $2
 solfedžo        $2
+fiasko          $2
 
 //stress on last syllable (international words)
 ateljē          $3
@@ -332,9 +340,7 @@ sv      $abbrev
 šķ      $abbrev
 
 // words with o 
-adadžo  $alt
-aerofoto        $alt
-aidaho  $alt
+adadžo  $alt $2
 aikido  $alt
 ambo    $alt
 anno    $alt
@@ -348,8 +354,6 @@ borneo  $alt
 bravo   $alt
 bruno   $alt
 bruto   $alt
-bufalo  $alt
-burkinafaso     $alt
 depo    $alt
 dingo   $alt
 domino  $alt
@@ -357,17 +361,6 @@ džudo   $alt
 eldorado        $alt
 embargo $alt
 esperanto       $alt
-facto   $alt
-fiasko  $alt
-fito    $alt
-flamenko        $alt
-folio   $alt
-fortisimo       $alt
-foto    $alt
-franko  $alt
-hallo   $alt
-ho      $alt
-hugo    $alt
 indigo  $alt
 inkognito       $alt
 intermeco       $alt
@@ -389,10 +382,8 @@ lumbago $alt
 maestro $alt
 majordomo       $alt
 mecotinto       $alt
-mehiko  $alt
 meteo   $alt
 metro   $alt
-microsoft       $alt
 monako  $alt
 mono    $alt
 montekarlo      $alt
@@ -400,8 +391,6 @@ montevideo      $alt
 moto    $alt
 nato    $alt
 odo     $alt
-ohaio   $alt
-oho     $alt
 ontārio $alt
 oregano $alt
 orinoko $alt
@@ -425,17 +414,14 @@ roks            $alt
 rondo   $alt
 saldo   $alt
 sambo   $alt
-sanfrancisko    $alt
 santodomingo    $alt
 siroko  $alt
-solfedžo        $alt
 solo    $alt
 sombrēro        $alt
 sonera          $alt
 sorgo   $alt
 stereokino      $alt
 storno  $alt
-tehno   $alt
 tobago  $alt
 toronto $alt
 triko   $alt
