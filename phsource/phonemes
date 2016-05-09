@@ -1977,3 +1977,6 @@ include ph_burmese
 phonemetable gn base
 include ph_guarani
 
+phonemetable xpq base
+include ph_mohegan
+

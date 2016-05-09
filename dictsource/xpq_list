@@ -1,0 +1,159 @@
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Mohegan
+
+// names of Mohegan letters
+a   ,a 
+// TODO for other letters
+
+//  diphthong consonants
+
+// numbers
+_0       todo
+_1       n'uqut
+_2       todo
+_3       todo
+_4       todo
+_5       todo
+_6       todo
+_7       todo
+_8       todo
+_9       todo
+_10      todo
+_11      todo
+_12      todo
+_13      todo
+_14      todo
+_15      todo
+_16      todo
+_17      todo
+_18      todo
+_19      todo
+_2X      todo
+_3X      todo
+_4X      todo
+_5X      todo
+_6X      todo
+_7X      todo
+_8X      todo
+_9X      todo
+_0C      todo
+_1C      todo
+_0M1     todo
+_1M1     todo
+_0M2     todo
+_1M2     todo
+_dpt     todo
+
+// ordinal numbers
+_ord    todo     // default ending
+_1o     todo
+_2o     todo
+_3o     todo
+_4o     todo
+_5o     todo
+_6o     todo
+_7o     todo
+_8o     todo
+_9o     todo
+_0Co    todo
+
+
+// accent names 
+_lig    todo
+_acu    todo
+_ac2    todo
+_brv    todo
+_ced    todo
+_cir    todo
+_dia    todo
+_dot    todo
+_grv    todo
+_hac    todo
+_mcn    todo
+_ogo    todo
+_rng    todo
+_stk    todo
+_tld    todo
+
+
+// character names
+_cap    todo
+_?A     todo
+_??     todo
+_#9     todo
+_#32    todo
+
+_!      todo
+_"      todo
+_#      todo
+_'      todo
+_(      todo
+_)      todo
+_,      todo
+_-      todo
+_–      todo
+_—      todo
+_.      todo
+_:      todo
+_;      todo
+_<      todo
+_>      todo
+_?      todo
+_@      todo
+_[      todo
+_]      todo
+_^      todo
+__      todo
+_`      todo
+_{      todo
+_|      todo
+_}      todo
+_~      todo
+_¦      todo
+_«      todo
+_´      todo
+_»      todo
+_¿      todo
+_‒      todo
+_‖      todo
+=       todo
+*       todo
+%       todo
++       todo
+@       todo
+&       todo
+/       todo
+\       todo
+$       todo
+€       todo
+&       todo
+¢       todo
+£       todo
+¥       todo
+₨       todo
+§       todo
+¶       todo
+©       todo
+®       todo
+°       todo
+±       todo
+µ       todo
+¼       todo
+½       todo
+¾       todo
+×       todo
+÷       todo
+♯       todo
+♭       todo
+
+// unstressed words
+aka     $u   // just example!
+
+// pronouns
+I       $u   // usually unstressed
+
+// conjunctions
+and       $u $brk   // just example!
+but       $u $pause
+
+
