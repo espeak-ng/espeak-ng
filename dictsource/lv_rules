@@ -183,6 +183,7 @@ L26L10L10L10) e                e
        _č) e (trL07_           e         // četri
        _d) e (poz              e
        _d) e (c                e
+        ģ) enē (z              ene:
       _dr) e (nL04_            e
         _) e (lgL04_           e         // Elga
         _) e (lzL04_           e         // Elza
@@ -270,13 +271,20 @@ L26L10L10L10) ē                e:
            ē (L01_             E:
 
     // specific words ------------------------------------------------------------------- //
+     cilv) ē (k                E:
        _d) ē (ļ_               e:
+        d) ē (vē               e:
+     _kāp) ē (c_               e:    // kāpēc
        _m) ē (s_               e:    // mēs
        _n) ē (_                e:
        _p) ē (c                e:
        _p) ē (c_               e:
        _p) ēte (rL02_          e:te  // Pēteris
+       _s) ē (dL05_            e:    // sēde
        _s) ē (nL04_            e:    // Sēna
+       sp) ē (k                E:
+       sp) ē (kL01             E:    // ..spēks
+     _tāp) ē (c_               e:    // tāpēc
 
 .group f
            f               f
@@ -338,13 +346,13 @@ L26L10L10L10) ē                e:
 
       L42) o               o:        // o prefixes
            o (L43          o         // o postfixes
-
-L41L10L10L10L10L10) o      o         // o indicators before
-   L41L10L10L10L10) o      o
-      L41L10L10L10) o      o
-         L41L10L10) o      o
-            L41L10) o      o
-               L41) o      o
+                                     // o indicators before
+   L41L10L10L10L10L10) o   o         // if made longer, all other o rules should have + added
+      L41L10L10L10L10) o   o
+         L41L10L10L10) o   o
+            L41L10L10) o   o
+               L41L10) o   o
+                  L41) o   o
         o (L10L10L10L10L41 o         // o indicators after
         o (L10L10L10L41    o
         o (L10L10L41       o
@@ -357,17 +365,18 @@ L41L10L10L10L10L10) o      o         // o indicators before
 
            o (L44+         uo        // uo postfixes
 
+                                     // international prefixes
     _femt) o               o
     _hekt) o               o
     _yokt) o               o
-     _kil) o               o         // international prefixes
+     _kil) o               o
     _micr) o               o
     _mikr) o               o
+       _m) ono             ono:
      _nan) o               o
      _pik) o               o
-    _zept) o               o
-       _m) ono             ono:
    _stere) o               o:
+    _zept) o               o
 
    //a
        ab) o (n            o
@@ -375,6 +384,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
       abs) o (l            o
        ad) o (k            o
        ad) o (p            o
+      adv) o (k            o
       aer) o (d            o
       aer) o (fo           o
       aer) o               o:
@@ -389,7 +399,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
       akr) o               o
      aleg) o (r            o:
       alk) o               o
-      _al) o (t            o
+     _bal) o (tē           o
      amin) o               o
        am) o (n            o
        am) o (r            o
@@ -623,7 +633,8 @@ L41L10L10L10L10L10) o      o         // o indicators before
      karb) o               o
     _kart) o (nL01_        o:        // kartons
      kart) o               o
-   _kastr) o (lL02_        uo         // kastrolis
+   _kastr) o (lL02_        uo        // kastrolis
+   _kašal) o (tL01_        o         // kašalots 
       kin) o               o:
       _kl) on              on
        kl) o (zet          o
@@ -670,6 +681,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
         k) o (pēC          o         // ..kopēt../..kopēš..
         k) o (pējL01_      uo        // ..kopējs
         k) o (pējL04_      uo        // ..kopēja
+       _k) o (pējo_        uo        // kopējo
         k) o (pē_          o         // ..kopē
         k) o (pij          o         // ..kopij..
         k) o (pj           uo        // ..kopj..
@@ -741,6 +753,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
         l) olo (jL13_      uoluo
         l) olo (L12_       uoluo     // lolot
        _l) omonoso (vL01_  omon'oso  // Lomonosovs
+       _l) ondon           ondo:n
        _l) o (nL05_        uo        // lone
        _l) o (n            o
         l) o (n            o:
@@ -858,9 +871,10 @@ L41L10L10L10L10L10) o      o         // o indicators before
         _) o (dek          o
            o (dere         uo
            o (derē         uo
+        _) o (desL04_      o         // Odesa
            o (dia          o
         _) odio            odio:
-        _) odo (s_         uoduo
+        _) odo (s_         uoduo     // odos
            ogo             uoguo
            o (i            o
            o (kāl          o
@@ -945,10 +959,9 @@ L41L10L10L10L10L10) o      o         // o indicators before
            osto (L61       uostuo
       ost) o (pL01_        o         // ..ostops
            o (st_          uo
-           oties (_S5      uoties
+           o (L12_+++++++  uo        // need to compensate o indcators in internationalisms
         _) oto             oto
        ot) o (pL01_        o:        // ..otops
-           ot (_           uot
            o (u            o
         _) o (vāc          o
            o (zL01_        o:        // ..ozs
@@ -957,6 +970,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
            o (zon          o
 
    //p
+      pan) o (r            o
      pant) o               o
     paran) o               o
       par) o (d            o
@@ -968,7 +982,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
      _pil) o (t_           uo        // pilot
       pir) o               o
        pl) o (m            o
-       pl) o (vL01_        o         // plovs
+      _pl) o (vL01_        o         // plovs
      plut) o (k            o
     pneim) o               o:
         p) o (de           o
@@ -1045,7 +1059,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
        pt) o (mL01_        o:        // ..ptoms
 
    //r
-     raiv) o (_            o         // Raivo
+    _raiv) o (_            o         // Raivo
      _ram) o (nL04_        o:        // Ramona
      raps) o               o:
       ras) o (l            o
@@ -1061,9 +1075,9 @@ L41L10L10L10L10L10) o      o         // o indicators before
      rmat) o               o
        _r) o (bert         o
         r) o (bež          uo
-        r) obo (t          obo
-       _r) obo (t_         uobuo     // robot
-       _r) o (derikL01_    o       // Roderiks
+        r) obo (t+++       obo
+       _r) obo (t_+++      uobuo     // robot
+       _r) o (derikL01_    o         // Roderiks
         r) odo (den        odo
        _r) o (kādL05_      o         // rokāde
         r) oko (pe         oko:
@@ -1076,6 +1090,7 @@ L41L10L10L10L10L10) o      o         // o indicators before
         r) o (r            o
         r) o (sij          o
         r) o (stb          o
+        r) o (tāc          o
         r) o (ter          o
         r) o (tē           o
         r) o (v            o
@@ -1095,6 +1110,7 @@ L26L10L10L10sk) o (pL01_  o:         // ...skops
     sinhr) o               o
      sink) o               o:
      _sīp) o (lL01_        uo        // sīpols
+     skal) o               uo
     skler) o               o:
        sk) o (lL04_        uo        // ..skola
        sk) olo             uoluo     // ..skolo..
@@ -1180,6 +1196,7 @@ L26L10L10L10sk) o (pL01_  o:         // ...skops
      _tēl) o (tu_          uo        // tēlotu
     _tikk) o (_            uo        // tikko
         t) o (dL05_+       o:        // ..tode
+       _t) o (kijL04_      o         // Tokija
         t) o (ks           o
         t) o (ler          o
         t) o (lL04_+       o:        // ..tola
@@ -1288,7 +1305,7 @@ L26L10L10L10sk) o (pL01_  o:         // ...skops
 
 .group s
            s               s
-           sh              sh_
+           sh              s_!h_!
 
 .group š
            š               S
