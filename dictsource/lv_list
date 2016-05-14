@@ -160,11 +160,12 @@ _‖      d'ubultsta:st,a:vsvi:tRa
 =       _viena:ds_!  $max3
 *       zvaigzni:te_! $max3
 %       pRotsenti_! $max3
-+       pluss  $max3
+‰       pRomiles_!
++       plus_!  $max3
 @       at_:
 &       _!%un
-/       'esvi:tRa  $max3
-\       'a:svi:tRa
+/       sl,i:psvi:tRa_! $u $max3
+\       ,apve:Rsta:||sl,i:psvi:tRa_! $u $max3
 $       dola:Ri
 €       eiRo:
 &       un
@@ -173,7 +174,7 @@ $       dola:Ri
 ¥       je:nas
 ₨       Ru:pi:jas
 §       sektsija
-¶       paRagRa:fs   // in en_rules
+¶       paRagRa:fs
 ©       auto:Rtiesi:bas
 ®       ReJistRe:ts
 °       gRa:di
@@ -361,6 +362,7 @@ džudo   $alt
 eldorado        $alt
 embargo $alt
 esperanto       $alt
+flamenko        $alt     // can't use "f" as indicator, as 6 letters between are to far from "o"   
 indigo  $alt
 inkognito       $alt
 intermeco       $alt
