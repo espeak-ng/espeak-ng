@@ -485,6 +485,7 @@ L26L10L10L10) ē                e:
       cit) o               o
      _cit) o (s_           uo         // citos
         c) o (ll           o
+        c) o (m_           o
         c) o (_            o:
 
    //d
@@ -556,6 +557,7 @@ L26L10L10L10) ē                e:
    //f
        _f) o (lijL04_      o:        // folija
         f) o (ni           o:
+        f) oto (_          oto:
         f) osfo            osfo:
      furg) o (n            o:
 
@@ -1292,7 +1294,8 @@ L26L10L10L10sk) o (pL01_  o:         // ...skops
 
 .group p
            p               p
-        _) pus             pu's      // stress on next syllable
+        _) pu (CL05_       p'u       // puse
+        _) pus (@          pu's      // pus.. stress on next syllable
 
 .group q
            q               kv

@@ -188,67 +188,176 @@ $       dola:Ri
 ♯       die:zs
 ♭       bemo:ls
 
-// unstressed words
-aiz     $u
-ap      $u
-apakš   $u
-ar      $u
-bez     $u
-caur    $u
-dēļ     $u
-gar     $u
-iekš    $u
-iz      $u
-jau     $u
-kam     $u
-kā      $u $brk
-kopš    $u
-lai     $u
-labad   $u
-līdz    $u
-no      $u
-nu      $u
-pa      $u
-par     $u
-pār     $u
-pēc     $u
-pie     $u
-pirms   $u
-pret    $u
-priekš  $u
-starp   $u
-tā      $u
-uz      $u
-virs    $u
-zem     $u
+// unstressed words and/or with pause
+aiz       $u
+apakš     $u
+ap        $u
+arī       $u+ $brk
+ar        $u+
+atkal     $u+
+bet       $u+ $pause
+bez       $u+
+bija      $u+
+būt       $u+
+būs       $u+
+caur      $u+
+cik       $u+
+dēļ       $u+
+gan       $u+ $brk
+gar       $u
+iekš      $u
+ir        $u+
+iz        $u
+ja        $u+
+jau       $u+
+jeb       $u
+jo        $u
+kad       $u+
+kam       $u
+kas       $u+
+ka        $u
+kā        $u+ $brk
+kur       $u+
+kopš      $u
+ko        $u+
+labad     $u
+lai       $u+
+līdz      $u+
+ļoti      $u+
+nav       $u+
+ne        $u+
+nedz      $u  $brk
+ne        $u+ $brk
+nevis     $u  $brk
+no        $u+
+nu        $u+
+par       $u
+par       $u+
+pa        $u
+pār       $u
+pēc       $u+
+pie       $u
+pirms     $u+
+piem      $u $pause
+piemēram  $u $pause
+protams   $u+
+pret      $u+
+priekš    $u
+starp     $u
+šo        $u+
+taču      $u  $pause
+tad       $u+
+tas       $u+
+tagad     $u+
+te        $u+
+tikt      $u+
+tiek      $u+
+tika      $u+
+tikai     $u+
+tiklab    $u  $brk
+tomēr     $u  $pause
+turpretim $u  $pause
+turpretī  $u  $pause
+un        $u  $pause
+uz        $u
+vai       $u+ $brk
+vairs     $u
+var       $u+
+vien      $u  $brk
+virs      $u
+zem       $u
 
 // pronouns
-es      $u
-tu      $u
-viņš    $u
-viņa    $u
-mēs     $u
-jūs     $u
-viņi    $u
-viņas   $u
-
-// conjunctions
-arī       $u $brk
-bet       $u $pause
-gan       $u $brk
-ne        $brk    // stressed because can be used as noun
-nedz      $u $brk
-nevis     $u $brk
-nu        $u $brk
-taču      $u $pause
-tiklab    $u $brk
-tomēr     $u $pause
-to        $u
-turpretim $u $pause
-turpretī  $u $pause
-un        $u $pause
-vai       $u $brk
-vien      $u $brk
+es        $u+
+jums      $u+
+jūsos     $u+
+jūs       $u+
+jūsu      $u+
+kādai     $u+
+kādam     $u+
+kādas     $u+
+kāda      $u+
+kādā      $u+
+kāds      $u+
+kādu      $u+
+kurai     $u+
+kuram     $u+
+kuras     $u+
+kura      $u+ 
+kurā      $u+
+kurš      $u+
+kuru      $u+
+kuŗai     $u+
+kuŗam     $u+
+kuŗas     $u+
+kuŗa      $u+
+kuŗā      $u+
+kuŗš      $u+
+kuŗu      $u+
+manis     $u+
+mani      $u+
+manī      $u+
+man       $u+
+mēs       $u+
+mums      $u+
+mūsos     $u+
+mūs       $u+
+mūsu      $u+
+pašai     $u+
+pašam     $u+
+pašas     $u+
+paša      $u+
+pašā      $u+
+pašu      $u+
+pati      $u+
+pats      $u+
+savai     $u+
+savam     $u+
+savas     $u+
+sava      $u+
+savā      $u+
+savs      $u+
+savu      $u+
+šai       $u+
+šajai     $u+
+šajā      $u+
+šim       $u+
+šis       $u+
+šīs       $u+
+šī        $u+
+šo        $u+
+tai       $u+
+tajās     $u+
+tajā      $u+  
+tajos     $u+
+tam       $u+
+tas       $u+
+tām       $u+
+tās       $u+
+tā        $u+
+tevis     $u+
+tevi      $u+
+tevī      $u+
+tev       $u+
+tiem      $u+
+tie       $u+
+tik       $u+
+tos       $u+
+to        $u+
+tu        $u+
+viņai     $u+
+viņam     $u+
+viņas     $u+
+viņa      $u+
+viņām     $u+
+viņās     $u+
+viņā      $u+
+viņiem    $u+
+viņi      $u+
+viņos     $u+
+viņš      $u+
+viņus     $u+
+viņu      $u+
 
 
 // exception words with stress on 2nd syllable
@@ -260,12 +369,15 @@ labdien   $2
 labrīt    $2
 labvakar  $2
 mazliet   $2
-nekad     $2
-nekas     $2
-neko      $2
-nekur     $2
-nemaz     $2
+nekad     $2 $u+
+nekam     $2 $u+
+nekas     $2 $u+
+nekā      $2 $u+
+neko      $2 $u+
+nekur     $2 $u+
+nemaz     $2 $u+
 pagalam   $2
+paldies   $2
 palaikam  $2
 papilnam  $2
 paretam   $2
@@ -278,19 +390,42 @@ tikpat    $2
 tikvien   $2
 turpat    $2
 turpretī  $2
+vismaz    $2
 
 // 1st word unstressed, 2nd word stressed
 (kaut cik)      $2
+(kaut kad)      $2
+(kaut kam)      $2 
+(kaut kas)      $2
 (kaut kā)       $2
+(kaut kāda)     $2
+(kaut kādai)    $2
+(kaut kādam)    $2
+(kaut kādas)    $2
+(kaut kādā)     $2
+(kaut kāds)     $2
+(kaut kādu)     $2
+(kaut ko)       $2
+(kaut kur)      $2
 (nezin kad)     $3
 (nezin kur)     $3
 (nez kad)       $2
+(tai pašai)     $2
+(tai pašā)      $2
 (tai tur)       $2
+(tajā pašā)     $2
 (tajā tur)      $3
+(tam pašam)     $2
 (tam tur)       $2
+(tas pats)      $2
 (tas tur)       $2
+(tā paša)       $2
+(tā pati)       $2
+(tās pašas)     $2
 (tās tur)       $2
 (tā tur)        $2
+(tik pat)       $2
+(to pašu)       $2
 (to tur)        $2
 
 // stress on last syllable
@@ -317,6 +452,8 @@ komunikē        $4
 portjē          $2
 protežē         $3
 
+// Specific words which has bad default spelling
+tvnet   te:ve:net
 
 ///////////////////
 // Abbreviations //
@@ -330,8 +467,8 @@ lp      $abbrev
 ls      $abbrev
 lu      $abbrev
 lvu     $abbrev
-nr      $abbrev
 na      $abbrev
+nr      $abbrev
 pr-ks   $abbrev
 psrs    $abbrev
 rpi     $abbrev
@@ -339,6 +476,9 @@ sia     sia: $pause
 st      $abbrev
 sv      $abbrev
 šķ      $abbrev
+tml     te:em,el:  $u $pause
+utml    ute:e,mel: $u $pause
+utt     ute:te:    $u $pause
 
 // words with o 
 adadžo  $alt $2
