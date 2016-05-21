@@ -1,3 +1,5 @@
-name setswana-test
+name setswana
 language tn
 gender male
+
+status testing

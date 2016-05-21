@@ -1,5 +1,7 @@
-name urdu-test
+name urdu
 language ur
+
+status testing
 
 stressrule 6
 

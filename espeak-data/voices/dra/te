@@ -1,5 +1,7 @@
-name telugu-test
+name telugu
 language te
+
+status testing
 
 intonation 2
 //consonants 80

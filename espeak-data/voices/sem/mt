@@ -1,2 +1,4 @@
-name maltese-test
+name maltese
 language mt
+
+status testing

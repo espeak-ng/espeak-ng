@@ -1,4 +1,5 @@
-name swahili-test
+name swahili
 language sw
 gender male
 
+status testing
