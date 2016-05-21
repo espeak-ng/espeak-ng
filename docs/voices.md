@@ -39,8 +39,11 @@ dialect) together with various attributes that affect the
 characteristics of the voice quality and how the language is spoken.
 
 Voice files are located in the `espeak-data/voices` directory, and are
-grouped by the language family of the language being specified in the
-voice files.
+grouped by the [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5)
+language family of the language being specified in the voice files.
+See also Wikipedia's
+[List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
+for more details.
 
 The `default` voice is used if none is specified in the speak command. You
 can copy your preferred voice to "default" so you can use the speak command
@@ -65,19 +68,47 @@ It selects the default behaviour and characteristics for the language,
 and sets default values for "phonemes", "dictionary" and other
 attributes.
 
-The \<language code\> is a
-[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
-When this is not enough to identify an accent, the
-[bcp47-data](https://github.com/rhdunn/bcp47-data) accents file describes
-the private use tags used by eSpeak NG. For example:
+The \<language code\> is a valid
+[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag. The
+list of valid tags originate from various standards and have been combined
+into the
+[IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
+For example:
 
-*  `en` -- English
-*  `en-GB-scotland` -- English with a Scottish accent
-*  `en-GB-x-rp` -- English with a Received Pronunciation accent
-*  `es-419` -- Spanish with a Latin American accent
-*  `fr-CA` -- French with a Canadian accent
+*  `de` (German) -- The [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
+   2-letter language code for the language.
 
- 
+   __NOTE:__ BCP 47 uses ISO 639-1 codes for languages that are allocated
+   2-letter codes (e.g. using `en` instead of `eng`).
+
+*  `yue` (Cantonese) -- The [ISO 639-3](https://en.wikipedia.org/wiki/ISO_639-3)
+   3-letter language codes for the language.
+
+*  `ta-Arab` (Tamil written in the Arabic alphabet) -- The
+   [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) 4-letter script code.
+
+   __NOTE:__ Where the script is the primary script for the language, the script
+   tag should be omitted.
+
+*  `es-419` (Spanish (Latin America)) -- The
+   [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) 3-number region codes.
+
+*  `fr-CA` (French (Canada)) -- Using the
+   [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) 2-letter region codes.
+
+*  `en-GB-scotland` (English (Scotland)) -- This is using the BCP 47 variant
+   tags.
+
+*  `en-GB-x-rp` (English (Received Pronunciation)) -- This is using the
+   [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
+   language tags for accents that cannot be described using the available
+   BCP 47 language tags.
+
+   __NOTE:__ If the accent you are trying to describe cannot be specified using
+   the above system, raise an issue in the
+   [bcp47-data](https://github.com/rhdunn/bcp47-data) project and a private use
+   tag will be defined for that accent.
+
 The optional \<priority\> value gives the preference of this voice
 compared with others for the specified language. A low value indicates a
 more preferred voice. The default value is 5.
@@ -89,12 +120,12 @@ preferred for these. Different language variants may be specified by
 additional `language` lines in order to indicate that this is a
 preferred voice for them also. E.g.
 
-	language en-uk-north
+	language en-GB-x-gbclan
 	language en
 
-indicates that this is voice is for the "en-uk-north" dialect, but it is
-also a main choice when a general "en" language is specified. Without
-the second `language` line, it would be disfavoured for "en" for being
+indicates that this is voice is for the `en-GB-x-gbclan` dialect, but it is
+also a main choice when a general `en` language is specified. Without
+the second `language` line, it would be disfavoured from `en` for being
 a more specialised voice.
 
 ### gender

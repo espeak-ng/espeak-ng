@@ -1,10 +1,10 @@
 # Adding or Improving a Language
 
 - [Language Code](#language-code)
-- [Language Files](#language-files)
   - [Language](#language)
   - [Accent](#accent)
   - [Language Family](#language-family)
+- [Language Files](#language-files)
 - [Voice File](#voice-file)
 - [Phoneme Definition File](#phoneme-definition-file)
 - [Dictionary Files](#dictionary-files)
@@ -31,9 +31,6 @@ The language is identified using the
 list of valid tags originate from various standards and have been combined
 into the
 [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
-Additional private-use tags for other accents and dialects are defined in the
-[bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-file of the [bcp47-data](https://github.com/rhdunn/bcp47-data) project.
 
 ### Language
 
@@ -42,20 +39,17 @@ These language tags are used to specify the language, such as:
 *  `de` (German) -- The [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
    2-letter language code for the language.
 
+   __NOTE:__ BCP 47 uses ISO 639-1 codes for languages that are allocated
+   2-letter codes (e.g. using `en` instead of `eng`).
+
 *  `yue` (Cantonese) -- The [ISO 639-3](https://en.wikipedia.org/wiki/ISO_639-3)
    3-letter language codes for the language.
 
 *  `ta-Arab` (Tamil written in the Arabic alphabet) -- The
    [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) 4-letter script code.
 
-__NOTE:__ The language tags listed in the IANA Language Subtag Registry should
-be used instead of those from the standards they were inherited from. For
-example, ISO 639-3 duplicates languages found in ISO 639-1, but BCP 47 always
-uses the ISO 639-1 form when available. That is, ISO 639-3 `eng` is never used
-for English in BCP 47.
-
-__NOTE:__ Where the script is the primary script for the language, the script
-tag should be omitted.
+   __NOTE:__ Where the script is the primary script for the language, the script
+   tag should be omitted.
 
 ### Accent
 
@@ -76,10 +70,10 @@ such as:
    language tags for accents that cannot be described using the available
    BCP 47 language tags.
 
-__NOTE:__ If the accent you are trying to describe cannot be specified using
-the above system, raise an issue in the
-[bcp47-data](https://github.com/rhdunn/bcp47-data) project and a private use
-tag will be defined for that accent.
+   __NOTE:__ If the accent you are trying to describe cannot be specified using
+   the above system, raise an issue in the
+   [bcp47-data](https://github.com/rhdunn/bcp47-data) project and a private use
+   tag will be defined for that accent.
 
 ### Language Family
 
@@ -96,8 +90,8 @@ are listed under the `cel` language family code.
 
 The following files are needed for your language.
 
-  * `espeak-data/voices/fr`. The voice file. This gives the language name and
-    may set some options.
+  * `espeak-data/voices/roa/fr`. The voice file. This gives the language name
+    and may set some options.
   * `phsource/ph_french`. The phoneme definition file. This contains phoneme
     definitions for the vowels and consonants which the language uses. Usually
     it will contain mostly vowels. Most consonants will be inherited from the
@@ -110,13 +104,13 @@ The following files are needed for your language.
     attributes such as "unstressed" and "pause" to some common words.
 
 The `fr_rules` and `fr_list` files are compiled to produce the
-file `espeak-data/fr_dict`, which eSpeak uses when it is speaking.
+`espeak-data/fr_dict` file, which eSpeak uses when it is speaking.
 
 ## Voice File
 
-Each language needs a voice file in `espeak-data/voices` or
-`espeak-data/voices/test`. The filename of the default voice for a
-language should be the same as the language code (eg. "fr" for French).
+Each language needs a voice file in `espeak-data/voices` grouped by the
+[language family](#language-family). The filename of the default voice for a
+language should be the same as the language code (e.g. `fr` for French).
 
 Details of the contents of voice files are given in [Voices](voices.md).
 
