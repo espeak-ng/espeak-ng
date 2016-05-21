@@ -140,6 +140,15 @@ words are provided then text is spoken from stdin a line at a time.
   * `speak-ng -ven-us "[[h@'loU]]"`:
     Speak the phonemes "h@'loU" using the American English voice.
 
+  * `speak-ng --voices`:
+    List all voices supported by eSpeak.
+
+  * `speak-ng --voices=en`:
+    List all voices that speak English (`en`).
+
+  * `speak-ng --voices=mb`:
+    List all voices using the MBROLA voice synthesizer.
+
 ## AUTHOR
 
 eSpeak NG is maintained by Reece H. Dunn <msclrhd@gmail.com>. It is based on

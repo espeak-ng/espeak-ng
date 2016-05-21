@@ -44,24 +44,6 @@ characteristics of the voice quality and how the language is spoken.
 Voice files are placed in the `espeak-data/voices` directory,
 or within subdirectories in there.
 
-The available voice files can be listed by:
-
-	espeak-ng --voices
-
-or
-
-	espeak-ng --voices=<language>
-
-also
-
-	espeak-ng --voices=<variant>
-
-Lists voice variants which can be applied to eSpeak NG voices.
-
-	espeak-ng --voices=<mbrola>
-
-Lists the Mbrola voices.
-
 ## Contents of Voice Files
 
 The `language` attribute is mandatory. All the other attributes are
