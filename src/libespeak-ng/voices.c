@@ -71,6 +71,8 @@ enum {
 	V_PHONEMES,
 	V_DICTIONARY,
 
+	V_MAINTAINER,
+
 	// these affect voice quality, are independent of language
 	V_FORMANT,
 	V_PITCH,
@@ -120,6 +122,8 @@ static MNEM_TAB keyword_tab[] = {
 	{ "name",         V_NAME },
 	{ "language",     V_LANGUAGE },
 	{ "gender",       V_GENDER },
+
+	{ "maintainer",   V_MAINTAINER },
 
 	{ "formant",      V_FORMANT },
 	{ "pitch",        V_PITCH },
@@ -879,6 +883,8 @@ voice_t *LoadVoice(const char *vname, int control)
 				else
 					fprintf(stderr, "dictdialect name '%s' not recognized\n", name1);
 			}
+			break;
+		case V_MAINTAINER:
 			break;
 		default:
 			if ((key & 0xff00) == 0x100)

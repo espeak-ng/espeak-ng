@@ -4,6 +4,8 @@
   - [name](#name)
   - [language](#language)
   - [gender](#gender)
+- [Maintenance Attributes](#maintenance-attributes)
+  - [maintainer](#maintainer)
 - [Voice Attributes](#voice-attributes)
   - [pitch](#pitch)
   - [formant](#formant)
@@ -137,6 +139,16 @@ change the sound of the voice.
 
 *  \<gender\> may be male, female, or unknown.  
 *  \<age\> is optional and gives an age in years.
+
+## Maintenance Attributes
+
+### maintainer
+
+	maintainer <maintaner>
+
+Specifies the person responsible for updating the voice and associated language
+files. If no maintainer is specified, the voice does not currently have an
+active maintainer.
 
 ## Voice Attributes
 

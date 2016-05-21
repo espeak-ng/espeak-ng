@@ -14,6 +14,8 @@
 *  Group languages by their language family and use BCP47 compliant names.
 *  Support for Windows and BSD platforms.
 *  Removed support for WinCE, MS-DOS and RiscOS.
+*  Add support for a `maintainer` field in voice files for tracking voice
+   maintenance.
 
 build:
 
