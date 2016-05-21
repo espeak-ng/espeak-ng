@@ -63,6 +63,8 @@ updated languages:
 
 *  en (English) -- Thanks to Kendell Clark for identifying mispronunciations.
 *  el (Greek) : improved polytonic Greek support
+*  es (Spanish) : ChrisLeo (improved intonations)
+*  fa (Persian) -- Shadyar Khodayari
 *  fr (French) -- Thomas Guillory
 *  ga (Irish Gaelic) -- Jim Regan
 *  it (Italian) -- ChrisLeo
