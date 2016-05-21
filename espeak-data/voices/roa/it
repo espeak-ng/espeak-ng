@@ -1,7 +1,9 @@
- 
 name italian
 language it
 gender male
+
+maintainer Christian Leo M <llajta2012@gmail.com>
+status mature
 
 tunes s4 c4 q4 e4
 
