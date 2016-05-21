@@ -4,7 +4,11 @@ language en-gb  4
 language en 5
 gender male
 
+maintainer Reece H. Dunn <msclrhd@gmail.com>
+status mature
+
 phonemes en-rp
+
 replace 00  o@  O@
 replace 00 i@3 i@
 replace 03 I i
