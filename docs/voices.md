@@ -1,37 +1,36 @@
 # Voice Files
 
-- [Contents of Voice Files](#contents-of-voice-files)
-  - [Identification Attributes](#identification-attributes)
-    - [name](#name)
-    - [language](#language)
-    - [gender](#gender)
-  - [Voice Attributes](#voice-attributes)
-    - [pitch](#pitch)
-    - [formant](#formant)
-    - [freq\_add](#freq_add)
-    - [echo](#echo)
-    - [tone](#tone)
-    - [flutter](#flutter)
-    - [roughness](#roughness)
-    - [voicing](#voicing)
-    - [consonants](#consonants)
-    - [breath](#breath)
-    - [breathw](#breathw)
-    - [speed](#speed)
-    - [words](#words)
-  - [Language Attributes](#language-attributes)
-    - [phonemes](#phonemes)
-    - [dictionary](#dictionary)
-    - [dictrules](#dictrules)
-    - [replace](#replace)
-    - [stressLength](#stressLength)
-    - [stressAdd](#stressAdd)
-    - [stressAmp](#stressAmp)
-    - [intonation](#intonation)
-    - [charset](#charset)
-    - [dictmin](#dictmin)
-    - [alphabet2](#alphabet2)
-    - [dictdialect](#dictdialect)
+- [Identification Attributes](#identification-attributes)
+  - [name](#name)
+  - [language](#language)
+  - [gender](#gender)
+- [Voice Attributes](#voice-attributes)
+  - [pitch](#pitch)
+  - [formant](#formant)
+  - [freq\_add](#freq_add)
+  - [echo](#echo)
+  - [tone](#tone)
+  - [flutter](#flutter)
+  - [roughness](#roughness)
+  - [voicing](#voicing)
+  - [consonants](#consonants)
+  - [breath](#breath)
+  - [breathw](#breathw)
+  - [speed](#speed)
+  - [words](#words)
+- [Language Attributes](#language-attributes)
+  - [phonemes](#phonemes)
+  - [dictionary](#dictionary)
+  - [dictrules](#dictrules)
+  - [replace](#replace)
+  - [stressLength](#stressLength)
+  - [stressAdd](#stressAdd)
+  - [stressAmp](#stressAmp)
+  - [intonation](#intonation)
+  - [charset](#charset)
+  - [dictmin](#dictmin)
+  - [alphabet2](#alphabet2)
+  - [dictdialect](#dictdialect)
 
 ----------
 
@@ -47,25 +46,20 @@ The `default` voice is used if none is specified in the speak command. You
 can copy your preferred voice to "default" so you can use the speak command
 without the need to specify a voice.
 
-## Contents of Voice Files
+## Identification Attributes
 
-The `language` attribute is mandatory. All the other attributes are
-optional.
-
-### Identification Attributes
-
-#### name
+### name
 
 	name <name>
 
 A name given to this voice.
 
-#### language
+### language
 
 	language <language code> [<priority>]
 
-This attribute should appear before the other attributes which are
-listed below.
+__NOTE:__ This attribute is mandatory and should appear before the other
+attributes which are listed below.
 
 It selects the default behaviour and characteristics for the language,
 and sets default values for "phonemes", "dictionary" and other
@@ -103,7 +97,7 @@ also a main choice when a general "en" language is specified. Without
 the second `language` line, it would be disfavoured for "en" for being
 a more specialised voice.
 
-#### gender
+### gender
 
 	gender <gender> [<age>]
 
@@ -113,9 +107,9 @@ change the sound of the voice.
 *  \<gender\> may be male, female, or unknown.  
 *  \<age\> is optional and gives an age in years.
 
-### Voice Attributes
+## Voice Attributes
 
-#### pitch
+### pitch
 
 	pitch <base> <range>
 
@@ -123,7 +117,7 @@ Two integer values. The first gives a base pitch to the voice (value in
 Hz) The second controls the range of pitches used by the voice. Setting
 it equal to the base pitch will give a monotone. The default values are 82 118.  
 
-#### formant
+### formant
 
 	formant <number> <frequency> <strength> <width> <freq_add>
 
@@ -131,7 +125,7 @@ Systematically adjusts the frequency, strength, and width of the
 resonance peaks of the voice. Values are percentages of the default
 values. Changing these affects the tone/quality of the voice.
 
-#### freq\_add
+### freq\_add
 
 Adds a constant value (in Hz) to the frequency of the formant peak. The value
 may be negative.
@@ -143,7 +137,7 @@ may be negative.
 * Formants 6,7,8 are weak, high frequency, additions to vowels to give a
   clearer sound.
 
-#### echo
+### echo
 
 	echo <delay> <amplitude>
 
@@ -155,7 +149,7 @@ Adding some echo can give a clearer or more interesting sound, especially when
 listening through a domestic stereo sound system, rather than small computer
 speakers.
 
-#### tone
+### tone
 
 Controls the tone of the sound.  
 
@@ -175,7 +169,7 @@ unaffected.
 This `tone` statement can also appear in `espeak-data/config`, in which case
 it applies to all voices which don't have their own `tone` statement.
 
-#### flutter
+### flutter
 
 	flutter <value>
 
@@ -184,7 +178,7 @@ Default value: 100.
 Adds pitch fluctuations to give a wavering or older-sounding voice. A
 large value (eg. 20) makes the voice sound "croaky".
 
-#### roughness
+### roughness
 
 	roughness <value>
 
@@ -193,7 +187,7 @@ Default value:  Range 0 - 7
 Reduces the amplitude of alternate waveform cycles in order to make the
 voice sound creaky.
 
-#### voicing
+### voicing
 
 	voicing <value>
 
@@ -202,7 +196,7 @@ Default value: 100
 Adjusts the strength of formant-synthesized sounds (vowels and sonorant
 consonants).
 
-#### consonants
+### consonants
 
 	consonants <value> <value>
 
@@ -214,7 +208,7 @@ first value is the strength of unvoiced consonants such as "s" and "t".
 The second value is the strength of the noise component of voiced
 consonants such as "z" and "d".
 
-#### breath
+### breath
 
 	breath <up to 8 integer values>
 
@@ -232,7 +226,7 @@ make a "wisper". For example:
 	flutter  20
 	formant   0 100 0 100   // remove formant 0 
 
-#### breathw
+### breathw
 
 	breathw <up to 8 integer values>
 
@@ -240,7 +234,7 @@ These values give bandwidths of the noise peaks of the `breath`
 attribute. If `breathw` values are not given, then suitable default
 values will be used.
 
-#### speed
+### speed
 
 	speed <value>
 
@@ -250,7 +244,7 @@ Adjusts the speaking speed by a percentage of the default rate. This
 can be used if a language voice seems faster or slower compared to other
 voices.
 
-#### words
+### words
 
 	words <integer value> <integer value>
 
@@ -271,9 +265,9 @@ For example:
 will put a short pause between two words where the first word end with a
 vowel and the next start with a vowel.
 
-### Language Attributes
+## Language Attributes
 
-#### phonemes
+### phonemes
 
 	phonemes <name>
 
@@ -286,7 +280,7 @@ first two letters of the "language" parameter. However, different voices
 of the same language can use different phoneme sets, to give different
 accents.
 
-#### dictionary
+### dictionary
 
 	dictionary <name>
 
@@ -295,7 +289,7 @@ that `speak-data/en_dict` should be used to translate from words to
 phonemes. This parameter is usually not needed as it is set by default
 to the first two letters of "language" parameter.
 
-#### dictrules
+### dictrules
 
 	dictrules <list of rule numbers>
 
@@ -305,7 +299,7 @@ language dictionary. They apply to rules in the language's `*_rules`
 dictionary file and also its `*_list` exceptions list. See
 [Text to Phoneme Translation](dictionary.md).
 
-#### replace
+### replace
 
 	replace <flags> <phoneme> <replacement phoneme>
 
@@ -326,7 +320,7 @@ e.g.
 The phoneme mnemonics can be defined for each language, but some are
 listed in [Phonemes](phonemes.md).
 
-#### stressLength
+### stressLength
 
 	stressLength <8 integer values>
 
@@ -344,7 +338,7 @@ vowels in stressed and unstressed syllables.
 * 6 stressed syllable (the main syllable in stressed words)
 * 7 tonic syllable (by default, the last stressed syllable in the clause) 
 
-#### stressAdd
+### stressAdd
 
 	stressAdd <8 integer values>
 
@@ -352,7 +346,7 @@ Eight integer parameters. These are added to the voice's corresponding
 `stressLength` values. They are used in the voice variant files in
 `espeak-data/voices/!v` to give some variety. Negative values may be used.
 
-#### stressAmp
+### stressAmp
 
 	stressAmp <8 integer values>
 
@@ -361,7 +355,7 @@ vowels in stressed and unstressed syllables (see stressLength above).
 The general default values are: 16, 16, 20, 20, 20, 24, 24, 22, although
 these defaults may be different for particular languages.
 
-#### intonation
+### intonation
 
 	intonation <param1>
 
@@ -370,13 +364,13 @@ these defaults may be different for particular languages.
 * 3 -- Less intonation, and comma does not raise the pitch.  
 * 4 -- Pitch rises (rather than falls) at the end of sentence.
 
-#### charset
+### charset
 
 	charset <param1>
 
 The ISO 8859 character set number. (not all are implemented).
 
-#### dictmin
+### dictmin
 
 	dictmin <value>
 
@@ -385,7 +379,7 @@ installed. If the size of the compiled dictionary data for the language
 (the file `espeak-data/*_dict`) is less than this size then a
 warning is given.
 
-#### alphabet2
+### alphabet2
 
 	alphabet2 <alphabet> <language>
 
@@ -397,7 +391,7 @@ in a non-native alphabet. e.g.:
 Alphabets names include: latin, cyr (cyrillic), ar (arabic). The default
 language for latin alphabet is English.
 
-#### dictdialect
+### dictdialect
 
 	dictdialect <dialect>
 
