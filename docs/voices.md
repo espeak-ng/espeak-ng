@@ -32,8 +32,6 @@
     - [dictmin](#dictmin)
     - [alphabet2](#alphabet2)
     - [dictdialect](#dictdialect)
-- [Voice Files Provided](#voice-files-provided)
-  - [default](#default)
 
 ----------
 
@@ -41,8 +39,13 @@ A Voice file specifies a language (and possibly a language variant or
 dialect) together with various attributes that affect the
 characteristics of the voice quality and how the language is spoken.
 
-Voice files are placed in the `espeak-data/voices` directory,
-or within subdirectories in there.
+Voice files are located in the `espeak-data/voices` directory, and are
+grouped by the language family of the language being specified in the
+voice files.
+
+The `default` voice is used if none is specified in the speak command. You
+can copy your preferred voice to "default" so you can use the speak command
+without the need to specify a voice.
 
 ## Contents of Voice Files
 
@@ -417,15 +420,3 @@ voice.
 Additional attributes are available to set various internal options
 which control how language is processed. These would normally be set in
 the program code rather than in a voice file.
-
-## Voice Files Provided
-
-A number of Voice files are provided in the `espeak-data/voices` directory.
-You can select one of these with the `-v <voice filename>` parameter to
-the `espeak-ng` command.
-
-#### default
-
-This voice is used if none is specified in the speak command. You can
-copy your preferred voice to "default" so you can use the speak command
-without the need to specify a voice.
