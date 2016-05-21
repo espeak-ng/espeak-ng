@@ -227,3 +227,41 @@ nucleus0 rise-fall  92 8
 nucleus  rise-fall  88 77 75 10
 endtune
 
+// spanish
+tune s6
+prehead   46 57
+headenv   fall 16
+head       5 79 50 -7 -4
+headextend 0 63 38 13 0
+nucleus0 fall 66 7
+nucleus fall 72 25 16 9
+endtune
+
+tune c6
+prehead   45 55
+headenv   fall 16
+head       4 80 49 -8 -3
+headextend 0 63 38 13 0
+nucleus0 fall-rise 70 15
+nucleus fall-rise 74 26 23 45
+endtune
+
+tune q6
+prehead   48 60
+headenv   fall 16
+head       3 78 40 -7 -3
+headextend 10 47 23 9 0
+onset 58 45 48
+headlast 35 22 17
+nucleus0 fall-rise 90 24
+nucleus fall-rise 78 25 90 68
+endtune
+
+tune e6
+prehead   46 57
+headenv   fall 16
+head       3 90 50 -9 0
+headextend 16 82 50 32 16
+nucleus0 fall  92 8
+nucleus fall  90 77 76 8
+endtune
