@@ -24,7 +24,8 @@ gradual process of improvement.
 ## Language Code
 
 The language is identified using the
-[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
+2-letter [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) (default) 
+or 3-letter [ISO_639-3](https://en.wikipedia.org/wiki/ISO_639-3) language tag.
 When this is not enough to identify an accent, the
 [bcp47-data](https://github.com/rhdunn/bcp47-data) accents file describes
 the private use tags used by eSpeak NG. For example:
@@ -34,6 +35,8 @@ the private use tags used by eSpeak NG. For example:
 *  `en-GB-x-rp` -- English with a Received Pronunciation accent
 *  `es-419` -- Spanish with a Latin American accent
 *  `fr-CA` -- French with a Canadian accent
+
+Note that some languages are grouped in folders of language families according to [List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families).
 
 ## Language Files
 
@@ -45,7 +48,7 @@ The following files are needed for your language.
     definitions for the vowels and consonants which the language uses. Usually
     it will contain mostly vowels. Most consonants will be inherited from the
     common phoneme definitions in the master phoneme file, `phsource/phonemes`.
-    The master phoneme file needs to be edited to call your new `ph_french` file.
+    The master phoneme file needs to be edited to call your new `ph_french` file. 
   * `dictsource/fr_rules`. This contains the spelling-to-phoneme translation
      rules.
   * `dictsource/fr_list`. This contains pronunciations for numbers, letter and

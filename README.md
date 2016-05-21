@@ -2,6 +2,7 @@
 
 <a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.png?branch=master"/></a>
 
+- [Getting source code](#getting-source-code)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -27,6 +28,16 @@ MBROLA to give it a more natural sound.
 
 See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
 various releases and with the eSpeak project.
+
+## Getting source code
+
+If necessary, install git package before. E.g., on Debian-based Linux:
+
+	sudo apt-get install git
+
+The source code repository can be cloned using git:
+
+	git clone https://github.com/espeak-ng/espeak-ng.git
 
 ## Build Dependencies
 

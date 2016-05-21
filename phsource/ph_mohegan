@@ -1,0 +1,32 @@
+// Phoneme definitions for Mohegan language
+// Look for standard phonemes at phonemes file 
+
+phoneme a:
+  vowel starttype #a endtype #a
+  length 300
+  FMT(vowel/a)
+endphoneme
+
+phoneme i:
+  vowel starttype #i endtype #i
+  length 300
+  FMT(vowel/i)
+endphoneme
+
+phoneme o:
+  vowel starttype #o endtype #o
+  length 300
+  FMT(vowel/u)
+endphoneme
+
+phoneme O~
+  vowel  starttype #o  endtype #o
+  length 200
+  FMT(vnasal/o_n4)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 170
+  FMT(vowel/u)
+endphoneme
