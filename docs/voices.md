@@ -150,6 +150,18 @@ Specifies the person responsible for updating the voice and associated language
 files. If no maintainer is specified, the voice does not currently have an
 active maintainer.
 
+### status
+
+	status <status level>
+
+Specifies how advanced the support for the language is:
+
+* `testing` -- Provides the basic level of support, with basic pronunciation
+   rules. Requires feedback from a native speaker to help improve the voice.
+
+* `mature` -- The language is well supported. It has been improved by, or with
+  support from, a native speaker.
+
 ## Voice Attributes
 
 ### pitch

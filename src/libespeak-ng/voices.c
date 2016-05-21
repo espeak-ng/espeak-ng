@@ -72,6 +72,7 @@ enum {
 	V_DICTIONARY,
 
 	V_MAINTAINER,
+	V_STATUS,
 
 	// these affect voice quality, are independent of language
 	V_FORMANT,
@@ -124,6 +125,7 @@ static MNEM_TAB keyword_tab[] = {
 	{ "gender",       V_GENDER },
 
 	{ "maintainer",   V_MAINTAINER },
+	{ "status",       V_STATUS },
 
 	{ "formant",      V_FORMANT },
 	{ "pitch",        V_PITCH },
@@ -885,6 +887,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			}
 			break;
 		case V_MAINTAINER:
+		case V_STATUS:
 			break;
 		default:
 			if ((key & 0xff00) == 0x100)
