@@ -2,6 +2,9 @@
 
 - [Language Code](#language-code)
 - [Language Files](#language-files)
+  - [Language](#language)
+  - [Accent](#accent)
+  - [Language Family](#language-family)
 - [Voice File](#voice-file)
 - [Phoneme Definition File](#phoneme-definition-file)
 - [Dictionary Files](#dictionary-files)
@@ -24,16 +27,70 @@ gradual process of improvement.
 ## Language Code
 
 The language is identified using the
-[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
-When this is not enough to identify an accent, the
-[bcp47-data](https://github.com/rhdunn/bcp47-data) accents file describes
-the private use tags used by eSpeak NG. For example:
+[BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag. The
+list of valid tags originate from various standards and have been combined
+into the
+[IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
+Additional private-use tags for other accents and dialects are defined in the
+[bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
+file of the [bcp47-data](https://github.com/rhdunn/bcp47-data) project.
 
-*  `en` -- English
-*  `en-GB-scotland` -- English with a Scottish accent
-*  `en-GB-x-rp` -- English with a Received Pronunciation accent
-*  `es-419` -- Spanish with a Latin American accent
-*  `fr-CA` -- French with a Canadian accent
+### Language
+
+These language tags are used to specify the language, such as:
+
+*  `de` (German) -- The [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
+   2-letter language code for the language.
+
+*  `yue` (Cantonese) -- The [ISO 639-3](https://en.wikipedia.org/wiki/ISO_639-3)
+   3-letter language codes for the language.
+
+*  `ta-Arab` (Tamil written in the Arabic alphabet) -- The
+   [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) 4-letter script code.
+
+__NOTE:__ The language tags listed in the IANA Language Subtag Registry should
+be used instead of those from the standards they were inherited from. For
+example, ISO 639-3 duplicates languages found in ISO 639-1, but BCP 47 always
+uses the ISO 639-1 form when available. That is, ISO 639-3 `eng` is never used
+for English in BCP 47.
+
+__NOTE:__ Where the script is the primary script for the language, the script
+tag should be omitted.
+
+### Accent
+
+The language tags are also used to specify the accent or dialect of a language,
+such as:
+
+*  `es-419` (Spanish (Latin America)) -- The
+   [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) 3-number region codes.
+
+*  `fr-CA` (French (Canada)) -- Using the
+   [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) 2-letter region codes.
+
+*  `en-GB-scotland` (English (Scotland)) -- This is using the BCP 47 variant
+   tags.
+
+*  `en-GB-x-rp` (English (Received Pronunciation)) -- This is using the
+   [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
+   language tags for accents that cannot be described using the available
+   BCP 47 language tags.
+
+__NOTE:__ If the accent you are trying to describe cannot be specified using
+the above system, raise an issue in the
+[bcp47-data](https://github.com/rhdunn/bcp47-data) project and a private use
+tag will be defined for that accent.
+
+### Language Family
+
+The voices are grouped by the closest language family the language belongs.
+These language families are defined in
+[ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5). See also Wikipedia's
+[List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
+for more details.
+
+For example, the Celtic languages (Welsh, Irish Gaelic, Scottish Gaelic, etc.)
+are listed under the `cel` language family code.
 
 ## Language Files
 
