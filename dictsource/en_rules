@@ -1859,6 +1859,7 @@ _it_separ) ate (_  @t
         d (d 
      _) d' (AP2    d
      _) d' (CP2    d@
+     _) d's (_     di:z
    @@e) d (_S1     d#        // suffix
      @) db (_S2    d,i:bi:
         ddh        d
@@ -3165,6 +3166,7 @@ _it_separ) ate (_  @t
         h          h
         h (h 
         h (_ 
+     _) h's (_     eItSIz
     _B) h 
      @) hammed     h'amId
      C) h (am_ 
@@ -4083,6 +4085,7 @@ _it_separ) ate (_  @t
 
 .group k
         k          k
+     _) k's (_     keIz
         k (k 
      _) k (L01Y    k
      _) k (hY      k
@@ -4387,6 +4390,7 @@ multip) ly         laI
 .group o
         o          0
      _) o          0
+     _) o's (_     oUz
      X) o          0#
 !?3 _h) o (lt      0
      X) o ($w_alt3+++ %0#
@@ -5294,6 +5298,7 @@ multip) ly         laI
 
 .group p
         p          p
+     _) p's (_     pi:z
         p (p 
      _) p (L01Y    p         // allow _pl _pr
      _) pf (Y      f
@@ -5969,6 +5974,7 @@ multip) ly         laI
 
 .group t
         t          t
+     _) t's (_     ti:z
      t) t 
      _) t (rY      t
      _) t (sY      t
@@ -6586,6 +6592,7 @@ contin) u          ju:
      -) y (-       @         // Welsh names
         y          j
      _) y' (CP2    j@
+     _) y's (_     waIz
         y (_$w_alt1++ aI
         y (C_      I
         y (CC      I
@@ -6709,6 +6716,8 @@ contin) u          ju:
 
 .group z
         z          z
+     _) z's (_     zEdz
+?3   _) z's (_     zi:z
         z (z 
      _) zh (Y      Z
      _) z (lot     z
