@@ -1859,6 +1859,7 @@ _it_separ) ate (_  @t
         d (d 
      _) d' (AP2    d
      _) d' (CP2    d@
+     _) d's (_     di:z
    @@e) d (_S1     d#        // suffix
      @) db (_S2    d,i:bi:
         ddh        d
@@ -2107,18 +2108,18 @@ _it_separ) ate (_  @t
         e'er       e@
    &Cr) e's (_S2   z
     &C) e's (_S2i  z
-    &c) e's (_S2i  Iz
+    &c) e's (_S2i  I2z
     &f) e's (_S2i  s
-    &g) e's (_S2i  Iz
+    &g) e's (_S2i  I2z
     &k) e's (_S2i  s
     &p) e's (_S2i  s
     &r) e's (_S2i  z
-    &s) e's (_S2i  Iz
+    &s) e's (_S2i  I2z
     &t) e's (_S2i  s
-    &x) e's (_S2i  Iz
-   &ch) e's (_S2i  Iz
-   &ph) e's (_S2i  Iz
-   &sh) e's (_S2i  Iz
+    &x) e's (_S2i  I2z
+   &ch) e's (_S2i  I2z
+   &ph) e's (_S2i  I2z
+   &sh) e's (_S2i  I2z
    &th) e's (_S2i  z
     XC) e (Be_     i:
         e (Bo_     'i:
@@ -2840,26 +2841,26 @@ _it_separ) ate (_  @t
     &k) es (_S1    s
     &p) es (_S1    s
     &t) es (_S1    z#
-    &c) es (_S1    %Iz
-    &g) es (_S1    %Iz
-   &ch) es (_S1    %Iz
+    &c) es (_S1    %I2z
+    &g) es (_S1    %I2z
+   &ch) es (_S1    %I2z
    &ph) es (_S1    z
   neri) es (_S2i   z
-    &s) es (_S1m   %Iz
-    us) es (_S2e   %Iz
-   cus) es (_S2    %Iz
-   lus) es (_S2    %Iz
- &&rus) es (_S2    %Iz
- &&tus) es (_S2    %Iz
-   &ss) es (_S2    %Iz
-    sh) es (_S2    %Iz
+    &s) es (_S1m   %I2z
+    us) es (_S2e   %I2z
+   cus) es (_S2    %I2z
+   lus) es (_S2    %I2z
+ &&rus) es (_S2    %I2z
+ &&tus) es (_S2    %I2z
+   &ss) es (_S2    %I2z
+    sh) es (_S2    %I2z
    &th) es (_S1    z
     &r) es (_S1    z
    &qu) es (_S1    s
-    &x) es (_S2m   %Iz
-    &z) es (_S2    %Iz
+    &x) es (_S2m   %I2z
+    &z) es (_S2    %I2z
     &C) es (_S1i   z
-   xus) es (_S2    %Iz
+   xus) es (_S2    %I2z
         es (carp   I2s
         es (cape   %Es
         es (capi   %Es
@@ -3165,6 +3166,7 @@ _it_separ) ate (_  @t
         h          h
         h (h 
         h (_ 
+     _) h's (_     eItSI2z
     _B) h 
      @) hammed     h'amId
      C) h (am_ 
@@ -4083,6 +4085,7 @@ _it_separ) ate (_  @t
 
 .group k
         k          k
+     _) k's (_     keIz
         k (k 
      _) k (L01Y    k
      _) k (hY      k
@@ -4387,6 +4390,7 @@ multip) ly         laI
 .group o
         o          0
      _) o          0
+     _) o's (_     oUz
      X) o          0#
 !?3 _h) o (lt      0
      X) o ($w_alt3+++ %0#
@@ -5294,6 +5298,7 @@ multip) ly         laI
 
 .group p
         p          p
+     _) p's (_     pi:z
         p (p 
      _) p (L01Y    p         // allow _pl _pr
      _) pf (Y      f
@@ -5538,7 +5543,7 @@ multip) ly         laI
         quest      kwEst
         questio (n  kwEstS@
         quet (_    keI
-    ra) quet       kI2t
+   rac) quet       kI2t
      @) quett      k'Et
         queu       kju:
         qu (_      k
@@ -5969,6 +5974,7 @@ multip) ly         laI
 
 .group t
         t          t
+     _) t's (_     ti:z
      t) t 
      _) t (rY      t
      _) t (sY      t
@@ -6583,10 +6589,10 @@ contin) u          ju:
         xure (_    kS%U@
 
 .group y
-     _) y (_       waI
      -) y (-       @         // Welsh names
         y          j
      _) y' (CP2    j@
+     _) y's (_     waIz
         y (_$w_alt1++ aI
         y (C_      I
         y (CC      I
@@ -6710,6 +6716,8 @@ contin) u          ju:
 
 .group z
         z          z
+     _) z's (_     zEdz
+?3   _) z's (_     zi:z
         z (z 
      _) zh (Y      Z
      _) z (lot     z
@@ -6809,19 +6817,19 @@ contin) u          ju:
         Ery (_     @ri
         E (x_      E
      &) Es (_S2e   z
-     c) Es (_S2e   %Iz
-     c) E's (_S3e  %Iz
+     c) Es (_S2e   %I2z
+     c) E's (_S3e  %I2z
      f) Es (_S2e   z#
-     g) Es (_S2e   %Iz
-    ch) Es (_S2e   %Iz
-    ph) Es (_S2e   %Iz
+     g) Es (_S2e   %I2z
+    ch) Es (_S2e   %I2z
+    ph) Es (_S2e   %I2z
      k) Es (_S2e   z#
      p) Es (_S2e   z#
-     s) Es (_S2e   %Iz
-     s) E's (_S2e  %Iz
-    sh) Es (_S2e   %Iz
+     s) Es (_S2e   %I2z
+     s) E's (_S2e  %I2z
+    sh) Es (_S2e   %I2z
      t) Es (_S2e   z#
-     x) Es (_S2    %Iz
+     x) Es (_S2    %I2z
     Cr) Es (_S2e   @z
         Ese (_     'i:z
         E (sia     'i:
@@ -6847,15 +6855,15 @@ contin) u          ju:
      p) 's (_S2m   s
      t) 's (_S2m   s
      k) 's (_S2m   s
-    se) 's (_S2m   %Iz
-     s) 's (_S2m   %Iz
-    ce) 's (_S2m   %Iz
+    se) 's (_S2m   %I2z
+     s) 's (_S2m   %I2z
+    ce) 's (_S2m   %I2z
     ch) 's (_S2m   %z/2
    och) 's (_S2m   s
-    sh) 's (_S2m   %Iz
-     x) 's (_S2m   %Iz
-     z) 's (_S2m   %Iz
-    6_) 's (_      %Iz
+    sh) 's (_S2m   %I2z
+     x) 's (_S2m   %I2z
+     z) 's (_S2m   %I2z
+    6_) 's (_      %I2z
    16_) 's (_      z
         're (_S3   3
         've (_S3   @v
