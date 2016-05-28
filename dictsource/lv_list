@@ -236,6 +236,7 @@ par       $u+
 pa        $u
 pār       $u
 pēc       $u+
+pat       $u
 pie       $u
 pirms     $u+
 piem      $u $pause
@@ -393,40 +394,40 @@ turpretī  $2
 vismaz    $2
 
 // 1st word unstressed, 2nd word stressed
-(kaut cik)      $2
-(kaut kad)      $2
-(kaut kam)      $2 
-(kaut kas)      $2
-(kaut kā)       $2
-(kaut kāda)     $2
-(kaut kādai)    $2
-(kaut kādam)    $2
-(kaut kādas)    $2
-(kaut kādā)     $2
-(kaut kāds)     $2
-(kaut kādu)     $2
-(kaut ko)       $2
-(kaut kur)      $2
-(nezin kad)     $3
-(nezin kur)     $3
-(nez kad)       $2
-(tai pašai)     $2
-(tai pašā)      $2
-(tai tur)       $2
-(tajā pašā)     $2
-(tajā tur)      $3
-(tam pašam)     $2
-(tam tur)       $2
-(tas pats)      $2
-(tas tur)       $2
-(tā paša)       $2
-(tā pati)       $2
-(tās pašas)     $2
-(tās tur)       $2
-(tā tur)        $2
-(tik pat)       $2
-(to pašu)       $2
-(to tur)        $2
+(kaut cik)      $2 $u+
+(kaut kad)      $2 $u+
+(kaut kam)      $2 $u+
+(kaut kas)      $2 $u+
+(kaut kā)       $2 $u+
+(kaut kāda)     $2 $u+
+(kaut kādai)    $2 $u+
+(kaut kādam)    $2 $u+
+(kaut kādas)    $2 $u+
+(kaut kādā)     $2 $u+
+(kaut kāds)     $2 $u+
+(kaut kādu)     $2 $u+
+(kaut ko)       $2 $u+
+(kaut kur)      $2 $u+
+(nezin kad)     $3 $u+
+(nezin kur)     $3 $u+
+(nez kad)       $2 $u+
+(tai pašai)     $2 $u+
+(tai pašā)      $2 $u+
+(tai tur)       $2 $u+
+(tajā pašā)     $2 $u+
+(tajā tur)      $3 $u+
+(tam pašam)     $2 $u+
+(tam tur)       $2 $u+
+(tas pats)      $2 $u+
+(tas tur)       $2 $u+
+(tā paša)       $2 $u+
+(tā pati)       $2 $u+
+(tās pašas)     $2 $u+
+(tās tur)       $2 $u+
+(tā tur)        $2 $u+
+(tik pat)       $2 $u+
+(to pašu)       $2 $u+
+(to tur)        $2 $u+
 
 // stress on last syllable
 neparko $3

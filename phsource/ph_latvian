@@ -9,7 +9,7 @@
 phoneme a
   vowel starttype #a endtype #a
   length 120
-  FMT(vwl_lv/a, 100)           // adjusted from aa_3
+  FMT(vwl_lv/a, 90)           // adjusted from aa_3
 endphoneme
 
 phoneme a:
@@ -123,7 +123,7 @@ endphoneme
 
 phoneme uo
   vowel starttype #u endtype #a
-  length 200
+  length 250
   long
   FMT(vdiph2/uaa, 100)
 endphoneme
