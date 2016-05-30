@@ -25,7 +25,174 @@
 
 #include <stddef.h>
 
-using namespace ucd;
+#define Afak UCD_SCRIPT_Afak
+#define Aghb UCD_SCRIPT_Aghb
+#define Ahom UCD_SCRIPT_Ahom
+#define Arab UCD_SCRIPT_Arab
+#define Armi UCD_SCRIPT_Armi
+#define Armn UCD_SCRIPT_Armn
+#define Avst UCD_SCRIPT_Avst
+#define Bali UCD_SCRIPT_Bali
+#define Bamu UCD_SCRIPT_Bamu
+#define Bass UCD_SCRIPT_Bass
+#define Batk UCD_SCRIPT_Batk
+#define Beng UCD_SCRIPT_Beng
+#define Blis UCD_SCRIPT_Blis
+#define Bopo UCD_SCRIPT_Bopo
+#define Brah UCD_SCRIPT_Brah
+#define Brai UCD_SCRIPT_Brai
+#define Bugi UCD_SCRIPT_Bugi
+#define Buhd UCD_SCRIPT_Buhd
+#define Cakm UCD_SCRIPT_Cakm
+#define Cans UCD_SCRIPT_Cans
+#define Cari UCD_SCRIPT_Cari
+#define Cham UCD_SCRIPT_Cham
+#define Cher UCD_SCRIPT_Cher
+#define Cirt UCD_SCRIPT_Cirt
+#define Copt UCD_SCRIPT_Copt
+#define Cprt UCD_SCRIPT_Cprt
+#define Cyrl UCD_SCRIPT_Cyrl
+#define Cyrs UCD_SCRIPT_Cyrs
+#define Deva UCD_SCRIPT_Deva
+#define Dsrt UCD_SCRIPT_Dsrt
+#define Dupl UCD_SCRIPT_Dupl
+#define Egyd UCD_SCRIPT_Egyd
+#define Egyh UCD_SCRIPT_Egyh
+#define Egyp UCD_SCRIPT_Egyp
+#define Elba UCD_SCRIPT_Elba
+#define Ethi UCD_SCRIPT_Ethi
+#define Geok UCD_SCRIPT_Geok
+#define Geor UCD_SCRIPT_Geor
+#define Glag UCD_SCRIPT_Glag
+#define Goth UCD_SCRIPT_Goth
+#define Gran UCD_SCRIPT_Gran
+#define Grek UCD_SCRIPT_Grek
+#define Gujr UCD_SCRIPT_Gujr
+#define Guru UCD_SCRIPT_Guru
+#define Hang UCD_SCRIPT_Hang
+#define Hani UCD_SCRIPT_Hani
+#define Hano UCD_SCRIPT_Hano
+#define Hans UCD_SCRIPT_Hans
+#define Hant UCD_SCRIPT_Hant
+#define Hatr UCD_SCRIPT_Hatr
+#define Hebr UCD_SCRIPT_Hebr
+#define Hira UCD_SCRIPT_Hira
+#define Hluw UCD_SCRIPT_Hluw
+#define Hmng UCD_SCRIPT_Hmng
+#define Hrkt UCD_SCRIPT_Hrkt
+#define Hung UCD_SCRIPT_Hung
+#define Inds UCD_SCRIPT_Inds
+#define Ital UCD_SCRIPT_Ital
+#define Java UCD_SCRIPT_Java
+#define Jpan UCD_SCRIPT_Jpan
+#define Jurc UCD_SCRIPT_Jurc
+#define Kali UCD_SCRIPT_Kali
+#define Kana UCD_SCRIPT_Kana
+#define Khar UCD_SCRIPT_Khar
+#define Khmr UCD_SCRIPT_Khmr
+#define Khoj UCD_SCRIPT_Khoj
+#define Knda UCD_SCRIPT_Knda
+#define Kore UCD_SCRIPT_Kore
+#define Kpel UCD_SCRIPT_Kpel
+#define Kthi UCD_SCRIPT_Kthi
+#define Lana UCD_SCRIPT_Lana
+#define Laoo UCD_SCRIPT_Laoo
+#define Latf UCD_SCRIPT_Latf
+#define Latg UCD_SCRIPT_Latg
+#define Latn UCD_SCRIPT_Latn
+#define Lepc UCD_SCRIPT_Lepc
+#define Limb UCD_SCRIPT_Limb
+#define Lina UCD_SCRIPT_Lina
+#define Linb UCD_SCRIPT_Linb
+#define Lisu UCD_SCRIPT_Lisu
+#define Loma UCD_SCRIPT_Loma
+#define Lyci UCD_SCRIPT_Lyci
+#define Lydi UCD_SCRIPT_Lydi
+#define Mahj UCD_SCRIPT_Mahj
+#define Mand UCD_SCRIPT_Mand
+#define Mani UCD_SCRIPT_Mani
+#define Maya UCD_SCRIPT_Maya
+#define Mend UCD_SCRIPT_Mend
+#define Merc UCD_SCRIPT_Merc
+#define Mero UCD_SCRIPT_Mero
+#define Mlym UCD_SCRIPT_Mlym
+#define Modi UCD_SCRIPT_Modi
+#define Mong UCD_SCRIPT_Mong
+#define Moon UCD_SCRIPT_Moon
+#define Mroo UCD_SCRIPT_Mroo
+#define Mtei UCD_SCRIPT_Mtei
+#define Mult UCD_SCRIPT_Mult
+#define Mymr UCD_SCRIPT_Mymr
+#define Narb UCD_SCRIPT_Narb
+#define Nbat UCD_SCRIPT_Nbat
+#define Nkgb UCD_SCRIPT_Nkgb
+#define Nkoo UCD_SCRIPT_Nkoo
+#define Nshu UCD_SCRIPT_Nshu
+#define Ogam UCD_SCRIPT_Ogam
+#define Olck UCD_SCRIPT_Olck
+#define Orkh UCD_SCRIPT_Orkh
+#define Orya UCD_SCRIPT_Orya
+#define Osma UCD_SCRIPT_Osma
+#define Palm UCD_SCRIPT_Palm
+#define Pauc UCD_SCRIPT_Pauc
+#define Perm UCD_SCRIPT_Perm
+#define Phag UCD_SCRIPT_Phag
+#define Phli UCD_SCRIPT_Phli
+#define Phlp UCD_SCRIPT_Phlp
+#define Phlv UCD_SCRIPT_Phlv
+#define Phnx UCD_SCRIPT_Phnx
+#define Plrd UCD_SCRIPT_Plrd
+#define Prti UCD_SCRIPT_Prti
+#define Qaak UCD_SCRIPT_Qaak
+#define Rjng UCD_SCRIPT_Rjng
+#define Roro UCD_SCRIPT_Roro
+#define Runr UCD_SCRIPT_Runr
+#define Samr UCD_SCRIPT_Samr
+#define Sara UCD_SCRIPT_Sara
+#define Sarb UCD_SCRIPT_Sarb
+#define Saur UCD_SCRIPT_Saur
+#define Sgnw UCD_SCRIPT_Sgnw
+#define Shaw UCD_SCRIPT_Shaw
+#define Shrd UCD_SCRIPT_Shrd
+#define Sidd UCD_SCRIPT_Sidd
+#define Sind UCD_SCRIPT_Sind
+#define Sinh UCD_SCRIPT_Sinh
+#define Sora UCD_SCRIPT_Sora
+#define Sund UCD_SCRIPT_Sund
+#define Sylo UCD_SCRIPT_Sylo
+#define Syrc UCD_SCRIPT_Syrc
+#define Syre UCD_SCRIPT_Syre
+#define Syrj UCD_SCRIPT_Syrj
+#define Syrn UCD_SCRIPT_Syrn
+#define Tagb UCD_SCRIPT_Tagb
+#define Takr UCD_SCRIPT_Takr
+#define Tale UCD_SCRIPT_Tale
+#define Talu UCD_SCRIPT_Talu
+#define Taml UCD_SCRIPT_Taml
+#define Tang UCD_SCRIPT_Tang
+#define Tavt UCD_SCRIPT_Tavt
+#define Telu UCD_SCRIPT_Telu
+#define Teng UCD_SCRIPT_Teng
+#define Tfng UCD_SCRIPT_Tfng
+#define Tglg UCD_SCRIPT_Tglg
+#define Thaa UCD_SCRIPT_Thaa
+#define Thai UCD_SCRIPT_Thai
+#define Tibt UCD_SCRIPT_Tibt
+#define Tirh UCD_SCRIPT_Tirh
+#define Ugar UCD_SCRIPT_Ugar
+#define Vaii UCD_SCRIPT_Vaii
+#define Visp UCD_SCRIPT_Visp
+#define Wara UCD_SCRIPT_Wara
+#define Wole UCD_SCRIPT_Wole
+#define Xpeo UCD_SCRIPT_Xpeo
+#define Xsux UCD_SCRIPT_Xsux
+#define Yiii UCD_SCRIPT_Yiii
+#define Zinh UCD_SCRIPT_Zinh
+#define Zmth UCD_SCRIPT_Zmth
+#define Zsym UCD_SCRIPT_Zsym
+#define Zxxx UCD_SCRIPT_Zxxx
+#define Zyyy UCD_SCRIPT_Zyyy
+#define Zzzz UCD_SCRIPT_Zzzz
 
 // Unicode Character Data 8.0.0
 
@@ -3376,27 +3543,22 @@ static const uint8_t *scripts_0E0000_0E01FF[] =
 
 ucd_script ucd_lookup_script(codepoint_t c)
 {
-	return (ucd_script)ucd::lookup_script(c);
-}
-
-ucd::script ucd::lookup_script(codepoint_t c)
-{
 	if (c <= 0x00D7FF) // 000000..00D7FF
 	{
 		const uint8_t *table = scripts_000000_00D7FF[(c - 0x000000) / 256];
-		return (ucd::script)table[c % 256];
+		return (ucd_script)table[c % 256];
 	}
 	if (c <= 0x00F7FF) return Zzzz; // 00D800..00F7FF : Surrogates / Private Use Area
 	if (c <= 0x02FAFF) // 00F800..02FAFF
 	{
 		const uint8_t *table = scripts_00F800_02FAFF[(c - 0x00F800) / 256];
-		return (ucd::script)table[c % 256];
+		return (ucd_script)table[c % 256];
 	}
 	if (c <= 0x0DFFFF) return Zzzz; // 02FB00..0DFFFF : Unassigned
 	if (c <= 0x0E01FF) // 0E0000..0E01FF
 	{
 		const uint8_t *table = scripts_0E0000_0E01FF[(c - 0x0E0000) / 256];
-		return (ucd::script)table[c % 256];
+		return (ucd_script)table[c % 256];
 	}
 	if (c <= 0x10FFFF) return Zzzz; // 0E0200..10FFFF : Unassigned
 	return Zzzz; // Invalid Unicode Codepoint

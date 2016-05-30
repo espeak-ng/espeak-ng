@@ -741,7 +741,10 @@ namespace ucd
 	  * @param c The Unicode codepoint to lookup.
 	  * @return  The Script of the Unicode codepoint.
 	  */
-	script lookup_script(codepoint_t c);
+	inline script lookup_script(codepoint_t c)
+	{
+		return (script)ucd_lookup_script(c);
+	}
 
 	/** @brief Is the codepoint an alpha-numeric character?
 	  *

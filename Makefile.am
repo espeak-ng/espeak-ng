@@ -95,7 +95,7 @@ tools/scripts.py: tools/ucd.py \
 ucd-update: tools/case.py tools/categories.py tools/scripts.py
 	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/case.c
 	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/categories.c
-	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/scripts.cpp
+	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} ${UCD_FLAGS} > src/scripts.c
 
 libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \
@@ -107,7 +107,7 @@ src_libucd_la_SOURCES  = \
 	src/case.c \
 	src/categories.c \
 	src/ctype.c \
-	src/scripts.cpp \
+	src/scripts.c \
 	src/tostring.c
 
 ############################# tests ###########################################
