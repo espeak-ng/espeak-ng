@@ -106,7 +106,7 @@ src_libucd_la_LDFLAGS  = -version-info $(LIBUCD_VERSION)
 src_libucd_la_SOURCES  = \
 	src/case.cpp \
 	src/categories.cpp \
-	src/ctype.cpp \
+	src/ctype.c \
 	src/scripts.cpp \
 	src/tostring.c
 

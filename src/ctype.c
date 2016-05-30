@@ -22,15 +22,16 @@
 
 int ucd_isalnum(codepoint_t c)
 {
-	return ucd::isalnum(c);
-}
-
-int ucd::isalnum(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Ll: case Lm: case Lo: case Lt: case Lu:
-	case Nd: case Nl: case No:
+	case UCD_CATEGORY_Ll:
+	case UCD_CATEGORY_Lm:
+	case UCD_CATEGORY_Lo:
+	case UCD_CATEGORY_Lt:
+	case UCD_CATEGORY_Lu:
+	case UCD_CATEGORY_Nd:
+	case UCD_CATEGORY_Nl:
+	case UCD_CATEGORY_No:
 		return 1;
 	default:
 		return 0;
@@ -39,14 +40,13 @@ int ucd::isalnum(codepoint_t c)
 
 int ucd_isalpha(codepoint_t c)
 {
-	return ucd::isalpha(c);
-}
-
-int ucd::isalpha(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Ll: case Lm: case Lo: case Lt: case Lu:
+	case UCD_CATEGORY_Ll:
+	case UCD_CATEGORY_Lm:
+	case UCD_CATEGORY_Lo:
+	case UCD_CATEGORY_Lt:
+	case UCD_CATEGORY_Lu:
 		return 1;
 	default:
 		return 0;
@@ -55,24 +55,16 @@ int ucd::isalpha(codepoint_t c)
 
 int ucd_iscntrl(codepoint_t c)
 {
-	return ucd::iscntrl(c);
-}
-
-int ucd::iscntrl(codepoint_t c)
-{
-	return lookup_category(c) == Cc;
+	return ucd_lookup_category(c) == UCD_CATEGORY_Cc;
 }
 
 int ucd_isdigit(codepoint_t c)
 {
-	return ucd::isdigit(c);
-}
-
-int ucd::isdigit(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Nd: case Nl: case No:
+	case UCD_CATEGORY_Nd:
+	case UCD_CATEGORY_Nl:
+	case UCD_CATEGORY_No:
 		return 1;
 	default:
 		return 0;
@@ -81,16 +73,17 @@ int ucd::isdigit(codepoint_t c)
 
 int ucd_isgraph(codepoint_t c)
 {
-	return ucd::isgraph(c);
-}
-
-int ucd::isgraph(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Cc: case Cf: case Cn: case Co: case Cs:
-	case Zl: case Zp: case Zs:
-	case Ii:
+	case UCD_CATEGORY_Cc:
+	case UCD_CATEGORY_Cf:
+	case UCD_CATEGORY_Cn:
+	case UCD_CATEGORY_Co:
+	case UCD_CATEGORY_Cs:
+	case UCD_CATEGORY_Zl:
+	case UCD_CATEGORY_Zp:
+	case UCD_CATEGORY_Zs:
+	case UCD_CATEGORY_Ii:
 		return 0;
 	default:
 		return 1;
@@ -99,25 +92,19 @@ int ucd::isgraph(codepoint_t c)
 
 int ucd_islower(codepoint_t c)
 {
-	return ucd::islower(c);
-}
-
-int ucd::islower(codepoint_t c)
-{
-	return lookup_category(c) == Ll;
+	return ucd_lookup_category(c) == UCD_CATEGORY_Ll;
 }
 
 int ucd_isprint(codepoint_t c)
 {
-	return ucd::isprint(c);
-}
-
-int ucd::isprint(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Cc: case Cf: case Cn: case Co: case Cs:
-	case Ii:
+	case UCD_CATEGORY_Cc:
+	case UCD_CATEGORY_Cf:
+	case UCD_CATEGORY_Cn:
+	case UCD_CATEGORY_Co:
+	case UCD_CATEGORY_Cs:
+	case UCD_CATEGORY_Ii:
 		return 0;
 	default:
 		return 1;
@@ -126,14 +113,15 @@ int ucd::isprint(codepoint_t c)
 
 int ucd_ispunct(codepoint_t c)
 {
-	return ucd::ispunct(c);
-}
-
-int ucd::ispunct(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Pc: case Pd: case Pe: case Pf: case Pi: case Po: case Ps:
+	case UCD_CATEGORY_Pc:
+	case UCD_CATEGORY_Pd:
+	case UCD_CATEGORY_Pe:
+	case UCD_CATEGORY_Pf:
+	case UCD_CATEGORY_Pi:
+	case UCD_CATEGORY_Po:
+	case UCD_CATEGORY_Ps:
 		return 1;
 	default:
 		return 0;
@@ -142,16 +130,13 @@ int ucd::ispunct(codepoint_t c)
 
 int ucd_isspace(codepoint_t c)
 {
-	return ucd::isspace(c);
-}
-
-int ucd::isspace(codepoint_t c)
-{
-	switch (lookup_category(c))
+	switch (ucd_lookup_category(c))
 	{
-	case Zl: case Zp: case Zs:
+	case UCD_CATEGORY_Zl:
+	case UCD_CATEGORY_Zp:
+	case UCD_CATEGORY_Zs:
 		return 1;
-	case Cc:
+	case UCD_CATEGORY_Cc:
 		switch (c) // Some control characters are also whitespace characters:
 		{
 		case 0x09: // U+0009 : CHARACTER TABULATION
@@ -169,10 +154,5 @@ int ucd::isspace(codepoint_t c)
 
 int ucd_isupper(codepoint_t c)
 {
-	return ucd::isupper(c);
-}
-
-int ucd::isupper(codepoint_t c)
-{
-	return lookup_category(c) == Lu;
+	return ucd_lookup_category(c) == UCD_CATEGORY_Lu;
 }

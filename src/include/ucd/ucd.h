@@ -739,70 +739,100 @@ namespace ucd
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a letter or number, zero otherwise.
 	  */
-	int isalnum(codepoint_t c);
+	inline int isalnum(codepoint_t c)
+	{
+		return ucd_isalnum(c);
+	}
 
 	/** @brief Is the codepoint a letter?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a letter, zero otherwise.
 	  */
-	int isalpha(codepoint_t c);
+	inline int isalpha(codepoint_t c)
+	{
+		return ucd_isalpha(c);
+	}
 
 	/** @brief Is the codepoint a control character?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a control character, zero otherwise.
 	  */
-	int iscntrl(codepoint_t c);
+	inline int iscntrl(codepoint_t c)
+	{
+		return ucd_iscntrl(c);
+	}
 
 	/** @brief Is the codepoint a numeric character?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a number, zero otherwise.
 	  */
-	int isdigit(codepoint_t c);
+	inline int isdigit(codepoint_t c)
+	{
+		return ucd_isdigit(c);
+	}
 
 	/** @brief Does the codepoint have a displayable glyph?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint has a displayable glyph, zero otherwise.
 	  */
-	int isgraph(codepoint_t c);
+	inline int isgraph(codepoint_t c)
+	{
+		return ucd_isgraph(c);
+	}
 
 	/** @brief Is the codepoint a lower-case letter?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a lower-case letter, zero otherwise.
 	  */
-	int islower(codepoint_t c);
+	inline int islower(codepoint_t c)
+	{
+		return ucd_islower(c);
+	}
 
 	/** @brief Is the codepoint a printable character?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a printable character, zero otherwise.
 	  */
-	int isprint(codepoint_t c);
+	inline int isprint(codepoint_t c)
+	{
+		return ucd_isprint(c);
+	}
 
 	/** @brief Is the codepoint a punctuation character?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a punctuation character, zero otherwise.
 	  */
-	int ispunct(codepoint_t c);
+	inline int ispunct(codepoint_t c)
+	{
+		return ucd_ispunct(c);
+	}
 
 	/** @brief Is the codepoint a whitespace character?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is a whitespace character, zero otherwise.
 	  */
-	int isspace(codepoint_t c);
+	inline int isspace(codepoint_t c)
+	{
+		return ucd_isspace(c);
+	}
 
 	/** @brief Is the codepoint an upper-case letter?
 	  *
 	  * @param c The Unicode codepoint to check.
 	  * @return  Non-zero if the codepoint is an upper-case letter, zero otherwise.
 	  */
-	int isupper(codepoint_t c);
+	inline int isupper(codepoint_t c)
+	{
+		return ucd_isupper(c);
+	}
 
 	/** @brief Convert the Unicode codepoint to upper-case.
 	  *
