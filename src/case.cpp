@@ -1,6 +1,6 @@
 /* Unicode Case Conversion
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -2511,6 +2511,11 @@ static const case_conversion_entry case_conversion_data[] =
 	{ 0x0118DF, 0x0118BF, 0x000000, 0x0118BF },
 };
 
+codepoint_t ucd_toupper(codepoint_t c)
+{
+	return ucd::toupper(c);
+}
+
 ucd::codepoint_t ucd::toupper(codepoint_t c)
 {
 	int begin = 0;
@@ -2529,6 +2534,11 @@ ucd::codepoint_t ucd::toupper(codepoint_t c)
 	return c;
 }
 
+codepoint_t ucd_tolower(codepoint_t c)
+{
+	return ucd::tolower(c);
+}
+
 ucd::codepoint_t ucd::tolower(codepoint_t c)
 {
 	int begin = 0;
@@ -2545,6 +2555,11 @@ ucd::codepoint_t ucd::tolower(codepoint_t c)
 			end = pos - 1;
 	}
 	return c;
+}
+
+codepoint_t ucd_totitle(codepoint_t c)
+{
+	return ucd::totitle(c);
 }
 
 ucd::codepoint_t ucd::totitle(codepoint_t c)

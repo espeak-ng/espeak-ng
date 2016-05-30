@@ -1,6 +1,6 @@
 /* Enumeration types to string.
  *
- * Copyright (C) 2012-2014 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -20,6 +20,11 @@
 
 #include "ucd/ucd.h"
 
+const char *ucd_get_category_group_string(ucd_category_group c)
+{
+	return ucd::get_category_group_string((ucd::category_group)c);
+}
+
 const char *ucd::get_category_group_string(category_group c)
 {
 	switch (c)
@@ -34,6 +39,11 @@ const char *ucd::get_category_group_string(category_group c)
 	case Z:  return "Z";
 	default: return "-";
 	}
+}
+
+const char *ucd_get_category_string(ucd_category c)
+{
+	return ucd::get_category_string((ucd::category)c);
 }
 
 const char *ucd::get_category_string(category c)
@@ -73,6 +83,11 @@ const char *ucd::get_category_string(category c)
 	case Zs: return "Zs";
 	default: return "--";
 	}
+}
+
+const char *ucd_get_script_string(ucd_script s)
+{
+	return ucd::get_script_string((ucd::script)s);
 }
 
 const char *ucd::get_script_string(script s)

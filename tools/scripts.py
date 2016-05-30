@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012, 2014 Reece H. Dunn
+# Copyright (C) 2012-2016 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -86,7 +86,7 @@ for codepoints, script, comment in script_sets:
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode Scripts
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -156,6 +156,12 @@ using namespace ucd;
 					sys.stdout.write('\tscripts_%s,\n' % codepoint)
 			sys.stdout.write('};\n')
 
+	sys.stdout.write("""
+ucd_script ucd_lookup_script(codepoint_t c)
+{
+	return (ucd_script)ucd::lookup_script(c);
+}
+""")
 	sys.stdout.write('\n')
 	sys.stdout.write('ucd::script ucd::lookup_script(codepoint_t c)\n')
 	sys.stdout.write('{\n')

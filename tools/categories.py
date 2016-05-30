@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012, 2014 Reece H. Dunn
+# Copyright (C) 2012-2016 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -92,7 +92,7 @@ for codepoints, category, comment in category_sets:
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode General Categories
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -162,6 +162,12 @@ using namespace ucd;
 					sys.stdout.write('\tcategories_%s,\n' % codepoint)
 			sys.stdout.write('};\n')
 
+	sys.stdout.write("""
+ucd_category ucd_lookup_category(codepoint_t c)
+{
+	return (ucd_category)ucd::lookup_category((ucd::category)c);
+}
+""")
 	sys.stdout.write('\n')
 	sys.stdout.write('ucd::category ucd::lookup_category(codepoint_t c)\n')
 	sys.stdout.write('{\n')
@@ -178,6 +184,11 @@ using namespace ucd;
 	sys.stdout.write('}\n')
 
 	sys.stdout.write("""
+ucd_category_group ucd_get_category_group_for_category(ucd_category c)
+{
+	return (ucd_category_group)ucd::lookup_category_group((ucd::category)c);
+}
+
 ucd::category_group ucd::lookup_category_group(category c)
 {
 	switch (c)
@@ -199,6 +210,11 @@ ucd::category_group ucd::lookup_category_group(category c)
 	case Ii:
 		return I;
 	}
+}
+
+ucd_category_group ucd_lookup_category_group(codepoint_t c)
+{
+	return (ucd_category_group)ucd::lookup_category_group(ucd::lookup_category(c));
 }
 
 ucd::category_group ucd::lookup_category_group(codepoint_t c)

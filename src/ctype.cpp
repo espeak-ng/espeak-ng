@@ -1,6 +1,6 @@
 /* ctype-style APIs.
  *
- * Copyright (C) 2012-2013 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -20,6 +20,11 @@
 
 #include "ucd/ucd.h"
 
+int ucd_isalnum(codepoint_t c)
+{
+	return ucd::isalnum(c);
+}
+
 int ucd::isalnum(codepoint_t c)
 {
 	switch (lookup_category(c))
@@ -30,6 +35,11 @@ int ucd::isalnum(codepoint_t c)
 	default:
 		return 0;
 	}
+}
+
+int ucd_isalpha(codepoint_t c)
+{
+	return ucd::isalpha(c);
 }
 
 int ucd::isalpha(codepoint_t c)
@@ -43,9 +53,19 @@ int ucd::isalpha(codepoint_t c)
 	}
 }
 
+int ucd_iscntrl(codepoint_t c)
+{
+	return ucd::iscntrl(c);
+}
+
 int ucd::iscntrl(codepoint_t c)
 {
 	return lookup_category(c) == Cc;
+}
+
+int ucd_isdigit(codepoint_t c)
+{
+	return ucd::isdigit(c);
 }
 
 int ucd::isdigit(codepoint_t c)
@@ -57,6 +77,11 @@ int ucd::isdigit(codepoint_t c)
 	default:
 		return 0;
 	}
+}
+
+int ucd_isgraph(codepoint_t c)
+{
+	return ucd::isgraph(c);
 }
 
 int ucd::isgraph(codepoint_t c)
@@ -72,9 +97,19 @@ int ucd::isgraph(codepoint_t c)
 	}
 }
 
+int ucd_islower(codepoint_t c)
+{
+	return ucd::islower(c);
+}
+
 int ucd::islower(codepoint_t c)
 {
 	return lookup_category(c) == Ll;
+}
+
+int ucd_isprint(codepoint_t c)
+{
+	return ucd::isprint(c);
 }
 
 int ucd::isprint(codepoint_t c)
@@ -89,6 +124,11 @@ int ucd::isprint(codepoint_t c)
 	}
 }
 
+int ucd_ispunct(codepoint_t c)
+{
+	return ucd::ispunct(c);
+}
+
 int ucd::ispunct(codepoint_t c)
 {
 	switch (lookup_category(c))
@@ -98,6 +138,11 @@ int ucd::ispunct(codepoint_t c)
 	default:
 		return 0;
 	}
+}
+
+int ucd_isspace(codepoint_t c)
+{
+	return ucd::isspace(c);
 }
 
 int ucd::isspace(codepoint_t c)
@@ -120,6 +165,11 @@ int ucd::isspace(codepoint_t c)
 	default:
 		return 0;
 	}
+}
+
+int ucd_isupper(codepoint_t c)
+{
+	return ucd::isupper(c);
 }
 
 int ucd::isupper(codepoint_t c)

@@ -1,6 +1,6 @@
 /* Unicode Scripts
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -3373,6 +3373,11 @@ static const uint8_t *scripts_0E0000_0E01FF[] =
 	scripts_0E0000,
 	scripts_0E0100,
 };
+
+ucd_script ucd_lookup_script(codepoint_t c)
+{
+	return (ucd_script)ucd::lookup_script(c);
+}
 
 ucd::script ucd::lookup_script(codepoint_t c)
 {

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012 Reece H. Dunn
+# Copyright (C) 2012-2016 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -33,7 +33,7 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode Case Conversion
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2016 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -80,6 +80,11 @@ struct case_conversion_entry
 	sys.stdout.write('};\n')
 
 	for case in ['upper', 'lower', 'title']:
+		sys.stdout.write('\n')
+		sys.stdout.write('codepoint_t ucd_to%s(codepoint_t c)\n' % case)
+		sys.stdout.write('{\n')
+		sys.stdout.write('\treturn ucd::to%s(c);\n' % case)
+		sys.stdout.write('}\n')
 		sys.stdout.write('\n')
 		sys.stdout.write('ucd::codepoint_t ucd::to%s(codepoint_t c)\n' % case)
 		sys.stdout.write('{\n')
