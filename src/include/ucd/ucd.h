@@ -844,7 +844,10 @@ namespace ucd
 	  * @return  The upper-case Unicode codepoint for this codepoint, or
 	  *          this codepoint if there is no upper-case codepoint.
 	  */
-	codepoint_t toupper(codepoint_t c);
+	inline codepoint_t toupper(codepoint_t c)
+	{
+		return ucd_toupper(c);
+	}
 
 	/** @brief Convert the Unicode codepoint to lower-case.
 	  *
@@ -856,7 +859,10 @@ namespace ucd
 	  * @return  The lower-case Unicode codepoint for this codepoint, or
 	  *          this codepoint if there is no upper-case codepoint.
 	  */
-	codepoint_t tolower(codepoint_t c);
+	inline codepoint_t tolower(codepoint_t c)
+	{
+		return ucd_tolower(c);
+	}
 
 	/** @brief Convert the Unicode codepoint to title-case.
 	  *
@@ -868,7 +874,10 @@ namespace ucd
 	  * @return  The title-case Unicode codepoint for this codepoint, or
 	  *          this codepoint if there is no upper-case codepoint.
 	  */
-	codepoint_t totitle(codepoint_t c);
+	inline codepoint_t totitle(codepoint_t c)
+	{
+		return ucd_totitle(c);
+	}
 }
 #endif
 

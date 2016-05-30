@@ -58,8 +58,6 @@ if __name__ == '__main__':
 
 #include <stddef.h>
 
-using namespace ucd;
-
 // Unicode Character Data %s
 
 struct case_conversion_entry
@@ -72,7 +70,7 @@ struct case_conversion_entry
 """ % ucd_version)
 
 	sys.stdout.write('\n')
-	sys.stdout.write('static const case_conversion_entry case_conversion_data[] =\n')
+	sys.stdout.write('static const struct case_conversion_entry case_conversion_data[] =\n')
 	sys.stdout.write('{\n')
 	for codepoint in sorted(unicode_chars.keys()):
 		lower, upper, title = unicode_chars[codepoint]
@@ -83,17 +81,12 @@ struct case_conversion_entry
 		sys.stdout.write('\n')
 		sys.stdout.write('codepoint_t ucd_to%s(codepoint_t c)\n' % case)
 		sys.stdout.write('{\n')
-		sys.stdout.write('\treturn ucd::to%s(c);\n' % case)
-		sys.stdout.write('}\n')
-		sys.stdout.write('\n')
-		sys.stdout.write('ucd::codepoint_t ucd::to%s(codepoint_t c)\n' % case)
-		sys.stdout.write('{\n')
 		sys.stdout.write('\tint begin = 0;\n')
 		sys.stdout.write('\tint end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);\n')
 		sys.stdout.write('\twhile (begin <= end)\n')
 		sys.stdout.write('\t{\n')
 		sys.stdout.write('\t\tint pos = (begin + end) / 2;\n')
-		sys.stdout.write('\t\tconst case_conversion_entry *item = (case_conversion_data + pos);\n')
+		sys.stdout.write('\t\tconst struct case_conversion_entry *item = (case_conversion_data + pos);\n')
 		sys.stdout.write('\t\tif (c == item->codepoint)\n')
 		sys.stdout.write('\t\t\treturn item->%scase == 0 ? c : item->%scase;\n' % (case, case))
 		sys.stdout.write('\t\telse if (c > item->codepoint)\n')

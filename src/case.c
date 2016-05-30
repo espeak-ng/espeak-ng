@@ -25,8 +25,6 @@
 
 #include <stddef.h>
 
-using namespace ucd;
-
 // Unicode Character Data 8.0.0
 
 struct case_conversion_entry
@@ -37,7 +35,7 @@ struct case_conversion_entry
 	codepoint_t titlecase;
 };
 
-static const case_conversion_entry case_conversion_data[] =
+static const struct case_conversion_entry case_conversion_data[] =
 {
 	{ 0x000041, 0x000000, 0x000061, 0x000000 },
 	{ 0x000042, 0x000000, 0x000062, 0x000000 },
@@ -2513,17 +2511,12 @@ static const case_conversion_entry case_conversion_data[] =
 
 codepoint_t ucd_toupper(codepoint_t c)
 {
-	return ucd::toupper(c);
-}
-
-ucd::codepoint_t ucd::toupper(codepoint_t c)
-{
 	int begin = 0;
 	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
-		const case_conversion_entry *item = (case_conversion_data + pos);
+		const struct case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
 			return item->uppercase == 0 ? c : item->uppercase;
 		else if (c > item->codepoint)
@@ -2536,17 +2529,12 @@ ucd::codepoint_t ucd::toupper(codepoint_t c)
 
 codepoint_t ucd_tolower(codepoint_t c)
 {
-	return ucd::tolower(c);
-}
-
-ucd::codepoint_t ucd::tolower(codepoint_t c)
-{
 	int begin = 0;
 	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
-		const case_conversion_entry *item = (case_conversion_data + pos);
+		const struct case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
 			return item->lowercase == 0 ? c : item->lowercase;
 		else if (c > item->codepoint)
@@ -2559,17 +2547,12 @@ ucd::codepoint_t ucd::tolower(codepoint_t c)
 
 codepoint_t ucd_totitle(codepoint_t c)
 {
-	return ucd::totitle(c);
-}
-
-ucd::codepoint_t ucd::totitle(codepoint_t c)
-{
 	int begin = 0;
 	int end   = sizeof(case_conversion_data)/sizeof(case_conversion_data[0]);
 	while (begin <= end)
 	{
 		int pos = (begin + end) / 2;
-		const case_conversion_entry *item = (case_conversion_data + pos);
+		const struct case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
 			return item->titlecase == 0 ? c : item->titlecase;
 		else if (c > item->codepoint)
