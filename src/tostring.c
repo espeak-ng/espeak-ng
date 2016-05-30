@@ -22,75 +22,60 @@
 
 const char *ucd_get_category_group_string(ucd_category_group c)
 {
-	return ucd::get_category_group_string((ucd::category_group)c);
-}
-
-const char *ucd::get_category_group_string(category_group c)
-{
 	switch (c)
 	{
-	case C:  return "C";
-	case I:  return "I";
-	case L:  return "L";
-	case M:  return "M";
-	case N:  return "N";
-	case P:  return "P";
-	case S:  return "S";
-	case Z:  return "Z";
+	case UCD_CATEGORY_GROUP_C: return "C";
+	case UCD_CATEGORY_GROUP_I: return "I";
+	case UCD_CATEGORY_GROUP_L: return "L";
+	case UCD_CATEGORY_GROUP_M: return "M";
+	case UCD_CATEGORY_GROUP_N: return "N";
+	case UCD_CATEGORY_GROUP_P: return "P";
+	case UCD_CATEGORY_GROUP_S: return "S";
+	case UCD_CATEGORY_GROUP_Z: return "Z";
 	default: return "-";
 	}
 }
 
 const char *ucd_get_category_string(ucd_category c)
 {
-	return ucd::get_category_string((ucd::category)c);
-}
-
-const char *ucd::get_category_string(category c)
-{
 	switch (c)
 	{
-	case Cc: return "Cc";
-	case Cf: return "Cf";
-	case Cn: return "Cn";
-	case Co: return "Co";
-	case Cs: return "Cs";
-	case Ii: return "Ii";
-	case Ll: return "Ll";
-	case Lm: return "Lm";
-	case Lo: return "Lo";
-	case Lt: return "Lt";
-	case Lu: return "Lu";
-	case Mc: return "Mc";
-	case Me: return "Me";
-	case Mn: return "Mn";
-	case Nd: return "Nd";
-	case Nl: return "Nl";
-	case No: return "No";
-	case Pc: return "Pc";
-	case Pd: return "Pd";
-	case Pe: return "Pe";
-	case Pf: return "Pf";
-	case Pi: return "Pi";
-	case Po: return "Po";
-	case Ps: return "Ps";
-	case Sc: return "Sc";
-	case Sk: return "Sk";
-	case Sm: return "Sm";
-	case So: return "So";
-	case Zl: return "Zl";
-	case Zp: return "Zp";
-	case Zs: return "Zs";
+	case UCD_CATEGORY_Cc: return "Cc";
+	case UCD_CATEGORY_Cf: return "Cf";
+	case UCD_CATEGORY_Cn: return "Cn";
+	case UCD_CATEGORY_Co: return "Co";
+	case UCD_CATEGORY_Cs: return "Cs";
+	case UCD_CATEGORY_Ii: return "Ii";
+	case UCD_CATEGORY_Ll: return "Ll";
+	case UCD_CATEGORY_Lm: return "Lm";
+	case UCD_CATEGORY_Lo: return "Lo";
+	case UCD_CATEGORY_Lt: return "Lt";
+	case UCD_CATEGORY_Lu: return "Lu";
+	case UCD_CATEGORY_Mc: return "Mc";
+	case UCD_CATEGORY_Me: return "Me";
+	case UCD_CATEGORY_Mn: return "Mn";
+	case UCD_CATEGORY_Nd: return "Nd";
+	case UCD_CATEGORY_Nl: return "Nl";
+	case UCD_CATEGORY_No: return "No";
+	case UCD_CATEGORY_Pc: return "Pc";
+	case UCD_CATEGORY_Pd: return "Pd";
+	case UCD_CATEGORY_Pe: return "Pe";
+	case UCD_CATEGORY_Pf: return "Pf";
+	case UCD_CATEGORY_Pi: return "Pi";
+	case UCD_CATEGORY_Po: return "Po";
+	case UCD_CATEGORY_Ps: return "Ps";
+	case UCD_CATEGORY_Sc: return "Sc";
+	case UCD_CATEGORY_Sk: return "Sk";
+	case UCD_CATEGORY_Sm: return "Sm";
+	case UCD_CATEGORY_So: return "So";
+	case UCD_CATEGORY_Zl: return "Zl";
+	case UCD_CATEGORY_Zp: return "Zp";
+	case UCD_CATEGORY_Zs: return "Zs";
 	default: return "--";
 	}
 }
 
 const char *ucd_get_script_string(ucd_script s)
-{
-	return ucd::get_script_string((ucd::script)s);
-}
-
-const char *ucd::get_script_string(script s)
 {
 	static const char *scripts[] =
 	{

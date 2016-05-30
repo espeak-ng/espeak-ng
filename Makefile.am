@@ -103,13 +103,12 @@ libucd_include_HEADERS = \
 
 lib_LTLIBRARIES       += src/libucd.la
 src_libucd_la_LDFLAGS  = -version-info $(LIBUCD_VERSION)
-src_libucd_la_CXXFLAGS = ${AM_CXXFLAGS}
 src_libucd_la_SOURCES  = \
 	src/case.cpp \
 	src/categories.cpp \
 	src/ctype.cpp \
 	src/scripts.cpp \
-	src/tostring.cpp
+	src/tostring.c
 
 ############################# tests ###########################################
 

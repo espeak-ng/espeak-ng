@@ -458,7 +458,10 @@ namespace ucd
 	  *
 	  * @return The string representation, or "-" if the value is not recognized.
 	  */
-	const char *get_category_group_string(category_group c);
+	inline const char *get_category_group_string(category_group c)
+	{
+		return ucd_get_category_group_string((ucd_category_group)c);
+	}
 
 	/** @brief Unicode General Category Values
 	  * @see   http://www.unicode.org/reports/tr44/
@@ -511,7 +514,10 @@ namespace ucd
 	  *
 	  * @return The string representation, or "--" if the value is not recognized.
 	  */
-	const char *get_category_string(category c);
+	inline const char *get_category_string(category c)
+	{
+		return ucd_get_category_string((ucd_category)c);
+	}
 
 	/** @brief Lookup the General Category Group for a General Category.
 	  *
@@ -716,7 +722,10 @@ namespace ucd
 	  *
 	  * @return The string representation, or "----" if the value is not recognized.
 	  */
-	const char *get_script_string(script s);
+	inline const char *get_script_string(script s)
+	{
+		return ucd_get_script_string((ucd_script)s);
+	}
 
 	/** @brief Lookup the Script for a Unicode codepoint.
 	  *
