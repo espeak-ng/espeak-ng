@@ -117,7 +117,37 @@ if __name__ == '__main__':
 
 #include <stddef.h>
 
-using namespace ucd;
+#define Cc UCD_CATEGORY_Cc
+#define Cf UCD_CATEGORY_Cf
+#define Cn UCD_CATEGORY_Cn
+#define Co UCD_CATEGORY_Co
+#define Cs UCD_CATEGORY_Cs
+#define Ll UCD_CATEGORY_Ll
+#define Lm UCD_CATEGORY_Lm
+#define Lo UCD_CATEGORY_Lo
+#define Lt UCD_CATEGORY_Lt
+#define Lu UCD_CATEGORY_Lu
+#define Mc UCD_CATEGORY_Mc
+#define Me UCD_CATEGORY_Me
+#define Mn UCD_CATEGORY_Mn
+#define Nd UCD_CATEGORY_Nd
+#define Nl UCD_CATEGORY_Nl
+#define No UCD_CATEGORY_No
+#define Pc UCD_CATEGORY_Pc
+#define Pd UCD_CATEGORY_Pd
+#define Pe UCD_CATEGORY_Pe
+#define Pf UCD_CATEGORY_Pf
+#define Pi UCD_CATEGORY_Pi
+#define Po UCD_CATEGORY_Po
+#define Ps UCD_CATEGORY_Ps
+#define Sc UCD_CATEGORY_Sc
+#define Sk UCD_CATEGORY_Sk
+#define Sm UCD_CATEGORY_Sm
+#define So UCD_CATEGORY_So
+#define Zl UCD_CATEGORY_Zl
+#define Zp UCD_CATEGORY_Zp
+#define Zs UCD_CATEGORY_Zs
+#define Ii UCD_CATEGORY_Ii
 
 // Unicode Character Data %s
 """ % ucd_version)
@@ -162,14 +192,8 @@ using namespace ucd;
 					sys.stdout.write('\tcategories_%s,\n' % codepoint)
 			sys.stdout.write('};\n')
 
-	sys.stdout.write("""
-ucd_category ucd_lookup_category(codepoint_t c)
-{
-	return (ucd_category)ucd::lookup_category((ucd::category)c);
-}
-""")
 	sys.stdout.write('\n')
-	sys.stdout.write('ucd::category ucd::lookup_category(codepoint_t c)\n')
+	sys.stdout.write('ucd_category ucd_lookup_category(codepoint_t c)\n')
 	sys.stdout.write('{\n')
 	for codepoints, category, comment in category_sets:
 		if category:
@@ -178,7 +202,7 @@ ucd_category ucd_lookup_category(codepoint_t c)
 			sys.stdout.write('\tif (c <= 0x%s) // %s\n' % (codepoints.last, codepoints))
 			sys.stdout.write('\t{\n')
 			sys.stdout.write('\t\tconst uint8_t *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
-			sys.stdout.write('\t\treturn (ucd::category)table[c % 256];\n')
+			sys.stdout.write('\t\treturn (ucd_category)table[c % 256];\n')
 			sys.stdout.write('\t}\n')
 	sys.stdout.write('\treturn Ii; // Invalid Unicode Codepoint\n')
 	sys.stdout.write('}\n')
@@ -186,39 +210,29 @@ ucd_category ucd_lookup_category(codepoint_t c)
 	sys.stdout.write("""
 ucd_category_group ucd_get_category_group_for_category(ucd_category c)
 {
-	return (ucd_category_group)ucd::lookup_category_group((ucd::category)c);
-}
-
-ucd::category_group ucd::lookup_category_group(category c)
-{
 	switch (c)
 	{
 	case Cc: case Cf: case Cn: case Co: case Cs:
-		return C;
+		return UCD_CATEGORY_GROUP_C;
 	case Ll: case Lm: case Lo: case Lt: case Lu:
-		return L;
+		return UCD_CATEGORY_GROUP_L;
 	case Mc: case Me: case Mn:
-		return M;
+		return UCD_CATEGORY_GROUP_M;
 	case Nd: case Nl: case No:
-		return N;
+		return UCD_CATEGORY_GROUP_N;
 	case Pc: case Pd: case Pe: case Pf: case Pi: case Po: case Ps:
-		return P;
+		return UCD_CATEGORY_GROUP_P;
 	case Sc: case Sk: case Sm: case So:
-		return S;
+		return UCD_CATEGORY_GROUP_S;
 	case Zl: case Zp: case Zs:
-		return Z;
+		return UCD_CATEGORY_GROUP_Z;
 	case Ii:
-		return I;
+		return UCD_CATEGORY_GROUP_I;
 	}
 }
 
 ucd_category_group ucd_lookup_category_group(codepoint_t c)
 {
-	return (ucd_category_group)ucd::lookup_category_group(ucd::lookup_category(c));
-}
-
-ucd::category_group ucd::lookup_category_group(codepoint_t c)
-{
-	return lookup_category_group(lookup_category(c));
+	return (ucd_category_group)ucd_get_category_group_for_category(ucd_lookup_category(c));
 }
 """)

@@ -524,21 +524,30 @@ namespace ucd
 	  * @param c The General Category to lookup.
 	  * @return  The General Category Group of the General Category.
 	  */
-	category_group lookup_category_group(category c);
+	inline category_group lookup_category_group(category c)
+	{
+		return (category_group)ucd_get_category_group_for_category((ucd_category)c);
+	}
 
 	/** @brief Lookup the General Category Group for a Unicode codepoint.
 	  *
 	  * @param c The Unicode codepoint to lookup.
 	  * @return  The General Category Group of the Unicode codepoint.
 	  */
-	category_group lookup_category_group(codepoint_t c);
+	inline category_group lookup_category_group(codepoint_t c)
+	{
+		return (category_group)ucd_lookup_category_group(c);
+	}
 
 	/** @brief Lookup the General Category for a Unicode codepoint.
 	  *
 	  * @param c The Unicode codepoint to lookup.
 	  * @return  The General Category of the Unicode codepoint.
 	  */
-	category lookup_category(codepoint_t c);
+	inline category lookup_category(codepoint_t c)
+	{
+		return (category)ucd_lookup_category(c);
+	}
 
 	/** @brief Unicode Script
 	  * @see   http://www.iana.org/assignments/language-subtag-registry

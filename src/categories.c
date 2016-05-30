@@ -25,7 +25,37 @@
 
 #include <stddef.h>
 
-using namespace ucd;
+#define Cc UCD_CATEGORY_Cc
+#define Cf UCD_CATEGORY_Cf
+#define Cn UCD_CATEGORY_Cn
+#define Co UCD_CATEGORY_Co
+#define Cs UCD_CATEGORY_Cs
+#define Ll UCD_CATEGORY_Ll
+#define Lm UCD_CATEGORY_Lm
+#define Lo UCD_CATEGORY_Lo
+#define Lt UCD_CATEGORY_Lt
+#define Lu UCD_CATEGORY_Lu
+#define Mc UCD_CATEGORY_Mc
+#define Me UCD_CATEGORY_Me
+#define Mn UCD_CATEGORY_Mn
+#define Nd UCD_CATEGORY_Nd
+#define Nl UCD_CATEGORY_Nl
+#define No UCD_CATEGORY_No
+#define Pc UCD_CATEGORY_Pc
+#define Pd UCD_CATEGORY_Pd
+#define Pe UCD_CATEGORY_Pe
+#define Pf UCD_CATEGORY_Pf
+#define Pi UCD_CATEGORY_Pi
+#define Po UCD_CATEGORY_Po
+#define Ps UCD_CATEGORY_Ps
+#define Sc UCD_CATEGORY_Sc
+#define Sk UCD_CATEGORY_Sk
+#define Sm UCD_CATEGORY_Sm
+#define So UCD_CATEGORY_So
+#define Zl UCD_CATEGORY_Zl
+#define Zp UCD_CATEGORY_Zp
+#define Zs UCD_CATEGORY_Zs
+#define Ii UCD_CATEGORY_Ii
 
 // Unicode Character Data 8.0.0
 
@@ -3316,28 +3346,23 @@ static const uint8_t *categories_0E0000_0E01FF[] =
 
 ucd_category ucd_lookup_category(codepoint_t c)
 {
-	return (ucd_category)ucd::lookup_category((ucd::category)c);
-}
-
-ucd::category ucd::lookup_category(codepoint_t c)
-{
 	if (c <= 0x00D7FF) // 000000..00D7FF
 	{
 		const uint8_t *table = categories_000000_00D7FF[(c - 0x000000) / 256];
-		return (ucd::category)table[c % 256];
+		return (ucd_category)table[c % 256];
 	}
 	if (c <= 0x00DFFF) return Cs; // 00D800..00DFFF : Surrogates
 	if (c <= 0x00F7FF) return Co; // 00E000..00F7FF : Private Use Area
 	if (c <= 0x02FAFF) // 00F800..02FAFF
 	{
 		const uint8_t *table = categories_00F800_02FAFF[(c - 0x00F800) / 256];
-		return (ucd::category)table[c % 256];
+		return (ucd_category)table[c % 256];
 	}
 	if (c <= 0x0DFFFF) return Cn; // 02FB00..0DFFFF : Unassigned
 	if (c <= 0x0E01FF) // 0E0000..0E01FF
 	{
 		const uint8_t *table = categories_0E0000_0E01FF[(c - 0x0E0000) / 256];
-		return (ucd::category)table[c % 256];
+		return (ucd_category)table[c % 256];
 	}
 	if (c <= 0x0EFFFF) return Cn; // 0E0200..0EFFFF : Unassigned
 	if (c <= 0x0FFFFD) return Co; // 0F0000..0FFFFD : Plane 15 Private Use
@@ -3349,38 +3374,28 @@ ucd::category ucd::lookup_category(codepoint_t c)
 
 ucd_category_group ucd_get_category_group_for_category(ucd_category c)
 {
-	return (ucd_category_group)ucd::lookup_category_group((ucd::category)c);
-}
-
-ucd::category_group ucd::lookup_category_group(category c)
-{
 	switch (c)
 	{
 	case Cc: case Cf: case Cn: case Co: case Cs:
-		return C;
+		return UCD_CATEGORY_GROUP_C;
 	case Ll: case Lm: case Lo: case Lt: case Lu:
-		return L;
+		return UCD_CATEGORY_GROUP_L;
 	case Mc: case Me: case Mn:
-		return M;
+		return UCD_CATEGORY_GROUP_M;
 	case Nd: case Nl: case No:
-		return N;
+		return UCD_CATEGORY_GROUP_N;
 	case Pc: case Pd: case Pe: case Pf: case Pi: case Po: case Ps:
-		return P;
+		return UCD_CATEGORY_GROUP_P;
 	case Sc: case Sk: case Sm: case So:
-		return S;
+		return UCD_CATEGORY_GROUP_S;
 	case Zl: case Zp: case Zs:
-		return Z;
+		return UCD_CATEGORY_GROUP_Z;
 	case Ii:
-		return I;
+		return UCD_CATEGORY_GROUP_I;
 	}
 }
 
 ucd_category_group ucd_lookup_category_group(codepoint_t c)
 {
-	return (ucd_category_group)ucd::lookup_category_group(ucd::lookup_category(c));
-}
-
-ucd::category_group ucd::lookup_category_group(codepoint_t c)
-{
-	return lookup_category_group(lookup_category(c));
+	return (ucd_category_group)ucd_get_category_group_for_category(ucd_lookup_category(c));
 }
