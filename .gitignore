@@ -16,6 +16,7 @@ data/ucd
 
 src/libucd.la
 tests/printucddata
+tests/printucddata_cpp
 
 # test output:
 

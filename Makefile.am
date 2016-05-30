@@ -6,6 +6,7 @@ mimedir    = $(xdgdatadir)/mime
 xmldir     = $(mimedir)/packages
 
 AM_LDFLAGS  = ${LTLIBINTL}
+AM_CFLAGS   = -Isrc/include -Isrc
 AM_CXXFLAGS = -Isrc/include -Isrc
 
 ACLOCAL_AMFLAGS = -I m4
@@ -113,8 +114,12 @@ src_libucd_la_SOURCES  = \
 ############################# tests ###########################################
 
 noinst_bin_PROGRAMS       += tests/printucddata
-tests_printucddata_SOURCES = tests/printucddata.cpp
+tests_printucddata_SOURCES = tests/printucddata.c
 tests_printucddata_LDADD   = src/libucd.la
+
+noinst_bin_PROGRAMS           += tests/printucddata_cpp
+tests_printucddata_cpp_SOURCES = tests/printucddata_cpp.cpp
+tests_printucddata_cpp_LDADD   = src/libucd.la
 
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
 	data/ucd/UnicodeData.txt \
@@ -122,10 +127,16 @@ tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
 	data/ucd/Scripts.txt
 	tools/printdata.py ${UCD_ROOTDIR} ${UCD_FLAGS} > $@
 
-tests/unicode-data.actual: tests/printucddata
+tests/unicode-data-capi.actual: tests/printucddata
 	tests/printucddata > $@
 
-tests/unicode-data.diff: tests/unicode-data.expected tests/unicode-data.actual
-	diff -U0 tests/unicode-data.expected tests/unicode-data.actual > tests/unicode-data.diff
+tests/unicode-data-cppapi.actual: tests/printucddata_cpp
+	tests/printucddata_cpp > $@
 
-check: tests/unicode-data.diff
+tests/unicode-data-capi.diff: tests/unicode-data.expected tests/unicode-data-capi.actual
+	diff -U0 tests/unicode-data.expected tests/unicode-data-capi.actual > tests/unicode-data-capi.diff
+
+tests/unicode-data-cppapi.diff: tests/unicode-data.expected tests/unicode-data-cppapi.actual
+	diff -U0 tests/unicode-data.expected tests/unicode-data-cppapi.actual > tests/unicode-data-cppapi.diff
+
+check: tests/unicode-data-capi.diff tests/unicode-data-cppapi.diff
