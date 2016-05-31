@@ -1,33 +1,28 @@
-Release Notes
-=============
+# Change Log
 
-Version 7.0.0.1: Saturday June 28th 2014 \[Jun 2014\]
------------------------------------------------------
+## 7.0.0.1 - Saturday July 14th 2014 \[Jul 2014\]
 
   *  Remove the ConScript Unicode Registry data from the Script and Category tables.
   *  Fix mapping Script values to string.
 
-Version 7.0.0: Saturday June 28th 2014 \[Jun 2014\]
----------------------------------------------------
+## 7.0.0 - Saturday June 28th 2014 \[Jun 2014\]
 
   *  Update to Unicode Character Data 7.0.0.
   *  Updated the script list to support all ISO 15924 scripts.
   *  Add a make target for building the documentation.
 
-Version 6.3.0: Wednesday October 16th 2013 \[Oct 2013\]
--------------------------------------------------------
+## 6.3.0 - Wednesday October 16th 2013 \[Oct 2013\]
 
   *  Update to Unicode Character Data 6.3.0.
 
-Version 6.2.0: Wednesday October 16th 2013 \[Oct 2013\]
--------------------------------------------------------
+## 6.2.0 - Wednesday October 16th 2013 \[Oct 2013\]
 
   *  Use Unicode Character Data 6.2.0.
   *  General Category group and value lookup.
   *  Script lookup.
   *  `White_Space` property lookup provided by `isspace`.
   *  Uses compact data tables for minimal overhead.
-  *  Support for Klingon [F8D0-F8FF] from the ConScript Unicode Registry.
+  *  Support for Klingon \[F8D0-F8FF\] from the ConScript Unicode Registry.
 
 wctype.h/wchar.h compatibility: 
 
