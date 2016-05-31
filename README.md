@@ -3,7 +3,7 @@
 - [Data Files](#data-files)
   - [Unicode Character Database](#unicode-character-database)
   - [ConScript Unicode Registry](#conscript-unicode-registry)
-- [C++ Library](#c++-library)
+- [C Library](#c-library)
   - [Querying Properties](#querying-properties)
   - [Case Conversion](#case-conversion)
   - [wctype Compatibility](#wctype-compatibility)
@@ -16,10 +16,11 @@
 
 ----------
 
-The Unicode Character Database (UCD) Tools is a set of Python tools and a C++
-library. The Python tools are designed to support extracting and processing
-data from the text-based UCD source files, while the C++ library is designed
-to provide easy access to this information within a C++ program.
+The Unicode Character Database (UCD) Tools is a set of Python tools and a C
+library with a C++ API binding. The Python tools are designed to support
+extracting and processing data from the text-based UCD source files, while
+the C library is designed to provide easy access to this information within
+a C or C++ program.
 
 ## Data Files
 
@@ -51,9 +52,9 @@ added:
 This data is located in the `data/csur` directory in a form compatible with the
 Unicode Character Data files.
 
-## C++ Library
+## C Library
 
-The C++ library provides several different facilities that make use of the UCD
+The C library provides several different facilities that make use of the UCD
 data. It provides a compact and efficient representation of the different data
 tables.
 
@@ -73,9 +74,11 @@ The library exposes the following properties from the UCD data files:
 
 The following character conversion functions are provided:
 
-*  `ucd::tolower` -- convert letters to lower case
-*  `ucd::totitle` -- convert letters to title case (UCD extension)
-*  `ucd::toupper` -- convert letters to upper case
+| C API         | C++ API        | Description |
+|---------------|----------------|-------------|
+| `ucd_tolower` | `ucd::tolower` | convert letters to lower case |
+| `ucd_totitle` | `ucd::totitle` | convert letters to title case (UCD extension) |
+| `ucd_toupper` | `ucd::toupper` | convert letters to upper case |
 
 __NOTE:__ These functions use the simple case mapping algorithm. That is, they
 only ever map to a single character. This is to provide a compatible signature
@@ -89,16 +92,18 @@ C library provides a set of APIs that are compatible with `wctype.h`.
 
 The following character classification functions are provided:
 
-*  `ucd::isalnum`
-*  `ucd::isalpha`
-*  `ucd::iscntrl`
-*  `ucd::isdigit`
-*  `ucd::isgraph`
-*  `ucd::islower`
-*  `ucd::isprint`
-*  `ucd::ispunct`
-*  `ucd::isspace`
-*  `ucd::isupper`
+| C API         | C++ API        |
+|---------------|----------------|
+| `ucd_isalnum` | `ucd::isalnum` |
+| `ucd_isalpha` | `ucd::isalpha` |
+| `ucd_iscntrl` | `ucd::iscntrl` |
+| `ucd_isdigit` | `ucd::isdigit` |
+| `ucd_isgraph` | `ucd::isgraph` |
+| `ucd_islower` | `ucd::islower` |
+| `ucd_isprint` | `ucd::isprint` |
+| `ucd_ispunct` | `ucd::ispunct` |
+| `ucd_isspace` | `ucd::isspace` |
+| `ucd_isupper` | `ucd::isupper` |
 
 __NOTE:__ Equivalents for `isblank` and `isxdigit` are not provided.
 
@@ -107,7 +112,9 @@ __NOTE:__ Equivalents for `isblank` and `isxdigit` are not provided.
 In order to build ucd-tools, you need:
 
 1.  a functional autotools system (`make`, `autoconf`, `automake` and `libtool`);
-2.  a functional c++ compiler.
+2.  a functional C and C++ compiler.
+
+__NOTE__: The C++ compiler is used to build the test for the C++ API.
 
 To build the documentation, you need:
 
@@ -121,7 +128,7 @@ Core Dependencies:
 | Dependency       | Install                                               |
 |------------------|-------------------------------------------------------|
 | autotools        | `sudo apt-get install make autoconf automake libtool` |
-| c++ compiler     | `sudo apt-get install gcc g++`                        |
+| C++ compiler     | `sudo apt-get install gcc g++`                        |
 
 Documentation Dependencies:
 
