@@ -28,6 +28,9 @@ tests/*.diff
 
 docs/html/
 
+CHANGELOG.html
+README.html
+
 # autotools output:
 
 INSTALL

@@ -76,8 +76,18 @@ data/ucd/UnicodeData.txt:
 
 ############################# documentation ###################################
 
+SUFFIXES=.html .md
+
+.md.html: _layouts/webpage.html
+	cat $< | sed -e 's/\.md)/.html)/g' | \
+		kramdown --template _layouts/webpage.html > $@
+
 html:
 	doxygen docs/ucd-tools.conf
+
+docs:	html \
+	CHANGELOG.html \
+	README.html
 
 ############################# libucd ##########################################
 
