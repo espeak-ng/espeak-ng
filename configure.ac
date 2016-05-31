@@ -1,5 +1,5 @@
 AC_PREREQ([2.65])
-AC_INIT([Unicode Character Database Tools], [8.0.0], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
+AC_INIT([Unicode Character Database Tools], [8.0.0.1], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
