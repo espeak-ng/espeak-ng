@@ -15,9 +15,18 @@ dnl ================================================================
 dnl Program checks.
 dnl ================================================================
 
+AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_MAKE_SET
-AC_PROG_LIBTOOL
+
+dnl ================================================================
+dnl library checks.
+dnl ================================================================
+
+AC_CHECK_HEADERS([stddef.h])   dnl C89
+
+AC_TYPE_UINT8_T
+AC_TYPE_UINT32_T
 
 dnl ================================================================
 dnl UCD data configuration.
@@ -44,8 +53,11 @@ AC_MSG_NOTICE([
 
         Source code location:          ${srcdir}
 
-        Compiler:                      ${CXX}
-        Compiler flags:                ${CXXFLAGS}
+        C Compiler:                    ${CC}
+        C Compiler flags:              ${CFLAGS}
+
+        C++ Compiler:                  ${CXX}
+        C++ Compiler flags:            ${CXXFLAGS}
 
         Unicode version:               ${UCD_VERSION}
 ])
