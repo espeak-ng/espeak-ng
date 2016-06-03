@@ -6072,8 +6072,9 @@ L09L04) السّادات (_Sm8	ossAdAt
 
 // Others mathematics characters
 .group
-	. (D     	noq1te:
+    D_) : (_DD_                         // omit colon in time, eg: 2:30
+	. (D	noq1te:
 	±	m'osbat||jA:||m'anfi
 	>=	boz'oRgtaR||jA:||m,osAvi
 	<=	kutS'ektaR||jA:||m,osAvi
-	
+

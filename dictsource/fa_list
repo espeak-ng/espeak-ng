@@ -188,26 +188,26 @@ _#th	om
 
 
 // character names.  (An underscore added before characters which should not spoken during normal reading of text)
-÷	taqsimbaR
-×	zaRbdaR
-؟	alAmatesoAl
-!	alAmate'ta?adZdZob
-$	dolAR
-%	daR'sad
-[	beRAketbAz
-]	beRAketbaste:
-(	paRAntezbAz
+_÷	taqsimbaR
+_×	zaRbdaR
+_؟	alAmatesoAl
+_!	alAmate'ta?adZdZob
+_$	dolAR
+_%	daR'sad
+_[	beRAketbAz
+_]	beRAketbaste:
+_(	paRAntezbAz
 _)	paRAntezbaste:
-*	setARe:
+_*	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
--	Xatte_fAsele:
-.	noqte:
-:	'donoqte:
-<	alAmate'kutSektaR
-=	:alAmate'mosAvi
->	alAmate'bozoRgtaR
-{	g:ijumebAz
-}	g:ijumebaste:
+_-	Xatte_fAsele:
+_.	noqte:
+_:	'donoqte:
+_<	alAmate'kutSektaR
+_=	:alAmate'mosAvi
+_>	alAmate'bozoRgtaR
+_{	g:ijumebAz
+_}	g:ijumebaste:
 
 
 //characters and numbers and words with English alphabet is translated by English phonemes
