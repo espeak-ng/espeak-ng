@@ -93,7 +93,7 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 		a_wave_can_be_played = fifo_is_command_enabled();
 #endif
 
-	switch (my_mode)
+	switch ((int)my_mode)
 	{
 	case ENOUTPUT_MODE_SPEAK_AUDIO:
 	case ENOUTPUT_MODE_SPEAK_AUDIO | ENOUTPUT_MODE_SYNCHRONOUS:
