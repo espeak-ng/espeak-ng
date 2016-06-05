@@ -437,18 +437,6 @@ static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
 	return ENS_OK;
 }
 
-static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
-{
-	while (ktab->mnem != NULL) {
-		if (ktab->data == value) {
-			if ((type == -1) || (type == ktab->type))
-				return ktab->mnem;
-		}
-		ktab++;
-	}
-	return NULL;
-}
-
 static int n_phoneme_tabs;
 static int n_phcodes;
 
