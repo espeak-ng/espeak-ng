@@ -2133,7 +2133,7 @@ int CompilePhoneme(int compile_phoneme)
 						memcpy(number_buf, p, 4); // U+ should be followed by 4 hex digits
 						number_buf[4] = 0;
 						c = '#';
-						sscanf(number_buf, "%x", &c);
+						sscanf(number_buf, "%x", (unsigned int *)&c);
 
 						// move past the 4 hexdecimal digits
 						for (j = 0; j < 4; j++) {
