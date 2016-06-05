@@ -625,10 +625,9 @@ void setVolumeRatio_mbrola(float value)
 
 char *lastErrorStr_mbrola(char *buffer, int bufsize)
 {
-	int result;
 	if (mbr_pid)
 		mbrola_has_errors();
-	result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
+	snprintf(buffer, bufsize, "%s", mbr_errorbuf);
 	return buffer;
 }
 

@@ -541,7 +541,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char names[8][40];
 	char name1[40];
 	char name2[80];
-	const char *voice_dir;
 
 	int pitch1;
 	int pitch2;
