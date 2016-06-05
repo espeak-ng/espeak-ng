@@ -283,7 +283,7 @@ aporia $3
 apostat $2
 apostrof	$2
 apotem  $alt
-appen	ap:,en
+appen	ap:'en
 appendice $3
 appiomb  $alt2
 appoggi  $alt
@@ -1115,7 +1115,6 @@ costumanz	kostum'an|ts
 cot  $alt
 cottim  $alt
 coyote  $alt
-cozzoli	k'o_tsolI
 cratere $2
 cred  $alt
 credit $1  $alt2

@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 march 30 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 june 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -13,17 +13,17 @@ _a	a:
 b	bi
 c	tSi
 d	d['i:
-_e	e:
+_e	E:
 f	'Effe
 g	dZi
 h	ak:a
 _i	i:
-j	'i||l'unga
+j	'i||_l'uNga/
 k	kap:a
 l	Elle
 m	Emme
 n	Enne/
-_o	o:
+_o	O:
 p	pi
 q	ku
 r	ER*e
@@ -292,8 +292,8 @@ _0	dz'E*o
 _1	'uno
 _2	d'ue
 _3	t@-*'e
-_4	kw2'at:@-*o
-_5	tS'inkw2e
+_4	kw'at:@-*o
+_5	tS'inkwe
 _6	s'Ej
 _7	s'Et:e
 _8	'Ot:o
@@ -303,7 +303,7 @@ _11     'unditSi
 _12     d'oditSi
 _13     t@-*'editSi
 _14     kw2at:'oRditSi
-_15     kw2'imditSi
+_15     kw'imditSi
 _16     s'editSi
 _17     ditSass'Et:e
 _18     ditS'Ot:o
@@ -319,7 +319,7 @@ _28     vent'Ot:o
 _29	ventin'Ove
 _3X     t@-*'enta
 _4X     kua*'a:nta
-_5X     tSinkw2'anta
+_5X     tSinkw'anta
 _6X     sess'anta
 _7X     set:'anta
 _8X     ot:'anta
@@ -345,8 +345,8 @@ _#ª	a
 _1ox	p@-*im
 _2ox	sekond
 _3ox	tE@-*ts
-_4ox	kw2a:@-*t
-_5ox	kw2int
+_4ox	kwa:@-*t
+_5ox	kwint
 _6ox	sEst
 _7ox	s'Et:im
 _8ox	ot:av
@@ -355,8 +355,8 @@ _9ox	non
 _1o	un'Ezim
 _2o	du'Ezim
 _3o	t@-*e'Ezim
-_4o	kw2at:@-*'Ezim
-_5o	tSinkw2'Ezim
+_4o	kwat:@-*'Ezim
+_5o	tSinkw'Ezim
 _6o	sEj'Ezim
 _7o	sEt:'Ezim
 _8o	Ot:'Ezim
@@ -376,7 +376,7 @@ _19o	ditSan:Ov'Ezim
 _20o	vent'Ezim
 _30o	t@-*ent'Ezim
 _40o	kua*a:nt'Ezim
-_50o	tSinkw2ant'Ezim
+_50o	tSinkwant'Ezim
 _60o	sessant'Ezim
 _70o	set:ant'Ezim
 _80o    ot:ant'Ezim
@@ -432,6 +432,7 @@ uk	$abbrev
 unicef	$1
 url	u||eR*e||'El:e $only
 usb	$abbrev
+utc	,u||ti||tS'i
 wwf	vu||vu||'Ef:e
 www	v,u||_vu||_v'u
 xml	iks||em:e||'El:e
@@ -496,11 +497,9 @@ sue	$u+
 nostre	$u+
 vostre	$u+
 
-questo	$u+
-questa	$u+
-questi  $u+	$nounf
-queste  $u+
-
+quest	$u+	$nounf
+(questa è)	kw'esta||'E
+(questo è)	kw'esto/||,E
 quel	$u+
 quella	$u+
 quei	kw2eI
@@ -533,7 +532,7 @@ mentre	$u+
 neanche	$u+	$brk
 né	$u+	$brk  $only
 no	nO $strend
-non	$u	$only
+non	$u	$verbf $only
 o	$u+ $brk
 ogni	$u+
 oltre	$u+
@@ -828,6 +827,7 @@ disney	$1
 disneyland	$1
 display	displ'ei
 device	dIv'aIs
+door	d'o:@-*	$onlys
 doppler	$1
 down	d'a/:w2n
 download	d'a/:w2nl,o:d
@@ -1192,7 +1192,7 @@ rock'n'roll	@-*,Oken@-*'o:l
 (déjà vu)	deIZa:||v'u:
 (ladies and gentlemen)	l'eIdIz||and||dZ'Ent@lm@n
 (nôtre dame)	noUt@-*'da:m
-(question time)	kw2'estiont'aIm
+(question time)	kw'estiont'aIm
 
 // Main  nouns Dictionary (see also it_listx)
 
@@ -1534,7 +1534,6 @@ retino	$2
 revoche	$1
 riavvia	@-*iav:'i#a
 riavvio	@-*iav:'IO
-riciao	@-*i_tS'ao:
 ricordino	$3 $noun
 rigoli	$1
 rossonere	$3 $alt2
@@ -1560,7 +1559,7 @@ schettin	$2
 schizzofrenia	$4
 scia	S'ia
 sciabile	Si'abile
-sciacquii	S,akw2'i:j
+sciacquii	S,akw'i:j
 sciacquio	S,akw2'i;O
 sciator	Si|at'oR
 sciatric	Siat@-*'ItS
@@ -1645,10 +1644,11 @@ com'era	kom'E:Ra
 cos'hai	koz'a:i
 cos'è	koz'E
 dov'è	dov'E
+qual'è	kwal''E
 tant'è	taNt'E
 l'ancora	l'ankoRa
 un'ancora	un'a:nkoRa
-quand'è	kw2aNd'E
+quand'è	kwaNd'E
 senz'altro	sents'a:lt@-*o
 nessun'altra	nessun'alt@-*a
 ultim'ora	ultim'ORa
@@ -1660,8 +1660,7 @@ vent'anni	vent'an:I
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
-ciao	tS'ao_
-(ciao a)	tS'ao||_|,a_|
+(ciao ciao)	tS,a/o||tSao
 (un turbine)	un||_t'u@-*bine
 (gli auguri)	l^iaw2g'u:RI
 (pro capite)	p@-*ok'a:pIte
@@ -2032,6 +2031,7 @@ sandviciano	$3
 sangano	$2
 sanlazzaro	san_l'adz:aRo
 saragozzano	$4
+sarcidano	$3
 sarezzano	$3
 sarnano	$2
 sassano	$2
@@ -2177,6 +2177,7 @@ asdrubale	$2
 asimov	'azim,ov
 asterix	$1
 augias	a'u:dZas
+avirex	$1
 bardot	ba@-*d'o
 bartali	$1
 bastian $2
@@ -2232,6 +2233,7 @@ debor $1  $alt
 deborah	$1 $alt2
 deidda	de'i:d:a
 delrio	del||@-*'io/
+dessolis	$2 $onlys
 diaz	d'iats $only
 Dickinson	$1
 diocle $1
@@ -2767,6 +2769,7 @@ attentino	$2
 atterrano	$2
 atterrino	$2
 attestino	$2
+attieniti	$2
 attirano	$2
 attirino	$2
 attonit	$2
@@ -4305,6 +4308,7 @@ spolver	$1
 spolverano	$1
 spopolano	$1
 sporchino	$1
+spostino	$1	$alt2
 sprecano	$1
 spregia	$1
 sprigionino	$2
@@ -4566,11 +4570,14 @@ zuccherano	$1
 (come desideri)	kome||dez'ideRi
 (così desideri)	koz'i||_dez'i:deRI
 (cosa desideri)	k'O:za||dez'i:deRI
+(cui desideri)	k'u:|I||dez'ide**I
+(invece desideri)	inv'etSe||dez'ide**I
 (la desideri)	ladez'i:deRi
 (lo desideri)	lodez'ideRi
 (mi desideri)	mI||dez'i:deRI
-(quando desideri)	kw2ando||_|dez'i:deRi
-(quindi desideri)	kw2,indi||_dez'i:deRi
+// (non desideri)	non||dez'ideRI
+(quando desideri)	kwando||_|dez'i:deRi
+(quindi desideri)	kw,indi||_dez'i:deRi
 
 // pronominal verbs
 
@@ -4605,6 +4612,8 @@ causatoci	$3
 cercal	$1
 cercasi	$1
 chiuditi	kj'uditI
+cliccal	$1
+cliccaci	$1
 compil	$2
 comunicacel	$2
 comunical	$2
@@ -4644,6 +4653,7 @@ evolverci	$2
 evolversi	$2
 fammel	$1
 fattel	f'at:el
+fermati	$1 $atstart
 fermatosi	$2
 formatosi	$2
 giuravi	$2
@@ -4659,6 +4669,7 @@ illuminaci	$2
 illuminami	$2
 illuminal	$2
 immergiti	$2
+immetterl	$2
 impostaci	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
@@ -4696,6 +4707,7 @@ pizzicami	$1
 portala	$1
 portalo	$1
 portatel	$2
+posizionati	$4 $atstart
 presentaci	$2
 promessomi	$2
 privaci	$1

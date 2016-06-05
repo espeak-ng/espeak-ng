@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update 2 jan 2016 by Chris <llajta2012@gmail.com>
+//  Italian, last update 4 june 2016 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -13,23 +13,31 @@ phoneme a
   vowel starttype #a endtype #a
   length 160
   ChangeIfNotStressed(a/)
+  IF thisPh(isWordEnd) AND prevPhW(t) AND thisPh(isStressed) THEN
+    FMT(vowel/a)
+    ENDIF
+  IF nextPhW(o/) THEN
+        FMT(vowel/a_2)
+  ENDIF
+  IF prevPhW(isVowel) OR prevPhW(j) THEN
+    FMT(vowel/a, 90)
+  ENDIF
   FMT(vwl_it/a)
 endphoneme
 
-
 phoneme a/
   vowel starttype #a endtype #a
-  length 140
+  length 145
   IF thisPh(isWordEnd) THEN
-    FMT(vowel/a#_4, 65)
+    FMT(vowel/a_7, 75)
   ENDIF
-  FMT(vowel/a_7)
+  FMT(vowel/a_8)
 endphoneme
 
 
 phoneme e
   vowel starttype #e endtype #e
-  length 150
+  length 155
   ChangeIfNotStressed(e/)
   FMT(vowel/e_2, 80)
 endphoneme
@@ -47,7 +55,7 @@ endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 145
+  length 150
   ChangeIfUnstressed(e/)
   FMT(vwl_it/e_open)
 endphoneme
@@ -83,19 +91,19 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 150
+  length 160
   ChangeIfNotStressed(o/)
   FMT(vwl_it/o)
 endphoneme
 
 phoneme o/
   vowel starttype #o endtype #o
-  length 140
+  length 145
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vwl_it/o_open, 80)
   ENDIF
   IF thisPh(isWordEnd) THEN
-    FMT(vowel/o, 65)
+    FMT(vwl_it/o, 65)
   ENDIF
     FMT(vowel/o)
 endphoneme
@@ -186,14 +194,17 @@ endphoneme
 
 phoneme ts
   vls alv afr sibilant
-  voicingswitch dz
+  voicingswitch s
   lengthmod 9
   Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
   Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
-  IF nextPh(isPause2) THEN
+  IF nextPh(isNotVowel) THEN
     WAV(ustop/ts_, 80)
   ENDIF
-  WAV(ustop/ts_, 70)
+  IF prevPhW(isNotVowel) THEN
+    WAV(ustop/ts_, 70)
+  ENDIF
+  WAV(ustop/ts)
 endphoneme
 
 phoneme dz

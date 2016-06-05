@@ -978,9 +978,9 @@ Translator *SelectTranslator(const char *name)
 	case L('i', 't'): // Italian
 	{
 		static const short stress_lengths_it[8] =
-		{ 165, 100,  170, 150,  0, 0,  215, 303 };
+		{ 165, 130,  170, 150,  0, 0,  218, 305 };
 		static const unsigned char stress_amps_it[8] =
-		{ 16, 15, 16, 14, 20, 22, 22, 24 };
+		{ 16, 18, 17, 14, 20, 22, 22, 22 };
 
 		SetupTranslator(tr, stress_lengths_it, stress_amps_it);
 

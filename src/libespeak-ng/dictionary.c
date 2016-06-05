@@ -1465,15 +1465,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 				if (shorten)
 					p++;
 			}
-
-			if ((v_stress >= 4) && (tr->langopts.param[LOPT_IT_LENGTHEN] == 2)) {
-				// LANG=Italian, lengthen penultimate stressed vowels, unless followed by 2 consonants
-				if ((v == (vowel_count - 2)) && (syllable_weight[v] == 0)) {
-					*output++ = phcode;
-					phcode = phonLENGTHEN;
-				}
-			}
-
 			v++;
 		}
 
