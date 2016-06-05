@@ -243,28 +243,6 @@ espeak_ng_STATUS event_clear_all()
 	return ENS_OK;
 }
 
-static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
-{
-	int a_stop_is_required = 0;
-	struct timespec ts;
-	struct timeval tv;
-	int err = 0;
-
-	clock_gettime2(&ts);
-
-	add_time_in_ms(&ts, time_in_ms);
-
-	while ((err = sem_timedwait(&my_sem_stop_is_required, &ts)) == -1
-	       && errno == EINTR)
-		continue; // Restart when interrupted by handler
-
-	assert(gettimeofday(&tv, NULL) != -1);
-
-	if (err == 0)
-		a_stop_is_required = 1; // stop required
-	return a_stop_is_required;
-}
-
 static void *polling_thread(void *p)
 {
 	(void)p; // unused
