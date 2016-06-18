@@ -1698,7 +1698,7 @@ diesel		di:z@L
 dieu		_^_FR
 ?3 dilate	$1
 dilatory	dIl@t@ri
-?3 dilatory	dIlato:ri
+?3 dilatory	dIlato@ri
 dilemma		daIl'Em@
 ?3 dilemma	dI#l'Em@
 digest		daIdZEst $noun
@@ -2294,7 +2294,7 @@ interrogatory	$3
 interstice	I2nt3:stIs
 intestine	I2ntEstI#n
 inventory	Inv@ntri
-?3 inventory	Inv@nto:ri
+?3 inventory	Inv@nto@ri
 interface	$1
 interlude	$1
 intermin	Int'3:mIn	// interminable
@@ -3203,7 +3203,7 @@ résistance	reIzIst'A~ns
 restive		rEstIv
 respiration	rEspI#r'eIS@n 
 respiratory	rI2spIr@t@ri
-?3 respiratory	rEspr@to:ri
+?3 respiratory	rEspr@to@ri
 respite		rEspaIt
 ?3 respite	rEspIt
 rest		rEst          // for rested
