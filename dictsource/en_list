@@ -804,7 +804,7 @@ adher		adh'i@3
 adieu		a#dju:
 adieus		a#dju:z
 adieux		a#dju:z
-adios		aDj'o:s
+adios		adj'oUs
 adjective	$1
 ?3 administrative	$alt1
 admirable	adm@r@b@L
@@ -2163,7 +2163,7 @@ hiphop		$alt4
 hiya		haIa#
 hmmm		h'@m
 hmpf		h'@mpf
-hola		_^_ES
+hola		'oUla
 holistic	$alt3
 holme		hoUm
 holster		hoUlst3
@@ -2931,9 +2931,9 @@ pigsty		pIgstaI
 pilau		$2
 pilot		paIl@t
 pileup		paIlVp
-piñata		pi:n^'ata#
-piñatas		pi:n^'ata#z
-piña		pi:n^a#
+piñata		pi:nj'ata#
+piñatas		pi:nj'ata#z
+piña		pi:nja#
 pineapple	p'aInap@L
 pinged		pINd
 pinot		pi:noU
@@ -3343,6 +3343,9 @@ semicircle	$1
 semicolon	sEmIk'oUl@n
 semitone	$1
 senator		sEn@t3
+señor           sEnj'O@
+señora          sEnj'O@ra#
+señorita        s,EnjO@r'i:ta#
 sens		sEns               // for sensible
 !?3 sentient	sEnti@nt  // ??
 sepia		$alt6
@@ -4796,7 +4799,7 @@ Micah		maIk@
 Michaela	mI2keIl@
 Michele		mI2SEl
 Michelle	mI2SEl
-Miguel		mi:Q'El
+Miguel		mi:g'El
 Mikhail		mIkaIl
 Mildred		mIldrI2d
 Mimi		mi:mi
