@@ -1,0 +1,5 @@
+addon: espeak
+description: "allow syntax highlighting for eSpeak and eSpeak NG Text-to-Speech data files (dictionaries, etc.)"
+files:
+  - ftdetect/espeakfiletype.vim
+  - syntax/espeaklist.vim
