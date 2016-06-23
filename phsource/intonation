@@ -252,7 +252,7 @@ headenv   fall 16
 head       3 78 40 -7 -3
 headextend 10 47 23 9 0
 onset 58 45 48
-headlast 35 22 17
+headlast 55 32 27
 nucleus0 fall-rise 90 24
 nucleus fall-rise 78 25 90 68
 endtune
