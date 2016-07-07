@@ -1,0 +1,74 @@
+
+volume 50
+0	b	b 20  b  b
+0   b   NULL   0   b   
+0   t   NULL   0   t   
+0   T   NULL   0   T   
+0   dZ   NULL   0   Z 
+  
+1   H  a	40   X   a   
+1   H  u	40   X   u  
+1   H  i	40   X   i  
+0   H   NULL   0   X   
+
+0   X   NULL   0   x   
+0   d   NULL   0   d   
+0   D   NULL   0   D
+0   r/ NULL 0   r   
+0   r   NULL   0   r
+
+0   z   NULL   0   z
+0   s   NULL   0   s
+0   S   NULL   0   S
+
+1   s[ a   40     s. a.
+1   s[ u   40     s. u.
+1   s[ i   40     s. i.
+0   s[   NULL   0   s.
+
+0   dH dH  30  d. d.
+1  dH a   40   d. a.
+1  dH i   40   d. i.
+1  dH u   40   d. u.
+0   dH   NULL   0   d.
+
+0   t[ a   90     t. a.
+0   t[ u   90      t. u.
+0   t[ i   90       t. i.
+0   t[   NULL   0   t.
+
+
+1   Z a  20      z. a.
+1   Z u  20    z. u.
+1   Z i  20    z. i.
+0   Z   NULL   0   z.
+
+0   A   NULL   0   H
+0   gH   NULL   0   G
+0   f   NULL   0   f
+0   q   NULL   0   q
+0   k   NULL   0   k
+0   l/ NULL 0   l
+0   l   NULL   0   l
+
+0   m   m  100  n   m
+0   m   NULL   0   m
+
+0   n   NULL   0   n
+0   h   NULL   0   h
+0   w   NULL   0   w
+0   j   NULL   0   j
+0   ?   NULL   0   ?
+0   p   NULL   0   NULL
+0   g   NULL   0   NULL
+0   a	a 150   a a
+0   u	u 150   u u
+0   i	i 150   i i
+0   a   NULL   0   a
+0   u   NULL   0   u
+0   i   NULL   0   i
+
+ 
+
+
+

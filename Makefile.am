@@ -308,6 +308,7 @@ dictionaries: \
 	espeak-data/af_dict \
 	espeak-data/am_dict \
 	espeak-data/an_dict \
+	espeak-data/ar_dict \
 	espeak-data/as_dict \
 	espeak-data/az_dict \
 	espeak-data/bg_dict \
@@ -398,6 +399,12 @@ an: espeak-data/an_dict
 dictsource/an_extra:
 	touch dictsource/an_extra
 espeak-data/an_dict: src/espeak-ng phsource/phonemes.stamp dictsource/an_list dictsource/an_rules dictsource/an_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=an && cd ..
+
+ar: espeak-data/ar_dict
+dictsource/ar_extra:
+	touch dictsource/ar_extra
+espeak-data/ar_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ar_list dictsource/ar_rules dictsource/ar_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=an && cd ..
 
 as: espeak-data/as_dict
@@ -866,6 +873,8 @@ endif
 
 mbrola: \
 	espeak-data/mbrola_ph/af1_phtrans \
+	espeak-data/mbrola_ph/ar1_phtrans \
+	espeak-data/mbrola_ph/ar2_phtrans \
 	espeak-data/mbrola_ph/cr1_phtrans \
 	espeak-data/mbrola_ph/cs_phtrans \
 	espeak-data/mbrola_ph/de2_phtrans \
@@ -906,6 +915,13 @@ espeak-data/mbrola_ph/af1_phtrans: phsource/mbrola/af1 src/espeak-ng
 	mkdir -p espeak-data/mbrola_ph
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/af1
 
+espeak-data/mbrola_ph/ar1_phtrans: phsource/mbrola/ar1 src/espeak-ng
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar1
+espeak-data/mbrola_ph/ar2_phtrans: phsource/mbrola/ar2 src/espeak-ng
+	mkdir -p espeak-data/mbrola_ph
+	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar2
+	
 espeak-data/mbrola_ph/cr1_phtrans: phsource/mbrola/cr1 src/espeak-ng
 	mkdir -p espeak-data/mbrola_ph
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/cr1
