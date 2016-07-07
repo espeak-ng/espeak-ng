@@ -53,6 +53,11 @@
 16  _| VWL    0  ?
 //16  _! VWL    0  ?
 
+// phonemes for Spanish words
+0  e   NULL  0  E
+0  **  NULL  0  R
+0  n^  NULL  40 n j
+
 // phonemes for English words
 0  @L  NULL  0  L
 0  @2  NULL  0  @

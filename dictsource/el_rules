@@ -10,118 +10,156 @@
 // Letter group B:   θ κ ξ π ς σ τ φ χ  (voiceless consonants)
 // Letter group Y:   ε η ι υ  έ ή ί ύ  (front vowels).
 
+// TODO: Support combining marks/diacritics in the main rules.
+// TODO: Properly handle preserved polytonic combining marks (convert to standard combining mark codepoints).
+
 .L01 αι ε ι η υ οι ει  αί έ ί ή ύ οί εί 
 
 .replace
-// replace varia by tonos
-ὰ	ά
-ὲ	έ
-ὴ	ή
-ὶ	ί
-ῒ	ΐ
-ὸ	ό
-ὺ	ύ
-ῢ	ΰ
-ὼ	ώ
+// Map Greek Extended (1fxx) to Greek (03xx) for Polytonic character support (Unicode 8.0):
+ἀ	α // U+1f00
+ἁ	α // U+1f01
+ἂ	ά // U+1f02
+ἃ	ά // U+1f03
+ἄ	ά // U+1f04
+ἅ	ά // U+1f05
+ἆ	ά // U+1f06
+ἇ	ά // U+1f07
 
-// replace oxia by tonos
-ά	ά
-έ	έ
-ή	ή
-ί	ί
-ΐ	ΐ
-ό	ό
-ύ	ύ
-ΰ	ΰ
-ώ	ώ
+ᾀ	α // U+1F80
+ᾁ	α // U+1F81
+ᾂ	α // U+1F82
+ᾃ	α // U+1F83
+ᾄ	α // U+1F84
+ᾅ	α // U+1F85
+ᾆ	α // U+1F86
+ᾇ	α // U+1F87
 
-// replace perispomeni by tonos
-ᾶ	ά
-ῆ	ή
-ῖ	ί
-ῗ	ΐ
-ῦ	ύ
-ῧ	ΰ
-ῶ	ώ
+ἐ	ε // U+1f10
+ἑ	ε // U+1f11
+ἒ	έ // U+1f12
+ἓ	έ // U+1f13
+ἔ	έ // U+1f14
+ἕ	έ // U+1f15
 
+ἠ	η // U+1f20
+ἡ	η // U+1f21
+ἢ	ή // U+1f22
+ἣ	ή // U+1f23
+ἤ	ή // U+1f24
+ἥ	ή // U+1f25
+ἦ	ή // U+1f26
+ἧ	ή // U+1f27
 
-// remove psili
-ἀ	α
-ἂ	ά
-ἄ	ά
-ἆ	ά
+ᾐ	η // U+1F90
+ᾑ	η // U+1F91
+ᾒ	η // U+1F92
+ᾓ	η // U+1F93
+ᾔ	η // U+1F94
+ᾕ	η // U+1F95
+ᾖ	η // U+1F96
+ᾗ	η // U+1F97
 
-ἐ	ε
-ἒ	έ
-ἔ	έ
+ἰ	ι // U+1f30
+ἱ	ι // U+1f31
+ἲ	ί // U+1f32
+ἳ	ί // U+1f33
+ἴ	ί // U+1f34
+ἵ	ί // U+1f35
+ἶ	ί // U+1f36
+ἷ	ί // U+1f37
 
-ἠ	η
-ἢ	ή
-ἤ	ή
-ἦ	ή
+ὀ	ο // U+1f40
+ὁ	ο // U+1f41
+ὂ	ό // U+1f42
+ὃ	ό // U+1f43
+ὄ	ό // U+1f44
+ὅ	ό // U+1f45
 
-ἰ	ι
-ἲ	ί
-ἴ	ί
-ἶ	ί
+ὐ	υ // U+1f50
+ὑ	υ // U+1f51
+ὒ	ύ // U+1f52
+ὓ	ύ // U+1f53
+ὔ	ύ // U+1f54
+ὕ	ύ // U+1f55
+ὖ	ύ // U+1f56
+ὗ	ύ // U+1f57
 
-ὀ	ο
-ὂ	ό
-ὄ	ό
+ὠ	ω // U+1f60
+ὡ	ω // U+1f61
+ὢ	ώ // U+1f62
+ὣ	ώ // U+1f63
+ὤ	ώ // U+1f64
+ὥ	ώ // U+1f65
+ὦ	ώ // U+1f66
+ὧ	ώ // U+1f67
 
-ὐ	υ
-ὒ	ύ
-ὔ	ύ
-ὖ	ύ
+ὰ	ά // U+1f70
+ά	ά // U+1f71
+ὲ	έ // U+1f72
+έ	έ // U+1f73
+ὴ	ή // U+1f74
+ή	ή // U+1f75
+ὶ	ί // U+1f76
+ί	ί // U+1f77
+ὸ	ό // U+1f78
+ό	ό // U+1f79
+ὺ	ύ // U+1f7a
+ύ	ύ // U+1f7b
+ὼ	ώ // U+1f7c
+ώ	ώ // U+1f7d
 
-ὠ	ω
-ὢ	ώ
-ὤ	ώ
-ὦ	ώ
+ᾠ	ω // U+1fa0
+ᾡ	ω // U+1fa1
+ᾢ	ώ // U+1fa2
+ᾣ	ώ // U+1fa3
+ᾤ	ώ // U+1fa4
+ᾥ	ώ // U+1fa5
+ᾦ	ώ // U+1fa6
+ᾧ	ώ // U+1fa7
 
+ᾰ	α // U+1fb0
+ᾱ	α // U+1fb1
+ᾲ	ά // U+1fb2
+ᾳ	α // U+1fb3
+ᾴ	ά // U+1fb4
+ᾶ	ά // U+1fb6
+ᾷ	ά // U+1fb7
 
-// remove dasia
-ἁ	α
-ἃ	ά
-ἅ	ά
-ἇ	ά
+῁	 ̈ // U+1fc1
+ῂ	ή // U+1fc2
+ῃ	η // U+1fc3
+ῄ	ή // U+1fc4
+ῆ	ή // U+1fc6
+ῇ	ή // U+1fc7
+῍	´ // U+1fcd
+῎	´ // U+1fce
 
-ἑ	ε
-ἓ	έ
-ἕ	έ
+ῐ	ι // U+1fd0
+ῑ	ι // U+1fd1
+ῒ	ΐ // U+1fd2
+ΐ	ΐ // U+1fd3
+ῖ	ί // U+1fd6
+ῗ	ΐ // U+1fd7
+῝	´ // U+1fdd
+῞	´ // U+1fde
 
-ἡ	η
-ἣ	ή
-ἥ	ή
-ἧ	ή
+ῠ	υ // U+1fe0
+ῡ	υ // U+1fe1
+ῢ	ΰ // U+1fe2
+ΰ	ΰ // U+1fe3
+ῤ	ρ // U+1fe4
+ῥ	ρ // U+1fe5
+ῦ	ύ // U+1fe6
+ῧ	ΰ // U+1fe7
+῭	΅ // U+1fed
+`	´ // U+1fef
 
-ἱ	ι
-ἳ	ί
-ἵ	ί
-ἷ	ί
-
-ὁ	ο
-ὃ	ό
-ὅ	ό
-
-ὑ	υ
-ὓ	ύ
-ὕ	ύ
-ὗ	ύ
-
-ὡ	ω
-ὣ	ώ
-ὥ	ώ
-ὧ	ώ
-
-// ypogegrammeni
-ᾳ	α
-
-ῃ	η
-
-ῳ	ω
-ῷ	ώ   // perispomeni + y
-ᾠ	ω   // psili + y
+ῲ	ώ // U+1ff2
+ῳ	ω // U+1ff3
+ῴ	ώ // U+1ff4
+ῶ	ώ // U+1ff6
+ῷ	ώ // U+1ff7
 
 
 .group α
@@ -363,9 +401,18 @@
            ΰ        'i   // dialytika + tonos
            ώ        'o
 
+            ̓            // U+1fbd
+           ι            // U+1fbe
+            ̓            // U+1fbf
+
+             ͂           // U+1fc0
+           ῏            // U+1fcf
+
+           ῟            // U+1fdf
+
+            ̔            // U+1ffe
 
            ͅ		// combining ypogegrammeni
-           ͺ		// ypogegrammeni
            
            .        tel'ia
            , (D     k'oma

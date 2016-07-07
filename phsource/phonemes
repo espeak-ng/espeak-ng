@@ -136,7 +136,7 @@ endphoneme
 
 // Some default vowel definitions
 
-phoneme @    //  Schwa
+phoneme @    //  Schwa, e.g. alph**a**
   vowel   starttype #@  endtype #@
   unstressed
   length 140
@@ -157,14 +157,14 @@ phoneme @-   //  very short schwa
 endphoneme
 
 
-phoneme a
+phoneme a // tr**a**p
   vowel starttype #a endtype #a
   length 180
   FMT(vowel/a)
 endphoneme
 
 
-phoneme e
+phoneme e // German **eh**, French **é**
   vowel starttype #e endtype #e
   length 170
   FMT(vowel/e)
@@ -179,7 +179,7 @@ phoneme i
 endphoneme
 
 
-phoneme o
+phoneme o // German **oo**, French **o**
   vowel starttype #o endtype #o
   length 170
   FMT(vowel/oo)
@@ -292,7 +292,7 @@ phoneme l-   // syllabic l
 endphoneme
 
 
-phoneme r
+phoneme r // **r**ed (Omitted if not immediately followed by a vowel)
   liquid rhotic
   ipa ɹ
   lengthmod 7
@@ -547,7 +547,7 @@ endphoneme
 
 
 
-phoneme l^    // palatal l
+phoneme l^    // palatal l, e.g. Italian **g**li
   liquid
   ipa ʎ
   lengthmod 7
@@ -640,7 +640,7 @@ endphoneme
 
 
 
-phoneme j
+phoneme j // **y**es
   liquid palatal starttype #i
   lengthmod 7
 
@@ -796,7 +796,7 @@ phoneme n.
 endphoneme
 
 
-phoneme n^
+phoneme n^ // Spanish **ñ**
   vcd pal nasal palatal
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
@@ -829,7 +829,7 @@ phoneme n^
 endphoneme
 
 
-phoneme N
+phoneme N // si**ng** 
   vcd vel nasal
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 8            // longer than 'n'
@@ -1012,7 +1012,7 @@ phoneme d[
 endphoneme
 
 
-phoneme dZ
+phoneme dZ // **j**udge
   vcd pla afr sibilant
   voicingswitch tS
   lengthmod 5
@@ -1165,7 +1165,7 @@ phoneme v#        // approximant, not fricative
 endphoneme
 
 
-phoneme D
+phoneme D // **th**is
   vcd dnt frc
   voicingswitch T
   lengthmod 6
@@ -1200,7 +1200,7 @@ phoneme z
 endphoneme
 
 
-phoneme Z
+phoneme Z // plea**s**ure
   vcd pla frc sibilant
   voicingswitch S
   lengthmod 6
@@ -1392,7 +1392,7 @@ phoneme t[        // dental variant of /t/
 endphoneme
 
 
-phoneme tS
+phoneme tS     // **ch**urch
   vls pla afr sibilant
   voicingswitch dZ
   lengthmod 2
@@ -1492,7 +1492,7 @@ phoneme f
 endphoneme
 
 
-phoneme T
+phoneme T   // **th**in
   vls dnt frc
   voicingswitch D
   lengthmod 3
@@ -1522,7 +1522,7 @@ phoneme s
 endphoneme
 
 
-phoneme S
+phoneme S // **sh**op
   vls pla frc sibilant
   voicingswitch Z
   lengthmod 3
@@ -1603,7 +1603,7 @@ phoneme l#   // Lateral fricative (eg. Welsh "ll")
 endphoneme
 
 
-phoneme C
+phoneme C // German i**ch**
   vls pal frc palatal
   lengthmod 3
   Vowelin f1=0  f2=2700 400 600  f3=200 70
@@ -1616,7 +1616,7 @@ phoneme C
 endphoneme
 
 
-phoneme x
+phoneme x // German bu**ch**
   vls vel frc
   voicingswitch Q
   lengthmod 3
@@ -1899,17 +1899,8 @@ include ph_farsi
 phonemetable ar base
 include ph_arabic
 
-
-//**************************************************************************************
-// The following lines are experimental, for future additions.
-// These langauges are not in a usable state.
-// These lines can be deleted.
-
 phonemetable rw base2
 include ph_kinyarwanda
-
-//phonemetable mn base
-//include ph_mongolian
 
 phonemetable prs base
 include ph_dari
@@ -1956,11 +1947,8 @@ include ph_oriya
 phonemetable mni bn
 include ph_manipuri
 
-
-
 phonemetable tn base
 include ph_setswana
-
 
 phonemetable mt base
 include ph_maltese
@@ -1983,5 +1971,10 @@ include ph_greenlandic
 phonemetable om base
 include ph_oromo
 
+phonemetable my base
+include ph_burmese
+
+phonemetable gn base
+include ph_guarani
 
 

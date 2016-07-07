@@ -1,4 +1,3 @@
-
 // Aragon translation rules
 // This file is UTF-8 encoded
 
@@ -38,10 +37,10 @@
 .group c
         c          k
         c (Y       T         // ce  ci
-		c' (Y      T
+        c' (Y      T
         ck         k         // Forano (Foreign)
         ch         tS
-		//c (_        =
+//      c (_       =
 
 
 
@@ -50,9 +49,9 @@
 
 .group d
         d          d
-C) d (_       =         // silent, but stress on last vowel
-A) d (_       =         // silent, but stress on last vowel
-     _) d          d         // phoneme definition may change it to [D]
+     C) d (_       =    // silent, but stress on last vowel
+     A) d (_       =    // silent, but stress on last vowel
+     _) d          d    // phoneme definition may change it to [D]
      _) d (A       d
         d (A       D
         d (cY      D
@@ -79,9 +78,9 @@ A) d (_       =         // silent, but stress on last vowel
      u) e          E
      y) e          E
 
-	 L06_) e (n_      e#        // unstressed 'e' silent at start of word after a,e,o
-  L06_) e (L07C      e#        // unstressed 'e' silent at start of word after a,e,o
- L06_h) e (L07C      e#        // unstressed 'e' silent at start of word after a,e,o
+  L06_) e (n_      e#        // unstressed 'e' silent at start of word after a,e,o
+  L06_) e (L07C    e#        // unstressed 'e' silent at start of word after a,e,o
+ L06_h) e (L07C    e#        // unstressed 'e' silent at start of word after a,e,o
 
      _) ent' (AP4  ent
      _) enta'      ,ent%a
@@ -217,12 +216,11 @@ A) d (_       =         // silent, but stress on last vowel
 
 .group t
         t          t
-t (_        t#
-     C) t (C               // Silent
-C) t (r        t
- C) t (h        t
+        t (_       t#
+     C) t (C          //Silent
+     C) t (r       t
+     C) t (h       t
         tz         T
-   
      _) t' (AP2    t
      _) ta'        t%a
      _) to'        t%o
@@ -239,11 +237,11 @@ C) t (r        t
         u (A       w
      _) u (u       u
      _) u (A       gw
-	 //Ar) u (Y    gw
+//  Ar) u (Y       gw
   _des) u (Y       gw
    _es) u (Y       gw
 
-	 // Some exception
+// Some exception
 _esquir) u (el     Qw        // esquiruelo, esquiruelos
   _cir) u (ell     Qw        // Ciruello, ciruella, ciruellos, ciruellas
 

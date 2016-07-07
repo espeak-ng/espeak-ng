@@ -1,0 +1,140 @@
+
+//====================================================
+//  guarani: Update 14 march 2016
+//====================================================
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 170
+  IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
+    FMT(vowel/a, 75)
+  ENDIF
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme a~
+  vowel  starttype #a  endtype #a
+  length 190
+  IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
+    FMT(vnasal/a#_n2, 90)
+  ENDIF
+  FMT(vnasal/a_n, 80)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 165
+  IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
+    FMT(vowel/e)
+  ENDIF
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme e~
+  vowel  starttype #e  endtype #e
+  length 200
+  FMT(vnasal/e_n)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 160
+  FMT(vowel/i)
+endphoneme
+
+phoneme i~
+  vowel  starttype #i  endtype #i
+  length 190
+  FMT(vnasal/i_n)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 170
+  FMT(vowel/oo)
+endphoneme
+
+phoneme o~
+  vowel  starttype #o  endtype #o
+  length 190
+  FMT(vnasal/o_n)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 155
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme u~
+  vowel  starttype #u  endtype #u
+  length 185
+  FMT(vnasal/u_n)
+endphoneme
+
+phoneme y
+  vowel starttype #i endtype #i
+  length 185
+  FMT(vowel/yy_4)
+endphoneme
+
+phoneme y~ // guarani ỹ
+  ipa ɨ̃
+  vowel starttype #i endtype #i
+  length 195
+  FMT(vowel/i#_7)
+endphoneme
+
+
+// consonants
+
+phoneme b
+  vcd blb stop
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(B)
+    ENDIF
+  ENDIF
+
+  CALL base/b
+endphoneme
+
+phoneme r
+  vcd alv flp rhotic
+  brkafter
+  ipa ɾ
+  lengthmod 3
+
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(**)
+  ENDIF
+
+  CALL base/*
+endphoneme
+
+phoneme g
+  vcd vel stop
+  lengthmod 5
+  voicingswitch k
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(Q)
+    ENDIF
+  ENDIF
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2)        // weaker [g]
+endphoneme
+
+

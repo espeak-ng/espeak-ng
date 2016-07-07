@@ -1,0 +1,10 @@
+name latvian
+language lv
+gender male
+maintainer Valdis Vitolins <valdis.vitolins@odo.lv>
+status mature
+words 0 2
+pitch 66 118
+tone 80 100 600 250 900 240 1400 100
+stressAmp 14 10 14 8 0 0 23 15
+stressLength 180 180 180 160 0 0 220 180

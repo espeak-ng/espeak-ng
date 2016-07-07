@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.131
-// *   This file writen by Shadyar Khodayari 04-07-2015
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.132
+// *   This file writen by Shadyar Khodayari 04-22-2016
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -44,6 +44,7 @@
 		۸	8
 		٩	9
 		۹	9
+		٫	،
 		٪	%
 		ٔ	ٴ
 		ي	ی	// this is "ي" Shift + x on the Persian Keyboard ("ye Arabi") that has been replaced with "ی" Standard for some programing reasones.
@@ -105,12 +106,14 @@
 		ﺽ	ض
 		ﺿ	ض
 		ﻀ	ض
+		ﺾ	ض
 		ﻁ	ط
 		ﻂ	ط
 		ﻃ	ط
 		ﻄ	ط
 		ﻇ	ظ
 		ﻈ	ظ
+		ﻆ	ظ
 		ﻉ	ع
 		ﻊ	ع
 		ﻋ	ع
@@ -135,6 +138,7 @@
 		ﻛ	ک
 		ﻚ	ک
 		ﻜ	ک
+		ﻙ	ک
 		ﮒ	گ
 		ﮓ	گ
 		ﮔ	گ
@@ -177,6 +181,7 @@
 		ﺋ	ئ
 		ﺌ	ئ
 		ﺆ	ؤ
+		ۆ	ؤ
 		ﺀ	ء
 		ﹺ	ِ
 		// Urdu for Persian users added
@@ -672,6 +677,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		_) پیکو (L04L09L09P4@	'piko
 		_) پیکو (آL09L09P4@	'piko
 		_) پور (L04L09L09$noprefixP3@	puR
+		_) پری (L04L09L09$noprefixP3@	paRi
 
 	// suffixes پ
 		L09L09) پژوه (_Sm4	paZuh
@@ -690,6 +696,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09) پرست (_Sm4	paRast
 		L09L09) پناه (_Sm4	panAh
 		L09L09) پسند (_Sm4	pasand
+		L09L09L09) پلو (_Sm3	polo
 
 	// arabic form of words  (Babs) پ
 		//فواعل eg. جوامع
@@ -2164,7 +2171,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		_) رضا (آL09L09P3@	RezA
 		_) ریز (L04L09L09P3@	Riz
 		_) ریز (آL09L09P3@	Riz
-		_) راست (L04L09L09P4@	RAst:
+		_) راست (L04L09L09P4@	RAst
 		_) راست (آL09L09P4@	RAst
 		_) رنگ (L04L09L09P3@	Rang
 		_) رنگ (آL09L09P3@	Rang
@@ -3035,8 +3042,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 	// Prefixes ص
 		_) صاحب (L04L09L09P4@	sAheb
 		_) صاحب (آL09L09P4@	sAheb
-		_) صدر (L04L09L09P3@	sadr
-		_) صدر (آL09L09P5@	sadr
+		_) صدر (L09L09L09P3@	sadr
 
 	// Suffixes ص
 		// L09L09) صد (_Sm2	sad
@@ -4674,6 +4680,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09) لوژ (_Sm3	loZ
 		L09L09) لوژیک (_Sm5	loZik
 		L09L09) لوگ (_Sm3	log
+		L09L09L09) لو (_Sm2	lu:
 
 	// arabic form of words  (Babs) ل
 		//فواعل eg. جوامع
@@ -5629,10 +5636,11 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L01) ییان (_Sm4	i:An	eg. "اروپاییان"
 		L09L09) یار (_Sm3	jAR
 		L09L09) یون (_Sm3	jun
-		L09L09) یوم (_Sm3	jom
+		L09L09) یوم (_Sm3	ijom
 		L09L09م) ین (_Sm2	in
 		L09L03) ین (_Sm2	in	//eg. "زرین"
 		//L09L03) ینی (_NSm3	ini	//eg. "زرین"
+		L09L09L08) یان (_Sm3	jAn
 		// Subjective pronouns
 			L09L03) ی (_Sm1	i
 			L09L01و) ی (_Sm1	i
@@ -6064,8 +6072,9 @@ L09L04) السّادات (_Sm8	ossAdAt
 
 // Others mathematics characters
 .group
-	. (D     	noq1te:
+    D_) : (_DD_                         // omit colon in time, eg: 2:30
+	. (D	noq1te:
 	±	m'osbat||jA:||m'anfi
 	>=	boz'oRgtaR||jA:||m,osAvi
 	<=	kutS'ektaR||jA:||m,osAvi
-	
+

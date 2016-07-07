@@ -1,28 +1,26 @@
-/***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
- *   email: jonsd@users.sourceforge.net                                    *
- *   Copyright (C) 2015 by Reece H. Dunn                                   *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 3 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, see:                                 *
- *               <http://www.gnu.org/licenses/>.                           *
- ***************************************************************************/
+/*
+ * Copyright (C) 2005 to 2010 by Jonathan Duddington
+ * email: jonsd@users.sourceforge.net
+ * Copyright (C) 2015 Reece H. Dunn
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
+ */
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
 
 // phoneme types
 #define phPAUSE   0
@@ -37,7 +35,6 @@ extern "C"
 #define phVIRTUAL 9
 #define phDELETED 14
 #define phINVALID 15
-
 
 // phoneme properties
 //   bits 16-19 give place of articulation
@@ -103,26 +100,23 @@ extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long,
 #define phPLACE_blb    0x10000
 #define phPLACE_pla    0x60000
 
-#define N_PHONEME_TABS     100     // number of phoneme tables
+#define N_PHONEME_TABS     150     // number of phoneme tables
 #define N_PHONEME_TAB      256     // max phonemes in a phoneme table
 #define N_PHONEME_TAB_NAME  32     // must be multiple of 4
 
 // main table of phonemes, index by phoneme number (1-254)
 
 typedef struct {
-	unsigned int  mnemonic;      // Up to 4 characters.  The first char is in the l.s.byte
-	unsigned int  phflags;       // bits 16-19 place of articulation
+	unsigned int mnemonic;       // Up to 4 characters.  The first char is in the l.s.byte
+	unsigned int phflags;        // bits 16-19 place of articulation
 	unsigned short program;      // index into phondata file
-	unsigned char  code;         // the phoneme number
-	unsigned char  type;         // phVOWEL, phPAUSE, phSTOP etc
-	unsigned char  start_type;
-	unsigned char  end_type;
-	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
-	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
-
+	unsigned char code;          // the phoneme number
+	unsigned char type;          // phVOWEL, phPAUSE, phSTOP etc
+	unsigned char start_type;
+	unsigned char end_type;
+	unsigned char std_length;    // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
+	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
 } PHONEME_TAB;
-
-
 
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
@@ -139,8 +133,6 @@ typedef struct {
 	int equivalence_tables;   // lists of equivalent phonemes to match other languages, byte index into phondata
 } PHONEME_TAB_LIST;
 
-
-
 // table of phonemes to be replaced with different phonemes, for the current voice
 #define N_REPLACE_PHONEMES   60
 typedef struct {
@@ -152,18 +144,15 @@ typedef struct {
 extern int n_replace_phonemes;
 extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
-
 // Table of phoneme programs and lengths.  Used by MakeVowelLists
 typedef struct {
 	unsigned int addr;
 	unsigned int length;
 } PHONEME_PROG_LOG;
 
-
-
-#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name
-#define PH3(c1,c2,c3) (c3<<16)+(c2<<8)+c1
-#define PhonemeCode2(c1,c2)  PhonemeCode((c2<<8)+c1)
+#define PH(c1, c2) (c2<<8)+c1          // combine two characters into an integer for phoneme name
+#define PH3(c1, c2, c3) (c3<<16)+(c2<<8)+c1
+#define PhonemeCode2(c1, c2) PhonemeCode((c2<<8)+c1)
 int LookupPhonemeString(const char *string);
 int PhonemeCode(unsigned int mnem);
 

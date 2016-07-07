@@ -46,12 +46,50 @@ libespeak-ng.a
 libespeak-ng.la
 libespeak-ng.so*
 
-# programs
+# build output
 
-platforms/*/espeak-phoneme-data
+*.html
+
+src/espeak-ng.1
+src/speak-ng.1
+
 src/espeak-ng
 src/espeakedit
 src/speak-ng
+
+espeak-ng.pc
+
+# Windows builds
+
+src/pcaudiolib/
+
+!src/windows/config.h
+
+*.obj
+*.lib
+*.dll
+*.exe
+*.msi
+
+*.exp
+*.idb
+*.ilk
+*.iobj
+*.ipdb
+*.log
+*.pdb
+*.tlog/
+
+.vs/
+*.VC.opendb
+*.sdf
+*.cache
+*.user
+
+*.txt
+*.wixobj
+*.wixpdb
+*.cab
 
 # Linux/Source distribution files
 

@@ -405,6 +405,51 @@ _ή	,ita||t'onos
 ῷ	om,eQa||perispom'eni||ipojeQram'eni
 ᾠ	om,eQa||psil'i||ipojeQram'eni
 
+// the macron and breve are often used  over α, ι, and υ to indicate that it is long or short, respectively.
+
+ᾰ	,alfa||vraC'i
+ᾱ	,alfa||makr'on
+ῐ	i,ota||vraC'i
+ῑ	i,ota||makr'on
+ῠ	,ipsilon||vraC'i
+ῡ	,ipsilon||makr'on
+
+// Characters name with combined accents
+
+ᾀ	,alfa||psil'i||ipojeQram'eni
+ᾁ	,alfa||Das'ia||ipojeQram'eni
+ᾂ	,alfa||psil'i||var'ia||ipojeQram'eni
+ᾃ	,alfa||Das'ia||var'ia||ipojeQram'eni
+ᾄ	,alfa||psil'i||oks'ia||ipojeQram'eni
+ᾅ	,alfa||Das'ia||oks'ia||ipojeQram'eni
+ᾆ	,alfa||psil'i||perispom'eni||ipojeQram'eni
+ᾇ	,alfa||Das'ia||perispom'eni||ipojeQram'eni
+ᾐ	,ita||psil'i||ipojeQram'eni
+ᾑ	,ita||Das'ia||ipojeQram'eni
+ᾒ	,ita||psil'i||var'ia||ipojeQram'eni
+ᾓ	,ita||Das'ia||var'ia||ipojeQram'eni
+ᾔ	,ita||psil'i||oks'ia||ipojeQram'eni
+ᾕ	,ita||Das'ia||oks'ia||ipojeQram'eni
+ᾖ	,ita||psil'i||perispom'eni||ipojeQram'eni
+ᾗ	,ita||Das'ia||perispom'eni||ipojeQram'eni
+ᾡ	om,eQa||Das'ia||ipojeQram'eni
+ᾢ	om,eQa||psil'i||var'ia||ipojeQram'eni
+ᾣ	om,eQa||Das'ia||var'ia||ipojeQram'eni
+ᾤ	om,eQa||psil'i||oks'ia||ipojeQram'eni
+ᾥ	om,eQa||Das'ia||oks'ia||ipojeQram'eni
+ᾦ	om,eQa||psil'i||perispomeni||ipojeQram'eni
+ᾧ	om,eQa||Das'ia||perispomeni||ipojeQram'eni
+ᾲ	,alfa||var'ia||ipojeQram'eni
+ᾴ	,alfa||oks'ia||ipojeQram'eni
+ᾷ	,alfa||perispom'eni||ipojeQram'eni
+ῂ	,ita||var'ia||ipojeQram'eni
+ῄ	,ita||oks'ia||ipojeQram'eni
+ῇ	,ita||perispom'eni||ipojeQram'eni
+ῤ	Ro||psil'i
+ῥ	Ro||Das'ia
+ῲ	om,eQa||var'ia||ipojeQram'eni
+ῴ	om,eQa||oks'ia||ipojeQram'eni
+
 
 U+342	perispom'eni   // combining accent
 U+345	ipojeQram'eni   // combining iota subscript

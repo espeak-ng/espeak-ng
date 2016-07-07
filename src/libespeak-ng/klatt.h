@@ -1,3 +1,26 @@
+/*
+ * Copyright (C) 2008 by Jonathan Duddington
+ * email: jonsd@users.sourceforge.net
+ * Copyright (C) 2015 Reece H. Dunn
+ *
+ * Based on a re-implementation by:
+ * (c) 1993,94 Jon Iles and Nick Ing-Simmons
+ * of the Klatt cascade-parallel formant synthesizer
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
+ */
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -11,17 +34,13 @@ extern "C"
 #define SAMPLED          3
 #define SAMPLED2         4
 
-#define PI               3.1415927
-
-
 /* typedef's that need to be exported */
 
 typedef long flag;
 
 /* Resonator Structure */
 
-typedef struct
-{
+typedef struct {
 	double a;
 	double b;
 	double c;
@@ -34,39 +53,38 @@ typedef struct
 
 /* Structure for Klatt Globals */
 
-typedef struct
-{
-  flag synthesis_model; /* cascade-parallel or all-parallel */
-  flag outsl;       /* Output waveform selector                      */
-  long samrate;     /* Number of output samples per second           */
-  long FLPhz ;      /* Frequeny of glottal downsample low-pass filter */
-  long BLPhz ;      /* Bandwidth of glottal downsample low-pass filter */
-  flag glsource;    /* Type of glottal source */
-  int f0_flutter;   /* Percentage of f0 flutter 0-100 */
-  long nspfr;       /* number of samples per frame */
-  long nper;        /* Counter for number of samples in a pitch period */
-  long ns;
-  long T0;          /* Fundamental period in output samples times 4 */
-  long nopen;       /* Number of samples in open phase of period    */
-  long nmod;        /* Position in period to begin noise amp. modul */
-  long nrand;       /* Varible used by random number generator      */
-  double pulse_shape_a;  /* Makes waveshape of glottal pulse when open   */
-  double pulse_shape_b;  /* Makes waveshape of glottal pulse when open   */
-  double minus_pi_t;
-  double two_pi_t;
-  double onemd;
-  double decay;
-  double amp_bypas; /* AB converted to linear gain              */
-  double amp_voice; /* AVdb converted to linear gain            */
-  double par_amp_voice; /* AVpdb converted to linear gain       */
-  double amp_aspir; /* AP converted to linear gain              */
-  double amp_frica; /* AF converted to linear gain              */
-  double amp_breth; /* ATURB converted to linear gain           */
-  double amp_gain0; /* G0 converted to linear gain              */
-  int num_samples; /* number of glottal samples */
-  double sample_factor; /* multiplication factor for glottal samples */
-  short *natural_samples; /* pointer to an array of glottal samples */
-  long original_f0; /* original value of f0 not modified by flutter */
+typedef struct {
+	flag synthesis_model; /* cascade-parallel or all-parallel */
+	flag outsl;     /* Output waveform selector                      */
+	long samrate;   /* Number of output samples per second           */
+	long FLPhz;     /* Frequeny of glottal downsample low-pass filter */
+	long BLPhz;     /* Bandwidth of glottal downsample low-pass filter */
+	flag glsource;  /* Type of glottal source */
+	int f0_flutter; /* Percentage of f0 flutter 0-100 */
+	long nspfr;     /* number of samples per frame */
+	long nper;      /* Counter for number of samples in a pitch period */
+	long ns;
+	long T0;        /* Fundamental period in output samples times 4 */
+	long nopen;     /* Number of samples in open phase of period    */
+	long nmod;      /* Position in period to begin noise amp. modul */
+	long nrand;     /* Varible used by random number generator      */
+	double pulse_shape_a; /* Makes waveshape of glottal pulse when open   */
+	double pulse_shape_b; /* Makes waveshape of glottal pulse when open   */
+	double minus_pi_t;
+	double two_pi_t;
+	double onemd;
+	double decay;
+	double amp_bypas; /* AB converted to linear gain              */
+	double amp_voice; /* AVdb converted to linear gain            */
+	double par_amp_voice; /* AVpdb converted to linear gain       */
+	double amp_aspir; /* AP converted to linear gain              */
+	double amp_frica; /* AF converted to linear gain              */
+	double amp_breth; /* ATURB converted to linear gain           */
+	double amp_gain0; /* G0 converted to linear gain              */
+	int num_samples; /* number of glottal samples */
+	double sample_factor; /* multiplication factor for glottal samples */
+	short *natural_samples; /* pointer to an array of glottal samples */
+	long original_f0; /* original value of f0 not modified by flutter */
 
 	int fadeout;       // set to 64 to cause fadeout over 64 samples
 	int scale_wav;     // depends on the voicing source
@@ -96,8 +114,8 @@ typedef struct
 #define RLP  18
 #define Rout 19
 
-  resonator_t rsn[N_RSN];	 // internal storage for resonators
-  resonator_t rsn_next[N_RSN];
+	resonator_t rsn[N_RSN];  // internal storage for resonators
+	resonator_t rsn_next[N_RSN];
 
 } klatt_global_t, *klatt_global_ptr;
 
@@ -113,8 +131,7 @@ typedef struct
 #define F_NP   9  // nasal pole formant
 
 
-typedef struct
-{
+typedef struct {
 	int F0hz10; /* Voicing fund freq in Hz                          */
 	int AVdb;   /* Amp of voicing in dB,            0 to   70       */
 	int Fhz[10];  // formant Hz, F_NZ to F6 to F_NP
@@ -133,10 +150,10 @@ typedef struct
 	int AVpdb;  /* Amp of voicing,  par in dB,      0 to   70       */
 	int Gain0;  /* Overall gain, 60 dB is unity,    0 to   60       */
 
-	int AVdb_tmp;      //copy of AVdb, which is changed within parwave()
+	int AVdb_tmp;      // copy of AVdb, which is changed within parwave()
 	int Fhz_next[10];    // Fhz for the next chunk, so we can do interpolation of resonator (a,b,c) parameters
 	int Bhz_next[10];
- } klatt_frame_t, *klatt_frame_ptr;
+} klatt_frame_t, *klatt_frame_ptr;
 
 
 typedef struct {

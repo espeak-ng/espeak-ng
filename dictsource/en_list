@@ -54,6 +54,7 @@ u	ju:
 v	vi:
 w	d'Vb@Lju:
 x	E2ks
+y	waI
 z	zE2d
 ?3 z    zi:
 
@@ -775,6 +776,7 @@ absolutely	$3           $verbf
 abstemious	a#bst'i:mi@s
 abstract	abstrakt      $only
 abstract	a#bstr'akt    $verb
+abuse		a#bju:z       $verb
 academe		a#kad@mi
 acapela		aka#p'El@
 access		aksEs
@@ -802,7 +804,7 @@ adher		adh'i@3
 adieu		a#dju:
 adieus		a#dju:z
 adieux		a#dju:z
-adios		aDj'o:s
+adios		adj'oUs
 adjective	$1
 ?3 administrative	$alt1
 admirable	adm@r@b@L
@@ -1693,10 +1695,10 @@ dieback		daIbak
 diehard		daIhA@d
 dielectric	daI@l'EktrIk
 diesel		di:z@L
-dieu		_^_FR
+dieu		dj@
 ?3 dilate	$1
 dilatory	dIl@t@ri
-?3 dilatory	dIlato:ri
+?3 dilatory	dIlato@ri
 dilemma		daIl'Em@
 ?3 dilemma	dI#l'Em@
 digest		daIdZEst $noun
@@ -1910,6 +1912,7 @@ façade		f@sA:d
 facet		fasI#t
 facetious	fa#si:S@s
 faculty		fak@Lt2i
+fae		f'eI $onlys
 faeces		fi:si:z
 fahrenheit	far@nhaIt
 fairest		fe@r@st
@@ -2160,7 +2163,7 @@ hiphop		$alt4
 hiya		haIa#
 hmmm		h'@m
 hmpf		h'@mpf
-hola		_^_ES
+hola		'oUla
 holistic	$alt3
 holme		hoUm
 holster		hoUlst3
@@ -2291,7 +2294,7 @@ interrogatory	$3
 interstice	I2nt3:stIs
 intestine	I2ntEstI#n
 inventory	Inv@ntri
-?3 inventory	Inv@nto:ri
+?3 inventory	Inv@nto@ri
 interface	$1
 interlude	$1
 intermin	Int'3:mIn	// interminable
@@ -2540,7 +2543,6 @@ metropolis	m@tr0p@lIs  // +pl.
 mausoleum	mO:s@'li:@m
 mayhem		meIhEm
 meant		mEnt
-meadow		mEdoU
 medallion	$alt3
 medevac		mEdIvak  // medevaced
 mediaeval	mEdI'i:v@L
@@ -2928,9 +2930,9 @@ pigsty		pIgstaI
 pilau		$2
 pilot		paIl@t
 pileup		paIlVp
-piñata		pi:n^'ata#
-piñatas		pi:n^'ata#z
-piña		pi:n^a#
+piñata		pi:nj'ata#
+piñatas		pi:nj'ata#z
+piña		pi:nja#
 pineapple	p'aInap@L
 pinged		pINd
 pinot		pi:noU
@@ -3063,7 +3065,7 @@ purist		pjU@Ist
 purport		$2
 purportedly	$2
 puree		pjU@reI
-puttin		pU?n
+?3 puttin	pU?n
 pyjama		p@dZA:m@
 pyrites		paIr'aIti:z
 pythagoras	paIT'ag@r@s
@@ -3150,7 +3152,6 @@ referral	rI2f3:r@L
 referring	rI2f3:rIN 
 refinery	rI2faIn@ri
 refit		ri:fIt
-reflex		ri:flEks
 reflux		ri:flVks
 refund		ri:fVnd $noun
 refuse		rEfju:s	$noun $only
@@ -3201,7 +3202,7 @@ résistance	reIzIst'A~ns
 restive		rEstIv
 respiration	rEspI#r'eIS@n 
 respiratory	rI2spIr@t@ri
-?3 respiratory	rEspr@to:ri
+?3 respiratory	rEspr@to@ri
 respite		rEspaIt
 ?3 respite	rEspIt
 rest		rEst          // for rested
@@ -3341,6 +3342,9 @@ semicircle	$1
 semicolon	sEmIk'oUl@n
 semitone	$1
 senator		sEn@t3
+señor           sEnj'O@
+señora          sEnj'O@ra#
+señorita        s,EnjO@r'i:ta#
 sens		sEns               // for sensible
 !?3 sentient	sEnti@nt  // ??
 sepia		$alt6
@@ -3375,7 +3379,7 @@ shenanigan	SI#nanIg@n
 shepherd	SEp3d
 sheriff		S'ErI2f
 shew		SoU
-shiitake	Si:t'A:ke:
+shiitake	Si:t'A:keI
 shillelagh	S,I2l'eIl@
 shiver		SIv3
 shone		S0n
@@ -3454,7 +3458,7 @@ spoonfed	spu:nfEd
 spraycan	spreIkan
 sproing		sprOIN
 squirrel	skwIr@L
-?3 squirrel	skw3:L
+?3 squirrel	skw3:l
 staccato	$alt3
 stepmom		$alt1
 stepson		stEpsVn
@@ -3850,7 +3854,6 @@ whoe're		hu:'e@
 whois		hu:'Iz
 whol		hoUl          // for wholly
 wholehearted	$2
-whore		ho@
 wicked		wIkI#d
 wilderness	wIld3n@s
 wifi		waIfaI
@@ -3948,7 +3951,8 @@ Hasting		$alt6
 Hartlepool	hA@tlIpu:l
 Inverness	Inv3n'Es
 Killeen		$2
-Kirkcaldy	kIRk'0di
+Kirkcaldy	k3:k'0di
+?7 Kirkcaldy	kIRk'0di
 Lambeth		lamb@T
 Leven		li:v@n
 Lincoln		lInk@n
@@ -4033,7 +4037,7 @@ Banjarmasin	bandZ@m'A:sIn
 Barbados	bA@'beId0s
 ?3 Barbados	bA@'beIdoUs
 Barents		bar@nt|s
-Barisal		bVrIsVL
+Barisal		bVrIs@L
 Bartolome	bA@t@l@m'eI
 Basel		bA:z@L
 Basotho		b@su:tu:
@@ -4114,6 +4118,7 @@ Dehradun	de@a#d'u:n
 Delhi		dEli
 (Des moines)	d@mOIn
 Dhabi		dA:bi
+Dijon           d'i:Z0n
 Dispur		dI2spU@
 Djibouti	dZIb'u:ti
 Donegal		d0nI2g'O:l
@@ -4794,7 +4799,7 @@ Micah		maIk@
 Michaela	mI2keIl@
 Michele		mI2SEl
 Michelle	mI2SEl
-Miguel		mi:Q'El
+Miguel		mi:g'El
 Mikhail		mIkaIl
 Mildred		mIldrI2d
 Mimi		mi:mi

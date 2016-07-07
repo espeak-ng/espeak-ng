@@ -983,12 +983,12 @@ endphoneme
 
 phoneme j.
   liquid
-  lengthmode 7
+  lengthmod 7
   ipa U+0265
 endphoneme
 
 // translate from English to French phonemes
-equivalents en
+equivalents NULL   // disable this table
 //remove_stress
 0	O
 3	W r

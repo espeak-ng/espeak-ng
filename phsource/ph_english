@@ -124,13 +124,13 @@ phoneme @    //  Schwa
 endphoneme
 
 
-phoneme 3    //  Schwa, used for rhotic schwa in American
+phoneme 3    //  Schwa, used for rhotic schwa in American, e.g. bett**er**
   CALL @
   ipa ə
 endphoneme
 
 
-phoneme @2   //  Schwa, changes to I before a vowel
+phoneme @2   //  Schwa, changes to I before a vowel. th**e**, used only for "the".
   vowel  starttype #@  endtype #@
   unstressed dontlist
   length 120
@@ -141,7 +141,7 @@ phoneme @2   //  Schwa, changes to I before a vowel
 endphoneme
 
 
-phoneme @5   //  Schwa, changes to U before a vowel
+phoneme @5   //  Schwa, changes to U before a vowel. t**o**, used only for "to".
   vowel  starttype #@  endtype #@
   unstressed dontlist
   length 140
@@ -152,7 +152,7 @@ phoneme @5   //  Schwa, changes to U before a vowel
 endphoneme
 
 
-phoneme @L
+phoneme @L // simp**le**
   vowel  starttype #@  endtype l
   ipa ə|l
   unstressed
@@ -179,7 +179,7 @@ phoneme a2  // don't reduce to a#
 endphoneme
 
 
-phoneme a#
+phoneme a# // **a**bout. This may be \[@\] or may be a more open schwa.
   vowel  starttype #@  endtype #@
   ipa ɐ
   unstressed
@@ -193,7 +193,7 @@ phoneme a#
 endphoneme
 
 
-phoneme aa   //   'bath' etc.
+phoneme aa   //   'b**a**th' etc. This is \[a\] in some accents, \[A:\] in others.
   vowel  starttype #a  endtype #a
   ipa a
   length 200
@@ -207,7 +207,7 @@ phoneme aa   //   'bath' etc.
 endphoneme
 
 
-phoneme E
+phoneme E // dr**e**ss
   vowel  starttype #e  endtype #e
   length 140
   IF nextPhW(n) THEN
@@ -240,7 +240,7 @@ endphoneme
 
 
 
-phoneme I
+phoneme I // k**i**t
   vowel  starttype #i  endtype #i
   length 130
   IfNextVowelAppend(;)
@@ -248,7 +248,7 @@ phoneme I
 endphoneme
 
 
-phoneme I2
+phoneme I2 // **i**ntend. As \[I\], but also indicates an unstressed syllable.
   vowel  starttype #i  endtype #i
   unstressed
   length 130
@@ -280,7 +280,7 @@ phoneme I#   // used for [I] which may be [@] in some accents
 endphoneme
 
 
-phoneme i   //  optional variant of [I] for end of words
+phoneme i   // happ**y**. optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   unstressed
   ipa i
@@ -295,7 +295,7 @@ phoneme i   //  optional variant of [I] for end of words
 endphoneme
 
 
-phoneme 0
+phoneme 0 // l**o**t
   vowel  starttype #o  endtype #o
   length 140
   ChangeIfDiminished(@)
@@ -323,7 +323,7 @@ phoneme 02   // becomes V in en-us
 endphoneme
 
 
-phoneme V
+phoneme V // str**u**t
   vowel  starttype #a  endtype #@
   length 140
 
@@ -332,7 +332,7 @@ phoneme V
 endphoneme
 
 
-phoneme U
+phoneme U // f**oo**t
   vowel  starttype #o  endtype #o
   length 150
   
@@ -346,7 +346,7 @@ endphoneme
 
 
 
-phoneme A:
+phoneme A: // p**al**m
   vowel  starttype #a  endtype #a
   length 230
   IfNextVowelAppend(r-)
@@ -354,7 +354,7 @@ phoneme A:
 endphoneme
 
 
-phoneme A@     // Used for [A:] when followed by 'r'
+phoneme A@     // st**ar**t. Used for [A:] when followed by 'r'.
   vowel  starttype #a  endtype #a
   ipa ɑː
   length 230
@@ -372,7 +372,7 @@ endphoneme
 
 
 
-phoneme 3:
+phoneme 3: // n**ur**se
   vowel  starttype #@  endtype #@
   length 210
   IfNextVowelAppend(r-)
@@ -381,7 +381,7 @@ phoneme 3:
 endphoneme
 
 
-phoneme i:
+phoneme i: // fl**ee**ce
   vowel  starttype #i  endtype #i
   length 175
   IfNextVowelAppend(;)
@@ -392,7 +392,7 @@ phoneme i:
 endphoneme
 
 
-phoneme O:
+phoneme O: // th**ou**ght
   vowel  starttype #o  endtype #o
   length 230
   ChangeIfDiminished(@)
@@ -408,7 +408,7 @@ phoneme O
 endphoneme
 
 
-phoneme O@
+phoneme O@ // n**or**th
   vowel  starttype #o  endtype #o
   ipa ɔː
   length 240
@@ -417,7 +417,7 @@ phoneme O@
 endphoneme
 
 
-phoneme o@
+phoneme o@ // f**or**ce
   vowel  starttype #o  endtype #o
   ipa ɔː
   length 250
@@ -431,7 +431,7 @@ phoneme o@
 endphoneme
 
 
-phoneme u:
+phoneme u: // g**oo**se
   vowel  starttype #u  endtype #u
   length 210
   IF nextPh(l/2) THEN
@@ -444,14 +444,14 @@ phoneme u:
 endphoneme
 
 
-phoneme aU
+phoneme aU // m**ou**th
   vowel  starttype #a  endtype #u
   length 230
   FMT(vdiph/au)
 endphoneme
 
 
-phoneme oU
+phoneme oU // g**oa**t
   vowel  starttype #@  endtype #u
   ipa əʊ
   length 220
@@ -473,7 +473,7 @@ phoneme oU#
 endphoneme
 
 
-phoneme aI
+phoneme aI // pr**i**ce
   vowel  starttype #a  endtype #i
   length 240
   IF nextPh(#a) THEN
@@ -483,21 +483,21 @@ phoneme aI
 endphoneme
 
 
-phoneme eI
+phoneme eI // f**a**ce
   vowel  starttype #e  endtype #i
   length 210
   FMT(vdiph/eei)
 endphoneme
 
 
-phoneme OI
+phoneme OI // ch**oi**ce
   vowel  starttype #o  endtype #i
   length 230
   FMT(vdiph/ooi)
 endphoneme
 
 
-phoneme e@
+phoneme e@ // squ**are**
   vowel  starttype #e  endtype #@
   length 230
   IfNextVowelAppend(r-)
@@ -505,7 +505,7 @@ phoneme e@
 endphoneme
 
 
-phoneme i@
+phoneme i@ // n**ear**
   vowel  starttype #i  endtype #@
   length 250
   IfNextVowelAppend(r-)
@@ -526,7 +526,7 @@ phoneme i@3
 endphoneme
 
 
-phoneme U@
+phoneme U@ // c**ure**
   vowel  starttype #u  endtype #@
   length 200
   IfNextVowelAppend(r-)
@@ -537,7 +537,7 @@ phoneme U@
 endphoneme
 
 
-phoneme aI@
+phoneme aI@ // sc**ie**nce
   vowel  starttype #a  endtype #@
   length 280
   IfNextVowelAppend(r-)
@@ -552,7 +552,7 @@ phoneme aI3
 endphoneme
 
 
-phoneme aU@
+phoneme aU@ // h**our**
   vowel  starttype #a   endtype #@
   length 280
   IfNextVowelAppend(r-)
