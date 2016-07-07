@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update 4 june 2016 by Chris <llajta2012@gmail.com>
+//  Italian, last update 5 july 2016 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -16,22 +16,25 @@ phoneme a
   IF thisPh(isWordEnd) AND prevPhW(t) AND thisPh(isStressed) THEN
     FMT(vowel/a)
     ENDIF
-  IF nextPhW(o/) THEN
-        FMT(vowel/a_2)
-  ENDIF
-  IF prevPhW(isVowel) OR prevPhW(j) THEN
-    FMT(vowel/a, 90)
+  IF nextPhW(o/) OR prevPhW(isVowel) OR prevPhW(j) THEN
+    FMT(vowel/a)
   ENDIF
   FMT(vwl_it/a)
 endphoneme
 
 phoneme a/
   vowel starttype #a endtype #a
-  length 145
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/a_7, 75)
+  length 150
+  IF prevPhW(l) THEN
+    FMT(vowel/a_7, 80)
   ENDIF
-  FMT(vowel/a_8)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a_8, 70)
+  ENDIF
+  IF thisPh(isWordStart) THEN
+    FMT(vwl_it/a, 85)
+  ENDIF
+  FMT(vowel/a_8, 80)
 endphoneme
 
 
@@ -39,7 +42,7 @@ phoneme e
   vowel starttype #e endtype #e
   length 155
   ChangeIfNotStressed(e/)
-  FMT(vowel/e_2, 80)
+  FMT(vowel/e_2)
 endphoneme
 
 phoneme e/
@@ -63,15 +66,13 @@ endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
-  length 145
+  length 155
   IfNextVowelAppend(;)
-
-   IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND NOT prevPhW(E) THEN
-   ChangePhoneme(I)
-   ENDIF
+  IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND NOT prevPhW(E) THEN
+    ChangePhoneme(I)
+  ENDIF
   FMT(vwl_it/i)
 endphoneme
-
 
 phoneme i#    // Used for 'gia_' where [i] is only spoken if stressed
   vowel starttype #i endtype #i
@@ -79,7 +80,6 @@ phoneme i#    // Used for 'gia_' where [i] is only spoken if stressed
   ChangeIfNotStressed(NULL)
   ChangePhoneme(i)
 endphoneme
-
 
 phoneme I
   vowel starttype #i endtype #i
@@ -102,10 +102,10 @@ phoneme o/
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vwl_it/o_open, 80)
   ENDIF
-  IF thisPh(isWordEnd) THEN
+  IF thisPh(isWordEnd) AND NOT prevPhW(a) THEN
     FMT(vwl_it/o, 65)
   ENDIF
-    FMT(vowel/o)
+    FMT(vowel/o, 90)
 endphoneme
 
 phoneme O

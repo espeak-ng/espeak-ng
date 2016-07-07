@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 june 4 by Chris, Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 july 6 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -1530,7 +1530,6 @@ regine	$2
 remore	$1
 repubblicano	$4
 restio	@-*est'io
-retino	$2
 revoche	$1
 riavvia	@-*iav:'i#a
 riavvio	@-*iav:'IO
@@ -1660,7 +1659,7 @@ vent'anni	vent'an:I
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
-(ciao ciao)	tS,a/o||tSao
+(ciao ciao)	tS,a/o||tS'a:o
 (un turbine)	un||_t'u@-*bine
 (gli auguri)	l^iaw2g'u:RI
 (pro capite)	p@-*ok'a:pIte
@@ -1769,9 +1768,11 @@ caucas $1
 cazzano	$2
 ceca	$alt
 champs	S'amps
+chambery	Samber'i
 chernobyl	tS'E@-*nobil
 chianciano	$2
 chicago	tSikago
+chorzow	x'OZuf
 cicciano	$2
 cilentano	$3
 ciociaria $3
@@ -1867,6 +1868,7 @@ kazakistan	$2
 kenia  k'E:nia
 kosovo	$1
 kuwait	kw2'E:it[
+kurdistan	$1
 labrador	$1
 laconi $1
 langarolo	$3	$alt2
@@ -2046,8 +2048,9 @@ selvazzano	$3
 seui	$2
 seul $2 $only
 seychelles	seIS'El
-siberia	s,ib'E:Ri;a
+siberia	s,ib'ERi;a
 simpliciano	$3
+siniscola	$3 $alt2
 sinnai	$1
 sinai	s'i:naI
 sizzano	$2
@@ -2200,6 +2203,7 @@ buffon	$2 $only
 caino	ka'i:no/
 caligola	$2
 camilleri	$3
+Cancelleri	$3 $only
 carey	_^_en
 carmel	$2
 cassano	$2
@@ -2885,6 +2889,7 @@ chiacchierino	$1
 chiamano	$1
 chiamino	$1
 chiudano	$1
+cibano	$1
 circolano	$1
 circolino	$1
 circondino	$2
@@ -4611,9 +4616,11 @@ carical	$1
 causatoci	$3
 cercal	$1
 cercasi	$1
+chiediti	$1
 chiuditi	kj'uditI
 cliccal	$1
 cliccaci	$1
+compiersi	$1
 compil	$2
 comunicacel	$2
 comunical	$2

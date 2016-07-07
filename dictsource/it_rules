@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2016 june 1 by Chris <llajta2012@gmail.com>
+// Last update: 2016 july 6 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -168,11 +168,11 @@
 	e (vi_	E
 	e (vo_	E
 	@) e (volA_	'e
-		e (zA    E
-		CC) eggia (no_	'EdZ:a
+	e (zA	E
+	CC) eggia (no_	'EdZ:a
 	C) ender (L04_	'ende@-*  // Pron.s verbs
 	C) erder (L04_	'E@-*de@-*
-	esser (L04_		'EsseR
+	esser (L04_	'EsseR
 	_) ecco (L04	'Ek:o
 		ete (L04_	'ete
 	fl) etter (L04_	'Et:e@-*
@@ -184,8 +184,8 @@
 	e (lano_	'e
 
 .group f
-		f	f
-		ff	f:
+	f	f
+	ff	f:
 	@A)	f (ilo_  =f
 	i)	f (erA_	=f
 	fobi (A_	fob'i;
@@ -194,40 +194,40 @@
 	ferma (L07_	f'e@-*ma/
 
 .group g
-		g	g
-		gg	g:
-		gh	g
-		g (Y	dZ
-		gi (A	dZ
-		gi (a_	dZ'i#  // [i] only if stressed
-		gì (a_	dZ'i#  // [i] only if stressed
+	g	g
+	gg	g:
+	gh	g
+	g (Y	dZ
+	gi (A	dZ
+	gi (a_	dZ'i#  // [i] only if stressed
+	gì (a_	dZ'i#  // [i] only if stressed
 	al) gie (_	dZ'iE
 	@Ar) gie (_	dZ'iE
 	fa) gie (_	dZ'iE
 	go) gie (_	dZ'iE
 	ple) gie (_	dZ'iE
 	rra) gie (_	dZ'iE
-		lo) gi (e_	dZ'i#
+	lo) gi (e_	dZ'i#
 	n)	gi (a_	dZ
-		gg (Y	dZ:
-		ggi (A  dZ:
-	@) gger (L04_ =dZ:e@-*  // Pron.s verbs
+	gg (Y	dZ:
+	ggi (A	dZ:
+	@) gger (L04_	=dZ:e@-*  // Pron.s verbs
 	AC) ger (L04_	=dZe@-*
 	esi) ger (L04_	=dZe@-*
 	eri) ger (L04_	=dZe@-*
-		_) giura (L07_	dZ'URa
+	_) giura (L07_	dZ'URa
 	godi (L04_	g'Odi
-		gl (i	l^
-		gl (ì	l^
-		gli (A  l^
+	gl (i	l^
+	gl (ì	l^
+	gli (A	l^
 	_)	gl	gl
 	@) glier (L04_	=l^E@-*
 	@) guer (L04_	=gUe@-*
-		gn	n^
+	gn	n^
 	@) gn (A_	n^;
 	a) gn (A_	n^:
-		gu (A   gw
-	guono (_	=gw2ono   / verbs
+	gu (A	gw
+	guono (_	=gw2ono   // verbs
 	o) gnano (_	=n^ano
 	A) gnano (_	n^'ano   // exceptions
 	@) ginano(_	=dZinano   // verbs
@@ -239,68 +239,66 @@
 	guai (scA_	gw2a'i:
 
 .group h
-		h
+	h
 	_)	ha      h'a
-	_)	hà      h'a
+	_)	hà	h'a
 
 .group i
-		i	i
-		i (A	j
-	zz) ia (@	ia
+	i	i
+	i (A	j
 	@) ii (_	'I:j
-	l)	i (A	%i
+	l) i (A	%i
 	r)	i (A	%i
 	_C) ie (_	'ie
-		i (o    i
-		i (ò	i
-		i (ó	i
-        @)      ia (_   =i%a
-	@)	ià (_	i'a
-	X)	ia (_	'ia
-	af)	ia (_	'ia
-	af)	ie (_	'ie
-	fon)	ia (_	'ia
-	scop)	ia (_	'ia
+	i (o    i
+	i (ò	i
+	i (ó	i
+	@) ia (_	=i%a
+	@) ià (_	j'a
+	X) ia (_	'ia
+	af) ia (_	'ia
+	af) ie (_	'ie
+	fon) ia (_	'ia
+	scop) ia (_	'ia
 	scop) ie (_	'ie
-	er)	ia (_	'ia
-	er)	ie (_	'ie
-	gor)	ia (_   'ia
-	metr)	ia (_	'ia
-	metr)	ie (_	'ie
-	t)	ia (_	'ia
+	er) ia (_	'ia
+	er) ie (_	'ie
+	gor) ia (_	'ia
+	metr) ia (_	'ia
+	metr) ie (_	'ie
+	t) ia (_	'ia
 	t) ie (_	'ie
-        @)      io (_S1q   =i%o
-	a)	i (+	j
-	à)	i (+	j
+        @)      io (_S1q   =i%o // ?
+	a) i (+	j
+	à) i (+	j
 	o)	i (+	j
-	@C)	i (_S1q  i     // lookup it_list without suffix
-        @)      i (Ante_   i
-		i (acA_   'i
+	@C) i (_S1q	i  // lookup it_list without suffix
+	@) i (Ante_	i
+	i (acA_	'i
 	i (ache_	'i
-		i (asi_   'i
-	@)	i (bile_  'i
-	@)	i (cA_	  =i
+	i (asi_	'i
+	@)	i (bile_	'i
+	@) i (cA_	=i
 	ele%tr) ici (_	=itSi
 	centr) ici (_	=itSi
 	metr) ici (_	=itSi
-	tr)	i (cY_     i
+	tr) i (cY_	 // ?i
 	if) ici (_	'itSi
-	@)	i (chA_   =i
-        @)      i (dA_    =i
-        @)      i (dere_  'i
-	@)	ie (rA_    i'E
-	@)	ié (rA_    i'E
-		i (genA_  'i
-	c)	i (lA_    =i
-	g)	i (lA_    =i
-	ss)	i (lA_    =i
-	b)	i (le_    =i
-	m)	i (le_    =i
-		i (lA_    =i
+	@) i (chA_	=i
+	@) i (dA_	=i
+	@) i (dere_	'i
+	@)	ie (rA_	i'E
+	i (genA_	'i
+	c) i (lA_	=i
+	g) i (lA_	=i
+	ss) i (lA_	=i
+	b) i (le_	=i
+	m) i (le_	=i
+	i (lA_	=i
 	@) i (mA_	=i
 	laCr) i (mA_	=i
 	pr) i (mA_	   'i
-		inas (_   'inas
+	inas (_	'inas
 	@g) in (Y_	=in
 	c) ine (_	=ine
 	d) ine (_	=ine
@@ -309,7 +307,7 @@
 	im) in	(Y_	=in
 	@) issim (A_	'issim
 	@)	issero(_S6q	'isse*o
-	ip) i (te_    =i
+	ip) i (te_	=i
 	C) iad (Y_	'iad
 	@) iono (_	=iono
 	ite (L04_	'ite  // Pron.s verbs

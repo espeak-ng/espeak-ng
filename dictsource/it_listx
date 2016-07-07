@@ -831,12 +831,10 @@ celadon $1  $alt2
 celebre$1
 celiachia	$4
 celibe $1
-celine  $alt2
 cellole  $alt2
 cembal $1
 cembr  $alt
 cen  $alt2
-cene  $alt2
 cened $1  $alt
 cenerentol  $alt
 cenn  $alt2
@@ -862,10 +860,8 @@ cerc  $alt2
 cerchi  $alt2
 cerchia  $alt2
 cercine  $alt2
-cercoceb  $alt
-cercol  $alt2
-cercopitec  $alt
 cerei	$1
+cernita	$1
 cernobbi  $alt
 cerveteri $2  $alt
 ces  $alt
@@ -877,8 +873,6 @@ cest  $alt2
 cet  $alt
 cetnici  $alt
 cetr  $alt2
-cezanne $1  $alt2
-chambery  $alt2
 cheliceri $2
 cheope $1
 cheradi $1
@@ -893,9 +887,6 @@ chioccolio	$4
 chiod $2  $alt
 chirogaleo $3
 chiropote  $alt
-chiudiletter  $alt
-chiusavecchia  $alt
-chorzow $2
 ciane  tS'iane
 ciano  tS'iano
 cicalio	$3
@@ -931,7 +922,6 @@ cismon $2
 cistifellea $3
 citoscheletr $3
 cittadine	$3
-cittanov  $alt
 civit $1
 clamidofor $3
 clausol $1
@@ -2078,7 +2068,7 @@ juventin	juvent'in
 kairos $2
 kampuchea  $alt2
 kapok $2  $alt
-karate $3  $alt
+karate $3
 kayak $2
 kea  $alt2
 kefir  $alt
@@ -3277,8 +3267,10 @@ resia $1
 residue	$2
 resin $1
 respons  $alt
-rete  $alt2
-retin $1
+ret	$alt2
+retin	$1
+retino	$2
+retini	$2
 retinol $3
 retorbid  $alt2
 retore $1
