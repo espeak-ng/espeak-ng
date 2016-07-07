@@ -7,7 +7,7 @@ phoneme H	// arabic Hah
   vls phr frc
   ipa ħ
   lengthmod 5 
-  WAV(vwl_ar/H1) 
+  WAV(vwl_ar/hah) 
 endphoneme
 
 phoneme Z // arabic ZAH .Todo
@@ -17,28 +17,30 @@ phoneme Z // arabic ZAH .Todo
   voicingswitch z  
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
-  WAV(vwl_ar/Z) 
+  WAV(vwl_ar/zah) 
 endphoneme
 
-phoneme A	// arabic Ain
-  vls phr frc
-  ipa ʕ
-  voicingswitch a  
-  length 160  
-   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
-    Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
-  WAV(vwl_ar/A1) 
-endphoneme
+//phoneme A	// arabic Ain
+//  vls phr frc
+//  ipa ʕ
+//  voicingswitch a  
+//  length 160  
+//   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
+//    Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
+//  WAV(vwl_ar/ain) 
+//endphoneme
 
-phoneme gH	//arabic Ghain
-  vls uvl frc
-  voicingswitch R  
-  lengthmod 5 
-   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-    Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+phoneme gH    // arabic ghain, 
+// the phoneme is derived from Q
+  vcd vel frc
+  voicingswitch R2
   ipa ɣ
-  WAV(vwl_ar/GH2)
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(voc/Q) //addWav(vocw/Q)
 endphoneme
+
 
 phoneme dH	//arabic Dhad
   alv vls stop
@@ -47,7 +49,7 @@ phoneme dH	//arabic Dhad
   lengthmod 7
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80
   Vowelout f1=2 f2=1500 -300 300  f3=-150 80
-  WAV(vwl_ar/dh5_1)
+  WAV(vwl_ar/dhad)
 //FMT(vwl_ar/d_dnt)
 endphoneme
 
@@ -56,7 +58,7 @@ phoneme s[
   voicingswitch s
   length 160
   lengthmod 7
-  WAV(vwl_ar/Sh)
+  WAV(vwl_ar/shin)
 endphoneme
 
 phoneme X
