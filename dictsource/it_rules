@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2016 july 6 by Chris <llajta2012@gmail.com>
+// Last update: 2016 july 8 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -46,7 +46,7 @@
 	@) ander (L04_	'andE@-*
 		ate (L04_+	'ate
 	_L04Z) auguri (_	'awguRI
-	astano (_	'a:stano   // verbs
+	astano (_	'astano   // verbs
 
 .group à
 	à	''a
@@ -629,7 +629,7 @@
 
 .group z
 		z	ts
-	A) zz (A	ts:
+	A) zz (A	ts2:
 	_A) z (AC	dz
 	_) z (A	dz
         _)	z (Y	dz
@@ -637,20 +637,20 @@
 		_A) zz (A	|dz:
 		CA) zz (arC	dz:
 		@li) zz (A	dz:
-	_bri) zz (A	ts:
-	diri) zz	ts:
-	_indiri) zzar (L04_	ts:'a@-*
-	dri) zz (A	ts:
-	fri) zz (A	ts:
-	_ri) zz (A	ts:
-	_pi) zz (A	ts:
-	atti) zz (A	ts:
-	schi) zz (A	ts:
-	_spri) zz (A	ts:
-	stri) zz (A	ts:
-	_sti) zz (A ts:
-	appre) zza (rL04_	ts:a
-	care) zz (A	ts:
+	_bri) zz (A	ts2:
+	diri) zz	ts2:
+	_indiri) zzar (L04_	ts2:'a@-*
+	dri) zz (A	ts2:
+	fri) zz (A	ts2:
+	_ri) zz (A	ts2:
+	_pi) zz (A	ts2:
+	atti) zz (A	ts2:
+	schi) zz (A	ts2:
+	_spri) zz (A	ts2:
+	stri) zz (A	ts2:
+	_sti) zz (A ts2:
+	appre) zza (rL04_	ts2:a
+	care) zz (A	ts2:
 	appre) zza (L07_	=tsa
 	Ci) zz (A	dz:
 	_mar) z (A	ts
@@ -659,7 +659,7 @@
 	sfar) z (A	ts
 	ar) z (A	dz
 	bron) z (A	dz
-		@) zz (ano_	=ts:
+		@) zz (ano_	=ts2:
 		i) zza (no_	=dz:a
 		@@) zza (L07_	=dz:a
 		@i) zza (ti_	dz:'a

@@ -195,16 +195,27 @@ endphoneme
 phoneme ts
   vls alv afr sibilant
   voicingswitch s
-  lengthmod 9
+  lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
-  Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
-  IF nextPh(isNotVowel) THEN
-    WAV(ustop/ts_, 80)
-  ENDIF
-  IF prevPhW(isNotVowel) THEN
-    WAV(ustop/ts_, 70)
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=18
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
   ENDIF
   WAV(ustop/ts)
+endphoneme
+
+phoneme ts2
+  vls alv afr sibilant
+  voicingswitch dz
+  lengthmod 9
+  Vowelin f1=2  f2=1700 -300 300  f3=-200 120 len=10
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 170  rms=20 brk
+  IF nextPh(isStressed) THEN
+Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
+    Vowelout f1=0 f2=1700 -300 250  f3=-100 70  rms=14
+    WAV(ustop/ts_, 80)
+  ENDIF
+  WAV(ustop/ts_, 70)
 endphoneme
 
 phoneme dz

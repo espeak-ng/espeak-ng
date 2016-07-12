@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 july 6 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 july 8 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -120,7 +120,7 @@ _`	atS:'ento||g@-*'ave
 _´	atS:'Ento||ak'uto
 ¡	p'unto||esklamat'ivo||@-*ovES'ato
 ¿	p'unto||inteR*ogat'ivo||@-*ovES'ato
-¦	b'aR*a||spets:'ata
+¦	b'aR*a||spets2:'ata
 _―	b'aR*a||o*Idz:Ont'ale
 _‖	d,op:ia||b'aR*a
 _·	p'unto||tSent@-*'ale
@@ -542,7 +542,7 @@ perché	$u+ $brk
 pure	$u+
 più	$u+
 se	$u+ $verbf
-senza	s,entsa
+senza	s,E:nts2a
 senza	s'Entsa $atend
 si	si: $atend
 sopra	   $alt2
@@ -846,6 +846,7 @@ enter	$1
 equipe	Ek'ip
 équipe	ek'I:p
 error	$1	$onlys
+escalation	eskal'E:Son
 español	$3
 espeak		isp'ik:
 explorer	$2
@@ -1497,7 +1498,7 @@ portagomitoli	$4
 portaerei	$3
 postriboli	$2
 pranoterapeutici	$5
-prefettizzo	p@-*ef,et'its:O
+prefettizzo	p@-*ef,et'its2:O
 prevendit	$2
 prezzemoli	$2
 primavere	$3
@@ -1593,7 +1594,7 @@ stasera	st,a||s'eRa
 steatosi	$3 $alt
 stereospecifici	$5
 strategie	st@-*atedZ'ie
-stravizzo	st@-*av'i:ts:o
+stravizzo	st@-*av'i:ts2:o
 strepitio	st@-*epit'io
 strepito	$1
 sublim	$2
@@ -1748,7 +1749,7 @@ bulgari $1
 bulgaria $3
 cagliari	k'a:l^,a/RI
 calestano	$3
-calizzano	kalits:'ano
+calizzano	kalits2:'ano
 calvizzano	$3
 cambogia $2  $alt
 cambridge	_^_EN
@@ -1879,7 +1880,7 @@ libano	$1
 liberia	$2
 ligur	l'ig,uR
 liverpool	l'ive@-*pul
-lizzano	lits:'ano
+lizzano	lits2:'ano
 lombardia	$3
 longano	$2
 louisiana	luIzi'a:na
@@ -1950,8 +1951,8 @@ nevano	$2
 newyorkes	nI,u||io@-*k'Ez
 niger	$1
 nigeria $2
-nizza	n'its:a
-nizzano	nits:'ano
+nizza	n'its2:a
+nizzano	nits2:'ano
 nocciano	$2
 normandia $3
 norvegia	no*v'e:dZa
@@ -1989,7 +1990,7 @@ pavia	pav'ia
 pazzano	$2
 pedemontano	$4
 pellezzano	$3
-pellizzano	pel:its:'ano
+pellizzano	pel:its2:'ano
 pentano	$2 $capital
 persia $1
 peru $2
@@ -2069,7 +2070,7 @@ stazzano	$2
 stezzano	$2
 submontano	$3
 survoltano	$3
-svizzer	zv'its:eR
+svizzer	zv'its2:eR
 swahili	swah'ilI
 sydney	$1
 tagikistan	$2
@@ -2085,7 +2086,7 @@ ternano	$2
 tertenia $3
 tessennano	$3
 tiscali	$1
-tizzano	tits:'a:no
+tizzano	tits2:'a:no
 tolosano	$3
 toscano	$2
 trevano	$2
@@ -2608,7 +2609,7 @@ addestrano	$2
 addestrino	$2
 addic	$2
 addossino	$2
-addrizzare	ad:@-*Its:'aRe
+addrizzare	ad:@-*Its2:'aRe
 adeguano	$2
 adeguino	$2
 adirano	$2
@@ -2719,7 +2720,7 @@ appellino	$2
 applichino	$1
 appoggiano	$2
 appoggino	$2
-apprezzat	ap:@-*,e'ts:at
+apprezzat	ap:@-*,e'ts2:at
 apprezzino	$2
 approdino	$2
 approfittino	$3
@@ -2888,6 +2889,8 @@ chiacchierano	$1
 chiacchierino	$1
 chiamano	$1
 chiamino	$1
+chiedano	$1
+chiedino	$1
 chiudano	$1
 cibano	$1
 circolano	$1
@@ -2973,6 +2976,7 @@ contraddici	$3
 contraddico	$3
 contraddistinguano	$4
 contrattaccano	$3
+contrastino	$2
 conversano	$2
 conversino	$2
 convoc	$1
@@ -3131,8 +3135,8 @@ dondolano	$1
 donino	$1
 dotano	$1
 dotino	$1
-drizzano	d@-*'its:ano
-drizzare	d@-*its:'aRe
+drizzano	d@-*'its2:ano
+drizzare	d@-*its2:'aRe
 dubit	$1
 dubitano	$1
 dubitino	$1
@@ -3253,7 +3257,7 @@ franino	$1
 frantumano	$2
 fratturano	$2
 friggerl	$1
-frizzare	f@-*its:'aRe
+frizzare	f@-*its2:'aRe
 frodano	$1
 frodino	$1
 frughino	$1
@@ -3419,7 +3423,7 @@ indebitino	$2
 indicano	$1
 indichino	$1
 indignano	$2
-indirizzano	indiR'its:ano
+indirizzano	indiR'its2:ano
 indirizzino	$3
 individuano	$3
 individuino	$3
@@ -3490,7 +3494,7 @@ intersecano	$2
 intervallano	$3
 intimano	$1
 intirizzendo	intiRits'Endo
-intirizzendosi	intiRits:'Endozi
+intirizzendosi	intiRits2:'Endozi
 intitol	$2
 intono	$2
 intossichino	$2
@@ -3835,11 +3839,11 @@ raccomandano	$3
 raccontino	$2 $verb
 racimol	$2
 racimolano	$2
-raddirizzare	@-*ad:iRits:'aRe
+raddirizzare	@-*ad:iRits2:'aRe
 raddoppiano	$2
 raddoppino	$2
-raddrizzano	@-*ad:@-*'its:ano
-raddrizzare	@-*ad:@-*its:'aRe
+raddrizzano	@-*ad:@-*'its2:ano
+raddrizzare	@-*ad:@-*its2:'aRe
 raffigurano	$3
 raffigurino	$3
 rafforzino	$2
@@ -3916,7 +3920,7 @@ riallaccino	$3
 riapparvero	$3
 riaprano	$2
 riassegnano	$3
-riattizzare	@-*iat:its:'aRe
+riattizzare	@-*iat:its2:'aRe
 riavere	$3
 ribaltano	$2
 ribellano	$2
@@ -4050,7 +4054,7 @@ rivelino	$2
 rivendicano	$2
 riversano	$2
 riversi	$2
-rizzano	@-*'its:ano
+rizzano	@-*'its2:ano
 ronzai	@-*oNdz'aI
 rotolano	$1
 rovescino	$2
@@ -4122,7 +4126,7 @@ schiantino	$1
 schierano	$1
 schiod	sk'jOd
 schiodano	$2
-schizzano	sk'its:ano
+schizzano	sk'its2:ano
 sciacquano	$1
 sciando	Si'andO
 sciano	S'i;ano
@@ -4653,7 +4657,7 @@ disabilital	$3
 disconnettiti	$3
 domandatel	$3
 domandati	$2
-drizzarsi	d@-*its:'a@-*si
+drizzarsi	d@-*its2:'a@-*si
 espellerl	$2
 esprimiti	$2
 evolverci	$2
@@ -4681,7 +4685,7 @@ impostaci	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
 indirizziamol	indiRi_tsj'amol // $5
-indirizzati	indiRits:'ati
+indirizzati	indiRits2:'ati
 informaci	$2 $alt2
 informati	$2 $alt2 $atstart
 insediatisi	$3
@@ -4724,7 +4728,7 @@ raccontal	$2
 raccontami	$2
 raccontaci	$2
 redigerl	$2
-raddrizzarl	@-*ad:@-*its:'a@-*l
+raddrizzarl	@-*ad:@-*its2:'a@-*l
 rafforzal	$2
 regalaci	$2
 regalati	$2	$atstart
@@ -4744,7 +4748,7 @@ risparmial	$2
 risparmiaci	$2
 risparmiami	$2
 rivelataci	$3
-rizzarsi	@-*its:'a@-*sI
+rizzarsi	@-*its2:'a@-*sI
 sbrigati	$1
 scarical	$1
 scaricami	$1

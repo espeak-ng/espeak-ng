@@ -153,7 +153,7 @@ alveoli	$2
 amalgam $2
 amarcord $3
 amarognol	$3
-amazzone	am'ats:one/
+amazzone	am'ats2:one/
 amazzoni $2
 ambita	$2
 ambite	$2
@@ -816,7 +816,7 @@ cattedr $1
 cattiveria	$3
 cattiverie	$3
 cavalcavia $4
-cavallerizz	kaval:eR'its:
+cavallerizz	kaval:eR'its2:
 cavea $1
 cavedine  $alt2
 cazzol $2
@@ -1313,7 +1313,7 @@ drengot $2  $alt
 dresd  $alt
 driade $1
 driope $1
-drizzati	d@-*its:'ati
+drizzati	d@-*its2:'ati
 drog  $alt
 dugong  $alt
 dulia $2
@@ -1466,6 +1466,7 @@ equivoche	$2
 equo  $alt
 eraclit $2
 eratostene $3
+erbicid	$3
 erbivor $2
 erd  $alt2
 ereb $1
@@ -1793,7 +1794,7 @@ gettit $1
 gez  $alt2
 ghedi  $alt
 ghiott  $alt2
-ghiribizz	giRib'its:
+ghiribizz	giRib'its2:
 giarabub $3
 giaven  $alt2
 gijon $2
@@ -1893,8 +1894,8 @@ guerraiol	$alt2
 guglielmin	$3
 guidafili	$3
 guidizzol $3
-guinizzellian	gw2inits:el:i'an
-guizzare	gwIts:'aRe
+guinizzellian	gw2inits2:el:i'an
+guizzare	gwIts2:'aRe
 habitat	'a:bitat[
 hannoverian	an:oveRi'an
 heracleopolis $3  $alt2
@@ -2573,7 +2574,7 @@ nippur $2
 niscemi  $alt
 niteroi  $alt2
 nitroglicerin	nit@-*oglitSeR'in
-nizzard	nits:'a@-*d
+nizzard	nits2:'a@-*d
 nocciol	$2	$alt
 noccioli	$1 $alt
 nod  $alt
@@ -2815,7 +2816,7 @@ pattin $1
 paulilatin $4
 paur $2
 pazzia $2
-pazzie	pa/ts:'ie
+pazzie	pa/ts2:'ie
 pecari $1  $alt
 peccioli  $alt
 peceneghi  $alt
@@ -2954,7 +2955,7 @@ pistol	$2
 pistolere $3
 pitecia  $alt
 pitegli  $alt
-pizzard	pits:'a@-*d
+pizzard	pits2:'a@-*d
 pizzicagnola	$3
 placeb  $alt
 placit $1
@@ -3179,7 +3180,7 @@ puntasecc  $alt2
 purpurea	$2
 purpuree	$2
 purpureo $2
-putizza	put'its:a
+putizza	put'its2:a
 quadrifogli  $alt
 quadrigemin	$3
 quadrilater $3
@@ -3205,7 +3206,7 @@ quot  $alt
 rabarbar $2
 racale $1
 racem  $alt
-raddrizzati	@-*ad:@-*its:'ati
+raddrizzati	@-*ad:@-*its2:'ati
 radicofani $3
 radiofarmaceutiche	$6
 radiospie	@-*adiosp'I:e
@@ -3226,7 +3227,7 @@ ratei	$1
 rateo $1
 razzi	@-*'adz:I
 razzia $2
-razzie	@-*a/ts:'ie
+razzie	@-*a/ts2:'ie
 razzo	@-*'a|dz:o
 ra	@-*'a
 re	@-*'E
@@ -3331,8 +3332,8 @@ ritrov  $alt
 rivendit	$2
 riverber $2
 rivincit $2
-rizzare	@-*its:'aRe
-rizzati	@-*its:'ati
+rizzare	@-*its2:'aRe
+rizzati	@-*its2:'ati
 rizziconi $2
 rob  $alt
 robbi  $alt
@@ -3465,13 +3466,13 @@ scherm  $alt2
 schern  $alt2
 scherz  $alt2
 schettin $1  $alt2
-schiribizz	skiRib'its:
+schiribizz	skiRib'its2:
 schivenoglia  $alt
 schizofrenia $4
-schizofrenie	skits:of@-*en'i:e
+schizofrenie	skits2:of@-*en'i:e
 schizoid	skits'O:jd
 schizoid	skits'ojd
-schizzati	skits:'ati
+schizzati	skits2:'ati
 sciabol $1
 sciliar $3
 scioper $1
@@ -3580,7 +3581,7 @@ sfrigolio	$3
 sgocciolio	$3
 sgomber $1
 sgretolio	$3
-sguizzare	zgwIts:'aRe
+sguizzare	zgwIts2:'aRe
 shh	hS:_
 sibari $1
 siberie	$2
@@ -3764,12 +3765,12 @@ strafila	$2
 stranguria $3
 strapiomb  $alt2
 strapotere $3  $alt2
-stravizz	st@-*av'its:
+stravizz	st@-*av'its2:
 strenuo  $alt
 stres  $alt
 strettoia  $alt2
 strimpellio	$3
-strizzati	st@-*its:'ati
+strizzati	st@-*its2:'ati
 strof  $alt
 strolag $1
 struscii	st@-*uS'i:j
@@ -3943,8 +3944,8 @@ tiroidine	$4
 tirol $2
 tisanotteri  $alt
 tisifone $2
-tizz	t'its:
-tizzon	tits:'On
+tizz	t'its2:
+tizzon	tits2:'On
 tocc  $alt2
 tocoferol $4
 tod  $alt
@@ -4188,7 +4189,7 @@ vitree	$1
 vitrei	$1
 vitreo	$1
 viveri $1
-vizz	v'its:
+vizz	v'its2:
 vobbia  $alt
 vocii	votS'i:j
 vodk  $alt
@@ -4249,8 +4250,8 @@ zoofilia $4
 zoppia $2
 zoppie	dzop:'i:e
 zoppol  $alt
-zozz	ts'O:ts:
-zozzon	tsots:'on
+zozz	ts'O:ts2:
+zozzon	tsots2:'on
 zuccari $1
 zuccher	dz'uk:e*
 
