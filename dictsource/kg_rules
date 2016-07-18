@@ -1,0 +1,163 @@
+// ***************************************************************************/ 
+// *   Kyrgyz Language kg kg_rules                                           *
+// *   Original Author Joshua Meyer 7-1-2016                                 *
+// *   Contact info: joshua.richard.meyer@gmail.com                          *
+// ***************************************************************************/
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// Stress rule: Right-most vowel
+
+// Letter groups:                                                      // are these getting defined?
+// A any vowel:        а о у ы э е ё и ю я ө ү                               // all vowels
+// B back vowels:      а о у ы ё ю я                                 // back vowels
+// C any consonant:    п б д т к г х ш щ ж з с ц ч й л м н ң ф в р ъ ь      // all consonants  
+// F front vowels:     э е и ө ү                                       // front vowels
+
+.replace 
+         ё      йо // replace the glide+vowel characters
+         ю      йу
+         я      йа
+
+.L01 а о у ы ё ю я   // back vowels
+.L02 э е и ө ү       // front vowels
+.L03 п б д т к г х ш щ ж з с ц ч й л м н ң ф в р ъ ь // any consonant
+.L04 а о у ы ё ю я э е и ө ү       // all vowels
+
+.group а
+       а        a
+       аа       a:
+
+.group о
+       о        o
+       оо       o:
+
+.group у
+       у        u
+       уу       u:
+
+.group ы
+       ы        I
+       ыы       I:
+
+.group и
+       и        i
+       ии       i:
+
+.group ө
+       ө        O
+       өө       O:
+
+.group ү
+       ү        y
+       үү       y:
+
+.group е
+       е        e
+       ее       e:
+
+.group э
+       э        e
+       ээ       e:
+
+.group к
+       к (L01   q        // syllable onset /k/ followed by back vowel (MAX-ONSET)
+       к (L02   k        // syllable onset /k/ followed by back vowel (MAX-ONSET)
+       L01) к (L03       q   // syllable final /k/ preceded by back vowel
+       L02) к (L03       k   // syllable final /k/ preceded by front vowel
+       L01) к (_         q   // word final /k/ preceded by back vowel
+       L02) к (_         k   // word final /k/ preceded by front vowel
+
+.group г
+       г (L01   G        // syllable onset /g/ followed by back vowel (MAX-ONSET)
+       г (L02   g        // syllable onset /g/ followed by back vowel (MAX-ONSET)
+       L01) г (L03       G   // syllable final /g/ preceded by back vowel
+       L02) г (L03       g   // syllable final /g/ preceded by front vowel
+       L01) г (_         G   // word final /g/ preceded by back vowel
+       L02) г (_         g   // word final /g/ preceded by front vowel
+
+.group л
+       л (L01   L        // syllable onset /l/ followed by back vowel (MAX-ONSET)
+       л (L02   l        // syllable onset /l/ followed by back vowel (MAX-ONSET)
+       L01) л (L03       L   // syllable final /l/ preceded by back vowel
+       L02) л (L03     l   // syllable final /l/ preceded by front vowel
+       L01) л (_       L   // word final /l/ preceded by back vowel
+       L02) л (_       l   // word final /l/ preceded by front vowel
+
+.group р
+       р (_     r       // word final /r/ gets trilled
+       L04) р (L03  r   // syllable final /r/ gets trilled
+       р *              // all non-word final /r/ go to flap
+     
+
+.group п
+       п        p
+
+.group б
+       б        b
+
+.group д
+       д        d
+
+.group т
+       т        t
+
+.group х
+       х        X
+
+.group ш
+       ш        S
+
+.group щ
+       щ        S
+
+.group ж
+       ж        dZ
+
+.group з
+       з        z
+
+.group с
+       с        s
+
+.group ц
+       ц        ts
+
+.group ч
+       ч        tS
+
+.group й
+       й        j
+
+.group м
+       м        m
+
+.group н
+       н        n
+
+.group ң
+       ң        N
+
+.group ф
+       ф        f
+
+.group в
+       в        v
+
+.group ъ
+       ъ        j
+
+.group ь
+       ь        j
