@@ -3,94 +3,113 @@
 // letters
 
 _cap	m'aJ^us   // should be "mayúscula" after the letter?
-_??	s'imbOlo
+_??	s'imbolo
 _#32	Esp'aTjo
-
 
 // accent names
 _lig	liQaD'ura
 _acu	aQ'uDo
-_ac2	d'Oble||aQ'uDo	
+_ac2	d'oble||aQ'uDo	
 _brv	br'eBe
 _ced	TeD'iJ^a
 _cir	Tirkumfl'exo
 _dia	dj'Eresis
-_dac	d'Oble||aQ'uDo	
-_dot	p'unto  // ??
+_dac	d'oble||aQ'uDo	
+_dot	p'unto
 _grv	gr'aBe
-_hac	kar'On
-_mcn	makr'On
+_hac	kar'on
+_mcn	makr'on
 _ogo	kol'ita
 _rng	an'iJ^o
 _stk	b'aRR2a	 // ??
 _tld	t'ilde
+_sup	supE**'indiTe // soB**e||esk**'ito
+_sub	suB'indiTe
 
 
 // names of symbols
-ª	a
-º	o 
+// ª	a
+// º	o 
 °	grados
 _.	punto
 _,	koma
 _;	p,untoik'oma
-_:	d,Osp'untOs
-_!	TERR2'araDmiraTj'On
-_?	TERR2'arintERR2,oQaTj'On
-_¡	aBr'iraDmiraTj'On
-_¿	aBr'irintERR2,oQaTj'On
-_<	men'Orke
-_>	maJ^'Orke
-_'	apOstr'ofo
+_:	d,osp'untos
+_!	TERR2'araDmiraTj'on
+_?	TERR2'arintERR2,oQaTj'on
+_¡	aBr'iraDmiraTj'on
+_¿	aBr'irintERR2,oQaTj'on
+_<	men'orke
+_>	maJ^'orke
+_'	apostr'ofo
 _"	kom'iJ^as
-_+	s'iQnOdesum'ar
-_-	gJ^On
+// _+	s'iQnodesum'ar
+_-	gJ^on
 __	suBraJ^'aDo
 _/	baRR2a
 _\	b'aRR2aimbErt'iDa
-_`	aT'EntOgr'aBe
+_`	aT'Ento||gr'aBe
+_´	aT'Ento||aQ'uDo
 _(	,aBrepar'Entesis
 _)	Tj,ERR2apar'Entesis
-_[	,aBrekOrtS'ete
-_]	Tj,ERR2akOrtS'ete
+_[	,aBrekortS'ete
+_]	Tj,ERR2akortS'ete
 _{	,aBreJ^'aBe
 _}	Tj,ERR2aJ^'aBe
 _«	kom'iJ^as||iTkJ^'ErDas
 _»	kom'iJ^as||dEr'EtSas
-
 =	iQw'al $max3
 +	m'as  $max3
-#	almOaD'iJ^a  $max3
+#	almoaD'iJ^a  $max3
 *	astEr'isko  $max3
 .	punto  $max3
-
 ^	Tirkumfl'exo
+₠	'eU*o
 €	eUro
-%	pOrTj'Ento  $max3
+%	porTj'Ento  $max3
 &	ampErs'ant
 @	aRR2'oBa
 /	baRR2a
 ©	kopiRR2'aIt
 £	liBras
 ¶	p'aRR2afo
-§	sEkTj'On
+§	sEkTj'on
+¬	n'ot
+·	p'unto||m'edjo
 
+// Language names
+
+_cyr	Ti*'iliko_
+_hy	arm'enjo
+_he	eB@-*'Eo
+_ar	'a*aBe
+_hi	'i:ndi
+_bn	beNg,al'i_
+_ta	t'amil
+_te	tel'ugu
+_si	TiNgal'es
+_th	t'a:i
+_my	birm'ano
+_ko	ko*e/'ano
+_ja	x,apon'Es
+_zh	tS'ino
 
 // numbers
 _0	T'ero
 _1	'uno
-_2	d'Os
+_2	d'os
 _3	tr'es
 _4	kw'atro
 _5	T'inko
 _6	s'eIs
 _7	sj'ete
-_8	'OtSo
+_8	'otSo
 _9	nw'eBe
 _1X	dj'ET
-_11	'OnTe
+_11	'onTe
 _12	d'oTe
 _13	tr'eTe
-_14	kat'OrTe
+_14	kat'orTe
 _15	k'inTe
 _20	b'eInte
 _2X	beInt
@@ -99,28 +118,28 @@ _4X	kwar'Enta
 _5X	Tinkw'Enta
 _6X	sEs'Enta
 _7X	sEt'Enta
-_8X	OtS'Enta
-_9X	nOB'Enta
-// _0C	Tj'EntOs
+_8X	otS'Enta
+_9X	noB'Enta
+// _0C	Tj'Entos
 _1C0	Tj'en         // exactly one hundred
 _1C	Tj'ento
 _2C	dosTj'entos
 _3C	tresTj'entos
 _4C	kwatroTj'entos
-_5C	kinj'EntOs
+_5C	kinj'Entos
 _6C	seIsTj'entos
-_7C	s,eteTj'EntOs
+_7C	s,eteTj'Entos
 _8C	otSoTj'entos
-_9C	n,OBeTj'EntOs
+_9C	n,oBeTj'Entos
 _0M1	m'il
 _0M2	miJ^'ones
-_1M2	'unmiJ^'On
+_1M2	'unmiJ^'on
 _0M4	_biJ^'onEs
-_1M4	'unbiJ^'On
+_1M4	'unbiJ^'on
 ?2 _0M2	mij:'ones
-?2 _1M2	'unmij:'On
+?2 _1M2	'unmij:'on
 ?2 _0M4	_bij:'onEs
-?2 _1M4	'unbij:'On
+?2 _1M4	'unbij:'on
 _0and	i
 _dpt	koma
 //_roman	Rom'ano
@@ -140,7 +159,7 @@ _4o	kw'art
 _5o	kint
 _6o	s'Ekst
 _7o	s'Etim
-_8o	Okt'aB
+_8o	okt'aB
 _9o	noB'en
 _10o	D'ETim
 _11o	und'ETim
@@ -150,7 +169,7 @@ _14o	DeTimokw'art
 _15o	DeTimok'int
 _16o	DeTimos'Ekst
 _17o	DeTimos'Eptim
-_18o	DeTimOkt'aB
+_18o	DeTimokt'aB
 _19o	DeTimonoB'en
 _20o	Bix'Esim
 _2Xo	Bix'Esim
@@ -159,7 +178,7 @@ _4Xo	kwaDrax'Esim
 _5Xo	kinkwax'Esim
 _6Xo	seQsax'Esim
 _7Xo	sEptwax'Esim
-_8Xo	Oktox'Esim
+_8Xo	oktox'Esim
 _9Xo	nonax'Esim
 _0Co	TEnt'Esim
 _1Co	TEnt'Esim
@@ -169,26 +188,19 @@ _4Co	kwaDriNxEnt'Esim
 _5Co	kiNxEnt'Esim
 _6Co	seksTEnt'Esim
 _7Co	sep:tiNxEnt'Esim
-_8Co	OktiNxEnt'Esim
+_8Co	oktiNxEnt'Esim
 _9Co	noniNxEnt'Esim
 _0M1o	mil'Esim
 
 
 vi	bi	// not a Roman number
 
-// unstressed words
 // articles
 el           $u+
 los          $u+
 la           $u+
 las          $u+
 lo           $u+
-
-
-
-
-
-
 
 // pronouns
 
@@ -199,7 +211,6 @@ les         $u+
 se	$u+
 nos     $u+
 os      $u+
-
 
 // possessives
 mi $u+
@@ -216,6 +227,7 @@ vuestro   $u+
 vuestros  $u+
 vuestra   $u+
 vuestras  $u+
+
 // prepositions
 a            $u+     // at
 al           $u+
@@ -235,30 +247,23 @@ desde        $u+       // from,since
 hasta         $u+
 hacia         $u+
 
-
 e         $u+       $only
 y            %i     // and
 o            $u+     // or
 u	$u+
-
-
 aunque       $u+     // although
 pero       $u+
 porque       $u+       // because
-
-
 que          $u+    // that
 cuando       $u+
 cuanto	$u+
+adonde	$u+
 donde       $u+
 como        $u+
 quien	$u+
 quienes	$u+
 mientras         $u+
 si       $u+
-
-
-
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
@@ -271,7 +276,7 @@ d	de
 f	Efe
 g	xe
 h	atSe
-j	xOta
+j	xota
 k	ka
 l	Ele
 m	Eme
@@ -283,7 +288,7 @@ r	Ere
 s	Ese
 t	te
 v	uBe
-w	uBe||d'OBle
+w	uBe||d'oBle
 x	Ekis
 z	TEta
 
@@ -299,8 +304,7 @@ ll	'El^e
 _ó	'o||aTEntw'aDa
 ú	'u||aTEntw'aDa
 ü	'u||kon||dj'ErEsis
-
-
+ç	$accent
 
 // Abbreviations
 dña	doña		$text
@@ -326,48 +330,63 @@ Sres	señores		$text $capital $dot
 Srta	señorita	$text $capital $dot
 Ud	usted		$text $capital $dot
 Uds	ustedes		$text $capital $dot
-//	(/ h)   pOr||'Ora
-
+//	(/ h)   por||'ora
 
 // pronunciation exceptions
+ser	s'e@-* $only // it's not a abbrev
 
-linux        $1
+// Proper Names and countries
+amsterdam	$3
+bardem	$2
+jerusalem	$4
 méxico       m'Exiko
 vietnam $2
-spanish      sp'aniS
-english ínglish      $text
-firefox	f'aIrfoks
-microsoft	m'aIkrosoft
-software	s'oftwer
-hardware h'ardwer
-skype	sk'aIp
-messenger m'esendZer
-live l'aIB
-facebook f'eIsbuk
-twitter	tw'iter
-twit	tw'it
-mozilla	moT'ila
-espeak	'isp'ik
-(e speak) 'isp'ik
-eloquence	'elokwens
-speech	sp'itS
-platform	pl'atfom
-voice	bois   $text
-windows	w'indows
+
+// foreign words
+
 android	'androId
 apple	'ap@l
-(i phone)	'aIfon
-iphone	'aIfon
-(i pod)	'aIpod
-ipod	'aIpod
-jaws	dZ'os
-window	w'indow
+copyright	k'opiRR2,aIt
+chrome	kr'owm
+curriculum	$2
+diem	d'i:em $only
+eloquence	'elokwens
+english ínglish      $text
+espeak	'isp'ik
 eyes	'aIs
+facebook f'eIsbuk
+firefox	f'aIrfoks
 free	fr'i
 google	g'ug@l
-chrome	kr'owm
-office	'ofis
-service	s'erBis
-power	p'awer
-thunderbird	t'anderbird
+hardware h'ardwer
+iphone	'aIfon
+ipod	'aIpod
+jaws	dZ'os
 jazz	dZ'as
+linux        $1
+live l'aIB
+messenger m'esendZer
+microsoft	m'aIkrosoft
+mozilla	moT'ila
+office	'ofis
+platform	pl'atfom
+power	p'awer
+service	s'erBis
+skype	sk'aIp
+snapshot	sn'apS,ot // _^_en
+software	s'oftwer
+spanish      sp'aniS
+speech	sp'itS
+thunderbird	t'anderbird
+twit	tw'it
+twitter	tw'iter
+voice	bois   $text
+window	w'indow
+
+(e speak) 'isp'ik
+(i phone)	'aIfon
+(i pod)	'aIpod
+
+// Main  nouns Dictionary
+cataplum	$3
+

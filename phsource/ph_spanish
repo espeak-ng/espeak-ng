@@ -6,19 +6,37 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 200
+  length 190
+  ChangeIfNotStressed(a/)
   FMT(vowel/a_4)
+endphoneme
+
+phoneme a/
+  vowel starttype #a endtype #a
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a_4, 85)
+  ENDIF
+  FMT(vowel/a_4, 95)
 endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 200
+  length 190
+  ChangeIfNotStressed(e/)
   FMT(vowel/e_mid2)
+endphoneme
+
+phoneme e/
+  vowel starttype #e endtype #e
+  length 150
+  FMT(vowel/e_mid2, 90)
 endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 200
+  length 175
+  ChangeIfNotStressed(e/)
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -31,14 +49,22 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 200
+  length 195
+  ChangeIfNotStressed(o/)
+  IF nextPhW(n) THEN
+    length 160
+    FMT(vowel/o_mid2)
+  ENDIF
   FMT(vowel/oo)
 endphoneme
 
-phoneme O
+phoneme o/
   vowel starttype #o endtype #o
-  length 200
-  FMT(vowel/oo)
+  length 155
+  IF thisPh(isWordEnd) THEN
+    FMT(vwl_es/oo_)
+  ENDIF
+  FMT(vowel/oo, 90)
 endphoneme
 
 phoneme u
@@ -47,7 +73,15 @@ phoneme u
   FMT(vowel/u_bck2)
 endphoneme
 
-
+phoneme oI
+  vowel starttype #o endtype #i
+  length 245
+  IF thisPh(isWordEnd) OR prevPh(r) THEN
+    length 260
+    FMT(vwl_es/ooi_)
+  ENDIF
+  FMT(vwl_es/ooi)
+endphoneme
 
 
 phoneme g

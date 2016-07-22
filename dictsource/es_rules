@@ -39,10 +39,14 @@
         c          k
      _) c (L01A    k         // allow: cl cr  at start of word
      _) ch         tS        // allow _ch
-
         c (Y       T         // ce, ci
         ch         tS
      A) ck         k
+
+.group ç
+	ç	s
+	A) ç (A	s
+	_) ç	s
 
 .group d
         d          d
@@ -64,17 +68,15 @@
 
 .group e
         e          e
-//          e (CK      E
-        e (nK      E
-        e (r       E
+        e (nC      E
+//         e (r       E
         e (Ch      e
-    Ar) e          E
-        ei         eI
-        ey (K      eI
-        ey (_      'eI
+//     Ar) e          E
+        ei         ei
+        ey (K      ei
+        ey (_      'ei
         eu         eU
         eu (_      'eU
-
 
 .group f
         f          f
@@ -138,7 +140,7 @@
        // @) m (_       =m
      _) mn (em     n
      _) mb (A      mb
-
+	@@) mente (_S5t	m'e/nte
 
 .group n
         n          n
@@ -151,14 +153,14 @@
      _) nh (A      n
 
 .group o
-        o          o
-        o (CK      O
-        o (r       O
-        o (Ch      o
-    Ar) o          O
-        oi         oI
-        oy (K      oI
-        oy (_      'oI
+	o	o
+	o (CK	o
+	o (r	o
+	o (Ch	o
+// 	Ar) o	o
+	oi	oI
+	oy (K	 oI
+	oy (_	'oI
         ou         ow
 
 .group p
@@ -267,17 +269,17 @@
 
 .group
         á          ''a
-        é          ''E
+        é          ''e
         í          ''i
-        ó          ''O
+        ó          ''o
         ú          ''u
         ü          u
         ñ          n^
-        $          d'Olar
+        $          d'olar
 
-     _) - (_D      m'EnOs
+     _) - (_D      m'Enos
     A_) - (_D      _
     C_) - (_D      _
 
-        , (D       kOma
+        , (D       koma
 

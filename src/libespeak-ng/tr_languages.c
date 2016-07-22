@@ -691,8 +691,8 @@ Translator *SelectTranslator(const char *name)
 	case L('i', 'a'): // Interlingua
 	case L_pap: // Papiamento
 	{
-		static const short stress_lengths_es[8] = { 160, 140,  145, 140,  0, 0,  200, 245 };
-		static const unsigned char stress_amps_es[8] = { 16, 13, 15, 16, 20, 20, 22, 22 }; // 'diminished' is used to mark a quieter, final unstressed syllable
+		static const short stress_lengths_es[8] = { 160, 145,  155, 150,  0, 0,  200, 245 };
+		static const unsigned char stress_amps_es[8] = { 16, 14, 15, 16, 20, 20, 22, 22 }; // 'diminished' is used to mark a quieter, final unstressed syllable
 		static const wchar_t ca_punct_within_word[] = { '\'', 0xb7, 0 }; // ca: allow middle-dot within word
 
 		SetupTranslator(tr, stress_lengths_es, stress_amps_es);

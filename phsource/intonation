@@ -247,9 +247,9 @@ nucleus fall-rise 74 26 23 45
 endtune
 
 tune q6
-prehead   48 60
+prehead   58 40
 headenv   fall 16
-head       3 78 40 -7 -3
+head       3 74 45 -7 -2
 headextend 10 47 23 9 0
 onset 58 45 48
 headlast 55 32 27
