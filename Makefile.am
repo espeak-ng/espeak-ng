@@ -251,6 +251,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_kinyarwanda \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
+	phsource/ph_kyrgyz \
 	phsource/ph_latin \
 	phsource/ph_latvian \
 	phsource/ph_lithuanian \
