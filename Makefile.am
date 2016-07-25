@@ -341,11 +341,11 @@ dictionaries: \
 	espeak-data/it_dict \
 	espeak-data/jbo_dict \
 	espeak-data/ka_dict \
-	espeak-data/kg_dict \
 	espeak-data/kl_dict \
 	espeak-data/kn_dict \
 	espeak-data/ko_dict \
 	espeak-data/ku_dict \
+	espeak-data/ky_dict \
 	espeak-data/la_dict \
 	espeak-data/lfn_dict \
 	espeak-data/lt_dict \
@@ -600,12 +600,6 @@ dictsource/ka_extra:
 espeak-data/ka_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ka_list dictsource/ka_rules dictsource/ka_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ka && cd ..
 
-kg: espeak-data/kg_dict
-dictsource/kg_extra:
-	touch dictsource/kg_extra
-espeak-data/kg_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kg_list dictsource/kg_rules dictsource/kg_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=kg && cd ..
-
 kl: espeak-data/kl_dict
 dictsource/kl_extra:
 	touch dictsource/kl_extra
@@ -629,6 +623,12 @@ dictsource/ku_extra:
 	touch dictsource/ku_extra
 espeak-data/ku_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ku_list dictsource/ku_rules dictsource/ku_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ku && cd ..
+
+ky: espeak-data/ky_dict
+dictsource/ky_extra:
+	touch dictsource/ky_extra
+espeak-data/ky_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ky_list dictsource/ky_rules dictsource/ky_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ky && cd ..
 
 la: espeak-data/la_dict
 dictsource/la_extra:
