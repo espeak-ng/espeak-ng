@@ -251,6 +251,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_kinyarwanda \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
+	phsource/ph_kyrgyz \
 	phsource/ph_latin \
 	phsource/ph_latvian \
 	phsource/ph_lithuanian \
@@ -344,6 +345,7 @@ dictionaries: \
 	espeak-data/kn_dict \
 	espeak-data/ko_dict \
 	espeak-data/ku_dict \
+	espeak-data/ky_dict \
 	espeak-data/la_dict \
 	espeak-data/lfn_dict \
 	espeak-data/lt_dict \
@@ -621,6 +623,12 @@ dictsource/ku_extra:
 	touch dictsource/ku_extra
 espeak-data/ku_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ku_list dictsource/ku_rules dictsource/ku_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ku && cd ..
+
+ky: espeak-data/ky_dict
+dictsource/ky_extra:
+	touch dictsource/ky_extra
+espeak-data/ky_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ky_list dictsource/ky_rules dictsource/ky_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ky && cd ..
 
 la: espeak-data/la_dict
 dictsource/la_extra:
