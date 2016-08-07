@@ -206,7 +206,8 @@ syllable counting.
 | Symbol      | Description |
 |-------------|-------------|
 | `@`         | A vowel follows somewhere in the word. |
-| `+`         | Force an increase in the score in this rule (may be repeated for more effect). |
+| `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
+| `<`         | Force an decrease in the score in this rule by 20 points (may be repeated for more effect). |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |

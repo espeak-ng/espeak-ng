@@ -182,6 +182,7 @@ extern "C"
 #define RULE_NOVOWELS     29 // X no vowels up to word boundary
 #define RULE_SPELLING     31 // W while spelling letter-by-letter
 #define RULE_LAST_RULE    31
+#define RULE_DEC_SCORE    33 // <
 
 #define DOLLAR_UNPR     0x01
 #define DOLLAR_NOPREFIX 0x02

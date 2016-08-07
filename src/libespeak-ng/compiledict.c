@@ -854,6 +854,9 @@ static void copy_rule_string(char *string, int *state_out)
 				case '+':
 					c = RULE_INC_SCORE;
 					break;
+				case '<': // Can't use - as opposite for + because it is used literally as part of word
+					c = RULE_DEC_SCORE;
+					break;
 				case '@':
 					c = RULE_SYLLABLE;
 					break;
@@ -1035,7 +1038,7 @@ static char *compile_rule(char *input)
 			state = 3;
 			p = buf;
 			if (input[ix+1] == ' ') {
-				fprintf(f_log, "%5d: Syntax error. Space after (\n", linenum);
+				fprintf(f_log, "%5d: Syntax error. Space after (, or negative score for previous rule\n", linenum);
 				error_count++;
 			}
 			break;
