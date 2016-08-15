@@ -652,11 +652,19 @@ int main(int argc, char **argv)
 				flag_stdin = 2;
 		}
 	} else {
+		struct stat st;
+		if (stat(filename, &st) != 0) {
+			fprintf(stderr, "Failed to stat() file '%s'\n", filename);
+			exit(EXIT_FAILURE);
+		}
 		filesize = GetFileLength(filename);
 		f_text = fopen(filename, "r");
 		if (f_text == NULL) {
 			fprintf(stderr, "Failed to read file '%s'\n", filename);
 			exit(EXIT_FAILURE);
+		}
+		if (S_ISFIFO(st.st_mode)) {
+			flag_stdin = 2;
 		}
 	}
 
@@ -672,11 +680,13 @@ int main(int argc, char **argv)
 		}
 
 		if (flag_stdin == 2) {
-			// line by line input on stdin
-			while (fgets(p_text, max, stdin) != NULL) {
+			// line by line input on stdin or from FIFO
+			while (fgets(p_text, max, f_text) != NULL) {
 				p_text[max-1] = 0;
 				espeak_Synth(p_text, max, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
-
+			}
+			if (f_text != stdin) {
+				fclose(f_text);
 			}
 		} else {
 			// bulk input on stdin
