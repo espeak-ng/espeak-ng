@@ -111,7 +111,8 @@ static const char *help_text =
     "--version  Shows version number and date, and location of espeak-data\n"
     "--voices=<language>\n"
     "\t   List the available voices for the specified language.\n"
-    "\t   If <language> is omitted, then list all voices.\n";
+    "\t   If <language> is omitted, then list all voices.\n"
+    "-h, --help Show this help.\n";
 
 int samplerate;
 int quiet = 0;
