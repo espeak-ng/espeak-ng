@@ -2,7 +2,7 @@
 
 ## SYNOPSIS
 
-__espeak-ng__ [<options>] [<&lt;words&gt;>]
+__espeak-ng__ [<options>] [<words>]
 
 ## DESCRIPTION
 
