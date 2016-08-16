@@ -257,12 +257,7 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {
 	char fname[210];
 
-	if (quiet) return 0; // -q quiet mode
-
-	if (wav == NULL) {
-		CloseWavFile();
-		return 0;
-	}
+	if (quiet || wav == NULL) return 0;
 
 	while (events->type != 0) {
 		if (events->type == espeakEVENT_SAMPLERATE) {
@@ -731,5 +726,8 @@ int main(int argc, char **argv)
 
 	if (f_phonemes_out != stdout)
 		fclose(f_phonemes_out);
+
+	CloseWavFile();
+	espeak_ng_Terminate();
 	return 0;
 }
