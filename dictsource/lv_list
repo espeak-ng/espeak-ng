@@ -246,7 +246,7 @@ pret      $u+
 priekš    $u
 starp     $u
 šo        $u+
-taču      $u  $pause
+taču      $u $pause
 tad       $u+
 tas       $u+
 tagad     $u+
@@ -255,11 +255,11 @@ tikt      $u+
 tiek      $u+
 tika      $u+
 tikai     $u+
-tiklab    $u  $brk
-tomēr     $u  $pause
-turpretim $u  $pause
-turpretī  $u  $pause
-un        $u  $pause
+tiklab    $u $brk
+tomēr     $u $pause
+turpretim $u $2 $pause
+turpretī  $u $2 $pause
+un        $u $pause
 uz        $u
 vai       $u+ $brk
 vairs     $u
@@ -364,6 +364,8 @@ viņu      $u+
 // exception words with stress on 2nd syllable
 aizvien   $2
 arvien    $2
+itnekur   $3
+itnemaz   $3
 joprojām  $2
 kautko    $2
 labdien   $2
@@ -377,9 +379,10 @@ nekā      $2 $u+
 neko      $2 $u+
 nekur     $2 $u+
 nemaz     $2 $u+
+neparko   $3
 pagalam   $2
-paldies   $2
 palaikam  $2
+paldies   $2
 papilnam  $2
 paretam   $2
 patiešām  $2
@@ -414,7 +417,7 @@ vismaz    $2
 (tai pašai)     $2 $u+
 (tai pašā)      $2 $u+
 (tai tur)       $2 $u+
-(tajā pašā)     $2 $u+
+(tajā pašā)     $3 $u+
 (tajā tur)      $3 $u+
 (tam pašam)     $2 $u+
 (tam tur)       $2 $u+
@@ -428,33 +431,6 @@ vismaz    $2
 (tik pat)       $2 $u+
 (to pašu)       $2 $u+
 (to tur)        $2 $u+
-
-// stress on last syllable
-neparko $3
-itnekur $3
-itnemaz $3
-
-//stress on 2nd syllable (international words)
-adadžo          $2
-kakao           $2
-maestro         $2
-piano           $2
-solfedžo        $2
-fiasko          $2
-
-//stress on last syllable (international words)
-ateljē          $3
-dekoltē         $3
-foajē           $3
-frikasē         $3
-galifē          $3
-kanapē          $3
-komunikē        $4
-portjē          $2
-protežē         $3
-
-// Specific words which has bad default spelling
-tvnet   te:ve:net
 
 ///////////////////
 // Abbreviations //
@@ -481,98 +457,115 @@ tml     te:em,el:  $u $pause
 utml    ute:e,mel: $u $pause
 utt     ute:te:    $u $pause
 
-// words with o 
-adadžo  $alt $2
-aikido  $alt
-ambo    $alt
-anno    $alt
-automoto        $alt
-bandžo  $alt
-bendžo  $alt
-bingo   $alt
-bolero  $alt
-bordo   $alt
-borneo  $alt
-bravo   $alt
-bruno   $alt
-bruto   $alt
-depo    $alt
-dingo   $alt
-domino  $alt
-džudo   $alt
-eldorado        $alt
-embargo $alt
-esperanto       $alt
-flamenko        $alt     // can't use "f" as indicator, as 6 letters between are to far from "o"   
-indigo  $alt
-inkognito       $alt
-intermeco       $alt
-kakao   $alt
-kastro  $alt
-kazino  $alt
-kimono  $alt
-kioto   $alt
-kolombo $alt
-kolorado        $alt
-kolorādo        $alt
-kongo   $alt
-kvatročento     $alt
-lego    $alt
-leporello       $alt
-lesoto  $alt
-loto    $alt
-lumbago $alt
-maestro $alt
-majordomo       $alt
-mecotinto       $alt
-meteo   $alt
-metro   $alt
-monako  $alt
-mono    $alt
-montekarlo      $alt
-montevideo      $alt
-moto    $alt
-nato    $alt
-odo     $alt
-ontārio $alt
-oregano $alt
-orinoko $alt
-oslo    $alt
-otello  $alt
-oto     $alt
-panno   $alt
-pianīno $alt
-pikolo  $alt
-polo    $alt
-pončo   $alt
-porto   $alt
-puertoriko      $alt
-rančo   $alt
-retro   $alt
-riodežaneiro    $alt
-rodeo   $alt
-rodrigo $alt
-rokoko  $alt
-roks            $alt
-rondo   $alt
-saldo   $alt
-sambo   $alt
-santodomingo    $alt
-siroko  $alt
-solo    $alt
-sombrēro        $alt
-sonera          $alt
-sorgo   $alt
-stereokino      $alt
-storno  $alt
-tobago  $alt
-toronto $alt
-triko   $alt
-trimo   $alt
-uno     $alt
-veto    $alt
-čello   $alt
-ūdenspolo       $alt
-žabo    $alt
-žigolo  $alt
+///////////////////////////
+// other exception words //
+///////////////////////////
+
+adadžo       $alt $2
+aikido       $alt
+ambo         $alt
+anno         $alt
+ateljē            $3
+automoto     $alt
+bandžo       $alt
+bendžo       $alt
+bingo        $alt
+bolero       $alt
+bordo        $alt
+borneo       $alt
+bravo        $alt
+bruno        $alt
+bruto        $alt
+čello        $alt
+dekoltē      $alt $3
+depo         $alt
+dingo        $alt
+domino       $alt
+džudo        $alt
+eldorado     $alt $3
+embargo      $alt $2
+esperanto    $alt
+fiasko       $alt $2
+flamenko     $alt $2
+foajē        $alt $3
+frikasē      $alt $3
+galifē       $alt $3
+google       $alt
+indigo       $alt
+inkognito    $alt $3
+intermeco    $alt $3
+kakao        $alt $2
+kanapē            $3
+kastro       $alt
+kazino       $alt
+kimono       $alt
+kioto        $alt $2
+kolombo      $alt $2
+kolorado     $alt $3
+komunikē     $alt $4
+kongo        $alt
+kvatročento  $alt
+lego         $alt
+leporello    $alt
+lesoto       $alt
+loto         $alt
+lumbago      $alt
+maestro      $alt $2
+majordomo    $alt
+mecotinto    $alt
+meteo        $alt
+metro        $alt
+monako       $alt $2
+mono         $alt
+montekarlo   $alt $3
+montevideo   $alt $3
+moto         $alt
+nato         $alt
+odo          $alt
+ontārio      $alt $2
+oracle       $alt
+oregano      $alt $3
+orinoko      $alt
+oslo         $alt 
+otello       $alt $2
+oto          $alt
+panno        $alt
+pianīno      $alt $2
+piano        $alt $2
+pikolo       $alt
+polo         $alt
+pončo        $alt
+portjē       $alt $2
+porto        $alt
+protežē      $alt $3
+puertoriko   $alt $4
+rančo        $alt
+retro        $alt
+riodežaneiro $alt $5
+rodeo        $alt
+rodrigo      $alt $2
+rokoko       $alt
+roks         $alt
+rondo        $alt
+saldo        $alt
+sambo        $alt
+santodomingo $alt $4
+siroko       $alt
+solfedžo     $alt $2
+solo         $alt
+sombrēro     $alt $2
+sonera       $alt
+sorgo        $alt
+stereokino   $alt
+storno       $alt
+tobago       $alt $2
+toronto      $alt $2
+triko        $alt
+trimo        $alt
+tvnet        te:ve:net
+uno          $alt
+ūdenspolo    $alt
+veto         $alt
+žabo         $alt
+žigolo       $alt
 

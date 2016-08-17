@@ -192,16 +192,16 @@ tune s5
 prehead   46 57
 headenv   fall 16
 head       4 80 55 -8 -5
-headextend 0 63 38 13 0
-nucleus0 fall 64 8
-nucleus  fall 70 18 24 12
+headextend 0 64 38 13 0
+nucleus0 fall 68 8
+nucleus  fall 74 18 24 12
 endtune
 
 tune c5
 prehead   46 57
 headenv   fall 16
 head       4 80 55 -8 -5
-headextend 0 63 38 13 0
+headextend 0 64 38 13 0
 nucleus0 rise  77 25
 nucleus  rise 78 50 50 80
 endtune
