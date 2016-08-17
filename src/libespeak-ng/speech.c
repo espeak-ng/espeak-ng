@@ -228,10 +228,18 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 {
 	option_device = device;
 	my_mode = output_mode;
-	out_samplerate = 0;
+	out_samplerate = samplerate;
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 	my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
+	if (!my_audio)
+		return ENS_AUDIO_ERROR;
+
+	int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, samplerate, 1);
+	if (error != 0) {
+		fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+		return ENS_AUDIO_ERROR;
+	}
 #endif
 
 	// buflength is in mS, allocate 2 bytes per sample
