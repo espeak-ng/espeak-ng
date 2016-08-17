@@ -12,6 +12,7 @@
 - [Testing](#testing)
 - [Installing](#installing)
 - [Documentation](#documentation)
+- [Notes for packagers](#notes-for-packagers)
 - [eSpeak for Android](#espeak-for-android)
 - [Historical Versions](#historical-versions)
 - [Bugs](#bugs)
@@ -212,6 +213,25 @@ on using and creating voices/languages for for eSpeak NG.
 The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
 command-line documentation provide a reference of the different command-line
 options available to these commands with example usage.
+
+## Notes for packagers
+
+The **espeak-ng** project works as a drop-in replacement for **espeak**, with a few caveats. More specifically:
+
+1. The installation creates compatibility symlinks mapping _espeak_, _speak_ and _libespeak.la_
+to their _espeak-ng_ equivalents. These are optional if you just want to install _espeak-ng_ and 
+have an _espeak_ package with the _espeak_ code and an _espeak-ng-compatibility_ package that installs the symlinks.
+
+1. The command-line interface to _espeak-ng_ and _speak-ng_ are compatible, and will remain so, with espeak.
+
+1. The C API to _libespeak-ng.so_ will remain API and ABI compatible with libespeak.so. The only change _speak_lib.h_ is a change to the
+_ESPEAK_API_ macro when building on Windows. All new APIs are being added to _espeak-ng/espeak_ng.h_.
+
+1. The _espeak-data_ files have been modified slightly. Currently _espeak-ng_ can read _espeak_ data, but _espeak_ cannot read _espeak-ng_ data,
+because espeak-ng uses a different voice data so that both _espeak_ and _espeak-ng_ can be installed on the same machine without problems.
+
+1. The _espeak-ng_ project does not include _espeakedit_. The voice data is built using the _espeak-ng_ command line itself.
+Currently, to create and edit the voice data, you need _espekaedit_ from the _espeak_ project.
 
 ## eSpeak for Android
 
