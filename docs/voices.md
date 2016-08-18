@@ -352,7 +352,7 @@ Gives a list of conditional dictionary rules which are applied for this
 voice. Rule numbers are in the range 0 to 31 and are specific to a
 language dictionary. They apply to rules in the language's `*_rules`
 dictionary file and also its `*_list` exceptions list. See
-[Text to Phoneme Translation](dictionary.md).
+[Text to Phoneme Translation](dictionary.md#conditional-rules).
 
 ### replace
 
