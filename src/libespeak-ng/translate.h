@@ -182,7 +182,9 @@ extern "C"
 #define RULE_NOVOWELS     29 // X no vowels up to word boundary
 #define RULE_SPELLING     31 // W while spelling letter-by-letter
 #define RULE_LAST_RULE    31
-#define RULE_DEC_SCORE    33 // <
+#define RULE_DEC_SCORE    60 // <
+                             // codes over 32 are handled differently, in copmiledict.c:copy_rule_string(),
+                             // therefore for < number should represent ASCII code
 
 #define DOLLAR_UNPR     0x01
 #define DOLLAR_NOPREFIX 0x02
