@@ -189,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\espeak-ng\espeak_ng.h" />
-    <ClInclude Include="..\include\espeak\speak_lib.h" />
+    <ClInclude Include="..\include\espeak-ng\speak_lib.h" />
     <ClInclude Include="..\libespeak-ng\error.h" />
     <ClInclude Include="..\libespeak-ng\klatt.h" />
     <ClInclude Include="..\libespeak-ng\mbrowrap.h" />

@@ -128,7 +128,7 @@
     <ClInclude Include="..\libespeak-ng\speech.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\espeak\speak_lib.h">
+    <ClInclude Include="..\include\espeak-ng\speak_lib.h">
       <Filter>Header Files\api</Filter>
     </ClInclude>
     <ClInclude Include="..\include\espeak-ng\espeak_ng.h">

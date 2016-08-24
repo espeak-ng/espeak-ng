@@ -22,7 +22,7 @@
 #include <sperror.h>
 
 #include <espeak-ng/espeak_ng.h>
-#include <espeak/speak_lib.h>
+#include <espeak-ng/speak_lib.h>
 
 #include <new>
 #include <errno.h>
