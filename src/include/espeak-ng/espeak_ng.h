@@ -19,7 +19,7 @@
 #ifndef ESPEAK_NG_H
 #define ESPEAK_NG_H
 
-#include <espeak/speak_lib.h>
+#include <espeak-ng/speak_lib.h>
 
 #ifdef __cplusplus
 extern "C"
