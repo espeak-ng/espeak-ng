@@ -161,8 +161,6 @@ extern "C"
 #define RULE_PRE_ATSTART 8 // as RULE_PRE but also match with 'start of word'
 #define RULE_LINENUM     9 // next 2 bytes give a line number, for debugging purposes
 
-#define RULE_SPACE        32 // ascii space
-#define RULE_SYLLABLE     21 // @
 #define RULE_STRESSED     10 // &
 #define RULE_DOUBLE       11 // %
 #define RULE_INC_SCORE    12 // +
@@ -174,6 +172,7 @@ extern "C"
 #define RULE_LETTERGP2    18 // L + letter group number
 #define RULE_CAPITAL      19 // !   word starts with a capital letter
 #define RULE_REPLACEMENTS 20 // section for character replacements
+#define RULE_SYLLABLE     21 // @
 #define RULE_SKIPCHARS    23 // J
 #define RULE_NO_SUFFIX    24 // N
 #define RULE_NOTVOWEL     25 // K
@@ -182,9 +181,10 @@ extern "C"
 #define RULE_NOVOWELS     29 // X no vowels up to word boundary
 #define RULE_SPELLING     31 // W while spelling letter-by-letter
 #define RULE_LAST_RULE    31
+// Rule codes above 31 are the ASCII code representation of the character
+// used to specify the rule.
+#define RULE_SPACE        32 // ascii space
 #define RULE_DEC_SCORE    60 // <
-                             // codes over 32 are handled differently, in copmiledict.c:copy_rule_string(),
-                             // therefore for < number should represent ASCII code
 
 #define DOLLAR_UNPR     0x01
 #define DOLLAR_NOPREFIX 0x02
