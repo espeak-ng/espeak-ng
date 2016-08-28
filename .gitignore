@@ -2,6 +2,10 @@
 
 .*.swp
 
+#Eclipse project files
+.cproject
+.project
+
 # intermediate build output:
 
 *.o
