@@ -164,6 +164,8 @@ static void InitGroups(Translator *tr)
 
 		if (p[0] == RULE_LETTERGP2) {
 			ix = p[1] - 'A';
+			if (ix < 0)  // Issue  #103, if gets negative, fix it
+				ix += 256;
 			p += 2;
 			if ((ix >= 0) && (ix < N_LETTER_GROUPS))
 				tr->letterGroups[ix] = p;
@@ -1706,6 +1708,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				{
 				case RULE_LETTERGP:
 					letter_group = *rule++ - 'A';
+					if (letter_group < 0) // Issue  #103, if gets negative, fix it
+						letter_group += 256;
 					if (IsLetter(tr, letter_w, letter_group)) {
 						lg_pts = 20;
 						if (letter_group == 2)
@@ -1717,6 +1721,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
 					letter_group = *rule++ - 'A';
+					if (letter_group < 0) // Issue  #103, if gets negative, fix it
+						letter_group += 256;
 					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) > 0) {
 						add_points = (20-distance_right);
 						post_ptr += (n_bytes-1);
