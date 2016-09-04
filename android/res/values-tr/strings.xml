@@ -40,9 +40,32 @@
         Description: Sample text spoken aloud when the user is trying out a language.-->
   <string name="sample_text">Bu, %s dilinde seslendirilen örnek bir metindir</string>
   <string name="status">Durum</string>
-  <string name="tts_version">eSpeak versiyonu</string>
+  <string name="tts_version">eSpeak sürümü</string>
   <string name="speak">Konuş</string>
+  <string name="ssml">SSML Şablonu yükle</string>
   <string name="synthesis_demo">Konuşulacak metni girin:</string>
   <string name="espeak_volume">Ses</string>
+  <string name="formatter_wpm">%s Kelime/dk</string>
+  <string name="formatter_percentage">%s%%</string>
   <string name="resetToDefault">Varsayılana ayarla</string>
+  <string name="espeak_pitch_range">Perde çeşitliliği</string>
+  <string name="espeak_variant">Ses biçimi</string>
+  <string name="espeak_speak_punctuation">Konuşma duraksaması</string>
+  <string name="punctuation_all">Hepsi</string>
+  <string name="punctuation_custom">Özel</string>
+  <string name="punctuation_custom_fmt">Özel: %s</string>
+  <string name="punctuation_none">Hiçbiri</string>
+  <string name="punctuation_characters">Noktalama işaretleri</string>
+  <string name="category">Kategori</string>
+  <string name="variant">Biçim</string>
+  <string name="variant_male">Erkek</string>
+  <string name="variant_female">Kadın</string>
+  <string name="variant_default">Varsayılan</string>
+  <string name="variant_n">Biçim %d</string>
+  <string name="variant_young">Genç</string>
+  <string name="variant_old">Yaşlı</string>
+  <string name="variant_croak">Boğuk</string>
+  <string name="variant_whisper">Fısıltı</string>
+  <string name="import_voice_title">eSpeak sözlüğü içe aktar</string>
+  <string name="import_voice_description">SD karttan bir eSpeak ses sözlüğü dosyası içe aktar</string>
 </resources>
