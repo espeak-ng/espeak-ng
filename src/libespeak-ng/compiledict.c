@@ -321,6 +321,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			c = symbols_lg[*rule++ - 'A'];
 		else if (rb == RULE_LETTERGP2) {
 			value = *rule++ - 'A';
+			if (value < 0)
+				value += 256;
 			p[0] = 'L';
 			p[1] = (value / 10) + '0';
 			c = (value % 10) + '0';
