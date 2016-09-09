@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update 5 july 2016 by Chris <llajta2012@gmail.com>
+//  Italian, last update 15 august 2016 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -103,7 +103,8 @@ phoneme o/
     FMT(vwl_it/o_open, 80)
   ENDIF
   IF thisPh(isWordEnd) AND NOT prevPhW(a) THEN
-    FMT(vwl_it/o, 65)
+    length 150
+    FMT(vowel/o_mid, 65)
   ENDIF
     FMT(vowel/o, 90)
 endphoneme
