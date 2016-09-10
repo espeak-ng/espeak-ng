@@ -197,7 +197,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, cons
             Value=0 gives a default of 200mS.
             This paramater is only used for AUDIO_OUTPUT_RETRIEVAL and AUDIO_OUTPUT_SYNCHRONOUS modes.
 
-   path: The directory which contains the espeak-data directory, or NULL for the default location.
+   path: The directory which contains the espeak-ng-data directory, or NULL for the default location.
 
    options: bit 0:  1=allow espeakEVENT_PHONEME events.
             bit 1:  1= espeakEVENT_PHONEME events give IPA phoneme names, not eSpeak phoneme names
@@ -553,7 +553,7 @@ ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
 typedef struct {
 	const char *name;      // a given name for this voice. UTF8 string.
 	const char *languages;       // list of pairs of (byte) priority + (string) language (and dialect qualifier)
-	const char *identifier;      // the filename for this voice within espeak-data/voices
+	const char *identifier;      // the filename for this voice within espeak-ng-data/voices
 	unsigned char gender;  // 0=none 1=male, 2=female,
 	unsigned char age;     // 0=not specified, or age in years
 	unsigned char variant; // only used when passed as a parameter to espeak_SetVoiceByProperties
@@ -587,7 +587,7 @@ typedef struct {
 extern "C"
 #endif
 ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec);
-/* Reads the voice files from espeak-data/voices and creates an array of espeak_VOICE pointers.
+/* Reads the voice files from espeak-ng-data/voices and creates an array of espeak_VOICE pointers.
    The list is terminated by a NULL pointer
 
    If voice_spec is NULL then all voices are listed.

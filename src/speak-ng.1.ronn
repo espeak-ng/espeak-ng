@@ -51,7 +51,7 @@ words are provided then text is spoken from stdin a line at a time.
     Speed in words per minute, default is 160.
 
   * `-v <voice name>`:
-    Use voice file of this name from espeak-data/voices. A variant can be
+    Use voice file of this name from espeak-ng-data/voices. A variant can be
     specified using <voice>+<variant>, such as af+m3.
 
   * `-w <wave file name>`:
@@ -100,7 +100,7 @@ words are provided then text is spoken from stdin a line at a time.
     The character to use to join multi-letter phonemes in -x and --ipa output.
 
   * `--path=<path>`:
-    Specifies the directory containing the espeak-data directory.
+    Specifies the directory containing the espeak-ng-data directory.
 
   * `--pho`:
     Write mbrola phoneme data (.pho) to stdout or to the file in --phonout.

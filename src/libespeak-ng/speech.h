@@ -52,7 +52,7 @@ extern "C"
 
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
-   #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
+   #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
 #endif
 
 typedef unsigned short USHORT;
@@ -65,7 +65,7 @@ typedef struct {
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, const char *string);
 
-extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
+extern char path_home[N_PATH_HOME];    // this is the espeak-ng-data directory
 
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 extern ESPEAK_NG_API int  GetFileLength(const char *filename);
