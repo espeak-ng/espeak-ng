@@ -179,6 +179,9 @@
       <Feature Id="lang_ku" Title="Kurdish" Level="1">
         <ComponentGroupRef Id="LangKurdish"/>
       </Feature>
+      <Feature Id="lang_ky" Title="Kyrgyz" Level="1">
+        <ComponentGroupRef Id="LangKyrgyz"/>
+      </Feature>
       <Feature Id="lang_la" Title="Latin" Level="1">
         <ComponentGroupRef Id="LangLatin"/>
       </Feature>
@@ -469,6 +472,9 @@
             </Component>
             <Component Id="ku_dict" Win64="$(var.Win64)" Guid="C03DFC21-F4CC-404D-A6CA-3407DFE2A105">
               <File Name="ku_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ku_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="ky_dict" Win64="$(var.Win64)" Guid="F4141472-DAB8-47F4-9F6A-F814DE06D37F">
+              <File Name="ky_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ky_dict" KeyPath="yes"/>
             </Component>
             <Component Id="la_dict" Win64="$(var.Win64)" Guid="70978CC5-D4CF-4C55-A145-47B23604C9DF">
               <File Name="la_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\la_dict" KeyPath="yes"/>
@@ -861,6 +867,9 @@
                 <Component Id="tt" Win64="$(var.Win64)" Guid="7A3D1E2D-37B6-4CBD-A6C3-FD46D5BA5FBF">
                   <File Name="tt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\tt" KeyPath="yes"/>
                 </Component>
+                <Component Id="ky" Win64="$(var.Win64)" Guid="C2E2808E-56F4-40C4-BD41-DAC648E414BA">
+                  <File Name="ky" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\ky" KeyPath="yes"/>
+                </Component>
               </Directory>
               <Directory Id="URJ" Name="urj">
                 <Component Id="et" Win64="$(var.Win64)" Guid="8B42703E-6FEF-4E41-9F9F-7EFA95FAB433">
@@ -1153,6 +1162,10 @@
     <ComponentGroup Id="LangKurdish">
       <ComponentRef Id="ku"/>
       <ComponentRef Id="ku_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangKyrgyz">
+      <ComponentRef Id="ky"/>
+      <ComponentRef Id="ky_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangLatin">
       <ComponentRef Id="la"/>
