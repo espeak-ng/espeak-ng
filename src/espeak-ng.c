@@ -68,7 +68,7 @@ static const char *help_text =
     "-s <integer>\n"
     "\t   Speed in approximate words per minute. The default is 175\n"
     "-v <voice name>\n"
-    "\t   Use voice file of this name from espeak-data/voices\n"
+    "\t   Use voice file of this name from espeak-ng-data/voices\n"
     "-w <wave file name>\n"
     "\t   Write speech to this WAV file, rather than speaking it directly\n"
     "-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
@@ -92,7 +92,7 @@ static const char *help_text =
     "\t   Compile the phoneme data\n"
     "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
     "--path=\"<path>\"\n"
-    "\t   Specifies the directory containing the espeak-data directory\n"
+    "\t   Specifies the directory containing the espeak-ng-data directory\n"
     "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
     "--phonout=\"<filename>\"\n"
     "\t   Write phoneme output from -x -X --ipa and --pho to this file\n"
@@ -108,7 +108,7 @@ static const char *help_text =
     "--tie=<character>\n"
     "\t   Use a tie character within multi-letter phoneme names.\n"
     "\t   Default is U+361, z means ZWJ character.\n"
-    "--version  Shows version number and date, and location of espeak-data\n"
+    "--version  Shows version number and date, and location of espeak-ng-data\n"
     "--voices=<language>\n"
     "\t   List the available voices for the specified language.\n"
     "\t   If <language> is omitted, then list all voices.\n"
@@ -326,7 +326,7 @@ int main(int argc, char **argv)
 	FILE *f_text = NULL;
 	char *p_text = NULL;
 	FILE *f_phonemes_out = stdout;
-	char *data_path = NULL; // use default path for espeak-data
+	char *data_path = NULL; // use default path for espeak-ng-data
 
 	int option_index = 0;
 	int c;

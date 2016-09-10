@@ -183,7 +183,7 @@ from the top-level directory of this project:
 
 The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak-ng data from
 the source tree. Otherwise, espeak-ng will look in `$(HOME)` or
-`/usr/share/espeak-data`.
+`/usr/share/espeak-ng-data`.
 
 The `LD_LIBRARY_PATH` is set as `espeak` uses the `libespeak-ng.so` shared
 library. This ensures that `espeak` uses the built shared library in the
@@ -234,7 +234,7 @@ a few caveats. More specifically:
    `ESPEAK_API` macro when building on Windows. All new APIs are being added
    to `espeak-ng/espeak_ng.h`.
 
-4. The _espeak-data_ files have been modified slightly. Currently _espeak-ng_
+4. The _espeak-ng-data_ files have been modified slightly. Currently _espeak-ng_
    can read _espeak_ data, but _espeak_ cannot read _espeak-ng_ data, because
    _espeak-ng_ uses a different voice data so that both _espeak_ and
    _espeak-ng_ can be installed on the same machine without problems.

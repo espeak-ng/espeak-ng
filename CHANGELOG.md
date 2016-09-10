@@ -1,6 +1,6 @@
 # Change Log
 
-## (In Development)
+## 1.49.0 - 2016-09-10
 
 *  Support the `--compile-mbrola` command-line option.
 *  Support the `--compile-phonemes` command-line option.
@@ -16,6 +16,9 @@
 *  Removed support for WinCE, MS-DOS and RiscOS.
 *  Add support for `maintainer` and `status` field in voice files for tracking
    voice maintenance.
+*  Vim syntax highlighting for espeak dictionary (list and rules) files.
+*  Support reading input from named pipes.
+*  Fix wav file truncation when reading multiline text from stdin or a named pipe.
 
 build:
 
@@ -75,6 +78,7 @@ updated languages:
 new languages:
 
 *  gn (Guarani) -- ChrisLeo
+*  ky (Kyrgyz) -- JRMeyer
 *  mb-br2 (Brazillian Portuguese)
 *  mb-de\* (German) : extend support coverage of the German MBROLA voices
 *  mb-lt1 (Lithuanian) -- embar

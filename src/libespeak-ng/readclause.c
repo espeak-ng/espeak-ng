@@ -800,7 +800,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 		return EINVAL;
 
 	if (fname[0] != '/') {
-		// a relative path, look in espeak-data/soundicons
+		// a relative path, look in espeak-ng-data/soundicons
 		sprintf(fname2, "%s%csoundicons%c%s", path_home, PATHSEP, PATHSEP, fname);
 		fname = fname2;
 	}

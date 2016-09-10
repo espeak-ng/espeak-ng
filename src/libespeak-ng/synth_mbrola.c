@@ -55,7 +55,7 @@ static int mbr_name_prefix = 0;
 
 espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
-	// Load a phoneme name translation table from espeak-data/mbrola
+	// Load a phoneme name translation table from espeak-ng-data/mbrola
 
 	int size;
 	int ix;

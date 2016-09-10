@@ -86,7 +86,7 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 		strncpy0(buffer, "Compile error", length);
 		break;
 	case ENS_VERSION_MISMATCH:
-		strncpy0(buffer, "Wrong version of espeak-data", length);
+		strncpy0(buffer, "Wrong version of espeak-ng-data", length);
 		break;
 	case ENS_FIFO_BUFFER_FULL:
 		strncpy0(buffer, "The FIFO buffer is full", length);

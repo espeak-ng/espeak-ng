@@ -1228,7 +1228,7 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 	int match_fname = -1;
 	int match_fname2 = -1;
 	int match_name = -1;
-	const char *id; // this is the filename within espeak-data/voices
+	const char *id; // this is the filename within espeak-ng-data/voices
 	char *variant_name;
 	int last_part_len;
 	char last_part[41];

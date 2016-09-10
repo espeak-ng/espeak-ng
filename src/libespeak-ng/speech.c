@@ -56,10 +56,6 @@
 #include "fifo.h"
 #include "event.h"
 
-#ifndef S_ISDIR
-#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
-#endif
-
 unsigned char *outbuf = NULL;
 
 espeak_EVENT *event_list = NULL;
@@ -82,7 +78,7 @@ t_espeak_callback *synth_callback = NULL;
 int (*uri_callback)(int, const char *, const char *) = NULL;
 int (*phoneme_callback)(const char *) = NULL;
 
-char path_home[N_PATH_HOME]; // this is the espeak-data directory
+char path_home[N_PATH_HOME]; // this is the espeak-ng-data directory
 extern int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
 static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
@@ -272,7 +268,7 @@ int GetFileLength(const char *filename)
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
 	if (path != NULL) {
-		sprintf(path_home, "%s/espeak-data", path);
+		sprintf(path_home, "%s/espeak-ng-data", path);
 		return;
 	}
 
@@ -284,9 +280,9 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	unsigned char buf[sizeof(path_home)-13];
 
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
-		sprintf(path_home, "%s/espeak-data", env);
+		sprintf(path_home, "%s/espeak-ng-data", env);
 		if (GetFileLength(path_home) == -2)
-			return; // an espeak-data directory exists
+			return; // an espeak-ng-data directory exists
 	}
 
 	buf[0] = 0;
@@ -295,7 +291,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
 
-	sprintf(path_home, "%s\\espeak-data", buf);
+	sprintf(path_home, "%s\\espeak-ng-data", buf);
 #elif defined(PLATFORM_DOS)
 	strcpy(path_home, PATH_ESPEAK_DATA);
 #else
@@ -303,12 +299,12 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 
 	// check for environment variable
 	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
-		snprintf(path_home, sizeof(path_home), "%s/espeak-data", env);
+		snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", env);
 		if (GetFileLength(path_home) == -2)
-			return; // an espeak-data directory exists
+			return; // an espeak-ng-data directory exists
 	}
 
-	snprintf(path_home, sizeof(path_home), "%s/espeak-data", getenv("HOME"));
+	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", getenv("HOME"));
 	if (access(path_home, R_OK) != 0)
 		strcpy(path_home, PATH_ESPEAK_DATA);
 #endif

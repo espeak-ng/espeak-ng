@@ -179,6 +179,9 @@
       <Feature Id="lang_ku" Title="Kurdish" Level="1">
         <ComponentGroupRef Id="LangKurdish"/>
       </Feature>
+      <Feature Id="lang_ky" Title="Kyrgyz" Level="1">
+        <ComponentGroupRef Id="LangKyrgyz"/>
+      </Feature>
       <Feature Id="lang_la" Title="Latin" Level="1">
         <ComponentGroupRef Id="LangLatin"/>
       </Feature>
@@ -309,12 +312,14 @@
         <ComponentGroupRef Id="LangWelsh"/>
       </Feature>
     </Feature>
+    <!--
     <Feature Id="sapi" Title="SAPI Voices">
       <Feature Id="sapi_en" Title="English" Level="1">
         <ComponentGroupRef Id="LangEnglish"/>
         <ComponentGroupRef Id="SapiEnglish"/>
       </Feature>      
     </Feature>
+    -->
   </Product>
 
   <Fragment>
@@ -337,583 +342,589 @@
               </RegistryKey>
             </RegistryKey>
           </Component>
-          <Directory Id="ESPEAKDATA" Name="espeak-data">
+          <Directory Id="ESPEAKDATA" Name="espeak-ng-data">
             <Component Id="phontab" Win64="$(var.Win64)" Guid="2F487F52-B95A-4894-AA14-F542865F05F8">
-              <File Name="phontab" Source="$(var.ProjectDir)..\..\..\espeak-data\phontab" KeyPath="yes"/>
+              <File Name="phontab" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\phontab" KeyPath="yes"/>
             </Component>
             <Component Id="phonindex" Win64="$(var.Win64)" Guid="60A70E08-90CE-4DD3-9B86-4EE80D80135A">
-              <File Name="phonindex" Source="$(var.ProjectDir)..\..\..\espeak-data\phonindex" KeyPath="yes"/>
+              <File Name="phonindex" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\phonindex" KeyPath="yes"/>
             </Component>
             <Component Id="phondata" Win64="$(var.Win64)" Guid="383B9843-2D65-44DC-9817-C256FA9B023B">
-              <File Name="phondata" Source="$(var.ProjectDir)..\..\..\espeak-data\phondata" KeyPath="yes"/>
+              <File Name="phondata" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\phondata" KeyPath="yes"/>
             </Component>
             <Component Id="intonations" Win64="$(var.Win64)" Guid="5E61DC47-AC62-497F-B907-E0C4E09C2BE7">
-              <File Name="intonations" Source="$(var.ProjectDir)..\..\..\espeak-data\intonations" KeyPath="yes"/>
+              <File Name="intonations" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\intonations" KeyPath="yes"/>
             </Component>
             <Component Id="af_dict" Win64="$(var.Win64)" Guid="A4E9A908-2377-4FBC-847A-C5D41595CE2F">
-              <File Name="af_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\af_dict" KeyPath="yes"/>
+              <File Name="af_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\af_dict" KeyPath="yes"/>
             </Component>
             <Component Id="am_dict" Win64="$(var.Win64)" Guid="49E34398-D26D-44AC-804C-DB83B5233EC9">
-              <File Name="am_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\am_dict" KeyPath="yes"/>
+              <File Name="am_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\am_dict" KeyPath="yes"/>
             </Component>
             <Component Id="an_dict" Win64="$(var.Win64)" Guid="62F0E2EA-7BEB-4AAE-A29B-601FA058FD2E">
-              <File Name="an_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\an_dict" KeyPath="yes"/>
+              <File Name="an_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\an_dict" KeyPath="yes"/>
             </Component>
             <Component Id="as_dict" Win64="$(var.Win64)" Guid="336931F3-BD6D-401D-BE6C-F33E0ED16F6D">
-              <File Name="as_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\as_dict" KeyPath="yes"/>
+              <File Name="as_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\as_dict" KeyPath="yes"/>
             </Component>
             <Component Id="az_dict" Win64="$(var.Win64)" Guid="9F24BA22-A49B-492D-8AFD-1C531673FBC8">
-              <File Name="az_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\az_dict" KeyPath="yes"/>
+              <File Name="az_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\az_dict" KeyPath="yes"/>
             </Component>
             <Component Id="bg_dict" Win64="$(var.Win64)" Guid="754DF380-33FC-446A-B964-717C56639C20">
-              <File Name="bg_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\bg_dict" KeyPath="yes"/>
+              <File Name="bg_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\bg_dict" KeyPath="yes"/>
             </Component>
             <Component Id="bn_dict" Win64="$(var.Win64)" Guid="E373A9D4-C3C5-45D7-9232-DEB5ED5A7E13">
-              <File Name="bn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\bn_dict" KeyPath="yes"/>
+              <File Name="bn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\bn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ca_dict" Win64="$(var.Win64)" Guid="32EE4EAA-207F-452B-89D4-FFBED362B86B">
-              <File Name="ca_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ca_dict" KeyPath="yes"/>
+              <File Name="ca_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ca_dict" KeyPath="yes"/>
             </Component>
             <Component Id="cs_dict" Win64="$(var.Win64)" Guid="E4CB93BB-77F5-4E5B-95D5-2DA6480BA82D">
-              <File Name="cs_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\cs_dict" KeyPath="yes"/>
+              <File Name="cs_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\cs_dict" KeyPath="yes"/>
             </Component>
             <Component Id="cy_dict" Win64="$(var.Win64)" Guid="3D2E97E4-AEFA-409B-AB54-37D1F8BE7FFF">
-              <File Name="cy_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\cy_dict" KeyPath="yes"/>
+              <File Name="cy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\cy_dict" KeyPath="yes"/>
             </Component>
             <Component Id="da_dict" Win64="$(var.Win64)" Guid="525401F4-21C6-4786-B556-62872E9BBAE3">
-              <File Name="da_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\da_dict" KeyPath="yes"/>
+              <File Name="da_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\da_dict" KeyPath="yes"/>
             </Component>
             <Component Id="de_dict" Win64="$(var.Win64)" Guid="3A0E46C2-EBBB-4997-AFFC-282532835637">
-              <File Name="de_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\de_dict" KeyPath="yes"/>
+              <File Name="de_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\de_dict" KeyPath="yes"/>
             </Component>
             <Component Id="el_dict" Win64="$(var.Win64)" Guid="E1D312A7-56DF-4931-B595-970B4BB1E3A7">
-              <File Name="el_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\el_dict" KeyPath="yes"/>
+              <File Name="el_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\el_dict" KeyPath="yes"/>
             </Component>
             <Component Id="en_dict" Win64="$(var.Win64)" Guid="31BCA777-1F4F-4098-A317-1D420255BA5A">
-              <File Name="en_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\en_dict" KeyPath="yes"/>
+              <File Name="en_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\en_dict" KeyPath="yes"/>
             </Component>
             <Component Id="eo_dict" Win64="$(var.Win64)" Guid="50AF0E8C-E436-4B58-9C46-AA11578FE516">
-              <File Name="eo_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\eo_dict" KeyPath="yes"/>
+              <File Name="eo_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\eo_dict" KeyPath="yes"/>
             </Component>
             <Component Id="es_dict" Win64="$(var.Win64)" Guid="E8DDE27A-FE2F-4BF7-9232-FA0D4EA13F7C">
-              <File Name="es_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\es_dict" KeyPath="yes"/>
+              <File Name="es_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\es_dict" KeyPath="yes"/>
             </Component>
             <Component Id="et_dict" Win64="$(var.Win64)" Guid="FFA31092-1D89-4491-9850-734C61A67E43">
-              <File Name="et_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\et_dict" KeyPath="yes"/>
+              <File Name="et_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\et_dict" KeyPath="yes"/>
             </Component>
             <Component Id="eu_dict" Win64="$(var.Win64)" Guid="423EB365-079E-40AE-98FA-EBF28989FD51">
-              <File Name="eu_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\eu_dict" KeyPath="yes"/>
+              <File Name="eu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\eu_dict" KeyPath="yes"/>
             </Component>
             <Component Id="fa_dict" Win64="$(var.Win64)" Guid="2658AB55-F5BE-424E-8A39-83ED73D4860D">
-              <File Name="fa_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\fa_dict" KeyPath="yes"/>
+              <File Name="fa_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\fa_dict" KeyPath="yes"/>
             </Component>
             <Component Id="fi_dict" Win64="$(var.Win64)" Guid="2A3E02CF-E6D7-4923-B9CB-D8ED3CD4180B">
-              <File Name="fi_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\fi_dict" KeyPath="yes"/>
+              <File Name="fi_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\fi_dict" KeyPath="yes"/>
             </Component>
             <Component Id="fr_dict" Win64="$(var.Win64)" Guid="27005C97-AA1D-446D-B283-53E0A9A9EB5B">
-              <File Name="fr_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\fr_dict" KeyPath="yes"/>
+              <File Name="fr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\fr_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ga_dict" Win64="$(var.Win64)" Guid="E65EC407-2957-4B16-8B83-054C60BF790D">
-              <File Name="ga_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ga_dict" KeyPath="yes"/>
+              <File Name="ga_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ga_dict" KeyPath="yes"/>
             </Component>
             <Component Id="gd_dict" Win64="$(var.Win64)" Guid="B2D1B94F-796A-41AB-A908-C55D385ABB0A">
-              <File Name="gd_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\gd_dict" KeyPath="yes"/>
+              <File Name="gd_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\gd_dict" KeyPath="yes"/>
             </Component>
             <Component Id="gn_dict" Win64="$(var.Win64)" Guid="5E0A35C9-D7F1-4511-8054-25BC405E85EC">
-              <File Name="gn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\gn_dict" KeyPath="yes"/>
+              <File Name="gn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\gn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="grc_dict" Win64="$(var.Win64)" Guid="341E54AE-9EB1-4F2A-8FEE-B2E19F825041">
-              <File Name="grc_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\grc_dict" KeyPath="yes"/>
+              <File Name="grc_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\grc_dict" KeyPath="yes"/>
             </Component>
             <Component Id="gu_dict" Win64="$(var.Win64)" Guid="9E7BD68D-99E0-40B6-9D62-46AE7CEAC90D">
-              <File Name="gu_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\gu_dict" KeyPath="yes"/>
+              <File Name="gu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\gu_dict" KeyPath="yes"/>
             </Component>
             <Component Id="hbs_dict" Win64="$(var.Win64)" Guid="049EA257-0F99-4ACB-B0D9-DF8EB70F4EA5">
-              <File Name="hbs_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\hbs_dict" KeyPath="yes"/>
+              <File Name="hbs_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hbs_dict" KeyPath="yes"/>
             </Component>
             <Component Id="hi_dict" Win64="$(var.Win64)" Guid="F973CAE1-8498-4F18-B735-C7D598CAB66B">
-              <File Name="hi_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\hi_dict" KeyPath="yes"/>
+              <File Name="hi_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hi_dict" KeyPath="yes"/>
             </Component>
             <Component Id="hu_dict" Win64="$(var.Win64)" Guid="550541C4-3773-4645-AFF5-6882AFA17447">
-              <File Name="hu_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\hu_dict" KeyPath="yes"/>
+              <File Name="hu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hu_dict" KeyPath="yes"/>
             </Component>
             <Component Id="hy_dict" Win64="$(var.Win64)" Guid="7E08F7D6-810F-419B-A51D-E4ACF700BB65">
-              <File Name="hy_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\hy_dict" KeyPath="yes"/>
+              <File Name="hy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hy_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ia_dict" Win64="$(var.Win64)" Guid="04878221-9088-41E4-B1A2-9F86C5587A24">
-              <File Name="ia_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ia_dict" KeyPath="yes"/>
+              <File Name="ia_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ia_dict" KeyPath="yes"/>
             </Component>
             <Component Id="id_dict" Win64="$(var.Win64)" Guid="76E1D896-063E-408B-B3DA-A5777D65F6A8">
-              <File Name="id_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\id_dict" KeyPath="yes"/>
+              <File Name="id_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\id_dict" KeyPath="yes"/>
             </Component>
             <Component Id="is_dict" Win64="$(var.Win64)" Guid="374158CE-962D-4A24-929D-344DDC31F315">
-              <File Name="is_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\is_dict" KeyPath="yes"/>
+              <File Name="is_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\is_dict" KeyPath="yes"/>
             </Component>
             <Component Id="it_dict" Win64="$(var.Win64)" Guid="A91D9D76-5BA7-45BB-B1B0-FF52EDA40141">
-              <File Name="it_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\it_dict" KeyPath="yes"/>
+              <File Name="it_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\it_dict" KeyPath="yes"/>
             </Component>
             <Component Id="jbo_dict" Win64="$(var.Win64)" Guid="C1A9EB60-2825-460B-8F4F-E31610697BCE">
-              <File Name="jbo_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\jbo_dict" KeyPath="yes"/>
+              <File Name="jbo_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\jbo_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ka_dict" Win64="$(var.Win64)" Guid="0F794C22-A84C-4DDB-86B0-ABEFA9A46028">
-              <File Name="ka_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ka_dict" KeyPath="yes"/>
+              <File Name="ka_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ka_dict" KeyPath="yes"/>
             </Component>
             <Component Id="kl_dict" Win64="$(var.Win64)" Guid="C2EBD9F1-C0D2-43B7-8BC5-2027C495DFEF">
-              <File Name="kl_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\kl_dict" KeyPath="yes"/>
+              <File Name="kl_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\kl_dict" KeyPath="yes"/>
             </Component>
             <Component Id="kn_dict" Win64="$(var.Win64)" Guid="6436B7F4-E4CB-49DD-B70C-FBB6BB1D4A56">
-              <File Name="kn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\kn_dict" KeyPath="yes"/>
+              <File Name="kn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\kn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ko_dict" Win64="$(var.Win64)" Guid="CB203A22-0DC3-4F55-86AB-D7F56027593D">
-              <File Name="ko_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ko_dict" KeyPath="yes"/>
+              <File Name="ko_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ko_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ku_dict" Win64="$(var.Win64)" Guid="C03DFC21-F4CC-404D-A6CA-3407DFE2A105">
-              <File Name="ku_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ku_dict" KeyPath="yes"/>
+              <File Name="ku_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ku_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="ky_dict" Win64="$(var.Win64)" Guid="F4141472-DAB8-47F4-9F6A-F814DE06D37F">
+              <File Name="ky_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ky_dict" KeyPath="yes"/>
             </Component>
             <Component Id="la_dict" Win64="$(var.Win64)" Guid="70978CC5-D4CF-4C55-A145-47B23604C9DF">
-              <File Name="la_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\la_dict" KeyPath="yes"/>
+              <File Name="la_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\la_dict" KeyPath="yes"/>
             </Component>
             <Component Id="lfn_dict" Win64="$(var.Win64)" Guid="5150EF36-DAC0-4062-BDF8-3CB4952A602A">
-              <File Name="lfn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\lfn_dict" KeyPath="yes"/>
+              <File Name="lfn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lfn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="lt_dict" Win64="$(var.Win64)" Guid="A3D540E5-3DAF-4729-B474-B0310A72AAD0">
-              <File Name="lt_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\lt_dict" KeyPath="yes"/>
+              <File Name="lt_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lt_dict" KeyPath="yes"/>
             </Component>
             <Component Id="lv_dict" Win64="$(var.Win64)" Guid="A2819267-183E-4F30-8E76-2932E30170FB">
-              <File Name="lv_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\lv_dict" KeyPath="yes"/>
+              <File Name="lv_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lv_dict" KeyPath="yes"/>
             </Component>
             <Component Id="mk_dict" Win64="$(var.Win64)" Guid="EFF33FD9-4AF9-4294-8DB0-DD49536C306B">
-              <File Name="mk_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\mk_dict" KeyPath="yes"/>
+              <File Name="mk_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\mk_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ml_dict" Win64="$(var.Win64)" Guid="2DEC00D4-E404-45B1-8C65-784BC68990F3">
-              <File Name="ml_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ml_dict" KeyPath="yes"/>
+              <File Name="ml_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ml_dict" KeyPath="yes"/>
             </Component>
             <Component Id="mr_dict" Win64="$(var.Win64)" Guid="83BE3C18-E0E7-4396-90C2-92D02C4A4AD9">
-              <File Name="mr_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\mr_dict" KeyPath="yes"/>
+              <File Name="mr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\mr_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ms_dict" Win64="$(var.Win64)" Guid="ADAF663B-4938-4024-BC14-BADDA1DE2768">
-              <File Name="ms_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ms_dict" KeyPath="yes"/>
+              <File Name="ms_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ms_dict" KeyPath="yes"/>
             </Component>
             <Component Id="mt_dict" Win64="$(var.Win64)" Guid="5FE13F53-1532-46FD-BD77-EFFEDEFF0EEB">
-              <File Name="mt_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\mt_dict" KeyPath="yes"/>
+              <File Name="mt_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\mt_dict" KeyPath="yes"/>
             </Component>
             <Component Id="my_dict" Win64="$(var.Win64)" Guid="2C066949-D649-4A1C-AFBF-C8642547F075">
-              <File Name="my_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\my_dict" KeyPath="yes"/>
+              <File Name="my_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\my_dict" KeyPath="yes"/>
             </Component>
             <Component Id="nci_dict" Win64="$(var.Win64)" Guid="992FEB10-C20E-4981-A348-818DB186B5DF">
-              <File Name="nci_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\nci_dict" KeyPath="yes"/>
+              <File Name="nci_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\nci_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ne_dict" Win64="$(var.Win64)" Guid="40A9DF83-F65A-474C-AC1D-2CB50CA0A974">
-              <File Name="ne_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ne_dict" KeyPath="yes"/>
+              <File Name="ne_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ne_dict" KeyPath="yes"/>
             </Component>
             <Component Id="nl_dict" Win64="$(var.Win64)" Guid="D7C6BB61-AE46-459B-9EF7-AC6464028707">
-              <File Name="nl_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\nl_dict" KeyPath="yes"/>
+              <File Name="nl_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\nl_dict" KeyPath="yes"/>
             </Component>
             <Component Id="no_dict" Win64="$(var.Win64)" Guid="380CCB51-EF66-4030-9A19-420F1010AF87">
-              <File Name="no_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\no_dict" KeyPath="yes"/>
+              <File Name="no_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\no_dict" KeyPath="yes"/>
             </Component>
             <Component Id="om_dict" Win64="$(var.Win64)" Guid="AE118D99-D85C-4E34-B378-C515A6477226">
-              <File Name="om_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\om_dict" KeyPath="yes"/>
+              <File Name="om_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\om_dict" KeyPath="yes"/>
             </Component>
             <Component Id="or_dict" Win64="$(var.Win64)" Guid="1A24A7AA-480D-4A34-86DC-FA9958B5447F">
-              <File Name="or_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\or_dict" KeyPath="yes"/>
+              <File Name="or_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\or_dict" KeyPath="yes"/>
             </Component>
             <Component Id="pa_dict" Win64="$(var.Win64)" Guid="20E3311D-981C-4824-9CEF-6419906D4667">
-              <File Name="pa_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\pa_dict" KeyPath="yes"/>
+              <File Name="pa_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\pa_dict" KeyPath="yes"/>
             </Component>
             <Component Id="pap_dict" Win64="$(var.Win64)" Guid="4DF6D666-425D-460F-A753-6FC093AE537D">
-              <File Name="pap_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\pap_dict" KeyPath="yes"/>
+              <File Name="pap_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\pap_dict" KeyPath="yes"/>
             </Component>
             <Component Id="pl_dict" Win64="$(var.Win64)" Guid="CFF2781A-6C36-4D9D-8B92-73BCD2B5AAAD">
-              <File Name="pl_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\pl_dict" KeyPath="yes"/>
+              <File Name="pl_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\pl_dict" KeyPath="yes"/>
             </Component>
             <Component Id="pt_dict" Win64="$(var.Win64)" Guid="BF2FF6A1-BD81-4D22-AC47-E1CCB2FBF2A2">
-              <File Name="pt_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\pt_dict" KeyPath="yes"/>
+              <File Name="pt_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\pt_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ro_dict" Win64="$(var.Win64)" Guid="46851DEC-55CB-4925-80FB-6691A1DD438C">
-              <File Name="ro_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ro_dict" KeyPath="yes"/>
+              <File Name="ro_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ro_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ru_dict" Win64="$(var.Win64)" Guid="507E6E1C-9C40-4E65-BE4F-43DCDBBD2885">
-              <File Name="ru_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ru_dict" KeyPath="yes"/>
+              <File Name="ru_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ru_dict" KeyPath="yes"/>
             </Component>
             <Component Id="si_dict" Win64="$(var.Win64)" Guid="6F02FAA1-D726-4402-8516-F10363A52246">
-              <File Name="si_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\si_dict" KeyPath="yes"/>
+              <File Name="si_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\si_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sk_dict" Win64="$(var.Win64)" Guid="D29D5A0B-BE40-48A2-9CDD-60E1AD64C24D">
-              <File Name="sk_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\sk_dict" KeyPath="yes"/>
+              <File Name="sk_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sk_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sl_dict" Win64="$(var.Win64)" Guid="7675BC74-41F9-420E-88F8-C49A1FF84807">
-              <File Name="sl_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\sl_dict" KeyPath="yes"/>
+              <File Name="sl_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sl_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sq_dict" Win64="$(var.Win64)" Guid="A68FC90B-0AF4-4AC5-A56A-D189D9782137">
-              <File Name="sq_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\sq_dict" KeyPath="yes"/>
+              <File Name="sq_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sq_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sv_dict" Win64="$(var.Win64)" Guid="87AEABFA-1424-4D4B-A70D-7B6A37BE1BF9">
-              <File Name="sv_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\sv_dict" KeyPath="yes"/>
+              <File Name="sv_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sv_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sw_dict" Win64="$(var.Win64)" Guid="AB46B5E2-CA53-47A1-B1D4-19C44862F3BA">
-              <File Name="sw_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\sw_dict" KeyPath="yes"/>
+              <File Name="sw_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sw_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ta_dict" Win64="$(var.Win64)" Guid="2176AA2A-97CD-4385-8D4E-BE4789B8B947">
-              <File Name="ta_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ta_dict" KeyPath="yes"/>
+              <File Name="ta_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ta_dict" KeyPath="yes"/>
             </Component>
             <Component Id="te_dict" Win64="$(var.Win64)" Guid="7A4C7E01-7FB6-4567-9D43-F0B4BCC84F8D">
-              <File Name="te_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\te_dict" KeyPath="yes"/>
+              <File Name="te_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\te_dict" KeyPath="yes"/>
             </Component>
             <Component Id="tn_dict" Win64="$(var.Win64)" Guid="B26BD08E-2A41-40DE-A5D7-9232CEC955F4">
-              <File Name="tn_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\tn_dict" KeyPath="yes"/>
+              <File Name="tn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\tn_dict" KeyPath="yes"/>
             </Component>
             <Component Id="tr_dict" Win64="$(var.Win64)" Guid="D6C01CE8-2E9C-40F1-B00E-58493EE38956">
-              <File Name="tr_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\tr_dict" KeyPath="yes"/>
+              <File Name="tr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\tr_dict" KeyPath="yes"/>
             </Component>
             <Component Id="tt_dict" Win64="$(var.Win64)" Guid="E4C1A8D4-9105-4169-B054-B8DC1ACB618A">
-              <File Name="tt_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\tt_dict" KeyPath="yes"/>
+              <File Name="tt_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\tt_dict" KeyPath="yes"/>
             </Component>
             <Component Id="ur_dict" Win64="$(var.Win64)" Guid="728D1F81-B329-47F9-8419-32B1EE13B126">
-              <File Name="ur_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\ur_dict" KeyPath="yes"/>
+              <File Name="ur_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ur_dict" KeyPath="yes"/>
             </Component>
             <Component Id="vi_dict" Win64="$(var.Win64)" Guid="F4E1855E-A1C8-4DE1-A72F-0835C7794314">
-              <File Name="vi_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\vi_dict" KeyPath="yes"/>
+              <File Name="vi_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\vi_dict" KeyPath="yes"/>
             </Component>
             <Component Id="zh_dict" Win64="$(var.Win64)" Guid="6DF6E437-BF8B-4FCD-B094-D88C65ACDE6E">
-              <File Name="zh_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\zh_dict" KeyPath="yes"/>
+              <File Name="zh_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\zh_dict" KeyPath="yes"/>
             </Component>
             <Component Id="zhy_dict" Win64="$(var.Win64)" Guid="D6BF57DA-A408-40FC-9D8E-610C8AED5836">
-              <File Name="zhy_dict" Source="$(var.ProjectDir)..\..\..\espeak-data\zhy_dict" KeyPath="yes"/>
+              <File Name="zhy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\zhy_dict" KeyPath="yes"/>
             </Component>
             <Directory Id="VOICES" Name="voices">
               <Component Id="default" Win64="$(var.Win64)" Guid="8A4B0939-799E-4E15-B30A-BDECA8A288DD">
-                <File Name="default" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\default" KeyPath="yes"/>
+                <File Name="default" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\default" KeyPath="yes"/>
               </Component>
               <Directory Id="AAV" Name="aav">
                 <Component Id="vi" Win64="$(var.Win64)" Guid="36A8D59F-65BC-41A8-90EB-5BEED8A081D5">
-                  <File Name="vi" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\aav\vi" KeyPath="yes"/>
+                  <File Name="vi" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\aav\vi" KeyPath="yes"/>
                 </Component>
                 <Component Id="vi_VN_x_central" Win64="$(var.Win64)" Guid="9071139B-561E-4357-BC7B-9AD71548E6E3">
-                  <File Name="vi-VN-x-central" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\aav\vi-VN-x-central" KeyPath="yes"/>
+                  <File Name="vi-VN-x-central" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\aav\vi-VN-x-central" KeyPath="yes"/>
                 </Component>
                 <Component Id="vi_VN_X_south" Win64="$(var.Win64)" Guid="C9E625EE-8720-48AD-8B9E-67ADC197FD3F">
-                  <File Name="vi-VN-x-south" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\aav\vi-VN-x-south" KeyPath="yes"/>
+                  <File Name="vi-VN-x-south" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\aav\vi-VN-x-south" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ART" Name="art">
                 <Component Id="eo" Win64="$(var.Win64)" Guid="A6114E75-B0CB-47D7-B361-BFC7AA6B1273">
-                  <File Name="eo" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\art\eo" KeyPath="yes"/>
+                  <File Name="eo" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\art\eo" KeyPath="yes"/>
                 </Component>
                 <Component Id="ia" Win64="$(var.Win64)" Guid="13954C6E-7C80-486F-A326-8DEA77FB9201">
-                  <File Name="ia" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\art\ia" KeyPath="yes"/>
+                  <File Name="ia" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\art\ia" KeyPath="yes"/>
                 </Component>
                 <Component Id="jbo" Win64="$(var.Win64)" Guid="25B2B304-62DE-4959-9170-14275AEF1291">
-                  <File Name="jbo" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\art\jbo" KeyPath="yes"/>
+                  <File Name="jbo" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\art\jbo" KeyPath="yes"/>
                 </Component>
                 <Component Id="lfn" Win64="$(var.Win64)" Guid="7F94C036-4943-40A1-BD97-700A2605B91F">
-                  <File Name="lfn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\art\lfn" KeyPath="yes"/>
+                  <File Name="lfn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\art\lfn" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="AXM" Name="axm">
                 <Component Id="hy" Win64="$(var.Win64)" Guid="9329194E-EADA-4708-88E5-7B1889407AB2">
-                  <File Name="hy" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\axm\hy" KeyPath="yes"/>
+                  <File Name="hy" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\axm\hy" KeyPath="yes"/>
                 </Component>
                 <Component Id="hy_arevmda" Win64="$(var.Win64)" Guid="D347C396-B1E0-40C4-8916-4B0ACFD4068F">
-                  <File Name="hy-arevmda" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\axm\hy-arevmda" KeyPath="yes"/>
+                  <File Name="hy-arevmda" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\axm\hy-arevmda" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="AZC" Name="azc">
                 <Component Id="nci" Win64="$(var.Win64)" Guid="0DEDA8AE-AFEB-4B04-A8A7-6C898B98D488">
-                  <File Name="nci" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\azc\nci" KeyPath="yes"/>
+                  <File Name="nci" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\azc\nci" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="BNT" Name="bnt">
                 <Component Id="sw" Win64="$(var.Win64)" Guid="F6F9BF32-33D4-45E9-B609-DEF046407DF1">
-                  <File Name="sw" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\bnt\sw" KeyPath="yes"/>
+                  <File Name="sw" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\bnt\sw" KeyPath="yes"/>
                 </Component>
                 <Component Id="tn" Win64="$(var.Win64)" Guid="EA170DF5-CEB3-4298-9BCB-E0D1E5ED36D2">
-                  <File Name="tn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\bnt\tn" KeyPath="yes"/>
+                  <File Name="tn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\bnt\tn" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="CCS" Name="ccs">
                 <Component Id="ka" Win64="$(var.Win64)" Guid="24DB441C-ECD1-4039-89BC-391E763A5F64">
-                  <File Name="ka" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ccs\ka" KeyPath="yes"/>
+                  <File Name="ka" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ccs\ka" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="CEL" Name="cel">
                 <Component Id="cy" Win64="$(var.Win64)" Guid="4B0DCD1C-941B-4F67-A5D5-D832FA04F9A9">
-                  <File Name="cy" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\cel\cy" KeyPath="yes"/>
+                  <File Name="cy" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\cel\cy" KeyPath="yes"/>
                 </Component>
                 <Component Id="ga" Win64="$(var.Win64)" Guid="C1D7253F-7A77-4E8B-8F38-EC46FE1F1D5F">
-                  <File Name="ga" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\cel\ga" KeyPath="yes"/>
+                  <File Name="ga" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\cel\ga" KeyPath="yes"/>
                 </Component>
                 <Component Id="gd" Win64="$(var.Win64)" Guid="F6DA62B5-CA75-4ACB-A4FA-6D8E20263E84">
-                  <File Name="gd" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\cel\gd" KeyPath="yes"/>
+                  <File Name="gd" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\cel\gd" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="CUS" Name="cus">
                 <Component Id="om" Win64="$(var.Win64)" Guid="FAA66301-7FEA-4573-B037-04DB85E16B41">
-                  <File Name="om" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\cus\om" KeyPath="yes"/>
+                  <File Name="om" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\cus\om" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="DRA" Name="dra">
                 <Component Id="kn" Win64="$(var.Win64)" Guid="88DD1D19-BD57-4F11-B6E8-25FA84FBA0E8">
-                  <File Name="kn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\dra\kn" KeyPath="yes"/>
+                  <File Name="kn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\dra\kn" KeyPath="yes"/>
                 </Component>
                 <Component Id="ml" Win64="$(var.Win64)" Guid="866D7929-F3FD-48CE-9345-4FF2EED7801C">
-                  <File Name="ml" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\dra\ml" KeyPath="yes"/>
+                  <File Name="ml" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\dra\ml" KeyPath="yes"/>
                 </Component>
                 <Component Id="ta" Win64="$(var.Win64)" Guid="B53F318B-B9C3-43C0-BC16-0F8CA6E18BC4">
-                  <File Name="ta" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\dra\ta" KeyPath="yes"/>
+                  <File Name="ta" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\dra\ta" KeyPath="yes"/>
                 </Component>
                 <Component Id="te" Win64="$(var.Win64)" Guid="BD18B71C-537E-496D-B135-971BE62975DF">
-                  <File Name="te" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\dra\te" KeyPath="yes"/>
+                  <File Name="te" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\dra\te" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ESX" Name="esx">
                 <Component Id="kl" Win64="$(var.Win64)" Guid="6DE812B7-261E-4F8B-8C4F-1DC867B41F6C">
-                  <File Name="kl" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\esx\kl" KeyPath="yes"/>
+                  <File Name="kl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\esx\kl" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="GMQ" Name="gmq">
                 <Component Id="da" Win64="$(var.Win64)" Guid="43D84D6D-A3D1-457C-84AB-B30C569F7C21">
-                  <File Name="da" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmq\da" KeyPath="yes"/>
+                  <File Name="da" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmq\da" KeyPath="yes"/>
                 </Component>
                 <Component Id="is" Win64="$(var.Win64)" Guid="BF7EADBC-8A31-41C7-9128-3AD1A0BE5816">
-                  <File Name="is" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmq\is" KeyPath="yes"/>
+                  <File Name="is" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmq\is" KeyPath="yes"/>
                 </Component>
                 <Component Id="no" Win64="$(var.Win64)" Guid="00A4EAD2-9EDB-46A7-9277-DF3E08B92221">
-                  <File Name="no" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmq\no" KeyPath="yes"/>
+                  <File Name="no" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmq\no" KeyPath="yes"/>
                 </Component>
                 <Component Id="sv" Win64="$(var.Win64)" Guid="4BA838F8-D077-41C8-9F4B-D686472AB216">
-                  <File Name="sv" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmq\sv" KeyPath="yes"/>
+                  <File Name="sv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmq\sv" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="GMW" Name="gmw">
                 <Component Id="af" Win64="$(var.Win64)" Guid="F8C52D0C-3258-49D2-BB88-002A0B9395EB">
-                  <File Name="af" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\af" KeyPath="yes"/>
+                  <File Name="af" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\af" KeyPath="yes"/>
                 </Component>
                 <Component Id="de" Win64="$(var.Win64)" Guid="38792D05-6781-43DD-95F4-78DD029FE134">
-                  <File Name="de" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\de" KeyPath="yes"/>
+                  <File Name="de" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\de" KeyPath="yes"/>
                 </Component>
                 <Component Id="en" Win64="$(var.Win64)" Guid="527EE127-56C9-4A3B-A952-206038A8EB9C">
-                  <File Name="en" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en" KeyPath="yes"/>
+                  <File Name="en" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_029" Win64="$(var.Win64)" Guid="78136EBE-64AD-42A9-AA66-040A8AA8F41A">
-                  <File Name="en-029" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-029" KeyPath="yes"/>
+                  <File Name="en-029" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-029" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_GB_scotland" Win64="$(var.Win64)" Guid="B7617BCB-AC08-431E-8141-6CAF47E339E5">
-                  <File Name="en-GB-scotland" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-GB-scotland" KeyPath="yes"/>
+                  <File Name="en-GB-scotland" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-GB-scotland" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_GB_x_gbclan" Win64="$(var.Win64)" Guid="13C50255-9292-471B-8504-11F5D60F916E">
-                  <File Name="en-GB-x-gbclan" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-GB-x-gbclan" KeyPath="yes"/>
+                  <File Name="en-GB-x-gbclan" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-GB-x-gbclan" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_GB_x_gbcwmd" Win64="$(var.Win64)" Guid="8899C7B1-FBB9-4E5E-A86F-DECD42CF9517">
-                  <File Name="en-GB-x-gbcwmd" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-GB-x-gbcwmd" KeyPath="yes"/>
+                  <File Name="en-GB-x-gbcwmd" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-GB-x-gbcwmd" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_GB_x_rp" Win64="$(var.Win64)" Guid="94D2A7EE-956F-4A22-9A35-C930DF1F605B">
-                  <File Name="en-GB-x-rp" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-GB-x-rp" KeyPath="yes"/>
+                  <File Name="en-GB-x-rp" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-GB-x-rp" KeyPath="yes"/>
                 </Component>
                 <Component Id="en_US" Win64="$(var.Win64)" Guid="908D9137-F1BF-475C-B13C-B9695D07C2DE">
-                  <File Name="en-US" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\en-US" KeyPath="yes"/>
+                  <File Name="en-US" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\en-US" KeyPath="yes"/>
                 </Component>
                 <Component Id="nl" Win64="$(var.Win64)" Guid="294BC28C-5E44-41D1-9DF1-F6C389546050">
-                  <File Name="nl" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\gmw\nl" KeyPath="yes"/>
+                  <File Name="nl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmw\nl" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="GRK" Name="grk">
                 <Component Id="el" Win64="$(var.Win64)" Guid="74F0C17D-3DC5-4B85-A7CB-F20A6430A8DD">
-                  <File Name="el" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\grk\el" KeyPath="yes"/>
+                  <File Name="el" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\grk\el" KeyPath="yes"/>
                 </Component>
                 <Component Id="grc" Win64="$(var.Win64)" Guid="B3804F27-1C8C-419B-81D9-7E06501D3268">
-                  <File Name="grc" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\grk\grc" KeyPath="yes"/>
+                  <File Name="grc" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\grk\grc" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="INC" Name="inc">
                 <Component Id="as" Win64="$(var.Win64)" Guid="0A0FB29D-77AD-4BB0-8765-F5CAA04174F0">
-                  <File Name="as" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\as" KeyPath="yes"/>
+                  <File Name="as" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\as" KeyPath="yes"/>
                 </Component>
                 <Component Id="bn" Win64="$(var.Win64)" Guid="7C6EBF15-D6DD-4129-8882-0572645967B9">
-                  <File Name="bn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\bn" KeyPath="yes"/>
+                  <File Name="bn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\bn" KeyPath="yes"/>
                 </Component>
                 <Component Id="gu" Win64="$(var.Win64)" Guid="0F00646E-CE9B-4AD1-A0D1-450C40EAA357">
-                  <File Name="gu" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\gu" KeyPath="yes"/>
+                  <File Name="gu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\gu" KeyPath="yes"/>
                 </Component>
                 <Component Id="hi" Win64="$(var.Win64)" Guid="6EBF1207-43A4-4958-A7E8-9CE52C3AFDE6">
-                  <File Name="hi" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\hi" KeyPath="yes"/>
+                  <File Name="hi" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\hi" KeyPath="yes"/>
                 </Component>
                 <Component Id="mr" Win64="$(var.Win64)" Guid="90488472-EEE7-468B-86EC-FB3816ADE7F9">
-                  <File Name="mr" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\mr" KeyPath="yes"/>
+                  <File Name="mr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\mr" KeyPath="yes"/>
                 </Component>
                 <Component Id="ne" Win64="$(var.Win64)" Guid="9818C670-EE45-4665-BEC4-C3C3945F60F3">
-                  <File Name="ne" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\ne" KeyPath="yes"/>
+                  <File Name="ne" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\ne" KeyPath="yes"/>
                 </Component>
                 <Component Id="or" Win64="$(var.Win64)" Guid="626A8308-959D-40F0-B3A5-EDCF47F07AD2">
-                  <File Name="or" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\or" KeyPath="yes"/>
+                  <File Name="or" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\or" KeyPath="yes"/>
                 </Component>
                 <Component Id="pa" Win64="$(var.Win64)" Guid="0F44AC40-58F2-497C-B4F5-6E9C1528019B">
-                  <File Name="pa" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\pa" KeyPath="yes"/>
+                  <File Name="pa" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\pa" KeyPath="yes"/>
                 </Component>
                 <Component Id="si" Win64="$(var.Win64)" Guid="D85410F8-7B49-4A81-9172-641C6D3E5041">
-                  <File Name="si" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\si" KeyPath="yes"/>
+                  <File Name="si" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\si" KeyPath="yes"/>
                 </Component>
                 <Component Id="ur" Win64="$(var.Win64)" Guid="D13A0F3E-4357-4546-B408-0644939C41D5">
-                  <File Name="ur" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\inc\ur" KeyPath="yes"/>
+                  <File Name="ur" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\inc\ur" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="INE" Name="ine">
                 <Component Id="sq" Win64="$(var.Win64)" Guid="80790CCF-4B20-4AC3-A19F-72890470D4F5">
-                  <File Name="sq" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ine\sq" KeyPath="yes"/>
+                  <File Name="sq" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ine\sq" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="IRA" Name="ira">
                 <Component Id="fa" Win64="$(var.Win64)" Guid="14E33743-FDEF-40BD-9CE2-E5EDFA4C4887">
-                  <File Name="fa" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ira\fa" KeyPath="yes"/>
+                  <File Name="fa" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ira\fa" KeyPath="yes"/>
                 </Component>
                 <Component Id="fa_en_us" Win64="$(var.Win64)" Guid="E1D79728-8EB7-422A-ADA4-F328B29954D7">
-                  <File Name="fa-en-us" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ira\fa-en-us" KeyPath="yes"/>
+                  <File Name="fa-en-us" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ira\fa-en-us" KeyPath="yes"/>
                 </Component>
                 <Component Id="fa_Latn" Win64="$(var.Win64)" Guid="4988D14D-90BE-4386-8642-19262D596864">
-                  <File Name="fa-Latn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ira\fa-Latn" KeyPath="yes"/>
+                  <File Name="fa-Latn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ira\fa-Latn" KeyPath="yes"/>
                 </Component>
                 <Component Id="ku" Win64="$(var.Win64)" Guid="E58A93BA-523A-4FB6-A877-B2F1718ACDFB">
-                  <File Name="ku" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ira\ku" KeyPath="yes"/>
+                  <File Name="ku" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ira\ku" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ITC" Name="itc">
                 <Component Id="la" Win64="$(var.Win64)" Guid="6B7D7FBC-92B5-47ED-AC05-EFEC7BF87C6F">
-                  <File Name="la" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\itc\la" KeyPath="yes"/>
+                  <File Name="la" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\itc\la" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Component Id="ko" Win64="$(var.Win64)" Guid="0F759436-12BD-4FC5-80C0-6E755E021E40">
-                <File Name="ko" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\ko" KeyPath="yes"/>
+                <File Name="ko" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ko" KeyPath="yes"/>
               </Component>
               <Directory Id="POZ" Name="poz">
                 <Component Id="id" Win64="$(var.Win64)" Guid="C9BFD2A4-A105-4061-961A-DF6CB6C02854">
-                  <File Name="id" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\poz\id" KeyPath="yes"/>
+                  <File Name="id" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\poz\id" KeyPath="yes"/>
                 </Component>
                 <Component Id="ms" Win64="$(var.Win64)" Guid="7E88BF7A-90E7-4C28-BBCF-50A4D4F55BA4">
-                  <File Name="ms" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\poz\ms" KeyPath="yes"/>
+                  <File Name="ms" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\poz\ms" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ROA" Name="roa">
                 <Component Id="an" Win64="$(var.Win64)" Guid="B2A22EA3-3BF1-48CD-8E42-512A3E6DB140">
-                  <File Name="an" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\an" KeyPath="yes"/>
+                  <File Name="an" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\an" KeyPath="yes"/>
                 </Component>
                 <Component Id="ca" Win64="$(var.Win64)" Guid="8E7829D5-353D-4F8A-A7E3-4F4D03BEAB35">
-                  <File Name="ca" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\ca" KeyPath="yes"/>
+                  <File Name="ca" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\ca" KeyPath="yes"/>
                 </Component>
                 <Component Id="es" Win64="$(var.Win64)" Guid="F261F844-2822-4A13-9ED9-D00D914F5571">
-                  <File Name="es" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\es" KeyPath="yes"/>
+                  <File Name="es" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\es" KeyPath="yes"/>
                 </Component>
                 <Component Id="es_419" Win64="$(var.Win64)" Guid="E97680DA-F4BA-4A2B-A39D-D9B7E29E85EA">
-                  <File Name="es-419" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\es-419" KeyPath="yes"/>
+                  <File Name="es-419" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\es-419" KeyPath="yes"/>
                 </Component>
                 <Component Id="fr" Win64="$(var.Win64)" Guid="69E627AA-54AE-495F-AE3C-CBDD66AD060B">
-                  <File Name="fr" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\fr" KeyPath="yes"/>
+                  <File Name="fr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\fr" KeyPath="yes"/>
                 </Component>
                 <Component Id="fr_BE" Win64="$(var.Win64)" Guid="F06154D4-F6F7-4A9E-AF1D-605D643AD392">
-                  <File Name="fr-BE" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\fr-BE" KeyPath="yes"/>
+                  <File Name="fr-BE" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\fr-BE" KeyPath="yes"/>
                 </Component>
                 <Component Id="it" Win64="$(var.Win64)" Guid="B8BD5085-3E1C-47A5-86C9-DB1650FAC29E">
-                  <File Name="it" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\it" KeyPath="yes"/>
+                  <File Name="it" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\it" KeyPath="yes"/>
                 </Component>
                 <Component Id="pap" Win64="$(var.Win64)" Guid="6978C4BD-23AC-4FCF-B156-000A32B959DB">
-                  <File Name="pap" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\pap" KeyPath="yes"/>
+                  <File Name="pap" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\pap" KeyPath="yes"/>
                 </Component>
                 <Component Id="pt_BR" Win64="$(var.Win64)" Guid="C6533938-B071-4ADA-8A26-E58A57A0B76E">
-                  <File Name="pt-BR" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\pt-BR" KeyPath="yes"/>
+                  <File Name="pt-BR" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\pt-BR" KeyPath="yes"/>
                 </Component>
                 <Component Id="pt_PT" Win64="$(var.Win64)" Guid="0CE06717-9D5C-4C45-BCB4-E3C108069533">
-                  <File Name="pt-PT" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\pt-PT" KeyPath="yes"/>
+                  <File Name="pt-PT" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\pt-PT" KeyPath="yes"/>
                 </Component>
                 <Component Id="ro" Win64="$(var.Win64)" Guid="E2E0205E-5488-4A73-B3ED-10181F358987">
-                  <File Name="ro" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\roa\ro" KeyPath="yes"/>
+                  <File Name="ro" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\roa\ro" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="SAI" Name="sai">
                 <Component Id="gn" Win64="$(var.Win64)" Guid="D11B73FF-7A67-49B0-8BE6-1345BA1EB00D">
-                  <File Name="gn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sai\gn" KeyPath="yes"/>
+                  <File Name="gn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sai\gn" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="SEM" Name="sem">
                 <Component Id="am" Win64="$(var.Win64)" Guid="B28850DE-493A-464F-8889-8AA746F31596">
-                  <File Name="am" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sem\am" KeyPath="yes"/>
+                  <File Name="am" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sem\am" KeyPath="yes"/>
                 </Component>
                 <Component Id="mt" Win64="$(var.Win64)" Guid="00388BFC-A813-4951-9ECE-FC95EBF95B9F">
-                  <File Name="mt" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sem\mt" KeyPath="yes"/>
+                  <File Name="mt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sem\mt" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="SIT" Name="sit">
                 <Component Id="cmn" Win64="$(var.Win64)" Guid="B9F21B2A-BD29-42DF-84D6-AD1CA29799B5">
-                  <File Name="cmn" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\cmn" KeyPath="yes"/>
+                  <File Name="cmn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sit\cmn" KeyPath="yes"/>
                 </Component>
                 <Component Id="my" Win64="$(var.Win64)" Guid="0927A4D6-4DA1-431C-ABFA-E9871165B3EC">
-                  <File Name="my" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\my" KeyPath="yes"/>
+                  <File Name="my" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sit\my" KeyPath="yes"/>
                 </Component>
                 <Component Id="yue" Win64="$(var.Win64)" Guid="C08D04D1-B17B-40CA-B6B6-3C78F1D4E94A">
-                  <File Name="yue" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\sit\yue" KeyPath="yes"/>
+                  <File Name="yue" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\sit\yue" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="TRK" Name="trk">
                 <Component Id="az" Win64="$(var.Win64)" Guid="E96920A5-43FE-4743-97CA-A09436D8A833">
-                  <File Name="az" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\trk\az" KeyPath="yes"/>
+                  <File Name="az" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\az" KeyPath="yes"/>
                 </Component>
                 <Component Id="tr" Win64="$(var.Win64)" Guid="A60A0F49-8D08-4CFA-AD3D-CA8807AFD8C6">
-                  <File Name="tr" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\trk\tr" KeyPath="yes"/>
+                  <File Name="tr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\tr" KeyPath="yes"/>
                 </Component>
                 <Component Id="tt" Win64="$(var.Win64)" Guid="7A3D1E2D-37B6-4CBD-A6C3-FD46D5BA5FBF">
-                  <File Name="tt" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\trk\tt" KeyPath="yes"/>
+                  <File Name="tt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\tt" KeyPath="yes"/>
+                </Component>
+                <Component Id="ky" Win64="$(var.Win64)" Guid="C2E2808E-56F4-40C4-BD41-DAC648E414BA">
+                  <File Name="ky" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\trk\ky" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="URJ" Name="urj">
                 <Component Id="et" Win64="$(var.Win64)" Guid="8B42703E-6FEF-4E41-9F9F-7EFA95FAB433">
-                  <File Name="et" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\urj\et" KeyPath="yes"/>
+                  <File Name="et" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\urj\et" KeyPath="yes"/>
                 </Component>
                 <Component Id="fi" Win64="$(var.Win64)" Guid="B8407908-1BB2-4B22-BA1E-988400DEF724">
-                  <File Name="fi" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\urj\fi" KeyPath="yes"/>
+                  <File Name="fi" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\urj\fi" KeyPath="yes"/>
                 </Component>
                 <Component Id="hu" Win64="$(var.Win64)" Guid="ECE9B062-2E62-42C7-BC54-E210C50D7E44">
-                  <File Name="hu" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\urj\hu" KeyPath="yes"/>
+                  <File Name="hu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\urj\hu" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="XAQ" Name="xaq">
                 <Component Id="eu" Win64="$(var.Win64)" Guid="E614799F-43DB-4221-8680-CAFA9F6C7377">
-                  <File Name="eu" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\xaq\eu" KeyPath="yes"/>
+                  <File Name="eu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\eu" KeyPath="yes"/>
                 </Component>
                 <Component Id="lt" Win64="$(var.Win64)" Guid="243B59D8-9743-4A79-A176-57686AB3B889">
-                  <File Name="lt" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\xaq\lt" KeyPath="yes"/>
+                  <File Name="lt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\lt" KeyPath="yes"/>
                 </Component>
                 <Component Id="lv" Win64="$(var.Win64)" Guid="C7855A36-2C4B-472D-8D83-FD75BD44C873">
-                  <File Name="lv" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\xaq\lv" KeyPath="yes"/>
+                  <File Name="lv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\lv" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ZLS" Name="zls">
                 <Component Id="bg" Win64="$(var.Win64)" Guid="D75CE551-2BEC-4870-82C6-8AEC4BC4867A">
-                  <File Name="bg" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\bg" KeyPath="yes"/>
+                  <File Name="bg" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\bg" KeyPath="yes"/>
                 </Component>
                 <Component Id="bs" Win64="$(var.Win64)" Guid="A95A627B-E991-4814-9C98-3E1A7641AD22">
-                  <File Name="bs" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\bs" KeyPath="yes"/>
+                  <File Name="bs" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\bs" KeyPath="yes"/>
                 </Component>
                 <Component Id="cs" Win64="$(var.Win64)" Guid="4840D63E-9DAE-4AE5-946E-B03AA2EFA0C0">
-                  <File Name="cs" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\cs" KeyPath="yes"/>
+                  <File Name="cs" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\cs" KeyPath="yes"/>
                 </Component>
                 <Component Id="hr" Win64="$(var.Win64)" Guid="C34C709A-D32C-431F-83D7-B666250C8B2E">
-                  <File Name="hr" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\hr" KeyPath="yes"/>
+                  <File Name="hr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\hr" KeyPath="yes"/>
                 </Component>
                 <Component Id="mk" Win64="$(var.Win64)" Guid="70541A8E-CF44-49AA-A296-9D65397B5275">
-                  <File Name="mk" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\mk" KeyPath="yes"/>
+                  <File Name="mk" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\mk" KeyPath="yes"/>
                 </Component>
                 <Component Id="pl" Win64="$(var.Win64)" Guid="C772D1EB-708F-4523-BAE9-5F06AD90523A">
-                  <File Name="pl" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\pl" KeyPath="yes"/>
+                  <File Name="pl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\pl" KeyPath="yes"/>
                 </Component>
                 <Component Id="ru" Win64="$(var.Win64)" Guid="6D827F08-82E9-4169-A3EC-794DE2487109">
-                  <File Name="ru" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\ru" KeyPath="yes"/>
+                  <File Name="ru" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\ru" KeyPath="yes"/>
                 </Component>
                 <Component Id="sk" Win64="$(var.Win64)" Guid="124B16B9-9DD3-4E60-8000-06A45B5F7CB6">
-                  <File Name="sk" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\sk" KeyPath="yes"/>
+                  <File Name="sk" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\sk" KeyPath="yes"/>
                 </Component>
                 <Component Id="sl" Win64="$(var.Win64)" Guid="65183911-49B5-4767-8281-5E60C3BCD98D">
-                  <File Name="sl" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\sl" KeyPath="yes"/>
+                  <File Name="sl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\sl" KeyPath="yes"/>
                 </Component>
                 <Component Id="sr" Win64="$(var.Win64)" Guid="35B89632-7F74-4016-B52F-DA7EE27E8FC7">
-                  <File Name="sr" Source="$(var.ProjectDir)..\..\..\espeak-data\voices\zls\sr" KeyPath="yes"/>
+                  <File Name="sr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\zls\sr" KeyPath="yes"/>
                 </Component>
               </Directory>
             </Directory>
@@ -1153,6 +1164,10 @@
     <ComponentGroup Id="LangKurdish">
       <ComponentRef Id="ku"/>
       <ComponentRef Id="ku_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangKyrgyz">
+      <ComponentRef Id="ky"/>
+      <ComponentRef Id="ky_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangLatin">
       <ComponentRef Id="la"/>
