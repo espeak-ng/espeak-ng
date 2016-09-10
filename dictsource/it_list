@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 july 8 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 September 8 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -47,6 +47,7 @@ _ò	$accent
 _ù	$accent
 _ú	$accent
 ñ	$accent
+ć	$accent
 
 // accent names
 
@@ -95,7 +96,7 @@ _(	ap,E@-*ta||paR'entezi
 _)	kj,uza||paR'entezi
 _[	ap'ERtakw2'ad@-*a
 _]	kj,uzakw2'ad@-*a
-_{	ap,eRtag@-*'af:a
+_{	ap,ERtag@-*'af:a
 _}	kj,uzag@-*'af:a
 _<	min'oRe||d'I
 _>	madZ:'oRe||d'I
@@ -140,10 +141,12 @@ _‐	legat'u:Ra
 _‒	lini'et:a
 _‑	t@-*at:,ino||duni'one
 ə	Swa/:
-ɛ	'E||ap'e@-*ta
-ɔ	'O||ap'e@-*ta
+ɛ	'E||ap'E@-*ta
+ɔ	'O||ap'E@-*ta
 ɾ	ER*e||untSin'ata
 ʔ	glotalst'Op
+ɡ	dZ'i||vel'aRe||ok:luz'iva   // U+0261
+ɣ	g'am:a||min'uskola  // U+0263 voiced velar fricative
 
 _‣	punt'ato
 ◦	punt'ato
@@ -542,7 +545,7 @@ perché	$u+ $brk
 pure	$u+
 più	$u+
 se	$u+ $verbf
-senza	s,E:nts2a
+senza	s,Ents2a
 senza	s'Entsa $atend
 si	si: $atend
 sopra	   $alt2
@@ -832,8 +835,10 @@ doppler	$1
 down	d'a/:w2n
 download	d'a/:w2nl,o:d
 drive	_^_EN
-driver	_^_EN
+driver	d@-*'a|Ive@-*
+dropbox	d@-*'Op||b,O:ks
 ebook	'i:b,Uk
+(e book)	i||b'U:k
 edition	ed'iSon $onlys
 editor	'Edito@-*	$onlys
 l'editor	l'Edito@-* $only
@@ -908,6 +913,7 @@ hotel	$2
 hunter	'ha/nte@-* $onlys
 hunt	_^_en $only
 iceberg	'aIs||b,e@-*g
+imam	$2
 impeachment	imp'itSm,ent[
 information	info@-*m'ES@n $onlys
 installer	inst'a:l:e@-*
@@ -979,6 +985,7 @@ mister	$1	$onlys
 mixer	$1
 monitor	$1 $onlys
 monsieur	_^_FR
+moquette	mok'et[
 motor	$1 $alt $onlys
 mountanbike	montanb'aIk
 mouse	maus
@@ -1038,6 +1045,7 @@ raider	$1
 ranger	@-*'endZe@-*
 richter	$1 $only
 reader	@-*'i:dE@-*
+reject	@-*IdZ'ekt[
 rapper	@-*'Epp@@-*	$onlys
 recorder	$2	$onlys
 reporter	$2	$onlys
@@ -1208,7 +1216,6 @@ antidolorifici	$5
 antilopi	$2
 antipatie	antipat'ie
 apatie	apat'ie
-apert	$alt2
 aprile	ap@-*'ilE
 apriscatol	$3
 arbore	$1
@@ -1296,7 +1303,7 @@ dei	d'E:i	$noun
 deleghe	$1
 dentifrici	$3
 deroghe	$1
-desideri	d,ezid'E:RI	$only
+desideri	d,Ezid'E:RI	$only
 desossicortisol	$6
 detraibil	det@-*a'ibil
 diamin	di'amin
@@ -1660,7 +1667,7 @@ vent'anni	vent'an:I
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi morali)	p@-*intS'i:pI||moR'alI
 (principi sociali)	p@-*intS'i:pI||sotS'alI
-(ciao ciao)	tS,a/o||tS'a:o
+(ciao ciao)	tS,a:o||tS'a:o
 (un turbine)	un||_t'u@-*bine
 (gli auguri)	l^iaw2g'u:RI
 (pro capite)	p@-*ok'a:pIte
@@ -1899,7 +1906,7 @@ malcesine	$2 $alt2
 malesia $2  $alt
 manchester	_^_EN
 manciano	$2
-mandragola	$2
+mandragol	$2
 mantova	$1
 marsciano	$2
 materano	$3
@@ -1911,7 +1918,7 @@ melizzano	$3
 mesopotamia $4
 mexic  $alt2
 mezzano	medz:'ano
-miami	maj'EmI
+miami	maj'EmI $only
 minneapolis	$3
 minucciano	$3
 miscano	$2
@@ -2378,6 +2385,7 @@ mazzin $2
 mazzol $2
 meola	$1
 mercury	$1 $alt2 $only
+michel	mik'e/l
 michael	m'aIkOl
 michelangel	$3
 michelle	m,iS'el	$only
@@ -2452,9 +2460,11 @@ schopenhauer	S,Open'a:w2e@-*
 schumann	S'u:man
 schumacher	_^_DE
 Schubert	S'ube@-*t
+schwarzenegger	Sv,a:rz@n'Eger
 schwarznegger	Sv,arzn'Eger
 sean	_^_EN $only $capital
 shakespeare	_^_EN
+sharazad	$3
 shaun	S'O:n $only
 simon	s'aImon	$onlys
 socrate	$1
@@ -2579,6 +2589,7 @@ acchiappino	$2
 acciecano	$2
 acclamano	$2
 acclamino	$2
+accreditano	$2
 accodano	$2
 accodino	$2
 accomoda	$2
@@ -2654,6 +2665,7 @@ agite	$2
 agitino	$1
 agito	adZ'i:to	$verb
 aiutano	aj'utano
+aiutino	$2	$verb
 alimentino	$3
 allaccino	$2
 allaghino	$2
@@ -2822,6 +2834,7 @@ bastino	$1
 bastono	$2
 battezzat	bat:edz:'at
 battezzino	bat:'edz:ino
+beccano	$1
 bendano	$1
 bendino	$1
 benedic	$3
@@ -2914,9 +2927,11 @@ comincino	$2
 commemor	$2 $alt
 commutino	$2
 compaiano	$2
-competano	$2
+competano	$2 $alt
+compiace	kompj'atSe/
 compiacere	$3
-compiere	k'o:mpjeRe
+compiaci	kompj'atSi
+compiere	k'ompjeRe
 compilano	$2
 completano	$2
 comprano	$1
@@ -3974,7 +3989,7 @@ rigirano	$2
 riguadagnano	$3
 riguardano	$2
 riguardino	$2
-rigurgita	$2
+rigurgit	$2
 rilascino	$2
 rimacinano	$2
 rimandano	$2
@@ -4578,13 +4593,13 @@ zuccherano	$1
 (perdono tempo)	p'E:@-*dono||t'Empo
 (come desideri)	kome||dez'ideRi
 (così desideri)	koz'i||_dez'i:deRI
-(cosa desideri)	k'O:za||dez'i:deRI
+(cosa desideri)	k'Oza||dez'i:deRI
 (cui desideri)	k'u:|I||dez'ide**I
 (invece desideri)	inv'etSe||dez'ide**I
 (la desideri)	ladez'i:deRi
 (lo desideri)	lodez'ideRi
 (mi desideri)	mI||dez'i:deRI
-// (non desideri)	non||dez'ideRI
+(desideri che)	dez'ideRi||k'e
 (quando desideri)	kwando||_|dez'i:deRi
 (quindi desideri)	kw,indi||_dez'i:deRi
 
@@ -4609,6 +4624,7 @@ arrivatoci	$3
 ascoltaci	$2
 ascoltami	$2
 ascoltal	$2
+ascoltati	ask'OltatI $atstart
 aspettami	$2 $alt
 assecondal	$3
 assumersi	$2
@@ -4620,8 +4636,6 @@ carical	$1
 causatoci	$3
 cercal	$1
 cercasi	$1
-chiediti	$1
-chiuditi	kj'uditI
 cliccal	$1
 cliccaci	$1
 compiersi	$1
@@ -4673,14 +4687,13 @@ guardagliel	$1
 guardal	$1
 guardamel	$1
 guardami	$1
-guardati	$1
+guardati	$1 $atstart
 guardaci	$1
 guidaci	$1
 illuminaci	$2
 illuminami	$2
 illuminal	$2
 immergiti	$2
-immetterl	$2
 impostaci	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
@@ -4747,6 +4760,7 @@ rincorrerl	$2
 risparmial	$2
 risparmiaci	$2
 risparmiami	$2
+rivelaci	$2
 rivelataci	$3
 rizzarsi	@-*its2:'a@-*sI
 sbrigati	$1
@@ -4771,7 +4785,8 @@ stabilitosi	$3
 stampal	$1
 suggeritomi	$3
 svegliati	$1 $atstart
-svoltasi	$1 $alt $atstart
+svelaci	$1
+svoltasi	$1 $alt
 svoltesi	$1
 svoltosi	$1 $alt
 svuotal	$2 $alt2
@@ -4779,6 +4794,7 @@ tenutasi	$2
 tenutosi	$2
 tenutisi	$2
 tornaci	$1
+tornatene	$1
 trattasi	$1
 tuffati	$1 $atstart
 usal	'u:za/l
@@ -4794,6 +4810,7 @@ volevasi	$2
 
 accender 	$2
 batter	$1
+chieder	$1 $alt
 commetter	$2
 comprender	$2
 dipender	$2
@@ -4817,6 +4834,5 @@ suol	sU'Ol
 saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
-
 
 
