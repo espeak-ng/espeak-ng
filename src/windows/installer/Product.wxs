@@ -312,12 +312,14 @@
         <ComponentGroupRef Id="LangWelsh"/>
       </Feature>
     </Feature>
+    <!--
     <Feature Id="sapi" Title="SAPI Voices">
       <Feature Id="sapi_en" Title="English" Level="1">
         <ComponentGroupRef Id="LangEnglish"/>
         <ComponentGroupRef Id="SapiEnglish"/>
       </Feature>      
     </Feature>
+    -->
   </Product>
 
   <Fragment>
