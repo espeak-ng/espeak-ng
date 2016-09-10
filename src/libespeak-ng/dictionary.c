@@ -1859,7 +1859,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_DEC_SCORE:
 					add_points = -20; // force an decrease in points
-					break;            // TODO schould check why '<' is shown as '!' in rules trace
+					break;
 				case RULE_DEL_FWD:
 					// find the next 'e' in the word and replace by 'E'
 					for (p = *word + group_length; p < post_ptr; p++) {
