@@ -1,6 +1,6 @@
 # Change Log
 
-## (In Development)
+## 1.49.0 - 2016-09-10
 
 *  Support the `--compile-mbrola` command-line option.
 *  Support the `--compile-phonemes` command-line option.
