@@ -615,6 +615,7 @@ etc	Et'sEtr@
 eu	$abbrev
 eur	jU@	$only
 evga	$abbrev
+ewmh	$abbrev
 exe	$abbrev
 ftaa	$abbrev
 fyi	$abbrev
@@ -700,8 +701,9 @@ tbsp	teIb@Lspu:n
 th	T
 thu	T3:        // Thursday
 ?5 thu	TIR        // Thursday
-ucl	$abbrev
 ucla	$abbrev
+ucl	$abbrev
+ucs	$abbrev
 udp	$abbrev
 ueb	$abbrev
 ufo	$abbrev
@@ -718,8 +720,10 @@ usaf	$abbrev
 usb	$abbrev
 usda	$abbrev
 ussr	$abbrev
-utc     $abbrev
+utc	$abbrev
+utf	$abbrev
 uucp	$abbrev
+uuid	$abbrev
 uv	$abbrev
 VI      $abbrev
 webrtc	w'EbA@t2i:s'i:
