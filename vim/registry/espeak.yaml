@@ -3,3 +3,4 @@ description: "allow syntax highlighting for eSpeak and eSpeak NG Text-to-Speech 
 files:
   - ftdetect/espeakfiletype.vim
   - syntax/espeaklist.vim
+  - syntax/espeakrules.vim
