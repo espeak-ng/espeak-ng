@@ -44,10 +44,20 @@
 
 
 .replace
-   ﬀ   ff     // ligature
+   ﬀ   ff     // ligatures
    ﬁ   fi
    ﬂ   fl
 
+   ά   α      // some of polytonic greek to plain greek letters (list in el_rules is much longer)
+   έ   ε
+   ή   η
+   ί   ι
+   ϊ   ι
+   ό   ο
+   ύ   υ
+   ϋ   υ
+   ΰ   υ
+   ώ   ω
 
 .group a
         a          a
@@ -6876,19 +6886,15 @@ contin) u          ju:
 // 0xce is the first byte of the utf-8 code for these characters
 
         α          'alf@_
-        ά          'alf@_
         β          b'i:t@_
 ?3      β          b'eIt@_
         γ          g'am@_
         δ          d'Elt@_
         ε          'EpsIl0n_
-        έ          'EpsIl0n_
         ζ          z'i:t@_
         η          'i:t@_
-        ή          'i:t@_
         θ          T'i:t@_
         ι          aI'oUt@_
-        ί          aI'oUt@_
         κ          k'ap@_
         λ          l'amd@_
         μ          m'ju:_
@@ -6904,14 +6910,12 @@ contin) u          ju:
         ς          s'Igm@_
         τ          t'aU_
         υ          'UpsIl0n_
-        ύ          'UpsIl0n_
         φ          f'aI_
         χ          tS'aI_
         ψ          ps'aI_
         ω          'oUmIg@_
 ?3      ω          oUm'eIg@_
-        ώ          'oUmIg@_
-        ό          'oUmIkr0n_
+        ο          'oUmIkr0n_
 
 
 // default group for "non of the above"
