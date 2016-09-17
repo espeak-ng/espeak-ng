@@ -20,7 +20,7 @@ syn region espeakRule start="^\.group"hs=s+6 end="^\."me=e-2,he=e-2 contains=esp
 " One rule line in Rule region
 syn region espeakRuleLine start="^[^\.]" end="$" contains=espeak1Cols,espeak2Cols,espeak3Cols,espeak4Cols,espeak5Cols,espeakComment
 
-syn match espeakRuleCond     /^?\d*/
+syn match espeakRuleCond     /^?\!\{-}\d\+/ contained
 syn match espeakCharGroup    /^\.L\d\{2}/
 syn match espeakCharGroup    /L\d\{2}/ contained
 syn match espeakRuleSymbol   /[@#&ABCDHFGKNVXYZ]/ contained
@@ -29,16 +29,16 @@ syn match espeakRulePrePoFix /[SP]\d\+/ contained
 syn match espeakRuleNote     /\(\$w_alt\d*\|\$p_alt\d*\|$noprefix\)/ contained
 syn match espeakComment "//.*$"  contains=espeakTodo 
 syn match espeakComment "//.*$"  contains=espeakTodo contained
-syn match espeakTodo /TODO/
+syn match espeakTodo /\(TODO\|FIXME\|\!\!\!\)/
 "syn match espeakError       /^\s*\S\+/ contains=espeakComment
 
 syn match espeakRuleGroupKeyword /^\.group/ nextgroup=espeakGroupName contained
 syn match espeakGroupName /\s*\S\+/ nextgroup=espeakComment contained 
 syn match espeak1Cols /^\s*\S\+/ contains=espeakComment contained 
 syn match espeak2Cols /^\s*\S\+\s\+\S\+/ contains=espeakRuleCond,espeakRuleSpell,espeakCharGroup,espeakComment contained 
-syn match espeak3Cols /^\s*\S\+\s\+\S\+\s\+\S\+/ contains=espeakRulePre,espeakRuleCond,espeakRulePos,espeakRuleSpell,espeakComment contained
-syn match espeak4Cols /^\s*\S\+\s\+\S\+\s\+\S\+\s\+\S\+/ contains=espeakRulePre,espeakRuleCond,espeakRulePos,espeakRuleSpell,espeakComment contained
-syn match espeak5Cols /^\s*\S\+\s\+\S\+\s\+\S\+\s\+\S\+\s\+\S\+/ contains=espeakRulePre,espeakRuleCond,espeakRulePos,espeakRuleSpell,espeakComment contained
+syn match espeak3Cols /^\s*\S\+\s\+\S\+\s\+\S\+/ contains=espeakRuleCond,espeakRulePre,espeakRulePos,espeakRuleSpell,espeakComment contained
+syn match espeak4Cols /^\s*\S\+\s\+\S\+\s\+\S\+\s\+\S\+/ contains=espeakRuleCond,espeakRulePre,espeakRulePos,espeakRuleSpell,espeakComment contained
+syn match espeak5Cols /^\s*\S\+\s\+\S\+\s\+\S\+\s\+\S\+\s\+\S\+/ contains=espeakRuleCond,espeakRulePre,espeakRulePos,espeakRuleSpell,espeakComment contained
 syn match espeakRulePre /\S\+)/ contains=espeakCharGroup,espeakRuleSymbol,espeakRuleSpecial contained
 syn match espeakRulePos /\s*(\S\+/ contains=espeakCharGroup,espeakRulePrePoFix,espeakRuleNote,espeakRuleSymbol,espeakRuleSpecial contained
 
