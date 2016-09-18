@@ -2,29 +2,29 @@
 // Spelling-to-phoneme words for Latvian
 
 // names of Latvian letters
-a   ,a_: 
+a   ,a>_: 
 ā   ,a::_!
 b   b,e:_:
 c   ts,e:_:
 č   tS,e:_:
 d   d,e:_:
-e   ,e_:
+e   ,e>_:
 ē   ,e::_!
 f   ,ef:_:
 g   g,a:_:
 ģ   J,e:_:
 h   h,a:_:
 ḩ   h,e:_:
-i   ,i_:
+i   ,i>_:
 ī   ,i::_!
 j   j,e:_:
 k   k,a:_:
 ķ   c,e:_:
 l   ,el:_:
 ļ   ,el^:_:
-m   ,em:_:
-n   ,en:_:
-ņ   ,en^:_:
+m   ,em_:
+n   ,en_:
+ņ   ,en^_:
 o   ,uo_:
 ō   ,o::_!
 p   p,e:_:
@@ -34,7 +34,7 @@ r   ,eR::_!
 s   ,es::_!
 š   ,eS::_!
 t   ,te:_:
-u   ,u_:
+u   ,u>_:
 ū   ,u::_!
 v   v,e:_:
 w   d,ubv,e:_:
@@ -259,12 +259,12 @@ tiklab    $u $brk
 tomēr     $u $pause
 turpretim $u $2 $pause
 turpretī  $u $2 $pause
-un        $u $pause
+un        $u
 uz        $u
 vai       $u+ $brk
 vairs     $u
 var       $u+
-vien      $u  $brk
+vien      $u+ $brk
 virs      $u
 zem       $u
 
@@ -304,6 +304,8 @@ mums      $u+
 mūsos     $u+
 mūs       $u+
 mūsu      $u+
+nedz      $u
+nez       $u
 pašai     $u+
 pašam     $u+
 pašas     $u+
@@ -329,7 +331,7 @@ savu      $u+
 šo        $u+
 tai       $u+
 tajās     $u+
-tajā      $u+  
+tajā      $u+
 tajos     $u+
 tam       $u+
 tas       $u+
@@ -360,27 +362,27 @@ viņš      $u+
 viņus     $u+
 viņu      $u+
 
-
 // exception words with stress on 2nd syllable
-aizvien   $2
-arvien    $2
-itnekur   $3
-itnemaz   $3
+aizvien   $u2
+arvien    $u2
+itnekur   $u3+
+itnemaz   $u3+
 joprojām  $2
 kautko    $2
+kāpēc     $2 $u+
 labdien   $2
 labrīt    $2
 labvakar  $2
-mazliet   $2
-nekad     $2 $u+
-nekam     $2 $u+
-nekas     $2 $u+
-nekā      $2 $u+
-neko      $2 $u+
-nekur     $2 $u+
-nemaz     $2 $u+
+mazliet   $u2+
+nekad     $u2+
+nekam     $u2+
+nekas     $u2+
+nekā      $u2+
+neko      $u2+
+nekur     $u2+
+nemaz     $u2+
 neparko   $3
-pagalam   $2
+pagalam   $u2+
 palaikam  $2
 paldies   $2
 papilnam  $2
@@ -391,9 +393,10 @@ pavisam   $2
 tāpat     $2
 tepat     $2
 tikpat    $2
-tikvien   $2
-turpat    $2
-turpretī  $2
+tikvien   $u2+
+turpat    $u2+
+turpretī  $u2
+vienalga  $2
 vismaz    $2
 
 // 1st word unstressed, 2nd word stressed
@@ -435,37 +438,46 @@ vismaz    $2
 ///////////////////
 // Abbreviations //
 ///////////////////
-a/s     $abbrev
 as      $abbrev
-b-ba    biedRi:ba
+ba      $abbrev
+bba     $abbrev
 dr      $abbrev
 dz      $abbrev
+eur     'euR
 lp      $abbrev
 ls      $abbrev
 lu      $abbrev
 lvu     $abbrev
 na      $abbrev
+nra     $abbrev    
 nr      $abbrev
-pr-ks   $abbrev
+prks    $abbrev
 psrs    $abbrev
 rpi     $abbrev
-sia     sia: $pause
+sia     $abbrev $pause
 st      $abbrev
 sv      $abbrev
 šķ      $abbrev
-tml     te:em,el:  $u $pause
-utml    ute:e,mel: $u $pause
-utt     ute:te:    $u $pause
+tjpr    $abbrev $u $pause
+tml     $abbrev $u $pause
+utjpr   $abbrev $u $pause
+utml    $abbrev $u $pause 
+utt     $abbrev $u $pause
 
 ///////////////////////////
 // other exception words //
 ///////////////////////////
-
 adadžo       $alt $2
+aidaho       $alt
 aikido       $alt
 ambo         $alt
 anno         $alt
+apollo       $alt
+argo         $alt
+arno         $alt
 ateljē            $3
+audio        $alt
+auto         $alt
 automoto     $alt
 bandžo       $alt
 bendžo       $alt
@@ -474,26 +486,39 @@ bolero       $alt
 bordo        $alt
 borneo       $alt
 bravo        $alt
+brno         $alt 
 bruno        $alt
 bruto        $alt
+bufalo       $alt
+burkinafaso  $alt $4
 čello        $alt
 dekoltē      $alt $3
 depo         $alt
 dingo        $alt
 domino       $alt
 džudo        $alt
+ego          $alt
+eiro         $alt
+eko          $alt
 eldorado     $alt $3
 embargo      $alt $2
 esperanto    $alt
+euro         $alt          
 fiasko       $alt $2
+fito         $alt
 flamenko     $alt $2
 foajē        $alt $3
+foto         $alt
+franko       $alt
 frikasē      $alt $3
 galifē       $alt $3
 google       $alt
+hugo         $alt
 indigo       $alt
+info         $alt
 inkognito    $alt $3
 intermeco    $alt $3
+ivo          $alt
 kakao        $alt $2
 kanapē            $3
 kastro       $alt
@@ -506,13 +531,16 @@ komunikē     $alt $4
 kongo        $alt
 kvatročento  $alt
 lego         $alt
+leo          $alt
 leporello    $alt
 lesoto       $alt
 loto         $alt
 lumbago      $alt
+maestoso     $alt
 maestro      $alt $2
 majordomo    $alt
 mecotinto    $alt
+mehiko       $alt
 meteo        $alt
 metro        $alt
 monako       $alt $2
@@ -522,6 +550,9 @@ montevideo   $alt $3
 moto         $alt
 nato         $alt
 odo          $alt
+odoo         $alt
+ohaio        $alt
+oho          $alt
 ontārio      $alt $2
 oracle       $alt
 oregano      $alt $3
@@ -529,7 +560,9 @@ orinoko      $alt
 oslo         $alt 
 otello       $alt $2
 oto          $alt
+otto         $alt
 panno        $alt
+peso         $alt
 pianīno      $alt $2
 piano        $alt $2
 pikolo       $alt
@@ -537,8 +570,10 @@ polo         $alt
 pončo        $alt
 portjē       $alt $2
 porto        $alt
+positivus    $alt
 protežē      $alt $3
 puertoriko   $alt $4
+raivo        $alt
 rančo        $alt
 retro        $alt
 riodežaneiro $alt $5
@@ -557,15 +592,41 @@ sombrēro     $alt $2
 sonera       $alt
 sorgo        $alt
 stereokino   $alt
+stop         $alt
 storno       $alt
+tehno        $alt
 tobago       $alt $2
+topgear      $alt
 toronto      $alt $2
 triko        $alt
 trimo        $alt
 tvnet        te:ve:net
+undo         $alt
 uno          $alt
 ūdenspolo    $alt
 veto         $alt
+video        $alt
+vivo         $alt
+volvo        $alt
 žabo         $alt
 žigolo       $alt
 
+//////////////////////////////////////////
+// internationalisms with uo at the end //
+//////////////////////////////////////////
+blefo         $alt2
+bohēmisko     $alt2
+faktisko      $alt2
+fizioloģisko  $alt2
+fizisko       $alt2
+gofrēto       $alt2
+grafisko      $alt2
+heksadecimālo $alt2
+humāno        $alt2
+informatīvo   $alt2
+mehānisko     $alt2
+neoficiālo    $alt2
+oficiālo      $alt2
+psiho         $alt2
+sērfo         $alt2
+tehnisko      $alt2

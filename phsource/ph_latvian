@@ -16,7 +16,7 @@ phoneme a:
   vowel starttype #a endtype #a
   length 300
   long
-  FMT(vwl_lv/aa, 100)           
+  FMT(vwl_lv/aa, 90)           
 endphoneme
 
 phoneme E
@@ -88,7 +88,7 @@ endphoneme
 
 phoneme au
   vowel starttype #a endtype #u
-  length 250
+  length 275
   long
   FMT(vdiph/aau, 100)
 endphoneme
@@ -123,7 +123,14 @@ endphoneme
 
 phoneme uo
   vowel starttype #u endtype #a
-  length 250
+  length 260
+  long
+  FMT(vdiph2/uaa, 100)
+endphoneme
+
+phoneme u0        // shorter version of uo
+  vowel starttype #u endtype #a
+  length 180
   long
   FMT(vdiph2/uaa, 100)
 endphoneme
@@ -206,8 +213,20 @@ endphoneme
 phoneme c
   vls pal stop palatal
   voicingswitch J
-  lengthmod 2
-  WAV(ustop/c, 90)
+  WAV(ustop/c, 80)
+endphoneme
+
+phoneme > // lengthen previous vowel by only 10ms
+  virtual
+  length 10
+endphoneme
+
+phoneme . // Tiny, 5ms non-linked pause
+  pause
+  starttype _ endtype _
+  lengthmod 1
+  nolink
+  length 5
 endphoneme
 
 // TODO should use this with correct lengthening
