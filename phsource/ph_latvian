@@ -216,6 +216,66 @@ phoneme c
   WAV(ustop/c, 80)
 endphoneme
 
+phoneme D   // louder and shorter version of d
+  vcd alv stop
+  voicingswitch t
+  length 10
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  IF PreVoicing THEN
+    FMT(d/xd, 110)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_, 120)  addWav(x/d_,110)
+  ENDIF
+
+  FMT(d/d, 110) addWav(x/d,110)
+endphoneme
+
+
+phoneme z-  // Shortened version of z for diphthong dz
+  vcd alv frc sibilant
+  voicingswitch s
+  length 10
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    length 20
+    FMT(voc/z_, 120) addWav(ufric/s_, 95)
+  ENDIF
+  FMT(voc/z, 110) addWav(ufric/s_, 100)
+endphoneme
+
+phoneme Z- // Shortened version of Z for diphthong dZ
+  vcd pla frc sibilant
+  voicingswitch S
+  length 30
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/zh_, 70) addWav(vocw/zh, 70)
+    ENDIF
+    FMT(klatt/zh) addWav(vocw/zh, 130)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_, 80) addWav(vocw/zh, 70)
+  ENDIF
+  FMT(voc/zh) addWav(vocw/zh, 130)
+endphoneme
+
 phoneme > // lengthen previous vowel by only 10ms
   virtual
   length 10

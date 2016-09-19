@@ -29,7 +29,7 @@
 // |      Other suffixes       |
 // +---------------------------+
 
-.L18  li ni ti                         // suffixes of adverbs
+.L18  am āk i u                        // suffixes of adverbs
 
 // +---------------------------+
 // | Pronunciation of e and ē  |
@@ -73,10 +73,10 @@
 .L52  i ī
 .L53  u ū
 .L54  o ō
-
 .L55  a e i u o                        // short vowels icluding o
 .L56  a e i u                          // short vowels without o
 .L57  ā ē ī ū ō                        // long vowels including ō
+.L58  ā ē ī ū                          // long vowels without ō
 
 // +---------------------------+
 // |    Consonant groups       |
@@ -151,10 +151,13 @@
 
 .group d
            d               d
+           dz              Dz-
+           dž              dZ-
+           dž (L61         DZ
 
 .group e
-           e                  e      // Default as narrow e
-           ei                 ei
+           e               e      // Default as narrow e
+           ei              ei
 
     // narrow e ---------------------------------------------------------------------- //
            a) e (ro            e     // internationalsms
@@ -241,6 +244,7 @@ L41L10L10L10) e                e
       _pr) e (t                e
        pr) etē                 ete:
         r) ecep (L88L05_       etsep     // recepte
+        r) et (L18_            et        // reti
         r) eze (rL89L05_       eze       // rezerve
        _s) e (n_               e         // sen
        _s) e (p                e
@@ -386,6 +390,7 @@ L41L10L10L10) ē                e:
 
 .group n
         _) ne (vien        ne'       // stress on 2nd syllable
+           n (d            N
            n (g            N
            n (k            N
            n               n
@@ -1013,6 +1018,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
        _d) on (L04_        uon       // dona
         d) on (n           onn
         d) ono             ono:
+       dž) on (L01_        on        // Džons
       egl) on              uon
        ek) ono             ono:
        em) on              on
@@ -1072,6 +1078,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
        _p) on (ijL01_      on        // ponijs
      pont) on              o:n
      _ram) on (L04_        o:n       // Ramona
+      rez) on              on
       rib) on (uk          on
       _sk) onto (_         onto:     // Skonto
         s) on (o           on
@@ -1331,6 +1338,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
        pr) otot (ip        otot
        pr) oto (t          uotuo     // ..protot
        pr) ot (u_          uot
+       sk) ot (L01_        ot
         r) ot (āc          ot
         r) ot (er          ot
         r) ot (ē           ot
@@ -1384,6 +1392,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
       @@)  oz (L05_        o:z       // ..oze
            ozo (lL01_      uozuo     // ..ozols
            oz (on          oz
+           ozo (_          o:zuo 
         p) oz              oz
        _r) oz (eL88L05_    oz        // rozete
        _r) oz (īL80L05_    oz        // rozīne
@@ -1421,9 +1430,8 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
            ŗ               r
 
 .group s
+           sh              s_!h_!    // probably no need to make distinct in other places 
         _) s (L61          s_        // make s distinct at start of the word before unvocied consonants
-                                     // probably no need to make distinct in other places
-           sh              s_!h_!
            s               s
 
 .group š
@@ -1442,7 +1450,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
 
 .group v
            v               v
-        _) vis             v,is (P3    // unstressed if starts as vis.. prefix
+                                       // unstressed if starts as vis.. prefix
                                        // except for words where vis.. is part of root
         _) vi (sād         v'i         // visād
         _) vi (sēd         v'i         // visēd
@@ -1459,6 +1467,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
         _) vi (sur_        v'i         // visur
         _) vi (sval        v'i         // Visval..
         _) vi (svar        v'i         // Visvar..
+        _) vis             v,is (P3
            visvis          visv,is (P6 // visvis..
         _) vi (szinL02_    v'i         // viszinis
         _) vi (szinL05_    v'i         // viszine
@@ -1497,7 +1506,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
        __) - (_D           mi:nus
            $               dola:rs
            !               _:izsaukumzi:me_:
-           :               kols
+           :               ko:ls
            >=              l'iela:ks||,vai||v'iena:ds
            <=              maza:ks||,vai||v'iena:ds
            !=              nav||viena:ds
