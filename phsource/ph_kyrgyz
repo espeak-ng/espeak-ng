@@ -28,10 +28,10 @@
 
 phoneme a
   vowel starttype #@  endtype #@
-  ipa ɐ
+  ipa ɑ
   unstressed
   length 190
-  FMT(vowel/aa_8)
+  FMT(vowel/aa_6)
 endphoneme
 
 
@@ -93,9 +93,9 @@ endphoneme
 
 phoneme a:
   ipa ɑ:
-  vowel starttype #i endtype #i
+  vowel starttype #@ endtype #@
   length 325
-  FMT(vowel/0_3)
+  FMT(vowel/aa_6)
 endphoneme
 
 
