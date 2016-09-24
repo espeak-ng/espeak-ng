@@ -212,7 +212,7 @@
 
 .group p
         p        p
-        p        _::p
+        pp       _::p
 
 .group q
         q        k
