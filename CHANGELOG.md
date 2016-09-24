@@ -3,6 +3,9 @@
 ## 1.49.1 - (In Development)
 
 *  Vim syntax support for rule files.
+*  Replace `ieee80.c` with the implementation at
+   http://www.realitypixels.com/turk/opensource/ToFromIEEE.c.txt for Debian
+   open source license compliance.
 
 bug fixes:
 

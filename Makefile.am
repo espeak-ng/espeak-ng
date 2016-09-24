@@ -15,7 +15,7 @@ SHARED_VERSION=2:49:1 # = *.so.1.1.49
 
 MKDIR=mkdir -p
 
-AM_CFLAGS = -Wall
+AM_CFLAGS = -Wno-endif-labels # Needed to prevent warnings in ieee80.c.
 
 EXTRA_DIST=
 
@@ -124,7 +124,7 @@ src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
 src_libespeak_ng_la_CFLAGS = -Isrc/include -Isrc/include/compat \
 	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D_DEFAULT_SOURCE -D _POSIX_C_SOURCE=200112L \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
-	${PCAUDIOLIB_CFLAGS}
+	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
 src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledata.c \
@@ -175,7 +175,7 @@ endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
-src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L
+src_speak_ng_CFLAGS  = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
 src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
@@ -185,7 +185,7 @@ man1_MANS += src/espeak-ng.1
 endif
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
-src_espeak_ng_CFLAGS  = -Isrc/include
+src_espeak_ng_CFLAGS  = -Isrc/include ${AM_CFLAGS}
 src_espeak_ng_SOURCES = src/espeak-ng.c
 
 ##### phoneme data:
