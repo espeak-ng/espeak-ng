@@ -11,7 +11,7 @@ VIMDIR=$(PREFIX)/share/vim
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = espeak-ng.pc
 
-SHARED_VERSION=2:48:1 # = *.so.1.1.48
+SHARED_VERSION=2:49:1 # = *.so.1.1.49
 
 MKDIR=mkdir -p
 
