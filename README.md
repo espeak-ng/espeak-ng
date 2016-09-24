@@ -286,3 +286,7 @@ which has been made available for use in Open Source applications per the
 [license statement](COPYING.IEEE) on http://www.realitypixels.com/turk/opensource/.
 The only modification made to the code is to comment out the `TEST_FP` define
 to make it useable in the eSpeak NG library.
+
+The `getopt.c` compatibility implementation for getopt support on Windows is
+taken from the NetBSD `getopt_long` implementation, which is licensed under a
+[2-clause BSD](COPYING.BSD2) license.
