@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.49.1 - (In Development)
+
+*  Vim syntax support for rule files.
+
+bug fixes:
+
+*  Fix `.Lnn` rule groups to allow groups above 62.
+*  Fix reporting the eSpeak NG version in the `--version` string and Windows
+   installer.
+
+updated languages:
+
+*  en (English) -- Valdis Vitolins
+*  lv (Latvian) -- Valdis Vitolins
+*  tr (Turkish) -- Valdis Vitolins
+
 ## 1.49.0 - 2016-09-10
 
 *  Support the `--compile-mbrola` command-line option.
