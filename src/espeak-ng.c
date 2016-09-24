@@ -296,7 +296,7 @@ static void PrintVersion()
 	const char *path_data;
 	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT);
 	version = espeak_Info(&path_data);
-	printf("eSpeak text-to-speech: %s  Data at: %s\n", version, path_data);
+	printf("eSpeak NG text-to-speech: %s  Data at: %s\n", version, path_data);
 }
 
 int main(int argc, char **argv)
