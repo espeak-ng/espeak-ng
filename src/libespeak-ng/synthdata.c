@@ -38,7 +38,7 @@
 #include "voice.h"
 #include "translate.h"
 
-const char *version_string = "1.48.15  16.Apr.15";
+const char *version_string = PACKAGE_VERSION;
 const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here

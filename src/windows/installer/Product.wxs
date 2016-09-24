@@ -13,7 +13,7 @@
 <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="3DA6DF03-E5CD-4A93-B06F-707484742BAB" Name="$(var.ProductDisplayName)" Language="1033" Version="1.48.15.0" Manufacturer="Cainteoir Technologies" UpgradeCode="B4F779EB-AC6C-49D2-A12D-4871E4520C0F">
+  <Product Id="3DA6DF03-E5CD-4A93-B06F-707484742BAB" Name="$(var.ProductDisplayName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Cainteoir Technologies" UpgradeCode="B4F779EB-AC6C-49D2-A12D-4871E4520C0F">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="$(var.Platform)" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
