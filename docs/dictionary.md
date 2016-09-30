@@ -36,8 +36,8 @@ There are two separate methods for translating words into phonemes:
   various other properties. The source files are: `<language>_list` (e.g.
   `en_list`) and optionally `<language>_extra` (e.g. `en_extra`).
 
-These files are compiled into the file `<language>_dict`  in the espeak-data
-directory (e.g. `espeak-data/en_dict`).
+These files are compiled into the file `<language>_dict`  in the espeak-ng-data
+directory (e.g. `espeak-ng-data/en_dict`).
 
 ## Phoneme names
 

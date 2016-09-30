@@ -31,11 +31,11 @@ The eSpeak NG voices which use Mbrola are named as:
 
 where `xxx` is the name of a Mbrola voice (e.g. `mb-en1` for the Mbrola
 `en1` English voice). These voice files are in eSpeak NG's directory
-`espeak-data/voices/mbrola`.
+`espeak-ng-data/voices/mbrola`.
 
 The installation instructions below use the Mbrola voice "en1" as an
 example. You can use other mbrola voices for which there is an
-equivalent eSpeak NG voice in `espeak-data/voices/mbrola`.
+equivalent eSpeak NG voice in `espeak-ng-data/voices/mbrola`.
 
 There are some additional eSpeak NG Mbrola voices which speak English text
 using a Mbrola voice for a different language. These contain the name of
@@ -57,7 +57,7 @@ The SAPI5 version of eSpeak NG uses the mbrola.dll.
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
 
 4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" directory) into
-    `C:/Program Files/eSpeak/espeak-data/mbrola`.
+    `C:/Program Files/eSpeak/espeak-ng-data/mbrola`.
 
 4.  Use the voice `espeak-MB-EN1` from the list of SAPI5 voices.
 
@@ -76,7 +76,7 @@ directly, rather than passing phoneme data to it using a pipe.
 
 4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" directory) to `/usr/share/mbrola/en1`.
 
-    __NOTE:__ eSpeak will look for mbrola voices firstly in `espeak-data/mbrola` and then in `/usr/share/mbrola`.
+    __NOTE:__ eSpeak will look for mbrola voices firstly in `espeak-ng-data/mbrola` and then in `/usr/share/mbrola`.
 
 ## Usage
 
@@ -94,7 +94,7 @@ or
 
 ## Mbrola Voice Files
 
-eSpeak NG's voice files for Mbrola voices are in directory  `espeak-data/voices/mbrola`.  
+eSpeak NG's voice files for Mbrola voices are in directory  `espeak-ng-data/voices/mbrola`.  
 They contain a line: `mbrola <voice> <translation>`
 
 e.g.
@@ -105,7 +105,7 @@ e.g.
 * \<translation\> is a translation file to convert between eSpeak phonemes and
   the equivalent Mbrola phonemes.
 
-These are kept in: `espeak-data/mbrola_ph`
+These are kept in: `espeak-ng-data/mbrola_ph`
 
 ## Mbrola Phoneme Translation Data
 

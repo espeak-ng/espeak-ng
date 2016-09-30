@@ -26,7 +26,7 @@ must be compiled for use by eSpeak NG by using:
 ## Clauses
 
 The tunes which are used for a language can be specified by using a
-`tunes` statement in a voice file in `espeak-data/voices`. e.g.:
+`tunes` statement in a voice file in `espeak-ng-data/voices`. e.g.:
 
 	tunes   s1  c1  q1  e1
 

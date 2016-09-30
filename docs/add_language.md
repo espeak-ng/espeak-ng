@@ -104,7 +104,7 @@ To add new language, you have to create or edit following files:
 | dictsource/fr_list           |create  |
 | dictsource/fr_rules          |create  |
 | dictsource/fr_extrc          |create (optional) |
-| espeak-data/voices/roa/fr    |create  |
+| espeak-ng-data/voices/roa/fr    |create  |
 
 where:
 
@@ -152,10 +152,10 @@ to make it call your new, e.g. `ph_french` file:
 
 ### Voice File
 
-E.g. `espeak-data/voices/roa/fr` is the voice file for French.
+E.g. `espeak-ng-data/voices/roa/fr` is the voice file for French.
 This gives the language name and may set some options.
 
-Each language needs a voice file in `espeak-data/voices` grouped by the
+Each language needs a voice file in `espeak-ng-data/voices` grouped by the
 [language family](#language-family). The filename of the default voice for a
 language should be the same as the language code (e.g. `fr` for French).
 
@@ -167,7 +167,7 @@ name and language code, eg:
 	language fr
 
 This language code specifies which phoneme table and dictionary to use
-(i.e. `phonemetable fr` and `espeak-data/fr_dict`) to be used. If
+(i.e. `phonemetable fr` and `espeak-ng-data/fr_dict`) to be used. If
 needed, these can be overridden by `phonemes` and `dictionary`
 attributes in the voice file. For example you may want to start the
 implementation of a new language by using the phoneme table of an
@@ -245,14 +245,14 @@ Details of the contents of the dictionary files are given in
 [Dictionary](dictionary.md).
 
 The `fr_rules` and `fr_list` files are compiled to produce the
-`espeak-data/fr_dict` file, which eSpeak uses when it is speaking.
+`espeak-ng-data/fr_dict` file, which eSpeak uses when it is speaking.
 
 Once the language's phonemes have been defined, then pronunciation
 dictionary data can be produced in order to translate the language's
 source text into phonemes. This consists of two source files:
 `fr_rules` (the spelling to phoneme rules) and `fr_list` (an
 exceptions list, and attributes of certain words). The corresponding
-compiled data file is `espeak-data/fr_dict` which is produced from
+compiled data file is `espeak-ng-data/fr_dict` which is produced from
 the `fr_rules` and `fr_list` sources by the command:
 
 	espeak-ng --compile=fr
@@ -276,7 +276,7 @@ The function `SetTranslator()` at the start of the source code file
 options. For a new language, you would add its language code and the
 required options in `SetTranslator()`. However, this may not be necessary
 during testing because most of the options can also be set in the voice
-file in espeak-data/voices (see [Voice Files](voices.md)).
+file in espeak-ng-data/voices (see [Voice Files](voices.md)).
 
 ## Compiling Rules File for Debugging
 

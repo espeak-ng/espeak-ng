@@ -40,7 +40,7 @@ A Voice file specifies a language (and possibly a language variant or
 dialect) together with various attributes that affect the
 characteristics of the voice quality and how the language is spoken.
 
-Voice files are located in the `espeak-data/voices` directory, and are
+Voice files are located in the `espeak-ng-data/voices` directory, and are
 grouped by the [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5)
 language family of the language being specified in the voice files.
 See also Wikipedia's
@@ -221,7 +221,7 @@ adjustment applies only to voiced sounds such as vowels and sonorant
 consonants (such as `[n]` and `[l]`). Unvoiced sounds such as `[s]` are
 unaffected.
 
-This `tone` statement can also appear in `espeak-data/config`, in which case
+This `tone` statement can also appear in `espeak-ng-data/config`, in which case
 it applies to all voices which don't have their own `tone` statement.
 
 ### flutter
@@ -399,7 +399,7 @@ vowels in stressed and unstressed syllables.
 
 Eight integer parameters. These are added to the voice's corresponding
 `stressLength` values. They are used in the voice variant files in
-`espeak-data/voices/!v` to give some variety. Negative values may be used.
+`espeak-ng-data/voices/!v` to give some variety. Negative values may be used.
 
 ### stressAmp
 
@@ -431,7 +431,7 @@ The ISO 8859 character set number. (not all are implemented).
 
 Used for some languages to detect if additional language data is
 installed. If the size of the compiled dictionary data for the language
-(the file `espeak-data/*_dict`) is less than this size then a
+(the file `espeak-ng-data/*_dict`) is less than this size then a
 warning is given.
 
 ### alphabet2
