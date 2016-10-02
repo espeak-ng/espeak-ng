@@ -1,25 +1,29 @@
 # Intonation
 
+# Table of contents
+
 - [Clauses](#clauses)
 - [Tune Definitions](#tune-definitions)
   - [tune](#tune)
   - [endtune](#endtune)
   - [prehead](#prehead)
   - [headenv](#headenv)
+  - [height](#height)
   - [head](#head)
   - [headextend](#headextend)
   - [nucleus](#nucleus)
+  - [nucleus0](#nucleus0)
   - [onset](#onset)
   - [headlast](#headlast)
 
 ----------
 
-In eSpeak NG's standard intonation model, a "tune" is applied to each
+In eSpeak NG (eSpeak) standard intonation model, a "tune" is applied to each
 clause depending on its punctuation. Other intonation models may be used
 for some languages, such as tone languages.
 
 Named tunes are defined in the text file `phsource/intonation`. This file
-must be compiled for use by eSpeak NG by using:
+must be compiled for use by eSpeak by using:
 
 	espeak-ng --compile-intonations
 
@@ -41,23 +45,10 @@ in:
 
 A clause consists of the following parts:
 
-	Pre-head
-
-These are any unstressed syllables before the first stressed syllable.
-
-	Head
-
-This is the part from the first stressed syllable up to the last syllable
-before the nucleus.
-
-	Nucleus
-
-This is stressed syllable which is the focus of the clause. eSpeak chooses
-the last stressed syllable of the clause.
-
-	Tail
-
-These are the syllables after the nucleus.
+1. __Pre-head__ are any unstressed syllables before the first stressed syllable.
+1. __Head__ is the part from the first stressed syllable up to the last syllable before the nucleus.
+1. __Nucleus__ is stressed syllable which is the focus of the clause. eSpeak chooses the last stressed syllable of the clause.
+1. __Tail__ are the syllables after the nucleus.
 
 ## Tune Definitions
 
@@ -74,31 +65,22 @@ Here is an example tune definition from the file `phsource/intonation`:
 
 ### tune
 
-	tune <tune name>
-
-Starts the definition of a tune. The `tune name` can be used in a `tunes`
-statements in voice files.
+`tune <tune name>` Starts the definition of a tune. The `tune name` can be used in a `tunes` statements in voice files.
 
 ### endtune
 
-	endtune <tune name>
-
-Ends the definition of a tune.
+`endtune <tune name>` Ends the definition of a tune.
 
 ### prehead
 
-	prehead <start pitch> <end pitch>
-
-Gives the pitch path for any series of unstressed syllables before the first
-stressed syllable.
+`prehead <start pitch> <end pitch>` Gives the pitch path for any series of unstressed
+syllables before the first stressed syllable.
 
 ### headenv
 
-	headenv <envelope> <height>
+`headenv <envelope> <height>` Gives the pitch envelope which is used for stressed syllables in the head (before the nucleus), including `onset` and `headlast` syllables if these are specified.
 
-Gives the pitch envelope which is used for stressed syllables in the head
-(before the nucleus), including `onset` and `headlast` syllables if these
-are specified.
+###height
 
 `height` gives a pitch range for the envelope.
 
