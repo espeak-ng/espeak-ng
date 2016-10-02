@@ -1,7 +1,5 @@
 # Intonation
 
-# Table of contents
-
 - [Clauses](#clauses)
 - [Tune Definitions](#tune-definitions)
   - [tune](#tune)
