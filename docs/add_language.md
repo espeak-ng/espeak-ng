@@ -51,7 +51,7 @@ These language tags are used to specify the language, such as:
 *  `yue` (Cantonese) -- The [ISO 639-3](https://en.wikipedia.org/wiki/ISO_639-3)
    3-letter language codes for the language.
 
-*  `ta-arab` (Tamil written in the Arabic alphabet) -- The
+*  `ta-Arab` (Tamil written in the Arabic alphabet) -- The
    [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) 4-letter script code.
 
    __NOTE:__ Where the script is the primary script for the language, the script
