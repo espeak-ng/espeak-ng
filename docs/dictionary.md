@@ -104,8 +104,7 @@ The rules are organized in groups, each starting with a `.group` line:
   Defines a group of letter sequences, any of which can match with `Lnn` in a
   pre or post rule (see below). nn is a 2 digit decimal number in the range 01
   to 94. e.g.:
-
-	.L01 b bl br pl pr
+  `.L01 b bl br pl pr`
 
 * `.replace`
   See section [Character Substitution](#character-substitution).
@@ -173,39 +172,47 @@ translation rules and spoken with English phonemes.
 | `Z`         | A non-alphabetic character. |
 | `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. |
 | `/`         | The following character is treated literally. |
+| `@`         | One syllable (i.e. at least one vowel or diphthong) |
 
 The sets of letters indicated by `A`, `B`, `C`, `E`, `F` and `G` may be defined
 differently for each language.
 
 Examples of rules:
+```
+        _)  a        A       // "a" at the start of a word
+            a (CC    A       // "a" followed by two consonants
+            a (C%    A       // "a" followed by a double consonant (the same letter twice)
+            a (/%    A       // "a" followed by a percent sign
+        %C) a        A       // "a" preceded by a double consonants
+        @@) bi       bI      // "bi" preceded by at least two syllables
+       @@a) bi       bI      // "bi" preceded by at least 2 syllables and following 'a'
 
-	_)  a         // "a" at the start of a word
-	    a (CC     // "a" followed by two consonants
-	    a (C%     // "a" followed by a double consonant (the same letter twice)
-	    a (/%     // "a" followed by a percent sign
-	%C) a         // "a" preceded by a double consonants
+         @) ly (_S2  lI       // "ly", at end of a word with at least one other
+                              // syllable, is a suffix pronounced [lI].  Remove
+                              // it and retranslate the word.
+        
+         _) un (@P2  %Vn      // "un" at the start of a word is an unstressed
+                              // prefix pronounced [Vn]
+```
+
+Note, that:
+
+1. Matching characters in the \<pre\> part do not affect the syllable counting.
+1. Word end mark can't be used with syllable mark. E.g. `_@)` or `@_` will not work,
+but you can use `@) ... (+` or `... (@+` to make rule with only one syllable prevail
+rule with more syllables.
 
 ### Special characters only in \<pre\>:
 
 | Symbol | Description |
 |--------|-------------|
-| `@`    | Any syllable. |
 | `&`    | A syllable which may be stressed (i.e. is not defined as unstressed). |
-| `V`    | Matches only if a previous word has  indicated that a verb form is expected. |
-
-e.g.
-
-	@@)  bi      // "bi" preceded by at least two syllables
-	@@a) bi      // "bi" preceded by at least 2 syllables and following 'a'
-
-Note, that matching characters in the \<pre\> part do not affect the
-syllable counting.
+| `V`    | Matches only if a previous word has indicated that a verb form is expected. |
 
 ### Special characters only in \<post\>:
 
 | Symbol      | Description |
 |-------------|-------------|
-| `@`         | A vowel follows somewhere in the word. |
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
 | `<`         | Force an decrease in the score in this rule by 20 points (may be repeated for more effect). |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
@@ -219,12 +226,6 @@ syllable counting.
 
 e.g.
 
-	@) ly (_S2   lI      // "ly", at end of a word with at least one other
-	                     //   syllable, is a suffix pronounced [lI].  Remove
-	                     //   it and retranslate the word.
-	
-	_) un (@P2   %Vn     // "un" at the start of a word is an unstressed
-	                     //   prefix pronounced [Vn]
 	_) un (i     ju:     // ... except in words starting "uni"
 	_) un (inP2  ,Vn     // ... but it is for words starting "unin"
 
@@ -233,6 +234,8 @@ e.g.
 `S<number>` may be followed by additional letters (e.g. `S2ei`). Some of
 these are probably specific to English, but similar functions could be
 made for other languages.
+
+`P<number>` may be followed by additional letters (e.g. `P3v`).
 
 | Symbol | Description |
 |--------|-------------|
@@ -244,13 +247,7 @@ made for other languages.
 | `v`    | The suffix means the verb form of pronunciation should be used. |
 | `f`    | The suffix means the next word is likely to be a verb. |
 | `m`    | After this suffix has been removed, additional suffixes may be removed. |
-
-`P<number>` may be followed by additonal letters (e.g. `P3v`).
-
-| Symbol | Description |
-|--------|-------------|
 | `t`    | Determine the stress pattern of the word **before** adding the prefix. |
-| `v`    | The suffix means the verb form of pronunciation should be used. |
 
 ## Pronunciation Dictionary List
 
