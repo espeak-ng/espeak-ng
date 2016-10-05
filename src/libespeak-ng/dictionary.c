@@ -210,8 +210,8 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	unsigned int size;
 	char fname[sizeof(path_home)+20];
 
-	strcpy(dictionary_name, name); // currently loaded dictionary name
-	strcpy(tr->dictionary_name, name);
+	strncpy(dictionary_name, name, 40); // currently loaded dictionary name
+	strncpy(tr->dictionary_name, name, 40);
 
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
