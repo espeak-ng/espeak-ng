@@ -241,9 +241,10 @@ espeak_ng_STATUS event_clear_all()
 		return status;
 
 	if (a_event_is_running) {
-		while(my_stop_is_acknowledged == 0)
-			while((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
-			continue; // Restart when interrupted by handler
+		while (my_stop_is_acknowledged == 0) {
+			while ((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
+				continue; // Restart when interrupted by handler
+		}
 	}
 
 	return ENS_OK;
@@ -259,9 +260,10 @@ static void *polling_thread(void *p)
 		int a_status = pthread_mutex_lock(&my_mutex);
 		my_event_is_running = 0;
 
-		while(my_start_is_required == 0)
-			while((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
-			continue; // Restart when interrupted by handler
+		while (my_start_is_required == 0) {
+			while ((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
+				continue; // Restart when interrupted by handler
+		}
 
 		my_event_is_running = 1;
 		a_stop_is_required = 0;
@@ -271,7 +273,6 @@ static void *polling_thread(void *p)
 
 		// In this loop, my_event_is_running = 1
 		while (head && (a_stop_is_required == 0)) {
-
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
 
@@ -286,7 +287,7 @@ static void *polling_thread(void *p)
 			a_status = pthread_mutex_lock(&my_mutex);
 			event_delete((espeak_EVENT *)pop());
 			a_stop_is_required = my_stop_is_required;
-			if(a_stop_is_required > 0)
+			if (a_stop_is_required > 0)
 				my_stop_is_required = 0;
 
 			a_status = pthread_mutex_unlock(&my_mutex);
