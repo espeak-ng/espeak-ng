@@ -24,11 +24,14 @@
 // ============ //
 
 
+// ''atai'' /a/ f1 840 f2 1540  f3 2892  f4 3269
+
 phoneme a
+  vowel starttype #@  endtype #@
   ipa ɑ
-  vowel starttype #i endtype #i
-  length 200
-  FMT(vowel/0_3)
+  unstressed
+  length 190
+  FMT(vowel/aa_6)
 endphoneme
 
 
@@ -90,9 +93,9 @@ endphoneme
 
 phoneme a:
   ipa ɑ:
-  vowel starttype #i endtype #i
+  vowel starttype #@ endtype #@
   length 325
-  FMT(vowel/0_3)
+  FMT(vowel/aa_6)
 endphoneme
 
 

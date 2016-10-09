@@ -37,38 +37,92 @@
 .L04 а о у ы ё ю я э е и ө ү       // all vowels
 
 .group а
+       а (_  'a   // word final syllable gets stressed
+       аа (_  'a:   // word final syllable gets stressed
+       а (L03_  'a   // word final syllable gets stressed
+       аа (L03_  'a:   // word final syllable gets stressed
+       а (L03L03_  'a   // word final syllable gets stressed
+       аа (L03L03_  'a:   // word final syllable gets stressed
        а        a
        аа       a:
 
 .group о
+       о (_  'o   // word final syllable gets stressed
+       оо (_  'o:   // word final syllable gets stressed
+       о (L03_  'o   // word final syllable gets stressed
+       оо (L03_  'o:   // word final syllable gets stressed
+       о (L03L03_  'o   // word final syllable gets stressed
+       оо (L03L03_  'o:   // word final syllable gets stressed
        о        o
        оо       o:
 
 .group у
+       у (_  'u   // word final syllable gets stressed
+       уу (_  'u:   // word final syllable gets stressed 
+       у (L03_  'u   // word final syllable gets stressed
+       уу (L03_  'u:   // word final syllable gets stressed 
+       у (L03L03_  'u   // word final syllable gets stressed
+       уу (L03L03_  'u:   // word final syllable gets stressed 
        у        u
        уу       u:
 
 .group ы
+       ы (_  'I   // word final syllable gets stressed
+       ыы (_  'I:   // word final syllable gets stressed
+       ы (L03_  'I   // word final syllable gets stressed
+       ыы (L03_  'I:   // word final syllable gets stressed
+       ы (L03L03_  'I   // word final syllable gets stressed
+       ыы (L03L03_  'I:   // word final syllable gets stressed
        ы        I
        ыы       I:
 
 .group и
+       и (_  'i   // word final syllable gets stressed
+       ии (_  'i:   // word final syllable gets stressed
+       и (L03_  'i   // word final syllable gets stressed
+       ии (L03_  'i:   // word final syllable gets stressed
+       и (L03L03_  'i   // word final syllable gets stressed
+       ии (L03L03_  'i:   // word final syllable gets stressed
        и        i
        ии       i:
 
 .group ө
+       ө (_  'O   // word final syllable gets stressed
+       өө (_  'O:   // word final syllable gets stressed
+       ө (L03_  'O   // word final syllable gets stressed
+       өө (L03_  'O:   // word final syllable gets stressed
+       ө (L03L03_  'O   // word final syllable gets stressed
+       өө (L03L03_  'O:   // word final syllable gets stressed
        ө        O
        өө       O:
 
 .group ү
+       ү (_  'y   // word final syllable gets stressed
+       үү (_  'y:   // word final syllable gets stressed
+       ү (L03_  'y   // word final syllable gets stressed
+       үү (L03_  'y:   // word final syllable gets stressed
+       ү (L03L03_  'y   // word final syllable gets stressed
+       үү (L03L03_  'y:   // word final syllable gets stressed
        ү        y
        үү       y:
 
 .group е
+       е (_  'e   // word final syllable gets stressed
+       ее (_  'e:   // word final syllable gets stressed
+       е (L03_  'e   // word final syllable gets stressed
+       ее (L03_  'e:   // word final syllable gets stressed
+       е (L03L03_  'e   // word final syllable gets stressed
+       ее (L03L03_  'e:   // word final syllable gets stressed
        е        e
        ее       e:
 
 .group э
+       э (_  'e   // word final syllable gets stressed
+       ээ (_  'e:   // word final syllable gets stressed
+       э (L03_  'e   // word final syllable gets stressed
+       ээ (L03_  'e:   // word final syllable gets stressed
+       э (L03L03_  'e   // word final syllable gets stressed
+       ээ (L03L03_  'e:   // word final syllable gets stressed
        э        e
        ээ       e:
 
