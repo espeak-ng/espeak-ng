@@ -91,8 +91,9 @@ void fifo_init()
 
 	// leave once the thread is actually started
 	assert(-1 != pthread_mutex_lock(&my_mutex));
-	while ((my_stop_is_acknowledged == 0) || ((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR))
-		continue; // Restart when interrupted by handler
+	while (my_stop_is_acknowledged == 0)
+while((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
+	;
 	my_stop_is_acknowledged = 0;
 	pthread_mutex_unlock(&my_mutex);
 }
@@ -172,8 +173,9 @@ espeak_ng_STATUS fifo_stop()
 	}
 
 	if (a_command_is_running) {
-		while ((my_stop_is_acknowledged == 0) || ((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR))
-			continue; // Restart when interrupted by handler
+		while (my_stop_is_acknowledged == 0)
+			while((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
+				continue; // Restart when interrupted by handler
 	}
 
 	my_stop_is_required = 0;
@@ -293,7 +295,8 @@ static void *say_thread(void *p)
 		assert(!a_status);
 
 		if (!a_start_is_required) {
-			while ((my_start_is_required == 0) || ((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR))
+			while (my_start_is_required == 0)
+				while((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
 				continue; // Restart when interrupted by handler
 		}
 
