@@ -23,7 +23,6 @@
 #include <assert.h>
 #include <errno.h>
 #include <pthread.h>
-#include <semaphore.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -39,9 +38,12 @@
 
 // my_mutex: protects my_thread_is_talking,
 static pthread_mutex_t my_mutex;
-static sem_t my_sem_start_is_required;
-static sem_t my_sem_stop_is_required;
-static sem_t my_sem_stop_is_acknowledged;
+static pthread_cond_t my_cond_start_is_required;
+static int my_start_is_required = 0;
+static pthread_cond_t my_cond_stop_is_required;
+static int my_stop_is_required = 0;
+static pthread_cond_t my_cond_stop_is_acknowledged;
+static int my_stop_is_acknowledged = 0;
 // my_thread: polls the audio duration and compares it to the duration of the first event.
 static pthread_t my_thread;
 static bool thread_inited;
@@ -81,9 +83,9 @@ void event_init(void)
 	pthread_mutex_init(&my_mutex, (const pthread_mutexattr_t *)NULL);
 	init();
 
-	assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
-	assert(-1 != sem_init(&my_sem_stop_is_required, 0, 0));
-	assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
+	assert(-1 != pthread_cond_init(&my_cond_start_is_required, NULL));
+	assert(-1 != pthread_cond_init(&my_cond_stop_is_required, NULL));
+	assert(-1 != pthread_cond_init(&my_cond_stop_is_acknowledged, NULL));
 
 	pthread_attr_t a_attrib;
 
@@ -203,7 +205,7 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event)
 
 	espeak_ng_STATUS status;
 	if ((status = pthread_mutex_lock(&my_mutex)) != ENS_OK) {
-		sem_post(&my_sem_start_is_required);
+		my_start_is_required = 1;
 		return status;
 	}
 
@@ -211,10 +213,12 @@ espeak_ng_STATUS event_declare(espeak_EVENT *event)
 	if ((status = push(a_event)) != ENS_OK) {
 		event_delete(a_event);
 		pthread_mutex_unlock(&my_mutex);
-	} else
+	} else {
+		my_start_is_required = 1;
+		pthread_cond_signal(&my_cond_start_is_required);
 		status = pthread_mutex_unlock(&my_mutex);
+	}
 
-	sem_post(&my_sem_start_is_required);
 
 	return status;
 }
@@ -227,7 +231,8 @@ espeak_ng_STATUS event_clear_all()
 
 	int a_event_is_running = 0;
 	if (my_event_is_running) {
-		sem_post(&my_sem_stop_is_required);
+		my_stop_is_required = 1;
+		pthread_cond_signal(&my_cond_stop_is_required);
 		a_event_is_running = 1;
 	} else
 		init(); // clear pending events
@@ -236,7 +241,8 @@ espeak_ng_STATUS event_clear_all()
 		return status;
 
 	if (a_event_is_running) {
-		while ((sem_wait(&my_sem_stop_is_acknowledged) == -1) && errno == EINTR)
+		while(my_stop_is_acknowledged == 0)
+			while((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
 	}
 
@@ -252,27 +258,19 @@ static void *polling_thread(void *p)
 
 		int a_status = pthread_mutex_lock(&my_mutex);
 		my_event_is_running = 0;
-		pthread_mutex_unlock(&my_mutex);
 
-		while ((sem_wait(&my_sem_start_is_required) == -1) && errno == EINTR)
+		while(my_start_is_required == 0)
+			while((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
 			continue; // Restart when interrupted by handler
 
-		a_status = pthread_mutex_lock(&my_mutex);
 		my_event_is_running = 1;
+		a_stop_is_required = 0;
+		my_start_is_required = 0;
+
 		pthread_mutex_unlock(&my_mutex);
 
-		a_stop_is_required = 0;
-		a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required); // NOTE: may set a_stop_is_required to -1
-		if ((a_status == 0) && (a_stop_is_required > 0)) {
-			while (0 == sem_trywait(&my_sem_stop_is_required))
-				;
-		} else
-			a_stop_is_required = 0;
-
 		// In this loop, my_event_is_running = 1
-		while (head && (a_stop_is_required <= 0)) {
-			while (0 == sem_trywait(&my_sem_start_is_required))
-				;
+		while (head && (a_stop_is_required == 0)) {
 
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
@@ -287,40 +285,35 @@ static void *polling_thread(void *p)
 
 			a_status = pthread_mutex_lock(&my_mutex);
 			event_delete((espeak_EVENT *)pop());
+			a_stop_is_required = my_stop_is_required;
+			if(a_stop_is_required > 0)
+				my_stop_is_required = 0;
+
 			a_status = pthread_mutex_unlock(&my_mutex);
-
-			a_stop_is_required = 0;
-			a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);
-
-			if ((a_status == 0) && (a_stop_is_required > 0)) {
-				while (0 == sem_trywait(&my_sem_stop_is_required))
-					;
-			} else
-				a_stop_is_required = 0;
 		}
 
 		a_status = pthread_mutex_lock(&my_mutex);
 
 		my_event_is_running = 0;
 
-		if (a_stop_is_required <= 0) {
-			a_status = sem_getvalue(&my_sem_stop_is_required, &a_stop_is_required);
-			if ((a_status == 0) && (a_stop_is_required > 0)) {
-				while (0 == sem_trywait(&my_sem_stop_is_required))
-					;
-			} else
-				a_stop_is_required = 0;
+		if (a_stop_is_required == 0) {
+			a_stop_is_required = my_stop_is_required;
+			if (a_stop_is_required > 0)
+				my_stop_is_required = 0;
 		}
 
 		a_status = pthread_mutex_unlock(&my_mutex);
 
 		if (a_stop_is_required > 0) {
 			// no mutex required since the stop command is synchronous
-			// and waiting for my_sem_stop_is_acknowledged
+			// and waiting for my_cond_stop_is_acknowledged
 			init();
 
 			// acknowledge the stop request
-			a_status = sem_post(&my_sem_stop_is_acknowledged);
+			espeak_ng_STATUS a_status = pthread_mutex_lock(&my_mutex);
+			my_stop_is_acknowledged = 1;
+			a_status = pthread_cond_signal(&my_cond_stop_is_acknowledged);
+			a_status = pthread_mutex_unlock(&my_mutex);
 		}
 	}
 
@@ -394,9 +387,9 @@ void event_terminate()
 		pthread_cancel(my_thread);
 		pthread_join(my_thread, NULL);
 		pthread_mutex_destroy(&my_mutex);
-		sem_destroy(&my_sem_start_is_required);
-		sem_destroy(&my_sem_stop_is_required);
-		sem_destroy(&my_sem_stop_is_acknowledged);
+		pthread_cond_destroy(&my_cond_start_is_required);
+		pthread_cond_destroy(&my_cond_stop_is_required);
+		pthread_cond_destroy(&my_cond_stop_is_acknowledged);
 		init(); // purge event
 		thread_inited = 0;
 	}
