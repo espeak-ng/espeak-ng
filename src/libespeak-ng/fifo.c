@@ -113,7 +113,7 @@ espeak_ng_STATUS fifo_add_command(t_espeak_command *the_command)
 	my_start_is_required = 1;
 	pthread_cond_signal(&my_cond_start_is_required);
 
-	while (!my_command_is_running) {
+	while (my_start_is_required && !my_command_is_running) {
 		if((status = pthread_cond_wait(&my_cond_command_is_running, &my_mutex)) != ENS_OK && errno != EINTR) {
 			pthread_mutex_unlock(&my_mutex);
 			return status;
@@ -149,7 +149,7 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 	my_start_is_required = 1;
 	pthread_cond_signal(&my_cond_start_is_required);
 	
-	while (!my_command_is_running) {
+	while (my_start_is_required && !my_command_is_running) {
 		if((status = pthread_cond_wait(&my_cond_command_is_running, &my_mutex)) != ENS_OK && errno != EINTR) {
 			pthread_mutex_unlock(&my_mutex);
 			return status;
@@ -171,6 +171,7 @@ espeak_ng_STATUS fifo_stop()
 	if (my_command_is_running) {
 		a_command_is_running = 1;
 		my_stop_is_required = 1;
+		my_stop_is_acknowledged = 0;
 	}
 
 	if (a_command_is_running) {
@@ -203,18 +204,17 @@ static int sleep_until_start_request_or_inactivity()
 	// for filtering underflow.
 	//
 	int i = 0;
+	int err = pthread_mutex_lock(&my_mutex);
+	assert(err != -1);
 	while ((i <= MAX_INACTIVITY_CHECK) && !a_start_is_required) {
 		i++;
 
-		int err = 0;
 		struct timespec ts;
 		struct timeval tv;
 
 		clock_gettime2(&ts);
 
 		add_time_in_ms(&ts, INACTIVITY_TIMEOUT);
-		err = pthread_mutex_lock(&my_mutex);
-		assert(err != -1);
 
 		while ((err = pthread_cond_timedwait(&my_cond_start_is_required, &my_mutex, &ts)) == -1
 		       && errno == EINTR)
@@ -315,8 +315,8 @@ static void *say_thread(void *p)
 			t_espeak_command *a_command = (t_espeak_command *)pop();
 
 			if (a_command == NULL) {
-				a_status = pthread_mutex_unlock(&my_mutex);
 				my_command_is_running = 0;
+				a_status = pthread_mutex_unlock(&my_mutex);
 			} else {
 				my_start_is_required = 0;
 
