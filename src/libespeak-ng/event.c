@@ -237,15 +237,15 @@ espeak_ng_STATUS event_clear_all()
 	} else
 		init(); // clear pending events
 
-	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
-		return status;
-
 	if (a_event_is_running) {
 		while (my_stop_is_acknowledged == 0) {
 			while ((pthread_cond_wait(&my_cond_stop_is_acknowledged, &my_mutex) == -1) && errno == EINTR)
 				continue; // Restart when interrupted by handler
 		}
 	}
+
+	if ((status = pthread_mutex_unlock(&my_mutex)) != ENS_OK)
+		return status;
 
 	return ENS_OK;
 }
