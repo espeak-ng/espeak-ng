@@ -203,18 +203,17 @@ static int sleep_until_start_request_or_inactivity()
 	// for filtering underflow.
 	//
 	int i = 0;
+	int err = pthread_mutex_lock(&my_mutex);
+	assert(err != -1);
 	while ((i <= MAX_INACTIVITY_CHECK) && !a_start_is_required) {
 		i++;
 
-		int err = 0;
 		struct timespec ts;
 		struct timeval tv;
 
 		clock_gettime2(&ts);
 
 		add_time_in_ms(&ts, INACTIVITY_TIMEOUT);
-		err = pthread_mutex_lock(&my_mutex);
-		assert(err != -1);
 
 		while ((err = pthread_cond_timedwait(&my_cond_start_is_required, &my_mutex, &ts)) == -1
 		       && errno == EINTR)
