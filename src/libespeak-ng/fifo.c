@@ -314,8 +314,8 @@ static void *say_thread(void *p)
 			t_espeak_command *a_command = (t_espeak_command *)pop();
 
 			if (a_command == NULL) {
-				a_status = pthread_mutex_unlock(&my_mutex);
 				my_command_is_running = 0;
+				a_status = pthread_mutex_unlock(&my_mutex);
 			} else {
 				my_start_is_required = 0;
 
