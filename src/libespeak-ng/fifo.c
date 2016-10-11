@@ -171,6 +171,7 @@ espeak_ng_STATUS fifo_stop()
 	if (my_command_is_running) {
 		a_command_is_running = 1;
 		my_stop_is_required = 1;
+		my_stop_is_acknowledged = 0;
 	}
 
 	if (a_command_is_running) {
