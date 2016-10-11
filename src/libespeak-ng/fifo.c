@@ -113,7 +113,7 @@ espeak_ng_STATUS fifo_add_command(t_espeak_command *the_command)
 	my_start_is_required = 1;
 	pthread_cond_signal(&my_cond_start_is_required);
 
-	while (!my_command_is_running) {
+	while (my_start_is_required && !my_command_is_running) {
 		if((status = pthread_cond_wait(&my_cond_command_is_running, &my_mutex)) != ENS_OK && errno != EINTR) {
 			pthread_mutex_unlock(&my_mutex);
 			return status;
@@ -149,7 +149,7 @@ espeak_ng_STATUS fifo_add_commands(t_espeak_command *command1, t_espeak_command 
 	my_start_is_required = 1;
 	pthread_cond_signal(&my_cond_start_is_required);
 	
-	while (!my_command_is_running) {
+	while (my_start_is_required && !my_command_is_running) {
 		if((status = pthread_cond_wait(&my_cond_command_is_running, &my_mutex)) != ENS_OK && errno != EINTR) {
 			pthread_mutex_unlock(&my_mutex);
 			return status;
