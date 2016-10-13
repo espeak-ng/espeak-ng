@@ -599,7 +599,7 @@ phoneme t        // dental /t/
   IF nextPh(isPause2) THEN
     WAV(ustop/t_dnt, 35)
   ENDIF
-  WAV(ustop/t_hi, 70)
+  WAV(ustop/t_dnt, 70)
 endphoneme
 
 

@@ -23,89 +23,81 @@
 
 
 // Numbers
-_0	'noL
+_0	n'oL
 _1	b'ir
 _2	ek'i
 _3	'ytS
 _4	t'Ort
 _5	b'eS
-_6  aL'tI
-_7  dZe'ti
-_8  se'giz
-_9  to'Guz
+_6  aLt'I
+_7  dZet'i
+_8  seg'iz
+_9  toG'uz
 _10 'on
 _11 onb'ir
 _12	onek'i
 _13	on'ytS
 _14	ont'Ort
 _15	onb'eS
-_16 onaL'tI
-_17 ondZe'ti
-_18 onse'giz
-_19 onto'Guz
-_2X	dZIjIr'ma
-_3X	o'tuz
-_4X	'qIrq
-_5X	e'ly:
-_6X	aLtI'mIS
-_7X	dZeti'miS
-_8X	sek'sen
-_9X	toq'son
-_0C	dZyz
-_2C	eki'dZyz
-_3C	ytS'dZyz
-_4C	tOrt'dZyz
-_5C	beS'dZyz
-_6C aLtI'dZyz
-_7C dZeti'dZyz
-_8C segiz'dZyz
-_9C toGuz'dZyz
-
-_0M1	'miN
-_1MA2	mili'on
-_0M2	milion'dor
-_1MA3	mili'art
-_0M3	miliart'tar
-_dpt	_:ja'na_:
+_16 onaLt'I
+_17 ondZet'i
+_18 onseg'iz
+_19 ontoG'uz
+_2X	dZIjIrm'a
+_3X	ot'uz
+_4X	q'Irq
+_5X	el'y:
+_6X	aLtIm'IS
+_7X	dZetim'iS
+_8X	seks'en
+_9X	toqs'on
+_0C	dZ'yz
+_2C	ekidZ'yz
+_3C	ytSdZ'yz
+_4C	tOrtdZ'yz
+_5C	beSdZ'yz
+_6C aLtIdZ'yz
+_7C dZetidZ'yz
+_8C segizdZ'yz
+_9C toGuzdZ'yz
+_0M1	m'iN
+_0M2	mili'on
+_dpt	_:jan'a_:
 
 // symbols
-@ majmyl'tSa
+@ majmyltS'a
 # tortSo        $max3
-$ dol'lar
+$ doll'ar
 % prats'ent  $max3
 ^ kr'ySka
 & ampers'and
-* dZILdIz'tSa   $max3
-+ qo'Su:        $max3
-= bara'bar      $max3
+* dZILdIztS'a   $max3
++ qoS'u:        $max3
+= barab'ar      $max3
 / sl'eS     $max3
 \ beksl'eS      $max3
-_- sIzIq'tSa
-_ pod'tSerk    $max3
-~ t'ilda
-邃・no'mer
-
-
-_( qaSa:a'tSu:    -кашаа  ачуу
-_) qaSa:dZa'bu:    -кашаа  жабуу
-_| v'ert
-_{ otkrfi'gur
-_} zakrfi'gur
-_[ otkrkvad'rat
-_] zakrkvad'rat
-_> 'tSoN
-_< kitSi'ne
-_ﾂｫ otkrug'lof
-_ﾂｻ zakrug'lof
-_! ilep bel'gi
-_? suro: bel'gi
-_. tSe'kit
-_, y'tyr 
-_` ak'tsent
-_" tIrmaq'tSa
-_' aposto'rof
-_; tSe'kit y'tyr
-_: qoS tSe'kit
+_- sIzIqtS'a
+_ podtS'erk    $max3
+~ tild'a
+№  nom'er
+! ilepbelg'i
+? suro:belg'i
+( qaSa:a'tSu:
+) qaSa:dZa'bu:
+| 'vert
+{ otkrfig'ur
+} zakrfig'ur
+[ ot'kvad'rat
+] zaq'vad'rat
+> tS'oN
+< kitSi'ne
+. tSek'it
+, y'tyr 
+` akts'ent
+" tIrmaqtS'a
+' apostor'of
+; tSekityt'yr
+: qoStSek'it
 
 
 
