@@ -153,7 +153,7 @@
 .group р
        р (_     r       // word final /r/ gets trilled
        L04) р (L03  r   // syllable final /r/ gets trilled
-       р *              // all non-word final /r/ go to flap
+       р r              // all r get trilled (the flap sounded wrong syllable initial)
      
 
 .group п
