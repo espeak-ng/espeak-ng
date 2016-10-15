@@ -18,9 +18,17 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
-//
-// General categories come from Azerbaijani az_list
 
+// SOME USEFUL SYNTAX
+// ' 	primary stress
+// , 	secondary stress
+// % 	unstressed syllable
+// = 	put the primary stress on the preceding syllable
+// _: 	short pause
+// _ 	a shorter pause
+// || 	indicates a word boundary within a phoneme string
+// | 	can be used to separate two adjacent characters, to prevent 
+//      them from being considered as a multi-character phoneme mnemonic
 
 // Numbers
 _0	n'oL
