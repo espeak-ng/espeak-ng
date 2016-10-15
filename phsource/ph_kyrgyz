@@ -53,14 +53,14 @@ endphoneme
 phoneme o
   ipa o
   vowel starttype #o endtype #o
-  length 200
+  length 170
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u
   ipa u
   vowel starttype #u endtype #u
-  length 200
+  length 170
   FMT(vowel/u_bck)
 endphoneme
 
@@ -138,7 +138,7 @@ endphoneme
 phoneme y:
   ipa y:
   vowel starttype #u  endtype #u
-  length 275
+  length 400
   FMT(vowel/y)
 endphoneme
 
