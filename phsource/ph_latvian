@@ -9,7 +9,7 @@
 phoneme a
   vowel starttype #a endtype #a
   length 120
-  FMT(vwl_lv/a, 90)           // adjusted from aa_3
+  FMT(vwl_lv/a, 100)           // adjusted from aa_3
 endphoneme
 
 phoneme a:
@@ -52,7 +52,7 @@ endphoneme
 phoneme i:
   vowel starttype #i endtype #i
   length 300
-  FMT(vwl_lv/ii, 110) // was i_7
+  FMT(vwl_lv/ii, 100) // was i_7
 endphoneme
 
 phoneme o
@@ -128,7 +128,7 @@ phoneme uo
   FMT(vdiph2/uaa, 100)
 endphoneme
 
-phoneme u0        // shorter version of uo
+phoneme uo<       // shorter version of uo
   vowel starttype #u endtype #a
   length 180
   long
@@ -158,13 +158,22 @@ phoneme tS
   WAV(ustop/tsh,40)
 endphoneme
 
-phoneme R
+phoneme R // Latvian hard r
   liquid
   trill
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
+FMT(r3/r_trill) addWav(r3/r_trill.wav, 60)
+endphoneme
+
+phoneme r // Latvian soft r
+  liquid
+  trill
+  lengthmod 6
+  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  FMT(j/j_) addWav(r3/r_trill.wav, 25)
 endphoneme
 
 phoneme t
@@ -236,7 +245,7 @@ phoneme D   // louder and shorter version of d
 endphoneme
 
 
-phoneme z-  // Shortened version of z for diphthong dz
+phoneme z<  // Shortened version of z for diphthong dz
   vcd alv frc sibilant
   voicingswitch s
   length 10
@@ -255,7 +264,7 @@ phoneme z-  // Shortened version of z for diphthong dz
   FMT(voc/z, 110) addWav(ufric/s_, 100)
 endphoneme
 
-phoneme Z- // Shortened version of Z for diphthong dZ
+phoneme Z< // Shortened version of Z for diphthong dZ
   vcd pla frc sibilant
   voicingswitch S
   length 30
@@ -276,12 +285,12 @@ phoneme Z- // Shortened version of Z for diphthong dZ
   FMT(voc/zh) addWav(vocw/zh, 130)
 endphoneme
 
-phoneme > // lengthen previous vowel by only 10ms
+phoneme >  // lengthen previous vowel less than using ":"
   virtual
-  length 10
+  length 20 // it actually seems working shorter as 20ms, but anyway...
 endphoneme
 
-phoneme . // Tiny, 5ms non-linked pause
+phoneme . // Tiny, 5ms non-linked pause (used between phonemes in word)
   pause
   starttype _ endtype _
   lengthmod 1

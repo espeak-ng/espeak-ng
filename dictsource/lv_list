@@ -2,46 +2,72 @@
 // Spelling-to-phoneme words for Latvian
 
 // names of Latvian letters
-a   ,a>_: 
-ā   ,a::_!
-b   b,e:_:
-c   ts,e:_:
-č   tS,e:_:
-d   d,e:_:
-e   ,e>_:
-ē   ,e::_!
-f   ,ef:_:
-g   g,a:_:
-ģ   J,e:_:
-h   h,a:_:
-ḩ   h,e:_:
-i   ,i>_:
-ī   ,i::_!
-j   j,e:_:
-k   k,a:_:
-ķ   c,e:_:
-l   ,el:_:
-ļ   ,el^:_:
-m   ,em_:
-n   ,en_:
-ņ   ,en^_:
-o   ,uo_:
-ō   ,o::_!
-p   p,e:_:
-q   k,u:_:
-r   ,eR::_!
-ŗ   ,er::_!
-s   ,es::_!
-š   ,eS::_!
-t   ,te:_:
-u   ,u>_:
-ū   ,u::_!
-v   v,e:_:
-w   d,ubv,e:_:
-x   ,iks_:
-y   ,ig,Rek_:
-z   z,e:_:
-ž   Z,e:_:
+a   a>_: 
+ā   a::_!
+b   be:_:
+c   tse:_:
+č   tSe:_:
+d   de:_:
+e   e>_:
+ē   e::_!
+f   ef:_:
+g   ga:_:
+ģ   Je:_:
+h   ha:_:
+ḩ   he:_:
+i   i>_:
+ī   i::_!
+j   je:_:
+k   ka:_:
+ķ   ce:_:
+l   el:_:
+ļ   el^:_:
+m   em_:
+n   en_:
+ņ   en^_:
+o   o>_:
+ō   o::_!
+p   pe:_:
+q   ku:_:
+r   eR::_!
+ŗ   er::_!
+s   es::_!
+š   eS::_!
+t   te:_:
+u   u>_:
+ū   u::_!
+v   ve:_:
+w   dubve:_:
+x   iks_:
+y   igRek_:
+z   ze:_:
+ž   Ze:_:
+
+// Names of Greek letters
+α   'alfa 
+β   b'e>ta
+γ   g'amma 
+δ   d'elta
+ε   'epsilo:ns 
+ζ   z'e>ta
+η   'e>ta 
+θ   t'e>ta
+ι   j'ota 
+κ   k'apa
+λ   l'am>da 
+μ   m'i:
+ν   n'i:
+ξ   ks'i:
+ο   'omikRo:ns 
+π   p'i:
+ρ   R'o: 
+σ   s'igma
+τ   t'au 
+υ   'ipsilo:ns
+φ   f'i: 
+χ   h'i:
+ψ   ps'i: 
+ω   'omega
 
 //  diphthong consonants
 dz      dze:
@@ -439,11 +465,14 @@ vismaz    $2
 // Abbreviations //
 ///////////////////
 as      $abbrev
+asv     ,a:_:,ess_!v'e:_:
 ba      $abbrev
 bba     $abbrev
+co      $abbrev
 dr      $abbrev
 dz      $abbrev
 eur     'euR
+lnnk    'ell_,en_,en_k'a: $pause
 lp      $abbrev
 ls      $abbrev
 lu      $abbrev
@@ -451,18 +480,21 @@ lvu     $abbrev
 na      $abbrev
 nra     $abbrev    
 nr      $abbrev
+pctvl   p'e:_ts,e:_t,e:_v,e:_'ell_ $pause
 prks    $abbrev
 psrs    $abbrev
 rpi     $abbrev
-sia     $abbrev $pause
+sia     si:a: $pause
 st      $abbrev
 sv      $abbrev
 šķ      $abbrev
 tjpr    $abbrev $u $pause
 tml     $abbrev $u $pause
+tp      t,e:_p'e: $pause
 utjpr   $abbrev $u $pause
 utml    $abbrev $u $pause 
 utt     $abbrev $u $pause
+zzs     z'e:_z,e:_'ess $pause
 
 ///////////////////////////
 // other exception words //
@@ -512,6 +544,7 @@ foto         $alt
 franko       $alt
 frikasē      $alt $3
 galifē       $alt $3
+geto         $alt
 google       $alt
 hugo         $alt
 indigo       $alt
@@ -586,11 +619,13 @@ saldo        $alt
 sambo        $alt
 santodomingo $alt $4
 siroko       $alt
+skonto       $alt
 solfedžo     $alt $2
 solo         $alt
 sombrēro     $alt $2
 sonera       $alt
 sorgo        $alt
+sportloto    $alt
 stereokino   $alt
 stop         $alt
 storno       $alt

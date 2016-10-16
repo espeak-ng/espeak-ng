@@ -5,6 +5,7 @@ maintainer Valdis Vitolins <valdis.vitolins@odo.lv>
 status mature
 words 0 2
 pitch 64 118
+//tunes s5 c5 q5 e5
 tone 80 100 600 250 900 240 1400 100
-stressAmp 14 10 14 8 0 0 23 15
+stressAmp 14 10 10 8 0 0 22 15
 stressLength 180 180 180 160 0 0 230 180
