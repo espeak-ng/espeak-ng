@@ -462,7 +462,7 @@ e.g.
 
 	dictdialect en-us
 
-This means that any words or rules which are maked with `_^_EN` will be
+This means that any words or rules which are made with `_^_EN` will be
 spoken with the US English voice instead of the default UK English
 voice.
 

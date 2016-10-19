@@ -214,7 +214,7 @@ rule with more syllables.
 | Symbol      | Description |
 |-------------|-------------|
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
-| `<`         | Force an decrease in the score in this rule by 20 points (may be repeated for more effect). |
+| `<`         | Force a decrease in the score in this rule by 20 points (may be repeated for more effect). |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
@@ -393,7 +393,7 @@ This feature cannot be used for the special entries in the `*_list` files which
 start with an underscore, such as numbers.
 
 Currently `textmode` entries are only recognized for complete words, and
-not for for stems from which a prefix or suffix has been removed (e.g.
+not for stems from which a prefix or suffix has been removed (e.g.
 the word "coughs" would not match the example above).
 
 ## Conditional Rules
@@ -447,7 +447,7 @@ each language. The number fragments are given in the `*_list` file.
 | `_0M3`        | The word for 1,000,000,000. |
 | `_1M1` `_2M1` | Special pronunciation for one thousand, two thousand, etc, if needed. |
 | `_0and`       | Word for `and` when speaking numbers (e.g. `two hundred and twenty`). |
-| `_dpt`        | Word spoken for the decimnal point/comma. |
+| `_dpt`        | Word spoken for the decimal point/comma. |
 | `_dpt2`       | Word spoken (if any) at the end of all the digits after a decimal point. |
 
 ## Character Substitution
