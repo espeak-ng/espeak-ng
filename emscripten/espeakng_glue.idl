@@ -1,0 +1,61 @@
+/*
+ * Copyright (C) 2014-2016 Eitan Isaacson
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
+ */
+
+interface espeak_VOICE {
+  [Const] attribute DOMString name;
+  readonly attribute byte[] languages;
+  [Const] attribute DOMString identifier;
+  attribute octet gender;
+  attribute octet age;
+  attribute octet variant;
+  attribute octet xx1;
+  attribute long score;
+  attribute any spare;
+};
+
+enum espeak_EVENT_TYPE {
+  "espeakEVENT_LIST_TERMINATED",
+  "espeakEVENT_WORD",
+  "espeakEVENT_SENTENCE",
+  "espeakEVENT_MARK",
+  "espeakEVENT_PLAY",
+  "espeakEVENT_END",
+  "espeakEVENT_MSG_TERMINATED",
+  "espeakEVENT_PHONEME",
+  "espeakEVENT_SAMPLERATE"
+};
+
+interface espeak_EVENT {
+  readonly attribute espeak_EVENT_TYPE type;
+  readonly attribute unsigned long unique_identifier;
+  readonly attribute long text_position;
+  readonly attribute long length;
+  readonly attribute long audio_position;
+  readonly attribute long sample;
+  readonly attribute any user_data;
+};
+
+interface eSpeakNGWorker {
+  void eSpeakNGWorker();
+  void synth_(DOMString aText, VoidPtr aCallback);
+  long getSizeOfEventStruct_();
+  void set_voice(DOMString aName, DOMString aLang, optional octet gender=0, optional octet age=0, optional octet aVariant=0);
+  [Const] attribute espeak_VOICE[] voices;
+  readonly attribute long samplerate;
+  attribute long rate;
+  attribute long pitch;
+};

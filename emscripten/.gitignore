@@ -1,0 +1,7 @@
+*.o
+*.out
+*.pkl
+espeakng_data_package.js
+glue.*
+espeakng.worker.*
+pthread-main.js
