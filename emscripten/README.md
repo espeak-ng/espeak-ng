@@ -56,7 +56,7 @@ and pointing your browser to `http://localhost:8000/demo.html`)
 
 ## Download
 
-You can download pre-built JS files from the [Releases page](https://github.com/pettarin/espeak-ng/releases).
+You can download pre-built JS files from the [Releases page](https://github.com/espeak-ng/espeak-ng/releases).
 
 TODO: add the compiled JS files to a public free CDN, and list the URL here.
 
