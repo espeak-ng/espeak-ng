@@ -108,8 +108,8 @@ emscripten/glue.*
 emscripten/js/*.js
 !emscripten/demo.html
 !emscripten/Makefile
-!emscripten/demo.js
-!emscripten/espeakng.js
+!emscripten/js/demo.js
+!emscripten/js/espeakng.js
 
 # espeak-ng-data
 
