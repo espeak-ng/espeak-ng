@@ -5,3 +5,5 @@ espeakng_data_package.js
 glue.*
 espeakng.worker.*
 pthread-main.js
+!demo.html
+!Makefile
