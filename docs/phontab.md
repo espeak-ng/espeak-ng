@@ -236,15 +236,15 @@ instructions.
 
 	length <length>
 
-The relative length of the phoneme in miliseconds. Typical values are about 
-140 for a short vowel and from 200 to 300 for a long vowel or diphong. 
+The relative length of the phoneme in milliseconds. Typical values are about 
+140 for a short vowel and from 200 to 300 for a long vowel or a diphthong. 
 A `length()` instruction is needed for vowels. It is optional for consonants.
 
 ### ipa
 
 	ipa <ipa string>
 
-In many cases, eSpeak NG makes IPA (International Phonetic Alpbabet) phoneme
+In many cases, eSpeak NG makes IPA (International Phonetic Alphabet) phoneme
 names automatically from eSpeak NG phoneme names. If this is not correct, then
 the phoneme definition can include an `ipa` instruction to specify the correct
 IPA name. IPA strings may include non-ascii characters. They may also include
@@ -565,7 +565,7 @@ is limited by the program.
 
 	len=<integer>
 
-Nominal length of the transition in miliseconds. If omitted a default value is used.
+Nominal length of the transition in milliseconds. If omitted a default value is used.
 
 	rms=<integer>
 

@@ -111,7 +111,7 @@ new languages:
 
 These are a condensed set of releases that were maintained in step with the
 upstream eSpeak releases. The releases containing minor build fixes, or only
-incorporating upstream changes have been ommitted.
+incorporating upstream changes have been omitted.
 
 ### 1.48.11 - 2014-08-31
 
