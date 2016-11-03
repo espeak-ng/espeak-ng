@@ -58,9 +58,25 @@ and pointing your browser to `http://localhost:8000/demo.html`)
 
 ## Download
 
-You can download pre-built JS files from the [Releases page](https://github.com/espeak-ng/espeak-ng/releases).
+You can download pre-built JS/data files from the
+[jsdelivr CDN](http://www.jsdelivr.com/).
+You need to get the following files:
 
-TODO: add the compiled JS files to a public free CDN, and list the URL here.
+```
+# Latest version
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.min.js
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.worker.js
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.worker.data
+
+# Specific version
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.min.js
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.worker.js
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.worker.data
+```
+
+For details, see the
+[espeakng.js-cdn](https://github.com/pettarin/espeakng.js-cdn)
+repository.
 
 
 ## Building
