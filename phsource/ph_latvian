@@ -128,7 +128,7 @@ phoneme uo
   FMT(vdiph2/uaa, 100)
 endphoneme
 
-phoneme uo<       // shorter version of uo
+phoneme o`       // shorter version of uo
   vowel starttype #u endtype #a
   length 180
   long
@@ -245,7 +245,7 @@ phoneme D   // louder and shorter version of d
 endphoneme
 
 
-phoneme z<  // Shortened version of z for diphthong dz
+phoneme z`  // Shortened version of z for diphthong dz
   vcd alv frc sibilant
   voicingswitch s
   length 10
@@ -264,7 +264,7 @@ phoneme z<  // Shortened version of z for diphthong dz
   FMT(voc/z, 110) addWav(ufric/s_, 100)
 endphoneme
 
-phoneme Z< // Shortened version of Z for diphthong dZ
+phoneme Z` // Shortened version of Z for diphthong dZ
   vcd pla frc sibilant
   voicingswitch S
   length 30
@@ -287,13 +287,13 @@ endphoneme
 
 phoneme >  // lengthen previous vowel less than using ":"
   virtual
-  length 20 // it actually seems working shorter as 20ms, but anyway...
+  length 30 // it actually seems working shorter, but anyway...
 endphoneme
 
-phoneme . // Tiny, 5ms non-linked pause (used between phonemes in word)
+phoneme } // Tiny, 5ms non-linked pause (used between phonemes in word)
   pause
-  starttype _ endtype _
-  lengthmod 1
+//  starttype _ endtype _
+//  lengthmod 1
   nolink
   length 5
 endphoneme
