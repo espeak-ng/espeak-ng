@@ -99,6 +99,18 @@ License.txt
 ReadMe
 Makefile
 
+# emscripten files
+
+emscripten/*.out
+emscripten/*.pkl
+emscripten/espeakng_data_package.js
+emscripten/glue.*
+emscripten/js/*.js
+!emscripten/demo.html
+!emscripten/Makefile
+!emscripten/js/demo.js
+!emscripten/js/espeakng.js
+
 # espeak-ng-data
 
 dictsource/*_extra

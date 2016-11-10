@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>espeakng.js Demo</title>
+    <style>
+      h1 {
+        max-width: 480px;
+        margin: 2rem auto;
+        font-size: 150%;
+      }
+      form {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .speecharg label {
+        display: inline-block;
+        width: 20%;
+      }
+      .speecharg input, .speecharg select {
+        display: inline-block;
+        width: calc(80% - 3rem);
+        margin: 0;
+      }
+      .speecharg button {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 0 0 1.5rem;
+        display: inline-block;
+      }
+      .bottom {
+        margin-top: 1rem;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        margin: 1rem 0;
+      }
+      .bottom button {
+        flex-grow: 1;
+        -webkit-flex-grow: 1;
+      }
+      #texttospeak {
+        width: 100%;
+        height: 8rem;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      p.gh {
+        color: #333;
+        text-align: right;
+        display: block;
+        font-style: italic;
+      }
+
+      /* loading screen */
+      #splash {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        padding-top: 4rem;
+        transition: opacity 200ms ease, visibility 200ms;
+        -webkit-transition: opacity 200ms ease, visibility 200ms;
+        visibility: hidden;
+        opacity: 0;
+      }
+      body.loading #splash {
+        visibility: visible;
+        opacity: 1;
+      }
+      #splash > * {
+        width: 10rem;
+        max-width: 480px;
+        margin: 2rem auto;
+        display: block;
+        text-align: center;
+      }
+      body.loading > *:not(#splash) {
+        visibility: hidden;
+      }
+
+    </style>
+    <script type="text/javascript" src="js/espeakng.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+  </head>
+  <body class="loading">
+    <div id="splash">
+      <div>Loading eSpeak-ng worker and data...</div>
+      <progress></progress>
+    </div>
+    <h1>espeakng.js Demo</h1>
+    <form>
+      <textarea id="texttospeak">Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.</textarea>
+      <div class="speecharg">
+        <label for="pitch">Pitch</label><input id="pitch" type="range" value="50" min="0" max="100"><button type="button" aria-label="Reset pitch" title="Reset pitch" onclick="resetPitch();">&#x21b6;</button>
+      </div>
+      <div class="speecharg">
+        <label for="rate">Rate</label><input id="rate" type="range" value="175" min="80" max="450"><button type="button" aria-label="Reset rate" title="Reset rate" onclick="resetRate();">&#x21b6;</button>
+      </div>
+      <div class="speecharg">
+        <label for="voice">Voice</label><select id="voice"></select><button type="button" aria-label="Reset voice" title="Reset voice" onclick="resetVoice();">&#x21b6;</button>
+      </div>
+      <div class="bottom">
+        <button type="button" onmousedown="speak();">Speak</button>
+        <button type="button" onmousedown="stop();">Stop</button>
+      </div>
+      <p class="gh"><a href="https://github.com/eeejay/espeak/tree/emscripten">Original Code for eSpeak: Eitan Isaacson</a></p>
+      <p class="gh"><a href="https://github.com/pettarin/espeak-ng/tree/emscripten">Adapted Code for eSpeak-ng: Alberto Pettarin</a></p>
+    </form>
+    <script type="text/javascript">
+      initializeDemo();
+    </script>
+  </body>
+</html>
