@@ -163,8 +163,8 @@
 
 .group d
            d               d
-           dz              Dz<
-           dž              DZ<
+           dz              Dz`
+           dž              DZ`
            dž (L61         DZ
 
 .group e
@@ -402,17 +402,18 @@ L41L10L10L10) ē (@<<           e:
 
 .group k
            k               k
+           k (ļ            k}       // tiny pause between k and ļ
 
 .group ķ
            ķ               c
-           ķ (L55          c.       // tiny pause for sharper sound before short vowels
+           ķ (L55          c}       // tiny pause for sharper sound before short vowels
 
 .group l
       L56) l (@           >l         // short vowels (or diphthongs) before
         o) l (@           :l         // short vowels before
      CL57) l (@           :l         // long vowels before
            l               l
-           ll              lll       // espeak says doubled ll shorter than doubled ļļ
+           ll (++          ll       // espeak says doubled ll shorter than doubled ļļ
         C) l (C            l-        // more voiced variant between consonants
 
 .group ļ
@@ -436,7 +437,7 @@ L41L10L10L10) ē (@<<           e:
 
 .group o
    //  default policy rules
-       _C) o (_+           uo<       // shorter version of uo for particles
+       _C) o (_+           o`        // shorter version of uo for particles
         o) o               o:        // in ..oo.. second o is spelled as ō
            o ($w_alt++     o         // $alt words in lv_list are spelled as o
            o (_$w_alt1+    o:        // o at the end of internationalisms ($alt1) words is spelled as ō
@@ -474,7 +475,7 @@ L46L45L45) o (<<           uo
            o (L44+         uo        // uo postfixes
 
    //  Prefixes
-       _n) o               uo<       // shorter uo for prefix
+       _n) o               o`        // shorter uo for prefix
 
    //  international prefixes
     _femt) o               o
@@ -992,7 +993,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
         v) ol (u           ol
         z) ol (it          ol 
        @z) ol (L01_        o:l       // ..zols
-        z) ol (L05_        uo>l      // ..zole
+        z) ol (L05_        uol      // ..zole
 
 .group om
        an) om              om
@@ -1067,6 +1068,7 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
      daig) on              uon
      dail) on              uon
      dalt) on              o:n
+        d) on (ald         on
         d) on (k           oN
        _d) on (L04_        uon       // dona
         d) on (n           onn
