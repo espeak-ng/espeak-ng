@@ -251,7 +251,6 @@ antilope $2
 antimafia $3
 antimateria	$4
 antimaterie	$4
-antincendi  $alt
 antinoe $2
 antiope $2
 antipatr $2
@@ -965,7 +964,6 @@ commedia  $alt
 commod  $alt
 comod $1
 compagnia $3
-compendi  $alt
 compiet  $alt
 compit $1
 complet  $alt
@@ -1049,12 +1047,11 @@ corporee	$2
 corporei	$2
 corporeo	$2
 corred  $alt
-correr $1
 corrett  $alt
 corrid $2
 corrott  $alt2
-corsa	$alt2
-cort  $alt2
+cors	$alt2
+cort	$alt2
 corte  $alt2
 cortenuov  $alt
 cortes $2
@@ -1084,6 +1081,7 @@ cremer $1
 cremia $1
 cremisi $1
 crep  $alt
+crepitio	k@-*epit'io/
 cres  $alt
 crescit $1
 cresol $2
@@ -1230,7 +1228,6 @@ disistim	$3
 dislessia $3
 dispareunia $5
 dispari $1
-dispendi  $alt
 dispett  $alt
 dispost  $alt2
 disprezz  $alt
@@ -1262,6 +1259,7 @@ dolmen  $alt
 dolomia $2  $alt
 doma	$alt
 domandone	$3
+domenic	$alt2
 domicili	$3
 domin $1
 domusnovas  $alt
@@ -1623,7 +1621,6 @@ flegias $1  $alt
 floem  $alt
 florin $1  $alt2
 fluido  fl'uido
-flumendos  $alt
 fobia $2
 foder $1
 fogli  $alt
@@ -1857,6 +1854,7 @@ grec  $alt
 grembiul	g@-*embI'ul
 greve  $alt
 grom  $alt2
+grondone	$2
 grosi  $alt
 grossomod $3  $alt
 guarani $3
@@ -1910,7 +1908,6 @@ impet $1
 impieg  $alt
 implicit $2
 incazzati	inka_ts'ati
-incendi  $alt
 incentr  $alt
 incerti	$2 $alt
 incipit	$1 $only
@@ -2290,11 +2287,8 @@ membr  $alt
 mement  $alt
 memnone $1  $alt
 memore $1  $alt
-men  $alt2
-mendelevi  $alt
-menecm  $alt
+men	$alt2
 menhir $2
-menn  $alt2
 mensile $2
 mensol  $alt
 ment  $alt2
@@ -2707,7 +2701,7 @@ ottenere $3  $alt2
 ottic  $alt
 ottim  $alt
 ottoboni  $alt
-ottobre	ot:'ob@-*e
+ottobre	,Ot:'ob@-*e
 ottotip $2
 ottotipi $2
 ovaii	$2
@@ -2720,6 +2714,7 @@ ozia $2
 pacec  $alt
 padron $2
 padroncine	$3
+padul	$2
 pagane	pag'ane
 pagin	$1
 pagod  $alt
@@ -3187,7 +3182,8 @@ radicofani $3
 radiofarmaceutiche	$6
 radiospie	@-*adiosp'I:e
 radioterapeutiche	$6
-rafie	$1
+rafia	@-*'afja
+rafie	@-*'afje
 ragion	@-*adZ'o:n
 raglan $2
 ragnatel  $alt2
@@ -3332,6 +3328,7 @@ romandia $3
 romboedr  $alt
 rompiscatole $3
 rondini	$1
+rondone	$2
 ronsio	@-*ondz'io
 ropaloceri $3
 rore  $alt
@@ -3491,6 +3488,7 @@ seggi  $alt
 seggiol	$1
 seggiovia $3
 seggiovie	sedZ:,ov'i:e
+segnanumer	$3
 segnapost  $alt2
 segnavia $3
 selce  $alt2
@@ -3708,35 +3706,32 @@ spogli  $alt
 spoglia  $alt
 spolverio	$3
 sporofit $2
-spos  $alt
 spotorn  $alt2
-sprec  $alt
+sprec	$alt
+sprechi	$alt
 staffor $1
 stambecc  $alt2
 stantio	stant'io
 starost $1
 staser	stas'eR
 statere $2
-statolder  $alt
-stecc  $alt2
-stefani $1
+stecc	$alt2
 stell  $alt2
 stendifili	$3
-stepp  $alt2
-stereo $1
-stereotip $3
+stepp	$alt2
+stereo	$1
+stereotip	$3
 stesicor $2
 stigmate $1
 stilobate $2
-stipendi  $alt
-stobi  $alt
-stom  $alt
+stom	$alt
 stomaci	$1
-stop  $alt
-stopp  $alt2
-storm  $alt2
-storn  $alt2
+stop	$alt
+stopp	$alt2
+storm	$alt2
+storn	$alt2
 stradine	$2
+strafelic	$3
 strafila	$2
 stranguria $3
 strapiomb  $alt2
@@ -3747,36 +3742,35 @@ stres  $alt
 strettoia  $alt2
 strimpellio	$3
 strizzati	st@-*its2:'ati
-strof  $alt
+strof	$alt
 strolag $1
 struscii	st@-*uS'i:j
 strutturati	$3
 subacquea	$2
 subacquee	$2
 subacquei	$2
-subacqueo $2
+subacqueo	$2
 subagenzia	$4
 subagenzie	subgaRa/Nts'ie
-subconsci  $alt
+subconsci	$alt
 subfebbril	$3
 subito  $1
 suddiacon $2
-suddit $1
+suddit	$1
 suddivid	$3
-sudest $2
+sudest	s,ud||'est	$only
 sudicia	$1
 sudicie	$1
 sudicio	$1
-sudovest  $alt
+sudovest	s,ud||'Ovest
 suffett  $alt
-sugher $1
+sugher	$1
 sulfurei	$2
-suocer sU'O:tSeR
-superior  $alt2
+suocer	sU'O:tSeR
 superman	s'upe@-*m,En $onlys
-superstite $2
-suppost  $alt2
-supremazia $4
+superstite	$2
+suppost	$alt2
+supremazia	$4
 supremazie	sup@-*emats'ie
 surrene  $alt2
 sussurrio	$3
@@ -3844,6 +3838,7 @@ temperie	$2
 templ  $alt
 tempor	$1 $alt
 tempr  $alt
+tendone	$2
 tenebr $1  $alt
 tened $1  $alt
 tenera	$1  $alt
