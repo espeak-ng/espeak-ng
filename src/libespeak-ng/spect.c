@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <endian.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -151,6 +152,9 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 	fread(&frame->nx, sizeof(short), 1, stream);
 	fread(&frame->markers, sizeof(short), 1, stream);
 	fread(&frame->amp_adjust, sizeof(short), 1, stream);
+	frame->nx = le16toh(frame->nx);
+	frame->markers = le16toh(frame->markers);
+	frame->amp_adjust = le16toh(frame->amp_adjust);
 
 	if (file_format_type == 2) {
 		fread(&ix, sizeof(short), 1, stream); // spare
@@ -164,6 +168,12 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 		fread(&frame->peaks[ix].pkheight, sizeof(short), 1, stream);
 		fread(&frame->peaks[ix].pkwidth, sizeof(short), 1, stream);
 		fread(&frame->peaks[ix].pkright, sizeof(short), 1, stream);
+		frame->formants[ix].freq = le16toh(frame->formants[ix].freq);
+		frame->formants[ix].bandw = le16toh(frame->formants[ix].bandw);
+		frame->peaks[ix].pkfreq = le16toh(frame->peaks[ix].pkfreq);
+		frame->peaks[ix].pkheight = le16toh(frame->peaks[ix].pkheight);
+		frame->peaks[ix].pkwidth = le16toh(frame->peaks[ix].pkwidth);
+		frame->peaks[ix].pkright = le16toh(frame->peaks[ix].pkright);
 		if (frame->peaks[ix].pkheight > 0)
 			frame->keyframe = 1;
 
@@ -171,12 +181,18 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 			fread(&frame->peaks[ix].klt_bw, sizeof(short), 1, stream);
 			fread(&frame->peaks[ix].klt_ap, sizeof(short), 1, stream);
 			fread(&frame->peaks[ix].klt_bp, sizeof(short), 1, stream);
+			frame->peaks[ix].klt_bw = le16toh(frame->peaks[ix].klt_bw);
+			frame->peaks[ix].klt_ap = le16toh(frame->peaks[ix].klt_ap);
+			frame->peaks[ix].klt_bp = le16toh(frame->peaks[ix].klt_bp);
 		}
 	}
 
 	if (file_format_type > 0) {
 		for (ix = 0; ix < N_KLATTP2; ix++)
+		{
 			fread(frame->klatt_param + ix, sizeof(short), 1, stream);
+			frame->klatt_param[ix] = le16toh(frame->klatt_param[ix]);
+		}
 	}
 
 	spect_data = malloc(sizeof(USHORT) * frame->nx);
@@ -187,6 +203,7 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 	frame->max_y = 0;
 	for (ix = 0; ix < frame->nx; ix++) {
 		fread(&x, sizeof(short), 1, stream);
+		x = le16toh(x);
 		spect_data[ix] = x;
 		if (x > frame->max_y) frame->max_y = x;
 	}
@@ -288,7 +305,9 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	}
 
 	fread(&id1, sizeof(uint32_t), 1, stream);
+	id1 = le32toh(id1);
 	fread(&id2, sizeof(uint32_t), 1, stream);
+	id2 = le32toh(id2);
 
 	if ((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 		spect->file_format = 0; // eSpeak formants
@@ -303,6 +322,7 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	}
 
 	fread(&name_len, sizeof(uint32_t), 1, stream);
+	name_len = le32toh(name_len);
 	if (name_len > 0) {
 		if ((spect->name = (char *)malloc(name_len)) == NULL) {
 			fclose(stream);
@@ -316,6 +336,10 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename)
 	fread(&spect->amplitude, sizeof(short), 1, stream);
 	fread(&spect->max_y, sizeof(short), 1, stream);
 	fread(&temp, sizeof(short), 1, stream); // unused
+	n = le16toh(n);
+	spect->amplitude = le16toh(spect->amplitude);
+	spect->max_y = le16toh(spect->max_y);
+	temp = le16toh(temp);
 
 	if (n == 0) {
 		fclose(stream);
