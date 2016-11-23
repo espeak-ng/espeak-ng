@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update 15 august 2016 by Chris <llajta2012@gmail.com>
+//  Italian, last update november 5 2016 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -40,14 +40,14 @@ endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 155
+  length 160
   ChangeIfNotStressed(e/)
   FMT(vowel/e_2)
 endphoneme
 
 phoneme e/
   vowel starttype #e endtype #e
-  length 140
+  length 145
   IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
     FMT(vowel/e_mid2)
   ELIF thisPh(isWordEnd) THEN
@@ -91,7 +91,7 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 160
+  length 170
   ChangeIfNotStressed(o/)
   FMT(vwl_it/o)
 endphoneme
@@ -119,7 +119,7 @@ endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 160
+  length 175
   ChangeIfNotStressed(U)
   FMT(vwl_it/u)
 endphoneme
@@ -233,5 +233,49 @@ phoneme ss
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   length 170
   WAV(ufric/s, 86)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF prevPhW(z) THEN
+    length 70
+    FMT(voc/v_) addWav(vocw/v, 60)
+  ENDIF
+  IF KlattSynth THEN
+    Vowelout f1=1  f2=1000 -500 -300  f3=-300 60  len=50 brk
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/v) addWav(vocw/v, 150)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
+    Length 70
+  ENDIF
+  FMT(voc/v) addWav(vocw/v, 90)
+endphoneme
+
+phoneme z
+  vcd alv frc sibilant
+  voicingswitch s
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  IF nextPhW(v) OR nextPhW(b) THEN
+    FMT(voc/z) addWav(ufric/s!, 60)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 

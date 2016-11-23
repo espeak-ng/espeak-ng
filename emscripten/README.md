@@ -8,7 +8,7 @@ allows client-side text-to-speech synthesis in any browser
 supporting Web workers and the Web Audio API.
 
 * Version: 1.49.0
-* Date: 2016-10-27
+* Date: 2016-11-01
 * License: the GNU General Public License, Version 3 (GPLv3)
 * Size: 3.0 MB (including all the voices)
 
@@ -17,7 +17,7 @@ supporting Web workers and the Web Audio API.
 
 For an online demo, visit [this page](https://www.readbeyond.it/espeakng/).
 
-If you prefer a local demo, open the file `demo.html` in your browser.
+If you prefer a local demo, open the file [`demo.html`](demo.html) in your browser.
 (Depending on your browser, you might need to serve it via a Web server.
 A simple way consists in calling `$ python -m SimpleHTTPServer 8000`
 and pointing your browser to `http://localhost:8000/demo.html`)
@@ -26,18 +26,20 @@ and pointing your browser to `http://localhost:8000/demo.html`)
 ## Usage
 
 1. Include `js/espeakng.js` in your HTML file:
-    
+
     ```html
     <script type="text/javascript" src="js/espeakng.js"></script>
     ```
 
-2. Create a new `eSpeakNG` instance with the path of the worker (e.g., `espeakng.worker.js`) as the first argument.
+2. Create a new `eSpeakNG` instance with the path of the worker
+   (e.g., `js/espeakng.worker.js`) as the first argument.
    You can supply a callback function that will be called once the worker is ready:
 
     ```js
     <script>
-      var espeakng = new eSpeakNG('js/espeakng.worker.js', function(){
-        // now you can use espeakng
+      var tts = new eSpeakNG('js/espeakng.worker.js', function(){
+        // now tts is initialized and
+        // you can call tts.function(...)
         ...
       });
     </script>
@@ -51,46 +53,71 @@ and pointing your browser to `http://localhost:8000/demo.html`)
     * `set_voice.apply(espeakng, voice)`: set the voice for synthesizing speech, `voice` must be the code string for the desired voice (e.g., `en`, `en-us`, `it`, etc.)
     * `synthesize(text, cb(samples, events))`: synthesize the given string `text` and call the callback function `cb` when done, passing the generated audio samples (`samples`) and events (`events`)
 
-    See the file `demo.html` for details.
+    See the file [`demo.html`](demo.html) for details.
 
 
 ## Download
 
-You can download pre-built JS files from the [Releases page](https://github.com/espeak-ng/espeak-ng/releases).
+You can download pre-built JS/data files from the
+[jsdelivr CDN](http://www.jsdelivr.com/).
+You need to get the following files:
 
-TODO: add the compiled JS files to a public free CDN, and list the URL here.
+```
+# Latest version
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.min.js
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.worker.js
+https://cdn.jsdelivr.net/espeakng.js/latest/espeakng.worker.data
+
+# Specific version
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.min.js
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.worker.js
+https://cdn.jsdelivr.net/espeakng.js/1.49.0/espeakng.worker.data
+```
+
+For details, see the
+[espeakng.js-cdn](https://github.com/pettarin/espeakng.js-cdn)
+repository.
 
 
 ## Building
 
-1. Make sure you have `emscripten` [installed and activated](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html).
+1. Make sure you have `emscripten`
+   [installed and activated](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html),
+   and configured in your shell.
 
-2. Clone the repo and enter the `espeak-ng` directory:
+2. Clone the repository, enter the `espeak-ng` directory, and initialize it:
 
     ```bash
     $ git clone https://github.com/espeak-ng/espeak-ng
     $ cd espeak-ng
+    $ ./autogen.sh
     ```
 
 3. Compile `espeak-ng`:
 
     ```bash
-    $ ./autogen.sh
     $ ./configure --prefix=/usr --without-async --without-mbrola --without-sonic
     $ make
     ```
 
-4. Recompile `espeak-ng` with `emconfigure` and `emmake`: 
+    Instead, if you just want a subset of languages of your choice,
+    run `make XX` for each of them, where `XX` is the language code.
+    For example:
+
+    ```bash
+    $ # build English only
+    $ make en
+    $
+    $ # build English, Italian, and German
+    $ make en && make it && make de
+    ```
+
+4. Recompile the `espeak-ng` library with `emconfigure` and `emmake`:
 
     ```bash
     $ emconfigure ./configure --prefix=/usr --without-async --without-mbrola --without-sonic
-    $ emmake make
+    $ emmake make src/libespeak-ng.la
     ```
-
-    Note: the `emmake make` command currently exits
-    with the error `recipe for target 'phsource/phonemes.stamp' failed`,
-    but you can safely ignore it.
-    (TODO: fix this issue.)
 
 5. Enter the `emscripten` directory and compile the JS worker with `emmake`:
 
@@ -100,28 +127,29 @@ TODO: add the compiled JS files to a public free CDN, and list the URL here.
     ```
 
 6. The `js/` directory should contain the output JS files:
-    
+
     * `espeakng.js`,
     * `espeakng.worker.js`, and
     * `espeakng.worker.data`.
 
 ### Notes
 
-* If you want to build only a single voice, for example the English one,
-  run `$ make en` instead of `$ make` at step 3.
-  You can also build a subset of all the available voices,
-  by running (say) `$ make en && make it && make fr && make es`.
-  Note that `list_voices()` will still list all available voices,
-  but if you try using one that has not been compiled,
+* Even if you build only a subset of languages,
+  the `list_voices()` function will still list all the available voices.
+  However, if you try using language that has not been built,
   you will get a runtime error.
   (TODO: fix this issue.)
 * The `-O3` optimization flag is passed to `emscripten` by default,
   achieving a considerable reduction of the size of the generated JS worker.
   If you want to omit it, for example for debug purposes,
-  just `$ export EM_DEBUG=1` before calling `emmake make` in step 5.
+  just export the `EM_DEBUG` environment variable with value `1`
+  (i.e., `$ export EM_DEBUG=1`) before step 3.
 * To remove intermediate files compiled by emscripten,
-  keeping only the JS worker files, run `$ emmake clean-intermediate`.
-* To remove all the files compiled by emscripten, run `$ emmake clean`.
+  run `$ emmake clean-intermediate`.
+  This command will keep the output JS files, if any.
+* To remove all the files compiled by emscripten,
+  including the output JS files,
+  run `$ emmake clean`.
 
 
 ## Credits

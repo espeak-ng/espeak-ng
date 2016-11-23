@@ -105,6 +105,7 @@ emscripten/*.out
 emscripten/*.pkl
 emscripten/espeakng_data_package.js
 emscripten/glue.*
+emscripten/js/*.data
 emscripten/js/*.js
 !emscripten/demo.html
 !emscripten/Makefile

@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 September 8 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2016 November 6 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -109,7 +109,7 @@ $	d'Ol:aRI
 \	kont@-*ob'a:R*a	$max3
 _|	b'aR*a||ve@-*tik'ale
 &	'a/nd
-©       k'opI||raIt
+©       k'O:pI||raIt
 #	kantSellet:o
 @	ki'otS:ola
 ~	tilde
@@ -136,7 +136,8 @@ _′	p@-*'imi
 _″	d'Op:io||'apitSe
 _‴	t@-*'iplo||'apitSe
 _‼	esklamatsi'One
-¶	paR'ag@-*afo
+§	setsi'One
+¶	pa*'ag@-*afo
 _‐	legat'u:Ra
 _‒	lini'et:a
 _‑	t@-*at:,ino||duni'one
@@ -193,9 +194,9 @@ _‥	p,unto||d'op:io
 ‰	p,E@-*||m'ille
 
 ₤	l'i:Ra
-£       sterl'ina
-₠	'e:uRo
-€	'e:uRo
+£	ste@-*l'ina
+₠	'EuRo
+€	'EURo
 ₹	@-*u_pjaindj'ana
 ₨	@-*'upja
 ¤	s'imbolo||di||v'aluta
@@ -249,6 +250,45 @@ _ka	dZeO@-*dZ'anO
 _ko	kore'anO
 _ja	dZap:on'ezE
 _zh	tSIn'ezE
+
+// Greek letters
+// 0xce is the first byte of the utf-8 code for these characters
+
+α	'alfa_
+ά	'alfa_
+β	b'eta_
+γ	g'am:a_
+δ	d'Elta_
+ε	'EpsIlon
+έ	'EpsIlon_
+ζ	dz'eta||g@-*'eka
+η	'e:ta||g@-*'eka
+ή	'e:ta||g@-*'eka_
+θ	t'e:ta||g@-*'eka_
+ι	I'ota_
+ί	I'ota_
+κ	k'ap:a||g@-*'eka_
+λ	l'ambda_
+μ	m'ju:_
+ν	n'ju:_
+ξ	ks'I||g@-*'eka_
+ο	'omIk@-*on_
+
+// Greek letters 0xcf   
+
+π	p'I||g@-*'eka_
+ρ	@-*'O||g@-*'eka_
+σ	s'Igma_
+ς	s'Igma_
+τ	t'au_
+υ	'IpsIlon_
+ύ	'IpsIlon_
+φ	f'I||g@-*'eka_
+χ	k'I||g@-*'eka_
+ψ	ps'I||g@-*'eka_
+ω	om'ega_
+ώ	om'ega_
+ό	'omIk@-*on_
 
 // Cyrillic letters
 
@@ -320,15 +360,23 @@ _26	ventis'Ej
 _27	ventis'Et:e
 _28     vent'Ot:o
 _29	ventin'Ove
-_3X     t@-*'enta
+_3X     t@-*'e:nta
 _4X     kua*'a:nta
 _5X     tSinkw'anta
 _6X     sess'anta
 _7X     set:'anta
 _8X     ot:'anta
 _9X     nov'anta
-_0C     tS'Ento $u+
-_0M1    m'ila
+_0C	tS'Ento
+_2C	duetS'Ento
+_3C	t@-*etS'Ento
+_4C	kUat:@-*otS'Ento
+_5C	tSInkUetS'Ento
+_6C	sejtS'Ento
+_7C	set:etS'Ento
+_8C	ot:otS'Ento
+_9C	nOvetS'Ento
+_0M1	m'i:la
 _1M1	m'ille
 _0M2    mili'oni
 _1M2	unmili'one
@@ -339,7 +387,7 @@ _1M4	unbili'one
 _dpt	v'i@-*gola
 // _0Z2	tSent'ezimi     // 100ths
 _0Z3	mill'ezimi      // 1000ths
-_roman	@-*Om'ano
+_roman	@-*om'ano
 
 // ordinal numbers
 _#º	o         // ordinal suffix
@@ -457,7 +505,7 @@ tu	$u+ $verbf $only
 lui	$u+ $only
 lei	$u+ $only
 noi	$u+ $only
-voi	$u+ $only
+voi	v'o|I	$only
 loro	$u+ $only
 egli	$u+
 ella	$u+
@@ -525,15 +573,15 @@ come	$u+
 contro	$u+
 cui	k'uj
 durante	$brk
-e		$u+ $brk
+e	$u+ $brk
 eccetto    $pause
-ed		$u+ $brk $only
+ed	$u+ $brk $only
 forse	$alt2
 ma	$u+ $brk
 mai	$u+ $verbf
 mentre	$u+
 neanche	$u+	$brk
-né	$u+	$brk  $only
+// né	$u+	$brk  $only
 no	nO $strend
 non	$u	$verbf $only
 o	$u+ $brk
@@ -691,7 +739,7 @@ avresti	$u+	$verbf
 avrebbe	$u+	$verbf
 avremmo	$u+	$verbf
 avreste	$u+
-avrebbero	$u+	$alt	$verbf
+avrebbero	$2	$verbf
 
 // Letters at end
 
@@ -805,7 +853,7 @@ condor	$1
 container	kont'eInE@-*	$onlys
 controller	$2
 converter	$2	$onlys
-copyright	k'opI@-*,aIt[
+copyright	k'O:pI@-*,aIt[
 corner	$1
 corporation	ko@-*poR'ESon
 couscous	k,us||k'us
@@ -898,8 +946,14 @@ green	g@-*i:n $onlys
 greenpeace	g@-*,iN||p'i:s
 guinness	g'iness
 hacker	'ake@-*
+hackeraggio	akeR'adZ:o
+hackerat	akeR'at
+hackerare	ake*'a:Re
 hall	h'O:l: $only
-hamburger	hamb'u@-*ge@-*
+Hallelujah	al:el'u:ja
+hamburger	amb'u@-*ge@-*
+Handicap	'andikap
+handicapat	andikap'at
 happy	_^_EN 
 hardware	'a:*d[||we@-*
 highlander	aIl'a/Nde@-*
@@ -1650,6 +1704,7 @@ com'è	kom'E
 com'era	kom'E:Ra
 cos'hai	koz'a:i
 cos'è	koz'E
+cos'altro	koz'a:lt@-*o/
 dov'è	dov'E
 qual'è	kwal''E
 tant'è	taNt'E
@@ -2215,6 +2270,7 @@ Cancelleri	$3 $only
 carey	_^_en
 carmel	$2
 cassano	$2
+casula	$2
 catia	k'a:tia
 celentano	$3
 cesare $1
@@ -2250,6 +2306,7 @@ diaz	d'iats $only
 Dickinson	$1
 diocle $1
 diomede  $alt
+distefano	$2
 duddington	d'a/dINt@n
 eddie	'Ed:I
 edgar	$1
@@ -2299,6 +2356,7 @@ gibson	g'Ibson
 giordano	$2
 giorgia	$1
 girolamo	$2
+giovagnol	$3
 gorbaciov	$1
 gregoria	$2 $alt2
 grace	g@-*'Eis	$only
@@ -2380,6 +2438,7 @@ mariapia	$4
 marilyn	m'E:r*ilIN
 marylin	m'ERilin
 marzott	ma@-*dz'Ot:
+masala	$1
 mayer	$1
 mazzin $2
 mazzol $2
@@ -2474,7 +2533,7 @@ sonja	s'O:nIa
 sophia	sOf'ia
 spencer	sp'ense@-*
 stanley	$1
-stefano	$1
+stefan	$1
 steve	_^_en $only
 steven	st'iven	$onlys
 stewart	stj'ua*t
@@ -2619,6 +2678,7 @@ addentrano	$2	$alt
 addestrano	$2
 addestrino	$2
 addic	$2
+addicano	$2
 addossino	$2
 addrizzare	ad:@-*Its2:'aRe
 adeguano	$2
@@ -2912,13 +2972,14 @@ circondino	$2
 citano	$1
 citofonano	$2
 clicchino	$1
-coincida	ko'intSita
-coincide	kOintS'ide
+coincid	kointS'i:d
+coincita	ko'intSita
 collabor	$2
 collaborano	$2
 colloc	$1	$alt
 collocano	$1 $alt
 collochi	$1	$alt
+collochino	$1
 comandano	$2
 comandino	$2
 combinino	$2
@@ -3001,6 +3062,7 @@ convogliano	$2
 coordin	$2
 copiano	$1
 copino	$1
+correre	$1 $alt2
 cospirano	$2
 costino	$1
 creano	$1
@@ -3088,6 +3150,7 @@ differenziano	$3
 diffid	$2
 digit	$1
 digitano	$1
+digitino	$1
 digiunino	$2
 digrignano	$2
 dilatano	$2
@@ -3104,6 +3167,7 @@ disarmano	$2
 disarmino	$2
 discolpino	$2
 discrimin	$2
+discriminino	$2
 discutano	$2
 disdegnano	$2
 disdegnino	$2
@@ -3727,6 +3791,7 @@ ovvino	$1
 paghino	$1
 palpano	$1
 palpita	$1
+palpitano	$1
 paragono	$3 $alt2
 parano	$1
 parlano	$1
@@ -3863,6 +3928,7 @@ raffigurano	$3
 raffigurino	$3
 rafforzino	$2
 raffreddano	$2
+raggirano	$2
 raggruppano	$2
 ragliano	$1
 rallegrano	$2
@@ -3950,6 +4016,7 @@ ricandidano	$2
 ricapitano	$2
 ricapitol	$3
 ricaricano	$2
+ricarichino	$2
 richiamano	$2
 richiamino	$2
 richiedano	$2
@@ -4273,11 +4340,13 @@ soprannomino	$3
 soprassedere	$4
 soprassegnano	$3
 soprassiedano	$3
+sormontino	$2
 sorpassino	$2
 sorrid	$2
 sorteggino	$2
 sorvegliano	$2
 sospettino	$2
+sospirano	$2
 sostenei	$3 $alt2
 sostenere	$3
 sostino	$1
@@ -4325,6 +4394,7 @@ spieghino	$1
 spifferano	$1
 spifferino	$1 $verb
 spintono	$2
+spirano	$1
 spogliano	$1 $alt
 spoglino	$1 $alt
 spolmono	$2 $alt2
@@ -4387,8 +4457,8 @@ sudano	$1
 sudino	$1
 suggestiono	$4
 suicid	$3
-suonano	sw'Onano
-suonino	$1
+suonano	sw'O:nano
+suonino	sw'Onino
 super	$1
 superano	$1
 superino	$1
@@ -4463,6 +4533,8 @@ tramutano	$1
 trangugia	$2
 tranquillizzino	$3
 transitano	$1
+transitino	$1
+trapassino	$2
 trapelino	$2
 trascegliere	$2
 trascendano	$2
@@ -4471,6 +4543,7 @@ trascurino	$2
 trasformino	$2
 traslocano	$2
 traspaiano	$2
+traspirano	$2
 trasportino	$2
 trattenere	$3
 traumatizzino	$4
@@ -4495,6 +4568,7 @@ tuffano	$1
 tumol	$1
 turbano	$1
 turbino	$1
+tutelino	$2
 ubriacano	$3
 ubriachino	$3
 uccid	$2
@@ -4538,6 +4612,7 @@ veglino	$1
 vendemmiano	$2
 vendicano	$1
 vendichino	$1
+vendano	$1
 vergogniano	$2
 vergognino	$2
 versano	$1
@@ -4678,6 +4753,7 @@ evolverci	$2
 evolversi	$2
 fammel	$1
 fattel	f'at:el
+fattoci	$1
 fermati	$1 $atstart
 fermatosi	$2
 formatosi	$2

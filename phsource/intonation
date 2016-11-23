@@ -149,10 +149,11 @@ endtune
 tune s4
 prehead   46 57
 headenv   fall 16
-head       4 80 50 -8 -5
+head       4 75 45 -8 -5
 headextend 0 63 38 13 0
+headlast 50 4 8
 nucleus0 fall 64 8
-nucleus  fall 70 18 24 12
+nucleus  fall 68 18 22 8
 endtune
 
 tune c4
@@ -170,7 +171,7 @@ headenv   fall 16
 head       5 75 53 -7 1
 headextend 0 60 55 45 60
 onset 60 48 62
-headlast 60 44 40
+headlast 60 24 30
 nucleus0 fall-rise  95 29
 nucleus  fall-rise2 92 21 34 79
 endtune
@@ -178,11 +179,11 @@ endtune
 tune e4
 prehead   46 57
 headenv   fall 16
-head       5 77 53 -7 0
+head       3 77 53 -7 0
 headextend 40 80 75 70 67
-headlast 80 72 60
-nucleus0 fall  92 8
-nucleus  fall  88 77 75 10
+headlast 75 67 55
+nucleus0 fall2  92 8
+nucleus  fall2  88 74 72 12
 endtune
 
 
