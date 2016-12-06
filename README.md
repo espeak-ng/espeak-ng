@@ -1,6 +1,6 @@
 # eSpeak NG Text-to-Speech
 
-<a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.png?branch=master"/></a>
+<a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a>
 
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
