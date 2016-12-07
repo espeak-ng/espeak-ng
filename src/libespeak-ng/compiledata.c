@@ -1181,12 +1181,13 @@ espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 					fr_out->klattp2[ix] = fr->klatt_param[ix+5];
 
 				for (peak = 0; peak < 7; peak++) {
-					fr_out->klatt_ap[ix] = fr->peaks[peak].klt_ap;
+					fr_out->klatt_ap[peak] = fr->peaks[peak].klt_ap;
 
 					x = fr->peaks[peak].klt_bp / 2;
 					if (x > 255) x = 255;
-					fr_out->klatt_bp[ix] = x;
+					fr_out->klatt_bp[peak] = x;
 				}
+				fr_out->spare = 0;
 			}
 
 			if (fr_out->bw[1] == 0) {
@@ -1206,12 +1207,22 @@ espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 		seqk_out.length_total = seq_out.length_total;
 
 		ix = (char *)(&seqk_out.frame[seqk_out.n_frames]) - (char *)(&seqk_out);
-		ix = (ix+3) & 0xfffc; // round up to multiple of 4 bytes
 		fwrite(&seqk_out, ix, 1, f_phdata);
+		while (ix & 3)
+		{
+			// round up to multiple of 4 bytes
+			fputc(0, f_phdata);
+			ix++;
+		}
 	} else {
 		ix = (char *)(&seq_out.frame[seq_out.n_frames]) - (char *)(&seq_out);
-		ix = (ix+3) & 0xfffc; // round up to multiple of 4 bytes
 		fwrite(&seq_out, ix, 1, f_phdata);
+		while (ix & 3)
+		{
+			// round up to multiple of 4 bytes
+			fputc(0, f_phdata);
+			ix++;
+		}
 	}
 
 	SpectSeqDestroy(spectseq);
@@ -2344,6 +2355,7 @@ static void WritePhonemeTables()
 	for (ix = 0; ix < n_phoneme_tabs; ix++) {
 		p = phoneme_tab_list2[ix].phoneme_tab_ptr;
 		n = n_phcodes_list[ix];
+		memset(&p[n], 0, sizeof(p[n]));
 		p[n].mnemonic = 0; // terminate the phoneme table
 
 		// count number of locally declared phonemes
@@ -2431,6 +2443,7 @@ static void StartPhonemeTable(const char *name)
 
 	memset(&phoneme_tab_list2[n_phoneme_tabs], 0, sizeof(PHONEME_TAB_LIST));
 	phoneme_tab_list2[n_phoneme_tabs].phoneme_tab_ptr = phoneme_tab2 = p;
+	memset(phoneme_tab_list2[n_phoneme_tabs].name, 0, sizeof(phoneme_tab_list2[n_phoneme_tabs].name));
 	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
 	n_phcodes = 1;
 	phoneme_tab_list2[n_phoneme_tabs].includes = 0;
@@ -2621,6 +2634,7 @@ static void CompilePhonemeFiles()
 			break;
 		}
 	}
+	memset(&phoneme_tab2[n_phcodes+1], 0, sizeof(phoneme_tab2[n_phcodes+1]));
 	phoneme_tab2[n_phcodes+1].mnemonic = 0; // terminator
 }
 
