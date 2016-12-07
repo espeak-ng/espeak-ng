@@ -1,5 +1,7 @@
-/**
+/* Compatibility shim for <endian.h>
+ *
  * "License": Public Domain
+ * "Original": https://gist.github.com/panzi/6856583
  *
  * I, Mathias Panzenböck, place this file hereby into the public domain. Use it
  * at your own risk for whatever you like. In case there are jurisdictions that
@@ -7,10 +9,14 @@
  * to be "dual licensed" under the BSD, MIT and Apache licenses, if you want
  * to. This code is trivial anyway. Consider it an example on how to get the
  * endian conversion functions on different platforms.
+ *
+ * Modifications also in the Public Domain:
+ *
+ * Copyright (C) 2016 Reece H. Dunn
  */
 
-#ifndef PORTABLE_ENDIAN_H__
-#define PORTABLE_ENDIAN_H__
+#ifndef ENDIAN_H_COMPAT_SHIM
+#define ENDIAN_H_COMPAT_SHIM
 
 #if (defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
 #	define __WINDOWS__
