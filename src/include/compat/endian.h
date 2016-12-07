@@ -23,7 +23,8 @@
 #endif
 
 #if defined(__linux__) || defined(__CYGWIN__)
-#	include <endian.h>
+#	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
+#	include_next <endian.h>
 #elif defined(__APPLE__)
 #	include <libkern/OSByteOrder.h>
 
