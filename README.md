@@ -158,6 +158,17 @@ The extended dictionaries are taken from
 provide better coverage for those languages, while increasing the resulting
 dictionary size.
 
+## Compiling on OSX
+
+__NOTE:__ This is currently experimental. It does not build the voice data, and
+may contain runtime errors and missing functionality.
+
+To build eSpeak NG on OSX, you will need:
+
+1. [Homebrew](http://brew.sh)
+1. Portaudio: `brew install portaudio`
+1. Disabling MBROLA during configuration: `./autogen && ./configure --with-mbrola=no`
+
 ## Compiling on Windows
 
 __NOTE:__ This is currently experimental. It does not build the voice data, and
