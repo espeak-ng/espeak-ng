@@ -236,8 +236,10 @@ static espeak_ng_STATUS close_stream()
 		return status;
 
 	int a_stop_is_required = my_stop_is_required;
-	if (!a_stop_is_required)
+	if (!a_stop_is_required) {
 		my_command_is_running = 1;
+		pthread_cond_broadcast(&my_cond_command_is_running);
+	}
 
 	status = pthread_mutex_unlock(&my_mutex);
 
@@ -307,11 +309,11 @@ static void *say_thread(void *p)
 		my_command_is_running = 1;
 
 		assert(-1 != pthread_cond_broadcast(&my_cond_command_is_running));
-		assert(-1 != pthread_mutex_unlock(&my_mutex));
+		//assert(-1 != pthread_mutex_unlock(&my_mutex));
 
 		while (my_command_is_running) {
-			int a_status = pthread_mutex_lock(&my_mutex);
-			assert(!a_status);
+			//int a_status = pthread_mutex_lock(&my_mutex);
+			//assert(!a_status);
 			t_espeak_command *a_command = (t_espeak_command *)pop();
 
 			if (a_command == NULL) {
