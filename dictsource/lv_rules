@@ -1,6 +1,10 @@
 // Translation rules for Latvian
 // This file is UTF-8 encoded
 
+
+.replace
+      ó    ȯ                    // replace o-acute with o-dot, as it is more logical for "short o"
+
 // +---------------------------+
 // |     Suffixes of nouns     |
 // +---------------------------+
@@ -56,7 +60,7 @@
 // +---------------------------+
 // |     Pronunciation of o    |
 // +---------------------------+
-.L30  ō ó                              // uo pre/post fixes. If facultative writing is used, o is spelled as uo
+.L30  ō ȯ                              // uo pre/post fixes. If facultative writing is used, o is spelled as uo
 
 // Default rules for o with succeeding consonants
 .L40  č ģ ķ ļ ņ ŗ š ž                  // uo indicators — o is spelled as uo in words with Latvian soft consonants
@@ -1484,8 +1488,8 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
 .group ō
            ō               o:
 
-.group ó
-           ó               o         // short o
+.group ȯ
+           ȯ               o         // short o
 
 .group p
            p               p
