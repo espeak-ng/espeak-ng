@@ -6,16 +6,23 @@
 *  Replace `ieee80.c` with the implementation at
    http://www.realitypixels.com/turk/opensource/ToFromIEEE.c.txt for Debian
    open source license compliance.
+*  Documentation updates.
+*  Emscripten support.
 
 bug fixes:
 
 *  Fix `.Lnn` rule groups to allow groups above 62.
 *  Fix reporting the eSpeak NG version in the `--version` string and Windows
    installer.
+*  Fix a crash when calling `LoadDictionary` when using clang.
+*  Threading fixes and Mac OSX portability for the fifo and event code.
+*  Fixes for running thre spect code on big-endian architectures.
 
 updated languages:
 
 *  en (English) -- Valdis Vitolins
+*  it (Italian) -- chrislm
+*  ky (Krygyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins
 *  tr (Turkish) -- Valdis Vitolins
 
