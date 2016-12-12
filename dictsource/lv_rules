@@ -56,6 +56,7 @@
 // +---------------------------+
 // |     Pronunciation of o    |
 // +---------------------------+
+.L30  ō ó                              // uo pre/post fixes. If facultative writing is used, o is spelled as uo
 
 // Default rules for o with succeeding consonants
 .L40  č ģ ķ ļ ņ ŗ š ž                  // uo indicators — o is spelled as uo in words with Latvian soft consonants
@@ -465,6 +466,25 @@ L41L10L10L10L10L10)               o (<<<<<      o
            o (L10L10L41<                        o
            o (L10L41                            o
            o (L41+                              o
+
+                                     // uo indicators before (facultative writing)
+L30L10L10L10L10L10L10L10)         o (<<<<<<<    uo
+L30L10L10L10L10L10L10)            o (<<<<<<     uo
+L30L10L10L10L10L10)               o (<<<<<      uo
+   L30L10L10L10L10)               o (<<<<       uo
+     L30L10L10L10)                o (<<<        uo
+        L30L10L10)                o (<<         uo
+           L30L10)                o (<          uo
+              L30)                o             uo
+                                     // uo indicators after (facultative writing)
+           o (L10L10L10L10L10L10L30<<<<<        uo
+           o (L10L10L10L10L10L30<<<<            uo
+           o (L10L10L10L10L30<<<                uo
+           o (L10L10L10L30<<                    uo
+           o (L10L10L30<                        uo
+           o (L10L30                            uo
+           o (L30+                              uo
+
 
            o               uo        // words with Latvian roots are more common
            o (_++          uo        // common ending for Latvian words
@@ -1463,6 +1483,9 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
 
 .group ō
            ō               o:
+
+.group ó
+           ó               o         // short o
 
 .group p
            p               p
