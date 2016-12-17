@@ -287,6 +287,8 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 
 	buf[0] = 0;
 	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
+	if (RegKey == NULL)
+		RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\WOW6432Node\\eSpeak NG", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
 	var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
