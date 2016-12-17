@@ -7,3 +7,6 @@
 // reserved ISO C names (like strdup) in favour of non-portable conforming
 // variants that start with an '_'. This removes those deprecation warnings.
 #define _CRT_NONSTDC_NO_DEPRECATE
+
+// This is created by autoconf on POSIX-compatibe build environments.
+#define PACKAGE_VERSION "1.49.0"
