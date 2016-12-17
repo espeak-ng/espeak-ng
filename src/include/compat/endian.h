@@ -19,10 +19,6 @@
 #ifndef ENDIAN_H_COMPAT_SHIM
 #define ENDIAN_H_COMPAT_SHIM
 
-#if (defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
-#	define __WINDOWS__
-#endif
-
 #if defined(__linux__) || defined(__CYGWIN__)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #	include_next <endian.h>
@@ -61,7 +57,7 @@
 
 #	define be64toh(x) betoh64(x)
 #	define le64toh(x) letoh64(x)
-#elif defined(__WINDOWS__)
+#elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
 #	if BYTE_ORDER == LITTLE_ENDIAN
 #		include <winsock2.h>
 
