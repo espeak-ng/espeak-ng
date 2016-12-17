@@ -10,7 +10,8 @@
  * to. This code is trivial anyway. Consider it an example on how to get the
  * endian conversion functions on different platforms.
  *
- * Modifications also in the Public Domain:
+ * Modifications also in the Public Domain and dual licensed under BSD, MIT and
+ * Apache licenses (using the terms outlined above):
  *
  * Copyright (C) 2016 Reece H. Dunn
  */
