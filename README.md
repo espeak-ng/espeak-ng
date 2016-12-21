@@ -174,9 +174,6 @@ dictionary size.
 
 ## Compiling on Windows
 
-__NOTE:__ This is currently experimental. It does not build the voice data, and
-may contain runtime errors and missing functionality.
-
 To build eSpeak NG on Windows, you will need:
 
 1. a copy of Visual Studio 2015, such as the Community Edition;
