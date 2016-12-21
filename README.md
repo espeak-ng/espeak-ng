@@ -2,6 +2,7 @@
 
 <a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a>
 
+- [Windows Binaries](#windows-binaries)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -28,6 +29,19 @@ MBROLA to give it a more natural sound.
 
 See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
 various releases and with the eSpeak project.
+
+## Windows Binaries
+
+The Windows version of eSpeak NG 1.49.0 is available as:
+
+*  [espeak-ng-x64.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.0/espeak-ng-x64.msi) --
+   64-bit Windows installer
+*  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.0/espeak-ng-x86.msi) --
+   32-bit Windows installer
+
+__NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
+There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
+support for this feature.
 
 ## Build Dependencies
 
