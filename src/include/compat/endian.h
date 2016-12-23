@@ -10,17 +10,14 @@
  * to. This code is trivial anyway. Consider it an example on how to get the
  * endian conversion functions on different platforms.
  *
- * Modifications also in the Public Domain:
+ * Modifications also in the Public Domain and dual licensed under BSD, MIT and
+ * Apache licenses (using the terms outlined above):
  *
  * Copyright (C) 2016 Reece H. Dunn
  */
 
 #ifndef ENDIAN_H_COMPAT_SHIM
 #define ENDIAN_H_COMPAT_SHIM
-
-#if (defined(_WIN16) || defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
-#	define __WINDOWS__
-#endif
 
 #if defined(__linux__) || defined(__CYGWIN__)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
@@ -60,11 +57,10 @@
 
 #	define be64toh(x) betoh64(x)
 #	define le64toh(x) letoh64(x)
-#elif defined(__WINDOWS__)
-#	include <winsock2.h>
-#	include <sys/param.h>
-
+#elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
 #	if BYTE_ORDER == LITTLE_ENDIAN
+#		include <winsock2.h>
+
 #		define htobe16(x) htons(x)
 #		define htole16(x) (x)
 #		define be16toh(x) ntohs(x)
@@ -79,8 +75,7 @@
 #		define htole64(x) (x)
 #		define be64toh(x) ntohll(x)
 #		define le64toh(x) (x)
-#	elif BYTE_ORDER == BIG_ENDIAN
-		/* that would be xbox 360 */
+#	elif BYTE_ORDER == BIG_ENDIAN /* that would be xbox 360 */
 #		define htobe16(x) (x)
 #		define htole16(x) __builtin_bswap16(x)
 #		define be16toh(x) (x)

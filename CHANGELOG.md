@@ -17,10 +17,13 @@ bug fixes:
 *  Fix a crash when calling `LoadDictionary` when using clang.
 *  Threading fixes and Mac OSX portability for the fifo and event code.
 *  Fixes for running thre spect code on big-endian architectures.
+*  Fix determining the voice directory when installing the 32-bit Windows
+   binaries on a 64-bit Windows system.
 
 updated languages:
 
 *  en (English) -- Valdis Vitolins
+*  fa (Farsi/Persian) -- Shadyar Khodayari
 *  it (Italian) -- chrislm
 *  ky (Krygyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins

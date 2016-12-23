@@ -287,6 +287,8 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 
 	buf[0] = 0;
 	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
+	if (RegKey == NULL)
+		RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\WOW6432Node\\eSpeak NG", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
 	var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
@@ -408,7 +410,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
 			SpeakNextClause(NULL, 0, 2); // stop
-			break;
+			return ENS_SPEECH_STOPPED;
 		}
 
 		if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
@@ -421,17 +423,21 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 				event_list[0].user_data = my_user_data;
 
 				if (SpeakNextClause(NULL, NULL, 1) == 0) {
+					finished = 0;
 					if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 						if (dispatch_audio(NULL, 0, NULL) < 0)
 							return ENS_AUDIO_ERROR;
 					} else if (synth_callback)
-						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
-					break;
+						finished = synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
+					if (finished) {
+						SpeakNextClause(NULL, 0, 2); // stop
+						return ENS_SPEECH_STOPPED;
+					}
+					return ENS_OK;
 				}
 			}
 		}
 	}
-	return ENS_OK;
 }
 
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
@@ -497,7 +503,9 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-		int error = audio_object_drain(my_audio);
+		int error = (aStatus == ENS_SPEECH_STOPPED)
+		          ? audio_object_flush(my_audio)
+		          : audio_object_drain(my_audio);
 		if (error != 0)
 			fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
 	}
@@ -799,16 +807,15 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 {
-#ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
-		audio_object_flush(my_audio);
-#endif
-
 #ifdef USE_ASYNC
 	fifo_stop();
 	event_clear_all();
 #endif
 
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO)
+		audio_object_flush(my_audio);
+#endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
