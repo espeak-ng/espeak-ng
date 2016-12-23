@@ -503,7 +503,9 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	espeak_ng_STATUS aStatus = Synthesize(unique_identifier, text, flags);
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 	if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
-		int error = audio_object_drain(my_audio);
+		int error = (aStatus == ENS_SPEECH_STOPPED)
+		          ? audio_object_flush(my_audio)
+		          : audio_object_drain(my_audio);
 		if (error != 0)
 			fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
 	}
