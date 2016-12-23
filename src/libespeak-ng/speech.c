@@ -410,7 +410,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
 			SpeakNextClause(NULL, 0, 2); // stop
-			break;
+			return ENS_SPEECH_STOPPED;
 		}
 
 		if (Generate(phoneme_list, &n_phoneme_list, 1) == 0) {
@@ -428,12 +428,11 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 							return ENS_AUDIO_ERROR;
 					} else if (synth_callback)
 						synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
-					break;
+					return ENS_OK;
 				}
 			}
 		}
 	}
-	return ENS_OK;
 }
 
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)

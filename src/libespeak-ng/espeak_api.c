@@ -37,6 +37,7 @@ static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
 	switch (status)
 	{
 	case ENS_OK:                     return EE_OK;
+	case ENS_SPEECH_STOPPED:         return EE_OK;
 	case ENS_VOICE_NOT_FOUND:        return EE_NOT_FOUND;
 	case ENS_MBROLA_NOT_FOUND:       return EE_NOT_FOUND;
 	case ENS_MBROLA_VOICE_NOT_FOUND: return EE_NOT_FOUND;
