@@ -254,6 +254,10 @@ static espeak_ng_STATUS close_stream()
 			status = a_status;
 
 		if (a_stop_is_required) {
+			// stop the audio early, to be more responsive when using eSpeak NG
+			// for audio.
+			close_audio();
+
 			// acknowledge the stop request
 			if((a_status = pthread_mutex_lock(&my_mutex)) != ENS_OK)
 				return a_status;

@@ -65,6 +65,8 @@ typedef struct {
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, const char *string);
 
+void close_audio(void);
+
 extern char path_home[N_PATH_HOME];    // this is the espeak-ng-data directory
 
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
