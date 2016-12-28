@@ -29,7 +29,7 @@ several different sources.
 
 ### Unicode Character Database
 
-The following [Unicode Character Database](http://www.unicode.org/Public/7.0.0/ucd/)
+The following [Unicode Character Database](http://www.unicode.org/Public/9.0.0/ucd/)
 files are supported:
 
 *  Blocks
