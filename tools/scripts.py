@@ -111,6 +111,7 @@ if __name__ == '__main__':
 
 #include <stddef.h>
 
+#define Adlm UCD_SCRIPT_Adlm
 #define Afak UCD_SCRIPT_Afak
 #define Aghb UCD_SCRIPT_Aghb
 #define Ahom UCD_SCRIPT_Ahom
@@ -123,6 +124,7 @@ if __name__ == '__main__':
 #define Bass UCD_SCRIPT_Bass
 #define Batk UCD_SCRIPT_Batk
 #define Beng UCD_SCRIPT_Beng
+#define Bhks UCD_SCRIPT_Bhks
 #define Blis UCD_SCRIPT_Blis
 #define Bopo UCD_SCRIPT_Bopo
 #define Brah UCD_SCRIPT_Brah
@@ -197,6 +199,7 @@ if __name__ == '__main__':
 #define Mahj UCD_SCRIPT_Mahj
 #define Mand UCD_SCRIPT_Mand
 #define Mani UCD_SCRIPT_Mani
+#define Marc UCD_SCRIPT_Marc
 #define Maya UCD_SCRIPT_Maya
 #define Mend UCD_SCRIPT_Mend
 #define Merc UCD_SCRIPT_Merc
@@ -211,6 +214,7 @@ if __name__ == '__main__':
 #define Mymr UCD_SCRIPT_Mymr
 #define Narb UCD_SCRIPT_Narb
 #define Nbat UCD_SCRIPT_Nbat
+#define Newa UCD_SCRIPT_Newa
 #define Nkgb UCD_SCRIPT_Nkgb
 #define Nkoo UCD_SCRIPT_Nkoo
 #define Nshu UCD_SCRIPT_Nshu
@@ -218,6 +222,7 @@ if __name__ == '__main__':
 #define Olck UCD_SCRIPT_Olck
 #define Orkh UCD_SCRIPT_Orkh
 #define Orya UCD_SCRIPT_Orya
+#define Osge UCD_SCRIPT_Osge
 #define Osma UCD_SCRIPT_Osma
 #define Palm UCD_SCRIPT_Palm
 #define Pauc UCD_SCRIPT_Pauc

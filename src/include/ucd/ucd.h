@@ -135,6 +135,7 @@ ucd_category ucd_lookup_category(codepoint_t c);
   */
 typedef enum ucd_script_
 {
+	UCD_SCRIPT_Adlm, /**< @brief Adlam Script */
 	UCD_SCRIPT_Afak, /**< @brief Afaka Script */
 	UCD_SCRIPT_Aghb, /**< @brief Caucasian Albanian Script */
 	UCD_SCRIPT_Ahom, /**< @brief Tai Ahom Script */
@@ -147,6 +148,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Bass, /**< @brief Bassa Vah Script */
 	UCD_SCRIPT_Batk, /**< @brief Batak Script */
 	UCD_SCRIPT_Beng, /**< @brief Bengali Script */
+	UCD_SCRIPT_Bhks, /**< @brief Bhaiksuki Script */
 	UCD_SCRIPT_Blis, /**< @brief Blissymbols Script */
 	UCD_SCRIPT_Bopo, /**< @brief Bopomofo Script */
 	UCD_SCRIPT_Brah, /**< @brief Brahmi Script */
@@ -221,6 +223,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Mahj, /**< @brief Mahajani Script */
 	UCD_SCRIPT_Mand, /**< @brief Mandaic Script */
 	UCD_SCRIPT_Mani, /**< @brief Manichaean Script */
+	UCD_SCRIPT_Marc, /**< @brief Marchen Script */
 	UCD_SCRIPT_Maya, /**< @brief Mayan Hieroglyphs */
 	UCD_SCRIPT_Mend, /**< @brief Mende Kikakui Script */
 	UCD_SCRIPT_Merc, /**< @brief Meroitic Cursive Script */
@@ -235,6 +238,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Mymr, /**< @brief Myanmar (Burmese) Script */
 	UCD_SCRIPT_Narb, /**< @brief Old North Arabian Script */
 	UCD_SCRIPT_Nbat, /**< @brief Nabataean Script */
+	UCD_SCRIPT_Newa, /**< @brief Newa Script */
 	UCD_SCRIPT_Nkgb, /**< @brief Nakhi Geba Script */
 	UCD_SCRIPT_Nkoo, /**< @brief N'Ko Script */
 	UCD_SCRIPT_Nshu, /**< @brief Nushu Script */
@@ -242,6 +246,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Olck, /**< @brief Ol Chiki Script */
 	UCD_SCRIPT_Orkh, /**< @brief Old Turkic Script */
 	UCD_SCRIPT_Orya, /**< @brief Oriya Script */
+	UCD_SCRIPT_Osge, /**< @brief Osage Script */
 	UCD_SCRIPT_Osma, /**< @brief Osmanya Script */
 	UCD_SCRIPT_Palm, /**< @brief Palmyrene Script */
 	UCD_SCRIPT_Pauc, /**< @brief Pau Cin Hau Script */
@@ -555,6 +560,7 @@ namespace ucd
 	  */
 	enum script
 	{
+		Adlm = UCD_SCRIPT_Adlm, /**< @brief Adlam Script */
 		Afak = UCD_SCRIPT_Afak, /**< @brief Afaka Script */
 		Aghb = UCD_SCRIPT_Aghb, /**< @brief Caucasian Albanian Script */
 		Ahom = UCD_SCRIPT_Ahom, /**< @brief Tai Ahom Script */
@@ -567,6 +573,7 @@ namespace ucd
 		Bass = UCD_SCRIPT_Bass, /**< @brief Bassa Vah Script */
 		Batk = UCD_SCRIPT_Batk, /**< @brief Batak Script */
 		Beng = UCD_SCRIPT_Beng, /**< @brief Bengali Script */
+		Bhks = UCD_SCRIPT_Bhks, /**< @brief Bhaiksuki Script */
 		Blis = UCD_SCRIPT_Blis, /**< @brief Blissymbols Script */
 		Bopo = UCD_SCRIPT_Bopo, /**< @brief Bopomofo Script */
 		Brah = UCD_SCRIPT_Brah, /**< @brief Brahmi Script */
@@ -641,6 +648,7 @@ namespace ucd
 		Mahj = UCD_SCRIPT_Mahj, /**< @brief Mahajani Script */
 		Mand = UCD_SCRIPT_Mand, /**< @brief Mandaic Script */
 		Mani = UCD_SCRIPT_Mani, /**< @brief Manichaean Script */
+		Marc = UCD_SCRIPT_Marc, /**< @brief Marchen Script */
 		Maya = UCD_SCRIPT_Maya, /**< @brief Mayan Hieroglyphs */
 		Mend = UCD_SCRIPT_Mend, /**< @brief Mende Kikakui Script */
 		Merc = UCD_SCRIPT_Merc, /**< @brief Meroitic Cursive Script */
@@ -655,6 +663,7 @@ namespace ucd
 		Mymr = UCD_SCRIPT_Mymr, /**< @brief Myanmar (Burmese) Script */
 		Narb = UCD_SCRIPT_Narb, /**< @brief Old North Arabian Script */
 		Nbat = UCD_SCRIPT_Nbat, /**< @brief Nabataean Script */
+		Newa = UCD_SCRIPT_Newa, /**< @brief Newa Script */
 		Nkgb = UCD_SCRIPT_Nkgb, /**< @brief Nakhi Geba Script */
 		Nkoo = UCD_SCRIPT_Nkoo, /**< @brief N'Ko Script */
 		Nshu = UCD_SCRIPT_Nshu, /**< @brief Nushu Script */
@@ -662,6 +671,7 @@ namespace ucd
 		Olck = UCD_SCRIPT_Olck, /**< @brief Ol Chiki Script */
 		Orkh = UCD_SCRIPT_Orkh, /**< @brief Old Turkic Script */
 		Orya = UCD_SCRIPT_Orya, /**< @brief Oriya Script */
+		Osge = UCD_SCRIPT_Osge, /**< @brief Osage Script */
 		Osma = UCD_SCRIPT_Osma, /**< @brief Osmanya Script */
 		Palm = UCD_SCRIPT_Palm, /**< @brief Palmyrene Script */
 		Pauc = UCD_SCRIPT_Pauc, /**< @brief Pau Cin Hau Script */

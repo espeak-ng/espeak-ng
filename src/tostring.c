@@ -79,6 +79,7 @@ const char *ucd_get_script_string(ucd_script s)
 {
 	static const char *scripts[] =
 	{
+		"Adlm",
 		"Afak",
 		"Aghb",
 		"Ahom",
@@ -91,6 +92,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Bass",
 		"Batk",
 		"Beng",
+		"Bhks",
 		"Blis",
 		"Bopo",
 		"Brah",
@@ -165,6 +167,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Mahj",
 		"Mand",
 		"Mani",
+		"Marc",
 		"Maya",
 		"Mend",
 		"Merc",
@@ -179,6 +182,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Mymr",
 		"Narb",
 		"Nbat",
+		"Newa",
 		"Nkgb",
 		"Nkoo",
 		"Nshu",
@@ -186,6 +190,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Olck",
 		"Orkh",
 		"Orya",
+		"Osge",
 		"Osma",
 		"Palm",
 		"Pauc",
