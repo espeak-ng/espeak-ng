@@ -63,8 +63,8 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print '%s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
 		      data['GeneralCategory'][0], data['GeneralCategory'],
 		      upper, lower, title,
-		      ' '.join(data['Properties']))
+		      ' '.join(data['Properties'])))

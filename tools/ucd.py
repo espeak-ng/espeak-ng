@@ -188,8 +188,8 @@ if __name__ == '__main__':
 	script_map = parse_property_mapping(sys.argv[1], 'sc', reverse=True)
 	for entry in parse_ucd_data(sys.argv[1], sys.argv[2]):
 		if items:
-			print ','.join([str(entry[item]) for item in items])
+			print(','.join([str(entry[item]) for item in items]))
 		else:
-			print entry
+			print(entry)
 else:
 	script_map = parse_property_mapping('data/ucd', 'sc', reverse=True)
