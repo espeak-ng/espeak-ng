@@ -623,6 +623,14 @@
                   <File Name="nci" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\azc\nci" KeyPath="yes"/>
                 </Component>
               </Directory>
+              <Directory Id="BAT" Name="bat">
+                <Component Id="lt" Win64="$(var.Win64)" Guid="6B89869A-83CF-4378-873D-0FDED6F42B85">
+                  <File Name="lt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\bat\lt" KeyPath="yes"/>
+                </Component>
+                <Component Id="lv" Win64="$(var.Win64)" Guid="886DF488-82FF-40F8-A110-5DDE8B35067F">
+                  <File Name="lv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\bat\lv" KeyPath="yes"/>
+                </Component>
+              </Directory>
               <Directory Id="BNT" Name="bnt">
                 <Component Id="sw" Win64="$(var.Win64)" Guid="F6F9BF32-33D4-45E9-B609-DEF046407DF1">
                   <File Name="sw" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\bnt\sw" KeyPath="yes"/>
@@ -883,14 +891,6 @@
                 </Component>
                 <Component Id="hu" Win64="$(var.Win64)" Guid="ECE9B062-2E62-42C7-BC54-E210C50D7E44">
                   <File Name="hu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\urj\hu" KeyPath="yes"/>
-                </Component>
-              </Directory>
-              <Directory Id="XAQ" Name="xaq">
-                <Component Id="lt" Win64="$(var.Win64)" Guid="243B59D8-9743-4A79-A176-57686AB3B889">
-                  <File Name="lt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\lt" KeyPath="yes"/>
-                </Component>
-                <Component Id="lv" Win64="$(var.Win64)" Guid="C7855A36-2C4B-472D-8D83-FD75BD44C873">
-                  <File Name="lv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\lv" KeyPath="yes"/>
                 </Component>
               </Directory>
               <Directory Id="ZLS" Name="zls">
