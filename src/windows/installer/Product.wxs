@@ -618,14 +618,6 @@
                   <File Name="lfn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\art\lfn" KeyPath="yes"/>
                 </Component>
               </Directory>
-              <Directory Id="AXM" Name="axm">
-                <Component Id="hy" Win64="$(var.Win64)" Guid="9329194E-EADA-4708-88E5-7B1889407AB2">
-                  <File Name="hy" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\axm\hy" KeyPath="yes"/>
-                </Component>
-                <Component Id="hy_arevmda" Win64="$(var.Win64)" Guid="D347C396-B1E0-40C4-8916-4B0ACFD4068F">
-                  <File Name="hy-arevmda" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\axm\hy-arevmda" KeyPath="yes"/>
-                </Component>
-              </Directory>
               <Directory Id="AZC" Name="azc">
                 <Component Id="nci" Win64="$(var.Win64)" Guid="0DEDA8AE-AFEB-4B04-A8A7-6C898B98D488">
                   <File Name="nci" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\azc\nci" KeyPath="yes"/>
@@ -766,6 +758,12 @@
                 </Component>
               </Directory>
               <Directory Id="INE" Name="ine">
+                <Component Id="hy" Win64="$(var.Win64)" Guid="8AC34F47-61FD-4918-AEC9-4FBDC9E90AD1">
+                  <File Name="hy" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ine\hy" KeyPath="yes"/>
+                </Component>
+                <Component Id="hy_arevmda" Win64="$(var.Win64)" Guid="E7510729-A886-4BCD-A616-9B4D74D8BA43">
+                  <File Name="hy-arevmda" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ine\hy-arevmda" KeyPath="yes"/>
+                </Component>
                 <Component Id="sq" Win64="$(var.Win64)" Guid="80790CCF-4B20-4AC3-A19F-72890470D4F5">
                   <File Name="sq" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\ine\sq" KeyPath="yes"/>
                 </Component>
