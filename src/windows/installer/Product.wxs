@@ -671,6 +671,9 @@
                   <File Name="kl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\esx\kl" KeyPath="yes"/>
                 </Component>
               </Directory>
+              <Component Id="eu" Win64="$(var.Win64)" Guid="E6AE6D58-7B00-4DC8-AB65-82959662D641">
+                <File Name="eu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\eu" KeyPath="yes"/>
+              </Component>
               <Directory Id="GMQ" Name="gmq">
                 <Component Id="da" Win64="$(var.Win64)" Guid="43D84D6D-A3D1-457C-84AB-B30C569F7C21">
                   <File Name="da" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\gmq\da" KeyPath="yes"/>
@@ -883,9 +886,6 @@
                 </Component>
               </Directory>
               <Directory Id="XAQ" Name="xaq">
-                <Component Id="eu" Win64="$(var.Win64)" Guid="E614799F-43DB-4221-8680-CAFA9F6C7377">
-                  <File Name="eu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\eu" KeyPath="yes"/>
-                </Component>
                 <Component Id="lt" Win64="$(var.Win64)" Guid="243B59D8-9743-4A79-A176-57686AB3B889">
                   <File Name="lt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\xaq\lt" KeyPath="yes"/>
                 </Component>
