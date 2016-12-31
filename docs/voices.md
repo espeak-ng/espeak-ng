@@ -339,10 +339,10 @@ accents.
 
 	dictionary <name>
 
-Specifies which pair of dictionary files to use. eg. "english" indicates
+Specifies which pair of dictionary files to use. For example, `en` indicates
 that `speak-data/en_dict` should be used to translate from words to
 phonemes. This parameter is usually not needed as it is set by default
-to the first two letters of "language" parameter.
+to the value of the "language" parameter.
 
 ### dictrules
 
