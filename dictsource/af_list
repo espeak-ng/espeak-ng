@@ -1,8 +1,8 @@
-﻿//maintainer: Willem van der Walt
-// email: wvdwalt@csir.co.za
-// tel: +27 12 8413996
-// Meraka Institute, CSIR
-//With contributions by Christo de Klerk
+﻿//maintainer: Christo de Klerk
+// email: christodeklerk@gmail.com
+// tel: +27 11 869 8265
+// Alberton, South Africa
+// Originally created by Willem van der Walt
 
 
 // This file is UTF-8 encoded
@@ -329,7 +329,6 @@ mouillepunt mulipWnt
 europa      Y@r'o@pa
 nebraska    n@braska
 nigel       _^_EN
-nineve      nIn@fi
 oberammergau o@b@r'am@rgaU
 oklahoma    @Ukl@h'@Uma
 outeniekwa  @Ut@n'ikwa
@@ -522,7 +521,6 @@ emile       Em'i:l
 engelbrecht EN@lbr&x2t
 erasmus     $2
 ernest      _^_EN
-esegiël    is'e@x2i:	@l
 estelle     %ist&l
 etienne     Eti@n
 eugene      judZ'i:n
@@ -540,6 +538,7 @@ françois    frA~nsw'A:
 gabriël     x2A:bri@l
 gandhi      gandi
 gatsby      _^_EN
+gene        dZi:n $capital
 george      _^_EN
 georgina    dZO:dZ'ina
 gerhard     x2&rart
@@ -594,7 +593,6 @@ joan        _^_EN
 joey        dZ@Ui
 johl        jo@l
 jones       _^_EN
-jordaan     $2
 joris       $1
 josef       jo@s@f
 josephina   jo@s@f'ina
@@ -778,7 +776,6 @@ thessalonicense tEsalo@nis'E:ns@
 thys        teIs
 timotheus   t@m'o@tiWs
 timoteus    t@m'o@tiWs
-timótheüs   t@m'o@tiWs 
 toerien     $2
 totius      to@SiWs
 trudie      trudi
@@ -853,6 +850,7 @@ wimpy       wImpi
 // Some Bible names
 amos          'A:mOs
 deuteronomium dY@t@ro@n'o@miWm
+esegiël    is'e@x2i:@l
 habakuk       h'abakWk
 hosea         hus'i:a
 jeremia       j%e@r@m'ia
@@ -861,9 +859,27 @@ josua         j'o@Sia
 levitikus     $2
 maleagi       $3
 miga          m'ix2a
+nineve      nIn@fi
+numeri        nWm@ri
 obadja        o@b'atja
 sagaria       sax2ar'ia
 sefanja       s@f'anja
+
+// Biblical names from 1933/1953 translation
+timótheüs   t@m'o@tiWs 
+deuteronómium dY@t@ro@n'o@miWm
+eségiël       is'e@x2i:@l
+filémon       $2
+Génesis       x2e@n@s@s  
+hábakuk       h'abakWk
+hoséa         hus'i:a
+maleági       male@'A:x2i
+metúsalag     m@tysalax2
+nehemía       nihe@m'i;a
+ninevé        nIn@fi
+Númeri        nWm@ri
+sefánja       s@f'anja
+sagaría       sax2ar'ia
 
 // article
 
@@ -1376,7 +1392,6 @@ nirvana       n@rvA:na
 nogeens       nOx2_e@ns
 normale       nOrm'A:l@
 nousedae      n@Us@dA:
-numeri        nWm@ri
 
 oeuvre        W:vr@
 oftewel       Oft@v&l

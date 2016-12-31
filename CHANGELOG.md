@@ -29,6 +29,7 @@ bug fixes:
 
 updated languages:
 
+*  af (Afrikaans) -- Christo de Klerk
 *  en (English) -- Valdis Vitolins
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  it (Italian) -- chrislm

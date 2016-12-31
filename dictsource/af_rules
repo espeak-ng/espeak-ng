@@ -1,8 +1,8 @@
-//maintainer: Willem van der Walt
-	// email: wvdwalt@csir.co.za
-// tel: +27 12 8413996
-// Meraka Institute, CSIR
-//With contributions by Christo de Klerk
+﻿//maintainer: Christo de Klerk
+	// email: christodeklerk@gmail.com
+// tel: +27 11 869 8265
+// Alberton, South Africa
+// Originally created by Willem van der Walt
  
 
 // 2-letter groups for:
@@ -54,6 +54,7 @@
 
              af (gunstig  %af // move default stress: afgunstig/-e
              aga (pant    %ag%a // fix g sound and stress: agapant/-e and compounds
+          d) age (te      ax2_e@ // fix e sound, pause: sondag-/verjaardagete; handle dd: middagete
           C) agie        A:x2i
              a (gitA      %a // fix a sound: agitasie/(ge)agiteer
              agte (losig  %ax2t@ // move default stress: agtelosig/-e/-heid
@@ -584,6 +585,7 @@
           _) be (_        b@ // words broken at end of line: be-
              be (amp      b@? // fix e sound in compounds ending in beampte
              beau         b@U //Beaufortwes and others
+          @) bederw       b@d&rv // fix 2nd e sound: pret-/spelbederwer/sedebederwend and many similar
           @) beeldig      b'e@ld@x2 // denkbeeldig/voorbeeldig
              bei (+       beI // beier/beitel
           _) be (@P2      b@
@@ -735,6 +737,7 @@
              daarop (v    d%A:r%Op // move default stress: daaropvolgend/-e
         aan) dag (tig     d'ax2 // accent on dag
           A) d (agtig     t_ // fix d sound in words like oerwoudagtig and similar
+             dag (ou      dax2_ // fix stress, insert pause: dagoudkind/-kuiken/s, etc.
              daniël       dA:ni@l // fix stress: Daniël(skuil)
              dani (gh     d'A:n@ // -hoedanigheid/hoedanighede/onderdanigheid
           @) dant         d'ant // dant takes stress: kommandant/pruimedant
@@ -859,6 +862,7 @@
              de (hidr     d%e@ // fix stress and e sound: (ge)dehidreer/dehidrasie
              de (kaan     d@ // fix stress and e sound: dekaan/-skap
              de (kane     d@ // fix stress and 1st e sound: (universiteits)dekane
+         or) de (kA       d@ // fix e sound: middelordekolwer/fjordekus
           _) de (klass    de@ // deklassifikasie/gedeklassifiseer
              de (klinA    d%E // fix 1st e sound: deklinasie/deklineer/-nering and compounds
           @) de (kontrak  d@ // fix e sound: huweliksvoorwaardekontrak/te
@@ -2205,12 +2209,13 @@
              jenewer      j@ne@v@r // fix stress and e sounds: jenewer and compounds
              jerusalem    j@rys%al%Em // Jerusalem/-gangers
              jesus        ji:sWs // Jesus also used as part of compounds: Jesusbaard/Jesusklong
+          _) jor (da      j%Or // move default stress: Jordaniese/Jordaan/-s/-streek
              joer (na     j%ur // move default stress: joernaal/joernale/ compounds: joernaalinskrywing, etc.
              joha (n      j%uha // Johan/Johanna/Johannie
              john         _^_EN // English pronunciation: John/-ny/-son/-ston
              jonge        jON@ // jongeling/jongeres
              jong (etjie  jON // fix e sound: jongetjie/-s
-          _) jorda (niA   j%OrdA: // move default stress: Jordanië/Jordaniese
+          _) jorda (nië   j%OrdA: // move default stress: Jordanië/Jordaniese
              joule        dZu:l // (kilo)joules
           _) jungi (a     j,uN%i // fix stress and u sound: Jungiaans/-e
              junie        juni
@@ -2857,7 +2862,6 @@
 
 .group mi
              miaau        m%iaU: // miaau/-end/-e
-             middagete    m'Idax2_e@t@ // middagete/s
              midde (l     mId@     // middellyf/middelpunt/middelste/bemiddelend
              middel (jari m@d@l // move default stress: middeljarig and derivatives
              middelli (k  mId@l@ // drop one l: (on)middellik/-e
@@ -4123,7 +4127,7 @@
           _) slag         sl''ax2_ // slagoffer/-instrument/-e
              slag (off    slax2_ // short a sound, insert pause: misdaadslagoffer and similar compounds
              sla (vin     sl%a // move default stress and shorten a sound: slavin/-ne and compounds
-             sla (we      slA: // fix stress and a sound: slawearbeid/-er, etc.
+             slawe (A     slA:v@ // fix stress and a sound: slawearbeid/-er, e sound: slaweopstand
              slawe (k     slA:v@ // fix e sound: slawe(ketting/-kind(ers)/-kos
              slop (emmer  slOp_ // fix o sound and insert pause: slopemmer/-s
           @) sering       s'e@r@N    // analisering/kategorisering
@@ -4634,6 +4638,7 @@
              ten (takel   t%En // move default stress: tentakel/-s
              tente (_     tEnt@ // (suurstof-/wa-)tente and similar
              ten (toon    t%En // move default stress: tentoonstel/-ling
+             te (oe       t@_ // fix e sound, pause: groente-/vrugteoes, plurals and compounds
              te (oo       t@ // geboorteoorskot/kosteoorweging/siekteoorsaak/terroristeoorlog
           _) teraarde     t%&r?A:rd@ // move default stress and fix e sounds: teraardebestelling/-s
           &) terd (_      t@rt // fix e sound: beteuterd/gelouterd/stouterd
