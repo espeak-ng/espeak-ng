@@ -1980,3 +1980,5 @@ include ph_guarani
 phonemetable ky base
 include ph_kyrgyz
 
+phonemetable ipa base
+include ph_ipa
