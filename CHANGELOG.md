@@ -1,6 +1,13 @@
 # Change Log
 
-## 1.49.1 - (In Development)
+1.  [espeak-ng](#espeak-ng)
+2.  [espeak](#espeak)
+
+## espeak-ng
+
+The espeak-ng project is a fork of the espeak project.
+
+### 1.49.1 - (In Development)
 
 *  Vim syntax support for rule files.
 *  Replace `ieee80.c` with the implementation at
@@ -29,7 +36,7 @@ updated languages:
 *  lv (Latvian) -- Valdis Vitolins
 *  tr (Turkish) -- Valdis Vitolins
 
-## 1.49.0 - 2016-09-10
+### 1.49.0 - 2016-09-10
 
 *  Support the `--compile-mbrola` command-line option.
 *  Support the `--compile-phonemes` command-line option.
@@ -117,11 +124,16 @@ new languages:
 *  tn (Setswana)
 *  tt (Tatar)
 
-## Historic
+## espeak
 
-These are a condensed set of releases that were maintained in step with the
-upstream eSpeak releases. The releases containing minor build fixes, or only
-incorporating upstream changes have been omitted.
+The espeak project was developed by Jonathan Duddington.
+
+This history log is for a fork of the espeak project maintained by Reece H.
+Dunn. This project was designed to:
+
+1.  Make it easier to build espeak on POSIX systems.
+2.  Keep track of the source code releases that differed from the releases
+    in the subversion repository.
 
 ### 1.48.11 - 2014-08-31
 
