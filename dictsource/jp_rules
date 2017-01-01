@@ -66,6 +66,16 @@
 .L18	ら り る れ ろ		// r
 .L19	わ ゐ    ゑ を		// w
 .L20	あ い う え お		// vowel
+.L21	ゃ    ゅ    ょ		// combining vowels for i Hiragana
+
+.group ゃ
+	ゃ	a_"		// a
+
+.group ゅ
+	ゅ	M_Bo		// u
+
+.group ょ
+	ょ	o_o		// o
 
 .group あ
 	あ	a_"		// a
@@ -89,13 +99,9 @@
 
 .group き
 	き	ki		// ki
-	きゃ	k_ja_"		// kya
-	きゅ	k_jM_Bo		// kyu
-	きょ	k_jo_o		// kyo
+	き (L21	k_j		// ky([auo]
 	ぎ	gi		// gi
-	ぎゃ	g_ja_"		// gya
-	ぎゅ	g_jM_Bo		// gyu
-	ぎょ	g_jo_o		// gyo
+	ぎ (L21	g_j		// gy([auo]
 
 .group く
 	く	kM_Bo		// ku
@@ -115,13 +121,9 @@
 
 .group し
 	し	s\\i		// shi
-	しゃ	s\\a_"		// sha
-	しゅ	s\\M_Bo		// shu
-	しょ	s\\o_o		// sho
+	し (L21	s\\		// sh([auo]
 	じ	d_z\\i		// ji
-	じゃ	d_z\\a_"	// ja
-	じゅ	d_z\\M_Bo	// ju
-	じょ	d_z\\o_o	// jo
+	じ (L21	d_z\\		// j([auo]
 
 .group す
 	す	sM_Bo		// su
@@ -141,13 +143,9 @@
 
 .group ち
 	ち	t_s\\i		// chi
-	ちゃ	t_s\\a_"	// cha
-	ちゅ	t_s\\M_Bo	// chu
-	ちょ	t_s\\o_o	// cho
-	ぢ	d_z\\i		// ji (obsolete)
-	ぢゃ	d_z\\a_"	// ja (obsolete)
-	ぢゅ	d_z\\M_Bo	// ju (obsolete)
-	ぢょ	d_z\\o_o	// jo (obsolete)
+	ち (L21	t_s\\		// ch([auo]
+	ぢ	d_z\\i		// ji		(obsolete)
+	ぢ (L21	d_z\\		// j([auo]	(obsolete)
 
 .group つ
 	つ	t_sM_Bo		// tsu
@@ -166,9 +164,7 @@
 
 .group に
 	に	ni		// ni
-	にゃ	n_ja_"		// nya
-	にゅ	n_jM_Bo		// nyu
-	にょ	n_jo_o		// nyo
+	に (L21	n_j		// ny([auo]
 
 .group ぬ
 	ぬ	nM_Bo		// nu
@@ -186,17 +182,11 @@
 
 .group ひ
 	ひ	Ci		// hi
-	ひゃ	Ca_"		// hya
-	ひゅ	CM_Bo		// hyu
-	ひょ	Co_o		// hyo
+	ひ (L21	C		// hy([auo]
 	び	bi		// bi
-	びゃ	b_ja_"		// bya
-	びゅ	b_jM_Bo		// byu
-	びょ	b_jo_o		// byo
+	び (L21	b_j		// by([auo]
 	ぴ	pi		// pi
-	ぴゃ	p_ja_"		// pya
-	ぴゅ	p_jM_Bo		// pyu
-	ぴょ	p_jo_o		// pyo
+	ぴ (L21	p_j		// py([auo]
 
 .group ふ
 	ふ	p\\M_Bo		// fu
@@ -218,9 +208,7 @@
 
 .group み
 	み	mi		// mi
-	みゃ	m_ja_"		// mya
-	みゅ	m_jM_Bo		// myu
-	みょ	m_jo_o		// myo
+	み (L21	m_j		// my([auo]
 
 .group む
 	む	mM_Bo		// mu
@@ -245,9 +233,7 @@
 
 .group り
 	り	r`i		// ri
-	りゃ	r`_ja_"		// rya
-	りゅ	r`_jM_Bo	// ryu
-	りょ	r`_jo_o		// ryo
+	り (L21	r`_ja_"		// ry([auo]
 
 .group る
 	る	rM_Bo		// ru
