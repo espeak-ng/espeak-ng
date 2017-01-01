@@ -18,6 +18,21 @@
 // This is using the X-SAMPA transcriptions
 // (http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm).
 
+phoneme _j
+  liquid palatal starttype #i
+  ipa ʲ
+  lengthmod 2
+
+  NextVowelStarts
+    VowelStart(j/j@)
+    VowelStart(j/ja)
+    VowelStart(j/je)
+    VowelStart(j/ji)
+    VowelStart(j/jo)
+    VowelStart(j/ju)
+  EndSwitch
+endphoneme
+
 // Vowels /////////////////////////////////////////////////////////////////////
 
 // Close Vowels

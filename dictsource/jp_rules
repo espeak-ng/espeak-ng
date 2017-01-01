@@ -68,7 +68,13 @@
 
 .group き
 	き	ki		// ki
+	きゃ	k_ja_"		// kya
+	きゅ	k_jM_Bo		// kyu
+	きょ	k_jo_o		// kyo
 	ぎ	gi		// gi
+	ぎゃ	g_ja_"		// gya
+	ぎゅ	g_jM_Bo		// gyu
+	ぎょ	g_jo_o		// gyo
 
 .group く
 	く	kM_Bo		// ku
@@ -88,7 +94,13 @@
 
 .group し
 	し	s\\i		// shi
+	しゃ	s\\a_"		// sha
+	しゅ	s\\M_Bo		// shu
+	しょ	s\\o_o		// sho
 	じ	d_z\\i		// ji
+	じゃ	d_z\\a_"	// ja
+	じゅ	d_z\\M_Bo	// ju
+	じょ	d_z\\o_o	// jo
 
 .group す
 	す	sM_Bo		// su
@@ -108,7 +120,13 @@
 
 .group ち
 	ち	t_s\\i		// chi
-	ぢ	d_z\\i		// ji
+	ちゃ	t_s\\a_"	// cha
+	ちゅ	t_s\\M_Bo	// chu
+	ちょ	t_s\\o_o	// cho
+	ぢ	d_z\\i		// ji (obsolete)
+	ぢゃ	d_z\\a_"	// ja (obsolete)
+	ぢゅ	d_z\\M_Bo	// ju (obsolete)
+	ぢょ	d_z\\o_o	// jo (obsolete)
 
 .group つ
 	つ	t_sM_Bo		// tsu
@@ -127,6 +145,9 @@
 
 .group に
 	に	ni		// ni
+	にゃ	n_ja_"		// nya
+	にゅ	n_jM_Bo		// nyu
+	にょ	n_jo_o		// nyo
 
 .group ぬ
 	ぬ	nM_Bo		// nu
@@ -144,8 +165,17 @@
 
 .group ひ
 	ひ	Ci		// hi
+	ひゃ	Ca_"		// hya
+	ひゅ	CM_Bo		// hyu
+	ひょ	Co_o		// hyo
 	び	bi		// bi
+	びゃ	b_ja_"		// bya
+	びゅ	b_jM_Bo		// byu
+	びょ	b_jo_o		// byo
 	ぴ	pi		// pi
+	ぴゃ	p_ja_"		// pya
+	ぴゅ	p_jM_Bo		// pyu
+	ぴょ	p_jo_o		// pyo
 
 .group ふ
 	ふ	p\\M_Bo		// fu
@@ -167,6 +197,9 @@
 
 .group み
 	み	mi		// mi
+	みゃ	m_ja_"		// mya
+	みゅ	m_jM_Bo		// myu
+	みょ	m_jo_o		// myo
 
 .group む
 	む	mM_Bo		// mu
@@ -191,6 +224,9 @@
 
 .group り
 	り	r`i		// ri
+	りゃ	r`_ja_"		// rya
+	りゅ	r`_jM_Bo	// ryu
+	りょ	r`_jo_o		// ryo
 
 .group る
 	る	rM_Bo		// ru
