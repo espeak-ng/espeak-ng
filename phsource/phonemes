@@ -1669,6 +1669,9 @@ endphoneme
 // ADDITIONAL PHONEME TABLES
 //*******************************************************************
 
+phonemetable ipa base
+include ph_ipa
+
 phonemetable consonants base
 include ph_consonants
 
@@ -1979,6 +1982,3 @@ include ph_guarani
 
 phonemetable ky base
 include ph_kyrgyz
-
-phonemetable ipa base
-include ph_ipa

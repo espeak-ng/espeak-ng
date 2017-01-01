@@ -1,0 +1,162 @@
+﻿// Japanese
+//
+// Copyright (C) 2017 Reece H. Dunn
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, see: <http://www.gnu.org/licenses/>.
+
+// Hiragana
+
+.group あ
+	あ	a_"		// a
+
+.group い
+	い	i		// i
+
+.group う
+	う	M_Bo		// u
+
+.group え
+	え	e_o		// e
+
+.group お
+	お	o_o		// o
+
+.group か
+	か	ka_"		// ka
+
+.group き
+	き	ki		// ki
+
+.group く
+	く	kM_Bo		// ku
+
+.group け
+	け	ke_o		// ke
+
+.group こ
+	こ	ko_o		// ko
+
+.group さ
+	さ	sa_"		// sa
+
+.group し
+	し	s\\i		// shi
+
+.group す
+	す	sM_Bo		// su
+
+.group せ
+	せ	se_o		// se
+
+.group そ
+	そ	so_o		// so
+
+.group た
+	た	ta_"		// ta
+
+.group ち
+	ち	t_s\\i		// chi
+
+.group つ
+	つ	t_sM_Bo		// tsu
+
+.group て
+	て	te_o		// te
+
+.group と
+	と	to_o		// to
+
+.group な
+	な	na_"		// na
+
+.group に
+	に	ni		// ni
+
+.group ぬ
+	ぬ	nM_Bo		// nu
+
+.group ね
+	ね	ne_o		// ne
+
+.group の
+	の	no_o		// no
+
+.group は
+	は	ha_"		// ha
+
+.group ひ
+	ひ	Ci		// hi
+
+.group ふ
+	ふ	p\\M_Bo		// fu
+
+.group へ
+	へ	he_o		// he
+
+.group ほ
+	ほ	ho_o		// ho
+
+.group ま
+	ま	ma_"		// ma
+
+.group み
+	み	mi		// mi
+
+.group む
+	む	mM_Bo		// mu
+
+.group め
+	め	me_o		// me
+
+.group も
+	も	mo_o		// mo
+
+.group や
+	や	ja_"		// ya
+
+.group ゆ
+	ゆ	jM_Bo		// yu
+
+.group よ
+	よ	jo_o		// yo
+
+.group ら
+	ら	r`a_"		// ra
+
+.group り
+	り	r`i		// ri
+
+.group る
+	る	rM_Bo		// ru
+
+.group れ
+	れ	re_o		// re
+
+.group ろ
+	ろ	ro_o		// ro
+
+.group わ
+	わ	wa_"		// wa
+
+.group ゐ
+	ゐ	i		// wi (archaic)
+
+.group ゑ
+	ゑ	we_o		// we (archaic)
+
+.group を
+	を	o_o		// wo
+
+.group ん
+	ん	n		// n

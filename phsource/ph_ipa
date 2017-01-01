@@ -1,7 +1,241 @@
 // International Phonetic Alphabet: Narrow Transcription
 //
-// Copyright (C) 2016 Reece H. Dunn
+// Copyright (C) 2017 Reece H. Dunn
 //
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, see: <http://www.gnu.org/licenses/>.
+
 // This is using the X-SAMPA transcriptions
 // (http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm).
 
+// Vowels /////////////////////////////////////////////////////////////////////
+
+// Close Vowels
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 160
+
+  FMT(vowel/i)
+endphoneme
+
+phoneme M_Bo // M_B_o
+  vowel starttype #u endtype #u
+  ipa ɯᵝ
+  length 160
+
+  FMT(vowel/u_bck)
+endphoneme
+
+// Mid Vowels
+
+phoneme e_o
+  vowel starttype #e endtype #e
+  ipa e̞
+  length 160
+
+  FMT(vowel/e_8)
+endphoneme
+
+phoneme o_o
+  vowel starttype #o endtype #o
+  ipa o̞
+  length 160
+
+  FMT(vowel/oo_3)
+endphoneme
+
+// Open Vowels
+
+phoneme a_"
+  vowel starttype #a endtype #a
+  ipa ä
+  length 160
+
+  FMT(vowel/a)
+endphoneme
+
+// Consonants ----------
+
+phoneme m
+  vcd blb nasal
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  NextVowelStarts
+    VowelStart(m/m@)
+    VowelStart(m/ma)
+    VowelStart(m/me)
+    VowelStart(m/mi)
+    VowelStart(m/mo)
+    VowelStart(m/mu)
+  EndSwitch
+
+  IF nextPh(isNotVowel) THEN
+    FMT(m/m_)
+  ENDIF
+endphoneme
+
+phoneme n
+  vcd alv nasal
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
+  lengthmod 4
+
+  NextVowelStarts
+    VowelStart(n/n@)
+    VowelStart(n/na)
+    VowelStart(n/ne)
+    VowelStart(n/ni)
+    VowelStart(n/no)
+    VowelStart(n/nu)
+  EndSwitch
+
+  IF nextPh(isNotVowel) THEN
+    FMT(n/n_)
+  ENDIF
+endphoneme
+
+// Plosives
+
+phoneme t
+  vls alv stop
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  WAV(ustop/t, 90)
+endphoneme
+
+phoneme k
+  vls vel stop
+  lengthmod 2
+  Vowelin  f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0  f2=2300 300 400  f3=-200 80  rms=20
+
+  WAV(ustop/k)
+endphoneme
+
+// Sibilant Affricates
+
+phoneme t_s
+  vls alv afr sibilant
+  lengthmod 2
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/ts, 70)
+endphoneme
+
+phoneme t_s\\
+  vls pal afr sibilant palatal
+  ipa tɕ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  WAV(ustop/ts_pzd)
+endphoneme
+
+// Sibilant Fricatives
+
+phoneme s
+  vls alv frc sibilant
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  WAV(ufric/s)
+endphoneme
+
+phoneme s\\
+  vls pal frc sibilant palatal
+  ipa ɕ
+  lengthmod 3
+  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
+
+  WAV(ufric/sh_pzd)
+endphoneme
+
+// Fricatives
+
+phoneme p\\
+  vls blb frc
+  ipa ɸ
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  lengthmod 2
+  WAV(ufric/f)
+endphoneme
+
+phoneme C
+  vls pal frc palatal
+  ipa ç
+  lengthmod 3
+  Vowelin  f1=0  f2=2700 400 600  f3=200 70
+  Vowelout f1=0  f2=2700 400 600  f3=200 70  rms=20
+
+  WAV(ufric/ch)
+endphoneme
+
+// Approximant
+
+phoneme j
+  liquid palatal starttype #i
+  lengthmod 7
+
+  NextVowelStarts
+    VowelStart(j/j@)
+    VowelStart(j/ja)
+    VowelStart(j/je)
+    VowelStart(j/ji)
+    VowelStart(j/jo)
+    VowelStart(j/ju)
+  EndSwitch
+
+  IF nextPh(isNotVowel) THEN
+    Vowelout len=70
+    FMT(j/j_)
+  ENDIF
+endphoneme
+
+// Flap or Tap
+
+phoneme r`
+  liquid rfx
+  ipa ɽ
+  lengthmod 3
+  Vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15 colr=2
+  Vowelin  f1=2 f2=1400 -400 300  f3=-400 80 len=20
+
+  FMT(r3/@tap_rfx)
+endphoneme
+
+// Coarticulated
+
+phoneme w
+  liquid
+  lengthmod 7
+  starttype #u
+
+  NextVowelStarts
+    VowelStart(w/w@)
+    VowelStart(w/wa)
+    VowelStart(w/we)
+    VowelStart(w/wi)
+    VowelStart(w/wo)
+    VowelStart(w/wu)
+  EndSwitch
+
+  IF nextPh(isNotVowel) THEN
+    Vowelout len=50
+    FMT(w/w_)
+  ENDIF
+endphoneme
