@@ -65,7 +65,7 @@ phoneme a_"
   FMT(vowel/a)
 endphoneme
 
-// Consonants ----------
+// Consonants /////////////////////////////////////////////////////////////////
 
 phoneme m
   vcd blb nasal
@@ -107,8 +107,46 @@ endphoneme
 
 // Plosives
 
+phoneme p
+  vls blb stop
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50  -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+
+  WAV(ustop/p)
+endphoneme
+
+phoneme b
+  vcd blb stop
+  voicingswitch p
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
+  lengthmod 5
+
+  IF nextPh(isPause2) THEN
+    FMT(b/b_) addWav(x/b_)
+  ELIF nextPh(@-) THEN
+    FMT(b/b@2) addWav(x/b)
+  ELIF nextPh(#@) THEN
+    FMT(b/b@) addWav(x/b)
+  ELIF nextPh(#a) THEN
+    FMT(b/ba) addWav(x/b)
+  ELIF nextPh(#e) THEN
+    FMT(b/be) addWav(x/b)
+  ELIF nextPh(#i) THEN
+    FMT(b/bi) addWav(x/b)
+  ELIF nextPh(#o) THEN
+    FMT(b/bo) addWav(x/b)
+  ELIF nextPh(#u) THEN
+    FMT(b/bu) addWav(x/b)
+  ENDIF
+
+  FMT(b/b) addWav(x/b)
+endphoneme
+
 phoneme t
   vls alv stop
+  voicingswitch d
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
@@ -116,8 +154,19 @@ phoneme t
   WAV(ustop/t, 90)
 endphoneme
 
+phoneme d
+  vcd alv stop
+  voicingswitch t
+  lengthmod 5
+  Vowelin  f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2  f2=1700 -300 300  f3=-100 80 brk
+
+  FMT(d/d) addWav(x/d)
+endphoneme
+
 phoneme k
   vls vel stop
+  voicingswitch g
   lengthmod 2
   Vowelin  f1=0  f2=2300 200 300  f3=-200 80
   Vowelout f1=0  f2=2300 300 400  f3=-200 80  rms=20
@@ -125,10 +174,21 @@ phoneme k
   WAV(ustop/k)
 endphoneme
 
+phoneme g
+  vcd vel stop
+  voicingswitch k
+  lengthmod 5
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
 // Sibilant Affricates
 
 phoneme t_s
   vls alv afr sibilant
+  ipa ts
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
@@ -137,6 +197,7 @@ endphoneme
 
 phoneme t_s\\
   vls pal afr sibilant palatal
+  voicingswitch d_z\\
   ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -144,15 +205,36 @@ phoneme t_s\\
   WAV(ustop/ts_pzd)
 endphoneme
 
+phoneme d_z\\
+  vcd pla afr sibilant palatal
+  voicingswitch t_s\\
+  ipa dʑ
+  lengthmod 5
+  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2  f2=2700 400 600  f3=300 80
+
+  FMT(dzh/dzh) addWav(x/dz_pzd)
+endphoneme
+
 // Sibilant Fricatives
 
 phoneme s
   vls alv frc sibilant
+  voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
 
   WAV(ufric/s)
+endphoneme
+
+phoneme z
+  vcd alv frc sibilant
+  voicingswitch s
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
 phoneme s\\
@@ -173,6 +255,15 @@ phoneme p\\
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
   WAV(ufric/f)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+
+  FMT(voc/v) addWav(vocw/v)
 endphoneme
 
 phoneme C

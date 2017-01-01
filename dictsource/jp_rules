@@ -15,6 +15,35 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, see: <http://www.gnu.org/licenses/>.
 
+.replace
+	// Decompose combined Unicode Hiragana glyphs (base + sound mark)
+	が	が	// ga:	U+304C => U+304B U+3099
+	ぎ	ぎ	// gi:	U+304E => U+304D U+3099
+	ぐ	ぐ	// gu:	U+3050 => U+304F U+3099
+	げ	げ	// ge:	U+3052 => U+3051 U+3099
+	ご	ご	// go:	U+3054 => U+3053 U+3099
+	ざ	ざ	// za:	U+3056 => U+3055 U+3099
+	じ	じ	// ji:	U+3058 => U+3057 U+3099
+	ず	ず	// zu:	U+305A => U+3059 U+3099
+	ぜ	ぜ	// ze:	U+305C => U+305B U+3099
+	ぞ	ぞ	// zo:	U+305E => U+305D U+3099
+	だ	だ	// da:	U+3060 => U+305F U+3099
+	ぢ	ぢ	// ji:	U+3062 => U+3061 U+3099 (obsolete)
+	づ	づ	// zu:	U+3064 => U+3063 U+3099
+	で	で	// de:	U+3066 => U+3065 U+3099
+	ど	ど	// do:	U+3068 => U+3067 U+3099
+	ば	ば	// ba:	U+3070 => U+305F U+3099
+	ぱ	ぱ	// pa:	U+3071 => U+305F U+309A
+	び	び	// bi:	U+3073 => U+3072 U+3099
+	ぴ	ぴ	// pi:	U+3074 => U+3072 U+309A
+	ぶ	ぶ	// bu:	U+3076 => U+3075 U+3099
+	ぷ	ぷ	// pu:	U+3077 => U+3075 U+309A
+	べ	べ	// be:	U+3079 => U+3078 U+3099
+	ぺ	ぺ	// pe:	U+307A => U+3078 U+309A
+	ぼ	ぼ	// bo:	U+307C => U+307B U+3099
+	ぽ	ぽ	// po:	U+307D => U+307B U+309A
+	ゔ	ゔ	// vu:	U+3094 => U+3046 U+3099 (obsolete)
+
 // Hiragana
 
 .group あ
@@ -25,6 +54,7 @@
 
 .group う
 	う	M_Bo		// u
+	ゔ	vM_Bo		// vu
 
 .group え
 	え	e_o		// e
@@ -34,48 +64,63 @@
 
 .group か
 	か	ka_"		// ka
+	が	ga_"		// ga
 
 .group き
 	き	ki		// ki
+	ぎ	gi		// gi
 
 .group く
 	く	kM_Bo		// ku
+	ぐ	gM_Bo		// gu
 
 .group け
 	け	ke_o		// ke
+	げ	ge_o		// ge
 
 .group こ
 	こ	ko_o		// ko
+	ご	go_o		// go
 
 .group さ
 	さ	sa_"		// sa
+	ざ	za_"		// za
 
 .group し
 	し	s\\i		// shi
+	じ	d_z\\i		// ji
 
 .group す
 	す	sM_Bo		// su
+	ず	zM_Bo		// zu
 
 .group せ
 	せ	se_o		// se
+	ぜ	ze_o		// ze
 
 .group そ
 	そ	so_o		// so
+	ぞ	zo_o		// zo
 
 .group た
 	た	ta_"		// ta
+	だ	da_"		// da
 
 .group ち
 	ち	t_s\\i		// chi
+	ぢ	d_z\\i		// ji
 
 .group つ
 	つ	t_sM_Bo		// tsu
+	づ	zM_Bo		// zu
 
 .group て
 	て	te_o		// te
+	で	de_o		// de
 
 .group と
 	と	to_o		// to
+	ど	do_o		// do
 
 .group な
 	な	na_"		// na
@@ -94,18 +139,28 @@
 
 .group は
 	は	ha_"		// ha
+	ば	ba_"		// ba
+	ぱ	pa_"		// pa
 
 .group ひ
 	ひ	Ci		// hi
+	び	bi		// bi
+	ぴ	pi		// pi
 
 .group ふ
 	ふ	p\\M_Bo		// fu
+	ぶ	bM_Bo		// bu
+	ぷ	pM_Bo		// pu
 
 .group へ
 	へ	he_o		// he
+	べ	be_o		// be
+	ぺ	pe_o		// pe
 
 .group ほ
 	ほ	ho_o		// ho
+	ぼ	bo_o		// bo
+	ぽ	po_o		// po
 
 .group ま
 	ま	ma_"		// ma
@@ -150,10 +205,10 @@
 	わ	wa_"		// wa
 
 .group ゐ
-	ゐ	i		// wi (archaic)
+	ゐ	i		// wi (obsolete)
 
 .group ゑ
-	ゑ	we_o		// we (archaic)
+	ゑ	we_o		// we (obsolete)
 
 .group を
 	を	o_o		// wo
