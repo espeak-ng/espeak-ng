@@ -18,6 +18,11 @@
 // This is using the X-SAMPA transcriptions
 // (http://www.phon.ucl.ac.uk/home/sampa/x-sampa.htm).
 
+phoneme :
+  virtual
+  length 70
+endphoneme
+
 phoneme _j
   liquid palatal starttype #i
   ipa ʲ
@@ -42,6 +47,20 @@ phoneme i
   length 160
 
   FMT(vowel/i)
+endphoneme
+
+phoneme i~
+  vowel long starttype #i endtype #i
+  ipa ĩ
+  length 220
+  FMT(vnasal/i_n2)
+endphoneme
+
+phoneme u~
+  vowel starttype #u endtype #u
+  ipa ũ
+  length 220
+  FMT(vnasal/u_n)
 endphoneme
 
 phoneme M_Bo // M_B_o
@@ -118,6 +137,41 @@ phoneme n
   IF nextPh(isNotVowel) THEN
     FMT(n/n_)
   ENDIF
+endphoneme
+
+phoneme N
+  vcd vel nasal
+  ipa ŋ
+  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  lengthmod 3
+
+  NextVowelStarts
+    VowelStart(nn/nn@)
+    VowelStart(nn/nna)
+    VowelStart(nn/nne)
+    VowelStart(nn/nni)
+    VowelStart(nn/nno)
+    VowelStart(nn/nnu)
+  EndSwitch
+
+  IF prevPh(#i) THEN
+    VowelEnding(nn/inn, -40)
+  ENDIF
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(nn/nnj)
+  ELIF prevPh(isPause) THEN
+    FMT(nn/_nn)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(nn/nn_)
+  ENDIF
+endphoneme
+
+phoneme N\\
+  vcd uvl nasal
+  ipa ɴ
+  // FIXME: Stub phoneme.
+  CALL ipa/n
 endphoneme
 
 // Plosives
