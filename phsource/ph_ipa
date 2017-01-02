@@ -253,6 +253,15 @@ phoneme g
   FMT(g/g) addWav(x/g2, 150)
 endphoneme
 
+phoneme ?
+  vls glt stop
+  lengthmod 3
+  nolink
+  Vowelin  glstop
+  Vowelout glstop
+  WAV(ustop/null)
+endphoneme
+
 // Sibilant Affricates
 
 phoneme t_s

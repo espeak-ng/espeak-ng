@@ -699,3 +699,20 @@
 	い)	ん	(L19	i~	// i) n (w
 		ん	(L20	u~	//    n ([vowel]
 	い)	ん	(L20	i~	// i) n ([vowel]
+
+.group っ
+	っ	(_	?
+	っ	(L01	k	// k.k
+	っ	(L02	g	// g.g
+	っ	(L03	s	// s.s
+	っ	(L04	s\\	// s.sh
+	っ	(L05	z	// z.z
+	っ	(L06	d	// d.j
+	っ	(L07	t	// t.t
+	っ	(L08	t	// t.ch
+	っ	(L09	t	// t.ts
+	っ	(L10	d	// d.d
+	っ	(L14	b	// b.b
+	っ	(L15	p	// p.p
+	っ	(L16	m	// m.m
+	っ	(L18	r	// r.r
