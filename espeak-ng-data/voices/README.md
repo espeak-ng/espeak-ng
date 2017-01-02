@@ -113,4 +113,4 @@ The supported languages are:
 
 [3] Farsi/Persian written using English (Latin) characters.
 
-[4] Currently, only Hiragana are supported.
+[4] Currently, only Hiragana and Katakana are supported.

@@ -15,8 +15,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, see: <http://www.gnu.org/licenses/>.
 
+// Replacements:
+// 1.  Map Katakana to Hiragana.
+// 2.  Map voiced characters to their base form and voicing combined character.
+
 .replace
-	// Decompose combined Unicode Hiragana glyphs (base + sound mark)
+	// U+3040 - U+309F	Hiragana ----------------------------
 	が	が	// ga:	U+304C => U+304B U+3099
 	ぎ	ぎ	// gi:	U+304E => U+304D U+3099
 	ぐ	ぐ	// gu:	U+3050 => U+304F U+3099
@@ -29,11 +33,11 @@
 	ぞ	ぞ	// zo:	U+305E => U+305D U+3099
 	だ	だ	// da:	U+3060 => U+305F U+3099
 	ぢ	ぢ	// ji:	U+3062 => U+3061 U+3099 (obsolete)
-	づ	づ	// zu:	U+3064 => U+3063 U+3099
-	で	で	// de:	U+3066 => U+3065 U+3099
-	ど	ど	// do:	U+3068 => U+3067 U+3099
-	ば	ば	// ba:	U+3070 => U+305F U+3099
-	ぱ	ぱ	// pa:	U+3071 => U+305F U+309A
+	づ	づ	// zu:	U+3065 => U+3064 U+3099
+	で	で	// de:	U+3067 => U+3066 U+3099
+	ど	ど	// do:	U+3069 => U+3068 U+3099
+	ば	ば	// ba:	U+3070 => U+306F U+3099
+	ぱ	ぱ	// pa:	U+3071 => U+306F U+309A
 	び	び	// bi:	U+3073 => U+3072 U+3099
 	ぴ	ぴ	// pi:	U+3074 => U+3072 U+309A
 	ぶ	ぶ	// bu:	U+3076 => U+3075 U+3099
@@ -43,6 +47,95 @@
 	ぼ	ぼ	// bo:	U+307C => U+307B U+3099
 	ぽ	ぽ	// po:	U+307D => U+307B U+309A
 	ゔ	ゔ	// vu:	U+3094 => U+3046 U+3099 (obsolete)
+	// U+30A0 - U+30FF	Katakana ----------------------------
+	ァ	ぁ	// a:	U+30A1 => U+3041 (small)
+	ア	あ	// a:	U+30A2 => U+3042
+	ィ	ぃ	// i:	U+30A3 => U+3043 (small)
+	イ	い	// i:	U+30A4 => U+3044
+	ゥ	ぅ	// u:	U+30A5 => U+3045 (small)
+	ウ	う	// u:	U+30A6 => U+3046
+	ェ	ぇ	// e:	U+30A7 => U+3047 (small)
+	エ	え	// e:	U+30A8 => U+3048
+	ォ	ぉ	// o:	U+30A9 => U+3049 (small)
+	オ	お	// o:	U+30AA => U+304A
+	カ	か	// ka:	U+30AB => U+304B
+	ガ	が	// ga:	U+30AC => U+304B U+3099
+	キ	き	// ki:	U+30AD => U+304D
+	ギ	ぎ	// gi:	U+30AE => U+304D U+3099
+	ク	く	// ku:	U+30AF => U+304F
+	グ	ぐ	// gu:	U+30B0 => U+304F U+3099
+	ケ	け	// ke:	U+30B1 => U+3051
+	ゲ	げ	// ge:	U+30B2 => U+3051 U+3099
+	コ	こ	// ko:	U+30B3 => U+3053
+	ゴ	ご	// go:	U+30B4 => U+3053 U+3099
+	サ	さ	// sa:	U+30B5 => U+3055
+	ザ	ざ	// za:	U+30B6 => U+3055 U+3099
+	シ	し	// shi:	U+30B7 => U+3057
+	ジ	じ	// ji:	U+30B8 => U+3057 U+3099
+	ス	す	// su:	U+30B9 => U+3059
+	ズ	ず	// zu:	U+30BA => U+3059 U+3099
+	セ	せ	// se:	U+30BB => U+305B
+	ゼ	ぜ	// ze:	U+30BC => U+305B U+3099
+	ソ	そ	// so:	U+30BD => U+305D
+	ゾ	ぞ	// zo:	U+30BE => U+305D U+3099
+	タ	た	// ta:	U+30BF => U+305F
+	ダ	だ	// da:	U+30C0 => U+305F U+3099
+	チ	ち	// chi:	U+30C1 => U+3060
+	ヂ	ぢ	// ji:	U+30C2 => U+3061 U+3099 (obsolete)
+	ッ	っ	// tsu:	U+30C3 => U+3063 (small)
+	ツ	つ	// tsu:	U+30C4 => U+3064
+	ヅ	づ	// zu:	U+30C5 => U+3064 U+3099
+	テ	て	// te:	U+30C6 => U+3066
+	デ	で	// de:	U+30C7 => U+3066 U+3099
+	ト	と	// to:	U+30C8 => U+3068
+	ド	ど	// do:	U+30C9 => U+3068 U+3099
+	ナ	な	// na:	U+30CA => U+306A
+	ニ	に	// ni:	U+30CB => U+306B
+	ヌ	ぬ	// nu:	U+30CC => U+306C
+	ネ	ね	// ne:	U+30CD => U+306D
+	ノ	の	// no:	U+30CE => U+306E
+	ハ	は	// ha:  U+30CF => U+306F
+	バ	ば	// ba:	U+30D0 => U+306F U+3099
+	パ	ぱ	// pa:	U+30D1 => U+306F U+309A
+	ヒ	ひ	// hi:	U+30D2 => U+3072
+	ビ	び	// bi:	U+30D3 => U+3072 U+3099
+	ピ	ぴ	// pi:	U+30D4 => U+3072 U+309A
+	フ	ふ	// fu:	U+30D5 => U+3075
+	ブ	ぶ	// bu:	U+30D6 => U+3075 U+3099
+	プ	ぷ	// pu:	U+30D7 => U+3075 U+309A
+	ヘ	へ	// he:	U+30D8 => U+3078
+	ベ	べ	// be:	U+30D9 => U+3078 U+3099
+	ペ	ぺ	// pe:	U+30DA => U+3078 U+309A
+	ホ	ほ	// ho:	U+30DB => U+307B
+	ボ	ぼ	// bo:	U+30DC => U+307B U+3099
+	ポ	ぽ	// po:	U+30DD => U+307B U+309A
+	マ	ま	// ma:	U+30DE => U+307E
+	ミ	み	// mi:	U+30DF => U+307F
+	ム	む	// mu:	U+30E0 => U+3080
+	メ	め	// me:	U+30E1 => U+3081
+	モ	も	// mo:	U+30E2 => U+3082
+	ャ	ゃ	// ya:	U+30E3 => U+3083 (small)
+	ヤ	や	// ya:	U+30E4 => U+3084
+	ュ	ゅ	// yu:	U+30E5 => U+3085
+	ユ	ゆ	// yu:	U+30E6 => U+3086
+	ョ	ょ	// yo:	U+30E7 => U+3087
+	ヨ	よ	// yo:	U+30E8 => U+3088
+	ラ	ら	// ra:	U+30E9 => U+3089
+	リ	り	// ri:	U+30EA => U+308A
+	ル	る	// ru:	U+30EB => U+308B
+	レ	れ	// re:	U+30EC => U+308C
+	ロ	ろ	// ro:	U+30ED => U+308D
+	ヮ	ゎ	// wa:	U+30EE => U+308E (small)
+	ワ	わ	// wa:	U+30EF => U+308F
+	ヰ	ゐ	// wi:	U+30F0 => U+3090
+	ヱ	ゑ	// we:	U+30F1 => U+3091
+	ヲ	を	// wo:	U+30F2 => U+3092
+	ン	ん	// n:	U+30F3 => U+3093
+	ヴ	ゔ	// vu:	U+30F4 => U+3046 U+3099 (obsolete)
+	ヵ	ゕ	// ka:	U+30F5 => U+3095 (small)
+	ヶ	ゖ	// ke:	U+30F6 => U+3096 (small)
+	ヽ	ゝ	//	U+30FD => U+309D (iteration mark)
+	ヾ	ゞ	//	U+30FE => U+309E (voiced iteration mark)
 
 // Hiragana
 
@@ -69,13 +162,13 @@
 .L21	ゃ    ゅ    ょ		// combining vowels for i Hiragana
 
 .group ゃ
-	ゃ	a_"		// a
+	ゃ	a_"		// ya
 
 .group ゅ
-	ゅ	M_Bo		// u
+	ゅ	M_Bo		// yu
 
 .group ょ
-	ょ	o_o		// o
+	ょ	o_o		// yo
 
 .group あ
 	あ	a_"		// a
