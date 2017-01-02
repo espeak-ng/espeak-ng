@@ -47,6 +47,7 @@
 	ぼ	ぼ	// bo:	U+307C => U+307B U+3099
 	ぽ	ぽ	// po:	U+307D => U+307B U+309A
 	ゔ	ゔ	// vu:	U+3094 => U+3046 U+3099 (obsolete)
+	ゟ	より	//	U+309F => U+3088 U+308A (yori digraph)
 	// U+30A0 - U+30FF	Katakana ----------------------------
 	ァ	ぁ	// a:	U+30A1 => U+3041 (small)
 	ア	あ	// a:	U+30A2 => U+3042
@@ -116,9 +117,9 @@
 	モ	も	// mo:	U+30E2 => U+3082
 	ャ	ゃ	// ya:	U+30E3 => U+3083 (small)
 	ヤ	や	// ya:	U+30E4 => U+3084
-	ュ	ゅ	// yu:	U+30E5 => U+3085
+	ュ	ゅ	// yu:	U+30E5 => U+3085 (small)
 	ユ	ゆ	// yu:	U+30E6 => U+3086
-	ョ	ょ	// yo:	U+30E7 => U+3087
+	ョ	ょ	// yo:	U+30E7 => U+3087 (small)
 	ヨ	よ	// yo:	U+30E8 => U+3088
 	ラ	ら	// ra:	U+30E9 => U+3089
 	リ	り	// ri:	U+30EA => U+308A
@@ -136,6 +137,7 @@
 	ヶ	ゖ	// ke:	U+30F6 => U+3096 (small)
 	ヽ	ゝ	//	U+30FD => U+309D (iteration mark)
 	ヾ	ゞ	//	U+30FE => U+309E (voiced iteration mark)
+	ヿ	こと	//	U+30FF => U+3053 U+3068 (koto digraph)
 
 // Hiragana
 
