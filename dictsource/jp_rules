@@ -206,8 +206,9 @@
 	// U+1B000 - U+1B001	Kana Supplement ---------------------
 	𛀀	え	// e:	U+1B000 => U+3048 (archaic)
 
-// Hiragana
+// Hiragana Groups -- By Starting Consonant
 
+//	a  i  u  e  o  *
 .L01	か き く け こ		// k
 .L02	が ぎ ぐ げ ご		// g
 .L03	さ    す せ そ 		// s
@@ -227,8 +228,10 @@
 .L17	や    ゆ    よ		// y
 .L18	ら り る れ ろ		// r
 .L19	わ ゐ    ゑ を		// w
-.L20	あ い う え お		// vowel
-.L21	ゃ    ゅ    ょ		// combining vowels for i Hiragana
+.L20	あ い う え お		// none (vowels)
+.L21	ゃ    ゅ    ょ		// y (small)
+
+// Hiragana Combining Characters
 
 .group ゃ
 	ゃ	a_"		// ya
@@ -238,6 +241,8 @@
 
 .group ょ
 	ょ	o_o		// yo
+
+// Hiragana
 
 .group あ
 	あ	a_"		// a
