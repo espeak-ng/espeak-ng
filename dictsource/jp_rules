@@ -235,200 +235,440 @@
 
 .group ゃ
 	ゃ	a_"		// ya
+	ゃぁ	a_":		// yā
+	ゃー	a_":		// yā
 
 .group ゅ
 	ゅ	M_Bo		// yu
+	ゅぅ	M_Bo:		// yū
+	ゅー	M_Bo:		// yū
 
 .group ょ
 	ょ	o_o		// yo
+	ょぉ	o_o:		// yō
+	ょー	o_o:		// yō
 
 // Hiragana
 
 .group あ
 	あ	a_"		// a
+	ああ	a_":		// ā
+	あぁ	a_":		// ā
+	あー	a_":		// ā
 	あ゙	va_"		// va (Katakana)
+	あ゙あ	va_":		// vā (Katakana)
+	あ゙ぁ	va_":		// vā (Katakana)
+	あ゙ー	va_":		// vā (Katakana)
 
 .group い
 	い	i		// i
+	いい	i:		// ī
+	いぃ	i:		// ī
+	いー	i:		// ī
 	い゙	vi		// vi (Katakana)
+	い゙い	vi:		// vī (Katakana)
+	い゙ぃ	vi:		// vī (Katakana)
+	い゙ー	vi:		// vī (Katakana)
 
 .group う
 	う	M_Bo		// u
+	うう	M_Bo:		// ū
+	うぅ	M_Bo:		// ū
+	うー	M_Bo:		// ū
 	ゔ	vM_Bo		// vu
+	ゔう	vM_Bo:		// vū
+	ゔぅ	vM_Bo:		// vū
+	ゔー	vM_Bo:		// vū
 
 .group え
 	え	e_o		// e
+	ええ	e_o:		// ē
+	えぇ	e_o:		// ē
+	えー	e_o:		// ē
 	え゙	ve_o		// ve (Katakana)
+	え゙え	ve_o:		// vē (Katakana)
+	え゙ぇ	ve_o:		// vē (Katakana)
+	え゙ー	ve_o:		// vē (Katakana)
 
 .group お
 	お	o_o		// o
+	おお	o_o:		// ō
+	おぉ	o_o:		// ō
+	おー	o_o:		// ō
 	お゙	vo_o		// vo (Katakana)
+	お゙お	vo_o:		// vō (Katakana)
+	お゙ぉ	vo_o:		// vō (Katakana)
+	お゙ー	vo_o:		// vō (Katakana)
 
 .group か
 	か	ka_"		// ka
+	かあ	ka_":		// kā
+	かぁ	ka_":		// kā
+	かー	ka_":		// kā
 	が	ga_"		// ga
+	があ	ga_":		// gā
+	がぁ	ga_":		// gā
+	がー	ga_":		// gā
 
 .group き
 	き	ki		// ki
+	きい	ki:		// kī
+	きぃ	ki:		// kī
+	きー	ki:		// kī
 	き (L21	k_j		// ky([auo]
 	ぎ	gi		// gi
+	ぎい	gi:		// gī
+	ぎぃ	gi:		// gī
+	ぎー	gi:		// gī
 	ぎ (L21	g_j		// gy([auo]
 
 .group く
 	く	kM_Bo		// ku
+	くう	kM_Bo:		// kū
+	くぅ	kM_Bo:		// kū
+	くー	kM_Bo:		// kū
 	ぐ	gM_Bo		// gu
+	ぐう	gM_Bo:		// gū
+	ぐぅ	gM_Bo:		// gū
+	ぐー	gM_Bo:		// gū
 
 .group け
 	け	ke_o		// ke
+	けえ	ke_o:		// kē
+	けぇ	ke_o:		// kē
+	けー	ke_o:		// kē
 	げ	ge_o		// ge
+	げえ	ge_o:		// gē
+	げぇ	ge_o:		// gē
+	げー	ge_o:		// gē
 
 .group こ
 	こ	ko_o		// ko
+	こお	ko_o:		// kō
+	こぉ	ko_o:		// kō
+	こー	ko_o:		// kō
 	ご	go_o		// go
+	ごお	go_o:		// gō
+	ごぉ	go_o:		// gō
+	ごー	go_o:		// gō
 
 .group さ
 	さ	sa_"		// sa
+	さあ	sa_":		// sā
+	さぁ	sa_":		// sā
+	さー	sa_":		// sā
 	ざ	za_"		// za
+	ざあ	za_":		// zā
+	ざぁ	za_":		// zā
+	ざー	za_":		// zā
 
 .group し
 	し	s\\i		// shi
+	しい	s\\i:		// shī
+	しぃ	s\\i:		// shī
+	しー	s\\i:		// shī
 	し (L21	s\\		// sh([auo]
 	じ	d_z\\i		// ji
+	じい	d_z\\i:		// jī
+	じぃ	d_z\\i:		// jī
+	じー	d_z\\i:		// jī
 	じ (L21	d_z\\		// j([auo]
 
 .group す
 	す	sM_Bo		// su
+	すう	sM_Bo:		// sū
+	すぅ	sM_Bo:		// sū
+	すー	sM_Bo:		// sū
 	ず	zM_Bo		// zu
+	ずう	zM_Bo:		// zū
+	ずぅ	zM_Bo:		// zū
+	ずー	zM_Bo:		// zū
 
 .group せ
 	せ	se_o		// se
+	せえ	se_o:		// sē
+	せぇ	se_o:		// sē
+	せー	se_o:		// sē
 	ぜ	ze_o		// ze
+	ぜえ	ze_o:		// zē
+	ぜぇ	ze_o:		// zē
+	ぜー	ze_o:		// zē
 
 .group そ
 	そ	so_o		// so
+	そお	so_o:		// sō
+	そぉ	so_o:		// sō
+	そー	so_o:		// sō
 	ぞ	zo_o		// zo
+	ぞお	zo_o:		// zō
+	ぞぉ	zo_o:		// zō
+	ぞー	zo_o:		// zō
 
 .group た
 	た	ta_"		// ta
+	たあ	ta_":		// tā
+	たぁ	ta_":		// tā
+	たー	ta_":		// tā
 	だ	da_"		// da
+	だあ	da_":		// dā
+	だぁ	da_":		// dā
+	だー	da_":		// dā
 
 .group ち
 	ち	t_s\\i		// chi
+	ちい	t_s\\i:		// chī
+	ちぃ	t_s\\i:		// chī
+	ちー	t_s\\i:		// chī
 	ち (L21	t_s\\		// ch([auo]
 	ぢ	d_z\\i		// ji		(obsolete)
+	ぢい	d_z\\i:		// jī		(obsolete)
+	ぢぃ	d_z\\i:		// jī		(obsolete)
+	ぢー	d_z\\i:		// jī		(obsolete)
 	ぢ (L21	d_z\\		// j([auo]	(obsolete)
 
 .group つ
 	つ	t_sM_Bo		// tsu
+	つう	t_sM_Bo:	// tsū
+	つぅ	t_sM_Bo:	// tsū
+	つー	t_sM_Bo:	// tsū
 	づ	zM_Bo		// zu
+	づう	zM_Bo:		// zū
+	づぅ	zM_Bo:		// zū
+	づー	zM_Bo:		// zū
 
 .group て
 	て	te_o		// te
+	てえ	te_o:		// tē
+	てぇ	te_o:		// tē
+	てー	te_o:		// tē
 	で	de_o		// de
+	でえ	de_o:		// dē
+	でぇ	de_o:		// dē
+	でー	de_o:		// dē
 
 .group と
 	と	to_o		// to
+	とお	to_o:		// tō
+	とぉ	to_o:		// tō
+	とー	to_o:		// tō
 	ど	do_o		// do
+	どお	do_o:		// dō
+	どぉ	do_o:		// dō
+	どー	do_o:		// dō
 
 .group な
 	な	na_"		// na
+	なあ	na_":		// nā
+	なぁ	na_":		// nā
+	なー	na_":		// nā
 
 .group に
 	に	ni		// ni
+	にい	ni:		// nī
+	にぃ	ni:		// nī
+	にー	ni:		// nī
 	に (L21	n_j		// ny([auo]
 
 .group ぬ
 	ぬ	nM_Bo		// nu
+	ぬう	nM_Bo:		// nū
+	ぬぅ	nM_Bo:		// nū
+	ぬー	nM_Bo:		// nū
 
 .group ね
 	ね	ne_o		// ne
+	ねえ	ne_o:		// nē
+	ねぇ	ne_o:		// nē
+	ねー	ne_o:		// nē
 
 .group の
 	の	no_o		// no
+	のお	no_o:		// nō
+	のぉ	no_o:		// nō
+	のー	no_o:		// nō
 
 .group は
 	は	ha_"		// ha
+	はあ	ha_":		// hā
+	はぁ	ha_":		// hā
+	はー	ha_":		// hā
 	ば	ba_"		// ba
+	ばあ	ba_":		// bā
+	ばぁ	ba_":		// bā
+	ばー	ba_":		// bā
 	ぱ	pa_"		// pa
+	ぱあ	pa_":		// pā
+	ぱぁ	pa_":		// pā
+	ぱー	pa_":		// pā
 
 .group ひ
 	ひ	Ci		// hi
+	ひい	Ci:		// hī
+	ひぃ	Ci:		// hī
+	ひー	Ci:		// hī
 	ひ (L21	C		// hy([auo]
 	び	bi		// bi
+	びい	bi:		// bī
+	びぃ	bi:		// bī
+	びー	bi:		// bī
 	び (L21	b_j		// by([auo]
 	ぴ	pi		// pi
+	ぴい	pi:		// pī
+	ぴぃ	pi:		// pī
+	ぴー	pi:		// pī
 	ぴ (L21	p_j		// py([auo]
 
 .group ふ
 	ふ	p\\M_Bo		// fu
+	ふう	p\\M_Bo:	// fū
+	ふぅ	p\\M_Bo:	// fū
+	ふー	p\\M_Bo:	// fū
 	ぶ	bM_Bo		// bu
+	ぶう	bM_Bo:		// bū
+	ぶぅ	bM_Bo:		// bū
+	ぶー	bM_Bo:		// bū
 	ぷ	pM_Bo		// pu
+	ぷう	pM_Bo:		// pū
+	ぷぅ	pM_Bo:		// pū
+	ぷー	pM_Bo:		// pū
 
 .group へ
 	へ	he_o		// he
+	へえ	he_o:		// hē
+	へぇ	he_o:		// hē
+	へー	he_o:		// hē
 	べ	be_o		// be
+	べえ	be_o:		// bē
+	べぇ	be_o:		// bē
+	べー	be_o:		// bē
 	ぺ	pe_o		// pe
+	ぺえ	pe_o:		// pē
+	ぺぇ	pe_o:		// pē
+	ぺー	pe_o:		// pē
 
 .group ほ
 	ほ	ho_o		// ho
+	ほお	ho_o:		// hō
+	ほぉ	ho_o:		// hō
+	ほー	ho_o:		// hō
 	ぼ	bo_o		// bo
+	ぼお	bo_o:		// bō
+	ぼぉ	bo_o:		// bō
+	ぼー	bo_o:		// bō
 	ぽ	po_o		// po
+	ぽお	po_o:		// pō
+	ぽぉ	po_o:		// pō
+	ぽー	po_o:		// pō
 
 .group ま
 	ま	ma_"		// ma
+	まあ	ma_":		// mā
+	まぁ	ma_":		// mā
+	まー	ma_":		// mā
 
 .group み
 	み	mi		// mi
+	みい	mi:		// mī
+	みぃ	mi:		// mī
+	みー	mi:		// mī
 	み (L21	m_j		// my([auo]
 
 .group む
 	む	mM_Bo		// mu
+	むう	mM_Bo:		// mū
+	むぅ	mM_Bo:		// mū
+	むー	mM_Bo:		// mū
 
 .group め
 	め	me_o		// me
+	めえ	me_o:		// mē
+	めぇ	me_o:		// mē
+	めー	me_o:		// mē
 
 .group も
 	も	mo_o		// mo
+	もお	mo_o:		// mō
+	もぉ	mo_o:		// mō
+	もー	mo_o:		// mō
 
 .group や
 	や	ja_"		// ya
+	やあ	ja_":		// yā
+	やぁ	ja_":		// yā
+	やー	ja_":		// yā
 
 .group ゆ
 	ゆ	jM_Bo		// yu
+	ゆう	jM_Bo:		// yū
+	ゆぅ	jM_Bo:		// yū
+	ゆー	jM_Bo:		// yū
 
 .group 𛀁
 	𛀁	je_o		// ye (archaic)
+	𛀁え	je_o:		// yē (archaic)
+	𛀁ぇ	je_o:		// yē (archaic)
+	𛀁ー	je_o:		// yē (archaic)
 
 .group よ
 	よ	jo_o		// yo
+	よお	jo_o:		// yō
+	よぉ	jo_o:		// yō
+	よー	jo_o:		// yō
 
 .group ら
 	ら	r`a_"		// ra
+	らあ	r`a_":		// rā
+	らぁ	r`a_":		// rā
+	らー	r`a_":		// rā
 
 .group り
 	り	r`i		// ri
+	りい	r`i:		// rī
+	りぃ	r`i:		// rī
+	りー	r`i:		// rī
 	り (L21	r`_ja_"		// ry([auo]
 
 .group る
-	る	rM_Bo		// ru
+	る	r`M_Bo		// ru
+	るう	r`M_Bo:		// rū
+	るぅ	r`M_Bo:		// rū
+	るー	r`M_Bo:		// rū
 
 .group れ
-	れ	re_o		// re
+	れ	r`e_o		// re
+	れえ	r`e_o:		// rē
+	れぇ	r`e_o:		// rē
+	れー	r`e_o:		// rē
 
 .group ろ
-	ろ	ro_o		// ro
+	ろ	r`o_o		// ro
+	ろお	r`o_o:		// rō
+	ろぉ	r`o_o:		// rō
+	ろー	r`o_o:		// rō
 
 .group わ
 	わ	wa_"		// wa
+	わあ	wa_":		// wā
+	わぁ	wa_":		// wā
+	わー	wa_":		// wā
 
 .group ゐ
 	ゐ	i		// wi (obsolete)
+	ゐい	i:		// wī (obsolete)
+	ゐぃ	i:		// wī (obsolete)
+	ゐー	i:		// wī (obsolete)
 
 .group ゑ
 	ゑ	we_o		// we (obsolete)
+	ゑえ	we_o:		// wē (obsolete)
+	ゑぇ	we_o:		// wē (obsolete)
+	ゑー	we_o:		// wē (obsolete)
 
 .group を
 	を	o_o		// wo
+	をお	o_o:		// wō
+	をぉ	o_o:		// wō
+	をー	o_o:		// wō
 
 .group ん
 		ん		N\\	//    n
