@@ -135,6 +135,10 @@
 	ヴ	ゔ	// vu:	U+30F4 => U+3046 U+3099 (obsolete)
 	ヵ	ゕ	// ka:	U+30F5 => U+3095 (small)
 	ヶ	ゖ	// ke:	U+30F6 => U+3096 (small)
+	ヷ	あ゙	// va:	U+30F7 => U+3042 U+3099
+	ヸ	い゙	// vi:	U+30F8 => U+3044 U+3099
+	ヹ	え゙	// ve:	U+30F9 => U+3048 U+3099
+	ヺ	お゙	// vo:	U+30FA => U+304A U+3099
 	ヽ	ゝ	//	U+30FD => U+309D (iteration mark)
 	ヾ	ゞ	//	U+30FE => U+309E (voiced iteration mark)
 	ヿ	こと	//	U+30FF => U+3053 U+3068 (koto digraph)
@@ -176,9 +180,11 @@
 
 .group あ
 	あ	a_"		// a
+	あ゙	va_"		// va (Katakana)
 
 .group い
 	い	i		// i
+	い゙	vi		// vi (Katakana)
 
 .group う
 	う	M_Bo		// u
@@ -186,9 +192,11 @@
 
 .group え
 	え	e_o		// e
+	え゙	ve_o		// ve (Katakana)
 
 .group お
 	お	o_o		// o
+	お゙	vo_o		// vo (Katakana)
 
 .group か
 	か	ka_"		// ka
