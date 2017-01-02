@@ -61,6 +61,7 @@ The supported languages are:
 | `poz`       | `in`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
+| `jpx`       | `jp`              | Japanese              | Japanese<sup>[4]</sup>      |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
 | `ira`       | `ku`              | Iranian               | Kurdish                     |                        |
@@ -111,3 +112,5 @@ The supported languages are:
 [2] Includes support for reading American English text.
 
 [3] Farsi/Persian written using English (Latin) characters.
+
+[4] Currently, only Hiragana are supported.

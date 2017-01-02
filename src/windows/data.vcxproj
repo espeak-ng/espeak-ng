@@ -184,6 +184,9 @@
   <Target Name="jbo" Inputs="$(ProjectDir)..\..\dictsource\jbo_rules;$(ProjectDir)..\..\dictsource\jbo_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\jbo_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=jbo"/>
   </Target>
+  <Target Name="jp" Inputs="$(ProjectDir)..\..\dictsource\jp_rules;$(ProjectDir)..\..\dictsource\jp_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\jp_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=jp"/>
+  </Target>
   <Target Name="ka" Inputs="$(ProjectDir)..\..\dictsource\ka_rules;$(ProjectDir)..\..\dictsource\ka_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ka_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ka"/>
   </Target>
@@ -313,6 +316,5 @@
   <Target Name="zhy" Inputs="$(ProjectDir)..\..\dictsource\zhy_rules" Outputs="$(ProjectDir)..\..\espeak-ng-data\zhy_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=zhy"/>
   </Target>
-  <!-- NOTE: Compiling 'my' triggers an assertion, so is disabled for now. -->
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy"/>
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;jp;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy"/>
 </Project>
