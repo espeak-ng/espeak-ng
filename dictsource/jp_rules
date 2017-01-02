@@ -138,6 +138,8 @@
 	ヽ	ゝ	//	U+30FD => U+309D (iteration mark)
 	ヾ	ゞ	//	U+30FE => U+309E (voiced iteration mark)
 	ヿ	こと	//	U+30FF => U+3053 U+3068 (koto digraph)
+	// U+1B000 - U+1B001	Kana Supplement ---------------------
+	𛀀	え	// e:	U+1B000 => U+3048 (archaic)
 
 // Hiragana
 
@@ -319,6 +321,9 @@
 
 .group ゆ
 	ゆ	jM_Bo		// yu
+
+.group 𛀁
+	𛀁	je_o		// ye (archaic)
 
 .group よ
 	よ	jo_o		// yo
