@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2016 November 6 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 January 1 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -125,7 +125,7 @@ _´	atS:'Ento||ak'uto
 _―	b'aR*a||o*Idz:Ont'ale
 _‖	d,op:ia||b'aR*a
 _·	p'unto||tSent@-*'ale
-_¸	tSed'il^ia
+_¸	tSed'il^a
 _‚	vi@-*gol'Et:a||in||b'asso
 _‛	vi@-*gol'Et:a||sin'ist@-*a
 _„	dop:ievi@-*gol'Et:e||inb'asso
@@ -176,6 +176,7 @@ _‧	sepaRat'oRe/
 ≥	madZ:'oRe||,o_||ugw2'ale
 ≤	min'oRe||,o||_ugw2'ale
 ɧ	heng
+ƒ	'Ef:e||untSin'ata/ // U+0192
 ɼ	'ER*e||al:uNg'ata
 ≠	non||ugw'ale||,a
 ∫	integ@-*'ale
@@ -630,6 +631,7 @@ delle	$u+
 de      $u+ $only
 in	$u 	$only $nounf
 in	'i:n	$atend
+(in arrivo)	_inaR*'ivo
 nel	 $u+	$only
 nello	$u+
 nella	$u+
@@ -1360,8 +1362,8 @@ deroghe	$1
 desideri	d,Ezid'E:RI	$only
 desossicortisol	$6
 detraibil	det@-*a'ibil
-diamin	di'amin
-discepoli	$2
+diamin	di'a:min
+discepol	$2	$alt
 disguid	dizgw2'id
 disordin	$2
 disparere	$3
@@ -1694,7 +1696,7 @@ veterano	$3
 vicere	$3 $alt2
 videocamera	$4
 vinacciol	$3
-visualizzazion	vizw2ali|dz:atsi'On
+visualizzazion	vizw2ali|dz:atsj'on
 vittime	$1
 vocaboli	$2
 voragini	$2
@@ -2246,7 +2248,7 @@ augias	a'u:dZas
 avirex	$1
 bardot	ba@-*d'o
 bartali	$1
-bastian $2
+basile	$2
 baudelaire	bOdl'E@-*
 bearzot	bea*_dz'Ot $only
 beatle	b'i:tol
@@ -2341,6 +2343,7 @@ frederic	$1
 freud	f@-*'Oid $only
 gandolfi  $alt
 garcía	_^_ES
+gargiul	$2
 gavino	$2
 genesia	$2
 george	dZ'O@-*dZ	$onlys
@@ -2449,6 +2452,7 @@ michael	m'aIkOl
 michelangel	$3
 michelle	m,iS'el	$only
 mike	_^_EN
+misseri	$2
 mowgli	m'o:glI
 mogol $2
 mondadori  $alt2
@@ -2516,6 +2520,7 @@ saša	s'aSa/
 savino	$2
 scalfar	$1
 schopenhauer	S,Open'a:w2e@-*
+schultz	S'u:lts
 schumann	S'u:man
 schumacher	_^_DE
 Schubert	S'ube@-*t
@@ -2786,6 +2791,7 @@ anticipino	$2
 apostrofano	$2
 appaiano	$2
 appannino	$2
+appartano	$2
 appartenere	$4
 apparvero	$2
 appellino	$2
@@ -3587,6 +3593,7 @@ intravvedere	$4
 intreccino	$2
 intregnano	$2
 introducano	$3
+intrufol	$2
 intuito	intu'i:to	$verb
 invaginano	$3
 invalidano	$2
@@ -3631,6 +3638,7 @@ lamentino	$2
 lancino	$1
 lasciavi	$2
 lascino	$1
+latitano	$1
 laureano	$1
 laureino	l'aw2Rejno
 lavorano	$2 $alt2
@@ -4134,6 +4142,7 @@ riuscii	@-*IuS'i:j
 rivedere	$3
 rivelino	$2
 rivendicano	$2
+riverberano	$2
 riversano	$2
 riversi	$2
 rizzano	@-*'its2:ano
@@ -4478,12 +4487,14 @@ svegliano	$1
 sveglino	$1
 sventolano	$1
 svergino	$1
+sventrano	$1 $alt
 svignino	$1
 sviluppano	$2
 sviluppino	$2
 sviscer	$1
 svuotino	$2
 tacere	$2
+tacquero	$1
 tagliano	$1
 taglino	$1
 tallono	$2
@@ -4809,6 +4820,7 @@ portalo	$1
 portatel	$2
 posizionati	$4 $atstart
 presentaci	$2
+procurati	$2 $atstart
 promessomi	$2
 privaci	$1
 proteggiti	$2 $alt2

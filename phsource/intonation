@@ -144,14 +144,14 @@ nucleus  fall  92 80 76 8
 endtune
 
 
-// italian (by  llajta@gmx.us)
+// Italian:
 
 tune s4
 prehead   46 57
 headenv   fall 16
-head       4 75 45 -8 -5
+head       4 80 43 -8 -5
 headextend 0 63 38 13 0
-headlast 50 4 8
+headlast 45 4 8
 nucleus0 fall 64 8
 nucleus  fall 68 18 22 8
 endtune
@@ -170,7 +170,7 @@ prehead   47 58
 headenv   fall 16
 head       5 75 53 -7 1
 headextend 0 60 55 45 60
-onset 60 48 62
+onset 56 41 55
 headlast 60 24 30
 nucleus0 fall-rise  95 29
 nucleus  fall-rise2 92 21 34 79

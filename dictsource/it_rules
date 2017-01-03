@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2016 November 5 by Chris <llajta2012@gmail.com>
+// Last update: 2016 december 28 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -177,7 +177,7 @@
 	C) erder (L04_	'E@-*de@-*
 	chi) eder (L04_	'Ede@-*
 	esser (L04_	'EsseR
-	_) ecco (L04	'Ek:o
+	_) ecco (L04_	'Ek:o
 		ete (L04_	'ete
 	fl) etter (L04_	'Et:e@-*
 	ever (L04_	'eveR
@@ -262,9 +262,7 @@
 	l) i (A	%i
 	r)	i (A	%i
 	_C) ie (_	'ie
-	i (o    i
-	i (ò	i
-	i (ó	i
+	i (o	i
 	@) ia (_	=i%a
 	@) ià (_	j'a
 	X) ia (_	'ia
@@ -486,6 +484,8 @@
 	prendi (L04_	p@-*'E:ndi
 	prova (L07_	p@-*'Ova
 	a) pprova (L07_	p:@-*'Ova
+	_) posa (L07_	p'oza
+	pro) posto (L07_	p'osto
 	pie (galA_	pI'e
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
@@ -521,7 +521,7 @@
 	CA) rcano (_	=@-*k,ano   // verbs
 
 .group s
-		s	s
+	s	s
 	A)	s (A	z
 		s (L01	z
 	l)      s       s
@@ -541,9 +541,7 @@
 		scii	Sij
 		sci (ì	S%i
 		sch (Y	sk
-		sh (K	S    // foreign words
-	K) sh	S
-	A) sh (A	S
+	sh	S   // foreign words
 	@A)	sia (_	z'ia
 	@A) sie (_	z'ie
 	@C) sia (_	s'ia
@@ -562,6 +560,7 @@
 	re) sister (L04_	z'i:ste@-*
 	salva (L07_	s'alva
 	sposa (L07_	sp'oza
+	_) sposta (L07_	sp'osta/
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -569,7 +568,7 @@
 	ssiono (_	ssi'ono
 	C) siono (_	si'ono
 	A) ssano (_	=ssano
-	L02) sei (_	_s'Ej
+	L02) sei (_	_s'Ej // numbers
 
 .group t
 	t	t
@@ -586,7 +585,7 @@
 	@a) to (L06_	=to
 	intima) to (L04_	=to
 	ba) tter (L04_	=t:e@-*
-	tratta (L07	t@-*'at:a
+	tratta (L07_	t@-*'at:a
 	tocca (L07_	t'Ok:a
 	a) ta (si_	=ta
 	_) togli (L04_	t'Ol^i
@@ -594,6 +593,7 @@
 	tieni (L04_	tj'e/nI
 	au) tentica (L07_	t'ENtIka/
 	a) ttiva (L07_	t:'iva
+	taglia (L07_	t'al^a
 	L02) tre (_	t@-*'e
 	_) tutt' (P5t	tut:
 

@@ -298,6 +298,7 @@ arciconfraternit $5
 arcidiacon $3
 arcidiocesi $4
 arcipelag $3
+arcipelaghi	$3
 arciprete  $alt
 arcivescov $3
 arcivescovil	$5
@@ -2064,6 +2065,7 @@ langur $2
 lapideo $2
 lascit $1
 later $1
+lattea	$1
 lattei	$1
 lattosi  $alt
 laurasia $3
