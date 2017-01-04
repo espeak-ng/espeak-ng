@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2016 december 28 by Chris <llajta2012@gmail.com>
+// Last update: 2017 january 4 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -326,27 +326,26 @@
 	imer (L04_	'Ime@-*
 	ass) ister (L04_	'iste@-*
 	ivano (_	'ivano   // verbs
-	i (ficano_	'i    // verbs
-	ifichino (_	'ifikino   // verbs
-	ACCC) i (cano_	=i   // verbs
-	i (Ccano_	'i   // verbs
-	ilitano (_	'ilitano   // verbs
+	i (ficano_	'i
+	ifichino (_	'ifikino
+	ACCC) i (cano_	=i
+	i (Ccano_	'i
+	ilitano (_	'ilitano
 	istano (_	'istano
 
 .group j
-
-            j            dZ
-           @) j (_	j
+	j            dZ
+	@) j (_	j
 	A) j (A	j
 
 .group k
-		k	k
-		kk	k:
+	k	k
+	kk	k:
 
 .group l
-		l	l
-               ll (C    l_
-               ll (_    l
+	l	l
+	ll (C	l_
+	ll (_	l
 	@A) lo (gA_	=lo
 	@A) lo (ghY_	=lo
 	_) l' (P2t	l
@@ -357,12 +356,12 @@
 	e) limina (L07_	l'imina
 
 .group m
-		m	m
+	m	m
 	mm	m:
-	A) mi (a_  m'i
+	A) mi (a_	m'i
 	A) mi (e_	m'i
 	A) mila (_	m'ila/
-     _) m' (P2t     m
+	_) m' (P2t	m
 	_) mezz' (P5t	mEdz:
 	metter (L04_	m'ette@-* // Pron.s Verbs
 	mmetter (L04_	m:'et:e@-*
@@ -371,54 +370,53 @@
 	assu) mer (L04_	=me@-*
 	_a) ma (L07_	=ma
 	mbano (_	=mbano // verbs
-	@) minano(_	=mina/no   // verbs
+	@) minano(_	=mina/no
 
 .group n
-		n	n
-		n (g	N
-		n (gY   n
-		n (k	N
+	n	n
+	n (g	N
+	n (gY	n
+	n (k	N
 	Ama) nia (_	n'i:a
 	Ama) nie (_	n'i:e
 	_) nell' (P5t	nel:
 	_) n' (P2t	n
 	_) neanch' (P7t	neank
-		ndo (L04_	=ndo    //  Pronominal verbs
-		netter (L04_	n'Et:e@-*
-		_zA) nz (A	n|dz
-		A) ne (A_	=nE
+	ndo (L04_	=ndo    //  Pronominal verbs
+	netter (L04_	n'Et:e@-*
+	_zA) nz (A	n|dz
+	A) ne (A_	=nE
 	@) nano (_	=nano   // verbs
 
 .group o
-		o	o
-		oi	O%I
-		oi (o_  o%I
-		oi (sCA_ o'i
-
-		o (C%A_	O    // doubled consonant
-		o (CACA_  O
-		o (CrA	O
-		o (CC_    O
+	o	o
+	oi	O%I
+	oi (o_	oj
+	oi (sCA_	o'i
+	o (C%A_	O
+	o (CACA_	O
+	o (CrA	O
+	o (CC_	O
 	@C)	o (_S1q  o/     // lookup it_list without suffix 
 	@i)	o (_S1q  o     // lookup it_list without suffix 
-	i)	o          O
-	i)	o (ne      o
-	i)	o (so_     o
-	m)	o (bile    O
-		o (ca_     O
-		o (co_     O
-	@)	o (di_     =o
-	@)	o (do_     =o
-	@)	o (fonA_   'O
-		o (genA_   'O
-	l)	o (gico_   'O
-	@)	o (gnolo_  'o
-	@)	o (grafA_	'O
-		o (lX       O
-	nd)	o (lA_     =O
-	ns)	o (lA_     =O
-	CC)	o (lA_     =O
-	u)	o (lA_      O
+	i) o	O
+	i) o (ne	o
+	i) o (so_	o
+	m) o (bile	O
+	o (ca_	O
+	o (co_	O
+	@) o (di_	=o
+	@) o (do_	=o
+	@) o (fonA_	'O
+	o (genA_	'O
+	l) o (gico_	'O
+	@) o (gnolo_	'o
+	@) o (grafA_	'O
+	o (lX	O
+	nd) o (lA_	=O
+	ns) o (lA_	=O
+	CC) o (lA_	=O
+	u) o (lA_	O
 	v)	o (lA_     =o
 	@) o (lA_      O
 	gn)	o (la_      O
@@ -524,31 +522,31 @@
 	s	s
 	A)	s (A	z
 		s (L01	z
-	l)      s       s
+	l) s	s
 	p) s	s
 	k) s	s
-		s (c	s
-		s (f	s
-		s (k	s
-		s (p	s
-		s (q	s
-		ss	ss
+	s (c	s
+	s (f	s
+	s (k	s
+	s (p	s
+	s (q	s
+	ss	ss
 	A) ss (A	ss
-		s (t	s
-		s (x	s
-		sc (Y	S
-		sci (A  S
-		scii	Sij
-		sci (ì	S%i
-		sch (Y	sk
+	s (t	s
+	s (x	s
+	sc (Y	S
+	sci (A	S
+	scii	Sij
+	sci (ì	S%i
+	sch (Y	sk
 	sh	S   // foreign words
 	@A)	sia (_	z'ia
 	@A) sie (_	z'ie
 	@C) sia (_	s'ia
 	@C) sie (_	s'ie
-	@)	s (_S1	s
+	@) s (_S1	s
 	_) s' (P2t	s
-     _) sull' (P5t     sull
+	_) sull' (P5t	sull
 	_) sant' (P5t	sant
 	_sotto) s (A	_||s
 	sfere (_	sf'eRe
@@ -561,6 +559,7 @@
 	salva (L07_	s'alva
 	sposa (L07_	sp'oza
 	_) sposta (L07_	sp'osta/
+	con) serva (L07_	s'E@-*va
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -598,12 +597,12 @@
 	_) tutt' (P5t	tut:
 
 .group u
-		u	u
-		_) u (A	w2
+	u	u
+	_) u (A	w2
 	@)	u (dinY_  'u
 	@)	u (colo_  'u
 	@)	u (lA_	=u
-     _) un' (P3t     un
+	_) un' (P3t	un
 	@) u (A_	=u
 	A%C) u (A_	=u
 	ural (Y_	uR'al
@@ -621,8 +620,8 @@
 	v	v
 	vv	v:
 	vvi (A	v:i
-		C) vi (A	vI
-		C) vi (A_	=vI
+	C) vi (A	vI
+	C) vi (A_	=vI
 	A) vino (_	=vino  // verbs
 	@) vo (cano_	=vo
 	in) via (toL04_	vI'a
@@ -631,29 +630,29 @@
 	_a) vvisa (L07_	v:'iza
 	_in) vader (L04_	v'a:de@-*
 	_) vota (L07_	v'Ota
-	s) veglia (L07_	v'el^ia
+	s) veglia (L07_	v'el^a
 	volta (L07_	v'Olta
 
 .group w
-		w	w2
+	w	w2
 
 .group x
-		x	ks
+	x	ks
 
 .group y
-		y	j
-		y (K	i        // foreign words
+	y	j
+	y (K	i   // foreign words
 
 .group z
-		z	ts
+	z	ts
 	A) zz (A	ts2:
 	_A) z (AC	dz
 	_) z (A	dz
         _)	z (Y	dz
-		z (oA	dz
-		_A) zz (A	|dz:
-		CA) zz (arC	dz:
-		@li) zz (A	dz:
+	z (oA	dz
+	_A) zz (A	|dz:
+	CA) zz (arC	dz:
+	@li) zz (A	dz:
 	_bri) zz (A	ts2:
 	diri) zz	ts2:
 	_indiri) zzar (L04_	ts2:'a@-*
@@ -676,10 +675,10 @@
 	sfar) z (A	ts
 	ar) z (A	dz
 	bron) z (A	dz
-		@) zz (ano_	=ts2:
-		i) zza (no_	=dz:a
-		@@) zza (L07_	=dz:a
-		@i) zza (ti_	dz:'a
+	@) zz (ano_	=ts2:
+	i) zza (no_	=dz:a
+	@@) zza (L07_	=dz:a
+	@i) zza (ti_	dz:'a
 	@i) zz (are_	|dz|:
 	zion (A_	tsi'on
 	ziona (ti_	tsiOn'a
@@ -717,3 +716,4 @@
         A_)  - (_D        _
 	C_)  - (_D        _
 	's (_S2t	s
+
