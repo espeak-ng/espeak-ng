@@ -313,13 +313,13 @@ phsource/phonemes.stamp: \
 jni:
 	cd android && ndk-build
 
-apk-release:
+apk-release: jni espeakdata
 	cd android && $(GRADLE) assembleRelease
 
-apk-debug:
+apk-debug: jni espeakdata
 	cd android && $(GRADLE) assembleDebug
 
-apk-check:
+apk-check: jni espeakdata
 	cd android && $(GRADLE) connectedCheck
 
 android/res/raw/espeakdata.zip: espeak-ng-data/phontab dictionaries
