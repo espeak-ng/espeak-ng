@@ -38,7 +38,6 @@ if test -e ${GRADLE} ; then
     AC_MSG_RESULT([${GRADLE}])
 else
     AC_MSG_RESULT([no])
-    AC_MSG_ERROR([The gradle command '${GRADLE}' is not found.])
 fi
 
 AC_SUBST(GRADLE)
@@ -271,7 +270,7 @@ AC_MSG_NOTICE([
         Sonic:                         ${have_sonic}
         PCAudioLib:                    ${have_pcaudiolib}
 
-        gradle:                        ${GRADLE}
+        gradle (Android):              ${GRADLE}
 
         Klatt:                         ${have_klatt}
         MBROLA:                        ${have_mbrola}
