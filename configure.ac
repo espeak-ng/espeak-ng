@@ -20,9 +20,6 @@ AC_PROG_LIBTOOL
 AC_PROG_LN_S
 
 AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
-if test x"$NDKBUILD_CHECK" != xyes ; then
-    AC_MSG_ERROR([Please ensure that the Android NDK is installed and ndk-build is usable from the command line.])
-fi
 
 dnl ================================================================
 dnl gradle checks.
@@ -271,6 +268,7 @@ AC_MSG_NOTICE([
         PCAudioLib:                    ${have_pcaudiolib}
 
         gradle (Android):              ${GRADLE}
+        ndk-build (Android):           ${NDKBUILD_CHECK}
 
         Klatt:                         ${have_klatt}
         MBROLA:                        ${have_mbrola}
