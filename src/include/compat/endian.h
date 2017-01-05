@@ -19,7 +19,7 @@
 #ifndef ENDIAN_H_COMPAT_SHIM
 #define ENDIAN_H_COMPAT_SHIM
 
-#if defined(__linux__) || defined(__CYGWIN__)
+#if defined(__linux__) || defined(__CYGWIN__) || defined(__EMSCRIPTEN__)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #	include_next <endian.h>
 #elif defined(__APPLE__)
