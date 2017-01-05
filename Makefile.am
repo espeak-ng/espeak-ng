@@ -322,12 +322,12 @@ apk-debug:
 apk-check:
 	cd android && $(GRADLE) connectedCheck
 
-android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
+android/res/raw/espeakdata.zip: espeak-ng-data/phontab dictionaries
 	mkdir -pv android/res/raw
 	rm -f $@
-	find espeak-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
-	find espeak-data/*_dict | zip -@ $@
-	find espeak-data/voices -type f | grep -vF "/mb/" | zip -@ $@
+	find espeak-ng-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
+	find espeak-ng-data/*_dict | zip -@ $@
+	find espeak-ng-data/voices -type f | grep -vF "/mb/" | zip -@ $@
 
 android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
 	sha1sum $< | awk '{ print $$1 }' > $@
