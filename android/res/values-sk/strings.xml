@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Nastavenia eSpeak</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Výška</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Tempo reči</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Prebieha inštalácia hlasových údajov...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">Aplikácia eSpeak nie je nastavená ako predvolený nástroj prevodu textu na reč.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">Aplikácii eSpeak sa nepodarilo nainštalovať hlasové údaje. Skontrolujte kartu SD.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Je nám ľúto, aplikáciu eSpeak sa nepodarilo spustiť.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Predvolený hlas</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Počet nainštalovaných hlasov</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Všeobecné nastavenia prevodu textu na reč</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Nastavenia eSpeak</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Prebieha načítavanie, čakajte prosím...</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Toto je ukážkový text nahovorený v jazyku %s</string>
+  <string name="status">Stav</string>
+  <string name="tts_version">Verzia eSpeak</string>
+  <string name="speak">Hovoriť</string>
+  <string name="ssml">Načítať šablónu SSML</string>
+  <string name="synthesis_demo">Text na prečítanie:</string>
+  <string name="espeak_volume">Hlasitosť</string>
+  <string name="formatter_wpm">%s WPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Nastaviť predvolené</string>
+  <string name="espeak_pitch_range">Intonácia</string>
+  <string name="espeak_variant">Variant hlasu</string>
+  <string name="espeak_speak_punctuation">Čítať interpunkčné znaky</string>
+  <string name="punctuation_all">Všetky</string>
+  <string name="punctuation_custom">Vlastné</string>
+  <string name="punctuation_custom_fmt">Vlastné: %s</string>
+  <string name="punctuation_none">Žiadne</string>
+  <string name="punctuation_characters">Interpunkčné znaky</string>
+  <string name="category">Kategória</string>
+  <string name="variant">Variant</string>
+  <string name="variant_male">Muž</string>
+  <string name="variant_female">Žena</string>
+  <string name="variant_default">Predvolený</string>
+  <string name="variant_n">Variant %d</string>
+  <string name="variant_young">Mladistvý</string>
+  <string name="variant_old">Starší</string>
+  <string name="variant_croak">Hundranie</string>
+  <string name="variant_whisper">Šepot</string>
+  <string name="import_voice_title">Import slovníka eSpeak</string>
+  <string name="import_voice_description">Import súbor slovníka eSpeak z pamäťovej karty.</string>
+</resources>

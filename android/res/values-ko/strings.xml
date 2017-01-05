@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">eSpeak TTS 설정</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">기본 피치</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">음성 배속 비율</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">음성 데이터 설치 중...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak가 기본 TTS 엔진으로 설정되지 않았습니다.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak에서 음성 데이터를 설치하지 못했습니다. SD 카드를 확인하세요.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">죄송합니다, eSpeak를 시작할 수 없습니다.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">기본 음성</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">음성 설치됨</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">일반 TTS 설정</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">eSpeak TTS 설정</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">로드 중... 잠시 기다려 주세요.</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">%s로 읽은 텍스트 샘플입니다.</string>
+</resources>

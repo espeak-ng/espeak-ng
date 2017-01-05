@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    androidTestCompile 'org.hamcrest:hamcrest-all:1.3'
+}
+
+android {
+    buildToolsVersion '19.1'
+    compileSdkVersion 23
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 20
+        versionName "1.48.15"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+        androidTest.setRoot('eSpeakTests')
+        androidTest {
+            java.srcDirs = ['eSpeakTests/src']
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+    pkgTask -> pkgTask.jniFolders = new HashSet<File>()
+    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
+}

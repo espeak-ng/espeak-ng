@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Config del sintetizador eSpeak</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Tono</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Velocidad de Voz</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Instalando Datos de Voz …</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak no se ha establecido como el sintetizador por defecto.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak no instaló los datos de voz. Compruebe la tarjeta SD por favor.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Lo sentimos. eSpeak no se inició.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Voz por Defecto</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Voces instaladas</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Config general del sintetizador</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Config del sintetizador eSpeak</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Cargando. Espere por favor …</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Esto es un ejemplo de texto hablado en %s.</string>
+  <string name="status">Estado</string>
+  <string name="tts_version">Versión de eSpeak</string>
+  <string name="speak">Hablar</string>
+  <string name="ssml">Cargar Plantilla de SSML</string>
+  <string name="synthesis_demo">Introducir texto a verbalizar:</string>
+  <string name="espeak_volume">Volumen</string>
+  <string name="formatter_wpm">%s PPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Volver a config original</string>
+  <string name="espeak_pitch_range">Variación de Tono</string>
+  <string name="espeak_variant">Variante de Voz</string>
+</resources>

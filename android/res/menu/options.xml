@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/espeakSettings" android:title="@string/engine_settings"></item>
+    <item android:id="@+id/ttsSettings" android:title="@string/tts_settings"></item>
+    
+
+</menu>

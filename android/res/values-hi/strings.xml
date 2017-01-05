@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">eSpeak TTS सेटिंग</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">डिफ़ॉल्‍ट पिच</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">वाक् दर गुणक</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">ध्‍वनि डेटा इंस्टॉल किया जा रहा है…</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak आपके डिफ़ॉल्‍ट पाठ-से-वाक् इंजन के रूप में सेट नहीं है. क्‍या आप इसे अभी सेट करना चाहते हैं?</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak ध्‍वनि डेटा इंस्‍टॉल करने में विफल हुआ. कृपया अपना SD कार्ड जांचें.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">क्षमा करें, eSpeak प्रारंभ होने में विफल हुआ. क्‍या आप त्रुटि रिपोर्ट भेजना चाहते हैं?</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">डिफ़ॉल्‍ट ध्‍वनि</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">इंस्‍टॉल की गई ध्‍वनियां</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">सामान्‍य TTS सेटिंग</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">eSpeak TTS सेटिंग</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">लोड हो रहा है, कृपया प्रतीक्षा करें…</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">यह %s में बोले गए पाठ का नमूना है</string>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Setelan eSpeak TTS</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Nada</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Pengucapan</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Memasang data suara...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak tidak disetel sebagai mesin default text-to-speech anda.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak gagal memasang data suara. Silahkan periksa kartu SD anda.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Maaf, eSpeak gagal untuk berjalan.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Suara default</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Suara yang dipasang</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Setelan umum TTS</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Setelan eSpeak TTS</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Memuat, harap tunggu...</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Ini adalah sebuah contoh teks yang diucapkan di %s</string>
+  <string name="status">Status</string>
+  <string name="tts_version">eSpeak versi</string>
+  <string name="speak">Ucapan</string>
+  <string name="ssml">Memuat SSML Template</string>
+  <string name="synthesis_demo">Masukan teks untuk di ucapkan:</string>
+  <string name="espeak_volume">Volume</string>
+  <string name="formatter_wpm">%s WPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Setel sebagai mesin utama</string>
+  <string name="espeak_pitch_range">Variasi Nada</string>
+  <string name="espeak_variant">Variasi Pengucapan</string>
+  <string name="espeak_speak_punctuation">Pengucapan tanda baca</string>
+  <string name="punctuation_all">Semua</string>
+  <string name="punctuation_custom">Sesuaikan</string>
+  <string name="punctuation_custom_fmt">Sesuaikan: %s</string>
+  <string name="punctuation_none">Tidak ada</string>
+  <string name="punctuation_characters">Karakter tanda baca</string>
+  <string name="category">Kategori</string>
+  <string name="variant">Variasi</string>
+  <string name="variant_male">Pria</string>
+  <string name="variant_female">Wanita</string>
+  <string name="variant_default">Default</string>
+  <string name="variant_n">Variasi %d</string>
+  <string name="variant_young">Muda</string>
+  <string name="variant_old">Tua</string>
+  <string name="variant_croak">Serak</string>
+  <string name="variant_whisper">Bisikan</string>
+  <string name="import_voice_title">Memuat kamus eSpeak</string>
+  <string name="import_voice_description">Memuat kamus ucapan eSpeak dari kartu SD.</string>
+</resources>

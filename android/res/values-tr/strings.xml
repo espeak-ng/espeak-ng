@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">eSpeak TTS Ayarları</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Varsayılan ses kalınlığı</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Konuşma hızı çarpanı</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Ses verileri yükleniyor...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak varsayılan metin konuşma motorunuz olarak ayarlanmadı.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak ses verisini yükleyemedi. Lütfen SD kartınızı kontrol edin.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Maalesef, eSpeak başlatılamadı.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Varsayılan ses</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Yüklenen ses sayısı</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Genel TTS ayarları</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">eSpeak TTS ayarları</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Yükleniyor, lütfen bekleyin...</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Bu, %s dilinde seslendirilen örnek bir metindir</string>
+  <string name="status">Durum</string>
+  <string name="tts_version">eSpeak sürümü</string>
+  <string name="speak">Konuş</string>
+  <string name="ssml">SSML Şablonu yükle</string>
+  <string name="synthesis_demo">Konuşulacak metni girin:</string>
+  <string name="espeak_volume">Ses</string>
+  <string name="formatter_wpm">%s Kelime/dk</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Varsayılana ayarla</string>
+  <string name="espeak_pitch_range">Perde çeşitliliği</string>
+  <string name="espeak_variant">Ses biçimi</string>
+  <string name="espeak_speak_punctuation">Konuşma duraksaması</string>
+  <string name="punctuation_all">Hepsi</string>
+  <string name="punctuation_custom">Özel</string>
+  <string name="punctuation_custom_fmt">Özel: %s</string>
+  <string name="punctuation_none">Hiçbiri</string>
+  <string name="punctuation_characters">Noktalama işaretleri</string>
+  <string name="category">Kategori</string>
+  <string name="variant">Biçim</string>
+  <string name="variant_male">Erkek</string>
+  <string name="variant_female">Kadın</string>
+  <string name="variant_default">Varsayılan</string>
+  <string name="variant_n">Biçim %d</string>
+  <string name="variant_young">Genç</string>
+  <string name="variant_old">Yaşlı</string>
+  <string name="variant_croak">Boğuk</string>
+  <string name="variant_whisper">Fısıltı</string>
+  <string name="import_voice_title">eSpeak sözlüğü içe aktar</string>
+  <string name="import_voice_description">SD karttan bir eSpeak ses sözlüğü dosyası içe aktar</string>
+</resources>

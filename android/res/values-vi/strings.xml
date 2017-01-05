@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Thiết lập chương trình</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Độ cao thấp mặc định</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Bội số tốc độ đọc</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Đang cài đặt dữ liệu giọng nói…</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak không thể cài đặt dữ liệu thoại. Vui lòng kiểm tra thẻ nhớ của bạn.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Rất tiếc, không thể khởi động eSpeak.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Giọng nói mặc định</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Số lượng thoại đã được cài đặt</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Thiết lập chung</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Thiết lập eSpeak</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Đang tải, vui lòng đợi…</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Đây là mẫu văn bản được đọc bằng %s</string>
+  <string name="status">Trạng thái</string>
+  <string name="tts_version">phiên bản eSpeak</string>
+  <string name="speak">Nói</string>
+  <string name="ssml">Tải mẫu SSML</string>
+  <string name="synthesis_demo">Điền vào văn bản để nói:</string>
+  <string name="espeak_volume">Âm lượng</string>
+  <string name="formatter_wpm">%s từ mỗi phút</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Thiết lập về mặc định</string>
+  <string name="espeak_pitch_range">Độ biến động cao thấp</string>
+  <string name="espeak_variant">Độ biến động giọng cao thấp</string>
+</resources>

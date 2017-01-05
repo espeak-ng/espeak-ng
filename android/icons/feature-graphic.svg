@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright (C) Reece H. Dunn [License: CC-BY-SA 3.0] -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="500" version="1.1">
+
+<rect x="0" y="0" width="1024" height="500" fill="#ffffff"></rect>
+
+<g transform="translate(0,20)">
+  <g transform="translate(5,-880)"> <!-- width: 200 height: 175 -->
+    <path fill="#d40000" d="
+      m 78,1050
+      c -6,  -3 -16,-12 -32,-33
+      C 23, 987  14,980   3,977 1,977  0,977  0,976
+      c  0,   0   5, -5  11,-11 6, -6 18,-19 27,-29 18,-21 35,-40 36,-40 0,0 2,3 4,6 5,9 10,15 15,15 7,0 16,-10 24,-26
+      l 3,-7 4,6
+      c 13,19 33,43 52,62
+      l 15,15 -5, 1
+      c -7, 2 -13,5 -21,12 -6,5 -13,12 -38,40 -17,20 -32,31 -40,31 -2,0 -5,-1 -7,-2
+      z
+      m 24,-49
+      c 7,-3 17,-13 25,-25 6,-9 12,-20 12,-21 0,0 -1,-1 -2,-1 -1,0 -7,-2 -13,-5 -12,-6 -20,-8 -26,-8
+      C 94,942 83,948 69,957 64,961 58,965 57,965
+      c -2,0 -3,1 -3,1 0,1 7,12 10,17 13,18 25,24 38,17
+      z
+      " />
+  </g>
+</g>
+
+<g transform="translate(170,0)" font-family="Droid Sans" font-size="64px" font-weight="bold" fill="#000000">
+  <text x="15" y= "64">eSpeak</text>
+  <text x="80" y="134">for</text>
+  <text x= "5" y="192">Android</text>
+</g>
+
+<image id="Afrikaans"   x=  "5" y="225" width="75" height="50" xlink:href="Flag_of_South_Africa.png"/>
+<image id="Akan"        x=  "5" y="280" width="75" height="50" xlink:href="Flag_of_Ghana.png"/>
+<image id="Albanian"    x=  "5" y="335" width="75" height="50" xlink:href="Flag_of_Albania.png"/>
+<image id="Amharic"     x=  "5" y="390" width="75" height="50" xlink:href="Flag_of_Ethiopia.png"/>
+<image id="Armenian"    x=  "5" y="445" width="75" height="50" xlink:href="Flag_of_Armenia.png"/>
+<image id="Azerbaijani" x= "85" y="225" width="75" height="50" xlink:href="Flag_of_Azerbaijan.png"/>
+<image id="Bosnian"     x= "85" y="280" width="75" height="50" xlink:href="Flag_of_Bosnia_and_Herzegovina.png"/>
+<image id="Bulgarian"   x= "85" y="335" width="75" height="50" xlink:href="Flag_of_Bulgaria.png"/>
+<image id="Catalan"     x= "85" y="390" width="75" height="50" xlink:href="Flag_of_Andorra.png"/>
+<image id="Chinese"     x= "85" y="445" width="75" height="50" xlink:href="Flag_of_the_People's_Republic_of_China.png"/>
+<image id="Croatian"    x="165" y="225" width="75" height="50" xlink:href="Flag_of_Croatia.png"/>
+<image id="Czech"       x="165" y="280" width="75" height="50" xlink:href="Flag_of_the_Czech_Republic.png"/>
+<image id="Danish"      x="165" y="335" width="75" height="50" xlink:href="Flag_of_Denmark.png"/>
+<image id="Divehi"      x="165" y="390" width="75" height="50" xlink:href="Flag_of_Maldives.png"/>
+<image id="Dutch"       x="165" y="445" width="75" height="50" xlink:href="Flag_of_the_Netherlands.png"/>
+<image id="English_GB"  x="245" y="225" width="75" height="50" xlink:href="Flag_of_the_United_Kingdom.png"/>
+<image id="English_US"  x="245" y="280" width="75" height="50" xlink:href="Flag_of_the_United_States.png"/>
+<image id="Esperanto"   x="245" y="335" width="75" height="50" xlink:href="Flag_of_Esperanto.png"/>
+<image id="Estonian"    x="245" y="390" width="75" height="50" xlink:href="Flag_of_Estonia.png"/>
+<image id="Finnish"     x="245" y="445" width="75" height="50" xlink:href="Flag_of_Finland.png"/>
+<image id="French"      x="325" y="225" width="75" height="50" xlink:href="Flag_of_France.png"/>
+<image id="Georgian"    x="325" y="280" width="75" height="50" xlink:href="Flag_of_Georgia.png"/>
+<image id="German"      x="325" y="335" width="75" height="50" xlink:href="Flag_of_Germany.png"/>
+<image id="Greek"       x="325" y="390" width="75" height="50" xlink:href="Flag_of_Greece.png"/>
+<image id="Haitian"     x="325" y="445" width="75" height="50" xlink:href="Flag_of_Haiti.png"/>
+<image id="Indian_Misc" x="405" y="225" width="75" height="50" xlink:href="Flag_of_India.png"/>
+<image id="Hungarian"   x="405" y="280" width="75" height="50" xlink:href="Flag_of_Hungary.png"/>
+<image id="Icelandic"   x="405" y="335" width="75" height="50" xlink:href="Flag_of_Iceland.png"/>
+<image id="Indonesian"  x="405" y="390" width="75" height="50" xlink:href="Flag_of_Indonesia.png"/>
+<image id="Irish"       x="405" y="445" width="75" height="50" xlink:href="Flag_of_Ireland.png"/>
+<image id="Italian"     x="485" y="225" width="75" height="50" xlink:href="Flag_of_Italy.png"/>
+<image id="Kalaallisut" x="485" y="280" width="75" height="50" xlink:href="Flag_of_Greenland.png"/>
+<image id="Kazakh"      x="485" y="335" width="75" height="50" xlink:href="Flag_of_Kazakhstan.png"/>
+<image id="Kinyarwanda" x="485" y="390" width="75" height="50" xlink:href="Flag_of_Rwanda.png"/>
+<image id="Korean"      x="485" y="445" width="75" height="50" xlink:href="Flag_of_South_Korea.png"/>
+<image id="Latvian"     x="565" y="225" width="75" height="50" xlink:href="Flag_of_Latvia.png"/>
+<image id="Lithuania"   x="565" y="280" width="75" height="50" xlink:href="Flag_of_Lithuania.png"/>
+<image id="Lojban"      x="565" y="335" width="75" height="50" xlink:href="Flag_of_Lojban.png"/>
+<image id="Macedonian"  x="565" y="390" width="75" height="50" xlink:href="Flag_of_Macedonia.png"/>
+<image id="Maltese"     x="565" y="445" width="75" height="50" xlink:href="Flag_of_Malta.png"/>
+<image id="Norwegian"   x="645" y="225" width="75" height="50" xlink:href="Flag_of_Norway.png"/>
+<image id="Papiamento"  x="645" y="280" width="75" height="50" xlink:href="Flag_of_Aruba.png"/>
+<image id="Polish"      x="645" y="335" width="75" height="50" xlink:href="Flag_of_Poland.png"/>
+<image id="Portuguese"  x="645" y="390" width="75" height="50" xlink:href="Flag_of_Portugal.png"/>
+<image id="Romanian"    x="645" y="445" width="75" height="50" xlink:href="Flag_of_Romania.png"/>
+<image id="Russian"     x="725" y="225" width="75" height="50" xlink:href="Flag_of_Russia.png"/>
+<image id="Serbian"     x="725" y="280" width="75" height="50" xlink:href="Flag_of_Serbia.png"/>
+<image id="Sinhala"     x="725" y="335" width="75" height="50" xlink:href="Flag_of_Sri_Lanka.png"/>
+<image id="Slovak"      x="725" y="390" width="75" height="50" xlink:href="Flag_of_Slovakia.png"/>
+<image id="Slovenian"   x="725" y="445" width="75" height="50" xlink:href="Flag_of_Slovenia.png"/>
+<image id="Spanish"     x="805" y="225" width="75" height="50" xlink:href="Flag_of_Spain.png"/>
+<image id="Swahili"     x="805" y="280" width="75" height="50" xlink:href="Flag_of_Tanzania.png"/>
+<image id="Swedish"     x="805" y="335" width="75" height="50" xlink:href="Flag_of_Sweden.png"/>
+<image id="Tatar"       x="805" y="390" width="75" height="50" xlink:href="Flag_of_Tatarstan.png"/>
+<image id="Tswana"      x="805" y="445" width="75" height="50" xlink:href="Flag_of_Botswana.png"/>
+<image id="Turkish"     x="885" y="225" width="75" height="50" xlink:href="Flag_of_Turkey.png"/>
+<image id="Urdu"        x="885" y="280" width="75" height="50" xlink:href="Flag_of_Pakistan.png"/>
+<image id="Vietnamese"  x="885" y="335" width="75" height="50" xlink:href="Flag_of_Vietnam.png"/>
+<image id="Welsh"       x="885" y="390" width="75" height="50" xlink:href="Flag_of_Wales_2.png"/>
+<image id="Wolof"       x="885" y="445" width="75" height="50" xlink:href="Flag_of_Senegal.png"/>
+
+</svg>

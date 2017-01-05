@@ -3,7 +3,8 @@
 *~
 .*.swp
 
-#Eclipse project files
+# Eclipse project files:
+
 .cproject
 .project
 
@@ -11,6 +12,27 @@
 
 *.o
 *.lo
+
+# android build output:
+
+bin/
+obj/
+gen/
+android/icons/*.png
+
+libttsespeak.so
+
+android/res/raw/espeakdata.zip
+android/res/raw/espeakdata_version
+
+local.properties
+
+# android gradle output:
+
+.gradle/
+.idea/
+build/
+espeak.iml
 
 # autotools
 

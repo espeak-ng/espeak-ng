@@ -55,6 +55,7 @@ install-exec-hook:
 
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
+	cd android && $(GRADLE) clean
 
 distclean-local:
 	rm -rf espeak-ng-data/phondata-manifest
@@ -104,6 +105,8 @@ docs:	docs/index.html \
 	src/espeak-ng.1.html \
 	src/speak-ng.1.html \
 	README.html
+
+check: apk-check
 
 ##### build targets:
 
@@ -304,6 +307,34 @@ phsource/phonemes.stamp: \
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-intonations && \
 		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-phonemes && \
 		touch $@
+
+##### android targets:
+
+jni:
+	cd android && ndk-build
+
+apk-release:
+	cd android && $(GRADLE) assembleRelease
+
+apk-debug:
+	cd android && $(GRADLE) assembleDebug
+
+apk-check:
+	cd android && $(GRADLE) connectedCheck
+
+android/res/raw/espeakdata.zip: espeak-data/phontab dictionaries
+	mkdir -pv android/res/raw
+	rm -f $@
+	find espeak-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
+	find espeak-data/*_dict | zip -@ $@
+	find espeak-data/voices -type f | grep -vF "/mb/" | zip -@ $@
+
+android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
+	sha1sum $< | awk '{ print $$1 }' > $@
+
+espeakdata: \
+	android/res/raw/espeakdata.zip \
+	android/res/raw/espeakdata_version
 
 ##### dictionaries:
 

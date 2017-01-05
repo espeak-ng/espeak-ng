@@ -19,6 +19,30 @@ AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
 
+AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
+if test x"$NDKBUILD_CHECK" != xyes ; then
+    AC_MSG_ERROR([Please ensure that the Android NDK is installed and ndk-build is usable from the command line.])
+fi
+
+dnl ================================================================
+dnl gradle checks.
+dnl ================================================================
+
+AC_ARG_WITH([gradle],
+    [AS_HELP_STRING([--with-gradle], [specify the gradle program to use @<:@default=gradle@:>@])],
+    [GRADLE=$with_gradle],
+    [GRADLE=gradle])
+
+AC_MSG_CHECKING([for gradle])
+if test -e ${GRADLE} ; then
+    AC_MSG_RESULT([${GRADLE}])
+else
+    AC_MSG_RESULT([no])
+    AC_MSG_ERROR([The gradle command '${GRADLE}' is not found.])
+fi
+
+AC_SUBST(GRADLE)
+
 dnl ================================================================
 dnl C99 compiler checks.
 dnl ================================================================
@@ -246,6 +270,8 @@ AC_MSG_NOTICE([
 
         Sonic:                         ${have_sonic}
         PCAudioLib:                    ${have_pcaudiolib}
+
+        gradle:                        ${GRADLE}
 
         Klatt:                         ${have_klatt}
         MBROLA:                        ${have_mbrola}

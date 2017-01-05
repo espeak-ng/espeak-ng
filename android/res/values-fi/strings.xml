@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">eSpeak TTS -asetukset</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Äänenkorkeus</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Puhenopeus</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Asennetaan äänitietoja...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeakia ei ole asetettu tekstistä puheeksi -oletusmoottoriksi.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeakin äänitietojen asentaminen epäonnistui. Tarkista SD-kortti.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">eSpeakin käynnistäminen epäonnistui.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Oletusääni</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Asennettuja ääniä</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Yleiset tekstistä puheeksi -asetukset</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">eSpeak TTS -asetukset</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Ladataan, odota...</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">Tämä on näyte puhutusta tekstistä kielellä %s</string>
+  <string name="status">Tila</string>
+  <string name="tts_version">eSpeak-versio</string>
+  <string name="speak">Puhu</string>
+  <string name="ssml">Lataa SSML-malli</string>
+  <string name="synthesis_demo">Kirjoita puhuttava teksti:</string>
+  <string name="espeak_volume">Voimakkuus</string>
+  <string name="formatter_wpm">%s sanaa minuutissa</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Palauta oletus</string>
+  <string name="espeak_pitch_range">Äänenkorkeuden vaihtelu</string>
+  <string name="espeak_variant">Äänen muunnelma</string>
+  <string name="espeak_speak_punctuation">Puhu välimerkit</string>
+  <string name="punctuation_all">Kaikki</string>
+  <string name="punctuation_custom">Oma</string>
+  <string name="punctuation_custom_fmt">Oma: %s</string>
+  <string name="punctuation_none">Ei mitään</string>
+  <string name="punctuation_characters">Välimerkit</string>
+  <string name="category">Kategoria</string>
+  <string name="variant">Muunnelma</string>
+  <string name="variant_male">Mies</string>
+  <string name="variant_female">Nainen</string>
+  <string name="variant_default">Oletus</string>
+  <string name="variant_n">Muunnelma %d</string>
+  <string name="variant_young">Nuori</string>
+  <string name="variant_old">Vanha</string>
+  <string name="variant_croak">Raakkuva</string>
+  <string name="variant_whisper">Kuiskaava</string>
+  <string name="import_voice_title">Tuo eSpeak-sanasto</string>
+  <string name="import_voice_description">Tuo eSpeak-äänisanastotiedosto SD-kortilta.</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--
+        Source: App icon label.
+        Description: The name of the application.
+    -->
+  <string name="app_name" translatable="false">eSpeak</string>
+
+  <!-- Voice Variants that are people's names. -->
+  <string name="variant_klatt">Klatt</string>
+  <string name="variant_nvda">NVDA</string>
+  <string name="variant_andy">Andy</string>
+  <string name="variant_annie">Annie</string>
+  <string name="variant_anxious_andy">Anxious Andy</string>
+  <string name="variant_aunty">Aunty</string>
+  <string name="variant_boris">Boris</string>
+  <string name="variant_denis">Denis</string>
+  <string name="variant_gene">Gene</string>
+  <string name="variant_gene2">Gene 2</string>
+  <string name="variant_iven">Iven</string>
+  <string name="variant_iven2">Iven 2</string>
+  <string name="variant_iven3">Iven 3</string>
+  <string name="variant_jacky">Jacky</string>
+  <string name="variant_john">John</string>
+  <string name="variant_kaukovalta">Kaukovalta</string>
+  <string name="variant_lee">Lee</string>
+  <string name="variant_linda">Linda</string>
+  <string name="variant_mario">Mario</string>
+  <string name="variant_max">Max</string>
+  <string name="variant_michael">Michael</string>
+  <string name="variant_michel">Michel</string>
+  <string name="variant_mr_serious">Mr Serious</string>
+  <string name="variant_norbert">Norbert</string>
+  <string name="variant_quincy">Quincy</string>
+  <string name="variant_rob">Rob</string>
+  <string name="variant_robert">Robert</string>
+  <string name="variant_storm">Storm</string>
+  <string name="variant_travis">Travis</string>
+  <string name="variant_tweaky">Tweaky</string>
+  <string name="variant_zac">Zac</string>
+
+</resources>

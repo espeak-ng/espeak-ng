@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Nastavitve eSpeak pretvorbe besedila v govor</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Privzeta višina tona</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Množitelj hitrosti govora</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Namestitev podatkov glasu …</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">Mehanizem eSpeak ni nastavljen kot privzeti za pretvorbo besedila v govor.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak ni uspel namestiti podatkov glasu. Preverite SD kartico.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Mehanizma eSpeak ni bilo mogoče zagnati.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Privzeti glas</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Št. nameščenih glasov</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Splošne nastavitve pretvorbe besedila v govor</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Nastavitve eSpeak pretvorbe besedila v govor</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Nalaganje, počakajte trenutek …</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text">To je vzorec besedila, izgovorjen v %s</string>
+  <string name="status">Status</string>
+  <string name="tts_version">Različica eSpeak</string>
+  <string name="speak">Izgovori</string>
+  <string name="ssml">Naloži SSML predlogo</string>
+  <string name="synthesis_demo">Vnesite tekst za izgovorjavo</string>
+  <string name="espeak_volume">Glasnost</string>
+  <string name="formatter_wpm">%s BNM (WPM)</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Nastavi na privzeto</string>
+  <string name="espeak_pitch_range">Varianta višine glasu</string>
+  <string name="espeak_variant">Varianta glasu</string>
+  <string name="espeak_speak_punctuation">Izgovori ločila</string>
+  <string name="punctuation_all">Vse</string>
+  <string name="punctuation_custom">Po meri</string>
+  <string name="punctuation_custom_fmt">Po meri: %s</string>
+  <string name="punctuation_none">Noben</string>
+  <string name="punctuation_characters">Ločila</string>
+  <string name="category">Kategorija</string>
+  <string name="variant">Varianta</string>
+  <string name="variant_male">Moški</string>
+  <string name="variant_female">Ženski</string>
+  <string name="variant_default">Privzeto</string>
+  <string name="variant_n">Varianta %d</string>
+  <string name="variant_young">Mladenič</string>
+  <string name="variant_old">Starejši</string>
+  <string name="variant_croak">Hreščeče</string>
+  <string name="variant_whisper">Šepetaje</string>
+  <string name="import_voice_title">Uvozi eSpeak slovar</string>
+  <string name="import_voice_description">Uvozi eSpeak slovar glasov iz datoteke na SD kartici </string>
+</resources>
