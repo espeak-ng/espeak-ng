@@ -46,7 +46,7 @@ LOCAL_SRC_FILES += \
 # JNI
 
 LOCAL_SRC_FILES += \
-  $(subst $(LOCAL_PATH)/jni,jni,$(wildcard $(LOCAL_PATH)/jni/*.c*))
+  $(subst $(LOCAL_PATH)/jni,jni,$(wildcard $(LOCAL_PATH)/jni/*.c))
 
 # Common
 

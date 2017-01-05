@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2015 Reece H. Dunn
+ * Copyright (C) 2012-2017 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,80 +25,63 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <jni.h>
 
-#include <speak_lib.h>
+#include <espeak/speak_lib.h>
 #include <Log.h>
 
 #define BUFFER_SIZE_IN_MILLISECONDS 1000
 
-/** @name  Java to Wide String Helpers
-  * @brief These are helpers for converting a jstring to wchar_t*.
-  *
-  * This assumes that wchar_t is a 32-bit (UTF-32) value.
-  */
+/* These are helpers for converting a jstring to wchar_t*.
+ *
+ * This assumes that wchar_t is a 32-bit (UTF-32) value.
+ */
 //@{
 
-const char *utf8_read(const char *in, wchar_t &c)
+static const char *utf8_read(const char *in, wchar_t *c)
 {
-	if (uint8_t(*in) < 0x80)
-		c = *in++;
-	else switch (uint8_t(*in) & 0xF0)
+	if (((uint8_t)*in) < 0x80)
+		*c = *in++;
+	else switch (((uint8_t)*in) & 0xF0)
 	{
 	default:
-		c = uint8_t(*in++) & 0x1F;
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		*c = ((uint8_t)*in++) & 0x1F;
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
 		break;
 	case 0xE0:
-		c = uint8_t(*in++) & 0x0F;
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		*c = ((uint8_t)*in++) & 0x0F;
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
 		break;
 	case 0xF0:
-		c = uint8_t(*in++) & 0x07;
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
-		c = (c << 6) + (uint8_t(*in++) & 0x3F);
+		*c = ((uint8_t)*in++) & 0x07;
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
+		*c = (*c << 6) + (((uint8_t)*in++) & 0x3F);
 		break;
 	}
 	return in;
 }
 
-class unicode_string
+static wchar_t *unicode_string(JNIEnv *env, jstring str)
 {
-  static_assert(sizeof(wchar_t) == 4, "wchar_t is not UTF-32");
-public:
-  unicode_string(JNIEnv *env, jstring str);
-  ~unicode_string();
+  if (str == NULL) return NULL;
 
-  const wchar_t *c_str() const { return mString; }
-private:
-  wchar_t *mString;
-};
-
-unicode_string::unicode_string(JNIEnv *env, jstring str)
-  : mString(NULL)
-{
-  if (str == NULL) return;
-
-  const char *utf8 = env->GetStringUTFChars(str, NULL);
-  mString = (wchar_t *)malloc((strlen(utf8) + 1) * sizeof(wchar_t));
+  const char *utf8 = (*env)->GetStringUTFChars(env, str, NULL);
+  wchar_t *utf32 = (wchar_t *)malloc((strlen(utf8) + 1) * sizeof(wchar_t));
 
   const char *utf8_current = utf8;
-  wchar_t *utf32_current = mString;
+  wchar_t *utf32_current = utf32;
   while (*utf8_current)
   {
-    utf8_current = utf8_read(utf8_current, *utf32_current);
+    utf8_current = utf8_read(utf8_current, utf32_current);
     ++utf32_current;
   }
   *utf32_current = 0;
 
-  env->ReleaseStringUTFChars(str, utf8);
-}
-
-unicode_string::~unicode_string()
-{
-  if (mString) free(mString);
+  (*env)->ReleaseStringUTFChars(env, str, utf8);
+  return utf32;
 }
 
 //@}
@@ -116,7 +99,7 @@ jmethodID METHOD_nativeSynthCallback;
 
 static JNIEnv *getJniEnv() {
   JNIEnv *env = NULL;
-  jvm->AttachCurrentThread(&env, NULL);
+  (*jvm)->AttachCurrentThread(jvm, &env, NULL);
   return env;
 }
 
@@ -127,12 +110,12 @@ static int SynthCallback(short *audioData, int numSamples,
   jobject object = (jobject)events->user_data;
 
   if (numSamples < 1) {
-    env->CallVoidMethod(object, METHOD_nativeSynthCallback, NULL);
+    (*env)->CallVoidMethod(env, object, METHOD_nativeSynthCallback, NULL);
     return SYNTH_ABORT;
   } else {
-    jbyteArray arrayAudioData = env->NewByteArray(numSamples * 2);
-    env->SetByteArrayRegion(arrayAudioData, 0, (numSamples * 2), (jbyte *) audioData);
-    env->CallVoidMethod(object, METHOD_nativeSynthCallback, arrayAudioData);
+    jbyteArray arrayAudioData = (*env)->NewByteArray(env, numSamples * 2);
+    (*env)->SetByteArrayRegion(env, arrayAudioData, 0, (numSamples * 2), (jbyte *) audioData);
+    (*env)->CallVoidMethod(env, object, METHOD_nativeSynthCallback, arrayAudioData);
     return SYNTH_CONTINUE;
   }
 }
@@ -146,7 +129,7 @@ JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
   jvm = vm;
   JNIEnv *env;
 
-  if (vm->GetEnv((void **) &env, JNI_VERSION_1_6) != JNI_OK) {
+  if ((*vm)->GetEnv(vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
     LOGE("Failed to get the environment using GetEnv()");
     return -1;
   }
@@ -158,7 +141,7 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
     JNIEnv* env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
-  METHOD_nativeSynthCallback = env->GetMethodID(clazz, "nativeSynthCallback", "([B)V");
+  METHOD_nativeSynthCallback = (*env)->GetMethodID(env, clazz, "nativeSynthCallback", "([B)V");
 
   return JNI_TRUE;
 }
@@ -168,12 +151,12 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path) {
   if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
 
-  const char *c_path = path ? env->GetStringUTFChars(path, NULL) : NULL;
+  const char *c_path = path ? (*env)->GetStringUTFChars(env, path, NULL) : NULL;
 
   if (DEBUG) LOGV("Initializing with path %s", c_path);
   int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, BUFFER_SIZE_IN_MILLISECONDS, c_path, 0);
 
-  if (c_path) env->ReleaseStringUTFChars(path, c_path);
+  if (c_path) (*env)->ReleaseStringUTFChars(env, path, c_path);
 
   return sampleRate;
 }
@@ -182,7 +165,7 @@ JNIEXPORT jobject
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetVersion(
     JNIEnv *env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
-  return env->NewStringUTF(espeak_Info(NULL));
+  return (*env)->NewStringUTF(env, espeak_Info(NULL));
 }
 
 JNIEXPORT jobjectArray
@@ -198,8 +181,8 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
   for (count = 0; voices[count] != NULL; count++);
 
   // Next, create a Java String array.
-  jobjectArray voicesArray = (jobjectArray) env->NewObjectArray(
-      count * 4, env->FindClass("java/lang/String"), NULL);
+  jobjectArray voicesArray = (jobjectArray) (*env)->NewObjectArray(
+      env, count * 4, (*env)->FindClass(env, "java/lang/String"), NULL);
 
   const espeak_VOICE *v;
   char gender_buf[12];
@@ -212,14 +195,14 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
     sprintf(gender_buf, "%d", v->gender);
     sprintf(age_buf, "%d", v->age);
 
-    env->SetObjectArrayElement(
-        voicesArray, voicesIndex++, env->NewStringUTF(lang_name));
-    env->SetObjectArrayElement(
-        voicesArray, voicesIndex++, env->NewStringUTF(identifier));
-    env->SetObjectArrayElement(
-        voicesArray, voicesIndex++, env->NewStringUTF(gender_buf));
-    env->SetObjectArrayElement(
-        voicesArray, voicesIndex++, env->NewStringUTF(age_buf));
+    (*env)->SetObjectArrayElement(
+        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, lang_name));
+    (*env)->SetObjectArrayElement(
+        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, identifier));
+    (*env)->SetObjectArrayElement(
+        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, gender_buf));
+    (*env)->SetObjectArrayElement(
+        env, voicesArray, voicesIndex++, (*env)->NewStringUTF(env, age_buf));
   }
 
   return voicesArray;
@@ -228,13 +211,13 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByName(
     JNIEnv *env, jobject object, jstring name) {
-  const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
+  const char *c_name = name ? (*env)->GetStringUTFChars(env, name, NULL) : NULL;
 
   if (DEBUG) LOGV("%s(name=%s)", __FUNCTION__, c_name);
 
   const espeak_ERROR result = espeak_SetVoiceByName(c_name);
 
-  if (c_name) env->ReleaseStringUTFChars(name, c_name);
+  if (c_name) (*env)->ReleaseStringUTFChars(env, name, c_name);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -249,7 +232,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByName(
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
     JNIEnv *env, jobject object, jstring language, jint gender, jint age) {
-  const char *c_language = language ? env->GetStringUTFChars(language, NULL) : NULL;
+  const char *c_language = language ? (*env)->GetStringUTFChars(env, language, NULL) : NULL;
 
   if (DEBUG) LOGV("%s(language=%s, gender=%d, age=%d)", __FUNCTION__, c_language, gender, age);
 
@@ -261,7 +244,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
 
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice_select);
 
-  if (c_language) env->ReleaseStringUTFChars(language, c_language);
+  if (c_language) (*env)->ReleaseStringUTFChars(env, language, c_language);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
@@ -301,8 +284,9 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPunctuationCharacters
     JNIEnv *env, jobject object, jstring characters) {
   if (DEBUG) LOGV("%s)", __FUNCTION__);
 
-  unicode_string list(env, characters);
-  const espeak_ERROR result = espeak_SetPunctuationList(list.c_str());
+  wchar_t *list = unicode_string(env, characters);
+  const espeak_ERROR result = espeak_SetPunctuationList(list);
+  free(list);
   switch (result) {
     case EE_OK:             return JNI_TRUE;
     case EE_INTERNAL_ERROR: LOGE("espeak_SetPunctuationList: internal error."); break;
@@ -317,7 +301,7 @@ JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
-  const char *c_text = text ? env->GetStringUTFChars(text, NULL) : NULL;
+  const char *c_text = text ? (*env)->GetStringUTFChars(env, text, NULL) : NULL;
   unsigned int unique_identifier;
 
   espeak_SetSynthCallback(SynthCallback);
@@ -328,7 +312,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
                &unique_identifier, object);
   espeak_Synchronize();
 
-  if (c_text) env->ReleaseStringUTFChars(text, c_text);
+  if (c_text) (*env)->ReleaseStringUTFChars(env, text, c_text);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
