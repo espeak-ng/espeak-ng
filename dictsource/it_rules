@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 january 4 by Chris <llajta2012@gmail.com>
+// Last update: 2017 january 5 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -110,7 +110,6 @@
 	dona (L07_	d'ona  // Pron.s verbs
 	ci) der (L04_	=dE@-*
 	divi) der (L04_	=de@-*
-// 	chAA) der (L04_	=de@-*
 	re) der (L04_	=de@-*
 	@) dinano (_	=dina/no   // verbs
 	i) dano (_	=dano  // verbs
@@ -418,44 +417,44 @@
 	CC) o (lA_	=O
 	u) o (lA_	O
 	v)	o (lA_     =o
-	@) o (lA_      O
-	gn)	o (la_      O
-		o (li       O
-	@)	o (liA_     O
-	@)	o (lo_     =O
-	i)	o (lA_      O
-       ci)	o (lA_     =O
-	@)	o (logA_   'O
-	@)	o (loghY_   'O
-	c)	o (ltA_     O
-	sc)	o (ltA_     o
-	v)	o (ltA_	O
+	@) o (lA_	O
+	gn) o (la_	O
+	o (li	O
+	@) o (liA_	O
+	@) o (lo_	=O
+	i) o (lA_	O
+	ci) o (lA_	=O
+	@) o (logA_	'O
+	@) o (loghY_	'O
+	c) o (ltA_	O
+	sc) o (ltA_	o
+	v) o (ltA_	O
 	@) o (manY_	'O:
 	@d) omani (_	om'ani
 	r) oman (Y_	,Om'an
 	@)	o (metrA_  'O
-	@)	o (ma_      O
-	@)	o (mo_      O
-	dr)	o (mo_     =o
-		o (ni       O
-		o (ni_      o
-               @) o (no_      =O
-	u) o (no_	'o
-	@)	o (nomo_   'O
-	@)	o (nzolo_  'o
-		o (o        O
-		o (polA_   'O
-	sc)	o (pA_        O
-		o (r	    O
-		o (rY_      o
-	f)	o (rmA_     o
-		o (si_      O
-		o (ss       O
-	Ar)	o (ssA_     o
-		o (st       O
-		o (stracA_  'O
-		o (ttol     O
-		o (zA       O
+	@) o (ma_	O
+	@) o (mo_	O
+	dr) o (mo_	=o
+	o (ni	O
+	o (ni_	o
+	@) o (no_	=O
+	u) o (no_	'O
+	@) o (nomo_	'O
+	@) o (nzolo_	'o
+	o (o	O
+	o (polA_	'O
+	sc) o (pA_	O
+	o (r	O
+	o (rY_	o
+	f) o (rmA_	o
+	o (si_	O
+	o (ss	O
+	Ar) o (ssA_	o
+	o (st	O
+	o (stracA_	'o
+	o (ttol	O
+	o (zA	O
 	l) oqui (A	Okwj
 	C) orda (L05_	'O@-*da   // pron. verbs
 	r) omper (L04_	'ompe@-*
@@ -471,10 +470,10 @@
 	@) ordin (A_	'o@-*din
 
 .group p
-		p	p
-		pp	p:
+	p	p
+	pp	p:
 	ph	f   // foreign words
-	@m)	p (erY_	=p
+	@m) p (erY_	=p
 	porta (L05_	p'O@-*ta  // Pron.s verbs
 	_) paga (L07_	p'aga/
 	parla (L07_	p'a@-*la
@@ -489,19 +488,19 @@
 	tro) pi (A_	p'i
 
 .group q
-		q	k
+	q	k
 	qu (A	kw
 	qui (A	kwj
-     _) quell' (P6t     kwEll
-     _) quest' (P6t     kwest
+	_) quell' (P6t	kwEll
+	_) quest' (P6t	kwest
 
 .group r
+	r	@-*
 	C)	r	@-*
-		r	@-*
-		r (_		@-*
+	r (_	@-*
 	_)	r	@-*
 	A) r (_	=@-*
-		rr	R*
+	rr	R*
 	A) r (A	R
 	a) r (a	*
 	A) r (à_	*
@@ -520,20 +519,10 @@
 
 .group s
 	s	s
-	A)	s (A	z
-		s (L01	z
-	l) s	s
-	p) s	s
-	k) s	s
-	s (c	s
-	s (f	s
-	s (k	s
-	s (p	s
-	s (q	s
+	A) s (A	z
+	s (L01	z
 	ss	ss
 	A) ss (A	ss
-	s (t	s
-	s (x	s
 	sc (Y	S
 	sci (A	S
 	scii	Sij

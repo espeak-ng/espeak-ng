@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 January 4 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 January 5 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -4688,6 +4688,7 @@ zuccherano	$1
 (mi desideri)	mI||dez'i:deRI
 (desideri che)	dez'ideRi||k'e
 (quando desideri)	kwando||_|dez'i:deRi
+(quale desideri)	kw2ale||dez'i:deRi
 (quindi desideri)	kw,indi||_dez'i:deRi
 
 // pronominal verbs
