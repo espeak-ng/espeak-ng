@@ -6,7 +6,6 @@
   - [Binaries](#binaries)
   - [Building](#building)
 - [Build Dependencies](#build-dependencies)
-  - [Debian](#debian)
 - [Building](#building-1)
   - [Audio Output Configuration](#audio-output-configuration)
   - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
@@ -80,27 +79,16 @@ To build the documentation, you need:
 
 1.  the `kramdown` markdown processor.
 
-### Debian
-
-Core dependencies:
+On Debian-based systems such as Debian, Ubuntu and Mint, these dependencies can
+be installed using the following commands:
 
 | Dependency    | Install                                                          |
 |---------------|------------------------------------------------------------------|
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c99 compiler  | `sudo apt-get install gcc`                                       |
-
-Optional dependencies:
-
-| Dependency   | Install                                 |
-|--------------|-----------------------------------------|
-| sonic        | `sudo apt-get install libsonic-dev`     |
-| ronn         | `sudo apt-get install ruby-ronn`        |
-
-Documentation dependencies:
-
-| Dependency    | Install                              |
-|---------------|--------------------------------------|
-| kramdown      | `sudo apt-get install ruby-kramdown` |
+| sonic         | `sudo apt-get install libsonic-dev`                              |
+| ronn          | `sudo apt-get install ruby-ronn`                                 |
+| kramdown      | `sudo apt-get install ruby-kramdown`                             |
 
 ## Building
 
