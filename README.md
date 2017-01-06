@@ -13,9 +13,9 @@
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Testing](#testing)
   - [Installing](#installing)
+- [eSpeak for Android](#espeak-for-android)
 - [Documentation](#documentation)
 - [Packaging](#packaging)
-- [eSpeak for Android](#espeak-for-android)
 - [Historical Versions](#historical-versions)
 - [Bugs](#bugs)
 - [License Information](#license-information)
@@ -211,6 +211,12 @@ already have an espeak-ng install by running:
 
     find /usr/lib | grep libespeak-ng
 
+## eSpeak for Android
+
+The *android* branch contains the sources for the
+[eSpeak for Android](http://reecedunn.co.uk/espeak-for-android) program, based
+on the eyes-free port of eSpeak to Android.
+
 ## Documentation
 
 The [main documentation](docs/index.md) for eSpeak NG provides more information
@@ -248,12 +254,6 @@ a few caveats. More specifically:
 5. The _espeak-ng_ project does not include _espeakedit_. The voice data is
    built using the _espeak-ng_ command line itself. Currently, to create and
    edit the voice data, you need _espeakedit_ from the _espeak_ project.
-
-## eSpeak for Android
-
-The *android* branch contains the sources for the
-[eSpeak for Android](http://reecedunn.co.uk/espeak-for-android) program, based
-on the eyes-free port of eSpeak to Android.
 
 ## Historical Versions
 
