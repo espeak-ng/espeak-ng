@@ -2,14 +2,15 @@
 
 <a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a>
 
-- [Windows Binaries](#windows-binaries)
+- [Windows](#windows)
+  - [Binaries](#binaries)
+  - [Building](#building)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
-- [Building](#building)
+- [Building](#building-1)
   - [Audio Output Configuration](#audio-output-configuration)
   - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
   - [Extended Dictionary Configuration](#extended-dictionary-configuration)
-  - [Compiling on Windows](#compiling-on-windows)
 - [Testing](#testing)
 - [Installing](#installing)
 - [Documentation](#documentation)
@@ -31,7 +32,9 @@ sound.
 See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
 various releases and with the eSpeak project.
 
-## Windows Binaries
+## Windows
+
+### Binaries
 
 The Windows version of eSpeak NG 1.49.0 is available as:
 
@@ -43,6 +46,19 @@ The Windows version of eSpeak NG 1.49.0 is available as:
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
+
+### Building
+
+To build eSpeak NG on Windows, you will need:
+
+1. a copy of Visual Studio 2015, such as the Community Edition;
+2. the Windows 8.1 SDK;
+3. the [WiX installer](http://wixtoolset.org) plugin;
+4. the [pcaudiolib](http://github.com/rhdunn/pcaudiolib) project checked out to
+   `src` (as `src/pcaudiolib`).
+
+You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
+Studio.
 
 ## Build Dependencies
 
@@ -172,19 +188,6 @@ The extended dictionaries are taken from
 [http://espeak.sourceforge.net/data/](http://espeak.sourceforge.net/data/) and
 provide better coverage for those languages, while increasing the resulting
 dictionary size.
-
-## Compiling on Windows
-
-To build eSpeak NG on Windows, you will need:
-
-1. a copy of Visual Studio 2015, such as the Community Edition;
-2. the Windows 8.1 SDK;
-3. the [WiX installer](http://wixtoolset.org) plugin;
-4. the [pcaudiolib](http://github.com/rhdunn/pcaudiolib) project checked out to
-   `src` (as `src/pcaudiolib`).
-
-You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
-Studio.
 
 ## Testing
 
