@@ -5,13 +5,14 @@
 - [Windows](#windows)
   - [Binaries](#binaries)
   - [Building](#building)
-- [Build Dependencies](#build-dependencies)
-- [Building](#building-1)
-  - [Audio Output Configuration](#audio-output-configuration)
-  - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
-  - [Extended Dictionary Configuration](#extended-dictionary-configuration)
-- [Testing](#testing)
-- [Installing](#installing)
+- [Linux, Mac, BSD](#linux-mac-bsd)
+  - [Dependencies](#dependencies)
+  - [Building](#building-1)
+    - [Audio Output Configuration](#audio-output-configuration)
+    - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
+    - [Extended Dictionary Configuration](#extended-dictionary-configuration)
+  - [Testing](#testing)
+  - [Installing](#installing)
 - [Documentation](#documentation)
 - [Notes for Packagers](#notes-for-packagers)
 - [eSpeak for Android](#espeak-for-android)
@@ -59,7 +60,9 @@ To build eSpeak NG on Windows, you will need:
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
 
-## Build Dependencies
+## Linux, Mac, BSD
+
+### Dependencies
 
 In order to build eSpeak NG, you need:
 
@@ -90,7 +93,7 @@ be installed using the following commands:
 | ronn          | `sudo apt-get install ruby-ronn`                                 |
 | kramdown      | `sudo apt-get install ruby-kramdown`                             |
 
-## Building
+### Building
 
 The first time you build eSpeak NG, or when you want to change how to build
 eSpeak NG, you need to run the following standard autotools commands:
@@ -133,7 +136,7 @@ where `LANG` is the language code of the given language. More information can
 be found in the [Adding or Improving a Language](docs/add_language.md)
 documentation.
 
-### Audio Output Configuration
+#### Audio Output Configuration
 
 The following `configure` options control which audio interfaces to use:
 
@@ -147,7 +150,7 @@ If pulseaudio and portaudio are both enabled and available, eSpeak NG will choos
 which one to use at runtime, trying pulseaudio first before falling back to
 portaudio.
 
-### eSpeak NG Feature Configuration
+#### eSpeak NG Feature Configuration
 
 The following `configure` options control which eSpeak NG features are enabled:
 
@@ -161,7 +164,7 @@ The following `configure` options control which eSpeak NG features are enabled:
 __NOTE:__ The `--with-sonic` option requires that the sonic library and header
 is accessible on the system.
 
-### Extended Dictionary Configuration
+#### Extended Dictionary Configuration
 
 The following `configure` options control which of the extended dictionary files
 to build:
@@ -177,7 +180,7 @@ The extended dictionaries are taken from
 provide better coverage for those languages, while increasing the resulting
 dictionary size.
 
-## Testing
+### Testing
 
 Before installing, you can test the built espeak-ng using the following command
 from the top-level directory of this project:
@@ -193,7 +196,7 @@ library. This ensures that `espeak` uses the built shared library in the
 `src` directory and not the one on the system (which could be an older
 version).
 
-## Installing
+### Installing
 
 You can install eSpeak NG by running the following command:
 
