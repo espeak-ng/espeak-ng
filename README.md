@@ -1,6 +1,6 @@
 # eSpeak NG Text-to-Speech
 
-<a href="https://travis-ci.org/espeak-ng/espeak-ng"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a>
+<div align="right"><a href="https://travis-ci.org/espeak-ng/espeak-ng" title="Travis continuous integration builds on Linux"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a></div>
 
 - [Windows](#windows)
   - [Binaries](#binaries)
