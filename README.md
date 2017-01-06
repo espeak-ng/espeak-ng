@@ -14,7 +14,7 @@
   - [Testing](#testing)
   - [Installing](#installing)
 - [Documentation](#documentation)
-- [Notes for Packagers](#notes-for-packagers)
+- [Packaging](#packaging)
 - [eSpeak for Android](#espeak-for-android)
 - [Historical Versions](#historical-versions)
 - [Bugs](#bugs)
@@ -220,7 +220,7 @@ The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
 command-line documentation provide a reference of the different command-line
 options available to these commands with example usage.
 
-## Notes for Packagers
+## Packaging
 
 The **espeak-ng** project works as a drop-in replacement for **espeak**, with
 a few caveats. More specifically:
