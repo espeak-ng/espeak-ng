@@ -13,7 +13,11 @@
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Testing](#testing)
   - [Installing](#installing)
-- [eSpeak for Android](#espeak-for-android)
+- [Android](#android)
+  - [Dependencies](#dependencies-1)
+  - [Building with Gradle](#building-with-gradle)
+  - [Signing the APK](#signing-the-apk)
+  - [Installing](#installing-1)
 - [Documentation](#documentation)
 - [Packaging](#packaging)
 - [Historical Versions](#historical-versions)
@@ -211,11 +215,74 @@ already have an espeak-ng install by running:
 
     find /usr/lib | grep libespeak-ng
 
-## eSpeak for Android
+## Android
 
-The *android* branch contains the sources for the
-[eSpeak for Android](http://reecedunn.co.uk/espeak-for-android) program, based
-on the eyes-free port of eSpeak to Android.
+<div align="right"><a href="https://play.google.com/store/apps/details?id=com.reecedunn.espeak" title="eSpeak for Android on Google Play"><img src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png"/></a></div>
+
+The espeak-ng sources contain the code for the Android™ port of the application.
+This is published as the [eSpeak for Android](http://reecedunn.co.uk/espeak-for-android)
+program on the Google Play store. It is based on the eyes-free port of eSpeak
+to the Android platform. This code was originally maintained in a separate
+branch when the repository tracked eSpeak releases.
+
+### Dependencies
+
+In order to build the Android APK file, you need:
+
+1.  the [Android SDK](http://developer.android.com/sdk/index.html) with API 21 support;
+2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
+3.  Gradle 2.1 or later.
+
+In order to use Android Studio, you will also need:
+
+1.  [Android Studio](http://developer.android.com/sdk/installing/studio.html).
+
+### Building with Gradle
+
+1.  Set the location of the Android SDK:
+
+        $ export ANDROID_HOME=<path-to-the-android-sdk>
+2.  Build the project:
+
+        $ ./autogen.sh
+        $ ./configure --with-gradle=<path-to-gradle>
+        $ make apk-release
+
+This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
+
+### Signing the APK
+
+In order to install the built APK you need to self-sign the package. You can do
+this by:
+
+1.  Creating a certificate, if you do not already have one:
+
+        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS]
+2. Sign the package using your certificate:
+
+        $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
+          -keystore [YOUR_CERTIFICATE] \
+          android/build/outputs/apk/espeak-release-unsigned.apk [ALIAS]
+3. Align the apk using the zipalign tool.
+
+        $ zipalign 4 android/build/outputs/apk/espeak-release-unsigned.apk \
+          android/build/outputs/apk/espeak-release-signed.apk
+
+### Installing
+
+Now, you can install the APK using the `adb` tool:
+
+    $ adb install -r android/build/outputs/apk/espeak-release-signed.apk
+
+After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
+own data directory to set up the available voices.
+
+To enable eSpeak, you need to:
+
+1.  go into the Android `Text-to-Speech settings` UI;
+2.  enable `eSpeak TTS` in the `Engines` section;
+3.  select `eSpeak TTS` as the default engine;
+4.  use the `Listen to an example` option to check if everything is working.
 
 ## Documentation
 
@@ -296,3 +363,5 @@ to make it useable in the eSpeak NG library.
 The `getopt.c` compatibility implementation for getopt support on Windows is
 taken from the NetBSD `getopt_long` implementation, which is licensed under a
 [2-clause BSD](COPYING.BSD2) license.
+
+Android is a trademark of Google Inc.
