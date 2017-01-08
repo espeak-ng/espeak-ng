@@ -37,6 +37,11 @@ updated languages:
 *  lv (Latvian) -- Valdis Vitolins
 *  tr (Turkish) -- Valdis Vitolins
 
+new languages:
+
+*  ar (Arabic) -- Taha Zerrouki
+*  jp (Japanese) -- Reece Dunn (NOTE: Hiragana and Karakana only.)
+
 ### 1.49.0 - 2016-09-10
 
 *  Support the `--compile-mbrola` command-line option.

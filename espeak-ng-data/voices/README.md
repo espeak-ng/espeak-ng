@@ -15,6 +15,7 @@ The supported languages are:
 | `gmw`       | `af`              | West Germanic         | Afrikaans                   |                        |
 | `ine`       | `sq`              | Indo-European         | Albanian                    |                        |
 | `sem`       | `am`              | Semitic               | Amharic                     |                        |
+| `sem`       | `ar`              | Semitic               | Arabic                      |                        |
 | `roa`       | `an`              | Romance               | Aragonese                   |                        |
 | `ine`       | `hy`              | Indo-European         | Armenian                    | East Armenian          |
 | `ine`       | `hy-arevmda`      | Indo-European         | Armenian                    | West Armenian          |
