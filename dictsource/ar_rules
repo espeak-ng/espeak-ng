@@ -1,0 +1,493 @@
+// *   Arabic Language ar ar_rules
+// *   This file writen by Taha Zerrouki 2012
+//*********
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+// all words must be LOWER CASE  (although the initial letter will be automatically
+//    converted if it's a 7bit ascii character)
+// Text to phoneme rules for Arabic
+
+// replace Arabic  eastern  character numbers with Arabic western character numbers
+.replace
+		٠	0
+		۰	0
+		۱	1
+		١	1
+		٢	2
+		۲	2
+		٣	3
+		۳	3
+		٤	4
+		۴	4
+		٥	5
+		۵	5
+		٦	6
+		۶	6
+		٧	7
+		۷	7
+		٨	8
+		۸	8
+		٩	9
+		۹	9
+		ئ	ء	//توحيد شكل الهمزة
+		ؤ	ء
+		إ	ءِ
+		أ	ء
+		ـ		//حذف التطويل
+
+//all vowels
+.A   ا ي و  َ ُ ِ ً ٌ ٍ ّ ى
+
+//list of consonants
+.C  ب پ ت ة ث ج ح خ د ذ ر ز  س ش ص ض ط  ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
+
+//all vowels
+.L01   ا ي و   َ ُ ِ ً ٌ ٍ ّ ى
+
+//short vowels (commonly unwritten )
+.L02  َ ُ ِ  ً ٌ ٍ
+
+//list of consonants
+.L03   ب پ ت ة ث ج ح خ د ذ ر ز  س ش ص ض ط  ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
+
+// all Arabic characters without ا آ
+.L04  ض ص ث ق ف غ ع ه خ ح ج  ً ٌ ٍ ، ؛ ش س ي ب ل ت ن م ك  َ ُ ِ ّ  ـ « » ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
+
+// all Arabic characters without short vowels and A
+.L05  ض ص ث ق ف غ ع ه خ ح ج  ش س ي ب ل ت ن م ك  ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
+
+// group of digits
+.L06 0 1 2 3 4 5 6 7 8 9
+
+// all Arabic characters
+.L09  ض ص ث ق ف غ ع ه خ ح ج  ً ٌ ٍ ، ؛ ش س ي ب ل ا ت ن م ك  َ ُ ِ ّ  آ ـ « » ظ ط ز ر ذ د ئ و ة ي ژ ؤ إ أ ء ؟ پ گ
+
+
+// Arabic Sun characters
+.L10  ض ص ث ش س ل ت ن ظ ط ز ر ذ د
+
+// Arabic Moon characters
+.L11  ق ف غ ع ه خ ح ج ي ب م ك  و  إ أ ء
+
+
+//.group
+
+
+
+.group آ
+        آ         ?aa
+
+.group ا
+       _) ا       a       // make the previous fatha long
+		//ا       aa 
+		L03)   ا   aa    // if a consonant is before it, make the fatha long
+//	ا (_	aa
+        ا (ُ       ?
+        ا (ِ       ?
+        ا (َ       ?
+//        اً         '		//ألف بعده تنوين نصب
+
+//        ا (ًS2               //a ألف بعده تنوين نصب
+// السوابق قبل ال
+	_ب) ا	(ل	i
+	//_و) ا	(ل	a
+	//_ف) ا	(ل	a
+	//_ك) ا	(ل	a
+   L03) ا (L03     aa
+  _) ال (L10ّP2  ?a      //الشمس
+    _) ال (L11P2  ?al       //القمر
+   //     ات (_S2    aat       //جمع مؤنث سالم
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+//25/05   
+	_) ال (لP2    ?al
+     _) ال (نP2    ?an
+     _) ال (ثP2    ?aT
+     _) ال (تP2    ?at
+     _) ال (دP2    ?ad
+	_) ال (رP2    ?ar
+     _) ال (ذP2    ?aD
+     _) ال (سP2    ?as
+     _) ال (زP2    ?az
+     _) ال (صP2    ?as[
+    _) ال (شP2    ?aS
+	  _)  ال (شّP2    ?a
+     //_) ال (طP2    ?at[
+     _) ال (ضP2    ?adH
+     _) ال (ظP2    ?aZ
+
+
+.group ب
+        ب         b
+		ب     (ّ   Bb
+    // _) ب (P1      bi        //بشمس
+	//_) ب (ال	bi //حرف الجر باء قبل ال التعريف
+    _) بال (L10P3 bi        //بالشمس
+     _) بال (L11P3 bil       //بالقمر
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+  _)	بال	(لP3	bil
+	_)	بال	(نP3	bin
+	_)	بال	(ثP3	biT
+	_)	بال	(تP3	bit
+	_)	بال	(دP3	bid
+	_)	بال	(رP3	bir
+	_)	بال	(ذP3	biD
+	_)	بال	(سP3	bis
+	_)	بال	(زP3	biz
+	_)	بال	(صP3	bis[
+	_)	بال	(شP3	biS
+	_)	بال	(طP3	bit[
+	_)	بال	(ضP3	bidH
+	_)	بال	(ظP3	biZ
+
+.group پ
+        پ          p
+
+.group ت
+        ت          t
+		ت   (ّ   tt
+		_)    ت  (َP1  t
+     _) ت (P1      ta        //تسأل
+	  _َ) ت (P2      t   
+        ت (_S1     at        //سألت
+		
+.group ث
+        ث          T
+	
+.group ج
+        ج          dZ
+		ج     (ّ    dZdZ
+
+.group ح
+        ح          H
+
+
+.group خ
+        خ          X
+
+.group د
+        د          d
+		د     (ّ    dd
+
+.group ذ
+        ذ          D
+
+.group ر
+        ر          r
+
+.group ز
+        ز          z
+		
+
+
+.group س
+        س          s
+		س  (ّ    ss
+
+.group ش
+        ش          S
+		ش   (ّ     SS
+
+
+.group ص
+        ص          s[
+		ص    (ّ     s[s[
+
+
+.group ض
+        ض          dH
+	//	ض      (ّ   dHdH
+
+.group ط
+        ط          t[
+
+
+.group ظ
+        ظ          Z
+
+.group ع
+        ع          A
+
+
+
+.group غ
+//        غ          R2
+        غ          gH
+
+
+
+.group ف
+        ف          f
+     _) فال (L10P3 fa        //فالشمس
+	 _) فَالْ (L10P4 fa 
+	 _) فَال (L10P4 fa 
+     _) فال (L11P3 fal       //فالقمر
+	 _) فَال (L11P4 fa
+	 _) فَالْ (L11P4 fal
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+     _) فال (لP3   fal
+     _) فال (نP3   fan
+     _) فال (ثP3   faT
+     _) فال (تP3   fat
+     _) فال (دP3   fad
+     _) فال (رP3   far
+     _) فال (ذP3   faD
+     _) فال (سP3   fas
+     _) فال (زP3   faz
+     _) فال (صP3   fas[
+     _) فال (شP3   faS
+     _) فال (طP3   fat[
+     _) فال (ضP3   fadH
+     _) فال (ظP3   faZ
+
+
+.group ق
+        ق          q
+		//ق   (ّ     qq
+
+
+.group ك
+        ك          k
+		//ك     (ّ    kk
+     _) كال (L10P3 ka        //كالشمس
+	 _) كَالْ (L10P4 ka 
+	 _) كَال (L10P4 ka 
+     _) كال (L11P3 kal       //كالقمر
+	 _) كَالْ (L11P4   kal
+        ك (_S1     ka        // الضمير المتصل
+        كم (_S2    kum       //الضمير المتصل
+        كما (_S3   kumaa     //الضمير المتصل
+        كن (_S2    kunna     //الضمير المتصل
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+     _) كال (لP3   kal
+    _) كال (نP3   kan
+    _) كال (ثP3   kaT
+    _) كال (تP3   kat
+     _) كال (دP3   kad
+     _) كال (رP3   kar
+     _) كال (ذP3   kaD
+     _) كال (سP3   kas
+     _) كال (زP3   kaz
+    _) كال (صP3   kas[
+     _) كال (شP3   kaS
+     _) كال (طP3   kat[
+     _) كال (ضP3   kadH
+     _) كال (ظP3   kaZ
+
+
+
+.group گ
+        گ          g
+
+
+.group ل
+	   ل          l
+	ل    (ّ   ll
+   _ا) ل (L10     '         // Sun letters
+   _بِا) ل (L10     '         // Sun letters
+   _وَا) ل (L10     '         // Sun letters
+   _فَا) ل (L10     '         // Sun letters
+   _كَا) ل (L10     '         // Sun letters
+   _لِ) ل (L10     '         // Sun letters
+  //   _) لل (L10P2  li        //للشمس
+   //  _) لل (L11P2  lil       //للقمر
+
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+ //    _) لل (لP2    lil
+ //    _) لل (نP2    lin
+ //    _) لل (ثP2    liT
+ //    _) لل (تP2    lit
+ //    _) لل (دP2    lid
+ //    _) لل (رP2    lir
+ //    _) لل (ذP2    liD
+ //    _) لل (سP2    lis
+ //    _) لل (زP2    liz
+ //    _) لل (صP2    lis[
+ //    _) لل (شP2    liS
+ //    _) لل (طP2    lit[
+ //    _) لل (ضP2    lidH
+ //    _) لل (ظP2    liZ
+
+.group م
+        م          m
+		
+
+
+.group ن
+        ن          n
+        ن (ب       m
+        ن (ْب      m
+
+.group ه
+        ه          h
+        ه (_S1     h         // الضمير المتصل
+        ها (_S2    haa       //الضمير المتصل
+        هم (_S2    hum       //الضمير المتصل
+        هما (_S3   humaa     //الضمير المتصل
+        هن (_S2    hunna     //الضمير المتصل
+
+
+
+.group و
+     _) و          w         //واو في أول الكلمة
+     ا) و          w         //واو بعد الألف
+     ْ) و          w         // واو بعد سكون
+     َ) و          w         //واو بعد فتحة
+     ِ) و          w         //واو بعد كسرة
+        و (L01     w         //واو بعدها حرف علة
+   //  ُ) و          :         // make the prevuous damma long
+   L03) و          uu        //واو بعد صامت دون تشكيل
+     _) وال (L10P3 wa        //والشمس
+	 _) وَالْ (L10P4 wa 
+	 _) وَال (L10P4 wa 
+     _) وال (L11P3 wal       //والقمر
+  _) وَالْ (L11P4    wal
+   _) وَال (L11P4   wal
+        ون (_S2    uuna      //جمع مذكر سالم فلاحون
+		وا (_S2    uu	     // فعل مع ضمائر الجمع المذكرة درسوا
+		ُ)   وا (_S2    u
+//الحروف الشمسية
+ // ال التعريف مع حرف شمسي
+     _) وال (لP3   wal
+     _) وال (نP3   wan
+     _) وال (ثP3   waT
+     _) وال (تP3   wat
+     _) وال (دP3   wad
+     _) وال (رP3   war
+     _) وال (ذP3   waD
+     _) وال (سP3   was
+     _) وال (زP3   waz
+     _) وال (صP3   was[
+     _) وال (شP3   waS
+     _) وال (طP3   wat[
+     _) وال (ضP3   wadH
+     _) وال (ظP3   waZ
+
+
+
+.group ي
+     _) ي         j      ياء في أول الكلمة
+     ا) ي         j         // ياء بعد ألف
+     ْ) ي          j         //ياء بعد سكون
+     َ) ي          j         // ياء بعد فتحة
+     ُ) ي          j         //ياء بعد ضمّة
+        ي (L01     j         //يا بعدها حروف علة
+   //  ِ) ي          %:        // make the previous kasra long
+   L03) ي          ii       // ياء بعد صامت دون تشكيل
+        ية (_S2    ijjah     //يّة النسبة
+        يون (_S3   ijjuun    //kجمع مذكر سالم منسوب جزائريون
+        يين (_S3   ijjiin    //kجمع مذكر سالم منسوب جزائريين
+        يات (_S3   ijjaat    //يّة النسبة في جمع المؤنث جزائريات
+        ين (_S2    iina      //جمع مذكر سالم منصوب أو مجرور
+        ي (_S1     ii        //ياء النسبة
+		ِ)ي (_S1     i
+
+
+
+.group ى 	//ألف مقصورة
+      L03)  ى (_       aa
+	  ى      a
+   //   َ) ى          aa
+
+.group ء
+        ء          ?
+		ء (ً ?an
+.group ّ
+       ّ        
+	  // L03) ّ     %% //
+	//b)  ّ    bb
+.group ئ
+        ئ          ?
+
+.group ؤ
+        ؤ          ?
+
+.group ة
+        ة          t
+		ةً     tan  
+//		ة  (L02        t         // التاء المربوطة مشكولة
+//        ة (_S1     h         //التاء المربوطة غير مشكولة
+//   L05) ة (_S1     ah        //بوطة ما قبلها صامت، يضاف إليه فتحة
+//   L05) ة (L02      at        //تاء بعدها حركة وقبلها صامت
+//   L02) ة (_S1     h         // التاء المربوطة غير مشكولة	وماقبلها مشكول
+//        ة  (L02        t         // التاء المربوطة مشكولة
+//        ة          t         // التاء المربوطة مشكولة
+//vowels that are not usually written:
+
+
+.group  ْ
+        ْ 
+
+.group َ
+        َ          %a
+		َ(ا	aa        // make the previous fatha long
+
+
+.group ِ
+        ِ          i
+		ِ(ي	ii       // make the previous kassra long
+     //   ِ (_S1     i         //    e
+
+
+.group ُ
+        ُ          u
+		ُ(و	uu       // make the previous kassra long
+     //   ُ (_S1     u         // o
+
+.group ٌ // dammatan
+        ٌ (_S1     un
+        ٌ          '
+
+.group    ً  // fatahatan
+   
+        ًا (S1     an
+		
+
+.group ٍ  // kasratan
+        ٍ (_S1     in
+        ٍ          '
+
+.group أ
+//        أ          ?
+
+.group إ
+        //إ  (ِ       ?i
+		إ          ?i
+	
+
+.group ـ
+        ـ          '
+
+.group ،
+،  ||
+
+.group ؛
+؛ 
+
+//characters and numbers and words with English alphabet is translated by English phonemes
+
+
+// default group for "non of the above"
+
+.group
+
+// non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
