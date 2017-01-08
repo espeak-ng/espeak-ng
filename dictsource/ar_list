@@ -21,7 +21,7 @@
 // ***************************************************************************/
 
 // This file is UTF-8 encoded
-// all words must be LOWER CaaSE  (although the initial letter will be automatically
+// all words must be LOWER CASE  (although the initial letter will be automatically
 //    converted if it's a 7bit ascii character)
 
 //stress symbols  ' primary  , secondary  % unstressed
@@ -204,7 +204,7 @@ $	duulaar
 
 
 
-// MaaIN WORD DICTIONaaRY
+// MAIN WORD DICTIONARY
 //*********************
 
 // exceptional words with flags
