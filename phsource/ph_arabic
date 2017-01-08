@@ -20,15 +20,15 @@ phoneme Z // arabic ZAH .Todo
   WAV(vwl_ar/zah) 
 endphoneme
 
-//phoneme A	// arabic Ain
-//  vls phr frc
-//  ipa ʕ
-//  voicingswitch a  
-//  length 160  
-//   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
-//    Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
-//  WAV(vwl_ar/ain) 
-//endphoneme
+phoneme A	// arabic Ain
+  vls phr frc
+  ipa ʕ
+  voicingswitch a  
+  length 160  
+   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
+    Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
+  WAV(vwl_ar/ain) 
+endphoneme
 
 phoneme gH    // arabic ghain, 
 // the phoneme is derived from Q
