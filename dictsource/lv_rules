@@ -403,7 +403,7 @@ L41L10L10L10) ē (@<<           e:
       L55) j (@           >j
       L57) j (@           :j
            j               j
-        _) jebk            jebk'     // stress on 2nd syllable
+        _) jebk            j%ebk     // stress on 2nd syllable
 
 .group k
            k               k
@@ -432,7 +432,7 @@ L41L10L10L10) ē (@<<           e:
            n               n
         C) n (C            n-        // more voiced variant between consonants
            n (d            N
-        _) ne (vien        ne'       // stress on 2nd syllable
+        _) ne (vien        n%e       // stress on 2nd syllable
            n (g            N
            n (k            N
            nn              nn:       // espeak says doubled nn shorter that doubled ņņ
@@ -1494,18 +1494,18 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
 .group p
            p               p
                                      // pus..number stress on next syllable
-        _) pus (vien       pu's
-        _) pus (div        pu's
-        _) pus (otr        pu's
-        _) pus (trij       pu's
-        _) pus (trīs       pu's
-        _) pus (četr       pu's
-        _) pus (piec       pu's
-        _) pus (seš        pu's
-        _) pus (sept       pu's
-        _) pus (astoņ      pu's
-        _) pus (deviņ      pu's
-        _) pus (desmit     pu's
+        _) pus (vien       p%us
+        _) pus (div        p%us
+        _) pus (otr        p%us
+        _) pus (trij       p%us
+        _) pus (trīs       p%us
+        _) pus (četr       p%us
+        _) pus (piec       p%us
+        _) pus (seš        p%us
+        _) pus (sept       p%us
+        _) pus (astoņ      p%us
+        _) pus (deviņ      p%us
+        _) pus (desmit     p%us
 
 .group q
            q (A            kv
@@ -1558,8 +1558,8 @@ L41L10L10L10sk) o (pL01_   o:        //  ...skops
         _) vi (sur_        v'i         // visur
         _) vi (sval        v'i         // Visval..
         _) vi (svar        v'i         // Visvar..
-        _) vis             v,is (P3
-           visvis          visv,is (P6 // visvis..
+        _) vis             v%is (P3
+           visvis          v%isv%is (P6 // visvis..
         _) vi (szinL02_    v'i         // viszinis
         _) vi (szinL05_    v'i         // viszine
 
