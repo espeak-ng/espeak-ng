@@ -103,7 +103,7 @@ To add new language, you have to create or edit following files:
 | phsource/ph_french           |create  |
 | dictsource/fr_list           |create  |
 | dictsource/fr_rules          |create  |
-| dictsource/fr_extrc          |create (optional) |
+| dictsource/fr_extra          |create (optional) |
 | espeak-ng-data/voices/roa/fr    |create  |
 
 where:
