@@ -660,9 +660,25 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
-	// match the word against a list of utf-8 strings
-	char *p;
-	char *w;
+	/*  match the word against a list of utf-8 strings
+	 *  How this works:
+	 *       +-+
+	 *       |c|<-(tr->letterGroups[group])
+	 *       |0|
+	 *   *p->|c|<-len+              +-+
+	 *       |s|<----+              |a|<-(Actual word to be tested)
+	 *       |0|            *word-> |t|<-*w=word-len+1 (for pre-rule)
+	 *       |~|                    |a|<-*w=word       (for post-rule)
+	 *       |7|                    |s|
+	 *       +-+                    +-+
+	 *
+	 *     7=RULE_GROUP_EN
+	 *     0=null terminator
+	 *     pre==1 — pre-rule
+	 *     pre==0 — post-rule
+	 */
+	char *p;  // group counter
+	char *w;  // word counter
 	int len = 0;
 
 	p = tr->letterGroups[group];
@@ -675,18 +691,34 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 			w = word - len + 1;
 		} else
 			w = word;
+
+		// If no character is allowed in group
+		// at the start (for pre-rule) or end (post-rule)
+		// of the checked letter in the word, return OK
+		if (*p == '~' && *w == ' ') // word end checked because of comment below
+			return 1;
+		/* TODO need to investigate why word end mark _ doesn't work properly
+		 * for post rule somewhere in MatchRule() function. or E.g.:
+		 *
+		 * .L01 ~ b c
+         * .group a
+         *  _L01) a       i  // this works
+         *        a (L01_ u  // this doesn't work
+		 */
+
 		while ((*p == *w) && (*w != 0)) {
 			w++;
 			p++;
 		}
-		if (*p == 0) {
+		if (*p == 0) {   // matched some of group strings
 			if (pre)
 				return len;
-			return w-word; // matched a complete string
+			else
+				return w - word;
 		}
 
-		while (*p++ != 0) // skip to end of string
-			;
+		while (*p++ != 0)   // if string of current group didn't match
+			;               // skip till to the end of string
 	}
 	return 0;
 }
