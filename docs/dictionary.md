@@ -199,6 +199,7 @@ translation rules and spoken with English phonemes.
 | `Z`         | A non-alphabetic character. |
 | `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. |
 | `/`         | The following character is treated literally. |
+| `\xxx`      | Character is written as by 3 digit octal value of `xxx`|
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
 
 The sets of letters indicated by `A`, `B`, `C`, `E`, `F` and `G` may be defined
@@ -242,6 +243,7 @@ rule with more syllables.
 |-------------|-------------|
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
 | `<`         | Force a decrease in the score in this rule by 20 points (may be repeated for more effect). |
+| `J_xxx`     | Skip letters of current word till to the end, and check starting `xxx` letters for the next word. |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
