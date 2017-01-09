@@ -50,23 +50,31 @@ public:
     espeak_SetSynthCallback(NULL);
   }
 
-  void set_voice(
+  long set_voice(
         const char* aName,
-        const char* aLang,
+        const char* aLang=NULL,
         unsigned char aGender=0,
         unsigned char aAge=0,
         unsigned char aVariant = 0
     ) {
-    espeak_VOICE props = { 0 };
-    props.name = aName;
-    props.languages = aLang;
-    props.gender = aGender;
-    props.age = aAge;
-    props.variant = aVariant;
+    long result = 0;
+    if (aLang || aGender || aAge || aVariant) {
+      espeak_VOICE props = { 0 };
+      props.name = aName;
+      props.languages = aLang;
+      props.gender = aGender;
+      props.age = aAge;
+      props.variant = aVariant;
+      result = espeak_SetVoiceByProperties(&props);
+    } else {
+      result = espeak_SetVoiceByName(aName);
+    }
+
     // This way we don't need to allocate the name/lang strings to the heap.
     // Instead, we store the actual global voice.
-    espeak_SetVoiceByProperties(&props);
     current_voice = espeak_GetCurrentVoice();
+
+    return result;
   }
 
   int getSizeOfEventStruct_() {
