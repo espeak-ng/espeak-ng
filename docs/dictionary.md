@@ -100,19 +100,46 @@ The rules are organized in groups, each starting with a `.group` line:
 * `.group`
   A group for other characters which don't have their own group.
 
+* `.replace`
+  See section [Character Substitution](#character-substitution).
+
 * `.L<nn>`
   Defines a group of letter sequences, any of which can match with `Lnn` in a
   pre or post rule (see below). nn is a 2 digit decimal number in the range 01
   to 94. e.g.:
   `.L01 b bl br pl pr`
 
-* `.replace`
-  See section [Character Substitution](#character-substitution).
+**notes about letter groups**
+
+There can be up to 200 items in one letter group.
 
 When matching a word, firstly the 2-letter group for the two letters at
 the current position in the word (if such a group exists) is searched,
 and then the single-letter group. The highest scoring rule in either of
 those two groups is used.
+
+`~` Letter in letter group means, that there can be no letter in this group 
+    at the beginning or end of the word. 
+
+_For example:_
+
+```
+.L01 ~ b c
+
+.group a
+  L01) a      i  // A
+       a (L01 u  // B
+```
+following rules will match for words:
+
+|Word |Match|Spelling|
+|-----|-----|--------|
+|base |A    |bise    |
+|case |A    |cise    |
+|ace  |A    |ice     |
+|tab  |B    |tub     |
+|mac  |B    |tuc     |
+|tea  |B    |teu     |
 
 ### Rules
 
