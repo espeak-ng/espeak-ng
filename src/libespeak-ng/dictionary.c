@@ -660,8 +660,10 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
-	/* match the word against a list of utf-8 strings
+	/* Match the word against a list of utf-8 strings.
+	 *
 	 * How this works:
+	 *
 	 *       +-+
 	 *       |c|<-(tr->letterGroups[group])
 	 *       |0|
@@ -672,7 +674,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	 *       |7|                    |s|
 	 *       +-+                    +-+
 	 *
-	 *     7=RULE_GROUP_EN
+	 *     7=RULE_GROUP_END
 	 *     0=null terminator
 	 *     pre==1 — pre-rule
 	 *     pre==0 — post-rule
@@ -694,11 +696,11 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 
 		// If no character is allowed in group
 		// at the start (for pre-rule) or end (post-rule)
-		// of the checked letter in the word, return OK
+		// of the checked letter in the word, return true.
 		if (*p == '~' && *w == ' ') // word end checked because of comment below
 			return 1;
-		/* TODO need to investigate why word end mark _ doesn't work properly
-		 * for post rule somewhere in MatchRule() function. or E.g.:
+		/* TODO: Need to investigate why word end mark _ doesn't work properly
+		 * for post rule somewhere in MatchRule() function. or e.g.:
 		 *
 		 * .L01 ~ b c
 		 * .group a
@@ -710,14 +712,13 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 			w++;
 			p++;
 		}
-		if (*p == 0) { // matched some of group strings
+		if (*p == 0) { // Matched the current group.
 			if (pre)
 				return len;
 			return w - word;
 		}
 
-		// if the string of current group didn't match skip till to the
-		// end of the string
+		// No match, so skip the rest of this group.
 		while (*p++ != 0)
 			;
 	}
