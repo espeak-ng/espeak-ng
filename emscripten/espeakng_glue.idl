@@ -53,7 +53,7 @@ interface eSpeakNGWorker {
   void eSpeakNGWorker();
   void synth_(DOMString aText, VoidPtr aCallback);
   long getSizeOfEventStruct_();
-  void set_voice(DOMString aName, DOMString aLang, optional octet gender=0, optional octet age=0, optional octet aVariant=0);
+  long set_voice(DOMString aName, DOMString aLang, optional octet gender=0, optional octet age=0, optional octet aVariant=0);
   [Const] attribute espeak_VOICE[] voices;
   readonly attribute long samplerate;
   attribute long rate;

@@ -159,7 +159,7 @@ function speak() {
   tts.set_pitch(Number(document.getElementById('pitch').value));
   console.log('  Setting pitch... done');
   console.log('  Setting voice...');
-  tts.set_voice.apply(tts, (document.getElementById('voice').value.split(',')));
+  tts.set_voice(document.getElementById('voice').value);
   console.log('  Setting voice... done');
 
   var now = Date.now();
@@ -232,16 +232,17 @@ function initializeDemo() {
           var sel = document.getElementById('voice');
           var index = 0;
           for (voice of result) {
-            for (lang of voice.languages) {
-              var opt = document.createElement('option');
-              opt.text = voice.name + ' (' + lang.name + ')';
-              opt.value = [voice.name, lang.name];
-              console.log('Adding voice: ' + opt.text);
-              sel.add(opt);
-              if (voice.name === 'default') {
-                opt.id = 'default-voice';
-                opt.selected = true;
-              }
+            var opt = document.createElement('option');
+            var languages = voice.languages.map(function(lang) {
+              return lang.name;
+            }).join(", ");
+            opt.text = voice.name + ' (' + languages + ')';
+            opt.value = voice.identifier;
+            console.log('Adding voice: ' + opt.text);
+            sel.add(opt);
+            if (voice.name === 'default') {
+              opt.id = 'default-voice';
+              opt.selected = true;
             }
           }
           console.log('Leaving cb2');
