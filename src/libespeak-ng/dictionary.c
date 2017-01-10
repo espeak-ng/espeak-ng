@@ -660,8 +660,8 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
-	/*  match the word against a list of utf-8 strings
-	 *  How this works:
+	/* match the word against a list of utf-8 strings
+	 * How this works:
 	 *       +-+
 	 *       |c|<-(tr->letterGroups[group])
 	 *       |0|
@@ -677,8 +677,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 	 *     pre==1 — pre-rule
 	 *     pre==0 — post-rule
 	 */
-	char *p;  // group counter
-	char *w;  // word counter
+	char *p; // group counter
+	char *w; // word counter
 	int len = 0;
 
 	p = tr->letterGroups[group];
@@ -701,24 +701,25 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		 * for post rule somewhere in MatchRule() function. or E.g.:
 		 *
 		 * .L01 ~ b c
-         * .group a
-         *  _L01) a       i  // this works
-         *        a (L01_ u  // this doesn't work
+		 * .group a
+		 *  _L01) a       i  // this works
+		 *        a (L01_ u  // this doesn't work
 		 */
 
 		while ((*p == *w) && (*w != 0)) {
 			w++;
 			p++;
 		}
-		if (*p == 0) {   // matched some of group strings
+		if (*p == 0) { // matched some of group strings
 			if (pre)
 				return len;
-			else
-				return w - word;
+			return w - word;
 		}
 
-		while (*p++ != 0)   // if string of current group didn't match
-			;               // skip till to the end of string
+		// if the string of current group didn't match skip till to the
+		// end of the string
+		while (*p++ != 0)
+			;
 	}
 	return 0;
 }
