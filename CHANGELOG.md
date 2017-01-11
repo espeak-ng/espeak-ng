@@ -26,6 +26,7 @@ bug fixes:
 *  Fixes for running the spect code on big-endian architectures.
 *  Fix determining the voice directory when installing the 32-bit Windows
    binaries on a 64-bit Windows system.
+*  Don't reset the speech parameters unless they have already been set.
 
 updated languages:
 
