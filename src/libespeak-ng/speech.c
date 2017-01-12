@@ -351,7 +351,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	VoiceReset(0);
 
 	for (param = 0; param < N_SPEECH_PARAM; param++)
-		param_stack[0].parameter[param] = param_defaults[param];
+		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
 
 	SetParameter(espeakRATE, 175, 0);
 	SetParameter(espeakVOLUME, 100, 0);
