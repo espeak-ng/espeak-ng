@@ -73,7 +73,6 @@ static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
 static espeak_ng_STATUS err = ENS_OK;
-static int did_save_parameters = 0;
 
 t_espeak_callback *synth_callback = NULL;
 int (*uri_callback)(int, const char *, const char *) = NULL;
@@ -489,7 +488,6 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 	my_unique_identifier = unique_identifier;
 	my_user_data = user_data;
 
-	did_save_parameters = 1;
 	for (int i = 0; i < N_SPEECH_PARAM; i++)
 		saved_parameters[i] = param_stack[0].parameter[i];
 
@@ -829,11 +827,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Cancel(void)
 #endif
 	embedded_value[EMBED_T] = 0; // reset echo for pronunciation announcements
 
-	if (did_save_parameters) {
-		for (int i = 0; i < N_SPEECH_PARAM; i++)
-			SetParameter(i, saved_parameters[i], 0);
-		did_save_parameters = 0;
-	}
+	for (int i = 0; i < N_SPEECH_PARAM; i++)
+		SetParameter(i, saved_parameters[i], 0);
 
 	return ENS_OK;
 }
