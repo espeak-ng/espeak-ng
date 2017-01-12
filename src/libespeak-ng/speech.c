@@ -230,9 +230,9 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
-	// buflength is in mS, allocate 2 bytes per sample
-	if ((buffer_length == 0) || (output_mode & ENOUTPUT_MODE_SPEAK_AUDIO))
-		buffer_length = 200;
+	// buffer_length is in mS, allocate 2 bytes per sample
+	if (buffer_length == 0)
+		buffer_length = 50;
 
 	outbuf_size = (buffer_length * samplerate)/500;
 	out_start = (unsigned char *)realloc(outbuf, outbuf_size);
@@ -242,7 +242,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		outbuf = out_start;
 
 	// allocate space for event list.  Allow 200 events per second.
-	// Add a constant to allow for very small buf_length
+	// Add a constant to allow for very small buffer_length
 	n_event_list = (buffer_length*200)/1000 + 20;
 	espeak_EVENT *new_event_list = (espeak_EVENT *)realloc(event_list, sizeof(espeak_EVENT) * n_event_list);
 	if (new_event_list == NULL)

@@ -27,6 +27,8 @@ bug fixes:
 *  Fix determining the voice directory when installing the 32-bit Windows
    binaries on a 64-bit Windows system.
 *  Fix a regression with the saved parameter logic.
+*  Reduce the default buffer length to 50mS to improve latency.
+*  Don't override buffer length when using espeak-ng for audio.
 
 updated languages:
 
