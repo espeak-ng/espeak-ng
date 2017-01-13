@@ -198,7 +198,7 @@ translation rules and spoken with English phonemes.
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
 | `X`         | There is no vowel until the word boundary. |
 | `Z`         | A non-alphabetic character. |
-| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. |
+| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. (Beware of [bug #195](https://github.com/espeak-ng/espeak-ng/issues/195)) |
 | `/`         | The following character is treated literally. |
 | `\xxx`      | Character is written as by 3 digit octal value of `xxx`|
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
@@ -210,7 +210,7 @@ Examples of rules:
 ```
         _)  a        A       // "a" at the start of a word
             a (CC    A       // "a" followed by two consonants
-            a (C%    A       // "a" followed by a double consonant (the same letter twice) (befare of [bug #195](https://github.com/espeak-ng/espeak-ng/issues/195))
+            a (C%    A       // "a" followed by a double consonant (the same letter twice)
             a (/%    A       // "a" followed by a percent sign
         %C) a        A       // "a" preceded by a double consonants
         @@) bi       bI      // "bi" preceded by at least two syllables
