@@ -158,6 +158,14 @@ phoneme tS
   WAV(ustop/tsh,40)
 endphoneme
 
+phoneme n-
+  vowel starttype #a endtype #a
+  ipa nU+0329
+  lengthmod 4
+  length 120
+  FMT(n/n-syl)
+endphoneme
+
 phoneme R // Latvian hard r
   liquid
   trill
