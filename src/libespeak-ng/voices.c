@@ -408,7 +408,7 @@ void VoiceReset(int tone_only)
 		voice->height[pk] = default_heights[pk]*2;
 		voice->width[pk] = default_widths[pk]*2;
 		voice->breath[pk] = 0;
-		voice->breathw[pk] = breath_widths[pk]; // default breath formant woidths
+		voice->breathw[pk] = breath_widths[pk]; // default breath formant widths
 		voice->freqadd[pk] = 0;
 
 		// adjust formant smoothing depending on sample rate

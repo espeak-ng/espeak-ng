@@ -638,7 +638,7 @@ static void SetBreath()
 	for (pk = 1; pk < N_PEAKS; pk++) {
 		if (wvoice->breath[pk] != 0) {
 			// breath[0] indicates that some breath formants are needed
-			// set the freq from the current ynthesis formant and the width from the voice data
+			// set the freq from the current synthesis formant and the width from the voice data
 			setresonator(&rbreath[pk], peaks[pk].freq >> 16, wvoice->breathw[pk], 0);
 		}
 	}
@@ -727,7 +727,7 @@ int Wavegen()
 			for (h = 1; h < N_LOWHARM && h <= maxh2 && h <= maxh; h++)
 				harmspect[h] += harm_inc[h];
 
-			// bring automctic gain control back towards unity
+                       // bring automatic gain control back towards unity
 			if (agc < 256) agc++;
 		}
 
