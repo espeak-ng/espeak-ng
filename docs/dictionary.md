@@ -119,7 +119,8 @@ and then the single-letter group. The highest scoring rule in either of
 those two groups is used.
 
 `~` Letter in letter group means, that there can be no letter in this group 
-    at the beginning or end of the word. 
+    at the beginning or end of the word.
+    Beware of [issue #196](https://github.com/espeak-ng/espeak-ng/issues/196).
 
 _For example:_
 
@@ -197,7 +198,7 @@ translation rules and spoken with English phonemes.
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
 | `X`         | There is no vowel until the word boundary. |
 | `Z`         | A non-alphabetic character. |
-| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. |
+| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. (Beware of [bug #195](https://github.com/espeak-ng/espeak-ng/issues/195)) |
 | `/`         | The following character is treated literally. |
 | `\xxx`      | Character is written as by 3 digit octal value of `xxx`|
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
@@ -243,7 +244,7 @@ rule with more syllables.
 |-------------|-------------|
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
 | `<`         | Force a decrease in the score in this rule by 20 points (may be repeated for more effect). |
-| `J_xxx`     | Skip letters of current word till to the end, and check starting `xxx` letters for the next word. |
+| `Jxxx`      | (If `_` is set, skip letters of current word till to the end and) check starting `xxx` letters for the next word. |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
@@ -255,8 +256,11 @@ rule with more syllables.
 
 e.g.
 
-	_) un (i     ju:     // ... except in words starting "uni"
-	_) un (inP2  ,Vn     // ... but it is for words starting "unin"
+	_) un (i      ju:    // ... except in words starting "uni"
+	_) un (inP2   ,Vn    // ... but it is for words starting "unin"
+            a (J_get  u      // for `ada get` will say `uda get`
+            a (Jset   e      // for `ada set` will say `ade set`
+
 
 `S` and `P` must be at the end of the \<post\> string.
 
