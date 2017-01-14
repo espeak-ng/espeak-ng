@@ -727,7 +727,7 @@ int Wavegen()
 			for (h = 1; h < N_LOWHARM && h <= maxh2 && h <= maxh; h++)
 				harmspect[h] += harm_inc[h];
 
-                       // bring automatic gain control back towards unity
+			// bring automatic gain control back towards unity
 			if (agc < 256) agc++;
 		}
 
