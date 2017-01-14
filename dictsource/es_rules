@@ -67,16 +67,14 @@
 
 
 .group e
-        e          e
-        e (nC      E
-//         e (r       E
-        e (Ch      e
-//     Ar) e          E
-        ei         ei
-        ey (K      ei
-        ey (_      'ei
-        eu         eU
-        eu (_      'eU
+	e	e
+	e (nC	E
+	e (Ch	e
+	ei	eI
+	ey (K	eI
+	ey (_	'eI
+	eu	eU
+	eu (_	'eU
 
 .group f
         f          f
@@ -181,6 +179,8 @@
         qu (Y      k         // que, qui
      _) qw (A      kw        // qwerty
 
+.group rr
+	rr	rr
 
 .group r
         r          r
@@ -188,12 +188,12 @@
         r (t       r
      A) r (A       r
      C) r (A       r
-     _) r (A       R2
+     _) r (A       rr
      l) r (A       R2
      m) r (A       R2
      n) r (A       R2
      s) r (A       R2
-        rr         R2
+
 
 
 .group s
