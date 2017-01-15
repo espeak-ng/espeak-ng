@@ -101,20 +101,20 @@ AC_TYPE_UINT32_T
 AC_TYPE_UINT64_T
 
 AC_FUNC_FORK
-AC_FUNC_MALLOC
-AC_FUNC_REALLOC
 AC_FUNC_STRCOLL
 AC_FUNC_ERROR_AT_LINE
 
 AC_CHECK_FUNCS([dup2])
 AC_CHECK_FUNCS([getopt_long])
 AC_CHECK_FUNCS([gettimeofday])
+AC_CHECK_FUNCS([malloc]) dnl Avoid "Undefined reference to rpl_malloc" when using AC_FUNC_MALLOC.
 AC_CHECK_FUNCS([memchr])
 AC_CHECK_FUNCS([memmove])
 AC_CHECK_FUNCS([memset])
 AC_CHECK_FUNCS([mkdir])
 AC_CHECK_FUNCS([mkstemp])
 AC_CHECK_FUNCS([pow])
+AC_CHECK_FUNCS([realloc]) dnl Avoid "Undefined reference to rpl_malloc" when using AC_FUNC_REALLOC.
 AC_CHECK_FUNCS([setlocale])
 AC_CHECK_FUNCS([sqrt])
 AC_CHECK_FUNCS([strchr])
