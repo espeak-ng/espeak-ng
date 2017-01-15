@@ -29,6 +29,10 @@ local.properties
 
 # android gradle output:
 
+gradle/
+gradlew
+gradlew.bat
+
 .gradle/
 .idea/
 build/
