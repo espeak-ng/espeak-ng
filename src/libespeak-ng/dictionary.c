@@ -1732,7 +1732,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					failed = 1;
 				break;
 			case RULE_POST:
-				// continue moving fowards
+				// continue moving forwards
 				distance_right += 6;
 				if (distance_right > 18)
 					distance_right = 19;
