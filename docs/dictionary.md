@@ -198,7 +198,7 @@ translation rules and spoken with English phonemes.
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
 | `X`         | There is no vowel until the word boundary. |
 | `Z`         | A non-alphabetic character. |
-| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. (Beware of [bug #195](https://github.com/espeak-ng/espeak-ng/issues/195)) |
+| `%`         | Doubled (placed before a character in \<pre\> and after it in \<post\>. |
 | `/`         | The following character is treated literally. |
 | `\xxx`      | Character is written as by 3 digit octal value of `xxx`|
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
