@@ -530,8 +530,10 @@ int utf8_nbytes(const char *buf)
 
 int utf8_in2(int *c, const char *buf, int backwards)
 {
-	// Read a unicode characater from a UTF8 string
+	// Reads a unicode characater from a UTF8 string
 	// Returns the number of UTF8 bytes used.
+	// c: holds integer representation of multibyte character
+	// buf: position of buffer is moved, if character is read
 	// backwards: set if we are moving backwards through the UTF8 string
 
 	int c1;
@@ -569,8 +571,28 @@ int utf8_in2(int *c, const char *buf, int backwards)
 #pragma GCC visibility push(default)
 int utf8_in(int *c, const char *buf)
 {
-	// Read a unicode characater from a UTF8 string
-	// Returns the number of UTF8 bytes used.
+	/* Read a unicode characater from a UTF8 string
+	 * Returns the number of UTF8 bytes used.
+	 * buf: position of buffer is moved, if character is read
+	 * c: holds integer representation of multibyte character by
+	 * skipping UTF-8 header bits of bytes in following way:
+	 * 2-byte character "ā":
+	 * hex            binary
+	 * c481           1100010010000001
+	 *    |           11000100  000001
+	 *    V              \    \ |    |
+	 * 0101           0000000100000001
+	 * 3-byte character "ꙅ":
+	 * ea9985 111010101001100110000101
+	 *            1010  011001  000101
+	 *    |       +  +--.\   \  |    |
+	 *    V        `--.  \`.  `.|    |
+	 *   A645         0001001101000101
+	 * 4-byte character "𠜎":
+	 * f0a09c8e 11110000101000001001110010001110
+	 *    V          000  100000  011100  001110
+	 *   02070e         000000100000011100001110
+	 */
 	return utf8_in2(c, buf, 0);
 }
 #pragma GCC visibility pop
