@@ -22,6 +22,26 @@
 #if defined(HAVE_ENDIAN_H)
 #	pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 #	include_next <endian.h>
+#elif defined(HAVE_SYS_ENDIAN_H)
+#	include <sys/endian.h>
+#	if !defined(be16toh)
+#		define be16toh(x) betoh16(x)
+#	endif
+#	if !defined(le16toh)
+#		define le16toh(x) letoh16(x)
+#	endif
+#	if !defined(be32toh)
+#		define be32toh(x) betoh32(x)
+#	endif
+#	if !defined(le32toh)
+#		define le32toh(x) letoh32(x)
+#	endif
+#	if !defined(be64toh)
+#		define be64toh(x) betoh64(x)
+#	endif
+#	if !defined(le64toh)
+#		define le64toh(x) letoh64(x)
+#	endif
 #elif defined(__APPLE__)
 #	include <libkern/OSByteOrder.h>
 
@@ -44,19 +64,6 @@
 #	define __BIG_ENDIAN    BIG_ENDIAN
 #	define __LITTLE_ENDIAN LITTLE_ENDIAN
 #	define __PDP_ENDIAN    PDP_ENDIAN
-#elif defined(__OpenBSD__)
-#	include <sys/endian.h>
-#elif defined(__NetBSD__) || defined(__FreeBSD__) || defined(__DragonFly__)
-#	include <sys/endian.h>
-
-#	define be16toh(x) betoh16(x)
-#	define le16toh(x) letoh16(x)
-
-#	define be32toh(x) betoh32(x)
-#	define le32toh(x) letoh32(x)
-
-#	define be64toh(x) betoh64(x)
-#	define le64toh(x) letoh64(x)
 #elif defined(_WIN16) || defined(_WIN32) || defined(_WIN64)
 #	if BYTE_ORDER == LITTLE_ENDIAN
 #		include <winsock2.h>

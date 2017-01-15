@@ -85,15 +85,16 @@ dnl ================================================================
 dnl library checks.
 dnl ================================================================
 
-AC_CHECK_HEADERS([endian.h])   dnl Linux
-AC_CHECK_HEADERS([fcntl.h])    dnl POSIX
-AC_CHECK_HEADERS([getopt.h])   dnl POSIX
-AC_CHECK_HEADERS([locale.h])   dnl C89
-AC_CHECK_HEADERS([stddef.h])   dnl C89
-AC_CHECK_HEADERS([stdbool.h])  dnl C99
-AC_CHECK_HEADERS([sys/time.h]) dnl POSIX
-AC_CHECK_HEADERS([wchar.h])    dnl C89
-AC_CHECK_HEADERS([wctype.h])   dnl C89
+AC_CHECK_HEADERS([endian.h])     dnl Linux
+AC_CHECK_HEADERS([fcntl.h])      dnl POSIX
+AC_CHECK_HEADERS([getopt.h])     dnl POSIX
+AC_CHECK_HEADERS([locale.h])     dnl C89
+AC_CHECK_HEADERS([stddef.h])     dnl C89
+AC_CHECK_HEADERS([stdbool.h])    dnl C99
+AC_CHECK_HEADERS([sys/endian.h]) dnl BSD
+AC_CHECK_HEADERS([sys/time.h])   dnl POSIX
+AC_CHECK_HEADERS([wchar.h])      dnl C89
+AC_CHECK_HEADERS([wctype.h])     dnl C89
 
 AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
