@@ -153,7 +153,7 @@ public class DownloadVoiceData extends Activity {
                 }
 
                 final String version = FileUtils.read(mContext.getResources().openRawResource(R.raw.espeakdata_version));
-                final File outputFile = new File(mOutput, "espeak-data/version");
+                final File outputFile = new File(mOutput, "espeak-ng-data/version");
 
                 FileUtils.write(outputFile, version);
                 return RESULT_OK;
