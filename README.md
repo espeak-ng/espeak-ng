@@ -8,6 +8,7 @@
 - [Linux, Mac, BSD](#linux-mac-bsd)
   - [Dependencies](#dependencies)
   - [Building](#building-1)
+    - [Cross Compilation](#cross-compilation)
     - [Audio Output Configuration](#audio-output-configuration)
     - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
@@ -139,6 +140,15 @@ Specific languages can be compiled by running:
 where `LANG` is the language code of the given language. More information can
 be found in the [Adding or Improving a Language](docs/add_language.md)
 documentation.
+
+#### Cross Compilation
+
+Because the eSpeak NG build process uses the built program to compile the
+language and voice data, you need to build it locally first. Once you have
+built it locally you can perform the cross compilation using:
+
+	./configure --build=... --host=... --target=...
+	make -B src/espeak-ng src/speak-ng
 
 #### Audio Output Configuration
 
