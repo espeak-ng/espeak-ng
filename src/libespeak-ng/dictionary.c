@@ -1573,6 +1573,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	unsigned char rb;     // current instuction from rule
 	unsigned char letter; // current letter from input word, single byte
 	int letter_w;         // current letter, wide character
+	int last_letter_w;    // last letter, wide character
 	int letter_xbytes;    // number of extra bytes of multibyte character (num bytes - 1)
 	unsigned char last_letter;
 
@@ -1631,6 +1632,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		match_type = 0;
 		consumed = 0;
 		letter = 0;
+		letter_w = 0;
 		distance_right = -6; // used to reduce points for matches further away the current letter
 		distance_left = -2;
 		check_atstart = 0;
@@ -1735,6 +1737,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				if (distance_right > 18)
 					distance_right = 19;
 				last_letter = letter;
+				last_letter_w = letter_w;
 				letter_xbytes = utf8_in(&letter_w, post_ptr)-1;
 				letter = *post_ptr++;
 
@@ -1788,7 +1791,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOUBLE:
-					if (letter == last_letter)
+					if (letter_w == last_letter_w)
 						add_points = (21-distance_right);
 					else
 						failed = 1;
@@ -1941,6 +1944,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					distance_left = 19;
 
 				last_letter = *pre_ptr;
+				utf8_in(&last_letter_w, pre_ptr);
 				pre_ptr--;
 				letter_xbytes = utf8_in2(&letter_w, pre_ptr, 1)-1;
 				letter = *pre_ptr;
@@ -1976,7 +1980,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_DOUBLE:
-					if (letter == last_letter)
+					if (letter_w == last_letter_w)
 						add_points = (21-distance_left);
 					else
 						failed = 1;
