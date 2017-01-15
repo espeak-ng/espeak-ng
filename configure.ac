@@ -85,6 +85,7 @@ dnl ================================================================
 dnl library checks.
 dnl ================================================================
 
+AC_CHECK_HEADERS([endian.h])   dnl Linux
 AC_CHECK_HEADERS([fcntl.h])    dnl POSIX
 AC_CHECK_HEADERS([getopt.h])   dnl POSIX
 AC_CHECK_HEADERS([locale.h])   dnl C89
