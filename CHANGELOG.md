@@ -15,6 +15,7 @@ The espeak-ng project is a fork of the espeak project.
    open source license compliance.
 *  Documentation updates.
 *  Emscripten support.
+*  Merged the Android port into the main espeak-ng codebase.
 
 bug fixes:
 
@@ -29,6 +30,7 @@ bug fixes:
 *  Fix a regression with the saved parameter logic.
 *  Reduce the default buffer length to 50mS to improve latency.
 *  Don't override buffer length when using espeak-ng for audio.
+*  Fix detecting doubled consonants when using Unicode characters.
 
 updated languages:
 
