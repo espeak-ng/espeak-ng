@@ -232,7 +232,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 
 	// buffer_length is in mS, allocate 2 bytes per sample
 	if (buffer_length == 0)
-		buffer_length = 50;
+		buffer_length = 60;
 
 	outbuf_size = (buffer_length * samplerate)/500;
 	out_start = (unsigned char *)realloc(outbuf, outbuf_size);
