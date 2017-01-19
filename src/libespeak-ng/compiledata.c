@@ -2638,9 +2638,21 @@ static void CompilePhonemeFiles()
 	phoneme_tab2[n_phcodes+1].mnemonic = 0; // terminator
 }
 
-static espeak_ng_STATUS CompilePhonemeData2(FILE *log, espeak_ng_ERROR_CONTEXT *context)
+#pragma GCC visibility push(default)
+
+espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
+	if (!log) log = stderr;
+
 	char fname[sizeof(path_home)+40];
+
+	samplerate_native = samplerate = rate;
+	LoadPhData(NULL, NULL);
+	if (LoadVoice("", 0) == NULL)
+		return ENS_VOICE_NOT_FOUND;
+
+	WavegenInit(rate, 0);
+	WavegenSetVoice(voice);
 
 	n_envelopes = 0;
 	error_count = 0;
@@ -2766,6 +2778,8 @@ static espeak_ng_STATUS CompilePhonemeData2(FILE *log, espeak_ng_ERROR_CONTEXT *
 
 	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
 }
+
+#pragma GCC visibility pop
 
 static const char *preset_tune_names[] = {
 	"s1", "c1", "q1", "e1", NULL
@@ -3055,20 +3069,6 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	LoadPhData(NULL, NULL);
 
 	return error_count > 0 ? ENS_COMPILE_ERROR : ENS_OK;
-}
-
-espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ERROR_CONTEXT *context)
-{
-	if (!log) log = stderr;
-
-	samplerate_native = samplerate = rate;
-	LoadPhData(NULL, NULL);
-	if (LoadVoice("", 0) == NULL)
-		return ENS_VOICE_NOT_FOUND;
-
-	WavegenInit(rate, 0);
-	WavegenSetVoice(voice);
-	return CompilePhonemeData2(log, context);
 }
 
 #pragma GCC visibility pop
