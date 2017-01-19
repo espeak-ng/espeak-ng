@@ -88,8 +88,8 @@ static const char *help_text =
     "\t   Compile an MBROLA voice\n"
     "--compile-intonations\n"
     "\t   Compile the intonation data\n"
-    "--compile-phonemes\n"
-    "\t   Compile the phoneme data\n"
+    "--compile-phonemes=<phsource-dir>\n"
+    "\t   Compile the phoneme data using <phsource-dir> or the default phsource directory\n"
     "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
     "--path=\"<path>\"\n"
     "\t   Specifies the directory containing the espeak-ng-data directory\n"
@@ -319,7 +319,7 @@ int main(int argc, char **argv)
 		{ "tie",     optional_argument, 0, 0x10d },
 		{ "compile-mbrola", optional_argument, 0, 0x10e },
 		{ "compile-intonations", no_argument, 0, 0x10f },
-		{ "compile-phonemes", no_argument, 0, 0x110 },
+		{ "compile-phonemes", optional_argument, 0, 0x110 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -543,7 +543,12 @@ int main(int argc, char **argv)
 		{
 			espeak_ng_InitializePath(data_path);
 			espeak_ng_ERROR_CONTEXT context = NULL;
-			espeak_ng_STATUS result = espeak_ng_CompilePhonemeData(22050, stdout, &context);
+			espeak_ng_STATUS result;
+			if (optarg2) {
+				result = espeak_ng_CompilePhonemeDataPath(22050, optarg2, NULL, stdout, &context);
+			} else {
+				result = espeak_ng_CompilePhonemeData(22050, stdout, &context);
+			}
 			if (result != ENS_OK) {
 				espeak_ng_PrintStatusCodeMessage(result, stderr, context);
 				espeak_ng_ClearErrorContext(&context);

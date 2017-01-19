@@ -16,6 +16,8 @@ The espeak-ng project is a fork of the espeak project.
 *  Documentation updates.
 *  Emscripten support.
 *  Merged the Android port into the main espeak-ng codebase.
+*  Extend `--compile-phoneme` to support specifying the source directory for
+   phoneme files.
 
 bug fixes:
 
