@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2016 Reece H. Dunn
+ * Copyright (C) 2013-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2638,7 +2638,7 @@ static void CompilePhonemeFiles()
 	phoneme_tab2[n_phcodes+1].mnemonic = 0; // terminator
 }
 
-static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espeak_ng_ERROR_CONTEXT *context)
+static espeak_ng_STATUS CompilePhonemeData2(FILE *log, espeak_ng_ERROR_CONTEXT *context)
 {
 	char fname[sizeof(path_home)+40];
 
@@ -2649,7 +2649,7 @@ static espeak_ng_STATUS CompilePhonemeData2(const char *source, FILE *log, espea
 
 	f_errors = log;
 
-	strncpy0(current_fname, source, sizeof(current_fname));
+	strncpy0(current_fname, "phonemes", sizeof(current_fname));
 
 	sprintf(fname, "%s/../phsource/phonemes", path_home);
 	fprintf(log, "Compiling phoneme data: %s\n", fname);
@@ -3068,7 +3068,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 
 	WavegenInit(rate, 0);
 	WavegenSetVoice(voice);
-	return CompilePhonemeData2("phonemes", log, context);
+	return CompilePhonemeData2(log, context);
 }
 
 #pragma GCC visibility pop
