@@ -218,6 +218,18 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 
 #endif
 
+static int check_data_path(const char *path)
+{
+	if (!path) return 0;
+
+	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", path);
+	if (GetFileLength(path_home) == -2)
+		return 1;
+
+	snprintf(path_home, sizeof(path_home), "%s", path);
+	return GetFileLength(path_home) == -2;
+}
+
 #pragma GCC visibility push(default)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
@@ -267,23 +279,17 @@ int GetFileLength(const char *filename)
 
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
-	if (path != NULL) {
-		sprintf(path_home, "%s/espeak-ng-data", path);
+	if (check_data_path(path))
 		return;
-	}
 
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
-	char *env;
 	unsigned char buf[sizeof(path_home)-13];
 
-	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
-		sprintf(path_home, "%s/espeak-ng-data", env);
-		if (GetFileLength(path_home) == -2)
-			return; // an espeak-ng-data directory exists
-	}
+	if (check_data_path(getenv("ESPEAK_DATA_PATH")))
+		return;
 
 	buf[0] = 0;
 	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\eSpeak NG", 0, KEY_READ, &RegKey);
@@ -293,23 +299,17 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
 
-	sprintf(path_home, "%s\\espeak-ng-data", buf);
-#elif defined(PLATFORM_DOS)
-	strcpy(path_home, PATH_ESPEAK_DATA);
-#else
-	char *env;
+	if (check_data_path(buf))
+		return;
+#elif !defined(PLATFORM_DOS)
+	if (check_data_path(getenv("ESPEAK_DATA_PATH")))
+		return;
 
-	// check for environment variable
-	if ((env = getenv("ESPEAK_DATA_PATH")) != NULL) {
-		snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", env);
-		if (GetFileLength(path_home) == -2)
-			return; // an espeak-ng-data directory exists
-	}
-
-	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", getenv("HOME"));
-	if (access(path_home, R_OK) != 0)
-		strcpy(path_home, PATH_ESPEAK_DATA);
+	if (check_data_path(getenv("HOME")))
+		return;
 #endif
+
+	strcpy(path_home, PATH_ESPEAK_DATA);
 }
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *context)

@@ -18,6 +18,7 @@ The espeak-ng project is a fork of the espeak project.
 *  Merged the Android port into the main espeak-ng codebase.
 *  Extend `--compile-phoneme` to support specifying the source directory for
    phoneme files.
+*  Support using any directory as the data home, not just `espeak-ng-data`.
 
 bug fixes:
 
