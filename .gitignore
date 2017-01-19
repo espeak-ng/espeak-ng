@@ -44,6 +44,7 @@ AUTHORS
 INSTALL
 NEWS
 README
+ChangeLog
 
 .deps/
 .libs/
@@ -84,6 +85,9 @@ src/espeakedit
 src/speak-ng
 
 espeak-ng.pc
+
+espeak-ng-*.tar.gz
+espeak-ng-*.*/
 
 # Windows builds
 
