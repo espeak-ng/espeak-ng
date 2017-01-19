@@ -556,7 +556,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			return NULL;
 	} else {
 		if (voicename[0] == 0)
-			strcpy(voicename, "default");
+			strcpy(voicename, "en");
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
 		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory

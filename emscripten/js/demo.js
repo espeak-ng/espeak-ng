@@ -240,7 +240,7 @@ function initializeDemo() {
             opt.value = voice.identifier;
             console.log('Adding voice: ' + opt.text);
             sel.add(opt);
-            if (voice.name === 'default') {
+            if (voice.name === 'en') {
               opt.id = 'default-voice';
               opt.selected = true;
             }
