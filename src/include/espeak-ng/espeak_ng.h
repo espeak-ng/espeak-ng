@@ -1,6 +1,6 @@
 /* eSpeak NG API.
  *
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,8 @@ typedef enum {
 	ENOUTPUT_MODE_SYNCHRONOUS = 0x0001,
 	ENOUTPUT_MODE_SPEAK_AUDIO = 0x0002,
 } espeak_ng_OUTPUT_MODE;
+
+/* eSpeak NG 1.49.0 */
 
 typedef struct espeak_ng_ERROR_CONTEXT_ *espeak_ng_ERROR_CONTEXT;
 
@@ -160,6 +162,15 @@ espeak_ng_CompilePhonemeData(long rate,
 ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_CompileIntonation(FILE *log,
                             espeak_ng_ERROR_CONTEXT *context);
+
+/* eSpeak NG 1.49.1 */
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_CompilePhonemeDataPath(long rate,
+                                 const char *source_path,
+                                 const char *destination_path,
+                                 FILE *log,
+                                 espeak_ng_ERROR_CONTEXT *context);
 
 #ifdef __cplusplus
 }

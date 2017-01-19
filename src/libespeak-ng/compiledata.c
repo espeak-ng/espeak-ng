@@ -2640,7 +2640,20 @@ static void CompilePhonemeFiles()
 
 #pragma GCC visibility push(default)
 
-espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ERROR_CONTEXT *context)
+espeak_ng_STATUS
+espeak_ng_CompilePhonemeData(long rate,
+                             FILE *log,
+                             espeak_ng_ERROR_CONTEXT *context)
+{
+	return espeak_ng_CompilePhonemeDataPath(rate, NULL, NULL, log, context);
+}
+
+espeak_ng_STATUS
+espeak_ng_CompilePhonemeDataPath(long rate,
+                                 const char *source_path,
+                                 const char *destination_path,
+                                 FILE *log,
+                                 espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!log) log = stderr;
 
@@ -2648,8 +2661,17 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 	char phsrc[sizeof(path_home)+40]; // Source:      path to the 'phonemes' source file.
 	char phdst[sizeof(path_home)+40]; // Destination: path to the phondata/phontab/phonindex output files.
 
-	sprintf(phsrc, "%s/../phsource", path_home);
-	sprintf(phdst, "%s", path_home);
+	if (source_path) {
+		sprintf(phsrc, "%s", source_path);
+	} else {
+		sprintf(phsrc, "%s/../phsource", path_home);
+	}
+
+	if (destination_path) {
+		sprintf(phdst, "%s", destination_path);
+	} else {
+		sprintf(phdst, "%s", path_home);
+	}
 
 	samplerate_native = samplerate = rate;
 	LoadPhData(NULL, NULL);
