@@ -48,6 +48,7 @@ typedef struct {
 
 NAMETAB *manifest = NULL;
 int n_manifest;
+char phsrc[sizeof(path_home)+40]; // Source: path to the 'phonemes' source file.
 
 extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 extern int utf8_out(unsigned int c, char *buf);
@@ -1071,7 +1072,7 @@ espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 	if (spectseq == NULL)
 		return ENOMEM;
 
-	snprintf(filename, sizeof(filename), "%s/../phsource/%s", path_home, path);
+	snprintf(filename, sizeof(filename), "%s/%s", phsrc, path);
 	espeak_ng_STATUS status = LoadSpectSeq(spectseq, filename);
 	if (status != ENS_OK) {
 		error("Bad vowel file: '%s'", path);
@@ -1276,7 +1277,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 			fname2 = msg;
 		}
 
-		sprintf(command, "sox \"%s/../phsource/%s.wav\" -r %d -c1 -t wav %s\n", path_home, fname2, samplerate_native, fname_temp);
+		sprintf(command, "sox \"%s/%s.wav\" -r %d -c1 -t wav %s\n", phsrc, fname2, samplerate_native, fname_temp);
 		if (system(command) != 0)
 			failed = 1;
 
@@ -1515,10 +1516,10 @@ static espeak_ng_STATUS LoadDataFile(const char *path, int control, int *addr)
 	}
 
 	if (*addr == 0) {
-		sprintf(buf, "%s/../phsource/%s", path_home, path);
+		sprintf(buf, "%s/%s", phsrc, path);
 
 		if ((f = fopen(buf, "rb")) == NULL) {
-			sprintf(buf, "%s/../phsource/%s.wav", path_home, path);
+			sprintf(buf, "%s/%s.wav", phsrc, path);
 			if ((f = fopen(buf, "rb")) == NULL) {
 				error("Can't read file: %s", path);
 				return errno;
@@ -2597,7 +2598,7 @@ static void CompilePhonemeFiles()
 			break; // ignore bytes 0xef 0xbb 0xbf
 		case kINCLUDE:
 			NextItem(tSTRING);
-			sprintf(buf, "%s/../phsource/%s", path_home, item_string);
+			sprintf(buf, "%s/%s", phsrc, item_string);
 
 			if ((stack_ix < N_STACK) && (f = fopen(buf, "rb")) != NULL) {
 				stack[stack_ix].linenum = linenum;
@@ -2658,7 +2659,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	if (!log) log = stderr;
 
 	char fname[sizeof(path_home)+40];
-	char phsrc[sizeof(path_home)+40]; // Source:      path to the 'phonemes' source file.
 	char phdst[sizeof(path_home)+40]; // Destination: path to the phondata/phontab/phonindex output files.
 
 	if (source_path) {
