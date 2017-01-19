@@ -2645,6 +2645,11 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 	if (!log) log = stderr;
 
 	char fname[sizeof(path_home)+40];
+	char phsrc[sizeof(path_home)+40]; // Source:      path to the 'phonemes' source file.
+	char phdst[sizeof(path_home)+40]; // Destination: path to the phondata/phontab/phonindex output files.
+
+	sprintf(phsrc, "%s/../phsource", path_home);
+	sprintf(phdst, "%s", path_home);
 
 	samplerate_native = samplerate = rate;
 	LoadPhData(NULL, NULL);
@@ -2663,13 +2668,13 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 
 	strncpy0(current_fname, "phonemes", sizeof(current_fname));
 
-	sprintf(fname, "%s/../phsource/phonemes", path_home);
+	sprintf(fname, "%s/phonemes", phsrc);
 	fprintf(log, "Compiling phoneme data: %s\n", fname);
 	f_in = fopen(fname, "rb");
 	if (f_in == NULL)
 		return create_file_error_context(context, errno, fname);
 
-	sprintf(fname, "%s/../phsource/%s", path_home, "compile_report");
+	sprintf(fname, "%s/%s", phsrc, "compile_report");
 	f_report = fopen(fname, "w");
 	if (f_report == NULL) {
 		int error = errno;
@@ -2677,7 +2682,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 		return create_file_error_context(context, error, fname);
 	}
 
-	sprintf(fname, "%s/%s", path_home, "phondata-manifest");
+	sprintf(fname, "%s/%s", phdst, "phondata-manifest");
 	if ((f_phcontents = fopen(fname, "w")) == NULL)
 		f_phcontents = stderr;
 
@@ -2696,7 +2701,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 	        "#  Address  Data file\n"
 	        "#  -------  ---------\n");
 
-	sprintf(fname, "%s/%s", path_home, "phondata");
+	sprintf(fname, "%s/%s", phdst, "phondata");
 	f_phdata = fopen(fname, "wb");
 	if (f_phdata == NULL) {
 		int error = errno;
@@ -2706,7 +2711,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 		return create_file_error_context(context, error, fname);
 	}
 
-	sprintf(fname, "%s/%s", path_home, "phonindex");
+	sprintf(fname, "%s/%s", phdst, "phonindex");
 	f_phindex = fopen(fname, "wb");
 	if (f_phindex == NULL) {
 		int error = errno;
@@ -2717,7 +2722,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 		return create_file_error_context(context, error, fname);
 	}
 
-	sprintf(fname, "%s/%s", path_home, "phontab");
+	sprintf(fname, "%s/%s", phdst, "phontab");
 	f_phtab = fopen(fname, "wb");
 	if (f_phtab == NULL) {
 		int error = errno;
@@ -2729,7 +2734,7 @@ espeak_ng_STATUS espeak_ng_CompilePhonemeData(long rate, FILE *log, espeak_ng_ER
 		return create_file_error_context(context, error, fname);
 	}
 
-	sprintf(fname, "%s/../phsource/compile_prog_log", path_home);
+	sprintf(fname, "%s/compile_prog_log", phsrc);
 	f_prog_log = fopen(fname, "wb");
 
 	// write a word so that further data doesn't start at displ=0
