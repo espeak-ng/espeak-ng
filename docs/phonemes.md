@@ -4,16 +4,17 @@
   - [Pulmonic](#pulmonic)
   - [Non-Pulmonic](#non-pulmonic)
   - [Other Symbols](#other-symbols)
+- [Features](#features)
+  - [Phoneme Type](#phoneme-type)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
   - [Manner of Articulation](#manner-of-articulation)
-- [Vowels](#vowels)
-  - [Height](#height)
-  - [Backness](#backness)
+  - [Vowel Height](#vowel-height)
+  - [Vowel Backness](#vowel-backness)
   - [Rounding](#rounding)
-- [Diacritics](#diacritics)
-- [Suprasegmentals](#suprasegmentals)
-- [Unused](#unused)
+  - [Diacritics](#diacritics)
+  - [Suprasegmentals](#suprasegmentals)
+  - [Unused](#unused)
 - [References](#references)
 
 ----------
@@ -279,6 +280,14 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ɺ      | `vcd` `alv` `lat` `flp` |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
+## Features
+
+### Phoneme Type
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `vwl`   | `vwl`       | vowel           |
+
 ### Voicing
 
 | Feature | Kirshenbaum | Name            |
@@ -319,13 +328,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
 
-## Vowels
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vwl`   | `vwl`       | vowel           |
-
-### Height
+### Vowel Height
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -336,7 +339,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `lmd`   | `lmd`       | lower-mid       |
 | `low`   | `low`       | low             |
 
-### Backness
+### Vowel Backness
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -351,7 +354,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `unr`   | `unr`       | unrounded       |
 | `rnd`   | `rnd`       | rounded         |
 
-## Diacritics
+### Diacritics
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -366,13 +369,13 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `nzd`   | `nzd`       | nasalized       |
 | `fzd`   | `fzd`       | pharyngealized  |
 
-## Suprasegmentals
+### Suprasegmentals
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
 | `lng`   | `lng`       | long            |
 
-## Unused
+### Unused
 
 These feature abbreviations specified by Evan Kirshenbaum in Appendix A of his
 ASCII/IPA transcription are not used in this document.
