@@ -15,10 +15,10 @@
 ----------
 
 Evan Kirshenbaum created an ASCII transcription of the International Phonetic
-Alphabet<sup> \[<a href="#ref1">1</a>\]</sup>. As well as using ASCII
-characters for specific IPA phonemes, this transcription provides a set of
-3-letter feature abbreviations allowing a phoneme to be described as a sequence
-of features.
+Alphabet<sup> \[<a href="#ref1">1</a>\], \[<a href="#ref2">2</a>\]</sup>. As
+well as using ASCII characters for specific IPA phonemes, this transcription
+provides a set of 3-letter feature abbreviations allowing a phoneme to be
+described as a sequence of features.
 
 This document describes the features used by Kirshenbaum.
 
@@ -118,4 +118,7 @@ This document describes the features used by Kirshenbaum.
 ## References
 
 1. <a name="ref1"></a> Kirshenbaum, Evan,
-   [http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](Representing IPA phonetics in ASCII). 2001.
+   [http://www.kirshenbaum.net/IPA/faq.html](Representing IPA phonetics in ASCII) (HTML). 1993.
+
+2. <a name="ref2"></a> Kirshenbaum, Evan,
+   [http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](Representing IPA phonetics in ASCII) (PDF). 2001.
