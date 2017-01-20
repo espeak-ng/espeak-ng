@@ -46,20 +46,6 @@ This document describes the IPA phonemes using the features used by Kirshenbaum.
     <th colspan="2"><code>glt</code></th>
   </tr>
   <tr>
-    <th align="right"><code>stp</code></th>
-    <td>p</td><td>b</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>t</td><td>d</td>
-    <td> </td><td> </td>
-    <td>ʈ</td><td>ɖ</td>
-    <td>c</td><td>ɟ</td>
-    <td>k</td><td>ɡ</td>
-    <td>q</td><td>ɢ</td>
-    <td> </td><td> </td>
-    <td>ʔ</td><td> </td>
-  </tr>
-  <tr>
     <th align="right"><code>nas</code></th>
     <td> </td><td>m</td>
     <td> </td><td>ɱ</td>
@@ -74,16 +60,44 @@ This document describes the IPA phonemes using the features used by Kirshenbaum.
     <td> </td><td> </td>
   </tr>
   <tr>
-    <th align="right"><code>trl</code></th>
-    <td> </td><td>ʙ</td>
+    <th align="right"><code>stp</code></th>
+    <td>p</td><td>b</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td>r</td>
+    <td>t</td><td>d</td>
     <td> </td><td> </td>
+    <td>ʈ</td><td>ɖ</td>
+    <td>c</td><td>ɟ</td>
+    <td>k</td><td>ɡ</td>
+    <td>q</td><td>ɢ</td>
     <td> </td><td> </td>
+    <td>ʔ</td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>frc</code></th>
+    <td>ɸ</td><td>β</td>
+    <td>f</td><td>v</td>
+    <td>θ</td><td>ð</td>
+    <td>s</td><td>z</td>
+    <td>ʃ</td><td>ʒ</td>
+    <td>ʂ</td><td>ʐ</td>
+    <td>ç</td><td>ʝ</td>
+    <td>x</td><td>ɣ</td>
+    <td>χ</td><td>ʁ</td>
+    <td>ħ</td><td>ʕ</td>
+    <td>h</td><td>ɦ</td>
+  </tr>
+  <tr>
+    <th align="right"><code>apr</code></th>
     <td> </td><td> </td>
+    <td> </td><td>ʋ</td>
     <td> </td><td> </td>
-    <td> </td><td>ʀ</td>
+    <td> </td><td>ɹ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɻ</td>
+    <td> </td><td>j</td>
+    <td> </td><td>ɰ</td>
+    <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
   </tr>
@@ -102,18 +116,18 @@ This document describes the IPA phonemes using the features used by Kirshenbaum.
     <td> </td><td> </td>
   </tr>
   <tr>
-    <th align="right"><code>frc</code></th>
-    <td>ɸ</td><td>β</td>
-    <td>f</td><td>v</td>
-    <td>θ</td><td>ð</td>
-    <td>s</td><td>z</td>
-    <td>ʃ</td><td>ʒ</td>
-    <td>ʂ</td><td>ʐ</td>
-    <td>ç</td><td>ʝ</td>
-    <td>x</td><td>ɣ</td>
-    <td>χ</td><td>ʁ</td>
-    <td>ħ</td><td>ʕ</td>
-    <td>h</td><td>ɦ</td>
+    <th align="right"><code>trl</code></th>
+    <td> </td><td>ʙ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>r</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>ʀ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
   </tr>
   <tr>
     <th align="right"><code>lat</code>&#xA0;<code>frc</code></th>
@@ -125,20 +139,6 @@ This document describes the IPA phonemes using the features used by Kirshenbaum.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>apr</code></th>
-    <td> </td><td> </td>
-    <td> </td><td>ʋ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ɹ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ɻ</td>
-    <td> </td><td>j</td>
-    <td> </td><td>ɰ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -380,4 +380,9 @@ his ASCII/IPA transcription, but are not used elsewhere.
    [http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](Representing IPA phonetics in ASCII) (PDF). 2001.
 
 3. <a name="ref3"></a> International Phonetic Association,
-   [https://www.internationalphoneticassociation.org/content/ipa-chart](The International Phonetic Alphabet and the IPA Chart). 2015. Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+   [https://www.internationalphoneticassociation.org/content/ipa-chart](The International Phonetic Alphabet and the IPA Chart). 2015.
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+4. <a name="ref4"></a> Wikipedia.
+   [https://en.wikipedia.org/wiki/International_Phonetic_Alphabet](International Phonetic Alphabet). 2017.
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
