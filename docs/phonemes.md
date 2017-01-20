@@ -1,10 +1,11 @@
 # Phonemes
 
 - [Phoneme Type](#phoneme-type)
-- [Consonants](#consonants)
+- [Consonants (Pulmonic)](#consonants-pulmonic)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
   - [Manner of Articulation](#manner-of-articulation)
+- [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
 - [Vowels](#vowels)
   - [Height](#height)
   - [Backness](#backness)
@@ -29,7 +30,7 @@ This document describes the features used by Kirshenbaum.
 |---------|-------------|-----------------|
 | `vwl`   | `vwl`       | vowel           |
 
-## Consonants
+## Consonants (Pulmonic)
 
 ### Voicing
 
@@ -66,6 +67,11 @@ This document describes the features used by Kirshenbaum.
 | `lat`   | `lat`       | lateral         |
 | `trl`   | `trl`       | trill           |
 | `flp`   | `flp`       | tap/flap        |
+
+## Consonants (Non-Pulmonic)
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
 | `clk`   | `clk`       | click           |
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
