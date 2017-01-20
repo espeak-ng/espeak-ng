@@ -23,9 +23,140 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-This document describes the features used by Kirshenbaum.
+This document describes the IPA phonemes using the features used by Kirshenbaum.
 
 ## Consonants (Pulmonic)
+
+<table>
+  <tr>
+    <td></td>
+    <th colspan="2"><code>blb</code></th>
+    <th colspan="2"><code>lbd</code></th>
+    <th colspan="2"><code>dnt</code></th>
+    <th colspan="2"><code>alv</code></th>
+    <th colspan="2"><code>pla</code></th>
+    <th colspan="2"><code>rfx</code></th>
+    <th colspan="2"><code>pal</code></th>
+    <th colspan="2"><code>vel</code></th>
+    <th colspan="2"><code>uvl</code></th>
+    <th colspan="2"><code>phr</code></th>
+    <th colspan="2"><code>glt</code></th>
+  </tr>
+  <tr>
+    <th align="right"><code>stp</code></th>
+    <td>p</td><td>b</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>t</td><td>d</td>
+    <td> </td><td> </td>
+    <td>ʈ</td><td>ɖ</td>
+    <td>c</td><td>ɟ</td>
+    <td>k</td><td>ɡ</td>
+    <td>q</td><td>ɢ</td>
+    <td> </td><td> </td>
+    <td>ʔ</td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>nas</code></th>
+    <td> </td><td>m</td>
+    <td> </td><td>ɱ</td>
+    <td> </td><td> </td>
+    <td> </td><td>n</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɳ</td>
+    <td> </td><td>ɲ</td>
+    <td> </td><td>ŋ</td>
+    <td> </td><td>ɴ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>trl</code></th>
+    <td> </td><td>ʙ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>r</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>ʀ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>flp</code></th>
+    <td> </td><td> </td>
+    <td> </td><td>ⱱ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɾ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɽ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>frc</code></th>
+    <td>ɸ</td><td>β</td>
+    <td>f</td><td>v</td>
+    <td>θ</td><td>ð</td>
+    <td>s</td><td>z</td>
+    <td>ʃ</td><td>ʒ</td>
+    <td>ʂ</td><td>ʐ</td>
+    <td>ç</td><td>ʝ</td>
+    <td>x</td><td>ɣ</td>
+    <td>χ</td><td>ʁ</td>
+    <td>ħ</td><td>ʕ</td>
+    <td>h</td><td>ɦ</td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>frc</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>ɬ</td><td>ɮ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>apr</code></th>
+    <td> </td><td> </td>
+    <td> </td><td>ʋ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɹ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɻ</td>
+    <td> </td><td>j</td>
+    <td> </td><td>ɰ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>apr</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>l</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɭ</td>
+    <td> </td><td>ʎ</td>
+    <td> </td><td>ʟ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+</table>
+
+Symbols to the left are `vls`, and to the right are `vcd`.
 
 ### Voicing
 
@@ -54,7 +185,7 @@ This document describes the features used by Kirshenbaum.
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
-| `pls`   | `stp`       | plosive (stop)  |
+| `stp`   | `stp`       | plosive (stop)  |
 | `nas`   | `nas`       | nasal           |
 | `trl`   | `trl`       | trill           |
 | `flp`   | `flp`       | tap/flap        |
