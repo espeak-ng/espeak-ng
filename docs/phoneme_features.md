@@ -24,96 +24,96 @@ This document describes the features used by Kirshenbaum.
 
 ## Phoneme Type
 
-| Feature | Name            |
-|---------|-----------------|
-| `vwl`   | vowel           |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `vwl`   | `vwl`       | vowel           |
 
 ## Consonants
 
 ### Voicing
 
-| Feature | Name            |
-|---------|-----------------|
-| `vcd`   | voiced          |
-| `vls`   | voiceless       |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `vcd`   | `vcd`       | voiced          |
+| `vls`   | `vls`       | voiceless       |
 
 ### Place of Articulation
 
-| Feature | Name            |
-|---------|-----------------|
-| `blb`   | bilabial        |
-| `lbd`   | labio-dental    |
-| `dnt`   | dental          |
-| `alv`   | alveolar        |
-| `rfx`   | retroflex       |
-| `pla`   | palato-alveolar |
-| `pal`   | palatal         |
-| `vel`   | velar           |
-| `lbv`   | labio-velar     |
-| `uvl`   | uvular          |
-| `phr`   | pharyngeal      |
-| `glt`   | glottal         |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `blb`   | `blb`       | bilabial        |
+| `lbd`   | `lbd`       | labio-dental    |
+| `dnt`   | `dnt`       | dental          |
+| `alv`   | `alv`       | alveolar        |
+| `rfx`   | `rfx`       | retroflex       |
+| `pla`   | `pla`       | palato-alveolar |
+| `pal`   | `pal`       | palatal         |
+| `vel`   | `vel`       | velar           |
+| `lbv`   | `lbv`       | labio-velar     |
+| `uvl`   | `uvl`       | uvular          |
+| `phr`   | `phr`       | pharyngeal      |
+| `glt`   | `glt`       | glottal         |
 
 ### Manner of Articulation
 
-| Feature | Name            |
-|---------|-----------------|
-| `stp`   | stop            |
-| `frc`   | fricative       |
-| `nas`   | nasal           |
-| `orl`   | oral            |
-| `apr`   | approximant     |
-| `lat`   | lateral         |
-| `ctl`   | central         |
-| `trl`   | trill           |
-| `flp`   | tap/flap        |
-| `clk`   | click           |
-| `ejc`   | ejective        |
-| `imp`   | implosive       |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `stp`   | `stp`       | stop            |
+| `frc`   | `frc`       | fricative       |
+| `nas`   | `nas`       | nasal           |
+| `orl`   | `orl`       | oral            |
+| `apr`   | `apr`       | approximant     |
+| `lat`   | `lat`       | lateral         |
+| `ctl`   | `ctl`       | central         |
+| `trl`   | `trl`       | trill           |
+| `flp`   | `flp`       | tap/flap        |
+| `clk`   | `clk`       | click           |
+| `ejc`   | `ejc`       | ejective        |
+| `imp`   | `imp`       | implosive       |
 
 ## Vowels
 
 ### Height
 
-| Feature | Name            |
-|---------|-----------------|
-| `hgh`   | high            |
-| `smh`   | semi-high       |
-| `umd`   | upper-mid       |
-| `mid`   | mid             |
-| `lmd`   | lower-mid       |
-| `low`   | low             |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `hgh`   | `hgh`       | high            |
+| `smh`   | `smh`       | semi-high       |
+| `umd`   | `umd`       | upper-mid       |
+| `mid`   | `mid`       | mid             |
+| `lmd`   | `lmd`       | lower-mid       |
+| `low`   | `low`       | low             |
 
 ### Backness
 
-| Feature | Name            |
-|---------|-----------------|
-| `fnt`   | front           |
-| `cnt`   | center          |
-| `bck`   | back            |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `fnt`   | `fnt`       | front           |
+| `cnt`   | `cnt`       | center          |
+| `bck`   | `bck`       | back            |
 
 ### Rounding
 
-| Feature | Name            |
-|---------|-----------------|
-| `unr`   | unrounded       |
-| `rnd`   | rounded         |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `unr`   | `unr`       | unrounded       |
+| `rnd`   | `rnd`       | rounded         |
 
 ## Additional Features
 
-| Feature | Name            |
-|---------|-----------------|
-| `asp`   | aspirated       |
-| `unx`   | unexploded      |
-| `syl`   | syllabic        |
-| `mrm`   | murmured        |
-| `lng`   | long            |
-| `vzd`   | velarized       |
-| `lzd`   | labialized      |
-| `pzd`   | palatalized     |
-| `rzd`   | rhoticized      |
-| `nzd`   | nasalized       |
-| `fzd`   | pharyngealized  |
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `asp`   | `asp`       | aspirated       |
+| `unx`   | `unx`       | unexploded      |
+| `syl`   | `syl`       | syllabic        |
+| `mrm`   | `mrm`       | murmured        |
+| `lng`   | `lng`       | long            |
+| `vzd`   | `vzd`       | velarized       |
+| `lzd`   | `lzd`       | labialized      |
+| `pzd`   | `pzd`       | palatalized     |
+| `rzd`   | `rzd`       | rhoticized      |
+| `nzd`   | `nzd`       | nasalized       |
+| `fzd`   | `fzd`       | pharyngealized  |
 
 ## References
 
