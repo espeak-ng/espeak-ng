@@ -1,4 +1,4 @@
-# Phoneme Features
+# Phonemes
 
 - [Phoneme Type](#phoneme-type)
 - [Consonants](#consonants)
