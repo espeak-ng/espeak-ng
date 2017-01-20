@@ -1,10 +1,11 @@
 # Phonemes
 
-- [Consonants (Pulmonic)](#consonants-pulmonic)
+- [Consonants](#consonants)
+  - [Pulmonic](#pulmonic)
+  - [Non-Pulmonic](#non-pulmonic)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
   - [Manner of Articulation](#manner-of-articulation)
-- [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
 - [Other Symbols](#other-symbols)
 - [Vowels](#vowels)
   - [Height](#height)
@@ -25,7 +26,9 @@ described as a sequence of features.
 
 This document describes the IPA phonemes using the features used by Kirshenbaum.
 
-## Consonants (Pulmonic)
+## Consonants
+
+### Pulmonic
 
 <table>
   <tr>
@@ -158,6 +161,109 @@ This document describes the IPA phonemes using the features used by Kirshenbaum.
 
 Symbols to the left are `vls`, and to the right are `vcd`.
 
+### Non-Pulmonic
+
+<table>
+  <tr>
+    <td></td>
+    <th><code>blb</code></th>
+    <th><code>lbd</code></th>
+    <th><code>dnt</code></th>
+    <th><code>alv</code></th>
+    <th><code>pla</code></th>
+    <th><code>rfx</code></th>
+    <th><code>pal</code></th>
+    <th><code>vel</code></th>
+    <th><code>uvl</code></th>
+    <th><code>phr</code></th>
+    <th><code>glt</code></th>
+  </tr>
+  <tr>
+    <th align="right"><code>clk</code></th>
+    <td>ʘ</td>
+    <td> </td>
+    <td>ǀ</td>
+    <td>ǃ</td>
+    <td> </td>
+    <td> </td>
+    <td>ǂ</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>clk</code></th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>ǁ</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>vcd</code>&#xA0;<code>imp</code></th>
+    <td>ɓ</td>
+    <td> </td>
+    <td> </td>
+    <td>ɗ</td>
+    <td> </td>
+    <td> </td>
+    <td>ʄ</td>
+    <td>ɠ</td>
+    <td>ʛ</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>ejc</code></th>
+    <td>pʼ</td>
+    <td> </td>
+    <td> </td>
+    <td>tʼ</td>
+    <td> </td>
+    <td>ʈʼ</td>
+    <td>cʼ</td>
+    <td>kʼ</td>
+    <td>qʼ</td>
+    <td>ʡʼ</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>ejc</code>&#xA0;<code>frc</code></th>
+    <td>fʼ</td>
+    <td> </td>
+    <td>θʼ</td>
+    <td>sʼ</td>
+    <td>ʃʼ</td>
+    <td>ʂʼ</td>
+    <td> </td>
+    <td>xʼ</td>
+    <td>χʼ</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>ejc</code>&#xA0;<code>frc</code></th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>ɬʼ</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+
 ### Voicing
 
 | Feature | Kirshenbaum | Name            |
@@ -192,11 +298,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `frc`   | `frc`       | fricative       |
 | `apr`   | `apr`       | approximant     |
 | `lat`   | `lat`       | lateral         |
-
-## Consonants (Non-Pulmonic)
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
 | `clk`   | `clk`       | click           |
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
