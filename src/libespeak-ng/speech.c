@@ -218,13 +218,16 @@ int sync_espeak_terminated_msg(uint32_t unique_identifier, void *user_data)
 
 #endif
 
-static int check_data_path(const char *path)
+static int check_data_path(const char *path, int allow_directory)
 {
 	if (!path) return 0;
 
 	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", path);
 	if (GetFileLength(path_home) == -2)
 		return 1;
+
+	if (!allow_directory)
+		return 0;
 
 	snprintf(path_home, sizeof(path_home), "%s", path);
 	return GetFileLength(path_home) == -2;
@@ -279,7 +282,7 @@ int GetFileLength(const char *filename)
 
 ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 {
-	if (check_data_path(path))
+	if (check_data_path(path, 1))
 		return;
 
 #ifdef PLATFORM_WINDOWS
@@ -288,7 +291,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	unsigned long var_type;
 	unsigned char buf[sizeof(path_home)-13];
 
-	if (check_data_path(getenv("ESPEAK_DATA_PATH")))
+	if (check_data_path(getenv("ESPEAK_DATA_PATH"), 1))
 		return;
 
 	buf[0] = 0;
@@ -299,13 +302,13 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	var_type = REG_SZ;
 	RegQueryValueExA(RegKey, "Path", 0, &var_type, buf, &size);
 
-	if (check_data_path(buf))
+	if (check_data_path(buf, 1))
 		return;
 #elif !defined(PLATFORM_DOS)
-	if (check_data_path(getenv("ESPEAK_DATA_PATH")))
+	if (check_data_path(getenv("ESPEAK_DATA_PATH"), 1))
 		return;
 
-	if (check_data_path(getenv("HOME")))
+	if (check_data_path(getenv("HOME"), 0))
 		return;
 #endif
 
