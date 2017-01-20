@@ -10,6 +10,7 @@
   - [Backness](#backness)
   - [Rounding](#rounding)
 - [Additional Features](#additional-features)
+- [Unused](#unused)
 - [References](#references)
 
 ----------
@@ -61,10 +62,8 @@ This document describes the features used by Kirshenbaum.
 | `stp`   | `stp`       | stop            |
 | `frc`   | `frc`       | fricative       |
 | `nas`   | `nas`       | nasal           |
-| `orl`   | `orl`       | oral            |
 | `apr`   | `apr`       | approximant     |
 | `lat`   | `lat`       | lateral         |
-| `ctl`   | `ctl`       | central         |
 | `trl`   | `trl`       | trill           |
 | `flp`   | `flp`       | tap/flap        |
 | `clk`   | `clk`       | click           |
@@ -114,6 +113,16 @@ This document describes the features used by Kirshenbaum.
 | `rzd`   | `rzd`       | rhoticized      |
 | `nzd`   | `nzd`       | nasalized       |
 | `fzd`   | `fzd`       | pharyngealized  |
+
+## Unused
+
+These are feature abbreviations specified by Evan Kirshenbaum in Appendix A of
+his ASCII/IPA transcription, but are not used elsewhere.
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+|         | `orl`       | oral            |
+|         | `ctl`       | central         |
 
 ## References
 
