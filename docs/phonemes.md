@@ -3,10 +3,10 @@
 - [Consonants](#consonants)
   - [Pulmonic](#pulmonic)
   - [Non-Pulmonic](#non-pulmonic)
+  - [Other Symbols](#other-symbols)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
   - [Manner of Articulation](#manner-of-articulation)
-- [Other Symbols](#other-symbols)
 - [Vowels](#vowels)
   - [Height](#height)
   - [Backness](#backness)
@@ -264,6 +264,21 @@ Symbols to the left are `vls`, and to the right are `vcd`.
   </tr>
 </table>
 
+### Other Symbols
+
+| Symbol | Features                |
+|--------|-------------------------|
+| ʍ      | `vls` `lzd` `vel` `apr` |
+| w      | `vcd` `lzd` `vel` `apr` |
+| ɥ      | `vcd` `lzd` `pal` `apr` |
+| ʜ      | `vls` `epg` `frc`       |
+| ʢ      | `vcd` `epg` `frc`       |
+| ʡ      | `vls` `epg` `stp`       |
+| ɕ      | `vls` `alp` `frc`       |
+| ʑ      | `vcd` `alp` `frc`       |
+| ɺ      | `vcd` `alv` `lat` `flp` |
+| ɧ      | `vls` `vzd` `pla` `frc` |
+
 ### Voicing
 
 | Feature | Kirshenbaum | Name            |
@@ -281,10 +296,12 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `alv`   | `alv`       | alveolar        |
 | `pla`   | `pla`       | post-alveolar (palato-alveolar) |
 | `rfx`   | `rfx`       | retroflex       |
+| `alp`   |             | alveolo-palatal |
 | `pal`   | `pal`       | palatal         |
 | `vel`   | `vel`       | velar           |
 | `uvl`   | `uvl`       | uvular          |
 | `phr`   | `phr`       | pharyngeal      |
+| `epg`   |             | epiglottal      |
 | `glt`   | `glt`       | glottal         |
 
 ### Manner of Articulation
@@ -301,12 +318,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | `clk`   | `clk`       | click           |
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
-
-## Other Symbols
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `lbv`   | `lbv`       | labial-velar    |
 
 ## Vowels
 
@@ -363,13 +374,14 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 
 ## Unused
 
-These are feature abbreviations specified by Evan Kirshenbaum in Appendix A of
-his ASCII/IPA transcription, but are not used elsewhere.
+These feature abbreviations specified by Evan Kirshenbaum in Appendix A of his
+ASCII/IPA transcription are not used in this document.
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-|         | `orl`       | oral            |
-|         | `ctl`       | central         |
+| Feature   | Kirshenbaum | Name            |
+|-----------|-------------|-----------------|
+|           | `orl`       | oral            |
+|           | `ctl`       | central         |
+| `lzd vel` | `lbv`       | labial-velar    |
 
 ## References
 
