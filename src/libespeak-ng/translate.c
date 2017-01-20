@@ -2451,8 +2451,13 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 					c = ' '; // terminate digit string with a space
 					space_inserted = 1;
 				}
-			} else {
-				if (prev_in != ',') {
+			} else { // Prev output is not digit
+				if (prev_in == ',') {
+					// Workaround for several consecutive commas —
+					// replace current character with space
+					if (c == ',')
+						c = ' ';
+				} else {
 					decimal_sep_count = 0;
 				}
 			}
