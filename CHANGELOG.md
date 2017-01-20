@@ -34,6 +34,7 @@ bug fixes:
 *  Reduce the default buffer length to 60mS to improve latency.
 *  Don't override buffer length when using espeak-ng for audio.
 *  Fix detecting doubled consonants when using Unicode characters.
+*  Fix speaking `1,,2`, etc. in languages that use `,` as a decimal separator.
 
 updated languages:
 
