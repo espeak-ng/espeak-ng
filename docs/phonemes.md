@@ -18,8 +18,8 @@
 ----------
 
 Evan Kirshenbaum created an ASCII transcription of the International Phonetic
-Alphabet<sup> \[<a href="#ref1">1</a>\], \[<a href="#ref2">2</a>\]</sup>. As
-well as using ASCII characters for specific IPA phonemes, this transcription
+Alphabet (IPA)<sup>\[<a href="#ref1">1</a>\], \[<a href="#ref2">2</a>\]</sup>.
+As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
