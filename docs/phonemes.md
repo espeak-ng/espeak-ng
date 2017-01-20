@@ -1,16 +1,17 @@
 # Phonemes
 
-- [Phoneme Type](#phoneme-type)
 - [Consonants (Pulmonic)](#consonants-pulmonic)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
   - [Manner of Articulation](#manner-of-articulation)
 - [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
+- [Other Symbols](#other-symbols)
 - [Vowels](#vowels)
   - [Height](#height)
   - [Backness](#backness)
   - [Rounding](#rounding)
-- [Additional Features](#additional-features)
+- [Diacritics](#diacritics)
+- [Suprasegmentals](#suprasegmentals)
 - [Unused](#unused)
 - [References](#references)
 
@@ -23,12 +24,6 @@ provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
 This document describes the features used by Kirshenbaum.
-
-## Phoneme Type
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vwl`   | `vwl`       | vowel           |
 
 ## Consonants (Pulmonic)
 
@@ -47,11 +42,10 @@ This document describes the features used by Kirshenbaum.
 | `lbd`   | `lbd`       | labio-dental    |
 | `dnt`   | `dnt`       | dental          |
 | `alv`   | `alv`       | alveolar        |
+| `pla`   | `pla`       | post-alveolar (palato-alveolar) |
 | `rfx`   | `rfx`       | retroflex       |
-| `pla`   | `pla`       | palato-alveolar |
 | `pal`   | `pal`       | palatal         |
 | `vel`   | `vel`       | velar           |
-| `lbv`   | `lbv`       | labio-velar     |
 | `uvl`   | `uvl`       | uvular          |
 | `phr`   | `phr`       | pharyngeal      |
 | `glt`   | `glt`       | glottal         |
@@ -60,13 +54,13 @@ This document describes the features used by Kirshenbaum.
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
-| `stp`   | `stp`       | stop            |
-| `frc`   | `frc`       | fricative       |
+| `pls`   | `stp`       | plosive (stop)  |
 | `nas`   | `nas`       | nasal           |
-| `apr`   | `apr`       | approximant     |
-| `lat`   | `lat`       | lateral         |
 | `trl`   | `trl`       | trill           |
 | `flp`   | `flp`       | tap/flap        |
+| `frc`   | `frc`       | fricative       |
+| `apr`   | `apr`       | approximant     |
+| `lat`   | `lat`       | lateral         |
 
 ## Consonants (Non-Pulmonic)
 
@@ -76,7 +70,17 @@ This document describes the features used by Kirshenbaum.
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
 
+## Other Symbols
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `lbv`   | `lbv`       | labial-velar    |
+
 ## Vowels
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `vwl`   | `vwl`       | vowel           |
 
 ### Height
 
@@ -104,7 +108,7 @@ This document describes the features used by Kirshenbaum.
 | `unr`   | `unr`       | unrounded       |
 | `rnd`   | `rnd`       | rounded         |
 
-## Additional Features
+## Diacritics
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -112,13 +116,18 @@ This document describes the features used by Kirshenbaum.
 | `unx`   | `unx`       | unexploded      |
 | `syl`   | `syl`       | syllabic        |
 | `mrm`   | `mrm`       | murmured        |
-| `lng`   | `lng`       | long            |
 | `vzd`   | `vzd`       | velarized       |
 | `lzd`   | `lzd`       | labialized      |
 | `pzd`   | `pzd`       | palatalized     |
 | `rzd`   | `rzd`       | rhoticized      |
 | `nzd`   | `nzd`       | nasalized       |
 | `fzd`   | `fzd`       | pharyngealized  |
+
+## Suprasegmentals
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `lng`   | `lng`       | long            |
 
 ## Unused
 
@@ -137,3 +146,6 @@ his ASCII/IPA transcription, but are not used elsewhere.
 
 2. <a name="ref2"></a> Kirshenbaum, Evan,
    [http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](Representing IPA phonetics in ASCII) (PDF). 2001.
+
+3. <a name="ref3"></a> International Phonetic Association,
+   [https://www.internationalphoneticassociation.org/content/ipa-chart](The International Phonetic Alphabet and the IPA Chart). 2015. Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
