@@ -17,6 +17,12 @@
     - [Backness](#backness)
     - [Rounding](#rounding)
   - [Diacritics](#diacritics)
+    - [Syllabicity](#syllabicity)
+    - [Consonant Release](#consonant-release)
+    - [Phonation](#phonation)
+    - [Articulation](#articulation)
+    - [Co-articulation](#co-articulation-1)
+      - [Precomposed Characters](#precomposed-characters)
   - [Suprasegmentals](#suprasegmentals)
   - [Unused](#unused)
 - [References](#references)
@@ -44,6 +50,10 @@ does not describe what these mean. Their meaning is described in phonetics
 articles, books and Wikipedia. The Wikipedia IPA<sup>\[<a href="#ref4">4</a>\]</sup>
 article can be used as a starting point, as it links to topics and descriptions
 of the various phonemes.
+
+The diacritics and suprasegmental feature lists also show their corresponding
+IPA symbol. This is to avoid duplicating the lists in the IPA chart and Feature
+sections.
 
 ## IPA Charts
 
@@ -445,18 +455,83 @@ above table.
 
 ### Diacritics
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `asp`   | `asp`       | aspirated       |
-| `unx`   | `unx`       | unexploded      |
-| `syl`   | `syl`       | syllabic        |
-| `mrm`   | `mrm`       | murmured        |
-| `vzd`   | `vzd`       | velarized       |
-| `lzd`   | `lzd`       | labialized      |
-| `pzd`   | `pzd`       | palatalized     |
-| `rzd`   | `rzd`       | rhoticized      |
-| `nzd`   | `nzd`       | nasalized       |
-| `fzd`   | `fzd`       | pharyngealized  |
+#### Syllabicity
+
+| Feature | Kirshenbaum | IPA | Name            |
+|---------|-------------|-----|-----------------|
+| `syl`   | `syl`       | ◌̩   | syllabic        |
+| `nsy`   |             | ◌̯   | non-syllabic    |
+
+#### Consonant Release
+
+| Feature | Kirshenbaum | IPA | Name            |
+|---------|-------------|-----|-----------------|
+| `asp`   | `asp`       | ◌ʰ  | aspirated       |
+| `nrs`   |             | ◌ⁿ  | nasal release   |
+| `lrs`   |             | ◌ˡ  | lateral release |
+| `unx`   | `unx`       | ◌̚   | no audible release (unexploded) |
+
+__NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Speech.
+
+#### Phonation
+
+| Feature | Kirshenbaum | IPA | Name            |
+|---------|-------------|-----|-----------------|
+| `vlv`   |             | ◌̥   | voiceless       |
+| `vcv`   |             | ◌̬   | voiced          |
+| `mrm`   |             | ◌̤   | breathy voiced (murmured) |
+| `crv`   |             | ◌̰   | creaky voiced   |
+
+__NOTE:__ The `vlv` and `vcv` diacritics may be used to fill in spaces within
+the IPA charts, or to make a distinction between *fortis* and *lenis* consonants.
+Cainteoir Text-to-Speech uses `slv` (slack voice) and `stv` (stiff voice) for
+these features instead.
+
+#### Articulation
+
+| Feature | Kirshenbaum | IPA | Name            |
+|---------|-------------|-----|-----------------|
+| `dzd`   |             | ◌̪   | dental          |
+| `apc`   |             | ◌̺   | apical          |
+| `lmn`   |             | ◌̻   | laminal         |
+| `lgl`   |             | ◌̼   | linguolabial    |
+| `adv`   |             | ◌̟   | advanced        |
+| `ret`   |             | ◌̠   | retracted       |
+| `czd`   |             | ◌̈   | centralized     |
+| `mcz`   |             | ◌̽   | mid-centralized |
+| `rsd`   |             | ◌̝   | raised          |
+| `lwr`   |             | ◌̞   | lowered         |
+
+#### Co-articulation
+
+| Feature | Kirshenbaum | IPA | Name            |
+|---------|-------------|-----|-----------------|
+| `mrd`   |             | ◌̹   | more rounded    |
+| `lrd`   |             | ◌̜   | less rounded    |
+| `lzd`   | `lzd`       | ◌ʷ  | labialized or labio-velarized |
+| `pzd`   | `pzd`       | ◌ʲ  | palatalized     |
+| `vzd`   | `vzd`       | ◌ˠ  | velarized       |
+| `fzd`   | `fzd`       | ◌ˤ  | pharyngealized  |
+| `vfz`   |             | ◌̴   | velarized or pharyngealized |
+| `atr`   |             | ◌̘   | advanced tongue root  |
+| `rtr`   |             | ◌̙   | retracted tongue root |
+| `nzd`   | `nzd`       | ◌̃   | nasalized       |
+| `rzd`   | `rzd`       | ◌˞  | rhoticized      |
+
+__NOTE:__ The `fzd` and `vfz` features have the same linguistic effect. They
+are used to differentiate the listed IPA diacritics.
+
+##### Precomposed Characters
+
+These characters are represented as a single Unicode character. They can be
+used in place of the base character followed by a co-articulation combining
+character.
+
+| Symbol | Features                      |
+|--------|-------------------------------|
+| ɫ      | `vcd` `vfz` `alv` `lat` `apr` |
+| ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
+| ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
 ### Suprasegmentals
 
