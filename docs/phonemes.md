@@ -43,7 +43,14 @@ described as a sequence of features.
 This document describes the IPA phonemes using the features used by Kirshenbaum.
 Where Kirshenbaum does not specify a feature name, the feature name from
 Cainteoir Text-to-Speech<sup>\[<a href="#ref5">5</a>\]</sup> is used. This is
-to provide a consistent naming scheme for the extended feature set.
+to provide a consistent naming scheme for the extended feature set. Where there
+is still no feature available, a custom 3-letter feature name is chosen.
+
+The aim of the feature set described in this document is to specify the underlying
+phonetics and phonemics of the sounds being produced in a way that is consistent
+between languages and voices. While this feature set is modelled on the IPA, it
+is not meant to be able to preserve phoneme transcriptions when using a
+transcription as both the input and output phoneme sets.
 
 This document is grouped into two sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
