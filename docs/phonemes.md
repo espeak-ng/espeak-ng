@@ -479,7 +479,7 @@ __NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Spee
 |---------|-------------|-----|-----------------|
 | `vlv`   |             | ◌̥   | voiceless       |
 | `vcv`   |             | ◌̬   | voiced          |
-| `mrm`   |             | ◌̤   | breathy voiced (murmured) |
+| `brv`   |             | ◌̤   | breathy voiced  |
 | `crv`   |             | ◌̰   | creaky voiced   |
 
 __NOTE:__ The `vlv` and `vcv` diacritics may be used to fill in spaces within
@@ -541,13 +541,20 @@ character.
 
 ### Unused
 
-These feature abbreviations specified by Evan Kirshenbaum in Appendix A of his
-ASCII/IPA transcription are not used in that specification.
-
 | Feature   | Kirshenbaum | Name            |
 |-----------|-------------|-----------------|
-|           | `orl`       | oral            |
 |           | `ctl`       | central         |
+|           | `mrm`       | murmured        |
+|           | `orl`       | oral            |
+
+__NOTE:__ The `ctl` and `orl` features are specified by Evan Kirshenbaum in
+Appendix A of his ASCII/IPA transcription, but are not used in the rest of
+the specification.
+
+__NOTE:__ Evan Kirshenbaum transcribes ɦ as `h<?>` (`{mrm,glt,frc}`), while
+Wikipedia also lists this as a `{vcd,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
+This is the only phoneme that Kirshenbaum uses the `mrm` feature for. As such,
+the `mrm` feature is not used within this document.
 
 ## References
 
@@ -567,3 +574,7 @@ ASCII/IPA transcription are not used in that specification.
 
 5. <a name="ref5"></a> Dunn, R. H.,
    [https://raw.githubusercontent.com/rhdunn/cainteoir-engine/master/src/libcainteoir/phoneme/phoneme.cpp](Cainteoir Text-to-Speech Phoneme Features). 2013-2015.
+
+6. <a name="ref6"></a> Wikipedia.
+   [https://en.wikipedia.org/wiki/Voiced_glottal_fricative](Voiced glottal fricative). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
