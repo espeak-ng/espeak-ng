@@ -9,6 +9,7 @@
   - [Phoneme Type](#phoneme-type)
   - [Voicing](#voicing)
   - [Place of Articulation](#place-of-articulation)
+    - [Co-articulation](#co-articulation)
   - [Manner of Articulation](#manner-of-articulation)
   - [Vowel Height](#vowel-height)
   - [Vowel Backness](#vowel-backness)
@@ -270,9 +271,9 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 
 | Symbol | Features                |
 |--------|-------------------------|
-| ʍ      | `vls` `lzd` `vel` `apr` |
-| w      | `vcd` `lzd` `vel` `apr` |
-| ɥ      | `vcd` `lzd` `pal` `apr` |
+| ʍ      | `vls` `lbv` `apr`       |
+| w      | `vcd` `lbv` `apr`       |
+| ɥ      | `vcd` `lbp` `apr`       |
 | ʜ      | `vls` `epg` `frc`       |
 | ʢ      | `vcd` `epg` `frc`       |
 | ʡ      | `vls` `epg` `stp`       |
@@ -373,6 +374,13 @@ above table.
 | `epg`   |             | epiglottal      |
 | `glt`   | `glt`       | glottal         |
 
+#### Co-articulation
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `lbv`   | `lbv`       | labial-velar    |
+| `lbp`   |             | labial-palatal  |
+
 ### Manner of Articulation
 
 | Feature | Kirshenbaum | Name            |
@@ -439,13 +447,12 @@ above table.
 ### Unused
 
 These feature abbreviations specified by Evan Kirshenbaum in Appendix A of his
-ASCII/IPA transcription are not used in this document.
+ASCII/IPA transcription are not used in that specification.
 
 | Feature   | Kirshenbaum | Name            |
 |-----------|-------------|-----------------|
 |           | `orl`       | oral            |
 |           | `ctl`       | central         |
-| `lzd vel` | `lbv`       | labial-velar    |
 
 ## References
 
