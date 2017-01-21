@@ -1,8 +1,8 @@
-# Voices
+# Languages
 
-The voices in espeak-ng are grouped by their
+The languages in espeak-ng are grouped by their
 [ISO 639-5](https://en.wikipedia.org/wiki/List_of_ISO_639-5_codes) language
-family code. The voices are identified by their
+family code. They are identified by their
 [BCP 47](https://en.wikipedia.org/wiki/BCP47) identifier. For several accents
 and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
@@ -10,7 +10,7 @@ have been used.
 
 The supported languages are:
 
-| Family Code | Voice Identifier  | Language Family       | Language                    | Accent/Dialect         |
+| Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
 | `gmw`       | `af`              | West Germanic         | Afrikaans                   |                        |
 | `ine`       | `sq`              | Indo-European         | Albanian                    |                        |
