@@ -487,15 +487,16 @@ __NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Spee
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
-| `vlv`   |             | ◌̥   | voiceless       |
-| `vcv`   |             | ◌̬   | voiced          |
 | `brv`   |             | ◌̤   | breathy voiced  |
 | `crv`   |             | ◌̰   | creaky voiced   |
 
-__NOTE:__ The `vlv` and `vcv` diacritics may be used to fill in spaces within
-the IPA charts, or to make a distinction between *fortis* and *lenis* consonants.
-Cainteoir Text-to-Speech uses `slv` (slack voice) and `stv` (stiff voice) for
-these features instead.
+The IPA ◌̬ and ◌̥ diacritics (*voiced* and *voiceless*) are used for both
+filling spaces in the IPA consonants chart and making the distinction
+between *fortis* and *lenis* consonants. Cainteoir Text-to-Speech uses `slv`
+(slack voice) and `stv` (stiff voice) for these diacritics. For eSpeak NG,
+these diacritics are only used for controlling their voiced/voiceless
+property (and thus their position on the IPA code chart), so `vls` and `vcd`
+are used for these diacritics.
 
 #### Articulation
 
