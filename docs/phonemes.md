@@ -6,7 +6,6 @@
   - [Other Symbols](#other-symbols)
   - [Vowels](#vowels)
 - [Features](#features)
-  - [Phoneme Type](#phoneme-type)
   - [Consonants](#consonants)
     - [Voicing](#voicing)
     - [Place of Articulation](#place-of-articulation)
@@ -375,12 +374,6 @@ above table.
 
 ## Features
 
-### Phoneme Type
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vwl`   | `vwl`       | vowel           |
-
 ### Consonants
 
 #### Voicing
@@ -431,6 +424,10 @@ above table.
 | `imp`   | `imp`       | implosive       |
 
 ### Vowels
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `vwl`   | `vwl`       | vowel           |
 
 #### Height
 
