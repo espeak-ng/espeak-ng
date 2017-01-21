@@ -18,6 +18,7 @@
   - [Diacritics](#diacritics)
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
+      - [Gemination](#gemination)
     - [Phonation](#phonation)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
@@ -50,7 +51,9 @@ The aim of the feature set described in this document is to specify the underlyi
 phonetics and phonemics of the sounds being produced in a way that is consistent
 between languages and voices. While this feature set is modelled on the IPA, it
 is not meant to be able to preserve phoneme transcriptions when using a
-transcription as both the input and output phoneme sets.
+transcription as both the input and output phoneme sets. This document provides
+commentary on the intended usage of these features where there is ambiguity from
+the associated IPA usage between authors.
 
 This document is grouped into two sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
@@ -483,12 +486,29 @@ above table.
 
 __NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Speech.
 
+##### Gemination
+
+Gemination is found in several languages including Italian and Japanese.
+It is also present in the suprasegmental phonology between words such as
+"lamppost" and "evenness".
+
+Some linguists use the [long](#length) suprasegmental for geminate consonants.
+The eSpeak NG convention is to use consonant length for [phonation](#phonation)
+when consonant length is distinct without gemination occurring.
+
+The way gemination is represented in eSpeak NG is to duplicate the phonemes,
+with the first phoneme using the `unx` feature. For example, n̚.n for a
+geminated n. This describes how with the `stp` and `nas` consonants, the
+mouth remains closed (`unx`) for the first of the geminated consonants.
+
 #### Phonation
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
 | `brv`   |             | ◌̤   | breathy voiced  |
 | `crv`   |             | ◌̰   | creaky voiced   |
+| `fts`   |             | ◌͈   | fortis          |
+| `lns`   |             | ◌͉   | lenis           |
 
 The IPA ◌̬ and ◌̥ diacritics (*voiced* and *voiceless*) are used for both
 filling spaces in the IPA consonants chart and making the distinction
@@ -497,6 +517,15 @@ between *fortis* and *lenis* consonants. Cainteoir Text-to-Speech uses `slv`
 these diacritics are only used for controlling their voiced/voiceless
 property (and thus their position on the IPA code chart), so `vls` and `vcd`
 are used for these diacritics.
+
+The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
+are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
+the unmodified voiced or voiceless phoneme. This distinction is made by
+the Ewe, Tabasaran, Archi, and other languages<sup>\[<a href="#ref8">8</a>\]</sup>.
+
+Where fortis and lenis are used to contrast consonant durations (e.g. in
+the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
+the [length](#length) suprasegmentals are used instead.
 
 #### Articulation
 
@@ -635,4 +664,12 @@ the `mrm` feature is not used within this document.
 
 6. <a name="ref6"></a> Wikipedia.
    [Voiced glottal fricative](https://en.wikipedia.org/wiki/Voiced_glottal_fricative). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+7. <a name="ref7"></a> Wikipedia.
+   [Extensions to the International Phonetic Alphabet](https://en.wikipedia.org/wiki/Extensions_to_the_International_Phonetic_Alphabet). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+8. <a name="ref8"></a> Wikipedia.
+   [Fortis and lenis](https://en.wikipedia.org/wiki/Fortis_and_lenis). 2017,
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
