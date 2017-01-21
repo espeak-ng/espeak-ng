@@ -1,10 +1,10 @@
 # Phonemes
 
-- [Consonants](#consonants)
-  - [Pulmonic](#pulmonic)
-  - [Non-Pulmonic](#non-pulmonic)
+- [IPA Charts](#ipa-charts)
+  - [Consonants (Pulmonic)](#consonants-pulmonic)
+  - [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
   - [Other Symbols](#other-symbols)
-- [Vowels](#vowels)
+  - [Vowels](#vowels)
 - [Features](#features)
   - [Phoneme Type](#phoneme-type)
   - [Voicing](#voicing)
@@ -32,9 +32,20 @@ Where Kirshenbaum does not specify a feature name, the feature name from
 Cainteoir Text-to-Speech<sup>\[<a href="#ref5">5</a>\]</sup> is used. This is
 to provide a consistent naming scheme for the extended feature set.
 
-## Consonants
+This document is grouped into two sections. The first section displays the IPA
+charts using the feature names instead of their names, showing the IPA phoneme
+at that position in the chart. This makes it easier to look up the features for
+a given IPA phoneme.
 
-### Pulmonic
+The second section lists the features and their associated name. This section
+does not describe what these mean. Their meaning is described in phonetics
+articles, books and Wikipedia. The Wikipedia IPA<sup>\[<a href="#ref4">4</a>\]</sup>
+article can be used as a starting point, as it links to topics and descriptions
+of the various phonemes.
+
+## IPA Charts
+
+## Consonants (Pulmonic)
 
 <table>
   <tr>
@@ -167,7 +178,7 @@ to provide a consistent naming scheme for the extended feature set.
 
 Symbols to the left are `vls`, and to the right are `vcd`.
 
-### Non-Pulmonic
+### Consonants (Non-Pulmonic)
 
 <table>
   <tr>
@@ -285,7 +296,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ɺ      | `vcd` `alv` `lat` `flp` |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
-## Vowels
+### Vowels
 
 <table>
   <tr>
