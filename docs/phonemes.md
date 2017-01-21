@@ -559,22 +559,22 @@ the `mrm` feature is not used within this document.
 ## References
 
 1. <a name="ref1"></a> Kirshenbaum, Evan,
-   [http://www.kirshenbaum.net/IPA/faq.html](Representing IPA phonetics in ASCII) (HTML). 1993.
+   [Representing IPA phonetics in ASCII](http://www.kirshenbaum.net/IPA/faq.html) (HTML). 1993.
 
 2. <a name="ref2"></a> Kirshenbaum, Evan,
-   [http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](Representing IPA phonetics in ASCII) (PDF). 2001.
+   [Representing IPA phonetics in ASCII](http://www.kirshenbaum.net/IPA/ascii-ipa.pdf) (PDF). 2001.
 
 3. <a name="ref3"></a> International Phonetic Association,
-   [https://www.internationalphoneticassociation.org/content/ipa-chart](The International Phonetic Alphabet and the IPA Chart). 2015.
+   [The International Phonetic Alphabet and the IPA Chart](https://www.internationalphoneticassociation.org/content/ipa-chart). 2015.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
 
 4. <a name="ref4"></a> Wikipedia.
-   [https://en.wikipedia.org/wiki/International_Phonetic_Alphabet](International Phonetic Alphabet). 2017.
+   [International Phonetic Alphabet](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). 2017.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
 
 5. <a name="ref5"></a> Dunn, R. H.,
-   [https://raw.githubusercontent.com/rhdunn/cainteoir-engine/master/src/libcainteoir/phoneme/phoneme.cpp](Cainteoir Text-to-Speech Phoneme Features). 2013-2015.
+   [Cainteoir Text-to-Speech Phoneme Features](https://raw.githubusercontent.com/rhdunn/cainteoir-engine/master/src/libcainteoir/phoneme/phoneme.cpp). 2013-2015.
 
 6. <a name="ref6"></a> Wikipedia.
-   [https://en.wikipedia.org/wiki/Voiced_glottal_fricative](Voiced glottal fricative). 2017,
+   [Voiced glottal fricative](https://en.wikipedia.org/wiki/Voiced_glottal_fricative). 2017,
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
