@@ -428,10 +428,15 @@ above table.
 | `flp`   | `flp`       | tap/flap        |
 | `frc`   | `frc`       | fricative       |
 | `apr`   | `apr`       | approximant     |
-| `lat`   | `lat`       | lateral         |
 | `clk`   | `clk`       | click           |
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
+
+The following features can be combined with other manners of articulation:
+
+| Feature | Kirshenbaum | Name            |
+|---------|-------------|-----------------|
+| `lat`   | `lat`       | lateral         |
 
 ### Vowels
 
