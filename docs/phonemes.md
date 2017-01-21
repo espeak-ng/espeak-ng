@@ -117,7 +117,7 @@ sections.
     <td>c</td><td>ɟ</td>
     <td>k</td><td>ɡ</td>
     <td>q</td><td>ɢ</td>
-    <td> </td><td> </td>
+    <td>ʡ</td><td> </td>
     <td>ʔ</td><td> </td>
   </tr>
   <tr>
@@ -222,7 +222,7 @@ sections.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td>ʀ</td>
-    <td> </td><td> </td>
+    <td>ʜ</td><td>ʢ</td>
     <td> </td><td> </td>
   </tr>
 </table>
@@ -339,9 +339,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ʍ      | `vls` `lbv` `apr`       |
 | w      | `vcd` `lbv` `apr`       |
 | ɥ      | `vcd` `lbp` `apr`       |
-| ʜ      | `vls` `epg` `frc`       |
-| ʢ      | `vcd` `epg` `frc`       |
-| ʡ      | `vls` `epg` `stp`       |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
 ### Vowels
@@ -428,9 +425,11 @@ above table.
 | `pal`   | `pal`       | palatal         |
 | `vel`   | `vel`       | velar           |
 | `uvl`   | `uvl`       | uvular          |
-| `phr`   | `phr`       | pharyngeal      |
-| `epg`   |             | epiglottal      |
+| `phr`   | `phr`       | pharyngeal/epiglottal |
 | `glt`   | `glt`       | glottal         |
+
+__NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
+consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
 ##### Co-articulation
 
