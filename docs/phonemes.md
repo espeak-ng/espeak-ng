@@ -121,14 +121,29 @@ sections.
     <td>ʔ</td><td> </td>
   </tr>
   <tr>
-    <th align="right"><code>frc</code></th>
-    <td>ɸ</td><td>β</td>
-    <td>f</td><td>v</td>
-    <td>θ</td><td>ð</td>
+    <th align="right"><code>sib</code>&#xA0;<code>frc</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
     <td>s</td><td>z</td>
     <td>ʃ</td><td>ʒ</td>
     <td>ʂ</td><td>ʐ</td>
     <td>ɕ</td><td>ʑ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>frc</code></th>
+    <td>ɸ</td><td>β</td>
+    <td>f</td><td>v</td>
+    <td>θ</td><td>ð</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
     <td>ç</td><td>ʝ</td>
     <td>x</td><td>ɣ</td>
     <td>χ</td><td>ʁ</td>
@@ -457,6 +472,9 @@ The following features can be combined with other manners of articulation:
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
 | `lat`   | `lat`       | lateral         |
+| `sib`   |             | sibilant        |
+
+__NOTE:__ `sib` is not used in the IPA charts.
 
 ### Vowels
 
