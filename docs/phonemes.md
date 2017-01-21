@@ -196,6 +196,21 @@ sections.
     <td> </td><td> </td>
   </tr>
   <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>flp</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>ɺ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
     <th align="right"><code>trl</code></th>
     <td> </td><td>ʙ</td>
     <td> </td><td> </td>
@@ -327,7 +342,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ʜ      | `vls` `epg` `frc`       |
 | ʢ      | `vcd` `epg` `frc`       |
 | ʡ      | `vls` `epg` `stp`       |
-| ɺ      | `vcd` `alv` `lat` `flp` |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
 ### Vowels
