@@ -136,6 +136,21 @@ sections.
     <td>h</td><td>ɦ</td>
   </tr>
   <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>frc</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>ɬ</td><td>ɮ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
     <th align="right"><code>apr</code></th>
     <td> </td><td> </td>
     <td> </td><td>ʋ</td>
@@ -146,6 +161,21 @@ sections.
     <td> </td><td> </td>
     <td> </td><td>j</td>
     <td> </td><td>ɰ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>apr</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td>l</td>
+    <td> </td><td> </td>
+    <td> </td><td>ɭ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ʎ</td>
+    <td> </td><td>ʟ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -177,36 +207,6 @@ sections.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td>ʀ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>frc</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ɬ</td><td>ɮ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>apr</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>l</td>
-    <td> </td><td> </td>
-    <td> </td><td>ɭ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ʎ</td>
-    <td> </td><td>ʟ</td>
-    <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
   </tr>
