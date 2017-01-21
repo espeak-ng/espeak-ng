@@ -535,12 +535,21 @@ the [length](#length) suprasegmentals are used instead.
 | `apc`   |             | ◌̺   | apical          |
 | `lmn`   |             | ◌̻   | laminal         |
 | `lgl`   |             | ◌̼   | linguolabial    |
-| `adv`   |             | ◌̟   | advanced        |
-| `ret`   |             | ◌̠   | retracted       |
-| `czd`   |             | ◌̈   | centralized     |
-| `mcz`   |             | ◌̽   | mid-centralized |
-| `rsd`   |             | ◌̝   | raised          |
-| `lwr`   |             | ◌̞   | lowered         |
+
+The following IPA diacritics are only used by eSpeak NG to fill out positions
+in the IPA consonant and vowel charts. As such those phonemes are transcribed
+according to the features at that position, not using the features at the
+location of the base phoneme with a feature for each of the positioning
+diacritics.
+
+| IPA | Name            |
+|-----|-----------------|
+| ◌̟   | advanced        |
+| ◌̠   | retracted       |
+| ◌̈   | centralized     |
+| ◌̽   | mid-centralized |
+| ◌̝   | raised          |
+| ◌̞   | lowered         |
 
 #### Co-articulation
 
