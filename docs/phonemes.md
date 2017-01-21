@@ -83,6 +83,7 @@ sections.
     <th colspan="2"><code>alv</code></th>
     <th colspan="2"><code>pla</code></th>
     <th colspan="2"><code>rfx</code></th>
+    <th colspan="2"><code>alp</code></th>
     <th colspan="2"><code>pal</code></th>
     <th colspan="2"><code>vel</code></th>
     <th colspan="2"><code>uvl</code></th>
@@ -97,6 +98,7 @@ sections.
     <td> </td><td>n</td>
     <td> </td><td> </td>
     <td> </td><td>ɳ</td>
+    <td> </td><td> </td>
     <td> </td><td>ɲ</td>
     <td> </td><td>ŋ</td>
     <td> </td><td>ɴ</td>
@@ -111,6 +113,7 @@ sections.
     <td>t</td><td>d</td>
     <td> </td><td> </td>
     <td>ʈ</td><td>ɖ</td>
+    <td> </td><td> </td>
     <td>c</td><td>ɟ</td>
     <td>k</td><td>ɡ</td>
     <td>q</td><td>ɢ</td>
@@ -125,6 +128,7 @@ sections.
     <td>s</td><td>z</td>
     <td>ʃ</td><td>ʒ</td>
     <td>ʂ</td><td>ʐ</td>
+    <td>ɕ</td><td>ʑ</td>
     <td>ç</td><td>ʝ</td>
     <td>x</td><td>ɣ</td>
     <td>χ</td><td>ʁ</td>
@@ -139,6 +143,7 @@ sections.
     <td> </td><td>ɹ</td>
     <td> </td><td> </td>
     <td> </td><td>ɻ</td>
+    <td> </td><td> </td>
     <td> </td><td>j</td>
     <td> </td><td>ɰ</td>
     <td> </td><td> </td>
@@ -158,6 +163,7 @@ sections.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
+    <td> </td><td> </td>
   </tr>
   <tr>
     <th align="right"><code>trl</code></th>
@@ -165,6 +171,7 @@ sections.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td>r</td>
+    <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -186,6 +193,7 @@ sections.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
+    <td> </td><td> </td>
   </tr>
   <tr>
     <th align="right"><code>lat</code>&#xA0;<code>apr</code></th>
@@ -195,6 +203,7 @@ sections.
     <td> </td><td>l</td>
     <td> </td><td> </td>
     <td> </td><td>ɭ</td>
+    <td> </td><td> </td>
     <td> </td><td>ʎ</td>
     <td> </td><td>ʟ</td>
     <td> </td><td> </td>
@@ -318,8 +327,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ʜ      | `vls` `epg` `frc`       |
 | ʢ      | `vcd` `epg` `frc`       |
 | ʡ      | `vls` `epg` `stp`       |
-| ɕ      | `vls` `alp` `frc`       |
-| ʑ      | `vcd` `alp` `frc`       |
 | ɺ      | `vcd` `alv` `lat` `flp` |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
