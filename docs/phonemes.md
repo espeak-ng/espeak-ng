@@ -7,13 +7,15 @@
   - [Vowels](#vowels)
 - [Features](#features)
   - [Phoneme Type](#phoneme-type)
-  - [Voicing](#voicing)
-  - [Place of Articulation](#place-of-articulation)
-    - [Co-articulation](#co-articulation)
-  - [Manner of Articulation](#manner-of-articulation)
-  - [Vowel Height](#vowel-height)
-  - [Vowel Backness](#vowel-backness)
-  - [Rounding](#rounding)
+  - [Consonants](#consonants)
+    - [Voicing](#voicing)
+    - [Place of Articulation](#place-of-articulation)
+      - [Co-articulation](#co-articulation)
+    - [Manner of Articulation](#manner-of-articulation)
+  - [Vowels](#vowels-1)
+    - [Height](#height)
+    - [Backness](#backness)
+    - [Rounding](#rounding)
   - [Diacritics](#diacritics)
   - [Suprasegmentals](#suprasegmentals)
   - [Unused](#unused)
@@ -363,14 +365,16 @@ above table.
 |---------|-------------|-----------------|
 | `vwl`   | `vwl`       | vowel           |
 
-### Voicing
+### Consonants
+
+#### Voicing
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
 | `vcd`   | `vcd`       | voiced          |
 | `vls`   | `vls`       | voiceless       |
 
-### Place of Articulation
+#### Place of Articulation
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -388,14 +392,14 @@ above table.
 | `epg`   |             | epiglottal      |
 | `glt`   | `glt`       | glottal         |
 
-#### Co-articulation
+##### Co-articulation
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
 | `lbv`   | `lbv`       | labial-velar    |
 | `lbp`   |             | labial-palatal  |
 
-### Manner of Articulation
+#### Manner of Articulation
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -410,7 +414,9 @@ above table.
 | `ejc`   | `ejc`       | ejective        |
 | `imp`   | `imp`       | implosive       |
 
-### Vowel Height
+### Vowels
+
+#### Height
 
 | Feature | Kirshenbaum | Name                   |
 |---------|-------------|------------------------|
@@ -422,7 +428,7 @@ above table.
 | `sml`   |             | near-open (semi-low)   |
 | `low`   | `low`       | open (low)             |
 
-### Vowel Backness
+#### Backness
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -430,7 +436,7 @@ above table.
 | `cnt`   | `cnt`       | center          |
 | `bck`   | `bck`       | back            |
 
-### Rounding
+#### Rounding
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
