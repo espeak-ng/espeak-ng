@@ -25,7 +25,6 @@
     <Feature Id="All" Title="eSpeak NG" Level="1">
       <ComponentGroupRef Id="CoreComponents"/>
       <ComponentGroupRef Id="VoiceData"/>
-      <ComponentGroupRef Id="LangDefault"/>
     </Feature>
     <Feature Id="lang" Title="Languages">
       <Feature Id="lang_af" Title="Afrikaans" Level="1">
@@ -590,9 +589,6 @@
               <File Name="zhy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\zhy_dict" KeyPath="yes"/>
             </Component>
             <Directory Id="VOICES" Name="voices">
-              <Component Id="default" Win64="$(var.Win64)" Guid="8A4B0939-799E-4E15-B30A-BDECA8A288DD">
-                <File Name="default" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\default" KeyPath="yes"/>
-              </Component>
               <Directory Id="AAV" Name="aav">
                 <Component Id="vi" Win64="$(var.Win64)" Guid="36A8D59F-65BC-41A8-90EB-5BEED8A081D5">
                   <File Name="vi" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\voices\aav\vi" KeyPath="yes"/>
@@ -1018,10 +1014,6 @@
     <ComponentGroup Id="LangDanish">
       <ComponentRef Id="da"/>
       <ComponentRef Id="da_dict"/>
-    </ComponentGroup>
-    <ComponentGroup Id="LangDefault">
-      <ComponentRef Id="default"/>
-      <ComponentRef Id="en_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangDutch">
       <ComponentRef Id="nl"/>
