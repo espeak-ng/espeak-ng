@@ -7,7 +7,7 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.49.1 - (In Development)
+### 1.49.1 - 2017-01-21
 
 *  Vim syntax support for rule files.
 *  Replace `ieee80.c` with the implementation at
@@ -19,6 +19,10 @@ The espeak-ng project is a fork of the espeak project.
 *  Extend `--compile-phoneme` to support specifying the source directory for
    phoneme files.
 *  Support using any directory as the data home, not just `espeak-ng-data`.
+*  Don't install the `default` voice: use `en` as the default voice.
+
+__NOTE:__ The merger of the Android code is currently experimental. It is
+missing support for recognising Unicode characters.
 
 bug fixes:
 
