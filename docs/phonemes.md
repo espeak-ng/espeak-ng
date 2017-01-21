@@ -4,6 +4,7 @@
   - [Pulmonic](#pulmonic)
   - [Non-Pulmonic](#non-pulmonic)
   - [Other Symbols](#other-symbols)
+- [Vowels](#vowels)
 - [Features](#features)
   - [Phoneme Type](#phoneme-type)
   - [Voicing](#voicing)
@@ -280,6 +281,65 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ɺ      | `vcd` `alv` `lat` `flp` |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
+## Vowels
+
+<table>
+  <tr>
+    <td></td>
+    <th colspan="2"><code>fnt</code></th>
+    <th colspan="2"><code>cnt</code></th>
+    <th colspan="2"><code>bck</code></th>
+  </tr>
+  <tr>
+    <th align="right"><code>hgh</code></th>
+    <td>i</td><td>y</td>
+    <td>ɨ</td><td>ʉ</td>
+    <td>ɯ</td><td>u</td>
+  </tr>
+  <tr>
+    <th align="right"><code>smh</code></th>
+    <td>ɪ</td><td>ʏ</td>
+    <td> </td><td> </td>
+    <td> </td><td>ʊ</td>
+  </tr>
+  <tr>
+    <th align="right"><code>umd</code></th>
+    <td>e</td><td>ø</td>
+    <td>ɘ</td><td>ɵ</td>
+    <td>ɤ</td><td>o</td>
+  </tr>
+  <tr>
+    <th align="right"><code>mid</code></th>
+    <td> </td><td> </td>
+    <td>ə</td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>lmd</code></th>
+    <td>ɛ</td><td>œ</td>
+    <td>ɜ</td><td>ɞ</td>
+    <td>ʌ</td><td>ɔ</td>
+  </tr>
+  <tr>
+    <th align="right"><code>sml</code></th>
+    <td>æ</td><td> </td>
+    <td>ɐ</td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>low</code></th>
+    <td>a</td><td>ɶ</td>
+    <td> </td><td> </td>
+    <td>ɑ</td><td>ɒ</td>
+  </tr>
+</table>
+
+Symbols to the left are `unr`, and to the right are `rnd`.
+
+__NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
+distinction is not needed to classify these vowels, so is not included in the
+above table.
+
 ## Features
 
 ### Phoneme Type
@@ -330,14 +390,15 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 
 ### Vowel Height
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `hgh`   | `hgh`       | high            |
-| `smh`   | `smh`       | semi-high       |
-| `umd`   | `umd`       | upper-mid       |
-| `mid`   | `mid`       | mid             |
-| `lmd`   | `lmd`       | lower-mid       |
-| `low`   | `low`       | low             |
+| Feature | Kirshenbaum | Name                   |
+|---------|-------------|------------------------|
+| `hgh`   | `hgh`       | close (high)           |
+| `smh`   | `smh`       | near-close (semi-high) |
+| `umd`   | `umd`       | close-mid (upper-mid)  |
+| `mid`   | `mid`       | mid                    |
+| `lmd`   | `lmd`       | open-mid (lower-mid)   |
+| `sml`   |             | near-open (semi-low)   |
+| `low`   | `low`       | open (low)             |
 
 ### Vowel Backness
 
