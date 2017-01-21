@@ -28,6 +28,9 @@ provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
 This document describes the IPA phonemes using the features used by Kirshenbaum.
+Where Kirshenbaum does not specify a feature name, the feature name from
+Cainteoir Text-to-Speech<sup>\[<a href="#ref5">5</a>\]</sup> is used. This is
+to provide a consistent naming scheme for the extended feature set.
 
 ## Consonants
 
@@ -469,3 +472,6 @@ ASCII/IPA transcription are not used in that specification.
 4. <a name="ref4"></a> Wikipedia.
    [https://en.wikipedia.org/wiki/International_Phonetic_Alphabet](International Phonetic Alphabet). 2017.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+5. <a name="ref5"></a> Dunn, R. H.,
+   [https://raw.githubusercontent.com/rhdunn/cainteoir-engine/master/src/libcainteoir/phoneme/phoneme.cpp](Cainteoir Text-to-Speech Phoneme Features). 2013-2015.
