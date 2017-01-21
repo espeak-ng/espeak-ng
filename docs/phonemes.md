@@ -522,14 +522,16 @@ these features instead.
 | `pzd`   | `pzd`       | ◌ʲ  | palatalized     |
 | `vzd`   | `vzd`       | ◌ˠ  | velarized       |
 | `fzd`   | `fzd`       | ◌ˤ  | pharyngealized  |
-| `vfz`   |             | ◌̴   | velarized or pharyngealized |
 | `atr`   |             | ◌̘   | advanced tongue root  |
 | `rtr`   |             | ◌̙   | retracted tongue root |
 | `nzd`   | `nzd`       | ◌̃   | nasalized       |
 | `rzd`   | `rzd`       | ◌˞  | rhoticized      |
 
-__NOTE:__ The `fzd` and `vfz` features have the same linguistic effect. They
-are used to differentiate the listed IPA diacritics.
+__NOTE:__ The IPA supports ◌̴ for velarized or pharynealized consonants. Unicode
+has deprecated this combining character, while keeping the combined forms. As
+such, only the combined forms are supported, using the `fzd` feature. Cainteoir
+Text-to-Speech uses `vfz` for this combining character, but eSpeak NG does not
+preserve the distinction between ◌ˤ and ◌̴.
 
 ##### Precomposed Characters
 
@@ -539,7 +541,7 @@ character.
 
 | Symbol | Features                      |
 |--------|-------------------------------|
-| ɫ      | `vcd` `vfz` `alv` `lat` `apr` |
+| ɫ      | `vcd` `fzd` `alv` `lat` `apr` |
 | ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
 | ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
