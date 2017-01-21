@@ -544,6 +544,7 @@ character.
 |---------|-------------|-----|------------------|
 | `st1`   |             | ˈ◌  | primary stress   |
 | `st2`   |             | ˌ◌  | secondary stress |
+| `st3`   |             | ˈˈ◌ | extra stress     |
 
 #### Length
 
