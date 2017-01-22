@@ -529,22 +529,29 @@ The place of articulation is described in terms of an active articulator and
 one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
 possible places of articulation are:
 
-| Place of Articulation | Feature   | Symbol | Active | Lips  | Passive |
-|-----------------------|-----------|--------|--------|-------|---------|
-| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |
-| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |
-| bilabial-labiodental  | `bld`     |        | `bld`  | `ulp` | `utt`   |
-| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |
-| alveolar              | `alv`     |        | `apc`  |       | `alf`   |
-| palato-alveolar       | `pla`     |        | `lmn`  |       | `alb`   |
-| retroflex             | `rfx`     |        | `sac`  |       | `hpl`   |
-| alveolo-palatal       | `alp`     |        | `dsl`  |       | `alb`   |
-| palatal               | `pal`     |        | `dsl`  |       | `hpl`   |
-| velar                 | `vel`     |        | `dsl`  |       | `spl`   |
-| labio-velar           | `lbv`     |        | `dsl`  | `ulp` | `spl`   |
-| uvular                | `uvl`     |        | `dsl`  |       | `uvu`   |
-| pharyngeal            | `phr`     |        | `rdl`  |       | `prx`   |
-| glottal               | `glt`     |        | `lyx`  |       | `gts`   |
+| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Other   |
+|-----------------------|-----------|--------|--------|-------|---------|---------|
+| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |         |
+| linguolabial          | `lgl`     | ◌̼      | `lmn`  | `ulp` |         |         |
+| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |         |
+| bilabial-labiodental  | `bld`     |        | `bld`  | `ulp` | `utt`   |         |
+| interdental           | `idt`     | ◌̪͆      | `lmn`  |       | `utt`   |         |
+| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |         |
+| denti-alveolar        | `dta`     |        | `lmn`  |       | `utt`   | `alf`   |
+| alveolar              | `alv`     |        | `lmn`  |       |         | `alf`   |
+| apico-alveolar        | `apa`     | ◌̺      | `apc`  |       |         | `alf`   |
+| palato-alveolar       | `pla`     |        | `lmn`  |       |         | `alb`   |
+| apical retroflex      | `arf`     |        | `sac`  |       |         | `alb`   |
+| retroflex             | `rfx`     | ◌̺      | `apc`  |       |         | `hpl`   |
+| alveolo-palatal       | `alp`     |        | `dsl`  |       |         | `alb`   |
+| palatal               | `pal`     |        | `dsl`  |       |         | `hpl`   |
+| velar                 | `vel`     |        | `dsl`  |       |         | `spl`   |
+| labio-velar           | `lbv`     |        | `dsl`  | `ulp` |         | `spl`   |
+| uvular                | `uvl`     |        | `dsl`  |       |         | `uvu`   |
+| pharyngeal            | `phr`     |        | `rdl`  |       |         | `prx`   |
+| epiglotto-pharyngeal  | `epp`     |        | `lyx`  |       |         | `prx`   |
+| (ary-)epiglottal      | `epg`     |        | `lyx`  |       |         | `egs`   |
+| glottal               | `glt`     |        | `lyx`  |       |         | `gts`   |
 
 The features for these places of articulation are provided for convenience, and
 to make it easier to describe the IPA consonants. Internally, the active and
@@ -555,6 +562,9 @@ The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used 
 
 The `bld` place of articulation is used for `afr` consonants that have a `blb`
 onset and a `lbd` release, e.g. in the p͡f consonant.
+
+The `alv` consonant is `lmn` as found in French and Spanish, while `apa` is
+`apc` as found in English, as such ◌̻ (*laminal*) is not needed.
 
 __NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
 consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
@@ -689,12 +699,6 @@ the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</s
 the [length](#length) suprasegmentals are used instead.
 
 #### Articulation
-
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `apc`   |             | ◌̺   | apical          |
-| `lmn`   |             | ◌̻   | laminal         |
-| `lgl`   |             | ◌̼   | linguolabial    |
 
 The following IPA diacritics are only used by eSpeak NG to fill out positions
 in the IPA consonant and vowel charts. As such those phonemes are transcribed
