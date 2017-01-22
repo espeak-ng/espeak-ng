@@ -12,6 +12,8 @@ The espeak-ng project is a fork of the espeak project.
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  du (Dutch) -- Leonard de Ruijter
+*  fr (French) -- Valdis Vitolins
 *  ur (Urdu) -- Ejaz Shah
 
 ### 1.49.1 - 2017-01-21
