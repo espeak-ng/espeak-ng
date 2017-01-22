@@ -9,9 +9,11 @@
   - [Air Flow](#air-flow)
   - [Initiator](#initiator)
   - [Phonation](#phonation)
+  - [Place of Articulation](#place-of-articulation)
+    - [Active Articulators](#active-articulators)
+    - [Passive Articulators](#passive-articulators)
   - [Consonants](#consonants)
-    - [Place of Articulation](#place-of-articulation)
-      - [Co-articulation](#co-articulation)
+    - [Co-articulation](#co-articulation)
     - [Manner of Articulation](#manner-of-articulation)
   - [Vowels](#vowels-1)
     - [Height](#height)
@@ -457,29 +459,67 @@ The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consona
 charts. Thus, when ◌̥ is used with a `mdv` consonant that does not have an
 equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
-### Consonants
+### Place of Articulation
 
-#### Place of Articulation
+The place of articulation is described in terms of an active articulator and
+one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
+possible places of articulation are:
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `blb`   | `blb`       | bilabial        |
-| `lbd`   | `lbd`       | labio-dental    |
-| `dnt`   | `dnt`       | dental          |
-| `alv`   | `alv`       | alveolar        |
-| `pla`   | `pla`       | post-alveolar (palato-alveolar) |
-| `rfx`   | `rfx`       | retroflex       |
-| `alp`   |             | alveolo-palatal |
-| `pal`   | `pal`       | palatal         |
-| `vel`   | `vel`       | velar           |
-| `uvl`   | `uvl`       | uvular          |
-| `phr`   | `phr`       | pharyngeal/epiglottal |
-| `glt`   | `glt`       | glottal         |
+| Place of Articulation | Feature   | Symbol | Active | Passive |
+|-----------------------|-----------|--------|--------|---------|
+| bilabial              | `blb`     |        | `lbl`  | `ulp`   |
+| labiodental           | `lbd`     | ◌̪      | `lbl`  | `utt`   |
+| dental                | `dnt`     | ◌̪      | `apc`  | `utt`   |
+| alveolar              | `alv`     |        | `apc`  | `alf`   |
+| palato-alveolar       | `pla`     |        | `lmn`  | `alb`   |
+| retroflex             | `rfx`     |        | `sac`  | `hpl`   |
+| alveolo-palatal       | `alp`     |        | `dsl`  | `alb`   |
+| palatal               | `pal`     |        | `dsl`  | `hpl`   |
+| velar                 | `vel`     |        | `dsl`  | `spl`   |
+| uvular                | `uvl`     |        | `dsl`  | `uvu`   |
+| pharyngeal            | `phr`     |        | `rdl`  | `prx`   |
+| glottal               | `glt`     |        | `lyx`  | `gts`   |
+
+The features for these places of articulation are provided for convenience, and
+to make it easier to describe the IPA consonants. Internally, the active and
+passive articulators are used.
+
+The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used on
+`alv` consonants.
 
 __NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
 consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
-##### Co-articulation
+#### Active Articulators
+
+| Feature | Name      | Articulator             |
+|---------|-----------|-------------------------|
+| `lbl`   | labial    | lower lip               |
+| `lmn`   | laminal   | tongue blade            |
+| `apc`   | apical    | tongue tip              |
+| `sac`   | subapical | underside of the tongue |
+| `dsl`   | dorsal    | tongue body             |
+| `rdl`   | radical   | tongue root             |
+| `lyx`   | laryngeal | larynx                  |
+
+#### Passive Articulators
+
+| Feature | Articulator            |
+|---------|------------------------|
+| `ulp`   | upper lip              |
+| `utt`   | upper teeth            |
+| `alf`   | alveolar ridge (front) |
+| `alb`   | alveolar ridge (back)  |
+| `hpl`   | hard palate            |
+| `spl`   | soft palate            |
+| `uvu`   | uvular                 |
+| `prx`   | pharynx                |
+| `egs`   | epiglottis             |
+| `gts`   | glottis                |
+
+### Consonants
+
+#### Co-articulation
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -597,7 +637,6 @@ the [length](#length) suprasegmentals are used instead.
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
-| `dzd`   |             | ◌̪   | dental          |
 | `apc`   |             | ◌̺   | apical          |
 | `lmn`   |             | ◌̻   | laminal         |
 | `lgl`   |             | ◌̼   | linguolabial    |
@@ -747,4 +786,8 @@ the `mrm` feature is not used within this document.
 
 8. <a name="ref8"></a> Wikipedia.
    [Fortis and lenis](https://en.wikipedia.org/wiki/Fortis_and_lenis). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+9. <a name="ref9"></a> Wikipedia.
+   [Place of articulation](https://en.wikipedia.org/wiki/Place_of_articulation). 2017,
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
