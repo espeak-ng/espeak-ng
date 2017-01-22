@@ -6,6 +6,7 @@
   - [Other Symbols](#other-symbols)
   - [Gemination](#gemination)
   - [Vowels](#vowels)
+  - [Positioning Diacritics](#positioning-diacritics)
 - [Features](#features)
   - [Air Flow](#air-flow)
   - [Initiator](#initiator)
@@ -483,6 +484,23 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
+#### Positioning Diacritics
+
+The following IPA diacritics are only used by eSpeak NG to fill out positions
+in the IPA consonant and vowel charts. As such those phonemes are transcribed
+according to the features at that position, not using the features at the
+location of the base phoneme with a feature for each of the positioning
+diacritics.
+
+| Symbol | Name            |
+|--------|-----------------|
+| ◌̟      | advanced        |
+| ◌̠      | retracted       |
+| ◌̈      | centralized     |
+| ◌̽      | mid-centralized |
+| ◌̝      | raised          |
+| ◌̞      | lowered         |
+
 ## Features
 
 ### Air Flow
@@ -697,23 +715,6 @@ the Ewe, Tabasaran, Archi, and other languages<sup>\[<a href="#ref8">8</a>\]</su
 Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
-
-#### Articulation
-
-The following IPA diacritics are only used by eSpeak NG to fill out positions
-in the IPA consonant and vowel charts. As such those phonemes are transcribed
-according to the features at that position, not using the features at the
-location of the base phoneme with a feature for each of the positioning
-diacritics.
-
-| IPA | Name            |
-|-----|-----------------|
-| ◌̟   | advanced        |
-| ◌̠   | retracted       |
-| ◌̈   | centralized     |
-| ◌̽   | mid-centralized |
-| ◌̝   | raised          |
-| ◌̞   | lowered         |
 
 #### Co-articulation
 
