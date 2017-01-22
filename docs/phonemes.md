@@ -6,6 +6,7 @@
   - [Other Symbols](#other-symbols)
   - [Vowels](#vowels)
 - [Features](#features)
+  - [Air Flow](#air-flow)
   - [Consonants](#consonants)
     - [Voicing](#voicing)
     - [Place of Articulation](#place-of-articulation)
@@ -416,6 +417,18 @@ distinction is not needed to classify these vowels, so is not included in the
 above table.
 
 ## Features
+
+### Air Flow
+
+| Feature | Symbol | Name       | Description                                            |
+|---------|--------|------------|--------------------------------------------------------|
+| `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator.    |
+| `igs`   | ↓      | ingressive | The air flow is moving inwards towards the initiator.  |
+
+Each base IPA phoneme specifies an air flow type. The ↑ and ↓ symbols are from
+the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>. They only need to be used
+when the air flow is different to the base IPA phoneme (e.g. using ↓ on
+pulmonic consonants).
 
 ### Consonants
 
