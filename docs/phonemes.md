@@ -34,7 +34,6 @@
     - [Intonation](#intonation)
   - [Tones](#tones)
     - [Tone Stepping](#tone-stepping)
-  - [Unused](#unused)
 - [References](#references)
 
 ----------
@@ -810,23 +809,6 @@ preserve the distinction between ◌ˤ and ◌̴.
 |---------|-------------|-----|-------------|
 | `dst`   |             | ꜛ◌  | downstep    |
 | `ust`   |             | ꜜ◌  | upstep      |
-
-### Unused
-
-| Feature   | Kirshenbaum | Name            |
-|-----------|-------------|-----------------|
-|           | `ctl`       | central         |
-|           | `mrm`       | murmured        |
-|           | `orl`       | oral            |
-
-__NOTE:__ The `ctl` and `orl` features are specified by Evan Kirshenbaum in
-Appendix A of his ASCII/IPA transcription, but are not used in the rest of
-the specification.
-
-__NOTE:__ Evan Kirshenbaum transcribes ɦ as `h<?>` (`{mrm,glt,frc}`), while
-Wikipedia also lists this as a `{mdv,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
-This is the only phoneme that Kirshenbaum uses the `mrm` feature for. As such,
-the `mrm` feature is not used within this document.
 
 ## References
 
