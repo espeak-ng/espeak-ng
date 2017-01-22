@@ -7,6 +7,7 @@
   - [Vowels](#vowels)
 - [Features](#features)
   - [Air Flow](#air-flow)
+  - [Initiator](#initiator)
   - [Consonants](#consonants)
     - [Voicing](#voicing)
     - [Place of Articulation](#place-of-articulation)
@@ -425,10 +426,18 @@ above table.
 | `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator.    |
 | `igs`   | ↓      | ingressive | The air flow is moving inwards towards the initiator.  |
 
-Each base IPA phoneme specifies an air flow type. The ↑ and ↓ symbols are from
-the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>. They only need to be used
-when the air flow is different to the base IPA phoneme (e.g. using ↓ on
-pulmonic consonants).
+The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
+They only need to be used when the air flow is different to the base IPA
+phoneme (e.g. using ↓ on pulmonic consonants).
+
+### Initiator
+
+| Feature | Name       | Description                                                           |
+|---------|------------|-----------------------------------------------------------------------|
+| `pmc`   | pulmonic   | The diaphragm and lungs are used to generate the airstream.           |
+| `gtc`   | glottalic  | The glottis is used to generate the airstream.                        |
+| `vlc`   | velaric    | The velum is closed and the tongue is used to generate the airstream. |
+| `pcv`   | percussive | There is no airstream used to produce this sound.                     |
 
 ### Consonants
 
