@@ -1056,8 +1056,9 @@ _C)        oy (X      _^_en     // boy, toy
 
 
 .group ô
-        ôt (_      o        // rôt
-        ô          o        // cône
+        ô          o:        // long o: by default
+        ôt (_      O~        // rôt
+        ô  (ne     O~        // cône
 
 
 .group p
@@ -1126,7 +1127,7 @@ _C)        oy (X      _^_en     // boy, toy
 
 
 .group r
-
+        rf (_      r/        // cerf, nerf, serf
    _su) rr         rr        // surréaliste
    cou) rr         rr        // courrai
    mou) rr         rr        // mourrai

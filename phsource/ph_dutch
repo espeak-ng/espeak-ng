@@ -291,6 +291,6 @@ phoneme l
   import_phoneme en/l
 endphoneme
 
-phoneme x2
+phoneme x
   import_phoneme af/x2
 endphoneme
