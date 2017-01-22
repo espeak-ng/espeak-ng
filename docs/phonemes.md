@@ -522,6 +522,7 @@ types. The possible manners of articulation are:
 | click                  | `clk`     |        | `vlc igs orl`         |
 | ejective               | `ejc`     |        | `vlc igs orl occ`     |
 | implosive              | `imp`     | ◌ʼ     | `gtc igs`             |
+| vowel                  | `vwl`     |        | `pmc egs orl vow`     |
 
 The features for these manners of articulation are provided for convenience,
 and to make it easier to describe the IPA consonants. Internally, the
@@ -529,6 +530,10 @@ distinct feature types are used.
 
 For `imp` consonants, they use the features of the base phoneme except for
 the `pmc` and `egs` features. Thus, a `nas imp` is a `gtc igs nsl occ`.
+
+The `vwl` phonemes are described using vowel height and backness features,
+while consonants (the other manners of articulation) are described using
+place of articulation features.
 
 Additionally, the manner of articulation can be refined using the following
 features:
@@ -575,6 +580,7 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 | `fla`   | flap              | A single tap of the tongue against the secondary articulator.                     |
 | `tri`   | trill             | A rapid vibration of the primary articulator against the secondary articulator.   |
 | `app`   | approximant       | The vocal tract is narrowed at the place of articulation without being turbulant. |
+| `vow`   | vowel             | The phoneme is articulated as a vowel instead of a consonant.                     |
 
 ### Phonation
 
@@ -682,10 +688,6 @@ annotations to specify the type of labialization. Vowels can use these to
 change their labialization from the default one specified by `rnd`.
 
 ### Vowels
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vwl`   | `vwl`       | vowel           |
 
 #### Height
 
