@@ -8,15 +8,16 @@
   - [Vowels](#vowels)
   - [Positioning Diacritics](#positioning-diacritics)
 - [Features](#features)
-  - [Air Flow](#air-flow)
-  - [Initiator](#initiator)
+  - [Manner of Articulation](#manner-of-articulation)
+    - [Air Flow](#air-flow)
+    - [Initiator](#initiator)
+    - [Target](#target)
+    - [Manner](#manner)
   - [Phonation](#phonation)
   - [Place of Articulation](#place-of-articulation)
     - [Active Articulators](#active-articulators)
     - [Passive Articulators](#passive-articulators)
   - [Rounding and Labialization](#rounding-and-labialization)
-  - [Consonants](#consonants)
-    - [Manner of Articulation](#manner-of-articulation)
   - [Vowels](#vowels-1)
     - [Height](#height)
     - [Backness](#backness)
@@ -503,18 +504,51 @@ diacritics.
 
 ## Features
 
-### Air Flow
+### Manner of Articulation
 
-| Feature | Symbol | Name       | Description                                            |
-|---------|--------|------------|--------------------------------------------------------|
-| `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator.    |
-| `igs`   | ↓      | ingressive | The air flow is moving inwards towards the initiator.  |
+The manner of articulation is described in terms of several distinct feature
+types. The possible manners of articulation are:
+
+| Manner of Articulation | Feature   | Symbol | Features              |
+|------------------------|-----------|--------|-----------------------|
+| nasal                  | `nas`     |        | `pmc egs nsl occ`     |
+| plosive (stop)         | `stp`     |        | `pmc egs orl occ`     |
+| affricate              | `afr`     |        | `pmc egs orl occ frr` |
+| fricative              | `frc`     |        | `pmc egs orl frv`     |
+| tap/flap               | `flp`     |        | `pmc egs orl fla`     |
+| trill                  | `trl`     |        | `pmc egs orl tri`     |
+| approximant            | `apr`     |        | `pmc egs orl app`     |
+| click                  | `clk`     |        | `vlc igs orl`         |
+| ejective               | `ejc`     |        | `vlc igs orl occ`     |
+| implosive              | `imp`     | ◌ʼ     | `gtc igs`             |
+
+The features for these manners of articulation are provided for convenience,
+and to make it easier to describe the IPA consonants. Internally, the
+distinct feature types are used.
+
+For `imp` consonants, they use the features of the base phoneme except for
+the `pmc` and `egs` features. Thus, a `nas imp` is a `gtc igs nsl occ`.
+
+Additionally, the manner of articulation can be refined using the following
+features:
+
+| Feature | Name     | Description                                                 |
+|---------|----------|-------------------------------------------------------------|
+| `lat`   | lateral  | The air flow is directed along the sides of the tongue.     |
+| `sib`   | sibilant | The air flow is directed through the teeth with the tongue. |
+
+#### Air Flow
+
+| Feature | Symbol | Name       | Description                                                       |
+|---------|--------|------------|-------------------------------------------------------------------|
+| `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator to the target. |
+| `igs`   | ↓      | ingressive | The air flow is moving inwards from the target to the initiator.  |
 
 The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
 They only need to be used when the air flow is different to the base IPA
 phoneme (e.g. using ↓ on pulmonic consonants).
 
-### Initiator
+#### Initiator
 
 | Feature | Name       | Description                                                           |
 |---------|------------|-----------------------------------------------------------------------|
@@ -523,7 +557,21 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 | `vlc`   | velaric    | The velum is closed and the tongue is used to generate the airstream. |
 | `pcv`   | percussive | There is no airstream used to produce this sound.                     |
 
-#### Phonation
+#### Target
+
+| Feature | Name       | Description                                     |
+|---------|------------|-------------------------------------------------|
+| `nsl`   | nasal      | The air flows through the nose.                 |
+| `orl`   | oral       | The air flows through the mouth.                |
+
+#### Manner
+
+| Feature | Symbol | Name       | Description                                      |
+|---------|--------|------------|--------------------------------------------------|
+| `occ`   |        | occlusive  | The air flow is blocked within the vocal tract.  |
+| `frv`   |        | fricative  | The air flow is constricted, causing turbulence. |
+
+### Phonation
 
 The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
 
@@ -627,32 +675,6 @@ The `unr` and `rnd` features are used for vowels to describe their default
 labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ and ◌ᵝ
 annotations to specify the type of labialization. Vowels can use these to
 change their labialization from the default one specified by `rnd`.
-
-### Consonants
-
-#### Manner of Articulation
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `stp`   | `stp`       | plosive (stop)  |
-| `nas`   | `nas`       | nasal           |
-| `trl`   | `trl`       | trill           |
-| `flp`   | `flp`       | tap/flap        |
-| `afr`   | `afr`       | affricate       |
-| `frc`   | `frc`       | fricative       |
-| `apr`   | `apr`       | approximant     |
-| `clk`   | `clk`       | click           |
-| `ejc`   | `ejc`       | ejective        |
-| `imp`   | `imp`       | implosive       |
-
-The following features can be combined with other manners of articulation:
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `lat`   | `lat`       | lateral         |
-| `sib`   |             | sibilant        |
-
-__NOTE:__ `sib` is not used in the IPA charts.
 
 ### Vowels
 
