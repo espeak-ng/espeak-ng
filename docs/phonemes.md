@@ -18,9 +18,8 @@
     - [Active Articulators](#active-articulators)
     - [Passive Articulators](#passive-articulators)
   - [Rounding and Labialization](#rounding-and-labialization)
-  - [Vowels](#vowels-1)
-    - [Height](#height)
-    - [Backness](#backness)
+  - [Vowel Height](#vowel-height)
+  - [Vowel Backness](#vowel-backness)
   - [Diacritics](#diacritics)
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
@@ -687,27 +686,25 @@ labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ an
 annotations to specify the type of labialization. Vowels can use these to
 change their labialization from the default one specified by `rnd`.
 
-### Vowels
+### Vowel Height
 
-#### Height
+| Feature | Name                   |
+|---------|------------------------|
+| `hgh`   | close (high)           |
+| `smh`   | near-close (semi-high) |
+| `umd`   | close-mid (upper-mid)  |
+| `mid`   | mid                    |
+| `lmd`   | open-mid (lower-mid)   |
+| `sml`   | near-open (semi-low)   |
+| `low`   | open (low)             |
 
-| Feature | Kirshenbaum | Name                   |
-|---------|-------------|------------------------|
-| `hgh`   | `hgh`       | close (high)           |
-| `smh`   | `smh`       | near-close (semi-high) |
-| `umd`   | `umd`       | close-mid (upper-mid)  |
-| `mid`   | `mid`       | mid                    |
-| `lmd`   | `lmd`       | open-mid (lower-mid)   |
-| `sml`   |             | near-open (semi-low)   |
-| `low`   | `low`       | open (low)             |
+### Vowel Backness
 
-#### Backness
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `fnt`   | `fnt`       | front           |
-| `cnt`   | `cnt`       | center          |
-| `bck`   | `bck`       | back            |
+| Feature | Name            |
+|---------|-----------------|
+| `fnt`   | front           |
+| `cnt`   | center          |
+| `bck`   | back            |
 
 ### Diacritics
 
