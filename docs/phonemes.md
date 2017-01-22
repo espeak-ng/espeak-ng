@@ -124,6 +124,51 @@ sections.
     <td>ʔ</td><td> </td>
   </tr>
   <tr>
+    <th align="right"><code>sib</code>&#xA0;<code>afr</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>t͡s</td><td>d͡z</td>
+    <td>t͡ʃ</td><td>d͡ʒ</td>
+    <td>ʈ͡ʂ</td><td>ɖ͡ʐ</td>
+    <td>t͡ɕ</td><td>d͡ʑ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
+    <th align="right"><code>afr</code></th>
+    <td>p͡ɸ</td><td>b͡β</td>
+    <td>p̪͡f</td><td>b̪͡v</td>
+    <td>t͡θ</td><td>d͡ð</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>c͡ç</td><td>ɟ͡ʝ</td>
+    <td>k͡x</td><td>ɡ͡ɣ</td>
+    <td>q͡χ</td><td>ɢ͡ʁ</td>
+    <td>ʡ͡ħ</td><td>ʡ͡ʕ</td>
+    <td>ʔ͡h</td><td></td>
+  </tr>
+  <tr>
+    <th align="right"><code>lat</code>&#xA0;<code>afr</code></th>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td>t͡ɬ</td><td>d͡ɮ</td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+    <td> </td><td> </td>
+  </tr>
+  <tr>
     <th align="right"><code>sib</code>&#xA0;<code>frc</code></th>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -361,6 +406,8 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | k͡p    |             | `vls` `lbv` `stp`       |
 | ɡ͡b    |             | `mdv` `lbv` `stp`       |
 | ŋ͡m    |             | `mdv` `lbv` `stp`       |
+| p͡f    |             | `vls` `bld` `afr`       |
+| b͡v    |             | `mdv` `bld` `afr`       |
 
 ### Vowels
 
@@ -471,6 +518,7 @@ possible places of articulation are:
 |-----------------------|-----------|--------|--------|-------|---------|
 | bilabial              | `blb`     |        | `lbl`  | `ulp` |         |
 | labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |
+| bilabial-labiodental  | `bld`     |        | `bld`  | `ulp` | `utt`   |
 | dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |
 | alveolar              | `alv`     |        | `apc`  |       | `alf`   |
 | palato-alveolar       | `pla`     |        | `lmn`  |       | `alb`   |
@@ -489,6 +537,9 @@ passive articulators are used.
 
 The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used on
 `alv` consonants.
+
+The `bld` place of articulation is used for `afr` consonants that have a `blb`
+onset and a `lbd` release, e.g. in the p͡f consonant.
 
 __NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
 consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
@@ -544,6 +595,7 @@ change their labialization from the default one specified by `rnd`.
 | `nas`   | `nas`       | nasal           |
 | `trl`   | `trl`       | trill           |
 | `flp`   | `flp`       | tap/flap        |
+| `afr`   | `afr`       | affricate       |
 | `frc`   | `frc`       | fricative       |
 | `apr`   | `apr`       | approximant     |
 | `clk`   | `clk`       | click           |
