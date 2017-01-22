@@ -27,7 +27,6 @@
     - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
-      - [Precomposed Characters](#precomposed-characters)
   - [Suprasegmentals](#suprasegmentals)
     - [Stress](#stress)
     - [Length](#length)
@@ -405,6 +404,9 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | w      | ɰʷ          | `mdv` `vel` `ptr` `apr` |
 | ɥ      | jʷ          | `mdv` `pal` `ptr` `apr` |
 | ɧ      |             | `vls` `vzd` `pla` `frc` |
+| ɫ      |             | `mdv` `fzd` `alv` `lat` `apr` |
+| ɚ      |             | `unr` `mid` `cnt` `rzd` `vwl` |
+| ɝ      |             | `unr` `lmd` `cnt` `rzd` `vwl` |
 | k͡p    |             | `vls` `lbv` `stp`       |
 | ɡ͡b    |             | `mdv` `lbv` `stp`       |
 | ŋ͡m    |             | `mdv` `lbv` `stp`       |
@@ -757,18 +759,6 @@ has deprecated this combining character, while keeping the combined forms. As
 such, only the combined forms are supported, using the `fzd` feature. Cainteoir
 Text-to-Speech uses `vfz` for this combining character, but eSpeak NG does not
 preserve the distinction between ◌ˤ and ◌̴.
-
-##### Precomposed Characters
-
-These characters are represented as a single Unicode character. They can be
-used in place of the base character followed by a co-articulation combining
-character.
-
-| Symbol | Features                      |
-|--------|-------------------------------|
-| ɫ      | `mdv` `fzd` `alv` `lat` `apr` |
-| ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
-| ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
 ### Suprasegmentals
 
