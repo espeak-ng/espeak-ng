@@ -21,8 +21,8 @@
   - [Vowel Height](#vowel-height)
   - [Vowel Backness](#vowel-backness)
   - [Syllabicity](#syllabicity)
+  - [Consonant Release](#consonant-release)
   - [Diacritics](#diacritics)
-    - [Consonant Release](#consonant-release)
     - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
@@ -713,18 +713,16 @@ change their labialization from the default one specified by `rnd`.
 | `syl`   | ◌̩      | syllabic        |
 | `nsy`   | ◌̯      | non-syllabic    |
 
+### Consonant Release
+
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `asp`   | ◌ʰ     | aspirated       |
+| `nrs`   | ◌ⁿ     | nasal release   |
+| `lrs`   | ◌ˡ     | lateral release |
+| `unx`   | ◌̚      | no audible release (unexploded) |
+
 ### Diacritics
-
-#### Consonant Release
-
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `asp`   | `asp`       | ◌ʰ  | aspirated       |
-| `nrs`   |             | ◌ⁿ  | nasal release   |
-| `lrs`   |             | ◌ˡ  | lateral release |
-| `unx`   | `unx`       | ◌̚   | no audible release (unexploded) |
-
-__NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Speech.
 
 #### Fortis and Lenis
 
