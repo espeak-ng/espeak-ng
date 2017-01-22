@@ -663,7 +663,7 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 | `alf`   | alveolar ridge (front) |
 | `alb`   | alveolar ridge (back)  |
 | `hpl`   | hard palate            |
-| `spl`   | soft palate            |
+| `spl`   | soft palate (velum)    |
 | `uvu`   | uvular                 |
 | `prx`   | pharynx                |
 | `egs`   | epiglottis             |
@@ -682,6 +682,14 @@ The `unr` and `rnd` features are used for vowels to describe their default
 labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ and ◌ᵝ
 annotations to specify the type of labialization. Vowels can use these to
 change their labialization from the default one specified by `rnd`.
+
+Additionally, the degree of rounding/labialization can be specified using the
+following features:
+
+| Feature | Symbol | Name         |
+|---------|--------|--------------|
+| `mrd`   | ◌̹      | more rounded |
+| `lrd`   | ◌̜      | less rounded |
 
 ### Vowel Height
 
@@ -720,6 +728,24 @@ change their labialization from the default one specified by `rnd`.
 | `lrs`   | ◌ˡ     | lateral release                 |
 | `unx`   | ◌̚      | no audible release (unexploded) |
 
+### Co-articulation
+
+| Feature | Symbol | Name            | Co-Articulator | Type                  |
+|---------|--------|-----------------|----------------|-----------------------|
+| `pzd`   | ◌ʲ     | palatalized     | `hpl`          | Passive Articulator   |
+| `vzd`   | ◌ˠ     | velarized       | `spl`          | Passive Articulator   |
+| `fzd`   | ◌ˤ     | pharyngealized  | `prx`          | Passive Articulator   |
+| `nzd`   | ◌̃      | nasalized       | `nsl`          | Target                |
+| `rzd`   | ◌˞     | rhoticized      | `rfx`          | Place of Articulation |
+
+Additionally, the tongue root position can be specified using the following
+features:
+
+| Feature | Symbol | Name                  |
+|---------|--------|-----------------------|
+| `atr`   | ◌̘      | advanced tongue root  |
+| `rtr`   | ◌̙      | retracted tongue root |
+
 ### Fortis and Lenis
 
 | Feature | Kirshenbaum | IPA | Name            |
@@ -735,26 +761,6 @@ the Ewe, Tabasaran, Archi, and other languages<sup>\[<a href="#ref8">8</a>\]</su
 Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
-
-### Co-articulation
-
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `mrd`   |             | ◌̹   | more rounded    |
-| `lrd`   |             | ◌̜   | less rounded    |
-| `pzd`   | `pzd`       | ◌ʲ  | palatalized     |
-| `vzd`   | `vzd`       | ◌ˠ  | velarized       |
-| `fzd`   | `fzd`       | ◌ˤ  | pharyngealized  |
-| `atr`   |             | ◌̘   | advanced tongue root  |
-| `rtr`   |             | ◌̙   | retracted tongue root |
-| `nzd`   | `nzd`       | ◌̃   | nasalized       |
-| `rzd`   | `rzd`       | ◌˞  | rhoticized      |
-
-__NOTE:__ The IPA supports ◌̴ for velarized or pharynealized consonants. Unicode
-has deprecated this combining character, while keeping the combined forms. As
-such, only the combined forms are supported, using the `fzd` feature. Cainteoir
-Text-to-Speech uses `vfz` for this combining character, but eSpeak NG does not
-preserve the distinction between ◌ˤ and ◌̴.
 
 ### Suprasegmentals
 
