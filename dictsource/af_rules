@@ -1,5 +1,5 @@
 ﻿//maintainer: Christo de Klerk
-	// email: christodeklerk@gmail.com
+// email: christodeklerk@gmail.com
 // tel: +27 11 869 8265
 // Alberton, South Africa
 // Originally created by Willem van der Walt
@@ -842,6 +842,7 @@
           @) d (rosie     t // fix d sound: maand-/strand-/veldrosie/-s
           _) drukke (ry   dr%Wk@ // move default stress: drukkery and compounds
           @) d (t            // drop d: breedte/handtekening/rondte/rondtrek...
+          _) du (bai      d%u // unstressed and corrected u in Dubai/-er
              du (et       d%u:w // fix stress and -ue-sound: (klavier)duet/-te, etc.
          @n) d (uit       t_ // fix d sound and insert short break: enduit/handuit and similar
       verby) dw           dw // fix d sound: verbydwarrel/-dwaal/-dwing
@@ -2326,6 +2327,7 @@
              kruger       kr'Y@@r
              ku (ba@      k%y // move default stress: kubaan/kubane
              ku (biek     k%y // move default stress: kubiek/-e/-getal
+          _) kuber        kyb@r // fixed e sound: kuberruim(te)
              kulin        k%Wl%in // Move default stress and fix u sound: kulinër/-e
           @) kundi (g     k'Wnd@ // wiskundige/onoordeelkundigheid and many similar
              kurwe        kWrv@ // fix e sound: kurwes/skurwebas/skurwebek/skurwepadda
@@ -2450,7 +2452,7 @@
              katki (sA    k%atk@ // fix i sound: katkiseer/katkisasie, etc.
           _) ka (to       k%a // fix stress and a sound: katode and compounds/katoliek/katots
           _) ka (tr       k%a // move default stress: Katrina/katrol and compounds
-
+             kaval (@     k%av@l // short, unstressed a sounds: kavalier(s)/kavalkade and compounds
 
 .group ko
              kobra        ko@bra // fix vowel sounds: kobra/-gif/-slang, etc.
@@ -2761,7 +2763,8 @@
              marmer       marm@r_ // fix e sound: marmerbeeld/-blad and many others
              marmo (set   m%arm%u // fix stress and o sound: marmoset/-te
              mar (sje     m%ar // move default stress: marsjeer and derivatives
-             ma	s (biek    m%as // move default stress: masbieker/-s
+             mas (biek    m%as // move default stress: masbieker/-s
+             masedon (i   m%as@do@n // fix stress and vowel sounds: Masedonië/-r/Masedoniese
              masjien      m@Sin // masjien and many compounds
              masji (na@   m%aS%i // move default stress: masjinaal/-ale
              maskara      m%askA:r%a // move default stress: maskara and compounds
@@ -2880,6 +2883,7 @@
              ministeri    m@n@st%e@r%i // fix stress and vowel sounds: ministerieel/-ële
              mikr (o      mikr
              mikrobe    m%ikro@b@ // fix stress and vowel sounds: mikrobe/-s and compounds
+             mikron (K    mikrOn // fix O sound in mikron/-s
              mini (ma@    m%in%i // move default stress: minimaal/-ale
              minu (sku    m@n@ // fix stress and i sound: miniskuul/-ule
              ministers    m@n'Ist@rs
@@ -4211,6 +4215,7 @@
           @) skynlik      sk'eInl@k oê­³kynlik/onwaarskeinlik/waarskynlikheid
              smelt        sm&lt
              sodom (iet   s,o@dOm // fix stress and 2nd o sound: sodomiet/-e
+             son (aan     sOn_ // fix o sound, insert pause: sonaanbiddaar/-aanbidding
              son (g@      sOn // songebakte/-brande/-bruinde/-droogde/songod
              son (om      s''On_ // fix 1st o sound, pause: sonomspoelde/-omgewe
              sosial (i    so@Sial' // sosialis/sosialisme/sosialisties
@@ -4478,7 +4483,7 @@
           @) talig        t'A:l@x2 // Anderstalig/tweetalig
           @) ta (lis      t%a // shorten a sound: hospitalisasie/kapitalisme/katalisator and similar
              tama (tie    t%amA: // tamatie and compounds/kersietamaties, etc.
-             tamarisk     t%am%arIsk // fix stress and a sounds: tamarisk/-e/tamariskboom/-bome
+             tamar (A     t%am%ar // fix stress and a sounds: tamaryn/tamariske/tamariskboom/-bome
           _) ta (mb       t%a // tamboer and compounds/tambotie and compounds
              tamboe (ryn  t%amb%u // move default stress: tamboeryn/-e and compounds
              tamele (tj   t%am@lEi // fix stress and vowel sounds: tameletjie/-s
