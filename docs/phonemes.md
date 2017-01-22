@@ -567,10 +567,14 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 
 #### Manner
 
-| Feature | Symbol | Name       | Description                                      |
-|---------|--------|------------|--------------------------------------------------|
-| `occ`   |        | occlusive  | The air flow is blocked within the vocal tract.  |
-| `frv`   |        | fricative  | The air flow is constricted, causing turbulence. |
+| Feature | Name              | Description                                                                       |
+|---------|-------------------|-----------------------------------------------------------------------------------|
+| `occ`   | occlusive         | The air flow is blocked within the vocal tract.                                   |
+| `frv`   | fricative         | The air flow is constricted, causing turbulence.                                  |
+| `frr`   | fricative release | The air flow is constricted, causing turbulence.                                  |
+| `fla`   | flap              | A single tap of the tongue against the secondary articulator.                     |
+| `tri`   | trill             | A rapid vibration of the primary articulator against the secondary articulator.   |
+| `app`   | approximant       | The vocal tract is narrowed at the place of articulation without being turbulant. |
 
 ### Phonation
 
