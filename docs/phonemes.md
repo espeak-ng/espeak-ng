@@ -602,7 +602,7 @@ The place of articulation is described in terms of an active articulator and
 one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
 possible places of articulation are:
 
-| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Other   |
+| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Passive |
 |-----------------------|-----------|--------|--------|-------|---------|---------|
 | bilabial              | `blb`     |        | `lbl`  | `ulp` |         |         |
 | linguolabial          | `lgl`     | ◌̼      | `lmn`  | `ulp` |         |         |
