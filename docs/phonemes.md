@@ -20,8 +20,8 @@
   - [Rounding and Labialization](#rounding-and-labialization)
   - [Vowel Height](#vowel-height)
   - [Vowel Backness](#vowel-backness)
+  - [Syllabicity](#syllabicity)
   - [Diacritics](#diacritics)
-    - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
     - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
@@ -706,14 +706,14 @@ change their labialization from the default one specified by `rnd`.
 | `cnt`   | center          |
 | `bck`   | back            |
 
+### Syllabicity
+
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `syl`   | ◌̩      | syllabic        |
+| `nsy`   | ◌̯      | non-syllabic    |
+
 ### Diacritics
-
-#### Syllabicity
-
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `syl`   | `syl`       | ◌̩   | syllabic        |
-| `nsy`   |             | ◌̯   | non-syllabic    |
 
 #### Consonant Release
 
