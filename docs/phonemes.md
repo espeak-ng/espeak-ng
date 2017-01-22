@@ -12,13 +12,12 @@
   - [Place of Articulation](#place-of-articulation)
     - [Active Articulators](#active-articulators)
     - [Passive Articulators](#passive-articulators)
+  - [Rounding and Labialization](#rounding-and-labialization)
   - [Consonants](#consonants)
-    - [Co-articulation](#co-articulation)
     - [Manner of Articulation](#manner-of-articulation)
   - [Vowels](#vowels-1)
     - [Height](#height)
     - [Backness](#backness)
-    - [Rounding](#rounding)
   - [Diacritics](#diacritics)
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
@@ -353,12 +352,15 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 
 ### Other Symbols
 
-| Symbol | Features                |
-|--------|-------------------------|
-| ʍ      | `vls` `lbv` `apr`       |
-| w      | `mdv` `lbv` `apr`       |
-| ɥ      | `mdv` `lbp` `apr`       |
-| ɧ      | `vls` `vzd` `pla` `frc` |
+| Symbol | Alternative | Features                |
+|--------|-------------|-------------------------|
+| ʍ      | ɰ̊ʷ           | `vls` `vel` `ptr` `apr` |
+| w      | ɰʷ          | `mdv` `vel` `ptr` `apr` |
+| ɥ      | jʷ          | `mdv` `pal` `ptr` `apr` |
+| ɧ      |             | `vls` `vzd` `pla` `frc` |
+| k͡p    |             | `vls` `lbv` `stp`       |
+| ɡ͡b    |             | `mdv` `lbv` `stp`       |
+| ŋ͡m    |             | `mdv` `lbv` `stp`       |
 
 ### Vowels
 
@@ -465,20 +467,21 @@ The place of articulation is described in terms of an active articulator and
 one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
 possible places of articulation are:
 
-| Place of Articulation | Feature   | Symbol | Active | Passive |
-|-----------------------|-----------|--------|--------|---------|
-| bilabial              | `blb`     |        | `lbl`  | `ulp`   |
-| labiodental           | `lbd`     | ◌̪      | `lbl`  | `utt`   |
-| dental                | `dnt`     | ◌̪      | `apc`  | `utt`   |
-| alveolar              | `alv`     |        | `apc`  | `alf`   |
-| palato-alveolar       | `pla`     |        | `lmn`  | `alb`   |
-| retroflex             | `rfx`     |        | `sac`  | `hpl`   |
-| alveolo-palatal       | `alp`     |        | `dsl`  | `alb`   |
-| palatal               | `pal`     |        | `dsl`  | `hpl`   |
-| velar                 | `vel`     |        | `dsl`  | `spl`   |
-| uvular                | `uvl`     |        | `dsl`  | `uvu`   |
-| pharyngeal            | `phr`     |        | `rdl`  | `prx`   |
-| glottal               | `glt`     |        | `lyx`  | `gts`   |
+| Place of Articulation | Feature   | Symbol | Active | Lips  | Passive |
+|-----------------------|-----------|--------|--------|-------|---------|
+| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |
+| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |
+| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |
+| alveolar              | `alv`     |        | `apc`  |       | `alf`   |
+| palato-alveolar       | `pla`     |        | `lmn`  |       | `alb`   |
+| retroflex             | `rfx`     |        | `sac`  |       | `hpl`   |
+| alveolo-palatal       | `alp`     |        | `dsl`  |       | `alb`   |
+| palatal               | `pal`     |        | `dsl`  |       | `hpl`   |
+| velar                 | `vel`     |        | `dsl`  |       | `spl`   |
+| labio-velar           | `lbv`     |        | `dsl`  | `ulp` | `spl`   |
+| uvular                | `uvl`     |        | `dsl`  |       | `uvu`   |
+| pharyngeal            | `phr`     |        | `rdl`  |       | `prx`   |
+| glottal               | `glt`     |        | `lyx`  |       | `gts`   |
 
 The features for these places of articulation are provided for convenience, and
 to make it easier to describe the IPA consonants. Internally, the active and
@@ -517,14 +520,21 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 | `egs`   | epiglottis             |
 | `gts`   | glottis                |
 
+### Rounding and Labialization
+
+| Feature | Symbol | Name       | Rounded | Position                                |
+|---------|--------|------------|---------|-----------------------------------------|
+| `unr`   |        | unrounded  | No      | Close to the jaw.                       |
+| `ptr`   | ◌ʷ, ◌ᶣ | protruded  | Yes     | Protrude outward from the jaw.          |
+| `cmp`   | ◌ᵝ     | compressed | Yes     | Close to the jaw.                       |
+| `rnd`   |        | rounded    | Yes     | `ptr` if `bck` or `cnt`; `cmp` if `fnt` |
+
+The `unr` and `rnd` features are used for vowels to describe their default
+labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ and ◌ᵝ
+annotations to specify the type of labialization. Vowels can use these to
+change their labialization from the default one specified by `rnd`.
+
 ### Consonants
-
-#### Co-articulation
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `lbv`   | `lbv`       | labial-velar    |
-| `lbp`   |             | labial-palatal  |
 
 #### Manner of Articulation
 
@@ -574,13 +584,6 @@ __NOTE:__ `sib` is not used in the IPA charts.
 | `fnt`   | `fnt`       | front           |
 | `cnt`   | `cnt`       | center          |
 | `bck`   | `bck`       | back            |
-
-#### Rounding
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `unr`   | `unr`       | unrounded       |
-| `rnd`   | `rnd`       | rounded         |
 
 ### Diacritics
 
@@ -662,7 +665,6 @@ diacritics.
 |---------|-------------|-----|-----------------|
 | `mrd`   |             | ◌̹   | more rounded    |
 | `lrd`   |             | ◌̜   | less rounded    |
-| `lzd`   | `lzd`       | ◌ʷ  | labialized or labio-velarized |
 | `pzd`   | `pzd`       | ◌ʲ  | palatalized     |
 | `vzd`   | `vzd`       | ◌ˠ  | velarized       |
 | `fzd`   | `fzd`       | ◌ˤ  | pharyngealized  |
