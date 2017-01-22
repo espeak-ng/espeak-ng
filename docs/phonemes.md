@@ -6,10 +6,14 @@
   - [Other Symbols](#other-symbols)
   - [Vowels](#vowels)
 - [Features](#features)
+  - [Air Flow](#air-flow)
+  - [Initiator](#initiator)
+  - [Phonation](#phonation)
+  - [Place of Articulation](#place-of-articulation)
+    - [Active Articulators](#active-articulators)
+    - [Passive Articulators](#passive-articulators)
   - [Consonants](#consonants)
-    - [Voicing](#voicing)
-    - [Place of Articulation](#place-of-articulation)
-      - [Co-articulation](#co-articulation)
+    - [Co-articulation](#co-articulation)
     - [Manner of Articulation](#manner-of-articulation)
   - [Vowels](#vowels-1)
     - [Height](#height)
@@ -19,7 +23,7 @@
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
       - [Gemination](#gemination)
-    - [Phonation](#phonation)
+    - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
       - [Precomposed Characters](#precomposed-characters)
@@ -242,7 +246,7 @@ sections.
   </tr>
 </table>
 
-Symbols to the left are `vls`, and to the right are `vcd`.
+Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
 
 ### Consonants (Non-Pulmonic)
 
@@ -290,7 +294,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
     <td> </td>
   </tr>
   <tr>
-    <th align="right"><code>vcd</code>&#xA0;<code>imp</code></th>
+    <th align="right"><code>mdv</code>&#xA0;<code>imp</code></th>
     <td>ɓ</td>
     <td> </td>
     <td> </td>
@@ -352,8 +356,8 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | Symbol | Features                |
 |--------|-------------------------|
 | ʍ      | `vls` `lbv` `apr`       |
-| w      | `vcd` `lbv` `apr`       |
-| ɥ      | `vcd` `lbp` `apr`       |
+| w      | `mdv` `lbv` `apr`       |
+| ɥ      | `mdv` `lbp` `apr`       |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
 ### Vowels
@@ -417,36 +421,105 @@ above table.
 
 ## Features
 
-### Consonants
+### Air Flow
 
-#### Voicing
+| Feature | Symbol | Name       | Description                                            |
+|---------|--------|------------|--------------------------------------------------------|
+| `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator.    |
+| `igs`   | ↓      | ingressive | The air flow is moving inwards towards the initiator.  |
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vcd`   | `vcd`       | voiced          |
-| `vls`   | `vls`       | voiceless       |
+The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
+They only need to be used when the air flow is different to the base IPA
+phoneme (e.g. using ↓ on pulmonic consonants).
 
-#### Place of Articulation
+### Initiator
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `blb`   | `blb`       | bilabial        |
-| `lbd`   | `lbd`       | labio-dental    |
-| `dnt`   | `dnt`       | dental          |
-| `alv`   | `alv`       | alveolar        |
-| `pla`   | `pla`       | post-alveolar (palato-alveolar) |
-| `rfx`   | `rfx`       | retroflex       |
-| `alp`   |             | alveolo-palatal |
-| `pal`   | `pal`       | palatal         |
-| `vel`   | `vel`       | velar           |
-| `uvl`   | `uvl`       | uvular          |
-| `phr`   | `phr`       | pharyngeal/epiglottal |
-| `glt`   | `glt`       | glottal         |
+| Feature | Name       | Description                                                           |
+|---------|------------|-----------------------------------------------------------------------|
+| `pmc`   | pulmonic   | The diaphragm and lungs are used to generate the airstream.           |
+| `gtc`   | glottalic  | The glottis is used to generate the airstream.                        |
+| `vlc`   | velaric    | The velum is closed and the tongue is used to generate the airstream. |
+| `pcv`   | percussive | There is no airstream used to produce this sound.                     |
+
+#### Phonation
+
+The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
+
+| Feature | Symbol | Name            | Description                                                                 |
+|---------|--------|-----------------|-----------------------------------------------------------------------------|
+| `vls`   |        | voiceless       | The glottis is fully open, such that the vocal chords do not vibrate.       |
+| `brv`   | ◌̤      | breathy voice   | The glottis is closed slightly, to produce a whispered or murmured sound.   |
+| `slv`   | ◌̥      | slack voice     | The glottis is opened wider than `mdv`, but not enough to be `brv`.         |
+| `mdv`   |        | modal voice     | The glottis is opened to provide the optimal vibration of the vocal chords. |
+| `stv`   | ◌̬      | stiff voice     | The glottis is closed narrower than `mdv`, but not enough to be `crv`.      |
+| `crv`   | ◌̰      | creaky voice    | The glottis is closed to produce a vocal or glottal fry.                    |
+| `glc`   | ʔ͡◌    | glottal closure | The glottis is fully closed.                                                |
+
+The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
+charts. Thus, when ◌̥ is used with a `mdv` consonant that does not have an
+equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
+
+### Place of Articulation
+
+The place of articulation is described in terms of an active articulator and
+one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
+possible places of articulation are:
+
+| Place of Articulation | Feature   | Symbol | Active | Passive |
+|-----------------------|-----------|--------|--------|---------|
+| bilabial              | `blb`     |        | `lbl`  | `ulp`   |
+| labiodental           | `lbd`     | ◌̪      | `lbl`  | `utt`   |
+| dental                | `dnt`     | ◌̪      | `apc`  | `utt`   |
+| alveolar              | `alv`     |        | `apc`  | `alf`   |
+| palato-alveolar       | `pla`     |        | `lmn`  | `alb`   |
+| retroflex             | `rfx`     |        | `sac`  | `hpl`   |
+| alveolo-palatal       | `alp`     |        | `dsl`  | `alb`   |
+| palatal               | `pal`     |        | `dsl`  | `hpl`   |
+| velar                 | `vel`     |        | `dsl`  | `spl`   |
+| uvular                | `uvl`     |        | `dsl`  | `uvu`   |
+| pharyngeal            | `phr`     |        | `rdl`  | `prx`   |
+| glottal               | `glt`     |        | `lyx`  | `gts`   |
+
+The features for these places of articulation are provided for convenience, and
+to make it easier to describe the IPA consonants. Internally, the active and
+passive articulators are used.
+
+The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used on
+`alv` consonants.
 
 __NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
 consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
-##### Co-articulation
+#### Active Articulators
+
+| Feature | Name      | Articulator             |
+|---------|-----------|-------------------------|
+| `lbl`   | labial    | lower lip               |
+| `lmn`   | laminal   | tongue blade            |
+| `apc`   | apical    | tongue tip              |
+| `sac`   | subapical | underside of the tongue |
+| `dsl`   | dorsal    | tongue body             |
+| `rdl`   | radical   | tongue root             |
+| `lyx`   | laryngeal | larynx                  |
+
+#### Passive Articulators
+
+| Feature | Articulator            |
+|---------|------------------------|
+| `ulp`   | upper lip              |
+| `utt`   | upper teeth            |
+| `alf`   | alveolar ridge (front) |
+| `alb`   | alveolar ridge (back)  |
+| `hpl`   | hard palate            |
+| `spl`   | soft palate            |
+| `uvu`   | uvular                 |
+| `prx`   | pharynx                |
+| `egs`   | epiglottis             |
+| `gts`   | glottis                |
+
+### Consonants
+
+#### Co-articulation
 
 | Feature | Kirshenbaum | Name            |
 |---------|-------------|-----------------|
@@ -544,22 +617,12 @@ with the first phoneme using the `unx` feature. For example, n̚.n for a
 geminated n. This describes how with the `stp` and `nas` consonants, the
 mouth remains closed (`unx`) for the first of the geminated consonants.
 
-#### Phonation
+#### Fortis and Lenis
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
-| `brv`   |             | ◌̤   | breathy voiced  |
-| `crv`   |             | ◌̰   | creaky voiced   |
 | `fts`   |             | ◌͈   | fortis          |
 | `lns`   |             | ◌͉   | lenis           |
-
-The IPA ◌̬ and ◌̥ diacritics (*voiced* and *voiceless*) are used for both
-filling spaces in the IPA consonants chart and making the distinction
-between *fortis* and *lenis* consonants. Cainteoir Text-to-Speech uses `slv`
-(slack voice) and `stv` (stiff voice) for these diacritics. For eSpeak NG,
-these diacritics are only used for controlling their voiced/voiceless
-property (and thus their position on the IPA code chart), so `vls` and `vcd`
-are used for these diacritics.
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -574,7 +637,6 @@ the [length](#length) suprasegmentals are used instead.
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
-| `dzd`   |             | ◌̪   | dental          |
 | `apc`   |             | ◌̺   | apical          |
 | `lmn`   |             | ◌̻   | laminal         |
 | `lgl`   |             | ◌̼   | linguolabial    |
@@ -623,7 +685,7 @@ character.
 
 | Symbol | Features                      |
 |--------|-------------------------------|
-| ɫ      | `vcd` `fzd` `alv` `lat` `apr` |
+| ɫ      | `mdv` `fzd` `alv` `lat` `apr` |
 | ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
 | ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
@@ -691,7 +753,7 @@ Appendix A of his ASCII/IPA transcription, but are not used in the rest of
 the specification.
 
 __NOTE:__ Evan Kirshenbaum transcribes ɦ as `h<?>` (`{mrm,glt,frc}`), while
-Wikipedia also lists this as a `{vcd,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
+Wikipedia also lists this as a `{mdv,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
 This is the only phoneme that Kirshenbaum uses the `mrm` feature for. As such,
 the `mrm` feature is not used within this document.
 
@@ -724,4 +786,8 @@ the `mrm` feature is not used within this document.
 
 8. <a name="ref8"></a> Wikipedia.
    [Fortis and lenis](https://en.wikipedia.org/wiki/Fortis_and_lenis). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+9. <a name="ref9"></a> Wikipedia.
+   [Place of articulation](https://en.wikipedia.org/wiki/Place_of_articulation). 2017,
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
