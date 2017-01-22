@@ -1,6 +1,6 @@
 name urdu
 language ur
-
+maintainer Ejaz Shah <eashah67@gmail.com>
 status testing
 
 stressrule 6

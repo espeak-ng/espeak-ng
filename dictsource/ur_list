@@ -44,9 +44,9 @@ _و	va:O
 ء	HamzaH
 ی	c#o:t.i:||je:
 ے	bar.i:||je:
-ئ	h'amzaje:
+ئ	HamzaHje:
 ۂ	He:h'amza
-_ؤ	hamzava:O
+_ؤ	va:Oh'amza
 
 َ	z@b@R
 ِ	ze:R
@@ -55,9 +55,6 @@ _ؤ	hamzava:O
 ّ	t,aSd'i:d
 ً	d'o:zab'aR
 ْ	sUk'u:n
-۔	xatma
-،	sakta
-؟	sava:li:;anISa:n
 
 
 // The numbers
@@ -89,7 +86,7 @@ _24	caUb'i:s
 _25	pacc'i:s
 _26	c#abb'i:s
 _27	sat:a:'i:s
-_28	,at.#a:j'i:s
+_28	,at#:a:j'i:s
 _29	Unt'i:s
 _30	t'i:s
 _31	ikVt'i:s
@@ -195,10 +192,6 @@ _dpt	_ISaRI'Ia_
 انہوں	,UnH'o:n	$u
 انہیں	,UnH'e:n	$u
 انھیں	,UnH'e:n	$u
-جنہوں	J,InH'o:n	$u
-جنہیں	JInHe:n	$u
-تجھ	tUJ#	$u
-انہی	InHi:	$u
 
 // unstressed prepositions
 کا	$u
@@ -217,12 +210,17 @@ _dpt	_ISaRI'Ia_
 تھی 	$u
 تھے 	$u
 تھیں	t#'i:n	$u
+گا	ga:	$u
+گی	gi:	$u
+گے	ge:	$u
+کر	kaR	$u
+ہوں	Hu:n	$atend	$u
 
 // Pronunciation exceptions
 پبلک	p'abl,Ik
 آئرش	'a:IR,IS
 برگ	b'aRg
-(آئس کریم)	a:Is||kR'i:m
+(آئیس کریم)	a:'i:s||kR'i:m
 آئیسنگ	,a:is'Ing
 آئدیلسٹ	'a:Id.,i:;al,Ist.
 آئڈیلزم	'a:Id.,i:;al,Izam
@@ -681,329 +679,43 @@ _dpt	_ISaRI'Ia_
 مانند	ma:n'Ind	$1
 اتار	Ut'a:R
 آرکائیو	,a:Rk'a:jv
-کیلئے	ke:l'i:;e:
-طرح	t,aR'aH
-اگر	ag'aR
-ٹیم	t.'i:m
-اوپر	u:p'aR	$1
-کر	k'aR	$u
-لیا	l'i:;a:	$u
-کئے	k'i:;e:
-ضرورت	z,aRu:R'at
-مگر	mag'aR
-بنا	ban'a:
-بنی	ban'i:
-بنے	ban'e:
-بتا	bat'a:
-بتی	bat'i:
-پتا	pat'a:
-پتی	pat'i:
-پتے	pat'e:
-دیگر	dig'aR
-فیصد	fis.'ad
-جنرل	J,anR'al
-ترقی	taR'aqi
-سید	s,ai;'ad
-اجلاس	,IJl'a:s
-باہر	ba:H'aR
-حضرت	H,azR'at
-تاکہ	ta:k'e:H	$u
-یعنی	ja:n'i:	$1
-ناظم	n'a:z.Im
-حل	H'al
-دیئے	d'i:;e:
-تحت	t'EHEt
-لیگ	l'i:g
-علم	'Ilm
-قانون	qa:n'u:n	$1
-ثابت	s'a:bIt
-ضلع	z'Ila:
-خطاب	xIt'a:b
-اندر	'andaR
-طلب	tal'ab
-لہذا	lIH'a:Da:
-متاثرہ	mUt'a:sIRa
-نقصان	n,Uqs.'a:n
-وغیرہ	v'aQERa
-صورتحال	s.,u:Rate:H'a:l
-کھلاڑی	k#Il'a:r.i
-پروفیسر	pRo:fe:s'aR
-علاج	Il'a:J
-برس	baR'as
-کارکردگی	k,a:Rk'aRd@g,i:
-ہمیشہ	Ham'e:S,a
-ملاقات	m,Ula:q'a:t
-شائع	S'a:ja:
-ساحل	s'a:HIl
-یونیورسٹی	j'u:njvaRsIt.,i:
-انضمام	,InzIm'a:m
-خدا	x'Uda:
-محنت	m,EHn'at
-مرکزی	m,aRk'azi
-اجازت	,IJa:z'at
-مقدار	m,Iqd'a:R
-تعاون	t'a:vUn
-سن	s'Un
-خدمات	x,Idm'a:t
-شاید	Sa:j'ad
-اخر	'a:xIR
-ورلڈ	v'aRld.
-خدمت	x,Idm'at
-کن	k'In
-شاہد	S'a:HId
-صنعت	s.an'at
-وکٹ	v'IkIt.
-دودھ	d'u:d#
-تربیت	t,aRbi;'at
-تصور	tas.'avUR
-چنانچہ	cUn'a:nce:H
-واقعات	v,a:qe:'a:t
-معیشت	m,a:iS'at
-ذہن	D'EHEn
-گورنمنٹ	gav'aRnmInt.
-فرق	f'aRq
-حیات	H,ai;'a:t
-طالب	t'a:lIb
-حضور	HUz'u:R
-نور	n'u:R
-ذریعہ	DaR'i:;a:
-مقصد	m,aqs.'ad
-معاونت	m,Oa:vIn'at
-خاتون	xa:t'u:n
-اطلاع	'Itl,a:
-اطلاعات	,Itl'a:t
-سنہ	s'an
-دسٹرکٹ	d.'Ist.RIkt.
-اون	'u:n
-اونی	u:n'i:
-مصطفیٰ	m,Us.t'afa:
-ملوث	m,Ulav'as
-کلو	k'Ilo:
-ترقیاتی	t,aRaq,i:;a:t'i:
-طارق	t'a:RIq
-حامل	H'a:mIl
-انٹرنیشنل	Int.'aRn,e:Sn,al
+لنک	lInk
+فہرست	fEHRIst
+کیلئے	ke:li:;e:
+اگر	agaR	$u
+ضرورت	zaRu:Rat
+مگر	magaR	$u
+دیگر	digaR
 اہم	EHEm
-باوجود	ba:vUJu:d
-گروپ	gRu:p
-واضح	va:ze:H	$1
-امن	amn
-فٹ	fIt.
-آخر	a:xIR
-سبب	sabab
-مجموعی	maJmu:i
-مجلس	maJlIs
-پریس	pRe:s
-غالب	Qa:lIb
-سٹی	sIt.i
-نقشہ	naqSa
-امور	Umu:R
-ضمن	zImn
-حکام	HUka:m
-پہر	pEHER
-کانفرنس	ka:nfRans
-سرحد	saRHad
-سیکرٹری	se:kRIt.Ri:
-خالد	xa:lId
-ملیں	mIle:n
-(کا دور)	ka:||dOR	$2
-ملین	mIli;an
-یونین	ju:ni;an
-ذہنی	DEHni:
-حمایت	HIma:jat
-تجارت	tIJa:Rat
-تجارتی	tIJa:Rti:	$2
-گورنر	gavaRnaR
-واقعہ	va:qja
-والد	va:lId
-نہایت	nIHa:jat
-محور	mEHvaR
-انصاف	Ins.a:f
-مالک	ma:lIk
-البتہ	albata
-بخش	baxS
-لحاظ	lIHa:z.
-دعوت	da:vat
-دریافت	daRja:ft
-محروم	mEHRu:m
-مصارف	mas.a:RIf
-انڈین	Ind.i;an	$2
-خاطر	xa:tIR
-جذبات	JaDba:t
-دراندازی	daR||anda:zi:
-مرتب	mURatab
-سینئر	si:nI;aR
-غربت	QURbat
-ارشاد	IRSa:d
-بیمہ	bi:ma
-مرزا	mIRza:
-جہت	JEHEt
-واحد	va:HId
-قدرتی	qUdRati:
-حکمت	HIkmat
-موثر	mo:asaR
-میٹر	mit.aR
-مسٹر	mIst.aR
-پہلو	pEHlu:
-حلقہ	Halqa
-مملکت	mamlIkat
-ارشد	aRSad
-اکرم	akRam
-ڈسٹرکٹ	d.Ist.RIkt.
-خبر	xabaR
-کنٹرول	kant.Ro:l
-اسٹاف	Ist.a:f
-اکبر	akbaR
-طاہر	ta:HIR
-فرض	faRz
-قبل	qabl
-حافظ	Ha:fIz.
-رویہ	Ravai:;a
-رویوں	Ravai;o:n
-رویے	Ravai:;e:
-تذبذب	taD'abDUb
-سکور	sko:R
-حالانکہ	Ha:la:nke:H	$2
-دکھ	dUk#
-سول	sIvIl
-اسلم	aslam
-مبتلا	mUbtIla:
-حدود	HUdu:d
-مبارک	mUba:Rak
-عزت	Izat
-نوید	navi:d
-اعجاز	e:Ja:z
-پہ	pEH
-سود	su:d
-عارف	a:RIf
-جناح	JIna:H
-بدستور	badastu:R	$3
-اوسط	Osat
-بہن	bEHEn
-موومنٹ	mu:vmInt.
-طرز	taRz
-بارش	ba:RIS
-انٹرویو	Int.aRvi;u:
-بولنگ	bo:lIng
-نصف	nIs.f
-مواقع	mava:qe:
-میسر	mUjasaR
-ناصر	na:s.IR
-ورک	vaRk
-لباس	lIba:s
-ایکشن	EkSan
-عرفان	IRfa:n	$2
-ضائع	za:ja:
-ڈپٹی	d.Ipt.i:
-ممبر	mImbaR
-ثبوت	sUbu:t
-انحصار	InHIs.a:R
-تاثر	ta:sUR
-اظہر	az.HaR
-اہلکاروں	EHElka:Ro:n	$3
-اہلکار	EHElka:R
-ترکی	tURki:
-آپس	a:pas
-مہر	mEHER
-قاسم	qa:sIm
-حضرات	HazRa:t
-ظلم	z.Ulm
-بھائیوں	b#a:i;o:n
-جون	Ju:n
-مصنوعات	mas.nu:a:t
-رجحان	RUJHa:n
-سپریم	sUpRi:m
-عملدرآمد	amaldaRa:mad
-دوں	du:n
-ٹکٹ	t.IkIt.
-عناصر	ana:s.IR
-مسعود	masu:d
-حرکت	HaRkat
-راشد	Ra:SId
-اشرف	aSRaf
-قاتل	qa:tIl
-اسلحہ	aslaHa
-فخر	faxR
-ردعمل	Rade:a:mal
-کرفیو	kaRfju:
-افتخار	IftIxa:R
-جمیعت	Jami;at
-مابین	ma:be:n
-ٹرک	t.Rak
-اک	Ik
-افادہ	Ifa:da
-ملازمت	mUla:zImat
-نافذ	na:fID
-عبادت	Iba:dat
-امجد	amJad
-ترک	taRk
-مستحکم	mUstEHkam
-مشن	mISan
-دانش	da:nIS
-دیہ	de:H
-فرم	faRm
-مفید	mUfi:d
-حامد	Ha:mId
-حفاظتی	HIfa:z.ati:
-مشتاق	mUSta:q
-تحسین	tEHsi:n
-ایئر	ER
-چیلنج	ce:lInJ
-حسب	Hasb
-قارئین	qa:RI;i:n
-جامع	Ja:me:
-عزم	azm
-فیلڈ	fi:ld.
-خطے	xIte:
-امت	Umat
-خراج	xIRa:J
-شوگر	Su:gaR
-منیر	mUni:R
-ملت	mIlat
-جونیئر	JUni;aR
-ایگزیکٹو	EgzEkIt.Iv
-ڈویژن	d.IviZan
-انخلا	InxIla:
-ماڈلز	ma:d.alz
-پلس	plas
-سمارٹ	sma:Rt.
-نیوی	ne:vi
-انکشاف	InkISa:f
-منکشف	mUnkaSIf
-مقدم	maqdam
-متعارف	mUta:RIf
-دلی	dIli	$1
-سگریٹ	sIgRe:t.
-اوور	o:vaR
-قدرت	qUdRat
-جانور	Ja:nvaR
-شکریہ	SUkRi:;a
-جانوروں	Ja:nvaRo:n
-نرم	naRm
-نیم	ni:m
-مزاحمت	mUza:HImat
+فیصد	fis.ad
+جنرل	JanRal
+علاوہ	ala:va
+ترقی	taRaqi
+سیریز	siRi:z
+صورت	s.u:Rat
+سید	sai;ad
+اجلاس	IJla:s
+حضرت	HazRat
+تاکہ	ta:ke:H	$1
+یعنی	ja:ni:	$1
+والوں	va:lo:n	$1
+ناظم	na:z.Im
+طرف	taRaf
+گھنٹہ	g#ant.a:
+کمسن	kamsIn
+طیب	tai;ab
+طیبہ	tai;aba
+طہور	taHOvUR
+کمسنی	kamsIni:	$1
+ای	i:
+نیو	nju:
+نیوز	nju:z
+مہلت	mUHlat
+ملوث	mUlavvas
+اٹرویو	Int.aRvi;u:
+انٹرویوز	Int.aRvi;u:z
+لیکس	li:ks
+نصرت	nUs.Rat
+خاتون	xa:tu:n
 برتری	baRtaRi
-صادق	s.a:dIq
-گویا	go:ja:
-گنجائش	gUnJa:IS
-علوم	Ulu:m
-مطمئن	mUtmaIn
-ظہور	z.aHu:R
-بہرحال	baHaRHa:l
-گروہ	gIRo:H
-بروقت	baRvaqt
-نفرت	nafRat
-یکم	jakUm
-صفر	s.IfaR
-شرط	SaRt
-پرنسپل	pRInsIpal
-جگر	JIgaR
-مدنظر	made:naz.aR
-وزراء	vUzaRa:
-بدقسمتی	badqIsmati
-بزنس	bIznIs
-منظم	mUnaz.am
-مقاصد	maqa:s.Id
-نعمت	ne:mat
-نامور	na:mvaR
-ہرگز	HaRgIz
+برتر	baRtaR
