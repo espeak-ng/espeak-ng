@@ -748,10 +748,10 @@ features:
 
 ### Fortis and Lenis
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `fts`   |             | ◌͈   | fortis          |
-| `lns`   |             | ◌͉   | lenis           |
+| Feature |Symbol | Name   |
+|---------|-------|--------|
+| `fts`   | ◌͈     | fortis |
+| `lns`   | ◌͉     | lenis  |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -766,52 +766,52 @@ the [length](#length) suprasegmentals are used instead.
 
 #### Stress
 
-| Feature | Kirshenbaum | IPA | Name             |
-|---------|-------------|-----|------------------|
-| `st1`   |             | ˈ◌  | primary stress   |
-| `st2`   |             | ˌ◌  | secondary stress |
-| `st3`   |             | ˈˈ◌ | extra stress     |
+| Feature | Symbol | Name             |
+|---------|--------|------------------|
+| `st1`   | ˈ◌     | primary stress   |
+| `st2`   | ˌ◌     | secondary stress |
+| `st3`   | ˈˈ◌    | extra stress     |
 
 #### Length
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `est`   |             | ◌̆   | extra short     |
-| `hlg`   |             | ◌ˑ  | half-long       |
-| `lng`   | `lng`       | ◌ː  | long            |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `est`   | ◌̆      | extra short     |
+| `hlg`   | ◌ˑ     | half-long       |
+| `lng`   | ◌ː     | long            |
 
 #### Rhythm
 
-| Feature | Kirshenbaum | IPA | Name              |
-|---------|-------------|-----|-------------------|
-| `sbr`   |             | ◌.◌ | syllable break    |
-| `lnk`   |             | ◌‿◌ | linked (no break) |
+| Feature | Symbol | Name              |
+|---------|--------|-------------------|
+| `sbr`   | ◌.◌    | syllable break    |
+| `lnk`   | ◌‿◌    | linked (no break) |
 
 #### Intonation
 
-| Feature | Kirshenbaum | IPA    | Name                     |
-|---------|-------------|--------|--------------------------|
-| `fbr`   |             | &#124; | minor (foot) break       |
-| `ibr`   |             | ‖      | major (intonation) break |
-| `glr`   |             | ↗      | global rise              |
-| `glf`   |             | ↘      | global fall              |
+| Feature | Symbol | Name                     |
+|---------|--------|--------------------------|
+| `fbr`   | &#124; | minor (foot) break       |
+| `ibr`   | ‖      | major (intonation) break |
+| `glr`   | ↗      | global rise              |
+| `glf`   | ↘      | global fall              |
 
 ### Tones
 
-| Tone               | IPA | Start | Middle | End   |
-|--------------------|-----|-------|--------|-------|
-| extra high (top)   | ◌˥  | `ts5` | `tm5`  | `te5` |
-| high               | ◌˦  | `ts4` | `tm4`  | `te4` |
-| mid                | ◌˧  | `ts3` | `tm3`  | `te3` |
-| low                | ◌˨  | `ts2` | `tm2`  | `te2` |
-| extra low (bottom) | ◌˩  | `ts1` | `tm1`  | `te1` |
+| Tone               | Symbol | Start | Middle | End   |
+|--------------------|--------|-------|--------|-------|
+| extra high (top)   | ◌˥     | `ts5` | `tm5`  | `te5` |
+| high               | ◌˦     | `ts4` | `tm4`  | `te4` |
+| mid                | ◌˧     | `ts3` | `tm3`  | `te3` |
+| low                | ◌˨     | `ts2` | `tm2`  | `te2` |
+| extra low (bottom) | ◌˩     | `ts1` | `tm1`  | `te1` |
 
 #### Tone Stepping
 
-| Feature | Kirshenbaum | IPA | Name        |
-|---------|-------------|-----|-------------|
-| `dst`   |             | ꜛ◌  | downstep    |
-| `ust`   |             | ꜜ◌  | upstep      |
+| Feature | Symbol | Name        |
+|---------|--------|-------------|
+| `dst`   | ꜛ◌     | downstep    |
+| `ust`   | ꜜ◌     | upstep      |
 
 ## References
 
