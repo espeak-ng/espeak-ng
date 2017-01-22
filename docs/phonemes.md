@@ -8,8 +8,8 @@
 - [Features](#features)
   - [Air Flow](#air-flow)
   - [Initiator](#initiator)
+  - [Phonation](#phonation)
   - [Consonants](#consonants)
-    - [Voicing](#voicing)
     - [Place of Articulation](#place-of-articulation)
       - [Co-articulation](#co-articulation)
     - [Manner of Articulation](#manner-of-articulation)
@@ -21,7 +21,7 @@
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
       - [Gemination](#gemination)
-    - [Phonation](#phonation)
+    - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
       - [Precomposed Characters](#precomposed-characters)
@@ -244,7 +244,7 @@ sections.
   </tr>
 </table>
 
-Symbols to the left are `vls`, and to the right are `vcd`.
+Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
 
 ### Consonants (Non-Pulmonic)
 
@@ -292,7 +292,7 @@ Symbols to the left are `vls`, and to the right are `vcd`.
     <td> </td>
   </tr>
   <tr>
-    <th align="right"><code>vcd</code>&#xA0;<code>imp</code></th>
+    <th align="right"><code>mdv</code>&#xA0;<code>imp</code></th>
     <td>ɓ</td>
     <td> </td>
     <td> </td>
@@ -354,8 +354,8 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | Symbol | Features                |
 |--------|-------------------------|
 | ʍ      | `vls` `lbv` `apr`       |
-| w      | `vcd` `lbv` `apr`       |
-| ɥ      | `vcd` `lbp` `apr`       |
+| w      | `mdv` `lbv` `apr`       |
+| ɥ      | `mdv` `lbp` `apr`       |
 | ɧ      | `vls` `vzd` `pla` `frc` |
 
 ### Vowels
@@ -439,14 +439,25 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 | `vlc`   | velaric    | The velum is closed and the tongue is used to generate the airstream. |
 | `pcv`   | percussive | There is no airstream used to produce this sound.                     |
 
+#### Phonation
+
+The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
+
+| Feature | Symbol | Name            | Description                                                                 |
+|---------|--------|-----------------|-----------------------------------------------------------------------------|
+| `vls`   |        | voiceless       | The glottis is fully open, such that the vocal chords do not vibrate.       |
+| `brv`   | ◌̤      | breathy voice   | The glottis is closed slightly, to produce a whispered or murmured sound.   |
+| `slv`   | ◌̥      | slack voice     | The glottis is opened wider than `mdv`, but not enough to be `brv`.         |
+| `mdv`   |        | modal voice     | The glottis is opened to provide the optimal vibration of the vocal chords. |
+| `stv`   | ◌̬      | stiff voice     | The glottis is closed narrower than `mdv`, but not enough to be `crv`.      |
+| `crv`   | ◌̰      | creaky voice    | The glottis is closed to produce a vocal or glottal fry.                    |
+| `glc`   | ʔ͡◌    | glottal closure | The glottis is fully closed.                                                |
+
+The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
+charts. Thus, when ◌̥ is used with a `mdv` consonant that does not have an
+equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
+
 ### Consonants
-
-#### Voicing
-
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vcd`   | `vcd`       | voiced          |
-| `vls`   | `vls`       | voiceless       |
 
 #### Place of Articulation
 
@@ -566,22 +577,12 @@ with the first phoneme using the `unx` feature. For example, n̚.n for a
 geminated n. This describes how with the `stp` and `nas` consonants, the
 mouth remains closed (`unx`) for the first of the geminated consonants.
 
-#### Phonation
+#### Fortis and Lenis
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
-| `brv`   |             | ◌̤   | breathy voiced  |
-| `crv`   |             | ◌̰   | creaky voiced   |
 | `fts`   |             | ◌͈   | fortis          |
 | `lns`   |             | ◌͉   | lenis           |
-
-The IPA ◌̬ and ◌̥ diacritics (*voiced* and *voiceless*) are used for both
-filling spaces in the IPA consonants chart and making the distinction
-between *fortis* and *lenis* consonants. Cainteoir Text-to-Speech uses `slv`
-(slack voice) and `stv` (stiff voice) for these diacritics. For eSpeak NG,
-these diacritics are only used for controlling their voiced/voiceless
-property (and thus their position on the IPA code chart), so `vls` and `vcd`
-are used for these diacritics.
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -645,7 +646,7 @@ character.
 
 | Symbol | Features                      |
 |--------|-------------------------------|
-| ɫ      | `vcd` `fzd` `alv` `lat` `apr` |
+| ɫ      | `mdv` `fzd` `alv` `lat` `apr` |
 | ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
 | ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
@@ -713,7 +714,7 @@ Appendix A of his ASCII/IPA transcription, but are not used in the rest of
 the specification.
 
 __NOTE:__ Evan Kirshenbaum transcribes ɦ as `h<?>` (`{mrm,glt,frc}`), while
-Wikipedia also lists this as a `{vcd,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
+Wikipedia also lists this as a `{mdv,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
 This is the only phoneme that Kirshenbaum uses the `mrm` feature for. As such,
 the `mrm` feature is not used within this document.
 
