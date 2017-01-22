@@ -571,15 +571,14 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 
 #### Manner
 
-| Feature | Name              | Description                                                                       |
-|---------|-------------------|-----------------------------------------------------------------------------------|
-| `occ`   | occlusive         | The air flow is blocked within the vocal tract.                                   |
-| `frv`   | fricative         | The air flow is constricted, causing turbulence.                                  |
-| `frr`   | fricative release | The air flow is constricted, causing turbulence.                                  |
-| `fla`   | flap              | A single tap of the tongue against the secondary articulator.                     |
-| `tri`   | trill             | A rapid vibration of the primary articulator against the secondary articulator.   |
-| `app`   | approximant       | The vocal tract is narrowed at the place of articulation without being turbulant. |
-| `vow`   | vowel             | The phoneme is articulated as a vowel instead of a consonant.                     |
+| Feature | Name        | Description                                                                       |
+|---------|-------------|-----------------------------------------------------------------------------------|
+| `occ`   | occlusive   | The air flow is blocked within the vocal tract.                                   |
+| `frv`   | fricative   | The air flow is constricted, causing turbulence.                                  |
+| `fla`   | flap        | A single tap of the tongue against the secondary articulator.                     |
+| `tri`   | trill       | A rapid vibration of the primary articulator against the secondary articulator.   |
+| `app`   | approximant | The vocal tract is narrowed at the place of articulation without being turbulant. |
+| `vow`   | vowel       | The phoneme is articulated as a vowel instead of a consonant.                     |
 
 ### Phonation
 
@@ -715,11 +714,12 @@ change their labialization from the default one specified by `rnd`.
 
 ### Consonant Release
 
-| Feature | Symbol | Name            |
-|---------|--------|-----------------|
-| `asp`   | ◌ʰ     | aspirated       |
-| `nrs`   | ◌ⁿ     | nasal release   |
-| `lrs`   | ◌ˡ     | lateral release |
+| Feature | Symbol | Name                            |
+|---------|--------|---------------------------------|
+| `frr`   |        | fricative release               |
+| `asp`   | ◌ʰ     | aspirated                       |
+| `nrs`   | ◌ⁿ     | nasal release                   |
+| `lrs`   | ◌ˡ     | lateral release                 |
 | `unx`   | ◌̚      | no audible release (unexploded) |
 
 ### Diacritics
