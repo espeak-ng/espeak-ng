@@ -1,9 +1,10 @@
 # Phonemes
 
-- [IPA Charts](#ipa-charts)
+- [IPA Phonemes](#ipa-phonemes)
   - [Consonants (Pulmonic)](#consonants-pulmonic)
   - [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
   - [Other Symbols](#other-symbols)
+  - [Gemination](#gemination)
   - [Vowels](#vowels)
 - [Features](#features)
   - [Air Flow](#air-flow)
@@ -21,7 +22,6 @@
   - [Diacritics](#diacritics)
     - [Syllabicity](#syllabicity)
     - [Consonant Release](#consonant-release)
-      - [Gemination](#gemination)
     - [Fortis and Lenis](#fortis-and-lenis)
     - [Articulation](#articulation)
     - [Co-articulation](#co-articulation-1)
@@ -70,10 +70,10 @@ article can be used as a starting point, as it links to topics and descriptions
 of the various phonemes.
 
 The diacritics and suprasegmental feature lists also show their corresponding
-IPA symbol. This is to avoid duplicating the lists in the IPA chart and Feature
+IPA symbol. This is to avoid duplicating the lists in the IPA Phonemes and Feature
 sections.
 
-## IPA Charts
+## IPA Phonemes
 
 ## Consonants (Pulmonic)
 
@@ -409,6 +409,21 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | p͡f    |             | `vls` `bld` `afr`       |
 | b͡v    |             | `mdv` `bld` `afr`       |
 
+##### Gemination
+
+Gemination is found in several languages including Italian and Japanese.
+It is also present in the suprasegmental phonology between words such as
+"lamppost" and "evenness".
+
+Some linguists use the [long](#length) suprasegmental for geminate consonants.
+The eSpeak NG convention is to use consonant length for [phonation](#phonation)
+when consonant length is distinct without gemination occurring.
+
+The way gemination is represented in eSpeak NG is to duplicate the phonemes,
+with the first phoneme using the `unx` feature. For example, n̚.n for a
+geminated n. This describes how with the `stp` and `nas` consonants, the
+mouth remains closed (`unx`) for the first of the geminated consonants.
+
 ### Vowels
 
 <table>
@@ -656,21 +671,6 @@ __NOTE:__ `sib` is not used in the IPA charts.
 | `unx`   | `unx`       | ◌̚   | no audible release (unexploded) |
 
 __NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Speech.
-
-##### Gemination
-
-Gemination is found in several languages including Italian and Japanese.
-It is also present in the suprasegmental phonology between words such as
-"lamppost" and "evenness".
-
-Some linguists use the [long](#length) suprasegmental for geminate consonants.
-The eSpeak NG convention is to use consonant length for [phonation](#phonation)
-when consonant length is distinct without gemination occurring.
-
-The way gemination is represented in eSpeak NG is to duplicate the phonemes,
-with the first phoneme using the `unx` feature. For example, n̚.n for a
-geminated n. This describes how with the `stp` and `nas` consonants, the
-mouth remains closed (`unx`) for the first of the geminated consonants.
 
 #### Fortis and Lenis
 
