@@ -41,34 +41,24 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-This document describes the IPA phonemes using the features used by Kirshenbaum.
-Where Kirshenbaum does not specify a feature name, the feature name from
-Cainteoir Text-to-Speech<sup>\[<a href="#ref5">5</a>\]</sup> is used. This is
-to provide a consistent naming scheme for the extended feature set. Where there
-is still no feature available, a custom 3-letter feature name is chosen.
-
-The aim of the feature set described in this document is to specify the underlying
-phonetics and phonemics of the sounds being produced in a way that is consistent
-between languages and voices. While this feature set is modelled on the IPA, it
-is not meant to be able to preserve phoneme transcriptions when using a
-transcription as both the input and output phoneme sets. This document provides
-commentary on the intended usage of these features where there is ambiguity from
-the associated IPA usage between authors.
+Kirshenbaum uses features that align with the way the IPA phoneme charts are
+organised. This document uses the Kirshenbaum features as a base to work from,
+but extends them to describe the underlying phonetic processes in a way that
+is consistent between languages and voices.
 
 This document is grouped into two sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
 at that position in the chart. This makes it easier to look up the features for
 a given IPA phoneme.
 
-The second section lists the features and their associated name. This section
-does not describe what these mean. Their meaning is described in phonetics
-articles, books and Wikipedia. The Wikipedia IPA<sup>\[<a href="#ref4">4</a>\]</sup>
-article can be used as a starting point, as it links to topics and descriptions
-of the various phonemes.
+The second section lists the features and their associated name. The Wikipedia
+IPA<sup>\[<a href="#ref4">4</a>\]</sup> article can be used as a starting point
+into the various phonetic topics contained in this document.
 
-The diacritics and suprasegmental feature lists also show their corresponding
-IPA symbol. This is to avoid duplicating the lists in the IPA Phonemes and Feature
-sections.
+The goal of this document is not to provide a detailed guide on phonetics.
+Instead, it is designed to be a transcription guide on how to specify phonemes
+in a language or voice so that the narrow transcriptions are consistent between
+the two.
 
 ## IPA Phonemes
 
