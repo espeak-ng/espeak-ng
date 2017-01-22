@@ -358,6 +358,9 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | w      | ɰʷ          | `mdv` `vel` `ptr` `apr` |
 | ɥ      | jʷ          | `mdv` `pal` `ptr` `apr` |
 | ɧ      |             | `vls` `vzd` `pla` `frc` |
+| k͡p    |             | `vls` `lbv` `stp`       |
+| ɡ͡b    |             | `mdv` `lbv` `stp`       |
+| ŋ͡m    |             | `mdv` `lbv` `stp`       |
 
 ### Vowels
 
@@ -464,20 +467,21 @@ The place of articulation is described in terms of an active articulator and
 one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
 possible places of articulation are:
 
-| Place of Articulation | Feature   | Symbol | Active | Passive |
-|-----------------------|-----------|--------|--------|---------|
-| bilabial              | `blb`     |        | `lbl`  | `ulp`   |
-| labiodental           | `lbd`     | ◌̪      | `lbl`  | `utt`   |
-| dental                | `dnt`     | ◌̪      | `apc`  | `utt`   |
-| alveolar              | `alv`     |        | `apc`  | `alf`   |
-| palato-alveolar       | `pla`     |        | `lmn`  | `alb`   |
-| retroflex             | `rfx`     |        | `sac`  | `hpl`   |
-| alveolo-palatal       | `alp`     |        | `dsl`  | `alb`   |
-| palatal               | `pal`     |        | `dsl`  | `hpl`   |
-| velar                 | `vel`     |        | `dsl`  | `spl`   |
-| uvular                | `uvl`     |        | `dsl`  | `uvu`   |
-| pharyngeal            | `phr`     |        | `rdl`  | `prx`   |
-| glottal               | `glt`     |        | `lyx`  | `gts`   |
+| Place of Articulation | Feature   | Symbol | Active | Lips  | Passive |
+|-----------------------|-----------|--------|--------|-------|---------|
+| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |
+| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |
+| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |
+| alveolar              | `alv`     |        | `apc`  |       | `alf`   |
+| palato-alveolar       | `pla`     |        | `lmn`  |       | `alb`   |
+| retroflex             | `rfx`     |        | `sac`  |       | `hpl`   |
+| alveolo-palatal       | `alp`     |        | `dsl`  |       | `alb`   |
+| palatal               | `pal`     |        | `dsl`  |       | `hpl`   |
+| velar                 | `vel`     |        | `dsl`  |       | `spl`   |
+| labio-velar           | `lbv`     |        | `dsl`  | `ulp` | `spl`   |
+| uvular                | `uvl`     |        | `dsl`  |       | `uvu`   |
+| pharyngeal            | `phr`     |        | `rdl`  |       | `prx`   |
+| glottal               | `glt`     |        | `lyx`  |       | `gts`   |
 
 The features for these places of articulation are provided for convenience, and
 to make it easier to describe the IPA consonants. Internally, the active and
