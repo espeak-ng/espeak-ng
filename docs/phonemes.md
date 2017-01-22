@@ -22,10 +22,8 @@
   - [Vowel Backness](#vowel-backness)
   - [Syllabicity](#syllabicity)
   - [Consonant Release](#consonant-release)
-  - [Diacritics](#diacritics)
-    - [Fortis and Lenis](#fortis-and-lenis)
-    - [Articulation](#articulation)
-    - [Co-articulation](#co-articulation-1)
+  - [Fortis and Lenis](#fortis-and-lenis)
+  - [Co-articulation](#co-articulation-1)
   - [Suprasegmentals](#suprasegmentals)
     - [Stress](#stress)
     - [Length](#length)
@@ -722,9 +720,7 @@ change their labialization from the default one specified by `rnd`.
 | `lrs`   | ◌ˡ     | lateral release                 |
 | `unx`   | ◌̚      | no audible release (unexploded) |
 
-### Diacritics
-
-#### Fortis and Lenis
+### Fortis and Lenis
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
@@ -740,7 +736,7 @@ Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
 
-#### Co-articulation
+### Co-articulation
 
 | Feature | Kirshenbaum | IPA | Name            |
 |---------|-------------|-----|-----------------|
