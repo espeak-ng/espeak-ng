@@ -7,6 +7,13 @@
 
 The espeak-ng project is a fork of the espeak project.
 
+### 1.49.2 - (In Development)
+
+updated languages:
+
+*  af (Afrikaans) -- Christo de Klerk
+*  ur (Urdu) -- Ejaz Shah
+
 ### 1.49.1 - 2017-01-21
 
 *  Vim syntax support for rule files.
