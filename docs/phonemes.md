@@ -7,8 +7,8 @@
 - [Vowels](#vowels)
 - [Diacritics](#diacritics)
   - [Articulation](#articulation)
-- [Features](#features)
   - [Air Flow](#air-flow)
+- [Features](#features)
   - [Phonation](#phonation)
   - [Place of Articulation](#place-of-articulation)
     - [Active Articulators](#active-articulators)
@@ -503,8 +503,6 @@ The articulations that do not have a corresponding feature name are recorded
 using the features of their new location in the consonant or vowel charts, not
 using the features of the base phoneme.
 
-## Features
-
 ### Air Flow
 
 | Feature | Symbol | Name       |
@@ -515,6 +513,8 @@ using the features of the base phoneme.
 The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
 They only need to be used when the air flow is different to the base IPA
 phoneme (e.g. using ↓ on pulmonic consonants).
+
+## Features
 
 ### Phonation
 
