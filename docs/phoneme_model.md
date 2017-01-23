@@ -11,6 +11,7 @@
 - [Vowel Backness](#vowel-backness)
 - [Rounding and Labialization](#rounding-and-labialization)
   - [Vowel Rounding](#vowel-rounding)
+- [Syllabicity](#syllabicity)
 - [References](#references)
 
 ----------
@@ -222,6 +223,13 @@ The degree of rounding/labialization is specified using the following features:
 |-----------|---------|------------------------------------------|
 | unrounded | `unr`   | `unr`                                    |
 | rounded   | `rnd`   | `ptr` if `bck` or `cnt`; `cmp` if `fnt`. |
+
+## Syllabicity
+
+| Feature | Name         |
+|---------|--------------|
+| `syl`   | syllabic     |
+| `nsy`   | non-syllabic |
 
 ## References
 

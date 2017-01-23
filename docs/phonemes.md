@@ -15,8 +15,8 @@
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
   - [Rounding and Labialization](#rounding-and-labialization)
-- [Features](#features)
   - [Syllabicity](#syllabicity)
+- [Features](#features)
   - [Consonant Release](#consonant-release)
   - [Fortis and Lenis](#fortis-and-lenis)
   - [Co-articulation](#co-articulation-1)
@@ -603,14 +603,14 @@ features:
 | `mrd`   | ◌̹      | more rounded |
 | `lrd`   | ◌̜      | less rounded |
 
-## Features
-
 ### Syllabicity
 
 | Feature | Symbol | Name            |
 |---------|--------|-----------------|
 | `syl`   | ◌̩      | syllabic        |
 | `nsy`   | ◌̯      | non-syllabic    |
+
+## Features
 
 ### Consonant Release
 
