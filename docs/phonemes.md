@@ -5,7 +5,8 @@
   - [Gemination](#gemination)
   - [Manner of Articulation](#manner-of-articulation)
 - [Vowels](#vowels)
-- [Positioning Diacritics](#positioning-diacritics)
+- [Diacritics](#diacritics)
+  - [Articulation](#articulation)
 - [Features](#features)
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
@@ -481,22 +482,26 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
-## Positioning Diacritics
+## Diacritics
 
-The following IPA diacritics are only used by eSpeak NG to fill out positions
-in the IPA consonant and vowel charts. As such those phonemes are transcribed
-according to the features at that position, not using the features at the
-location of the base phoneme with a feature for each of the positioning
-diacritics.
+### Articulation
 
-| Symbol | Name            |
-|--------|-----------------|
-| ◌̟      | advanced        |
-| ◌̠      | retracted       |
-| ◌̈      | centralized     |
-| ◌̽      | mid-centralized |
-| ◌̝      | raised          |
-| ◌̞      | lowered         |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `lgl`   | ◌̼      | linguolabial    |
+|         | ◌̪      | dental          |
+| `apc`   | ◌̺      | apical          |
+| `lmn`   | ◌̻      | laminal         |
+|         | ◌̟      | advanced        |
+|         | ◌̠      | retracted       |
+|         | ◌̈      | centralized     |
+|         | ◌̽      | mid-centralized |
+|         | ◌̝      | raised          |
+|         | ◌̞      | lowered         |
+
+The articulations that do not have a corresponding feature name are recorded
+using the features of their new location in the consonant or vowel charts, not
+using the features of the base phoneme.
 
 ## Features
 
