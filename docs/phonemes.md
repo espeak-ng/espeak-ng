@@ -41,11 +41,6 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-Kirshenbaum uses features that align with the way the IPA phoneme charts are
-organised. This document uses the Kirshenbaum features as a base to work from,
-but extends them to describe the underlying phonetic processes in a way that
-is consistent between languages and voices.
-
 This document is grouped into three sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
 at that position in the chart. This makes it easier to look up the features for
