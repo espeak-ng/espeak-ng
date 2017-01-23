@@ -16,8 +16,8 @@
   - [Phonation](#phonation)
   - [Rounding and Labialization](#rounding-and-labialization)
   - [Syllabicity](#syllabicity)
-- [Features](#features)
   - [Consonant Release](#consonant-release)
+- [Features](#features)
   - [Fortis and Lenis](#fortis-and-lenis)
   - [Co-articulation](#co-articulation-1)
   - [Suprasegmentals](#suprasegmentals)
@@ -610,17 +610,16 @@ features:
 | `syl`   | ◌̩      | syllabic        |
 | `nsy`   | ◌̯      | non-syllabic    |
 
-## Features
-
 ### Consonant Release
 
 | Feature | Symbol | Name                            |
 |---------|--------|---------------------------------|
-| `frr`   |        | fricative release               |
 | `asp`   | ◌ʰ     | aspirated                       |
 | `nrs`   | ◌ⁿ     | nasal release                   |
 | `lrs`   | ◌ˡ     | lateral release                 |
 | `unx`   | ◌̚      | no audible release (unexploded) |
+
+## Features
 
 ### Co-articulation
 

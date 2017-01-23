@@ -12,6 +12,7 @@
 - [Rounding and Labialization](#rounding-and-labialization)
   - [Vowel Rounding](#vowel-rounding)
 - [Syllabicity](#syllabicity)
+- [Consonant Release](#consonant-release)
 - [References](#references)
 
 ----------
@@ -230,6 +231,16 @@ The degree of rounding/labialization is specified using the following features:
 |---------|--------------|
 | `syl`   | syllabic     |
 | `nsy`   | non-syllabic |
+
+## Consonant Release
+
+| Feature | Name                            |
+|---------|---------------------------------|
+| `frr`   | fricative release               |
+| `asp`   | aspirated                       |
+| `nrs`   | nasal release                   |
+| `lrs`   | lateral release                 |
+| `unx`   | no audible release (unexploded) |
 
 ## References
 
