@@ -5,6 +5,8 @@
   - [Initiator](#initiator)
   - [Target](#target)
   - [Manner](#manner)
+- [Phonation](#phonation)
+  - [Voice](#voice)
 - [References](#references)
 
 ----------
@@ -96,6 +98,27 @@ features:
 | `tri`   | trill       | A rapid vibration of the primary articulator against the secondary articulator.   |
 | `app`   | approximant | The vocal tract is narrowed at the place of articulation without being turbulant. |
 | `vow`   | vowel       | The phoneme is articulated as a vowel instead of a consonant.                     |
+
+## Phonation
+
+The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
+
+| Feature | Name            | Description                                                                 |
+|---------|-----------------|-----------------------------------------------------------------------------|
+| `vls`   | voiceless       | The glottis is fully open, such that the vocal chords do not vibrate.       |
+| `brv`   | breathy voice   | The glottis is closed slightly, to produce a whispered or murmured sound.   |
+| `slv`   | slack voice     | The glottis is opened wider than `mdv`, but not enough to be `brv`.         |
+| `mdv`   | modal voice     | The glottis is opened to provide the optimal vibration of the vocal chords. |
+| `stv`   | stiff voice     | The glottis is closed narrower than `mdv`, but not enough to be `crv`.      |
+| `crv`   | creaky voice    | The glottis is closed to produce a vocal or glottal fry.                    |
+| `glc`   | glottal closure | The glottis is fully closed.                                                |
+
+### Voice
+
+| Voice     | Feature | Phoneme Model |
+|-----------|---------|---------------|
+| voiceless | `vls`   | `vls`         |
+| voiced    | `vcd`   | `mdv`         |
 
 ## References
 

@@ -4,12 +4,13 @@
   - [Other Symbols](#other-symbols)
   - [Gemination](#gemination)
   - [Manner of Articulation](#manner-of-articulation)
+  - [Voice](#voice)
 - [Vowels](#vowels)
 - [Diacritics](#diacritics)
   - [Articulation](#articulation)
   - [Air Flow](#air-flow)
-- [Features](#features)
   - [Phonation](#phonation)
+- [Features](#features)
   - [Place of Articulation](#place-of-articulation)
     - [Active Articulators](#active-articulators)
     - [Passive Articulators](#passive-articulators)
@@ -361,24 +362,24 @@ the two.
   </tr>
 </table>
 
-Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
+Symbols to the left are `vls`, and to the right are `vcd`.
 
 ### Other Symbols
 
 | Symbol | Alternative | Features                |
 |--------|-------------|-------------------------|
 | ʍ      | ɰ̊ʷ           | `vls` `vel` `ptr` `apr` |
-| w      | ɰʷ          | `mdv` `vel` `ptr` `apr` |
-| ɥ      | jʷ          | `mdv` `pal` `ptr` `apr` |
+| w      | ɰʷ          | `vcd` `vel` `ptr` `apr` |
+| ɥ      | jʷ          | `vcd` `pal` `ptr` `apr` |
 | ɧ      |             | `vls` `vzd` `pla` `frc` |
-| ɫ      |             | `mdv` `fzd` `alv` `lat` `apr` |
+| ɫ      |             | `vcd` `fzd` `alv` `lat` `apr` |
 | ɚ      |             | `unr` `mid` `cnt` `rzd` `vwl` |
 | ɝ      |             | `unr` `lmd` `cnt` `rzd` `vwl` |
 | k͡p    |             | `vls` `lbv` `stp`       |
-| ɡ͡b    |             | `mdv` `lbv` `stp`       |
-| ŋ͡m    |             | `mdv` `lbv` `stp`       |
+| ɡ͡b    |             | `vcd` `lbv` `stp`       |
+| ŋ͡m    |             | `vcd` `lbv` `stp`       |
 | p͡f    |             | `vls` `bld` `afr`       |
-| b͡v    |             | `mdv` `bld` `afr`       |
+| b͡v    |             | `vcd` `bld` `afr`       |
 
 ### Gemination
 
@@ -422,6 +423,14 @@ features:
 |---------|----------|
 | `lat`   | lateral  |
 | `sib`   | sibilant |
+
+
+### Voice
+
+| Feature | Name      |
+|---------|-----------|
+| `vls`   | voiceless |
+| `vcd`   | voiced    |
 
 ## Vowels
 
@@ -514,25 +523,21 @@ The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]<
 They only need to be used when the air flow is different to the base IPA
 phoneme (e.g. using ↓ on pulmonic consonants).
 
-## Features
-
 ### Phonation
 
-The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
-
-| Feature | Symbol | Name            | Description                                                                 |
-|---------|--------|-----------------|-----------------------------------------------------------------------------|
-| `vls`   |        | voiceless       | The glottis is fully open, such that the vocal chords do not vibrate.       |
-| `brv`   | ◌̤      | breathy voice   | The glottis is closed slightly, to produce a whispered or murmured sound.   |
-| `slv`   | ◌̥      | slack voice     | The glottis is opened wider than `mdv`, but not enough to be `brv`.         |
-| `mdv`   |        | modal voice     | The glottis is opened to provide the optimal vibration of the vocal chords. |
-| `stv`   | ◌̬      | stiff voice     | The glottis is closed narrower than `mdv`, but not enough to be `crv`.      |
-| `crv`   | ◌̰      | creaky voice    | The glottis is closed to produce a vocal or glottal fry.                    |
-| `glc`   | ʔ͡◌    | glottal closure | The glottis is fully closed.                                                |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `brv`   | ◌̤      | breathy voice   |
+| `slv`   | ◌̥      | slack voice     |
+| `stv`   | ◌̬      | stiff voice     |
+| `crv`   | ◌̰      | creaky voice    |
+| `glc`   | ʔ͡◌    | glottal closure |
 
 The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
-charts. Thus, when ◌̥ is used with a `mdv` consonant that does not have an
+charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
 equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
+
+## Features
 
 ### Place of Articulation
 
