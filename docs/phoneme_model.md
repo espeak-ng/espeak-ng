@@ -7,6 +7,8 @@
   - [Manner](#manner)
 - [Phonation](#phonation)
   - [Voice](#voice)
+- [Vowel Height](#vowel-height)
+- [Vowel Backness](#vowel-backness)
 - [Rounding and Labialization](#rounding-and-labialization)
   - [Vowel Rounding](#vowel-rounding)
 - [References](#references)
@@ -178,6 +180,26 @@ The phonation features describe the degree to which the glottis (vocal chords) a
 |-----------|---------|---------------|
 | voiceless | `vls`   | `vls`         |
 | voiced    | `vcd`   | `mdv`         |
+
+## Vowel Height
+
+| Feature | Name                   |
+|---------|------------------------|
+| `hgh`   | close (high)           |
+| `smh`   | near-close (semi-high) |
+| `umd`   | close-mid (upper-mid)  |
+| `mid`   | mid                    |
+| `lmd`   | open-mid (lower-mid)   |
+| `sml`   | near-open (semi-low)   |
+| `low`   | open (low)             |
+
+## Vowel Backness
+
+| Feature | Name            |
+|---------|-----------------|
+| `fnt`   | front           |
+| `cnt`   | center          |
+| `bck`   | back            |
 
 ## Rounding and Labialization
 

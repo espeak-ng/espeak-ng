@@ -6,16 +6,16 @@
   - [Manner of Articulation](#manner-of-articulation)
   - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
-    - [Rounding](#rounding)
 - [Vowels](#vowels)
+  - [Rounding](#rounding)
+  - [Height](#height)
+  - [Backness](#backness)
 - [Diacritics](#diacritics)
   - [Articulation](#articulation)
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
   - [Rounding and Labialization](#rounding-and-labialization)
 - [Features](#features)
-  - [Vowel Height](#vowel-height)
-  - [Vowel Backness](#vowel-backness)
   - [Syllabicity](#syllabicity)
   - [Consonant Release](#consonant-release)
   - [Fortis and Lenis](#fortis-and-lenis)
@@ -514,6 +514,26 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
+### Height
+
+| Feature | Name                   |
+|---------|------------------------|
+| `hgh`   | close (high)           |
+| `smh`   | near-close (semi-high) |
+| `umd`   | close-mid (upper-mid)  |
+| `mid`   | mid                    |
+| `lmd`   | open-mid (lower-mid)   |
+| `sml`   | near-open (semi-low)   |
+| `low`   | open (low)             |
+
+### Backness
+
+| Feature | Name            |
+|---------|-----------------|
+| `fnt`   | front           |
+| `cnt`   | center          |
+| `bck`   | back            |
+
 ### Rounding
 
 | Feature | Name      |
@@ -584,26 +604,6 @@ features:
 | `lrd`   | ◌̜      | less rounded |
 
 ## Features
-
-### Vowel Height
-
-| Feature | Name                   |
-|---------|------------------------|
-| `hgh`   | close (high)           |
-| `smh`   | near-close (semi-high) |
-| `umd`   | close-mid (upper-mid)  |
-| `mid`   | mid                    |
-| `lmd`   | open-mid (lower-mid)   |
-| `sml`   | near-open (semi-low)   |
-| `low`   | open (low)             |
-
-### Vowel Backness
-
-| Feature | Name            |
-|---------|-----------------|
-| `fnt`   | front           |
-| `cnt`   | center          |
-| `bck`   | back            |
 
 ### Syllabicity
 
