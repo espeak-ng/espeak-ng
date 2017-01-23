@@ -781,8 +781,8 @@ the [length](#length) suprasegmentals are used instead.
 
 | Feature | Symbol | Name        |
 |---------|--------|-------------|
-| `dst`   | ꜛ◌     | downstep    |
-| `ust`   | ꜜ◌     | upstep      |
+| `ust`   | ꜛ◌     | upstep      |
+| `dst`   | ꜜ◌     | downstep    |
 
 ## Properties
 
