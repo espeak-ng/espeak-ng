@@ -18,7 +18,7 @@
   - [Syllabicity](#syllabicity)
   - [Consonant Release](#consonant-release)
   - [Co-articulation](#co-articulation)
-- [Features](#features)
+  - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
   - [Suprasegmentals](#suprasegmentals)
     - [Stress](#stress)
@@ -629,10 +629,9 @@ features:
 | `nzd`   | ◌̃      | nasalized      |
 | `rzd`   | ◌˞     | rhoticized     |
 
-## Features
+### Tongue Root
 
-Additionally, the tongue root position can be specified using the following
-features:
+The tongue root position can be specified using the following features:
 
 | Feature | Symbol | Name                  |
 |---------|--------|-----------------------|

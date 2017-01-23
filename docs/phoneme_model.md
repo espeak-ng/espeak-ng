@@ -18,6 +18,8 @@
   - [Vowel Rounding](#vowel-rounding)
 - [Syllabicity](#syllabicity)
 - [Consonant Release](#consonant-release)
+- [Tongue Root](#tongue-root)
+- [Fortis and Lenis](#fortis-and-lenis)
 - [References](#references)
 
 ----------
@@ -262,6 +264,22 @@ The degree of rounding/labialization is specified using the following features:
 | `nrs`   | nasal release                   |
 | `lrs`   | lateral release                 |
 | `unx`   | no audible release (unexploded) |
+
+## Tongue Root
+
+The tongue root position can be specified using the following features:
+
+| Feature | Symbol | Name                  |
+|---------|--------|-----------------------|
+| `atr`   | ◌̘      | advanced tongue root  |
+| `rtr`   | ◌̙      | retracted tongue root |
+
+## Fortis and Lenis
+
+| Feature | Name   |
+|---------|--------|
+| `fts`   | fortis |
+| `lns`   | lenis  |
 
 ## References
 
