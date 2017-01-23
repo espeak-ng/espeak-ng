@@ -1,11 +1,10 @@
 # Phonemes
 
-- [IPA Phonemes](#ipa-phonemes)
-  - [Consonants](#consonants)
-    - [Other Symbols](#other-symbols)
-    - [Gemination](#gemination)
-  - [Vowels](#vowels)
-  - [Positioning Diacritics](#positioning-diacritics)
+- [Consonants](#consonants)
+  - [Other Symbols](#other-symbols)
+  - [Gemination](#gemination)
+- [Vowels](#vowels)
+- [Positioning Diacritics](#positioning-diacritics)
 - [Features](#features)
   - [Manner of Articulation](#manner-of-articulation)
   - [Air Flow](#air-flow)
@@ -56,9 +55,7 @@ Instead, it is designed to be a transcription guide on how to specify phonemes
 in a language or voice so that the narrow transcriptions are consistent between
 the two.
 
-## IPA Phonemes
-
-### Consonants
+## Consonants
 
 <table>
   <tr>
@@ -365,7 +362,7 @@ the two.
 
 Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
 
-#### Other Symbols
+### Other Symbols
 
 | Symbol | Alternative | Features                |
 |--------|-------------|-------------------------|
@@ -382,7 +379,7 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | p͡f    |             | `vls` `bld` `afr`       |
 | b͡v    |             | `mdv` `bld` `afr`       |
 
-#### Gemination
+### Gemination
 
 Gemination is found in several languages including Italian and Japanese.
 It is also present in the suprasegmental phonology between words such as
@@ -397,7 +394,7 @@ with the first phoneme using the `unx` feature. For example, n̚.n for a
 geminated n. This describes how with the `stp` and `nas` consonants, the
 mouth remains closed (`unx`) for the first of the geminated consonants.
 
-### Vowels
+## Vowels
 
 <table>
   <tr>
@@ -456,7 +453,7 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
-### Positioning Diacritics
+## Positioning Diacritics
 
 The following IPA diacritics are only used by eSpeak NG to fill out positions
 in the IPA consonant and vowel charts. As such those phonemes are transcribed
