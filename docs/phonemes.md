@@ -20,13 +20,12 @@
   - [Co-articulation](#co-articulation)
   - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
-  - [Suprasegmentals](#suprasegmentals)
-    - [Stress](#stress)
-    - [Length](#length)
-    - [Rhythm](#rhythm)
-    - [Intonation](#intonation)
+- [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
+  - [Length](#length)
+  - [Rhythm](#rhythm)
+  - [Intonation](#intonation)
   - [Tone Stepping](#tone-stepping)
-- [Properties](#properties)
   - [Tones](#tones)
 - [References](#references)
 
@@ -654,9 +653,9 @@ Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
 
-### Suprasegmentals
+## Suprasegmentals
 
-#### Stress
+### Stress
 
 | Feature | Symbol | Name             |
 |---------|--------|------------------|
@@ -664,7 +663,7 @@ the [length](#length) suprasegmentals are used instead.
 | `st2`   | ˌ◌     | secondary stress |
 | `st3`   | ˈˈ◌    | extra stress     |
 
-#### Length
+### Length
 
 | Feature | Symbol | Name            |
 |---------|--------|-----------------|
@@ -672,14 +671,14 @@ the [length](#length) suprasegmentals are used instead.
 | `hlg`   | ◌ˑ     | half-long       |
 | `lng`   | ◌ː     | long            |
 
-#### Rhythm
+### Rhythm
 
 | Feature | Symbol | Name              |
 |---------|--------|-------------------|
 | `sbr`   | ◌.◌    | syllable break    |
 | `lnk`   | ◌‿◌    | linked (no break) |
 
-#### Intonation
+### Intonation
 
 | Feature | Symbol | Name                     |
 |---------|--------|--------------------------|
@@ -688,14 +687,12 @@ the [length](#length) suprasegmentals are used instead.
 | `glr`   | ↗      | global rise              |
 | `glf`   | ↘      | global fall              |
 
-#### Tone Stepping
+### Tone Stepping
 
 | Feature | Symbol | Name        |
 |---------|--------|-------------|
 | `ust`   | ꜛ◌     | upstep      |
 | `dst`   | ꜜ◌     | downstep    |
-
-## Properties
 
 ### Tones
 

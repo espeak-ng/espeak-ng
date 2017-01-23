@@ -20,6 +20,12 @@
 - [Consonant Release](#consonant-release)
 - [Tongue Root](#tongue-root)
 - [Fortis and Lenis](#fortis-and-lenis)
+- [Stress](#stress)
+- [Length](#length)
+- [Rhythm](#rhythm)
+- [Intonation](#intonation)
+- [Tone Stepping](#tone-stepping)
+- [Tones](#tones)
 - [References](#references)
 
 ----------
@@ -280,6 +286,69 @@ The tongue root position can be specified using the following features:
 |---------|--------|
 | `fts`   | fortis |
 | `lns`   | lenis  |
+
+## Stress
+
+| Feature | Name             |
+|---------|------------------|
+| `st1`   | primary stress   |
+| `st2`   | secondary stress |
+| `st3`   | extra stress     |
+
+## Length
+
+| Feature | Name            |
+|---------|-----------------|
+| `est`   | extra short     |
+| `hlg`   | half-long       |
+| `lng`   | long            |
+
+## Rhythm
+
+| Feature | Name              |
+|---------|-------------------|
+| `sbr`   | syllable break    |
+| `lnk`   | linked (no break) |
+
+## Intonation
+
+| Feature | Name                     |
+|---------|--------------------------|
+| `fbr`   | minor (foot) break       |
+| `ibr`   | major (intonation) break |
+| `glr`   | global rise              |
+| `glf`   | global fall              |
+
+## Tone Stepping
+
+| Feature | Name        |
+|---------|-------------|
+| `ust`   | upstep      |
+| `dst`   | downstep    |
+
+## Tones
+
+Tones are defined using the following 3 properties:
+
+	tone_start  <value>
+	tone_middle <value>
+	tone_end    <value>
+
+The `<value>` field for these properties is a number with one of the following
+values:
+
+| Tone               | `<value>` |
+|--------------------|-----------|
+| extra high (top)   | `5`       |
+| high               | `4`       |
+| mid                | `3`       |
+| low                | `2`       |
+| extra low (bottom) | `1`       |
+
+A *level* tone can be specified by just using the `tone_start` value. A *raising*
+or *falling* tone can be specified using the `tone_start` and `tone_end` values.
+A *raising-falling* (*peaking*) or *falling-raising* (*dipping*) tone can be
+specified using all three values.
 
 ## References
 
