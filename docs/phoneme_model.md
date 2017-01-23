@@ -7,6 +7,8 @@
   - [Manner](#manner)
 - [Phonation](#phonation)
   - [Voice](#voice)
+- [Rounding and Labialization](#rounding-and-labialization)
+  - [Vowel Rounding](#vowel-rounding)
 - [References](#references)
 
 ----------
@@ -176,6 +178,28 @@ The phonation features describe the degree to which the glottis (vocal chords) a
 |-----------|---------|---------------|
 | voiceless | `vls`   | `vls`         |
 | voiced    | `vcd`   | `mdv`         |
+
+## Rounding and Labialization
+
+| Feature | Name       | Rounded | Position                       |
+|---------|------------|---------|--------------------------------|
+| `unr`   | unrounded  | No      | Close to the jaw.              |
+| `ptr`   | protruded  | Yes     | Protrude outward from the jaw. |
+| `cmp`   | compressed | Yes     | Close to the jaw.              |
+
+The degree of rounding/labialization is specified using the following features:
+
+| Feature | Name         |
+|---------|--------------|
+| `mrd`   | more rounded |
+| `lrd`   | less rounded |
+
+### Vowel Rounding
+
+| Rounding  | Feature | Phoneme Model                            |
+|-----------|---------|------------------------------------------|
+| unrounded | `unr`   | `unr`                                    |
+| rounded   | `rnd`   | `ptr` if `bck` or `cnt`; `cmp` if `fnt`. |
 
 ## References
 

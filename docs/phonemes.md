@@ -6,13 +6,14 @@
   - [Manner of Articulation](#manner-of-articulation)
   - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
+    - [Rounding](#rounding)
 - [Vowels](#vowels)
 - [Diacritics](#diacritics)
   - [Articulation](#articulation)
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
-- [Features](#features)
   - [Rounding and Labialization](#rounding-and-labialization)
+- [Features](#features)
   - [Vowel Height](#vowel-height)
   - [Vowel Backness](#vowel-backness)
   - [Syllabicity](#syllabicity)
@@ -513,6 +514,13 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
+### Rounding
+
+| Feature | Name      |
+|---------|-----------|
+| `unr`   | unrounded |
+| `rnd`   | rounded   |
+
 ## Diacritics
 
 ### Articulation
@@ -560,29 +568,22 @@ The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consona
 charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
 equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
-## Features
-
 ### Rounding and Labialization
 
-| Feature | Symbol | Name       | Rounded | Position                                |
-|---------|--------|------------|---------|-----------------------------------------|
-| `unr`   |        | unrounded  | No      | Close to the jaw.                       |
-| `ptr`   | ◌ʷ, ◌ᶣ | protruded  | Yes     | Protrude outward from the jaw.          |
-| `cmp`   | ◌ᵝ     | compressed | Yes     | Close to the jaw.                       |
-| `rnd`   |        | rounded    | Yes     | `ptr` if `bck` or `cnt`; `cmp` if `fnt` |
+| Feature | Symbol | Name       |
+|---------|--------|------------|
+| `ptr`   | ◌ʷ, ◌ᶣ | protruded  |
+| `cmp`   | ◌ᵝ     | compressed |
 
-The `unr` and `rnd` features are used for vowels to describe their default
-labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ and ◌ᵝ
-annotations to specify the type of labialization. Vowels can use these to
-change their labialization from the default one specified by `rnd`.
-
-Additionally, the degree of rounding/labialization can be specified using the
-following features:
+The degree of rounding/labialization can be specified using the following
+features:
 
 | Feature | Symbol | Name         |
 |---------|--------|--------------|
 | `mrd`   | ◌̹      | more rounded |
 | `lrd`   | ◌̜      | less rounded |
+
+## Features
 
 ### Vowel Height
 
