@@ -1,10 +1,11 @@
 # Phonemes
 
 - [IPA Phonemes](#ipa-phonemes)
-  - [Consonants (Pulmonic)](#consonants-pulmonic)
-  - [Consonants (Non-Pulmonic)](#consonants-non-pulmonic)
-  - [Other Symbols](#other-symbols)
-  - [Gemination](#gemination)
+  - [Consonants](#consonants)
+    - [Pulmonic](#pulmonic)
+    - [Non-Pulmonic](#non-pulmonic)
+    - [Other Symbols](#other-symbols)
+    - [Gemination](#gemination)
   - [Vowels](#vowels)
   - [Positioning Diacritics](#positioning-diacritics)
 - [Features](#features)
@@ -67,7 +68,9 @@ the two.
 
 ## IPA Phonemes
 
-## Consonants (Pulmonic)
+### Consonants
+
+#### Pulmonic
 
 <table>
   <tr>
@@ -284,7 +287,7 @@ the two.
 
 Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
 
-### Consonants (Non-Pulmonic)
+#### Non-Pulmonic
 
 <table>
   <tr>
@@ -387,7 +390,7 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
   </tr>
 </table>
 
-### Other Symbols
+#### Other Symbols
 
 | Symbol | Alternative | Features                |
 |--------|-------------|-------------------------|
@@ -404,7 +407,7 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | p͡f    |             | `vls` `bld` `afr`       |
 | b͡v    |             | `mdv` `bld` `afr`       |
 
-### Gemination
+#### Gemination
 
 Gemination is found in several languages including Italian and Japanese.
 It is also present in the suprasegmental phonology between words such as
