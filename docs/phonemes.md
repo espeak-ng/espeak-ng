@@ -477,26 +477,19 @@ diacritics.
 
 ### Manner of Articulation
 
-The manner of articulation is described in terms of several distinct feature
-types. The possible manners of articulation are:
-
-| Manner of Articulation | Feature   | Symbol |
-|------------------------|-----------|--------|
-| nasal                  | `nas`     |        |
-| plosive (stop)         | `stp`     |        |
-| affricate              | `afr`     |        |
-| fricative              | `frc`     |        |
-| tap/flap               | `flp`     |        |
-| trill                  | `trl`     |        |
-| approximant            | `apr`     |        |
-| click                  | `clk`     |        |
-| ejective               | `ejc`     |        |
-| implosive              | `imp`     | ◌ʼ     |
-| vowel                  | `vwl`     |        |
-
-The features for these manners of articulation are provided for convenience,
-and to make it easier to describe the IPA consonants. Internally, the
-distinct feature types are used.
+| Feature   | Symbol | Name           |
+|-----------|--------|----------------|
+| `nas`     |        | nasal          |
+| `stp`     |        | plosive (stop) |
+| `afr`     |        | affricate      |
+| `frc`     |        | fricative      |
+| `flp`     |        | tap/flap       |
+| `trl`     |        | trill          |
+| `apr`     |        | approximant    |
+| `clk`     |        | click          |
+| `ejc`     |        | ejective       |
+| `imp`     | ◌ʼ     | implosive      |
+| `vwl`     |        | vowel          |
 
 The `vwl` phonemes are described using vowel height and backness features,
 while consonants (the other manners of articulation) are described using
