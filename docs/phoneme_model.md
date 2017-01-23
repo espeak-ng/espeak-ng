@@ -4,10 +4,12 @@
   - [Air Flow](#air-flow)
   - [Initiator](#initiator)
   - [Target](#target)
+    - [Co-articulation](#co-articulation)
   - [Manner](#manner)
 - [Place of Articulation](#place-of-articulation)
   - [Active Articulators](#active-articulators)
   - [Passive Articulators](#passive-articulators)
+  - [Co-articulation](#co-articulation-1)
 - [Phonation](#phonation)
   - [Voice](#voice)
 - [Vowel Height](#vowel-height)
@@ -97,6 +99,12 @@ features:
 | `nsl`   | nasal      | The air flows through the nose.                 |
 | `orl`   | oral       | The air flows through the mouth.                |
 
+#### Co-articulation
+
+| Feature | Name      | Target |
+|---------|-----------|--------|
+| `nzd`   | nasalized | `nsl`  |
+
 ### Manner
 
 | Feature | Name        | Description                                                                       |
@@ -164,6 +172,16 @@ possible places of articulation are:
 | `prx`   | pharynx                |
 | `egs`   | epiglottis             |
 | `gts`   | glottis                |
+
+### Co-articulation
+
+| Feature | Name            | Articulator |
+|---------|-----------------|-------------|
+| `pzd`   | palatalized     | `hpl`       |
+| `vzd`   | velarized       | `spl`       |
+| `fzd`   | pharyngealized  | `prx`       |
+| `nzd`   | nasalized       | `nsl`       |
+| `rzd`   | rhoticized      | `apc hpl`   |
 
 ## Phonation
 

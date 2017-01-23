@@ -17,9 +17,9 @@
   - [Rounding and Labialization](#rounding-and-labialization)
   - [Syllabicity](#syllabicity)
   - [Consonant Release](#consonant-release)
+  - [Co-articulation](#co-articulation)
 - [Features](#features)
   - [Fortis and Lenis](#fortis-and-lenis)
-  - [Co-articulation](#co-articulation-1)
   - [Suprasegmentals](#suprasegmentals)
     - [Stress](#stress)
     - [Length](#length)
@@ -619,17 +619,17 @@ features:
 | `lrs`   | ◌ˡ     | lateral release                 |
 | `unx`   | ◌̚      | no audible release (unexploded) |
 
-## Features
-
 ### Co-articulation
 
-| Feature | Symbol | Name            | Co-Articulator | Type                  |
-|---------|--------|-----------------|----------------|-----------------------|
-| `pzd`   | ◌ʲ     | palatalized     | `hpl`          | Passive Articulator   |
-| `vzd`   | ◌ˠ     | velarized       | `spl`          | Passive Articulator   |
-| `fzd`   | ◌ˤ     | pharyngealized  | `prx`          | Passive Articulator   |
-| `nzd`   | ◌̃      | nasalized       | `nsl`          | Target                |
-| `rzd`   | ◌˞     | rhoticized      | `rfx`          | Place of Articulation |
+| Feature | Symbol | Name           |
+|---------|--------|----------------|
+| `pzd`   | ◌ʲ     | palatalized    |
+| `vzd`   | ◌ˠ     | velarized      |
+| `fzd`   | ◌ˤ     | pharyngealized |
+| `nzd`   | ◌̃      | nasalized      |
+| `rzd`   | ◌˞     | rhoticized     |
+
+## Features
 
 Additionally, the tongue root position can be specified using the following
 features:
