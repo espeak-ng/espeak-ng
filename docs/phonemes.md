@@ -3,10 +3,10 @@
 - [Consonants](#consonants)
   - [Other Symbols](#other-symbols)
   - [Gemination](#gemination)
+  - [Manner of Articulation](#manner-of-articulation)
 - [Vowels](#vowels)
 - [Positioning Diacritics](#positioning-diacritics)
 - [Features](#features)
-  - [Manner of Articulation](#manner-of-articulation)
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
   - [Place of Articulation](#place-of-articulation)
@@ -394,6 +394,34 @@ with the first phoneme using the `unx` feature. For example, n̚.n for a
 geminated n. This describes how with the `stp` and `nas` consonants, the
 mouth remains closed (`unx`) for the first of the geminated consonants.
 
+### Manner of Articulation
+
+| Feature   | Symbol | Name           |
+|-----------|--------|----------------|
+| `nas`     |        | nasal          |
+| `stp`     |        | plosive (stop) |
+| `afr`     |        | affricate      |
+| `frc`     |        | fricative      |
+| `flp`     |        | tap/flap       |
+| `trl`     |        | trill          |
+| `apr`     |        | approximant    |
+| `clk`     |        | click          |
+| `ejc`     |        | ejective       |
+| `imp`     | ◌ʼ     | implosive      |
+| `vwl`     |        | vowel          |
+
+The `vwl` phonemes are described using vowel height and backness features,
+while consonants (the other manners of articulation) are described using
+place of articulation features.
+
+Additionally, the manner of articulation can be refined using the following
+features:
+
+| Feature | Name     |
+|---------|----------|
+| `lat`   | lateral  |
+| `sib`   | sibilant |
+
 ## Vowels
 
 <table>
@@ -471,34 +499,6 @@ diacritics.
 | ◌̞      | lowered         |
 
 ## Features
-
-### Manner of Articulation
-
-| Feature   | Symbol | Name           |
-|-----------|--------|----------------|
-| `nas`     |        | nasal          |
-| `stp`     |        | plosive (stop) |
-| `afr`     |        | affricate      |
-| `frc`     |        | fricative      |
-| `flp`     |        | tap/flap       |
-| `trl`     |        | trill          |
-| `apr`     |        | approximant    |
-| `clk`     |        | click          |
-| `ejc`     |        | ejective       |
-| `imp`     | ◌ʼ     | implosive      |
-| `vwl`     |        | vowel          |
-
-The `vwl` phonemes are described using vowel height and backness features,
-while consonants (the other manners of articulation) are described using
-place of articulation features.
-
-Additionally, the manner of articulation can be refined using the following
-features:
-
-| Feature | Name     |
-|---------|----------|
-| `lat`   | lateral  |
-| `sib`   | sibilant |
 
 ### Air Flow
 
