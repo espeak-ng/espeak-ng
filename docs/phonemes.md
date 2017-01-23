@@ -37,23 +37,18 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-This document is grouped into three sections. The first section displays the IPA
-charts using the feature names instead of their names, showing the IPA phoneme
-at that position in the chart. This makes it easier to look up the features for
-a given IPA phoneme.
+This document extends Evan Kirshenbaum's feature set to be able to describe the
+different phonemes in the IPA and as are used in the various languages of the
+world.
 
-The second section lists the features and their associated name. The Wikipedia
-IPA<sup>\[<a href="#ref4">4</a>\]</sup> article can be used as a starting point
-into the various phonetic topics contained in this document.
+The goal of this document is not to provide a detailed guide on phonetics. Nor
+is it intended to be able to accurately record differences in IPA diacritics.
+Instead, it is designed to be a transcription guide for authors of espeak-ng
+languages and voices on how to specify phonemes so that the IPA and feature
+transcriptions are consistent.
 
-The third section describes the properties (named values) used to describe the
-phonemes. These, in addition to the features, should allow all possible phonemes
-from any language to be described.
-
-The goal of this document is not to provide a detailed guide on phonetics.
-Instead, it is designed to be a transcription guide on how to specify phonemes
-in a language or voice so that the narrow transcriptions are consistent between
-the two.
+__NOTE:__ This model is in the process of being implemented. As such, the
+current implementation does not reflect this document.
 
 ## Consonants
 
