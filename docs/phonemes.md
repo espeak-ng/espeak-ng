@@ -404,7 +404,7 @@ Symbols to the left have a `vls` phonation, and to the right have `mdv` phonatio
 | p͡f    |             | `vls` `bld` `afr`       |
 | b͡v    |             | `mdv` `bld` `afr`       |
 
-##### Gemination
+### Gemination
 
 Gemination is found in several languages including Italian and Japanese.
 It is also present in the suprasegmental phonology between words such as
@@ -478,7 +478,7 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
-#### Positioning Diacritics
+### Positioning Diacritics
 
 The following IPA diacritics are only used by eSpeak NG to fill out positions
 in the IPA consonant and vowel charts. As such those phonemes are transcribed
