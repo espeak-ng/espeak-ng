@@ -29,8 +29,9 @@
     - [Length](#length)
     - [Rhythm](#rhythm)
     - [Intonation](#intonation)
+  - [Tone Stepping](#tone-stepping)
+- [Properties](#properties)
   - [Tones](#tones)
-    - [Tone Stepping](#tone-stepping)
 - [References](#references)
 
 ----------
@@ -46,7 +47,7 @@ organised. This document uses the Kirshenbaum features as a base to work from,
 but extends them to describe the underlying phonetic processes in a way that
 is consistent between languages and voices.
 
-This document is grouped into two sections. The first section displays the IPA
+This document is grouped into three sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
 at that position in the chart. This makes it easier to look up the features for
 a given IPA phoneme.
@@ -54,6 +55,10 @@ a given IPA phoneme.
 The second section lists the features and their associated name. The Wikipedia
 IPA<sup>\[<a href="#ref4">4</a>\]</sup> article can be used as a starting point
 into the various phonetic topics contained in this document.
+
+The third section describes the properties (named values) used to describe the
+phonemes. These, in addition to the features, should allow all possible phonemes
+from any language to be described.
 
 The goal of this document is not to provide a detailed guide on phonetics.
 Instead, it is designed to be a transcription guide on how to specify phonemes
@@ -786,22 +791,38 @@ the [length](#length) suprasegmentals are used instead.
 | `glr`   | ↗      | global rise              |
 | `glf`   | ↘      | global fall              |
 
-### Tones
-
-| Tone               | Symbol | Start | Middle | End   |
-|--------------------|--------|-------|--------|-------|
-| extra high (top)   | ◌˥     | `ts5` | `tm5`  | `te5` |
-| high               | ◌˦     | `ts4` | `tm4`  | `te4` |
-| mid                | ◌˧     | `ts3` | `tm3`  | `te3` |
-| low                | ◌˨     | `ts2` | `tm2`  | `te2` |
-| extra low (bottom) | ◌˩     | `ts1` | `tm1`  | `te1` |
-
 #### Tone Stepping
 
 | Feature | Symbol | Name        |
 |---------|--------|-------------|
 | `dst`   | ꜛ◌     | downstep    |
 | `ust`   | ꜜ◌     | upstep      |
+
+## Properties
+
+### Tones
+
+Tones are defined using the following 3 properties:
+
+	tone_start  <value>
+	tone_middle <value>
+	tone_end    <value>
+
+The `<value>` field for these properties is a number with one of the following
+values:
+
+| Tone               | Symbol | `<value>` |
+|--------------------|--------|-----------|
+| extra high (top)   | ◌˥     | `5`       |
+| high               | ◌˦     | `4`       |
+| mid                | ◌˧     | `3`       |
+| low                | ◌˨     | `2`       |
+| extra low (bottom) | ◌˩     | `1`       |
+
+A *level* tone can be specified by just using the `tone_start` value. A *raising*
+or *falling* tone can be specified using the `tone_start` and `tone_end` values.
+A *raising-falling* (*peaking*) or *falling-raising* (*dipping*) tone can be
+specified using all three values.
 
 ## References
 
