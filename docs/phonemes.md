@@ -18,15 +18,12 @@
     - [Active Articulators](#active-articulators)
     - [Passive Articulators](#passive-articulators)
   - [Rounding and Labialization](#rounding-and-labialization)
-  - [Vowels](#vowels-1)
-    - [Height](#height)
-    - [Backness](#backness)
-  - [Diacritics](#diacritics)
-    - [Syllabicity](#syllabicity)
-    - [Consonant Release](#consonant-release)
-    - [Fortis and Lenis](#fortis-and-lenis)
-    - [Articulation](#articulation)
-    - [Co-articulation](#co-articulation-1)
+  - [Vowel Height](#vowel-height)
+  - [Vowel Backness](#vowel-backness)
+  - [Syllabicity](#syllabicity)
+  - [Consonant Release](#consonant-release)
+  - [Fortis and Lenis](#fortis-and-lenis)
+  - [Co-articulation](#co-articulation-1)
   - [Suprasegmentals](#suprasegmentals)
     - [Stress](#stress)
     - [Length](#length)
@@ -34,7 +31,6 @@
     - [Intonation](#intonation)
   - [Tones](#tones)
     - [Tone Stepping](#tone-stepping)
-  - [Unused](#unused)
 - [References](#references)
 
 ----------
@@ -45,34 +41,24 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-This document describes the IPA phonemes using the features used by Kirshenbaum.
-Where Kirshenbaum does not specify a feature name, the feature name from
-Cainteoir Text-to-Speech<sup>\[<a href="#ref5">5</a>\]</sup> is used. This is
-to provide a consistent naming scheme for the extended feature set. Where there
-is still no feature available, a custom 3-letter feature name is chosen.
-
-The aim of the feature set described in this document is to specify the underlying
-phonetics and phonemics of the sounds being produced in a way that is consistent
-between languages and voices. While this feature set is modelled on the IPA, it
-is not meant to be able to preserve phoneme transcriptions when using a
-transcription as both the input and output phoneme sets. This document provides
-commentary on the intended usage of these features where there is ambiguity from
-the associated IPA usage between authors.
+Kirshenbaum uses features that align with the way the IPA phoneme charts are
+organised. This document uses the Kirshenbaum features as a base to work from,
+but extends them to describe the underlying phonetic processes in a way that
+is consistent between languages and voices.
 
 This document is grouped into two sections. The first section displays the IPA
 charts using the feature names instead of their names, showing the IPA phoneme
 at that position in the chart. This makes it easier to look up the features for
 a given IPA phoneme.
 
-The second section lists the features and their associated name. This section
-does not describe what these mean. Their meaning is described in phonetics
-articles, books and Wikipedia. The Wikipedia IPA<sup>\[<a href="#ref4">4</a>\]</sup>
-article can be used as a starting point, as it links to topics and descriptions
-of the various phonemes.
+The second section lists the features and their associated name. The Wikipedia
+IPA<sup>\[<a href="#ref4">4</a>\]</sup> article can be used as a starting point
+into the various phonetic topics contained in this document.
 
-The diacritics and suprasegmental feature lists also show their corresponding
-IPA symbol. This is to avoid duplicating the lists in the IPA Phonemes and Feature
-sections.
+The goal of this document is not to provide a detailed guide on phonetics.
+Instead, it is designed to be a transcription guide on how to specify phonemes
+in a language or voice so that the narrow transcriptions are consistent between
+the two.
 
 ## IPA Phonemes
 
@@ -523,6 +509,7 @@ types. The possible manners of articulation are:
 | click                  | `clk`     |        | `vlc igs orl`         |
 | ejective               | `ejc`     |        | `vlc igs orl occ`     |
 | implosive              | `imp`     | ◌ʼ     | `gtc igs`             |
+| vowel                  | `vwl`     |        | `pmc egs orl vow`     |
 
 The features for these manners of articulation are provided for convenience,
 and to make it easier to describe the IPA consonants. Internally, the
@@ -530,6 +517,10 @@ distinct feature types are used.
 
 For `imp` consonants, they use the features of the base phoneme except for
 the `pmc` and `egs` features. Thus, a `nas imp` is a `gtc igs nsl occ`.
+
+The `vwl` phonemes are described using vowel height and backness features,
+while consonants (the other manners of articulation) are described using
+place of articulation features.
 
 Additionally, the manner of articulation can be refined using the following
 features:
@@ -568,10 +559,14 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 
 #### Manner
 
-| Feature | Symbol | Name       | Description                                      |
-|---------|--------|------------|--------------------------------------------------|
-| `occ`   |        | occlusive  | The air flow is blocked within the vocal tract.  |
-| `frv`   |        | fricative  | The air flow is constricted, causing turbulence. |
+| Feature | Name        | Description                                                                       |
+|---------|-------------|-----------------------------------------------------------------------------------|
+| `occ`   | occlusive   | The air flow is blocked within the vocal tract.                                   |
+| `frv`   | fricative   | The air flow is constricted, causing turbulence.                                  |
+| `fla`   | flap        | A single tap of the tongue against the secondary articulator.                     |
+| `tri`   | trill       | A rapid vibration of the primary articulator against the secondary articulator.   |
+| `app`   | approximant | The vocal tract is narrowed at the place of articulation without being turbulant. |
+| `vow`   | vowel       | The phoneme is articulated as a vowel instead of a consonant.                     |
 
 ### Phonation
 
@@ -597,7 +592,7 @@ The place of articulation is described in terms of an active articulator and
 one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
 possible places of articulation are:
 
-| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Other   |
+| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Passive |
 |-----------------------|-----------|--------|--------|-------|---------|---------|
 | bilabial              | `blb`     |        | `lbl`  | `ulp` |         |         |
 | linguolabial          | `lgl`     | ◌̼      | `lmn`  | `ulp` |         |         |
@@ -658,7 +653,7 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 | `alf`   | alveolar ridge (front) |
 | `alb`   | alveolar ridge (back)  |
 | `hpl`   | hard palate            |
-| `spl`   | soft palate            |
+| `spl`   | soft palate (velum)    |
 | `uvu`   | uvular                 |
 | `prx`   | pharynx                |
 | `egs`   | epiglottis             |
@@ -678,58 +673,75 @@ labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ an
 annotations to specify the type of labialization. Vowels can use these to
 change their labialization from the default one specified by `rnd`.
 
-### Vowels
+Additionally, the degree of rounding/labialization can be specified using the
+following features:
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `vwl`   | `vwl`       | vowel           |
+| Feature | Symbol | Name         |
+|---------|--------|--------------|
+| `mrd`   | ◌̹      | more rounded |
+| `lrd`   | ◌̜      | less rounded |
 
-#### Height
+### Vowel Height
 
-| Feature | Kirshenbaum | Name                   |
-|---------|-------------|------------------------|
-| `hgh`   | `hgh`       | close (high)           |
-| `smh`   | `smh`       | near-close (semi-high) |
-| `umd`   | `umd`       | close-mid (upper-mid)  |
-| `mid`   | `mid`       | mid                    |
-| `lmd`   | `lmd`       | open-mid (lower-mid)   |
-| `sml`   |             | near-open (semi-low)   |
-| `low`   | `low`       | open (low)             |
+| Feature | Name                   |
+|---------|------------------------|
+| `hgh`   | close (high)           |
+| `smh`   | near-close (semi-high) |
+| `umd`   | close-mid (upper-mid)  |
+| `mid`   | mid                    |
+| `lmd`   | open-mid (lower-mid)   |
+| `sml`   | near-open (semi-low)   |
+| `low`   | open (low)             |
 
-#### Backness
+### Vowel Backness
 
-| Feature | Kirshenbaum | Name            |
-|---------|-------------|-----------------|
-| `fnt`   | `fnt`       | front           |
-| `cnt`   | `cnt`       | center          |
-| `bck`   | `bck`       | back            |
+| Feature | Name            |
+|---------|-----------------|
+| `fnt`   | front           |
+| `cnt`   | center          |
+| `bck`   | back            |
 
-### Diacritics
+### Syllabicity
 
-#### Syllabicity
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `syl`   | ◌̩      | syllabic        |
+| `nsy`   | ◌̯      | non-syllabic    |
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `syl`   | `syl`       | ◌̩   | syllabic        |
-| `nsy`   |             | ◌̯   | non-syllabic    |
+### Consonant Release
 
-#### Consonant Release
+| Feature | Symbol | Name                            |
+|---------|--------|---------------------------------|
+| `frr`   |        | fricative release               |
+| `asp`   | ◌ʰ     | aspirated                       |
+| `nrs`   | ◌ⁿ     | nasal release                   |
+| `lrs`   | ◌ˡ     | lateral release                 |
+| `unx`   | ◌̚      | no audible release (unexploded) |
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `asp`   | `asp`       | ◌ʰ  | aspirated       |
-| `nrs`   |             | ◌ⁿ  | nasal release   |
-| `lrs`   |             | ◌ˡ  | lateral release |
-| `unx`   | `unx`       | ◌̚   | no audible release (unexploded) |
+### Co-articulation
 
-__NOTE:__ The `nrs` and `lrs` features are not defined in Cainteoir Text-to-Speech.
+| Feature | Symbol | Name            | Co-Articulator | Type                  |
+|---------|--------|-----------------|----------------|-----------------------|
+| `pzd`   | ◌ʲ     | palatalized     | `hpl`          | Passive Articulator   |
+| `vzd`   | ◌ˠ     | velarized       | `spl`          | Passive Articulator   |
+| `fzd`   | ◌ˤ     | pharyngealized  | `prx`          | Passive Articulator   |
+| `nzd`   | ◌̃      | nasalized       | `nsl`          | Target                |
+| `rzd`   | ◌˞     | rhoticized      | `rfx`          | Place of Articulation |
 
-#### Fortis and Lenis
+Additionally, the tongue root position can be specified using the following
+features:
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `fts`   |             | ◌͈   | fortis          |
-| `lns`   |             | ◌͉   | lenis           |
+| Feature | Symbol | Name                  |
+|---------|--------|-----------------------|
+| `atr`   | ◌̘      | advanced tongue root  |
+| `rtr`   | ◌̙      | retracted tongue root |
+
+### Fortis and Lenis
+
+| Feature |Symbol | Name   |
+|---------|-------|--------|
+| `fts`   | ◌͈     | fortis |
+| `lns`   | ◌͉     | lenis  |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -740,93 +752,56 @@ Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
 
-#### Co-articulation
-
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `mrd`   |             | ◌̹   | more rounded    |
-| `lrd`   |             | ◌̜   | less rounded    |
-| `pzd`   | `pzd`       | ◌ʲ  | palatalized     |
-| `vzd`   | `vzd`       | ◌ˠ  | velarized       |
-| `fzd`   | `fzd`       | ◌ˤ  | pharyngealized  |
-| `atr`   |             | ◌̘   | advanced tongue root  |
-| `rtr`   |             | ◌̙   | retracted tongue root |
-| `nzd`   | `nzd`       | ◌̃   | nasalized       |
-| `rzd`   | `rzd`       | ◌˞  | rhoticized      |
-
-__NOTE:__ The IPA supports ◌̴ for velarized or pharynealized consonants. Unicode
-has deprecated this combining character, while keeping the combined forms. As
-such, only the combined forms are supported, using the `fzd` feature. Cainteoir
-Text-to-Speech uses `vfz` for this combining character, but eSpeak NG does not
-preserve the distinction between ◌ˤ and ◌̴.
-
 ### Suprasegmentals
 
 #### Stress
 
-| Feature | Kirshenbaum | IPA | Name             |
-|---------|-------------|-----|------------------|
-| `st1`   |             | ˈ◌  | primary stress   |
-| `st2`   |             | ˌ◌  | secondary stress |
-| `st3`   |             | ˈˈ◌ | extra stress     |
+| Feature | Symbol | Name             |
+|---------|--------|------------------|
+| `st1`   | ˈ◌     | primary stress   |
+| `st2`   | ˌ◌     | secondary stress |
+| `st3`   | ˈˈ◌    | extra stress     |
 
 #### Length
 
-| Feature | Kirshenbaum | IPA | Name            |
-|---------|-------------|-----|-----------------|
-| `est`   |             | ◌̆   | extra short     |
-| `hlg`   |             | ◌ˑ  | half-long       |
-| `lng`   | `lng`       | ◌ː  | long            |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `est`   | ◌̆      | extra short     |
+| `hlg`   | ◌ˑ     | half-long       |
+| `lng`   | ◌ː     | long            |
 
 #### Rhythm
 
-| Feature | Kirshenbaum | IPA | Name              |
-|---------|-------------|-----|-------------------|
-| `sbr`   |             | ◌.◌ | syllable break    |
-| `lnk`   |             | ◌‿◌ | linked (no break) |
+| Feature | Symbol | Name              |
+|---------|--------|-------------------|
+| `sbr`   | ◌.◌    | syllable break    |
+| `lnk`   | ◌‿◌    | linked (no break) |
 
 #### Intonation
 
-| Feature | Kirshenbaum | IPA    | Name                     |
-|---------|-------------|--------|--------------------------|
-| `fbr`   |             | &#124; | minor (foot) break       |
-| `ibr`   |             | ‖      | major (intonation) break |
-| `glr`   |             | ↗      | global rise              |
-| `glf`   |             | ↘      | global fall              |
+| Feature | Symbol | Name                     |
+|---------|--------|--------------------------|
+| `fbr`   | &#124; | minor (foot) break       |
+| `ibr`   | ‖      | major (intonation) break |
+| `glr`   | ↗      | global rise              |
+| `glf`   | ↘      | global fall              |
 
 ### Tones
 
-| Tone               | IPA | Start | Middle | End   |
-|--------------------|-----|-------|--------|-------|
-| extra high (top)   | ◌˥  | `ts5` | `tm5`  | `te5` |
-| high               | ◌˦  | `ts4` | `tm4`  | `te4` |
-| mid                | ◌˧  | `ts3` | `tm3`  | `te3` |
-| low                | ◌˨  | `ts2` | `tm2`  | `te2` |
-| extra low (bottom) | ◌˩  | `ts1` | `tm1`  | `te1` |
+| Tone               | Symbol | Start | Middle | End   |
+|--------------------|--------|-------|--------|-------|
+| extra high (top)   | ◌˥     | `ts5` | `tm5`  | `te5` |
+| high               | ◌˦     | `ts4` | `tm4`  | `te4` |
+| mid                | ◌˧     | `ts3` | `tm3`  | `te3` |
+| low                | ◌˨     | `ts2` | `tm2`  | `te2` |
+| extra low (bottom) | ◌˩     | `ts1` | `tm1`  | `te1` |
 
 #### Tone Stepping
 
-| Feature | Kirshenbaum | IPA | Name        |
-|---------|-------------|-----|-------------|
-| `dst`   |             | ꜛ◌  | downstep    |
-| `ust`   |             | ꜜ◌  | upstep      |
-
-### Unused
-
-| Feature   | Kirshenbaum | Name            |
-|-----------|-------------|-----------------|
-|           | `ctl`       | central         |
-|           | `mrm`       | murmured        |
-|           | `orl`       | oral            |
-
-__NOTE:__ The `ctl` and `orl` features are specified by Evan Kirshenbaum in
-Appendix A of his ASCII/IPA transcription, but are not used in the rest of
-the specification.
-
-__NOTE:__ Evan Kirshenbaum transcribes ɦ as `h<?>` (`{mrm,glt,frc}`), while
-Wikipedia also lists this as a `{mdv,glt,frc}`<sup>\[<a href="#ref6">6</a>\]</sup>.
-This is the only phoneme that Kirshenbaum uses the `mrm` feature for. As such,
-the `mrm` feature is not used within this document.
+| Feature | Symbol | Name        |
+|---------|--------|-------------|
+| `dst`   | ꜛ◌     | downstep    |
+| `ust`   | ꜜ◌     | upstep      |
 
 ## References
 
