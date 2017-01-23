@@ -55,6 +55,7 @@ install-exec-hook:
 
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
+	cd src/libespeak-ng/ && rm -f *.o *.lo && cd ../..
 	cd android && $(GRADLE) clean
 
 distclean-local:
