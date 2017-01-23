@@ -99,6 +99,63 @@ features:
 | `app`   | approximant | The vocal tract is narrowed at the place of articulation without being turbulant. |
 | `vow`   | vowel       | The phoneme is articulated as a vowel instead of a consonant.                     |
 
+## Place of Articulation
+
+The place of articulation is described in terms of an active articulator and
+one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
+possible places of articulation are:
+
+| Place of Articulation | Feature   | Active | Lips  | Teeth   | Passive |
+|-----------------------|-----------|--------|-------|---------|---------|
+| bilabial              | `blb`     | `lbl`  | `ulp` |         |         |
+| linguolabial          | `lgl`     | `lmn`  | `ulp` |         |         |
+| labiodental           | `lbd`     | `lbl`  |       | `utt`   |         |
+| bilabial-labiodental  | `bld`     | `bld`  | `ulp` | `utt`   |         |
+| interdental           | `idt`     | `lmn`  |       | `utt`   |         |
+| dental                | `dnt`     | `apc`  |       | `utt`   |         |
+| denti-alveolar        | `dta`     | `lmn`  |       | `utt`   | `alf`   |
+| alveolar              | `alv`     | `lmn`  |       |         | `alf`   |
+| apico-alveolar        | `apa`     | `apc`  |       |         | `alf`   |
+| palato-alveolar       | `pla`     | `lmn`  |       |         | `alb`   |
+| apical retroflex      | `arf`     | `sac`  |       |         | `alb`   |
+| retroflex             | `rfx`     | `apc`  |       |         | `hpl`   |
+| alveolo-palatal       | `alp`     | `dsl`  |       |         | `alb`   |
+| palatal               | `pal`     | `dsl`  |       |         | `hpl`   |
+| velar                 | `vel`     | `dsl`  |       |         | `spl`   |
+| labio-velar           | `lbv`     | `dsl`  | `ulp` |         | `spl`   |
+| uvular                | `uvl`     | `dsl`  |       |         | `uvu`   |
+| pharyngeal            | `phr`     | `rdl`  |       |         | `prx`   |
+| epiglotto-pharyngeal  | `epp`     | `lyx`  |       |         | `prx`   |
+| (ary-)epiglottal      | `epg`     | `lyx`  |       |         | `egs`   |
+| glottal               | `glt`     | `lyx`  |       |         | `gts`   |
+
+### Active Articulators
+
+| Feature | Name      | Articulator             |
+|---------|-----------|-------------------------|
+| `lbl`   | labial    | lower lip               |
+| `lmn`   | laminal   | tongue blade            |
+| `apc`   | apical    | tongue tip              |
+| `sac`   | subapical | underside of the tongue |
+| `dsl`   | dorsal    | tongue body             |
+| `rdl`   | radical   | tongue root             |
+| `lyx`   | laryngeal | larynx                  |
+
+### Passive Articulators
+
+| Feature | Articulator            |
+|---------|------------------------|
+| `ulp`   | upper lip              |
+| `utt`   | upper teeth            |
+| `alf`   | alveolar ridge (front) |
+| `alb`   | alveolar ridge (back)  |
+| `hpl`   | hard palate            |
+| `spl`   | soft palate (velum)    |
+| `uvu`   | uvular                 |
+| `prx`   | pharynx                |
+| `egs`   | epiglottis             |
+| `gts`   | glottis                |
+
 ## Phonation
 
 The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
@@ -136,6 +193,21 @@ The phonation features describe the degree to which the glottis (vocal chords) a
    [International Phonetic Alphabet](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). 2017.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
 
-5. <a name="ref7"></a> Wikipedia.
+5. <a name="ref5"></a> Dunn, R. H.,
+   [Cainteoir Text-to-Speech Phoneme Features](https://raw.githubusercontent.com/rhdunn/cainteoir-engine/master/src/libcainteoir/phoneme/phoneme.cpp). 2013-2015.
+
+6. <a name="ref6"></a> Wikipedia.
+   [Voiced glottal fricative](https://en.wikipedia.org/wiki/Voiced_glottal_fricative). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+7. <a name="ref7"></a> Wikipedia.
    [Extensions to the International Phonetic Alphabet](https://en.wikipedia.org/wiki/Extensions_to_the_International_Phonetic_Alphabet). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+8. <a name="ref8"></a> Wikipedia.
+   [Fortis and lenis](https://en.wikipedia.org/wiki/Fortis_and_lenis). 2017,
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+9. <a name="ref9"></a> Wikipedia.
+   [Place of articulation](https://en.wikipedia.org/wiki/Place_of_articulation). 2017,
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).

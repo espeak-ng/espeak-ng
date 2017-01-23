@@ -4,6 +4,7 @@
   - [Other Symbols](#other-symbols)
   - [Gemination](#gemination)
   - [Manner of Articulation](#manner-of-articulation)
+  - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
 - [Vowels](#vowels)
 - [Diacritics](#diacritics)
@@ -11,9 +12,6 @@
   - [Air Flow](#air-flow)
   - [Phonation](#phonation)
 - [Features](#features)
-  - [Place of Articulation](#place-of-articulation)
-    - [Active Articulators](#active-articulators)
-    - [Passive Articulators](#passive-articulators)
   - [Rounding and Labialization](#rounding-and-labialization)
   - [Vowel Height](#vowel-height)
   - [Vowel Backness](#vowel-backness)
@@ -424,6 +422,30 @@ features:
 | `lat`   | lateral  |
 | `sib`   | sibilant |
 
+### Place of Articulation
+
+| Feature | Name                  |
+|---------|-----------------------|
+| `blb`   | bilabial              |
+| `lbd`   | labiodental           |
+| `bld`   | bilabial-labiodental  |
+| `dnt`   | dental                |
+| `alv`   | alveolar              |
+| `pla`   | palato-alveolar       |
+| `rfx`   | retroflex             |
+| `alp`   | alveolo-palatal       |
+| `pal`   | palatal               |
+| `vel`   | velar                 |
+| `lbv`   | labio-velar           |
+| `uvl`   | uvular                |
+| `phr`   | pharyngeal            |
+| `glt`   | glottal               |
+
+The `bld` place of articulation is used for `afr` consonants that have a `blb`
+onset and a `lbd` release, e.g. in the German p͡f consonant.
+
+__NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
+consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
 ### Voice
 
@@ -498,6 +520,7 @@ above table.
 | Feature | Symbol | Name            |
 |---------|--------|-----------------|
 | `lgl`   | ◌̼      | linguolabial    |
+| `idt`   | ◌̪͆      | interdental     |
 |         | ◌̪      | dental          |
 | `apc`   | ◌̺      | apical          |
 | `lmn`   | ◌̻      | laminal         |
@@ -538,79 +561,6 @@ charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
 equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
 ## Features
-
-### Place of Articulation
-
-The place of articulation is described in terms of an active articulator and
-one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
-possible places of articulation are:
-
-| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Passive |
-|-----------------------|-----------|--------|--------|-------|---------|---------|
-| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |         |
-| linguolabial          | `lgl`     | ◌̼      | `lmn`  | `ulp` |         |         |
-| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |         |
-| bilabial-labiodental  | `bld`     |        | `bld`  | `ulp` | `utt`   |         |
-| interdental           | `idt`     | ◌̪͆      | `lmn`  |       | `utt`   |         |
-| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |         |
-| denti-alveolar        | `dta`     |        | `lmn`  |       | `utt`   | `alf`   |
-| alveolar              | `alv`     |        | `lmn`  |       |         | `alf`   |
-| apico-alveolar        | `apa`     | ◌̺      | `apc`  |       |         | `alf`   |
-| palato-alveolar       | `pla`     |        | `lmn`  |       |         | `alb`   |
-| apical retroflex      | `arf`     |        | `sac`  |       |         | `alb`   |
-| retroflex             | `rfx`     | ◌̺      | `apc`  |       |         | `hpl`   |
-| alveolo-palatal       | `alp`     |        | `dsl`  |       |         | `alb`   |
-| palatal               | `pal`     |        | `dsl`  |       |         | `hpl`   |
-| velar                 | `vel`     |        | `dsl`  |       |         | `spl`   |
-| labio-velar           | `lbv`     |        | `dsl`  | `ulp` |         | `spl`   |
-| uvular                | `uvl`     |        | `dsl`  |       |         | `uvu`   |
-| pharyngeal            | `phr`     |        | `rdl`  |       |         | `prx`   |
-| epiglotto-pharyngeal  | `epp`     |        | `lyx`  |       |         | `prx`   |
-| (ary-)epiglottal      | `epg`     |        | `lyx`  |       |         | `egs`   |
-| glottal               | `glt`     |        | `lyx`  |       |         | `gts`   |
-
-The features for these places of articulation are provided for convenience, and
-to make it easier to describe the IPA consonants. Internally, the active and
-passive articulators are used.
-
-The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used on
-`alv` consonants.
-
-The `bld` place of articulation is used for `afr` consonants that have a `blb`
-onset and a `lbd` release, e.g. in the p͡f consonant.
-
-The `alv` consonant is `lmn` as found in French and Spanish, while `apa` is
-`apc` as found in English, as such ◌̻ (*laminal*) is not needed.
-
-__NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
-consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
-
-#### Active Articulators
-
-| Feature | Name      | Articulator             |
-|---------|-----------|-------------------------|
-| `lbl`   | labial    | lower lip               |
-| `lmn`   | laminal   | tongue blade            |
-| `apc`   | apical    | tongue tip              |
-| `sac`   | subapical | underside of the tongue |
-| `dsl`   | dorsal    | tongue body             |
-| `rdl`   | radical   | tongue root             |
-| `lyx`   | laryngeal | larynx                  |
-
-#### Passive Articulators
-
-| Feature | Articulator            |
-|---------|------------------------|
-| `ulp`   | upper lip              |
-| `utt`   | upper teeth            |
-| `alf`   | alveolar ridge (front) |
-| `alb`   | alveolar ridge (back)  |
-| `hpl`   | hard palate            |
-| `spl`   | soft palate (velum)    |
-| `uvu`   | uvular                 |
-| `prx`   | pharynx                |
-| `egs`   | epiglottis             |
-| `gts`   | glottis                |
 
 ### Rounding and Labialization
 
