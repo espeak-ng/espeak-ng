@@ -1,35 +1,31 @@
 # Phonemes
 
-- [IPA Phonemes](#ipa-phonemes)
-  - [Consonants](#consonants)
-    - [Other Symbols](#other-symbols)
-    - [Gemination](#gemination)
-  - [Vowels](#vowels)
-  - [Positioning Diacritics](#positioning-diacritics)
-- [Features](#features)
+- [Consonants](#consonants)
+  - [Other Symbols](#other-symbols)
+  - [Gemination](#gemination)
   - [Manner of Articulation](#manner-of-articulation)
-    - [Air Flow](#air-flow)
-    - [Initiator](#initiator)
-    - [Target](#target)
-    - [Manner](#manner)
-  - [Phonation](#phonation)
   - [Place of Articulation](#place-of-articulation)
-    - [Active Articulators](#active-articulators)
-    - [Passive Articulators](#passive-articulators)
+  - [Voice](#voice)
+- [Vowels](#vowels)
+  - [Rounding](#rounding)
+  - [Height](#height)
+  - [Backness](#backness)
+- [Diacritics](#diacritics)
+  - [Articulation](#articulation)
+  - [Air Flow](#air-flow)
+  - [Phonation](#phonation)
   - [Rounding and Labialization](#rounding-and-labialization)
-  - [Vowel Height](#vowel-height)
-  - [Vowel Backness](#vowel-backness)
   - [Syllabicity](#syllabicity)
   - [Consonant Release](#consonant-release)
+  - [Co-articulation](#co-articulation)
+  - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
-  - [Co-articulation](#co-articulation-1)
-  - [Suprasegmentals](#suprasegmentals)
-    - [Stress](#stress)
-    - [Length](#length)
-    - [Rhythm](#rhythm)
-    - [Intonation](#intonation)
+- [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
+  - [Length](#length)
+  - [Rhythm](#rhythm)
+  - [Intonation](#intonation)
   - [Tone Stepping](#tone-stepping)
-- [Properties](#properties)
   - [Tones](#tones)
 - [References](#references)
 
@@ -41,32 +37,20 @@ As well as using ASCII characters for specific IPA phonemes, this transcription
 provides a set of 3-letter feature abbreviations allowing a phoneme to be
 described as a sequence of features.
 
-Kirshenbaum uses features that align with the way the IPA phoneme charts are
-organised. This document uses the Kirshenbaum features as a base to work from,
-but extends them to describe the underlying phonetic processes in a way that
-is consistent between languages and voices.
+This document extends Evan Kirshenbaum's feature set to be able to describe the
+different phonemes in the IPA and as are used in the various languages of the
+world.
 
-This document is grouped into three sections. The first section displays the IPA
-charts using the feature names instead of their names, showing the IPA phoneme
-at that position in the chart. This makes it easier to look up the features for
-a given IPA phoneme.
+The goal of this document is not to provide a detailed guide on phonetics. Nor
+is it intended to be able to accurately record differences in IPA diacritics.
+Instead, it is designed to be a transcription guide for authors of espeak-ng
+languages and voices on how to specify phonemes so that the IPA and feature
+transcriptions are consistent.
 
-The second section lists the features and their associated name. The Wikipedia
-IPA<sup>\[<a href="#ref4">4</a>\]</sup> article can be used as a starting point
-into the various phonetic topics contained in this document.
+__NOTE:__ This model is in the process of being implemented. As such, the
+current implementation does not reflect this document.
 
-The third section describes the properties (named values) used to describe the
-phonemes. These, in addition to the features, should allow all possible phonemes
-from any language to be described.
-
-The goal of this document is not to provide a detailed guide on phonetics.
-Instead, it is designed to be a transcription guide on how to specify phonemes
-in a language or voice so that the narrow transcriptions are consistent between
-the two.
-
-## IPA Phonemes
-
-### Consonants
+## Consonants
 
 <table>
   <tr>
@@ -371,26 +355,26 @@ the two.
   </tr>
 </table>
 
-Symbols to the left have a `vls` phonation, and to the right have `mdv` phonation.
+Symbols to the left are `vls`, and to the right are `vcd`.
 
-#### Other Symbols
+### Other Symbols
 
 | Symbol | Alternative | Features                |
 |--------|-------------|-------------------------|
 | ʍ      | ɰ̊ʷ           | `vls` `vel` `ptr` `apr` |
-| w      | ɰʷ          | `mdv` `vel` `ptr` `apr` |
-| ɥ      | jʷ          | `mdv` `pal` `ptr` `apr` |
+| w      | ɰʷ          | `vcd` `vel` `ptr` `apr` |
+| ɥ      | jʷ          | `vcd` `pal` `ptr` `apr` |
 | ɧ      |             | `vls` `vzd` `pla` `frc` |
-| ɫ      |             | `mdv` `fzd` `alv` `lat` `apr` |
+| ɫ      |             | `vcd` `fzd` `alv` `lat` `apr` |
 | ɚ      |             | `unr` `mid` `cnt` `rzd` `vwl` |
 | ɝ      |             | `unr` `lmd` `cnt` `rzd` `vwl` |
 | k͡p    |             | `vls` `lbv` `stp`       |
-| ɡ͡b    |             | `mdv` `lbv` `stp`       |
-| ŋ͡m    |             | `mdv` `lbv` `stp`       |
+| ɡ͡b    |             | `vcd` `lbv` `stp`       |
+| ŋ͡m    |             | `vcd` `lbv` `stp`       |
 | p͡f    |             | `vls` `bld` `afr`       |
-| b͡v    |             | `mdv` `bld` `afr`       |
+| b͡v    |             | `vcd` `bld` `afr`       |
 
-#### Gemination
+### Gemination
 
 Gemination is found in several languages including Italian and Japanese.
 It is also present in the suprasegmental phonology between words such as
@@ -405,7 +389,67 @@ with the first phoneme using the `unx` feature. For example, n̚.n for a
 geminated n. This describes how with the `stp` and `nas` consonants, the
 mouth remains closed (`unx`) for the first of the geminated consonants.
 
-### Vowels
+### Manner of Articulation
+
+| Feature   | Symbol | Name           |
+|-----------|--------|----------------|
+| `nas`     |        | nasal          |
+| `stp`     |        | plosive (stop) |
+| `afr`     |        | affricate      |
+| `frc`     |        | fricative      |
+| `flp`     |        | tap/flap       |
+| `trl`     |        | trill          |
+| `apr`     |        | approximant    |
+| `clk`     |        | click          |
+| `ejc`     |        | ejective       |
+| `imp`     | ◌ʼ     | implosive      |
+| `vwl`     |        | vowel          |
+
+The `vwl` phonemes are described using vowel height and backness features,
+while consonants (the other manners of articulation) are described using
+place of articulation features.
+
+Additionally, the manner of articulation can be refined using the following
+features:
+
+| Feature | Name     |
+|---------|----------|
+| `lat`   | lateral  |
+| `sib`   | sibilant |
+
+### Place of Articulation
+
+| Feature | Name                  |
+|---------|-----------------------|
+| `blb`   | bilabial              |
+| `lbd`   | labiodental           |
+| `bld`   | bilabial-labiodental  |
+| `dnt`   | dental                |
+| `alv`   | alveolar              |
+| `pla`   | palato-alveolar       |
+| `rfx`   | retroflex             |
+| `alp`   | alveolo-palatal       |
+| `pal`   | palatal               |
+| `vel`   | velar                 |
+| `lbv`   | labio-velar           |
+| `uvl`   | uvular                |
+| `phr`   | pharyngeal            |
+| `glt`   | glottal               |
+
+The `bld` place of articulation is used for `afr` consonants that have a `blb`
+onset and a `lbd` release, e.g. in the German p͡f consonant.
+
+__NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
+consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
+
+### Voice
+
+| Feature | Name      |
+|---------|-----------|
+| `vls`   | voiceless |
+| `vcd`   | voiced    |
+
+## Vowels
 
 <table>
   <tr>
@@ -464,215 +508,7 @@ __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
 
-### Positioning Diacritics
-
-The following IPA diacritics are only used by eSpeak NG to fill out positions
-in the IPA consonant and vowel charts. As such those phonemes are transcribed
-according to the features at that position, not using the features at the
-location of the base phoneme with a feature for each of the positioning
-diacritics.
-
-| Symbol | Name            |
-|--------|-----------------|
-| ◌̟      | advanced        |
-| ◌̠      | retracted       |
-| ◌̈      | centralized     |
-| ◌̽      | mid-centralized |
-| ◌̝      | raised          |
-| ◌̞      | lowered         |
-
-## Features
-
-### Manner of Articulation
-
-The manner of articulation is described in terms of several distinct feature
-types. The possible manners of articulation are:
-
-| Manner of Articulation | Feature   | Symbol | Features              |
-|------------------------|-----------|--------|-----------------------|
-| nasal                  | `nas`     |        | `pmc egs nsl occ`     |
-| plosive (stop)         | `stp`     |        | `pmc egs orl occ`     |
-| affricate              | `afr`     |        | `pmc egs orl occ frr` |
-| fricative              | `frc`     |        | `pmc egs orl frv`     |
-| tap/flap               | `flp`     |        | `pmc egs orl fla`     |
-| trill                  | `trl`     |        | `pmc egs orl tri`     |
-| approximant            | `apr`     |        | `pmc egs orl app`     |
-| click                  | `clk`     |        | `vlc igs orl`         |
-| ejective               | `ejc`     |        | `vlc igs orl occ`     |
-| implosive              | `imp`     | ◌ʼ     | `gtc igs`             |
-| vowel                  | `vwl`     |        | `pmc egs orl vow`     |
-
-The features for these manners of articulation are provided for convenience,
-and to make it easier to describe the IPA consonants. Internally, the
-distinct feature types are used.
-
-For `imp` consonants, they use the features of the base phoneme except for
-the `pmc` and `egs` features. Thus, a `nas imp` is a `gtc igs nsl occ`.
-
-The `vwl` phonemes are described using vowel height and backness features,
-while consonants (the other manners of articulation) are described using
-place of articulation features.
-
-Additionally, the manner of articulation can be refined using the following
-features:
-
-| Feature | Name     | Description                                                 |
-|---------|----------|-------------------------------------------------------------|
-| `lat`   | lateral  | The air flow is directed along the sides of the tongue.     |
-| `sib`   | sibilant | The air flow is directed through the teeth with the tongue. |
-
-#### Air Flow
-
-| Feature | Symbol | Name       | Description                                                       |
-|---------|--------|------------|-------------------------------------------------------------------|
-| `egs`   | ↑      | egressive  | The air flow is moving outwards from the initiator to the target. |
-| `igs`   | ↓      | ingressive | The air flow is moving inwards from the target to the initiator.  |
-
-The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
-They only need to be used when the air flow is different to the base IPA
-phoneme (e.g. using ↓ on pulmonic consonants).
-
-#### Initiator
-
-| Feature | Name       | Description                                                           |
-|---------|------------|-----------------------------------------------------------------------|
-| `pmc`   | pulmonic   | The diaphragm and lungs are used to generate the airstream.           |
-| `gtc`   | glottalic  | The glottis is used to generate the airstream.                        |
-| `vlc`   | velaric    | The velum is closed and the tongue is used to generate the airstream. |
-| `pcv`   | percussive | There is no airstream used to produce this sound.                     |
-
-#### Target
-
-| Feature | Name       | Description                                     |
-|---------|------------|-------------------------------------------------|
-| `nsl`   | nasal      | The air flows through the nose.                 |
-| `orl`   | oral       | The air flows through the mouth.                |
-
-#### Manner
-
-| Feature | Name        | Description                                                                       |
-|---------|-------------|-----------------------------------------------------------------------------------|
-| `occ`   | occlusive   | The air flow is blocked within the vocal tract.                                   |
-| `frv`   | fricative   | The air flow is constricted, causing turbulence.                                  |
-| `fla`   | flap        | A single tap of the tongue against the secondary articulator.                     |
-| `tri`   | trill       | A rapid vibration of the primary articulator against the secondary articulator.   |
-| `app`   | approximant | The vocal tract is narrowed at the place of articulation without being turbulant. |
-| `vow`   | vowel       | The phoneme is articulated as a vowel instead of a consonant.                     |
-
-### Phonation
-
-The phonation features describe the degree to which the glottis (vocal chords) are open or closed.
-
-| Feature | Symbol | Name            | Description                                                                 |
-|---------|--------|-----------------|-----------------------------------------------------------------------------|
-| `vls`   |        | voiceless       | The glottis is fully open, such that the vocal chords do not vibrate.       |
-| `brv`   | ◌̤      | breathy voice   | The glottis is closed slightly, to produce a whispered or murmured sound.   |
-| `slv`   | ◌̥      | slack voice     | The glottis is opened wider than `mdv`, but not enough to be `brv`.         |
-| `mdv`   |        | modal voice     | The glottis is opened to provide the optimal vibration of the vocal chords. |
-| `stv`   | ◌̬      | stiff voice     | The glottis is closed narrower than `mdv`, but not enough to be `crv`.      |
-| `crv`   | ◌̰      | creaky voice    | The glottis is closed to produce a vocal or glottal fry.                    |
-| `glc`   | ʔ͡◌    | glottal closure | The glottis is fully closed.                                                |
-
-The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
-charts. Thus, when ◌̥ is used with a `mdv` consonant that does not have an
-equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
-
-### Place of Articulation
-
-The place of articulation is described in terms of an active articulator and
-one or more passive articulators<sup>\[<a href="#ref9">9</a>\]</sup>. The
-possible places of articulation are:
-
-| Place of Articulation | Feature   | Symbol | Active | Lips  | Teeth   | Passive |
-|-----------------------|-----------|--------|--------|-------|---------|---------|
-| bilabial              | `blb`     |        | `lbl`  | `ulp` |         |         |
-| linguolabial          | `lgl`     | ◌̼      | `lmn`  | `ulp` |         |         |
-| labiodental           | `lbd`     | ◌̪      | `lbl`  |       | `utt`   |         |
-| bilabial-labiodental  | `bld`     |        | `bld`  | `ulp` | `utt`   |         |
-| interdental           | `idt`     | ◌̪͆      | `lmn`  |       | `utt`   |         |
-| dental                | `dnt`     | ◌̪      | `apc`  |       | `utt`   |         |
-| denti-alveolar        | `dta`     |        | `lmn`  |       | `utt`   | `alf`   |
-| alveolar              | `alv`     |        | `lmn`  |       |         | `alf`   |
-| apico-alveolar        | `apa`     | ◌̺      | `apc`  |       |         | `alf`   |
-| palato-alveolar       | `pla`     |        | `lmn`  |       |         | `alb`   |
-| apical retroflex      | `arf`     |        | `sac`  |       |         | `alb`   |
-| retroflex             | `rfx`     | ◌̺      | `apc`  |       |         | `hpl`   |
-| alveolo-palatal       | `alp`     |        | `dsl`  |       |         | `alb`   |
-| palatal               | `pal`     |        | `dsl`  |       |         | `hpl`   |
-| velar                 | `vel`     |        | `dsl`  |       |         | `spl`   |
-| labio-velar           | `lbv`     |        | `dsl`  | `ulp` |         | `spl`   |
-| uvular                | `uvl`     |        | `dsl`  |       |         | `uvu`   |
-| pharyngeal            | `phr`     |        | `rdl`  |       |         | `prx`   |
-| epiglotto-pharyngeal  | `epp`     |        | `lyx`  |       |         | `prx`   |
-| (ary-)epiglottal      | `epg`     |        | `lyx`  |       |         | `egs`   |
-| glottal               | `glt`     |        | `lyx`  |       |         | `gts`   |
-
-The features for these places of articulation are provided for convenience, and
-to make it easier to describe the IPA consonants. Internally, the active and
-passive articulators are used.
-
-The ◌̪ diacritic is `lbd` when used on `blb` consonants, and `dnt` when used on
-`alv` consonants.
-
-The `bld` place of articulation is used for `afr` consonants that have a `blb`
-onset and a `lbd` release, e.g. in the p͡f consonant.
-
-The `alv` consonant is `lmn` as found in French and Spanish, while `apa` is
-`apc` as found in English, as such ◌̻ (*laminal*) is not needed.
-
-__NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
-consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
-
-#### Active Articulators
-
-| Feature | Name      | Articulator             |
-|---------|-----------|-------------------------|
-| `lbl`   | labial    | lower lip               |
-| `lmn`   | laminal   | tongue blade            |
-| `apc`   | apical    | tongue tip              |
-| `sac`   | subapical | underside of the tongue |
-| `dsl`   | dorsal    | tongue body             |
-| `rdl`   | radical   | tongue root             |
-| `lyx`   | laryngeal | larynx                  |
-
-#### Passive Articulators
-
-| Feature | Articulator            |
-|---------|------------------------|
-| `ulp`   | upper lip              |
-| `utt`   | upper teeth            |
-| `alf`   | alveolar ridge (front) |
-| `alb`   | alveolar ridge (back)  |
-| `hpl`   | hard palate            |
-| `spl`   | soft palate (velum)    |
-| `uvu`   | uvular                 |
-| `prx`   | pharynx                |
-| `egs`   | epiglottis             |
-| `gts`   | glottis                |
-
-### Rounding and Labialization
-
-| Feature | Symbol | Name       | Rounded | Position                                |
-|---------|--------|------------|---------|-----------------------------------------|
-| `unr`   |        | unrounded  | No      | Close to the jaw.                       |
-| `ptr`   | ◌ʷ, ◌ᶣ | protruded  | Yes     | Protrude outward from the jaw.          |
-| `cmp`   | ◌ᵝ     | compressed | Yes     | Close to the jaw.                       |
-| `rnd`   |        | rounded    | Yes     | `ptr` if `bck` or `cnt`; `cmp` if `fnt` |
-
-The `unr` and `rnd` features are used for vowels to describe their default
-labialization. Consonants are `unr` by default, and can use the ◌ʷ, ◌ᶣ and ◌ᵝ
-annotations to specify the type of labialization. Vowels can use these to
-change their labialization from the default one specified by `rnd`.
-
-Additionally, the degree of rounding/labialization can be specified using the
-following features:
-
-| Feature | Symbol | Name         |
-|---------|--------|--------------|
-| `mrd`   | ◌̹      | more rounded |
-| `lrd`   | ◌̜      | less rounded |
-
-### Vowel Height
+### Height
 
 | Feature | Name                   |
 |---------|------------------------|
@@ -684,13 +520,82 @@ following features:
 | `sml`   | near-open (semi-low)   |
 | `low`   | open (low)             |
 
-### Vowel Backness
+### Backness
 
 | Feature | Name            |
 |---------|-----------------|
 | `fnt`   | front           |
 | `cnt`   | center          |
 | `bck`   | back            |
+
+### Rounding
+
+| Feature | Name      |
+|---------|-----------|
+| `unr`   | unrounded |
+| `rnd`   | rounded   |
+
+## Diacritics
+
+### Articulation
+
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `lgl`   | ◌̼      | linguolabial    |
+| `idt`   | ◌̪͆      | interdental     |
+|         | ◌̪      | dental          |
+| `apc`   | ◌̺      | apical          |
+| `lmn`   | ◌̻      | laminal         |
+|         | ◌̟      | advanced        |
+|         | ◌̠      | retracted       |
+|         | ◌̈      | centralized     |
+|         | ◌̽      | mid-centralized |
+|         | ◌̝      | raised          |
+|         | ◌̞      | lowered         |
+
+The articulations that do not have a corresponding feature name are recorded
+using the features of their new location in the consonant or vowel charts, not
+using the features of the base phoneme.
+
+### Air Flow
+
+| Feature | Symbol | Name       |
+|---------|--------|------------|
+| `egs`   | ↑      | egressive  |
+| `igs`   | ↓      | ingressive |
+
+The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
+They only need to be used when the air flow is different to the base IPA
+phoneme (e.g. using ↓ on pulmonic consonants).
+
+### Phonation
+
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `brv`   | ◌̤      | breathy voice   |
+| `slv`   | ◌̥      | slack voice     |
+| `stv`   | ◌̬      | stiff voice     |
+| `crv`   | ◌̰      | creaky voice    |
+| `glc`   | ʔ͡◌    | glottal closure |
+
+The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
+charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
+equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
+
+### Rounding and Labialization
+
+| Feature | Symbol | Name       |
+|---------|--------|------------|
+| `ptr`   | ◌ʷ, ◌ᶣ | protruded  |
+| `cmp`   | ◌ᵝ     | compressed |
+
+The degree of rounding/labialization can be specified using the following
+features:
+
+| Feature | Symbol | Name         |
+|---------|--------|--------------|
+| `mrd`   | ◌̹      | more rounded |
+| `lrd`   | ◌̜      | less rounded |
 
 ### Syllabicity
 
@@ -703,7 +608,6 @@ following features:
 
 | Feature | Symbol | Name                            |
 |---------|--------|---------------------------------|
-| `frr`   |        | fricative release               |
 | `asp`   | ◌ʰ     | aspirated                       |
 | `nrs`   | ◌ⁿ     | nasal release                   |
 | `lrs`   | ◌ˡ     | lateral release                 |
@@ -711,16 +615,17 @@ following features:
 
 ### Co-articulation
 
-| Feature | Symbol | Name            | Co-Articulator | Type                  |
-|---------|--------|-----------------|----------------|-----------------------|
-| `pzd`   | ◌ʲ     | palatalized     | `hpl`          | Passive Articulator   |
-| `vzd`   | ◌ˠ     | velarized       | `spl`          | Passive Articulator   |
-| `fzd`   | ◌ˤ     | pharyngealized  | `prx`          | Passive Articulator   |
-| `nzd`   | ◌̃      | nasalized       | `nsl`          | Target                |
-| `rzd`   | ◌˞     | rhoticized      | `rfx`          | Place of Articulation |
+| Feature | Symbol | Name           |
+|---------|--------|----------------|
+| `pzd`   | ◌ʲ     | palatalized    |
+| `vzd`   | ◌ˠ     | velarized      |
+| `fzd`   | ◌ˤ     | pharyngealized |
+| `nzd`   | ◌̃      | nasalized      |
+| `rzd`   | ◌˞     | rhoticized     |
 
-Additionally, the tongue root position can be specified using the following
-features:
+### Tongue Root
+
+The tongue root position can be specified using the following features:
 
 | Feature | Symbol | Name                  |
 |---------|--------|-----------------------|
@@ -743,9 +648,9 @@ Where fortis and lenis are used to contrast consonant durations (e.g. in
 the Jawoyn, Ojibwe, and Zurich German languages<sup>\[<a href="#ref8">8</a>\]</sup>),
 the [length](#length) suprasegmentals are used instead.
 
-### Suprasegmentals
+## Suprasegmentals
 
-#### Stress
+### Stress
 
 | Feature | Symbol | Name             |
 |---------|--------|------------------|
@@ -753,7 +658,7 @@ the [length](#length) suprasegmentals are used instead.
 | `st2`   | ˌ◌     | secondary stress |
 | `st3`   | ˈˈ◌    | extra stress     |
 
-#### Length
+### Length
 
 | Feature | Symbol | Name            |
 |---------|--------|-----------------|
@@ -761,14 +666,14 @@ the [length](#length) suprasegmentals are used instead.
 | `hlg`   | ◌ˑ     | half-long       |
 | `lng`   | ◌ː     | long            |
 
-#### Rhythm
+### Rhythm
 
 | Feature | Symbol | Name              |
 |---------|--------|-------------------|
 | `sbr`   | ◌.◌    | syllable break    |
 | `lnk`   | ◌‿◌    | linked (no break) |
 
-#### Intonation
+### Intonation
 
 | Feature | Symbol | Name                     |
 |---------|--------|--------------------------|
@@ -777,14 +682,12 @@ the [length](#length) suprasegmentals are used instead.
 | `glr`   | ↗      | global rise              |
 | `glf`   | ↘      | global fall              |
 
-#### Tone Stepping
+### Tone Stepping
 
 | Feature | Symbol | Name        |
 |---------|--------|-------------|
 | `ust`   | ꜛ◌     | upstep      |
 | `dst`   | ꜜ◌     | downstep    |
-
-## Properties
 
 ### Tones
 
