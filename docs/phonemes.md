@@ -70,23 +70,23 @@ current implementation does not reflect this document.
   </tr>
   <tr>
     <th align="right"><code>nas</code></th>
-    <td> </td><td>m</td>
+    <td>m̥</td><td>m</td>
     <td> </td><td>ɱ</td>
     <td> </td><td> </td>
-    <td> </td><td>n</td>
+    <td>n̥</td><td>n</td>
     <td> </td><td> </td>
-    <td> </td><td>ɳ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ɲ</td>
-    <td> </td><td>ŋ</td>
-    <td> </td><td>ɴ</td>
+    <td>ɳ̊</td><td>ɳ</td>
+    <td>ɲ̟̊</td><td>ɲ̟</td>
+    <td>ɲ̊</td><td>ɲ</td>
+    <td>ŋ̊</td><td>ŋ</td>
+    <td>ɴ̥</td><td>ɴ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
   </tr>
   <tr>
     <th align="right"><code>stp</code></th>
     <td>p</td><td>b</td>
-    <td> </td><td> </td>
+    <td>p̪</td><td>b̪</td>
     <td> </td><td> </td>
     <td>t</td><td>d</td>
     <td> </td><td> </td>
@@ -135,10 +135,10 @@ current implementation does not reflect this document.
     <td> </td><td> </td>
     <td>t͡ɬ</td><td>d͡ɮ</td>
     <td> </td><td> </td>
+    <td>ʈ͡ɭ̊˔</td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
+    <td>c͡ʎ̥˔</td><td> </td>
+    <td>k͡ʟ̝̊</td><td>ɡ͡ʟ̝</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -180,10 +180,10 @@ current implementation does not reflect this document.
     <td> </td><td> </td>
     <td>ɬ</td><td>ɮ</td>
     <td> </td><td> </td>
+    <td>ɭ̊˔</td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
+    <td>ʎ̥˔</td><td>ʎ̝</td>
+    <td>ʟ̝̊</td><td>ʟ̝</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -191,14 +191,14 @@ current implementation does not reflect this document.
   <tr>
     <th align="right"><code>apr</code></th>
     <td> </td><td> </td>
-    <td> </td><td>ʋ</td>
+    <td>ʋ̥</td><td>ʋ</td>
     <td> </td><td> </td>
-    <td> </td><td>ɹ</td>
+    <td>ɹ̥</td><td>ɹ</td>
     <td> </td><td> </td>
-    <td> </td><td>ɻ</td>
+    <td>ɻ̊</td><td>ɻ</td>
     <td> </td><td> </td>
-    <td> </td><td>j</td>
-    <td> </td><td>ɰ</td>
+    <td>j̊</td><td>j</td>
+    <td>ɰ̊</td><td>ɰ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -208,29 +208,29 @@ current implementation does not reflect this document.
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td>l</td>
+    <td>l̥</td><td>l</td>
     <td> </td><td> </td>
-    <td> </td><td>ɭ</td>
+    <td>ɭ̊</td><td>ɭ</td>
     <td> </td><td> </td>
-    <td> </td><td>ʎ</td>
-    <td> </td><td>ʟ</td>
-    <td> </td><td> </td>
+    <td>ʎ̥</td><td>ʎ</td>
+    <td>ʟ̥</td><td>ʟ</td>
+    <td> </td><td>ʟ̠</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
   </tr>
   <tr>
     <th align="right"><code>flp</code></th>
-    <td> </td><td> </td>
+    <td> </td><td>ⱱ̟</td>
     <td> </td><td>ⱱ</td>
     <td> </td><td> </td>
-    <td> </td><td>ɾ</td>
+    <td>ɾ̥</td><td>ɾ</td>
     <td> </td><td> </td>
-    <td> </td><td>ɽ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
+    <td>ɽ̊</td><td>ɽ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
+    <td> </td><td>ɢ̆</td>
+    <td> </td><td>ʡ̮</td>
     <td> </td><td> </td>
   </tr>
   <tr>
@@ -240,10 +240,10 @@ current implementation does not reflect this document.
     <td> </td><td> </td>
     <td> </td><td>ɺ</td>
     <td> </td><td> </td>
+    <td> </td><td>ɭ̆</td>
     <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
+    <td> </td><td>ʎ̮</td>
+    <td> </td><td>ʟ̆</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
@@ -253,13 +253,13 @@ current implementation does not reflect this document.
     <td> </td><td>ʙ</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td>r</td>
+    <td>r̥</td><td>r</td>
+    <td> </td><td> </td>
+    <td>ɽ͡r̥</td><td>ɽ͡r</td>
     <td> </td><td> </td>
     <td> </td><td> </td>
     <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>ʀ</td>
+    <td>ʀ̥</td><td>ʀ</td>
     <td>ʜ</td><td>ʢ</td>
     <td> </td><td> </td>
   </tr>

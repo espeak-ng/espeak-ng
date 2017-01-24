@@ -365,8 +365,6 @@ static PHONEME_TAB *phoneme_out;
 static int n_phcodes_list[N_PHONEME_TABS];
 static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
-static int phoneme_flags;
-static int place_articulation;
 
 static char *p_equivalence;
 static char equivalence_buf[20000];
@@ -1970,8 +1968,6 @@ static void CallPhoneme(void)
 		if (phoneme_out->type == phINVALID) {
 			// Phoneme type has not been set. Copy it from the called phoneme
 			phoneme_out->type = ph->type;
-			phoneme_flags = ph->phflags & ~phARTICULATION;
-			place_articulation = (ph->phflags & phARTICULATION) >> 16;
 			phoneme_out->start_type = ph->start_type;
 			phoneme_out->end_type = ph->end_type;
 			phoneme_out->std_length = ph->std_length;
@@ -2020,8 +2016,8 @@ int CompilePhoneme(int compile_phoneme)
 	if_level = 0;
 	if_stack[0].returned = 0;
 	after_if = 0;
-	phoneme_flags = 0;
-	place_articulation = 0;
+	int phoneme_flags = 0;
+	int place_articulation = 0;
 
 	NextItem(tSTRING);
 	if (compile_phoneme) {
