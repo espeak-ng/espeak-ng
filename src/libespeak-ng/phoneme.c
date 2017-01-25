@@ -62,6 +62,9 @@ enum feature_t {
 	uvl = FEATURE('u', 'v', 'l'),
 	phr = FEATURE('p', 'h', 'r'),
 	glt = FEATURE('g', 'l', 't'),
+	// voice
+	vcd = FEATURE('v', 'c', 'd'),
+	vls = FEATURE('v', 'l', 's'),
 };
 
 uint32_t lookup_feature(const char *feature) {
@@ -163,6 +166,13 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		break;
 	case alp:
 		// FIXME: Not supported by eSpeak. Used in Chinese/Japanese ɕ and ʑ.
+		break;
+	// voice
+	case vcd:
+		phoneme->phflags |= phVOICED;
+		break;
+	case vls: // FIXME: This should be a phVOICELESS (!phVOICED) flag. Fortis/lenis are a different thing.
+		phoneme->phflags |= phFORTIS;
 		break;
 	// invalid phoneme feature
 	default:

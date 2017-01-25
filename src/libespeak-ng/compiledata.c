@@ -296,7 +296,6 @@ static keywtab_t keywords[] = {
 	// flags
 	{ "wavef",        tPHONEME_FLAG, phWAVE },
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
-	{ "fortis",       tPHONEME_FLAG, phFORTIS },
 	{ "sibilant",     tPHONEME_FLAG, phSIBILANT }, // TODO (deprecated): use 'sib' instead
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
 	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
@@ -314,10 +313,6 @@ static keywtab_t keywords[] = {
 	{ "flag1", tPHONEME_FLAG, phFLAG1 },
 	{ "flag2", tPHONEME_FLAG, phFLAG2 },
 	{ "flag3", tPHONEME_FLAG, phFLAG3 },
-
-	// voiced / unvoiced
-	{ "vcd", tPHONEME_FLAG, phVOICED },
-	{ "vls", tPHONEME_FLAG, phFORTIS },
 
 	// vowel transition attributes
 	{ "len=",   tTRANSITION,  1 },
