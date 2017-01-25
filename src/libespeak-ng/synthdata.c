@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -684,24 +684,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				return CountVowelPosition(plist) == 1;
 			case 14: // isSecondVowel
 				return CountVowelPosition(plist) == 2;
-			case 15: // isSeqFlag1
-				// is this preceded  by a sequence if 1 or more vowels which have 'flag1' ?  (lang=hi)
-				if (plist->sourceix != 0)
-					return false; // this is the first phoneme in the word, so no.
-
-				count = 0;
-				for (;;) {
-					plist--;
-					if (plist->ph->type == phVOWEL) {
-						if (plist->ph->phflags & phFLAG1)
-							count++;
-						else
-							break; // stop when we find a vowel without flag1
-					}
-					if (plist->sourceix != 0)
-						break;
-				}
-				return count > 0;
 			case 0x10: // isTranslationGiven
 				return (plist->synthflags & SFLAG_DICTIONARY) != 0;
 			}

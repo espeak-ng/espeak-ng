@@ -138,7 +138,6 @@ static keywtab_t k_properties[] = {
 	{ "isVoiced",           0, i_isVoiced },   // voiced consonant, or vowel
 	{ "isFirstVowel",       0, i_isFirstVowel },
 	{ "isSecondVowel",      0, i_isSecondVowel },
-	{ "isSeqFlag1",         0, i_isSeqFlag1 },
 	{ "isTranslationGiven", 0, i_IsTranslationGiven },   // phoneme translation given in **_list or as [[...]]
 
 	{ NULL, 0, 0 }
