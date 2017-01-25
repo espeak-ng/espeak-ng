@@ -18,52 +18,42 @@
 #include "config.h"
 
 #include <errno.h>
+#include <stdint.h>
+#include <string.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
 #include "phoneme.h"
-#include "speech.h"
 #include "error.h"
+
+#define FEATURE(a, b, c) ((a << 16) | (b << 8) | (c))
 
 // See docs/phonemes.md for the list of supported features.
 enum feature_t {
 	// invalid phoneme feature name
 	inv, // Not in docs/phonemes.md. This is used to signal an unknown feature name.
 	// manner of articulation
-	nas,
-	stp,
-	afr,
-	frc,
-	flp,
-	trl,
-	apr,
-	clk,
-	ejc,
-	imp,
-	vwl,
-	lat,
-	sib,
+	nas = FEATURE('n', 'a', 's'),
+	stp = FEATURE('s', 't', 'p'),
+	afr = FEATURE('a', 'f', 'r'),
+	frc = FEATURE('f', 'r', 'c'),
+	flp = FEATURE('f', 'l', 'p'),
+	trl = FEATURE('t', 'r', 'l'),
+	apr = FEATURE('a', 'p', 'r'),
+	clk = FEATURE('c', 'l', 'k'),
+	ejc = FEATURE('e', 'j', 'c'),
+	imp = FEATURE('i', 'm', 'p'),
+	vwl = FEATURE('v', 'w', 'l'),
+	lat = FEATURE('l', 'a', 't'),
+	sib = FEATURE('s', 'i', 'b'),
 };
 
-static MNEM_TAB features[] = {
-	// manner of articulation
-	{ "nas", nas },
-	{ "stp", stp },
-	{ "frc", frc },
-	{ "afr", afr },
-	{ "flp", flp },
-	{ "trl", trl },
-	{ "apr", apr },
-	{ "clk", clk },
-	{ "ejc", ejc },
-	{ "imp", imp },
-	{ "vwl", vwl },
-	{ "lat", lat },
-	{ "sib", sib },
-	// invalid phoneme feature
-	{ NULL,  inv },
-};
+uint32_t lookup_feature(const char *feature) {
+	if (strlen(feature) != 3)
+		return inv;
+	return FEATURE(feature[0], feature[1], feature[2]);
+}
 
 espeak_ng_STATUS
 phoneme_add_feature(PHONEME_TAB *phoneme,
@@ -72,7 +62,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 {
 	if (!phoneme || !feature) return EINVAL;
 
-	switch (LookupMnem(features, feature))
+	switch (lookup_feature(feature))
 	{
 	// manner of articulation
 	case nas:
