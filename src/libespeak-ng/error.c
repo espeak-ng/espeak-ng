@@ -31,54 +31,86 @@
 #include "phoneme.h"
 #include "synthesize.h"
 
-espeak_ng_STATUS create_file_error_context(espeak_ng_ERROR_CONTEXT *context, espeak_ng_STATUS status, const char *filename)
+espeak_ng_STATUS
+create_file_error_context(espeak_ng_ERROR_CONTEXT *context,
+                          espeak_ng_STATUS status,
+                          const char *filename)
 {
 	if (context) {
 		if (*context) {
-			free((*context)->path);
+			free((*context)->name);
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
 			if (!*context)
 				return ENOMEM;
 		}
 		(*context)->type = ERROR_CONTEXT_FILE;
-		(*context)->path = strdup(filename);
+		(*context)->name = strdup(filename);
 		(*context)->version = 0;
 		(*context)->expected_version = 0;
 	}
 	return status;
 }
 
-espeak_ng_STATUS create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context, const char *path_home, int version, int expected_version)
+espeak_ng_STATUS
+create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context,
+                                      const char *path_home,
+                                      int version,
+                                      int expected_version)
 {
 	if (context) {
 		if (*context) {
-			free((*context)->path);
+			free((*context)->name);
 		} else {
 			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
 			if (!*context)
 				return ENOMEM;
 		}
 		(*context)->type = ERROR_CONTEXT_VERSION;
-		(*context)->path = strdup(path_home);
+		(*context)->name = strdup(path_home);
 		(*context)->version = version;
 		(*context)->expected_version = expected_version;
 	}
 	return ENS_VERSION_MISMATCH;
 }
 
+espeak_ng_STATUS
+create_name_error_context(espeak_ng_ERROR_CONTEXT *context,
+                          espeak_ng_STATUS status,
+                          const char *name)
+{
+	if (context) {
+		if (*context) {
+			free((*context)->name);
+		} else {
+			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
+			if (!*context)
+				return ENOMEM;
+		}
+		(*context)->type = ERROR_CONTEXT_NAME;
+		(*context)->name = strdup(name);
+		(*context)->version = 0;
+		(*context)->expected_version = 0;
+	}
+	return status;
+}
+
 #pragma GCC visibility push(default)
 
-ESPEAK_NG_API void espeak_ng_ClearErrorContext(espeak_ng_ERROR_CONTEXT *context)
+ESPEAK_NG_API void
+espeak_ng_ClearErrorContext(espeak_ng_ERROR_CONTEXT *context)
 {
 	if (context && *context) {
-		free((*context)->path);
+		free((*context)->name);
 		free(*context);
 		*context = NULL;
 	}
 }
 
-ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char *buffer, size_t length)
+ESPEAK_NG_API void
+espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
+                               char *buffer,
+                               size_t length)
 {
 	switch (status)
 	{
@@ -133,7 +165,10 @@ ESPEAK_NG_API void espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status, char 
 	}
 }
 
-ESPEAK_NG_API void espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status, FILE *out, espeak_ng_ERROR_CONTEXT context)
+ESPEAK_NG_API void
+espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status,
+                                 FILE *out,
+                                 espeak_ng_ERROR_CONTEXT context)
 {
 	char error[512];
 	espeak_ng_GetStatusCodeMessage(status, error, sizeof(error));
@@ -141,11 +176,14 @@ ESPEAK_NG_API void espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status, FIL
 		switch (context->type)
 		{
 		case ERROR_CONTEXT_FILE:
-			fprintf(out, "Error processing file '%s': %s.\n", context->path, error);
+			fprintf(out, "Error processing file '%s': %s.\n", context->name, error);
 			break;
 		case ERROR_CONTEXT_VERSION:
 			fprintf(out, "Error: %s at '%s' (expected 0x%x, got 0x%x).\n",
-			        error, context->path, context->expected_version, context->version);
+			        error, context->name, context->expected_version, context->version);
+			break;
+		case ERROR_CONTEXT_NAME:
+			fprintf(out, "Error: %s (got \"%s\").\n", error, context->name);
 			break;
 		}
 	} else

@@ -41,7 +41,7 @@ extern "C"
 #define phARTICULATION 0xf0000
 #define phWAVE     0x01
 #define phUNSTRESSED 0x02
-#define phFORTIS   0x08
+#define phVOICELESS  0x08
 #define phVOICED   0x10
 #define phSIBILANT 0x20
 #define phNOLINK   0x40
