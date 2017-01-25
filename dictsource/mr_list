@@ -1,4 +1,4 @@
-﻿// This mr_list file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+// This mr_list file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
 // This file is UTF8 encoded
 
 // Numbers
@@ -7,7 +7,7 @@ _0        S'u:nj@-
 _1        'e:k
 _2         d'o:n
 _3        t'i:n
-_4        c'a:r
+_4        tS'a:r
 _5         p'a:c
 _6         s'VHa:
 _7        s'a:t
@@ -19,7 +19,7 @@ _10        d'VHa:
 _11        'Vkra:
 _12       b'a:ra:
 _13        t'e:*a:
-_14         c'O:da:
+_14          c'aUda:
 _15         p'Vnd#@*,a:
 _16         s'o:l.a:
 _17        s'Vtr,a:
@@ -28,27 +28,27 @@ _19        ,e:ko:n.'i:s
 
 _20        w'i:s
 _21        ,e:kv'i:s
-_22        baU'i:s
+_22         ba:v'i:s
 _23        te:v'i:s
-_24        co:v'i:s
+_24        tSo:v'i:s
 _25        p,@n^c@v'i:s
 _26        s@vv'i:s
-_27        s,@t:aU'i:s
-_28        ,Vt.#:aU'i:s
+_27         s,@t:a:v'i:s
+_28         ,Vt.#:a:v'i:s
 _29        ,e:ko:n.t'i:s
 _30        t'i:s
 
 _31        ,e:kt'i:s
 _32        b@t:'i:s
 _33        t,e:He:t'i:s// E~ ?
-_34        cO:t'i:s
+_34         caUt'i:s
 _35        p@st'i:s
 _36        c#@3t:'i:s
 _37        s,@dt'i:s
 _38        ,Vd.t'i:s
 _39        ,e:ko:n.ca:l.'i:s
 
-_40         ca:l.'i:s
+_40         tSa:l.'i:s
 _41        'e:k:e:c,a:l.is
 _42        b,e:ca:l.'i:s
 _43        tr,e:ca:l.'i:s
@@ -60,21 +60,21 @@ _48        ,Vt.#:e:ca:l.'i:s
 _49        ,e:ko:n.,@pnn'a:s
 
 _50        p@nn'a:s
-_51        e:k:'aUnn@-
-_52        b'aUnn@-
+_51         'e:k:a:v,@nn@-
+_52         ba:v'Vnn@-
 _53        tre:p'Vnn@-
-_54        co:p'Vnn@-
-_55        p@n^c'aUnn@-
+_54        tSo:p'Vnn@-
+_55         p,@n^ca:v'Vnn@-
 _56        c#@3p:'Vnn@-
-_57        s@t:'aUnn@-
-_58        Vt.#:'aUnn@-
+_57         s,@t:a:v'Vnn@-
+_58         ,Vt.#:a:v'Vnn@-
 _59        ,e:ko:n.s'a:t.#
 
 _60        s'a:t.#
 _61        ,e:ks'Vs.t.#
 _62        ba:s'Vs.t.#
 _63        tre:s'Vs.t.#
-_64        cO:s'Vs.t.#
+_64         caUs'Vs.t.#
 _65        pa:s'Vs.t.#
 _66        s,@Ha:s'Vs.t.#
 _67        s,@dUs'Vs.t.#
@@ -85,29 +85,29 @@ _70        s'Vt:@r
 _71        'e:k:a:H,@t:@r
 _72        ba:H'Vt:@r
 _73        trja:H'Vt:@r
-_74        c'O:rja:H,@t:@r
+_74         c'aUrja:H,@t:@r
 _75        p,@n^c:ja:H'Vt:@r
 _76        S@H'a:t:@r
 _77        s,@t:ja:H'Vt:@r
 _78        ,Vt.#:ja:H'Vt:@r
-_79        ,e:ko:n.'E~Si
+_79         e:k'o:n.'aI~Si
 
-_80        'E~Si
-_81        'e:k:ja:,E~Si
-_82        bja:'E~Si
-_83        trja:'E~Si
-_84        c'O:rja:,E~Si
-_85        p,@n^c:ja:'E~Si
-_86        S,@Ha:'E~Si
-_87        s,@t:ja:'E~Si
-_88        ,Vt.#:ja:'E~Si
+_80         'aI~Si
+_81         'e:k:ja:,aI~Si
+_82         bja:'aI~Si
+_83         trja:'aI~Si
+_84         c'aUrja:,aI~Si
+_85         p,@n^c:ja:'aI~Si
+_86         S,@Ha:'aI~Si
+_87         s,@t:ja:'aI~Si
+_88         ,Vt.#:ja:'aI~Si
 _89        ,e:ko:n.@n'Vvv@d
 
 _90        n'Vvv@d
 _91        e:k:j'a:n.n.@w
 _92        bj'a:n.n.@w
 _93        trj'a:n.n.@w
-_94        cO:rj'a:n.n.@w
+_94         caUrj'a:n.n.@v
 _95        p@n^c:j'a:n.n.@w
 _96        S@H'a:n.n.@w
 _97        s@t:j'a:n.n.@w
@@ -117,9 +117,9 @@ _99        n@vvj'a:n.n.@w
 _0C	  S'e:
 _0M1	 H@z'a:r
 _0M2	l'a:k#
-_0M3	k@r'o:r.V
-_0M4	'VrVb
-_0M5	k#'VrVb
+_0M3	 k'o:t.i
+_0M4	  'VbJ@
+_0M5	  k#'Vrv@
 _dpt      _d@s@ml'o:_   
 
 // Single consonants
@@ -133,7 +133,7 @@ _dpt      _d@s@ml'o:_
 ङ      N@
 च      c@
 छ      c#@
-ज      J@
+ज      z@
 ज़      z@
 झ      J#@
 ञ      n^@
@@ -203,23 +203,17 @@ U+94d	hVlVnt
 
 _??	Vks.@r
 
-// Alphabet names
-_ar	'Vrbi
-_cyr	sIrIk'Ik
-_zh	c'i@ni
-
 // Punctuation
-// ।	dVn.d.V
+
 
 $	dOlVr
 %	pVt'ISVt
 +	plVs
-=	bVr'a:bVr
-*	ta:r'a:NkVn
 /	sle:S
-_,	'Vlp@||wir,a:m
+,	 sv,@lp@vI*'a:m
 ।	p'u:rn.@||wIr,a:m
-_;	'Vrd#@-||wIr,a:m
+।	$pause
+;	 ,V*d#@vI*'a:m
 _:	brIHVd'a:ntr@-
 _?	prVSVnv'a:cVk
 !	wIsmVja:dIv'a:cVk 
@@ -228,4 +222,63 @@ _-	j'o:JVk
 _"	'Udd#VrVn. 
 
 // Exceptions
+चन्द्र	 tS'Vndr@- 
+चरण	tS'Vr@2n. 
+चतुर	tS'VtUr 
+चरम	tS'Vr@2m 
+चैंन	tS'aI~n 
+चमेली	tS@3m'e:li 
+चेष्ठा	tS'e:s.t.#a: 
+चक्र	tS'Vkr@- 
+चसमा	tS'Vsm,a: 
+चित्र	tS'Itr@- 
+चरित्र	 tS@3*'Itr@-
+चमत्कार	tS,@3mtk'a:r 
+चाहा	tS'a:Ha:
+चारित्र्य 	tSa:*'Itrj@- 
+चप्पल 	tS'Vp:@l 
+चार्वाक 	tS'a:rva:k 
+चिंधी 	tS'i~d#i 
+चैत्र 	tS'aItr@- 
+च्य 	tS:j'@ 
+४ 	tS'a:r 
+२४ 	tSo:v'i:s 
+४० 	tSa:l.'i:s 
+५४ 	tSo:p'Vnn@-
+
 100	 S'Vmb@r
+जीवन	 J'i:v@n
+जय	 J'VEj
+जग	 J'Vg
+जन्म	 J'Vnm
+जन्वरी	 J'Vnv@*,i
+जून	 J'u:n
+जुलाई	 JUl'a:i
+जेवण 	 J'e:v@n. 
+जागृत 	J'a:grUt 
+जागृती 	J'a:grUt,i 
+जाहीरात 	J,a:Hi*'a:t 
+ज्य 	Jj'@ 
+पराजय 	p@*'a:J,Ej 
+तेज 	t'e:J 
+गजानन 	g@J'a:n@n 
+भजन 	b#'VJ@n 
+भाजी 	b#'a:Ji 
+ग्रज 	gr'VJ 
+आजी 	'a:Ji 
+प्रजनन 	pr'VJ@n,@n 
+प्रजा 	pr'VJa:
+झण्डा	 J#'Vn.d.a:
+
+जवान	 J@v'a:n
+जवानी	 J@v'a:ni
+जठर	 J'Vt.#@r
+जर्मन	 J'Vrm@n
+जर्मनी	 J'Vrm@n,i
+जादू	 J'a:du:
+अब्जं	 'VbJ@n
+जानेवारी	 J,a:ne:v'a:*i
+जुलै	 J'UlaI
+जोगीया	 Jo:g'i:ja:
+जपान	 J@p'a:n
+जल	 J'Vl
