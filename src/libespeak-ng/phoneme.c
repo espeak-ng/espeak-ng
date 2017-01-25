@@ -171,8 +171,8 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case vcd:
 		phoneme->phflags |= phVOICED;
 		break;
-	case vls: // FIXME: This should be a phVOICELESS (!phVOICED) flag. Fortis/lenis are a different thing.
-		phoneme->phflags |= phFORTIS;
+	case vls:
+		phoneme->phflags != phVOICELESS;
 		break;
 	// invalid phoneme feature
 	default:

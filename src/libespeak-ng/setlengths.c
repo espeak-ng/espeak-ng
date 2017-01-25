@@ -519,7 +519,7 @@ void CalcLengths(Translator *tr)
 					p->prepause = 15;
 			}
 
-			if (next->type == phPAUSE && prev->type == phNASAL && !(p->ph->phflags&phFORTIS))
+			if (next->type == phPAUSE && prev->type == phNASAL && !(p->ph->phflags&phVOICELESS))
 				p->prepause = 25;
 
 			if (prev->ph->phflags & phBRKAFTER)
@@ -567,7 +567,7 @@ void CalcLengths(Translator *tr)
 					if (prev->type == phNASAL)
 						p->prepause = 12;
 
-					if (prev->type == phSTOP && !(prev->ph->phflags & phFORTIS))
+					if (prev->type == phSTOP && !(prev->ph->phflags & phVOICELESS))
 						p->prepause = 0;
 				}
 			}
@@ -684,7 +684,7 @@ void CalcLengths(Translator *tr)
 			} else {
 				length_mod = tr->langopts.length_mods[next2type *10+ next->ph->length_mod];
 
-				if ((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->phflags & phFORTIS))
+				if ((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->phflags & phVOICELESS))
 					length_mod -= 15;
 			}
 
