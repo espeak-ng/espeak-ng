@@ -26,11 +26,38 @@
 #include "speech.h"
 #include "error.h"
 
+// See docs/phonemes.md for the list of supported features.
 enum feature_t {
-	inv, // invalid phoneme feature name
+	// invalid phoneme feature name
+	inv, // Not in docs/phonemes.md. This is used to signal an unknown feature name.
+	// manner of articulation
+	nas,
+	stp,
+	afr,
+	frc,
+	flp,
+	trl,
+	apr,
+	clk,
+	ejc,
+	imp,
+	vwl,
 };
 
 static MNEM_TAB features[] = {
+	// manner of articulation
+	{ "nas", nas },
+	{ "stp", stp },
+	{ "frc", frc },
+	{ "afr", afr },
+	{ "flp", flp },
+	{ "trl", trl },
+	{ "apr", apr },
+	{ "clk", clk },
+	{ "ejc", ejc },
+	{ "imp", imp },
+	{ "vwl", vwl },
+	// invalid phoneme feature
 	{ NULL,  inv },
 };
 
@@ -43,6 +70,33 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 
 	switch (LookupMnem(features, feature))
 	{
+	// manner of articulation
+	case nas:
+		phoneme->type = phNASAL;
+		break;
+	case stp:
+	case afr: // FIXME: eSpeak treats 'afr' as 'stp'.
+		phoneme->type = phSTOP;
+		break;
+	case frc:
+	case apr: // FIXME: eSpeak is using this for [h], with 'liquid' used for [l] and [r].
+		phoneme->type = phFRICATIVE;
+		break;
+	case flp: // FIXME: Why is eSpeak using a vstop (vcd + stp) for this?
+		phoneme->type = phVSTOP;
+		break;
+	case trl: // FIXME: 'trill' should be the type; 'liquid' should be a flag (phoneme files specify both).
+		phoneme->phflags |= phTRILL;
+		break;
+	case clk:
+	case ejc:
+	case imp:
+		// Not supported by eSpeak.
+		break;
+	case vwl:
+		phoneme->type = phVOWEL;
+		break;
+	// invalid phoneme feature
 	default:
 		return create_name_error_context(context, ENS_UNKNOWN_PHONEME_FEATURE, feature);
 	}

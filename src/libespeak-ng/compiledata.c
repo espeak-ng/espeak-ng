@@ -219,24 +219,20 @@ static keywtab_t k_intonation[] = {
 };
 
 static keywtab_t keywords[] = {
-	{ "vowel",   tPHONEME_TYPE, phVOWEL },
+	{ "vowel",   tPHONEME_TYPE, phVOWEL }, // TODO (deprecated): use 'vwl' instead
 	{ "liquid",  tPHONEME_TYPE, phLIQUID },
 	{ "pause",   tPHONEME_TYPE, phPAUSE },
 	{ "stress",  tPHONEME_TYPE, phSTRESS },
 	{ "virtual", tPHONEME_TYPE, phVIRTUAL },
 
-	{ "fricative",      tPHONEME_TYPE, phFRICATIVE },
+	{ "fricative",      tPHONEME_TYPE, phFRICATIVE }, // TODO (deprecated): use 'frc' instead
 	{ "vstop",          tPHONEME_TYPE, phVSTOP },
 	{ "vfricative",     tPHONEME_TYPE, phVFRICATIVE },
 	{ "delete_phoneme", tPHONEME_TYPE, phDELETED },
 
 	// type of consonant
-	{ "stop",  tPHONEME_TYPE, phSTOP },
-	{ "frc",   tPHONEME_TYPE, phFRICATIVE },
-	{ "nasal", tPHONEME_TYPE, phNASAL },
-	{ "flp",   tPHONEME_TYPE, phVSTOP },
-	{ "afr",   tPHONEME_TYPE, phSTOP },      // treat as stop
-	{ "apr",   tPHONEME_TYPE, phFRICATIVE }, // [h] voiceless approximant
+	{ "stop",  tPHONEME_TYPE, phSTOP },  // TODO (deprecated): use 'stp' instead
+	{ "nasal", tPHONEME_TYPE, phNASAL }, // TODO (deprecated): use 'nas' instead
 
 	// keywords
 	{ "phonemenumber",        tSTATEMENT, kPHONEMENUMBER },
@@ -304,7 +300,7 @@ static keywtab_t keywords[] = {
 	{ "fortis",       tPHONEME_FLAG, phFORTIS },
 	{ "sibilant",     tPHONEME_FLAG, phSIBILANT },
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
-	{ "trill",        tPHONEME_FLAG, phTRILL },
+	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
 	{ "vowel2",       tPHONEME_FLAG, phVOWEL2 },
 	{ "palatal",      tPHONEME_FLAG, phPALATAL },
 	{ "long",         tPHONEME_FLAG, phLONG },
