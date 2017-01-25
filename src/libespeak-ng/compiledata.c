@@ -2050,12 +2050,11 @@ int CompilePhoneme(int compile_phoneme)
 				error("Missing 'endphoneme' before end-of-file"); // end of file
 				break;
 			}
+			if (phoneme_add_feature(phoneme_out, item_string, NULL) == ENS_OK)
+				continue;
 			error("Bad keyword in phoneme definition '%s'", item_string);
 			continue;
 		}
-
-		if (phoneme_add_feature(phoneme_out, item_string, NULL) == ENS_OK)
-			continue;
 
 		switch (item_type)
 		{
