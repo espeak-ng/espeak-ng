@@ -71,7 +71,6 @@ enum {
 	tPHONEME_TYPE = 1,
 	tPHONEME_FLAG,
 	tTRANSITION,
-	tPLACE,
 	tSTATEMENT,
 	tINSTRN1,
 	tWHICH_PHONEME,
@@ -319,20 +318,6 @@ static keywtab_t keywords[] = {
 	// voiced / unvoiced
 	{ "vcd", tPHONEME_FLAG, phVOICED },
 	{ "vls", tPHONEME_FLAG, phFORTIS },
-
-	// place of articulation, set bits 16-19 of phflags
-	{ "blb", tPLACE,  1 },
-	{ "lbd", tPLACE,  2 },
-	{ "dnt", tPLACE,  3 },
-	{ "alv", tPLACE,  4 },
-	{ "rfx", tPLACE,  5 },
-	{ "pla", tPLACE,  6 },
-	{ "pal", tPLACE,  7 },
-	{ "vel", tPLACE,  8 },
-	{ "lbv", tPLACE,  9 },
-	{ "uvl", tPLACE, 10 },
-	{ "phr", tPLACE, 11 },
-	{ "glt", tPLACE, 12 },
 
 	// vowel transition attributes
 	{ "len=",   tTRANSITION,  1 },
@@ -2013,7 +1998,6 @@ int CompilePhoneme(int compile_phoneme)
 	if_stack[0].returned = 0;
 	after_if = 0;
 	int phoneme_flags = 0;
-	int place_articulation = 0;
 
 	NextItem(tSTRING);
 	if (compile_phoneme) {
@@ -2039,6 +2023,7 @@ int CompilePhoneme(int compile_phoneme)
 	phoneme_out->start_type = 0;
 	phoneme_out->end_type = 0;
 	phoneme_out->length_mod = 0;
+	phoneme_out->phflags = 0;
 
 	while (!endphoneme && !feof(f_in)) {
 		if ((keyword = NextItem(tKEYWORD)) < 0) {
@@ -2058,11 +2043,6 @@ int CompilePhoneme(int compile_phoneme)
 			if (phoneme_out->type != phINVALID)
 				error("More than one phoneme type: %s", item_string);
 			phoneme_out->type = keyword;
-			break;
-		case tPLACE:
-			if (place_articulation > 0)
-				error("Place of articulation has already been given: %s", item_string);
-			place_articulation = keyword;
 			break;
 		case tPHONEME_FLAG:
 			phoneme_flags |= keyword;
@@ -2292,7 +2272,6 @@ int CompilePhoneme(int compile_phoneme)
 			error("Phoneme type is missing");
 			phoneme_out->type = 0;
 		}
-		phoneme_out->phflags = place_articulation << 16;
 		phoneme_out->phflags |= phoneme_flags;
 
 		if (phoneme_out->phflags & phVOICED) {

@@ -47,6 +47,21 @@ enum feature_t {
 	vwl = FEATURE('v', 'w', 'l'),
 	lat = FEATURE('l', 'a', 't'),
 	sib = FEATURE('s', 'i', 'b'),
+	// place of articulation
+	blb = FEATURE('b', 'l', 'b'),
+	lbd = FEATURE('l', 'b', 'd'),
+	bld = FEATURE('b', 'l', 'd'),
+	dnt = FEATURE('d', 'n', 't'),
+	alv = FEATURE('a', 'l', 'v'),
+	pla = FEATURE('p', 'l', 'a'),
+	rfx = FEATURE('r', 'f', 'x'),
+	alp = FEATURE('a', 'l', 'p'),
+	pal = FEATURE('p', 'a', 'l'),
+	vel = FEATURE('v', 'e', 'l'),
+	lbv = FEATURE('l', 'b', 'v'),
+	uvl = FEATURE('u', 'v', 'l'),
+	phr = FEATURE('p', 'h', 'r'),
+	glt = FEATURE('g', 'l', 't'),
 };
 
 uint32_t lookup_feature(const char *feature) {
@@ -93,6 +108,61 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		break;
 	case sib:
 		phoneme->phflags |= phSIBILANT;
+		break;
+	// place of articulation
+	case blb:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 1 << 16;
+		break;
+	case lbd:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 2 << 16;
+		break;
+	case dnt:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 3 << 16;
+		break;
+	case alv:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 4 << 16;
+		break;
+	case rfx:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 5 << 16;
+		break;
+	case pla:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 6 << 16;
+		break;
+	case pal:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 7 << 16;
+		break;
+	case vel:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 8 << 16;
+		break;
+	case lbv:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 9 << 16;
+		break;
+	case uvl:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 10 << 16;
+		break;
+	case phr:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 11 << 16;
+		break;
+	case glt:
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 12 << 16;
+		break;
+	case bld:
+		// FIXME: Not supported by eSpeak. Used in German p͡f.
+		break;
+	case alp:
+		// FIXME: Not supported by eSpeak. Used in Chinese/Japanese ɕ and ʑ.
 		break;
 	// invalid phoneme feature
 	default:
