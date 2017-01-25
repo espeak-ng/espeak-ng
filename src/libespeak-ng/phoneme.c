@@ -65,6 +65,21 @@ enum feature_t {
 	// voice
 	vcd = FEATURE('v', 'c', 'd'),
 	vls = FEATURE('v', 'l', 's'),
+	// vowel height
+	hgh = FEATURE('h', 'g', 'h'),
+	smh = FEATURE('s', 'm', 'h'),
+	umd = FEATURE('u', 'm', 'd'),
+	mid = FEATURE('m', 'i', 'd'),
+	lmd = FEATURE('l', 'm', 'd'),
+	sml = FEATURE('s', 'm', 'l'),
+	low = FEATURE('l', 'o', 'w'),
+	// vowel backness
+	fnt = FEATURE('f', 'n', 't'),
+	cnt = FEATURE('c', 'n', 't'),
+	bck = FEATURE('b', 'c', 'k'),
+	// rounding
+	unr = FEATURE('u', 'n', 'r'),
+	rnd = FEATURE('r', 'n', 'd'),
 };
 
 uint32_t lookup_feature(const char *feature) {
@@ -173,6 +188,27 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		break;
 	case vls:
 		phoneme->phflags |= phVOICELESS;
+		break;
+	// vowel height
+	case hgh:
+	case smh:
+	case umd:
+	case mid:
+	case lmd:
+	case sml:
+	case low:
+		// Not supported by eSpeak.
+		break;
+	// vowel backness
+	case fnt:
+	case cnt:
+	case bck:
+		// Not supported by eSpeak.
+		break;
+	// rounding
+	case unr:
+	case rnd:
+		// Not supported by eSpeak.
 		break;
 	// invalid phoneme feature
 	default:
