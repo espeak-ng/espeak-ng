@@ -53,310 +53,28 @@ current implementation does not reflect this document.
 
 ## Consonants
 
-<table>
-  <tr>
-    <td></td>
-    <th colspan="2"><code>blb</code></th>
-    <th colspan="2"><code>lbd</code></th>
-    <th colspan="2"><code>dnt</code></th>
-    <th colspan="2"><code>alv</code></th>
-    <th colspan="2"><code>pla</code></th>
-    <th colspan="2"><code>rfx</code></th>
-    <th colspan="2"><code>alp</code></th>
-    <th colspan="2"><code>pal</code></th>
-    <th colspan="2"><code>vel</code></th>
-    <th colspan="2"><code>uvl</code></th>
-    <th colspan="2"><code>phr</code></th>
-    <th colspan="2"><code>glt</code></th>
-  </tr>
-  <tr>
-    <th align="right"><code>nas</code></th>
-    <td>m̥</td><td>m</td>
-    <td> </td><td>ɱ</td>
-    <td> </td><td> </td>
-    <td>n̥</td><td>n</td>
-    <td> </td><td> </td>
-    <td>ɳ̊</td><td>ɳ</td>
-    <td>ɲ̟̊</td><td>ɲ̟</td>
-    <td>ɲ̊</td><td>ɲ</td>
-    <td>ŋ̊</td><td>ŋ</td>
-    <td>ɴ̥</td><td>ɴ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>stp</code></th>
-    <td>p</td><td>b</td>
-    <td>p̪</td><td>b̪</td>
-    <td> </td><td> </td>
-    <td>t</td><td>d</td>
-    <td> </td><td> </td>
-    <td>ʈ</td><td>ɖ</td>
-    <td> </td><td> </td>
-    <td>c</td><td>ɟ</td>
-    <td>k</td><td>ɡ</td>
-    <td>q</td><td>ɢ</td>
-    <td>ʡ</td><td> </td>
-    <td>ʔ</td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>sib</code>&#xA0;<code>afr</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>t͡s</td><td>d͡z</td>
-    <td>t͡ʃ</td><td>d͡ʒ</td>
-    <td>ʈ͡ʂ</td><td>ɖ͡ʐ</td>
-    <td>t͡ɕ</td><td>d͡ʑ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>afr</code></th>
-    <td>p͡ɸ</td><td>b͡β</td>
-    <td>p̪͡f</td><td>b̪͡v</td>
-    <td>t͡θ</td><td>d͡ð</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>c͡ç</td><td>ɟ͡ʝ</td>
-    <td>k͡x</td><td>ɡ͡ɣ</td>
-    <td>q͡χ</td><td>ɢ͡ʁ</td>
-    <td>ʡ͡ħ</td><td>ʡ͡ʕ</td>
-    <td>ʔ͡h</td><td></td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>afr</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>t͡ɬ</td><td>d͡ɮ</td>
-    <td> </td><td> </td>
-    <td>ʈ͡ɭ̊˔</td><td> </td>
-    <td> </td><td> </td>
-    <td>c͡ʎ̥˔</td><td> </td>
-    <td>k͡ʟ̝̊</td><td>ɡ͡ʟ̝</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>sib</code>&#xA0;<code>frc</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>s</td><td>z</td>
-    <td>ʃ</td><td>ʒ</td>
-    <td>ʂ</td><td>ʐ</td>
-    <td>ɕ</td><td>ʑ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>frc</code></th>
-    <td>ɸ</td><td>β</td>
-    <td>f</td><td>v</td>
-    <td>θ</td><td>ð</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ç</td><td>ʝ</td>
-    <td>x</td><td>ɣ</td>
-    <td>χ</td><td>ʁ</td>
-    <td>ħ</td><td>ʕ</td>
-    <td>h</td><td>ɦ</td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>frc</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ɬ</td><td>ɮ</td>
-    <td> </td><td> </td>
-    <td>ɭ̊˔</td><td> </td>
-    <td> </td><td> </td>
-    <td>ʎ̥˔</td><td>ʎ̝</td>
-    <td>ʟ̝̊</td><td>ʟ̝</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>apr</code></th>
-    <td> </td><td> </td>
-    <td>ʋ̥</td><td>ʋ</td>
-    <td> </td><td> </td>
-    <td>ɹ̥</td><td>ɹ</td>
-    <td> </td><td> </td>
-    <td>ɻ̊</td><td>ɻ</td>
-    <td> </td><td> </td>
-    <td>j̊</td><td>j</td>
-    <td>ɰ̊</td><td>ɰ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>apr</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>l̥</td><td>l</td>
-    <td> </td><td> </td>
-    <td>ɭ̊</td><td>ɭ</td>
-    <td> </td><td> </td>
-    <td>ʎ̥</td><td>ʎ</td>
-    <td>ʟ̥</td><td>ʟ</td>
-    <td> </td><td>ʟ̠</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>flp</code></th>
-    <td> </td><td>ⱱ̟</td>
-    <td> </td><td>ⱱ</td>
-    <td> </td><td> </td>
-    <td>ɾ̥</td><td>ɾ</td>
-    <td> </td><td> </td>
-    <td>ɽ̊</td><td>ɽ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>ɢ̆</td>
-    <td> </td><td>ʡ̮</td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>flp</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>ɺ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ɭ̆</td>
-    <td> </td><td> </td>
-    <td> </td><td>ʎ̮</td>
-    <td> </td><td>ʟ̆</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>trl</code></th>
-    <td> </td><td>ʙ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>r̥</td><td>r</td>
-    <td> </td><td> </td>
-    <td>ɽ͡r̥</td><td>ɽ͡r</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ʀ̥</td><td>ʀ</td>
-    <td>ʜ</td><td>ʢ</td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>clk</code></th>
-    <td>ʘ</td><td> </td>
-    <td> </td><td> </td>
-    <td>ǀ</td><td> </td>
-    <td>ǃ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ǂ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>clk</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ǁ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>imp</code></th>
-    <td> </td><td>ɓ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>ɗ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td>ʄ</td>
-    <td> </td><td>ɠ</td>
-    <td> </td><td>ʛ</td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>ejc</code></th>
-    <td>pʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>tʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td>ʈʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td>cʼ</td><td> </td>
-    <td>kʼ</td><td> </td>
-    <td>qʼ</td><td> </td>
-    <td>ʡʼ</td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>ejc</code>&#xA0;<code>frc</code></th>
-    <td>fʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td>θʼ</td><td> </td>
-    <td>sʼ</td><td> </td>
-    <td>ʃʼ</td><td> </td>
-    <td>ʂʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>xʼ</td><td> </td>
-    <td>χʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lat</code>&#xA0;<code>ejc</code>&#xA0;<code>frc</code></th>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td>ɬʼ</td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-</table>
-
-Symbols to the left are `vls`, and to the right are `vcd`.
+|                             | `blb` |       | `lbd` |       | `dnt` |       | `alv` |       | `pla` |       | `rfx` |       | `alp` |       | `pal` |       | `vel` |       | `uvl` |       | `phr` |       | `glt` |       |
+|-----------------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|                             | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` |
+| `nas`                       | m̥     | m     |       | ɱ     |       |       | n̥     | n     |       |       | ɳ̊    | ɳ     | ɲ̟̊    | ɲ̟     | ɲ̊    | ɲ     | ŋ̊    | ŋ     | ɴ̥     | ɴ     |       |       |       |       |
+| `stp`                       | p     | b     | p̪     | b̪     |       |       | t     | d     |       |       | ʈ     | ɖ     |       |       | c     | ɟ     | k     | ɡ     | q     | ɢ     | ʡ     |       | ʔ     |       |
+| `sib`&#xA0;`afr`            |       |       |       |       |       |       | t͡s   | d͡z   | t͡ʃ   | d͡ʒ   | ʈ͡ʂ   | ɖ͡ʐ   | t͡ɕ   | d͡ʑ   |       |       |       |       |       |       |       |       |       |       |
+| `afr`                       | p͡ɸ   | b͡β   | p̪͡f   | b̪͡v   | t͡θ   | d͡ð   |       |       |       |       |       |       |       |       | c͡ç   | ɟ͡ʝ   | k͡x   | ɡ͡ɣ   | q͡χ   | ɢ͡ʁ   | ʡ͡ħ   | ʡ͡ʕ   | ʔ͡h   |       |
+| `lat`&#xA0;`afr`            |       |       |       |       |       |       | t͡ɬ   | d͡ɮ   |       |       | ʈ͡ɭ̊˔ |       |       |       | c͡ʎ̥˔  |       | k͡ʟ̝̊  | ɡ͡ʟ̝   |       |       |       |       |       |       |
+| `sib`&#xA0;`frc`            |       |       |       |       |       |       | s     | z     | ʃ     | ʒ     | ʂ     | ʐ     | ɕ     | ʑ     |       |       |       |       |       |       |       |       |       |       |
+| `frc`                       | ɸ     | β     | f     | v     | θ     | ð     |       |       |       |       |       |       |       |       | ç     | ʝ     | x     | ɣ     | χ     | ʁ     | ħ     | ʕ     | h     | ɦ     |
+| `lat`&#xA0;`frc`            |       |       |       |       |       |       | ɬ     | ɮ     |       |       | ɭ̊˔   |       |       |       | ʎ̥˔    | ʎ̝     | ʟ̝̊    | ʟ̝     |       |       |       |       |       |       |
+| `apr`                       |       |       | ʋ̥     | ʋ     |       |       | ɹ̥     | ɹ     |       |       | ɻ̊    | ɻ     |       |       | j̊    | j     | ɰ̊    | ɰ     |       |       |       |       |       |       |
+| `lat`&#xA0;`apr`            |       |       |       |       |       |       | l̥     | l     |       |       | ɭ̊    | ɭ     |       |       | ʎ̥     | ʎ     | ʟ̥     | ʟ     |       | ʟ̠     |       |       |       |       |
+| `flp`                       |       | ⱱ̟     |       | ⱱ     |       |       | ɾ̥     | ɾ     |       |       | ɽ̊    | ɽ     |       |       |       |       |       |       |       | ɢ̆    |       | ʡ̮     |       |       |
+| `lat`&#xA0;`flp`            |       |       |       |       |       |       |       | ɺ     |       |       |       | ɭ̆    |       |       |       | ʎ̮     |       | ʟ̆    |       |       |       |       |       |       |
+| `trl`                       |       | ʙ     |       |       |       |       | r̥     | r     |       |       | ɽ͡r̥   | ɽ͡r   |       |       |       |       |       |       | ʀ̥     | ʀ     | ʜ     | ʢ     |       |       |
+| `clk`                       | ʘ     |       |       |       | ǀ     |       | ǃ     |       |       |       |       |       | ǂ     |       |       |       |       |       |       |       |       |       |       |       |
+| `lat`&#xA0;`clk`            |       |       |       |       |       |       | ǁ     |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
+| `imp`                       |       | ɓ     |       |       |       |       |       | ɗ     |       |       |       |       |       |       |       | ʄ     |       | ɠ     |       | ʛ     |       |       |       |       |
+| `ejc`                       |       |       |       |       |       |       | tʼ    |       |       |       | ʈʼ    |       |       |       | cʼ    |       | kʼ    |       | qʼ    |       | ʡʼ    |       |       |       |
+| `ejc`&#xA0;`frc`            | pʼ    |       |       |       | θʼ    |       | sʼ    |       | ʃʼ    |       | ʂʼ    |       |       |       |       |       | xʼ    |       | χʼ    |       |       |       |       |       |
+| `lat`&#xA0;`ejc`&#xA0;`frc` | fʼ    |       |       |       |       |       | ɬʼ    |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
 
 ### Other Symbols
 
@@ -447,58 +165,16 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
 ## Vowels
 
-<table>
-  <tr>
-    <td></td>
-    <th colspan="2"><code>fnt</code></th>
-    <th colspan="2"><code>cnt</code></th>
-    <th colspan="2"><code>bck</code></th>
-  </tr>
-  <tr>
-    <th align="right"><code>hgh</code></th>
-    <td>i</td><td>y</td>
-    <td>ɨ</td><td>ʉ</td>
-    <td>ɯ</td><td>u</td>
-  </tr>
-  <tr>
-    <th align="right"><code>smh</code></th>
-    <td>ɪ</td><td>ʏ</td>
-    <td> </td><td> </td>
-    <td> </td><td>ʊ</td>
-  </tr>
-  <tr>
-    <th align="right"><code>umd</code></th>
-    <td>e</td><td>ø</td>
-    <td>ɘ</td><td>ɵ</td>
-    <td>ɤ</td><td>o</td>
-  </tr>
-  <tr>
-    <th align="right"><code>mid</code></th>
-    <td> </td><td> </td>
-    <td>ə</td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>lmd</code></th>
-    <td>ɛ</td><td>œ</td>
-    <td>ɜ</td><td>ɞ</td>
-    <td>ʌ</td><td>ɔ</td>
-  </tr>
-  <tr>
-    <th align="right"><code>sml</code></th>
-    <td>æ</td><td> </td>
-    <td>ɐ</td><td> </td>
-    <td> </td><td> </td>
-  </tr>
-  <tr>
-    <th align="right"><code>low</code></th>
-    <td>a</td><td>ɶ</td>
-    <td> </td><td> </td>
-    <td>ɑ</td><td>ɒ</td>
-  </tr>
-</table>
-
-Symbols to the left are `unr`, and to the right are `rnd`.
+|        | `fnt` |       | `cnt` |       | `bck` |       |
+|--------|-------|-------|-------|-------|-------|-------|
+|        | `unr` | `rnd` | `unr` | `rnd` | `unr` | `rnd` |
+| `hgh`  | i     | y     | ɨ     | ʉ     | ɯ     | u     |
+| `smh`  | ɪ     | ʏ     |       |       |       | ʊ     |
+| `umd`  | e     | ø     | ɘ     | ɵ     | ɤ     | o     |
+| `mid`  |       |       | ə     |       |       |       |
+| `lmd`  | ɛ     | œ     | ɜ     | ɞ     | ʌ     | ɔ     |
+| `sml`  | æ     |       | ɐ     |       |       |       |
+| `low`  | a     | ɶ     |       |       | ɑ     | ɒ     |
 
 __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
