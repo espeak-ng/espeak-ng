@@ -7,6 +7,7 @@
   - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
 - [Vowels](#vowels)
+  - [Other Symbols](#other-symbols-1)
   - [Rounding](#rounding)
   - [Height](#height)
   - [Backness](#backness)
@@ -366,8 +367,6 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 | ɥ      | jʷ          | `vcd` `pal` `ptr` `apr` |
 | ɧ      |             | `vls` `vzd` `pla` `frc` |
 | ɫ      |             | `vcd` `fzd` `alv` `lat` `apr` |
-| ɚ      |             | `unr` `mid` `cnt` `rzd` `vwl` |
-| ɝ      |             | `unr` `lmd` `cnt` `rzd` `vwl` |
 | k͡p    |             | `vls` `lbv` `stp`       |
 | ɡ͡b    |             | `vcd` `lbv` `stp`       |
 | ŋ͡m    |             | `vcd` `lbv` `stp`       |
@@ -507,6 +506,13 @@ Symbols to the left are `unr`, and to the right are `rnd`.
 __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
+
+### Other Symbols
+
+| Symbol | Features                      |
+|--------|-------------------------------|
+| ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
+| ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
 ### Height
 
