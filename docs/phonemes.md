@@ -360,18 +360,15 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 
 ### Other Symbols
 
-| Symbol | Features                |
-|--------|-------------------------|
-| ʍ      | `vls` `vel` `ptr` `apr` |
-| w      | `vcd` `vel` `ptr` `apr` |
-| ɥ      | `vcd` `pal` `ptr` `apr` |
-| ɧ      | `vls` `vzd` `pla` `frc` |
-| ɫ      | `vcd` `fzd` `alv` `lat` `apr` |
-| k͡p    | `vls` `lbv` `stp`       |
-| ɡ͡b    | `vcd` `lbv` `stp`       |
-| ŋ͡m    | `vcd` `lbv` `stp`       |
-| p͡f    | `vls` `bld` `afr`       |
-| b͡v    | `vcd` `bld` `afr`       |
+|               | `bld` |       | `alv` |       | `pla` |       | `pal` |       | `lbv` |       | `vel` |       |
+|---------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|               | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` |
+| `nas`         |       |       |       |       |       |       |       |       |       | ŋ͡m   |       |       |
+| `stp`         |       |       |       |       |       |       |       |       | k͡p   | ɡ͡b   |       |       |
+| `afr`         | p͡f   | b͡v   |       |       |       |       |       |       |       |       |       |       |
+| `vzd frc`     |       |       |       |       | ɧ     |       |       |       |       |       |       |       |
+| `ptr apr`     |       |       |       |       |       |       |       | ɥ     |       |       | ʍ     | w     |
+| `fzd lat apr` |       |       | ɫ     |       |       |       |       |       |       |       |       |       |
 
 ### Gemination
 
