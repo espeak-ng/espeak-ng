@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Reece H. Dunn
+ * Copyright (C) 2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -172,7 +172,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		phoneme->phflags |= phVOICED;
 		break;
 	case vls:
-		phoneme->phflags != phVOICELESS;
+		phoneme->phflags |= phVOICELESS;
 		break;
 	// invalid phoneme feature
 	default:
