@@ -2054,6 +2054,9 @@ int CompilePhoneme(int compile_phoneme)
 			continue;
 		}
 
+		if (phoneme_add_feature(phoneme_out, item_string, NULL) == ENS_OK)
+			continue;
+
 		switch (item_type)
 		{
 		case tPHONEME_TYPE:

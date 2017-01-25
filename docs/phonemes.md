@@ -7,6 +7,7 @@
   - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
 - [Vowels](#vowels)
+  - [Other Symbols](#other-symbols-1)
   - [Rounding](#rounding)
   - [Height](#height)
   - [Backness](#backness)
@@ -359,20 +360,15 @@ Symbols to the left are `vls`, and to the right are `vcd`.
 
 ### Other Symbols
 
-| Symbol | Alternative | Features                |
-|--------|-------------|-------------------------|
-| ʍ      | ɰ̊ʷ           | `vls` `vel` `ptr` `apr` |
-| w      | ɰʷ          | `vcd` `vel` `ptr` `apr` |
-| ɥ      | jʷ          | `vcd` `pal` `ptr` `apr` |
-| ɧ      |             | `vls` `vzd` `pla` `frc` |
-| ɫ      |             | `vcd` `fzd` `alv` `lat` `apr` |
-| ɚ      |             | `unr` `mid` `cnt` `rzd` `vwl` |
-| ɝ      |             | `unr` `lmd` `cnt` `rzd` `vwl` |
-| k͡p    |             | `vls` `lbv` `stp`       |
-| ɡ͡b    |             | `vcd` `lbv` `stp`       |
-| ŋ͡m    |             | `vcd` `lbv` `stp`       |
-| p͡f    |             | `vls` `bld` `afr`       |
-| b͡v    |             | `vcd` `bld` `afr`       |
+|               | `bld` |       | `alv` |       | `pla` |       | `pal` |       | `lbv` |       | `vel` |       |
+|---------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|               | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` |
+| `nas`         |       |       |       |       |       |       |       |       |       | ŋ͡m   |       |       |
+| `stp`         |       |       |       |       |       |       |       |       | k͡p   | ɡ͡b   |       |       |
+| `afr`         | p͡f   | b͡v   |       |       |       |       |       |       |       |       |       |       |
+| `vzd frc`     |       |       |       |       | ɧ     |       |       |       |       |       |       |       |
+| `ptr apr`     |       |       |       |       |       |       |       | ɥ     |       |       | ʍ     | w     |
+| `fzd lat apr` |       |       | ɫ     |       |       |       |       |       |       |       |       |       |
 
 ### Gemination
 
@@ -507,6 +503,13 @@ Symbols to the left are `unr`, and to the right are `rnd`.
 __NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
 distinction is not needed to classify these vowels, so is not included in the
 above table.
+
+### Other Symbols
+
+| Symbol | Features                      |
+|--------|-------------------------------|
+| ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
+| ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
 ### Height
 
