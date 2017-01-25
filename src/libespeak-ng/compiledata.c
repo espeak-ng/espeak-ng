@@ -151,7 +151,6 @@ enum {
 	kENDPHONEME,
 	kENDPROCEDURE,
 	kEQUIVALENTS,
-	kPHONEMENUMBER,
 	kPHONEMETABLE,
 	kINCLUDE,
 	kIMPORT_PH,
@@ -224,9 +223,6 @@ static keywtab_t keywords[] = {
 	{ "stress",  tPHONEME_TYPE, phSTRESS },
 	{ "virtual", tPHONEME_TYPE, phVIRTUAL },
 
-	{ "fricative",      tPHONEME_TYPE, phFRICATIVE }, // TODO (deprecated): use 'frc' instead
-	{ "vstop",          tPHONEME_TYPE, phVSTOP },
-	{ "vfricative",     tPHONEME_TYPE, phVFRICATIVE },
 	{ "delete_phoneme", tPHONEME_TYPE, phDELETED },
 
 	// type of consonant
@@ -234,7 +230,6 @@ static keywtab_t keywords[] = {
 	{ "nasal", tPHONEME_TYPE, phNASAL }, // TODO (deprecated): use 'nas' instead
 
 	// keywords
-	{ "phonemenumber",        tSTATEMENT, kPHONEMENUMBER },
 	{ "phonemetable",         tSTATEMENT, kPHONEMETABLE },
 	{ "include",              tSTATEMENT, kINCLUDE },
 	{ (const char *)utf8_bom, tSTATEMENT, kUTF8_BOM },
@@ -285,21 +280,18 @@ static keywtab_t keywords[] = {
 
 	{ "PauseBefore", tINSTRN1, i_PAUSE_BEFORE },
 	{ "PauseAfter",  tINSTRN1, i_PAUSE_AFTER },
-	{ "Length",      tINSTRN1, i_SET_LENGTH },
+	{ "Length",      tINSTRN1, i_SET_LENGTH }, // TODO (deprecated): use 'length' instead
 	{ "length",      tINSTRN1, i_SET_LENGTH },
 	{ "LongLength",  tINSTRN1, i_LONG_LENGTH },
 	{ "LengthAdd",   tINSTRN1, i_ADD_LENGTH },
-	{ "Lengthmod",   tINSTRN1, i_LENGTH_MOD },
 	{ "lengthmod",   tINSTRN1, i_LENGTH_MOD },
 	{ "ipa",         tINSTRN1, i_IPA_NAME },
 
 	// flags
-	{ "wavef",        tPHONEME_FLAG, phWAVE },
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
 	{ "sibilant",     tPHONEME_FLAG, phSIBILANT }, // TODO (deprecated): use 'sib' instead
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
 	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
-	{ "vowel2",       tPHONEME_FLAG, phVOWEL2 },
 	{ "palatal",      tPHONEME_FLAG, phPALATAL },
 	{ "long",         tPHONEME_FLAG, phLONG },
 	{ "dontlist",     tPHONEME_FLAG, phDONTLIST },
@@ -312,7 +304,6 @@ static keywtab_t keywords[] = {
 
 	{ "flag1", tPHONEME_FLAG, phFLAG1 },
 	{ "flag2", tPHONEME_FLAG, phFLAG2 },
-	{ "flag3", tPHONEME_FLAG, phFLAG3 },
 
 	// vowel transition attributes
 	{ "len=",   tTRANSITION,  1 },
@@ -2242,7 +2233,6 @@ int CompilePhoneme(int compile_phoneme)
 				DecThenCount();
 				break;
 			case kINCLUDE:
-			case kPHONEMENUMBER:
 			case kPHONEMETABLE:
 				error("Missing 'endphoneme' before '%s'", item_string);  // drop through to endphoneme
 				// fallthrough:

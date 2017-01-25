@@ -1296,7 +1296,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 			}
 
-			if ((prev->type == phVOWEL) || (prev->ph->phflags & phVOWEL2) || (ph->phflags & phPREVOICE)) {
+			if ((prev->type == phVOWEL) || (ph->phflags & phPREVOICE)) {
 				// a period of voicing before the release
 				InterpretPhoneme(NULL, 0x01, p, &phdata, &worddata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];

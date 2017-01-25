@@ -46,7 +46,6 @@ extern "C"
 #define phSIBILANT 0x20
 #define phNOLINK   0x40
 #define phTRILL    0x80
-#define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
 #define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 #define phDONTLIST 0x2000  // don't list in dict_phonemes
@@ -61,7 +60,6 @@ extern "C"
 
 #define phFLAG1      0x10000000
 #define phFLAG2      0x20000000
-#define phFLAG3      0x40000000
 #define phLOCAL      0x80000000  // used during compilation
 
 // fixed phoneme code numbers, these can be used from the program code
