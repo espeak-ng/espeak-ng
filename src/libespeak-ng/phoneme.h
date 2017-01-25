@@ -113,6 +113,11 @@ typedef struct {
 	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
 } PHONEME_TAB;
 
+espeak_ng_STATUS
+phoneme_add_feature(PHONEME_TAB *phoneme,
+                    const char *feature,
+                    espeak_ng_ERROR_CONTEXT *context);
+
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
 extern int n_phoneme_tab;

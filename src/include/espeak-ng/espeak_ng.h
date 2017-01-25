@@ -41,6 +41,7 @@ typedef enum {
 	ENS_GROUP_ERRNO              = 0x00000000, /* Values 0-255 map to errno error codes. */
 	ENS_GROUP_ESPEAK_NG          = 0x10000000, /* eSpeak NG error codes. */
 
+	/* eSpeak NG 1.49.0 */
 	ENS_OK                       = 0,
 	ENS_COMPILE_ERROR            = 0x100001FF,
 	ENS_VERSION_MISMATCH         = 0x100002FF,
@@ -56,6 +57,9 @@ typedef enum {
 	ENS_NO_SPECT_FRAMES          = 0x10000CFF,
 	ENS_EMPTY_PHONEME_MANIFEST   = 0x10000DFF,
 	ENS_SPEECH_STOPPED           = 0x10000EFF,
+
+	/* eSpeak NG 1.49.2 */
+	ENS_UNKNOWN_PHONEME_FEATURE  = 0x10000FFF,
 } espeak_ng_STATUS;
 
 typedef enum {
