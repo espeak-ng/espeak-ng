@@ -27,12 +27,13 @@ typedef enum
 {
 	ERROR_CONTEXT_FILE,
 	ERROR_CONTEXT_VERSION,
+	ERROR_CONTEXT_NAME,
 } espeak_ng_CONTEXT_TYPE;
 
 typedef struct espeak_ng_ERROR_CONTEXT_
 {
 	espeak_ng_CONTEXT_TYPE type;
-	char *path;
+	char *name;
 	int version;
 	int expected_version;
 } espeak_ng_ERROR_CONTEXT_;
@@ -47,6 +48,11 @@ create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context,
                                       const char *path,
                                       int version,
                                       int expected_version);
+
+espeak_ng_STATUS
+create_name_error_context(espeak_ng_ERROR_CONTEXT *context,
+                          espeak_ng_STATUS status,
+                          const char *name);
 
 #ifdef __cplusplus
 }

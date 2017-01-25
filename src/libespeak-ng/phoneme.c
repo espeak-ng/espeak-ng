@@ -39,12 +39,12 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
                     const char *feature,
                     espeak_ng_ERROR_CONTEXT *context)
 {
-	if (!phoneme || !feature) return -EINVAL;
+	if (!phoneme || !feature) return EINVAL;
 
 	switch (LookupMnem(features, feature))
 	{
 	default:
-		return ENS_UNKNOWN_PHONEME_FEATURE;
+		return create_name_error_context(context, ENS_UNKNOWN_PHONEME_FEATURE, feature);
 	}
 	return ENS_OK;
 }
