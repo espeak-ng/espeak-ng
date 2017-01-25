@@ -42,6 +42,8 @@ enum feature_t {
 	ejc,
 	imp,
 	vwl,
+	lat,
+	sib,
 };
 
 static MNEM_TAB features[] = {
@@ -57,6 +59,8 @@ static MNEM_TAB features[] = {
 	{ "ejc", ejc },
 	{ "imp", imp },
 	{ "vwl", vwl },
+	{ "lat", lat },
+	{ "sib", sib },
 	// invalid phoneme feature
 	{ NULL,  inv },
 };
@@ -91,10 +95,14 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case clk:
 	case ejc:
 	case imp:
+	case lat:
 		// Not supported by eSpeak.
 		break;
 	case vwl:
 		phoneme->type = phVOWEL;
+		break;
+	case sib:
+		phoneme->phflags |= phSIBILANT;
 		break;
 	// invalid phoneme feature
 	default:

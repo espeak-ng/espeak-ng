@@ -298,7 +298,7 @@ static keywtab_t keywords[] = {
 	{ "wavef",        tPHONEME_FLAG, phWAVE },
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
 	{ "fortis",       tPHONEME_FLAG, phFORTIS },
-	{ "sibilant",     tPHONEME_FLAG, phSIBILANT },
+	{ "sibilant",     tPHONEME_FLAG, phSIBILANT }, // TODO (deprecated): use 'sib' instead
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
 	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
 	{ "vowel2",       tPHONEME_FLAG, phVOWEL2 },
