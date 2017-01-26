@@ -291,12 +291,12 @@ static keywtab_t keywords[] = {
 	{ "sibilant",     tPHONEME_FLAG, phSIBILANT }, // TODO (deprecated): use 'sib' instead
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
 	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
-	{ "palatal",      tPHONEME_FLAG, phPALATAL },
+	{ "palatal",      tPHONEME_FLAG, phPALATAL }, // TODO (deprecated): use 'pzd' instead
 	{ "long",         tPHONEME_FLAG, phLONG },
 	{ "dontlist",     tPHONEME_FLAG, phDONTLIST },
 	{ "brkafter",     tPHONEME_FLAG, phBRKAFTER },
-	{ "rhotic",       tPHONEME_FLAG, phRHOTIC },
-	{ "nonsyllabic",  tPHONEME_FLAG, phNONSYLLABIC },
+	{ "rhotic",       tPHONEME_FLAG, phRHOTIC }, // TODO (deprecated): use 'rzd' instead
+	{ "nonsyllabic",  tPHONEME_FLAG, phNONSYLLABIC }, // TODO (deprecated): use 'nsy' instead
 	{ "lengthenstop", tPHONEME_FLAG, phLENGTHENSTOP },
 	{ "nopause",      tPHONEME_FLAG, phNOPAUSE },
 	{ "prevoice",     tPHONEME_FLAG, phPREVOICE },

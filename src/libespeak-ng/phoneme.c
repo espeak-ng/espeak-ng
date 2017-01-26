@@ -80,6 +80,45 @@ enum feature_t {
 	// rounding
 	unr = FEATURE('u', 'n', 'r'),
 	rnd = FEATURE('r', 'n', 'd'),
+	// articulation
+	lgl = FEATURE('l', 'g', 'l'),
+	idt = FEATURE('i', 'd', 't'),
+	apc = FEATURE('a', 'p', 'c'),
+	lmn = FEATURE('l', 'm', 'n'),
+	// air flow
+	egs = FEATURE('e', 'g', 's'),
+	igs = FEATURE('i', 'g', 's'),
+	// phonation
+	brv = FEATURE('b', 'r', 'v'),
+	slv = FEATURE('s', 'l', 'v'),
+	stv = FEATURE('s', 't', 'v'),
+	crv = FEATURE('c', 'r', 'v'),
+	glc = FEATURE('g', 'l', 'c'),
+	// rounding and labialization
+	ptr = FEATURE('p', 't', 'r'),
+	cmp = FEATURE('c', 'm', 'p'),
+	mrd = FEATURE('m', 'r', 'd'),
+	lrd = FEATURE('l', 'r', 'd'),
+	// syllabicity
+	syl = FEATURE('s', 'y', 'l'),
+	nsy = FEATURE('n', 's', 'y'),
+	// consonant release
+	asp = FEATURE('a', 's', 'p'),
+	nrs = FEATURE('n', 'r', 's'),
+	lrs = FEATURE('l', 'r', 's'),
+	unx = FEATURE('u', 'n', 'x'),
+	// coarticulation
+	pzd = FEATURE('p', 'z', 'd'),
+	vzd = FEATURE('v', 'z', 'd'),
+	fzd = FEATURE('f', 'z', 'd'),
+	nzd = FEATURE('n', 'z', 'd'),
+	rzd = FEATURE('r', 'z', 'd'),
+	// tongue root
+	atr = FEATURE('a', 't', 'r'),
+	rtr = FEATURE('r', 't', 'r'),
+	// fortis and lenis
+	fts = FEATURE('f', 't', 's'),
+	lns = FEATURE('l', 'n', 's'),
 };
 
 uint32_t lookup_feature(const char *feature) {
@@ -208,6 +247,69 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	// rounding
 	case unr:
 	case rnd:
+		// Not supported by eSpeak.
+		break;
+	// articulation
+	case lgl:
+	case idt:
+	case apc:
+	case lmn:
+		// Not supported by eSpeak.
+		break;
+	// air flow
+	case egs:
+	case igs:
+		// Not supported by eSpeak.
+		break;
+	// phonation
+	case brv:
+	case slv:
+	case stv:
+	case crv:
+	case glc:
+		// Not supported by eSpeak.
+		break;
+	// rounding and labialization
+	case ptr:
+	case cmp:
+	case mrd:
+	case lrd:
+		// Not supported by eSpeak.
+		break;
+	// syllabicity
+	case syl:
+		// Not supported by eSpeak.
+		break;
+	case nsy:
+		phoneme->phflags |= phNONSYLLABIC;
+		break;
+	// consonant release
+	case asp:
+	case nrs:
+	case lrs:
+	case unx:
+		// Not supported by eSpeak.
+		break;
+	// coarticulation
+	case pzd:
+		phoneme->phflags |= phPALATAL;
+		break;
+	case vzd:
+	case fzd:
+	case nzd:
+		// Not supported by eSpeak.
+		break;
+	case rzd:
+		phoneme->phflags |= phRHOTIC;
+		break;
+	// tongue root
+	case atr:
+	case rtr:
+		// Not supported by eSpeak.
+		break;
+	// fortis and lenis
+	case fts:
+	case lns:
 		// Not supported by eSpeak.
 		break;
 	// invalid phoneme feature
