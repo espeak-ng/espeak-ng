@@ -9,6 +9,8 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.49.2 - (In Development)
 
+*  Support describing all IPA phonemes in the phoneme tables.
+
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
