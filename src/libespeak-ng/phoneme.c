@@ -27,104 +27,10 @@
 #include "phoneme.h"
 #include "error.h"
 
-#define FEATURE(a, b, c) ((a << 16) | (b << 8) | (c))
-
-// See docs/phonemes.md for the list of supported features.
-enum feature_t {
-	// invalid phoneme feature name
-	inv, // Not in docs/phonemes.md. This is used to signal an unknown feature name.
-	// manner of articulation
-	nas = FEATURE('n', 'a', 's'),
-	stp = FEATURE('s', 't', 'p'),
-	afr = FEATURE('a', 'f', 'r'),
-	frc = FEATURE('f', 'r', 'c'),
-	flp = FEATURE('f', 'l', 'p'),
-	trl = FEATURE('t', 'r', 'l'),
-	apr = FEATURE('a', 'p', 'r'),
-	clk = FEATURE('c', 'l', 'k'),
-	ejc = FEATURE('e', 'j', 'c'),
-	imp = FEATURE('i', 'm', 'p'),
-	vwl = FEATURE('v', 'w', 'l'),
-	lat = FEATURE('l', 'a', 't'),
-	sib = FEATURE('s', 'i', 'b'),
-	// place of articulation
-	blb = FEATURE('b', 'l', 'b'),
-	lbd = FEATURE('l', 'b', 'd'),
-	bld = FEATURE('b', 'l', 'd'),
-	dnt = FEATURE('d', 'n', 't'),
-	alv = FEATURE('a', 'l', 'v'),
-	pla = FEATURE('p', 'l', 'a'),
-	rfx = FEATURE('r', 'f', 'x'),
-	alp = FEATURE('a', 'l', 'p'),
-	pal = FEATURE('p', 'a', 'l'),
-	vel = FEATURE('v', 'e', 'l'),
-	lbv = FEATURE('l', 'b', 'v'),
-	uvl = FEATURE('u', 'v', 'l'),
-	phr = FEATURE('p', 'h', 'r'),
-	glt = FEATURE('g', 'l', 't'),
-	// voice
-	vcd = FEATURE('v', 'c', 'd'),
-	vls = FEATURE('v', 'l', 's'),
-	// vowel height
-	hgh = FEATURE('h', 'g', 'h'),
-	smh = FEATURE('s', 'm', 'h'),
-	umd = FEATURE('u', 'm', 'd'),
-	mid = FEATURE('m', 'i', 'd'),
-	lmd = FEATURE('l', 'm', 'd'),
-	sml = FEATURE('s', 'm', 'l'),
-	low = FEATURE('l', 'o', 'w'),
-	// vowel backness
-	fnt = FEATURE('f', 'n', 't'),
-	cnt = FEATURE('c', 'n', 't'),
-	bck = FEATURE('b', 'c', 'k'),
-	// rounding
-	unr = FEATURE('u', 'n', 'r'),
-	rnd = FEATURE('r', 'n', 'd'),
-	// articulation
-	lgl = FEATURE('l', 'g', 'l'),
-	idt = FEATURE('i', 'd', 't'),
-	apc = FEATURE('a', 'p', 'c'),
-	lmn = FEATURE('l', 'm', 'n'),
-	// air flow
-	egs = FEATURE('e', 'g', 's'),
-	igs = FEATURE('i', 'g', 's'),
-	// phonation
-	brv = FEATURE('b', 'r', 'v'),
-	slv = FEATURE('s', 'l', 'v'),
-	stv = FEATURE('s', 't', 'v'),
-	crv = FEATURE('c', 'r', 'v'),
-	glc = FEATURE('g', 'l', 'c'),
-	// rounding and labialization
-	ptr = FEATURE('p', 't', 'r'),
-	cmp = FEATURE('c', 'm', 'p'),
-	mrd = FEATURE('m', 'r', 'd'),
-	lrd = FEATURE('l', 'r', 'd'),
-	// syllabicity
-	syl = FEATURE('s', 'y', 'l'),
-	nsy = FEATURE('n', 's', 'y'),
-	// consonant release
-	asp = FEATURE('a', 's', 'p'),
-	nrs = FEATURE('n', 'r', 's'),
-	lrs = FEATURE('l', 'r', 's'),
-	unx = FEATURE('u', 'n', 'x'),
-	// coarticulation
-	pzd = FEATURE('p', 'z', 'd'),
-	vzd = FEATURE('v', 'z', 'd'),
-	fzd = FEATURE('f', 'z', 'd'),
-	nzd = FEATURE('n', 'z', 'd'),
-	rzd = FEATURE('r', 'z', 'd'),
-	// tongue root
-	atr = FEATURE('a', 't', 'r'),
-	rtr = FEATURE('r', 't', 'r'),
-	// fortis and lenis
-	fts = FEATURE('f', 't', 's'),
-	lns = FEATURE('l', 'n', 's'),
-};
-
 uint32_t lookup_feature(const char *feature) {
 	if (strlen(feature) != 3)
 		return inv;
-	return FEATURE(feature[0], feature[1], feature[2]);
+	return (feature[0] << 16) | (feature[1] << 8) | feature[2];
 }
 
 espeak_ng_STATUS

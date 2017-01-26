@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2010 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,100 @@
 extern "C"
 {
 #endif
+
+// See docs/phonemes.md for the list of supported features.
+enum feature_t {
+#	define FEATURE_T(a, b, c) ((a << 16) | (b << 8) | (c))
+	// invalid phoneme feature name
+	inv = 0,
+	// manner of articulation
+	nas = FEATURE_T('n', 'a', 's'),
+	stp = FEATURE_T('s', 't', 'p'),
+	afr = FEATURE_T('a', 'f', 'r'),
+	frc = FEATURE_T('f', 'r', 'c'),
+	flp = FEATURE_T('f', 'l', 'p'),
+	trl = FEATURE_T('t', 'r', 'l'),
+	apr = FEATURE_T('a', 'p', 'r'),
+	clk = FEATURE_T('c', 'l', 'k'),
+	ejc = FEATURE_T('e', 'j', 'c'),
+	imp = FEATURE_T('i', 'm', 'p'),
+	vwl = FEATURE_T('v', 'w', 'l'),
+	lat = FEATURE_T('l', 'a', 't'),
+	sib = FEATURE_T('s', 'i', 'b'),
+	// place of articulation
+	blb = FEATURE_T('b', 'l', 'b'),
+	lbd = FEATURE_T('l', 'b', 'd'),
+	bld = FEATURE_T('b', 'l', 'd'),
+	dnt = FEATURE_T('d', 'n', 't'),
+	alv = FEATURE_T('a', 'l', 'v'),
+	pla = FEATURE_T('p', 'l', 'a'),
+	rfx = FEATURE_T('r', 'f', 'x'),
+	alp = FEATURE_T('a', 'l', 'p'),
+	pal = FEATURE_T('p', 'a', 'l'),
+	vel = FEATURE_T('v', 'e', 'l'),
+	lbv = FEATURE_T('l', 'b', 'v'),
+	uvl = FEATURE_T('u', 'v', 'l'),
+	phr = FEATURE_T('p', 'h', 'r'),
+	glt = FEATURE_T('g', 'l', 't'),
+	// voice
+	vcd = FEATURE_T('v', 'c', 'd'),
+	vls = FEATURE_T('v', 'l', 's'),
+	// vowel height
+	hgh = FEATURE_T('h', 'g', 'h'),
+	smh = FEATURE_T('s', 'm', 'h'),
+	umd = FEATURE_T('u', 'm', 'd'),
+	mid = FEATURE_T('m', 'i', 'd'),
+	lmd = FEATURE_T('l', 'm', 'd'),
+	sml = FEATURE_T('s', 'm', 'l'),
+	low = FEATURE_T('l', 'o', 'w'),
+	// vowel backness
+	fnt = FEATURE_T('f', 'n', 't'),
+	cnt = FEATURE_T('c', 'n', 't'),
+	bck = FEATURE_T('b', 'c', 'k'),
+	// rounding
+	unr = FEATURE_T('u', 'n', 'r'),
+	rnd = FEATURE_T('r', 'n', 'd'),
+	// articulation
+	lgl = FEATURE_T('l', 'g', 'l'),
+	idt = FEATURE_T('i', 'd', 't'),
+	apc = FEATURE_T('a', 'p', 'c'),
+	lmn = FEATURE_T('l', 'm', 'n'),
+	// air flow
+	egs = FEATURE_T('e', 'g', 's'),
+	igs = FEATURE_T('i', 'g', 's'),
+	// phonation
+	brv = FEATURE_T('b', 'r', 'v'),
+	slv = FEATURE_T('s', 'l', 'v'),
+	stv = FEATURE_T('s', 't', 'v'),
+	crv = FEATURE_T('c', 'r', 'v'),
+	glc = FEATURE_T('g', 'l', 'c'),
+	// rounding and labialization
+	ptr = FEATURE_T('p', 't', 'r'),
+	cmp = FEATURE_T('c', 'm', 'p'),
+	mrd = FEATURE_T('m', 'r', 'd'),
+	lrd = FEATURE_T('l', 'r', 'd'),
+	// syllabicity
+	syl = FEATURE_T('s', 'y', 'l'),
+	nsy = FEATURE_T('n', 's', 'y'),
+	// consonant release
+	asp = FEATURE_T('a', 's', 'p'),
+	nrs = FEATURE_T('n', 'r', 's'),
+	lrs = FEATURE_T('l', 'r', 's'),
+	unx = FEATURE_T('u', 'n', 'x'),
+	// coarticulation
+	pzd = FEATURE_T('p', 'z', 'd'),
+	vzd = FEATURE_T('v', 'z', 'd'),
+	fzd = FEATURE_T('f', 'z', 'd'),
+	nzd = FEATURE_T('n', 'z', 'd'),
+	rzd = FEATURE_T('r', 'z', 'd'),
+	// tongue root
+	atr = FEATURE_T('a', 't', 'r'),
+	rtr = FEATURE_T('r', 't', 'r'),
+	// fortis and lenis
+	fts = FEATURE_T('f', 't', 's'),
+	lns = FEATURE_T('l', 'n', 's'),
+#	undef FEATURE_T
+};
 
 // phoneme types
 #define phPAUSE   0
