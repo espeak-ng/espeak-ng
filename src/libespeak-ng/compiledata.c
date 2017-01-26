@@ -2016,7 +2016,9 @@ int CompilePhoneme(int compile_phoneme)
 				error("Missing 'endphoneme' before end-of-file"); // end of file
 				break;
 			}
-			if (phoneme_add_feature(phoneme_out, item_string, NULL) == ENS_OK)
+
+			phoneme_feature_t feature = phoneme_feature_from_string(item_string);
+			if (phoneme_add_feature(phoneme_out, feature) == ENS_OK)
 				continue;
 			error("Bad keyword in phoneme definition '%s'", item_string);
 			continue;

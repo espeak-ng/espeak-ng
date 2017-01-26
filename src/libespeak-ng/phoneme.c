@@ -25,22 +25,20 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "phoneme.h"
-#include "error.h"
 
-uint32_t lookup_feature(const char *feature) {
-	if (strlen(feature) != 3)
+phoneme_feature_t phoneme_feature_from_string(const char *feature)
+{
+	if (!feature || strlen(feature) != 3)
 		return inv;
 	return (feature[0] << 16) | (feature[1] << 8) | feature[2];
 }
 
 espeak_ng_STATUS
 phoneme_add_feature(PHONEME_TAB *phoneme,
-                    const char *feature,
-                    espeak_ng_ERROR_CONTEXT *context)
+                    phoneme_feature_t feature)
 {
-	if (!phoneme || !feature) return EINVAL;
-
-	switch (lookup_feature(feature))
+	if (!phoneme) return EINVAL;
+	switch (feature)
 	{
 	// manner of articulation
 	case nas:
@@ -220,7 +218,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		break;
 	// invalid phoneme feature
 	default:
-		return create_name_error_context(context, ENS_UNKNOWN_PHONEME_FEATURE, feature);
+		return ENS_UNKNOWN_PHONEME_FEATURE;
 	}
 	return ENS_OK;
 }

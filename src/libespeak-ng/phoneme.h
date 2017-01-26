@@ -23,7 +23,7 @@ extern "C"
 #endif
 
 // See docs/phonemes.md for the list of supported features.
-enum feature_t {
+typedef enum {
 #	define FEATURE_T(a, b, c) ((a << 16) | (b << 8) | (c))
 	// invalid phoneme feature name
 	inv = 0,
@@ -114,7 +114,9 @@ enum feature_t {
 	fts = FEATURE_T('f', 't', 's'),
 	lns = FEATURE_T('l', 'n', 's'),
 #	undef FEATURE_T
-};
+} phoneme_feature_t;
+
+phoneme_feature_t phoneme_feature_from_string(const char *feature);
 
 // phoneme types
 #define phPAUSE   0
@@ -207,8 +209,7 @@ typedef struct {
 
 espeak_ng_STATUS
 phoneme_add_feature(PHONEME_TAB *phoneme,
-                    const char *feature,
-                    espeak_ng_ERROR_CONTEXT *context);
+                    phoneme_feature_t feature);
 
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
