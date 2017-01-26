@@ -25,62 +25,20 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "phoneme.h"
-#include "error.h"
 
-#define FEATURE(a, b, c) ((a << 16) | (b << 8) | (c))
-
-// See docs/phonemes.md for the list of supported features.
-enum feature_t {
-	// invalid phoneme feature name
-	inv, // Not in docs/phonemes.md. This is used to signal an unknown feature name.
-	// manner of articulation
-	nas = FEATURE('n', 'a', 's'),
-	stp = FEATURE('s', 't', 'p'),
-	afr = FEATURE('a', 'f', 'r'),
-	frc = FEATURE('f', 'r', 'c'),
-	flp = FEATURE('f', 'l', 'p'),
-	trl = FEATURE('t', 'r', 'l'),
-	apr = FEATURE('a', 'p', 'r'),
-	clk = FEATURE('c', 'l', 'k'),
-	ejc = FEATURE('e', 'j', 'c'),
-	imp = FEATURE('i', 'm', 'p'),
-	vwl = FEATURE('v', 'w', 'l'),
-	lat = FEATURE('l', 'a', 't'),
-	sib = FEATURE('s', 'i', 'b'),
-	// place of articulation
-	blb = FEATURE('b', 'l', 'b'),
-	lbd = FEATURE('l', 'b', 'd'),
-	bld = FEATURE('b', 'l', 'd'),
-	dnt = FEATURE('d', 'n', 't'),
-	alv = FEATURE('a', 'l', 'v'),
-	pla = FEATURE('p', 'l', 'a'),
-	rfx = FEATURE('r', 'f', 'x'),
-	alp = FEATURE('a', 'l', 'p'),
-	pal = FEATURE('p', 'a', 'l'),
-	vel = FEATURE('v', 'e', 'l'),
-	lbv = FEATURE('l', 'b', 'v'),
-	uvl = FEATURE('u', 'v', 'l'),
-	phr = FEATURE('p', 'h', 'r'),
-	glt = FEATURE('g', 'l', 't'),
-	// voice
-	vcd = FEATURE('v', 'c', 'd'),
-	vls = FEATURE('v', 'l', 's'),
-};
-
-uint32_t lookup_feature(const char *feature) {
-	if (strlen(feature) != 3)
+phoneme_feature_t phoneme_feature_from_string(const char *feature)
+{
+	if (!feature || strlen(feature) != 3)
 		return inv;
-	return FEATURE(feature[0], feature[1], feature[2]);
+	return (feature[0] << 16) | (feature[1] << 8) | feature[2];
 }
 
 espeak_ng_STATUS
 phoneme_add_feature(PHONEME_TAB *phoneme,
-                    const char *feature,
-                    espeak_ng_ERROR_CONTEXT *context)
+                    phoneme_feature_t feature)
 {
-	if (!phoneme || !feature) return EINVAL;
-
-	switch (lookup_feature(feature))
+	if (!phoneme) return EINVAL;
+	switch (feature)
 	{
 	// manner of articulation
 	case nas:
@@ -174,9 +132,93 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case vls:
 		phoneme->phflags |= phVOICELESS;
 		break;
+	// vowel height
+	case hgh:
+	case smh:
+	case umd:
+	case mid:
+	case lmd:
+	case sml:
+	case low:
+		// Not supported by eSpeak.
+		break;
+	// vowel backness
+	case fnt:
+	case cnt:
+	case bck:
+		// Not supported by eSpeak.
+		break;
+	// rounding
+	case unr:
+	case rnd:
+		// Not supported by eSpeak.
+		break;
+	// articulation
+	case lgl:
+	case idt:
+	case apc:
+	case lmn:
+		// Not supported by eSpeak.
+		break;
+	// air flow
+	case egs:
+	case igs:
+		// Not supported by eSpeak.
+		break;
+	// phonation
+	case brv:
+	case slv:
+	case stv:
+	case crv:
+	case glc:
+		// Not supported by eSpeak.
+		break;
+	// rounding and labialization
+	case ptr:
+	case cmp:
+	case mrd:
+	case lrd:
+		// Not supported by eSpeak.
+		break;
+	// syllabicity
+	case syl:
+		// Not supported by eSpeak.
+		break;
+	case nsy:
+		phoneme->phflags |= phNONSYLLABIC;
+		break;
+	// consonant release
+	case asp:
+	case nrs:
+	case lrs:
+	case unx:
+		// Not supported by eSpeak.
+		break;
+	// coarticulation
+	case pzd:
+		phoneme->phflags |= phPALATAL;
+		break;
+	case vzd:
+	case fzd:
+	case nzd:
+		// Not supported by eSpeak.
+		break;
+	case rzd:
+		phoneme->phflags |= phRHOTIC;
+		break;
+	// tongue root
+	case atr:
+	case rtr:
+		// Not supported by eSpeak.
+		break;
+	// fortis and lenis
+	case fts:
+	case lns:
+		// Not supported by eSpeak.
+		break;
 	// invalid phoneme feature
 	default:
-		return create_name_error_context(context, ENS_UNKNOWN_PHONEME_FEATURE, feature);
+		return ENS_UNKNOWN_PHONEME_FEATURE;
 	}
 	return ENS_OK;
 }

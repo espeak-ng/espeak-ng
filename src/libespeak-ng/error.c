@@ -74,27 +74,6 @@ create_version_mismatch_error_context(espeak_ng_ERROR_CONTEXT *context,
 	return ENS_VERSION_MISMATCH;
 }
 
-espeak_ng_STATUS
-create_name_error_context(espeak_ng_ERROR_CONTEXT *context,
-                          espeak_ng_STATUS status,
-                          const char *name)
-{
-	if (context) {
-		if (*context) {
-			free((*context)->name);
-		} else {
-			*context = malloc(sizeof(espeak_ng_ERROR_CONTEXT_));
-			if (!*context)
-				return ENOMEM;
-		}
-		(*context)->type = ERROR_CONTEXT_NAME;
-		(*context)->name = strdup(name);
-		(*context)->version = 0;
-		(*context)->expected_version = 0;
-	}
-	return status;
-}
-
 #pragma GCC visibility push(default)
 
 ESPEAK_NG_API void
@@ -181,9 +160,6 @@ espeak_ng_PrintStatusCodeMessage(espeak_ng_STATUS status,
 		case ERROR_CONTEXT_VERSION:
 			fprintf(out, "Error: %s at '%s' (expected 0x%x, got 0x%x).\n",
 			        error, context->name, context->expected_version, context->version);
-			break;
-		case ERROR_CONTEXT_NAME:
-			fprintf(out, "Error: %s (got \"%s\").\n", error, context->name);
 			break;
 		}
 	} else

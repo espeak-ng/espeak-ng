@@ -1,4 +1,4 @@
-﻿// Marathi Language.
+// Marathi Language.
 // This mr_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
 
 // This file is UTF8 encoded
@@ -65,7 +65,7 @@
         ऊँ (_       u~        // + candrabinbu
 
 .group ऋ
-        ऋ          rI
+        ऋ          rU
 
 .group ऌ
         ऌ          l-        // vocalic l
@@ -153,12 +153,12 @@ C)        ूं         u~        // or O~   ??
 C)        ूँ (_      u~
 
 .group ृ
-ृ	#X1rI
-C)        ृ          rI
+ृ	#X1rU
+C)        ृ          rU
 
 .group ॄ
-ॄ	#X1rI
-C)        ॄ          rI
+ॄ	#X1ru
+C)        ॄ          ru
 
 .group ॅ
 ॅ	#X1E
@@ -250,6 +250,10 @@ C)        ॣ          l-:
         ग़         QV
         ग़ (B      Q
 
+//new
+        ग्ग         g:V   // GG -> g:
+        ग्ग (B      g:
+
 .group घ
         घ          g#V
         घ (B       g#
@@ -264,22 +268,44 @@ C)        ॣ          l-:
         च (B       c
         च (्य      c:
 
+//New
+        च्च          c:V   // cc -> c:
+        च्च (B       c:
+
+//new
+        च्छ          c#:V    // c#c# -> c#:
+        च्छ (B       c#:
+      
 .group छ
         छ          c#V
         छ (B       c#
 
 .group ज
-        ज          JV
-        ज (B       J
+        ज          zV
+        ज (B       z
         ज़         zV
         ज़ (B      z
-        
+
+//new
+        ज्ज         J:V   // JJ -> J:
+        ज्ज (B      J:
+       
+
+
+//New
+        ज (य            JV     //  If followed by ( य ) then(JV     )
+
+//testing with choti and badi i
+        ज (ि            JI     //  If followed by ( य ) then(JV     )
+        ज (ी             Ji     //  If followed by ( य ) then(JV     )
+
+
 //         ज्ञ           gjV
 //        ज्ञ (B       gj
 
 
-        ज्ञ          gn.V
-        ज्ञ (B       gn.
+        ज्ञ          dn.j'@
+        ज्ञ (B       dn.j
 
 
 
@@ -314,6 +340,12 @@ C)        ॣ          l-:
         ड          d.V
         ड (B       d.
 
+        ड्ड          d.:V   // d. d. -> d.:
+        ड्ड (B      d.:
+
+        ड्ढ          d.#:V    // d#d# -> d#:
+        ड्ढ (B       d.#:
+
         ड़         r.V
         ड़ (B      r.
 
@@ -335,6 +367,10 @@ C)        ॣ          l-:
 
         त्त          t:V   // tt -> t:
         त्त (B       t:
+
+//new
+        त्थ          t#:V    // t#:t#: -> t#:
+        त्थ (B       t#:
         
 .group थ
         थ          t#V
@@ -343,6 +379,13 @@ C)        ॣ          l-:
 .group द
         द          dV
         द (B       d
+
+//new
+        द्द         d:V   // dd -> d:
+        द्द (B      d:
+
+        द्ध          d#:V    // d#d# -> d#:
+        द्ध (B       d#:
 
 .group ध
         ध          d#V
@@ -486,7 +529,7 @@ C)        ॣ          l-:
 
 .group ्		// virama
 ्	H@l'Vnt
-//C)	् 
+C)	् 
 
 // Extra consonants
 
@@ -502,9 +545,9 @@ C)        ॣ          l-:
         ग़          QV
         ग़ (B       Q
 
-.group ज़    // za
-        ज़          zV
-        ज़ (B       z
+//.group ज़    // za
+//        ज़          zV
+//        ज़ (B       z
 
 .group ड़    // dddha   (should retroflex flap ?)
         ड़          r.V
@@ -528,13 +571,18 @@ C)        ॣ          l-:
 .group ॡ    // ll
         ॡ          l-:       // long syllabic l
 
+.group
+
+=	bVr'a:bVr
+*	ta:r'a:NkVn
+
 
 // If we find a Latin letter a-z, then translate as English
 // (This is now done automatically by the eSpeak program)
 
 .group o
         o          _^_EN
-   D__) of (__D    me
+   D__) of (__D      p'aIki
 
 
 
