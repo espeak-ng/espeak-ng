@@ -1,6 +1,6 @@
 /* Compatibility shim for <sys/stat.h>
  *
- * Copyright (C) 2016 Reece H. Dunn
+ * Copyright (C) 2016-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 
 #ifdef _MSC_VER
 
-#if _MSC_VER >= 1600 // Visual C++ 10 (Visual Studio 2010) and above...
+#if _MSC_VER >= 1900 // Visual C++ 14 (Visual Studio 2015) and above...
 #include <../ucrt/sys/stat.h>
 #else
 #include <../include/sys/stat.h>
