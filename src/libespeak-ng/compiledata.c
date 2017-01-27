@@ -149,7 +149,6 @@ enum {
 	kPROCEDURE,
 	kENDPHONEME,
 	kENDPROCEDURE,
-	kEQUIVALENTS,
 	kPHONEMETABLE,
 	kINCLUDE,
 	kIMPORT_PH,
@@ -237,7 +236,6 @@ static keywtab_t keywords[] = {
 	{ "procedure",      tSTATEMENT, kPROCEDURE },
 	{ "endphoneme",     tSTATEMENT, kENDPHONEME },
 	{ "endprocedure",   tSTATEMENT, kENDPROCEDURE },
-	{ "equivalents",    tSTATEMENT, kEQUIVALENTS },
 	{ "import_phoneme", tSTATEMENT, kIMPORT_PH },
 	{ "stress_type",    tSTATEMENT, kSTRESSTYPE },
 	{ "starttype",      tSTATEMENT, kSTARTTYPE },
@@ -331,9 +329,6 @@ static PHONEME_TAB *phoneme_out;
 static int n_phcodes_list[N_PHONEME_TABS];
 static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
-
-static char *p_equivalence;
-static char equivalence_buf[20000];
 
 #define N_PROCS 50
 int n_procs;
@@ -2370,18 +2365,6 @@ static void EndPhonemeTable()
 	}
 
 	n_phcodes_list[n_phoneme_tabs-1] = n_phcodes;
-
-	if ((length = p_equivalence - equivalence_buf) > 0) {
-		// terminate the list of phoneme equivalence tables
-		pw = (int *)p_equivalence;
-		pw[0] = 0;
-
-		// write the equivalence data into phondata, and remember it's address
-		ix = ftell(f_phdata);
-		fprintf(f_phcontents, "Q  0x%.5x  %s\n", ix, phoneme_tab_list2[n_phoneme_tabs-1].name);
-		phoneme_tab_list2[n_phoneme_tabs-1].equivalence_tables = ix;
-		fwrite(equivalence_buf, length+4, 1, f_phdata);
-	}
 }
 
 static void StartPhonemeTable(const char *name)
@@ -2407,7 +2390,6 @@ static void StartPhonemeTable(const char *name)
 	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
 	n_phcodes = 1;
 	phoneme_tab_list2[n_phoneme_tabs].includes = 0;
-	p_equivalence = equivalence_buf;
 
 	if (n_phoneme_tabs > 0) {
 		NextItem(tSTRING); // name of base phoneme table
@@ -2431,97 +2413,6 @@ static void StartPhonemeTable(const char *name)
 		ReservePhCodes();
 
 	n_phoneme_tabs++;
-}
-
-static void CompileEquivalents()
-{
-	// a list of phonemes in another language and the equivalent phoneme strings in this language
-
-	int ix;
-	int n_names;
-	int n_bytes;
-	int foreign_error = 0;
-	int remove_stress = 0;
-	char *p_start;
-	char *p;
-	int foreign_table;
-	char foreign_table_name[40];
-	char line_buf[80];
-	char names[6][80];
-	char phcode[7];
-
-	NextItem(tSTRING);
-	strcpy(foreign_table_name, item_string);
-
-	if ((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0) {
-		if (strcmp(foreign_table_name, "NULL") != 0)
-			error("Unknown phoneme table '%s'", foreign_table_name);
-		foreign_error = 1;
-	}
-
-	p_start = p_equivalence;
-	p_equivalence += 8;
-
-	p_start[0] = foreign_table;
-
-	linenum--;
-	while (!feof(f_in)) {
-		linenum++;
-		if (fgets(line_buf, sizeof(line_buf), f_in) == NULL)
-			break;
-
-		if ((p = strstr(line_buf, "//")) != NULL)
-			*p = 0;
-
-		for (ix = 0; ix < 6; ix++)
-			names[ix][0] = 0;
-		n_names = sscanf(line_buf, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-		if (n_names < 1)
-			continue;
-
-		if (strcmp(names[0], "endphoneme") == 0)
-			break;
-
-		if (foreign_error)
-			continue;
-
-		if (strcmp(names[0], "remove_stress") == 0) {
-			remove_stress = 1;
-			continue;
-		}
-
-		if (p_equivalence > &equivalence_buf[sizeof(equivalence_buf) - 16]) {
-			error("'equivalents' tables are too large");
-			break;
-		}
-
-		if (foreign_error == 0) {
-			phcode[0] = LookupPhonemeString(names[0]);
-			if (phcode[0] == 0) {
-				sprintf(line_buf, "%s/%s", foreign_table_name, names[0]);
-				error("Unknown phoneme '%s'", line_buf);
-			}
-		}
-
-		for (ix = 1; ix < n_names; ix++)
-			phcode[ix] = LookupPhoneme(names[ix], 1);
-
-		// only write a translation if it has an effect
-		if ((n_names > 2) || (phcode[0] != phcode[1])) {
-			// write: foreign phoneme number, then a string of local phoneme numbers
-			memcpy(p_equivalence, phcode, n_names);
-			p_equivalence += n_names;
-			*p_equivalence++ = 0;
-		}
-	}
-	*p_equivalence++ = 0;
-
-	p_equivalence = (char *)((intptr_t)(p_equivalence + 3) & ~0x3); // align to word boundary
-	n_bytes = p_equivalence - p_start;
-	p_start[1] = remove_stress;
-	n_bytes = n_bytes / 4;
-	p_start[2] = n_bytes >> 8; // index of next table
-	p_start[3] = n_bytes;
 }
 
 static void CompilePhonemeFiles()
@@ -2584,9 +2475,6 @@ static void CompilePhonemeFiles()
 			break;
 		case kPROCEDURE:
 			CompilePhoneme(0);
-			break;
-		case kEQUIVALENTS:
-			CompileEquivalents();
 			break;
 		default:
 			if (!feof(f_in))
@@ -2675,7 +2563,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	        "#   S - A SPECT_SEQ structure\n"
 	        "#   W - A wavefile segment\n"
 	        "#   E - An envelope\n"
-	        "#   Q - Phoneme equivalence tables\n"
 	        "#\n"
 	        "# Address is the displacement within phondata of this item\n"
 	        "#\n"
