@@ -2328,7 +2328,6 @@ static void WritePhonemeTables()
 		fputc(phoneme_tab_list2[ix].includes, f_phtab);
 		fputc(0, f_phtab);
 		fputc(0, f_phtab);
-		Write4Bytes(f_phtab, phoneme_tab_list2[ix].equivalence_tables); // byte index into phondata for equivalence tables
 
 		fwrite(phoneme_tab_list2[ix].name, 1, N_PHONEME_TAB_NAME, f_phtab);
 

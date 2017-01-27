@@ -10,6 +10,8 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.49.2 - (In Development)
 
 *  Support describing all IPA phonemes in the phoneme tables.
+*  Removed support for phoneme equivalence tables. These were disabled in the
+   French and German language files.
 
 updated languages:
 

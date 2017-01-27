@@ -223,7 +223,6 @@ typedef struct {
 	PHONEME_TAB *phoneme_tab_ptr;
 	int n_phonemes;
 	int includes;            // also include the phonemes from this other phoneme table
-	int equivalence_tables;   // lists of equivalent phonemes to match other languages, byte index into phondata
 } PHONEME_TAB_LIST;
 
 // table of phonemes to be replaced with different phonemes, for the current voice

@@ -698,85 +698,6 @@ static int CheckDottedAbbrev(char *word1)
 
 extern char *phondata_ptr;
 
-int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
-{
-	// tr:  the original language
-	// lang2:  phoneme table number for the temporary language
-	// phonemes: the phonemes to be replaced
-
-	int ix;
-	int len;
-	char phon;
-	char *p;
-	unsigned char *pb;
-	char *eqlist;
-	char *p_out;
-	char *p_in;
-	int remove_stress = 0;
-	char phonbuf[N_WORD_PHONEMES];
-
-	// has a phoneme equivalence table been specified for this language pair?
-	if ((ix = phoneme_tab_list[tr->phoneme_tab_ix].equivalence_tables) == 0)
-		return 0;
-
-	pb = (unsigned char *)&phondata_ptr[ix];
-
-	for (;;) {
-		if (pb[0] == 0)
-			return 0; // table not found
-
-		if (pb[0] == lang2)
-			break;
-
-		len = (pb[2] << 8) + pb[3]; // size of this table in words
-		pb += (len * 4);
-	}
-	remove_stress = pb[1];
-
-	if (option_phonemes & espeakPHONEMES_TRACE) {
-		DecodePhonemes(phonemes, phonbuf);
-		fprintf(f_trans, "(%s) %s  -> (%s) ", phoneme_tab_list[lang2].name, phonbuf, phoneme_tab_list[tr->phoneme_tab_ix].name);
-	}
-
-	p_in = phonemes;
-	eqlist = (char *)&pb[8];
-	p_out = phonbuf;
-
-	while ((phon = *p_in++) != 0) {
-		if (remove_stress && ((phon & 0xff) < phonSTRESS_PREV))
-			continue; // remove stress marks
-
-		// is there a translation for this phoneme code?
-		p = eqlist;
-		while (*p != 0) {
-			len = strlen(&p[1]);
-			if (*p == phon) {
-				strcpy(p_out, &p[1]);
-				p_out += len;
-				break;
-			}
-			p += (len + 2);
-		}
-		if (*p == 0) {
-			// no translation found
-			*p_out++ = phon;
-		}
-	}
-	*p_out = 0;
-
-	if (remove_stress)
-		SetWordStress(tr, phonbuf, NULL, -1, 0);
-
-	strcpy(phonemes, phonbuf);
-
-	if (option_phonemes & espeakPHONEMES_TRACE) {
-		SelectPhonemeTable(tr->phoneme_tab_ix);
-		DecodePhonemes(phonemes, phonbuf);
-		fprintf(f_trans, "%s\n\n", phonbuf);
-	}
-	return 1;
-}
-
 int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
 	// word1 is terminated by space (0x20) character
@@ -1744,11 +1665,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				p[0] = phonSCHWA; // just say something
 				p[1] = phonSCHWA;
 				p[2] = 0;
-			}
-
-			if (ChangeEquivalentPhonemes(tr, switch_phonemes, (char *)p)) {
-				// Phonemes have been converted from the foreign language to the native language
-				switch_phonemes = -1;
 			}
 
 			if (switch_phonemes == -1) {
