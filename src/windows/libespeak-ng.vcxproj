@@ -169,6 +169,7 @@
     <ClCompile Include="..\libespeak-ng\klatt.c" />
     <ClCompile Include="..\libespeak-ng\mbrowrap.c" />
     <ClCompile Include="..\libespeak-ng\numbers.c" />
+    <ClCompile Include="..\libespeak-ng\phoneme.c" />
     <ClCompile Include="..\libespeak-ng\phonemelist.c" />
     <ClCompile Include="..\libespeak-ng\readclause.c" />
     <ClCompile Include="..\libespeak-ng\setlengths.c" />
