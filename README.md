@@ -48,6 +48,8 @@ The Windows version of eSpeak NG 1.49.1 is available as:
 *  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.1/espeak-ng-x86.msi) --
    32-bit Windows installer
 
+You also need to install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
+
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
