@@ -113,6 +113,10 @@ typedef enum {
 	// fortis and lenis
 	fts = FEATURE_T('f', 't', 's'),
 	lns = FEATURE_T('l', 'n', 's'),
+	// length
+	est = FEATURE_T('e', 's', 't'),
+	hlg = FEATURE_T('h', 'l', 'g'),
+	lng = FEATURE_T('l', 'n', 'g'),
 #	undef FEATURE_T
 } phoneme_feature_t;
 

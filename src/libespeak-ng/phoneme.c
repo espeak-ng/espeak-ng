@@ -216,6 +216,14 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case lns:
 		// Not supported by eSpeak.
 		break;
+	// length
+	case est:
+	case hlg:
+		// Not supported by eSpeak.
+		break;
+	case lng:
+		phoneme->phflags |= phLONG;
+		break;
 	// invalid phoneme feature
 	default:
 		return ENS_UNKNOWN_PHONEME_FEATURE;
