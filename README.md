@@ -56,7 +56,7 @@ support for this feature.
 
 To build eSpeak NG on Windows, you will need:
 
-1. a copy of Visual Studio 2015, such as the Community Edition;
+1. a copy of Visual Studio 2013 or later, such as the Community Edition;
 2. the Windows 8.1 SDK;
 3. the [WiX installer](http://wixtoolset.org) plugin;
 4. the [pcaudiolib](http://github.com/rhdunn/pcaudiolib) project checked out to
@@ -64,6 +64,15 @@ To build eSpeak NG on Windows, you will need:
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
+
+You can also use the Visual Studio tools to build espeak-ng with `msbuild` from
+the `src/windows` directory:
+
+	msbuild espeak-ng.sln
+
+If building with Visual Studio 2003, you need to use:
+
+	msbuild /p:PlatformToolset=v120 espeak-ng.sln
 
 ## Linux, Mac, BSD
 
