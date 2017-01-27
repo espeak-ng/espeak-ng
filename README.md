@@ -317,14 +317,8 @@ and some minor changes to the documentation comments. Thus, the C API is API and
 ABI compatible with espeak.
 
 The `espeak-data` data has been moved to `espeak-ng-data` to avoid conflicts with
-espeak. With espeak-ng 1.49.0, the number of supported phoneme tables was increased
-so espeak-ng can read the espeak data but espeak cannot read the espeak-ng data.
-That is, `N_PHONEM_TABS` in `phoneme.h` has been increased from `100` to `150`.
-This does not affect the binary phoneme format.
-
-As of espeak-ng 1.49.2, the format of the phoneme source files has changed, so
-they are no longer compatible with espeak. The binary files are still compatible
-with espeak.
+espeak. There have been various changes to the voice, dictionary and phoneme files
+that make them incompatible with espeak.
 
 The *espeak-ng* project does not include the *espeakedit* program. It has moved
 the logic to build the dictionary, phoneme and intonation binary files into the
