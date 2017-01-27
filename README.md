@@ -20,7 +20,7 @@
   - [Signing the APK](#signing-the-apk)
   - [Installing](#installing-1)
 - [Documentation](#documentation)
-- [Packaging](#packaging)
+- [eSpeak Compatibility](#espeak-compatibility)
 - [Historical Versions](#historical-versions)
 - [Bugs](#bugs)
 - [License Information](#license-information)
@@ -48,6 +48,8 @@ The Windows version of eSpeak NG 1.49.1 is available as:
 *  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.1/espeak-ng-x86.msi) --
    32-bit Windows installer
 
+You also need to install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
+
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
@@ -56,7 +58,7 @@ support for this feature.
 
 To build eSpeak NG on Windows, you will need:
 
-1. a copy of Visual Studio 2015, such as the Community Edition;
+1. a copy of Visual Studio 2013 or later, such as the Community Edition;
 2. the Windows 8.1 SDK;
 3. the [WiX installer](http://wixtoolset.org) plugin;
 4. the [pcaudiolib](http://github.com/rhdunn/pcaudiolib) project checked out to
@@ -64,6 +66,15 @@ To build eSpeak NG on Windows, you will need:
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
+
+You can also use the Visual Studio tools to build espeak-ng with `msbuild` from
+the `src/windows` directory:
+
+	msbuild espeak-ng.sln
+
+If building with Visual Studio 2003, you need to use:
+
+	msbuild /p:PlatformToolset=v120 espeak-ng.sln
 
 ## Linux, Mac, BSD
 
@@ -303,34 +314,27 @@ The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
 command-line documentation provide a reference of the different command-line
 options available to these commands with example usage.
 
-## Packaging
+## eSpeak Compatibility
 
-The **espeak-ng** project works as a drop-in replacement for **espeak**, with
-a few caveats. More specifically:
+The *espeak-ng* binaries expose the same command-line options as *espeak*, with
+several additions to expose new functionality from *espeak-ng* such as specifying
+the output audio device name to use. The build creates symlinks of `espeak` to
+`espeak-ng`, and `speak` to `speak-ng`.
 
-1. The installation creates compatibility symlinks mapping _espeak_, _speak_
-   and _libespeak.la_ to their _espeak-ng_ equivalents. These are optional if
-   you are packaging _espeak_ using the upstream eSpeak code, and can be
-   handled in distributions in other ways, such as the
-   [Debian Alternatives](https://wiki.debian.org/DebianAlternatives) system.
+The espeak `speak_lib.h` include file is provided in `espeak-ng/speak_lib.h` with
+an optional symlink in `espeak/speak_lib.h`. This file contains the espeak API as
+of 1.48.15, with a change to the `ESPEAK_API` macro to fix building on Windows,
+and some minor changes to the documentation comments. Thus, the C API is API and
+ABI compatible with espeak.
 
-2. The command-line interface to _espeak-ng_ and _speak-ng_ are compatible
-   with the upstream versions and intend to remain so. Only new command
-   options will be added.
+The `espeak-data` data has been moved to `espeak-ng-data` to avoid conflicts with
+espeak. There have been various changes to the voice, dictionary and phoneme files
+that make them incompatible with espeak.
 
-3. The C API to _libespeak-ng.so_ will remain API and ABI compatible with
-   _libespeak.so_. The only change `speak_lib.h` has is a change to the
-   `ESPEAK_API` macro when building on Windows. All new APIs are being added
-   to `espeak-ng/espeak_ng.h`.
-
-4. The _espeak-ng-data_ files have been modified slightly. Currently _espeak-ng_
-   can read _espeak_ data, but _espeak_ cannot read _espeak-ng_ data, because
-   _espeak-ng_ uses a different voice data so that both _espeak_ and
-   _espeak-ng_ can be installed on the same machine without problems.
-
-5. The _espeak-ng_ project does not include _espeakedit_. The voice data is
-   built using the _espeak-ng_ command line itself. Currently, to create and
-   edit the voice data, you need _espeakedit_ from the _espeak_ project.
+The *espeak-ng* project does not include the *espeakedit* program. It has moved
+the logic to build the dictionary, phoneme and intonation binary files into the
+`libespeak-ng.so` file that is accessible from the `espeak-ng` command line and
+C API.
 
 ## Historical Versions
 
