@@ -221,6 +221,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case hlg:
 		// Not supported by eSpeak.
 		break;
+	case elg: // FIXME: Should be longer than 'lng'.
 	case lng:
 		phoneme->phflags |= phLONG;
 		break;

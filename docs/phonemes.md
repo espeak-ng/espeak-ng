@@ -336,6 +336,7 @@ the [length](#length) suprasegmentals are used instead.
 | `est`   | ◌̆      | extra short     |
 | `hlg`   | ◌ˑ     | half-long       |
 | `lng`   | ◌ː     | long            |
+| `elg`   | ◌ːː    | extra long      |
 
 ## References
 

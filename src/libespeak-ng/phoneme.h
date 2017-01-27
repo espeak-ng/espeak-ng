@@ -117,6 +117,7 @@ typedef enum {
 	est = FEATURE_T('e', 's', 't'),
 	hlg = FEATURE_T('h', 'l', 'g'),
 	lng = FEATURE_T('l', 'n', 'g'),
+	elg = FEATURE_T('e', 'l', 'g'),
 #	undef FEATURE_T
 } phoneme_feature_t;
 
