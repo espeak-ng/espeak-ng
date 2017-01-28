@@ -206,7 +206,7 @@ typedef struct {
 	unsigned char code;          // the phoneme number
 	unsigned char type;          // phVOWEL, phPAUSE, phSTOP etc
 	unsigned char start_type;
-	unsigned char end_type;
+	unsigned char end_type;      // vowels: endtype; consonant: voicing switch
 	unsigned char std_length;    // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
 	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
 } PHONEME_TAB;
