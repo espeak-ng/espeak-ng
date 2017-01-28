@@ -149,8 +149,7 @@ endphoneme
 // Consonants
 
 phoneme r
-  liquid
-  trill
+  liquid trl
   lengthmod 7
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)

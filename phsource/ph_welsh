@@ -213,8 +213,7 @@ endphoneme
 //===========
 
 phoneme r
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk

@@ -284,8 +284,7 @@ endphoneme
 
 
 phoneme r
-  liquid rhotic
-  trill
+  liquid rhotic trl
   lengthmod 6
   Vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
   Vowelout f1=2  f2=1700 -300 -200  f3=-1300 80

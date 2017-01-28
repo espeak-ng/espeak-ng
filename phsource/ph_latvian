@@ -167,8 +167,7 @@ phoneme n-
 endphoneme
 
 phoneme R // Latvian hard r
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -176,8 +175,7 @@ FMT(r3/r_trill) addWav(r3/r_trill.wav, 60)
 endphoneme
 
 phoneme r // Latvian soft r
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk

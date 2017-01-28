@@ -85,8 +85,7 @@ endphoneme
 //===========
 
 phoneme R
-  liquid
-  trill
+  liquid trl
   ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80

@@ -280,7 +280,6 @@ static keywtab_t keywords[] = {
 	// flags
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
-	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
 	{ "palatal",      tPHONEME_FLAG, phPALATAL }, // TODO (deprecated): use 'pzd' instead
 	{ "long",         tPHONEME_FLAG, phLONG }, // TODO (deprecated): use 'lng' instead
 	{ "brkafter",     tPHONEME_FLAG, phBRKAFTER },

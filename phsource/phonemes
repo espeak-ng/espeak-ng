@@ -347,8 +347,7 @@ endphoneme
 
 
 phoneme R
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   ipa r
   IF nextPhW(R2) THEN
@@ -360,8 +359,7 @@ phoneme R
 endphoneme
 
 phoneme R2   // this is [R] from Slovak/Czech
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   ipa r
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
@@ -370,8 +368,7 @@ phoneme R2   // this is [R] from Slovak/Czech
 endphoneme
 
 phoneme R3  // Afrikaans
-  liquid
-  trill  
+  liquid trl
   lengthmod 6
   length 60
   ipa r

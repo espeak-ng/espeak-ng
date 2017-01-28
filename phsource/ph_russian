@@ -135,8 +135,7 @@ endphoneme
 
 
 phoneme r
-  liquid rhotic nolink
-  alv trill
+  liquid rhotic alv trl nolink
   length 80
   IF prevPhW(isVowel) THEN
   ELSE

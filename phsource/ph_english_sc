@@ -398,9 +398,8 @@ phoneme r/   // used for [r] when not preceding a vowel
 endphoneme
 
 phoneme r
-  liquid rhotic
+  liquid rhotic trl
   lengthmod 7
-  trill
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
   ENDIF

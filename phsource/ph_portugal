@@ -134,8 +134,7 @@ endphoneme
 
 
 phoneme x      // [r] for Portugal
-  liquid
-  trill
+  liquid trl
   ipa ʁ
   lengthmod 7
   Vowelin f1=0  f2=1500 -400 400  f3=-400 80
