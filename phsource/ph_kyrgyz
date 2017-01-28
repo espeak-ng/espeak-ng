@@ -448,7 +448,6 @@ endphoneme
 
 phoneme ts
   ipa ts        
-  Length 10
   import_phoneme consonants/ts
 endphoneme
 

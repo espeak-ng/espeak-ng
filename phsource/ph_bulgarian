@@ -81,8 +81,8 @@ phoneme r
 endphoneme
 
 phoneme x
-  voicingswitch x   // [x] doesn't switch to [Q]
   import_phoneme base/x
+  voicingswitch x   // [x] doesn't switch to [Q]
 endphoneme
 
 

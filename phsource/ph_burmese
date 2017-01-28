@@ -470,7 +470,7 @@ phoneme b
 endphoneme
 
 phoneme ph //aspirated
-  vls blb stop
+  //vls blb stop
   import_phoneme base/p
 endphoneme
 
@@ -485,7 +485,7 @@ phoneme d
 endphoneme
 
 phoneme th
-  vls alv stop
+  //vls alv stop
   import_phoneme base/t
 endphoneme
 
@@ -515,7 +515,7 @@ phoneme g
 endphoneme
 
 phoneme kh
-  vls vel stop
+  //vls vel stop
   import_phoneme base/k
 endphoneme
 

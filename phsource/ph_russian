@@ -148,7 +148,6 @@ endphoneme
 
 
 phoneme ts
-  Length 10
   import_phoneme consonants/ts
 endphoneme
 

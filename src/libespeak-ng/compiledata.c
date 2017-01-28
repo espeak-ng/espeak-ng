@@ -1907,6 +1907,15 @@ static void ImportPhoneme(void)
 		return;
 	}
 
+	if (phoneme_out->phflags != 0 ||
+	    phoneme_out->type != phINVALID ||
+	    phoneme_out->start_type != 0 ||
+	    phoneme_out->end_type != 0 ||
+	    phoneme_out->std_length != 0 ||
+	    phoneme_out->length_mod != 0) {
+		error("Phoneme import will override set properties.");
+	}
+
 	ph_mnem = phoneme_out->mnemonic;
 	ph_code = phoneme_out->code;
 	memcpy(phoneme_out, ph, sizeof(PHONEME_TAB));
