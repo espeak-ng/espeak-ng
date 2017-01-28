@@ -27,7 +27,7 @@
 // ''atai'' /a/ f1 840 f2 1540  f3 2892  f4 3269
 
 phoneme a
-  vowel starttype #@  endtype #@
+  vwl starttype #@  endtype #@
   ipa ɑ
   unstressed
   length 190
@@ -37,14 +37,14 @@ endphoneme
 
 phoneme e
   ipa e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/e)
 endphoneme
 
 phoneme i
   ipa i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 170
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -52,35 +52,35 @@ endphoneme
 
 phoneme o
   ipa o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u
   ipa u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme I
   ipa ɯ
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 180
   FMT(vowel/u#_7)
 endphoneme
 
 phoneme y
   ipa y
-  vowel starttype #u  endtype #u
+  vwl starttype #u  endtype #u
   length 180
   FMT(vowel/y)
 endphoneme
 
 phoneme O
   ipa oe
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 150
   FMT(vowel/oe)
 endphoneme
@@ -93,7 +93,7 @@ endphoneme
 
 phoneme a:
   ipa ɑ:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 325
   FMT(vowel/aa_6)
 endphoneme
@@ -101,14 +101,14 @@ endphoneme
 
 phoneme e:
   ipa e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 300
   FMT(vowel/e)
 endphoneme
 
 phoneme i:
   ipa i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 300
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -116,35 +116,35 @@ endphoneme
 
 phoneme o:
   ipa o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 325
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u:
   ipa u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 325
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme I:
   ipa ɯ:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 300
   FMT(vowel/u#_7)
 endphoneme
 
 phoneme y:
   ipa y:
-  vowel starttype #u  endtype #u
+  vwl starttype #u  endtype #u
   length 275
   FMT(vowel/y)
 endphoneme
 
 phoneme O:
   ipa oe:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 275
   FMT(vowel/oe)
 endphoneme
@@ -400,7 +400,7 @@ endphoneme
 
 phoneme v // english v for now
   ipa v
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   length 170
   ChangeIfDiminished(@)
   FMT(vowel/V_6)

@@ -270,14 +270,14 @@ endphoneme
 //====================================================
 
 phoneme N-   // syllabic N
-  vowel starttype N endtype N
+  vwl starttype N endtype N
   length 250
   FMT(nn/nn2_)
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 250
   IF nextPh(N) THEN
     FMT(vwl_zh/a_n)
@@ -286,7 +286,7 @@ phoneme a
 endphoneme
 
 phoneme A
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 250
   IF nextPh(N) THEN
     FMT(vowel/aa_2)
@@ -295,19 +295,19 @@ phoneme A
 endphoneme
 
 phoneme ai
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 250
   FMT(vdiph/ai_6)
 endphoneme
 
 phoneme Au
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 250
   FMT(vwl_zh/aau)
 endphoneme
 
 phoneme @
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 200
   IF nextPh(N) THEN
     FMT(vowel/@_bck)
@@ -316,25 +316,25 @@ phoneme @
 endphoneme
 
 phoneme @r  //tmp use V3_r
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 350
   FMT(vowelr/V3_r)
 endphoneme
 
 phoneme E
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 250
   FMT(vowel/ee_2)
 endphoneme
 
 phoneme ei
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 250
   FMT(vdiph2/ei_4)
 endphoneme
 
 phoneme i
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 250
   IF nextPh(N) THEN
     FMT(vowel/ii_2)
@@ -346,49 +346,49 @@ phoneme i
 endphoneme
 
 phoneme i[ //after ts tsh s
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 250
   FMT(vowel/i#_7)
 endphoneme
 
 phoneme i. //after ts. ts.h s. z.
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 250
   FMT(vowel/i#_6)
 endphoneme
 
 phoneme iA  //try more before N
-  vowel  starttype #i  endtype #a
+  vwl  starttype #i  endtype #a
   length 250
   FMT(vwl_zh/iaa)
 endphoneme
 
 phoneme iAu
-  vowel  starttype #i  endtype #u
+  vwl  starttype #i  endtype #u
   length 250
   FMT(vwl_zh/iaau)
 endphoneme
 
 phoneme iE
-  vowel  starttype #i  endtype #e
+  vwl  starttype #i  endtype #e
   length 250
   FMT(vwl_zh/ie)
 endphoneme
 
 phoneme io
-  vowel starttype #i endtype #o
+  vwl starttype #i endtype #o
   length 250
   FMT(vdiph2/iioo)
 endphoneme
 
 phoneme iou
-  vowel starttype #i endtype #u
+  vwl starttype #i endtype #u
   length 250
   FMT(vwl_zh/iou)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 250
   IF nextPh(N) THEN
     FMT(vnasal/oo_n2)
@@ -397,25 +397,25 @@ phoneme o
 endphoneme
 
 phoneme o-
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 250
   FMT(vowel/8)
 endphoneme
 
 phoneme ou
-  vowel starttype #o endtype #u
+  vwl starttype #o endtype #u
   length 250
   FMT(vdiph/8u)
 endphoneme
 
 phoneme ong
-  vowel starttype #o endtype #o 
+  vwl starttype #o endtype #o 
   length 500
   FMT(vwl_zh/ong)
 endphoneme
 
 phoneme u //try more before N
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 250
   IF nextPh(N) THEN
     FMT(vnasal/u_n)
@@ -424,43 +424,43 @@ phoneme u //try more before N
 endphoneme
 
 phoneme uA
-  vowel starttype #u endtype #a
+  vwl starttype #u endtype #a
   length 250
   FMT(vwl_zh/uaa)
 endphoneme
 
 phoneme ua
-  vowel starttype #u endtype #a
+  vwl starttype #u endtype #a
   length 250
   FMT(vdiph2/oa)
 endphoneme
 
 phoneme uai
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   length 250
   FMT(vwl_zh/uai)
 endphoneme
 
 phoneme u@
-  vowel starttype #u endtype #@
+  vwl starttype #u endtype #@
   length 230
   FMT(vdiph2/o@)
 endphoneme
 
 phoneme uei
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   length 250
   FMT(vwl_zh/uei)
 endphoneme
 
 phoneme uo
-  vowel starttype #u endtype #o
+  vwl starttype #u endtype #o
   length 280
   FMT(vwl_zh/uo)
 endphoneme
 
 phoneme y
-  vowel  starttype #i  endtype #u
+  vwl  starttype #i  endtype #u
   length 250
   IF nextPh(N) THEN
     FMT(vowel/uu_3)
@@ -469,31 +469,31 @@ phoneme y
 endphoneme
 
 phoneme yu  //try more before N
-  vowel  starttype #i  endtype #u
+  vwl  starttype #i  endtype #u
   length 250
   FMT(vdiph2/yu)
 endphoneme
 
 phoneme y&
-  vowel  starttype #i  endtype #e
+  vwl  starttype #i  endtype #e
   length 250
   FMT(vwl_zh/y&)
 endphoneme
 
 phoneme yE  //try more so not similar to iE
-  vowel  starttype #i  endtype #e
+  vwl  starttype #i  endtype #e
   length 250
   FMT(vwl_zh/yee)
 endphoneme
 
 phoneme y@
-  vowel  starttype #i  endtype #@
+  vwl  starttype #i  endtype #@
   length 250
   FMT(vdiph2/y@)
 endphoneme
 
 phoneme yi
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 250
   FMT(vdiph/yi)
 endphoneme

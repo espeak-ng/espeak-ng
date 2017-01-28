@@ -215,7 +215,6 @@ static keywtab_t k_intonation[] = {
 };
 
 static keywtab_t keywords[] = {
-	{ "vowel",   tPHONEME_TYPE, phVOWEL }, // TODO (deprecated): use 'vwl' instead
 	{ "liquid",  tPHONEME_TYPE, phLIQUID },
 	{ "pause",   tPHONEME_TYPE, phPAUSE },
 	{ "stress",  tPHONEME_TYPE, phSTRESS },

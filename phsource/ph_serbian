@@ -4,7 +4,7 @@
 // to be included here.
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 120
   IfNextVowelAppend(;)
   FMT(vowel/ii_6)
@@ -12,7 +12,7 @@ endphoneme
 
 
 phoneme &
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ɐ
   length 140
   FMT(vowel/a#)

@@ -7,7 +7,7 @@
 
 
 phoneme I^          // "silent i", palatilizes the preceding consonant
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   unstressed
   ipa ʲ
   length 70
@@ -28,7 +28,7 @@ phoneme I^          // "silent i", palatilizes the preceding consonant
 endphoneme
 
 phoneme i/              // used for "i" at end of word
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 150
   ChangeIfNotStressed(I^)
   IfNextVowelAppend(;)
@@ -36,44 +36,44 @@ phoneme i/              // used for "i" at end of word
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 180
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme y
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɨ
   length 180
   FMT(vowel/i#_5)
 endphoneme
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 180
   FMT(vowel/a_2)
 endphoneme
 
 phoneme @
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 170
   FMT(vowel/@_low)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/o-_4)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/u_2)
 endphoneme
 
 phoneme Y
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 180
   FMT(vowel/y#)
 endphoneme
@@ -84,19 +84,19 @@ endphoneme
 
 
 phoneme @I
-  vowel starttype #@ endtype #i
+  vwl starttype #@ endtype #i
   length 250
   FMT(vdiph/@i_3)
 endphoneme
 
 phoneme @U
-  vowel starttype #@ endtype #u
+  vwl starttype #@ endtype #u
   length 260
   FMT(vdiph/@u_3)
 endphoneme
 
 phoneme oU
-  vowel starttype #o endtype #u
+  vwl starttype #o endtype #u
   length 260
   FMT(vdiph/ou_2)
 endphoneme
@@ -104,43 +104,43 @@ endphoneme
 
 
 phoneme iI
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 250
   FMT(vdiph/ii)
 endphoneme
 
 phoneme yI
-  vowel starttype #@ endtype #i
+  vwl starttype #@ endtype #i
   length 210
   FMT(vdiph/i#i)
 endphoneme
 
 phoneme yU
-  vowel starttype #@ endtype #u
+  vwl starttype #@ endtype #u
   length 230
   FMT(vdiph2/uw_3)
 endphoneme
 
 phoneme ea
-  vowel starttype #e endtype #a
+  vwl starttype #e endtype #a
   length 250
   FMT(vdiph2/ea)
 endphoneme
 
 phoneme eo
-  vowel starttype #e endtype #o
+  vwl starttype #e endtype #o
   length 270
   FMT(vdiph2/eo)
 endphoneme
 
 phoneme e[u
-  vowel starttype #e endtype #u
+  vwl starttype #e endtype #u
   length 250
   FMT(vdiph2/e_u)
 endphoneme
 
 phoneme Oa
-  vowel starttype #o endtype #a
+  vwl starttype #o endtype #a
   length 250
   FMT(vdiph2/oa)
 endphoneme

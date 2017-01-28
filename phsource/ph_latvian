@@ -7,136 +7,136 @@
 //  ENDIF
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 120
   FMT(vwl_lv/a, 100)           // adjusted from aa_3
 endphoneme
 
 phoneme a:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 300
   long
   FMT(vwl_lv/aa, 90)           
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 120
   FMT(vwl_lv/e2, 100)
 endphoneme
 
 phoneme E:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 300
   FMT(vwl_lv/ee2, 100)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 120
   FMT(vwl_lv/e, 100)  // other alternative e_5
 endphoneme
 
 phoneme e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 300
   FMT(vwl_lv/ee, 100) // other alternative e_8
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 120
   FMT(vwl_lv/i, 110) // was i_6
 endphoneme
 
 phoneme i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 300
   FMT(vwl_lv/ii, 100) // was i_7
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 120
   FMT(vwl_lv/o, 90)
 endphoneme
 
 phoneme o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 300
   FMT(vwl_lv/oo, 75)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 120
   FMT(vwl_lv/u, 140)
 endphoneme
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 300
   FMT(vwl_lv/uu, 120)
 endphoneme
 
 phoneme ai
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 250
   long
   FMT(vdiph/aai, 100)
 endphoneme
 
 phoneme au
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 275
   long
   FMT(vdiph/aau, 100)
 endphoneme
 
 phoneme ei
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 250
   long
   FMT(vdiph/eei_2, 100)
 endphoneme
 
 phoneme ie
-  vowel starttype #i endtype #e
+  vwl starttype #i endtype #e
   length 250
   long
   FMT(vdiph2/ie_2, 100)
 endphoneme
 
 phoneme iu
-  vowel starttype #i endtype #u
+  vwl starttype #i endtype #u
   length 250
   long
   FMT(vdiph2/iu_2, 100)
 endphoneme
 
 phoneme ui
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   length 250
   long
   FMT(vdiph/ui, 100)
 endphoneme
 
 phoneme uo
-  vowel starttype #u endtype #a
+  vwl starttype #u endtype #a
   length 260
   long
   FMT(vdiph2/uaa, 100)
 endphoneme
 
 phoneme o`       // shorter version of uo
-  vowel starttype #u endtype #a
+  vwl starttype #u endtype #a
   length 180
   long
   FMT(vdiph2/uaa, 100)
 endphoneme
 
 phoneme oi
-  vowel starttype #o endtype #i
+  vwl starttype #o endtype #i
   length 250
   long
   FMT(vdiph/ooi, 100)
@@ -159,7 +159,7 @@ phoneme tS
 endphoneme
 
 phoneme n-
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa nU+0329
   lengthmod 4
   length 120

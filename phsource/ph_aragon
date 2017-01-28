@@ -8,20 +8,20 @@ phoneme t#
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/ee_1)
 endphoneme
 
 phoneme e#
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   ChangeIfStressed(e)
   ChangePhoneme(NULL)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo_4)
 endphoneme

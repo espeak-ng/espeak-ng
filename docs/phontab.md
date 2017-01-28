@@ -148,7 +148,6 @@ must be present.
 
 | Type      | Description |
 |-----------|-------------|
-| `vowel`   |             |
 | `liquid`  | semi-vowels, such as:  `r`, `l`, `j`, `w` |
 | `nasal`   | nasal e.g.:  `m`, `n`, `N` |
 | `stop`    | stop (plosive) e.g.: `p`, `b`, `t`, `d`, `k`, `g` |

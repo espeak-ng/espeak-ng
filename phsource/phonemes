@@ -137,7 +137,7 @@ endphoneme
 // Some default vowel definitions
 
 phoneme @    //  Schwa, e.g. alph**a**
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   unstressed
   length 140
   FMT(vowel/@)
@@ -145,7 +145,7 @@ endphoneme
 
 
 phoneme @-   //  very short schwa
-  vowel starttype #@  endtype #@
+  vwl starttype #@  endtype #@
   unstressed nonsyllabic
 
   ipa ə
@@ -158,21 +158,21 @@ endphoneme
 
 
 phoneme a // tr**a**p
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 180
   FMT(vowel/a)
 endphoneme
 
 
 phoneme e // German **eh**, French **é**
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 170
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -180,14 +180,14 @@ endphoneme
 
 
 phoneme o // German **oo**, French **o**
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 170
   FMT(vowel/u)
 endphoneme
@@ -197,7 +197,7 @@ endphoneme
 //=====================
 
 phoneme m-
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa mU+0329
   lengthmod 4
   length 170
@@ -212,7 +212,7 @@ phoneme m-
 endphoneme
 
 phoneme n-
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa nU+0329
   lengthmod 4
   length 170
@@ -227,7 +227,7 @@ phoneme n-
 endphoneme
 
 phoneme N-
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ipa ŋU+0329
   lengthmod 4
   length 190
@@ -247,7 +247,7 @@ endphoneme
 
 
 //*******************************************************************
-// VIRTUAL - referred to in vowels'   vowel  starttype and endtype
+// VIRTUAL - referred to in vowels'   vwl  starttype and endtype
 // These each apply to a class of vowels
 //*******************************************************************
 
@@ -276,7 +276,7 @@ endphoneme
 
 
 phoneme r-   // syllabic r
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   ipa rU+0329
   unstressed
   length 220
@@ -284,7 +284,7 @@ phoneme r-   // syllabic r
 endphoneme
 
 phoneme l-   // syllabic l
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   ipa lU+0329
   unstressed
   length 200

@@ -423,7 +423,7 @@ endprocedure
 
 // A bit longer than [@-]
 phoneme @
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   length 60
   IfNextVowelAppend(_!)
@@ -431,7 +431,7 @@ phoneme @
 endphoneme
 
 phoneme @-   //  very short schwa
-  vowel starttype #@  endtype #@
+  vwl starttype #@  endtype #@
   unstressed nonsyllabic
   ipa ə
   IF nextPhW(*) OR nextPhW(r) THEN
@@ -457,7 +457,7 @@ endphoneme
 
 // ToDo: change [@] to [a#] if adjacent to [r] or [R]
 phoneme 3
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   unstressed
   length 40
   FMT(vowel/a#_3)
@@ -473,7 +473,7 @@ phoneme 3-    // used for 'r' after a vowel (to create a diphthong)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
 CALL LongVowelLength
   FMT(vowel/i_4)
@@ -482,7 +482,7 @@ endphoneme
 // PB short i
 // sviret vs. svirret
 phoneme ?i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
   CALL ShortVowelLength
 // Don't link with the next vowel with [;] - vowel too short
@@ -492,14 +492,14 @@ endphoneme
 
 // PB English i - Tim
 phoneme I
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 130
   IfNextVowelAppend(;)
   FMT(vowel/ii_2)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140 
   CALL LongVowelLength
   FMT(vowel/e)
@@ -508,14 +508,14 @@ endphoneme
 // PB short e
 // "skille" vs. "skele", "pille" vs. "pile"
 phoneme ?e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   CALL ShortVowelLength
   FMT(vowel/e)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140 
 // no link with next vowel
 IF thisPh(isWordEnd) THEN
@@ -540,7 +540,7 @@ endphoneme
 // PB short E
 // "læsse" vs. "læse"
 phoneme ?E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ipa ε
   length 140
   CALL ShortVowelLength
@@ -548,7 +548,7 @@ phoneme ?E
 endphoneme
 
 phoneme &
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ipa a
   length 140
 // "same", "sale", "bade" - consonant + @-: long
@@ -572,7 +572,7 @@ endphoneme
 // "sale" vs. "sal"
 phoneme ?&
 ipa a
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
    length 140
    CALL ShortVowelLength
    FMT(vowel/ee_2)
@@ -580,7 +580,7 @@ endphoneme
 
 // Added for the æ in "dræbt"
 phoneme &#
-  vowel starttype  #e endtype #e
+  vwl starttype  #e endtype #e
     length 140
 	ipa a
 	CALL LongVowelLength
@@ -590,7 +590,7 @@ endphoneme
 // PB short &#
 // "revl" vs. "tremme"
 phoneme ?&#
-  vowel starttype  #e endtype #e
+  vwl starttype  #e endtype #e
   ipa ?a
   length 140
   CALL ShortVowelLength
@@ -598,7 +598,7 @@ phoneme ?&#
 endphoneme
 
 phoneme A // PB changed to a_8
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ɑ
   length 140 
 CALL LongVowelLength
@@ -612,7 +612,7 @@ endphoneme
 // Short A
 // "krabbe" vs. "drabelig"
 phoneme ?A
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ?ɑ
   length 140
 CALL ShortVowelLength
@@ -620,7 +620,7 @@ CALL ShortVowelLength
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140 
 // "suge", "uge", "bluse", "julegave"
 IF nextPhW(@-) OR nextPhW(V) OR next2PhW(@-) OR next2PhW(V)THEN
@@ -635,14 +635,14 @@ endphoneme
 // Short u
 // "tude" vs. "tuden" - [tuD3] [t?uD@n]
 phoneme ?u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   CALL ShortVowelLength
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140 
 // "kone", "koner" o + consonant + V or @-
 IF next2PhW(V) OR next2PhW(@-) THEN
@@ -655,14 +655,14 @@ endphoneme
 // PB Short o
 // "patron" vs. "kone"
 phoneme ?o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   CALL ShortVowelLength   
   FMT(vowel/o_2)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   ipa ɒ // changed from ɔ - Den Danske Ordbog: ɒ
 // "såre", "sårede"  [s'O:?OD@-]
@@ -676,7 +676,7 @@ endphoneme
 // Short O
 // "toget" vs. "tåget"
 phoneme ?O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
    ipa ɒ // changed from ɔ - Den Danske Ordbog: ɒ
   length 140
   CALL ShortVowelLength 
@@ -684,7 +684,7 @@ phoneme ?O
 endphoneme
 
 phoneme V
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
 CALL LongVowelLength
   FMT(vowel/V_4)
@@ -693,14 +693,14 @@ endphoneme
 // PB Short V
 // "forstår" vs. "kåre"
 phoneme ?V
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
   CALL ShortVowelLength
   FMT(vowel/V_4)
 endphoneme
 
 phoneme 0
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140 
   ipa ɔ
   CALL LongVowelLength
@@ -709,7 +709,7 @@ endphoneme
 
 // Short 0 "sukker", "provst"
 phoneme ?0
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   ipa ɔ
   CALL ShortVowelLength
@@ -717,7 +717,7 @@ phoneme ?0
 endphoneme
 
 phoneme y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
   CALL LongVowelLength
   FMT(vowel/y)
@@ -726,14 +726,14 @@ endphoneme
 // PB Short y
 // "kylling" vs. "kyle", "krybbe" vs. "krybe"
 phoneme ?y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
   CALL ShortVowelLength
   FMT(vowel/y)
 endphoneme
 
 phoneme Y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
 	IF nextPhW(V) OR nextPhW(@-) THEN
 		length 225
@@ -743,7 +743,7 @@ phoneme Y
 endphoneme
 
 phoneme W
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140 
   CALL LongVowelLength
   FMT(vowel/oe)
@@ -752,7 +752,7 @@ endphoneme
 // Short W
 // "prøv" vs. "prøve"
 phoneme ?W
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
   CALL ShortVowelLength
   FMT(vowel/oe)
@@ -760,7 +760,7 @@ endphoneme
 
 // Added for the ø in "røv", "røg", "øje" instead of [V3]
 phoneme W#
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
 CALL LongVowelLength
   FMT(vowel/V)
@@ -769,14 +769,14 @@ endphoneme
 // Short W#
 // "rømme"
 phoneme ?W#
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
   CALL ShortVowelLength
   FMT(vowel/V)
 endphoneme
 
 phoneme aI
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 300
 IF NOT next2Ph(3) AND NOT next2Ph(V) AND NOT next2Ph(@-) AND nextPhW(isNotVowel) THEN
    glstop

@@ -3,13 +3,13 @@
 // vowels
  
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   FMT(vowel/a)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 150
   IF thisPh(isWordEnd) THEN
     FMT(vowel/e#)
@@ -18,25 +18,25 @@ phoneme E
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 150
   FMT(vowel/i)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 150
   FMT(vowel/o)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 150
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme aI
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 250
   FMT(vdiph/ai)
 endphoneme

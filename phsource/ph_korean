@@ -3,42 +3,42 @@
 
 phoneme a   // a(ㅏ)
   ipa ɐ
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 200
   FMT(vowel/aa_8)
 endphoneme
 
 phoneme E   // ae(ㅐ)
   ipa ɛ
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   FMT(vowel/ee_5)
 endphoneme
 
 phoneme @   // eo(ㅓ)
   ipa ʌ
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 200
   FMT(vowel/oo_2)
 endphoneme
 
 phoneme o   // o(ㅗ)
   ipa o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u   // u(ㅜ)
   ipa u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme u-  // eu(ㅡ)
   ipa ɯ
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/i#_7)
 endphoneme

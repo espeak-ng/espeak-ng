@@ -38,7 +38,7 @@ endphoneme
 //===========
 
 //phoneme X
-//  vowel starttype #X endtype #X
+//  vwl starttype #X endtype #X
 //  length XXX
 //  FMT(vowel/X_X) //refers to binary file in vowel/ directory
 //endphoneme
@@ -49,7 +49,7 @@ endphoneme
 
 phoneme ə    //  Schwa 
 //cannot be followed by ɴ
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   unstressed
 //   IF nextPh(3) THEN //creaky tone
 	//length 
@@ -77,7 +77,7 @@ endphoneme
 
 phoneme ɛ 
 //cannot be followed by ɴ
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   IF nextPh(3) THEN //creaky tone
 	//length 184 223 202
 	length 203
@@ -106,7 +106,7 @@ phoneme ɛ
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   IF nextPh(3) THEN //creaky tone
 	//length 159 187 158
 	length 168
@@ -134,7 +134,7 @@ phoneme i
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   IF nextPh(3) THEN //creaky tone
 	//length 191 209 191
 	length 197
@@ -163,7 +163,7 @@ phoneme e
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   IF nextPh(3) THEN //creaky tone
 	//length 198 216 187
 	length 200
@@ -192,7 +192,7 @@ phoneme u
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   IF nextPh(3) THEN //creaky tone
 	//length 216 277 216
 	length 236
@@ -221,7 +221,7 @@ phoneme o
 endphoneme
 
 phoneme ɔ
-  vowel
+  vwl
   IF nextPh(4) THEN //diphthong with checked tone
   	starttype #o  endtype #u
   ELSE
@@ -255,7 +255,7 @@ phoneme ɔ
 endphoneme
 
 phoneme a
-  vowel
+  vwl
   IF nextPh(4) THEN //diphthong with checked tone
   	starttype #a  endtype #i
   ELSE
@@ -289,7 +289,7 @@ endphoneme
 //Nasal vowels cannot take checked tone
 
 phoneme iɴ
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -310,7 +310,7 @@ phoneme iɴ
 endphoneme
 
 phoneme eɴ
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -331,7 +331,7 @@ phoneme eɴ
 endphoneme
 
 phoneme uɴ
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -352,7 +352,7 @@ phoneme uɴ
 endphoneme
 
 phoneme oɴ
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -373,7 +373,7 @@ phoneme oɴ
 endphoneme
 
 phoneme ɔɴ
-  vowel  starttype #o  endtype #u
+  vwl  starttype #o  endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length
@@ -394,7 +394,7 @@ phoneme ɔɴ
 endphoneme
 
 phoneme aɴ
-  vowel  starttype #a  endtype #i
+  vwl  starttype #a  endtype #i
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length

@@ -113,7 +113,7 @@ endphoneme
 //*******************************************************************
 
 phoneme @    //  Schwa
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   unstressed
   length 140
   IfNextVowelAppend(r-)
@@ -131,7 +131,7 @@ endphoneme
 
 
 phoneme @2   //  Schwa, changes to I before a vowel. th**e**, used only for "the".
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   unstressed
   length 120
   IF nextPh(isVowel) THEN
@@ -142,7 +142,7 @@ endphoneme
 
 
 phoneme @5   //  Schwa, changes to U before a vowel. t**o**, used only for "to".
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   unstressed
   length 140
   IF nextPh(isVowel) OR nextPh(isPause) THEN
@@ -153,7 +153,7 @@ endphoneme
 
 
 phoneme @L // simp**le**
-  vowel  starttype #@  endtype l
+  vwl  starttype #@  endtype l
   ipa ə|l
   unstressed
   length 160
@@ -163,7 +163,7 @@ endphoneme
 
 
 phoneme a
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 160
   ChangeIfDiminished(a#)
   IF thisPh(isUnstressed) THEN
@@ -174,13 +174,13 @@ endphoneme
 
 
 phoneme a2  // don't reduce to a#
-  vowel
+  vwl
   ChangePhoneme(a)
 endphoneme
 
 
 phoneme a# // **a**bout. This may be \[@\] or may be a more open schwa.
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   ipa ɐ
   unstressed
   length 150
@@ -194,7 +194,7 @@ endphoneme
 
 
 phoneme aa   //   'b**a**th' etc. This is \[a\] in some accents, \[A:\] in others.
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   ipa a
   length 200
   
@@ -208,7 +208,7 @@ endphoneme
 
 
 phoneme E // dr**e**ss
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 140
   IF nextPhW(n) THEN
     ChangeIfDiminished(@)
@@ -220,7 +220,7 @@ endphoneme
 
 
 phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND nextVowel(isStressed) THEN
     ChangePhoneme(@)
@@ -231,7 +231,7 @@ endphoneme
 
 
 phoneme E2  // does not reduce in unstressed syllables
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 140
   ChangePhoneme(E)  // a second change ([E]  to [I2]) won't happen
 endphoneme
@@ -239,7 +239,7 @@ endphoneme
 
 
 phoneme I // k**i**t
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 130
   IfNextVowelAppend(;)
   FMT(vowel/ii_2)
@@ -247,7 +247,7 @@ endphoneme
 
 
 phoneme I2 // **i**ntend. As \[I\], but also indicates an unstressed syllable.
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   unstressed
   length 130
   
@@ -265,7 +265,7 @@ endphoneme
 
 
 phoneme I#   // used for [I] which may be [@] in some accents
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   unstressed
   length 130
   
@@ -279,7 +279,7 @@ endphoneme
 
 
 phoneme i   // happ**y**. optional variant of [I] for end of words
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   unstressed
   ipa i
   length 150
@@ -294,7 +294,7 @@ endphoneme
 
 
 phoneme 0 // l**o**t
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 140
   ChangeIfDiminished(@)
   FMT(vowel/0)
@@ -302,7 +302,7 @@ endphoneme
 
 
 phoneme 0#    // [@] in unstressed syllables
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND NOT nextVowel(isUnstressed) THEN
     ChangePhoneme(@)
@@ -313,14 +313,14 @@ endphoneme
 
 
 phoneme 02   // becomes V in en-us
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 140
   ChangePhoneme(0)
 endphoneme
 
 
 phoneme V // str**u**t
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   length 140
 
   ChangeIfDiminished(@)
@@ -329,7 +329,7 @@ endphoneme
 
 
 phoneme U // f**oo**t
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 150
   
   IF prevPhW(j) THEN
@@ -343,7 +343,7 @@ endphoneme
 
 
 phoneme A: // p**al**m
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 230
   IfNextVowelAppend(r-)
   FMT(vowel/aa_2)
@@ -351,7 +351,7 @@ endphoneme
 
 
 phoneme A@     // st**ar**t. Used for [A:] when followed by 'r'.
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   ipa ɑː
   length 230
   IfNextVowelAppend(r-)
@@ -360,7 +360,7 @@ endphoneme
 
 
 phoneme A#    // [a] in British [A:] in American
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   ChangePhoneme(a)
 endphoneme
 
@@ -368,7 +368,7 @@ endphoneme
 
 
 phoneme 3: // n**ur**se
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 210
   IfNextVowelAppend(r-)
   ChangeIfDiminished(@)
@@ -377,7 +377,7 @@ endphoneme
 
 
 phoneme i: // fl**ee**ce
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 175
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
@@ -388,7 +388,7 @@ endphoneme
 
 
 phoneme O: // th**ou**ght
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 230
   ChangeIfDiminished(@)
   FMT(vowel/oo_en)
@@ -396,7 +396,7 @@ endphoneme
 
 
 phoneme O
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 200
   ChangeIfDiminished(@)
   FMT(vowel/oo_en)
@@ -404,7 +404,7 @@ endphoneme
 
 
 phoneme O@ // n**or**th
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   ipa ɔː
   length 240
   IfNextVowelAppend(r-)
@@ -413,7 +413,7 @@ endphoneme
 
 
 phoneme o@ // f**or**ce
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   ipa ɔː
   length 250
   
@@ -427,7 +427,7 @@ endphoneme
 
 
 phoneme u: // g**oo**se
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 210
   IF nextPh(l/2) THEN
     FMT(vwl_en/u_L)
@@ -440,14 +440,14 @@ endphoneme
 
 
 phoneme aU // m**ou**th
-  vowel  starttype #a  endtype #u
+  vwl  starttype #a  endtype #u
   length 230
   FMT(vdiph/au)
 endphoneme
 
 
 phoneme oU // g**oa**t
-  vowel  starttype #@  endtype #u
+  vwl  starttype #@  endtype #u
   ipa əʊ
   length 220
   FMT(vdiph/@u_en)
@@ -455,7 +455,7 @@ endphoneme
 
 
 phoneme oU#
-  vowel
+  vwl
   IF thisPh(isStressed) THEN
     ChangePhoneme(0)
   ENDIF
@@ -469,7 +469,7 @@ endphoneme
 
 
 phoneme aI // pr**i**ce
-  vowel  starttype #a  endtype #i
+  vwl  starttype #a  endtype #i
   length 240
   IF nextPh(#a) THEN
     AppendPhoneme(;)
@@ -479,21 +479,21 @@ endphoneme
 
 
 phoneme eI // f**a**ce
-  vowel  starttype #e  endtype #i
+  vwl  starttype #e  endtype #i
   length 210
   FMT(vdiph/eei)
 endphoneme
 
 
 phoneme OI // ch**oi**ce
-  vowel  starttype #o  endtype #i
+  vwl  starttype #o  endtype #i
   length 230
   FMT(vdiph/ooi)
 endphoneme
 
 
 phoneme e@ // squ**are**
-  vowel  starttype #e  endtype #@
+  vwl  starttype #e  endtype #@
   length 230
   IfNextVowelAppend(r-)
   FMT(vowel/ee_1)
@@ -501,7 +501,7 @@ endphoneme
 
 
 phoneme i@ // n**ear**
-  vowel  starttype #i  endtype #@
+  vwl  starttype #i  endtype #@
   length 250
   IfNextVowelAppend(r-)
   FMT(vdiph2/ii@)
@@ -509,7 +509,7 @@ endphoneme
 
 
 phoneme i@3
-  vowel  starttype #i  endtype #@
+  vwl  starttype #i  endtype #@
   length 250
   
   IF MbrolaSynth THEN
@@ -522,7 +522,7 @@ endphoneme
 
 
 phoneme U@ // c**ure**
-  vowel  starttype #u  endtype #@
+  vwl  starttype #u  endtype #@
   length 200
   IfNextVowelAppend(r-)
   IF thisPh(isUnstressed) THEN
@@ -533,7 +533,7 @@ endphoneme
 
 
 phoneme aI@ // sc**ie**nce
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   length 280
   IfNextVowelAppend(r-)
   FMT(vwl_en/aI@)
@@ -541,14 +541,14 @@ endphoneme
 
 
 phoneme aI3
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   length 280
   ChangePhoneme(aI@)
 endphoneme
 
 
 phoneme aU@ // h**our**
-  vowel  starttype #a   endtype #@
+  vwl  starttype #a   endtype #@
   length 280
   IfNextVowelAppend(r-)
   FMT(vwl_en/aU@)
@@ -558,7 +558,7 @@ endphoneme
 
 
 phoneme IR        // used for "ir" when [3:] is split (Scottish)
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 190
   ipa əɹ
   IF nextPhW(r-) THEN
@@ -570,7 +570,7 @@ endphoneme
 
 
 phoneme VR        // used for "or"/"ur" when [3:] is split (Scottish)
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 210
   ipa ʌɹ
   IF nextPhW(r-) THEN
@@ -582,35 +582,35 @@ endphoneme
 
 
 phoneme o:
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 220
   FMT(vowel/o)
 endphoneme
 
 
 phoneme A~
-  vowel  starttype #a endtype #a
+  vwl  starttype #a endtype #a
   length 260
   FMT(vnasal/aa_n2)
 endphoneme
 
 
 phoneme O~
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 240
   FMT(vnasal/oo_n2)
 endphoneme
 
 
 phoneme e:
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 210
   FMT(vowel/e)
 endphoneme
 
 
 phoneme a#2  // for word 'an'
-  vowel
+  vwl
   IF next2Ph(isVowel) THEN
     ChangePhoneme(a#)
   ELSE
@@ -620,7 +620,7 @@ endphoneme
 
 
 phoneme @#   // TEST: [@] which is slightly more 'front'
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   unstressed
   length 130
   FMT(vowel/@_3)

@@ -1,69 +1,69 @@
  
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 200
   FMT(vowel/a_4)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 190
   IfNextVowelAppend(;)
   FMT(vowel/i)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/oo)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/oo)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck2)
 endphoneme
 
 
 phoneme i~
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 220
   FMT(vnasal/i_n2)
 endphoneme
 
 phoneme E~
-  vowel starttype #e  endtype #e
+  vwl starttype #e  endtype #e
   length 220
   FMT(vnasal/ee_n2)
 endphoneme
 
 phoneme O~
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 220
   FMT(vnasal/oo_n2)
 endphoneme
 
 phoneme u~
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 220
   FMT(vnasal/u_n)
 endphoneme

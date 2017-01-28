@@ -1,19 +1,19 @@
 
 
 phoneme @    //  Schwa
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 150
   FMT(vowel/@_2)
 endphoneme
 
 phoneme @/    //  Schwa at end of word (silent)
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 100
   FMT(vowel/@_2)
 endphoneme
 
 phoneme V
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 170
   ChangeIfUnstressed(@)
   IF nextPh(h) THEN
@@ -23,7 +23,7 @@ phoneme V
 endphoneme
 
 phoneme I#        // use for [V] after [n^]
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 170
   ChangeIfUnstressed(@)
   FMT(vowel/ii)
@@ -31,7 +31,7 @@ endphoneme
 
 
 phoneme a
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 170
   IF thisPh(isDiminished) THEN
     FMT(vowel/a#_3)
@@ -41,14 +41,14 @@ endphoneme
 
 
 phoneme a/   // no longer needed
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 170
   FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme A
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 170
   IF thisPh(isDiminished) THEN
     FMT(vowel/a#_3)       // but nor "ar_" ??
@@ -58,19 +58,19 @@ endphoneme
 
 
 phoneme E
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 170
   FMT(vowel/ee_4)
 endphoneme
 
 phoneme E#
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 170
   FMT(vowel/ee#_2)
 endphoneme
 
 phoneme e
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 170
   IF thisPh(isNotStressed) THEN
     FMT(vowel/e_mid2)   // e#
@@ -80,7 +80,7 @@ endphoneme
 
 
 phoneme i
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 140
   IF nextPh(l/2) THEN
     VowelEnding(l/L2_iL, -50)
@@ -94,13 +94,13 @@ phoneme i
 endphoneme
 
 phoneme I
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 140
   FMT(vowel/ii_6)
 endphoneme
 
 phoneme y
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/y)
 endphoneme
@@ -108,7 +108,7 @@ endphoneme
 
 
 phoneme O
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 170
   IF thisPh(isNotStressed) THEN
     FMT(vowel/oo_1)
@@ -117,7 +117,7 @@ phoneme O
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/u_bck)
 endphoneme
@@ -125,25 +125,25 @@ endphoneme
 
 
 phoneme aI
-  vowel  starttype #a  endtype #i
+  vwl  starttype #a  endtype #i
   length 220
   FMT(vdiph/aai)
 endphoneme
 
 phoneme eI
-  vowel  starttype #e  endtype #i
+  vwl  starttype #e  endtype #i
   length 220
   FMT(vdiph2/ei_4)
 endphoneme
 
 phoneme OI
-  vowel  starttype #o  endtype #i
+  vwl  starttype #o  endtype #i
   length 220
   FMT(vdiph/ooi_4)
 endphoneme
 
 phoneme yE
-  vowel starttype #u endtype #e
+  vwl starttype #u endtype #e
   length 240
   FMT(vdiph2/ye)
 endphoneme

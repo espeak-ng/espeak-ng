@@ -4,7 +4,7 @@
 //******************************
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 180
 
   IF nextPh(isVowel) THEN
@@ -21,7 +21,7 @@ endphoneme
 
 
 phoneme a/
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 180
 
   IF nextPh(isVowel) THEN
@@ -37,7 +37,7 @@ endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
 
   IF nextPh(isVowel) THEN
@@ -53,7 +53,7 @@ endphoneme
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 150
 
   IF nextPh(isVowel) THEN
@@ -69,7 +69,7 @@ endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
 
   IF nextPh(isVowel) THEN
@@ -85,7 +85,7 @@ endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
 
   IF nextPh(isVowel) THEN
@@ -101,7 +101,7 @@ endphoneme
 
 
 phoneme a#
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 100
 
   IF nextPh(isVowel) THEN
@@ -113,7 +113,7 @@ endphoneme
 
 
 phoneme e#
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 100
 
   IF nextPh(isVowel) THEN
@@ -125,7 +125,7 @@ endphoneme
 
 
 phoneme i#
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 100
 
   IF nextPh(isVowel) THEN
@@ -137,7 +137,7 @@ endphoneme
 
 
 phoneme o#
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 100
 
   IF nextPh(isVowel) THEN
@@ -149,7 +149,7 @@ endphoneme
 
 
 phoneme u#
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 100
 
   IF nextPh(isVowel) THEN

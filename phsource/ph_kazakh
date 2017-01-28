@@ -4,7 +4,7 @@
 // short vowels
 
 phoneme I
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   flag1
   length 100
   IF thisPh(isWordEnd) THEN
@@ -14,7 +14,7 @@ phoneme I
 endphoneme
 
 phoneme 8
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 100
   IF thisPh(isWordEnd) THEN
     length 140
@@ -23,7 +23,7 @@ phoneme 8
 endphoneme
 
 phoneme u#
-  vowel starttype @ endtype @
+  vwl starttype @ endtype @
   length 100
   flag1
   IF thisPh(isWordEnd) THEN
@@ -33,7 +33,7 @@ phoneme u#
 endphoneme
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 100
   IF thisPh(isWordEnd) THEN
     length 140
@@ -45,58 +45,58 @@ endphoneme
 // long vowels
 
 phoneme A
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 200
   FMT(vowel/aa_9)
 endphoneme
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 200
   FMT(vowel/a_5)
 endphoneme
 
 phoneme &
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   flag1
   length 200
   FMT(vowel/ee_2)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   flag1
   FMT(vdiph2/ii@_2)
 endphoneme
 
 phoneme E
-  vowel starttype @ endtype @
+  vwl starttype @ endtype @
   length 200
   FMT(vowel/@_fnt)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 180
   FMT(vowel/ii_8)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/o_3)
 endphoneme
 
 phoneme Y
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 200
   flag1
   FMT(vowel/y#_4)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck3)
 endphoneme

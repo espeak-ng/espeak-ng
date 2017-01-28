@@ -237,7 +237,7 @@ endphoneme
 
 
 phoneme I^      	// "silent i", palatilizes the preceding consonant
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   unstressed nonsyllabic
   Length 70
   IF nextPh(isVowel) THEN
@@ -259,14 +259,14 @@ phoneme i
   IF prevPh(Z) THEN
 	ChangePhoneme(y)
   ENDIF
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 50
   FMT(vwl_ru/ii)
 endphoneme
 
 
 phoneme I#
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 80
   IF nextVowel(isMaxStress) THEN
 	ChangePhoneme(I)
@@ -279,14 +279,14 @@ endphoneme
 
 
 phoneme y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 100
   FMT(vwl_ru/i#)
 endphoneme
 
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 80
 
   IF thisPh(isMaxStress) THEN
@@ -301,7 +301,7 @@ endphoneme
 
 
 phoneme I2
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 80
   IF thisPh(isMaxStress) THEN
 	ChangePhoneme(e)
@@ -314,7 +314,7 @@ endphoneme
 
 
 phoneme I3
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   Length 80
   IF thisPh(isMaxStress) THEN
 	IF prevPhW(j) THEN
@@ -331,14 +331,14 @@ endphoneme
 
 
 phoneme E
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   Length 100
   FMT(vwl_ru/e)
 endphoneme
 
 
 phoneme E#
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   Length 100
   IF thisPh(isMaxStress) THEN
 	IF prevPhW(j) THEN
@@ -352,7 +352,7 @@ endphoneme
 
 
 phoneme E2
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   Length 80
   IF nextVowel(isMaxStress) THEN
 	IF prevPh(j) THEN
@@ -375,7 +375,7 @@ endphoneme
 
 
 phoneme E3
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   Length 80
   IF nextVowel(isMaxStress) THEN
 	ChangePhoneme(I)
@@ -390,7 +390,7 @@ phoneme E3
 endphoneme
 
 phoneme E%  // е in prefix "интер"
-  vowel
+  vwl
   //  starttype #e  endtype #e
   //ChangeIfNotStressed(y)
   ChangePhoneme(E#)
@@ -398,7 +398,7 @@ endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   Length 100
   ChangeIfNotStressed(V)
   FMT(vwl_ru/o)
@@ -406,7 +406,7 @@ endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   Length 80
   IF prevPhW(isPalatal) THEN
 	ChangePhoneme(8)
@@ -419,32 +419,32 @@ endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   Length 80
   FMT(vwl_ru/u)
 endphoneme
 
 phoneme u#
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   Length 80
   FMT(vwl_ru/u#)
 endphoneme
 
 phoneme u"
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   Length 150
   FMT(vwl_ru/u#u)
 endphoneme
 
 phoneme 8
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   Length 100
   ChangeIfNotStressed(V)
   FMT(vwl_ru/8)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   Length 100
   IF prevPh(Z) THEN
 	ChangeIfNotStressed(y)
@@ -463,13 +463,13 @@ phoneme e
 endphoneme
 
 phoneme ju
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   Length 190
   FMT(vwl_ru/ju)
 endphoneme
 
 phoneme ja
-  vowel  starttype #i endtype #a
+  vwl  starttype #i endtype #a
   IF thisPh(isMaxStress) THEN
 	Length 200
 	FMT(vwl_ru/ja)
@@ -479,7 +479,7 @@ phoneme ja
 endphoneme
 
 phoneme ja#
-  vowel  starttype #i endtype #a
+  vwl  starttype #i endtype #a
   IF thisPh(isMaxStress) THEN
 	FMT(vowel/&)
 	// ChangePhoneme(A)
@@ -497,7 +497,7 @@ endphoneme
 
 
 phoneme V#
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   unstressed
   Length 80
 //  IF nextVowel(isMaxStress) THEN
@@ -522,7 +522,7 @@ endphoneme
 
 
 phoneme Y // will not be used in future
- vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   unstressed
   Length 140
   FMT(vowel/ii#)
@@ -530,14 +530,14 @@ endphoneme
 
 
 phoneme A
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   Length 100
   FMT(vwl_ru/a)
 endphoneme
 
 
 phoneme a
-  vowel   starttype #a  endtype #a
+  vwl   starttype #a  endtype #a
   Length 100
 
   IF prevPhW(j) THEN
@@ -563,7 +563,7 @@ endphoneme
 
 
 phoneme V
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   Length 80
   unstressed
 
@@ -586,7 +586,7 @@ endphoneme
 
 
 phoneme a#
-  vowel   starttype #a  endtype #a
+  vwl   starttype #a  endtype #a
   Length 100
   FMT(vowel/a#_3)
 endphoneme

@@ -1,7 +1,7 @@
 // Differences from ph_hindi_base
 
 phoneme V
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 140
 
   IF thisPh(isWordStart) THEN

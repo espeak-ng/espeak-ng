@@ -5,14 +5,14 @@
 // (these are only guesses)
 
 phoneme @
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 130
   FMT(vowel/@)
 endphoneme
 
 
 phoneme a
-  vowel long starttype #@ endtype #a
+  vwl long starttype #@ endtype #a
   ipa ɐ
   length 130
   FMT(vowel/a#_2)
@@ -20,35 +20,35 @@ endphoneme
 
 
 phoneme a:
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 300
   FMT(vowel/a_3)
 endphoneme
 
 
 phoneme e
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 130
   FMT(vowel/e)
 endphoneme
 
 
 phoneme e:
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 270
   FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 130
   FMT(vowel/i_6)
 endphoneme
 
 
 phoneme i:
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 270
   FMT(vowel/i)
 endphoneme
@@ -56,27 +56,27 @@ endphoneme
 
 
 phoneme o
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 130
   FMT(vowel/o)
 endphoneme
 
 
 phoneme o:
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 300
   FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 110
   FMT(vowel/uu_bck)
 endphoneme
 
 phoneme u:
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 280
   FMT(vowel/uu_bck)
 endphoneme
@@ -84,13 +84,13 @@ endphoneme
 
 
 phoneme aI
-  vowel long starttype #a endtype #i
+  vwl long starttype #a endtype #i
   length 280
   FMT(vdiph/ai)
 endphoneme
 
 phoneme aU
-  vowel long starttype #a endtype #u
+  vwl long starttype #a endtype #u
   length 270
   FMT(vdiph/aau_3)
 endphoneme

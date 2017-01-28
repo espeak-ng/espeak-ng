@@ -43,28 +43,28 @@ endphoneme
 // Close Vowels
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 160
 
   FMT(vowel/i)
 endphoneme
 
 phoneme i~
-  vowel long starttype #i endtype #i
+  vwl long starttype #i endtype #i
   ipa ĩ
   length 220
   FMT(vnasal/i_n2)
 endphoneme
 
 phoneme u~
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ũ
   length 220
   FMT(vnasal/u_n)
 endphoneme
 
 phoneme M_Bo // M_B_o
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ɯᵝ
   length 160
 
@@ -74,7 +74,7 @@ endphoneme
 // Mid Vowels
 
 phoneme e_o
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ipa e̞
   length 160
 
@@ -82,7 +82,7 @@ phoneme e_o
 endphoneme
 
 phoneme o_o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   ipa o̞
   length 160
 
@@ -92,7 +92,7 @@ endphoneme
 // Open Vowels
 
 phoneme a_"
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ä
   length 160
 

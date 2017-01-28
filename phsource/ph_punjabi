@@ -5,7 +5,7 @@ phoneme +   // high tone, use after a vowel
 endphoneme
 
 phoneme @
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 130
   IF nextPh(H) THEN
     FMT(vowel/@_low)
@@ -14,7 +14,7 @@ phoneme @
 endphoneme
  
 phoneme V
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 130
   ChangeIfNotStressed(@)
   IF nextPh(H) THEN
@@ -25,59 +25,59 @@ endphoneme
 
 
 phoneme i
-  vowel long starttype #i endtype #i
+  vwl long starttype #i endtype #i
   length 220
   IfNextVowelAppend(;)
   FMT(vowel/i_fnt)
 endphoneme
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 150
   IfNextVowelAppend(;)
   FMT(vowel/ii_3)
 endphoneme
 
 phoneme e
-  vowel long starttype #e endtype #e
+  vwl long starttype #e endtype #e
   length 220
   FMT(vowel/e_2)
 endphoneme
 
 phoneme E
-  vowel long starttype #e endtype #e
+  vwl long starttype #e endtype #e
   length 200
   FMT(vowel/ee_2)
 endphoneme
 
 phoneme a
-  vowel long starttype #a endtype #a
+  vwl long starttype #a endtype #a
   length 220
   FMT(vowel/aa_9)
 endphoneme
 
 phoneme O
-  vowel long starttype #o endtype #o
+  vwl long starttype #o endtype #o
   length 200
   FMT(vowel/oo_4)
 endphoneme
 
 phoneme o:
-  vowel long starttype #o endtype #o
+  vwl long starttype #o endtype #o
   length 220
   FMT(vowel/o)
 endphoneme
 
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 150
   FMT(vowel/uu_bck)
 endphoneme
 
 
 phoneme u
-  vowel long starttype #u endtype #u
+  vwl long starttype #u endtype #u
   length 220
   FMT(vowel/u_bck)
 endphoneme
