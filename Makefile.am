@@ -99,8 +99,10 @@ docs:	docs/index.html \
 	docs/add_language.html \
 	docs/dictionary.html \
 	docs/intonation.html \
+	docs/languages.html \
 	docs/markup.html \
 	docs/mbrola.html \
+	docs/phonemes.html \
 	docs/phontab.html \
 	docs/voices.html \
 	src/espeak-ng.1.html \
