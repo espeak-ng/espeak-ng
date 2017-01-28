@@ -1,4 +1,4 @@
-// International Phonetic Alphabet: Narrow Transcription
+// Japanese Phonemes
 //
 // Copyright (C) 2017 Reece H. Dunn
 //
@@ -171,7 +171,7 @@ phoneme N\\
   vcd uvl nasal
   ipa ɴ
   // FIXME: Stub phoneme.
-  CALL ipa/n
+  CALL jp/n
 endphoneme
 
 // Plosives

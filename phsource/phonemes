@@ -1669,8 +1669,8 @@ endphoneme
 // ADDITIONAL PHONEME TABLES
 //*******************************************************************
 
-phonemetable ipa base
-include ph_ipa
+phonemetable jp base
+include ph_japanese
 
 phonemetable consonants base
 include ph_consonants
