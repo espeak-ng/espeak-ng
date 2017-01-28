@@ -50,7 +50,7 @@ phoneme i
 endphoneme
 
 phoneme i~
-  vwl long starttype #i endtype #i
+  vwl lng starttype #i endtype #i
   ipa ĩ
   length 220
   FMT(vnasal/i_n2)

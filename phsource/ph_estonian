@@ -200,21 +200,21 @@ endphoneme
 phoneme &i
   vwl starttype #a endtype #i
   length 315
-  long
+  lng
   FMT(vdiph/&i)
 endphoneme
 
 phoneme Yi
   vwl starttype #@ endtype #i
   length 305
-  long
+  lng
   FMT(vdiph/@i)
 endphoneme
 
 phoneme yi
   vwl starttype #u endtype #i
   length 285
-  long
+  lng
   FMT(vdiph/yi)
 endphoneme
 
@@ -237,7 +237,7 @@ endphoneme
 //phoneme 8u
 //  vwl starttype #@ endtype #u
 //  length 310
-//  long
+//  lng
 //  FMT(vdiph/8u)
 //endphoneme
 

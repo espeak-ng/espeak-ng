@@ -21,7 +21,7 @@ endphoneme
 phoneme a:
   vwl starttype #a endtype #a
   length 350
-  long
+  lng
   FMT(vowel/a_3)
 endphoneme
 
@@ -52,14 +52,14 @@ endphoneme
 phoneme ee
   vwl starttype #e endtype #e
   length 260
-  long
+  lng
   FMT(vwl_ru/ee)
 endphoneme
 
 phoneme eA
   vwl starttype #e endtype #a
   length 290
-  long
+  lng
   FMT(vdiph2/ea)
 endphoneme
 
@@ -135,49 +135,49 @@ endphoneme
 phoneme ai
   vwl starttype #a endtype #i
   length 310
-  long
+  lng
   FMT(vdiph/aai)
 endphoneme
 
 phoneme ei
   vwl starttype #e endtype #i
   length 300
-  long
+  lng
   FMT(vdiph/eei_2)
 endphoneme
 
 phoneme au
   vwl starttype #a endtype #u
   length 300
-  long
+  lng
   FMT(vdiph/aau)
 endphoneme
 
 phoneme uo
   vwl starttype #u endtype #a
   length 300
-  long
+  lng
   FMT(vdiph2/uaa)
 endphoneme
 
 phoneme oi
   vwl starttype #o endtype #i
   length 290
-  long
+  lng
   FMT(vdiph/ooi)
 endphoneme
 
 phoneme ui
   vwl starttype #u endtype #i
   length 290
-  long
+  lng
   FMT(vdiph/ui)
 endphoneme
 
 phoneme ie
   vwl starttype #i endtype #e
   length 290
-  long
+  lng
   FMT(vdiph2/ie_2)
 endphoneme
 

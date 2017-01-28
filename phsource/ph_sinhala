@@ -12,7 +12,7 @@ endphoneme
 
 
 phoneme a
-  vwl long starttype #a endtype #a
+  vwl lng starttype #a endtype #a
   ipa ɐ
   length 150
   ChangeIfNotStressed(@)
@@ -99,13 +99,13 @@ endphoneme
 
 
 phoneme aI
-  vwl long starttype #a endtype #i
+  vwl lng starttype #a endtype #i
   length 300
   FMT(vdiph/ai_8)
 endphoneme
 
 phoneme aU
-  vwl long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 300
   FMT(vdiph/aau_3)
 endphoneme

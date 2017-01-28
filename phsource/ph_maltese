@@ -86,49 +86,49 @@ endphoneme
 phoneme ai
   vwl starttype #a endtype #i
   length 310
-  long
+  lng
   FMT(vdiph/aai_3)
 endphoneme
 
 phoneme i
   vwl starttype #a endtype #i
   length 290
-  long
+  lng
   FMT(vdiph/&i)
 endphoneme
 
 phoneme oi
   vwl starttype #o endtype #i
   length 280
-  long
+  lng
   FMT(vdiph/ooi)
 endphoneme
 
 phoneme ei
   vwl starttype #e endtype #i
   length 280
-  long
+  lng
   FMT(vdiph/eei_2)
 endphoneme
 
 phoneme Yi
   vwl starttype #@ endtype #i
   length 270
-  long
+  lng
   FMT(vdiph/y#i)
 endphoneme
 
 phoneme ui
   vwl starttype #u endtype #i
   length 270
-  long
+  lng
   FMT(vdiph/ui_4)
 endphoneme
 
 phoneme yi
   vwl starttype #u endtype #i
   length 270
-  long
+  lng
   FMT(vdiph/yi)
 endphoneme
 
@@ -136,28 +136,28 @@ endphoneme
 phoneme au
   vwl starttype #a endtype #u
   length 300
-  long
+  lng
   FMT(vdiph/aau)
 endphoneme
 
 phoneme ou
   vwl starttype #o endtype #u
   length 280
-  long
+  lng
   FMT(vdiph/ou)
 endphoneme
 
 phoneme eu
   vwl starttype #e endtype #u
   length 280
-  long
+  lng
   FMT(vdiph/eu_2)
 endphoneme
 
 phoneme iu
   vwl starttype #i endtype #u
   length 280
-  long
+  lng
   FMT(vdiph2/iu_2)
 endphoneme
 
@@ -166,21 +166,21 @@ endphoneme
 phoneme ey
   vwl starttype #e endtype #u
   length 280
-  long
+  lng
   FMT(vdiph/eey)
 endphoneme
 
 phoneme Yy
   vwl starttype #@ endtype #u
   length 270
-  long
+  lng
   FMT(vdiph/y#y)
 endphoneme
 
 phoneme iy
   vwl starttype #i endtype #u
   length 260
-  long
+  lng
   FMT(vdiph2/iy)
 endphoneme
 
@@ -188,21 +188,21 @@ endphoneme
 phoneme uo
   vwl starttype #u endtype #o
   length 280
-  long
+  lng
   FMT(vdiph2/uo)
 endphoneme
 
 phoneme ie
   vwl starttype #i endtype #e
   length 280
-  long
+  lng
   FMT(vdiph2/ie)
 endphoneme
 
 phoneme yY
   vwl starttype #u endtype #@
   length 280
-  long
+  lng
   FMT(vdiph2/y-y#)
 endphoneme
 

@@ -164,7 +164,7 @@ endphoneme
 
 phoneme i:
   vwl  starttype #i  endtype #i
-  length 175 long
+  length 175 lng
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
     VowelStart(w/wi2)

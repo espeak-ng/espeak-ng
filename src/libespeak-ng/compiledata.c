@@ -280,7 +280,6 @@ static keywtab_t keywords[] = {
 	// flags
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
-	{ "long",         tPHONEME_FLAG, phLONG }, // TODO (deprecated): use 'lng' instead
 	{ "brkafter",     tPHONEME_FLAG, phBRKAFTER },
 	{ "rhotic",       tPHONEME_FLAG, phRHOTIC }, // TODO (deprecated): use 'rzd' instead
 	{ "nonsyllabic",  tPHONEME_FLAG, phNONSYLLABIC }, // TODO (deprecated): use 'nsy' instead

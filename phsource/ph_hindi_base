@@ -89,7 +89,7 @@ endphoneme
 
 
 phoneme i:
-  vwl long starttype #i endtype #i
+  vwl lng starttype #i endtype #i
   length 230
   IF thisPh(isUnstressed) THEN
     ChangePhoneme(i)
@@ -113,7 +113,7 @@ phoneme I
 endphoneme
 
 phoneme e:
-  vwl long starttype #e endtype #e
+  vwl lng starttype #e endtype #e
   length 220
   FMT(vowel/e_2)
 endphoneme
@@ -125,7 +125,7 @@ phoneme e
 endphoneme
 
 phoneme E:
-  vwl long starttype #e endtype #e
+  vwl lng starttype #e endtype #e
   length 220
   FMT(vdiph/ee-e)
 endphoneme
@@ -137,14 +137,14 @@ phoneme E
 endphoneme
 
 phoneme &:
-  vwl long starttype #a endtype #a
+  vwl lng starttype #a endtype #a
   length 220
   FMT(vowel/&)
 endphoneme
 
 
 phoneme a:
-  vwl long starttype #a endtype #a
+  vwl lng starttype #a endtype #a
   length 200
   IF nextPhW(j) THEN
     FMT(vowel/a_5)
@@ -153,14 +153,14 @@ phoneme a:
 endphoneme
 
 phoneme a
-  vwl long starttype #a endtype #a
+  vwl lng starttype #a endtype #a
   length 140
   FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme o:
-  vwl long starttype #o endtype #o
+  vwl lng starttype #o endtype #o
   length 227
   FMT(vowel/o_2)
 endphoneme
@@ -172,7 +172,7 @@ phoneme o
 endphoneme
 
 phoneme O:
-  vwl long starttype #o endtype #o
+  vwl lng starttype #o endtype #o
   length 210
   FMT(vowel/oo_4)
 endphoneme
@@ -193,7 +193,7 @@ endphoneme
 
 
 phoneme u:
-  vwl long starttype #u endtype #u
+  vwl lng starttype #u endtype #u
   length 230
   FMT(vowel/u_bck)
 endphoneme
@@ -203,49 +203,49 @@ endphoneme
 //=============
 
 phoneme i~
-  vwl long starttype #i endtype #i
+  vwl lng starttype #i endtype #i
   length 220
   FMT(vnasal/i_n2)
 endphoneme
 
 phoneme I~
-  vwl long starttype #i endtype #i
+  vwl lng starttype #i endtype #i
   length 170
   FMT(vnasal/ii_n)
 endphoneme
 
 phoneme e~
-  vwl long starttype #e endtype #e
+  vwl lng starttype #e endtype #e
   length 220
   FMT(vnasal/e_n)
 endphoneme
 
 phoneme E~
-  vwl long starttype #e  endtype #e
+  vwl lng starttype #e  endtype #e
   length 220
   FMT(vnasal/ee_n2)
 endphoneme
 
 phoneme a~
-  vwl long starttype #a endtype #a
+  vwl lng starttype #a endtype #a
   length 240
   FMT(vnasal/a_n)
 endphoneme
 
 phoneme V~
-  vwl long starttype #@ endtype #@
+  vwl lng starttype #@ endtype #@
   length 220
   FMT(vnasal/V_n)
 endphoneme
 
 phoneme O~
-  vwl long starttype #o endtype #o
+  vwl lng starttype #o endtype #o
   length 220
   FMT(vnasal/oo_n2)
 endphoneme
 
 phoneme o~
-  vwl long starttype #o endtype #o
+  vwl lng starttype #o endtype #o
   length 220
   FMT(vnasal/o_n)
 endphoneme
@@ -257,7 +257,7 @@ phoneme U~
 endphoneme
 
 phoneme u~
-  vwl long starttype #u endtype #u
+  vwl lng starttype #u endtype #u
   length 220
   FMT(vnasal/u_n)
 endphoneme
@@ -268,16 +268,16 @@ endphoneme
 
 
 phoneme aI
-  vwl long starttype #@ endtype #i
+  vwl lng starttype #@ endtype #i
   length 240
-  long
+  lng
   FMT(vdiph/&i)
 endphoneme
 
 phoneme aU
-  vwl long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 240
-  long
+  lng
   FMT(vdiph/aau_3)
 endphoneme
 
