@@ -219,11 +219,7 @@ static keywtab_t keywords[] = {
 	{ "pause",   tPHONEME_TYPE, phPAUSE },
 	{ "stress",  tPHONEME_TYPE, phSTRESS },
 	{ "virtual", tPHONEME_TYPE, phVIRTUAL },
-
 	{ "delete_phoneme", tPHONEME_TYPE, phDELETED },
-
-	// type of consonant
-	{ "nasal", tPHONEME_TYPE, phNASAL }, // TODO (deprecated): use 'nas' instead
 
 	// keywords
 	{ "phonemetable",         tSTATEMENT, kPHONEMETABLE },

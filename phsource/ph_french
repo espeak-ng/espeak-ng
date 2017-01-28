@@ -744,7 +744,7 @@ endphoneme
 
 
 phoneme n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
@@ -774,7 +774,7 @@ endphoneme
 
 
 phoneme n2
-  vcd alv nasal
+  vcd alv nas
   IF nextPh(w) OR nextPh(isVowel) THEN
     ChangePhoneme(n)
   ELSE

@@ -420,25 +420,25 @@ endphoneme
 //===========
 
 phoneme mh //voiceless
-  vls blb nasal
+  vls blb nas
 endphoneme
 
 phoneme m
-  //vcd blb nasal
+  //vcd blb nas
   import_phoneme base/m
 endphoneme
 
 phoneme nh
-  vls alv nasal
+  vls alv nas
 endphoneme
 
 phoneme n
-  //vcd alv nasal
+  //vcd alv nas
   import_phoneme base/n
 endphoneme
 
 phoneme ɲh
-  vls pal nasal
+  vls pal nas
 endphoneme
 
 phoneme ɲ
@@ -447,16 +447,16 @@ phoneme ɲ
 endphoneme
 
 phoneme ŋh
-  vls vel nasal
+  vls vel nas
 endphoneme
 
 phoneme ŋ
-  //vcd vel nasal
+  //vcd vel nas
   import_phoneme base/N
 endphoneme
 
 //phoneme ɴ
-//  vcd glt nasal
+//  vcd glt nas
 //endphoneme
 
 phoneme p

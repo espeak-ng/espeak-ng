@@ -265,7 +265,7 @@ endphoneme
 
 phoneme m
   ipa m
-  vcd blb nasal
+  vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
 
@@ -298,7 +298,7 @@ endphoneme
 
 phoneme n
   ipa n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
@@ -328,7 +328,7 @@ endphoneme
 
 phoneme N // si**ng**
   ipa N
-  vcd vel nasal
+  vcd vel nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 8            // longer than 'n'
 

@@ -138,7 +138,7 @@ phoneme g
 endphoneme
 
 phoneme n
-  vcd alv nasal
+  vcd alv nas
   lengthmod 4
 
   IF prevPhW(#i) AND nextPhW(isVowel) THEN
@@ -149,7 +149,7 @@ phoneme n
 endphoneme
 
 phoneme n2  // doesn't palatalise, used for exceptions
-  vcd alv nasal
+  vcd alv nas
   lengthmod 4
   CALL base/n
 endphoneme

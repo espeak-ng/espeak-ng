@@ -102,7 +102,7 @@ endphoneme
 // Consonants /////////////////////////////////////////////////////////////////
 
 phoneme m
-  vcd blb nasal
+  vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
 
@@ -121,7 +121,7 @@ phoneme m
 endphoneme
 
 phoneme n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
@@ -140,7 +140,7 @@ phoneme n
 endphoneme
 
 phoneme N
-  vcd vel nasal
+  vcd vel nas
   ipa ŋ
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 3
@@ -168,7 +168,7 @@ phoneme N
 endphoneme
 
 phoneme N\\
-  vcd uvl nasal
+  vcd uvl nas
   ipa ɴ
   // FIXME: Stub phoneme.
   CALL jp/n

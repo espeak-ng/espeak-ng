@@ -221,7 +221,7 @@ endphoneme
 //===========
 
 phoneme m#
-  vcd blb nasal
+  vcd blb nas
   lengthmod 6
   ipa m#
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
@@ -230,7 +230,7 @@ endphoneme
 
 
 phoneme n#
-  vcd alv nasal
+  vcd alv nas
   lengthmod 6
   ipa n#
   Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
@@ -249,7 +249,7 @@ endphoneme
 
 
 phoneme n^#
-  vcd pal nasal palatal
+  vcd pal nas palatal
   lengthmod 6
   ipa ɲ#
   Vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate
@@ -259,7 +259,7 @@ endphoneme
 
 
 phoneme N#
-  vcd vel nasal
+  vcd vel nas
   lengthmod 6
   ipa ŋ#
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk

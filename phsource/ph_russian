@@ -83,7 +83,7 @@ endphoneme
 
 
 //phoneme n
-//  vcd pal nasal
+//  vcd pal nas
 //  FMT(n/nru)
 //
 //  import_phoneme en/n
@@ -91,7 +91,7 @@ endphoneme
 //endphoneme
 
 phoneme n_
-//  vcd pal nasal
+//  vcd pal nas
 //  FMT(n/nru)
 
   import_phoneme en/n
@@ -102,7 +102,7 @@ endphoneme
 
 
 phoneme n#
-  vcd pal nasal palatal
+  vcd pal nas palatal
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4
@@ -202,7 +202,7 @@ endphoneme
 //endphoneme
 
 phoneme m;
-  vcd blb nasal
+  vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
 

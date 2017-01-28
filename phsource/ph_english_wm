@@ -1,6 +1,6 @@
 
 phoneme N
-  vcd vel nasal
+  vcd vel nas
   lengthmod 8            // longer than 'n'
   IfNextVowelAppend(g)
   CALL base/N

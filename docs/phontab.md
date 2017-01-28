@@ -149,7 +149,6 @@ must be present.
 | Type      | Description |
 |-----------|-------------|
 | `liquid`  | semi-vowels, such as:  `r`, `l`, `j`, `w` |
-| `nasal`   | nasal e.g.:  `m`, `n`, `N` |
 | `pause`   |             |
 | `stress`  | Used for stress symbols, eg: `'` `,` `=` `%` |
 | `virtual` | Used to represent a class of phonemes. |

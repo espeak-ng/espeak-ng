@@ -186,7 +186,7 @@ phoneme l;
 
 
 phoneme m;
-  vcd blb nasal
+  vcd blb nas
   lengthmod 4
 
   CALL base/m
@@ -195,7 +195,7 @@ endphoneme
 
 
 phoneme n;
-  vcd alv nasal
+  vcd alv nas
   lengthmod 4
 
   CALL base/n

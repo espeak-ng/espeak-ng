@@ -59,7 +59,7 @@ endphoneme
 
 
 phoneme n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
   lengthmod 2
 
@@ -80,7 +80,7 @@ endphoneme
 
 
 phoneme N
-  vcd vel nasal
+  vcd vel nas
   Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
   lengthmod 7
 
