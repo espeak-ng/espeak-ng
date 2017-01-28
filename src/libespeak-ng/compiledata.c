@@ -271,7 +271,6 @@ static keywtab_t keywords[] = {
 
 	{ "PauseBefore", tINSTRN1, i_PAUSE_BEFORE },
 	{ "PauseAfter",  tINSTRN1, i_PAUSE_AFTER },
-	{ "Length",      tINSTRN1, i_SET_LENGTH }, // TODO (deprecated): use 'length' instead
 	{ "length",      tINSTRN1, i_SET_LENGTH },
 	{ "LongLength",  tINSTRN1, i_LONG_LENGTH },
 	{ "LengthAdd",   tINSTRN1, i_ADD_LENGTH },

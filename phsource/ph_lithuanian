@@ -318,9 +318,9 @@ VowelStart(n^/n^u)
 FMT(n^/_n^)
   ELIF nextPh(isNotVowel) THEN
 IF nextPhW(n^) THEN
-Length 75
+length 75
 ELIF prevPhW(n^) THEN
-Length 100
+length 100
 ENDIF
 FMT(n^/n^_)
   ENDIF

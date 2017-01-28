@@ -125,9 +125,9 @@ phoneme n#
 	FMT(n^/_n^)
   ELIF nextPh(isNotVowel) THEN
 	IF nextPhW(n^) THEN
-	  Length 75
+	  length 75
 	ELIF prevPhW(n^) THEN
-	  Length 100
+	  length 100
 	ENDIF
 	FMT(n^/n^_)
   ENDIF
@@ -239,7 +239,7 @@ endphoneme
 phoneme I^      	// "silent i", palatilizes the preceding consonant
   vwl starttype #i endtype #i
   unstressed nonsyllabic
-  Length 70
+  length 70
   IF nextPh(isVowel) THEN
 	ChangePhoneme(;)
   ENDIF
@@ -260,14 +260,14 @@ phoneme i
 	ChangePhoneme(y)
   ENDIF
   vwl starttype #i endtype #i
-  Length 50
+  length 50
   FMT(vwl_ru/ii)
 endphoneme
 
 
 phoneme I#
   vwl starttype #i endtype #i
-  Length 80
+  length 80
   IF nextVowel(isMaxStress) THEN
 	ChangePhoneme(I)
   ENDIF
@@ -280,14 +280,14 @@ endphoneme
 
 phoneme y
   vwl starttype #i endtype #i
-  Length 100
+  length 100
   FMT(vwl_ru/i#)
 endphoneme
 
 
 phoneme I
   vwl starttype #i endtype #i
-  Length 80
+  length 80
 
   IF thisPh(isMaxStress) THEN
 	IF prevPhW(j) THEN
@@ -302,7 +302,7 @@ endphoneme
 
 phoneme I2
   vwl starttype #i endtype #i
-  Length 80
+  length 80
   IF thisPh(isMaxStress) THEN
 	ChangePhoneme(e)
   ENDIF
@@ -315,7 +315,7 @@ endphoneme
 
 phoneme I3
   vwl starttype #i endtype #i
-  Length 80
+  length 80
   IF thisPh(isMaxStress) THEN
 	IF prevPhW(j) THEN
 	  ChangePhoneme(e)
@@ -332,14 +332,14 @@ endphoneme
 
 phoneme E
   vwl  starttype #e  endtype #e
-  Length 100
+  length 100
   FMT(vwl_ru/e)
 endphoneme
 
 
 phoneme E#
   vwl  starttype #e  endtype #e
-  Length 100
+  length 100
   IF thisPh(isMaxStress) THEN
 	IF prevPhW(j) THEN
 	  ChangePhoneme(e)
@@ -353,7 +353,7 @@ endphoneme
 
 phoneme E2
   vwl  starttype #e  endtype #e
-  Length 80
+  length 80
   IF nextVowel(isMaxStress) THEN
 	IF prevPh(j) THEN
 	  ChangePhoneme(I3)
@@ -376,7 +376,7 @@ endphoneme
 
 phoneme E3
   vwl  starttype #e  endtype #e
-  Length 80
+  length 80
   IF nextVowel(isMaxStress) THEN
 	ChangePhoneme(I)
   ENDIF
@@ -399,7 +399,7 @@ endphoneme
 
 phoneme o
   vwl starttype #o endtype #o
-  Length 100
+  length 100
   ChangeIfNotStressed(V)
   FMT(vwl_ru/o)
 endphoneme
@@ -407,7 +407,7 @@ endphoneme
 
 phoneme O
   vwl starttype #o endtype #o
-  Length 80
+  length 80
   IF prevPhW(isPalatal) THEN
 	ChangePhoneme(8)
   ENDIF
@@ -420,32 +420,32 @@ endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
-  Length 80
+  length 80
   FMT(vwl_ru/u)
 endphoneme
 
 phoneme u#
   vwl starttype #u endtype #u
-  Length 80
+  length 80
   FMT(vwl_ru/u#)
 endphoneme
 
 phoneme u"
   vwl starttype #u endtype #u
-  Length 150
+  length 150
   FMT(vwl_ru/u#u)
 endphoneme
 
 phoneme 8
   vwl starttype #o endtype #o
-  Length 100
+  length 100
   ChangeIfNotStressed(V)
   FMT(vwl_ru/8)
 endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
-  Length 100
+  length 100
   IF prevPh(Z) THEN
 	ChangeIfNotStressed(y)
 	ChangePhoneme(E)
@@ -464,14 +464,14 @@ endphoneme
 
 phoneme ju
   vwl starttype #u endtype #u
-  Length 190
+  length 190
   FMT(vwl_ru/ju)
 endphoneme
 
 phoneme ja
   vwl  starttype #i endtype #a
   IF thisPh(isMaxStress) THEN
-	Length 200
+	length 200
 	FMT(vwl_ru/ja)
   ELSE
 	FMT(vdiph2/ii@)
@@ -489,7 +489,7 @@ phoneme ja#
 	ENDIF
   ENDIF
 
-//  Length 200
+//  length 200
 //  FMT(vwl_ru/ja)
 endphoneme
 
@@ -499,7 +499,7 @@ endphoneme
 phoneme V#
   vwl  starttype #a  endtype #@
   unstressed
-  Length 80
+  length 80
 //  IF nextVowel(isMaxStress) THEN
 	// not needed?   because V# is only used at end-of-word
 //	ChangePhoneme(I3)  
@@ -524,21 +524,21 @@ endphoneme
 phoneme Y // will not be used in future
   vwl  starttype #u  endtype #u
   unstressed
-  Length 140
+  length 140
   FMT(vowel/ii#)
 endphoneme
 
 
 phoneme A
   vwl  starttype #a  endtype #a
-  Length 100
+  length 100
   FMT(vwl_ru/a)
 endphoneme
 
 
 phoneme a
   vwl   starttype #a  endtype #a
-  Length 100
+  length 100
 
   IF prevPhW(j) THEN
   ELSE
@@ -564,7 +564,7 @@ endphoneme
 
 phoneme V
   vwl  starttype #a  endtype #@
-  Length 80
+  length 80
   unstressed
 
   IF nextVowel(isMaxStress) THEN
@@ -587,7 +587,7 @@ endphoneme
 
 phoneme a#
   vwl   starttype #a  endtype #a
-  Length 100
+  length 100
   FMT(vowel/a#_3)
 endphoneme
 

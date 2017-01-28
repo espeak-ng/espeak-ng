@@ -168,7 +168,7 @@ phoneme A:
   ipa a:
   IfNextVowelAppend(r-)
   IF nextPh(r) THEN
-    Length 250
+    length 250
     FMT(vowelr/aa_r)
   ENDIF
   FMT(vowel/a_3)
@@ -203,7 +203,7 @@ phoneme i:
     VowelStart(w/wi2)
   ENDIF
   IF nextPh(isVFricative) OR nextPh(isPause) THEN
-    Length 180
+    length 180
   ENDIF
   FMT(vowel/i_5)
 endphoneme
@@ -254,10 +254,10 @@ phoneme u:
   ipa ʉː
   length 160
   IF nextPh(isVFricative) THEN
-    Length 200
+    length 200
   ENDIF
   IF nextPh(isPause) THEN
-    Length 200
+    length 200
     FMT(vowel/u#_4)
   ENDIF
   FMT(vowel/u#)

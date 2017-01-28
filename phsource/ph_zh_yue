@@ -202,7 +202,7 @@ phoneme i
   IfNextVowelAppend(;)
 
   IF nextPhW(k) OR nextPhW(N) THEN
-    Length 150
+    length 150
     FMT(vowel/ii)
   ENDIF
 

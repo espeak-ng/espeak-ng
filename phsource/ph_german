@@ -25,7 +25,7 @@ phoneme 3   //  open Schwa+r
   unstressed flag1
   length 160
   IF thisPh(isFinalVowel) THEN
-    Length 210
+    length 210
   ENDIF
   FMT(vowel/a#_3)   // in eSpeak 1.44, this used vowel/V_3 at end-of-word
 endphoneme

@@ -921,9 +921,9 @@ phoneme v
     FMT(voc/v_) addWav(vocw/v)
   ENDIF
   IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
-    Length 70
+    length 70
   ELIF nextPhW(w/) OR nextPhW(#r) THEN
-    Length 60
+    length 60
   ENDIF
   FMT(voc/v) addWav(vocw/v, 60)
 endphoneme
@@ -962,7 +962,7 @@ endphoneme
 phoneme z2      // silent unless followed by vowel
   vcd alv frc sibilant
   IF nextPh(isVowel) OR nextPh(w/) OR nextPh(j) THEN
-    Length 70
+    length 70
     FMT(voc/z) addWav(ufric/s, 40)
   ELSE
     ChangePhoneme(NULL)

@@ -16,7 +16,7 @@ phoneme @    //  Schwa, but always unstressed
   unstressed
   length 140
   IF nextPh(r/) THEN
-    Length 190
+    length 190
     FMT(vwl_af/r@)
   ENDIF
   FMT(vwl_af/@)
@@ -42,7 +42,7 @@ phoneme I     // short I,  Schwa
   ipa ə
   length 140
   IF nextPh(r/) THEN
-     Length 190
+     length 190
      FMT(vwl_af/r@)
   ENDIF
   FMT(vwl_af/I)
