@@ -584,6 +584,16 @@ static void error(const char *format, ...)
 	va_end(args);
 }
 
+static void error_from_status(espeak_ng_STATUS status, const char *context)
+{
+	char message[512];
+	espeak_ng_GetStatusCodeMessage(status, message, sizeof(message));
+	if (context)
+		error("%s: '%s'.", message, context);
+	else
+		error("%s.", message);
+}
+
 static unsigned int StringToWord(const char *string)
 {
 	// Pack 4 characters into a word
@@ -2012,9 +2022,10 @@ int CompilePhoneme(int compile_phoneme)
 			}
 
 			phoneme_feature_t feature = phoneme_feature_from_string(item_string);
-			if (phoneme_add_feature(phoneme_out, feature) == ENS_OK)
+			espeak_ng_STATUS status = phoneme_add_feature(phoneme_out, feature);
+			if (status == ENS_OK)
 				continue;
-			error("Bad keyword in phoneme definition '%s'", item_string);
+			error_from_status(status, item_string);
 			continue;
 		}
 
