@@ -107,7 +107,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pla afr sib palatal
+  vcd alp sib afr
   lengthmod 5
   ipa dʑ
   voicingswitch tS;

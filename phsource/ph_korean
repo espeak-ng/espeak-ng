@@ -80,7 +80,7 @@ phoneme ph  //  /ㅍ/
 endphoneme
 
 phoneme tS; //  voiceless /ㅈ/
-  vls pla afr sib palatal
+  vls alp sib afr
   ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
@@ -88,7 +88,7 @@ phoneme tS; //  voiceless /ㅈ/
 endphoneme
 
 phoneme dZ; //  voiced /ㅈ/
-  vcd pla afr sib palatal
+  vcd alp sib afr
   ipa dʑ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80

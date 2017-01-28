@@ -122,8 +122,10 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case bld:
 		// FIXME: Not supported by eSpeak. Used in German p͡f.
 		break;
-	case alp:
-		// FIXME: Not supported by eSpeak. Used in Chinese/Japanese ɕ and ʑ.
+	case alp: // pla pzd
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 6 << 16;
+		phoneme->phflags |= phPALATAL;
 		break;
 	// voice
 	case vcd:
