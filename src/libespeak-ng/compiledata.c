@@ -1902,8 +1902,10 @@ static void ImportPhoneme(void)
 
 	NextItem(tSTRING);
 
-	if ((ph = FindPhoneme(item_string)) == NULL)
+	if ((ph = FindPhoneme(item_string)) == NULL) {
+		error("Cannot find phoneme '%s' to import.", item_string);
 		return;
+	}
 
 	ph_mnem = phoneme_out->mnemonic;
 	ph_code = phoneme_out->code;
