@@ -48,9 +48,6 @@ Instead, it is designed to be a transcription guide for authors of espeak-ng
 languages and voices on how to specify phonemes so that the IPA and feature
 transcriptions are consistent.
 
-__NOTE:__ This model is in the process of being implemented. As such, the
-current implementation does not reflect this document.
-
 ## Consonants
 
 |                             | `blb` |       | `lbd` |       | `dnt` |       | `alv` |       | `pla` |       | `rfx` |       | `alp` |       | `pal` |       | `vel` |       | `uvl` |       | `phr` |       | `glt` |       |
