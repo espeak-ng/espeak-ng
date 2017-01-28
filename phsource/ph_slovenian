@@ -7,13 +7,13 @@ endphoneme
 
 
 phoneme @    //  Schwa, can be stressed
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 160
   FMT(vowel/@)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 160
 //  IfNextVowelAppend(;)
 //  IF thisPh(isStressed) AND NOT nextPhW(isRhotic) THEN
@@ -23,14 +23,14 @@ phoneme i
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/u_2)
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 170
   IF thisPh(isUnstressed) THEN
     FMT(vowel/a_8)
@@ -40,25 +40,25 @@ endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   ChangeIfUnstressed(E)
   FMT(vowel/e_2)
 endphoneme
 
 phoneme e+   // doesn't reduce to [e]
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ChangePhoneme(e)
   endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 160
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme E#
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 160
   IF thisPh(isNotStressed) THEN
     ChangePhoneme(@)
@@ -68,19 +68,19 @@ endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   ChangeIfUnstressed(O)
   FMT(vowel/o_8)
 endphoneme
 
 phoneme o+   // doesn't reduce to [O]
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   ChangePhoneme(o)
   endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   IF thisPh(isStressed) THEN
     FMT(vowel/0_2)
@@ -96,7 +96,7 @@ endphoneme
 
 
 phoneme t
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -109,7 +109,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
@@ -138,7 +138,7 @@ endphoneme
 
 // for foreign letters
 phoneme y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 170
   FMT(vowel/y)
 endphoneme

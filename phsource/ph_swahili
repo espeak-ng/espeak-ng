@@ -6,33 +6,33 @@
 // Vowels
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 200
   FMT(vowel/i)
 endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 210
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 210
   FMT(vowel/a_5)
 endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   FMT(vowel/o_4)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck2)
 endphoneme
@@ -50,7 +50,7 @@ phoneme d       // dental variant of /d/
 endphoneme
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -65,7 +65,7 @@ phoneme z
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -86,7 +86,7 @@ phoneme T
 endphoneme
 
 phoneme S
-  vls pla frc sibilant
+  vls pla frc sib
   voicingswitch Z
   lengthmod 3
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
@@ -97,7 +97,7 @@ phoneme S
 endphoneme
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -108,7 +108,7 @@ phoneme s
 endphoneme
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -123,7 +123,7 @@ endphoneme
 
 
 phoneme n^
-  vcd pal nasal palatal
+  vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4
@@ -148,7 +148,7 @@ phoneme n^
 endphoneme
 
 phoneme N
-  vcd vel nasal
+  vcd vel nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 8            // longer than 'n'
 
@@ -197,7 +197,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
@@ -213,7 +213,7 @@ endphoneme
 
 
 phoneme J
-  vcd pal afr sibilant palatal
+  vcd pal afr sib pzd
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
@@ -234,7 +234,7 @@ phoneme J
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80

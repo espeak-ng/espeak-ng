@@ -10,69 +10,69 @@
 
 
 phoneme @   //  Schwa
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   length 125
   FMT(vowel/@_4)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 130
   FMT(vowel/i_2)
 endphoneme
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 130
   FMT(vowel/ii)
 endphoneme
 
 phoneme y
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 180
   FMT(vowel/y)
 endphoneme
 
 phoneme 8
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   FMT(vowel/y#)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 150
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   ChangeIfDiminished(@)
   FMT(vowel/ee_2)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   FMT(vowel/o_6)
 endphoneme
 
 phoneme O:      // for "oor"
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   FMT(vowel/o_6)
 endphoneme
 
 phoneme a:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 210
   IF thisPh(isUnstressed) THEN
     IF thisPh(isWordEnd) THEN
@@ -86,14 +86,14 @@ endphoneme
 
 
 phoneme a   // ?? suggested by aegis, but seems too short
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   FMT(vowel/a_2)
 endphoneme
 
 
 phoneme A
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   IF thisPh(isUnstressed) THEN
     FMT(vowel/a#_2)
@@ -106,7 +106,7 @@ phoneme A~
 endphoneme
 
 phoneme O~
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 190
   FMT(vnasal/oo_n2)
 endphoneme
@@ -116,57 +116,57 @@ endphoneme
 //===========
 
 phoneme e:
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 190
   FMT(vdiph/ei)
 endphoneme
 
 phoneme e#    // as [e:] but change to [@] in unstressed syllables
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 190
   ChangeIfUnstressed(@)
   ChangePhoneme(e:)
 endphoneme
 
 phoneme Y:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 220
   FMT(vdiph/y#y_3)
 endphoneme
 
 phoneme o:
-  vowel starttype #o endtype #u
+  vwl starttype #o endtype #u
   length 150
   FMT(vdiph/ou_4)
 endphoneme
 
 
 phoneme EI
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 210
   FMT(vdiph/eei)
 endphoneme
 
 phoneme Wy
-  vowel starttype #@ endtype #u
+  vwl starttype #@ endtype #u
   length 220
   FMT(vdiph/&y)
 endphoneme
 
 phoneme VU
-  vowel starttype #a endtype #o
+  vwl starttype #a endtype #o
   length 220
   FMT(vdiph/aau_2)
 endphoneme
 
 phoneme eU
-  vowel starttype #e endtype #u
+  vwl starttype #e endtype #u
   length 220
   FMT(vdiph/eu)
 endphoneme
 
 phoneme yU
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 220
   FMT(vdiph2/yu)
 endphoneme

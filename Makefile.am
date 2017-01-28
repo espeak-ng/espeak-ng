@@ -99,8 +99,10 @@ docs:	docs/index.html \
 	docs/add_language.html \
 	docs/dictionary.html \
 	docs/intonation.html \
+	docs/languages.html \
 	docs/markup.html \
 	docs/mbrola.html \
+	docs/phonemes.html \
 	docs/phontab.html \
 	docs/voices.html \
 	src/espeak-ng.1.html \
@@ -250,9 +252,9 @@ phsource/phonemes.stamp: \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
 	phsource/ph_interlingua \
-	phsource/ph_ipa \
 	phsource/ph_irish \
 	phsource/ph_italian \
+	phsource/ph_japanese \
 	phsource/ph_kannada \
 	phsource/ph_kazakh \
 	phsource/ph_kinyarwanda \

@@ -7,31 +7,31 @@
 
 
 phoneme aI
-  vowel long starttype #@ endtype #i
+  vwl lng starttype #@ endtype #i
   length 240
-  long
+  lng
   FMT(vdiph/@i_4)
 endphoneme
 
 phoneme aI~
-  vowel long starttype #@ endtype #i
+  vwl lng starttype #@ endtype #i
   length 270
-  long
+  lng
   FMT(vnasal/ai_n)
 endphoneme
 
 
 phoneme aU
-  vowel long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 240
-  long
+  lng
   FMT(vdiph/a#u)
 endphoneme
 
 phoneme aU~
-  vowel long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 300
-  long
+  lng
   FMT(vnasal/au_n)
 endphoneme
 
@@ -49,7 +49,7 @@ endphoneme
 
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

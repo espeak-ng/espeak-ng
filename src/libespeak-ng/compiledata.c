@@ -149,7 +149,6 @@ enum {
 	kPROCEDURE,
 	kENDPHONEME,
 	kENDPROCEDURE,
-	kEQUIVALENTS,
 	kPHONEMETABLE,
 	kINCLUDE,
 	kIMPORT_PH,
@@ -216,17 +215,11 @@ static keywtab_t k_intonation[] = {
 };
 
 static keywtab_t keywords[] = {
-	{ "vowel",   tPHONEME_TYPE, phVOWEL }, // TODO (deprecated): use 'vwl' instead
 	{ "liquid",  tPHONEME_TYPE, phLIQUID },
 	{ "pause",   tPHONEME_TYPE, phPAUSE },
 	{ "stress",  tPHONEME_TYPE, phSTRESS },
 	{ "virtual", tPHONEME_TYPE, phVIRTUAL },
-
 	{ "delete_phoneme", tPHONEME_TYPE, phDELETED },
-
-	// type of consonant
-	{ "stop",  tPHONEME_TYPE, phSTOP },  // TODO (deprecated): use 'stp' instead
-	{ "nasal", tPHONEME_TYPE, phNASAL }, // TODO (deprecated): use 'nas' instead
 
 	// keywords
 	{ "phonemetable",         tSTATEMENT, kPHONEMETABLE },
@@ -237,7 +230,6 @@ static keywtab_t keywords[] = {
 	{ "procedure",      tSTATEMENT, kPROCEDURE },
 	{ "endphoneme",     tSTATEMENT, kENDPHONEME },
 	{ "endprocedure",   tSTATEMENT, kENDPROCEDURE },
-	{ "equivalents",    tSTATEMENT, kEQUIVALENTS },
 	{ "import_phoneme", tSTATEMENT, kIMPORT_PH },
 	{ "stress_type",    tSTATEMENT, kSTRESSTYPE },
 	{ "starttype",      tSTATEMENT, kSTARTTYPE },
@@ -279,7 +271,6 @@ static keywtab_t keywords[] = {
 
 	{ "PauseBefore", tINSTRN1, i_PAUSE_BEFORE },
 	{ "PauseAfter",  tINSTRN1, i_PAUSE_AFTER },
-	{ "Length",      tINSTRN1, i_SET_LENGTH }, // TODO (deprecated): use 'length' instead
 	{ "length",      tINSTRN1, i_SET_LENGTH },
 	{ "LongLength",  tINSTRN1, i_LONG_LENGTH },
 	{ "LengthAdd",   tINSTRN1, i_ADD_LENGTH },
@@ -288,15 +279,9 @@ static keywtab_t keywords[] = {
 
 	// flags
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
-	{ "sibilant",     tPHONEME_FLAG, phSIBILANT }, // TODO (deprecated): use 'sib' instead
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
-	{ "trill",        tPHONEME_FLAG, phTRILL }, // TODO (deprecated): use 'trl' instead
-	{ "palatal",      tPHONEME_FLAG, phPALATAL }, // TODO (deprecated): use 'pzd' instead
-	{ "long",         tPHONEME_FLAG, phLONG },
-	{ "dontlist",     tPHONEME_FLAG, phDONTLIST },
 	{ "brkafter",     tPHONEME_FLAG, phBRKAFTER },
-	{ "rhotic",       tPHONEME_FLAG, phRHOTIC }, // TODO (deprecated): use 'rzd' instead
-	{ "nonsyllabic",  tPHONEME_FLAG, phNONSYLLABIC }, // TODO (deprecated): use 'nsy' instead
+	{ "rhotic",       tPHONEME_FLAG, phRHOTIC },
 	{ "lengthenstop", tPHONEME_FLAG, phLENGTHENSTOP },
 	{ "nopause",      tPHONEME_FLAG, phNOPAUSE },
 	{ "prevoice",     tPHONEME_FLAG, phPREVOICE },
@@ -331,9 +316,6 @@ static PHONEME_TAB *phoneme_out;
 static int n_phcodes_list[N_PHONEME_TABS];
 static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
-
-static char *p_equivalence;
-static char equivalence_buf[20000];
 
 #define N_PROCS 50
 int n_procs;
@@ -588,6 +570,16 @@ static void error(const char *format, ...)
 	error_count++;
 
 	va_end(args);
+}
+
+static void error_from_status(espeak_ng_STATUS status, const char *context)
+{
+	char message[512];
+	espeak_ng_GetStatusCodeMessage(status, message, sizeof(message));
+	if (context)
+		error("%s: '%s'.", message, context);
+	else
+		error("%s.", message);
 }
 
 static unsigned int StringToWord(const char *string)
@@ -1898,8 +1890,19 @@ static void ImportPhoneme(void)
 
 	NextItem(tSTRING);
 
-	if ((ph = FindPhoneme(item_string)) == NULL)
+	if ((ph = FindPhoneme(item_string)) == NULL) {
+		error("Cannot find phoneme '%s' to import.", item_string);
 		return;
+	}
+
+	if (phoneme_out->phflags != 0 ||
+	    phoneme_out->type != phINVALID ||
+	    phoneme_out->start_type != 0 ||
+	    phoneme_out->end_type != 0 ||
+	    phoneme_out->std_length != 0 ||
+	    phoneme_out->length_mod != 0) {
+		error("Phoneme import will override set properties.");
+	}
 
 	ph_mnem = phoneme_out->mnemonic;
 	ph_code = phoneme_out->code;
@@ -2018,9 +2021,10 @@ int CompilePhoneme(int compile_phoneme)
 			}
 
 			phoneme_feature_t feature = phoneme_feature_from_string(item_string);
-			if (phoneme_add_feature(phoneme_out, feature) == ENS_OK)
+			espeak_ng_STATUS status = phoneme_add_feature(phoneme_out, feature);
+			if (status == ENS_OK)
 				continue;
-			error("Bad keyword in phoneme definition '%s'", item_string);
+			error_from_status(status, item_string);
 			continue;
 		}
 
@@ -2148,12 +2152,16 @@ int CompilePhoneme(int compile_phoneme)
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
 				phoneme_out->start_type = phcode;
+				if (phoneme_out->type == phINVALID)
+					error("a phoneme type or manner of articulation must be specified before starttype");
 				break;
 			case kENDTYPE:
 				phcode = NextItem(tPHONEMEMNEM);
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
-				if (phoneme_out->type == phVOWEL)
+				if (phoneme_out->type == phINVALID)
+					error("a phoneme type or manner of articulation must be specified before endtype");
+				else if (phoneme_out->type == phVOWEL)
 					phoneme_out->end_type = phcode;
 				else if (phcode != phoneme_out->start_type)
 					error("endtype must equal starttype for consonants");
@@ -2162,7 +2170,10 @@ int CompilePhoneme(int compile_phoneme)
 				phcode = NextItem(tPHONEMEMNEM);
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
-				phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
+				if (phoneme_out->type == phVOWEL)
+					error("voicingswitch cannot be used on vowels");
+				else
+					phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
 				break;
 			case kSTRESSTYPE:
 				value = NextItem(tNUMBER);
@@ -2333,7 +2344,6 @@ static void WritePhonemeTables()
 		fputc(phoneme_tab_list2[ix].includes, f_phtab);
 		fputc(0, f_phtab);
 		fputc(0, f_phtab);
-		Write4Bytes(f_phtab, phoneme_tab_list2[ix].equivalence_tables); // byte index into phondata for equivalence tables
 
 		fwrite(phoneme_tab_list2[ix].name, 1, N_PHONEME_TAB_NAME, f_phtab);
 
@@ -2370,18 +2380,6 @@ static void EndPhonemeTable()
 	}
 
 	n_phcodes_list[n_phoneme_tabs-1] = n_phcodes;
-
-	if ((length = p_equivalence - equivalence_buf) > 0) {
-		// terminate the list of phoneme equivalence tables
-		pw = (int *)p_equivalence;
-		pw[0] = 0;
-
-		// write the equivalence data into phondata, and remember it's address
-		ix = ftell(f_phdata);
-		fprintf(f_phcontents, "Q  0x%.5x  %s\n", ix, phoneme_tab_list2[n_phoneme_tabs-1].name);
-		phoneme_tab_list2[n_phoneme_tabs-1].equivalence_tables = ix;
-		fwrite(equivalence_buf, length+4, 1, f_phdata);
-	}
 }
 
 static void StartPhonemeTable(const char *name)
@@ -2407,7 +2405,6 @@ static void StartPhonemeTable(const char *name)
 	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
 	n_phcodes = 1;
 	phoneme_tab_list2[n_phoneme_tabs].includes = 0;
-	p_equivalence = equivalence_buf;
 
 	if (n_phoneme_tabs > 0) {
 		NextItem(tSTRING); // name of base phoneme table
@@ -2431,97 +2428,6 @@ static void StartPhonemeTable(const char *name)
 		ReservePhCodes();
 
 	n_phoneme_tabs++;
-}
-
-static void CompileEquivalents()
-{
-	// a list of phonemes in another language and the equivalent phoneme strings in this language
-
-	int ix;
-	int n_names;
-	int n_bytes;
-	int foreign_error = 0;
-	int remove_stress = 0;
-	char *p_start;
-	char *p;
-	int foreign_table;
-	char foreign_table_name[40];
-	char line_buf[80];
-	char names[6][80];
-	char phcode[7];
-
-	NextItem(tSTRING);
-	strcpy(foreign_table_name, item_string);
-
-	if ((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0) {
-		if (strcmp(foreign_table_name, "NULL") != 0)
-			error("Unknown phoneme table '%s'", foreign_table_name);
-		foreign_error = 1;
-	}
-
-	p_start = p_equivalence;
-	p_equivalence += 8;
-
-	p_start[0] = foreign_table;
-
-	linenum--;
-	while (!feof(f_in)) {
-		linenum++;
-		if (fgets(line_buf, sizeof(line_buf), f_in) == NULL)
-			break;
-
-		if ((p = strstr(line_buf, "//")) != NULL)
-			*p = 0;
-
-		for (ix = 0; ix < 6; ix++)
-			names[ix][0] = 0;
-		n_names = sscanf(line_buf, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-		if (n_names < 1)
-			continue;
-
-		if (strcmp(names[0], "endphoneme") == 0)
-			break;
-
-		if (foreign_error)
-			continue;
-
-		if (strcmp(names[0], "remove_stress") == 0) {
-			remove_stress = 1;
-			continue;
-		}
-
-		if (p_equivalence > &equivalence_buf[sizeof(equivalence_buf) - 16]) {
-			error("'equivalents' tables are too large");
-			break;
-		}
-
-		if (foreign_error == 0) {
-			phcode[0] = LookupPhonemeString(names[0]);
-			if (phcode[0] == 0) {
-				sprintf(line_buf, "%s/%s", foreign_table_name, names[0]);
-				error("Unknown phoneme '%s'", line_buf);
-			}
-		}
-
-		for (ix = 1; ix < n_names; ix++)
-			phcode[ix] = LookupPhoneme(names[ix], 1);
-
-		// only write a translation if it has an effect
-		if ((n_names > 2) || (phcode[0] != phcode[1])) {
-			// write: foreign phoneme number, then a string of local phoneme numbers
-			memcpy(p_equivalence, phcode, n_names);
-			p_equivalence += n_names;
-			*p_equivalence++ = 0;
-		}
-	}
-	*p_equivalence++ = 0;
-
-	p_equivalence = (char *)((intptr_t)(p_equivalence + 3) & ~0x3); // align to word boundary
-	n_bytes = p_equivalence - p_start;
-	p_start[1] = remove_stress;
-	n_bytes = n_bytes / 4;
-	p_start[2] = n_bytes >> 8; // index of next table
-	p_start[3] = n_bytes;
 }
 
 static void CompilePhonemeFiles()
@@ -2584,9 +2490,6 @@ static void CompilePhonemeFiles()
 			break;
 		case kPROCEDURE:
 			CompilePhoneme(0);
-			break;
-		case kEQUIVALENTS:
-			CompileEquivalents();
 			break;
 		default:
 			if (!feof(f_in))
@@ -2675,7 +2578,6 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 	        "#   S - A SPECT_SEQ structure\n"
 	        "#   W - A wavefile segment\n"
 	        "#   E - An envelope\n"
-	        "#   Q - Phoneme equivalence tables\n"
 	        "#\n"
 	        "# Address is the displacement within phondata of this item\n"
 	        "#\n"

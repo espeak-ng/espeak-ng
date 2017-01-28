@@ -144,9 +144,7 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 		n_phonemes = p[0];
 		phoneme_tab_list[ix].n_phonemes = p[0];
 		phoneme_tab_list[ix].includes = p[1];
-		pw = (int *)p;
-		phoneme_tab_list[ix].equivalence_tables = Reverse4Bytes(pw[1]);
-		p += 8;
+		p += 4;
 		memcpy(phoneme_tab_list[ix].name, p, N_PHONEME_TAB_NAME);
 		p += N_PHONEME_TAB_NAME;
 		phoneme_tab_list[ix].phoneme_tab_ptr = (PHONEME_TAB *)p;

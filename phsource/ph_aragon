@@ -1,34 +1,34 @@
 // based on Spanish
 
 phoneme t#
-  vls dnt stop
+  vls dnt stp
   IF NOT prevVowel(isStressed) THEN
     ChangePhoneme(t)
   ENDIF
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/ee_1)
 endphoneme
 
 phoneme e#
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   ChangeIfStressed(e)
   ChangePhoneme(NULL)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo_4)
 endphoneme
 
 
 //phoneme k
-//  vls vel stop
+//  vls vel stp
 //  lengthmod 2
 //  voicingswitch g
 //  Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -48,7 +48,7 @@ endphoneme
 
 
 //phoneme t
-//  vls dnt stop
+//  vls dnt stp
 //  lengthmod 2
 //  voicingswitch d
 //  Vowelin f1=0  f2=1600 -300 300  f3=-100 80

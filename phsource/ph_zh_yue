@@ -52,7 +52,7 @@ endphoneme
 
 
 phoneme z  // [ts]
-  vls alv afr sibilant
+  vls alv afr sib
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -61,7 +61,7 @@ endphoneme
 
 
 phoneme c  // [tS]
-  vls pla afr sibilant
+  vls pla afr sib
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   IF nextPh(isPause2) THEN
@@ -72,7 +72,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
   Vowelout f1=1 f2=2300 300 400  f3=-200 80  rms=20
@@ -98,7 +98,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
   Vowelout f1=1  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -109,7 +109,7 @@ phoneme p
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=100 80
   Vowelout f1=1 f2=1700 -300 250  f3=-100 80  rms=20
@@ -125,84 +125,84 @@ endphoneme
 //====================================================
 
 phoneme aa
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 230
   FMT(vowel/aa)
 endphoneme
 
 phoneme aai
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 270
   FMT(vdiph/aai)
 endphoneme
 
 phoneme aau
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 260
   FMT(vdiph/aau_2)
 endphoneme
 
 phoneme ang
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 220
   FMT(vwl_zh/ang)
 endphoneme
 
 phoneme aang
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 270
   FMT(vwl_zh/aang)
 endphoneme
 
 phoneme a
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 150
   FMT(vowel/a#_3)
 endphoneme
 
 phoneme ai
-  vowel starttype #@ endtype #i
+  vwl starttype #@ endtype #i
   length 200
   FMT(vdiph/@i_3)
 endphoneme
 
 phoneme au
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 200
   FMT(vdiph/au_2)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 220
   FMT(vowel/ee_1)
 endphoneme
 
 phoneme ei
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 220
   FMT(vdiph/ei)
 endphoneme
 
 phoneme eng
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 220
   FMT(vwl_zh/eng)
 endphoneme
 
 phoneme eu
-  vowel starttype #e endtype #u
+  vwl starttype #e endtype #u
   length 260
   FMT(vdiph/eeu)
 endphoneme
 
 phoneme i
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 190
   IfNextVowelAppend(;)
 
   IF nextPhW(k) OR nextPhW(N) THEN
-    Length 150
+    length 150
     FMT(vowel/ii)
   ENDIF
 
@@ -210,19 +210,19 @@ phoneme i
 endphoneme
 
 phoneme ing
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 220
   FMT(vwl_zh/ing)
 endphoneme
 
 phoneme iu
-  vowel starttype #i endtype #u
+  vwl starttype #i endtype #u
   length 200
   FMT(vdiph2/iu)
 endphoneme
 
 phoneme ng   // synonym for [N]
-  vowel //  starttype ng  endtype ng
+  vwl //  starttype ng  endtype ng
   length 350
   IF nextPh(isVowel) THEN
     ChangePhoneme(N)
@@ -231,38 +231,38 @@ phoneme ng   // synonym for [N]
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo)
 endphoneme
 
 phoneme oeng
-  vowel starttype #o endtype #e
+  vwl starttype #o endtype #e
   length 280
   FMT(vwl_zh/oeng)
 endphoneme
 
 phoneme oi
-  vowel starttype #o endtype #i
+  vwl starttype #o endtype #i
   length 200
   FMT(vdiph/ooi)
 endphoneme
 
 phoneme ou
-  vowel starttype #o endtype #u
+  vwl starttype #o endtype #u
   length 200
   FMT(vdiph/ou)
 endphoneme
 
 phoneme ong
-  vowel starttype #o endtype #o 
+  vwl starttype #o endtype #o 
   length 220
   FMT(vwl_zh/ong)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 170
   IF nextPhW(k) OR nextPhW(N) THEN
     FMT(vowel/uu_bck)
@@ -272,39 +272,39 @@ phoneme u
 endphoneme
 
 phoneme ung
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vwl_zh/ung)
 endphoneme
 
 phoneme ui
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   length 220
   FMT(vdiph/ui)
 endphoneme
 
 
 phoneme oe
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 230
   FMT(vowel/y#)
 endphoneme
 
 
 phoneme eo
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 170
   FMT(vowel/8_3)
 endphoneme
 
 phoneme eoi
-  vowel  starttype #@  endtype #i
+  vwl  starttype #@  endtype #i
   length 220
   FMT(vdiph/y#y_2)
 endphoneme
 
 phoneme yu
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 220
   FMT(vowel/y)
 endphoneme

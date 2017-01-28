@@ -5,7 +5,7 @@
 
 
 phoneme V  // inherent vowel, can be [O] or [o]
-  vowel flag1 starttype #o  endtype #o
+  vwl flag1 starttype #o  endtype #o
   length 200
 
   IF thisPh(isWordEnd) AND prevPhW(isNotVowel) AND prev2PhW(isVowel) THEN
@@ -30,7 +30,7 @@ endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 225
   IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
     FMT(vowel/a#_2)
@@ -40,35 +40,35 @@ endphoneme
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 210
   FMT(vowel/i_6)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 210
   FMT(vowel/u)
 endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 210
   FMT(vowel/e)
 endphoneme
 
 
 phoneme &
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 210
   FMT(vowel/&_2)
 endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   IF nextPhW(w) THEN
     length 170
@@ -78,14 +78,14 @@ endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/oo_5)
 endphoneme
 
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -98,7 +98,7 @@ endphoneme
 
 
 phoneme tS#
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

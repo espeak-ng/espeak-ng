@@ -98,6 +98,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case pal:
 		phoneme->phflags &= ~phARTICULATION;
 		phoneme->phflags |= 7 << 16;
+		phoneme->phflags |= phPALATAL;
 		break;
 	case vel:
 		phoneme->phflags &= ~phARTICULATION;
@@ -120,10 +121,13 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		phoneme->phflags |= 12 << 16;
 		break;
 	case bld:
-		// FIXME: Not supported by eSpeak. Used in German p͡f.
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 1 << 16; // bilabial
 		break;
-	case alp:
-		// FIXME: Not supported by eSpeak. Used in Chinese/Japanese ɕ and ʑ.
+	case alp: // pla pzd
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 6 << 16;
+		phoneme->phflags |= phPALATAL;
 		break;
 	// voice
 	case vcd:
@@ -201,10 +205,8 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case vzd:
 	case fzd:
 	case nzd:
-		// Not supported by eSpeak.
-		break;
 	case rzd:
-		phoneme->phflags |= phRHOTIC;
+		// Not supported by eSpeak.
 		break;
 	// tongue root
 	case atr:
@@ -215,6 +217,15 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case fts:
 	case lns:
 		// Not supported by eSpeak.
+		break;
+	// length
+	case est:
+	case hlg:
+		// Not supported by eSpeak.
+		break;
+	case elg: // FIXME: Should be longer than 'lng'.
+	case lng:
+		phoneme->phflags |= phLONG;
 		break;
 	// invalid phoneme feature
 	default:

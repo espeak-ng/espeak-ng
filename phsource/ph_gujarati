@@ -3,37 +3,37 @@
 // This inherits from ph_hindi
 
 phoneme aI
-  vowel long starttype #@ endtype #i
+  vwl lng starttype #@ endtype #i
   length 240
-  long
+  lng
   FMT(vdiph/@i_4)
 endphoneme
 
 phoneme aI~
-  vowel long starttype #@ endtype #i
+  vwl lng starttype #@ endtype #i
   length 270
-  long
+  lng
   FMT(vnasal/ai_n)
 endphoneme
 
 
 phoneme aU
-  vowel long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 240
-  long
+  lng
   FMT(vdiph/a#u)
 endphoneme
 
 phoneme aU~
-  vowel long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 300
-  long
+  lng
   FMT(vnasal/au_n)
 endphoneme
 
 
 phoneme V
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 140
 
   IF thisPh(isWordStart) THEN
@@ -73,7 +73,7 @@ phoneme V
 endphoneme
 
 phoneme o:
-  vowel long starttype #o endtype #o
+  vwl lng starttype #o endtype #o
   length 227
   FMT(vowel/o)
 endphoneme

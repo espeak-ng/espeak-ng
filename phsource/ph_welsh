@@ -8,21 +8,21 @@
 //=============
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   FMT(vowel/a)
 endphoneme
 
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 150
   FMT(vowel/ee_2)
 endphoneme
 
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   ipa ɨ
   length 150
   FMT(vowel/ii_3)
@@ -30,28 +30,28 @@ endphoneme
 
 
 phoneme Y   // symbol used in place of I"  (I bar)
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 150
   FMT(vowel/ii#)
 endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 150
   FMT(vowel/oo_2)
 endphoneme
 
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 150
   FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme V
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 150
   FMT(vowel/@)
 endphoneme
@@ -61,7 +61,7 @@ endphoneme
 //============
 
 phoneme i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 180
   ChangeIfNotStressed(I)
   FMT(vowel/i)
@@ -69,7 +69,7 @@ endphoneme
 
 
 phoneme y:     // symbol used in place of i" (i bar)
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   ipa ɨː
   length 180
   ChangeIfNotStressed(Y)
@@ -78,7 +78,7 @@ endphoneme
 
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 190
   ChangeIfNotStressed(U)
   FMT(vowel/u)
@@ -86,7 +86,7 @@ endphoneme
 
 
 phoneme e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 210
   ChangeIfNotStressed(E)
   FMT(vowel/e)
@@ -94,7 +94,7 @@ endphoneme
 
 
 phoneme o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   ChangeIfNotStressed(O)
   FMT(vowel/o_2)
@@ -102,7 +102,7 @@ endphoneme
 
 
 phoneme A:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 230
   ChangeIfNotStressed(a)
   FMT(vowel/aa_2)
@@ -113,7 +113,7 @@ endphoneme
 //===========
 
 phoneme AY
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   ipa ɑɨ
   length 250
   FMT(vdiph/aai_2)
@@ -121,14 +121,14 @@ endphoneme
 
 
 phoneme aI
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 210
   FMT(vdiph/ai_2)
 endphoneme
 
 
 phoneme aY
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   ipa aɨ
   length 210
   FMT(vdiph/ai_2)
@@ -136,21 +136,21 @@ endphoneme
 
 
 phoneme aU
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 210
   FMT(vdiph/au_4)
 endphoneme
 
 
 phoneme @I
-  vowel starttype #@ endtype #i
+  vwl starttype #@ endtype #i
   length 210
   FMT(vdiph/@i_2)
 endphoneme
 
 
 phoneme @Y
-  vowel starttype #@ endtype #i
+  vwl starttype #@ endtype #i
   ipa əɨ
   length 210
   FMT(vdiph/@i_2)
@@ -158,21 +158,21 @@ endphoneme
 
 
 phoneme eU
-  vowel starttype #e endtype #u
+  vwl starttype #e endtype #u
   length 210
   FMT(vdiph/eu)
 endphoneme
 
 
 phoneme Iu
-  vowel starttype #i endtype #u
+  vwl starttype #i endtype #u
   length 210
   FMT(vdiph2/iu_4)
 endphoneme
 
 
 phoneme Yu
-  vowel starttype #i endtype #u
+  vwl starttype #i endtype #u
   ipa ɨu
   length 210
   FMT(vdiph2/iu_4)
@@ -180,14 +180,14 @@ endphoneme
 
 
 phoneme OI
-  vowel starttype #o endtype #i
+  vwl starttype #o endtype #i
   length 210
   FMT(vdiph/ooi)
 endphoneme
 
 
 phoneme OY
-  vowel starttype #o endtype #i
+  vwl starttype #o endtype #i
   ipa ɔɨ
   length 210
   FMT(vdiph/ooi)
@@ -195,14 +195,14 @@ endphoneme
 
 
 phoneme uI
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   length 210
   FMT(vdiph/ui_3)
 endphoneme
 
 
 phoneme uY
-  vowel starttype #u endtype #i
+  vwl starttype #u endtype #i
   ipa uɨ
   length 210
   FMT(vdiph/ui_3)
@@ -213,8 +213,7 @@ endphoneme
 //===========
 
 phoneme r
-  liquid
-  trill
+  liquid trl
   lengthmod 6
   Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
@@ -223,7 +222,7 @@ endphoneme
 
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   lengthmod 5
   voicingswitch k
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80

@@ -1,7 +1,7 @@
 // Based on ph_croatian
 
 phoneme k^
-  vls pal stop
+  vls pal stp
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=400 80
   Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
@@ -10,7 +10,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pal afr sibilant palatal
+  vcd alp sib afr
   lengthmod 5
   ipa dʑ
   voicingswitch tS;

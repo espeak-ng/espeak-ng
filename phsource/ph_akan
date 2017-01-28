@@ -1,46 +1,46 @@
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 170
   FMT(vowel/i)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/e_6)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/ee_5)
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 170
   FMT(vowel/aa_9)
 endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo_2)
 endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 170
   FMT(vowel/u)
 endphoneme

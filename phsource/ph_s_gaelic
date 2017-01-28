@@ -5,14 +5,14 @@
 // Vowels
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   unstressed
   length 130
   FMT(vowel/ii)
 endphoneme
 
 phoneme @
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   length 130
   FMT(vowel/@_6)
@@ -20,28 +20,28 @@ endphoneme
 
 
 phoneme i:
-  vowel starttype #i endtype #i long
+  vwl starttype #i endtype #i lng
   length 240
   ChangeIfUnstressed(i)
   FMT(vowel/i)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 130
   ChangeIfUnstressed(I)
   FMT(vowel/i_6)
 endphoneme
 
 phoneme e:
-  vowel starttype #e endtype #e long
+  vwl starttype #e endtype #e lng
   length 240
   ChangeIfUnstressed(@)
   FMT(vowel/e)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 130
   ChangeIfUnstressed(@)
   FMT(vowel/e)
@@ -49,88 +49,88 @@ endphoneme
 
 
 phoneme E:
-  vowel starttype #e endtype #e long
+  vwl starttype #e endtype #e lng
   length 240
   FMT(vowel/ee)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 130
   FMT(vowel/ee)
 endphoneme
 
 
 phoneme a:
-  vowel starttype #a endtype #a long
+  vwl starttype #a endtype #a lng
   length 240
   ChangeIfUnstressed(a)
   FMT(vowel/aa_8)
 endphoneme
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 130
   ChangeIfUnstressed(@)
   FMT(vowel/a)
 endphoneme
 
 phoneme a2  // doesn't reduce to [@]
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 130
   FMT(vowel/a)
 endphoneme
 
 
 phoneme O:
-  vowel starttype #o endtype #o long
+  vwl starttype #o endtype #o lng
   length 240
   FMT(vowel/oo_2)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 130
   FMT(vowel/oo_2)
 endphoneme
 
 
 phoneme o:
-  vowel starttype #o endtype #o long
+  vwl starttype #o endtype #o lng
   length 240
   FMT(vowel/o)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 130
   FMT(vowel/o_2)
 endphoneme
 
 
 phoneme u:
-  vowel starttype #u endtype #u long
+  vwl starttype #u endtype #u lng
   length 240
   ChangeIfUnstressed(u)
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 130
   FMT(vowel/u_bck2)
 endphoneme
 
 
 phoneme u-
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɯ
   length 240
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme u-
-  vowel starttype #@ endtype #@ long
+  vwl starttype #@ endtype #@ lng
   ipa ɯ
   length 130
   FMT(vowel/u_bck2)
@@ -138,7 +138,7 @@ endphoneme
 
 
 phoneme o-
-  vowel starttype #@ endtype #@ long
+  vwl starttype #@ endtype #@ lng
   ipa ɤ
   length 240
   ChangeIfUnstressed(@)
@@ -146,7 +146,7 @@ phoneme o-
 endphoneme
 
 phoneme o-
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɤ
   length 130
   ChangeIfUnstressed(@)
@@ -157,7 +157,7 @@ endphoneme
 
 
 phoneme i@
-  vowel starttype #i endtype #@ long
+  vwl starttype #i endtype #@ lng
   length 240
   ChangeIfNotStressed(@)
   FMT(vdiph2/i@)
@@ -165,7 +165,7 @@ endphoneme
 
 
 phoneme ia
-  vowel starttype #i endtype #@ long
+  vwl starttype #i endtype #@ lng
   length 240
   ChangeIfNotStressed(@)
   FMT(vdiph2/i@_3)
@@ -173,47 +173,47 @@ endphoneme
 
 
 phoneme u@
-  vowel starttype #u endtype #@ long
+  vwl starttype #u endtype #@ lng
   length 240
   FMT(vdiph2/u@)
 endphoneme
 
 
 phoneme aI
-  vowel starttype #a endtype #i long
+  vwl starttype #a endtype #i lng
   length 240
   ChangeIfUnstressed(@)
   FMT(vdiph/ai)
 endphoneme
 
 phoneme eI
-  vowel starttype #e endtype #i long
+  vwl starttype #e endtype #i lng
   length 240
   FMT(vdiph/ei)
 endphoneme
 
 phoneme @I
-  vowel starttype #@ endtype #i long
+  vwl starttype #@ endtype #i lng
   length 240
   FMT(vdiph/@i)
 endphoneme
 
 phoneme u-I
-  vowel starttype #@ endtype #i long
+  vwl starttype #@ endtype #i lng
   ipa ɯɪ
   length 240
   FMT(vdiph/u-i)
 endphoneme
 
 phoneme aU
-  vowel starttype #a endtype #u long
+  vwl starttype #a endtype #u lng
   length 240
   ChangeIfUnstressed(@)
   FMT(vdiph/aau_4)
 endphoneme
 
 phoneme OU
-  vowel starttype #@ endtype #u long
+  vwl starttype #@ endtype #u lng
   length 240
   FMT(vdiph/Vu)
 endphoneme
@@ -238,14 +238,14 @@ phoneme g
 endphoneme
 
 phoneme g;
-  vls vel stop
+  vls vel stp
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   WAV(ustop/ki_ejc, 130)
 endphoneme
 
 phoneme k;
-  vls vel stop
+  vls vel stp
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   WAV(ustop/ki)
@@ -261,9 +261,7 @@ phoneme t;
 endphoneme
 
 phoneme S
-  vls pal frc sibilant palatal
-  CALL base/S;
-  ipa ʃ
+  import_phoneme base/S;
 endphoneme
 
 
@@ -272,7 +270,7 @@ phoneme n[   // temporary
 endphoneme
 
 phoneme *    // reduced [t] as in "city"
-  vcd alv stop
+  vcd alv stp
   ipa ɾ
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
@@ -302,7 +300,7 @@ endphoneme
 
 
 phoneme &  // the epenthetic vowel
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   length 130
   IF prevVowel(a) THEN

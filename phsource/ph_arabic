@@ -43,7 +43,7 @@ endphoneme
 
 
 phoneme dH	//arabic Dhad
-  alv vls stop
+  alv vls stp
   ipa dˤ
   voicingswitch d[
   lengthmod 7
@@ -54,7 +54,7 @@ phoneme dH	//arabic Dhad
 endphoneme
 
 phoneme s[
-  vls dnt stop 
+  vls dnt stp
   voicingswitch s
   length 160
   lengthmod 7
@@ -73,7 +73,7 @@ endphoneme
 
 // vowels
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   IF nextPhW(isPause) THEN 
 	length 80
   ELSE  
@@ -87,7 +87,7 @@ endphoneme
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
  IF nextPhW(isPause) THEN 
 	length 80
   ELSE  
@@ -101,7 +101,7 @@ endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   IF nextPhW(isPause) THEN 
 	length 80
   ELSE  

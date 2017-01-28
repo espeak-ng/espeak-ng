@@ -4,14 +4,14 @@
 
 
 phoneme @
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   length 130
   FMT(vowel/@_low)
 endphoneme
 
 
 phoneme y  // epenthetic vowel
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   ipa ɨ
   length 80
@@ -20,7 +20,7 @@ endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ɐ
   length 130
 
@@ -39,47 +39,47 @@ endphoneme
 
 
 phoneme a#    // don't reduce to [@]
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ChangePhoneme(a)
 endphoneme
 
 
 phoneme a:
-  vowel long starttype #a  endtype #a
+  vwl lng starttype #a  endtype #a
   length 300
   FMT(vowel/a_5)
 endphoneme
 
 
 phoneme e
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 130
   FMT(vowel/e)
 endphoneme
 
 
 phoneme e:
-  vowel long starttype #e  endtype #e
+  vwl lng starttype #e  endtype #e
   length 270
   FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 130
   FMT(vowel/i_6)
 endphoneme
 
 phoneme I
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 130
   FMT(vowel/ii)
 endphoneme
 
 
 phoneme i:
-  vowel long starttype #i  endtype #i
+  vwl lng starttype #i  endtype #i
   length 270
   FMT(vowel/i)
 endphoneme
@@ -87,40 +87,40 @@ endphoneme
 
 
 phoneme o
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 130
   FMT(vowel/o)
 endphoneme
 
 
 phoneme o:
-  vowel long starttype #o  endtype #o
+  vwl lng starttype #o  endtype #o
   length 300
   FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 110
   FMT(vowel/u)
 endphoneme
 
 phoneme u:
-  vowel long starttype #u  endtype #u
+  vwl lng starttype #u  endtype #u
   length 280
   FMT(vowel/u)
 endphoneme
 
 
 phoneme aI
-  vowel long starttype #a endtype #i
+  vwl lng starttype #a endtype #i
   length 280
   FMT(vdiph/ai)
 endphoneme
 
 phoneme aU
-  vowel long starttype #a endtype #u
+  vwl lng starttype #a endtype #u
   length 270
   FMT(vdiph/aau_3)
 endphoneme
@@ -147,7 +147,7 @@ endphoneme
 // Aspirated voice stops, sound like aspirated unvoiced stops ?
 
 phoneme b#
-  vls blb stop prevoice
+  vls blb stp prevoice
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -172,7 +172,7 @@ endphoneme
 
 
 phoneme d#
-  vls dnt stop prevoice
+  vls dnt stp prevoice
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
@@ -194,7 +194,7 @@ endphoneme
 
 
 phoneme t.#
-  vls rfx stop
+  vls rfx stp
   lengthmod 2
   ipa ʈU+02B0
   voicingswitch d.#
@@ -209,7 +209,7 @@ endphoneme
 
 
 phoneme d.#
-  vls rfx stop prevoice
+  vls rfx stp prevoice
   lengthmod 2
   ipa ʈU+02B0
   Vowelin f1=0  f2=1800 -300 300  f3=-200 80
@@ -229,7 +229,7 @@ endphoneme
 
 
 phoneme J#
-  vls pal afr sibilant palatal prevoice
+  vls pal afr sib pzd prevoice
   voicingswitch c#
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -250,7 +250,7 @@ endphoneme
 
 
 phoneme g#
-  vls vel stop prevoice
+  vls vel stp prevoice
   lengthmod 2
   Vowelin f1=1  f2=1400 -100 100  f3=-150 80
   Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20

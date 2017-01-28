@@ -7,7 +7,7 @@
 
 
 phoneme @   //  Schwa
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed
   length 120
   IF nextPh(r) THEN
@@ -21,18 +21,18 @@ endphoneme
 
 
 phoneme 3   //  open Schwa+r
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   unstressed flag1
   length 160
   IF thisPh(isFinalVowel) THEN
-    Length 210
+    length 210
   ENDIF
   FMT(vowel/a#_3)   // in eSpeak 1.44, this used vowel/V_3 at end-of-word
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 110
   IF nextPh(isRhotic) THEN
     length 125
@@ -42,7 +42,7 @@ endphoneme
 
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 120
   IF nextPh(*) THEN
     length 135
@@ -52,7 +52,7 @@ endphoneme
 
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 120
   ChangeIfDiminished(@)
   IF nextPh(*) THEN
@@ -63,7 +63,7 @@ endphoneme
 
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 120
   IF nextPh(*) THEN
     length 135
@@ -74,14 +74,14 @@ endphoneme
 
 
 phoneme I:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 190
   FMT(vowel/ii)
 endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 120
   IF nextPh(*) THEN
     length 135
@@ -91,7 +91,7 @@ endphoneme
 
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 120
   IF nextPh(*) THEN
     length 135
@@ -105,14 +105,14 @@ endphoneme
 
 
 phoneme A:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 250
   FMT(vowel/aa_6)
 endphoneme
 
 
 phoneme A   // reduces to [a] if not stressed
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 250
   ChangeIfUnstressed(a)
   FMT(vowel/aa_6)
@@ -120,7 +120,7 @@ endphoneme
 
 
 phoneme i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 180
   IF prevPh(w) THEN
     VowelStart(w/wi2)
@@ -134,7 +134,7 @@ endphoneme
 
 
 phoneme i2
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 180
   ChangeIfNotStressed(I)
   IF prevPh(w) THEN
@@ -145,28 +145,28 @@ endphoneme
 
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 190
   FMT(vowel/u)
 endphoneme
 
 
 phoneme aU
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
   length 220
   FMT(vdiph/aau_6)
 endphoneme
 
 
 phoneme aI
-  vowel starttype #a endtype #i
+  vwl starttype #a endtype #i
   length 210
   FMT(vdiph/ai_5)
 endphoneme
 
 
 phoneme EI
-  vowel  starttype #e  endtype #i
+  vwl  starttype #e  endtype #i
   length 210
   FMT(vdiph/eei)
 endphoneme
@@ -174,42 +174,42 @@ endphoneme
 
 
 phoneme OY
-  vowel starttype #o endtype #i
+  vwl starttype #o endtype #i
   length 220
   FMT(vdiph/oi)
 endphoneme
 
 
 phoneme E:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   FMT(vowel/e_8)
 endphoneme
 
 
 phoneme e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 200
   FMT(vowel/e_2)
 endphoneme
 
 
 phoneme o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   FMT(vowel/o)
 endphoneme
 
 
 phoneme y:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/y)
 endphoneme
 
 
 phoneme y
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ʏ
   length 110
   IF nextPh(*) THEN
@@ -220,14 +220,14 @@ endphoneme
 
 
 phoneme Y:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 180
   FMT(vowel/y#)
 endphoneme
 
 
 phoneme W
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 150
   IF nextPh(*) THEN
     length 160
@@ -241,7 +241,7 @@ endphoneme
 //===========
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -265,7 +265,7 @@ endphoneme
 
 
 phoneme pF
-  vls blb afr
+  vls bld afr
   ipa pf
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
@@ -274,7 +274,7 @@ endphoneme
 
 
 phoneme g#    // for "ig" -> [IC] or [Ig]
-  vls pal frc palatal
+  vls pal frc
   lengthmod 3
 
   IF nextPhW(isVoiced) THEN
@@ -308,7 +308,7 @@ endphoneme
 
 
 phoneme j
-  liquid palatal
+  liquid pal
   lengthmod 7
 
   IF nextPh(isVowel) THEN
@@ -365,7 +365,7 @@ endphoneme
 
 
 phoneme iR  // TEST "vier" = [f'iR] not successful
-  vowel starttype #i endtype #@
+  vwl starttype #i endtype #@
   ipa iɐ
   flag1
   length 240
@@ -374,7 +374,7 @@ endphoneme
 
 
 phoneme UR
-  vowel starttype #u endtype #@
+  vwl starttype #u endtype #@
   ipa ʊɐ
   flag1
   length 180
@@ -389,7 +389,7 @@ phoneme oU  // for English words
 endphoneme
 
 phoneme A~
-  vowel  starttype #a endtype #a
+  vwl  starttype #a endtype #a
   length 260
   FMT(vnasal/aa_n4)
 endphoneme
@@ -401,7 +401,7 @@ phoneme l2  // as [l] but devoice previous phoneme
 endphoneme
 
 phoneme b
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch p
   IF nextPh(l2) THEN
     ChangePhoneme(p)
@@ -410,7 +410,7 @@ phoneme b
 endphoneme
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   IF nextPh(l2) THEN
     ChangePhoneme(t)
@@ -433,88 +433,10 @@ phoneme d
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   IF nextPh(l2) THEN
     ChangePhoneme(k)
   ENDIF
   CALL base/g
-endphoneme
-
-
-// translate from English to German phonemes
-equivalents NULL   // disable this table
-0	O
-3	3
-3:	W :
-@	@
-@-	@-
-@2      @
-@5      @
-@L      U l
-a       a
-a#      a
-A:      A:
-A@      A: r
-aa      a
-aI      aI
-aI@     aI 3
-aU      aU
-aU@     aU 3
-A~	A~
-E       E
-e:      e:
-e@      E: r
-eI      e j
-i       I
-I       I
-I2      I
-i:      i:
-i@      i: 3
-i@3     i: r
-O       O
-O:      O :
-o:      o:
-O@      O : r
-o@      O : r
-OI      OY
-oU      oU
-O~ 	O n
-U       U
-u:      u:
-U@      U r
-V       W
-IR	I r
-VR	W r
-b	b
-C	C
-d	d
-D       D
-dZ	dZ
-f	f
-g	g
-h	h
-j	j
-k	k
-l	l
-l#	l#
-m	m
-n	n
-N	N
-n^	n^
-p	p
-Q	Q
-r	r
-r-      r
-s	s
-S	S
-t	t
-T       T
-t2      t
-tS	tS
-v	v
-w	w
-x	x
-z	z
-Z	Z
 endphoneme

@@ -1,4 +1,4 @@
-// International Phonetic Alphabet: Narrow Transcription
+// Japanese Phonemes
 //
 // Copyright (C) 2017 Reece H. Dunn
 //
@@ -24,7 +24,7 @@ phoneme :
 endphoneme
 
 phoneme _j
-  liquid palatal starttype #i
+  liquid pzd starttype #i
   ipa ʲ
   lengthmod 2
 
@@ -43,28 +43,28 @@ endphoneme
 // Close Vowels
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 160
 
   FMT(vowel/i)
 endphoneme
 
 phoneme i~
-  vowel long starttype #i endtype #i
+  vwl lng starttype #i endtype #i
   ipa ĩ
   length 220
   FMT(vnasal/i_n2)
 endphoneme
 
 phoneme u~
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ũ
   length 220
   FMT(vnasal/u_n)
 endphoneme
 
 phoneme M_Bo // M_B_o
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ɯᵝ
   length 160
 
@@ -74,7 +74,7 @@ endphoneme
 // Mid Vowels
 
 phoneme e_o
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   ipa e̞
   length 160
 
@@ -82,7 +82,7 @@ phoneme e_o
 endphoneme
 
 phoneme o_o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   ipa o̞
   length 160
 
@@ -92,7 +92,7 @@ endphoneme
 // Open Vowels
 
 phoneme a_"
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ä
   length 160
 
@@ -102,7 +102,7 @@ endphoneme
 // Consonants /////////////////////////////////////////////////////////////////
 
 phoneme m
-  vcd blb nasal
+  vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
 
@@ -121,7 +121,7 @@ phoneme m
 endphoneme
 
 phoneme n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
@@ -140,7 +140,7 @@ phoneme n
 endphoneme
 
 phoneme N
-  vcd vel nasal
+  vcd vel nas
   ipa ŋ
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 3
@@ -168,16 +168,16 @@ phoneme N
 endphoneme
 
 phoneme N\\
-  vcd uvl nasal
+  vcd uvl nas
   ipa ɴ
   // FIXME: Stub phoneme.
-  CALL ipa/n
+  CALL jp/n
 endphoneme
 
 // Plosives
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50  -100  f3=-200 80 amp=11
@@ -187,7 +187,7 @@ phoneme p
 endphoneme
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   voicingswitch p
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   lengthmod 5
@@ -214,7 +214,7 @@ phoneme b
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -224,7 +224,7 @@ phoneme t
 endphoneme
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   lengthmod 5
   Vowelin  f1=1  f2=1700 -300 300  f3=-100 80
@@ -234,7 +234,7 @@ phoneme d
 endphoneme
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin  f1=0  f2=2300 200 300  f3=-200 80
@@ -244,7 +244,7 @@ phoneme k
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
@@ -254,7 +254,7 @@ phoneme g
 endphoneme
 
 phoneme ?
-  vls glt stop
+  vls glt stp
   lengthmod 3
   nolink
   Vowelin  glstop
@@ -265,7 +265,7 @@ endphoneme
 // Sibilant Affricates
 
 phoneme t_s
-  vls alv afr sibilant
+  vls alv afr sib
   ipa ts
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -274,7 +274,7 @@ phoneme t_s
 endphoneme
 
 phoneme t_s\\
-  vls pal afr sibilant palatal
+  vls alp sib afr
   voicingswitch d_z\\
   ipa tɕ
   lengthmod 2
@@ -284,7 +284,7 @@ phoneme t_s\\
 endphoneme
 
 phoneme d_z\\
-  vcd pla afr sibilant palatal
+  vcd alp sib afr
   voicingswitch t_s\\
   ipa dʑ
   lengthmod 5
@@ -297,7 +297,7 @@ endphoneme
 // Sibilant Fricatives
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -307,7 +307,7 @@ phoneme s
 endphoneme
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -316,7 +316,7 @@ phoneme z
 endphoneme
 
 phoneme s\\
-  vls pal frc sibilant palatal
+  vls alp sib frc
   ipa ɕ
   lengthmod 3
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
@@ -345,7 +345,7 @@ phoneme v
 endphoneme
 
 phoneme C
-  vls pal frc palatal
+  vls pal frc
   ipa ç
   lengthmod 3
   Vowelin  f1=0  f2=2700 400 600  f3=200 70
@@ -357,7 +357,7 @@ endphoneme
 // Approximant
 
 phoneme j
-  liquid palatal starttype #i
+  liquid pal starttype #i
   lengthmod 7
 
   NextVowelStarts

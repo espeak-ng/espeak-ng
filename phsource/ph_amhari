@@ -5,20 +5,20 @@
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 200
   IfNextVowelAppend(;)
   FMT(vowel/ii_5)
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 220
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme y
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɨ
   length 180
 
@@ -34,7 +34,7 @@ endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 220
   IF nextPhW(isPalatal) THEN
     FMT(vdiph/ai_5)
@@ -44,7 +44,7 @@ endphoneme
 
 
 phoneme @
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 220
   IF nextPhW(isPalatal) THEN
     FMT(vdiph/@i_2)
@@ -54,14 +54,14 @@ endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 220
   FMT(vowel/o-_4)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 220
   FMT(vowel/u_2)
 endphoneme
@@ -73,7 +73,7 @@ endphoneme
 
 
 phoneme p`
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 gpaus
@@ -83,7 +83,7 @@ endphoneme
 
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
     ChangePhoneme(B)
   ENDIF
@@ -92,7 +92,7 @@ endphoneme
 
 
 phoneme t`
-  vls alv stop
+  vls alv stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
@@ -105,7 +105,7 @@ endphoneme
 
 
 phoneme tS`
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
@@ -118,7 +118,7 @@ endphoneme
 
 
 phoneme k`
-  vls vel stop
+  vls vel stp
   lengthmod 2
   Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
   Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20

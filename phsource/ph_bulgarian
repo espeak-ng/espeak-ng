@@ -1,7 +1,7 @@
 // Bulgarian
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 130
   IfNextVowelAppend(;)
   IF thisPh(isNotStressed) THEN
@@ -11,7 +11,7 @@ phoneme i
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   IF thisPh(isNotStressed) THEN
     FMT(vowel/e_mid2)
@@ -20,7 +20,7 @@ phoneme e
 endphoneme
 
 phoneme @
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
   IF thisPh(isNotStressed) THEN
     FMT(vowel/V)
@@ -29,7 +29,7 @@ phoneme @
 endphoneme
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   IF thisPh(isNotStressed) THEN
     IF nextVowel(isStressed) THEN
@@ -43,7 +43,7 @@ phoneme a
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   IF thisPh(isNotStressed) THEN
     FMT(vowel/o_mid)
@@ -52,7 +52,7 @@ phoneme o
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   IF thisPh(isNotStressed) THEN
     FMT(vowel/u_2)
@@ -81,8 +81,8 @@ phoneme r
 endphoneme
 
 phoneme x
-  voicingswitch x   // [x] doesn't switch to [Q]
   import_phoneme base/x
+  voicingswitch x   // [x] doesn't switch to [Q]
 endphoneme
 
 
@@ -93,8 +93,8 @@ endphoneme
 
 
 phoneme g;
-  vcd vel stop
-  palatal
+  vcd vel stp
+  pzd
   voicingswitch k
   lengthmod 5
   Vowelin f1=1  f2=2300 300 300  f3=300 80

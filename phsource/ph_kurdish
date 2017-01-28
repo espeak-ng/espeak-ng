@@ -1,14 +1,14 @@
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 190
   FMT(vowel/i_6)
 endphoneme
 
 
 phoneme I
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 110
   IF nextPh(j) THEN
     FMT(vowel/ii)
@@ -19,83 +19,83 @@ endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 220
   FMT(vowel/e_3)
 endphoneme
 
 
 phoneme E
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 150
   FMT(vowel/ee_6)
 endphoneme
 
 phoneme E#
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   FMT(vowel/ee_2)
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 210
   FMT(vowel/aa#)
 endphoneme
 
 
 phoneme 8
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 160
   FMT(vowel/8_5)
 endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 220
   FMT(vowel/o_7)
 endphoneme
 
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 130
   FMT(vowel/uu#)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_6)
 endphoneme
 
 
 phoneme y
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/y_5)
 endphoneme
 
 
 phoneme eI
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 280
   FMT(vdiph/eei_3)
 endphoneme
 
 
 phoneme eU
-  vowel starttype #e endtype #i
+  vwl starttype #e endtype #i
   length 280
   FMT(vdiph/eeu_3)
 endphoneme
 
 
 phoneme V
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 160
   FMT(vowel/V_2)
 endphoneme
@@ -111,7 +111,7 @@ endphoneme
 
 
 phoneme c
-  vls pal stop
+  vls pal stp
   lengthmod 2
   voicingswitch J
   Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
@@ -124,7 +124,7 @@ endphoneme
 
 
 phoneme J
-  vcd pla stop
+  vcd pla stp
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80

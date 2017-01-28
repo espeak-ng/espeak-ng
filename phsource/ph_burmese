@@ -38,7 +38,7 @@ endphoneme
 //===========
 
 //phoneme X
-//  vowel starttype #X endtype #X
+//  vwl starttype #X endtype #X
 //  length XXX
 //  FMT(vowel/X_X) //refers to binary file in vowel/ directory
 //endphoneme
@@ -49,7 +49,7 @@ endphoneme
 
 phoneme ə    //  Schwa 
 //cannot be followed by ɴ
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   unstressed
 //   IF nextPh(3) THEN //creaky tone
 	//length 
@@ -77,7 +77,7 @@ endphoneme
 
 phoneme ɛ 
 //cannot be followed by ɴ
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   IF nextPh(3) THEN //creaky tone
 	//length 184 223 202
 	length 203
@@ -106,7 +106,7 @@ phoneme ɛ
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   IF nextPh(3) THEN //creaky tone
 	//length 159 187 158
 	length 168
@@ -134,7 +134,7 @@ phoneme i
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   IF nextPh(3) THEN //creaky tone
 	//length 191 209 191
 	length 197
@@ -163,7 +163,7 @@ phoneme e
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   IF nextPh(3) THEN //creaky tone
 	//length 198 216 187
 	length 200
@@ -192,7 +192,7 @@ phoneme u
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   IF nextPh(3) THEN //creaky tone
 	//length 216 277 216
 	length 236
@@ -221,7 +221,7 @@ phoneme o
 endphoneme
 
 phoneme ɔ
-  vowel
+  vwl
   IF nextPh(4) THEN //diphthong with checked tone
   	starttype #o  endtype #u
   ELSE
@@ -255,7 +255,7 @@ phoneme ɔ
 endphoneme
 
 phoneme a
-  vowel
+  vwl
   IF nextPh(4) THEN //diphthong with checked tone
   	starttype #a  endtype #i
   ELSE
@@ -289,7 +289,7 @@ endphoneme
 //Nasal vowels cannot take checked tone
 
 phoneme iɴ
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -310,7 +310,7 @@ phoneme iɴ
 endphoneme
 
 phoneme eɴ
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -331,7 +331,7 @@ phoneme eɴ
 endphoneme
 
 phoneme uɴ
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -352,7 +352,7 @@ phoneme uɴ
 endphoneme
 
 phoneme oɴ
-  vowel starttype #a endtype #u
+  vwl starttype #a endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length 
@@ -373,7 +373,7 @@ phoneme oɴ
 endphoneme
 
 phoneme ɔɴ
-  vowel  starttype #o  endtype #u
+  vwl  starttype #o  endtype #u
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length
@@ -394,7 +394,7 @@ phoneme ɔɴ
 endphoneme
 
 phoneme aɴ
-  vowel  starttype #a  endtype #i
+  vwl  starttype #a  endtype #i
 //  IF nextPh(3) THEN //creaky tone
 	//length 
 //	length
@@ -420,107 +420,107 @@ endphoneme
 //===========
 
 phoneme mh //voiceless
-  vls blb nasal
+  vls blb nas
 endphoneme
 
 phoneme m
-  //vcd blb nasal
+  //vcd blb nas
   import_phoneme base/m
 endphoneme
 
 phoneme nh
-  vls alv nasal
+  vls alv nas
 endphoneme
 
 phoneme n
-  //vcd alv nasal
+  //vcd alv nas
   import_phoneme base/n
 endphoneme
 
 phoneme ɲh
-  vls pal nasal
+  vls pal nas
 endphoneme
 
 phoneme ɲ
-  //vcd pal nasal palatal
+  //vcd pal nasal pzd
   import_phoneme base/n^
 endphoneme
 
 phoneme ŋh
-  vls vel nasal
+  vls vel nas
 endphoneme
 
 phoneme ŋ
-  //vcd vel nasal
+  //vcd vel nas
   import_phoneme base/N
 endphoneme
 
 //phoneme ɴ
-//  vcd glt nasal
+//  vcd glt nas
 //endphoneme
 
 phoneme p
-  //vls blb stop
+  //vls blb stp
   import_phoneme base/b
 endphoneme
 
 phoneme b
-  //vcd blb stop
+  //vcd blb stp
   import_phoneme base/b
 endphoneme
 
 phoneme ph //aspirated
-  vls blb stop
+  //vls blb stp
   import_phoneme base/p
 endphoneme
 
 phoneme t
-  //vls alv stop
+  //vls alv stp
   import_phoneme base/d
 endphoneme
 
 phoneme d
-  //vcd alv stop
+  //vcd alv stp
   import_phoneme base/d
 endphoneme
 
 phoneme th
-  vls alv stop
+  //vls alv stp
   import_phoneme base/t
 endphoneme
 
 phoneme tɕ
-  //vls pla afr sibilant
+  //vls pla afr sib
   import_phoneme base/tS
 endphoneme
 
 phoneme dʑ
-  //vcd pla afr sibilant
+  //vcd pla afr sib
   import_phoneme base/dZ
 endphoneme
 
 phoneme tɕh
-  vls pla afr sibilant
+  vls pla afr sib
   // aspirated
 endphoneme
 
 phoneme k
-  //vls vel stop
+  //vls vel stp
   import_phoneme base/k
 endphoneme
 
 phoneme g
-  //vcd vel stop
+  //vcd vel stp
   import_phoneme base/g
 endphoneme
 
 phoneme kh
-  vls vel stop
+  //vls vel stp
   import_phoneme base/k
 endphoneme
 
 phoneme ʔ
-  vls glt stop
+  vls glt stp
 endphoneme
 
 phoneme θ
@@ -534,21 +534,21 @@ phoneme ð
 endphoneme
 
 phoneme s
-  //vls alv frc sibilant
+  //vls alv frc sib
   import_phoneme base/s
 endphoneme
 
 phoneme z
-  //vcd alv frc sibilant
+  //vcd alv frc sib
   import_phoneme base/z
 endphoneme
 
-phoneme sh //aspirated not palatal
-  vls alv frc sibilant
+phoneme sh //aspirated not pzd
+  vls alv frc sib
 endphoneme
 
 phoneme ʃ
-  //vls pla frc sibilant
+  //vls pla frc sib
   import_phoneme base/S
 endphoneme
 

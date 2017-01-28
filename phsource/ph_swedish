@@ -9,7 +9,7 @@
 //=======
 
 phoneme i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 180
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
@@ -19,40 +19,40 @@ phoneme i:
 endphoneme
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 130
   IfNextVowelAppend(;)
   FMT(vowel/ii_3)
 endphoneme
 
 phoneme e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 210
   FMT(vowel/e_2)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   ChangeIfUnstressed(E-)
   FMT(vowel/ee)
 endphoneme
 
 phoneme E:
-  vowel  starttype #e  endtype #@
+  vwl  starttype #e  endtype #@
   length 220
   FMT(vowel/ee_1)
 endphoneme
 
 phoneme E3
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   ChangeIfDiminished(@)
   FMT(vowel/ee_6)
 endphoneme
 
 phoneme E-
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ə
   unstressed
   length 140
@@ -62,38 +62,38 @@ endphoneme
 
 
 phoneme y:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 220
   FMT(vowel/y_5)
 endphoneme
 
 phoneme y
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   FMT(vowel/yy_3)
 endphoneme
 
 phoneme u-
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   ipa ʉ
   length 200
   FMT(vowel/u#_2)
 endphoneme
 
 phoneme Y:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 220
   FMT(vowel/y#_2)
 endphoneme
 
 phoneme W
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 140
   FMT(vowel/oe_4)
 endphoneme
 
 phoneme 8
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   FMT(vowel/8_2)
 endphoneme
@@ -101,7 +101,7 @@ endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 140
   IF thisPh(isNotStressed) AND thisPh(isWordEnd) THEN
     FMT(vowel/a#_2)
@@ -110,37 +110,37 @@ phoneme a
 endphoneme
 
 phoneme &
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 140
   FMT(vowel/&)
 endphoneme
 
 phoneme A:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 250
   FMT(vowel/aa_4)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   FMT(vowel/oo)
 endphoneme
 
 phoneme o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 210
   FMT(vowel/o)
 endphoneme
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   FMT(vowel/uu_4)
 endphoneme
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 210
   FMT(vowel/u_bck)
 endphoneme

@@ -9,7 +9,7 @@ phoneme : //  Lengthen the previous vowel by "length"
 endphoneme
 
 phoneme @
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 130
 
   ChangeIfDiminished(@-)
@@ -21,20 +21,20 @@ endphoneme
 
 
 phoneme V
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 150
   CALL hi/V
 endphoneme
 
 
 phoneme @2
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 150
   FMT(vowel/@_low)
 endphoneme
 
 phoneme @3
-  vowel flag1 starttype #@  endtype #@
+  vwl flag1 starttype #@  endtype #@
   length 150
   ChangeIfDiminished(@-)
   FMT(vowel/@_3)

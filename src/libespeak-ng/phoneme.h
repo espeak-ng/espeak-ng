@@ -113,6 +113,11 @@ typedef enum {
 	// fortis and lenis
 	fts = FEATURE_T('f', 't', 's'),
 	lns = FEATURE_T('l', 'n', 's'),
+	// length
+	est = FEATURE_T('e', 's', 't'),
+	hlg = FEATURE_T('h', 'l', 'g'),
+	lng = FEATURE_T('l', 'n', 'g'),
+	elg = FEATURE_T('e', 'l', 'g'),
 #	undef FEATURE_T
 } phoneme_feature_t;
 
@@ -144,7 +149,6 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phTRILL    0x80
 #define phPALATAL  0x200
 #define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
-#define phDONTLIST 0x2000  // don't list in dict_phonemes
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position
@@ -202,7 +206,7 @@ typedef struct {
 	unsigned char code;          // the phoneme number
 	unsigned char type;          // phVOWEL, phPAUSE, phSTOP etc
 	unsigned char start_type;
-	unsigned char end_type;
+	unsigned char end_type;      // vowels: endtype; consonant: voicing switch
 	unsigned char std_length;    // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
 	unsigned char length_mod;    // a length_mod group number, used to access length_mod_tab
 } PHONEME_TAB;
@@ -223,7 +227,6 @@ typedef struct {
 	PHONEME_TAB *phoneme_tab_ptr;
 	int n_phonemes;
 	int includes;            // also include the phonemes from this other phoneme table
-	int equivalence_tables;   // lists of equivalent phonemes to match other languages, byte index into phondata
 } PHONEME_TAB_LIST;
 
 // table of phonemes to be replaced with different phonemes, for the current voice

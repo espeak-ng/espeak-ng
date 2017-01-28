@@ -2,7 +2,7 @@
 // Inherits phonemes from Esperanto
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/e_mid2)
 endphoneme

@@ -1,20 +1,20 @@
  
 phoneme @    //  Schwa, can be stressed
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 140
   FMT(vowel/@)
 endphoneme
 
 
 phoneme @:
-  vowel   starttype #@  endtype #@
+  vwl   starttype #@  endtype #@
   length 270
   FMT(vowel/@)
 endphoneme
 
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/ii_6)
@@ -22,7 +22,7 @@ endphoneme
 
 
 phoneme i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 270
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -30,84 +30,84 @@ endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   FMT(vowel/e)
 endphoneme
 
 
 phoneme e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 270
   FMT(vowel/e)
 endphoneme
 
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   FMT(vowel/ee_5)
 endphoneme
 
 
 phoneme E:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 270
   FMT(vowel/ee_5)
 endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 140
   FMT(vowel/a#)
 endphoneme
 
 
 phoneme a:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 270
   FMT(vowel/a_6)
 endphoneme
 
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   FMT(vowel/oo)
 endphoneme
 
 
 phoneme O:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 270
   FMT(vowel/oo)
 endphoneme
 
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 140
   FMT(vowel/o)
 endphoneme
 
 
 phoneme o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 270
   FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 140
   FMT(vowel/u_2)
 endphoneme
 
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 270
   FMT(vowel/u)
 endphoneme

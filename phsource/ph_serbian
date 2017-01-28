@@ -4,7 +4,7 @@
 // to be included here.
 
 phoneme I
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 120
   IfNextVowelAppend(;)
   FMT(vowel/ii_6)
@@ -12,7 +12,7 @@ endphoneme
 
 
 phoneme &
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   ipa ɐ
   length 140
   FMT(vowel/a#)
@@ -20,8 +20,7 @@ endphoneme
 
 
 phoneme r*   // this is [R] from Slovak/Czech
-  liquid
-  trill
+  liquid trl
   ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
@@ -32,7 +31,7 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -45,7 +44,7 @@ endphoneme
 
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   lengthmod 5
   voicingswitch t
   Vowelin f1=2  f2=1700 -300 300  f3=-100 80 amp=16
@@ -93,7 +92,7 @@ endphoneme
 
 
 phoneme dZ
-  vcd pla afr sibilant
+  vcd pla afr sib
   lengthmod 5
   voicingswitch tS
   Vowelin f1=2  f2=2300 200 400  f3=100 80
@@ -108,7 +107,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pla afr sibilant palatal
+  vcd alp sib afr
   lengthmod 5
   ipa dʑ
   voicingswitch tS;
@@ -123,7 +122,7 @@ endphoneme
 
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   lengthmod 2
   voicingswitch dZ
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -132,7 +131,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sibilant palatal
+  vls alp sib afr
   lengthmod 2
   ipa tɕ
   voicingswitch dZ;
@@ -142,7 +141,7 @@ endphoneme
 
 
 phoneme Z
-  vcd pla frc sibilant
+  vcd pla frc sib
   lengthmod 6
   voicingswitch S
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
@@ -155,7 +154,7 @@ endphoneme
 
 
 phoneme S
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   voicingswitch Z
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80

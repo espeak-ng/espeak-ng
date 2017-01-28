@@ -4,7 +4,7 @@
 //====================================================
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 170
   IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
     FMT(vowel/a, 75)
@@ -13,7 +13,7 @@ phoneme a
 endphoneme
 
 phoneme a~
-  vowel  starttype #a  endtype #a
+  vwl  starttype #a  endtype #a
   length 190
   IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
     FMT(vnasal/a#_n2, 90)
@@ -22,7 +22,7 @@ phoneme a~
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 165
   IF thisPh(isWordEnd) AND thisPh(isStressed) THEN
     FMT(vowel/e)
@@ -31,56 +31,56 @@ phoneme e
 endphoneme
 
 phoneme e~
-  vowel  starttype #e  endtype #e
+  vwl  starttype #e  endtype #e
   length 200
   FMT(vnasal/e_n)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 160
   FMT(vowel/i)
 endphoneme
 
 phoneme i~
-  vowel  starttype #i  endtype #i
+  vwl  starttype #i  endtype #i
   length 190
   FMT(vnasal/i_n)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   FMT(vowel/oo)
 endphoneme
 
 phoneme o~
-  vowel  starttype #o  endtype #o
+  vwl  starttype #o  endtype #o
   length 190
   FMT(vnasal/o_n)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 155
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme u~
-  vowel  starttype #u  endtype #u
+  vwl  starttype #u  endtype #u
   length 185
   FMT(vnasal/u_n)
 endphoneme
 
 phoneme y
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 185
   FMT(vowel/yy_4)
 endphoneme
 
 phoneme y~ // guarani ỹ
   ipa ɨ̃
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 195
   FMT(vowel/i#_7)
 endphoneme
@@ -89,7 +89,7 @@ endphoneme
 // consonants
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
     IF prevPh(isPause) OR prevPh(isNasal) THEN
     ELSE
@@ -114,7 +114,7 @@ phoneme r
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   lengthmod 5
   voicingswitch k
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80

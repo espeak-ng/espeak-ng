@@ -48,9 +48,6 @@ Instead, it is designed to be a transcription guide for authors of espeak-ng
 languages and voices on how to specify phonemes so that the IPA and feature
 transcriptions are consistent.
 
-__NOTE:__ This model is in the process of being implemented. As such, the
-current implementation does not reflect this document.
-
 ## Consonants
 
 |                             | `blb` |       | `lbd` |       | `dnt` |       | `alv` |       | `pla` |       | `rfx` |       | `alp` |       | `pal` |       | `vel` |       | `uvl` |       | `phr` |       | `glt` |       |
@@ -329,14 +326,6 @@ the [length](#length) suprasegmentals are used instead.
 
 ## Suprasegmentals
 
-### Stress
-
-| Feature | Symbol | Name             |
-|---------|--------|------------------|
-| `st1`   | ˈ◌     | primary stress   |
-| `st2`   | ˌ◌     | secondary stress |
-| `st3`   | ˈˈ◌    | extra stress     |
-
 ### Length
 
 | Feature | Symbol | Name            |
@@ -344,53 +333,7 @@ the [length](#length) suprasegmentals are used instead.
 | `est`   | ◌̆      | extra short     |
 | `hlg`   | ◌ˑ     | half-long       |
 | `lng`   | ◌ː     | long            |
-
-### Rhythm
-
-| Feature | Symbol | Name              |
-|---------|--------|-------------------|
-| `sbr`   | ◌.◌    | syllable break    |
-| `lnk`   | ◌‿◌    | linked (no break) |
-
-### Intonation
-
-| Feature | Symbol | Name                     |
-|---------|--------|--------------------------|
-| `fbr`   | &#124; | minor (foot) break       |
-| `ibr`   | ‖      | major (intonation) break |
-| `glr`   | ↗      | global rise              |
-| `glf`   | ↘      | global fall              |
-
-### Tone Stepping
-
-| Feature | Symbol | Name        |
-|---------|--------|-------------|
-| `ust`   | ꜛ◌     | upstep      |
-| `dst`   | ꜜ◌     | downstep    |
-
-### Tones
-
-Tones are defined using the following 3 properties:
-
-	tone_start  <value>
-	tone_middle <value>
-	tone_end    <value>
-
-The `<value>` field for these properties is a number with one of the following
-values:
-
-| Tone               | Symbol | `<value>` |
-|--------------------|--------|-----------|
-| extra high (top)   | ◌˥     | `5`       |
-| high               | ◌˦     | `4`       |
-| mid                | ◌˧     | `3`       |
-| low                | ◌˨     | `2`       |
-| extra low (bottom) | ◌˩     | `1`       |
-
-A *level* tone can be specified by just using the `tone_start` value. A *raising*
-or *falling* tone can be specified using the `tone_start` and `tone_end` values.
-A *raising-falling* (*peaking*) or *falling-raising* (*dipping*) tone can be
-specified using all three values.
+| `elg`   | ◌ːː    | extra long      |
 
 ## References
 

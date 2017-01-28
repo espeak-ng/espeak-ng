@@ -1,37 +1,37 @@
 // Czech phonemes inherit from Slovak
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 120
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme a:
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 290
   FMT(vowel/a_3)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 120
   FMT(vowel/oo_2)
 endphoneme
 
 phoneme u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 280
   FMT(vowel/u)
 endphoneme
 
 phoneme oU
-  vowel starttype #o endtype #u
+  vwl starttype #o endtype #u
   length 260
   FMT(vdiph/oou)
 endphoneme
 
 phoneme r-     // syllabic r
-  vowel  starttype #@  endtype #@
+  vwl  starttype #@  endtype #@
   ipa rU+0329
   length 120
   FMT(vowelr/r-voc)

@@ -5,7 +5,7 @@
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 140
 
   IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND nextPh(a) THEN
@@ -20,26 +20,26 @@ endphoneme
 
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 140
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/i)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 150
   FMT(vowel/oo)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   FMT(vowel/u_bck)
 endphoneme
@@ -48,7 +48,7 @@ endphoneme
 // CONSONANTS
 
 phoneme t         // revert to alveolar /t/
-  vls alv stop
+  vls alv stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=1  f2=1600 -300 300  f3=-100 80  amp=11
@@ -67,7 +67,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

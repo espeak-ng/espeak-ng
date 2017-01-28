@@ -27,7 +27,7 @@
 // ''atai'' /a/ f1 840 f2 1540  f3 2892  f4 3269
 
 phoneme a
-  vowel starttype #@  endtype #@
+  vwl starttype #@  endtype #@
   ipa ɑ
   unstressed
   length 190
@@ -37,14 +37,14 @@ endphoneme
 
 phoneme e
   ipa e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   FMT(vowel/e)
 endphoneme
 
 phoneme i
   ipa i
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 170
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -52,35 +52,35 @@ endphoneme
 
 phoneme o
   ipa o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 200
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u
   ipa u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 200
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme I
   ipa ɯ
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 180
   FMT(vowel/u#_7)
 endphoneme
 
 phoneme y
   ipa y
-  vowel starttype #u  endtype #u
+  vwl starttype #u  endtype #u
   length 180
   FMT(vowel/y)
 endphoneme
 
 phoneme O
   ipa oe
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 150
   FMT(vowel/oe)
 endphoneme
@@ -93,7 +93,7 @@ endphoneme
 
 phoneme a:
   ipa ɑ:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 325
   FMT(vowel/aa_6)
 endphoneme
@@ -101,14 +101,14 @@ endphoneme
 
 phoneme e:
   ipa e:
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 300
   FMT(vowel/e)
 endphoneme
 
 phoneme i:
   ipa i:
-  vowel starttype #i endtype #i
+  vwl starttype #i endtype #i
   length 300
   IfNextVowelAppend(;)
   FMT(vowel/i)
@@ -116,35 +116,35 @@ endphoneme
 
 phoneme o:
   ipa o:
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 325
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u:
   ipa u:
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 325
   FMT(vowel/u_bck)
 endphoneme
 
 phoneme I:
   ipa ɯ:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 300
   FMT(vowel/u#_7)
 endphoneme
 
 phoneme y:
   ipa y:
-  vowel starttype #u  endtype #u
+  vwl starttype #u  endtype #u
   length 275
   FMT(vowel/y)
 endphoneme
 
 phoneme O:
   ipa oe:
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   length 275
   FMT(vowel/oe)
 endphoneme
@@ -156,9 +156,8 @@ endphoneme
 // ========== //
 
 phoneme r
+  liquid trl
   ipa r
-  liquid
-  trill
   lengthmod 6
   Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
@@ -237,7 +236,7 @@ endphoneme
 
 phoneme j // **y**es
   ipa j
-  liquid palatal starttype #i
+  liquid pal starttype #i
   lengthmod 7
 
   IF nextPhW(isVowel) THEN
@@ -265,7 +264,7 @@ endphoneme
 
 phoneme m
   ipa m
-  vcd blb nasal
+  vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
 
@@ -298,7 +297,7 @@ endphoneme
 
 phoneme n
   ipa n
-  vcd alv nasal
+  vcd alv nas
   Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
@@ -328,7 +327,7 @@ endphoneme
 
 phoneme N // si**ng**
   ipa N
-  vcd vel nasal
+  vcd vel nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 8            // longer than 'n'
 
@@ -400,7 +399,7 @@ endphoneme
 
 phoneme v // english v for now
   ipa v
-  vowel  starttype #a  endtype #@
+  vwl  starttype #a  endtype #@
   length 170
   ChangeIfDiminished(@)
   FMT(vowel/V_6)
@@ -408,7 +407,7 @@ endphoneme
 
 phoneme b
   ipa b
-  vcd blb stop
+  vcd blb stp
   voicingswitch p 
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   lengthmod 5
@@ -448,13 +447,12 @@ endphoneme
 
 phoneme ts
   ipa ts        
-  Length 10
   import_phoneme consonants/ts
 endphoneme
 
 phoneme tS     // **ch**urch
   ipa tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -467,7 +465,7 @@ endphoneme
 
 phoneme dZ // **j**udge
   ipa dZ
-  vcd pla afr sibilant
+  vcd pla afr sib
   voicingswitch tS
   lengthmod 5
   Vowelin f1=2  f2=2300 200 400  f3=100 80
@@ -486,7 +484,7 @@ endphoneme
 
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
@@ -504,7 +502,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
@@ -531,7 +529,7 @@ endphoneme
 
 phoneme z
   ipa z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -561,7 +559,7 @@ endphoneme
 
 phoneme p
   ipa p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -584,7 +582,7 @@ endphoneme
 
 phoneme t        // dental /t/
   ipa t[
-  vls dnt stop
+  vls dnt stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
@@ -599,7 +597,7 @@ endphoneme
 
 phoneme d   // dental /d/
   ipa d[
-  vcd dnt stop
+  vcd dnt stp
   voicingswitch t
   lengthmod 5
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80
@@ -622,7 +620,7 @@ endphoneme
 
 phoneme q
   ipa q
-  vls uvl stop
+  vls uvl stp
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
   Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
@@ -638,7 +636,7 @@ endphoneme
 
 phoneme s
   ipa s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -655,7 +653,7 @@ endphoneme
 
 phoneme S // **sh**op
   ipa S
-  vls pla frc sibilant
+  vls pla frc sib
   voicingswitch Z
   lengthmod 3
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80

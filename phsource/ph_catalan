@@ -4,14 +4,14 @@
 //====================================================
 
 phoneme a
-  vowel starttype #a endtype #a
+  vwl starttype #a endtype #a
   length 180
   ChangeIfUnstressed(a#)
   FMT(vowel/a_6)
 endphoneme
 
 phoneme a#
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
   ipa ɐ
   unstressed
   length 170
@@ -19,48 +19,48 @@ phoneme a#
 endphoneme
 
 phoneme e
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 170
   ChangeIfUnstressed(@)
   FMT(vowel/e)
 endphoneme
 
 phoneme E
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 180
   ChangeIfUnstressed(@)
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme E2    // don't reduce
-  vowel starttype #e endtype #e
+  vwl starttype #e endtype #e
   length 180
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme O
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   ChangeIfUnstressed(U)
   FMT(vowel/oo)
 endphoneme
 
 phoneme o
-  vowel starttype #o endtype #o
+  vwl starttype #o endtype #o
   length 170
   ChangeIfUnstressed(U)
   FMT(vowel/o)
 endphoneme
 
 phoneme U
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   unstressed
   length 160
   FMT(vowel/uu_2)
 endphoneme
 
 phoneme u
-  vowel starttype #u endtype #u
+  vwl starttype #u endtype #u
   length 160
   ChangeIfUnstressed(U)
   FMT(vowel/u_bck)

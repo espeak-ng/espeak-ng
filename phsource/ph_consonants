@@ -3,7 +3,7 @@
 //    import_phoneme consonants/ts
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
   voicingswitch dz
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -16,7 +16,7 @@ endphoneme
 
 
 phoneme dz
-  vcd alv afr sibilant
+  vcd alv afr sib
   voicingswitch ts
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50
@@ -34,7 +34,7 @@ endphoneme
 
 
 phoneme p-  // unaspirated
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -51,7 +51,7 @@ endphoneme
 
 
 phoneme ph  // aspirated
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -67,7 +67,7 @@ endphoneme
 
 
 phoneme t-
-  vls alv stop
+  vls alv stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -80,7 +80,7 @@ endphoneme
 
 
 phoneme c2
-  vls pal afr sibilant
+  vls pal afr sib
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
@@ -93,7 +93,7 @@ endphoneme
 
 
 phoneme k-  // unaspirated
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 300  f3=-150 80
@@ -106,7 +106,7 @@ endphoneme
 
 
 phoneme kh
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 300  f3=-150 80
@@ -121,7 +121,7 @@ phoneme kh
 endphoneme
 
 phoneme k#
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=1  f2=1400 -100 100  f3=-150 80
@@ -139,7 +139,7 @@ phoneme k#
 endphoneme
 
 phoneme s2  // second part of a long [s:]
-  vls alv frc sibilant
+  vls alv frc sib
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   lengthmod 3
   IF nextPh(isPause2) THEN
