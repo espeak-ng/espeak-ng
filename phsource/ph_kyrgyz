@@ -236,7 +236,7 @@ endphoneme
 
 phoneme j // **y**es
   ipa j
-  liquid palatal starttype #i
+  liquid pal starttype #i
   lengthmod 7
 
   IF nextPhW(isVowel) THEN

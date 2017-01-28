@@ -357,7 +357,7 @@ endphoneme
 // Approximant
 
 phoneme j
-  liquid palatal starttype #i
+  liquid pal starttype #i
   lengthmod 7
 
   NextVowelStarts

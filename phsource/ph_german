@@ -308,7 +308,7 @@ endphoneme
 
 
 phoneme j
-  liquid palatal
+  liquid pal
   lengthmod 7
 
   IF nextPh(isVowel) THEN

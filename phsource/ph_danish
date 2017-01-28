@@ -915,7 +915,7 @@ phoneme t
 endphoneme
 
 phoneme j
-  liquid palatal
+  liquid pal
   lengthmod 7
 // no link with next vowel
 IF thisPh(isWordEnd) THEN
