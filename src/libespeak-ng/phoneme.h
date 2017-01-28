@@ -140,7 +140,6 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 // phoneme properties
 //   bits 16-19 give place of articulation
 #define phARTICULATION 0xf0000
-#define phWAVE     0x01
 #define phUNSTRESSED 0x02
 #define phVOICELESS  0x08
 #define phVOICED   0x10
@@ -148,7 +147,6 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phNOLINK   0x40
 #define phTRILL    0x80
 #define phPALATAL  0x200
-#define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position

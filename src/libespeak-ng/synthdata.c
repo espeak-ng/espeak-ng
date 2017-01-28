@@ -987,9 +987,6 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			break;
 		}
 
-		if (ph->phflags & phSINGLE_INSTN)
-			end_flag = 1;  // this phoneme has a one-instruction program, with an implicit Return
-
 		if ((end_flag == 1) && (n_return > 0)) {
 			// return from called procedure or phoneme
 			end_flag = 0;
