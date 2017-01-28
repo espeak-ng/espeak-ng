@@ -276,7 +276,7 @@ endphoneme
 
 
 phoneme d
-  vcd dnt stop
+  vcd dnt stp
   voicingswitch t
   lengthmod 5
   Vowelin f1=2  f2=1700 -100 200  f3=0 80

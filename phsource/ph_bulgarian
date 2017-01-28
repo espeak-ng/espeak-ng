@@ -93,7 +93,7 @@ endphoneme
 
 
 phoneme g;
-  vcd vel stop
+  vcd vel stp
   palatal
   voicingswitch k
   lengthmod 5

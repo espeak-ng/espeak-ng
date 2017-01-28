@@ -49,7 +49,7 @@ endphoneme
 // consonants
 
 phoneme k-  //  /ㄲ/
-  vls vel stop
+  vls vel stp
   lengthmod 3
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
@@ -62,7 +62,7 @@ phoneme kh  //  /ㅋ/
 endphoneme
 
 phoneme t-  //  /ㄸ/
-  vls alv stop
+  vls alv stp
   lengthmod 3
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80  rms=40
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20

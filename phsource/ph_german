@@ -241,7 +241,7 @@ endphoneme
 //===========
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -410,7 +410,7 @@ phoneme b
 endphoneme
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   IF nextPh(l2) THEN
     ChangePhoneme(t)
@@ -433,7 +433,7 @@ phoneme d
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   IF nextPh(l2) THEN
     ChangePhoneme(k)

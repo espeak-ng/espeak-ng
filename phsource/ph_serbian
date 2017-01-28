@@ -32,7 +32,7 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -45,7 +45,7 @@ endphoneme
 
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   lengthmod 5
   voicingswitch t
   Vowelin f1=2  f2=1700 -300 300  f3=-100 80 amp=16

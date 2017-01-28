@@ -236,7 +236,7 @@ endphoneme
 
 
 phoneme t
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0 f2=1600 -300 300 f3=-100 80
@@ -249,7 +249,7 @@ endphoneme
 
 
 phoneme t;
-  vls pal stop palatal
+  vls pal stp palatal
   lengthmod 2
   voicingswitch d;
   Vowelin f1=0 f2=2700 400 600 f3=300 80 rate len=70
@@ -262,7 +262,7 @@ endphoneme
 
 
 phoneme d
-  vcd dnt stop
+  vcd dnt stp
   lengthmod 5
   voicingswitch t
   Vowelin f1=2 f2=1500 -300 300 f3=-150 80
@@ -283,7 +283,7 @@ endphoneme
 
 
 phoneme d;
-  vcd alv stop palatal
+  vcd alv stp palatal
   lengthmod 5
   voicingswitch t;
   Vowelin f1=2 f2=2700 400 600 f3=200 80 rate len=80

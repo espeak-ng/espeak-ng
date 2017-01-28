@@ -204,7 +204,7 @@ endphoneme
 
 
 phoneme p;
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   CALL base2/p
@@ -213,7 +213,7 @@ endphoneme
 
 
 phoneme t;        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   CALL base2/t
@@ -258,7 +258,7 @@ endphoneme
 
 
 phoneme  b;
-  vcd blb stop
+  vcd blb stp
   voicingswitch p;
   lengthmod 5
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk colr=1
@@ -271,7 +271,7 @@ endphoneme
 
 
 phoneme d;       // dental variant of /d/
-  vcd dnt stop
+  vcd dnt stp
   voicingswitch t;
   lengthmod 5
   CALL base2/d

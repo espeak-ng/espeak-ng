@@ -618,7 +618,7 @@ endphoneme
 // uses the consonants in file "phonemes", unless overridden here
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   starttype #cFR endtype #cFR
   voicingswitch p
   lengthmod 6
@@ -654,7 +654,7 @@ endphoneme
 
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   starttype #cFR endtype #cFR
   voicingswitch t
   lengthmod 5
@@ -694,7 +694,7 @@ endphoneme
 
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   starttype #cFR endtype #cFR
   voicingswitch k
   lengthmod 5
@@ -720,7 +720,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   starttype #cFR endtype #cFR
   voicingswitch g
   length 50
@@ -784,7 +784,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
   starttype #cFR endtype #cFR
   voicingswitch b
   lengthmod 2
@@ -806,7 +806,7 @@ endphoneme
 
 
 phoneme p2 // silent unless followed by vowel
-  vls blb stop
+  vls blb stp
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -857,7 +857,7 @@ endphoneme
 
 
 phoneme t
-  vls alv stop
+  vls alv stp
   starttype #cFR endtype #cFR
   voicingswitch d
   lengthmod 2
@@ -876,7 +876,7 @@ endphoneme
 
 
 phoneme t2      // silent unless followed by vowel
-  vls alv stop
+  vls alv stp
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
   Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
@@ -891,7 +891,7 @@ endphoneme
 
 
 phoneme t3      // silent unless followed by vowel or pause
-  vls alv stop
+  vls alv stp
   lengthmod 2
   IF nextPh(isPause) THEN
     ChangePhoneme(t)

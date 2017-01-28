@@ -324,7 +324,7 @@ endphoneme
 
 
 phoneme c         // used in -tjie
-  vls pal stop palatal
+  vls pal stp palatal
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3= 200 80

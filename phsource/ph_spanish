@@ -85,7 +85,7 @@ endphoneme
 
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   lengthmod 5
   voicingswitch k
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
@@ -109,7 +109,7 @@ phoneme g
 endphoneme
 
 phoneme d
-  vcd dnt stop
+  vcd dnt stp
 
   IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(j) THEN
     IF prevPh(isPause) OR prevPh(isNasal) OR prevPh(l) THEN
@@ -122,7 +122,7 @@ phoneme d
 endphoneme
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
 
   IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
     IF prevPh(isPause) OR prevPh(isNasal) THEN

@@ -111,7 +111,7 @@ endphoneme
 
 
 phoneme c
-  vls pal stop
+  vls pal stp
   lengthmod 2
   voicingswitch J
   Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
@@ -124,7 +124,7 @@ endphoneme
 
 
 phoneme J
-  vcd pla stop
+  vcd pla stp
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80

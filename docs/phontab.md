@@ -150,7 +150,6 @@ must be present.
 |-----------|-------------|
 | `liquid`  | semi-vowels, such as:  `r`, `l`, `j`, `w` |
 | `nasal`   | nasal e.g.:  `m`, `n`, `N` |
-| `stop`    | stop (plosive) e.g.: `p`, `b`, `t`, `d`, `k`, `g` |
 | `pause`   |             |
 | `stress`  | Used for stress symbols, eg: `'` `,` `=` `%` |
 | `virtual` | Used to represent a class of phonemes. |

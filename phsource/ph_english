@@ -1,18 +1,18 @@
 
 phoneme t2   // [t] which doesn't reduce
-  vcd alv stop
+  vcd alv stp
   ChangePhoneme(t)
 endphoneme
 
 
 phoneme t#    // reduced [t] as in "city" in en-us
-  vcd alv stop
+  vcd alv stp
   ChangePhoneme(t)
 endphoneme
 
 
 phoneme d#    // change to [d] or [t] depending on whether previous phoneme is voiced
-  vls alv stop
+  vls alv stp
   IF prevPh(isVoiced) THEN
     ChangePhoneme(d)
   ELSE

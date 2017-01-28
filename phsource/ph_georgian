@@ -66,7 +66,7 @@ endphoneme
 
 
 phoneme k#
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=1  f2=1400 -100 100  f3=-150 80

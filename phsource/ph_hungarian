@@ -111,7 +111,7 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -125,7 +125,7 @@ endphoneme
 
 phoneme t2
 // changes to pause when followed by [t], so the [t][ becomes [t:]
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   IF nextPh(t) THEN
     WAV(ustop/null, 0)
@@ -136,7 +136,7 @@ endphoneme
 
 
 phoneme d
-  vcd dnt stop
+  vcd dnt stp
   voicingswitch t
   lengthmod 5
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80

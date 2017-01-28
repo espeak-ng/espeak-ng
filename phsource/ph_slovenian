@@ -96,7 +96,7 @@ endphoneme
 
 
 phoneme t
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -109,7 +109,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80

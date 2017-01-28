@@ -163,7 +163,7 @@ endphoneme
 
 
 phoneme c
-  vls pal stop
+  vls pal stp
   lengthmod 2
   Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
   Vowelout f1=0  f2=2700 300 500  f3=300 80
@@ -175,7 +175,7 @@ endphoneme
 
 
 phoneme J
-  vcd pla stop
+  vcd pla stp
   lengthmod 5
 
   IF PreVoicing THEN

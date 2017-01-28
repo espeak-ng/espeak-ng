@@ -177,7 +177,7 @@ endphoneme
 // Plosives
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50  -100  f3=-200 80 amp=11
@@ -187,7 +187,7 @@ phoneme p
 endphoneme
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   voicingswitch p
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   lengthmod 5
@@ -214,7 +214,7 @@ phoneme b
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -224,7 +224,7 @@ phoneme t
 endphoneme
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   lengthmod 5
   Vowelin  f1=1  f2=1700 -300 300  f3=-100 80
@@ -234,7 +234,7 @@ phoneme d
 endphoneme
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin  f1=0  f2=2300 200 300  f3=-200 80
@@ -244,7 +244,7 @@ phoneme k
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
@@ -254,7 +254,7 @@ phoneme g
 endphoneme
 
 phoneme ?
-  vls glt stop
+  vls glt stp
   lengthmod 3
   nolink
   Vowelin  glstop

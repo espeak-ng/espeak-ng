@@ -185,7 +185,7 @@ phoneme r // Latvian soft r
 endphoneme
 
 phoneme t
-  vls alv stop //lengthenstop
+  vls alv stp //lengthenstop
   lengthmod 1
   voicingswitch d
   IF nextPh(isPause2) THEN
@@ -195,7 +195,7 @@ phoneme t
 endphoneme
 
 phoneme p
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -210,7 +210,7 @@ phoneme p
 endphoneme
 
 phoneme k
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -228,13 +228,13 @@ phoneme k
 endphoneme
 
 phoneme c
-  vls pal stop palatal
+  vls pal stp palatal
   voicingswitch J
   WAV(ustop/c, 80)
 endphoneme
 
 phoneme D   // louder and shorter version of d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   length 10
   lengthmod 5

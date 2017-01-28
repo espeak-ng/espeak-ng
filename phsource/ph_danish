@@ -877,7 +877,7 @@ phoneme s
 endphoneme
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 7
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -898,7 +898,7 @@ phoneme p
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 7
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80

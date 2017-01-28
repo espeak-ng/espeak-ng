@@ -48,7 +48,7 @@ endphoneme
 // CONSONANTS
 
 phoneme t         // revert to alveolar /t/
-  vls alv stop
+  vls alv stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=1  f2=1600 -300 300  f3=-100 80  amp=11
@@ -67,7 +67,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

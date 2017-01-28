@@ -223,7 +223,6 @@ static keywtab_t keywords[] = {
 	{ "delete_phoneme", tPHONEME_TYPE, phDELETED },
 
 	// type of consonant
-	{ "stop",  tPHONEME_TYPE, phSTOP },  // TODO (deprecated): use 'stp' instead
 	{ "nasal", tPHONEME_TYPE, phNASAL }, // TODO (deprecated): use 'nas' instead
 
 	// keywords

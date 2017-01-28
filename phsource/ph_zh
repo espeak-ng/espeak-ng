@@ -142,7 +142,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -150,7 +150,7 @@ phoneme p
 endphoneme
 
 phoneme ph
-  vls blb stop
+  vls blb stp
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -165,7 +165,7 @@ phoneme f //not clear before some vowel
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80  rms=40
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -174,7 +174,7 @@ endphoneme
 
 
 phoneme th
-  vls alv stop
+  vls alv stp
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -182,7 +182,7 @@ phoneme th
 endphoneme
 
 phoneme k
-  vls uvl stop
+  vls uvl stp
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
@@ -190,7 +190,7 @@ phoneme k
 endphoneme
 
 phoneme kh
-  vls uvl stop
+  vls uvl stp
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30

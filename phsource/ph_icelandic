@@ -286,7 +286,7 @@ endphoneme
 
 
 phoneme tl#
-  vls alv stop
+  vls alv stp
   lengthmod 2
   ipa tl#
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -305,7 +305,7 @@ endphoneme
 
 
 phoneme b
-  vls blb stop
+  vls blb stp
   lengthmod 5
   Vowelin  f1=1  f2=1000 -300 -200  f3=-200 80 amp=11
   Vowelout f1=2  f2=1000 -300 -300  f3=-300 80 brk
@@ -314,7 +314,7 @@ endphoneme
 
 
 phoneme d
-  vls alv stop
+  vls alv stp
   lengthmod 5
   Vowelin f1=2  f2=1700 -300 300  f3=-100 80
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80
@@ -326,7 +326,7 @@ endphoneme
 
 
 phoneme g
-  vls vel stop
+  vls vel stp
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk

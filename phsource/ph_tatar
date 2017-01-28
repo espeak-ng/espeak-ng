@@ -133,7 +133,7 @@ phoneme d
 endphoneme
 
 phoneme k
-  vls vel stop
+  vls vel stp
   IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN   // back vowels
     ChangePhoneme(q)
   ENDIF

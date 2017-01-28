@@ -211,7 +211,7 @@ endphoneme
 
 
 phoneme *
-  vcd alv stop
+  vcd alv stp
   lengthmod 6
   ipa ɾ
   Vowelin f1=1  f2=1700 -300 300  f3=0 80

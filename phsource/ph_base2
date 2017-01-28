@@ -160,7 +160,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -181,7 +181,7 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1600 -300 300  f3=-100 80
@@ -194,7 +194,7 @@ endphoneme
 
 
 phoneme d       // dental variant of /d/
-  vcd dnt stop
+  vcd dnt stp
   lengthmod 5
   voicingswitch t
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80
@@ -216,7 +216,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

@@ -460,32 +460,32 @@ endphoneme
 //endphoneme
 
 phoneme p
-  //vls blb stop
+  //vls blb stp
   import_phoneme base/b
 endphoneme
 
 phoneme b
-  //vcd blb stop
+  //vcd blb stp
   import_phoneme base/b
 endphoneme
 
 phoneme ph //aspirated
-  //vls blb stop
+  //vls blb stp
   import_phoneme base/p
 endphoneme
 
 phoneme t
-  //vls alv stop
+  //vls alv stp
   import_phoneme base/d
 endphoneme
 
 phoneme d
-  //vcd alv stop
+  //vcd alv stp
   import_phoneme base/d
 endphoneme
 
 phoneme th
-  //vls alv stop
+  //vls alv stp
   import_phoneme base/t
 endphoneme
 
@@ -505,22 +505,22 @@ phoneme tɕh
 endphoneme
 
 phoneme k
-  //vls vel stop
+  //vls vel stp
   import_phoneme base/k
 endphoneme
 
 phoneme g
-  //vcd vel stop
+  //vcd vel stp
   import_phoneme base/g
 endphoneme
 
 phoneme kh
-  //vls vel stop
+  //vls vel stp
   import_phoneme base/k
 endphoneme
 
 phoneme ʔ
-  vls glt stop
+  vls glt stp
 endphoneme
 
 phoneme θ

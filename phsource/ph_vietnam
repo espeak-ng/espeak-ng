@@ -382,7 +382,7 @@ phoneme l
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   //voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80 len=15
@@ -402,7 +402,7 @@ phoneme cr
 endphoneme
 
 phoneme d_
-  vcd alv stop
+  vcd alv stp
     //	lengthmod 5
 	ipa ɗ
  Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=15
@@ -411,7 +411,7 @@ WAV(vietnam/dd)
  endphoneme
  
  phoneme c
-  vls pal stop palatal
+  vls pal stp palatal
   //voicingswitch J
   lengthmod 2
   length 2
@@ -424,7 +424,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
     lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -443,7 +443,7 @@ FMT(n/nr_)
 endphoneme
 
 phoneme t[        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   voicingswitch d[
   lengthmod 2
   length 5

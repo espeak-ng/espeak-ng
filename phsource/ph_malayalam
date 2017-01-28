@@ -147,7 +147,7 @@ endphoneme
 // Aspirated voice stops, sound like aspirated unvoiced stops ?
 
 phoneme b#
-  vls blb stop prevoice
+  vls blb stp prevoice
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
@@ -172,7 +172,7 @@ endphoneme
 
 
 phoneme d#
-  vls dnt stop prevoice
+  vls dnt stp prevoice
   lengthmod 2
   voicingswitch d
   Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
@@ -194,7 +194,7 @@ endphoneme
 
 
 phoneme t.#
-  vls rfx stop
+  vls rfx stp
   lengthmod 2
   ipa ʈU+02B0
   voicingswitch d.#
@@ -209,7 +209,7 @@ endphoneme
 
 
 phoneme d.#
-  vls rfx stop prevoice
+  vls rfx stp prevoice
   lengthmod 2
   ipa ʈU+02B0
   Vowelin f1=0  f2=1800 -300 300  f3=-200 80
@@ -250,7 +250,7 @@ endphoneme
 
 
 phoneme g#
-  vls vel stop prevoice
+  vls vel stp prevoice
   lengthmod 2
   Vowelin f1=1  f2=1400 -100 100  f3=-150 80
   Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20

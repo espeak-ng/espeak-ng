@@ -238,14 +238,14 @@ phoneme g
 endphoneme
 
 phoneme g;
-  vls vel stop
+  vls vel stp
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   WAV(ustop/ki_ejc, 130)
 endphoneme
 
 phoneme k;
-  vls vel stop
+  vls vel stp
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   WAV(ustop/ki)
@@ -272,7 +272,7 @@ phoneme n[   // temporary
 endphoneme
 
 phoneme *    // reduced [t] as in "city"
-  vcd alv stop
+  vcd alv stp
   ipa ɾ
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80

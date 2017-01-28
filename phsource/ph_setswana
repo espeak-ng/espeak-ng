@@ -167,7 +167,7 @@ phoneme d       // dental variant of /d/
 endphoneme
 
 phoneme kh
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 300  f3=-150 80
@@ -182,7 +182,7 @@ phoneme kh
 endphoneme
 
 phoneme k-  // unaspirated
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   Vowelin f1=0  f2=2300 200 300  f3=-150 80
@@ -215,7 +215,7 @@ endphoneme
 
 
 phoneme ph  // aspirated
-  vls blb stop
+  vls blb stp
   lengthmod 2
   voicingswitch b
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80

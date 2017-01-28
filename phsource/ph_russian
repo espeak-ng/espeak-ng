@@ -1,7 +1,7 @@
 
 
 phoneme g
-  vcd vel stop prevoice
+  vcd vel stp prevoice
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80

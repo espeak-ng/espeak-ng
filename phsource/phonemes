@@ -114,8 +114,8 @@ phoneme  _X1  //  a language specific action
   length 10
 endphoneme 
 
-phoneme ?  // glottal stop
-  vls glt stop
+phoneme ?  // glottal stp
+  vls glt stp
   lengthmod 3   // ??
   nolink
   Vowelin  glstop
@@ -931,7 +931,7 @@ endphoneme
 
 
 phoneme b
-  vcd blb stop
+  vcd blb stp
   voicingswitch p 
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   lengthmod 5
@@ -971,7 +971,7 @@ endphoneme
 
 
 phoneme d
-  vcd alv stop
+  vcd alv stp
   voicingswitch t
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
@@ -992,7 +992,7 @@ endphoneme
 
 
 phoneme d[
-  vcd dnt stop
+  vcd dnt stp
   voicingswitch t[
   lengthmod 5
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80
@@ -1082,7 +1082,7 @@ endphoneme
 
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
@@ -1339,7 +1339,7 @@ endphoneme
 
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -1361,7 +1361,7 @@ endphoneme
 
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -1379,7 +1379,7 @@ endphoneme
 
 
 phoneme t[        // dental variant of /t/
-  vls dnt stop
+  vls dnt stp
   voicingswitch d[
   lengthmod 2
   Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
@@ -1420,7 +1420,7 @@ endphoneme
 
 
 phoneme c
-  vls pal stop palatal
+  vls pal stp palatal
   voicingswitch J
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -1434,7 +1434,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
@@ -1460,7 +1460,7 @@ endphoneme
 
 
 phoneme q
-  vls uvl stop
+  vls uvl stp
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
   Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35

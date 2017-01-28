@@ -105,7 +105,7 @@ endphoneme
 
 
 phoneme t
-  vls dnt stop
+  vls dnt stp
   lengthmod 2  
   CALL base2/t
 endphoneme

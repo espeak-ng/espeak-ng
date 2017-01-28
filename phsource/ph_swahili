@@ -65,7 +65,7 @@ phoneme z
 endphoneme
 
 phoneme t
-  vls alv stop
+  vls alv stp
   voicingswitch d
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -108,7 +108,7 @@ phoneme s
 endphoneme
 
 phoneme p
-  vls blb stop
+  vls blb stp
   voicingswitch b
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -197,7 +197,7 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
+  vls vel stp
   voicingswitch g
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
@@ -234,7 +234,7 @@ phoneme J
 endphoneme
 
 phoneme g
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   Vowelin f1=2  f2=2300 200 300  f3=-300 80

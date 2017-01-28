@@ -85,7 +85,7 @@ endphoneme
 
 
 phoneme tl#
-  vls alv stop
+  vls alv stp
   lengthmod 2
   ipa tl#
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
