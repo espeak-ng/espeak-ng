@@ -120,7 +120,8 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 		phoneme->phflags |= 12 << 16;
 		break;
 	case bld:
-		// FIXME: Not supported by eSpeak. Used in German p͡f.
+		phoneme->phflags &= ~phARTICULATION;
+		phoneme->phflags |= 1 << 16; // bilabial
 		break;
 	case alp: // pla pzd
 		phoneme->phflags &= ~phARTICULATION;

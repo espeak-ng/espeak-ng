@@ -265,7 +265,7 @@ endphoneme
 
 
 phoneme pF
-  vls blb afr
+  vls bld afr
   ipa pf
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
