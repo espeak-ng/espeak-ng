@@ -2160,7 +2160,10 @@ int CompilePhoneme(int compile_phoneme)
 				phcode = NextItem(tPHONEMEMNEM);
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
-				phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
+				if (phoneme_out->type == phVOWEL)
+					error("voicingswitch cannot be used on vowels");
+				else
+					phoneme_out->end_type = phcode; // use end_type field for consonants as voicing_switch
 				break;
 			case kSTRESSTYPE:
 				value = NextItem(tNUMBER);
