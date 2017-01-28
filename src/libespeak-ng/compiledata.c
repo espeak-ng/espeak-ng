@@ -2142,12 +2142,16 @@ int CompilePhoneme(int compile_phoneme)
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
 				phoneme_out->start_type = phcode;
+				if (phoneme_out->type == phINVALID)
+					error("a phoneme type or manner of articulation must be specified before starttype");
 				break;
 			case kENDTYPE:
 				phcode = NextItem(tPHONEMEMNEM);
 				if (phcode == -1)
 					phcode = LookupPhoneme(item_string, 1);
-				if (phoneme_out->type == phVOWEL)
+				if (phoneme_out->type == phINVALID)
+					error("a phoneme type or manner of articulation must be specified before endtype");
+				else if (phoneme_out->type == phVOWEL)
 					phoneme_out->end_type = phcode;
 				else if (phcode != phoneme_out->start_type)
 					error("endtype must equal starttype for consonants");
