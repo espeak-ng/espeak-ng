@@ -237,7 +237,7 @@ endphoneme
 
 phoneme I^      	// "silent i", palatilizes the preceding consonant
   vwl starttype #i endtype #i
-  unstressed nonsyllabic
+  unstressed nsy
   length 70
   IF nextPh(isVowel) THEN
 	ChangePhoneme(;)

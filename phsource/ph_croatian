@@ -236,7 +236,7 @@ endphoneme
 
 
 phoneme r*
-  vwl nonsyllabic
+  vwl nsy
   unstressed
   ipa  NULL
   length 50

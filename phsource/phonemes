@@ -146,7 +146,7 @@ endphoneme
 
 phoneme @-   //  very short schwa
   vwl starttype #@  endtype #@
-  unstressed nonsyllabic
+  unstressed nsy
 
   ipa ə
   IF nextPhW(*) OR nextPhW(r) THEN
