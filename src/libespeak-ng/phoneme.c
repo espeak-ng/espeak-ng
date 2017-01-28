@@ -205,10 +205,8 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case vzd:
 	case fzd:
 	case nzd:
-		// Not supported by eSpeak.
-		break;
 	case rzd:
-		phoneme->phflags |= phRHOTIC;
+		// Not supported by eSpeak.
 		break;
 	// tongue root
 	case atr:

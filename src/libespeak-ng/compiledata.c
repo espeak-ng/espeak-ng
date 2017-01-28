@@ -281,7 +281,7 @@ static keywtab_t keywords[] = {
 	{ "unstressed",   tPHONEME_FLAG, phUNSTRESSED },
 	{ "nolink",       tPHONEME_FLAG, phNOLINK },
 	{ "brkafter",     tPHONEME_FLAG, phBRKAFTER },
-	{ "rhotic",       tPHONEME_FLAG, phRHOTIC }, // TODO (deprecated): use 'rzd' instead
+	{ "rhotic",       tPHONEME_FLAG, phRHOTIC },
 	{ "nonsyllabic",  tPHONEME_FLAG, phNONSYLLABIC }, // TODO (deprecated): use 'nsy' instead
 	{ "lengthenstop", tPHONEME_FLAG, phLENGTHENSTOP },
 	{ "nopause",      tPHONEME_FLAG, phNOPAUSE },
