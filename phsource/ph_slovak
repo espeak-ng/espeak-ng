@@ -124,7 +124,7 @@ endphoneme
 
 
 phoneme R^       // Czech r-caron
-  vcd pla frc sibilant
+  vcd pla frc sib
   ipa rU+031d
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
@@ -133,7 +133,7 @@ phoneme R^       // Czech r-caron
 endphoneme
 
 phoneme R^/      // Czech r-caron (weaker, for after p,f,t,k)
-  vcd pla frc sibilant
+  vcd pla frc sib
   ipa rU+031dU+030a
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80

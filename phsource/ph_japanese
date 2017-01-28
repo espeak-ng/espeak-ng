@@ -265,7 +265,7 @@ endphoneme
 // Sibilant Affricates
 
 phoneme t_s
-  vls alv afr sibilant
+  vls alv afr sib
   ipa ts
   lengthmod 2
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -274,7 +274,7 @@ phoneme t_s
 endphoneme
 
 phoneme t_s\\
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   voicingswitch d_z\\
   ipa tɕ
   lengthmod 2
@@ -284,7 +284,7 @@ phoneme t_s\\
 endphoneme
 
 phoneme d_z\\
-  vcd pla afr sibilant palatal
+  vcd pla afr sib palatal
   voicingswitch t_s\\
   ipa dʑ
   lengthmod 5
@@ -297,7 +297,7 @@ endphoneme
 // Sibilant Fricatives
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -307,7 +307,7 @@ phoneme s
 endphoneme
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -316,7 +316,7 @@ phoneme z
 endphoneme
 
 phoneme s\\
-  vls pal frc sibilant palatal
+  vls pal frc sib palatal
   ipa ɕ
   lengthmod 3
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70

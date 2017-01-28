@@ -34,7 +34,7 @@ endphoneme
 
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
   voicingswitch dz
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -47,7 +47,7 @@ endphoneme
 
 
 phoneme dz
-  vcd alv afr sibilant
+  vcd alv afr sib
   voicingswitch ts
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50
@@ -64,7 +64,7 @@ phoneme dz
 endphoneme
 
 phoneme ts#
-  vls alv afr sibilant
+  vls alv afr sib
   voicingswitch dz
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -77,7 +77,7 @@ endphoneme
 
 
 phoneme dz#
-  vcd alv afr sibilant
+  vcd alv afr sib
   voicingswitch ts
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50

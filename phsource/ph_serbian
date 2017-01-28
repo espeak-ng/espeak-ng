@@ -93,7 +93,7 @@ endphoneme
 
 
 phoneme dZ
-  vcd pla afr sibilant
+  vcd pla afr sib
   lengthmod 5
   voicingswitch tS
   Vowelin f1=2  f2=2300 200 400  f3=100 80
@@ -108,7 +108,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pla afr sibilant palatal
+  vcd pla afr sib palatal
   lengthmod 5
   ipa dʑ
   voicingswitch tS;
@@ -123,7 +123,7 @@ endphoneme
 
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   lengthmod 2
   voicingswitch dZ
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -132,7 +132,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   lengthmod 2
   ipa tɕ
   voicingswitch dZ;
@@ -142,7 +142,7 @@ endphoneme
 
 
 phoneme Z
-  vcd pla frc sibilant
+  vcd pla frc sib
   lengthmod 6
   voicingswitch S
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
@@ -155,7 +155,7 @@ endphoneme
 
 
 phoneme S
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   voicingswitch Z
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80

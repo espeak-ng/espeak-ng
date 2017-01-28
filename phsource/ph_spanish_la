@@ -4,7 +4,7 @@
 //====================================================
 
 phoneme T
-  vls alv frc sibilant
+  vls alv frc sib
   ChangePhoneme(s)
 endphoneme
 

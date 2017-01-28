@@ -66,7 +66,7 @@ endphoneme
 
 
 phoneme z
-  vls alv frc sibilant
+  vls alv frc sib
   ipa s̻
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -79,7 +79,7 @@ endphoneme
 
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
   ipa ts̺
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -92,7 +92,7 @@ endphoneme
 
 
 phoneme tz
-  vls alv afr sibilant
+  vls alv afr sib
   ipa ts̻
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80

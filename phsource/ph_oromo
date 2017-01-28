@@ -145,7 +145,7 @@ phoneme t`
 endphoneme
 
 phoneme tS`
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus

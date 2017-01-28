@@ -450,7 +450,7 @@ endphoneme
 // also try [tS] and [dZ]
 
 phoneme c
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -475,7 +475,7 @@ endphoneme
 
 
 phoneme J#
-  vcd pal afr sibilant
+  vcd pal afr sib
   lengthmod 5
   voicingswitch c#
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -533,7 +533,7 @@ endphoneme
 //================
 
 phoneme #X2  // click, use for indicating combining long vowels
-  vls alv frc sibilant
+  vls alv frc sib
   lengthmod 3
   WAV(ustop/percus02, 60)
 endphoneme

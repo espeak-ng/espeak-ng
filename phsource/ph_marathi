@@ -49,7 +49,7 @@ endphoneme
 
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80

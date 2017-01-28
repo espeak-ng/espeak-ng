@@ -52,7 +52,7 @@ endphoneme
 
 
 phoneme z  // [ts]
-  vls alv afr sibilant
+  vls alv afr sib
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -61,7 +61,7 @@ endphoneme
 
 
 phoneme c  // [tS]
-  vls pla afr sibilant
+  vls pla afr sib
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   IF nextPh(isPause2) THEN

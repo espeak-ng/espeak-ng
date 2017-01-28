@@ -261,7 +261,7 @@ phoneme t;
 endphoneme
 
 phoneme S
-  vls pal frc sibilant palatal
+  vls pal frc sib palatal
   CALL base/S;
   ipa ʃ
 endphoneme

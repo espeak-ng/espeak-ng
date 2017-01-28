@@ -198,7 +198,7 @@ phoneme kh
 endphoneme
 
 phoneme tS;
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
@@ -206,7 +206,7 @@ phoneme tS;
 endphoneme
 
 phoneme tS;h
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   ipa tɕh
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
@@ -214,7 +214,7 @@ phoneme tS;h
 endphoneme
 
 phoneme S;
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 2
   ipa ɕ
   Vowelin f1=0  f2=2700 400 600  f3=300 80
@@ -222,7 +222,7 @@ phoneme S;
 endphoneme
 
 phoneme s.
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
   Vowelout f1=0  f2=1800 -100 300  f3=-300 80
@@ -234,7 +234,7 @@ endphoneme
 
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -242,7 +242,7 @@ phoneme ts
 endphoneme
 
 phoneme tsh
-  vls alv afr sibilant
+  vls alv afr sib
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -250,7 +250,7 @@ phoneme tsh
 endphoneme
 
 phoneme ts.
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
   Vowelout f1=0  f2=1800 -100 300  f3=-300 80
@@ -258,7 +258,7 @@ phoneme ts.
 endphoneme
 
 phoneme ts.h
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
   Vowelout f1=0  f2=1800 -100 300  f3=-300 80

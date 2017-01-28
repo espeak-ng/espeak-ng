@@ -864,7 +864,7 @@ endphoneme
 // don't weaken consonants at end of word or before a stop
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80

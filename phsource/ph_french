@@ -820,7 +820,7 @@ endphoneme
 
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -837,7 +837,7 @@ endphoneme
 
 
 phoneme S
-  vls pla frc sibilant
+  vls pla frc sib
   starttype #cFR endtype #cFR
   voicingswitch Z
   lengthmod 3
@@ -938,7 +938,7 @@ endphoneme
 
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -960,7 +960,7 @@ endphoneme
 
 
 phoneme z2      // silent unless followed by vowel
-  vcd alv frc sibilant
+  vcd alv frc sib
   IF nextPh(isVowel) OR nextPh(w/) OR nextPh(j) THEN
     length 70
     FMT(voc/z) addWav(ufric/s, 40)
@@ -971,7 +971,7 @@ endphoneme
 
 
 phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
-  vcd alv frc sibilant
+  vcd alv frc sib
   IF nextPh(isPause) THEN
     ChangePhoneme(s)
   ELIF nextPh(isVowel) OR nextPh(w/) THEN

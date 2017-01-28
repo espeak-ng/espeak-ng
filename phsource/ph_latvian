@@ -151,7 +151,7 @@ phoneme ts
 endphoneme
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   length 80
@@ -254,7 +254,7 @@ endphoneme
 
 
 phoneme z`  // Shortened version of z for diphthong dz
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   length 10
   lengthmod 6
@@ -273,7 +273,7 @@ phoneme z`  // Shortened version of z for diphthong dz
 endphoneme
 
 phoneme Z` // Shortened version of Z for diphthong dZ
-  vcd pla frc sibilant
+  vcd pla frc sib
   voicingswitch S
   length 30
   lengthmod 6
@@ -316,7 +316,7 @@ endphoneme
 //endphoneme
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80

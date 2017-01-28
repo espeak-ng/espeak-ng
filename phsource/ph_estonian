@@ -368,7 +368,7 @@ endphoneme
 // Palatalized versions of consonants
 
 phoneme s^
-  vls alv frc sibilant palatal
+  vls alv frc sib palatal
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80

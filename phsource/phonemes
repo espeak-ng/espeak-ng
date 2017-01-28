@@ -240,7 +240,7 @@ endphoneme
 //*******************************************************************
 
 phoneme #X1  // click, use for indicating capital letters
-  vls alv frc sibilant
+  vls alv frc sib
   lengthmod 3
   WAV(ustop/percus10, 60)
 endphoneme
@@ -1013,7 +1013,7 @@ endphoneme
 
 
 phoneme dZ // **j**udge
-  vcd pla afr sibilant
+  vcd pla afr sib
   voicingswitch tS
   lengthmod 5
   Vowelin f1=2  f2=2300 200 400  f3=100 80
@@ -1031,7 +1031,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pla afr sibilant palatal
+  vcd pla afr sib palatal
   voicingswitch tS;
   ipa dʑ
   lengthmod 5
@@ -1057,7 +1057,7 @@ endphoneme
 
 
 phoneme J
-  vcd pal afr sibilant palatal
+  vcd pal afr sib palatal
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
@@ -1183,7 +1183,7 @@ endphoneme
 
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -1201,7 +1201,7 @@ endphoneme
 
 
 phoneme Z // plea**s**ure
-  vcd pla frc sibilant
+  vcd pla frc sib
   voicingswitch S
   lengthmod 6
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
@@ -1222,7 +1222,7 @@ endphoneme
 
 
 phoneme z.
-  vcd pla frc sibilant
+  vcd pla frc sib
   ipa ʐ
   voicingswitch s.
   lengthmod 6
@@ -1244,7 +1244,7 @@ endphoneme
 
 
 phoneme z;
-  vcd pal frc sibilant palatal
+  vcd pal frc sib palatal
   ipa ʑ
   voicingswitch s;
   lengthmod 6
@@ -1259,7 +1259,7 @@ endphoneme
 
 
 phoneme Z;
-  vcd pal frc sibilant palatal
+  vcd pal frc sib palatal
   voicingswitch S;
   ipa ʑ
   lengthmod 6
@@ -1393,7 +1393,7 @@ endphoneme
 
 
 phoneme tS     // **ch**urch
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -1406,7 +1406,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   voicingswitch dZ;
   ipa tɕ
   lengthmod 2
@@ -1507,7 +1507,7 @@ endphoneme
 
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -1523,7 +1523,7 @@ endphoneme
 
 
 phoneme S // **sh**op
-  vls pla frc sibilant
+  vls pla frc sib
   voicingswitch Z
   lengthmod 3
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
@@ -1537,7 +1537,7 @@ endphoneme
 
 
 phoneme s.
-  vls pla frc sibilant
+  vls pla frc sib
   ipa ʂ
   voicingswitch z.
   lengthmod 3
@@ -1552,7 +1552,7 @@ endphoneme
 
 
 phoneme s;
-  vls pal frc sibilant palatal
+  vls pal frc sib palatal
   ipa ʂ
   voicingswitch z;
   lengthmod 3
@@ -1567,7 +1567,7 @@ endphoneme
 
 
 phoneme S;
-  vls pal frc sibilant palatal
+  vls pal frc sib palatal
   voicingswitch Z;
   ipa ɕ
   lengthmod 3

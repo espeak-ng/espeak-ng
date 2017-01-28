@@ -197,7 +197,7 @@ phoneme l^
 endphoneme
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
   voicingswitch s
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
@@ -209,7 +209,7 @@ phoneme ts
 endphoneme
 
 phoneme ts2
-  vls alv afr sibilant
+  vls alv afr sib
   voicingswitch dz
   lengthmod 9
   Vowelin f1=2  f2=1700 -300 300  f3=-200 120 len=10
@@ -229,7 +229,7 @@ phoneme dz
 endphoneme
 
 phoneme ss
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z
   lengthmod 6
   Vowelin  f1=2  f2=1700 -300 300  f3=-100 80
@@ -266,7 +266,7 @@ phoneme v
 endphoneme
 
 phoneme z
-  vcd alv frc sibilant
+  vcd alv frc sib
   voicingswitch s
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50

@@ -157,7 +157,6 @@ must be present.
 
 | Property     | Type | Description |
 |--------------|------|-------------|
-| `sibilant`   | (C)  | e.g.: `s`, `z`, `S`, `Z`, `tS`, `dZ` |
 | `palatal`    | (C)  | A palatal or palatalized consonant. |
 | `rhotic`     | (C)  | An `r` type consonant. |
 | `unstressed` | (V)  | This vowel is always unstressed, unless explicitly marked otherwise. |

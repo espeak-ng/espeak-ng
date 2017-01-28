@@ -221,7 +221,7 @@ phoneme t;        // dental variant of /t/
 endphoneme
 
 phoneme ts;
-  vls alv afr sibilant
+  vls alv afr sib
   lengthmod 2
   CALL base2/ts
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20 colr=1
@@ -238,7 +238,7 @@ endphoneme
 
 
 phoneme s;
-  vls alv frc sibilant
+  vls alv frc sib
   voicingswitch z;
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -248,7 +248,7 @@ endphoneme
 
 
 phoneme S;
-  vls pla frc sibilant
+  vls pla frc sib
   voicingswitch Z;
   lengthmod 3
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
@@ -306,7 +306,7 @@ endphoneme
 
 
 phoneme z;
-  vcd alv frc sibilant
+  vcd alv frc sib
   lengthmod 6
   voicingswitch s;
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 colr=1
@@ -318,7 +318,7 @@ endphoneme
 
 
 phoneme Z;
-  vcd pla frc sibilant
+  vcd pla frc sib
   lengthmod 6
   voicingswitch S;
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80 colr=1

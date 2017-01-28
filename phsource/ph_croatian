@@ -1,7 +1,7 @@
 
 
 phoneme S  // this is letter š
-  vls pla frc sibilant
+  vls pla frc sib
   lengthmod 3
   voicingswitch Z
   Vowelin  f1=0  f2=2100 100 300  f3=-100 80
@@ -13,7 +13,7 @@ phoneme S  // this is letter š
 endphoneme
 
 phoneme tS  // this is letter č
-  vls pla afr sibilant
+  vls pla afr sib
   lengthmod 2
   voicingswitch dZ
   Vowelin f1=0  f2=1900 100 200  f3=-100 80
@@ -24,7 +24,7 @@ phoneme tS  // this is letter č
 endphoneme
 
 phoneme tS;  // this is letter ć
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   ipa tɕ
   lengthmod 2
   voicingswitch dZ;
@@ -37,7 +37,7 @@ endphoneme
 
 
 phoneme Z    // letter ž
-  vcd pla frc sibilant
+  vcd pla frc sib
   lengthmod 6
   voicingswitch S
   Vowelin  f1=0  f2=2000 0 300  f3=-200 80
@@ -50,7 +50,7 @@ endphoneme
 
 
 phoneme dZ    //letter dž
-  vcd pla afr sibilant
+  vcd pla afr sib
   lengthmod 5
   voicingswitch tS
   Vowelin f1=2  f2=1900 100 300  f3=100 80
@@ -68,7 +68,7 @@ endphoneme
 
 
 phoneme dZ;    // letter đ
-  vcd pla afr sibilant palatal
+  vcd pla afr sib palatal
   lengthmod 5
   ipa dʑ
   voicingswitch tS;

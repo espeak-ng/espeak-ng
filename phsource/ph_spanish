@@ -147,7 +147,7 @@ endphoneme
 
 
 phoneme s
-  vls alv frc sibilant
+  vls alv frc sib
   lengthmod 3
   voicingswitch  z
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80

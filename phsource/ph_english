@@ -22,7 +22,7 @@ endphoneme
 
 
 phoneme z#    // change to [z] or [s] depending on whether previous phoneme is voiced
-  vls alv frc sibilant
+  vls alv frc sib
   IF prevPh(isVoiced) THEN
     ChangePhoneme(z)
   ELSE
@@ -76,7 +76,7 @@ endphoneme
 
 
 phoneme z/2    // used for 's suffix
-  vcd alv frc sibilant
+  vcd alv frc sib
   lengthmod 6
   IF prevPh(isSibilant) THEN
     InsertPhoneme(I2)

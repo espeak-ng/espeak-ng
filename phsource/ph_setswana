@@ -151,7 +151,7 @@ phoneme l
 endphoneme
 
 phoneme ts
-  vls alv afr sibilant
+  vls alv afr sib
 //  voicingswitch dz
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -271,7 +271,7 @@ phoneme t        // dental variant of /t/
 endphoneme
 
 phoneme tS
-  vls pla afr sibilant
+  vls pla afr sib
   voicingswitch dZ
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
@@ -283,7 +283,7 @@ phoneme tS
 endphoneme
 
 phoneme tS;
-  vls pal afr sibilant palatal
+  vls pal afr sib palatal
   voicingswitch dZ;
   ipa tɕ
   lengthmod 2
