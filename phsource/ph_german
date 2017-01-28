@@ -274,7 +274,7 @@ endphoneme
 
 
 phoneme g#    // for "ig" -> [IC] or [Ig]
-  vls pal frc palatal
+  vls pal frc
   lengthmod 3
 
   IF nextPhW(isVoiced) THEN

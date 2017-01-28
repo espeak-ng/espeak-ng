@@ -1601,7 +1601,7 @@ endphoneme
 
 
 phoneme C // German i**ch**
-  vls pal frc palatal
+  vls pal frc
   lengthmod 3
   Vowelin f1=0  f2=2700 400 600  f3=200 70
   Vowelout f1=0 f2=2700 400 600  f3=200 70  rms=20

@@ -345,7 +345,7 @@ phoneme v
 endphoneme
 
 phoneme C
-  vls pal frc palatal
+  vls pal frc
   ipa ç
   lengthmod 3
   Vowelin  f1=0  f2=2700 400 600  f3=200 70
