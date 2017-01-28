@@ -1241,7 +1241,7 @@ endphoneme
 
 
 phoneme z;
-  vcd pal frc sib palatal
+  vcd alp sib frc
   ipa ʑ
   voicingswitch s;
   lengthmod 6
@@ -1256,7 +1256,7 @@ endphoneme
 
 
 phoneme Z;
-  vcd pal frc sib palatal
+  vcd alp sib frc
   voicingswitch S;
   ipa ʑ
   lengthmod 6
@@ -1403,7 +1403,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sib palatal
+  vls alp sib afr
   voicingswitch dZ;
   ipa tɕ
   lengthmod 2
@@ -1564,7 +1564,7 @@ endphoneme
 
 
 phoneme S;
-  vls pal frc sib palatal
+  vls alp sib frc
   voicingswitch Z;
   ipa ɕ
   lengthmod 3

@@ -152,7 +152,7 @@ endphoneme
 
 
 phoneme dZ;
-  vcd pal afr sib palatal
+  vcd alp sib afr
   voicingswitch tS;
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
@@ -168,7 +168,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sib palatal
+  vls alp sib afr
   voicingswitch dZ;
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70

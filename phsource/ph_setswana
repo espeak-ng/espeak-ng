@@ -282,7 +282,7 @@ phoneme tS
 endphoneme
 
 phoneme tS;
-  vls pal afr sib palatal
+  vls alp sib afr
   voicingswitch dZ;
   ipa tɕ
   lengthmod 2

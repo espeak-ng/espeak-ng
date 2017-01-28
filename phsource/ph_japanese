@@ -274,7 +274,7 @@ phoneme t_s
 endphoneme
 
 phoneme t_s\\
-  vls pal afr sib palatal
+  vls alp sib afr
   voicingswitch d_z\\
   ipa tɕ
   lengthmod 2
@@ -316,7 +316,7 @@ phoneme z
 endphoneme
 
 phoneme s\\
-  vls pal frc sib palatal
+  vls alp sib frc
   ipa ɕ
   lengthmod 3
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70

@@ -131,7 +131,7 @@ endphoneme
 
 
 phoneme tS;
-  vls pal afr sib palatal
+  vls alp sib afr
   lengthmod 2
   ipa tɕ
   voicingswitch dZ;

@@ -198,7 +198,7 @@ phoneme kh
 endphoneme
 
 phoneme tS;
-  vls pal afr sib palatal
+  vls alp sib afr
   ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
@@ -206,7 +206,7 @@ phoneme tS;
 endphoneme
 
 phoneme tS;h
-  vls pal afr sib palatal
+  vls alp sib afr
   ipa tɕh
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
