@@ -1,6 +1,6 @@
 
 phoneme t2   // [t] which doesn't reduce
-  vcd alv stop dontlist
+  vcd alv stop
   ChangePhoneme(t)
 endphoneme
 
@@ -12,7 +12,7 @@ endphoneme
 
 
 phoneme d#    // change to [d] or [t] depending on whether previous phoneme is voiced
-  vls alv stop dontlist
+  vls alv stop
   IF prevPh(isVoiced) THEN
     ChangePhoneme(d)
   ELSE
@@ -22,7 +22,7 @@ endphoneme
 
 
 phoneme z#    // change to [z] or [s] depending on whether previous phoneme is voiced
-  vls alv frc sibilant dontlist
+  vls alv frc sibilant
   IF prevPh(isVoiced) THEN
     ChangePhoneme(z)
   ELSE
@@ -132,7 +132,7 @@ endphoneme
 
 phoneme @2   //  Schwa, changes to I before a vowel. th**e**, used only for "the".
   vowel  starttype #@  endtype #@
-  unstressed dontlist
+  unstressed
   length 120
   IF nextPh(isVowel) THEN
     ChangePhoneme(I2)
@@ -143,7 +143,7 @@ endphoneme
 
 phoneme @5   //  Schwa, changes to U before a vowel. t**o**, used only for "to".
   vowel  starttype #@  endtype #@
-  unstressed dontlist
+  unstressed
   length 140
   IF nextPh(isVowel) OR nextPh(isPause) THEN
     ChangePhoneme(U)
@@ -174,7 +174,7 @@ endphoneme
 
 
 phoneme a2  // don't reduce to a#
-  vowel dontlist
+  vowel
   ChangePhoneme(a)
 endphoneme
 
@@ -221,7 +221,6 @@ endphoneme
 
 phoneme E#    // [@] in unstressed syllables, if next vowel is stressed
   vowel  starttype #e  endtype #e
-  dontlist
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND nextVowel(isStressed) THEN
     ChangePhoneme(@)
@@ -233,7 +232,6 @@ endphoneme
 
 phoneme E2  // does not reduce in unstressed syllables
   vowel  starttype #e  endtype #e
-  dontlist
   length 140
   ChangePhoneme(E)  // a second change ([E]  to [I2]) won't happen
 endphoneme
@@ -305,7 +303,6 @@ endphoneme
 
 phoneme 0#    // [@] in unstressed syllables
   vowel  starttype #o  endtype #o
-  dontlist
 
   IF thisPh(isUnstressed) AND nextVowel(isVowel) AND NOT nextVowel(isUnstressed) THEN
     ChangePhoneme(@)
@@ -317,7 +314,6 @@ endphoneme
 
 phoneme 02   // becomes V in en-us
   vowel  starttype #o  endtype #o
-  dontlist
   length 140
   ChangePhoneme(0)
 endphoneme
@@ -365,7 +361,6 @@ endphoneme
 
 phoneme A#    // [a] in British [A:] in American
   vowel  starttype #a  endtype #a
-  dontlist
   ChangePhoneme(a)
 endphoneme
 
@@ -460,7 +455,7 @@ endphoneme
 
 
 phoneme oU#
-  vowel dontlist
+  vowel
   IF thisPh(isStressed) THEN
     ChangePhoneme(0)
   ENDIF
@@ -615,7 +610,7 @@ endphoneme
 
 
 phoneme a#2  // for word 'an'
-  vowel dontlist
+  vowel
   IF next2Ph(isVowel) THEN
     ChangePhoneme(a#)
   ELSE
