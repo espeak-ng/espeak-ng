@@ -98,6 +98,7 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	case pal:
 		phoneme->phflags &= ~phARTICULATION;
 		phoneme->phflags |= 7 << 16;
+		phoneme->phflags |= phPALATAL;
 		break;
 	case vel:
 		phoneme->phflags &= ~phARTICULATION;
