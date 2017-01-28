@@ -411,7 +411,7 @@ WAV(vietnam/dd)
  endphoneme
  
  phoneme c
-  vls pal stp palatal
+  vls pal stp pzd
   //voicingswitch J
   lengthmod 2
   length 2

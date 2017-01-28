@@ -248,7 +248,7 @@ endphoneme
 
 
 phoneme t;
-  vls pal stp palatal
+  vls pal stp pzd
   lengthmod 2
   voicingswitch d;
   Vowelin f1=0 f2=2700 400 600 f3=300 80 rate len=70
@@ -282,7 +282,7 @@ endphoneme
 
 
 phoneme d;
-  vcd alv stp palatal
+  vcd alv stp pzd
   lengthmod 5
   voicingswitch t;
   Vowelin f1=2 f2=2700 400 600 f3=200 80 rate len=80
@@ -303,7 +303,7 @@ endphoneme
 
 
 phoneme n;
-  liquid palatal
+  liquid pzd
   NextVowelStarts
 VowelStart(n^/n^@)
 VowelStart(n^/n^a)
@@ -327,7 +327,7 @@ endphoneme
 
 
 phoneme l;
-  liquid rfx palatal
+  liquid rfx pzd
   ipa ɭ
 // lengthmod 7
   length 80

@@ -352,7 +352,7 @@ endphoneme
 
 phoneme i
   vwl starttype #i  endtype #i
-  palatal
+  pzd
 
   IF prevPhW(r/2) OR prevPhW(l/2) THEN
     IF nextPhW(isVowel) THEN

@@ -221,7 +221,7 @@ endphoneme
 
 phoneme ;     // linking j, used between (i) vowels and a following vowel
               // also to palatalize consonants
-  liquid palatal
+  liquid pzd
   lengthmod 0
 
   IF prevPh(#i) THEN

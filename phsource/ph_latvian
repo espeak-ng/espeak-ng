@@ -226,7 +226,7 @@ phoneme k
 endphoneme
 
 phoneme c
-  vls pal stp palatal
+  vls pal stp pzd
   voicingswitch J
   WAV(ustop/c, 80)
 endphoneme

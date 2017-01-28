@@ -368,7 +368,7 @@ endphoneme
 // Palatalized versions of consonants
 
 phoneme s^
-  vls alv frc sib palatal
+  vls alv frc sib pzd
   voicingswitch z
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
@@ -378,7 +378,7 @@ phoneme s^
 endphoneme
 
 phoneme t^
-  vls pal stp palatal
+  vls pal stp pzd
   lengthmod 5
   voicingswitch d^
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -390,7 +390,7 @@ phoneme t^
 endphoneme
 
 phoneme d^
-  vcd alv stp palatal
+  vcd alv stp pzd
   lengthmod 5
   voicingswitch t^
   Vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80

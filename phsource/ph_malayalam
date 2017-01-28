@@ -229,7 +229,7 @@ endphoneme
 
 
 phoneme J#
-  vls pal afr sib palatal prevoice
+  vls pal afr sib pzd prevoice
   voicingswitch c#
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70

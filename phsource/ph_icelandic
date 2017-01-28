@@ -249,7 +249,7 @@ endphoneme
 
 
 phoneme n^#
-  vcd pal nas palatal
+  vcd pal nas pzd
   lengthmod 6
   ipa ɲ#
   Vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate

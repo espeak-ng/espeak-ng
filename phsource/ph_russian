@@ -52,7 +52,7 @@ phoneme l
 endphoneme
 
 phoneme l^
- liquid rfx palatal
+ liquid rfx pzd
  ipa ɭ
 // lengthmod 7
 length 80
@@ -102,7 +102,7 @@ endphoneme
 
 
 phoneme n#
-  vcd pal nas palatal
+  vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4

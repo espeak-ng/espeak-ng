@@ -94,7 +94,7 @@ endphoneme
 
 phoneme g;
   vcd vel stp
-  palatal
+  pzd
   voicingswitch k
   lengthmod 5
   Vowelin f1=1  f2=2300 300 300  f3=300 80

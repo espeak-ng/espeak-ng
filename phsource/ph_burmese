@@ -442,7 +442,7 @@ phoneme ɲh
 endphoneme
 
 phoneme ɲ
-  //vcd pal nasal palatal
+  //vcd pal nasal pzd
   import_phoneme base/n^
 endphoneme
 
@@ -543,7 +543,7 @@ phoneme z
   import_phoneme base/z
 endphoneme
 
-phoneme sh //aspirated not palatal
+phoneme sh //aspirated not pzd
   vls alv frc sib
 endphoneme
 

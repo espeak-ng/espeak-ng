@@ -157,7 +157,6 @@ must be present.
 
 | Property     | Type | Description |
 |--------------|------|-------------|
-| `palatal`    | (C)  | A palatal or palatalized consonant. |
 | `rhotic`     | (C)  | An `r` type consonant. |
 | `unstressed` | (V)  | This vowel is always unstressed, unless explicitly marked otherwise. |
 | `nolink`     |      | Prevent any linking from the previous phoneme. |

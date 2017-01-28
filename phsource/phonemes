@@ -666,7 +666,7 @@ endphoneme
 
 phoneme ;     // linking j, used between (i) vowels and a following vowel
               // also to palatalize consonants
-  liquid palatal
+  liquid pzd
   lengthmod 0
 
   IF prevPh(#i) THEN
@@ -794,7 +794,7 @@ endphoneme
 
 
 phoneme n^ // Spanish **ñ**
-  vcd pal nas palatal
+  vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4
@@ -1054,7 +1054,7 @@ endphoneme
 
 
 phoneme J
-  vcd pal afr sib palatal
+  vcd pal afr sib pzd
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
@@ -1271,7 +1271,7 @@ endphoneme
 
 
 phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
-  vcd pal frc palatal
+  vcd pal frc pzd
   ipa ʝ
   voicingswitch C
   lengthmod 6
@@ -1417,7 +1417,7 @@ endphoneme
 
 
 phoneme c
-  vls pal stp palatal
+  vls pal stp pzd
   voicingswitch J
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
@@ -1549,7 +1549,7 @@ endphoneme
 
 
 phoneme s;
-  vls pal frc sib palatal
+  vls pal frc sib pzd
   ipa ʂ
   voicingswitch z;
   lengthmod 3

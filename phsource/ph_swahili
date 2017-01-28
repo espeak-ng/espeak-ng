@@ -123,7 +123,7 @@ endphoneme
 
 
 phoneme n^
-  vcd pal nas palatal
+  vcd pal nas pzd
   ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4
@@ -213,7 +213,7 @@ endphoneme
 
 
 phoneme J
-  vcd pal afr sib palatal
+  vcd pal afr sib pzd
   voicingswitch c
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70

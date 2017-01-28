@@ -24,7 +24,7 @@ phoneme :
 endphoneme
 
 phoneme _j
-  liquid palatal starttype #i
+  liquid pzd starttype #i
   ipa ʲ
   lengthmod 2
 
