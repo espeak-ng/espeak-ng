@@ -320,7 +320,6 @@ typedef struct {
 
 #define i_isBreak      0x85
 #define i_isWordStart  0x86
-#define i_notWordStart 0x87
 #define i_isWordEnd    0x88
 #define i_isAfterStress 0x89
 #define i_isNotVowel   0x8a
@@ -340,7 +339,6 @@ typedef struct {
 #define i_isRhotic     0x57 // bit 23 in phflags
 #define i_isFlag1      0x5c
 #define i_isFlag2      0x5d
-#define i_isFlag3      0x5e
 
 #define i_StressLevel  0x800
 

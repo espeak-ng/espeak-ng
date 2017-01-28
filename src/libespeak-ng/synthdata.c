@@ -652,8 +652,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				return (ph->type == phPAUSE) || (plist_this->synthflags & SFLAG_NEXT_PAUSE);
 			case 6: // isWordStart
 				return plist->sourceix != 0;
-			case 7: // notWordStart
-				return plist->sourceix == 0;
 			case 8: // isWordEnd
 				return plist[1].sourceix || (plist[1].ph->type == phPAUSE);
 			case 9: // isAfterStress

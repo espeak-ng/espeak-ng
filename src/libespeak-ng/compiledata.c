@@ -117,7 +117,6 @@ static keywtab_t k_properties[] = {
 	{ "isSibilant", 0, i_isSibilant },
 	{ "isFlag1",    0, i_isFlag1 },
 	{ "isFlag2",    0, i_isFlag2 },
-	{ "isFlag3",    0, i_isFlag3 },
 
 	{ "isVel", 0, i_isVel },
 
@@ -127,10 +126,8 @@ static keywtab_t k_properties[] = {
 	{ "isStressed",    0, i_isStressed },
 	{ "isMaxStress",   0, i_isMaxStress },
 
-	{ "isBreak",            0, i_isBreak },
-	{ "isPause2",           0, i_isBreak },  // synonym for isBreak
+	{ "isPause2",           0, i_isBreak },
 	{ "isWordStart",        0, i_isWordStart },
-	{ "notWordStart",       0, i_notWordStart },
 	{ "isWordEnd",          0, i_isWordEnd },
 	{ "isAfterStress",      0, i_isAfterStress },
 	{ "isNotVowel",         0, i_isNotVowel },
