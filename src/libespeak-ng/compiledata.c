@@ -1951,14 +1951,6 @@ static void DecThenCount()
 		then_count--;
 }
 
-static void InstnPlusPhoneme(int instn)
-{
-	int phcode;
-
-	phcode = NextItemBrackets(tPHONEMEMNEM, 0);
-	*prog_out++ = instn + phcode;
-}
-
 int CompilePhoneme(int compile_phoneme)
 {
 	int endphoneme = 0;
@@ -2049,7 +2041,8 @@ int CompilePhoneme(int compile_phoneme)
 			case i_CHANGE_IF | isUnstressed:
 			case i_CHANGE_IF | isNotStressed:
 			case i_CHANGE_IF | isStressed:
-				InstnPlusPhoneme(keyword << 8);
+				value = NextItemBrackets(tPHONEMEMNEM, 0);
+				*prog_out++ = (keyword << 8) + value;
 				DecThenCount();
 				break;
 			case i_PAUSE_BEFORE:
