@@ -103,13 +103,13 @@ static keywtab_t k_conditions[] = {
 };
 
 static keywtab_t k_properties[] = {
-	{ "isPause",      0, phPAUSE },
-	{ "isVowel",      0, phVOWEL },
-	{ "isNasal",      0, phNASAL },
-	{ "isLiquid",     0, phLIQUID },
-	{ "isUStop",      0, phSTOP },
-	{ "isVStop",      0, phVSTOP },
-	{ "isVFricative", 0, phVFRICATIVE },
+	{ "isPause",      0, CONDITION_IS_PHONEME_TYPE | phPAUSE },
+	{ "isVowel",      0, CONDITION_IS_PHONEME_TYPE | phVOWEL },
+	{ "isNasal",      0, CONDITION_IS_PHONEME_TYPE | phNASAL },
+	{ "isLiquid",     0, CONDITION_IS_PHONEME_TYPE | phLIQUID },
+	{ "isUStop",      0, CONDITION_IS_PHONEME_TYPE | phSTOP },
+	{ "isVStop",      0, CONDITION_IS_PHONEME_TYPE | phVSTOP },
+	{ "isVFricative", 0, CONDITION_IS_PHONEME_TYPE | phVFRICATIVE },
 
 	{ "isPalatal",  0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_PALATAL },
 	{ "isLong",     0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_LONG },

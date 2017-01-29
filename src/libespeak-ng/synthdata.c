@@ -630,7 +630,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 
 		switch (instn & 0xe0)
 		{
-		case 0x00:
+		case CONDITION_IS_PHONEME_TYPE:
 			// phoneme type, vowel, nasal, fricative, etc
 			return ph->type == data;
 		case 0x20:
