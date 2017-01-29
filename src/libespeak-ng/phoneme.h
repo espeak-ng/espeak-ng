@@ -137,30 +137,58 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phDELETED 14
 #define phINVALID 15
 
+// places of articulation (phARTICULATION)
+#define phPLACE_BILABIAL 1
+#define phPLACE_LABIODENTAL 2
+#define phPLACE_DENTAL 3
+#define phPLACE_ALVEOLAR 4
+#define phPLACE_RETROFLEX 5
+#define phPLACE_PALATO_ALVEOLAR 6
+#define phPLACE_PALATAL 7
+#define phPLACE_VELAR 8
+#define phPLACE_LABIO_VELAR 9
+#define phPLACE_UVULAR 10
+#define phPLACE_PHARYNGEAL 11
+#define phPLACE_GLOTTAL 12
+
+// phflags
+#define phFLAGBIT_UNSTRESSED 1
+#define phFLAGBIT_VOICELESS 3
+#define phFLAGBIT_VOICED 4
+#define phFLAGBIT_SIBILANT 5
+#define phFLAGBIT_NOLINK 6
+#define phFLAGBIT_TRILL 7
+#define phFLAGBIT_PALATAL 9
+#define phFLAGBIT_BRKAFTER 14 // [*] add a post-pause
+#define phARTICULATION 0xf0000 // bits 16-19
+#define phFLAGBIT_NONSYLLABIC 20 // don't count this vowel as a syllable when finding the stress position
+#define phFLAGBIT_LONG 21
+#define phFLAGBIT_LENGTHENSTOP 22 // make the pre-pause slightly longer
+#define phFLAGBIT_RHOTIC 23
+#define phFLAGBIT_NOPAUSE 24
+#define phFLAGBIT_PREVOICE 25 // for voiced stops
+#define phFLAGBIT_FLAG1 28
+#define phFLAGBIT_FLAG2 29
+#define phFLAGBIT_LOCAL 31 // used during compilation
+
 // phoneme properties
-//   bits 16-19 give place of articulation
-#define phARTICULATION 0xf0000
-#define phWAVE     0x01
-#define phUNSTRESSED 0x02
-#define phVOICELESS  0x08
-#define phVOICED   0x10
-#define phSIBILANT 0x20
-#define phNOLINK   0x40
-#define phTRILL    0x80
-#define phPALATAL  0x200
-#define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
-#define phBRKAFTER 0x4000  // [*] add a post-pause
-
-#define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position
-#define phLONG         0x200000
-#define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
-#define phRHOTIC       0x800000  // bit 23
-#define phNOPAUSE     0x1000000
-#define phPREVOICE    0x2000000  // for voiced stops
-
-#define phFLAG1      0x10000000
-#define phFLAG2      0x20000000
-#define phLOCAL      0x80000000  // used during compilation
+#define phUNSTRESSED   (1 << phFLAGBIT_UNSTRESSED)
+#define phVOICELESS    (1 << phFLAGBIT_VOICELESS)
+#define phVOICED       (1 << phFLAGBIT_VOICED)
+#define phSIBILANT     (1 << phFLAGBIT_SIBILANT)
+#define phNOLINK       (1 << phFLAGBIT_NOLINK)
+#define phTRILL        (1 << phFLAGBIT_TRILL)
+#define phPALATAL      (1 << phFLAGBIT_PALATAL)
+#define phBRKAFTER     (1 << phFLAGBIT_BRKAFTER)
+#define phNONSYLLABIC  (1 << phFLAGBIT_NONSYLLABIC)
+#define phLONG         (1 << phFLAGBIT_LONG)
+#define phLENGTHENSTOP (1 << phFLAGBIT_LENGTHENSTOP)
+#define phRHOTIC       (1 << phFLAGBIT_RHOTIC)
+#define phNOPAUSE      (1 << phFLAGBIT_NOPAUSE)
+#define phPREVOICE     (1 << phFLAGBIT_PREVOICE)
+#define phFLAG1        (1 << phFLAGBIT_FLAG1)
+#define phFLAG2        (1 << phFLAGBIT_FLAG2)
+#define phLOCAL        (1 << phFLAGBIT_LOCAL)
 
 // fixed phoneme code numbers, these can be used from the program code
 #define phonCONTROL     1

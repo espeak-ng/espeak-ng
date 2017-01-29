@@ -103,42 +103,39 @@ static keywtab_t k_conditions[] = {
 };
 
 static keywtab_t k_properties[] = {
-	{ "isPause",      0, phPAUSE },
-	{ "isVowel",      0, phVOWEL },
-	{ "isNasal",      0, phNASAL },
-	{ "isLiquid",     0, phLIQUID },
-	{ "isUStop",      0, phSTOP },
-	{ "isVStop",      0, phVSTOP },
-	{ "isVFricative", 0, phVFRICATIVE },
+	{ "isPause",      0, CONDITION_IS_PHONEME_TYPE | phPAUSE },
+	{ "isVowel",      0, CONDITION_IS_PHONEME_TYPE | phVOWEL },
+	{ "isNasal",      0, CONDITION_IS_PHONEME_TYPE | phNASAL },
+	{ "isLiquid",     0, CONDITION_IS_PHONEME_TYPE | phLIQUID },
+	{ "isUStop",      0, CONDITION_IS_PHONEME_TYPE | phSTOP },
+	{ "isVStop",      0, CONDITION_IS_PHONEME_TYPE | phVSTOP },
+	{ "isVFricative", 0, CONDITION_IS_PHONEME_TYPE | phVFRICATIVE },
 
-	{ "isPalatal",  0, i_isPalatal },
-	{ "isLong",     0, i_isLong },
-	{ "isRhotic",   0, i_isRhotic },
-	{ "isSibilant", 0, i_isSibilant },
-	{ "isFlag1",    0, i_isFlag1 },
-	{ "isFlag2",    0, i_isFlag2 },
-	{ "isFlag3",    0, i_isFlag3 },
+	{ "isPalatal",  0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_PALATAL },
+	{ "isLong",     0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_LONG },
+	{ "isRhotic",   0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_RHOTIC },
+	{ "isSibilant", 0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_SIBILANT },
+	{ "isFlag1",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG1 },
+	{ "isFlag2",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG2 },
 
-	{ "isVel", 0, i_isVel },
+	{ "isVel", 0, CONDITION_IS_PLACE_OF_ARTICULATION | phPLACE_VELAR },
 
-	{ "isDiminished",  0, i_isDiminished },
-	{ "isUnstressed",  0, i_isUnstressed },
-	{ "isNotStressed", 0, i_isNotStressed },
-	{ "isStressed",    0, i_isStressed },
-	{ "isMaxStress",   0, i_isMaxStress },
+	{ "isDiminished",  0, CONDITION_IS_OTHER | isDiminished },
+	{ "isUnstressed",  0, CONDITION_IS_OTHER | isUnstressed },
+	{ "isNotStressed", 0, CONDITION_IS_OTHER | isNotStressed },
+	{ "isStressed",    0, CONDITION_IS_OTHER | isStressed },
+	{ "isMaxStress",   0, CONDITION_IS_OTHER | isMaxStress },
 
-	{ "isBreak",            0, i_isBreak },
-	{ "isPause2",           0, i_isBreak },  // synonym for isBreak
-	{ "isWordStart",        0, i_isWordStart },
-	{ "notWordStart",       0, i_notWordStart },
-	{ "isWordEnd",          0, i_isWordEnd },
-	{ "isAfterStress",      0, i_isAfterStress },
-	{ "isNotVowel",         0, i_isNotVowel },
-	{ "isFinalVowel",       0, i_isFinalVowel },
-	{ "isVoiced",           0, i_isVoiced },   // voiced consonant, or vowel
-	{ "isFirstVowel",       0, i_isFirstVowel },
-	{ "isSecondVowel",      0, i_isSecondVowel },
-	{ "isTranslationGiven", 0, i_IsTranslationGiven },   // phoneme translation given in **_list or as [[...]]
+	{ "isPause2",           0, CONDITION_IS_OTHER | isBreak },
+	{ "isWordStart",        0, CONDITION_IS_OTHER | isWordStart },
+	{ "isWordEnd",          0, CONDITION_IS_OTHER | isWordEnd },
+	{ "isAfterStress",      0, CONDITION_IS_OTHER | isAfterStress },
+	{ "isNotVowel",         0, CONDITION_IS_OTHER | isNotVowel },
+	{ "isFinalVowel",       0, CONDITION_IS_OTHER | isFinalVowel },
+	{ "isVoiced",           0, CONDITION_IS_OTHER | isVoiced },
+	{ "isFirstVowel",       0, CONDITION_IS_OTHER | isFirstVowel },
+	{ "isSecondVowel",      0, CONDITION_IS_OTHER | isSecondVowel },
+	{ "isTranslationGiven", 0, CONDITION_IS_OTHER | isTranslationGiven },
 
 	{ NULL, 0, 0 }
 };
@@ -264,10 +261,10 @@ static keywtab_t keywords[] = {
 	{ "InsertPhoneme",       tINSTRN1, i_INSERT_PHONEME },
 	{ "AppendPhoneme",       tINSTRN1, i_APPEND_PHONEME },
 	{ "IfNextVowelAppend",   tINSTRN1, i_APPEND_IFNEXTVOWEL },
-	{ "ChangeIfDiminished",  tINSTRN1, i_CHANGE_IF + 0 },
-	{ "ChangeIfUnstressed",  tINSTRN1, i_CHANGE_IF + 1 },
-	{ "ChangeIfNotStressed", tINSTRN1, i_CHANGE_IF + 2 },
-	{ "ChangeIfStressed",    tINSTRN1, i_CHANGE_IF + 3 },
+	{ "ChangeIfDiminished",  tINSTRN1, i_CHANGE_IF | isDiminished },
+	{ "ChangeIfUnstressed",  tINSTRN1, i_CHANGE_IF | isUnstressed },
+	{ "ChangeIfNotStressed", tINSTRN1, i_CHANGE_IF | isNotStressed },
+	{ "ChangeIfStressed",    tINSTRN1, i_CHANGE_IF | isStressed },
 
 	{ "PauseBefore", tINSTRN1, i_PAUSE_BEFORE },
 	{ "PauseAfter",  tINSTRN1, i_PAUSE_AFTER },
@@ -1954,14 +1951,6 @@ static void DecThenCount()
 		then_count--;
 }
 
-static void InstnPlusPhoneme(int instn)
-{
-	int phcode;
-
-	phcode = NextItemBrackets(tPHONEMEMNEM, 0);
-	*prog_out++ = instn + phcode;
-}
-
 int CompilePhoneme(int compile_phoneme)
 {
 	int endphoneme = 0;
@@ -2048,11 +2037,12 @@ int CompilePhoneme(int compile_phoneme)
 			case i_INSERT_PHONEME:
 			case i_REPLACE_NEXT_PHONEME:
 			case i_VOICING_SWITCH:
-			case i_CHANGE_IF+0:
-			case i_CHANGE_IF+1:
-			case i_CHANGE_IF+2:
-			case i_CHANGE_IF+3:
-				InstnPlusPhoneme(keyword << 8);
+			case i_CHANGE_IF | isDiminished:
+			case i_CHANGE_IF | isUnstressed:
+			case i_CHANGE_IF | isNotStressed:
+			case i_CHANGE_IF | isStressed:
+				value = NextItemBrackets(tPHONEMEMNEM, 0);
+				*prog_out++ = (keyword << 8) + value;
 				DecThenCount();
 				break;
 			case i_PAUSE_BEFORE:
@@ -2237,11 +2227,11 @@ int CompilePhoneme(int compile_phoneme)
 				CompileToneSpec();
 				break;
 			case kCONTINUE:
-				*prog_out++ = i_CONTINUE;
+				*prog_out++ = OPCODE_CONTINUE;
 				DecThenCount();
 				break;
 			case kRETURN:
-				*prog_out++ = i_RETURN;
+				*prog_out++ = OPCODE_RETURN;
 				DecThenCount();
 				break;
 			case kINCLUDE:
@@ -2254,7 +2244,7 @@ int CompilePhoneme(int compile_phoneme)
 				if (if_level > 0)
 					error("Missing ENDIF");
 				if ((prog_out > prog_buf) && (if_stack[0].returned == 0))
-					*prog_out++ = i_RETURN;
+					*prog_out++ = OPCODE_RETURN;
 				break;
 			}
 			break;

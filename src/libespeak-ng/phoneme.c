@@ -73,60 +73,60 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 	// place of articulation
 	case blb:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 1 << 16;
+		phoneme->phflags |= phPLACE_BILABIAL << 16;
 		break;
 	case lbd:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 2 << 16;
+		phoneme->phflags |= phPLACE_LABIODENTAL << 16;
 		break;
 	case dnt:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 3 << 16;
+		phoneme->phflags |= phPLACE_DENTAL << 16;
 		break;
 	case alv:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 4 << 16;
+		phoneme->phflags |= phPLACE_ALVEOLAR << 16;
 		break;
 	case rfx:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 5 << 16;
+		phoneme->phflags |= phPLACE_RETROFLEX << 16;
 		break;
 	case pla:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 6 << 16;
+		phoneme->phflags |= phPLACE_PALATO_ALVEOLAR << 16;
 		break;
 	case pal:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 7 << 16;
+		phoneme->phflags |= phPLACE_PALATAL << 16;
 		phoneme->phflags |= phPALATAL;
 		break;
 	case vel:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 8 << 16;
+		phoneme->phflags |= phPLACE_VELAR << 16;
 		break;
 	case lbv:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 9 << 16;
+		phoneme->phflags |= phPLACE_LABIO_VELAR << 16;
 		break;
 	case uvl:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 10 << 16;
+		phoneme->phflags |= phPLACE_UVULAR << 16;
 		break;
 	case phr:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 11 << 16;
+		phoneme->phflags |= phPLACE_PHARYNGEAL << 16;
 		break;
 	case glt:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 12 << 16;
+		phoneme->phflags |= phPLACE_GLOTTAL << 16;
 		break;
 	case bld:
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 1 << 16; // bilabial
+		phoneme->phflags |= phPLACE_BILABIAL << 16;
 		break;
 	case alp: // pla pzd
 		phoneme->phflags &= ~phARTICULATION;
-		phoneme->phflags |= 6 << 16;
+		phoneme->phflags |= phPLACE_PALATO_ALVEOLAR << 16;
 		phoneme->phflags |= phPALATAL;
 		break;
 	// voice
