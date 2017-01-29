@@ -268,9 +268,8 @@ typedef struct {
 
 // instructions
 
-#define i_RETURN        0x0001
-#define i_CONTINUE      0x0002
-#define i_NOT           0x0003
+#define OPCODE_RETURN        0x0001
+#define OPCODE_CONTINUE      0x0002
 
 // Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
@@ -292,6 +291,7 @@ typedef struct {
 // conditions and jumps
 #define i_CONDITION  0x2000
 #define i_OR         0x1000  // added to i_CONDITION
+#define i_NOT        0x0003
 
 #define i_JUMP       0x6000
 #define i_JUMP_FALSE 0x6800

@@ -2234,11 +2234,11 @@ int CompilePhoneme(int compile_phoneme)
 				CompileToneSpec();
 				break;
 			case kCONTINUE:
-				*prog_out++ = i_CONTINUE;
+				*prog_out++ = OPCODE_CONTINUE;
 				DecThenCount();
 				break;
 			case kRETURN:
-				*prog_out++ = i_RETURN;
+				*prog_out++ = OPCODE_RETURN;
 				DecThenCount();
 				break;
 			case kINCLUDE:
@@ -2251,7 +2251,7 @@ int CompilePhoneme(int compile_phoneme)
 				if (if_level > 0)
 					error("Missing ENDIF");
 				if ((prog_out > prog_buf) && (if_stack[0].returned == 0))
-					*prog_out++ = i_RETURN;
+					*prog_out++ = OPCODE_RETURN;
 				break;
 			}
 			break;
