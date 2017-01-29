@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -329,10 +329,8 @@ typedef struct {
 #define i_isSecondVowel 0x8e
 #define i_IsTranslationGiven 0x90
 
-// place of articulation
-#define i_isVel      0x28
-
 #define CONDITION_IS_PHONEME_TYPE 0x00
+#define CONDITION_IS_PLACE_OF_ARTICULATION 0x20
 #define CONDITION_IS_PHFLAG_SET 0x40
 
 #define i_StressLevel  0x800

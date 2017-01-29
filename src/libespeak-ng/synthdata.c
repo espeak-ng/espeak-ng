@@ -631,13 +631,10 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		switch (instn & 0xe0)
 		{
 		case CONDITION_IS_PHONEME_TYPE:
-			// phoneme type, vowel, nasal, fricative, etc
 			return ph->type == data;
-		case 0x20:
-			// place of articulation
+		case CONDITION_IS_PLACE_OF_ARTICULATION:
 			return ((ph->phflags >> 16) & 0xf) == data;
 		case CONDITION_IS_PHFLAG_SET:
-			// is a bit set in phoneme flags
 			return (ph->phflags & (1 << data)) != 0;
 		case 0x80:
 			switch (data)
