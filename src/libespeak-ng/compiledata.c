@@ -261,10 +261,10 @@ static keywtab_t keywords[] = {
 	{ "InsertPhoneme",       tINSTRN1, i_INSERT_PHONEME },
 	{ "AppendPhoneme",       tINSTRN1, i_APPEND_PHONEME },
 	{ "IfNextVowelAppend",   tINSTRN1, i_APPEND_IFNEXTVOWEL },
-	{ "ChangeIfDiminished",  tINSTRN1, i_CHANGE_IF + 0 },
-	{ "ChangeIfUnstressed",  tINSTRN1, i_CHANGE_IF + 1 },
-	{ "ChangeIfNotStressed", tINSTRN1, i_CHANGE_IF + 2 },
-	{ "ChangeIfStressed",    tINSTRN1, i_CHANGE_IF + 3 },
+	{ "ChangeIfDiminished",  tINSTRN1, i_CHANGE_IF | isDiminished },
+	{ "ChangeIfUnstressed",  tINSTRN1, i_CHANGE_IF | isUnstressed },
+	{ "ChangeIfNotStressed", tINSTRN1, i_CHANGE_IF | isNotStressed },
+	{ "ChangeIfStressed",    tINSTRN1, i_CHANGE_IF | isStressed },
 
 	{ "PauseBefore", tINSTRN1, i_PAUSE_BEFORE },
 	{ "PauseAfter",  tINSTRN1, i_PAUSE_AFTER },
@@ -2045,10 +2045,10 @@ int CompilePhoneme(int compile_phoneme)
 			case i_INSERT_PHONEME:
 			case i_REPLACE_NEXT_PHONEME:
 			case i_VOICING_SWITCH:
-			case i_CHANGE_IF+0:
-			case i_CHANGE_IF+1:
-			case i_CHANGE_IF+2:
-			case i_CHANGE_IF+3:
+			case i_CHANGE_IF | isDiminished:
+			case i_CHANGE_IF | isUnstressed:
+			case i_CHANGE_IF | isNotStressed:
+			case i_CHANGE_IF | isStressed:
 				InstnPlusPhoneme(keyword << 8);
 				DecThenCount();
 				break;
