@@ -636,22 +636,22 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			return ((ph->phflags >> 16) & 0xf) == data;
 		case CONDITION_IS_PHFLAG_SET:
 			return (ph->phflags & (1 << data)) != 0;
-		case 0x80:
+		case CONDITION_IS_OTHER:
 			switch (data)
 			{
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-			case 4:
+			case isDiminished:
+			case isUnstressed:
+			case isNotStressed:
+			case isStressed:
+			case isMaxStress:
 				return StressCondition(tr, plist, data, 0);
-			case 5: // isBreak, Either pause phoneme, or (stop/vstop/vfric not followed by vowel or (liquid in same word))
+			case isBreak:
 				return (ph->type == phPAUSE) || (plist_this->synthflags & SFLAG_NEXT_PAUSE);
-			case 6: // isWordStart
+			case isWordStart:
 				return plist->sourceix != 0;
-			case 8: // isWordEnd
+			case isWordEnd:
 				return plist[1].sourceix || (plist[1].ph->type == phPAUSE);
-			case 9: // isAfterStress
+			case isAfterStress:
 				if (plist->sourceix != 0)
 					return false;
 				do {
@@ -661,9 +661,9 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 
 				} while (plist->sourceix == 0);
 				break;
-			case 10: // isNotVowel
+			case isNotVowel:
 				return ph->type != phVOWEL;
-			case 11: // isFinalVowel
+			case isFinalVowel:
 				for (;;) {
 					plist++;
 					if (plist->sourceix != 0)
@@ -671,13 +671,13 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 					if (plist->ph->type == phVOWEL)
 						return false;
 				}
-			case 12: // isVoiced
+			case isVoiced:
 				return (ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED);
-			case 13: // isFirstVowel
+			case isFirstVowel:
 				return CountVowelPosition(plist) == 1;
-			case 14: // isSecondVowel
+			case isSecondVowel:
 				return CountVowelPosition(plist) == 2;
-			case 0x10: // isTranslationGiven
+			case isTranslationGiven:
 				return (plist->synthflags & SFLAG_DICTIONARY) != 0;
 			}
 			break;

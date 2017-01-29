@@ -312,26 +312,27 @@ typedef struct {
 #define i_WAVADD     0xf000
 
 // conditions
-#define i_isDiminished 0x80
-#define i_isUnstressed 0x81
-#define i_isNotStressed 0x82
-#define i_isStressed   0x83
-#define i_isMaxStress  0x84
-
-#define i_isBreak      0x85
-#define i_isWordStart  0x86
-#define i_isWordEnd    0x88
-#define i_isAfterStress 0x89
-#define i_isNotVowel   0x8a
-#define i_isFinalVowel 0x8b
-#define i_isVoiced     0x8c
-#define i_isFirstVowel 0x8d
-#define i_isSecondVowel 0x8e
-#define i_IsTranslationGiven 0x90
-
 #define CONDITION_IS_PHONEME_TYPE 0x00
 #define CONDITION_IS_PLACE_OF_ARTICULATION 0x20
 #define CONDITION_IS_PHFLAG_SET 0x40
+#define CONDITION_IS_OTHER 0x80
+
+// other conditions
+#define isDiminished   0
+#define isUnstressed   1
+#define isNotStressed  2
+#define isStressed     3
+#define isMaxStress    4
+#define isBreak        5 // pause phoneme or (stop/vstop/vfric not followed by vowel or (liquid in same word))
+#define isWordStart    6
+#define isWordEnd      8
+#define isAfterStress  9
+#define isNotVowel    10
+#define isFinalVowel  11
+#define isVoiced      12 // voiced consonant, or vowel
+#define isFirstVowel  13
+#define isSecondVowel 14
+#define isTranslationGiven 16 // phoneme translation given in **_list or as [[...]]
 
 #define i_StressLevel  0x800
 

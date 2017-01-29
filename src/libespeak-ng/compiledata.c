@@ -120,22 +120,22 @@ static keywtab_t k_properties[] = {
 
 	{ "isVel", 0, CONDITION_IS_PLACE_OF_ARTICULATION | phPLACE_VELAR },
 
-	{ "isDiminished",  0, i_isDiminished },
-	{ "isUnstressed",  0, i_isUnstressed },
-	{ "isNotStressed", 0, i_isNotStressed },
-	{ "isStressed",    0, i_isStressed },
-	{ "isMaxStress",   0, i_isMaxStress },
+	{ "isDiminished",  0, CONDITION_IS_OTHER | isDiminished },
+	{ "isUnstressed",  0, CONDITION_IS_OTHER | isUnstressed },
+	{ "isNotStressed", 0, CONDITION_IS_OTHER | isNotStressed },
+	{ "isStressed",    0, CONDITION_IS_OTHER | isStressed },
+	{ "isMaxStress",   0, CONDITION_IS_OTHER | isMaxStress },
 
-	{ "isPause2",           0, i_isBreak },
-	{ "isWordStart",        0, i_isWordStart },
-	{ "isWordEnd",          0, i_isWordEnd },
-	{ "isAfterStress",      0, i_isAfterStress },
-	{ "isNotVowel",         0, i_isNotVowel },
-	{ "isFinalVowel",       0, i_isFinalVowel },
-	{ "isVoiced",           0, i_isVoiced },   // voiced consonant, or vowel
-	{ "isFirstVowel",       0, i_isFirstVowel },
-	{ "isSecondVowel",      0, i_isSecondVowel },
-	{ "isTranslationGiven", 0, i_IsTranslationGiven },   // phoneme translation given in **_list or as [[...]]
+	{ "isPause2",           0, CONDITION_IS_OTHER | isBreak },
+	{ "isWordStart",        0, CONDITION_IS_OTHER | isWordStart },
+	{ "isWordEnd",          0, CONDITION_IS_OTHER | isWordEnd },
+	{ "isAfterStress",      0, CONDITION_IS_OTHER | isAfterStress },
+	{ "isNotVowel",         0, CONDITION_IS_OTHER | isNotVowel },
+	{ "isFinalVowel",       0, CONDITION_IS_OTHER | isFinalVowel },
+	{ "isVoiced",           0, CONDITION_IS_OTHER | isVoiced },
+	{ "isFirstVowel",       0, CONDITION_IS_OTHER | isFirstVowel },
+	{ "isSecondVowel",      0, CONDITION_IS_OTHER | isSecondVowel },
+	{ "isTranslationGiven", 0, CONDITION_IS_OTHER | isTranslationGiven },
 
 	{ NULL, 0, 0 }
 };
