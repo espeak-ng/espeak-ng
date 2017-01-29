@@ -333,7 +333,7 @@ typedef struct {
 #define i_isVel      0x28
 
 #define CONDITION_IS_PHONEME_TYPE 0x00
-#define CONDITION_IS_PHFLAG_SET   0x40
+#define CONDITION_IS_PHFLAG_SET 0x40
 
 #define i_StressLevel  0x800
 

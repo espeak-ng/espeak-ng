@@ -137,6 +137,20 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phDELETED 14
 #define phINVALID 15
 
+// places of articulation (phARTICULATION)
+#define phPLACE_BILABIAL 1
+#define phPLACE_LABIODENTAL 2
+#define phPLACE_DENTAL 3
+#define phPLACE_ALVEOLAR 4
+#define phPLACE_RETROFLEX 5
+#define phPLACE_PALATO_ALVEOLAR 6
+#define phPLACE_PALATAL 7
+#define phPLACE_VELAR 8
+#define phPLACE_LABIO_VELAR 9
+#define phPLACE_UVULAR 10
+#define phPLACE_PHARYNGEAL 11
+#define phPLACE_GLOTTAL 12
+
 // phflags
 #define phFLAGBIT_UNSTRESSED 1
 #define phFLAGBIT_VOICELESS 3
