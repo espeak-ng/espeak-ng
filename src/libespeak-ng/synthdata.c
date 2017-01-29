@@ -636,7 +636,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		case 0x20:
 			// place of articulation
 			return ((ph->phflags >> 16) & 0xf) == data;
-		case 0x40:
+		case CONDITION_IS_PHFLAG_SET:
 			// is a bit set in phoneme flags
 			return (ph->phflags & (1 << data)) != 0;
 		case 0x80:

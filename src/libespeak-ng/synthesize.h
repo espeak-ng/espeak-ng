@@ -332,13 +332,7 @@ typedef struct {
 // place of articulation
 #define i_isVel      0x28
 
-// phflags
-#define i_isSibilant   0x45 // bit  5 in phflags
-#define i_isPalatal    0x49 // bit  9 in phflags
-#define i_isLong       0x55 // bit 21 in phflags
-#define i_isRhotic     0x57 // bit 23 in phflags
-#define i_isFlag1      0x5c
-#define i_isFlag2      0x5d
+#define CONDITION_IS_PHFLAG_SET 0x40
 
 #define i_StressLevel  0x800
 

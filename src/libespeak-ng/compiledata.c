@@ -111,12 +111,12 @@ static keywtab_t k_properties[] = {
 	{ "isVStop",      0, phVSTOP },
 	{ "isVFricative", 0, phVFRICATIVE },
 
-	{ "isPalatal",  0, i_isPalatal },
-	{ "isLong",     0, i_isLong },
-	{ "isRhotic",   0, i_isRhotic },
-	{ "isSibilant", 0, i_isSibilant },
-	{ "isFlag1",    0, i_isFlag1 },
-	{ "isFlag2",    0, i_isFlag2 },
+	{ "isPalatal",  0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_PALATAL },
+	{ "isLong",     0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_LONG },
+	{ "isRhotic",   0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_RHOTIC },
+	{ "isSibilant", 0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_SIBILANT },
+	{ "isFlag1",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG1 },
+	{ "isFlag2",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG2 },
 
 	{ "isVel", 0, i_isVel },
 
