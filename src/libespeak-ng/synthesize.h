@@ -317,12 +317,14 @@ typedef struct {
 #define CONDITION_IS_PHFLAG_SET 0x40
 #define CONDITION_IS_OTHER 0x80
 
-// other conditions
+// other conditions (stress)
 #define isDiminished   0
 #define isUnstressed   1
 #define isNotStressed  2
 #define isStressed     3
 #define isMaxStress    4
+
+// other conditions
 #define isBreak        5 // pause phoneme or (stop/vstop/vfric not followed by vowel or (liquid in same word))
 #define isWordStart    6
 #define isWordEnd      8

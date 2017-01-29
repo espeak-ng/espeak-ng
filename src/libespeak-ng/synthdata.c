@@ -443,9 +443,6 @@ static void InvalidInstn(PHONEME_TAB *ph, int instn)
 
 static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, int control)
 {
-	// condition:
-	//	0	if diminished, 1 if unstressed, 2 if not stressed, 3 if stressed, 4 if max stress
-
 	int stress_level;
 	PHONEME_LIST *pl;
 	static int condition_level[4] = { 1, 2, 4, 15 };
@@ -474,11 +471,10 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 		}
 	}
 
-	if (condition == 4)
+	if (condition == isMaxStress)
 		return stress_level >= pl->wordstress;
 
-	if (condition == 3) {
-		// if stressed
+	if (condition == isStressed) {
 		if (stress_level > 3)
 			return true;
 	} else {
