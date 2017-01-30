@@ -1,5 +1,8 @@
 // This is the master phoneme file.
 
+phonemetable ipa _
+include ph_ipa
+
 phonemetable base1 _
 
 // The base phoneme table contains the utility phonemes, the consonants,
@@ -1665,9 +1668,6 @@ endphoneme
 //*******************************************************************
 // ADDITIONAL PHONEME TABLES
 //*******************************************************************
-
-phonemetable ipa _
-include ph_ipa
 
 phonemetable jp base1
 include ph_japanese
