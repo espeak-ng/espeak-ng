@@ -744,31 +744,7 @@ endphoneme
 
 
 phoneme n
-  vcd alv nas
-  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
-  lengthmod 4
-
-  IF KlattSynth THEN
-    Vowelin f1=0 f2=1500 -200 200 f3=0 80
-    FMT(klatt/n)
-  ENDIF
-
-  NextVowelStarts
-    VowelStart(n/n@)
-    VowelStart(n/na)
-    VowelStart(n/ne)
-    VowelStart(n/ni)
-    VowelStart(n/no)
-    VowelStart(n/nu)
-  EndSwitch
-
-  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
-    FMT(n/nj)
-  ELIF prevPh(isPause) OR prevPh(n) THEN
-    FMT(n/_n)
-  ELIF nextPh(isNotVowel) THEN
-    FMT(n/n_)
-  ENDIF
+  import_phoneme ipa/n
 endphoneme
 
 
