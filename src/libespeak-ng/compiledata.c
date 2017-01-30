@@ -2020,8 +2020,12 @@ int CompilePhoneme(int compile_phoneme)
 		switch (item_type)
 		{
 		case tPHONEME_TYPE:
-			if (phoneme_out->type != phINVALID)
-				error("More than one phoneme type: %s", item_string);
+			if (phoneme_out->type != phINVALID) {
+				if (phoneme_out->type == phFRICATIVE && keyword == phLIQUID)
+					; // apr liquid => ok
+				else
+					error("More than one phoneme type: %s", item_string);
+			}
 			phoneme_out->type = keyword;
 			break;
 		case tPHONEME_FLAG:
