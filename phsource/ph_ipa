@@ -1,6 +1,26 @@
 // International Phonetic Alphabet phonemes using the Conlang X-SAMPA (CXS)
 // transcription scheme.
 
+// Consonants (Pulmonic)
+// =====================
+//
+// |         | blb |     | lbd |     | dnt |     | alv |     | pla |     | rfx |     | alp |     | pal |     | vel |     | uvl |     | phr |     | glt |     |
+// |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
+// |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+// | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
+// | stp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | sib afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | sib frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | frc     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | apr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat apr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | trl     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+
 // nasal
 
 phoneme m
