@@ -8,7 +8,7 @@
 // |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
-// | stp     |     |     |     |     |     |     | t   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | stp     |     |     |     |     | t_d |     | t   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -183,6 +183,19 @@ phoneme N
 endphoneme
 
 // stop
+
+phoneme t_d
+  vls dnt stp
+  ipa t̪
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_hi, 70)
+endphoneme
 
 phoneme t
   vls alv stp

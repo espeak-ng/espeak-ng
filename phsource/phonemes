@@ -1187,18 +1187,9 @@ phoneme t
   voicingswitch d
 endphoneme
 
-
 phoneme t[        // dental variant of /t/
-  vls dnt stp
+  import_phoneme ipa/t_d
   voicingswitch d[
-  lengthmod 2
-  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
-  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
-
-  IF nextPh(isPause2) THEN
-    WAV(ustop/t_dnt, 35)
-  ENDIF
-  WAV(ustop/t_hi, 70)
 endphoneme
 
 
