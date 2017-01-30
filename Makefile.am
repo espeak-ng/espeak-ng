@@ -252,6 +252,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
 	phsource/ph_interlingua \
+	phsource/ph_ipa \
 	phsource/ph_irish \
 	phsource/ph_italian \
 	phsource/ph_japanese \
