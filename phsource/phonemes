@@ -303,55 +303,11 @@ endphoneme
 
 
 phoneme r // **r**ed (Omitted if not immediately followed by a vowel)
-  liquid rhotic
-  ipa ɹ
-  lengthmod 7
-
-  IF nextPh(isNotVowel) THEN
-    ChangePhoneme(r/)
-  ENDIF
-
-  NextVowelStarts
-    VowelStart(r/r@, -15)
-    VowelStart(r/ra, -15)
-    VowelStart(r/re, -15)
-    VowelStart(r/ri, -15)
-    VowelStart(r/ro, -15)
-    VowelStart(r/ru, -15)
-  EndSwitch
-
-  IF prevPh(isVowel) THEN
-    VowelEnding(r/xr, -50)
-  ENDIF
-
-  IF prevPh(isPause) THEN
-    FMT(r/_r)
-  ELIF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
-    FMT(r/tr)
-  ENDIF
-
-  FMT(r/r)
+  import_phoneme ipa/r\\
 endphoneme
 
-
-
 phoneme r/   // used for [r] when not preceding a vowel
-  liquid rhotic
-  lengthmod 2
-
-  IF nextPh(n) THEN
-    FMT(r3/r_n) addWav(r3/rx)
-  ENDIF
-
-  IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
-    FMT(r/trr)
-  ENDIF
-
-  IF prevPh(isNotVowel) THEN
-    FMT(r/rr)
-  ENDIF
-
-  FMT(r3/r_) addWav(r3/rx)
+  import_phoneme ipa/r\\
 endphoneme
 
 
