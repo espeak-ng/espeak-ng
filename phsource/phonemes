@@ -1,19 +1,8 @@
 // This is the master phoneme file.
 
-phonemetable ipa _
-include ph_ipa
-
-phonemetable base1 _
-
-// The base phoneme table contains the utility phonemes, the consonants,
-// and a schwa.  The vowels are defined in the language specific phoneme
-// tables, which can also redefine consonants if they wish.
-
-
 //*******************************************************************
-// UTILITY PHONEMES
+// Stress Phonemes
 //*******************************************************************
-
 
 phoneme %  //  Unstressed
   stress
@@ -54,6 +43,24 @@ phoneme =   //  Place stress on previous vowel
   stress
   stress_type 2
 endphoneme
+
+//*******************************************************************
+// IPA Phonemes
+//*******************************************************************
+
+phonemetable ipa base
+include ph_ipa
+
+phonemetable base1 base
+
+// The base phoneme table contains the utility phonemes, the consonants,
+// and a schwa.  The vowels are defined in the language specific phoneme
+// tables, which can also redefine consonants if they wish.
+
+
+//*******************************************************************
+// UTILITY PHONEMES
+//*******************************************************************
 
 phoneme ||  //   End Word
   pause
