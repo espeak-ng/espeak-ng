@@ -403,7 +403,7 @@ phoneme r
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
   ENDIF
-  CALL base/r
+  CALL base1/r
   ipa r
 endphoneme
 

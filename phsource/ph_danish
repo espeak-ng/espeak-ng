@@ -809,7 +809,7 @@ IF nextPhW(l) THEN
 //    ChangePhoneme(NULL)
 ENDIF
   ChangePhoneme(l/3)
-//  CALL base/l
+//  CALL base1/l
 endphoneme
 
 phoneme l/3    // Replacement for [l/]
@@ -820,7 +820,7 @@ phoneme l/3    // Replacement for [l/]
 endphoneme
 
 phoneme v        // approximant, not fricative
-  import_phoneme base/v#
+  import_phoneme base1/v#
   voicingswitch f
 endphoneme
 

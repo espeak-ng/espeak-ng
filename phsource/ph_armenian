@@ -84,7 +84,7 @@ endphoneme
 
 
 phoneme t#
-  import_phoneme base/t
+  import_phoneme base1/t
 endphoneme
 
 
@@ -95,7 +95,7 @@ endphoneme
 
 phoneme k#
   import_phoneme consonants/kh
-//  import_phoneme base/k
+//  import_phoneme base1/k
 endphoneme
 
 
@@ -111,7 +111,7 @@ endphoneme
 
 
 phoneme t
-  import_phoneme base/t[
+  import_phoneme base1/t[
 endphoneme
 
 
@@ -137,7 +137,7 @@ phoneme tS
 endphoneme
 
 phoneme tS#
-  import_phoneme base/tS
+  import_phoneme base1/tS
 endphoneme
 
 phoneme k
@@ -146,7 +146,7 @@ endphoneme
 
 
 phoneme Q
-  import_phoneme base/Q"
+  import_phoneme base1/Q"
 endphoneme
 
 

@@ -146,7 +146,7 @@ endphoneme
 
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
-  import_phoneme base/v
+  import_phoneme base1/v
 endphoneme
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -160,11 +160,11 @@ phoneme #    // a NULL phoneme for 'virama'
 endphoneme
 
 phoneme z.
-  CALL base/z.
+  CALL base1/z.
   ipa U+027B
 endphoneme
 
 phoneme r
-  import_phoneme base/r
+  import_phoneme base1/r
 endphoneme
 

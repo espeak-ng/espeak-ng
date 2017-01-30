@@ -1,6 +1,6 @@
-
 // This is the master phoneme file.
 
+phonemetable base1 _
 
 // The base phoneme table contains the utility phonemes, the consonants,
 // and a schwa.  The vowels are defined in the language specific phoneme
@@ -577,7 +577,7 @@ endphoneme
 
 
 phoneme L/
-  import_phoneme base/l/2
+  import_phoneme base1/l/2
 endphoneme
 
 phoneme L   // velar L
@@ -1669,17 +1669,17 @@ endphoneme
 phonemetable ipa _
 include ph_ipa
 
-phonemetable jp base
+phonemetable jp base1
 include ph_japanese
 
-phonemetable consonants base
+phonemetable consonants base1
 include ph_consonants
 
 
-phonemetable base2 base
+phonemetable base2 base1
 include ph_base2
 
-phonemetable en base
+phonemetable en base1
 include ph_english
 
 phonemetable en-n en
@@ -1701,19 +1701,19 @@ phonemetable en-wi en
 include ph_english_wi
 
 
-phonemetable af base
+phonemetable af base1
 include ph_afrikaans
 
-phonemetable cy base
+phonemetable cy base1
 include ph_welsh
 
-phonemetable ga base
+phonemetable ga base1
 include ph_irish
 
-phonemetable de base
+phonemetable de base1
 include ph_german
 
-phonemetable eo base
+phonemetable eo base1
 include ph_esperanto
 
 phonemetable ia eo
@@ -1725,23 +1725,23 @@ include ph_lojban
 phonemetable nci base2
 include ph_nahuatl
 
-phonemetable fi base
+phonemetable fi base1
 include ph_finnish
 
-phonemetable et base
+phonemetable et base1
 include ph_estonian
 
-phonemetable fr base
+phonemetable fr base1
 include ph_french
 
 phonemetable fr-ca fr
 include ph_french_ca
 
-phonemetable nl base
+phonemetable nl base1
 include ph_dutch
 
 
-phonemetable hi_base base
+phonemetable hi_base base1
 include ph_hindi_base
 
 phonemetable hi hi_base
@@ -1776,17 +1776,17 @@ include ph_marathi
 
 
 
-phonemetable hu base
+phonemetable hu base1
 include ph_hungarian
 
-phonemetable lt base
+phonemetable lt base1
 include ph_lithuanian
 
 
-phonemetable lv base
+phonemetable lv base1
 include ph_latvian
 
-phonemetable pl base
+phonemetable pl base1
 include ph_polish
 
 phonemetable sk pl
@@ -1804,7 +1804,7 @@ include ph_macedonian
 phonemetable sr hr
 include ph_serbian
 
-phonemetable ru base
+phonemetable ru base1
 include ph_russian
 
 phonemetable bg pl
@@ -1814,7 +1814,7 @@ include ph_bulgarian
 phonemetable it base2
 include ph_italian
 
-phonemetable la base
+phonemetable la base1
 include ph_latin
 
 phonemetable es base2
@@ -1847,16 +1847,16 @@ include ph_greek
 phonemetable grc base2
 include ph_greek_ancient
 
-phonemetable sv base
+phonemetable sv base1
 include ph_swedish
 
-phonemetable no base
+phonemetable no base1
 include ph_norwegian
 
-phonemetable is base
+phonemetable is base1
 include ph_icelandic
 
-phonemetable vi base
+phonemetable vi base1
 include ph_vietnam
 
 phonemetable vi-hue vi
@@ -1865,14 +1865,14 @@ include ph_vietnam_hue
 phonemetable vi-sgn vi
 include ph_vietnam_sgn
 
-phonemetable zhy base
+phonemetable zhy base1
 include ph_zh_yue
 
-phonemetable zh base
+phonemetable zh base1
 include ph_zh
 
 
-phonemetable sw base
+phonemetable sw base1
 include ph_swahili
 
 phonemetable tr base2
@@ -1884,37 +1884,37 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
-phonemetable sq base
+phonemetable sq base1
 include ph_albanian
 
-phonemetable hy base
+phonemetable hy base1
 include ph_armenian
 
-phonemetable da base
+phonemetable da base1
 include ph_danish
 
-phonemetable ka base
+phonemetable ka base1
 include ph_georgian
 
-phonemetable fa base
+phonemetable fa base1
 include ph_farsi
 
-phonemetable ar base
+phonemetable ar base1
 include ph_arabic
 
 phonemetable rw base2
 include ph_kinyarwanda
 
-phonemetable prs base
+phonemetable prs base1
 include ph_dari
 
 phonemetable sl pl
 include ph_slovenian
 
-phonemetable gd base
+phonemetable gd base1
 include ph_s_gaelic
 
-phonemetable nso base
+phonemetable nso base1
 include ph_northern-sotho
 
 phonemetable ht fr
@@ -1923,13 +1923,13 @@ include ph_haitian
 phonemetable az tr
 include ph_azerbaijani
 
-phonemetable ak base
+phonemetable ak base1
 include ph_akan
 
-phonemetable am base
+phonemetable am base1
 include ph_amhari
 
-phonemetable wo base
+phonemetable wo base1
 include ph_wolof
 
 phonemetable dv hi_base
@@ -1950,35 +1950,35 @@ include ph_oriya
 phonemetable mni bn
 include ph_manipuri
 
-phonemetable tn base
+phonemetable tn base1
 include ph_setswana
 
-phonemetable mt base
+phonemetable mt base1
 include ph_maltese
 
 phonemetable bo hi
 include ph_tibetan
 
-phonemetable kk base
+phonemetable kk base1
 include ph_kazakh
 
-phonemetable tt base
+phonemetable tt base1
 include ph_tatar
 
-phonemetable ko base
+phonemetable ko base1
 include ph_korean
 
-phonemetable kl base
+phonemetable kl base1
 include ph_greenlandic
 
-phonemetable om base
+phonemetable om base1
 include ph_oromo
 
-phonemetable my base
+phonemetable my base1
 include ph_burmese
 
-phonemetable gn base
+phonemetable gn base1
 include ph_guarani
 
-phonemetable ky base
+phonemetable ky base1
 include ph_kyrgyz

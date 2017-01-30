@@ -152,7 +152,7 @@ phoneme w2
   liquid
   lengthmod 7
 
-  CALL base/w
+  CALL base1/w
   IF nextPh(isVowel) THEN
     FMT(w/w2)   // longer [w]
   ENDIF

@@ -121,7 +121,7 @@ endphoneme
 // Consonants
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 phoneme t
@@ -129,7 +129,7 @@ phoneme t
 endphoneme
 
 phoneme d
-  import_phoneme base/d[
+  import_phoneme base1/d[
 endphoneme
 
 phoneme k
@@ -137,11 +137,11 @@ phoneme k
   IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN   // back vowels
     ChangePhoneme(q)
   ENDIF
-  CALL base/k
+  CALL base1/k
 endphoneme
 
 phoneme G
-  import_phoneme base/Q"
+  import_phoneme base1/Q"
 endphoneme
 
 phoneme g
@@ -159,5 +159,5 @@ phoneme l
   IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN
     ChangePhoneme(L)
   ENDIF
-  CALL base/l
+  CALL base1/l
 endphoneme

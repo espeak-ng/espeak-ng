@@ -114,12 +114,12 @@ endphoneme
 
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
-  import_phoneme base/v
+  import_phoneme base1/v
 endphoneme
 
 
 phoneme r
-  import_phoneme base/r
+  import_phoneme base1/r
 endphoneme
 
 phoneme t
@@ -131,25 +131,25 @@ endphoneme
 
 phoneme m#
   ipa U+1D50
-  CALL base/m
+  CALL base1/m
 endphoneme
 
 phoneme n#
   ipa U+207F
-  CALL base/n
+  CALL base1/n
 endphoneme
 
 phoneme n.#
   ipa U+1DAF
-  CALL base/n.
+  CALL base1/n.
 endphoneme
 
 phoneme n^#
   ipa U+1DAE
-  CALL base/n^
+  CALL base1/n^
 endphoneme
 
 phoneme N#
   ipa U+1D51
-  CALL base/N
+  CALL base1/N
 endphoneme

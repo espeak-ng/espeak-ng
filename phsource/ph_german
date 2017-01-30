@@ -324,7 +324,7 @@ phoneme j
     VowelEnding(j/xj, -30)
 
     IF prevPh(isPause) THEN
-      FMT(j/_j_short)          // difference from base/j
+      FMT(j/_j_short)          // difference from base1/j
     ENDIF
   ELSE
     // no vowel follows
@@ -359,7 +359,7 @@ phoneme r   // note, following consonant must be 'ustop/t_' not 'ustop/tr' etc.
       ChangePhoneme(NULL)   // 'r' is already included in the previous vowel
   ENDIF
 
-  CALL base/*
+  CALL base1/*
 endphoneme
 
 
@@ -406,7 +406,7 @@ phoneme b
   IF nextPh(l2) THEN
     ChangePhoneme(p)
   ENDIF
-  CALL base/b
+  CALL base1/b
 endphoneme
 
 phoneme d
@@ -438,5 +438,5 @@ phoneme g
   IF nextPh(l2) THEN
     ChangePhoneme(k)
   ENDIF
-  CALL base/g
+  CALL base1/g
 endphoneme

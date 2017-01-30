@@ -90,6 +90,6 @@ endphoneme
 
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
-  import_phoneme base/v
+  import_phoneme base1/v
 endphoneme
 

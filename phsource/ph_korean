@@ -96,19 +96,19 @@ phoneme dZ; //  voiced /ㅈ/
 endphoneme
 
 phoneme s-
-  import_phoneme base/s        // temporary
+  import_phoneme base1/s        // temporary
 endphoneme
 
 phoneme q-
-  import_phoneme base/q        // temporary
+  import_phoneme base1/q        // temporary
 endphoneme
 
 phoneme tS;-
-  import_phoneme base/tS;      // temporary
+  import_phoneme base1/tS;      // temporary
 endphoneme
 
 phoneme d-
-  import_phoneme base/d
+  import_phoneme base1/d
 endphoneme
 
 // phoneme tSh; ?? changed to [tS;h] in ko_rules

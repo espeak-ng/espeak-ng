@@ -128,19 +128,19 @@ endphoneme
 
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
-  import_phoneme base/v
+  import_phoneme base1/v
 endphoneme
 
 phoneme r
-  import_phoneme base/**
+  import_phoneme base1/**
 endphoneme
 
 phoneme R
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 phoneme d2   // 'rr' sounds like English 'd'
-  import_phoneme base/d
+  import_phoneme base1/d
 endphoneme
 
 
@@ -287,7 +287,7 @@ phoneme p
   voicingswitch b
 
   IF thisPh(isWordStart) THEN
-      CALL base/p
+      CALL base1/p
   ELIF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
       ChangePhoneme(b)
   ENDIF
@@ -295,11 +295,11 @@ endphoneme
 
 
 phoneme t 
-  import_phoneme base/t[
+  import_phoneme base1/t[
   voicingswitch d
 
   IF thisPh(isWordStart) THEN
-      CALL base/t
+      CALL base1/t
   ELIF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
       ChangePhoneme(d)
   ENDIF
@@ -311,7 +311,7 @@ phoneme k
   voicingswitch g
 
   IF thisPh(isWordStart) THEN
-      CALL base/k
+      CALL base1/k
   ELIF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
       ChangePhoneme(g)
   ENDIF

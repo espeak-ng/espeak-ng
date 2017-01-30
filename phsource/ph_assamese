@@ -79,12 +79,12 @@ endphoneme
 
 
 phoneme tS
-  import_phoneme base/tS
+  import_phoneme base1/tS
 endphoneme
 
 
 phoneme tS#
-  import_phoneme base/tS
+  import_phoneme base1/tS
 endphoneme
 
 

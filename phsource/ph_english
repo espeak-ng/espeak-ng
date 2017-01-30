@@ -44,7 +44,7 @@ phoneme l      // use dark [l/2] before not-vowel
     ENDIF
   ENDIF
 
-  CALL base/l
+  CALL base1/l
 endphoneme
 
 

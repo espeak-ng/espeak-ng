@@ -192,7 +192,7 @@ phoneme l
 endphoneme
 
 phoneme l^
-  import_phoneme base/l^
+  import_phoneme base1/l^
   length 130
 endphoneme
 

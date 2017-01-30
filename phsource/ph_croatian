@@ -231,7 +231,7 @@ endphoneme
 
 
 phoneme R
-  import_phoneme base/R
+  import_phoneme base1/R
 endphoneme
 
 

@@ -61,7 +61,7 @@ endphoneme
 
 
 phoneme d         // revert to alveolar /d/
-  import_phoneme base/d
+  import_phoneme base1/d
   voicingswitch t
 endphoneme
 
@@ -85,6 +85,6 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R3
+  import_phoneme base1/R3
 endphoneme
 

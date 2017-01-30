@@ -179,7 +179,7 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 
@@ -239,7 +239,7 @@ phoneme d
   IF prevPh(!) THEN  // previous was [t] or [d], now assimilated
     ChangePhoneme(t)
   ENDIF
-  CALL base/d
+  CALL base1/d
 endphoneme
 
 phoneme p
@@ -261,7 +261,7 @@ phoneme b
   IF prevPh(!) THEN  // previous was [p] or [b], now assimilated
     ChangePhoneme(p)
   ENDIF
-  CALL base/b
+  CALL base1/b
 endphoneme
 
 phoneme s
@@ -270,7 +270,7 @@ phoneme s
       ChangePhoneme(!)
     ENDIF
   ENDIF
-  CALL base/s
+  CALL base1/s
 endphoneme
 
 phoneme z
@@ -283,7 +283,7 @@ phoneme z
   IF prevPh(!) THEN  // previous was [s] or [z], now assimilated
     ChangePhoneme(s)
   ENDIF
-  CALL base/z
+  CALL base1/z
 endphoneme
 
 

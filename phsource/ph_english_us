@@ -450,7 +450,7 @@ endphoneme
 
 
 phoneme t2   // [t] which doesn't reduce
-  import_phoneme  base/t
+  import_phoneme  base1/t
 endphoneme
 
 phoneme ?  // glottal stp

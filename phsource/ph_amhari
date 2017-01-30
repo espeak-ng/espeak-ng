@@ -68,7 +68,7 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 
@@ -87,7 +87,7 @@ phoneme b
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
     ChangePhoneme(B)
   ENDIF
-  CALL base/b
+  CALL base1/b
 endphoneme
 
 
@@ -132,6 +132,6 @@ phoneme x
   IF prevPhW(#i) THEN
     ChangePhoneme(C)
   ELSE
-    CALL base/x
+    CALL base1/x
   ENDIF
 endphoneme

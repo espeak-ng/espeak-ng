@@ -913,7 +913,7 @@ phoneme v
   Vowelout f1=0  f2=1000 -500 -300  f3=-300 100
 
   IF KlattSynth THEN
-    CALL base/v
+    CALL base1/v
     RETURN
   ENDIF
 

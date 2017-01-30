@@ -175,14 +175,14 @@ phoneme dz
 endphoneme
 
 phoneme ts;
-  CALL base/tS;
+  CALL base1/tS;
   voicingswitch dz;
   ipa tɕ
 endphoneme
 
 
 phoneme dz;
-  import_phoneme base/dZ;
+  import_phoneme base1/dZ;
   voicingswitch ts;
 endphoneme
 
@@ -191,7 +191,7 @@ phoneme w
   liquid
   lengthmod 7
 
-  CALL base/w
+  CALL base1/w
   IF nextPh(isVowel) THEN
     FMT(w/w2)   // longer [w]
   ENDIF

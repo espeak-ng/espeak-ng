@@ -80,7 +80,7 @@ endphoneme
 // consonants
 
 phoneme r
-  import_phoneme base/r"
+  import_phoneme base1/r"
 endphoneme
 
 

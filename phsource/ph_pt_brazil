@@ -190,7 +190,7 @@ endphoneme
 
 
 phoneme x
-  CALL base/h
+  CALL base1/h
   ipa x
 endphoneme
 
@@ -205,7 +205,7 @@ phoneme s#     // This is [s] for Brazil, [S] for Portugal
     ChangePhoneme(z)
   ENDIF
 
-  CALL base/s
+  CALL base1/s
   ipa s
 endphoneme
 
