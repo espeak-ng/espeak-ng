@@ -79,7 +79,7 @@ Starts a new phoneme table, and ends the previous table.
 
 \<parent\> Is the name of a previously defined phoneme table whose phoneme
 definitions are inherited by this one. The name `base` indicates the first
-(base) phoneme table.
+(base) phoneme table. The name `_` indicates no parent phoneme table.
 
 ## Phoneme Definitions
 

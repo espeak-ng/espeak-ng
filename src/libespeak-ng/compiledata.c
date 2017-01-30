@@ -2412,7 +2412,7 @@ static void StartPhonemeTable(const char *name)
 				break;
 			}
 		}
-		if (ix == n_phoneme_tabs)
+		if (ix == n_phoneme_tabs && strcmp(item_string, "_") != 0)
 			error("Can't find base phonemetable '%s'", item_string);
 	} else
 		ReservePhCodes();
