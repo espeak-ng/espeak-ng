@@ -812,27 +812,8 @@ phoneme dZ;
 endphoneme
 
 phoneme J
-  vcd pal afr sib pzd
+  import_phoneme ipa/J\\
   voicingswitch c
-  lengthmod 5
-  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
-
-  IF PreVoicing THEN
-    FMT(dzh/xdz_pzd)
-  ENDIF
-
-  IF KlattSynth THEN
-    IF nextPh(isPause2) THEN
-      FMT(klatt/dz_pzd_) addWav(x/dzh, 35)
-    ENDIF
-    FMT(klatt/dz_pzd) addWav(x/dzh, 45)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(dzh/dz_pzd_) addWav(x/dzh, 35)
-  ENDIF
-  FMT(dzh/dz_pzd) addWav(x/dzh, 45)
 endphoneme
 
 

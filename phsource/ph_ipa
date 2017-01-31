@@ -8,7 +8,7 @@
 // |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
-// | stp     |     |     |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | stp     |     |     |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     |     | J\  |     |     |     |     |     |     |     |     |
 // | sib afr |     |     |     |     |     |     |     |     |     | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -199,6 +199,7 @@ endphoneme
 
 phoneme d_d
   vcd dnt stp
+  ipa d̪
   lengthmod 5
   Vowelin f1=2  f2=1500 -300 300  f3=-150 80
   Vowelout f1=2 f2=1500 -300 300  f3=-150 80
@@ -233,6 +234,7 @@ endphoneme
 
 phoneme d
   vcd alv stp
+  ipa d
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
@@ -248,10 +250,35 @@ phoneme d
   FMT(d/d) addWav(x/d)
 endphoneme
 
+phoneme J\\
+  vcd pal stp
+  ipa ɟ
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/dz_pzd_) addWav(x/dzh, 35)
+    ENDIF
+    FMT(klatt/dz_pzd) addWav(x/dzh, 45)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dz_pzd_) addWav(x/dzh, 35)
+  ENDIF
+  FMT(dzh/dz_pzd) addWav(x/dzh, 45)
+endphoneme
+
 // affricate
 
 phoneme dZ\)
   vcd pla sib afr
+  ipa d͡ʒ
   lengthmod 5
   Vowelin f1=2  f2=2300 200 400  f3=100 80
   Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
@@ -268,7 +295,7 @@ endphoneme
 
 phoneme dz\\\)
   vcd alp sib afr
-  ipa dʑ
+  ipa d͡ʑ
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=2 f2=2700 400 600  f3=300 80
