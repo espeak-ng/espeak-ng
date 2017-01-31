@@ -9,7 +9,7 @@
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
 // | stp     |     |     |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | sib afr |     |     |     |     |     |     |     |     |     | dZ) |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | sib afr |     |     |     |     |     |     |     |     |     | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -264,6 +264,30 @@ phoneme dZ\)
     FMT(dzh/dzh_) addWav(x/dzh_)
   ENDIF
   FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+phoneme dz\\\)
+  vcd alp sib afr
+  ipa dʑ
+  lengthmod 5
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2 f2=2700 400 600  f3=300 80
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(dzh/dzh_) addWav(x/dzh_)
+    ENDIF
+    FMT(dzh/dzh) addWav(x/dz_pzd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
+  FMT(dzh/dzh) addWav(x/dz_pzd)
 endphoneme
 
 // approximant
