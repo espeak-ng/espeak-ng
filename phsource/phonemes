@@ -753,42 +753,8 @@ endphoneme
 
 
 phoneme b
-  vcd blb stp
+  import_phoneme ipa/b
   voicingswitch p 
-  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
-  lengthmod 5
-
-  IF PreVoicing THEN
-    FMT(b/xb)
-  ENDIF
-
-  IF KlattSynth THEN
-    Vowelin f1=1  f2=1000 -500 -300  f3=-300 80
-    IF nextPh(isPause2) THEN
-      FMT(klatt/b)  addWav(x/b_)
-    ENDIF
-    FMT(klatt/b) addWav(x/b)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(b/b_) addWav(x/b_)
-  ELIF nextPh(@-) THEN
-    FMT(b/b@2) addWav(x/b)
-  ELIF nextPh(#@) THEN
-    FMT(b/b@) addWav(x/b)
-  ELIF nextPh(#a) THEN
-    FMT(b/ba) addWav(x/b)
-  ELIF nextPh(#e) THEN
-    FMT(b/be) addWav(x/b)
-  ELIF nextPh(#i) THEN
-    FMT(b/bi) addWav(x/b)
-  ELIF nextPh(#o) THEN
-    FMT(b/bo) addWav(x/b)
-  ELIF nextPh(#u) THEN
-    FMT(b/bu) addWav(x/b)
-  ENDIF
-
-  FMT(b/b) addWav(x/b)
 endphoneme
 
 phoneme d
