@@ -600,35 +600,9 @@ phoneme w
   ENDIF
 endphoneme
 
-
-
-
 phoneme j // **y**es
-  liquid pal starttype #i
-  lengthmod 7
-
-  IF nextPhW(isVowel) THEN
-    NextVowelStarts
-      VowelStart(j/j@)
-      VowelStart(j/ja)
-      VowelStart(j/je)
-      VowelStart(j/ji)
-      VowelStart(j/jo)
-      VowelStart(j/ju)
-    EndSwitch
-
-    VowelEnding(j/xj, -30)
-
-    IF prevPh(isPause) THEN
-      FMT(j/_j)
-    ENDIF
-  ELSE
-    // no vowel follows
-    Vowelout len=70
-    FMT(j/j_)
-  ENDIF
+  import_phoneme ipa/j
 endphoneme
-
 
 phoneme ;     // linking j, used between (i) vowels and a following vowel
               // also to palatalize consonants
