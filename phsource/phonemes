@@ -797,25 +797,9 @@ phoneme d
 endphoneme
 
 phoneme d[
-  vcd dnt stp
+  import_phoneme ipa/d_d
   voicingswitch t[
-  lengthmod 5
-  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
-
-  IF PreVoicing THEN
-    FMT(d/xd)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(d/d_)  addWav(x/d_)
-  ELIF nextPh(r) THEN
-    FMT(d/dr) addWav(x/d_dnt, 100)
-  ENDIF
-
-  FMT(d/d) addWav(x/d_dnt, 100)
 endphoneme
-
 
 phoneme dZ // **j**udge
   vcd pla afr sib
