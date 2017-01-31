@@ -791,27 +791,10 @@ phoneme b
   FMT(b/b) addWav(x/b)
 endphoneme
 
-
 phoneme d
-  vcd alv stp
+  import_phoneme ipa/d
   voicingswitch t
-  lengthmod 5
-  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
-
-  IF PreVoicing THEN
-    FMT(d/xd)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(d/d_)  addWav(x/d_)
-//  ELIF nextPh(r) THEN
-//    FMT(d/dr) addWav(x/d)
-  ENDIF
-
-  FMT(d/d) addWav(x/d)
 endphoneme
-
 
 phoneme d[
   vcd dnt stp

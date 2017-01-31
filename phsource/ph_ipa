@@ -8,7 +8,7 @@
 // |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
-// | stp     |     |     |     |     | t_d |     | t   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | stp     |     |     |     |     | t_d |     | t   | d   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -210,6 +210,23 @@ phoneme t
     WAV(ustop/tr)
   ENDIF
   WAV(ustop/t, 90)
+endphoneme
+
+phoneme d
+  vcd alv stp
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ENDIF
+
+  FMT(d/d) addWav(x/d)
 endphoneme
 
 // approximant
