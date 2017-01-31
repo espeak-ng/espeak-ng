@@ -21,6 +21,19 @@
 // | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | trl     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 
+// Other Symbols
+// =============
+//
+// |             | bld |     | alv |     | pla |     | pal |     | lbv |     | vel |     |
+// |-------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+// |             | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
+// | nas         |     |     |     |     |     |     |     |     |     |     |     |     |
+// | stp         |     |     |     |     |     |     |     |     |     |     |     |     |
+// | afr         |     |     |     |     |     |     |     |     |     |     |     |     |
+// | vzd frc     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | ptr apr     |     |     |     |     |     |     |     |     |     |     |     | w   |
+// | fzd lat apr |     |     |     |     |     |     |     |     |     |     |     |     |
+
 // nasal
 
 phoneme m
@@ -186,6 +199,7 @@ endphoneme
 
 phoneme b
   vcd blb stp
+  ipa b
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
   lengthmod 5
 
@@ -435,5 +449,37 @@ phoneme j
     // no vowel follows
     Vowelout len=70
     FMT(j/j_)
+  ENDIF
+endphoneme
+
+phoneme w
+  vcd ptr vel apr liquid starttype #u
+  ipa w
+  lengthmod 7
+  
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+
+    VowelEnding(w/xw, -30)
+
+    IF prevPhW(isNasal) THEN
+      FMT(w/w)
+    ELSE
+      FMT(w/_w)
+    ENDIF
+  ELSE
+    // no vowel follows
+    Vowelout len=50
+    IF prevPh(#i) THEN
+      FMT(w/iw_)
+    ENDIF
+    FMT(w/w_)
   ENDIF
 endphoneme

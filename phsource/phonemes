@@ -563,41 +563,8 @@ phoneme L   // velar L
   FMT(ll/ll)
 endphoneme
 
-
-
-
 phoneme w
-  liquid
-  lengthmod 7
-  starttype #u
-  
-  IF nextPh(isVowel) THEN
-    NextVowelStarts
-      VowelStart(w/w@)
-      VowelStart(w/wa)
-      VowelStart(w/we)
-      VowelStart(w/wi)
-      VowelStart(w/wo)
-      VowelStart(w/wu)
-    EndSwitch
-
-    VowelEnding(w/xw, -30)
-
-    IF prevPhW(isNasal) THEN
-      FMT(w/w)
-    ELSEIF prevPhW(h) THEN
-      // none,  [hw]
-    ELSE
-      FMT(w/_w)
-    ENDIF
-  ELSE
-    // no vowel follows
-    Vowelout len=50
-    IF prevPh(#i) THEN
-      FMT(w/iw_)
-    ENDIF
-    FMT(w/w_)
-  ENDIF
+  import_phoneme ipa/w
 endphoneme
 
 phoneme j // **y**es
