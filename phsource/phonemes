@@ -744,19 +744,10 @@ phoneme v
   voicingswitch f
 endphoneme
 
-phoneme v#        // approximant, not fricative
-  vcd lbd frc
-  ipa ʋ
-  lengthmod 6
+phoneme v#
+  import_phoneme ipa/P
   voicingswitch f
-  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
-  IF nextPh(isPause2) THEN
-    FMT(voc/v#_)
-  ENDIF
-  FMT(voc/v#)
 endphoneme
-
 
 phoneme D // **th**is
   vcd dnt frc

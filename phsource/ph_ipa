@@ -15,7 +15,7 @@
 // | sib frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | frc     |     | B   |     | v   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | apr     |     |     |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
+// | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -431,6 +431,18 @@ phoneme v
 endphoneme
 
 // approximant
+
+phoneme P
+  vcd lbd apr
+  ipa ʋ
+  lengthmod 6
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF nextPh(isPause2) THEN
+    FMT(voc/v#_)
+  ENDIF
+  FMT(voc/v#)
+endphoneme
 
 phoneme r\\
   vcd alv apr liquid rhotic
