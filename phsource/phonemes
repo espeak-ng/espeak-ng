@@ -802,22 +802,9 @@ phoneme d[
 endphoneme
 
 phoneme dZ // **j**udge
-  vcd pla afr sib
+  import_phoneme ipa/dZ\)
   voicingswitch tS
-  lengthmod 5
-  Vowelin f1=2  f2=2300 200 400  f3=100 80
-  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
-
-  IF PreVoicing THEN
-    FMT(dzh/xdzh)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(dzh/dzh_) addWav(x/dzh_)
-  ENDIF
-  FMT(dzh/dzh) addWav(x/dzh)
 endphoneme
-
 
 phoneme dZ;
   vcd alp sib afr
