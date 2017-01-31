@@ -13,7 +13,7 @@
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | frc     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | frc     |     | B   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     |     |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -382,6 +382,28 @@ phoneme dz\\\)
     FMT(dzh/dzh_) addWav(x/dzh_)
   ENDIF
   FMT(dzh/dzh) addWav(x/dz_pzd)
+endphoneme
+
+// fricative
+
+phoneme B
+  vcd blb frc
+  ipa β
+  lengthmod 6
+  Vowelin  f1=2  f2=1000 -300 -200  f3=-100 100
+  Vowelout f1=2  f2=1000 -500 -300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/v_) addWav(vocw/v)
+    ENDIF
+    FMT(klatt/bh) addWav(vocw/v)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  FMT(voc/bh) addWav(vocw/v)
 endphoneme
 
 // approximant
