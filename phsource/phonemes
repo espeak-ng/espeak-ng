@@ -758,18 +758,9 @@ phoneme C // German i**ch**
 endphoneme
 
 phoneme x // German bu**ch**
-  vls vel frc
+  import_phoneme ipa/x
   voicingswitch Q
-  lengthmod 3
-  Vowelin f1=0  f2=2300 200 400  f3=-100 80
-  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/x_, 60)
-  ENDIF
-  WAV(ufric/x_hr, 20)
 endphoneme
-
 
 phoneme X
   vls uvl frc

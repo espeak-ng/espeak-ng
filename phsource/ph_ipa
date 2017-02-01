@@ -16,7 +16,7 @@
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     | s   | z   | S   | Z   | s`  | z`  | s\  | z\  |     |     |     |     |     |     |     |     |     |     |
-// | frc     |     | B   | f   | v   | T   | D   |     |     |     |     |     |     |     |     | C   | j\  |     | G   |     | R   |     |     |     |     |
+// | frc     |     | B   | f   | v   | T   | D   |     |     |     |     |     |     |     |     | C   | j\  | x   | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     | K   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     | L\  |     |     |     |     |     |     |
@@ -764,6 +764,19 @@ phoneme j\\
   Vowelout f1=1 f2=2700 400 600  f3=200 70 len=100
 
   FMT(voc/j) addWav(ufric/ch, 25)
+endphoneme
+
+phoneme x
+  vls vel frc
+  ipa x
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/x_, 60)
+  ENDIF
+  WAV(ufric/x_hr, 20)
 endphoneme
 
 phoneme G
