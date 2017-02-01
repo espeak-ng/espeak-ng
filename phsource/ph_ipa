@@ -11,7 +11,7 @@
 // |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
-// | stp     | p   | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     | c   | J\  |     | g   | q   |     |     |     |     |     |
+// | stp     | p   | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     | c   | J\  | k   | g   | q   |     |     |     |     |     |
 // | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -359,6 +359,31 @@ phoneme J\\
     FMT(dzh/dz_pzd_) addWav(x/dzh, 35)
   ENDIF
   FMT(dzh/dz_pzd) addWav(x/dzh, 45)
+endphoneme
+
+phoneme k
+  vls vel stp
+  ipa k
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(isRhotic) THEN
+    WAV(ustop/kr)
+  ELIF nextPh(#i) OR nextPh(isPalatal) THEN
+    WAV(ustop/ki)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ELIF nextPh(#@) THEN
+    WAV(ustop/k_unasp, 70)
+  ENDIF
+  WAV(ustop/k)
 endphoneme
 
 phoneme g
