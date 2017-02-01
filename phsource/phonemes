@@ -763,16 +763,9 @@ phoneme x // German bu**ch**
 endphoneme
 
 phoneme X
-  vls uvl frc
+  import_phoneme ipa/X
   voicingswitch Q"
-  lengthmod 3
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/xx, 70)
-  ENDIF
-  WAV(ufric/xx,80)
 endphoneme
-
 
 phoneme h
   vls glt apr
