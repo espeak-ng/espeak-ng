@@ -754,17 +754,8 @@ phoneme l#   // Lateral fricative (eg. Welsh "ll")
 endphoneme
 
 phoneme C // German i**ch**
-  vls pal frc
-  lengthmod 3
-  Vowelin f1=0  f2=2700 400 600  f3=200 70
-  Vowelout f1=0 f2=2700 400 600  f3=200 70  rms=20
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/ch_)
-  ENDIF
-  WAV(ufric/ch)
+  import_phoneme ipa/C
 endphoneme
-
 
 phoneme x // German bu**ch**
   vls vel frc
