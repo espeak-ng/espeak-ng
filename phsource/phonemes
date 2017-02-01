@@ -750,26 +750,8 @@ phoneme S;
 endphoneme
 
 phoneme l#   // Lateral fricative (eg. Welsh "ll")
-  vls alv frc
-  ipa ɬ
-  lengthmod 3
-
-  NextVowelStarts
-    VowelStart(l/l@)
-    VowelStart(l/la)
-    VowelStart(l/le)
-    VowelStart(l/li, -10)
-    VowelStart(l/lo)
-    VowelStart(l/lu)
-  EndSwitch
-
-  IF prevPh(isVowel) THEN
-    VowelEnding(l/xl, -40)
-  ENDIF
-
-  WAV(ufric/l#, 60)
+  import_phoneme ipa/K
 endphoneme
-
 
 phoneme C // German i**ch**
   vls pal frc

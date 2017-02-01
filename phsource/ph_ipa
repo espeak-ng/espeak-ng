@@ -17,7 +17,7 @@
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     | s   | z   | S   | Z   | s`  | z`  | s\  | z\  |     |     |     |     |     |     |     |     |     |     |
 // | frc     |     | B   | f   | v   | T   | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
-// | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat frc |     |     |     |     |     |     | K   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     | L\  |     |     |     |     |     |     |
 // | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -598,6 +598,27 @@ phoneme s_j
     WAV(ufric/s_pzd_)
   ENDIF
   WAV(ufric/s_pzd)
+endphoneme
+
+phoneme K
+  vls alv lat frc
+  ipa ɬ
+  lengthmod 3
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la)
+    VowelStart(l/le)
+    VowelStart(l/li, -10)
+    VowelStart(l/lo)
+    VowelStart(l/lu)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  WAV(ufric/l#, 60)
 endphoneme
 
 phoneme z
