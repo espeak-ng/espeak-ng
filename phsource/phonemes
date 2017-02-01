@@ -820,7 +820,6 @@ phoneme p
   WAV(ustop/p)
 endphoneme
 
-
 phoneme t
   import_phoneme ipa/t
   voicingswitch d
@@ -831,26 +830,15 @@ phoneme t[        // dental variant of /t/
   voicingswitch d[
 endphoneme
 
-
 phoneme tS     // **ch**urch
   import_phoneme ipa/tS\)
   voicingswitch dZ
 endphoneme
 
-
 phoneme tS;
-  vls alp sib afr
+  import_phoneme ipa/ts\\\)
   voicingswitch dZ;
-  ipa tɕ
-  lengthmod 2
-  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-
-  IF nextPh(isPause2) THEN
-    WAV(ustop/ts_pzd)
-  ENDIF
-  WAV(ustop/ts_pzd)
 endphoneme
-
 
 phoneme c
   vls pal stp pzd

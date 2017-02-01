@@ -1,5 +1,8 @@
 // International Phonetic Alphabet phonemes using the Conlang X-SAMPA (CXS)
 // transcription scheme.
+//
+// Reference: "X-SAMPA / CXS" http://www.theiling.de/ipa/
+// Reference: "CXS" https://en.wikibooks.org/wiki/Conlang/Appendix/CXS
 
 // Consonants (Pulmonic)
 // =====================
@@ -9,7 +12,7 @@
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
 // | stp     |     | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     |     | J\  |     | g   |     |     |     |     |     |     |
-// | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
+// | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     | z   |     | Z   |     | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
@@ -372,6 +375,18 @@ phoneme dZ\)
     FMT(dzh/dzh_) addWav(x/dzh_)
   ENDIF
   FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+phoneme ts\\\)
+  vls alp sib afr
+  ipa t͡ɕ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd)
+  ENDIF
+  WAV(ustop/ts_pzd)
 endphoneme
 
 phoneme dz\\\)
