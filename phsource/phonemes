@@ -833,15 +833,8 @@ endphoneme
 
 
 phoneme tS     // **ch**urch
-  vls pla afr sib
+  import_phoneme ipa/tS\)
   voicingswitch dZ
-  lengthmod 2
-  Vowelin f1=0  f2=2300 200 400  f3=-100 80
-
-  IF nextPh(isPause2) THEN
-    WAV(ustop/tsh_)
-  ENDIF
-  WAV(ustop/tsh)
 endphoneme
 
 

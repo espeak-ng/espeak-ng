@@ -9,7 +9,7 @@
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
 // | stp     |     | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     |     | J\  |     | g   |     |     |     |     |     |     |
-// | sib afr |     |     |     |     |     |     |     |     |     | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
+// | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     | z   |     | Z   |     | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
@@ -33,6 +33,8 @@
 // | vzd frc     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | ptr apr     |     |     |     |     |     |     |     |     |     |     |     | w   |
 // | fzd lat apr |     |     |     |     |     |     |     |     |     |     |     |     |
+
+// NOTE: ')' needs to be replaced with '\)' and '\' with '\\' when referencing these phonemes in the phoneme files.
 
 // nasal
 
@@ -342,6 +344,18 @@ phoneme g
 endphoneme
 
 // affricate
+
+phoneme tS\)
+  vls pla sib afr
+  ipa t͡ʃ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
 
 phoneme dZ\)
   vcd pla sib afr
