@@ -13,7 +13,7 @@
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     | z   |     | Z   |     | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
-// | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     |     |     |     |     |     |
+// | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -544,6 +544,17 @@ phoneme G
     FMT(voc/Q_) addWav(vocw/Q_)
   ENDIF
   FMT(voc/Q) addWav(vocw/Q)
+endphoneme
+
+phoneme R
+  vcd uvl frc
+  ipa ʁ
+  lengthmod 6
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_ulv) addWav(ufric/xx, 60)
+  ENDIF
+  FMT(voc/Q_ulv) addWav(ufric/xx, 80)
 endphoneme
 
 // approximant

@@ -790,17 +790,8 @@ phoneme Q
 endphoneme
 
 phoneme Q"
-  vcd uvl frc
-  ipa ʁ
-  lengthmod 6
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/Q_ulv) addWav(ufric/xx, 60)
-  ENDIF
-  FMT(voc/Q_ulv) addWav(ufric/xx, 80)
+  import_phoneme ipa/R
 endphoneme
-
-
 
 
 //*******************************************************************
