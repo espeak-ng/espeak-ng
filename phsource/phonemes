@@ -745,19 +745,9 @@ phoneme s;
 endphoneme
 
 phoneme S;
-  vls alp sib frc
+  import_phoneme ipa/s\\
   voicingswitch Z;
-  ipa ɕ
-  lengthmod 3
-  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
-  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/sh_pzd_)
-  ENDIF
-  WAV(ufric/sh_pzd)
 endphoneme
-
 
 phoneme l#   // Lateral fricative (eg. Welsh "ll")
   vls alv frc

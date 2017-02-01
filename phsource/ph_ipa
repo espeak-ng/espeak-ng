@@ -15,7 +15,7 @@
 // | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | sib frc |     |     |     |     |     |     | s   | z   | S   | Z   | s`  | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
+// | sib frc |     |     |     |     |     |     | s   | z   | S   | Z   | s`  | z`  | s\  | z\  |     |     |     |     |     |     |     |     |     |     |
 // | frc     |     | B   | f   | v   | T   | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
@@ -694,6 +694,19 @@ phoneme z`
     FMT(voc/zh_) addWav(vocw/zh_rfx)
   ENDIF
   FMT(voc/zh) addWav(vocw/zh_rfx)
+endphoneme
+
+phoneme s\\
+  vls alp sib frc
+  ipa ɕ
+  lengthmod 3
+  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/sh_pzd_)
+  ENDIF
+  WAV(ufric/sh_pzd)
 endphoneme
 
 phoneme z\\
