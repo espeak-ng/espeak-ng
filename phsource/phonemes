@@ -770,34 +770,14 @@ phoneme z.
 endphoneme
 
 phoneme z;
-  vcd alp sib frc
-  ipa ʑ
+  import_phoneme ipa/z\\
   voicingswitch s;
-  lengthmod 6
-  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/z_pzd_) addWav(ufric/s_pzd_, 80)
-  ENDIF
-  FMT(voc/z_pzd) addWav(ufric/s_pzd, 80)
 endphoneme
-
 
 phoneme Z;
-  vcd alp sib frc
+  import_phoneme ipa/z\\
   voicingswitch S;
-  ipa ʑ
-  lengthmod 6
-  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/z_pzd_) addWav(ufric/sh_pzd_)
-  ENDIF
-  FMT(voc/z_pzd) addWav(ufric/sh_pzd, 80)
 endphoneme
-
 
 phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
   vcd pal frc pzd
