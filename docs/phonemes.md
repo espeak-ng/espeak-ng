@@ -83,7 +83,7 @@ transcriptions are consistent.
 | `afr`         | p͡f   | b͡v   |       |       |       |       |       |       |       |       |       |       |
 | `vzd frc`     |       |       |       |       | ɧ     |       |       |       |       |       |       |       |
 | `ptr apr`     |       |       |       |       |       |       |       | ɥ     |       |       | ʍ     | w     |
-| `fzd lat apr` |       |       | ɫ     |       |       |       |       |       |       |       |       |       |
+| `fzd lat apr` |       |       |       | ɫ     |       |       |       |       |       |       |       |       |
 
 ### Gemination
 

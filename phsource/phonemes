@@ -390,32 +390,8 @@ phoneme l/    // used for [l] when not before a vowel
 endphoneme
 
 phoneme l/2    // 'dark' [l] after a vowel
-  liquid
-  lengthmod 7
-
-  IF nextPh(isVowel) THEN
-    ChangePhoneme(l)
-  ENDIF
-
-  CALL vowelstart_l
-
-  IF prevPhW(j) THEN
-    FMT(l/L2_eL)
-  ENDIF
-  IF prevPhW(w) THEN
-    FMT(l/L2_uL)
-  ENDIF
-
-  PrevVowelEndings
-    VowelEnding(l/L2_@L, -60)
-    VowelEnding(l/L2_aL, -50)
-    VowelEnding(l/L2_eL, -40)
-    VowelEnding(l/L2_iL, -30)
-    VowelEnding(l/L2_oL, -50)
-    VowelEnding(l/L2_uL, -40)
-  EndSwitch
+  import_phoneme ipa/l_e
 endphoneme
-
 
 phoneme l/3    // Replacement for [l/]
   liquid

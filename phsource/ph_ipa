@@ -35,7 +35,7 @@
 // | afr         |     |     |     |     |     |     |     |     |     |     |     |     |
 // | vzd frc     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | ptr apr     |     |     |     |     |     |     |     |     |     |     |     | w   |
-// | fzd lat apr |     |     |     |     |     |     |     |     |     |     |     |     |
+// | fzd lat apr |     |     |     | l_e |     |     |     |     |     |     |     |     |
 
 // NOTE: ')' needs to be replaced with '\)' and '\' with '\\' when referencing these phonemes in the phoneme files.
 
@@ -670,6 +670,61 @@ endphoneme
 phoneme l
   vcd alv lat apr liquid
   ipa l
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    PrevVowelEndings
+      VowelEnding(l/L1_@L, -60)
+      VowelEnding(l/L1_aL, -40)
+      VowelEnding(l/L1_eL, -30)
+      VowelEnding(l/L1_iL, -30)
+      VowelEnding(l/L1_oL, -40)
+      VowelEnding(l/L1_uL, -40)
+    EndSwitch
+
+    // we need to replace these with new FMT sequeces for jl and wl
+    IF prevPhW(j) THEN
+      FMT(l/L1_eL)
+    ELIF prevPhW(w) THEN
+      FMT(l/L1_eL)
+    ENDIF
+
+    FMT(l/l_)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la)
+    VowelStart(l/le)
+    VowelStart(l/li, -10)
+    VowelStart(l/lo)
+    VowelStart(l/lu)
+  EndSwitch
+
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l) THEN
+    FMT(l/l_long) // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+phoneme l_e
+  vcd alv fzd lat apr liquid
+  ipa ɫ
   lengthmod 7
 
   IF nextPh(isNotVowel) THEN
