@@ -725,20 +725,9 @@ phoneme T   // **th**in
 endphoneme
 
 phoneme s
-  vls alv frc sib
+  import_phoneme ipa/s
   voicingswitch z
-  lengthmod 3
-  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/s_)
-  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
-    WAV(ufric/s!)
-  ENDIF
-  WAV(ufric/s)
 endphoneme
-
 
 phoneme S // **sh**op
   vls pla frc sib
