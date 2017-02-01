@@ -11,7 +11,7 @@
 // |         | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd | vls | vcd |
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
-// | stp     |     | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     | c   | J\  |     | g   |     |     |     |     |     |     |
+// | stp     |     | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     | c   | J\  |     | g   | q   |     |     |     |     |     |
 // | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -357,6 +357,21 @@ phoneme g
     FMT(g/g_) addWav(x/g_)
   ENDIF
   FMT(g/g) addWav(x/g2, 150)
+endphoneme
+
+phoneme q
+  vls uvl stp
+  ipa q
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
+  Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/q, 40)
+  ELIF nextPh(#u) THEN
+    WAV(ustop/q_u, 80)
+  ENDIF
+  WAV(ustop/q, 48)
 endphoneme
 
 // affricate
