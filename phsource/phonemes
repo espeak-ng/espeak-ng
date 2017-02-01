@@ -740,19 +740,9 @@ phoneme s.
 endphoneme
 
 phoneme s;
-  vls pal frc sib pzd
-  ipa ʂ
+  import_phoneme ipa/s_j
   voicingswitch z;
-  lengthmod 3
-  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
-  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/s_pzd_)
-  ENDIF
-  WAV(ufric/s_pzd)
 endphoneme
-
 
 phoneme S;
   vls alp sib frc

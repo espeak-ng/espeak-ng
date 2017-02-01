@@ -587,6 +587,19 @@ phoneme s
   WAV(ufric/s)
 endphoneme
 
+phoneme s_j
+  vls alv sib frc pzd
+  ipa sʲ
+  lengthmod 3
+  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_pzd_)
+  ENDIF
+  WAV(ufric/s_pzd)
+endphoneme
+
 phoneme z
   vcd alv sib frc
   ipa z
