@@ -19,7 +19,7 @@
 // | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
-// | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     |     |     |     |     |     |     |     |
+// | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     | L\  |     |     |     |     |     |     |
 // | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | trl     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -864,4 +864,18 @@ phoneme w
     ENDIF
     FMT(w/w_)
   ENDIF
+endphoneme
+
+phoneme L\\
+  vcd vel lat apr liquid
+  ipa ʟ
+  lengthmod 7
+
+  VowelEnding(ll/xll, -40)
+
+  IF prevPh(isPause) THEN
+     FMT(ll/_ll)
+  ENDIF
+
+  FMT(ll/ll)
 endphoneme
