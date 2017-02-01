@@ -13,7 +13,7 @@
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     | z   |     | Z   |     | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
-// | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     |     |     |     |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -514,6 +514,16 @@ phoneme z\\
     FMT(voc/z_pzd_) addWav(ufric/s_pzd_, 80)
   ENDIF
   FMT(voc/z_pzd) addWav(ufric/s_pzd, 80)
+endphoneme
+
+phoneme j\\
+  vcd pal frc
+  ipa ʝ
+  lengthmod 6
+  Vowelin f1=1  f2=2700 400 600  f3=200 70
+  Vowelout f1=1 f2=2700 400 600  f3=200 70 len=100
+
+  FMT(voc/j) addWav(ufric/ch, 25)
 endphoneme
 
 // approximant

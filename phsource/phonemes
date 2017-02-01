@@ -780,16 +780,9 @@ phoneme Z;
 endphoneme
 
 phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
-  vcd pal frc pzd
+  import_phoneme ipa/j\\
   ipa ʝ
-  voicingswitch C
-  lengthmod 6
-  Vowelin f1=1  f2=2700 400 600  f3=200 70
-  Vowelout f1=1 f2=2700 400 600  f3=200 70 len=100
-
-  FMT(voc/j) addWav(ufric/ch, 25)
 endphoneme
-
 
 phoneme Q
   vcd vel frc
