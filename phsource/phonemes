@@ -670,24 +670,8 @@ endphoneme
 
 
 phoneme p
-  vls blb stp
+  import_phoneme ipa/p
   voicingswitch b
-  lengthmod 2
-  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
-  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
-
-  IF nextPh(isPause2) THEN
-    WAV(ustop/p_)
-  ELIF nextPh(r) THEN
-    WAV(ustop/pr, 70)
-  ELIF nextPh(R) OR nextPh(R2) THEN
-    WAV(ustop/pr)
-  ELIF nextPh(@-) THEN
-    WAV(ustop/p_unasp)
-  ELIF nextPh(l) THEN
-    WAV(ustop/pl)
-  ENDIF
-  WAV(ustop/p)
 endphoneme
 
 phoneme t
