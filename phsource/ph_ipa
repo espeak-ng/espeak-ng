@@ -12,7 +12,7 @@
 // | sib afr |     |     |     |     |     |     |     |     |     | dZ) |     |     | dz\)|     |     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | sib frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | sib frc |     |     |     |     |     |     |     | z   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
@@ -444,6 +444,23 @@ phoneme D
     FMT(voc/dh_) addWav(vocw/dh)
   ENDIF
   FMT(voc/dh) addWav(vocw/dh)
+endphoneme
+
+phoneme z
+  vcd alv sib frc
+  ipa z
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1390 -300 300 f3=0 0
+    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ufric/s_, 70)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
 // approximant

@@ -755,22 +755,9 @@ phoneme D // **th**is
 endphoneme
 
 phoneme z
-  vcd alv frc sib
+  import_phoneme ipa/z
   voicingswitch s
-  lengthmod 6
-  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
-
-  IF KlattSynth THEN
-    Vowelin f1=0 f2=1390 -300 300 f3=0 0
-    Vowelout f1=1  f2=1390 -300 300  f3=-100 60  len=50 brk
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/z_) addWav(ufric/s_, 70)
-  ENDIF
-  FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
-
 
 phoneme Z // plea**s**ure
   vcd pla frc sib
