@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2014-2016 Eitan Isaacson
-# Copyright (C) 2016      Alberto Pettarin
+# Copyright (C) 2014-2017 Eitan Isaacson
+# Copyright (C) 2016-2017 Alberto Pettarin
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ EM_WORKER_DATA=js/espeakng.worker.data
 EM_WORKER_JS=js/espeakng.worker.js
 EM_PTHREAD_MAIN_JS=js/pthread-main.js
 
-# NOTE: intermediate objects 
+# NOTE: intermediate objects
 EM_OBJS=$(EM_GLUE_OBJ) $(EM_LIBESPEAKNG_SO)
 EM_ALL_PRE_JS=$(EM_PRE_JS) $(EM_ESPEAKNG_DATA_PACKAGE_JS)
 EM_ALL_POST_JS=$(EM_GLUE_AUTOGEN_JS) $(EM_POST_JS)
@@ -82,8 +82,8 @@ EM_ALL_POST_JS=$(EM_GLUE_AUTOGEN_JS) $(EM_POST_JS)
 #
 # ./emconfigure ./configure --prefix=/usr --without-async
 # ./emmake make
-CXXFLAGS+=-DESPEAK_DATA_PATH=\"$(EM_VIRTUAL_PATH_ESPEAKNG_DATA)\" 
-CXXFLAGS+=-I ./ -I ../ -I ../src/include/espeak-ng 
+CXXFLAGS+=-DESPEAK_DATA_PATH=\"$(EM_VIRTUAL_PATH_ESPEAKNG_DATA)\"
+CXXFLAGS+=-I ./ -I ../ -I ../src/include/espeak-ng
 
 # NOTE: so far, pthread is not supported in any browser
 #       except Firefox Nightly.
@@ -114,7 +114,7 @@ $(EM_WORKER_DATA):
 $(EM_ESPEAKNG_DATA_PACKAGE_JS): $(EM_WORKER_DATA)
 
 $(EM_GLUE_AUTOGEN_CPP): $(EM_GLUE_IDL)
-	$(EM_WEBIDL_BINDER) $(EM_GLUE_IDL) $(EM_GLUE_PREFIX) 
+	$(EM_WEBIDL_BINDER) $(EM_GLUE_IDL) $(EM_GLUE_PREFIX)
 
 $(EM_GLUE_AUTOGEN_JS): $(EM_GLUE_AUTOGEN_CPP)
 

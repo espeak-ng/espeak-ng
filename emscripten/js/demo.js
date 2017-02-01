@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2016 Eitan Isaacson
+ * Copyright (C) 2014-2017 Eitan Isaacson
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -164,7 +164,7 @@ function speak() {
 
   var now = Date.now();
   chunkID = 0;
-  
+
   console.log('  Creating pusher...');
   pusher = new PushAudioNode(
     ctx,
@@ -204,7 +204,7 @@ function speak() {
     } // end of function cb
   ); // end of tts.synthesize()
   console.log('  Calling synthesize... done');
-  
+
   console.log('Leaving speak()');
 } // end of speak()
 
@@ -240,7 +240,7 @@ function initializeDemo() {
             opt.value = voice.identifier;
             console.log('Adding voice: ' + opt.text);
             sel.add(opt);
-            if (voice.name === 'en') {
+            if (voice.name === 'english') {
               opt.id = 'default-voice';
               opt.selected = true;
             }
