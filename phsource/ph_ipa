@@ -604,6 +604,19 @@ phoneme z
   FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
+phoneme z_j
+  vcd alv sib frc pzd
+  ipa zʲ
+  lengthmod 6
+  Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_pzd_) addWav(ufric/s_pzd_, 80)
+  ENDIF
+  FMT(voc/z_pzd) addWav(ufric/s_pzd, 80)
+endphoneme
+
 phoneme S
   vls pla sib frc
   ipa ʃ

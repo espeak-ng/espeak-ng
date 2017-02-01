@@ -640,7 +640,7 @@ phoneme z.
 endphoneme
 
 phoneme z;
-  import_phoneme ipa/z\\
+  import_phoneme ipa/z_j
   voicingswitch s;
 endphoneme
 
