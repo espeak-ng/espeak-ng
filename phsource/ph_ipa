@@ -19,7 +19,7 @@
 // | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
-// | lat apr |     |     |     |     |     |     |     | l   |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     |     |     |     |     |     |     |     |     |     |
 // | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | trl     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -775,6 +775,13 @@ phoneme l_e
   ENDIF
 
   FMT(l/l)
+endphoneme
+
+phoneme l`
+  vcd rfx lat apr liquid
+  ipa ɭ
+  lengthmod 7
+  FMT(l^/l_rfx)
 endphoneme
 
 phoneme j

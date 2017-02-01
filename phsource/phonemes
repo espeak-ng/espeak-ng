@@ -417,8 +417,6 @@ phoneme l/3    // Replacement for [l/]
   FMT(l/l_)
 endphoneme
 
-
-
 phoneme l^    // palatal l, e.g. Italian **g**li
   liquid
   ipa ʎ
@@ -442,14 +440,9 @@ phoneme l^    // palatal l, e.g. Italian **g**li
   FMT(l^/l^)
 endphoneme
 
-
 phoneme l.
-  liquid rfx
-  ipa ɭ
-  lengthmod 7
-  FMT(l^/l_rfx)
+  import_phoneme ipa/l`
 endphoneme
-
 
 phoneme L/
   import_phoneme base1/l/2
