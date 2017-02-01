@@ -713,18 +713,11 @@ endphoneme
 // UNVOICED fricatives
 //*******************************************************************
 
+
 phoneme f
-  vls lbd frc
+  import_phoneme ipa/f
   voicingswitch v
-  lengthmod 3
-  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
-
-  IF nextPh(isPause) THEN
-    WAV(ufric/f_)
-  ENDIF
-  WAV(ufric/f)
 endphoneme
-
 
 phoneme T   // **th**in
   vls dnt frc

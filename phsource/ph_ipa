@@ -16,7 +16,7 @@
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     |     | z   |     | Z   |     | z`  |     | z\  |     |     |     |     |     |     |     |     |     |     |
-// | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
+// | frc     |     | B   | f   | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
 // | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     | L\  |     |     |     |     |     |     |
@@ -505,6 +505,18 @@ phoneme B
     FMT(voc/v_) addWav(vocw/v)
   ENDIF
   FMT(voc/bh) addWav(vocw/v)
+endphoneme
+
+phoneme f
+  vls lbd frc
+  ipa f
+  lengthmod 3
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/f_)
+  ENDIF
+  WAV(ufric/f)
 endphoneme
 
 phoneme v
