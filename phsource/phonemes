@@ -418,26 +418,7 @@ phoneme l/3    // Replacement for [l/]
 endphoneme
 
 phoneme l^    // palatal l, e.g. Italian **g**li
-  liquid
-  ipa ʎ
-  lengthmod 7
-  Vowelout len=60 lenadd rate
-  length 100
-
-  NextVowelStarts
-    VowelStart(l^/j2@)
-    VowelStart(l^/j2a)
-    VowelStart(l^/j2e)
-    VowelStart(l^/j2i)
-    VowelStart(l^/j2o)
-    VowelStart(l^/j2u)
-  EndSwitch
-
-  IF prevPh(isPause) THEN
-    FMT(l^/_l^)
-  ENDIF
-
-  FMT(l^/l^)
+  import_phoneme ipa/L
 endphoneme
 
 phoneme l.

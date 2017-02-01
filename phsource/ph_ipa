@@ -19,7 +19,7 @@
 // | frc     |     | B   |     | v   |     | D   |     |     |     |     |     |     |     |     |     | j\  |     | G   |     | R   |     |     |     |     |
 // | lat frc |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | apr     |     | P   |     |     |     |     |     | r\  |     |     |     |     |     |     |     | j   |     |     |     |     |     |     |     |     |
-// | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     |     |     |     |     |     |     |     |     |     |
+// | lat apr |     |     |     |     |     |     |     | l   |     |     |     | l`  |     |     |     | L   |     |     |     |     |     |     |     |     |
 // | flp     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat flp |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | trl     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -809,6 +809,29 @@ phoneme j
     Vowelout len=70
     FMT(j/j_)
   ENDIF
+endphoneme
+
+phoneme L
+  vcd pal lat apr liquid
+  ipa ʎ
+  lengthmod 7
+  Vowelout len=60 lenadd rate
+  length 100
+
+  NextVowelStarts
+    VowelStart(l^/j2@)
+    VowelStart(l^/j2a)
+    VowelStart(l^/j2e)
+    VowelStart(l^/j2i)
+    VowelStart(l^/j2o)
+    VowelStart(l^/j2u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(l^/_l^)
+  ENDIF
+
+  FMT(l^/l^)
 endphoneme
 
 phoneme w
