@@ -785,38 +785,9 @@ phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
 endphoneme
 
 phoneme Q
-  vcd vel frc
+  import_phoneme ipa/G
   voicingswitch x
-  lengthmod 6
-  Vowelin f1=2  f2=2300 200 400  f3=-100 80
-  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-
-  IF KlattSynth THEN
-    IF nextPh(isPause2) THEN
-      FMT(klatt/qqh_) addWav(vocw/Q_)
-    ENDIF
-    FMT(klatt/qqh) addWav(vocw/Q)
-  ENDIF
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/Q_) addWav(vocw/Q_)
-  ENDIF
-  FMT(voc/Q) addWav(vocw/Q)
 endphoneme
-
-
-phoneme Q^
-  vcd vel frc
-  lengthmod 6
-  Vowelin f1=2  f2=2700 400 600  f3=200 80
-  Vowelout f1=2  f2=2700 40 600  f3=200 80 brk
-
-  IF nextPh(isPause2) THEN
-    FMT(voc/Q_) addWav(vocw/Q_)
-  ENDIF
-  FMT(voc/Q) addWav(vocw/Q)
-endphoneme
-
 
 phoneme Q"
   vcd uvl frc
