@@ -34,7 +34,7 @@
 // | stp         |     |     |     |     |     |     |     |     |     |     |     |     |
 // | afr         |     |     |     |     |     |     |     |     |     |     |     |     |
 // | vzd frc     |     |     |     |     |     |     |     |     |     |     |     |     |
-// | ptr apr     |     |     |     |     |     |     |     |     |     |     |     | w   |
+// | ptr apr     |     |     |     |     |     |     |     |     |     |     | W   | w   |
 // | fzd lat apr |     |     |     | l_e |     |     |     |     |     |     |     |     |
 
 // NOTE: ')' needs to be replaced with '\)' and '\' with '\\' when referencing these phonemes in the phoneme files.
@@ -1089,6 +1089,24 @@ phoneme L
   ENDIF
 
   FMT(l^/l^)
+endphoneme
+
+phoneme W
+  vls ptr vel frc
+  ipa ʍ
+
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ENDIF
+
+  WAV(h/hu, 70)
 endphoneme
 
 phoneme w
