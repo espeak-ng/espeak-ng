@@ -446,8 +446,7 @@ phoneme b
 endphoneme
 
 phoneme ts
-  ipa ts        
-  import_phoneme consonants/ts
+  import_phoneme ipa/ts\)
 endphoneme
 
 phoneme tS     // **ch**urch

@@ -163,7 +163,7 @@ endphoneme
 
 
 phoneme ts
-  import_phoneme consonants/ts
+  import_phoneme ipa/ts\)
   voicingswitch dz
 endphoneme
 

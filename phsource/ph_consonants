@@ -1,5 +1,5 @@
 // Extra consonants. Use (for example):
-//    import_phoneme consonants/ts
+//    import_phoneme consonants/c2
 
 phoneme ts
   import_phoneme ipa/ts\)
