@@ -169,9 +169,8 @@ endphoneme
 
 
 phoneme dz
-  CALL consonants/dz
+  import_phoneme ipa/dz\)
   voicingswitch ts
-  ipa dʑ
 endphoneme
 
 phoneme ts;

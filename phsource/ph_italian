@@ -223,7 +223,7 @@ Vowelin f1=0  f2=1700 -300 300  f3=-100 60 len=60
 endphoneme
 
 phoneme dz
-  import_phoneme consonants/dz
+  import_phoneme ipa/dz\)
   voicingswitch z
   lengthmod 3
 endphoneme
