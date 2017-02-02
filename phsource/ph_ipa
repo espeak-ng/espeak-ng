@@ -12,7 +12,7 @@
 // |---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 // | nas     |     | m   |     |     |     |     |     | n   |     |     |     | n`  |     |     |     | J   |     | N   |     |     |     |     |     |     |
 // | stp     | p   | b   |     |     | t_d | d_d | t   | d   |     |     |     |     |     |     | c   | J\  | k   | g   | q   |     |     |     |     |     |
-// | sib afr |     |     |     |     |     |     |     |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
+// | sib afr |     |     |     |     |     |     | ts) |     | tS) | dZ) |     |     | ts\)| dz\)|     |     |     |     |     |     |     |     |     |     |
 // | afr     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | lat afr |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 // | sib frc |     |     |     |     |     |     | s   | z   | S   | Z   | s`  | z`  | s\  | z\  |     |     |     |     |     |     |     |     |     |     |
@@ -419,6 +419,18 @@ phoneme q
 endphoneme
 
 // affricate
+
+phoneme ts\)
+  vls alv sib afr
+  ipa t͡s
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
 
 phoneme tS\)
   vls pla sib afr
