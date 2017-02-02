@@ -14,6 +14,10 @@ The espeak-ng project is a fork of the espeak project.
 *  Removed support for phoneme equivalence tables. These were disabled in the
    French and German language files.
 
+bug fixes:
+
+*  Fix reading stdin buffers larger than 1000.
+
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
