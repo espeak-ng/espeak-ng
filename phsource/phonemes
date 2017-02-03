@@ -881,6 +881,8 @@ include ph_gujarati
 phonemetable mr hi_base
 include ph_marathi
 
+phonemetable kok hi_base
+include ph_konkani
 
 
 phonemetable hu base1
@@ -1089,3 +1091,4 @@ include ph_guarani
 
 phonemetable ky base1
 include ph_kyrgyz
+

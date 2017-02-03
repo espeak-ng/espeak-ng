@@ -670,6 +670,12 @@ dictsource/ko_extra:
 espeak-ng-data/ko_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ko_list dictsource/ko_rules dictsource/ko_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ko && cd ..
 
+kok: espeak-ng-data/kok_dict
+dictsource/kok_extra:
+	touch dictsource/kok_extra
+espeak-ng-data/kok_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kok_list dictsource/kok_rules dictsource/kok_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=kok && cd ..
+
 ku: espeak-ng-data/ku_dict
 dictsource/ku_extra:
 	touch dictsource/ku_extra

@@ -1,0 +1,593 @@
+
+//====================================================
+//  kankani 
+//====================================================
+
+phoneme :0
+  virtual
+  length 25
+endphoneme
+
+phoneme :1
+  virtual
+  length 50
+endphoneme
+
+phoneme : //  Lengthen the previous vowel by "length"
+  virtual
+  length 100
+endphoneme
+
+phoneme @
+  vwl flag1 starttype #@  endtype #@
+  length 130
+
+  ChangeIfDiminished(@-)
+  IF nextPh(H) OR prevPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  IF nextPh(j) THEN
+    FMT(vowel/V_3)
+  ENDIF
+  FMT(vowel/@_bck)
+endphoneme
+
+
+phoneme V
+  vwl flag1 starttype #@  endtype #@
+  length 140
+
+  IF thisPh(isWordStart) THEN
+    FMT(vowel/V_3)
+    RETURN
+  ENDIF
+
+  IF thisPh(isNotStressed) THEN
+    length 130
+
+    IF thisPh(isWordEnd) AND NOT thisPh(isFirstVowel) THEN
+      ChangePhoneme(NULL)
+    ENDIF
+
+    IF prevPh(H) THEN
+      ChangePhoneme(@)
+    ENDIF
+
+    IF prev2PhW(isVowel) AND NOT nextVowel(isFlag1) THEN
+      IF thisPh(isFinalVowel) AND nextPhW(isNotVowel) THEN
+        // don't delete schwa before a word-final consonant
+      ELSE
+        ChangePhoneme(NULL)
+      ENDIF
+    ENDIF
+
+    IF prevPh(isPalatal) AND NOT nextPh(H) THEN
+      ChangePhoneme(@3)
+    ELSEIF prevPh(r) THEN
+      ChangePhoneme(@2)
+    ELSE
+      ChangePhoneme(@)
+    ENDIF
+  ENDIF
+  
+  IF nextPh(H) OR prevPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+
+  IF prevPh(w) THEN
+    FMT(vowel/V_4)
+  ENDIF
+
+  FMT(vowel/V_3)
+endphoneme
+
+
+phoneme @2
+  vwl flag1 starttype #@  endtype #@
+  length 130
+  FMT(vowel/@_low)
+endphoneme
+
+phoneme @3
+  vwl flag1 starttype #@  endtype #@
+  length 130
+  ChangeIfDiminished(@-)
+  FMT(vowel/@_3)
+endphoneme
+
+
+
+
+phoneme i:
+  vwl lng starttype #i endtype #i
+  length 250
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(i)
+  ENDIF
+  IfNextVowelAppend(;)
+  FMT(vowel/i_fnt)
+endphoneme
+
+phoneme i         // as [i:] but not marked as 'long'
+  vwl starttype #i endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_6)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 150
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+phoneme e:
+  vwl lng starttype #e endtype #e
+  length 240
+  FMT(vowel/e_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 165
+  FMT(vowel/e_2)
+endphoneme
+
+phoneme E:
+  vwl lng starttype #e endtype #e
+  length 230
+  FMT(vdiph/ee-e)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 175
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme &:
+  vwl lng starttype #a endtype #a
+  length 230
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme a:
+  vwl lng starttype #a endtype #a
+  length 220
+  IF nextPhW(j) THEN
+    FMT(vowel/a_5)
+  ENDIF
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme a
+  vwl lng starttype #a endtype #a
+  length 165
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme o:
+  vwl lng starttype #o endtype #o
+  length 240
+  FMT(vowel/o_2)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 165
+  FMT(vowel/o)
+endphoneme
+
+phoneme O:
+  vwl lng starttype #o endtype #o
+  length 225
+  FMT(vowel/oo_4)
+endphoneme
+
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 165
+  FMT(vowel/0)
+endphoneme
+
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 165
+  FMT(vowel/uu_bck)
+endphoneme
+
+
+phoneme u:
+  vwl lng starttype #u endtype #u
+  length 250
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Nasal vowels
+//=============
+
+phoneme i~
+  vwl lng starttype #i endtype #i
+  length 220
+  FMT(vnasal/i_n2)
+endphoneme
+
+phoneme I~
+  vwl lng starttype #i endtype #i
+  length 170
+  FMT(vnasal/ii_n)
+endphoneme
+
+phoneme e~
+  vwl lng starttype #e endtype #e
+  length 220
+  FMT(vnasal/e_n)
+endphoneme
+
+phoneme E~
+  vwl lng starttype #e  endtype #e
+  length 220
+  FMT(vnasal/ee_n2)
+endphoneme
+
+phoneme a~
+  vwl lng starttype #a endtype #a
+  length 240
+  FMT(vnasal/a_n)
+endphoneme
+
+phoneme V~
+  vwl lng starttype #@ endtype #@
+  length 220
+  FMT(vnasal/V_n)
+endphoneme
+
+phoneme O~
+  vwl lng starttype #o endtype #o
+  length 220
+  FMT(vnasal/oo_n2)
+endphoneme
+
+phoneme o~
+  vwl lng starttype #o endtype #o
+  length 220
+  FMT(vnasal/o_n)
+endphoneme
+
+phoneme U~
+  vwl starttype #u endtype #u
+  length 170
+  FMT(vnasal/u_n)
+endphoneme
+
+phoneme u~
+  vwl lng starttype #u endtype #u
+  length 220
+  FMT(vnasal/u_n)
+endphoneme
+
+
+// Diphthongs
+//===========
+
+
+phoneme aI
+  vwl lng starttype #@ endtype #i
+  length 240
+  lng
+  FMT(vdiph/&i)
+endphoneme
+
+phoneme aU
+  vwl lng starttype #a endtype #u
+  length 240
+  lng
+  FMT(vdiph/aau_3)
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+phoneme v        // approximant, not fricative
+  import_phoneme base1/v#
+  voicingswitch f
+endphoneme
+
+
+phoneme w#
+  liquid
+  lengthmod 7
+  FMT(w/w2)
+endphoneme
+
+
+phoneme H       // use for full "h"
+  import_phoneme base1/h
+endphoneme
+
+
+
+// bilabial plosives
+//==================
+
+phoneme p
+  import_phoneme consonants/p-
+endphoneme
+
+
+phoneme p#
+  import_phoneme consonants/ph
+endphoneme
+
+
+phoneme  b       // this is [b]
+  import_phoneme base1/b
+endphoneme
+
+
+phoneme b#
+  vcd blb stp
+  lengthmod 5
+  voicingswitch p#
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+
+  IF PreVoicing THEN
+    FMT(b/xb)
+  ENDIF
+
+  FMT( b/b@2) addWav(ustop/p_asp, 70)
+endphoneme
+
+
+
+
+// dental plosives
+//==================
+
+phoneme t        // dental variant of /t/
+  import_phoneme base1/t[
+  voicingswitch d
+endphoneme
+
+
+phoneme t#        // dental variant of /t/
+  vls dnt stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+
+phoneme d       // dental variant of /d/
+  import_phoneme base1/d[
+  voicingswitch t
+endphoneme
+
+
+phoneme d#
+  vcd dnt stp
+  lengthmod 5
+  voicingswitch t#
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  FMT(d/xd3) addWav(ustop/t_dnt, 40)
+endphoneme
+
+
+
+
+// retroflex plosives
+//===================
+
+phoneme t.
+  vls rfx stp
+  lengthmod 2
+  ipa ʈ
+  voicingswitch d.
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  WAV(ustop/t_short)
+endphoneme
+
+phoneme t.#
+  vls rfx stp
+  lengthmod 2
+  ipa ʈU+02B0
+  voicingswitch d.#
+  Vowelin f1=0  f2=1800 -300 300  f3=-200 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  
+  IF nextPhW(t.#) THEN
+    ChangePhoneme(t.)
+  ENDIF
+  WAV(ustop/th_rfx2, 80)
+endphoneme
+
+phoneme d.
+  vcd rfx stp
+  lengthmod 5
+  voicingswitch t.
+  ipa ɖ
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
+endphoneme
+
+
+phoneme d.#
+  vcd rfx stp
+  lengthmod 5
+  ipa ɖU+02B0
+  voicingswitch t.#
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xdr)
+  ENDIF
+
+  FMT(d/dr) addWav(ustop/t)
+//  FMT(d/dr) addWav(ustop/th_rfx)
+endphoneme
+
+
+
+
+// palatal plosives
+//=================
+
+// also try [tS] and [dZ]
+
+phoneme c
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh_unasp)
+endphoneme
+
+
+
+phoneme c#
+  CALL base1/tS;
+  ipa cU+02B0
+endphoneme
+
+
+phoneme J
+  import_phoneme base1/J
+endphoneme
+
+
+phoneme J#
+  vcd pal afr sib
+  lengthmod 5
+  voicingswitch c#
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  FMT(dzh/xdz_pzd) addWav(ustop/ts_pzd)
+endphoneme
+
+
+
+
+
+// velar plosives
+//==================
+
+
+phoneme k
+  import_phoneme consonants/k-
+  voicingswitch g
+endphoneme
+
+phoneme k#
+  import_phoneme consonants/k#
+  voicingswitch g#
+endphoneme
+
+
+phoneme g
+  import_phoneme base1/g
+  voicingswitch k
+endphoneme
+
+
+phoneme g#
+  vcd dnt stp
+  lengthmod 5
+  voicingswitch k#
+  Vowelin f1=1  f2=2300 200 300  f3=-150 80  rms=20
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+
+  IF PreVoicing THEN
+    FMT(g2/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g2/xg) addWav(ustop/k_asp, 35)
+  ENDIF
+  FMT(g2/xg) addWav(ustop/k_asp, 50)
+endphoneme
+
+//================
+
+phoneme #X2  // click, use for indicating combining long vowels
+  vls alv frc sib
+  lengthmod 3
+  WAV(ustop/percus02, 60)
+endphoneme
+
+
+phoneme r
+  liquid rhotic
+  lengthmod 3
+  
+  IF thisPh(isWordEnd) THEN
+    CALL base1/r/
+  ELSE
+    IF prevPhW(isVowel) THEN
+      IF nextPhW(isNotVowel) THEN
+        IF nextPhW(v) THEN
+          ChangePhoneme(**)  // test for lang=ta
+        ENDIF
+        
+        IF nextPhW(isUStop) OR nextPhW(isVStop) THEN
+          ChangePhoneme(*)
+        ENDIF
+      ENDIF
+
+      IF nextPhW(V) THEN    // [V] may be removed by ChangePhoneme(NULL)
+        IF next2PhW(isUStop) OR next2PhW(isVStop) THEN
+          ChangePhoneme(*)
+        ENDIF
+      ELSE
+        IF nextPhW(isVowel) THEN
+          ChangePhoneme(*)
+        ENDIF
+      ENDIF
+    ENDIF
+    
+    CALL base1/r
+  ENDIF
+  ipa ɾ
+endphoneme
+
+  
