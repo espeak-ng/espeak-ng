@@ -1059,6 +1059,9 @@ include ph_oriya
 phonemetable mni bn
 include ph_manipuri
 
+phonemetable sd ur
+include ph_sindhi
+
 phonemetable tn base1
 include ph_setswana
 

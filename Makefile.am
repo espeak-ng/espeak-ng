@@ -839,6 +839,12 @@ dictsource/si_extra:
 espeak-ng-data/si_dict: src/espeak-ng phsource/phonemes.stamp dictsource/si_list dictsource/si_rules dictsource/si_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=si && cd ..
 
+sd: espeak-ng-data/sd_dict
+dictsource/sd_extra:
+	touch dictsource/sd_extra
+espeak-ng-data/sd_dict: src/espeak-ng phsource/phonemes.stamp dictsource/sd_list dictsource/sd_rules dictsource/sd_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=sd && cd ..
+
 sk: espeak-ng-data/sk_dict
 dictsource/sk_extra:
 	touch dictsource/sk_extra
