@@ -1,5 +1,5 @@
 // Pronounciation rule for Oriya.
-// Prepared    by Him Prasad gautam (Kathmandu, Nepal).
+//
 // This file is UTF8 encoded 
 
 // letter groups:
@@ -7,6 +7,7 @@
 // B   vowel signs and Halant a ୍
 // C   consonants
 // Y   vowel letters and vowel signs
+
 
 
 
@@ -29,7 +30,7 @@
 // Vowels
 
 .group ଅ
-	ଅ	V
+	ଅ	O
 	ଅଁ	O~
 
 .group ଆ
@@ -105,7 +106,7 @@
 .group େ
 	C) େ	e
 	C) େଁ	e~
-	C) େ	ew
+	
 
 .group ୈ
 	C) ୈ	oj
@@ -122,187 +123,220 @@
 // Consonants
 
 .group କ
-	କ	kV
+	କ	kO
 	କ (B	k
-	କ୍ଷ	k#k#V   // or [k#:] ?
+	C)କ	kO
+	କ୍ଷ	k#k#:   // or [k#:] ?
 	କ୍ଷ (B	k#k#
 
 .group ଖ
-	ଖ	k#V
+	ଖ	k#O
 	ଖ (B	k#
+	C)ଖ	k#O
 
 .group ଗ
-	ଗ	gV
+	ଗ	gO
 	ଗ (B	g
+	C)ଗ	gO
 
 .group ଘ
-	ଘ	g#V
+	ଘ	gO
 	ଘ (B	g#
+	C)ଘ	g#O
 
 .group ଙ
-	ଙ	NV
+	ଙ	NO
 	ଙ (B	N
 
 .group ଚ
-	ଚ	tSV
+	ଚ	tSO
 	ଚ (B	tS
+      C)ଚ 	tS
 
 .group ଛ
-	ଛ	tS#V
-	ଛ  (B    tS#
+	ଛ	tS#O
+	ଛ  (B  tS#
+      C)ଛ 	tS#O
 
 .group ଜ
-	ଜ	JV
+	ଜ	JO
 	ଜ (B	J
-
-	ଜ୍ବ	JV
+      C)ଜ	J
+	ଜ୍ବ	JO
 	ଜ୍ବ (B	J
-	ଜ୍ଞ	ggo~
+	ଜ୍ଞ	ggO~
 	ଜ୍ଞ (B	gg
+       C)ଜ୍ଞ      ggO
 
 .group ଝ
-	ଝ	J#V
+	ଝ	J#O
 	ଝ (B	J#
 
 .group ଞ
-	ଞ	nV
+	ଞ	nO
 	ଞ (B	n
+       C)ଞ     n
  
 .group ଟ
-	ଟ	t.V
+	ଟ	tO
 	ଟ (B	t.
+       C)ଟ     t.
 
 .group ଠ
-	ଠ	t.#V
+	ଠ	t.#O
 	ଠ (B	t.#
+       C)ଠ     t.#O
 
 .group ଡ
-	ଡ	d.V
+	ଡ	d.O
 	ଡ (B	d.
-	ଡ଼	r.V	// nukta
+       C)ଡ     d.O
+	ଡ଼	r.O	// nukta
 	ଡ଼ (B	r.
+	C)ଡ଼	r.O
 
 .group ଢ
-	ଢ	d.#V
-	ଢ (B	d.#
-	ଢ଼	hr.V
+	ଢ	d.#O
+	ଢ(B	d.#
+	C)ଢ	d.#O       
+	ଢ଼	hr.O
 	ଢ଼ (B	hr.
+	C)ଢ଼	hr.O
 
 .group ଣ
-	ଣ	nV   // should be [n.] if adjacent to t. or d. ?
+	ଣ	nO   // should be [n.] if adjacent to t. or d. ?
 	ଣ (B	n
+	C)ଣ    nO
 
 .group ତ
-	ତ	tV
+	ତ	t.O
 	ତ (B	t
-	ତ (_	to
+	C)ତ	tO
+	ତ (_	tO
 
 .group ଥ
-	ଥ	t#V
+	ଥ	t#O
 	ଥ (B	t#
+	C)ଥ	t#O
 
 .group ଦ
-	ଦ	dV
+	ଦ	dO
 	ଦ (B	d
+	C)ଦ	dO
 
 .group ଧ
-	ଧ	d#V
+	ଧ	d#O
 	ଧ (B	d#
+	C)ଧ	d#O
 
 .group ନ
-	ନ	nV
+	ନ	nO
 	ନ (B	n
+	C)ନ	nO
 
 .group ପ
-	ପ	pV
+	ପ	pO
 	ପ (B	p
+	C)ପ	pO
  
 .group ଫ
-	ଫ	p#V
+	ଫ	p#O
 	ଫ (B	p#
+	C)ଫ	p#O
   
 .group ବ
-	ବ	bV
+	ବ	bO
 	ବ (B	b
+	c)ବ	bO
 
 .group ଭ
-	ଭ	b#V
+	ଭ	b#O
 	ଭ (B	b#
+	c)ଭ	b#O
 
 .group ମ
-	ମ	mV
+	ମ	mO
 	ମ (B	m
+	C)ମ	mO
 
 .group ୟ
-	ୟ	jV
-	_) ୟ (B    j    
-	ୟ (_    jo
+	ୟ	jO
+     _) ୟ(B	 jO    
+	ୟ (_    j
 
 .group ଯ
-	ଯ	dZV
+	ଯ	dZO
 	ଯ (B    dZ
-	ଯ଼	jV   // nukta
-	_) ଯ଼ (B	j
+	ଯ଼	jVO  // nukta
+	_) ଯ଼(B	j
 	ଯ଼ (B	
-	୍) ଯ (_	:O 	// double the previous consonant
-	୍) ଯ (B_	:
-	୍) ଯ (C	&   
+	୍) ଯ(_ :O 	// double the previous consonant
+	୍) ଯ(B_ :
+	୍) ଯ(C  &   
 	୍) ଯା	&	// 
 
 .group ର
-	ର	rV
+	ର	rO
+
 	ର (B	r
+	C)ର	rO
 
 .group ଲ
-	ଲ	lV
-	ଲ  (B    l
+	ଲ	lO
+	ଲ(B    l
+	C)ଲ	lO
 
 .group ଳ//  long la 
-	ଳ	l-V
+	ଳ	l-O
 	ଳ (B	l-
+	C)ଳ	l-O:
 
 .group ଵ
 	ଵ	wV
 	ଵ (B	w
 
 .group ଶ
-	ଶ	SV  // or [s] ?
-	ଶ (B	S
+	ଶ	sO  // or [s] ?
+	ଶ (B	s
+	C)ଶ	sO
 	ଶ (୍ଲ   s
 
 .group ଷ
-	ଷ	SV   
-	ଷ (B	S
+	ଷ	sO   
+	ଷ (B	s
+	C)ଷ	sO
 
 .group ସ
-	ସ	SV  // or [s] ??
-	ସ (B	S
-	ସ (୍ଥ   s
-	ସ (୍ତ   s
-	ସ (୍ଯ    s  // ସମସ୍ଯା
-	_) ସ୍ବ	SV   // shb
-	_) ସ୍ବ (B	S
+	ସ	sO  // or [s] ??
+	ସ(B	s
+	ସ(୍ଥ  s
+	C)ସ	s
+	ସ (୍ତ s
+	ସ (୍ଯ s  // ସମସ୍ଯା
+	_) ସ୍ବ	sO   // shb
+	_) ସ୍ବ(B  sO:
 
 .group ହ
-	ହ	hV  
+	ହ	hO  
 	ହ (B	h
-	ହ (_	ho
-
+	ହ (_	h
+	C)ହ	hO
 .group ହ୍ବ
-	ହ୍ବ	vV
-	ହ୍ବ (B	v
-
+	ହ୍ବ	vO
+	ହ୍ବ (B	v:
+	
 .group ୎
 	୎	t
 
 .group ଡ଼	// can be ଡ plus nukta
-	ଡ଼	r.V
-	ଡ଼ (B	r.
+	ଡ଼	r.O
+	ଡ଼ (B	r.O
 
 .group ଢ଼	// can be ଢ plus nukta
-	ଢ଼	hr.V
+	ଢ଼	hr.O
 	ଢ଼ (B	hr.
-	ଢ଼ (_	hr.o
+	ଢ଼ (_	hr.
+	B)ଢ଼	hr.
 
 .group ଁ
 	C) ଁ	O~	// candrabindu, nasalize the previous vowel/Consonants

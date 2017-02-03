@@ -1,170 +1,179 @@
 
 // Translation rules for Oriya
-// Prepared    by Him Prasad gautam (Kathmandu, Nepal).
+// Modified Aug 3rd_2014
 // This file is UTF8 encoded
 
 // Numbers
 // Oriya  numbers are changed to latin characters before translation
 
-_0	S'u:nj@-
-_1	'e'k'o
-_2	d'ui
+_0	S'unjO
+_1	'ekO
+_2	d'uj
 _3	t'ini
-_4	tS'ari
+_4	c'ari
 _5	p'antSO
-_6	tS#'o
-_7	S'ato
-_8	'at.#O
-_9	n'VO
+_6	ch'O
+_7	s'atO
+_8	'athO
+_9	n'O
+_10     d'OsO:
+_11     e'ga,rO
+_12     b'a:rO:
+_13     t'e:rO:
+_14     c'O:udO
+_15     p'On'dO'rO
+_16     sh'o:ho'l,rO
+_17     sOt:Or'O:
+_18     Oth'O:r'O
+_19     U'neI'sI
 
-_10	d'oSO
-_11	'ega*:O
-_12	b'a*O
-_13	t'ewrO
-_14	tS'Oud'O
-_15	p'VndV*'O
-_16	S'ohVl-'O
-_17	S'VtV*,O
-_18	'V:t.#V*,O
-_19	'unew,iS
+_20     kor.i'e
+_21     e'koe'si
+_22     b,a:isi
+_23     t,e:isi
+_24     c'O:bisi
+_25     p~O'cisi
+_26     chO'b'isi
+_27     sO,te'isi
+_28     O'the,isi
+_29     O'nOti'ri'si
+_30     t,i:ri'si
 
-_20	k'or.i,e
-_21	'eko,iS
-_22	b'aiS
-_23	t'ewiS
-_24	tS'obiS
-_25	p'VtSiS
-_26	tS#'VbiS
-_27	S'Vtew,iS
-_28	'Vt.#ew,iS
-_29	'V:nVt,iriS
+_31     ekt'iri'si
+_32     bO'tisi
+_33     te't:isi     
+_34     c'OUtiri'si
+_35     p~Oi'ti'ri'si
+_36     c#:Otisi
+_37     so~i'tirisi
+_38     OthO'ti'risi
+_39     a'nVca:lisi
 
-_30	t'iriS
-_31	'ekVt,iriS
-_32	b'V:tiS
-_33	t'ewtiS
-_34	tS'Vut,iriS
-_35	p'V,i~tir,iS
-_36	tS#'V:tiS
-_37	SV'i~tir,iS
-_38	'V:t.#Vt,iriS
-_39	'V:nVtS,aliS
+_40     c'a:lisi
+_41     ek'c'a:lIsi
+_42     bOj'a'lIsi
+_43     te'alI'si
+_44     cOU'r'alI'si
+_45     pO'n^'tS#a:lIsi
+_46     chOj'a:lI'si
+_47     sO:tc'a:lI'si
+_48     O'th'c'a:lIsi
+_49     O'n^'ca:s
 
-_40	tS'al-,iS
-_41	'ekVtS,al-,iS
-_42	b'VjV,al-,iS
-_43	t'ewjV,al-,iS
-_44	tS'Vur,al-,iS
-_45	pV'i~tSal-,iS
-_46	tS#'VjV,al-,iSO
-_47	S'VtVtS,al-,iS
-_48	'V:t.#'VtS,al-,iS
-_49	V:n'VntSaS
+_50     p~'Oc':asO
+_51     ek'a:bO'nO
+_52     b'a:O'nO
+_53     te:ppO'nO
+_54     c'O:obO'nO
+_55     p~'Onca'bO'nO
+_56     ch'O:ppO'nO
+_57     sOta:bO'nO
+_58     O'tha:bO'nO
+_59    'On'OsOth'i
 
-_50	p'V:tSaS
-_51	'ekab,Vn
-_52	b'aun
-_53	t'ewpVn
-_54	tS'V:ub,Vn
-_55	p'V:ntSab,Vn
-_56	tS#'V:pVn
-_57	S'Vtab,Vn
-_58	'V:t.#ab,Vn
-_59	'V:nVS'Vt.#i
+_60     sat#i'e
+_61     ek'sO'thi
+_62     'b'a:sO'thi
+_63     te:sO'thi
+_64     c'O:u'sOthi
+_65     p~Oi'sOthi
+_66     chO:sO'thi
+_67     sO't'sO'thi
+_68     Oth,O'sOthi
+_69     O'nU's'tU'ri
 
-_60	S'at.#i,e
-_61	'ekVS,Vt.#i
-_62	b'aSVt.#,i
-_63	t'ewSVt.#,i
-_64	tS'VuS,Vt.#i
-_65	pV'O~SVt.#,i
-_66	tS#'V:SVt.#,i
-_67	S'V:tVS,Vt.#i
-_68	'Vr.VS,Vt.#i
-_69	'V:n'VstVr'i
+_70     so't:U'ri
+_71     eko'sto'ri
+_72     ba'stO'ri
+_73     te'stO'ri
+_74     cO:ostO'ri
+_75     p~O'cO'stO'ri
+_76     chO'ostO'ri
+_77     sO'tOstO'ri
+_78     O'thO'stO,ri
+_79     Ona:Osi
 
-_70	S'V:tur,i
-_71	ek'V:stVr,i
-_72	b'astVr,i
-_73	t'ewstVr,i
-_74	tSV'ustVr,i
-_75	pVntS'VstVr,i
-_76	tS#V'VstVr,i
-_77	S'V:t'VstVr,i
-_78	'V:t.#'VstVr,i
-_79	'V:na,VSi
+_80     O'ssi:
+_81     ekaO'si
+_82     bO'j'a:Osi
+_83     te'a'Osi
+_84     cU:ra:O'si:
+_85     pOn'ca'Osi:
+_86     chOj'a:O'si:
+_87     sO'ta:Osi:
+_88     Oth:aO'si:
+_89     Una:nObbe
 
-_80	'V:,Si
-_81	'eka,V:Si
-_82	b'VjV,aVS,i
-_83	t'ewjV,aVS,i
-_84	tS'V:ur,aVS,i
-_85	p'V:ntSa,VSi
-_86	tS#'VjV,aVS,i
-_87	S'Vta,VSi
-_88	'V:t.#a,VSi
-_89	'V:nan,Vbew
-
-_90	n'Vbew
-_91	'ekan,Vbew
-_92	b'V:jV,anVb,ew
-_93	t'ewjV,anVb,ew
-_94	tS'Vur,anVb,ew
-_95	p'VntSan,Vbew
-_96	tS#'V:jV,anVb,ew
-_97	S'Vtan,Vbew
-_98	'V:t.#an,VbewVn'ewSVt,o
-_99	'V:n'ewSVt,o
+_90     nO'be:
+_91     eka:na'be
+_92     bOj'ana'be:
+_93     te'a:na'be
+_94     cOu:r'a:na'be:
+_95     pOnc'a:na'be:
+_96     chO'ana'be:
+_97     sO'ta:na'be
+_98     Otha:na'be
+_99     anesO't
    
 
-_0C	S'Vho
+_0C	s'OhO
 _0M1	h'VJa*,O
 _0M2	l'Vk#k#O
 _0M3	k'ot.i
 _0M4	'VrVb
 _0M5	k#'VrVb
-_dpt	_d@s@ml'o:_   
+_dpt	_d@s@ml
+'o:_   
 
-
+// Alphabets
+ଅ	O
+ଆ	a
+ଇ	hrOS:o'i
+ଈ	d'i:rg#o'i
+ଉ	hrOS:o'u
+ଊ	d'i:rg#o'u
+ଏ	e
+ଐ	oj
+ଓ	o
+ଔ	ow
 
 // Single consonants
 କ	kO
-ଖ	k#O
+ଖ	khO
 ଗ	gO
-ଘ	g#O
-ଙ	'uNgO~
+ଘ	gh:O
+ଙ	'u~O~
 ଚ	tSO
 ଛ	tShO    // [h] to distinguish from [tS]
-ଜ	JO
-ଝ	J#O
-ଞ	'iNO~
-ଟ	t.O
-ଠ	t.#O
+ଜ	borgjJO
+ଝ	JJh:O
+ଞ	N'IO~
+ଟ	tO
+ଠ	tt.hO
 ଡ	d.O
-ଢ	d.#O
-ଣ	n.'O
-ତ	tO
-ଥ	t#O
+ଢ	d.hO
+ଣ	m,urdd#en.n.'O
+ତ	t.O
+ଥ	thO
 ଦ	dO
-ଧ	d#O
-ନ	n'O
+ଧ	dd.hO
+ନ	dontenO
 ପ	pO
 ଫ	fO	// or [p#O] ?
 ବ	bO
 ଭ	b#O
 ମ	mO
-ୟ	Oj
+ୟ	OntostOjO
 ଯ	dZ'O
 ର	rO
-ଡ଼	r.O
-ଡ଼	r.O     // (d. + nukta)
 ଢ଼	hr.O
 ଢ଼	hr.O    // (d#. + nukta)
 ଲ	lO
+ଳ	l-O
 ଵ	vO
-ଶ	t,aleboS:'O
-ଷ	m,ud#en:oS:'O
-ସ	d,onteS:'O
+ଶ	talbesO
+ଷ	mur,d#e'nOsO
+ସ	d,Ontes'O
 ହ	hO
 
 // full vowels
@@ -175,7 +184,6 @@ _dpt	_d@s@ml'o:_
 ଉ	hrOS:o'u
 ଊ	d'i:rg#o'u
 ଋ	ri
-// lri
 ଏ	e  $u+   // word 'it'
 ଐ	oj $u+   // word 'that'
 ଓ	o  $u+ $brk  // 'and'
@@ -197,14 +205,27 @@ _ଓ	o
 ୌ	'owkar
 
 // signs
-୍	'hVl'VntO
+୍	'hal'Vnt
 ଂ	'OnuSSOr
 ଃ	b'iSOrgo
 ଁ	tS'Ondrobindu
 ଼	b'indu
-
+	
 $	d.Olar
 
 // Punctuation
 ।	dVn.d.V
 _,	koma
+
+?//Exception words
+ ଅଧ୍ୟୟନରତ	Od:d.hojOnOrOtO
+୧ମ	prOthOmO	
+୨ୟ	dItiO
+୩ୟ	trItiO
+୪ଥ	cOthUrthO
+୫ସ	pOncOm
+୬ଠ	sOstt.hO
+୭ସ	sOptOm
+୮ସ	ostOm
+୯ସ	nObOm
+୧୦ସ	dOsOm
