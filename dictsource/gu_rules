@@ -1,4 +1,4 @@
-﻿
+
 // Gujarati Language.
 // This gu_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
 
@@ -22,7 +22,15 @@
  ૮	8
  ૯	9
 
-
+// combine dot consonants into a single character
+ક઼	ક઼
+ખ઼	ख़
+ગ઼	ग़
+જ઼	ज़
+ડ઼	ड़
+ઢ઼	ढ़
+ફ઼	फ़
+ય઼	य़	
 
 // Vowels
 
