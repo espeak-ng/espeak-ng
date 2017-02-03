@@ -384,6 +384,7 @@ dictionaries: \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
 	espeak-ng-data/ko_dict \
+	espeak-ng-data/kok_dict \
 	espeak-ng-data/ku_dict \
 	espeak-ng-data/ky_dict \
 	espeak-ng-data/la_dict \
@@ -409,6 +410,7 @@ dictionaries: \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
+	espeak-ng-data/sd_dict \
 	espeak-ng-data/si_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
