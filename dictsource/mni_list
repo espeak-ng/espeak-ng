@@ -1,135 +1,142 @@
-
 // Translation rules for Manipuri
 // This file is UTF8 encoded
 
 // Numbers
 // numbers are changed to latin characters before translation
-_0	sino	// or p#'un'b'O ??
-_1	ama:
-_2	ani
-_3	ahu'm
-_4	mari
-_5	ma'Nga:
-_6	tar'uk
-_7	tar'et
-_8	nipa:n
+_0	suinO	// or p#'un'b'O ??
+_1	am:a:
+_2	a:n,'i
+_3	a,hu'm
+_4	ma:,ri
+_5	ma'N~a:
+_6	tar:u:kk
+_7	tar:et
+_8	ni,pa:n
 _9	ma:pa:n
-
-_10	ta'ra:
-_11	tara:m'thOi
-_12	tara:ni'thOi
-_13	tara:h'um'dOi
-_14	tara:ma'ri
-_15	tara:ma'Nga:
+_1a	camma
+_2a	tSa:ni			// two hundreds etc
+_3a	tSahum
+_4a	tSamri
+_5a	tsam'N~a
+_6a	tSa'trUk
+_7a	tSat'ret.
+_8a	tSani,pan
+_9a	tSama,pal
+_10	't.a:ra
+_11	tara:'mathOi
+_12	tara:ni't#Oi
+_13	'tarahumd,Oi
+_14	tar.a:ma'r:i
+_15	tara:ma'N~a:
 _16	tara:ta:ruk
 _17	tara:tar'et
 _18	tara:nipa:n
 _19	tara:mapa:n
 
-_20	kun.
-_21	kunma:thOi
-_22	kuni'thOi
-_23	kun.hum'dOi
-_24	kun'ma:ri
-_25	kun'maNg'a:
+_20	ku:n.
+_21	ku:n.ma:thOi
+_22	ku:ni'thOi
+_23	ku:n.hum'dOi
+_24	ku:n'ma:ri
+_25	ku:n'maN~'a:
 _26	kun'ta:ruk
 _27	kun'tar'et
 _28	kun'nipa:n
 _29	kun'mapa:n
 
-_30	kun't#'ra:
-_31	kun't#'ra:m'thOi
-_32	kun't#'ra:ni'thOi
-_33	kun't#'ra:um'dOi
-_34	kun't#'ra:ma:ri
-_35	kun't#'ra:maNg'a:
-_36	kun't#'ra:ta:ruk
-_37	kun't#'ra:tar'et
-_38	kun't#'ra:nipa:n
-_39	kun't#'ra:mapa:n
+_30	k,u:n't#'ra:
+_31	k,u:n't#'ra:ma'thOi
+_32	k,u:n't#'ra:ni'thOi
+_33	k,u:n't#'ra:hum'dOi
+_34	k,u:n't#'ra:ma:ri
+_35	k,u:n't#'ra:maN~'a:
+_36	k,u:n't#'ra:ta:ruk
+_37	k,u:n't#'ra:tar'et
+_38	k,u:n't#'ra:nipa:n
+_39	k,u:n't#'ra:mapa:n
 
 _40	nifu
 _41	nifuma:t#Oi
 _42	nifu'nit#Oi
-_43	nifum'dOi
+_43	nifu,hum'dOi
 _44	nifu'ma:ri
-_45	nifu'maNg'a:
-_46	nifu'ta:ruk
-_47	nifu'tar'et
-_48	nifu'nipa:n
-_49	nifu'mapa:n
+_45	nifu'maN~'a:
+_46	ni,futa:ruk
+_47	ni,futar'et
+_48	ni,funipa:n
+_49	ni,fumapa:n
 
-_50	j@Ngk#@i	
-_51	j@Ngk#@i'ma:t#Oi
-_52	j@NgkhO'i'ni't#Oi
-_53	j@NgkhO'i'hum'dOi
-_54	j@NgkhO'ima:ri
-_55	j@NgkhO'imaNg'a:
-_56	j@NgkhO'ita:ruk
-_57	j@NgkhO'itar'et
-_58	j@NgkhO'ini'pa:n
-_59	j@NgkhO'ima'pa:n
+_50	j:aN~k#ai
+_51	j:aN~k#aima:t#Oi
+_52	j:aN~k#aini't#Oi
+_53	j:aN~k#aihum'dOi
+_54	j:aN~k#aiima:ri
+_55	j:aN~k#aimaN~'a:
+_56	j:aN~k#aita:ruk
+_57	j:aN~k#aitar'et
+_58	j:aN~k#aini'pa:n
+_59	j:aN~k#ai,map:al
+_60	h,umfu
+_61	h,umfu,ma:t#Oi
+_62	h,umfu,ni't#Oi
+_63	h,umfu,hum'dOi
+_64	h,umfu,ma:ri
+_65	h,umfu,maN~'a:
+_66	h,umfu,ta:ruk
+_67	h,umfu,tar'et
+_68	h,umfu,ni'pa:n
+_69	h,umfu,ma'pa:n
 
-_60	hum'fu	
-_61	hum'fu'ma:t#Oi
-_62	hum'fu'ni't#Oi
-_63	hum'fu'hum'dOi
-_64	hum'fu'ma:ri
-_65	hum'fu'maNg'a:
-_66	hum'fu'ta:ruk
-_67	hum'fu'tar'et
-_68	hum'fu'ni'pa:n
-_69	hum'fu'ma'pa:n
-
-_70	hum'dra:
-_71	hum'dra:ma:t#Oi
-_72	hum'dra:ni't#Oi
-_73	hum'dra:hum'dOi
-_74	hum'dra:ma:ri
-_75	hum'dra:maNg'a:
-_76	hum'dra:ta:ruk
-_77	hum'dra:tar'et
-_78	hum'dra:ni'pa:n
-_79	hum'dra:ma'pa:n
+_70	hu,mdra:
+_71	hum,dra:ma:t#Oi
+_72	hum,dra:ni't#Oi
+_73	hum,dra:hum'dOi
+_74	hum,dra:ma:ri
+_75	hum,dra:maN~'a:
+_76	hum,dra:ta:ruk
+_77	hum,dra:tar'et
+_78	hum,dra:ni'pa:n
+_79	hum,dra:ma'pa:n
 
 
-_80	ma:ri'fu
-_81	ma:ri'fu'ma:t#Oi
-_82	ma:ri'fu'ni't#Oi
-_83	ma:ri'fu'hum'dOi
-_84	ma:ri'fu'ma:ri
-_85	ma:ri'fu'maNg'a:
-_86	ma:ri'fu'ta:ruk
-_87	ma:ri'fu'tar'et
-_88	ma:ri'fu'nipa:n
-_89	ma:ri'fu'mapa:n
+_80	ma:rfu
+_81	ma:r'fu,ma:,t#Oi
+_82	ma:r'fu,ni',t#Oi
+_83	ma:r'fu,hum',dOi
+_84	ma:r'fu,ma:r,i
+_85	ma:r'fu,maN~'a:
+_86	ma:r'fu,ta:ruk
+_87	ma:r'fu,tar'et
+_88	ma:r'fu,nipa:n
+_89	ma:r'fu,mapa:n
 
 _90	mO'ud'ra:
-_91	mO'ud'ra:ma:t#Oi
-_92	mO'ud'ra:ni't#Oi
-_93	mO'ud'ra:hum'dOi
-_94	mO'ud'ra:ma:ri
-_95	mO'ud'ra:maNg'a:
-_96	mO'ud'ra:ta:ruk
-_97	mO'ud'ra:tar'et
-_98	mO'ud'ra:ni'pa:n
-_99	mO'ud'ra:mapa:n
+_91	mO'ud'ra:,ma:t#Oi
+_92	mO'ud'ra:,ni't#Oi
+_93	mO'ud'ra:,hum'dOi
+_94	mO'ud'ra:,ma:ri
+_95	mO'ud'ra:,maN~'a:
+_96	mO'ud'ra:,ta:ruk
+_97	mO'ud'ra:,tar'et
+_98	mO'ud'ra:,ni'pa:n
+_99	mO'ud'ra:,mapa:n
 
-_100	c#@m'ma:
-_0M1	l'isiN
+_C	c#@m'ma:
+_0M1	lisiN~
+_0M2	l'ak#
 
 
 _dpt	_	d'Osomik_
 
 
 // Single consonants
-ক	kO
-খ	k#@
+ক	k:O
+খ	k#O
 গ	gO
-ঘ	g#@
-ঙ	'uNgO~
+ঘ	g#O
+ঙ	'N~O~
 চ	tSO
-ছ	tShO    // [h] to distinguish from [tS]
+ছ	chO    // [h] to distinguish from [tS]
 জ	JO
 ঝ	J#@
 ঞ	'iNO~
@@ -160,22 +167,22 @@ _dpt	_	d'Osomik_
 ষ	m,ud#en:oS:'O
 স	d,onteS:'O
 হ	hO
-ৎ	khOndot'O
+ৎ	khOndott'O
 
 
 // full vowels
 অ	O
 আ	a
-ই	hrOS:o'i
-ঈ	d'i:rg#o'i
-উ	hrOS:o'u
+ই	rOS:e'i
+ঈ	I
+উ	u
 ঊ	d'i:rg#o'u
 _এ	e
 _ঐ	oj
 _ও	o
 _ঔ	ow
- 
- 
+
+
 
 
 
@@ -192,8 +199,8 @@ _ঔ	ow
 ৌ	'owkar
 
 // signs
-ং	'OnuSSOr
-ঃ	b'iSOrgo	// sparingly used
+ং	'OnuN~sOr
+ঃ	b'isOrgo	// sparingly used
 ঁ	tS'Ondrobindu	// sparingly used
 
 
@@ -203,4 +210,7 @@ _,	koma
 _?	ahONg'ba:khudam
 _!	Ng'kapa:khudam
 
+// exception words
+      _)ঈ(_  I		// blood
 
+    ফল	f@l

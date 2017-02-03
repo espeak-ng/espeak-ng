@@ -1,0 +1,396 @@
+// Pronounciation rule for Manipuri.
+// This file is UTF8 encoded
+
+// letter groups:
+// A   vowel letters and vowel signs
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
+
+
+
+.replace
+ ০	0
+ ১	1
+ ২	2
+ ৩	3
+ ৪	4
+ ৫	5
+ ৬	6
+ ৭	7
+ ৮	8
+ ৯	9
+
+
+// Vowels
+
+
+.group অ
+       অ        @
+       অঁ        O~
+       অ্যা       &          // V,ja in [æmiba]
+
+
+.group আ
+       আ        a:
+       আঁ        a~
+
+.group ই
+        ই        i
+        ইঁ        i~
+
+
+.group ঈ
+        ঈ        i
+        ঈঁ        i~
+  _)ঈ(_C  i
+
+
+.group উ
+        উ        u
+        উঁ        u~
+
+
+.group ঊ
+        ঊ        u
+        ঊঁ        u~
+
+
+.group ঐ
+        ঐ        oj
+        ঐঁ        o~j
+
+
+.group এ
+        এ        e
+        এঁ        e~
+
+        এ্যা       &    // e,ja  [ækademi]
+
+
+.group ও
+        ও        o
+        ওঁ        o~
+
+
+.group ঔ
+        ঔ        ow
+        ঔঁ        o~w
+
+.group ও //??
+        ও        o:
+
+
+
+
+// Vowel Signs
+
+.group া
+	C) া	a
+	C) াঁ	a~
+
+.group ি
+	C) ি	i
+	C) িঁ	i~
+
+.group ী
+	C) ী	i
+	C) ীঁ	i~
+
+.group ূ
+	C) ূ	u
+	C) ূঁ	u~
+
+.group ু
+	C) ু	u
+	C) ুঁ	u~
+
+.group ৃ
+	C) ৃ	r'i
+	C) ৃঁ	r'i~
+
+.group ে
+	C) ে	e
+	C) েঁ	e~
+	C) েউ	ew
+
+.group ৈ
+	C) ৈ	oj
+	C) ৈঁ	o~j
+
+.group ো
+	C) ো	o
+	C) োঁ	o~
+
+.group ৌ
+	C) ৌ	ow
+	C) ৌঁ	o~w
+
+
+
+// Consonants
+
+.group ক
+        ক	k@
+        ক (B	k
+        ক (C	kO
+   _)ক (C	kO
+   _)ক (B	k
+
+.group খ
+        খ	kh@
+        খ (B	kh
+    _)খ (C	khO
+    _)খ (B	kh
+
+.group গ
+        গ	g@
+         গ (B	g
+         গ (C	g
+   _)গ (C	g@
+   _)গ (B	g
+
+.group ঘ
+        ঘ        g#@
+        ঘ (B	gh
+        ঘ (C	gh@
+   _)ঘ (C	gh@
+   _)ঘ (B	gh
+
+.group ঙ
+        ঙ	Ng
+        ঙ (B	N~
+   _)ঙ (B	N~
+
+.group চ
+        চ	c@
+        চ (B	c
+        চ(C	c@
+   _)চ(C	c@
+   _)চ(B	c
+
+.group ছ
+        ছ	chO
+        ছ  (B	ch
+  _)ছ  (B	ch
+  _)ছ  (C	chO
+
+
+.group জ
+        জ	J@
+        জ (B	J
+        জ (_	J
+        জ (C	J
+   C)জ (C	J@
+   _)জ (C	J@
+   _)জ (B	J
+        জ্ব		JV
+        জ্ব (B	J
+        জ্ঞ		ggo~
+        জ্ঞ (B	gg~
+
+
+
+.group ঝ
+        ঝ	Jh@
+        ঝ (B	Jh
+   _)ঝ (B	Jh
+   _)ঝ (C	JhO
+
+.group ঞ
+        ঞ        nV
+        ঞ (B     n
+   জ)ঞ (B     gg
+
+
+.group ট
+        ট	t.O
+        ট (B	t.
+  _)ট (B	t.
+  _)ট (C	t.O
+
+
+.group ঠ
+        ঠ	thO
+        ঠ (B	t.h
+  _)ঠ (B	t.h
+  _)ঠ (C	t.hO
+
+
+.group ড
+        ড	d.O
+        ড (B	d.
+  _)ড (B	d.
+  _)ড (C	d.O
+
+        ড়        r.     // nukta
+        ড় (B     r.
+
+
+.group ঢ
+        ঢ	d.h
+        ঢ (B	d.h
+   _)ঢ (C	d.hO
+
+        ঢ়	hr.
+        ঢ় (B	hr.
+
+
+.group ণ
+        ণ	nO
+        ণ (B	n
+
+
+
+.group ত
+        ত	t
+        ত (B	t
+        ত (C	t
+        ত (_	to
+  _)ত (C	to
+
+.group থ
+        থ	thO
+        থ (B	th
+        থ (_	thO
+  _)থ (B	th
+  _)থ (C	thO
+
+.group দ
+        দ	dO
+        দ (B	d
+        দ (_	dO
+   _)দ (C	dO
+
+.group ধ
+        ধ	dhO
+        ধ (B	dh
+   _)ধ (C	dhO
+
+.group ন
+        ন	nO
+        ন (B	n
+   _)ন (B	n
+         ন (C	nO
+   _)ন (C	nO
+.group প
+        প	pO
+        প (B	p
+   _)প(C	pO
+   _)প(B	p
+         প (_	p
+
+.group ফ
+        ফ	fO
+        ফ (B	f
+  _)ফ (B	f
+  _)ফ (C	fa
+       ফ (C	fO
+
+.group ব
+        ব	bO
+        ব (B	b
+   _)ব(C	bO
+         ব(_	b
+
+
+.group ভ
+        ভ	bh@
+        ভ (B	bh
+        ভ (C	bhO
+        ভ (_	bh
+
+.group ম
+        ম	m@
+        ম (B	m
+   _)ম (C	m@
+   _)ম (B	m
+         ম (C	m@
+
+.group য
+        য	dZ@
+        য (B	dZ
+        য (C	dZ
+   _)য(C	dZO
+
+        য়	j@   // nukta
+     _) য় (B	j@
+
+.group র
+        র	r@
+        র (B	r
+        র (_	r
+   _)র (C	r@
+
+.group ল
+        ল	l@
+        ল  (B	l
+        ল  (_	l
+        ল  (C	l@
+.group ৱ
+        ৱ	wa
+        ৱ (B	w@
+       ৱ (C	w@
+  _) ৱ (B	w@
+  _) ৱ (C	w@
+
+.group শ
+        শ	S@  // or [s] ?
+        শ (B	S
+        শ (C	S
+  _)শ (C	S@
+.group ষ
+        ষ	S@
+        ষ (B	S
+  _)ষ (C	S@
+
+.group স
+        স	s@  /
+        স (B	S
+   _)স (C	sa
+         স (C	s@
+
+.group হ
+        হ	h@
+        হ (B	h
+        হ (_	h
+ _) হ (C	h@
+
+.group ক্ষ
+        ক্ষ	k#k#@
+        ক্ষ (B	k#k#
+        ক্ষ (C	k#k#
+
+
+.group ড় 			// rarely used
+        ড়	r.
+        ড় (B	r.
+
+
+.group ঢ়     			// rarely used, or not used?
+        ঢ়	hr.
+        ঢ় (B	hr.
+        ঢ় (_	hr.o
+
+.group য়
+        য়	j@
+  _)য়(B		j@
+       য়(B		j@
+
+
+.group ং
+  A)ং		N
+  C)ং		N
+
+.group ঃ              // visarga/bishorgo
+        ঃ             // doubles the following consonant
+        ঃ (_      H
+
+.group ্		// virama/hoshonto
+     C) ্
+
+.group ৎ	//khOndott'O
+    C)ৎ		t
+
+.group ়
+	়		// nukta, modifies a consonant

@@ -392,6 +392,7 @@ dictionaries: \
 	espeak-ng-data/lv_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
+	espeak-ng-data/mni_dict \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
@@ -723,6 +724,12 @@ dictsource/ml_extra:
 	touch dictsource/ml_extra
 espeak-ng-data/ml_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ml && cd ..
+
+mni: espeak-ng-data/mni_dict
+dictsource/mni_extra:
+	touch dictsource/mni_extra
+espeak-ng-data/mni_dict: src/espeak-ng phsource/phonemes.stamp dictsource/mni_list dictsource/mni_rules dictsource/mni_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=mni && cd ..
 
 mr: espeak-ng-data/mr_dict
 dictsource/mr_extra:
