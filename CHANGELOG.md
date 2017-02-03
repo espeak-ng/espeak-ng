@@ -18,12 +18,21 @@ bug fixes:
 
 *  Fix reading stdin buffers larger than 1000.
 
+new languages:
+
+*  kok (Konkani) -- Vardhan
+*  mni (Manipuri) -- Vardhan
+*  sd (Sindhi, Arabic script) -- Vardhan
+
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  du (Dutch) -- Leonard de Ruijter
 *  fr (French) -- Valdis Vitolins
+*  gu (Gujarati) -- Vardhan
+*  hi (Hindi) -- Vardhan
 *  mr (Marathi) -- Vardhan
+*  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
 
 ### 1.49.1 - 2017-01-21

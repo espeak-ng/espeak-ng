@@ -64,6 +64,7 @@ The supported languages are:
 | `roa`       | `it`              | Romance               | Italian                     |                        |
 | `jpx`       | `jp`              | Japanese              | Japanese<sup>[4]</sup>      |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
+| `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
 | `ira`       | `ku`              | Iranian               | Kurdish                     |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
@@ -93,6 +94,7 @@ The supported languages are:
 | `zls`       | `ru`              | South Slavic          | Russian                     |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
+| `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
 | `inc`       | `si`              | Indic                 | Sinhala                     |                        |
 | `zls`       | `sk`              | South Slavic          | Slovak                      |                        |
 | `zls`       | `sl`              | South Slavic          | Slovenian                   |                        |
