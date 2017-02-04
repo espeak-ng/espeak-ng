@@ -281,7 +281,7 @@ int GetFileLength(const char *filename)
 	struct stat statbuf;
 
 	if (stat(filename, &statbuf) != 0)
-		return 0;
+		return -errno;
 
 	if (S_ISDIR(statbuf.st_mode))
 		return -EISDIR;
