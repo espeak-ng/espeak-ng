@@ -545,6 +545,11 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
 		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory
+
+		if (GetFileLength(buf) <= 0) {
+			sprintf(path_voices, "%s%clang%c", path_home, PATHSEP, PATHSEP);
+			sprintf(buf, "%s%s", path_voices, voicename); // look in the main languages directory
+		}
 	}
 
 	f_voice = fopen(buf, "r");
@@ -1568,6 +1573,9 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	FreeVoiceList();
 
 	sprintf(path_voices, "%s%cvoices", path_home, PATHSEP);
+	GetVoices(path_voices, strlen(path_voices)+1);
+
+	sprintf(path_voices, "%s%clang", path_home, PATHSEP);
 	GetVoices(path_voices, strlen(path_voices)+1);
 
 	voices_list[n_voices_list] = NULL; // voices list terminator
