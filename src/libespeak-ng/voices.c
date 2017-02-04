@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,7 +60,6 @@ int formant_rate[9]; // values adjusted for actual sample rate
 #define N_VOICES_LIST  250
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
-static int len_path_voices;
 
 espeak_VOICE current_voice_selected;
 
@@ -1391,7 +1390,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	return vp->identifier;
 }
 
-static void GetVoices(const char *path)
+static void GetVoices(const char *path, int len_path_voices)
 {
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
@@ -1418,7 +1417,7 @@ static void GetVoices(const char *path)
 
 			if (ftype == -EISDIR) {
 				// a sub-directory
-				GetVoices(fname);
+				GetVoices(fname, len_path_voices);
 			} else if (ftype > 0) {
 				// a regular file, add it to the voices list
 				if ((f_voice = fopen(fname, "r")) == NULL)
@@ -1454,7 +1453,7 @@ static void GetVoices(const char *path)
 
 		if (ftype == -EISDIR) {
 			// a sub-directory
-			GetVoices(fname);
+			GetVoices(fname, len_path_voices);
 		} else if (ftype > 0) {
 			// a regular file, add it to the voices list
 			if ((f_voice = fopen(fname, "r")) == NULL)
@@ -1569,9 +1568,8 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	FreeVoiceList();
 
 	sprintf(path_voices, "%s%cvoices", path_home, PATHSEP);
-	len_path_voices = strlen(path_voices)+1;
+	GetVoices(path_voices, strlen(path_voices)+1);
 
-	GetVoices(path_voices);
 	voices_list[n_voices_list] = NULL; // voices list terminator
 	espeak_VOICE **new_voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));
 	if (new_voices == NULL)
