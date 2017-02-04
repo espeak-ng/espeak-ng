@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 January 5 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 feb 2 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -68,7 +68,7 @@ _stk	baR*'a:ta
 _tld	kon||t'ilde
 _smc	m,ajuskol'e:t:o
 _rev	inv'E:@-*sa
-_tur	@-*oveS'a:ta
+_tur	@-*oveS'ata
 _bar	baR*'a:ta
 _rfx	@-*et@-*ofl'E:ssa
 _crl	k'u@-*lI
@@ -103,13 +103,13 @@ _>	madZ:'oRe||d'I
 *	aste@-*'isko $max3
 $	d'Ol:aRI
 %	pe@-*tS'ENto $max3
-=	ugwale	$max3
-+	pju	$max3
+=	ugw'ale	$max3
++	pj'u	$max3
 /	b'aR*a	$max3
 \	kont@-*ob'a:R*a	$max3
 _|	b'aR*a||ve@-*tik'ale
 &	'a/nd
-©       k'O:pI||raIt
+©       k'O:pi||raIt
 #	kantSellet:o
 @	ki'otS:ola
 ~	tilde
@@ -266,8 +266,8 @@ _zh	tSIn'ezE
 η	'e:ta||g@-*'eka
 ή	'e:ta||g@-*'eka_
 θ	t'e:ta||g@-*'eka_
-ι	I'ota_
-ί	I'ota_
+ι	j'ota_
+ί	j'ota_
 κ	k'ap:a||g@-*'eka_
 λ	l'ambda_
 μ	m'ju:_
@@ -388,7 +388,6 @@ _1M4	unbili'one
 _dpt	v'i@-*gola
 // _0Z2	tSent'ezimi     // 100ths
 _0Z3	mill'ezimi      // 1000ths
-_roman	@-*om'ano
 
 // ordinal numbers
 _#º	o         // ordinal suffix
@@ -454,6 +453,7 @@ dna	$abbrev
 dr	dot:'o@-*	$hasdot	$dot
 fiat	f'iat[	$only
 gnu	$abbrev	$allcaps
+hd	'ak:a_d'i
 hiv	ak:a||i:||v'u
 html	ak:ati||em:e||'El:e
 l'html	lak:at,i||em:e'El:e
@@ -505,9 +505,9 @@ io	$u+ $only
 tu	$u+ $verbf $only
 lui	$u+ $only
 lei	$u+ $only
-noi	$u+ $only
-voi	v'o|I	$only
-loro	$u+ $only
+noi	$u+	$only
+voi	v'oi	$only
+loro	$u+
 egli	$u+
 ella	$u+
 essa	$u+ 
@@ -582,7 +582,7 @@ ma	$u+ $brk
 mai	$u+ $verbf
 mentre	$u+
 neanche	$u+	$brk
-// né	$u+	$brk  $only
+né	$brk  $only
 no	nO $strend
 non	$u	$verbf $only
 o	$u+ $brk
@@ -596,7 +596,7 @@ più	$u+
 se	$u+ $verbf
 senza	s,Ents2a
 senza	s'Entsa $atend
-si	si: $atend
+sì	si:
 sopra	   $alt2
 sotto	$alt2
 tuttavia	tut:av'ia
@@ -631,7 +631,6 @@ delle	$u+
 de      $u+ $only
 in	$u 	$only $nounf
 in	'i:n	$atend
-(in arrivo)	_inaR*'ivo
 nel	 $u+	$only
 nello	$u+
 nella	$u+
@@ -677,7 +676,7 @@ eravamo	$3
 eravate	$3
 erano	$1
 sarò	$u+ 
-sarai	sa*'aI
+sarai	sa*'a|I
 sarà	$u+
 saremo	$u2+
 sarete	$u2+
@@ -808,7 +807,7 @@ bunker	$1
 business	_^_EN
 by	b'aI $only
 bye	_^_EN
-bypass	b'aIpas
+bypass	b'aI||p'as
 byte	_^_EN
 cabaret	$3 $only
 camper	$1
@@ -855,7 +854,7 @@ condor	$1
 container	kont'eInE@-*	$onlys
 controller	$2
 converter	$2	$onlys
-copyright	k'O:pI@-*,aIt[
+copyright	k'O:pi@-*,aIt[
 corner	$1
 corporation	ko@-*poR'ESon
 couscous	k,us||k'us
@@ -894,6 +893,7 @@ editor	'Edito@-*	$onlys
 l'editor	l'Edito@-* $only
 eloquence		_^_EN
 emergency	em'e@-*dZensi
+emoji	em'o:dZi
 emule	,i||_mj'ul
 (e mule)	,i||_mj'ul
 english		_^_EN
@@ -1244,7 +1244,7 @@ zoom	dz'u:m
 zoster	$1
 élysées	eliz''e
 
-rock'n'roll	@-*,Oken@-*'o:l
+rock'n'roll	@-*,Oken@-*'O:l
 (call center)	k'ol||s'entE@-*
 (e speak)		isp'ik:
 (i phone)		'aI||fon
@@ -1350,18 +1350,8 @@ cuor	kU'OR
 cucchiain	kuk:ia'in
 cupidigia	$3
 curriculum	$2
-debol	$1
-decim	$1
-decimonono	$4
-decine	$2
-decrepit	$2
 dei	d'E:i	$noun
-deleghe	$1
-dentifrici	$3
-deroghe	$1
 desideri	d,Ezid'E:RI	$only
-desossicortisol	$6
-detraibil	det@-*a'ibil
 diamin	di'a:min
 discepol	$2	$alt
 disguid	dizgw2'id
@@ -1415,21 +1405,10 @@ gazzetta	ga|dz:'Et:a
 genesi	$1
 gentil	$2
 geroglifici	dZeRogl'ifitSi
-ghiacciol	gIatS:'ol
+ghiacciol	giatS:'ol
 giovani	dZ'ovani
 giovanil	$3
 gladiol	$2
-glicemia	glitSem'ia
-glicemici	glitS'emitSi
-glicerofosforici	glitSeRofosf'oRitSi
-glicerol	glitSeR'Ol
-glicolici	glik'olitSi
-glutine	$1
-gomitoli	$2
-gonartria	$3
-grandin	$1
-grigia	$1
-grumoli	$1
 guaiscono	gua'iskono
 hinterland	$1
 icono	$2
@@ -1453,7 +1432,6 @@ intraspecifici	$4
 introversi	$3
 intuito	int'u:jto
 ipercheratosi	$5
-iperglicemici	ipe@-*glitS'EmitSi
 ipertono	$3
 ipogastrici	$3
 ipopotam	$3
@@ -1493,7 +1471,7 @@ mezzosoprano	medz:osop@-*'ano
 microb	$1
 microfoni	$2	$alt2
 microtono	$3
-miglior	mil^'O@-*
+miglior	$2 $alt2
 milliampere	mil:i||amp'e@-*
 miop	m'i;op
 monopattin	$3
@@ -1542,7 +1520,7 @@ patrie	$1
 patrono	$2
 pedine	$2
 pedonal	$3
-peggior	$2 $alt
+peggior	$2 $alt2
 perigastrici	$3
 peripezia	$4
 peripezie	pe@-*ipets'ie
@@ -1596,7 +1574,7 @@ repubblicano	$4
 restio	@-*est'io
 revoche	$1
 riavvia	@-*iav:'i#a
-riavvio	@-*iav:'IO
+riavvio	@-*iav:'iO
 ricordino	$3 $noun
 rigoli	$1
 rossonere	$3 $alt2
@@ -1696,7 +1674,7 @@ veterano	$3
 vicere	$3 $alt2
 videocamera	$4
 vinacciol	$3
-visualizzazion	vizw2ali|dz:atsj'on
+visualizzazion	vizw2ali|dz:atsi'on
 vittime	$1
 vocaboli	$2
 voragini	$2
@@ -1708,6 +1686,7 @@ cos'hai	koz'a:i
 cos'è	koz'E
 cos'altro	koz'a:lt@-*o/
 dov'è	dov'E
+dov'erano	dov'ERano
 qual'è	kwal''E
 tant'è	taNt'E
 l'ancora	l'ankoRa
@@ -1753,7 +1732,7 @@ alessano	$3
 amsterdam	$1
 andorrano	$3
 angeles	$1
-anglican	aNglik'an
+
 angola	$2 $capital
 aostano	aost'ano
 arab $1
@@ -2135,7 +2114,7 @@ stazzano	$2
 stezzano	$2
 submontano	$3
 survoltano	$3
-svizzer	zv'its2:eR
+svizzer	zv'Its2:eR
 swahili	swah'ilI
 sydney	$1
 tagikistan	$2
@@ -2345,6 +2324,7 @@ freud	f@-*'Oid $only
 gandolfi  $alt
 garcía	_^_ES
 gargiul	$2
+gasperi	$1
 gavino	$2
 genesia	$2
 george	dZ'O@-*dZ	$onlys
@@ -2413,6 +2393,7 @@ landolf  $alt
 laurenzi  $alt
 lee	_^_en $capital
 lennon	_^_EN
+leonard	l'EonaRd	$onlys
 leopold  $alt
 lewis	l'uIs
 ligabue	$3
@@ -2638,7 +2619,7 @@ accampano	$2
 accarezzano	$3 $alt
 accecano	$2
 accechino	$2
-acceler	atS:'E:l,ER
+acceler	atS:'Ele:R
 accelerano	atS:'E:l,eRano
 accelerino	$2
 accennino	$2
@@ -2850,6 +2831,7 @@ attacchino	$2
 atteggino	$2
 attendano	$2
 attentino	$2
+attenuano	$2
 atterrano	$2
 atterrino	$2
 attestino	$2
@@ -2899,6 +2881,7 @@ barino	$1
 basano	$1
 bastino	$1
 bastono	$2
+battagliano	$2
 battezzat	bat:edz:'at
 battezzino	bat:'edz:ino
 beccano	$1
@@ -2955,6 +2938,7 @@ catturano	$2
 catturino	$2
 causano	$1
 causino	$1
+cavalcano	$2
 celebr	$1
 celebrano	$1
 celebrino	$1
@@ -3055,8 +3039,7 @@ contino	$1
 continuano	$2
 continuino	$2
 contraddicano	$3
-contraddici	$3
-contraddico	$3
+contraddic	$3
 contraddistinguano	$4
 contrattaccano	$3
 contrastino	$2
@@ -3112,6 +3095,7 @@ degradano	$2
 degradino	$2
 delegano	$1
 deleghino	$1
+deleghi	$1
 delimit	$2
 delimitano	$2
 delimitino	$2
@@ -3255,6 +3239,7 @@ entrano	$1
 entrino	$1
 enuncino	$2
 equivalere	$4
+eredit	$2
 ereditano	$2
 ereditino	$2
 erog	$1
@@ -3369,6 +3354,7 @@ germogliano	$2
 ghignano	$1
 giacere	$2
 giocano	$1
+giochino	$1 $verb
 gioimmo	dZo'i:m:o
 gioire	dZo'iRE
 gioirne	dZo'i:@-*ne
@@ -4690,6 +4676,8 @@ zuccherano	$1
 (quando desideri)	kwando||_|dez'i:deRi
 (quale desideri)	kw2ale||dez'i:deRi
 (quindi desideri)	kw,indi||_dez'i:deRi
+ch'era	k'E*a
+ch'erano	k'E*ano
 
 // pronominal verbs
 
