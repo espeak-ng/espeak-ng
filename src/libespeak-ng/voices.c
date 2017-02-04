@@ -274,10 +274,8 @@ void ReadTonePoints(char *string, int *tone_pts)
 	       &tone_pts[8], &tone_pts[9]);
 }
 
-static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *leafname)
+static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 {
-	(void)leafname; // unused (except for PLATFORM_WINDOWS)
-
 	// Read a Voice file, allocate a VOICE_DATA and set data from the
 	// file's  language, gender, name  lines
 
@@ -296,19 +294,6 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char *le
 	int age;
 	int n_variants = 4; // default, number of variants of this voice before using another voice
 	int gender;
-
-#ifdef PLATFORM_WINDOWS
-	char fname_buf[sizeof(path_home)+15];
-	if (memcmp(leafname, "mb-", 3) == 0) {
-		// check whether the mbrola speech data is present for this voice
-		memcpy(vname, &leafname[3], 3);
-		vname[3] = 0;
-		sprintf(fname_buf, "%s/mbrola/%s", path_home, vname);
-
-		if (GetFileLength(fname_buf) <= 0)
-			return 0;
-	}
-#endif
 
 	vname[0] = 0;
 	vgender[0] = 0;
@@ -1440,7 +1425,7 @@ static void GetVoices(const char *path)
 					continue;
 
 				// pass voice file name within the voices directory
-				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
+				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
 				fclose(f_voice);
 
 				if (voice_data != NULL)
@@ -1476,7 +1461,7 @@ static void GetVoices(const char *path)
 				continue;
 
 			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, ent->d_name);
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
 			fclose(f_voice);
 
 			if (voice_data != NULL)
