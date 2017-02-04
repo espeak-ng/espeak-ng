@@ -20,6 +20,7 @@
 #include "config.h"
 
 #include <ctype.h>
+#include <errno.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -1190,7 +1191,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 		}
 
 		sprintf(buf, "%s/voices/%s", path_home, language);
-		if (GetFileLength(buf) == -2) {
+		if (GetFileLength(buf) == -EISDIR) {
 			// A subdirectory name has been specified.  List all the voices in that subdirectory
 			language[lang_len++] = PATHSEP;
 			language[lang_len] = 0;
@@ -1430,11 +1431,11 @@ static void GetVoices(const char *path)
 			sprintf(fname, "%s%c%s", path, PATHSEP, FindFileData.cFileName);
 			ftype = GetFileLength(fname);
 
-			if (ftype == -2) {
-				// a sub-sirectory
+			if (ftype == -EISDIR) {
+				// a sub-directory
 				GetVoices(fname);
 			} else if (ftype > 0) {
-				// a regular line, add it to the voices list
+				// a regular file, add it to the voices list
 				if ((f_voice = fopen(fname, "r")) == NULL)
 					continue;
 
@@ -1466,11 +1467,11 @@ static void GetVoices(const char *path)
 
 		ftype = GetFileLength(fname);
 
-		if (ftype == -2) {
-			// a sub-sirectory
+		if (ftype == -EISDIR) {
+			// a sub-directory
 			GetVoices(fname);
 		} else if (ftype > 0) {
-			// a regular line, add it to the voices list
+			// a regular file, add it to the voices list
 			if ((f_voice = fopen(fname, "r")) == NULL)
 				continue;
 

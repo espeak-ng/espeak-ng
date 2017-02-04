@@ -847,6 +847,10 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 	}
 
 	length = GetFileLength(fname);
+	if (length < 0) { // length == -errno
+		fclose(f);
+		return create_file_error_context(context, -length, fname);
+	}
 	if (fseek(f, 0, SEEK_SET) == -1) {
 		int error = errno;
 		fclose(f);

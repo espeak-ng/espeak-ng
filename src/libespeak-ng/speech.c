@@ -232,14 +232,14 @@ static int check_data_path(const char *path, int allow_directory)
 	if (!path) return 0;
 
 	snprintf(path_home, sizeof(path_home), "%s/espeak-ng-data", path);
-	if (GetFileLength(path_home) == -2)
+	if (GetFileLength(path_home) == -EISDIR)
 		return 1;
 
 	if (!allow_directory)
 		return 0;
 
 	snprintf(path_home, sizeof(path_home), "%s", path);
-	return GetFileLength(path_home) == -2;
+	return GetFileLength(path_home) == -EISDIR;
 }
 
 #pragma GCC visibility push(default)
@@ -284,7 +284,7 @@ int GetFileLength(const char *filename)
 		return 0;
 
 	if (S_ISDIR(statbuf.st_mode))
-		return -2; // a directory
+		return -EISDIR;
 
 	return statbuf.st_size;
 }
