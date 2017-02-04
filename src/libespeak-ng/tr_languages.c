@@ -991,8 +991,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_SONORANT_MIN] = 130; // limit the shortening of sonorants before short vowels
 		tr->langopts.param[LOPT_REDUCE] = 1; // reduce vowels even if phonemes are specified in it_list
 		tr->langopts.param[LOPT_ALT] = 2; // call ApplySpecialAttributes2() if a word has $alt or $alt2
-		tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1 | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER;
+		tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_DFRACTION_1 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
 		tr->langopts.numbers2 = NUM2_NO_TEEN_ORDINALS;
+		tr->langopts.roman_suffix = utf8_ordinal;
 		tr->langopts.accents = 2; // Say "Capital" after the letter.
 		SetLetterVowel(tr, 'y');
 	}
