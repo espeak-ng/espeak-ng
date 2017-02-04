@@ -31,6 +31,7 @@ updated languages:
 *  fr (French) -- Valdis Vitolins
 *  gu (Gujarati) -- Vardhan
 *  hi (Hindi) -- Vardhan
+*  it (Italian) -- chrislm
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
