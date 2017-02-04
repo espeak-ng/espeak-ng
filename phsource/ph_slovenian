@@ -91,7 +91,7 @@ endphoneme
 
 
 phoneme v
-  import_phoneme base/v#
+  import_phoneme base1/v#
 endphoneme
 
 

@@ -179,7 +179,7 @@ phoneme l;
   liquid
   lengthmod 7
 
-  CALL base/l
+  CALL base1/l
   Vowelout colr=1
  endphoneme
 
@@ -188,7 +188,7 @@ phoneme m;
   vcd blb nas
   lengthmod 4
 
-  CALL base/m
+  CALL base1/m
   Vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
 endphoneme
 
@@ -197,7 +197,7 @@ phoneme n;
   vcd alv nas
   lengthmod 4
 
-  CALL base/n
+  CALL base1/n
   Vowelout f1=2 f2=1700 -300 250  f3=200 80  rms=20 brk colr=1
 endphoneme
 
@@ -231,7 +231,7 @@ phoneme f;
   vls lbd frc
   lengthmod 3
   voicingswitch v
-  CALL base/f
+  CALL base1/f
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80 colr=1
 endphoneme
 

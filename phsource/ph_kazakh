@@ -104,7 +104,7 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 phoneme t
@@ -112,7 +112,7 @@ phoneme t
 endphoneme
 
 phoneme G
-  import_phoneme base/r"
+  import_phoneme base1/r"
 endphoneme
 
 phoneme X
@@ -126,7 +126,7 @@ endphoneme
 
 phoneme L
   import_phoneme sq/ll
-//  import_phoneme base/l-
+//  import_phoneme base1/l-
 endphoneme
 
 phoneme l
@@ -135,5 +135,5 @@ phoneme l
   ELSE
     ChangePhoneme(L)  // Hard
   ENDIF
-  CALL base/l
+  CALL base1/l
 endphoneme

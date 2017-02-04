@@ -206,6 +206,6 @@ phoneme R
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
     ChangePhoneme(*)
   ENDIF
-  CALL base/R
+  CALL base1/R
 endphoneme
 

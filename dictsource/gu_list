@@ -1,4 +1,4 @@
-﻿// This gu_list file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
+// This gu_rules file is prepared by Maheshinder Singh Khosla< mahesh.khosla@gmail.com >.
 
 // This file is UTF8 encoded
 
@@ -25,7 +25,7 @@ _14        c'O:d
 _15        p@nd'Vr
 _16         s'o:r.
 _17        s@tt'Vr
-_18          'Vd.#a:r
+_18          Vd.#'@r
 _19        ,o:gn.'i:s
 
 _20        w'i:s
@@ -170,28 +170,34 @@ _dpt      _d@s@ml'o:_
 હ      H@
 
 // combining vowel signs
+ા	#X2a:
+િ	#X1I
+ી	#X2i:
+ુ	#X1U
+ૂ	#X2u:
+ૃ	#X1ru
+ૄ	#X1ru
+ૅ	#X1E
+ે	#X2e:
+ૈ	#X2aI
 ?2 ૈ	#X2aI
+ૉ	#X1O
+ો	#X2o:
+ૌ	#X2aU
 ?3 ૌ 	#X2aU
-
-
-// Symbols
-ઁ	c'Vndr@-b'IndU
-ં	 Vn'Usv@r
-ઃ	 wIs'VRg
-઼	 n'Ukt,a:
-ऽ	 Vv'Vgr@2H
-॑	 Ud'a:t
-॒	 'VnUdata:
-
+ૢ 	#X1l-
+ૣ	#X2l-:
+ૐ	#X1o~m
 
 
 // Punctuation
 ।	dVn.d.V
-
- $	dOl@r
+્	k#'o:d.o:
+$	dOl@r
 %	pVt'IS@t
 +	plVs
 =	bVr'a:b@r
 *	ta:r'a:Nk@n
+
 
 

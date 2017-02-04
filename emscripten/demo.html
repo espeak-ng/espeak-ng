@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-    <title>espeakng.js Demo</title>
+    <title>espeakng.js 1.49.1 Demo</title>
     <style>
       h1 {
         max-width: 480px;
@@ -22,6 +22,11 @@
         display: inline-block;
         width: calc(80% - 3rem);
         margin: 0;
+      }
+      .speecharg input {
+        margin: 0;
+        padding: 0;
+        border: 0;
       }
       .speecharg button {
         width: 1.5rem;
@@ -92,14 +97,14 @@
       <div>Loading eSpeak-ng worker and data...</div>
       <progress></progress>
     </div>
-    <h1>espeakng.js Demo</h1>
+    <h1>espeakng.js 1.49.1 Demo</h1>
     <form>
       <textarea id="texttospeak">Call me Ishmael. Some years ago --- never mind how long precisely --- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.</textarea>
       <div class="speecharg">
-        <label for="pitch">Pitch</label><input id="pitch" type="range" value="50" min="0" max="100"><button type="button" aria-label="Reset pitch" title="Reset pitch" onclick="resetPitch();">&#x21b6;</button>
+        <label for="pitch">Pitch</label><input id="pitch" type="range" value="50" min="0" max="100" /><button type="button" aria-label="Reset pitch" title="Reset pitch" onclick="resetPitch();">&#x21b6;</button>
       </div>
       <div class="speecharg">
-        <label for="rate">Rate</label><input id="rate" type="range" value="175" min="80" max="450"><button type="button" aria-label="Reset rate" title="Reset rate" onclick="resetRate();">&#x21b6;</button>
+        <label for="rate">Rate</label><input id="rate" type="range" value="175" min="80" max="450" /><button type="button" aria-label="Reset rate" title="Reset rate" onclick="resetRate();">&#x21b6;</button>
       </div>
       <div class="speecharg">
         <label for="voice">Voice</label><select id="voice"></select><button type="button" aria-label="Reset voice" title="Reset voice" onclick="resetVoice();">&#x21b6;</button>

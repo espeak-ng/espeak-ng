@@ -101,6 +101,8 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	// read eSpeak's mbrola phoneme translation data, eg. en1_phtrans
 	sprintf(path, "%s/mbrola_ph/%s", path_home, phtrans);
 	size = GetFileLength(path);
+	if (size < 0) // size == -errno
+		return -size;
 	if ((f_in = fopen(path, "rb")) == NULL) {
 		int error = errno;
 		close_MBR();

@@ -252,6 +252,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_icelandic \
 	phsource/ph_indonesian \
 	phsource/ph_interlingua \
+	phsource/ph_ipa \
 	phsource/ph_irish \
 	phsource/ph_italian \
 	phsource/ph_japanese \
@@ -383,6 +384,7 @@ dictionaries: \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
 	espeak-ng-data/ko_dict \
+	espeak-ng-data/kok_dict \
 	espeak-ng-data/ku_dict \
 	espeak-ng-data/ky_dict \
 	espeak-ng-data/la_dict \
@@ -391,6 +393,7 @@ dictionaries: \
 	espeak-ng-data/lv_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
+	espeak-ng-data/mni_dict \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
@@ -407,6 +410,7 @@ dictionaries: \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
+	espeak-ng-data/sd_dict \
 	espeak-ng-data/si_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
@@ -669,6 +673,12 @@ dictsource/ko_extra:
 espeak-ng-data/ko_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ko_list dictsource/ko_rules dictsource/ko_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ko && cd ..
 
+kok: espeak-ng-data/kok_dict
+dictsource/kok_extra:
+	touch dictsource/kok_extra
+espeak-ng-data/kok_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kok_list dictsource/kok_rules dictsource/kok_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=kok && cd ..
+
 ku: espeak-ng-data/ku_dict
 dictsource/ku_extra:
 	touch dictsource/ku_extra
@@ -716,6 +726,12 @@ dictsource/ml_extra:
 	touch dictsource/ml_extra
 espeak-ng-data/ml_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ml && cd ..
+
+mni: espeak-ng-data/mni_dict
+dictsource/mni_extra:
+	touch dictsource/mni_extra
+espeak-ng-data/mni_dict: src/espeak-ng phsource/phonemes.stamp dictsource/mni_list dictsource/mni_rules dictsource/mni_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=mni && cd ..
 
 mr: espeak-ng-data/mr_dict
 dictsource/mr_extra:
@@ -824,6 +840,12 @@ dictsource/si_extra:
 	touch dictsource/si_extra
 espeak-ng-data/si_dict: src/espeak-ng phsource/phonemes.stamp dictsource/si_list dictsource/si_rules dictsource/si_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=si && cd ..
+
+sd: espeak-ng-data/sd_dict
+dictsource/sd_extra:
+	touch dictsource/sd_extra
+espeak-ng-data/sd_dict: src/espeak-ng phsource/phonemes.stamp dictsource/sd_list dictsource/sd_rules dictsource/sd_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=sd && cd ..
 
 sk: espeak-ng-data/sk_dict
 dictsource/sk_extra:

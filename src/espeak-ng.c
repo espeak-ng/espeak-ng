@@ -23,6 +23,7 @@
 #include <errno.h>
 #include <getopt.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -674,7 +675,7 @@ int main(int argc, char **argv)
 		size = strlen(p_text);
 		espeak_Synth(p_text, size+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 	} else if (flag_stdin) {
-		int max = 1000;
+		size_t max = 1000;
 		if ((p_text = (char *)malloc(max)) == NULL) {
 			espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
 			exit(EXIT_FAILURE);
@@ -697,13 +698,17 @@ int main(int argc, char **argv)
 					break;
 				p_text[ix++] = (char)c;
 				if (ix >= (max-1)) {
-					max += 1000;
-					char *new_text = (char *)realloc(p_text, max);
+					char *new_text = NULL;
+					if (max <= SIZE_MAX - 1000) {
+						max += 1000;
+						new_text = (char *)realloc(p_text, max);
+					}
 					if (new_text == NULL) {
 						free(p_text);
 						espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
 						exit(EXIT_FAILURE);
 					}
+					p_text = new_text;
 				}
 			}
 			if (ix > 0) {

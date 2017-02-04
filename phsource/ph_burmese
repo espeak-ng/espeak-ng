@@ -425,7 +425,7 @@ endphoneme
 
 phoneme m
   //vcd blb nas
-  import_phoneme base/m
+  import_phoneme base1/m
 endphoneme
 
 phoneme nh
@@ -434,7 +434,7 @@ endphoneme
 
 phoneme n
   //vcd alv nas
-  import_phoneme base/n
+  import_phoneme base1/n
 endphoneme
 
 phoneme ɲh
@@ -443,7 +443,7 @@ endphoneme
 
 phoneme ɲ
   //vcd pal nasal pzd
-  import_phoneme base/n^
+  import_phoneme base1/n^
 endphoneme
 
 phoneme ŋh
@@ -452,7 +452,7 @@ endphoneme
 
 phoneme ŋ
   //vcd vel nas
-  import_phoneme base/N
+  import_phoneme base1/N
 endphoneme
 
 //phoneme ɴ
@@ -461,42 +461,42 @@ endphoneme
 
 phoneme p
   //vls blb stp
-  import_phoneme base/b
+  import_phoneme base1/b
 endphoneme
 
 phoneme b
   //vcd blb stp
-  import_phoneme base/b
+  import_phoneme base1/b
 endphoneme
 
 phoneme ph //aspirated
   //vls blb stp
-  import_phoneme base/p
+  import_phoneme base1/p
 endphoneme
 
 phoneme t
   //vls alv stp
-  import_phoneme base/d
+  import_phoneme base1/d
 endphoneme
 
 phoneme d
   //vcd alv stp
-  import_phoneme base/d
+  import_phoneme base1/d
 endphoneme
 
 phoneme th
   //vls alv stp
-  import_phoneme base/t
+  import_phoneme base1/t
 endphoneme
 
 phoneme tɕ
   //vls pla afr sib
-  import_phoneme base/tS
+  import_phoneme base1/tS
 endphoneme
 
 phoneme dʑ
   //vcd pla afr sib
-  import_phoneme base/dZ
+  import_phoneme base1/dZ
 endphoneme
 
 phoneme tɕh
@@ -506,17 +506,17 @@ endphoneme
 
 phoneme k
   //vls vel stp
-  import_phoneme base/k
+  import_phoneme base1/k
 endphoneme
 
 phoneme g
   //vcd vel stp
-  import_phoneme base/g
+  import_phoneme base1/g
 endphoneme
 
 phoneme kh
   //vls vel stp
-  import_phoneme base/k
+  import_phoneme base1/k
 endphoneme
 
 phoneme ʔ
@@ -525,22 +525,22 @@ endphoneme
 
 phoneme θ
   //vls dnt frc
-  import_phoneme base/T
+  import_phoneme base1/T
 endphoneme
 
 phoneme ð
   //vcd dnt frc
-  import_phoneme base/D
+  import_phoneme base1/D
 endphoneme
 
 phoneme s
   //vls alv frc sib
-  import_phoneme base/s
+  import_phoneme base1/s
 endphoneme
 
 phoneme z
   //vcd alv frc sib
-  import_phoneme base/z
+  import_phoneme base1/z
 endphoneme
 
 phoneme sh //aspirated not pzd
@@ -549,7 +549,7 @@ endphoneme
 
 phoneme ʃ
   //vls pla frc sib
-  import_phoneme base/S
+  import_phoneme base1/S
 endphoneme
 
 phoneme h
@@ -578,6 +578,6 @@ endphoneme
 
 phoneme l
   //vcd alv liquid
-  import_phoneme base/l  
+  import_phoneme base1/l  
 endphoneme
 

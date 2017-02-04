@@ -1,4 +1,4 @@
-# Voice Files
+# Voice and Language Files
 
 - [Identification Attributes](#identification-attributes)
   - [name](#name)

@@ -261,7 +261,7 @@ phoneme t;
 endphoneme
 
 phoneme S
-  import_phoneme base/S;
+  import_phoneme base1/S;
 endphoneme
 
 

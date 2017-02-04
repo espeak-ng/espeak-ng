@@ -121,7 +121,7 @@ endphoneme
 // CONSONANTS
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 phoneme k`
@@ -170,7 +170,7 @@ phoneme D
   vcd alv stp
   lengthmod 6
   voicingswitch d
-  CALL base/D
+  CALL base1/D
   IF nextPh(isPause2) THEN
     FMT(voc/dh_) addWav(vocw/dh, 35)   // weaker 
   ENDIF

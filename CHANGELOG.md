@@ -14,12 +14,26 @@ The espeak-ng project is a fork of the espeak project.
 *  Removed support for phoneme equivalence tables. These were disabled in the
    French and German language files.
 
+bug fixes:
+
+*  Fix reading stdin buffers larger than 1000.
+
+new languages:
+
+*  kok (Konkani) -- Vardhan
+*  mni (Manipuri) -- Vardhan
+*  sd (Sindhi, Arabic script) -- Vardhan
+
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  du (Dutch) -- Leonard de Ruijter
 *  fr (French) -- Valdis Vitolins
+*  gu (Gujarati) -- Vardhan
+*  hi (Hindi) -- Vardhan
+*  it (Italian) -- chrislm
 *  mr (Marathi) -- Vardhan
+*  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
 
 ### 1.49.1 - 2017-01-21

@@ -44,7 +44,7 @@ phoneme l      // use dark [l/2] before not-vowel
     ENDIF
   ENDIF
 
-  CALL base/l
+  CALL base1/l
 endphoneme
 
 
@@ -88,23 +88,8 @@ phoneme z/2    // used for 's suffix
   ChangePhoneme(z)
 endphoneme
 
-
 phoneme w#
-  vls glt apr  // [h]
-  ipa ʍ
-  
-  IF nextPh(isVowel) THEN
-    NextVowelStarts
-      VowelStart(w/w@)
-      VowelStart(w/wa)
-      VowelStart(w/we)
-      VowelStart(w/wi)
-      VowelStart(w/wo)
-      VowelStart(w/wu)
-    EndSwitch
-  ENDIF
-
-  WAV(h/hu, 70)
+  import_phoneme ipa/W
 endphoneme
 
 

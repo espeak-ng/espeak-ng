@@ -7,7 +7,7 @@
 - [Configuration Files](#configuration-files)
   - [Makefile.am file](#makefileam-file)
   - [Phonemes file](#phonemes-file)
-  - [Voice File](#voice-file)
+  - [Language File](#language-file)
   - [Phoneme Definition File](#phoneme-definition-file)
   - [Dictionary Files](#dictionary-files)
 - [Program Code](#program-code)
@@ -59,7 +59,7 @@ These language tags are used to specify the language, such as:
 
 ### Language Family
 
-The voices are grouped by the closest language family the language belongs.
+The languages are grouped by the closest language family the language belongs.
 These language families are defined in
 [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5). See also Wikipedia's
 [List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
@@ -104,7 +104,7 @@ To add new language, you have to create or edit following files:
 | dictsource/fr_list           |create  |
 | dictsource/fr_rules          |create  |
 | dictsource/fr_extra          |create (optional) |
-| espeak-ng-data/voices/roa/fr    |create  |
+| espeak-ng-data/lang/roa/fr   |create  |
 
 where:
 
@@ -150,12 +150,12 @@ to make it call your new, e.g. `ph_french` file:
 	include ph_french
 	...
 
-### Voice File
+### Language File
 
-E.g. `espeak-ng-data/voices/roa/fr` is the voice file for French.
+E.g. `espeak-ng-data/lang/roa/fr` is the language file for French.
 This gives the language name and may set some options.
 
-Each language needs a voice file in `espeak-ng-data/voices` grouped by the
+Each language needs a language file in `espeak-ng-data/lang` grouped by the
 [language family](#language-family). The filename of the default voice for a
 language should be the same as the language code (e.g. `fr` for French).
 
@@ -173,7 +173,7 @@ attributes in the voice file. For example you may want to start the
 implementation of a new language by using the phoneme table of an
 existing language.
 
-Details of the contents of voice files are given in [Voices](voices.md).
+Details of the contents of language files are given in [Voices](voices.md).
 
 ### Phoneme Definition File
 
@@ -276,7 +276,7 @@ The function `SetTranslator()` at the start of the source code file
 options. For a new language, you would add its language code and the
 required options in `SetTranslator()`. However, this may not be necessary
 during testing because most of the options can also be set in the voice
-file in espeak-ng-data/voices (see [Voice Files](voices.md)).
+file in espeak-ng-data/lang (see [Voices](voices.md)).
 
 ## Compiling Rules File for Debugging
 
@@ -339,7 +339,7 @@ and what needs to be improved.
 * Make new intonation "tunes" for statements or questions (see
   [Intonation](intonation.md)).
 
-For most of the eSpeak voices, I do not speak or understand the language, and I
+For most of the eSpeak languages, I do not speak or understand the language, and I
 do not know how it should sound. I can only make improvements as a result of
 feedback from speakers of that language. If you want to help to improve a
 language, listen carefully and try to identify individual errors, either in

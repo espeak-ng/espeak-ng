@@ -338,7 +338,7 @@ endphoneme
 
 
 phoneme v        // no fricative noise
-  import_phoneme base/v#
+  import_phoneme base1/v#
   voicingswitch f
 endphoneme
 

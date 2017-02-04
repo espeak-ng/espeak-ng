@@ -54,8 +54,8 @@ aculei	$2
 aculeo $2
 adamas $3
 addebit $2  $alt2
-addom	$2 $alt
 addio	ad:'io/
+addom	$2 $alt
 adenoipofisi $5
 adenomer $3
 aderbale $2
@@ -203,8 +203,6 @@ anfipoli $2
 anfor $1
 angel $1
 angiogenesi $3
-anglicanesimo	anglikan'ezimo
-anglicizzazione	anglitSidz:atsi'One
 anglosassone $3
 anglosassoni $3
 angol $1
@@ -1133,6 +1131,7 @@ dataria $3
 dauphine $4
 davver $2  $alt2
 debit $1  $alt2
+debol	$1
 debole $1
 dec  $alt
 decameron	$2 $only
@@ -1140,30 +1139,38 @@ decapoli $2
 decebal $2  $alt
 decenni  $alt
 deci  $alt
+decim	$1
+decimonono	$4
+decine	$2
+decrepit	$2
 decret  $alt
 decubit $2
 dedit $1
 deficit $1  $alt
 deg  $alt
 deiotar $2
-delebi  $alt
-deleg $1
+deleg	$1
+deleghe	$1
 deleteria	$3 $alt
 deleterie	$3 $alt
 deliber $2
 demerit	$2
 democrit $2
 dentice  $alt
+dentifrici	$3
 deposit $2
 depost  $alt2
 derattizzazion	deRat:idz:atsi'on
 derid	$2
 derog $1
+deroghe	$1
 desdemon  $alt
 desi  $alt
 desman  $alt
+desossicortisol	$6
 despot $1  $alt
 desuet  $alt
+detraibil	det@-*a'ibil
 deuteronomi  $alt
 deuterostomi  $alt
 devot  $alt
@@ -1486,8 +1493,8 @@ estet  $alt
 estraibil	est@-*a'ibil
 etanol $3
 eteocle $2
-etereo	$2
 eterei	$2
+etereo	$2
 eterocefal $4  $alt
 eterotteri  $alt
 etiope $2
@@ -1684,8 +1691,8 @@ franciacort  $alt2
 francoboll  $alt2
 frassin $1
 frattemp  $alt
-freccine	$2
 freccette  $alt2
+freccine	$2
 fredd	$alt2
 fregol	$1
 fren  $alt2
@@ -1793,22 +1800,11 @@ gladiol $2
 glaucofane $3
 gleb  $alt
 glia  gl'i:a
-glif	gl'if
-glifosat	glifoz'at
-glicemic	glitS'Emik
-glicemiche	glitS'emike
-glicemie	glitSem'i;e
-gliceridi	glitS'eRidi
-glicerin	glitSe*'in
-glicerofosforic	glitSeRofosf'oRik
-glicerol $3
+glicerol	glitSeR'Ol
 glicidi	glitS'idI
 glicin	gl'itSin
-glicine	gl'itSine
-glicolic	glik'olik
-glicolisi	glikol'izI
-gliconeo	glik'O:n,Eo
-glicoprotein	glikop@-*ote'in
+glif	gl'if
+glifosat	glifoz'at
 gliptodontid	gliptod'Ontid
 glissando	gliss'ando
 glissare	gliss'aRe
@@ -1823,6 +1819,7 @@ glucidi	$2
 glucosi  $alt
 glutei	$1
 gluteo $1
+glutine	$1
 gnom  $alt
 gocciolio	$3
 goleador $4
@@ -1830,9 +1827,11 @@ golia $2
 goliardia $4
 goliardie	golia@-*d'i:e
 gomit $1  $alt2
+gomitoli	$2
 gomm  $alt2
 gommoresine	$3
 gonars $2
+gonartria	$3
 goni  $alt
 gonn  $alt2
 gonnes  $alt
@@ -1847,6 +1846,7 @@ gozz  $alt2
 gradoli $1
 grafem  $alt
 grandigia	$2
+grandin	$1
 gratteri $2
 gratuit	g@-*at'u:it
 gravimetr $2
@@ -1854,10 +1854,12 @@ gravit	$1
 grec  $alt
 grembiul	g@-*embI'ul
 greve  $alt
+grigia	$1
 grom  $alt2
 grondone	$2
 grosi  $alt
 grossomod $3  $alt
+grumoli	$1
 guarani $3
 guardamacchine	$3
 guardarob  $alt
@@ -1991,7 +1993,6 @@ iperborea	$3
 iperboree	$3
 iperborei	$3
 iperboreo	$3
-iperglicemic	iperglitS'emik
 ipernucleo	$3
 ipersonnia $4
 ipertermia $4
@@ -2001,7 +2002,6 @@ ipocentr  $alt
 ipocloridria $5
 ipocondria $4
 ipofisi	ip'O:fizI
-ipoglicemic	ipoglitS'emik
 ipotalam $3
 ipotec  $alt
 ipotermia $4
@@ -2141,22 +2141,21 @@ litania $3
 litanie	litan'ie
 litigi	$2
 lob  $alt
-lod  $alt
-lodol $1
-lodz  $alt2
+lod	$alt
+lodol	$1
 log  $alt
 loggia  $alt
 logli  $alt
 logorio	$3
 lol  $alt
+lombrichi	$2
+lombrico	$2
 long  $alt
 longhi  $alt
 lonicer $2
 lord  $alt2
 loreggia  $alt
-lorsic  $alt2
 lot  $alt
-lovere  $alt2
 lucciolio	$3
 lucifug $2
 lugubre $1
@@ -2543,7 +2542,6 @@ niobe $1
 nippur $2
 niscemi  $alt
 niteroi  $alt2
-nitroglicerin	nit@-*oglitSeR'in
 nizzard	nits2:'a@-*d
 nocciol	$2	$alt
 noccioli	$1 $alt
@@ -2837,7 +2835,7 @@ peptidi  $alt
 percentil	$3
 percors  $alt2
 perdio	pe@-*||d'i:o
-perdit $1
+perdit	$1
 perdon	$2 $alt2
 pereg $1
 peretol $2
@@ -2845,7 +2843,6 @@ perez  $alt2
 perfett  $alt
 perfugas $1
 pergam $1
-perieget  $alt
 perier $1  $alt2
 perifrasi $2
 perim $2
@@ -2855,9 +2852,10 @@ peripl $1
 peristasi $2
 perizom	pe*idz'Om
 perlomen  $alt2
+permaflex	$1
 permafrost $1
 permut $1
-peronospor $3  $alt
+peronospor	$3  $alt
 perpetua  $alt
 perpetuo  $alt
 perregaux $2
@@ -3176,6 +3174,7 @@ quiete  $alt
 quindicesim  $alt
 quindicine	$3
 quot  $alt
+ra	@-*'a
 rabarbar $2
 racale $1
 racem  $alt
@@ -3203,11 +3202,8 @@ razzi	@-*'adz:I
 razzia $2
 razzie	@-*a/ts2:'ie
 razzo	@-*'a|dz:o
-ra	@-*'a
 re	@-*'E
 re	@-*'e	$capital
-ri	@-*I $only
-ro	@-*'O
 rebbi  $alt2
 recapit $2
 recared  $alt
@@ -3244,8 +3240,8 @@ resin $1
 respons  $alt
 ret	$alt2
 retin	$1
-retino	$2
 retini	$2
+retino	$2
 retinol $3
 retorbid  $alt2
 retore $1
@@ -3259,6 +3255,7 @@ revere  $alt2
 revoc $1
 revolver  $alt
 rhea  $alt2
+ri	@-*I $only
 riassett  $alt
 ribattezzare	@-*i_bat:edz:'aRe
 ribec  $alt
@@ -3309,6 +3306,7 @@ rivincit $2
 rizzare	@-*its2:'aRe
 rizzati	@-*its2:'ati
 rizziconi $2
+ro	@-*'O
 rob  $alt
 robbi  $alt
 robbia  $alt
@@ -3902,8 +3900,8 @@ tholos  $alt2
 tiberiade $3
 tiburon $3
 ticchettio	tik:et:'io
-timpan $1
 timoria	$3
+timpan $1
 tindari $1
 tinian $2
 tintoria $3
@@ -3981,8 +3979,8 @@ trascors  $alt2
 tratalias $3
 traversie	$2
 travesi  $alt
-trebaseleghe $3  $alt2
 tre	t@-*'e
+trebaseleghe $3  $alt2
 tredicesim  $alt
 tredici  $alt2
 tremil $2
@@ -4005,7 +4003,6 @@ trienni  $alt
 trifogli  $alt
 trifor $1
 trigemin $2
-trigliceridi	t@-*iglitS'ERidI
 triglif $1
 trimer $1
 trimetr $1

@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 january 5 by Chris <llajta2012@gmail.com>
+// Last update: 2017 february  4 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -208,10 +208,11 @@
 	g	g
 	gg	g:
 	gh	g
+	gu (A	gw
 	g (Y	dZ
 	gi (A	dZ
 	gi (a_	dZ'i#  // [i] only if stressed
-	gì (a_	dZ'i#  // [i] only if stressed
+	gì (a_	dZ'i#
 	al) gie (_	dZ'iE
 	@Ar) gie (_	dZ'iE
 	fa) gie (_	dZ'iE
@@ -222,27 +223,29 @@
 	n)	gi (a_	dZ
 	gg (Y	dZ:
 	ggi (A	dZ:
+
+	gl (i	l^
+	gl (ì	l^
+	gli (A	l^
+	_) gl	gl
+	gli (cA	gli
+	gli (chA	gli
+	gn	n^
+	A) gn (A_	n^:
+
 	@) gger (L04_	=dZ:e@-*  // Pron.s verbs
 	AC) ger (L04_	=dZe@-*
 	esi) ger (L04_	=dZe@-*
 	eri) ger (L04_	=dZe@-*
 	_) giura (L07_	dZ'URa
 	godi (L04_	g'Odi
-	gl (i	l^
-	gl (ì	l^
-	gli (A	l^
-	_)	gl	gl
 	@) glier (L04_	=l^E@-*
 	@) guer (L04_	=gUe@-*
-	gn	n^
-	@) gn (A_	n^;
-	a) gn (A_	n^:
-	gu (A	gw
 	guono (_	=gw2ono   // verbs
 	o) gnano (_	=n^ano
 	A) gnano (_	n^'ano   // exceptions
 	@) ginano(_	=dZinano   // verbs
-		gano (_	=gano
+	gano (_	=gano
 	ggano (_	=g:a/no 
 	giono (_	dZ'Ono
 	n) guere (_	=gweRe
@@ -389,8 +392,10 @@
 
 .group o
 	o	o
-	oi	O%I
+	oi	O%i
 	oi (o_	oj
+	n) oi (_	oi
+	v) oi (_	oi
 	oi (sCA_	o'i
 	o (C%A_	O
 	o (CACA_	O
@@ -588,9 +593,9 @@
 .group u
 	u	u
 	_) u (A	w2
-	@)	u (dinY_  'u
-	@)	u (colo_  'u
-	@)	u (lA_	=u
+	@)	u (dinY_	'u
+	@) u (colo_	'u
+	@) u (lA_	=u
 	_) un' (P3t	un
 	@) u (A_	=u
 	A%C) u (A_	=u
@@ -609,8 +614,8 @@
 	v	v
 	vv	v:
 	vvi (A	v:i
-	C) vi (A	vI
-	C) vi (A_	=vI
+	C) vi (A	vi
+	C) vi (A_	=vi
 	A) vino (_	=vino  // verbs
 	@) vo (cano_	=vo
 	in) via (toL04_	vI'a

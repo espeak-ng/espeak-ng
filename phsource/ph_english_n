@@ -3,7 +3,7 @@ phoneme N
   vcd vel nas
   lengthmod 8            // longer than 'n'
   IfNextVowelAppend(g)
-  CALL base/N
+  CALL base1/N
 endphoneme
 
 

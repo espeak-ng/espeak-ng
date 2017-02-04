@@ -238,7 +238,7 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R
+  import_phoneme base1/R
 endphoneme
 
 
@@ -268,7 +268,7 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  import_phoneme base/t[
+  import_phoneme base1/t[
   voicingswitch d
 endphoneme
 

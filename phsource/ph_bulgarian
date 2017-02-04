@@ -72,16 +72,16 @@ phoneme l
 endphoneme
 
 phoneme L   // velar L
-  import_phoneme base/L
+  import_phoneme base1/L
 endphoneme
 
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base1/R2
 endphoneme
 
 phoneme x
-  import_phoneme base/x
+  import_phoneme base1/x
   voicingswitch x   // [x] doesn't switch to [Q]
 endphoneme
 

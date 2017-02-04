@@ -91,6 +91,6 @@ endphoneme
 // Consonants
 
 phoneme v   // Try English [v]
-  import_phoneme base/v
+  import_phoneme base1/v
 endphoneme
 

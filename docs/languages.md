@@ -64,6 +64,7 @@ The supported languages are:
 | `roa`       | `it`              | Romance               | Italian                     |                        |
 | `jpx`       | `jp`              | Japanese              | Japanese<sup>[4]</sup>      |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
+| `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
 | `ira`       | `ku`              | Iranian               | Kurdish                     |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
@@ -76,6 +77,7 @@ The supported languages are:
 | `poz`       | `ms`              | Malayo-Polynesian     | Malay                       |                        |
 | `dra`       | `ml`              | Dravidian             | Malayalam                   |                        |
 | `sem`       | `mt`              | Semitic               | Maltese                     |                        |
+| `sit`       | `mni`             | Sino-Tibetan          | Manipuri                    |                        |
 | `inc`       | `mr`              | Indic                 | Marathi                     |                        |
 | `azc`       | `nci`             | Uto-Aztecan           | Nahuatl                     | Classical              |
 | `inc`       | `ne`              | Indic                 | Nepali                      |                        |
@@ -83,6 +85,7 @@ The supported languages are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
+| `und`       | `und-fonipa`      |                       | Phonemes<sup>[5]</sup>      | IPA                    |
 | `zls`       | `pl`              | South Slavic          | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
@@ -91,6 +94,7 @@ The supported languages are:
 | `zls`       | `ru`              | South Slavic          | Russian                     |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
+| `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
 | `inc`       | `si`              | Indic                 | Sinhala                     |                        |
 | `zls`       | `sk`              | South Slavic          | Slovak                      |                        |
 | `zls`       | `sl`              | South Slavic          | Slovenian                   |                        |
@@ -115,3 +119,5 @@ The supported languages are:
 [3] Farsi/Persian written using English (Latin) characters.
 
 [4] Currently, only Hiragana and Katakana are supported.
+
+[5] Currently only supported using the `[[...]]` phoneme blocks.

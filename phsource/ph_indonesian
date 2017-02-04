@@ -143,7 +143,7 @@ endphoneme
 
 
 phoneme d   // English [d]
-  import_phoneme base/d
+  import_phoneme base1/d
   voicingswitch t
 endphoneme
 

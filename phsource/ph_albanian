@@ -206,7 +206,7 @@ endphoneme
 phoneme w
   liquid
   lengthmod 7
-  CALL base/w
+  CALL base1/w
   FMT(w/w2)
 endphoneme
 
@@ -249,19 +249,19 @@ endphoneme
 
 
 phoneme t
-  import_phoneme base/t[
+  import_phoneme base1/t[
   voicingswitch d
 endphoneme
 
 
 phoneme ts
-  import_phoneme consonants/ts
+  import_phoneme ipa/ts\)
   voicingswitch dz
 endphoneme
 
 
 phoneme dz
-  import_phoneme consonants/dz
+  import_phoneme ipa/dz\)
   voicingswitch ts
 endphoneme
 
@@ -298,7 +298,7 @@ endphoneme
 
 
 phoneme c   // This is [tS;]
-  import_phoneme base/tS;
+  import_phoneme base1/tS;
   voicingswitch dZ;
 endphoneme
 

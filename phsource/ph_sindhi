@@ -1,0 +1,201 @@
+//====================================================
+// Phonemes Sindhi in Urdu script
+//====================================================
+
+
+phoneme : //  Lengthen the previous vowel by "length"
+  virtual
+  length 120
+endphoneme
+
+phoneme @
+  vwl flag1 starttype #@  endtype #@
+  length 130
+
+  ChangeIfDiminished(@-)
+  IF nextPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  FMT(vowel/@_bck)
+endphoneme
+
+
+phoneme V
+  vwl flag1 starttype #@  endtype #@
+  length 150
+  CALL hi/V
+endphoneme
+
+
+phoneme @2
+  vwl flag1 starttype #@  endtype #@
+  length 150
+  FMT(vowel/@_low)
+endphoneme
+
+phoneme @3
+  vwl flag1 starttype #@  endtype #@
+  length 150
+  ChangeIfDiminished(@-)
+  FMT(vowel/@_3)
+endphoneme
+
+
+phoneme @2
+  vwl flag1 starttype #@  endtype #@
+  length 130
+  FMT(vowel/@_low)
+endphoneme
+
+phoneme @3
+  vwl flag1 starttype #@  endtype #@
+  length 130
+  ChangeIfDiminished(@-)
+  FMT(vowel/@_3)
+endphoneme
+
+
+
+
+phoneme i:
+  vwl lng starttype #i endtype #i
+  length 230
+  IF thisPh(isUnstressed) THEN
+    ChangePhoneme(i)
+  ENDIF
+  IfNextVowelAppend(;)
+  FMT(vowel/i_fnt)
+endphoneme
+
+phoneme i         // as [i:] but not marked as 'long'
+  vwl starttype #i endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_6)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 100
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+phoneme e:
+  vwl lng starttype #e endtype #e
+  length 220
+  FMT(vowel/e_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 140
+  FMT(vowel/e_2)
+endphoneme
+
+phoneme E:
+  vwl lng starttype #e endtype #e
+  length 220
+  FMT(vdiph/ee-e)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 140
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme &:
+  vwl lng starttype #a endtype #a
+  length 220
+  FMT(vowel/&)
+endphoneme
+
+
+phoneme a:
+  vwl lng starttype #a endtype #a
+  length 200
+  IF nextPhW(j) THEN
+    FMT(vowel/a_5)
+  ENDIF
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme a
+  vwl lng starttype #a endtype #a
+  length 140
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme o:
+  vwl lng starttype #o endtype #o
+  length 227
+  FMT(vowel/o_2)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 140
+  FMT(vowel/o)
+endphoneme
+
+phoneme O:
+  vwl lng starttype #o endtype #o
+  length 210
+  FMT(vowel/oo_4)
+endphoneme
+
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 140
+  FMT(vowel/0)
+endphoneme
+
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 140
+  FMT(vowel/uu_bck)
+endphoneme
+
+
+phoneme u:
+  vwl lng starttype #u endtype #u
+  length 230
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Nasal vowels
+//=============
+
+phoneme i~
+  vwl lng starttype #i endtype #i
+  length 220
+  FMT(vnasal/i_n2)
+endphoneme
+
+phoneme I~
+  vwl lng starttype #i endtype #i
+  length 170
+  FMT(vnasal/ii_n)
+endphoneme
+
+phoneme e~
+  vwl lng starttype #e endtype #e
+  length 220
+  FMT(vnasal/e_n)
+endphoneme
+
+phoneme E~
+  vwl lng starttype #e  endtype #e
+  length 220
+  FMT(vnasal/ee_n2)
+endphoneme
+
+
+
+//====================================================
+// The rest Phonemes are inherted from Hindi.

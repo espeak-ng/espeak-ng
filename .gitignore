@@ -38,6 +38,10 @@ gradlew.bat
 build/
 espeak.iml
 
+# emscripten output:
+a.out
+a.out.js
+
 # autotools
 
 AUTHORS

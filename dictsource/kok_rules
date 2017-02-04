@@ -1,0 +1,571 @@
+// Kankani Language.
+// This kok_rules file is prepared by Him Prasad Gautam < drishtibachak@gmail.com >.
+// This file is UTF-8 encoded.
+
+// letter groups:
+// A - Independent and Dependent Vowels:
+//	0x904 to 0x914, 0x93E to 0x94D, 0x950, 0x960 to 0x963, 0x972
+// B - Dependent Vowels and Halanta:
+//	0x93E to 0x94C, 0x94d, 0x962, 0x963
+// C - Consonants:
+//	0x915 to 0x939, 0x958 to 0x95F, 0x97B, 0x97c, 0x97E, 0x97F
+//    Independent Vowels:
+//	0x904 to 0x914, 0x950,0x960, 0x961, 0x977
+//  Nepali Alphabets:	0x901 to 0x980
+//  Numbers:	0x966 to 096F
+//  symbols:
+//	0x901 to 0x903, 0x93C, 0x93D, 0x951 to 0x954, 0x964, 0x965, 0x970, 0x971, 0x97D
+
+// conditional rules
+// ?2   use diphthong for "ai"
+// ?3   use diphthong for "au"
+
+.replace
+ ०	0
+ १	1
+ २	2
+ ३	3
+ ४	4
+ ५	5
+ ६	6
+ ७	7
+ ८	8
+ ९	9
+
+ ॱ०	.0
+ ॱ१	.1
+ ॱ२	.2
+ ॱ३	.3
+ ॱ४	.4
+ ॱ५	.5
+ ॱ६	.6
+ ॱ७	.7
+ ॱ८	.8
+ ॱ९	.9
+
+.group ॱ	//Devanagari decimal
+	ॱ	d'VS'V,mal'Vw#@
+
+// Vowels
+
+.group अ
+	अ	V
+	अ (_	V:0
+	अं	V~
+	अं (_	V~:
+
+.group आ
+	आ	a:
+	आ (_	a::0
+	आं	a~
+	आं (_	a~::0
+
+.group इ
+	इ	I
+	इ (_	I:0
+	इं	i~
+	इं (_	i~::
+
+.group ई
+	ई	i:
+	ई (_	i::0
+	ईं	i~
+	ईं (_	i~::
+
+.group उ
+	उ	U
+	उ (_	U:0
+	उं	U~
+	उं (_	U~:
+
+.group ऊ
+	ऊ	u:
+	ऊं	u~
+	ऊं (_	u~:
+
+.group ऋ
+	ऋ	rI
+
+.group ॠ
+	ॠ	ri:
+
+.group ऌ
+	ऌ	lr-'i
+
+.group ऍ
+	ऍ	E	// candra e
+
+.group ऎ
+	ऎ	e
+	ऎं	e~
+	ऎं (_	e~:
+
+.group ए
+	ए	e:
+	एँ	e~:
+	एं	e~:
+
+.group ऐ
+	ऐ	E:	// ?? [aI] [E:] [&:]
+	ऐं	E~
+	ऐँ (_	E~:
+?2	ऐ	aI	// ?? [aI] [E:] [&:]
+
+.group ऑ
+	ऑ	O	// candra O
+
+.group ऒ
+	ऒ	o
+	ऒं	o~
+	ऒं (_	o~:
+
+.group ओ
+	ओ	o:
+	ओं	o~
+	ओं (_	o~:	// +candrabindu
+
+.group औ
+	औ	O:	// ?? [aU] [O:]
+	औं	O~	// +anusvara
+	औं (_	O~:
+?3	औ	aU	// ?? [aU] [O:]
+
+
+// Vowel Signs
+
+.group ा
+	ा	a:k'a:r
+	C) ा	a:
+	C) ा (ँ	a~
+	C) ाँ (_	a~:1
+	C) ा (ं	a~
+
+.group ि
+	ि	I,k'a:r
+	C) ि	I
+	C) ि (_	I:0
+	C) ि (ं	i~
+	C) ि (ं_	i~:1
+
+.group ी
+	ी	i:,k'a:r
+	C) ी	i:
+	C) ी (_	i::0
+	C) ी (ँ	i~
+	C) ीँ (_	i~:1
+	C) ी (ं	i~
+
+.group ु
+	ु	U,k'a:r
+	C) ु	U
+	C) ु (_	U:0
+		C) ु (ँ	u~
+	C) ुं	u~
+	C) ुँ (_	u~:1
+
+.group ू
+	ू	u:k'a:r
+	C) ू	u:
+	C) ू (_	u::0
+	C) ू (C	u:1
+	C) ू (ँ	u~
+	C) ूं	u~
+	C) ूँ (_	u~:1
+
+.group ृ
+	ृ	rI,k'a:r
+	C) ृ	rI
+	C) ृ (_	rI:0
+.group ॄ
+	ॄ	rI:,k'a:r
+	C) ॄ	rI:
+
+.group ॅ
+	ॅ	E,k'a:r
+	C) ॅ	E
+
+.group ॆ
+	ॆ	e,k'a:r
+	C) ॆ	e
+	C) ॆ (_	e':0
+	C) ॆ (ँ	e~
+	C) ॆ (ं	e~
+	C) ॆँ (_	e~:1
+
+.group े
+	े	e:,k'a:r
+	C) े	e:
+	C) े (_	e:':0
+	C) े (ँ	e~
+	C) े (ं	e~:1
+	C) ेँ (_	e~:1
+
+.group ै
+	ै	E:,k'a:r
+	C) ै	E:
+	C) ै (_	E::0
+	C) ै (ं	E~ 
+	C) ै (ँ	E~
+	C) ैँ (_	E~:1
+?2	C) ै	aI
+
+.group ॉ
+	ॉ	O,k'a:r
+	C) ॉ	O
+	C) ॉ (_	O':0
+.group ॊ
+	ॊ	o,k'a:r
+	C) ॊ	o
+	C) ॊ (_	o':0
+	C) ॊ (ँ	o~
+	C) ॊं	o~
+	C) ॊँ (_	o~:1
+
+.group ो
+	ो	o:,k'a:r
+	C) ो	o:
+	C) ो (_	o::0
+	C) ो (ँ	o~
+	C) ों	o~
+	C) ोँ (_	o~:1
+
+.group ौ
+	ौ	O:,k'a:r
+	C) ौ	O:	//  [O:] or [aU] ??
+	C) ौ (_	O::0
+	C) ौ (ँ	O~	//  [O:] or [aU] ??
+	C) ौं	O~
+	C) ौँ (_	O~:1
+?3	C) ौ	aU
+
+.group ॢ	// vowel sign l
+	ॢ	l-,rik'a:r
+
+.group ॣ    // vowel sign ll
+	ॣ	l-:rik'a:r
+
+.group ॐ
+	ॐ	o~m
+
+// Consonants
+
+.group क
+	क	kV
+	क (B	k
+	क (्य	k:
+	क़	qV
+	क़ (B	q
+	क्क	k:V   // kk -> k:
+	क्क (B	k:
+	क्ष	kSV
+	क्ष (B	kS
+
+.group ख
+	ख	k#V
+	ख (B	k#
+	ख़	xV
+	ख़ (B	x
+
+.group ग
+	ग	gV
+	ग (B	g
+	ग़	QV
+	ग़ (B	Q
+
+.group घ
+	घ	g#V
+	घ (B	g#
+
+.group ङ
+	ङ	NV
+	ङ (B	N
+	्) ङ (_	N@
+
+.group च
+	च	cV
+	च (B	c
+	च (्य	c:
+
+.group छ
+	छ	c#V
+	छ (B	c#
+
+.group ज
+	ज	JV
+	ज (B	J
+	ज़	zV
+	ज़ (B	z
+	ज्ञ	n'jV
+	ज्ञ (B	nj
+
+.group झ
+	झ	J#V
+	झ (B	J#
+
+.group ञ
+	ञ	n^V
+	ञ (B	n^
+	्) ञ (_	n^@
+
+.group ट
+	ट	t.V
+	ट (B	t.
+	ट (्य	t.:
+	ट्ट	t.:V    // t.t. -> t.:
+	ट्ट (B	t.:
+	ट्ठ	t.#:V    // t.t.# -> t.#:
+	ट्ठ (B	t.#:
+
+.group ठ
+	ठ	t.#V
+	ठ (B	t.#
+	
+	ठ्ठ	t.#:V   // t.#t.# -> t.#:
+	ठ्ठ (B	t.#:
+	
+.group ड
+	ड	d.V
+	ड (B	d.
+
+	ड़	r.V
+	ड़ (B	r.
+
+.group ढ
+	ढ	d.#V
+	ढ (B	d.#
+	ढ़	r.hV
+	ढ़ (B	r.h	// nukta
+
+.group ण
+	ण	n.V
+	ण (B	n.
+	्) ण (_	n.@
+
+.group त
+	त	tV
+	त (B	t
+	त (्य	t:
+	त्र_	t@
+	त्त	t:V   // tt -> t:
+	त्त (B	t:
+
+.group थ
+	थ	t#V
+	थ (B	t#
+	थ (_	t#@
+
+.group द
+	द	dV
+	द (B	d
+
+.group ध
+	ध	d#V
+	ध (B	d#
+
+.group न
+	न	nV
+	न (B	n
+	्) न (_	n@
+    र्) न (_	n	// r +virama
+
+
+.group ऩ
+	ऩ	n:	// should this be a long [n] ?
+
+.group प
+	प	pV
+	प (B	p
+	प (्य	p:1
+	प्प	p:1V
+	प्प (B	p:1
+
+.group फ
+	फ	p#V
+	फ (B	p#
+	फ़	fV
+	फ़ (B	f
+
+.group ब
+	ब	bV
+	ब (B	b
+
+.group भ
+	भ	b#V
+	भ (B	b#
+
+.group म
+	म	mV
+	म (B	m
+	्) म (_	m@
+	र्) म (_	m:0
+    न्) म (_	m:0
+
+.group य
+	य	jV
+	य (B	j
+	C) य (_	Ej
+	य (_	j@
+	्) य (C	j@
+
+.group र
+	र	rV
+	र (B	r
+	र (_	r
+	्) र (_	r@
+
+.group ऱ
+	ऱ	rV
+	ऱ (B	r
+	्) ऱ (_	r@
+
+.group ल
+	ल	lV
+	ल (B	l
+	्) ल (_	l@
+
+.group ळ
+	ळ	l.V
+	ळ (B	l.
+	्) ळ (_	l.@
+
+.group ऴ
+	ऴ	l.V	// (temporary) same as [l.]
+	ऴ (B	l.
+	्) ऴ (_	l.@
+
+.group व
+	व	wV
+	व (B	w
+	_) व	wV
+	_) व (B	w
+	_) व (्	w
+	व (_	w@
+	्) व	w:0V
+	्) व (_	w@
+	व (्य	b
+
+.group श
+	श	SV
+	श (B	S
+
+.group ष
+	ष	s.V 
+	ष (B	s.
+
+.group स
+	स	sV:0
+	स (B	s
+
+.group ह
+	ह	HV
+	ह (B	H
+	ह (व	H'V:0
+		// Additional consonants
+
+.group क़   // qa
+	क़	qV
+	क़ (B	q
+
+.group ख़   // khha
+	ख़	xV
+	ख़ (B	x
+
+.group ग़    // ghha
+	ग़	QV
+	ग़ (B	Q
+
+.group ज़    // za
+	ज़	zV
+	ज़ (B	z
+
+.group ड़
+	ड़	r.V
+	ड़ (B	r.
+
+.group ढ़
+	ढ़	r.hV
+	ढ़ (B	r.h
+
+.group फ़    // fa
+	फ़	fV
+	फ़ (B	f
+
+.group य़
+	य़	jV
+	य़ (B	j
+
+			// Alphabetic symbols			
+			//	nukta,  modifies a consonant
+
+.group ऽ	// avagraha, lengthens a vowel ??
+	ऽ	V'k'a:r@
+	A) ऽ	:=
+	C) ऽ	:=
+
+.group ँ
+	ँ	cVndr@2wi'n'du
+	A) ँ	n
+	C) ँ	n
+	्) ँ	cVndr@2wi'n'du
+
+.group ं
+	ं	shI'rV,w'in'd'u
+	A) ं	n
+	C) ं	n
+	ं (प	m
+	ं (फ	m
+	ं (ब	m
+	ं (भ	m
+	ं (म	m
+	ं (ट	n.
+	ं (ठ	n.
+	ं (ड	n.
+	ं (ढ	n.
+	ं (ण	n.
+	ं (च	n^
+	ं (छ	n^
+	ं (ज	n^
+	ं (ज्ञ	N
+	ं (झ	n^
+	ं (ञ	n^
+	ं (य	n^
+	ं (क	N
+	ं (ख	N
+	ं (ग	N
+	ं (घ	N
+	ं (ङ	N
+	ं (ह	N
+
+.group ः
+	ः	wi:s'Vr,g@
+	_) ः	:	//wi:s'Vr,g@
+	C) ः (_	H
+	A) ः (_	H,
+	C) ः (A	H,
+	A) ः (C	H,
+	A) ः (A	H,
+	C) ः (C	H,
+
+.group ्
+	्	h'Vl@3n't@2 // Alphabet Name
+	C) ्		// Silent If followed to a Consonant.
+	C) ् (C_	=
+
+.group ॰
+	॰	saNks.e:p@s'u:c@k@
+	A) ॰	,:0
+	C) ॰	,:0
+
+		// Special Symbols with special meanings
+.group
+	।	pur',n.@:w'ir'a:m	// Fullstop in Devanagari
+	॥	d'i:rg#@,w'ir'a:m	// Double Fullstop - means Read sentence twice.
+	$	dOlV
+	%	prVtish'vt
+	// Rarely used  Vedic  symbols. Written after Indepedent Vowel or between a Consonants and Symbolic Vowels!
+	़	n'u'k't'a:
+	॑	Ud'Vtt,@
+	॓	Ud:d#@r,@n.@a:r'Vmb#@
+	॔	,Ud:d#@r,@n.@'Vnt@
+	॒	a'n'ud'Vtt,@ 
+	ॽ	k,@n.t.#@w'Ira:m

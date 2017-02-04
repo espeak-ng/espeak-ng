@@ -38,12 +38,12 @@ endphoneme
 //F J
 
 phoneme c
-  import_phoneme base/c
+  import_phoneme base1/c
 endphoneme
 
 
 phoneme c#
-  CALL base/tS;
+  CALL base1/tS;
   ipa cU+02B0
 endphoneme
 

@@ -18,7 +18,7 @@ phoneme l      // use dark [l/2] before not-vowel
     ENDIF
   ENDIF
 
-  CALL base/l
+  CALL base1/l
 endphoneme
 
 phoneme r-   // linking r, used in Setswana between certain vowels and a following vowel

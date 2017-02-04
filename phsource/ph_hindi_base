@@ -287,13 +287,13 @@ endphoneme
 //===========
 
 phoneme v        // approximant, not fricative
-  import_phoneme base/v#
+  import_phoneme base1/v#
   voicingswitch f
 endphoneme
 
 
 phoneme H       // use for full "h"
-  import_phoneme base/h
+  import_phoneme base1/h
 endphoneme
 
 
@@ -312,7 +312,7 @@ endphoneme
 
 
 phoneme  b       // this is [b]
-  import_phoneme base/b
+  import_phoneme base1/b
 endphoneme
 
 
@@ -337,7 +337,7 @@ endphoneme
 //==================
 
 phoneme t        // dental variant of /t/
-  import_phoneme base/t[
+  import_phoneme base1/t[
   voicingswitch d
 endphoneme
 
@@ -356,7 +356,7 @@ endphoneme
 
 
 phoneme d       // dental variant of /d/
-  import_phoneme base/d[
+  import_phoneme base1/d[
   voicingswitch t
 endphoneme
 
@@ -464,13 +464,13 @@ endphoneme
 
 
 phoneme c#
-  CALL base/tS;
+  CALL base1/tS;
   ipa cU+02B0
 endphoneme
 
 
 phoneme J
-  import_phoneme base/J
+  import_phoneme base1/J
 endphoneme
 
 
@@ -508,7 +508,7 @@ endphoneme
 
 
 phoneme g
-  import_phoneme base/g
+  import_phoneme base1/g
   voicingswitch k
 endphoneme
 
@@ -544,7 +544,7 @@ phoneme r
   lengthmod 3
   
   IF thisPh(isWordEnd) THEN
-    CALL base/r/
+    CALL base1/r/
   ELSE
     IF prevPhW(isVowel) THEN
       IF nextPhW(isNotVowel) THEN
@@ -564,7 +564,7 @@ phoneme r
       ENDIF
     ENDIF
     
-    CALL base/r
+    CALL base1/r
   ENDIF
   ipa ɾ
 endphoneme
