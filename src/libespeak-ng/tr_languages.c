@@ -977,18 +977,14 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('i', 't'): // Italian
 	{
-		static const short stress_lengths_it[8] =
-		{ 165, 130,  170, 150,  0, 0,  218, 305 };
-		static const unsigned char stress_amps_it[8] =
-		{ 16, 18, 17, 14, 20, 22, 22, 22 };
-
+		static const short stress_lengths_it[8] = { 165, 140, 150, 165, 0, 0, 218, 305 };
+		static const unsigned char stress_amps_it[8] = { 17, 15, 18, 16, 20, 22, 22, 22 };
 		SetupTranslator(tr, stress_lengths_it, stress_amps_it);
-
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 		tr->langopts.stress_rule = STRESSPOSN_2R;
-		tr->langopts.stress_flags = S_FINAL_NO_2 | S_PRIORITY_STRESS;
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM_ONLY | S_PRIORITY_STRESS;
 		tr->langopts.vowel_pause = 1;
-		tr->langopts.unstressed_wd1 = 2;
+		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 2; // remove lengthen indicator from unstressed or non-penultimate syllables
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1; // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
