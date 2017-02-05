@@ -159,11 +159,12 @@ Each language needs a language file in `espeak-ng-data/lang` grouped by the
 [language family](#language-family). The filename of the default voice for a
 language should be the same as the language code (e.g. `fr` for French).
 
-
 The simplest voice file would contain just 2 lines to give the language
-name and language code, eg:
+name (from the
+[IANA Language Subtag Registry](https://github.com/rhdunn/bcp47-data/blob/master/language-subtag-registry)
+and language code, e.g.:
 
-	name french
+	name French
 	language fr
 
 This language code specifies which phoneme table and dictionary to use

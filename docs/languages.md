@@ -39,14 +39,15 @@ The supported languages are:
 | `gmw`       | `en-GB-x-gbclan`  | West Germanic         | English                     | Lancastrian            |
 | `gmw`       | `en-GB-x-rp`      | West Germanic         | English                     | Received Pronunciation |
 | `gmw`       | `en-GB-scotland`  | West Germanic         | English                     | Scottish               |
-| `gmw`       | `en-GB-x-gbcwnd`  | West Germanic         | English                     | West Midlands          |
+| `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
+| `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
-| `ira`       | `fa`              | Iranian               | Farsi/Persian<sup>[1]</sup> |                        |
-| `ira`       | `fa-en-us`        | Iranian               | Farsi/Persian<sup>[2]</sup> |                        |
-| `ira`       | `fa-Latin`        | Iranian               | Farsi/Persian<sup>[3]</sup> |                        |
+| `ira`       | `fa`              | Iranian               | Persian<sup>[1]</sup>       |                        |
+| `ira`       | `fa-en-us`        | Iranian               | Persian<sup>[2]</sup>       |                        |
+| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>[3]</sup>       |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
+| `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
-| `roa`       | `fr-BE`           | Romance               | French                      | Belgian                |
 | `cel`       | `ga`              | Celtic                | Gaelic                      | Irish                  |
 | `cel`       | `gd`              | Celtic                | Gaelic                      | Scottish               |
 | `ccs`       | `ka`              | South Caucasian       | Georgian                    |                        |
@@ -59,7 +60,7 @@ The supported languages are:
 | `inc`       | `hi`              | Indic                 | Hindi                       |                        |
 | `urj`       | `hu`              | Uralic                | Hungarian                   |                        |
 | `gmq`       | `is`              | North Germanic        | Icelandic                   |                        |
-| `poz`       | `in`              | Malayo-Polynesian     | Indonesian                  |                        |
+| `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
 | `jpx`       | `jp`              | Japanese              | Japanese<sup>[4]</sup>      |                        |
@@ -88,7 +89,7 @@ The supported languages are:
 | `und`       | `und-fonipa`      |                       | Phonemes<sup>[5]</sup>      | IPA                    |
 | `zls`       | `pl`              | South Slavic          | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
-| `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
+| `roa`       | `pt-PT`           | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zls`       | `ru`              | South Slavic          | Russian                     |                        |
