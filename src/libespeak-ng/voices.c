@@ -265,7 +265,7 @@ void ReadTonePoints(char *string, int *tone_pts)
 	       &tone_pts[8], &tone_pts[9]);
 }
 
-static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
+static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, int is_language_file)
 {
 	// Read a Voice file, allocate a VOICE_DATA and set data from the
 	// file's  language, gender, name  lines
@@ -320,6 +320,8 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 			break;
 		case V_GENDER:
 			sscanf(p, "%s %d", vgender, &age);
+			if (is_language_file)
+				fprintf(stderr, "Error (%s): gender attribute specified on a language file\n", fname);
 			break;
 		case V_VARIANTS:
 			sscanf(p, "%d", &n_variants);
@@ -1389,7 +1391,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	return vp->identifier;
 }
 
-static void GetVoices(const char *path, int len_path_voices)
+static void GetVoices(const char *path, int len_path_voices, int is_language_file)
 {
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
@@ -1416,14 +1418,14 @@ static void GetVoices(const char *path, int len_path_voices)
 
 			if (ftype == -EISDIR) {
 				// a sub-directory
-				GetVoices(fname, len_path_voices);
+				GetVoices(fname, len_path_voices, is_language_file);
 			} else if (ftype > 0) {
 				// a regular file, add it to the voices list
 				if ((f_voice = fopen(fname, "r")) == NULL)
 					continue;
 
 				// pass voice file name within the voices directory
-				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
+				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, is_language_file);
 				fclose(f_voice);
 
 				if (voice_data != NULL)
@@ -1452,14 +1454,14 @@ static void GetVoices(const char *path, int len_path_voices)
 
 		if (ftype == -EISDIR) {
 			// a sub-directory
-			GetVoices(fname, len_path_voices);
+			GetVoices(fname, len_path_voices, is_language_file);
 		} else if (ftype > 0) {
 			// a regular file, add it to the voices list
 			if ((f_voice = fopen(fname, "r")) == NULL)
 				continue;
 
 			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices);
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, is_language_file);
 			fclose(f_voice);
 
 			if (voice_data != NULL)
@@ -1567,10 +1569,10 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	FreeVoiceList();
 
 	sprintf(path_voices, "%s%cvoices", path_home, PATHSEP);
-	GetVoices(path_voices, strlen(path_voices)+1);
+	GetVoices(path_voices, strlen(path_voices)+1, 0);
 
 	sprintf(path_voices, "%s%clang", path_home, PATHSEP);
-	GetVoices(path_voices, strlen(path_voices)+1);
+	GetVoices(path_voices, strlen(path_voices)+1, 1);
 
 	voices_list[n_voices_list] = NULL; // voices list terminator
 	espeak_VOICE **new_voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));

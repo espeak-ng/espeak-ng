@@ -1,7 +1,6 @@
 name English (America)
 language en-us 2
 language en 3
-gender male
 
 maintainer Reece H. Dunn <msclrhd@gmail.com>
 status mature
@@ -15,4 +14,3 @@ stressAmp  17 16  19 19  19 19  21 19
 
 replace 03 I  i
 replace 03 I2 i
-

@@ -1,7 +1,6 @@
 name Armenian (West Armenia)
 language hy-arevmda
 language hy  8
-gender male
 
 dictrules 1
 
@@ -19,4 +18,3 @@ replace 00 tS dZ
 replace 00 k  g
 
 replace 00 R2 R  // ??
-

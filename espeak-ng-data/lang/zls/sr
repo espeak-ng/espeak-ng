@@ -1,6 +1,5 @@
 name Serbian
 language sr
-gender male
 dictionary hbs
 
 // attributes towards !variant3 pitch 80 120

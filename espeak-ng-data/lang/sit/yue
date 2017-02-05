@@ -6,7 +6,6 @@ language zhy
 translator zhy
 phonemes zhy
 dictionary zhy
-gender male
 
 // interpret English letters as 1=English words, 2=jyutping
 dictrules 1
