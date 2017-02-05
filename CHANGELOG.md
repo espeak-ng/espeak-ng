@@ -13,9 +13,13 @@ The espeak-ng project is a fork of the espeak project.
 *  Provide more validation when compiling phoneme tables.
 *  Removed support for phoneme equivalence tables. These were disabled in the
    French and German language files.
+*  Allow pre- as well as post-jump rules in dictionary files.
+*  Support building the Windows version with Visual Studio 2013.
+*  Use language and accent names consistently across the language files.
 
 bug fixes:
 
+*  Fix running `make clean ; make`.
 *  Fix reading stdin buffers larger than 1000.
 
 new languages:
