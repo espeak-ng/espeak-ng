@@ -1127,8 +1127,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('l', 'v'): // latvian
 	{
-		static const unsigned char stress_amps_lv[8] = { 17, 13, 20, 20, 20, 22, 22, 21 };
-		static const short stress_lengths_lv[8] = { 180, 130, 210, 210, 0, 0, 210, 210 };
+		static const unsigned char stress_amps_lv[8] = { 14, 10, 10, 8, 0, 0, 20, 15 };
+		static const short stress_lengths_lv[8] = { 180, 180, 180, 160, 0, 0, 230, 180 };
 
 		SetupTranslator(tr, stress_lengths_lv, stress_amps_lv);
 
@@ -1136,7 +1136,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.spelling_stress = 1;
 		tr->charset_a0 = charsets[4]; // ISO-8859-4
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
-		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_EO_CLAUSE1;
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
 	}
 		break;
 	case L('m', 'k'): // Macedonian
