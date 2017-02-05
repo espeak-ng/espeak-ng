@@ -46,7 +46,7 @@
 MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
 	{ "female", ENGENDER_FEMALE },
-	{ NULL, ENGENDER_UNKNOWN }
+	{ NULL, ENGENDER_MALE }
 };
 
 int tone_points[12] = { 600, 170, 1200, 135, 2000, 110, 3000, 110, -1, 0 };
