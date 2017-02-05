@@ -2077,6 +2077,24 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					else
 						failed = 1;
 					break;
+
+				case RULE_SKIPCHARS: {
+					// 'xyJ)'  means 'skip characters backwards until xy'
+					char *p = pre_ptr;  // pointer to current character in word
+					char *p2 = p;       // pointer to previous character in word
+
+					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0)) {
+						p2 = p;
+						p--;
+					}
+
+					// if succeed, set pre_ptr to next character after 'xy' and remaining
+					// 'xy' part is checked as usual in following cycles of PRE rule characters
+					if (*p == *rule)
+						pre_ptr = p2;
+				}
+					break;
+
 				default:
 					if (letter == rb) {
 						if (letter == RULE_SPACE)
