@@ -1876,12 +1876,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_SKIPCHARS:
 				{
-					// Used for lang=Tamil, used to match on the next word after an unknown word ending
-					// only look until the end of the word (including the end-of-word marker)
-					// Jx  means 'skip characters until x', where 'x' may be '_' for 'end of word'
+					// '(Jxy'  means 'skip characters until xy'
 					char *p = post_ptr + letter_xbytes;
-					char *p2 = p;
-					int rule_w; // skip characters until this
+					char *p2 = p; // pointer to the previous character in the word
+					int rule_w;   // first wide character of skip rule
 					utf8_in(&rule_w, rule);
 					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0)) {
 						p2 = p;
