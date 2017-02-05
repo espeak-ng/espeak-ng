@@ -67,6 +67,13 @@ typedef enum {
 	ENOUTPUT_MODE_SPEAK_AUDIO = 0x0002,
 } espeak_ng_OUTPUT_MODE;
 
+typedef enum {
+	ENGENDER_UNKNOWN = 0,
+	ENGENDER_MALE = 1,
+	ENGENDER_FEMALE = 2,
+	ENGENDER_NEUTRAL = 3,
+} espeak_ng_VOICE_GENDER;
+
 /* eSpeak NG 1.49.0 */
 
 typedef struct espeak_ng_ERROR_CONTEXT_ *espeak_ng_ERROR_CONTEXT;

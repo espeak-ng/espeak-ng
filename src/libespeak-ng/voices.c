@@ -44,9 +44,9 @@
 #include "translate.h"
 
 MNEM_TAB genders[] = {
-	{ "male", 1 },
-	{ "female", 2 },
-	{ NULL, 0 }
+	{ "male", ENGENDER_MALE },
+	{ "female", ENGENDER_FEMALE },
+	{ NULL, ENGENDER_UNKNOWN }
 };
 
 int tone_points[12] = { 600, 170, 1200, 135, 2000, 110, 3000, 110, -1, 0 };
@@ -1098,15 +1098,15 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 			score += 400;
 	}
 
-	if (((voice_spec->gender == 1) || (voice_spec->gender == 2)) &&
-	    ((voice->gender == 1) || (voice->gender == 2))) {
+	if (((voice_spec->gender == ENGENDER_MALE) || (voice_spec->gender == ENGENDER_FEMALE)) &&
+	    ((voice->gender == ENGENDER_MALE) || (voice->gender == ENGENDER_FEMALE))) {
 		if (voice_spec->gender == voice->gender)
 			score += 50;
 		else
 			score -= 50;
 	}
 
-	if ((voice_spec->age <= 12) && (voice->gender == 2) && (voice->age > 12))
+	if ((voice_spec->age <= 12) && (voice->gender == ENGENDER_FEMALE) && (voice->age > 12))
 		score += 5; // give some preference for non-child female voice if a child is requested
 
 	if (voice->age != 0) {
@@ -1290,7 +1290,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 		if (vp != NULL) {
 			voice_select2.languages = &(vp->languages[1]);
 
-			if ((voice_select2.gender == 0) && (voice_select2.age == 0) && (voice_select2.variant == 0)) {
+			if ((voice_select2.gender == ENGENDER_UNKNOWN) && (voice_select2.age == 0) && (voice_select2.variant == 0)) {
 				if (variant_name[0] != 0) {
 					sprintf(voice_id, "%s+%s", vp->identifier, variant_name);
 					return voice_id;
@@ -1312,10 +1312,10 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	}
 
 	gender = 0;
-	if ((voice_select2.gender == 2) || ((voice_select2.age > 0) && (voice_select2.age < 13)))
-		gender = 2;
-	else if (voice_select2.gender == 1)
-		gender = 1;
+	if ((voice_select2.gender == ENGENDER_FEMALE) || ((voice_select2.age > 0) && (voice_select2.age < 13)))
+		gender = ENGENDER_FEMALE;
+	else if (voice_select2.gender == ENGENDER_MALE)
+		gender = ENGENDER_MALE;
 
 	#define AGE_OLD 60
 	if (voice_select2.age < AGE_OLD)
@@ -1332,7 +1332,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 		// is the main voice the required gender?
 		skip = 0;
 
-		if ((gender != 0) && (vp->gender != gender))
+		if ((gender != ENGENDER_UNKNOWN) && (vp->gender != gender))
 			skip = 1;
 		if ((ix2 == 0) && aged && (vp->age < AGE_OLD))
 			skip = 1;

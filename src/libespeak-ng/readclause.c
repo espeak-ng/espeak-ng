@@ -1116,7 +1116,7 @@ static const char *VoiceFromStack()
 			voice_name_specified = 1;
 			strcpy(voice_name, sp->voice_name);
 			language[0] = 0;
-			voice_select.gender = 0;
+			voice_select.gender = ENGENDER_UNKNOWN;
 			voice_select.age = 0;
 			voice_select.variant = 0;
 		}
@@ -1137,7 +1137,7 @@ static const char *VoiceFromStack()
 			if (voice_name_specified == 0)
 				voice_name[0] = 0; // forget a previous voice name if a language is specified
 		}
-		if (sp->voice_gender != 0)
+		if (sp->voice_gender != ENGENDER_UNKNOWN)
 			voice_select.gender = sp->voice_gender;
 
 		if (sp->voice_age != 0)
@@ -1152,7 +1152,7 @@ static const char *VoiceFromStack()
 	if (v_id == NULL)
 		return "default";
 
-	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == 0) || (voice_select.gender == base_voice.gender)) && (base_voice_variant_name[0] != 0)) {
+	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == ENGENDER_UNKNOWN) || (voice_select.gender == base_voice.gender)) && (base_voice_variant_name[0] != 0)) {
 		// a voice variant has not been selected, use the original voice variant
 		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
 		strncpy0(voice_name, buf, sizeof(voice_name));
@@ -1454,10 +1454,10 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	SSML_STACK *ssml_sp;
 
 	static const MNEM_TAB mnem_gender[] = {
-		{ "male", 1 },
-		{ "female", 2 },
-		{ "neutral", 3 },
-		{ NULL, 0 }
+		{ "male", ENGENDER_MALE },
+		{ "female", ENGENDER_FEMALE },
+		{ "neutral", ENGENDER_NEUTRAL },
+		{ NULL, ENGENDER_UNKNOWN }
 	};
 
 	if (tag_type & SSML_CLOSE) {
