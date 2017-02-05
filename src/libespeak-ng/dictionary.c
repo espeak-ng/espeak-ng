@@ -1883,7 +1883,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					char *p2 = p;
 					int rule_w; // skip characters until this
 					utf8_in(&rule_w, rule);
-					while ((letter_w != rule_w) && (letter_w != RULE_SPACE)) {
+					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0)) {
 						p2 = p;
 						p += utf8_in(&letter_w, p);
 					}
