@@ -1,6 +1,0 @@
-name Persian+English-US
-language fa
-dictdialect en-us
-maintainer Shadyar Khodayari <shadyar81@gmail.com>
-status mature
-// This language reads Persian and English with U.S pronunciation, as  Persian uses a collection of  special characters which differs entirely from English characters.

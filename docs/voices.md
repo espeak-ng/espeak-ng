@@ -32,7 +32,6 @@
   - [charset](#charset)
   - [dictmin](#dictmin)
   - [alphabet2](#alphabet2)
-  - [dictdialect](#dictdialect)
 
 ----------
 
@@ -445,26 +444,6 @@ in a non-native alphabet. e.g.:
 
 Alphabets names include: latin, cyr (cyrillic), ar (arabic). The default
 language for latin alphabet is English.
-
-### dictdialect
-
-	dictdialect <dialect>
-
-Words can be marked in the `*_list` or `*_rules` file to be spoken using
-a foreign voice. This `dictdialect` attribute can be used to specify
-which dialect of the foreign language should be used, instead of the
-default dialect. The currently available dialects are:
-
-* `en-us` (US English)  
-* `es-la` (Latin American Spanish)
-
-e.g.
-
-	dictdialect en-us
-
-This means that any words or rules which are made with `_^_EN` will be
-spoken with the US English voice instead of the default UK English
-voice.
 
 Additional attributes are available to set various internal options
 which control how language is processed. These would normally be set in

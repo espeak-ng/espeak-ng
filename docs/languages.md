@@ -42,9 +42,8 @@ The supported languages are:
 | `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
-| `ira`       | `fa`              | Iranian               | Persian<sup>[1]</sup>       |                        |
-| `ira`       | `fa-en-us`        | Iranian               | Persian<sup>[2]</sup>       |                        |
-| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>[3]</sup>       |                        |
+| `ira`       | `fa`              | Iranian               | Persian                     |                        |
+| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>[1]</sup>       |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -63,7 +62,7 @@ The supported languages are:
 | `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `jp`              | Japanese              | Japanese<sup>[4]</sup>      |                        |
+| `jpx`       | `jp`              | Japanese              | Japanese<sup>[2]</sup>      |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
@@ -86,7 +85,7 @@ The supported languages are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
-| `und`       | `und-fonipa`      |                       | Phonemes<sup>[5]</sup>      | IPA                    |
+| `und`       | `und-fonipa`      |                       | Phonemes<sup>[3]</sup>      | IPA                    |
 | `zls`       | `pl`              | South Slavic          | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt-PT`           | Romance               | Portuguese                  | Portugal               |
@@ -113,12 +112,8 @@ The supported languages are:
 | `aav`       | `vi-VN-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
-[1] Includes support for reading British English text.
+[1] Farsi/Persian written using English (Latin) characters.
 
-[2] Includes support for reading American English text.
+[2] Currently, only Hiragana and Katakana are supported.
 
-[3] Farsi/Persian written using English (Latin) characters.
-
-[4] Currently, only Hiragana and Katakana are supported.
-
-[5] Currently only supported using the `[[...]]` phoneme blocks.
+[3] Currently only supported using the `[[...]]` phoneme blocks.
