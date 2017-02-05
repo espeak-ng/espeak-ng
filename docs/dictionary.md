@@ -237,6 +237,14 @@ rule with more syllables.
 |--------|-------------|
 | `&`    | A syllable which may be stressed (i.e. is not defined as unstressed). |
 | `V`    | Matches only if a previous word has indicated that a verb form is expected. |
+| `xxJ`  | Skip letters until `xx`. Simple `xx` means start of current word. `xx_yy` means `xx` as end of previous and `yy` as start of current word. |
+
+e.g.
+
+          get_J)  a   i      // for `get ada` will say `get adi`
+           setJ)  a   o      // for `set ada` will say `set oda`
+          ge_tJ)  a   i:     // for `ge tada` will say `get adi:`
+
 
 ### Special characters only in \<post\>:
 
@@ -244,7 +252,7 @@ rule with more syllables.
 |-------------|-------------|
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
 | `<`         | Force a decrease in the score in this rule by 20 points (may be repeated for more effect). |
-| `Jxxx`      | (If `_` is set, skip letters of current word till to the end and) check starting `xxx` letters for the next word. |
+| `Jxx`       | Skip letters until `xx`. Simple `xx` means end of current word. `xx_yy` means `xx` as end of current and `yy` as start of next word. |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
@@ -260,7 +268,7 @@ e.g.
 	_) un (inP2   ,Vn    // ... but it is for words starting "unin"
             a (J_get  u      // for `ada get` will say `uda get`
             a (Jset   e      // for `ada set` will say `ade set`
-
+            a (Jg_et  u:     // for `adag et` will say `u:dag et`
 
 `S` and `P` must be at the end of the \<post\> string.
 
