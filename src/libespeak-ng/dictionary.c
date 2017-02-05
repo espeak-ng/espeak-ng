@@ -658,6 +658,18 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	return phon_out_buf;
 }
 
+static int LetterGroupNo(char *rule)
+{
+	/*
+	 * Returns number of letter group
+	 */
+	int groupNo = *rule;
+	groupNo = groupNo - 'A'; // substracting 'A' makes letter_group equal to number in .Lxx definition
+	if (groupNo < 0)         // fix sign if necessary
+		groupNo += 256;
+	return groupNo;
+}
+
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
 	/* Match the word against a list of utf-8 strings.
@@ -1744,7 +1756,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				switch (rb)
 				{
 				case RULE_LETTERGP:
-					letter_group = *rule++ - 'A';
+					letter_group = LetterGroupNo(rule++);
 					if (IsLetter(tr, letter_w, letter_group)) {
 						lg_pts = 20;
 						if (letter_group == 2)
@@ -1755,9 +1767,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
-					letter_group = *rule++ - 'A';
-					if (letter_group < 0)
-						letter_group += 256;
+					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) > 0) {
 						add_points = (20-distance_right);
 						post_ptr += (n_bytes-1);
@@ -1878,14 +1888,18 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				{
 					// '(Jxy'  means 'skip characters until xy'
 					char *p = post_ptr + letter_xbytes;
-					char *p2 = p; // pointer to the previous character in the word
-					int rule_w;   // first wide character of skip rule
+					char *p2 = p;     // pointer to the previous character in the word
+					int rule_w;       // first wide character of skip rule
 					utf8_in(&rule_w, rule);
-					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0)) {
+					int g_bytes = 0;  // bytes of successfully found character group
+					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0) && (g_bytes == 0)) {
 						p2 = p;
 						p += utf8_in(&letter_w, p);
+						if (rule_w == RULE_LETTERGP2)
+							g_bytes = IsLetterGroup(tr, p2, LetterGroupNo(rule + 1), 0);
+
 					}
-					if (letter_w == rule_w)
+					if ((letter_w == rule_w) || (g_bytes > 0))
 						post_ptr = p2;
 				}
 					break;
@@ -1950,7 +1964,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				switch (rb)
 				{
 				case RULE_LETTERGP:
-					letter_group = *rule++ - 'A';
+					letter_group = LetterGroupNo(rule++);
 					if (IsLetter(tr, letter_w, letter_group)) {
 						lg_pts = 20;
 						if (letter_group == 2)
@@ -1961,9 +1975,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
-					letter_group = *rule++ - 'A'; // substracting 'A' makes letter_group equal to number in .Lxx definition
-					if(letter_group<0)
-						letter_group += 256;
+					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) > 0) {
 						add_points = (20-distance_right);
 						pre_ptr -= (n_bytes-1);
@@ -2082,16 +2094,22 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					// 'xyJ)'  means 'skip characters backwards until xy'
 					char *p = pre_ptr;  // pointer to current character in word
 					char *p2 = p;       // pointer to previous character in word
+					int g_bytes = 0;    // bytes of successfully found character group
 
-					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0)) {
+					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0) && (g_bytes == 0)) {
 						p2 = p;
 						p--;
+						if (*rule == RULE_LETTERGP2)
+							g_bytes = IsLetterGroup(tr, p2, LetterGroupNo(rule + 1), 1);
 					}
 
 					// if succeed, set pre_ptr to next character after 'xy' and remaining
 					// 'xy' part is checked as usual in following cycles of PRE rule characters
 					if (*p == *rule)
 						pre_ptr = p2;
+					if (g_bytes > 0)
+						pre_ptr = p2 + 1;
+
 				}
 					break;
 
