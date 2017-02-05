@@ -69,6 +69,7 @@ enum {
 	V_TRANSLATOR,
 	V_PHONEMES,
 	V_DICTIONARY,
+	V_VARIANTS,
 
 	V_MAINTAINER,
 	V_STATUS,
@@ -125,6 +126,7 @@ static MNEM_TAB keyword_tab[] = {
 	{ "maintainer",   V_MAINTAINER },
 	{ "status",       V_STATUS },
 
+	{ "variants",     V_VARIANTS },
 	{ "formant",      V_FORMANT },
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
@@ -289,15 +291,23 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 	age = 0;
 
 	while (fgets_strip(linebuf, sizeof(linebuf), f_in) != NULL) {
-		if (memcmp(linebuf, "name", 4) == 0) {
-			p = &linebuf[4];
+		// isolate the attribute name
+		for (p = linebuf; (*p != 0) && !isspace(*p); p++) ;
+		*p++ = 0;
+
+		if (linebuf[0] == 0) continue;
+
+		switch (LookupMnem(keyword_tab, linebuf))
+		{
+		case V_NAME:
 			while (isspace(*p)) p++;
 			strncpy0(vname, p, sizeof(vname));
-		} else if (memcmp(linebuf, "language", 8) == 0) {
+			break;
+		case V_LANGUAGE:
 			priority = DEFAULT_LANGUAGE_PRIORITY;
 			vlanguage[0] = 0;
 
-			sscanf(&linebuf[8], "%s %d", vlanguage, &priority);
+			sscanf(p, "%s %d", vlanguage, &priority);
 			len = strlen(vlanguage) + 2;
 			// check for space in languages[]
 			if (len < (sizeof(languages)-langix-1)) {
@@ -307,10 +317,13 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 				langix += len;
 				n_languages++;
 			}
-		} else if (memcmp(linebuf, "gender", 6) == 0)
-			sscanf(&linebuf[6], "%s %d", vgender, &age);
-		else if (memcmp(linebuf, "variants", 8) == 0)
-			sscanf(&linebuf[8], "%d", &n_variants);
+			break;
+		case V_GENDER:
+			sscanf(p, "%s %d", vgender, &age);
+			break;
+		case V_VARIANTS:
+			sscanf(p, "%d", &n_variants);
+		}
 	}
 	languages[langix++] = 0;
 
