@@ -44,7 +44,6 @@
 #include "translate.h"
 
 MNEM_TAB genders[] = {
-	{ "unknown", 0 },
 	{ "male", 1 },
 	{ "female", 2 },
 	{ NULL, 0 }
