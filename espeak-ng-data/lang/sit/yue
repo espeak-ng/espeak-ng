@@ -1,7 +1,7 @@
 name Chinese (Cantonese)
-language zh-yue
 language yue
-language zhy
+language zh-yue
+language zh 8
 
 translator zhy
 phonemes zhy
