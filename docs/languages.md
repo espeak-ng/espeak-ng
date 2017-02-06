@@ -88,7 +88,7 @@ The supported languages are:
 | `und`       | `und-fonipa`      |                       | Phonemes<sup>[3]</sup>      | IPA                    |
 | `zls`       | `pl`              | South Slavic          | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
-| `roa`       | `pt-PT`           | Romance               | Portuguese                  | Portugal               |
+| `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zls`       | `ru`              | South Slavic          | Russian                     |                        |
