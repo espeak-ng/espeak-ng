@@ -81,7 +81,7 @@ The supported languages are:
 | `inc`       | `mr`              | Indic                 | Marathi                     |                        |
 | `azc`       | `nci`             | Uto-Aztecan           | Nahuatl                     | Classical              |
 | `inc`       | `ne`              | Indic                 | Nepali                      |                        |
-| `gmq`       | `no`; `nb`        | North Germanic        | Norwegian                   |                        |
+| `gmq`       | `nb`              | North Germanic        | Norwegian Bokmål            |                        |
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
