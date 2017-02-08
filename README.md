@@ -1,7 +1,5 @@
 # eSpeak NG Text-to-Speech
 
-<div align="right"><a href="https://travis-ci.org/espeak-ng/espeak-ng" title="Travis continuous integration builds on Linux"><img src="https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master"/></a></div>
-
 - [Windows](#windows)
   - [Binaries](#binaries)
   - [Building](#building)
@@ -36,6 +34,16 @@ sound.
 
 See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
 various releases and with the eSpeak project.
+
+The following platforms are supported:
+
+| Platform    | Minimum Version | Status |
+|-------------|-----------------|--------|
+| Linux       |                 | ![[Travis continuous integration builds on Linux](https://travis-ci.org/espeak-ng/espeak-ng)](https://secure.travis-ci.org/espeak-ng/espeak-ng.svg?branch=master) |
+| BSD         |                 |        |
+| Android     | 4.0             |        |
+| Windows     | Windows 8       |        |
+| Mac         |                 |        |
 
 ## Windows
 

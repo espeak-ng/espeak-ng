@@ -941,7 +941,7 @@ espeak-ng-data/zhy_dict: src/espeak-ng phsource/phonemes.stamp dictsource/zhy_ru
 else
 espeak-ng-data/zhy_dict: src/espeak-ng phsource/phonemes.stamp dictsource/zhy_rules dictsource/zhy_extra
 endif
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=zhy && cd ..
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
 ##### mbrola:
 

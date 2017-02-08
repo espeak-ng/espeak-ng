@@ -22,6 +22,7 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/intonation.c \
   src/libespeak-ng/klatt.c \
   src/libespeak-ng/numbers.c \
+  src/libespeak-ng/phoneme.c \
   src/libespeak-ng/phonemelist.c \
   src/libespeak-ng/readclause.c \
   src/libespeak-ng/setlengths.c \
