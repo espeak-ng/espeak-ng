@@ -1881,19 +1881,18 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				case RULE_SKIPCHARS:
 				{
 					// '(Jxy'  means 'skip characters until xy'
-					char *p = post_ptr + letter_xbytes;
-					char *p2 = p;     // pointer to the previous character in the word
-					int rule_w;       // first wide character of skip rule
+					char *p = post_ptr - 1; // to allow empty jump (without letter between), go one back
+					char *p2 = p;		// pointer to the previous character in the word
+					int rule_w;		// first wide character of skip rule
 					utf8_in(&rule_w, rule);
-					int g_bytes = 0;  // bytes of successfully found character group
-					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0) && (g_bytes == 0)) {
+					int g_bytes = -1;	// bytes of successfully found character group
+					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0) && (g_bytes == -1)) {
+						if (rule_w == RULE_LETTERGP2)
+							g_bytes = IsLetterGroup(tr, p, LetterGroupNo(rule + 1), 0);
 						p2 = p;
 						p += utf8_in(&letter_w, p);
-						if (rule_w == RULE_LETTERGP2)
-							g_bytes = IsLetterGroup(tr, p2, LetterGroupNo(rule + 1), 0);
-
 					}
-					if ((letter_w == rule_w) || (g_bytes > 0))
+					if ((letter_w == rule_w) || (g_bytes >= 0))
 						post_ptr = p2;
 				}
 					break;
@@ -2087,11 +2086,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 				case RULE_SKIPCHARS: {
 					// 'xyJ)'  means 'skip characters backwards until xy'
-					char *p = pre_ptr;  // pointer to current character in word
-					char *p2 = p;       // pointer to previous character in word
-					int g_bytes = 0;    // bytes of successfully found character group
+					char *p = pre_ptr + 1;	// to allow empty jump (without letter between), go one forward
+					char *p2 = p;		// pointer to previous character in word
+					int g_bytes = -1;	// bytes of successfully found character group
 
-					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0) && (g_bytes == 0)) {
+					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0) && (g_bytes == -1)) {
 						p2 = p;
 						p--;
 						if (*rule == RULE_LETTERGP2)
@@ -2102,7 +2101,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					// 'xy' part is checked as usual in following cycles of PRE rule characters
 					if (*p == *rule)
 						pre_ptr = p2;
-					if (g_bytes > 0)
+					if (g_bytes >= 0)
 						pre_ptr = p2 + 1;
 
 				}
