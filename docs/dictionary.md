@@ -120,7 +120,6 @@ those two groups is used.
 
 `~` Letter in letter group means, that there can be no letter in this group 
     at the beginning or end of the word.
-    Beware of [issue #196](https://github.com/espeak-ng/espeak-ng/issues/196).
 
 _For example:_
 
