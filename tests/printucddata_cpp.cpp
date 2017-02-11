@@ -111,6 +111,9 @@ void uprintf_is(FILE *out, ucd::codepoint_t c, char mode)
 	case 'a': // alpha
 		fputc(ucd::isalpha(c) ? '1' : '0', out);
 		break;
+	case 'b': // blank
+		fputc(ucd::isblank(c) ? '1' : '0', out);
+		break;
 	case 'c': // control
 		fputc(ucd::iscntrl(c) ? '1' : '0', out);
 		break;

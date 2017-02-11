@@ -53,6 +53,19 @@ int ucd_isalpha(codepoint_t c)
 	}
 }
 
+int ucd_isblank(codepoint_t c)
+{
+	switch (ucd_lookup_category(c))
+	{
+	case UCD_CATEGORY_Zs:
+		return 1;
+	case UCD_CATEGORY_Cc:
+		return c == 0x09; // U+0009 : CHARACTER TABULATION
+	default:
+		return 0;
+	}
+}
+
 int ucd_iscntrl(codepoint_t c)
 {
 	return ucd_lookup_category(c) == UCD_CATEGORY_Cc;

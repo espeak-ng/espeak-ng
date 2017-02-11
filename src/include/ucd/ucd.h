@@ -339,6 +339,13 @@ int ucd_isalnum(codepoint_t c);
   */
 int ucd_isalpha(codepoint_t c);
 
+/** @brief Is the codepoint a tab or Unicode whitespace character?
+  *
+  * @param c The Unicode codepoint to check.
+  * @return  Non-zero if the codepoint is a whitespace character, zero otherwise.
+  */
+int ucd_isblank(codepoint_t c);
+
 /** @brief Is the codepoint a control character?
   *
   * @param c The Unicode codepoint to check.
@@ -774,6 +781,16 @@ namespace ucd
 	inline int isalpha(codepoint_t c)
 	{
 		return ucd_isalpha(c);
+	}
+
+	/** @brief Is the codepoint a tab or Unicode whitespace character?
+	  *
+	  * @param c The Unicode codepoint to check.
+	  * @return  Non-zero if the codepoint is a whitespace character, zero otherwise.
+	  */
+	inline int isblank(codepoint_t c)
+	{
+		return ucd_isblank(c);
 	}
 
 	/** @brief Is the codepoint a control character?

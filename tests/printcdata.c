@@ -114,6 +114,9 @@ void uprintf_is(FILE *out, codepoint_t c, char mode)
 	case 'a': // alpha
 		fputc(iswalpha(c) ? '1' : '0', out);
 		break;
+	case 'b': // blank
+		fputc(iswblank(c) ? '1' : '0', out);
+		break;
 	case 'c': // control
 		fputc(iswcntrl(c) ? '1' : '0', out);
 		break;

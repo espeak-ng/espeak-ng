@@ -96,6 +96,7 @@ The following character classification functions are provided:
 |---------------|----------------|
 | `ucd_isalnum` | `ucd::isalnum` |
 | `ucd_isalpha` | `ucd::isalpha` |
+| `ucd_isblank` | `ucd::isblank` |
 | `ucd_iscntrl` | `ucd::iscntrl` |
 | `ucd_isdigit` | `ucd::isdigit` |
 | `ucd_isgraph` | `ucd::isgraph` |
@@ -105,7 +106,7 @@ The following character classification functions are provided:
 | `ucd_isspace` | `ucd::isspace` |
 | `ucd_isupper` | `ucd::isupper` |
 
-__NOTE:__ Equivalents for `isblank` and `isxdigit` are not provided.
+__NOTE:__ An equivalent for `isxdigit` is not provided.
 
 ## Build Dependencies
 
