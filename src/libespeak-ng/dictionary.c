@@ -657,9 +657,22 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 	return phon_out_buf;
 }
 
+static int LetterGroupNo(char *rule)
+{
+	/*
+	 * Returns number of letter group
+	 */
+	int groupNo = *rule;
+	groupNo = groupNo - 'A'; // substracting 'A' makes letter_group equal to number in .Lxx definition
+	if (groupNo < 0)         // fix sign if necessary
+		groupNo += 256;
+	return groupNo;
+}
+
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
 	/* Match the word against a list of utf-8 strings.
+	 * returns length of matching letter group or -1
 	 *
 	 * How this works:
 	 *
@@ -693,20 +706,11 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		} else
 			w = word;
 
-		// If no character is allowed in group
-		// at the start (for pre-rule) or end (post-rule)
-		// of the checked letter in the word, return true.
-		if (*p == '~' && *w == ' ') // word end checked because of comment below
-			return 1;
-		/* TODO: Need to investigate why word end mark _ doesn't work properly
-		 * for post rule somewhere in MatchRule() function. or e.g.:
-		 *
-		 * .L01 ~ b c
-		 * .group a
-		 *  _L01) a       i  // this works
-		 *        a (L01_ u  // this doesn't work
-		 */
+		// If '~' (no character) is allowed in group, return 0.
+		if (*p == '~')
+			return 0;
 
+		//  Check current group
 		while ((*p == *w) && (*w != 0)) {
 			w++;
 			p++;
@@ -721,7 +725,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		while (*p++ != 0)
 			;
 	}
-	return 0;
+	// Not found
+	return -1;
 }
 
 static int IsLetter(Translator *tr, int letter, int group)
@@ -1743,7 +1748,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				switch (rb)
 				{
 				case RULE_LETTERGP:
-					letter_group = *rule++ - 'A';
+					letter_group = LetterGroupNo(rule++);
 					if (IsLetter(tr, letter_w, letter_group)) {
 						lg_pts = 20;
 						if (letter_group == 2)
@@ -1754,12 +1759,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
-					letter_group = *rule++ - 'A';
-					if (letter_group < 0)
-						letter_group += 256;
-					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) > 0) {
+					letter_group = LetterGroupNo(rule++);
+					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) >= 0) {
 						add_points = (20-distance_right);
-						post_ptr += (n_bytes-1);
+						if (n_bytes > 0) // move pointer, if non-zero length group was found
+							post_ptr += (n_bytes-1);
 					} else
 						failed = 1;
 					break;
@@ -1876,15 +1880,18 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				case RULE_SKIPCHARS:
 				{
 					// '(Jxy'  means 'skip characters until xy'
-					char *p = post_ptr + letter_xbytes;
-					char *p2 = p; // pointer to the previous character in the word
-					int rule_w;   // first wide character of skip rule
+					char *p = post_ptr - 1; // to allow empty jump (without letter between), go one back
+					char *p2 = p;		// pointer to the previous character in the word
+					int rule_w;		// first wide character of skip rule
 					utf8_in(&rule_w, rule);
-					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0)) {
+					int g_bytes = -1;	// bytes of successfully found character group
+					while ((letter_w != rule_w) && (letter_w != RULE_SPACE) && (letter_w != 0) && (g_bytes == -1)) {
+						if (rule_w == RULE_LETTERGP2)
+							g_bytes = IsLetterGroup(tr, p, LetterGroupNo(rule + 1), 0);
 						p2 = p;
 						p += utf8_in(&letter_w, p);
 					}
-					if (letter_w == rule_w)
+					if ((letter_w == rule_w) || (g_bytes >= 0))
 						post_ptr = p2;
 				}
 					break;
@@ -1949,7 +1956,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				switch (rb)
 				{
 				case RULE_LETTERGP:
-					letter_group = *rule++ - 'A';
+					letter_group = LetterGroupNo(rule++);
 					if (IsLetter(tr, letter_w, letter_group)) {
 						lg_pts = 20;
 						if (letter_group == 2)
@@ -1960,12 +1967,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
-					letter_group = *rule++ - 'A'; // substracting 'A' makes letter_group equal to number in .Lxx definition
-					if(letter_group<0)
-						letter_group += 256;
-					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) > 0) {
+					letter_group = LetterGroupNo(rule++);
+					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) >= 0) {
 						add_points = (20-distance_right);
-						pre_ptr -= (n_bytes-1);
+							if (n_bytes > 0)  // move pointer, if non-zero length group was found
+								pre_ptr -= (n_bytes-1);
 					} else
 						failed = 1;
 					break;
@@ -2079,18 +2085,24 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 				case RULE_SKIPCHARS: {
 					// 'xyJ)'  means 'skip characters backwards until xy'
-					char *p = pre_ptr;  // pointer to current character in word
-					char *p2 = p;       // pointer to previous character in word
+					char *p = pre_ptr + 1;	// to allow empty jump (without letter between), go one forward
+					char *p2 = p;		// pointer to previous character in word
+					int g_bytes = -1;	// bytes of successfully found character group
 
-					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0)) {
+					while ((*p != *rule) && (*p != RULE_SPACE) && (*p != 0) && (g_bytes == -1)) {
 						p2 = p;
 						p--;
+						if (*rule == RULE_LETTERGP2)
+							g_bytes = IsLetterGroup(tr, p2, LetterGroupNo(rule + 1), 1);
 					}
 
 					// if succeed, set pre_ptr to next character after 'xy' and remaining
 					// 'xy' part is checked as usual in following cycles of PRE rule characters
 					if (*p == *rule)
 						pre_ptr = p2;
+					if (g_bytes >= 0)
+						pre_ptr = p2 + 1;
+
 				}
 					break;
 

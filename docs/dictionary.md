@@ -120,7 +120,6 @@ those two groups is used.
 
 `~` Letter in letter group means, that there can be no letter in this group 
     at the beginning or end of the word.
-    Beware of [issue #196](https://github.com/espeak-ng/espeak-ng/issues/196).
 
 _For example:_
 
@@ -237,7 +236,7 @@ rule with more syllables.
 |--------|-------------|
 | `&`    | A syllable which may be stressed (i.e. is not defined as unstressed). |
 | `V`    | Matches only if a previous word has indicated that a verb form is expected. |
-| `xxJ`  | Skip letters until `xx`. Simple `xx` means start of current word. `xx_yy` means `xx` as end of previous and `yy` as start of current word. If necessary more than one `J` can be used. |
+| `xxJ`  | Skip letters until `xx`. Simple `xx` means start of current word. `xx_yy` means `xx` as end of previous and `yy` as start of current word. If necessary, more than one `J` can be used, and `Lxx` group as letter mark. |
 
 e.g.
 
@@ -252,7 +251,7 @@ e.g.
 |-------------|-------------|
 | `+`         | Force an increase in the score in this rule by 20 points (may be repeated for more effect). |
 | `<`         | Force a decrease in the score in this rule by 20 points (may be repeated for more effect). |
-| `Jxx`       | Skip letters until `xx`. Simple `xx` means end of current word. `xx_yy` means `xx` as end of current and `yy` as start of next word. If necessary more than one `J` can be used. |
+| `Jxx`       | Skip letters until `xx`. Simple `xx` means end of current word. `xx_yy` means `xx` as end of current and `yy` as start of next word.  If necessary, more than one `J` can be used, and `Lxx` group as letter mark. |
 | `S<number>` | This number of matching characters are a standard suffix, remove them and retranslate the word. |
 | `P<number>` | This number of matching characters are a standard prefix, remove them and retranslate the word. |
 | `Lnn`       | `nn` is a 2-digit decimal number in the range 01 to 20 Matches with any of the letter sequences which have been defined for letter group `nn` |
