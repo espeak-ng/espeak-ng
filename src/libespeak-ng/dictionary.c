@@ -673,6 +673,7 @@ static int LetterGroupNo(char *rule)
 static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 {
 	/* Match the word against a list of utf-8 strings.
+	 * returns length of matching letter group or -1
 	 *
 	 * How this works:
 	 *
@@ -706,20 +707,11 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		} else
 			w = word;
 
-		// If no character is allowed in group
-		// at the start (for pre-rule) or end (post-rule)
-		// of the checked letter in the word, return true.
-		if (*p == '~' && *w == ' ') // word end checked because of comment below
-			return 1;
-		/* TODO: Need to investigate why word end mark _ doesn't work properly
-		 * for post rule somewhere in MatchRule() function. or e.g.:
-		 *
-		 * .L01 ~ b c
-		 * .group a
-		 *  _L01) a       i  // this works
-		 *        a (L01_ u  // this doesn't work
-		 */
+		// If '~' (no character) is allowed in group, return 0.
+		if (*p == '~')
+			return 0;
 
+		//  Check current group
 		while ((*p == *w) && (*w != 0)) {
 			w++;
 			p++;
@@ -734,7 +726,8 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		while (*p++ != 0)
 			;
 	}
-	return 0;
+	// Not found
+	return -1;
 }
 
 static int IsLetter(Translator *tr, int letter, int group)
@@ -1768,9 +1761,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
 					letter_group = LetterGroupNo(rule++);
-					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) > 0) {
+					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) >= 0) {
 						add_points = (20-distance_right);
-						post_ptr += (n_bytes-1);
+						if (n_bytes > 0) // move pointer, if non-zero length group was found
+							post_ptr += (n_bytes-1);
 					} else
 						failed = 1;
 					break;
@@ -1976,9 +1970,10 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_LETTERGP2: // match against a list of utf-8 strings
 					letter_group = LetterGroupNo(rule++);
-					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) > 0) {
+					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) >= 0) {
 						add_points = (20-distance_right);
-						pre_ptr -= (n_bytes-1);
+							if (n_bytes > 0)  // move pointer, if non-zero length group was found
+								pre_ptr -= (n_bytes-1);
 					} else
 						failed = 1;
 					break;
