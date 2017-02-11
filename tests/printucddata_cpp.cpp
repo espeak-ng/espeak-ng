@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2017 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -152,25 +152,30 @@ void print_file(FILE *in)
 
 int main(int argc, char **argv)
 {
-	if (argc == 2)
+	FILE *in = NULL;
+	for (int argn = 1; argn != argc; ++argn)
 	{
-		if (!strcmp(argv[1], "--stdin") || !strcmp(argv[1], "-"))
-			print_file(stdin);
-		else
+		const char *arg = argv[argn];
+		if (!strcmp(arg, "--stdin") || !strcmp(arg, "-"))
+			in = stdin;
+		else if (in == NULL)
 		{
-			FILE *in = fopen(argv[1], "r");
-			if (in)
-			{
-				print_file(in);
-				fclose(in);
-			}
-			else
+			in = fopen(arg, "r");
+			if (!in)
 				fprintf(stdout, "cannot open `%s`\n", argv[1]);
 		}
 	}
+
+	if (in == stdin)
+		print_file(stdin);
+	else if (in != NULL)
+	{
+		print_file(in);
+		fclose(in);
+	}
 	else
 	{
-		for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
+		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
 			uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
 	}
 	return 0;
