@@ -136,6 +136,28 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 		}
 		++format;
 		break;
+	case '\\':
+		switch (*++format) {
+		case 0:
+			break;
+		case 't':
+			fputc('\t', out);
+			++format;
+			break;
+		case 'r':
+			fputc('\r', out);
+			++format;
+			break;
+		case 'n':
+			fputc('\n', out);
+			++format;
+			break;
+		default:
+			fputc(*format, out);
+			++format;
+			break;
+		}
+		break;
 	default:
 		fputc(*format, out);
 		++format;
@@ -143,21 +165,24 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 	}
 }
 
-void print_file(FILE *in)
+void print_file(FILE *in, const char *format)
 {
 	ucd::codepoint_t c = 0;
 	while (fget_utf8c(in, c))
-		uprintf(stdout, c, "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%W\n");
+		uprintf(stdout, c, format ? format : "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%W\n");
 }
 
 int main(int argc, char **argv)
 {
 	FILE *in = NULL;
+	const char *format = NULL;
 	for (int argn = 1; argn != argc; ++argn)
 	{
 		const char *arg = argv[argn];
 		if (!strcmp(arg, "--stdin") || !strcmp(arg, "-"))
 			in = stdin;
+		else if (!strncmp(arg, "--format=", 9))
+			format = arg + 9;
 		else if (in == NULL)
 		{
 			in = fopen(arg, "r");
@@ -167,16 +192,16 @@ int main(int argc, char **argv)
 	}
 
 	if (in == stdin)
-		print_file(stdin);
+		print_file(stdin, format);
 	else if (in != NULL)
 	{
-		print_file(in);
+		print_file(in, format);
 		fclose(in);
 	}
 	else
 	{
-		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
-			uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
+		for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
+			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %W\n");
 	}
 	return 0;
 }
