@@ -123,6 +123,10 @@ src_libucd_la_SOURCES  = \
 
 ############################# tests ###########################################
 
+noinst_bin_PROGRAMS     += tests/printcdata
+tests_printcdata_SOURCES = tests/printcdata.c
+tests_printcdata_LDADD   = src/libucd.la
+
 noinst_bin_PROGRAMS       += tests/printucddata
 tests_printucddata_SOURCES = tests/printucddata.c
 tests_printucddata_LDADD   = src/libucd.la
