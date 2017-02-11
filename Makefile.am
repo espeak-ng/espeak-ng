@@ -57,22 +57,23 @@ EXTRA_DIST += ChangeLog
 
 UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
+UCD_SRCDIR=http://www.unicode.org/Public
 
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropList.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropList.txt > $@
 
 data/ucd/PropertyValueAliases.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropertyValueAliases.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropertyValueAliases.txt > $@
 
 data/ucd/Scripts.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/Scripts.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/Scripts.txt > $@
 
 data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/UnicodeData.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/UnicodeData.txt > $@
 
 ############################# documentation ###################################
 
