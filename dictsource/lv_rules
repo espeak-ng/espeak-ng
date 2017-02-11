@@ -4,7 +4,7 @@
 
 .replace
       ó    ȯ                    // replace o-acute with o-dot, as it is more logical for "short o"
-
+      ḩ    h
 // +---------------------------+
 // |     Suffixes of nouns     |
 // +---------------------------+
@@ -156,10 +156,12 @@
 
 .group c
            c               ts
+      L55) c (L55          ts>
            c (C            ts_!
 
 .group č
            č               tS
+      L55) č (L55          tS>
 
 .group d
            d               d
@@ -173,7 +175,7 @@
            ei (+           ei
 
     // narrow e ---------------------------------------------------------------------- //
-           a) e (ro            e     // internationalsms
+           a) e (ro            e     // internationalisms
            e (o                e
                                      // international consonants
            e (JL41+            e
@@ -380,6 +382,7 @@
 
 .group f
            f               f
+      L55) f (L55          f>
 
 .group g
            g               g
@@ -389,6 +392,7 @@
 
 .group h
            h               h
+      L55) h (L55          h>
 
 .group i
            i               i
@@ -410,10 +414,12 @@
 
 .group k
            k               k
+      L55) k (L55          k>
            k (ļ            k}       // tiny pause between k and ļ
 
 .group ķ
            ķ               c
+      L55) ķ (L55          c>
            ķ (L55          c}       // tiny pause for sharper sound before short vowels
 
 .group l
@@ -1459,8 +1465,8 @@ L46L45L45) o (<<           uo
 
 .group p
            p               p
-                                     // pus..number stress on next syllable
-        _) pus (vien       p%us
+      L55) p (L55          p>   
+        _) pus (vien       p%us      // pus..number stress on next syllable
         _) pus (div        p%us
         _) pus (otr        p%us
         _) pus (trij       p%us
@@ -1487,12 +1493,15 @@ L46L45L45) o (<<           uo
            sh              s_!h_!    // probably no need to make distinct in other places
         _) s (L61          s_        // make s distinct at start of the word before unvocied consonants
            s               s
+      L55) s (L55          s>
 
 .group š
            š               S
+      L55) š (L55          S>
 
 .group t
            t               t
+      L55) t (L55          t>
 
 .group u
            ui              ui
