@@ -169,3 +169,10 @@ int ucd_isupper(codepoint_t c)
 {
 	return ucd_lookup_category(c) == UCD_CATEGORY_Lu;
 }
+
+int ucd_isxdigit(codepoint_t c)
+{
+	return (c >= 0x30 && c <= 0x39)  // [0-9]
+	    || (c >= 0x41 && c <= 0x46)  // [A-Z]
+	    || (c >= 0x61 && c <= 0x66); // [a-z]
+}

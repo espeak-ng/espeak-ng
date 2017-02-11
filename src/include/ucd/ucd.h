@@ -402,6 +402,13 @@ int ucd_isspace(codepoint_t c);
   */
 int ucd_isupper(codepoint_t c);
 
+/** @brief Is the codepoint in the 'xdigit' class?
+  *
+  * @param c The Unicode codepoint to check.
+  * @return  Non-zero if the codepoint is in the 'xdigit' class, zero otherwise.
+  */
+int ucd_isxdigit(codepoint_t c);
+
 /** @brief Convert the Unicode codepoint to upper-case.
   *
   * This function only uses the simple case mapping present in the
@@ -871,6 +878,16 @@ namespace ucd
 	inline int isupper(codepoint_t c)
 	{
 		return ucd_isupper(c);
+	}
+
+	/** @brief Is the codepoint in the 'xdigit' class?
+	  *
+	  * @param c The Unicode codepoint to check.
+	  * @return  Non-zero if the codepoint is in the 'xdigit' class, zero otherwise.
+	  */
+	inline int isxdigit(codepoint_t c)
+	{
+		return ucd_isxdigit(c);
 	}
 
 	/** @brief Convert the Unicode codepoint to upper-case.

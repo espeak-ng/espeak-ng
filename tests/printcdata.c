@@ -141,6 +141,9 @@ void uprintf_is(FILE *out, codepoint_t c, char mode)
 	case 'u': // upper case
 		fputc(iswupper(c) ? '1' : '0', out);
 		break;
+	case 'x': // xdigit
+		fputc(iswxdigit(c) ? '1' : '0', out);
+		break;
 	}
 }
 

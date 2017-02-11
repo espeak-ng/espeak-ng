@@ -138,6 +138,9 @@ void uprintf_is(FILE *out, ucd::codepoint_t c, char mode)
 	case 'u': // upper case
 		fputc(ucd::isupper(c) ? '1' : '0', out);
 		break;
+	case 'x': // xdigit
+		fputc(ucd::isxdigit(c) ? '1' : '0', out);
+		break;
 	}
 }
 

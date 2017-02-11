@@ -2,7 +2,7 @@
 
 ## 9.0.0.1 - (In Progress)
 
-*  Add `iswblank` compatibility.
+*  Add `iswblank` and `iswxdigit` compatibility.
 
 ## 9.0.0 - 2016-12-28
 
