@@ -101,6 +101,43 @@ void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
 	}
 }
 
+void uprintf_is(FILE *out, ucd::codepoint_t c, char mode)
+{
+	switch (mode)
+	{
+	case 'A': // alpha-numeric
+		fputc(ucd::isalnum(c) ? '1' : '0', out);
+		break;
+	case 'a': // alpha
+		fputc(ucd::isalpha(c) ? '1' : '0', out);
+		break;
+	case 'c': // control
+		fputc(ucd::iscntrl(c) ? '1' : '0', out);
+		break;
+	case 'd': // numeric
+		fputc(ucd::isdigit(c) ? '1' : '0', out);
+		break;
+	case 'g': // glyph
+		fputc(ucd::isgraph(c) ? '1' : '0', out);
+		break;
+	case 'l': // lower case
+		fputc(ucd::islower(c) ? '1' : '0', out);
+		break;
+	case 'P': // printable
+		fputc(ucd::isprint(c) ? '1' : '0', out);
+		break;
+	case 'p': // punctuation
+		fputc(ucd::ispunct(c) ? '1' : '0', out);
+		break;
+	case 's': // whitespace
+		fputc(ucd::isspace(c) ? '1' : '0', out);
+		break;
+	case 'u': // upper case
+		fputc(ucd::isupper(c) ? '1' : '0', out);
+		break;
+	}
+}
+
 void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 {
 	while (*format) switch (*format)
@@ -116,6 +153,9 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 			break;
 		case 'p': // codepoint
 			uprintf_codepoint(out, c, *++format);
+			break;
+		case 'i': // is*
+			uprintf_is(out, c, *++format);
 			break;
 		case 'L': // lowercase
 			uprintf_codepoint(out, ucd::tolower(c), *++format);

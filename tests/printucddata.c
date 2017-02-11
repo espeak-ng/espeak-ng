@@ -101,6 +101,43 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 	}
 }
 
+void uprintf_is(FILE *out, codepoint_t c, char mode)
+{
+	switch (mode)
+	{
+	case 'A': // alpha-numeric
+		fputc(ucd_isalnum(c) ? '1' : '0', out);
+		break;
+	case 'a': // alpha
+		fputc(ucd_isalpha(c) ? '1' : '0', out);
+		break;
+	case 'c': // control
+		fputc(ucd_iscntrl(c) ? '1' : '0', out);
+		break;
+	case 'd': // numeric
+		fputc(ucd_isdigit(c) ? '1' : '0', out);
+		break;
+	case 'g': // glyph
+		fputc(ucd_isgraph(c) ? '1' : '0', out);
+		break;
+	case 'l': // lower case
+		fputc(ucd_islower(c) ? '1' : '0', out);
+		break;
+	case 'P': // printable
+		fputc(ucd_isprint(c) ? '1' : '0', out);
+		break;
+	case 'p': // punctuation
+		fputc(ucd_ispunct(c) ? '1' : '0', out);
+		break;
+	case 's': // whitespace
+		fputc(ucd_isspace(c) ? '1' : '0', out);
+		break;
+	case 'u': // upper case
+		fputc(ucd_isupper(c) ? '1' : '0', out);
+		break;
+	}
+}
+
 void uprintf(FILE *out, codepoint_t c, const char *format)
 {
 	while (*format) switch (*format)
@@ -116,6 +153,9 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 			break;
 		case 'p': // codepoint
 			uprintf_codepoint(out, c, *++format);
+			break;
+		case 'i': // is*
+			uprintf_is(out, c, *++format);
 			break;
 		case 'L': // lowercase
 			uprintf_codepoint(out, ucd_tolower(c), *++format);
