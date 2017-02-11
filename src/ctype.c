@@ -73,15 +73,7 @@ int ucd_iscntrl(codepoint_t c)
 
 int ucd_isdigit(codepoint_t c)
 {
-	switch (ucd_lookup_category(c))
-	{
-	case UCD_CATEGORY_Nd:
-	case UCD_CATEGORY_Nl:
-	case UCD_CATEGORY_No:
-		return 1;
-	default:
-		return 0;
-	}
+	return (c >= 0x30 && c <= 0x39); // [0-9]
 }
 
 int ucd_isgraph(codepoint_t c)
