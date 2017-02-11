@@ -127,12 +127,17 @@ lib_LTLIBRARIES += src/libespeak-ng.la
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
 	${PCAUDIOLIB_LIBS}
 
-src_libespeak_ng_la_CFLAGS = -Isrc/include -Isrc/include/compat \
+src_libespeak_ng_la_CFLAGS = -Isrc/include -Isrc/include/compat -I src/ucd-tools/src/include \
 	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D_DEFAULT_SOURCE -D _POSIX_C_SOURCE=200112L \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
 src_libespeak_ng_la_SOURCES = \
+	src/ucd-tools/src/case.c \
+	src/ucd-tools/src/categories.c \
+	src/ucd-tools/src/ctype.c \
+	src/ucd-tools/src/scripts.c \
+	src/ucd-tools/src/tostring.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \

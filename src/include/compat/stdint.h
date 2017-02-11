@@ -45,12 +45,10 @@
 
 #pragma GCC system_header // Silence "warning: #include_next is a GCC extension"
 
-#if defined(HAVE_STDINT_H)
+#if defined(HAVE_STDINT_H) || !defined(HAVE_INTTYPES_H)
 #include_next <stdint.h>
-#elif defined(HAVE_INTTYPES_H)
-#include_next <inttypes.h>
 #else
-#error stdint.h compatibility is not supported on this platform
+#include_next <inttypes.h>
 #endif
 
 #endif

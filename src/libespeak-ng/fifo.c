@@ -29,7 +29,6 @@
 #include <sys/time.h>
 #include <time.h>
 #include <unistd.h>
-#include <wchar.h>
 
 #include <espeak-ng/espeak_ng.h>
 

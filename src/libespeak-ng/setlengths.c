@@ -23,7 +23,6 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <wctype.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
