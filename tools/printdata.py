@@ -50,7 +50,11 @@ def isxdigit(data):
 	return 1 if data['CodePoint'].char() in '0123456789ABCDEFabcdef' else 0
 
 def isspace(data):
-	return data.get('White_Space', 0)
+	if data.get('White_Space', 0):
+		dt = data.get('DecompositionType', '')
+		return 1 if dt == None or not dt.startswith('<noBreak>') else 0
+	else:
+		return 0
 
 def isupper(data):
 	if data.get('LowerCase', null) != null:

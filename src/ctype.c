@@ -140,10 +140,18 @@ int ucd_isspace(codepoint_t c)
 	{
 	case UCD_CATEGORY_Zl:
 	case UCD_CATEGORY_Zp:
+		return 1;
 	case UCD_CATEGORY_Zs:
+		switch (c) // Exclude characters with the <noBreak> DispositionType
+		{
+		case 0x00A0: // U+00A0 : NO-BREAK SPACE
+		case 0x2007: // U+2007 : FIGURE SPACE
+		case 0x202F: // U+202F : NARROW NO-BREAK SPACE
+			return 0;
+		}
 		return 1;
 	case UCD_CATEGORY_Cc:
-		switch (c) // Some control characters are also whitespace characters:
+		switch (c) // Include control characters marked as White_Space
 		{
 		case 0x09: // U+0009 : CHARACTER TABULATION
 		case 0x0A: // U+000A : LINE FEED
