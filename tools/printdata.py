@@ -43,6 +43,12 @@ if '--with-csur' in sys.argv:
 			for codepoint in data['CodePoint']:
 				unicode_chars[codepoint] = data
 
+def isdigit(data):
+	return 1 if data['CodePoint'].char() in '0123456789' else 0
+
+def isxdigit(data):
+	return 1 if data['CodePoint'].char() in '0123456789ABCDEFabcdef' else 0
+
 def isspace(data):
 	return data.get('White_Space', 0)
 
@@ -67,7 +73,7 @@ if __name__ == '__main__':
 		try:
 			data = unicode_chars[codepoint]
 		except KeyError:
-			data = {}
+			data = {'CodePoint': codepoint}
 		script = data.get('Script', 'Zzzz')
 		title = data.get('TitleCase', codepoint)
 		upper = data.get('UpperCase', codepoint)
@@ -75,9 +81,10 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
+		      isdigit(data), isxdigit(data),
 		      isspace(data),
 		      isupper(data), islower(data)))

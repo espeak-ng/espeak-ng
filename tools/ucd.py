@@ -50,6 +50,9 @@ class CodePoint:
 	def __lt__(self, other):
 		return self.codepoint < other.codepoint
 
+	def char(self):
+		return unichr(self.codepoint)
+
 class CodeRange:
 	def __init__(self, x):
 		f, l = x.split('..')
@@ -68,6 +71,9 @@ class CodeRange:
 
 	def size(self):
 		return self.last.codepoint - self.first.codepoint + 1
+
+	def char(self):
+		return unichr(self.first.codepoint)
 
 def codepoint(x):
 	if '..' in x[0]:
