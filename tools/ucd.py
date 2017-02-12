@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012-2014 Reece H. Dunn
+# Copyright (C) 2012-2017 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
