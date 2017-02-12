@@ -97,7 +97,8 @@ int ucd_isgraph(codepoint_t c)
 
 int ucd_islower(codepoint_t c)
 {
-	return ucd_lookup_category(c) == UCD_CATEGORY_Ll;
+	return ucd_lookup_category(c) == UCD_CATEGORY_Ll
+	    || ucd_toupper(c) != c;
 }
 
 int ucd_isprint(codepoint_t c)
@@ -159,7 +160,8 @@ int ucd_isspace(codepoint_t c)
 
 int ucd_isupper(codepoint_t c)
 {
-	return ucd_lookup_category(c) == UCD_CATEGORY_Lu;
+	return ucd_lookup_category(c) == UCD_CATEGORY_Lu
+	    || ucd_tolower(c) != c;
 }
 
 int ucd_isxdigit(codepoint_t c)

@@ -24,6 +24,8 @@ import ucd
 ucd_rootdir = sys.argv[1]
 csur_rootdir = 'data/csur'
 
+null = ucd.CodePoint('0000')
+
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
@@ -44,7 +46,22 @@ if '--with-csur' in sys.argv:
 def isspace(data):
 	return data.get('White_Space', 0)
 
-null = ucd.CodePoint('0000')
+def isupper(data):
+	if data.get('LowerCase', null) != null:
+		return 1
+	elif data.get('GeneralCategory', 'Cn') == 'Lu':
+		return 1
+	else:
+		return 0
+
+def islower(data):
+	if data.get('UpperCase', null) != null:
+		return 1
+	elif data.get('GeneralCategory', 'Cn') == 'Ll':
+		return 1
+	else:
+		return 0
+
 if __name__ == '__main__':
 	for codepoint in ucd.CodeRange('000000..10FFFF'):
 		try:
@@ -58,8 +75,9 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
-		      isspace(data)))
+		      isspace(data),
+		      isupper(data), islower(data)))

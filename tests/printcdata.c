@@ -248,7 +248,7 @@ int main(int argc, char **argv)
 	else
 	{
 		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
-			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %is\n");
+			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %is %iu %il\n");
 	}
 	return 0;
 }
