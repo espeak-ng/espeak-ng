@@ -113,6 +113,10 @@ data_items = {
 		('Range', codepoint),
 		('Age', string),
 	],
+	'DerivedCoreProperties': [
+		('Range', codepoint),
+		('Property', string),
+	],
 	'PropList': [
 		('Range', codepoint),
 		('Property', string),

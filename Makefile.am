@@ -63,6 +63,10 @@ data/ucd/PropList.txt:
 	mkdir -pv data/ucd
 	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropList.txt > $@
 
+data/ucd/DerivedCoreProperties.txt:
+	mkdir -pv data/ucd
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/DerivedCoreProperties.txt > $@
+
 data/ucd/PropertyValueAliases.txt:
 	mkdir -pv data/ucd
 	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropertyValueAliases.txt > $@
@@ -138,6 +142,7 @@ tests_printucddata_cpp_LDADD   = src/libucd.la
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
+	data/ucd/DerivedCoreProperties.txt \
 	data/ucd/Scripts.txt
 	tools/printdata.py ${UCD_ROOTDIR} ${UCD_FLAGS} > $@
 

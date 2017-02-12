@@ -30,13 +30,14 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
-for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
-	for codepoint in data['Range']:
-		try:
-			unicode_chars[codepoint][data['Property']] = 1
-		except KeyError:
-			unicode_chars[codepoint] = {'CodePoint': codepoint}
-			unicode_chars[codepoint][data['Property']] = 1
+for propfile in ['PropList', 'DerivedCoreProperties']:
+	for data in ucd.parse_ucd_data(ucd_rootdir, propfile):
+		for codepoint in data['Range']:
+			try:
+				unicode_chars[codepoint][data['Property']] = 1
+			except KeyError:
+				unicode_chars[codepoint] = {'CodePoint': codepoint}
+				unicode_chars[codepoint][data['Property']] = 1
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
 		unicode_chars[codepoint]['Script'] = data['Script']
@@ -100,9 +101,7 @@ def isalpha(data):
 		return 0
 
 def isupper(data):
-	if data.get('GeneralCategory', 'Cn') == 'Lu':
-		return 1
-	elif data.get('Other_Uppercase', 0):
+	if data.get('Uppercase', 0):
 		return 1
 	elif data.get('LowerCase', null) != null: # Some Lt characters have lowercase forms.
 		return 1
