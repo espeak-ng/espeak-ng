@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012 Reece H. Dunn
+# Copyright (C) 2012-2017 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -28,11 +28,10 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
-		unicode_chars[codepoint]['Properties'] = []
 for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
 	if data['Property'] in ['White_Space']:
 		for codepoint in data['Range']:
-			unicode_chars[codepoint]['Properties'].append(data['Property'])
+			unicode_chars[codepoint][data['Property']] = 1
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
 		unicode_chars[codepoint]['Script'] = data['Script']
@@ -60,4 +59,4 @@ if __name__ == '__main__':
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
-		      ' '.join(data.get('Properties', []))))
+		      data.get('White_Space', 0)))

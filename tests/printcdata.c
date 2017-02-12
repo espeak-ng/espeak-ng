@@ -178,10 +178,6 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 		case 'U': // uppercase
 			uprintf_codepoint(out, towupper(c), *++format);
 			break;
-		case 'W': // whitespace
-			if (iswspace(c))
-				fputs("White_Space", out);
-			break;
 		}
 		++format;
 		break;
@@ -218,7 +214,7 @@ void print_file(FILE *in, const char *format)
 {
 	codepoint_t c = 0;
 	while (fget_utf8c(in, &c))
-		uprintf(stdout, c, format ? format : "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%W\n");
+		uprintf(stdout, c, format ? format : "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%is\n");
 }
 
 int main(int argc, char **argv)
@@ -252,7 +248,7 @@ int main(int argc, char **argv)
 	else
 	{
 		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
-			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %W\n");
+			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %is\n");
 	}
 	return 0;
 }
