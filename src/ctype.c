@@ -277,15 +277,19 @@ int ucd_isalnum(codepoint_t c)
 {
 	switch (ucd_lookup_category(c))
 	{
+	case UCD_CATEGORY_Lu:
 	case UCD_CATEGORY_Ll:
+	case UCD_CATEGORY_Lt:
 	case UCD_CATEGORY_Lm:
 	case UCD_CATEGORY_Lo:
-	case UCD_CATEGORY_Lt:
-	case UCD_CATEGORY_Lu:
-	case UCD_CATEGORY_Nd:
 	case UCD_CATEGORY_Nl:
+	case UCD_CATEGORY_Nd:
 	case UCD_CATEGORY_No:
 		return 1;
+	case UCD_CATEGORY_Mn:
+	case UCD_CATEGORY_Mc:
+	case UCD_CATEGORY_So:
+		return other_alphabetic_MnMcSo(c);
 	default:
 		return 0;
 	}

@@ -89,10 +89,10 @@ def isgraph(data):
 		return 0
 
 def isalnum(data):
-	if data.get('GeneralCategory', 'Cn')[0] in 'LN':
+	if data.get('GeneralCategory', 'Cn')[0] in 'N':
 		return 1
 	else:
-		return 0
+		return data.get('Alphabetic', 0)
 
 def isalpha(data):
 	return data.get('Alphabetic', 0)
