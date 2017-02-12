@@ -57,22 +57,27 @@ EXTRA_DIST += ChangeLog
 
 UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
+UCD_SRCDIR=http://www.unicode.org/Public
 
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropList.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropList.txt > $@
+
+data/ucd/DerivedCoreProperties.txt:
+	mkdir -pv data/ucd
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/DerivedCoreProperties.txt > $@
 
 data/ucd/PropertyValueAliases.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropertyValueAliases.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropertyValueAliases.txt > $@
 
 data/ucd/Scripts.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/Scripts.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/Scripts.txt > $@
 
 data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
-	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/UnicodeData.txt
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/UnicodeData.txt > $@
 
 ############################# documentation ###################################
 
@@ -122,6 +127,10 @@ src_libucd_la_SOURCES  = \
 
 ############################# tests ###########################################
 
+noinst_bin_PROGRAMS     += tests/printcdata
+tests_printcdata_SOURCES = tests/printcdata.c
+tests_printcdata_LDADD   = src/libucd.la
+
 noinst_bin_PROGRAMS       += tests/printucddata
 tests_printucddata_SOURCES = tests/printucddata.c
 tests_printucddata_LDADD   = src/libucd.la
@@ -133,6 +142,7 @@ tests_printucddata_cpp_LDADD   = src/libucd.la
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
+	data/ucd/DerivedCoreProperties.txt \
 	data/ucd/Scripts.txt
 	tools/printdata.py ${UCD_ROOTDIR} ${UCD_FLAGS} > $@
 

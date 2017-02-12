@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012-2014 Reece H. Dunn
+# Copyright (C) 2012-2017 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -50,6 +50,9 @@ class CodePoint:
 	def __lt__(self, other):
 		return self.codepoint < other.codepoint
 
+	def char(self):
+		return unichr(self.codepoint)
+
 class CodeRange:
 	def __init__(self, x):
 		f, l = x.split('..')
@@ -68,6 +71,9 @@ class CodeRange:
 
 	def size(self):
 		return self.last.codepoint - self.first.codepoint + 1
+
+	def char(self):
+		return unichr(self.first.codepoint)
 
 def codepoint(x):
 	if '..' in x[0]:
@@ -106,6 +112,10 @@ data_items = {
 	'DerivedAge': [
 		('Range', codepoint),
 		('Age', string),
+	],
+	'DerivedCoreProperties': [
+		('Range', codepoint),
+		('Property', string),
 	],
 	'PropList': [
 		('Range', codepoint),

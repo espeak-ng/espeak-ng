@@ -19,10 +19,13 @@
 
 #include "ucd/ucd.h"
 
+#include <locale.h>
 #include <string.h>
 #include <stdio.h>
+#include <wchar.h>
+#include <wctype.h>
 
-void fput_utf8c(FILE *out, ucd::codepoint_t c)
+void fput_utf8c(FILE *out, codepoint_t c)
 {
 	if (c < 0x80)
 		fputc((uint8_t)c, out);
@@ -46,40 +49,40 @@ void fput_utf8c(FILE *out, ucd::codepoint_t c)
 	}
 }
 
-bool fget_utf8c(FILE *in, ucd::codepoint_t &c)
+int fget_utf8c(FILE *in, codepoint_t *c)
 {
 	int ch = EOF;
-	if ((ch = fgetc(in)) == EOF) return false;
-	if (uint8_t(ch) < 0x80)
-		c = uint8_t(ch);
-	else switch (uint8_t(ch) & 0xF0)
+	if ((ch = fgetc(in)) == EOF) return 0;
+	if ((uint8_t)ch < 0x80)
+		*c = (uint8_t)ch;
+	else switch ((uint8_t)ch & 0xF0)
 	{
 	default:
-		c = uint8_t(ch) & 0x1F;
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		*c = (uint8_t)ch & 0x1F;
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
 		break;
 	case 0xE0:
-		c = uint8_t(ch) & 0x0F;
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		*c = (uint8_t)ch & 0x0F;
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
 		break;
 	case 0xF0:
-		c = uint8_t(ch) & 0x07;
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
-		if ((ch = fgetc(in)) == EOF) return false;
-		c = (c << 6) + (uint8_t(ch) & 0x3F);
+		*c = (uint8_t)ch & 0x07;
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
+		if ((ch = fgetc(in)) == EOF) return 0;
+		*c = (*c << 6) + ((uint8_t)ch & 0x3F);
 		break;
 	}
-	return true;
+	return 1;
 }
 
-void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
+void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
@@ -101,50 +104,50 @@ void uprintf_codepoint(FILE *out, ucd::codepoint_t c, char mode)
 	}
 }
 
-void uprintf_is(FILE *out, ucd::codepoint_t c, char mode)
+void uprintf_is(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
 	case 'A': // alpha-numeric
-		fputc(ucd::isalnum(c) ? '1' : '0', out);
+		fputc(iswalnum(c) ? '1' : '0', out);
 		break;
 	case 'a': // alpha
-		fputc(ucd::isalpha(c) ? '1' : '0', out);
+		fputc(iswalpha(c) ? '1' : '0', out);
 		break;
 	case 'b': // blank
-		fputc(ucd::isblank(c) ? '1' : '0', out);
+		fputc(iswblank(c) ? '1' : '0', out);
 		break;
 	case 'c': // control
-		fputc(ucd::iscntrl(c) ? '1' : '0', out);
+		fputc(iswcntrl(c) ? '1' : '0', out);
 		break;
 	case 'd': // numeric
-		fputc(ucd::isdigit(c) ? '1' : '0', out);
+		fputc(iswdigit(c) ? '1' : '0', out);
 		break;
 	case 'g': // glyph
-		fputc(ucd::isgraph(c) ? '1' : '0', out);
+		fputc(iswgraph(c) ? '1' : '0', out);
 		break;
 	case 'l': // lower case
-		fputc(ucd::islower(c) ? '1' : '0', out);
+		fputc(iswlower(c) ? '1' : '0', out);
 		break;
 	case 'P': // printable
-		fputc(ucd::isprint(c) ? '1' : '0', out);
+		fputc(iswprint(c) ? '1' : '0', out);
 		break;
 	case 'p': // punctuation
-		fputc(ucd::ispunct(c) ? '1' : '0', out);
+		fputc(iswpunct(c) ? '1' : '0', out);
 		break;
 	case 's': // whitespace
-		fputc(ucd::isspace(c) ? '1' : '0', out);
+		fputc(iswspace(c) ? '1' : '0', out);
 		break;
 	case 'u': // upper case
-		fputc(ucd::isupper(c) ? '1' : '0', out);
+		fputc(iswupper(c) ? '1' : '0', out);
 		break;
 	case 'x': // xdigit
-		fputc(ucd::isxdigit(c) ? '1' : '0', out);
+		fputc(iswxdigit(c) ? '1' : '0', out);
 		break;
 	}
 }
 
-void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
+void uprintf(FILE *out, codepoint_t c, const char *format)
 {
 	while (*format) switch (*format)
 	{
@@ -152,10 +155,10 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 		switch (*++format)
 		{
 		case 'c': // category
-			fputs(ucd::get_category_string(ucd::lookup_category(c)), out);
+			fputs(ucd_get_category_string(ucd_lookup_category(c)), out);
 			break;
 		case 'C': // category group
-			fputs(ucd::get_category_group_string(ucd::lookup_category_group(c)), out);
+			fputs(ucd_get_category_group_string(ucd_lookup_category_group(c)), out);
 			break;
 		case 'p': // codepoint
 			uprintf_codepoint(out, c, *++format);
@@ -164,16 +167,16 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 			uprintf_is(out, c, *++format);
 			break;
 		case 'L': // lowercase
-			uprintf_codepoint(out, ucd::tolower(c), *++format);
+			uprintf_codepoint(out, towlower(c), *++format);
 			break;
 		case 's': // script
-			fputs(ucd::get_script_string(ucd::lookup_script(c)), out);
+			fputs(ucd_get_script_string(ucd_lookup_script(c)), out);
 			break;
 		case 'T': // titlecase
-			uprintf_codepoint(out, ucd::totitle(c), *++format);
+			uprintf_codepoint(out, ucd_totitle(c), *++format);
 			break;
 		case 'U': // uppercase
-			uprintf_codepoint(out, ucd::toupper(c), *++format);
+			uprintf_codepoint(out, towupper(c), *++format);
 			break;
 		}
 		++format;
@@ -209,8 +212,8 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 
 void print_file(FILE *in, const char *format)
 {
-	ucd::codepoint_t c = 0;
-	while (fget_utf8c(in, c))
+	codepoint_t c = 0;
+	while (fget_utf8c(in, &c))
 		uprintf(stdout, c, format ? format : "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%is\n");
 }
 
@@ -225,6 +228,8 @@ int main(int argc, char **argv)
 			in = stdin;
 		else if (!strncmp(arg, "--format=", 9))
 			format = arg + 9;
+		else if (!strncmp(arg, "--locale=", 9))
+			setlocale(LC_CTYPE, arg + 9);
 		else if (in == NULL)
 		{
 			in = fopen(arg, "r");
@@ -242,7 +247,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
+		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
 			uprintf(stdout, c, format ? format :
 			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il\n");
 	}

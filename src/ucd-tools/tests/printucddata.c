@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2017 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -101,6 +101,49 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 	}
 }
 
+void uprintf_is(FILE *out, codepoint_t c, char mode)
+{
+	switch (mode)
+	{
+	case 'A': // alpha-numeric
+		fputc(ucd_isalnum(c) ? '1' : '0', out);
+		break;
+	case 'a': // alpha
+		fputc(ucd_isalpha(c) ? '1' : '0', out);
+		break;
+	case 'b': // blank
+		fputc(ucd_isblank(c) ? '1' : '0', out);
+		break;
+	case 'c': // control
+		fputc(ucd_iscntrl(c) ? '1' : '0', out);
+		break;
+	case 'd': // numeric
+		fputc(ucd_isdigit(c) ? '1' : '0', out);
+		break;
+	case 'g': // glyph
+		fputc(ucd_isgraph(c) ? '1' : '0', out);
+		break;
+	case 'l': // lower case
+		fputc(ucd_islower(c) ? '1' : '0', out);
+		break;
+	case 'P': // printable
+		fputc(ucd_isprint(c) ? '1' : '0', out);
+		break;
+	case 'p': // punctuation
+		fputc(ucd_ispunct(c) ? '1' : '0', out);
+		break;
+	case 's': // whitespace
+		fputc(ucd_isspace(c) ? '1' : '0', out);
+		break;
+	case 'u': // upper case
+		fputc(ucd_isupper(c) ? '1' : '0', out);
+		break;
+	case 'x': // xdigit
+		fputc(ucd_isxdigit(c) ? '1' : '0', out);
+		break;
+	}
+}
+
 void uprintf(FILE *out, codepoint_t c, const char *format)
 {
 	while (*format) switch (*format)
@@ -117,6 +160,9 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 		case 'p': // codepoint
 			uprintf_codepoint(out, c, *++format);
 			break;
+		case 'i': // is*
+			uprintf_is(out, c, *++format);
+			break;
 		case 'L': // lowercase
 			uprintf_codepoint(out, ucd_tolower(c), *++format);
 			break;
@@ -129,12 +175,30 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 		case 'U': // uppercase
 			uprintf_codepoint(out, ucd_toupper(c), *++format);
 			break;
-		case 'W': // whitespace
-			if (ucd_isspace(c))
-				fputs("White_Space", out);
-			break;
 		}
 		++format;
+		break;
+	case '\\':
+		switch (*++format) {
+		case 0:
+			break;
+		case 't':
+			fputc('\t', out);
+			++format;
+			break;
+		case 'r':
+			fputc('\r', out);
+			++format;
+			break;
+		case 'n':
+			fputc('\n', out);
+			++format;
+			break;
+		default:
+			fputc(*format, out);
+			++format;
+			break;
+		}
 		break;
 	default:
 		fputc(*format, out);
@@ -143,35 +207,44 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 	}
 }
 
-void print_file(FILE *in)
+void print_file(FILE *in, const char *format)
 {
 	codepoint_t c = 0;
 	while (fget_utf8c(in, &c))
-		uprintf(stdout, c, "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%W\n");
+		uprintf(stdout, c, format ? format : "%pc\t%pH\t%s\t%c\t%Uc\t%Lc\t%Tc\t%is\n");
 }
 
 int main(int argc, char **argv)
 {
-	if (argc == 2)
+	FILE *in = NULL;
+	const char *format = NULL;
+	for (int argn = 1; argn != argc; ++argn)
 	{
-		if (!strcmp(argv[1], "--stdin") || !strcmp(argv[1], "-"))
-			print_file(stdin);
-		else
+		const char *arg = argv[argn];
+		if (!strcmp(arg, "--stdin") || !strcmp(arg, "-"))
+			in = stdin;
+		else if (!strncmp(arg, "--format=", 9))
+			format = arg + 9;
+		else if (in == NULL)
 		{
-			FILE *in = fopen(argv[1], "r");
-			if (in)
-			{
-				print_file(in);
-				fclose(in);
-			}
-			else
+			in = fopen(arg, "r");
+			if (!in)
 				fprintf(stdout, "cannot open `%s`\n", argv[1]);
 		}
+	}
+
+	if (in == stdin)
+		print_file(stdin, format);
+	else if (in != NULL)
+	{
+		print_file(in, format);
+		fclose(in);
 	}
 	else
 	{
 		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
-			uprintf(stdout, c, "%pH %s %C %c %UH %LH %TH %W\n");
+			uprintf(stdout, c, format ? format :
+			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il\n");
 	}
 	return 0;
 }

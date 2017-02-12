@@ -92,20 +92,20 @@ C library provides a set of APIs that are compatible with `wctype.h`.
 
 The following character classification functions are provided:
 
-| C API         | C++ API        |
-|---------------|----------------|
-| `ucd_isalnum` | `ucd::isalnum` |
-| `ucd_isalpha` | `ucd::isalpha` |
-| `ucd_iscntrl` | `ucd::iscntrl` |
-| `ucd_isdigit` | `ucd::isdigit` |
-| `ucd_isgraph` | `ucd::isgraph` |
-| `ucd_islower` | `ucd::islower` |
-| `ucd_isprint` | `ucd::isprint` |
-| `ucd_ispunct` | `ucd::ispunct` |
-| `ucd_isspace` | `ucd::isspace` |
-| `ucd_isupper` | `ucd::isupper` |
-
-__NOTE:__ Equivalents for `isblank` and `isxdigit` are not provided.
+| C API          | C++ API         |
+|----------------|-----------------|
+| `ucd_isalnum`  | `ucd::isalnum`  |
+| `ucd_isalpha`  | `ucd::isalpha`  |
+| `ucd_isblank`  | `ucd::isblank`  |
+| `ucd_iscntrl`  | `ucd::iscntrl`  |
+| `ucd_isdigit`  | `ucd::isdigit`  |
+| `ucd_isgraph`  | `ucd::isgraph`  |
+| `ucd_islower`  | `ucd::islower`  |
+| `ucd_isprint`  | `ucd::isprint`  |
+| `ucd_ispunct`  | `ucd::ispunct`  |
+| `ucd_isspace`  | `ucd::isspace`  |
+| `ucd_isupper`  | `ucd::isupper`  |
+| `ucd_isxdigit` | `ucd::isxdigit` |
 
 ## Build Dependencies
 

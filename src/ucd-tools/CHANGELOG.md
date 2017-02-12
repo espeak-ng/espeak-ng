@@ -1,5 +1,10 @@
 # Change Log
 
+## 9.0.0.1 - (In Progress)
+
+*  Add `iswblank` and `iswxdigit` compatibility.
+*  Improve ctype compatibility.
+
 ## 9.0.0 - 2016-12-28
 
 *  Update to Unicode Character Data 9.0.0.
