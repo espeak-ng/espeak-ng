@@ -40,10 +40,6 @@ if '--with-csur' in sys.argv:
 	for csur in ['Klingon']:
 		for data in ucd.parse_ucd_data('data/csur', csur):
 			for codepoint in data['CodePoint']:
-				if not 'TitleCase'  in data: data['TitleCase']  = codepoint
-				if not 'UpperCase'  in data: data['UpperCase']  = codepoint
-				if not 'LowerCase'  in data: data['LowerCase']  = codepoint
-				if not 'Properties' in data: data['Properties'] = []
 				unicode_chars[codepoint] = data
 
 null = ucd.CodePoint('0000')
@@ -52,19 +48,16 @@ if __name__ == '__main__':
 		try:
 			data = unicode_chars[codepoint]
 		except KeyError:
-			data = {'GeneralCategory': 'Cn', 'TitleCase': codepoint, 'UpperCase': codepoint, 'LowerCase': codepoint, 'Properties': []}
-		try:
-			script = data['Script']
-		except KeyError:
-			script = 'Zzzz'
-		title = data['TitleCase']
-		upper = data['UpperCase']
-		lower = data['LowerCase']
+			data = {}
+		script = data.get('Script', 'Zzzz')
+		title = data.get('TitleCase', codepoint)
+		upper = data.get('UpperCase', codepoint)
+		lower = data.get('LowerCase', codepoint)
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
 		print('%s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
-		      data['GeneralCategory'][0], data['GeneralCategory'],
+		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
-		      ' '.join(data['Properties'])))
+		      ' '.join(data.get('Properties', []))))
