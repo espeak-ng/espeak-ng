@@ -41,6 +41,9 @@ if '--with-csur' in sys.argv:
 			for codepoint in data['CodePoint']:
 				unicode_chars[codepoint] = data
 
+def isspace(data):
+	return data.get('White_Space', 0)
+
 null = ucd.CodePoint('0000')
 if __name__ == '__main__':
 	for codepoint in ucd.CodeRange('000000..10FFFF'):
@@ -59,4 +62,4 @@ if __name__ == '__main__':
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
-		      data.get('White_Space', 0)))
+		      isspace(data)))
