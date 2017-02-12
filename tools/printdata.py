@@ -109,9 +109,9 @@ def isupper(data):
 		return 0
 
 def islower(data):
-	if data.get('UpperCase', null) != null:
+	if data.get('Lowercase', 0):
 		return 1
-	elif data.get('GeneralCategory', 'Cn') == 'Ll':
+	elif data.get('UpperCase', null) != null:
 		return 1
 	else:
 		return 0

@@ -104,8 +104,40 @@ int ucd_isgraph(codepoint_t c)
 
 int ucd_islower(codepoint_t c)
 {
-	return ucd_lookup_category(c) == UCD_CATEGORY_Ll
-	    || ucd_toupper(c) != c;
+	switch (ucd_lookup_category(c))
+	{
+	case UCD_CATEGORY_Ll:
+		return 1;
+	case UCD_CATEGORY_Lt:
+		return ucd_toupper(c) != c;
+	case UCD_CATEGORY_Lo:
+		return c == 0xAA  // Other_Lowercase : FEMININE ORDINAL INDICATOR
+		    || c == 0xBA; // Other_Lowercase : MASCULINE ORDINAL INDICATOR
+	case UCD_CATEGORY_Lm:
+		return (c >= 0x02B0 && c <= 0x02B8)  // Other_Lowercase
+		    || (c >= 0x02C0 && c <= 0x02C1)  // Other_Lowercase
+		    || (c >= 0x02E0 && c <= 0x02E4)  // Other_Lowercase
+		    ||  c == 0x037A                  // Other_Lowercase
+		    || (c >= 0x1D2C && c <= 0x1D6A)  // Other_Lowercase
+		    ||  c == 0x1D78                  // Other_Lowercase
+		    || (c >= 0x1D9B && c <= 0x1DBF)  // Other_Lowercase
+		    ||  c == 0x2071                  // Other_Lowercase
+		    ||  c == 0x207F                  // Other_Lowercase
+		    || (c >= 0x2090 && c <= 0x209C)  // Other_Lowercase
+		    || (c >= 0x2C7C && c <= 0x2C7D)  // Other_Lowercase
+		    || (c >= 0xA69C && c <= 0xA69D)  // Other_Lowercase
+		    ||  c == 0xA770                  // Other_Lowercase
+		    || (c >= 0xA7F8 && c <= 0xA7F9)  // Other_Lowercase
+		    || (c >= 0xAB5C && c <= 0xAB5F); // Other_Lowercase
+	case UCD_CATEGORY_Mn:
+		return c == 0x0345; // Other_Lowercase : COMBINING GREEK YPOGEGRAMMENI
+	case UCD_CATEGORY_Nl:
+		return (c >= 0x2170 && c <= 0x217F); // Other_Lowercase
+	case UCD_CATEGORY_So:
+		return (c >= 0x24D0 && c <= 0x24E9); // Other_Lowercase
+	default:
+		return 0;
+	}
 }
 
 int ucd_isprint(codepoint_t c)
