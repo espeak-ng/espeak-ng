@@ -697,7 +697,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 
 	p = tr->letterGroups[group];
 	if (p == NULL)
-		return 0;
+		return -1;
 
 	while (*p != RULE_GROUP_END) {
 		if (pre) {
@@ -1762,7 +1762,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, post_ptr-1, letter_group, 0)) >= 0) {
 						add_points = (20-distance_right);
-						if (n_bytes > 0) // move pointer, if non-zero length group was found
+						if (n_bytes >= 0) // move pointer, if group was found
 							post_ptr += (n_bytes-1);
 					} else
 						failed = 1;
@@ -1970,8 +1970,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					letter_group = LetterGroupNo(rule++);
 					if ((n_bytes = IsLetterGroup(tr, pre_ptr, letter_group, 1)) >= 0) {
 						add_points = (20-distance_right);
-							if (n_bytes > 0)  // move pointer, if non-zero length group was found
-								pre_ptr -= (n_bytes-1);
+						if (n_bytes >= 0)  // move pointer, if group was found
+							pre_ptr -= (n_bytes-1);
 					} else
 						failed = 1;
 					break;
