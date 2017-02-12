@@ -31,8 +31,11 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
 for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
-	if data['Property'] in ['White_Space']:
-		for codepoint in data['Range']:
+	for codepoint in data['Range']:
+		try:
+			unicode_chars[codepoint][data['Property']] = 1
+		except KeyError:
+			unicode_chars[codepoint] = {'CodePoint': codepoint}
 			unicode_chars[codepoint][data['Property']] = 1
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
