@@ -43,6 +43,9 @@ if '--with-csur' in sys.argv:
 			for codepoint in data['CodePoint']:
 				unicode_chars[codepoint] = data
 
+def iscntrl(data):
+	return 1 if data.get('Name', '') == '<control>' else 0
+
 def isdigit(data):
 	return 1 if data['CodePoint'].char() in '0123456789' else 0
 
@@ -60,6 +63,36 @@ def isblank(data): # word separator
 	if data.get('GeneralCategory', 'Cn') == 'Zs' or data['CodePoint'].char() == '\t':
 		dt = data.get('DecompositionType', '')
 		return 1 if dt == None or not dt.startswith('<noBreak>') else 0
+	else:
+		return 0
+
+def ispunct(data):
+	if data.get('GeneralCategory', 'Cn')[0] in 'P':
+		return 1
+	else:
+		return 0
+
+def isprint(data):
+	if data.get('GeneralCategory', 'Cn')[0] in 'LMNPSZ': # not in 'CI'
+		return 1
+	else:
+		return 0
+
+def isgraph(data):
+	if data.get('GeneralCategory', 'Cn')[0] in 'LMNPS': # not in 'CZI'
+		return 1
+	else:
+		return 0
+
+def isalnum(data):
+	if data.get('GeneralCategory', 'Cn')[0] in 'LN':
+		return 1
+	else:
+		return 0
+
+def isalpha(data):
+	if data.get('GeneralCategory', 'Cn')[0] in 'L':
+		return 1
 	else:
 		return 0
 
@@ -92,10 +125,10 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
 		      isdigit(data), isxdigit(data),
-		      isspace(data), isblank(data),
-		      isupper(data), islower(data)))
+		      iscntrl(data), isspace(data), isblank(data), ispunct(data),
+		      isprint(data), isgraph(data), isalnum(data), isalpha(data), isupper(data), islower(data)))

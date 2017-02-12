@@ -243,7 +243,8 @@ int main(int argc, char **argv)
 	else
 	{
 		for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
-			uprintf(stdout, c, format ? format : "%pH %s %C %c %UH %LH %TH %id %ix %is %ib %iu %il\n");
+			uprintf(stdout, c, format ? format :
+			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il\n");
 	}
 	return 0;
 }
