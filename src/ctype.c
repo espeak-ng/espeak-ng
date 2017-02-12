@@ -58,6 +58,13 @@ int ucd_isblank(codepoint_t c)
 	switch (ucd_lookup_category(c))
 	{
 	case UCD_CATEGORY_Zs:
+		switch (c) // Exclude characters with the <noBreak> DispositionType
+		{
+		case 0x00A0: // U+00A0 : NO-BREAK SPACE
+		case 0x2007: // U+2007 : FIGURE SPACE
+		case 0x202F: // U+202F : NARROW NO-BREAK SPACE
+			return 0;
+		}
 		return 1;
 	case UCD_CATEGORY_Cc:
 		return c == 0x09; // U+0009 : CHARACTER TABULATION

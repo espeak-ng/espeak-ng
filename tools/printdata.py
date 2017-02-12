@@ -56,6 +56,13 @@ def isspace(data):
 	else:
 		return 0
 
+def isblank(data): # word separator
+	if data.get('GeneralCategory', 'Cn') == 'Zs' or data['CodePoint'].char() == '\t':
+		dt = data.get('DecompositionType', '')
+		return 1 if dt == None or not dt.startswith('<noBreak>') else 0
+	else:
+		return 0
+
 def isupper(data):
 	if data.get('LowerCase', null) != null:
 		return 1
@@ -85,10 +92,10 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s %s' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
 		      isdigit(data), isxdigit(data),
-		      isspace(data),
+		      isspace(data), isblank(data),
 		      isupper(data), islower(data)))
