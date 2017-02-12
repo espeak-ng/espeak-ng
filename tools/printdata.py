@@ -100,9 +100,11 @@ def isalpha(data):
 		return 0
 
 def isupper(data):
-	if data.get('LowerCase', null) != null:
+	if data.get('GeneralCategory', 'Cn') == 'Lu':
 		return 1
-	elif data.get('GeneralCategory', 'Cn') == 'Lu':
+	elif data.get('Other_Uppercase', 0):
+		return 1
+	elif data.get('LowerCase', null) != null: # Some Lt characters have lowercase forms.
 		return 1
 	else:
 		return 0

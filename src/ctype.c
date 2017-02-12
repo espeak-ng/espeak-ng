@@ -175,8 +175,22 @@ int ucd_isspace(codepoint_t c)
 
 int ucd_isupper(codepoint_t c)
 {
-	return ucd_lookup_category(c) == UCD_CATEGORY_Lu
-	    || ucd_tolower(c) != c;
+	switch (ucd_lookup_category(c))
+	{
+	case UCD_CATEGORY_Lu:
+		return 1;
+	case UCD_CATEGORY_Lt:
+		return ucd_tolower(c) != c;
+	case UCD_CATEGORY_Nl:
+		return (c >= 0x002160 && c <= 0x00216F); // Other_Uppercase
+	case UCD_CATEGORY_So:
+		return (c >= 0x0024B6 && c <= 0x0024CF)  // Other_Uppercase
+		    || (c >= 0x01F130 && c <= 0x01F149)  // Other_Uppercase
+		    || (c >= 0x01F150 && c <= 0x01F169)  // Other_Uppercase
+		    || (c >= 0x01F170 && c <= 0x01F189); // Other_Uppercase
+	default:
+		return 0;
+	}
 }
 
 int ucd_isxdigit(codepoint_t c)
