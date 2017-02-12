@@ -95,10 +95,7 @@ def isalnum(data):
 		return 0
 
 def isalpha(data):
-	if data.get('GeneralCategory', 'Cn')[0] in 'L':
-		return 1
-	else:
-		return 0
+	return data.get('Alphabetic', 0)
 
 def isupper(data):
 	if data.get('Uppercase', 0):
