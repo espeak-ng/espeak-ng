@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wctype.h>
 #include <wchar.h>
 
 #include <espeak-ng/espeak_ng.h>
@@ -614,7 +615,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 			p += utf8_in(&c, p);
 			if (use_tie != 0) {
 				// look for non-inital alphabetic character, but not diacritic, superscript etc.
-				if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c))
+				if ((count > 0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha(c))
 					buf += utf8_out(use_tie, buf);
 			}
 			buf += utf8_out(c, buf);
@@ -832,7 +833,7 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 			break;
 		}
 
-		if ((c != '\'') && !iswalpha2(c))
+		if ((c != '\'') && !iswalpha(c))
 			return 0;
 	}
 
@@ -1787,7 +1788,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_NONALPHA:
-					if (!iswalpha2(letter_w)) {
+					if (!iswalpha(letter_w)) {
 						add_points = (21-distance_right);
 						post_ptr += letter_xbytes;
 					} else
@@ -1996,7 +1997,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						failed = 1;
 					break;
 				case RULE_NONALPHA:
-					if (!iswalpha2(letter_w)) {
+					if (!iswalpha(letter_w)) {
 						add_points = (21-distance_right);
 						pre_ptr -= letter_xbytes;
 					} else
@@ -2300,7 +2301,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 
 						if (tr->letter_bits_offset > 0) {
 							// not a Latin alphabet, switch to the default Latin alphabet language
-							if ((letter <= 0x241) && iswalpha2(letter)) {
+							if ((letter <= 0x241) && iswalpha(letter)) {
 								sprintf(phonemes, "%c%s", phonSWITCH, tr->langopts.ascii_language);
 								return 0;
 							}

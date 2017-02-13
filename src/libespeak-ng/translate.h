@@ -724,12 +724,8 @@ int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
 int IsSuperscript(int letter);
-int iswalpha2(int c);
 int isspace2(unsigned int c);
-int iswlower2(int c);
-int iswupper2(int c);
-int towlower2(unsigned int c);
-int towupper2(unsigned int c);
+int towlower2(unsigned int c); // Supports Turkish I
 const char *GetTranslatedPhonemeString(int phoneme_mode);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);

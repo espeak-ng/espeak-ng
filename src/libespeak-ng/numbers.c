@@ -701,7 +701,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	if (control & 2) {
 		// include CAPITAL information
-		if (iswupper2(letter))
+		if (iswupper(letter))
 			Lookup(tr, "_cap", capital);
 	}
 	letter = towlower2(letter);
@@ -845,7 +845,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		if (ph_buf[0] == 0) {
 			speak_letter_number = 1;
 			if (!(al_flags & AL_NO_SYMBOL)) {
-				if (iswalpha2(letter))
+				if (iswalpha(letter))
 					Lookup(translator, "_?A", ph_buf);
 
 				if ((ph_buf[0] == 0) && !iswspace(letter))
@@ -2055,7 +2055,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		if ((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
 			utf8_in(&next_char, p);
 
-		if (!iswalpha2(next_char) && (thousands_exact == 0))
+		if (!iswalpha(next_char) && (thousands_exact == 0))
 			strcat(ph_out, str_pause); // don't add pause for 100s,  6th, etc.
 	}
 

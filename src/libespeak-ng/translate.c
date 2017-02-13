@@ -363,7 +363,7 @@ int IsAlpha(unsigned int c)
 		0
 	};
 
-	if (iswalpha2(c))
+	if (iswalpha(c))
 		return 1;
 
 	if (c < 0x300)
@@ -610,7 +610,7 @@ int IsAllUpper(const char *word)
 	int c;
 	while ((*word != 0) && !isspace2(*word)) {
 		word += utf8_in(&c, word);
-		if (!iswupper2(c))
+		if (!iswupper(c))
 			return 0;
 	}
 	return 1;
@@ -904,7 +904,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			}
 		}
 
-		if ((wflags & FLAG_ALL_UPPER) && (word_length > 1) && iswalpha2(first_char)) {
+		if ((wflags & FLAG_ALL_UPPER) && (word_length > 1) && iswalpha(first_char)) {
 			if ((option_tone_flags & OPTION_EMPHASIZE_ALLCAPS) && !(dictionary_flags[0] & FLAG_ABBREV)) {
 				// emphasize words which are in capitals
 				emphasize_allcaps = FLAG_EMPHASIZED;
@@ -1331,7 +1331,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			tr->expect_past--;
 	}
 
-	if ((word_length == 1) && (tr->translator_name == L('e', 'n')) && iswalpha2(first_char) && (first_char != 'i')) {
+	if ((word_length == 1) && (tr->translator_name == L('e', 'n')) && iswalpha(first_char) && (first_char != 'i')) {
 		// English Specific !!!!
 		// any single letter before a dot is an abbreviation, except 'I'
 		dictionary_flags[0] |= FLAG_ALLOW_DOT;
@@ -1587,7 +1587,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			while (*p2 != ' ') p2++;
 
 			utf8_in(&c_word2, p2+1); // first character of the next word;
-			if (!iswalpha2(c_word2))
+			if (!iswalpha(c_word2))
 				ok = 0;
 
 			if (ok != 0) {
@@ -1957,7 +1957,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 
 	// there is a list of character codes to be substituted with alternative codes
 
-	if (iswupper2(c_lower = c)) {
+	if (iswupper(c_lower = c)) {
 		c_lower = towlower2(c);
 		upper_case = 1;
 	}
@@ -1984,14 +1984,14 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		// there is a second character to be inserted
 		// don't convert the case of the second character unless the next letter is also upper case
 		c2 = new_c >> 16;
-		if (upper_case && iswupper2(next_in))
-			c2 = towupper2(c2);
+		if (upper_case && iswupper(next_in))
+			c2 = towupper(c2);
 		*insert = c2;
 		new_c &= 0xffff;
 	}
 
 	if (upper_case)
-		new_c = towupper2(new_c);
+		new_c = towupper(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	return new_c;
@@ -2046,7 +2046,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	case L('n', 'l'):
 		// look for 'n  and replace by a special character (unicode: schwa)
 
-		if (!iswalpha2(prev_in)) {
+		if (!iswalpha(prev_in)) {
 			utf8_in(&next2, &ptr[1]);
 
 			if ((c == '\'') && IsSpace(next2)) {
@@ -2400,7 +2400,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 						if (!IsBracket(prev_out)) // ?? perhaps only set FLAG_NOSPACE for . - /  (hyphenated words, URLs, etc)
 							next_word_flags |= FLAG_NOSPACE;
 					} else {
-						if (iswupper2(c))
+						if (iswupper(c))
 							word_flags |= FLAG_FIRST_UPPER;
 
 						if ((prev_out == ' ') && iswdigit(sbuf[ix-2]) && !iswdigit(prev_in)) {
@@ -2430,7 +2430,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 					}
 				}
 
-				if (iswupper2(c)) {
+				if (iswupper(c)) {
 					c = towlower2(c);
 
 					if ((j = tr->langopts.param[LOPT_CAPS_IN_WORD]) > 0) {
@@ -2440,7 +2440,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 							syllable_marked = 1;
 						}
 					} else {
-						if (iswlower2(prev_in)) {
+						if (iswlower(prev_in)) {
 							// lower case followed by upper case in a word
 							if (UpperCaseInWord(tr, &sbuf[ix], c) == 1) {
 								// convert to lower case and continue
@@ -2450,7 +2450,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 								space_inserted = 1;
 								prev_in_save = c;
 							}
-						} else if ((c != ' ') && iswupper2(prev_in) && iswlower2(next_in)) {
+						} else if ((c != ' ') && iswupper(prev_in) && iswlower(next_in)) {
 							int next2_in;
 							utf8_in(&next2_in, &source[source_index + next_in_nbytes]);
 

@@ -289,88 +289,13 @@ static const short wchar_toupper[] = {
 	0, 0
 };
 
-// use internal data for iswalpha up to U+024F
-// iswalpha() on Windows is unreliable  (U+AA, U+BA).
-int iswalpha2(int c)
-{
-	if (c < 0x80)
-		return isalpha(c);
-	if ((c > 0x3040) && (c <= 0xa700))
-		return 1; // japanese, chinese characters
-	if (c > MAX_WALPHA)
-		return iswalpha(c);
-	return walpha_tab[c-0x80];
-}
-
-int iswlower2(int c)
-{
-	if (c < 0x80)
-		return islower(c);
-	if (c > MAX_WALPHA)
-		return iswlower(c);
-	if (walpha_tab[c-0x80] == 0xff)
-		return 1;
-	return 0;
-}
-
-int iswupper2(int c)
-{
-	int x;
-	if (c < 0x80)
-		return isupper(c);
-	if (c > MAX_WALPHA)
-		return iswupper(c);
-	if (((x = walpha_tab[c-0x80]) > 0) && (x < 0xfe))
-		return 1;
-	return 0;
-}
-
 int towlower2(unsigned int c)
 {
-	int x;
-	int ix;
-
 	// check for non-standard upper to lower case conversions
-	if (c == 'I') {
-		if (translator->langopts.dotless_i)
-			c = 0x131; // I -> ı
-	}
+	if (c == 'I' && translator->langopts.dotless_i)
+		return 0x131; // I -> ı
 
-	if (c < 0x80)
-		return tolower(c);
-
-	if (c > MAX_WALPHA)
-		return towlower(c);
-
-	if ((x = walpha_tab[c-0x80]) >= 0xfe)
-		return c; // this is not an upper case letter
-
-	if (x == 0xfd) {
-		// special cases, lookup translation table
-		for (ix = 0; wchar_tolower[ix] != 0; ix += 2) {
-			if (wchar_tolower[ix] == (int)c)
-				return wchar_tolower[ix+1];
-		}
-	}
-	return c + x; // convert to lower case
-}
-
-int towupper2(unsigned int c)
-{
-	int ix;
-	if (c > MAX_WALPHA)
-		return towupper(c);
-
-	// check whether a previous character code is the upper-case equivalent of this character
-	if (towlower2(c-32) == (int)c)
-		return c-32; // yes, use it
-	if (towlower2(c-1) == (int)c)
-		return c-1;
-	for (ix = 0; wchar_toupper[ix] != 0; ix += 2) {
-		if (wchar_toupper[ix] == (int)c)
-			return wchar_toupper[ix+1];
-	}
-	return c; // no
+	return towlower(c);
 }
 
 static int IsRomanU(unsigned int c)
@@ -2015,7 +1940,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					while (!Eof() && (c1 != '>'))
 						c1 = GetC();
 					c2 = ' ';
-				} else if ((c2 == '/') || iswalpha2(c2)) {
+				} else if ((c2 == '/') || iswalpha(c2)) {
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
 						// Perhaps not enough room, end the clause before the SSML tag
@@ -2167,9 +2092,9 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 			}
 		}
 
-		if (iswupper2(c1)) {
+		if (iswupper(c1)) {
 			tr->clause_upper_count++;
-			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper2(cprev)) {
+			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev)) {
 				char text_buf[40];
 				char text_buf2[30];
 				if (LookupSpecial(tr, "_cap", text_buf2) != NULL) {
@@ -2181,7 +2106,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					}
 				}
 			}
-		} else if (iswalpha2(c1))
+		} else if (iswalpha(c1))
 			tr->clause_lower_count++;
 
 		if (option_phoneme_input) {
@@ -2238,7 +2163,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 				// i.e. is dot followed by an upper-case letter?
 
 				if (!iswspace(c1)) {
-					if (!IsAlpha(c1) || !iswlower2(c1)) {
+					if (!IsAlpha(c1) || !iswlower(c1)) {
 						UngetC(c2);
 						ungot_char2 = c1;
 						buf[end_clause_index] = ' '; // delete the end-clause punctuation
@@ -2320,7 +2245,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 					punct_data |= CLAUSE_DOT;
 
 				if (nl_count == 0) {
-					if ((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h', 'u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower2(c_next)))) {
+					if ((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h', 'u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next)))) {
 						// lang=hu, fix for ordinal numbers, eg:  "december 2., szerda", ignore ',' after ordinal number
 						c1 = CHAR_COMMA_BREAK;
 						is_end_clause = 0;
@@ -2332,11 +2257,11 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 							// dot after a number indicates an ordinal number
 							if (!iswdigit(cprev))
 								is_end_clause = 0; // Roman number followed by dot
-							else if (iswlower2(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
+							else if (iswlower(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
 								is_end_clause = 0; // only if followed by lower-case, (or if there is a XML tag)
 						} else if (c_next == '\'')
 							is_end_clause = 0;    // eg. u.s.a.'s
-						if (iswlower2(c_next)) {
+						if (iswlower(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
 							is_end_clause = 0;
 						}

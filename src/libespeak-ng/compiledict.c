@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wctype.h>
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
@@ -585,7 +586,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			ix = utf8_in(&c2, p);
 			if (c2 == 0)
 				break;
-			if (iswupper2(c2))
+			if (iswupper(c2))
 				utf8_out(towlower2(c2), p);
 			else
 				all_upper_case = 0;
