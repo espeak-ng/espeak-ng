@@ -18,20 +18,104 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
-//
-// General categories come from Azerbaijani az_list
 
+// SOME USEFUL SYNTAX
+// ' 	primary stress
+// , 	secondary stress
+// % 	unstressed syllable
+// = 	put the primary stress on the preceding syllable
+// _: 	short pause
+// _ 	a shorter pause
+// || 	indicates a word boundary within a phoneme string
+// | 	can be used to separate two adjacent characters, to prevent 
+//      them from being considered as a multi-character phoneme mnemonic
 
 // Numbers
+_0	n'oL
 _1	b'ir
 _2	ek'i
 _3	'ytS
 _4	t'Ort
 _5	b'eS
+_6  aLt'I
+_7  dZet'i
+_8  seg'iz
+_9  toG'uz
+_10 'on
+_11 onb'ir
+_12	onek'i
+_13	on'ytS
+_14	ont'Ort
+_15	onb'eS
+_16 onaLt'I
+_17 ondZet'i
+_18 onseg'iz
+_19 ontoG'uz
+_2X	dZIjIrm'a
+_3X	ot'uz
+_4X	q'Irq
+_5X	el'y:
+_6X	aLtIm'IS
+_7X	dZetim'iS
+_8X	seks'en
+_9X	toqs'on
+_0C	dZ'yz
+_2C	ekidZ'yz
+_3C	ytSdZ'yz
+_4C	tOrtdZ'yz
+_5C	beSdZ'yz
+_6C aLtIdZ'yz
+_7C dZetidZ'yz
+_8C segizdZ'yz
+_9C toGuzdZ'yz
+_0M1	m'iN
+_0M2	mili'on
+_dpt	_:jan'a_:
 
+// symbols
+@ majmyltS'a
+# tortS'o        $max3
+$ d'oLar
+% pratsent  $max3  //shorter e
+^ kr'ySka
+& ampers'and
+* dZILdIztS'a   $max3
++ qoS'u:        $max3
+= barab'ar      $max3
+/ bOrtS'Ok     $max3
+\ tetir'i||sl'eS      $max3
+_- sIzIqtS'a
+_ astInq'I||kenemt'e    $max3
+~ tild'e
+№ nom'er
+! il'ep||belg'i
+? sur'o:||belg'i
+( qaS'a:a||tS'u:
+) qaS'a:||dZab'u:
+| t'ik||sl'eS
+{ atSu:tS'u||figuraL'Iq||qaS'a:
+} dZabu:tS'u||figuraL'Iq||qaS'a:
+[ atSu:tS'u||kvadratt'Iq||qaS'a:
+] dZabu:tS'u||kvadratt'Iq||qaS'a:
+> azd'Iq||belgis'i
+< kOpt'yk||belgis'i
+_. tSek'it
+, yt'yr 
+` atSu:tS'u||apostr'of
+" tIrmaqtS'a
+' dZabu:tS'u||apostr'of
+; tSek'it||yt'yr
+: q'oS||tSek'it
+× kObOjty:
+// ÷
+// - дефис
+《 atSu:tSu||franzuz||tIrmaqtSaLarI
+ 》dZabu:tSu||franzuz||tIrmaqtSaLarI
 
+// Abbreviations
 
-// Function words
+КР ka||er
+км kiL,ometr
 
 // personal pronouns
 

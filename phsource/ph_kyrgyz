@@ -53,14 +53,14 @@ endphoneme
 phoneme o
   ipa o
   vwl starttype #o endtype #o
-  length 200
+  length 170
   FMT(vowel/o_8)
 endphoneme
 
 phoneme u
   ipa u
   vwl starttype #u endtype #u
-  length 200
+  length 170
   FMT(vowel/u_bck)
 endphoneme
 
@@ -138,7 +138,7 @@ endphoneme
 phoneme y:
   ipa y:
   vwl starttype #u  endtype #u
-  length 275
+  length 400
   FMT(vowel/y)
 endphoneme
 
@@ -446,7 +446,15 @@ phoneme b
 endphoneme
 
 phoneme ts
-  import_phoneme ipa/ts\)
+  vls alv afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
 endphoneme
 
 phoneme tS     // **ch**urch
@@ -590,7 +598,7 @@ phoneme t        // dental /t/
   IF nextPh(isPause2) THEN
     WAV(ustop/t_dnt, 35)
   ENDIF
-  WAV(ustop/t_hi, 70)
+  WAV(ustop/t_dnt, 70)
 endphoneme
 
 
