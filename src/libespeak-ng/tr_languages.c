@@ -1099,6 +1099,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.max_initial_consonants = 2;
 	}
 		break;
+	case L('k', 'y'): // Kyrgyx
+		tr->langopts.numbers = 1;
+		break;
 	case L('l', 'a'): // Latin
 	{
 		tr->charset_a0 = charsets[4]; // ISO-8859-4, includes a,e,i,o,u-macron
