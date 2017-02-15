@@ -5,8 +5,10 @@
 
 # Eclipse project files:
 
+.autotools
 .cproject
 .project
+.settings
 
 # intermediate build output:
 
