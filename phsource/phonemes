@@ -1095,3 +1095,5 @@ include ph_guarani
 phonemetable ky base1
 include ph_kyrgyz
 
+phonemetable mi base1
+include ph_maori

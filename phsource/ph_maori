@@ -1,0 +1,75 @@
+// Māori phonemes
+// what follows the word 'phoneme' is the name of the phoneme
+
+//=======
+// VOWELS
+//=======
+phoneme a //so the name of this phoneme is 'a'
+  vwl starttype #a endtype #a
+  length 140
+  FMT(vowel/a_5) //from latin
+endphoneme
+
+phoneme aa //so the name of this phoneme is 'aa'
+  vwl starttype #a endtype #a
+  length 280
+  FMT(vowel/a_5) //copied from above and length doubled
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 140
+  FMT(vowel/e) //working hypothesis
+endphoneme
+
+phoneme ee
+  vwl starttype #e endtype #e
+  length 280
+  FMT(vowel/e) //copied from above and length doubled
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 140
+  FMT(vowel/i) //working hypothesis
+endphoneme
+
+phoneme ii
+  vwl starttype #i endtype #i
+  length 280
+  FMT(vowel/i) //copied from above and length doubled
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 140
+  FMT(vowel/o) //working hypothesis
+endphoneme
+
+phoneme oo
+  vwl starttype #o endtype #o
+  length 280
+  FMT(vowel/o) //copied from above and length doubled
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 140
+  FMT(vowel/u) //working hypothesis
+endphoneme
+
+phoneme uu
+  vwl starttype #u endtype #u
+  length 280
+  FMT(vowel/u) //copied from above and length doubled
+endphoneme
+
+//===========
+// CONSONANTS
+//===========
+
+phoneme ng
+  vcd vel nas //taken from ph_japanese
+  ipa ŋ
+endphoneme
+
