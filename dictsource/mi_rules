@@ -46,7 +46,7 @@
 
 .group n
              n            n
-			 ng			  n //needs to change
+			 ng			  ng
 
 .group p
              p            p
@@ -59,4 +59,4 @@
 
 .group w
              w            w
-			 wh			  f //needs to change (maybe)
+			 wh			  f
