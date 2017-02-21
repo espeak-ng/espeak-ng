@@ -80,7 +80,7 @@ updated languages:
 *  en (English) -- Valdis Vitolins
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  it (Italian) -- chrislm
-*  ky (Krygyz) -- JRMeyer
+*  ky (Kyrgyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins
 *  tr (Turkish) -- Valdis Vitolins
 
