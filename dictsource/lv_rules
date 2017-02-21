@@ -243,11 +243,11 @@
         _) e (lgL04_           e         // Elga
         _) e (lzL04_           e         // Elza
            ene (r              ene
-     _L20) e (sam_+            e         // esam
-     _L20) e (sat_+            e         // esat
+     _L20) e (sam_+          _!e         // esam
+     _L20) e (sat_+          _!e         // esat
         _) e (s_               e         // es
-     _L20) e (si_              e         // esi
-     _L20) e (smu_             e         // esmu
+     _L20) e (si_            _!e         // esi
+     _L20) e (smu_           _!e         // esmu
         g) e (t                e
         ģ) enē (z              ene:
       int) e (r                e
@@ -260,6 +260,7 @@
        _n) e (@+               e
        _n) ere (tL04_          ERE       // Nereta
         n) e (rv               E
+        p) e (rson             E
        pr) e (L71L05_          e         // prece
       _pr) e (t                e
        pr) etē (@              ete:
@@ -434,6 +435,7 @@
            ļ               l^
 
 .group m
+      L55) m (@           >m
            m               m
         C) m (C            m-        // more voiced variant between consonants
 
@@ -749,6 +751,7 @@ L46L45L45) o (<<           uo
         v) ob              ob
 
 .group oc
+        c) oc (a           ots
         d) oc              ots
        em) ocij            o:tsij
         m) oc (ar          o:ts      // Mocarts
@@ -762,6 +765,7 @@ L46L45L45) o (<<           uo
         d) od (ek          od
         j) od (e           od
         j) odo             odo
+      _kl) od (L01_        o:d       // Klods
         k) od (L01_        o:d       // ..kods
        _k) od (L05_        uod       // kode
         k) od (L51         od
@@ -903,6 +907,7 @@ L46L45L45) o (<<           uo
        _b) ol              ol
         b) ol              o:l
        _b) ol (ošL01_      uol       // bološs
+        c) ol (L05_        o:l
         c) ol (l           oll
        _d) ol (ārL01_      ol        // dolārs
        ep) ol              ol
@@ -1118,8 +1123,10 @@ L46L45L45) o (<<           uo
            onn             onnn
            on (o           on
            on (to          on
-     pers) on              o:n
      pers) on (ā           on
+     pers) on (L04_        o:n
+     pers) on              o:n
+     pers) on (@@@         o>n
         p) on (c           on
        _p) on (ijL01_      on        // ponijs
      pont) on              o:n
@@ -1394,12 +1401,13 @@ L46L45L45) o (<<           uo
        pr) otot (ip        otot
        pr) oto (t          uotuo     // ..protot
        pr) ot (u_          uot
-       sl) ot (L04_        uot       // slota
-       sk) ot (L01_        ot
+  publisk) ot              uot
         r) ot (āc          ot
         r) ot (er          ot
         r) ot (ē           ot
       sab) ot              ot
+       sk) ot (L01_        ot
+       sl) ot (L04_        uot       // slota
         t) ot (ēm          ot
         t) ot (L50l        ot
        tr) ot              ot
@@ -1465,7 +1473,7 @@ L46L45L45) o (<<           uo
 
 .group p
            p               p
-      L55) p (L55          p>   
+      L55) p (L55          p>
         _) pus (vien       p%us      // pus..number stress on next syllable
         _) pus (div        p%us
         _) pus (otr        p%us

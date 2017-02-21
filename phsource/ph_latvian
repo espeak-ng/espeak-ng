@@ -63,7 +63,7 @@ endphoneme
 
 phoneme o:
   vwl starttype #o endtype #o
-  length 300
+  length 310
   FMT(vwl_lv/oo, 75)
 endphoneme
 
@@ -293,7 +293,7 @@ endphoneme
 
 phoneme >  // lengthen previous vowel less than using ":"
   virtual
-  length 30 // it actually seems working shorter, but anyway...
+  length 20 // it actually seems working shorter, but anyway...
 endphoneme
 
 phoneme } // Tiny, 5ms non-linked pause (used between phonemes in word)

@@ -36,7 +36,7 @@ updated languages:
 *  gu (Gujarati) -- Vardhan
 *  hi (Hindi) -- Vardhan
 *  it (Italian) -- chrislm
-*  ky (Krygyz) -- JRMeyer
+*  ky (Kyrgyz) -- JRMeyer
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
