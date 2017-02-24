@@ -594,6 +594,12 @@ phoneme e:
 endphoneme
 
 
+phoneme e# // **E**XPLORE
+  vwl
+  ChangePhoneme(E)
+endphoneme
+
+
 phoneme a#2  // for word 'an'
   vwl
   IF next2Ph(isVowel) THEN

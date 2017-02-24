@@ -291,3 +291,9 @@ phoneme aU@
   IfNextVowelAppend(r-)
   FMT(vwl_en_rp/aU@)
 endphoneme
+
+
+phoneme e# // **E**XPLORE
+  vwl
+  ChangePhoneme(I)
+endphoneme
