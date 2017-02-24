@@ -32,6 +32,7 @@ updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  du (Dutch) -- Leonard de Ruijter
+*  en (English) -- Reece Dunn
 *  fr (French) -- Valdis Vitolins
 *  gu (Gujarati) -- Vardhan
 *  hi (Hindi) -- Vardhan

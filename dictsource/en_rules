@@ -1,7 +1,7 @@
 // ***************************************************************************
 // *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
-// *   Copyright (C) 2016 Reece H. Dunn                                      *
+// *   Copyright (C) 2016-2017 Reece H. Dunn                                 *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -820,6 +820,7 @@
      m) an (ge     eIn
      _) anecdo     anIkdoU
      C) an (t      aan
+     C) an (tast   an
         an (ath    a#n
         ann (eal   a#n
     sc) anner      an3
@@ -874,7 +875,7 @@
      h) an (ce_    aan
      &) an (cy     @n
    adv) an (c      an
-   mel) an (chol   @n
+   mel) an (chol   @N
      _) an (cie    eIn
 propag) an (d      'an
     &l) an (d      @n
@@ -2217,6 +2218,7 @@ _it_separ) ate (_  @t
      @) e (tio     i:
    _pr) e (au      i
  discr) e (tion    E
+     m) e (thought %I
         ew         ju:
    ren) ew (A      ju:
     AC) ew (A      w
@@ -2538,6 +2540,7 @@ _it_separ) ate (_  @t
 
 .group en
      _) en (@      %En
+     _) en (g@     %EN // velarized
         en (_$w_alt1 En
      &) eness (_S4 n@s
     &r) en (@      En
@@ -2712,7 +2715,7 @@ _it_separ) ate (_  @t
     rn) er (_S2    3
     er) er (_S2    3
     ll) er (_S2    3
-     &) er (_      3
+     &) er (_      %3
 ?8   &) er (_      a#        // (temporary because [3] -> [a#] is only for word-final
     ll) ers (_S3   3z
 ?8  %C) ers (_S4   a#z
@@ -2907,7 +2910,7 @@ _it_separ) ate (_  @t
    &tr) ess (_     @s
   dist) ess (_     Es
      &) es (y_     @s
-     &) es (t_     @s
+     &) es (t_     I2s
     Cr) es (t      Es
     gu) es (t_     Es
         es (tral_  'Es
@@ -2948,7 +2951,6 @@ _it_separ) ate (_  @t
    &Ar) et (_      @t
     rk) et         It
     ll) et (_      It
-    &l) et (_      @t
      j) et (_      Et
      s) et (_      Et
      t) et (_      'Et
@@ -3879,7 +3881,7 @@ _it_separ) ate (_  @t
         iority     I'0rI2ti
         iou (rA    j@
         iour (K    j3
-     @) ious       =I2@s
+     @) ious       =i@s
      g) ious       =@s
         ioux       u:
     _r) io (t      aI@
@@ -4760,7 +4762,7 @@ multip) ly         laI
     &C) oned (_S2v d
     &C) oning (_S3v I2N
      _) one        w02n
-     _) once (_    w02ns
+     _) once (_    wVns
      g) on (e      0n
      &) on (er_    @n
     ex) on (er     0n
@@ -4890,7 +4892,7 @@ multip) ly         laI
         or (amic   @r
      &) or (ate    3r
      &) or (ative  @-r
-     &) or (_      3
+     &) or (_      %3
 ?8  @@) or (_S2d   o@        // suffix
 ?8   &) or (_      o@
     _c) or (@      O@
@@ -4964,8 +4966,8 @@ multip) ly         laI
 ?3      or (r      O@
     bb) or (n      3
      f) oreign     0r@n
-     f) or (ever   3
-     f) or (gAt    3
+     f) or (ever   %3
+     f) or (gAt    %3
     _f) org (Av    @g
     fl) or (i      0r
         or (igina  @r
@@ -5810,6 +5812,7 @@ multip) ly         laI
   plea) s (e       z
    pea) s (e       z
    tea) s (e       z
+   _he) s (it      z
    _re) s (o       z
 ?3  re) s (our     s
     ai) s (e       z
@@ -6397,6 +6400,8 @@ contin) u          ju:
 .group un
      _) un (@P2    %Vn       // prefix
      _) un (AP2    %Vn       // prefix
+     _) un (g@P2   %VN       // prefix (velarized)
+     _) un (k@P2   %VN       // prefix (velarized)
      _) un (A_     ju:n
      _) unn        %Vnn
      @) un (al     'ju:n
@@ -6475,7 +6480,7 @@ contin) u          ju:
         urr (_     3:
 ?5      urr (_     VR
 ?3      urr        3:
-     C) ur (A      jUr
+     C) ur (A      jU@r
     _p) ure (b     jU@
      C) ur (a_     'jU@
      p) ur (a_     U@

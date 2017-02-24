@@ -850,6 +850,7 @@ ague		eIgju:
 aha		A:h'A:
 ahem		@h'@m
 ahoy		a#hOI
+aidenn		eId@n
 airbus		e@bVs
 airpower	'e@p,aU@
 aisle		aI@l
@@ -1665,7 +1666,7 @@ derogative	$2
 descant		dEskant
 descry		dI2skreI
 desert		dI2z3:t
-desert		dEs3t		$only
+desert		dEz3t		$only
 desert		dI2z3:t		$verb
 desi		deIsi
 desolate	dEs@l@t		$only
@@ -2060,7 +2061,7 @@ geyser		gi:z3
 gi		gi:	$onlys
 gi		$abbrev $allcaps
 gig		gIg
-gilead		g'IlIad
+gilead		g'Iliad
 gimme		gImi
 giraffe		dZI2raaf
 github		gIthVb
@@ -3008,7 +3009,7 @@ prescience	pri:si@ns
 prescript	$alt6	$onlys
 present		prEz@nt       $onlys
 present		$verb
-presently	prEz@ntlI     $verbf
+presently	prEz@ntli     $verbf
 preservation	prEz3v'eIS@n
 preset		pri:sEt
 prestige	prEst'i:Z
@@ -3736,7 +3737,7 @@ upriver		,Vpr'Iv3
 uproot		$2
 uplift		$2
 upset		$1        $noun
-upstart		$1
+upstart		$1        $only
 uptight		$2
 urdu		U@du:
 urea		ju:r'i@
@@ -4748,7 +4749,7 @@ Leann		li:'an
 Leanne		li:'an
 (Le ann)	li:'an
 Lelaine		$2
-Lenore		lEn'o@
+Lenore		lIn'o@
 Leola		li:'oUl@
 Leon		li:0n
 Leonard		lEn3d
@@ -4840,6 +4841,7 @@ Nigel		naIdZ@L
 Nguyen		nu:jEn
 Omar		oUmA@
 Oscar		0sk3
+Pallas          pal@s
 Pamela		pam@l@
 Pandora		$2
 Patricia	pa#trIS@
