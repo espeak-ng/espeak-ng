@@ -223,6 +223,14 @@ phoneme i@
 endphoneme
 
 
+phoneme i@3
+  vwl  starttype #i  endtype #a
+  length 240
+  IfNextVowelAppend(r-)
+  FMT(vdiph2/ie)
+endphoneme
+
+
 
 phoneme l
   import_phoneme base1/l   // use clear [l] before not-vowel

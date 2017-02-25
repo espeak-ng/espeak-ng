@@ -485,7 +485,7 @@ phoneme e@ // squ**are**
 endphoneme
 
 
-phoneme i@ // n**ear**
+phoneme i@ // mill**io**n
   vwl  starttype #i  endtype #@
   length 250
   IfNextVowelAppend(r-)
@@ -493,7 +493,7 @@ phoneme i@ // n**ear**
 endphoneme
 
 
-phoneme i@3
+phoneme i@3 // n**ear**
   vwl  starttype #i  endtype #@
   length 250
   

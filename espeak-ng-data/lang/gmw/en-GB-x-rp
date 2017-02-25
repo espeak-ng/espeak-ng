@@ -9,7 +9,6 @@ status mature
 phonemes en-rp
 
 replace 00  o@  O@
-replace 00 i@3 i@
 replace 03 I i
 replace 03 I2 i
 replace 03 @ a#

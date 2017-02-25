@@ -7,7 +7,6 @@ phonemes en-wm
 
 replace 00 h NULL
 replace 00 o@ O@
-replace 00 i@3 i@
 dictrules 6
 intonation 4
 stressAdd 0 0 0 0 0 0 0 20

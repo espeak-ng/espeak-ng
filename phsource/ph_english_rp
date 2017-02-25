@@ -263,6 +263,14 @@ phoneme i@
 endphoneme
 
 
+phoneme i@3
+  vwl  starttype #i  endtype #@
+  length 240
+  IfNextVowelAppend(r-)
+  FMT(vwl_en_rp/i@)
+endphoneme
+
+
 phoneme U@
   vwl  starttype #u  endtype #@
   ipa ɔː

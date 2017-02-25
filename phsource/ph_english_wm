@@ -236,6 +236,14 @@ phoneme i@
 endphoneme
 
 
+phoneme i@3
+  vwl  starttype #i  endtype #@
+  length 240
+  IfNextVowelAppend(r-)
+  FMT(vdiph2/i@_2)
+endphoneme
+
+
 phoneme U@
   vwl  starttype #u  endtype #@
   length 200
