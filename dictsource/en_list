@@ -1042,8 +1042,8 @@ aussie		0zi
 ?3 aussie	0si
 austere		O:st'i@3
 authority	a#T0rI2ti
-authoritative	O:T'0rI2t@tIv
-?3 authoritative	a#T'O@I#t2eItIv
+authoritative	O:T'O2rI2t@tIv
+?3 authoritative	a#T'O2rI#t2eItIv
 autism		O:t2Iz@m
 autograph	O:t@graf
 auto		O:toU
@@ -5271,8 +5271,8 @@ in               %In		$strend $only $nounf
 (in which)       	$u2 $pause
 (in a row)       Ina#||r'oU
 
-on               ,0n		$strend2
-(on the)         %0nD@2
+on               ,O2n		$strend2
+(on the)         %O2nD@2
 
 (out of)         ,aUt@v
 into             ,IntU
