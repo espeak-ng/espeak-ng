@@ -85,12 +85,7 @@ merged with the other.
 | Lexical Set | en    | RP    | GenAm |
 |-------------|-------|-------|-------|
 | BATH        | `aa`  | ɑː    | æ     |
-| CLOTH       | `0`   | ɒ     | ɔ     |
-
-__NOTE:__ eSpeak NG does not have a distinct transcription for the CLOTH lexical
-set. As such, it can only represent American English accents with the COT-CAUGHT
-merger where COT is the American PALM-LOT merger and CAUGHT is the American
-THOUGHT-CLOTH merger.
+| CLOTH       | `O2`  | ɒ     | ɔ     |
 
 ## References
 

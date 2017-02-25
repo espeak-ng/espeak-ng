@@ -1690,7 +1690,6 @@ diabetes	daI|@b'i:ti:z
 diablo		di:'A:bloU
 diabolo		daI'ab@loU
 diagnose	$3
-//?3 dialog	daI|@lO:g
 dialysis	daI'al@sIs
 diameter	daI'amI2t3
 diaper		daIp3
@@ -2473,7 +2472,7 @@ lorenz		l0r@nts
 los		,l0s          $only
 losing		lu:zIN        // misspell
 loquat		loUkw0t
-?3 lost		lOst
+lost		lO2st
 loudmouth	$alt1
 lugubrious	l@g'u:brI2@s
 lukewarm	lu:kwO@m
@@ -4073,7 +4072,7 @@ Bogotá		bogota	$text
 Bologna		b@loUn;@ $capital
 Boötes		boU'oUti:z
 Boötis		boU'oUtI#s
-?3 Boston	bOst@n
+Boston		bO2st@n
 ?!3 Boulogne	bUl'OIn
 Brisbane	brIsb@n
 Bucharest	bu:ka#r'Est
@@ -5443,8 +5442,7 @@ go               ,goU		$strend2 $only
 goes             %goUz		$strend2 $only
 goeth		goU@T		$u+
 going            ,goUIN		$strend2 $only
-gone             %g0n		$strend2 $only
-?3 gone          %gOn		$strend2 $only
+gone             %gO2n		$strend2 $only
 went             %wEnt		$strend2 $only
 
 do               du:		$verbf
