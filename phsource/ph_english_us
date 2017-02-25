@@ -370,6 +370,12 @@ phoneme aU@
 endphoneme
 
 
+phoneme e# // **E**XPLORE
+  vwl
+  ChangePhoneme(I)
+endphoneme
+
+
 //==============
 // Consonants
 //==============
