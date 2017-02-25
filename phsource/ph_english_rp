@@ -84,6 +84,7 @@ endphoneme
 phoneme i
   vwl  starttype #i  endtype #i
   unstressed
+  ipa ɪ
   length 140
   IfNextVowelAppend(;)
 
