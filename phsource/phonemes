@@ -382,15 +382,105 @@ procedure vowelstart_l
 endprocedure
 
 phoneme l
-  import_phoneme ipa/l
+  liquid
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    // in case the next phoneme is no longer a vowel, in pass=2
+    PrevVowelEndings
+      VowelEnding(l/L1_@L, -60)
+      VowelEnding(l/L1_aL, -40)
+      VowelEnding(l/L1_eL, -30)
+      VowelEnding(l/L1_iL, -30)
+      VowelEnding(l/L1_oL, -40)
+      VowelEnding(l/L1_uL, -40)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(#@) THEN
+    VowelEnding(l/xl, -50)
+  ELIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
 endphoneme
 
+
 phoneme l/    // used for [l] when not before a vowel
-  import_phoneme ipa/l
+  liquid
+  lengthmod 7
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(l)
+  ENDIF
+
+  PrevVowelEndings
+    VowelEnding(l/L1_@L, -60)
+    VowelEnding(l/L1_aL, -40)
+    VowelEnding(l/L1_eL, -30)
+    VowelEnding(l/L1_iL, -30)
+    VowelEnding(l/L1_oL, -40)
+    VowelEnding(l/L1_uL, -40)
+  EndSwitch
+
+  // we need to replace these with new FMT sequeces for jl and wl
+  IF prevPhW(j) THEN
+    FMT(l/L1_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L1_eL)
+  ENDIF
+
+  FMT(l/l_)
 endphoneme
 
 phoneme l/2    // 'dark' [l] after a vowel
-  import_phoneme ipa/l_e
+  liquid
+  lengthmod 7
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(l)
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPhW(j) THEN
+    FMT(l/L2_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L2_uL)
+  ENDIF
+
+  PrevVowelEndings
+    VowelEnding(l/L2_@L, -60)
+    VowelEnding(l/L2_aL, -50)
+    VowelEnding(l/L2_eL, -40)
+    VowelEnding(l/L2_iL, -30)
+    VowelEnding(l/L2_oL, -50)
+    VowelEnding(l/L2_uL, -40)
+  EndSwitch
 endphoneme
 
 phoneme l/3    // Replacement for [l/]
