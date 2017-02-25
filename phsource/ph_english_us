@@ -124,21 +124,6 @@ phoneme I#
 endphoneme
 
 
-
-phoneme i   //  optional variant of [I] for end of words
-  vwl  starttype #i  endtype #i
-  unstressed
-  length 170
-  IfNextVowelAppend(;)
-
-  IF NOT thisPh(isFinalVowel) THEN
-    ChangePhoneme(I)
-  ENDIF
-  
-  FMT(vowel/ii_final)
-endphoneme
-
-
 phoneme 0
   vwl  starttype #a   endtype #a
   length 220
