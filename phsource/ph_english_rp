@@ -81,16 +81,17 @@ phoneme I2
 endphoneme
 
 
-phoneme i   //  optional variant of [I] for end of words
+phoneme i
   vwl  starttype #i  endtype #i
   unstressed
   length 140
   IfNextVowelAppend(;)
 
   IF NOT thisPh(isFinalVowel) THEN
-    ChangePhoneme(I)
+    length 130
+    FMT(vowel/ii)
   ENDIF
-    
+
   FMT(vowel/ii_final)
 endphoneme
 
