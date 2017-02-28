@@ -985,4 +985,5 @@ phoneme j.
   liquid
   lengthmod 7
   ipa U+0265
+  ChangePhoneme(y)
 endphoneme
