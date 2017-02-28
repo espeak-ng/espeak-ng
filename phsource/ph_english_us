@@ -146,7 +146,7 @@ endphoneme
 phoneme O2
   vwl  starttype #o  endtype #o
   length 220
-  ChangePhoneme(O:)
+  FMT(vowel/aa#) // Same as /O/, but not diminished.
 endphoneme
 
 
