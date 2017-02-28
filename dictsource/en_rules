@@ -2340,35 +2340,28 @@ _it_separ) ate (_  @t
      C) ea (ven    E
 
 .group ed
-        ed (_$w_alt5++S2 d
+        ed (_$w_alt5++S2 d#
         ed (_$w_alt1+ Ed
-    @@) ed (_S2dvei d
-    Ai) ed (_S2dve d
-    @C) ed (_S2dvei d
-    @c) ed (_S2vdei t
+    @@) ed (_S2dvei d#
+    Ai) ed (_S2dve d#
+    @C) ed (_S2dvei d#
     @d) ed (_S2dvei I#d
 ?8  @d) ed (_S2dvei Ed
-   &ch) ed (_S2vei t
-   &sh) ed (_S2vei t
   @Csh) ed (_      Ed
-    @f) ed (_S2vdei t
    CCf) ed (_      Ed
-    @g) ed (_S1vi  d
-    @k) ed (_S2vdei t
-    el) ed (_S2dv  d
-   &en) ed (_S2v   d
-    cl) ed (_S1v   d
-    @p) ed (_S2vdei t
-  @@er) ed (_S2v   d
-   @ss) ed (_S2dv  t
+    el) ed (_S2dv  d#
+   &en) ed (_S2v   d#
+    cl) ed (_S1v   d#
+  @@er) ed (_S2v   d#
+   @ss) ed (_S2dv  d#
     @t) ed (_S2vdei I#d
 ?8  @t) ed (_S2vdei Ed
-   @fr) ed (_S2v   Id
-   Aur) ed (_S2v   d
+   @fr) ed (_S2v   Id#
+   Aur) ed (_S2v   d#
     yw) ed (_      Ed
-    @x) ed (_S2vi  t
-     y) ed (_S2v   d
- debut) ed (_S2    d
+    @x) ed (_S2vi  d#
+     y) ed (_S2v   d#
+ debut) ed (_S2    d#
         edly (_S2m l%i
      c) ed (e_     'i:d
      p) ed (e_     i:d
@@ -6763,19 +6756,15 @@ contin) u          ju:
         Ea (n_     'i@
      d) Ea (n_     =i|@
         Ectomy (_S6 'Ekt@mI
-    @@) Ed (_S2vei d
+    @@) Ed (_S2vei d#
     &C) Ed (_S2veim d#
         Ed (_+$w_alt1 Ed
-    &c) Ed (_S2vei t
     &d) Ed (_S2vei I#d
-   &ch) Ed (_S2vei t
-    &k) Ed (_S2vei t
- &@@om) Ed (_S2v   d
-    &p) Ed (_S2vei t
+ &@@om) Ed (_S2v   d#
     &t) Ed (_S2vei I#d
-    ur) Ed (_S1vi  d
-    &x) Ed (_S2v   t
-     y) Ed (_      d
+    ur) Ed (_S1vi  d#
+    &x) Ed (_S2v   d#
+     y) Ed (_      d#
         Edly (_S4e Idl%i
         E (dia_    i:
         E (dic_    i:
