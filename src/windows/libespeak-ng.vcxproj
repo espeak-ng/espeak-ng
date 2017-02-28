@@ -87,7 +87,7 @@
       </PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat;$(ProjectDir)/../ucd-tools/src/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;INCLUDE_KLATT;INCLUDE_MBROLA;HAVE_PCAUDIOLIB_AUDIO_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -106,7 +106,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;INCLUDE_KLATT;INCLUDE_MBROLA;HAVE_PCAUDIOLIB_AUDIO_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat;$(ProjectDir)/../ucd-tools/src/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +123,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat;$(ProjectDir)/../ucd-tools/src/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;INCLUDE_KLATT;INCLUDE_MBROLA;HAVE_PCAUDIOLIB_AUDIO_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
     </ClCompile>
@@ -146,7 +146,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>LIBESPEAK_NG_EXPORT;INCLUDE_KLATT;INCLUDE_MBROLA;HAVE_PCAUDIOLIB_AUDIO_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)libespeak-ng.pdb</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/../include;$(ProjectDir)/../pcaudiolib/src/include;$(ProjectDir)/../include/compat;$(ProjectDir)/../ucd-tools/src/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,6 +158,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ucd-tools\src\case.c" />
+    <ClCompile Include="..\ucd-tools\src\categories.c" />
+    <ClCompile Include="..\ucd-tools\src\ctype.c" />
+    <ClCompile Include="..\ucd-tools\src\scripts.c" />
+    <ClCompile Include="..\ucd-tools\src\tostring.c" />
     <ClCompile Include="..\libespeak-ng\compiledata.c" />
     <ClCompile Include="..\libespeak-ng\compiledict.c" />
     <ClCompile Include="..\libespeak-ng\compilembrola.c" />
@@ -203,6 +208,7 @@
     <ClInclude Include="..\libespeak-ng\voice.h" />
     <ClInclude Include="..\pcaudiolib\src\audio_priv.h" />
     <ClInclude Include="..\pcaudiolib\src\include\pcaudiolib\audio.h" />
+    <ClInclude Include="..\include\ucd-tools\src\include\ucd\ucd.h" />
     <ClInclude Include="config.h" />
   </ItemGroup>
   <ItemGroup>
