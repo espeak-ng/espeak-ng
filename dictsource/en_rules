@@ -520,8 +520,7 @@
      t) agi (o     eIdZ
      _) ag (l@     a#g
      &) ag (on_    @g
-    dr) agon       ag@n
-     w) agon (+    ag@n
+     C) agon (+    ag@n
     fl) ag (ran    eIg
     fr) ag (r      eIg
      v) ag (ra     eIg
@@ -582,6 +581,7 @@
      _) ale (C_    alI2
    @ic) al (_S2    @L
      _) al (@      a#l
+    _p) al (@@     a#l
   gonz) al         'A:l
      _) alaba      al@b'a
 ?3 _st) al (aCCi   a#l
@@ -1100,8 +1100,8 @@ calend) ar         3
         ar (et     ar
         ar (iaB_   'e@
         ar (ia_    'e@
-     @) arily (_   'Er@l%i
-?3   @) arily (_   'e@r@l%i
+     @) arily (_   'ErI2l%i
+?3   @) arily (_   'e@rI2l%i
     ch) ar (it     ar
     ph) ar (i      ar
      m) ar (i      @r
@@ -1216,7 +1216,7 @@ calend) ar         3
         ass (on    as
         ass (u     @S
         ass (ump   a#s
-        assur      @SjU@
+        assur      @SU@
      C) as (t      aas
    _bl) as (to     as  //not aa
         as (ter    aas
@@ -2556,10 +2556,8 @@ _it_separ) ate (_  @t
      s) en (d_     En
      t) en (d_     En
         en (dA_    'En
-     _) en (d      En
      _) en (da     %En
     eg) en (d      @n
-        en (dea    %En
         en (der    En
    cal) en (dAr    @n
         en (dous   En
@@ -2745,7 +2743,7 @@ _it_separ) ate (_  @t
 ?!3 _d) er (b      A@
      &) er (A      3r
      @) er (o_     'e@r
-        eri (A     'i@r%I
+        eri (A     'i@3r%i
         eria (_$w_alt1 @r'i@
         er (iC     Er
      &) er (ing    3r
@@ -3019,7 +3017,7 @@ _it_separ) ate (_  @t
 .group ex
      _) ex (@      %e#ks
         excav      Eksk@v
-     _) exc (e     %Eks
+     _) exc (e     %e#ks
         exc (i     %Eks
      _) ex (ecra   Eks
      _) ex (crem   Eks
@@ -3185,6 +3183,7 @@ _it_separ) ate (_  @t
      A) han (_     han       // places
      e) han (_     h@n
         ha (st     heI
+        hast (en   heIs
      _) he'        %hi:
      &) head (_S4  hEd
      &) headed (_S6 hEdI#d
@@ -3270,9 +3269,9 @@ _it_separ) ate (_  @t
      t) ibe (t     Ib'E
         i (bilit   @
      b) i (ble_    aI
-     @) ible (_S4ev @b@L
-     @) ibles (_S5ev @b@Lz
-     @) ibly (_S4efv @bl%i
+     @) ible (_S4ev I2b@L
+     @) ibles (_S5ev I2b@Lz
+     @) ibly (_S4efv I2bl%i
         i (bo_     i:
      v) i (br      aI
     _l) i (br      aI
@@ -3506,7 +3505,7 @@ _it_separ) ate (_  @t
   spec) ies (_     i:z
    ser) ies (_     i:z
         iesc       I2Es
-     &) iest (_S3i @st
+     &) iest (_S3i %Ist
     pr) ie (st     i:
     _v) ie (t      i:@'
         ie (ve     i:
@@ -4726,6 +4725,7 @@ multip) ly         laI
     &i) on (_      @n
     &k) on (_      @n
     &s) on (_      @n
+    &s) on (ry_    @n
     &t) on (_      @n
    &tr) on (_      0n
     nl) on (_      @n
@@ -4762,6 +4762,7 @@ multip) ly         laI
     _h) on (ey     Vn
      n) on (e      0n
     _m) on (C      0n 
+    am) on (@      ,0n
      m) one (ta    VnI
 ?3   m) one (ta    0nI
      m) one (ti    0nI2
@@ -5146,6 +5147,7 @@ multip) ly         laI
         ou (p      u:
      c) ou (pl     V
      &) our (_     3
+     &) our (er_   3
     np) our (_     o@
     ev) our (ed    aU@
         our (n     3:
@@ -5368,42 +5370,41 @@ multip) ly         laI
      _) pe (culi   pI%
      _) pe (nr     p%E
         pe (ninsu  p@
-        per (cep   p3
-        per (cei   p3
-     _) per (ch@   p3
-        per (culi  p3
-        per (cus   p3
+        per (cep   p%3
+        per (cei   p%3
+     _) per (ch@   p%3
+        per (culi  p%3
+        per (cus   p%3
      _) peregrin   pEr@grIn
      _) per (empt  p3r
-        per (fec   p3
+        per (fec   p%3
      _) per (iC@@  p,Er
      _) per (igr   pEr
      _) perini     pErIn'i:
      _) per (iph   p3r
      _) per (isc   pEr
      _) per (ish   pEr
-     _) per (mang  p3
+     _) per (mang  p%3
         perme (a   p3:mI
-        per (miss  p3
-        per (mit   p3
-     _) pe (rog    p3
-        per (pet   p3
+        per (miss  p%3
+        per (mit   p%3
+     _) pe (rog    p%3
+        per (pet   p%3
         per (petr  p3:
-        per (ple   p3
-        per (sis   p3
+        per (ple   p%3
+        per (sis   p%3
         persever   p3:sIv'i@3
-        per (sp    p3
+        per (sp    p%3
         perspi (ran p3:sp@
-        per (su    p3
-        per (tai   p3
-        per (tu    p3
+        per (su    p%3
+        per (tai   p%3
+        per (tu    p%3
         per (vi    p3:
-        per (form  p3
-        per (fun   p3
-        per (fus   p3
-        per (su    p3
-     _) per (va    p3
-     _) per (ver   p3
+        per (form  p%3
+        per (fun   p%3
+        per (fus   p%3
+     _) per (va    p%3
+     _) per (ver   p%3
      _) perus      p3ru:z
      _) peroxy     p3,0ksI
      _) peri (Be   pErI2
@@ -5954,30 +5955,27 @@ multip) ly         laI
         super (io  s%u:pi@r
         super (la  su:p'3:
         super (visi s%u:p3
-        su (ppl    s@
+     _) su (pp@    s@
         su (pple   sV
         su (pplic  sV
-        su (ppor   s@
-        su (ppres  s@
      _) supra (P5  s'u:pr@
      _) sur        s3:
 ?5   _) sur        sVR
      _) sure       SU@
         sur (anc   SU@
         sur (g+    s3:
-        sur (m     s3
-        sur (pa    s3
-        sur (pr    s3
-        sur (r     s3
+        sur (m     s%3
+        sur (pa    s%3
+        sur (pr    s%3
+        sur (r     s%3
         sur (rey   sV
-        sur (v     s3
+        sur (v     s%3
         sur        s3:
 ?5      sur        sVR
      &) sure (_    Z3
     ea) sur        Z3
     en) sur        SU@
     in) sur (A     SU@
-    un) sur (p     s3
      o) sur        Z3
      _) susc (e    s@s
      _) sus (p     s@s
@@ -6152,8 +6150,8 @@ multip) ly         laI
      @) tu (lat    =tSU
 ?3      tu (Ant    tSu:
 ?3      tu (Ancy   tSu:
-?3 for) tune       tS@n
-   for) tune       tSu:n
+   for) tun (A     tS@n
+!?3 for) tune      tSu:n
         tu (ous    =tSu:
      @) tur (A     tS@r
      @) tur (al_   tS=@r
@@ -6570,6 +6568,7 @@ contin) u          ju:
      @) wise (_S4  waIz
      e) with (_    w'ID
         with (C    w%ID
+        with (dr   w%IT
         with (A    w%ID
         with (e    wID
      &) wood (_S4  wUd
@@ -6736,7 +6735,9 @@ contin) u          ju:
      _) zs (Y      z
      _) z (wY      z
 
+     a) zz (o      ts
      n) z (_N      ts
+
      @) zales (_   z'A:l@s
         zei        zaI
         zes (_     zI2z

@@ -1985,7 +1985,6 @@ forewarn	$2
 formid		fO@m'Id	// formidable
 formica		fO@m'aIk@
 fortunate	fO@tS@n@t
-!?3 fortune	fO@tSu:n
 foyer		fOIeI
 fragment	fragm'Ent  $verb
 freelance	fri:laans
@@ -2387,6 +2386,7 @@ laboratory	la#b'0r@tri
 laborious	$alt3
 labyrinth	lab3InT
 labyrinthine    lab3'InTi:n
+lacessit	l@kEsIt
 lactate		$2 $verb
 lascivious	$alt3
 lager		lA:g3
@@ -2474,6 +2474,7 @@ losing		lu:zIN        // misspell
 loquat		loUkw0t
 lost		lO2st
 loudmouth	$alt1
+luchesi		$2
 lugubrious	l@g'u:brI2@s
 lukewarm	lu:kwO@m
 lullaby		lVl@baI
@@ -2784,6 +2785,7 @@ ordeal		O@d'i@l
 oregano		0rIg'A:noU
 organelle	O@g@n'El
 orion		0r'aI@n
+ornamented	'O:n@m,EntId
 ornate		$2
 orphan		O@f@n          // orphaned
 ottoman		0t@m@n
@@ -2900,11 +2902,11 @@ peon		pi:@n
 perches		p3:tSIz
 perfectly	p3:fEktlI
 perfect		p3:fEkt       $onlys
-perfect		p3fEkt        $verb
+perfect		p%3fEkt       $verb
 perimeter	p@rImI2t3
 periwinkle	$1
 permit		p3:mIt        $onlys
-permit		p3mIt         $verb
+permit		p%3mIt        $verb
 persona		p3:s'oUn@
 perspex		p3:spEks
 perus		p@ru:z
@@ -3105,7 +3107,7 @@ rakish		$alt6
 ramadan		rama#dA:n
 ramen		rA:m@n
 rani		rA:ni
-rapier		reIpi@3
+rapier		reIpi3
 rapport		rap'o@
 rarity		re@r@ti
 rascal		raask@L
@@ -3197,11 +3199,13 @@ repost		r,i:p'oUst
 ?3 rapprochement	raproUSm'A~
 reputable	rEpju:t@b@L
 requiem		rEkwI2Em
+requiescat	r,Ekwi:'Eskat
 resale		ri:seIl
 resell		ri:s'El
 reservation	rEz3v'eIS@n
 reservoir	rEz3vwA@
 resin		rEzIn
+resist		rI2zIst
 résistance	reIzIst'A~ns
 ?3 respite	rEspI2t
 restive		rEstIv
@@ -3500,7 +3504,7 @@ subordinate	$2
 subordinate	$alt1 $verb
 subpoena	su:p'i:n@
 subsequent	sVbsI2kw@nt
-subside		s@bsaId
+subside		s%VbsaId
 subtly		sVt@lI      $verbf
 subvocal	sVbv'oUk@L
 succumb		s@kVm
@@ -3861,6 +3865,7 @@ whois		hu:'Iz
 whol		hoUl          // for wholly
 wholehearted	$2
 wicked		wIkI#d
+width		wItT
 wilderness	wIld3n@s
 wifi		waIfaI
 winding		waIndIN       // verb
@@ -4192,7 +4197,7 @@ Islay		aIl@
 ?3 Israel	Izri:@L
 Israeli		Izr'eIli
 Istanbul	,Ist,anb'Ul
-Italia		It'alI2@  // Italian(s)
+Italia		It'ali@  // Italian(s)
 Italy		It@li
 Itanagar	i:t'A:n@g3
 Ithaca		IT@k@
@@ -5561,7 +5566,7 @@ someone          sVmw02n
 
 //conjunctions
 
-although         0lD'oU		$pause
+although         O:lD'oU	$pause
 and              and		$u $pause $only
 as               %az		$only
 (as is)          ,az,Iz		$pause
