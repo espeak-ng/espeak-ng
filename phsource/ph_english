@@ -93,6 +93,16 @@ phoneme w#
 endphoneme
 
 
+phoneme n
+  vcd alv nas
+  ipa n
+  IF nextPh(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
+    ChangePhoneme(N)
+  ENDIF
+  CALL ipa/n
+endphoneme
+
+
 //*******************************************************************
 // VOWELS
 //*******************************************************************
