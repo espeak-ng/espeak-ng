@@ -682,8 +682,8 @@
                 <Component Id="is" Win64="$(var.Win64)" Guid="BF7EADBC-8A31-41C7-9128-3AD1A0BE5816">
                   <File Name="is" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\is" KeyPath="yes"/>
                 </Component>
-                <Component Id="no" Win64="$(var.Win64)" Guid="00A4EAD2-9EDB-46A7-9277-DF3E08B92221">
-                  <File Name="no" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\no" KeyPath="yes"/>
+                <Component Id="nb" Win64="$(var.Win64)" Guid="0FF21BC9-B43F-42E5-B6B5-7367744425D3">
+                  <File Name="nb" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\nb" KeyPath="yes"/>
                 </Component>
                 <Component Id="sv" Win64="$(var.Win64)" Guid="4BA838F8-D077-41C8-9F4B-D686472AB216">
                   <File Name="sv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\sv" KeyPath="yes"/>
@@ -1202,7 +1202,7 @@
       <ComponentRef Id="ne_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangNorwegian">
-      <ComponentRef Id="no"/>
+      <ComponentRef Id="nb"/>
       <ComponentRef Id="no_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangOriya">
