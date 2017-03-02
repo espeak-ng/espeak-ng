@@ -229,11 +229,8 @@
       <Feature Id="lang_pap" Title="Papiamento" Level="1">
         <ComponentGroupRef Id="LangPapiamento"/>
       </Feature>
-      <Feature Id="lang_fa__en_US" Title="Persian with English (America)" Level="1">
-        <ComponentGroupRef Id="LangPersian_EnglishAmerica"/>
-      </Feature>
-      <Feature Id="lang_fa__en_GB" Title="Persian with English (Britain)" Level="1">
-        <ComponentGroupRef Id="LangPersian_EnglishBritain"/>
+      <Feature Id="lang_fa" Title="Persian" Level="1">
+        <ComponentGroupRef Id="LangPersian"/>
       </Feature>
       <Feature Id="lang_fa_Latn" Title="Persian (Pinglish)" Level="1">
         <ComponentGroupRef Id="LangPersian_Pinglish"/>
@@ -241,11 +238,11 @@
       <Feature Id="lang_pl" Title="Polish" Level="1">
         <ComponentGroupRef Id="LangPolish"/>
       </Feature>
+      <Feature Id="lang_pt" Title="Portuguese (Portugal)" Level="1">
+        <ComponentGroupRef Id="LangPortuguesePortugal"/>
+      </Feature>
       <Feature Id="lang_pt_BR" Title="Portuguese (Brazil)" Level="1">
         <ComponentGroupRef Id="LangPortugueseBrazil"/>
-      </Feature>
-      <Feature Id="lang_pt_PT" Title="Portuguese (Portugal)" Level="1">
-        <ComponentGroupRef Id="LangPortuguesePortugal"/>
       </Feature>
       <Feature Id="lang_pa" Title="Punjabi" Level="1">
         <ComponentGroupRef Id="LangPunjabi"/>
@@ -685,8 +682,8 @@
                 <Component Id="is" Win64="$(var.Win64)" Guid="BF7EADBC-8A31-41C7-9128-3AD1A0BE5816">
                   <File Name="is" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\is" KeyPath="yes"/>
                 </Component>
-                <Component Id="no" Win64="$(var.Win64)" Guid="00A4EAD2-9EDB-46A7-9277-DF3E08B92221">
-                  <File Name="no" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\no" KeyPath="yes"/>
+                <Component Id="nb" Win64="$(var.Win64)" Guid="0FF21BC9-B43F-42E5-B6B5-7367744425D3">
+                  <File Name="nb" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\nb" KeyPath="yes"/>
                 </Component>
                 <Component Id="sv" Win64="$(var.Win64)" Guid="4BA838F8-D077-41C8-9F4B-D686472AB216">
                   <File Name="sv" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\gmq\sv" KeyPath="yes"/>
@@ -779,9 +776,6 @@
                 <Component Id="fa" Win64="$(var.Win64)" Guid="14E33743-FDEF-40BD-9CE2-E5EDFA4C4887">
                   <File Name="fa" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa" KeyPath="yes"/>
                 </Component>
-                <Component Id="fa_en_us" Win64="$(var.Win64)" Guid="E1D79728-8EB7-422A-ADA4-F328B29954D7">
-                  <File Name="fa-en-us" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa-en-us" KeyPath="yes"/>
-                </Component>
                 <Component Id="fa_Latn" Win64="$(var.Win64)" Guid="4988D14D-90BE-4386-8642-19262D596864">
                   <File Name="fa-Latn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa-Latn" KeyPath="yes"/>
                 </Component>
@@ -830,11 +824,11 @@
                 <Component Id="pap" Win64="$(var.Win64)" Guid="6978C4BD-23AC-4FCF-B156-000A32B959DB">
                   <File Name="pap" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pap" KeyPath="yes"/>
                 </Component>
+                <Component Id="pt" Win64="$(var.Win64)" Guid="D0813CE0-D801-4203-AF91-998E9456E35C">
+                  <File Name="pt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt" KeyPath="yes"/>
+                </Component>
                 <Component Id="pt_BR" Win64="$(var.Win64)" Guid="C6533938-B071-4ADA-8A26-E58A57A0B76E">
                   <File Name="pt-BR" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt-BR" KeyPath="yes"/>
-                </Component>
-                <Component Id="pt_PT" Win64="$(var.Win64)" Guid="0CE06717-9D5C-4C45-BCB4-E3C108069533">
-                  <File Name="pt-PT" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt-PT" KeyPath="yes"/>
                 </Component>
                 <Component Id="ro" Win64="$(var.Win64)" Guid="E2E0205E-5488-4A73-B3ED-10181F358987">
                   <File Name="ro" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\ro" KeyPath="yes"/>
@@ -1208,7 +1202,7 @@
       <ComponentRef Id="ne_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangNorwegian">
-      <ComponentRef Id="no"/>
+      <ComponentRef Id="nb"/>
       <ComponentRef Id="no_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangOriya">
@@ -1223,11 +1217,7 @@
       <ComponentRef Id="pap"/>
       <ComponentRef Id="pap_dict"/>
     </ComponentGroup>
-    <ComponentGroup Id="LangPersian_EnglishAmerica">
-      <ComponentRef Id="fa_en_us"/>
-      <ComponentRef Id="fa_dict"/>
-    </ComponentGroup>
-    <ComponentGroup Id="LangPersian_EnglishBritain">
+    <ComponentGroup Id="LangPersian">
       <ComponentRef Id="fa"/>
       <ComponentRef Id="fa_dict"/>
     </ComponentGroup>
@@ -1240,7 +1230,7 @@
       <ComponentRef Id="pl_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangPortuguesePortugal">
-      <ComponentRef Id="pt_PT"/>
+      <ComponentRef Id="pt"/>
       <ComponentRef Id="pt_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangPortugueseBrazil">
