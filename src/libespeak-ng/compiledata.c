@@ -118,7 +118,7 @@ static keywtab_t k_properties[] = {
 	{ "isFlag1",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG1 },
 	{ "isFlag2",    0, CONDITION_IS_PHFLAG_SET | phFLAGBIT_FLAG2 },
 
-	{ "isVel", 0, CONDITION_IS_PLACE_OF_ARTICULATION | phPLACE_VELAR },
+	{ "isVelar", 0, CONDITION_IS_PLACE_OF_ARTICULATION | phPLACE_VELAR },
 
 	{ "isDiminished",  0, CONDITION_IS_OTHER | isDiminished },
 	{ "isUnstressed",  0, CONDITION_IS_OTHER | isUnstressed },

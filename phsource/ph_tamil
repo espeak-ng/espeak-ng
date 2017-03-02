@@ -111,7 +111,7 @@ endphoneme
 phoneme u:
   vwl  starttype #u  endtype #u
   length 280
-  IF prevPhW(isVel) THEN
+  IF prevPhW(isVelar) THEN
   ELSE
     ChangeIfNotStressed(U:)
   ENDIF
