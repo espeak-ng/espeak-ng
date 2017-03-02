@@ -2698,6 +2698,7 @@ nescience	nEsI@ns
 newage		$alt1 $2
 nicety		naIs@ti
 niche		ni:S
+?3 niche	nItS
 nightsky	$alt1
 nighttable	naI?teIb@L
 nikon		naIk0n
@@ -2753,8 +2754,8 @@ octopi		$alt1
 oem		oUi:'Em
 oeuvre		3:vr@
 ?5 oeuvre	VRvr@
-offer		0f3
-offers		0f3z
+offer		O2f3
+offers		O2f3z
 offhand		$2
 okay		oUk'eI
 okra		oUkr@
@@ -2785,7 +2786,7 @@ ordeal		O@d'i@l
 oregano		0rIg'A:noU
 organelle	O@g@n'El
 orion		0r'aI@n
-ornamented	'O:n@m,EntId
+ornamented	'O@n@m,EntId
 ornate		$2
 orphan		O@f@n          // orphaned
 ottoman		0t@m@n
@@ -4827,6 +4828,7 @@ Muhammad	m@hamI2d
 Moira		mOIr@
 Monaghan	m0n@han
 Montgomery	m0ntg'0m@ri
+Montresor	$2
 Nadia		nA:dj@
 Nadine		neId'i:n
 Nadja		nA:dj@
