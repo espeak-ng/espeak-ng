@@ -238,11 +238,11 @@
       <Feature Id="lang_pl" Title="Polish" Level="1">
         <ComponentGroupRef Id="LangPolish"/>
       </Feature>
+      <Feature Id="lang_pt" Title="Portuguese (Portugal)" Level="1">
+        <ComponentGroupRef Id="LangPortuguesePortugal"/>
+      </Feature>
       <Feature Id="lang_pt_BR" Title="Portuguese (Brazil)" Level="1">
         <ComponentGroupRef Id="LangPortugueseBrazil"/>
-      </Feature>
-      <Feature Id="lang_pt_PT" Title="Portuguese (Portugal)" Level="1">
-        <ComponentGroupRef Id="LangPortuguesePortugal"/>
       </Feature>
       <Feature Id="lang_pa" Title="Punjabi" Level="1">
         <ComponentGroupRef Id="LangPunjabi"/>
@@ -824,11 +824,11 @@
                 <Component Id="pap" Win64="$(var.Win64)" Guid="6978C4BD-23AC-4FCF-B156-000A32B959DB">
                   <File Name="pap" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pap" KeyPath="yes"/>
                 </Component>
+                <Component Id="pt" Win64="$(var.Win64)" Guid="D0813CE0-D801-4203-AF91-998E9456E35C">
+                  <File Name="pt" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt" KeyPath="yes"/>
+                </Component>
                 <Component Id="pt_BR" Win64="$(var.Win64)" Guid="C6533938-B071-4ADA-8A26-E58A57A0B76E">
                   <File Name="pt-BR" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt-BR" KeyPath="yes"/>
-                </Component>
-                <Component Id="pt_PT" Win64="$(var.Win64)" Guid="0CE06717-9D5C-4C45-BCB4-E3C108069533">
-                  <File Name="pt-PT" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\pt-PT" KeyPath="yes"/>
                 </Component>
                 <Component Id="ro" Win64="$(var.Win64)" Guid="E2E0205E-5488-4A73-B3ED-10181F358987">
                   <File Name="ro" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\roa\ro" KeyPath="yes"/>
@@ -1230,7 +1230,7 @@
       <ComponentRef Id="pl_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangPortuguesePortugal">
-      <ComponentRef Id="pt_PT"/>
+      <ComponentRef Id="pt"/>
       <ComponentRef Id="pt_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangPortugueseBrazil">
