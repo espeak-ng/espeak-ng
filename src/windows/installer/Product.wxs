@@ -229,11 +229,8 @@
       <Feature Id="lang_pap" Title="Papiamento" Level="1">
         <ComponentGroupRef Id="LangPapiamento"/>
       </Feature>
-      <Feature Id="lang_fa__en_US" Title="Persian with English (America)" Level="1">
-        <ComponentGroupRef Id="LangPersian_EnglishAmerica"/>
-      </Feature>
-      <Feature Id="lang_fa__en_GB" Title="Persian with English (Britain)" Level="1">
-        <ComponentGroupRef Id="LangPersian_EnglishBritain"/>
+      <Feature Id="lang_fa" Title="Persian" Level="1">
+        <ComponentGroupRef Id="LangPersian"/>
       </Feature>
       <Feature Id="lang_fa_Latn" Title="Persian (Pinglish)" Level="1">
         <ComponentGroupRef Id="LangPersian_Pinglish"/>
@@ -779,9 +776,6 @@
                 <Component Id="fa" Win64="$(var.Win64)" Guid="14E33743-FDEF-40BD-9CE2-E5EDFA4C4887">
                   <File Name="fa" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa" KeyPath="yes"/>
                 </Component>
-                <Component Id="fa_en_us" Win64="$(var.Win64)" Guid="E1D79728-8EB7-422A-ADA4-F328B29954D7">
-                  <File Name="fa-en-us" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa-en-us" KeyPath="yes"/>
-                </Component>
                 <Component Id="fa_Latn" Win64="$(var.Win64)" Guid="4988D14D-90BE-4386-8642-19262D596864">
                   <File Name="fa-Latn" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa-Latn" KeyPath="yes"/>
                 </Component>
@@ -1223,11 +1217,7 @@
       <ComponentRef Id="pap"/>
       <ComponentRef Id="pap_dict"/>
     </ComponentGroup>
-    <ComponentGroup Id="LangPersian_EnglishAmerica">
-      <ComponentRef Id="fa_en_us"/>
-      <ComponentRef Id="fa_dict"/>
-    </ComponentGroup>
-    <ComponentGroup Id="LangPersian_EnglishBritain">
+    <ComponentGroup Id="LangPersian">
       <ComponentRef Id="fa"/>
       <ComponentRef Id="fa_dict"/>
     </ComponentGroup>
