@@ -316,6 +316,22 @@ phoneme e@
 endphoneme
 
 
+phoneme i
+  vwl  starttype #i  endtype #i
+  unstressed
+  ipa i
+  length 170
+  IfNextVowelAppend(;)
+
+  IF NOT thisPh(isFinalVowel) THEN
+    length 130
+    FMT(vowel/ii_4)
+  ENDIF
+
+  FMT(vowel/ii_final)
+endphoneme
+
+
 phoneme i@
   vwl  starttype #i  endtype #@
   length 250
