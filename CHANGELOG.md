@@ -88,7 +88,7 @@ updated languages:
 new languages:
 
 *  ar (Arabic) -- Taha Zerrouki
-*  jp (Japanese) -- Reece Dunn (NOTE: Hiragana and Karakana only.)
+*  jp (Japanese) -- Reece Dunn (NOTE: Hiragana and Katakana only.)
 
 ### 1.49.0 - 2016-09-10
 
