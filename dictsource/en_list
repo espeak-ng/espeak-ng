@@ -934,7 +934,7 @@ anise		anIs
 anniversary	anIv'3:s@ri
 annul		$alt3
 anomaly		a#n0m@li
-anon		a#n0n
+anon		a#nO2n
 anonymity	an@n'ImI2ti
 another		a#nVD3	$nounf
 ante		anti:
@@ -1317,6 +1317,8 @@ celibate	$alt2
 censure		sEnS3
 centurion	sEntS'U@ri@n
 ?3 cerebral	s@ri:br@L
+cerement	sErI2m@nt
+cerements	sErI2m@nts
 ceres		si@ri:z
 cerise		s@ri:z
 ?3 certain	s3:?n-
@@ -1625,6 +1627,7 @@ décolletage	deIk0lt'A:Z
 decompilation	di:k0mpI2l'eIS@n
 decor		deIkO@
 ?3 decor	deIk'O@
+decora		dIk'O@r@
 decoy		di:kOI
 decry		dI2kraI
 defatig		dI2fatIg   // -able
@@ -1789,6 +1792,7 @@ efile		$alt6
 egalitarian	I2galI2t'e@ri@n
 egg		Eg	// egging 
 egregious	Igr'i:dZ@s
+egress		Igr'Es $verb
 egret		i:gr@t
 eh		eI
 eid		i:d
@@ -1806,7 +1810,7 @@ ember		Emb3
 embole		$1  // embolism
 embroidery	$alt2
 emphases	Emf@si:z
-emphasis	Emf@sIs   $only
+emphasis	Emf@s%Is   $only
 empire		$1
 emu		i:mju:
 (en masse)	0n||m'as
@@ -2196,7 +2200,6 @@ huevo		hweIvoU
 hula		hu:l@
 hullabaloo	hVl@b@lu:
 humane		$2
-hundred		hVndr@d
 hunger		hVNg3
 hungover	$2
 hurrah		h@rA:
@@ -2947,7 +2950,6 @@ pint		paInt
 pioneer		paI@n'i@3
 pious		paI@s
 pipette		pIp'Et
-piquant		pi:k@nt
 piracy		paI3r@si
 piranha		p@rA:n@
 pirate		paIr@t
@@ -3203,6 +3205,7 @@ requiem		rEkwI2Em
 requiescat	r,Ekwi:'Eskat
 resale		ri:seIl
 resell		ri:s'El
+resemble	rI2z'Emb@L
 reservation	rEz3v'eIS@n
 reservoir	rEz3vwA@
 resin		rEzIn
@@ -3225,8 +3228,10 @@ retrial		ri:traI@l
 retrospect	rEtr@spEkt
 retry		ri:traI
 reuse		ri:'ju:z
+revell		rEv@l        // reveller
 rever		rI2vi@3       // revered
-reverie		rEv@ri
+reverie		rEv3ri
+revery		rEv3ri
 rhetoric	rEt@rIk       $onlys
 rhinoceros	raIn'0s@r@s
 ribena		raIb'i:n@
@@ -3567,7 +3572,7 @@ tamale		ta#mA:li
 tampon		tamp0n
 tangerine	tandZ@r'i:n
 taoiseach	ti:S@x
-tapestry	tap@stri
+tapestry	tapI2stri
 tarantula	t@rantS@l@
 tardis		$alt1
 tariff		tarIf
@@ -5320,7 +5325,7 @@ before           bIfo@		$u2 $strend2
 behind           bIhaInd	$u2 $strend2
 below            bIloU		$u2 $strend2
 beneath          bI2ni:T	$u2 $strend2
-beyond           bIj0nd		$u2 $strend2
+beyond           bIjO2nd	$u2 $strend2
 beside           bIsaId		$u2 $strend2
 between          bItwi:n	$u2 $strend2
 together         t@gED3		$u2 $strend2
