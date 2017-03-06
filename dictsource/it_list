@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 feb 2 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 march 5 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -92,14 +92,16 @@ _!	p,untoesklamat'ivo
 _?	p,untointeRogat'ivo
 _"	viRgolet:e
 _'	ap'OstRofo
-_(	ap,E@-*ta||paR'entezi
-_)	kj,uza||paR'entezi
+_(	ap,E@-*ta||paR'Entezi
+_)	kj,uza||paR'Entezi
 _[	ap'ERtakw2'ad@-*a
 _]	kj,uzakw2'ad@-*a
 _{	ap,ERtag@-*'af:a
 _}	kj,uzag@-*'af:a
 _<	min'oRe||d'I
 _>	madZ:'oRe||d'I
+_〈	ap'E@-*ta||,angol'aRe
+_〉	kj'uza||,angol'aRe
 *	aste@-*'isko $max3
 $	d'Ol:aRI
 %	pe@-*tS'ENto $max3
@@ -119,8 +121,8 @@ _-	t@-*at:ino
 __	sot:oline'ato
 _`	atS:'ento||g@-*'ave
 _´	atS:'Ento||ak'uto
-¡	p'unto||esklamat'ivo||@-*ovES'ato
-¿	p'unto||inteR*ogat'ivo||@-*ovES'ato
+_¡	p'unto||esklamat'ivo||@-*ovES'ato
+_¿	p'unto||inteR*ogat'ivo||@-*ovES'ato
 ¦	b'aR*a||spets2:'ata
 _―	b'aR*a||o*Idz:Ont'ale
 _‖	d,op:ia||b'aR*a
@@ -716,8 +718,8 @@ ebbero	$u1+
 avevo	$u2+   $alt $verbf
 avevi	$u2+	$verbf
 aveva	$u2+	$verbf
-avevamo	$verbf
-avevate	$verbf
+avevamo	$3	$verbf
+avevate	$3	$verbf
 
 avrò	$u+	$verbf
 avrà	$u+
@@ -773,7 +775,7 @@ bancomat	$1
 banner	$1	$onlys
 barbecue	_^_FR
 beat	_^_en $only
-beep	b'i:p
+beep	_^_en
 beige b'E:Z
 bestseller	b'Est[_||s'el:e@-*
 bidet	bId'e	$only
@@ -904,6 +906,7 @@ error	$1	$onlys
 escalation	eskal'E:Son
 español	$3
 espeak		isp'ik:
+excel	,Eks'El
 explorer	$2
 extension	Ekst'EnS@n
 faber	$1
@@ -1017,6 +1020,7 @@ logging	l'Oging
 lord	$alt $only
 love	l'O:v $onlys
 lover	$1
+manche	m'a:nS $only
 my	_^_EN
 myspace	m'aI||sp'Eis
 machine	maS'in	$onlys
@@ -1979,6 +1983,7 @@ montreal	$1 $alt
 monza	m'Ondza/
 monzambano	mondz,amb'ano
 monzano	mOndz'ano
+morciano	$2
 morgano	$2
 morrison	$1 $only
 moscazzano	$3
@@ -2220,6 +2225,7 @@ archimede  $alt
 aristofane $3
 ariston	$1
 aristotele $3
+arlene	a@-*l'E:n
 armida	$2
 asdrubale	$2
 asimov	'azim,ov
@@ -2230,6 +2236,7 @@ bardot	ba@-*d'o
 bartali	$1
 basile	$2
 baudelaire	bOdl'E@-*
+bayer	$1
 bearzot	bea*_dz'Ot $only
 beatle	b'i:tol
 beethoven	be:t'o:ven
@@ -2264,6 +2271,7 @@ charriere	SaR*j'e*
 chesterfield	tS'Este@-*fild
 chevalier	_^_FR
 chopin	Sop'EN
+christensen	$1
 christie	k@-*'istI
 christofer	$1
 christopher	$1
@@ -2433,6 +2441,7 @@ michel	mik'e/l
 michael	m'aIkOl
 michelangel	$3
 michelle	m,iS'el	$only
+miguel	mig'E:l
 mike	_^_EN
 misseri	$2
 mowgli	m'o:glI
@@ -2486,6 +2495,7 @@ robinson	$1 $alt $onlys
 rocky	@-*'Oki
 roger	$1 $alt
 rosalia $3
+Rosemarie	@-*'ozm,a*i
 ryanair	@-*'aIaneR
 saddam	$2
 samara	$2
@@ -3631,6 +3641,7 @@ laureino	l'aw2Rejno
 lavorano	$2 $alt2
 lavorino	$2 $alt2
 leccano	$1
+ledano	$1
 legalizzino	$3
 leggere	$1 $alt
 leghino	$1
@@ -4840,6 +4851,7 @@ risparmiaci	$2
 risparmiami	$2
 rivelaci	$2
 rivelataci	$3
+rivolgiti	$2
 rizzarsi	@-*its2:'a@-*sI
 sbrigati	$1
 scarical	$1

@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 february  4 by Chris <llajta2012@gmail.com>
+// Last update: 2017 march   04 by Chris <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -58,6 +58,7 @@
 	bb	b:
 	bbano (_	=b:ano // verbs
 	bacia (L07_	b'atSa
+	_) bagna (L07_	b'an^a
 
 .group c
 	c	k
@@ -115,6 +116,7 @@
 	i) dano (_	=dano  // verbs
 	i) dino (_	=dino
 	due (_	d'ue   // numbers
+	dieci (_	dj'EtSi
 	day (_	d'eI   // foreign
 
 .group e
@@ -327,6 +329,7 @@
 	d) iver (L04_	iv'E@-*
 	imer (L04_	'Ime@-*
 	ass) ister (L04_	'iste@-*
+	r) ider (L04_	'ide@-*
 	ivano (_	'ivano   // verbs
 	i (ficano_	'i
 	ifichino (_	'ifikino
