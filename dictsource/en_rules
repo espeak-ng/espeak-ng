@@ -44,6 +44,9 @@
 
 
 .replace
+   æ   ae
+   œ   oe
+
    ﬀ   ff     // ligatures
    ﬁ   fi
    ﬂ   fl
