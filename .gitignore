@@ -38,7 +38,7 @@ gradlew.bat
 .gradle/
 .idea/
 build/
-espeak.iml
+*.iml
 
 # emscripten output:
 a.out
