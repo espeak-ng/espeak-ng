@@ -25,6 +25,7 @@ bug fixes:
 new languages:
 
 *  kok (Konkani) -- Vardhan
+*  mi (Māori) -- Graham Oliver
 *  mni (Manipuri) -- Vardhan
 *  sd (Sindhi, Arabic script) -- Vardhan
 
