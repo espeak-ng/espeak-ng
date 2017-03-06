@@ -1,0 +1,17 @@
+// Numbers
+_0	kore
+_1	tahi
+_2	rua
+_3	toru
+_4	faa
+_5	rima
+_6	ono
+_7	whitu
+_8	waru
+_9	iwa
+
+// Stress and raru / raruraru fix
+kōrero $1 //first syllable
+raru 'ra_ru
+raruraru 'ra_ru_:ra_ru
+urupā u_rupaa

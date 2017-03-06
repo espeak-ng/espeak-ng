@@ -275,6 +275,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_malayalam \
 	phsource/ph_maltese \
 	phsource/ph_manipuri \
+	phsource/ph_maori \
 	phsource/ph_marathi \
 	phsource/ph_nahuatl \
 	phsource/ph_nepali \
@@ -396,6 +397,7 @@ dictionaries: \
 	espeak-ng-data/lfn_dict \
 	espeak-ng-data/lt_dict \
 	espeak-ng-data/lv_dict \
+	espeak-ng-data/mi_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
 	espeak-ng-data/mni_dict \
@@ -719,6 +721,12 @@ dictsource/lv_extra:
 	touch dictsource/lv_extra
 espeak-ng-data/lv_dict: src/espeak-ng phsource/phonemes.stamp dictsource/lv_list dictsource/lv_rules dictsource/lv_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=lv && cd ..
+
+mk: espeak-ng-data/mi_dict
+dictsource/mi_extra:
+	touch dictsource/mi_extra
+espeak-ng-data/mi_dict: src/espeak-ng phsource/phonemes.stamp dictsource/mi_list dictsource/mi_rules dictsource/mi_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=mi && cd ..
 
 mk: espeak-ng-data/mk_dict
 dictsource/mk_extra:
