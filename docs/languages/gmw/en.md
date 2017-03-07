@@ -66,6 +66,25 @@ These are unstressed vowels that differ from the vowels in the main lexical sets
 | COMMA       | `@`   | ə     | ə     |
 | LETTER      | `3`   | ə     | ɚ     |
 
+Additionally, espeak-ng has the following phonemes for unstressed vowels.
+
+| Lexical Set | en    |
+|-------------|-------|
+| EXPLORE     | `e#`  |
+| ROSES       | `I#`  |
+| RABBIT      | `I2`  |
+
+The EXPLORE lexical set is used to support unstressed KIT vowels that have split
+from the KIT vowel and merged with the DRESS vowel in some accents. This includes
+`ex-` words.
+
+The ROSES lexical set is used for words that are KIT in some accents and COMMA
+in others. The degree to which this occurs varies between accents and speakers.
+
+The RABBIT lexical set is used for unstressed KIT vowels. Some American accents
+have merged this with the COMMA lexical set, such that `rabbit` and `abbot`
+rhyme.
+
 ## Diphthongs
 
 | Lexical Set | en    | RP    | GenAm |
