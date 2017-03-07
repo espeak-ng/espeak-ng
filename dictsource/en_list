@@ -2788,7 +2788,7 @@ ordeal		O@d'i@l
 oregano		0rIg'A:noU
 organelle	O@g@n'El
 orion		0r'aI@n
-ornamented	'O@n@m,EntId
+ornamented	'O@n@m,EntI#d
 ornate		$2
 orphan		O@f@n          // orphaned
 ottoman		0t@m@n
@@ -4759,7 +4759,7 @@ Leann		li:'an
 Leanne		li:'an
 (Le ann)	li:'an
 Lelaine		$2
-Lenore		lIn'o@
+Lenore		lI#n'o@
 Leola		li:'oUl@
 Leon		li:0n
 Leonard		lEn3d
@@ -5319,13 +5319,13 @@ ahead            a#hEd
 among            a#mVN		$u2 $strend2
 amongst          a#mVNst	$u2 $strend2
 around           a#raUnd
-before           bIfo@		$u2 $strend2
-behind           bIhaInd	$u2 $strend2
-below            bIloU		$u2 $strend2
+before           bI#fo@		$u2 $strend2
+behind           bI#haInd	$u2 $strend2
+below            bI#loU		$u2 $strend2
 beneath          bI#ni:T	$u2 $strend2
-beyond           bIjO2nd	$u2 $strend2
-beside           bIsaId		$u2 $strend2
-between          bItwi:n	$u2 $strend2
+beyond           bI#jO2nd	$u2 $strend2
+beside           bI#saId	$u2 $strend2
+between          bI#twi:n	$u2 $strend2
 together         t@gED3		$u2 $strend2
 near             ,ni@3		$strend2
 thence           DEns
