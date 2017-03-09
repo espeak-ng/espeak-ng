@@ -811,8 +811,8 @@ adieux		a#dju:z
 adios		adj'oUs
 adjective	$1
 ?3 administrative	$alt1
-admirable	adm@r@b@L
-admirably	adm@r@bli
+admirable	admI#r@b@L
+admirably	admI#r@bli
 admonition	adm@n'IS@n
 ado		a#du:
 adobe		a#doUbi
@@ -852,7 +852,7 @@ ahem		@h'@m
 ahoy		a#hOI
 aidenn		eId@n
 airbus		e@bVs
-airpower	'e@p,aU@
+airpower	'e@p,aU3
 aisle		aI@l
 airtight	$alt4
 ajar		a#dZA@
@@ -995,6 +995,7 @@ archimedes	A@kIm'i:di:z
 archiso		A@tS'aIsoU
 archway		$1
 archy		A@tSi
+ardor		A@d3
 arena		a#ri:n@
 argon		A@g0n
 argue		A@gju:
@@ -1352,6 +1353,7 @@ chassis		Sasi
 chateau		SatoU
 cheddar		tSEd3
 chemise		S@mi:z
+cherish		tSErI2S
 chevalier	$alt1
 chevrolet	SEvr@l'eI
 chianti		kjA:nti
@@ -1823,7 +1825,7 @@ entirity	Ent'aI3I2ti
 entourage	0nt2UrA:Z
 entrail		$1
 entrance	$1       $onlys
-entrance	Entr'aans     $verb
+entrance	e#ntr'aans     $verb
 entree		0ntreI
 envelope	Env@loUp      $only
 envelopes	Env@loUps
@@ -2524,7 +2526,7 @@ manganese	$1
 manger		$alt6
 mangetout	m0nZt'u:
 mangy		$alt6
-manhour		manaU@
+manhour		manaU3
 mankind		$2
 maneuver	m@nu:v3
 manuever	m@nu:v3          // misspell
@@ -3334,8 +3336,8 @@ seance		seI0ns
 secant		si:k@nt
 seconded	s@k0ndI#d
 secondment	s@k0ndm@nt
-secrecy		si:kr@si
-secret		si:kr@t
+secrecy		si:krI#si
+secret		si:krI#t
 secrete		sI#kri:t
 secretion	sI#kri:S@n
 secretive	si:kr@tIv
@@ -3455,7 +3457,6 @@ sommelier	s0m'Eli@
 son		sVn
 sonar		soUnA@
 sonny		sVnI
-sooth		su:D
 sope		soUpeI
 souffle		su:fl'eI
 soundbite	saUndbaIt
@@ -5556,8 +5557,7 @@ her              h3:		$u $nounf $only
 (his / her)	h'IzO@h'3:
 hers             h3:z		$u $strend2
 its              Its		$u $nounf
-our              aU@		$u $nounf $only
-?3  our          aU3		$u $nounf $only
+our              aU3		$u $nounf $only
 your             jO@		$u $nounf $only
 ?6 your          jU@		$u $nounf $only
 their            De@		$u $nounf $only
@@ -5576,7 +5576,7 @@ and              and		$u $pause $only
 as               %az		$only
 (as is)          ,az,Iz		$pause
 (as it is)       ,azIt,Iz	$u+
-because          bIkVz		$2 $pause
+because          bIk02z		$2 $pause
 once             		$pause
 or               O@		$u $pause $only
 nor              nO@		$pause $only

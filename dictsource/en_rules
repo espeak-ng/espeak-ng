@@ -199,7 +199,7 @@
      @) awi (_     'A:wI
      _) aw (k      O:
      _) aw (ok     a#w
-        awr (_     aU@
+        awr (_     aU3
         awy (er_   OI
      C) a (x+      a
      _) a (x+      a
@@ -1096,7 +1096,7 @@ calend) ar         3
         are (C%A_  3'E
     %C) aring (_   3rI2N
         area       'e@ri@
-        arest (_   e@r@st
+        arest (_   e@rI2st
         ar (en     ar
      p) are (nthe  @rE
      c) ar (eer    @r
@@ -1740,6 +1740,7 @@ _it_separ) ate (_  @t
         co (loss   k@
      _) co (m@     k%0#
      _) co (ma     koU
+     _) co (mmingl k%oU
      _) co (mc     k0
         co (me_    kV
         co (mbina  k0
@@ -2375,7 +2376,7 @@ _it_separ) ate (_  @t
     @x) ed (_S2vi  d#
      y) ed (_S2v   d#
  debut) ed (_S2    d#
-        edly (_S2m l%i
+        edly (_S4m I#dl%i
      c) ed (e_     'i:d
      p) ed (e_     i:d
      p) edal       Ed@L
@@ -2530,6 +2531,7 @@ _it_separ) ate (_  @t
         em (path   Em
         em (per    Em
         em (phas   Em
+    @t) em (pla    @m
         em (pres   Em
         em (pti    Em
         em (pty    Em
@@ -2839,7 +2841,7 @@ _it_separ) ate (_  @t
    asc) er (t      3
      v) er (t      3:
     @v) er (t_     3:
-     h) erto (_    @tu:
+     h) erto (_    3tu:
      _) er (ud     Er
         er (ve     3:
      s) er (van    3:
@@ -2987,7 +2989,8 @@ _it_separ) ate (_  @t
      s) eu (m_     'i@
      l) eur        3:
 ?5      eur        VR
-        eur (_     '3:
+        eur (_     'jU@
+  oiss) eur (_     'U@
 ?3      eur (_     'U@
 ?5      eur (_     'VR
      _) euro       jU@roU
@@ -3455,7 +3458,7 @@ _it_separ) ate (_  @t
         ie (ce     i:
      &) ie (_      %i
     _r) ie         i:
-        iedly      Idl%I
+        iedly      I#dl%i
     _z) ie         i:
      p) ie (_      aI
     pp) ie (_      I
@@ -3634,6 +3637,7 @@ _it_separ) ate (_  @t
         im (presa  ,Im
         im (provis Im
         im (puls   Im
+        im (pulsi  %Im
 ?3   s) im (ult    aIm
         im (um     Im
 
@@ -4170,10 +4174,10 @@ _it_separ) ate (_  @t
      _) lib (rett  lI2b
      &) like (_S4  laIk
      &) lim (ent   lIm
-    &B) ling (_    lIN
-    &B) lings (_   lINz
-    ng) ling (_    @-lIN
-    &t) ling (_    _lIN
+    &B) ling (_    lI2N
+    &B) lings (_   lI2Nz
+    ng) ling (_    @-lI2N
+    &t) ling (_    @LI2N
     &l) ling (_S4vd IN
         linux      lInVks
      _) lo (gK     lO2
@@ -4290,7 +4294,7 @@ multip) ly         laI
      @) most (_S4  moUst
      &) mouth (_   m@T
      &) mouth (_$w_alt1 maUT
-     _) multi      mVltI
+     _) multi      mVlti
      _) multi (@@P5 m,VltI
 
 .group mi
@@ -4954,7 +4958,7 @@ multip) ly         laI
     _f) ore (tel   %o@
      @) or (iti    0r
      @) or (ity    0r
-  _fav) orit       @-rI#t
+  _fav) orit       %3rI#t
      _) or (iC     0r
     @t) ore (_     3
     st) ore (_     o@
@@ -5159,37 +5163,37 @@ multip) ly         laI
      &) our (_     3
      &) our (er_   3
     np) our (_     o@
-    ev) our (ed    aU@
+    ev) our (ed    aU3
         our (n     3:
 ?5      our (n     VR
      b) our (n     o@
      m) our (n     o@
      b) our (se    U@
-     _) our        aU@
+     _) our        %aU3
      c) our (s     o@
      c) our (t     o@
      c) our (te    3:
 ?5   c) our (te    VR
      c) our (tesa  o@
-    sc) our        aU@
+    sc) our        aU3
      c) ou (rag    V
 ?3   c) our (ag    3:
-    _d) our        aU@
+    _d) our        aU3
     _f) our        o@
     _g) our (d     U@
-     h) our        aU@
-    fl) our        aU@
+     h) our        aU3
+    fl) our        aU3
      n) ou (ri     V
 ?3   n) our (i     3:
      p) our        o@
     Ap) our        3
-     s) our        aU@
+     s) our        aU3
      s) ourc (e#   o@s
      t) our        U@
      t) our (_     U@
      t) our (n     U@
-    st) our        aU@
-   dev) our        aU@
+    st) our        aU3
+   dev) our        aU3
     _y) our        o@
 ?7  _y) our        U@
         our        3:
@@ -5415,7 +5419,7 @@ multip) ly         laI
         per (fus   p%3
      _) per (va    p%3
      _) per (ver   p%3
-     _) perus      p3ru:z
+     _) perus      p%3ru:z
      _) peroxy     p3,0ksI
      _) peri (Be   pErI2
 
@@ -5843,6 +5847,7 @@ multip) ly         laI
         selves (_  'sElvz
      _) semi (@@P4 s,EmI2
      _) semin      sEmIn
+    re) s (embl    z
         sh         S
         sh ($w_alt4 sh
    _mi) s (h       s
@@ -5861,7 +5866,7 @@ multip) ly         laI
      u) si (a      zi
         ssia (_    S@
      @) sian (_S1  n
-     A) sib        z@b
+     A) sib        zI#b
      l) sing (_    sIN
      &) s (ic_     z
      n) s (ic_     s
@@ -6480,6 +6485,7 @@ contin) u          ju:
     &p) ur (_      U@
     sp) ur (_      3:
 ?5  sp) ur (_      VR
+    _p) ur (por    %3
         ur (B      3:
 ?5      ur (B      VR
      _) ur (A      jU@
