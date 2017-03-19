@@ -20,6 +20,7 @@
 #include "config.h"
 
 #include <ctype.h>
+#include <wctype.h>
 #include <errno.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -291,7 +292,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, int is_languag
 
 	while (fgets_strip(linebuf, sizeof(linebuf), f_in) != NULL) {
 		// isolate the attribute name
-		for (p = linebuf; (*p != 0) && !isspace(*p); p++) ;
+		for (p = linebuf; (*p != 0) && !iswspace(*p); p++) ;
 		*p++ = 0;
 
 		if (linebuf[0] == 0) continue;
