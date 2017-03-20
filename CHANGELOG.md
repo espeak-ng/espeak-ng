@@ -24,9 +24,9 @@ bug fixes:
 
 new languages:
 
+*  bpy (Bishnupriya Manipuri) -- Vardhan
 *  kok (Konkani) -- Vardhan
 *  mi (Māori) -- Graham Oliver
-*  mni (Manipuri) -- Vardhan
 *  sd (Sindhi, Arabic script) -- Vardhan
 
 updated languages:

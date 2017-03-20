@@ -1146,7 +1146,7 @@ include ph_assamese
 phonemetable or bn
 include ph_oriya
 
-phonemetable mni bn
+phonemetable bpy bn
 include ph_manipuri
 
 phonemetable sd ur

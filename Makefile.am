@@ -358,6 +358,7 @@ dictionaries: \
 	espeak-ng-data/az_dict \
 	espeak-ng-data/bg_dict \
 	espeak-ng-data/bn_dict \
+	espeak-ng-data/bpy_dict \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cy_dict \
@@ -400,7 +401,6 @@ dictionaries: \
 	espeak-ng-data/mi_dict \
 	espeak-ng-data/mk_dict \
 	espeak-ng-data/ml_dict \
-	espeak-ng-data/mni_dict \
 	espeak-ng-data/mr_dict \
 	espeak-ng-data/ms_dict \
 	espeak-ng-data/mt_dict \
@@ -481,6 +481,12 @@ dictsource/bn_extra:
 	touch dictsource/bn_extra
 espeak-ng-data/bn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bn_list dictsource/bn_rules dictsource/bn_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=bn && cd ..
+
+bpy: espeak-ng-data/bpy_dict
+dictsource/bpy_extra:
+	touch dictsource/bpy_extra
+espeak-ng-data/bpy_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bpy_list dictsource/bpy_rules dictsource/bpy_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=bpy && cd ..
 
 ca: espeak-ng-data/ca_dict
 dictsource/ca_extra:
@@ -739,12 +745,6 @@ dictsource/ml_extra:
 	touch dictsource/ml_extra
 espeak-ng-data/ml_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ml && cd ..
-
-mni: espeak-ng-data/mni_dict
-dictsource/mni_extra:
-	touch dictsource/mni_extra
-espeak-ng-data/mni_dict: src/espeak-ng phsource/phonemes.stamp dictsource/mni_list dictsource/mni_rules dictsource/mni_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=mni && cd ..
 
 mr: espeak-ng-data/mr_dict
 dictsource/mr_extra:
