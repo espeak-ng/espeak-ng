@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -171,17 +171,6 @@ int isspace2(unsigned int c)
 	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
 		return 0;
 	return 1;
-}
-
-// Lookup a mnemonic string in a table, return its name
-const char *LookupMnemName(MNEM_TAB *table, const int value)
-{
-	while (table->mnem != NULL) {
-		if (table->value == value)
-			return table->mnem;
-		table++;
-	}
-	return ""; // not found
 }
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)

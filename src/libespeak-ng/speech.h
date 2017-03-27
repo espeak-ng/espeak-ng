@@ -64,6 +64,7 @@ typedef struct {
 	int value;
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, const char *string);
+const char *LookupMnemName(MNEM_TAB *table, const int value);
 
 void cancel_audio(void);
 

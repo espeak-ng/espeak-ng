@@ -151,6 +151,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/espeak_api.c \
 	src/libespeak-ng/ieee80.c \
 	src/libespeak-ng/intonation.c \
+	src/libespeak-ng/mnemonics.c \
 	src/libespeak-ng/numbers.c \
 	src/libespeak-ng/readclause.c \
 	src/libespeak-ng/phoneme.c \
@@ -212,6 +213,7 @@ noinst_bin_PROGRAMS += tests/encoding.test
 tests_encoding_test_CFLAGS = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
 tests_encoding_test_SOURCES = \
 	src/libespeak-ng/encoding.c \
+	src/libespeak-ng/mnemonics.c \
 	tests/encoding.c
 
 ##### phoneme data:
