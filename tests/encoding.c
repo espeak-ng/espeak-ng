@@ -19,10 +19,26 @@
 #include "config.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include <espeak-ng/espeak_ng.h>
+#include "encoding.h"
+
+void
+test_unbound_text_decoder()
+{
+	printf("testing unbound text decoder\n");
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(decoder != NULL);
+	assert(text_decoder_eof(decoder) == 1);
+	assert(text_decoder_getc(decoder) == 0);
+
+	destroy_text_decoder(decoder);
+}
 
 void
 test_unknown_encoding()
@@ -55,6 +71,7 @@ test_us_ascii_encoding()
 int
 main(int argc, char **argv)
 {
+	test_unbound_text_decoder();
 	test_unknown_encoding();
 	test_us_ascii_encoding();
 	printf("done\n");

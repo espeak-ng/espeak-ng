@@ -17,9 +17,13 @@
 
 #include "config.h"
 
+#include <stdint.h>
+#include <stdlib.h>
+
 #include <espeak-ng/espeak_ng.h>
 
 #include "speech.h"
+#include "encoding.h"
 
 // http://www.iana.org/assignments/character-sets/character-sets.xhtml
 MNEM_TAB mnem_encoding[] = {
@@ -45,3 +49,34 @@ espeak_ng_EncodingFromName(const char *encoding)
 }
 
 #pragma GCC visibility pop
+
+struct espeak_ng_TEXT_DECODER_
+{
+};
+
+espeak_ng_TEXT_DECODER *
+create_text_decoder(void)
+{
+	espeak_ng_TEXT_DECODER *decoder = malloc(sizeof(espeak_ng_TEXT_DECODER));
+	if (!decoder) return NULL;
+
+	return decoder;
+}
+
+void
+destroy_text_decoder(espeak_ng_TEXT_DECODER *decoder)
+{
+	if (decoder) free(decoder);
+}
+
+int
+text_decoder_eof(espeak_ng_TEXT_DECODER *decoder)
+{
+	return 1;
+}
+
+uint32_t
+text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
+{
+	return 0;
+}
