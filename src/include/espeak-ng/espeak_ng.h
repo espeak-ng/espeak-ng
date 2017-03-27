@@ -188,6 +188,7 @@ espeak_ng_CompilePhonemeDataPath(long rate,
 typedef enum
 {
 	ESPEAKNG_ENCODING_UNKNOWN,
+	ESPEAKNG_ENCODING_US_ASCII,
 } espeak_ng_ENCODING;
 
 ESPEAK_NG_API espeak_ng_ENCODING

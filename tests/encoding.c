@@ -31,12 +31,31 @@ test_unknown_encoding()
 
 	assert(espeak_ng_EncodingFromName("") == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("abcxyz") == ESPEAKNG_ENCODING_UNKNOWN);
+	assert(espeak_ng_EncodingFromName("US") == ESPEAKNG_ENCODING_UNKNOWN); // wrong case
+}
+
+void
+test_us_ascii_encoding()
+{
+	printf("testing US-ASCII encoding\n");
+
+	assert(espeak_ng_EncodingFromName("US-ASCII") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("iso-ir-6") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("ANSI_X3.4-1968") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("ANSI_X3.4-1986") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("ISO_646.irv:1991") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("ISO646-US") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("us") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("IBM367") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("cp367") == ESPEAKNG_ENCODING_US_ASCII);
+	assert(espeak_ng_EncodingFromName("csASCII") == ESPEAKNG_ENCODING_US_ASCII);
 }
 
 int
 main(int argc, char **argv)
 {
 	test_unknown_encoding();
+	test_us_ascii_encoding();
 	printf("done\n");
 
 	return EXIT_SUCCESS;

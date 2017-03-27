@@ -21,8 +21,19 @@
 
 #include "speech.h"
 
+// http://www.iana.org/assignments/character-sets/character-sets.xhtml
 MNEM_TAB mnem_encoding[] = {
-	{ NULL,              ESPEAKNG_ENCODING_UNKNOWN }
+	{ "ANSI_X3.4-1968",   ESPEAKNG_ENCODING_US_ASCII },
+	{ "ANSI_X3.4-1986",   ESPEAKNG_ENCODING_US_ASCII },
+	{ "IBM367",           ESPEAKNG_ENCODING_US_ASCII },
+	{ "ISO_646.irv:1991", ESPEAKNG_ENCODING_US_ASCII },
+	{ "ISO646-US",        ESPEAKNG_ENCODING_US_ASCII },
+	{ "US-ASCII",         ESPEAKNG_ENCODING_US_ASCII },
+	{ "cp367",            ESPEAKNG_ENCODING_US_ASCII },
+	{ "csASCII",          ESPEAKNG_ENCODING_US_ASCII },
+	{ "iso-ir-6",         ESPEAKNG_ENCODING_US_ASCII },
+	{ "us",               ESPEAKNG_ENCODING_US_ASCII },
+	{ NULL,               ESPEAKNG_ENCODING_UNKNOWN }
 };
 
 #pragma GCC visibility push(default)
