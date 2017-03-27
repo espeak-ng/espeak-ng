@@ -90,6 +90,8 @@ src/espeak-ng
 src/espeakedit
 src/speak-ng
 
+tests/*.test
+
 espeak-ng.pc
 
 espeak-ng-*.tar.gz

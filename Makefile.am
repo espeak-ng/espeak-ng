@@ -23,6 +23,9 @@ bin_PROGRAMS =
 lib_LTLIBRARIES =
 man1_MANS =
 
+noinst_bin_PROGRAMS =
+noinst_bindir =
+
 ##### ChangeLog:
 
 ChangeLog:
@@ -109,7 +112,8 @@ docs:	docs/index.html \
 	src/speak-ng.1.html \
 	README.html
 
-check: apk-check
+check:	tests/encoding.test
+	tests/encoding.test
 
 ##### build targets:
 
@@ -142,6 +146,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
 	src/libespeak-ng/dictionary.c \
+	src/libespeak-ng/encoding.c \
 	src/libespeak-ng/error.c \
 	src/libespeak-ng/espeak_api.c \
 	src/libespeak-ng/ieee80.c \
@@ -199,6 +204,15 @@ endif
 src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
 src_espeak_ng_CFLAGS  = -Isrc/include ${AM_CFLAGS}
 src_espeak_ng_SOURCES = src/espeak-ng.c
+
+##### tests:
+
+noinst_bin_PROGRAMS += tests/encoding.test
+
+tests_encoding_test_CFLAGS = -Isrc/libespeak-ng -Isrc/include -D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
+tests_encoding_test_SOURCES = \
+	src/libespeak-ng/encoding.c \
+	tests/encoding.c
 
 ##### phoneme data:
 

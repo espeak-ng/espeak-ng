@@ -183,6 +183,16 @@ espeak_ng_CompilePhonemeDataPath(long rate,
                                  FILE *log,
                                  espeak_ng_ERROR_CONTEXT *context);
 
+/* eSpeak NG 1.49.2 */
+
+typedef enum
+{
+	ESPEAKNG_ENCODING_UNKNOWN,
+} espeak_ng_ENCODING;
+
+ESPEAK_NG_API espeak_ng_ENCODING
+espeak_ng_EncodingFromName(const char *encoding);
+
 #ifdef __cplusplus
 }
 #endif
