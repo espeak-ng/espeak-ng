@@ -155,6 +155,37 @@ test_iso_8859_2_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_iso_8859_3_encoding()
+{
+	printf("testing ISO-8859-3 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISO-8859-3:1988") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("ISO-8859-3") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("ISO_8859-3") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("iso-ir-109") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("latin3") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("l3") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("csISOLatin3") == ESPEAKNG_ENCODING_ISO_8859_3);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xDE", 5, ESPEAKNG_ENCODING_ISO_8859_3) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x92);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x015C);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -163,6 +194,7 @@ main(int argc, char **argv)
 	test_us_ascii_encoding();
 	test_iso_8859_1_encoding();
 	test_iso_8859_2_encoding();
+	test_iso_8859_3_encoding();
 	printf("done\n");
 
 	return EXIT_SUCCESS;
