@@ -30,12 +30,21 @@ MNEM_TAB mnem_encoding[] = {
 	{ "ANSI_X3.4-1968",   ESPEAKNG_ENCODING_US_ASCII },
 	{ "ANSI_X3.4-1986",   ESPEAKNG_ENCODING_US_ASCII },
 	{ "IBM367",           ESPEAKNG_ENCODING_US_ASCII },
+	{ "IBM819",           ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "ISO_646.irv:1991", ESPEAKNG_ENCODING_US_ASCII },
+	{ "ISO_8859-1",       ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "ISO646-US",        ESPEAKNG_ENCODING_US_ASCII },
+	{ "ISO-8859-1",       ESPEAKNG_ENCODING_ISO_8859_1 },
+	{ "ISO-8859-1:1987",  ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "US-ASCII",         ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp367",            ESPEAKNG_ENCODING_US_ASCII },
+	{ "cp819",            ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "csASCII",          ESPEAKNG_ENCODING_US_ASCII },
+	{ "csISOLatin1",      ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "iso-ir-6",         ESPEAKNG_ENCODING_US_ASCII },
+	{ "iso-ir-100",       ESPEAKNG_ENCODING_ISO_8859_1 },
+	{ "latin1",           ESPEAKNG_ENCODING_ISO_8859_1 },
+	{ "l1",               ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "us",               ESPEAKNG_ENCODING_US_ASCII },
 	{ NULL,               ESPEAKNG_ENCODING_UNKNOWN }
 };
@@ -54,7 +63,24 @@ struct espeak_ng_TEXT_DECODER_
 {
 	const char *current;
 	const char *end;
+
+	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
 };
+
+static uint32_t
+text_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
+{
+	uint8_t c = *decoder->current++ & 0xFF;
+	return (c >= 0x80) ? 0xFFFD : c;
+}
+
+// Reference: http://www.iana.org/go/rfc1345
+// Reference: http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-1.TXT
+static uint32_t
+text_decoder_getc_iso_8859_1(espeak_ng_TEXT_DECODER *decoder)
+{
+	return *decoder->current++ & 0xFF;
+}
 
 espeak_ng_TEXT_DECODER *
 create_text_decoder(void)
@@ -64,6 +90,7 @@ create_text_decoder(void)
 
 	decoder->current = NULL;
 	decoder->end = NULL;
+	decoder->get = NULL;
 	return decoder;
 }
 
@@ -80,6 +107,10 @@ initialize_encoding(espeak_ng_TEXT_DECODER *decoder,
 	switch (encoding)
 	{
 	case ESPEAKNG_ENCODING_US_ASCII:
+		decoder->get = text_decoder_getc_us_ascii;
+		break;
+	case ESPEAKNG_ENCODING_ISO_8859_1:
+		decoder->get = text_decoder_getc_iso_8859_1;
 		break;
 	default:
 		return 0;
@@ -110,6 +141,5 @@ text_decoder_eof(espeak_ng_TEXT_DECODER *decoder)
 uint32_t
 text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 {
-	uint8_t c = *decoder->current++ & 0xFF;
-	return (c >= 0x80) ? 0xFFFD : c;
+	return decoder->get(decoder);
 }
