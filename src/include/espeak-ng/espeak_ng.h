@@ -60,6 +60,7 @@ typedef enum {
 
 	/* eSpeak NG 1.49.2 */
 	ENS_UNKNOWN_PHONEME_FEATURE  = 0x10000FFF,
+	ENS_UNKNOWN_TEXT_ENCODING    = 0x100010FF,
 } espeak_ng_STATUS;
 
 typedef enum {

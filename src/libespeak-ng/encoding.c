@@ -52,6 +52,8 @@ espeak_ng_EncodingFromName(const char *encoding)
 
 struct espeak_ng_TEXT_DECODER_
 {
+	const char *current;
+	const char *end;
 };
 
 espeak_ng_TEXT_DECODER *
@@ -60,6 +62,8 @@ create_text_decoder(void)
 	espeak_ng_TEXT_DECODER *decoder = malloc(sizeof(espeak_ng_TEXT_DECODER));
 	if (!decoder) return NULL;
 
+	decoder->current = NULL;
+	decoder->end = NULL;
 	return decoder;
 }
 
@@ -69,14 +73,43 @@ destroy_text_decoder(espeak_ng_TEXT_DECODER *decoder)
 	if (decoder) free(decoder);
 }
 
+static int
+initialize_encoding(espeak_ng_TEXT_DECODER *decoder,
+                    espeak_ng_ENCODING encoding)
+{
+	switch (encoding)
+	{
+	case ESPEAKNG_ENCODING_US_ASCII:
+		break;
+	default:
+		return 0;
+	}
+	return 1;
+}
+
+espeak_ng_STATUS
+text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
+                           const char *string,
+                           int length,
+                           espeak_ng_ENCODING encoding)
+{
+	if (!initialize_encoding(decoder, encoding))
+		return ENS_UNKNOWN_TEXT_ENCODING;
+
+	decoder->current = string;
+	decoder->end = string + length;
+	return ENS_OK;
+}
+
 int
 text_decoder_eof(espeak_ng_TEXT_DECODER *decoder)
 {
-	return 1;
+	return decoder->current == decoder->end;
 }
 
 uint32_t
 text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 {
-	return 0;
+	uint8_t c = *decoder->current++ & 0xFF;
+	return (c >= 0x80) ? 0xFFFD : c;
 }

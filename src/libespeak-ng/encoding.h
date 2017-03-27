@@ -30,6 +30,12 @@ create_text_decoder(void);
 void
 destroy_text_decoder(espeak_ng_TEXT_DECODER *decoder);
 
+espeak_ng_STATUS
+text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
+                           const char *string,
+                           int length,
+                           espeak_ng_ENCODING encoding);
+
 int
 text_decoder_eof(espeak_ng_TEXT_DECODER *decoder);
 

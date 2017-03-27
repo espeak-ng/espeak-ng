@@ -35,7 +35,6 @@ test_unbound_text_decoder()
 
 	assert(decoder != NULL);
 	assert(text_decoder_eof(decoder) == 1);
-	assert(text_decoder_getc(decoder) == 0);
 
 	destroy_text_decoder(decoder);
 }
@@ -49,6 +48,13 @@ test_unknown_encoding()
 	assert(espeak_ng_EncodingFromName("") == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("abcxyz") == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("US") == ESPEAKNG_ENCODING_UNKNOWN); // wrong case
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xDE", 5, ESPEAKNG_ENCODING_UNKNOWN) == ENS_UNKNOWN_TEXT_ENCODING);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
 }
 
 void
@@ -66,6 +72,23 @@ test_us_ascii_encoding()
 	assert(espeak_ng_EncodingFromName("IBM367") == ESPEAKNG_ENCODING_US_ASCII);
 	assert(espeak_ng_EncodingFromName("cp367") == ESPEAKNG_ENCODING_US_ASCII);
 	assert(espeak_ng_EncodingFromName("csASCII") == ESPEAKNG_ENCODING_US_ASCII);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xDE", 5, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
 }
 
 int

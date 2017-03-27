@@ -135,6 +135,9 @@ espeak_ng_GetStatusCodeMessage(espeak_ng_STATUS status,
 	case ENS_UNKNOWN_PHONEME_FEATURE:
 		strncpy0(buffer, "The phoneme feature is not recognised", length);
 		break;
+	case ENS_UNKNOWN_TEXT_ENCODING:
+		strncpy0(buffer, "The text encoding is not supported", length);
+		break;
 	default:
 		if ((status & ENS_GROUP_MASK) == ENS_GROUP_ERRNO)
 			strerror_r(status, buffer, length);
