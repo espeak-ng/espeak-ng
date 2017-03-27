@@ -27,8 +27,9 @@
 void
 test_unknown_encoding()
 {
-	printf("testing unknown encoding\n");
+	printf("testing unknown encodings\n");
 
+	assert(espeak_ng_EncodingFromName(NULL) == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("") == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("abcxyz") == ESPEAKNG_ENCODING_UNKNOWN);
 	assert(espeak_ng_EncodingFromName("US") == ESPEAKNG_ENCODING_UNKNOWN); // wrong case
