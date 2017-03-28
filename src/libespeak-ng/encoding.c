@@ -35,6 +35,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "ISO_8859-1",       ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "ISO_8859-2",       ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "ISO_8859-3",       ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "ISO_8859-4",       ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "ISO646-US",        ESPEAKNG_ENCODING_US_ASCII },
 	{ "ISO-8859-1",       ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "ISO-8859-1:1987",  ESPEAKNG_ENCODING_ISO_8859_1 },
@@ -42,6 +43,8 @@ MNEM_TAB mnem_encoding[] = {
 	{ "ISO-8859-2:1987",  ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "ISO-8859-3",       ESPEAKNG_ENCODING_ISO_8859_3 },
 	{ "ISO-8859-3:1988",  ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "ISO-8859-4",       ESPEAKNG_ENCODING_ISO_8859_4 },
+	{ "ISO-8859-4:1988",  ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "US-ASCII",         ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp367",            ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp819",            ESPEAKNG_ENCODING_ISO_8859_1 },
@@ -49,16 +52,20 @@ MNEM_TAB mnem_encoding[] = {
 	{ "csISOLatin1",      ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "csISOLatin2",      ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "csISOLatin3",      ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "csISOLatin4",      ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "iso-ir-6",         ESPEAKNG_ENCODING_US_ASCII },
 	{ "iso-ir-100",       ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "iso-ir-101",       ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "iso-ir-109",       ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "iso-ir-110",       ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "latin1",           ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "latin2",           ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "latin3",           ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "latin4",           ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "l1",               ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "l2",               ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "l3",               ESPEAKNG_ENCODING_ISO_8859_3 },
+	{ "l4",               ESPEAKNG_ENCODING_ISO_8859_4 },
 	{ "us",               ESPEAKNG_ENCODING_US_ASCII },
 	{ NULL,               ESPEAKNG_ENCODING_UNKNOWN }
 };
@@ -124,6 +131,27 @@ static const uint32_t ISO_8859_3[0x80] = {
 	0x011d, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x016d, 0x015d, 0x02d9, // f8
 };
 
+// Reference: http://www.iana.org/go/rfc1345
+// Reference: http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-4.TXT
+static const uint32_t ISO_8859_4[0x80] = {
+	0x0080, 0x0081, 0x0082, 0x0083, 0x0084, 0x0085, 0x0086, 0x0087, // 80
+	0x0088, 0x0089, 0x008a, 0x008b, 0x008c, 0x008d, 0x008e, 0x008f, // 88
+	0x0090, 0x0091, 0x0092, 0x0093, 0x0094, 0x0095, 0x0096, 0x0097, // 90
+	0x0098, 0x0099, 0x009a, 0x009b, 0x009c, 0x009d, 0x009e, 0x009f, // 98
+	0x00a0, 0x0104, 0x0138, 0x0156, 0x00a4, 0x0128, 0x013b, 0x00a7, // a0
+	0x00a8, 0x0160, 0x0112, 0x0122, 0x0166, 0x00ad, 0x017d, 0x00af, // a8
+	0x00b0, 0x0105, 0x02db, 0x0157, 0x00b4, 0x0129, 0x013c, 0x02c7, // b0
+	0x00b8, 0x0161, 0x0113, 0x0123, 0x0167, 0x014a, 0x017e, 0x014b, // b8
+	0x0100, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x012e, // c0
+	0x010c, 0x00c9, 0x0118, 0x00cb, 0x0116, 0x00cd, 0x00ce, 0x012a, // c8
+	0x0110, 0x0145, 0x014c, 0x0136, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
+	0x00d8, 0x0172, 0x00da, 0x00db, 0x00dc, 0x0168, 0x016a, 0x00df, // d8
+	0x0101, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x012f, // e0
+	0x010d, 0x00e9, 0x0119, 0x00eb, 0x0117, 0x00ed, 0x00ee, 0x012b, // e8
+	0x0111, 0x0146, 0x014d, 0x0137, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
+	0x00f8, 0x0173, 0x00fa, 0x00fb, 0x00fc, 0x0169, 0x016b, 0x02d9, // f8
+};
+
 static uint32_t
 text_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 {
@@ -186,6 +214,10 @@ initialize_encoding(espeak_ng_TEXT_DECODER *decoder,
 	case ESPEAKNG_ENCODING_ISO_8859_3:
 		decoder->get = text_decoder_getc_codepage;
 		decoder->codepage = ISO_8859_3;
+		break;
+	case ESPEAKNG_ENCODING_ISO_8859_4:
+		decoder->get = text_decoder_getc_codepage;
+		decoder->codepage = ISO_8859_4;
 		break;
 	default:
 		return 0;
