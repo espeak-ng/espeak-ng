@@ -247,6 +247,38 @@ test_iso_8859_5_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_iso_8859_6_encoding()
+{
+	printf("testing ISO-8859-6 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISO-8859-6:1987") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("ISO-8859-6") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("ISO_8859-6") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("iso-ir-127") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("ECMA-114") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("ASMO-708") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("arabic") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("csISOLatinArabic") == ESPEAKNG_ENCODING_ISO_8859_6);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xDA", 5, ESPEAKNG_ENCODING_ISO_8859_6) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x92);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x063A);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -258,6 +290,7 @@ main(int argc, char **argv)
 	test_iso_8859_3_encoding();
 	test_iso_8859_4_encoding();
 	test_iso_8859_5_encoding();
+	test_iso_8859_6_encoding();
 	printf("done\n");
 
 	return EXIT_SUCCESS;
