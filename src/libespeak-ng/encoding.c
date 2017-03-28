@@ -294,7 +294,7 @@ static const uint32_t ISO_8859_9[0x80] = {
 };
 
 static uint32_t
-text_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
+string_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 {
 	uint8_t c = *decoder->current++ & 0xFF;
 	return (c >= 0x80) ? 0xFFFD : c;
@@ -303,17 +303,37 @@ text_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 // Reference: http://www.iana.org/go/rfc1345
 // Reference: http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-1.TXT
 static uint32_t
-text_decoder_getc_iso_8859_1(espeak_ng_TEXT_DECODER *decoder)
+string_decoder_getc_iso_8859_1(espeak_ng_TEXT_DECODER *decoder)
 {
 	return *decoder->current++ & 0xFF;
 }
 
 static uint32_t
-text_decoder_getc_codepage(espeak_ng_TEXT_DECODER *decoder)
+string_decoder_getc_codepage(espeak_ng_TEXT_DECODER *decoder)
 {
 	uint8_t c = *decoder->current++ & 0xFF;
 	return (c >= 0x80) ? decoder->codepage[c - 0x80] : c;
 }
+
+typedef struct
+{
+	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
+	const uint32_t *codepage;
+} encoding_t;
+
+static const encoding_t string_decoders[] = {
+	{ NULL, NULL },
+	{ string_decoder_getc_us_ascii, NULL },
+	{ string_decoder_getc_iso_8859_1, NULL },
+	{ string_decoder_getc_codepage, ISO_8859_2 },
+	{ string_decoder_getc_codepage, ISO_8859_3 },
+	{ string_decoder_getc_codepage, ISO_8859_4 },
+	{ string_decoder_getc_codepage, ISO_8859_5 },
+	{ string_decoder_getc_codepage, ISO_8859_6 },
+	{ string_decoder_getc_codepage, ISO_8859_7 },
+	{ string_decoder_getc_codepage, ISO_8859_8 },
+	{ string_decoder_getc_codepage, ISO_8859_9 },
+};
 
 espeak_ng_TEXT_DECODER *
 create_text_decoder(void)
@@ -334,67 +354,21 @@ destroy_text_decoder(espeak_ng_TEXT_DECODER *decoder)
 	if (decoder) free(decoder);
 }
 
-static int
-initialize_encoding(espeak_ng_TEXT_DECODER *decoder,
-                    espeak_ng_ENCODING encoding)
-{
-	switch (encoding)
-	{
-	case ESPEAKNG_ENCODING_US_ASCII:
-		decoder->get = text_decoder_getc_us_ascii;
-		decoder->codepage = NULL;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_1:
-		decoder->get = text_decoder_getc_iso_8859_1;
-		decoder->codepage = NULL;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_2:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_2;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_3:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_3;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_4:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_4;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_5:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_5;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_6:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_6;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_7:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_7;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_8:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_8;
-		break;
-	case ESPEAKNG_ENCODING_ISO_8859_9:
-		decoder->get = text_decoder_getc_codepage;
-		decoder->codepage = ISO_8859_9;
-		break;
-	default:
-		return 0;
-	}
-	return 1;
-}
-
 espeak_ng_STATUS
 text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
                            const char *string,
                            int length,
                            espeak_ng_ENCODING encoding)
 {
-	if (!initialize_encoding(decoder, encoding))
+	if (encoding > ESPEAKNG_ENCODING_ISO_8859_9)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
+	const encoding_t *enc = string_decoders + encoding;
+	if (enc->get == NULL)
+		return ENS_UNKNOWN_TEXT_ENCODING;
+
+	decoder->get = enc->get;
+	decoder->codepage = enc->codepage;
 	decoder->current = string;
 	decoder->end = string + length;
 	return ENS_OK;
