@@ -404,12 +404,41 @@ test_iso_8859_10_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_iso_8859_11_encoding()
+{
+	printf("testing ISO-8859-11 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISO-8859-11") == ESPEAKNG_ENCODING_ISO_8859_11);
+	assert(espeak_ng_EncodingFromName("TIS-620") == ESPEAKNG_ENCODING_ISO_8859_11);
+	assert(espeak_ng_EncodingFromName("csTIS620") == ESPEAKNG_ENCODING_ISO_8859_11);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xEE", 5, ESPEAKNG_ENCODING_ISO_8859_11) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x92);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0e4e);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
 	test_unbound_text_decoder();
 	test_unknown_encoding();
+
 	test_us_ascii_encoding();
+
 	test_iso_8859_1_encoding();
 	test_iso_8859_2_encoding();
 	test_iso_8859_3_encoding();
@@ -420,6 +449,8 @@ main(int argc, char **argv)
 	test_iso_8859_8_encoding();
 	test_iso_8859_9_encoding();
 	test_iso_8859_10_encoding();
+	test_iso_8859_11_encoding();
+
 	printf("done\n");
 
 	return EXIT_SUCCESS;

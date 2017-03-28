@@ -67,6 +67,8 @@ MNEM_TAB mnem_encoding[] = {
 	{ "ISO-8859-9:1989",  ESPEAKNG_ENCODING_ISO_8859_9 },
 	{ "ISO-8859-10",      ESPEAKNG_ENCODING_ISO_8859_10 },
 	{ "ISO-8859-10:1992", ESPEAKNG_ENCODING_ISO_8859_10 },
+	{ "ISO-8859-11",      ESPEAKNG_ENCODING_ISO_8859_11 },
+	{ "TIS-620",          ESPEAKNG_ENCODING_ISO_8859_11 },
 	{ "US-ASCII",         ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp367",            ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp819",            ESPEAKNG_ENCODING_ISO_8859_1 },
@@ -81,6 +83,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "csISOLatinCyrillic",ESPEAKNG_ENCODING_ISO_8859_5 },
 	{ "csISOLatinGreek",  ESPEAKNG_ENCODING_ISO_8859_7 },
 	{ "csISOLatinHebrew", ESPEAKNG_ENCODING_ISO_8859_8 },
+	{ "csTIS620",         ESPEAKNG_ENCODING_ISO_8859_11 },
 	{ "arabic",           ESPEAKNG_ENCODING_ISO_8859_6 },
 	{ "cyrillic",         ESPEAKNG_ENCODING_ISO_8859_5 },
 	{ "greek",            ESPEAKNG_ENCODING_ISO_8859_7 },
@@ -321,6 +324,26 @@ static const uint32_t ISO_8859_10[0x80] = {
 	0x00f8, 0x0173, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x00fe, 0x0138, // f8
 };
 
+// Reference: http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-11.TXT
+static const uint32_t ISO_8859_11[0x80] = {
+	0x0080, 0x0081, 0x0082, 0x0083, 0x0084, 0x0085, 0x0086, 0x0087, // 80
+	0x0088, 0x0089, 0x008a, 0x008b, 0x008c, 0x008d, 0x008e, 0x008f, // 88
+	0x0090, 0x0091, 0x0092, 0x0093, 0x0094, 0x0095, 0x0096, 0x0097, // 90
+	0x0098, 0x0099, 0x009a, 0x009b, 0x009c, 0x009d, 0x009e, 0x009f, // 98
+	0x00a0, 0x0e01, 0x0e02, 0x0e03, 0x0e04, 0x0e05, 0x0e06, 0x0e07, // a0
+	0x0e08, 0x0e09, 0x0e0a, 0x0e0b, 0x0e0c, 0x0e0d, 0x0e0e, 0x0e0f, // a8
+	0x0e10, 0x0e11, 0x0e12, 0x0e13, 0x0e14, 0x0e15, 0x0e16, 0x0e17, // b0
+	0x0e18, 0x0e19, 0x0e1a, 0x0e1b, 0x0e1c, 0x0e1d, 0x0e1e, 0x0e1f, // b8
+	0x0e20, 0x0e21, 0x0e22, 0x0e23, 0x0e24, 0x0e25, 0x0e26, 0x0e27, // c0
+	0x0e28, 0x0e29, 0x0e2a, 0x0e2b, 0x0e2c, 0x0e2d, 0x0e2e, 0x0e2f, // c8
+	0x0e30, 0x0e31, 0x0e32, 0x0e33, 0x0e34, 0x0e35, 0x0e36, 0x0e37, // d0
+	0x0e38, 0x0e39, 0x0e3a, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0x0e3f, // d8
+	0x0e40, 0x0e41, 0x0e42, 0x0e43, 0x0e44, 0x0e45, 0x0e46, 0x0e47, // e0
+	0x0e48, 0x0e49, 0x0e4a, 0x0e4b, 0x0e4c, 0x0e4d, 0x0e4e, 0x0e4f, // e8
+	0x0e50, 0x0e51, 0x0e52, 0x0e53, 0x0e54, 0x0e55, 0x0e56, 0x0e57, // f0
+	0x0e58, 0x0e59, 0x0e5a, 0x0e5b, 0xfffd, 0xfffd, 0xfffd, 0xfffd, // f8
+};
+
 static uint32_t
 string_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 {
@@ -362,6 +385,7 @@ static const encoding_t string_decoders[] = {
 	{ string_decoder_getc_codepage, ISO_8859_8 },
 	{ string_decoder_getc_codepage, ISO_8859_9 },
 	{ string_decoder_getc_codepage, ISO_8859_10 },
+	{ string_decoder_getc_codepage, ISO_8859_11 },
 };
 
 espeak_ng_TEXT_DECODER *
@@ -389,7 +413,7 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
                            int length,
                            espeak_ng_ENCODING encoding)
 {
-	if (encoding > ESPEAKNG_ENCODING_ISO_8859_10)
+	if (encoding > ESPEAKNG_ENCODING_ISO_8859_11)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
 	const encoding_t *enc = string_decoders + encoding;
