@@ -167,12 +167,14 @@
     <ClCompile Include="..\libespeak-ng\compiledict.c" />
     <ClCompile Include="..\libespeak-ng\compilembrola.c" />
     <ClCompile Include="..\libespeak-ng\dictionary.c" />
+    <ClCompile Include="..\libespeak-ng\encoding.c" />
     <ClCompile Include="..\libespeak-ng\error.c" />
     <ClCompile Include="..\libespeak-ng\espeak_api.c" />
     <ClCompile Include="..\libespeak-ng\ieee80.c" />
     <ClCompile Include="..\libespeak-ng\intonation.c" />
     <ClCompile Include="..\libespeak-ng\klatt.c" />
     <ClCompile Include="..\libespeak-ng\mbrowrap.c" />
+    <ClCompile Include="..\libespeak-ng\mnemonics.c" />
     <ClCompile Include="..\libespeak-ng\numbers.c" />
     <ClCompile Include="..\libespeak-ng\phoneme.c" />
     <ClCompile Include="..\libespeak-ng\phonemelist.c" />
