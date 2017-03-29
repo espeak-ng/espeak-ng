@@ -118,6 +118,31 @@ test_koi8_r_encoding()
 }
 
 void
+test_iscii_encoding()
+{
+	printf("testing ISCII encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISCII") == ESPEAKNG_ENCODING_ISCII);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xE6", 5, ESPEAKNG_ENCODING_ISCII) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xfffd);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xfffd);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x094c);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
+void
 test_iso_8859_1_encoding()
 {
 	printf("testing ISO-8859-1 encoding\n");
@@ -582,6 +607,7 @@ main(int argc, char **argv)
 
 	test_us_ascii_encoding();
 	test_koi8_r_encoding();
+	test_iscii_encoding();
 
 	test_iso_8859_1_encoding();
 	test_iso_8859_2_encoding();
