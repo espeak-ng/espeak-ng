@@ -96,9 +96,9 @@ test_iso_8859_1_encoding()
 {
 	printf("testing ISO-8859-1 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-1:1987") == ESPEAKNG_ENCODING_ISO_8859_1);
 	assert(espeak_ng_EncodingFromName("ISO-8859-1") == ESPEAKNG_ENCODING_ISO_8859_1);
 	assert(espeak_ng_EncodingFromName("ISO_8859-1") == ESPEAKNG_ENCODING_ISO_8859_1);
+	assert(espeak_ng_EncodingFromName("ISO_8859-1:1987") == ESPEAKNG_ENCODING_ISO_8859_1);
 	assert(espeak_ng_EncodingFromName("iso-ir-100") == ESPEAKNG_ENCODING_ISO_8859_1);
 	assert(espeak_ng_EncodingFromName("latin1") == ESPEAKNG_ENCODING_ISO_8859_1);
 	assert(espeak_ng_EncodingFromName("l1") == ESPEAKNG_ENCODING_ISO_8859_1);
@@ -129,9 +129,9 @@ test_iso_8859_2_encoding()
 {
 	printf("testing ISO-8859-2 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-2:1987") == ESPEAKNG_ENCODING_ISO_8859_2);
 	assert(espeak_ng_EncodingFromName("ISO-8859-2") == ESPEAKNG_ENCODING_ISO_8859_2);
 	assert(espeak_ng_EncodingFromName("ISO_8859-2") == ESPEAKNG_ENCODING_ISO_8859_2);
+	assert(espeak_ng_EncodingFromName("ISO_8859-2:1987") == ESPEAKNG_ENCODING_ISO_8859_2);
 	assert(espeak_ng_EncodingFromName("iso-ir-101") == ESPEAKNG_ENCODING_ISO_8859_2);
 	assert(espeak_ng_EncodingFromName("latin2") == ESPEAKNG_ENCODING_ISO_8859_2);
 	assert(espeak_ng_EncodingFromName("l2") == ESPEAKNG_ENCODING_ISO_8859_2);
@@ -160,9 +160,9 @@ test_iso_8859_3_encoding()
 {
 	printf("testing ISO-8859-3 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-3:1988") == ESPEAKNG_ENCODING_ISO_8859_3);
 	assert(espeak_ng_EncodingFromName("ISO-8859-3") == ESPEAKNG_ENCODING_ISO_8859_3);
 	assert(espeak_ng_EncodingFromName("ISO_8859-3") == ESPEAKNG_ENCODING_ISO_8859_3);
+	assert(espeak_ng_EncodingFromName("ISO_8859-3:1988") == ESPEAKNG_ENCODING_ISO_8859_3);
 	assert(espeak_ng_EncodingFromName("iso-ir-109") == ESPEAKNG_ENCODING_ISO_8859_3);
 	assert(espeak_ng_EncodingFromName("latin3") == ESPEAKNG_ENCODING_ISO_8859_3);
 	assert(espeak_ng_EncodingFromName("l3") == ESPEAKNG_ENCODING_ISO_8859_3);
@@ -191,9 +191,9 @@ test_iso_8859_4_encoding()
 {
 	printf("testing ISO-8859-4 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-4:1988") == ESPEAKNG_ENCODING_ISO_8859_4);
 	assert(espeak_ng_EncodingFromName("ISO-8859-4") == ESPEAKNG_ENCODING_ISO_8859_4);
 	assert(espeak_ng_EncodingFromName("ISO_8859-4") == ESPEAKNG_ENCODING_ISO_8859_4);
+	assert(espeak_ng_EncodingFromName("ISO_8859-4:1988") == ESPEAKNG_ENCODING_ISO_8859_4);
 	assert(espeak_ng_EncodingFromName("iso-ir-110") == ESPEAKNG_ENCODING_ISO_8859_4);
 	assert(espeak_ng_EncodingFromName("latin4") == ESPEAKNG_ENCODING_ISO_8859_4);
 	assert(espeak_ng_EncodingFromName("l4") == ESPEAKNG_ENCODING_ISO_8859_4);
@@ -222,9 +222,9 @@ test_iso_8859_5_encoding()
 {
 	printf("testing ISO-8859-5 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-5:1988") == ESPEAKNG_ENCODING_ISO_8859_5);
 	assert(espeak_ng_EncodingFromName("ISO-8859-5") == ESPEAKNG_ENCODING_ISO_8859_5);
 	assert(espeak_ng_EncodingFromName("ISO_8859-5") == ESPEAKNG_ENCODING_ISO_8859_5);
+	assert(espeak_ng_EncodingFromName("ISO_8859-5:1988") == ESPEAKNG_ENCODING_ISO_8859_5);
 	assert(espeak_ng_EncodingFromName("iso-ir-144") == ESPEAKNG_ENCODING_ISO_8859_5);
 	assert(espeak_ng_EncodingFromName("cyrillic") == ESPEAKNG_ENCODING_ISO_8859_5);
 	assert(espeak_ng_EncodingFromName("csISOLatinCyrillic") == ESPEAKNG_ENCODING_ISO_8859_5);
@@ -252,9 +252,9 @@ test_iso_8859_6_encoding()
 {
 	printf("testing ISO-8859-6 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-6:1987") == ESPEAKNG_ENCODING_ISO_8859_6);
 	assert(espeak_ng_EncodingFromName("ISO-8859-6") == ESPEAKNG_ENCODING_ISO_8859_6);
 	assert(espeak_ng_EncodingFromName("ISO_8859-6") == ESPEAKNG_ENCODING_ISO_8859_6);
+	assert(espeak_ng_EncodingFromName("ISO_8859-6:1987") == ESPEAKNG_ENCODING_ISO_8859_6);
 	assert(espeak_ng_EncodingFromName("iso-ir-127") == ESPEAKNG_ENCODING_ISO_8859_6);
 	assert(espeak_ng_EncodingFromName("ECMA-114") == ESPEAKNG_ENCODING_ISO_8859_6);
 	assert(espeak_ng_EncodingFromName("ASMO-708") == ESPEAKNG_ENCODING_ISO_8859_6);
@@ -284,9 +284,9 @@ test_iso_8859_7_encoding()
 {
 	printf("testing ISO-8859-7 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-7:1987") == ESPEAKNG_ENCODING_ISO_8859_7);
 	assert(espeak_ng_EncodingFromName("ISO-8859-7") == ESPEAKNG_ENCODING_ISO_8859_7);
 	assert(espeak_ng_EncodingFromName("ISO_8859-7") == ESPEAKNG_ENCODING_ISO_8859_7);
+	assert(espeak_ng_EncodingFromName("ISO_8859-7:1987") == ESPEAKNG_ENCODING_ISO_8859_7);
 	assert(espeak_ng_EncodingFromName("iso-ir-126") == ESPEAKNG_ENCODING_ISO_8859_7);
 	assert(espeak_ng_EncodingFromName("ECMA-118") == ESPEAKNG_ENCODING_ISO_8859_7);
 	assert(espeak_ng_EncodingFromName("ELOT_928") == ESPEAKNG_ENCODING_ISO_8859_7);
@@ -317,9 +317,9 @@ test_iso_8859_8_encoding()
 {
 	printf("testing ISO-8859-8 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-8:1988") == ESPEAKNG_ENCODING_ISO_8859_8);
 	assert(espeak_ng_EncodingFromName("ISO-8859-8") == ESPEAKNG_ENCODING_ISO_8859_8);
 	assert(espeak_ng_EncodingFromName("ISO_8859-8") == ESPEAKNG_ENCODING_ISO_8859_8);
+	assert(espeak_ng_EncodingFromName("ISO_8859-8:1988") == ESPEAKNG_ENCODING_ISO_8859_8);
 	assert(espeak_ng_EncodingFromName("iso-ir-138") == ESPEAKNG_ENCODING_ISO_8859_8);
 	assert(espeak_ng_EncodingFromName("hebrew") == ESPEAKNG_ENCODING_ISO_8859_8);
 	assert(espeak_ng_EncodingFromName("csISOLatinHebrew") == ESPEAKNG_ENCODING_ISO_8859_8);
@@ -347,9 +347,9 @@ test_iso_8859_9_encoding()
 {
 	printf("testing ISO-8859-9 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-9:1989") == ESPEAKNG_ENCODING_ISO_8859_9);
 	assert(espeak_ng_EncodingFromName("ISO-8859-9") == ESPEAKNG_ENCODING_ISO_8859_9);
 	assert(espeak_ng_EncodingFromName("ISO_8859-9") == ESPEAKNG_ENCODING_ISO_8859_9);
+	assert(espeak_ng_EncodingFromName("ISO_8859-9:1989") == ESPEAKNG_ENCODING_ISO_8859_9);
 	assert(espeak_ng_EncodingFromName("iso-ir-148") == ESPEAKNG_ENCODING_ISO_8859_9);
 	assert(espeak_ng_EncodingFromName("latin5") == ESPEAKNG_ENCODING_ISO_8859_9);
 	assert(espeak_ng_EncodingFromName("l5") == ESPEAKNG_ENCODING_ISO_8859_9);
@@ -378,9 +378,9 @@ test_iso_8859_10_encoding()
 {
 	printf("testing ISO-8859-10 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-10:1992") == ESPEAKNG_ENCODING_ISO_8859_10);
 	assert(espeak_ng_EncodingFromName("ISO-8859-10") == ESPEAKNG_ENCODING_ISO_8859_10);
 	assert(espeak_ng_EncodingFromName("ISO_8859-10") == ESPEAKNG_ENCODING_ISO_8859_10);
+	assert(espeak_ng_EncodingFromName("ISO_8859-10:1992") == ESPEAKNG_ENCODING_ISO_8859_10);
 	assert(espeak_ng_EncodingFromName("iso-ir-157") == ESPEAKNG_ENCODING_ISO_8859_10);
 	assert(espeak_ng_EncodingFromName("latin6") == ESPEAKNG_ENCODING_ISO_8859_10);
 	assert(espeak_ng_EncodingFromName("l6") == ESPEAKNG_ENCODING_ISO_8859_10);
@@ -462,9 +462,9 @@ test_iso_8859_14_encoding()
 {
 	printf("testing ISO-8859-14 encoding\n");
 
-	assert(espeak_ng_EncodingFromName("ISO-8859-14:1998") == ESPEAKNG_ENCODING_ISO_8859_14);
 	assert(espeak_ng_EncodingFromName("ISO-8859-14") == ESPEAKNG_ENCODING_ISO_8859_14);
 	assert(espeak_ng_EncodingFromName("ISO_8859-14") == ESPEAKNG_ENCODING_ISO_8859_14);
+	assert(espeak_ng_EncodingFromName("ISO_8859-14:1998") == ESPEAKNG_ENCODING_ISO_8859_14);
 	assert(espeak_ng_EncodingFromName("iso-ir-199") == ESPEAKNG_ENCODING_ISO_8859_14);
 	assert(espeak_ng_EncodingFromName("iso-celtic") == ESPEAKNG_ENCODING_ISO_8859_14);
 	assert(espeak_ng_EncodingFromName("latin8") == ESPEAKNG_ENCODING_ISO_8859_14);
