@@ -489,6 +489,34 @@ test_iso_8859_14_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_iso_8859_15_encoding()
+{
+	printf("testing ISO-8859-15 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISO-8859-15") == ESPEAKNG_ENCODING_ISO_8859_15);
+	assert(espeak_ng_EncodingFromName("ISO_8859-15") == ESPEAKNG_ENCODING_ISO_8859_15);
+	assert(espeak_ng_EncodingFromName("Latin-9") == ESPEAKNG_ENCODING_ISO_8859_15);
+	assert(espeak_ng_EncodingFromName("csISO885915") == ESPEAKNG_ENCODING_ISO_8859_15);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aG\x92\xA0\xBE", 5, ESPEAKNG_ENCODING_ISO_8859_15) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x92);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0178);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -511,6 +539,7 @@ main(int argc, char **argv)
 	// ISO-8859-12 is not a valid encoding.
 	test_iso_8859_13_encoding();
 	test_iso_8859_14_encoding();
+	test_iso_8859_15_encoding();
 
 	printf("done\n");
 
