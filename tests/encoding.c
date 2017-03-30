@@ -599,6 +599,109 @@ test_iso_8859_16_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_utf_8_encoding()
+{
+	printf("testing UTF-8 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("UTF-8") == ESPEAKNG_ENCODING_UTF_8);
+	assert(espeak_ng_EncodingFromName("csUTF8") == ESPEAKNG_ENCODING_UTF_8);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	// 1-byte UTF-8 sequences
+	assert(text_decoder_decode_string(decoder, "\x0D\x1E\x20\x35\x42\x57\x65\x77", 8, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x000D);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x001E);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0020);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0035);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0042);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0057);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0065);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0077);
+	assert(text_decoder_eof(decoder) == 1);
+
+	// UTF-8 tail bytes without an initial length indicator character
+	assert(text_decoder_decode_string(decoder, "\x84\x92\xA8\xB5", 4, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 1);
+
+	// 2-byte UTF-8 sequences
+	assert(text_decoder_decode_string(decoder, "\xC2\xA0\xD0\xB0\xC5\x65\xC2\xA0", 7, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x00A0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0430);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x65 is not a continuation byte, so \xC5 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0065);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // incomplete: \xA0 is past the end of the string
+	assert(text_decoder_eof(decoder) == 1);
+
+	// 3-byte UTF-8 sequences
+	assert(text_decoder_decode_string(decoder, "\xE4\xBA\x8C\xE8\x42\xE2\x93\x44\xE4\xA0\x80", 9, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x4E8C);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x42 is not a continuation byte, so \xE8 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0042);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x44 is not a continuation byte, so \xE2\x93 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0044);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // incomplete: \xA0 is past the end of the string
+	assert(text_decoder_eof(decoder) == 1);
+
+	// 4-byte UTF-8 sequences
+	assert(text_decoder_decode_string(decoder, "\xF0\x90\x8C\x82\xF4\x8F\xBF\xBF\xF3\x61\xF3\xA5\x32\xF3\x87\xB2\x36\xF1\xA0\x80\x80", 18, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x10302);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x10FFFF);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x61 is not a continuation byte, so \xF3 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0061);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x32 is not a continuation byte, so \xF3\xA5 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0032);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // \x36 is not a continuation byte, so \xF3\x87\xB2 is invalid
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x0036);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD); // incomplete: \xA0 is past the end of the string
+	assert(text_decoder_eof(decoder) == 1);
+
+	// out of range (> 0x10FFFF)
+	assert(text_decoder_decode_string(decoder, "\xF4\x90\x80\x80", 4, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -625,6 +728,8 @@ main(int argc, char **argv)
 	test_iso_8859_14_encoding();
 	test_iso_8859_15_encoding();
 	test_iso_8859_16_encoding();
+
+	test_utf_8_encoding();
 
 	printf("done\n");
 

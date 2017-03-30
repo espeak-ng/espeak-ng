@@ -25,6 +25,9 @@
 #include "speech.h"
 #include "encoding.h"
 
+#define LEADING_2_BITS 0xC0 // 0b11000000
+#define UTF8_TAIL_BITS 0x80 // 0b10000000
+
 // http://www.iana.org/assignments/character-sets/character-sets.xhtml
 MNEM_TAB mnem_encoding[] = {
 	{ "ANSI_X3.4-1968",   ESPEAKNG_ENCODING_US_ASCII },
@@ -82,6 +85,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "Latin-9",          ESPEAKNG_ENCODING_ISO_8859_15 },
 	{ "TIS-620",          ESPEAKNG_ENCODING_ISO_8859_11 },
 	{ "US-ASCII",         ESPEAKNG_ENCODING_US_ASCII },
+	{ "UTF-8",            ESPEAKNG_ENCODING_UTF_8 },
 	{ "cp367",            ESPEAKNG_ENCODING_US_ASCII },
 	{ "cp819",            ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "csASCII",          ESPEAKNG_ENCODING_US_ASCII },
@@ -101,6 +105,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "csISOLatinHebrew", ESPEAKNG_ENCODING_ISO_8859_8 },
 	{ "csKOI8R",          ESPEAKNG_ENCODING_KOI8_R },
 	{ "csTIS620",         ESPEAKNG_ENCODING_ISO_8859_11 },
+	{ "csUTF8",           ESPEAKNG_ENCODING_UTF_8 },
 	{ "arabic",           ESPEAKNG_ENCODING_ISO_8859_6 },
 	{ "cyrillic",         ESPEAKNG_ENCODING_ISO_8859_5 },
 	{ "greek",            ESPEAKNG_ENCODING_ISO_8859_7 },
@@ -511,6 +516,56 @@ string_decoder_getc_codepage(espeak_ng_TEXT_DECODER *decoder)
 	return (c >= 0x80) ? decoder->codepage[c - 0x80] : c;
 }
 
+static uint32_t
+string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
+{
+	uint8_t  c = *decoder->current++ & 0xFF;
+	uint32_t ret;
+	switch (c & 0xF0)
+	{
+	// 1-byte UTF-8 sequence
+	case 0x00: case 0x10: case 0x20: case 0x30:
+	case 0x40: case 0x50: case 0x60: case 0x70:
+		return c;
+	// UTF-8 tail byte -- invalid in isolation
+	case 0x80: case 0x90: case 0xA0: case 0xB0:
+		return 0xFFFD;
+	// 2-byte UTF-8 sequence
+	case 0xC0: case 0xD0:
+		if (decoder->current + 1 >= decoder->end) goto eof;
+		ret = c & 0x1F;
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		return ret;
+	// 3-byte UTF-8 sequence
+	case 0xE0:
+		if (decoder->current + 2 >= decoder->end) goto eof;
+		ret = c & 0x0F;
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		return ret;
+	// 4-byte UTF-8 sequence
+	case 0xF0:
+		if (decoder->current + 3 >= decoder->end) goto eof;
+		ret = c & 0x0F;
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		ret = (ret << 6) + (c & 0x3F);
+		return (ret <= 0x10FFFF) ? ret : 0xFFFD;
+	}
+error:
+	--decoder->current;
+	return 0xFFFD;
+eof:
+	decoder->current = decoder->end;
+	return 0xFFFD;
+}
+
 typedef struct
 {
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
@@ -538,6 +593,7 @@ static const encoding_t string_decoders[] = {
 	{ string_decoder_getc_codepage, ISO_8859_16 },
 	{ string_decoder_getc_codepage, KOI8_R },
 	{ string_decoder_getc_codepage, ISCII },
+	{ string_decoder_getc_utf_8, NULL },
 };
 
 espeak_ng_TEXT_DECODER *
@@ -565,7 +621,7 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
                            int length,
                            espeak_ng_ENCODING encoding)
 {
-	if (encoding > ESPEAKNG_ENCODING_ISCII)
+	if (encoding > ESPEAKNG_ENCODING_UTF_8)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
 	const encoding_t *enc = string_decoders + encoding;
