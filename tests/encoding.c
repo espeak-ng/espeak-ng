@@ -702,6 +702,32 @@ test_utf_8_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_iso_10646_ucs_2_encoding()
+{
+	printf("testing ISO-10646-UCS-2 encoding\n");
+
+	assert(espeak_ng_EncodingFromName("ISO-10646-UCS-2") == ESPEAKNG_ENCODING_ISO_10646_UCS_2);
+	assert(espeak_ng_EncodingFromName("csUnicode") == ESPEAKNG_ENCODING_ISO_10646_UCS_2);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "a\00G\00\xA0\00\x22\x21\x23\x21", 9, ESPEAKNG_ENCODING_ISO_10646_UCS_2) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x2122);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xFFFD);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -730,6 +756,7 @@ main(int argc, char **argv)
 	test_iso_8859_16_encoding();
 
 	test_utf_8_encoding();
+	test_iso_10646_ucs_2_encoding();
 
 	printf("done\n");
 

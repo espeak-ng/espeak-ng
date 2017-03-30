@@ -66,6 +66,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "ISO_8859-16",      ESPEAKNG_ENCODING_ISO_8859_16 },
 	{ "ISO_8859-16:2001", ESPEAKNG_ENCODING_ISO_8859_16 },
 	{ "ISO646-US",        ESPEAKNG_ENCODING_US_ASCII },
+	{ "ISO-10646-UCS-2",  ESPEAKNG_ENCODING_ISO_10646_UCS_2 },
 	{ "ISO-8859-1",       ESPEAKNG_ENCODING_ISO_8859_1 },
 	{ "ISO-8859-2",       ESPEAKNG_ENCODING_ISO_8859_2 },
 	{ "ISO-8859-3",       ESPEAKNG_ENCODING_ISO_8859_3 },
@@ -106,6 +107,7 @@ MNEM_TAB mnem_encoding[] = {
 	{ "csKOI8R",          ESPEAKNG_ENCODING_KOI8_R },
 	{ "csTIS620",         ESPEAKNG_ENCODING_ISO_8859_11 },
 	{ "csUTF8",           ESPEAKNG_ENCODING_UTF_8 },
+	{ "csUnicode",        ESPEAKNG_ENCODING_ISO_10646_UCS_2 },
 	{ "arabic",           ESPEAKNG_ENCODING_ISO_8859_6 },
 	{ "cyrillic",         ESPEAKNG_ENCODING_ISO_8859_5 },
 	{ "greek",            ESPEAKNG_ENCODING_ISO_8859_7 },
@@ -566,6 +568,19 @@ eof:
 	return 0xFFFD;
 }
 
+static uint32_t
+string_decoder_getc_iso_10646_ucs_2(espeak_ng_TEXT_DECODER *decoder)
+{
+	if (decoder->current + 1 >= decoder->end) {
+		decoder->current = decoder->end;
+		return 0xFFFD;
+	}
+
+	uint8_t c1 = *decoder->current++ & 0xFF;
+	uint8_t c2 = *decoder->current++ & 0xFF;
+	return c1 + (c2 << 8);
+}
+
 typedef struct
 {
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
@@ -594,6 +609,7 @@ static const encoding_t string_decoders[] = {
 	{ string_decoder_getc_codepage, KOI8_R },
 	{ string_decoder_getc_codepage, ISCII },
 	{ string_decoder_getc_utf_8, NULL },
+	{ string_decoder_getc_iso_10646_ucs_2, NULL },
 };
 
 espeak_ng_TEXT_DECODER *
@@ -621,7 +637,7 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
                            int length,
                            espeak_ng_ENCODING encoding)
 {
-	if (encoding > ESPEAKNG_ENCODING_UTF_8)
+	if (encoding > ESPEAKNG_ENCODING_ISO_10646_UCS_2)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
 	const encoding_t *enc = string_decoders + encoding;
