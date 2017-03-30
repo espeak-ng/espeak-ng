@@ -159,8 +159,8 @@ espeak_ng_EncodingFromName(const char *encoding)
 
 struct espeak_ng_TEXT_DECODER_
 {
-	const char *current;
-	const char *end;
+	const uint8_t *current;
+	const uint8_t *end;
 
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
 	const uint16_t *codepage;
@@ -499,7 +499,7 @@ static const uint16_t ISCII[0x80] = {
 static uint32_t
 string_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 {
-	uint8_t c = *decoder->current++ & 0xFF;
+	uint8_t c = *decoder->current++;
 	return (c >= 0x80) ? 0xFFFD : c;
 }
 
@@ -508,20 +508,20 @@ string_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 static uint32_t
 string_decoder_getc_iso_8859_1(espeak_ng_TEXT_DECODER *decoder)
 {
-	return *decoder->current++ & 0xFF;
+	return *decoder->current++;
 }
 
 static uint32_t
 string_decoder_getc_codepage(espeak_ng_TEXT_DECODER *decoder)
 {
-	uint8_t c = *decoder->current++ & 0xFF;
+	uint8_t c = *decoder->current++;
 	return (c >= 0x80) ? decoder->codepage[c - 0x80] : c;
 }
 
 static uint32_t
 string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 {
-	uint8_t  c = *decoder->current++ & 0xFF;
+	uint8_t  c = *decoder->current++;
 	uint32_t ret;
 	switch (c & 0xF0)
 	{
@@ -536,27 +536,27 @@ string_decoder_getc_utf_8(espeak_ng_TEXT_DECODER *decoder)
 	case 0xC0: case 0xD0:
 		if (decoder->current + 1 >= decoder->end) goto eof;
 		ret = c & 0x1F;
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
 		return ret;
 	// 3-byte UTF-8 sequence
 	case 0xE0:
 		if (decoder->current + 2 >= decoder->end) goto eof;
 		ret = c & 0x0F;
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
 		return ret;
 	// 4-byte UTF-8 sequence
 	case 0xF0:
 		if (decoder->current + 3 >= decoder->end) goto eof;
 		ret = c & 0x0F;
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
-		if (((c = *decoder->current++ & 0xFF) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
+		if (((c = *decoder->current++) & LEADING_2_BITS) != UTF8_TAIL_BITS) goto error;
 		ret = (ret << 6) + (c & 0x3F);
 		return (ret <= 0x10FFFF) ? ret : 0xFFFD;
 	}
@@ -576,8 +576,8 @@ string_decoder_getc_iso_10646_ucs_2(espeak_ng_TEXT_DECODER *decoder)
 		return 0xFFFD;
 	}
 
-	uint8_t c1 = *decoder->current++ & 0xFF;
-	uint8_t c2 = *decoder->current++ & 0xFF;
+	uint8_t c1 = *decoder->current++;
+	uint8_t c2 = *decoder->current++;
 	return c1 + (c2 << 8);
 }
 
