@@ -654,8 +654,8 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 
 	decoder->get = enc->get;
 	decoder->codepage = enc->codepage;
-	decoder->current = string;
-	decoder->end = string + length;
+	decoder->current = (const uint8_t *)string;
+	decoder->end = (const uint8_t *)(string + length);
 	return ENS_OK;
 }
 
