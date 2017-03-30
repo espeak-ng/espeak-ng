@@ -728,6 +728,27 @@ test_iso_10646_ucs_2_encoding()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_wchar_decoder()
+{
+	printf("testing wchar_t decoder\n");
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_wstring(decoder, L"aG\xA0\x2045", 4) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x2045);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -757,6 +778,8 @@ main(int argc, char **argv)
 
 	test_utf_8_encoding();
 	test_iso_10646_ucs_2_encoding();
+
+	test_wchar_decoder();
 
 	printf("done\n");
 

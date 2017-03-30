@@ -581,6 +581,14 @@ string_decoder_getc_iso_10646_ucs_2(espeak_ng_TEXT_DECODER *decoder)
 	return c1 + (c2 << 8);
 }
 
+static uint32_t
+string_decoder_getc_wchar(espeak_ng_TEXT_DECODER *decoder)
+{
+	wchar_t c = *(const wchar_t *)decoder->current;
+	decoder->current += sizeof(wchar_t);
+	return c;
+}
+
 typedef struct
 {
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
@@ -648,6 +656,18 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 	decoder->codepage = enc->codepage;
 	decoder->current = string;
 	decoder->end = string + length;
+	return ENS_OK;
+}
+
+espeak_ng_STATUS
+text_decoder_decode_wstring(espeak_ng_TEXT_DECODER *decoder,
+                            const wchar_t *string,
+                            int length)
+{
+	decoder->get = string_decoder_getc_wchar;
+	decoder->codepage = NULL;
+	decoder->current = (const uint8_t *)string;
+	decoder->end = (const uint8_t *)(string + length);
 	return ENS_OK;
 }
 
