@@ -22,6 +22,8 @@ extern "C"
 {
 #endif
 
+extern const uint16_t *codepage_tables[]; // transitional data table
+
 typedef struct espeak_ng_TEXT_DECODER_ espeak_ng_TEXT_DECODER;
 
 espeak_ng_TEXT_DECODER *

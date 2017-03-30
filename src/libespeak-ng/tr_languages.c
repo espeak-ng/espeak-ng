@@ -223,7 +223,7 @@ static Translator *NewTranslator(void)
 	if ((tr = (Translator *)malloc(sizeof(Translator))) == NULL)
 		return NULL;
 
-	tr->charset_a0 = charsets[1]; // ISO-8859-1, this is for when the input is not utf8
+	tr->encoding = ESPEAKNG_ENCODING_ISO_8859_1;
 	dictionary_name[0] = 0;
 	tr->dictionary_name[0] = 0;
 	tr->dict_condition = 0;
@@ -380,7 +380,7 @@ static void SetCyrillicLetters(Translator *tr)
 	static const char ru_nothard[] = { 0x11, 0x12, 0x13, 0x14, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x27, 0x29, 0x2c, 0 };
 	static const char ru_voiced[] = { 0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0 };    // letter group G  (voiced obstruents)
 	static const char ru_ivowels[] = { 0x2c, 0x2e, 0x2f, 0x31, 0 };   // letter group Y  (iotated vowels & soft-sign)
-	tr->charset_a0 = charsets[18];   // KOI8-R
+	tr->encoding = ESPEAKNG_ENCODING_KOI8_R;
 	tr->transpose_min = 0x430;  // convert cyrillic from unicode into range 0x01 to 0x22
 	tr->transpose_max = 0x451;
 	tr->transpose_map = NULL;
@@ -491,12 +491,13 @@ Translator *SelectTranslator(const char *name)
 		tr->letter_bits_offset = OFFSET_ARABIC;
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
 		break;
 	case L('b', 'g'): // Bulgarian
 	{
 		SetCyrillicLetters(tr);
 		SetLetterVowel(tr, 0x2a);
-		tr->charset_a0 = charsets[5]; // ISO-8859-5
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_5;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x107; // devoice at end of word, and change voicing to match a following consonant (except v)
 		tr->langopts.param[LOPT_REDUCE] = 2;
@@ -553,7 +554,7 @@ Translator *SelectTranslator(const char *name)
 
 		SetupTranslator(tr, stress_lengths_cy, stress_amps_cy);
 
-		tr->charset_a0 = charsets[14]; // ISO-8859-14
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_14;
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 
 		// 'diminished' is an unstressed final syllable
@@ -638,7 +639,7 @@ Translator *SelectTranslator(const char *name)
 
 		SetupTranslator(tr, stress_lengths_el, stress_amps_el);
 
-		tr->charset_a0 = charsets[7]; // ISO-8859-7
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_7;
 		tr->char_plus_apostrophe = el_char_apostrophe;
 
 		tr->letter_bits_offset = OFFSET_GREEK;
@@ -673,7 +674,7 @@ Translator *SelectTranslator(const char *name)
 
 		SetupTranslator(tr, stress_lengths_eo, stress_amps_eo);
 
-		tr->charset_a0 = charsets[3]; // ISO-8859-3
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
 		tr->char_plus_apostrophe = eo_char_apostrophe;
 
 		tr->langopts.vowel_pause = 2;
@@ -769,7 +770,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('e', 't'): // Estonian
-		tr->charset_a0 = charsets[4]; // ISO-8859-4
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
 		// fallthrough:
 	case L('f', 'i'): // Finnish
 	{
@@ -830,7 +831,7 @@ Translator *SelectTranslator(const char *name)
 		static const unsigned char stress_amps_hi[8] = { 17, 14, 20, 19, 20, 22, 22, 21 };
 
 		SetupTranslator(tr, stress_lengths_hi, stress_amps_hi);
-		tr->charset_a0 = charsets[19]; // ISCII
+		tr->encoding = ESPEAKNG_ENCODING_ISCII;
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = 6; // stress on last heaviest syllable, excluding final syllable
@@ -869,7 +870,7 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr, stress_lengths_sr, stress_amps_hr);
 		else
 			SetupTranslator(tr, stress_lengths_hr, stress_amps_hr);
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_FINAL_NO_2;
@@ -898,7 +899,7 @@ Translator *SelectTranslator(const char *name)
 		static const short stress_lengths_hu[8] = { 185, 195, 195, 190, 0, 0, 210, 220 };
 
 		SetupTranslator(tr, stress_lengths_hu, stress_amps_hu);
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.vowel_pause = 0x20;
 		tr->langopts.stress_rule = STRESSPOSN_1L;
@@ -1091,7 +1092,7 @@ Translator *SelectTranslator(const char *name)
 		static const short stress_lengths_ku[8] = { 180, 180, 190, 180, 0, 0, 230, 240 };
 
 		SetupTranslator(tr, stress_lengths_ku, stress_amps_ku);
-		tr->charset_a0 = charsets[9]; // ISO-8859-9 - Latin5
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_9;
 
 		tr->langopts.stress_rule = 7; // stress on the last syllable, before any explicitly unstressed syllable
 
@@ -1104,7 +1105,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('l', 'a'): // Latin
 	{
-		tr->charset_a0 = charsets[4]; // ISO-8859-4, includes a,e,i,o,u-macron
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4; // includes a,e,i,o,u-macron
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_NO_AUTO_2;
 		tr->langopts.unstressed_wd1 = 0;
@@ -1116,7 +1117,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('l', 't'): // Lithuanian
 	{
-		tr->charset_a0 = charsets[4]; // ISO-8859-4
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_NO_AUTO_2;
 		tr->langopts.unstressed_wd1 = 0;
@@ -1136,7 +1137,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.spelling_stress = 1;
-		tr->charset_a0 = charsets[4]; // ISO-8859-4
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
 	}
@@ -1152,7 +1153,7 @@ Translator *SelectTranslator(const char *name)
 		static const short stress_lengths_mk[8] = { 180, 160, 200, 200, 0, 0, 220, 230 };
 
 		SetupTranslator(tr, stress_lengths_mk, stress_amps_mk);
-		tr->charset_a0 = charsets[5]; // ISO-8859-5
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_5;
 		tr->letter_groups[0] = tr->letter_groups[7] = vowels_cyrillic;
 		tr->letter_bits_offset = OFFSET_CYRILLIC;
 
@@ -1163,7 +1164,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('m', 't'): // Maltese
 	{
-		tr->charset_a0 = charsets[3]; // ISO-8859-3
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x100; // devoice at end of word
 		tr->langopts.stress_rule = STRESSPOSN_2R; // penultimate
 		tr->langopts.numbers = 1;
@@ -1215,7 +1216,7 @@ Translator *SelectTranslator(const char *name)
 
 		SetupTranslator(tr, stress_lengths_pl, stress_amps_pl);
 
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY; // mark unstressed final syllables as diminished
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x9;
@@ -1256,7 +1257,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1R;
 		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
 
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3 | NUM_AND_UNITS | NUM_ROMAN;
 		tr->langopts.numbers2 = 0x1e; // variant numbers before all thousandplex
 	}
@@ -1280,7 +1281,7 @@ Translator *SelectTranslator(const char *name)
 		static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
 		SetupTranslator(tr, stress_lengths_sk, stress_amps_sk);
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
@@ -1329,7 +1330,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('s', 'l'): // Slovenian
-		tr->charset_a0 = charsets[2]; // ISO-8859-2
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 		tr->langopts.stress_rule = STRESSPOSN_2R; // Temporary
 		tr->langopts.stress_flags = S_NO_AUTO_2;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x103;
@@ -1432,7 +1433,7 @@ Translator *SelectTranslator(const char *name)
 		static const short stress_lengths_tr[8] = { 190, 180, 200, 230, 0, 0, 240, 250 };
 
 		SetupTranslator(tr, stress_lengths_tr, stress_amps_tr);
-		tr->charset_a0 = charsets[9]; // ISO-8859-9 - Latin5
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_9;
 
 		tr->langopts.stress_rule = 7; // stress on the last syllable, before any explicitly unstressed syllable
 		tr->langopts.stress_flags = S_NO_AUTO_2; // no automatic secondary stress

@@ -35,6 +35,7 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "error.h"
+#include "encoding.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -375,8 +376,10 @@ static int GetC(void)
 
 	// 8 bit character set, convert to unicode if
 	count_characters++;
-	if (c1 >= 0xa0)
-		return translator->charset_a0[c1-0xa0];
+	if (c1 >= 0x80) {
+		const uint16_t *codepage = codepage_tables[translator->encoding];
+		return codepage ? codepage[c1 - 0x80] : ' ';
+	}
 	return c1;
 }
 

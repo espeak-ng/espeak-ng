@@ -29,7 +29,6 @@
   - [stressAdd](#stressadd)
   - [stressAmp](#stressamp)
   - [intonation](#intonation)
-  - [charset](#charset)
   - [dictmin](#dictmin)
   - [alphabet2](#alphabet2)
 
@@ -417,12 +416,6 @@ these defaults may be different for particular languages.
 * 2 -- Less intonation.  
 * 3 -- Less intonation, and comma does not raise the pitch.  
 * 4 -- Pitch rises (rather than falls) at the end of sentence.
-
-### charset
-
-	charset <param1>
-
-The ISO 8859 character set number. (not all are implemented).
 
 ### dictmin
 

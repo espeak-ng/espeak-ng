@@ -19,8 +19,3 @@ stressAdd 0 0 -10 -10 0 0 10 40
 echo 20 10 
 voicing 75 
 consonants 150 150
-
-charset UTF-8
-
-
-

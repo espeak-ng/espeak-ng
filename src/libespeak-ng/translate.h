@@ -34,7 +34,6 @@ extern "C"
 
 #define N_RULE_GROUP2    120 // max num of two-letter rule chains
 #define N_HASH_DICT     1024
-#define N_CHARSETS        20
 #define N_LETTER_GROUPS   95 // maximum is 127-32
 
 // dictionary flags, word 1
@@ -603,7 +602,7 @@ typedef struct {
 	short stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 	int dict_min_size;
-	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
+	espeak_ng_ENCODING encoding;
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 	const wchar_t *punct_within_word;   // allow these punctuation characters within words
 	const unsigned short *chars_ignore;
@@ -694,7 +693,6 @@ extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 
 extern Translator *translator;
 extern Translator *translator2;
-extern const unsigned short *charsets[N_CHARSETS];
 extern char dictionary_name[40];
 extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
 extern unsigned char *p_textinput;

@@ -96,7 +96,6 @@ enum {
 	V_DICTRULES,
 	V_STRESSRULE,
 	V_STRESSOPT,
-	V_CHARSET,
 	V_NUMBERS,
 	V_OPTION,
 
@@ -140,7 +139,6 @@ static MNEM_TAB keyword_tab[] = {
 	{ "dictrules",    V_DICTRULES },
 	{ "stressrule",   V_STRESSRULE },
 	{ "stressopt",    V_STRESSOPT },
-	{ "charset",      V_CHARSET },
 	{ "replace",      V_REPLACE },
 	{ "words",        V_WORDGAP },
 	{ "echo",         V_ECHO },
@@ -765,14 +763,6 @@ voice_t *LoadVoice(const char *vname, int control)
 			       &langopts->stress_flags,
 			       &langopts->unstressed_wd1,
 			       &langopts->unstressed_wd2);
-			break;
-		case V_CHARSET:
-			if ((sscanf(p, "%d", &value) == 1) && (value < N_CHARSETS)) {
-				if (new_translator != NULL)
-					new_translator->charset_a0 = charsets[value];
-				else
-					fprintf(stderr, "The charset attribute is specified before language.\n");
-			}
 			break;
 		case V_OPTION:
 			value2 = 0;
