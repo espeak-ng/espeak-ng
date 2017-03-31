@@ -1926,7 +1926,7 @@ static espeak_ng_STATUS init_string_decoder(const char *text, espeak_ng_ENCODING
 	return text_decoder_decode_string(p_decoder, text, strlen(text) + 1, encoding);
 }
 
-void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
+const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
 {
 	int ix;
 	int c;
