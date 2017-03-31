@@ -16,6 +16,8 @@ The espeak-ng project is a fork of the espeak project.
 *  Allow pre- as well as post-jump rules in dictionary files.
 *  Support building the Windows version with Visual Studio 2013.
 *  Use language and accent names consistently across the language files.
+*  Group the encoding handling into a single place with a clean interface and tests.
+*  Support all ISO 8859 encodings.
 
 bug fixes:
 
