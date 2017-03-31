@@ -492,7 +492,7 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
-int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
+int  SpeakNextClause(const void *text_in, int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);

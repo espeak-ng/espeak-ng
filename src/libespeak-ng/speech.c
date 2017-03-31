@@ -399,7 +399,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	if (translator == NULL)
 		espeak_SetVoiceByName("default");
 
-	SpeakNextClause(NULL, text, 0);
+	SpeakNextClause(text, 0);
 
 	for (;;) {
 		out_ptr = outbuf;
@@ -421,7 +421,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		} else if (synth_callback)
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
-			SpeakNextClause(NULL, 0, 2); // stop
+			SpeakNextClause(0, 2); // stop
 			return ENS_SPEECH_STOPPED;
 		}
 
@@ -434,7 +434,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 				event_list[0].unique_identifier = my_unique_identifier;
 				event_list[0].user_data = my_user_data;
 
-				if (SpeakNextClause(NULL, NULL, 1) == 0) {
+				if (SpeakNextClause(NULL, 1) == 0) {
 					finished = 0;
 					if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 						if (dispatch_audio(NULL, 0, NULL) < 0)
@@ -442,7 +442,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 					} else if (synth_callback)
 						finished = synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 					if (finished) {
-						SpeakNextClause(NULL, 0, 2); // stop
+						SpeakNextClause(0, 2); // stop
 						return ENS_SPEECH_STOPPED;
 					}
 					return ENS_OK;
@@ -813,7 +813,7 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 	 */
 
 	option_multibyte = textmode & 7;
-	*textptr = TranslateClause(translator, NULL, *textptr, NULL, NULL);
+	*textptr = TranslateClause(translator, *textptr, NULL, NULL);
 	return GetTranslatedPhonemeString(phonememode);
 }
 

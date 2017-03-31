@@ -50,7 +50,6 @@ static int namedata_ix = 0;
 static int n_namedata = 0;
 char *namedata = NULL;
 
-static FILE *f_input = NULL;
 static int ungot_char2 = 0;
 unsigned char *p_textinput;
 wchar_t *p_wchar_input;
@@ -240,22 +239,15 @@ static int IsRomanU(unsigned int c)
 static void GetC_unget(int c)
 {
 	// This is only called with UTF8 input, not wchar input
-	if (f_input != NULL)
-		ungetc(c, f_input);
-	else {
-		p_textinput--;
-		*p_textinput = c;
-		end_of_input = 0;
-	}
+	p_textinput--;
+	*p_textinput = c;
+	end_of_input = 0;
 }
 
 int Eof(void)
 {
 	if (ungot_char != 0)
 		return 0;
-
-	if (f_input != 0)
-		return feof(f_input);
 
 	return end_of_input;
 }
@@ -264,18 +256,6 @@ static int GetC_get(void)
 {
 	unsigned int c;
 	unsigned int c2;
-
-	if (f_input != NULL) {
-		c = fgetc(f_input);
-		if (feof(f_input)) c = ' ';
-
-		if (option_multibyte == espeakCHARS_16BIT) {
-			c2 = fgetc(f_input);
-			if (feof(f_input)) c2 = 0;
-			c = c + (c2 << 8);
-		}
-		return c;
-	}
 
 	if (option_multibyte == espeakCHARS_WCHAR) {
 		if (*p_wchar_input == 0) {
@@ -1724,7 +1704,7 @@ static MNEM_TAB xml_char_mnemonics[] = {
 	{ NULL,   -1 }
 };
 
-int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
+int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 	/* Find the end of the current clause.
 	    Write the clause into  buf
@@ -1779,8 +1759,6 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	end_of_input = 0;
 	*tone_type = 0;
 	*voice_change = 0;
-
-	f_input = f_in; // for GetC etc
 
 	if (ungot_word != NULL) {
 		strcpy(buf, ungot_word);

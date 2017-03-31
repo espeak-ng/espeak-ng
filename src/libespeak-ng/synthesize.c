@@ -1526,48 +1526,36 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	return 0; // finished the phoneme list
 }
 
-int SpeakNextClause(FILE *f_in, const void *text_in, int control)
+int SpeakNextClause(const void *text_in, int control)
 {
-	// Speak text from file (f_in) or memory (text_in)
+	// Speak text from memory (text_in)
 	// control 0: start
-	//    either f_in or text_in is set, the other must be NULL
+	//    text_in is set
 
-	// The other calls have f_in and text_in = NULL
+	// The other calls have text_in = NULL
 	// control 1: speak next text
 	//         2: stop
 
 	int clause_tone;
 	char *voice_change;
-	static FILE *f_text = NULL;
 	static const void *p_text = NULL;
 	const char *phon_out;
 
 	if (control == 2) {
 		// stop speaking
 		p_text = NULL;
-		if (f_text != NULL) {
-			fclose(f_text);
-			f_text = NULL;
-		}
 		n_phoneme_list = 0;
 		WcmdqStop();
 
 		return 0;
 	}
 
-	if ((f_in != NULL) || (text_in != NULL)) {
-		f_text = f_in;
+	if (text_in != NULL) {
 		p_text = text_in;
 	}
 
-	if ((f_text == NULL) && (p_text == NULL)) {
+	if (p_text == NULL) {
 		skipping_text = 0;
-		return 0;
-	}
-
-	if ((f_text != NULL) && feof(f_text)) {
-		fclose(f_text);
-		f_text = NULL;
 		return 0;
 	}
 
@@ -1576,7 +1564,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	p_text = TranslateClause(translator, f_text, p_text, &clause_tone, &voice_change);
+	p_text = TranslateClause(translator, p_text, &clause_tone, &voice_change);
 
 	CalcPitches(translator, clause_tone);
 	CalcLengths(translator);
