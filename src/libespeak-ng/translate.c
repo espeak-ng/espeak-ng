@@ -30,6 +30,7 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
+#include "encoding.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -1915,6 +1916,16 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
+static espeak_ng_STATUS init_wstring_decoder(const wchar_t *text)
+{
+	return text_decoder_decode_wstring(p_decoder, text, wcslen(text) + 1);
+}
+
+static espeak_ng_STATUS init_string_decoder(const char *text, espeak_ng_ENCODING encoding)
+{
+	return text_decoder_decode_string(p_decoder, text, strlen(text) + 1, encoding);
+}
+
 void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
 {
 	int ix;
@@ -1966,8 +1977,27 @@ void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char 
 	if (tr == NULL)
 		return NULL;
 
-	p_textinput = (unsigned char *)vp_input;
-	p_wchar_input = (wchar_t *)vp_input;
+	if (p_decoder == NULL)
+		p_decoder = create_text_decoder();
+
+	switch (option_multibyte)
+	{
+	case espeakCHARS_WCHAR:
+		init_wstring_decoder((const wchar_t *)vp_input);
+		break;
+	case espeakCHARS_AUTO: // TODO: Implement UTF-8 => 8BIT fallback on 0xFFFD UTF-8 characters.
+	case espeakCHARS_UTF8:
+		init_string_decoder((const char *)vp_input, ESPEAKNG_ENCODING_UTF_8);
+		break;
+	case espeakCHARS_8BIT:
+		init_string_decoder((const char *)vp_input, tr->encoding);
+		break;
+	case espeakCHARS_16BIT:
+		init_string_decoder((const char *)vp_input, ESPEAKNG_ENCODING_ISO_10646_UCS_2);
+		break;
+	default:
+		return NULL; // unknown multibyte option value
+	}
 
 	embedded_ix = 0;
 	embedded_read = 0;
@@ -2683,10 +2713,7 @@ void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char 
 	if (Eof() || (vp_input == NULL))
 		return NULL;
 
-	if (option_multibyte == espeakCHARS_WCHAR)
-		return (void *)p_wchar_input;
-	else
-		return (void *)p_textinput;
+	return text_decoder_get_buffer(p_decoder);
 }
 
 void InitText(int control)

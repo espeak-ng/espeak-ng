@@ -517,31 +517,6 @@ static const uint16_t ISCII[0x80] = {
 	0x0037, 0x0038, 0x0039, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, // f8
 };
 
-const uint16_t *codepage_tables[] = {
-	NULL, // unknown
-	NULL, // ASCII
-	ISO_8859_1,
-	ISO_8859_2,
-	ISO_8859_3,
-	ISO_8859_4,
-	ISO_8859_5,
-	ISO_8859_6,
-	ISO_8859_7,
-	ISO_8859_8,
-	ISO_8859_9,
-	ISO_8859_10,
-	ISO_8859_11,
-	// ISO-8859-12 is not a valid encoding.
-	ISO_8859_13,
-	ISO_8859_14,
-	ISO_8859_15,
-	ISO_8859_16,
-	KOI8_R,
-	ISCII,
-	NULL, // UTF-8
-	NULL, // UCS-2
-};
-
 static uint32_t
 string_decoder_getc_us_ascii(espeak_ng_TEXT_DECODER *decoder)
 {
@@ -719,4 +694,10 @@ uint32_t
 text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 {
 	return decoder->get(decoder);
+}
+
+const void *
+text_decoder_get_buffer(espeak_ng_TEXT_DECODER *decoder)
+{
+	return decoder->current;
 }

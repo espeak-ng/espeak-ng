@@ -51,11 +51,9 @@ static int n_namedata = 0;
 char *namedata = NULL;
 
 static int ungot_char2 = 0;
-unsigned char *p_textinput;
-wchar_t *p_wchar_input;
+espeak_ng_TEXT_DECODER *p_decoder = NULL;
 static int ungot_char;
 static const char *ungot_word = NULL;
-static int end_of_input;
 
 static int ignore_text = 0; // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
 static int audio_text = 0; // set during <audio> ... </audio>
@@ -236,131 +234,26 @@ static int IsRomanU(unsigned int c)
 	return 0;
 }
 
-static void GetC_unget(int c)
-{
-	// This is only called with UTF8 input, not wchar input
-	p_textinput--;
-	*p_textinput = c;
-	end_of_input = 0;
-}
-
 int Eof(void)
 {
 	if (ungot_char != 0)
 		return 0;
 
-	return end_of_input;
-}
-
-static int GetC_get(void)
-{
-	unsigned int c;
-	unsigned int c2;
-
-	if (option_multibyte == espeakCHARS_WCHAR) {
-		if (*p_wchar_input == 0) {
-			end_of_input = 1;
-			return 0;
-		}
-
-		if (!end_of_input)
-			return *p_wchar_input++;
-	} else {
-		if (*p_textinput == 0) {
-			end_of_input = 1;
-			return 0;
-		}
-
-		if (!end_of_input) {
-			if (option_multibyte == espeakCHARS_16BIT) {
-				c = p_textinput[0] + (p_textinput[1] << 8);
-				p_textinput += 2;
-				return c;
-			}
-			return *p_textinput++ & 0xff;
-		}
-	}
-	return 0;
+	return text_decoder_eof(p_decoder);
 }
 
 static int GetC(void)
 {
-	// Returns a unicode wide character
-	// Performs UTF8 checking and conversion
-
-	int c;
 	int c1;
-	int c2;
-	int cbuf[4];
-	int ix;
-	int n_bytes;
 	static int ungot2 = 0;
-	static const unsigned char mask[4] = { 0xff, 0x1f, 0x0f, 0x07 };
 
 	if ((c1 = ungot_char) != 0) {
 		ungot_char = 0;
 		return c1;
 	}
 
-	if (ungot2 != 0) {
-		c1 = ungot2;
-		ungot2 = 0;
-	} else
-		c1 = GetC_get();
-
-	if ((option_multibyte == espeakCHARS_WCHAR) || (option_multibyte == espeakCHARS_16BIT)) {
-		count_characters++;
-		return c1; // wchar_t  text
-	}
-
-	if ((option_multibyte < 2) && (c1 & 0x80)) {
-		// multi-byte utf8 encoding, convert to unicode
-		n_bytes = 0;
-
-		if (((c1 & 0xe0) == 0xc0) && ((c1 & 0x1e) != 0))
-			n_bytes = 1;
-		else if ((c1 & 0xf0) == 0xe0)
-			n_bytes = 2;
-		else if (((c1 & 0xf8) == 0xf0) && ((c1 & 0x0f) <= 4))
-			n_bytes = 3;
-
-		if ((ix = n_bytes) > 0) {
-			c = c1 & mask[ix];
-			while (ix > 0) {
-				if ((c2 = cbuf[ix] = GetC_get()) == 0) {
-					if (option_multibyte == espeakCHARS_AUTO)
-						option_multibyte = espeakCHARS_8BIT; // change "auto" option to "no"
-					GetC_unget(' ');
-					break;
-				}
-
-				if ((c2 & 0xc0) != 0x80) {
-					// This is not UTF8.  Change to 8-bit characterset.
-					if ((n_bytes == 2) && (ix == 1))
-						ungot2 = cbuf[2];
-					GetC_unget(c2);
-					break;
-				}
-				c = (c << 6) + (c2 & 0x3f);
-				ix--;
-			}
-			if (ix == 0) {
-				count_characters++;
-				return c;
-			}
-		}
-		// top-bit-set character is not utf8, drop through to 8bit charset case
-		if ((option_multibyte == espeakCHARS_AUTO) && !Eof())
-			option_multibyte = espeakCHARS_8BIT; // change "auto" option to "no"
-	}
-
-	// 8 bit character set, convert to unicode if
 	count_characters++;
-	if (c1 >= 0x80) {
-		const uint16_t *codepage = codepage_tables[translator->encoding];
-		return codepage ? codepage[c1 - 0x80] : ' ';
-	}
-	return c1;
+	return text_decoder_getc(p_decoder);
 }
 
 static void UngetC(int c)
@@ -1756,7 +1649,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	tr->phonemes_repeat_count = 0;
 	tr->clause_upper_count = 0;
 	tr->clause_lower_count = 0;
-	end_of_input = 0;
 	*tone_type = 0;
 	*voice_change = 0;
 
@@ -1774,7 +1666,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	while (!Eof() || (ungot_char != 0) || (ungot_char2 != 0) || (ungot_string_ix >= 0)) {
 		if (!iswalnum(c1)) {
 			if ((end_character_position > 0) && (count_characters > end_character_position)) {
-				end_of_input = 1;
 				return CLAUSE_EOF;
 			}
 
