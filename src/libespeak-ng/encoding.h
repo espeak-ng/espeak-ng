@@ -37,6 +37,12 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
                            espeak_ng_ENCODING encoding);
 
 espeak_ng_STATUS
+text_decoder_decode_string_auto(espeak_ng_TEXT_DECODER *decoder,
+                                const char *string,
+                                int length,
+                                espeak_ng_ENCODING encoding);
+
+espeak_ng_STATUS
 text_decoder_decode_wstring(espeak_ng_TEXT_DECODER *decoder,
                             const wchar_t *string,
                             int length);

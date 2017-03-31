@@ -602,6 +602,19 @@ string_decoder_getc_wchar(espeak_ng_TEXT_DECODER *decoder)
 	return c;
 }
 
+static uint32_t
+string_decoder_getc_auto(espeak_ng_TEXT_DECODER *decoder)
+{
+	const uint8_t *ptr = decoder->current;
+	uint32_t c = string_decoder_getc_utf_8(decoder);
+	if (c == 0xFFFD) {
+		decoder->get = string_decoder_getc_codepage;
+		decoder->current = ptr;
+		c = decoder->get(decoder);
+	}
+	return c;
+}
+
 typedef struct
 {
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
@@ -666,6 +679,26 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
 	decoder->get = enc->get;
+	decoder->codepage = enc->codepage;
+	decoder->current = (const uint8_t *)string;
+	decoder->end = (const uint8_t *)(string + length);
+	return ENS_OK;
+}
+
+espeak_ng_STATUS
+text_decoder_decode_string_auto(espeak_ng_TEXT_DECODER *decoder,
+                                const char *string,
+                                int length,
+                                espeak_ng_ENCODING encoding)
+{
+	if (encoding > ESPEAKNG_ENCODING_ISO_10646_UCS_2)
+		return ENS_UNKNOWN_TEXT_ENCODING;
+
+	const encoding_t *enc = string_decoders + encoding;
+	if (enc->get == NULL)
+		return ENS_UNKNOWN_TEXT_ENCODING;
+
+	decoder->get = string_decoder_getc_auto;
 	decoder->codepage = enc->codepage;
 	decoder->current = (const uint8_t *)string;
 	decoder->end = (const uint8_t *)(string + length);

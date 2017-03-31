@@ -1916,14 +1916,19 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
-static espeak_ng_STATUS init_wstring_decoder(const wchar_t *text)
+static inline espeak_ng_STATUS init_wstring_decoder(const wchar_t *text)
 {
 	return text_decoder_decode_wstring(p_decoder, text, wcslen(text) + 1);
 }
 
-static espeak_ng_STATUS init_string_decoder(const char *text, espeak_ng_ENCODING encoding)
+static inline espeak_ng_STATUS init_string_decoder(const char *text, espeak_ng_ENCODING encoding)
 {
 	return text_decoder_decode_string(p_decoder, text, strlen(text) + 1, encoding);
+}
+
+static inline espeak_ng_STATUS init_string_decoder_auto(const char *text, espeak_ng_ENCODING encoding)
+{
+	return text_decoder_decode_string_auto(p_decoder, text, strlen(text) + 1, encoding);
 }
 
 const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
@@ -1985,7 +1990,9 @@ const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out,
 	case espeakCHARS_WCHAR:
 		init_wstring_decoder((const wchar_t *)vp_input);
 		break;
-	case espeakCHARS_AUTO: // TODO: Implement UTF-8 => 8BIT fallback on 0xFFFD UTF-8 characters.
+	case espeakCHARS_AUTO:
+		init_string_decoder_auto((const char *)vp_input, tr->encoding);
+		break;
 	case espeakCHARS_UTF8:
 		init_string_decoder((const char *)vp_input, ESPEAKNG_ENCODING_UTF_8);
 		break;
