@@ -699,5 +699,7 @@ text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 const void *
 text_decoder_get_buffer(espeak_ng_TEXT_DECODER *decoder)
 {
+	if (text_decoder_eof(decoder))
+		return NULL;
 	return decoder->current;
 }
