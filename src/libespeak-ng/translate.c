@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1916,21 +1916,6 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
-static inline espeak_ng_STATUS init_wstring_decoder(const wchar_t *text)
-{
-	return text_decoder_decode_wstring(p_decoder, text, wcslen(text) + 1);
-}
-
-static inline espeak_ng_STATUS init_string_decoder(const char *text, espeak_ng_ENCODING encoding)
-{
-	return text_decoder_decode_string(p_decoder, text, strlen(text) + 1, encoding);
-}
-
-static inline espeak_ng_STATUS init_string_decoder_auto(const char *text, espeak_ng_ENCODING encoding)
-{
-	return text_decoder_decode_string_auto(p_decoder, text, strlen(text) + 1, encoding);
-}
-
 const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
 {
 	int ix;
@@ -1988,19 +1973,19 @@ const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out,
 	switch (option_multibyte)
 	{
 	case espeakCHARS_WCHAR:
-		init_wstring_decoder((const wchar_t *)vp_input);
+		text_decoder_decode_wstring(p_decoder, (const wchar_t *)vp_input, -1);
 		break;
 	case espeakCHARS_AUTO:
-		init_string_decoder_auto((const char *)vp_input, tr->encoding);
+		text_decoder_decode_string_auto(p_decoder, (const char *)vp_input, -1, tr->encoding);
 		break;
 	case espeakCHARS_UTF8:
-		init_string_decoder((const char *)vp_input, ESPEAKNG_ENCODING_UTF_8);
+		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, ESPEAKNG_ENCODING_UTF_8);
 		break;
 	case espeakCHARS_8BIT:
-		init_string_decoder((const char *)vp_input, tr->encoding);
+		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, tr->encoding);
 		break;
 	case espeakCHARS_16BIT:
-		init_string_decoder((const char *)vp_input, ESPEAKNG_ENCODING_ISO_10646_UCS_2);
+		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2);
 		break;
 	default:
 		return NULL; // unknown multibyte option value

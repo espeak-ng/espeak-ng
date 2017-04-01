@@ -736,8 +736,18 @@ test_char_decoder()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	// null string
-	assert(text_decoder_decode_string(decoder, NULL, 5, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, NULL, -1, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
 	assert(text_decoder_eof(decoder) == 1);
+	assert(text_decoder_getc(decoder) == 0);
+	assert(text_decoder_eof(decoder) == 1);
+
+	// string length
+	assert(text_decoder_decode_string(decoder, "aG", -1, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
 	assert(text_decoder_getc(decoder) == 0);
 	assert(text_decoder_eof(decoder) == 1);
 
@@ -752,11 +762,12 @@ test_wchar_decoder()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	// null string
-	assert(text_decoder_decode_wstring(decoder, NULL, 5) == ENS_OK);
+	assert(text_decoder_decode_wstring(decoder, NULL, -1) == ENS_OK);
 	assert(text_decoder_eof(decoder) == 1);
 	assert(text_decoder_getc(decoder) == 0);
 	assert(text_decoder_eof(decoder) == 1);
 
+	// wide-character string
 	assert(text_decoder_decode_wstring(decoder, L"aG\xA0\x2045", 4) == ENS_OK);
 	assert(text_decoder_eof(decoder) == 0);
 	assert(text_decoder_getc(decoder) == 'a');
@@ -766,6 +777,20 @@ test_wchar_decoder()
 	assert(text_decoder_getc(decoder) == 0xA0);
 	assert(text_decoder_eof(decoder) == 0);
 	assert(text_decoder_getc(decoder) == 0x2045);
+	assert(text_decoder_eof(decoder) == 1);
+
+	// string length
+	assert(text_decoder_decode_wstring(decoder, L"aG\xA0\x2045", -1) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0xA0);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0x2045);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0);
 	assert(text_decoder_eof(decoder) == 1);
 
 	destroy_text_decoder(decoder);
@@ -779,7 +804,7 @@ test_auto_decoder()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	// null string
-	assert(text_decoder_decode_string_auto(decoder, NULL, 5, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_decode_string_auto(decoder, NULL, -1, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
 	assert(text_decoder_eof(decoder) == 1);
 	assert(text_decoder_getc(decoder) == 0);
 	assert(text_decoder_eof(decoder) == 1);
@@ -806,6 +831,16 @@ test_auto_decoder()
 	assert(text_decoder_getc(decoder) == 0xA0);
 	assert(text_decoder_eof(decoder) == 0);
 	assert(text_decoder_getc(decoder) == 'f');
+	assert(text_decoder_eof(decoder) == 1);
+
+	// string length
+	assert(text_decoder_decode_string_auto(decoder, "aG", -1, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 0);
 	assert(text_decoder_eof(decoder) == 1);
 
 	destroy_text_decoder(decoder);

@@ -17,8 +17,10 @@
 
 #include "config.h"
 
+#include <string.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <wchar.h>
 
 #include <espeak-ng/espeak_ng.h>
 
@@ -684,6 +686,8 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
+	if (length < 0) length = string ? strlen(string) + 1 : 0;
+
 	decoder->get = string ? enc->get : null_decoder_getc;
 	decoder->codepage = enc->codepage;
 	decoder->current = (const uint8_t *)string;
@@ -704,6 +708,8 @@ text_decoder_decode_string_auto(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
+	if (length < 0) length = string ? strlen(string) + 1 : 0;
+
 	decoder->get = string ? string_decoder_getc_auto : null_decoder_getc;
 	decoder->codepage = enc->codepage;
 	decoder->current = (const uint8_t *)string;
@@ -716,6 +722,8 @@ text_decoder_decode_wstring(espeak_ng_TEXT_DECODER *decoder,
                             const wchar_t *string,
                             int length)
 {
+	if (length < 0) length = string ? wcslen(string) + 1 : 0;
+
 	decoder->get = string ? string_decoder_getc_wchar : null_decoder_getc;
 	decoder->codepage = NULL;
 	decoder->current = (const uint8_t *)string;
