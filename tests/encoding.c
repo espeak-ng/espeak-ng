@@ -729,11 +729,33 @@ test_iso_10646_ucs_2_encoding()
 }
 
 void
+test_char_decoder()
+{
+	printf("testing char decoder\n");
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	// null string
+	assert(text_decoder_decode_string(decoder, NULL, 5, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 1);
+	assert(text_decoder_getc(decoder) == 0);
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
+void
 test_wchar_decoder()
 {
 	printf("testing wchar_t decoder\n");
 
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	// null string
+	assert(text_decoder_decode_wstring(decoder, NULL, 5) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 1);
+	assert(text_decoder_getc(decoder) == 0);
+	assert(text_decoder_eof(decoder) == 1);
 
 	assert(text_decoder_decode_wstring(decoder, L"aG\xA0\x2045", 4) == ENS_OK);
 	assert(text_decoder_eof(decoder) == 0);
@@ -755,6 +777,12 @@ test_auto_decoder()
 	printf("testing auto decoder (UTF-8 + codepage-based fallback)\n");
 
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	// null string
+	assert(text_decoder_decode_string_auto(decoder, NULL, 5, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 1);
+	assert(text_decoder_getc(decoder) == 0);
+	assert(text_decoder_eof(decoder) == 1);
 
 	// UTF-8
 	assert(text_decoder_decode_string_auto(decoder, "aG\xC2\xA0 ", 5, ESPEAKNG_ENCODING_ISO_8859_1) == ENS_OK);
@@ -813,6 +841,7 @@ main(int argc, char **argv)
 	test_utf_8_encoding();
 	test_iso_10646_ucs_2_encoding();
 
+	test_char_decoder();
 	test_wchar_decoder();
 	test_auto_decoder();
 

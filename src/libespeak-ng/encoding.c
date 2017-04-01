@@ -615,6 +615,12 @@ string_decoder_getc_auto(espeak_ng_TEXT_DECODER *decoder)
 	return c;
 }
 
+static uint32_t
+null_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
+{
+	return 0;
+}
+
 typedef struct
 {
 	uint32_t (*get)(espeak_ng_TEXT_DECODER *decoder);
@@ -678,10 +684,10 @@ text_decoder_decode_string(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
-	decoder->get = enc->get;
+	decoder->get = string ? enc->get : null_decoder_getc;
 	decoder->codepage = enc->codepage;
 	decoder->current = (const uint8_t *)string;
-	decoder->end = (const uint8_t *)(string + length);
+	decoder->end = (const uint8_t *)(string ? string + length : string);
 	return ENS_OK;
 }
 
@@ -698,10 +704,10 @@ text_decoder_decode_string_auto(espeak_ng_TEXT_DECODER *decoder,
 	if (enc->get == NULL)
 		return ENS_UNKNOWN_TEXT_ENCODING;
 
-	decoder->get = string_decoder_getc_auto;
+	decoder->get = string ? string_decoder_getc_auto : null_decoder_getc;
 	decoder->codepage = enc->codepage;
 	decoder->current = (const uint8_t *)string;
-	decoder->end = (const uint8_t *)(string + length);
+	decoder->end = (const uint8_t *)(string ? string + length : string);
 	return ENS_OK;
 }
 
@@ -710,10 +716,10 @@ text_decoder_decode_wstring(espeak_ng_TEXT_DECODER *decoder,
                             const wchar_t *string,
                             int length)
 {
-	decoder->get = string_decoder_getc_wchar;
+	decoder->get = string ? string_decoder_getc_wchar : null_decoder_getc;
 	decoder->codepage = NULL;
 	decoder->current = (const uint8_t *)string;
-	decoder->end = (const uint8_t *)(string + length);
+	decoder->end = (const uint8_t *)(string ? string + length : string);
 	return ENS_OK;
 }
 
