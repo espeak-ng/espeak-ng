@@ -16,11 +16,13 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/compiledict.c \
   src/libespeak-ng/compilembrola.c \
   src/libespeak-ng/dictionary.c \
+  src/libespeak-ng/encoding.c \
   src/libespeak-ng/error.c \
   src/libespeak-ng/espeak_api.c \
   src/libespeak-ng/ieee80.c \
   src/libespeak-ng/intonation.c \
   src/libespeak-ng/klatt.c \
+  src/libespeak-ng/mnemonics.c \
   src/libespeak-ng/numbers.c \
   src/libespeak-ng/phoneme.c \
   src/libespeak-ng/phonemelist.c \
