@@ -731,6 +731,29 @@ text_decoder_decode_wstring(espeak_ng_TEXT_DECODER *decoder,
 	return ENS_OK;
 }
 
+espeak_ng_STATUS
+text_decoder_decode_string_multibyte(espeak_ng_TEXT_DECODER *decoder,
+                                     const void *input,
+                                     espeak_ng_ENCODING encoding,
+                                     int flags)
+{
+	switch (flags & 7)
+	{
+	case espeakCHARS_WCHAR:
+		return text_decoder_decode_wstring(decoder, (const wchar_t *)input, -1);
+	case espeakCHARS_AUTO:
+		return text_decoder_decode_string_auto(decoder, (const char *)input, -1, encoding);
+	case espeakCHARS_UTF8:
+		return text_decoder_decode_string(decoder, (const char *)input, -1, ESPEAKNG_ENCODING_UTF_8);
+	case espeakCHARS_8BIT:
+		return text_decoder_decode_string(decoder, (const char *)input, -1, encoding);
+	case espeakCHARS_16BIT:
+		return text_decoder_decode_string(decoder, (const char *)input, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2);
+	default:
+		return ENS_UNKNOWN_TEXT_ENCODING;
+	}
+}
+
 int
 text_decoder_eof(espeak_ng_TEXT_DECODER *decoder)
 {

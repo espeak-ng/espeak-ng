@@ -1970,26 +1970,8 @@ const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out,
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
 
-	switch (option_multibyte)
-	{
-	case espeakCHARS_WCHAR:
-		text_decoder_decode_wstring(p_decoder, (const wchar_t *)vp_input, -1);
-		break;
-	case espeakCHARS_AUTO:
-		text_decoder_decode_string_auto(p_decoder, (const char *)vp_input, -1, tr->encoding);
-		break;
-	case espeakCHARS_UTF8:
-		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, ESPEAKNG_ENCODING_UTF_8);
-		break;
-	case espeakCHARS_8BIT:
-		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, tr->encoding);
-		break;
-	case espeakCHARS_16BIT:
-		text_decoder_decode_string(p_decoder, (const char *)vp_input, -1, ESPEAKNG_ENCODING_ISO_10646_UCS_2);
-		break;
-	default:
-		return NULL; // unknown multibyte option value
-	}
+	if (text_decoder_decode_string_multibyte(p_decoder, vp_input, tr->encoding, option_multibyte) != ENS_OK)
+		return NULL;
 
 	embedded_ix = 0;
 	embedded_read = 0;
