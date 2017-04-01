@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2013 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2016 Reece H. Dunn
+ * Copyright (C) 2013-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -400,7 +400,15 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	if (translator == NULL)
 		espeak_SetVoiceByName("default");
 
-	SpeakNextClause(text, 0);
+	if (p_decoder == NULL)
+		p_decoder = create_text_decoder();
+
+	espeak_ng_STATUS status;
+	status = text_decoder_decode_string_multibyte(p_decoder, text, translator->encoding, flags);
+	if (status != ENS_OK)
+		return status;
+
+	SpeakNextClause(0);
 
 	for (;;) {
 		out_ptr = outbuf;
@@ -422,7 +430,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 		} else if (synth_callback)
 			finished = synth_callback((short *)outbuf, length, event_list);
 		if (finished) {
-			SpeakNextClause(0, 2); // stop
+			SpeakNextClause(2); // stop
 			return ENS_SPEECH_STOPPED;
 		}
 
@@ -435,7 +443,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 				event_list[0].unique_identifier = my_unique_identifier;
 				event_list[0].user_data = my_user_data;
 
-				if (SpeakNextClause(NULL, 1) == 0) {
+				if (SpeakNextClause(1) == 0) {
 					finished = 0;
 					if ((my_mode & ENOUTPUT_MODE_SPEAK_AUDIO) == ENOUTPUT_MODE_SPEAK_AUDIO) {
 						if (dispatch_audio(NULL, 0, NULL) < 0)
@@ -443,7 +451,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 					} else if (synth_callback)
 						finished = synth_callback(NULL, 0, event_list); // NULL buffer ptr indicates end of data
 					if (finished) {
-						SpeakNextClause(0, 2); // stop
+						SpeakNextClause(2); // stop
 						return ENS_SPEECH_STOPPED;
 					}
 					return ENS_OK;
@@ -813,8 +821,15 @@ ESPEAK_API const char *espeak_TextToPhonemes(const void **textptr, int textmode,
 	    bits 8-23:  separator character, between phoneme names
 	 */
 
-	option_multibyte = textmode & 7;
-	*textptr = TranslateClause(translator, *textptr, NULL, NULL);
+	if (p_decoder == NULL)
+		p_decoder = create_text_decoder();
+
+	if (text_decoder_decode_string_multibyte(p_decoder, *textptr, translator->encoding, textmode) != ENS_OK)
+		return NULL;
+
+	TranslateClause(translator, NULL, NULL);
+	*textptr = text_decoder_get_buffer(p_decoder);
+
 	return GetTranslatedPhonemeString(phonememode);
 }
 

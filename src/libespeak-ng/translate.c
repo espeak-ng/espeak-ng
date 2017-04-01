@@ -1916,7 +1916,7 @@ int UpperCaseInWord(Translator *tr, char *word, int c)
 	return 0;
 }
 
-const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out, char **voice_change)
+void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 {
 	int ix;
 	int c;
@@ -1965,13 +1965,7 @@ const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out,
 	int tone2;
 
 	if (tr == NULL)
-		return NULL;
-
-	if (p_decoder == NULL)
-		p_decoder = create_text_decoder();
-
-	if (text_decoder_decode_string_multibyte(p_decoder, vp_input, tr->encoding, option_multibyte) != ENS_OK)
-		return NULL;
+		return;
 
 	embedded_ix = 0;
 	embedded_read = 0;
@@ -2683,11 +2677,6 @@ const void *TranslateClause(Translator *tr, const void *vp_input, int *tone_out,
 		else
 			*voice_change = NULL;
 	}
-
-	if (Eof() || (vp_input == NULL))
-		return NULL;
-
-	return text_decoder_get_buffer(p_decoder);
 }
 
 void InitText(int control)

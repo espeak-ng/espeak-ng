@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1527,7 +1527,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	return 0; // finished the phoneme list
 }
 
-int SpeakNextClause(const void *text_in, int control)
+int SpeakNextClause(int control)
 {
 	// Speak text from memory (text_in)
 	// control 0: start
@@ -1539,23 +1539,17 @@ int SpeakNextClause(const void *text_in, int control)
 
 	int clause_tone;
 	char *voice_change;
-	static const void *p_text = NULL;
 	const char *phon_out;
 
 	if (control == 2) {
 		// stop speaking
-		p_text = NULL;
 		n_phoneme_list = 0;
 		WcmdqStop();
 
 		return 0;
 	}
 
-	if (text_in != NULL) {
-		p_text = text_in;
-	}
-
-	if (p_text == NULL) {
+	if (text_decoder_eof(p_decoder)) {
 		skipping_text = 0;
 		return 0;
 	}
@@ -1565,7 +1559,7 @@ int SpeakNextClause(const void *text_in, int control)
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	p_text = TranslateClause(translator, p_text, &clause_tone, &voice_change);
+	TranslateClause(translator, &clause_tone, &voice_change);
 
 	CalcPitches(translator, clause_tone);
 	CalcLengths(translator);
