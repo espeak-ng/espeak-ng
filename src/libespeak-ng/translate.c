@@ -85,7 +85,6 @@ PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
 char ctrl_embedded = '\001'; // to allow an alternative CTRL for embedded commands
-int option_multibyte = espeakCHARS_AUTO; // 0=auto, 1=utf8, 2=8bit, 3=wchar, 4=16bit
 
 // these are overridden by defaults set in the "speak" file
 int option_linelength = 0;

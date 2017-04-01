@@ -661,7 +661,6 @@ extern int option_tone_flags;
 extern int option_phonemes;
 extern int option_phoneme_events;
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
-extern int option_multibyte;
 extern int option_capitals;
 extern int option_punctuation;
 extern int option_endpause;

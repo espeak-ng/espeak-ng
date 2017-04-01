@@ -390,7 +390,6 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	if ((outbuf == NULL) || (event_list == NULL))
 		return ENS_NOT_INITIALIZED;
 
-	option_multibyte = flags & 7;
 	option_ssml = flags & espeakSSML;
 	option_phoneme_input = flags & espeakPHONEMES;
 	option_endpause = flags & espeakENDPAUSE;
