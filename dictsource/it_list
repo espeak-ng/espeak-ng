@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 march 5 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 march 31 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -870,8 +870,8 @@ database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
 desaparecido	d,EzapaReT'ido
-dessert	dess'e@-*	$only
-desktop	d'Eskt,op
+dessert	d,Ess'e@-*	$only
+desktop	d'esk||t,Op
 detector	$2
 designer	d,ez'aIne@-*
 design	d,ez'aIn	$only
@@ -911,7 +911,7 @@ explorer	$2
 extension	Ekst'EnS@n
 faber	$1
 facebook		_^_EN
-fantasy	_^_EN
+fantasy	f'a:ntazi
 fashion	f'aS@n
 feed	_^_en
 feeling	f'i:lIN
@@ -2309,9 +2309,10 @@ elgar	$1	$only
 elia	el'ia
 elizabeth	el'izabet[
 enric	$2
+emanuel	em,a:nU'El
 emmanuel	$2 $only
 erika	$1
-esposito	$2
+esposit	$2
 ettore $1  $alt
 eugenia  $alt
 eutichiano	ewdiki'ano
@@ -2332,6 +2333,7 @@ freud	f@-*'Oid $only
 gandolfi  $alt
 garcía	_^_ES
 gargiul	$2
+gaspare	$1
 gasperi	$1
 gavino	$2
 genesia	$2
@@ -2520,6 +2522,7 @@ schwarzenegger	Sv,a:rz@n'Eger
 schwarznegger	Sv,arzn'Eger
 sean	_^_EN $only $capital
 shakespeare	_^_EN
+shanice	S'an,is
 sharazad	$3
 shaun	S'O:n $only
 simon	s'aImon	$onlys
@@ -2942,6 +2945,8 @@ cantano	$1
 cantino	$1
 capitola	$2
 capitolano	$2
+carezzano	$2
+caricano	$1
 catalogano	$2
 cataloghino	$2
 catturano	$2
@@ -2996,6 +3001,7 @@ compiaci	kompj'atSi
 compiere	k'ompjeRe
 compilano	$2
 completano	$2
+comportati	$2 $atstart
 comprano	$1
 comprendano	$2
 comprino	$1
@@ -3040,6 +3046,7 @@ constatano	$2
 consultano	$2
 consumano	$2
 consumino	$2
+contagia	$2
 contamin	$2
 contemplano	$2
 contemplino	$2
@@ -3202,6 +3209,7 @@ divaghino	$2
 divaricano	$2
 diventino	$2
 divertano	$2
+divertiti	$2 $atstart
 divid	$2
 divorano	$2
 divorino	$2
@@ -4019,6 +4027,7 @@ ricamano	$2
 ricambiano	$2
 ricambino	$2
 ricandidano	$2
+ricapita	$2
 ricapitano	$2
 ricapitol	$3
 ricaricano	$2
@@ -4661,6 +4670,7 @@ zuccherano	$1
 (volte capita)	v,Olte||k'a:p,ita
 (quando capita)	kw'ando||k'apita
 (se capita)	se||k'a:pita
+(me capita)	me||k'apita
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
@@ -4782,6 +4792,7 @@ illuminaci	$2
 illuminami	$2
 illuminal	$2
 immergiti	$2
+importal	$2
 impostaci	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
@@ -4790,9 +4801,6 @@ indirizzati	indiRits2:'ati
 informaci	$2 $alt2
 informati	$2 $alt2 $atstart
 insediatisi	$3
-insegnaci	$2
-insegnagli	$2
-insegnale	$2
 installal	$2
 intonaci	$2
 invaghitosi	$3
@@ -4826,9 +4834,6 @@ promessomi	$2
 privaci	$1
 proteggiti	$2 $alt2
 pulisciti	$2
-raccontal	$2
-raccontami	$2
-raccontaci	$2
 redigerl	$2
 raddrizzarl	@-*ad:@-*its2:'a@-*l
 rafforzal	$2
@@ -4840,12 +4845,14 @@ resistergli	$2
 restatene	$1
 richiestomi	$2
 riceverne	$2
+ricontal	$2	$alt2
 ricordati	$2 $atstart
 rieccoci	$2
 rieccomi	@-*i'e:k:Omi
 rieccoti	$2
 rieccol	$2
 rincorrerl	$2
+riportal	$2
 risparmial	$2
 risparmiaci	$2
 risparmiami	$2
@@ -4859,7 +4866,6 @@ scaricami	$1
 scommetterci	$2 $alt2
 scusami	$1
 scuotersi	$2 $alt
-segnalaci	$2
 selezionale	$4
 selezionali	$4
 sforzati	$1 $atstart
