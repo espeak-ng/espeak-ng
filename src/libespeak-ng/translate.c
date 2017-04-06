@@ -555,7 +555,6 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 	int c_temp; // save a character byte while we temporarily replace it with space
 	int first_char;
 	int last_char = 0;
-	int add_plural_suffix = 0;
 	int prefix_flags = 0;
 	int more_suffixes;
 	int confirm_prefix;
@@ -1026,7 +1025,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		}
 	}
 
-	if ((add_plural_suffix) || (wflags & FLAG_HAS_PLURAL)) {
+	if (wflags & FLAG_HAS_PLURAL) {
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if (last_char == 'f')
 			TranslateRules(tr, &word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
