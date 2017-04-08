@@ -179,6 +179,8 @@
     _r) a (tion    a
     _n) a (tional  a
      @) a (tious   'eI
+   ell) a (trix    @
+        a (triC    'eI
      n) a (tur     eI
      n) a (tura    a
      &) a (ture_   @
@@ -1326,8 +1328,6 @@ _it_separ) ate (_  @t
 ?3   &) atory (_   @to@ri
      _) at (riA    eIt
     _m) at (riar   eIt
-        atrices    'eItrI#si:z
-        atrix      'eItrIks
      X) atron (_   eItr@n
      _) at (roc    a#t
      @) atry (_    =@tri
@@ -1462,6 +1462,7 @@ _it_separ) ate (_  @t
      _) be ($w_alt3+ b@
    may) be (_      bi:
      _) be (CA     bI#
+     _) bete (lg   bi:t@
      _) be (C%     bE
      _) be (atiC   b%i:
      _) be (b      bi:
@@ -2982,6 +2983,7 @@ _it_separ) ate (_  @t
 .group eu
         eu         ju:
    L01) eu         u:
+?3   g) eu         u:
 ?3   n) eu         u:
 ?3   n) eu (r@     U@
 ?3   n) euro (i    U@roU
@@ -2997,8 +2999,6 @@ _it_separ) ate (_  @t
      _) euro       jU@roU
      _) euro (pe   jU@r-@
      &) eus (_     =I2@s
-     @) euse (_    '3:z
-?3   @) euse (_    'u:z
      d) eu (ts     OI
 
 
@@ -3869,6 +3869,7 @@ _it_separ) ate (_  @t
   card) io         I2oU
      v) io         aI0
         io (li_    I2'oU
+   _or) ion        'aI@n
      &) ion (_     =i@n
 ?8   &) ion (_     =IVn
     ll) ion        i@n
@@ -3952,6 +3953,7 @@ _it_separ) ate (_  @t
      c) is (_      Is
    @@m) is (_      Is
     am) is (_S1    z
+    on) is (_      Is
      r) is (_      Is
      v) is (_      Is
    @Cs) is (_      =Is
@@ -4964,6 +4966,7 @@ multip) ly         laI
      @) or (ity    0r
   _fav) orit       %3rI#t
      _) or (iC     0r
+     _) or (ion    O2r
     @t) ore (_     3
     st) ore (_     o@
      @) orily (_   =3r@li
@@ -6850,6 +6853,7 @@ contin) u          ju:
         Er (C      3
         Ery (_     @ri
         E (x_      E
+  tric) Es (_S2e   i:z
      &) Es (_S2e   z
      c) Es (_S2e   %I#z
      c) E's (_S3e  %I#z
