@@ -38,6 +38,7 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 		return 0;
 	case UCD_CATEGORY_Cf:
 		if (c == 0x061C)                return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x200C && c <= 0x200D) return UCD_PROPERTY_JOIN_CONTROL;
 		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
