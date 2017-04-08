@@ -334,6 +334,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_BIDI_CONTROL = 0x0004, /**< @brief Bidi_Control */
 	UCD_PROPERTY_JOIN_CONTROL = 0x0008, /**< @brief Join_Control */
 	UCD_PROPERTY_DASH         = 0x0010, /**< @brief Dash */
+	UCD_PROPERTY_HYPHEN       = 0x0020, /**< @brief Hyphen */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -798,6 +799,7 @@ namespace ucd
 		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control */
 		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control */
 		Dash = UCD_PROPERTY_DASH, /**< @brief Dash */
+		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
