@@ -325,6 +325,21 @@ const char *ucd_get_script_string(ucd_script s);
   */
 ucd_script ucd_lookup_script(codepoint_t c);
 
+/** @brief Properties
+  */
+typedef enum ucd_property_
+{
+	UCD_PROPERTY_WHITE_SPACE = 0x0001, /**< @brief White_Space */
+} ucd_property;
+
+/** @brief Return the properties of the specified codepoint.
+ *
+ * @param c        The Unicode codepoint to lookup.
+ * @param category The General Category of the codepoint.
+ * @return         The properties associated with the codepoint.
+ */
+ucd_property ucd_properties(codepoint_t c, ucd_category category);
+
 /** @brief Is the codepoint in the 'alnum' class?
   *
   * @param c The Unicode codepoint to check.
@@ -768,6 +783,24 @@ namespace ucd
 	inline script lookup_script(codepoint_t c)
 	{
 		return (script)ucd_lookup_script(c);
+	}
+
+	/** @brief Properties
+	  */
+	enum property
+	{
+		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space */
+	};
+
+	/** @brief Return the properties of the specified codepoint.
+	 *
+	 * @param c   The Unicode codepoint to lookup.
+	 * @param cat The General Category of the codepoint.
+	 * @return    The properties associated with the codepoint.
+	 */
+	inline property properties(codepoint_t c, category cat)
+	{
+		return (property)ucd_properties(c, (ucd_category)cat);
 	}
 
 	/** @brief Is the codepoint in the 'alnum' class?

@@ -122,6 +122,7 @@ src_libucd_la_SOURCES  = \
 	src/case.c \
 	src/categories.c \
 	src/ctype.c \
+	src/proplist.c \
 	src/scripts.c \
 	src/tostring.c
 
