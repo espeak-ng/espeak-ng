@@ -36,6 +36,12 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 			return UCD_PROPERTY_WHITE_SPACE;
 		}
 		return 0;
+	case UCD_CATEGORY_Cf:
+		if (c == 0x061C)                return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
+		return 0;
 	case UCD_CATEGORY_Pd:
 		if (c == 0x2011) // NON-BREAKING HYPHEN
 			return UCD_PROPERTY_NO_BREAK;

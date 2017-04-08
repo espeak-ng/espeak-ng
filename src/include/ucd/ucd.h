@@ -329,8 +329,9 @@ ucd_script ucd_lookup_script(codepoint_t c);
   */
 typedef enum ucd_property_
 {
-	UCD_PROPERTY_WHITE_SPACE = 0x0001, /**< @brief White_Space */
-	UCD_PROPERTY_NO_BREAK    = 0x0002, /**< @brief <noBreak> */
+	UCD_PROPERTY_WHITE_SPACE  = 0x0001, /**< @brief White_Space */
+	UCD_PROPERTY_NO_BREAK     = 0x0002, /**< @brief <noBreak> */
+	UCD_PROPERTY_BIDI_CONTROL = 0x0004, /**< @brief Bidi_Control */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -792,6 +793,7 @@ namespace ucd
 	{
 		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space */
 		noBreak = UCD_PROPERTY_NO_BREAK, /**< @brief <noBreak> */
+		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
