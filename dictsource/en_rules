@@ -4255,6 +4255,7 @@ multip) ly         laI
 ?!3     mayor      me@
         mb (_      m
         mbly       mbl%I
+        mb (d      m
      o) mb (e      m
    _bo) mb (K      m
    _du) mb (K      m
@@ -4712,6 +4713,7 @@ multip) ly         laI
      w) oma (n     Um@
      w) ome (n     ImI
      _) om (iC     %oUm
+?3   _) om (icr    0m
     br) om (i      oUm
      _) om (in     0m
      d) omin (o    0mIn
@@ -4728,6 +4730,7 @@ multip) ly         laI
      &) omy (_     =@m%i
 
 .group on
+  psil) on (_      0n
     @@) on (_      @n
      @) on (_$w_alt2 @n
         on (_$w_alt1+ 0n
