@@ -36,9 +36,25 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 			return UCD_PROPERTY_WHITE_SPACE;
 		}
 		return 0;
+	case UCD_CATEGORY_Pd:
+		if (c == 0x2011) // NON-BREAKING HYPHEN
+			return UCD_PROPERTY_NO_BREAK;
+		return 0;
+	case UCD_CATEGORY_Po:
+		if (c == 0x0F0C) // TIBETAN MARK DELIMITER TSHEG BSTAR
+			return UCD_PROPERTY_NO_BREAK;
+		return 0;
 	case UCD_CATEGORY_Zl:
 	case UCD_CATEGORY_Zp:
+		return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zs:
+		switch (c)
+		{
+		case 0x00A0: // NO-BREAK SPACE
+		case 0x2007: // FIGURE SPACE
+		case 0x202F: // NARROW NO-BREAK SPACE
+			return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_NO_BREAK;
+		}
 		return UCD_PROPERTY_WHITE_SPACE;
 	default:
 		return 0;

@@ -330,6 +330,7 @@ ucd_script ucd_lookup_script(codepoint_t c);
 typedef enum ucd_property_
 {
 	UCD_PROPERTY_WHITE_SPACE = 0x0001, /**< @brief White_Space */
+	UCD_PROPERTY_NO_BREAK    = 0x0002, /**< @brief <noBreak> */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -790,6 +791,7 @@ namespace ucd
 	enum property
 	{
 		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space */
+		noBreak = UCD_PROPERTY_NO_BREAK, /**< @brief <noBreak> */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
