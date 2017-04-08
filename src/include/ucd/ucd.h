@@ -333,6 +333,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_NO_BREAK     = 0x0002, /**< @brief <noBreak> */
 	UCD_PROPERTY_BIDI_CONTROL = 0x0004, /**< @brief Bidi_Control */
 	UCD_PROPERTY_JOIN_CONTROL = 0x0008, /**< @brief Join_Control */
+	UCD_PROPERTY_DASH         = 0x0010, /**< @brief Dash */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -796,6 +797,7 @@ namespace ucd
 		noBreak = UCD_PROPERTY_NO_BREAK, /**< @brief <noBreak> */
 		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control */
 		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control */
+		Dash = UCD_PROPERTY_DASH, /**< @brief Dash */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
