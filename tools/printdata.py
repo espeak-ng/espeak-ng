@@ -113,6 +113,23 @@ def islower(data):
 	else:
 		return 0
 
+def decomposition_type(data, dtype):
+	value = data.get('DecompositionType', None)
+	if value and value.startswith(dtype):
+		return value
+	return None
+
+def properties(data):
+	props  =  0
+	props +=  1 * data.get('White_Space', 0)
+	props +=  2 * (decomposition_type(data, '<noBreak>') != None)
+	props +=  4 * data.get('Bidi_Control', 0)
+	props +=  8 * data.get('Join_Control', 0)
+	props += 16 * data.get('Dash', 0)
+	props += 32 * data.get('Hyphen', 0)
+	props += 64 * data.get('Quotation_Mark', 0)
+	return props
+
 if __name__ == '__main__':
 	for codepoint in ucd.CodeRange('000000..10FFFF'):
 		try:
@@ -126,10 +143,11 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %08x' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
 		      isdigit(data), isxdigit(data),
 		      iscntrl(data), isspace(data), isblank(data), ispunct(data),
-		      isprint(data), isgraph(data), isalnum(data), isalpha(data), isupper(data), islower(data)))
+		      isprint(data), isgraph(data), isalnum(data), isalpha(data), isupper(data), islower(data),
+		      properties(data)))

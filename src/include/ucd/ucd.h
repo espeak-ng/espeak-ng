@@ -335,7 +335,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_JOIN_CONTROL   = 0x00000008, /**< @brief Join_Control */
 	UCD_PROPERTY_DASH           = 0x00000010, /**< @brief Dash */
 	UCD_PROPERTY_HYPHEN         = 0x00000020, /**< @brief Hyphen */
-	UCD_PROPERTY_QUOTATION_MARK = 0x00000020, /**< @brief Quotation_Mark */
+	UCD_PROPERTY_QUOTATION_MARK = 0x00000040, /**< @brief Quotation_Mark */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
