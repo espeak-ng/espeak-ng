@@ -329,12 +329,13 @@ ucd_script ucd_lookup_script(codepoint_t c);
   */
 typedef enum ucd_property_
 {
-	UCD_PROPERTY_WHITE_SPACE  = 0x0001, /**< @brief White_Space */
-	UCD_PROPERTY_NO_BREAK     = 0x0002, /**< @brief <noBreak> */
-	UCD_PROPERTY_BIDI_CONTROL = 0x0004, /**< @brief Bidi_Control */
-	UCD_PROPERTY_JOIN_CONTROL = 0x0008, /**< @brief Join_Control */
-	UCD_PROPERTY_DASH         = 0x0010, /**< @brief Dash */
-	UCD_PROPERTY_HYPHEN       = 0x0020, /**< @brief Hyphen */
+	UCD_PROPERTY_WHITE_SPACE    = 0x00000001, /**< @brief White_Space */
+	UCD_PROPERTY_NO_BREAK       = 0x00000002, /**< @brief <noBreak> */
+	UCD_PROPERTY_BIDI_CONTROL   = 0x00000004, /**< @brief Bidi_Control */
+	UCD_PROPERTY_JOIN_CONTROL   = 0x00000008, /**< @brief Join_Control */
+	UCD_PROPERTY_DASH           = 0x00000010, /**< @brief Dash */
+	UCD_PROPERTY_HYPHEN         = 0x00000020, /**< @brief Hyphen */
+	UCD_PROPERTY_QUOTATION_MARK = 0x00000020, /**< @brief Quotation_Mark */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -800,6 +801,7 @@ namespace ucd
 		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control */
 		Dash = UCD_PROPERTY_DASH, /**< @brief Dash */
 		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen */
+		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
