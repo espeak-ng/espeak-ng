@@ -135,22 +135,200 @@ static int properties_Po(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
+		if (c == 0x0021)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x0022)                return UCD_PROPERTY_QUOTATION_MARK;
 		if (c == 0x0027)                return UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0x002C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x002E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c >= 0x003A && c <= 0x003B) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x003F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0300:
+		if (c == 0x037E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x0387)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0500:
+		if (c == 0x0589)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x05C3)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0600:
+		if (c == 0x060C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x061B)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x061F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x06D4)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0700:
+		if (c >= 0x0700 && c <= 0x070A) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x070C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c >= 0x07F8 && c <= 0x07F9) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0800:
+		if (c >= 0x0830 && c <= 0x083E) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x085E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0900:
+		if (c >= 0x0964 && c <= 0x0965) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x0E00:
+		if (c >= 0x0E5A && c <= 0x0E5B) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
 	case 0x0F00:
+		if (c == 0x0F08)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x0F0C)                return UCD_PROPERTY_NO_BREAK;
+		if (c >= 0x0F0D && c <= 0x0F12) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x1000:
+		if (c >= 0x104A && c <= 0x104B) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x1300:
+		if (c >= 0x1361 && c <= 0x1368) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x1600:
+		if (c >= 0x166D && c <= 0x166E) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c >= 0x16EB && c <= 0x16ED) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x1700:
+		if (c >= 0x1735 && c <= 0x1736) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c >= 0x17D4 && c <= 0x17D6) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x17DA)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x1800:
+		if (c >= 0x1802 && c <= 0x1805) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x1808 && c <= 0x1809) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1900:
+		if (c >= 0x1944 && c <= 0x1945) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1A00:
+		if (c >= 0x1AA8 && c <= 0x1AAB) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1B00:
+		if (c >= 0x1B5A && c <= 0x1B5B) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x1B5D && c <= 0x1B5F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1C00:
+		if (c >= 0x1C3B && c <= 0x1C3F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x1C7E && c <= 0x1C7F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		break;
 	case 0x2000:
+		if (c >= 0x203C && c <= 0x203D) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x2047 && c <= 0x2049) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		if (c == 0x2053)                return UCD_PROPERTY_DASH;
 		break;
+	case 0x2E00:
+		if (c == 0x2E2E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x2E3C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x2E41)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
 	case 0x3000:
+		if (c >= 0x3001 && c <= 0x3002) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		if (c == 0x30FB)                return UCD_PROPERTY_HYPHEN;
 		break;
+	case 0xA400:
+		if (c >= 0xA4FE && c <= 0xA4FF) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xA600:
+		if (c >= 0xA60D && c <= 0xA60F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0xA6F3 && c <= 0xA6F7) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xA800:
+		if (c >= 0xA876 && c <= 0xA877) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0xA8CE && c <= 0xA8CF) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xA900:
+		if (c == 0xA92F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0xA9C7 && c <= 0xA9C9) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xAA00:
+		if (c >= 0xAA5D && c <= 0xAA5F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0xAADF)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0xAAF0 && c <= 0xAAF1) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xAB00:
+		if (c == 0xABEB)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0xFE00:
+		if (c >= 0xFE50 && c <= 0xFE52) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0xFE54 && c <= 0xFE57) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
 	case 0xFF00:
+		if (c == 0xFF01)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		if (c == 0xFF02)                return UCD_PROPERTY_QUOTATION_MARK;
 		if (c == 0xFF07)                return UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0xFF0C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0xFF0E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		if (c == 0xFF65)                return UCD_PROPERTY_HYPHEN;
+		if (c >= 0xFF1A && c <= 0xFF1B) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0xFF1F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0xFF61)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0xFF64)                return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x10300:
+		if (c == 0x01039F)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x0103D0)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x10800:
+		if (c == 0x010857)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x10900:
+		if (c == 0x01091F)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x10A00:
+		if (c >= 0x010A56 && c <= 0x010A57) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x010AF0 && c <= 0x010AF5) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x10B00:
+		if (c >= 0x010B3A && c <= 0x010B3F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x010B99 && c <= 0x010B9C) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11000:
+		if (c >= 0x011047 && c <= 0x01104D) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x0110BE && c <= 0x0110C1) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11100:
+		if (c >= 0x011141 && c <= 0x011143) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x0111C5 && c <= 0x0111C6) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x0111CD)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x0111DE && c <= 0x0111DF) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11200:
+		if (c >= 0x011238 && c <= 0x01123C) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x0112A9)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11400:
+		if (c >= 0x01144B && c <= 0x01144D) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x01145B)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11500:
+		if (c >= 0x0115C2 && c <= 0x0115C5) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c >= 0x0115C9 && c <= 0x0115D7) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11600:
+		if (c >= 0x011641 && c <= 0x011642) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11700:
+		if (c >= 0x01173C && c <= 0x01173E) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x11C00:
+		if (c >= 0x011C41 && c <= 0x011C43) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x011C71)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x12400:
+		if (c >= 0x012470 && c <= 0x012474) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x16A00:
+		if (c >= 0x016A6E && c <= 0x016A6F) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x016AF5)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x16B00:
+		if (c >= 0x016B37 && c <= 0x016B39) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		if (c == 0x016B44)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1BC00:
+		if (c == 0x01BC9F)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
+		break;
+	case 0x1DA00:
+		if (c >= 0x01DA87 && c <= 0x01DA8A) return UCD_PROPERTY_TERMINAL_PUNCTUATION; 
 		break;
 	}
 	return 0;
@@ -226,6 +404,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0;
+	default:              return 0; // Cn Co Cs Ii L& M& N& Pc Sc Sk So
 	};
 }
