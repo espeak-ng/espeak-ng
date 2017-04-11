@@ -339,6 +339,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_TERMINAL_PUNCTUATION = 0x00000080, /**< @brief Terminal_Punctuation PropList */
 	UCD_PROPERTY_OTHER_MATH           = 0x00000100, /**< @brief Other_Math PropList */
 	UCD_PROPERTY_HEX_DIGIT            = 0x00000200, /**< @brief Hex_Digit PropList */
+	UCD_PROPERTY_ASCII_HEX_DIGIT      = 0x00000400, /**< @brief ASCII_Hex_Digit PropList */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -808,6 +809,7 @@ namespace ucd
 		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation PropList */
 		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math PropList */
 		Hex_Digit = UCD_PROPERTY_HEX_DIGIT, /**< @brief Hex_Digit PropList */
+		ASCII_Hex_Digit = UCD_PROPERTY_ASCII_HEX_DIGIT, /**< @brief ASCII_Hex_Digit PropList */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

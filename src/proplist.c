@@ -53,7 +53,7 @@ static int properties_Ll(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c >= 0x0061 && c <= 0x0066) return UCD_PROPERTY_HEX_DIGIT;
+		if (c >= 0x0061 && c <= 0x0066) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
 		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
@@ -122,7 +122,7 @@ static int properties_Lu(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c >= 0x0041 && c <= 0x0046) return UCD_PROPERTY_HEX_DIGIT;
+		if (c >= 0x0041 && c <= 0x0046) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
 		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
@@ -201,7 +201,7 @@ static int properties_Nd(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c >= 0x0030 && c <= 0x0039) return UCD_PROPERTY_HEX_DIGIT;
+		if (c >= 0x0030 && c <= 0x0039) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
 		break;
 	case 0xFF00:
 		if (c >= 0xFF10 && c <= 0xFF19) return UCD_PROPERTY_HEX_DIGIT;
