@@ -56,10 +56,6 @@ static int properties_Pd(codepoint_t c)
 		break;
 	case 0x0500:
 		if (c == 0x058A)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
-		if (c == 0x05BE)                return UCD_PROPERTY_DASH;
-		break;
-	case 0x1400:
-		if (c == 0x1400)                return UCD_PROPERTY_DASH;
 		break;
 	case 0x1800:
 		if (c == 0x1806)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
@@ -67,29 +63,18 @@ static int properties_Pd(codepoint_t c)
 	case 0x2000:
 		if (c == 0x2010)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		if (c == 0x2011)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_NO_BREAK;
-		if (c >= 0x2012 && c <= 0x2015) return UCD_PROPERTY_DASH;
 		break;
 	case 0x2E00:
 		if (c == 0x2E17)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
-		if (c == 0x2E1A)                return UCD_PROPERTY_DASH;
-		if (c >= 0x2E3A && c <= 0x2E3B) return UCD_PROPERTY_DASH;
-		if (c == 0x2E40)                return UCD_PROPERTY_DASH;
-		break;
-	case 0x3000:
-		if (c == 0x301C)                return UCD_PROPERTY_DASH;
-		if (c == 0x3030)                return UCD_PROPERTY_DASH;
-		if (c == 0x30A0)                return UCD_PROPERTY_DASH;
 		break;
 	case 0xFE00:
-		if (c >= 0xFE31 && c <= 0xFE32) return UCD_PROPERTY_DASH;
-		if (c == 0xFE58)                return UCD_PROPERTY_DASH;
 		if (c == 0xFE63)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
 	case 0xFF00:
 		if (c == 0xFF0D)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
 	}
-	return 0;
+	return UCD_PROPERTY_DASH;
 }
 
 static int properties_Pe(codepoint_t c)
