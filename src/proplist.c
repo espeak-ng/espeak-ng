@@ -52,11 +52,17 @@ static int properties_Ll(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		if (c >= 0x0061 && c <= 0x0066) return UCD_PROPERTY_HEX_DIGIT;
+		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c == 0x03D5)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x03F0 && c <= 0x03F1) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		break;
+	case 0xFF00:
+		if (c >= 0xFF41 && c <= 0xFF46) return UCD_PROPERTY_HEX_DIGIT;
 		break;
 	case 0x2100:
 		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
@@ -115,9 +121,15 @@ static int properties_Lu(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		if (c >= 0x0041 && c <= 0x0046) return UCD_PROPERTY_HEX_DIGIT;
+		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		break;
+	case 0xFF00:
+		if (c >= 0xFF21 && c <= 0xFF26) return UCD_PROPERTY_HEX_DIGIT;
 		break;
 	case 0x2100:
 		if (c == 0x2102)                return UCD_PROPERTY_OTHER_MATH;
@@ -188,6 +200,12 @@ static int properties_Nd(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		if (c >= 0x0030 && c <= 0x0039) return UCD_PROPERTY_HEX_DIGIT;
+		break;
+	case 0xFF00:
+		if (c >= 0xFF10 && c <= 0xFF19) return UCD_PROPERTY_HEX_DIGIT;
+		break;
 	case 0x01D700:
 		if (c >= 0x01D7CE && c <= 0x01D7FF) return UCD_PROPERTY_OTHER_MATH;
 		break;

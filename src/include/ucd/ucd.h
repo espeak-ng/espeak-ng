@@ -326,7 +326,7 @@ const char *ucd_get_script_string(ucd_script s);
 ucd_script ucd_lookup_script(codepoint_t c);
 
 /** @brief Properties
-  */
+ */
 typedef enum ucd_property_
 {
 	UCD_PROPERTY_WHITE_SPACE          = 0x00000001, /**< @brief White_Space PropList */
@@ -338,6 +338,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_QUOTATION_MARK       = 0x00000040, /**< @brief Quotation_Mark PropList */
 	UCD_PROPERTY_TERMINAL_PUNCTUATION = 0x00000080, /**< @brief Terminal_Punctuation PropList */
 	UCD_PROPERTY_OTHER_MATH           = 0x00000100, /**< @brief Other_Math PropList */
+	UCD_PROPERTY_HEX_DIGIT            = 0x00000200, /**< @brief Hex_Digit PropList */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -794,7 +795,7 @@ namespace ucd
 	}
 
 	/** @brief Properties
-	  */
+	 */
 	enum property
 	{
 		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space PropList */
@@ -806,6 +807,7 @@ namespace ucd
 		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark PropList */
 		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation PropList */
 		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math PropList */
+		Hex_Digit = UCD_PROPERTY_HEX_DIGIT, /**< @brief Hex_Digit PropList */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
