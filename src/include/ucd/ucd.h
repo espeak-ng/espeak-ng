@@ -337,6 +337,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_HYPHEN               = 0x00000020, /**< @brief Hyphen PropList */
 	UCD_PROPERTY_QUOTATION_MARK       = 0x00000040, /**< @brief Quotation_Mark PropList */
 	UCD_PROPERTY_TERMINAL_PUNCTUATION = 0x00000080, /**< @brief Terminal_Punctuation PropList */
+	UCD_PROPERTY_OTHER_MATH           = 0x00000100, /**< @brief Other_Math PropList */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -804,6 +805,7 @@ namespace ucd
 		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen PropList */
 		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark PropList */
 		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation PropList */
+		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math PropList */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

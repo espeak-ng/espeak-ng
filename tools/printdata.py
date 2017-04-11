@@ -129,6 +129,7 @@ def properties(data):
 	props +=  32 * data.get('Hyphen', 0)
 	props +=  64 * data.get('Quotation_Mark', 0)
 	props += 128 * data.get('Terminal_Punctuation', 0)
+	props += 256 * data.get('Other_Math', 0)
 	return props
 
 if __name__ == '__main__':
