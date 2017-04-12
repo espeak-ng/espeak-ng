@@ -111,8 +111,36 @@ static int properties_Lo(codepoint_t c)
 	case 0x2100:
 		if (c >= 0x2135 && c <= 0x2138) return UCD_PROPERTY_OTHER_MATH;
 		break;
+	case 0x3000:
+		if (c == 0x3006)                return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
 	case 0x01EE00:
 		return UCD_PROPERTY_OTHER_MATH;
+	}
+	return 0;
+}
+
+static int properties_Lo_ideographic(codepoint_t c)
+{
+	switch (c & 0xFFFF0000)
+	{
+	case 0x000000:
+		if (c >= 0x3400 && c <= 0x4DB5) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x4E00 && c <= 0x9FD5) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0xF900 && c <= 0xFA6D) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0xFA70 && c <= 0xFAD9) return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
+	case 0x010000:
+		if (c >= 0x017000 && c <= 0x0187EC) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x018800 && c <= 0x018AF2) return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
+	case 0x020000:
+		if (c >= 0x020000 && c <= 0x02A6D6) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x02A700 && c <= 0x02B734) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x02B740 && c <= 0x02B81D) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x02B820 && c <= 0x02CEA1) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x02F800 && c <= 0x02FA1D) return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
 	}
 	return 0;
 }
@@ -692,6 +720,19 @@ static int properties_Nd(codepoint_t c)
 	return 0;
 }
 
+static int properties_Nl(codepoint_t c)
+{
+	switch (c & 0xFFFFFF00)
+	{
+	case 0x3000:
+		if (c == 0x3007)                return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x3021 && c <= 0x3029) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x3038 && c <= 0x303A) return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
+	}
+	return 0;
+}
+
 static int properties_Pc(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
@@ -1159,11 +1200,12 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Cc: return properties_Cc(c);
 	case UCD_CATEGORY_Cf: return properties_Cf(c);
 	case UCD_CATEGORY_Ll: return properties_Ll(c);
-	case UCD_CATEGORY_Lo: return properties_Lo(c);
+	case UCD_CATEGORY_Lo: return properties_Lo(c) | properties_Lo_ideographic(c);
 	case UCD_CATEGORY_Lu: return properties_Lu(c);
 	case UCD_CATEGORY_Mc: return properties_Mc(c);
 	case UCD_CATEGORY_Mn: return properties_Mn(c);
 	case UCD_CATEGORY_Nd: return properties_Nd(c);
+	case UCD_CATEGORY_Nl: return properties_Nl(c);
 	case UCD_CATEGORY_Pc: return properties_Pc(c);
 	case UCD_CATEGORY_Pd: return properties_Pd(c);
 	case UCD_CATEGORY_Pe: return properties_Pe(c);
@@ -1177,6 +1219,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0; // Cn Co Cs Ii Lm Lt Me Nl No Sc
+	default:              return 0; // Cn Co Cs Ii Lm Lt Me No Sc
 	};
 }
