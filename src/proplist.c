@@ -182,10 +182,489 @@ static int properties_Lu(codepoint_t c)
 	return 0;
 }
 
+static int properties_Mc(codepoint_t c)
+{
+	switch (c & 0xFFFFFF00)
+	{
+	case 0x0900:
+		if (c == 0x0903)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x093B)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x093E && c <= 0x0940) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0949 && c <= 0x094C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x094E && c <= 0x094F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0982 && c <= 0x0983) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x09BE && c <= 0x09C0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x09C7 && c <= 0x09C8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x09CB && c <= 0x09CC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x09D7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0A00:
+		if (c == 0x0A03)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A3E && c <= 0x0A40) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0A83)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0ABE && c <= 0x0AC0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0AC9)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0ACB && c <= 0x0ACC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0B00:
+		if (c >= 0x0B02 && c <= 0x0B03) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B3E)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B40)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0B47 && c <= 0x0B48) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0B4B && c <= 0x0B4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B57)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0BBE && c <= 0x0BBF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0BC1 && c <= 0x0BC2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0BC6 && c <= 0x0BC8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0BCA && c <= 0x0BCC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0BD7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0C00:
+		if (c >= 0x0C01 && c <= 0x0C03) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C41 && c <= 0x0C44) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C82 && c <= 0x0C83) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0CBE)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CC0 && c <= 0x0CC4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CC7 && c <= 0x0CC8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CCA && c <= 0x0CCB) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CD5 && c <= 0x0CD6) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0D00:
+		if (c >= 0x0D02 && c <= 0x0D03) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D3E && c <= 0x0D40) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D46 && c <= 0x0D48) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D4A && c <= 0x0D4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0D57)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D82 && c <= 0x0D83) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0DCF && c <= 0x0DD1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0DD8 && c <= 0x0DDF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0DF2 && c <= 0x0DF3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0F00:
+		if (c == 0x0F7F)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1000:
+		if (c >= 0x102B && c <= 0x102C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1031)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1038)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x103B && c <= 0x103C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1056 && c <= 0x1057) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1062)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1067 && c <= 0x1068) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1083 && c <= 0x1084) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x109C)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1700:
+		if (c == 0x17B6)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x17BE && c <= 0x17C5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x17C7 && c <= 0x17C8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1900:
+		if (c >= 0x1923 && c <= 0x1926) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1929 && c <= 0x192B) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1930 && c <= 0x1931) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1933 && c <= 0x1938) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1A00:
+		if (c >= 0x1A19 && c <= 0x1A1A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A55)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A57)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A61)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1A63 && c <= 0x1A64) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1A6D && c <= 0x1A72) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1B00:
+		if (c == 0x1B04)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B35)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B3B)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1B3D && c <= 0x1B41) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B43)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B82)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1BA1)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BA6 && c <= 0x1BA7) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1BE7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BEA && c <= 0x1BEC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1BEE)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1C00:
+		if (c >= 0x1C24 && c <= 0x1C2B) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1C34 && c <= 0x1C35) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1CF2 && c <= 0x1CF3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xA800:
+		if (c >= 0xA823 && c <= 0xA824) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xA827)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA880 && c <= 0xA881) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA8B4 && c <= 0xA8C3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xA900:
+		if (c == 0xA952)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xA983)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA9B4 && c <= 0xA9B5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA9BA && c <= 0xA9BB) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA9BD && c <= 0xA9BF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xAA00:
+		if (c >= 0xAA2F && c <= 0xAA30) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAA33 && c <= 0xAA34) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAA4D)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAAEB)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAAEE && c <= 0xAAEF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAAF5)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xAB00:
+		if (c >= 0xABE3 && c <= 0xABE4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xABE6 && c <= 0xABE7) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xABE9 && c <= 0xABEA) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011000:
+		if (c == 0x011000)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011002)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011082)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0110B0 && c <= 0x0110B2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0110B7 && c <= 0x0110B8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011100:
+		if (c == 0x01112C)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011182)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0111B3 && c <= 0x0111B5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0111BF)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011200:
+		if (c >= 0x01122C && c <= 0x01122E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011232 && c <= 0x011233) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0112E0 && c <= 0x0112E2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011300:
+		if (c >= 0x011302 && c <= 0x011303) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01133E && c <= 0x01133F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011341 && c <= 0x011344) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011347 && c <= 0x011348) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01134B && c <= 0x01134C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011357)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011362 && c <= 0x011363) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011400:
+		if (c >= 0x011435 && c <= 0x011437) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011440 && c <= 0x011441) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011445)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0114B0 && c <= 0x0114B2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0114B9)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0114BB && c <= 0x0114BE) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0114C1)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011500:
+		if (c >= 0x0115AF && c <= 0x0115B1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0115B8 && c <= 0x0115BB) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0115BE)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011600:
+		if (c >= 0x011630 && c <= 0x011632) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01163B && c <= 0x01163C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x01163E)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0116AC)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0116AE && c <= 0x0116AF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011700:
+		if (c >= 0x011720 && c <= 0x011721) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011726)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011C00:
+		if (c == 0x011C2F)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011C3E)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011CA9)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011CB1)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011CB4)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x016F00:
+		if (c >= 0x016F51 && c <= 0x016F7E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	}
+	return 0;
+}
+
 static int properties_Mn(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0300:
+		if (c == 0x0345)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0500:
+		if (c >= 0x05B0 && c <= 0x05BD) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x05BF)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x05C1 && c <= 0x05C2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x05C4 && c <= 0x05C5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x05C7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0600:
+		if (c >= 0x0610 && c <= 0x061A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x064B && c <= 0x0657) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0659 && c <= 0x065F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0670)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x06D6 && c <= 0x06DC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x06E1 && c <= 0x06E4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x06E7 && c <= 0x06E8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x06ED)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0700:
+		if (c == 0x0711)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0730 && c <= 0x073F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x07A6 && c <= 0x07B0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0800:
+		if (c >= 0x0816 && c <= 0x0817) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x081B && c <= 0x0823) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0825 && c <= 0x0827) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0829 && c <= 0x082C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x08D4 && c <= 0x08DF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x08E3 && c <= 0x08E9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x08F0)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0900:
+		if                (c <= 0x0902) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x093A)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0941 && c <= 0x0948) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0955 && c <= 0x0957) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0962 && c <= 0x0963) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0981)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x09C1 && c <= 0x09C4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x09E2 && c <= 0x09E3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0A00:
+		if (c >= 0x0A01 && c <= 0x0A02) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A41 && c <= 0x0A42) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A47 && c <= 0x0A48) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A4B && c <= 0x0A4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0A51)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A70 && c <= 0x0A71) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0A75)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0A81 && c <= 0x0A82) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0AC1 && c <= 0x0AC5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0AC7 && c <= 0x0AC8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0AE2 && c <= 0x0AE3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0B00:
+		if (c == 0x0B01)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B3F)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0B41 && c <= 0x0B44) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B56)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0B62 && c <= 0x0B63) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B82)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0BC0)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0C00:
+		if (c == 0x0C00)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C3E && c <= 0x0C40) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C46 && c <= 0x0C48) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C4A && c <= 0x0C4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C55 && c <= 0x0C56) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0C62 && c <= 0x0C63) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0C81)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0CBF)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0CC6)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0CCC)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CE2 && c <= 0x0CE3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0D00:
+		if (c == 0x0D01)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D41 && c <= 0x0D44) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0D62 && c <= 0x0D63) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0DD2 && c <= 0x0DD4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0DD6)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0E00:
+		if (c == 0x0E31)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0E34 && c <= 0x0E3A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0E4D)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0EB1)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0EB4 && c <= 0x0EB9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0EBB && c <= 0x0EBC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0ECD)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x0F00:
+		if (c >= 0x0F71 && c <= 0x0F7E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0F80 && c <= 0x0F81) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0F8D && c <= 0x0F97) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0F99 && c <= 0x0FBC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1000:
+		if (c >= 0x102D && c <= 0x1030) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1032 && c <= 0x1036) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x103D && c <= 0x103E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1058 && c <= 0x1059) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x105E && c <= 0x1060) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1071 && c <= 0x1074) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1082)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1085 && c <= 0x1086) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x109D)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1300:
+		if (c == 0x135F)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1700:
+		if (c >= 0x1712 && c <= 0x1713) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1732 && c <= 0x1733) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1752 && c <= 0x1753) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1772 && c <= 0x1773) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x17B7 && c <= 0x17BD) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x17C6)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1800:
+		if (c >= 0x1885 && c <= 0x1886) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x18A9)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1900:
+		if (c >= 0x1920 && c <= 0x1922) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1927 && c <= 0x1928) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1932)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1A00:
+		if (c >= 0x1A17 && c <= 0x1A18) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A1B)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A56)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1A58 && c <= 0x1A5E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1A62)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1A65 && c <= 0x1A6C) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1A73 && c <= 0x1A74) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1B00:
+		if (c >= 0x1B00 && c <= 0x1B03) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1B36 && c <= 0x1B3A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B3C)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1B42)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1B80 && c <= 0x1B81) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BA2 && c <= 0x1BA5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BA8 && c <= 0x1BA9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BAC && c <= 0x1BAD) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BE8 && c <= 0x1BE9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x1BED)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1BEF && c <= 0x1BF1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1C00:
+		if (c >= 0x1C2C && c <= 0x1C33) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x1D00:
+		if (c >= 0x1DE7 && c <= 0x1DF4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x2D00:
+		if (c >= 0x2DE0 && c <= 0x2DFF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xA600:
+		if (c >= 0xA674 && c <= 0xA67B) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA69E && c <= 0xA69F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xA800:
+		if (c >= 0xA825 && c <= 0xA826) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xA8C5)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xA900:
+		if (c >= 0xA926 && c <= 0xA92A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA947 && c <= 0xA951) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA980 && c <= 0xA982) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xA9B6 && c <= 0xA9B9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xA9BC)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xAA00:
+		if (c >= 0xAA29 && c <= 0xAA2E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAA31 && c <= 0xAA32) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAA35 && c <= 0xAA36) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAA43)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAA4C)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAAB0)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAAB2 && c <= 0xAAB4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAAB7 && c <= 0xAAB8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xAABE)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0xAAEC && c <= 0xAAED) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xAB00:
+		if (c == 0xABE5)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0xABE8)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0xFB00:
+		if (c == 0xFB1E)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x010300:
+		if (c >= 0x010376 && c <= 0x01037A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x010A00:
+		if (c >= 0x010A01 && c <= 0x010A03) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x010A05 && c <= 0x010A06) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x010A0C && c <= 0x010A0F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011000:
+		if (c == 0x011001)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011038 && c <= 0x011045) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0110B3 && c <= 0x0110B6) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011100:
+		if (c >= 0x011100 && c <= 0x011102) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011127 && c <= 0x01112B) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01112D && c <= 0x011132) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011180 && c <= 0x011181) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0111B6 && c <= 0x0111BE) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011200:
+		if (c >= 0x01122F && c <= 0x011231) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011234)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011237)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x01123E)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0112DF)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0112E3 && c <= 0x0112E8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011300:
+		if (c >= 0x011300 && c <= 0x011301) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011340)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011400:
+		if (c >= 0x011438 && c <= 0x01143F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011443 && c <= 0x011444) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0114B3 && c <= 0x0114B8) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0114BA)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0114BF && c <= 0x0114C0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011500:
+		if (c >= 0x0115B2 && c <= 0x0115B5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0115BC && c <= 0x0115BD) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0115DC && c <= 0x0115DD) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011600:
+		if (c >= 0x011633 && c <= 0x01163A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x01163D)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011640)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0116AB)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0116AD)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0116B0 && c <= 0x0116B5) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011700:
+		if (c >= 0x01171D && c <= 0x01171F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011722 && c <= 0x011725) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011727 && c <= 0x01172A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x011C00:
+		if (c >= 0x011C30 && c <= 0x011C36) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011C38 && c <= 0x011C3D) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011C92 && c <= 0x011CA7) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011CAA && c <= 0x011CB0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011CB2 && c <= 0x011CB3) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011CB5 && c <= 0x011CB6) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x016B00:
+		if (c >= 0x016B30 && c <= 0x016B36) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x01BC00:
+		if (c == 0x01BC9E)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x01E000:
+		if (c >= 0x01E000 && c <= 0x01E006) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01E008 && c <= 0x01E018) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01E01B && c <= 0x01E021) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01E023 && c <= 0x01E024) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01E026 && c <= 0x01E02A) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x01E900:
+		if (c == 0x01E947)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
 	case 0x2000:
 		if (c >= 0x20D0 && c <= 0x20DC) return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x20E1)                return UCD_PROPERTY_OTHER_MATH;
@@ -631,6 +1110,9 @@ static int properties_So(codepoint_t c)
 		if (c == 0x23D0)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x23E2)                return UCD_PROPERTY_OTHER_MATH;
 		break;
+	case 0x2400:
+		if (c >= 0x24B6 && c <= 0x24E9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
 	case 0x2500:
 		if (c >= 0x25A0 && c <= 0x25A1) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x25AE && c <= 0x25B6) return UCD_PROPERTY_OTHER_MATH;
@@ -648,6 +1130,11 @@ static int properties_So(codepoint_t c)
 		if (c == 0x2642)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2660 && c <= 0x2663) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH;
+		break;
+	case 0x01F100:
+		if (c >= 0x01F130 && c <= 0x01F149) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01F150 && c <= 0x01F169) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01F170 && c <= 0x01F189) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	}
 	return 0;
@@ -674,6 +1161,7 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Ll: return properties_Ll(c);
 	case UCD_CATEGORY_Lo: return properties_Lo(c);
 	case UCD_CATEGORY_Lu: return properties_Lu(c);
+	case UCD_CATEGORY_Mc: return properties_Mc(c);
 	case UCD_CATEGORY_Mn: return properties_Mn(c);
 	case UCD_CATEGORY_Nd: return properties_Nd(c);
 	case UCD_CATEGORY_Pc: return properties_Pc(c);
@@ -689,6 +1177,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0; // Cn Co Cs Ii Lm Lt Mc Me Nl No Sc
+	default:              return 0; // Cn Co Cs Ii Lm Lt Me Nl No Sc
 	};
 }

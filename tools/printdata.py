@@ -132,6 +132,7 @@ def properties(data):
 	props +=  256 * data.get('Other_Math', 0)
 	props +=  512 * data.get('Hex_Digit', 0)
 	props += 1024 * data.get('ASCII_Hex_Digit', 0)
+	props += 2048 * data.get('Other_Alphabetic', 0)
 	return props
 
 if __name__ == '__main__':
