@@ -1043,8 +1043,7 @@ static int properties_Pd(codepoint_t c)
 		if (c == 0x1806)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
 	case 0x2000:
-		if (c == 0x2010)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
-		if (c == 0x2011)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_NO_BREAK;
+		if (c >= 0x2010 && c <= 0x2011) return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
 	case 0x2E00:
 		if (c == 0x2E17)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
@@ -1174,7 +1173,6 @@ static int properties_Po(codepoint_t c)
 		break;
 	case 0x0F00:
 		if (c == 0x0F08)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x0F0C)                return UCD_PROPERTY_NO_BREAK;
 		if (c >= 0x0F0D && c <= 0x0F12) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
 	case 0x1000:
@@ -1507,18 +1505,6 @@ static int properties_So(codepoint_t c)
 	return 0;
 }
 
-static int properties_Zs(codepoint_t c)
-{
-	switch (c)
-	{
-	case 0x00A0: // NO-BREAK SPACE
-	case 0x2007: // FIGURE SPACE
-	case 0x202F: // NARROW NO-BREAK SPACE
-		return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_NO_BREAK;
-	}
-	return UCD_PROPERTY_WHITE_SPACE;
-}
-
 ucd_property ucd_properties(codepoint_t c, ucd_category category)
 {
 	switch (category)
@@ -1546,7 +1532,7 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_So: return properties_So(c);
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
-	case UCD_CATEGORY_Zs: return properties_Zs(c);
+	case UCD_CATEGORY_Zs: return UCD_PROPERTY_WHITE_SPACE;
 	default:              return 0; // Co Cs Ii Lt Me No Sc
 	};
 }

@@ -329,24 +329,23 @@ ucd_script ucd_lookup_script(codepoint_t c);
  */
 typedef enum ucd_property_
 {
-	UCD_PROPERTY_WHITE_SPACE             = 0x00000001, /**< @brief White_Space PropList */
-	UCD_PROPERTY_NO_BREAK                = 0x00000002, /**< @brief <noBreak> DispositionType (enabled check) */
-	UCD_PROPERTY_BIDI_CONTROL            = 0x00000004, /**< @brief Bidi_Control PropList */
-	UCD_PROPERTY_JOIN_CONTROL            = 0x00000008, /**< @brief Join_Control PropList */
-	UCD_PROPERTY_DASH                    = 0x00000010, /**< @brief Dash PropList */
-	UCD_PROPERTY_HYPHEN                  = 0x00000020, /**< @brief Hyphen PropList */
-	UCD_PROPERTY_QUOTATION_MARK          = 0x00000040, /**< @brief Quotation_Mark PropList */
-	UCD_PROPERTY_TERMINAL_PUNCTUATION    = 0x00000080, /**< @brief Terminal_Punctuation PropList */
-	UCD_PROPERTY_OTHER_MATH              = 0x00000100, /**< @brief Other_Math PropList */
-	UCD_PROPERTY_HEX_DIGIT               = 0x00000200, /**< @brief Hex_Digit PropList */
-	UCD_PROPERTY_ASCII_HEX_DIGIT         = 0x00000400, /**< @brief ASCII_Hex_Digit PropList */
-	UCD_PROPERTY_OTHER_ALPHABETIC        = 0x00000800, /**< @brief Other_Alphabetic PropList */
-	UCD_PROPERTY_IDEOGRAPHIC             = 0x00001000, /**< @brief Ideographic PropList */
-	UCD_PROPERTY_DIACRITIC               = 0x00002000, /**< @brief Diacritic PropList */
-	UCD_PROPERTY_EXTENDER                = 0x00004000, /**< @brief Extender PropList */
-	UCD_PROPERTY_OTHER_LOWERCASE         = 0x00008000, /**< @brief Other_Lowercase PropList */
-	UCD_PROPERTY_OTHER_UPPERCASE         = 0x00010000, /**< @brief Other_Uppercase PropList */
-	UCD_PROPERTY_NONCHARACTER_CODE_POINT = 0x00020000, /**< @brief Noncharacter_Code_Point PropList */
+	UCD_PROPERTY_WHITE_SPACE             = 0x00000001, /**< @brief White_Space */
+	UCD_PROPERTY_BIDI_CONTROL            = 0x00000002, /**< @brief Bidi_Control */
+	UCD_PROPERTY_JOIN_CONTROL            = 0x00000004, /**< @brief Join_Control */
+	UCD_PROPERTY_DASH                    = 0x00000008, /**< @brief Dash */
+	UCD_PROPERTY_HYPHEN                  = 0x00000010, /**< @brief Hyphen */
+	UCD_PROPERTY_QUOTATION_MARK          = 0x00000020, /**< @brief Quotation_Mark */
+	UCD_PROPERTY_TERMINAL_PUNCTUATION    = 0x00000040, /**< @brief Terminal_Punctuation */
+	UCD_PROPERTY_OTHER_MATH              = 0x00000080, /**< @brief Other_Math */
+	UCD_PROPERTY_HEX_DIGIT               = 0x00000100, /**< @brief Hex_Digit */
+	UCD_PROPERTY_ASCII_HEX_DIGIT         = 0x00000200, /**< @brief ASCII_Hex_Digit */
+	UCD_PROPERTY_OTHER_ALPHABETIC        = 0x00000400, /**< @brief Other_Alphabetic */
+	UCD_PROPERTY_IDEOGRAPHIC             = 0x00000800, /**< @brief Ideographic */
+	UCD_PROPERTY_DIACRITIC               = 0x00001000, /**< @brief Diacritic */
+	UCD_PROPERTY_EXTENDER                = 0x00002000, /**< @brief Extender */
+	UCD_PROPERTY_OTHER_LOWERCASE         = 0x00004000, /**< @brief Other_Lowercase */
+	UCD_PROPERTY_OTHER_UPPERCASE         = 0x00008000, /**< @brief Other_Uppercase */
+	UCD_PROPERTY_NONCHARACTER_CODE_POINT = 0x00010000, /**< @brief Noncharacter_Code_Point */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -806,24 +805,23 @@ namespace ucd
 	 */
 	enum property
 	{
-		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space PropList */
-		noBreak = UCD_PROPERTY_NO_BREAK, /**< @brief <noBreak> DispositionType (enabled check) */
-		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control PropList */
-		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control PropList */
-		Dash = UCD_PROPERTY_DASH, /**< @brief Dash PropList */
-		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen PropList */
-		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark PropList */
-		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation PropList */
-		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math PropList */
-		Hex_Digit = UCD_PROPERTY_HEX_DIGIT, /**< @brief Hex_Digit PropList */
-		ASCII_Hex_Digit = UCD_PROPERTY_ASCII_HEX_DIGIT, /**< @brief ASCII_Hex_Digit PropList */
-		Other_Alphabetic = UCD_PROPERTY_OTHER_ALPHABETIC, /**< @brief Other_Alphabetic PropList */
-		Ideographic = UCD_PROPERTY_IDEOGRAPHIC, /**< @brief Ideographic PropList */
-		Diacritic = UCD_PROPERTY_DIACRITIC, /**< @brief Diacritic PropList */
-		Extender = UCD_PROPERTY_EXTENDER, /**< @brief Extender PropList */
-		Other_Lowercase = UCD_PROPERTY_OTHER_LOWERCASE, /**< @brief Other_Lowercase PropList */
-		Other_Uppercase = UCD_PROPERTY_OTHER_UPPERCASE, /**< @brief Other_Uppercase PropList */
-		Noncharacter_Code_Point = UCD_PROPERTY_NONCHARACTER_CODE_POINT, /**< @brief Noncharacter_Code_Point PropList */
+		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space */
+		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control */
+		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control */
+		Dash = UCD_PROPERTY_DASH, /**< @brief Dash */
+		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen */
+		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark */
+		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation */
+		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math */
+		Hex_Digit = UCD_PROPERTY_HEX_DIGIT, /**< @brief Hex_Digit */
+		ASCII_Hex_Digit = UCD_PROPERTY_ASCII_HEX_DIGIT, /**< @brief ASCII_Hex_Digit */
+		Other_Alphabetic = UCD_PROPERTY_OTHER_ALPHABETIC, /**< @brief Other_Alphabetic */
+		Ideographic = UCD_PROPERTY_IDEOGRAPHIC, /**< @brief Ideographic */
+		Diacritic = UCD_PROPERTY_DIACRITIC, /**< @brief Diacritic */
+		Extender = UCD_PROPERTY_EXTENDER, /**< @brief Extender */
+		Other_Lowercase = UCD_PROPERTY_OTHER_LOWERCASE, /**< @brief Other_Lowercase */
+		Other_Uppercase = UCD_PROPERTY_OTHER_UPPERCASE, /**< @brief Other_Uppercase */
+		Noncharacter_Code_Point = UCD_PROPERTY_NONCHARACTER_CODE_POINT, /**< @brief Noncharacter_Code_Point */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

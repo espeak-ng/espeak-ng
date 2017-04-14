@@ -437,8 +437,34 @@ int ucd_ispunct(codepoint_t c)
 
 int ucd_isspace(codepoint_t c)
 {
-	ucd_property props = ucd_properties(c, ucd_lookup_category(c));
-	return (props & (UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_NO_BREAK)) == UCD_PROPERTY_WHITE_SPACE;
+	switch (ucd_lookup_category(c))
+	{
+	case UCD_CATEGORY_Zl:
+	case UCD_CATEGORY_Zp:
+		return 1;
+	case UCD_CATEGORY_Zs:
+		switch (c) // Exclude characters with the <noBreak> DispositionType
+		{
+		case 0x00A0: // U+00A0 : NO-BREAK SPACE
+		case 0x2007: // U+2007 : FIGURE SPACE
+		case 0x202F: // U+202F : NARROW NO-BREAK SPACE
+			return 0;
+		}
+		return 1;
+	case UCD_CATEGORY_Cc:
+		switch (c) // Include control characters marked as White_Space
+		{
+		case 0x09: // U+0009 : CHARACTER TABULATION
+		case 0x0A: // U+000A : LINE FEED
+		case 0x0B: // U+000B : LINE TABULATION
+		case 0x0C: // U+000C : FORM FEED
+		case 0x0D: // U+000D : CARRIAGE RETURN
+		case 0x85: // U+0085 : NEXT LINE
+			return 1;
+		}
+	default:
+		return 0;
+	}
 }
 
 int ucd_isupper(codepoint_t c)
