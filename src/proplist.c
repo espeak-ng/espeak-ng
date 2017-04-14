@@ -999,6 +999,7 @@ static int properties_Nl(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x2100:
+		if (c >= 0x2160 && c <= 0x216F) return UCD_PROPERTY_OTHER_UPPERCASE;
 		if (c >= 0x2170 && c <= 0x217F) return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x3000:
@@ -1469,7 +1470,7 @@ static int properties_So(codepoint_t c)
 		if (c == 0x23E2)                return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x2400:
-		if (c >= 0x24B6 && c <= 0x24CF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x24B6 && c <= 0x24CF) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
 		if (c >= 0x24D0 && c <= 0x24E9) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2500:
@@ -1491,9 +1492,9 @@ static int properties_So(codepoint_t c)
 		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x01F100:
-		if (c >= 0x01F130 && c <= 0x01F149) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x01F150 && c <= 0x01F169) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x01F170 && c <= 0x01F189) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x01F130 && c <= 0x01F149) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
+		if (c >= 0x01F150 && c <= 0x01F169) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
+		if (c >= 0x01F170 && c <= 0x01F189) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
 		break;
 	}
 	return 0;
