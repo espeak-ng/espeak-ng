@@ -120,24 +120,25 @@ def decomposition_type(data, dtype):
 	return None
 
 def properties(data):
-	props  =     0
-	props +=     1 * data.get('White_Space', 0)
-	props +=     2 * (decomposition_type(data, '<noBreak>') != None)
-	props +=     4 * data.get('Bidi_Control', 0)
-	props +=     8 * data.get('Join_Control', 0)
-	props +=    16 * data.get('Dash', 0)
-	props +=    32 * data.get('Hyphen', 0)
-	props +=    64 * data.get('Quotation_Mark', 0)
-	props +=   128 * data.get('Terminal_Punctuation', 0)
-	props +=   256 * data.get('Other_Math', 0)
-	props +=   512 * data.get('Hex_Digit', 0)
-	props +=  1024 * data.get('ASCII_Hex_Digit', 0)
-	props +=  2048 * data.get('Other_Alphabetic', 0)
-	props +=  4096 * data.get('Ideographic', 0)
-	props +=  8192 * data.get('Diacritic', 0)
-	props += 16384 * data.get('Extender', 0)
-	props += 32768 * data.get('Other_Lowercase', 0)
-	props += 65536 * data.get('Other_Uppercase', 0)
+	props  =      0
+	props +=      1 * data.get('White_Space', 0)
+	props +=      2 * (decomposition_type(data, '<noBreak>') != None)
+	props +=      4 * data.get('Bidi_Control', 0)
+	props +=      8 * data.get('Join_Control', 0)
+	props +=     16 * data.get('Dash', 0)
+	props +=     32 * data.get('Hyphen', 0)
+	props +=     64 * data.get('Quotation_Mark', 0)
+	props +=    128 * data.get('Terminal_Punctuation', 0)
+	props +=    256 * data.get('Other_Math', 0)
+	props +=    512 * data.get('Hex_Digit', 0)
+	props +=   1024 * data.get('ASCII_Hex_Digit', 0)
+	props +=   2048 * data.get('Other_Alphabetic', 0)
+	props +=   4096 * data.get('Ideographic', 0)
+	props +=   8192 * data.get('Diacritic', 0)
+	props +=  16384 * data.get('Extender', 0)
+	props +=  32768 * data.get('Other_Lowercase', 0)
+	props +=  65536 * data.get('Other_Uppercase', 0)
+	props += 131072 * data.get('Noncharacter_Code_Point', 0)
 	return props
 
 if __name__ == '__main__':
