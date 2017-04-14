@@ -1516,6 +1516,7 @@ static int properties_So(codepoint_t c)
 		break;
 	case 0x2F00:
 		if (c >= 0x2FF0 && c <= 0x2FF1) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
+		if (c >= 0x2FF2 && c <= 0x2FF3) return UCD_PROPERTY_IDS_TRINARY_OPERATOR;
 		if (c >= 0x2FF4 && c <= 0x2FFB) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
 		break;
 	case 0x01F100:

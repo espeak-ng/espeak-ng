@@ -140,6 +140,7 @@ def properties(data):
 	props += (2 ** 16) * data.get('Noncharacter_Code_Point', 0)
 	props += (2 ** 17) * data.get('Other_Grapheme_Extend', 0)
 	props += (2 ** 18) * data.get('IDS_Binary_Operator', 0)
+	props += (2 ** 19) * data.get('IDS_Trinary_Operator', 0)
 	return props
 
 if __name__ == '__main__':
