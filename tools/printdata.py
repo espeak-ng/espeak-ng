@@ -138,6 +138,7 @@ def properties(data):
 	props += (2 ** 14) * data.get('Other_Lowercase', 0)
 	props += (2 ** 15) * data.get('Other_Uppercase', 0)
 	props += (2 ** 16) * data.get('Noncharacter_Code_Point', 0)
+	props += (2 ** 17) * data.get('Other_Grapheme_Extend', 0)
 	return props
 
 if __name__ == '__main__':

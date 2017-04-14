@@ -38,11 +38,15 @@ static int properties_Cf(codepoint_t c)
 		if (c == 0x061C)                return UCD_PROPERTY_BIDI_CONTROL;
 		break;
 	case 0x2000:
-		if (c >= 0x200C && c <= 0x200D) return UCD_PROPERTY_JOIN_CONTROL;
+		if (c == 0x200C)                return UCD_PROPERTY_JOIN_CONTROL | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x200D)                return UCD_PROPERTY_JOIN_CONTROL;
 		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x2061 && c <= 0x2064) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
+		break;
+	case 0x0E0000:
+		if (c >= 0x0E0020 && c <= 0x0E007F) return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	}
 	return 0;
@@ -208,7 +212,7 @@ static int properties_Lm(codepoint_t c)
 		break;
 	case 0xFF00:
 		if (c == 0xFF70)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER;
-		if (c >= 0xFF9E && c <= 0xFF9F) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0xFF9E && c <= 0xFF9F) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0x016B00:
 		if (c >= 0x016B42 && c <= 0x016B43) return UCD_PROPERTY_EXTENDER;
@@ -349,10 +353,11 @@ static int properties_Mc(codepoint_t c)
 		if (c >= 0x0949 && c <= 0x094C) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x094E && c <= 0x094F) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0982 && c <= 0x0983) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x09BE && c <= 0x09C0) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x09BE)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x09BF && c <= 0x09C0) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x09C7 && c <= 0x09C8) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x09CB && c <= 0x09CC) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c == 0x09D7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x09D7)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0x0A00:
 		if (c == 0x0A03)                return UCD_PROPERTY_OTHER_ALPHABETIC;
@@ -364,36 +369,42 @@ static int properties_Mc(codepoint_t c)
 		break;
 	case 0x0B00:
 		if (c >= 0x0B02 && c <= 0x0B03) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c == 0x0B3E)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B3E)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c == 0x0B40)                return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0B47 && c <= 0x0B48) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0B4B && c <= 0x0B4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c == 0x0B57)                return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0BBE && c <= 0x0BBF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0B57)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x0BBE)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x0BBF)                return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0BC1 && c <= 0x0BC2) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0BC6 && c <= 0x0BC8) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0BCA && c <= 0x0BCC) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c == 0x0BD7)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0BD7)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0x0C00:
 		if (c >= 0x0C01 && c <= 0x0C03) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0C41 && c <= 0x0C44) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0C82 && c <= 0x0C83) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x0CBE)                return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0CC0 && c <= 0x0CC4) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CC0 && c <= 0x0CC1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0CC2)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0CC3 && c <= 0x0CC4) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0CC7 && c <= 0x0CC8) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0CCA && c <= 0x0CCB) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0CD5 && c <= 0x0CD6) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0CD5 && c <= 0x0CD6) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0x0D00:
 		if (c >= 0x0D02 && c <= 0x0D03) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0D3E && c <= 0x0D40) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0D3E)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0D3F && c <= 0x0D40) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0D46 && c <= 0x0D48) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0D4A && c <= 0x0D4C) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c == 0x0D57)                return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0D57)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c >= 0x0D82 && c <= 0x0D83) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0DCF && c <= 0x0DD1) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0DD8 && c <= 0x0DDF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0DCF)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0DD0 && c <= 0x0DD1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0DD8 && c <= 0x0DDE) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0DDF)                return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c >= 0x0DF2 && c <= 0x0DF3) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x0F00:
@@ -455,7 +466,7 @@ static int properties_Mc(codepoint_t c)
 		if (c >= 0x1CF2 && c <= 0x1CF3) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x3000:
-		if (c >= 0x302E && c <= 0x302F) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x302E && c <= 0x302F) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0xA800:
 		if (c >= 0xA823 && c <= 0xA824) return UCD_PROPERTY_OTHER_ALPHABETIC;
@@ -510,25 +521,30 @@ static int properties_Mc(codepoint_t c)
 		break;
 	case 0x011300:
 		if (c >= 0x011302 && c <= 0x011303) return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x01133E && c <= 0x01133F) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x01133E)                  return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x01133F)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x011341 && c <= 0x011344) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x011347 && c <= 0x011348) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x01134B && c <= 0x01134C) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x01134D)                  return UCD_PROPERTY_DIACRITIC;
-		if (c == 0x011357)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011357)                  return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c >= 0x011362 && c <= 0x011363) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x011400:
 		if (c >= 0x011435 && c <= 0x011437) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x011440 && c <= 0x011441) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011445)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0114B0 && c <= 0x0114B2) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0114B0)                  return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0114B1 && c <= 0x0114B2) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x0114B9)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
-		if (c >= 0x0114BB && c <= 0x0114BE) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x0114BB && c <= 0x0114BC) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0114BD)                  return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x0114BE)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x0114C1)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x011500:
-		if (c >= 0x0115AF && c <= 0x0115B1) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0115AF)                  return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0115B0 && c <= 0x0115B1) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0115B8 && c <= 0x0115BB) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x0115BE)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
@@ -552,7 +568,9 @@ static int properties_Mc(codepoint_t c)
 		if (c == 0x011CB4)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x01D100:
-		if (c >= 0x01D16D && c <= 0x01D172) return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x01D165)                  return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c == 0x01D16D)                  return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x01D16E && c <= 0x01D172) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	case 0x016F00:
 		if (c >= 0x016F51 && c <= 0x016F7E) return UCD_PROPERTY_OTHER_ALPHABETIC;
