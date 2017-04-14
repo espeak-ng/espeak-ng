@@ -142,6 +142,7 @@ def properties(data):
 	props += (2 ** 18) * data.get('IDS_Binary_Operator', 0)
 	props += (2 ** 19) * data.get('IDS_Trinary_Operator', 0)
 	props += (2 ** 20) * data.get('Radical', 0)
+	props += (2 ** 21) * data.get('Unified_Ideograph', 0)
 	return props
 
 if __name__ == '__main__':

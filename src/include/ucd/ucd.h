@@ -351,6 +351,7 @@ enum
 	UCD_PROPERTY_IDS_BINARY_OPERATOR     = 0x0000000000040000ull, /**< @brief IDS_Binary_Operator */
 	UCD_PROPERTY_IDS_TRINARY_OPERATOR    = 0x0000000000080000ull, /**< @brief IDS_Trinary_Operator */
 	UCD_PROPERTY_RADICAL                 = 0x0000000000100000ull, /**< @brief Radical */
+	UCD_PROPERTY_UNIFIED_IDEOGRAPH       = 0x0000000000200000ull, /**< @brief Unified_Ideograph */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -832,6 +833,7 @@ namespace ucd
 		IDS_Binary_Operator = UCD_PROPERTY_IDS_BINARY_OPERATOR, /**< @brief IDS_Binary_Operator */
 		IDS_Trinary_Operator = UCD_PROPERTY_IDS_TRINARY_OPERATOR, /**< @brief IDS_Trinary_Operator */
 		Radical = UCD_PROPERTY_RADICAL, /**< @brief Radical */
+		Unified_Ideograph = UCD_PROPERTY_UNIFIED_IDEOGRAPH, /**< @brief Unified_Ideograph */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

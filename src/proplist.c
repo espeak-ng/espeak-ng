@@ -243,6 +243,15 @@ static int properties_Lo(codepoint_t c)
 		if (c == 0xAAC0)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0xAAC2)                return UCD_PROPERTY_DIACRITIC;
 		break;
+	case 0xFA00:
+		if (c >= 0xFA0E && c <= 0xFA0F) return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c == 0xFA11)                return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0xFA13 && c <= 0xFA14) return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c == 0xFA1F)                return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c == 0xFA21)                return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0xFA23 && c <= 0xFA24) return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0xFA27 && c <= 0xFA29) return UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		break;
 	case 0x11300:
 		if (c == 0x01135D)                  return UCD_PROPERTY_EXTENDER;
 		break;
@@ -257,8 +266,8 @@ static int properties_Lo_ideographic(codepoint_t c)
 	switch (c & 0xFFFF0000)
 	{
 	case 0x000000:
-		if (c >= 0x3400 && c <= 0x4DB5) return UCD_PROPERTY_IDEOGRAPHIC;
-		if (c >= 0x4E00 && c <= 0x9FD5) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x3400 && c <= 0x4DB5) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0x4E00 && c <= 0x9FD5) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
 		if (c >= 0xF900 && c <= 0xFA6D) return UCD_PROPERTY_IDEOGRAPHIC;
 		if (c >= 0xFA70 && c <= 0xFAD9) return UCD_PROPERTY_IDEOGRAPHIC;
 		break;
@@ -267,10 +276,10 @@ static int properties_Lo_ideographic(codepoint_t c)
 		if (c >= 0x018800 && c <= 0x018AF2) return UCD_PROPERTY_IDEOGRAPHIC;
 		break;
 	case 0x020000:
-		if (c >= 0x020000 && c <= 0x02A6D6) return UCD_PROPERTY_IDEOGRAPHIC;
-		if (c >= 0x02A700 && c <= 0x02B734) return UCD_PROPERTY_IDEOGRAPHIC;
-		if (c >= 0x02B740 && c <= 0x02B81D) return UCD_PROPERTY_IDEOGRAPHIC;
-		if (c >= 0x02B820 && c <= 0x02CEA1) return UCD_PROPERTY_IDEOGRAPHIC;
+		if (c >= 0x020000 && c <= 0x02A6D6) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0x02A700 && c <= 0x02B734) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0x02B740 && c <= 0x02B81D) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0x02B820 && c <= 0x02CEA1) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
 		if (c >= 0x02F800 && c <= 0x02FA1D) return UCD_PROPERTY_IDEOGRAPHIC;
 		break;
 	}
