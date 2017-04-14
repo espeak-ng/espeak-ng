@@ -343,6 +343,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_OTHER_ALPHABETIC     = 0x00000800, /**< @brief Other_Alphabetic PropList */
 	UCD_PROPERTY_IDEOGRAPHIC          = 0x00001000, /**< @brief Ideographic PropList */
 	UCD_PROPERTY_DIACRITIC            = 0x00002000, /**< @brief Diacritic PropList */
+	UCD_PROPERTY_EXTENDER             = 0x00004000, /**< @brief Extender PropList */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -816,6 +817,7 @@ namespace ucd
 		Other_Alphabetic = UCD_PROPERTY_OTHER_ALPHABETIC, /**< @brief Other_Alphabetic PropList */
 		Ideographic = UCD_PROPERTY_IDEOGRAPHIC, /**< @brief Ideographic PropList */
 		Diacritic = UCD_PROPERTY_DIACRITIC, /**< @brief Diacritic PropList */
+		Extender = UCD_PROPERTY_EXTENDER, /**< @brief Extender PropList */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
