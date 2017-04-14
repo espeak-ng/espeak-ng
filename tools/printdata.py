@@ -134,6 +134,7 @@ def properties(data):
 	props += 1024 * data.get('ASCII_Hex_Digit', 0)
 	props += 2048 * data.get('Other_Alphabetic', 0)
 	props += 4096 * data.get('Ideographic', 0)
+	props += 8192 * data.get('Diacritic', 0)
 	return props
 
 if __name__ == '__main__':
