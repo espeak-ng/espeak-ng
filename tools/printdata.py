@@ -157,7 +157,7 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %08x' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %016x' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
