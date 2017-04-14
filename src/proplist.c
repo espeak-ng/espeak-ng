@@ -109,16 +109,18 @@ static int properties_Lm(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0200:
-		if (c >= 0x02B0 && c <= 0x02C1) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x02B0 && c <= 0x02B8) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c >= 0x02B9 && c <= 0x02BF) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x02C0 && c <= 0x02C1) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c >= 0x02C6 && c <= 0x02CF) return UCD_PROPERTY_DIACRITIC;
 		if (c >= 0x02D0 && c <= 0x02D1) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER;
-		if (c >= 0x02E0 && c <= 0x02E4) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x02E0 && c <= 0x02E4) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c == 0x02EC)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x02EE)                return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x0300:
 		if (c == 0x0374)                return UCD_PROPERTY_DIACRITIC;
-		if (c == 0x037A)                return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x037A)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x0500:
 		if (c == 0x0559)                return UCD_PROPERTY_DIACRITIC;
@@ -149,7 +151,17 @@ static int properties_Lm(codepoint_t c)
 		if (c >= 0x1C78 && c <= 0x1C7D) return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x1D00:
-		if (c >= 0x1D2C && c <= 0x1D6A) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x1D2C && c <= 0x1D6A) return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_DIACRITIC;
+		if (c == 0x1D78)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c >= 0x1D9B && c <= 0x1DBF) return UCD_PROPERTY_OTHER_LOWERCASE;
+		break;
+	case 0x2000:
+		if (c == 0x2071)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c == 0x207F)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c >= 0x2090 && c <= 0x209C) return UCD_PROPERTY_OTHER_LOWERCASE;
+		break;
+	case 0x2C00:
+		if (c >= 0x2C7C && c <= 0x2C7D) return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2E00:
 		if (c == 0x2E2F)                return UCD_PROPERTY_DIACRITIC;
@@ -167,12 +179,13 @@ static int properties_Lm(codepoint_t c)
 	case 0xA600:
 		if (c == 0xA60C)                return UCD_PROPERTY_EXTENDER;
 		if (c == 0xA67F)                return UCD_PROPERTY_DIACRITIC;
-		if (c >= 0xA69C && c <= 0xA69D) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0xA69C && c <= 0xA69D) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0xA700:
 		if (c >= 0xA717 && c <= 0xA71F) return UCD_PROPERTY_DIACRITIC;
+		if (c == 0xA770)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c == 0xA788)                return UCD_PROPERTY_DIACRITIC;
-		if (c >= 0xA7F8 && c <= 0xA7F9) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0xA7F8 && c <= 0xA7F9) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0xA900:
 		if (c == 0xA9CF)                return UCD_PROPERTY_EXTENDER;
@@ -184,7 +197,7 @@ static int properties_Lm(codepoint_t c)
 		if (c >= 0xAAF3 && c <= 0xAAF4) return UCD_PROPERTY_EXTENDER;
 		break;
 	case 0xAB00:
-		if (c >= 0xAB5C && c <= 0xAB5F) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0xAB5C && c <= 0xAB5F) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0xFF00:
 		if (c == 0xFF70)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER;
@@ -205,6 +218,10 @@ static int properties_Lo(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		if (c == 0x00AA)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c == 0x00BA)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		break;
 	case 0x2100:
 		if (c >= 0x2135 && c <= 0x2138) return UCD_PROPERTY_OTHER_MATH;
 		break;
@@ -543,7 +560,7 @@ static int properties_Mn(codepoint_t c)
 	{
 	case 0x0300:
 		if (c >= 0x0300 && c <= 0x0344) return UCD_PROPERTY_DIACRITIC;
-		if (c == 0x0345)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0345)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c >= 0x0346 && c <= 0x034E) return UCD_PROPERTY_DIACRITIC;
 		if (c >= 0x0350 && c <= 0x0357) return UCD_PROPERTY_DIACRITIC;
 		if (c >= 0x035D && c <= 0x0362) return UCD_PROPERTY_DIACRITIC;
@@ -981,6 +998,9 @@ static int properties_Nl(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x2100:
+		if (c >= 0x2170 && c <= 0x217F) return UCD_PROPERTY_OTHER_LOWERCASE;
+		break;
 	case 0x3000:
 		if (c == 0x3007)                return UCD_PROPERTY_IDEOGRAPHIC;
 		if (c >= 0x3021 && c <= 0x3029) return UCD_PROPERTY_IDEOGRAPHIC;
@@ -1449,7 +1469,8 @@ static int properties_So(codepoint_t c)
 		if (c == 0x23E2)                return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x2400:
-		if (c >= 0x24B6 && c <= 0x24E9) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x24B6 && c <= 0x24CF) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x24D0 && c <= 0x24E9) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2500:
 		if (c >= 0x25A0 && c <= 0x25A1) return UCD_PROPERTY_OTHER_MATH;

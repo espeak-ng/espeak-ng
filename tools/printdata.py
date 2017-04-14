@@ -136,6 +136,7 @@ def properties(data):
 	props +=  4096 * data.get('Ideographic', 0)
 	props +=  8192 * data.get('Diacritic', 0)
 	props += 16384 * data.get('Extender', 0)
+	props += 32768 * data.get('Other_Lowercase', 0)
 	return props
 
 if __name__ == '__main__':
