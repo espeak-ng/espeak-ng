@@ -347,6 +347,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_OTHER_UPPERCASE         = 0x00008000, /**< @brief Other_Uppercase */
 	UCD_PROPERTY_NONCHARACTER_CODE_POINT = 0x00010000, /**< @brief Noncharacter_Code_Point */
 	UCD_PROPERTY_OTHER_GRAPHEME_EXTEND   = 0x00020000, /**< @brief Other_Grapheme_Extend */
+	UCD_PROPERTY_IDS_BINARY_OPERATOR     = 0x00040000, /**< @brief IDS_Binary_Operator */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -824,6 +825,7 @@ namespace ucd
 		Other_Uppercase = UCD_PROPERTY_OTHER_UPPERCASE, /**< @brief Other_Uppercase */
 		Noncharacter_Code_Point = UCD_PROPERTY_NONCHARACTER_CODE_POINT, /**< @brief Noncharacter_Code_Point */
 		Other_Grapheme_Extend = UCD_PROPERTY_OTHER_GRAPHEME_EXTEND, /**< @brief Other_Grapheme_Extend */
+		IDS_Binary_Operator = UCD_PROPERTY_IDS_BINARY_OPERATOR, /**< @brief IDS_Binary_Operator */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

@@ -1514,6 +1514,10 @@ static int properties_So(codepoint_t c)
 		if (c >= 0x2660 && c <= 0x2663) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH;
 		break;
+	case 0x2F00:
+		if (c >= 0x2FF0 && c <= 0x2FF1) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
+		if (c >= 0x2FF4 && c <= 0x2FFB) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
+		break;
 	case 0x01F100:
 		if (c >= 0x01F130 && c <= 0x01F149) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
 		if (c >= 0x01F150 && c <= 0x01F169) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
