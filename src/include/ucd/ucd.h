@@ -349,6 +349,7 @@ typedef enum ucd_property_
 	UCD_PROPERTY_OTHER_GRAPHEME_EXTEND   = 0x00020000, /**< @brief Other_Grapheme_Extend */
 	UCD_PROPERTY_IDS_BINARY_OPERATOR     = 0x00040000, /**< @brief IDS_Binary_Operator */
 	UCD_PROPERTY_IDS_TRINARY_OPERATOR    = 0x00080000, /**< @brief IDS_Trinary_Operator */
+	UCD_PROPERTY_RADICAL                 = 0x00100000, /**< @brief Radical */
 } ucd_property;
 
 /** @brief Return the properties of the specified codepoint.
@@ -828,6 +829,7 @@ namespace ucd
 		Other_Grapheme_Extend = UCD_PROPERTY_OTHER_GRAPHEME_EXTEND, /**< @brief Other_Grapheme_Extend */
 		IDS_Binary_Operator = UCD_PROPERTY_IDS_BINARY_OPERATOR, /**< @brief IDS_Binary_Operator */
 		IDS_Trinary_Operator = UCD_PROPERTY_IDS_TRINARY_OPERATOR, /**< @brief IDS_Trinary_Operator */
+		Radical = UCD_PROPERTY_RADICAL, /**< @brief Radical */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

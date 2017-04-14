@@ -1514,7 +1514,12 @@ static int properties_So(codepoint_t c)
 		if (c >= 0x2660 && c <= 0x2663) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH;
 		break;
+	case 0x2E00:
+		if (c >= 0x2E80 && c <= 0x2E99) return UCD_PROPERTY_RADICAL;
+		if (c >= 0x2E9B && c <= 0x2EF3) return UCD_PROPERTY_RADICAL;
+		break;
 	case 0x2F00:
+		if (c >= 0x2F00 && c <= 0x2FD5) return UCD_PROPERTY_RADICAL;
 		if (c >= 0x2FF0 && c <= 0x2FF1) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
 		if (c >= 0x2FF2 && c <= 0x2FF3) return UCD_PROPERTY_IDS_TRINARY_OPERATOR;
 		if (c >= 0x2FF4 && c <= 0x2FFB) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
