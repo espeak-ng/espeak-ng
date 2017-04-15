@@ -44,8 +44,10 @@ static int properties_Cf(codepoint_t c)
 		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x2061 && c <= 0x2064) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x206A && c <= 0x206F) return UCD_PROPERTY_DEPRECATED;
 		break;
 	case 0x0E0000:
+		if (c == 0x0E0001)                return UCD_PROPERTY_DEPRECATED;
 		if (c >= 0x0E0020 && c <= 0x0E007F) return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	}
@@ -78,6 +80,9 @@ static int properties_Ll(codepoint_t c)
 	{
 	case 0x0000:
 		if (c >= 0x0061 && c <= 0x0066) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
+		break;
+	case 0x0100:
+		if (c == 0x0149)                return UCD_PROPERTY_DEPRECATED;
 		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
@@ -246,8 +251,14 @@ static int properties_Lo(codepoint_t c)
 		if (c == 0x00AA)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c == 0x00BA)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
+	case 0x0600:
+		if (c == 0x0673)                return UCD_PROPERTY_DEPRECATED;
+		break;
 	case 0x1100:
 		if (c >= 0x115F && c <= 0x1160) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
+		break;
+	case 0x1700:
+		if (c >= 0x17A3 && c <= 0x17A4) return UCD_PROPERTY_DEPRECATED;
 		break;
 	case 0x2100:
 		if (c >= 0x2135 && c <= 0x2138) return UCD_PROPERTY_OTHER_MATH;
@@ -755,6 +766,8 @@ static int properties_Mn(codepoint_t c)
 		if (c == 0x0F35)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x0F37)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x0F39)                return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x0F77)                return UCD_PROPERTY_DEPRECATED | UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x0F79)                return UCD_PROPERTY_DEPRECATED | UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0F71 && c <= 0x0F7E) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0F80 && c <= 0x0F81) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0F82 && c <= 0x0F84) return UCD_PROPERTY_DIACRITIC;
@@ -1120,6 +1133,7 @@ static int properties_Pe(codepoint_t c)
 	case 0x2300:
 		if (c == 0x2309)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x230B)                return UCD_PROPERTY_OTHER_MATH;
+		if (c == 0x232A)                return UCD_PROPERTY_DEPRECATED;
 		break;
 	case 0x2700:
 		if (c == 0x27C6)                return UCD_PROPERTY_OTHER_MATH;
@@ -1405,6 +1419,7 @@ static int properties_Ps(codepoint_t c)
 	case 0x2300:
 		if (c == 0x2308)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x230A)                return UCD_PROPERTY_OTHER_MATH;
+		if (c == 0x2329)                return UCD_PROPERTY_DEPRECATED;
 		break;
 	case 0x2700:
 		if (c == 0x27C5)                return UCD_PROPERTY_OTHER_MATH;
