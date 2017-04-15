@@ -330,28 +330,29 @@ ucd_script ucd_lookup_script(codepoint_t c);
 typedef uint64_t ucd_property;
 enum
 {
-	UCD_PROPERTY_WHITE_SPACE             = 0x0000000000000001ull, /**< @brief White_Space */
-	UCD_PROPERTY_BIDI_CONTROL            = 0x0000000000000002ull, /**< @brief Bidi_Control */
-	UCD_PROPERTY_JOIN_CONTROL            = 0x0000000000000004ull, /**< @brief Join_Control */
-	UCD_PROPERTY_DASH                    = 0x0000000000000008ull, /**< @brief Dash */
-	UCD_PROPERTY_HYPHEN                  = 0x0000000000000010ull, /**< @brief Hyphen */
-	UCD_PROPERTY_QUOTATION_MARK          = 0x0000000000000020ull, /**< @brief Quotation_Mark */
-	UCD_PROPERTY_TERMINAL_PUNCTUATION    = 0x0000000000000040ull, /**< @brief Terminal_Punctuation */
-	UCD_PROPERTY_OTHER_MATH              = 0x0000000000000080ull, /**< @brief Other_Math */
-	UCD_PROPERTY_HEX_DIGIT               = 0x0000000000000100ull, /**< @brief Hex_Digit */
-	UCD_PROPERTY_ASCII_HEX_DIGIT         = 0x0000000000000200ull, /**< @brief ASCII_Hex_Digit */
-	UCD_PROPERTY_OTHER_ALPHABETIC        = 0x0000000000000400ull, /**< @brief Other_Alphabetic */
-	UCD_PROPERTY_IDEOGRAPHIC             = 0x0000000000000800ull, /**< @brief Ideographic */
-	UCD_PROPERTY_DIACRITIC               = 0x0000000000001000ull, /**< @brief Diacritic */
-	UCD_PROPERTY_EXTENDER                = 0x0000000000002000ull, /**< @brief Extender */
-	UCD_PROPERTY_OTHER_LOWERCASE         = 0x0000000000004000ull, /**< @brief Other_Lowercase */
-	UCD_PROPERTY_OTHER_UPPERCASE         = 0x0000000000008000ull, /**< @brief Other_Uppercase */
-	UCD_PROPERTY_NONCHARACTER_CODE_POINT = 0x0000000000010000ull, /**< @brief Noncharacter_Code_Point */
-	UCD_PROPERTY_OTHER_GRAPHEME_EXTEND   = 0x0000000000020000ull, /**< @brief Other_Grapheme_Extend */
-	UCD_PROPERTY_IDS_BINARY_OPERATOR     = 0x0000000000040000ull, /**< @brief IDS_Binary_Operator */
-	UCD_PROPERTY_IDS_TRINARY_OPERATOR    = 0x0000000000080000ull, /**< @brief IDS_Trinary_Operator */
-	UCD_PROPERTY_RADICAL                 = 0x0000000000100000ull, /**< @brief Radical */
-	UCD_PROPERTY_UNIFIED_IDEOGRAPH       = 0x0000000000200000ull, /**< @brief Unified_Ideograph */
+	UCD_PROPERTY_WHITE_SPACE                        = 0x0000000000000001ull, /**< @brief White_Space */
+	UCD_PROPERTY_BIDI_CONTROL                       = 0x0000000000000002ull, /**< @brief Bidi_Control */
+	UCD_PROPERTY_JOIN_CONTROL                       = 0x0000000000000004ull, /**< @brief Join_Control */
+	UCD_PROPERTY_DASH                               = 0x0000000000000008ull, /**< @brief Dash */
+	UCD_PROPERTY_HYPHEN                             = 0x0000000000000010ull, /**< @brief Hyphen */
+	UCD_PROPERTY_QUOTATION_MARK                     = 0x0000000000000020ull, /**< @brief Quotation_Mark */
+	UCD_PROPERTY_TERMINAL_PUNCTUATION               = 0x0000000000000040ull, /**< @brief Terminal_Punctuation */
+	UCD_PROPERTY_OTHER_MATH                         = 0x0000000000000080ull, /**< @brief Other_Math */
+	UCD_PROPERTY_HEX_DIGIT                          = 0x0000000000000100ull, /**< @brief Hex_Digit */
+	UCD_PROPERTY_ASCII_HEX_DIGIT                    = 0x0000000000000200ull, /**< @brief ASCII_Hex_Digit */
+	UCD_PROPERTY_OTHER_ALPHABETIC                   = 0x0000000000000400ull, /**< @brief Other_Alphabetic */
+	UCD_PROPERTY_IDEOGRAPHIC                        = 0x0000000000000800ull, /**< @brief Ideographic */
+	UCD_PROPERTY_DIACRITIC                          = 0x0000000000001000ull, /**< @brief Diacritic */
+	UCD_PROPERTY_EXTENDER                           = 0x0000000000002000ull, /**< @brief Extender */
+	UCD_PROPERTY_OTHER_LOWERCASE                    = 0x0000000000004000ull, /**< @brief Other_Lowercase */
+	UCD_PROPERTY_OTHER_UPPERCASE                    = 0x0000000000008000ull, /**< @brief Other_Uppercase */
+	UCD_PROPERTY_NONCHARACTER_CODE_POINT            = 0x0000000000010000ull, /**< @brief Noncharacter_Code_Point */
+	UCD_PROPERTY_OTHER_GRAPHEME_EXTEND              = 0x0000000000020000ull, /**< @brief Other_Grapheme_Extend */
+	UCD_PROPERTY_IDS_BINARY_OPERATOR                = 0x0000000000040000ull, /**< @brief IDS_Binary_Operator */
+	UCD_PROPERTY_IDS_TRINARY_OPERATOR               = 0x0000000000080000ull, /**< @brief IDS_Trinary_Operator */
+	UCD_PROPERTY_RADICAL                            = 0x0000000000100000ull, /**< @brief Radical */
+	UCD_PROPERTY_UNIFIED_IDEOGRAPH                  = 0x0000000000200000ull, /**< @brief Unified_Ideograph */
+	UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT = 0x0000000000400000ull, /**< @brief Other_Default_Ignorable_Code_Point */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -834,6 +835,7 @@ namespace ucd
 		IDS_Trinary_Operator = UCD_PROPERTY_IDS_TRINARY_OPERATOR, /**< @brief IDS_Trinary_Operator */
 		Radical = UCD_PROPERTY_RADICAL, /**< @brief Radical */
 		Unified_Ideograph = UCD_PROPERTY_UNIFIED_IDEOGRAPH, /**< @brief Unified_Ideograph */
+		Other_Default_Ignorable_Code_Point = UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT, /**< @brief Other_Default_Ignorable_Code_Point */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
