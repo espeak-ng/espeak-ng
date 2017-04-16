@@ -354,6 +354,7 @@ enum
 	UCD_PROPERTY_UNIFIED_IDEOGRAPH                  = 0x0000000000200000ull, /**< @brief Unified_Ideograph */
 	UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT = 0x0000000000400000ull, /**< @brief Other_Default_Ignorable_Code_Point */
 	UCD_PROPERTY_DEPRECATED                         = 0x0000000000800000ull, /**< @brief Deprecated */
+	UCD_PROPERTY_SOFT_DOTTED                        = 0x0000000001000000ull, /**< @brief Soft_Dotted */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -838,6 +839,7 @@ namespace ucd
 		Unified_Ideograph = UCD_PROPERTY_UNIFIED_IDEOGRAPH, /**< @brief Unified_Ideograph */
 		Other_Default_Ignorable_Code_Point = UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT, /**< @brief Other_Default_Ignorable_Code_Point */
 		Deprecated = UCD_PROPERTY_DEPRECATED, /**< @brief Deprecated */
+		Soft_Dotted = UCD_PROPERTY_SOFT_DOTTED, /**< @brief Soft_Dotted */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

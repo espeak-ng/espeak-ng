@@ -145,6 +145,7 @@ def properties(data):
 	props += (2 ** 21) * data.get('Unified_Ideograph', 0)
 	props += (2 ** 22) * data.get('Other_Default_Ignorable_Code_Point', 0)
 	props += (2 ** 23) * data.get('Deprecated', 0)
+	props += (2 ** 24) * data.get('Soft_Dotted', 0)
 	return props
 
 if __name__ == '__main__':

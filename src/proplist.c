@@ -80,40 +80,73 @@ static int properties_Ll(codepoint_t c)
 	{
 	case 0x0000:
 		if (c >= 0x0061 && c <= 0x0066) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
+		if (c >= 0x0069 && c <= 0x006A) return UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0x0100:
+		if (c == 0x012F)                return UCD_PROPERTY_SOFT_DOTTED;
 		if (c == 0x0149)                return UCD_PROPERTY_DEPRECATED;
+		break;
+	case 0x0200:
+		if (c == 0x0249)                return UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x0268)                return UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x029D)                return UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0x0300:
 		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c == 0x03D5)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x03F0 && c <= 0x03F1) return UCD_PROPERTY_OTHER_MATH;
+		if (c == 0x03F3)                return UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		break;
+	case 0x0400:
+		if (c == 0x0456)                return UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x0458)                return UCD_PROPERTY_SOFT_DOTTED;
+		break;
+	case 0x1D00:
+		if (c == 0x1D96)                return UCD_PROPERTY_SOFT_DOTTED;
+		break;
+	case 0x1E00:
+		if (c == 0x1E2D)                return UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x1ECB)                return UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0x2100:
 		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x212F && c <= 0x2131) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x2133 && c <= 0x2134) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x213C && c <= 0x213F) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x2145 && c <= 0x2149) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x2145 && c <= 0x2147) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x2148 && c <= 0x2149) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0xFF00:
 		if (c >= 0xFF41 && c <= 0xFF46) return UCD_PROPERTY_HEX_DIGIT;
 		break;
 	case 0x01D400:
+		if (c >= 0x01D422 && c <= 0x01D423) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D400 && c <= 0x01D454) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D456 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D456 && c <= 0x01D457) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D48A && c <= 0x01D48B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D458 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x01D4AE && c <= 0x01D4B9) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c == 0x01D4BB)                  return UCD_PROPERTY_OTHER_MATH;
+		if (c >= 0x01D4BE && c <= 0x01D4BF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D4BD && c <= 0x01D4C3) return UCD_PROPERTY_OTHER_MATH;
+		if (c >= 0x01D4F2 && c <= 0x01D4F3) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D4C5)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		break;
 	case 0x01D500:
 		if                  (c <= 0x01D505) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D526 && c <= 0x01D527) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D51E && c <= 0x01D539) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D55A && c <= 0x01D55B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D58E && c <= 0x01D58F) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D5C2 && c <= 0x01D5C3) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D5F6 && c <= 0x01D5F7) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D552)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		break;
 	case 0x01D600:
+		if (c >= 0x01D62A && c <= 0x01D62B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D65E && c <= 0x01D65F) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
+		if (c >= 0x01D692 && c <= 0x01D693) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if                  (c <= 0x01D6A5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
 		if (c >= 0x01D6C2 && c <= 0x01D6DA) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D6DC && c <= 0x01D6FA) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
@@ -138,6 +171,7 @@ static int properties_Lm(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0200:
+		if (c == 0x02B2)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x02B0 && c <= 0x02B8) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c >= 0x02B9 && c <= 0x02BF) return UCD_PROPERTY_DIACRITIC;
 		if (c >= 0x02C0 && c <= 0x02C1) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_LOWERCASE;
@@ -180,17 +214,21 @@ static int properties_Lm(codepoint_t c)
 		if (c >= 0x1C78 && c <= 0x1C7D) return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x1D00:
+		if (c == 0x1D62)                return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x1D2C && c <= 0x1D6A) return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_DIACRITIC;
 		if (c == 0x1D78)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c == 0x1DA4)                return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x1DA8)                return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x1D9B && c <= 0x1DBF) return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2000:
-		if (c == 0x2071)                return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c == 0x2071)                return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_SOFT_DOTTED;
 		if (c == 0x207F)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		if (c >= 0x2090 && c <= 0x209C) return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2C00:
-		if (c >= 0x2C7C && c <= 0x2C7D) return UCD_PROPERTY_OTHER_LOWERCASE;
+		if (c == 0x2C7C)                return UCD_PROPERTY_OTHER_LOWERCASE | UCD_PROPERTY_SOFT_DOTTED;
+		if (c == 0x2C7D)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2E00:
 		if (c == 0x2E2F)                return UCD_PROPERTY_DIACRITIC;
