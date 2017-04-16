@@ -854,6 +854,7 @@ static int properties_Mn(codepoint_t c)
 		if (c == 0x17DD)                return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x1800:
+		if (c >= 0x180B && c <= 0x180D) return UCD_PROPERTY_VARIATION_SELECTOR;
 		if (c >= 0x1885 && c <= 0x1886) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_ID_START;
 		if (c == 0x18A9)                return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
@@ -972,6 +973,7 @@ static int properties_Mn(codepoint_t c)
 		if (c == 0xFB1E)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0xFE00:
+		if (c >= 0xFE00 && c <= 0xFE0F) return UCD_PROPERTY_VARIATION_SELECTOR;
 		if (c >= 0xFE20 && c <= 0xFE2F) return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x010200:
@@ -1092,6 +1094,9 @@ static int properties_Mn(codepoint_t c)
 		if (c >= 0x01E944 && c <= 0x01E946) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER;
 		if (c == 0x01E947)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x01E948 && c <= 0x01E94A) return UCD_PROPERTY_DIACRITIC;
+		break;
+	case 0x0E0100:
+		if (c >= 0x0E0100 && c <= 0x0E01EF) return UCD_PROPERTY_VARIATION_SELECTOR;
 		break;
 	}
 	return 0;

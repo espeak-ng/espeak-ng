@@ -359,6 +359,7 @@ enum
 	UCD_PROPERTY_OTHER_ID_START                     = 0x0000000004000000ull, /**< @brief Other_ID_Start */
 	UCD_PROPERTY_OTHER_ID_CONTINUE                  = 0x0000000008000000ull, /**< @brief Other_ID_Continue */
 	UCD_PROPERTY_SENTENCE_TERMINAL                  = 0x0000000010000000ull, /**< @brief Sentence_Terminal */
+	UCD_PROPERTY_VARIATION_SELECTOR                 = 0x0000000020000000ull, /**< @brief Variation_Selector */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -848,6 +849,7 @@ namespace ucd
 		Other_ID_Start = UCD_PROPERTY_OTHER_ID_START, /**< @brief Other_ID_Start */
 		Other_ID_Continue = UCD_PROPERTY_OTHER_ID_CONTINUE, /**< @brief Other_ID_Continue */
 		Sentence_Terminal = UCD_PROPERTY_SENTENCE_TERMINAL, /**< @brief Sentence_Terminal */
+		Variation_Selector = UCD_PROPERTY_VARIATION_SELECTOR, /**< @brief Variation_Selector */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
