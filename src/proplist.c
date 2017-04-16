@@ -1131,6 +1131,20 @@ static int properties_Nl(codepoint_t c)
 	return 0;
 }
 
+static int properties_No(codepoint_t c)
+{
+	switch (c & 0xFFFFFF00)
+	{
+	case 0x1300:
+		if (c >= 0x1369 && c <= 0x1371) return UCD_PROPERTY_OTHER_ID_CONTINUE;
+		break;
+	case 0x1900:
+		if (c == 0x19DA)                return UCD_PROPERTY_OTHER_ID_CONTINUE;
+		break;
+	}
+	return 0;
+}
+
 static int properties_Pc(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
@@ -1254,11 +1268,11 @@ static int properties_Po(codepoint_t c)
 		if (c == 0x002E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c >= 0x003A && c <= 0x003B) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x003F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x00B7)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER;
+		if (c == 0x00B7)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER | UCD_PROPERTY_OTHER_ID_CONTINUE;
 		break;
 	case 0x0300:
 		if (c == 0x037E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x0387)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x0387)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_OTHER_ID_CONTINUE;
 		break;
 	case 0x0500:
 		if (c == 0x0589)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
@@ -1649,6 +1663,7 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Mn: return properties_Mn(c);
 	case UCD_CATEGORY_Nd: return properties_Nd(c);
 	case UCD_CATEGORY_Nl: return properties_Nl(c);
+	case UCD_CATEGORY_No: return properties_No(c);
 	case UCD_CATEGORY_Pc: return properties_Pc(c);
 	case UCD_CATEGORY_Pd: return properties_Pd(c);
 	case UCD_CATEGORY_Pe: return properties_Pe(c);
@@ -1662,6 +1677,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return UCD_PROPERTY_WHITE_SPACE;
-	default:              return 0; // Co Cs Ii Lt Me No Sc
+	default:              return 0; // Co Cs Ii Lt Me Sc
 	};
 }
