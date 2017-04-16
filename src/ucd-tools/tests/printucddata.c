@@ -160,6 +160,9 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 		case 'p': // codepoint
 			uprintf_codepoint(out, c, *++format);
 			break;
+		case 'P': // properties
+			fprintf(out, "%016llx", ucd_properties(c, ucd_lookup_category(c)));
+			break;
 		case 'i': // is*
 			uprintf_is(out, c, *++format);
 			break;
@@ -244,7 +247,7 @@ int main(int argc, char **argv)
 	{
 		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
 			uprintf(stdout, c, format ? format :
-			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il\n");
+			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il %P\n");
 	}
 	return 0;
 }

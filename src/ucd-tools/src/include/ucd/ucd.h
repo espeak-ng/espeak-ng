@@ -325,6 +325,51 @@ const char *ucd_get_script_string(ucd_script s);
   */
 ucd_script ucd_lookup_script(codepoint_t c);
 
+/** @brief Properties
+ */
+typedef uint64_t ucd_property;
+static const ucd_property UCD_PROPERTY_WHITE_SPACE                        = 0x0000000000000001ull; /**< @brief White_Space */
+static const ucd_property UCD_PROPERTY_BIDI_CONTROL                       = 0x0000000000000002ull; /**< @brief Bidi_Control */
+static const ucd_property UCD_PROPERTY_JOIN_CONTROL                       = 0x0000000000000004ull; /**< @brief Join_Control */
+static const ucd_property UCD_PROPERTY_DASH                               = 0x0000000000000008ull; /**< @brief Dash */
+static const ucd_property UCD_PROPERTY_HYPHEN                             = 0x0000000000000010ull; /**< @brief Hyphen */
+static const ucd_property UCD_PROPERTY_QUOTATION_MARK                     = 0x0000000000000020ull; /**< @brief Quotation_Mark */
+static const ucd_property UCD_PROPERTY_TERMINAL_PUNCTUATION               = 0x0000000000000040ull; /**< @brief Terminal_Punctuation */
+static const ucd_property UCD_PROPERTY_OTHER_MATH                         = 0x0000000000000080ull; /**< @brief Other_Math */
+static const ucd_property UCD_PROPERTY_HEX_DIGIT                          = 0x0000000000000100ull; /**< @brief Hex_Digit */
+static const ucd_property UCD_PROPERTY_ASCII_HEX_DIGIT                    = 0x0000000000000200ull; /**< @brief ASCII_Hex_Digit */
+static const ucd_property UCD_PROPERTY_OTHER_ALPHABETIC                   = 0x0000000000000400ull; /**< @brief Other_Alphabetic */
+static const ucd_property UCD_PROPERTY_IDEOGRAPHIC                        = 0x0000000000000800ull; /**< @brief Ideographic */
+static const ucd_property UCD_PROPERTY_DIACRITIC                          = 0x0000000000001000ull; /**< @brief Diacritic */
+static const ucd_property UCD_PROPERTY_EXTENDER                           = 0x0000000000002000ull; /**< @brief Extender */
+static const ucd_property UCD_PROPERTY_OTHER_LOWERCASE                    = 0x0000000000004000ull; /**< @brief Other_Lowercase */
+static const ucd_property UCD_PROPERTY_OTHER_UPPERCASE                    = 0x0000000000008000ull; /**< @brief Other_Uppercase */
+static const ucd_property UCD_PROPERTY_NONCHARACTER_CODE_POINT            = 0x0000000000010000ull; /**< @brief Noncharacter_Code_Point */
+static const ucd_property UCD_PROPERTY_OTHER_GRAPHEME_EXTEND              = 0x0000000000020000ull; /**< @brief Other_Grapheme_Extend */
+static const ucd_property UCD_PROPERTY_IDS_BINARY_OPERATOR                = 0x0000000000040000ull; /**< @brief IDS_Binary_Operator */
+static const ucd_property UCD_PROPERTY_IDS_TRINARY_OPERATOR               = 0x0000000000080000ull; /**< @brief IDS_Trinary_Operator */
+static const ucd_property UCD_PROPERTY_RADICAL                            = 0x0000000000100000ull; /**< @brief Radical */
+static const ucd_property UCD_PROPERTY_UNIFIED_IDEOGRAPH                  = 0x0000000000200000ull; /**< @brief Unified_Ideograph */
+static const ucd_property UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT = 0x0000000000400000ull; /**< @brief Other_Default_Ignorable_Code_Point */
+static const ucd_property UCD_PROPERTY_DEPRECATED                         = 0x0000000000800000ull; /**< @brief Deprecated */
+static const ucd_property UCD_PROPERTY_SOFT_DOTTED                        = 0x0000000001000000ull; /**< @brief Soft_Dotted */
+static const ucd_property UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION            = 0x0000000002000000ull; /**< @brief Logical_Order_Exception */
+static const ucd_property UCD_PROPERTY_OTHER_ID_START                     = 0x0000000004000000ull; /**< @brief Other_ID_Start */
+static const ucd_property UCD_PROPERTY_OTHER_ID_CONTINUE                  = 0x0000000008000000ull; /**< @brief Other_ID_Continue */
+static const ucd_property UCD_PROPERTY_SENTENCE_TERMINAL                  = 0x0000000010000000ull; /**< @brief Sentence_Terminal */
+static const ucd_property UCD_PROPERTY_VARIATION_SELECTOR                 = 0x0000000020000000ull; /**< @brief Variation_Selector */
+static const ucd_property UCD_PROPERTY_PATTERN_WHITE_SPACE                = 0x0000000040000000ull; /**< @brief Pattern_White_Space */
+static const ucd_property UCD_PROPERTY_PATTERN_SYNTAX                     = 0x0000000080000000ull; /**< @brief Pattern_Syntax */
+static const ucd_property UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull; /**< @brief Prepended_Concatenation_Mark */
+
+/** @brief Return the properties of the specified codepoint.
+ *
+ * @param c        The Unicode codepoint to lookup.
+ * @param category The General Category of the codepoint.
+ * @return         The properties associated with the codepoint.
+ */
+ucd_property ucd_properties(codepoint_t c, ucd_category category);
+
 /** @brief Is the codepoint in the 'alnum' class?
   *
   * @param c The Unicode codepoint to check.
@@ -768,6 +813,57 @@ namespace ucd
 	inline script lookup_script(codepoint_t c)
 	{
 		return (script)ucd_lookup_script(c);
+	}
+
+	/** @brief Properties
+	 */
+	typedef ucd_property property;
+	enum
+	{
+		White_Space = UCD_PROPERTY_WHITE_SPACE, /**< @brief White_Space */
+		Bidi_Control = UCD_PROPERTY_BIDI_CONTROL, /**< @brief Bidi_Control */
+		Join_Control = UCD_PROPERTY_JOIN_CONTROL, /**< @brief Join_Control */
+		Dash = UCD_PROPERTY_DASH, /**< @brief Dash */
+		Hyphen = UCD_PROPERTY_HYPHEN, /**< @brief Hyphen */
+		Quotation_Mark = UCD_PROPERTY_QUOTATION_MARK, /**< @brief Quotation_Mark */
+		Terminal_Punctuation = UCD_PROPERTY_TERMINAL_PUNCTUATION, /**< @brief Terminal_Punctuation */
+		Other_Math = UCD_PROPERTY_OTHER_MATH, /**< @brief Other_Math */
+		Hex_Digit = UCD_PROPERTY_HEX_DIGIT, /**< @brief Hex_Digit */
+		ASCII_Hex_Digit = UCD_PROPERTY_ASCII_HEX_DIGIT, /**< @brief ASCII_Hex_Digit */
+		Other_Alphabetic = UCD_PROPERTY_OTHER_ALPHABETIC, /**< @brief Other_Alphabetic */
+		Ideographic = UCD_PROPERTY_IDEOGRAPHIC, /**< @brief Ideographic */
+		Diacritic = UCD_PROPERTY_DIACRITIC, /**< @brief Diacritic */
+		Extender = UCD_PROPERTY_EXTENDER, /**< @brief Extender */
+		Other_Lowercase = UCD_PROPERTY_OTHER_LOWERCASE, /**< @brief Other_Lowercase */
+		Other_Uppercase = UCD_PROPERTY_OTHER_UPPERCASE, /**< @brief Other_Uppercase */
+		Noncharacter_Code_Point = UCD_PROPERTY_NONCHARACTER_CODE_POINT, /**< @brief Noncharacter_Code_Point */
+		Other_Grapheme_Extend = UCD_PROPERTY_OTHER_GRAPHEME_EXTEND, /**< @brief Other_Grapheme_Extend */
+		IDS_Binary_Operator = UCD_PROPERTY_IDS_BINARY_OPERATOR, /**< @brief IDS_Binary_Operator */
+		IDS_Trinary_Operator = UCD_PROPERTY_IDS_TRINARY_OPERATOR, /**< @brief IDS_Trinary_Operator */
+		Radical = UCD_PROPERTY_RADICAL, /**< @brief Radical */
+		Unified_Ideograph = UCD_PROPERTY_UNIFIED_IDEOGRAPH, /**< @brief Unified_Ideograph */
+		Other_Default_Ignorable_Code_Point = UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT, /**< @brief Other_Default_Ignorable_Code_Point */
+		Deprecated = UCD_PROPERTY_DEPRECATED, /**< @brief Deprecated */
+		Soft_Dotted = UCD_PROPERTY_SOFT_DOTTED, /**< @brief Soft_Dotted */
+		Logical_Order_Exception = UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION, /**< @brief Logical_Order_Exception */
+		Other_ID_Start = UCD_PROPERTY_OTHER_ID_START, /**< @brief Other_ID_Start */
+		Other_ID_Continue = UCD_PROPERTY_OTHER_ID_CONTINUE, /**< @brief Other_ID_Continue */
+		Sentence_Terminal = UCD_PROPERTY_SENTENCE_TERMINAL, /**< @brief Sentence_Terminal */
+		Variation_Selector = UCD_PROPERTY_VARIATION_SELECTOR, /**< @brief Variation_Selector */
+		Pattern_White_Space = UCD_PROPERTY_PATTERN_WHITE_SPACE, /**< @brief Pattern_White_Space */
+		Pattern_Syntax = UCD_PROPERTY_PATTERN_SYNTAX, /**< @brief Pattern_Syntax */
+		Prepended_Concatenation_Mark = UCD_PROPERTY_PREPENDED_CONCATENATION_MARK, /**< @brief Prepended_Concatenation_Mark */
+	};
+
+	/** @brief Return the properties of the specified codepoint.
+	 *
+	 * @param c   The Unicode codepoint to lookup.
+	 * @param cat The General Category of the codepoint.
+	 * @return    The properties associated with the codepoint.
+	 */
+	inline property properties(codepoint_t c, category cat)
+	{
+		return (property)ucd_properties(c, (ucd_category)cat);
 	}
 
 	/** @brief Is the codepoint in the 'alnum' class?

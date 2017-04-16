@@ -113,6 +113,49 @@ def islower(data):
 	else:
 		return 0
 
+def decomposition_type(data, dtype):
+	value = data.get('DecompositionType', None)
+	if value and value.startswith(dtype):
+		return value
+	return None
+
+def properties(data):
+	props  = 0
+	props += (2 **  0) * data.get('White_Space', 0)
+	props += (2 **  1) * data.get('Bidi_Control', 0)
+	props += (2 **  2) * data.get('Join_Control', 0)
+	props += (2 **  3) * data.get('Dash', 0)
+	props += (2 **  4) * data.get('Hyphen', 0)
+	props += (2 **  5) * data.get('Quotation_Mark', 0)
+	props += (2 **  6) * data.get('Terminal_Punctuation', 0)
+	props += (2 **  7) * data.get('Other_Math', 0)
+	props += (2 **  8) * data.get('Hex_Digit', 0)
+	props += (2 **  9) * data.get('ASCII_Hex_Digit', 0)
+	props += (2 ** 10) * data.get('Other_Alphabetic', 0)
+	props += (2 ** 11) * data.get('Ideographic', 0)
+	props += (2 ** 12) * data.get('Diacritic', 0)
+	props += (2 ** 13) * data.get('Extender', 0)
+	props += (2 ** 14) * data.get('Other_Lowercase', 0)
+	props += (2 ** 15) * data.get('Other_Uppercase', 0)
+	props += (2 ** 16) * data.get('Noncharacter_Code_Point', 0)
+	props += (2 ** 17) * data.get('Other_Grapheme_Extend', 0)
+	props += (2 ** 18) * data.get('IDS_Binary_Operator', 0)
+	props += (2 ** 19) * data.get('IDS_Trinary_Operator', 0)
+	props += (2 ** 20) * data.get('Radical', 0)
+	props += (2 ** 21) * data.get('Unified_Ideograph', 0)
+	props += (2 ** 22) * data.get('Other_Default_Ignorable_Code_Point', 0)
+	props += (2 ** 23) * data.get('Deprecated', 0)
+	props += (2 ** 24) * data.get('Soft_Dotted', 0)
+	props += (2 ** 25) * data.get('Logical_Order_Exception', 0)
+	props += (2 ** 26) * data.get('Other_ID_Start', 0)
+	props += (2 ** 27) * data.get('Other_ID_Continue', 0)
+	props += (2 ** 28) * data.get('Sentence_Terminal', 0)
+	props += (2 ** 29) * data.get('Variation_Selector', 0)
+	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
+	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
+	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
+	return props
+
 if __name__ == '__main__':
 	for codepoint in ucd.CodeRange('000000..10FFFF'):
 		try:
@@ -126,10 +169,11 @@ if __name__ == '__main__':
 		if title == null: title = codepoint
 		if upper == null: upper = codepoint
 		if lower == null: lower = codepoint
-		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (
+		print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %016x' % (
 		      codepoint, script,
 		      data.get('GeneralCategory', 'Cn')[0], data.get('GeneralCategory', 'Cn'),
 		      upper, lower, title,
 		      isdigit(data), isxdigit(data),
 		      iscntrl(data), isspace(data), isblank(data), ispunct(data),
-		      isprint(data), isgraph(data), isalnum(data), isalpha(data), isupper(data), islower(data)))
+		      isprint(data), isgraph(data), isalnum(data), isalpha(data), isupper(data), islower(data),
+		      properties(data)))
