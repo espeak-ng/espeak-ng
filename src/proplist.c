@@ -56,19 +56,58 @@ static int properties_Cf(codepoint_t c)
 
 static int properties_Cn(codepoint_t c)
 {
-	switch (c & 0xFFFF0000)
+	switch (c & 0xFFFFFF00)
 	{
-	case 0x0000:
+	case 0x2000:
 		if (c == 0x2065)                return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
-		if (c >= 0xFFF0 && c <= 0xFFF8) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
+		break;
+	case 0x2300:
+		if (c == 0x23FF)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		break;
+	case 0x2400:
+		if (c >= 0x2427 && c <= 0x243F) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x244B && c <= 0x245F) return UCD_PROPERTY_PATTERN_SYNTAX;
+		break;
+	case 0x2B00:
+		if (c >= 0x2B74 && c <= 0x2B75) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2B96 && c <= 0x2B97) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2BBA && c <= 0x2BBC) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2BC9)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2BD2 && c <= 0x2BEB) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2BF0 && c <= 0x2BFF) return UCD_PROPERTY_PATTERN_SYNTAX;
+		break;
+	case 0x2E00:
+		if (c >= 0x2E45 && c <= 0x2E7F) return UCD_PROPERTY_PATTERN_SYNTAX;
+		break;
+	case 0xFD00:
 		if (c >= 0xFDD0 && c <= 0xFDEF) return UCD_PROPERTY_NONCHARACTER_CODE_POINT;
+		break;
+	case 0xFF00:
+		if (c >= 0xFFF0 && c <= 0xFFF8) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		break;
 	case 0x0E0000:
 		if (c == 0xE0000)                 return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		if (c >= 0xE0002 && c <= 0xE001F) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		if (c >= 0xE0080 && c <= 0xE00FF) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
-		if (c >= 0xE01F0 && c <= 0xE0FFF) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		break;
+	case 0x0E0100:
+		if (c >= 0xE01F0)                 return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
+		break;
+	case 0x0E0200:
+	case 0x0E0300:
+	case 0x0E0400:
+	case 0x0E0500:
+	case 0x0E0600:
+	case 0x0E0700:
+	case 0x0E0800:
+	case 0x0E0900:
+	case 0x0E0A00:
+	case 0x0E0B00:
+	case 0x0E0C00:
+	case 0x0E0D00:
+	case 0x0E0E00:
+	case 0x0E0F00:
+		return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 	}
 	if ((c & 0x0000FFFF) >= 0xFFFE) return UCD_PROPERTY_NONCHARACTER_CODE_POINT;
 	return 0;
@@ -231,7 +270,7 @@ static int properties_Lm(codepoint_t c)
 		if (c == 0x2C7D)                return UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2E00:
-		if (c == 0x2E2F)                return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x2E2F)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x3000:
 		if (c == 0x3005)                return UCD_PROPERTY_EXTENDER;
@@ -1166,8 +1205,7 @@ static int properties_Pd(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c == 0x002D)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
-		break;
+		return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x0500:
 		if (c == 0x058A)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
@@ -1175,10 +1213,14 @@ static int properties_Pd(codepoint_t c)
 		if (c == 0x1806)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
 		break;
 	case 0x2000:
-		if (c >= 0x2010 && c <= 0x2011) return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
-		break;
+		if (c >= 0x2010 && c <= 0x2011) return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2E00:
-		if (c == 0x2E17)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN;
+		if (c == 0x2E17)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0x3000:
+		if (c == 0x301C)                return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x3030)                return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0xFE00:
 		if (c == 0xFE63)                return UCD_PROPERTY_DASH | UCD_PROPERTY_HYPHEN | UCD_PROPERTY_OTHER_MATH;
@@ -1194,28 +1236,33 @@ static int properties_Pe(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2000:
+		if (c == 0x2046)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x207E)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x208E)                return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x2300:
-		if (c == 0x2309)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x230B)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x232A)                return UCD_PROPERTY_DEPRECATED;
+		if (c == 0x2309)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x230B)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x232A)                return UCD_PROPERTY_DEPRECATED | UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2700:
-		if (c == 0x27C6)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		break;
+		if (c == 0x27C6)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2900:
-		if (c >= 0x2983 && c <= 0x2998) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		if (c >= 0x29D8 && c <= 0x29DB) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		if (c == 0x29FD)                return UCD_PROPERTY_OTHER_MATH;
-		break;
+		return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+	case 0x2E00:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x3000:
-		if (c == 0x300D)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x300F)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c >= 0x301E && c <= 0x301F) return UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0x300D)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0x300F)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_QUOTATION_MARK;
+		if (c >= 0x301E && c <= 0x301F) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_QUOTATION_MARK;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0xFD00:
+		if (c == 0xFD3E)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0xFE00:
 		if (c == 0xFE42)                return UCD_PROPERTY_QUOTATION_MARK;
@@ -1233,13 +1280,10 @@ static int properties_Pf(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c == 0x00BB)                return UCD_PROPERTY_QUOTATION_MARK;
-		break;
 	case 0x2000:
-		if (c == 0x2019)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x201D)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x203A)                return UCD_PROPERTY_QUOTATION_MARK;
-		break;
+		return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0x2E00:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	}
 	return 0;
 }
@@ -1249,14 +1293,10 @@ static int properties_Pi(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c == 0x00AB)                return UCD_PROPERTY_QUOTATION_MARK;
-		break;
 	case 0x2000:
-		if (c == 0x2018)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c >= 0x201B && c <= 0x201C) return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x201F)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x2039)                return UCD_PROPERTY_QUOTATION_MARK;
-		break;
+		return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0x2E00:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	}
 	return 0;
 }
@@ -1266,15 +1306,15 @@ static int properties_Po(codepoint_t c)
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c == 0x0021)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c == 0x0022)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x0027)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x002C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x002E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c >= 0x003A && c <= 0x003B) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x003F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		if (c == 0x0021)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x0022)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x0027)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x002C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x002E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x003A && c <= 0x003B) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x003F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x00B7)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_EXTENDER | UCD_PROPERTY_OTHER_ID_CONTINUE;
-		break;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x0300:
 		if (c == 0x037E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x0387)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_OTHER_ID_CONTINUE;
@@ -1354,20 +1394,28 @@ static int properties_Po(codepoint_t c)
 		if (c == 0x1CD3)                return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x2000:
-		if (c == 0x2016)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x2032 && c <= 0x2034) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x203C && c <= 0x203D) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c >= 0x2047 && c <= 0x2049) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c == 0x2053)                return UCD_PROPERTY_DASH;
+		if (c == 0x2016)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2017)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2020 && c <= 0x2027) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2032 && c <= 0x2034) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_OTHER_MATH;
+		if (c >= 0x2030 && c <= 0x2038) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x203C && c <= 0x203D) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x203B && c <= 0x203E) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2041 && c <= 0x2043) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2047 && c <= 0x2049) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x204A && c <= 0x2051) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2053)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_DASH;
+		if (c >= 0x2055 && c <= 0x205E) return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2E00:
-		if (c == 0x2E2E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c == 0x2E3C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
-		if (c == 0x2E41)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		break;
+		if (c == 0x2E2E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2E3C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2E41)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x3000:
-		if (c == 0x3001)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
-		if (c == 0x3002)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		if (c == 0x3001)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x3002)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x3003)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x30FB)                return UCD_PROPERTY_HYPHEN;
 		break;
 	case 0xA400:
@@ -1400,6 +1448,7 @@ static int properties_Po(codepoint_t c)
 		if (c == 0xABEB)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		break;
 	case 0xFE00:
+		if (c >= 0xFE45 && c <= 0xFE46) return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c >= 0xFE50 && c <= 0xFE51) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0xFE52)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		if (c >= 0xFE54 && c <= 0xFE55) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
@@ -1503,33 +1552,36 @@ static int properties_Ps(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2000:
-		if (c == 0x201A)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x201E)                return UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0x201A)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x201E)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2045)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x207D)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x208D)                return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x2300:
-		if (c == 0x2308)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x230A)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x2329)                return UCD_PROPERTY_DEPRECATED;
+		if (c == 0x2308)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x230A)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2329)                return UCD_PROPERTY_DEPRECATED | UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2700:
-		if (c == 0x27C5)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		break;
+		if (c == 0x27C5)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2900:
-		if (c >= 0x2983 && c <= 0x2998) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		if (c >= 0x29D8 && c <= 0x29DB) return UCD_PROPERTY_OTHER_MATH; // Pe|Ps
-		if (c == 0x29FC)                return UCD_PROPERTY_OTHER_MATH;
-		break;
+		return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2E00:
-		if (c == 0x2E42)                return UCD_PROPERTY_QUOTATION_MARK;
-		break;
+		if (c == 0x2E42)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x3000:
-		if (c == 0x300C)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x300E)                return UCD_PROPERTY_QUOTATION_MARK;
-		if (c == 0x301D)                return UCD_PROPERTY_QUOTATION_MARK;
+		if (c == 0x300C)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x300E)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x301D)                return UCD_PROPERTY_QUOTATION_MARK | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0xFD00:
+		if (c == 0xFD3F)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0xFE00:
 		if (c == 0xFE41)                return UCD_PROPERTY_QUOTATION_MARK;
@@ -1542,13 +1594,23 @@ static int properties_Ps(codepoint_t c)
 	return 0;
 }
 
+static int properties_Sc(codepoint_t c)
+{
+	switch (c & 0xFFFFFF00)
+	{
+	case 0x0000:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
+	}
+	return 0;
+}
+
 static int properties_Sk(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
 	case 0x0000:
-		if (c == 0x005E)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_DIACRITIC;
-		if (c == 0x0060)                return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x005E)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x0060)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x00A8)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x00AF)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x00B4)                return UCD_PROPERTY_DIACRITIC;
@@ -1595,16 +1657,29 @@ static int properties_Sm(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2000:
+		if (c == 0x2044)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2052)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x207B)                return UCD_PROPERTY_DASH;
 		if (c == 0x208B)                return UCD_PROPERTY_DASH;
 		break;
 	case 0x2100:
 		if (c == 0x2118)                return UCD_PROPERTY_OTHER_ID_START;
+		if (c >= 0x2190)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2200:
-		if (c == 0x2212)                return UCD_PROPERTY_DASH;
-		break;
+		if (c == 0x2212)                return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0x2300:
+	case 0x2500:
+	case 0x2600:
+	case 0x2700:
+	case 0x2900:
+	case 0x2A00:
+	case 0x2B00:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	}
 	return 0;
 }
@@ -1613,52 +1688,69 @@ static int properties_So(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
+	case 0x0000:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2100:
 		if (c == 0x2129)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x212E)                return UCD_PROPERTY_OTHER_ID_START;
-		if (c >= 0x2195 && c <= 0x2199) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x219C && c <= 0x219F) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21A1 && c <= 0x21A2) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21A4 && c <= 0x21A5) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x21A7)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21A9 && c <= 0x21AD) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21B0 && c <= 0x21B1) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21B6 && c <= 0x21B7) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21BC && c <= 0x21CD) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21D0 && c <= 0x21D1) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x21D3)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21D5 && c <= 0x21DB) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x21DD)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x21E4 && c <= 0x21E5) return UCD_PROPERTY_OTHER_MATH;
+		if (c >= 0x2195 && c <= 0x2199) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x219C && c <= 0x219F) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21A1 && c <= 0x21A2) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21A4 && c <= 0x21A5) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x21A8)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21A7 && c <= 0x21AD) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21B0 && c <= 0x21B1) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21B6 && c <= 0x21B7) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21AF && c <= 0x21BB) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21BC && c <= 0x21CD) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21D0 && c <= 0x21D1) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x21D3)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21D5 && c <= 0x21DB) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x21DD)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21E4 && c <= 0x21E5) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x21D5 && c <= 0x21F3) return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2300:
-		if (c >= 0x23B4 && c <= 0x23B5) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x23B7)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x23D0)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x23E2)                return UCD_PROPERTY_OTHER_MATH;
+		if (c >= 0x2300 && c <= 0x2307) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x230C && c <= 0x231F) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2322 && c <= 0x2328) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x232B && c <= 0x237B) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x237D && c <= 0x239A) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x23B4 && c <= 0x23B5) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x23B7)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x23D0)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x23B4 && c <= 0x23DB) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x23E2)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x23E3 && c <= 0x23FE) return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x2400:
+		if (c >= 0x2400 && c <= 0x2426) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2440 && c <= 0x244A) return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c >= 0x24B6 && c <= 0x24CF) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
 		if (c >= 0x24D0 && c <= 0x24E9) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_LOWERCASE;
 		break;
 	case 0x2500:
-		if (c >= 0x25A0 && c <= 0x25A1) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25AE && c <= 0x25B6) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25BC && c <= 0x25C0) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25C6 && c <= 0x25C7) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25CA && c <= 0x25CB) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25CF && c <= 0x25D3) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x25E2)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x25E4)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x25E7 && c <= 0x25EC) return UCD_PROPERTY_OTHER_MATH;
-		break;
+		if (c >= 0x25A0 && c <= 0x25A1) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25AE && c <= 0x25B6) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25BC && c <= 0x25C0) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25C6 && c <= 0x25C7) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25CA && c <= 0x25CB) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25CF && c <= 0x25D3) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x25E2)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x25E4)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x25E7 && c <= 0x25EC) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2600:
-		if (c >= 0x2605 && c <= 0x2606) return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x2640)                return UCD_PROPERTY_OTHER_MATH;
-		if (c == 0x2642)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x2660 && c <= 0x2663) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH;
-		break;
+		if (c >= 0x2605 && c <= 0x2606) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2640)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2642)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x2660 && c <= 0x2663) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x266D && c <= 0x266E) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
+		return UCD_PROPERTY_PATTERN_SYNTAX;
+	case 0x2700:
+	case 0x2800:
+	case 0x2B00:
+		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2E00:
 		if (c >= 0x2E80 && c <= 0x2E99) return UCD_PROPERTY_RADICAL;
 		if (c >= 0x2E9B && c <= 0x2EF3) return UCD_PROPERTY_RADICAL;
@@ -1668,6 +1760,10 @@ static int properties_So(codepoint_t c)
 		if (c >= 0x2FF0 && c <= 0x2FF1) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
 		if (c >= 0x2FF2 && c <= 0x2FF3) return UCD_PROPERTY_IDS_TRINARY_OPERATOR;
 		if (c >= 0x2FF4 && c <= 0x2FFB) return UCD_PROPERTY_IDS_BINARY_OPERATOR;
+		break;
+	case 0x3000:
+		if (c >= 0x3012 && c <= 0x3013) return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x3020)                return UCD_PROPERTY_PATTERN_SYNTAX;
 		break;
 	case 0x01F100:
 		if (c >= 0x01F130 && c <= 0x01F149) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_UPPERCASE;
@@ -1707,12 +1803,13 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Pi: return properties_Pi(c);
 	case UCD_CATEGORY_Po: return properties_Po(c);
 	case UCD_CATEGORY_Ps: return properties_Ps(c);
+	case UCD_CATEGORY_Sc: return properties_Sc(c);
 	case UCD_CATEGORY_Sk: return properties_Sk(c);
 	case UCD_CATEGORY_Sm: return properties_Sm(c);
 	case UCD_CATEGORY_So: return properties_So(c);
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0; // Co Cs Ii Lt Me Sc
+	default:              return 0; // Co Cs Ii Lt Me
 	};
 }
