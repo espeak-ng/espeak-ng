@@ -161,6 +161,7 @@
     <ClCompile Include="..\ucd-tools\src\case.c" />
     <ClCompile Include="..\ucd-tools\src\categories.c" />
     <ClCompile Include="..\ucd-tools\src\ctype.c" />
+    <ClCompile Include="..\ucd-tools\src\proplist.c" />
     <ClCompile Include="..\ucd-tools\src\scripts.c" />
     <ClCompile Include="..\ucd-tools\src\tostring.c" />
     <ClCompile Include="..\libespeak-ng\compiledata.c" />

@@ -140,6 +140,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/case.c \
 	src/ucd-tools/src/categories.c \
 	src/ucd-tools/src/ctype.c \
+	src/ucd-tools/src/proplist.c \
 	src/ucd-tools/src/scripts.c \
 	src/ucd-tools/src/tostring.c \
 	src/libespeak-ng/compiledata.c \
