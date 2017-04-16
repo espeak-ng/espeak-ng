@@ -161,7 +161,7 @@ void uprintf(FILE *out, ucd::codepoint_t c, const char *format)
 			uprintf_codepoint(out, c, *++format);
 			break;
 		case 'P': // properties
-			fprintf(out, "%016x", ucd::properties(c, ucd::lookup_category(c)));
+			fprintf(out, "%016llx", ucd::properties(c, ucd::lookup_category(c)));
 			break;
 		case 'i': // is*
 			uprintf_is(out, c, *++format);

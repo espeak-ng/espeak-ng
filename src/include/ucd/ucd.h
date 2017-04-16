@@ -362,6 +362,7 @@ enum
 	UCD_PROPERTY_VARIATION_SELECTOR                 = 0x0000000020000000ull, /**< @brief Variation_Selector */
 	UCD_PROPERTY_PATTERN_WHITE_SPACE                = 0x0000000040000000ull, /**< @brief Pattern_White_Space */
 	UCD_PROPERTY_PATTERN_SYNTAX                     = 0x0000000080000000ull, /**< @brief Pattern_Syntax */
+	UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull, /**< @brief Prepended_Concatenation_Mark */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -854,6 +855,7 @@ namespace ucd
 		Variation_Selector = UCD_PROPERTY_VARIATION_SELECTOR, /**< @brief Variation_Selector */
 		Pattern_White_Space = UCD_PROPERTY_PATTERN_WHITE_SPACE, /**< @brief Pattern_White_Space */
 		Pattern_Syntax = UCD_PROPERTY_PATTERN_SYNTAX, /**< @brief Pattern_Syntax */
+		Prepended_Concatenation_Mark = UCD_PROPERTY_PREPENDED_CONCATENATION_MARK, /**< @brief Prepended_Concatenation_Mark */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

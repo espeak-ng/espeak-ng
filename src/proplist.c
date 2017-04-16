@@ -20,14 +20,14 @@
 
 #include "ucd/ucd.h"
 
-static int properties_Cc(codepoint_t c)
+static ucd_property properties_Cc(codepoint_t c)
 {
 	if (c >= 0x0009 && c <= 0x000D) return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	if (c == 0x0085)                return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	return 0;
 }
 
-static int properties_Cf(codepoint_t c)
+static ucd_property properties_Cf(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -35,7 +35,15 @@ static int properties_Cf(codepoint_t c)
 		if (c == 0x00AD)                return UCD_PROPERTY_HYPHEN;
 		break;
 	case 0x0600:
+		if (c >= 0x0600 && c <= 0x0605) return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
 		if (c == 0x061C)                return UCD_PROPERTY_BIDI_CONTROL;
+		if (c == 0x06DD)                return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
+		break;
+	case 0x0700:
+		if (c == 0x070F)                return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
+		break;
+	case 0x0800:
+		if (c == 0x08E2)                return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
 		break;
 	case 0x2000:
 		if (c == 0x200C)                return UCD_PROPERTY_JOIN_CONTROL | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
@@ -46,15 +54,18 @@ static int properties_Cf(codepoint_t c)
 		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x206A && c <= 0x206F) return UCD_PROPERTY_DEPRECATED;
 		break;
+	case 0x011000:
+		if (c == 0x0110BD)                  return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
+		break;
 	case 0x0E0000:
-		if (c == 0x0E0001)                return UCD_PROPERTY_DEPRECATED;
+		if (c == 0x0E0001)                  return UCD_PROPERTY_DEPRECATED;
 		if (c >= 0x0E0020 && c <= 0x0E007F) return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		break;
 	}
 	return 0;
 }
 
-static int properties_Cn(codepoint_t c)
+static ucd_property properties_Cn(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -113,7 +124,7 @@ static int properties_Cn(codepoint_t c)
 	return 0;
 }
 
-static int properties_Ll(codepoint_t c)
+static ucd_property properties_Ll(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -205,7 +216,7 @@ static int properties_Ll(codepoint_t c)
 	return 0;
 }
 
-static int properties_Lm(codepoint_t c)
+static ucd_property properties_Lm(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -320,7 +331,7 @@ static int properties_Lm(codepoint_t c)
 	return 0;
 }
 
-static int properties_Lo(codepoint_t c)
+static ucd_property properties_Lo(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -382,7 +393,7 @@ static int properties_Lo(codepoint_t c)
 	return 0;
 }
 
-static int properties_Lo_ideographic(codepoint_t c)
+static ucd_property properties_Lo_ideographic(codepoint_t c)
 {
 	switch (c & 0xFFFF0000)
 	{
@@ -407,7 +418,7 @@ static int properties_Lo_ideographic(codepoint_t c)
 	return 0;
 }
 
-static int properties_Lu(codepoint_t c)
+static ucd_property properties_Lu(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -472,7 +483,7 @@ static int properties_Lu(codepoint_t c)
 	return 0;
 }
 
-static int properties_Mc(codepoint_t c)
+static ucd_property properties_Mc(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -709,7 +720,7 @@ static int properties_Mc(codepoint_t c)
 	return 0;
 }
 
-static int properties_Mn(codepoint_t c)
+static ucd_property properties_Mn(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1141,7 +1152,7 @@ static int properties_Mn(codepoint_t c)
 	return 0;
 }
 
-static int properties_Nd(codepoint_t c)
+static ucd_property properties_Nd(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1158,7 +1169,7 @@ static int properties_Nd(codepoint_t c)
 	return 0;
 }
 
-static int properties_Nl(codepoint_t c)
+static ucd_property properties_Nl(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1175,7 +1186,7 @@ static int properties_Nl(codepoint_t c)
 	return 0;
 }
 
-static int properties_No(codepoint_t c)
+static ucd_property properties_No(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1189,7 +1200,7 @@ static int properties_No(codepoint_t c)
 	return 0;
 }
 
-static int properties_Pc(codepoint_t c)
+static ucd_property properties_Pc(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1200,7 +1211,7 @@ static int properties_Pc(codepoint_t c)
 	return 0;
 }
 
-static int properties_Pd(codepoint_t c)
+static ucd_property properties_Pd(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1232,7 +1243,7 @@ static int properties_Pd(codepoint_t c)
 	return UCD_PROPERTY_DASH;
 }
 
-static int properties_Pe(codepoint_t c)
+static ucd_property properties_Pe(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1275,7 +1286,7 @@ static int properties_Pe(codepoint_t c)
 	return 0;
 }
 
-static int properties_Pf(codepoint_t c)
+static ucd_property properties_Pf(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1288,7 +1299,7 @@ static int properties_Pf(codepoint_t c)
 	return 0;
 }
 
-static int properties_Pi(codepoint_t c)
+static ucd_property properties_Pi(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1301,7 +1312,7 @@ static int properties_Pi(codepoint_t c)
 	return 0;
 }
 
-static int properties_Po(codepoint_t c)
+static ucd_property properties_Po(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1548,7 +1559,7 @@ static int properties_Po(codepoint_t c)
 	return 0;
 }
 
-static int properties_Ps(codepoint_t c)
+static ucd_property properties_Ps(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1594,7 +1605,7 @@ static int properties_Ps(codepoint_t c)
 	return 0;
 }
 
-static int properties_Sc(codepoint_t c)
+static ucd_property properties_Sc(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1604,7 +1615,7 @@ static int properties_Sc(codepoint_t c)
 	return 0;
 }
 
-static int properties_Sk(codepoint_t c)
+static ucd_property properties_Sk(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1653,7 +1664,7 @@ static int properties_Sk(codepoint_t c)
 	return 0;
 }
 
-static int properties_Sm(codepoint_t c)
+static ucd_property properties_Sm(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1684,7 +1695,7 @@ static int properties_Sm(codepoint_t c)
 	return 0;
 }
 
-static int properties_So(codepoint_t c)
+static ucd_property properties_So(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
 	{
@@ -1774,7 +1785,7 @@ static int properties_So(codepoint_t c)
 	return 0;
 }
 
-static int properties_Zs(codepoint_t c)
+static ucd_property properties_Zs(codepoint_t c)
 {
 	if (c == 0x0020) return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	return UCD_PROPERTY_WHITE_SPACE;

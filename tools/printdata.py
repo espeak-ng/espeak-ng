@@ -153,6 +153,7 @@ def properties(data):
 	props += (2 ** 29) * data.get('Variation_Selector', 0)
 	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
 	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
+	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
 	return props
 
 if __name__ == '__main__':
