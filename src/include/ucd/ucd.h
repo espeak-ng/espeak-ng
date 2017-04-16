@@ -358,6 +358,7 @@ enum
 	UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION            = 0x0000000002000000ull, /**< @brief Logical_Order_Exception */
 	UCD_PROPERTY_OTHER_ID_START                     = 0x0000000004000000ull, /**< @brief Other_ID_Start */
 	UCD_PROPERTY_OTHER_ID_CONTINUE                  = 0x0000000008000000ull, /**< @brief Other_ID_Continue */
+	UCD_PROPERTY_SENTENCE_TERMINAL                  = 0x0000000010000000ull, /**< @brief Sentence_Terminal */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -846,6 +847,7 @@ namespace ucd
 		Logical_Order_Exception = UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION, /**< @brief Logical_Order_Exception */
 		Other_ID_Start = UCD_PROPERTY_OTHER_ID_START, /**< @brief Other_ID_Start */
 		Other_ID_Continue = UCD_PROPERTY_OTHER_ID_CONTINUE, /**< @brief Other_ID_Continue */
+		Sentence_Terminal = UCD_PROPERTY_SENTENCE_TERMINAL, /**< @brief Sentence_Terminal */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
