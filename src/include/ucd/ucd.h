@@ -355,6 +355,7 @@ enum
 	UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT = 0x0000000000400000ull, /**< @brief Other_Default_Ignorable_Code_Point */
 	UCD_PROPERTY_DEPRECATED                         = 0x0000000000800000ull, /**< @brief Deprecated */
 	UCD_PROPERTY_SOFT_DOTTED                        = 0x0000000001000000ull, /**< @brief Soft_Dotted */
+	UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION            = 0x0000000002000000ull, /**< @brief Logical_Order_Exception */
 };
 
 /** @brief Return the properties of the specified codepoint.
@@ -840,6 +841,7 @@ namespace ucd
 		Other_Default_Ignorable_Code_Point = UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT, /**< @brief Other_Default_Ignorable_Code_Point */
 		Deprecated = UCD_PROPERTY_DEPRECATED, /**< @brief Deprecated */
 		Soft_Dotted = UCD_PROPERTY_SOFT_DOTTED, /**< @brief Soft_Dotted */
+		Logical_Order_Exception = UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION, /**< @brief Logical_Order_Exception */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

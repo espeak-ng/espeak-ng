@@ -292,11 +292,19 @@ static int properties_Lo(codepoint_t c)
 	case 0x0600:
 		if (c == 0x0673)                return UCD_PROPERTY_DEPRECATED;
 		break;
+	case 0x0E00:
+		if (c >= 0x0E40 && c <= 0x0E44) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		if (c >= 0x0EC0 && c <= 0x0EC4) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		break;
 	case 0x1100:
 		if (c >= 0x115F && c <= 0x1160) return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		break;
 	case 0x1700:
 		if (c >= 0x17A3 && c <= 0x17A4) return UCD_PROPERTY_DEPRECATED;
+		break;
+	case 0x1900:
+		if (c >= 0x19B5 && c <= 0x19B7) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		if (c == 0x19BA)                return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
 		break;
 	case 0x2100:
 		if (c >= 0x2135 && c <= 0x2138) return UCD_PROPERTY_OTHER_MATH;
@@ -308,6 +316,9 @@ static int properties_Lo(codepoint_t c)
 		if (c == 0x3164)                return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		break;
 	case 0xAA00:
+		if (c >= 0xAAB5 && c <= 0xAAB6) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		if (c == 0xAAB9)                return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		if (c >= 0xAABB && c <= 0xAABC) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
 		if (c == 0xAAC0)                return UCD_PROPERTY_DIACRITIC;
 		if (c == 0xAAC2)                return UCD_PROPERTY_DIACRITIC;
 		break;
