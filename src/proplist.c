@@ -22,8 +22,8 @@
 
 static int properties_Cc(codepoint_t c)
 {
-	if (c >= 0x0009 && c <= 0x000D) return UCD_PROPERTY_WHITE_SPACE;
-	if (c == 0x0085)                return UCD_PROPERTY_WHITE_SPACE;
+	if (c >= 0x0009 && c <= 0x000D) return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
+	if (c == 0x0085)                return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	return 0;
 }
 
@@ -40,7 +40,7 @@ static int properties_Cf(codepoint_t c)
 	case 0x2000:
 		if (c == 0x200C)                return UCD_PROPERTY_JOIN_CONTROL | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c == 0x200D)                return UCD_PROPERTY_JOIN_CONTROL;
-		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL;
+		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x2061 && c <= 0x2064) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2066 && c <= 0x2069) return UCD_PROPERTY_BIDI_CONTROL;
@@ -1678,6 +1678,12 @@ static int properties_So(codepoint_t c)
 	return 0;
 }
 
+static int properties_Zs(codepoint_t c)
+{
+	if (c == 0x0020) return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
+	return UCD_PROPERTY_WHITE_SPACE;
+}
+
 ucd_property ucd_properties(codepoint_t c, ucd_category category)
 {
 	switch (category)
@@ -1704,9 +1710,9 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Sk: return properties_Sk(c);
 	case UCD_CATEGORY_Sm: return properties_Sm(c);
 	case UCD_CATEGORY_So: return properties_So(c);
-	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE;
-	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE;
-	case UCD_CATEGORY_Zs: return UCD_PROPERTY_WHITE_SPACE;
+	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
+	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
+	case UCD_CATEGORY_Zs: return properties_Zs(c);
 	default:              return 0; // Co Cs Ii Lt Me Sc
 	};
 }

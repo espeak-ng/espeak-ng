@@ -151,6 +151,7 @@ def properties(data):
 	props += (2 ** 27) * data.get('Other_ID_Continue', 0)
 	props += (2 ** 28) * data.get('Sentence_Terminal', 0)
 	props += (2 ** 29) * data.get('Variation_Selector', 0)
+	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
 	return props
 
 if __name__ == '__main__':
