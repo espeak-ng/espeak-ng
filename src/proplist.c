@@ -854,7 +854,7 @@ static int properties_Mn(codepoint_t c)
 		if (c == 0x17DD)                return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x1800:
-		if (c >= 0x1885 && c <= 0x1886) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x1885 && c <= 0x1886) return UCD_PROPERTY_OTHER_ALPHABETIC | UCD_PROPERTY_OTHER_ID_START;
 		if (c == 0x18A9)                return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x1900:
@@ -1530,7 +1530,7 @@ static int properties_Sk(codepoint_t c)
 		if (c >= 0x1FFD && c <= 0x1FFE) return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x3000:
-		if (c >= 0x309B && c <= 0x309C) return UCD_PROPERTY_DIACRITIC;
+		if (c >= 0x309B && c <= 0x309C) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ID_START;
 		break;
 	case 0xA700:
 		if (c >= 0xA720 && c <= 0xA721) return UCD_PROPERTY_DIACRITIC;
@@ -1555,6 +1555,9 @@ static int properties_Sm(codepoint_t c)
 		if (c == 0x207B)                return UCD_PROPERTY_DASH;
 		if (c == 0x208B)                return UCD_PROPERTY_DASH;
 		break;
+	case 0x2100:
+		if (c == 0x2118)                return UCD_PROPERTY_OTHER_ID_START;
+		break;
 	case 0x2200:
 		if (c == 0x2212)                return UCD_PROPERTY_DASH;
 		break;
@@ -1568,6 +1571,7 @@ static int properties_So(codepoint_t c)
 	{
 	case 0x2100:
 		if (c == 0x2129)                return UCD_PROPERTY_OTHER_MATH;
+		if (c == 0x212E)                return UCD_PROPERTY_OTHER_ID_START;
 		if (c >= 0x2195 && c <= 0x2199) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x219C && c <= 0x219F) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x21A1 && c <= 0x21A2) return UCD_PROPERTY_OTHER_MATH;
