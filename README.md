@@ -65,10 +65,11 @@ Doxygen documentation format.
 
 The library exposes the following properties from the UCD data files:
 
-| Property           | Description |
-|--------------------|-------------|
-| `General_Category` | A [General Category Value](http://www.unicode.org/reports/tr44/#General_Category_Values), including the higher-level grouping. |
-| `Script`           | An [ISO 15924](http://www.unicode.org/iso15924/iso15924-codes.html) script code. |
+| C API                 | C++ API                | Data        | Description |
+|-----------------------|------------------------|-------------|-------------|
+| `ucd_lookup_category` | `ucd::lookup_category` | UnicodeData | A [General Category Value](http://www.unicode.org/reports/tr44/#General_Category_Values). |
+| `ucd_lookup_script`   | `ucd::lookup_script`   | Script      | An [ISO 15924](http://www.unicode.org/iso15924/iso15924-codes.html) script code. |
+| `ucd_properties`      | `ucd::properties`      | PropList    | The code point properties from the PropList Unicode data file. |
 
 ### Case Conversion
 

@@ -4,6 +4,7 @@
 
 *  Add `iswblank` and `iswxdigit` compatibility.
 *  Improve ctype compatibility.
+*  PropList property lookup.
 
 ## 9.0.0 - 2016-12-28
 
