@@ -363,6 +363,7 @@ static const ucd_property UCD_PROPERTY_PATTERN_SYNTAX                     = 0x00
 static const ucd_property UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull; /**< @brief Prepended_Concatenation_Mark */
 
 // eSpeak NG extended properties:
+static const ucd_property ESPEAKNG_PROPERTY_COLON                         = 0x0800000000000000ull; /**< @brief Colon */
 static const ucd_property ESPEAKNG_PROPERTY_COMMA                         = 0x1000000000000000ull; /**< @brief Comma */
 static const ucd_property ESPEAKNG_PROPERTY_EXCLAMATION_MARK              = 0x2000000000000000ull; /**< @brief Exclamation_Mark */
 static const ucd_property ESPEAKNG_PROPERTY_QUESTION_MARK                 = 0x4000000000000000ull; /**< @brief Question_Mark */

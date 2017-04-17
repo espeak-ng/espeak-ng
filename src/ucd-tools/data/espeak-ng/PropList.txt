@@ -1,5 +1,5 @@
 # espeak-ng/PropList-9.0.0.txt
-# Date: 2017-04-17, 13:47:00 GMT
+# Date: 2017-04-17, 16:18:00 GMT
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database PropList.txt file,
@@ -22,7 +22,7 @@
 0589          ; Full_Stop # Po       ARMENIAN FULL STOP
 06D4          ; Full_Stop # Po       ARABIC FULL STOP
 0701          ; Full_Stop # Po       SYRIAC SUPRALINEAR FULL STOP
-0702          ; Full_Stop # Po       SYRIAC SUBLINEAR FULL STOP
+0704          ; Full_Stop # Po       SYRIAC SUBLINEAR COLON
 0964          ; Full_Stop # Po       DEVANAGARI DANDA
 0DF4          ; Full_Stop # Po       SINHALA PUNCTUATION KUNDDALIYA
 0F0D          ; Full_Stop # Po       TIBETAN MARK SHAD
@@ -58,6 +58,7 @@ E002E         ; Full_Stop # Cf       TAG FULL STOP
 037E          ; Question_Mark # Po       GREEK QUESTION MARK
 055F          ; Question_Mark # Po       ARMENIAN QUESTION MARK
 061F          ; Question_Mark # Po       ARABIC QUESTION MARK
+0709          ; Question_Mark # Po       SYRIAC SUBLINEAR COLON SKEWED RIGHT
 1367          ; Question_Mark # Po       ETHIOPIC QUESTION MARK
 1945          ; Question_Mark # Po       LIMBU QUESTION MARK
 2047..2049    ; Question_Mark # Po   [3] DOUBLE QUESTION MARK..EXCLAMATION QUESTION MARK
@@ -72,13 +73,14 @@ FF1F          ; Question_Mark # Po       FULLWIDTH QUESTION MARK
 1E95F         ; Question_Mark # Po       ADLAM INITIAL QUESTION MARK
 E003F         ; Question_Mark # Cf       TAG QUESTION MARK
 
-# Total code points: 22
+# Total code points: 23
 
 # ================================================
 
 0021          ; Exclamation_Mark # Po       EXCLAMATION MARK
 00A1          ; Exclamation_Mark # Po       INVERTED EXCLAMATION MARK
 055B..055C    ; Exclamation_Mark # Po   [2] ARMENIAN EMPHASIS MARK..ARMENIAN EXCLAMATION MARK
+0703          ; Exclamation_Mark # Po       SYRIAC SUPRALINEAR COLON
 07F9          ; Exclamation_Mark # Po       NKO EXCLAMATION MARK
 1944          ; Exclamation_Mark # Po       LIMBU EXCLAMATION MARK
 203C          ; Exclamation_Mark # Po       DOUBLE EXCLAMATION MARK
@@ -92,13 +94,14 @@ FF01          ; Exclamation_Mark # Po       FULLWIDTH EXCLAMATION MARK
 1E95E         ; Exclamation_Mark # Po       ADLAM INITIAL EXCLAMATION MARK
 E0021         ; Exclamation_Mark # Cf       TAG EXCLAMATION MARK
 
-# Total code points: 16
+# Total code points: 17
 
 # ================================================
 
 002C          ; Comma # Po       COMMA
 055D          ; Comma # Po       ARMENIAN COMMA
 060C          ; Comma # Po       ARABIC COMMA
+0702          ; Comma # Po       SYRIAC SUBLINEAR FULL STOP
 07F8          ; Comma # Po       NKO COMMA
 0F14          ; Comma # Po       TIBETAN MARK GTER TSHEG
 1363          ; Comma # Po       ETHIOPIC COMMA
@@ -120,4 +123,21 @@ FF64          ; Comma # Po       HALFWIDTH IDEOGRAPHIC COMMA
 1F101..1F10A  ; Comma # No  [10] DIGIT ZERO COMMA..DIGIT NINE COMMA
 E002C         ; Comma # Cf       TAG COMMA
 
-# Total code points: 34
+# Total code points: 35
+
+# ================================================
+
+003A          ; Colon # Po       COLON
+0706..0707    ; Colon # Po   [2] SYRIAC COLON SKEWED LEFT..SYRIAC COLON SKEWED RIGHT
+1365..1366    ; Colon # Po   [2] ETHIOPIC COLON..ETHIOPIC PREFACE COLON
+1804          ; Colon # Po       MONGOLIAN COLON
+2982          ; Colon # Sm       Z NOTATION TYPE COLON
+A6F4          ; Colon # Po       BAMUM COLON
+FE13          ; Colon # Po       PRESENTATION FORM FOR VERTICAL COLON
+FE55          ; Colon # Po       SMALL COLON
+FF1A          ; Colon # Po       FULLWIDTH COLON
+12471..12472  ; Colon # Po   [2] CUNEIFORM PUNCTUATION SIGN VERTICAL COLON..CUNEIFORM PUNCTUATION SIGN DIAGONAL COLON
+1DA8A         ; Colon # Po       SIGNWRITING COLON
+E003A         ; Colon # Cf       TAG COLON
+
+# Total code points: 15
