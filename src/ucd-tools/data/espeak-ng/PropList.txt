@@ -33,6 +33,7 @@
 2488..249B    ; Full_Stop # No  [20] DIGIT ONE FULL STOP..NUMBER TWENTY FULL STOP
 2CF9          ; Full_Stop # Po       COPTIC OLD NUBIAN FULL STOP
 2CFE          ; Full_Stop # Po       COPTIC FULL STOP
+2E33          ; Full_Stop # Po       RAISED DOT
 2E3C          ; Full_Stop # Po       STENOGRAPHIC FULL STOP
 3002          ; Full_Stop # Po       IDEOGRAPHIC FULL STOP
 A4FF          ; Full_Stop # Po       LISU PUNCTUATION FULL STOP
@@ -48,7 +49,7 @@ FF61          ; Full_Stop # Po       HALFWIDTH IDEOGRAPHIC FULL STOP
 1F100         ; Full_Stop # No       DIGIT ZERO FULL STOP
 E002E         ; Full_Stop # Cf       TAG FULL STOP
 
-# Total code points: 48
+# Total code points: 49
 
 # ================================================
 
@@ -89,6 +90,34 @@ FE15          ; Exclamation_Mark # Po       PRESENTATION FORM FOR VERTICAL EXCLA
 FE57          ; Exclamation_Mark # Po       SMALL EXCLAMATION MARK
 FF01          ; Exclamation_Mark # Po       FULLWIDTH EXCLAMATION MARK
 1E95E         ; Exclamation_Mark # Po       ADLAM INITIAL EXCLAMATION MARK
-E0021         ; Exclamation_Mark # Po       TAG EXCLAMATION MARK
+E0021         ; Exclamation_Mark # Cf       TAG EXCLAMATION MARK
 
 # Total code points: 16
+
+# ================================================
+
+002C          ; Comma # Po       COMMA
+055D          ; Comma # Po       ARMENIAN COMMA
+060C          ; Comma # Po       ARABIC COMMA
+07F8          ; Comma # Po       NKO COMMA
+0F14          ; Comma # Po       TIBETAN MARK GTER TSHEG
+1363          ; Comma # Po       ETHIOPIC COMMA
+1802          ; Comma # Po       MONGOLIAN COMMA
+1808          ; Comma # Po       MONGOLIAN MANCHU COMMA
+2E32          ; Comma # Po       TURNED COMMA
+2E34          ; Comma # Po       RAISED COMMA
+2E41          ; Comma # Po       REVERSED COMMA
+3001          ; Comma # Po       IDEOGRAPHIC COMMA
+A4FE          ; Comma # Po       LISU PUNCTUATION COMMA
+A60D          ; Comma # Po       VAI COMMA
+A6F5          ; Comma # Po       BAMUM COMMA
+FE10..FE11    ; Comma # Po   [2] PRESENTATION FORM FOR VERTICAL COMMA..PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC COMMA
+FE50..FE51    ; Comma # Po   [2] SMALL COMMA..SMALL IDEOGRAPHIC COMMA
+FF0C          ; Comma # Po       FULLWIDTH COMMA
+FF64          ; Comma # Po       HALFWIDTH IDEOGRAPHIC COMMA
+1144D         ; Comma # Po       NEWA COMMA
+1DA87         ; Comma # Po       SIGNWRITING COMMA
+1F101..1F10A  ; Comma # No  [10] DIGIT ZERO COMMA..DIGIT NINE COMMA
+E002C         ; Comma # Cf       TAG COMMA
+
+# Total code points: 34
