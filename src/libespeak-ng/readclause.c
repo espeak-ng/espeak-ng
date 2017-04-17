@@ -126,29 +126,29 @@ static const unsigned int punct_attributes[] = {
 	CLAUSE_COLON,
 	CLAUSE_SEMICOLON,
 
-	CLAUSE_SEMICOLON | 0x8000,  // inverted exclamation
-	CLAUSE_SEMICOLON | 0x8000,  // inverted question
+	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted exclamation
+	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted question
 	CLAUSE_SEMICOLON,  // en-dash
 	CLAUSE_SEMICOLON,  // em-dash
-	CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000,  // elipsis
+	CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER,  // elipsis
 
 	CLAUSE_QUESTION,  // Greek question mark
 	CLAUSE_SEMICOLON,  // Greek semicolon
-	CLAUSE_PERIOD | 0x8000,  // Devanagari Danda (fullstop)
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Devanagari Danda (fullstop)
 
-	CLAUSE_PERIOD | 0x8000,  // Armenian period
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Armenian period
 	CLAUSE_COMMA,  // Armenian comma
-	CLAUSE_EXCLAMATION | PUNCT_IN_WORD,  // Armenian exclamation
-	CLAUSE_QUESTION | PUNCT_IN_WORD,  // Armenian question
-	CLAUSE_PERIOD | PUNCT_IN_WORD,  // Armenian emphasis mark
+	CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian exclamation
+	CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian question
+	CLAUSE_PERIOD | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian emphasis mark
 
 	CLAUSE_COMMA,  // Arabic ,
 	CLAUSE_SEMICOLON,  // Arabic ;
 	CLAUSE_QUESTION,  // Arabic question mark
 	CLAUSE_PERIOD,  // Arabic full stop
 
-	CLAUSE_PERIOD+0x8000,  // Singhalese period
-	CLAUSE_PERIOD+0x8000,  // Tibet period
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Singhalese period
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Tibet period
 	CLAUSE_PARAGRAPH,
 
 	CLAUSE_PERIOD,  // Ethiopic period
@@ -160,15 +160,15 @@ static const unsigned int punct_attributes[] = {
 	CLAUSE_PARAGRAPH,  // Ethiopic paragraph
 	CLAUSE_PARAGRAPH,  // Georgian paragraph
 
-	CLAUSE_COMMA+0x8000,  // ideograph comma
-	CLAUSE_PERIOD+0x8000,  // ideograph period
+	CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph comma
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph period
 
-	CLAUSE_EXCLAMATION+0x8000,  // fullwidth
-	CLAUSE_COMMA+0x8000,
-	CLAUSE_PERIOD+0x8000,
-	CLAUSE_COLON+0x8000,
-	CLAUSE_SEMICOLON+0x8000,
-	CLAUSE_QUESTION+0x8000,
+	CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER,  // fullwidth
+	CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER,
+	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,
+	CLAUSE_COLON | CLAUSE_OPTIONAL_SPACE_AFTER,
+	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,
+	CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER,
 
 	CLAUSE_SEMICOLON,  // spare
 	0
@@ -607,7 +607,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	attributes = punct_attributes[lookupwchar(punct_chars, c1)];
 
 	short_pause = CLAUSE_SHORTFALL;
-	if ((attributes & CLAUSE_BITS_INTONATION) == 0x1000)
+	if ((attributes & CLAUSE_INTONATION_TYPE) == 0x1000)
 		short_pause = CLAUSE_SHORTCOMMA;
 
 	if ((bufix1 > 0) && !(tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
@@ -616,7 +616,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		return short_pause;
 	}
 
-	if (attributes & CLAUSE_BIT_SENTENCE)
+	if (attributes & CLAUSE_TYPE_SENTENCE)
 		return attributes;
 
 	return short_pause;
@@ -1038,7 +1038,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	// a voice change.
 	// If it's a closing tag, delete the top frame of the stack and determine whether this implies
 	// a voice change.
-	// Returns  CLAUSE_BIT_VOICE if there is a voice change
+	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
 
 	wchar_t *lang;
 	wchar_t *gender;
@@ -1096,7 +1096,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	if (strcmp(new_voice_id, current_voice_id) != 0) {
 		// add an embedded command to change the voice
 		strcpy(current_voice_id, new_voice_id);
-		return CLAUSE_BIT_VOICE;    // change of voice
+		return CLAUSE_TYPE_VOICE_CHANGE;
 	}
 
 	return 0;
@@ -1780,7 +1780,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						buf[ix] = ' ';
 						buf[ix++] = 0;
 
-						if (terminator & CLAUSE_BIT_VOICE)
+						if (terminator & CLAUSE_TYPE_VOICE_CHANGE)
 							strcpy(voice_change, current_voice_id);
 						return terminator;
 					}
@@ -1993,7 +1993,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			if ((punct = lookupwchar(punct_chars, c1)) != 0) {
 				punct_data = punct_attributes[punct];
 
-				if (punct_data & PUNCT_IN_WORD) {
+				if (punct_data & CLAUSE_PUNCTUATION_IN_WORD) {
 					// Armenian punctuation inside a word
 					stressed_word = 1;
 					*tone_type = punct_data >> 12 & 0xf; // override the end-of-sentence type
@@ -2019,7 +2019,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				}
 			}
 
-			if ((punct_data & PUNCT_SAY_NAME) && (announced_punctuation == 0)) {
+			if ((punct_data & CLAUSE_SPEAK_PUNCTUATION_NAME) && (announced_punctuation == 0)) {
 				// used for elipsis (and 3 dots) if a pronunciation for elipsis is given in *_list
 				char *p2;
 
@@ -2028,7 +2028,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				if (p2[0] != 0) {
 					ix += strlen(p2);
 					announced_punctuation = c1;
-					punct_data = punct_data & ~CLAUSE_BITS_INTONATION; // change intonation type to 0 (full-stop)
+					punct_data = punct_data & ~CLAUSE_INTONATION_TYPE; // change intonation type to 0 (full-stop)
 				}
 			}
 
@@ -2045,7 +2045,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				}
 
 				if ((c1 == '.') && (nl_count < 2))
-					punct_data |= CLAUSE_DOT;
+					punct_data |= CLAUSE_DOT_AFTER_LAST_WORD;
 
 				if (nl_count == 0) {
 					if ((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h', 'u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next)))) {
@@ -2095,7 +2095,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					buf[ix+1] = 0;
 
 					if (iswdigit(cprev) && !IsAlpha(c_next)) // ????
-						punct_data &= ~CLAUSE_DOT;
+						punct_data &= ~CLAUSE_DOT_AFTER_LAST_WORD;
 					if (nl_count > 1) {
 						if ((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
 							return punct_data + 35; // with a longer pause

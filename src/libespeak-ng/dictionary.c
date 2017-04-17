@@ -2724,7 +2724,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			continue;
 		}
 
-		if ((dictionary_flags2 & FLAG_SENTENCE) && !(translator->clause_terminator & CLAUSE_BIT_SENTENCE)) {
+		if ((dictionary_flags2 & FLAG_SENTENCE) && !(translator->clause_terminator & CLAUSE_TYPE_SENTENCE)) {
 			// only if this clause is a sentence , i.e. terminator is {. ? !} not {, : :}
 			continue;
 		}

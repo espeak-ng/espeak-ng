@@ -198,38 +198,44 @@ extern "C"
 #define LETTERGP_Y      6
 #define LETTERGP_VOWEL2 7
 
-// Punctuation types  returned by ReadClause()
-// bits 0-11 pause x 10mS
-// bits12-14 intonation type
-// bit 15- don't need space after the punctuation
-// bit 19=sentence, bit 18=clause,  bits 17=voice change
-// bit 16 used to distinguish otherwise identical types
-// bit 20= punctuation character can be inside a word (Armenian)
-// bit 21= speak the name of the punctuation character
-// bit 22= dot after the last word
-// bit 23= pause is x 320mS (not x 10mS)
+// Punctuation types returned by ReadClause()
+//@{
 
-#define CLAUSE_BIT_SENTENCE     0x80000
-#define CLAUSE_BIT_CLAUSE       0x40000
-#define CLAUSE_BIT_VOICE        0x20000
-#define CLAUSE_BITS_INTONATION   0x7000
-#define PUNCT_IN_WORD          0x100000
-#define PUNCT_SAY_NAME         0x200000
-#define CLAUSE_DOT             0x400000
-#define CLAUSE_PAUSE_LONG      0x800000
+#define CLAUSE_PAUSE                  0x00000FFF // pause (x 10mS)
+#define CLAUSE_INTONATION_TYPE        0x00007000 // intonation type
+#define CLAUSE_OPTIONAL_SPACE_AFTER   0x00008000 // don't need space after the punctuation
+#define CLAUSE_TYPE                   0x000F0000 // phrase type
+#define CLAUSE_PUNCTUATION_IN_WORD    0x00100000 // punctuation character can be inside a word (Armenian)
+#define CLAUSE_SPEAK_PUNCTUATION_NAME 0x00200000 // speak the name of the punctuation character
+#define CLAUSE_DOT_AFTER_LAST_WORD    0x00400000 // dot after the last word
+#define CLAUSE_PAUSE_LONG             0x00800000 // x 320mS to the CLAUSE_PAUSE value
 
-#define CLAUSE_NONE        ( 0 + 0x04000)
-#define CLAUSE_PARAGRAPH   (70 + 0x80000)
-#define CLAUSE_EOF         (40 + 0x90000)
-#define CLAUSE_VOICE       ( 0 + 0x24000)
-#define CLAUSE_PERIOD      (40 + 0x80000)
-#define CLAUSE_COMMA       (20 + 0x41000)
-#define CLAUSE_SHORTCOMMA  ( 4 + 0x41000)
-#define CLAUSE_SHORTFALL   ( 4 + 0x40000)
-#define CLAUSE_QUESTION    (40 + 0x82000)
-#define CLAUSE_EXCLAMATION (45 + 0x83000)
-#define CLAUSE_COLON       (30 + 0x40000)
-#define CLAUSE_SEMICOLON   (30 + 0x41000)
+#define CLAUSE_INTONATION_FULL_STOP   0x00000000
+#define CLAUSE_INTONATION_COMMA       0x00001000
+#define CLAUSE_INTONATION_QUESTION    0x00002000
+#define CLAUSE_INTONATION_EXCLAMATION 0x00003000
+#define CLAUSE_INTONATION_NONE        0x00004000
+
+#define CLAUSE_TYPE_NONE              0x00000000
+#define CLAUSE_TYPE_EOF               0x00010000
+#define CLAUSE_TYPE_VOICE_CHANGE      0x00020000
+#define CLAUSE_TYPE_CLAUSE            0x00040000
+#define CLAUSE_TYPE_SENTENCE          0x00080000
+
+#define CLAUSE_NONE        ( 0 | CLAUSE_INTONATION_NONE        | CLAUSE_TYPE_NONE)
+#define CLAUSE_PARAGRAPH   (70 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_SENTENCE)
+#define CLAUSE_EOF         (40 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_SENTENCE | CLAUSE_TYPE_EOF)
+#define CLAUSE_VOICE       ( 0 | CLAUSE_INTONATION_NONE        | CLAUSE_TYPE_VOICE_CHANGE)
+#define CLAUSE_PERIOD      (40 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_SENTENCE)
+#define CLAUSE_COMMA       (20 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
+#define CLAUSE_SHORTCOMMA  ( 4 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
+#define CLAUSE_SHORTFALL   ( 4 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_CLAUSE)
+#define CLAUSE_QUESTION    (40 | CLAUSE_INTONATION_QUESTION    | CLAUSE_TYPE_SENTENCE)
+#define CLAUSE_EXCLAMATION (45 | CLAUSE_INTONATION_EXCLAMATION | CLAUSE_TYPE_SENTENCE)
+#define CLAUSE_COLON       (30 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_CLAUSE)
+#define CLAUSE_SEMICOLON   (30 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
+
+//@}
 
 #define SAYAS_CHARS        0x12
 #define SAYAS_GLYPHS       0x13

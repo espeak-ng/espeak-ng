@@ -2004,7 +2004,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			clause_pause = 0;
 
 		if (new_sentence)
-			terminator |= CLAUSE_BIT_SENTENCE; // carry forward an end-of-sentence indicator
+			terminator |= CLAUSE_TYPE_SENTENCE; // carry forward an end-of-sentence indicator
 		max_clause_pause += clause_pause;
 		new_sentence2 = 0;
 	} else {
@@ -2484,7 +2484,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		words[ix].flags |= FLAG_LAST_WORD;
 
 		// FLAG_NOSPACE check to avoid recognizing  .mr  -mr
-		if ((terminator & CLAUSE_DOT) && !(words[word_count-1].flags & FLAG_NOSPACE))
+		if ((terminator & CLAUSE_DOT_AFTER_LAST_WORD) && !(words[word_count-1].flags & FLAG_NOSPACE))
 			words[word_count-1].flags |= FLAG_HAS_DOT;
 	}
 	words[0].flags |= FLAG_FIRST_WORD;
@@ -2612,7 +2612,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				}
 			}
 
-			if ((dict_flags & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (ix == word_count - 1 - dictionary_skipwords) && (terminator & CLAUSE_DOT)) {
+			if ((dict_flags & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (ix == word_count - 1 - dictionary_skipwords) && (terminator & CLAUSE_DOT_AFTER_LAST_WORD)) {
 				// probably an abbreviation such as Mr. or B. rather than end of sentence
 				clause_pause = 10;
 				tone = 4;
@@ -2665,12 +2665,12 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		*tone_out = tone;
 
 	new_sentence = 0;
-	if (terminator & CLAUSE_BIT_SENTENCE)
+	if (terminator & CLAUSE_TYPE_SENTENCE)
 		new_sentence = 1; // next clause is a new sentence
 
 	if (voice_change != NULL) {
 		// return new voice name if an embedded voice change command terminated the clause
-		if (terminator & CLAUSE_BIT_VOICE)
+		if (terminator & CLAUSE_TYPE_VOICE_CHANGE)
 			*voice_change = voice_change_name;
 		else
 			*voice_change = NULL;
