@@ -1,5 +1,12 @@
 # Change Log
 
+## eSpeak NG
+
+These are eSpeak NG specific modifications to the `ucd-tools` project:
+
+*  `data/espeak-ng` data files for eSpeak NG extended data.
+*  espeak-ng PropList property lookup as part of the `ucd_property` API.
+
 ## 9.0.0.1 - (In Progress)
 
 *  Add `iswblank` and `iswxdigit` compatibility.

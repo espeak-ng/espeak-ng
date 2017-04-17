@@ -26,12 +26,18 @@ csur_rootdir = 'data/csur'
 
 null = ucd.CodePoint('0000')
 
+properties = [
+    (ucd_rootdir, 'PropList'),
+    (ucd_rootdir, 'DerivedCoreProperties'),
+    ('data/espeak-ng', 'PropList')
+]
+
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
-for propfile in ['PropList', 'DerivedCoreProperties']:
-	for data in ucd.parse_ucd_data(ucd_rootdir, propfile):
+for propdir, propfile in properties:
+	for data in ucd.parse_ucd_data(propdir, propfile):
 		for codepoint in data['Range']:
 			try:
 				unicode_chars[codepoint][data['Property']] = 1
@@ -154,6 +160,8 @@ def properties(data):
 	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
 	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
 	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
+        # eSpeak NG extended properties:
+	props += (2 ** 63) * data.get('Full_Stop', 0)
 	return props
 
 if __name__ == '__main__':

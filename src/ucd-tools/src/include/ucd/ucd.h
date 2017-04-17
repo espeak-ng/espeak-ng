@@ -362,6 +362,9 @@ static const ucd_property UCD_PROPERTY_PATTERN_WHITE_SPACE                = 0x00
 static const ucd_property UCD_PROPERTY_PATTERN_SYNTAX                     = 0x0000000080000000ull; /**< @brief Pattern_Syntax */
 static const ucd_property UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull; /**< @brief Prepended_Concatenation_Mark */
 
+// eSpeak NG extended properties (PropListExt)
+static const ucd_property ESPEAKNG_PROPERTY_FULL_STOP                     = 0x8000000000000000ull; /**< @brief Full_Stop */
+
 /** @brief Return the properties of the specified codepoint.
  *
  * @param c        The Unicode codepoint to lookup.

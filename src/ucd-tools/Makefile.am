@@ -141,6 +141,7 @@ tests_printucddata_cpp_SOURCES = tests/printucddata_cpp.cpp
 tests_printucddata_cpp_LDADD   = src/libucd.la
 
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
+	data/espeak-ng/PropList.txt \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
 	data/ucd/DerivedCoreProperties.txt \

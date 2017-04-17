@@ -129,6 +129,8 @@ src/pcaudiolib/
 *.wixpdb
 *.cab
 
+!src/ucd-tools/data/*/*.txt
+
 # Linux/Source distribution files
 
 praat-mod/
