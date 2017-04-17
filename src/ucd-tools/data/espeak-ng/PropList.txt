@@ -159,3 +159,13 @@ FF1B          ; Semi_Colon # Po       FULLWIDTH SEMICOLON
 E003B         ; Semi_Colon # Cf       TAG SEMICOLON
 
 # Total code points: 13
+
+# ================================================
+
+0EAF          ; Ellipsis # Lo       LAO ELLIPSIS
+1801          ; Ellipsis # Po       MONGOLIAN ELLIPSIS
+2026          ; Ellipsis # Po       HORIZONTAL ELLIPSIS
+22EE..22F1    ; Ellipsis # Sm   [4] VERTICAL ELLIPSIS..DOWN RIGHT DIAGONAL ELLIPSIS
+FE19          ; Ellipsis # Po       PRESENTATION FORM FOR VERTICAL HORIZONTAL ELLIPSIS
+
+# Total code points: 8

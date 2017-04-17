@@ -350,6 +350,7 @@ static ucd_property properties_Lo(codepoint_t c)
 		break;
 	case 0x0E00:
 		if (c >= 0x0E40 && c <= 0x0E44) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
+		if (c == 0x0EAF)                return ESPEAKNG_PROPERTY_ELLIPSIS;
 		if (c >= 0x0EC0 && c <= 0x0EC4) return UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION;
 		break;
 	case 0x1100:
@@ -1417,9 +1418,9 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c == 0x17DA)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
 	case 0x1800:
-		if (c == 0x1803)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | ESPEAKNG_PROPERTY_FULL_STOP;
+		if (c == 0x1801)                return ESPEAKNG_PROPERTY_ELLIPSIS;
 		if (c == 0x1802)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | ESPEAKNG_PROPERTY_COMMA;
-		if (c == 0x1803)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x1803)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | ESPEAKNG_PROPERTY_FULL_STOP;
 		if (c == 0x1804)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | ESPEAKNG_PROPERTY_COLON;
 		if (c == 0x1805)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x1808)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | ESPEAKNG_PROPERTY_COMMA;
@@ -1447,6 +1448,7 @@ static ucd_property properties_Po(codepoint_t c)
 	case 0x2000:
 		if (c == 0x2016)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x2017)                return UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2026)                return UCD_PROPERTY_PATTERN_SYNTAX | ESPEAKNG_PROPERTY_ELLIPSIS;
 		if (c >= 0x2020 && c <= 0x2027) return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c >= 0x2032 && c <= 0x2034) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2030 && c <= 0x2038) return UCD_PROPERTY_PATTERN_SYNTAX;
@@ -1520,6 +1522,7 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c == 0xFE14)                return ESPEAKNG_PROPERTY_SEMI_COLON;
 		if (c == 0xFE15)                return ESPEAKNG_PROPERTY_EXCLAMATION_MARK;
 		if (c == 0xFE16)                return ESPEAKNG_PROPERTY_QUESTION_MARK;
+		if (c == 0xFE19)                return ESPEAKNG_PROPERTY_ELLIPSIS;
 		if (c >= 0xFE45 && c <= 0xFE46) return UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c >= 0xFE50 && c <= 0xFE51) return UCD_PROPERTY_TERMINAL_PUNCTUATION | ESPEAKNG_PROPERTY_COMMA;
 		if (c == 0xFE52)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | ESPEAKNG_PROPERTY_FULL_STOP;
@@ -1754,6 +1757,7 @@ static ucd_property properties_Sm(codepoint_t c)
 		break;
 	case 0x2200:
 		if (c == 0x2212)                return UCD_PROPERTY_DASH | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c >= 0x22EE && c <= 0x22F1) return UCD_PROPERTY_PATTERN_SYNTAX | ESPEAKNG_PROPERTY_ELLIPSIS;
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2300:
 	case 0x2500:
