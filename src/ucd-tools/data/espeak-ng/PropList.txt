@@ -1,5 +1,5 @@
 # espeak-ng/PropList-9.0.0.txt
-# Date: 2017-04-17, 16:18:00 GMT
+# Date: 2017-04-17, 17:17:00 GMT
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database PropList.txt file,
@@ -141,3 +141,21 @@ FF1A          ; Colon # Po       FULLWIDTH COLON
 E003A         ; Colon # Cf       TAG COLON
 
 # Total code points: 15
+
+# ================================================
+
+003B          ; Semi_Colon # Po       SEMICOLON
+0387          ; Semi_Colon # Po       GREEK ANO TELEIA
+061B          ; Semi_Colon # Po       ARABIC SEMICOLON
+0708          ; Semi_Colon # Po       SYRIAC SUPRALINEAR COLON SKEWED LEFT
+1364          ; Semi_Colon # Po       ETHIOPIC SEMICOLON
+204F          ; Semi_Colon # Po       REVERSED SEMICOLON
+2E35          ; Semi_Colon # Po       TURNED SEMICOLON
+A6F6          ; Semi_Colon # Po       BAMUM SEMICOLON
+FE14          ; Semi_Colon # Po       PRESENTATION FORM FOR VERTICAL SEMICOLON
+FE54          ; Semi_Colon # Po       SMALL SEMICOLON
+FF1B          ; Semi_Colon # Po       FULLWIDTH SEMICOLON
+1DA89         ; Semi_Colon # Po       SIGNWRITING SEMICOLON
+E003B         ; Semi_Colon # Cf       TAG SEMICOLON
+
+# Total code points: 13
