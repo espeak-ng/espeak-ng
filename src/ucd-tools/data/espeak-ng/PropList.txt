@@ -1,5 +1,5 @@
 # espeak-ng/PropList-9.0.0.txt
-# Date: 2017-04-17, 11:35:00 GMT
+# Date: 2017-04-17, 12:49:00 GMT
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database PropList.txt file,
@@ -49,3 +49,27 @@ FF61          ; Full_Stop # Po       HALFWIDTH IDEOGRAPHIC FULL STOP
 E002E         ; Full_Stop # Cf       TAG FULL STOP
 
 # Total code points: 48
+
+# ================================================
+
+003F          ; Question_Mark # Po       QUESTION MARK
+00BF          ; Question_Mark # Po       INVERTED QUESTION MARK
+037E          ; Question_Mark # Po       GREEK QUESTION MARK
+055F          ; Question_Mark # Po       ARMENIAN QUESTION MARK
+061F          ; Question_Mark # Po       ARABIC QUESTION MARK
+1367          ; Question_Mark # Po       ETHIOPIC QUESTION MARK
+1945          ; Question_Mark # Po       LIMBU QUESTION MARK
+2047          ; Question_Mark # Po       DOUBLE QUESTION MARK
+2049          ; Question_Mark # Po       EXCLAMATION QUESTION MARK
+2753..2754    ; Question_Mark # So       BLACK QUESTION MARK ORNAMENT..WHITE QUESTION MARK ORNAMENT
+2CFA..2CFB    ; Question_Mark # Po       COPTIC OLD NUBIAN DIRECT QUESTION MARK..COPTIC OLD NUBIAN INDIRECT QUESTION MARK
+A60F          ; Question_Mark # Po       VAI QUESTION MARK
+A6F7          ; Question_Mark # Po       BAMUM QUESTION MARK
+FE16          ; Question_Mark # Po       PRESENTATION FORM FOR VERTICAL QUESTION MARK
+FE56          ; Question_Mark # Po       SMALL QUESTION MARK
+FF1F          ; Question_Mark # Po       FULLWIDTH QUESTION MARK
+11143         ; Question_Mark # Po       CHAKMA QUESTION MARK
+1E95F         ; Question_Mark # Po       ADLAM INITIAL QUESTION MARK
+E003F         ; Question_Mark # Cf       TAG QUESTION MARK
+
+# Total code points: 21

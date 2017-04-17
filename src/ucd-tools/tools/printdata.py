@@ -161,6 +161,7 @@ def properties(data):
 	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
 	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
         # eSpeak NG extended properties:
+	props += (2 ** 62) * data.get('Question_Mark', 0)
 	props += (2 ** 63) * data.get('Full_Stop', 0)
 	return props
 
