@@ -1,5 +1,5 @@
 # espeak-ng/PropList-9.0.0.txt
-# Date: 2017-04-17, 17:17:00 GMT
+# Date: 2017-04-17, 20:19:00 GMT
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database PropList.txt file,
@@ -169,3 +169,14 @@ E003B         ; Semi_Colon # Cf       TAG SEMICOLON
 FE19          ; Ellipsis # Po       PRESENTATION FORM FOR VERTICAL HORIZONTAL ELLIPSIS
 
 # Total code points: 8
+
+# ================================================
+
+0700          ; Paragraph_Separator # Po       SYRIAC END OF PARAGRAPH
+0965          ; Paragraph_Separator # Po       DEVANAGARI DOUBLE DANDA
+0F0E          ; Paragraph_Separator # Po       TIBETAN MARK NYIS SHAD
+10FB          ; Paragraph_Separator # Po       GEORGIAN PARAGRAPH SEPARATOR
+1368          ; Paragraph_Separator # Po       ETHIOPIC PARAGRAPH SEPARATOR
+2029          ; Paragraph_Separator # Zp       PARAGRAPH SEPARATOR
+
+# Total code points: 6

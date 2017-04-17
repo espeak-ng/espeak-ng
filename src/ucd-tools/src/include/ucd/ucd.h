@@ -363,6 +363,7 @@ static const ucd_property UCD_PROPERTY_PATTERN_SYNTAX                     = 0x00
 static const ucd_property UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull; /**< @brief Prepended_Concatenation_Mark */
 
 // eSpeak NG extended properties:
+static const ucd_property ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR           = 0x0100000000000000ull; /**< @brief Paragraph_Separator */
 static const ucd_property ESPEAKNG_PROPERTY_ELLIPSIS                      = 0x0200000000000000ull; /**< @brief Ellipsis */
 static const ucd_property ESPEAKNG_PROPERTY_SEMI_COLON                    = 0x0400000000000000ull; /**< @brief Semi_Colon */
 static const ucd_property ESPEAKNG_PROPERTY_COLON                         = 0x0800000000000000ull; /**< @brief Colon */
