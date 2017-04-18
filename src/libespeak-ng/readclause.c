@@ -611,7 +611,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		short_pause = CLAUSE_SHORTCOMMA;
 
 	if ((bufix1 > 0) && !(tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2)) {
-		if ((attributes & ~0x8000) == CLAUSE_SEMICOLON)
+		if ((attributes & ~CLAUSE_OPTIONAL_SPACE_AFTER) == CLAUSE_SEMICOLON)
 			return CLAUSE_SHORTFALL;
 		return short_pause;
 	}
@@ -2000,7 +2000,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					continue;
 				}
 
-				if ((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2 == '?') || Eof() || (c2 == ctrl_embedded))) { // don't check for '-' because it prevents recognizing ':-)'
+				if ((iswspace(c2) || (punct_data & CLAUSE_OPTIONAL_SPACE_AFTER) || IsBracket(c2) || (c2 == '?') || Eof() || (c2 == ctrl_embedded))) { // don't check for '-' because it prevents recognizing ':-)'
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
 					is_end_clause = 1;
 				}

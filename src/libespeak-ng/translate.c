@@ -1982,11 +1982,11 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	charix[charix_top+2] = 0x7fff;
 	charix[charix_top+3] = 0;
 
-	clause_pause = (terminator & 0xfff) * 10; // mS
+	clause_pause = (terminator & CLAUSE_PAUSE) * 10; // mS
 	if (terminator & CLAUSE_PAUSE_LONG)
 		clause_pause = clause_pause * 32; // pause value is *320mS not *10mS
 
-	tone = (terminator >> 12) & 0x7;
+	tone = (terminator & CLAUSE_INTONATION_TYPE) >> 12;
 	if (tone2 != 0) {
 		// override the tone type
 		tone = tone2;
