@@ -112,9 +112,6 @@ docs:	docs/index.html \
 	src/speak-ng.1.html \
 	README.html
 
-check:	tests/encoding.test
-	tests/encoding.test
-
 ##### build targets:
 
 espeak_includedir = $(includedir)/espeak
@@ -163,6 +160,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
+	src/libespeak-ng/tokenizer.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/tr_languages.c \
 	src/libespeak-ng/voices.c \
@@ -216,6 +214,19 @@ tests_encoding_test_SOURCES = \
 	src/libespeak-ng/encoding.c \
 	src/libespeak-ng/mnemonics.c \
 	tests/encoding.c
+
+noinst_bin_PROGRAMS += tests/tokenizer.test
+
+tests_tokenizer_test_CFLAGS = \
+	-Isrc/libespeak-ng -Isrc/include -Isrc/include/compat -I src/ucd-tools/src/include \
+	-D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
+tests_tokenizer_test_SOURCES = \
+	src/libespeak-ng/tokenizer.c \
+	tests/tokenizer.c
+
+check:	tests/encoding.test tests/tokenizer.test
+	tests/encoding.test
+	tests/tokenizer.test
 
 ##### phoneme data:
 

@@ -235,6 +235,8 @@ extern "C"
 #define CLAUSE_COLON       (30 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_CLAUSE)
 #define CLAUSE_SEMICOLON   (30 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
 
+int clause_type_from_codepoint(uint32_t c);
+
 //@}
 
 #define SAYAS_CHARS        0x12

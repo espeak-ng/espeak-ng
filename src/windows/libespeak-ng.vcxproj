@@ -186,6 +186,7 @@
     <ClCompile Include="..\libespeak-ng\synthdata.c" />
     <ClCompile Include="..\libespeak-ng\synthesize.c" />
     <ClCompile Include="..\libespeak-ng\synth_mbrola.c" />
+    <ClCompile Include="..\libespeak-ng\tokenizer.c" />
     <ClCompile Include="..\libespeak-ng\translate.c" />
     <ClCompile Include="..\libespeak-ng\tr_languages.c" />
     <ClCompile Include="..\libespeak-ng\voices.c" />

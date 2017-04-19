@@ -63,117 +63,6 @@ static int sayas_mode;
 static int sayas_start;
 static int ssml_ignore_l_angle = 0;
 
-// punctuations symbols that can end a clause
-static const unsigned short punct_chars[] = {
-	',', '.', '?', '!', ':', ';',
-
-	0x00a1, // inverted exclamation
-	0x00bf, // inverted question
-	0x2013, // en-dash
-	0x2014, // em-dash
-	0x2026, // elipsis
-
-	0x037e, // Greek question mark (looks like semicolon)
-	0x0387, // Greek semicolon, ano teleia
-	0x0964, // Devanagari Danda (fullstop)
-
-	0x0589, // Armenian period
-	0x055d, // Armenian comma
-	0x055c, // Armenian exclamation
-	0x055e, // Armenian question
-	0x055b, // Armenian emphasis mark
-
-	0x060c, // Arabic ,
-	0x061b, // Arabic ;
-	0x061f, // Arabic ?
-	0x06d4, // Arabic .
-
-	0x0df4, // Singhalese Kunddaliya
-	0x0f0d, // Tibet Shad
-	0x0f0e,
-
-	0x1362, // Ethiopic period
-	0x1363,
-	0x1364,
-	0x1365,
-	0x1366,
-	0x1367,
-	0x1368,
-	0x10fb, // Georgian paragraph
-
-	0x3001, // ideograph comma
-	0x3002, // ideograph period
-
-	0xff01, // fullwidth exclamation
-	0xff0c, // fullwidth comma
-	0xff0e, // fullwidth period
-	0xff1a, // fullwidth colon
-	0xff1b, // fullwidth semicolon
-	0xff1f, // fullwidth question mark
-
-	0
-};
-
-// indexed by (entry num. in punct_chars) + 1
-// bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
-static const unsigned int punct_attributes[] = {
-	0,
-
-	CLAUSE_COMMA,
-	CLAUSE_PERIOD,
-	CLAUSE_QUESTION,
-	CLAUSE_EXCLAMATION,
-	CLAUSE_COLON,
-	CLAUSE_SEMICOLON,
-
-	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted exclamation
-	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted question
-	CLAUSE_SEMICOLON,  // en-dash
-	CLAUSE_SEMICOLON,  // em-dash
-	CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER,  // elipsis
-
-	CLAUSE_QUESTION,  // Greek question mark
-	CLAUSE_SEMICOLON,  // Greek semicolon
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Devanagari Danda (fullstop)
-
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Armenian period
-	CLAUSE_COMMA,  // Armenian comma
-	CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian exclamation
-	CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian question
-	CLAUSE_PERIOD | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian emphasis mark
-
-	CLAUSE_COMMA,  // Arabic ,
-	CLAUSE_SEMICOLON,  // Arabic ;
-	CLAUSE_QUESTION,  // Arabic question mark
-	CLAUSE_PERIOD,  // Arabic full stop
-
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Singhalese period
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Tibet period
-	CLAUSE_PARAGRAPH,
-
-	CLAUSE_PERIOD,  // Ethiopic period
-	CLAUSE_COMMA,  // Ethiopic comma
-	CLAUSE_SEMICOLON,  // Ethiopic semicolon
-	CLAUSE_COLON,  // Ethiopic colon
-	CLAUSE_COLON,  // Ethiopic preface colon
-	CLAUSE_QUESTION,  // Ethiopic question mark
-	CLAUSE_PARAGRAPH,  // Ethiopic paragraph
-	CLAUSE_PARAGRAPH,  // Georgian paragraph
-
-	CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph comma
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph period
-
-	CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER,  // fullwidth
-	CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER,
-	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,
-	CLAUSE_COLON | CLAUSE_OPTIONAL_SPACE_AFTER,
-	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,
-	CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER,
-
-	CLAUSE_SEMICOLON,  // spare
-	0
-};
-
 // stack for language and voice properties
 // frame 0 is for the defaults, before any ssml tags.
 typedef struct {
@@ -604,7 +493,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	if (c1 == '-')
 		return CLAUSE_NONE; // no pause
 
-	attributes = punct_attributes[lookupwchar(punct_chars, c1)];
+	attributes = clause_type_from_codepoint(c1);
 
 	short_pause = CLAUSE_SHORTFALL;
 	if ((attributes & CLAUSE_INTONATION_TYPE) == 0x1000)
@@ -1624,7 +1513,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int phoneme_mode = 0;
 	int n_xml_buf;
 	int terminator;
-	int punct;
 	int found;
 	int any_alnum = 0;
 	int self_closing;
@@ -1797,13 +1685,12 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 		if ((c2 == '\n') && (option_linelength == -1)) {
 			// single-line mode, return immediately on NL
-			if ((punct = lookupwchar(punct_chars, c1)) == 0) {
+			if ((terminator = clause_type_from_codepoint(c1)) == CLAUSE_NONE) {
 				charix[ix] = count_characters - clause_start_char;
 				*charix_top = ix;
 				ix += utf8_out(c1, &buf[ix]);
 				terminator = CLAUSE_PERIOD; // line doesn't end in punctuation, assume period
-			} else
-				terminator = punct_attributes[punct];
+			}
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
 			return terminator;
@@ -1990,9 +1877,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			}
 
 			punct_data = 0;
-			if ((punct = lookupwchar(punct_chars, c1)) != 0) {
-				punct_data = punct_attributes[punct];
-
+			if ((punct_data = clause_type_from_codepoint(c1)) != CLAUSE_NONE) {
 				if (punct_data & CLAUSE_PUNCTUATION_IN_WORD) {
 					// Armenian punctuation inside a word
 					stressed_word = 1;
