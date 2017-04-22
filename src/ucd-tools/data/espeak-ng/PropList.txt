@@ -1,5 +1,6 @@
 # espeak-ng/PropList-9.0.0.txt
 # Date: 2017-04-17, 20:19:00 GMT
+# Copyright (C) 2005 to 2015 by Jonathan Duddington
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database PropList.txt file,
@@ -188,3 +189,20 @@ FE19          ; Ellipsis # Po       PRESENTATION FORM FOR VERTICAL HORIZONTAL EL
 FE31..FE32    ; Extended_Dash # Pd   [2] PRESENTATION FORM FOR VERTICAL EM DASH..PRESENTATION FORM FOR VERTICAL EN DASH
 
 # Total code points: 6
+
+# ================================================
+
+00A1          ; Optional_Space_After # Po       INVERTED EXCLAMATION MARK
+00BF          ; Optional_Space_After # Po       INVERTED QUESTION MARK
+0589          ; Optional_Space_After # Po       ARMENIAN FULL STOP
+0964          ; Optional_Space_After # Po       DEVANAGARI DANDA
+0DF4          ; Optional_Space_After # Po       SINHALA PUNCTUATION KUNDDALIYA
+0F0D          ; Optional_Space_After # Po       TIBETAN MARK SHAD
+3001..3002    ; Optional_Space_After # Po   [2] IDEOGRAPHIC COMMA..IDEOGRAPHIC FULL STOP
+FF01          ; Optional_Space_After # Po       FULLWIDTH EXCLAMATION MARK
+FF0C          ; Optional_Space_After # Po       FULLWIDTH COMMA
+FF0E          ; Optional_Space_After # Po       FULLWIDTH FULL STOP
+FF1A..FF1B    ; Optional_Space_After # Po   [2] FULLWIDTH COLON..FULLWIDTH SEMICOLON
+FF1F          ; Optional_Space_After # Po       FULLWIDTH QUESTION MARK
+
+# Total code points: 14
