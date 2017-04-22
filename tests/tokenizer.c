@@ -66,7 +66,7 @@ test_armenian()
 {
 	printf("testing Armenian (Armn) script classification\n");
 
-	assert(clause_type_from_codepoint(0x055B) == (CLAUSE_PERIOD | CLAUSE_PUNCTUATION_IN_WORD));
+	assert(clause_type_from_codepoint(0x055B) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
 	assert(clause_type_from_codepoint(0x055C) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
 	assert(clause_type_from_codepoint(0x055D) == CLAUSE_COMMA);
 	assert(clause_type_from_codepoint(0x055E) == (CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD));

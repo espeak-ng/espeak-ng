@@ -38,7 +38,6 @@
 static const unsigned short punct_chars[] = {
 	0x00a1, // inverted exclamation
 	0x00bf, // inverted question
-	0x055b, // Armenian emphasis mark
 	0
 };
 
@@ -46,7 +45,6 @@ static const unsigned short punct_chars[] = {
 static const unsigned int punct_attributes[] = {
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted exclamation
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted question
-	CLAUSE_PERIOD | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian emphasis mark
 	0
 };
 
