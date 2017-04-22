@@ -180,3 +180,11 @@ FE19          ; Ellipsis # Po       PRESENTATION FORM FOR VERTICAL HORIZONTAL EL
 2029          ; Paragraph_Separator # Zp       PARAGRAPH SEPARATOR
 
 # Total code points: 6
+
+# ================================================
+
+2013..2014    ; Extended_Dash # Pd   [2] EN DASH..EM DASH
+2E3A..2E3B    ; Extended_Dash # Pd   [2] TWO-EM DASH..THREE-EM DASH
+FE31..FE32    ; Extended_Dash # Pd   [2] PRESENTATION FORM FOR VERTICAL EM DASH..PRESENTATION FORM FOR VERTICAL EN DASH
+
+# Total code points: 6

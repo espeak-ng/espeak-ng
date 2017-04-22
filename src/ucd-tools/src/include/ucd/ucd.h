@@ -363,6 +363,7 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       0x0000000100000000ull /**< @brief Prepended_Concatenation_Mark */
 
 // eSpeak NG extended properties:
+#define ESPEAKNG_PROPERTY_EXTENDED_DASH                 0x0080000000000000ull /**< @brief Extended_Dash */
 #define ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR           0x0100000000000000ull /**< @brief Paragraph_Separator */
 #define ESPEAKNG_PROPERTY_ELLIPSIS                      0x0200000000000000ull /**< @brief Ellipsis */
 #define ESPEAKNG_PROPERTY_SEMI_COLON                    0x0400000000000000ull /**< @brief Semi_Colon */

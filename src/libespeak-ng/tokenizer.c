@@ -38,8 +38,6 @@
 static const unsigned short punct_chars[] = {
 	0x00a1, // inverted exclamation
 	0x00bf, // inverted question
-	0x2013, // en-dash
-	0x2014, // em-dash
 
 	0x0964, // Devanagari Danda (fullstop)
 
@@ -68,8 +66,6 @@ static const unsigned short punct_chars[] = {
 static const unsigned int punct_attributes[] = {
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted exclamation
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted question
-	CLAUSE_SEMICOLON,  // en-dash
-	CLAUSE_SEMICOLON,  // em-dash
 
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Devanagari Danda (fullstop)
 
@@ -94,7 +90,7 @@ static const unsigned int punct_attributes[] = {
 	0
 };
 
-#define ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK 0xFF00000000000000ull
+#define ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK 0xFFF0000000000000ull
 
 int clause_type_from_codepoint(uint32_t c)
 {
@@ -119,6 +115,7 @@ int clause_type_from_codepoint(uint32_t c)
 	case ESPEAKNG_PROPERTY_COLON:
 		return CLAUSE_COLON;
 	case ESPEAKNG_PROPERTY_SEMI_COLON:
+	case ESPEAKNG_PROPERTY_EXTENDED_DASH:
 		return CLAUSE_SEMICOLON;
 	case ESPEAKNG_PROPERTY_ELLIPSIS:
 		return CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER;
