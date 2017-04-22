@@ -57,7 +57,7 @@ E002E         ; Full_Stop # Cf       TAG FULL STOP
 003F          ; Question_Mark # Po       QUESTION MARK
 00BF          ; Question_Mark # Po       INVERTED QUESTION MARK
 037E          ; Question_Mark # Po       GREEK QUESTION MARK
-055F          ; Question_Mark # Po       ARMENIAN QUESTION MARK
+055E          ; Question_Mark # Po       ARMENIAN QUESTION MARK
 061F          ; Question_Mark # Po       ARABIC QUESTION MARK
 0709          ; Question_Mark # Po       SYRIAC SUBLINEAR COLON SKEWED RIGHT
 1367          ; Question_Mark # Po       ETHIOPIC QUESTION MARK
@@ -206,3 +206,10 @@ FF1A..FF1B    ; Optional_Space_After # Po   [2] FULLWIDTH COLON..FULLWIDTH SEMIC
 FF1F          ; Optional_Space_After # Po       FULLWIDTH QUESTION MARK
 
 # Total code points: 14
+
+# ================================================
+
+055B..055C    ; Punctuation_In_Word # Po   [2] ARMENIAN EMPHASIS MARK..ARMENIAN EXCLAMATION MARK
+055E          ; Punctuation_In_Word # Po       ARMENIAN QUESTION MARK
+
+# Total code points: 3
