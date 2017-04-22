@@ -363,14 +363,14 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       0x0000000100000000ull /**< @brief Prepended_Concatenation_Mark */
 
 // eSpeak NG extended properties:
-static const ucd_property ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR           = 0x0100000000000000ull; /**< @brief Paragraph_Separator */
-static const ucd_property ESPEAKNG_PROPERTY_ELLIPSIS                      = 0x0200000000000000ull; /**< @brief Ellipsis */
-static const ucd_property ESPEAKNG_PROPERTY_SEMI_COLON                    = 0x0400000000000000ull; /**< @brief Semi_Colon */
-static const ucd_property ESPEAKNG_PROPERTY_COLON                         = 0x0800000000000000ull; /**< @brief Colon */
-static const ucd_property ESPEAKNG_PROPERTY_COMMA                         = 0x1000000000000000ull; /**< @brief Comma */
-static const ucd_property ESPEAKNG_PROPERTY_EXCLAMATION_MARK              = 0x2000000000000000ull; /**< @brief Exclamation_Mark */
-static const ucd_property ESPEAKNG_PROPERTY_QUESTION_MARK                 = 0x4000000000000000ull; /**< @brief Question_Mark */
-static const ucd_property ESPEAKNG_PROPERTY_FULL_STOP                     = 0x8000000000000000ull; /**< @brief Full_Stop */
+#define ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR           0x0100000000000000ull /**< @brief Paragraph_Separator */
+#define ESPEAKNG_PROPERTY_ELLIPSIS                      0x0200000000000000ull /**< @brief Ellipsis */
+#define ESPEAKNG_PROPERTY_SEMI_COLON                    0x0400000000000000ull /**< @brief Semi_Colon */
+#define ESPEAKNG_PROPERTY_COLON                         0x0800000000000000ull /**< @brief Colon */
+#define ESPEAKNG_PROPERTY_COMMA                         0x1000000000000000ull /**< @brief Comma */
+#define ESPEAKNG_PROPERTY_EXCLAMATION_MARK              0x2000000000000000ull /**< @brief Exclamation_Mark */
+#define ESPEAKNG_PROPERTY_QUESTION_MARK                 0x4000000000000000ull /**< @brief Question_Mark */
+#define ESPEAKNG_PROPERTY_FULL_STOP                     0x8000000000000000ull /**< @brief Full_Stop */
 
 /** @brief Return the properties of the specified codepoint.
  *
