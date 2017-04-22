@@ -328,39 +328,39 @@ ucd_script ucd_lookup_script(codepoint_t c);
 /** @brief Properties
  */
 typedef uint64_t ucd_property;
-static const ucd_property UCD_PROPERTY_WHITE_SPACE                        = 0x0000000000000001ull; /**< @brief White_Space */
-static const ucd_property UCD_PROPERTY_BIDI_CONTROL                       = 0x0000000000000002ull; /**< @brief Bidi_Control */
-static const ucd_property UCD_PROPERTY_JOIN_CONTROL                       = 0x0000000000000004ull; /**< @brief Join_Control */
-static const ucd_property UCD_PROPERTY_DASH                               = 0x0000000000000008ull; /**< @brief Dash */
-static const ucd_property UCD_PROPERTY_HYPHEN                             = 0x0000000000000010ull; /**< @brief Hyphen */
-static const ucd_property UCD_PROPERTY_QUOTATION_MARK                     = 0x0000000000000020ull; /**< @brief Quotation_Mark */
-static const ucd_property UCD_PROPERTY_TERMINAL_PUNCTUATION               = 0x0000000000000040ull; /**< @brief Terminal_Punctuation */
-static const ucd_property UCD_PROPERTY_OTHER_MATH                         = 0x0000000000000080ull; /**< @brief Other_Math */
-static const ucd_property UCD_PROPERTY_HEX_DIGIT                          = 0x0000000000000100ull; /**< @brief Hex_Digit */
-static const ucd_property UCD_PROPERTY_ASCII_HEX_DIGIT                    = 0x0000000000000200ull; /**< @brief ASCII_Hex_Digit */
-static const ucd_property UCD_PROPERTY_OTHER_ALPHABETIC                   = 0x0000000000000400ull; /**< @brief Other_Alphabetic */
-static const ucd_property UCD_PROPERTY_IDEOGRAPHIC                        = 0x0000000000000800ull; /**< @brief Ideographic */
-static const ucd_property UCD_PROPERTY_DIACRITIC                          = 0x0000000000001000ull; /**< @brief Diacritic */
-static const ucd_property UCD_PROPERTY_EXTENDER                           = 0x0000000000002000ull; /**< @brief Extender */
-static const ucd_property UCD_PROPERTY_OTHER_LOWERCASE                    = 0x0000000000004000ull; /**< @brief Other_Lowercase */
-static const ucd_property UCD_PROPERTY_OTHER_UPPERCASE                    = 0x0000000000008000ull; /**< @brief Other_Uppercase */
-static const ucd_property UCD_PROPERTY_NONCHARACTER_CODE_POINT            = 0x0000000000010000ull; /**< @brief Noncharacter_Code_Point */
-static const ucd_property UCD_PROPERTY_OTHER_GRAPHEME_EXTEND              = 0x0000000000020000ull; /**< @brief Other_Grapheme_Extend */
-static const ucd_property UCD_PROPERTY_IDS_BINARY_OPERATOR                = 0x0000000000040000ull; /**< @brief IDS_Binary_Operator */
-static const ucd_property UCD_PROPERTY_IDS_TRINARY_OPERATOR               = 0x0000000000080000ull; /**< @brief IDS_Trinary_Operator */
-static const ucd_property UCD_PROPERTY_RADICAL                            = 0x0000000000100000ull; /**< @brief Radical */
-static const ucd_property UCD_PROPERTY_UNIFIED_IDEOGRAPH                  = 0x0000000000200000ull; /**< @brief Unified_Ideograph */
-static const ucd_property UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT = 0x0000000000400000ull; /**< @brief Other_Default_Ignorable_Code_Point */
-static const ucd_property UCD_PROPERTY_DEPRECATED                         = 0x0000000000800000ull; /**< @brief Deprecated */
-static const ucd_property UCD_PROPERTY_SOFT_DOTTED                        = 0x0000000001000000ull; /**< @brief Soft_Dotted */
-static const ucd_property UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION            = 0x0000000002000000ull; /**< @brief Logical_Order_Exception */
-static const ucd_property UCD_PROPERTY_OTHER_ID_START                     = 0x0000000004000000ull; /**< @brief Other_ID_Start */
-static const ucd_property UCD_PROPERTY_OTHER_ID_CONTINUE                  = 0x0000000008000000ull; /**< @brief Other_ID_Continue */
-static const ucd_property UCD_PROPERTY_SENTENCE_TERMINAL                  = 0x0000000010000000ull; /**< @brief Sentence_Terminal */
-static const ucd_property UCD_PROPERTY_VARIATION_SELECTOR                 = 0x0000000020000000ull; /**< @brief Variation_Selector */
-static const ucd_property UCD_PROPERTY_PATTERN_WHITE_SPACE                = 0x0000000040000000ull; /**< @brief Pattern_White_Space */
-static const ucd_property UCD_PROPERTY_PATTERN_SYNTAX                     = 0x0000000080000000ull; /**< @brief Pattern_Syntax */
-static const ucd_property UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       = 0x0000000100000000ull; /**< @brief Prepended_Concatenation_Mark */
+#define UCD_PROPERTY_WHITE_SPACE                        0x0000000000000001ull /**< @brief White_Space */
+#define UCD_PROPERTY_BIDI_CONTROL                       0x0000000000000002ull /**< @brief Bidi_Control */
+#define UCD_PROPERTY_JOIN_CONTROL                       0x0000000000000004ull /**< @brief Join_Control */
+#define UCD_PROPERTY_DASH                               0x0000000000000008ull /**< @brief Dash */
+#define UCD_PROPERTY_HYPHEN                             0x0000000000000010ull /**< @brief Hyphen */
+#define UCD_PROPERTY_QUOTATION_MARK                     0x0000000000000020ull /**< @brief Quotation_Mark */
+#define UCD_PROPERTY_TERMINAL_PUNCTUATION               0x0000000000000040ull /**< @brief Terminal_Punctuation */
+#define UCD_PROPERTY_OTHER_MATH                         0x0000000000000080ull /**< @brief Other_Math */
+#define UCD_PROPERTY_HEX_DIGIT                          0x0000000000000100ull /**< @brief Hex_Digit */
+#define UCD_PROPERTY_ASCII_HEX_DIGIT                    0x0000000000000200ull /**< @brief ASCII_Hex_Digit */
+#define UCD_PROPERTY_OTHER_ALPHABETIC                   0x0000000000000400ull /**< @brief Other_Alphabetic */
+#define UCD_PROPERTY_IDEOGRAPHIC                        0x0000000000000800ull /**< @brief Ideographic */
+#define UCD_PROPERTY_DIACRITIC                          0x0000000000001000ull /**< @brief Diacritic */
+#define UCD_PROPERTY_EXTENDER                           0x0000000000002000ull /**< @brief Extender */
+#define UCD_PROPERTY_OTHER_LOWERCASE                    0x0000000000004000ull /**< @brief Other_Lowercase */
+#define UCD_PROPERTY_OTHER_UPPERCASE                    0x0000000000008000ull /**< @brief Other_Uppercase */
+#define UCD_PROPERTY_NONCHARACTER_CODE_POINT            0x0000000000010000ull /**< @brief Noncharacter_Code_Point */
+#define UCD_PROPERTY_OTHER_GRAPHEME_EXTEND              0x0000000000020000ull /**< @brief Other_Grapheme_Extend */
+#define UCD_PROPERTY_IDS_BINARY_OPERATOR                0x0000000000040000ull /**< @brief IDS_Binary_Operator */
+#define UCD_PROPERTY_IDS_TRINARY_OPERATOR               0x0000000000080000ull /**< @brief IDS_Trinary_Operator */
+#define UCD_PROPERTY_RADICAL                            0x0000000000100000ull /**< @brief Radical */
+#define UCD_PROPERTY_UNIFIED_IDEOGRAPH                  0x0000000000200000ull /**< @brief Unified_Ideograph */
+#define UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT 0x0000000000400000ull /**< @brief Other_Default_Ignorable_Code_Point */
+#define UCD_PROPERTY_DEPRECATED                         0x0000000000800000ull /**< @brief Deprecated */
+#define UCD_PROPERTY_SOFT_DOTTED                        0x0000000001000000ull /**< @brief Soft_Dotted */
+#define UCD_PROPERTY_LOGICAL_ORDER_EXCEPTION            0x0000000002000000ull /**< @brief Logical_Order_Exception */
+#define UCD_PROPERTY_OTHER_ID_START                     0x0000000004000000ull /**< @brief Other_ID_Start */
+#define UCD_PROPERTY_OTHER_ID_CONTINUE                  0x0000000008000000ull /**< @brief Other_ID_Continue */
+#define UCD_PROPERTY_SENTENCE_TERMINAL                  0x0000000010000000ull /**< @brief Sentence_Terminal */
+#define UCD_PROPERTY_VARIATION_SELECTOR                 0x0000000020000000ull /**< @brief Variation_Selector */
+#define UCD_PROPERTY_PATTERN_WHITE_SPACE                0x0000000040000000ull /**< @brief Pattern_White_Space */
+#define UCD_PROPERTY_PATTERN_SYNTAX                     0x0000000080000000ull /**< @brief Pattern_Syntax */
+#define UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       0x0000000100000000ull /**< @brief Prepended_Concatenation_Mark */
 
 // eSpeak NG extended properties:
 static const ucd_property ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR           = 0x0100000000000000ull; /**< @brief Paragraph_Separator */
