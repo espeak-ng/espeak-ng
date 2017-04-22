@@ -213,3 +213,10 @@ FF1F          ; Optional_Space_After # Po       FULLWIDTH QUESTION MARK
 055E          ; Punctuation_In_Word # Po       ARMENIAN QUESTION MARK
 
 # Total code points: 3
+
+# ================================================
+
+00A1          ; Inverted_Terminal_Punctuation # Po       INVERTED EXCLAMATION MARK
+00BF          ; Inverted_Terminal_Punctuation # Po       INVERTED QUESTION MARK
+
+# Total code points: 2
