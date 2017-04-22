@@ -36,41 +36,20 @@
 
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {
-	',', '.', '?', '!', ':', ';',
-
 	0x00a1, // inverted exclamation
 	0x00bf, // inverted question
 	0x2013, // en-dash
 	0x2014, // em-dash
-	0x2026, // elipsis
 
-	0x037e, // Greek question mark (looks like semicolon)
-	0x0387, // Greek semicolon, ano teleia
 	0x0964, // Devanagari Danda (fullstop)
 
 	0x0589, // Armenian period
-	0x055d, // Armenian comma
 	0x055c, // Armenian exclamation
 	0x055e, // Armenian question
 	0x055b, // Armenian emphasis mark
 
-	0x060c, // Arabic ,
-	0x061b, // Arabic ;
-	0x061f, // Arabic ?
-	0x06d4, // Arabic .
-
 	0x0df4, // Singhalese Kunddaliya
 	0x0f0d, // Tibet Shad
-	0x0f0e,
-
-	0x1362, // Ethiopic period
-	0x1363,
-	0x1364,
-	0x1365,
-	0x1366,
-	0x1367,
-	0x1368,
-	0x10fb, // Georgian paragraph
 
 	0x3001, // ideograph comma
 	0x3002, // ideograph period
@@ -87,46 +66,20 @@ static const unsigned short punct_chars[] = {
 
 // indexed by entry num. in punct_chars
 static const unsigned int punct_attributes[] = {
-	CLAUSE_COMMA,
-	CLAUSE_PERIOD,
-	CLAUSE_QUESTION,
-	CLAUSE_EXCLAMATION,
-	CLAUSE_COLON,
-	CLAUSE_SEMICOLON,
-
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted exclamation
 	CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER,  // inverted question
 	CLAUSE_SEMICOLON,  // en-dash
 	CLAUSE_SEMICOLON,  // em-dash
-	CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER,  // elipsis
 
-	CLAUSE_QUESTION,  // Greek question mark
-	CLAUSE_SEMICOLON,  // Greek semicolon
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Devanagari Danda (fullstop)
 
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Armenian period
-	CLAUSE_COMMA,  // Armenian comma
 	CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian exclamation
 	CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian question
 	CLAUSE_PERIOD | CLAUSE_PUNCTUATION_IN_WORD,  // Armenian emphasis mark
 
-	CLAUSE_COMMA,  // Arabic ,
-	CLAUSE_SEMICOLON,  // Arabic ;
-	CLAUSE_QUESTION,  // Arabic question mark
-	CLAUSE_PERIOD,  // Arabic full stop
-
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Singhalese period
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // Tibet period
-	CLAUSE_PARAGRAPH,
-
-	CLAUSE_PERIOD,  // Ethiopic period
-	CLAUSE_COMMA,  // Ethiopic comma
-	CLAUSE_SEMICOLON,  // Ethiopic semicolon
-	CLAUSE_COLON,  // Ethiopic colon
-	CLAUSE_COLON,  // Ethiopic preface colon
-	CLAUSE_QUESTION,  // Ethiopic question mark
-	CLAUSE_PARAGRAPH,  // Ethiopic paragraph
-	CLAUSE_PARAGRAPH,  // Georgian paragraph
 
 	CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph comma
 	CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER,  // ideograph period
@@ -141,11 +94,37 @@ static const unsigned int punct_attributes[] = {
 	0
 };
 
+#define ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK 0xFF00000000000000ull
+
 int clause_type_from_codepoint(uint32_t c)
 {
+	ucd_category cat = ucd_lookup_category(c);
+	ucd_property props = ucd_properties(c, cat);
+
 	for (int ix = 0; punct_chars[ix] != 0; ++ix) {
 		if (punct_chars[ix] == c)
 			return punct_attributes[ix];
 	}
+
+	switch (props & ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK)
+	{
+	case ESPEAKNG_PROPERTY_FULL_STOP:
+		return CLAUSE_PERIOD;
+	case ESPEAKNG_PROPERTY_QUESTION_MARK:
+		return CLAUSE_QUESTION;
+	case ESPEAKNG_PROPERTY_EXCLAMATION_MARK:
+		return CLAUSE_EXCLAMATION;
+	case ESPEAKNG_PROPERTY_COMMA:
+		return CLAUSE_COMMA;
+	case ESPEAKNG_PROPERTY_COLON:
+		return CLAUSE_COLON;
+	case ESPEAKNG_PROPERTY_SEMI_COLON:
+		return CLAUSE_SEMICOLON;
+	case ESPEAKNG_PROPERTY_ELLIPSIS:
+		return CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR:
+		return CLAUSE_PARAGRAPH;
+	}
+
 	return CLAUSE_NONE;
 }

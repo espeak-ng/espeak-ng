@@ -133,13 +133,16 @@ src_libespeak_ng_la_CFLAGS = -Isrc/include -Isrc/include/compat -I src/ucd-tools
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
-src_libespeak_ng_la_SOURCES = \
+UCD_TOOLS_SOURCES = \
 	src/ucd-tools/src/case.c \
 	src/ucd-tools/src/categories.c \
 	src/ucd-tools/src/ctype.c \
 	src/ucd-tools/src/proplist.c \
 	src/ucd-tools/src/scripts.c \
-	src/ucd-tools/src/tostring.c \
+	src/ucd-tools/src/tostring.c
+
+src_libespeak_ng_la_SOURCES = \
+	$(UCD_TOOLS_SOURCES) \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
@@ -221,6 +224,7 @@ tests_tokenizer_test_CFLAGS = \
 	-Isrc/libespeak-ng -Isrc/include -Isrc/include/compat -I src/ucd-tools/src/include \
 	-D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
 tests_tokenizer_test_SOURCES = \
+	$(UCD_TOOLS_SOURCES) \
 	src/libespeak-ng/tokenizer.c \
 	tests/tokenizer.c
 
