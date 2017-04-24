@@ -33,8 +33,10 @@ AC_ARG_WITH([gradle],
 AC_MSG_CHECKING([for gradle])
 if test -e ${GRADLE} ; then
     AC_MSG_RESULT([${GRADLE}])
+    AM_CONDITIONAL(HAVE_GRADLE, [1])
 else
     AC_MSG_RESULT([no])
+    AM_CONDITIONAL(HAVE_GRADLE, [0])
 fi
 
 AC_SUBST(GRADLE)

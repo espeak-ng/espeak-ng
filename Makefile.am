@@ -59,7 +59,9 @@ install-exec-hook:
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
 	cd src/libespeak-ng/ && rm -f *.o *.lo && cd ../..
+if HAVE_GRADLE
 	cd android && $(GRADLE) clean
+endif
 
 distclean-local:
 	rm -rf espeak-ng-data/phondata-manifest
