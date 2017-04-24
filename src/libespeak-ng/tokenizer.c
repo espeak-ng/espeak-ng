@@ -25,6 +25,7 @@
 #include <string.h>
 
 #include <espeak-ng/espeak_ng.h>
+#include <ucd/ucd.h>
 
 #include "encoding.h"
 #include "speech.h"
