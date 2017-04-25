@@ -26,6 +26,7 @@
 #include <espeak-ng/espeak_ng.h>
 
 #include "encoding.h"
+#include "tokenizer.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -153,6 +154,30 @@ test_fullwidth()
 	assert(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
+void
+test_unbound_tokenizer()
+{
+	printf("testing unbound tokenizer\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	assert(tokenizer != NULL);
+
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	assert(tokenizer_reset(tokenizer, NULL) == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_tokenizer(tokenizer);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -167,6 +192,8 @@ main(int argc, char **argv)
 	test_ethiopic();
 	test_ideographic();
 	test_fullwidth();
+
+	test_unbound_tokenizer();
 
 	printf("done\n");
 

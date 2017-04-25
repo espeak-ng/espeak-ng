@@ -28,6 +28,7 @@
 #include <ucd/ucd.h>
 
 #include "encoding.h"
+#include "tokenizer.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -80,4 +81,47 @@ int clause_type_from_codepoint(uint32_t c)
 	}
 
 	return CLAUSE_NONE;
+}
+
+struct espeak_ng_TOKENIZER_
+{
+	espeak_ng_TEXT_DECODER *decoder;
+};
+
+espeak_ng_TOKENIZER *
+create_tokenizer(void)
+{
+	espeak_ng_TOKENIZER *tokenizer = malloc(sizeof(espeak_ng_TOKENIZER));
+	if (!tokenizer) return NULL;
+
+	tokenizer->decoder = NULL;
+	return tokenizer;
+}
+
+void
+destroy_tokenizer(espeak_ng_TOKENIZER *tokenizer)
+{
+	if (tokenizer) free(tokenizer);
+}
+
+int
+tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
+                espeak_ng_TEXT_DECODER *decoder)
+{
+	if (!tokenizer || !decoder) return 0;
+
+	tokenizer->decoder = decoder;
+	return 1;
+}
+
+espeak_ng_TOKEN_TYPE
+tokenizer_read_next_token(espeak_ng_TOKENIZER *tokenizer)
+{
+	return ESPEAKNG_TOKEN_END_OF_BUFFER;
+}
+
+const char *
+tokenizer_get_token_text(espeak_ng_TOKENIZER *tokenizer)
+{
+	return "";
 }
