@@ -846,6 +846,29 @@ test_auto_decoder()
 	destroy_text_decoder(decoder);
 }
 
+void
+test_peekc()
+{
+	printf("testing peekc\n");
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "aGd", 3, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'a');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_peekc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'G');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_peekc(decoder) == 'd');
+	assert(text_decoder_eof(decoder) == 0);
+	assert(text_decoder_getc(decoder) == 'd');
+	assert(text_decoder_eof(decoder) == 1);
+
+	destroy_text_decoder(decoder);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -879,6 +902,8 @@ main(int argc, char **argv)
 	test_char_decoder();
 	test_wchar_decoder();
 	test_auto_decoder();
+
+	test_peekc();
 
 	printf("done\n");
 

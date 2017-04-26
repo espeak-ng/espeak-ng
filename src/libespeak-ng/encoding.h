@@ -59,6 +59,9 @@ text_decoder_eof(espeak_ng_TEXT_DECODER *decoder);
 uint32_t
 text_decoder_getc(espeak_ng_TEXT_DECODER *decoder);
 
+uint32_t
+text_decoder_peekc(espeak_ng_TEXT_DECODER *decoder);
+
 const void *
 text_decoder_get_buffer(espeak_ng_TEXT_DECODER *decoder);
 

@@ -800,6 +800,15 @@ text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 	return decoder->get(decoder);
 }
 
+uint32_t
+text_decoder_peekc(espeak_ng_TEXT_DECODER *decoder)
+{
+	const uint8_t *current = decoder->current;
+	uint32_t c = decoder->get(decoder);
+	decoder->current = current;
+	return c;
+}
+
 const void *
 text_decoder_get_buffer(espeak_ng_TEXT_DECODER *decoder)
 {
