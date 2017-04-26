@@ -1,7 +1,8 @@
-# editor files:
+# editor/external files:
 
 *~
 .*.swp
+*.bat
 
 # Eclipse project files:
 
@@ -33,7 +34,6 @@ local.properties
 
 gradle/
 gradlew
-gradlew.bat
 
 .gradle/
 .idea/
@@ -178,4 +178,3 @@ espeak-ng-data/phondata
 espeak-ng-data/phondata-manifest
 espeak-ng-data/phonindex
 espeak-ng-data/phontab
-espeak-ng-data/lang/roa/compile_lang.bat
