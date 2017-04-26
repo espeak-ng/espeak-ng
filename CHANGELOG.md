@@ -27,6 +27,7 @@ bug fixes:
 new languages:
 
 *  bpy (Bishnupriya Manipuri) -- Vardhan
+*  fr-CH (French (Switzerland)) -- Claude Beazley
 *  kok (Konkani) -- Vardhan
 *  mi (Māori) -- Graham Oliver
 *  sd (Sindhi, Arabic script) -- Vardhan

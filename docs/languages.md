@@ -47,6 +47,7 @@ The supported languages are:
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
+| `roa`       | `fr-CH`           | Romance               | French                      | Switzerland            |
 | `cel`       | `ga`              | Celtic                | Gaelic                      | Irish                  |
 | `cel`       | `gd`              | Celtic                | Gaelic                      | Scottish               |
 | `ccs`       | `ka`              | South Caucasian       | Georgian                    |                        |
