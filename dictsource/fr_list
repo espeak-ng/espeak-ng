@@ -1,5 +1,4 @@
-/
-// ***************************************************************************
+﻿// ***************************************************************************
 // *   Copyright (C) 2005 to 2012 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
@@ -241,6 +240,8 @@ _dpt	virgyl
 _roman	rom'E~
 
 //some numbers have special pronunciation in Belgium and Switzerland
+
+//The Francophone  Belgians use quatre-vingt for 80
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
 ?2 _9X	nonA~t
@@ -252,6 +253,20 @@ _roman	rom'E~
 (51 ème)	sE~kA~te:yniEm
 (61 ème)	swasA~te:yniEm
 (81 ème)	katr@vE~:yniEm
+(91 ème)	nonA~te:yniEm
+
+//The Francophone Swiss use huitante for 80 (as well as the same 70 and 90 as the Belgians)
+?3 _7X	sEptA~t
+?3 _71	sEptA~te:W~
+?3 _80	yit3A~t
+?3 _8X	yit3A~te
+?3 _81	yit3A~te:W~
+?3 _9X	nonA~t
+?3 _91	nonA~te:W~
+
+(81 ème)	yit3A~te:yniEm
+
+
 
 // ABBREVIATIONS
 //**************
