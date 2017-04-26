@@ -112,6 +112,11 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 	switch (c = text_decoder_getc(tokenizer->decoder))
 	{
 	case '\r':
+		if (text_decoder_peekc(tokenizer->decoder) == '\n') {
+			current += utf8_out(c, current);
+			c = text_decoder_getc(tokenizer->decoder);
+		}
+		// fallthrough
 	case '\n':
 		current += utf8_out(c, current);
 		*current = '\0';
