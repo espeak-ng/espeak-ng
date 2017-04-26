@@ -86,7 +86,46 @@ int clause_type_from_codepoint(uint32_t c)
 struct espeak_ng_TOKENIZER_
 {
 	espeak_ng_TEXT_DECODER *decoder;
+	char token[256];
+
+	espeak_ng_TOKEN_TYPE (*read)(espeak_ng_TOKENIZER *tokenizer);
 };
+
+static espeak_ng_TOKEN_TYPE
+tokenizer_state_end_of_buffer(espeak_ng_TOKENIZER *tokenizer)
+{
+	*tokenizer->token = '\0';
+	return ESPEAKNG_TOKEN_END_OF_BUFFER;
+}
+
+static espeak_ng_TOKEN_TYPE
+tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
+{
+	if (text_decoder_eof(tokenizer->decoder)) {
+		tokenizer->read = tokenizer_state_end_of_buffer;
+		return tokenizer_state_end_of_buffer(tokenizer);
+	}
+
+	uint32_t c;
+	char *current = tokenizer->token;
+
+	switch (c = text_decoder_getc(tokenizer->decoder))
+	{
+	case '\n':
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_NEWLINE;
+	case '\0':
+		tokenizer->read = tokenizer_state_end_of_buffer;
+		return tokenizer_state_end_of_buffer(tokenizer);
+	default:
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_UNKNOWN;
+	}
+
+	return ESPEAKNG_TOKEN_END_OF_BUFFER;
+}
 
 espeak_ng_TOKENIZER *
 create_tokenizer(void)
@@ -95,6 +134,9 @@ create_tokenizer(void)
 	if (!tokenizer) return NULL;
 
 	tokenizer->decoder = NULL;
+	tokenizer->read = tokenizer_state_end_of_buffer;
+
+	*tokenizer->token = '\0';
 	return tokenizer;
 }
 
@@ -108,20 +150,21 @@ int
 tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
                 espeak_ng_TEXT_DECODER *decoder)
 {
-	if (!tokenizer || !decoder) return 0;
+	if (!tokenizer) return 0;
 
 	tokenizer->decoder = decoder;
+	tokenizer->read = decoder ? tokenizer_state_default : tokenizer_state_end_of_buffer;
 	return 1;
 }
 
 espeak_ng_TOKEN_TYPE
 tokenizer_read_next_token(espeak_ng_TOKENIZER *tokenizer)
 {
-	return ESPEAKNG_TOKEN_END_OF_BUFFER;
+	return tokenizer->read(tokenizer);
 }
 
 const char *
 tokenizer_get_token_text(espeak_ng_TOKENIZER *tokenizer)
 {
-	return "";
+	return tokenizer->token;
 }

@@ -227,6 +227,8 @@ tests_tokenizer_test_CFLAGS = \
 	-D _POSIX_C_SOURCE=200112L ${AM_CFLAGS}
 tests_tokenizer_test_SOURCES = \
 	$(UCD_TOOLS_SOURCES) \
+	src/libespeak-ng/encoding.c \
+	src/libespeak-ng/mnemonics.c \
 	src/libespeak-ng/tokenizer.c \
 	tests/tokenizer.c
 
