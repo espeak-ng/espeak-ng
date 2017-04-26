@@ -803,6 +803,8 @@ text_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 uint32_t
 text_decoder_peekc(espeak_ng_TEXT_DECODER *decoder)
 {
+	if (decoder->current == decoder->end) return 0;
+
 	const uint8_t *current = decoder->current;
 	uint32_t c = decoder->get(decoder);
 	decoder->current = current;

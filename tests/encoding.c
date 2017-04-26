@@ -866,6 +866,10 @@ test_peekc()
 	assert(text_decoder_getc(decoder) == 'd');
 	assert(text_decoder_eof(decoder) == 1);
 
+	// Calling peekc past the end of the buffer.
+	assert(text_decoder_peekc(decoder) == '\0');
+	assert(text_decoder_eof(decoder) == 1);
+
 	destroy_text_decoder(decoder);
 }
 
