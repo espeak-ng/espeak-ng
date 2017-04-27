@@ -83,6 +83,24 @@ int clause_type_from_codepoint(uint32_t c)
 	return CLAUSE_NONE;
 }
 
+typedef enum {
+	ESPEAKNG_CTYPE_OTHER,
+	ESPEAKNG_CTYPE_CARRIAGE_RETURN,
+	ESPEAKNG_CTYPE_NEWLINE,
+	ESPEAKNG_CTYPE_END_OF_STRING,
+} espeakng_CTYPE;
+
+static espeakng_CTYPE codepoint_type(uint32_t c)
+{
+	switch (c)
+	{
+	case '\r': return ESPEAKNG_CTYPE_CARRIAGE_RETURN;
+	case '\n': return ESPEAKNG_CTYPE_NEWLINE;
+	case '\0': return ESPEAKNG_CTYPE_END_OF_STRING;
+	}
+	return ESPEAKNG_CTYPE_OTHER;
+}
+
 struct espeak_ng_TOKENIZER_
 {
 	espeak_ng_TEXT_DECODER *decoder;
@@ -109,19 +127,19 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 	uint32_t c;
 	char *current = tokenizer->token;
 
-	switch (c = text_decoder_getc(tokenizer->decoder))
+	switch (codepoint_type(c = text_decoder_getc(tokenizer->decoder)))
 	{
-	case '\r':
+	case ESPEAKNG_CTYPE_CARRIAGE_RETURN: // '\r'
 		if (text_decoder_peekc(tokenizer->decoder) == '\n') {
 			current += utf8_out(c, current);
 			c = text_decoder_getc(tokenizer->decoder);
 		}
 		// fallthrough
-	case '\n':
+	case ESPEAKNG_CTYPE_NEWLINE: // '\n'
 		current += utf8_out(c, current);
 		*current = '\0';
 		return ESPEAKNG_TOKEN_NEWLINE;
-	case '\0':
+	case ESPEAKNG_CTYPE_END_OF_STRING: // '\0'
 		tokenizer->read = tokenizer_state_end_of_buffer;
 		return tokenizer_state_end_of_buffer(tokenizer);
 	default:
