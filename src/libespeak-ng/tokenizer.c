@@ -88,23 +88,53 @@ typedef enum {
 	ESPEAKNG_CTYPE_CARRIAGE_RETURN,
 	ESPEAKNG_CTYPE_NEWLINE,
 	ESPEAKNG_CTYPE_END_OF_STRING,
+	ESPEAKNG_CTYPE_WHITESPACE,
 } espeakng_CTYPE;
+
+#define ESPEAKNG_CTYPE_PROPERTY_MASK 0x0000000000000001ull
 
 static espeakng_CTYPE codepoint_type(uint32_t c)
 {
+	// 1. Detect and classify specific codepoints.
+
 	switch (c)
 	{
 	case '\r': return ESPEAKNG_CTYPE_CARRIAGE_RETURN;
 	case '\n': return ESPEAKNG_CTYPE_NEWLINE;
 	case '\0': return ESPEAKNG_CTYPE_END_OF_STRING;
 	}
+
+	// 2. Classify codepoints by their Unicode General Category.
+
+	ucd_category cat = ucd_lookup_category(c);
+	switch (cat)
+	{
+	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_WHITESPACE;
+	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_WHITESPACE;
+	case UCD_CATEGORY_Zs: return ESPEAKNG_CTYPE_WHITESPACE;
+	}
+
+	// 3. Classify codepoints by their Unicode properties.
+
+	ucd_property props = ucd_properties(c, cat);
+	switch (props & ESPEAKNG_CTYPE_PROPERTY_MASK)
+	{
+	case UCD_PROPERTY_WHITE_SPACE:
+		return ESPEAKNG_CTYPE_WHITESPACE;
+	}
+
+	// 4. Classify the remaining codepoints.
+
 	return ESPEAKNG_CTYPE_OTHER;
 }
+
+#define ESPEAKNG_CODEPOINT_INVALID 0xFFFFFFFF
 
 struct espeak_ng_TOKENIZER_
 {
 	espeak_ng_TEXT_DECODER *decoder;
 	char token[256];
+	uint32_t keepc;
 
 	espeak_ng_TOKEN_TYPE (*read)(espeak_ng_TOKENIZER *tokenizer);
 };
@@ -124,10 +154,18 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 		return tokenizer_state_end_of_buffer(tokenizer);
 	}
 
-	uint32_t c;
 	char *current = tokenizer->token;
+	char *end     = tokenizer->token + sizeof(tokenizer->token) - 5; // allow for UTF-8 trailing bytes
 
-	switch (codepoint_type(c = text_decoder_getc(tokenizer->decoder)))
+	uint32_t c;
+	if (tokenizer->keepc != ESPEAKNG_CODEPOINT_INVALID) {
+		c = tokenizer->keepc;
+		tokenizer->keepc = ESPEAKNG_CODEPOINT_INVALID;
+	} else {
+		c = text_decoder_getc(tokenizer->decoder);
+	}
+
+	switch (codepoint_type(c))
 	{
 	case ESPEAKNG_CTYPE_CARRIAGE_RETURN: // '\r'
 		if (text_decoder_peekc(tokenizer->decoder) == '\n') {
@@ -142,6 +180,17 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 	case ESPEAKNG_CTYPE_END_OF_STRING: // '\0'
 		tokenizer->read = tokenizer_state_end_of_buffer;
 		return tokenizer_state_end_of_buffer(tokenizer);
+	case ESPEAKNG_CTYPE_WHITESPACE:
+		current += utf8_out(c, current);
+		while (!text_decoder_eof(tokenizer->decoder) &&
+		       current < end &&
+		       codepoint_type(c = text_decoder_getc(tokenizer->decoder)) == ESPEAKNG_CTYPE_WHITESPACE)
+		{
+			current += utf8_out(c, current);
+		}
+		tokenizer->keepc = c;
+		*current = '\0';
+		return ESPEAKNG_TOKEN_WHITESPACE;
 	default:
 		current += utf8_out(c, current);
 		*current = '\0';
@@ -158,6 +207,7 @@ create_tokenizer(void)
 	if (!tokenizer) return NULL;
 
 	tokenizer->decoder = NULL;
+	tokenizer->keepc = ESPEAKNG_CODEPOINT_INVALID;
 	tokenizer->read = tokenizer_state_end_of_buffer;
 
 	*tokenizer->token = '\0';
@@ -177,6 +227,7 @@ tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
 	if (!tokenizer) return 0;
 
 	tokenizer->decoder = decoder;
+	tokenizer->keepc = ESPEAKNG_CODEPOINT_INVALID;
 	tokenizer->read = decoder ? tokenizer_state_default : tokenizer_state_end_of_buffer;
 	return 1;
 }
