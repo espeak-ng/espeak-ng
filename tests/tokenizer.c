@@ -268,8 +268,17 @@ test_unicode_newline_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, "\xC2\x85\xC2\x85\xE2\x80\xA8\xE2\x80\xA8", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, "\x0C\x0C\xC2\x85\xC2\x85\xE2\x80\xA8\xE2\x80\xA8", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder) == 1);
+
+	// U+000C : FORM FEED (FF) -- Used as a page (not paragraph) break.
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\x0C") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\x0C") == 0);
 
 	// U+0085 : NEXT LINE (NEL) -- Used in EBCDIC systems as a combined CR+LF character.
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);

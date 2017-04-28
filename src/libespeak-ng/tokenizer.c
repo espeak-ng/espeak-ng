@@ -102,6 +102,7 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	{
 	case 0x0000: return ESPEAKNG_CTYPE_END_OF_STRING; // NULL
 	case 0x000A: return ESPEAKNG_CTYPE_NEWLINE; // LINE FEED (LF)
+	case 0x000C: return ESPEAKNG_CTYPE_NEWLINE; // FORM FEED (FF)
 	case 0x000D: return ESPEAKNG_CTYPE_CARRIAGE_RETURN; // CARRIAGE RETURN (CR)
 	case 0x0085: return ESPEAKNG_CTYPE_NEWLINE; // NEW LINE (NEL)
 	}
