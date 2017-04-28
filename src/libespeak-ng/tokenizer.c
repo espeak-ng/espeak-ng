@@ -88,6 +88,7 @@ typedef enum {
 	ESPEAKNG_CTYPE_CARRIAGE_RETURN,
 	ESPEAKNG_CTYPE_NEWLINE,
 	ESPEAKNG_CTYPE_END_OF_STRING,
+	ESPEAKNG_CTYPE_PARAGRAPH,
 	ESPEAKNG_CTYPE_WHITESPACE,
 } espeakng_CTYPE;
 
@@ -113,7 +114,7 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	switch (cat)
 	{
 	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_NEWLINE;
-	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_WHITESPACE;
+	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_PARAGRAPH;
 	case UCD_CATEGORY_Zs: return ESPEAKNG_CTYPE_WHITESPACE;
 	}
 
@@ -170,6 +171,9 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 
 	switch (codepoint_type(c))
 	{
+	case ESPEAKNG_CTYPE_END_OF_STRING: // '\0'
+		tokenizer->read = tokenizer_state_end_of_buffer;
+		return tokenizer_state_end_of_buffer(tokenizer);
 	case ESPEAKNG_CTYPE_CARRIAGE_RETURN: // '\r'
 		if (text_decoder_peekc(tokenizer->decoder) == '\n') {
 			current += utf8_out(c, current);
@@ -180,9 +184,10 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 		current += utf8_out(c, current);
 		*current = '\0';
 		return ESPEAKNG_TOKEN_NEWLINE;
-	case ESPEAKNG_CTYPE_END_OF_STRING: // '\0'
-		tokenizer->read = tokenizer_state_end_of_buffer;
-		return tokenizer_state_end_of_buffer(tokenizer);
+	case ESPEAKNG_CTYPE_PARAGRAPH:
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_PARAGRAPH;
 	case ESPEAKNG_CTYPE_WHITESPACE:
 		current += utf8_out(c, current);
 		while (!text_decoder_eof(tokenizer->decoder) &&

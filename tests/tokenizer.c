@@ -307,6 +307,34 @@ test_unicode_newline_tokens()
 }
 
 void
+test_paragraph_tokens()
+{
+	printf("testing paragraph tokens\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "\xE2\x80\xA9\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(tokenizer_reset(tokenizer, decoder) == 1);
+
+	// General Category: Zp -- PARAGRAPH SEPARATOR
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PARAGRAPH);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA9") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PARAGRAPH);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA9") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_text_decoder(decoder);
+	destroy_tokenizer(tokenizer);
+}
+
+void
 test_whitespace_tokens()
 {
 	printf("testing whitespace tokens\n");
@@ -314,7 +342,7 @@ test_whitespace_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, "\t\t\n\x0B\x0B\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0\n\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, "\t\t\n\x0B\x0B\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder) == 1);
 
 	// General Category: Cc, Property: White_Space
@@ -349,15 +377,6 @@ test_whitespace_tokens()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xA0\xC2\xA0") == 0);
 
-	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
-	assert(tokenizer_get_token_text(tokenizer) != NULL);
-	assert(strcmp(tokenizer_get_token_text(tokenizer), "\n") == 0);
-
-	// General Category: Zp -- PARAGRAPH SEPARATOR
-	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
-	assert(tokenizer_get_token_text(tokenizer) != NULL);
-	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA9") == 0);
-
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(*tokenizer_get_token_text(tokenizer) == '\0');
@@ -387,6 +406,7 @@ main(int argc, char **argv)
 	test_mac_newline_tokens();
 	test_windows_newline_tokens();
 	test_unicode_newline_tokens();
+	test_paragraph_tokens();
 	test_whitespace_tokens();
 
 	printf("done\n");
