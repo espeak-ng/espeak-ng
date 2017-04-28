@@ -268,7 +268,7 @@ test_unicode_newline_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, "\xC2\x85\xC2\x85", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, "\xC2\x85\xC2\x85\xE2\x80\xA8\xE2\x80\xA8", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder) == 1);
 
 	// U+0085 : NEXT LINE (NEL) -- Used in EBCDIC systems as a combined CR+LF character.
@@ -279,6 +279,15 @@ test_unicode_newline_tokens()
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\x85") == 0);
+
+	// General Category: Zl -- LINE SEPARATOR
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA8") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA8") == 0);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -296,7 +305,7 @@ test_whitespace_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, "\t\t\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0\n\xE2\x80\xA8\n\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, "\t\t\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0\n\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder) == 1);
 
 	// General Category: Cc, Property: White_Space
@@ -321,15 +330,6 @@ test_whitespace_tokens()
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xA0\xC2\xA0") == 0);
-
-	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
-	assert(tokenizer_get_token_text(tokenizer) != NULL);
-	assert(strcmp(tokenizer_get_token_text(tokenizer), "\n") == 0);
-
-	// General Category: Zl -- LINE SEPARATOR
-	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
-	assert(tokenizer_get_token_text(tokenizer) != NULL);
-	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA8") == 0);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);

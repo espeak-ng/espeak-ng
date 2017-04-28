@@ -93,6 +93,7 @@ typedef enum {
 
 #define ESPEAKNG_CTYPE_PROPERTY_MASK 0x0000000000000001ull
 
+// Reference: http://www.unicode.org/reports/tr14/tr14-32.html -- Unicode Line Breaking Algorithm
 static espeakng_CTYPE codepoint_type(uint32_t c)
 {
 	// 1. Detect and classify specific codepoints.
@@ -110,7 +111,7 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	ucd_category cat = ucd_lookup_category(c);
 	switch (cat)
 	{
-	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_WHITESPACE;
+	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_NEWLINE;
 	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_WHITESPACE;
 	case UCD_CATEGORY_Zs: return ESPEAKNG_CTYPE_WHITESPACE;
 	}
