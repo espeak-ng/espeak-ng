@@ -314,13 +314,22 @@ test_whitespace_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, "\t\t\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0\n\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, "\t\t\n\x0B\x0B\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0\n\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder) == 1);
 
 	// General Category: Cc, Property: White_Space
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\t\t") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\n") == 0);
+
+	// General Category: Cc, Property: White_Space, VERTICAL TAB (VT) -- Not treated as newline tokens.
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\x0B\x0B") == 0);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
