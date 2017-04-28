@@ -99,9 +99,10 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 
 	switch (c)
 	{
-	case '\r': return ESPEAKNG_CTYPE_CARRIAGE_RETURN;
-	case '\n': return ESPEAKNG_CTYPE_NEWLINE;
-	case '\0': return ESPEAKNG_CTYPE_END_OF_STRING;
+	case 0x0000: return ESPEAKNG_CTYPE_END_OF_STRING; // NULL
+	case 0x000A: return ESPEAKNG_CTYPE_NEWLINE; // LINE FEED (LF)
+	case 0x000D: return ESPEAKNG_CTYPE_CARRIAGE_RETURN; // CARRIAGE RETURN (CR)
+	case 0x0085: return ESPEAKNG_CTYPE_NEWLINE; // NEW LINE (NEL)
 	}
 
 	// 2. Classify codepoints by their Unicode General Category.
@@ -173,7 +174,7 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 			c = text_decoder_getc(tokenizer->decoder);
 		}
 		// fallthrough
-	case ESPEAKNG_CTYPE_NEWLINE: // '\n'
+	case ESPEAKNG_CTYPE_NEWLINE:
 		current += utf8_out(c, current);
 		*current = '\0';
 		return ESPEAKNG_TOKEN_NEWLINE;

@@ -261,6 +261,34 @@ test_windows_newline_tokens()
 }
 
 void
+test_unicode_newline_tokens()
+{
+	printf("testing unicode newline tokens\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "\xC2\x85\xC2\x85", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(tokenizer_reset(tokenizer, decoder) == 1);
+
+	// U+0085 : NEXT LINE (NEL) -- Used in EBCDIC systems as a combined CR+LF character.
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\x85") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\x85") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_text_decoder(decoder);
+	destroy_tokenizer(tokenizer);
+}
+
+void
 test_whitespace_tokens()
 {
 	printf("testing whitespace tokens\n");
@@ -340,6 +368,7 @@ main(int argc, char **argv)
 	test_linux_newline_tokens();
 	test_mac_newline_tokens();
 	test_windows_newline_tokens();
+	test_unicode_newline_tokens();
 	test_whitespace_tokens();
 
 	printf("done\n");
