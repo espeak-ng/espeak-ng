@@ -170,7 +170,7 @@ test_unbound_tokenizer()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(*tokenizer_get_token_text(tokenizer) == '\0');
 
-	assert(tokenizer_reset(tokenizer, NULL) == 1);
+	assert(tokenizer_reset(tokenizer, NULL, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -188,7 +188,7 @@ test_linux_newline_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\n\n", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -215,7 +215,7 @@ test_mac_newline_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\r\r", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -242,7 +242,7 @@ test_windows_newline_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\r\n\r\n", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -269,7 +269,7 @@ test_unicode_newline_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\x0C\x0C\xC2\x85\xC2\x85\xE2\x80\xA8\xE2\x80\xA8", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	// U+000C : FORM FEED (FF) -- Used as a page (not paragraph) break.
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
@@ -315,7 +315,7 @@ test_paragraph_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\xE2\x80\xA9\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	// General Category: Zp -- PARAGRAPH SEPARATOR
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PARAGRAPH);
@@ -343,7 +343,7 @@ test_whitespace_tokens()
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
 	assert(text_decoder_decode_string(decoder, "\t\t\n\x0B\x0B\n \xE3\x80\x80 \n\xC2\xA0\xC2\xA0", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
-	assert(tokenizer_reset(tokenizer, decoder) == 1);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	// General Category: Cc, Property: White_Space
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);

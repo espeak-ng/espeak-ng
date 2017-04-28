@@ -230,7 +230,8 @@ destroy_tokenizer(espeak_ng_TOKENIZER *tokenizer)
 
 int
 tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
-                espeak_ng_TEXT_DECODER *decoder)
+                espeak_ng_TEXT_DECODER *decoder,
+                espeak_ng_TOKENIZER_OPTIONS options)
 {
 	if (!tokenizer) return 0;
 

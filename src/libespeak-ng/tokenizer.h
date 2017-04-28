@@ -30,9 +30,15 @@ create_tokenizer(void);
 void
 destroy_tokenizer(espeak_ng_TOKENIZER *tokenizer);
 
+typedef enum
+{
+	ESPEAKNG_TOKENIZER_OPTION_TEXT = 0,
+} espeak_ng_TOKENIZER_OPTIONS;
+
 int
 tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
-                espeak_ng_TEXT_DECODER *decoder);
+                espeak_ng_TEXT_DECODER *decoder,
+                espeak_ng_TOKENIZER_OPTIONS options);
 
 typedef enum
 {
