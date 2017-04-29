@@ -19,10 +19,12 @@
 #include "config.h"
 
 #include <assert.h>
+#include <errno.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <sys/stat.h>
 
 #include <espeak-ng/espeak_ng.h>
 
@@ -32,6 +34,21 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+
+// TODO: Find a better place for this than speech.c, so it can be implemented
+// in one place without having to include all of speech.c.
+int GetFileLength(const char *filename)
+{
+	struct stat statbuf;
+
+	if (stat(filename, &statbuf) != 0)
+		return -errno;
+
+	if (S_ISDIR(statbuf.st_mode))
+		return -EISDIR;
+
+	return statbuf.st_size;
+}
 
 void
 test_latin_common()
@@ -385,8 +402,8 @@ test_whitespace_tokens()
 	destroy_tokenizer(tokenizer);
 }
 
-int
-main(int argc, char **argv)
+void
+run_tests()
 {
 	test_latin_common();
 	test_greek();
@@ -410,6 +427,99 @@ main(int argc, char **argv)
 	test_whitespace_tokens();
 
 	printf("done\n");
+}
+
+void
+escape_newline(const char *s)
+{
+	for ( ; *s; ++s) switch (*s)
+	{
+	case '\r': printf("\\r"); break;
+	case '\n': printf("\\n"); break;
+	default:   putc(*s, stdout); break;
+	}
+}
+
+void
+print_tokens(espeak_ng_TEXT_DECODER *decoder)
+{
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	if (!tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT)) {
+		destroy_tokenizer(tokenizer);
+		return;
+	}
+
+	while (1) switch (tokenizer_read_next_token(tokenizer))
+	{
+	case ESPEAKNG_TOKEN_END_OF_BUFFER:
+		destroy_tokenizer(tokenizer);
+		return;
+	case ESPEAKNG_TOKEN_UNKNOWN:
+		printf("unknown    : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_NEWLINE:
+		printf("newline    : ");
+		escape_newline(tokenizer_get_token_text(tokenizer));
+		putc('\n', stdout);
+		break;
+	case ESPEAKNG_TOKEN_PARAGRAPH:
+		printf("paragraph  : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_WHITESPACE:
+		printf("whitespace : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	}
+}
+
+void
+print_tokens_from_file(const char *filename, const char *encoding_name)
+{
+	espeak_ng_ENCODING encoding = espeak_ng_EncodingFromName(encoding_name);
+	if (encoding == ESPEAKNG_ENCODING_UNKNOWN) {
+		printf("Unknown encoding \"%s\".\n", encoding_name);
+		return;
+	}
+
+	int length = GetFileLength(filename);
+	FILE *f = (length > 0) ? fopen(filename, "rb") : NULL;
+	if (!f) {
+		printf("Cannot open file: %s\n", filename);
+		return;
+	}
+
+	char *buffer = malloc(length);
+	if (!buffer) {
+		fclose(f);
+		printf("Out of memory!\n");
+		return;
+	}
+
+	fread(buffer, 1, length, f);
+	fclose(f);
+
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+	if (text_decoder_decode_string(decoder, buffer, length, encoding) == ENS_OK)
+		print_tokens(decoder);
+
+	destroy_text_decoder(decoder);
+}
+
+void
+usage(const char *program)
+{
+	printf("%s -- Run the tokenizer tests.\n", program);
+	printf("%s ENCODING FILENAME -- Print the tokens for FILENAME.\n", program);
+}
+
+int
+main(int argc, char **argv)
+{
+	switch (argc)
+	{
+	case 1:  run_tests(); break;
+	case 3:  print_tokens_from_file(argv[2], argv[1]); break;
+	default: usage(argv[0]); return EXIT_FAILURE;
+	}
 
 	return EXIT_SUCCESS;
 }
