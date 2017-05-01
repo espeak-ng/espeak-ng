@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 march 31 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 april 28 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -1704,6 +1704,7 @@ vent'anni	vent'an:I
 
 (in balia)	in||bal'i:a
 (presidi sanitari)	p@-*ez'idi||sanit'aRI
+(con principi)	kon||p@-*intS'ipi
 (principi attivi)	p@-*intS'i:pI||at:'ivI
 (principi fondamentali)	p@-*intS'i:pI||fondament'a:lI
 (principi morali)	p@-*intS'i:pI||moR'alI
@@ -3986,6 +3987,7 @@ regolarizzino	$4
 reimpieghino	$3
 reintegr	@-*e'integ@-*
 reinterpretano	$3
+reinterpret	$3
 reinvio	@-*einv'i:o
 remano	$1 $alt2
 rendano	$1
@@ -4794,10 +4796,12 @@ illuminal	$2
 immergiti	$2
 importal	$2
 impostaci	$2
+impostal	$2
 impostomi	$2
 indirizziamoci	indiRi_tsj'amotSI // $5
 indirizziamol	indiRi_tsj'amol // $5
 indirizzati	indiRits2:'ati
+indossal	$2
 informaci	$2 $alt2
 informati	$2 $alt2 $atstart
 insediatisi	$3
