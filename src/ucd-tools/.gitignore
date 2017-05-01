@@ -56,3 +56,7 @@ missing
 Makefile
 Makefile.in
 stamp-h1
+
+# emscripten:
+a.out.js
+a.out.js.mem
