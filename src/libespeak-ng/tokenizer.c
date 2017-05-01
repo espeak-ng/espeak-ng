@@ -90,9 +90,11 @@ typedef enum {
 	ESPEAKNG_CTYPE_END_OF_STRING,
 	ESPEAKNG_CTYPE_PARAGRAPH,
 	ESPEAKNG_CTYPE_WHITESPACE,
+	ESPEAKNG_CTYPE_LOWERCASE,
+	ESPEAKNG_CTYPE_UPPERCASE,
 } espeakng_CTYPE;
 
-#define ESPEAKNG_CTYPE_PROPERTY_MASK 0x0000000000000001ull
+#define ESPEAKNG_CTYPE_PROPERTY_MASK 0x000000000000C001ull
 
 // Reference: http://www.unicode.org/reports/tr14/tr14-32.html -- Unicode Line Breaking Algorithm
 static espeakng_CTYPE codepoint_type(uint32_t c)
@@ -113,6 +115,8 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	ucd_category cat = ucd_lookup_category(c);
 	switch (cat)
 	{
+	case UCD_CATEGORY_Lu: return ESPEAKNG_CTYPE_UPPERCASE;
+	case UCD_CATEGORY_Ll: return ESPEAKNG_CTYPE_LOWERCASE;
 	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_NEWLINE;
 	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_PARAGRAPH;
 	case UCD_CATEGORY_Zs: return ESPEAKNG_CTYPE_WHITESPACE;
@@ -125,6 +129,10 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	{
 	case UCD_PROPERTY_WHITE_SPACE:
 		return ESPEAKNG_CTYPE_WHITESPACE;
+	case UCD_PROPERTY_OTHER_LOWERCASE:
+		return ESPEAKNG_CTYPE_LOWERCASE;
+	case UCD_PROPERTY_OTHER_UPPERCASE:
+		return ESPEAKNG_CTYPE_UPPERCASE;
 	}
 
 	// 4. Classify the remaining codepoints.
@@ -148,6 +156,57 @@ tokenizer_state_end_of_buffer(espeak_ng_TOKENIZER *tokenizer)
 {
 	*tokenizer->token = '\0';
 	return ESPEAKNG_TOKEN_END_OF_BUFFER;
+}
+
+static espeak_ng_TOKEN_TYPE
+tokenizer_read_word_token(espeak_ng_TOKENIZER *tokenizer, char *current, espeak_ng_TOKEN_TYPE type)
+{
+	char *end = tokenizer->token + sizeof(tokenizer->token) - 5; // allow for UTF-8 trailing bytes
+	int initial_state = 1;
+
+	while (current < end && !text_decoder_eof(tokenizer->decoder)) {
+		uint32_t c = text_decoder_getc(tokenizer->decoder);
+		switch (codepoint_type(c))
+		{
+		case ESPEAKNG_CTYPE_LOWERCASE:
+			current += utf8_out(c, current);
+			switch (type)
+			{
+			case ESPEAKNG_TOKEN_WORD_LOWERCASE:
+			case ESPEAKNG_TOKEN_WORD_MIXEDCASE:
+			case ESPEAKNG_TOKEN_WORD_CAPITALIZED:
+				break;
+			case ESPEAKNG_TOKEN_WORD_UPPERCASE:
+				type = initial_state
+				     ? ESPEAKNG_TOKEN_WORD_CAPITALIZED
+				     : ESPEAKNG_TOKEN_WORD_MIXEDCASE;
+				break;
+			}
+			initial_state = 0;
+			break;
+		case ESPEAKNG_CTYPE_UPPERCASE:
+			current += utf8_out(c, current);
+			switch (type)
+			{
+			case ESPEAKNG_TOKEN_WORD_UPPERCASE:
+			case ESPEAKNG_TOKEN_WORD_MIXEDCASE:
+				break;
+			case ESPEAKNG_TOKEN_WORD_LOWERCASE:
+			case ESPEAKNG_TOKEN_WORD_CAPITALIZED:
+				type = ESPEAKNG_TOKEN_WORD_MIXEDCASE;
+				break;
+			}
+			initial_state = 0;
+			break;
+		default:
+			tokenizer->keepc = c;
+			*current = '\0';
+			return type;
+		}
+	}
+
+	*current = '\0';
+	return type;
 }
 
 static espeak_ng_TOKEN_TYPE
@@ -199,6 +258,12 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 		tokenizer->keepc = c;
 		*current = '\0';
 		return ESPEAKNG_TOKEN_WHITESPACE;
+	case ESPEAKNG_CTYPE_LOWERCASE:
+		current += utf8_out(c, current);
+		return tokenizer_read_word_token(tokenizer, current, ESPEAKNG_TOKEN_WORD_LOWERCASE);
+	case ESPEAKNG_CTYPE_UPPERCASE:
+		current += utf8_out(c, current);
+		return tokenizer_read_word_token(tokenizer, current, ESPEAKNG_TOKEN_WORD_UPPERCASE);
 	default:
 		current += utf8_out(c, current);
 		*current = '\0';

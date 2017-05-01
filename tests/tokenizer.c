@@ -403,6 +403,61 @@ test_whitespace_tokens()
 }
 
 void
+test_Latn_word_tokens()
+{
+	printf("testing Latin (Latn) script word tokens\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "One one ONE OneTwo ONETwo", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WORD_CAPITALIZED);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "One") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WORD_LOWERCASE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "one") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WORD_UPPERCASE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "ONE") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WORD_MIXEDCASE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "OneTwo") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WORD_MIXEDCASE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "ONETwo") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_text_decoder(decoder);
+	destroy_tokenizer(tokenizer);
+}
+
+void
 run_tests()
 {
 	test_latin_common();
@@ -425,6 +480,8 @@ run_tests()
 	test_unicode_newline_tokens();
 	test_paragraph_tokens();
 	test_whitespace_tokens();
+
+	test_Latn_word_tokens();
 
 	printf("done\n");
 }
@@ -455,18 +512,30 @@ print_tokens(espeak_ng_TEXT_DECODER *decoder)
 		destroy_tokenizer(tokenizer);
 		return;
 	case ESPEAKNG_TOKEN_UNKNOWN:
-		printf("unknown    : %s\n", tokenizer_get_token_text(tokenizer));
+		printf("unknown            : %s\n", tokenizer_get_token_text(tokenizer));
 		break;
 	case ESPEAKNG_TOKEN_NEWLINE:
-		printf("newline    : ");
+		printf("newline            : ");
 		escape_newline(tokenizer_get_token_text(tokenizer));
 		putc('\n', stdout);
 		break;
 	case ESPEAKNG_TOKEN_PARAGRAPH:
-		printf("paragraph  : %s\n", tokenizer_get_token_text(tokenizer));
+		printf("paragraph          : %s\n", tokenizer_get_token_text(tokenizer));
 		break;
 	case ESPEAKNG_TOKEN_WHITESPACE:
-		printf("whitespace : %s\n", tokenizer_get_token_text(tokenizer));
+		printf("whitespace         : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_WORD_UPPERCASE:
+		printf("word (upper case)  : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_WORD_LOWERCASE:
+		printf("word (lower case)  : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_WORD_MIXEDCASE:
+		printf("word (mixed case)  : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_WORD_CAPITALIZED:
+		printf("word (capitalized) : %s\n", tokenizer_get_token_text(tokenizer));
 		break;
 	}
 }
