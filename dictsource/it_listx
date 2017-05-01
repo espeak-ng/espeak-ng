@@ -550,7 +550,8 @@ boem  $alt
 bol  $alt
 bolgheri $1
 bolgia $1  $alt
-boll  $alt2
+boll	$alt2
+bollicine	$3
 bolsceviche	$3
 bom  $alt
 bon  $alt
@@ -1733,6 +1734,7 @@ gambusia $2
 gamete  $alt
 ganglio	g'anglio
 gangliom	gangli'om
+ganz	g'andz
 garanzia $3
 gardenia  $alt
 garibaldine	$4
@@ -4030,7 +4032,7 @@ turboventol  $alt
 turgovia  $alt
 turold  $alt
 tuttor  $alt2
-tuttosport $3
+ubbia	,ub:'ia
 ubbriac	$3
 ubbriache	ub:@-*I'ake
 ubold  $alt
