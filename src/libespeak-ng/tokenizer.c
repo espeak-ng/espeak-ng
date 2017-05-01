@@ -96,9 +96,10 @@ typedef enum {
 	ESPEAKNG_CTYPE_QUESTION_MARK,
 	ESPEAKNG_CTYPE_EXCLAMATION_MARK,
 	ESPEAKNG_CTYPE_COMMA,
+	ESPEAKNG_CTYPE_COLON,
 } espeakng_CTYPE;
 
-#define ESPEAKNG_CTYPE_PROPERTY_MASK 0xF00000000000C001ull
+#define ESPEAKNG_CTYPE_PROPERTY_MASK 0xF80000000000C001ull
 
 // Reference: http://www.unicode.org/reports/tr14/tr14-32.html -- Unicode Line Breaking Algorithm
 static espeakng_CTYPE codepoint_type(uint32_t c)
@@ -145,6 +146,8 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 		return ESPEAKNG_CTYPE_EXCLAMATION_MARK;
 	case ESPEAKNG_PROPERTY_COMMA:
 		return ESPEAKNG_CTYPE_COMMA;
+	case ESPEAKNG_PROPERTY_COLON:
+		return ESPEAKNG_CTYPE_COLON;
 	}
 
 	// 4. Classify the remaining codepoints.
@@ -292,6 +295,10 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 		current += utf8_out(c, current);
 		*current = '\0';
 		return ESPEAKNG_TOKEN_COMMA;
+	case ESPEAKNG_CTYPE_COLON:
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_COLON;
 	default:
 		current += utf8_out(c, current);
 		*current = '\0';
