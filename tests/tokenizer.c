@@ -465,7 +465,7 @@ test_Latn_punctuation_tokens()
 	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
 	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
 
-	assert(text_decoder_decode_string(decoder, ". ?", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
+	assert(text_decoder_decode_string(decoder, ". ? !", -1, ESPEAKNG_ENCODING_US_ASCII) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_FULL_STOP);
@@ -479,6 +479,14 @@ test_Latn_punctuation_tokens()
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_QUESTION_MARK);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "?") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_EXCLAMATION_MARK);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "!") == 0);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -574,6 +582,9 @@ print_tokens(espeak_ng_TEXT_DECODER *decoder)
 		break;
 	case ESPEAKNG_TOKEN_QUESTION_MARK:
 		printf("question mark      : %s\n", tokenizer_get_token_text(tokenizer));
+		break;
+	case ESPEAKNG_TOKEN_EXCLAMATION_MARK:
+		printf("exclamation mark   : %s\n", tokenizer_get_token_text(tokenizer));
 		break;
 	}
 }
