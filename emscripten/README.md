@@ -8,7 +8,7 @@ allows client-side text-to-speech synthesis in any browser
 supporting Web workers and the Web Audio API.
 
 * Version: 1.49.1
-* Date: 2017-02-01
+* Date: 2017-05-01
 * License: the GNU General Public License, Version 3 (GPLv3)
 * Size: 3.2 MB (including all the voices)
 
@@ -112,21 +112,32 @@ repository.
     $ make en && make it && make de
     ```
 
-4. Recompile the `espeak-ng` library with `emconfigure` and `emmake`:
+4. Enter the `src/ucd-tools` directory, `make clean` it, and compile with `emconfigure` and `emmake`:
+
+    ```bash
+    $ cd src/ucd-tools
+    $ ./autogen.sh
+    $ make clean
+    $ emconfigure ./configure
+    $ emmake make
+    $ cd ../..
+    ```
+
+5. Recompile the `espeak-ng` library with `emconfigure` and `emmake`:
 
     ```bash
     $ emconfigure ./configure --prefix=/usr --without-async --without-mbrola --without-sonic
     $ emmake make src/libespeak-ng.la
     ```
 
-5. Enter the `emscripten` directory and compile the JS worker with `emmake`:
+6. Enter the `emscripten` directory and compile the JS worker with `emmake`:
 
     ```bash
     $ cd emscripten
     $ emmake make
     ```
 
-6. The `js/` directory should contain the output JS files:
+7. The `js/` directory should contain the output JS files:
 
     * `espeakng.js`,
     * `espeakng.worker.js`, and
