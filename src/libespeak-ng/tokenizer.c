@@ -92,9 +92,10 @@ typedef enum {
 	ESPEAKNG_CTYPE_WHITESPACE,
 	ESPEAKNG_CTYPE_LOWERCASE,
 	ESPEAKNG_CTYPE_UPPERCASE,
+	ESPEAKNG_CTYPE_FULL_STOP,
 } espeakng_CTYPE;
 
-#define ESPEAKNG_CTYPE_PROPERTY_MASK 0x000000000000C001ull
+#define ESPEAKNG_CTYPE_PROPERTY_MASK 0x800000000000C001ull
 
 // Reference: http://www.unicode.org/reports/tr14/tr14-32.html -- Unicode Line Breaking Algorithm
 static espeakng_CTYPE codepoint_type(uint32_t c)
@@ -133,6 +134,8 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 		return ESPEAKNG_CTYPE_LOWERCASE;
 	case UCD_PROPERTY_OTHER_UPPERCASE:
 		return ESPEAKNG_CTYPE_UPPERCASE;
+	case ESPEAKNG_PROPERTY_FULL_STOP:
+		return ESPEAKNG_CTYPE_FULL_STOP;
 	}
 
 	// 4. Classify the remaining codepoints.
@@ -264,6 +267,10 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 	case ESPEAKNG_CTYPE_UPPERCASE:
 		current += utf8_out(c, current);
 		return tokenizer_read_word_token(tokenizer, current, ESPEAKNG_TOKEN_WORD_UPPERCASE);
+	case ESPEAKNG_CTYPE_FULL_STOP:
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_FULL_STOP;
 	default:
 		current += utf8_out(c, current);
 		*current = '\0';
