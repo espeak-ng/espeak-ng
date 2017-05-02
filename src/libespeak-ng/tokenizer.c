@@ -117,16 +117,13 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	case 0x0085: return ESPEAKNG_CTYPE_NEWLINE; // NEW LINE (NEL)
 	}
 
-	// 2. Classify codepoints by their Unicode General Category.
+	// 2. Override property types for codepoints by their Unicode General Category.
 
 	ucd_category cat = ucd_lookup_category(c);
 	switch (cat)
 	{
-	case UCD_CATEGORY_Lu: return ESPEAKNG_CTYPE_UPPERCASE;
-	case UCD_CATEGORY_Ll: return ESPEAKNG_CTYPE_LOWERCASE;
 	case UCD_CATEGORY_Zl: return ESPEAKNG_CTYPE_NEWLINE;
 	case UCD_CATEGORY_Zp: return ESPEAKNG_CTYPE_PARAGRAPH;
-	case UCD_CATEGORY_Zs: return ESPEAKNG_CTYPE_WHITESPACE;
 	}
 
 	// 3. Classify codepoints by their Unicode properties.
@@ -156,7 +153,15 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 		return ESPEAKNG_CTYPE_ELLIPSIS;
 	}
 
-	// 4. Classify the remaining codepoints.
+	// 4. Classify codepoints by their Unicode General Category.
+
+	switch (cat)
+	{
+	case UCD_CATEGORY_Lu: return ESPEAKNG_CTYPE_UPPERCASE;
+	case UCD_CATEGORY_Ll: return ESPEAKNG_CTYPE_LOWERCASE;
+	}
+
+	// 5. Classify the remaining codepoints.
 
 	return ESPEAKNG_CTYPE_OTHER;
 }
