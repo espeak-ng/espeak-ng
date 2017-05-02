@@ -24,10 +24,10 @@ extern "C"
 
 typedef struct espeak_ng_TOKENIZER_ espeak_ng_TOKENIZER;
 
-espeak_ng_TOKENIZER *
+ESPEAK_NG_API espeak_ng_TOKENIZER *
 create_tokenizer(void);
 
-void
+ESPEAK_NG_API void
 destroy_tokenizer(espeak_ng_TOKENIZER *tokenizer);
 
 typedef enum
@@ -35,7 +35,7 @@ typedef enum
 	ESPEAKNG_TOKENIZER_OPTION_TEXT = 0,
 } espeak_ng_TOKENIZER_OPTIONS;
 
-int
+ESPEAK_NG_API int
 tokenizer_reset(espeak_ng_TOKENIZER *tokenizer,
                 espeak_ng_TEXT_DECODER *decoder,
                 espeak_ng_TOKENIZER_OPTIONS options);
@@ -60,10 +60,10 @@ typedef enum
 	ESPEAKNG_TOKEN_ELLIPSIS,
 } espeak_ng_TOKEN_TYPE;
 
-espeak_ng_TOKEN_TYPE
+ESPEAK_NG_API espeak_ng_TOKEN_TYPE
 tokenizer_read_next_token(espeak_ng_TOKENIZER *tokenizer);
 
-const char *
+ESPEAK_NG_API const char *
 tokenizer_get_token_text(espeak_ng_TOKENIZER *tokenizer);
 
 #ifdef __cplusplus

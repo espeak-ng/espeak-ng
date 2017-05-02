@@ -28,8 +28,8 @@
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
+#include <espeak-ng/tokenizer.h>
 
-#include "tokenizer.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"

@@ -26,9 +26,9 @@
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
+#include <espeak-ng/tokenizer.h>
 #include <ucd/ucd.h>
 
-#include "tokenizer.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -334,6 +334,8 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 	return ESPEAKNG_TOKEN_END_OF_BUFFER;
 }
 
+#pragma GCC visibility push(default)
+
 espeak_ng_TOKENIZER *
 create_tokenizer(void)
 {
@@ -378,3 +380,5 @@ tokenizer_get_token_text(espeak_ng_TOKENIZER *tokenizer)
 {
 	return tokenizer->token;
 }
+
+#pragma GCC visibility pop
