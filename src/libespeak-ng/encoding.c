@@ -23,9 +23,9 @@
 #include <wchar.h>
 
 #include <espeak-ng/espeak_ng.h>
+#include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "encoding.h"
 
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
@@ -688,6 +688,8 @@ static const encoding_t string_decoders[] = {
 	{ string_decoder_getc_iso_10646_ucs_2, NULL },
 };
 
+#pragma GCC visibility push(default)
+
 espeak_ng_TEXT_DECODER *
 create_text_decoder(void)
 {
@@ -818,3 +820,5 @@ text_decoder_get_buffer(espeak_ng_TEXT_DECODER *decoder)
 		return NULL;
 	return decoder->current;
 }
+
+#pragma GCC visibility pop

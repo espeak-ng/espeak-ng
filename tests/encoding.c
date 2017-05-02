@@ -24,7 +24,7 @@
 #include <stdio.h>
 
 #include <espeak-ng/espeak_ng.h>
-#include "encoding.h"
+#include <espeak-ng/encoding.h>
 
 void
 test_unbound_text_decoder()

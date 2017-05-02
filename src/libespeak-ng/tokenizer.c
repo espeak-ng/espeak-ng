@@ -25,9 +25,9 @@
 #include <string.h>
 
 #include <espeak-ng/espeak_ng.h>
+#include <espeak-ng/encoding.h>
 #include <ucd/ucd.h>
 
-#include "encoding.h"
 #include "tokenizer.h"
 #include "speech.h"
 #include "phoneme.h"
