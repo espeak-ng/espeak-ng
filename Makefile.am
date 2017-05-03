@@ -122,8 +122,10 @@ espeak_include_HEADERS = \
 
 espeak_ng_includedir = $(includedir)/espeak-ng
 espeak_ng_include_HEADERS = \
+	src/include/espeak-ng/encoding.h \
 	src/include/espeak-ng/espeak_ng.h \
-	src/include/espeak-ng/speak_lib.h
+	src/include/espeak-ng/speak_lib.h \
+	src/include/espeak-ng/tokenizer.h
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
