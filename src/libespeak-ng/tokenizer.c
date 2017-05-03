@@ -100,6 +100,7 @@ typedef enum {
 	ESPEAKNG_CTYPE_SEMICOLON,
 	ESPEAKNG_CTYPE_ELLIPSIS,
 	ESPEAKNG_CTYPE_PUNCTUATION,
+	ESPEAKNG_CTYPE_SYMBOL,
 } espeakng_CTYPE;
 
 #define ESPEAKNG_CTYPE_PROPERTY_MASK 0xFE0000000000C001ull
@@ -167,6 +168,10 @@ static espeakng_CTYPE codepoint_type(uint32_t c)
 	case UCD_CATEGORY_Pi: return ESPEAKNG_CTYPE_PUNCTUATION;
 	case UCD_CATEGORY_Po: return ESPEAKNG_CTYPE_PUNCTUATION;
 	case UCD_CATEGORY_Ps: return ESPEAKNG_CTYPE_PUNCTUATION;
+	case UCD_CATEGORY_Sc: return ESPEAKNG_CTYPE_SYMBOL;
+	case UCD_CATEGORY_Sk: return ESPEAKNG_CTYPE_SYMBOL;
+	case UCD_CATEGORY_Sm: return ESPEAKNG_CTYPE_SYMBOL;
+	case UCD_CATEGORY_So: return ESPEAKNG_CTYPE_SYMBOL;
 	}
 
 	// 5. Classify the remaining codepoints.
@@ -342,6 +347,10 @@ tokenizer_state_default(espeak_ng_TOKENIZER *tokenizer)
 		current += utf8_out(c, current);
 		*current = '\0';
 		return ESPEAKNG_TOKEN_PUNCTUATION;
+	case ESPEAKNG_CTYPE_SYMBOL:
+		current += utf8_out(c, current);
+		*current = '\0';
+		return ESPEAKNG_TOKEN_SYMBOL;
 	default:
 		current += utf8_out(c, current);
 		*current = '\0';

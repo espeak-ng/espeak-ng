@@ -632,6 +632,57 @@ test_Latn_general_punctuation_tokens()
 }
 
 void
+test_Latn_symbol_tokens()
+{
+	printf("testing Latin (Latn) script symbol tokens\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "$ ^ + \xC2\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
+
+	// General Category: Sc
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_SYMBOL);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "$") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Sk
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_SYMBOL);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "^") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Sm
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_SYMBOL);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "+") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: So, COPYRIGHT SIGN [U+00A9]
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_SYMBOL);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xA9") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_text_decoder(decoder);
+	destroy_tokenizer(tokenizer);
+}
+
+void
 run_tests()
 {
 	test_latin_common();
@@ -658,6 +709,7 @@ run_tests()
 	test_Latn_word_tokens();
 	test_Latn_punctuation_tokens();
 	test_Latn_general_punctuation_tokens();
+	test_Latn_symbol_tokens();
 
 	printf("done\n");
 }
