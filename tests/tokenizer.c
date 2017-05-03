@@ -288,7 +288,7 @@ test_unicode_newline_tokens()
 	assert(text_decoder_decode_string(decoder, "\x0C\x0C\xC2\x85\xC2\x85\xE2\x80\xA8\xE2\x80\xA8", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
-	// U+000C : FORM FEED (FF) -- Used as a page (not paragraph) break.
+	// FORM FEED (FF) -- Used as a page (not paragraph) break.
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\x0C") == 0);
@@ -297,7 +297,7 @@ test_unicode_newline_tokens()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\x0C") == 0);
 
-	// U+0085 : NEXT LINE (NEL) -- Used in EBCDIC systems as a combined CR+LF character.
+	// NEXT LINE (NEL) [U+0085] -- Used in EBCDIC systems as a combined CR+LF character.
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\x85") == 0);
@@ -306,7 +306,7 @@ test_unicode_newline_tokens()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\x85") == 0);
 
-	// General Category: Zl -- LINE SEPARATOR
+	// General Category: Zl -- LINE SEPARATOR [U+2028]
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_NEWLINE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA8") == 0);
@@ -334,7 +334,7 @@ test_paragraph_tokens()
 	assert(text_decoder_decode_string(decoder, "\xE2\x80\xA9\xE2\x80\xA9", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
 	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
 
-	// General Category: Zp -- PARAGRAPH SEPARATOR
+	// General Category: Zp, PARAGRAPH SEPARATOR [U+2029]
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PARAGRAPH);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA9") == 0);
@@ -389,7 +389,7 @@ test_whitespace_tokens()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\n") == 0);
 
-	// General Category: Zs, Property: White_Space, Decomposition: <noBreak>
+	// General Category: Zs, Property: White_Space, Decomposition: <noBreak>, NO-BREAK SPACE [U+00A0]
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xA0\xC2\xA0") == 0);
@@ -548,9 +548,80 @@ test_Latn_punctuation_tokens()
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
 
+	// HORIZONTAL ELLIPSIS [U+2026]
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_ELLIPSIS);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
 	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xE2\x80\xA6") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(*tokenizer_get_token_text(tokenizer) == '\0');
+
+	destroy_text_decoder(decoder);
+	destroy_tokenizer(tokenizer);
+}
+
+void
+test_Latn_general_punctuation_tokens()
+{
+	printf("testing Latin (Latn) script general punctuation tokens\n");
+
+	espeak_ng_TOKENIZER *tokenizer = create_tokenizer();
+	espeak_ng_TEXT_DECODER *decoder = create_text_decoder();
+
+	assert(text_decoder_decode_string(decoder, "\" () - _ \xC2\xAB\xC2\xBB", -1, ESPEAKNG_ENCODING_UTF_8) == ENS_OK);
+	assert(tokenizer_reset(tokenizer, decoder, ESPEAKNG_TOKENIZER_OPTION_TEXT) == 1);
+
+	// General Category: Po
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\"") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Ps
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "(") == 0);
+
+	// General Category: Pe
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), ")") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Pd
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "-") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Pc
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "_") == 0);
+
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_WHITESPACE);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), " ") == 0);
+
+	// General Category: Pi, LEFT-POINTING DOUBLE ANGLE QUOTATION MARK [U+00AB]
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xAB") == 0);
+
+	// General Category: Pf, RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK [U+00BB]
+	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_PUNCTUATION);
+	assert(tokenizer_get_token_text(tokenizer) != NULL);
+	assert(strcmp(tokenizer_get_token_text(tokenizer), "\xC2\xBB") == 0);
 
 	assert(tokenizer_read_next_token(tokenizer) == ESPEAKNG_TOKEN_END_OF_BUFFER);
 	assert(tokenizer_get_token_text(tokenizer) != NULL);
@@ -586,6 +657,7 @@ run_tests()
 
 	test_Latn_word_tokens();
 	test_Latn_punctuation_tokens();
+	test_Latn_general_punctuation_tokens();
 
 	printf("done\n");
 }
