@@ -91,7 +91,7 @@ endphoneme
 
 // Open Vowels
 
-phoneme a_"
+phoneme a
   vwl starttype #a endtype #a
   ipa ä
   length 160
