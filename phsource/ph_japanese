@@ -73,7 +73,7 @@ endphoneme
 
 // Mid Vowels
 
-phoneme e_o
+phoneme e
   vwl starttype #e endtype #e
   ipa e̞
   length 160
