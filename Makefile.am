@@ -234,9 +234,10 @@ tests_tokenizer_test_SOURCES = \
 	src/libespeak-ng/tokenizer.c \
 	tests/tokenizer.c
 
-check:	tests/encoding.test tests/tokenizer.test
+check:	tests/encoding.test tests/tokenizer.test tests/languages.test
 	tests/encoding.test
 	tests/tokenizer.test
+	tests/languages.test
 
 ##### phoneme data:
 

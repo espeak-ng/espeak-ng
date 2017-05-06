@@ -91,6 +91,7 @@ src/espeakedit
 src/speak-ng
 
 tests/*.test
+!tests/languages.test
 
 espeak-ng.pc
 
