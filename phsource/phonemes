@@ -44,13 +44,6 @@ phoneme =   //  Place stress on previous vowel
   stress_type 2
 endphoneme
 
-//*******************************************************************
-// IPA Phonemes
-//*******************************************************************
-
-phonemetable ipa base
-include ph_ipa
-
 phonemetable base1 base
 
 // The base phoneme table contains the utility phonemes, the consonants,

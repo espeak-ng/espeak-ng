@@ -86,7 +86,6 @@ The supported languages are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
-| `und`       | `und-fonipa`      |                       | Phonemes<sup>[3]</sup>      | IPA                    |
 | `zls`       | `pl`              | South Slavic          | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
@@ -116,5 +115,3 @@ The supported languages are:
 [1] Farsi/Persian written using English (Latin) characters.
 
 [2] Currently, only Hiragana and Katakana are supported.
-
-[3] Currently only supported using the `[[...]]` phoneme blocks.
