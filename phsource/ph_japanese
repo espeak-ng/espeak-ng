@@ -63,7 +63,7 @@ phoneme u~
   FMT(vnasal/u_n)
 endphoneme
 
-phoneme M_Bo // M_B_o
+phoneme u
   vwl starttype #u endtype #u
   ipa ɯᵝ
   length 160
