@@ -81,7 +81,7 @@ phoneme e
   FMT(vowel/e_8)
 endphoneme
 
-phoneme o_o
+phoneme o
   vwl starttype #o endtype #o
   ipa o̞
   length 160
