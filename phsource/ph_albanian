@@ -255,13 +255,13 @@ endphoneme
 
 
 phoneme ts
-  import_phoneme ipa/ts\)
+  import_phoneme consonants/ts
   voicingswitch dz
 endphoneme
 
 
 phoneme dz
-  import_phoneme ipa/dz\)
+  import_phoneme consonants/dz
   voicingswitch ts
 endphoneme
 

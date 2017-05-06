@@ -61,7 +61,7 @@ endphoneme
 
 
 phoneme ts#
-  import_phoneme ipa/ts\)
+  import_phoneme consonants/ts
 endphoneme
 
 
@@ -85,7 +85,7 @@ endphoneme
 
 
 phoneme dz
-  import_phoneme ipa/dz\)
+  import_phoneme consonants/dz
   voicingswitch ts
 endphoneme
 

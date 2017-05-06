@@ -163,14 +163,15 @@ endphoneme
 
 
 phoneme ts
-  import_phoneme ipa/ts\)
+  import_phoneme consonants/ts
   voicingswitch dz
 endphoneme
 
 
 phoneme dz
-  import_phoneme ipa/dz\)
+  CALL consonants/dz
   voicingswitch ts
+  ipa dʑ
 endphoneme
 
 phoneme ts;

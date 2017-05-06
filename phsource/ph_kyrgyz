@@ -446,15 +446,8 @@ phoneme b
 endphoneme
 
 phoneme ts
-  vls alv afr sib
-  voicingswitch dZ
-  lengthmod 2
-  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
-  IF nextPh(isPause2) THEN
-    WAV(ustop/ts_)
-  ENDIF
-  WAV(ustop/ts)
+  ipa ts        
+  import_phoneme consonants/ts
 endphoneme
 
 phoneme tS     // **ch**urch

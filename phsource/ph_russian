@@ -147,7 +147,7 @@ endphoneme
 
 
 phoneme ts
-  import_phoneme ipa/ts\)
+  import_phoneme consonants/ts
 endphoneme
 
 

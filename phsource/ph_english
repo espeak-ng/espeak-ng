@@ -88,8 +88,23 @@ phoneme z/2    // used for 's suffix
   ChangePhoneme(z)
 endphoneme
 
+
 phoneme w#
-  import_phoneme ipa/W
+  vls glt apr  // [h]
+  ipa ʍ
+  
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ENDIF
+
+  WAV(h/hu, 70)
 endphoneme
 
 
@@ -99,7 +114,7 @@ phoneme n
   IF nextPh(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
     ChangePhoneme(N)
   ENDIF
-  CALL ipa/n
+  CALL base1/n
 endphoneme
 
 
