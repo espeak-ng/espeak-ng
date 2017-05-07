@@ -16,7 +16,7 @@ phoneme a:
   vwl starttype #a endtype #a
   length 300
   lng
-  FMT(vwl_lv/aa, 90)           
+  FMT(vwl_lv/aa, 90)
 endphoneme
 
 phoneme E
@@ -55,6 +55,19 @@ phoneme i:
   FMT(vwl_lv/ii, 100) // was i_7
 endphoneme
 
+
+phoneme y   // English y, short Latgalian "hard i"
+  vwl starttype #i endtype #i
+  length 120
+  FMT(vowel/y_2)
+endphoneme
+
+phoneme y:   // Long Latgalian "hard i"
+  vwl starttype #i endtype #i
+  length 300
+  FMT(vowel/y_2)
+endphoneme
+
 phoneme o
   vwl starttype #o endtype #o
   length 120
@@ -63,7 +76,7 @@ endphoneme
 
 phoneme o:
   vwl starttype #o endtype #o
-  length 310
+  length 300
   FMT(vwl_lv/oo, 75)
 endphoneme
 
