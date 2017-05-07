@@ -30,7 +30,6 @@
   - [stressAmp](#stressamp)
   - [intonation](#intonation)
   - [dictmin](#dictmin)
-  - [alphabet2](#alphabet2)
 
 ----------
 
@@ -425,19 +424,3 @@ Used for some languages to detect if additional language data is
 installed. If the size of the compiled dictionary data for the language
 (the file `espeak-ng-data/*_dict`) is less than this size then a
 warning is given.
-
-### alphabet2
-
-	alphabet2 <alphabet> <language>
-
-Used to specify a language to be used to speak words which are written
-in a non-native alphabet. e.g.:
-
-	alphabet2 cyr ru
-
-Alphabets names include: latin, cyr (cyrillic), ar (arabic). The default
-language for latin alphabet is English.
-
-Additional attributes are available to set various internal options
-which control how language is processed. These would normally be set in
-the program code rather than in a voice file.

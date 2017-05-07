@@ -100,17 +100,6 @@ ALPHABET alphabets[] = {
 	{ NULL, 0, 0, 0, 0, 0 }
 };
 
-ALPHABET *AlphabetFromName(const char *name)
-{
-	ALPHABET *alphabet;
-
-	for (alphabet = alphabets; alphabet->name != NULL; alphabet++) {
-		if (strcmp(name, &alphabet->name[1]) == 0)
-			return alphabet;
-	}
-	return NULL;
-}
-
 ALPHABET *AlphabetFromChar(int c)
 {
 	// Find the alphabet from a character.
@@ -277,7 +266,6 @@ static Translator *NewTranslator(void)
 	tr->langopts.param2[LOPT_BRACKET_PAUSE] = 2; // pauses when announcing bracket names
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
-	tr->langopts.ascii_language[0] = 0; // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 	tr->langopts.alt_alphabet_lang = L('e', 'n');
 	tr->langopts.roman_suffix = utf8_null;
 
