@@ -17,8 +17,8 @@ MKDIR=mkdir -p
 
 # -Wno-endif-labels : Needed to prevent warnings in ieee80.c.
 AM_CFLAGS = \
-	-Isrc/include \
-	-D_POSIX_C_SOURCE=200112L \
+	-Isrc/include -Isrc/include/compat -I src/ucd-tools/src/include \
+	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L \
 	-Wno-endif-labels
 
 EXTRA_DIST=
@@ -136,8 +136,8 @@ lib_LTLIBRARIES += src/libespeak-ng.la
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
 	${PCAUDIOLIB_LIBS}
 
-src_libespeak_ng_la_CFLAGS = -Isrc/include/compat -I src/ucd-tools/src/include \
-	-fPIC -fvisibility=hidden -D _BSD_SOURCE -D_DEFAULT_SOURCE \
+src_libespeak_ng_la_CFLAGS = \
+	-fPIC -fvisibility=hidden \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
@@ -227,9 +227,7 @@ tests_encoding_test_SOURCES = \
 
 noinst_bin_PROGRAMS += tests/tokenizer.test
 
-tests_tokenizer_test_CFLAGS = \
-	-Isrc/libespeak-ng -Isrc/include/compat -I src/ucd-tools/src/include \
-	${AM_CFLAGS}
+tests_tokenizer_test_CFLAGS = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_tokenizer_test_SOURCES = \
 	$(UCD_TOOLS_SOURCES) \
 	src/libespeak-ng/encoding.c \
