@@ -219,11 +219,8 @@ src_espeak_ng_SOURCES = src/espeak-ng.c
 
 noinst_bin_PROGRAMS += tests/encoding.test
 
-tests_encoding_test_CFLAGS = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_encoding_test_SOURCES = \
-	src/libespeak-ng/encoding.c \
-	src/libespeak-ng/mnemonics.c \
-	tests/encoding.c
+tests_encoding_test_LDADD   = src/libespeak-ng.la
+tests_encoding_test_SOURCES = tests/encoding.c
 
 noinst_bin_PROGRAMS += tests/tokenizer.test
 
