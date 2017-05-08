@@ -1,8 +1,8 @@
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Spelling-to-phoneme words for Latvian
 
 // names of Latvian letters
-a   a>_: 
+a   a>_:
 ā   a::_!
 b   be:_:
 c   tse:_:
@@ -44,29 +44,29 @@ z   ze:_:
 ž   Ze:_:
 
 // Names of Greek letters
-α   'alfa 
+α   'alfa
 β   b'e>ta
-γ   g'amma 
+γ   g'amma
 δ   d'elta
-ε   'epsilo:ns 
+ε   'epsilo:ns
 ζ   z'e>ta
-η   'e>ta 
+η   'e>ta
 θ   t'e>ta
-ι   j'ota 
+ι   j'ota
 κ   k'apa
-λ   l'am>da 
+λ   l'am>da
 μ   m'i:
 ν   n'i:
 ξ   ks'i:
-ο   'omikRo:ns 
+ο   'omikRo:ns
 π   p'i:
-ρ   R'o: 
+ρ   R'o:
 σ   s'igma
-τ   t'au 
+τ   t'au
 υ   'ipsilo:ns
-φ   f'i: 
+φ   f'i:
 χ   h'i:
-ψ   ps'i: 
+ψ   ps'i:
 ω   'omega
 
 //  diphthong consonants
@@ -124,7 +124,7 @@ _9o     d'evi:tais
 _0Co    s'imtais
 
 
-// accent names 
+// accent names
 _lig    l'igatu:Ra
 _acu    'aku:ts
 _ac2    d'ubultaku:ts
@@ -310,7 +310,7 @@ kādu      $u+
 kurai     $u+
 kuram     $u+
 kuras     $u+
-kura      $u+ 
+kura      $u+
 kurā      $u+
 kurš      $u+
 kuru      $u+
@@ -472,6 +472,8 @@ bba     $abbrev
 co      $abbrev
 dr      $abbrev
 dz      $abbrev
+eest    $abbrev
+est     $abbrev
 eur     'euR
 lnnk    'ell_,en_,en_k'a: $pause
 lp      $abbrev
@@ -479,7 +481,7 @@ ls      $abbrev
 lu      $abbrev
 lvu     $abbrev
 na      $abbrev
-nra     $abbrev    
+nra     $abbrev
 nr      $abbrev
 pctvl   p'e:_ts,e:_t,e:_v,e:_'ell_ $pause
 prks    $abbrev
@@ -493,7 +495,7 @@ tjpr    $abbrev $u $pause
 tml     $abbrev $u $pause
 tp      t,e:_p'e: $pause
 utjpr   $abbrev $u $pause
-utml    $abbrev $u $pause 
+utml    $abbrev $u $pause
 utt     $abbrev $u $pause
 zzs     z'e:_z,e:_'ess $pause
 
@@ -519,7 +521,7 @@ bolero       $alt
 bordo        $alt
 borneo       $alt
 bravo        $alt
-brno         $alt 
+brno         $alt
 bruno        $alt
 bruto        $alt
 bufalo       $alt
@@ -536,7 +538,7 @@ eko          $alt
 eldorado     $alt $3
 embargo      $alt $2
 esperanto    $alt
-euro         $alt          
+euro         $alt
 fiasko       $alt $2
 fito         $alt
 flamenko     $alt $2
@@ -595,7 +597,7 @@ ontārio      $alt $2
 oracle       $alt
 oregano      $alt $3
 orinoko      $alt
-oslo         $alt 
+oslo         $alt
 otello       $alt $2
 oto          $alt
 otto         $alt
