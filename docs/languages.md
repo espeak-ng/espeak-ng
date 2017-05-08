@@ -31,7 +31,7 @@ The supported languages are:
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian                    |                        |
-| `zls`       | `cs`              | South Slavic          | Czech                       |                        |
+| `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
 | `gmw`       | `en-US`           | West Germanic         | English                     | American               |
@@ -86,17 +86,17 @@ The supported languages are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
-| `zls`       | `pl`              | South Slavic          | Polish                      |                        |
+| `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
-| `zls`       | `ru`              | South Slavic          | Russian                     |                        |
+| `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
 | `inc`       | `si`              | Indic                 | Sinhala                     |                        |
-| `zls`       | `sk`              | South Slavic          | Slovak                      |                        |
+| `zlw`       | `sk`              | West Slavic           | Slovak                      |                        |
 | `zls`       | `sl`              | South Slavic          | Slovenian                   |                        |
 | `roa`       | `es`              | Romance               | Spanish                     | Spain                  |
 | `roa`       | `es-419`          | Romance               | Spanish                     | Latin American         |
