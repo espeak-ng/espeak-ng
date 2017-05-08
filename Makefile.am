@@ -232,9 +232,16 @@ tests_tokenizer_test_SOURCES = \
 	src/libespeak-ng/tokenizer.c \
 	tests/tokenizer.c
 
-check:	tests/encoding.test tests/tokenizer.test tests/languages.test
+noinst_bin_PROGRAMS += tests/voices.test
+
+tests_voices_test_LDADD   = src/libespeak-ng.la
+tests_voices_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_voices_test_SOURCES = tests/voices.c
+
+check:	tests/encoding.test tests/tokenizer.test tests/voices.test tests/languages.test
 	tests/encoding.test
 	tests/tokenizer.test
+	ESPEAK_DATA_PATH=$(PWD) tests/voices.test
 	tests/languages.test
 
 ##### phoneme data:
