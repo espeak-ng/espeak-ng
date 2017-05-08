@@ -41,6 +41,7 @@ updated languages:
 *  hi (Hindi) -- Vardhan
 *  it (Italian) -- chrislm
 *  ky (Kyrgyz) -- JRMeyer
+*  lv (Latvian) -- Valdis Vitolins
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
