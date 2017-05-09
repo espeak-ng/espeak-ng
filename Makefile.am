@@ -253,7 +253,7 @@ tests_voices_test_SOURCES = tests/voices.c
 
 %.check: %.test
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(PWD) $<
+	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
 	tests/tokenizer.check \

@@ -49,7 +49,5 @@ main(int argc, char **argv)
 
 	assert(espeak_Terminate() == EE_OK);
 
-	printf("done\n");
-
 	return EXIT_SUCCESS;
 }

@@ -171,7 +171,5 @@ main(int argc, char **argv)
 	test_ideographic();
 	test_fullwidth();
 
-	printf("done\n");
-
 	return EXIT_SUCCESS;
 }

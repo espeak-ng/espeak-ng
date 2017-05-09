@@ -909,7 +909,5 @@ main(int argc, char **argv)
 
 	test_peekc();
 
-	printf("done\n");
-
 	return EXIT_SUCCESS;
 }

@@ -576,8 +576,6 @@ run_tests()
 	test_Latn_punctuation_tokens();
 	test_Latn_general_punctuation_tokens();
 	test_Latn_symbol_tokens();
-
-	printf("done\n");
 }
 
 void
