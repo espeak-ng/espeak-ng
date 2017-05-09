@@ -30,6 +30,9 @@ man1_MANS =
 noinst_bin_PROGRAMS =
 noinst_bindir =
 
+noinst_lib_LTLIBRARIES =
+noinst_libdir =
+
 ##### ChangeLog:
 
 ChangeLog:
@@ -141,16 +144,13 @@ src_libespeak_ng_la_CFLAGS = \
 	-pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 
-UCD_TOOLS_SOURCES = \
+src_libespeak_ng_la_SOURCES = \
 	src/ucd-tools/src/case.c \
 	src/ucd-tools/src/categories.c \
 	src/ucd-tools/src/ctype.c \
 	src/ucd-tools/src/proplist.c \
 	src/ucd-tools/src/scripts.c \
-	src/ucd-tools/src/tostring.c
-
-src_libespeak_ng_la_SOURCES = \
-	$(UCD_TOOLS_SOURCES) \
+	src/ucd-tools/src/tostring.c \
 	src/libespeak-ng/compiledata.c \
 	src/libespeak-ng/compiledict.c \
 	src/libespeak-ng/compilembrola.c \
@@ -217,6 +217,17 @@ src_espeak_ng_SOURCES = src/espeak-ng.c
 
 ##### tests:
 
+# Test version of libespeak-ng.so with access to the internal APIs, so they can
+# be accessed in the test code. This version should not be installed, as the
+# internal APIs are not guaranteed to be stable between releases.
+lib_LTLIBRARIES += src/libespeak-ng-test.la
+
+src_libespeak_ng_test_la_LDFLAGS = $(src_libespeak_ng_la_LDFLAGS)
+src_libespeak_ng_test_la_CFLAGS  = \
+	-fPIC -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -DLIBESPEAK_NG_EXPORT \
+	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
+src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
+
 noinst_bin_PROGRAMS += tests/encoding.test
 
 tests_encoding_test_LDADD   = src/libespeak-ng.la
@@ -224,17 +235,13 @@ tests_encoding_test_SOURCES = tests/encoding.c
 
 noinst_bin_PROGRAMS += tests/tokenizer.test
 
-tests_tokenizer_test_CFLAGS = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_tokenizer_test_SOURCES = \
-	$(UCD_TOOLS_SOURCES) \
-	src/libespeak-ng/encoding.c \
-	src/libespeak-ng/mnemonics.c \
-	src/libespeak-ng/tokenizer.c \
-	tests/tokenizer.c
+tests_tokenizer_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_tokenizer_test_LDADD   = src/libespeak-ng-test.la
+tests_tokenizer_test_SOURCES = tests/tokenizer.c
 
 noinst_bin_PROGRAMS += tests/voices.test
 
-tests_voices_test_LDADD   = src/libespeak-ng.la
+tests_voices_test_LDADD   = src/libespeak-ng-test.la
 tests_voices_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_voices_test_SOURCES = tests/voices.c
 

@@ -79,6 +79,10 @@ libespeak-ng.a
 libespeak-ng.la
 libespeak-ng.so*
 
+libespeak-ng-test.a
+libespeak-ng-test.la
+libespeak-ng-test.so*
+
 # build output
 
 *.html

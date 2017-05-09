@@ -37,6 +37,8 @@
 #include "fifo.h"
 #include "event.h"
 
+#ifdef USE_ASYNC
+
 // my_mutex: protects my_thread_is_talking,
 // my_stop_is_required, and the command fifo
 static pthread_mutex_t my_mutex;
@@ -442,3 +444,5 @@ void fifo_terminate()
 
 	init(0); // purge fifo
 }
+
+#endif
