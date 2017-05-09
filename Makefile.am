@@ -252,11 +252,11 @@ tests_voices_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_voices_test_SOURCES = tests/voices.c
 
 check:	tests/encoding.test tests/tokenizer.test tests/voices.test tests/languages.test
-	tests/encoding.test
-	tests/tokenizer.test
-	tests/readclause.test
-	ESPEAK_DATA_PATH=$(PWD) tests/voices.test
-	tests/languages.test
+	@echo "  TEST      tests/encoding.test" && tests/encoding.test
+	@echo "  TEST      tests/tokenizer.test" && tests/tokenizer.test
+	@echo "  TEST      tests/readclause.test" && tests/readclause.test
+	@echo "  TEST      tests/voices.test" && ESPEAK_DATA_PATH=$(PWD) tests/voices.test
+	@echo "  TEST      tests/languages.test" && tests/languages.test
 
 ##### phoneme data:
 
