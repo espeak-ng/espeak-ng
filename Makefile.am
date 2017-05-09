@@ -236,8 +236,14 @@ tests_encoding_test_SOURCES = tests/encoding.c
 noinst_bin_PROGRAMS += tests/tokenizer.test
 
 tests_tokenizer_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_tokenizer_test_LDADD   = src/libespeak-ng-test.la
+tests_tokenizer_test_LDADD   = src/libespeak-ng.la
 tests_tokenizer_test_SOURCES = tests/tokenizer.c
+
+noinst_bin_PROGRAMS += tests/readclause.test
+
+tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_readclause_test_LDADD   = src/libespeak-ng-test.la
+tests_readclause_test_SOURCES = tests/readclause.c
 
 noinst_bin_PROGRAMS += tests/voices.test
 
@@ -248,6 +254,7 @@ tests_voices_test_SOURCES = tests/voices.c
 check:	tests/encoding.test tests/tokenizer.test tests/voices.test tests/languages.test
 	tests/encoding.test
 	tests/tokenizer.test
+	tests/readclause.test
 	ESPEAK_DATA_PATH=$(PWD) tests/voices.test
 	tests/languages.test
 
