@@ -1570,6 +1570,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource, 
 		compile_dictlist_file(path, "listx");
 		compile_dictlist_file(path, "list");
 	}
+	compile_dictlist_file(path, "emoji");
 	compile_dictlist_file(path, "extra");
 
 	compile_dictlist_end(f_out);
