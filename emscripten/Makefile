@@ -23,7 +23,7 @@
 #       the value specified here will be ignored.
 EM_DEBUG ?= 0
 ifneq ($(EM_DEBUG), 1)
-    CXXFLAGS+=-O3
+	CXXFLAGS+=-O3
 endif
 
 
@@ -34,7 +34,7 @@ endif
 
 # NOTE: sanity check
 ifndef EMSCRIPTEN
-    $(error EMSCRIPTEN var not set. You must use emmake to run this Makefile!)
+	$(error EMSCRIPTEN var not set. You must use emmake to run this Makefile!)
 endif
 
 # NOTE: in the emscripten virtual FS,
@@ -47,8 +47,14 @@ EM_VIRTUAL_PATH_ESPEAKNG_DATA=/usr/share/espeak-ng-data
 EM_WEBIDL_BINDER=python $(EMSCRIPTEN)/tools/webidl_binder.py
 EM_FILE_PACKAGER=python $(EMSCRIPTEN)/tools/file_packager.py
 
-# NOTE: libespeak-ng.so compiled to LLVM IR code
-EM_LIBESPEAKNG_SO=../src/.libs/libespeak-ng.so
+# NOTE: libespeak-ng.so (Linux) or libespeak-ng.dylib (macOS) compiled to LLVM IR code
+EM_LIBESPEAKNG_SO=$(wildcard ../src/.libs/libespeak-ng.so)
+EM_LIBESPEAKNG_DYLIB=$(wildcard ../src/.libs/libespeak-ng.dylib)
+ifneq ($(EM_LIBESPEAKNG_DYLIB),)
+	EM_LIBESPEAKNG=$(EM_LIBESPEAKNG_DYLIB)
+else ifneq ($(EM_LIBESPEAKNG_SO),)
+	EM_LIBESPEAKNG=$(EM_LIBESPEAKNG_SO)
+endif
 
 # NOTE: glue code files
 EM_GLUE_PREFIX=glue
@@ -74,7 +80,6 @@ EM_WORKER_JS=js/espeakng.worker.js
 EM_PTHREAD_MAIN_JS=js/pthread-main.js
 
 # NOTE: intermediate objects
-EM_OBJS=$(EM_GLUE_OBJ) $(EM_LIBESPEAKNG_SO)
 EM_ALL_PRE_JS=$(EM_PRE_JS) $(EM_ESPEAKNG_DATA_PACKAGE_JS)
 EM_ALL_POST_JS=$(EM_GLUE_AUTOGEN_JS) $(EM_POST_JS)
 
@@ -107,9 +112,9 @@ all: $(EM_WORKER_JS)
 
 $(EM_WORKER_DATA):
 	$(EM_FILE_PACKAGER) $@ \
-        --js-output=$(EM_ESPEAKNG_DATA_PACKAGE_JS) \
-        --preload $(EM_DATA_DIR)@$(EM_VIRTUAL_PATH_ESPEAKNG_DATA) \
-        $(patsubst %,--exclude %,$(EM_EXCLUDE_DATA))
+		--js-output=$(EM_ESPEAKNG_DATA_PACKAGE_JS) \
+		--preload $(EM_DATA_DIR)@$(EM_VIRTUAL_PATH_ESPEAKNG_DATA) \
+		$(patsubst %,--exclude %,$(EM_EXCLUDE_DATA))
 
 $(EM_ESPEAKNG_DATA_PACKAGE_JS): $(EM_WORKER_DATA)
 
@@ -120,13 +125,17 @@ $(EM_GLUE_AUTOGEN_JS): $(EM_GLUE_AUTOGEN_CPP)
 
 $(EM_GLUE_OBJ): $(EM_GLUE_CPP)
 
-$(EM_WORKER_JS): $(EM_GLUE_AUTOGEN_CPP) $(EM_OBJS) $(EM_ALL_PRE_JS) $(EM_ALL_POST_JS)
+$(EM_WORKER_JS): $(EM_GLUE_AUTOGEN_CPP) $(EM_GLUE_OBJ) $(EM_ALL_PRE_JS) $(EM_ALL_POST_JS)
+ifeq ($(EM_LIBESPEAKNG),)
+	$(error Unable to find ../src/.libs/libespeak-ng .so or .dylib. Aborting!)
+endif
 	$(CXX) $(CXXFLAGS) \
-        $(EM_CXXFLAGS) \
-        $(EM_OBJS) \
-        $(patsubst %,--pre-js %,$(EM_ALL_PRE_JS)) \
-        $(patsubst %,--post-js %,$(EM_ALL_POST_JS)) \
-        -o $@
+		$(EM_CXXFLAGS) \
+		$(EM_GLUE_OBJ) \
+		$(EM_LIBESPEAKNG) \
+		$(patsubst %,--pre-js %,$(EM_ALL_PRE_JS)) \
+		$(patsubst %,--post-js %,$(EM_ALL_POST_JS)) \
+		-o $@
 
 clean-intermediate:
 	rm -f *.o *.out *.pkl $(EM_GLUE_AUTOGEN_CPP) $(EM_GLUE_AUTOGEN_JS) $(EM_ESPEAKNG_DATA_PACKAGE_JS)
