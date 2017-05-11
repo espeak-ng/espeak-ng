@@ -369,7 +369,7 @@ typedef enum
 	LINE_PARSER_MULTIPLE_WORDS = 2,
 	LINE_PARSER_END_OF_WORDS = 3,
 	LINE_PARSER_PRONUNCIATION = 4,
-	LINE_PARSER_END = 5,
+	LINE_PARSER_END_OF_PRONUNCIATION = 5,
 } LINE_PARSER_STATES;
 
 static int compile_line(char *linebuf, char *dict_line, int *hash)
@@ -379,6 +379,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	char *p;
 	char *word;
 	char *phonetic;
+	char *phonetic_end;
 	unsigned int ix;
 	LINE_PARSER_STATES step;
 	unsigned int n_flag_codes = 0;
@@ -519,11 +520,16 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			break;
 		case LINE_PARSER_PRONUNCIATION:
 			if (isspace2(c)) {
+				phonetic_end = p;
 				p[0] = 0; // terminate phonetic
-				step = LINE_PARSER_END;
+				step = LINE_PARSER_END_OF_PRONUNCIATION;
 			}
 			break;
-		case LINE_PARSER_END:
+		case LINE_PARSER_END_OF_PRONUNCIATION:
+			if (!isspace2(c)) {
+				*phonetic_end = ' ';
+				step = LINE_PARSER_PRONUNCIATION;
+			}
 			break;
 		}
 		p++;
