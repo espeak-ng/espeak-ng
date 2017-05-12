@@ -1,6 +1,6 @@
 #!/bin/sh
 
-test() {
+test_lang() {
 	TEST_LANG=$1
 	EXPECTED=$2
 	TEST_TEXT=$3
@@ -19,14 +19,14 @@ test() {
 # 3.  copy the correct hash onto the test line;
 # 4.  re-run the tests to ensure they pass.
 
-test de 8f9bd0211a8d0d7a4f78970b8ac8ed7a50242bb0 "drucker lampe computer stern sterne"
+test_lang de 8f9bd0211a8d0d7a4f78970b8ac8ed7a50242bb0 "drucker lampe computer stern sterne"
 
-test en 13464f360acc31b7d266164245c15b11e2fb6145 "foot strut north force cure thought lot cloth trap bath"
-test en-029 7587e73b30806a360d40088d4f00fa158472fbab "foot strut north force cure thought lot cloth trap bath"
-test en-GB-scotland c2a65df79d0da41a4590a0ba6e231e13bc4439b3 "foot strut north force cure thought lot cloth trap bath"
-test en-GB-x-gbclan da12c9fd6bfad8aed5644918fc97e683b01b2386 "foot strut north force cure thought lot cloth trap bath"
-test en-GB-x-gbcwmd 480e4c024cc06224f1352618e57d0ec4bf223e9a "foot strut north force cure thought lot cloth trap bath"
-test en-GB-x-rp 8f1f36267f10c88ca822355ecd9d4ee37faa8228 "foot strut north force cure thought lot cloth trap bath"
-test en-US 1653355ef008d67d315aa20e630e00614472a045 "foot strut north force cure thought lot cloth trap bath"
+test_lang en 13464f360acc31b7d266164245c15b11e2fb6145 "foot strut north force cure thought lot cloth trap bath"
+test_lang en-029 7587e73b30806a360d40088d4f00fa158472fbab "foot strut north force cure thought lot cloth trap bath"
+test_lang en-GB-scotland c2a65df79d0da41a4590a0ba6e231e13bc4439b3 "foot strut north force cure thought lot cloth trap bath"
+test_lang en-GB-x-gbclan da12c9fd6bfad8aed5644918fc97e683b01b2386 "foot strut north force cure thought lot cloth trap bath"
+test_lang en-GB-x-gbcwmd 480e4c024cc06224f1352618e57d0ec4bf223e9a "foot strut north force cure thought lot cloth trap bath"
+test_lang en-GB-x-rp 8f1f36267f10c88ca822355ecd9d4ee37faa8228 "foot strut north force cure thought lot cloth trap bath"
+test_lang en-US 1653355ef008d67d315aa20e630e00614472a045 "foot strut north force cure thought lot cloth trap bath"
 
-test jp a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
+test_lang jp a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
