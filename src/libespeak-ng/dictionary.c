@@ -2290,6 +2290,14 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 					if ((match1.points == 0) && ((option_sayas & 0x10) == 0)) {
 						n = utf8_in(&letter, p-1)-1;
 
+						if (tr->letter_bits_offset > 0) {
+							// not a Latin alphabet, switch to the default Latin alphabet language
+							if ((letter <= 0x241) && iswalpha(letter)) {
+								sprintf(phonemes, "%cen", phonSWITCH);
+								return 0;
+							}
+						}
+
 						// is it a bracket ?
 						if (letter == 0xe000+'(') {
 							if (pre_pause < tr->langopts.param2[LOPT_BRACKET_PAUSE])
