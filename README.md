@@ -3,10 +3,7 @@
 - [Data Files](#data-files)
   - [Unicode Character Database](#unicode-character-database)
   - [ConScript Unicode Registry](#conscript-unicode-registry)
-- [C Library](#c-library)
-  - [Querying Properties](#querying-properties)
-  - [Case Conversion](#case-conversion)
-  - [wctype Compatibility](#wctype-compatibility)
+- [Library](#library)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -52,61 +49,18 @@ added:
 This data is located in the `data/csur` directory in a form compatible with the
 Unicode Character Data files.
 
-## C Library
+## Library
 
-The C library provides several different facilities that make use of the UCD
-data. It provides a compact and efficient representation of the different data
-tables.
+The `ucd-tools` project provides a C library with a C++ binding. This library
+supports querying Unicode information about the codepoints in a compact and
+efficient representation of the different data tables.
 
-Detailed documentation is provided in the `src/include/ucd/ucd.h` file in the
-Doxygen documentation format.
+A ctype-compatible API is also provided, allowing programs to use that API on
+systems that don't provide wide-character case conversion and ctype
+implementations.
 
-### Querying Properties
-
-The library exposes the following properties from the UCD data files:
-
-| C API                 | C++ API                | Data        | Description |
-|-----------------------|------------------------|-------------|-------------|
-| `ucd_lookup_category` | `ucd::lookup_category` | UnicodeData | A [General Category Value](http://www.unicode.org/reports/tr44/#General_Category_Values). |
-| `ucd_lookup_script`   | `ucd::lookup_script`   | Script      | An [ISO 15924](http://www.unicode.org/iso15924/iso15924-codes.html) script code. |
-| `ucd_properties`      | `ucd::properties`      | PropList    | The code point properties from the PropList Unicode data file. |
-
-### Case Conversion
-
-The following character conversion functions are provided:
-
-| C API         | C++ API        | Description |
-|---------------|----------------|-------------|
-| `ucd_tolower` | `ucd::tolower` | convert letters to lower case |
-| `ucd_totitle` | `ucd::totitle` | convert letters to title case (UCD extension) |
-| `ucd_toupper` | `ucd::toupper` | convert letters to upper case |
-
-__NOTE:__ These functions use the simple case mapping algorithm. That is, they
-only ever map to a single character. This is to provide a compatible signature
-to the standard C `wctype.h` APIs.
-
-### wctype Compatibility
-
-To facilitate working on platforms that don't have a useable wide-character
-ctypes library, or to provide a more consistent behaviour, the `ucd-tools`
-C library provides a set of APIs that are compatible with `wctype.h`.
-
-The following character classification functions are provided:
-
-| C API          | C++ API         |
-|----------------|-----------------|
-| `ucd_isalnum`  | `ucd::isalnum`  |
-| `ucd_isalpha`  | `ucd::isalpha`  |
-| `ucd_isblank`  | `ucd::isblank`  |
-| `ucd_iscntrl`  | `ucd::iscntrl`  |
-| `ucd_isdigit`  | `ucd::isdigit`  |
-| `ucd_isgraph`  | `ucd::isgraph`  |
-| `ucd_islower`  | `ucd::islower`  |
-| `ucd_isprint`  | `ucd::isprint`  |
-| `ucd_ispunct`  | `ucd::ispunct`  |
-| `ucd_isspace`  | `ucd::isspace`  |
-| `ucd_isupper`  | `ucd::isupper`  |
-| `ucd_isxdigit` | `ucd::isxdigit` |
+Detailed documentation is provided in the [src/include/ucd/ucd.h](ucd.h) file
+using the Doxygen documentation format.
 
 ## Build Dependencies
 
