@@ -1,9 +1,5 @@
 # Unicode Character Database Tools
 
-- [Data Files](#data-files)
-  - [Unicode Character Database](#unicode-character-database)
-  - [ConScript Unicode Registry](#conscript-unicode-registry)
-- [Library](#library)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -13,54 +9,16 @@
 
 ----------
 
-The Unicode Character Database (UCD) Tools is a set of Python tools and a C
-library with a C++ API binding. The Python tools are designed to support
-extracting and processing data from the text-based UCD source files, while
-the C library is designed to provide easy access to this information within
-a C or C++ program.
+The Unicode Character Database (UCD) Tools is a set of Python tools and a
+[C library](src/include/ucd/ucd.h) with a C++ API binding. The Python tools
+are designed to support extracting and processing data from the text-based
+UCD source files, while the C library is designed to provide easy access to
+this information within a C or C++ program.
 
-## Data Files
+The project uses and supports the following sources of Unicode codepoint data:
 
-The `ucd-tools` project provides support for UCD formatted data files from
-several different sources.
-
-### Unicode Character Database
-
-The following [Unicode Character Database](http://www.unicode.org/Public/9.0.0/ucd/)
-files are supported:
-
-*  Blocks
-*  DerivedAge
-*  PropList
-*  PropertyValueAliases
-*  Scripts
-*  UnicodeData
-
-### ConScript Unicode Registry
-
-If enabled, the following data from the
-[ConScript Unicode Registry](http://www.evertype.com/standards/csur/) (CSUR) is
-added:
-
-| Code Range   | Script  |
-|--------------|---------|
-| `F8D0-F8FF`  | [Klingon](http://www.evertype.com/standards/csur/klingon.html) |
-
-This data is located in the `data/csur` directory in a form compatible with the
-Unicode Character Data files.
-
-## Library
-
-The `ucd-tools` project provides a C library with a C++ binding. This library
-supports querying Unicode information about the codepoints in a compact and
-efficient representation of the different data tables.
-
-A ctype-compatible API is also provided, allowing programs to use that API on
-systems that don't provide wide-character case conversion and ctype
-implementations.
-
-Detailed documentation is provided in the [src/include/ucd/ucd.h](ucd.h) file
-using the Doxygen documentation format.
+*  [Unicode Character Database](http://www.unicode.org/Public/9.0.0/ucd/)
+*  [ConScript Unicode Registry](http://www.evertype.com/standards/csur/)
 
 ## Build Dependencies
 
