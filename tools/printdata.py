@@ -22,16 +22,23 @@ import sys
 import ucd
 
 ucd_rootdir = sys.argv[1]
+emoji_rootdir = 'data/emoji'
 csur_rootdir = 'data/csur'
 
 null = ucd.CodePoint('0000')
+
+properties = [
+    (ucd_rootdir, 'PropList'),
+    (ucd_rootdir, 'DerivedCoreProperties'),
+    (emoji_rootdir, 'emoji-data')
+]
 
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
-for propfile in ['PropList', 'DerivedCoreProperties']:
-	for data in ucd.parse_ucd_data(ucd_rootdir, propfile):
+for propdir, propfile in properties:
+	for data in ucd.parse_ucd_data(propdir, propfile):
 		for codepoint in data['Range']:
 			try:
 				unicode_chars[codepoint][data['Property']] = 1
@@ -154,6 +161,7 @@ def properties(data):
 	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
 	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
 	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
+	props += (2 ** 33) * data.get('Emoji', 0) # emoji-data
 	return props
 
 if __name__ == '__main__':

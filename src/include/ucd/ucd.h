@@ -328,6 +328,7 @@ ucd_script ucd_lookup_script(codepoint_t c);
 /** @brief Properties
  */
 typedef uint64_t ucd_property;
+
 #define UCD_PROPERTY_WHITE_SPACE                        0x0000000000000001ull /**< @brief White_Space */
 #define UCD_PROPERTY_BIDI_CONTROL                       0x0000000000000002ull /**< @brief Bidi_Control */
 #define UCD_PROPERTY_JOIN_CONTROL                       0x0000000000000004ull /**< @brief Join_Control */
@@ -361,6 +362,7 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_PATTERN_WHITE_SPACE                0x0000000040000000ull /**< @brief Pattern_White_Space */
 #define UCD_PROPERTY_PATTERN_SYNTAX                     0x0000000080000000ull /**< @brief Pattern_Syntax */
 #define UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       0x0000000100000000ull /**< @brief Prepended_Concatenation_Mark */
+#define UCD_PROPERTY_EMOJI                              0x0000000200000000ull /**< @brief Emoji */
 
 /** @brief Return the properties of the specified codepoint.
  *
@@ -853,6 +855,7 @@ namespace ucd
 		Pattern_White_Space = UCD_PROPERTY_PATTERN_WHITE_SPACE, /**< @brief Pattern_White_Space */
 		Pattern_Syntax = UCD_PROPERTY_PATTERN_SYNTAX, /**< @brief Pattern_Syntax */
 		Prepended_Concatenation_Mark = UCD_PROPERTY_PREPENDED_CONCATENATION_MARK, /**< @brief Prepended_Concatenation_Mark */
+		Emoji = UCD_PROPERTY_EMOJI, /**< @brief Emoji */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

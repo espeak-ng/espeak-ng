@@ -12,6 +12,7 @@
 
 # build output:
 
+data/emoji
 data/ucd
 
 src/libucd.la
