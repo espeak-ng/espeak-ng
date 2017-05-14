@@ -15,6 +15,10 @@ $textmode
 
 🀄	mahjong red dragon						// [1F004]
 
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	joker								// [1F0CF]
+
 // 1F600..1F64F : Emoticons
 
 😀	grinning face							// [1F600]
