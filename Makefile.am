@@ -587,7 +587,7 @@ espeak-ng-data/el_dict: src/espeak-ng phsource/phonemes.stamp dictsource/el_list
 en: espeak-ng-data/en_dict
 dictsource/en_extra:
 	touch dictsource/en_extra
-espeak-ng-data/en_dict: src/espeak-ng phsource/phonemes.stamp dictsource/en_list dictsource/en_rules dictsource/en_extra
+espeak-ng-data/en_dict: src/espeak-ng phsource/phonemes.stamp dictsource/en_list dictsource/en_rules dictsource/en_extra dictsource/en_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=en && cd ..
 
 eo: espeak-ng-data/eo_dict
