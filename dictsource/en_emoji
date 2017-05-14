@@ -11,6 +11,10 @@ $textmode
 ©	copyright							// [00A9] text|emoji
 ®	registered							// [00AE] text|emoji
 
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	mahjong red dragon						// [1F004]
+
 // 1F600..1F64F : Emoticons
 
 😀	grinning face							// [1F600]
