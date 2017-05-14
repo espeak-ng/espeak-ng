@@ -1667,7 +1667,7 @@ static ucd_property properties_Sk(codepoint_t c)
 		if (c == 0xFFE3)                return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x01F300:
-		return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER;
 	}
 	return 0;
 }

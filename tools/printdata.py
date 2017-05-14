@@ -163,6 +163,7 @@ def properties(data):
 	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
 	props += (2 ** 33) * data.get('Emoji', 0) # emoji-data
 	props += (2 ** 34) * data.get('Emoji_Presentation', 0) # emoji-data
+	props += (2 ** 35) * data.get('Emoji_Modifier', 0) # emoji-data
 	return props
 
 if __name__ == '__main__':
