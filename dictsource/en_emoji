@@ -6,6 +6,11 @@
 
 $textmode
 
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+©	copyright							// [00A9] text|emoji
+®	registered							// [00AE] text|emoji
+
 // 1F600..1F64F : Emoticons
 
 😀	grinning face							// [1F600]
