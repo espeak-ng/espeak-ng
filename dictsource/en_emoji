@@ -1,4 +1,8 @@
 // Emoji and Other Symbol pronunciations for English
+//
+// NOTE: Entries with `text|emoji` in the comments have text and emoji forms.
+// They can be followed by [FE0E] to select the text style, and [FE0F] to
+// select the emoji style.
 
 $textmode
 
@@ -84,6 +88,101 @@ $textmode
 🙍	person frowning							// [1F64D]
 🙎	person pouting							// [1F64E]
 🙏	folded hands							// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	rocket								// [1F680]
+🚁	helicopter							// [1F681]
+🚂	locomotive							// [1F682]
+🚃	railway car							// [1F683]
+🚄	high-speed train						// [1F684]
+🚅	high-speed train with bullet nose				// [1F685]
+🚆	train								// [1F686]
+🚇	metro								// [1F687]
+🚈	light rail							// [1F688]
+🚉	station								// [1F689]
+🚊	tram								// [1F68A]
+🚋	tram car							// [1F68B]
+🚌	bus								// [1F68C]
+🚍	oncoming bus							// [1F68D]
+🚎	trolleybus							// [1F68E]
+🚏	bus stop							// [1F68F]
+🚐	minibus								// [1F690]
+🚑	ambulance							// [1F691]
+🚒	fire engine							// [1F692]
+🚓	police car							// [1F693]
+🚔	oncoming police car						// [1F694]
+🚕	taxi								// [1F695]
+🚖	oncoming taxi							// [1F696]
+🚗	automobile							// [1F697]
+🚘	oncoming automobile						// [1F698]
+🚙	sport utility vehicle						// [1F699]
+🚚	delivery truck							// [1F69A]
+🚛	articulated lorry						// [1F69B]
+🚜	tractor								// [1F69C]
+🚝	monorail							// [1F69D]
+🚞	mountain railway						// [1F69E]
+🚟	suspension railway						// [1F69F]
+🚠	mountain cableway						// [1F6A0]
+🚡	aerial tramway							// [1F6A1]
+🚢	ship								// [1F6A2]
+🚣	person rowing boat						// [1F6A3]
+🚤	speedboat							// [1F6A4]
+🚥	horizontal traffic light					// [1F6A5]
+🚦	vertical traffic light						// [1F6A6]
+🚧	construction							// [1F6A7]
+🚨	police car light						// [1F6A8]
+🚩	triangular flag							// [1F6A9]
+🚪	door								// [1F6AA]
+🚫	prohibited							// [1F6AB]
+🚬	cigarette							// [1F6AC]
+🚭	no smoking							// [1F6AD]
+🚮	litter in bin sign						// [1F6AE]
+🚯	no littering							// [1F6AF]
+🚰	potable water							// [1F6B0]
+🚱	non-potable water						// [1F6B1]
+🚲	bicycle								// [1F6B2]
+🚳	no bicycles							// [1F6B3]
+🚴	person biking							// [1F6B4]
+🚵	person mountain biking						// [1F6B5]
+🚶	person walking							// [1F6B6]
+🚷	no pedestrians							// [1F6B7]
+🚸	children crossing						// [1F6B8]
+🚹	men's room							// [1F6B9]
+🚺	women's room							// [1F6BA]
+🚻	restroom							// [1F6BB]
+🚼	baby symbol							// [1F6BC]
+🚽	toilet								// [1F6BD]
+🚾	water closet							// [1F6BE]
+🚿	shower								// [1F6BF]
+🛀	person taking bath						// [1F6C0]
+🛁	bathtub								// [1F6C1]
+🛂	passport control						// [1F6C2]
+🛃	customs								// [1F6C3]
+🛄	baggage claim							// [1F6C4]
+🛅	left luggage							// [1F6C5]
+🛋	couch and lamp							// [1F6CB] text|emoji
+🛌	person in bed							// [1F6CC]
+🛍	shopping bags							// [1F6CD] text|emoji
+🛎	bellhop bell							// [1F6CE] text|emoji
+🛏	bed								// [1F6CF] text|emoji
+🛐	place of worship						// [1F6D0]
+🛑	stop sign							// [1F6D1]
+🛒	shopping cart							// [1F6D2]
+🛠	hammer and wrench						// [1F6E0] text|emoji
+🛡	shield								// [1F6E1] text|emoji
+🛢	oil drum							// [1F6E2] text|emoji
+🛣	motorway							// [1F6E3] text|emoji
+🛤	railway track							// [1F6E4] text|emoji
+🛥	motor boat							// [1F6E5] text|emoji
+🛩	small airplane							// [1F6E9] text|emoji
+🛫	airplane departure						// [1F6EB]
+🛬	airplane arrival						// [1F6EC]
+🛰	satellite							// [1F6F0] text|emoji
+🛳	passenger ship							// [1F6F3] text|emoji
+🛴	kick scooter							// [1F6F4]
+🛵	motor scooter							// [1F6F5]
+🛶	canoe								// [1F6F6]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
