@@ -363,6 +363,7 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_PATTERN_SYNTAX                     0x0000000080000000ull /**< @brief Pattern_Syntax */
 #define UCD_PROPERTY_PREPENDED_CONCATENATION_MARK       0x0000000100000000ull /**< @brief Prepended_Concatenation_Mark */
 #define UCD_PROPERTY_EMOJI                              0x0000000200000000ull /**< @brief Emoji */
+#define UCD_PROPERTY_EMOJI_PRESENTATION                 0x0000000400000000ull /**< @brief Emoji_Presentation */
 
 /** @brief Return the properties of the specified codepoint.
  *
@@ -856,6 +857,7 @@ namespace ucd
 		Pattern_Syntax = UCD_PROPERTY_PATTERN_SYNTAX, /**< @brief Pattern_Syntax */
 		Prepended_Concatenation_Mark = UCD_PROPERTY_PREPENDED_CONCATENATION_MARK, /**< @brief Prepended_Concatenation_Mark */
 		Emoji = UCD_PROPERTY_EMOJI, /**< @brief Emoji */
+		Emoji_Presentation = UCD_PROPERTY_EMOJI_PRESENTATION, /**< @brief Emoji_Presentation */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
