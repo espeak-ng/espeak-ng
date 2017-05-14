@@ -489,7 +489,7 @@ static int CheckDottedAbbrev(char *word1)
 
 extern char *phondata_ptr;
 
-int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
+static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
 	// word1 is terminated by space (0x20) character
 
@@ -617,17 +617,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			if (word_out != NULL)
 				strcpy(word_out, word1);
 
-			first_char = word1[0];
-			stress_bits = dictionary_flags[0] & 0x7f;
-			found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, 0, wtab); // the text replacement
-			if (dictionary_flags2[0] != 0) {
-				dictionary_flags[0] = dictionary_flags2[0];
-				dictionary_flags[1] = dictionary_flags2[1];
-				if (stress_bits != 0) {
-					// keep any stress information from the original word
-					dictionary_flags[0] = (dictionary_flags[0] & ~0x7f) | stress_bits;
-				}
-			}
+			return dictionary_flags[0];
 		} else if ((found == 0) && (dictionary_flags[0] & FLAG_SKIPWORDS) && !(dictionary_flags[0] & FLAG_ABBREV)) {
 			// grouped words, but no translation.  Join the words with hyphens.
 			wordx = word1;
@@ -1133,6 +1123,38 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 	dictionary_flags[0] |= was_unpronouncable;
 	memcpy(word_start, word_copy2, word_copy_length);
 	return dictionary_flags[0];
+}
+
+int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
+{
+	char words_phonemes[N_WORD_PHONEMES]; // a word translated into phoneme codes
+	char *phonemes = words_phonemes;
+	int available = N_WORD_PHONEMES;
+	int first_word = 1;
+
+	int flags = TranslateWord3(tr, word_start, wtab, word_out);
+	if (flags & FLAG_TEXTMODE && word_out) {
+		while (*word_out && available > 1) {
+			TranslateWord3(tr, word_out, wtab, NULL);
+
+			int n;
+			if (first_word) {
+				n = snprintf(phonemes, available, "%s", word_phonemes);
+				first_word = 0;
+			} else {
+				n = snprintf(phonemes, available, "%c%s", phonEND_WORD, word_phonemes);
+			}
+
+			available -= n;
+			phonemes += n;
+
+			// skip to the next word in a multi-word replacement
+			while (!isspace(*word_out)) ++word_out;
+			while (isspace(*word_out))  ++word_out;
+		}
+		snprintf(word_phonemes, sizeof(word_phonemes), "%s", words_phonemes);
+	}
+	return flags;
 }
 
 static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
