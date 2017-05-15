@@ -11,6 +11,11 @@ $textmode
 ©	copyright							// [00A9] text|emoji
 ®	registered							// [00AE] text|emoji
 
+// 2000..203C : General Punctuation
+
+‼	double exclamation mark						// [203C] text|emoji
+⁉	exclamation question mark					// [2049] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
