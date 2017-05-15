@@ -696,7 +696,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.unstressed_wd2 = 2;
 		tr->langopts.param[LOPT_SONORANT_MIN] = 120; // limit the shortening of sonorants before short vowels
 
-		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
+		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER | NUM_DFRACTION_4;
 		tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;
 
 		if (name2 == L('c', 'a')) {
