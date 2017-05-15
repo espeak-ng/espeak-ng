@@ -21,6 +21,17 @@ $textmode
 ™	trade mark							// [2122] text|emoji
 ℹ	information							// [2139] text|emoji
 
+// 2190..21FF : Arrows
+
+↔	left-right arrow						// [2194] text|emoji
+↕	up-down arrow							// [2195] text|emoji
+↖	up-left arrow							// [2196] text|emoji
+↗	up-right arrow							// [2197] text|emoji
+↘	down-right arrow						// [2198] text|emoji
+↙	down-left arrow							// [2199] text|emoji
+↩	right arrow curving left					// [21A9] text|emoji
+↪	left arrow curving right					// [21AA] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
