@@ -16,6 +16,11 @@ $textmode
 ‼	double exclamation mark						// [203C] text|emoji
 ⁉	exclamation question mark					// [2049] text|emoji
 
+// 2100..214F : Letterlike Symbols
+
+™	trade mark							// [2122] text|emoji
+ℹ	information							// [2139] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
