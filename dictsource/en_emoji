@@ -192,6 +192,16 @@ $textmode
 ⤴	right arrow curving up						// [2934] text|emoji
 ⤵	right arrow curving down					// [2935] text|emoji
 
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	left arrow							// [2B05] text|emoji
+⬆	up arrow							// [2B06] text|emoji
+⬇	down arrow							// [2B07] text|emoji
+⬛	black large square						// [2B1B]
+⬜	white large square						// [2B1C]
+⭐	white medium star						// [2B50]
+⭕	heavy large circle						// [2B55]
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
