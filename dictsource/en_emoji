@@ -57,6 +57,17 @@ $textmode
 
 Ⓜ	circled M							// [24C2] text|emoji
 
+// 25A0..25FF : Geometric Shapes
+
+▪	black small square						// [25AA] text|emoji
+▫	white small square						// [25AB] text|emoji
+▶	play button							// [25B6] text|emoji
+◀	reverse button							// [25C0] text|emoji
+◻	white medium square						// [25FB] text|emoji
+◼	black medium square						// [25FC] text|emoji
+◽	white medium-small square					// [25FD]
+◾	black medium-small square					// [25FE]
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
