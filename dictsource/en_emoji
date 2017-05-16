@@ -202,6 +202,52 @@ $textmode
 ⭐	white medium star						// [2B50]
 ⭕	heavy large circle						// [2B55]
 
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	wavy dash							// [3030] text|emoji
+〽	part alternation mark						// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	Japanese congratulations button					// [3297] text|emoji
+㊙	Japanese secret button						// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	A button blood type						// [1F170] text|emoji
+🅱	B button blood type						// [1F171] text|emoji
+🅾	O button blood type						// [1F17E] text|emoji
+🅿	P button							// [1F17F] text|emoji
+🆎	AB button blood type						// [1F18E]
+🆑	CL button							// [1F191]
+🆒	COOL button							// [1F192]
+🆓	FREE button							// [1F193]
+🆔	ID button							// [1F194]
+🆕	NEW button							// [1F195]
+🆖	NG button							// [1F196]
+🆗	OK button							// [1F197]
+🆘	SOS button							// [1F198]
+🆙	UP exclamation mark button					// [1F199]
+🆚	VS button							// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	Japanese here button						// [1F201]
+🈂	Japanese service charge button					// [1F202] text|emoji
+🈚	Japanese free of charge button					// [1F21A]
+🈯	Japanese reserved button					// [1F22F]
+🈲	Japanese prohibited button					// [1F232]
+🈳	Japanese vacancy button						// [1F233]
+🈴	Japanese passing grade button					// [1F234]
+🈵	Japanese no vacancy button					// [1F235]
+🈶	Japanese not free of charge button				// [1F236]
+🈷	Japanese monthly amount button					// [1F237] text|emoji
+🈸	Japanese application button					// [1F238]
+🈹	Japanese discount button					// [1F239]
+🈺	Japanese open for business button				// [1F23A]
+🉐	Japanese bargain button						// [1F250]
+🉑	Japanese acceptable button					// [1F251]
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
