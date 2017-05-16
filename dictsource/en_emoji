@@ -32,6 +32,27 @@ $textmode
 ↩	right arrow curving left					// [21A9] text|emoji
 ↪	left arrow curving right					// [21AA] text|emoji
 
+// 2300..23FF : Miscellaneous Technical
+
+⌚	watch								// [231A]
+⌛	hourglass							// [231B]
+⌨	keyboard							// [2328] text|emoji
+⏏	eject button							// [23CF] text|emoji
+⏩	fast-forward button						// [23E9]
+⏪	fast reverse button						// [23EA]
+⏫	fast up button							// [23EB]
+⏬	fast down button						// [23EC]
+⏭	next track button						// [23ED] text|emoji
+⏮	last track button						// [23EE] text|emoji
+⏯	play or pause button						// [23EF] text|emoji
+⏰	alarm clock							// [23F0]
+⏱	stopwatch							// [23F1] text|emoji
+⏲	timer clock							// [23F2] text|emoji
+⏳	hourglass with flowing sand					// [23F3]
+⏸	pause button							// [23F8] text|emoji
+⏹	stop button							// [23F9] text|emoji
+⏺	record button							// [23FA] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
