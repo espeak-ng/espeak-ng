@@ -53,6 +53,10 @@ $textmode
 ⏹	stop button							// [23F9] text|emoji
 ⏺	record button							// [23FA] text|emoji
 
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	circled M							// [24C2] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
