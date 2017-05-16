@@ -151,6 +151,42 @@ $textmode
 ⛺	tent								// [26FA]
 ⛽	fuel pump							// [26FD]
 
+// 2700..27BF : Dingbats
+
+✂	scissors							// [2702] text|emoji
+✅	white heavy check mark						// [2705]
+✈	airplane							// [2708] text|emoji
+✉	envelope							// [2709] text|emoji
+✊	raised fist							// [270A]
+✋	raised hand							// [270B]
+✌	victory hand							// [270C] text|emoji
+✍	writing hand							// [270D] text|emoji
+✏	pencil								// [270F] text|emoji
+✒	black nib							// [2712] text|emoji
+✔	heavy check mark						// [2714] text|emoji
+✖	heavy multiplication x						// [2716] text|emoji
+✝	latin cross							// [271D] text|emoji
+✡	star of David							// [2721] text|emoji
+✨	sparkles							// [2728]
+✳	eight-spoked asterisk						// [2733] text|emoji
+✴	eight-pointed star						// [2734] text|emoji
+❄	snowflake							// [2744] text|emoji
+❇	sparkle								// [2747] text|emoji
+❌	cross mark							// [274C]
+❎	cross mark button						// [274E]
+❓	question mark							// [2753]
+❔	white question mark						// [2754]
+❕	white exclamation mark						// [2755]
+❗	exclamation mark						// [2757]
+❣	heavy heart exclamation						// [2763] text|emoji
+❤	red heart							// [2764] text|emoji
+➕	heavy plus sign							// [2795]
+➖	heavy minus sign						// [2796]
+➗	heavy division sign						// [2797]
+➡	right arrow							// [27A1] text|emoji
+➰	curly loop							// [27B0]
+➿	double curly loop						// [27BF]
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
