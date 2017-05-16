@@ -59,3 +59,9 @@ phoneme tS
   ENDIF
   WAV(ustop/tsh_unasp)
 endphoneme
+
+phoneme v 
+  import_phoneme base1/v
+  voicingswitch f
+endphoneme
+

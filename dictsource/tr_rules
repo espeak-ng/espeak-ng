@@ -32,22 +32,22 @@
 
 .group b
         b        b
-        bb       _::b   // Doubled voiceless consonants
+        bb       _:_!b   // Doubled voiceless consonants
                         // are spelled with pause before last one
 
 .group c
         c        dZ
-        cc       _::dZ
+        cc       _:_!dZ
         ce (_S2  dZ%E
 
 .group ç
         ç        tS
-        çç       _::tS
+        çç       _:_!tS
         çe (_S2  tS%E
 
 .group d
         d        d
-        dd       _::d
+        dd       _:_!d
 	da (_S2  da
 	de (_S2  de
 	dan (_S3  dan
@@ -104,7 +104,7 @@
 
 .group g
         g        g
-        gg       _::g
+        gg       _:_!g
         g (L03   J
    L03) g (K     J
 
@@ -159,7 +159,7 @@
 
 .group k
         k        k
-        kk       _::k
+        kk       _:_!k
 	ken (_S3  %cen
 
 .group l
@@ -212,7 +212,7 @@
 
 .group p
         p        p
-        pp       _::p
+        pp       _:_!p
 
 .group q
         q        k
@@ -253,7 +253,7 @@
 
 .group t
         t        t
-        tt       _::t
+        tt       _:_!t
 
 	ta (_S2  ta
 	te (_S2  te

@@ -37,7 +37,7 @@
 
 #define L_grc  0x677263 // grc  Ancient Greek
 #define L_jbo  0x6a626f // jbo  Lojban
-#define L_mni  0x6d6e69 // mni  Manipuri
+#define L_mni  0x627079 // bpy  Manipuri
 #define L_pap  0x706170 // pap  Papiamento]
 #define L_zhy  0x7a6879 // zhy
 
