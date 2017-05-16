@@ -68,6 +68,89 @@ $textmode
 ◽	white medium-small square					// [25FD]
 ◾	black medium-small square					// [25FE]
 
+// 2600..26FF : Miscellaneous Symbols
+
+☀	sun								// [2600] text|emoji
+☁	cloud								// [2601] text|emoji
+☂	umbrella							// [2602] text|emoji
+☃	snowman								// [2603] text|emoji
+☄	comet								// [2604] text|emoji
+☎	telephone							// [260E] text|emoji
+☑	ballot box with check						// [2611] text|emoji
+☔	umbrella with rain drops					// [2614]
+☕	hot beverage							// [2615]
+☘	shamrock							// [2618] text|emoji
+☝	index pointing up						// [261D] text|emoji
+☠	skull and crossbones						// [2620] text|emoji
+☢	radioactive							// [2622] text|emoji
+☣	biohazard							// [2623] text|emoji
+☦	orthodox cross							// [2626] text|emoji
+☪	star and crescent						// [262A] text|emoji
+☮	peace symbol							// [262E] text|emoji
+☯	yin yang							// [262F] text|emoji
+☸	wheel of dharma							// [2638] text|emoji
+☹	frowning face							// [2639] text|emoji
+☺	smiling face							// [263A] text|emoji
+♀	female sign							// [2640] text|emoji
+♂	male sign							// [2642] text|emoji
+♈	Aries								// [2648]
+♉	Taurus								// [2649]
+♊	Gemini								// [264A]
+♋	Cancer								// [264B]
+♌	Leo								// [264C]
+♍	Virgo								// [264D]
+♎	Libra								// [264E]
+♏	Scorpius							// [264F]
+♐	Sagittarius							// [2650]
+♑	Capricorn							// [2651]
+♒	Aquarius							// [2652]
+♓	Pisces								// [2653]
+♠	spade suit							// [2660] text|emoji
+♣	club suit							// [2663] text|emoji
+♥	heart suit							// [2665] text|emoji
+♦	diamond suit							// [2666] text|emoji
+♨	hot springs							// [2668] text|emoji
+♻	recycling symbol						// [267B] text|emoji
+♿	wheelchair symbol						// [267F]
+⚒	hammer and pick							// [2692] text|emoji
+⚓	anchor								// [2693]
+⚔	crossed swords							// [2694] text|emoji
+⚕	medical symbol							// [2695] text|emoji
+⚖	balance scale							// [2696] text|emoji
+⚗	alembic								// [2697] text|emoji
+⚙	gear								// [2699] text|emoji
+⚛	atom symbol							// [269B] text|emoji
+⚜	fleur-de-lis							// [269C] text|emoji
+⚠	warning								// [26A0] text|emoji
+⚡	high voltage							// [26A1]
+⚪	white circle							// [26AA]
+⚫	black circle							// [26AB]
+⚰	coffin								// [26B0] text|emoji
+⚱	funeral urn							// [26B1] text|emoji
+⚽	soccer ball							// [26BD]
+⚾	baseball							// [26BE]
+⛄	snowman without snow						// [26C4]
+⛅	sun behind cloud						// [26C5]
+⛈	cloud with lightning and rain					// [26C8] text|emoji
+⛎	Ophiuchus							// [26CE]
+⛏	pick								// [26CF] text|emoji
+⛑	rescue worker's helmet						// [26D1] text|emoji
+⛓	chains								// [26D3] text|emoji
+⛔	no entry							// [26D4]
+⛩	shinto shrine							// [26E9] text|emoji
+⛪	church								// [26EA]
+⛰	mountain							// [26F0] text|emoji
+⛱	umbrella on ground						// [26F1] text|emoji
+⛲	fountain							// [26F2]
+⛳	flag in hole							// [26F3]
+⛴	ferry								// [26F4] text|emoji
+⛵	sailboat							// [26F5]
+⛷	skier								// [26F7] text|emoji
+⛸	ice skate							// [26F8] text|emoji
+⛹	person bouncing ball						// [26F9] text|emoji
+⛺	tent								// [26FA]
+⛽	fuel pump							// [26FD]
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
