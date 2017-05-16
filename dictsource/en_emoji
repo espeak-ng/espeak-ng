@@ -187,6 +187,11 @@ $textmode
 ➰	curly loop							// [27B0]
 ➿	double curly loop						// [27BF]
 
+// 2900..297F : Supplemental Arrows-B
+
+⤴	right arrow curving up						// [2934] text|emoji
+⤵	right arrow curving down					// [2935] text|emoji
+
 // 1F000..1F02F : Mahjong Tiles
 
 🀄	mahjong red dragon						// [1F004]
