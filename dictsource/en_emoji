@@ -55,7 +55,7 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	circled M							// [24C2] text|emoji
+Ⓜ	circled m							// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
@@ -93,18 +93,18 @@ $textmode
 ☺	smiling face							// [263A] text|emoji
 ♀	female sign							// [2640] text|emoji
 ♂	male sign							// [2642] text|emoji
-♈	Aries								// [2648]
-♉	Taurus								// [2649]
-♊	Gemini								// [264A]
-♋	Cancer								// [264B]
-♌	Leo								// [264C]
-♍	Virgo								// [264D]
-♎	Libra								// [264E]
-♏	Scorpius							// [264F]
-♐	Sagittarius							// [2650]
-♑	Capricorn							// [2651]
-♒	Aquarius							// [2652]
-♓	Pisces								// [2653]
+♈	aries								// [2648]
+♉	taurus								// [2649]
+♊	gemini								// [264A]
+♋	cancer								// [264B]
+♌	leo								// [264C]
+♍	virgo								// [264D]
+♎	libra								// [264E]
+♏	scorpius							// [264F]
+♐	sagittarius							// [2650]
+♑	capricorn							// [2651]
+♒	aquarius							// [2652]
+♓	pisces								// [2653]
 ♠	spade suit							// [2660] text|emoji
 ♣	club suit							// [2663] text|emoji
 ♥	heart suit							// [2665] text|emoji
@@ -132,7 +132,7 @@ $textmode
 ⛄	snowman without snow						// [26C4]
 ⛅	sun behind cloud						// [26C5]
 ⛈	cloud with lightning and rain					// [26C8] text|emoji
-⛎	Ophiuchus							// [26CE]
+⛎	ophiuchus							// [26CE]
 ⛏	pick								// [26CF] text|emoji
 ⛑	rescue worker's helmet						// [26D1] text|emoji
 ⛓	chains								// [26D3] text|emoji
@@ -166,7 +166,7 @@ $textmode
 ✔	heavy check mark						// [2714] text|emoji
 ✖	heavy multiplication x						// [2716] text|emoji
 ✝	latin cross							// [271D] text|emoji
-✡	star of David							// [2721] text|emoji
+✡	star of david							// [2721] text|emoji
 ✨	sparkles							// [2728]
 ✳	eight-spoked asterisk						// [2733] text|emoji
 ✴	eight-pointed star						// [2734] text|emoji
@@ -209,44 +209,44 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	Japanese congratulations button					// [3297] text|emoji
-㊙	Japanese secret button						// [3299] text|emoji
+㊗	japanese congratulations button					// [3297] text|emoji
+㊙	japanese secret button						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	A button blood type						// [1F170] text|emoji
-🅱	B button blood type						// [1F171] text|emoji
-🅾	O button blood type						// [1F17E] text|emoji
-🅿	P button							// [1F17F] text|emoji
-🆎	AB button blood type						// [1F18E]
-🆑	CL button							// [1F191]
-🆒	COOL button							// [1F192]
-🆓	FREE button							// [1F193]
-🆔	ID button							// [1F194]
-🆕	NEW button							// [1F195]
-🆖	NG button							// [1F196]
-🆗	OK button							// [1F197]
-🆘	SOS button							// [1F198]
-🆙	UP exclamation mark button					// [1F199]
-🆚	VS button							// [1F19A]
+🅰	a button blood type						// [1F170] text|emoji
+🅱	b button blood type						// [1F171] text|emoji
+🅾	o button blood type						// [1F17E] text|emoji
+🅿	p button							// [1F17F] text|emoji
+🆎	a b button blood type						// [1F18E]
+🆑	c l button							// [1F191]
+🆒	cool button							// [1F192]
+🆓	free button							// [1F193]
+🆔	i d button							// [1F194]
+🆕	new button							// [1F195]
+🆖	n g button							// [1F196]
+🆗	o k button							// [1F197]
+🆘	s o s button							// [1F198]
+🆙	up exclamation mark button					// [1F199]
+🆚	v s button							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	Japanese here button						// [1F201]
-🈂	Japanese service charge button					// [1F202] text|emoji
-🈚	Japanese free of charge button					// [1F21A]
-🈯	Japanese reserved button					// [1F22F]
-🈲	Japanese prohibited button					// [1F232]
-🈳	Japanese vacancy button						// [1F233]
-🈴	Japanese passing grade button					// [1F234]
-🈵	Japanese no vacancy button					// [1F235]
-🈶	Japanese not free of charge button				// [1F236]
-🈷	Japanese monthly amount button					// [1F237] text|emoji
-🈸	Japanese application button					// [1F238]
-🈹	Japanese discount button					// [1F239]
-🈺	Japanese open for business button				// [1F23A]
-🉐	Japanese bargain button						// [1F250]
-🉑	Japanese acceptable button					// [1F251]
+🈁	japanese here button						// [1F201]
+🈂	japanese service charge button					// [1F202] text|emoji
+🈚	japanese free of charge button					// [1F21A]
+🈯	japanese reserved button					// [1F22F]
+🈲	japanese prohibited button					// [1F232]
+🈳	japanese vacancy button						// [1F233]
+🈴	japanese passing grade button					// [1F234]
+🈵	japanese no vacancy button					// [1F235]
+🈶	japanese not free of charge button				// [1F236]
+🈷	japanese monthly amount button					// [1F237] text|emoji
+🈸	japanese application button					// [1F238]
+🈹	japanese discount button					// [1F239]
+🈺	japanese open for business button				// [1F23A]
+🉐	japanese bargain button						// [1F250]
+🉑	japanese acceptable button					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -271,9 +271,9 @@ $textmode
 🌊	water wave							// [1F30A]
 🌋	volcano								// [1F30B]
 🌌	milky way							// [1F30C]
-🌍	globe showing Europe-Africa					// [1F30D]
-🌎	globe showing Americas						// [1F30E]
-🌏	globe showing Asia-Australia					// [1F30F]
+🌍	globe showing europe-africa					// [1F30D]
+🌎	globe showing americas						// [1F30E]
+🌏	globe showing asia-australia					// [1F30F]
 🌐	globe with meridians						// [1F310]
 🌑	new moon							// [1F311]
 🌒	waxing crescent moon						// [1F312]
@@ -388,8 +388,8 @@ $textmode
 🎁	wrapped gift							// [1F381]
 🎂	birthday cake							// [1F382]
 🎃	jack-o-lantern							// [1F383]
-🎄	Christmas tree							// [1F384]
-🎅	Santa Claus							// [1F385]
+🎄	christmas tree							// [1F384]
+🎅	santa claus							// [1F385]
 🎆	fireworks							// [1F386]
 🎇	sparkler							// [1F387]
 🎈	balloon								// [1F388]
@@ -398,7 +398,7 @@ $textmode
 🎋	tanabata tree							// [1F38B]
 🎌	crossed flags							// [1F38C]
 🎍	pine decoration							// [1F38D]
-🎎	Japanese dolls							// [1F38E]
+🎎	japanese dolls							// [1F38E]
 🎏	carp streamer							// [1F38F]
 🎐	wind chime							// [1F390]
 🎑	moon viewing ceremony						// [1F391]
@@ -478,11 +478,11 @@ $textmode
 🏠	house								// [1F3E0]
 🏡	house with garden						// [1F3E1]
 🏢	office building							// [1F3E2]
-🏣	Japanese post office						// [1F3E3]
+🏣	japanese post office						// [1F3E3]
 🏤	post office							// [1F3E4]
 🏥	hospital							// [1F3E5]
 🏦	bank								// [1F3E6]
-🏧	ATM sign							// [1F3E7]
+🏧	a t m sign							// [1F3E7]
 🏨	hotel								// [1F3E8]
 🏩	love hotel							// [1F3E9]
 🏪	convenience store						// [1F3EA]
@@ -490,7 +490,7 @@ $textmode
 🏬	department store						// [1F3EC]
 🏭	factory								// [1F3ED]
 🏮	red paper lantern						// [1F3EE]
-🏯	Japanese castle							// [1F3EF]
+🏯	japanese castle							// [1F3EF]
 🏰	castle								// [1F3F0]
 🏳	white flag							// [1F3F3] text|emoji
 🏴	black flag							// [1F3F4]
@@ -575,7 +575,7 @@ $textmode
 👉	backhand index pointing right					// [1F449]
 👊	oncoming fist							// [1F44A]
 👋	waving hand							// [1F44B]
-👌	OK hand								// [1F44C]
+👌	o k hand							// [1F44C]
 👍	thumbs up							// [1F44D]
 👎	thumbs down							// [1F44E]
 👏	clapping hands							// [1F44F]
@@ -613,7 +613,7 @@ $textmode
 👯	people with bunny ears partying					// [1F46F]
 👰	bride with veil							// [1F470]
 👱	blond-haired person						// [1F471]
-👲	man with Chinese cap						// [1F472]
+👲	man with chinese cap						// [1F472]
 👳	person wearing turban						// [1F473]
 👴	old man								// [1F474]
 👵	old woman							// [1F475]
@@ -779,11 +779,11 @@ $textmode
 🔖	bookmark							// [1F516]
 🔗	link								// [1F517]
 🔘	radio button							// [1F518]
-🔙	BACK arrow							// [1F519]
-🔚	END arrow							// [1F51A]
-🔛	ON! arrow							// [1F51B]
-🔜	SOON arrow							// [1F51C]
-🔝	TOP arrow							// [1F51D]
+🔙	back arrow							// [1F519]
+🔚	end arrow							// [1F51A]
+🔛	on exclamation mark arrow					// [1F51B]
+🔜	soon arrow							// [1F51C]
+🔝	top arrow							// [1F51D]
 🔞	no one under eighteen						// [1F51E]
 🔟	keycap 10							// [1F51F]
 🔠	input latin uppercase						// [1F520]
@@ -802,7 +802,7 @@ $textmode
 🔭	telescope							// [1F52D]
 🔮	crystal ball							// [1F52E]
 🔯	dotted six-pointed star						// [1F52F]
-🔰	Japanese symbol for beginner					// [1F530]
+🔰	japanese symbol for beginner					// [1F530]
 🔱	trident emblem							// [1F531]
 🔲	black square button						// [1F532]
 🔳	white square button						// [1F533]
@@ -886,9 +886,9 @@ $textmode
 🗳	ballot box with ballot						// [1F5F3] text|emoji
 🗺	world map							// [1F5FA] text|emoji
 🗻	mount fuji							// [1F5FB]
-🗼	Tokyo tower							// [1F5FC]
-🗽	Statue of Liberty						// [1F5FD]
-🗾	map of Japan							// [1F5FE]
+🗼	tokyo tower							// [1F5FC]
+🗽	statue of liberty						// [1F5FD]
+🗾	map of japan							// [1F5FE]
 🗿	moai								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
