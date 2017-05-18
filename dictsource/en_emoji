@@ -1439,6 +1439,21 @@ $textmode
 🇿🇲	zambia								// [1F1FF 1F1F2] ZM
 🇿🇼	zimbabwe							// [1F1FF 1F1FC] ZW
 
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	keycap hash							// [0023 FE0F 20E3]
+*️⃣	keycap star							// [002A FE0F 20E3]
+0️⃣	keycap zero							// [0030 FE0F 20E3]
+1️⃣	keycap one							// [0031 FE0F 20E3]
+2️⃣	keycap two							// [0032 FE0F 20E3]
+3️⃣	keycap three							// [0033 FE0F 20E3]
+4️⃣	keycap four							// [0034 FE0F 20E3]
+5️⃣	keycap five							// [0035 FE0F 20E3]
+6️⃣	keycap six							// [0036 FE0F 20E3]
+7️⃣	keycap seven							// [0037 FE0F 20E3]
+8️⃣	keycap eight							// [0038 FE0F 20E3]
+9️⃣	keycap nine							// [0039 FE0F 20E3]
+
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
 //   [Emoji]	Unicode Emoji 4.0 [http://www.unicode.org/Public/emoji/4.0/]
