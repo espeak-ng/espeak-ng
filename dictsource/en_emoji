@@ -536,7 +536,7 @@ $textmode
 🐎	horse								// [1F40E]
 🐏	ram								// [1F40F]
 🐐	goat								// [1F410]
-🐑	sheep								// [1F411]
+🐑	ewe								// [1F411]
 🐒	monkey								// [1F412]
 🐓	rooster								// [1F413]
 🐔	chicken								// [1F414]
@@ -1094,6 +1094,8 @@ $textmode
 🛴	kick scooter							// [1F6F4]
 🛵	motor scooter							// [1F6F5]
 🛶	canoe								// [1F6F6]
+🛷	sled								// [1F6F7]
+🛸	flying saucer							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1112,6 +1114,7 @@ $textmode
 🤜	right facing fist						// [1F91C]
 🤝	handshake							// [1F91D]
 🤞	crossed fingers							// [1F91E]
+🤟	love you gesture						// [1F91F]
 🤠	cowboy hat face							// [1F920]
 🤡	clown face							// [1F921]
 🤢	nauseated face							// [1F922]
@@ -1120,7 +1123,17 @@ $textmode
 🤥	lying face							// [1F925]
 🤦	person facepalming						// [1F926]
 🤧	sneezing face							// [1F927]
+🤨	face with raised eyebrow					// [1F928]
+🤩	star struck							// [1F929]
+🤪	crazy face							// [1F92A]
+🤫	shushing face							// [1F92B]
+🤬	face with symbols over mouth					// [1F92C]
+🤭	face with hand over mouth					// [1F92D]
+🤮	face vomiting							// [1F92E]
+🤯	exploding head							// [1F92F]
 🤰	pregnant woman							// [1F930]
+🤱	breast feeding							// [1F931]
+🤲	palms up together						// [1F932]
 🤳	selfie								// [1F933]
 🤴	prince								// [1F934]
 🤵	man in tuxedo							// [1F935]
@@ -1143,6 +1156,7 @@ $textmode
 🥉	3rd place medal							// [1F949]
 🥊	boxing glove							// [1F94A]
 🥋	martial arts uniform						// [1F94B]
+🥌	curling stone							// [1F94C]
 🥐	croissant							// [1F950]
 🥑	avocado								// [1F951]
 🥒	cucumber							// [1F952]
@@ -1158,6 +1172,19 @@ $textmode
 🥜	peanuts								// [1F95C]
 🥝	kiwi fruit							// [1F95D]
 🥞	pancakes							// [1F95E]
+🥟	dumpling							// [1F95F]
+🥠	fortune cookie							// [1F960]
+🥡	takeout box							// [1F961]
+🥢	chopsticks							// [1F962]
+🥣	bowl with spoon							// [1F963]
+🥤	cup with straw							// [1F964]
+🥥	coconut								// [1F965]
+🥦	broccoli							// [1F966]
+🥧	pie								// [1F967]
+🥨	pretzel								// [1F968]
+🥩	cut of meat							// [1F969]
+🥪	sandwich							// [1F96A]
+🥫	canned food							// [1F96B]
 🦀	crab								// [1F980]
 🦁	lion face							// [1F981]
 🦂	scorpion							// [1F982]
@@ -1176,7 +1203,36 @@ $textmode
 🦏	rhinoceros							// [1F98F]
 🦐	shrimp								// [1F990]
 🦑	squid								// [1F991]
+🦒	giraffe								// [1F992]
+🦓	zebra								// [1F993]
+🦔	hedgehog							// [1F994]
+🦕	sauropod							// [1F995]
+🦖	t rex								// [1F996]
+🦗	cricket								// [1F997]
 🧀	cheese wedge							// [1F9C0]
+🧐	face with monocle						// [1F9D0]
+🧑	adult								// [1F9D1]
+🧒	child								// [1F9D2]
+🧓	older adult							// [1F9D3]
+🧔	bearded person							// [1F9D4]
+🧕	woman with headscarf						// [1F9D5]
+🧖	person in steamy room						// [1F9D6]
+🧗	person climbing							// [1F9D7]
+🧘	person in lotus position					// [1F9D8]
+🧙	mage								// [1F9D9]
+🧚	fairy								// [1F9DA]
+🧛	vampire								// [1F9DB]
+🧜	merperson							// [1F9DC]
+🧝	elf								// [1F9DD]
+🧞	genie								// [1F9DE]
+🧟	zombie								// [1F9DF]
+🧠	brain								// [1F9E0]
+🧡	orange heart							// [1F9E1]
+🧢	billed cap							// [1F9E2]
+🧣	scarf								// [1F9E3]
+🧤	gloves								// [1F9E4]
+🧥	coat								// [1F9E5]
+🧦	socks								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols)
 
@@ -1237,7 +1293,7 @@ $textmode
 🇨🇼	curaçao								// [1F1E8 1F1FC] CW
 🇨🇽	christmas island						// [1F1E8 1F1FD] CX
 🇨🇾	cyprus								// [1F1E8 1F1FE] CY
-🇨🇿	czech republic							// [1F1E8 1F1FF] CZ
+🇨🇿	czechia								// [1F1E8 1F1FF] CZ
 🇩🇪	germany								// [1F1E9 1F1EA] DE
 🇩🇬	diego garcia							// [1F1E9 1F1EC] DG
 🇩🇯	djibouti							// [1F1E9 1F1EF] DJ
@@ -1439,6 +1495,10 @@ $textmode
 🇿🇲	zambia								// [1F1FF 1F1F2] ZM
 🇿🇼	zimbabwe							// [1F1FF 1F1FC] ZW
 
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
 #️⃣	keycap hash							// [0023 FE0F 20E3]
@@ -1492,8 +1552,8 @@ $textmode
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 4.0 [http://www.unicode.org/Public/emoji/4.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 30.0.3 [http://cldr.unicode.org/index/downloads/cldr-30]
+//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)
