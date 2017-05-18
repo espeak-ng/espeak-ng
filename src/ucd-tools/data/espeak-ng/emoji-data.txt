@@ -1,0 +1,49 @@
+# espeak-ng/emoji-data-4.0.txt
+# Date: 2017-05-18, 07:15:00 GMT
+# Copyright (C) 2017 Reece H. Dunn
+#
+# This is an extension to the Unicode Character Database emoji-data.txt file.
+# It provides additional classification data for interpreting ZWJ emoji
+# sequences.
+#
+# The `Emoji_Role` property is used for object-based roles which have the form:
+#
+#     1F468 200D Emoji_Role                 # man (role name)
+#     1F468 Emoji_Modifier 200D Emoji_Role  # man (modifier name) (role name)
+#     1F469 200D Emoji_Role                 # woman (role name)
+#     1F469 Emoji_Modifier 200D Emoji_Role  # woman (modifier name) (role name)
+#
+# It uses the same format as the PropList.txt file.
+#
+# This data is licensed under the same terms as the Unicode Character
+# Database.
+#
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in
+# the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
+#
+# Unicode Character Database
+#   For documentation, see http://www.unicode.org/reports/tr44/
+
+# ================================================
+
+2695   ; Emoji_Role # (⚕) health worker
+2696   ; Emoji_Role # (⚖) judge
+2708   ; Emoji_Role # (✈) pilot
+1F33E  ; Emoji_Role # (🌾) farmer
+1F373  ; Emoji_Role # (🍳) cook
+1F393  ; Emoji_Role # (🎓) student
+1F3A4  ; Emoji_Role # (🎤) singer
+1F3A8  ; Emoji_Role # (🎨) artist
+1F3EB  ; Emoji_Role # (🏫) teacher
+1F3ED  ; Emoji_Role # (🏭) factory worker
+1F4BB  ; Emoji_Role # (💻) technologist
+1F4BC  ; Emoji_Role # (💼) office worker
+1F527  ; Emoji_Role # (🔧) mechanic
+1F52C  ; Emoji_Role # (🔬) scientist
+1F680  ; Emoji_Role # (🚀) astronaut
+1F692  ; Emoji_Role # (🚒) firefighter
+
+# Total code points: 16
+
+#EOF

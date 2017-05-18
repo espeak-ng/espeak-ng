@@ -58,6 +58,7 @@ extern "C"
 #define FLAG_ALT6_TRANS   0x100000 // language specific
 #define FLAG_ALT7_TRANS   0x200000 // language specific
 
+#define FLAG_EMOJI_ZWJ    0x400000 // alternate emoji pronunciation, when in a ZWJ sequence
 #define FLAG_COMBINE      0x800000 // combine with the next word
 #define FLAG_ALLOW_DOT  0x01000000 // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000 // only if the word is followed by a dot
