@@ -94,7 +94,9 @@ $textmode
 ☸	wheel of dharma							// [2638] text|emoji
 ☹	frowning face							// [2639] text|emoji
 ☺	smiling face							// [263A] text|emoji
+♀	woman						$emoji_zwj	// [2640] text|emoji Emoji_Gender
 ♀	female sign							// [2640] text|emoji
+♂	man						$emoji_zwj	// [2642] text|emoji Emoji_Gender
 ♂	male sign							// [2642] text|emoji
 ♈	aries								// [2648]
 ♉	taurus								// [2649]

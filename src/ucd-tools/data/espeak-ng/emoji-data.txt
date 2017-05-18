@@ -1,5 +1,5 @@
 # espeak-ng/emoji-data-4.0.txt
-# Date: 2017-05-18, 07:15:00 GMT
+# Date: 2017-05-18, 07:59:00 GMT
 # Copyright (C) 2017 Reece H. Dunn
 #
 # This is an extension to the Unicode Character Database emoji-data.txt file.
@@ -13,7 +13,13 @@
 #     1F469 200D Emoji_Role                 # woman (role name)
 #     1F469 Emoji_Modifier 200D Emoji_Role  # woman (modifier name) (role name)
 #
-# It uses the same format as the PropList.txt file.
+# The `Emoji_Gender` property is used on emoji codepoints to signify the gender
+# of the emoji with the form:
+#
+#     Emoji 200D Emoji_Gender
+#     Emoji Emoji_Modifier 200D Emoji_Gender
+#
+# This file uses the same format as the PropList.txt file.
 #
 # This data is licensed under the same terms as the Unicode Character
 # Database.
@@ -45,5 +51,14 @@
 1F692  ; Emoji_Role # (🚒) firefighter
 
 # Total code points: 16
+
+# ================================================
+
+2640   ; Emoji_Gender # (♀) woman
+2642   ; Emoji_Gender # (♂) man
+
+# Total code points: 2
+
+#EOF
 
 #EOF
