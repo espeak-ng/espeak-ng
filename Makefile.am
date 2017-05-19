@@ -245,12 +245,6 @@ tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_readclause_test_LDADD   = src/libespeak-ng-test.la
 tests_readclause_test_SOURCES = tests/readclause.c
 
-noinst_bin_PROGRAMS += tests/voices.test
-
-tests_voices_test_LDADD   = src/libespeak-ng-test.la
-tests_voices_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_voices_test_SOURCES = tests/voices.c
-
 %.check: %.test
 	@echo "  TEST      $<"
 	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
@@ -258,7 +252,6 @@ tests_voices_test_SOURCES = tests/voices.c
 check:	tests/encoding.check \
 	tests/tokenizer.check \
 	tests/readclause.check \
-	tests/voices.check \
 	tests/languages.check
 
 ##### phoneme data:
