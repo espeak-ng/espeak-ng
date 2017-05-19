@@ -35,9 +35,9 @@
 #include "translate.h"
 
 void
-test_latin_common()
+test_latin()
 {
-	printf("testing Latin/Common (Latn/Zyyy) script classification\n");
+	printf("testing Latin (Latn)\n");
 
 	assert(clause_type_from_codepoint('a') == CLAUSE_NONE);
 	assert(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
@@ -58,7 +58,7 @@ test_latin_common()
 void
 test_greek()
 {
-	printf("testing Greek (Grek) script classification\n");
+	printf("testing Greek (Grek)\n");
 
 	assert(clause_type_from_codepoint(0x037E) == CLAUSE_QUESTION);
 	assert(clause_type_from_codepoint(0x0387) == CLAUSE_SEMICOLON);
@@ -67,7 +67,7 @@ test_greek()
 void
 test_armenian()
 {
-	printf("testing Armenian (Armn) script classification\n");
+	printf("testing Armenian (Armn)\n");
 
 	assert(clause_type_from_codepoint(0x055B) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
 	assert(clause_type_from_codepoint(0x055C) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
@@ -79,7 +79,7 @@ test_armenian()
 void
 test_arabic()
 {
-	printf("testing Arabic (Arab) script classification\n");
+	printf("testing Arabic (Arab)\n");
 
 	assert(clause_type_from_codepoint(0x060C) == CLAUSE_COMMA);
 	assert(clause_type_from_codepoint(0x061B) == CLAUSE_SEMICOLON);
@@ -90,7 +90,7 @@ test_arabic()
 void
 test_devanagari()
 {
-	printf("testing Devanagari (Deva) script classification\n");
+	printf("testing Devanagari (Deva)\n");
 
 	assert(clause_type_from_codepoint(0x0964) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
@@ -98,7 +98,7 @@ test_devanagari()
 void
 test_tibetan()
 {
-	printf("testing Tibetan (Tibt) script classification\n");
+	printf("testing Tibetan (Tibt)\n");
 
 	assert(clause_type_from_codepoint(0x0F0D) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0x0F0E) == CLAUSE_PARAGRAPH);
@@ -107,7 +107,7 @@ test_tibetan()
 void
 test_sinhala()
 {
-	printf("testing Sinhala (Sinh) script classification\n");
+	printf("testing Sinhala (Sinh)\n");
 
 	assert(clause_type_from_codepoint(0x0DF4) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
@@ -115,7 +115,7 @@ test_sinhala()
 void
 test_georgian()
 {
-	printf("testing Georgian (Geor) script classification\n");
+	printf("testing Georgian (Geor)\n");
 
 	assert(clause_type_from_codepoint(0x10FB) == CLAUSE_PARAGRAPH);
 }
@@ -123,7 +123,7 @@ test_georgian()
 void
 test_ethiopic()
 {
-	printf("testing Ethiopic (Ethi) script classification\n");
+	printf("testing Ethiopic (Ethi)\n");
 
 	assert(clause_type_from_codepoint(0x1362) == CLAUSE_PERIOD);
 	assert(clause_type_from_codepoint(0x1363) == CLAUSE_COMMA);
@@ -137,7 +137,7 @@ test_ethiopic()
 void
 test_ideographic()
 {
-	printf("testing Ideographic (Hani) script classification\n");
+	printf("testing Ideographic (Hani)\n");
 
 	assert(clause_type_from_codepoint(0x3001) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0x3002) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
@@ -146,7 +146,7 @@ test_ideographic()
 void
 test_fullwidth()
 {
-	printf("testing Full Width/Common (Zyyy) script classification\n");
+	printf("testing Full Width\n");
 
 	assert(clause_type_from_codepoint(0xFF01) == (CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0xFF0C) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
@@ -159,7 +159,7 @@ test_fullwidth()
 int
 main(int argc, char **argv)
 {
-	test_latin_common();
+	test_latin();
 	test_greek();
 	test_armenian();
 	test_arabic();
