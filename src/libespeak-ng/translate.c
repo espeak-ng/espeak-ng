@@ -1135,6 +1135,15 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 	int flags = TranslateWord3(tr, word_start, wtab, word_out);
 	if (flags & FLAG_TEXTMODE && word_out) {
 		while (*word_out && available > 1) {
+			int c;
+			utf8_in(&c, word_out);
+			if (iswupper(c)) {
+				wtab->flags |= FLAG_FIRST_UPPER;
+				utf8_out(tolower(c), word_out);
+			} else {
+				wtab->flags &= ~FLAG_FIRST_UPPER;
+			}
+
 			TranslateWord3(tr, word_out, wtab, NULL);
 
 			int n;
