@@ -179,8 +179,10 @@ test_fullwidth()
 }
 
 void
-test_emoji_single_character_sequences()
+test_uts51_emoji_character()
 {
+	printf("testing Emoji ... UTS-51 ED-3. emoji character\n");
+
 	short retix[] = {
 		0, -1, -1,
 		2, -1, -1,
@@ -212,14 +214,6 @@ test_emoji_single_character_sequences()
 	assert(voice_change_name[0] == 0);
 }
 
-void
-test_emoji()
-{
-	printf("testing Emoji\n");
-
-	test_emoji_single_character_sequences();
-}
-
 int
 main(int argc, char **argv)
 {
@@ -237,9 +231,12 @@ main(int argc, char **argv)
 	test_ideographic();
 	test_fullwidth();
 
-	test_emoji();
+	test_uts51_emoji_character();
 
 	assert(espeak_Terminate() == EE_OK);
 
 	return EXIT_SUCCESS;
 }
+
+// References:
+//    [UTS-51]     Unicode Emoji (http://www.unicode.org/reports/tr51/tr51-12.html) 5.0-12. 2017-05-18
