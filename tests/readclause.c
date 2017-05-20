@@ -34,6 +34,28 @@
 #include "synthesize.h"
 #include "translate.h"
 
+// Arguments to ReadClause. Declared here to avoid duplicating them across the
+// different test functions.
+static char source[N_TR_SOURCE+40]; // extra space for embedded command & voice change info at end
+static short charix[N_TR_SOURCE+4];
+static int charix_top = 0;
+static int tone2;
+static char voice_change_name[40];
+static int terminator;
+
+static espeak_ng_STATUS
+set_text(const char *text, const char *voicename)
+{
+	espeak_ng_STATUS status = espeak_ng_SetVoiceByName(voicename);
+	if (status != ENS_OK)
+		return status;
+
+	if (p_decoder == NULL)
+		p_decoder = create_text_decoder();
+
+	return text_decoder_decode_string(p_decoder, text, -1, ESPEAKNG_ENCODING_UTF_8);
+}
+
 void
 test_latin()
 {
@@ -156,9 +178,53 @@ test_fullwidth()
 	assert(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
+void
+test_emoji_single_character_sequences()
+{
+	short retix[] = {
+		0, -1, -1,
+		2, -1, -1,
+		3, -1, -1,
+		4, -1, -1, -1,
+		5, -1, -1, -1,
+		6,
+		0 };
+
+	assert(set_text(
+		"\xE2\x86\x94"      // [2194]  left right arrow
+		"\xE2\x86\x95"      // [2195]  up down arrow
+		"\xE2\x9B\x94"      // [26D5]  no entry
+		"\xF0\x9F\x90\x8B"  // [1F40B] whale
+		"\xF0\x9F\x90\xAC", // [1F42C] dolphin
+		"en") == ENS_OK);
+
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x86\x94"     // [2194]  left right arrow
+		"\xE2\x86\x95"     // [2195]  up down arrow
+		"\xE2\x9B\x94"     // [26D5]  no entry
+		"\xF0\x9F\x90\x8B" // [1F40B] whale
+		"\xF0\x9F\x90\xAC" // [1F42C] dolphin
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 2);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_emoji()
+{
+	printf("testing Emoji\n");
+
+	test_emoji_single_character_sequences();
+}
+
 int
 main(int argc, char **argv)
 {
+	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
+
 	test_latin();
 	test_greek();
 	test_armenian();
@@ -170,6 +236,10 @@ main(int argc, char **argv)
 	test_ethiopic();
 	test_ideographic();
 	test_fullwidth();
+
+	test_emoji();
+
+	assert(espeak_Terminate() == EE_OK);
 
 	return EXIT_SUCCESS;
 }
