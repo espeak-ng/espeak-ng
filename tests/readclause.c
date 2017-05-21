@@ -53,6 +53,7 @@ set_text(const char *text, const char *voicename)
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
 
+	count_characters = 0;
 	return text_decoder_decode_string(p_decoder, text, -1, ESPEAKNG_ENCODING_UTF_8);
 }
 
@@ -61,8 +62,6 @@ test_latin()
 {
 	printf("testing Latin (Latn)\n");
 
-	assert(clause_type_from_codepoint('a') == CLAUSE_NONE);
-	assert(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
 	assert(clause_type_from_codepoint('?') == CLAUSE_QUESTION);
 	assert(clause_type_from_codepoint('!') == CLAUSE_EXCLAMATION);
 	assert(clause_type_from_codepoint(',') == CLAUSE_COMMA);
@@ -75,6 +74,39 @@ test_latin()
 	assert(clause_type_from_codepoint(0x2013) == CLAUSE_SEMICOLON);
 	assert(clause_type_from_codepoint(0x2014) == CLAUSE_SEMICOLON);
 	assert(clause_type_from_codepoint(0x2026) == (CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER));
+}
+
+void
+test_latin_sentence()
+{
+	printf("testing Latin (Latn) ... sentence\n");
+
+	assert(clause_type_from_codepoint('a') == CLAUSE_NONE);
+	assert(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
+
+	short retix[] = {
+		0, 2, 3, 4, 5, 6, // Jane
+		0, 8, 9, 10, 11, 12, 13, 14, 15, // finished
+		0, 17, 18, // #1
+		0, 20, 21, // in
+		0, 23, 24, 25, // the
+		0, 27, 28, 29, 30, // race
+		0 };
+
+	assert(set_text("Janet finished #1 in the race.", "en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == (CLAUSE_PERIOD | CLAUSE_DOT_AFTER_LAST_WORD));
+	assert(!strcmp(source, "Janet finished #1 in the race "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 2);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source, " "));
+	assert(charix_top == 0);
 }
 
 void
@@ -200,6 +232,7 @@ test_uts51_emoji_character()
 		"\xF0\x9F\x90\xAC", // [1F42C] dolphin
 		"en") == ENS_OK);
 
+	charix_top = 0;
 	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
 	assert(!strcmp(source,
 		"\xE2\x86\x94"     // [2194]  left right arrow
@@ -220,6 +253,8 @@ main(int argc, char **argv)
 	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
 
 	test_latin();
+	test_latin_sentence();
+
 	test_greek();
 	test_armenian();
 	test_arabic();
