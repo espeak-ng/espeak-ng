@@ -899,6 +899,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 	outbuf = NULL;
 	FreePhData();
 	FreeVoiceList();
+	translator = NULL;
 
 	return ENS_OK;
 }
