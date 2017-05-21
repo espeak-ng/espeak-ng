@@ -107,7 +107,6 @@ static double two_pi_t;
 unsigned char *out_ptr;
 unsigned char *out_start;
 unsigned char *out_end;
-int outbuf_size = 0;
 
 // the queue of operations passed to wavegen from sythesize
 intptr_t wcmdq[N_WCMDQ][4];

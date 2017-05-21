@@ -58,6 +58,7 @@
 #include "event.h"
 
 unsigned char *outbuf = NULL;
+int outbuf_size = 0;
 
 espeak_EVENT *event_list = NULL;
 int event_list_ix = 0;
