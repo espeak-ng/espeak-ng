@@ -252,7 +252,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	out_samplerate = 0;
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
+	if (my_audio == NULL)
+		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
 	// buffer_length is in mS, allocate 2 bytes per sample
@@ -886,6 +887,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 		audio_object_close(my_audio);
 		audio_object_destroy(my_audio);
+		my_audio = NULL;
 #endif
 		out_samplerate = 0;
 	}
