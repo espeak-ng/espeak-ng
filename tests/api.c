@@ -95,14 +95,51 @@ test_espeak_synth()
 	assert(p_decoder == NULL);
 }
 
+void
+test_espeak_synth_no_voices(const char *path)
+{
+	printf("testing espeak_Synth in path with no voices\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_INTERNAL_ERROR);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
 int
 main(int argc, char **argv)
 {
+	char *progdir = strdup(argv[0]);
+	char *dir = strrchr(progdir, '/');
+	if (dir != NULL) *dir = 0;
+
 	test_espeak_terminate_without_initialize();
 	test_espeak_initialize();
 
 	test_espeak_synth();
 	test_espeak_synth(); // Check that this does not crash when run a second time.
+	test_espeak_synth_no_voices(progdir);
+	test_espeak_synth();
+
+	free(progdir);
 
 	return EXIT_SUCCESS;
 }

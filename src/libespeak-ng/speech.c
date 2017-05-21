@@ -398,13 +398,16 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	count_samples = 0;
 
-	if (translator == NULL)
-		espeak_SetVoiceByName("en");
+	espeak_ng_STATUS status;
+	if (translator == NULL) {
+		status = espeak_SetVoiceByName("en");
+		if (status != ENS_OK)
+			return status;
+	}
 
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
 
-	espeak_ng_STATUS status;
 	status = text_decoder_decode_string_multibyte(p_decoder, text, translator->encoding, flags);
 	if (status != ENS_OK)
 		return status;
