@@ -399,7 +399,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 	count_samples = 0;
 
 	if (translator == NULL)
-		espeak_SetVoiceByName("default");
+		espeak_SetVoiceByName("en");
 
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
