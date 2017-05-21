@@ -53,11 +53,16 @@ dist-hook: ChangeLog
 
 EXTRA_DIST += ChangeLog
 
-############################# Unicode Character Database ######################
+############################# Unicode Data ####################################
 
+EMOJI_VERSION=4.0
 UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
 UCD_SRCDIR=http://www.unicode.org/Public
+
+data/emoji/emoji-data.txt:
+	mkdir -pv data/emoji
+	curl ${UCD_SRCDIR}/emoji/${EMOJI_VERSION}/emoji-data.txt > $@
 
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
@@ -141,6 +146,7 @@ tests_printucddata_cpp_SOURCES = tests/printucddata_cpp.cpp
 tests_printucddata_cpp_LDADD   = src/libucd.la
 
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
+	data/emoji/emoji-data.txt \
 	data/espeak-ng/PropList.txt \
 	data/ucd/UnicodeData.txt \
 	data/ucd/PropList.txt \
