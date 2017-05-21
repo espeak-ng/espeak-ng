@@ -36,6 +36,7 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  de (German) -- Valdis Vitolins
 *  du (Dutch) -- Leonard de Ruijter
 *  en (English) -- Reece Dunn : fixes and Unicode Emoji 5.0 support
 *  fa (Farsi/Persian) -- Shadyar Khodayari
