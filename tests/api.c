@@ -38,10 +38,12 @@ test_espeak_terminate_without_initialize()
 
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 
 	assert(espeak_Terminate() == EE_OK);
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 }
 
 void
@@ -51,14 +53,17 @@ test_espeak_initialize()
 
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 
 	assert(espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 0, NULL, 0) == 22050);
 	assert(event_list != NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 
 	assert(espeak_Terminate() == EE_OK);
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 }
 
 void
@@ -68,21 +73,26 @@ test_espeak_synth()
 
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 
 	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
 	assert(event_list != NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
+	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
+	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
 	assert(event_list == NULL);
 	assert(translator == NULL);
+	assert(p_decoder == NULL);
 }
 
 int
