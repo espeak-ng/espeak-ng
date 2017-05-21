@@ -34,10 +34,32 @@
 #include "synthesize.h"
 #include "translate.h"
 
-void
-test_latin_common()
+// Arguments to ReadClause. Declared here to avoid duplicating them across the
+// different test functions.
+static char source[N_TR_SOURCE+40]; // extra space for embedded command & voice change info at end
+static short charix[N_TR_SOURCE+4];
+static int charix_top = 0;
+static int tone2;
+static char voice_change_name[40];
+static int terminator;
+
+static espeak_ng_STATUS
+set_text(const char *text, const char *voicename)
 {
-	printf("testing Latin/Common (Latn/Zyyy) script classification\n");
+	espeak_ng_STATUS status = espeak_ng_SetVoiceByName(voicename);
+	if (status != ENS_OK)
+		return status;
+
+	if (p_decoder == NULL)
+		p_decoder = create_text_decoder();
+
+	return text_decoder_decode_string(p_decoder, text, -1, ESPEAKNG_ENCODING_UTF_8);
+}
+
+void
+test_latin()
+{
+	printf("testing Latin (Latn)\n");
 
 	assert(clause_type_from_codepoint('a') == CLAUSE_NONE);
 	assert(clause_type_from_codepoint('.') == CLAUSE_PERIOD);
@@ -58,7 +80,7 @@ test_latin_common()
 void
 test_greek()
 {
-	printf("testing Greek (Grek) script classification\n");
+	printf("testing Greek (Grek)\n");
 
 	assert(clause_type_from_codepoint(0x037E) == CLAUSE_QUESTION);
 	assert(clause_type_from_codepoint(0x0387) == CLAUSE_SEMICOLON);
@@ -67,7 +89,7 @@ test_greek()
 void
 test_armenian()
 {
-	printf("testing Armenian (Armn) script classification\n");
+	printf("testing Armenian (Armn)\n");
 
 	assert(clause_type_from_codepoint(0x055B) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
 	assert(clause_type_from_codepoint(0x055C) == (CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD));
@@ -79,7 +101,7 @@ test_armenian()
 void
 test_arabic()
 {
-	printf("testing Arabic (Arab) script classification\n");
+	printf("testing Arabic (Arab)\n");
 
 	assert(clause_type_from_codepoint(0x060C) == CLAUSE_COMMA);
 	assert(clause_type_from_codepoint(0x061B) == CLAUSE_SEMICOLON);
@@ -90,7 +112,7 @@ test_arabic()
 void
 test_devanagari()
 {
-	printf("testing Devanagari (Deva) script classification\n");
+	printf("testing Devanagari (Deva)\n");
 
 	assert(clause_type_from_codepoint(0x0964) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
@@ -98,7 +120,7 @@ test_devanagari()
 void
 test_tibetan()
 {
-	printf("testing Tibetan (Tibt) script classification\n");
+	printf("testing Tibetan (Tibt)\n");
 
 	assert(clause_type_from_codepoint(0x0F0D) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0x0F0E) == CLAUSE_PARAGRAPH);
@@ -107,7 +129,7 @@ test_tibetan()
 void
 test_sinhala()
 {
-	printf("testing Sinhala (Sinh) script classification\n");
+	printf("testing Sinhala (Sinh)\n");
 
 	assert(clause_type_from_codepoint(0x0DF4) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
@@ -115,7 +137,7 @@ test_sinhala()
 void
 test_georgian()
 {
-	printf("testing Georgian (Geor) script classification\n");
+	printf("testing Georgian (Geor)\n");
 
 	assert(clause_type_from_codepoint(0x10FB) == CLAUSE_PARAGRAPH);
 }
@@ -123,7 +145,7 @@ test_georgian()
 void
 test_ethiopic()
 {
-	printf("testing Ethiopic (Ethi) script classification\n");
+	printf("testing Ethiopic (Ethi)\n");
 
 	assert(clause_type_from_codepoint(0x1362) == CLAUSE_PERIOD);
 	assert(clause_type_from_codepoint(0x1363) == CLAUSE_COMMA);
@@ -137,7 +159,7 @@ test_ethiopic()
 void
 test_ideographic()
 {
-	printf("testing Ideographic (Hani) script classification\n");
+	printf("testing Ideographic (Hani)\n");
 
 	assert(clause_type_from_codepoint(0x3001) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0x3002) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
@@ -146,7 +168,7 @@ test_ideographic()
 void
 test_fullwidth()
 {
-	printf("testing Full Width/Common (Zyyy) script classification\n");
+	printf("testing Full Width\n");
 
 	assert(clause_type_from_codepoint(0xFF01) == (CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER));
 	assert(clause_type_from_codepoint(0xFF0C) == (CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER));
@@ -156,10 +178,48 @@ test_fullwidth()
 	assert(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
+void
+test_uts51_emoji_character()
+{
+	printf("testing Emoji ... UTS-51 ED-3. emoji character\n");
+
+	short retix[] = {
+		0, -1, -1,
+		2, -1, -1,
+		3, -1, -1,
+		4, -1, -1, -1,
+		5, -1, -1, -1,
+		6,
+		0 };
+
+	assert(set_text(
+		"\xE2\x86\x94"      // [2194]  left right arrow
+		"\xE2\x86\x95"      // [2195]  up down arrow
+		"\xE2\x9B\x94"      // [26D5]  no entry
+		"\xF0\x9F\x90\x8B"  // [1F40B] whale
+		"\xF0\x9F\x90\xAC", // [1F42C] dolphin
+		"en") == ENS_OK);
+
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x86\x94"     // [2194]  left right arrow
+		"\xE2\x86\x95"     // [2195]  up down arrow
+		"\xE2\x9B\x94"     // [26D5]  no entry
+		"\xF0\x9F\x90\x8B" // [1F40B] whale
+		"\xF0\x9F\x90\xAC" // [1F42C] dolphin
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 2);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
-	test_latin_common();
+	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
+
+	test_latin();
 	test_greek();
 	test_armenian();
 	test_arabic();
@@ -171,5 +231,12 @@ main(int argc, char **argv)
 	test_ideographic();
 	test_fullwidth();
 
+	test_uts51_emoji_character();
+
+	assert(espeak_Terminate() == EE_OK);
+
 	return EXIT_SUCCESS;
 }
+
+// References:
+//    [UTS-51]     Unicode Emoji (http://www.unicode.org/reports/tr51/tr51-12.html) 5.0-12. 2017-05-18

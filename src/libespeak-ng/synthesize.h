@@ -512,7 +512,6 @@ extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 
 extern long count_samples;
-extern int outbuf_size;
 extern unsigned char *out_ptr;
 extern unsigned char *out_start;
 extern unsigned char *out_end;

@@ -245,11 +245,11 @@ tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_readclause_test_LDADD   = src/libespeak-ng-test.la
 tests_readclause_test_SOURCES = tests/readclause.c
 
-noinst_bin_PROGRAMS += tests/voices.test
+noinst_bin_PROGRAMS += tests/api.test
 
-tests_voices_test_LDADD   = src/libespeak-ng-test.la
-tests_voices_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_voices_test_SOURCES = tests/voices.c
+tests_api_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_api_test_LDADD   = src/libespeak-ng-test.la
+tests_api_test_SOURCES = tests/api.c
 
 %.check: %.test
 	@echo "  TEST      $<"
@@ -258,7 +258,7 @@ tests_voices_test_SOURCES = tests/voices.c
 check:	tests/encoding.check \
 	tests/tokenizer.check \
 	tests/readclause.check \
-	tests/voices.check \
+	tests/api.check \
 	tests/languages.check
 
 ##### phoneme data:

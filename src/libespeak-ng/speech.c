@@ -58,6 +58,7 @@
 #include "event.h"
 
 unsigned char *outbuf = NULL;
+int outbuf_size = 0;
 
 espeak_EVENT *event_list = NULL;
 int event_list_ix = 0;
@@ -252,7 +253,8 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 	out_samplerate = 0;
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
-	my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
+	if (my_audio == NULL)
+		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
 	// buffer_length is in mS, allocate 2 bytes per sample
@@ -396,13 +398,16 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	count_samples = 0;
 
-	if (translator == NULL)
-		espeak_SetVoiceByName("default");
+	espeak_ng_STATUS status;
+	if (translator == NULL) {
+		status = espeak_SetVoiceByName("en");
+		if (status != ENS_OK)
+			return status;
+	}
 
 	if (p_decoder == NULL)
 		p_decoder = create_text_decoder();
 
-	espeak_ng_STATUS status;
 	status = text_decoder_decode_string_multibyte(p_decoder, text, translator->encoding, flags);
 	if (status != ENS_OK)
 		return status;
@@ -886,6 +891,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 		audio_object_close(my_audio);
 		audio_object_destroy(my_audio);
+		my_audio = NULL;
 #endif
 		out_samplerate = 0;
 	}
@@ -896,6 +902,12 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 	outbuf = NULL;
 	FreePhData();
 	FreeVoiceList();
+	translator = NULL;
+
+	if (p_decoder != NULL) {
+		destroy_text_decoder(p_decoder);
+		p_decoder = NULL;
+	}
 
 	return ENS_OK;
 }
