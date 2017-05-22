@@ -311,6 +311,36 @@ test_uts51_emoji_presentation_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_modifier_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-13. emoji modifier sequence\n");
+
+	short retix[] = {
+		0, -1, -1, 2, -1, -1, -1,
+		3, -1, -1, -1, 4, -1, -1, -1,
+		5, -1, -1, -1, 6, -1, -1, -1,
+		7 };
+
+	assert(set_text(
+		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"      // [261D 1F3FB]  index pointing up; light skin tone
+		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD"  // [1F5D2 1F3FD] bride with veil; medium skin tone
+		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF", // [1F4AA 1F3FF] flexed biceps; dark skin tone
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"     // [261D 1F3FB]  index pointing up; light skin tone
+		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD" // [1F5D2 1F3FD] bride with veil; medium skin tone
+		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF" // [1F4AA 1F3FF] flexed biceps; dark skin tone
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -333,6 +363,7 @@ main(int argc, char **argv)
 	test_uts51_emoji_character();
 	test_uts51_text_presentation_sequence();
 	test_uts51_emoji_presentation_sequence();
+	test_uts51_emoji_modifier_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
