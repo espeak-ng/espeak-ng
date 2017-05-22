@@ -278,6 +278,39 @@ test_uts51_text_presentation_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_presentation_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-9a. emoji presentation sequence\n");
+
+	short retix[] = {
+		0, 2, -1, -1,
+		3, 4, -1, -1,
+		5, -1, -1, 6, -1, -1,
+		7, -1, -1, -1, 8, -1, -1,
+		9 };
+
+	assert(set_text(
+		"#\xEF\xB8\x8F"                 // [0023 FE0F]  number sign (emoji style)
+		"4\xEF\xB8\x8F"                 // [0034 FE0F]  digit four (emoji style)
+		"\xE2\x80\xBC\xEF\xB8\x8F"      // [203C FE0F]  double exclamation mark (emoji style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8F", // [1F5D2 FE0F] spiral note pad (emoji style)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"#\xEF\xB8\x8F"                // [0023 FE0F]  number sign (emoji style)
+		"4\xEF\xB8\x8F"                // [0034 FE0F]  digit four (emoji style)
+		"\xE2\x80\xBC\xEF\xB8\x8F"     // [203C FE0F]  double exclamation mark (emoji style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8F" // [1F5D2 FE0F] spiral note pad (emoji style)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -299,6 +332,7 @@ main(int argc, char **argv)
 
 	test_uts51_emoji_character();
 	test_uts51_text_presentation_sequence();
+	test_uts51_emoji_presentation_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
