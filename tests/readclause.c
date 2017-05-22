@@ -341,6 +341,39 @@ test_uts51_emoji_modifier_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_flag_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14. emoji flag sequence\n");
+
+	short retix[] = {
+		0, -1, -1, -1, 2, -1, -1, -1,
+		3, -1, -1, -1, 4, -1, -1, -1,
+		5, -1, -1, -1, 6, -1, -1, -1,
+		7, -1, -1, -1, 8, -1, -1, -1,
+		9 };
+
+	assert(set_text(
+		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7"  // [1F1E6 1F1F7] AR (argentina)
+		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC"  // [1F1E7 1F1EC] BG (bulgaria)
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8"  // [1F1EC 1F1E8] GC -- unknown country flag
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xB1", // [1F1EC 1F1F1] GL (greenland)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7" // [1F1E6 1F1F7] AR (argentina)
+		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC" // [1F1E7 1F1EC] BG (bulgaria)
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8" // [1F1EC 1F1E8] GC -- unknown country flag
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xB1" // [1F1EC 1F1F1] GL (greenland)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -364,6 +397,7 @@ main(int argc, char **argv)
 	test_uts51_text_presentation_sequence();
 	test_uts51_emoji_presentation_sequence();
 	test_uts51_emoji_modifier_sequence();
+	test_uts51_emoji_flag_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
