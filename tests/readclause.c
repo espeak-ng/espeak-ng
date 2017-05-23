@@ -374,6 +374,82 @@ test_uts51_emoji_flag_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_tag_sequence_emoji_character()
+{
+	printf("testing Emoji ... UTS-51 ED-14a. emoji tag sequence (emoji character)\n");
+
+	short retix[] = {
+		0, -1, -1, -1, // emoji character
+		2, -1, -1, -1, 3, -1, -1, -1, 4, -1, -1, -1, 5, -1, -1, -1, 6, -1, -1, -1, // tag spec
+		7, -1, -1, -1, // tag term
+		8, -1, -1, -1, // emoji character
+		9, -1, -1, -1, 10, -1, -1, -1, 11, -1, -1, -1, 12, -1, -1, -1, 13, -1, -1, -1, // tag spec
+		14, -1, -1, -1, // tag term
+		15, -1, -1, -1, // emoji character
+		16, -1, -1, -1, 17, -1, -1, -1, 18, -1, -1, -1, 19, -1, -1, -1, // tag spec
+		20, -1, -1, -1, // tag term
+		21 };
+
+	assert(set_text(
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xA7"  // [E0067] tag : g
+		"\xF3\xA0\x81\xA2"  // [E0062] tag : b
+		"\xF3\xA0\x81\xA5"  // [E0065] tag : e
+		"\xF3\xA0\x81\xAE"  // [E006E] tag : n
+		"\xF3\xA0\x81\xA7"  // [E006E] tag : g
+		"\xF3\xA0\x81\xBF"  // [E007F] tag : (cancel)
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xA7"  // [E0067] tag : g
+		"\xF3\xA0\x81\xA2"  // [E0062] tag : b
+		"\xF3\xA0\x81\xB3"  // [E0065] tag : s
+		"\xF3\xA0\x81\xA3"  // [E006E] tag : c
+		"\xF3\xA0\x81\xB4"  // [E006E] tag : t
+		"\xF3\xA0\x81\xBF"  // [E007F] tag : (cancel)
+		// tag_base = emoji_character (non-RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xB5"  // [E0067] tag : u
+		"\xF3\xA0\x81\xB3"  // [E0062] tag : s
+		"\xF3\xA0\x81\xA3"  // [E0065] tag : c
+		"\xF3\xA0\x81\xA1"  // [E006E] tag : a
+		"\xF3\xA0\x81\xBF", // [E007F] tag : (cancel)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xA7" // [E0067] tag : g
+		"\xF3\xA0\x81\xA2" // [E0062] tag : b
+		"\xF3\xA0\x81\xA5" // [E0065] tag : e
+		"\xF3\xA0\x81\xAE" // [E006E] tag : n
+		"\xF3\xA0\x81\xA7" // [E006E] tag : g
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xA7" // [E0067] tag : g
+		"\xF3\xA0\x81\xA2" // [E0062] tag : b
+		"\xF3\xA0\x81\xB3" // [E0065] tag : s
+		"\xF3\xA0\x81\xA3" // [E006E] tag : c
+		"\xF3\xA0\x81\xB4" // [E006E] tag : t
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		// tag_base = emoji_character (non-RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xB5" // [E0067] tag : u
+		"\xF3\xA0\x81\xB3" // [E0062] tag : s
+		"\xF3\xA0\x81\xA3" // [E0065] tag : c
+		"\xF3\xA0\x81\xA1" // [E006E] tag : a
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -398,6 +474,7 @@ main(int argc, char **argv)
 	test_uts51_emoji_presentation_sequence();
 	test_uts51_emoji_modifier_sequence();
 	test_uts51_emoji_flag_sequence();
+	test_uts51_emoji_tag_sequence_emoji_character();
 
 	assert(espeak_Terminate() == EE_OK);
 
