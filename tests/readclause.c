@@ -480,6 +480,36 @@ test_uts51_emoji_combining_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_keycap_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14c. emoji keycap sequence\n");
+
+	short retix[] = {
+		0, 2, -1, -1, 3, -1, -1,
+		4, 5, -1, -1, 6, -1, -1,
+		7, 8, -1, -1, 9, -1, -1,
+		10 };
+
+	assert(set_text(
+		"5\xEF\xB8\x8E\xE2\x83\xA3"  // [0035 FE0E 20E3] keycap 5
+		"#\xEF\xB8\x8E\xE2\x83\xA3"  // [0023 FE0E 20E3] keycap #
+		"*\xEF\xB8\x8E\xE2\x83\xA3", // [002A FE0E 20E3] keycap *
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"5\xEF\xB8\x8E\xE2\x83\xA3" // [0035 FE0E 20E3] keycap 5
+		"#\xEF\xB8\x8E\xE2\x83\xA3" // [0023 FE0E 20E3] keycap #
+		"*\xEF\xB8\x8E\xE2\x83\xA3" // [002A FE0E 20E3] keycap *
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -506,6 +536,7 @@ main(int argc, char **argv)
 	test_uts51_emoji_flag_sequence();
 	test_uts51_emoji_tag_sequence_emoji_character();
 	test_uts51_emoji_combining_sequence();
+	test_uts51_emoji_keycap_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
