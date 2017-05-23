@@ -450,6 +450,36 @@ test_uts51_emoji_tag_sequence_emoji_character()
 	assert(voice_change_name[0] == 0);
 }
 
+void
+test_uts51_emoji_combining_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14b. emoji combining sequence\n");
+
+	short retix[] = {
+		0, -1, -1, 2, -1, -1,            // emoji character
+		3, -1, -1, 4, -1, -1, 5, -1, -1, // text presentation sequence
+		6, -1, -1, 7, -1, -1, 8, -1, -1, // emoji presentation sequence
+		9 };
+
+	assert(set_text(
+		"\xE2\x86\x95\xE2\x83\x9E"              // [2195 20DE]      up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E"  // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E", // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x86\x95\xE2\x83\x9E"             // [2195 20DE]      up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E" // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E" // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -475,6 +505,7 @@ main(int argc, char **argv)
 	test_uts51_emoji_modifier_sequence();
 	test_uts51_emoji_flag_sequence();
 	test_uts51_emoji_tag_sequence_emoji_character();
+	test_uts51_emoji_combining_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
