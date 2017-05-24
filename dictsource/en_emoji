@@ -1234,7 +1234,7 @@ $textmode
 🧥	coat								// [1F9E5]
 🧦	socks								// [1F9E6]
 
-// Country Flags (Regional Indicator Symbols)
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
 🇦🇨	ascension island						// [1F1E6 1F1E8] AC
 🇦🇩	andorra								// [1F1E6 1F1E9] AD
@@ -1495,6 +1495,8 @@ $textmode
 🇿🇲	zambia								// [1F1FF 1F1F2] ZM
 🇿🇼	zimbabwe							// [1F1FF 1F1FC] ZW
 
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
@@ -1514,10 +1516,8 @@ $textmode
 8️⃣	keycap eight							// [0038 FE0F 20E3]
 9️⃣	keycap nine							// [0039 FE0F 20E3]
 
-// Other Emoji ZWJ Sequences
+// Emoji ZWJ Sequence: Family
 
-🏳‍🌈			rainbow flag				// [1F3F3 200D 1F308]
-👁‍🗨			eye in speech bubble			// [1F441 200D 1F5E8]
 👩‍❤‍💋‍👨	kiss woman man				// [1F469 200D 2764 200D 1F48B 200D 1F468]
 👨‍❤‍💋‍👨	kiss man man				// [1F468 200D 2764 200D 1F48B 200D 1F468]
 👩‍❤‍💋‍👩	kiss woman woman			// [1F469 200D 2764 200D 1F48B 200D 1F469]
@@ -1549,6 +1549,11 @@ $textmode
 👩‍👧			family woman girl			// [1F469 200D 1F467]
 👩‍👧‍👦		family woman girl boy			// [1F469 200D 1F467 200D 1F466]
 👩‍👧‍👧		family woman girl girl			// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈			rainbow flag				// [1F3F3 200D 1F308]
+👁‍🗨			eye in speech bubble			// [1F441 200D 1F5E8]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
