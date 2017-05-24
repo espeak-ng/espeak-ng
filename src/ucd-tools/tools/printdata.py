@@ -22,6 +22,7 @@ import sys
 import ucd
 
 ucd_rootdir = sys.argv[1]
+emoji_rootdir = 'data/emoji'
 csur_rootdir = 'data/csur'
 
 null = ucd.CodePoint('0000')
@@ -29,6 +30,7 @@ null = ucd.CodePoint('0000')
 properties = [
     (ucd_rootdir, 'PropList'),
     (ucd_rootdir, 'DerivedCoreProperties'),
+    (emoji_rootdir, 'emoji-data'),
     ('data/espeak-ng', 'PropList')
 ]
 
@@ -160,6 +162,10 @@ def properties(data):
 	props += (2 ** 30) * data.get('Pattern_White_Space', 0)
 	props += (2 ** 31) * data.get('Pattern_Syntax', 0)
 	props += (2 ** 32) * data.get('Prepended_Concatenation_Mark', 0)
+	props += (2 ** 33) * data.get('Emoji', 0) # emoji-data
+	props += (2 ** 34) * data.get('Emoji_Presentation', 0) # emoji-data
+	props += (2 ** 35) * data.get('Emoji_Modifier', 0) # emoji-data
+	props += (2 ** 36) * data.get('Emoji_Modifier_Base', 0) # emoji-data
         # eSpeak NG extended properties:
 	props += (2 ** 52) * data.get('Inverted_Terminal_Punctuation', 0)
 	props += (2 ** 53) * data.get('Punctuation_In_Word', 0)

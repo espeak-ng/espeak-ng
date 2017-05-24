@@ -1,12 +1,5 @@
 # Unicode Character Database Tools
 
-- [Data Files](#data-files)
-  - [Unicode Character Database](#unicode-character-database)
-  - [ConScript Unicode Registry](#conscript-unicode-registry)
-- [C Library](#c-library)
-  - [Querying Properties](#querying-properties)
-  - [Case Conversion](#case-conversion)
-  - [wctype Compatibility](#wctype-compatibility)
 - [Build Dependencies](#build-dependencies)
   - [Debian](#debian)
 - [Building](#building)
@@ -16,97 +9,17 @@
 
 ----------
 
-The Unicode Character Database (UCD) Tools is a set of Python tools and a C
-library with a C++ API binding. The Python tools are designed to support
-extracting and processing data from the text-based UCD source files, while
-the C library is designed to provide easy access to this information within
-a C or C++ program.
+The Unicode Character Database (UCD) Tools is a set of Python tools and a
+[C library](src/include/ucd/ucd.h) with a C++ API binding. The Python tools
+are designed to support extracting and processing data from the text-based
+UCD source files, while the C library is designed to provide easy access to
+this information within a C or C++ program.
 
-## Data Files
+The project uses and supports the following sources of Unicode codepoint data:
 
-The `ucd-tools` project provides support for UCD formatted data files from
-several different sources.
-
-### Unicode Character Database
-
-The following [Unicode Character Database](http://www.unicode.org/Public/9.0.0/ucd/)
-files are supported:
-
-*  Blocks
-*  DerivedAge
-*  PropList
-*  PropertyValueAliases
-*  Scripts
-*  UnicodeData
-
-### ConScript Unicode Registry
-
-If enabled, the following data from the
-[ConScript Unicode Registry](http://www.evertype.com/standards/csur/) (CSUR) is
-added:
-
-| Code Range   | Script  |
-|--------------|---------|
-| `F8D0-F8FF`  | [Klingon](http://www.evertype.com/standards/csur/klingon.html) |
-
-This data is located in the `data/csur` directory in a form compatible with the
-Unicode Character Data files.
-
-## C Library
-
-The C library provides several different facilities that make use of the UCD
-data. It provides a compact and efficient representation of the different data
-tables.
-
-Detailed documentation is provided in the `src/include/ucd/ucd.h` file in the
-Doxygen documentation format.
-
-### Querying Properties
-
-The library exposes the following properties from the UCD data files:
-
-| C API                 | C++ API                | Data        | Description |
-|-----------------------|------------------------|-------------|-------------|
-| `ucd_lookup_category` | `ucd::lookup_category` | UnicodeData | A [General Category Value](http://www.unicode.org/reports/tr44/#General_Category_Values). |
-| `ucd_lookup_script`   | `ucd::lookup_script`   | Script      | An [ISO 15924](http://www.unicode.org/iso15924/iso15924-codes.html) script code. |
-| `ucd_properties`      | `ucd::properties`      | PropList    | The code point properties from the PropList Unicode data file. |
-
-### Case Conversion
-
-The following character conversion functions are provided:
-
-| C API         | C++ API        | Description |
-|---------------|----------------|-------------|
-| `ucd_tolower` | `ucd::tolower` | convert letters to lower case |
-| `ucd_totitle` | `ucd::totitle` | convert letters to title case (UCD extension) |
-| `ucd_toupper` | `ucd::toupper` | convert letters to upper case |
-
-__NOTE:__ These functions use the simple case mapping algorithm. That is, they
-only ever map to a single character. This is to provide a compatible signature
-to the standard C `wctype.h` APIs.
-
-### wctype Compatibility
-
-To facilitate working on platforms that don't have a useable wide-character
-ctypes library, or to provide a more consistent behaviour, the `ucd-tools`
-C library provides a set of APIs that are compatible with `wctype.h`.
-
-The following character classification functions are provided:
-
-| C API          | C++ API         |
-|----------------|-----------------|
-| `ucd_isalnum`  | `ucd::isalnum`  |
-| `ucd_isalpha`  | `ucd::isalpha`  |
-| `ucd_isblank`  | `ucd::isblank`  |
-| `ucd_iscntrl`  | `ucd::iscntrl`  |
-| `ucd_isdigit`  | `ucd::isdigit`  |
-| `ucd_isgraph`  | `ucd::isgraph`  |
-| `ucd_islower`  | `ucd::islower`  |
-| `ucd_isprint`  | `ucd::isprint`  |
-| `ucd_ispunct`  | `ucd::ispunct`  |
-| `ucd_isspace`  | `ucd::isspace`  |
-| `ucd_isupper`  | `ucd::isupper`  |
-| `ucd_isxdigit` | `ucd::isxdigit` |
+*  [Unicode Character Database](http://www.unicode.org/Public/9.0.0/ucd/) 9.0.0
+*  [Unicode Emoji](http://www.unicode.org/Public/emoji/4.0/) 4.0 (UTR #51)
+*  [ConScript Unicode Registry](http://www.evertype.com/standards/csur/)
 
 ## Build Dependencies
 

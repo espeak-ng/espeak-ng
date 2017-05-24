@@ -105,6 +105,10 @@ def strlist(x):
 
 data_items = {
 	# Unicode Character Data:
+	'emoji-data': [
+		('Range', codepoint),
+		('Property', string)
+	],
 	'Blocks': [
 		('Range', codepoint),
 		('Name', string)

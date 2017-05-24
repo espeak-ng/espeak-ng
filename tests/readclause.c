@@ -90,15 +90,14 @@ test_latin_sentence()
 		0, 17, 18, // #1
 		0, 20, 21, // in
 		0, 23, 24, 25, // the
-		0, 27, 28, 29, 30, // race
-		0 };
+		0, 27, 28, 29, 30 }; // race
 
 	assert(set_text("Janet finished #1 in the race.", "en") == ENS_OK);
 
 	charix_top = 0;
 	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == (CLAUSE_PERIOD | CLAUSE_DOT_AFTER_LAST_WORD));
 	assert(!strcmp(source, "Janet finished #1 in the race "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 2);
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
 	assert(!memcmp(charix, retix, sizeof(retix)));
 	assert(tone2 == 0);
 	assert(voice_change_name[0] == 0);
@@ -221,8 +220,7 @@ test_uts51_emoji_character()
 		3, -1, -1,
 		4, -1, -1, -1,
 		5, -1, -1, -1,
-		6,
-		0 };
+		6 };
 
 	assert(set_text(
 		"\xE2\x86\x94"      // [2194]  left right arrow
@@ -241,7 +239,272 @@ test_uts51_emoji_character()
 		"\xF0\x9F\x90\x8B" // [1F40B] whale
 		"\xF0\x9F\x90\xAC" // [1F42C] dolphin
 		" "));
-	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 2);
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_text_presentation_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-8a. text presentation sequence\n");
+
+	short retix[] = {
+		0, 2, -1, -1,
+		3, 4, -1, -1,
+		5, -1, -1, 6, -1, -1,
+		7, -1, -1, -1, 8, -1, -1,
+		9 };
+
+	assert(set_text(
+		"#\xEF\xB8\x8E"                 // [0023 FE0E]  number sign (text style)
+		"4\xEF\xB8\x8E"                 // [0034 FE0E]  digit four (text style)
+		"\xE2\x80\xBC\xEF\xB8\x8E"      // [203C FE0E]  double exclamation mark (text style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8E", // [1F5D2 FE0E] spiral note pad (text style)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"#\xEF\xB8\x8E"                // [0023 FE0E]  number sign (text style)
+		"4\xEF\xB8\x8E"                // [0034 FE0E]  digit four (text style)
+		"\xE2\x80\xBC\xEF\xB8\x8E"     // [203C FE0E]  double exclamation mark (text style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8E" // [1F5D2 FE0E] spiral note pad (text style)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_presentation_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-9a. emoji presentation sequence\n");
+
+	short retix[] = {
+		0, 2, -1, -1,
+		3, 4, -1, -1,
+		5, -1, -1, 6, -1, -1,
+		7, -1, -1, -1, 8, -1, -1,
+		9 };
+
+	assert(set_text(
+		"#\xEF\xB8\x8F"                 // [0023 FE0F]  number sign (emoji style)
+		"4\xEF\xB8\x8F"                 // [0034 FE0F]  digit four (emoji style)
+		"\xE2\x80\xBC\xEF\xB8\x8F"      // [203C FE0F]  double exclamation mark (emoji style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8F", // [1F5D2 FE0F] spiral note pad (emoji style)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"#\xEF\xB8\x8F"                // [0023 FE0F]  number sign (emoji style)
+		"4\xEF\xB8\x8F"                // [0034 FE0F]  digit four (emoji style)
+		"\xE2\x80\xBC\xEF\xB8\x8F"     // [203C FE0F]  double exclamation mark (emoji style)
+		"\xF0\x9F\x97\x92\xEF\xB8\x8F" // [1F5D2 FE0F] spiral note pad (emoji style)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_modifier_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-13. emoji modifier sequence\n");
+
+	short retix[] = {
+		0, -1, -1, 2, -1, -1, -1,
+		3, -1, -1, -1, 4, -1, -1, -1,
+		5, -1, -1, -1, 6, -1, -1, -1,
+		7 };
+
+	assert(set_text(
+		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"      // [261D 1F3FB]  index pointing up; light skin tone
+		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD"  // [1F5D2 1F3FD] bride with veil; medium skin tone
+		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF", // [1F4AA 1F3FF] flexed biceps; dark skin tone
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x98\x9D\xF0\x9F\x8F\xBB"     // [261D 1F3FB]  index pointing up; light skin tone
+		"\xF0\x9F\x91\xB0\xF0\x9F\x8F\xBD" // [1F5D2 1F3FD] bride with veil; medium skin tone
+		"\xF0\x9F\x92\xAA\xF0\x9F\x8F\xBF" // [1F4AA 1F3FF] flexed biceps; dark skin tone
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_flag_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14. emoji flag sequence\n");
+
+	short retix[] = {
+		0, -1, -1, -1, 2, -1, -1, -1,
+		3, -1, -1, -1, 4, -1, -1, -1,
+		5, -1, -1, -1, 6, -1, -1, -1,
+		7, -1, -1, -1, 8, -1, -1, -1,
+		9 };
+
+	assert(set_text(
+		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7"  // [1F1E6 1F1F7] AR (argentina)
+		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC"  // [1F1E7 1F1EC] BG (bulgaria)
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8"  // [1F1EC 1F1E8] GC -- unknown country flag
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xB1", // [1F1EC 1F1F1] GL (greenland)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xF0\x9F\x87\xA6\xF0\x9F\x87\xB7" // [1F1E6 1F1F7] AR (argentina)
+		"\xF0\x9F\x87\xA7\xF0\x9F\x87\xAC" // [1F1E7 1F1EC] BG (bulgaria)
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xA8" // [1F1EC 1F1E8] GC -- unknown country flag
+		"\xF0\x9F\x87\xAC\xF0\x9F\x87\xB1" // [1F1EC 1F1F1] GL (greenland)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_tag_sequence_emoji_character()
+{
+	printf("testing Emoji ... UTS-51 ED-14a. emoji tag sequence (emoji character)\n");
+
+	short retix[] = {
+		0, -1, -1, -1, // emoji character
+		2, -1, -1, -1, 3, -1, -1, -1, 4, -1, -1, -1, 5, -1, -1, -1, 6, -1, -1, -1, // tag spec
+		7, -1, -1, -1, // tag term
+		8, -1, -1, -1, // emoji character
+		9, -1, -1, -1, 10, -1, -1, -1, 11, -1, -1, -1, 12, -1, -1, -1, 13, -1, -1, -1, // tag spec
+		14, -1, -1, -1, // tag term
+		15, -1, -1, -1, // emoji character
+		16, -1, -1, -1, 17, -1, -1, -1, 18, -1, -1, -1, 19, -1, -1, -1, // tag spec
+		20, -1, -1, -1, // tag term
+		21 };
+
+	assert(set_text(
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xA7"  // [E0067] tag : g
+		"\xF3\xA0\x81\xA2"  // [E0062] tag : b
+		"\xF3\xA0\x81\xA5"  // [E0065] tag : e
+		"\xF3\xA0\x81\xAE"  // [E006E] tag : n
+		"\xF3\xA0\x81\xA7"  // [E006E] tag : g
+		"\xF3\xA0\x81\xBF"  // [E007F] tag : (cancel)
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xA7"  // [E0067] tag : g
+		"\xF3\xA0\x81\xA2"  // [E0062] tag : b
+		"\xF3\xA0\x81\xB3"  // [E0065] tag : s
+		"\xF3\xA0\x81\xA3"  // [E006E] tag : c
+		"\xF3\xA0\x81\xB4"  // [E006E] tag : t
+		"\xF3\xA0\x81\xBF"  // [E007F] tag : (cancel)
+		// tag_base = emoji_character (non-RGI sequence)
+		"\xF0\x9F\x8F\xB4"  // [1F3F4] flag
+		"\xF3\xA0\x81\xB5"  // [E0067] tag : u
+		"\xF3\xA0\x81\xB3"  // [E0062] tag : s
+		"\xF3\xA0\x81\xA3"  // [E0065] tag : c
+		"\xF3\xA0\x81\xA1"  // [E006E] tag : a
+		"\xF3\xA0\x81\xBF", // [E007F] tag : (cancel)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xA7" // [E0067] tag : g
+		"\xF3\xA0\x81\xA2" // [E0062] tag : b
+		"\xF3\xA0\x81\xA5" // [E0065] tag : e
+		"\xF3\xA0\x81\xAE" // [E006E] tag : n
+		"\xF3\xA0\x81\xA7" // [E006E] tag : g
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		// tag_base = emoji_character (RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xA7" // [E0067] tag : g
+		"\xF3\xA0\x81\xA2" // [E0062] tag : b
+		"\xF3\xA0\x81\xB3" // [E0065] tag : s
+		"\xF3\xA0\x81\xA3" // [E006E] tag : c
+		"\xF3\xA0\x81\xB4" // [E006E] tag : t
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		// tag_base = emoji_character (non-RGI sequence)
+		"\xF0\x9F\x8F\xB4" // [1F3F4] flag
+		"\xF3\xA0\x81\xB5" // [E0067] tag : u
+		"\xF3\xA0\x81\xB3" // [E0062] tag : s
+		"\xF3\xA0\x81\xA3" // [E0065] tag : c
+		"\xF3\xA0\x81\xA1" // [E006E] tag : a
+		"\xF3\xA0\x81\xBF" // [E007F] tag : (cancel)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_combining_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14b. emoji combining sequence\n");
+
+	short retix[] = {
+		0, -1, -1, 2, -1, -1,            // emoji character
+		3, -1, -1, 4, -1, -1, 5, -1, -1, // text presentation sequence
+		6, -1, -1, 7, -1, -1, 8, -1, -1, // emoji presentation sequence
+		9 };
+
+	assert(set_text(
+		"\xE2\x86\x95\xE2\x83\x9E"              // [2195 20DE]      up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E"  // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E", // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"\xE2\x86\x95\xE2\x83\x9E"             // [2195 20DE]      up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8E\xE2\x83\x9E" // [2195 FE0E 20DE] up down arrow; Me (enclosing square)
+		"\xE2\x86\x95\xEF\xB8\x8F\xE2\x83\x9E" // [2195 FE0F 20DE] up down arrow; Me (enclosing square)
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
+	assert(!memcmp(charix, retix, sizeof(retix)));
+	assert(tone2 == 0);
+	assert(voice_change_name[0] == 0);
+}
+
+void
+test_uts51_emoji_keycap_sequence()
+{
+	printf("testing Emoji ... UTS-51 ED-14c. emoji keycap sequence\n");
+
+	short retix[] = {
+		0, 2, -1, -1, 3, -1, -1,
+		4, 5, -1, -1, 6, -1, -1,
+		7, 8, -1, -1, 9, -1, -1,
+		10 };
+
+	assert(set_text(
+		"5\xEF\xB8\x8E\xE2\x83\xA3"  // [0035 FE0E 20E3] keycap 5
+		"#\xEF\xB8\x8E\xE2\x83\xA3"  // [0023 FE0E 20E3] keycap #
+		"*\xEF\xB8\x8E\xE2\x83\xA3", // [002A FE0E 20E3] keycap *
+		"en") == ENS_OK);
+
+	charix_top = 0;
+	assert(ReadClause(translator, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name) == CLAUSE_EOF);
+	assert(!strcmp(source,
+		"5\xEF\xB8\x8E\xE2\x83\xA3" // [0035 FE0E 20E3] keycap 5
+		"#\xEF\xB8\x8E\xE2\x83\xA3" // [0023 FE0E 20E3] keycap #
+		"*\xEF\xB8\x8E\xE2\x83\xA3" // [002A FE0E 20E3] keycap *
+		" "));
+	assert(charix_top == (sizeof(retix)/sizeof(retix[0])) - 1);
 	assert(!memcmp(charix, retix, sizeof(retix)));
 	assert(tone2 == 0);
 	assert(voice_change_name[0] == 0);
@@ -267,6 +530,13 @@ main(int argc, char **argv)
 	test_fullwidth();
 
 	test_uts51_emoji_character();
+	test_uts51_text_presentation_sequence();
+	test_uts51_emoji_presentation_sequence();
+	test_uts51_emoji_modifier_sequence();
+	test_uts51_emoji_flag_sequence();
+	test_uts51_emoji_tag_sequence_emoji_character();
+	test_uts51_emoji_combining_sequence();
+	test_uts51_emoji_keycap_sequence();
 
 	assert(espeak_Terminate() == EE_OK);
 
