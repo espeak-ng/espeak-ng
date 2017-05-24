@@ -120,9 +120,7 @@ $textmode
 ⚒	hammer and pick							// [2692] text|emoji
 ⚓	anchor								// [2693]
 ⚔	crossed swords							// [2694] text|emoji
-⚕	health worker					$emoji_zwj	// [2695] text|emoji
 ⚕	medical symbol							// [2695] text|emoji
-⚖	judge						$emoji_zwj	// [2696] text|emoji
 ⚖	balance scale							// [2696] text|emoji
 ⚗	alembic								// [2697] text|emoji
 ⚙	gear								// [2699] text|emoji
@@ -162,7 +160,6 @@ $textmode
 
 ✂	scissors							// [2702] text|emoji
 ✅	white heavy check mark						// [2705]
-✈	pilot						$emoji_zwj	// [2708] text|emoji
 ✈	airplane							// [2708] text|emoji
 ✉	envelope							// [2709] text|emoji
 ✊	raised fist							// [270A]
@@ -326,7 +323,6 @@ $textmode
 🌻	sunflower							// [1F33B]
 🌼	blossom								// [1F33C]
 🌽	ear of corn							// [1F33D]
-🌾	farmer						$emoji_zwj	// [1F33E]
 🌾	sheaf of rice							// [1F33E]
 🌿	herb								// [1F33F]
 🍀	four leaf clover						// [1F340]
@@ -380,7 +376,6 @@ $textmode
 🍰	shortcake							// [1F370]
 🍱	bento box							// [1F371]
 🍲	pot of food							// [1F372]
-🍳	cook						$emoji_zwj	// [1F373]
 🍳	cooking								// [1F373]
 🍴	fork and knife							// [1F374]
 🍵	teacup without handle						// [1F375]
@@ -413,7 +408,6 @@ $textmode
 🎐	wind chime							// [1F390]
 🎑	moon viewing ceremony						// [1F391]
 🎒	school backpack							// [1F392]
-🎓	student						$emoji_zwj	// [1F393]
 🎓	graduation cap							// [1F393]
 🎖	military medal							// [1F396] text|emoji
 🎗	reminder ribbon							// [1F397] text|emoji
@@ -426,12 +420,10 @@ $textmode
 🎡	ferris wheel							// [1F3A1]
 🎢	roller coaster							// [1F3A2]
 🎣	fishing pole							// [1F3A3]
-🎤	singer						$emoji_zwj	// [1F3A4]
 🎤	microphone							// [1F3A4]
 🎥	movie camera							// [1F3A5]
 🎦	cinema								// [1F3A6]
 🎧	headphone							// [1F3A7]
-🎨	artist						$emoji_zwj	// [1F3A8]
 🎨	artist palette							// [1F3A8]
 🎩	top hat								// [1F3A9]
 🎪	circus tent							// [1F3AA]
@@ -499,10 +491,8 @@ $textmode
 🏨	hotel								// [1F3E8]
 🏩	love hotel							// [1F3E9]
 🏪	convenience store						// [1F3EA]
-🏫	teacher						$emoji_zwj	// [1F3EB]
 🏫	school								// [1F3EB]
 🏬	department store						// [1F3EC]
-🏭	factory worker					$emoji_zwj	// [1F3ED]
 🏭	factory								// [1F3ED]
 🏮	red paper lantern						// [1F3EE]
 🏯	japanese castle							// [1F3EF]
@@ -706,9 +696,7 @@ $textmode
 💸	money with wings						// [1F4B8]
 💹	chart increasing with yen					// [1F4B9]
 💺	seat								// [1F4BA]
-💻	technologist					$emoji_zwj	// [1F4BB]
 💻	laptop computer							// [1F4BB]
-💼	office worker					$emoji_zwj	// [1F4BC]
 💼	briefcase							// [1F4BC]
 💽	computer disk							// [1F4BD]
 💾	floppy disk							// [1F4BE]
@@ -815,13 +803,11 @@ $textmode
 🔤	input latin letters						// [1F524]
 🔥	fire								// [1F525]
 🔦	flashlight							// [1F526]
-🔧	mechanic					$emoji_zwj	// [1F527]
 🔧	wrench								// [1F527]
 🔨	hammer								// [1F528]
 🔩	nut and bolt							// [1F529]
 🔪	kitchen knife							// [1F52A]
 🔫	pistol								// [1F52B]
-🔬	scientist					$emoji_zwj	// [1F52C]
 🔬	microscope							// [1F52C]
 🔭	telescope							// [1F52D]
 🔮	crystal ball							// [1F52E]
@@ -1000,7 +986,6 @@ $textmode
 
 // 1F680..1F6FF : Transport and Map Symbols
 
-🚀	astronaut					$emoji_zwj	// [1F680]
 🚀	rocket								// [1F680]
 🚁	helicopter							// [1F681]
 🚂	locomotive							// [1F682]
@@ -1019,7 +1004,6 @@ $textmode
 🚏	bus stop							// [1F68F]
 🚐	minibus								// [1F690]
 🚑	ambulance							// [1F691]
-🚒	firefighter					$emoji_zwj	// [1F692]
 🚒	fire engine							// [1F692]
 🚓	police car							// [1F693]
 🚔	oncoming police car						// [1F694]
@@ -1549,6 +1533,41 @@ $textmode
 👩‍👧			family woman girl			// [1F469 200D 1F467]
 👩‍👧‍👦		family woman girl boy			// [1F469 200D 1F467 200D 1F466]
 👩‍👧‍👧		family woman girl girl			// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gender Base + Object
+
+👨‍⚕	man health worker					// [1F468 200D 2695]
+👩‍⚕	woman health worker					// [1F469 200D 2695]
+👨‍⚖	man judge						// [1F468 200D 2696]
+👩‍⚖	woman judge						// [1F469 200D 2696]
+👨‍✈	man pilot						// [1F468 200D 2708]
+👩‍✈	woman pilot						// [1F469 200D 2708]
+👨‍🌾	man farmer						// [1F468 200D 1F33E]
+👩‍🌾	woman farmer						// [1F469 200D 1F33E]
+👨‍🍳	man cook						// [1F468 200D 1F373]
+👩‍🍳	woman cook						// [1F469 200D 1F373]
+👨‍🎓	man student						// [1F468 200D 1F393]
+👩‍🎓	woman student						// [1F469 200D 1F393]
+👨‍🎤	man singer						// [1F468 200D 1F3A4]
+👩‍🎤	woman singer						// [1F469 200D 1F3A4]
+👨‍🎨	man artist						// [1F468 200D 1F3A8]
+👩‍🎨	woman artist						// [1F469 200D 1F3A8]
+👨‍🏫	man teacher						// [1F468 200D 1F3EB]
+👩‍🏫	woman teacher						// [1F469 200D 1F3EB]
+👨‍🏭	man factory worker					// [1F468 200D 1F3ED]
+👩‍🏭	woman factory worker					// [1F469 200D 1F3ED]
+👨‍💻	man technologist					// [1F468 200D 1F4BB]
+👩‍💻	woman technologist					// [1F469 200D 1F4BB]
+👨‍💼	man office worker					// [1F468 200D 1F4BC]
+👩‍💼	woman office worker					// [1F469 200D 1F4BC]
+👨‍🔧	man mechanic						// [1F468 200D 1F527]
+👩‍🔧	woman mechanic						// [1F469 200D 1F527]
+👨‍🔬	man scientist						// [1F468 200D 1F52C]
+👩‍🔬	woman scientist						// [1F469 200D 1F52C]
+👨‍🚀	man astronaut						// [1F468 200D 1F680]
+👩‍🚀	woman atronaut						// [1F469 200D 1F680]
+👨‍🚒	man firefighter						// [1F468 200D 1F692]
+👩‍🚒	woman firefighter					// [1F469 200D 1F692]
 
 // Emoji ZWJ Sequence: Other
 
