@@ -116,7 +116,6 @@ MNEM_TAB mnem_flags[] = {
 	{ "$alt5",          19 },
 	{ "$alt6",          20 },
 	{ "$alt7",          21 },
-	{ "$emoji_zwj",     22 }, // alternate emoji pronunciation, when in a ZWJ sequence
 
 	{ "$combine",       23 }, // Combine with the next word
 
