@@ -16,8 +16,8 @@
 # The `Emoji_Gender` property is used on emoji codepoints to signify the gender
 # of the emoji with the form:
 #
-#     Emoji 200D Emoji_Gender
-#     Emoji Emoji_Modifier 200D Emoji_Gender
+#     Emoji_Gendered_Base 200D Emoji_Gender
+#     Emoji_Gendered_Base Emoji_Modifier 200D Emoji_Gender
 #
 # This file uses the same format as the PropList.txt file.
 #
@@ -51,6 +51,24 @@
 1F692  ; Emoji_Role # (🚒) firefighter
 
 # Total code points: 16
+
+# ================================================
+
+1F46E  ; Emoji_Gendered_Base # (👮) police officer
+1F471  ; Emoji_Gendered_Base # (👱) blond haired person
+1F473  ; Emoji_Gendered_Base # (👳) person wearing turban
+1F477  ; Emoji_Gendered_Base # (👷) construction worker
+1F482  ; Emoji_Gendered_Base # (💂) guard
+1F575  ; Emoji_Gendered_Base # (🕵️) detective
+1F9D9  ; Emoji_Gendered_Base # (🧙) mage
+1F9DA  ; Emoji_Gendered_Base # (🧚) fairy
+1F9DB  ; Emoji_Gendered_Base # (🧛) vampire
+1F9DC  ; Emoji_Gendered_Base # (🧜) merperson
+1F9DD  ; Emoji_Gendered_Base # (🧝) elf
+1F9DE  ; Emoji_Gendered_Base # (🧞) genie
+1F9DF  ; Emoji_Gendered_Base # (🧟) zombie
+
+# Total code points: 13
 
 # ================================================
 

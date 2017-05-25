@@ -94,9 +94,7 @@ $textmode
 ☸	wheel of dharma							// [2638] text|emoji
 ☹	frowning face							// [2639] text|emoji
 ☺	smiling face							// [263A] text|emoji
-♀	woman						$emoji_zwj	// [2640] text|emoji Emoji_Gender
 ♀	female sign							// [2640] text|emoji
-♂	man						$emoji_zwj	// [2642] text|emoji Emoji_Gender
 ♂	male sign							// [2642] text|emoji
 ♈	aries								// [2648]
 ♉	taurus								// [2649]
@@ -1534,7 +1532,7 @@ $textmode
 👩‍👧‍👦		family woman girl boy			// [1F469 200D 1F467 200D 1F466]
 👩‍👧‍👧		family woman girl girl			// [1F469 200D 1F467 200D 1F467]
 
-// Emoji ZWJ Sequence: Gender Base + Object
+// Emoji ZWJ Sequence: Gendered Role, with object
 
 👨‍⚕	man health worker					// [1F468 200D 2695]
 👩‍⚕	woman health worker					// [1F469 200D 2695]
@@ -1569,10 +1567,39 @@ $textmode
 👨‍🚒	man firefighter						// [1F468 200D 1F692]
 👩‍🚒	woman firefighter					// [1F469 200D 1F692]
 
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	woman police officer					// [1F46E 200D 2640]
+👮‍♂	man police officer					// [1F46E 200D 2642]
+👱‍♀	blond-haired woman					// [1F471 200D 2640]
+👱‍♂	blond-haired man					// [1F471 200D 2642]
+👳‍♀	woman wearing turban					// [1F473 200D 2640]
+👳‍♂	man wearing turban					// [1F473 200D 2642]
+👷‍♀	woman construction worker				// [1F477 200D 2640]
+👷‍♂	man construction worker					// [1F477 200D 2642]
+💂‍♀	woman guard						// [1F482 200D 2640]
+💂‍♂	man guard						// [1F482 200D 2642]
+🕵️‍♀	woman detective						// [1F575 200D 2640]
+🕵️‍♂	man detective						// [1F575 200D 2642]
+🧙‍♀	woman mage						// [1F9D9 200D 2640]
+🧙‍♂	man mage						// [1F9D9 200D 2642]
+🧚‍♀	woman fairy						// [1F9DA 200D 2640]
+🧚‍♂	man fairy						// [1F9DA 200D 2642]
+🧛‍♀	woman vampire						// [1F9DB 200D 2640]
+🧛‍♂	man vampire						// [1F9DB 200D 2642]
+🧜‍♀	mermaid							// [1F9DC 200D 2640]
+🧜‍♂	merman							// [1F9DC 200D 2642]
+🧝‍♀	woman elf						// [1F9DD 200D 2640]
+🧝‍♂	man elf							// [1F9DD 200D 2642]
+🧞‍♀	woman genie						// [1F9DE 200D 2640]
+🧞‍♂	man genie						// [1F9DE 200D 2642]
+🧟‍♀	woman zombie						// [1F9DF 200D 2640]
+🧟‍♂	man zombie						// [1F9DF 200D 2642]
+
 // Emoji ZWJ Sequence: Other
 
-🏳‍🌈			rainbow flag				// [1F3F3 200D 1F308]
-👁‍🗨			eye in speech bubble			// [1F441 200D 1F5E8]
+🏳‍🌈	rainbow flag						// [1F3F3 200D 1F308]
+👁‍🗨	eye in speech bubble					// [1F441 200D 1F5E8]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
@@ -1582,3 +1609,4 @@ $textmode
 // Sources:
 //   1.  emoji-test.txt (Emoji)
 //   2.  common/annotations/en.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
