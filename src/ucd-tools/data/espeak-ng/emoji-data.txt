@@ -65,14 +65,23 @@
 1F471  ; Emoji_Gendered_Base # (👱) blond haired person
 1F473  ; Emoji_Gendered_Base # (👳) person wearing turban
 1F477  ; Emoji_Gendered_Base # (👷) construction worker
+1F481  ; Emoji_Gendered_Base # (💁) person tipping hand
 1F482  ; Emoji_Gendered_Base # (💂) guard
 1F486  ; Emoji_Gendered_Base # (💆) person getting massage
 1F487  ; Emoji_Gendered_Base # (💇) person getting haircut
 1F575  ; Emoji_Gendered_Base # (🕵️) detective
+1F645  ; Emoji_Gendered_Base # (🙅) person gesturing NO
+1F646  ; Emoji_Gendered_Base # (🙆) person gesturing OK
+1F647  ; Emoji_Gendered_Base # (🙇) person bowing
+1F64B  ; Emoji_Gendered_Base # (🙋) person raising hand
+1F64D  ; Emoji_Gendered_Base # (🙍) person frowning
+1F64E  ; Emoji_Gendered_Base # (🙎) person pouting
 1F6A3  ; Emoji_Gendered_Base # (🚣) person rowing boat
 1F6B4  ; Emoji_Gendered_Base # (🚴) person biking
 1F6B5  ; Emoji_Gendered_Base # (🚵) person mountain biking
 1F6B6  ; Emoji_Gendered_Base # (🚶) person walking
+1F926  ; Emoji_Gendered_Base # (🤦) person facepalming
+1F937  ; Emoji_Gendered_Base # (🤷) person shrugging
 1F938  ; Emoji_Gendered_Base # (🤸) person cartwheeling
 1F939  ; Emoji_Gendered_Base # (🤹) person juggling
 1F93C  ; Emoji_Gendered_Base # (🤼) person wrestling
@@ -88,7 +97,7 @@
 1F9DE  ; Emoji_Gendered_Base # (🧞) genie
 1F9DF  ; Emoji_Gendered_Base # (🧟) zombie
 
-# Total code points: 33
+# Total code points: 42
 
 # ================================================
 

@@ -1641,6 +1641,27 @@ $textmode
 🧘‍♀	woman in lotus position					// [1F9D8 200D 2640]
 🧘‍♂	man in lotus position					// [1F9D8 200D 2642]
 
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	woman tipping hand					// [1F481 200D 2640]
+💁‍♂	man tipping hand					// [1F481 200D 2642]
+🙅‍♀	woman gesturing no					// [1F645 200D 2640]
+🙅‍♂	man gesturing no					// [1F645 200D 2642]
+🙆‍♀	woman gesturing ok					// [1F646 200D 2640]
+🙆‍♂	man gesturing ok					// [1F646 200D 2642]
+🙇‍♀	woman bowing						// [1F647 200D 2640]
+🙇‍♂	man bowing						// [1F647 200D 2642]
+🙋‍♀	woman raising hand					// [1F64B 200D 2640]
+🙋‍♂	man raising hand					// [1F64B 200D 2642]
+🙍‍♀	woman frowning						// [1F64D 200D 2640]
+🙍‍♂	man frowning						// [1F64D 200D 2642]
+🙎‍♀	woman pouting						// [1F64E 200D 2640]
+🙎‍♂	man pouting						// [1F64E 200D 2642]
+🤦‍♀	woman facepalming					// [1F926 200D 2640]
+🤦‍♂	man facepalming						// [1F926 200D 2642]
+🤷‍♀	woman shrugging						// [1F937 200D 2640]
+🤷‍♂	man shrugging						// [1F937 200D 2642]
+
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	rainbow flag						// [1F3F3 200D 1F308]
