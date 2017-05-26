@@ -54,12 +54,32 @@
 
 # ================================================
 
+26F9   ; Emoji_Gendered_Base # (⛹) person bouncing ball
+1F3C3  ; Emoji_Gendered_Base # (🏃) person running
+1F3C4  ; Emoji_Gendered_Base # (🏄) person surfacing
+1F3CA  ; Emoji_Gendered_Base # (🏊) person swimming
+1F3CB  ; Emoji_Gendered_Base # (🏋️) person lifting weights
+1F3CC  ; Emoji_Gendered_Base # (🏌️) person golfing
 1F46E  ; Emoji_Gendered_Base # (👮) police officer
+1F46F  ; Emoji_Gendered_Base # (👯) person with bunny ears partying
 1F471  ; Emoji_Gendered_Base # (👱) blond haired person
 1F473  ; Emoji_Gendered_Base # (👳) person wearing turban
 1F477  ; Emoji_Gendered_Base # (👷) construction worker
 1F482  ; Emoji_Gendered_Base # (💂) guard
+1F486  ; Emoji_Gendered_Base # (💆) person getting massage
+1F487  ; Emoji_Gendered_Base # (💇) person getting haircut
 1F575  ; Emoji_Gendered_Base # (🕵️) detective
+1F6A3  ; Emoji_Gendered_Base # (🚣) person rowing boat
+1F6B4  ; Emoji_Gendered_Base # (🚴) person biking
+1F6B5  ; Emoji_Gendered_Base # (🚵) person mountain biking
+1F6B6  ; Emoji_Gendered_Base # (🚶) person walking
+1F938  ; Emoji_Gendered_Base # (🤸) person cartwheeling
+1F939  ; Emoji_Gendered_Base # (🤹) person juggling
+1F93C  ; Emoji_Gendered_Base # (🤼) person wrestling
+1F93D  ; Emoji_Gendered_Base # (🤽) person playing water polo
+1F93E  ; Emoji_Gendered_Base # (🤾) person playing handball
+1F9D6  ; Emoji_Gendered_Base # (🧖) person in steamy room
+1F9D7  ; Emoji_Gendered_Base # (🧘) person in lotus position
 1F9D9  ; Emoji_Gendered_Base # (🧙) mage
 1F9DA  ; Emoji_Gendered_Base # (🧚) fairy
 1F9DB  ; Emoji_Gendered_Base # (🧛) vampire
@@ -68,7 +88,7 @@
 1F9DE  ; Emoji_Gendered_Base # (🧞) genie
 1F9DF  ; Emoji_Gendered_Base # (🧟) zombie
 
-# Total code points: 13
+# Total code points: 33
 
 # ================================================
 
