@@ -38,7 +38,7 @@ updated languages:
 *  af (Afrikaans) -- Christo de Klerk
 *  de (German) -- Valdis Vitolins
 *  du (Dutch) -- Leonard de Ruijter
-*  en (English) -- Reece Dunn : fixes and Unicode Emoji 5.0 support
+*  en (English) -- Reece Dunn. Thanks to Kendell Clark for identifying mispronunciations.
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  fr (French) -- Valdis Vitolins; Reece Dunn
 *  gu (Gujarati) -- Vardhan
@@ -49,6 +49,10 @@ updated languages:
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
+
+Unicode Emoji 5.0 support (from the Unicode Emoji, and CLDR data files):
+
+*  en (English) -- Reece Dunn
 
 ### 1.49.1 - 2017-01-21
 

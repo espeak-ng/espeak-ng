@@ -177,9 +177,11 @@ espeak-ng-data/config
 espeak-ng-data/dictsource
 espeak-ng-data/phsource
 espeak-ng-data/*_dict
-espeak-ng-data/mbrola_ph/*_phtrans
 espeak-ng-data/intonations
 espeak-ng-data/phondata
 espeak-ng-data/phondata-manifest
 espeak-ng-data/phonindex
 espeak-ng-data/phontab
+
+espeak-ng-data/mbrola/
+espeak-ng-data/mbrola_ph/*_phtrans
