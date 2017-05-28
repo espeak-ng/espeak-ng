@@ -829,8 +829,9 @@ voice_t *LoadVoice(const char *vname, int control)
 
 			name2[0] = 0;
 			sscanf(p, "%s %s %d", name1, name2, &srate);
-			if (LoadMbrolaTable(name1, name2, &srate) != ENS_OK)
-				fprintf(stderr, "mbrola voice not found\n");
+			espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
+			if (status != ENS_OK)
+				espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
 			voice->samplerate = srate;
 		}
 			break;
