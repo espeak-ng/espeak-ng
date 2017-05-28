@@ -883,6 +883,11 @@
                   <File Name="hu" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\urj\hu" KeyPath="yes"/>
                 </Component>
               </Directory>
+              <Directory Id="ZLE" Name="zle">
+                <Component Id="ru" Win64="$(var.Win64)" Guid="6D827F08-82E9-4169-A3EC-794DE2487109">
+                  <File Name="ru" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zle\ru" KeyPath="yes"/>
+                </Component>
+              </Directory>
               <Directory Id="ZLS" Name="zls">
                 <Component Id="bg" Win64="$(var.Win64)" Guid="D75CE551-2BEC-4870-82C6-8AEC4BC4867A">
                   <File Name="bg" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\bg" KeyPath="yes"/>
@@ -890,29 +895,28 @@
                 <Component Id="bs" Win64="$(var.Win64)" Guid="A95A627B-E991-4814-9C98-3E1A7641AD22">
                   <File Name="bs" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\bs" KeyPath="yes"/>
                 </Component>
-                <Component Id="cs" Win64="$(var.Win64)" Guid="4840D63E-9DAE-4AE5-946E-B03AA2EFA0C0">
-                  <File Name="cs" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\cs" KeyPath="yes"/>
-                </Component>
                 <Component Id="hr" Win64="$(var.Win64)" Guid="C34C709A-D32C-431F-83D7-B666250C8B2E">
                   <File Name="hr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\hr" KeyPath="yes"/>
                 </Component>
                 <Component Id="mk" Win64="$(var.Win64)" Guid="70541A8E-CF44-49AA-A296-9D65397B5275">
                   <File Name="mk" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\mk" KeyPath="yes"/>
                 </Component>
-                <Component Id="pl" Win64="$(var.Win64)" Guid="C772D1EB-708F-4523-BAE9-5F06AD90523A">
-                  <File Name="pl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\pl" KeyPath="yes"/>
-                </Component>
-                <Component Id="ru" Win64="$(var.Win64)" Guid="6D827F08-82E9-4169-A3EC-794DE2487109">
-                  <File Name="ru" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\ru" KeyPath="yes"/>
-                </Component>
-                <Component Id="sk" Win64="$(var.Win64)" Guid="124B16B9-9DD3-4E60-8000-06A45B5F7CB6">
-                  <File Name="sk" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\sk" KeyPath="yes"/>
-                </Component>
                 <Component Id="sl" Win64="$(var.Win64)" Guid="65183911-49B5-4767-8281-5E60C3BCD98D">
                   <File Name="sl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\sl" KeyPath="yes"/>
                 </Component>
                 <Component Id="sr" Win64="$(var.Win64)" Guid="35B89632-7F74-4016-B52F-DA7EE27E8FC7">
                   <File Name="sr" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zls\sr" KeyPath="yes"/>
+                </Component>
+              </Directory>
+              <Directory Id="ZLW" Name="zlw">
+                <Component Id="cs" Win64="$(var.Win64)" Guid="4840D63E-9DAE-4AE5-946E-B03AA2EFA0C0">
+                  <File Name="cs" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zlw\cs" KeyPath="yes"/>
+                </Component>
+                <Component Id="pl" Win64="$(var.Win64)" Guid="C772D1EB-708F-4523-BAE9-5F06AD90523A">
+                  <File Name="pl" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zlw\pl" KeyPath="yes"/>
+                </Component>
+                <Component Id="sk" Win64="$(var.Win64)" Guid="124B16B9-9DD3-4E60-8000-06A45B5F7CB6">
+                  <File Name="sk" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\zlw\sk" KeyPath="yes"/>
                 </Component>
               </Directory>
             </Directory>
