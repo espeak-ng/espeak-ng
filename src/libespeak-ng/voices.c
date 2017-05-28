@@ -832,7 +832,8 @@ voice_t *LoadVoice(const char *vname, int control)
 			espeak_ng_STATUS status = LoadMbrolaTable(name1, name2, &srate);
 			if (status != ENS_OK)
 				espeak_ng_PrintStatusCodeMessage(status, stderr, NULL);
-			voice->samplerate = srate;
+			else
+				voice->samplerate = srate;
 		}
 			break;
 		case V_KLATT:
