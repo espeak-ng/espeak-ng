@@ -1134,6 +1134,14 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 
 	int flags = TranslateWord3(tr, word_start, wtab, word_out);
 	if (flags & FLAG_TEXTMODE && word_out) {
+		// Ensure that start of word rules match with the replaced text,
+		// so that emoji and other characters are pronounced correctly.
+		char word[N_WORD_BYTES+1];
+		word[0] = 0;
+		word[1] = ' ';
+		memcpy(word+2, word_out, strlen(word_out));
+		word_out = word+2;
+
 		while (*word_out && available > 1) {
 			int c;
 			utf8_in(&c, word_out);
