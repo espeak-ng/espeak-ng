@@ -1538,6 +1538,10 @@ nC)	y (_	_^_en
 
 
 .group
+// Ligatures
+        æ          aE
+        œ          oE
+
 // accented characters, these could have their own groups if they need more rules
         â          a:
         ñ          n^
