@@ -8,6 +8,6 @@ breath   5 2 0 0 0 1
 breathw  20 40 500 1200
 formant 1 95 100 100 -5
 //tunes s5 c5 q5 e5
-tone 150 220 450 255 850 10 3500 255 
-stressAmp 14 10 10 8 0 0 20 15
-stressLength 180 180 180 160 0 0 230 180
+tone 150 220 450 255 850 10 3500 255
+stressAmp 12 10 10 8 0 0 18 15
+stressLength 180 180 180 160 0 0 240 180
