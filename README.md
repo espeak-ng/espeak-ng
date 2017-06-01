@@ -20,7 +20,7 @@
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [Historical Versions](#historical-versions)
-- [Bugs](#bugs)
+- [Feedback](#feedback)
 - [License Information](#license-information)
 
 ----------
@@ -365,10 +365,14 @@ do not appear in the source repository until later releases, so have
 been excluded from the historical commits to align them better with
 the 1.24.02 source commit.
 
-## Bugs
+## Feedback
+
 
 Report bugs to the [espeak-ng issues](https://github.com/espeak-ng/espeak-ng/issues)
 page on GitHub.
+
+Look at and subscribe to [eSpeakNG mailing list](https://groups.io/g/espeak-ng)
+to view and discuss other related topics.
 
 ## License Information
 
