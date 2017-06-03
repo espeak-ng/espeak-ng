@@ -56,6 +56,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  am (Amharic)
 *  ar (Arabic)
 *  az (Azerbaijani)
+*  bg (Bulgarian)
 *  en (English)
 
 ### 1.49.1 - 2017-01-21
