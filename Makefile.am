@@ -407,6 +407,14 @@ espeakdata: \
 	android/res/raw/espeakdata.zip \
 	android/res/raw/espeakdata_version
 
+##### emoji:
+
+update-emoji:
+	tools/emoji dictsource/en_emoji af ${CLDR_PATH} > dictsource/af_emoji
+	tools/emoji dictsource/en_emoji am ${CLDR_PATH} > dictsource/am_emoji
+	tools/emoji dictsource/en_emoji ar ${CLDR_PATH} > dictsource/ar_emoji
+	tools/emoji dictsource/en_emoji az ${CLDR_PATH} > dictsource/az_emoji
+
 ##### dictionaries:
 
 dictionaries: \
