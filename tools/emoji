@@ -50,6 +50,17 @@ def read_emoji(filename, encoding="utf-8"):
                 else:
                     yield line
 
+def find_langname(lang):
+    espeak_data_path = os.path.join(os.getcwd(), "espeak-ng-data")
+    for root, dirnames, filenames in os.walk(espeak_data_path):
+        if lang in filenames:
+            filename = os.path.join(root, lang)
+            with codecs.open(filename, "r", "utf-8") as f:
+                for line in f:
+                    line = line.replace("\n", "")
+                    if line.startswith("name "):
+                        return line.replace("name ", "")
+
 emoji_dict = sys.argv[1]
 lang = sys.argv[2]
 cldr_path = sys.argv[3]
@@ -79,4 +90,9 @@ for entry in read_emoji(emoji_dict):
             entry.pronunciation = "\t{0}{1}".format(translation, "\t"*int(new_tabs))
         else:
             entry.comment += " (no translation)"
+    elif entry == "// Emoji and Other Symbol pronunciations for English":
+        langname = find_langname(lang)
+        entry = "// Emoji and Other Symbol pronunciations for {0}".format(langname)
+    elif entry == "//   2.  common/annotations/en.xml (CLDR)":
+        entry = "//   2.  common/annotations/{0}.xml (CLDR)".format(lang)
     print(entry)
