@@ -1218,270 +1218,270 @@ $textmode
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	ascension island						// [1F1E6 1F1E8] AC (no translation)
-🇦🇩	andorra								// [1F1E6 1F1E9] AD (no translation)
-🇦🇪	united arab emirates						// [1F1E6 1F1EA] AE (no translation)
-🇦🇫	afghanistan							// [1F1E6 1F1EB] AF (no translation)
-🇦🇬	antigua and barbuda						// [1F1E6 1F1EC] AG (no translation)
-🇦🇮	anguilla							// [1F1E6 1F1EE] AI (no translation)
-🇦🇱	albania								// [1F1E6 1F1F1] AL (no translation)
-🇦🇲	armenia								// [1F1E6 1F1F2] AM (no translation)
-🇦🇴	angola								// [1F1E6 1F1F4] AO (no translation)
-🇦🇶	antarctica							// [1F1E6 1F1F6] AQ (no translation)
-🇦🇷	argentina							// [1F1E6 1F1F7] AR (no translation)
-🇦🇸	american samoa							// [1F1E6 1F1F8] AS (no translation)
-🇦🇹	austria								// [1F1E6 1F1F9] AT (no translation)
-🇦🇺	australia							// [1F1E6 1F1FA] AU (no translation)
-🇦🇼	aruba								// [1F1E6 1F1FC] AW (no translation)
-🇦🇽	åland islands							// [1F1E6 1F1FD] AX (no translation)
-🇦🇿	azerbaijan							// [1F1E6 1F1FF] AZ (no translation)
-🇧🇦	bosnia and herzegovina						// [1F1E7 1F1E6] BA (no translation)
-🇧🇧	barbados							// [1F1E7 1F1E7] BB (no translation)
-🇧🇩	bangladesh							// [1F1E7 1F1E9] BD (no translation)
-🇧🇪	belgium								// [1F1E7 1F1EA] BE (no translation)
-🇧🇫	burkina faso							// [1F1E7 1F1EB] BF (no translation)
-🇧🇬	bulgaria							// [1F1E7 1F1EC] BG (no translation)
-🇧🇭	bahrain								// [1F1E7 1F1ED] BH (no translation)
-🇧🇮	burundi								// [1F1E7 1F1EE] BI (no translation)
-🇧🇯	benin								// [1F1E7 1F1EF] BJ (no translation)
-🇧🇱	saint barthélemy						// [1F1E7 1F1F1] BL (no translation)
-🇧🇲	bermuda								// [1F1E7 1F1F2] BM (no translation)
-🇧🇳	brunei								// [1F1E7 1F1F3] BN (no translation)
-🇧🇴	bolivia								// [1F1E7 1F1F4] BO (no translation)
-🇧🇶	caribbean netherlands						// [1F1E7 1F1F6] BQ (no translation)
-🇧🇷	brazil								// [1F1E7 1F1F7] BR (no translation)
-🇧🇸	bahamas								// [1F1E7 1F1F8] BS (no translation)
-🇧🇹	bhutan								// [1F1E7 1F1F9] BT (no translation)
-🇧🇻	bouvet Island							// [1F1E7 1F1FB] BV (no translation)
-🇧🇼	botswana							// [1F1E7 1F1FC] BW (no translation)
-🇧🇾	belarus								// [1F1E7 1F1FE] BY (no translation)
-🇧🇿	belize								// [1F1E7 1F1FF] BZ (no translation)
-🇨🇦	canada								// [1F1E8 1F1E6] CA (no translation)
-🇨🇨	cocos (keeling) islands						// [1F1E8 1F1E8] CC (no translation)
-🇨🇩	congo - kinshasa						// [1F1E8 1F1E9] CD (no translation)
-🇨🇫	central african republic					// [1F1E8 1F1EB] CF (no translation)
-🇨🇬	congo - brazzaville						// [1F1E8 1F1EC] CG (no translation)
-🇨🇭	switzerland							// [1F1E8 1F1ED] CH (no translation)
-🇨🇮	côte d'ivoire							// [1F1E8 1F1EE] CI (no translation)
-🇨🇰	cook islands							// [1F1E8 1F1F0] CK (no translation)
-🇨🇱	chile								// [1F1E8 1F1F1] CL (no translation)
-🇨🇲	cameroon							// [1F1E8 1F1F2] CM (no translation)
-🇨🇳	china								// [1F1E8 1F1F3] CN (no translation)
-🇨🇴	colombia							// [1F1E8 1F1F4] CO (no translation)
-🇨🇵	clipperton island						// [1F1E8 1F1F5] CP (no translation)
-🇨🇷	costa rica							// [1F1E8 1F1F7] CR (no translation)
-🇨🇺	cuba								// [1F1E8 1F1FA] CU (no translation)
-🇨🇻	cape verde							// [1F1E8 1F1FB] CV (no translation)
-🇨🇼	curaçao								// [1F1E8 1F1FC] CW (no translation)
-🇨🇽	christmas island						// [1F1E8 1F1FD] CX (no translation)
-🇨🇾	cyprus								// [1F1E8 1F1FE] CY (no translation)
-🇨🇿	czechia								// [1F1E8 1F1FF] CZ (no translation)
-🇩🇪	germany								// [1F1E9 1F1EA] DE (no translation)
-🇩🇬	diego garcia							// [1F1E9 1F1EC] DG (no translation)
-🇩🇯	djibouti							// [1F1E9 1F1EF] DJ (no translation)
-🇩🇰	denmark								// [1F1E9 1F1F0] DK (no translation)
-🇩🇲	dominica							// [1F1E9 1F1F2] DM (no translation)
-🇩🇴	dominican republic						// [1F1E9 1F1F4] DO (no translation)
-🇩🇿	algeria								// [1F1E9 1F1FF] DZ (no translation)
-🇪🇦	ceuta and melilla						// [1F1EA 1F1E6] EA (no translation)
-🇪🇨	ecuador								// [1F1EA 1F1E8] EC (no translation)
-🇪🇪	estonia								// [1F1EA 1F1EA] EE (no translation)
-🇪🇬	egypt								// [1F1EA 1F1EC] EG (no translation)
-🇪🇭	western sahara							// [1F1EA 1F1ED] EH (no translation)
-🇪🇷	eritrea								// [1F1EA 1F1F7] ER (no translation)
-🇪🇸	spain								// [1F1EA 1F1F8] ES (no translation)
-🇪🇹	ethiopia							// [1F1EA 1F1F9] ET (no translation)
-🇪🇺	european union							// [1F1EA 1F1FA] EU (no translation)
-🇫🇮	finland								// [1F1EB 1F1EE] FI (no translation)
-🇫🇯	fiji								// [1F1EB 1F1EF] FJ (no translation)
-🇫🇰	falkland islands						// [1F1EB 1F1F0] FI (no translation)
-🇫🇲	micronesia							// [1F1EB 1F1F2] FM (no translation)
-🇫🇴	faroe islands							// [1F1EB 1F1F4] FO (no translation)
-🇫🇷	france								// [1F1EB 1F1F7] FR (no translation)
-🇬🇦	gabon								// [1F1EC 1F1E6] GA (no translation)
-🇬🇧	united kingdom							// [1F1EC 1F1E7] GB (no translation)
-🇬🇩	grenada								// [1F1EC 1F1E9] GD (no translation)
-🇬🇪	georgia								// [1F1EC 1F1EA] GE (no translation)
-🇬🇫	french guiana							// [1F1EC 1F1EB] GF (no translation)
-🇬🇬	guernsey							// [1F1EC 1F1EC] GG (no translation)
-🇬🇭	ghana								// [1F1EC 1F1ED] GH (no translation)
-🇬🇮	gibraltar							// [1F1EC 1F1EE] GI (no translation)
-🇬🇱	greenland							// [1F1EC 1F1F1] GL (no translation)
-🇬🇲	gambia								// [1F1EC 1F1F2] GM (no translation)
-🇬🇳	guinea								// [1F1EC 1F1F3] GN (no translation)
-🇬🇵	guadeloupe							// [1F1EC 1F1F5] GP (no translation)
-🇬🇶	equatorial guinea						// [1F1EC 1F1F6] GQ (no translation)
-🇬🇷	greece								// [1F1EC 1F1F7] GR (no translation)
-🇬🇸	south georgia and south sandwich islands			// [1F1EC 1F1F8] GS (no translation)
-🇬🇹	guatemala							// [1F1EC 1F1F9] GT (no translation)
-🇬🇺	guam								// [1F1EC 1F1FA] GU (no translation)
-🇬🇼	guinea bissau							// [1F1EC 1F1FC] GW (no translation)
-🇬🇾	guyana								// [1F1EC 1F1FE] GY (no translation)
-🇭🇰	hong kong SAR china						// [1F1ED 1F1F0] HK (no translation)
-🇭🇲	heard and mcdonald islands					// [1F1ED 1F1F2] HM (no translation)
-🇭🇳	honduras							// [1F1ED 1F1F3] HN (no translation)
-🇭🇷	croatia								// [1F1ED 1F1F7] HR (no translation)
-🇭🇹	haiti								// [1F1ED 1F1F9] HT (no translation)
-🇭🇺	hungary								// [1F1ED 1F1FA] HU (no translation)
-🇮🇨	canary islands							// [1F1EE 1F1E8] IC (no translation)
-🇮🇩	indonesia							// [1F1EE 1F1E9] ID (no translation)
-🇮🇪	ireland								// [1F1EE 1F1EA] IE (no translation)
-🇮🇱	israel								// [1F1EE 1F1F1] IL (no translation)
-🇮🇲	isle of man							// [1F1EE 1F1F2] IM (no translation)
-🇮🇳	india								// [1F1EE 1F1F3] IN (no translation)
-🇮🇴	british indian ocean territory					// [1F1EE 1F1F4] IO (no translation)
-🇮🇶	iraq								// [1F1EE 1F1F6] IQ (no translation)
-🇮🇷	iran								// [1F1EE 1F1F7] IR (no translation)
-🇮🇸	iceland								// [1F1EE 1F1F8] IS (no translation)
-🇮🇹	italy								// [1F1EE 1F1F9] IT (no translation)
-🇯🇪	jersey								// [1F1EF 1F1EA] JE (no translation)
-🇯🇲	jamaica								// [1F1EF 1F1F2] JM (no translation)
-🇯🇴	jordan								// [1F1EF 1F1F4] JO (no translation)
-🇯🇵	japan								// [1F1EF 1F1F5] JP (no translation)
-🇰🇪	kenya								// [1F1F0 1F1EA] KE (no translation)
-🇰🇬	kyrgyzstan							// [1F1F0 1F1EC] KG (no translation)
-🇰🇭	cambodia							// [1F1F0 1F1ED] KH (no translation)
-🇰🇮	kiribati							// [1F1F0 1F1EE] KI (no translation)
-🇰🇲	comoros								// [1F1F0 1F1F2] KM (no translation)
-🇰🇳	saint kitts and nevis						// [1F1F0 1F1F3] KN (no translation)
-🇰🇵	north korea							// [1F1F0 1F1F5] KP (no translation)
-🇰🇷	south korea							// [1F1F0 1F1F7] KR (no translation)
-🇰🇼	kuwait								// [1F1F0 1F1FC] KW (no translation)
-🇰🇾	cayman islands							// [1F1F0 1F1FE] KY (no translation)
-🇰🇿	kazakhstan							// [1F1F0 1F1FF] KZ (no translation)
-🇱🇦	laos								// [1F1F1 1F1E6] LA (no translation)
-🇱🇧	lebanon								// [1F1F1 1F1E7] LB (no translation)
-🇱🇨	saint lucia							// [1F1F1 1F1E8] LC (no translation)
-🇱🇮	liechtenstein							// [1F1F1 1F1EE] LI (no translation)
-🇱🇰	sri lanka							// [1F1F1 1F1F0] LK (no translation)
-🇱🇷	liberia								// [1F1F1 1F1F7] LR (no translation)
-🇱🇸	lesotho								// [1F1F1 1F1F8] LS (no translation)
-🇱🇹	lithuania							// [1F1F1 1F1F9] LT (no translation)
-🇱🇺	luxembourg							// [1F1F1 1F1FA] LU (no translation)
-🇱🇻	latvia								// [1F1F1 1F1FB] LV (no translation)
-🇱🇾	libya								// [1F1F1 1F1FE] LY (no translation)
-🇲🇦	morocco								// [1F1F2 1F1E6] MA (no translation)
-🇲🇨	monaco								// [1F1F2 1F1E8] MC (no translation)
-🇲🇩	moldova								// [1F1F2 1F1E9] MD (no translation)
-🇲🇪	montenegro							// [1F1F2 1F1EA] ME (no translation)
-🇲🇫	saint martin							// [1F1F2 1F1EB] MF (no translation)
-🇲🇬	madagascar							// [1F1F2 1F1EC] MG (no translation)
-🇲🇭	marshall islands						// [1F1F2 1F1ED] MH (no translation)
-🇲🇰	macedonia							// [1F1F2 1F1F0] MK (no translation)
-🇲🇱	mali								// [1F1F2 1F1F1] ML (no translation)
-🇲🇲	myanmar (burma)							// [1F1F2 1F1F2] MM (no translation)
-🇲🇳	mongolia							// [1F1F2 1F1F3] MN (no translation)
-🇲🇴	macau SAR china							// [1F1F2 1F1F4] MO (no translation)
-🇲🇵	northern mariana islands					// [1F1F2 1F1F5] MP (no translation)
-🇲🇶	martinique							// [1F1F2 1F1F6] MQ (no translation)
-🇲🇷	mauritania							// [1F1F2 1F1F7] MR (no translation)
-🇲🇸	montserrat							// [1F1F2 1F1F8] MS (no translation)
-🇲🇹	malta								// [1F1F2 1F1F9] MT (no translation)
-🇲🇺	mauritius							// [1F1F2 1F1FA] MU (no translation)
-🇲🇻	maldives							// [1F1F2 1F1FB] MV (no translation)
-🇲🇼	malawi								// [1F1F2 1F1FC] MW (no translation)
-🇲🇽	mexico								// [1F1F2 1F1FD] MX (no translation)
-🇲🇾	malaysia							// [1F1F2 1F1FE] MY (no translation)
-🇲🇿	mozambique							// [1F1F2 1F1FF] MZ (no translation)
-🇳🇦	namibia								// [1F1F3 1F1E6] NA (no translation)
-🇳🇨	new caledonia							// [1F1F3 1F1E8] NC (no translation)
-🇳🇪	niger								// [1F1F3 1F1EA] NE (no translation)
-🇳🇫	norfolk island							// [1F1F3 1F1EB] NF (no translation)
-🇳🇬	nigeria								// [1F1F3 1F1EC] NG (no translation)
-🇳🇮	nicaragua							// [1F1F3 1F1EE] NI (no translation)
-🇳🇱	netherlands							// [1F1F3 1F1F1] NL (no translation)
-🇳🇴	norway								// [1F1F3 1F1F4] NO (no translation)
-🇳🇵	nepal								// [1F1F3 1F1F5] NP (no translation)
-🇳🇷	nauru								// [1F1F3 1F1F7] NR (no translation)
-🇳🇺	niue								// [1F1F3 1F1FA] NU (no translation)
-🇳🇿	new zealand							// [1F1F3 1F1FF] NZ (no translation)
-🇴🇲	oman								// [1F1F4 1F1F2] OM (no translation)
-🇵🇦	panama								// [1F1F5 1F1E6] PA (no translation)
-🇵🇪	peru								// [1F1F5 1F1EA] PE (no translation)
-🇵🇫	french polynesia						// [1F1F5 1F1EB] PF (no translation)
-🇵🇬	papua new guinea						// [1F1F5 1F1EC] PG (no translation)
-🇵🇭	philippines							// [1F1F5 1F1ED] PH (no translation)
-🇵🇰	pakistan							// [1F1F5 1F1F0] PK (no translation)
-🇵🇱	poland								// [1F1F5 1F1F1] PL (no translation)
-🇵🇲	saint pierre and miquelon					// [1F1F5 1F1F2] PM (no translation)
-🇵🇳	pitcairn islands						// [1F1F5 1F1F3] PN (no translation)
-🇵🇷	puerto rico							// [1F1F5 1F1F7] PR (no translation)
-🇵🇸	palestinian territories						// [1F1F5 1F1F8] PS (no translation)
-🇵🇹	portugal							// [1F1F5 1F1F9] PT (no translation)
-🇵🇼	palau								// [1F1F5 1F1FC] PW (no translation)
-🇵🇾	paraguay							// [1F1F5 1F1FE] PY (no translation)
-🇶🇦	qatar								// [1F1F6 1F1E6] QA (no translation)
-🇷🇪	réunion								// [1F1F7 1F1EA] RE (no translation)
-🇷🇴	romania								// [1F1F7 1F1F4] RO (no translation)
-🇷🇸	serbia								// [1F1F7 1F1F8] RS (no translation)
-🇷🇺	russia								// [1F1F7 1F1FA] RU (no translation)
-🇷🇼	rwanda								// [1F1F7 1F1FC] RW (no translation)
-🇸🇦	saudi arabia							// [1F1F8 1F1E6] SA (no translation)
-🇸🇧	solomon islands							// [1F1F8 1F1E7] SB (no translation)
-🇸🇨	seychelles							// [1F1F8 1F1E8] SC (no translation)
-🇸🇩	sudan								// [1F1F8 1F1E9] SD (no translation)
-🇸🇪	sweden								// [1F1F8 1F1EA] SE (no translation)
-🇸🇬	singapore							// [1F1F8 1F1EC] SG (no translation)
-🇸🇭	saint helena							// [1F1F8 1F1ED] SH (no translation)
-🇸🇮	slovenia							// [1F1F8 1F1EE] SI (no translation)
-🇸🇯	svalbard and jan mayen						// [1F1F8 1F1EF] SJ (no translation)
-🇸🇰	slovakia							// [1F1F8 1F1F0] SK (no translation)
-🇸🇱	sierra leone							// [1F1F8 1F1F1] SL (no translation)
-🇸🇲	san marino							// [1F1F8 1F1F2] SM (no translation)
-🇸🇳	senegal								// [1F1F8 1F1F3] SN (no translation)
-🇸🇴	somalia								// [1F1F8 1F1F4] SO (no translation)
-🇸🇷	suriname							// [1F1F8 1F1F7] SR (no translation)
-🇸🇸	south sudan							// [1F1F8 1F1F8] SS (no translation)
-🇸🇹	são tomé and príncipe						// [1F1F8 1F1F9] ST (no translation)
-🇸🇻	el salvador							// [1F1F8 1F1FB] SV (no translation)
-🇸🇽	sint maarten							// [1F1F8 1F1FD] SX (no translation)
-🇸🇾	syria								// [1F1F8 1F1FE] SY (no translation)
-🇸🇿	swaziland							// [1F1F8 1F1FF] SZ (no translation)
-🇹🇦	tristan da cunha						// [1F1F9 1F1E6] TA (no translation)
-🇹🇨	turks and caicos islands					// [1F1F9 1F1E8] TC (no translation)
-🇹🇩	chad								// [1F1F9 1F1E9] TD (no translation)
-🇹🇫	french southern territories					// [1F1F9 1F1EB] TF (no translation)
-🇹🇬	togo								// [1F1F9 1F1EC] TG (no translation)
-🇹🇭	thailand							// [1F1F9 1F1ED] TH (no translation)
-🇹🇯	tajikistan							// [1F1F9 1F1EF] TJ (no translation)
-🇹🇰	tokelau								// [1F1F9 1F1F0] TK (no translation)
-🇹🇱	timor leste							// [1F1F9 1F1F1] TL (no translation)
-🇹🇲	turkmenistan							// [1F1F9 1F1F2] TM (no translation)
-🇹🇳	tunisia								// [1F1F9 1F1F3] TN (no translation)
-🇹🇴	tonga								// [1F1F9 1F1F4] TO (no translation)
-🇹🇷	turkey								// [1F1F9 1F1F7] TR (no translation)
-🇹🇹	trinidad and tobago						// [1F1F9 1F1F9] TT (no translation)
-🇹🇻	tuvalu								// [1F1F9 1F1FB] TV (no translation)
-🇹🇼	taiwan								// [1F1F9 1F1FC] TW (no translation)
-🇹🇿	tanzania							// [1F1F9 1F1FF] TZ (no translation)
-🇺🇦	ukraine								// [1F1FA 1F1E6] UA (no translation)
-🇺🇬	uganda								// [1F1FA 1F1EC] UG (no translation)
-🇺🇲	u s outlying islands						// [1F1FA 1F1F2] UM (no translation)
-🇺🇳	united nations							// [1F1FA 1F1F3] UN (no translation)
-🇺🇸	united states							// [1F1FA 1F1F8] US (no translation)
-🇺🇾	uruguay								// [1F1FA 1F1FE] UY (no translation)
-🇺🇿	uzbekistan							// [1F1FA 1F1FF] UZ (no translation)
-🇻🇦	vatican city							// [1F1FB 1F1E6] VA (no translation)
-🇻🇨	saint vincent and grenadines					// [1F1FB 1F1E8] VC (no translation)
-🇻🇪	venezuela							// [1F1FB 1F1EA] VE (no translation)
-🇻🇬	british virgin islands						// [1F1FB 1F1EC] VG (no translation)
-🇻🇮	u s virgin islands						// [1F1FB 1F1EE] VI (no translation)
-🇻🇳	vietnam								// [1F1FB 1F1F3] VN (no translation)
-🇻🇺	vanuatu								// [1F1FB 1F1FA] VU (no translation)
-🇼🇫	wallis and futuna						// [1F1FC 1F1EB] WF (no translation)
-🇼🇸	samoa								// [1F1FC 1F1F8] WS (no translation)
-🇽🇰	kosovo								// [1F1FD 1F1F0] XK (no translation)
-🇾🇪	yemen								// [1F1FE 1F1EA] YE (no translation)
-🇾🇹	mayotte								// [1F1FE 1F1F9] YT (no translation)
-🇿🇦	south africa							// [1F1FF 1F1E6] ZA (no translation)
-🇿🇲	zambia								// [1F1FF 1F1F2] ZM (no translation)
-🇿🇼	zimbabwe							// [1F1FF 1F1FC] ZW (no translation)
+🇦🇨	Ascensioneiland							// [1F1E6 1F1E8] AC
+🇦🇩	Andorra								// [1F1E6 1F1E9] AD
+🇦🇪	Verenigde Arabiese Emirate					// [1F1E6 1F1EA] AE
+🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
+🇦🇬	Antigua en Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	Albanië								// [1F1E6 1F1F1] AL
+🇦🇲	Armenië								// [1F1E6 1F1F2] AM
+🇦🇴	Angola								// [1F1E6 1F1F4] AO
+🇦🇶	Antarktika							// [1F1E6 1F1F6] AQ
+🇦🇷	Argentinië							// [1F1E6 1F1F7] AR
+🇦🇸	Amerikaans-Samoa						// [1F1E6 1F1F8] AS
+🇦🇹	Oostenryk							// [1F1E6 1F1F9] AT
+🇦🇺	Australië							// [1F1E6 1F1FA] AU
+🇦🇼	Aruba								// [1F1E6 1F1FC] AW
+🇦🇽	Ålandeilande							// [1F1E6 1F1FD] AX
+🇦🇿	Azerbeidjan							// [1F1E6 1F1FF] AZ
+🇧🇦	Bosnië en Herzegowina						// [1F1E7 1F1E6] BA
+🇧🇧	Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	Bangladesj							// [1F1E7 1F1E9] BD
+🇧🇪	België								// [1F1E7 1F1EA] BE
+🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
+🇧🇬	Bulgarye							// [1F1E7 1F1EC] BG
+🇧🇭	Bahrein								// [1F1E7 1F1ED] BH
+🇧🇮	Burundi								// [1F1E7 1F1EE] BI
+🇧🇯	Benin								// [1F1E7 1F1EF] BJ
+🇧🇱	Sint Barthélemy							// [1F1E7 1F1F1] BL
+🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
+🇧🇳	Broenei								// [1F1E7 1F1F3] BN
+🇧🇴	Bolivië								// [1F1E7 1F1F4] BO
+🇧🇶	Karibiese Nederland						// [1F1E7 1F1F6] BQ
+🇧🇷	Brasilië							// [1F1E7 1F1F7] BR
+🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
+🇧🇹	Bhoetan								// [1F1E7 1F1F9] BT
+🇧🇻	Bouvet-eiland							// [1F1E7 1F1FB] BV
+🇧🇼	Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	Belarus								// [1F1E7 1F1FE] BY
+🇧🇿	Belize								// [1F1E7 1F1FF] BZ
+🇨🇦	Kanada								// [1F1E8 1F1E6] CA
+🇨🇨	Kokos-eilande							// [1F1E8 1F1E8] CC
+🇨🇩	Demokratiese Republiek van die Kongo				// [1F1E8 1F1E9] CD
+🇨🇫	Sentraal-Afrikaanse Republiek					// [1F1E8 1F1EB] CF
+🇨🇬	Kongo - Brazzaville						// [1F1E8 1F1EC] CG
+🇨🇭	Switserland							// [1F1E8 1F1ED] CH
+🇨🇮	Ivoorkus							// [1F1E8 1F1EE] CI
+🇨🇰	Cookeilande							// [1F1E8 1F1F0] CK
+🇨🇱	Chili								// [1F1E8 1F1F1] CL
+🇨🇲	Kameroen							// [1F1E8 1F1F2] CM
+🇨🇳	Sjina								// [1F1E8 1F1F3] CN
+🇨🇴	Colombië							// [1F1E8 1F1F4] CO
+🇨🇵	Clippertoneiland						// [1F1E8 1F1F5] CP
+🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	Kuba								// [1F1E8 1F1FA] CU
+🇨🇻	Kaap Verde							// [1F1E8 1F1FB] CV
+🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
+🇨🇽	Kerseiland							// [1F1E8 1F1FD] CX
+🇨🇾	Siprus								// [1F1E8 1F1FE] CY
+🇨🇿	Tjeggië								// [1F1E8 1F1FF] CZ
+🇩🇪	Duitsland							// [1F1E9 1F1EA] DE
+🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
+🇩🇯	Djiboeti							// [1F1E9 1F1EF] DJ
+🇩🇰	Denemarke							// [1F1E9 1F1F0] DK
+🇩🇲	Dominica							// [1F1E9 1F1F2] DM
+🇩🇴	Dominikaanse Republiek						// [1F1E9 1F1F4] DO
+🇩🇿	Algerië								// [1F1E9 1F1FF] DZ
+🇪🇦	Ceuta en Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
+🇪🇪	Estland								// [1F1EA 1F1EA] EE
+🇪🇬	Egipte								// [1F1EA 1F1EC] EG
+🇪🇭	Wes-Sahara							// [1F1EA 1F1ED] EH
+🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
+🇪🇸	Spanje								// [1F1EA 1F1F8] ES
+🇪🇹	Ethiopië							// [1F1EA 1F1F9] ET
+🇪🇺	Europese Unie							// [1F1EA 1F1FA] EU
+🇫🇮	Finland								// [1F1EB 1F1EE] FI
+🇫🇯	Fidji								// [1F1EB 1F1EF] FJ
+🇫🇰	Falklandeilande							// [1F1EB 1F1F0] FI
+🇫🇲	Mikronesië							// [1F1EB 1F1F2] FM
+🇫🇴	Faroëreilande							// [1F1EB 1F1F4] FO
+🇫🇷	Frankryk							// [1F1EB 1F1F7] FR
+🇬🇦	Gaboen								// [1F1EC 1F1E6] GA
+🇬🇧	Verenigde Koninkryk						// [1F1EC 1F1E7] GB
+🇬🇩	Grenada								// [1F1EC 1F1E9] GD
+🇬🇪	Georgië								// [1F1EC 1F1EA] GE
+🇬🇫	Frans-Guyana							// [1F1EC 1F1EB] GF
+🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	Ghana								// [1F1EC 1F1ED] GH
+🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
+🇬🇱	Groenland							// [1F1EC 1F1F1] GL
+🇬🇲	Gambië								// [1F1EC 1F1F2] GM
+🇬🇳	Guinee								// [1F1EC 1F1F3] GN
+🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
+🇬🇶	Ekwatoriaal-Guinee						// [1F1EC 1F1F6] GQ
+🇬🇷	Griekeland							// [1F1EC 1F1F7] GR
+🇬🇸	Suid-Georgië en die Suidelike Sandwicheilande			// [1F1EC 1F1F8] GS
+🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	Guam								// [1F1EC 1F1FA] GU
+🇬🇼	Guinee-Bissau							// [1F1EC 1F1FC] GW
+🇬🇾	Guyana								// [1F1EC 1F1FE] GY
+🇭🇰	Hongkong SAS Sjina						// [1F1ED 1F1F0] HK
+🇭🇲	Heard- en McDonaldeilande					// [1F1ED 1F1F2] HM
+🇭🇳	Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	Kroasië								// [1F1ED 1F1F7] HR
+🇭🇹	Haïti								// [1F1ED 1F1F9] HT
+🇭🇺	Hongarye							// [1F1ED 1F1FA] HU
+🇮🇨	Kanariese Eilande						// [1F1EE 1F1E8] IC
+🇮🇩	Indonesië							// [1F1EE 1F1E9] ID
+🇮🇪	Ierland								// [1F1EE 1F1EA] IE
+🇮🇱	Israel								// [1F1EE 1F1F1] IL
+🇮🇲	Eiland Man							// [1F1EE 1F1F2] IM
+🇮🇳	Indië								// [1F1EE 1F1F3] IN
+🇮🇴	Brits-Indiese Oseaangebied					// [1F1EE 1F1F4] IO
+🇮🇶	Irak								// [1F1EE 1F1F6] IQ
+🇮🇷	Iran								// [1F1EE 1F1F7] IR
+🇮🇸	Ysland								// [1F1EE 1F1F8] IS
+🇮🇹	Italië								// [1F1EE 1F1F9] IT
+🇯🇪	Jersey								// [1F1EF 1F1EA] JE
+🇯🇲	Jamaika								// [1F1EF 1F1F2] JM
+🇯🇴	Jordanië							// [1F1EF 1F1F4] JO
+🇯🇵	Japan								// [1F1EF 1F1F5] JP
+🇰🇪	Kenia								// [1F1F0 1F1EA] KE
+🇰🇬	Kirgisië							// [1F1F0 1F1EC] KG
+🇰🇭	Kambodja							// [1F1F0 1F1ED] KH
+🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	Comore								// [1F1F0 1F1F2] KM
+🇰🇳	St. Kitts en Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	Noord-Korea							// [1F1F0 1F1F5] KP
+🇰🇷	Suid-Korea							// [1F1F0 1F1F7] KR
+🇰🇼	Koeweit								// [1F1F0 1F1FC] KW
+🇰🇾	Kaaimanseilande							// [1F1F0 1F1FE] KY
+🇰🇿	Kazakstan							// [1F1F0 1F1FF] KZ
+🇱🇦	Laos								// [1F1F1 1F1E6] LA
+🇱🇧	Libanon								// [1F1F1 1F1E7] LB
+🇱🇨	St. Lucia							// [1F1F1 1F1E8] LC
+🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
+🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	Liberië								// [1F1F1 1F1F7] LR
+🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
+🇱🇹	Litaue								// [1F1F1 1F1F9] LT
+🇱🇺	Luxemburg							// [1F1F1 1F1FA] LU
+🇱🇻	Letland								// [1F1F1 1F1FB] LV
+🇱🇾	Libië								// [1F1F1 1F1FE] LY
+🇲🇦	Marokko								// [1F1F2 1F1E6] MA
+🇲🇨	Monaco								// [1F1F2 1F1E8] MC
+🇲🇩	Moldowa								// [1F1F2 1F1E9] MD
+🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
+🇲🇫	St. Martin							// [1F1F2 1F1EB] MF
+🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
+🇲🇭	Marshalleilande							// [1F1F2 1F1ED] MH
+🇲🇰	Macedonië							// [1F1F2 1F1F0] MK
+🇲🇱	Mali								// [1F1F2 1F1F1] ML
+🇲🇲	Mianmar (Birma)							// [1F1F2 1F1F2] MM
+🇲🇳	Mongolië							// [1F1F2 1F1F3] MN
+🇲🇴	Macau SAS Sjina							// [1F1F2 1F1F4] MO
+🇲🇵	Noord-Mariane-eilande						// [1F1F2 1F1F5] MP
+🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
+🇲🇷	Mauritanië							// [1F1F2 1F1F7] MR
+🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	Malta								// [1F1F2 1F1F9] MT
+🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
+🇲🇻	Maledive							// [1F1F2 1F1FB] MV
+🇲🇼	Malawi								// [1F1F2 1F1FC] MW
+🇲🇽	Meksiko								// [1F1F2 1F1FD] MX
+🇲🇾	Maleisië							// [1F1F2 1F1FE] MY
+🇲🇿	Mosambiek							// [1F1F2 1F1FF] MZ
+🇳🇦	Namibië								// [1F1F3 1F1E6] NA
+🇳🇨	Nieu-Kaledonië							// [1F1F3 1F1E8] NC
+🇳🇪	Niger								// [1F1F3 1F1EA] NE
+🇳🇫	Norfolkeiland							// [1F1F3 1F1EB] NF
+🇳🇬	Nigerië								// [1F1F3 1F1EC] NG
+🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
+🇳🇱	Nederland							// [1F1F3 1F1F1] NL
+🇳🇴	Noorweë								// [1F1F3 1F1F4] NO
+🇳🇵	Nepal								// [1F1F3 1F1F5] NP
+🇳🇷	Nauru								// [1F1F3 1F1F7] NR
+🇳🇺	Niue								// [1F1F3 1F1FA] NU
+🇳🇿	Nieu-Seeland							// [1F1F3 1F1FF] NZ
+🇴🇲	Oman								// [1F1F4 1F1F2] OM
+🇵🇦	Panama								// [1F1F5 1F1E6] PA
+🇵🇪	Peru								// [1F1F5 1F1EA] PE
+🇵🇫	Frans-Polinesië							// [1F1F5 1F1EB] PF
+🇵🇬	Papoea-Nieu-Guinee						// [1F1F5 1F1EC] PG
+🇵🇭	Filippyne							// [1F1F5 1F1ED] PH
+🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	Pole								// [1F1F5 1F1F1] PL
+🇵🇲	St. Pierre en Miquelon						// [1F1F5 1F1F2] PM
+🇵🇳	Pitcairneilande							// [1F1F5 1F1F3] PN
+🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	Palestynse gebiede						// [1F1F5 1F1F8] PS
+🇵🇹	Portugal							// [1F1F5 1F1F9] PT
+🇵🇼	Palau								// [1F1F5 1F1FC] PW
+🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	Katar								// [1F1F6 1F1E6] QA
+🇷🇪	Réunion								// [1F1F7 1F1EA] RE
+🇷🇴	Roemenië							// [1F1F7 1F1F4] RO
+🇷🇸	Serwië								// [1F1F7 1F1F8] RS
+🇷🇺	Rusland								// [1F1F7 1F1FA] RU
+🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
+🇸🇦	Saoedi-Arabië							// [1F1F8 1F1E6] SA
+🇸🇧	Salomonseilande							// [1F1F8 1F1E7] SB
+🇸🇨	Seychelle							// [1F1F8 1F1E8] SC
+🇸🇩	Soedan								// [1F1F8 1F1E9] SD
+🇸🇪	Swede								// [1F1F8 1F1EA] SE
+🇸🇬	Singapoer							// [1F1F8 1F1EC] SG
+🇸🇭	Sint Helena							// [1F1F8 1F1ED] SH
+🇸🇮	Slowenië							// [1F1F8 1F1EE] SI
+🇸🇯	Svalbard en Jan Mayen						// [1F1F8 1F1EF] SJ
+🇸🇰	Slowakye							// [1F1F8 1F1F0] SK
+🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
+🇸🇲	San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	Senegal								// [1F1F8 1F1F3] SN
+🇸🇴	Somalië								// [1F1F8 1F1F4] SO
+🇸🇷	Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	Suid-Soedan							// [1F1F8 1F1F8] SS
+🇸🇹	São Tomé en Príncipe						// [1F1F8 1F1F9] ST
+🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
+🇸🇾	Sirië								// [1F1F8 1F1FE] SY
+🇸🇿	Swaziland							// [1F1F8 1F1FF] SZ
+🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	Turks- en Caicoseilande						// [1F1F9 1F1E8] TC
+🇹🇩	Tsjad								// [1F1F9 1F1E9] TD
+🇹🇫	Franse Suidelike Gebiede					// [1F1F9 1F1EB] TF
+🇹🇬	Togo								// [1F1F9 1F1EC] TG
+🇹🇭	Thailand							// [1F1F9 1F1ED] TH
+🇹🇯	Tadjikistan							// [1F1F9 1F1EF] TJ
+🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
+🇹🇱	Oos-Timor							// [1F1F9 1F1F1] TL
+🇹🇲	Turkmenië							// [1F1F9 1F1F2] TM
+🇹🇳	Tunisië								// [1F1F9 1F1F3] TN
+🇹🇴	Tonga								// [1F1F9 1F1F4] TO
+🇹🇷	Turkye								// [1F1F9 1F1F7] TR
+🇹🇹	Trinidad en Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
+🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
+🇹🇿	Tanzanië							// [1F1F9 1F1FF] TZ
+🇺🇦	Oekraïne							// [1F1FA 1F1E6] UA
+🇺🇬	Uganda								// [1F1FA 1F1EC] UG
+🇺🇲	VS klein omliggende eilande					// [1F1FA 1F1F2] UM
+🇺🇳	verenigde nasies						// [1F1FA 1F1F3] UN
+🇺🇸	Verenigde State van Amerika					// [1F1FA 1F1F8] US
+🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
+🇺🇿	Oesbekistan							// [1F1FA 1F1FF] UZ
+🇻🇦	Vatikaanstad							// [1F1FB 1F1E6] VA
+🇻🇨	St. Vincent en die Grenadine					// [1F1FB 1F1E8] VC
+🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	Britse Maagde-eilande						// [1F1FB 1F1EC] VG
+🇻🇮	Amerikaanse Maagde-eilande					// [1F1FB 1F1EE] VI
+🇻🇳	Viëtnam								// [1F1FB 1F1F3] VN
+🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
+🇼🇫	Wallis en Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	Samoa								// [1F1FC 1F1F8] WS
+🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
+🇾🇪	Jemen								// [1F1FE 1F1EA] YE
+🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
+🇿🇦	Suid-Afrika							// [1F1FF 1F1E6] ZA
+🇿🇲	Zambië								// [1F1FF 1F1F2] ZM
+🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F] (no translation)
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F] (no translation)
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F] (no translation)
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	Engeland						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
