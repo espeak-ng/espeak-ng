@@ -527,7 +527,7 @@ espeak-ng-data/as_dict: src/espeak-ng phsource/phonemes.stamp dictsource/as_list
 az: espeak-ng-data/az_dict
 dictsource/az_extra:
 	touch dictsource/az_extra
-espeak-ng-data/az_dict: src/espeak-ng phsource/phonemes.stamp dictsource/az_list dictsource/az_rules dictsource/az_extra
+espeak-ng-data/az_dict: src/espeak-ng phsource/phonemes.stamp dictsource/az_list dictsource/az_rules dictsource/az_extra dictsource/az_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=az && cd ..
 
 bg: espeak-ng-data/bg_dict
