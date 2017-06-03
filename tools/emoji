@@ -54,10 +54,15 @@ emoji_dict = sys.argv[1]
 lang = sys.argv[2]
 cldr_path = sys.argv[3]
 
+filenames = [
+    os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang)),
+    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang))
+]
+
 annotations = {}
-filename = os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang))
-for cp, name in read_annotations(filename):
-    annotations[cp] = name
+for filename in filenames:
+    for cp, name in read_annotations(filename):
+        annotations[cp] = name
 
 for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
