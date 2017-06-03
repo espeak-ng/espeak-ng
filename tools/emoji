@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+
+import os
+import re
+import sys
+import codecs
+
+class Emoji:
+    def __init__(self, m):
+        self.emoji = m.group(1)
+        self.pronunciation = m.group(2)
+        self.codepoints = m.group(3)
+        self.comment = m.group(4)
+
+    def __repr__(self):
+        return "Emoji(emoji={0}, pronunciation={1}, codepoints={2}, comment={3})".format(
+            repr(self.emoji),
+            repr(self.pronunciation),
+            repr(self.codepoints),
+            repr(self.comment))
+
+    def __str__(self):
+        return "{0}{1}// [{2}]{3}".format(self.emoji, self.pronunciation, self.codepoints, self.comment)
+
+def read_emoji(filename, encoding="utf-8"):
+    re_emoji = re.compile(r"^([^ \t]*)([^/]*)// \[([^\]]*)\](.*)$")
+    with codecs.open(filename, "r", encoding) as f:
+        for line in f:
+            line = line.replace("\n", "")
+            if line.strip() == "":
+                yield line # blank line
+            elif line.startswith("//"):
+                yield line # line comment
+            elif line.startswith("$"):
+                yield line # flags only
+            else:
+                m = re_emoji.match(line)
+                if m:
+                    yield Emoji(m)
+                else:
+                    yield line
+
+for line in read_emoji(sys.argv[1]):
+    print(line)
