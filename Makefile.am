@@ -415,6 +415,7 @@ update-emoji:
 	tools/emoji dictsource/en_emoji ar ${CLDR_PATH} > dictsource/ar_emoji
 	tools/emoji dictsource/en_emoji az ${CLDR_PATH} > dictsource/az_emoji
 	tools/emoji dictsource/en_emoji bg ${CLDR_PATH} > dictsource/bg_emoji
+	tools/emoji dictsource/en_emoji bn ${CLDR_PATH} > dictsource/bn_emoji
 
 ##### dictionaries:
 
@@ -548,7 +549,7 @@ espeak-ng-data/bg_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bg_list
 bn: espeak-ng-data/bn_dict
 dictsource/bn_extra:
 	touch dictsource/bn_extra
-espeak-ng-data/bn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bn_list dictsource/bn_rules dictsource/bn_extra
+espeak-ng-data/bn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bn_list dictsource/bn_rules dictsource/bn_extra dictsource/bn_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=bn && cd ..
 
 bpy: espeak-ng-data/bpy_dict
