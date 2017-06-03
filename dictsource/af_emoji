@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	keycap hash							// [0023 FE0F 20E3] (no translation)
-*️⃣	keycap star							// [002A FE0F 20E3] (no translation)
-0️⃣	keycap zero							// [0030 FE0F 20E3] (no translation)
-1️⃣	keycap one							// [0031 FE0F 20E3] (no translation)
-2️⃣	keycap two							// [0032 FE0F 20E3] (no translation)
-3️⃣	keycap three							// [0033 FE0F 20E3] (no translation)
-4️⃣	keycap four							// [0034 FE0F 20E3] (no translation)
-5️⃣	keycap five							// [0035 FE0F 20E3] (no translation)
-6️⃣	keycap six							// [0036 FE0F 20E3] (no translation)
-7️⃣	keycap seven							// [0037 FE0F 20E3] (no translation)
-8️⃣	keycap eight							// [0038 FE0F 20E3] (no translation)
-9️⃣	keycap nine							// [0039 FE0F 20E3] (no translation)
+#️⃣	hekkiemerkersleutel						// [0023 FE0F 20E3]
+*️⃣	asterisksleutel							// [002A FE0F 20E3]
+0️⃣	nulsleutel							// [0030 FE0F 20E3]
+1️⃣	eensleutel							// [0031 FE0F 20E3]
+2️⃣	tweesleutel							// [0032 FE0F 20E3]
+3️⃣	driesleutel							// [0033 FE0F 20E3]
+4️⃣	viersleutel							// [0034 FE0F 20E3]
+5️⃣	vyfsleutel							// [0035 FE0F 20E3]
+6️⃣	sessleutel							// [0036 FE0F 20E3]
+7️⃣	sewesleutel							// [0037 FE0F 20E3]
+8️⃣	agtsleutel							// [0038 FE0F 20E3]
+9️⃣	negesleutel							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1579,8 +1579,8 @@ $textmode
 👷‍♂	manlike bouer						// [1F477 200D 2642]
 💂‍♀	vroulike wag						// [1F482 200D 2640]
 💂‍♂	manlike wag						// [1F482 200D 2642]
-🕵️‍♀	woman detective						// [1F575 200D 2640] (no translation)
-🕵️‍♂	man detective						// [1F575 200D 2642] (no translation)
+🕵️‍♀	vroulike speurder					// [1F575 200D 2640]
+🕵️‍♂	manlike speurder					// [1F575 200D 2642]
 🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
 🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
 🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
@@ -1606,10 +1606,10 @@ $textmode
 🏄‍♂	manlike branderplankryer				// [1F3C4 200D 2642]
 🏊‍♀	vroulike swemmer					// [1F3CA 200D 2640]
 🏊‍♂	manlike swemmer						// [1F3CA 200D 2642]
-🏋️‍♀	woman lifting weights					// [1F3CB 200D 2640] (no translation)
-🏋️‍♂	man lifting weights					// [1F3CB 200D 2642] (no translation)
-🏌️‍♀	woman golfing						// [1F3CC 200D 2640] (no translation)
-🏌️‍♂	man golfing						// [1F3CC 200D 2642] (no translation)
+🏋️‍♀	vroulike gewigopteller					// [1F3CB 200D 2640]
+🏋️‍♂	manlike gewigopteller					// [1F3CB 200D 2642]
+🏌️‍♀	vroulike gholfspeler					// [1F3CC 200D 2640]
+🏌️‍♂	manlike gholfspeler					// [1F3CC 200D 2642]
 👯‍♀	vroue dans						// [1F46F 200D 2640]
 👯‍♂	mans dans						// [1F46F 200D 2642]
 💆‍♀	vrou kry massering					// [1F486 200D 2640]
