@@ -53,6 +53,7 @@ updated languages:
 Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 
 *  af (Afrikaans)
+*  ar (Arabic)
 *  am (Amharic)
 *  en (English)
 

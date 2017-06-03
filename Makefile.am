@@ -515,7 +515,7 @@ espeak-ng-data/an_dict: src/espeak-ng phsource/phonemes.stamp dictsource/an_list
 ar: espeak-ng-data/ar_dict
 dictsource/ar_extra:
 	touch dictsource/ar_extra
-espeak-ng-data/ar_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ar_list dictsource/ar_listx dictsource/ar_rules dictsource/ar_extra
+espeak-ng-data/ar_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ar_list dictsource/ar_listx dictsource/ar_rules dictsource/ar_extra dictsource/ar_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ar && cd ..
 
 as: espeak-ng-data/as_dict
