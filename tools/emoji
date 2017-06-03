@@ -66,7 +66,7 @@ for filename in filenames:
 
 for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
-        translation = annotations.get(entry.emoji, None)
+        translation = annotations.get(entry.emoji.replace("\uFE0F", ""), None)
         if translation:
             length = len(entry.pronunciation.strip())
             tabs = entry.pronunciation.count('\t') - 1
