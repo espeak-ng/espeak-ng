@@ -503,7 +503,7 @@ espeak-ng-data/af_dict: src/espeak-ng phsource/phonemes.stamp dictsource/af_list
 am: espeak-ng-data/am_dict
 dictsource/am_extra:
 	touch dictsource/am_extra
-espeak-ng-data/am_dict: src/espeak-ng phsource/phonemes.stamp dictsource/am_list dictsource/am_rules dictsource/am_extra
+espeak-ng-data/am_dict: src/espeak-ng phsource/phonemes.stamp dictsource/am_list dictsource/am_rules dictsource/am_extra dictsource/am_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=am && cd ..
 
 an: espeak-ng-data/an_dict

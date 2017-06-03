@@ -50,9 +50,10 @@ updated languages:
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
 
-Unicode Emoji 5.0 support (from the Unicode Emoji, and CLDR data files):
+Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 
 *  af (Afrikaans)
+*  am (Amharic)
 *  en (English)
 
 ### 1.49.1 - 2017-01-21
