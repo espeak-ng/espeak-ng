@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	eSpeak Dictionary List Files
-" Filenames:    *_list, *_listx, *_extra
+" Filenames:    *_list, *_listx, *_extra, *_emoji
 " Maintainer:	Reece H. Dunn <msclrhd@gmail.com>
-" Last Change:	2016 Jun 19
+" Last Change:	2017 Jun 3
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -13,6 +13,7 @@ syn region	espeaklistLineComment			start="^//" end="$" keepend contains=espeakli
 syn match	espeaklistLinePhraseEntry 		"^\(\(//\)\@!\)(.*$" contains=espeaklistEntryPhrase
 syn match	espeaklistLineEntry 			"^\(\(//\)\@!\)[^?(].*$" contains=espeaklistEntryWord
 syn match	espeaklistLineConditionalEntry		"^[?!].*$" contains=espeaklistEntryConditional
+syn match	espeaklistLineFlagEntry			"^\$.*$" contains=espeaklistFlag
 
 syn region	espeaklistComment contained		start="//" end="$" keepend contains=@Spell
 
