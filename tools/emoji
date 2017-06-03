@@ -50,11 +50,16 @@ def read_emoji(filename, encoding="utf-8"):
                 else:
                     yield line
 
+emoji_dict = sys.argv[1]
+lang = sys.argv[2]
+cldr_path = sys.argv[3]
+
 annotations = {}
-for cp, name in read_annotations(sys.argv[2]):
+filename = os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang))
+for cp, name in read_annotations(filename):
     annotations[cp] = name
 
-for entry in read_emoji(sys.argv[1]):
+for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
         translation = annotations.get(entry.emoji, None)
         if translation:
