@@ -3,7 +3,10 @@
 import os
 import re
 import sys
+import math
 import codecs
+
+import xml.etree.ElementTree as etree
 
 class Emoji:
     def __init__(self, m):
@@ -21,6 +24,13 @@ class Emoji:
 
     def __str__(self):
         return "{0}{1}// [{2}]{3}".format(self.emoji, self.pronunciation, self.codepoints, self.comment)
+
+def read_annotations(filename):
+    ldml = etree.parse(filename).getroot()
+    for annotations in ldml.findall("annotations"):
+        for annotation in annotations.findall("annotation"):
+            if annotation.attrib.get("type", "") == "tts":
+                yield annotation.attrib["cp"], annotation.text
 
 def read_emoji(filename, encoding="utf-8"):
     re_emoji = re.compile(r"^([^ \t]*)([^/]*)// \[([^\]]*)\](.*)$")
@@ -40,5 +50,23 @@ def read_emoji(filename, encoding="utf-8"):
                 else:
                     yield line
 
-for line in read_emoji(sys.argv[1]):
-    print(line)
+annotations = {}
+for cp, name in read_annotations(sys.argv[2]):
+    annotations[cp] = name
+
+for entry in read_emoji(sys.argv[1]):
+    if isinstance(entry, Emoji):
+        translation = annotations.get(entry.emoji, None)
+        if translation:
+            length = len(entry.pronunciation.strip())
+            tabs = entry.pronunciation.count('\t') - 1
+            first_tab = 8 - (length % 8)
+            tab_length = length + first_tab + ((tabs - 1) * 8)
+
+            new_length = len(translation)
+            new_tabs = math.ceil((tab_length - new_length)/8)
+
+            entry.pronunciation = "\t{0}{1}".format(translation, "\t"*int(new_tabs))
+        else:
+            entry.comment += " (no translation)"
+    print(entry)
