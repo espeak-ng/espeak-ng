@@ -497,7 +497,7 @@ dictionaries: \
 af: espeak-ng-data/af_dict
 dictsource/af_extra:
 	touch dictsource/af_extra
-espeak-ng-data/af_dict: src/espeak-ng phsource/phonemes.stamp dictsource/af_list dictsource/af_rules dictsource/af_extra
+espeak-ng-data/af_dict: src/espeak-ng phsource/phonemes.stamp dictsource/af_list dictsource/af_rules dictsource/af_extra dictsource/af_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=af && cd ..
 
 am: espeak-ng-data/am_dict

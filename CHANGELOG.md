@@ -52,7 +52,8 @@ updated languages:
 
 Unicode Emoji 5.0 support (from the Unicode Emoji, and CLDR data files):
 
-*  en (English) -- Reece Dunn
+*  af (Afrikaans)
+*  en (English)
 
 ### 1.49.1 - 2017-01-21
 
