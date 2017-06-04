@@ -663,7 +663,7 @@ lt: espeak-ng-data/lt_dict
 espeak-ng-data/lt_dict: dictsource/lt_list dictsource/lt_rules dictsource/lt_extra dictsource/lt_emoji
 
 lv: espeak-ng-data/lv_dict
-espeak-ng-data/lv_dict: dictsource/lv_list dictsource/lv_rules dictsource/lv_extra
+espeak-ng-data/lv_dict: dictsource/lv_list dictsource/lv_rules dictsource/lv_extra dictsource/lv_emoji
 
 mi: espeak-ng-data/mi_dict
 espeak-ng-data/mi_dict: dictsource/mi_list dictsource/mi_rules dictsource/mi_extra
