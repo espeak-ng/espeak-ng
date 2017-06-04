@@ -372,6 +372,9 @@
             <Component Id="bn_dict" Win64="$(var.Win64)" Guid="E373A9D4-C3C5-45D7-9232-DEB5ED5A7E13">
               <File Name="bn_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\bn_dict" KeyPath="yes"/>
             </Component>
+            <Component Id="bs_dict" Win64="$(var.Win64)" Guid="B843DE6D-42A3-4748-B487-C01B676C2D62">
+              <File Name="bs_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\bs_dict" KeyPath="yes"/>
+            </Component>
             <Component Id="ca_dict" Win64="$(var.Win64)" Guid="32EE4EAA-207F-452B-89D4-FFBED362B86B">
               <File Name="ca_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ca_dict" KeyPath="yes"/>
             </Component>
@@ -429,11 +432,11 @@
             <Component Id="gu_dict" Win64="$(var.Win64)" Guid="9E7BD68D-99E0-40B6-9D62-46AE7CEAC90D">
               <File Name="gu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\gu_dict" KeyPath="yes"/>
             </Component>
-            <Component Id="hbs_dict" Win64="$(var.Win64)" Guid="049EA257-0F99-4ACB-B0D9-DF8EB70F4EA5">
-              <File Name="hbs_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hbs_dict" KeyPath="yes"/>
-            </Component>
             <Component Id="hi_dict" Win64="$(var.Win64)" Guid="F973CAE1-8498-4F18-B735-C7D598CAB66B">
               <File Name="hi_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hi_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="hr_dict" Win64="$(var.Win64)" Guid="590EBD44-A337-4517-81C5-95372A9832D6">
+              <File Name="hr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hr_dict" KeyPath="yes"/>
             </Component>
             <Component Id="hu_dict" Win64="$(var.Win64)" Guid="550541C4-3773-4645-AFF5-6882AFA17447">
               <File Name="hu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hu_dict" KeyPath="yes"/>
@@ -551,6 +554,9 @@
             </Component>
             <Component Id="sq_dict" Win64="$(var.Win64)" Guid="A68FC90B-0AF4-4AC5-A56A-D189D9782137">
               <File Name="sq_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sq_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="sr_dict" Win64="$(var.Win64)" Guid="84838B7C-8222-4A8B-96C0-3C1D41876847">
+              <File Name="sr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sr_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sv_dict" Win64="$(var.Win64)" Guid="87AEABFA-1424-4D4B-A70D-7B6A37BE1BF9">
               <File Name="sv_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sv_dict" KeyPath="yes"/>
@@ -979,7 +985,7 @@
     </ComponentGroup>
     <ComponentGroup Id="LangBosnian">
       <ComponentRef Id="bs"/>
-      <ComponentRef Id="hbs_dict"/>
+      <ComponentRef Id="bs_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangBulgarian">
       <ComponentRef Id="bg"/>
@@ -1003,7 +1009,7 @@
     </ComponentGroup>
     <ComponentGroup Id="LangCroatian">
       <ComponentRef Id="hr"/>
-      <ComponentRef Id="hbs_dict"/>
+      <ComponentRef Id="hr_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangCzech">
       <ComponentRef Id="cs"/>
@@ -1255,7 +1261,7 @@
     </ComponentGroup>
     <ComponentGroup Id="LangSerbian">
       <ComponentRef Id="sr"/>
-      <ComponentRef Id="hbs_dict"/>
+      <ComponentRef Id="sr_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangSetswana">
       <ComponentRef Id="tn"/>

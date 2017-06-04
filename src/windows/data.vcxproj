@@ -103,6 +103,9 @@
   <Target Name="bn" Inputs="$(ProjectDir)..\..\dictsource\bn_rules;$(ProjectDir)..\..\dictsource\bn_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\bn_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=bn" />
   </Target>
+  <Target Name="bs" Inputs="$(ProjectDir)..\..\dictsource\bs_rules;$(ProjectDir)..\..\dictsource\bs_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\bs_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=bs" />
+  </Target>
   <Target Name="ca" Inputs="$(ProjectDir)..\..\dictsource\ca_rules;$(ProjectDir)..\..\dictsource\ca_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\ca_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=ca" />
   </Target>
@@ -160,11 +163,11 @@
   <Target Name="gu" Inputs="$(ProjectDir)..\..\dictsource\gu_rules;$(ProjectDir)..\..\dictsource\gu_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\gu_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=gu" />
   </Target>
-  <Target Name="hbs" Inputs="$(ProjectDir)..\..\dictsource\hbs_rules;$(ProjectDir)..\..\dictsource\hbs_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\hbs_dict" DependsOnTargets="Phonemes">
-    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hbs" />
-  </Target>
   <Target Name="hi" Inputs="$(ProjectDir)..\..\dictsource\hi_rules;$(ProjectDir)..\..\dictsource\hi_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\hi_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hi" />
+  </Target>
+  <Target Name="hr" Inputs="$(ProjectDir)..\..\dictsource\hr_rules;$(ProjectDir)..\..\dictsource\hr_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\hr_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hr" />
   </Target>
   <Target Name="hu" Inputs="$(ProjectDir)..\..\dictsource\hu_rules;$(ProjectDir)..\..\dictsource\hu_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\hu_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=hu" />
@@ -286,6 +289,9 @@
   <Target Name="sq" Inputs="$(ProjectDir)..\..\dictsource\sq_rules;$(ProjectDir)..\..\dictsource\sq_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sq_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sq" />
   </Target>
+  <Target Name="sr" Inputs="$(ProjectDir)..\..\dictsource\sr_rules;$(ProjectDir)..\..\dictsource\sr_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sr_dict" DependsOnTargets="Phonemes">
+    <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sr" />
+  </Target>
   <Target Name="sv" Inputs="$(ProjectDir)..\..\dictsource\sv_rules;$(ProjectDir)..\..\dictsource\sv_list" Outputs="$(ProjectDir)..\..\espeak-ng-data\sv_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=sv" />
   </Target>
@@ -319,5 +325,5 @@
   <Target Name="zhy" Inputs="$(ProjectDir)..\..\dictsource\zhy_rules" Outputs="$(ProjectDir)..\..\espeak-ng-data\zhy_dict" DependsOnTargets="Phonemes">
     <Exec Command="cd $(ProjectDir)..\..\dictsource &amp;&amp; $(TargetDir)espeak-ng.exe --path=$(ProjectDir)..\.. --compile=yue" />
   </Target>
-  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hbs;hi;hu;hy;ia;id;is;it;jbo;ja;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy" />
+  <Target Name="Dictionaries" DependsOnTargets="af;am;an;as;az;bg;bn;bs;ca;cs;cy;da;de;el;en;eo;es;et;eu;fa;fi;fr;ga;gd;gn;grc;gu;hi;hr;hu;hy;ia;id;is;it;jbo;ja;ka;kl;kn;ko;ku;ky;la;lfn;lt;lv;mk;ml;mr;ms;mt;my;nci;ne;nl;no;om;or;pa;pap;pl;pt;ro;ru;si;sk;sl;sq;sr;sv;sw;ta;te;tn;tr;tt;ur;vi;zh;zhy" />
 </Project>
