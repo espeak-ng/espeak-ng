@@ -83,6 +83,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  is (Icelandic)
 *  it (Italian)
 *  ja (Japanese)
+*  ka (Georgian)
 
 ### 1.49.1 - 2017-01-21
 
