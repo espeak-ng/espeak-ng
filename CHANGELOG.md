@@ -64,6 +64,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  cy (Welsh)
 *  da (Danish)
 *  de (German)
+*  el (Greek)
 *  en (English)
 
 ### 1.49.1 - 2017-01-21
