@@ -669,7 +669,7 @@ mi: espeak-ng-data/mi_dict
 espeak-ng-data/mi_dict: dictsource/mi_list dictsource/mi_rules dictsource/mi_extra
 
 mk: espeak-ng-data/mk_dict
-espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_extra
+espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_extra dictsource/mk_emoji
 
 ml: espeak-ng-data/ml_dict
 espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
