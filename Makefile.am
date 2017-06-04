@@ -743,8 +743,16 @@ espeak-ng-data/sl_dict: dictsource/sl_list dictsource/sl_rules dictsource/sl_ext
 sq: espeak-ng-data/sq_dict
 espeak-ng-data/sq_dict: dictsource/sq_list dictsource/sq_rules dictsource/sq_extra dictsource/sq_emoji
 
+dictsource/sr_emoji:
+	@echo "  EMOJI     $@"
+	@if test x"${CLDR_PATH}" = x ; then \
+		touch $@ ; \
+	else \
+		tools/emoji dictsource/en_emoji sr_Latn ${CLDR_PATH} > $@ ; \
+	fi
+
 sr: espeak-ng-data/sr_dict
-espeak-ng-data/sr_dict: dictsource/sr_list dictsource/sr_rules dictsource/sr_extra
+espeak-ng-data/sr_dict: dictsource/sr_list dictsource/sr_rules dictsource/sr_extra dictsource/sr_emoji
 
 sv: espeak-ng-data/sv_dict
 espeak-ng-data/sv_dict: dictsource/sv_list dictsource/sv_rules dictsource/sv_extra
