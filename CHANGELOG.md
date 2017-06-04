@@ -82,6 +82,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  id (Indonesian)
 *  is (Icelandic)
 *  it (Italian)
+*  ja (Japanese)
 
 ### 1.49.1 - 2017-01-21
 
