@@ -764,7 +764,7 @@ ta: espeak-ng-data/ta_dict
 espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
 
 te: espeak-ng-data/te_dict
-espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra
+espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji
 
 tn: espeak-ng-data/tn_dict
 espeak-ng-data/tn_dict: dictsource/tn_list dictsource/tn_rules dictsource/tn_extra
