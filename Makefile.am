@@ -702,7 +702,7 @@ om: espeak-ng-data/om_dict
 espeak-ng-data/om_dict: dictsource/om_list dictsource/om_rules dictsource/om_extra
 
 or: espeak-ng-data/or_dict
-espeak-ng-data/or_dict: dictsource/or_list dictsource/or_rules dictsource/or_extra
+espeak-ng-data/or_dict: dictsource/or_list dictsource/or_rules dictsource/or_extra dictsource/or_emoji
 
 pa: espeak-ng-data/pa_dict
 espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra
