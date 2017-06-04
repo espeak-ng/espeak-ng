@@ -416,7 +416,7 @@ update-emoji:
 	tools/emoji dictsource/en_emoji az ${CLDR_PATH} > dictsource/az_emoji
 	tools/emoji dictsource/en_emoji bg ${CLDR_PATH} > dictsource/bg_emoji
 	tools/emoji dictsource/en_emoji bn ${CLDR_PATH} > dictsource/bn_emoji
-	tools/emoji dictsource/en_emoji bs ${CLDR_PATH} > dictsource/hbs_emoji
+	tools/emoji dictsource/en_emoji bs ${CLDR_PATH} > dictsource/bs_emoji
 	tools/emoji dictsource/en_emoji ca ${CLDR_PATH} > dictsource/ca_emoji
 	tools/emoji dictsource/en_emoji cs ${CLDR_PATH} > dictsource/cs_emoji
 	tools/emoji dictsource/en_emoji cy ${CLDR_PATH} > dictsource/cy_emoji
@@ -445,6 +445,7 @@ dictionaries: \
 	espeak-ng-data/bg_dict \
 	espeak-ng-data/bn_dict \
 	espeak-ng-data/bpy_dict \
+	espeak-ng-data/bs_dict \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/cs_dict \
 	espeak-ng-data/cy_dict \
@@ -463,8 +464,8 @@ dictionaries: \
 	espeak-ng-data/gd_dict \
 	espeak-ng-data/grc_dict \
 	espeak-ng-data/gu_dict \
-	espeak-ng-data/hbs_dict \
 	espeak-ng-data/hi_dict \
+	espeak-ng-data/hr_dict \
 	espeak-ng-data/hu_dict \
 	espeak-ng-data/hy_dict \
 	espeak-ng-data/ia_dict \
@@ -508,6 +509,7 @@ dictionaries: \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
 	espeak-ng-data/sq_dict \
+	espeak-ng-data/sr_dict \
 	espeak-ng-data/sv_dict \
 	espeak-ng-data/sw_dict \
 	espeak-ng-data/ta_dict \
@@ -573,6 +575,12 @@ dictsource/bpy_extra:
 	touch dictsource/bpy_extra
 espeak-ng-data/bpy_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bpy_list dictsource/bpy_rules dictsource/bpy_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=bpy && cd ..
+
+bs: espeak-ng-data/bs_dict
+dictsource/bs_extra:
+	touch dictsource/bs_extra
+espeak-ng-data/bs_dict: src/espeak-ng phsource/phonemes.stamp dictsource/bs_list dictsource/bs_rules dictsource/bs_extra dictsource/bs_emoji
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=bs && cd ..
 
 ca: espeak-ng-data/ca_dict
 dictsource/ca_extra:
@@ -688,17 +696,17 @@ dictsource/gu_extra:
 espeak-ng-data/gu_dict: src/espeak-ng phsource/phonemes.stamp dictsource/gu_list dictsource/gu_rules dictsource/gu_extra dictsource/gu_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=gu && cd ..
 
-hbs: espeak-ng-data/hbs_dict
-dictsource/hbs_extra:
-	touch dictsource/hbs_extra
-espeak-ng-data/hbs_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hbs_list dictsource/hbs_rules dictsource/hbs_extra dictsource/hbs_emoji
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=hbs && cd ..
-
 hi: espeak-ng-data/hi_dict
 dictsource/hi_extra:
 	touch dictsource/hi_extra
 espeak-ng-data/hi_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hi_list dictsource/hi_rules dictsource/hi_extra dictsource/hi_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=hi && cd ..
+
+hr: espeak-ng-data/hr_dict
+dictsource/hr_extra:
+	touch dictsource/hr_extra
+espeak-ng-data/hr_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hr_list dictsource/hr_rules dictsource/hr_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=hr && cd ..
 
 hu: espeak-ng-data/hu_dict
 dictsource/hu_extra:
@@ -934,17 +942,17 @@ espeak-ng-data/ru_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ru_list
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ru && cd ..
 
-si: espeak-ng-data/si_dict
-dictsource/si_extra:
-	touch dictsource/si_extra
-espeak-ng-data/si_dict: src/espeak-ng phsource/phonemes.stamp dictsource/si_list dictsource/si_rules dictsource/si_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=si && cd ..
-
 sd: espeak-ng-data/sd_dict
 dictsource/sd_extra:
 	touch dictsource/sd_extra
 espeak-ng-data/sd_dict: src/espeak-ng phsource/phonemes.stamp dictsource/sd_list dictsource/sd_rules dictsource/sd_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=sd && cd ..
+
+si: espeak-ng-data/si_dict
+dictsource/si_extra:
+	touch dictsource/si_extra
+espeak-ng-data/si_dict: src/espeak-ng phsource/phonemes.stamp dictsource/si_list dictsource/si_rules dictsource/si_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=si && cd ..
 
 sk: espeak-ng-data/sk_dict
 dictsource/sk_extra:
@@ -963,6 +971,12 @@ dictsource/sq_extra:
 	touch dictsource/sq_extra
 espeak-ng-data/sq_dict: src/espeak-ng phsource/phonemes.stamp dictsource/sq_list dictsource/sq_rules dictsource/sq_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=sq && cd ..
+
+sr: espeak-ng-data/sr_dict
+dictsource/sr_extra:
+	touch dictsource/sr_extra
+espeak-ng-data/sr_dict: src/espeak-ng phsource/phonemes.stamp dictsource/sr_list dictsource/sr_rules dictsource/sr_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=sr && cd ..
 
 sv: espeak-ng-data/sv_dict
 dictsource/sv_extra:

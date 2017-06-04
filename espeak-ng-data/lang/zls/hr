@@ -2,8 +2,6 @@ name Croatian
 language hr
 language hbs
 
-dictionary hbs
-
 // attributes towards !variant3
 pitch 81 120
 formant 0 100 100 100

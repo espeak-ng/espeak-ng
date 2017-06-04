@@ -1,7 +1,6 @@
 name Bosnian
 language bs
 phonemes hr
-dictionary hbs
 
 pitch 81 120
 formant 0 100 100 100

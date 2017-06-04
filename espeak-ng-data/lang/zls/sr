@@ -1,6 +1,5 @@
 name Serbian
 language sr
-dictionary hbs
 
 // attributes towards !variant3 pitch 80 120
 formant 0 100 100 100
