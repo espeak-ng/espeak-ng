@@ -95,6 +95,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  nl (Dutch)
 *  or (Oriya)
 *  pa (Punjabi)
+*  pl (Polish)
 
 ### 1.49.1 - 2017-01-21
 

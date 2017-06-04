@@ -711,7 +711,7 @@ pap: espeak-ng-data/pap_dict
 espeak-ng-data/pap_dict: dictsource/pap_list dictsource/pap_rules dictsource/pap_extra
 
 pl: espeak-ng-data/pl_dict
-espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_extra
+espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_extra dictsource/pl_emoji
 
 pt: espeak-ng-data/pt_dict
 espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_extra
