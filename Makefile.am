@@ -440,6 +440,7 @@ update-emoji:
 	tools/emoji dictsource/en_emoji it ${CLDR_PATH} > dictsource/it_emoji
 	tools/emoji dictsource/en_emoji ja ${CLDR_PATH} > dictsource/ja_emoji
 	tools/emoji dictsource/en_emoji ka ${CLDR_PATH} > dictsource/ka_emoji
+	tools/emoji dictsource/en_emoji kn ${CLDR_PATH} > dictsource/kn_emoji
 
 ##### dictionaries:
 
@@ -779,7 +780,7 @@ espeak-ng-data/kl_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kl_list
 kn: espeak-ng-data/kn_dict
 dictsource/kn_extra:
 	touch dictsource/kn_extra
-espeak-ng-data/kn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kn_list dictsource/kn_rules dictsource/kn_extra
+espeak-ng-data/kn_dict: src/espeak-ng phsource/phonemes.stamp dictsource/kn_list dictsource/kn_rules dictsource/kn_extra dictsource/kn_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=kn && cd ..
 
 ko: espeak-ng-data/ko_dict
