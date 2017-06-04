@@ -37,7 +37,7 @@ test_lang en-GB-x-gbcwmd 480e4c024cc06224f1352618e57d0ec4bf223e9a "foot strut no
 test_lang en-GB-x-rp 8f1f36267f10c88ca822355ecd9d4ee37faa8228 "foot strut north force cure thought lot cloth trap bath"
 test_lang en-US 1653355ef008d67d315aa20e630e00614472a045 "foot strut north force cure thought lot cloth trap bath"
 
-test_lang jp a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
+test_lang ja a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
 
 # Languages with non-Latin characters fall back to en when speaking Latin characters.
 test_lang bg "bg (English text)" ad98e816727288c7f3c525a4b4c30e72c7ea0c00 "foot strut north force cure thought lot cloth trap bath"
