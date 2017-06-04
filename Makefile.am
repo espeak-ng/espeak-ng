@@ -770,7 +770,7 @@ tn: espeak-ng-data/tn_dict
 espeak-ng-data/tn_dict: dictsource/tn_list dictsource/tn_rules dictsource/tn_extra
 
 tr: espeak-ng-data/tr_dict
-espeak-ng-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_extra
+espeak-ng-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_extra dictsource/tr_emoji
 
 tt: espeak-ng-data/tt_dict
 espeak-ng-data/tt_dict: dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
