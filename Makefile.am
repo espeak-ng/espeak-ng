@@ -717,7 +717,7 @@ pt: espeak-ng-data/pt_dict
 espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_extra dictsource/pt_emoji
 
 ro: espeak-ng-data/ro_dict
-espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra
+espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra dictsource/ro_emoji
 
 ru: espeak-ng-data/ru_dict
 dictsource/ru_listx:
