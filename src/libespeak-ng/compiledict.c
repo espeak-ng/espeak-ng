@@ -372,7 +372,7 @@ typedef enum
 	LINE_PARSER_END_OF_PRONUNCIATION = 5,
 } LINE_PARSER_STATES;
 
-static int compile_line(char *linebuf, char *dict_line, int *hash)
+static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *hash)
 {
 	// Compile a line in the language_list file
 	unsigned char c;
@@ -621,7 +621,15 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		length = len_word + 2;
 	} else {
 		length = len_word + len_phonetic + 3;
-		strcpy(&dict_line[(len_word)+2], encoded_ph);
+		if (length < n_dict_line) {
+			strcpy(&dict_line[(len_word)+2], encoded_ph);
+		} else {
+			fprintf(f_log, "%5d: Dictionary line length would overflow the data buffer: %d\n", linenum, length);
+			error_count++;
+			// no phonemes specified. set bit 7
+			dict_line[1] |= 0x80;
+			length = len_word + 2;
+		}
 	}
 
 	for (ix = 0; ix < n_flag_codes; ix++)
@@ -714,7 +722,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	while (fgets(buf, sizeof(buf), f_in) != NULL) {
 		linenum++;
 
-		length = compile_line(buf, dict_line, &hash);
+		length = compile_line(buf, dict_line, sizeof(dict_line), &hash);
 		if (length == 0)  continue; // blank line
 
 		hash_counts[hash]++;
