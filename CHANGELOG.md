@@ -67,6 +67,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  el (Greek)
 *  en (English)
 *  es (Spanish)
+*  et (Estonian)
 
 ### 1.49.1 - 2017-01-21
 
