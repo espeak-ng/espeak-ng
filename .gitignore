@@ -134,6 +134,8 @@ src/pcaudiolib/
 *.wixpdb
 *.cab
 
+*.tmp
+
 !src/ucd-tools/data/*/*.txt
 
 # Linux/Source distribution files
