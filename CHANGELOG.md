@@ -66,6 +66,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  de (German)
 *  el (Greek)
 *  en (English)
+*  es (Spanish)
 
 ### 1.49.1 - 2017-01-21
 
