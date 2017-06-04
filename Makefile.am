@@ -411,10 +411,14 @@ espeakdata: \
 
 dictsource/%_emoji:
 	@echo "  EMOJI     $@"
-	@tools/emoji \
-		dictsource/en_emoji \
-		`echo $@ | sed -e 's,dictsource/,,g' -e 's,_emoji,,g'` \
-		${CLDR_PATH} > $@
+	@if test x"${CLDR_PATH}" = x ; then \
+		touch $@ ; \
+	else \
+		tools/emoji \
+			dictsource/en_emoji \
+			`echo $@ | sed -e 's,dictsource/,,g' -e 's,_emoji,,g'` \
+			${CLDR_PATH} > $@ ; \
+	fi
 
 dictsource/%_extra:
 	touch $@
