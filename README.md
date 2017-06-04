@@ -80,9 +80,17 @@ the `src/windows` directory:
 
 	msbuild espeak-ng.sln
 
-If building with Visual Studio 2003, you need to use:
+To build with a specific version of Visual Studio, you need to use:
 
 	msbuild /p:PlatformToolset=v120 espeak-ng.sln
+
+replacing `v120` with the appropriate value for the target Visual Studio version:
+
+| PlatformToolset | Visual Studio |
+|-----------------|---------------|
+| v120            | 2013          |
+| v140            | 2015          |
+| v141 (default)  | 2017          |
 
 ## Linux, Mac, BSD
 

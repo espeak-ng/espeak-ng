@@ -108,6 +108,36 @@
     <ClCompile Include="..\pcaudiolib\src\xaudio2.cpp">
       <Filter>pcaudiolib</Filter>
     </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\case.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\categories.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\ctype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\proplist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\scripts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ucd-tools\src\tostring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\encoding.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\mnemonics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\phoneme.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libespeak-ng\tokenizer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -154,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="..\pcaudiolib\src\include\pcaudiolib\audio.h">
       <Filter>pcaudiolib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ucd-tools\src\include\ucd\ucd.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
