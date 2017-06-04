@@ -723,9 +723,9 @@ ru: espeak-ng-data/ru_dict
 dictsource/ru_listx:
 	ln -svf extra/ru_listx dictsource/
 if HAVE_RU_EXTENDED_DICTIONARY
-espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_listx
+espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_listx dictsource/ru_emoji
 else
-espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra
+espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_emoji
 endif
 
 sd: espeak-ng-data/sd_dict
