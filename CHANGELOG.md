@@ -70,6 +70,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  et (Estonian)
 *  eu (Basque)
 *  fa (Farsi/Persian)
+*  fi (Finnish)
 
 ### 1.49.1 - 2017-01-21
 
