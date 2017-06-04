@@ -407,42 +407,14 @@ espeakdata: \
 	android/res/raw/espeakdata.zip \
 	android/res/raw/espeakdata_version
 
-##### emoji:
-
-update-emoji:
-	tools/emoji dictsource/en_emoji af ${CLDR_PATH} > dictsource/af_emoji
-	tools/emoji dictsource/en_emoji am ${CLDR_PATH} > dictsource/am_emoji
-	tools/emoji dictsource/en_emoji ar ${CLDR_PATH} > dictsource/ar_emoji
-	tools/emoji dictsource/en_emoji az ${CLDR_PATH} > dictsource/az_emoji
-	tools/emoji dictsource/en_emoji bg ${CLDR_PATH} > dictsource/bg_emoji
-	tools/emoji dictsource/en_emoji bn ${CLDR_PATH} > dictsource/bn_emoji
-	tools/emoji dictsource/en_emoji bs ${CLDR_PATH} > dictsource/bs_emoji
-	tools/emoji dictsource/en_emoji ca ${CLDR_PATH} > dictsource/ca_emoji
-	tools/emoji dictsource/en_emoji cs ${CLDR_PATH} > dictsource/cs_emoji
-	tools/emoji dictsource/en_emoji cy ${CLDR_PATH} > dictsource/cy_emoji
-	tools/emoji dictsource/en_emoji da ${CLDR_PATH} > dictsource/da_emoji
-	tools/emoji dictsource/en_emoji de ${CLDR_PATH} > dictsource/de_emoji
-	tools/emoji dictsource/en_emoji el ${CLDR_PATH} > dictsource/el_emoji
-	tools/emoji dictsource/en_emoji es ${CLDR_PATH} > dictsource/es_emoji
-	tools/emoji dictsource/en_emoji et ${CLDR_PATH} > dictsource/et_emoji
-	tools/emoji dictsource/en_emoji eu ${CLDR_PATH} > dictsource/eu_emoji
-	tools/emoji dictsource/en_emoji fa ${CLDR_PATH} > dictsource/fa_emoji
-	tools/emoji dictsource/en_emoji fi ${CLDR_PATH} > dictsource/fi_emoji
-	tools/emoji dictsource/en_emoji fr ${CLDR_PATH} > dictsource/fr_emoji
-	tools/emoji dictsource/en_emoji ga ${CLDR_PATH} > dictsource/ga_emoji
-	tools/emoji dictsource/en_emoji gu ${CLDR_PATH} > dictsource/gu_emoji
-	tools/emoji dictsource/en_emoji hi ${CLDR_PATH} > dictsource/hi_emoji
-	tools/emoji dictsource/en_emoji hr ${CLDR_PATH} > dictsource/hr_emoji
-	tools/emoji dictsource/en_emoji hu ${CLDR_PATH} > dictsource/hu_emoji
-	tools/emoji dictsource/en_emoji hy ${CLDR_PATH} > dictsource/hy_emoji
-	tools/emoji dictsource/en_emoji id ${CLDR_PATH} > dictsource/id_emoji
-	tools/emoji dictsource/en_emoji is ${CLDR_PATH} > dictsource/is_emoji
-	tools/emoji dictsource/en_emoji it ${CLDR_PATH} > dictsource/it_emoji
-	tools/emoji dictsource/en_emoji ja ${CLDR_PATH} > dictsource/ja_emoji
-	tools/emoji dictsource/en_emoji ka ${CLDR_PATH} > dictsource/ka_emoji
-	tools/emoji dictsource/en_emoji kn ${CLDR_PATH} > dictsource/kn_emoji
-
 ##### dictionaries:
+
+dictsource/%_emoji:
+	@echo "  EMOJI     $@"
+	@tools/emoji \
+		dictsource/en_emoji \
+		`echo $@ | sed -e 's,dictsource/,,g' -e 's,_emoji,,g'` \
+		${CLDR_PATH} > $@
 
 dictionaries: \
 	espeak-ng-data/af_dict \
