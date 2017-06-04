@@ -1,0 +1,1678 @@
+// Emoji and Other Symbol pronunciations for Basque
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+©	copyright							// [00A9] text|emoji
+®	marka erregistratua						// [00AE] text|emoji
+
+// 2000..203C : General Punctuation
+
+‼	harridura-marka bikoitza					// [203C] text|emoji
+⁉	harridura- eta galdera-ikurra					// [2049] text|emoji
+
+// 2100..214F : Letterlike Symbols
+
+™	marka komertziala						// [2122] text|emoji
+ℹ	informazio-iturburua						// [2139] text|emoji
+
+// 2190..21FF : Arrows
+
+↔	ezkerrera eta eskuinera gezia					// [2194] text|emoji
+↕	gora eta behera gezia						// [2195] text|emoji
+↖	gora eta ezkerrera gezia					// [2196] text|emoji
+↗	gora eta eskuinera gezia					// [2197] text|emoji
+↘	behera eta eskuinera gezia					// [2198] text|emoji
+↙	behera eta ezkerrera gezia					// [2199] text|emoji
+↩	ezkerrera okertzen den eskuinera gezia				// [21A9] text|emoji
+↪	eskuinera okertzen den ezkerrera gezia				// [21AA] text|emoji
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	erlojua								// [231A]
+⌛	harea-erloju							// [231B]
+⌨	teklatua							// [2328] text|emoji
+⏏	ateratzeko botoia						// [23CF] text|emoji
+⏩	aurrera egiteko botoia						// [23E9]
+⏪	atzera egiteko botoia						// [23EA]
+⏫	gora bizkor egiteko botoia					// [23EB]
+⏬	behera bizkor egiteko botoia					// [23EC]
+⏭	hurrengo abestira joateko botoia				// [23ED] text|emoji
+⏮	azken abestia erreproduzitzeko botoia				// [23EE] text|emoji
+⏯	erreproduzitzeko edo pausatzeko botoia				// [23EF] text|emoji
+⏰	alarma								// [23F0]
+⏱	kronometroa							// [23F1] text|emoji
+⏲	tenporizadorea							// [23F2] text|emoji
+⏳	harea-erlojua harea dariola					// [23F3]
+⏸	pausatzeko botoia						// [23F8] text|emoji
+⏹	gelditzeko botoia						// [23F9] text|emoji
+⏺	grabatzeko botoia						// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	“m” hizkia zirkulu batean					// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+▪	karratu beltz txikia						// [25AA] text|emoji
+▫	karratu zuri txikia						// [25AB] text|emoji
+▶	erreproduzitzeko botoia						// [25B6] text|emoji
+◀	alderantziz erreproduzitzeko botoia				// [25C0] text|emoji
+◻	karratu zuri ertaina						// [25FB] text|emoji
+◼	karratu beltz ertaina						// [25FC] text|emoji
+◽	karratu zuri ertaina/txikia					// [25FD]
+◾	karratu beltz ertaina/txikia					// [25FE]
+
+// 2600..26FF : Miscellaneous Symbols
+
+☀	eguzkia								// [2600] text|emoji
+☁	hodei								// [2601] text|emoji
+☂	aterki								// [2602] text|emoji
+☃	elurrezko gizona						// [2603] text|emoji
+☄	kometa								// [2604] text|emoji
+☎	telefonoa							// [260E] text|emoji
+☑	tileta duen koadroa						// [2611] text|emoji
+☔	aterkia euri-tantekin						// [2614]
+☕	edari beroa							// [2615]
+☘	shamrock							// [2618] text|emoji (no translation)
+☝	gora seinalatzen ari den hatz erakuslea				// [261D] text|emoji
+☠	buru-hezurra eta hezur gurutzatuak				// [2620] text|emoji
+☢	erradioaktiboa							// [2622] text|emoji
+☣	arrisku biologikoa						// [2623] text|emoji
+☦	gurutze ortodoxoa						// [2626] text|emoji
+☪	izarra eta ilargierdia						// [262A] text|emoji
+☮	bakearen ikurra							// [262E] text|emoji
+☯	yin yang							// [262F] text|emoji
+☸	dharmaren gurpila						// [2638] text|emoji
+☹	frowning face							// [2639] text|emoji (no translation)
+☺	irribarre egiten ari den aurpegia				// [263A] text|emoji
+♀	emakumeen ikurra						// [2640] text|emoji
+♂	gizonen ikurra							// [2642] text|emoji
+♈	aries								// [2648]
+♉	taurus								// [2649]
+♊	gemini								// [264A]
+♋	cancer								// [264B]
+♌	leo								// [264C]
+♍	virgo								// [264D]
+♎	libra								// [264E]
+♏	scorpio								// [264F]
+♐	sagittarius							// [2650]
+♑	capricornus							// [2651]
+♒	aquarius							// [2652]
+♓	pisces								// [2653]
+♠	pika								// [2660] text|emoji
+♣	club suit							// [2663] text|emoji (no translation)
+♥	bihotza								// [2665] text|emoji
+♦	diamond suit							// [2666] text|emoji (no translation)
+♨	iturri termalak							// [2668] text|emoji
+♻	birziklatzeko ikurra						// [267B] text|emoji
+♿	gurpil-aulkia							// [267F]
+⚒	mailua eta pikotxa						// [2692] text|emoji
+⚓	aingura								// [2693]
+⚔	ezpata gurutzatuak						// [2694] text|emoji
+⚕	ikur medikoa							// [2695] text|emoji
+⚖	balantzak							// [2696] text|emoji
+⚗	alanbikea							// [2697] text|emoji
+⚙	engranajea							// [2699] text|emoji
+⚛	atomoaren ikurra						// [269B] text|emoji
+⚜	lis-lore							// [269C] text|emoji
+⚠	abisua								// [26A0] text|emoji
+⚡	tentsio handia							// [26A1]
+⚪	zirkulu zuria							// [26AA]
+⚫	zirkulu beltza							// [26AB]
+⚰	hilkutxa							// [26B0] text|emoji
+⚱	errautsak gordetzeko kutxa					// [26B1] text|emoji
+⚽	futboleko baloia						// [26BD]
+⚾	beisbola							// [26BE]
+⛄	elurrezko gizona elurrik gabe					// [26C4]
+⛅	eguzkia hodei baten atzean					// [26C5]
+⛈	hodeia tximista eta euriarekin					// [26C8] text|emoji
+⛎	ofiuko								// [26CE]
+⛏	pikotxa								// [26CF] text|emoji
+⛑	kaskoa gurutze zuriarekin					// [26D1] text|emoji
+⛓	kateak								// [26D3] text|emoji
+⛔	sarrera debekatuta						// [26D4]
+⛩	shinto santutegia						// [26E9] text|emoji
+⛪	eliza								// [26EA]
+⛰	mendia								// [26F0] text|emoji
+⛱	aterkia hondartzan						// [26F1] text|emoji
+⛲	iturria								// [26F2]
+⛳	bandera zuloan							// [26F3]
+⛴	ferrya								// [26F4] text|emoji
+⛵	belaontzia							// [26F5]
+⛷	eskiatzailea							// [26F7] text|emoji
+⛸	izotz-patinajea							// [26F8] text|emoji
+⛹	baloi bat duen pertsona						// [26F9] text|emoji
+⛺	denda								// [26FA]
+⛽	gasolina-bonba							// [26FD]
+
+// 2700..27BF : Dingbats
+
+✂	guraizeak							// [2702] text|emoji
+✅	tilet zuri lodia						// [2705]
+✈	hegazkina							// [2708] text|emoji
+✉	gutun-azal							// [2709] text|emoji
+✊	ukabil altxatua							// [270A]
+✋	esku altxatua							// [270B]
+✌	garaipena adierazten duen eskua					// [270C] text|emoji
+✍	idazten ari den eskua						// [270D] text|emoji
+✏	arkatza								// [270F] text|emoji
+✒	luma beltza							// [2712] text|emoji
+✔	tileta lodia							// [2714] text|emoji
+✖	biderketa-ikur lodia						// [2716] text|emoji
+✝	gurutze latindarra						// [271D] text|emoji
+✡	daviden izarra							// [2721] text|emoji
+✨	distira								// [2728]
+✳	zortzi puntako izartxoa						// [2733] text|emoji
+✴	zortzi puntako izarra						// [2734] text|emoji
+❄	elur-maluta							// [2744] text|emoji
+❇	txinparta							// [2747] text|emoji
+❌	gurutze-ikurra							// [274C]
+❎	gurutze-ikurraren botoia					// [274E]
+❓	galdera-marka							// [2753]
+❔	galdera-marka zuria						// [2754]
+❕	harridura-marka zuria						// [2755]
+❗	harridura-marka							// [2757]
+❣	bihotz-itxurako harridura-marka					// [2763] text|emoji
+❤	bihotz gorria							// [2764] text|emoji
+➕	plus zeinu lodia						// [2795]
+➖	minus ikur lodia						// [2796]
+➗	zatiketa-ikur lodia						// [2797]
+➡	eskuinera gezia							// [27A1] text|emoji
+➰	malgukia							// [27B0]
+➿	malguki bikoitza						// [27BF]
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	gora okertzen den eskuinera gezia				// [2934] text|emoji
+⤵	behera okertzen den eskuinera gezia				// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	ezkerrera gezia							// [2B05] text|emoji
+⬆	gora gezia							// [2B06] text|emoji
+⬇	behera gezia							// [2B07] text|emoji
+⬛	karratu beltz handia						// [2B1B]
+⬜	karratu zuri handia						// [2B1C]
+⭐	izar zuri ertaina						// [2B50]
+⭕	zirkulu lodi handia						// [2B55]
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	marratxo ondulatua						// [3030] text|emoji
+〽	txanda-markatzailea						// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	zoriontzeko ideograma zirkulu batean				// [3297] text|emoji
+㊙	sekretua irudikatzen duen ideograma zirkulu batean		// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	a botoia							// [1F170] text|emoji
+🅱	b botoia							// [1F171] text|emoji
+🅾	“o” botoia							// [1F17E] text|emoji
+🅿	“p” botoia							// [1F17F] text|emoji
+🆎	ab botoia							// [1F18E]
+🆑	“cl” testua karratu batean					// [1F191]
+🆒	“cool” hitza karratu batean					// [1F192]
+🆓	“free” hitza karratu batean					// [1F193]
+🆔	“id” testua karratu batean					// [1F194]
+🆕	“new” hitza zirkulu batean					// [1F195]
+🆖	“ng” testua karratu batean					// [1F196]
+🆗	“ok” testua karratu batean					// [1F197]
+🆘	“sos” hitza karratu batean					// [1F198]
+🆙	“up!” botoia							// [1F199]
+🆚	“vs” testua karratu batean					// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	katakana koko karratu batean					// [1F201]
+🈂	katakana sa karratu batean					// [1F202] text|emoji
+🈚	ezeztapena irudikatzen duen ideograma karratu batean		// [1F21A]
+🈯	hatz bat irudikatzen duen ideograma karratu batean		// [1F22F]
+🈲	debekua irudikatzen duen ideograma karratu batean		// [1F232]
+🈳	hutsa irudikatzen duen ideograma karratu batean			// [1F233]
+🈴	elkarrekin egotea irudikatzen duen ideograma karratu batean	// [1F234]
+🈵	osotasuna irudikatzen duen ideograma karratu batean		// [1F235]
+🈶	existentzia irudikatzen duen ideograma karratu batean		// [1F236]
+🈷	ilargia irudikatzen duen ideograma karratu batean		// [1F237] text|emoji
+🈸	inprimaki bat irudikatzen duen ideograma karratu batean		// [1F238]
+🈹	zatiketa irudikatzen duen ideograma karratu batean		// [1F239]
+🈺	zerbait abian dela irudikatzen duen ideograma karratu batean	// [1F23A]
+🉐	abantaila bat irudikatzen duen ideograma zirkulu batean		// [1F250]
+🉑	onarpena irudikatzen duen ideograma zirkulu batean		// [1F251]
+
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	mahjong dragoi gorria						// [1F004]
+
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	komodina							// [1F0CF]
+
+// 1F300..1F5FF : Miscellaneous Symbols and Pictographs
+
+🌀	zikloia								// [1F300]
+🌁	lainotu								// [1F301]
+🌂	aterki itxia							// [1F302]
+🌃	gaua eta izarrak						// [1F303]
+🌄	egunsentia mendien artean					// [1F304]
+🌅	egunsentia							// [1F305]
+🌆	hiri-paisaia ilunabarrean					// [1F306]
+🌇	ilunabarra							// [1F307]
+🌈	ortzadarra							// [1F308]
+🌉	zubia gauez							// [1F309]
+🌊	olatua								// [1F30A]
+🌋	sumendia							// [1F30B]
+🌌	esne-bidea							// [1F30C]
+🌍	europa eta afrika ikusgai dituen lur-globoa			// [1F30D]
+🌎	america ikusgai duen lur-globoa					// [1F30E]
+🌏	asia eta australia ikusgai dituen lur-globoa			// [1F30F]
+🌐	globoa eta meridianoak						// [1F310]
+🌑	ilargi berria							// [1F311]
+🌒	waxing crescent moon						// [1F312] (no translation)
+🌓	first quarter moon						// [1F313] (no translation)
+🌔	waxing gibbous moon						// [1F314] (no translation)
+🌕	ilargi betea							// [1F315]
+🌖	waning gibbous moon						// [1F316] (no translation)
+🌗	last quarter moon						// [1F317] (no translation)
+🌘	waning crescent moon						// [1F318] (no translation)
+🌙	crescent moon							// [1F319] (no translation)
+🌚	ilargi berriaren aurpegia					// [1F31A]
+🌛	ilargi-laurdena ezkerrera begira				// [1F31B]
+🌜	ilargi-laurdena eskuinera begira				// [1F31C]
+🌝	ilargi betea aurpegiarekin					// [1F31D]
+🌞	eguzkia aurpegiarekin						// [1F31E]
+🌟	izar distiratsua						// [1F31F]
+🌠	izar-uxoa							// [1F320]
+🌡	termometro							// [1F321] text|emoji
+🌤	eguzkia hodei txiki baten atzean				// [1F324] text|emoji
+🌥	eguzkia hodei handi baten atzean				// [1F325] text|emoji
+🌦	eguzkia hodei baten atzean euriarekin				// [1F326] text|emoji
+🌧	hodeia euriarekin						// [1F327] text|emoji
+🌨	hodeia elurrarekin						// [1F328] text|emoji
+🌩	hodeia tximistarekin						// [1F329] text|emoji
+🌪	tornado								// [1F32A] text|emoji
+🌫	lainoa								// [1F32B] text|emoji
+🌬	haize-aurpegia							// [1F32C] text|emoji
+🌭	hot dog								// [1F32D]
+🌮	takoa								// [1F32E]
+🌯	burritoa							// [1F32F]
+🌰	gaztaina							// [1F330]
+🌱	kimua								// [1F331]
+🌲	hosto iraukorreko zuhaitza					// [1F332]
+🌳	hosto erorkorreko zuhaitza					// [1F333]
+🌴	palmondoa							// [1F334]
+🌵	kaktusa								// [1F335]
+🌶	txilea								// [1F336] text|emoji
+🌷	tulipa								// [1F337]
+🌸	gereziondo-lorea						// [1F338]
+🌹	arrosa								// [1F339]
+🌺	hibiskoa							// [1F33A]
+🌻	ekilorea							// [1F33B]
+🌼	lorea								// [1F33C]
+🌽	artaburua							// [1F33D]
+🌾	arroz-zurtointxoak						// [1F33E]
+🌿	belarra								// [1F33F]
+🍀	lau hostoko hirusta						// [1F340]
+🍁	astigarraren hostoa						// [1F341]
+🍂	eroritako hostoa						// [1F342]
+🍃	haizeaz hegan ari den hostoa					// [1F343]
+🍄	barrengorria							// [1F344]
+🍅	tomatea								// [1F345]
+🍆	alberjinia							// [1F346]
+🍇	mahatsa								// [1F347]
+🍈	meloia								// [1F348]
+🍉	sandia								// [1F349]
+🍊	mandarina							// [1F34A]
+🍋	limoia								// [1F34B]
+🍌	banana								// [1F34C]
+🍍	anana								// [1F34D]
+🍎	sagar gorria							// [1F34E]
+🍏	sagar berdea							// [1F34F]
+🍐	udarea								// [1F350]
+🍑	muxika								// [1F351]
+🍒	gereziak							// [1F352]
+🍓	marrubia							// [1F353]
+🍔	hanburgesa							// [1F354]
+🍕	pizza								// [1F355]
+🍖	hezurra haragiarekin						// [1F356]
+🍗	izterra								// [1F357]
+🍘	arroz-mokadua							// [1F358]
+🍙	arroz-bola							// [1F359]
+🍚	arroz egosia							// [1F35A]
+🍛	arroza curryarekin						// [1F35B]
+🍜	kea darion katilua						// [1F35C]
+🍝	espagetiak							// [1F35D]
+🍞	ogi								// [1F35E]
+🍟	patata frijituak						// [1F35F]
+🍠	batata errea							// [1F360]
+🍡	dango								// [1F361]
+🍢	oden								// [1F362]
+🍣	sushi								// [1F363]
+🍤	gabardina-ganba							// [1F364]
+🍥	arrain-pastela zurrunbiloarekin					// [1F365]
+🍦	izozki krematsua						// [1F366]
+🍧	izotz arraspatua						// [1F367]
+🍨	izozkia								// [1F368]
+🍩	donuta								// [1F369]
+🍪	gaileta								// [1F36A]
+🍫	txokolatina							// [1F36B]
+🍬	gozokia								// [1F36C]
+🍭	piruleta							// [1F36D]
+🍮	natillak							// [1F36E]
+🍯	ezti-potoa							// [1F36F]
+🍰	opiltxoa							// [1F370]
+🍱	bento kutxa							// [1F371]
+🍲	janari bete eltzea						// [1F372]
+🍳	janaria prestatu						// [1F373]
+🍴	sardeska eta labana						// [1F374]
+🍵	giderrik gabeko kikara						// [1F375]
+🍶	sake								// [1F376]
+🍷	ardo-kopa							// [1F377]
+🍸	koktel-kopa							// [1F378]
+🍹	edari tropikala							// [1F379]
+🍺	garagardo-pitxerra						// [1F37A]
+🍻	topa egiten ari diren garagardo-pitxerrak			// [1F37B]
+🍼	biberoia							// [1F37C]
+🍽	platera, sardeska eta labanarekin				// [1F37D] text|emoji
+🍾	kortxoa kanpoan duen botila					// [1F37E]
+🍿	krispetak							// [1F37F]
+🎀	begizta								// [1F380]
+🎁	paperez inguratutako oparia					// [1F381]
+🎂	urtebetetze-tarta						// [1F382]
+🎃	halloweeneko kuia						// [1F383]
+🎄	gabonetako zuhaitza						// [1F384]
+🎅	aita noel							// [1F385]
+🎆	su artifizialak							// [1F386]
+🎇	bengala								// [1F387]
+🎈	puxika								// [1F388]
+🎉	aire-serpentina							// [1F389]
+🎊	konfetiz betetako bola						// [1F38A]
+🎋	tanabata zuhaitza						// [1F38B]
+🎌	bandera gurutzatuak						// [1F38C]
+🎍	pinurako dekorazioa						// [1F38D]
+🎎	panpin japoniarrak						// [1F38E]
+🎏	haizea neurtzeko karpa itxurako banderatxoak			// [1F38F]
+🎐	haize-kanpaia							// [1F390]
+🎑	ilargiaren ospakizuna						// [1F391]
+🎒	eskolako bizkar-zorroa						// [1F392]
+🎓	graduatu-txanoa							// [1F393]
+🎖	domina militarra						// [1F396] text|emoji
+🎗	xingola								// [1F397] text|emoji
+🎙	estudioko mikrofonoa						// [1F399] text|emoji
+🎚	graduatzailea							// [1F39A] text|emoji
+🎛	kontrolak							// [1F39B] text|emoji
+🎞	filmeko fotogramak						// [1F39E] text|emoji
+🎟	sarrera-txartelak						// [1F39F] text|emoji
+🎠	karrusela							// [1F3A0]
+🎡	noria								// [1F3A1]
+🎢	errusiar mendia							// [1F3A2]
+🎣	arrantza egiteko kanabera					// [1F3A3]
+🎤	mikrofonoa							// [1F3A4]
+🎥	bideokamera profesionala					// [1F3A5]
+🎦	zinema								// [1F3A6]
+🎧	entzungailuak							// [1F3A7]
+🎨	margolari-paleta						// [1F3A8]
+🎩	kapelu altua							// [1F3A9]
+🎪	zirkoaren karpa							// [1F3AA]
+🎫	txartela							// [1F3AB]
+🎬	klaketa								// [1F3AC]
+🎭	arte eszenikoak							// [1F3AD]
+🎮	bideo-jokoa							// [1F3AE]
+🎯	itua								// [1F3AF]
+🎰	txanpon-makina							// [1F3B0]
+🎱	billarra							// [1F3B1]
+🎲	dadoa								// [1F3B2]
+🎳	boloak								// [1F3B3]
+🎴	loreak dituzten kartak						// [1F3B4]
+🎵	nota musikala							// [1F3B5]
+🎶	nota musikalak							// [1F3B6]
+🎷	saxofoia							// [1F3B7]
+🎸	gitarra								// [1F3B8]
+🎹	musika-teklatua							// [1F3B9]
+🎺	tronpeta							// [1F3BA]
+🎻	biolina								// [1F3BB]
+🎼	notazio musikala						// [1F3BC]
+🎽	dortsala							// [1F3BD]
+🎾	tenisa								// [1F3BE]
+🎿	eskiak								// [1F3BF]
+🏀	saskibaloia							// [1F3C0]
+🏁	bandera laukiduna						// [1F3C1]
+🏂	snowboardlaria							// [1F3C2]
+🏃	korrika ari den pertsona					// [1F3C3]
+🏄	surflaria							// [1F3C4]
+🏅	kirol-domina							// [1F3C5]
+🏆	trofeoa								// [1F3C6]
+🏇	zaldi-lasterketa						// [1F3C7]
+🏈	futbol amerikarra						// [1F3C8]
+🏉	errugbia							// [1F3C9]
+🏊	igerilaria							// [1F3CA]
+🏋	pisuak altxatzen ari den pertsona				// [1F3CB] text|emoji
+🏌	golflaria							// [1F3CC] text|emoji
+🏍	motorcycle							// [1F3CD] text|emoji (no translation)
+🏎	lasterketa-autoa						// [1F3CE] text|emoji
+🏏	kriketa								// [1F3CF]
+🏐	boleibola							// [1F3D0]
+🏑	belar-hockeya							// [1F3D1]
+🏒	izotz-hockeyko makila eta pilota				// [1F3D2]
+🏓	ping-pong							// [1F3D3]
+🏔	tontorrean elurra duen mendia					// [1F3D4] text|emoji
+🏕	kanpina								// [1F3D5] text|emoji
+🏖	eguzkitakoa hondartzan						// [1F3D6] text|emoji
+🏗	eraikuntza-lanak						// [1F3D7] text|emoji
+🏘	etxebizitzak							// [1F3D8] text|emoji
+🏙	hiri-paisaia							// [1F3D9] text|emoji
+🏚	etxe abandonatua						// [1F3DA] text|emoji
+🏛	eraikin historikoa						// [1F3DB] text|emoji
+🏜	basamortua							// [1F3DC] text|emoji
+🏝	uharte bakartia							// [1F3DD] text|emoji
+🏞	parke nazionala							// [1F3DE] text|emoji
+🏟	estadioa							// [1F3DF] text|emoji
+🏠	etxebizitza							// [1F3E0]
+🏡	etxea eta lorategia						// [1F3E1]
+🏢	bulego-eraikina							// [1F3E2]
+🏣	japoniako postetxea						// [1F3E3]
+🏤	postetxea							// [1F3E4]
+🏥	ospitala							// [1F3E5]
+🏦	bankua								// [1F3E6]
+🏧	kutxazainaren seinalea						// [1F3E7]
+🏨	hotela								// [1F3E8]
+🏩	maitasun-hotela							// [1F3E9]
+🏪	supermerkatua							// [1F3EA]
+🏫	eskola								// [1F3EB]
+🏬	merkataritza-zentroa						// [1F3EC]
+🏭	fabrika								// [1F3ED]
+🏮	paper gorrizko faroltxoa					// [1F3EE]
+🏯	gaztelu japoniarra						// [1F3EF]
+🏰	gaztelua							// [1F3F0]
+🏳	dantzatzen ari den bandera zuria				// [1F3F3] text|emoji
+🏴	dantzatzen ari den bandera beltza				// [1F3F4]
+🏵	saria								// [1F3F5] text|emoji
+🏷	etiketa								// [1F3F7] text|emoji
+🏸	badmintona							// [1F3F8]
+🏹	arkua eta gezia							// [1F3F9]
+🏺	anfora								// [1F3FA]
+🏻	1–2. mota							// [1F3FB]
+🏼	3. mota								// [1F3FC]
+🏽	4. mota								// [1F3FD]
+🏾	5. mota								// [1F3FE]
+🏿	6. mota								// [1F3FF]
+🐀	arratoia							// [1F400]
+🐁	sagua								// [1F401]
+🐂	idia								// [1F402]
+🐃	ur-bufaloa							// [1F403]
+🐄	behia								// [1F404]
+🐅	tigrea								// [1F405]
+🐆	lehoinabarra							// [1F406]
+🐇	untxia								// [1F407]
+🐈	katua								// [1F408]
+🐉	herensugea							// [1F409]
+🐊	krokodiloa							// [1F40A]
+🐋	balea								// [1F40B]
+🐌	barraskiloa							// [1F40C]
+🐍	sugea								// [1F40D]
+🐎	zaldia								// [1F40E]
+🐏	zikiroa								// [1F40F]
+🐐	ahuntza								// [1F410]
+🐑	ardia								// [1F411]
+🐒	tximua								// [1F412]
+🐓	oilarra								// [1F413]
+🐔	oiloa								// [1F414]
+🐕	txakur								// [1F415]
+🐖	txerria								// [1F416]
+🐗	basurdea							// [1F417]
+🐘	elefantea							// [1F418]
+🐙	olagarroa							// [1F419]
+🐚	oskol espirala							// [1F41A]
+🐛	zomorroa							// [1F41B]
+🐜	inurria								// [1F41C]
+🐝	erlea								// [1F41D]
+🐞	amona mantangorri						// [1F41E]
+🐟	arrain								// [1F41F]
+🐠	arrain tropikala						// [1F420]
+🐡	globo-arraina							// [1F421]
+🐢	dortoka								// [1F422]
+🐣	arrautzetik irten berri den txita				// [1F423]
+🐤	txita								// [1F424]
+🐥	aurrera begira dagoen txita					// [1F425]
+🐦	txoria								// [1F426]
+🐧	pinguinoa							// [1F427]
+🐨	koala								// [1F428]
+🐩	canichea							// [1F429]
+🐪	gamelua								// [1F42A]
+🐫	bi tontorreko gamelua						// [1F42B]
+🐬	izurdea								// [1F42C]
+🐭	sagu-aurpegia							// [1F42D]
+🐮	behi-aurpegi							// [1F42E]
+🐯	tigre-aurpegia							// [1F42F]
+🐰	untxi-aurpegia							// [1F430]
+🐱	katu-aurpegia							// [1F431]
+🐲	herensuge-aurpegia						// [1F432]
+🐳	ura jaurtitzen ari den balea					// [1F433]
+🐴	zaldi-aurpegia							// [1F434]
+🐵	tximu-aurpegia							// [1F435]
+🐶	txakur-aurpegia							// [1F436]
+🐷	txerri-aurpegia							// [1F437]
+🐸	igel-aurpegia							// [1F438]
+🐹	hamster-aurpegia						// [1F439]
+🐺	otso-aurpegia							// [1F43A]
+🐻	hartz-aurpegia							// [1F43B]
+🐼	panda-aurpegia							// [1F43C]
+🐽	txerri-sudurra							// [1F43D]
+🐾	atzapar-aztarnak						// [1F43E]
+🐿	lurreko urtxintxa						// [1F43F] text|emoji
+👀	begiak								// [1F440]
+👁	begi								// [1F441] text|emoji
+👂	belarria							// [1F442]
+👃	sudurra								// [1F443]
+👄	ahoa								// [1F444]
+👅	mingaina							// [1F445]
+👆	gora seinalatzen ari den hatz erakuslearen atzealdea		// [1F446]
+👇	behera seinalatzen ari den hatz erakuslearen atzealdea		// [1F447]
+👈	ezkerrera seinalatzen ari den hatz erakuslea			// [1F448]
+👉	eskuinera seinalatzen ari den hatz erakuslea			// [1F449]
+👊	ukabilkada							// [1F44A]
+👋	mugitzen ari den eskua						// [1F44B]
+👌	adostasuna adierazten duen eskua				// [1F44C]
+👍	erpurua gora							// [1F44D]
+👎	erpurua behera							// [1F44E]
+👏	txaloka ari diren eskuak					// [1F44F]
+👐	esku irekiak							// [1F450]
+👑	koroa								// [1F451]
+👒	emakumeentzako kapelua						// [1F452]
+👓	betaurrekoak							// [1F453]
+👔	gorbata								// [1F454]
+👕	elastikoa							// [1F455]
+👖	galtza bakeroak							// [1F456]
+👗	soinekoa							// [1F457]
+👘	kimonoa								// [1F458]
+👙	bikinia								// [1F459]
+👚	emakumeentzako arropa						// [1F45A]
+👛	diru-zorroa							// [1F45B]
+👜	eskuko poltsa							// [1F45C]
+👝	zorroa								// [1F45D]
+👞	gizonentzako oinetakoa						// [1F45E]
+👟	korrika egiteko oinetakoa					// [1F45F]
+👠	oinetako takoidunak						// [1F460]
+👡	emakumeentzako sandalia						// [1F461]
+👢	emakumeentzako bota						// [1F462]
+👣	oin-aztarnak							// [1F463]
+👤	soinaren silueta						// [1F464]
+👥	soinen siluetak							// [1F465]
+👦	mutila								// [1F466]
+👧	neska								// [1F467]
+👨	gizona								// [1F468]
+👩	emakumea							// [1F469]
+👪	familia								// [1F46A]
+👫	gizon-emakumeak batak bestearen eskuari eusten			// [1F46B]
+👬	bi gizon batak bestearen eskuari eusten				// [1F46C]
+👭	bi emakume batak bestearen eskuari eusten			// [1F46D]
+👮	polizia								// [1F46E]
+👯	parrandan ari den jendea					// [1F46F]
+👰	beloa daraman emaztegaia					// [1F470]
+👱	pertsona ilehoria						// [1F471]
+👲	txano txinatarra daraman gizona					// [1F472]
+👳	turbantea duen petsona						// [1F473]
+👴	aitona								// [1F474]
+👵	amona								// [1F475]
+👶	haurtxoa							// [1F476]
+👷	eskulangilea							// [1F477]
+👸	printzesa							// [1F478]
+👹	ogroa								// [1F479]
+👺	iratxoa								// [1F47A]
+👻	mamua								// [1F47B]
+👼	aingeru-itxura duen haurtxoa					// [1F47C]
+👽	estralurtarra							// [1F47D]
+👾	munstro estralurtarra						// [1F47E]
+👿	deabrua								// [1F47F]
+💀	buru-hezurra							// [1F480]
+💁	eskean dabilen pertsona						// [1F481]
+💂	zaindaria							// [1F482]
+💃	dantzan ari den emakumea					// [1F483]
+💄	ezpain-margoa							// [1F484]
+💅	azazkaletako esmaltea						// [1F485]
+💆	masajea egiten ari dioten pertsona				// [1F486]
+💇	ilea mozten ari dioten pertsona					// [1F487]
+💈	bizarginaren adierazle birakaria				// [1F488]
+💉	xiringa								// [1F489]
+💊	pilula								// [1F48A]
+💋	musu-aztarna							// [1F48B]
+💌	maitasun-gutuna							// [1F48C]
+💍	eraztuna							// [1F48D]
+💎	gem stone							// [1F48E] (no translation)
+💏	musu								// [1F48F]
+💐	lore sorta							// [1F490]
+💑	bihotza erdian duen bikotea					// [1F491]
+💒	ezkontza							// [1F492]
+💓	bihotz-taupada							// [1F493]
+💔	bihotz hautsia							// [1F494]
+💕	bi bihotz							// [1F495]
+💖	bihotz distiratsua						// [1F496]
+💗	handitzen ari den bihotza					// [1F497]
+💘	bihotza geziarekin						// [1F498]
+💙	bihotz urdina							// [1F499]
+💚	bihotz berdea							// [1F49A]
+💛	bihotz horia							// [1F49B]
+💜	bihotz morea							// [1F49C]
+💝	bihotza begiztarekin						// [1F49D]
+💞	biraka ari diren bihotzak					// [1F49E]
+💟	bihotz apaindua							// [1F49F]
+💠	puntu bat duen diamantea					// [1F4A0]
+💡	bonbilla							// [1F4A1]
+💢	amorruaren ikurra						// [1F4A2]
+💣	lehergailua							// [1F4A3]
+💤	zzz								// [1F4A4]
+💥	eztanda								// [1F4A5]
+💦	izerdi-tantatxoak						// [1F4A6]
+💧	tantatxoa							// [1F4A7]
+💨	ziztu bizian							// [1F4A8]
+💩	kaka-mokordoa							// [1F4A9]
+💪	bizepsak							// [1F4AA]
+💫	zorabiatuta							// [1F4AB]
+💬	bunbuiloa							// [1F4AC]
+💭	burutazio-bunbuiloa						// [1F4AD]
+💮	lore zuria							// [1F4AE]
+💯	ehun puntu							// [1F4AF]
+💰	poltsa bete diru						// [1F4B0]
+💱	truke-tasa							// [1F4B1]
+💲	dolar-ikur lodia						// [1F4B2]
+💳	kreditu-txartela						// [1F4B3]
+💴	yen billetea							// [1F4B4]
+💵	dolar billetea							// [1F4B5]
+💶	euro billetea							// [1F4B6]
+💷	libera billetea							// [1F4B7]
+💸	dirua hegoekin							// [1F4B8]
+💹	diagrama gorakorra yen-ikurrarekin				// [1F4B9]
+💺	eserlekua							// [1F4BA]
+💻	ordenagailu eramangarria					// [1F4BB]
+💼	maleta								// [1F4BC]
+💽	minidisc-a							// [1F4BD]
+💾	disketea							// [1F4BE]
+💿	disko optikoa							// [1F4BF]
+📀	dvd								// [1F4C0]
+📁	fitxategi-sailkatzailea						// [1F4C1]
+📂	fitxategi-sailkatzaile irekia					// [1F4C2]
+📃	orri tolestua							// [1F4C3]
+📄	gora begira dagoen orria					// [1F4C4]
+📅	egutegi								// [1F4C5]
+📆	orriak kentzeko egutegia					// [1F4C6]
+📇	txartel-euskarria						// [1F4C7]
+📈	diagrama gorakorra						// [1F4C8]
+📉	diagrama beherakorra						// [1F4C9]
+📊	barra-diagrama							// [1F4CA]
+📋	ohar-bloka							// [1F4CB]
+📌	txintxeta							// [1F4CC]
+📍	txintxeta biribila						// [1F4CD]
+📎	klipa								// [1F4CE]
+📏	erregela zuzena							// [1F4CF]
+📐	kartaboia							// [1F4D0]
+📑	laster-markak							// [1F4D1]
+📒	kontabilitate-liburua						// [1F4D2]
+📓	koadernoa							// [1F4D3]
+📔	estalki apaingarria duen koadernoa				// [1F4D4]
+📕	liburu itxia							// [1F4D5]
+📖	liburu irekia							// [1F4D6]
+📗	liburu berdea							// [1F4D7]
+📘	liburu urdina							// [1F4D8]
+📙	liburu laranja							// [1F4D9]
+📚	liburuak							// [1F4DA]
+📛	izen-bereizgarria						// [1F4DB]
+📜	paper-biribilkia						// [1F4DC]
+📝	oharra								// [1F4DD]
+📞	telefono-hargailua						// [1F4DE]
+📟	bilagailua							// [1F4DF]
+📠	faxa								// [1F4E0]
+📡	satelite bidezko antena						// [1F4E1]
+📢	loudspeaker							// [1F4E2] (no translation)
+📣	megafonoa							// [1F4E3]
+📤	irteerako erretilua						// [1F4E4]
+📥	sarrerako erretilua						// [1F4E5]
+📦	paketea								// [1F4E6]
+📧	mezu elektronikoa						// [1F4E7]
+📨	sarrerako gutun-azala						// [1F4E8]
+📩	gutun-azala gezi batekin					// [1F4E9]
+📪	bandera jaitsita duen postontzi itxia				// [1F4EA]
+📫	bandera igota duen postontzi itxia				// [1F4EB]
+📬	bandera igota duen postontzi irekia				// [1F4EC]
+📭	bandera jaitsita duen postontzi irekia				// [1F4ED]
+📮	postontzia							// [1F4EE]
+📯	adarra								// [1F4EF]
+📰	egunkaria							// [1F4F0]
+📱	telefono mugikorra						// [1F4F1]
+📲	telefono mugikorra gezi batekin					// [1F4F2]
+📳	bibrazio modua							// [1F4F3]
+📴	telefono mugikorra itzalita					// [1F4F4]
+📵	telefono mugikorrik ez						// [1F4F5]
+📶	antenen barrak							// [1F4F6]
+📷	kamera								// [1F4F7]
+📸	kamera flasharekin						// [1F4F8]
+📹	bideokamera							// [1F4F9]
+📺	telebista							// [1F4FA]
+📻	irratia								// [1F4FB]
+📼	bideo-kasetea							// [1F4FC]
+📽	film-proiektorea						// [1F4FD] text|emoji
+📿	arrosarioa							// [1F4FF]
+🔀	abestiak ausaz erreproduzitzeko botoia				// [1F500]
+🔁	errepikatzeko botoia						// [1F501]
+🔂	behin errepikatzeko botoia					// [1F502]
+🔃	eskuinera gezi bertikalak					// [1F503]
+🔄	ezkerrera gezien botoia						// [1F504]
+🔅	argitasuna ahultzeko botoia					// [1F505]
+🔆	argitasuna igotzeko botoia					// [1F506]
+🔇	bozgorailua itzalita						// [1F507]
+🔈	speaker low volume						// [1F508] (no translation)
+🔉	bozgorailua piztuta						// [1F509]
+🔊	bozgorailua ozen						// [1F50A]
+🔋	bateria								// [1F50B]
+🔌	entxufea							// [1F50C]
+🔍	ezkerrera begira dagoen lupa					// [1F50D]
+🔎	eskuinera begira dagoen lupa					// [1F50E]
+🔏	giltzarrapoa lumarekin						// [1F50F]
+🔐	giltzarrapo itxia giltzarekin					// [1F510]
+🔑	giltza								// [1F511]
+🔒	giltzarrapoa							// [1F512]
+🔓	giltzarrapo irekia						// [1F513]
+🔔	kanpaia								// [1F514]
+🔕	kanpai marratua							// [1F515]
+🔖	laster-marka							// [1F516]
+🔗	kate-maila							// [1F517]
+🔘	kontrol-laukia							// [1F518]
+🔙	atzera gezia							// [1F519]
+🔚	amaiera gezia							// [1F51A]
+🔛	“on” testua duen gezia						// [1F51B]
+🔜	“soon” testua duen gezia					// [1F51C]
+🔝	“top” testua duen gezia						// [1F51D]
+🔞	adingaberik ez							// [1F51E]
+🔟	keycap 10							// [1F51F] (no translation)
+🔠	alfabeto latindarra maiuskulaz					// [1F520]
+🔡	alfabeto latindarra minuskulaz					// [1F521]
+🔢	zenbakiak							// [1F522]
+🔣	ikurrak								// [1F523]
+🔤	hizki latindarrak						// [1F524]
+🔥	sua								// [1F525]
+🔦	linterna							// [1F526]
+🔧	giltza ingelesa							// [1F527]
+🔨	mailua								// [1F528]
+🔩	torloju eta azkoina						// [1F529]
+🔪	sukaldeko labana						// [1F52A]
+🔫	pistola								// [1F52B]
+🔬	mikroskopioa							// [1F52C]
+🔭	teleskopioa							// [1F52D]
+🔮	kristalezko bola						// [1F52E]
+🔯	erdian puntu bat duen sei puntako izarra			// [1F52F]
+🔰	hasiberria irudikatzen duen japonierako ikurra			// [1F530]
+🔱	hiruhortza							// [1F531]
+🔲	karratu beltz itxurako botoia					// [1F532]
+🔳	karratu zuri itxurako botoia					// [1F533]
+🔴	zirkulu gorria							// [1F534]
+🔵	zirkulu urdina							// [1F535]
+🔶	diamante laranja handia						// [1F536]
+🔷	diamante urdin handia						// [1F537]
+🔸	diamante laranja txikia						// [1F538]
+🔹	diamante urdin txikia						// [1F539]
+🔺	punta gora begira duen triangelu gorria				// [1F53A]
+🔻	punta behera begira duen triangelu gorria			// [1F53B]
+🔼	gora egiteko botoia						// [1F53C]
+🔽	behera egiteko botoia						// [1F53D]
+🕉	om								// [1F549] text|emoji
+🕊	uxoa								// [1F54A] text|emoji
+🕋	kaaba								// [1F54B]
+🕌	meskita								// [1F54C]
+🕍	sinagoga							// [1F54D]
+🕎	menorah								// [1F54E]
+🕐	ordu bata							// [1F550]
+🕑	ordu biak							// [1F551]
+🕒	hirurak								// [1F552]
+🕓	laurak								// [1F553]
+🕔	bostak								// [1F554]
+🕕	seiak								// [1F555]
+🕖	zazpiak								// [1F556]
+🕗	zortziak							// [1F557]
+🕘	bederatziak							// [1F558]
+🕙	hamarrak							// [1F559]
+🕚	hamaikak							// [1F55A]
+🕛	hamabiak							// [1F55B]
+🕜	ordu bat eta erdiak						// [1F55C]
+🕝	ordu bi eta erdiak						// [1F55D]
+🕞	hiru eta erdiak							// [1F55E]
+🕟	lau eta erdiak							// [1F55F]
+🕠	bost eta erdiak							// [1F560]
+🕡	sei eta erdiak							// [1F561]
+🕢	zazpi eta erdiak						// [1F562]
+🕣	zortzi eta erdiak						// [1F563]
+🕤	bederatzi eta erdiak						// [1F564]
+🕥	hamar eta erdiak						// [1F565]
+🕦	hamaika eta erdiak						// [1F566]
+🕧	hamabi eta erdiak						// [1F567]
+🕯	kandela								// [1F56F] text|emoji
+🕰	mahai gaineko erlojua						// [1F570] text|emoji
+🕳	zuloa								// [1F573] text|emoji
+🕴	trajea daraman eta lebitatzen ari den gizona			// [1F574] text|emoji
+🕵	detektibea							// [1F575] text|emoji
+🕶	eguzkitako betaurrekoak						// [1F576] text|emoji
+🕷	armiarma							// [1F577] text|emoji
+🕸	armiarma-sarea							// [1F578] text|emoji
+🕹	joko-palanka							// [1F579] text|emoji
+🕺	gizona dantzan							// [1F57A]
+🖇	elkarri lotutako klipak						// [1F587] text|emoji
+🖊	bolaluma							// [1F58A] text|emoji
+🖋	luma estilografikoa						// [1F58B] text|emoji
+🖌	brotxa								// [1F58C] text|emoji
+🖍	margoa								// [1F58D] text|emoji
+🖐	esku altxatua eta hatz hedatuak					// [1F590] text|emoji
+🖕	erdiko hatza							// [1F595]
+🖖	vulkaniar agurra						// [1F596]
+🖤	bihotz beltza							// [1F5A4]
+🖥	mahaigaineko ordenagailua					// [1F5A5] text|emoji
+🖨	inprimagailua							// [1F5A8] text|emoji
+🖱	ordenagailuko sagua						// [1F5B1] text|emoji
+🖲	kontrolagailua							// [1F5B2] text|emoji
+🖼	koadroa markoarekin						// [1F5BC] text|emoji
+🗂	artxibo-bereizleak						// [1F5C2] text|emoji
+🗃	artxibatzeko kaxa						// [1F5C3] text|emoji
+🗄	artxibategia							// [1F5C4] text|emoji
+🗑	zakarrontzia							// [1F5D1] text|emoji
+🗒	koaderno kiribilduna						// [1F5D2] text|emoji
+🗓	egutegi kiribilduna						// [1F5D3] text|emoji
+🗜	konprimatzea							// [1F5DC] text|emoji
+🗝	giltza zaharra							// [1F5DD] text|emoji
+🗞	egunkari bildua							// [1F5DE] text|emoji
+🗡	daga								// [1F5E1] text|emoji
+🗣	aurrera hitz egiten ari den burua				// [1F5E3] text|emoji
+🗨	ezkerrera doan bunbuiloa					// [1F5E8] text|emoji
+🗯	eskuinera doan sumindura-bunbuiloa				// [1F5EF] text|emoji
+🗳	kutxa eta txartela						// [1F5F3] text|emoji
+🗺	munduko mapa							// [1F5FA] text|emoji
+🗻	fuji mendia							// [1F5FB]
+🗼	tokioko dorrea							// [1F5FC]
+🗽	askatasunaren estatua						// [1F5FD]
+🗾	japoniako mapa							// [1F5FE]
+🗿	moai								// [1F5FF]
+
+// 1F600..1F64F : Emoticons
+
+😀	barre egiten ari den aurpegia					// [1F600]
+😁	begiez barre egiten ari den aurpegia				// [1F601]
+😂	pozez negar ari den aurpegia					// [1F602]
+😃	irribarre egiten ari den aurpegia, ahoa irekita			// [1F603]
+😄	begiekin irribarre egiten ari den aurpegia, ahoa irekita	// [1F604]
+😅	irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita// [1F605]
+😆	irribarre egiten ari den aurpegia, begiak itxita		// [1F606]
+😇	irribarre egiten ari den aurpegia argi-koroarekin		// [1F607]
+😈	irribarre egiten ari den aurpegi adarduna			// [1F608]
+😉	begiaz keinu egiten ari den aurpegia				// [1F609]
+😊	begiez irribarre egiten ari den aurpegia			// [1F60A]
+😋	janari gozoa dastatzen ari den aurpegia				// [1F60B]
+😌	lasaitasun-aurpegia						// [1F60C]
+😍	irribarre egiten ari den aurpegia, bihotz-itxurako begiekin	// [1F60D]
+😎	irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin	// [1F60E]
+😏	handitasun-aurpegia						// [1F60F]
+😐	aurpegi neutrala						// [1F610]
+😑	espresiorik gabeko aurpegia					// [1F611]
+😒	aspertu aurpegia						// [1F612]
+😓	izerdi hotza duen aurpegia					// [1F613]
+😔	aurpegi pentsakorra						// [1F614]
+😕	nahasketa-aurpegia						// [1F615]
+😖	hutsegite-aurpegia						// [1F616]
+😗	musuka ari den aurpegia						// [1F617]
+😘	musu bat bidaltzen ari den aurpegia				// [1F618]
+😙	musuka eta begiez irribarre egiten ari den aurpegia		// [1F619]
+😚	musuka ari den aurpegia, begiak itxita				// [1F61A]
+😛	mingaina kanpoan duen aurpegia					// [1F61B]
+😜	mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia	// [1F61C]
+😝	mingaina kanpoan duen eta begiak itxita dituen aurpegia		// [1F61D]
+😞	etsipen-aurpegia						// [1F61E]
+😟	aurpegi kezkatua						// [1F61F]
+😠	haserre-aurpegia						// [1F620]
+😡	aurpegi muturtua						// [1F621]
+😢	negarrez ari den aurpegia					// [1F622]
+😣	aurpegi nekaezina						// [1F623]
+😤	sudurretik kea darion aurpegia					// [1F624]
+😥	desengainatuta baina lasaiago					// [1F625]
+😦	frowning face with open mouth					// [1F626] (no translation)
+😧	estutasun-aurpegia						// [1F627]
+😨	ikara-aurpegia							// [1F628]
+😩	neke-aurpegia							// [1F629]
+😪	logura-aurpegia							// [1F62A]
+😫	nekatu aurpegia							// [1F62B]
+😬	imintzio-aurpegia						// [1F62C]
+😭	negar eta negar ari den aurpegia				// [1F62D]
+😮	ahoa irekita duen aurpegia					// [1F62E]
+😯	harridura-aurpegia						// [1F62F]
+😰	ahoa irekita eta izerdi hotza duen aurpegia			// [1F630]
+😱	beldurrez oihuka ari den aurpegia				// [1F631]
+😲	astonished face							// [1F632] (no translation)
+😳	aurpegi gorritua						// [1F633]
+😴	lo dagoen aurpegia						// [1F634]
+😵	dizzy face							// [1F635] (no translation)
+😶	ahorik gabeko aurpegia						// [1F636]
+😷	mediku-maskara daraman aurpegia					// [1F637]
+😸	begiez barre egiten ari den katu-aurpegia			// [1F638]
+😹	pozez negar ari den katu-aurpegia				// [1F639]
+😺	ahora irekita duen eta irribarre egiten ari den katu-aurpegia	// [1F63A]
+😻	bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia// [1F63B]
+😼	irribarre maltzurra duen katu-aurpegia				// [1F63C]
+😽	begiak itxita dituen eta musuka ari den katu-aurpegia		// [1F63D]
+😾	katu-aurpegi muturtua						// [1F63E]
+😿	negarrez ari den katu-aurpegia					// [1F63F]
+🙀	leher eginda dagoen katu-aurpegia				// [1F640]
+🙁	aurpegi apur bat kopetiluna					// [1F641]
+🙂	apur bat irribarre egiten ari den aurpegia			// [1F642]
+🙃	buruz behera dagoen aurpegia					// [1F643]
+🙄	begiak bueltaka dituen aurpegia					// [1F644]
+🙅	ados ez dagoela adierazten ari den pertsona			// [1F645]
+🙆	ados dagoela adierazten ari den pertsona			// [1F646]
+🙇	burua makurtzen ari den pertsona				// [1F647]
+🙈	gauza txarrik ikusi nahi ez duen tximua				// [1F648]
+🙉	gauza txarrik entzun nahi ez duen tximua			// [1F649]
+🙊	gauza txarrik esan nahi ez duen tximua				// [1F64A]
+🙋	eskua altxatzen ari den pertsona				// [1F64B]
+🙌	eskuak altxatzen ari den pertsona				// [1F64C]
+🙍	kopeta zimurtzen ari den pertsona				// [1F64D]
+🙎	pertsona muturtua						// [1F64E]
+🙏	erregutzen ari diren eskuak					// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	suziria								// [1F680]
+🚁	helikopteroa							// [1F681]
+🚂	tren-makina							// [1F682]
+🚃	bagoia								// [1F683]
+🚄	abiadura handiko trena						// [1F684]
+🚅	abiadura handiko trena mutur biribilduarekin			// [1F685]
+🚆	trena								// [1F686]
+🚇	metroa								// [1F687]
+🚈	tren arina							// [1F688]
+🚉	geltokia							// [1F689]
+🚊	tranbia								// [1F68A]
+🚋	tranbiaren bagoi						// [1F68B]
+🚌	autobusa							// [1F68C]
+🚍	heldu den autobusa						// [1F68D]
+🚎	trolebusa							// [1F68E]
+🚏	autobus-geltokia						// [1F68F]
+🚐	minibusa							// [1F690]
+🚑	anbulantzia							// [1F691]
+🚒	suhiltzaileen kamioia						// [1F692]
+🚓	poliziaren autoa						// [1F693]
+🚔	heldu den poliziaren autoa					// [1F694]
+🚕	taxia								// [1F695]
+🚖	heldu den taxia							// [1F696]
+🚗	autoa								// [1F697]
+🚘	heldu den autoa							// [1F698]
+🚙	aisiarako ibilgailua						// [1F699]
+🚚	garraiatzeko kamioia						// [1F69A]
+🚛	kamioi artikulatua						// [1F69B]
+🚜	traktorea							// [1F69C]
+🚝	monoraila							// [1F69D]
+🚞	mendiko trenbidea						// [1F69E]
+🚟	monorrail esekia						// [1F69F]
+🚠	teleferikoa							// [1F6A0]
+🚡	mendiko teleferikoa						// [1F6A1]
+🚢	itsasontzia							// [1F6A2]
+🚣	arraunlaria							// [1F6A3]
+🚤	abiadura handiko txalupa					// [1F6A4]
+🚥	semaforo horizontala						// [1F6A5]
+🚦	semaforo bertikala						// [1F6A6]
+🚧	lanak								// [1F6A7]
+🚨	poliziaren autoko argia						// [1F6A8]
+🚩	triangelu-itxurako bandera					// [1F6A9]
+🚪	atea								// [1F6AA]
+🚫	debekatuta							// [1F6AB]
+🚬	erre								// [1F6AC]
+🚭	ezin da erre							// [1F6AD]
+🚮	zaborra ontzira botatzeko seinalea				// [1F6AE]
+🚯	ezin da bota zaborra lurrera					// [1F6AF]
+🚰	edateko ura							// [1F6B0]
+🚱	edateko ez den ura						// [1F6B1]
+🚲	ziklomotorra							// [1F6B2]
+🚳	bizikletarik ez							// [1F6B3]
+🚴	txirrindularia							// [1F6B4]
+🚵	mendiko bizikletan dabilen pertsona				// [1F6B5]
+🚶	oinez ari den pertsona						// [1F6B6]
+🚷	oinezkorik ez							// [1F6B7]
+🚸	haurrek zeharkatzen duten errepidea				// [1F6B8]
+🚹	gizonen komuna							// [1F6B9]
+🚺	emakumeen komuna						// [1F6BA]
+🚻	restroom							// [1F6BB] (no translation)
+🚼	haurtxoen aldagela						// [1F6BC]
+🚽	toilet								// [1F6BD] (no translation)
+🚾	water closet							// [1F6BE] (no translation)
+🚿	dutxa								// [1F6BF]
+🛀	pertsona bat bainatzen						// [1F6C0]
+🛁	bainuontzia							// [1F6C1]
+🛂	pasaporte-kontrola						// [1F6C2]
+🛃	aduanak								// [1F6C3]
+🛄	maletak jasotzeko eremua					// [1F6C4]
+🛅	ahaztutako maletak						// [1F6C5]
+🛋	sofa eta lanpara						// [1F6CB] text|emoji
+🛌	pertsona bat ohean						// [1F6CC]
+🛍	erosketa-poltsak						// [1F6CD] text|emoji
+🛎	mahai gaineko txirrina						// [1F6CE] text|emoji
+🛏	ohea								// [1F6CF] text|emoji
+🛐	otoizlekua							// [1F6D0]
+🛑	stop ikurra							// [1F6D1]
+🛒	erosketa-orga							// [1F6D2]
+🛠	mailua eta giltza ingelesa					// [1F6E0] text|emoji
+🛡	ezkutua								// [1F6E1] text|emoji
+🛢	olio-upela							// [1F6E2] text|emoji
+🛣	autobidea							// [1F6E3] text|emoji
+🛤	trenbidearen erraila						// [1F6E4] text|emoji
+🛥	motordun txalupa						// [1F6E5] text|emoji
+🛩	hegazkin txikia							// [1F6E9] text|emoji
+🛫	aireratzen ari den hegazkina					// [1F6EB]
+🛬	lur hartzen ari den hegazkina					// [1F6EC]
+🛰	satelitea							// [1F6F0] text|emoji
+🛳	gurutzaontzia							// [1F6F3] text|emoji
+🛴	patinetea							// [1F6F4]
+🛵	motoa								// [1F6F5]
+🛶	kanoa								// [1F6F6]
+🛷	sled								// [1F6F7] (no translation)
+🛸	flying saucer							// [1F6F8] (no translation)
+
+// 1F900..1F9FF : Supplemental Symbols and Pictographs
+
+🤐	kremaileradun ahoa duen aurpegia				// [1F910]
+🤑	diru-itxurako mingaina duen aurpegia				// [1F911]
+🤒	termometroa duen aurpegia					// [1F912]
+🤓	arraro aurpegia							// [1F913]
+🤔	pentsatzen ari den aurpegia					// [1F914]
+🤕	buruan benda daraman aurpegia					// [1F915]
+🤖	robot-aurpegia							// [1F916]
+🤗	besarkada ematen ari den aurpegia				// [1F917]
+🤘	adarrak adierazten dituen eskua					// [1F918]
+🤙	deitzeko esku-keinua						// [1F919]
+🤚	esku-azpia altxatuta						// [1F91A]
+🤛	ukabila ezkerrera begira					// [1F91B]
+🤜	ukabila eskuinera begira					// [1F91C]
+🤝	esku-ematea							// [1F91D]
+🤞	hatz gurutzatuak						// [1F91E]
+🤟	love you gesture						// [1F91F] (no translation)
+🤠	behizain txanodunaren aurpegia					// [1F920]
+🤡	pailazo-aurpegia						// [1F921]
+🤢	aurpegi zorabiatua						// [1F922]
+🤣	barrez leherka							// [1F923]
+🤤	aurpegia lerdea dariola						// [1F924]
+🤥	aurpegi gezurtia						// [1F925]
+🤦	esku-azpia aurpegian						// [1F926]
+🤧	aurpegia mukiak kentzen						// [1F927]
+🤨	face with raised eyebrow					// [1F928] (no translation)
+🤩	star struck							// [1F929] (no translation)
+🤪	crazy face							// [1F92A] (no translation)
+🤫	shushing face							// [1F92B] (no translation)
+🤬	face with symbols over mouth					// [1F92C] (no translation)
+🤭	face with hand over mouth					// [1F92D] (no translation)
+🤮	face vomiting							// [1F92E] (no translation)
+🤯	exploding head							// [1F92F] (no translation)
+🤰	emakumea haurdun						// [1F930]
+🤱	breast feeding							// [1F931] (no translation)
+🤲	palms up together						// [1F932] (no translation)
+🤳	autoargazkia							// [1F933]
+🤴	printzea							// [1F934]
+🤵	gizona esmokinean						// [1F935]
+🤶	gabonetako ama							// [1F936]
+🤷	sorbaldak altxatu						// [1F937]
+🤸	alboko gurpila							// [1F938]
+🤹	malabarismoa							// [1F939]
+🤺	eskrimalaria							// [1F93A]
+🤼	borrokalariak							// [1F93C]
+🤽	waterpoloa							// [1F93D]
+🤾	eskubaloia							// [1F93E]
+🥀	lore zimela							// [1F940]
+🥁	danborra							// [1F941]
+🥂	kopak topa egiten						// [1F942]
+🥃	edalontzi zabala						// [1F943]
+🥄	koilara								// [1F944]
+🥅	ateko sarea							// [1F945]
+🥇	1. postuaren domina						// [1F947]
+🥈	2. postuaren domina						// [1F948]
+🥉	3. postuaren domina						// [1F949]
+🥊	boxeoko eskularrua						// [1F94A]
+🥋	arte martzialetako kimonoa					// [1F94B]
+🥌	curling stone							// [1F94C] (no translation)
+🥐	croissanta							// [1F950]
+🥑	ahuakatea							// [1F951]
+🥒	pepinoa								// [1F952]
+🥓	hirugiharra							// [1F953]
+🥔	patata								// [1F954]
+🥕	azenarioa							// [1F955]
+🥖	baguettea							// [1F956]
+🥗	entsalada berdea						// [1F957]
+🥘	sakonera txikiko zartagina					// [1F958]
+🥙	ogitarteko betea						// [1F959]
+🥚	arrautza							// [1F95A]
+🥛	edalontzi bat esne						// [1F95B]
+🥜	kakahuetea							// [1F95C]
+🥝	kiwia								// [1F95D]
+🥞	opil txikiak							// [1F95E]
+🥟	dumpling							// [1F95F] (no translation)
+🥠	fortune cookie							// [1F960] (no translation)
+🥡	takeout box							// [1F961] (no translation)
+🥢	chopsticks							// [1F962] (no translation)
+🥣	bowl with spoon							// [1F963] (no translation)
+🥤	cup with straw							// [1F964] (no translation)
+🥥	coconut								// [1F965] (no translation)
+🥦	broccoli							// [1F966] (no translation)
+🥧	pie								// [1F967] (no translation)
+🥨	pretzel								// [1F968] (no translation)
+🥩	cut of meat							// [1F969] (no translation)
+🥪	sandwich							// [1F96A] (no translation)
+🥫	canned food							// [1F96B] (no translation)
+🦀	karramarroa							// [1F980]
+🦁	lehoi-aurpegia							// [1F981]
+🦂	eskorpioia							// [1F982]
+🦃	indioilarra							// [1F983]
+🦄	adarbakar-aurpegia						// [1F984]
+🦅	arranoa								// [1F985]
+🦆	ahatea								// [1F986]
+🦇	saguzarra							// [1F987]
+🦈	marrazoa							// [1F988]
+🦉	hontza								// [1F989]
+🦊	azeria								// [1F98A]
+🦋	pinpilinpauxa							// [1F98B]
+🦌	oreina								// [1F98C]
+🦍	gorila								// [1F98D]
+🦎	sugandila							// [1F98E]
+🦏	errinozeroa							// [1F98F]
+🦐	ganba								// [1F990]
+🦑	txibia								// [1F991]
+🦒	giraffe								// [1F992] (no translation)
+🦓	zebra								// [1F993] (no translation)
+🦔	hedgehog							// [1F994] (no translation)
+🦕	sauropod							// [1F995] (no translation)
+🦖	t rex								// [1F996] (no translation)
+🦗	cricket								// [1F997] (no translation)
+🧀	gazta zatia							// [1F9C0]
+🧐	face with monocle						// [1F9D0] (no translation)
+🧑	adult								// [1F9D1] (no translation)
+🧒	child								// [1F9D2] (no translation)
+🧓	older adult							// [1F9D3] (no translation)
+🧔	bearded person							// [1F9D4] (no translation)
+🧕	woman with headscarf						// [1F9D5] (no translation)
+🧖	person in steamy room						// [1F9D6] (no translation)
+🧗	person climbing							// [1F9D7] (no translation)
+🧘	person in lotus position					// [1F9D8] (no translation)
+🧙	mage								// [1F9D9] (no translation)
+🧚	fairy								// [1F9DA] (no translation)
+🧛	vampire								// [1F9DB] (no translation)
+🧜	merperson							// [1F9DC] (no translation)
+🧝	elf								// [1F9DD] (no translation)
+🧞	genie								// [1F9DE] (no translation)
+🧟	zombie								// [1F9DF] (no translation)
+🧠	brain								// [1F9E0] (no translation)
+🧡	orange heart							// [1F9E1] (no translation)
+🧢	billed cap							// [1F9E2] (no translation)
+🧣	scarf								// [1F9E3] (no translation)
+🧤	gloves								// [1F9E4] (no translation)
+🧥	coat								// [1F9E5] (no translation)
+🧦	socks								// [1F9E6] (no translation)
+
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
+
+🇦🇨	Ascension uhartea						// [1F1E6 1F1E8] AC
+🇦🇩	Andorra								// [1F1E6 1F1E9] AD
+🇦🇪	Arabiar Emirerri Batuak						// [1F1E6 1F1EA] AE
+🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
+🇦🇬	Antigua eta Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	Angila								// [1F1E6 1F1EE] AI
+🇦🇱	Albania								// [1F1E6 1F1F1] AL
+🇦🇲	Armenia								// [1F1E6 1F1F2] AM
+🇦🇴	Angola								// [1F1E6 1F1F4] AO
+🇦🇶	Antartika							// [1F1E6 1F1F6] AQ
+🇦🇷	Argentina							// [1F1E6 1F1F7] AR
+🇦🇸	Amerikar Samoa							// [1F1E6 1F1F8] AS
+🇦🇹	Austria								// [1F1E6 1F1F9] AT
+🇦🇺	Australia							// [1F1E6 1F1FA] AU
+🇦🇼	Aruba								// [1F1E6 1F1FC] AW
+🇦🇽	Aland uharteak							// [1F1E6 1F1FD] AX
+🇦🇿	Azerbaijan							// [1F1E6 1F1FF] AZ
+🇧🇦	Bosnia-Herzegovina						// [1F1E7 1F1E6] BA
+🇧🇧	Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
+🇧🇪	Belgika								// [1F1E7 1F1EA] BE
+🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
+🇧🇬	Bulgaria							// [1F1E7 1F1EC] BG
+🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
+🇧🇮	Burundi								// [1F1E7 1F1EE] BI
+🇧🇯	Benin								// [1F1E7 1F1EF] BJ
+🇧🇱	Saint Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
+🇧🇳	Brunei								// [1F1E7 1F1F3] BN
+🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
+🇧🇶	Karibeko Herbehereak						// [1F1E7 1F1F6] BQ
+🇧🇷	Brasil								// [1F1E7 1F1F7] BR
+🇧🇸	Bahamak								// [1F1E7 1F1F8] BS
+🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
+🇧🇻	Bouvet uhartea							// [1F1E7 1F1FB] BV
+🇧🇼	Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	Bielorrusia							// [1F1E7 1F1FE] BY
+🇧🇿	Belize								// [1F1E7 1F1FF] BZ
+🇨🇦	Kanada								// [1F1E8 1F1E6] CA
+🇨🇨	Cocos uharteak							// [1F1E8 1F1E8] CC
+🇨🇩	Kongoko Errepublika Demokratikoa				// [1F1E8 1F1E9] CD
+🇨🇫	Afrika Erdiko Errepublika					// [1F1E8 1F1EB] CF
+🇨🇬	Kongo (Brazzaville)						// [1F1E8 1F1EC] CG
+🇨🇭	Suitza								// [1F1E8 1F1ED] CH
+🇨🇮	Boli Kosta							// [1F1E8 1F1EE] CI
+🇨🇰	Cook uharteak							// [1F1E8 1F1F0] CK
+🇨🇱	Txile								// [1F1E8 1F1F1] CL
+🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
+🇨🇳	Txina								// [1F1E8 1F1F3] CN
+🇨🇴	Kolonbia							// [1F1E8 1F1F4] CO
+🇨🇵	Clipperton uhartea						// [1F1E8 1F1F5] CP
+🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	Kuba								// [1F1E8 1F1FA] CU
+🇨🇻	Cabo Verde							// [1F1E8 1F1FB] CV
+🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
+🇨🇽	Christmas uhartea						// [1F1E8 1F1FD] CX
+🇨🇾	Zipre								// [1F1E8 1F1FE] CY
+🇨🇿	Txekia								// [1F1E8 1F1FF] CZ
+🇩🇪	Alemania							// [1F1E9 1F1EA] DE
+🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
+🇩🇯	Djibuti								// [1F1E9 1F1EF] DJ
+🇩🇰	Danimarka							// [1F1E9 1F1F0] DK
+🇩🇲	Dominika							// [1F1E9 1F1F2] DM
+🇩🇴	Dominikar Errepublika						// [1F1E9 1F1F4] DO
+🇩🇿	Aljeria								// [1F1E9 1F1FF] DZ
+🇪🇦	Ceuta eta Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	Ekuador								// [1F1EA 1F1E8] EC
+🇪🇪	Estonia								// [1F1EA 1F1EA] EE
+🇪🇬	Egipto								// [1F1EA 1F1EC] EG
+🇪🇭	Mendebaldeko Sahara						// [1F1EA 1F1ED] EH
+🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
+🇪🇸	Espainia							// [1F1EA 1F1F8] ES
+🇪🇹	Etiopia								// [1F1EA 1F1F9] ET
+🇪🇺	Europar Batasuna						// [1F1EA 1F1FA] EU
+🇫🇮	Finlandia							// [1F1EB 1F1EE] FI
+🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
+🇫🇰	Malvinak							// [1F1EB 1F1F0] FI
+🇫🇲	Mikronesia							// [1F1EB 1F1F2] FM
+🇫🇴	Faroe uharteak							// [1F1EB 1F1F4] FO
+🇫🇷	Frantzia							// [1F1EB 1F1F7] FR
+🇬🇦	Gabon								// [1F1EC 1F1E6] GA
+🇬🇧	Erresuma Batua							// [1F1EC 1F1E7] GB
+🇬🇩	Grenada								// [1F1EC 1F1E9] GD
+🇬🇪	Georgia								// [1F1EC 1F1EA] GE
+🇬🇫	Guyana Frantsesa						// [1F1EC 1F1EB] GF
+🇬🇬	Guernesey							// [1F1EC 1F1EC] GG
+🇬🇭	Ghana								// [1F1EC 1F1ED] GH
+🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
+🇬🇱	Groenlandia							// [1F1EC 1F1F1] GL
+🇬🇲	Gambia								// [1F1EC 1F1F2] GM
+🇬🇳	Ginea								// [1F1EC 1F1F3] GN
+🇬🇵	Guadalupe							// [1F1EC 1F1F5] GP
+🇬🇶	Ekuatore Ginea							// [1F1EC 1F1F6] GQ
+🇬🇷	Grezia								// [1F1EC 1F1F7] GR
+🇬🇸	Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak		// [1F1EC 1F1F8] GS
+🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	Guam								// [1F1EC 1F1FA] GU
+🇬🇼	Ginea-Bissau							// [1F1EC 1F1FC] GW
+🇬🇾	Guyana								// [1F1EC 1F1FE] GY
+🇭🇰	Hong Kong AEB Txina						// [1F1ED 1F1F0] HK
+🇭🇲	Heard eta McDonald uharteak					// [1F1ED 1F1F2] HM
+🇭🇳	Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	Kroazia								// [1F1ED 1F1F7] HR
+🇭🇹	Haiti								// [1F1ED 1F1F9] HT
+🇭🇺	Hungaria							// [1F1ED 1F1FA] HU
+🇮🇨	Kanariak							// [1F1EE 1F1E8] IC
+🇮🇩	Indonesia							// [1F1EE 1F1E9] ID
+🇮🇪	Irlanda								// [1F1EE 1F1EA] IE
+🇮🇱	Israel								// [1F1EE 1F1F1] IL
+🇮🇲	Man uhartea							// [1F1EE 1F1F2] IM
+🇮🇳	India								// [1F1EE 1F1F3] IN
+🇮🇴	Indiako Ozeanoko lurralde britainiarra				// [1F1EE 1F1F4] IO
+🇮🇶	Irak								// [1F1EE 1F1F6] IQ
+🇮🇷	Iran								// [1F1EE 1F1F7] IR
+🇮🇸	Islandia							// [1F1EE 1F1F8] IS
+🇮🇹	Italia								// [1F1EE 1F1F9] IT
+🇯🇪	Jersey								// [1F1EF 1F1EA] JE
+🇯🇲	Jamaika								// [1F1EF 1F1F2] JM
+🇯🇴	Jordania							// [1F1EF 1F1F4] JO
+🇯🇵	Japonia								// [1F1EF 1F1F5] JP
+🇰🇪	Kenya								// [1F1F0 1F1EA] KE
+🇰🇬	Kirgizistan							// [1F1F0 1F1EC] KG
+🇰🇭	Kanbodia							// [1F1F0 1F1ED] KH
+🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	Komoreak							// [1F1F0 1F1F2] KM
+🇰🇳	Saint Kitts eta Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	Ipar Korea							// [1F1F0 1F1F5] KP
+🇰🇷	Hego Korea							// [1F1F0 1F1F7] KR
+🇰🇼	Kuwait								// [1F1F0 1F1FC] KW
+🇰🇾	Kaiman uharteak							// [1F1F0 1F1FE] KY
+🇰🇿	Kazakhstan							// [1F1F0 1F1FF] KZ
+🇱🇦	Laos								// [1F1F1 1F1E6] LA
+🇱🇧	Libano								// [1F1F1 1F1E7] LB
+🇱🇨	Santa Luzia							// [1F1F1 1F1E8] LC
+🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
+🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	Liberia								// [1F1F1 1F1F7] LR
+🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
+🇱🇹	Lituania							// [1F1F1 1F1F9] LT
+🇱🇺	Luxenburgo							// [1F1F1 1F1FA] LU
+🇱🇻	Letonia								// [1F1F1 1F1FB] LV
+🇱🇾	Libia								// [1F1F1 1F1FE] LY
+🇲🇦	Maroko								// [1F1F2 1F1E6] MA
+🇲🇨	Monako								// [1F1F2 1F1E8] MC
+🇲🇩	Moldavia							// [1F1F2 1F1E9] MD
+🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
+🇲🇫	San Martin							// [1F1F2 1F1EB] MF
+🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
+🇲🇭	Marshall uharteak						// [1F1F2 1F1ED] MH
+🇲🇰	Mazedonia							// [1F1F2 1F1F0] MK
+🇲🇱	Mali								// [1F1F2 1F1F1] ML
+🇲🇲	Myanmar (Birmania)						// [1F1F2 1F1F2] MM
+🇲🇳	Mongolia							// [1F1F2 1F1F3] MN
+🇲🇴	Macau AEB Txina							// [1F1F2 1F1F4] MO
+🇲🇵	Iparraldeko Mariana uharteak					// [1F1F2 1F1F5] MP
+🇲🇶	Martinika							// [1F1F2 1F1F6] MQ
+🇲🇷	Mauritania							// [1F1F2 1F1F7] MR
+🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	Malta								// [1F1F2 1F1F9] MT
+🇲🇺	Maurizio							// [1F1F2 1F1FA] MU
+🇲🇻	Maldivak							// [1F1F2 1F1FB] MV
+🇲🇼	Malawi								// [1F1F2 1F1FC] MW
+🇲🇽	Mexiko								// [1F1F2 1F1FD] MX
+🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
+🇲🇿	Mozambike							// [1F1F2 1F1FF] MZ
+🇳🇦	Namibia								// [1F1F3 1F1E6] NA
+🇳🇨	Kaledonia Berria						// [1F1F3 1F1E8] NC
+🇳🇪	Niger								// [1F1F3 1F1EA] NE
+🇳🇫	Norfolk uhartea							// [1F1F3 1F1EB] NF
+🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
+🇳🇮	Nikaragua							// [1F1F3 1F1EE] NI
+🇳🇱	Herbehereak							// [1F1F3 1F1F1] NL
+🇳🇴	Norvegia							// [1F1F3 1F1F4] NO
+🇳🇵	Nepal								// [1F1F3 1F1F5] NP
+🇳🇷	Nauru								// [1F1F3 1F1F7] NR
+🇳🇺	Niue								// [1F1F3 1F1FA] NU
+🇳🇿	Zeelanda Berria							// [1F1F3 1F1FF] NZ
+🇴🇲	Oman								// [1F1F4 1F1F2] OM
+🇵🇦	Panama								// [1F1F5 1F1E6] PA
+🇵🇪	Peru								// [1F1F5 1F1EA] PE
+🇵🇫	Polinesia Frantsesa						// [1F1F5 1F1EB] PF
+🇵🇬	Papua Ginea Berria						// [1F1F5 1F1EC] PG
+🇵🇭	Filipinak							// [1F1F5 1F1ED] PH
+🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	Polonia								// [1F1F5 1F1F1] PL
+🇵🇲	Saint-Pierre eta Mikelune					// [1F1F5 1F1F2] PM
+🇵🇳	Pitcairn uharteak						// [1F1F5 1F1F3] PN
+🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	Palestinako Lurraldeak						// [1F1F5 1F1F8] PS
+🇵🇹	Portugal							// [1F1F5 1F1F9] PT
+🇵🇼	Palau								// [1F1F5 1F1FC] PW
+🇵🇾	Paraguai							// [1F1F5 1F1FE] PY
+🇶🇦	Qatar								// [1F1F6 1F1E6] QA
+🇷🇪	Reunion								// [1F1F7 1F1EA] RE
+🇷🇴	Errumania							// [1F1F7 1F1F4] RO
+🇷🇸	Serbia								// [1F1F7 1F1F8] RS
+🇷🇺	Errusia								// [1F1F7 1F1FA] RU
+🇷🇼	Ruanda								// [1F1F7 1F1FC] RW
+🇸🇦	Saudi Arabia							// [1F1F8 1F1E6] SA
+🇸🇧	Salomon uharteak						// [1F1F8 1F1E7] SB
+🇸🇨	Seychelleak							// [1F1F8 1F1E8] SC
+🇸🇩	Sudan								// [1F1F8 1F1E9] SD
+🇸🇪	Suedia								// [1F1F8 1F1EA] SE
+🇸🇬	Singapur							// [1F1F8 1F1EC] SG
+🇸🇭	Santa Helena							// [1F1F8 1F1ED] SH
+🇸🇮	Eslovenia							// [1F1F8 1F1EE] SI
+🇸🇯	Svalbard eta Jan Mayen uharteak					// [1F1F8 1F1EF] SJ
+🇸🇰	Eslovakia							// [1F1F8 1F1F0] SK
+🇸🇱	Sierra Leona							// [1F1F8 1F1F1] SL
+🇸🇲	San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	Senegal								// [1F1F8 1F1F3] SN
+🇸🇴	Somalia								// [1F1F8 1F1F4] SO
+🇸🇷	Surinam								// [1F1F8 1F1F7] SR
+🇸🇸	Hego Sudan							// [1F1F8 1F1F8] SS
+🇸🇹	Sao Tome eta Principe						// [1F1F8 1F1F9] ST
+🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
+🇸🇾	Siria								// [1F1F8 1F1FE] SY
+🇸🇿	Swazilandia							// [1F1F8 1F1FF] SZ
+🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	Turk eta Caico uharteak						// [1F1F9 1F1E8] TC
+🇹🇩	Txad								// [1F1F9 1F1E9] TD
+🇹🇫	Hegoaldeko lurralde frantsesak					// [1F1F9 1F1EB] TF
+🇹🇬	Togo								// [1F1F9 1F1EC] TG
+🇹🇭	Thailandia							// [1F1F9 1F1ED] TH
+🇹🇯	Tajikistan							// [1F1F9 1F1EF] TJ
+🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
+🇹🇱	Ekialdeko Timor							// [1F1F9 1F1F1] TL
+🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
+🇹🇳	Tunisia								// [1F1F9 1F1F3] TN
+🇹🇴	Tonga								// [1F1F9 1F1F4] TO
+🇹🇷	Turkia								// [1F1F9 1F1F7] TR
+🇹🇹	Trinidad eta Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
+🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
+🇹🇿	Tanzania							// [1F1F9 1F1FF] TZ
+🇺🇦	Ukraina								// [1F1FA 1F1E6] UA
+🇺🇬	Uganda								// [1F1FA 1F1EC] UG
+🇺🇲	Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak		// [1F1FA 1F1F2] UM
+🇺🇳	united nations							// [1F1FA 1F1F3] UN (no translation)
+🇺🇸	Ameriketako Estatu Batuak					// [1F1FA 1F1F8] US
+🇺🇾	Uruguai								// [1F1FA 1F1FE] UY
+🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
+🇻🇦	Vatikano Hiria							// [1F1FB 1F1E6] VA
+🇻🇨	Saint Vincent eta Grenadinak					// [1F1FB 1F1E8] VC
+🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	Birjina uharte britainiarrak					// [1F1FB 1F1EC] VG
+🇻🇮	Birjina uharte amerikarrak					// [1F1FB 1F1EE] VI
+🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
+🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
+🇼🇫	Wallis eta Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	Samoa								// [1F1FC 1F1F8] WS
+🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
+🇾🇪	Yemen								// [1F1FE 1F1EA] YE
+🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
+🇿🇦	Hegoafrika							// [1F1FF 1F1E6] ZA
+🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
+🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	Ingalaterra						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Eskozia							// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Gales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	tekla: #							// [0023 FE0F 20E3]
+*️⃣	tekla: *							// [002A FE0F 20E3]
+0️⃣	tekla: 0							// [0030 FE0F 20E3]
+1️⃣	tekla: 1							// [0031 FE0F 20E3]
+2️⃣	tekla: 2							// [0032 FE0F 20E3]
+3️⃣	tekla: 3							// [0033 FE0F 20E3]
+4️⃣	tekla: 4							// [0034 FE0F 20E3]
+5️⃣	tekla: 5							// [0035 FE0F 20E3]
+6️⃣	tekla: 6							// [0036 FE0F 20E3]
+7️⃣	tekla: 7							// [0037 FE0F 20E3]
+8️⃣	tekla: 8							// [0038 FE0F 20E3]
+9️⃣	tekla: 9							// [0039 FE0F 20E3]
+
+// Emoji ZWJ Sequence: Family
+
+👩‍❤‍💋‍👨	musu: emakumea eta gizona		// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	musu: gizona eta gizona			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	musu: emakumea eta emakumea		// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	bihotza erdian duen bikotea: emakumea eta gizona// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	bihotza erdian duen bikotea: gizona eta gizona	// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	bihotza erdian duen bikotea: emakumea eta emakumea// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	familia: gizona eta emakumea eta mutila		// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	familia: gizona eta emakumea eta neska		// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	familia: gizona eta emakumea eta neska eta mutila// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	familia: gizona eta emakumea eta mutila eta mutila// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	familia: gizona eta emakumea eta neska eta neska// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	familia: gizona eta gizona eta mutila		// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	familia: gizona eta gizona eta neska		// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	familia: gizona eta gizona eta neska eta mutila// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	familia: gizona eta gizona eta mutila eta mutila// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	familia: gizona eta gizona eta neska eta neska// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	familia: emakumea eta emakumea eta mutila	// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	familia: emakumea eta emakumea eta neska	// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	familia: emakumea eta emakumea eta neska eta mutila// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	familia: emakumea eta emakumea eta mutila eta mutila// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	familia: emakumea eta emakumea eta neska eta neska// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	familia: gizona eta mutila				// [1F468 200D 1F466]
+👨‍👦‍👦	familia: gizona eta mutila eta mutila		// [1F468 200D 1F466 200D 1F466]
+👨‍👧	familia: gizona eta neska				// [1F468 200D 1F467]
+👨‍👧‍👦	familia: gizona eta neska eta mutila		// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	familia: gizona eta neska eta neska		// [1F468 200D 1F467 200D 1F467]
+👩‍👦	familia: emakumea eta mutila				// [1F469 200D 1F466]
+👩‍👦‍👦	familia: emakumea eta mutila eta mutila		// [1F469 200D 1F466 200D 1F466]
+👩‍👧	familia: emakumea eta neska				// [1F469 200D 1F467]
+👩‍👧‍👦	familia: emakumea eta neska eta mutila		// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	familia: emakumea eta neska eta neska		// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gendered Role, with object
+
+👨‍⚕	gizon sendagilea					// [1F468 200D 2695]
+👩‍⚕	emakume sendagilea					// [1F469 200D 2695]
+👨‍⚖	gizon epailea						// [1F468 200D 2696]
+👩‍⚖	emakume epailea						// [1F469 200D 2696]
+👨‍✈	gizon pilotua						// [1F468 200D 2708]
+👩‍✈	emakume pilotua						// [1F469 200D 2708]
+👨‍🌾	gizon nekazaria						// [1F468 200D 1F33E]
+👩‍🌾	emakume nekazaria					// [1F469 200D 1F33E]
+👨‍🍳	gizon sukaldaria					// [1F468 200D 1F373]
+👩‍🍳	emakume sukaldaria					// [1F469 200D 1F373]
+👨‍🎓	mutil ikaslea						// [1F468 200D 1F393]
+👩‍🎓	neska ikaslea						// [1F469 200D 1F393]
+👨‍🎤	gizon abeslaria						// [1F468 200D 1F3A4]
+👩‍🎤	emakume abeslaria					// [1F469 200D 1F3A4]
+👨‍🎨	gizon artista						// [1F468 200D 1F3A8]
+👩‍🎨	emakume artista						// [1F469 200D 1F3A8]
+👨‍🏫	gizon irakaslea						// [1F468 200D 1F3EB]
+👩‍🏫	emakume irakaslea					// [1F469 200D 1F3EB]
+👨‍🏭	fabrikako gizon langilea				// [1F468 200D 1F3ED]
+👩‍🏭	fabrikako emakume langilea				// [1F469 200D 1F3ED]
+👨‍💻	gizon teknologialaria					// [1F468 200D 1F4BB]
+👩‍💻	emakume teknologialaria					// [1F469 200D 1F4BB]
+👨‍💼	gizon bulegaria						// [1F468 200D 1F4BC]
+👩‍💼	emakume bulegaria					// [1F469 200D 1F4BC]
+👨‍🔧	gizon mekanikaria					// [1F468 200D 1F527]
+👩‍🔧	emakume mekanikaria					// [1F469 200D 1F527]
+👨‍🔬	gizon zientzialaria					// [1F468 200D 1F52C]
+👩‍🔬	emakume zientzialaria					// [1F469 200D 1F52C]
+👨‍🚀	gizon astronauta					// [1F468 200D 1F680]
+👩‍🚀	emakume astronauta					// [1F469 200D 1F680]
+👨‍🚒	gizon suhiltzailea					// [1F468 200D 1F692]
+👩‍🚒	emakume suhiltzailea					// [1F469 200D 1F692]
+
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	emakume polizia						// [1F46E 200D 2640]
+👮‍♂	gizon polizia						// [1F46E 200D 2642]
+👱‍♀	emakume ilehoria					// [1F471 200D 2640]
+👱‍♂	gizon ilehoria						// [1F471 200D 2642]
+👳‍♀	turbantea duen emakumea					// [1F473 200D 2640]
+👳‍♂	turbantea duen gizona					// [1F473 200D 2642]
+👷‍♀	emakume eskulangilea					// [1F477 200D 2640]
+👷‍♂	gizon eskulangilea					// [1F477 200D 2642]
+💂‍♀	emakume zaindaria					// [1F482 200D 2640]
+💂‍♂	gizon zaindaria						// [1F482 200D 2642]
+🕵️‍♀	emakume detektibea					// [1F575 200D 2640]
+🕵️‍♂	gizon detektibea					// [1F575 200D 2642]
+🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
+🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
+🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
+🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
+🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
+🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
+🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
+🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
+🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
+🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
+🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
+🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
+🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
+🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Activity
+
+⛹‍♀	baloi bat duen emakumea					// [26F9 200D 2640]
+⛹‍♂	baloi bat duen gizona					// [26F9 200D 2642]
+🏃‍♀	korrika ari den emakumea				// [1F3C3 200D 2640]
+🏃‍♂	korrika ari den gizona					// [1F3C3 200D 2642]
+🏄‍♀	emakume surflaria					// [1F3C4 200D 2640]
+🏄‍♂	gizon surflaria						// [1F3C4 200D 2642]
+🏊‍♀	emakume igerilaria					// [1F3CA 200D 2640]
+🏊‍♂	gizon igerilaria					// [1F3CA 200D 2642]
+🏋️‍♀	pisuak altxatzen ari den emakumea			// [1F3CB 200D 2640]
+🏋️‍♂	pisuak altxatzen ari den gizona				// [1F3CB 200D 2642]
+🏌️‍♀	emakume golflaria					// [1F3CC 200D 2640]
+🏌️‍♂	gizon golflaria						// [1F3CC 200D 2642]
+👯‍♀	parrandan ari diren emakumeak				// [1F46F 200D 2640]
+👯‍♂	parrandan ari diren gizonak				// [1F46F 200D 2642]
+💆‍♀	aurpegian masajea egiten ari dioten emakumea		// [1F486 200D 2640]
+💆‍♂	aurpegian masajea egiten ari dioten pertsona		// [1F486 200D 2642]
+💇‍♀	ilea mozten ari dioten emakumea				// [1F487 200D 2640]
+💇‍♂	ilea mozten ari dioten gizona				// [1F487 200D 2642]
+🚣‍♀	emakume arraunlaria					// [1F6A3 200D 2640]
+🚣‍♂	gizon arraunlaria					// [1F6A3 200D 2642]
+🚴‍♀	emakume txirrindularia					// [1F6B4 200D 2640]
+🚴‍♂	gizon txirrindularia					// [1F6B4 200D 2642]
+🚵‍♀	mendiko bizikletan dabilen emakumea			// [1F6B5 200D 2640]
+🚵‍♂	mendiko bizikletan dabilen gizona			// [1F6B5 200D 2642]
+🚶‍♀	oinez ari den emakumea					// [1F6B6 200D 2640]
+🚶‍♂	oinez ari den gizona					// [1F6B6 200D 2642]
+🤸‍♀	gurpil-ariketa egiten ari den emakumea			// [1F938 200D 2640]
+🤸‍♂	gurpil-ariketa egiten ari den gizona			// [1F938 200D 2642]
+🤹‍♀	emakumea malabarismotan					// [1F939 200D 2640]
+🤹‍♂	gizona malabarismotan					// [1F939 200D 2642]
+🤼‍♀	emakumeak borrokan					// [1F93C 200D 2640]
+🤼‍♂	gizonak borrokan					// [1F93C 200D 2642]
+🤽‍♀	emakumea waterpoloan jolasten				// [1F93D 200D 2640]
+🤽‍♂	gizona waterpoloan jolasten				// [1F93D 200D 2642]
+🤾‍♀	emakumea eskubaloian jolasten				// [1F93E 200D 2640]
+🤾‍♂	gizona eskubaloian jolasten				// [1F93E 200D 2642]
+🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
+🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
+🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
+🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
+🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
+🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	eskean dabilen emakumea					// [1F481 200D 2640]
+💁‍♂	eskean dabilen gizona					// [1F481 200D 2642]
+🙅‍♀	ados ez dagoela adierazten ari den emakumea		// [1F645 200D 2640]
+🙅‍♂	ados ez dagoela adierazten ari den gizona		// [1F645 200D 2642]
+🙆‍♀	ados dagoela adierazten ari den emakumea		// [1F646 200D 2640]
+🙆‍♂	ados dagoela adierazten ari den gizona			// [1F646 200D 2642]
+🙇‍♀	burua makurtzen ari den emakumea			// [1F647 200D 2640]
+🙇‍♂	burua makurtzen ari den gizona				// [1F647 200D 2642]
+🙋‍♀	eskua altxatzen ari den emakumea			// [1F64B 200D 2640]
+🙋‍♂	eskua altxatzen ari den gizona				// [1F64B 200D 2642]
+🙍‍♀	kopeta zimurtzen ari den emakumea			// [1F64D 200D 2640]
+🙍‍♂	kopeta zimurtzen ari den gizona				// [1F64D 200D 2642]
+🙎‍♀	emakume muturtua					// [1F64E 200D 2640]
+🙎‍♂	gizon muturtua						// [1F64E 200D 2642]
+🤦‍♀	esku-azpia aurpegian duen emakumea			// [1F926 200D 2640]
+🤦‍♂	esku-azpia aurpegian duen gizona			// [1F926 200D 2642]
+🤷‍♀	sorbaldak altxatzen ari den emakumea			// [1F937 200D 2640]
+🤷‍♂	sorbaldak altxatzen ari den gizona			// [1F937 200D 2642]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈	ortzadarraren bandera					// [1F3F3 200D 1F308]
+👁‍🗨	begi bat duen bunbuiloa					// [1F441 200D 1F5E8]
+
+// References:
+//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//
+// Sources:
+//   1.  emoji-test.txt (Emoji)
+//   2.  common/annotations/eu.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
