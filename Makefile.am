@@ -436,6 +436,7 @@ update-emoji:
 	tools/emoji dictsource/en_emoji hu ${CLDR_PATH} > dictsource/hu_emoji
 	tools/emoji dictsource/en_emoji hy ${CLDR_PATH} > dictsource/hy_emoji
 	tools/emoji dictsource/en_emoji id ${CLDR_PATH} > dictsource/id_emoji
+	tools/emoji dictsource/en_emoji is ${CLDR_PATH} > dictsource/is_emoji
 
 ##### dictionaries:
 
@@ -739,7 +740,7 @@ espeak-ng-data/id_dict: src/espeak-ng phsource/phonemes.stamp dictsource/id_list
 is: espeak-ng-data/is_dict
 dictsource/is_extra:
 	touch dictsource/is_extra
-espeak-ng-data/is_dict: src/espeak-ng phsource/phonemes.stamp dictsource/is_list dictsource/is_rules dictsource/is_extra
+espeak-ng-data/is_dict: src/espeak-ng phsource/phonemes.stamp dictsource/is_list dictsource/is_rules dictsource/is_extra dictsource/is_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=is && cd ..
 
 it: espeak-ng-data/it_dict
