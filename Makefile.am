@@ -758,7 +758,7 @@ sv: espeak-ng-data/sv_dict
 espeak-ng-data/sv_dict: dictsource/sv_list dictsource/sv_rules dictsource/sv_extra dictsource/sv_emoji
 
 sw: espeak-ng-data/sw_dict
-espeak-ng-data/sw_dict: dictsource/sw_list dictsource/sw_rules dictsource/sw_extra
+espeak-ng-data/sw_dict: dictsource/sw_list dictsource/sw_rules dictsource/sw_extra dictsource/sw_emoji
 
 ta: espeak-ng-data/ta_dict
 espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
