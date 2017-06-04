@@ -779,7 +779,7 @@ ur: espeak-ng-data/ur_dict
 espeak-ng-data/ur_dict: dictsource/ur_list dictsource/ur_rules dictsource/ur_extra dictsource/ur_emoji
 
 vi: espeak-ng-data/vi_dict
-espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra
+espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
 
 zh: espeak-ng-data/zh_dict
 dictsource/zh_listx:
