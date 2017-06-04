@@ -660,7 +660,7 @@ lfn: espeak-ng-data/lfn_dict
 espeak-ng-data/lfn_dict: dictsource/lfn_list dictsource/lfn_rules dictsource/lfn_extra
 
 lt: espeak-ng-data/lt_dict
-espeak-ng-data/lt_dict: dictsource/lt_list dictsource/lt_rules dictsource/lt_extra
+espeak-ng-data/lt_dict: dictsource/lt_list dictsource/lt_rules dictsource/lt_extra dictsource/lt_emoji
 
 lv: espeak-ng-data/lv_dict
 espeak-ng-data/lv_dict: dictsource/lv_list dictsource/lv_rules dictsource/lv_extra

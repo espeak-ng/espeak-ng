@@ -87,6 +87,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  kn (Kannada)
 *  ko (Korean)
 *  ky (Kyrgyz)
+*  lt (Lithuanian)
 
 ### 1.49.1 - 2017-01-21
 
