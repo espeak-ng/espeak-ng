@@ -77,6 +77,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  hi (Hindi)
 *  hr (Croatian)
 *  hu (Hungarian)
+*  hy (Armenian)
 
 ### 1.49.1 - 2017-01-21
 
