@@ -651,7 +651,7 @@ ku: espeak-ng-data/ku_dict
 espeak-ng-data/ku_dict: dictsource/ku_list dictsource/ku_rules dictsource/ku_extra
 
 ky: espeak-ng-data/ky_dict
-espeak-ng-data/ky_dict: dictsource/ky_list dictsource/ky_rules dictsource/ky_extra
+espeak-ng-data/ky_dict: dictsource/ky_list dictsource/ky_rules dictsource/ky_extra dictsource/ky_emoji
 
 la: espeak-ng-data/la_dict
 espeak-ng-data/la_dict: dictsource/la_list dictsource/la_rules dictsource/la_extra
