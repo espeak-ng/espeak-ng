@@ -693,7 +693,7 @@ ne: espeak-ng-data/ne_dict
 espeak-ng-data/ne_dict: dictsource/ne_list dictsource/ne_rules dictsource/ne_extra
 
 nl: espeak-ng-data/nl_dict
-espeak-ng-data/nl_dict: dictsource/nl_list dictsource/nl_rules dictsource/nl_extra
+espeak-ng-data/nl_dict: dictsource/nl_list dictsource/nl_rules dictsource/nl_extra dictsource/nl_emoji
 
 no: espeak-ng-data/no_dict
 espeak-ng-data/no_dict: dictsource/no_list dictsource/no_rules dictsource/no_extra
