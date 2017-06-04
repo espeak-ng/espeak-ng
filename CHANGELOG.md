@@ -90,6 +90,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  lt (Lithuanian)
 *  lv (Latvian)
 *  mk (Macedonian)
+*  mr (Marathi)
 
 ### 1.49.1 - 2017-01-21
 
