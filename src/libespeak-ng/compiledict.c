@@ -702,7 +702,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	FILE *f_in;
 	char buf[200];
 	char fname[sizeof(path_home)+45];
-	char dict_line[128];
+	char dict_line[200];
 
 	text_mode = 0;
 
