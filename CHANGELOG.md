@@ -94,7 +94,6 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  ms (Malay)
 *  nl (Dutch)
 *  or (Oriya)
-*  pa (Punjabi)
 *  pl (Polish)
 *  pt (Portuguese) -- Brazil
 *  ro (Romanian)
