@@ -1,0 +1,1678 @@
+// Emoji and Other Symbol pronunciations for German
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+©	Copyright							// [00A9] text|emoji
+®	Registered-Trademark						// [00AE] text|emoji
+
+// 2000..203C : General Punctuation
+
+‼	Doppeltes Ausrufezeichen					// [203C] text|emoji
+⁉	Ausrufe- und Fragezeichen					// [2049] text|emoji
+
+// 2100..214F : Letterlike Symbols
+
+™	Markenzeichen							// [2122] text|emoji
+ℹ	Buchstabe „i“ in blauem Quadrat					// [2139] text|emoji
+
+// 2190..21FF : Arrows
+
+↔	Pfeil nach links und rechts					// [2194] text|emoji
+↕	Pfeil nach oben und unten					// [2195] text|emoji
+↖	Pfeil nach links oben						// [2196] text|emoji
+↗	Pfeil nach rechts oben						// [2197] text|emoji
+↘	Pfeil nach rechts unten						// [2198] text|emoji
+↙	Pfeil nach links unten						// [2199] text|emoji
+↩	Geschwungener Pfeil nach links					// [21A9] text|emoji
+↪	Geschwungener Pfeil nach rechts					// [21AA] text|emoji
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	Armbanduhr							// [231A]
+⌛	Sanduhr								// [231B]
+⌨	Tastatur							// [2328] text|emoji
+⏏	Auswurftaste							// [23CF] text|emoji
+⏩	Doppelpfeile nach rechts					// [23E9]
+⏪	Doppelpfeile nach links						// [23EA]
+⏫	Doppelpfeile nach oben						// [23EB]
+⏬	Doppelpfeile nach unten						// [23EC]
+⏭	Nächster Titel							// [23ED] text|emoji
+⏮	Vorheriger Titel						// [23EE] text|emoji
+⏯	Wiedergabe oder Pause						// [23EF] text|emoji
+⏰	Wecker								// [23F0]
+⏱	Stoppuhr							// [23F1] text|emoji
+⏲	Zeitschaltuhr							// [23F2] text|emoji
+⏳	Laufende Sanduhr						// [23F3]
+⏸	Pause								// [23F8] text|emoji
+⏹	Stopp								// [23F9] text|emoji
+⏺	Aufnehmen							// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	Buchstabe „M“ in blauem Kreis					// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+▪	Kleines schwarzes Quadrat					// [25AA] text|emoji
+▫	Kleines weißes Quadrat						// [25AB] text|emoji
+▶	Wiedergabe							// [25B6] text|emoji
+◀	Pfeil zurück							// [25C0] text|emoji
+◻	Mittelgroßes weißes Quadrat					// [25FB] text|emoji
+◼	Mittelgroßes schwarzes Quadrat					// [25FC] text|emoji
+◽	Mittelkleines weißes Quadrat					// [25FD]
+◾	Mittelkleines schwarzes Quadrat					// [25FE]
+
+// 2600..26FF : Miscellaneous Symbols
+
+☀	Sonne								// [2600] text|emoji
+☁	Wolke								// [2601] text|emoji
+☂	Regenschirm							// [2602] text|emoji
+☃	Schneemann im Schnee						// [2603] text|emoji
+☄	Komet								// [2604] text|emoji
+☎	Telefon								// [260E] text|emoji
+☑	Abstimmungsfeld mit Häkchen					// [2611] text|emoji
+☔	Regenschirm im Regen						// [2614]
+☕	Heißgetränk							// [2615]
+☘	Kleeblatt							// [2618] text|emoji
+☝	Nach oben weisender Zeigefinger von vorne			// [261D] text|emoji
+☠	Totenkopf mit gekreuzten Knochen				// [2620] text|emoji
+☢	Radioaktiv							// [2622] text|emoji
+☣	Biogefährdung							// [2623] text|emoji
+☦	Orthodoxes Kreuz						// [2626] text|emoji
+☪	Hilal und Stern							// [262A] text|emoji
+☮	Friedenszeichen							// [262E] text|emoji
+☯	Yin und Yang							// [262F] text|emoji
+☸	Dharma-Rad							// [2638] text|emoji
+☹	Sehr trauriger Smiley						// [2639] text|emoji
+☺	Smiley								// [263A] text|emoji
+♀	Frauensymbol							// [2640] text|emoji
+♂	Männersymbol							// [2642] text|emoji
+♈	Sternzeichen Widder						// [2648]
+♉	Sternzeichen Stier						// [2649]
+♊	Sternzeichen Zwilling						// [264A]
+♋	Sternzeichen Krebs						// [264B]
+♌	Sternzeichen Löwe						// [264C]
+♍	Sternzeichen Jungfrau						// [264D]
+♎	Sternzeichen Waage						// [264E]
+♏	Sternzeichen Skorpion						// [264F]
+♐	Sternzeichen Schütze						// [2650]
+♑	Sternzeichen Steinbock						// [2651]
+♒	Sternzeichen Wassermann						// [2652]
+♓	Sternzeichen Fische						// [2653]
+♠	Pik								// [2660] text|emoji
+♣	Kreuz								// [2663] text|emoji
+♥	Herz								// [2665] text|emoji
+♦	Karo								// [2666] text|emoji
+♨	Heiße Quellen							// [2668] text|emoji
+♻	Recycling-Symbol						// [267B] text|emoji
+♿	Rollstuhl							// [267F]
+⚒	Hammer und Pickel						// [2692] text|emoji
+⚓	Anker								// [2693]
+⚔	Gekreuzte Schwerter						// [2694] text|emoji
+⚕	Asklepiosstab							// [2695] text|emoji
+⚖	Waage								// [2696] text|emoji
+⚗	Destillierapparat						// [2697] text|emoji
+⚙	Zahnrad								// [2699] text|emoji
+⚛	Atomzeichen							// [269B] text|emoji
+⚜	Lilie								// [269C] text|emoji
+⚠	Warnschild							// [26A0] text|emoji
+⚡	Hochspannungszeichen						// [26A1]
+⚪	Großer weißer Kreis						// [26AA]
+⚫	Großer schwarzer Kreis						// [26AB]
+⚰	Sarg								// [26B0] text|emoji
+⚱	Urne								// [26B1] text|emoji
+⚽	Fußball								// [26BD]
+⚾	Baseball							// [26BE]
+⛄	Schneemann ohne Schneeflocken					// [26C4]
+⛅	Sonne hinter Wolke						// [26C5]
+⛈	Wolke mit Blitz und Regen					// [26C8] text|emoji
+⛎	Schlangenträger							// [26CE]
+⛏	Pickel								// [26CF] text|emoji
+⛑	Helm mit weißem Kreuz						// [26D1] text|emoji
+⛓	Ketten								// [26D3] text|emoji
+⛔	Zutritt-verboten-Schild						// [26D4]
+⛩	Shinto-Schrein							// [26E9] text|emoji
+⛪	Kirche								// [26EA]
+⛰	Berg								// [26F0] text|emoji
+⛱	Aufgestellter Sonnenschirm					// [26F1] text|emoji
+⛲	Springbrunnen							// [26F2]
+⛳	Golffahne							// [26F3]
+⛴	Fähre								// [26F4] text|emoji
+⛵	Segelboot							// [26F5]
+⛷	Skifahrer(in)							// [26F7] text|emoji
+⛸	Schlittschuh							// [26F8] text|emoji
+⛹	Person mit Ball							// [26F9] text|emoji
+⛺	Zelt								// [26FA]
+⛽	Tanksäule							// [26FD]
+
+// 2700..27BF : Dingbats
+
+✂	Schere								// [2702] text|emoji
+✅	Weißes Häkchen							// [2705]
+✈	Flugzeug							// [2708] text|emoji
+✉	Briefumschlag							// [2709] text|emoji
+✊	Erhobene Faust							// [270A]
+✋	Erhobene Hand							// [270B]
+✌	Victory-Geste							// [270C] text|emoji
+✍	Schreibende Hand						// [270D] text|emoji
+✏	Bleistift							// [270F] text|emoji
+✒	Schwarzer Federhalter						// [2712] text|emoji
+✔	kräftiges Häkchen						// [2714] text|emoji
+✖	Multiplikationszeichen						// [2716] text|emoji
+✝	Römisches Kreuz							// [271D] text|emoji
+✡	Davidstern							// [2721] text|emoji
+✨	Funkelnde Sterne						// [2728]
+✳	Achtzackiger Stern						// [2733] text|emoji
+✴	Stern in orangefarbenem Quadrat					// [2734] text|emoji
+❄	Schneeflocke							// [2744] text|emoji
+❇	Funkeln								// [2747] text|emoji
+❌	Rotes Kreuz							// [274C]
+❎	Kreuzsymbol im Quadrat						// [274E]
+❓	Rotes Fragezeichen						// [2753]
+❔	Fragezeichen							// [2754]
+❕	Ausrufezeichen							// [2755]
+❗	Rotes Ausrufezeichen						// [2757]
+❣	Herz als Ausrufezeichen						// [2763] text|emoji
+❤	Rotes Herz							// [2764] text|emoji
+➕	Pluszeichen							// [2795]
+➖	Minuszeichen							// [2796]
+➗	Divisionszeichen						// [2797]
+➡	Pfeil nach rechts						// [27A1] text|emoji
+➰	Schleife							// [27B0]
+➿	Doppelschleife							// [27BF]
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	Geschwungener Pfeil nach oben					// [2934] text|emoji
+⤵	Geschwungener Pfeil nach unten					// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	Pfeil nach links						// [2B05] text|emoji
+⬆	Pfeil nach oben							// [2B06] text|emoji
+⬇	Pfeil nach unten						// [2B07] text|emoji
+⬛	Großes schwarzes Quadrat					// [2B1B]
+⬜	Großes weißes Quadrat						// [2B1C]
+⭐	gelber Stern							// [2B50]
+⭕	Großer Kreis							// [2B55]
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	Wellenlinie							// [3030] text|emoji
+〽	Teilalternationszeichen						// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	Schriftzeichen für „Gratulation“				// [3297] text|emoji
+㊙	Schriftzeichen für „Geheimnis“					// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	Großbuchstabe A in Quadrat					// [1F170] text|emoji
+🅱	Großbuchstabe B in Quadrat					// [1F171] text|emoji
+🅾	Großbuchstabe O in Quadrat					// [1F17E] text|emoji
+🅿	Großbuchstabe P in Quadrat					// [1F17F] text|emoji
+🆎	Großbuchstaben AB in rotem Quadrat				// [1F18E]
+🆑	Großbuchstaben CL in rotem Quadrat				// [1F191]
+🆒	Wort „Cool“ in blauem Quadrat					// [1F192]
+🆓	Wort „Free“ in blauem Quadrat					// [1F193]
+🆔	Großbuchstaben ID in lila Quadrat				// [1F194]
+🆕	Wort „New“ in blauem Quadrat					// [1F195]
+🆖	Großbuchstaben NG in blauem Quadrat				// [1F196]
+🆗	Großbuchstaben OK in blauem Quadrat				// [1F197]
+🆘	SOS-Zeichen							// [1F198]
+🆙	Schriftzug „UP!“ im blauen Quadrat				// [1F199]
+🆚	Großbuchstaben VS in orangefarbenem Quadrat			// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	Schriftzeichen „koko“						// [1F201]
+🈂	Schriftzeichen „sa“						// [1F202] text|emoji
+🈚	Schriftzeichen für „Verhandlung“				// [1F21A]
+🈯	Schriftzeichen für „Finger“					// [1F22F]
+🈲	Schriftzeichen für „verbieten“					// [1F232]
+🈳	Schriftzeichen für „leer“					// [1F233]
+🈴	Schriftzeichen für „zusammen“					// [1F234]
+🈵	Schriftzeichen für „Fülle“					// [1F235]
+🈶	Schriftzeichen für „existieren“					// [1F236]
+🈷	Schriftzeichen für „Mond“					// [1F237] text|emoji
+🈸	Schriftzeichen für „anwenden“					// [1F238]
+🈹	Schriftzeichen für „teilen“					// [1F239]
+🈺	Schriftzeichen für „Betrieb“					// [1F23A]
+🉐	Schriftzeichen für „Vorteil“					// [1F250]
+🉑	Schriftzeichen für „akzeptieren“				// [1F251]
+
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	Mahjong-Stein							// [1F004]
+
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	Jokerkarte							// [1F0CF]
+
+// 1F300..1F5FF : Miscellaneous Symbols and Pictographs
+
+🌀	Wirbel								// [1F300]
+🌁	neblig								// [1F301]
+🌂	Geschlossener Regenschirm					// [1F302]
+🌃	Sternenhimmel							// [1F303]
+🌄	Sonnenaufgang über Bergen					// [1F304]
+🌅	Sonnenaufgang über dem Meer					// [1F305]
+🌆	Abendstimmung in der Stadt					// [1F306]
+🌇	Sonnenuntergang in der Stadt					// [1F307]
+🌈	Regenbogen							// [1F308]
+🌉	Brücke vor Nachthimmel						// [1F309]
+🌊	Welle								// [1F30A]
+🌋	Vulkanausbruch							// [1F30B]
+🌌	Milchstraße							// [1F30C]
+🌍	Globus mit Europa und Afrika					// [1F30D]
+🌎	Globus mit Amerika						// [1F30E]
+🌏	Globus mit Asien und Australien					// [1F30F]
+🌐	Globus mit Meridianen						// [1F310]
+🌑	Neumond								// [1F311]
+🌒	Erstes Mondviertel						// [1F312]
+🌓	Zunehmender Halbmond						// [1F313]
+🌔	Zweites Mondviertel						// [1F314]
+🌕	Vollmond							// [1F315]
+🌖	Drittes Mondviertel						// [1F316]
+🌗	Abnehmender Halbmond						// [1F317]
+🌘	Letztes Mondviertel						// [1F318]
+🌙	Mondsichel							// [1F319]
+🌚	Neumond mit Gesicht						// [1F31A]
+🌛	Mondsichel mit Gesicht links					// [1F31B]
+🌜	Mondsichel mit Gesicht rechts					// [1F31C]
+🌝	Vollmond mit Gesicht						// [1F31D]
+🌞	Sonne mit Gesicht						// [1F31E]
+🌟	Funkelnder Stern						// [1F31F]
+🌠	Sternschnuppe							// [1F320]
+🌡	Thermometer							// [1F321] text|emoji
+🌤	Sonne hinter kleiner Wolke					// [1F324] text|emoji
+🌥	Sonne hinter großer Wolke					// [1F325] text|emoji
+🌦	Sonne hinter Regenwolke						// [1F326] text|emoji
+🌧	Wolke mit Regen							// [1F327] text|emoji
+🌨	Wolke mit Schnee						// [1F328] text|emoji
+🌩	Wolke mit Blitz							// [1F329] text|emoji
+🌪	Wirbelsturm							// [1F32A] text|emoji
+🌫	Nebel								// [1F32B] text|emoji
+🌬	Wind								// [1F32C] text|emoji
+🌭	Hotdog								// [1F32D]
+🌮	Taco								// [1F32E]
+🌯	Burrito								// [1F32F]
+🌰	Kastanie							// [1F330]
+🌱	Spross								// [1F331]
+🌲	Tannenbaum							// [1F332]
+🌳	Laubbaum							// [1F333]
+🌴	Palme								// [1F334]
+🌵	Kaktus								// [1F335]
+🌶	Peperoni							// [1F336] text|emoji
+🌷	Tulpe								// [1F337]
+🌸	Kirschblüte							// [1F338]
+🌹	Rose								// [1F339]
+🌺	Hibiskus							// [1F33A]
+🌻	Sonnenblume							// [1F33B]
+🌼	Gelbe Blüte							// [1F33C]
+🌽	Maiskolben							// [1F33D]
+🌾	Reispflanze							// [1F33E]
+🌿	Kräuter								// [1F33F]
+🍀	Vierblättriges Kleeblatt					// [1F340]
+🍁	Ahornblatt							// [1F341]
+🍂	Fallendes Laub							// [1F342]
+🍃	Blätter im Wind							// [1F343]
+🍄	Fliegenpilz							// [1F344]
+🍅	Tomate								// [1F345]
+🍆	Aubergine							// [1F346]
+🍇	Trauben								// [1F347]
+🍈	Melone								// [1F348]
+🍉	Wassermelone							// [1F349]
+🍊	Mandarine							// [1F34A]
+🍋	Zitrone								// [1F34B]
+🍌	Banane								// [1F34C]
+🍍	Ananas								// [1F34D]
+🍎	roter Apfel							// [1F34E]
+🍏	grüner Apfel							// [1F34F]
+🍐	Birne								// [1F350]
+🍑	Pfirsich							// [1F351]
+🍒	Kirschen							// [1F352]
+🍓	Erdbeere							// [1F353]
+🍔	Hamburger							// [1F354]
+🍕	Pizzastück							// [1F355]
+🍖	Fleischhachse							// [1F356]
+🍗	Hähnchenschenkel						// [1F357]
+🍘	Reiscracker							// [1F358]
+🍙	Reisbällchen							// [1F359]
+🍚	Reis in Schüssel						// [1F35A]
+🍛	Reis mit Curry							// [1F35B]
+🍜	Schüssel und Essstäbchen					// [1F35C]
+🍝	Spaghetti							// [1F35D]
+🍞	Brot								// [1F35E]
+🍟	Pommes Frites							// [1F35F]
+🍠	Geröstete Süßkartoffel						// [1F360]
+🍡	Dango								// [1F361]
+🍢	Oden								// [1F362]
+🍣	Sushi								// [1F363]
+🍤	Frittierte Garnele						// [1F364]
+🍥	Fischfrikadelle							// [1F365]
+🍦	Softeis								// [1F366]
+🍧	Wassereis							// [1F367]
+🍨	Eiscreme							// [1F368]
+🍩	Donut								// [1F369]
+🍪	Keks								// [1F36A]
+🍫	Schokoladentafel						// [1F36B]
+🍬	Bonbon								// [1F36C]
+🍭	Lutscher							// [1F36D]
+🍮	Pudding								// [1F36E]
+🍯	Honigtopf							// [1F36F]
+🍰	Torte								// [1F370]
+🍱	Bento-Box							// [1F371]
+🍲	Topf mit Essen							// [1F372]
+🍳	Spiegelei in Bratpfanne						// [1F373]
+🍴	Gabel und Messer						// [1F374]
+🍵	Teetasse ohne Henkel						// [1F375]
+🍶	Sake-Flasche und -tasse						// [1F376]
+🍷	Weinglas							// [1F377]
+🍸	Cocktailglas							// [1F378]
+🍹	Cocktail							// [1F379]
+🍺	Bierkrug							// [1F37A]
+🍻	Bierkrüge							// [1F37B]
+🍼	Babyflasche							// [1F37C]
+🍽	Teller mit Messer und Gabel					// [1F37D] text|emoji
+🍾	Flasche mit knallendem Korken					// [1F37E]
+🍿	Popcorn								// [1F37F]
+🎀	Pinke Schleife							// [1F380]
+🎁	Geschenk							// [1F381]
+🎂	Geburtstagskuchen						// [1F382]
+🎃	Kürbislaterne							// [1F383]
+🎄	Weihnachtsbaum							// [1F384]
+🎅	Weihnachtsmann							// [1F385]
+🎆	Feuerwerk							// [1F386]
+🎇	Wunderkerze							// [1F387]
+🎈	Luftballon							// [1F388]
+🎉	Konfettibombe							// [1F389]
+🎊	Konfettiball							// [1F38A]
+🎋	Tanabata-Baum							// [1F38B]
+🎌	Überkreuzte Flaggen						// [1F38C]
+🎍	Piniendekoration						// [1F38D]
+🎎	Japanische Puppen						// [1F38E]
+🎏	Traditionelle japanische Windsäcke				// [1F38F]
+🎐	Japanisches Windspiel						// [1F390]
+🎑	Traditionelles Mondfest						// [1F391]
+🎒	Schulranzen							// [1F392]
+🎓	Doktorhut							// [1F393]
+🎖	Militärorden							// [1F396] text|emoji
+🎗	Gedenkschleife							// [1F397] text|emoji
+🎙	Studiomikrofon							// [1F399] text|emoji
+🎚	Schieberegler							// [1F39A] text|emoji
+🎛	Drehregler							// [1F39B] text|emoji
+🎞	Filmstreifen							// [1F39E] text|emoji
+🎟	Eintrittskarte							// [1F39F] text|emoji
+🎠	Karussellpferd							// [1F3A0]
+🎡	Riesenrad							// [1F3A1]
+🎢	Achterbahn							// [1F3A2]
+🎣	Angel mit Fisch							// [1F3A3]
+🎤	Mikrofon							// [1F3A4]
+🎥	Filmkamera							// [1F3A5]
+🎦	Filmkamera in blauem Quadrat					// [1F3A6]
+🎧	Kopfhörer							// [1F3A7]
+🎨	Mischpalette							// [1F3A8]
+🎩	Zylinderhut							// [1F3A9]
+🎪	Zirkuszelt							// [1F3AA]
+🎫	Ticket								// [1F3AB]
+🎬	Filmklappe							// [1F3AC]
+🎭	Masken								// [1F3AD]
+🎮	Gamepad								// [1F3AE]
+🎯	Darts								// [1F3AF]
+🎰	Spielautomat							// [1F3B0]
+🎱	Billard								// [1F3B1]
+🎲	Spielwürfel							// [1F3B2]
+🎳	Bowling								// [1F3B3]
+🎴	Japanische Blumenkarte						// [1F3B4]
+🎵	Musiknote							// [1F3B5]
+🎶	Musiknoten							// [1F3B6]
+🎷	Saxofon								// [1F3B7]
+🎸	Gitarre								// [1F3B8]
+🎹	Klavier								// [1F3B9]
+🎺	Trompete							// [1F3BA]
+🎻	Violine								// [1F3BB]
+🎼	Notenschlüssel							// [1F3BC]
+🎽	Laufshirt mit Schärpe						// [1F3BD]
+🎾	Tennisball							// [1F3BE]
+🎿	Ski								// [1F3BF]
+🏀	Basketball							// [1F3C0]
+🏁	Zielflagge							// [1F3C1]
+🏂	Snowboarder(in)							// [1F3C2]
+🏃	Läufer(in)							// [1F3C3]
+🏄	Surfer(in)							// [1F3C4]
+🏅	Sportmedaille							// [1F3C5]
+🏆	Pokal								// [1F3C6]
+🏇	Jockey auf Pferd						// [1F3C7]
+🏈	Football							// [1F3C8]
+🏉	Rugbyball							// [1F3C9]
+🏊	Schwimmer(in)							// [1F3CA]
+🏋	Gewichtheber(in)						// [1F3CB] text|emoji
+🏌	Golfspieler(in)							// [1F3CC] text|emoji
+🏍	Motorrad							// [1F3CD] text|emoji
+🏎	Rennauto							// [1F3CE] text|emoji
+🏏	Cricket								// [1F3CF]
+🏐	Volleyball							// [1F3D0]
+🏑	Feldhockey							// [1F3D1]
+🏒	Eishockey-Schläger und Puck					// [1F3D2]
+🏓	Tischtennis							// [1F3D3]
+🏔	Schneebedeckter Berg						// [1F3D4] text|emoji
+🏕	Camping								// [1F3D5] text|emoji
+🏖	Strand mit Sonnenschirm						// [1F3D6] text|emoji
+🏗	Kran								// [1F3D7] text|emoji
+🏘	Wohnhäuser							// [1F3D8] text|emoji
+🏙	Skyline								// [1F3D9] text|emoji
+🏚	Verlassenes Haus						// [1F3DA] text|emoji
+🏛	Antikes Gebäude							// [1F3DB] text|emoji
+🏜	Wüste								// [1F3DC] text|emoji
+🏝	Einsame Insel							// [1F3DD] text|emoji
+🏞	Nationalpark							// [1F3DE] text|emoji
+🏟	Stadion								// [1F3DF] text|emoji
+🏠	Haus								// [1F3E0]
+🏡	Haus mit Garten							// [1F3E1]
+🏢	Bürogebäude							// [1F3E2]
+🏣	Japanisches Postgebäude						// [1F3E3]
+🏤	Europäisches Postgebäude					// [1F3E4]
+🏥	Krankenhaus							// [1F3E5]
+🏦	Bank								// [1F3E6]
+🏧	Geldautomat							// [1F3E7]
+🏨	Hotel								// [1F3E8]
+🏩	Stundenhotel							// [1F3E9]
+🏪	Supermarkt							// [1F3EA]
+🏫	Schule								// [1F3EB]
+🏬	Kaufhaus							// [1F3EC]
+🏭	Fabrik								// [1F3ED]
+🏮	Japanische Laterne						// [1F3EE]
+🏯	Japanisches Schloss						// [1F3EF]
+🏰	Europäisches Schloss						// [1F3F0]
+🏳	Wehende weiße Fahne						// [1F3F3] text|emoji
+🏴	Wehende schwarze Fahne						// [1F3F4]
+🏵	Rosette								// [1F3F5] text|emoji
+🏷	Etikett								// [1F3F7] text|emoji
+🏸	Badminton							// [1F3F8]
+🏹	Pfeil und Bogen							// [1F3F9]
+🏺	Amphore								// [1F3FA]
+🏻	Hauttyp 1–2							// [1F3FB]
+🏼	Hauttyp 3							// [1F3FC]
+🏽	Hauttyp 4							// [1F3FD]
+🏾	Hauttyp 5							// [1F3FE]
+🏿	Hauttyp 6							// [1F3FF]
+🐀	Ratte								// [1F400]
+🐁	Maus								// [1F401]
+🐂	Ochse								// [1F402]
+🐃	Wasserbüffel							// [1F403]
+🐄	Kuh								// [1F404]
+🐅	Tiger								// [1F405]
+🐆	Leopard								// [1F406]
+🐇	Hase								// [1F407]
+🐈	Katze								// [1F408]
+🐉	Drache								// [1F409]
+🐊	Krokodil							// [1F40A]
+🐋	Wal								// [1F40B]
+🐌	Schnecke							// [1F40C]
+🐍	Schlange							// [1F40D]
+🐎	Pferd								// [1F40E]
+🐏	Widder								// [1F40F]
+🐐	Ziege								// [1F410]
+🐑	Schaf								// [1F411]
+🐒	Affe								// [1F412]
+🐓	Hahn								// [1F413]
+🐔	Huhn								// [1F414]
+🐕	Hund								// [1F415]
+🐖	Schwein								// [1F416]
+🐗	Eber								// [1F417]
+🐘	Elefant								// [1F418]
+🐙	Oktopus								// [1F419]
+🐚	Schneckenhaus							// [1F41A]
+🐛	Raupe								// [1F41B]
+🐜	Ameise								// [1F41C]
+🐝	Biene								// [1F41D]
+🐞	Marienkäfer							// [1F41E]
+🐟	Fisch								// [1F41F]
+🐠	Tropenfisch							// [1F420]
+🐡	Kugelfisch							// [1F421]
+🐢	Schildkröte							// [1F422]
+🐣	Küken in Eierschale						// [1F423]
+🐤	Kükenkopf							// [1F424]
+🐥	Küken in Frontansicht						// [1F425]
+🐦	Vogelkopf							// [1F426]
+🐧	Pinguinkopf							// [1F427]
+🐨	Koalagesicht							// [1F428]
+🐩	Pudel								// [1F429]
+🐪	Dromedar							// [1F42A]
+🐫	Kamel								// [1F42B]
+🐬	Delfin								// [1F42C]
+🐭	Mausgesicht							// [1F42D]
+🐮	Kuhgesicht							// [1F42E]
+🐯	Tigergesicht							// [1F42F]
+🐰	Hasengesicht							// [1F430]
+🐱	Katzengesicht							// [1F431]
+🐲	Drachengesicht							// [1F432]
+🐳	Blasender Wal							// [1F433]
+🐴	Pferdegesicht							// [1F434]
+🐵	Affengesicht							// [1F435]
+🐶	Hundegesicht							// [1F436]
+🐷	Schweinegesicht							// [1F437]
+🐸	Froschgesicht							// [1F438]
+🐹	Hamstergesicht							// [1F439]
+🐺	Wolfsgesicht							// [1F43A]
+🐻	Bärengesicht							// [1F43B]
+🐼	Pandagesicht							// [1F43C]
+🐽	Schweinerüssel							// [1F43D]
+🐾	Tatzenabdrücke							// [1F43E]
+🐿	Streifenhörnchen						// [1F43F] text|emoji
+👀	Augen								// [1F440]
+👁	Auge								// [1F441] text|emoji
+👂	Ohr								// [1F442]
+👃	Nase								// [1F443]
+👄	Mund								// [1F444]
+👅	Zunge								// [1F445]
+👆	Nach oben weisender Zeigefinger von hinten			// [1F446]
+👇	Nach unten weisender Zeigefinger				// [1F447]
+👈	Nach links weisender Zeigefinger				// [1F448]
+👉	Nach rechts weisender Zeigefinger				// [1F449]
+👊	Geballte Faust							// [1F44A]
+👋	Winkende Hand							// [1F44B]
+👌	OK-Zeichen							// [1F44C]
+👍	Daumen hoch							// [1F44D]
+👎	Daumen runter							// [1F44E]
+👏	Klatschende Hände						// [1F44F]
+👐	Offene Hände							// [1F450]
+👑	Krone								// [1F451]
+👒	Damenhut mit Schleife						// [1F452]
+👓	Brille								// [1F453]
+👔	Hemd mit Krawatte						// [1F454]
+👕	T-Shirt								// [1F455]
+👖	Jeans								// [1F456]
+👗	Kleid								// [1F457]
+👘	Kimono								// [1F458]
+👙	Bikini								// [1F459]
+👚	Bluse								// [1F45A]
+👛	Geldbörse							// [1F45B]
+👜	Handtasche							// [1F45C]
+👝	Beutel								// [1F45D]
+👞	Herrenschuh							// [1F45E]
+👟	Sportschuh							// [1F45F]
+👠	High Heel							// [1F460]
+👡	Damensandale							// [1F461]
+👢	Damenstiefel							// [1F462]
+👣	Fußabdrücke							// [1F463]
+👤	Silhouette einer Büste						// [1F464]
+👥	Silhouette mehrerer Büsten					// [1F465]
+👦	Junge								// [1F466]
+👧	Mädchen								// [1F467]
+👨	Mann								// [1F468]
+👩	Frau								// [1F469]
+👪	Familie								// [1F46A]
+👫	Pärchen aus Frau und Mann					// [1F46B]
+👬	Pärchen aus Mann und Mann					// [1F46C]
+👭	Pärchen aus Frau und Frau					// [1F46D]
+👮	Polizist(in)							// [1F46E]
+👯	Leute mit Hasenohren						// [1F46F]
+👰	Braut mit Schleier						// [1F470]
+👱	Blonde Person							// [1F471]
+👲	Mann mit chinesischem Hut					// [1F472]
+👳	Mensch mit Turban						// [1F473]
+👴	Älterer Mann							// [1F474]
+👵	Ältere Frau							// [1F475]
+👶	Kind								// [1F476]
+👷	Bauarbeiter(in) mit Helm					// [1F477]
+👸	Prinzessin							// [1F478]
+👹	Japanischer Oger						// [1F479]
+👺	Japanischer Kobold						// [1F47A]
+👻	Geist								// [1F47B]
+👼	Putte								// [1F47C]
+👽	Außerirdisches Wesen						// [1F47D]
+👾	Computerspiel-Monster						// [1F47E]
+👿	Kobold								// [1F47F]
+💀	Totenkopf							// [1F480]
+💁	Infoschalter-Mitarbeiter(in)					// [1F481]
+💂	Wächter(in)							// [1F482]
+💃	Tänzerin							// [1F483]
+💄	Lippenstift							// [1F484]
+💅	Nagellack							// [1F485]
+💆	Kopfmassage							// [1F486]
+💇	Mensch beim Haareschneiden					// [1F487]
+💈	Barbershop-Säule						// [1F488]
+💉	Spritze								// [1F489]
+💊	Kapsel								// [1F48A]
+💋	Kussabdruck							// [1F48B]
+💌	Liebesbrief							// [1F48C]
+💍	Ring								// [1F48D]
+💎	Edelstein							// [1F48E]
+💏	Küssendes Paar							// [1F48F]
+💐	Blumenstrauß							// [1F490]
+💑	Paar								// [1F491]
+💒	Hochzeit							// [1F492]
+💓	Schlagendes Herz						// [1F493]
+💔	Gebrochenes Herz						// [1F494]
+💕	Zwei Herzen							// [1F495]
+💖	Funkelnde Herzen						// [1F496]
+💗	Wachsendes Herz							// [1F497]
+💘	Herz mit Pfeil							// [1F498]
+💙	Blaues Herz							// [1F499]
+💚	Grünes Herz							// [1F49A]
+💛	Gelbes Herz							// [1F49B]
+💜	Lilafarbenes Herz						// [1F49C]
+💝	Herz mit Schleife						// [1F49D]
+💞	Kreisende Herzen						// [1F49E]
+💟	Herzdekoration							// [1F49F]
+💠	Rautenform mit Punkt						// [1F4A0]
+💡	Glühbirne							// [1F4A1]
+💢	Ärger								// [1F4A2]
+💣	Bombe								// [1F4A3]
+💤	Schlafen							// [1F4A4]
+💥	Zusammenstoß							// [1F4A5]
+💦	Schweißtropfen							// [1F4A6]
+💧	Tropfen								// [1F4A7]
+💨	Staubwolke							// [1F4A8]
+💩	Kothaufen							// [1F4A9]
+💪	Angespannter Bizeps						// [1F4AA]
+💫	Benommenheit							// [1F4AB]
+💬	Sprechblase mit drei Punkten					// [1F4AC]
+💭	Gedankenblase							// [1F4AD]
+💮	Blumenstempel							// [1F4AE]
+💯	100 Punkte							// [1F4AF]
+💰	Geldsack							// [1F4B0]
+💱	Geldwechsel							// [1F4B1]
+💲	Dollar-Zeichen							// [1F4B2]
+💳	Kreditkarte							// [1F4B3]
+💴	Yen-Banknote							// [1F4B4]
+💵	Dollar-Banknote							// [1F4B5]
+💶	Euro-Banknote							// [1F4B6]
+💷	Pfund-Banknote							// [1F4B7]
+💸	Geldschein mit Flügeln						// [1F4B8]
+💹	Steigender Trend mit Yen-Zeichen				// [1F4B9]
+💺	Sitzplatz							// [1F4BA]
+💻	Computermonitor							// [1F4BB]
+💼	Aktentasche							// [1F4BC]
+💽	Minidisk							// [1F4BD]
+💾	Diskette							// [1F4BE]
+💿	CD								// [1F4BF]
+📀	DVD								// [1F4C0]
+📁	Ordner								// [1F4C1]
+📂	Geöffneter Ordner						// [1F4C2]
+📃	Teilweise eingerolltes Blatt					// [1F4C3]
+📄	Vorderseite eines Blattes					// [1F4C4]
+📅	Kalenderblatt							// [1F4C5]
+📆	Abreißkalender							// [1F4C6]
+📇	Rotationskartei							// [1F4C7]
+📈	Aufwärtstrend							// [1F4C8]
+📉	Abwärtstrend							// [1F4C9]
+📊	Balkendiagramm							// [1F4CA]
+📋	Zwischenablage							// [1F4CB]
+📌	Reißzwecke							// [1F4CC]
+📍	runde Reißzwecke						// [1F4CD]
+📎	Büroklammer							// [1F4CE]
+📏	Lineal								// [1F4CF]
+📐	Dreieckiges Lineal						// [1F4D0]
+📑	Pagemarker							// [1F4D1]
+📒	Spiralblock							// [1F4D2]
+📓	Notizbuch							// [1F4D3]
+📔	Notizbuch mit dekorativem Einband				// [1F4D4]
+📕	Geschlossenes Buch						// [1F4D5]
+📖	Offenes Buch							// [1F4D6]
+📗	Grünes Buch							// [1F4D7]
+📘	Blaues Buch							// [1F4D8]
+📙	Orangefarbenes Buch						// [1F4D9]
+📚	Bücherstapel							// [1F4DA]
+📛	Namensschild							// [1F4DB]
+📜	Schriftrolle							// [1F4DC]
+📝	Papier und Bleistift						// [1F4DD]
+📞	Telefonhörer							// [1F4DE]
+📟	Pager								// [1F4DF]
+📠	Faxgerät							// [1F4E0]
+📡	Satellitenschüssel						// [1F4E1]
+📢	Schallendes Megafon						// [1F4E2]
+📣	Megafon								// [1F4E3]
+📤	Postausgang							// [1F4E4]
+📥	Posteingang							// [1F4E5]
+📦	Paket								// [1F4E6]
+📧	E-Mail-Symbol							// [1F4E7]
+📨	Umschlag							// [1F4E8]
+📩	Umschlag mit Pfeil						// [1F4E9]
+📪	Geschlossener Briefkasten ohne Post				// [1F4EA]
+📫	Geschlossener Briefkasten mit Post				// [1F4EB]
+📬	Offener Briefkasten mit Post					// [1F4EC]
+📭	Offener Briefkasten ohne Post					// [1F4ED]
+📮	Briefkasten							// [1F4EE]
+📯	Posthorn							// [1F4EF]
+📰	Zeitung								// [1F4F0]
+📱	Mobiltelefon							// [1F4F1]
+📲	Anrufen								// [1F4F2]
+📳	Symbol für Vibrationsalarm					// [1F4F3]
+📴	Mobiltelefon aus						// [1F4F4]
+📵	Mobiltelefone verboten						// [1F4F5]
+📶	Balkenförmige Signalstärkenanzeige				// [1F4F6]
+📷	Fotoapparat							// [1F4F7]
+📸	Fotoapparat mit Blitz						// [1F4F8]
+📹	Videokamera							// [1F4F9]
+📺	Fernseher							// [1F4FA]
+📻	Radio								// [1F4FB]
+📼	Videokassette							// [1F4FC]
+📽	Filmprojektor							// [1F4FD] text|emoji
+📿	Gebetskette							// [1F4FF]
+🔀	Verschlungene Pfeile nach rechts				// [1F500]
+🔁	Wiederholen							// [1F501]
+🔂	Einmal Wiederholen						// [1F502]
+🔃	Kreisförmige Pfeile im Uhrzeigersinn				// [1F503]
+🔄	Kreisförmige Pfeile gegen den Uhrzeigersinn			// [1F504]
+🔅	Schwache Helligkeit						// [1F505]
+🔆	Starke Helligkeit						// [1F506]
+🔇	Durchgestrichener Lautsprecher					// [1F507]
+🔈	Lautsprecher							// [1F508]
+🔉	Lautsprecher mit einer Schallwelle				// [1F509]
+🔊	Lautsprecher mit drei Schallwellen				// [1F50A]
+🔋	Batterie							// [1F50B]
+🔌	Netzstecker							// [1F50C]
+🔍	Lupe nach links							// [1F50D]
+🔎	Lupe nach rechts						// [1F50E]
+🔏	Schloss mit Füller						// [1F50F]
+🔐	Schloss mit Schlüssel						// [1F510]
+🔑	Schlüssel							// [1F511]
+🔒	Geschlossenes Schloss						// [1F512]
+🔓	Offenes Schloss							// [1F513]
+🔔	Glocke								// [1F514]
+🔕	Durchgestrichene Glocke						// [1F515]
+🔖	Lesezeichen							// [1F516]
+🔗	Verknüpfungssymbol						// [1F517]
+🔘	Optionsfeld							// [1F518]
+🔙	Zurück-Pfeil							// [1F519]
+🔚	Ende-Zeichen							// [1F51A]
+🔛	Ein-Zeichen							// [1F51B]
+🔜	Bald-Zeichen							// [1F51C]
+🔝	Top-Zeichen							// [1F51D]
+🔞	Zeichen mit durchgestrichener 18				// [1F51E]
+🔟	Zahl 10 in blauem Quadrat					// [1F51F]
+🔠	Eingabesymbol lateinische Großbuchstaben			// [1F520]
+🔡	Eingabesymbol lateinische Kleinbuchstaben			// [1F521]
+🔢	Eingabesymbol Zahlen						// [1F522]
+🔣	Eingabesymbol Sonderzeichen					// [1F523]
+🔤	Eingabesymbol lateinische Buchstaben				// [1F524]
+🔥	Feuer								// [1F525]
+🔦	Taschenlampe							// [1F526]
+🔧	Schraubenschlüssel						// [1F527]
+🔨	Hammer								// [1F528]
+🔩	Mutter und Schraube						// [1F529]
+🔪	Küchenmesser							// [1F52A]
+🔫	Pistole								// [1F52B]
+🔬	Mikroskop							// [1F52C]
+🔭	Teleskop							// [1F52D]
+🔮	Kristallkugel							// [1F52E]
+🔯	Hexagramm mit Punkt						// [1F52F]
+🔰	Japanisches Anfänger-Zeichen					// [1F530]
+🔱	Dreizack							// [1F531]
+🔲	Schwarze quadratische Schaltfläche				// [1F532]
+🔳	Weiße quadratische Schaltfläche					// [1F533]
+🔴	Großer roter Kreis						// [1F534]
+🔵	Großer blauer Kreis						// [1F535]
+🔶	Große orangefarbene Raute					// [1F536]
+🔷	Große blaue Raute						// [1F537]
+🔸	Kleine orangefarbene Raute					// [1F538]
+🔹	Kleine blaue Raute						// [1F539]
+🔺	Rotes Dreieck mit Spitze oben					// [1F53A]
+🔻	Rotes Dreieck mit Spitze unten					// [1F53B]
+🔼	Aufwärts-Schaltfläche						// [1F53C]
+🔽	Abwärts-Schaltfläche						// [1F53D]
+🕉	om								// [1F549] text|emoji
+🕊	Taube								// [1F54A] text|emoji
+🕋	Kaaba								// [1F54B]
+🕌	Moschee								// [1F54C]
+🕍	Synagoge							// [1F54D]
+🕎	Menora								// [1F54E]
+🕐	Ziffernblatt 1.00 Uhr						// [1F550]
+🕑	Ziffernblatt 2.00 Uhr						// [1F551]
+🕒	Ziffernblatt 3.00 Uhr						// [1F552]
+🕓	Ziffernblatt 4.00 Uhr						// [1F553]
+🕔	Ziffernblatt 5.00 Uhr						// [1F554]
+🕕	Ziffernblatt 6.00 Uhr						// [1F555]
+🕖	Ziffernblatt 7.00 Uhr						// [1F556]
+🕗	Ziffernblatt 8.00 Uhr						// [1F557]
+🕘	Ziffernblatt 9.00 Uhr						// [1F558]
+🕙	Ziffernblatt 10.00 Uhr						// [1F559]
+🕚	Ziffernblatt 11.00 Uhr						// [1F55A]
+🕛	Ziffernblatt 12.00 Uhr						// [1F55B]
+🕜	Ziffernblatt 1.30 Uhr						// [1F55C]
+🕝	Ziffernblatt 2.30 Uhr						// [1F55D]
+🕞	Ziffernblatt 3.30 Uhr						// [1F55E]
+🕟	Ziffernblatt 4.30 Uhr						// [1F55F]
+🕠	Ziffernblatt 5.30 Uhr						// [1F560]
+🕡	Ziffernblatt 6.30 Uhr						// [1F561]
+🕢	Ziffernblatt 7.30 Uhr						// [1F562]
+🕣	Ziffernblatt 8.30 Uhr						// [1F563]
+🕤	Ziffernblatt 9.30 Uhr						// [1F564]
+🕥	Ziffernblatt 10.30 Uhr						// [1F565]
+🕦	Ziffernblatt 11.30 Uhr						// [1F566]
+🕧	Ziffernblatt 12.30 Uhr						// [1F567]
+🕯	Kerze								// [1F56F] text|emoji
+🕰	Kaminuhr							// [1F570] text|emoji
+🕳	Loch								// [1F573] text|emoji
+🕴	Schwebender Mann im Anzug					// [1F574] text|emoji
+🕵	Detektiv(in)							// [1F575] text|emoji
+🕶	Sonnenbrille							// [1F576] text|emoji
+🕷	Spinne								// [1F577] text|emoji
+🕸	Spinnennetz							// [1F578] text|emoji
+🕹	Joystick							// [1F579] text|emoji
+🕺	tanzender Mann							// [1F57A]
+🖇	Verhakte Büroklammern						// [1F587] text|emoji
+🖊	Kugelschreiber							// [1F58A] text|emoji
+🖋	Füllhalter							// [1F58B] text|emoji
+🖌	Pinsel								// [1F58C] text|emoji
+🖍	Wachsmalstift							// [1F58D] text|emoji
+🖐	Hand mit gespreizten Fingern					// [1F590] text|emoji
+🖕	Mittelfinger							// [1F595]
+🖖	Vulkanischer Gruß						// [1F596]
+🖤	schwarzes Herz							// [1F5A4]
+🖥	Computer							// [1F5A5] text|emoji
+🖨	Drucker								// [1F5A8] text|emoji
+🖱	Computermaus							// [1F5B1] text|emoji
+🖲	Trackball							// [1F5B2] text|emoji
+🖼	Gerahmtes Bild							// [1F5BC] text|emoji
+🗂	Karteibahnen							// [1F5C2] text|emoji
+🗃	Karteikasten							// [1F5C3] text|emoji
+🗄	Aktenschrank							// [1F5C4] text|emoji
+🗑	Papierkorb							// [1F5D1] text|emoji
+🗒	Notizblock							// [1F5D2] text|emoji
+🗓	Spiralkalender							// [1F5D3] text|emoji
+🗜	Schraubzwinge							// [1F5DC] text|emoji
+🗝	Alter Schlüssel							// [1F5DD] text|emoji
+🗞	Zusammengerollte Zeitung					// [1F5DE] text|emoji
+🗡	Dolch								// [1F5E1] text|emoji
+🗣	Sprechende Person						// [1F5E3] text|emoji
+🗨	Sprechblase links						// [1F5E8] text|emoji
+🗯	Sprechblase für wütende Aussage rechts				// [1F5EF] text|emoji
+🗳	Urne mit Wahlzettel						// [1F5F3] text|emoji
+🗺	Weltkarte							// [1F5FA] text|emoji
+🗻	Vulkan								// [1F5FB]
+🗼	Tokyo Tower							// [1F5FC]
+🗽	Freiheitsstatue							// [1F5FD]
+🗾	Umriss von Japan						// [1F5FE]
+🗿	Statue								// [1F5FF]
+
+// 1F600..1F64F : Emoticons
+
+😀	Lachender Smiley						// [1F600]
+😁	Grinsender Smiley						// [1F601]
+😂	Smiley mit Freudentränen					// [1F602]
+😃	Lachender Smiley mit offenem Mund				// [1F603]
+😄	Lachender Smiley mit lachenden Augen				// [1F604]
+😅	Lachender Smiley mit kaltem Schweiß				// [1F605]
+😆	Lachender Smiley mit geschlossenen Augen			// [1F606]
+😇	Lächelnder Smiley mit Heiligenschein				// [1F607]
+😈	Smiley mit Hörnern						// [1F608]
+😉	Zwinkernder Smiley						// [1F609]
+😊	Lächelnder Smiley mit lächelnden Augen				// [1F60A]
+😋	Sich die Lippen leckender Smiley				// [1F60B]
+😌	Erleichterter Smiley						// [1F60C]
+😍	Smiley mit Herzen als Augen					// [1F60D]
+😎	Smiley mit Sonnenbrille						// [1F60E]
+😏	Feixender Smiley						// [1F60F]
+😐	Neutraler Smiley						// [1F610]
+😑	Ausdrucksloser Smiley						// [1F611]
+😒	Unzufriedener Smiley						// [1F612]
+😓	Smiley mit kaltem Schweiß					// [1F613]
+😔	Nachdenklicher Smiley						// [1F614]
+😕	Verwunderter Smiley						// [1F615]
+😖	Bestürzter Smiley						// [1F616]
+😗	Küssender Smiley						// [1F617]
+😘	Kuss zuwerfender Smiley						// [1F618]
+😙	Lächelnder küssender Smiley					// [1F619]
+😚	Küssender Smiley mit geschlossenen Augen			// [1F61A]
+😛	Smiley mit herausgestreckter Zunge				// [1F61B]
+😜	Zwinkernder Smiley mit herausgestreckter Zunge			// [1F61C]
+😝	Smiley mit herausgestreckter Zunge und zusammengekniffenen Augen// [1F61D]
+😞	Enttäuschter Smiley						// [1F61E]
+😟	Besorgter Smiley						// [1F61F]
+😠	Verärgerter Smiley						// [1F620]
+😡	Rot angelaufener Smiley						// [1F621]
+😢	Weinender Smiley						// [1F622]
+😣	Durchhaltender Smiley						// [1F623]
+😤	Triumphierender Smiley						// [1F624]
+😥	Enttäuschter aber erleichterter Smiley				// [1F625]
+😦	Schockierter Smiley mit offenem Mund				// [1F626]
+😧	Schmerzgeplagter Smiley						// [1F627]
+😨	Ängstlicher Smiley						// [1F628]
+😩	Erschöpfter Smiley						// [1F629]
+😪	Schläfriger Smiley						// [1F62A]
+😫	Müder Smiley mit zusammengekniffenen Augen			// [1F62B]
+😬	Grimassen schneidender Smiley					// [1F62C]
+😭	Heftig weinender Smiley						// [1F62D]
+😮	Smiley mit offenem Mund						// [1F62E]
+😯	Sprachloser Smiley						// [1F62F]
+😰	Smiley mit offenem Mund und kaltem Schweiß			// [1F630]
+😱	Vor Angst schreiender Smiley					// [1F631]
+😲	Erstaunter Smiley						// [1F632]
+😳	Erröteter Smiley mit großen Augen				// [1F633]
+😴	Schlafender Smiley						// [1F634]
+😵	Benommener Smiley						// [1F635]
+😶	Smiley ohne Mund						// [1F636]
+😷	Smiley mit Schutzmaske vorm Mund				// [1F637]
+😸	Grinsender Katzen-Smiley					// [1F638]
+😹	Katzen-Smiley mit Freudentränen					// [1F639]
+😺	Lachender Katzen-Smiley mit offenem Mund			// [1F63A]
+😻	Katzen-Smiley mit Herzen als Augen				// [1F63B]
+😼	Verwegen lächelnder Katzen-Smiley				// [1F63C]
+😽	Küssender Katzen-Smiley mit geschlossenen Augen			// [1F63D]
+😾	Verärgerter Katzen-Smiley					// [1F63E]
+😿	Weinender Katzen-Smiley						// [1F63F]
+🙀	Vor Angst schreiender Katzen-Smiley				// [1F640]
+🙁	Trauriger Smiley						// [1F641]
+🙂	Lächelnder Smiley						// [1F642]
+🙃	Auf dem Kopf stehender Smiley					// [1F643]
+🙄	Augen verdrehender Smiley					// [1F644]
+🙅	Mensch mit gekreuzten Armen					// [1F645]
+🙆	Mensch mit Händen über dem Kopf					// [1F646]
+🙇	Verbeugung							// [1F647]
+🙈	Nichts sehen							// [1F648]
+🙉	Nichts hören							// [1F649]
+🙊	Nichts sagen							// [1F64A]
+🙋	Mensch mit erhobenem Arm					// [1F64B]
+🙌	Zwei erhobene Handflächen					// [1F64C]
+🙍	Stirnrunzelndes Gesicht						// [1F64D]
+🙎	Schmollendes Gesicht						// [1F64E]
+🙏	Gefaltete Hände							// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	Rakete								// [1F680]
+🚁	Hubschrauber							// [1F681]
+🚂	Dampflokomotive							// [1F682]
+🚃	Straßenbahnwagen						// [1F683]
+🚄	Hochgeschwindigkeitszug mit spitzer Nase			// [1F684]
+🚅	Hochgeschwindigkeitszug						// [1F685]
+🚆	Zug								// [1F686]
+🚇	U-Bahn								// [1F687]
+🚈	S-Bahn								// [1F688]
+🚉	Bahnhof								// [1F689]
+🚊	Straßenbahn							// [1F68A]
+🚋	Tramwagen							// [1F68B]
+🚌	Bus								// [1F68C]
+🚍	Vorderansicht Bus						// [1F68D]
+🚎	Oberleitungsbus							// [1F68E]
+🚏	Bushaltestelle							// [1F68F]
+🚐	Kleinbus							// [1F690]
+🚑	Krankenwagen							// [1F691]
+🚒	Feuerwehrauto							// [1F692]
+🚓	Polizeiwagen							// [1F693]
+🚔	Vorderansicht Polizeiwagen					// [1F694]
+🚕	Taxi								// [1F695]
+🚖	Vorderansicht Taxi						// [1F696]
+🚗	Auto								// [1F697]
+🚘	Vorderansicht Auto						// [1F698]
+🚙	Wohnmobil							// [1F699]
+🚚	Lieferwagen							// [1F69A]
+🚛	Sattelzug							// [1F69B]
+🚜	Traktor								// [1F69C]
+🚝	Einschienenbahn							// [1F69D]
+🚞	Bergbahn							// [1F69E]
+🚟	Schwebebahn							// [1F69F]
+🚠	Bergschwebebahn							// [1F6A0]
+🚡	Bergseilbahn							// [1F6A1]
+🚢	Schiff								// [1F6A2]
+🚣	Ruderboot							// [1F6A3]
+🚤	Schnellboot							// [1F6A4]
+🚥	Horizontale Verkehrsampel					// [1F6A5]
+🚦	Vertikale Verkehrsampel						// [1F6A6]
+🚧	Baustellenschild						// [1F6A7]
+🚨	Polizeilicht							// [1F6A8]
+🚩	Standortflagge							// [1F6A9]
+🚪	Tür								// [1F6AA]
+🚫	Kein-Zutritt-Zeichen						// [1F6AB]
+🚬	Zigarette							// [1F6AC]
+🚭	Rauchverbot							// [1F6AD]
+🚮	Mülleimer							// [1F6AE]
+🚯	Müll-verboten-Zeichen						// [1F6AF]
+🚰	Trinkwasser							// [1F6B0]
+🚱	Kein Trinkwasser						// [1F6B1]
+🚲	Fahrrad								// [1F6B2]
+🚳	Fahrrad-verboten-Schild						// [1F6B3]
+🚴	Fahrradfahrer(in)						// [1F6B4]
+🚵	Mountainbiker(in)						// [1F6B5]
+🚶	Fußgänger(in)							// [1F6B6]
+🚷	Fußgänger-verboten-Schild					// [1F6B7]
+🚸	Kinder-queren-die-Straße-Schild					// [1F6B8]
+🚹	Herren								// [1F6B9]
+🚺	Damen								// [1F6BA]
+🚻	Toiletten							// [1F6BB]
+🚼	Baby								// [1F6BC]
+🚽	Toilette							// [1F6BD]
+🚾	WC								// [1F6BE]
+🚿	Duschkopf							// [1F6BF]
+🛀	Badende Person							// [1F6C0]
+🛁	Badewanne							// [1F6C1]
+🛂	Passkontrolle							// [1F6C2]
+🛃	Zollkontrolle							// [1F6C3]
+🛄	Gepäckausgabe							// [1F6C4]
+🛅	Gepäckaufbewahrung						// [1F6C5]
+🛋	Sofa und Lampe							// [1F6CB] text|emoji
+🛌	Im Bett liegende Person						// [1F6CC]
+🛍	Einkaufstüten							// [1F6CD] text|emoji
+🛎	Rezeptionsklingel						// [1F6CE] text|emoji
+🛏	Bett								// [1F6CF] text|emoji
+🛐	Kultstätte							// [1F6D0]
+🛑	Stoppschild							// [1F6D1]
+🛒	Einkaufswagen							// [1F6D2]
+🛠	Hammer und Schraubenschlüssel					// [1F6E0] text|emoji
+🛡	Schutzschild							// [1F6E1] text|emoji
+🛢	Ölfass								// [1F6E2] text|emoji
+🛣	Autobahn							// [1F6E3] text|emoji
+🛤	Gleise								// [1F6E4] text|emoji
+🛥	Motorboot							// [1F6E5] text|emoji
+🛩	Kleines Flugzeug						// [1F6E9] text|emoji
+🛫	Start eines Flugzeugs						// [1F6EB]
+🛬	Landung eines Flugzeugs						// [1F6EC]
+🛰	Satellit							// [1F6F0] text|emoji
+🛳	Passagierschiff							// [1F6F3] text|emoji
+🛴	Tretroller							// [1F6F4]
+🛵	Motorroller							// [1F6F5]
+🛶	Kanu								// [1F6F6]
+🛷	sled								// [1F6F7] (no translation)
+🛸	flying saucer							// [1F6F8] (no translation)
+
+// 1F900..1F9FF : Supplemental Symbols and Pictographs
+
+🤐	Smiley mit Reißverschlussmund					// [1F910]
+🤑	Smiley mit Dollarzeichen					// [1F911]
+🤒	Smiley mit Fieberthermometer					// [1F912]
+🤓	Nerd-Smiley							// [1F913]
+🤔	Nachdenkender Smiley						// [1F914]
+🤕	Smiley mit Kopfverband						// [1F915]
+🤖	Robotergesicht							// [1F916]
+🤗	Umarmender Smiley						// [1F917]
+🤘	Teufelsgruß							// [1F918]
+🤙	Ruf mich an							// [1F919]
+🤚	erhobener Handrücken						// [1F91A]
+🤛	Faust nach links						// [1F91B]
+🤜	Faust nach rechts						// [1F91C]
+🤝	Handschlag							// [1F91D]
+🤞	Hand mit gekreuzten Fingern					// [1F91E]
+🤟	love you gesture						// [1F91F] (no translation)
+🤠	Smiley mit Cowboyhut						// [1F920]
+🤡	Clown-Gesicht							// [1F921]
+🤢	an Übelkeit leiden						// [1F922]
+🤣	sich vor Lachen auf dem Boden wälzen				// [1F923]
+🤤	sabberndes Gesicht						// [1F924]
+🤥	lügendes Gesicht						// [1F925]
+🤦	sich an den Kopf fassen						// [1F926]
+🤧	niesendes Gesicht						// [1F927]
+🤨	face with raised eyebrow					// [1F928] (no translation)
+🤩	star struck							// [1F929] (no translation)
+🤪	crazy face							// [1F92A] (no translation)
+🤫	shushing face							// [1F92B] (no translation)
+🤬	face with symbols over mouth					// [1F92C] (no translation)
+🤭	face with hand over mouth					// [1F92D] (no translation)
+🤮	face vomiting							// [1F92E] (no translation)
+🤯	exploding head							// [1F92F] (no translation)
+🤰	schwangere Frau							// [1F930]
+🤱	breast feeding							// [1F931] (no translation)
+🤲	palms up together						// [1F932] (no translation)
+🤳	Selfie								// [1F933]
+🤴	Prinz								// [1F934]
+🤵	Mann im Smoking							// [1F935]
+🤶	Weihnachtsfrau							// [1F936]
+🤷	keine Ahnung							// [1F937]
+🤸	Radschlagende Person						// [1F938]
+🤹	Jongleur(in)							// [1F939]
+🤺	Fechter(in)							// [1F93A]
+🤼	Ringer(in)							// [1F93C]
+🤽	Wasserballspieler(in)						// [1F93D]
+🤾	Handballspieler(in)						// [1F93E]
+🥀	welkende Blume							// [1F940]
+🥁	Trommel								// [1F941]
+🥂	Sektgläser							// [1F942]
+🥃	Trinkglas							// [1F943]
+🥄	Löffel								// [1F944]
+🥅	Tor								// [1F945]
+🥇	Medaille 1. Platz						// [1F947]
+🥈	Medaille 2. Platz						// [1F948]
+🥉	Medaille 3. Platz						// [1F949]
+🥊	Boxhandschuh							// [1F94A]
+🥋	Kampfsportanzug							// [1F94B]
+🥌	curling stone							// [1F94C] (no translation)
+🥐	Croissant							// [1F950]
+🥑	Avocado								// [1F951]
+🥒	Gurke								// [1F952]
+🥓	Speckstreifen							// [1F953]
+🥔	Kartoffel							// [1F954]
+🥕	Mohrrübe							// [1F955]
+🥖	Baguette							// [1F956]
+🥗	Salat								// [1F957]
+🥘	Pfannengericht							// [1F958]
+🥙	Döner								// [1F959]
+🥚	Ei								// [1F95A]
+🥛	Glas Milch							// [1F95B]
+🥜	Erdnuss								// [1F95C]
+🥝	Kiwi								// [1F95D]
+🥞	Pfannkuchen							// [1F95E]
+🥟	dumpling							// [1F95F] (no translation)
+🥠	fortune cookie							// [1F960] (no translation)
+🥡	takeout box							// [1F961] (no translation)
+🥢	chopsticks							// [1F962] (no translation)
+🥣	bowl with spoon							// [1F963] (no translation)
+🥤	cup with straw							// [1F964] (no translation)
+🥥	coconut								// [1F965] (no translation)
+🥦	broccoli							// [1F966] (no translation)
+🥧	pie								// [1F967] (no translation)
+🥨	pretzel								// [1F968] (no translation)
+🥩	cut of meat							// [1F969] (no translation)
+🥪	sandwich							// [1F96A] (no translation)
+🥫	canned food							// [1F96B] (no translation)
+🦀	Krebs								// [1F980]
+🦁	Löwengesicht							// [1F981]
+🦂	Skorpion							// [1F982]
+🦃	Truthahn							// [1F983]
+🦄	Einhorngesicht							// [1F984]
+🦅	Adler								// [1F985]
+🦆	Ente								// [1F986]
+🦇	Fledermaus							// [1F987]
+🦈	Haifisch							// [1F988]
+🦉	Eule								// [1F989]
+🦊	Fuchs								// [1F98A]
+🦋	Schmetterling							// [1F98B]
+🦌	Hirsch								// [1F98C]
+🦍	Gorilla								// [1F98D]
+🦎	Eidechse							// [1F98E]
+🦏	Nashorn								// [1F98F]
+🦐	Garnele								// [1F990]
+🦑	Tintenfisch							// [1F991]
+🦒	giraffe								// [1F992] (no translation)
+🦓	zebra								// [1F993] (no translation)
+🦔	hedgehog							// [1F994] (no translation)
+🦕	sauropod							// [1F995] (no translation)
+🦖	t rex								// [1F996] (no translation)
+🦗	cricket								// [1F997] (no translation)
+🧀	Käsestück							// [1F9C0]
+🧐	face with monocle						// [1F9D0] (no translation)
+🧑	adult								// [1F9D1] (no translation)
+🧒	child								// [1F9D2] (no translation)
+🧓	older adult							// [1F9D3] (no translation)
+🧔	bearded person							// [1F9D4] (no translation)
+🧕	woman with headscarf						// [1F9D5] (no translation)
+🧖	person in steamy room						// [1F9D6] (no translation)
+🧗	person climbing							// [1F9D7] (no translation)
+🧘	person in lotus position					// [1F9D8] (no translation)
+🧙	mage								// [1F9D9] (no translation)
+🧚	fairy								// [1F9DA] (no translation)
+🧛	vampire								// [1F9DB] (no translation)
+🧜	merperson							// [1F9DC] (no translation)
+🧝	elf								// [1F9DD] (no translation)
+🧞	genie								// [1F9DE] (no translation)
+🧟	zombie								// [1F9DF] (no translation)
+🧠	brain								// [1F9E0] (no translation)
+🧡	orange heart							// [1F9E1] (no translation)
+🧢	billed cap							// [1F9E2] (no translation)
+🧣	scarf								// [1F9E3] (no translation)
+🧤	gloves								// [1F9E4] (no translation)
+🧥	coat								// [1F9E5] (no translation)
+🧦	socks								// [1F9E6] (no translation)
+
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
+
+🇦🇨	Ascension							// [1F1E6 1F1E8] AC
+🇦🇩	Andorra								// [1F1E6 1F1E9] AD
+🇦🇪	Vereinigte Arabische Emirate					// [1F1E6 1F1EA] AE
+🇦🇫	Afghanistan							// [1F1E6 1F1EB] AF
+🇦🇬	Antigua und Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	Albanien							// [1F1E6 1F1F1] AL
+🇦🇲	Armenien							// [1F1E6 1F1F2] AM
+🇦🇴	Angola								// [1F1E6 1F1F4] AO
+🇦🇶	Antarktis							// [1F1E6 1F1F6] AQ
+🇦🇷	Argentinien							// [1F1E6 1F1F7] AR
+🇦🇸	Amerikanisch-Samoa						// [1F1E6 1F1F8] AS
+🇦🇹	Österreich							// [1F1E6 1F1F9] AT
+🇦🇺	Australien							// [1F1E6 1F1FA] AU
+🇦🇼	Aruba								// [1F1E6 1F1FC] AW
+🇦🇽	Ålandinseln							// [1F1E6 1F1FD] AX
+🇦🇿	Aserbaidschan							// [1F1E6 1F1FF] AZ
+🇧🇦	Bosnien und Herzegowina						// [1F1E7 1F1E6] BA
+🇧🇧	Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	Bangladesch							// [1F1E7 1F1E9] BD
+🇧🇪	Belgien								// [1F1E7 1F1EA] BE
+🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
+🇧🇬	Bulgarien							// [1F1E7 1F1EC] BG
+🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
+🇧🇮	Burundi								// [1F1E7 1F1EE] BI
+🇧🇯	Benin								// [1F1E7 1F1EF] BJ
+🇧🇱	St. Barthélemy							// [1F1E7 1F1F1] BL
+🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
+🇧🇳	Brunei Darussalam						// [1F1E7 1F1F3] BN
+🇧🇴	Bolivien							// [1F1E7 1F1F4] BO
+🇧🇶	Bonaire, Sint Eustatius und Saba				// [1F1E7 1F1F6] BQ
+🇧🇷	Brasilien							// [1F1E7 1F1F7] BR
+🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
+🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
+🇧🇻	Bouvetinsel							// [1F1E7 1F1FB] BV
+🇧🇼	Botsuana							// [1F1E7 1F1FC] BW
+🇧🇾	Belarus								// [1F1E7 1F1FE] BY
+🇧🇿	Belize								// [1F1E7 1F1FF] BZ
+🇨🇦	Kanada								// [1F1E8 1F1E6] CA
+🇨🇨	Kokosinseln							// [1F1E8 1F1E8] CC
+🇨🇩	Kongo-Kinshasa							// [1F1E8 1F1E9] CD
+🇨🇫	Zentralafrikanische Republik					// [1F1E8 1F1EB] CF
+🇨🇬	Kongo-Brazzaville						// [1F1E8 1F1EC] CG
+🇨🇭	Schweiz								// [1F1E8 1F1ED] CH
+🇨🇮	Côte d’Ivoire							// [1F1E8 1F1EE] CI
+🇨🇰	Cookinseln							// [1F1E8 1F1F0] CK
+🇨🇱	Chile								// [1F1E8 1F1F1] CL
+🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
+🇨🇳	China								// [1F1E8 1F1F3] CN
+🇨🇴	Kolumbien							// [1F1E8 1F1F4] CO
+🇨🇵	Clipperton-Insel						// [1F1E8 1F1F5] CP
+🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	Kuba								// [1F1E8 1F1FA] CU
+🇨🇻	Cabo Verde							// [1F1E8 1F1FB] CV
+🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
+🇨🇽	Weihnachtsinsel							// [1F1E8 1F1FD] CX
+🇨🇾	Zypern								// [1F1E8 1F1FE] CY
+🇨🇿	Tschechien							// [1F1E8 1F1FF] CZ
+🇩🇪	Deutschland							// [1F1E9 1F1EA] DE
+🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
+🇩🇯	Dschibuti							// [1F1E9 1F1EF] DJ
+🇩🇰	Dänemark							// [1F1E9 1F1F0] DK
+🇩🇲	Dominica							// [1F1E9 1F1F2] DM
+🇩🇴	Dominikanische Republik						// [1F1E9 1F1F4] DO
+🇩🇿	Algerien							// [1F1E9 1F1FF] DZ
+🇪🇦	Ceuta und Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
+🇪🇪	Estland								// [1F1EA 1F1EA] EE
+🇪🇬	Ägypten								// [1F1EA 1F1EC] EG
+🇪🇭	Westsahara							// [1F1EA 1F1ED] EH
+🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
+🇪🇸	Spanien								// [1F1EA 1F1F8] ES
+🇪🇹	Äthiopien							// [1F1EA 1F1F9] ET
+🇪🇺	Europäische Union						// [1F1EA 1F1FA] EU
+🇫🇮	Finnland							// [1F1EB 1F1EE] FI
+🇫🇯	Fidschi								// [1F1EB 1F1EF] FJ
+🇫🇰	Falklandinseln							// [1F1EB 1F1F0] FI
+🇫🇲	Mikronesien							// [1F1EB 1F1F2] FM
+🇫🇴	Färöer								// [1F1EB 1F1F4] FO
+🇫🇷	Frankreich							// [1F1EB 1F1F7] FR
+🇬🇦	Gabun								// [1F1EC 1F1E6] GA
+🇬🇧	Vereinigtes Königreich						// [1F1EC 1F1E7] GB
+🇬🇩	Grenada								// [1F1EC 1F1E9] GD
+🇬🇪	Georgien							// [1F1EC 1F1EA] GE
+🇬🇫	Französisch-Guayana						// [1F1EC 1F1EB] GF
+🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	Ghana								// [1F1EC 1F1ED] GH
+🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
+🇬🇱	Grönland							// [1F1EC 1F1F1] GL
+🇬🇲	Gambia								// [1F1EC 1F1F2] GM
+🇬🇳	Guinea								// [1F1EC 1F1F3] GN
+🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
+🇬🇶	Äquatorialguinea						// [1F1EC 1F1F6] GQ
+🇬🇷	Griechenland							// [1F1EC 1F1F7] GR
+🇬🇸	Südgeorgien und die Südlichen Sandwichinseln			// [1F1EC 1F1F8] GS
+🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	Guam								// [1F1EC 1F1FA] GU
+🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
+🇬🇾	Guyana								// [1F1EC 1F1FE] GY
+🇭🇰	Sonderverwaltungszone Hongkong					// [1F1ED 1F1F0] HK
+🇭🇲	Heard und McDonaldinseln					// [1F1ED 1F1F2] HM
+🇭🇳	Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	Kroatien							// [1F1ED 1F1F7] HR
+🇭🇹	Haiti								// [1F1ED 1F1F9] HT
+🇭🇺	Ungarn								// [1F1ED 1F1FA] HU
+🇮🇨	Kanarische Inseln						// [1F1EE 1F1E8] IC
+🇮🇩	Indonesien							// [1F1EE 1F1E9] ID
+🇮🇪	Irland								// [1F1EE 1F1EA] IE
+🇮🇱	Israel								// [1F1EE 1F1F1] IL
+🇮🇲	Isle of Man							// [1F1EE 1F1F2] IM
+🇮🇳	Indien								// [1F1EE 1F1F3] IN
+🇮🇴	Britisches Territorium im Indischen Ozean			// [1F1EE 1F1F4] IO
+🇮🇶	Irak								// [1F1EE 1F1F6] IQ
+🇮🇷	Iran								// [1F1EE 1F1F7] IR
+🇮🇸	Island								// [1F1EE 1F1F8] IS
+🇮🇹	Italien								// [1F1EE 1F1F9] IT
+🇯🇪	Jersey								// [1F1EF 1F1EA] JE
+🇯🇲	Jamaika								// [1F1EF 1F1F2] JM
+🇯🇴	Jordanien							// [1F1EF 1F1F4] JO
+🇯🇵	Japan								// [1F1EF 1F1F5] JP
+🇰🇪	Kenia								// [1F1F0 1F1EA] KE
+🇰🇬	Kirgisistan							// [1F1F0 1F1EC] KG
+🇰🇭	Kambodscha							// [1F1F0 1F1ED] KH
+🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	Komoren								// [1F1F0 1F1F2] KM
+🇰🇳	St. Kitts und Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	Nordkorea							// [1F1F0 1F1F5] KP
+🇰🇷	Südkorea							// [1F1F0 1F1F7] KR
+🇰🇼	Kuwait								// [1F1F0 1F1FC] KW
+🇰🇾	Kaimaninseln							// [1F1F0 1F1FE] KY
+🇰🇿	Kasachstan							// [1F1F0 1F1FF] KZ
+🇱🇦	Laos								// [1F1F1 1F1E6] LA
+🇱🇧	Libanon								// [1F1F1 1F1E7] LB
+🇱🇨	St. Lucia							// [1F1F1 1F1E8] LC
+🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
+🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	Liberia								// [1F1F1 1F1F7] LR
+🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
+🇱🇹	Litauen								// [1F1F1 1F1F9] LT
+🇱🇺	Luxemburg							// [1F1F1 1F1FA] LU
+🇱🇻	Lettland							// [1F1F1 1F1FB] LV
+🇱🇾	Libyen								// [1F1F1 1F1FE] LY
+🇲🇦	Marokko								// [1F1F2 1F1E6] MA
+🇲🇨	Monaco								// [1F1F2 1F1E8] MC
+🇲🇩	Republik Moldau							// [1F1F2 1F1E9] MD
+🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
+🇲🇫	St. Martin							// [1F1F2 1F1EB] MF
+🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
+🇲🇭	Marshallinseln							// [1F1F2 1F1ED] MH
+🇲🇰	Mazedonien							// [1F1F2 1F1F0] MK
+🇲🇱	Mali								// [1F1F2 1F1F1] ML
+🇲🇲	Myanmar								// [1F1F2 1F1F2] MM
+🇲🇳	Mongolei							// [1F1F2 1F1F3] MN
+🇲🇴	Sonderverwaltungsregion Macau					// [1F1F2 1F1F4] MO
+🇲🇵	Nördliche Marianen						// [1F1F2 1F1F5] MP
+🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
+🇲🇷	Mauretanien							// [1F1F2 1F1F7] MR
+🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	Malta								// [1F1F2 1F1F9] MT
+🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
+🇲🇻	Malediven							// [1F1F2 1F1FB] MV
+🇲🇼	Malawi								// [1F1F2 1F1FC] MW
+🇲🇽	Mexiko								// [1F1F2 1F1FD] MX
+🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
+🇲🇿	Mosambik							// [1F1F2 1F1FF] MZ
+🇳🇦	Namibia								// [1F1F3 1F1E6] NA
+🇳🇨	Neukaledonien							// [1F1F3 1F1E8] NC
+🇳🇪	Niger								// [1F1F3 1F1EA] NE
+🇳🇫	Norfolkinsel							// [1F1F3 1F1EB] NF
+🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
+🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
+🇳🇱	Niederlande							// [1F1F3 1F1F1] NL
+🇳🇴	Norwegen							// [1F1F3 1F1F4] NO
+🇳🇵	Nepal								// [1F1F3 1F1F5] NP
+🇳🇷	Nauru								// [1F1F3 1F1F7] NR
+🇳🇺	Niue								// [1F1F3 1F1FA] NU
+🇳🇿	Neuseeland							// [1F1F3 1F1FF] NZ
+🇴🇲	Oman								// [1F1F4 1F1F2] OM
+🇵🇦	Panama								// [1F1F5 1F1E6] PA
+🇵🇪	Peru								// [1F1F5 1F1EA] PE
+🇵🇫	Französisch-Polynesien						// [1F1F5 1F1EB] PF
+🇵🇬	Papua-Neuguinea							// [1F1F5 1F1EC] PG
+🇵🇭	Philippinen							// [1F1F5 1F1ED] PH
+🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	Polen								// [1F1F5 1F1F1] PL
+🇵🇲	St. Pierre und Miquelon						// [1F1F5 1F1F2] PM
+🇵🇳	Pitcairninseln							// [1F1F5 1F1F3] PN
+🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	Palästinensische Autonomiegebiete				// [1F1F5 1F1F8] PS
+🇵🇹	Portugal							// [1F1F5 1F1F9] PT
+🇵🇼	Palau								// [1F1F5 1F1FC] PW
+🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	Katar								// [1F1F6 1F1E6] QA
+🇷🇪	Réunion								// [1F1F7 1F1EA] RE
+🇷🇴	Rumänien							// [1F1F7 1F1F4] RO
+🇷🇸	Serbien								// [1F1F7 1F1F8] RS
+🇷🇺	Russland							// [1F1F7 1F1FA] RU
+🇷🇼	Ruanda								// [1F1F7 1F1FC] RW
+🇸🇦	Saudi-Arabien							// [1F1F8 1F1E6] SA
+🇸🇧	Salomonen							// [1F1F8 1F1E7] SB
+🇸🇨	Seychellen							// [1F1F8 1F1E8] SC
+🇸🇩	Sudan								// [1F1F8 1F1E9] SD
+🇸🇪	Schweden							// [1F1F8 1F1EA] SE
+🇸🇬	Singapur							// [1F1F8 1F1EC] SG
+🇸🇭	St. Helena							// [1F1F8 1F1ED] SH
+🇸🇮	Slowenien							// [1F1F8 1F1EE] SI
+🇸🇯	Spitzbergen							// [1F1F8 1F1EF] SJ
+🇸🇰	Slowakei							// [1F1F8 1F1F0] SK
+🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
+🇸🇲	San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	Senegal								// [1F1F8 1F1F3] SN
+🇸🇴	Somalia								// [1F1F8 1F1F4] SO
+🇸🇷	Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	Südsudan							// [1F1F8 1F1F8] SS
+🇸🇹	São Tomé und Príncipe						// [1F1F8 1F1F9] ST
+🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
+🇸🇾	Syrien								// [1F1F8 1F1FE] SY
+🇸🇿	Swasiland							// [1F1F8 1F1FF] SZ
+🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	Turks- und Caicosinseln						// [1F1F9 1F1E8] TC
+🇹🇩	Tschad								// [1F1F9 1F1E9] TD
+🇹🇫	Französische Süd- und Antarktisgebiete				// [1F1F9 1F1EB] TF
+🇹🇬	Togo								// [1F1F9 1F1EC] TG
+🇹🇭	Thailand							// [1F1F9 1F1ED] TH
+🇹🇯	Tadschikistan							// [1F1F9 1F1EF] TJ
+🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
+🇹🇱	Osttimor							// [1F1F9 1F1F1] TL
+🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
+🇹🇳	Tunesien							// [1F1F9 1F1F3] TN
+🇹🇴	Tonga								// [1F1F9 1F1F4] TO
+🇹🇷	Türkei								// [1F1F9 1F1F7] TR
+🇹🇹	Trinidad und Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
+🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
+🇹🇿	Tansania							// [1F1F9 1F1FF] TZ
+🇺🇦	Ukraine								// [1F1FA 1F1E6] UA
+🇺🇬	Uganda								// [1F1FA 1F1EC] UG
+🇺🇲	Amerikanische Überseeinseln					// [1F1FA 1F1F2] UM
+🇺🇳	Vereinte Nationen						// [1F1FA 1F1F3] UN
+🇺🇸	Vereinigte Staaten						// [1F1FA 1F1F8] US
+🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
+🇺🇿	Usbekistan							// [1F1FA 1F1FF] UZ
+🇻🇦	Vatikanstadt							// [1F1FB 1F1E6] VA
+🇻🇨	St. Vincent und die Grenadinen					// [1F1FB 1F1E8] VC
+🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	Britische Jungferninseln					// [1F1FB 1F1EC] VG
+🇻🇮	Amerikanische Jungferninseln					// [1F1FB 1F1EE] VI
+🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
+🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
+🇼🇫	Wallis und Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	Samoa								// [1F1FC 1F1F8] WS
+🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
+🇾🇪	Jemen								// [1F1FE 1F1EA] YE
+🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
+🇿🇦	Südafrika							// [1F1FF 1F1E6] ZA
+🇿🇲	Sambia								// [1F1FF 1F1F2] ZM
+🇿🇼	Simbabwe							// [1F1FF 1F1FC] ZW
+
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	England							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Schottland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	Raute in blauem Quadrat						// [0023 FE0F 20E3]
+*️⃣	Sternchen in blauem Quadrat					// [002A FE0F 20E3]
+0️⃣	Zahl 0 in blauem Quadrat					// [0030 FE0F 20E3]
+1️⃣	Zahl 1 in blauem Quadrat					// [0031 FE0F 20E3]
+2️⃣	Zahl 2 in blauem Quadrat					// [0032 FE0F 20E3]
+3️⃣	Zahl 3 in blauem Quadrat					// [0033 FE0F 20E3]
+4️⃣	Zahl 4 in blauem Quadrat					// [0034 FE0F 20E3]
+5️⃣	Zahl 5 in blauem Quadrat					// [0035 FE0F 20E3]
+6️⃣	Zahl 6 in blauem Quadrat					// [0036 FE0F 20E3]
+7️⃣	Zahl 7 in blauem Quadrat					// [0037 FE0F 20E3]
+8️⃣	Zahl 8 in blauem Quadrat					// [0038 FE0F 20E3]
+9️⃣	Zahl 9 in blauem Quadrat					// [0039 FE0F 20E3]
+
+// Emoji ZWJ Sequence: Family
+
+👩‍❤‍💋‍👨	Küssendes Paar: Frau, Mann		// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	Küssendes Paar: Mann, Mann		// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	Küssendes Paar: Frau, Frau		// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	Paar: Frau, Mann				// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	Paar: Mann, Mann				// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	Paar: Frau, Frau				// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	Familie: Mann, Frau, Junge			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	Familie: Mann, Frau, Mädchen			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	Familie: Mann, Frau, Mädchen, Junge	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	Familie: Mann, Frau, Junge, Junge	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	Familie: Mann, Frau, Mädchen, Mädchen	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	Familie: Mann, Mann, Junge			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	Familie: Mann, Mann, Mädchen			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	Familie: Mann, Mann, Mädchen, Junge	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	Familie: Mann, Mann, Junge, Junge	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	Familie: Mann, Mann, Mädchen, Mädchen	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	Familie: Frau, Frau, Junge			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	Familie: Frau, Frau, Mädchen			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	Familie: Frau, Frau, Mädchen, Junge	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	Familie: Frau, Frau, Junge, Junge	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	Familie: Frau, Frau, Mädchen, Mädchen	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	Familie: Mann, Junge					// [1F468 200D 1F466]
+👨‍👦‍👦	Familie: Mann, Junge, Junge			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	Familie: Mann, Mädchen					// [1F468 200D 1F467]
+👨‍👧‍👦	Familie: Mann, Mädchen, Junge			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	Familie: Mann, Mädchen, Mädchen			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	Familie: Frau, Junge					// [1F469 200D 1F466]
+👩‍👦‍👦	Familie: Frau, Junge, Junge			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	Familie: Frau, Mädchen					// [1F469 200D 1F467]
+👩‍👧‍👦	Familie: Frau, Mädchen, Junge			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	Familie: Frau, Mädchen, Mädchen			// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gendered Role, with object
+
+👨‍⚕	Arzt							// [1F468 200D 2695]
+👩‍⚕	Ärztin							// [1F469 200D 2695]
+👨‍⚖	Richter							// [1F468 200D 2696]
+👩‍⚖	Richterin						// [1F469 200D 2696]
+👨‍✈	Pilot							// [1F468 200D 2708]
+👩‍✈	Pilotin							// [1F469 200D 2708]
+👨‍🌾	Bauer							// [1F468 200D 1F33E]
+👩‍🌾	Bäuerin							// [1F469 200D 1F33E]
+👨‍🍳	Koch							// [1F468 200D 1F373]
+👩‍🍳	Köchin							// [1F469 200D 1F373]
+👨‍🎓	Student							// [1F468 200D 1F393]
+👩‍🎓	Studentin						// [1F469 200D 1F393]
+👨‍🎤	Sänger							// [1F468 200D 1F3A4]
+👩‍🎤	Sängerin						// [1F469 200D 1F3A4]
+👨‍🎨	Künstler						// [1F468 200D 1F3A8]
+👩‍🎨	Künstlerin						// [1F469 200D 1F3A8]
+👨‍🏫	Lehrer							// [1F468 200D 1F3EB]
+👩‍🏫	Lehrerin						// [1F469 200D 1F3EB]
+👨‍🏭	Fabrikarbeiter						// [1F468 200D 1F3ED]
+👩‍🏭	Fabrikarbeiterin					// [1F469 200D 1F3ED]
+👨‍💻	IT-Experte						// [1F468 200D 1F4BB]
+👩‍💻	IT-Expertin						// [1F469 200D 1F4BB]
+👨‍💼	Büroangestellter					// [1F468 200D 1F4BC]
+👩‍💼	Büroangestellte						// [1F469 200D 1F4BC]
+👨‍🔧	Handwerker						// [1F468 200D 1F527]
+👩‍🔧	Handwerkerin						// [1F469 200D 1F527]
+👨‍🔬	Forscher						// [1F468 200D 1F52C]
+👩‍🔬	Forscherin						// [1F469 200D 1F52C]
+👨‍🚀	Astronaut						// [1F468 200D 1F680]
+👩‍🚀	Astronautin						// [1F469 200D 1F680]
+👨‍🚒	Feuerwehrmann						// [1F468 200D 1F692]
+👩‍🚒	Feuerwehrfrau						// [1F469 200D 1F692]
+
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	Polizistin						// [1F46E 200D 2640]
+👮‍♂	Polizist						// [1F46E 200D 2642]
+👱‍♀	blonde Frau						// [1F471 200D 2640]
+👱‍♂	blonder Mann						// [1F471 200D 2642]
+👳‍♀	Frau mit Turban						// [1F473 200D 2640]
+👳‍♂	Mann mit Turban						// [1F473 200D 2642]
+👷‍♀	Bauarbeiterin						// [1F477 200D 2640]
+👷‍♂	Bauarbeiter						// [1F477 200D 2642]
+💂‍♀	Wächterin						// [1F482 200D 2640]
+💂‍♂	Wächter							// [1F482 200D 2642]
+🕵️‍♀	Detektivin						// [1F575 200D 2640]
+🕵️‍♂	Detektiv						// [1F575 200D 2642]
+🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
+🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
+🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
+🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
+🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
+🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
+🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
+🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
+🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
+🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
+🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
+🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
+🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
+🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Activity
+
+⛹‍♀	Frau mit Ball						// [26F9 200D 2640]
+⛹‍♂	Mann mit Ball						// [26F9 200D 2642]
+🏃‍♀	Joggerin						// [1F3C3 200D 2640]
+🏃‍♂	Jogger							// [1F3C3 200D 2642]
+🏄‍♀	Surferin						// [1F3C4 200D 2640]
+🏄‍♂	Surfer							// [1F3C4 200D 2642]
+🏊‍♀	Schwimmerin						// [1F3CA 200D 2640]
+🏊‍♂	Schwimmer						// [1F3CA 200D 2642]
+🏋️‍♀	Gewichtheberin						// [1F3CB 200D 2640]
+🏋️‍♂	Gewichtheber						// [1F3CB 200D 2642]
+🏌️‍♀	Golferin						// [1F3CC 200D 2640]
+🏌️‍♂	Golfer							// [1F3CC 200D 2642]
+👯‍♀	Frauen mit Hasenohren					// [1F46F 200D 2640]
+👯‍♂	Männer mit Hasenohren					// [1F46F 200D 2642]
+💆‍♀	Frau, die eine Kopfmassage bekommt			// [1F486 200D 2640]
+💆‍♂	Mann, der eine Kopfmassage bekommt			// [1F486 200D 2642]
+💇‍♀	Frau, der die Haare geschnitten werden			// [1F487 200D 2640]
+💇‍♂	Mann, dem die Haare geschnitten werden			// [1F487 200D 2642]
+🚣‍♀	Frau im Ruderboot					// [1F6A3 200D 2640]
+🚣‍♂	Mann im Ruderboot					// [1F6A3 200D 2642]
+🚴‍♀	Fahradfahrerin						// [1F6B4 200D 2640]
+🚴‍♂	Fahrradfaher						// [1F6B4 200D 2642]
+🚵‍♀	Frau mit Mountainbike					// [1F6B5 200D 2640]
+🚵‍♂	Mann mit Mountainbike					// [1F6B5 200D 2642]
+🚶‍♀	Fußgängerin						// [1F6B6 200D 2640]
+🚶‍♂	Fußgänger						// [1F6B6 200D 2642]
+🤸‍♀	Rad schlagende Frau					// [1F938 200D 2640]
+🤸‍♂	Rad schlagender Mann					// [1F938 200D 2642]
+🤹‍♀	Jongleurin						// [1F939 200D 2640]
+🤹‍♂	Jongleur						// [1F939 200D 2642]
+🤼‍♀	ringende Frauen						// [1F93C 200D 2640]
+🤼‍♂	ringende Männer						// [1F93C 200D 2642]
+🤽‍♀	Wasserballspielerin					// [1F93D 200D 2640]
+🤽‍♂	Wasserballspieler					// [1F93D 200D 2642]
+🤾‍♀	Handballspielerin					// [1F93E 200D 2640]
+🤾‍♂	Handballspieler						// [1F93E 200D 2642]
+🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
+🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
+🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
+🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
+🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
+🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	Infoschalter-Mitarbeiterin				// [1F481 200D 2640]
+💁‍♂	Infoschalter-Mitarbeiter				// [1F481 200D 2642]
+🙅‍♀	Frau mit überkreuzten Armen				// [1F645 200D 2640]
+🙅‍♂	Mann mit überkreuzten Armen				// [1F645 200D 2642]
+🙆‍♀	Frau mit Händen auf dem Kopf				// [1F646 200D 2640]
+🙆‍♂	Mann mit Händen auf dem Kopf				// [1F646 200D 2642]
+🙇‍♀	sich verbeugende Frau					// [1F647 200D 2640]
+🙇‍♂	sich verbeugender Mann					// [1F647 200D 2642]
+🙋‍♀	Frau mit erhobenem Arm					// [1F64B 200D 2640]
+🙋‍♂	Mann mit erhobenem Arm					// [1F64B 200D 2642]
+🙍‍♀	stirnrunzelnde Frau					// [1F64D 200D 2640]
+🙍‍♂	stirnrunzelnder Mann					// [1F64D 200D 2642]
+🙎‍♀	schmollende Frau					// [1F64E 200D 2640]
+🙎‍♂	schmollender Mann					// [1F64E 200D 2642]
+🤦‍♀	sich an den Kopf fassende Frau				// [1F926 200D 2640]
+🤦‍♂	sich an den Kopf fassender Mann				// [1F926 200D 2642]
+🤷‍♀	schulterzuckende Frau					// [1F937 200D 2640]
+🤷‍♂	schulterzuckender Mann					// [1F937 200D 2642]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈	Regenbogenfahne						// [1F3F3 200D 1F308]
+👁‍🗨	Auge in Sprechblase					// [1F441 200D 1F5E8]
+
+// References:
+//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//
+// Sources:
+//   1.  emoji-test.txt (Emoji)
+//   2.  common/annotations/de.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
