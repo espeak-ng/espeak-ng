@@ -785,9 +785,9 @@ zh: espeak-ng-data/zh_dict
 dictsource/zh_listx:
 	ln -svf extra/zh_listx dictsource/
 if HAVE_ZH_EXTENDED_DICTIONARY
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_listx
+espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_listx dictsource/zh_emoji
 else
-espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra
+espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_emoji
 endif
 
 zhy: espeak-ng-data/zhy_dict
