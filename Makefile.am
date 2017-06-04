@@ -741,7 +741,7 @@ sl: espeak-ng-data/sl_dict
 espeak-ng-data/sl_dict: dictsource/sl_list dictsource/sl_rules dictsource/sl_extra dictsource/sl_emoji
 
 sq: espeak-ng-data/sq_dict
-espeak-ng-data/sq_dict: dictsource/sq_list dictsource/sq_rules dictsource/sq_extra
+espeak-ng-data/sq_dict: dictsource/sq_list dictsource/sq_rules dictsource/sq_extra dictsource/sq_emoji
 
 sr: espeak-ng-data/sr_dict
 espeak-ng-data/sr_dict: dictsource/sr_list dictsource/sr_rules dictsource/sr_extra
