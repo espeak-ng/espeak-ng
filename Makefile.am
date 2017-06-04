@@ -678,7 +678,7 @@ mr: espeak-ng-data/mr_dict
 espeak-ng-data/mr_dict: dictsource/mr_list dictsource/mr_rules dictsource/mr_extra dictsource/mr_emoji
 
 ms: espeak-ng-data/ms_dict
-espeak-ng-data/ms_dict: dictsource/ms_list dictsource/ms_rules dictsource/ms_extra
+espeak-ng-data/ms_dict: dictsource/ms_list dictsource/ms_rules dictsource/ms_extra dictsource/ms_emoji
 
 mt: espeak-ng-data/mt_dict
 espeak-ng-data/mt_dict: dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
