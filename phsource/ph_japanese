@@ -171,7 +171,7 @@ phoneme N\\
   vcd uvl nas
   ipa ɴ
   // FIXME: Stub phoneme.
-  CALL jp/n
+  CALL ja/n
 endphoneme
 
 // Plosives

@@ -1669,7 +1669,7 @@ endphoneme
 // ADDITIONAL PHONEME TABLES
 //*******************************************************************
 
-phonemetable jp base1
+phonemetable ja base1
 include ph_japanese
 
 phonemetable consonants base1

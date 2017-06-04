@@ -478,8 +478,8 @@ dictionaries: \
 	espeak-ng-data/id_dict \
 	espeak-ng-data/is_dict \
 	espeak-ng-data/it_dict \
+	espeak-ng-data/ja_dict \
 	espeak-ng-data/jbo_dict \
-	espeak-ng-data/jp_dict \
 	espeak-ng-data/ka_dict \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
@@ -756,11 +756,11 @@ dictsource/jbo_extra:
 espeak-ng-data/jbo_dict: src/espeak-ng phsource/phonemes.stamp dictsource/jbo_list dictsource/jbo_rules dictsource/jbo_extra
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=jbo && cd ..
 
-jp: espeak-ng-data/jp_dict
-dictsource/jp_extra:
-	touch dictsource/jp_extra
-espeak-ng-data/jp_dict: src/espeak-ng phsource/phonemes.stamp dictsource/jp_list dictsource/jp_rules dictsource/jp_extra
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=jp && cd ..
+ja: espeak-ng-data/ja_dict
+dictsource/ja_extra:
+	touch dictsource/ja_extra
+espeak-ng-data/ja_dict: src/espeak-ng phsource/phonemes.stamp dictsource/ja_list dictsource/ja_rules dictsource/ja_extra
+	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=ja && cd ..
 
 ka: espeak-ng-data/ka_dict
 dictsource/ka_extra:

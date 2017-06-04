@@ -64,7 +64,7 @@ The supported languages are:
 | `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `jp`              | Japanese              | Japanese<sup>[2]</sup>      |                        |
+| `jpx`       | `ja`              | Japanese              | Japanese<sup>[2]</sup>      |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |

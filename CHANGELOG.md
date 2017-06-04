@@ -24,6 +24,7 @@ bug fixes:
 
 *  Fix running `make clean ; make`.
 *  Fix reading stdin buffers larger than 1000.
+*  Fixed various language and parent BCP 47 codes (`jp` is now `ja`).
 
 new languages:
 
