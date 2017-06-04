@@ -66,7 +66,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  da (Danish)
 *  de (German)
 *  el (Greek)
-*  en (English)
+*  en (English) -- American
 *  es (Spanish)
 *  et (Estonian)
 *  eu (Basque)
@@ -96,6 +96,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  or (Oriya)
 *  pa (Punjabi)
 *  pl (Polish)
+*  pt (Portuguese) -- Brazil
 
 ### 1.49.1 - 2017-01-21
 
