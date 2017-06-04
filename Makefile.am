@@ -433,6 +433,7 @@ update-emoji:
 	tools/emoji dictsource/en_emoji gu ${CLDR_PATH} > dictsource/gu_emoji
 	tools/emoji dictsource/en_emoji hi ${CLDR_PATH} > dictsource/hi_emoji
 	tools/emoji dictsource/en_emoji hr ${CLDR_PATH} > dictsource/hr_emoji
+	tools/emoji dictsource/en_emoji hu ${CLDR_PATH} > dictsource/hu_emoji
 
 ##### dictionaries:
 
@@ -712,7 +713,7 @@ espeak-ng-data/hr_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hr_list
 hu: espeak-ng-data/hu_dict
 dictsource/hu_extra:
 	touch dictsource/hu_extra
-espeak-ng-data/hu_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hu_list dictsource/hu_rules dictsource/hu_extra
+espeak-ng-data/hu_dict: src/espeak-ng phsource/phonemes.stamp dictsource/hu_list dictsource/hu_rules dictsource/hu_extra dictsource/hu_emoji
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=hu && cd ..
 
 hy: espeak-ng-data/hy_dict

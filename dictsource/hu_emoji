@@ -1,0 +1,1678 @@
+// Emoji and Other Symbol pronunciations for Hungarian
+//
+// Entries with `text|emoji` in the comments have text and emoji forms. They
+// can be followed by [FE0E] to select the text style, and [FE0F] to select
+// the emoji style.
+//
+// NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
+// in interpreting ZWJ emoji sequences.
+
+$textmode
+
+// 0080..00FF : C1 Controls and Latin-1 Supplement
+
+©	copyright (szerzői jog által védett)				// [00A9] text|emoji
+®	registered (bejegyzett)						// [00AE] text|emoji
+
+// 2000..203C : General Punctuation
+
+‼	dupla felkiáltójel						// [203C] text|emoji
+⁉	felkiáltójel kérdőjellel					// [2049] text|emoji
+
+// 2100..214F : Letterlike Symbols
+
+™	védjegy								// [2122] text|emoji
+ℹ	információforrás						// [2139] text|emoji
+
+// 2190..21FF : Arrows
+
+↔	balra-jobbra mutató nyíl					// [2194] text|emoji
+↕	fel-le mutató nyíl						// [2195] text|emoji
+↖	balra felfelé mutató nyíl					// [2196] text|emoji
+↗	jobbra felfelé mutató nyíl					// [2197] text|emoji
+↘	jobbra lefelé mutató nyíl					// [2198] text|emoji
+↙	balra lefelé mutató nyíl					// [2199] text|emoji
+↩	balra görbülő jobb nyíl						// [21A9] text|emoji
+↪	jobbra görbülő bal nyíl						// [21AA] text|emoji
+
+// 2300..23FF : Miscellaneous Technical
+
+⌚	óra								// [231A]
+⌛	homokóra							// [231B]
+⌨	billentyűzet							// [2328] text|emoji
+⏏	lemez kiadása gomb						// [23CF] text|emoji
+⏩	előretekerés gomb						// [23E9]
+⏪	visszatekerés gomb						// [23EA]
+⏫	gyors felfelé gomb						// [23EB]
+⏬	gyors lefelé gomb						// [23EC]
+⏭	következő szám gomb						// [23ED] text|emoji
+⏮	legutóbbi szám gomb						// [23EE] text|emoji
+⏯	lejátszás vagy szünet gomb					// [23EF] text|emoji
+⏰	ébresztőóra							// [23F0]
+⏱	stopperóra							// [23F1] text|emoji
+⏲	visszaszámláló óra						// [23F2] text|emoji
+⏳	homokóra csordogáló homokkal					// [23F3]
+⏸	szüneteltetés gomb						// [23F8] text|emoji
+⏹	leállítás gomb							// [23F9] text|emoji
+⏺	felvétel gomb							// [23FA] text|emoji
+
+// 2460..24FF : Enclosed Alphanumerics
+
+Ⓜ	bekarikázott m betű						// [24C2] text|emoji
+
+// 25A0..25FF : Geometric Shapes
+
+▪	kis fekete négyzet						// [25AA] text|emoji
+▫	kis fehér négyzet						// [25AB] text|emoji
+▶	lejátszás gomb							// [25B6] text|emoji
+◀	visszajátszás gomb						// [25C0] text|emoji
+◻	közepes fehér négyzet						// [25FB] text|emoji
+◼	közepes fekete négyzet						// [25FC] text|emoji
+◽	kis-közepes fehér négyzet					// [25FD]
+◾	kis-közepes fekete négyzet					// [25FE]
+
+// 2600..26FF : Miscellaneous Symbols
+
+☀	nap								// [2600] text|emoji
+☁	felhő								// [2601] text|emoji
+☂	esernyő								// [2602] text|emoji
+☃	hóember								// [2603] text|emoji
+☄	üstökös								// [2604] text|emoji
+☎	telefon								// [260E] text|emoji
+☑	jelölőnégyzet pipával						// [2611] text|emoji
+☔	esernyő esőcseppekkel						// [2614]
+☕	forró ital							// [2615]
+☘	lóhere								// [2618] text|emoji
+☝	kéz felfelé mutató ujjal					// [261D] text|emoji
+☠	koponya csontokkal						// [2620] text|emoji
+☢	radioaktív							// [2622] text|emoji
+☣	biológiai veszély						// [2623] text|emoji
+☦	ortodox kereszt							// [2626] text|emoji
+☪	csillag és félhold						// [262A] text|emoji
+☮	békejel								// [262E] text|emoji
+☯	jin-jang							// [262F] text|emoji
+☸	dharma-kerék							// [2638] text|emoji
+☹	rosszalló arc							// [2639] text|emoji
+☺	mosolygó arc							// [263A] text|emoji
+♀	női nem jelképe							// [2640] text|emoji
+♂	férfi nem jelképe						// [2642] text|emoji
+♈	kos csillagjegy							// [2648]
+♉	bika csillagjegy						// [2649]
+♊	ikrek csillagjegy						// [264A]
+♋	rák csillagjegy							// [264B]
+♌	oroszlán csillagjegy						// [264C]
+♍	szűz csillagjegy						// [264D]
+♎	mérleg csillagjegy						// [264E]
+♏	skorpió csillagjegy						// [264F]
+♐	nyilas csillagjegy						// [2650]
+♑	bak csillagjegy							// [2651]
+♒	vízöntő csillagjegy						// [2652]
+♓	halak csillagjegy						// [2653]
+♠	pikk szín							// [2660] text|emoji
+♣	treff szín							// [2663] text|emoji
+♥	kőr szín							// [2665] text|emoji
+♦	káró szín							// [2666] text|emoji
+♨	hőforrás							// [2668] text|emoji
+♻	újrahasznosítás szimbólum					// [267B] text|emoji
+♿	kerekesszék							// [267F]
+⚒	kalapács és csákány						// [2692] text|emoji
+⚓	vasmacska							// [2693]
+⚔	keresztezett kardok						// [2694] text|emoji
+⚕	orvosi szimbólum						// [2695] text|emoji
+⚖	kétkarú mérleg							// [2696] text|emoji
+⚗	lombik								// [2697] text|emoji
+⚙	fogaskerék							// [2699] text|emoji
+⚛	atom szimbólum							// [269B] text|emoji
+⚜	anjou-liliom							// [269C] text|emoji
+⚠	figyelmeztetés							// [26A0] text|emoji
+⚡	magasfeszültség							// [26A1]
+⚪	fehér kör							// [26AA]
+⚫	fekete kör							// [26AB]
+⚰	koporsó								// [26B0] text|emoji
+⚱	halotti urna							// [26B1] text|emoji
+⚽	focilabda							// [26BD]
+⚾	baseball-labda							// [26BE]
+⛄	hóember hó nélkül						// [26C4]
+⛅	nap egy felhő mögött						// [26C5]
+⛈	felhő villámmal és esővel					// [26C8] text|emoji
+⛎	kígyótartó							// [26CE]
+⛏	csákány								// [26CF] text|emoji
+⛑	sisak vörös kereszttel						// [26D1] text|emoji
+⛓	lánc								// [26D3] text|emoji
+⛔	behajtani tilos							// [26D4]
+⛩	sintó szentély							// [26E9] text|emoji
+⛪	templom								// [26EA]
+⛰	hegy								// [26F0] text|emoji
+⛱	ernyő a földön							// [26F1] text|emoji
+⛲	szökőkút							// [26F2]
+⛳	zászló a lyuknál						// [26F3]
+⛴	komp								// [26F4] text|emoji
+⛵	vitorlás hajó							// [26F5]
+⛷	síelő								// [26F7] text|emoji
+⛸	jégkorcsolya							// [26F8] text|emoji
+⛹	ember labdával							// [26F9] text|emoji
+⛺	sátor								// [26FA]
+⛽	benzinkút							// [26FD]
+
+// 2700..27BF : Dingbats
+
+✂	olló								// [2702] text|emoji
+✅	vastag fehér pipa						// [2705]
+✈	repülőgép							// [2708] text|emoji
+✉	boríték								// [2709] text|emoji
+✊	felemelt ököl							// [270A]
+✋	felemelt kéz							// [270B]
+✌	győzelmi jelet mutató kéz					// [270C] text|emoji
+✍	író kéz								// [270D] text|emoji
+✏	ceruza								// [270F] text|emoji
+✒	fekete tollhegy							// [2712] text|emoji
+✔	vastag pipa							// [2714] text|emoji
+✖	vastag szorzásjel						// [2716] text|emoji
+✝	latin kereszt							// [271D] text|emoji
+✡	dávid-csillag							// [2721] text|emoji
+✨	szikrák								// [2728]
+✳	nyolcágú csillag						// [2733] text|emoji
+✴	nyolcas csillag							// [2734] text|emoji
+❄	hópehely							// [2744] text|emoji
+❇	szikra								// [2747] text|emoji
+❌	áthúzásjel							// [274C]
+❎	áthúzásjel gomb							// [274E]
+❓	kérdőjel							// [2753]
+❔	fehér kérdőjel							// [2754]
+❕	fehér felkiáltójel						// [2755]
+❗	felkiáltójel							// [2757]
+❣	nagy szív alakú felkiáltójel					// [2763] text|emoji
+❤	vörös szív							// [2764] text|emoji
+➕	vastag pluszjel							// [2795]
+➖	vastag mínuszjel						// [2796]
+➗	vastag osztásjel						// [2797]
+➡	jobbra mutató nyíl						// [27A1] text|emoji
+➰	hurok								// [27B0]
+➿	dupla hurok							// [27BF]
+
+// 2900..297F : Supplemental Arrows-B
+
+⤴	felfelé görbülő jobb nyíl					// [2934] text|emoji
+⤵	lefelé görbülő jobb nyíl					// [2935] text|emoji
+
+// 2B00..2BFF : Miscellaneous Symbols and Arrows
+
+⬅	balra mutató nyíl						// [2B05] text|emoji
+⬆	felfelé mutató nyíl						// [2B06] text|emoji
+⬇	lefelé mutató nyíl						// [2B07] text|emoji
+⬛	nagy fekete négyzet						// [2B1B]
+⬜	nagy fehér négyzet						// [2B1C]
+⭐	közepes fehér csillag						// [2B50]
+⭕	nagy, vastag kör						// [2B55]
+
+// 3000..303F : CJK Symbols and Punctuation
+
+〰	hullámos gondolatjel						// [3030] text|emoji
+〽	részelválasztó							// [303D] text|emoji
+
+// 3200..32FF : Enclosed CJK Letters and Months
+
+㊗	bekarikázott „gratuláció” képírásjel				// [3297] text|emoji
+㊙	bekarikázott „titok” képírásjel					// [3299] text|emoji
+
+// 1F100..1F1FF : Enclosed Alphanumeric Supplement
+
+🅰	a gomb								// [1F170] text|emoji
+🅱	b gomb								// [1F171] text|emoji
+🅾	0 gomb								// [1F17E] text|emoji
+🅿	p gomb								// [1F17F] text|emoji
+🆎	ab gomb								// [1F18E]
+🆑	bekeretezett „cl” rövidítés					// [1F191]
+🆒	bekeretezett „cool” szó						// [1F192]
+🆓	bekeretezett „free” szó						// [1F193]
+🆔	bekeretezett „id” rövidítés					// [1F194]
+🆕	bekeretezett „new” szó						// [1F195]
+🆖	bekeretezett „ng” rövidítés					// [1F196]
+🆗	bekeretezett „ok” szó						// [1F197]
+🆘	bekeretezett „sos” rövidítés					// [1F198]
+🆙	„up!” gomb							// [1F199]
+🆚	bekeretezett „vs” rövidítés					// [1F19A]
+
+// 1F200..1F2FF : Enclosed Ideographic Supplement
+
+🈁	bekeretezett „koko” katakana					// [1F201]
+🈂	bekeretezett „sa” katakana					// [1F202] text|emoji
+🈚	bekeretezett „kivonás” képírásjel				// [1F21A]
+🈯	bekeretezett „ujj” képírásjel					// [1F22F]
+🈲	bekeretezett „tiltás” képírásjel				// [1F232]
+🈳	bekeretezett „üres” képírásjel					// [1F233]
+🈴	bekeretezett „együtt” képírásjel				// [1F234]
+🈵	bekeretezett „teli” képírásjel					// [1F235]
+🈶	bekeretezett „létezik” képírásjel				// [1F236]
+🈷	bekeretezett „hold” képírásjel					// [1F237] text|emoji
+🈸	bekeretezett „alkalmazás” képírásjel				// [1F238]
+🈹	bekeretezett „osztás” képírásjel				// [1F239]
+🈺	bekeretezett „működik” képírásjel				// [1F23A]
+🉐	bekarikázott „előny” képírásjel					// [1F250]
+🉑	bekarikázott „elfogadás” képírásjel				// [1F251]
+
+// 1F000..1F02F : Mahjong Tiles
+
+🀄	madzsong vörös sárkány						// [1F004]
+
+// 1F0A0..1F0FF : Playing Cards
+
+🃏	dzsóker								// [1F0CF]
+
+// 1F300..1F5FF : Miscellaneous Symbols and Pictographs
+
+🌀	ciklon								// [1F300]
+🌁	ködös								// [1F301]
+🌂	becsukott esernyő						// [1F302]
+🌃	éjszaka csillagokkal						// [1F303]
+🌄	hegyek mögött felkelő nap					// [1F304]
+🌅	napfelkelte							// [1F305]
+🌆	városkép alkonyatkor						// [1F306]
+🌇	naplemente							// [1F307]
+🌈	szivárvány							// [1F308]
+🌉	híd éjszaka							// [1F309]
+🌊	hullám a vízen							// [1F30A]
+🌋	vulkán								// [1F30B]
+🌌	tejút								// [1F30C]
+🌍	európát és afrikát mutató földgömb				// [1F30D]
+🌎	amerikát mutató földgömb					// [1F30E]
+🌏	ázsiát és ausztráliát mutató földgömb				// [1F30F]
+🌐	földgömb délkörökkel						// [1F310]
+🌑	újhold								// [1F311]
+🌒	növő, kifli alakú hold						// [1F312]
+🌓	első negyedben lévő hold					// [1F313]
+🌔	növő domború hold						// [1F314]
+🌕	telihold							// [1F315]
+🌖	fogyó domború hold						// [1F316]
+🌗	utolsó negyedben lévő hold					// [1F317]
+🌘	fogyó, kifli alakú hold						// [1F318]
+🌙	kifli alakú hold						// [1F319]
+🌚	új hold arccal							// [1F31A]
+🌛	első negyedben lévő hold arccal					// [1F31B]
+🌜	utolsó negyedben lévő hold arccal				// [1F31C]
+🌝	telihold arccal							// [1F31D]
+🌞	nap arccal							// [1F31E]
+🌟	fénylő csillag							// [1F31F]
+🌠	hullócsillag							// [1F320]
+🌡	hőmérő								// [1F321] text|emoji
+🌤	nap egy kis felhő mögött					// [1F324] text|emoji
+🌥	nap egy nagy felhő mögött					// [1F325] text|emoji
+🌦	nap a felhő mögött esővel					// [1F326] text|emoji
+🌧	felhő esővel							// [1F327] text|emoji
+🌨	felhő hóval							// [1F328] text|emoji
+🌩	felhő villámmal							// [1F329] text|emoji
+🌪	tornádó								// [1F32A] text|emoji
+🌫	köd								// [1F32B] text|emoji
+🌬	szélarc								// [1F32C] text|emoji
+🌭	hot dog								// [1F32D]
+🌮	taco								// [1F32E]
+🌯	burrito								// [1F32F]
+🌰	gesztenye							// [1F330]
+🌱	palánta								// [1F331]
+🌲	örökzöld							// [1F332]
+🌳	lombhullató fa							// [1F333]
+🌴	pálmafa								// [1F334]
+🌵	kaktusz								// [1F335]
+🌶	erőspaprika							// [1F336] text|emoji
+🌷	tulipán								// [1F337]
+🌸	cseresznyevirág							// [1F338]
+🌹	rózsa								// [1F339]
+🌺	hibiszkusz							// [1F33A]
+🌻	napraforgó							// [1F33B]
+🌼	virágzás							// [1F33C]
+🌽	kukoricacső							// [1F33D]
+🌾	rizs								// [1F33E]
+🌿	gyógynövény							// [1F33F]
+🍀	négylevelű lóhere						// [1F340]
+🍁	juharlevél							// [1F341]
+🍂	lehullott levél							// [1F342]
+🍃	szélfútta levél							// [1F343]
+🍄	gomba								// [1F344]
+🍅	paradicsom							// [1F345]
+🍆	padlizsán							// [1F346]
+🍇	szőlő								// [1F347]
+🍈	sárgadinnye							// [1F348]
+🍉	görögdinnye							// [1F349]
+🍊	mandarin							// [1F34A]
+🍋	citrom								// [1F34B]
+🍌	banán								// [1F34C]
+🍍	ananász								// [1F34D]
+🍎	piros alma							// [1F34E]
+🍏	zöld alma							// [1F34F]
+🍐	körte								// [1F350]
+🍑	őszibarack							// [1F351]
+🍒	cseresznye							// [1F352]
+🍓	eper								// [1F353]
+🍔	hamburger							// [1F354]
+🍕	pizza								// [1F355]
+🍖	csontos hús							// [1F356]
+🍗	csirkecomb							// [1F357]
+🍘	rizskeksz							// [1F358]
+🍙	rizsgolyó							// [1F359]
+🍚	főtt rizs							// [1F35A]
+🍛	currys rizs							// [1F35B]
+🍜	gőzölgő tál							// [1F35C]
+🍝	spagetti							// [1F35D]
+🍞	kenyér								// [1F35E]
+🍟	sült krumpli							// [1F35F]
+🍠	sült édesburgonya						// [1F360]
+🍡	dango								// [1F361]
+🍢	oden								// [1F362]
+🍣	szusi								// [1F363]
+🍤	sült garnélarák							// [1F364]
+🍥	csavart haltorta						// [1F365]
+🍦	lágyfagylalt							// [1F366]
+🍧	fagylalt öntettel						// [1F367]
+🍨	fagylalt							// [1F368]
+🍩	fánk								// [1F369]
+🍪	sütemény							// [1F36A]
+🍫	csokoládé							// [1F36B]
+🍬	cukorka								// [1F36C]
+🍭	nyalóka								// [1F36D]
+🍮	puding								// [1F36E]
+🍯	mézes csupor							// [1F36F]
+🍰	gyümölcstorta							// [1F370]
+🍱	japán ételdoboz							// [1F371]
+🍲	egy tál étel							// [1F372]
+🍳	sütés-főzés							// [1F373]
+🍴	kés és villa							// [1F374]
+🍵	fül nélküli teáscsésze						// [1F375]
+🍶	szaké								// [1F376]
+🍷	borospohár							// [1F377]
+🍸	koktélos pohár							// [1F378]
+🍹	trópusi ital							// [1F379]
+🍺	söröskorsó							// [1F37A]
+🍻	összekoccanó söröskorsók					// [1F37B]
+🍼	cumisüveg							// [1F37C]
+🍽	kés és villa tányérral						// [1F37D] text|emoji
+🍾	üveg kiugró dugóval						// [1F37E]
+🍿	pattogatott kukorica						// [1F37F]
+🎀	szalag								// [1F380]
+🎁	becsomagolt ajándék						// [1F381]
+🎂	születésnapi torta						// [1F382]
+🎃	töklámpás							// [1F383]
+🎄	karácsonyfa							// [1F384]
+🎅	mikulás								// [1F385]
+🎆	tűzijáték							// [1F386]
+🎇	csillagszóró							// [1F387]
+🎈	léggömb								// [1F388]
+🎉	partikellékek							// [1F389]
+🎊	konfetti							// [1F38A]
+🎋	tanabata ünnepi fa						// [1F38B]
+🎌	keresztbe tett zászlók						// [1F38C]
+🎍	fenyődekoráció							// [1F38D]
+🎎	japán babák							// [1F38E]
+🎏	rizspapír pontyok						// [1F38F]
+🎐	harangjáték							// [1F390]
+🎑	holdünnep							// [1F391]
+🎒	iskolatáska							// [1F392]
+🎓	diplomaosztón használt kalap					// [1F393]
+🎖	katonai kitüntetés						// [1F396] text|emoji
+🎗	emlékező szalag							// [1F397] text|emoji
+🎙	stúdiómikrofon							// [1F399] text|emoji
+🎚	csúszka								// [1F39A] text|emoji
+🎛	vezérlőgombok							// [1F39B] text|emoji
+🎞	filmkockák							// [1F39E] text|emoji
+🎟	belépőjegyek							// [1F39F] text|emoji
+🎠	ló a körhintáról						// [1F3A0]
+🎡	óriáskerék							// [1F3A1]
+🎢	hullámvasút							// [1F3A2]
+🎣	horgászbot							// [1F3A3]
+🎤	mikrofon							// [1F3A4]
+🎥	kamera								// [1F3A5]
+🎦	mozi								// [1F3A6]
+🎧	fülhallgató							// [1F3A7]
+🎨	festőpaletta							// [1F3A8]
+🎩	cilinder							// [1F3A9]
+🎪	cirkuszsátor							// [1F3AA]
+🎫	jegy								// [1F3AB]
+🎬	csapó								// [1F3AC]
+🎭	előadóművészetek						// [1F3AD]
+🎮	videojáték							// [1F3AE]
+🎯	telitalálat							// [1F3AF]
+🎰	nyerőgép							// [1F3B0]
+🎱	biliárd								// [1F3B1]
+🎲	dobókocka							// [1F3B2]
+🎳	bowling								// [1F3B3]
+🎴	virágos kártyajáték						// [1F3B4]
+🎵	hangjegy							// [1F3B5]
+🎶	hangjegyek							// [1F3B6]
+🎷	szaxofon							// [1F3B7]
+🎸	gitár								// [1F3B8]
+🎹	zenei billentyűzet						// [1F3B9]
+🎺	trombita							// [1F3BA]
+🎻	hegedű								// [1F3BB]
+🎼	zenei kotta							// [1F3BC]
+🎽	futómez								// [1F3BD]
+🎾	tenisz								// [1F3BE]
+🎿	sílécek								// [1F3BF]
+🏀	kosárlabda							// [1F3C0]
+🏁	kockás zászló							// [1F3C1]
+🏂	snowboardozó							// [1F3C2]
+🏃	futó								// [1F3C3]
+🏄	szörföző							// [1F3C4]
+🏅	sportérem							// [1F3C5]
+🏆	kupa								// [1F3C6]
+🏇	lóverseny							// [1F3C7]
+🏈	amerikaifoci-labda						// [1F3C8]
+🏉	rögbilabda							// [1F3C9]
+🏊	úszó								// [1F3CA]
+🏋	súlyemelő							// [1F3CB] text|emoji
+🏌	golfozó								// [1F3CC] text|emoji
+🏍	motorkerékpár							// [1F3CD] text|emoji
+🏎	versenyautó							// [1F3CE] text|emoji
+🏏	krikett								// [1F3CF]
+🏐	röplabda							// [1F3D0]
+🏑	gyeplabda							// [1F3D1]
+🏒	hokiütő és korong						// [1F3D2]
+🏓	pingpong							// [1F3D3]
+🏔	hegy hótakaróval						// [1F3D4] text|emoji
+🏕	sátorozás							// [1F3D5] text|emoji
+🏖	strand napernyővel						// [1F3D6] text|emoji
+🏗	építkezés							// [1F3D7] text|emoji
+🏘	lakóházak							// [1F3D8] text|emoji
+🏙	városkép							// [1F3D9] text|emoji
+🏚	elhagyatott ház							// [1F3DA] text|emoji
+🏛	klasszikus épület						// [1F3DB] text|emoji
+🏜	sivatag								// [1F3DC] text|emoji
+🏝	lakatlan sziget							// [1F3DD] text|emoji
+🏞	nemzeti park							// [1F3DE] text|emoji
+🏟	stadion								// [1F3DF] text|emoji
+🏠	lakóház								// [1F3E0]
+🏡	ház kerttel							// [1F3E1]
+🏢	irodaépület							// [1F3E2]
+🏣	japán postahivatal						// [1F3E3]
+🏤	postahivatal							// [1F3E4]
+🏥	kórház								// [1F3E5]
+🏦	bank								// [1F3E6]
+🏧	ATM-jel								// [1F3E7]
+🏨	hotel								// [1F3E8]
+🏩	szálló szerelmeseknek						// [1F3E9]
+🏪	kisbolt								// [1F3EA]
+🏫	iskola								// [1F3EB]
+🏬	áruház								// [1F3EC]
+🏭	gyár								// [1F3ED]
+🏮	piros papírlámpa						// [1F3EE]
+🏯	japán kastély							// [1F3EF]
+🏰	vár								// [1F3F0]
+🏳	lengő fehér zászló						// [1F3F3] text|emoji
+🏴	lengő fekete zászló						// [1F3F4]
+🏵	rozetta								// [1F3F5] text|emoji
+🏷	címke								// [1F3F7] text|emoji
+🏸	tollaslabda							// [1F3F8]
+🏹	íj és nyíl							// [1F3F9]
+🏺	amfora								// [1F3FA]
+🏻	1-es és 2-es bőrtípus						// [1F3FB]
+🏼	3-as bőrtípus							// [1F3FC]
+🏽	4-es bőrtípus							// [1F3FD]
+🏾	5-ös bőrtípus							// [1F3FE]
+🏿	6-os bőrtípus							// [1F3FF]
+🐀	patkány								// [1F400]
+🐁	egér								// [1F401]
+🐂	ökör								// [1F402]
+🐃	vízibölény							// [1F403]
+🐄	tehén								// [1F404]
+🐅	tigris								// [1F405]
+🐆	leopárd								// [1F406]
+🐇	nyúl								// [1F407]
+🐈	macska								// [1F408]
+🐉	sárkány								// [1F409]
+🐊	krokodil							// [1F40A]
+🐋	bálna								// [1F40B]
+🐌	csiga								// [1F40C]
+🐍	kígyó								// [1F40D]
+🐎	ló								// [1F40E]
+🐏	kos								// [1F40F]
+🐐	kecske								// [1F410]
+🐑	birka								// [1F411]
+🐒	majom								// [1F412]
+🐓	kakas								// [1F413]
+🐔	tyúk								// [1F414]
+🐕	kutya								// [1F415]
+🐖	disznó								// [1F416]
+🐗	vaddisznó							// [1F417]
+🐘	elefánt								// [1F418]
+🐙	polip								// [1F419]
+🐚	tengeri csiga							// [1F41A]
+🐛	bogár								// [1F41B]
+🐜	hangya								// [1F41C]
+🐝	dongó								// [1F41D]
+🐞	katica								// [1F41E]
+🐟	hal								// [1F41F]
+🐠	trópusi hal							// [1F420]
+🐡	gömbhal								// [1F421]
+🐢	teknős								// [1F422]
+🐣	kikelő kiscsibe							// [1F423]
+🐤	naposcsibe							// [1F424]
+🐥	előre néző kiscsibe						// [1F425]
+🐦	madár								// [1F426]
+🐧	pingvin								// [1F427]
+🐨	koala								// [1F428]
+🐩	pudli								// [1F429]
+🐪	teve								// [1F42A]
+🐫	kétpúpú teve							// [1F42B]
+🐬	delfin								// [1F42C]
+🐭	egérfej								// [1F42D]
+🐮	tehénfej							// [1F42E]
+🐯	tigrisfej							// [1F42F]
+🐰	nyúlfej								// [1F430]
+🐱	macskafej							// [1F431]
+🐲	sárkányfej							// [1F432]
+🐳	fröcskölő bálna							// [1F433]
+🐴	lófej								// [1F434]
+🐵	majomfej							// [1F435]
+🐶	kutyafej							// [1F436]
+🐷	malacfej							// [1F437]
+🐸	békafej								// [1F438]
+🐹	hörcsögfej							// [1F439]
+🐺	farkasfej							// [1F43A]
+🐻	medvefej							// [1F43B]
+🐼	pandafej							// [1F43C]
+🐽	malacorr							// [1F43D]
+🐾	mancsnyomok							// [1F43E]
+🐿	mókus								// [1F43F] text|emoji
+👀	szemek								// [1F440]
+👁	szem								// [1F441] text|emoji
+👂	fül								// [1F442]
+👃	orr								// [1F443]
+👄	száj								// [1F444]
+👅	nyelv								// [1F445]
+👆	tenyér felfelé mutató ujjal					// [1F446]
+👇	tenyér lefelé mutató ujjal					// [1F447]
+👈	kéz balra mutató ujjal						// [1F448]
+👉	kéz jobbra mutató ujjal						// [1F449]
+👊	ütésre emelt ököl						// [1F44A]
+👋	integető kéz							// [1F44B]
+👌	ok jel								// [1F44C]
+👍	felfelé mutató hüvelykujj					// [1F44D]
+👎	lefelé mutató hüvelykujj					// [1F44E]
+👏	tapsoló kéz							// [1F44F]
+👐	széttárt kéz							// [1F450]
+👑	korona								// [1F451]
+👒	női kalap							// [1F452]
+👓	szemüveg							// [1F453]
+👔	nyakkendő							// [1F454]
+👕	póló								// [1F455]
+👖	farmer								// [1F456]
+👗	ruha								// [1F457]
+👘	kimonó								// [1F458]
+👙	bikini								// [1F459]
+👚	női ruha							// [1F45A]
+👛	pénztárca							// [1F45B]
+👜	női táska							// [1F45C]
+👝	táska								// [1F45D]
+👞	férfi cipő							// [1F45E]
+👟	futócipő							// [1F45F]
+👠	magas sarkú cipő						// [1F460]
+👡	női szandál							// [1F461]
+👢	női csizma							// [1F462]
+👣	lábnyomok							// [1F463]
+👤	ember sziluettje melltől felfelé				// [1F464]
+👥	két ember sziluettje melltől felfelé				// [1F465]
+👦	fiú								// [1F466]
+👧	lány								// [1F467]
+👨	férfi								// [1F468]
+👩	nő								// [1F469]
+👪	család								// [1F46A]
+👫	kézen fogva álló férfi és nő					// [1F46B]
+👬	kézen fogva álló férfiak					// [1F46C]
+👭	kézen fogva álló nők						// [1F46D]
+👮	zsaru								// [1F46E]
+👯	bulizó emberek							// [1F46F]
+👰	menyasszony fátyollal						// [1F470]
+👱	szőke hajú ember						// [1F471]
+👲	kínai sapkás ember						// [1F472]
+👳	turbános ember							// [1F473]
+👴	idős férfi							// [1F474]
+👵	idős nő								// [1F475]
+👶	baba								// [1F476]
+👷	építőmunkás							// [1F477]
+👸	hercegnő							// [1F478]
+👹	ogre								// [1F479]
+👺	kobold								// [1F47A]
+👻	szellem								// [1F47B]
+👼	babaangyal							// [1F47C]
+👽	földönkívüli							// [1F47D]
+👾	földönkívüli szörny						// [1F47E]
+👿	ördög								// [1F47F]
+💀	koponya								// [1F480]
+💁	ember az információs pultnál					// [1F481]
+💂	gárdista							// [1F482]
+💃	táncoló nő							// [1F483]
+💄	ajakrúzs							// [1F484]
+💅	körömlakk							// [1F485]
+💆	arcmasszázs							// [1F486]
+💇	hajvágás							// [1F487]
+💈	fodrászcégér							// [1F488]
+💉	fecskendő							// [1F489]
+💊	tabletta							// [1F48A]
+💋	csóknyom							// [1F48B]
+💌	szerelmes levél							// [1F48C]
+💍	gyűrű								// [1F48D]
+💎	ékkő								// [1F48E]
+💏	csók								// [1F48F]
+💐	csokor								// [1F490]
+💑	pár szívvel							// [1F491]
+💒	esküvő								// [1F492]
+💓	dobogó szív							// [1F493]
+💔	összetört szív							// [1F494]
+💕	két szív							// [1F495]
+💖	ragyogó szív							// [1F496]
+💗	növekvő szív							// [1F497]
+💘	nyíllal átlőtt szív						// [1F498]
+💙	kék szív							// [1F499]
+💚	zöld szív							// [1F49A]
+💛	sárga szív							// [1F49B]
+💜	lila szív							// [1F49C]
+💝	szív szalaggal							// [1F49D]
+💞	forgó szívek							// [1F49E]
+💟	szív formájú dekoráció						// [1F49F]
+💠	gyémánt ponttal							// [1F4A0]
+💡	villanykörte							// [1F4A1]
+💢	a düh szimbóluma						// [1F4A2]
+💣	bomba								// [1F4A3]
+💤	alvás								// [1F4A4]
+💥	ütközés								// [1F4A5]
+💦	izzadságcseppek							// [1F4A6]
+💧	csepp								// [1F4A7]
+💨	rohanás								// [1F4A8]
+💩	kakihalom							// [1F4A9]
+💪	befeszített bicepsz						// [1F4AA]
+💫	szédülés							// [1F4AB]
+💬	szövegbuborék							// [1F4AC]
+💭	gondolatbuborék							// [1F4AD]
+💮	fehér virág							// [1F4AE]
+💯	száz pont							// [1F4AF]
+💰	pénzeszsák							// [1F4B0]
+💱	pénzváltás							// [1F4B1]
+💲	vastag dollárjel						// [1F4B2]
+💳	hitelkártya							// [1F4B3]
+💴	jen bankjegy							// [1F4B4]
+💵	dollár bankjegy							// [1F4B5]
+💶	euró bankjegy							// [1F4B6]
+💷	font bankjegy							// [1F4B7]
+💸	pénz szárnyakkal						// [1F4B8]
+💹	növekvő jendiagram						// [1F4B9]
+💺	ülés								// [1F4BA]
+💻	laptop								// [1F4BB]
+💼	aktatáska							// [1F4BC]
+💽	minidisk							// [1F4BD]
+💾	floppylemez							// [1F4BE]
+💿	optikai lemez							// [1F4BF]
+📀	dvd								// [1F4C0]
+📁	fájlmappa							// [1F4C1]
+📂	nyitott fájlmappa						// [1F4C2]
+📃	kunkorodó lap							// [1F4C3]
+📄	felfelé néző oldal						// [1F4C4]
+📅	naptár								// [1F4C5]
+📆	fali naptár							// [1F4C6]
+📇	forgó névjegykártyatartó					// [1F4C7]
+📈	növekvő diagram							// [1F4C8]
+📉	csökkenő diagram						// [1F4C9]
+📊	oszlopdiagram							// [1F4CA]
+📋	írótábla							// [1F4CB]
+📌	rajzszög							// [1F4CC]
+📍	kerek rajzszög							// [1F4CD]
+📎	gemkapocs							// [1F4CE]
+📏	egyenes vonalzó							// [1F4CF]
+📐	háromszögvonalzó						// [1F4D0]
+📑	könyvjelzők							// [1F4D1]
+📒	főkönyv								// [1F4D2]
+📓	jegyzetfüzet							// [1F4D3]
+📔	jegyzetfüzet díszkötésben					// [1F4D4]
+📕	becsukott könyv							// [1F4D5]
+📖	nyitott könyv							// [1F4D6]
+📗	zöld könyv							// [1F4D7]
+📘	kék könyv							// [1F4D8]
+📙	narancssárga könyv						// [1F4D9]
+📚	könyvek								// [1F4DA]
+📛	névjegytábla							// [1F4DB]
+📜	tekercs								// [1F4DC]
+📝	feljegyzés							// [1F4DD]
+📞	telefonkagyló							// [1F4DE]
+📟	személyhívó							// [1F4DF]
+📠	faxkészülék							// [1F4E0]
+📡	parabolaantenna							// [1F4E1]
+📢	hangosbeszélő							// [1F4E2]
+📣	megafon								// [1F4E3]
+📤	kimenő tálca							// [1F4E4]
+📥	beérkező tálca							// [1F4E5]
+📦	csomag								// [1F4E6]
+📧	e-mail								// [1F4E7]
+📨	beérkező boríték						// [1F4E8]
+📩	boríték nyíllal							// [1F4E9]
+📪	csukott levelesláda leengedett zászlóval			// [1F4EA]
+📫	csukott levelesláda felemelt zászlóval				// [1F4EB]
+📬	nyitott levelesláda felemelt zászlóval				// [1F4EC]
+📭	nyitott levelesláda leengedett zászlóval			// [1F4ED]
+📮	postaláda							// [1F4EE]
+📯	postakürt							// [1F4EF]
+📰	újság								// [1F4F0]
+📱	mobiltelefon							// [1F4F1]
+📲	mobiltelefon nyíllal						// [1F4F2]
+📳	rezgő mód							// [1F4F3]
+📴	mobiltelefon kikapcsolva					// [1F4F4]
+📵	mobiltelefon használata tilos					// [1F4F5]
+📶	antennasávok							// [1F4F6]
+📷	fényképezőgép							// [1F4F7]
+📸	fényképező vakuval						// [1F4F8]
+📹	videokamera							// [1F4F9]
+📺	televízió							// [1F4FA]
+📻	rádió								// [1F4FB]
+📼	videokazetta							// [1F4FC]
+📽	filmvetítő							// [1F4FD] text|emoji
+📿	imafüzér							// [1F4FF]
+🔀	véletlenszerű lejátszás gomb					// [1F500]
+🔁	ismétlés gomb							// [1F501]
+🔂	egy szám ismétlése gomb						// [1F502]
+🔃	óramutató járásával megegyező irányú függőleges nyilak		// [1F503]
+🔄	óramutató járásával ellentétes irányú nyilak gombja		// [1F504]
+🔅	sötétítés gomb							// [1F505]
+🔆	világosítás gomb						// [1F506]
+🔇	elnémított hangszóró						// [1F507]
+🔈	hangszóró							// [1F508]
+🔉	bekapcsolt hangszóró						// [1F509]
+🔊	hangos hangszóró						// [1F50A]
+🔋	elem								// [1F50B]
+🔌	elektromos dugó							// [1F50C]
+🔍	balra mutató nagyító						// [1F50D]
+🔎	jobbra mutató nagyító						// [1F50E]
+🔏	lakat tollal							// [1F50F]
+🔐	zárt lakat kulccsal						// [1F510]
+🔑	kulcs								// [1F511]
+🔒	lakat								// [1F512]
+🔓	nyitott lakat							// [1F513]
+🔔	harang								// [1F514]
+🔕	áthúzott harang							// [1F515]
+🔖	könyvjelző							// [1F516]
+🔗	kapocs								// [1F517]
+🔘	választógomb							// [1F518]
+🔙	vissza nyíl							// [1F519]
+🔚	vége nyíl							// [1F51A]
+🔛	bekapcsolva nyíl						// [1F51B]
+🔜	hamarosan nyíl							// [1F51C]
+🔝	felfelé nyíl							// [1F51D]
+🔞	18 év alatt tilos						// [1F51E]
+🔟	tízes számbillentyű						// [1F51F]
+🔠	latin nagybetűs bevitel						// [1F520]
+🔡	latin kisbetűs bevitel						// [1F521]
+🔢	számbevitel							// [1F522]
+🔣	szimbólumok bevitele						// [1F523]
+🔤	latin betűk bevitele						// [1F524]
+🔥	tűz								// [1F525]
+🔦	zseblámpa							// [1F526]
+🔧	csavarkulcs							// [1F527]
+🔨	kalapács							// [1F528]
+🔩	csavar és anya							// [1F529]
+🔪	konyhakés							// [1F52A]
+🔫	pisztoly							// [1F52B]
+🔬	mikroszkóp							// [1F52C]
+🔭	távcső								// [1F52D]
+🔮	kristálygömb							// [1F52E]
+🔯	hatágú csillag ponttal						// [1F52F]
+🔰	a kezdő japán szimbóluma					// [1F530]
+🔱	háromágú szigony						// [1F531]
+🔲	fekete, négyzet alakú gomb					// [1F532]
+🔳	fehér, négyzet alakú gomb					// [1F533]
+🔴	piros kör							// [1F534]
+🔵	kék kör								// [1F535]
+🔶	nagy narancssárga rombusz					// [1F536]
+🔷	nagy kék rombusz						// [1F537]
+🔸	kis narancssárga rombusz					// [1F538]
+🔹	kis kék rombusz							// [1F539]
+🔺	fölfelé mutató piros háromszög					// [1F53A]
+🔻	lefelé mutató piros háromszög					// [1F53B]
+🔼	felfelé gomb							// [1F53C]
+🔽	lefelé gomb							// [1F53D]
+🕉	om								// [1F549] text|emoji
+🕊	galamb								// [1F54A] text|emoji
+🕋	kába								// [1F54B]
+🕌	mecset								// [1F54C]
+🕍	zsinagóga							// [1F54D]
+🕎	menóra								// [1F54E]
+🕐	egy óra								// [1F550]
+🕑	két óra								// [1F551]
+🕒	három óra							// [1F552]
+🕓	négy óra							// [1F553]
+🕔	öt óra								// [1F554]
+🕕	hat óra								// [1F555]
+🕖	hét óra								// [1F556]
+🕗	nyolc óra							// [1F557]
+🕘	kilenc óra							// [1F558]
+🕙	tíz óra								// [1F559]
+🕚	tizenegy óra							// [1F55A]
+🕛	tizenkét óra							// [1F55B]
+🕜	fél kettő							// [1F55C]
+🕝	fél három							// [1F55D]
+🕞	fél négy							// [1F55E]
+🕟	fél öt								// [1F55F]
+🕠	fél hat								// [1F560]
+🕡	fél hét								// [1F561]
+🕢	fél nyolc							// [1F562]
+🕣	fél kilenc							// [1F563]
+🕤	fél tíz								// [1F564]
+🕥	fél tizenegy							// [1F565]
+🕦	fél tizenkettő							// [1F566]
+🕧	fél egy								// [1F567]
+🕯	gyertya								// [1F56F] text|emoji
+🕰	régies óra							// [1F570] text|emoji
+🕳	lyuk								// [1F573] text|emoji
+🕴	öltönyös, lebegő ember						// [1F574] text|emoji
+🕵	detektív							// [1F575] text|emoji
+🕶	napszemüveg							// [1F576] text|emoji
+🕷	pók								// [1F577] text|emoji
+🕸	pókháló								// [1F578] text|emoji
+🕹	joystick							// [1F579] text|emoji
+🕺	táncoló férfi							// [1F57A]
+🖇	összekapcsolt gemkapcsok					// [1F587] text|emoji
+🖊	toll								// [1F58A] text|emoji
+🖋	töltőtoll							// [1F58B] text|emoji
+🖌	ecset								// [1F58C] text|emoji
+🖍	zsírkréta							// [1F58D] text|emoji
+🖐	felemelt kéz szétálló ujjakkal					// [1F590] text|emoji
+🖕	középső ujj							// [1F595]
+🖖	star trek-üdvözlet						// [1F596]
+🖤	fekete szív							// [1F5A4]
+🖥	asztali számítógép						// [1F5A5] text|emoji
+🖨	nyomtató							// [1F5A8] text|emoji
+🖱	számítógépes egér						// [1F5B1] text|emoji
+🖲	trackball							// [1F5B2] text|emoji
+🖼	kép kerettel							// [1F5BC] text|emoji
+🗂	kartotékelválasztók						// [1F5C2] text|emoji
+🗃	kartotékdoboz							// [1F5C3] text|emoji
+🗄	iratszekrény							// [1F5C4] text|emoji
+🗑	papírkosár							// [1F5D1] text|emoji
+🗒	spirálfüzet							// [1F5D2] text|emoji
+🗓	spirálos naptár							// [1F5D3] text|emoji
+🗜	satu								// [1F5DC] text|emoji
+🗝	régi kulcs							// [1F5DD] text|emoji
+🗞	feltekert újság							// [1F5DE] text|emoji
+🗡	tőr								// [1F5E1] text|emoji
+🗣	beszélő fej							// [1F5E3] text|emoji
+🗨	balra nyíló szövegbuborék					// [1F5E8] text|emoji
+🗯	jobbra nyíló dühös szövegbuborék				// [1F5EF] text|emoji
+🗳	urna szavazólappal						// [1F5F3] text|emoji
+🗺	világtérkép							// [1F5FA] text|emoji
+🗻	fudzsi hegy							// [1F5FB]
+🗼	tokiói torony							// [1F5FC]
+🗽	szabadság-szobor						// [1F5FD]
+🗾	japán térképe							// [1F5FE]
+🗿	moai								// [1F5FF]
+
+// 1F600..1F64F : Emoticons
+
+😀	nevető arc							// [1F600]
+😁	mosolygó szemmel nevető arc					// [1F601]
+😂	arc örömkönnyekkel						// [1F602]
+😃	nyitott szájjal mosolygó arc					// [1F603]
+😄	nyitott szájjal mosolygó arc mosolygó szemmel			// [1F604]
+😅	nyitott szájjal mosolygó arc hideg verejtékkel			// [1F605]
+😆	nyitott szájjal és lehunyt szemmel mosolygó arc			// [1F606]
+😇	mosolygó arc glóriával						// [1F607]
+😈	mosolygó arc szarvakkal						// [1F608]
+😉	kacsintó arc							// [1F609]
+😊	mosolygó arc mosolygó szemmel					// [1F60A]
+😋	finom ételt élvező arc						// [1F60B]
+😌	megkönnyebbült arc						// [1F60C]
+😍	mosolygó arc szív alakú szemmel					// [1F60D]
+😎	mosolygó arc napszemüveggel					// [1F60E]
+😏	önelégült vigyor						// [1F60F]
+😐	semleges arc							// [1F610]
+😑	kifejezéstelen arc						// [1F611]
+😒	szomorú arc							// [1F612]
+😓	arc hideg verejtékkel						// [1F613]
+😔	elgondolkodó arc						// [1F614]
+😕	zavart arc							// [1F615]
+😖	összezavarodott arc						// [1F616]
+😗	csókoló arc							// [1F617]
+😘	csókot dobó arc							// [1F618]
+😙	csókoló arc mosolygó szemmel					// [1F619]
+😚	csókoló arc lehunyt szemmel					// [1F61A]
+😛	arc kinyújtott nyelvvel						// [1F61B]
+😜	arc kinyújtott nyelvvel és kacsintó szemmel			// [1F61C]
+😝	arc kilógó nyelvvel és erősen behunyt szemmel			// [1F61D]
+😞	csalódott arc							// [1F61E]
+😟	aggódó arc							// [1F61F]
+😠	mérges arc							// [1F620]
+😡	duzzogó arc							// [1F621]
+😢	síró arc							// [1F622]
+😣	állhatatos arc							// [1F623]
+😤	orrából gőzt fújtató arc					// [1F624]
+😥	csalódott, de megkönnyebbült arc				// [1F625]
+😦	rosszalló arc nyitott szájjal					// [1F626]
+😧	elkínzott arc							// [1F627]
+😨	félelemmel teli arc						// [1F628]
+😩	kimerült arc							// [1F629]
+😪	álmos arc							// [1F62A]
+😫	fáradt arc							// [1F62B]
+😬	grimaszoló arc							// [1F62C]
+😭	zokogó arc							// [1F62D]
+😮	arc nyitott szájjal						// [1F62E]
+😯	meglepődött arc							// [1F62F]
+😰	arc nyitott szájjal és hideg verejtékkel			// [1F630]
+😱	félelemtől sikoltó arc						// [1F631]
+😲	lenyűgözött arc							// [1F632]
+😳	elpirult arc							// [1F633]
+😴	alvó arc							// [1F634]
+😵	szédülő arc							// [1F635]
+😶	száj nélküli arc						// [1F636]
+😷	arc egészségügyi maszkkal					// [1F637]
+😸	nevető macskaarc mosolygó szemmel				// [1F638]
+😹	macskaarc örömkönnyekkel					// [1F639]
+😺	mosolygó macskaarc nyitott szájjal				// [1F63A]
+😻	mosolygó macskaarc szív alakú szemmel				// [1F63B]
+😼	macskaarc fanyar mosollyal					// [1F63C]
+😽	csókoló macskaarc lehunyt szemmel				// [1F63D]
+😾	duzzogó macskaarc						// [1F63E]
+😿	síró macskaarc							// [1F63F]
+🙀	kimerült macskaarc						// [1F640]
+🙁	kissé komor arc							// [1F641]
+🙂	finoman mosolygó arc						// [1F642]
+🙃	fejjel lefelé fordult arc					// [1F643]
+🙄	szemét forgató arc						// [1F644]
+🙅	tiltás mutatása							// [1F645]
+🙆	beleegyezés mutatása						// [1F646]
+🙇	meghajló ember							// [1F647]
+🙈	nem láttam semmit						// [1F648]
+🙉	nem hallottam semmit						// [1F649]
+🙊	nem szólok semmit						// [1F64A]
+🙋	vidáman intő ember						// [1F64B]
+🙌	kezét felemelő ember						// [1F64C]
+🙍	rosszalló ember							// [1F64D]
+🙎	duzzogó ember							// [1F64E]
+🙏	összetett kéz							// [1F64F]
+
+// 1F680..1F6FF : Transport and Map Symbols
+
+🚀	rakéta								// [1F680]
+🚁	helikopter							// [1F681]
+🚂	mozdony								// [1F682]
+🚃	vasúti kocsi							// [1F683]
+🚄	gyorsvasút							// [1F684]
+🚅	golyóorrú gyorsvasút						// [1F685]
+🚆	vonat								// [1F686]
+🚇	metró								// [1F687]
+🚈	hév								// [1F688]
+🚉	állomás								// [1F689]
+🚊	villamos							// [1F68A]
+🚋	villamoskocsi							// [1F68B]
+🚌	busz								// [1F68C]
+🚍	érkező busz							// [1F68D]
+🚎	trolibusz							// [1F68E]
+🚏	buszmegálló							// [1F68F]
+🚐	mikrobusz							// [1F690]
+🚑	mentő								// [1F691]
+🚒	tűzoltóautó							// [1F692]
+🚓	rendőrautó							// [1F693]
+🚔	érkező rendőrautó						// [1F694]
+🚕	taxi								// [1F695]
+🚖	érkező taxi							// [1F696]
+🚗	autó								// [1F697]
+🚘	érkező autó							// [1F698]
+🚙	lakóautó							// [1F699]
+🚚	teherautó							// [1F69A]
+🚛	billenős teherautó						// [1F69B]
+🚜	traktor								// [1F69C]
+🚝	egysínű vasút							// [1F69D]
+🚞	hegyi vasút							// [1F69E]
+🚟	függővasút							// [1F69F]
+🚠	hegyi felvonó							// [1F6A0]
+🚡	kötélpályás felvonó						// [1F6A1]
+🚢	hajó								// [1F6A2]
+🚣	csónak								// [1F6A3]
+🚤	motoros siklócsónak						// [1F6A4]
+🚥	vízszintes közlekedési lámpa					// [1F6A5]
+🚦	függőleges közlekedési lámpa					// [1F6A6]
+🚧	útépítés							// [1F6A7]
+🚨	rendőrautó villogója						// [1F6A8]
+🚩	háromszög alakú zászló						// [1F6A9]
+🚪	ajtó								// [1F6AA]
+🚫	tilos								// [1F6AB]
+🚬	dohányzás							// [1F6AC]
+🚭	dohányozni tilos						// [1F6AD]
+🚮	szemét a kukában szimbólum					// [1F6AE]
+🚯	szemetelni tilos						// [1F6AF]
+🚰	ivóvíz								// [1F6B0]
+🚱	nem ivóvíz							// [1F6B1]
+🚲	kerékpár							// [1F6B2]
+🚳	kerékpározni tilos						// [1F6B3]
+🚴	kerékpáros							// [1F6B4]
+🚵	hegyikerékpáros							// [1F6B5]
+🚶	gyalogos							// [1F6B6]
+🚷	nem gyalogos zóna						// [1F6B7]
+🚸	átkelő gyermekek						// [1F6B8]
+🚹	férfi mosdó							// [1F6B9]
+🚺	női mosdó							// [1F6BA]
+🚻	mosdó								// [1F6BB]
+🚼	baba szimbólum							// [1F6BC]
+🚽	vécé								// [1F6BD]
+🚾	toalett								// [1F6BE]
+🚿	zuhanyzó							// [1F6BF]
+🛀	fürdő ember							// [1F6C0]
+🛁	fürdőkád							// [1F6C1]
+🛂	útlevél-ellenőrzés						// [1F6C2]
+🛃	vám								// [1F6C3]
+🛄	poggyászfelvétel						// [1F6C4]
+🛅	csomagmegőrző							// [1F6C5]
+🛋	kanapé és lámpa							// [1F6CB] text|emoji
+🛌	ember az ágyban							// [1F6CC]
+🛍	bevásárlótáskák							// [1F6CD] text|emoji
+🛎	londinerhívó csengő						// [1F6CE] text|emoji
+🛏	ágy								// [1F6CF] text|emoji
+🛐	imahely								// [1F6D0]
+🛑	nyolcszög							// [1F6D1]
+🛒	bevásárlókocsi							// [1F6D2]
+🛠	kalapács és csavarkulcs						// [1F6E0] text|emoji
+🛡	pajzs								// [1F6E1] text|emoji
+🛢	olajoshordó							// [1F6E2] text|emoji
+🛣	autópálya							// [1F6E3] text|emoji
+🛤	vasúti sín							// [1F6E4] text|emoji
+🛥	motorcsónak							// [1F6E5] text|emoji
+🛩	kisrepülő							// [1F6E9] text|emoji
+🛫	repülőgép indulása						// [1F6EB]
+🛬	repülőgép érkezése						// [1F6EC]
+🛰	műhold								// [1F6F0] text|emoji
+🛳	utasszállító hajó						// [1F6F3] text|emoji
+🛴	roller								// [1F6F4]
+🛵	robogó								// [1F6F5]
+🛶	kenu								// [1F6F6]
+🛷	sled								// [1F6F7] (no translation)
+🛸	flying saucer							// [1F6F8] (no translation)
+
+// 1F900..1F9FF : Supplemental Symbols and Pictographs
+
+🤐	arc összecipzározott szájjal					// [1F910]
+🤑	arc dollárjelekkel						// [1F911]
+🤒	arc lázmérővel							// [1F912]
+🤓	kocka arc							// [1F913]
+🤔	gondolkodó arc							// [1F914]
+🤕	arc bekötött fejjel						// [1F915]
+🤖	robotarc							// [1F916]
+🤗	ölelés								// [1F917]
+🤘	metálvilla							// [1F918]
+🤙	„hívj fel” kézjel						// [1F919]
+🤚	kézfej								// [1F91A]
+🤛	balra néző ököl							// [1F91B]
+🤜	jobbra néző ököl						// [1F91C]
+🤝	kézfogás							// [1F91D]
+🤞	keresztezett ujjak						// [1F91E]
+🤟	love you gesture						// [1F91F] (no translation)
+🤠	cowboy kalapos fej						// [1F920]
+🤡	bohócfej							// [1F921]
+🤢	émelygő fej							// [1F922]
+🤣	gurul a nevetéstől						// [1F923]
+🤤	nyáladzó fej							// [1F924]
+🤥	hazudó fej							// [1F925]
+🤦	kézbe temetett arc						// [1F926]
+🤧	tüsszentő fej							// [1F927]
+🤨	face with raised eyebrow					// [1F928] (no translation)
+🤩	star struck							// [1F929] (no translation)
+🤪	crazy face							// [1F92A] (no translation)
+🤫	shushing face							// [1F92B] (no translation)
+🤬	face with symbols over mouth					// [1F92C] (no translation)
+🤭	face with hand over mouth					// [1F92D] (no translation)
+🤮	face vomiting							// [1F92E] (no translation)
+🤯	exploding head							// [1F92F] (no translation)
+🤰	terhes nő							// [1F930]
+🤱	breast feeding							// [1F931] (no translation)
+🤲	palms up together						// [1F932] (no translation)
+🤳	szelfi								// [1F933]
+🤴	herceg								// [1F934]
+🤵	szmokingos férfi						// [1F935]
+🤶	mikulás ruhás anyó						// [1F936]
+🤷	vállrándítás							// [1F937]
+🤸	cigánykerék							// [1F938]
+🤹	zsonglőr							// [1F939]
+🤺	vívó								// [1F93A]
+🤼	birkózók							// [1F93C]
+🤽	vízilabda							// [1F93D]
+🤾	kézilabda							// [1F93E]
+🥀	hervadt virág							// [1F940]
+🥁	dob								// [1F941]
+🥂	koccintó poharak						// [1F942]
+🥃	feles pohár							// [1F943]
+🥄	kanál								// [1F944]
+🥅	kapu								// [1F945]
+🥇	aranyérem							// [1F947]
+🥈	ezüstérem							// [1F948]
+🥉	bronzérem							// [1F949]
+🥊	boxkesztyű							// [1F94A]
+🥋	karateruha							// [1F94B]
+🥌	curling stone							// [1F94C] (no translation)
+🥐	croissant							// [1F950]
+🥑	avokádó								// [1F951]
+🥒	uborka								// [1F952]
+🥓	szalonna							// [1F953]
+🥔	krumpli								// [1F954]
+🥕	sárgarépa							// [1F955]
+🥖	bagett								// [1F956]
+🥗	zöld saláta							// [1F957]
+🥘	serpenyős étel							// [1F958]
+🥙	pita								// [1F959]
+🥚	tojás								// [1F95A]
+🥛	egy pohár tej							// [1F95B]
+🥜	földimogyoró							// [1F95C]
+🥝	kivi								// [1F95D]
+🥞	palacsinta							// [1F95E]
+🥟	dumpling							// [1F95F] (no translation)
+🥠	fortune cookie							// [1F960] (no translation)
+🥡	takeout box							// [1F961] (no translation)
+🥢	chopsticks							// [1F962] (no translation)
+🥣	bowl with spoon							// [1F963] (no translation)
+🥤	cup with straw							// [1F964] (no translation)
+🥥	coconut								// [1F965] (no translation)
+🥦	broccoli							// [1F966] (no translation)
+🥧	pie								// [1F967] (no translation)
+🥨	pretzel								// [1F968] (no translation)
+🥩	cut of meat							// [1F969] (no translation)
+🥪	sandwich							// [1F96A] (no translation)
+🥫	canned food							// [1F96B] (no translation)
+🦀	rák								// [1F980]
+🦁	oroszlánfej							// [1F981]
+🦂	skorpió								// [1F982]
+🦃	pulyka								// [1F983]
+🦄	unikornisfej							// [1F984]
+🦅	sas								// [1F985]
+🦆	kacsa								// [1F986]
+🦇	denevér								// [1F987]
+🦈	cápa								// [1F988]
+🦉	bagoly								// [1F989]
+🦊	rókafej								// [1F98A]
+🦋	pillangó							// [1F98B]
+🦌	szarvas								// [1F98C]
+🦍	gorilla								// [1F98D]
+🦎	gyík								// [1F98E]
+🦏	orrszarvú							// [1F98F]
+🦐	garnélarák							// [1F990]
+🦑	tintahal							// [1F991]
+🦒	giraffe								// [1F992] (no translation)
+🦓	zebra								// [1F993] (no translation)
+🦔	hedgehog							// [1F994] (no translation)
+🦕	sauropod							// [1F995] (no translation)
+🦖	t rex								// [1F996] (no translation)
+🦗	cricket								// [1F997] (no translation)
+🧀	sajtdarab							// [1F9C0]
+🧐	face with monocle						// [1F9D0] (no translation)
+🧑	adult								// [1F9D1] (no translation)
+🧒	child								// [1F9D2] (no translation)
+🧓	older adult							// [1F9D3] (no translation)
+🧔	bearded person							// [1F9D4] (no translation)
+🧕	woman with headscarf						// [1F9D5] (no translation)
+🧖	person in steamy room						// [1F9D6] (no translation)
+🧗	person climbing							// [1F9D7] (no translation)
+🧘	person in lotus position					// [1F9D8] (no translation)
+🧙	mage								// [1F9D9] (no translation)
+🧚	fairy								// [1F9DA] (no translation)
+🧛	vampire								// [1F9DB] (no translation)
+🧜	merperson							// [1F9DC] (no translation)
+🧝	elf								// [1F9DD] (no translation)
+🧞	genie								// [1F9DE] (no translation)
+🧟	zombie								// [1F9DF] (no translation)
+🧠	brain								// [1F9E0] (no translation)
+🧡	orange heart							// [1F9E1] (no translation)
+🧢	billed cap							// [1F9E2] (no translation)
+🧣	scarf								// [1F9E3] (no translation)
+🧤	gloves								// [1F9E4] (no translation)
+🧥	coat								// [1F9E5] (no translation)
+🧦	socks								// [1F9E6] (no translation)
+
+// Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
+
+🇦🇨	Ascension-sziget						// [1F1E6 1F1E8] AC
+🇦🇩	Andorra								// [1F1E6 1F1E9] AD
+🇦🇪	Egyesült Arab Emírségek						// [1F1E6 1F1EA] AE
+🇦🇫	Afganisztán							// [1F1E6 1F1EB] AF
+🇦🇬	Antigua és Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	Albánia								// [1F1E6 1F1F1] AL
+🇦🇲	Örményország							// [1F1E6 1F1F2] AM
+🇦🇴	Angola								// [1F1E6 1F1F4] AO
+🇦🇶	Antarktisz							// [1F1E6 1F1F6] AQ
+🇦🇷	Argentína							// [1F1E6 1F1F7] AR
+🇦🇸	Amerikai Szamoa							// [1F1E6 1F1F8] AS
+🇦🇹	Ausztria							// [1F1E6 1F1F9] AT
+🇦🇺	Ausztrália							// [1F1E6 1F1FA] AU
+🇦🇼	Aruba								// [1F1E6 1F1FC] AW
+🇦🇽	Åland-szigetek							// [1F1E6 1F1FD] AX
+🇦🇿	Azerbajdzsán							// [1F1E6 1F1FF] AZ
+🇧🇦	Bosznia-Hercegovina						// [1F1E7 1F1E6] BA
+🇧🇧	Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	Banglades							// [1F1E7 1F1E9] BD
+🇧🇪	Belgium								// [1F1E7 1F1EA] BE
+🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
+🇧🇬	Bulgária							// [1F1E7 1F1EC] BG
+🇧🇭	Bahrein								// [1F1E7 1F1ED] BH
+🇧🇮	Burundi								// [1F1E7 1F1EE] BI
+🇧🇯	Benin								// [1F1E7 1F1EF] BJ
+🇧🇱	Saint-Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
+🇧🇳	Brunei								// [1F1E7 1F1F3] BN
+🇧🇴	Bolívia								// [1F1E7 1F1F4] BO
+🇧🇶	Holland Karib-térség						// [1F1E7 1F1F6] BQ
+🇧🇷	Brazília							// [1F1E7 1F1F7] BR
+🇧🇸	Bahama-szigetek							// [1F1E7 1F1F8] BS
+🇧🇹	Bhután								// [1F1E7 1F1F9] BT
+🇧🇻	Bouvet-sziget							// [1F1E7 1F1FB] BV
+🇧🇼	Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	Belarusz							// [1F1E7 1F1FE] BY
+🇧🇿	Belize								// [1F1E7 1F1FF] BZ
+🇨🇦	Kanada								// [1F1E8 1F1E6] CA
+🇨🇨	Kókusz (Keeling)-szigetek					// [1F1E8 1F1E8] CC
+🇨🇩	Kongó - Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	Közép-afrikai Köztársaság					// [1F1E8 1F1EB] CF
+🇨🇬	Kongó - Brazzaville						// [1F1E8 1F1EC] CG
+🇨🇭	Svájc								// [1F1E8 1F1ED] CH
+🇨🇮	Elefántcsontpart						// [1F1E8 1F1EE] CI
+🇨🇰	Cook-szigetek							// [1F1E8 1F1F0] CK
+🇨🇱	Chile								// [1F1E8 1F1F1] CL
+🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
+🇨🇳	Kína								// [1F1E8 1F1F3] CN
+🇨🇴	Kolumbia							// [1F1E8 1F1F4] CO
+🇨🇵	Clipperton-sziget						// [1F1E8 1F1F5] CP
+🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	Kuba								// [1F1E8 1F1FA] CU
+🇨🇻	Zöld-foki Köztársaság						// [1F1E8 1F1FB] CV
+🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
+🇨🇽	Karácsony-sziget						// [1F1E8 1F1FD] CX
+🇨🇾	Ciprus								// [1F1E8 1F1FE] CY
+🇨🇿	Csehország							// [1F1E8 1F1FF] CZ
+🇩🇪	Németország							// [1F1E9 1F1EA] DE
+🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
+🇩🇯	Dzsibuti							// [1F1E9 1F1EF] DJ
+🇩🇰	Dánia								// [1F1E9 1F1F0] DK
+🇩🇲	Dominika							// [1F1E9 1F1F2] DM
+🇩🇴	Dominikai Köztársaság						// [1F1E9 1F1F4] DO
+🇩🇿	Algéria								// [1F1E9 1F1FF] DZ
+🇪🇦	Ceuta és Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
+🇪🇪	Észtország							// [1F1EA 1F1EA] EE
+🇪🇬	Egyiptom							// [1F1EA 1F1EC] EG
+🇪🇭	Nyugat-Szahara							// [1F1EA 1F1ED] EH
+🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
+🇪🇸	Spanyolország							// [1F1EA 1F1F8] ES
+🇪🇹	Etiópia								// [1F1EA 1F1F9] ET
+🇪🇺	Európai Unió							// [1F1EA 1F1FA] EU
+🇫🇮	Finnország							// [1F1EB 1F1EE] FI
+🇫🇯	Fidzsi								// [1F1EB 1F1EF] FJ
+🇫🇰	Falkland-szigetek						// [1F1EB 1F1F0] FI
+🇫🇲	Mikronézia							// [1F1EB 1F1F2] FM
+🇫🇴	Feröer-szigetek							// [1F1EB 1F1F4] FO
+🇫🇷	Franciaország							// [1F1EB 1F1F7] FR
+🇬🇦	Gabon								// [1F1EC 1F1E6] GA
+🇬🇧	Egyesült Királyság						// [1F1EC 1F1E7] GB
+🇬🇩	Grenada								// [1F1EC 1F1E9] GD
+🇬🇪	Grúzia								// [1F1EC 1F1EA] GE
+🇬🇫	Francia Guyana							// [1F1EC 1F1EB] GF
+🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	Ghána								// [1F1EC 1F1ED] GH
+🇬🇮	Gibraltár							// [1F1EC 1F1EE] GI
+🇬🇱	Grönland							// [1F1EC 1F1F1] GL
+🇬🇲	Gambia								// [1F1EC 1F1F2] GM
+🇬🇳	Guinea								// [1F1EC 1F1F3] GN
+🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
+🇬🇶	Egyenlítői-Guinea						// [1F1EC 1F1F6] GQ
+🇬🇷	Görögország							// [1F1EC 1F1F7] GR
+🇬🇸	Déli-Georgia és Déli-Sandwich-szigetek				// [1F1EC 1F1F8] GS
+🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	Guam								// [1F1EC 1F1FA] GU
+🇬🇼	Bissau-Guinea							// [1F1EC 1F1FC] GW
+🇬🇾	Guyana								// [1F1EC 1F1FE] GY
+🇭🇰	Hongkong KKT							// [1F1ED 1F1F0] HK
+🇭🇲	Heard-sziget és McDonald-szigetek				// [1F1ED 1F1F2] HM
+🇭🇳	Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	Horvátország							// [1F1ED 1F1F7] HR
+🇭🇹	Haiti								// [1F1ED 1F1F9] HT
+🇭🇺	Magyarország							// [1F1ED 1F1FA] HU
+🇮🇨	Kanári-szigetek							// [1F1EE 1F1E8] IC
+🇮🇩	Indonézia							// [1F1EE 1F1E9] ID
+🇮🇪	Írország							// [1F1EE 1F1EA] IE
+🇮🇱	Izrael								// [1F1EE 1F1F1] IL
+🇮🇲	Man-sziget							// [1F1EE 1F1F2] IM
+🇮🇳	India								// [1F1EE 1F1F3] IN
+🇮🇴	Brit Indiai-óceáni Terület					// [1F1EE 1F1F4] IO
+🇮🇶	Irak								// [1F1EE 1F1F6] IQ
+🇮🇷	Irán								// [1F1EE 1F1F7] IR
+🇮🇸	Izland								// [1F1EE 1F1F8] IS
+🇮🇹	Olaszország							// [1F1EE 1F1F9] IT
+🇯🇪	Jersey								// [1F1EF 1F1EA] JE
+🇯🇲	Jamaica								// [1F1EF 1F1F2] JM
+🇯🇴	Jordánia							// [1F1EF 1F1F4] JO
+🇯🇵	Japán								// [1F1EF 1F1F5] JP
+🇰🇪	Kenya								// [1F1F0 1F1EA] KE
+🇰🇬	Kirgizisztán							// [1F1F0 1F1EC] KG
+🇰🇭	Kambodzsa							// [1F1F0 1F1ED] KH
+🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	Comore-szigetek							// [1F1F0 1F1F2] KM
+🇰🇳	Saint Kitts és Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	Észak-Korea							// [1F1F0 1F1F5] KP
+🇰🇷	Dél-Korea							// [1F1F0 1F1F7] KR
+🇰🇼	Kuvait								// [1F1F0 1F1FC] KW
+🇰🇾	Kajmán-szigetek							// [1F1F0 1F1FE] KY
+🇰🇿	Kazahsztán							// [1F1F0 1F1FF] KZ
+🇱🇦	Laosz								// [1F1F1 1F1E6] LA
+🇱🇧	Libanon								// [1F1F1 1F1E7] LB
+🇱🇨	Saint Lucia							// [1F1F1 1F1E8] LC
+🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
+🇱🇰	Srí Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	Libéria								// [1F1F1 1F1F7] LR
+🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
+🇱🇹	Litvánia							// [1F1F1 1F1F9] LT
+🇱🇺	Luxemburg							// [1F1F1 1F1FA] LU
+🇱🇻	Lettország							// [1F1F1 1F1FB] LV
+🇱🇾	Líbia								// [1F1F1 1F1FE] LY
+🇲🇦	Marokkó								// [1F1F2 1F1E6] MA
+🇲🇨	Monaco								// [1F1F2 1F1E8] MC
+🇲🇩	Moldova								// [1F1F2 1F1E9] MD
+🇲🇪	Montenegró							// [1F1F2 1F1EA] ME
+🇲🇫	Saint Martin							// [1F1F2 1F1EB] MF
+🇲🇬	Madagaszkár							// [1F1F2 1F1EC] MG
+🇲🇭	Marshall-szigetek						// [1F1F2 1F1ED] MH
+🇲🇰	Macedónia							// [1F1F2 1F1F0] MK
+🇲🇱	Mali								// [1F1F2 1F1F1] ML
+🇲🇲	Mianmar (Burma)							// [1F1F2 1F1F2] MM
+🇲🇳	Mongólia							// [1F1F2 1F1F3] MN
+🇲🇴	Makaó KKT							// [1F1F2 1F1F4] MO
+🇲🇵	Északi Mariana-szigetek						// [1F1F2 1F1F5] MP
+🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
+🇲🇷	Mauritánia							// [1F1F2 1F1F7] MR
+🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	Málta								// [1F1F2 1F1F9] MT
+🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
+🇲🇻	Maldív-szigetek							// [1F1F2 1F1FB] MV
+🇲🇼	Malawi								// [1F1F2 1F1FC] MW
+🇲🇽	Mexikó								// [1F1F2 1F1FD] MX
+🇲🇾	Malajzia							// [1F1F2 1F1FE] MY
+🇲🇿	Mozambik							// [1F1F2 1F1FF] MZ
+🇳🇦	Namíbia								// [1F1F3 1F1E6] NA
+🇳🇨	Új-Kaledónia							// [1F1F3 1F1E8] NC
+🇳🇪	Niger								// [1F1F3 1F1EA] NE
+🇳🇫	Norfolk-sziget							// [1F1F3 1F1EB] NF
+🇳🇬	Nigéria								// [1F1F3 1F1EC] NG
+🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
+🇳🇱	Hollandia							// [1F1F3 1F1F1] NL
+🇳🇴	Norvégia							// [1F1F3 1F1F4] NO
+🇳🇵	Nepál								// [1F1F3 1F1F5] NP
+🇳🇷	Nauru								// [1F1F3 1F1F7] NR
+🇳🇺	Niue								// [1F1F3 1F1FA] NU
+🇳🇿	Új-Zéland							// [1F1F3 1F1FF] NZ
+🇴🇲	Omán								// [1F1F4 1F1F2] OM
+🇵🇦	Panama								// [1F1F5 1F1E6] PA
+🇵🇪	Peru								// [1F1F5 1F1EA] PE
+🇵🇫	Francia Polinézia						// [1F1F5 1F1EB] PF
+🇵🇬	Pápua Új-Guinea							// [1F1F5 1F1EC] PG
+🇵🇭	Fülöp-szigetek							// [1F1F5 1F1ED] PH
+🇵🇰	Pakisztán							// [1F1F5 1F1F0] PK
+🇵🇱	Lengyelország							// [1F1F5 1F1F1] PL
+🇵🇲	Saint-Pierre és Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	Pitcairn-szigetek						// [1F1F5 1F1F3] PN
+🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	Palesztin Terület						// [1F1F5 1F1F8] PS
+🇵🇹	Portugália							// [1F1F5 1F1F9] PT
+🇵🇼	Palau								// [1F1F5 1F1FC] PW
+🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	Katar								// [1F1F6 1F1E6] QA
+🇷🇪	Réunion								// [1F1F7 1F1EA] RE
+🇷🇴	Románia								// [1F1F7 1F1F4] RO
+🇷🇸	Szerbia								// [1F1F7 1F1F8] RS
+🇷🇺	Oroszország							// [1F1F7 1F1FA] RU
+🇷🇼	Ruanda								// [1F1F7 1F1FC] RW
+🇸🇦	Szaúd-Arábia							// [1F1F8 1F1E6] SA
+🇸🇧	Salamon-szigetek						// [1F1F8 1F1E7] SB
+🇸🇨	Seychelle-szigetek						// [1F1F8 1F1E8] SC
+🇸🇩	Szudán								// [1F1F8 1F1E9] SD
+🇸🇪	Svédország							// [1F1F8 1F1EA] SE
+🇸🇬	Szingapúr							// [1F1F8 1F1EC] SG
+🇸🇭	Szent Ilona							// [1F1F8 1F1ED] SH
+🇸🇮	Szlovénia							// [1F1F8 1F1EE] SI
+🇸🇯	Svalbard és Jan Mayen						// [1F1F8 1F1EF] SJ
+🇸🇰	Szlovákia							// [1F1F8 1F1F0] SK
+🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
+🇸🇲	San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	Szenegál							// [1F1F8 1F1F3] SN
+🇸🇴	Szomália							// [1F1F8 1F1F4] SO
+🇸🇷	Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	Dél-Szudán							// [1F1F8 1F1F8] SS
+🇸🇹	Sao Tomé és Príncipe						// [1F1F8 1F1F9] ST
+🇸🇻	Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
+🇸🇾	Szíria								// [1F1F8 1F1FE] SY
+🇸🇿	Szváziföld							// [1F1F8 1F1FF] SZ
+🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	Turks- és Caicos-szigetek					// [1F1F9 1F1E8] TC
+🇹🇩	Csád								// [1F1F9 1F1E9] TD
+🇹🇫	Francia Déli Területek						// [1F1F9 1F1EB] TF
+🇹🇬	Togo								// [1F1F9 1F1EC] TG
+🇹🇭	Thaiföld							// [1F1F9 1F1ED] TH
+🇹🇯	Tádzsikisztán							// [1F1F9 1F1EF] TJ
+🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
+🇹🇱	Kelet-Timor							// [1F1F9 1F1F1] TL
+🇹🇲	Türkmenisztán							// [1F1F9 1F1F2] TM
+🇹🇳	Tunézia								// [1F1F9 1F1F3] TN
+🇹🇴	Tonga								// [1F1F9 1F1F4] TO
+🇹🇷	Törökország							// [1F1F9 1F1F7] TR
+🇹🇹	Trinidad és Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
+🇹🇼	Tajvan								// [1F1F9 1F1FC] TW
+🇹🇿	Tanzánia							// [1F1F9 1F1FF] TZ
+🇺🇦	Ukrajna								// [1F1FA 1F1E6] UA
+🇺🇬	Uganda								// [1F1FA 1F1EC] UG
+🇺🇲	Az Amerikai Egyesült Államok lakatlan külbirtokai		// [1F1FA 1F1F2] UM
+🇺🇳	ENSZ								// [1F1FA 1F1F3] UN
+🇺🇸	Egyesült Államok						// [1F1FA 1F1F8] US
+🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
+🇺🇿	Üzbegisztán							// [1F1FA 1F1FF] UZ
+🇻🇦	Vatikán								// [1F1FB 1F1E6] VA
+🇻🇨	Saint Vincent és a Grenadine-szigetek				// [1F1FB 1F1E8] VC
+🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	Brit Virgin-szigetek						// [1F1FB 1F1EC] VG
+🇻🇮	Amerikai Virgin-szigetek					// [1F1FB 1F1EE] VI
+🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
+🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
+🇼🇫	Wallis és Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	Szamoa								// [1F1FC 1F1F8] WS
+🇽🇰	Koszovó								// [1F1FD 1F1F0] XK
+🇾🇪	Jemen								// [1F1FE 1F1EA] YE
+🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
+🇿🇦	Dél-afrikai Köztársaság						// [1F1FF 1F1E6] ZA
+🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
+🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+
+// Subdivision Flags -- ISO 3166-2 Subdivision Codes
+
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anglia							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skócia							// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+
+// Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
+
+#️⃣	sorszám billentyű						// [0023 FE0F 20E3]
+*️⃣	csillag billentyű						// [002A FE0F 20E3]
+0️⃣	nulla számbillentyű						// [0030 FE0F 20E3]
+1️⃣	egyes számbillentyű						// [0031 FE0F 20E3]
+2️⃣	kettes számbillentyű						// [0032 FE0F 20E3]
+3️⃣	hármas számbillentyű						// [0033 FE0F 20E3]
+4️⃣	négyes számbillentyű						// [0034 FE0F 20E3]
+5️⃣	ötös számbillentyű						// [0035 FE0F 20E3]
+6️⃣	hatos számbillentyű						// [0036 FE0F 20E3]
+7️⃣	hetes számbillentyű						// [0037 FE0F 20E3]
+8️⃣	nyolcas számbillentyű						// [0038 FE0F 20E3]
+9️⃣	kilences számbillentyű						// [0039 FE0F 20E3]
+
+// Emoji ZWJ Sequence: Family
+
+👩‍❤‍💋‍👨	csók, nő, férfi				// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	csók, férfi, férfi			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	csők, nő, nő				// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	pár szívvel, nő, férfi				// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	pár szívvel, férfi, férfi			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	pár szívvel, nő, nő				// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	család, férfi, nő, fiú				// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	család, férfi, nő, lány				// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	család, férfi, nő, lány, fiú		// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	család, férfi, nő, fiú, fiú		// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	család, férfi, nő, lány, lány		// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	család, férfi, férfi, fiú			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	család, férfi, férfi, lány			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	család, férfi, férfi, lány, fiú		// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	család, férfi, férfi, fiú, fiú		// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	család, férfi, férfi, lány, lány	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	család, nő, nő, fiú				// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	család, nő, nő, lány				// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	család, nő, nő, lány, fiú		// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	család, nő, nő, fiú, fiú		// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	család, nő, nő, lány, lány		// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	család, férfi, fiú					// [1F468 200D 1F466]
+👨‍👦‍👦	család, férfi, fiú, fiú				// [1F468 200D 1F466 200D 1F466]
+👨‍👧	család, férfi, lány					// [1F468 200D 1F467]
+👨‍👧‍👦	család, férfi, lány, fiú			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	család, férfi, lány, lány			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	család, nő, fiú						// [1F469 200D 1F466]
+👩‍👦‍👦	család, nő, fiú, fiú				// [1F469 200D 1F466 200D 1F466]
+👩‍👧	család, nő, lány					// [1F469 200D 1F467]
+👩‍👧‍👦	család, nő, lány, fiú				// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	család, nő, lány, lány				// [1F469 200D 1F467 200D 1F467]
+
+// Emoji ZWJ Sequence: Gendered Role, with object
+
+👨‍⚕	doktor							// [1F468 200D 2695]
+👩‍⚕	doktornő						// [1F469 200D 2695]
+👨‍⚖	bíró							// [1F468 200D 2696]
+👩‍⚖	bírónő							// [1F469 200D 2696]
+👨‍✈	pilóta							// [1F468 200D 2708]
+👩‍✈	pilótanő						// [1F469 200D 2708]
+👨‍🌾	gazda							// [1F468 200D 1F33E]
+👩‍🌾	női gazda						// [1F469 200D 1F33E]
+👨‍🍳	szakács							// [1F468 200D 1F373]
+👩‍🍳	szakácsnő						// [1F469 200D 1F373]
+👨‍🎓	férfi tanuló						// [1F468 200D 1F393]
+👩‍🎓	női tanuló						// [1F469 200D 1F393]
+👨‍🎤	férfi énekes						// [1F468 200D 1F3A4]
+👩‍🎤	női énekes						// [1F469 200D 1F3A4]
+👨‍🎨	férfi művész						// [1F468 200D 1F3A8]
+👩‍🎨	női művész						// [1F469 200D 1F3A8]
+👨‍🏫	tanár							// [1F468 200D 1F3EB]
+👩‍🏫	tanárnő							// [1F469 200D 1F3EB]
+👨‍🏭	férfi munkás						// [1F468 200D 1F3ED]
+👩‍🏭	női munkás						// [1F469 200D 1F3ED]
+👨‍💻	programozó férfi					// [1F468 200D 1F4BB]
+👩‍💻	programozó nő						// [1F469 200D 1F4BB]
+👨‍💼	férfi irodista						// [1F468 200D 1F4BC]
+👩‍💼	női irodista						// [1F469 200D 1F4BC]
+👨‍🔧	szerelő							// [1F468 200D 1F527]
+👩‍🔧	szerelőnő						// [1F469 200D 1F527]
+👨‍🔬	férfi tudós						// [1F468 200D 1F52C]
+👩‍🔬	női tudós						// [1F469 200D 1F52C]
+👨‍🚀	űrhajós							// [1F468 200D 1F680]
+👩‍🚀	űrhajósnő						// [1F469 200D 1F680]
+👨‍🚒	tűzoltó							// [1F468 200D 1F692]
+👩‍🚒	tűzoltónő						// [1F469 200D 1F692]
+
+// Emoji ZWJ Sequence: Gendered Role
+
+👮‍♀	rendőrnő						// [1F46E 200D 2640]
+👮‍♂	rendőr							// [1F46E 200D 2642]
+👱‍♀	szőke nő						// [1F471 200D 2640]
+👱‍♂	szőke férfi						// [1F471 200D 2642]
+👳‍♀	turbános nő						// [1F473 200D 2640]
+👳‍♂	turbános férfi						// [1F473 200D 2642]
+👷‍♀	építőmunkás nő						// [1F477 200D 2640]
+👷‍♂	építőmunkás férfi					// [1F477 200D 2642]
+💂‍♀	női őr							// [1F482 200D 2640]
+💂‍♂	őr							// [1F482 200D 2642]
+🕵️‍♀	nyomozónő						// [1F575 200D 2640]
+🕵️‍♂	nyomozó							// [1F575 200D 2642]
+🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
+🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
+🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
+🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
+🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
+🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
+🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
+🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
+🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
+🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
+🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
+🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
+🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
+🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Activity
+
+⛹‍♀	nő labdával						// [26F9 200D 2640]
+⛹‍♂	férfi labdával						// [26F9 200D 2642]
+🏃‍♀	futó nő							// [1F3C3 200D 2640]
+🏃‍♂	futó férfi						// [1F3C3 200D 2642]
+🏄‍♀	szörföző nő						// [1F3C4 200D 2640]
+🏄‍♂	szörföző férfi						// [1F3C4 200D 2642]
+🏊‍♀	úszó nő							// [1F3CA 200D 2640]
+🏊‍♂	úszó férfi						// [1F3CA 200D 2642]
+🏋️‍♀	súlyemelő nő						// [1F3CB 200D 2640]
+🏋️‍♂	súlyemelő férfi						// [1F3CB 200D 2642]
+🏌️‍♀	golfozó nő						// [1F3CC 200D 2640]
+🏌️‍♂	golfozó férfi						// [1F3CC 200D 2642]
+👯‍♀	bulizó nők						// [1F46F 200D 2640]
+👯‍♂	bulizó férfiak						// [1F46F 200D 2642]
+💆‍♀	nő arcmasszázson					// [1F486 200D 2640]
+💆‍♂	férfi arcmasszázson					// [1F486 200D 2642]
+💇‍♀	nő fodrásznál						// [1F487 200D 2640]
+💇‍♂	férfi fodrásznál					// [1F487 200D 2642]
+🚣‍♀	evező nő						// [1F6A3 200D 2640]
+🚣‍♂	evező férfi						// [1F6A3 200D 2642]
+🚴‍♀	kerékpáros nő						// [1F6B4 200D 2640]
+🚴‍♂	kerékpáros férfi					// [1F6B4 200D 2642]
+🚵‍♀	hegyikerékpáros nő					// [1F6B5 200D 2640]
+🚵‍♂	hegyikerékpáros férfi					// [1F6B5 200D 2642]
+🚶‍♀	sétáló nő						// [1F6B6 200D 2640]
+🚶‍♂	sétáló férfi						// [1F6B6 200D 2642]
+🤸‍♀	cigánykerekező nő					// [1F938 200D 2640]
+🤸‍♂	cigánykerekező férfi					// [1F938 200D 2642]
+🤹‍♀	zsonglőr nő						// [1F939 200D 2640]
+🤹‍♂	zsonglőr férfi						// [1F939 200D 2642]
+🤼‍♀	birkózó nők						// [1F93C 200D 2640]
+🤼‍♂	birkózó férfiak						// [1F93C 200D 2642]
+🤽‍♀	vízilabdázó nő						// [1F93D 200D 2640]
+🤽‍♂	vízilabdázó férfi					// [1F93D 200D 2642]
+🤾‍♀	kézilabdázó nő						// [1F93E 200D 2640]
+🤾‍♂	kézilabdázó férfi					// [1F93E 200D 2642]
+🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
+🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
+🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
+🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
+🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
+🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+
+// Emoji ZWJ Sequence: Gendered Gestures
+
+💁‍♀	nyitott tenyerű nő					// [1F481 200D 2640]
+💁‍♂	nyitott tenyerű férfi					// [1F481 200D 2642]
+🙅‍♀	tiltást mutató nő					// [1F645 200D 2640]
+🙅‍♂	tiltást mutató férfi					// [1F645 200D 2642]
+🙆‍♀	beleegyezést mutató nő					// [1F646 200D 2640]
+🙆‍♂	beleegyezést mutató férfi				// [1F646 200D 2642]
+🙇‍♀	meghajló nő						// [1F647 200D 2640]
+🙇‍♂	meghajló férfi						// [1F647 200D 2642]
+🙋‍♀	vidáman intő nő						// [1F64B 200D 2640]
+🙋‍♂	vidáman intő férfi					// [1F64B 200D 2642]
+🙍‍♀	rosszalló nő						// [1F64D 200D 2640]
+🙍‍♂	rosszalló férfi						// [1F64D 200D 2642]
+🙎‍♀	duzzogó nő						// [1F64E 200D 2640]
+🙎‍♂	duzzogó férfi						// [1F64E 200D 2642]
+🤦‍♀	arcát a kezébe temető nő				// [1F926 200D 2640]
+🤦‍♂	arcát a kezébe temető férfi				// [1F926 200D 2642]
+🤷‍♀	vállrándító nő						// [1F937 200D 2640]
+🤷‍♂	vállrándító férfi					// [1F937 200D 2642]
+
+// Emoji ZWJ Sequence: Other
+
+🏳‍🌈	szivárványszínű zászló					// [1F3F3 200D 1F308]
+👁‍🗨	szem szövegbuborékban					// [1F441 200D 1F5E8]
+
+// References:
+//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//
+// Sources:
+//   1.  emoji-test.txt (Emoji)
+//   2.  common/annotations/hu.xml (CLDR)
+//   3.  emoji-zwj-sequences.txt (Emoji)
