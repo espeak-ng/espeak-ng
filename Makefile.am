@@ -776,7 +776,7 @@ tt: espeak-ng-data/tt_dict
 espeak-ng-data/tt_dict: dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
 
 ur: espeak-ng-data/ur_dict
-espeak-ng-data/ur_dict: dictsource/ur_list dictsource/ur_rules dictsource/ur_extra
+espeak-ng-data/ur_dict: dictsource/ur_list dictsource/ur_rules dictsource/ur_extra dictsource/ur_emoji
 
 vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra
