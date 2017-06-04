@@ -638,7 +638,7 @@ kn: espeak-ng-data/kn_dict
 espeak-ng-data/kn_dict: dictsource/kn_list dictsource/kn_rules dictsource/kn_extra dictsource/kn_emoji
 
 ko: espeak-ng-data/ko_dict
-espeak-ng-data/ko_dict: dictsource/ko_list dictsource/ko_rules dictsource/ko_extra
+espeak-ng-data/ko_dict: dictsource/ko_list dictsource/ko_rules dictsource/ko_extra dictsource/ko_emoji
 
 kok: espeak-ng-data/kok_dict
 espeak-ng-data/kok_dict: dictsource/kok_list dictsource/kok_rules dictsource/kok_extra
