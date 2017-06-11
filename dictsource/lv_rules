@@ -164,7 +164,7 @@
 .group e
            e               e         // Default as narrow e
            ee              e_|e      // internationalisms, prefix: ne-e...
-           ei (+           ei
+           ei (++          ei
 
     // narrow e ---------------------------------------------------------------------- //
            a) e (ro            e     // internationalisms
@@ -216,7 +216,7 @@
            e (L25L01_          E
            e (L25L25L01_       E
            e (Jam              E
-      L25) e (L18_+            E     // vareni etc.
+      L25) e (CJL18_           E     // vareni etc.
 
     // specific words ----------------------------------------------------------------- //
         b) e (dL82L05_         e         // bedre
@@ -292,7 +292,7 @@
        _v) e (ntL04_           E         // Venta
        _v) e (ntsp             E         // Ventspils
        _z) e (lmL04_           e         // Zelma
-       _z) e (m                e
+        z) e (m+               e
 
 .group ē
            ē                   e:        // Default as narrow ē
@@ -346,7 +346,7 @@
            ē (L25L25L25L25L24  E:
                                      // widening endings
            ē (L01_             E:
-           ē (L25L01_          E:
+           ē (L25L01_+         E:
            ē (L25L25L01_       E:
                                     // 5. dec. words
            ē (CL05_            e:
@@ -369,6 +369,7 @@
            ē (rkšķ             e:
            ē (tā_              E:
            ē (tL55_            E:
+       gr) ē (kL01_            E:
       izp) ē (t                e:
      _kāp) ē (c_               e:    // kāpēc
         m) ēne (L83            e:ne
@@ -393,6 +394,7 @@
         t) ē (L90              e:
         t) ē (mL04_            e:    // ..tēma
         t) ērē                 e:Re:
+        t) ē (zL05_            e:    // ..tēze
        _v) ē (l_               e:    // vēl
        _v) ē (lL01_            E:    // vēls
        _v) ē (rā_              e:    // vērā
@@ -421,7 +423,7 @@
            ī               i:
 
 .group j
-        A) j (@           :j
+//        A) j (@           :j
            j               j
         _) jebk            j%ebk     // stress on 2nd syllable
 
@@ -455,6 +457,7 @@
         C) n (C            n-        // more voiced variant between consonants
       L59) n (@           :n
            n (d            N
+           ne (vienl+      n'e       // nevienlīdzība
         _) ne (vien        n%e       // stress on 2nd syllable
            n (g            N
            n (k            N
@@ -1353,8 +1356,8 @@ L46L45L45) o (<<           uo
 .group os
        ap) ostrof          ostRo:f
       atm) os              os
-        b) os (L01_        os        // boss
    _blont) os (_           uos       // Blontos
+        b) os (L01_        os        // boss
      _cit) os (_           uos       // citos
      _dat) os (_           uos
        _d) osto (jevskL02_ osto      // Dostojevskis
@@ -1362,6 +1365,7 @@ L46L45L45) o (<<           uo
         f) osfo            osfo:
   _gr) osto (nL04_         osto:     // Grostona
        iz) os              uos
+      kāp) os (t           uos
         k) os (in          os
         k) os (m           os
        _k) osmo (sL01_     osmo      // kosmoss
@@ -1376,14 +1380,13 @@ L46L45L45) o (<<           uo
            osto (L65       uostuo
            os (t_          uos
         p) os (m           uos
+        p) os (tC@         os
         p) os (te          os
         p) os (ter         os
         p) os (tī          uos
-        p) os (tL56m       os
-        p) os (tm          os
-        p) os (tk          os
+        p) os (tL01        uos
+        p) os (tL55m       os
         p) os (to          uos
-        p) os (tso         os
         p) os (tul         os
        pr) os (p           os
        pr) os (t           os

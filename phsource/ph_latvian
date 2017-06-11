@@ -52,7 +52,7 @@ endphoneme
 phoneme i:
   vwl starttype #i endtype #i
   length 300
-  FMT(vwl_lv/ii, 100) // was i_7
+  FMT(vwl_lv/ii, 90) // was i_7
 endphoneme
 
 
@@ -333,5 +333,34 @@ phoneme s
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ufric/s,60)
+endphoneme
+
+phoneme j // **y**es
+  liquid pal starttype #i
+
+  IF nextPhW(isVowel) THEN
+    NextVowelStarts
+      VowelStart(j/j@)
+      VowelStart(j/ja)
+      VowelStart(j/je)
+      VowelStart(j/ji)
+      VowelStart(j/jo)
+      VowelStart(j/ju)
+    EndSwitch
+
+    IF prevPhW(e) THEN
+      VowelEnding(j/xj, 10) //
+    ELSE
+      VowelEnding(j/xj, 127) // In difference with English, vowel is lengthened, not shortened
+    ENDIF
+
+    IF prevPh(isPause) THEN
+      FMT(j/_j)
+    ENDIF
+  ELSE
+    // no vowel follows
+    Vowelout len=127
+    FMT(j/xj)
+  ENDIF
 endphoneme
 
