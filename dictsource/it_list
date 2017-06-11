@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 april 28 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 june 11 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -111,7 +111,6 @@ $	d'Ol:aRI
 \	kont@-*ob'a:R*a	$max3
 _|	b'aR*a||ve@-*tik'ale
 &	'a/nd
-©       k'O:pi||raIt
 #	kantSellet:o
 @	ki'otS:ola
 ~	tilde
@@ -137,7 +136,6 @@ _‡	k@-*'otSe||lat'ina||d'Op:ia
 _′	p@-*'imi
 _″	d'Op:io||'apitSe
 _‴	t@-*'iplo||'apitSe
-_‼	esklamatsi'One
 §	setsi'One
 ¶	pa*'ag@-*afo
 _‐	legat'u:Ra
@@ -159,8 +157,6 @@ _‣	punt'ato
 ↓	f@-*'etS:a||_dZ'u
 ♭	bem'Ol:e
 ♯	dI'ezis
-♥	'asso||di||kw'ORI
-❓	p'unto||inteR*ogat'ivo
 _‧	sepaRat'oRe/
 
 ∞	infin'Ito
@@ -4330,6 +4326,7 @@ situino	$1
 sloggiano	$1
 smagnetizzino	$3
 smascher	$1
+smascherano	$1
 smercino	$1
 sniffano	$1
 snodano	$1
@@ -4673,6 +4670,8 @@ zuccherano	$1
 (quando capita)	kw'ando||k'apita
 (se capita)	se||k'a:pita
 (me capita)	me||k'apita
+(cosa capita)	k'oza||k'a:pita
+(come capita)	k'ome||k'a:pita
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
