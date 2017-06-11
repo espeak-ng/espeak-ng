@@ -1,4 +1,4 @@
-﻿// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal)
+﻿// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal) and Ejaz Shah (Pakistan)
 // This file is UTF8 encoded 
 // Letter Names, Numbers and  exceptional pronounciation of  Urdu
 
@@ -55,6 +55,8 @@ _ؤ	va:Oh'amza
 ّ	t,aSd'i:d
 ً	d'o:zab'aR
 ْ	sUk'u:n
+ٗ	Ult.a:||pe:S
+ٓ	mada
 
 
 // The numbers
@@ -190,8 +192,11 @@ _dpt	_ISaRI'Ia_
 جن	J'In	$u
 جنھیں	J,InH'e:n	$u
 انہوں	,UnH'o:n	$u
+انھوں	UnHo:n	$u
 انہیں	,UnH'e:n	$u
 انھیں	,UnH'e:n	$u
+انھی	UnHi	$u
+انہی	UnHi:	$u
 
 // unstressed prepositions
 کا	$u
@@ -677,7 +682,6 @@ _dpt	_ISaRI'Ia_
 کلک	klIk
 فکسنگ	f,Iks'Ing
 مانند	ma:n'Ind	$1
-اتار	Ut'a:R
 آرکائیو	,a:Rk'a:jv
 لنک	lInk
 فہرست	fEHRIst
@@ -719,3 +723,257 @@ _dpt	_ISaRI'Ia_
 خاتون	xa:tu:n
 برتری	baRtaRi
 برتر	baRtaR
+سن	sUn
+انھتر	UnHataR
+انیس	Uni:s
+ورلڈ	vaRld.
+فرق	faRq
+اوپر	u:paR	$1
+اوپری	u:pRi:
+دودھ	du:d#
+اورئینٹل	o:Ri;e:nt.al
+انکار	Inka:R
+انکاری	Inka:Ri
+انیک	ane:k
+اونگ	u:ng
+اوک	u:k
+اویس	ave:s
+اویسی	ave:si
+اٹوٹ	at.u:t.
+اٹھ	Ut.#
+اٹھان	Ut.#a:n
+اک	Ik
+اکا	Ika:
+دکا	dUka:
+اکائی	Ik'a:i
+اکبر	akbaR	$1
+وکی	vIki
+اکرم	akRam	$1
+اکزیکٹیو	Ikze:kIt.Iv
+اکتا	Ukta:
+اکتایا	Ukta:ja:
+اکتاہٹ	Ukta:Hat.
+اکلو	Iklo:
+اکمل	akmal	$1
+مملکت	mamlIkat
+قربت	qURbat	$1
+مٹا	mIt.a:
+ٹیوب	t.ju:b
+سیہون	sEHvan
+عرس	URs
+اکھاڑ	Uk#a:r.
+اکے	Ike:
+آمیزش	a:me:zIS
+واحد	va:HId
+آنت	a:nt
+آنچل	a:ncal
+حجاب	HIJa:b
+حلقہ	Halqa
+لحاظ	lIHa:z.
+کیچڑ	kicar.
+گردش	gaRdIS
+مروت	mURavvat
+مزاج	mIza:J
+غربت	QURbat	$1
+آویزش	a:ve:zIS
+پہر	pEHER
+آہ	a:H
+جگر	JIgaR
+دلدوز	dIldo:z	$1
+رحمت	REHmat
+ابجد	abJad
+(رسم الخط)	RasmUlxat
+ابجدی	abJadi
+حروف	HURu:f
+ابر	abR
+ابراہیم	IbRa:Hi:m
+ابراہیمی	IbRa:Hi:mi
+ابرق	abRaq
+ابرنا	UbaRna:
+ابرو	abRu:
+کنول	kanval	$2
+ابل	Ubal
+ابلا	Ubla:
+ابلی	Ubli:
+ابلیس	Ibli:s
+الغرض	alQaRaz
+الوقت	Ulvaqt
+دہر	dEHER
+ظلم	z.Ulm
+ابو	abu:
+طالب	ta:lIb
+اپج	UpaJ
+اپچار	Upca:R
+اپدیش	Upde:S
+اپواس	Upva:s
+اپکار	Upka:R
+سرسری	saRsaRi	$1
+متخالف	mUtaxa:lIf
+اتصالی	,ItIs.a:li
+اتمام	ItIma:m
+حجت	HUJat
+اتھل	Ut#al
+پتھل	pUt#al
+اجازت	IJa:zat	$2
+اجرا	IJRa:
+اجرت	IJRa:
+اجگر	aJgaR
+اجلا	UJla:
+اجلی	UJli:
+اجلے	UJle:
+اجماع	IJma:
+اجمل	aJmal
+اجنبی	aJnabi
+اجنٹ	IJant.
+اجنڈا	IJand.a:
+اچک	Ucak
+اچکا	Ucka:
+اجنب	aJnab
+اچھوت	ac#u:t
+اچھوتا	ac#u:ta:
+اچھوتی	ac#u:ti
+اچھوتے	ac#u:te:
+پرسی	pURsi:
+بالغیب	bIlQEb	$2
+نگار	nIga:R
+کاغذ	ka:QaD
+اختری	axtaRi:
+اخذ	axaD
+جرات	JURat
+اخوت	Uxu:vat
+فہم	fEHEm
+جرمنی	JaRmani
+خدمت	xIdmat
+شریعت	SaRi;at
+ادت	Idat
+ادراک	IdRa:k
+تردد	taRaddUd
+خدمات	xIdma:t
+ادریس	IdRi:s
+ادب	adab
+ادغام	IdQa:m
+ادلال	Idla:l
+موا	mu:a:
+ادھر	Id#aR
+(ادھر ادھر)	Id#aR||Ud#aR
+ادھم	Ud#am
+اذالہ	IDa:la
+ارتھ	aRt#
+معلیٰ	mUalla:
+ارسال	IRsa:l
+ملیں	mIle:n
+ارشاد	IRSa:d
+ارض	aRz
+سلطنت	saltanat
+استاد	Usta:d
+استادی	Usta:di
+استر	staR
+بخدا	baxUda:
+بندش	bandIS
+خرد	xURd
+خردار	xURda:R
+خردہ	xURda
+خرشید	xURSi:d
+تبرک	tabaRUk
+خرم	xURRam
+خزاں	xIza:n
+پروردہ	paRvaRda
+خشک	xUSk
+خصوص	xUs.u:s.
+زمرد	zamaRUd
+جبلت	JIbIll'at	$2
+بالآخر	bIla:xIR
+شعاع	SUa:
+حصار	HIs.a:R
+شدگی	SUdgi:
+بالاتفاق	bIlItIfa:q
+بالاجماع	bIlIJma:
+بالاجمال	bIlIJma:l
+بالاشتراک	bIlIStIRa:k
+بالاعلان	bIle:la:n
+بالجبر	bIlJabR
+بالعوض	bIlIvaz
+بالغرض	bIlQaRaz
+مرکزی	maRkazi
+بالفرض	bIlfaRz
+حکمت	HIkmat
+بالفعل	bIlfe:l
+بالمثل	bIlmIsl
+بالمختصر	bIlmUxtas.aR
+بالمشافہ	bIlmUSa:fa
+بالمعنی	bIlma:ni
+بالمقابل	bIlmUqa:bIl
+بالواسطہ	bIlva:sta
+نیند	ni:nd
+باوجودیکہ	ba:vUJu:de:ke:
+کتا	kUt:a:	$2
+دکھاؤ	dIk#a:o:
+کتے	kUt:e:	$2
+کتوں	kUt:o:n
+بپھر	bIp#aR
+شکن	SIkan
+بتکرار	batakRa:R
+بچھ	bIc#
+منجمد	mUnJamId
+بحر	bEHER
+بخدمت	baxIdmat
+منکشف	mUnkaSIf
+بخش	baxS
+بخشش	baxSIS
+جدت	JIdat
+بخوشی	baxUSi:
+بخیر	baxE:R
+بچپن	bacpan
+بچپنا	bacpana:
+قطب	qUtUb
+ذہن	DEHEn
+سلوک	sUlu:k
+انڈین	Ind.i;an
+متنبہ	mUtanabe:
+قیمتی	qi:mti:
+بدک	bIdak
+بذریعہ	baDaRi:;a:
+برا	bURa:
+نسبتی	nIsbati
+برتن	baRtan
+برج	bURJ
+برد	bURd
+بردہ	bURda
+رغبت	RaQbat
+برضا	baRaza:
+علاج	Ila:J
+الفت	Ulfat
+برگزیدہ	baRgUzi:da
+برہمن	bRaHman
+الذمہ	UDDIma
+صحبت	s.OHbat
+برے	bURe:
+بزدل	bUzdIl
+بز	bUz
+بزدلانہ	bUzdIla:na
+بزدلی	bUzdIli:
+بزم	bazm
+بستر	bIstaR
+مرگ	maRg
+بسکٹ	bIskIt.
+(بسم اللہ)	bIsmIlla:H
+بسم	bIsm
+بسنت	basant
+بضد	bazId
+بعید	bai:d
+بغض	bUQz
+بقید	baqE:d
+(بلا واسطہ)	bIla:||va:sta
+بلال	bIla:l
+بلبل	bUlbUl
+بلبلے	bUlbUle:
+بلک	bIlak
+بلیک	ble:k
+مارکٹ	ma:RkIt.
+(بن بلائے)	bIn||bUla:e:
+(بن مول)	bIn||mo:l
+بنت	bInt
+سنور	sanvaR
+بو	bu:	$only
+بورڈنگ	bo:Rd.Ing
+بولنگ	bo:lIng

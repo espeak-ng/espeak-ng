@@ -1,5 +1,5 @@
 ﻿
-// This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal).
+// This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal) and Ejaz Shah (Pakistan).
 // This file is UTF8 encoded 
 //  phoneme rules for Urdu
 // Letter group - l01: Vowels
@@ -17,6 +17,7 @@
 ٩	9
 ي	ی
 یٰ	ا
+آ	آ
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
@@ -47,6 +48,9 @@
 	ُ	U
 	ُو	u:
 	ُع	O
+
+.group ٗ
+	ٗ	u:
 
 .group ھ
 	ھ	HV 
@@ -123,12 +127,49 @@ _) ای	e:
 	_) است (L02	,IstI
 	_) ارت (L02	,IRtI
 	_) ادار	Ida:R
+	_)انک(L02L01	InkI
+	_)انہتر	UnHataR
+	_)او(ا	av
+	_)انہ(L02L01	InHI
+	_)اٹھتال	at.#ta:l
+	_)اٹھتر	at.#at:aR
+	_)اٹھتیس	at.#ti:s
+	_)اٹھلا	It.#la:
+	_)اٹھ(و	Ut.#
+	_)اکت(L02L01	IktI
+	_)اکسا	Uksa:
+	_)اکٹھ(L01	Ikat.t.#
+	_)اکہر	IkEHR
+	_)اکیل	ake:l
+	_)ائ	aI
+	_)ابال	Uba:l
+	_)ابوال(P5	abUl
+	L02)او(L02	a:vV
+	_)ابھار	Ub#a:R
+	_)اتار	Uta:R
+	_)اترو(L01	UtaRv
+	_)ابکائ	Ubka:
+	_)اجت(L02L01	IJtI
+	_)اجا(ر	IJa:
+	_)اجال	UJa:l
+	_)اجاڑ	UJa:r.
+	_)اچھال	Uc#a:l
+	_)اداس	Uda:s
+	_)ادھار	Ud#a:R
+	_)ادھڑ(L01	Ud#r.
+	_)ادھڑ	Ud#ar.
+	_)ادھیڑ	Ud#e:r.
+	_)ارا(د	IRa:
+	_)اونچ	u:nc
+	اں	a~
 
 .group آ
 	آ	a:
 	آتش	'a:tIS
 	آہست	a:H'Ist
 	آئ (L02	'a:I
+	آمیز	a:me:z
+	آویز	a:ve:z
 
 
 .group ع
@@ -141,6 +182,8 @@ _) ای	e:
 	_) عمر	'UmR
 	L02) عی (_	'ai:
 	علیحد	'alEHd
+	عُ	'U
+	عِ	I
 
 .group و
 	و	o:
@@ -152,8 +195,11 @@ _) ای	e:
 	وّ	vv
 	L02L02L02) و (L02	u:
 	L02) ونکہ (_	u:nk'e:H
-	L02L01) و (L02	vV
-	L01) و (L01	v
+	_L02)و(L01	av
+	L01)و(L01	v
+	وؤ	u:o:
+	L03L03L03L03)وں(S2	o:n
+	_L02L01)و(L02_	vV
 
 .group ی
 	ی	e:
@@ -162,12 +208,15 @@ _) ای	e:
 	_) ی	jV
 	یع(_	i:
 	@) ی	i:
-	@) یں (_	e:n
+	@) یں (_	e~
 	یّ	jj
 	@) یت (_S2	i:;'at
 	_) یو	jO
 	ی (و	e:
 	L02)یوں	i;o:n
+	L03)یکشن	e:kSan
+	L03L03L03L03)یں(S2	e~
+	یں	e~
 
 .group ے		// yeh barree
 	ے	e:
@@ -180,7 +229,7 @@ _) ای	e:
 	ئ
 
 .group ؤ
-	ؤ	aU   // ??
+	ؤ	o:
 
 .group أ
 	أ	// ??
@@ -220,6 +269,11 @@ _) ای	e:
 	بوڑھ	b'u:r.h
 	_) بے (P2	b'e:
 	بحران	b,OHR'a:n
+	_)بپھر(L01	bIp#R
+	_)بچھ	bIc#
+	_)بخار	bUxa:R
+	_)برائی	bURa:i
+	_)بوا(ئ	boa:
 
 
 .group پ
@@ -237,6 +291,7 @@ _) ای	e:
 	پیچھ	p'i:c#
 	پھونک	p#'u:nk
 	_) پور (L01	p'u:R
+	_)پچھل(L01	pIc#l
 
 .group ت
 	ت	tV
@@ -258,6 +313,7 @@ _) ای	e:
 	L03L03) تی (_S2	ti:
 	L03L03) تے (_S2	te:
 	_) توا	t'ava:
+	تہ(_	ta
 
 .group ٹ
 	ٹ	t.V
@@ -295,6 +351,7 @@ _) ای	e:
 	_) جمل	J'Uml
 	_) جہ (L02	J'EH
 	_) جدا	J'Uda:
+	_)جذب	JaDb
 
 .group چ
 	چ	cV
@@ -320,6 +377,7 @@ _) ای	e:
 
 	حّ	HHV
 	حّ (L01	HH
+	_)حیا	Haja:
 
 .group خ
 	خ	xV
@@ -331,6 +389,8 @@ _) ای	e:
 	_) خود	x'Ud
 	_) خواہش	xv'a:HIS
 	_) خیا	x'aja:
+	_)خوا	xva:
+	_)خدا	xUda:
 
 
 .group د
@@ -353,6 +413,7 @@ _) ای	e:
 	_) دوسر	d'u:sR
 	_) دین	de:n
 	_) دیت	de:t
+	دہ(_	da
 
 .group ڈ
 	ڈ	d.V
@@ -446,6 +507,7 @@ _) ای	e:
 	_) شخص	S'axs.
 	_) شہ (L02	S'EH
 	شرمند	S,aRm'Ind
+	_)شمار	SUma:R
 
 .group ص
 	ص	s.V
@@ -529,6 +591,7 @@ _) ای	e:
 	_) گہ (L02	g'EH
 	گزارش	gUz'a:RIS
 	_) گیت	g'i:t
+	_)گزار	gUza:R
 
 .group ل
 	ل	lV
@@ -639,21 +702,22 @@ _) ای	e:
 	ّ
 
 .group ً
-	ً
+	ً	an
 
 
 // Common symbols
 
 .group
 	$	do:l@R
-	,	sVkat.Vh	// 	Sakata سکتہ
-		!	f'iJa:ja	//Fijaya	فجائیہ
-	;	w'ak't'a	//Waqfa	وقفہ
+	,	sakta	// 	Sakta سکتہ
+	!	f'iJa:ja	//Fijaya 	فجائیہ
+	;	vakfa	//Waqfa 	وقفہ
 	:	r'a:b'tah//Rabtar 	رابطہ
 	?	saw'a:l'i:ja:n'is'a:nV	// Sawaliya Nishan	سوالیہ نشان
-	%	f'i:sVd	//Fisad	فیصد
+	%	f'i:sVd	//Fisad 	فیصد
+	۔	xatma	//Khatma 	ختمہ
+	؟	sava:li:;a:||nISa:n	//Sawalya Nishan 	سوالیہ نشان
 
-	
 
 .group 0xe0a4  // devanagari
 	0xe0a4  _^_NE  // switch to Nepali voice

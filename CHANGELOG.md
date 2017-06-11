@@ -32,7 +32,7 @@ new languages:
 *  fr-CH (French (Switzerland)) -- Claude Beazley
 *  kok (Konkani) -- Vardhan
 *  mi (Māori) -- Graham Oliver
-*  sd (Sindhi, Arabic script) -- Vardhan
+*  sd (Sindhi, Arabic script) -- Vardhan, Ejaz Shah
 
 updated languages:
 
