@@ -18,12 +18,23 @@
  */
 
 #include "config.h"
+#include "mbrowrap.h"
+
+int (WINAPI *init_MBR)(char *voice_path);
+void (WINAPI *close_MBR)(void);
+void (WINAPI *reset_MBR)(void);
+int (WINAPI *read_MBR)(short *buffer, int nb_samples);
+int (WINAPI *write_MBR)(char *data);
+int (WINAPI *flush_MBR)(void);
+int (WINAPI *getFreq_MBR)(void);
+void (WINAPI *setVolumeRatio_MBR)(float value);
+char * (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
+void (WINAPI *setNoError_MBR)(int no_error);
 
 #if defined(_WIN32) || defined(_WIN64)
 
 #include <windows.h>
 
-#include "mbrowrap.h"
 
 HINSTANCE hinstDllMBR = NULL;
 
@@ -69,8 +80,6 @@ void unload_MBR()
 #include <unistd.h>
 
 #include <espeak-ng/espeak_ng.h>
-
-#include "mbrowrap.h"
 #include "speech.h"
 
 /*
