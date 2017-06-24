@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.133
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 05-10-2017
+// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.134
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 06-24-2017
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -554,6 +554,7 @@ _)	paRAntezbaste:
 آموخت	Amuxt
 آموزد	Amuzad
 آموزش	AmuzeS
+آمپر	AmpeR
 آمپرمتر	AmpeRmetR
 آمپلیفایر	AmpelifAjeR
 آمپیریسم	AmpiRism
@@ -5055,7 +5056,6 @@ _)	paRAntezbaste:
 درایه	deRAje
 درایو	deRAjv
 درایور	deRAjveR
-درباره	daR'bAReje:
 دربازکن	daRbAzkon
 دربدر	daRbedaR
 دربندکشیده	daRbandkeSide
@@ -6809,6 +6809,7 @@ _)	paRAntezbaste:
 شدیدا	Sadidan
 شدیداللحن	Sadidollahn
 شدیم	Sodim
+شراادی	SA:_d:jA:_R
 شرافت	SeRAfat
 شراپنل	SeRApnel
 شراکت	SeRAkat
@@ -6816,7 +6817,6 @@ _)	paRAntezbaste:
 شربت	SaRbat
 شرت	'SoRt
 شرتکات	SoRtkAt
-شراادی	SA:_d:jA:_R
 شرشر	SeRSeR
 شرطه	SoRte:
 شرعا	SaR?an
