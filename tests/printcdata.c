@@ -224,7 +224,8 @@ int main(int argc, char **argv)
 {
 	FILE *in = NULL;
 	const char *format = NULL;
-	for (int argn = 1; argn != argc; ++argn)
+	int argn;
+	for (argn = 1; argn != argc; ++argn)
 	{
 		const char *arg = argv[argn];
 		if (!strcmp(arg, "--stdin") || !strcmp(arg, "-"))
@@ -250,7 +251,8 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
+		codepoint_t c;
+		for (c = 0; c <= 0x10FFFF; ++c)
 			uprintf(stdout, c, format ? format :
 			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il %P\n");
 	}
