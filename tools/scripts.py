@@ -153,6 +153,7 @@ if __name__ == '__main__':
 #define Geok UCD_SCRIPT_Geok
 #define Geor UCD_SCRIPT_Geor
 #define Glag UCD_SCRIPT_Glag
+#define Gonm UCD_SCRIPT_Gonm
 #define Goth UCD_SCRIPT_Goth
 #define Gran UCD_SCRIPT_Gran
 #define Grek UCD_SCRIPT_Grek
@@ -250,6 +251,7 @@ if __name__ == '__main__':
 #define Sind UCD_SCRIPT_Sind
 #define Sinh UCD_SCRIPT_Sinh
 #define Sora UCD_SCRIPT_Sora
+#define Soyo UCD_SCRIPT_Soyo
 #define Sund UCD_SCRIPT_Sund
 #define Sylo UCD_SCRIPT_Sylo
 #define Syrc UCD_SCRIPT_Syrc
@@ -279,6 +281,7 @@ if __name__ == '__main__':
 #define Xpeo UCD_SCRIPT_Xpeo
 #define Xsux UCD_SCRIPT_Xsux
 #define Yiii UCD_SCRIPT_Yiii
+#define Zanb UCD_SCRIPT_Zanb
 #define Zinh UCD_SCRIPT_Zinh
 #define Zmth UCD_SCRIPT_Zmth
 #define Zsym UCD_SCRIPT_Zsym

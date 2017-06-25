@@ -176,6 +176,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 	UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 	UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+	UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 	UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 	UCD_SCRIPT_Gran, /**< @brief Grantha Script */
 	UCD_SCRIPT_Grek, /**< @brief Greek Script */
@@ -273,6 +274,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 	UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
 	UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
+	UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 	UCD_SCRIPT_Sund, /**< @brief Sundanese Script */
 	UCD_SCRIPT_Sylo, /**< @brief Syloti Nagri Script */
 	UCD_SCRIPT_Syrc, /**< @brief Syriac Script */
@@ -302,6 +304,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Xpeo, /**< @brief Old Persian Script */
 	UCD_SCRIPT_Xsux, /**< @brief Cuneiform Script */
 	UCD_SCRIPT_Yiii, /**< @brief Yi Script */
+	UCD_SCRIPT_Zanb, /**< @brief Zanabazar Square */
 	UCD_SCRIPT_Zinh, /**< @brief Inherited Script */
 	UCD_SCRIPT_Zmth, /**< @brief Mathematical Notation */
 	UCD_SCRIPT_Zsym, /**< @brief Symbols */
@@ -665,6 +668,7 @@ namespace ucd
 		Geok = UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 		Geor = UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 		Glag = UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+		Gonm = UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 		Goth = UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 		Gran = UCD_SCRIPT_Gran, /**< @brief Grantha Script */
 		Grek = UCD_SCRIPT_Grek, /**< @brief Greek Script */
@@ -762,6 +766,7 @@ namespace ucd
 		Sind = UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 		Sinh = UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
 		Sora = UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
+		Soyo = UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 		Sund = UCD_SCRIPT_Sund, /**< @brief Sundanese Script */
 		Sylo = UCD_SCRIPT_Sylo, /**< @brief Syloti Nagri Script */
 		Syrc = UCD_SCRIPT_Syrc, /**< @brief Syriac Script */
@@ -791,6 +796,7 @@ namespace ucd
 		Xpeo = UCD_SCRIPT_Xpeo, /**< @brief Old Persian Script */
 		Xsux = UCD_SCRIPT_Xsux, /**< @brief Cuneiform Script */
 		Yiii = UCD_SCRIPT_Yiii, /**< @brief Yi Script */
+		Zanb = UCD_SCRIPT_Zanb, /**< @brief Zanabazar Square */
 		Zinh = UCD_SCRIPT_Zinh, /**< @brief Inherited Script */
 		Zmth = UCD_SCRIPT_Zmth, /**< @brief Mathematical Notation */
 		Zsym = UCD_SCRIPT_Zsym, /**< @brief Symbols */
