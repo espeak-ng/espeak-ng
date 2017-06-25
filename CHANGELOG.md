@@ -7,6 +7,7 @@
 *  PropList and emoji-data property lookup.
 *  Support building with a C89 compiler.
 *  Update to Unicode Character Data 10.0.0.
+*  Unicode Emoji 5.0.
 
 ## 9.0.0 - 2016-12-28
 

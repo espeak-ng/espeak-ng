@@ -55,7 +55,7 @@ EXTRA_DIST += ChangeLog
 
 ############################# Unicode Data ####################################
 
-EMOJI_VERSION=4.0
+EMOJI_VERSION=5.0
 UCD_VERSION=@UCD_VERSION@
 UCD_ROOTDIR=data/ucd
 UCD_SRCDIR=http://www.unicode.org/Public
