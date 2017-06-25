@@ -62,27 +62,27 @@ UCD_SRCDIR=http://www.unicode.org/Public
 
 data/emoji/emoji-data.txt:
 	mkdir -pv data/emoji
-	curl ${UCD_SRCDIR}/emoji/${EMOJI_VERSION}/emoji-data.txt > $@
+	curl ${UCD_SRCDIR}/emoji/${EMOJI_VERSION}/emoji-data.txt -o $@
 
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
-	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropList.txt > $@
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropList.txt -o $@
 
 data/ucd/DerivedCoreProperties.txt:
 	mkdir -pv data/ucd
-	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/DerivedCoreProperties.txt > $@
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/DerivedCoreProperties.txt -o $@
 
 data/ucd/PropertyValueAliases.txt:
 	mkdir -pv data/ucd
-	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropertyValueAliases.txt > $@
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/PropertyValueAliases.txt -o $@
 
 data/ucd/Scripts.txt:
 	mkdir -pv data/ucd
-	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/Scripts.txt > $@
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/Scripts.txt -o $@
 
 data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
-	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/UnicodeData.txt > $@
+	curl ${UCD_SRCDIR}/${UCD_VERSION}/ucd/UnicodeData.txt -o $@
 
 ############################# documentation ###################################
 
