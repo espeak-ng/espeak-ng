@@ -1,10 +1,10 @@
 # Change Log
 
-## 9.0.0.1 - (In Progress)
+## 10.0.0 - (In Progress)
 
 *  Add `iswblank` and `iswxdigit` compatibility.
 *  Improve ctype compatibility.
-*  PropList property lookup.
+*  PropList and emoji-data property lookup.
 
 ## 9.0.0 - 2016-12-28
 
