@@ -5,6 +5,7 @@
 *  Add `iswblank` and `iswxdigit` compatibility.
 *  Improve ctype compatibility.
 *  PropList and emoji-data property lookup.
+*  Support building with a C89 compiler.
 
 ## 9.0.0 - 2016-12-28
 

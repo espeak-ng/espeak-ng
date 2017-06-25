@@ -83,7 +83,7 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
-	case 'c': // character
+	case 'c': /* character */
 		switch (c)
 		{
 		case '\t': fputs("\\t", out);  break;
@@ -92,10 +92,10 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 		default:   fput_utf8c(out, c); break;
 		}
 		break;
-	case 'h': // hexadecimal (lower)
+	case 'h': /* hexadecimal (lower) */
 		fprintf(out, "%06x", c);
 		break;
-	case 'H': // hexadecimal (upper)
+	case 'H': /* hexadecimal (upper) */
 		fprintf(out, "%06X", c);
 		break;
 	}
@@ -105,40 +105,40 @@ void uprintf_is(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
-	case 'A': // alpha-numeric
+	case 'A': /* alpha-numeric */
 		fputc(ucd_isalnum(c) ? '1' : '0', out);
 		break;
-	case 'a': // alpha
+	case 'a': /* alpha */
 		fputc(ucd_isalpha(c) ? '1' : '0', out);
 		break;
-	case 'b': // blank
+	case 'b': /* blank */
 		fputc(ucd_isblank(c) ? '1' : '0', out);
 		break;
-	case 'c': // control
+	case 'c': /* control */
 		fputc(ucd_iscntrl(c) ? '1' : '0', out);
 		break;
-	case 'd': // numeric
+	case 'd': /* numeric */
 		fputc(ucd_isdigit(c) ? '1' : '0', out);
 		break;
-	case 'g': // glyph
+	case 'g': /* glyph */
 		fputc(ucd_isgraph(c) ? '1' : '0', out);
 		break;
-	case 'l': // lower case
+	case 'l': /* lower case */
 		fputc(ucd_islower(c) ? '1' : '0', out);
 		break;
-	case 'P': // printable
+	case 'P': /* printable */
 		fputc(ucd_isprint(c) ? '1' : '0', out);
 		break;
-	case 'p': // punctuation
+	case 'p': /* punctuation */
 		fputc(ucd_ispunct(c) ? '1' : '0', out);
 		break;
-	case 's': // whitespace
+	case 's': /* whitespace */
 		fputc(ucd_isspace(c) ? '1' : '0', out);
 		break;
-	case 'u': // upper case
+	case 'u': /* upper case */
 		fputc(ucd_isupper(c) ? '1' : '0', out);
 		break;
-	case 'x': // xdigit
+	case 'x': /* xdigit */
 		fputc(ucd_isxdigit(c) ? '1' : '0', out);
 		break;
 	}
@@ -151,31 +151,31 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 	case '%':
 		switch (*++format)
 		{
-		case 'c': // category
+		case 'c': /* category */
 			fputs(ucd_get_category_string(ucd_lookup_category(c)), out);
 			break;
-		case 'C': // category group
+		case 'C': /* category group */
 			fputs(ucd_get_category_group_string(ucd_lookup_category_group(c)), out);
 			break;
-		case 'p': // codepoint
+		case 'p': /* codepoint */
 			uprintf_codepoint(out, c, *++format);
 			break;
-		case 'P': // properties
+		case 'P': /* properties */
 			fprintf(out, "%016llx", ucd_properties(c, ucd_lookup_category(c)));
 			break;
-		case 'i': // is*
+		case 'i': /* is* */
 			uprintf_is(out, c, *++format);
 			break;
-		case 'L': // lowercase
+		case 'L': /* lowercase */
 			uprintf_codepoint(out, ucd_tolower(c), *++format);
 			break;
-		case 's': // script
+		case 's': /* script */
 			fputs(ucd_get_script_string(ucd_lookup_script(c)), out);
 			break;
-		case 'T': // titlecase
+		case 'T': /* titlecase */
 			uprintf_codepoint(out, ucd_totitle(c), *++format);
 			break;
-		case 'U': // uppercase
+		case 'U': /* uppercase */
 			uprintf_codepoint(out, ucd_toupper(c), *++format);
 			break;
 		}

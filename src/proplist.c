@@ -142,11 +142,11 @@ static ucd_property properties_Ll(codepoint_t c)
 		if (c == 0x029D)                return UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0x0300:
-		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c == 0x03D5)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x03F0 && c <= 0x03F1) return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x03F3)                return UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x0400:
 		if (c == 0x0456)                return UCD_PROPERTY_SOFT_DOTTED;
@@ -160,12 +160,12 @@ static ucd_property properties_Ll(codepoint_t c)
 		if (c == 0x1ECB)                return UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0x2100:
-		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x212F && c <= 0x2131) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x2133 && c <= 0x2134) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x212F && c <= 0x2131) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x2133 && c <= 0x2134) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c == 0x2139)                return UCD_PROPERTY_EMOJI;
-		if (c >= 0x213C && c <= 0x213F) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x2145 && c <= 0x2147) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x213C && c <= 0x213F) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x2145 && c <= 0x2147) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x2148 && c <= 0x2149) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		break;
 	case 0xFF00:
@@ -173,45 +173,45 @@ static ucd_property properties_Ll(codepoint_t c)
 		break;
 	case 0x01D400:
 		if (c >= 0x01D422 && c <= 0x01D423) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x01D400 && c <= 0x01D454) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D400 && c <= 0x01D454) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D456 && c <= 0x01D457) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D48A && c <= 0x01D48B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x01D458 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D4AE && c <= 0x01D4B9) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D458 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D4AE && c <= 0x01D4B9) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c == 0x01D4BB)                  return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D4BE && c <= 0x01D4BF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D4BD && c <= 0x01D4C3) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D4F2 && c <= 0x01D4F3) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x01D4C5)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D4C5)                  return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D500:
-		if                  (c <= 0x01D505) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if                  (c <= 0x01D505) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D526 && c <= 0x01D527) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x01D51E && c <= 0x01D539) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D51E && c <= 0x01D539) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D55A && c <= 0x01D55B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D58E && c <= 0x01D58F) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D5C2 && c <= 0x01D5C3) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D5F6 && c <= 0x01D5F7) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if (c >= 0x01D552)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D552)                  return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D600:
 		if (c >= 0x01D62A && c <= 0x01D62B) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D65E && c <= 0x01D65F) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
 		if (c >= 0x01D692 && c <= 0x01D693) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_SOFT_DOTTED;
-		if                  (c <= 0x01D6A5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if                  (c <= 0x01D6A5) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D6C2 && c <= 0x01D6DA) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D6DC && c <= 0x01D6FA) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D6DC && c <= 0x01D6FA) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D6FC)                  return UCD_PROPERTY_OTHER_MATH;
 		break;
 	case 0x01D700:
 		if                  (c <= 0x01D714) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D716 && c <= 0x01D734) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D716 && c <= 0x01D734) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D736 && c <= 0x01D74E) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D750 && c <= 0x01D76E) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D750 && c <= 0x01D76E) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D770 && c <= 0x01D788) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D78A && c <= 0x01D7A8) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D78A && c <= 0x01D7A8) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D7AA && c <= 0x01D7C2) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D7C4 && c <= 0x01D7CB) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D7C4 && c <= 0x01D7CB) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	}
 	return 0;
@@ -427,8 +427,8 @@ static ucd_property properties_Lu(codepoint_t c)
 		if (c >= 0x0041 && c <= 0x0046) return UCD_PROPERTY_HEX_DIGIT | UCD_PROPERTY_ASCII_HEX_DIGIT;
 		break;
 	case 0x0300:
-		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x03D0 && c <= 0x03D2) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x03F4 && c <= 0x03F5) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0xFF00:
 		if (c >= 0xFF21 && c <= 0xFF26) return UCD_PROPERTY_HEX_DIGIT;
@@ -436,49 +436,49 @@ static ucd_property properties_Lu(codepoint_t c)
 	case 0x2100:
 		if (c == 0x2102)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x2107)                return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x210A && c <= 0x2113) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c == 0x2115)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x2119 && c <= 0x211D) return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x2124)                return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x2128)                return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x212C && c <= 0x212D) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x212F && c <= 0x2131) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x2133 && c <= 0x2134) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x213C && c <= 0x213F) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x2145 && c <= 0x2149) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x212F && c <= 0x2131) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x2133 && c <= 0x2134) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x213C && c <= 0x213F) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x2145 && c <= 0x2149) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D400:
-		if (c >= 0x01D400 && c <= 0x01D454) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D456 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D400 && c <= 0x01D454) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D456 && c <= 0x01D49C) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D49E && c <= 0x01D49F) return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x01D4A2)                  return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D4A5 && c <= 0x01D4A6) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D4A9 && c <= 0x01D4AC) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D4AE && c <= 0x01D4B9) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D4C5)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D4AE && c <= 0x01D4B9) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D4C5)                  return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D500:
-		if                  (c <= 0x01D505) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if                  (c <= 0x01D505) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D507 && c <= 0x01D50A) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D50D && c <= 0x01D514) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D516 && c <= 0x01D51C) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D51E && c <= 0x01D539) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D51E && c <= 0x01D539) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D53B && c <= 0x01D53E) return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D540 && c <= 0x01D544) return UCD_PROPERTY_OTHER_MATH;
 		if (c == 0x01D546)                  return UCD_PROPERTY_OTHER_MATH;
 		if (c >= 0x01D54A && c <= 0x01D550) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D552)                  return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D552)                  return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D600:
-		if                  (c <= 0x01D6A5) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if                  (c <= 0x01D6A5) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		if (c >= 0x01D6A8 && c <= 0x01D6C0) return UCD_PROPERTY_OTHER_MATH;
-		if (c >= 0x01D6DC && c <= 0x01D6FA) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D6DC && c <= 0x01D6FA) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	case 0x01D700:
-		if (c >= 0x01D716 && c <= 0x01D734) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D750 && c <= 0x01D76E) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D78A && c <= 0x01D7A8) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
-		if (c >= 0x01D7C4 && c <= 0x01D7CB) return UCD_PROPERTY_OTHER_MATH; // Ll|Lu
+		if (c >= 0x01D716 && c <= 0x01D734) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D750 && c <= 0x01D76E) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D78A && c <= 0x01D7A8) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
+		if (c >= 0x01D7C4 && c <= 0x01D7CB) return UCD_PROPERTY_OTHER_MATH; /* Ll|Lu */
 		break;
 	}
 	return 0;
@@ -1262,10 +1262,10 @@ static ucd_property properties_Pe(codepoint_t c)
 		break;
 	case 0x2700:
 		if (c == 0x27C6)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
-		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; /* Pe|Ps */
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2900:
-		return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+		return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; /* Pe|Ps */
 	case 0x2E00:
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x3000:
@@ -1585,7 +1585,7 @@ static ucd_property properties_Ps(codepoint_t c)
 		break;
 	case 0x2700:
 		if (c == 0x27C5)                return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
-		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; // Pe|Ps
+		if (c >= 0x27E6 && c <= 0x27EF) return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX; /* Pe|Ps */
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2900:
 		return UCD_PROPERTY_OTHER_MATH | UCD_PROPERTY_PATTERN_SYNTAX;
@@ -2048,6 +2048,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0; // Co Cs Ii Lt Me
+	default:              return 0; /* Co Cs Ii Lt Me */
 	};
 }
