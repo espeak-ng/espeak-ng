@@ -17,6 +17,7 @@
  * along with ucd-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
 #include "ucd/ucd.h"
 
 #include <locale.h>
@@ -24,6 +25,13 @@
 #include <stdio.h>
 #include <wchar.h>
 #include <wctype.h>
+
+#ifndef HAVE_ISWBLANK
+static int iswblank(wint_t c)
+{
+	return iswspace(c) && !(c >= 0x0A && c <= 0x0D);
+}
+#endif
 
 void fput_utf8c(FILE *out, codepoint_t c)
 {
