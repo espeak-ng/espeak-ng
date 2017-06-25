@@ -1,6 +1,6 @@
 # Change Log
 
-## 10.0.0 - (In Progress)
+## 10.0.0 - 2017-06-25
 
 *  Add `iswblank` and `iswxdigit` compatibility.
 *  Improve ctype compatibility.
