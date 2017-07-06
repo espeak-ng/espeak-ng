@@ -5,7 +5,7 @@ LOCAL_CFLAGS = -std=c11
 
 # ucd-tools wide-character compatibility support:
 
-UCDTOOLS_SRC_PATH  := ../../ucd-tools/src
+UCDTOOLS_SRC_PATH  := ../../src/ucd-tools/src
 UCDTOOLS_SRC_FILES := \
   $(subst $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH),$(UCDTOOLS_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/*.c*))
 
