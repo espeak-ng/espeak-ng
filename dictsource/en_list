@@ -2716,6 +2716,7 @@ nonsense	n0ns@ns
 nonetheless	nVnD@l'Es
 nosedive	noUzdaIv
 nosir		noUs3:
+?5 nosir	noUsIR
 not		noUt          // for noted, notable, etc 
 nots		n0ts
 (nôtre dame)	noUtr@'dA:m
@@ -3420,7 +3421,7 @@ sincerest	sIns'i@r@st
 sinus		saIn@s
 siphon		$alt2
 sir		s,3: $only
-?5 sir		s,VR $only
+?5 sir		s,IR $only
 siren		saIr@n
 site		saIt          // for sited
 ski		ski:
@@ -3455,12 +3456,13 @@ sommelier	s0m'Eli@
 son		sVn
 sonar		soUnA@
 sonny		sVnI
+sooth		su:T	$only
+sopapilla	soUp@p'i:@
 sope		soUpeI
+sorbet		sO@beI
 souffle		su:fl'eI
 soundbite	saUndbaIt
 souvenir	su:v@n'i@3
-sopapilla	soUp@p'i:@
-sorbet		sO@beI
 soyabean	sOI@bi:n
 specific	sp@sIfIk
 specimen	spEsI2m@n
@@ -3913,6 +3915,7 @@ yer		j3	$u+
 ye		ji:	$u+
 yea		jeI
 yessir		jEss3:
+?5 yessir	jEssIR
 yoghurt		j0g3t
 ?3 yoghurt	joUg3t
 ?3 yogurt	joUg3t
