@@ -176,6 +176,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 	UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 	UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+	UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 	UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 	UCD_SCRIPT_Gran, /**< @brief Grantha Script */
 	UCD_SCRIPT_Grek, /**< @brief Greek Script */
@@ -273,6 +274,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 	UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
 	UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
+	UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 	UCD_SCRIPT_Sund, /**< @brief Sundanese Script */
 	UCD_SCRIPT_Sylo, /**< @brief Syloti Nagri Script */
 	UCD_SCRIPT_Syrc, /**< @brief Syriac Script */
@@ -302,6 +304,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Xpeo, /**< @brief Old Persian Script */
 	UCD_SCRIPT_Xsux, /**< @brief Cuneiform Script */
 	UCD_SCRIPT_Yiii, /**< @brief Yi Script */
+	UCD_SCRIPT_Zanb, /**< @brief Zanabazar Square */
 	UCD_SCRIPT_Zinh, /**< @brief Inherited Script */
 	UCD_SCRIPT_Zmth, /**< @brief Mathematical Notation */
 	UCD_SCRIPT_Zsym, /**< @brief Symbols */
@@ -366,6 +369,8 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_EMOJI_PRESENTATION                 0x0000000400000000ull /**< @brief Emoji_Presentation */
 #define UCD_PROPERTY_EMOJI_MODIFIER                     0x0000000800000000ull /**< @brief Emoji_Modifier */
 #define UCD_PROPERTY_EMOJI_MODIFIER_BASE                0x0000001000000000ull /**< @brief Emoji_Modifier_Base */
+#define UCD_PROPERTY_REGIONAL_INDICATOR                 0x0000002000000000ull /**< @brief Regional_Indicator */
+#define UCD_PROPERTY_EMOJI_COMPONENT                    0x0000004000000000ull /**< @brief Emoji_Component */
 
 // eSpeak NG extended properties:
 #define ESPEAKNG_PROPERTY_INVERTED_TERMINAL_PUNCTUATION 0x0010000000000000ull /**< @brief Inverted_Terminal_Punctuation */
@@ -679,6 +684,7 @@ namespace ucd
 		Geok = UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 		Geor = UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 		Glag = UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+		Gonm = UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 		Goth = UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 		Gran = UCD_SCRIPT_Gran, /**< @brief Grantha Script */
 		Grek = UCD_SCRIPT_Grek, /**< @brief Greek Script */
@@ -776,6 +782,7 @@ namespace ucd
 		Sind = UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 		Sinh = UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
 		Sora = UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
+		Soyo = UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 		Sund = UCD_SCRIPT_Sund, /**< @brief Sundanese Script */
 		Sylo = UCD_SCRIPT_Sylo, /**< @brief Syloti Nagri Script */
 		Syrc = UCD_SCRIPT_Syrc, /**< @brief Syriac Script */
@@ -805,6 +812,7 @@ namespace ucd
 		Xpeo = UCD_SCRIPT_Xpeo, /**< @brief Old Persian Script */
 		Xsux = UCD_SCRIPT_Xsux, /**< @brief Cuneiform Script */
 		Yiii = UCD_SCRIPT_Yiii, /**< @brief Yi Script */
+		Zanb = UCD_SCRIPT_Zanb, /**< @brief Zanabazar Square */
 		Zinh = UCD_SCRIPT_Zinh, /**< @brief Inherited Script */
 		Zmth = UCD_SCRIPT_Zmth, /**< @brief Mathematical Notation */
 		Zsym = UCD_SCRIPT_Zsym, /**< @brief Symbols */
@@ -876,6 +884,8 @@ namespace ucd
 		Emoji_Presentation = UCD_PROPERTY_EMOJI_PRESENTATION, /**< @brief Emoji_Presentation */
 		Emoji_Modifier = UCD_PROPERTY_EMOJI_MODIFIER, /**< @brief Emoji_Modifier */
 		Emoji_Modifier_Base = UCD_PROPERTY_EMOJI_MODIFIER_BASE, /**< @brief Emoji_Modifier_Base */
+		Regional_Indicator = UCD_PROPERTY_REGIONAL_INDICATOR, /**< @brief Regional_Indicator */
+		Emoji_Component = UCD_PROPERTY_EMOJI_COMPONENT, /**< @brief Emoji_Component */
 	};
 
 	/** @brief Return the properties of the specified codepoint.

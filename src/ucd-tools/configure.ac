@@ -24,6 +24,7 @@ dnl library checks.
 dnl ================================================================
 
 AC_CHECK_HEADERS([stddef.h])   dnl C89
+AC_CHECK_FUNCS([iswblank])     dnl C99
 
 AC_TYPE_UINT8_T
 AC_TYPE_UINT32_T

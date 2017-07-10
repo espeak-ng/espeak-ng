@@ -17,6 +17,7 @@
  * along with ucd-tools.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
 #include "ucd/ucd.h"
 
 #include <locale.h>
@@ -24,6 +25,13 @@
 #include <stdio.h>
 #include <wchar.h>
 #include <wctype.h>
+
+#ifndef HAVE_ISWBLANK
+static int iswblank(wint_t c)
+{
+	return iswspace(c) && !(c >= 0x0A && c <= 0x0D);
+}
+#endif
 
 void fput_utf8c(FILE *out, codepoint_t c)
 {
@@ -86,7 +94,7 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
-	case 'c': // character
+	case 'c': /* character */
 		switch (c)
 		{
 		case '\t': fputs("\\t", out);  break;
@@ -95,10 +103,10 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 		default:   fput_utf8c(out, c); break;
 		}
 		break;
-	case 'h': // hexadecimal (lower)
+	case 'h': /* hexadecimal (lower) */
 		fprintf(out, "%06x", c);
 		break;
-	case 'H': // hexadecimal (upper)
+	case 'H': /* hexadecimal (upper) */
 		fprintf(out, "%06X", c);
 		break;
 	}
@@ -108,40 +116,40 @@ void uprintf_is(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
-	case 'A': // alpha-numeric
+	case 'A': /* alpha-numeric */
 		fputc(iswalnum(c) ? '1' : '0', out);
 		break;
-	case 'a': // alpha
+	case 'a': /* alpha */
 		fputc(iswalpha(c) ? '1' : '0', out);
 		break;
-	case 'b': // blank
+	case 'b': /* blank */
 		fputc(iswblank(c) ? '1' : '0', out);
 		break;
-	case 'c': // control
+	case 'c': /* control */
 		fputc(iswcntrl(c) ? '1' : '0', out);
 		break;
-	case 'd': // numeric
+	case 'd': /* numeric */
 		fputc(iswdigit(c) ? '1' : '0', out);
 		break;
-	case 'g': // glyph
+	case 'g': /* glyph */
 		fputc(iswgraph(c) ? '1' : '0', out);
 		break;
-	case 'l': // lower case
+	case 'l': /* lower case */
 		fputc(iswlower(c) ? '1' : '0', out);
 		break;
-	case 'P': // printable
+	case 'P': /* printable */
 		fputc(iswprint(c) ? '1' : '0', out);
 		break;
-	case 'p': // punctuation
+	case 'p': /* punctuation */
 		fputc(iswpunct(c) ? '1' : '0', out);
 		break;
-	case 's': // whitespace
+	case 's': /* whitespace */
 		fputc(iswspace(c) ? '1' : '0', out);
 		break;
-	case 'u': // upper case
+	case 'u': /* upper case */
 		fputc(iswupper(c) ? '1' : '0', out);
 		break;
-	case 'x': // xdigit
+	case 'x': /* xdigit */
 		fputc(iswxdigit(c) ? '1' : '0', out);
 		break;
 	}
@@ -154,31 +162,31 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 	case '%':
 		switch (*++format)
 		{
-		case 'c': // category
+		case 'c': /* category */
 			fputs(ucd_get_category_string(ucd_lookup_category(c)), out);
 			break;
-		case 'C': // category group
+		case 'C': /* category group */
 			fputs(ucd_get_category_group_string(ucd_lookup_category_group(c)), out);
 			break;
-		case 'p': // codepoint
+		case 'p': /* codepoint */
 			uprintf_codepoint(out, c, *++format);
 			break;
-		case 'P': // properties
+		case 'P': /* properties */
 			fprintf(out, "%016llx", ucd_properties(c, ucd_lookup_category(c)));
 			break;
-		case 'i': // is*
+		case 'i': /* is* */
 			uprintf_is(out, c, *++format);
 			break;
-		case 'L': // lowercase
+		case 'L': /* lowercase */
 			uprintf_codepoint(out, towlower(c), *++format);
 			break;
-		case 's': // script
+		case 's': /* script */
 			fputs(ucd_get_script_string(ucd_lookup_script(c)), out);
 			break;
-		case 'T': // titlecase
+		case 'T': /* titlecase */
 			uprintf_codepoint(out, ucd_totitle(c), *++format);
 			break;
-		case 'U': // uppercase
+		case 'U': /* uppercase */
 			uprintf_codepoint(out, towupper(c), *++format);
 			break;
 		}
@@ -224,7 +232,8 @@ int main(int argc, char **argv)
 {
 	FILE *in = NULL;
 	const char *format = NULL;
-	for (int argn = 1; argn != argc; ++argn)
+	int argn;
+	for (argn = 1; argn != argc; ++argn)
 	{
 		const char *arg = argv[argn];
 		if (!strcmp(arg, "--stdin") || !strcmp(arg, "-"))
@@ -250,7 +259,8 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		for (codepoint_t c = 0; c <= 0x10FFFF; ++c)
+		codepoint_t c;
+		for (c = 0; c <= 0x10FFFF; ++c)
 			uprintf(stdout, c, format ? format :
 			        "%pH %s %C %c %UH %LH %TH %id %ix %ic %is %ib %ip %iP %ig %iA %ia %iu %il %P\n");
 	}
