@@ -150,12 +150,16 @@
     sw) a (m_      a
     sw) a (nk      a
         ao         eI0
+    mh) ao         eI		// Irish, e.g. 'mhaol' /weIl/
      m) ao         aU
      p) ao         aU
      t) ao         aU
         ao (_      =aU
-        aois (_    i:S
-        aoise (_   i:S@
+	ao (ism    aU
+	ao (ist    aU
+	aoi (C     i:		// Irish, e.g. 'Aoife' /i:f@/
+	aoir (C    e@		// Irish, e.g. 'Saoirse' /se@S@/
+?3	aoir (C    3:		// Irish, e.g. 'Saoirse' /s3:S@/
      g) ao (l      eI@
         aor        eI'o@
      m) ao (ri     aU
@@ -2151,6 +2155,8 @@ _it_separ) ate (_  @t
         e (Cical   'E
         e (CiuB    i:
      &) e (_ 
+  aoiC) e (_       @		// Irish, e.g. 'Aoife' /i:fe/
+ aoiCC) e (_       @		// Irish, e.g. 'Saoirse' /se@S@/
    acB) e (_       %I
     XC) e (_N      i:
   vert) e (b       I
@@ -2775,7 +2781,7 @@ _it_separ) ate (_  @t
    exp) eri (en    i@rI2
     XC) er         3:
     th) er (@      3:
-     h) er (@      %3
+     h) er (nan    %3
      X) er (A      E#r
     _h) eretical   I#rEtIk@L
    _qu) er         3:
@@ -3104,7 +3110,7 @@ _it_separ) ate (_  @t
      &) ford (_S4  f3d
     &f) ford (_S4  3d
         for (see   f%O@
-        for (ward  f'o@      // straightforward
+        for (ward  f'O@
         ft (en     f
      &) ful (_S3i  f@L
 
@@ -4293,6 +4299,8 @@ multip) ly         laI
      _) metall (ic m@tal
         metabo     m@t'ab0
      _) meta (llu  m%Eta
+        mh (ao     w		// Irish, e.g. 'mhaol' /weIl/
+   aoi) mh (e      v		// Irish, e.g. 'Caoimhe' /ki:v@/
      &) mobile     m@bi:l
      _) mocha      moUk@
         mono (ga   m@n'0
@@ -5853,6 +5861,10 @@ multip) ly         laI
     Co) s (Er      z
     Co) s (En      z
      e) s (d       z
+   aoi) s (e       S		// Irish, e.g. 'Laoise'
+   aoi) seach      S@x		// Irish, e.g. 'Taoiseach'
+   aoi) sigh       Si		// Irish, e.g. 'Taoisigh'
+  aoir) s (e       S		// Irish, e.g. 'Saoirse'
      _) se (clu    sI#
         secur      sI#kjU@
      _) se (duc    sI#
