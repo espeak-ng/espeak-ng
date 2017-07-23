@@ -218,6 +218,7 @@ afganistan  afg'anistan
 alaska      al'aska
 albanië     alb'A:ne@:@-
 algerië     alx2'e@re@:@-
+alhambra    al'ambra
 amanzimtoti $4 
 antwerpen   antv&rp@n
 avignon     _^_FR
@@ -333,6 +334,7 @@ oberammergau o@b@r'am@rgaU
 oklahoma    @Ukl@h'@Uma
 outeniekwa  @Ut@n'ikwa
 oxford      _^_EN
+paardeneiland pA:rd@n_'eIlant 
 palermo     pal'&rmu
 pelindaba   p&l@nd'A:ba
 perú        p@ru
@@ -342,6 +344,7 @@ portugal    pOrtyx2al
 potchefstroom pOtSIfstr'o@m
 rhône       _^_FR
 richardsbaai ritS@dsb'AI
+riversdal   r@v@rsdal
 riviersonderend r@fi:rsOn@r_'Ent
 robertson   _^_EN
 salvador    salvadO:r
@@ -585,6 +588,7 @@ james       _^_EN
 jane        _^_EN
 	janine      dZ@ni:n	
 Jean        ZA~n $capital
+jeff        _^_EN
 jesebel     je@s@b&l
 jessica     _^_EN
 jimmy       _^_EN
@@ -769,9 +773,11 @@ stockenström stOk@nstro@m
 stuart      _^_EN
 suzanne     suz'A:n
 suzette     suz'Et
+sylvia      _^_EN
 tania       tanja
 telemann    te@l@man
 terblanche  t@rblA:nS
+thelma      _^_EN
 theo        tiu
 theron tr'On
 thessalonicense tEsalo@nis'E:ns@
@@ -816,6 +822,7 @@ vivaldi     viv'aldi
 viviers     v@v@je@
 wilhelm     v@lh&l@-m
 williston   _^_EN
+woltemade   vOlt@mA:d@
 khumalo     kum'A:lu
 zuma        zu:ma
 
@@ -825,6 +832,7 @@ alibama     $3
 antares     $2
 beatles     _^_EN
 boeing      _^_EN
+cadillac    _^_EN
 checkers    tSEk@rs
 chevrolet   _^_FR
 chrysler    kraIsl@r
@@ -1045,6 +1053,7 @@ forma         _^_LA
 grata         _^_LA
 habitatio     _^_LA
 inclusio      _^_LA
+(in camera)   @n||kam@ra
 (in debiti)   _^_LA
 (in absentia) _^_LA	
 (in extremis) _^_LA	
@@ -1075,6 +1084,7 @@ vivos         _^_LA
 // main word list
 
 aangaande     $2
+aanmerklik    $2
 aanstaande    $2
 (a cappella)  a||kap'&la
 adagio        ad'A:dZi;%@U
@@ -1091,6 +1101,7 @@ algaande      $2
 alge          alx2@
 algehele      alx2@h,e@l@
 allegro       al'Egru
+allengs       alENs
 allergene     $3
 almiskie      $3
 alom          al_'Om
@@ -1116,11 +1127,13 @@ aversie       av'&rsi
 
 babelaas      bab@lA:s
 barrikade     $3
+beaming       b@_A:m@N
 bedewete      be@d@ve@t@	
 beide         beId@
 bekaf         b&kaf
 belangriker   b@laNr@k,Ir
 bene          be@n@
+beringde      b@rINd@
 beswil        bEsv@l	
 besnedene     b@sne@d@n@	
 bestes        bEst@s
@@ -1130,6 +1143,7 @@ bewe          be@v@
 bewebeen      be@v@be@n
 bewend        be@v@nt
 bewering      b@ve@rIN
+bilharzia     b@lharsia
 biopsie       bi'Opsi
 bomaat      bo@mA:t
 bordegoed     bO:rd@x2ut
@@ -1155,6 +1169,7 @@ cedille       s@dIl@
 charisma      kar'Isma
 cinsaut       s@nso@
 cliché 	kliS'eI:
+clientèle     _^_FR
 clivia        klIvija
 cognac        kOn^ak
 confetti      $2
@@ -1173,6 +1188,7 @@ dawidster     dA:v@tst&r
 déjà          _^_FR
 dekade        dEk'A:d@
 dekreling     dEkre@l@N
+demensie      d@me~nsi
 deurentyd     dy@r@nteIt
 deurgaans     $1
 deurkruis     $2
@@ -1219,12 +1235,14 @@ ewentwil      e@v@ntv@l
 exodus        Eks'o@dWs
 
 factotum      $2
+faktotum      $2
 fakture       $2
 fetakaas      fEtakA:s
 figuur        f@x2yr
 filippense    f@l@pEns@
 finalis       $3
 finaliste     $3
+fluktuasie    $3
 fort          fOrt
 forte         fOrt@
 
@@ -1269,6 +1287,7 @@ hekke         h&k@
 helaas        he@l'A:s
 here          he@r@
 herero        hEr'E:ru
+herontmoeting h&r_Ontmut@N
 herrysenis    h&r'eIs@n@s
 hierso        hi:rsO
 hippie        _^_EN
@@ -1294,6 +1313,7 @@ inkatha       iNk'A:ta
 inkluis       $2
 innestel      InnEst@l
 insomnia      @nsOmnija
+inteling      Inte@l@N
 intens @nt'Ens
 intensiteit   $4
 ironieë       irun'i:@
@@ -1312,6 +1332,7 @@ kaviaar       kavi'A:r
 kennisvaardig $1
 kimono        $2
 klaasvakie    $2
+kliënteel     $3
 klimeid       klImeIt
 knapsekêrel   knaps@k&:r@l
 kolossense    kOl@s'e~ns@
@@ -1325,11 +1346,13 @@ kopiereg      kup'ir&x2
 korswel       kOrsv@l
 kotiljons     kOt@lj'o~ns
 kritiek       krIt'ik
+kruisteling   krYyste@l@N
 kulture       $2
 kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
 kweekwal      kwe@kval
 
+landswye      lantsveI@
 lasagne       las'anj@
 legaat        l@x2A:t
 legate        l@x2A:t@
@@ -1532,6 +1555,7 @@ sonore        sun'o@r@
 sonure        sOn_yr@
 sover         so@f&r
 staccato      $2
+steekhoudendheid $2
 sterwens      st&rv@ns
 stilswye      $1
 strydros      streIt_rOs
@@ -1555,6 +1579,7 @@ tevrede       t@fre@d@
 thula         tu:la
 toegee        tux2e@
 toereken      ture@k@n
+toleransie    tOl@r'ansi
 tornado       $2
 totale        tut'A:l@
 totsiens      $2
@@ -1566,6 +1591,7 @@ tsoenami      tsun'A:mi
 uitdaging     YydA:x2@N
 uiteraard     Yyt@r_'A:rt
 uitermate     $3
+uitgeslotene  Yytx2@slo@t@n@
 uniforme      $3
 
 vaarwel       fA:rv'&l
