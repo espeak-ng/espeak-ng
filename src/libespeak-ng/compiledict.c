@@ -52,7 +52,15 @@ static int text_mode = 0;
 static int debug_flag = 0;
 static int error_need_dictionary = 0;
 
+// A hash chain is a linked-list of hash chain entry objects:
+//     struct hash_chain_entry {
+//         hash_chain_entry *next_entry;
+//         // dict_line output from compile_line:
+//         uint8_t length;
+//         char contents[length];
+//     };
 static char *hash_chains[N_HASH_DICT];
+
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
@@ -648,7 +656,7 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 			length += ix;
 		}
 	}
-	dict_line[0] = length;
+	*((uint8_t *)dict_line) = (uint8_t)length;
 
 	return length;
 }
@@ -682,7 +690,7 @@ static void compile_dictlist_end(FILE *f_out)
 		p = hash_chains[hash];
 
 		while (p != NULL) {
-			length = *(p+sizeof(char *));
+			length = *(uint8_t *)(p+sizeof(char *));
 			fwrite(p+sizeof(char *), length, 1, f_out);
 			memcpy(&p, p, sizeof(char *));
 		}
@@ -699,7 +707,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	FILE *f_in;
 	char buf[200];
 	char fname[sizeof(path_home)+45];
-	char dict_line[200];
+	char dict_line[256]; // length is uint8_t, so an entry can't take up more than 256 bytes
 
 	text_mode = 0;
 
@@ -733,6 +741,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 
 		memcpy(p, &hash_chains[hash], sizeof(char *));
 		hash_chains[hash] = p;
+		// NOTE: dict_line[0] is the entry length (0-255)
 		memcpy(p+sizeof(char *), dict_line, length);
 		count++;
 	}
