@@ -411,8 +411,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 
 	step = LINE_PARSER_WORD;
 
-	c = 0;
-	while (c != '\n') {
+	c = *p;
+	while (c != '\n' && c != '\0') {
 		c = *p;
 
 		if ((c == '?') && (step == 0)) {
