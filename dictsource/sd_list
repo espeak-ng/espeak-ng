@@ -8,7 +8,7 @@
 ڀ	b#e:
 پ	pe:
 ت	te:
-ٿ	the:
+ٿ	t#e:
 ٽ	t.e:
 ٺ	t.#e:
 ث	se:
@@ -28,7 +28,6 @@
 ذ	za:l
 ر	Re:
 ڙ	r.e:
-ڙھ	r.he:
 ز	ze:
 ژ	Ze:
 س	si:n
@@ -58,9 +57,9 @@
 ھ	dO||caSmi:||he:
 ء	hamzah
 ي	je:
-ئ	h'amza
+ئ	h'amza||je:
 ۂ	he:h'amza
-_ؤ	va:Oh'amza
+ؤ	va:Oh'amza
 
 َ	z@b@R
 ِ	ze:R
@@ -68,6 +67,7 @@ _ؤ	va:Oh'amza
 ٰ	,alIfmaqs'u:r,a
 ّ	t,aSd'i:d
 ً	d'o:zab'ar
+ٗ	Ubto:pe:S
 
 
 // The numbers
@@ -187,6 +187,8 @@ _dpt	_d.aha:i:_
 آهن	a:hIn	$u
 هن	hIna
 ۾	me~	$u
-۽	ae~	$u
+۽	ae~	$brk
 آهي	a:he:	$u
 هڪ	HIk
+ٿي	t#i:	$u
+ئي	i:
