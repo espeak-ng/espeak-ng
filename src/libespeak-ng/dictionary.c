@@ -198,7 +198,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	int *pw;
 	int length;
 	FILE *f;
-	unsigned int size;
+	int size;
 	char fname[sizeof(path_home)+20];
 
 	strncpy(dictionary_name, name, 40); // currently loaded dictionary name

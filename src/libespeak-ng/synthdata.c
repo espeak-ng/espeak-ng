@@ -73,7 +73,7 @@ static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, esp
 	if (!ptr) return EINVAL;
 
 	FILE *f_in;
-	unsigned int length;
+	int length;
 	char buf[sizeof(path_home)+40];
 
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, fname);
