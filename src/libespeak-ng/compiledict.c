@@ -52,7 +52,6 @@ static int text_mode = 0;
 static int debug_flag = 0;
 static int error_need_dictionary = 0;
 
-static int hash_counts[N_HASH_DICT];
 static char *hash_chains[N_HASH_DICT];
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
@@ -669,7 +668,6 @@ static void compile_dictlist_start(void)
 			p = p2;
 		}
 		hash_chains[ix] = NULL;
-		hash_counts[ix] = 0;
 	}
 }
 
@@ -682,7 +680,6 @@ static void compile_dictlist_end(FILE *f_out)
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		p = hash_chains[hash];
-		hash_counts[hash] = (int)ftell(f_out);
 
 		while (p != NULL) {
 			length = *(p+sizeof(char *));
@@ -724,8 +721,6 @@ static int compile_dictlist_file(const char *path, const char *filename)
 
 		length = compile_line(buf, dict_line, sizeof(dict_line), &hash);
 		if (length == 0)  continue; // blank line
-
-		hash_counts[hash]++;
 
 		p = (char *)malloc(length+sizeof(char *));
 		if (p == NULL) {
