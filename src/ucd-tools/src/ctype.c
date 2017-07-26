@@ -69,16 +69,16 @@ int ucd_isblank(codepoint_t c)
 	switch (ucd_lookup_category(c))
 	{
 	case UCD_CATEGORY_Zs:
-		switch (c) // Exclude characters with the <noBreak> DispositionType
+		switch (c) /* Exclude characters with the <noBreak> DispositionType */
 		{
-		case 0x00A0: // U+00A0 : NO-BREAK SPACE
-		case 0x2007: // U+2007 : FIGURE SPACE
-		case 0x202F: // U+202F : NARROW NO-BREAK SPACE
+		case 0x00A0: /* U+00A0 : NO-BREAK SPACE */
+		case 0x2007: /* U+2007 : FIGURE SPACE */
+		case 0x202F: /* U+202F : NARROW NO-BREAK SPACE */
 			return 0;
 		}
 		return 1;
 	case UCD_CATEGORY_Cc:
-		return c == 0x09; // U+0009 : CHARACTER TABULATION
+		return c == 0x09; /* U+0009 : CHARACTER TABULATION */
 	default:
 		return 0;
 	}
@@ -91,7 +91,7 @@ int ucd_iscntrl(codepoint_t c)
 
 int ucd_isdigit(codepoint_t c)
 {
-	return (c >= 0x30 && c <= 0x39); // [0-9]
+	return (c >= 0x30 && c <= 0x39); /* [0-9] */
 }
 
 int ucd_isgraph(codepoint_t c)
@@ -174,23 +174,23 @@ int ucd_isspace(codepoint_t c)
 	case UCD_CATEGORY_Zp:
 		return 1;
 	case UCD_CATEGORY_Zs:
-		switch (c) // Exclude characters with the <noBreak> DispositionType
+		switch (c) /* Exclude characters with the <noBreak> DispositionType */
 		{
-		case 0x00A0: // U+00A0 : NO-BREAK SPACE
-		case 0x2007: // U+2007 : FIGURE SPACE
-		case 0x202F: // U+202F : NARROW NO-BREAK SPACE
+		case 0x00A0: /* U+00A0 : NO-BREAK SPACE */
+		case 0x2007: /* U+2007 : FIGURE SPACE */
+		case 0x202F: /* U+202F : NARROW NO-BREAK SPACE */
 			return 0;
 		}
 		return 1;
 	case UCD_CATEGORY_Cc:
-		switch (c) // Include control characters marked as White_Space
+		switch (c) /* Include control characters marked as White_Space */
 		{
-		case 0x09: // U+0009 : CHARACTER TABULATION
-		case 0x0A: // U+000A : LINE FEED
-		case 0x0B: // U+000B : LINE TABULATION
-		case 0x0C: // U+000C : FORM FEED
-		case 0x0D: // U+000D : CARRIAGE RETURN
-		case 0x85: // U+0085 : NEXT LINE
+		case 0x09: /* U+0009 : CHARACTER TABULATION */
+		case 0x0A: /* U+000A : LINE FEED */
+		case 0x0B: /* U+000B : LINE TABULATION */
+		case 0x0C: /* U+000C : FORM FEED */
+		case 0x0D: /* U+000D : CARRIAGE RETURN */
+		case 0x85: /* U+0085 : NEXT LINE */
 			return 1;
 		}
 	default:
@@ -217,7 +217,7 @@ int ucd_isupper(codepoint_t c)
 
 int ucd_isxdigit(codepoint_t c)
 {
-	return (c >= 0x30 && c <= 0x39)  // [0-9]
-	    || (c >= 0x41 && c <= 0x46)  // [A-Z]
-	    || (c >= 0x61 && c <= 0x66); // [a-z]
+	return (c >= 0x30 && c <= 0x39)  /* [0-9] */
+	    || (c >= 0x41 && c <= 0x46)  /* [A-Z] */
+	    || (c >= 0x61 && c <= 0x66); /* [a-z] */
 }

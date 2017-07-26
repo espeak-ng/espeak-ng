@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.133
-// *   This file writen by Shadyar Khodayari 05-10-2017
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.134
+// *   This file writen by Shadyar Khodayari 06-24-2017
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -4843,7 +4843,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 			L09L09L09L09) م (L03L09L09L09_	ma
 
 	// Prefixes م
-		_) م (L03L09L03_$noprefixP1@	ma
+		_) م (L03L04L03_$noprefixP1@	ma
 		_) می (L03L09+$noprefixP2@	mi
 		_) می (آL09L09$noprefixP2@	mi
 		_) می (وL09L09$noprefixP2@	mi

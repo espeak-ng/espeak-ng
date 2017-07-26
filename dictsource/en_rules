@@ -150,12 +150,16 @@
     sw) a (m_      a
     sw) a (nk      a
         ao         eI0
+    mh) ao         eI		// Irish, e.g. 'mhaol' /weIl/
      m) ao         aU
      p) ao         aU
      t) ao         aU
         ao (_      =aU
-        aois (_    i:S
-        aoise (_   i:S@
+	ao (ism    aU
+	ao (ist    aU
+	aoi (C     i:		// Irish, e.g. 'Aoife' /i:f@/
+	aoir (C    e@		// Irish, e.g. 'Saoirse' /se@S@/
+?3	aoir (C    3:		// Irish, e.g. 'Saoirse' /s3:S@/
      g) ao (l      eI@
         aor        eI'o@
      m) ao (ri     aU
@@ -180,7 +184,8 @@
     _n) a (tional  a
      @) a (tious   'eI
    ell) a (trix    @
-        a (triC    'eI
+        a (trix    'eI
+        a (trice   'eI
      n) a (tur     eI
      n) a (tura    a
      &) a (ture_   @
@@ -512,7 +517,7 @@
     _m) ag (ell    a#dZ
     Cp) age (_     eIdZ
     pp) age (_     I2dZ
-  _ant) ag         'ag
+  _ant) ag (on     'ag
    enr) ag (e_     'eIdZ
   outr) ag (e_     eIdZ
    der) ag (e_     eIdZ
@@ -1463,7 +1468,7 @@ _it_separ) ate (_  @t
    may) be (_      bi:
      _) be (CA     bI#
      _) bete (lg   bi:t@
-     _) be (C%     bE
+     _) be (C%+    bE
      _) be (atiC   b%i:
      _) be (b      bi:
      _) be (cl     bI#
@@ -1477,7 +1482,7 @@ _it_separ) ate (_  @t
      _) be (kn     bI#
      _) belarus    bEl@r'u:s
      _) be (lC     bE
-     _) be (llig   bI#
+     _) be (llig+  bI#
      _) be (re     bE
      _) be (sC     bI#
      _) be (stia   bE
@@ -2150,6 +2155,8 @@ _it_separ) ate (_  @t
         e (Cical   'E
         e (CiuB    i:
      &) e (_ 
+  aoiC) e (_       @		// Irish, e.g. 'Aoife' /i:fe/
+ aoiCC) e (_       @		// Irish, e.g. 'Saoirse' /se@S@/
    acB) e (_       %I
     XC) e (_N      i:
   vert) e (b       I
@@ -2378,6 +2385,7 @@ _it_separ) ate (_  @t
      y) ed (_S2v   d#
  debut) ed (_S2    d#
         edly (_S4m I#dl%i
+    eg) edly (_S3m I#dl%i
      c) ed (e_     'i:d
      p) ed (e_     i:d
      p) edal       Ed@L
@@ -2567,6 +2575,8 @@ _it_separ) ate (_  @t
         en (core   0n
      &) ency (_    @ns%i
         ency (cli  %EnsI
+     _) en (dg@    %En
+     _) en (dp@    %En
      k) en (d_     En
      s) en (d_     En
      t) en (d_     En
@@ -2771,7 +2781,7 @@ _it_separ) ate (_  @t
    exp) eri (en    i@rI2
     XC) er         3:
     th) er (@      3:
-     h) er (@      %3
+     h) er (nan    %3
      X) er (A      E#r
     _h) eretical   I#rEtIk@L
    _qu) er         3:
@@ -2890,6 +2900,7 @@ _it_separ) ate (_  @t
     &z) es (_S2    %I#z
     &C) es (_S1i   z
    xus) es (_S2    %I#z
+ tamus) es (_S2    %I#z		// hippopotamuses
         es (carp   I2s
         es (cape   %Es
         es (capi   %Es
@@ -3099,7 +3110,7 @@ _it_separ) ate (_  @t
      &) ford (_S4  f3d
     &f) ford (_S4  3d
         for (see   f%O@
-        for (ward  f'o@      // straightforward
+        for (ward  f'O@
         ft (en     f
      &) ful (_S3i  f@L
 
@@ -4288,6 +4299,8 @@ multip) ly         laI
      _) metall (ic m@tal
         metabo     m@t'ab0
      _) meta (llu  m%Eta
+        mh (ao     w		// Irish, e.g. 'mhaol' /weIl/
+   aoi) mh (e      v		// Irish, e.g. 'Caoimhe' /ki:v@/
      &) mobile     m@bi:l
      _) mocha      moUk@
         mono (ga   m@n'0
@@ -4299,6 +4312,7 @@ multip) ly         laI
      &) mouth (_   m@T
      &) mouth (_$w_alt1 maUT
      _) multi      mVlti
+     _) multi (pl  m,VltI
      _) multi (@@P5 m,VltI
 
 .group mi
@@ -5847,6 +5861,10 @@ multip) ly         laI
     Co) s (Er      z
     Co) s (En      z
      e) s (d       z
+   aoi) s (e       S		// Irish, e.g. 'Laoise'
+   aoi) seach      S@x		// Irish, e.g. 'Taoiseach'
+   aoi) sigh       Si		// Irish, e.g. 'Taoisigh'
+  aoir) s (e       S		// Irish, e.g. 'Saoirse'
      _) se (clu    sI#
         secur      sI#kjU@
      _) se (duc    sI#
@@ -5878,6 +5896,7 @@ multip) ly         laI
      &) s (ic_     z
      n) s (ic_     s
         ss (ic     s
+    mu) s (e       z
     mu) s (ic      z
     ea) s (ie      z
     ea) s (il      z
@@ -6082,6 +6101,8 @@ multip) ly         laI
         th (ill    th
     gh) th (A      th
     ee) thing      DI2N
+   soo) th         D
+   soo) th (say    T
         the (_     D
      &) th (L03_   =T
     ou) thed (_    Dd

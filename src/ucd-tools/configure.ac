@@ -1,5 +1,5 @@
 AC_PREREQ([2.65])
-AC_INIT([Unicode Character Database Tools], [9.0.0], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
+AC_INIT([Unicode Character Database Tools], [10.0.0], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
@@ -24,6 +24,7 @@ dnl library checks.
 dnl ================================================================
 
 AC_CHECK_HEADERS([stddef.h])   dnl C89
+AC_CHECK_FUNCS([iswblank])     dnl C99
 
 AC_TYPE_UINT8_T
 AC_TYPE_UINT32_T
@@ -33,10 +34,10 @@ dnl UCD data configuration.
 dnl ================================================================
 
 AC_ARG_WITH([unicode-version],
-    [AS_HELP_STRING([--with-unicode-version], [Unicode version to support @<:@default=9.0.0@:>@])],
+    [AS_HELP_STRING([--with-unicode-version], [Unicode version to support @<:@default=10.0.0@:>@])],
     [AS_IF([test x"$withval" != x],
            [UCD_VERSION="$withval"])],
-    [UCD_VERSION="9.0.0"])
+    [UCD_VERSION="10.0.0"])
 
 AC_SUBST(UCD_VERSION)
 
