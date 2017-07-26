@@ -254,7 +254,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
-		while ((length = *p) != 0)
+		while ((length = *(uint8_t *)p) != 0)
 			p += length;
 		p++; // skip over the zero which terminates the list for this hash value
 	}
