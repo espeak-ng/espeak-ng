@@ -63,7 +63,8 @@ for (var method of [
     'set_rate',
     'set_pitch',
     'set_voice',
-    'synthesize'
+    'synthesize',
+    'synthesize_ipa'
     ]) {
   eSpeakNG.prototype[method] = _createAsyncMethod(method);
 }

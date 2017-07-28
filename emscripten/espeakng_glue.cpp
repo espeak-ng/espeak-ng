@@ -50,6 +50,35 @@ public:
     espeak_SetSynthCallback(NULL);
   }
 
+  int synth_ipa_(const char* aText, const char* virtualFileName) {
+
+  /* phoneme_mode
+    bit 1:   0=eSpeak's ascii phoneme names, 1= International Phonetic Alphabet (as UTF-8 characters).
+    bit 7:   use (bits 8-23) as a tie within multi-letter phonemes names
+    bits 8-23:  separator character, between phoneme names
+  */
+    
+    espeak_SetSynthCallback(NULL);
+        
+    int phoneme_options               = (1 << 1); // Use IPA
+    int use_custom_phoneme_separator  = (0 << 7);
+    int phonemes_separator            = ' '; // Use a default value
+
+    int phoneme_conf                  = phoneme_options | (phonemes_separator << 8);
+    
+    FILE* f_phonemes_out = fopen(virtualFileName,"wb");
+    if(!f_phonemes_out)
+      return -1;
+    
+    //espeak_ng_InitializeOutput(ENOUTPUT_MODE_SYNCHRONOUS, 0, NULL);
+    espeak_SetPhonemeTrace(phoneme_conf, f_phonemes_out);
+    espeak_Synth(aText, 0, 0, POS_CHARACTER, 0, 0, NULL, NULL);
+    espeak_SetPhonemeTrace(0, NULL);
+    fclose(f_phonemes_out);
+    
+    return 0;
+  }
+
   long set_voice(
         const char* aName,
         const char* aLang=NULL,

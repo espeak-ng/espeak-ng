@@ -93,6 +93,28 @@ eSpeakNGWorker.prototype.synthesize = function (aText, aCallback) {
   Runtime.removeFunction(fp);
 };
 
+eSpeakNGWorker.prototype.synthesize_ipa = function (aText, aCallback) {
+  
+  // Use a unique temp file for the worker. Avoid collisions, just in case.
+  var ipaVirtualFileName = "espeak-ng-ipa-tmp-"  + Math.random().toString().substring(2);
+  
+  var res = "";
+  var code = this.synth_ipa_(aText, ipaVirtualFileName);
+
+  if(code == 0)
+    res = FS.readFile(ipaVirtualFileName, { encoding: 'utf8' })
+    
+  // Clean up the tmp file
+  FS.unlink(ipaVirtualFileName);
+    
+  var ret = {
+    code: code,
+    ipa: res
+  }
+  
+  return ret;
+};
+
 // Make this a worker
 
 if (typeof WorkerGlobalScope !== 'undefined') {
@@ -104,6 +126,7 @@ if (typeof WorkerGlobalScope !== 'undefined') {
   });
 
   onmessage = function(e) {
+    
     if (!worker) {
       throw 'eSpeakNGWorker worker not initialized';
     }
