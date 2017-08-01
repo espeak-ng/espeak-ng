@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 june 11 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017 31 july by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -148,6 +148,8 @@ _‑	t@-*at:,ino||duni'one
 ʔ	glotalst'Op
 ɡ	dZ'i||vel'aRe||ok:luz'iva   // U+0261
 ɣ	g'am:a||min'uskola  // U+0263 voiced velar fricative
+ß	'esse||ak'uta
+ɑ	'alfa
 
 _‣	punt'ato
 ◦	punt'ato
@@ -783,6 +785,7 @@ black	bl'E:k
 blackout	bl'Ek'aUt
 blind	bl'aInd $onlys
 blues	bl'u:z
+bluff	bl'ef:	$only
 boiler	$1
 bonjour	b,O:_Z'u:r
 brioche	b@-*I'oS
@@ -1016,7 +1019,7 @@ logging	l'Oging
 lord	$alt $only
 love	l'O:v $onlys
 lover	$1
-manche	m'a:nS $only
+manche	m'a:nS $onlys
 my	_^_EN
 myspace	m'aI||sp'Eis
 machine	maS'in	$onlys
@@ -2377,6 +2380,7 @@ ivano	$2
 jace	_^_en $only
 jack	dZ'E:k
 jackson	_^_EN
+jefferson	$1
 jacopo	j'a:kopo
 james	_^_EN
 jane	_^_EN
@@ -2473,6 +2477,7 @@ paul	p'O:l	$only
 peggy	p'Eg:I
 pericle $1
 peter	$1 $onlys
+peterson	p'Ete@-*s,on
 pettarin	$3 $only
 peugeot	p,EZ'o
 piquet	pik'E $only
@@ -4774,6 +4779,7 @@ espellerl	$2
 esprimiti	$2
 evolverci	$2
 evolversi	$2
+facendomici	fatS'endom,itSi
 fammel	$1
 fattel	f'at:el
 fattoci	$1
@@ -4824,7 +4830,6 @@ orientaci	$3
 pensaci	$1
 perdonatel	$3
 permettigli	$2
-pervenutaci	$3
 pizzical	$1
 pizzicami	$1
 portala	$1
@@ -4840,7 +4845,6 @@ pulisciti	$2
 redigerl	$2
 raddrizzarl	@-*ad:@-*its2:'a@-*l
 rafforzal	$2
-regalaci	$2
 regalati	$2	$atstart
 regalavi	$3
 reinseritasi	$4
