@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 may   31 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2017 july 31 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -28,7 +28,7 @@
 	au	a|%U
 	@C) a (_S1q	a/  // lookup it_list without suffix
 	@i) a (_S1q	a  // lookup it_list without suffix
-	C) a (cY_	'a
+//	C) a (cY_	'a
 	@) a (co_	=a
 	@) a (ca_	=a
 	@) a (che_	=a/
@@ -210,6 +210,8 @@
 	fob (A_	=fob
 	farma (ci_	f'a@-*ma
 	ferma (L07_	f'e@-*ma/
+	_) fatt (AL04_	f'at:
+	_ri) fatt (AL04_	f'at:
 
 .group g
 	g	g
@@ -525,6 +527,7 @@
 	_) ripeter (L04_	@-*ip'E:te@-*
 	_) romper (L04_	@-*'ompe@-*
 	ca) re (zzaL07_	R'e
+	_) regala (tAL04_	@-*egal'a
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -639,6 +642,7 @@
 	_) vota (L07_	v'Ota
 	s) veglia (L07_	v'el^a
 	volta (L07_	v'Olta
+	venut (AL04_	ven'ut
 	_) v' (P2t	v
 
 .group w
@@ -700,6 +704,7 @@
 	man) zie (_	ts'i;e
 	me) zz	dz:
 	amma) zziamo (L04_	_tsi'a:mo
+	sbara) zz (arL04_	ts:
 
 .group
 
