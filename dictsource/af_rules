@@ -3058,7 +3058,7 @@
              neger (in    n%e@x2@r // move default stress: negerin/-ne
              ne (gosie    n@ // fix stress and e sound: negosie/-ware, etc.
              nek (_       n&k // catch-all for words ending in -nek: koedoe-/swaannek
-             nek (om      n&k_ // fix e sound, insert pause: nekom(ge)draai
+          _) nek (A       n&k_ // fix e sound, insert pause: nekom(ge)draai/-operasie
              nekta (rien  n%Ekt%a // fix stress and a sound: nektarien/-perske, etc.
              neo (li      n%i%u // fix stress and vowel sounds: neolities/-e/neolitikum
              ner (veu     n%&r // move default stress: nerveus/-e
@@ -4440,6 +4440,7 @@
 
              stede (_     ste@d@ //voorstede, hoofstede etc.
              stele (_     ste@l@ //kastele lepelstele etc.
+             stema (_     ste@ma // fix e sound: doods-/gespreks/-herhalingstema and many similar
              stene (_     ste@n@ //skoorstene, bakstene etc.
              sten (sil    stEn // fix e sound in compounds like wolbaalstensil
        chri) stene (_     st@n@ //fix christene and compounds
