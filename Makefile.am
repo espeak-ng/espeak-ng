@@ -681,7 +681,7 @@ nci: espeak-ng-data/nci_dict
 espeak-ng-data/nci_dict: dictsource/nci_list dictsource/nci_rules dictsource/nci_extra
 
 ne: espeak-ng-data/ne_dict
-espeak-ng-data/ne_dict: dictsource/ne_list dictsource/ne_rules dictsource/ne_extra
+espeak-ng-data/ne_dict: dictsource/ne_list dictsource/ne_rules dictsource/ne_extra dictsource/ne_emoji
 
 nl: espeak-ng-data/nl_dict
 espeak-ng-data/nl_dict: dictsource/nl_list dictsource/nl_rules dictsource/nl_extra dictsource/nl_emoji
