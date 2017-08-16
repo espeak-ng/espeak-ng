@@ -131,8 +131,7 @@ espeak_ng_includedir = $(includedir)/espeak-ng
 espeak_ng_include_HEADERS = \
 	src/include/espeak-ng/encoding.h \
 	src/include/espeak-ng/espeak_ng.h \
-	src/include/espeak-ng/speak_lib.h \
-	src/include/espeak-ng/tokenizer.h
+	src/include/espeak-ng/speak_lib.h
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
@@ -171,7 +170,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
-	src/libespeak-ng/tokenizer.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/tr_languages.c \
 	src/libespeak-ng/voices.c \
@@ -233,12 +231,6 @@ noinst_bin_PROGRAMS += tests/encoding.test
 tests_encoding_test_LDADD   = src/libespeak-ng.la
 tests_encoding_test_SOURCES = tests/encoding.c
 
-noinst_bin_PROGRAMS += tests/tokenizer.test
-
-tests_tokenizer_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_tokenizer_test_LDADD   = src/libespeak-ng.la
-tests_tokenizer_test_SOURCES = tests/tokenizer.c
-
 noinst_bin_PROGRAMS += tests/readclause.test
 
 tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
@@ -256,7 +248,6 @@ tests_api_test_SOURCES = tests/api.c
 	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
-	tests/tokenizer.check \
 	tests/readclause.check \
 	tests/api.check \
 	tests/languages.check

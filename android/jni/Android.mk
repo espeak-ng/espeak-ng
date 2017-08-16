@@ -33,7 +33,6 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/synthdata.c \
   src/libespeak-ng/synthesize.c \
   src/libespeak-ng/synth_mbrola.c \
-  src/libespeak-ng/tokenizer.c \
   src/libespeak-ng/translate.c \
   src/libespeak-ng/tr_languages.c \
   src/libespeak-ng/voices.c \
