@@ -663,7 +663,7 @@ mk: espeak-ng-data/mk_dict
 espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_extra dictsource/mk_emoji
 
 ml: espeak-ng-data/ml_dict
-espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
+espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra dictsource/ml_emoji
 
 mr: espeak-ng-data/mr_dict
 espeak-ng-data/mr_dict: dictsource/mr_list dictsource/mr_rules dictsource/mr_extra dictsource/mr_emoji
