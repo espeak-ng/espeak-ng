@@ -696,7 +696,7 @@ or: espeak-ng-data/or_dict
 espeak-ng-data/or_dict: dictsource/or_list dictsource/or_rules dictsource/or_extra dictsource/or_emoji
 
 pa: espeak-ng-data/pa_dict
-espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra
+espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra dictsource/pa_emoji
 
 pap: espeak-ng-data/pap_dict
 espeak-ng-data/pap_dict: dictsource/pap_list dictsource/pap_rules dictsource/pap_extra
