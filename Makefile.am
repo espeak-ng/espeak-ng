@@ -752,7 +752,7 @@ sw: espeak-ng-data/sw_dict
 espeak-ng-data/sw_dict: dictsource/sw_list dictsource/sw_rules dictsource/sw_extra dictsource/sw_emoji
 
 ta: espeak-ng-data/ta_dict
-espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
+espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra dictsource/ta_emoji
 
 te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji

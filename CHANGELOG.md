@@ -109,6 +109,7 @@ Unicode Emoji support (from the Unicode Emoji 5.0, and CLDR 31.0.1 data files):
 *  sr (Serbian)
 *  sv (Swedish)
 *  sw (Swahili)
+*  ta (Tamil)
 *  te (Telugu)
 *  tr (Turkish)
 *  ur (Urdu)
