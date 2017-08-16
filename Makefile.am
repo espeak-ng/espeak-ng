@@ -675,7 +675,7 @@ mt: espeak-ng-data/mt_dict
 espeak-ng-data/mt_dict: dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
 
 my: espeak-ng-data/my_dict
-espeak-ng-data/my_dict: dictsource/my_list dictsource/my_rules dictsource/my_extra
+espeak-ng-data/my_dict: dictsource/my_list dictsource/my_rules dictsource/my_extra dictsource/my_emoji
 
 nci: espeak-ng-data/nci_dict
 espeak-ng-data/nci_dict: dictsource/nci_list dictsource/nci_rules dictsource/nci_extra
