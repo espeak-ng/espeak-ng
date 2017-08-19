@@ -400,7 +400,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	espeak_ng_STATUS status;
 	if (translator == NULL) {
-		status = espeak_SetVoiceByName("en");
+		status = espeak_ng_SetVoiceByName("en");
 		if (status != ENS_OK)
 			return status;
 	}

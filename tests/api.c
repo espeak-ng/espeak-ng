@@ -117,7 +117,70 @@ test_espeak_synth_no_voices(const char *path)
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
-	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_INTERNAL_ERROR);
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_NOT_FOUND);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+// endregion
+// region espeak_ng_Synthesize
+
+void
+test_espeak_ng_synthesize()
+{
+	printf("testing espeak_ng_Synthesize\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == ENS_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_ng_synthesize_no_voices(const char *path)
+{
+	printf("testing espeak_ng_Synthesize in path with no voices\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, path, espeakINITIALIZE_DONT_EXIT) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_ng_Synthesize(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == ENS_VOICE_NOT_FOUND);
 	assert(translator == NULL);
 	assert(p_decoder == NULL);
 
@@ -488,6 +551,11 @@ main(int argc, char **argv)
 	test_espeak_synth(); // Check that this does not crash when run a second time.
 	test_espeak_synth_no_voices(progdir);
 	test_espeak_synth();
+
+	test_espeak_ng_synthesize();
+	test_espeak_ng_synthesize(); // Check that this does not crash when run a second time.
+	test_espeak_ng_synthesize_no_voices(progdir);
+	test_espeak_ng_synthesize();
 
 	test_espeak_set_voice_by_name_null_voice();
 	test_espeak_set_voice_by_name_blank_voice();
