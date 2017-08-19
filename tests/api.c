@@ -31,6 +31,8 @@
 #include "synthesize.h"
 #include "translate.h"
 
+// region espeak_Initialize
+
 void
 test_espeak_terminate_without_initialize()
 {
@@ -65,6 +67,9 @@ test_espeak_initialize()
 	assert(translator == NULL);
 	assert(p_decoder == NULL);
 }
+
+// endregion
+// region espeak_Synth
 
 void
 test_espeak_synth()
@@ -124,6 +129,110 @@ test_espeak_synth_no_voices(const char *path)
 	assert(p_decoder == NULL);
 }
 
+// endregion
+// region espeak_SetVoiceByName
+
+void
+test_espeak_set_voice_by_name_null_voice()
+{
+	printf("testing espeak_SetVoiceByName(NULL)\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_SetVoiceByName("") == EE_NOT_FOUND);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_set_voice_by_name_blank_voice()
+{
+	printf("testing espeak_SetVoiceByName(\"\")\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_SetVoiceByName("") == EE_NOT_FOUND);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_set_voice_by_name_valid_voice()
+{
+	printf("testing espeak_SetVoiceByName(\"de\")\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_SetVoiceByName("de") == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+// endregion
+
 int
 main(int argc, char **argv)
 {
@@ -138,6 +247,10 @@ main(int argc, char **argv)
 	test_espeak_synth(); // Check that this does not crash when run a second time.
 	test_espeak_synth_no_voices(progdir);
 	test_espeak_synth();
+
+	test_espeak_set_voice_by_name_null_voice();
+	test_espeak_set_voice_by_name_blank_voice();
+	test_espeak_set_voice_by_name_valid_voice();
 
 	free(progdir);
 
