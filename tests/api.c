@@ -241,6 +241,167 @@ test_espeak_set_voice_by_name_valid_voice()
 }
 
 // endregion
+// region espeak_SetVoiceByProperties
+
+void
+test_espeak_set_voice_by_properties_empty()
+{
+	printf("testing espeak_SetVoiceByProperties: (none)\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	espeak_VOICE properties;
+	memset(&properties, 0, sizeof(properties));
+
+	assert(espeak_SetVoiceByProperties(&properties) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_set_voice_by_properties_blank_language()
+{
+	printf("testing espeak_SetVoiceByProperties: languages=\"\"\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	espeak_VOICE properties;
+	memset(&properties, 0, sizeof(properties));
+	properties.languages = "";
+
+	assert(espeak_SetVoiceByProperties(&properties) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_set_voice_by_properties_with_valid_language()
+{
+	printf("testing espeak_SetVoiceByProperties: languages=\"mk\" (valid)\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	espeak_VOICE properties;
+	memset(&properties, 0, sizeof(properties));
+	properties.languages = "mk";
+
+	assert(espeak_SetVoiceByProperties(&properties) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "mk") == 0);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "mk") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "mk") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+void
+test_espeak_set_voice_by_properties_with_invalid_language()
+{
+	printf("testing espeak_SetVoiceByProperties: languages=\"zzz\" (invalid)\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	espeak_VOICE properties;
+	memset(&properties, 0, sizeof(properties));
+	properties.languages = "zzz";
+
+	assert(espeak_SetVoiceByProperties(&properties) == EE_NOT_FOUND);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
+// endregion
 
 int
 main(int argc, char **argv)
@@ -260,6 +421,11 @@ main(int argc, char **argv)
 	test_espeak_set_voice_by_name_null_voice();
 	test_espeak_set_voice_by_name_blank_voice();
 	test_espeak_set_voice_by_name_valid_voice();
+
+	test_espeak_set_voice_by_properties_empty();
+	test_espeak_set_voice_by_properties_blank_language();
+	test_espeak_set_voice_by_properties_with_valid_language();
+	test_espeak_set_voice_by_properties_with_invalid_language();
 
 	free(progdir);
 
