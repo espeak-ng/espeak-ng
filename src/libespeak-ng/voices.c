@@ -544,7 +544,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			return NULL;
 	} else {
 		if (voicename[0] == 0)
-			strcpy(voicename, "en");
+			strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
 		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory
@@ -1294,7 +1294,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)
-				voice_select2.name = "default";
+				voice_select2.name = ESPEAKNG_DEFAULT_VOICE;
 		}
 
 		strncpy0(buf, voice_select2.name, sizeof(buf));
@@ -1321,7 +1321,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	if (nv == 0) {
 		// no matching voice, choose the default
 		*found = 0;
-		if ((voices[0] = SelectVoiceByName(voices_list, "default")) != NULL)
+		if ((voices[0] = SelectVoiceByName(voices_list, ESPEAKNG_DEFAULT_VOICE)) != NULL)
 			nv = 1;
 	}
 

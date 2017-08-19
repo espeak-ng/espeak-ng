@@ -598,7 +598,7 @@ int main(int argc, char **argv)
 	}
 
 	if (voicename[0] == 0)
-		strcpy(voicename, "en");
+		strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
 	result = espeak_ng_SetVoiceByName(voicename);
 	if (result != ENS_OK) {

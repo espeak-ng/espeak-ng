@@ -333,18 +333,18 @@ test_espeak_set_voice_by_properties_empty()
 
 	assert(espeak_SetVoiceByProperties(&properties) == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
@@ -373,18 +373,18 @@ test_espeak_set_voice_by_properties_blank_language()
 
 	assert(espeak_SetVoiceByProperties(&properties) == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
-	assert(strcmp(translator->dictionary_name, "af") == 0);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
