@@ -240,6 +240,41 @@ test_espeak_set_voice_by_name_valid_voice()
 	assert(p_decoder == NULL);
 }
 
+void
+test_espeak_set_voice_by_name_invalid_voice()
+{
+	printf("testing espeak_SetVoiceByName(\"zzz\")\n");
+
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 0, NULL, 0) == 22050);
+	assert(event_list != NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	assert(espeak_SetVoiceByName("zzz") == EE_NOT_FOUND);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+
+	const char *test = "One two three.";
+	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Synchronize() == EE_OK);
+	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
+	assert(p_decoder != NULL);
+
+	assert(espeak_Terminate() == EE_OK);
+	assert(event_list == NULL);
+	assert(translator == NULL);
+	assert(p_decoder == NULL);
+}
+
 // endregion
 // region espeak_SetVoiceByProperties
 
@@ -421,6 +456,7 @@ main(int argc, char **argv)
 	test_espeak_set_voice_by_name_null_voice();
 	test_espeak_set_voice_by_name_blank_voice();
 	test_espeak_set_voice_by_name_valid_voice();
+	test_espeak_set_voice_by_name_invalid_voice();
 
 	test_espeak_set_voice_by_properties_empty();
 	test_espeak_set_voice_by_properties_blank_language();
