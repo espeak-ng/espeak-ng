@@ -88,10 +88,12 @@ test_espeak_synth()
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
@@ -153,10 +155,12 @@ test_espeak_set_voice_by_name_null_voice()
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
@@ -186,10 +190,12 @@ test_espeak_set_voice_by_name_blank_voice()
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "en") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
@@ -214,15 +220,18 @@ test_espeak_set_voice_by_name_valid_voice()
 
 	assert(espeak_SetVoiceByName("de") == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "de") == 0);
 	assert(p_decoder == NULL);
 
 	const char *test = "One two three.";
 	assert(espeak_Synth(test, strlen(test)+1, 0, POS_CHARACTER, 0, espeakCHARS_AUTO, NULL, NULL) == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "de") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Synchronize() == EE_OK);
 	assert(translator != NULL);
+	assert(strcmp(translator->dictionary_name, "de") == 0);
 	assert(p_decoder != NULL);
 
 	assert(espeak_Terminate() == EE_OK);
