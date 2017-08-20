@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 
@@ -33,6 +33,7 @@ android {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
             res.srcDirs = ['res']
+            jniLibs.srcDir 'libs'
         }
         androidTest.setRoot('eSpeakTests')
         androidTest {
@@ -43,9 +44,4 @@ android {
     lintOptions {
         abortOnError false
     }
-}
-
-tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
-    pkgTask -> pkgTask.jniFolders = new HashSet<File>()
-    pkgTask.jniFolders.add(new File(projectDir, 'libs'))
 }
