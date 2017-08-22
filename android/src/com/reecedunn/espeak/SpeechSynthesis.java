@@ -114,6 +114,8 @@ public class SpeechSynthesis {
                 return new Locale(parts[0], parts[1]);
             case 3: // language-country-variant
                 return new Locale(parts[0], parts[1], parts[2]);
+            case 4: // language-country-x-privateuse
+                return new Locale(parts[0], parts[1], parts[3]);
             default:
                 return null;
         }
@@ -435,18 +437,11 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("USA", "US");
         mJavaToIanaCountryCode.put("VNM", "VN");
 
-        // Map eSpeak locales to their correct BCP47 locales supported by Android:
-        mLocaleFixes.put("en-sc", new Locale("en", "GB", "scotland"));
-        mLocaleFixes.put("en-uk-north", new Locale("en", "GB", "north"));
-        mLocaleFixes.put("en-uk-rp", new Locale("en", "GB", "rp"));
-        mLocaleFixes.put("en-uk-wmids", new Locale("en", "GB", "wmids"));
-        mLocaleFixes.put("en-wi", new Locale("en", "JM"));
-        mLocaleFixes.put("es-la", new Locale("es", "MX"));
-        mLocaleFixes.put("fa-pin", null); // Script tags not supported.
-        mLocaleFixes.put("hy-west", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
-        mLocaleFixes.put("no", new Locale("nb")); // 'no' is valid, but the system uses the more specific 'nb' and 'nn'
-        mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
-        mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
-        mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
+        // Fix up BCP47 locales not handled correctly by Android:
+        mLocaleFixes.put("cmn", new Locale("zh"));
+        mLocaleFixes.put("en-029", new Locale("en", "JM"));
+        mLocaleFixes.put("es-419", new Locale("es", "MX"));
+        mLocaleFixes.put("hy-arevmda", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
+        mLocaleFixes.put("yue", new Locale("zh", "HK"));
     }
 }
