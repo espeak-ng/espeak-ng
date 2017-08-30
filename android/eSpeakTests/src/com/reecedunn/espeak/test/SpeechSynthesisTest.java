@@ -260,7 +260,7 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
 
     public void testMatchVoiceWithLanguageAndCountry()
     {
-        final Voice voice = getVoice("fr-fr"); // language="fr" country="fr" variant=""
+        final Voice voice = getVoice("fr-be"); // language="fr" country="BE" variant=""
         assertThat(voice, is(notNullValue()));
 
         assertThat(voice.match(de), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
@@ -269,23 +269,23 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
         assertThat(voice.match(de_CH_1901), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));
 
         assertThat(voice.match(fr), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fr_FR), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_BE), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         assertThat(voice.match(fr_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(fr_BE_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_BE_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
 
         assertThat(voice.match(fra), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fra_FRA), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
-        assertThat(voice.match(fra_BEL), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_FRA), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_BEL), isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         assertThat(voice.match(fra_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
-        assertThat(voice.match(fra_FRA_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
-        assertThat(voice.match(fra_BEL_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_FRA_1694acad), isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fra_BEL_1694acad), isTtsLangCode(TextToSpeech.LANG_COUNTRY_AVAILABLE));
     }
 
     public void testMatchVoiceWithLanguageCountryAndVariant()
     {
-        final Voice voice = getVoice("en-sc"); // language="en" country="GB" variant="scotland"
+        final Voice voice = getVoice("en-gb-scotland"); // language="en" country="GB" variant="scotland"
         assertThat(voice, is(notNullValue()));
 
         assertThat(voice.match(de), isTtsLangCode(TextToSpeech.LANG_NOT_SUPPORTED));

@@ -72,7 +72,7 @@ public class TextToSpeechTestCase extends AndroidTestCase
                 Log.d("TextToSpeechTestCase", "setUp: available = " + available);
             }
 
-            assertThat(available, isTtsLangCode(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+            assertThat(available, isTtsLangCode(TextToSpeech.LANG_AVAILABLE));
         }
         catch (Exception e)
         {

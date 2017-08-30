@@ -357,6 +357,7 @@ public class SpeechSynthesis {
     static {
         mJavaToIanaLanguageCode.put("afr", "af");
         mJavaToIanaLanguageCode.put("amh", "am");
+        mJavaToIanaLanguageCode.put("ara", "ar");
         mJavaToIanaLanguageCode.put("arg", "an");
         mJavaToIanaLanguageCode.put("asm", "as");
         mJavaToIanaLanguageCode.put("aze", "az");
@@ -379,6 +380,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("fra", "fr");
         mJavaToIanaLanguageCode.put("gle", "ga");
         mJavaToIanaLanguageCode.put("gla", "gd");
+        mJavaToIanaLanguageCode.put("grn", "gn");
         mJavaToIanaLanguageCode.put("guj", "gu");
         mJavaToIanaLanguageCode.put("hin", "hi");
         mJavaToIanaLanguageCode.put("hrv", "hr");
@@ -388,9 +390,11 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("ind", "in"); // NOTE: The deprecated 'in' code is used by Java/Android.
         mJavaToIanaLanguageCode.put("isl", "is");
         mJavaToIanaLanguageCode.put("ita", "it");
+        mJavaToIanaLanguageCode.put("jpn", "ja");
         mJavaToIanaLanguageCode.put("kat", "ka");
         mJavaToIanaLanguageCode.put("kal", "kl");
         mJavaToIanaLanguageCode.put("kan", "kn");
+        mJavaToIanaLanguageCode.put("kir", "ky");
         mJavaToIanaLanguageCode.put("kor", "ko");
         mJavaToIanaLanguageCode.put("kur", "ku");
         mJavaToIanaLanguageCode.put("lat", "la");
@@ -399,7 +403,10 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("mkd", "mk");
         mJavaToIanaLanguageCode.put("mal", "ml");
         mJavaToIanaLanguageCode.put("mar", "mr");
+        mJavaToIanaLanguageCode.put("mlt", "mt");
+        mJavaToIanaLanguageCode.put("mri", "mi");
         mJavaToIanaLanguageCode.put("msa", "ms");
+        mJavaToIanaLanguageCode.put("mya", "my");
         mJavaToIanaLanguageCode.put("nep", "ne");
         mJavaToIanaLanguageCode.put("nld", "nl");
         mJavaToIanaLanguageCode.put("nob", "nb");
@@ -414,12 +421,15 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("sin", "si");
         mJavaToIanaLanguageCode.put("slk", "sk");
         mJavaToIanaLanguageCode.put("slv", "sl");
+        mJavaToIanaLanguageCode.put("snd", "sd");
         mJavaToIanaLanguageCode.put("sqi", "sq");
         mJavaToIanaLanguageCode.put("srp", "sr");
         mJavaToIanaLanguageCode.put("swe", "sv");
         mJavaToIanaLanguageCode.put("swa", "sw");
         mJavaToIanaLanguageCode.put("tam", "ta");
         mJavaToIanaLanguageCode.put("tel", "te");
+        mJavaToIanaLanguageCode.put("tat", "tt");
+        mJavaToIanaLanguageCode.put("tsn", "tn");
         mJavaToIanaLanguageCode.put("tur", "tr");
         mJavaToIanaLanguageCode.put("urd", "ur");
         mJavaToIanaLanguageCode.put("vie", "vi");
@@ -428,6 +438,7 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("ARM", "AM");
         mJavaToIanaCountryCode.put("BEL", "BE");
         mJavaToIanaCountryCode.put("BRA", "BR");
+        mJavaToIanaCountryCode.put("CHE", "CH");
         mJavaToIanaCountryCode.put("FRA", "FR");
         mJavaToIanaCountryCode.put("GBR", "GB");
         mJavaToIanaCountryCode.put("HKG", "HK");
