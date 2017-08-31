@@ -84,6 +84,23 @@ else
 fi
 
 dnl ================================================================
+dnl FreeBSD check.
+dnl ================================================================
+AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
+		   #if ! defined(__FreeBSD__)
+		   #error macro not defined
+		   #endif
+		   ]])], [FREEBSD_FOUND="yes"], [FREEBSD_FOUND="no"])
+
+AC_MSG_CHECKING([if targeting FreeBSD])
+if test "$FREEBSD_FOUND" = "yes" ; then
+	AC_MSG_RESULT([-D__BSD_VISIBLE])
+	CFLAGS="$CFLAGS -D__BSD_VISIBLE"
+else
+	AC_MSG_RESULT([no])
+fi
+
+dnl ================================================================
 dnl library checks.
 dnl ================================================================
 
