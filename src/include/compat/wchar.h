@@ -32,7 +32,4 @@
 
 #include <ucd/ucd.h>
 
-#define towlower ucd_tolower
-#define towupper ucd_toupper
-
 #endif

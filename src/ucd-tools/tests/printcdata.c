@@ -178,7 +178,7 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 			uprintf_is(out, c, *++format);
 			break;
 		case 'L': /* lowercase */
-			uprintf_codepoint(out, towlower(c), *++format);
+			uprintf_codepoint(out, ucd_tolower(c), *++format);
 			break;
 		case 's': /* script */
 			fputs(ucd_get_script_string(ucd_lookup_script(c)), out);
@@ -187,7 +187,7 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 			uprintf_codepoint(out, ucd_totitle(c), *++format);
 			break;
 		case 'U': /* uppercase */
-			uprintf_codepoint(out, towupper(c), *++format);
+			uprintf_codepoint(out, ucd_toupper(c), *++format);
 			break;
 		}
 		++format;

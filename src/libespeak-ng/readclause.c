@@ -163,7 +163,7 @@ int towlower2(unsigned int c)
 	if (c == 'I' && translator->langopts.dotless_i)
 		return 0x131; // I -> ı
 
-	return towlower(c);
+	return ucd_tolower(c);
 }
 
 static int IsRomanU(unsigned int c)
@@ -842,7 +842,7 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 
 	while (IsDigit09(*pw))
 		value = value*10 + *pw++ - '0';
-	if ((type == 1) && (towlower(*pw) == 's')) {
+	if ((type == 1) && (ucd_tolower(*pw) == 's')) {
 		// time: seconds rather than ms
 		value *= 1000;
 	}
