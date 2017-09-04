@@ -285,6 +285,7 @@ tiklab    $u $brk
 tomēr     $u $pause
 turpretim $u $2 $pause
 turpretī  $u $2 $pause
+tur       $u+
 un        $u
 uz        $u
 vai       $u+ $brk

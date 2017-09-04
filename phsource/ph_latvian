@@ -171,7 +171,7 @@ phoneme tS
   WAV(ustop/tsh,40)
 endphoneme
 
-phoneme n-
+phoneme n- // more voiced variant of n
   vwl starttype #a endtype #a
   ipa nU+0329
   lengthmod 4
@@ -347,20 +347,60 @@ phoneme j // **y**es
       VowelStart(j/jo)
       VowelStart(j/ju)
     EndSwitch
-
-    IF prevPhW(e) THEN
-      VowelEnding(j/xj, 10) //
-    ELSE
-      VowelEnding(j/xj, 127) // In difference with English, vowel is lengthened, not shortened
-    ENDIF
-
-    IF prevPh(isPause) THEN
-      FMT(j/_j)
-    ENDIF
+    VowelEnding(j/xj, 70) // In difference with English, vowel is lengthened, not shortened
   ELSE
-    // no vowel follows
-    Vowelout len=127
+    Vowelout len=127      // no vowel follows
     FMT(j/xj)
   ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(j/_j)
+  ENDIF
 endphoneme
+
+phoneme l
+  liquid
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    PrevVowelEndings
+      VowelEnding(l/L1_@L)
+      VowelEnding(l/L1_aL)
+      VowelEnding(l/L1_eL)
+      VowelEnding(l/L1_iL)
+      VowelEnding(l/L1_oL)
+      VowelEnding(l/L1_uL)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(a) OR prevPh(a:) THEN
+    VowelEnding(l/xl,30) // FIXME
+  ELSEIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, 10)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+
 
