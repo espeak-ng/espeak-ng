@@ -1626,7 +1626,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		unpron_ignore = word_flags & FLAG_UNPRON_TEST;
 		match_type = 0;
 		consumed = 0;
-		letter = 0;
 		letter_w = 0;
 		distance_right = -6; // used to reduce points for matches further away the current letter
 		distance_left = -2;
