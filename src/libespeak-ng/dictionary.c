@@ -2719,7 +2719,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			continue;
 		}
 
-		if ((dictionary_flags2 & FLAG_ATSTART) && !(wtab->flags & FLAG_FIRST_WORD)) {
+		if ((dictionary_flags2 & FLAG_ATSTART) && !(wflags & FLAG_FIRST_WORD)) {
 			// only use this pronunciation if it's the first word of a clause
 			continue;
 		}
