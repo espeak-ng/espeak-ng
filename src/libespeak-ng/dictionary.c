@@ -2894,7 +2894,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		found = word2 + len;
 	}
 
-	if (found == 0) {
+	if (found == 0 && length >= 2) {
 		ph_out[0] = 0;
 
 		// try modifications to find a recognised word
