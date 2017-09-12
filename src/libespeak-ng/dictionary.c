@@ -3003,7 +3003,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	int end_flags;
 	const char *p;
 	int len;
-	char ending[50];
+	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevent if the 'e' suffix flag is used
 	static const char *add_e_exceptions[] = {
