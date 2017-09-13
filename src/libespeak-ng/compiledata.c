@@ -1408,10 +1408,10 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 
 	ix = -1;
 	ix2 = 0;
-	for (x = 0; x < ENV_LEN; x++) {
-		if (x > env_x[ix+4])
+	if (n_points > 0) for (x = 0; x < ENV_LEN; x++) {
+		if (n_points > 3 && x > env_x[ix+4])
 			ix++;
-		if (x >= env_x[ix2+1])
+		if (n_points > 2 && x >= env_x[ix2+1])
 			ix2++;
 
 		if (env_lin[ix2] > 0) {
