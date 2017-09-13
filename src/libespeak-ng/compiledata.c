@@ -1401,8 +1401,10 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 			n_points++;
 		}
 	}
-	env_x[n_points] = env_x[n_points-1];
-	env_y[n_points] = env_y[n_points-1];
+	if (n_points > 0) {
+		env_x[n_points] = env_x[n_points-1];
+		env_y[n_points] = env_y[n_points-1];
+	}
 
 	ix = -1;
 	ix2 = 0;
