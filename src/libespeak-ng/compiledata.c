@@ -2825,6 +2825,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 				error("Bad tune name: '%s;", new_tune.name);
 			break;
 		case kENDTUNE:
+			if (!found) continue;
 			if (done_onset == 0) {
 				new_tune.unstr_start[0] = new_tune.unstr_start[1];
 				new_tune.unstr_end[0] = new_tune.unstr_end[1];
