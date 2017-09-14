@@ -949,8 +949,8 @@ void CalcPitches(Translator *tr, int clause_type)
 	n_primary = 0;
 	for (ix = 0; ix < (n_phoneme_list-1); ix++) {
 		p = &phoneme_list[ix];
+		syllable_tab[ix].flags = 0;
 		if (p->synthflags & SFLAG_SYLLABLE) {
-			syllable_tab[n_st].flags = 0;
 			syllable_tab[n_st].env = PITCHfall;
 			syllable_tab[n_st].nextph_type = phoneme_list[ix+1].type;
 			syllable_tab[n_st++].stress = p->stresslevel;
