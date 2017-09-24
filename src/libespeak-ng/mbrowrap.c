@@ -18,6 +18,11 @@
  */
 
 #include "config.h"
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <windows.h>
+#endif
+
 #include "mbrowrap.h"
 
 int (WINAPI *init_MBR)(char *voice_path);
@@ -32,9 +37,6 @@ char * (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
 void (WINAPI *setNoError_MBR)(int no_error);
 
 #if defined(_WIN32) || defined(_WIN64)
-
-#include <windows.h>
-
 
 HINSTANCE hinstDllMBR = NULL;
 
