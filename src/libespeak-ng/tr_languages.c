@@ -170,7 +170,7 @@ static const unsigned short chars_ignore_default[] = {
 	//     Used to indicate an alternative connected form made up of the
 	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
 	//     and Emoji.
-	0x200d, 1,
+//	0x200d, 1, // Not ignored.
 	// End of the ignored character list.
 	0,      0
 };
@@ -193,7 +193,7 @@ static const unsigned short chars_ignore_zwnj_hyphen[] = {
 	//     Used to indicate an alternative connected form made up of the
 	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
 	//     and Emoji.
-	0x200d, 1,
+//	0x200d, 1, // Not ignored.
 	// End of the ignored character list.
 	0,      0
 };
