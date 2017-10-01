@@ -3534,6 +3534,8 @@ ucd_category_group ucd_get_category_group_for_category(ucd_category c)
 	case Ii:
 		return UCD_CATEGORY_GROUP_I;
 	}
+
+	return UCD_CATEGORY_GROUP_I;
 }
 
 ucd_category_group ucd_lookup_category_group(codepoint_t c)
