@@ -1,0 +1,21 @@
+#!/bin/sh
+
+test_phonemes() {
+	TEST_LANG=$1
+	EXPECTED=$2
+	TEST_TEXT=$3
+
+	echo "testing ${TEST_LANG} \"${TEST_TEXT}\""
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	diff expected.txt actual.txt || exit 1
+}
+
+test_phonemes en " h@l'oU" "hello"
+
+# Emoji
+
+# ED-3 - emoji_character [http://www.unicode.org/reports/tr51/tr51-12.html#def_emoji_character]
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k" "⁉"
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"

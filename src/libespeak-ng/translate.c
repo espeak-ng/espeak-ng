@@ -795,7 +795,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 					if (end2) {
 						RemoveEnding(tr, wordx, end2, word_copy);
 						end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags);
-						memcpy(wordx, word_copy, strlen(word_copy));
+						strcpy(wordx, word_copy);
 						if ((end_type & SUFX_P) == 0) {
 							// after removing the suffix, the prefix is no longer recognised.
 							// Keep the suffix, but don't use the prefix
@@ -902,7 +902,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 						wordx[-1] = ' ';
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
-							memcpy(wordx, word_copy, strlen(word_copy));
+							strcpy(wordx, word_copy);
 							strcpy(word_phonemes, phonemes);
 							return 0;
 						}
@@ -920,7 +920,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 						found = LookupDictList(tr, &wordx, phonemes, dictionary_flags2, end_flags, wtab);  // without prefix and suffix
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
-							memcpy(wordx, word_copy, strlen(word_copy));
+							strcpy(wordx, word_copy);
 							strcpy(word_phonemes, phonemes);
 							return 0;
 						}
@@ -960,7 +960,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 							if (phonemes[0] == phonSWITCH) {
 								// change to another language in order to translate this word
 								strcpy(word_phonemes, phonemes);
-								memcpy(wordx, word_copy, strlen(word_copy));
+								strcpy(wordx, word_copy);
 								wordx[-1] = c_temp;
 								return 0;
 							}
@@ -974,7 +974,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 					AppendPhonemes(tr, phonemes, N_WORD_PHONEMES, end_phonemes);
 					end_phonemes[0] = 0;
 				}
-				memcpy(wordx, word_copy, strlen(word_copy));
+				strcpy(wordx, word_copy);
 			}
 
 			wordx[-1] = c_temp;
@@ -1139,7 +1139,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		char word[N_WORD_BYTES+1];
 		word[0] = 0;
 		word[1] = ' ';
-		memcpy(word+2, word_out, strlen(word_out));
+		strcpy(word+2, word_out);
 		word_out = word+2;
 
 		while (*word_out && available > 1) {
