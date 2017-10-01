@@ -158,19 +158,44 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 // ignore these characters
 static const unsigned short chars_ignore_default[] = {
-	0xad,    1, // soft hyphen
-	0x200c,  1, // zero width non-joiner
-	0x200d,  1, // zero width joiner
-	0, 0
+	// U+00AD SOFT HYPHEN
+	//     Used to mark hyphenation points in words for where to split a
+	//     word at the end of a line to provide readable justified text.
+	0xad,   1,
+	// U+200C ZERO WIDTH NON-JOINER
+	//     Used to prevent combined ligatures being displayed in their
+	//     combined form.
+	0x200c, 1,
+	// U+200D ZERO WIDTH JOINER
+	//     Used to indicate an alternative connected form made up of the
+	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
+	//     and Emoji.
+	0x200d, 1,
+	// End of the ignored character list.
+	0,      0
 };
 
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
-	0xad,   1,   // soft hyphen
-	0x640,  1,   // igniore Arabic Tatweel (lang=FA)
-	0x200c, '-', // zero width non-joiner, replace with hyphen
-	0x200d, 1,   // zero width joiner
-	0, 0
+	// U+00AD SOFT HYPHEN
+	//     Used to mark hyphenation points in words for where to split a
+	//     word at the end of a line to provide readable justified text.
+	0xad,   1,
+	// U+0640 TATWEEL (KASHIDA)
+	//     Used in Arabic scripts to stretch characters for justifying
+	//     the text.
+	0x640,  1,
+	// U+200C ZERO WIDTH NON-JOINER
+	//     Used to prevent combined ligatures being displayed in their
+	//     combined form.
+	0x200c, '-',
+	// U+200D ZERO WIDTH JOINER
+	//     Used to indicate an alternative connected form made up of the
+	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
+	//     and Emoji.
+	0x200d, 1,
+	// End of the ignored character list.
+	0,      0
 };
 
 const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
