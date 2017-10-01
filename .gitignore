@@ -96,6 +96,7 @@ src/speak-ng
 
 tests/*.test
 !tests/languages.test
+!tests/phoneme-output.test
 
 espeak-ng.pc
 

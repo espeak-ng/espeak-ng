@@ -2394,7 +2394,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 						match1.end_type |= p - p_start;
 					}
 					strcpy(end_phonemes, match1.phonemes);
-					memcpy(p_start, word_copy, strlen(word_copy));
+					strcpy(p_start, word_copy);
 					return match1.end_type;
 				}
 			}
@@ -2404,7 +2404,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		}
 	}
 
-	memcpy(p_start, word_copy, strlen(word_copy));
+	strcpy(p_start, word_copy);
 
 	return 0;
 }
