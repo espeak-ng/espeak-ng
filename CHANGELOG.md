@@ -9,6 +9,14 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.49.3 - (In Development)
 
+bug fixes:
+
+*  Fix several issues with the emoji support.
+
+updated languages:
+
+*  fi (Finnish) -- Juho Hiltunen
+
 ### 1.49.2 - 2017-09-24
 
 *  Provide more validation when reading phoneme tables and voice/language files.
