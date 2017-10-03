@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 31 july by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017  october 3 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -102,6 +102,10 @@ _<	min'oRe||d'I
 _>	madZ:'oRe||d'I
 _〈	ap'E@-*ta||,angol'aRe
 _〉	kj'uza||,angol'aRe
+_〈	ap'E@-*ta||angol'ata
+_〉	kj'uza||angol'ata
+_【	ap'E@-*ta||lentikol'aRe
+_】	kj'uza||lentikol'aRe
 *	aste@-*'isko $max3
 $	d'Ol:aRI
 %	pe@-*tS'ENto $max3
@@ -3207,6 +3211,7 @@ distino	$1
 distintesi	$2
 disturbano	$2
 disturbino	$2
+dissuadere	dissuad'eRe
 divaghino	$2
 divaricano	$2
 diventino	$2
