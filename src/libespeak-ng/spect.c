@@ -31,9 +31,7 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "spect.h"
 
 extern double ConvertFromIeeeExtended(unsigned char *bytes);
@@ -237,7 +235,7 @@ double GetFrameRms(SpectFrame *frame, int seq_amplitude)
 	return frame->rms;
 }
 
-SpectSeq *SpectSeqCreate()
+SpectSeq *SpectSeqCreate(void)
 {
 	SpectSeq *spect = malloc(sizeof(SpectSeq));
 	if (!spect)

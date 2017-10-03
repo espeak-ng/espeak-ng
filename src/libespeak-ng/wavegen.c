@@ -32,9 +32,7 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "speech.h"
-#include "phoneme.h"
-#include "synthesize.h"
-#include "voice.h"
+#include "klatt.h"
 
 #if HAVE_SONIC_H
 #include "sonic.h"
@@ -1140,7 +1138,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	flutter_amp = wvoice->flutter;
 }
 
-void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
+static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
 {
 	if (wvoice == NULL || v == NULL)
 		return;
@@ -1246,7 +1244,7 @@ void Write4Bytes(FILE *f, int value)
 	}
 }
 
-int WavegenFill2()
+static int WavegenFill2()
 {
 	// Pick up next wavegen commands from the queue
 	// return: 0  output buffer has been filled

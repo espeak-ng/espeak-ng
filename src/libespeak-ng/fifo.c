@@ -58,7 +58,7 @@ static int my_stop_is_acknowledged = 0;
 static void *say_thread(void *);
 
 static espeak_ng_STATUS push(t_espeak_command *the_command);
-static t_espeak_command *pop();
+static t_espeak_command *pop(void);
 static void init(int process_parameters);
 static int node_counter = 0;
 

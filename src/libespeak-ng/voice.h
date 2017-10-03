@@ -82,6 +82,7 @@ const char *SelectVoice(espeak_VOICE *voice_select, int *found);
 espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name);
 voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
+void FreeVoiceList(void);
 espeak_ng_STATUS DoVoiceChange(voice_t *v);
 void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);

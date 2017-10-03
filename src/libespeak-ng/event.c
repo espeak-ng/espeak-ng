@@ -66,8 +66,8 @@ static node *head = NULL;
 static node *tail = NULL;
 static int node_counter = 0;
 static espeak_ng_STATUS push(void *data);
-static void *pop();
-static void init();
+static void *pop(void);
+static void init(void);
 static void *polling_thread(void *);
 
 void event_set_callback(t_espeak_callback *SynthCallback)
