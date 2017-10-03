@@ -211,7 +211,7 @@ typedef int (t_espeak_callback)(short*, int, espeak_EVENT*);
 #ifdef __cplusplus
 extern "C"
 #endif
-ESPEAK_API void grep (t_espeak_callback* SynthCallback);
+ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback* SynthCallback);
 /* Must be called before any synthesis functions are called.
    This specifies a function in the calling program which is called when a buffer of
    speech sound data has been produced.
@@ -288,8 +288,6 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text,
 	unsigned int flags,
 	unsigned int* unique_identifier,
 	void* user_data);
-
-ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback *SynthCallback);
 /* Synthesize speech for the specified text.  The speech sound data is passed to the calling
    program in buffers by means of the callback function specified by espeak_SetSynthCallback(). The command is asynchronous: it is internally buffered and returns as soon as possible. If espeak_Initialize was previously called with AUDIO_OUTPUT_PLAYBACK as argument, the sound data are played by eSpeak.
 
