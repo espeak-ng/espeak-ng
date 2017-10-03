@@ -16,6 +16,7 @@ bug fixes:
 updated languages:
 
 *  fi (Finnish) -- Juho Hiltunen
+*  it (Italian) -- chrislm
 
 ### 1.49.2 - 2017-09-24
 
