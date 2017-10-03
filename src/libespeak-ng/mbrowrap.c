@@ -519,7 +519,7 @@ static ssize_t receive_from_mbrola(void *buffer, size_t bufsize)
  * API functions.
  */
 
-int init_mbrola(char *voice_path)
+static int init_mbrola(char *voice_path)
 {
 	int error, result;
 	unsigned char wavhdr[45];
@@ -562,7 +562,7 @@ int init_mbrola(char *voice_path)
 	return 0;
 }
 
-void close_mbrola(void)
+static void close_mbrola(void)
 {
 	stop_mbrola();
 	free_pending_data();
@@ -571,7 +571,7 @@ void close_mbrola(void)
 	mbr_volume = 1.0;
 }
 
-void reset_mbrola(void)
+static void reset_mbrola(void)
 {
 	int result, success = 1;
 	char dummybuf[4096];
@@ -595,7 +595,7 @@ void reset_mbrola(void)
 		mbr_state = MBR_IDLE;
 }
 
-int read_mbrola(short *buffer, int nb_samples)
+static int read_mbrola(short *buffer, int nb_samples)
 {
 	int result = receive_from_mbrola(buffer, nb_samples * 2);
 	if (result > 0)
@@ -603,23 +603,23 @@ int read_mbrola(short *buffer, int nb_samples)
 	return result;
 }
 
-int write_mbrola(char *data)
+static int write_mbrola(char *data)
 {
 	mbr_state = MBR_NEWDATA;
 	return send_to_mbrola(data);
 }
 
-int flush_mbrola(void)
+static int flush_mbrola(void)
 {
 	return send_to_mbrola("\n#\n") == 3;
 }
 
-int getFreq_mbrola(void)
+static int getFreq_mbrola(void)
 {
 	return mbr_samplerate;
 }
 
-void setVolumeRatio_mbrola(float value)
+static void setVolumeRatio_mbrola(float value)
 {
 	if (value == mbr_volume)
 		return;
@@ -634,7 +634,7 @@ void setVolumeRatio_mbrola(float value)
 	init_MBR(mbr_voice_path);
 }
 
-char *lastErrorStr_mbrola(char *buffer, int bufsize)
+static char *lastErrorStr_mbrola(char *buffer, int bufsize)
 {
 	if (mbr_pid)
 		mbrola_has_errors();
@@ -642,7 +642,7 @@ char *lastErrorStr_mbrola(char *buffer, int bufsize)
 	return buffer;
 }
 
-void setNoError_mbrola(int no_error)
+static void setNoError_mbrola(int no_error)
 {
 	(void)no_error; // unused
 }

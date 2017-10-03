@@ -17,6 +17,9 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "phoneme.h"
+#include "voice.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -74,8 +77,6 @@ extern "C"
 extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
 
-#define N_PEAKS   9
-#define N_PEAKS2  9 // plus Notch and Fill (not yet implemented)
 #define N_MARKERS 8
 
 #define N_KLATTP   10 // this affects the phoneme data file format
@@ -453,14 +454,18 @@ extern int wcmdq_head;
 extern int wcmdq_tail;
 
 // from Wavegen file
-int  WcmdqFree();
-void WcmdqStop();
-int  WcmdqUsed();
-void WcmdqInc();
+int  WcmdqFree(void);
+void WcmdqStop(void);
+int  WcmdqUsed(void);
+void WcmdqInc(void);
 void WavegenInit(int rate, int wavemult_fact);
 float polint(float xa[], float ya[], int n, float x);
-int WavegenFill();
+int WavegenFill(void);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
+int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
+int Wavegen(void);
+void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
+void SetPitch(int length, unsigned char *env, int pitch1, int pitch2); 
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
@@ -488,6 +493,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 unsigned char *LookupEnvelope(int ix);
 espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
+void FreePhData(void);
 
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
@@ -538,16 +544,19 @@ void DoMarker(int type, int char_posn, int length, int value);
 void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
 int NumInstnWords(USHORT *prog);
+int GetAmplitude(void);
 
 void InitBreath(void);
 
-void KlattInit();
-void KlattReset(int control);
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
+
+#if HAVE_SONIC_H
+	void DoSonicSpeed(int value);
+#endif
 
 #ifdef __cplusplus
 }

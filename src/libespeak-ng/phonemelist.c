@@ -29,7 +29,6 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
 

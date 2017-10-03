@@ -29,7 +29,6 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "error.h"
-#include "phoneme.h"
 #include "speech.h"
 #include "synthesize.h"
 

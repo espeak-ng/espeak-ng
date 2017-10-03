@@ -746,6 +746,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
 
 int LoadDictionary(Translator *tr, const char *name, int no_error);
+int HashDictionary(const char *string);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
 
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);

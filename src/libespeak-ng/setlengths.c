@@ -27,15 +27,11 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
-
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 
 extern int GetAmplitude(void);
-extern void DoSonicSpeed(int value);
 extern int saved_parameters[];
 
 // convert from words-per-minute to internal speed factor
