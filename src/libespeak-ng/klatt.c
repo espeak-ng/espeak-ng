@@ -786,10 +786,9 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 
 static double gen_noise(double noise)
 {
-	long temp;
-	static double nlast;
+	static double nlast = 0.0;
 
-	temp = (long)getrandom(-8191, 8191);
+	long temp = (long)getrandom(-8191, 8191);
 	kt_globals.nrand = (long)temp;
 
 	noise = kt_globals.nrand + (0.75 * nlast);
