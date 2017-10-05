@@ -525,7 +525,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	int more_suffixes;
 	int confirm_prefix;
 	int spell_word;
-	int stress_bits;
 	int emphasize_allcaps = 0;
 	int wflags;
 	int wmark;

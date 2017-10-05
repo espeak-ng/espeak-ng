@@ -41,7 +41,6 @@ static short charix[N_TR_SOURCE+4];
 static int charix_top = 0;
 static int tone2;
 static char voice_change_name[40];
-static int terminator;
 
 static espeak_ng_STATUS
 set_text(const char *text, const char *voicename)
