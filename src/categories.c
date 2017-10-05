@@ -58,7 +58,7 @@
 #define Zs UCD_CATEGORY_Zs
 #define Ii UCD_CATEGORY_Ii
 
-/* Unicode Character Data 9.0.0 */
+/* Unicode Character Data 10.0.0 */
 
 static const uint8_t categories_Cn[256] =
 {
