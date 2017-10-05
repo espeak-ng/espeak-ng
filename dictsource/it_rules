@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 july 31 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2017 october 3 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -37,14 +37,15 @@
 	@) a (bile_	'a
 	@) a (ggine_	'a
 	_) ae (r	aE
-	avano (_	'avano
+	avano (_	'avano   // verbs
 	a (tterA_	'a
 	_) all' (P4t	all
 	_) anch' (P5t	ank
 	@) amo (L04_	'amo  // Pron.s verbs
 	Ci) amo (L04_	'amo
 	@) ander (L04_	'andE@-*
-		ate (L04_+	'ate
+	ate (L04_+	'ate
+	abb) assa (L07_	'assa
 	_L04Z) auguri (_	'awguRI
 	astano (_	'astano   // verbs
 
@@ -569,6 +570,8 @@
 	_) segna (L05_	s'en^a
 	in) segna (L07_ 	s'En^a
 	_)segnala (L07_	sen^'ala
+	specifica (L07_	spetS'ifika
+	stringi (L04_	st@-*'indZi/
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -602,6 +605,7 @@
 	au) tentica (L07_	t'ENtIka/
 	a) ttiva (L07_	t:'iva
 	taglia (L07_	t'al^a
+	tira (L07_	t'iRa
 	L02) tre (_	t@-*'e
 	_) tutt' (P5t	tut:
 
@@ -625,6 +629,7 @@
 	ustano (_	'u:stano
 	C) uo (tano_	U'O
 	uomini (_	w2'Omini
+	fanc) u (lA_	'u:
 
 .group v
 	v	v

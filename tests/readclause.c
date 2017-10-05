@@ -41,7 +41,6 @@ static short charix[N_TR_SOURCE+4];
 static int charix_top = 0;
 static int tone2;
 static char voice_change_name[40];
-static int terminator;
 
 static espeak_ng_STATUS
 set_text(const char *text, const char *voicename)
@@ -513,6 +512,9 @@ test_uts51_emoji_keycap_sequence()
 int
 main(int argc, char **argv)
 {
+	(void)argc; // unused parameter
+	(void)argv; // unused parameter
+
 	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
 
 	test_latin();

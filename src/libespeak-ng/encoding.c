@@ -656,6 +656,7 @@ string_decoder_getc_auto(espeak_ng_TEXT_DECODER *decoder)
 static uint32_t
 null_decoder_getc(espeak_ng_TEXT_DECODER *decoder)
 {
+	(void)decoder; // unused parameter
 	return 0;
 }
 

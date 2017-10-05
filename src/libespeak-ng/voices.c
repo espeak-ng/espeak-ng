@@ -472,18 +472,6 @@ static int Read8Numbers(char *data_in, int *data)
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-static unsigned int StringToWord2(const char *string)
-{
-	// Convert a language name string to a word such as L('e','n')
-	int ix;
-	int c;
-	unsigned int value = 0;
-
-	for (ix = 0; (ix < 4) && ((c = string[ix]) != 0); ix++)
-		value = (value << 8) | (c & 0xff);
-	return value;
-}
-
 voice_t *LoadVoice(const char *vname, int control)
 {
 	// control, bit 0  1= no_default

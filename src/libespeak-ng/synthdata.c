@@ -110,7 +110,6 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	int length = 0;
 	int rate;
 	unsigned char *p;
-	int *pw;
 
 	espeak_ng_STATUS status;
 	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL, context)) != ENS_OK)
@@ -506,7 +505,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	unsigned int data;
 	int instn;
 	int instn2;
-	int count;
 	int check_endtype = 0;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;

@@ -876,6 +876,9 @@ test_peekc()
 int
 main(int argc, char **argv)
 {
+	(void)argc; // unused parameter
+	(void)argv; // unused parameter
+
 	test_unbound_text_decoder();
 	test_unknown_encoding();
 

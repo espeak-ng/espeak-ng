@@ -540,6 +540,8 @@ test_espeak_set_voice_by_properties_with_invalid_language()
 int
 main(int argc, char **argv)
 {
+	(void)argc; // unused parameter
+
 	char *progdir = strdup(argv[0]);
 	char *dir = strrchr(progdir, '/');
 	if (dir != NULL) *dir = 0;
