@@ -573,16 +573,25 @@ void MbrolaReset(void)
 
 espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
+	(void)mbrola_voice; // unused parameter
+	(void)phtrans; // unused parameter
+	(void)srate; // unused parameter
 	return ENS_NOT_SUPPORTED;
 }
 
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
+	(void)phoneme_list; // unused parameter
+	(void)n_ph; // unused parameter
+	(void)resume; // unused parameter
 	return 0;
 }
 
 int MbrolaFill(int length, int resume, int amplitude)
 {
+	(void)length; // unused parameter
+	(void)resume; // unused parameter
+	(void)amplitude; // unused parameter
 	return 0;
 }
 

@@ -277,6 +277,8 @@ dnl ================================================================
 
 AX_CHECK_COMPILE_FLAG([-Wunused-function], [CFLAGS="-Wunused-function $CFLAGS"])
 
+AX_CHECK_COMPILE_FLAG([-Wunused-parameter], [CFLAGS="-Wunused-parameter $CFLAGS"])
+
 dnl ================================================================
 dnl Generate output.
 dnl ================================================================
