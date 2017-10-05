@@ -253,7 +253,7 @@ static int parwave(klatt_frame_ptr frame)
 	double casc_next_in;
 	double par_glotout;
 	static double noise;
-	static double voice;
+	static double voicing;
 	static double vlast;
 	static double glotlast;
 	static double sourc;
@@ -284,16 +284,16 @@ static int parwave(klatt_frame_ptr frame)
 			switch (kt_globals.glsource)
 			{
 			case IMPULSIVE:
-				voice = impulsive_source();
+				voicing = impulsive_source();
 				break;
 			case NATURAL:
-				voice = natural_source();
+				voicing = natural_source();
 				break;
 			case SAMPLED:
-				voice = sampled_source(0);
+				voicing = sampled_source(0);
 				break;
 			case SAMPLED2:
-				voice = sampled_source(1);
+				voicing = sampled_source(1);
 				break;
 			}
 
@@ -306,7 +306,7 @@ static int parwave(klatt_frame_ptr frame)
 			// Low-pass filter voicing waveform before downsampling from 4*samrate
 			// to samrate samples/sec.  Resonator f=.09*samrate, bw=.06*samrate
 
-			voice = resonator(&(kt_globals.rsn[RLP]), voice);
+			voicing = resonator(&(kt_globals.rsn[RLP]), voicing);
 
 			// Increment counter that keeps track of 4*samrate samples per sec
 			kt_globals.nper++;
@@ -315,19 +315,19 @@ static int parwave(klatt_frame_ptr frame)
 		// Tilt spectrum of voicing source down by soft low-pass filtering, amount
 		// of tilt determined by TLTdb
 
-		voice = (voice * kt_globals.onemd) + (vlast * kt_globals.decay);
-		vlast = voice;
+		voicing = (voicing * kt_globals.onemd) + (vlast * kt_globals.decay);
+		vlast = voicing;
 
 		// Add breathiness during glottal open phase. Amount of breathiness
 		// determined by parameter Aturb Use nrand rather than noise because
 		// noise is low-passed.
 
 		if (kt_globals.nper < kt_globals.nopen)
-			voice += kt_globals.amp_breth * kt_globals.nrand;
+			voicing += kt_globals.amp_breth * kt_globals.nrand;
 
 		// Set amplitude of voicing
-		glotout = kt_globals.amp_voice * voice;
-		par_glotout = kt_globals.par_amp_voice * voice;
+		glotout = kt_globals.amp_voice * voicing;
+		par_glotout = kt_globals.par_amp_voice * voicing;
 
 		// Compute aspiration amplitude and add to voicing source
 		aspiration = kt_globals.amp_aspir * noise;

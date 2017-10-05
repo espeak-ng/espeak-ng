@@ -1125,7 +1125,7 @@ void DoEmbedded(int *embix, int sourceix)
 	} while ((word & 0x80) == 0);
 }
 
-int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+int Generate(PHONEME_LIST *phonemelist, int *n_ph, int resume)
 {
 	static int ix;
 	static int embedded_ix;
@@ -1160,7 +1160,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		use_ipa = 1;
 
 	if (mbrola_name[0] != 0)
-		return MbrolaGenerate(phoneme_list, n_ph, resume);
+		return MbrolaGenerate(phonemelist, n_ph, resume);
 
 	if (resume == 0) {
 		ix = 1;
@@ -1180,7 +1180,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	}
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
-		p = &phoneme_list[ix];
+		p = &phonemelist[ix];
 
 		if (p->type == phPAUSE)
 			free_min = 10;
@@ -1192,9 +1192,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if (WcmdqFree() <= free_min)
 			return 1; // wait
 
-		prev = &phoneme_list[ix-1];
-		next = &phoneme_list[ix+1];
-		next2 = &phoneme_list[ix+2];
+		prev = &phonemelist[ix-1];
+		next = &phonemelist[ix+1];
+		next2 = &phonemelist[ix+2];
 
 		if (p->synthflags & SFLAG_EMBEDDED)
 			DoEmbedded(&embedded_ix, p->sourceix);
