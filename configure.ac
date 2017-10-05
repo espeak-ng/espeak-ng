@@ -275,9 +275,10 @@ dnl
 dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 dnl ================================================================
 
-AX_CHECK_COMPILE_FLAG([-Wunused-function],  [CFLAGS="-Wunused-function $CFLAGS"])
-AX_CHECK_COMPILE_FLAG([-Wunused-parameter], [CFLAGS="-Wunused-parameter $CFLAGS"])
-AX_CHECK_COMPILE_FLAG([-Wunused-variable],  [CFLAGS="-Wunused-variable $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-function],         [CFLAGS="-Wunused-function $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-parameter],        [CFLAGS="-Wunused-parameter $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-variable],         [CFLAGS="-Wunused-variable $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-but-set-variable], [CFLAGS="-Wunused-but-set-variable $CFLAGS"])
 
 dnl ================================================================
 dnl Generate output.
