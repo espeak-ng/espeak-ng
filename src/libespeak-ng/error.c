@@ -28,7 +28,6 @@
 
 #include "error.h"
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
 
 espeak_ng_STATUS

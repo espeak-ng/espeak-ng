@@ -21,6 +21,8 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include "synthesize.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -171,6 +173,9 @@ typedef struct {
 	DOUBLEX bp_inc;
 }  klatt_peaks_t;
 
+void KlattInit(void);
+void KlattReset(int control);
+int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
 
 #ifdef __cplusplus
 }

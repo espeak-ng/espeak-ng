@@ -32,9 +32,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 
 Translator *translator = NULL; // the main translator
@@ -254,7 +252,7 @@ int IsDigit(unsigned int c)
 	return 0;
 }
 
-int IsSpace(unsigned int c)
+static int IsSpace(unsigned int c)
 {
 	if (c == 0)
 		return 0;
@@ -396,7 +394,7 @@ char *strchr_w(const char *s, int c)
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
 }
 
-int IsAllUpper(const char *word)
+static int IsAllUpper(const char *word)
 {
 	int c;
 	while ((*word != 0) && !isspace2(*word)) {
@@ -786,11 +784,11 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 				// loopcount guards against an endless loop
 				if (confirm_prefix && !(end_type & SUFX_B)) {
 					int end2;
-					char end_phonemes2[N_WORD_PHONEMES];
+					char end_phonemes22[N_WORD_PHONEMES];
 
 					// remove any standard suffix and confirm that the prefix is still recognised
 					phonemes2[0] = 0;
-					end2 = TranslateRules(tr, wordx, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
+					end2 = TranslateRules(tr, wordx, phonemes2, N_WORD_PHONEMES, end_phonemes22, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
 					if (end2) {
 						RemoveEnding(tr, wordx, end2, word_copy);
 						end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags);
@@ -800,10 +798,10 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 							// Keep the suffix, but don't use the prefix
 							end_type = end2;
 							strcpy(phonemes, phonemes2);
-							strcpy(end_phonemes, end_phonemes2);
+							strcpy(end_phonemes, end_phonemes22);
 							if (option_phonemes & espeakPHONEMES_TRACE) {
-								DecodePhonemes(end_phonemes, end_phonemes2);
-								fprintf(f_trans, "  suffix [%s]\n\n", end_phonemes2);
+								DecodePhonemes(end_phonemes, end_phonemes22);
+								fprintf(f_trans, "  suffix [%s]\n\n", end_phonemes22);
 							}
 						}
 						confirm_prefix = 0;
@@ -1005,18 +1003,18 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	}
 	if (prefix_flags || (prefix_stress != 0)) {
 		if ((tr->langopts.param[LOPT_PREFIXES]) || (prefix_type & SUFX_T)) {
-			char *p;
+			char *p_local;
 			// German, keep a secondary stress on the stem
 			SetWordStress(tr, phonemes, dictionary_flags, 3, 0);
 
 			// reduce all but the first primary stress
 			ix = 0;
-			for (p = prefix_phonemes; *p != 0; p++) {
-				if (*p == phonSTRESS_P) {
+			for (p_local = prefix_phonemes; *p_local != 0; p_local++) {
+				if (*p_local == phonSTRESS_P) {
 					if (ix == 0)
 						ix = 1;
 					else
-						*p = phonSTRESS_3;
+						*p_local = phonSTRESS_3;
 				}
 			}
 			snprintf(word_phonemes, sizeof(word_phonemes), "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
@@ -1194,7 +1192,7 @@ static int CountSyllables(unsigned char *phonemes)
 	return count;
 }
 
-void Word_EmbeddedCmd()
+static void Word_EmbeddedCmd()
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
@@ -1254,7 +1252,7 @@ int SetTranslator2(const char *new_language)
 	return new_phoneme_tab;
 }
 
-static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pause)
+static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int prepause)
 {
 	int flags = 0;
 	int stress;
@@ -1319,7 +1317,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((option_sayas & 0xf0) == 0x10) {
 		if (!(word_flags & FLAG_FIRST_WORD)) {
 			// SAYAS_CHARS, SAYAS_GLYPHS, or SAYAS_SINGLECHARS.  Pause between each word.
-			pre_pause += 4;
+			prepause += 4;
 		}
 	}
 
@@ -1484,18 +1482,18 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 		if (!(word_flags & FLAG_HYPHEN)) {
 			if (flags & FLAG_PAUSE1) {
-				if (pre_pause < 1)
-					pre_pause = 1;
+				if (prepause < 1)
+					prepause = 1;
 			}
 			if ((flags & FLAG_PREPAUSE) && !(word_flags & (FLAG_LAST_WORD | FLAG_FIRST_WORD)) && !(wtab[-1].flags & FLAG_FIRST_WORD) && (tr->prepause_timeout == 0)) {
 				// the word is marked in the dictionary list with $pause
-				if (pre_pause < 4) pre_pause = 4;
+				if (prepause < 4) prepause = 4;
 				tr->prepause_timeout = 3;
 			}
 		}
 
-		if ((option_emphasis >= 3) && (pre_pause < 1))
-			pre_pause = 1;
+		if ((option_emphasis >= 3) && (prepause < 1))
+			prepause = 1;
 	}
 
 	stress = 0;
@@ -1507,15 +1505,15 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if ((flags & FLAG_FOUND) && !(flags & FLAG_TEXTMODE))
 		found_dict_flag = SFLAG_DICTIONARY;
 
-	while ((pre_pause > 0) && (n_ph_list2 < N_PHONEME_LIST-4)) {
+	while ((prepause > 0) && (n_ph_list2 < N_PHONEME_LIST-4)) {
 		// add pause phonemes here. Either because of punctuation (brackets or quotes) in the
 		// text, or because the word is marked in the dictionary lookup as a conjunction
-		if (pre_pause > 1) {
+		if (prepause > 1) {
 			SetPlist2(&ph_list2[n_ph_list2++], phonPAUSE);
-			pre_pause -= 2;
+			prepause -= 2;
 		} else {
 			SetPlist2(&ph_list2[n_ph_list2++], phonPAUSE_NOLINK);
-			pre_pause--;
+			prepause--;
 		}
 		tr->end_stressed_vowel = 0; // forget about the previous word
 		tr->prev_dict_flags[0] = 0;
@@ -1873,7 +1871,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
-int UpperCaseInWord(Translator *tr, char *word, int c)
+static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
 	int ix;
 	int len;

@@ -39,9 +39,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 
 MNEM_TAB genders[] = {
@@ -215,7 +213,7 @@ static int LookupTune(const char *name)
 	return -1;
 }
 
-static void SetToneAdjust(voice_t *voice, int *tone_pts)
+static void SetToneAdjust(voice_t *voicet, int *tone_pts)
 {
 	int ix;
 	int pt;
@@ -241,7 +239,7 @@ static void SetToneAdjust(voice_t *voice, int *tone_pts)
 				y = height1 + (int)(rate * (ix-freq1));
 				if (y > 255)
 					y = 255;
-				voice->tone_adjust[ix] = y;
+				voicet->tone_adjust[ix] = y;
 			}
 		}
 		freq1 = freq2;
@@ -1011,7 +1009,7 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 	return strcmp(v1->name, v2->name);
 }
 
-static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
+static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *espeakvoice)
 {
 	int ix;
 	const char *p;
@@ -1026,11 +1024,11 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 	int required_age;
 	int diff;
 
-	p = voice->languages; // list of languages+dialects for which this voice is suitable
+	p = espeakvoice->languages; // list of languages+dialects for which this voice is suitable
 
 	if (spec_n_parts < 0) {
 		// match on the subdirectory
-		if (memcmp(voice->identifier, spec_language, spec_lang_len) == 0)
+		if (memcmp(espeakvoice->identifier, spec_language, spec_lang_len) == 0)
 			return 100;
 		return 0;
 	}
@@ -1093,31 +1091,31 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 		return 0;
 
 	if (voice_spec->name != NULL) {
-		if (strcmp(voice_spec->name, voice->name) == 0) {
+		if (strcmp(voice_spec->name, espeakvoice->name) == 0) {
 			// match on voice name
 			score += 500;
-		} else if (strcmp(voice_spec->name, voice->identifier) == 0)
+		} else if (strcmp(voice_spec->name, espeakvoice->identifier) == 0)
 			score += 400;
 	}
 
 	if (((voice_spec->gender == ENGENDER_MALE) || (voice_spec->gender == ENGENDER_FEMALE)) &&
-	    ((voice->gender == ENGENDER_MALE) || (voice->gender == ENGENDER_FEMALE))) {
-		if (voice_spec->gender == voice->gender)
+	    ((espeakvoice->gender == ENGENDER_MALE) || (espeakvoice->gender == ENGENDER_FEMALE))) {
+		if (voice_spec->gender == espeakvoice->gender)
 			score += 50;
 		else
 			score -= 50;
 	}
 
-	if ((voice_spec->age <= 12) && (voice->gender == ENGENDER_FEMALE) && (voice->age > 12))
+	if ((voice_spec->age <= 12) && (espeakvoice->gender == ENGENDER_FEMALE) && (espeakvoice->age > 12))
 		score += 5; // give some preference for non-child female voice if a child is requested
 
-	if (voice->age != 0) {
+	if (espeakvoice->age != 0) {
 		if (voice_spec->age == 0)
 			required_age = 30;
 		else
 			required_age = voice_spec->age;
 
-		ratio = (required_age*100)/voice->age;
+		ratio = (required_age*100)/espeakvoice->age;
 		if (ratio < 100)
 			ratio = 10000/ratio;
 		ratio = (ratio - 100)/10; // 0=exact match, 10=out by factor of 2

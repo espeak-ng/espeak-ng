@@ -32,9 +32,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 
 #define M_LIGATURE  0x8000
@@ -548,7 +546,7 @@ static const int number_ranges[] = {
 	0
 };
 
-int NonAsciiNumber(int letter)
+static int NonAsciiNumber(int letter)
 {
 	// Change non-ascii digit into ascii digit '0' to '9', (or -1 if not)
 	const int *p;
@@ -1711,7 +1709,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	return 0;
 }
 
-bool CheckThousandsGroup(char *word, int group_len)
+static bool CheckThousandsGroup(char *word, int group_len)
 {
 	// Is this a group of 3 digits which looks like a thousands group?
 	int ix;
@@ -2049,12 +2047,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	}
 	if ((ph_out[0] != 0) && (ph_out[0] != phonSWITCH)) {
 		int next_char;
-		char *p;
-		p = &word[n_digits+1];
+		char *p_local = &word[n_digits+1];
 
-		p += utf8_in(&next_char, p);
+		p_local += utf8_in(&next_char, p_local);
 		if ((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
-			utf8_in(&next_char, p);
+			utf8_in(&next_char, p_local);
 
 		if (!iswalpha(next_char) && (thousands_exact == 0))
 			strcat(ph_out, str_pause); // don't add pause for 100s,  6th, etc.

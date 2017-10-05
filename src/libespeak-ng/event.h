@@ -52,14 +52,14 @@ void event_init(void);
 void event_set_callback(t_espeak_callback *cb);
 
 // Clear any pending event.
-espeak_ng_STATUS event_clear_all();
+espeak_ng_STATUS event_clear_all(void);
 
 // Declare a future event
 espeak_ng_STATUS event_declare(espeak_EVENT *event);
 
 // Terminate the event component.
 // Last function to be called.
-void event_terminate();
+void event_terminate(void);
 
 // general functions
 void clock_gettime2(struct timespec *ts);

@@ -49,9 +49,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 #include "espeak_command.h"
 #include "fifo.h"
@@ -612,6 +610,7 @@ ESPEAK_API void espeak_SetUriCallback(int (*UriCallback)(int, const char *, cons
 	uri_callback = UriCallback;
 }
 
+ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *));
 ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *))
 {
 	phoneme_callback = PhonemeCallback;
@@ -875,9 +874,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 	err = ENS_OK;
 	return berr;
 }
-
-extern void FreePhData(void);
-extern void FreeVoiceList(void);
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {

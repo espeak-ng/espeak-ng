@@ -34,12 +34,13 @@
 
 #include "error.h"
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
 
 extern void Write4Bytes(FILE *f, int value);
 int HashDictionary(const char *string);
+void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
+char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
@@ -221,7 +222,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	int match_type;
 	int finished = 0;
 	int value;
-	int linenum = 0;
+	int linenum_local = 0;
 	int flags;
 	int suffix_char;
 	int condition_num = 0;
@@ -281,7 +282,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 				break;
 			case RULE_LINENUM:
 				value = (rule[1] & 0xff) - 1;
-				linenum = (rule[0] & 0xff) - 1 + (value * 255);
+				linenum_local = (rule[0] & 0xff) - 1 + (value * 255);
 				rule += 2;
 				break;
 			}
@@ -342,7 +343,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	p = output;
 	p_end = p + sizeof(output) - 1;
 
-	if (linenum > 0) {
+	if (linenum_local > 0) {
 		sprintf(p, "%5d:\t", linenum);
 		p += 7;
 	}
@@ -762,7 +763,7 @@ static int group3_ix;
 
 #define N_RULES 3000 // max rules for each group
 
-int isHexDigit(int c)
+static int isHexDigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
 		return c - '0';
@@ -1169,7 +1170,7 @@ static char *compile_rule(char *input)
 	return prule;
 }
 
-int __cdecl string_sorter(char **a, char **b)
+static int __cdecl string_sorter(char **a, char **b)
 {
 	char *pa, *pb;
 	int ix;
@@ -1450,22 +1451,21 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 		{
 			int replace1;
 			int replace2;
-			char *p;
+			char *p_local = buf;
 
-			p = buf;
 			replace1 = 0;
 			replace2 = 0;
-			while (isspace2(*p)) p++;
+			while (isspace2(*p_local)) p_local++;
 			ix = 0;
-			while ((unsigned char)(*p) > 0x20) { // not space or zero-byte
-				p += utf8_in(&c, p);
+			while ((unsigned char)(*p_local) > 0x20) { // not space or zero-byte
+				p_local += utf8_in(&c, p_local);
 				replace1 += (c << ix);
 				ix += 16;
 			}
-			while (isspace2(*p)) p++;
+			while (isspace2(*p_local)) p_local++;
 			ix = 0;
-			while ((unsigned char)(*p) > 0x20) {
-				p += utf8_in(&c, p);
+			while ((unsigned char)(*p_local) > 0x20) {
+				p_local += utf8_in(&c, p_local);
 				replace2 += (c << ix);
 				ix += 16;
 			}

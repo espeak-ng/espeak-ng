@@ -95,10 +95,17 @@ typedef float Single;
 #define SEXP_SIZE		8
 #define SEXP_POSITION	(32-SEXP_SIZE-1)
 
+// prototypes:
 
-defdouble
-ConvertFromIeeeSingle(bytes)
-char* bytes;
+defdouble ConvertFromIeeeSingle (char *bytes);
+void ConvertToIeeeSingle(defdouble num, char *bytes);
+defdouble ConvertFromIeeeDouble(char * bytes);
+defdouble ConvertFromIeeeExtended(char * bytes);
+void ConvertToIeeeDouble (defdouble num, char * bytes);
+defdouble ConvertFromIeeeDouble(char * bytes);
+void ConvertToIeeeExtended(defdouble num, char * bytes);
+
+defdouble ConvertFromIeeeSingle(char * bytes)
 {
 	defdouble	f;
 	long	mantissa, expon;
@@ -140,10 +147,7 @@ char* bytes;
 /****************************************************************/
 
 
-void
-ConvertToIeeeSingle(num, bytes)
-defdouble num;
-char* bytes;
+void ConvertToIeeeSingle(defdouble num, char* bytes)
 {
 	long	sign;
 	register long bits;
@@ -209,9 +213,7 @@ char* bytes;
 #define DEXP_POSITION	(32-DEXP_SIZE-1)
 
 
-defdouble
-ConvertFromIeeeDouble(bytes)
-char* bytes;
+defdouble ConvertFromIeeeDouble(char* bytes)
 {
 	defdouble	f;
 	long	mantissa, expon;
@@ -259,10 +261,7 @@ char* bytes;
 /****************************************************************/
 
 
-void
-ConvertToIeeeDouble(num, bytes)
-defdouble num;
-char *bytes;
+void ConvertToIeeeDouble(defdouble num, char *bytes)
 {
 	long	sign;
 	long	first, second;
@@ -343,9 +342,7 @@ char *bytes;
  * and a 64-bit mantissa, with no hidden bit.
  ****************************************************************/
 
-defdouble
-ConvertFromIeeeExtended(bytes)
-char* bytes;
+defdouble ConvertFromIeeeExtended(char* bytes)
 {
 	defdouble	f;
 	long	expon;
@@ -385,10 +382,7 @@ char* bytes;
 /****************************************************************/
 
 
-void
-ConvertToIeeeExtended(num, bytes)
-defdouble num;
-char *bytes;
+void ConvertToIeeeExtended(defdouble num, char * bytes)
 {
 	int	sign;
 	int expon;

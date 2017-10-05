@@ -32,10 +32,8 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "voice.h"
 
 #ifdef INCLUDE_MBROLA
 
@@ -579,9 +577,9 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	return ENS_NOT_SUPPORTED;
 }
 
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+int MbrolaGenerate(PHONEME_LIST *phonemelist, int *n_ph, int resume)
 {
-	(void)phoneme_list; // unused parameter
+	(void)phonemelist; // unused parameter
 	(void)n_ph; // unused parameter
 	(void)resume; // unused parameter
 	return 0;

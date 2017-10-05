@@ -29,9 +29,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
-#include "phoneme.h"
 #include "synthesize.h"
-#include "voice.h"
 #include "translate.h"
 
 /* Note this module is mostly old code that needs to be rewritten to
