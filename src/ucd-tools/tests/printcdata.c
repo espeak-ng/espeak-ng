@@ -33,7 +33,7 @@ static int iswblank(wint_t c)
 }
 #endif
 
-void fput_utf8c(FILE *out, codepoint_t c)
+static void fput_utf8c(FILE *out, codepoint_t c)
 {
 	if (c < 0x80)
 		fputc((uint8_t)c, out);
@@ -57,7 +57,7 @@ void fput_utf8c(FILE *out, codepoint_t c)
 	}
 }
 
-int fget_utf8c(FILE *in, codepoint_t *c)
+static int fget_utf8c(FILE *in, codepoint_t *c)
 {
 	int ch = EOF;
 	if ((ch = fgetc(in)) == EOF) return 0;
@@ -90,7 +90,7 @@ int fget_utf8c(FILE *in, codepoint_t *c)
 	return 1;
 }
 
-void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
+static void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
@@ -112,7 +112,7 @@ void uprintf_codepoint(FILE *out, codepoint_t c, char mode)
 	}
 }
 
-void uprintf_is(FILE *out, codepoint_t c, char mode)
+static void uprintf_is(FILE *out, codepoint_t c, char mode)
 {
 	switch (mode)
 	{
@@ -155,7 +155,7 @@ void uprintf_is(FILE *out, codepoint_t c, char mode)
 	}
 }
 
-void uprintf(FILE *out, codepoint_t c, const char *format)
+static void uprintf(FILE *out, codepoint_t c, const char *format)
 {
 	while (*format) switch (*format)
 	{
@@ -221,7 +221,7 @@ void uprintf(FILE *out, codepoint_t c, const char *format)
 	}
 }
 
-void print_file(FILE *in, const char *format)
+static void print_file(FILE *in, const char *format)
 {
 	codepoint_t c = 0;
 	while (fget_utf8c(in, &c))

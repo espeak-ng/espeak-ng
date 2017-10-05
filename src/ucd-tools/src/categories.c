@@ -58,7 +58,7 @@
 #define Zs UCD_CATEGORY_Zs
 #define Ii UCD_CATEGORY_Ii
 
-/* Unicode Character Data 9.0.0 */
+/* Unicode Character Data 10.0.0 */
 
 static const uint8_t categories_Cn[256] =
 {
@@ -3532,6 +3532,7 @@ ucd_category_group ucd_get_category_group_for_category(ucd_category c)
 	case Zl: case Zp: case Zs:
 		return UCD_CATEGORY_GROUP_Z;
 	case Ii:
+	default:
 		return UCD_CATEGORY_GROUP_I;
 	}
 }
