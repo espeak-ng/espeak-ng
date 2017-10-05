@@ -228,6 +228,7 @@ ucd_category_group ucd_get_category_group_for_category(ucd_category c)
 	case Zl: case Zp: case Zs:
 		return UCD_CATEGORY_GROUP_Z;
 	case Ii:
+	default:
 		return UCD_CATEGORY_GROUP_I;
 	}
 }

@@ -42,6 +42,14 @@ AC_ARG_WITH([unicode-version],
 AC_SUBST(UCD_VERSION)
 
 dnl ================================================================
+dnl Compiler warnings.
+dnl
+dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+dnl ================================================================
+
+AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
+
+dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
