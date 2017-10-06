@@ -846,7 +846,7 @@ static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
 
-int Wavegen_Klatt(int resume)
+static int Wavegen_Klatt(int resume)
 {
 	int pk;
 	int x;
@@ -935,7 +935,7 @@ int Wavegen_Klatt(int resume)
 	return 0;
 }
 
-void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
+static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
 {
 	int ix;
 	DOUBLEX next;
