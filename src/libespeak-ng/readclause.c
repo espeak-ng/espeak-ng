@@ -184,7 +184,6 @@ int Eof(void)
 static int GetC(void)
 {
 	int c1;
-	static int ungot2 = 0;
 
 	if ((c1 = ungot_char) != 0) {
 		ungot_char = 0;

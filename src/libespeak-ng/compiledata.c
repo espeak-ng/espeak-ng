@@ -2359,8 +2359,6 @@ static void WritePhonemeTables()
 static void EndPhonemeTable()
 {
 	int ix;
-	int *pw;
-	int length;
 
 	if (n_phoneme_tabs == 0)
 		return;

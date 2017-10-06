@@ -270,6 +270,16 @@ AM_CONDITIONAL(HAVE_ZH_EXTENDED_DICTIONARY,  [test x"$have_extdict_zh"  = xyes])
 AM_CONDITIONAL(HAVE_ZHY_EXTENDED_DICTIONARY, [test x"$have_extdict_zhy" = xyes])
 
 dnl ================================================================
+dnl Compiler warnings.
+dnl
+dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+dnl ================================================================
+
+AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
+
+dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 

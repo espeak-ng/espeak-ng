@@ -877,7 +877,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 }
 
 extern void FreePhData(void);
-extern void FreeVoiceList(void);
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {

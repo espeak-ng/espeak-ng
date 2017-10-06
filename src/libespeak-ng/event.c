@@ -66,8 +66,8 @@ static node *head = NULL;
 static node *tail = NULL;
 static int node_counter = 0;
 static espeak_ng_STATUS push(void *data);
-static void *pop();
-static void init();
+static void *pop(void);
+static void init(void);
 static void *polling_thread(void *);
 
 void event_set_callback(t_espeak_callback *SynthCallback)
@@ -257,7 +257,7 @@ static void *polling_thread(void *p)
 	while (1) {
 		int a_stop_is_required = 0;
 
-		int a_status = pthread_mutex_lock(&my_mutex);
+		(void)pthread_mutex_lock(&my_mutex);
 		my_event_is_running = 0;
 
 		while (my_start_is_required == 0) {
@@ -284,16 +284,16 @@ static void *polling_thread(void *p)
 				event->user_data = NULL;
 			}
 
-			a_status = pthread_mutex_lock(&my_mutex);
+			(void)pthread_mutex_lock(&my_mutex);
 			event_delete((espeak_EVENT *)pop());
 			a_stop_is_required = my_stop_is_required;
 			if (a_stop_is_required > 0)
 				my_stop_is_required = 0;
 
-			a_status = pthread_mutex_unlock(&my_mutex);
+			(void)pthread_mutex_unlock(&my_mutex);
 		}
 
-		a_status = pthread_mutex_lock(&my_mutex);
+		(void)pthread_mutex_lock(&my_mutex);
 
 		my_event_is_running = 0;
 
@@ -303,7 +303,7 @@ static void *polling_thread(void *p)
 				my_stop_is_required = 0;
 		}
 
-		a_status = pthread_mutex_unlock(&my_mutex);
+		(void)pthread_mutex_unlock(&my_mutex);
 
 		if (a_stop_is_required > 0) {
 			// no mutex required since the stop command is synchronous
@@ -311,10 +311,10 @@ static void *polling_thread(void *p)
 			init();
 
 			// acknowledge the stop request
-			espeak_ng_STATUS a_status = pthread_mutex_lock(&my_mutex);
+			(void)pthread_mutex_lock(&my_mutex);
 			my_stop_is_acknowledged = 1;
-			a_status = pthread_cond_signal(&my_cond_stop_is_acknowledged);
-			a_status = pthread_mutex_unlock(&my_mutex);
+			(void)pthread_cond_signal(&my_cond_stop_is_acknowledged);
+			(void)pthread_mutex_unlock(&my_mutex);
 		}
 	}
 

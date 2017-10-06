@@ -53,12 +53,15 @@ depcomp
 install-sh
 libtool
 ltmain.sh
-m4/
 missing
 Makefile
 Makefile.in
 stamp-h1
 
+m4/*
+!m4/ax_check_compile_flag.m4
+
 # emscripten:
+
 a.out.js
 a.out.js.mem

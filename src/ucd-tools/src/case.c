@@ -26,7 +26,7 @@
 
 #include <stddef.h>
 
-/* Unicode Character Data 9.0.0 */
+/* Unicode Character Data 10.0.0 */
 
 struct case_conversion_entry
 {

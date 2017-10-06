@@ -86,6 +86,7 @@ espeak_ng_STATUS DoVoiceChange(voice_t *v);
 void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);
 void VoiceReset(int control);
+void FreeVoiceList(void);
 
 #ifdef __cplusplus
 }

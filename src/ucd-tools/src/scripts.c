@@ -203,7 +203,7 @@
 #define Zyyy UCD_SCRIPT_Zyyy
 #define Zzzz UCD_SCRIPT_Zzzz
 
-/* Unicode Character Data 9.0.0 */
+/* Unicode Character Data 10.0.0 */
 
 static const uint8_t scripts_Latn[256] =
 {

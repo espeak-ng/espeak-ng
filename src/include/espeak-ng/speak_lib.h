@@ -38,7 +38,7 @@
 #define ESPEAK_API
 #endif
 
-#define ESPEAK_API_REVISION  10
+#define ESPEAK_API_REVISION  12
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -67,6 +67,12 @@ Revision 9  30.May.2013
 
 Revision 10 29.Aug.2014
   Changed phonememode parameter to espeak_TextToPhonemes() and espeak_SetPhonemeTrace
+
+Revision 11 (espeak-ng)
+  Made ESPEAK_API import/export symbols correctly on Windows.
+
+Revision 12 (espeak-ng)
+  Exposed espeak_SetPhonemeCallback. This is available in eSpeak, but was not exposed in this header.
 
 */
          /********************/
@@ -259,6 +265,11 @@ int UriCallback(int type, const char *uri, const char *base);
            0=place a PLAY event in the event list at the point where the <audio> element
              occurs.  The calling program can then play the sound at that point.
 */
+
+#ifdef __cplusplus
+extern "C"
+#endif
+ESPEAK_API void espeak_SetPhonemeCallback(int (*PhonemeCallback)(const char *));
 
 
          /********************/
