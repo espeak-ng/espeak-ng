@@ -37,8 +37,8 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "spect.h"
 
 typedef struct {

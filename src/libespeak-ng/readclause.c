@@ -39,8 +39,8 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 #define N_XML_BUF   500

@@ -50,8 +50,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 #include "espeak_command.h"
 #include "fifo.h"

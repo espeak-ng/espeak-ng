@@ -34,8 +34,8 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 const char *version_string = PACKAGE_VERSION;

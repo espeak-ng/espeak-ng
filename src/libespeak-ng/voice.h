@@ -22,6 +22,8 @@ extern "C"
 {
 #endif
 
+#define N_PEAKS   9
+
 typedef struct {
 	char v_name[40];
 	char language_name[20];

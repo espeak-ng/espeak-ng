@@ -32,12 +32,11 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "spect.h"
 
 extern double ConvertFromIeeeExtended(unsigned char *bytes);
-extern int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char pk_shape1[];
 extern int pk_select;

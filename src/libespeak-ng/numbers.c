@@ -33,8 +33,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 #define M_LIGATURE  0x8000

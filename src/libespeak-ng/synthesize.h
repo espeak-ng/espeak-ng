@@ -74,7 +74,6 @@ extern "C"
 extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
 
-#define N_PEAKS   9
 #define N_PEAKS2  9 // plus Notch and Fill (not yet implemented)
 #define N_MARKERS 8
 
@@ -453,14 +452,17 @@ extern int wcmdq_head;
 extern int wcmdq_tail;
 
 // from Wavegen file
-int  WcmdqFree();
-void WcmdqStop();
-int  WcmdqUsed();
-void WcmdqInc();
+int  WcmdqFree(void);
+void WcmdqStop(void);
+int  WcmdqUsed(void);
+void WcmdqInc(void);
 void WavegenInit(int rate, int wavemult_fact);
 float polint(float xa[], float ya[], int n, float x);
-int WavegenFill();
+int WavegenFill(void);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
+int GetAmplitude(void);
+void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
+int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
