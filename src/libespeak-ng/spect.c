@@ -35,8 +35,7 @@
 #include "voice.h"
 #include "synthesize.h"
 #include "spect.h"
-
-extern double ConvertFromIeeeExtended(unsigned char *bytes);
+#include "ieee80.h"
 
 extern unsigned char pk_shape1[];
 extern int pk_select;
@@ -56,7 +55,7 @@ static double read_double(FILE *stream)
 {
 	unsigned char bytes[10];
 	fread(bytes, sizeof(char), 10, stream);
-	return ConvertFromIeeeExtended(bytes);
+	return ConvertFromIeeeExtended((char *)bytes);
 }
 
 float polint(float xa[], float ya[], int n, float x)
