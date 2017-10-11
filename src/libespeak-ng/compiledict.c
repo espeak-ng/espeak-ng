@@ -40,7 +40,6 @@
 #include "translate.h"
 
 extern void Write4Bytes(FILE *f, int value);
-int HashDictionary(const char *string);
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
