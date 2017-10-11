@@ -50,8 +50,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 #include "espeak_command.h"
 #include "fifo.h"
@@ -875,8 +875,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 	err = ENS_OK;
 	return berr;
 }
-
-extern void FreePhData(void);
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {

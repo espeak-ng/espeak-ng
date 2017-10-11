@@ -33,8 +33,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 Translator *translator = NULL; // the main translator
@@ -254,7 +254,7 @@ int IsDigit(unsigned int c)
 	return 0;
 }
 
-int IsSpace(unsigned int c)
+static int IsSpace(unsigned int c)
 {
 	if (c == 0)
 		return 0;
@@ -394,17 +394,6 @@ char *strchr_w(const char *s, int c)
 	if (c >= 0x80)
 		return NULL;
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
-}
-
-int IsAllUpper(const char *word)
-{
-	int c;
-	while ((*word != 0) && !isspace2(*word)) {
-		word += utf8_in(&c, word);
-		if (!iswupper(c))
-			return 0;
-	}
-	return 1;
 }
 
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
@@ -1194,7 +1183,7 @@ static int CountSyllables(unsigned char *phonemes)
 	return count;
 }
 
-void Word_EmbeddedCmd()
+static void Word_EmbeddedCmd()
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
@@ -1873,7 +1862,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
-int UpperCaseInWord(Translator *tr, char *word, int c)
+static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
 	int ix;
 	int len;

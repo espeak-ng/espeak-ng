@@ -33,14 +33,12 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
 int dictionary_skipwords;
 char dictionary_name[40];
-
-extern void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
-extern char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 // accented characters which indicate (in some languages) the start of a separate syllable
 static const unsigned short diereses_list[7] = { 0xe4, 0xeb, 0xef, 0xf6, 0xfc, 0xff, 0 };

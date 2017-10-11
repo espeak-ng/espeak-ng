@@ -31,6 +31,7 @@
 #include "error.h"
 #include "phoneme.h"
 #include "speech.h"
+#include "voice.h"
 #include "synthesize.h"
 
 static const char *basename(const char *filename)

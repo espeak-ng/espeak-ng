@@ -29,6 +29,7 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 #include "event.h"

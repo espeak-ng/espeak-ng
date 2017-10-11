@@ -35,11 +35,11 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
 extern void Write4Bytes(FILE *f, int value);
-int HashDictionary(const char *string);
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
@@ -762,7 +762,7 @@ static int group3_ix;
 
 #define N_RULES 3000 // max rules for each group
 
-int isHexDigit(int c)
+static int isHexDigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
 		return c - '0';
@@ -1169,7 +1169,7 @@ static char *compile_rule(char *input)
 	return prule;
 }
 
-int __cdecl string_sorter(char **a, char **b)
+static int __cdecl string_sorter(char **a, char **b)
 {
 	char *pa, *pb;
 	int ix;

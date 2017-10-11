@@ -37,8 +37,8 @@
 #include "speech.h"
 #include "klatt.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 
 extern unsigned char *out_ptr;
 extern unsigned char *out_start;
