@@ -499,10 +499,15 @@ void SetSpeed(int control);
 void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
 void Write4Bytes(FILE *f, int value);
 int Read4Bytes(FILE *f);
 int Reverse4Bytes(int word);
+
+#if HAVE_SONIC_H
+void DoSonicSpeed(int value);
+#endif
 
 #define ENV_LEN  128    // length of pitch envelopes
 #define PITCHfall   0  // standard pitch envelopes

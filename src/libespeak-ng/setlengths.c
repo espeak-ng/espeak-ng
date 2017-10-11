@@ -34,7 +34,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-extern void DoSonicSpeed(int value);
 extern int saved_parameters[];
 
 // convert from words-per-minute to internal speed factor
