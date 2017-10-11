@@ -34,7 +34,7 @@
 
 // region espeak_Initialize
 
-void
+static void
 test_espeak_terminate_without_initialize()
 {
 	printf("testing espeak_Terminate without espeak_Initialize\n");
@@ -49,7 +49,7 @@ test_espeak_terminate_without_initialize()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_initialize()
 {
 	printf("testing espeak_Initialize\n");
@@ -72,7 +72,7 @@ test_espeak_initialize()
 // endregion
 // region espeak_Synth
 
-void
+static void
 test_espeak_synth()
 {
 	printf("testing espeak_Synth\n");
@@ -103,7 +103,7 @@ test_espeak_synth()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_synth_no_voices(const char *path)
 {
 	printf("testing espeak_Synth in path with no voices\n");
@@ -135,7 +135,7 @@ test_espeak_synth_no_voices(const char *path)
 // endregion
 // region espeak_ng_Synthesize
 
-void
+static void
 test_espeak_ng_synthesize()
 {
 	printf("testing espeak_ng_Synthesize\n");
@@ -166,7 +166,7 @@ test_espeak_ng_synthesize()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_ng_synthesize_no_voices(const char *path)
 {
 	printf("testing espeak_ng_Synthesize in path with no voices\n");
@@ -198,7 +198,7 @@ test_espeak_ng_synthesize_no_voices(const char *path)
 // endregion
 // region espeak_SetVoiceByName
 
-void
+static void
 test_espeak_set_voice_by_name_null_voice()
 {
 	printf("testing espeak_SetVoiceByName(NULL)\n");
@@ -233,7 +233,7 @@ test_espeak_set_voice_by_name_null_voice()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_name_blank_voice()
 {
 	printf("testing espeak_SetVoiceByName(\"\")\n");
@@ -268,7 +268,7 @@ test_espeak_set_voice_by_name_blank_voice()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_name_valid_voice()
 {
 	printf("testing espeak_SetVoiceByName(\"de\")\n");
@@ -304,7 +304,7 @@ test_espeak_set_voice_by_name_valid_voice()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_name_invalid_voice()
 {
 	printf("testing espeak_SetVoiceByName(\"zzz\")\n");
@@ -339,7 +339,7 @@ test_espeak_set_voice_by_name_invalid_voice()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_name_language_variant_intonation_parameter()
 {
 	printf("testing espeak_SetVoiceByName(\"!v/Annie\") (language variant; intonation)\n");
@@ -378,7 +378,7 @@ test_espeak_set_voice_by_name_language_variant_intonation_parameter()
 // endregion
 // region espeak_SetVoiceByProperties
 
-void
+static void
 test_espeak_set_voice_by_properties_empty()
 {
 	printf("testing espeak_SetVoiceByProperties: (none)\n");
@@ -417,7 +417,7 @@ test_espeak_set_voice_by_properties_empty()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_properties_blank_language()
 {
 	printf("testing espeak_SetVoiceByProperties: languages=\"\"\n");
@@ -457,7 +457,7 @@ test_espeak_set_voice_by_properties_blank_language()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_properties_with_valid_language()
 {
 	printf("testing espeak_SetVoiceByProperties: languages=\"mk\" (valid)\n");
@@ -497,7 +497,7 @@ test_espeak_set_voice_by_properties_with_valid_language()
 	assert(p_decoder == NULL);
 }
 
-void
+static void
 test_espeak_set_voice_by_properties_with_invalid_language()
 {
 	printf("testing espeak_SetVoiceByProperties: languages=\"zzz\" (invalid)\n");
