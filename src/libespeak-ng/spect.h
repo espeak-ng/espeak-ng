@@ -124,7 +124,7 @@ typedef struct {
 	int file_format;
 } SpectSeq;
 
-SpectSeq *SpectSeqCreate();
+SpectSeq *SpectSeqCreate(void);
 void SpectSeqDestroy(SpectSeq *spect);
 espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename);
 
