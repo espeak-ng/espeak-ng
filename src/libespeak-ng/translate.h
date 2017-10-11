@@ -749,6 +749,9 @@ int LoadDictionary(Translator *tr, const char *name, int no_error);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
 int HashDictionary(const char *string);
 
+void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
+char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
+
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
