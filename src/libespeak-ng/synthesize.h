@@ -487,6 +487,7 @@ extern char mbrola_name[20];
 // from synthdata file
 unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
+void FreePhData(void);
 
 unsigned char *LookupEnvelope(int ix);
 espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);

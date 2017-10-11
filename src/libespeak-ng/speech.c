@@ -876,8 +876,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 	return berr;
 }
 
-extern void FreePhData(void);
-
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {
 #ifdef USE_ASYNC
