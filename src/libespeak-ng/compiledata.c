@@ -2716,7 +2716,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	int done_onset = 0;
 	int done_last = 0;
 	int n_preset_tunes = 0;
-	int found;
+	int found = 0;
 	int tune_number = 0;
 	FILE *f_out;
 	TUNE *tune_data;

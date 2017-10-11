@@ -277,6 +277,7 @@ dnl ================================================================
 
 AX_CHECK_COMPILE_FLAG([-Wmissing-prototypes],    [CFLAGS="-Wmissing-prototypes $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
 
