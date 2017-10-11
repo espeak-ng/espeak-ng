@@ -26,6 +26,10 @@
 #include <espeak-ng/encoding.h>
 
 #include "speech.h"
+#include "phoneme.h"
+#include "voice.h"
+#include "synthesize.h"
+#include "translate.h"
 
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000

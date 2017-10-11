@@ -33,6 +33,7 @@
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
+#include <espeak-ng/encoding.h>
 
 #include "error.h"
 #include "speech.h"
@@ -40,6 +41,7 @@
 #include "voice.h"
 #include "synthesize.h"
 #include "spect.h"
+#include "translate.h"
 
 typedef struct {
 	unsigned int value;
@@ -49,9 +51,6 @@ typedef struct {
 NAMETAB *manifest = NULL;
 int n_manifest;
 char phsrc[sizeof(path_home)+40]; // Source: path to the 'phonemes' source file.
-
-extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
-extern int utf8_out(unsigned int c, char *buf);
 
 typedef struct {
 	const char *mnem;
