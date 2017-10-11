@@ -721,7 +721,7 @@ static void unget_char(unsigned int c)
 		linenum--;
 }
 
-int CheckNextChar()
+static int CheckNextChar()
 {
 	int c;
 	while (((c = get_char()) == ' ') || (c == '\t'))
@@ -892,7 +892,7 @@ static int Range(int value, int divide, int min, int max)
 	return value - min;
 }
 
-int CompileVowelTransition(int which)
+static int CompileVowelTransition(int which)
 {
 	// Compile a vowel transition
 	int key;
@@ -998,7 +998,7 @@ int CompileVowelTransition(int which)
 	return 0;
 }
 
-espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
+static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 {
 	SpectSeq *spectseq;
 	int peak;
@@ -1613,7 +1613,7 @@ static void CompileSound(int keyword, int isvowel)
    =8         data = stress bitmap
    =9         special tests
  */
-int CompileIf(int elif)
+static int CompileIf(int elif)
 {
 	int key;
 	int finish = 0;
@@ -1722,7 +1722,7 @@ int CompileIf(int elif)
 	return 0;
 }
 
-void FillThen(int add)
+static void FillThen(int add)
 {
 	USHORT *p;
 	int offset;
@@ -1750,7 +1750,7 @@ void FillThen(int add)
 	then_count = 0;
 }
 
-int CompileElse(void)
+static int CompileElse(void)
 {
 	USHORT *ref;
 	USHORT *p;
@@ -1777,7 +1777,7 @@ int CompileElse(void)
 	return 0;
 }
 
-int CompileElif(void)
+static int CompileElif(void)
 {
 	if (if_level < 1) {
 		error("ELIF not expected");
@@ -1789,7 +1789,7 @@ int CompileElif(void)
 	return 0;
 }
 
-int CompileEndif(void)
+static int CompileEndif(void)
 {
 	USHORT *p;
 	int chain;
@@ -1952,7 +1952,7 @@ static void DecThenCount()
 		then_count--;
 }
 
-int CompilePhoneme(int compile_phoneme)
+static int CompilePhoneme(int compile_phoneme)
 {
 	int endphoneme = 0;
 	int keyword;
@@ -2696,7 +2696,7 @@ MNEM_TAB envelope_names[] = {
 	{ NULL, -1 }
 };
 
-int LookupEnvelopeName(const char *name)
+static int LookupEnvelopeName(const char *name)
 {
 	return LookupMnem(envelope_names, name);
 }
