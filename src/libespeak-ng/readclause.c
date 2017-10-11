@@ -918,7 +918,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-int AddNameData(const char *name, int wide)
+static int AddNameData(const char *name, int wide)
 {
 	// Add the name to the namedata and return its position
 	// (Used by the Windows SAPI wrapper)
