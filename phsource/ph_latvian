@@ -52,7 +52,7 @@ endphoneme
 phoneme i:
   vwl starttype #i endtype #i
   length 300
-  FMT(vwl_lv/ii, 100) // was i_7
+  FMT(vwl_lv/ii, 90) // was i_7
 endphoneme
 
 
@@ -171,12 +171,31 @@ phoneme tS
   WAV(ustop/tsh,40)
 endphoneme
 
-phoneme n-
+phoneme n- // more voiced variant of n
   vwl starttype #a endtype #a
   ipa nU+0329
   lengthmod 4
   length 120
   FMT(n/n-syl)
+endphoneme
+
+phoneme h // more quiet version of standard h
+  vls glt apr
+  lengthmod 3
+  ipa h
+
+  IF nextPh(#a) THEN
+    WAV(h/ha, 20)
+  ELIF nextPh(#e) THEN
+    WAV(h/he, 20)
+  ELIF nextPh(#i) THEN
+    WAV(h/hi, 20)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho, 20)
+  ELIF nextPh(#u) THEN
+    WAV(h/hu, 20)
+  ENDIF
+  WAV(h/h_, 20)  // no vowel following
 endphoneme
 
 phoneme R // Latvian hard r
@@ -317,15 +336,6 @@ phoneme } // Tiny, 5ms non-linked pause (used between phonemes in word)
   length 5
 endphoneme
 
-// TODO should use this with correct lengthening
-//phoneme l
-//  liquid
-//  unstressed
-//  dnt
-//  length 150
-//  FMT(vwl_hi/l-voc)
-//endphoneme
-
 phoneme s
   vls alv frc sib
   voicingswitch z
@@ -334,4 +344,36 @@ phoneme s
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ufric/s,60)
 endphoneme
+
+phoneme j // **y**es
+  liquid pal starttype #i
+
+  IF nextPhW(isVowel) THEN
+    NextVowelStarts
+      VowelStart(j/j@)
+      VowelStart(j/ja)
+      VowelStart(j/je)
+      VowelStart(j/ji)
+      VowelStart(j/jo)
+      VowelStart(j/ju)
+    EndSwitch
+    VowelEnding(j/xj, 70) // In difference with English, vowel is lengthened, not shortened
+  ELSE
+    Vowelout len=127      // no vowel follows
+    FMT(j/xj)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(j/_j)
+  ENDIF
+endphoneme
+
+// TODO should use this with correct lengthening
+//phoneme l
+//  liquid
+//  unstressed
+//  dnt
+//  length 150
+//  FMT(vwl_hi/l-voc)
+//endphoneme
 

@@ -422,6 +422,7 @@ tikpat    $2
 tikvien   $u2+
 turpat    $u2+
 turpretī  $u2
+uzreiz    $2
 vienalga  $2
 vismaz    $2
 
@@ -465,7 +466,7 @@ vismaz    $2
 // Abbreviations //
 ///////////////////
 as      $abbrev
-asv     ,a:_:,ess_!v'e:_:
+asv     ,a:_:,ess_!v'e:_: $allcaps
 ano     'ano:
 ba      $abbrev
 bba     $abbrev
@@ -475,7 +476,7 @@ dz      $abbrev
 eest    $abbrev
 est     $abbrev
 eur     'euR
-lnnk    'ell_,en_,en_k'a: $pause
+lnnk    $abbrev $pause
 lp      $abbrev
 ls      $abbrev
 lu      $abbrev
@@ -483,7 +484,7 @@ lvu     $abbrev
 na      $abbrev
 nra     $abbrev
 nr      $abbrev
-pctvl   p'e:_ts,e:_t,e:_v,e:_'ell_ $pause
+pctvl   $abbrev $pause
 prks    $abbrev
 psrs    $abbrev
 rpi     $abbrev
@@ -493,11 +494,11 @@ sv      $abbrev
 šķ      $abbrev
 tjpr    $abbrev $u $pause
 tml     $abbrev $u $pause
-tp      t,e:_p'e: $pause
+tp      $abbrev $pause
 utjpr   $abbrev $u $pause
 utml    $abbrev $u $pause
 utt     $abbrev $u $pause
-zzs     z'e:_z,e:_'ess $pause
+zzs     $abbrev $pause
 
 ///////////////////////////
 // other exception words //
