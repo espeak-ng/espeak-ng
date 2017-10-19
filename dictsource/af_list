@@ -220,6 +220,7 @@ albanië     alb'A:ne@:@-
 algerië     alx2'e@re@:@-
 alhambra    al'ambra
 amanzimtoti $4 
+amstel      amst@l
 antwerpen   antv&rp@n
 avignon     _^_FR
 babilon     babilOn
@@ -383,7 +384,7 @@ uruguay     urugwaI
 wakloof     vA:klo@f
 zimbabwe    zI:mb'ab_wE
 zulu        zulu // Kwazulu-Natal
-
+zürich      _^_DE
 
 // People names
 abdullah    abd'ula
@@ -607,6 +608,7 @@ julia       _^_EN
 jung        juN
 khayyam     kaj'am
 kelvin      _^_EN
+kennedy     _^_EN
 kim         _^_EN $capital
 kleopatra   kliu:p'A:tra
 krige       krix2@
@@ -1086,6 +1088,7 @@ vivos         _^_LA
 aangaande     $2
 aanmerklik    $2
 aanstaande    $2
+aanswel       A:nsw&l
 (a cappella)  a||kap'&la
 adagio        ad'A:dZi;%@U
 afgaanse      afg'A:ns@
@@ -1199,6 +1202,7 @@ diffuus       d@fy:s
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 disleksie     $2
+dissiplinering d@s@plin'e@r@N
 divan         div'an
 doktore       $2
 doyen       dO:j'En
@@ -1316,6 +1320,7 @@ insomnia      @nsOmnija
 inteling      Inte@l@N
 intens @nt'Ens
 intensiteit   $4
+inwegery      Inve@x2@reI
 ironieë       irun'i:@
 
 jantwak       jantw'ak
@@ -1326,6 +1331,7 @@ kafee         kaf'e@
 kaliefa       kal'ifa
 kameraderie   kam@rA:d@r'i
 kapittel      kap'It@l
+karolie       kar_o@li
 kateter       kat'e@t@r
 katswink      katsv@nk
 kaviaar       kavi'A:r
@@ -1360,6 +1366,7 @@ libido        l@bidu
 liefdespel    lifd@sp&l
 lipstiek      lIpstik
 lisensiaat    l@se~nsi;'A:t
+logieserwys   lo@x2is@rveIs
 lokaas        lOk_A:s
 londense      lOnd@ns@
 lord          _^_EN
@@ -1471,6 +1478,7 @@ oorsee        $2
 oorsese       $2
 oorval        $2 $verb
 opend         Op_Ent
+opwindends    Opv'Ind@nts
 oraal         o@r'A:l
 orale         o@r'A:l@
 oranjepers    o@r'anj@p&:rs
@@ -1495,6 +1503,7 @@ pinotage      pinut'A:Z
 pirouette     p@ru:'Et
 plaasjaap     plA:sjA:p
 plasenta      plas'Enta
+platwaai      platvAI
 poinsettia    pOIns'Etia
 pond          po~nt
 poniepers     po@nip&rs
@@ -1527,6 +1536,7 @@ salute        sal'yt@
 samelewing    sA:m@l,e@v@N
 sanhedrin     sanh'e@dr@n
 sangemeenskap sanx2@me@nskap
+sedeles       se@d@lEs
 sedertdien    $3
 sektore       $2
 sinagoge      s@n@x2o@x2@
@@ -1578,6 +1588,8 @@ tesourus      t@s@UrWs
 tevrede       t@fre@d@
 thula         tu:la
 toegee        tux2e@
+toegeklik     tux2@klIk
+toemessel     tumEs@l
 toereken      ture@k@n
 toleransie    tOl@r'ansi
 tornado       $2
@@ -1648,6 +1660,7 @@ voëlent       fo@@l_Ent
 vraprys       frA:preIs
 vrek          fr&k
 vroeërig      fru:@r@x2
+vrygelatene   freIx2@lA:t@n@
 vu            _^_FR
 
 waarskynlik   $2
@@ -1664,6 +1677,7 @@ welaf         v&l_af
 weleer        v&l_'e@r
 wentaktiek    $1
 willens       vIl@ns
+wydoog        veIt_o@x2
 wysgere       veIsx2e@r@
 
 êrenster      &:r@nst@r

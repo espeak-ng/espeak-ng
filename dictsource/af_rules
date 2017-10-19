@@ -1460,6 +1460,7 @@
              een (Cjie    e@:iN // eendjie/Leentjie/steentjies
              een (vorm    %e@n // move default stress: eenvormig/-e/-heid
           _) een (voud@   %e@n // stress on 2nd slb: eenvoudig, but on 1st: eenvoud
+             eend (agtig  %e@nt_ // fix d sound, insert pause: eendagtig/-e/-heid
              eerbied (A   e@rb'id // eerbiedig/ing
              eerbiedw     %e@rb%itv // eerbiedwaardig/eerbiedwekkend
           _) eerw         %e@rv // stress: eerwaarde
@@ -2285,7 +2286,7 @@
              klaarblyklik klA:rbl'eIkl@k // klaarblyklik/e
              kla (kous    klA: // fix stress and long a sound: klakous/-e
              klande (sti  kl%and@ // move default stress: klandestien/-e
-          _) kla (sA@@    kla // klasaantekeninge/klasonderwyser and other compounds
+          _) klas (A@     klas_ // klasaantekeninge/klasonderwyser/-opdrag(te)/-ure and other compounds
              kla (ssiek   kl%a // move default stress: klassiek/-e	
              klavesimbel  klA:v@s@mb@l // fix v and e sounds: klavesimbel and compounds
              kla (vier    kl%a // klavier and many compounds
@@ -2376,6 +2377,7 @@
 
              kabine (t    k%ab%inE // kabinet/drankkabinet/-te/kabinetsvergadering
           _) ka (d@       k%a // stress and 1st a: kadawer-/kadet-/kado/kadot(jie)/kadriel,etc.
+             kadet (A     k%adEt_ // fix e sound, insert pause: kadetorkes/-offisier/-oefening, etc.
              ka (der      kA: // restore stress on long a: kader/-s and compounds
              kad (mium    kad // fix stress and d sound: kadmium and compounds
              kafe (te     k%af@ // fix stress and vowel sounds: kafeteria and compounds
@@ -2758,6 +2760,7 @@
              mando (lien  m%and%u // fix stress and o sound: mandolien and compounds
              mane (l      m%an& // fix stress and e sound: (kerk)manel(le)punte, etc.
              mane (wale   m%an@ // fix stress and shorten a sound: manewale/-s and compounds
+             maneuvers    m%anY@f@rs // fix last e sound: (krygs)maneuvers, etc.
           _) mango        maNg%u // fix g and o sounds: mangoboord/-sap/-'s
              man (haft    m%an // move default stress: manhaftig/-e/-heid
              mani (akK    mA:n%i // fix stress and 1st a sound: maniak/-ke and compounds
@@ -3220,6 +3223,7 @@
              ofoon        uf'o@n // mikrofoon/sakso(saxo)foon
              ofone        uf'o@n@ // mikrofone/sakso(saxo)fone
              ograaf       ux2r'A:f // biograaf/demograaf/fotograaf
+             ografeer     ux2raf'e@r // fix o sound: (ge)fotografeer
              ografie      ux2raf'i // biografie/demografie/fotografie
              ografies     ux2r'A:fis // biografies/demografies/fotografies
              ograwe       ux2r'A:v@ // biograwe/demograwe/fotograwe
@@ -4128,6 +4132,7 @@
              sirene       s@re@n@ // move default stress and fix vowel sounds: sirene/-s/-lied/-sang
              si (troen    s@ // move default stress: sitroen and compounds
              sitronella   s@tr%un&l%a // fix stress and vowel sounds: sitronella and compounds
+             s (juffrou   s // fix s sound: kuns-/kos-/geselskapsjuffrou, etc.
              skade        skA:d@ // elik suffix rule breaks a sound of (on)skadelik
              skadu        skA:dy // skaduagtig/skadutjie
              skaker (ing  sk%ake@r // skakering/-s/kleurskakering
@@ -4300,6 +4305,7 @@
              swepe        swe@p@ // fix w sound: rubberswepe
              sw (erm      sw // fix e sound: naderswerm
              switser      swIts@r // fix e sound: Switserland/Switserse
+             sypel (end   seIp@l // fix e sound: sypelend/-e
 
 .group se
              se (_        s@  //the word se and some ending in se
@@ -5238,6 +5244,7 @@
              waardeer     vard'e@r // waardeer/waardeerder
              waarder (@   vard'e@r  // waarderend/e/waardering
           &) waardig      v'A:rd@x2 // stress on -waardig: merkwaardig/besienswaardigheid, etc.
+             waar (din    v%A:r // fix stress: waardin/-ne
              waar (neemba v%A:r // move default stress: waarneembaar/-bare
           C) waarts       vA:rts // fix w sound: dakwaarts/huiswaarts/kerkwaarts/noordwaarts/weswaarts
              wêrel (djie  v&:r@l // fix -djie in wêreldjie and compounds

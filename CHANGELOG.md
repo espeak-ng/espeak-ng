@@ -15,6 +15,7 @@ bug fixes:
 
 updated languages:
 
+*  af (Afrikaans) -- Christo de Klerk
 *  fi (Finnish) -- Juho Hiltunen
 *  it (Italian) -- chrislm
 *  lv (Latvian) -- Valdis Vitolins
