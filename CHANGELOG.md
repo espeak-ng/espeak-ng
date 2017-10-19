@@ -17,6 +17,7 @@ updated languages:
 
 *  fi (Finnish) -- Juho Hiltunen
 *  it (Italian) -- chrislm
+*  lv (Latvian) -- Valdis Vitolins
 
 ### 1.49.2 - 2017-09-24
 
