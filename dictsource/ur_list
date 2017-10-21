@@ -204,7 +204,7 @@ _dpt	_ISaRI'Ia_
 کے  	$u
 سے 	$u
 
-اور 	OR	$u $brk
+اور 	aUR	$u $brk
 کہ	k'e:H	$u
 نے	$u
 
@@ -334,7 +334,7 @@ _dpt	_ISaRI'Ia_
 حفاظت	H,Ifa:z.'at
 ہمت	HIm'at
 سمیت	sam'e:t
-اگرچہ	,agaRc'e:H
+اگرچہ	,agaRc'e:H	$pause
 بلکہ	b,alk'e:H
 حصہ	H'Is.,a
 حصے	H'Is.e:
@@ -686,9 +686,9 @@ _dpt	_ISaRI'Ia_
 لنک	lInk
 فہرست	fEHRIst
 کیلئے	ke:li:;e:
-اگر	agaR	$u
+اگر	agaR	$pause
 ضرورت	zaRu:Rat
-مگر	magaR	$u
+مگر	magaR	$pause
 دیگر	digaR
 اہم	EHEm
 فیصد	fis.ad
@@ -791,7 +791,7 @@ _dpt	_ISaRI'Ia_
 ابرق	abRaq
 ابرنا	UbaRna:
 ابرو	abRu:
-کنول	ka~val	$2
+کنول	kV~val	$2
 ابل	Ubal
 ابلا	Ubla:
 ابلی	Ubli:
@@ -926,7 +926,7 @@ _dpt	_ISaRI'Ia_
 بچپن	bacpan
 بچپنا	bacpana:
 قطب	qUtUb
-ذہن	DEHEn
+ذہن	zEHEn
 سلوک	sUlu:k
 انڈین	Ind.i;an
 متنبہ	mUtanabe:
@@ -948,15 +948,12 @@ _dpt	_ISaRI'Ia_
 الذمہ	UzzIma
 صحبت	s.OHbat
 برے	bURe:
-بزدل	bUzdIl
 بز	bUz
-بزدلانہ	bUzdIla:na
-بزدلی	bUzdIli:
 بزم	bazm
 بستر	bIstaR
 مرگ	maRg
 بسکٹ	bIskIt.
-(بسم اللہ)	bIsmIlla:H
+(بسم اللہ)	bIsmIl:a:H
 بسم	bIsm
 بسنت	basant
 بضد	bazId
@@ -973,7 +970,7 @@ _dpt	_ISaRI'Ia_
 (بن بلائے)	bIn||bUla:e:
 (بن مول)	bIn||mo:l
 بنت	bInt
-سنور	sa~vaR
+سنور	sV~vaR
 بو	bu:	$only
 بورڈنگ	bo:Rd.Ing
 بولنگ	bo:lIng
@@ -983,3 +980,15 @@ _dpt	_ISaRI'Ia_
 (ان پڑھ)	anpar.h
 (ان گنت)	an||gInat
 قدرت	qUdRat
+انسلٹ	Insalt.
+انسیت	Unsi;at
+اللہ	al:a:H
+انصاف	Ins.a:f
+انصافی	Ins.a:fi
+تپش	tapIS
+انثیت	Unsi;at
+انجم	anJUm
+انجمن	anJUman
+الجھن	UlJ#an
+الحمد	alHamd
+التفات	IltIfa:t
