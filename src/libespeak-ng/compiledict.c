@@ -171,16 +171,6 @@ typedef struct {
 	int group3_ix;
 } RGROUP;
 
-int isspace2(unsigned int c)
-{
-	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
-	int c2;
-
-	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
-		return 0;
-	return 1;
-}
-
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 {
 	int stress;
