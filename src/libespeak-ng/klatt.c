@@ -35,10 +35,10 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "speech.h"
-#include "klatt.h"
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"
+#include "klatt.h"
 
 extern unsigned char *out_ptr;
 extern unsigned char *out_start;

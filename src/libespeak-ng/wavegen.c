@@ -36,6 +36,10 @@
 #include "voice.h"
 #include "synthesize.h"
 
+#ifdef INCLUDE_KLATT
+#include "klatt.h"
+#endif
+
 #if HAVE_SONIC_H
 #include "sonic.h"
 #endif

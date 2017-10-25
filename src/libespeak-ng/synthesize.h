@@ -553,10 +553,6 @@ int NumInstnWords(USHORT *prog);
 
 void InitBreath(void);
 
-void KlattInit(void);
-void KlattReset(int control);
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
-
 #ifdef __cplusplus
 }
 #endif
