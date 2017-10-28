@@ -267,8 +267,8 @@ typedef struct {
 
 // instructions
 
-#define OPCODE_RETURN        0x0001
-#define OPCODE_CONTINUE      0x0002
+#define INSTN_RETURN         0x0001
+#define INSTN_CONTINUE       0x0002
 
 // Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
