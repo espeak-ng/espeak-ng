@@ -1171,7 +1171,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		char word[N_WORD_BYTES+1];
 		word[0] = 0;
 		word[1] = ' ';
-		memcpy(word+2, word_out, strlen(word_out));
+		strcpy(word+2, word_out);
 		word_out = word+2;
 
 		while (*word_out && available > 1) {

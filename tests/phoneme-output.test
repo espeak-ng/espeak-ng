@@ -21,3 +21,8 @@ test_phonemes en " s'VmTIN Imp'o@t@nt" "something important"
 # spelling rules for suffices (-mas, -mu)
 test_phonemes lv " nev'ie:na no\`_ 'eiRo:pas v'a>lsti:m nek,ad nav p'a:Rga:jusi no\`_ 'univERsa::la:s_:_: no\` visp'aRe:jiem n'uoduok}l^iem f'inansE:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" "Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no visparējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
 
+# Emoji
+
+# ED-3 - emoji_character [http://www.unicode.org/reports/tr51/tr51-12.html#def_emoji_character]
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k" "⁉"
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
