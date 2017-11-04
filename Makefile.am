@@ -250,7 +250,6 @@ tests_api_test_SOURCES = tests/api.c
 check:	tests/encoding.check \
 	tests/readclause.check \
 	tests/api.check \
-	tests/phoneme-output.check \
 	tests/languages.check
 
 ##### phoneme data:
