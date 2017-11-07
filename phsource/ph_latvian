@@ -94,7 +94,7 @@ endphoneme
 
 phoneme ai
   vwl starttype #a endtype #i
-  length 250
+  length 280
   lng
   FMT(vdiph/aai, 100)
 endphoneme
@@ -143,7 +143,7 @@ endphoneme
 
 phoneme uo`     // shorter version of uo
   vwl starttype #u endtype #a
-  length 180
+  length 150
   lng
   FMT(vdiph2/uaa, 100)
 endphoneme
@@ -411,7 +411,7 @@ phoneme l
   CALL vowelstart_l
 
   IF prevPh(a) OR prevPh(a:) THEN
-    VowelEnding(l/xl,30) // FIXME
+    VowelEnding(l/xl, 30) // FIXME
   ELSEIF prevPh(isVowel) THEN
     VowelEnding(l/xl, 10)
   ENDIF
@@ -430,5 +430,6 @@ phoneme l
 
   FMT(l/l)
 endphoneme
+
 
 
