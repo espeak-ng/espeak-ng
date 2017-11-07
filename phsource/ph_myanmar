@@ -2,10 +2,6 @@
 // TONES
 //===========
 
-//phoneme 1  //see vietnamese; tones taken from there
-//  stress
-//  Tone(X,Y,...)
-//endphoneme
 
 phoneme 1 //low tone
   stress
@@ -38,7 +34,7 @@ phoneme k
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/k, 150)
+  WAV(Myanmar/k, 150)
 endphoneme
 
 phoneme kh
@@ -47,7 +43,7 @@ phoneme kh
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   WAV(my/kh, 150)
-  //WAV(FinalMy/ch.wav)
+  //WAV(Myanmar/ch.wav)
 endphoneme
 
 phoneme g
@@ -55,7 +51,7 @@ phoneme g
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/g.wav,150)
+  WAV(Myanmar/g.wav,150)
 endphoneme
 
 phoneme ng
@@ -66,8 +62,8 @@ phoneme ng
   lengthmod 1
   Vowelin f1=1  f2=1000 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=200 0 300  f3=200 80  len=50 rms=10 
-  //WAV(FinalMy/ng) 
-  FMT(FinalMY/ny,130) //addWav(r3/r_trill.wav, 50)  //ng_1)
+  //WAV(Myanmar/ng) 
+  FMT(Myanmar/ny,130) //addWav(r3/r_trill.wav, 50)  //ng_1)
   //
 endphoneme
 
@@ -108,7 +104,7 @@ endphoneme
   //Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   //Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
 //  WAV(ustop/t_ejc, 150)
-//  WAV(FinalMy/t, 150)
+//  WAV(Myanmar/t, 150)
   //FMT(d/d) addWav(x/d_dnt, 100)
 //endphoneme
 
@@ -122,7 +118,7 @@ phoneme t //  voiceless /ㅈ//
   lengthmod 2
   //////Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   //////Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
-  WAV(FinalMy/t_short,150)
+  WAV(Myanmar/t_short,150)
   
   
   
@@ -142,7 +138,7 @@ phoneme ht
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   //WAV(my/ht, 150 )
-  WAV(FinalMy/ht, 150 )
+  WAV(Myanmar/ht, 150 )
 endphoneme
 
 phoneme d
@@ -184,7 +180,7 @@ phoneme p
   lengthmod 2
   //Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   //Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
-  WAV(FinalMY/p, 150)
+  WAV(Myanmar/p, 150)
 endphoneme
 
 phoneme ph
@@ -323,7 +319,7 @@ phoneme th
   //IF nextPh(isPause) THEN
   //  WAV(ufric/th_)
   //ENDIF
-  WAV(FinalMy/t_hi,200)
+  WAV(Myanmar/t_hi,200)
 endphoneme
 
 phoneme h
@@ -380,7 +376,7 @@ phoneme q0
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   
-  WAV(FinalMy/by.wav,10)
+  WAV(Myanmar/by.wav,10)
 endphoneme
 
 
@@ -390,17 +386,8 @@ phoneme q1
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
 	
-		WAV(FinalMy/ch.wav,100)
+		WAV(Myanmar/ch.wav,100)
 	
-endphoneme
-
-
-phoneme q2
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/dya.wav, 150)
 endphoneme
 
 phoneme q3
@@ -408,7 +395,7 @@ phoneme q3
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/gya.wav, 150)
+  WAV(Myanmar/gya.wav, 150)
 endphoneme
 
 phoneme q4
@@ -416,34 +403,15 @@ phoneme q4
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/htya.wav, 150)
+  WAV(Myanmar/htya.wav, 150)
 endphoneme
-
-
-phoneme q5
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/ky.wav, 200)
-endphoneme
-
-
-phoneme q6
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/my.wav, 150)
-endphoneme
-
 
 phoneme q7
   vls uvl stop
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/phya.wav, 150)
+  WAV(Myanmar/phya.wav, 150)
 endphoneme
 
 
@@ -452,7 +420,7 @@ phoneme q8
   lengthmod 2
   //Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   //Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/pya.wav, 10)
+  WAV(Myanmar/pya.wav, 10)
 endphoneme
 
 phoneme q9
@@ -460,7 +428,7 @@ phoneme q9
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/ty.wav, 100)
+  WAV(Myanmar/ty.wav, 100)
 endphoneme
 
 //phoneme r
@@ -468,282 +436,20 @@ endphoneme
 //  lengthmod 2
 //  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
 //  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-//  WAV(FinalMy/r.wav, 50)
+//  WAV(Myanmar/r.wav, 50)
 //endphoneme
 
-phoneme Q1
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/kyw.wav, 150)
-endphoneme
-
-
 ///////////////////////////////////////////////////////
-phoneme q11
-  vls uvl stop
-  lengthmod 2
-  //Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  //Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/kw.wav, 150)
-endphoneme
-phoneme q12
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/khw.wav, 150)
-endphoneme
-phoneme q13
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/gw.wav, 150)
-endphoneme
-phoneme q14
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/ngw.wav, 150)
-endphoneme
-phoneme q15
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/sw.wav, 150)
-endphoneme
-phoneme q16
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/sw.wav, 150)
-endphoneme
-phoneme q17
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/zw.wav, 150)
-endphoneme
-phoneme q18
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/nyw.wav, 150)
-endphoneme
-phoneme q19
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/tw.wav, 150)
-endphoneme
-phoneme q21
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/htw.wav, 150)
-endphoneme
-phoneme q22
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/dw.wav, 150)
-endphoneme
-phoneme q23
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/dw.wav, 150)
-endphoneme
-phoneme q24
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/nw.wav, 150)
-endphoneme
-phoneme q25
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/pw.wav, 150)
-endphoneme
-phoneme q26
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/phw.wav, 150)
-endphoneme
-phoneme q27
-  vls uvl stop
-  lengthmod 2
-  //Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  //Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/bw.wav, 150)
-endphoneme
 
 
-phoneme q28
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/bw.wav, 150)
-endphoneme
-phoneme q29
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/mw.wav, 150)
-endphoneme
-phoneme q31
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/yw.wav, 150)
-endphoneme
-phoneme q32
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/lw.wav, 150)
-endphoneme
-phoneme q33
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/thw.wav, 150)
-endphoneme
-phoneme q34
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hw.wav, 150)
-endphoneme
-phoneme q35
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/xw.wav, 150)
-endphoneme
-phoneme q36
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/shw.wav, 150)
-endphoneme
-phoneme q37
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hnyw.wav, 150)
-endphoneme
-phoneme q38
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hnw.wav, 150)
-endphoneme
-phoneme q39
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hmw.wav, 150)
-endphoneme
-phoneme q41
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hlw.wav, 150)
-endphoneme
-phoneme q42
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hng.wav, 150)
-endphoneme
-phoneme q43
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hny.wav, 150)
-endphoneme
-phoneme q44
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hn.wav, 150)
-endphoneme
-phoneme q45
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hm.wav, 150)
-endphoneme
+
 phoneme q46
   vls uvl stop
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/sh.wav, 150)
+  WAV(Myanmar/sh.wav, 150)
 endphoneme
-phoneme q47
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/hl.wav, 150)
-endphoneme
-phoneme q48
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/kyw.wav, 150)
-endphoneme
-
-phoneme q49
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/chw.wav, 150)
-endphoneme
-phoneme q51
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
-  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
-  WAV(FinalMy/gyw.wav, 150)
-endphoneme
-
 
 
 //====================================================
@@ -755,26 +461,26 @@ phoneme @ //အ
   //length 50
   
   length 194
-  FMT(FinalMy/a01)
+  FMT(Myanmar/a01)
 endphoneme
 
 phoneme a01 //အ
   vowel starttype #a endtype a
   //length 100
   length 194
-  FMT(FinalMy/a01)
+  FMT(Myanmar/a01)
 endphoneme
 
 phoneme a02 //အာ
   vowel starttype #a endtype r
   length 180
-  FMT(FinalMy/a02)  //ar_1)
+  FMT(Myanmar/a02)  //ar_1)
 endphoneme
 
 phoneme a03 //အား
   vowel starttype #a endtype r
   length 200
-  FMT(FinalMy/a03)
+  FMT(Myanmar/a03)
 endphoneme
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -782,7 +488,7 @@ endphoneme
 phoneme a04 //အိ
   //vowel starttype #a endtype e
   //length 100
-  //FMT(FinalMy/a04)
+  //FMT(Myanmar/a04)
   
   
   vowel starttype #i endtype #i
@@ -810,7 +516,7 @@ phoneme a04 //အိ
 	//f2 2209 2185 2191
   ENDIF
   //FMT(vowel/i)
-  FMT(FinalMy/a04)
+  FMT(Myanmar/a04)
   
   
 endphoneme
@@ -819,26 +525,26 @@ endphoneme
 phoneme a05 //အီ
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a05)
+  FMT(Myanmar/a05)
 endphoneme
 
 phoneme a06 //အီး
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a06)
+  FMT(Myanmar/a06)
 endphoneme
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 phoneme a07 //အု
   vowel starttype #a endtype u
   length 130
-  FMT(FinalMy/a07)
+  FMT(Myanmar/a07)
 endphoneme
 
 phoneme a08 //အူ
   //vowel starttype #a endtype u
   //length 180
-  //FMT(FinalMy/a08)
+  //FMT(Myanmar/a08)
   
   
   vowel starttype #u endtype #u
@@ -867,7 +573,7 @@ phoneme a08 //အူ
 	//f2 
   ENDIF
   //FMT(vowel/u)
-  FMT(FinalMy/a08)
+  FMT(Myanmar/a08)
   
   
 endphoneme
@@ -875,7 +581,7 @@ endphoneme
 phoneme a09 //အူး
   vowel starttype #a endtype u
  length 200
-  FMT(FinalMy/a09)
+  FMT(Myanmar/a09)
 endphoneme
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -883,13 +589,13 @@ endphoneme
 phoneme a11 //အေ့
   vowel starttype #a endtype a
   length 130
-  FMT(FinalMy/a11)
+  FMT(Myanmar/a11)
 endphoneme
 
 phoneme a10 //အေ
   //vowel starttype #a endtype a
   //length 180
-  //FMT(FinalMy/a10)
+  //FMT(Myanmar/a10)
   
   
    vowel starttype #e endtype #e
@@ -925,7 +631,7 @@ endphoneme
 phoneme a12 //အေး
   vowel starttype #a endtype a
   length 200
- FMT(FinalMy/a12)
+ FMT(Myanmar/a12)
 endphoneme
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -933,20 +639,20 @@ endphoneme
 phoneme a14 //အဲ့
   vowel starttype #a endtype e
   length 120
-  FMT(FinalMy/a14)
+  FMT(Myanmar/a14)
 endphoneme
 
 phoneme a13 //အယ်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a13)
+  FMT(Myanmar/a13)
 endphoneme
 
 phoneme a15 //အဲ
   
   //vowel starttype #a endtype e
   //length 200
-  //FMT(FinalMy/a15)
+  //FMT(Myanmar/a15)
   
   
   vowel starttype #e endtype #e
@@ -983,13 +689,13 @@ endphoneme
 phoneme a17 //အော့
   vowel starttype #a endtype a
   length 130
-  FMT(FinalMy/a17)
+  FMT(Myanmar/a17)
 endphoneme
 
 phoneme a18 //အော်
   //vowel starttype #a endtype a
   //length 180
-  //FMT(FinalMy/a18)
+  //FMT(Myanmar/a18)
   
   
   vowel starttype #o endtype #o
@@ -1023,26 +729,26 @@ endphoneme
 phoneme a16 //အော
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a16)
+  FMT(Myanmar/a16)
 endphoneme
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 phoneme a20 //အံ့
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a20)
+  FMT(Myanmar/a20)
 endphoneme
 
 phoneme a19 //အံ
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a19)
+  FMT(Myanmar/a19)
 endphoneme
 
 phoneme a21 //အန်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a21)//FinalMy/an1)
+  FMT(Myanmar/a21)//Myanmar/an1)
 endphoneme
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1050,57 +756,57 @@ endphoneme
 phoneme a23 //အို့
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a23)
+  FMT(Myanmar/a23)
 endphoneme
 
 phoneme a22 //အို
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a22)
+  FMT(Myanmar/a22)
 endphoneme
 
 phoneme a24 //အိုး
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a24)
+  FMT(Myanmar/a24)
 endphoneme
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 phoneme a29 //အင့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a29)
+  FMT(Myanmar/a29)
 endphoneme
 
 phoneme a28 //အင်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a28)
+  FMT(Myanmar/a28)
 endphoneme
 
 phoneme a30 //အင်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a30)
+  FMT(Myanmar/a30)
 endphoneme
 
 
 phoneme a32 //အိုင့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a32)
+  FMT(Myanmar/a32)
 endphoneme
 
 phoneme a31 //အိုင်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a31)
+  FMT(Myanmar/a31)
 endphoneme
 
 phoneme a33 //အိုင်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a33)
+  FMT(Myanmar/a33)
 endphoneme
 
 /////////////////////////////////////////////////////////
@@ -1110,19 +816,19 @@ endphoneme
 phoneme a35 //အောင့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a35)
+  FMT(Myanmar/a35)
 endphoneme
 
 phoneme a34 //အောင်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a34)
+  FMT(Myanmar/a34)
 endphoneme
 
 phoneme a36 //အောင်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a36)
+  FMT(Myanmar/a36)
 endphoneme
 
 
@@ -1131,38 +837,38 @@ endphoneme
 phoneme a43 //အိန့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a43)
+  FMT(Myanmar/a43)
 endphoneme
 
 phoneme a42 //အိန်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a42)
+  FMT(Myanmar/a42)
 endphoneme
 
 phoneme a44 //အိန်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a44)
+  FMT(Myanmar/a44)
 endphoneme
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 phoneme a20 //အန့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a20)
+  FMT(Myanmar/a20)
 endphoneme
 
 phoneme a19 //အန်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a19)
+  FMT(Myanmar/a19)
 endphoneme
 
 phoneme a21 //အန်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a21)
+  FMT(Myanmar/a21)
 endphoneme
 
 ///////////////////////////////////////////////////////
@@ -1170,13 +876,13 @@ endphoneme
 phoneme a49 //အွန့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a49)
+  FMT(Myanmar/a49)
 endphoneme
 
 phoneme a48 //အွန်
   //vowel starttype #a endtype e
   //length 180
-  //FMT(FinalMy/a48)
+  //FMT(Myanmar/a48)
   
   
   
@@ -1218,7 +924,7 @@ endphoneme
 phoneme a50 //အွန်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a50)
+  FMT(Myanmar/a50)
 endphoneme
 
 
@@ -1227,19 +933,19 @@ endphoneme
 phoneme a46 //အုန့်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a46)
+  FMT(Myanmar/a46)
 endphoneme
 
 phoneme a45 //အုန်
   vowel starttype #a endtype e
   length 180
-  FMT(FinalMy/a45)
+  FMT(Myanmar/a45)
 endphoneme
 
 phoneme a47 //အုန်း
   vowel starttype #a endtype e
   length 200
-  FMT(FinalMy/a47)
+  FMT(Myanmar/a47)
 endphoneme
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1250,49 +956,49 @@ endphoneme
 phoneme a25 //အက်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a25)
+  FMT(Myanmar/a25)
 endphoneme
 
 phoneme a26 //အောက်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a26)
+  FMT(Myanmar/a26)
 endphoneme
 
 phoneme a27 //အိုက်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a27)
+  FMT(Myanmar/a27)
 endphoneme
 
 phoneme a37 //အစ်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a37)
+  FMT(Myanmar/a37)
 endphoneme
 
 phoneme a38 //အတ်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a38)
+  FMT(Myanmar/a38)
 endphoneme
 
 phoneme a39 //အိတ်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a39)
+  FMT(Myanmar/a39)
 endphoneme
 
 phoneme a40 //အုတ်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a40)
+  FMT(Myanmar/a40)
 endphoneme
 
 phoneme a41 //အွတ်
   vowel starttype #a endtype e
   length 130
-  FMT(FinalMy/a41)
+  FMT(Myanmar/a41)
 endphoneme
 
 
