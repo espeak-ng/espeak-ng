@@ -460,6 +460,7 @@
       L59) n (@           :n
            n (d            N
            ne (vienl+      n'e       // nevienlīdzība
+           ne (vienmērīg   n'e       // nevienmērīgi
         _) ne (vien        n%e       // stress on 2nd syllable
            n (g            N
            n (k            N
@@ -470,7 +471,7 @@
 
 .group o
    //  default policy rules
-       _C) o (_+           o`        // shorter version of uo for particles
+       _C) o (_+           uo`       // shorter version of uo for particles
         o) o               o:        // in ..oo.. second o is spelled as ō
            o ($w_alt++     o         // $alt words in lv_list are spelled as o
            o (_$w_alt1++   o:        // o at the end of internationalisms ($alt1) words is spelled as ō
@@ -496,7 +497,7 @@ L46L45L45) o (<<           uo
            o (L44+         uo        // uo postfixes
 
    //  Prefixes
-       _n) o               o`        // shorter uo for prefix
+       _n) o               uo`       // shorter uo for prefix
 
    //  international prefixes
     _femt) o               o
@@ -879,7 +880,7 @@ L46L45L45) o (<<           uo
       fil) okok            okok
         g) ok              ok
        _k) okako (lL04_    okako:    // kokakola
-        k) ok (L01         uok       // koks
+        k) ok (L01         uo`k      // koks with short uo, because of ambiguity
         k) ok (og          uok
         k) okosL01         okos
         k) ok (tēl         uok
@@ -1240,6 +1241,7 @@ L46L45L45) o (<<           uo
         s) op (r           op
        st) opo (s_         uopuo     // ..stopos
      _str) op (L01_        uop       // strops
+       _t) op              uo`p      // top with short uo because of ambiguity
        _t) op (āzL01_      op        // topāzs
        _t) op (b           op        // topbura
        _t) op (inam        op        // topinambūrs
