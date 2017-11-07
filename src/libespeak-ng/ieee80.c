@@ -49,14 +49,9 @@
 
 #include	<stdio.h>
 #include	<math.h>
+#include	"ieee80.h"
 
 typedef float Single;
-
-#ifndef applec
- typedef double defdouble;
-#else applec
- typedef long double defdouble;
-#endif applec
 
 #ifndef THINK_C
  typedef double Double;

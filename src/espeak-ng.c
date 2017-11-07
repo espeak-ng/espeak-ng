@@ -126,7 +126,7 @@ FILE *f_wavfile = NULL;
 char filetype[5];
 char wavefile[200];
 
-void DisplayVoices(FILE *f_out, char *language)
+static void DisplayVoices(FILE *f_out, char *language)
 {
 	int ix;
 	const char *p;
@@ -197,7 +197,7 @@ static void Write4Bytes(FILE *f, int value)
 	}
 }
 
-int OpenWavFile(char *path, int rate)
+static int OpenWavFile(char *path, int rate)
 {
 	static unsigned char wave_hdr[44] = {
 		'R', 'I', 'F', 'F', 0x24, 0xf0, 0xff, 0x7f, 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
@@ -598,7 +598,7 @@ int main(int argc, char **argv)
 	}
 
 	if (voicename[0] == 0)
-		strcpy(voicename, "en");
+		strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
 	result = espeak_ng_SetVoiceByName(voicename);
 	if (result != ENS_OK) {

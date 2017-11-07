@@ -114,6 +114,8 @@ public class SpeechSynthesis {
                 return new Locale(parts[0], parts[1]);
             case 3: // language-country-variant
                 return new Locale(parts[0], parts[1], parts[2]);
+            case 4: // language-country-x-privateuse
+                return new Locale(parts[0], parts[1], parts[3]);
             default:
                 return null;
         }
@@ -355,6 +357,7 @@ public class SpeechSynthesis {
     static {
         mJavaToIanaLanguageCode.put("afr", "af");
         mJavaToIanaLanguageCode.put("amh", "am");
+        mJavaToIanaLanguageCode.put("ara", "ar");
         mJavaToIanaLanguageCode.put("arg", "an");
         mJavaToIanaLanguageCode.put("asm", "as");
         mJavaToIanaLanguageCode.put("aze", "az");
@@ -377,6 +380,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("fra", "fr");
         mJavaToIanaLanguageCode.put("gle", "ga");
         mJavaToIanaLanguageCode.put("gla", "gd");
+        mJavaToIanaLanguageCode.put("grn", "gn");
         mJavaToIanaLanguageCode.put("guj", "gu");
         mJavaToIanaLanguageCode.put("hin", "hi");
         mJavaToIanaLanguageCode.put("hrv", "hr");
@@ -386,9 +390,11 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("ind", "in"); // NOTE: The deprecated 'in' code is used by Java/Android.
         mJavaToIanaLanguageCode.put("isl", "is");
         mJavaToIanaLanguageCode.put("ita", "it");
+        mJavaToIanaLanguageCode.put("jpn", "ja");
         mJavaToIanaLanguageCode.put("kat", "ka");
         mJavaToIanaLanguageCode.put("kal", "kl");
         mJavaToIanaLanguageCode.put("kan", "kn");
+        mJavaToIanaLanguageCode.put("kir", "ky");
         mJavaToIanaLanguageCode.put("kor", "ko");
         mJavaToIanaLanguageCode.put("kur", "ku");
         mJavaToIanaLanguageCode.put("lat", "la");
@@ -397,7 +403,10 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("mkd", "mk");
         mJavaToIanaLanguageCode.put("mal", "ml");
         mJavaToIanaLanguageCode.put("mar", "mr");
+        mJavaToIanaLanguageCode.put("mlt", "mt");
+        mJavaToIanaLanguageCode.put("mri", "mi");
         mJavaToIanaLanguageCode.put("msa", "ms");
+        mJavaToIanaLanguageCode.put("mya", "my");
         mJavaToIanaLanguageCode.put("nep", "ne");
         mJavaToIanaLanguageCode.put("nld", "nl");
         mJavaToIanaLanguageCode.put("nob", "nb");
@@ -412,12 +421,15 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("sin", "si");
         mJavaToIanaLanguageCode.put("slk", "sk");
         mJavaToIanaLanguageCode.put("slv", "sl");
+        mJavaToIanaLanguageCode.put("snd", "sd");
         mJavaToIanaLanguageCode.put("sqi", "sq");
         mJavaToIanaLanguageCode.put("srp", "sr");
         mJavaToIanaLanguageCode.put("swe", "sv");
         mJavaToIanaLanguageCode.put("swa", "sw");
         mJavaToIanaLanguageCode.put("tam", "ta");
         mJavaToIanaLanguageCode.put("tel", "te");
+        mJavaToIanaLanguageCode.put("tat", "tt");
+        mJavaToIanaLanguageCode.put("tsn", "tn");
         mJavaToIanaLanguageCode.put("tur", "tr");
         mJavaToIanaLanguageCode.put("urd", "ur");
         mJavaToIanaLanguageCode.put("vie", "vi");
@@ -426,6 +438,7 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("ARM", "AM");
         mJavaToIanaCountryCode.put("BEL", "BE");
         mJavaToIanaCountryCode.put("BRA", "BR");
+        mJavaToIanaCountryCode.put("CHE", "CH");
         mJavaToIanaCountryCode.put("FRA", "FR");
         mJavaToIanaCountryCode.put("GBR", "GB");
         mJavaToIanaCountryCode.put("HKG", "HK");
@@ -435,18 +448,11 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("USA", "US");
         mJavaToIanaCountryCode.put("VNM", "VN");
 
-        // Map eSpeak locales to their correct BCP47 locales supported by Android:
-        mLocaleFixes.put("en-sc", new Locale("en", "GB", "scotland"));
-        mLocaleFixes.put("en-uk-north", new Locale("en", "GB", "north"));
-        mLocaleFixes.put("en-uk-rp", new Locale("en", "GB", "rp"));
-        mLocaleFixes.put("en-uk-wmids", new Locale("en", "GB", "wmids"));
-        mLocaleFixes.put("en-wi", new Locale("en", "JM"));
-        mLocaleFixes.put("es-la", new Locale("es", "MX"));
-        mLocaleFixes.put("fa-pin", null); // Script tags not supported.
-        mLocaleFixes.put("hy-west", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
-        mLocaleFixes.put("no", new Locale("nb")); // 'no' is valid, but the system uses the more specific 'nb' and 'nn'
-        mLocaleFixes.put("vi-hue", new Locale("vi", "VN", "hue"));
-        mLocaleFixes.put("vi-sgn", new Locale("vi", "VN", "saigon"));
-        mLocaleFixes.put("zh-yue", new Locale("zh", "HK"));
+        // Fix up BCP47 locales not handled correctly by Android:
+        mLocaleFixes.put("cmn", new Locale("zh"));
+        mLocaleFixes.put("en-029", new Locale("en", "JM"));
+        mLocaleFixes.put("es-419", new Locale("es", "MX"));
+        mLocaleFixes.put("hy-arevmda", new Locale("hy", "AM", "arevmda")); // hy-arevmda crashes on Android 5.0
+        mLocaleFixes.put("yue", new Locale("zh", "HK"));
     }
 }

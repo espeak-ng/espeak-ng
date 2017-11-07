@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 march   31 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2017 october 3 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -28,7 +28,7 @@
 	au	a|%U
 	@C) a (_S1q	a/  // lookup it_list without suffix
 	@i) a (_S1q	a  // lookup it_list without suffix
-	C) a (cY_	'a
+//	C) a (cY_	'a
 	@) a (co_	=a
 	@) a (ca_	=a
 	@) a (che_	=a/
@@ -37,14 +37,15 @@
 	@) a (bile_	'a
 	@) a (ggine_	'a
 	_) ae (r	aE
-	avano (_	'avano
+	avano (_	'avano   // verbs
 	a (tterA_	'a
 	_) all' (P4t	all
 	_) anch' (P5t	ank
 	@) amo (L04_	'amo  // Pron.s verbs
 	Ci) amo (L04_	'amo
 	@) ander (L04_	'andE@-*
-		ate (L04_+	'ate
+	ate (L04_+	'ate
+	abb) assa (L07_	'assa
 	_L04Z) auguri (_	'awguRI
 	astano (_	'astano   // verbs
 
@@ -59,6 +60,7 @@
 	bbano (_	=b:ano // verbs
 	bacia (L07_	b'atSa
 	_) bagna (L07_	b'an^a
+	a) bbraccia (L07_	b:@-*'atS:a
 
 .group c
 	c	k
@@ -90,6 +92,7 @@
 	in) cer (L04_	=tSe@-*
 	cuocer (L04_	kU'OtSe@-*
 	compra (L07_	k'omp@-*a
+	_L04Z) capite (_	kap'ite/
 	_L04Z) capit (A_	k'a:p,it
 	_L04Z) capit (ano_	k'a:p,it
 	correr (L04_	k'o:R*eR
@@ -208,6 +211,8 @@
 	fob (A_	=fob
 	farma (ci_	f'a@-*ma
 	ferma (L07_	f'e@-*ma/
+	_) fatt (AL04_	f'at:
+	_ri) fatt (AL04_	f'at:
 
 .group g
 	g	g
@@ -504,6 +509,7 @@
 	qui (A	kwj
 	_) quell' (P6t	kwEll
 	_) quest' (P6t	kwest
+	_) quant' (P6t	kwant
 
 .group r
 	r	@-*
@@ -522,6 +528,7 @@
 	_) ripeter (L04_	@-*ip'E:te@-*
 	_) romper (L04_	@-*'ompe@-*
 	ca) re (zzaL07_	R'e
+	_) regala (tAL04_	@-*egal'a
 	C) rai (_	@-*'a:I
 	A) rai (_	R'a:I
 	rrai (_	R*'a:I
@@ -563,6 +570,8 @@
 	_) segna (L05_	s'en^a
 	in) segna (L07_ 	s'En^a
 	_)segnala (L07_	sen^'ala
+	specifica (L07_	spetS'ifika
+	stringi (L04_	st@-*'indZi/
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -596,6 +605,7 @@
 	au) tentica (L07_	t'ENtIka/
 	a) ttiva (L07_	t:'iva
 	taglia (L07_	t'al^a
+	tira (L07_	t'iRa
 	L02) tre (_	t@-*'e
 	_) tutt' (P5t	tut:
 
@@ -619,6 +629,7 @@
 	ustano (_	'u:stano
 	C) uo (tano_	U'O
 	uomini (_	w2'Omini
+	fanc) u (lA_	'u:
 
 .group v
 	v	v
@@ -636,6 +647,8 @@
 	_) vota (L07_	v'Ota
 	s) veglia (L07_	v'el^a
 	volta (L07_	v'Olta
+	venut (AL04_	ven'ut
+	_) v' (P2t	v
 
 .group w
 	w	w2
@@ -696,6 +709,7 @@
 	man) zie (_	ts'i;e
 	me) zz	dz:
 	amma) zziamo (L04_	_tsi'a:mo
+	sbara) zz (arL04_	ts:
 
 .group
 

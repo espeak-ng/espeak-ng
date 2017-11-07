@@ -22,6 +22,8 @@ extern "C"
 {
 #endif
 
+float polint(float xa[], float ya[], int n, float x);
+
 #define FRAME_WIDTH  1000  // max width for 8000kHz frame
 #define MAX_DISPLAY_FREQ 9500
 #define FRAME_HEIGHT 240
@@ -124,7 +126,7 @@ typedef struct {
 	int file_format;
 } SpectSeq;
 
-SpectSeq *SpectSeqCreate();
+SpectSeq *SpectSeqCreate(void);
 void SpectSeqDestroy(SpectSeq *spect);
 espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename);
 

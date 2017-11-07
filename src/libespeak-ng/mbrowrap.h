@@ -37,20 +37,20 @@ typedef int BOOL;
  * error reason.  If this is successful, then close_MBR() must be called
  * before init_MBR() can be called again.
  */
-int (WINAPI *init_MBR)(char *voice_path);
+extern int (WINAPI *init_MBR)(char *voice_path);
 
 /*
  * Stop mbrola and release any resources.  It is necessary to call
  * this after a successful call to init_MBR() before init_MBR() can be
  * called again.
  */
-void (WINAPI *close_MBR)(void);
+extern void (WINAPI *close_MBR)(void);
 
 /*
  * Stop any ongoing processing and flush all buffers.  After this call
  * any synthesis request will start afresh.
  */
-void (WINAPI *reset_MBR)(void);
+extern void (WINAPI *reset_MBR)(void);
 
 /*
  * Return at most 'nb_samples' audio samples into 'buffer'. The returned
@@ -58,14 +58,14 @@ void (WINAPI *reset_MBR)(void);
  * If not successful, lastErrorStr_MBR() will provide the error reason.
  * Samples are always 16-bit little endian.
  */
-int (WINAPI *read_MBR)(short *buffer, int nb_samples);
+extern int (WINAPI *read_MBR)(short *buffer, int nb_samples);
 
 /*
  * Write a NULL terminated string of phoneme in the input buffer.
  * Return the number of chars actually written, or -1 on error.
  * If not successful, lastErrorStr_MBR() will provide the error reason.
  */
-int (WINAPI *write_MBR)(char *data);
+extern int (WINAPI *write_MBR)(char *data);
 
 /*
  * Send a flush command to the mbrola input stream.
@@ -73,17 +73,17 @@ int (WINAPI *write_MBR)(char *data);
  * or 0 on failure. If not successful, lastErrorStr_MBR() will provide
  * the error reason.
  */
-int (WINAPI *flush_MBR)(void);
+extern int (WINAPI *flush_MBR)(void);
 
 /*
  * Return the audio sample frequency of the used voice database.
  */
-int (WINAPI *getFreq_MBR)(void);
+extern int (WINAPI *getFreq_MBR)(void);
 
 /*
  * Overall volume.
  */
-void (WINAPI *setVolumeRatio_MBR)(float value);
+extern void (WINAPI *setVolumeRatio_MBR)(float value);
 
 /*
  * Copy into 'buffer' at most 'bufsize' bytes from the latest error
@@ -91,12 +91,12 @@ void (WINAPI *setVolumeRatio_MBR)(float value);
  * no error message is pending then an empty string is returned.
  * Consecutive calls to lastErrorStr_MBR() will return the same message.
  */
-char * (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
+extern char * (WINAPI *lastErrorStr_MBR)(char *buffer, int bufsize);
 
 /*
  * Tolerance to missing diphones.
  */
-void (WINAPI *setNoError_MBR)(int no_error);
+extern void (WINAPI *setNoError_MBR)(int no_error);
 
 BOOL load_MBR(void);
 void unload_MBR(void);

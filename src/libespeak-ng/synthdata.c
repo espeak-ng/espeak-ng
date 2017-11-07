@@ -34,8 +34,8 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 const char *version_string = PACKAGE_VERSION;
@@ -66,14 +66,12 @@ int vowel_transition[4];
 int vowel_transition0;
 int vowel_transition1;
 
-int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
-
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {
 	if (!ptr) return EINVAL;
 
 	FILE *f_in;
-	unsigned int length;
+	int length;
 	char buf[sizeof(path_home)+40];
 
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, fname);
@@ -112,7 +110,6 @@ espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context)
 	int length = 0;
 	int rate;
 	unsigned char *p;
-	int *pw;
 
 	espeak_ng_STATUS status;
 	if ((status = ReadPhFile((void **)&phoneme_tab_data, "phontab", NULL, context)) != ENS_OK)
@@ -508,7 +505,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	unsigned int data;
 	int instn;
 	int instn2;
-	int count;
 	int check_endtype = 0;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
@@ -760,7 +756,7 @@ int NumInstnWords(USHORT *prog)
 			// This instruction is followed by addWav(), 2 more words
 			return 4;
 		}
-		if (instn2 == OPCODE_CONTINUE)
+		if (instn2 == INSTN_CONTINUE)
 			return 3;
 		return 2;
 	}
@@ -817,10 +813,10 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 				// instructions with no operand
 				switch (data)
 				{
-				case OPCODE_RETURN:
+				case INSTN_RETURN:
 					end_flag = 1;
 					break;
-				case OPCODE_CONTINUE:
+				case INSTN_CONTINUE:
 					break;
 				default:
 					InvalidInstn(ph, instn);
@@ -958,7 +954,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			param_sc = phdata->sound_param[instn2] = (instn >> 4) & 0xff;
 			prog++;
 
-			if (prog[1] != OPCODE_CONTINUE) {
+			if (prog[1] != INSTN_CONTINUE) {
 				if (instn2 < 2) {
 					// FMT() and WAV() imply Return
 					end_flag = 1;

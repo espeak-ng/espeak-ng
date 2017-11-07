@@ -22,6 +22,8 @@ extern "C"
 {
 #endif
 
+#define N_PEAKS   9
+
 typedef struct {
 	char v_name[40];
 	char language_name[20];
@@ -86,6 +88,7 @@ espeak_ng_STATUS DoVoiceChange(voice_t *v);
 void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);
 void VoiceReset(int control);
+void FreeVoiceList(void);
 
 #ifdef __cplusplus
 }

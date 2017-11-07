@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2008 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * Based on a re-implementation by:
  * (c) 1993,94 Jon Iles and Nick Ing-Simmons
@@ -170,6 +170,10 @@ typedef struct {
 	DOUBLEX ap_inc;
 	DOUBLEX bp_inc;
 }  klatt_peaks_t;
+
+void KlattInit(void);
+void KlattReset(int control);
+int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
 
 
 #ifdef __cplusplus

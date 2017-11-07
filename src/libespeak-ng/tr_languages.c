@@ -32,6 +32,7 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
@@ -158,19 +159,44 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 // ignore these characters
 static const unsigned short chars_ignore_default[] = {
-	0xad,    1, // soft hyphen
-	0x200c,  1, // zero width non-joiner
-	0x200d,  1, // zero width joiner
-	0, 0
+	// U+00AD SOFT HYPHEN
+	//     Used to mark hyphenation points in words for where to split a
+	//     word at the end of a line to provide readable justified text.
+	0xad,   1,
+	// U+200C ZERO WIDTH NON-JOINER
+	//     Used to prevent combined ligatures being displayed in their
+	//     combined form.
+	0x200c, 1,
+	// U+200D ZERO WIDTH JOINER
+	//     Used to indicate an alternative connected form made up of the
+	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
+	//     and Emoji.
+//	0x200d, 1, // Not ignored.
+	// End of the ignored character list.
+	0,      0
 };
 
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
-	0xad,   1,   // soft hyphen
-	0x640,  1,   // igniore Arabic Tatweel (lang=FA)
-	0x200c, '-', // zero width non-joiner, replace with hyphen
-	0x200d, 1,   // zero width joiner
-	0, 0
+	// U+00AD SOFT HYPHEN
+	//     Used to mark hyphenation points in words for where to split a
+	//     word at the end of a line to provide readable justified text.
+	0xad,   1,
+	// U+0640 TATWEEL (KASHIDA)
+	//     Used in Arabic scripts to stretch characters for justifying
+	//     the text.
+	0x640,  1,
+	// U+200C ZERO WIDTH NON-JOINER
+	//     Used to prevent combined ligatures being displayed in their
+	//     combined form.
+	0x200c, '-',
+	// U+200D ZERO WIDTH JOINER
+	//     Used to indicate an alternative connected form made up of the
+	//     characters surrounding the ZWJ in Devanagari, Kannada, Malayalam
+	//     and Emoji.
+//	0x200d, 1, // Not ignored.
+	// End of the ignored character list.
+	0,      0
 };
 
 const unsigned char utf8_ordinal[] = { 0xc2, 0xba, 0 }; // masculine ordinal character, UTF-8
@@ -387,7 +413,7 @@ static void SetCyrillicLetters(Translator *tr)
 	SetLetterBits(tr, LETTERGP_VOWEL2, (char *)ru_vowels);
 }
 
-void SetIndicLetters(Translator *tr)
+static void SetIndicLetters(Translator *tr)
 {
 	// Set letter types for Indic scripts, Devanagari, Tamill, etc
 	static const char dev_consonants2[] = { 0x02, 0x03, 0x58, 0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e, 0x5f, 0x7b, 0x7c, 0x7e, 0x7f, 0 };
@@ -412,7 +438,7 @@ void SetIndicLetters(Translator *tr)
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d; // virama
 }
 
-void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
+static void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
 {
 	if (lengths != NULL)
 		memcpy(tr->stress_lengths, lengths, sizeof(tr->stress_lengths));

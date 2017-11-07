@@ -74,7 +74,6 @@ extern "C"
 extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
 
-#define N_PEAKS   9
 #define N_PEAKS2  9 // plus Notch and Fill (not yet implemented)
 #define N_MARKERS 8
 
@@ -268,8 +267,8 @@ typedef struct {
 
 // instructions
 
-#define OPCODE_RETURN        0x0001
-#define OPCODE_CONTINUE      0x0002
+#define INSTN_RETURN         0x0001
+#define INSTN_CONTINUE       0x0002
 
 // Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
@@ -453,14 +452,16 @@ extern int wcmdq_head;
 extern int wcmdq_tail;
 
 // from Wavegen file
-int  WcmdqFree();
-void WcmdqStop();
-int  WcmdqUsed();
-void WcmdqInc();
+int  WcmdqFree(void);
+void WcmdqStop(void);
+int  WcmdqUsed(void);
+void WcmdqInc(void);
 void WavegenInit(int rate, int wavemult_fact);
-float polint(float xa[], float ya[], int n, float x);
-int WavegenFill();
+int WavegenFill(void);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
+int GetAmplitude(void);
+void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
+int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
@@ -485,6 +486,7 @@ extern char mbrola_name[20];
 // from synthdata file
 unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
+void FreePhData(void);
 
 unsigned char *LookupEnvelope(int ix);
 espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
@@ -497,10 +499,15 @@ void SetSpeed(int control);
 void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
+int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
 void Write4Bytes(FILE *f, int value);
 int Read4Bytes(FILE *f);
 int Reverse4Bytes(int word);
+
+#if HAVE_SONIC_H
+void DoSonicSpeed(int value);
+#endif
 
 #define ENV_LEN  128    // length of pitch envelopes
 #define PITCHfall   0  // standard pitch envelopes
@@ -544,10 +551,6 @@ unsigned char *GetEnvelope(int index);
 int NumInstnWords(USHORT *prog);
 
 void InitBreath(void);
-
-void KlattInit();
-void KlattReset(int control);
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
 
 #ifdef __cplusplus
 }

@@ -36,6 +36,8 @@ extern "C"
 #define ESPEAK_NG_API
 #endif
 
+#define ESPEAKNG_DEFAULT_VOICE "en"
+
 typedef enum {
 	ENS_GROUP_MASK               = 0x70000000,
 	ENS_GROUP_ERRNO              = 0x00000000, /* Values 0-255 map to errno error codes. */

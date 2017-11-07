@@ -33,14 +33,12 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
 int dictionary_skipwords;
 char dictionary_name[40];
-
-extern void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
-extern char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 // accented characters which indicate (in some languages) the start of a separate syllable
 static const unsigned short diereses_list[7] = { 0xe4, 0xeb, 0xef, 0xf6, 0xfc, 0xff, 0 };
@@ -198,7 +196,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	int *pw;
 	int length;
 	FILE *f;
-	unsigned int size;
+	int size;
 	char fname[sizeof(path_home)+20];
 
 	strncpy(dictionary_name, name, 40); // currently loaded dictionary name
@@ -254,7 +252,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		tr->dict_hashtab[hash] = p;
-		while ((length = *p) != 0)
+		while ((length = *(uint8_t *)p) != 0)
 			p += length;
 		p++; // skip over the zero which terminates the list for this hash value
 	}
@@ -1571,7 +1569,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	int letter_w;         // current letter, wide character
 	int last_letter_w;    // last letter, wide character
 	int letter_xbytes;    // number of extra bytes of multibyte character (num bytes - 1)
-	unsigned char last_letter;
 
 	char *pre_ptr;
 	char *post_ptr;       // pointer to first character after group
@@ -1627,7 +1624,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		unpron_ignore = word_flags & FLAG_UNPRON_TEST;
 		match_type = 0;
 		consumed = 0;
-		letter = 0;
 		letter_w = 0;
 		distance_right = -6; // used to reduce points for matches further away the current letter
 		distance_left = -2;
@@ -1732,7 +1728,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				distance_right += 6;
 				if (distance_right > 18)
 					distance_right = 19;
-				last_letter = letter;
 				last_letter_w = letter_w;
 				letter_xbytes = utf8_in(&letter_w, post_ptr)-1;
 				letter = *post_ptr++;
@@ -1939,7 +1934,6 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				if (distance_left > 18)
 					distance_left = 19;
 
-				last_letter = *pre_ptr;
 				utf8_in(&last_letter_w, pre_ptr);
 				pre_ptr--;
 				letter_xbytes = utf8_in2(&letter_w, pre_ptr, 1)-1;
@@ -2719,7 +2713,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			continue;
 		}
 
-		if ((dictionary_flags2 & FLAG_ATSTART) && !(wtab->flags & FLAG_FIRST_WORD)) {
+		if ((dictionary_flags2 & FLAG_ATSTART) && !(wflags & FLAG_FIRST_WORD)) {
 			// only use this pronunciation if it's the first word of a clause
 			continue;
 		}
@@ -2894,7 +2888,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		found = word2 + len;
 	}
 
-	if (found == 0) {
+	if (found == 0 && length >= 2) {
 		ph_out[0] = 0;
 
 		// try modifications to find a recognised word
@@ -3003,7 +2997,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	int end_flags;
 	const char *p;
 	int len;
-	char ending[50];
+	char ending[50] = {0};
 
 	// these lists are language specific, but are only relevent if the 'e' suffix flag is used
 	static const char *add_e_exceptions[] = {

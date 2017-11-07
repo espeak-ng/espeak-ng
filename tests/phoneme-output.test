@@ -1,0 +1,28 @@
+#!/bin/sh
+
+test_phonemes() {
+	TEST_LANG=$1
+	EXPECTED=$2
+	TEST_TEXT=$3
+
+	echo "testing ${TEST_LANG} \"${TEST_TEXT}\""
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	diff expected.txt actual.txt || exit 1
+}
+
+# word lookup
+test_phonemes en " h@l'oU" "hello"
+
+# correct word stress
+test_phonemes en " s'VmTIN Imp'o@t@nt" "something important"
+
+# spelling rules for suffices (-mas, -mu)
+test_phonemes lv " nev'ie:na no\`_ 'eiRo:pas v'a>lsti:m nek,ad nav p'a:Rga:jusi no\`_ 'univERsa::la:s_:_: no\` visp'aRe:jiem n'uoduok}l^iem f'inansE:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" "Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no visparējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
+
+# Emoji
+
+# ED-3 - emoji_character [http://www.unicode.org/reports/tr51/tr51-12.html#def_emoji_character]
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k" "⁉"
+test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"

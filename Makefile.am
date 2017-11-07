@@ -131,8 +131,7 @@ espeak_ng_includedir = $(includedir)/espeak-ng
 espeak_ng_include_HEADERS = \
 	src/include/espeak-ng/encoding.h \
 	src/include/espeak-ng/espeak_ng.h \
-	src/include/espeak-ng/speak_lib.h \
-	src/include/espeak-ng/tokenizer.h
+	src/include/espeak-ng/speak_lib.h
 
 lib_LTLIBRARIES += src/libespeak-ng.la
 
@@ -171,7 +170,6 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
-	src/libespeak-ng/tokenizer.c \
 	src/libespeak-ng/translate.c \
 	src/libespeak-ng/tr_languages.c \
 	src/libespeak-ng/voices.c \
@@ -233,12 +231,6 @@ noinst_bin_PROGRAMS += tests/encoding.test
 tests_encoding_test_LDADD   = src/libespeak-ng.la
 tests_encoding_test_SOURCES = tests/encoding.c
 
-noinst_bin_PROGRAMS += tests/tokenizer.test
-
-tests_tokenizer_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-tests_tokenizer_test_LDADD   = src/libespeak-ng.la
-tests_tokenizer_test_SOURCES = tests/tokenizer.c
-
 noinst_bin_PROGRAMS += tests/readclause.test
 
 tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
@@ -256,9 +248,9 @@ tests_api_test_SOURCES = tests/api.c
 	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
-	tests/tokenizer.check \
 	tests/readclause.check \
 	tests/api.check \
+	tests/phoneme-output.check \
 	tests/languages.check
 
 ##### phoneme data:
@@ -398,6 +390,7 @@ android/res/raw/espeakdata.zip: espeak-ng-data/phontab dictionaries
 	rm -f $@
 	find espeak-ng-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
 	find espeak-ng-data/*_dict | zip -@ $@
+	find espeak-ng-data/lang -type f | zip -@ $@
 	find espeak-ng-data/voices -type f | grep -vF "/mb/" | zip -@ $@
 
 android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
@@ -672,7 +665,7 @@ mk: espeak-ng-data/mk_dict
 espeak-ng-data/mk_dict: dictsource/mk_list dictsource/mk_rules dictsource/mk_extra dictsource/mk_emoji
 
 ml: espeak-ng-data/ml_dict
-espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
+espeak-ng-data/ml_dict: dictsource/ml_list dictsource/ml_rules dictsource/ml_extra dictsource/ml_emoji
 
 mr: espeak-ng-data/mr_dict
 espeak-ng-data/mr_dict: dictsource/mr_list dictsource/mr_rules dictsource/mr_extra dictsource/mr_emoji
@@ -684,13 +677,13 @@ mt: espeak-ng-data/mt_dict
 espeak-ng-data/mt_dict: dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
 
 my: espeak-ng-data/my_dict
-espeak-ng-data/my_dict: dictsource/my_list dictsource/my_rules dictsource/my_extra
+espeak-ng-data/my_dict: dictsource/my_list dictsource/my_rules dictsource/my_extra dictsource/my_emoji
 
 nci: espeak-ng-data/nci_dict
 espeak-ng-data/nci_dict: dictsource/nci_list dictsource/nci_rules dictsource/nci_extra
 
 ne: espeak-ng-data/ne_dict
-espeak-ng-data/ne_dict: dictsource/ne_list dictsource/ne_rules dictsource/ne_extra
+espeak-ng-data/ne_dict: dictsource/ne_list dictsource/ne_rules dictsource/ne_extra dictsource/ne_emoji
 
 nl: espeak-ng-data/nl_dict
 espeak-ng-data/nl_dict: dictsource/nl_list dictsource/nl_rules dictsource/nl_extra dictsource/nl_emoji
@@ -705,7 +698,7 @@ or: espeak-ng-data/or_dict
 espeak-ng-data/or_dict: dictsource/or_list dictsource/or_rules dictsource/or_extra dictsource/or_emoji
 
 pa: espeak-ng-data/pa_dict
-espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra
+espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_extra dictsource/pa_emoji
 
 pap: espeak-ng-data/pap_dict
 espeak-ng-data/pap_dict: dictsource/pap_list dictsource/pap_rules dictsource/pap_extra
@@ -761,7 +754,7 @@ sw: espeak-ng-data/sw_dict
 espeak-ng-data/sw_dict: dictsource/sw_list dictsource/sw_rules dictsource/sw_extra dictsource/sw_emoji
 
 ta: espeak-ng-data/ta_dict
-espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
+espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_extra dictsource/ta_emoji
 
 te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji

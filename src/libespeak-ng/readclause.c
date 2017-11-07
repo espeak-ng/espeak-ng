@@ -34,12 +34,13 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
+#include <ucd/ucd.h>
 
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 #define N_XML_BUF   500
@@ -89,6 +90,55 @@ PARAM_STACK param_stack[N_PARAM_STACK];
 static int speech_parameters[N_SPEECH_PARAM]; // current values, from param_stack
 int saved_parameters[N_SPEECH_PARAM]; // Parameters saved on synthesis start
 
+#define ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK 0xFFF0000000000000ull
+
+int clause_type_from_codepoint(uint32_t c)
+{
+	ucd_category cat = ucd_lookup_category(c);
+	ucd_property props = ucd_properties(c, cat);
+
+	switch (props & ESPEAKNG_CLAUSE_TYPE_PROPERTY_MASK)
+	{
+	case ESPEAKNG_PROPERTY_FULL_STOP:
+		return CLAUSE_PERIOD;
+	case ESPEAKNG_PROPERTY_FULL_STOP | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+		return CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_QUESTION_MARK:
+		return CLAUSE_QUESTION;
+	case ESPEAKNG_PROPERTY_QUESTION_MARK | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+		return CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_QUESTION_MARK | ESPEAKNG_PROPERTY_PUNCTUATION_IN_WORD:
+		return CLAUSE_QUESTION | CLAUSE_PUNCTUATION_IN_WORD;
+	case ESPEAKNG_PROPERTY_EXCLAMATION_MARK:
+		return CLAUSE_EXCLAMATION;
+	case ESPEAKNG_PROPERTY_EXCLAMATION_MARK | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+		return CLAUSE_EXCLAMATION | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_EXCLAMATION_MARK | ESPEAKNG_PROPERTY_PUNCTUATION_IN_WORD:
+		return CLAUSE_EXCLAMATION | CLAUSE_PUNCTUATION_IN_WORD;
+	case ESPEAKNG_PROPERTY_COMMA:
+		return CLAUSE_COMMA;
+	case ESPEAKNG_PROPERTY_COMMA | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+		return CLAUSE_COMMA | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_COLON:
+		return CLAUSE_COLON;
+	case ESPEAKNG_PROPERTY_COLON | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+		return CLAUSE_COLON | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_SEMI_COLON:
+	case ESPEAKNG_PROPERTY_EXTENDED_DASH:
+		return CLAUSE_SEMICOLON;
+	case ESPEAKNG_PROPERTY_SEMI_COLON | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER:
+	case ESPEAKNG_PROPERTY_QUESTION_MARK | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER | ESPEAKNG_PROPERTY_INVERTED_TERMINAL_PUNCTUATION:
+	case ESPEAKNG_PROPERTY_EXCLAMATION_MARK | ESPEAKNG_PROPERTY_OPTIONAL_SPACE_AFTER | ESPEAKNG_PROPERTY_INVERTED_TERMINAL_PUNCTUATION:
+		return CLAUSE_SEMICOLON | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_ELLIPSIS:
+		return CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER;
+	case ESPEAKNG_PROPERTY_PARAGRAPH_SEPARATOR:
+		return CLAUSE_PARAGRAPH;
+	}
+
+	return CLAUSE_NONE;
+}
+
 const int param_defaults[N_SPEECH_PARAM] = {
 	0,   // silence (internal use)
 	175, // rate wpm
@@ -113,7 +163,7 @@ int towlower2(unsigned int c)
 	if (c == 'I' && translator->langopts.dotless_i)
 		return 0x131; // I -> ı
 
-	return towlower(c);
+	return ucd_tolower(c);
 }
 
 static int IsRomanU(unsigned int c)
@@ -134,7 +184,6 @@ int Eof(void)
 static int GetC(void)
 {
 	int c1;
-	static int ungot2 = 0;
 
 	if ((c1 = ungot_char) != 0) {
 		ungot_char = 0;
@@ -792,7 +841,7 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 
 	while (IsDigit09(*pw))
 		value = value*10 + *pw++ - '0';
-	if ((type == 1) && (towlower(*pw) == 's')) {
+	if ((type == 1) && (ucd_tolower(*pw) == 's')) {
 		// time: seconds rather than ms
 		value *= 1000;
 	}
@@ -869,7 +918,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-int AddNameData(const char *name, int wide)
+static int AddNameData(const char *name, int wide)
 {
 	// Add the name to the namedata and return its position
 	// (Used by the Windows SAPI wrapper)

@@ -29,7 +29,7 @@ n	&n
 o	o:
 ö	Y:
 p	pe:
-q	ku:
+q	qu:
 r	&r
 s	&s
 t	te:
@@ -370,22 +370,40 @@ yogurt     jogurt:i
 
 // Abbreviations
 
+(à la)     'ala       $dot    // jonka mukaan
 abc        $abbrev
 adhd       $abbrev
-os         $abbrev    $dot
 ad         $abbrev    $dot    // anno Domini, Herran vuonna
+atk        $abbrev
+ay         $abbrev    // ammaatiyhdistys
 ca         $abbrev    $dot    // circa 
+dna        $abbrev    // elinkeinoelämän keskusliitto
+eg         esimerkiksi $dot   // exempli gratia, esimerkiksi
 em         $abbrev    $dot 
+ek         $abbrev    // elinkeinoelämän keskusliitto
 ekr        $abbrev    $dot    // ennen Kristuksen syntymää
 etc        et_setera  $dot    // et cetera, ym., jne.
-ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
-eg         esimerkiksi $dot   // exempli gratia, esimerkiksi
+eu         $abbrev
+hiv        $abbrev
+ict        $abbrev
+isbn       $abbrev
+it         $abbrev
 jne        $abbrev    $dot    // ja niin edelleen
-(à la)     'ala       $dot    // jonka mukaan
 ky         $abbrev    $dot    // kommandiittiyhtiö
-oy         $abbrev            // osakeyhtiö 
 nro        numero     $dot
+nvda       $abbrev
+os         $abbrev    $dot
+oy         $abbrev            // osakeyhtiö 
+ry         $abbrev    $dot    // rekisteröity yhdistys
+usb        $abbrev
+utf        $abbrev
+ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
 
-
-
-
+// foreign words
+blindsquare     _^_EN
+bluetooth     _^_EN
+daisy     _^_EN
+facebook    _^_EN
+talkback     _^_EN
+voiceover     _^_EN
+youtube     _^_EN

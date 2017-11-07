@@ -49,11 +49,11 @@ The following platforms are supported:
 
 ### Binaries
 
-The Windows version of eSpeak NG 1.49.1 is available as:
+The Windows version of eSpeak NG 1.49.2 is available as:
 
-*  [espeak-ng-x64.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.1/espeak-ng-x64.msi) --
+*  [espeak-ng-x64.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x64.msi) --
    64-bit Windows installer
-*  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.1/espeak-ng-x86.msi) --
+*  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x86.msi) --
    32-bit Windows installer
 
 You also need to install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
@@ -69,7 +69,7 @@ To build eSpeak NG on Windows, you will need:
 1. a copy of Visual Studio 2013 or later, such as the Community Edition;
 2. the Windows 8.1 SDK;
 3. the [WiX installer](http://wixtoolset.org) plugin;
-4. the [pcaudiolib](http://github.com/rhdunn/pcaudiolib) project checked out to
+4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
    `src` (as `src/pcaudiolib`).
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
@@ -104,9 +104,9 @@ In order to build eSpeak NG, you need:
 
 Optionally, you need:
 
-1.  the [pcaudiolib](https://github.com/rhdunn/pcaudiolib) development library
+1.  the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) development library
     to enable audio output;
-3.  the [sonic](https://github.com/waywardgeek/sonic) development library to
+3.  the [sonic](https://github.com/espeak-ng/sonic) development library to
     enable sonic audio speed up support;
 4.  the `ronn` man-page markdown processor to build the man pages.
 
@@ -391,8 +391,8 @@ The `ieee80.c` implementation is taken directly from
 [ToFromIEEE.c.txt](http://www.realitypixels.com/turk/opensource/ToFromIEEE.c.txt)
 which has been made available for use in Open Source applications per the
 [license statement](COPYING.IEEE) on http://www.realitypixels.com/turk/opensource/.
-The only modification made to the code is to comment out the `TEST_FP` define
-to make it useable in the eSpeak NG library.
+The only modifications made to the code is to comment out the `TEST_FP` define
+to make it useable in the eSpeak NG library, and to fix compiler warnings.
 
 The `getopt.c` compatibility implementation for getopt support on Windows is
 taken from the NetBSD `getopt_long` implementation, which is licensed under a

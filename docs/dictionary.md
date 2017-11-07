@@ -55,9 +55,9 @@ The utility 'phonemes' are:
 | `=`    | put the primary stress on the preceding syllable |
 | `_:`   | short pause |
 | `_`    | a shorter pause |
-| `||`   | indicates a word boundary within a phoneme string |
-| `|`    | can be used to separate two adjacent characters, to prevent them from being considered as a multi-character phoneme mnemonic |
- 
+| <code>&#124;</code>  | indicates a word boundary within a phoneme string |
+| <code>&#124;&#124;</code>    | can be used to separate two adjacent characters, to prevent them from being considered as a multi-character phoneme mnemonic |
+
 It is not necessary to specify the stress of every syllable. Stress
 markers are only needed in order to change the effect of the language's
 default stress rule.

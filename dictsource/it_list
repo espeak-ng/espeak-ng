@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017 april 28 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2017  october 3 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -102,6 +102,10 @@ _<	min'oRe||d'I
 _>	madZ:'oRe||d'I
 _〈	ap'E@-*ta||,angol'aRe
 _〉	kj'uza||,angol'aRe
+_〈	ap'E@-*ta||angol'ata
+_〉	kj'uza||angol'ata
+_【	ap'E@-*ta||lentikol'aRe
+_】	kj'uza||lentikol'aRe
 *	aste@-*'isko $max3
 $	d'Ol:aRI
 %	pe@-*tS'ENto $max3
@@ -111,7 +115,6 @@ $	d'Ol:aRI
 \	kont@-*ob'a:R*a	$max3
 _|	b'aR*a||ve@-*tik'ale
 &	'a/nd
-©       k'O:pi||raIt
 #	kantSellet:o
 @	ki'otS:ola
 ~	tilde
@@ -137,7 +140,6 @@ _‡	k@-*'otSe||lat'ina||d'Op:ia
 _′	p@-*'imi
 _″	d'Op:io||'apitSe
 _‴	t@-*'iplo||'apitSe
-_‼	esklamatsi'One
 §	setsi'One
 ¶	pa*'ag@-*afo
 _‐	legat'u:Ra
@@ -150,6 +152,8 @@ _‑	t@-*at:,ino||duni'one
 ʔ	glotalst'Op
 ɡ	dZ'i||vel'aRe||ok:luz'iva   // U+0261
 ɣ	g'am:a||min'uskola  // U+0263 voiced velar fricative
+ß	'esse||ak'uta
+ɑ	'alfa
 
 _‣	punt'ato
 ◦	punt'ato
@@ -159,8 +163,6 @@ _‣	punt'ato
 ↓	f@-*'etS:a||_dZ'u
 ♭	bem'Ol:e
 ♯	dI'ezis
-♥	'asso||di||kw'ORI
-❓	p'unto||inteR*ogat'ivo
 _‧	sepaRat'oRe/
 
 ∞	infin'Ito
@@ -787,6 +789,7 @@ black	bl'E:k
 blackout	bl'Ek'aUt
 blind	bl'aInd $onlys
 blues	bl'u:z
+bluff	bl'ef:	$only
 boiler	$1
 bonjour	b,O:_Z'u:r
 brioche	b@-*I'oS
@@ -1020,7 +1023,7 @@ logging	l'Oging
 lord	$alt $only
 love	l'O:v $onlys
 lover	$1
-manche	m'a:nS $only
+manche	m'a:nS $onlys
 my	_^_EN
 myspace	m'aI||sp'Eis
 machine	maS'in	$onlys
@@ -2381,6 +2384,7 @@ ivano	$2
 jace	_^_en $only
 jack	dZ'E:k
 jackson	_^_EN
+jefferson	$1
 jacopo	j'a:kopo
 james	_^_EN
 jane	_^_EN
@@ -2477,6 +2481,7 @@ paul	p'O:l	$only
 peggy	p'Eg:I
 pericle $1
 peter	$1 $onlys
+peterson	p'Ete@-*s,on
 pettarin	$3 $only
 peugeot	p,EZ'o
 piquet	pik'E $only
@@ -3206,6 +3211,7 @@ distino	$1
 distintesi	$2
 disturbano	$2
 disturbino	$2
+dissuadere	dissuad'eRe
 divaghino	$2
 divaricano	$2
 diventino	$2
@@ -4330,6 +4336,7 @@ situino	$1
 sloggiano	$1
 smagnetizzino	$3
 smascher	$1
+smascherano	$1
 smercino	$1
 sniffano	$1
 snodano	$1
@@ -4673,6 +4680,8 @@ zuccherano	$1
 (quando capita)	kw'ando||k'apita
 (se capita)	se||k'a:pita
 (me capita)	me||k'apita
+(cosa capita)	k'oza||k'a:pita
+(come capita)	k'ome||k'a:pita
 (capitano tutte)	k'apitano||t'ut:e
 (che capitano)	ke||k'apitano
 (quando capitano)	kw'ando||k'a:pitano
@@ -4775,6 +4784,7 @@ espellerl	$2
 esprimiti	$2
 evolverci	$2
 evolversi	$2
+facendomici	fatS'endom,itSi
 fammel	$1
 fattel	f'at:el
 fattoci	$1
@@ -4825,7 +4835,6 @@ orientaci	$3
 pensaci	$1
 perdonatel	$3
 permettigli	$2
-pervenutaci	$3
 pizzical	$1
 pizzicami	$1
 portala	$1
@@ -4841,7 +4850,6 @@ pulisciti	$2
 redigerl	$2
 raddrizzarl	@-*ad:@-*its2:'a@-*l
 rafforzal	$2
-regalaci	$2
 regalati	$2	$atstart
 regalavi	$3
 reinseritasi	$4

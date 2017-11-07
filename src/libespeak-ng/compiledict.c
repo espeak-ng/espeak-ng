@@ -35,11 +35,11 @@
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
 extern void Write4Bytes(FILE *f, int value);
-int HashDictionary(const char *string);
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
@@ -52,8 +52,15 @@ static int text_mode = 0;
 static int debug_flag = 0;
 static int error_need_dictionary = 0;
 
-static int hash_counts[N_HASH_DICT];
+// A hash chain is a linked-list of hash chain entry objects:
+//     struct hash_chain_entry {
+//         hash_chain_entry *next_entry;
+//         // dict_line output from compile_line:
+//         uint8_t length;
+//         char contents[length];
+//     };
 static char *hash_chains[N_HASH_DICT];
+
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
@@ -163,16 +170,6 @@ typedef struct {
 	unsigned int length;
 	int group3_ix;
 } RGROUP;
-
-int isspace2(unsigned int c)
-{
-	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
-	int c2;
-
-	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
-		return 0;
-	return 1;
-}
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
 {
@@ -411,8 +408,8 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 
 	step = LINE_PARSER_WORD;
 
-	c = 0;
-	while (c != '\n') {
+	c = *p;
+	while (c != '\n' && c != '\0') {
 		c = *p;
 
 		if ((c == '?') && (step == 0)) {
@@ -649,7 +646,7 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 			length += ix;
 		}
 	}
-	dict_line[0] = length;
+	*((uint8_t *)dict_line) = (uint8_t)length;
 
 	return length;
 }
@@ -669,7 +666,6 @@ static void compile_dictlist_start(void)
 			p = p2;
 		}
 		hash_chains[ix] = NULL;
-		hash_counts[ix] = 0;
 	}
 }
 
@@ -682,10 +678,9 @@ static void compile_dictlist_end(FILE *f_out)
 
 	for (hash = 0; hash < N_HASH_DICT; hash++) {
 		p = hash_chains[hash];
-		hash_counts[hash] = (int)ftell(f_out);
 
 		while (p != NULL) {
-			length = *(p+sizeof(char *));
+			length = *(uint8_t *)(p+sizeof(char *));
 			fwrite(p+sizeof(char *), length, 1, f_out);
 			memcpy(&p, p, sizeof(char *));
 		}
@@ -702,7 +697,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 	FILE *f_in;
 	char buf[200];
 	char fname[sizeof(path_home)+45];
-	char dict_line[200];
+	char dict_line[256]; // length is uint8_t, so an entry can't take up more than 256 bytes
 
 	text_mode = 0;
 
@@ -725,8 +720,6 @@ static int compile_dictlist_file(const char *path, const char *filename)
 		length = compile_line(buf, dict_line, sizeof(dict_line), &hash);
 		if (length == 0)  continue; // blank line
 
-		hash_counts[hash]++;
-
 		p = (char *)malloc(length+sizeof(char *));
 		if (p == NULL) {
 			if (f_log != NULL) {
@@ -738,6 +731,7 @@ static int compile_dictlist_file(const char *path, const char *filename)
 
 		memcpy(p, &hash_chains[hash], sizeof(char *));
 		hash_chains[hash] = p;
+		// NOTE: dict_line[0] is the entry length (0-255)
 		memcpy(p+sizeof(char *), dict_line, length);
 		count++;
 	}
@@ -758,7 +752,7 @@ static int group3_ix;
 
 #define N_RULES 3000 // max rules for each group
 
-int isHexDigit(int c)
+static int isHexDigit(int c)
 {
 	if ((c >= '0') && (c <= '9'))
 		return c - '0';
@@ -1165,7 +1159,7 @@ static char *compile_rule(char *input)
 	return prule;
 }
 
-int __cdecl string_sorter(char **a, char **b)
+static int __cdecl string_sorter(char **a, char **b)
 {
 	char *pa, *pb;
 	int ix;

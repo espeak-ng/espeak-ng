@@ -33,8 +33,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 Translator *translator = NULL; // the main translator
@@ -254,7 +254,7 @@ int IsDigit(unsigned int c)
 	return 0;
 }
 
-int IsSpace(unsigned int c)
+static int IsSpace(unsigned int c)
 {
 	if (c == 0)
 		return 0;
@@ -263,6 +263,16 @@ int IsSpace(unsigned int c)
 	if ((c >= 0xfff9) && (c <= 0xffff))
 		return 1; // unicode specials
 	return iswspace(c);
+}
+
+int isspace2(unsigned int c)
+{
+	// can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
+	int c2;
+
+	if (((c2 = (c & 0xff)) == 0) || (c > ' '))
+		return 0;
+	return 1;
 }
 
 void DeleteTranslator(Translator *tr)
@@ -388,23 +398,46 @@ int utf8_in(int *c, const char *buf)
 }
 #pragma GCC visibility pop
 
+int utf8_out(unsigned int c, char *buf)
+{
+	// write a unicode character into a buffer as utf8
+	// returns the number of bytes written
+
+	int n_bytes;
+	int j;
+	int shift;
+	static char unsigned code[4] = { 0, 0xc0, 0xe0, 0xf0 };
+
+	if (c < 0x80) {
+		buf[0] = c;
+		return 1;
+	}
+	if (c >= 0x110000) {
+		buf[0] = ' '; // out of range character code
+		return 1;
+	}
+	if (c < 0x0800)
+		n_bytes = 1;
+	else if (c < 0x10000)
+		n_bytes = 2;
+	else
+		n_bytes = 3;
+
+	shift = 6*n_bytes;
+	buf[0] = code[n_bytes] | (c >> shift);
+	for (j = 0; j < n_bytes; j++) {
+		shift -= 6;
+		buf[j+1] = 0x80 + ((c >> shift) & 0x3f);
+	}
+	return n_bytes+1;
+}
+
 char *strchr_w(const char *s, int c)
 {
 	// return NULL for any non-ascii character
 	if (c >= 0x80)
 		return NULL;
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
-}
-
-int IsAllUpper(const char *word)
-{
-	int c;
-	while ((*word != 0) && !isspace2(*word)) {
-		word += utf8_in(&c, word);
-		if (!iswupper(c))
-			return 0;
-	}
-	return 1;
 }
 
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
@@ -525,7 +558,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	int more_suffixes;
 	int confirm_prefix;
 	int spell_word;
-	int stress_bits;
 	int emphasize_allcaps = 0;
 	int wflags;
 	int wmark;
@@ -1139,7 +1171,7 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 		char word[N_WORD_BYTES+1];
 		word[0] = 0;
 		word[1] = ' ';
-		memcpy(word+2, word_out, strlen(word_out));
+		strcpy(word+2, word_out);
 		word_out = word+2;
 
 		while (*word_out && available > 1) {
@@ -1195,7 +1227,7 @@ static int CountSyllables(unsigned char *phonemes)
 	return count;
 }
 
-void Word_EmbeddedCmd()
+static void Word_EmbeddedCmd()
 {
 	// Process embedded commands for emphasis, sayas, and break
 	int embedded_cmd;
@@ -1791,13 +1823,13 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		// don't convert the case of the second character unless the next letter is also upper case
 		c2 = new_c >> 16;
 		if (upper_case && iswupper(next_in))
-			c2 = towupper(c2);
+			c2 = ucd_toupper(c2);
 		*insert = c2;
 		new_c &= 0xffff;
 	}
 
 	if (upper_case)
-		new_c = towupper(new_c);
+		new_c = ucd_toupper(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	return new_c;
@@ -1874,7 +1906,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
 
-int UpperCaseInWord(Translator *tr, char *word, int c)
+static int UpperCaseInWord(Translator *tr, char *word, int c)
 {
 	int ix;
 	int len;

@@ -33,14 +33,13 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "voice.h"
 
 #ifdef INCLUDE_MBROLA
 
 extern int Read4Bytes(FILE *f);
-extern void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
 extern unsigned char *outbuf;
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -573,16 +572,25 @@ void MbrolaReset(void)
 
 espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate)
 {
+	(void)mbrola_voice; // unused parameter
+	(void)phtrans; // unused parameter
+	(void)srate; // unused parameter
 	return ENS_NOT_SUPPORTED;
 }
 
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {
+	(void)phoneme_list; // unused parameter
+	(void)n_ph; // unused parameter
+	(void)resume; // unused parameter
 	return 0;
 }
 
 int MbrolaFill(int length, int resume, int amplitude)
 {
+	(void)length; // unused parameter
+	(void)resume; // unused parameter
+	(void)amplitude; // unused parameter
 	return 0;
 }
 

@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([eSpeak NG], [1.49.2-dev], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
+AC_INIT([eSpeak NG], [1.49.3-dev], [https://github.com/espeak-ng/espeak-ng/issues], [espeak-ng], [https://github.com/espeak-ng/espeak-ng])
 AM_INIT_AUTOMAKE()
 LT_INIT
 
@@ -81,6 +81,23 @@ elif test "$have_c99_native" = yes ; then
 else
 	AC_MSG_RESULT([no])
 	AC_MSG_ERROR([C99 is not supported by $CC.])
+fi
+
+dnl ================================================================
+dnl FreeBSD check.
+dnl ================================================================
+AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
+		   #if ! defined(__FreeBSD__)
+		   #error macro not defined
+		   #endif
+		   ]])], [FREEBSD_FOUND="yes"], [FREEBSD_FOUND="no"])
+
+AC_MSG_CHECKING([if targeting FreeBSD])
+if test "$FREEBSD_FOUND" = "yes" ; then
+	AC_MSG_RESULT([-D__BSD_VISIBLE])
+	CFLAGS="$CFLAGS -D__BSD_VISIBLE"
+else
+	AC_MSG_RESULT([no])
 fi
 
 dnl ================================================================
@@ -251,6 +268,19 @@ fi
 AM_CONDITIONAL(HAVE_RU_EXTENDED_DICTIONARY,  [test x"$have_extdict_ru"  = xyes])
 AM_CONDITIONAL(HAVE_ZH_EXTENDED_DICTIONARY,  [test x"$have_extdict_zh"  = xyes])
 AM_CONDITIONAL(HAVE_ZHY_EXTENDED_DICTIONARY, [test x"$have_extdict_zhy" = xyes])
+
+dnl ================================================================
+dnl Compiler warnings.
+dnl
+dnl Reference: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+dnl ================================================================
+
+AX_CHECK_COMPILE_FLAG([-Wimplicit],              [CFLAGS="-Wimplicit $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wmissing-prototypes],    [CFLAGS="-Wmissing-prototypes $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
+AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
 
 dnl ================================================================
 dnl Generate output.

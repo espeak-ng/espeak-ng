@@ -1047,6 +1047,7 @@ autocracy	O:t'0kr@si
 automobile	O:t@m@bi@l
 automaton	O:t'0m@t@n
 autopsy		O:t20psi
+?3 aurora	$2
 avalanche	av@laanS
 avast		$alt3
 avatar		ava#tA@
@@ -1668,7 +1669,7 @@ derogative	$2
 descant		dEskant
 descry		dI#skreI
 desert		dI#z3:t
-desert		dEz3t		$only
+desert		dEz3t		$onlys
 desert		dI#z3:t		$verb
 desi		deIsi
 desolate	dEs@l@t		$only
@@ -2228,7 +2229,7 @@ idevice		$alt6
 idly		aIdlI
 idiocy		IdI@si
 ifrog		$alt6
-ignoramus	Igno@r'eIm@s
+ignoramus	IgnO@r'eIm@s
 illiterate	$alt2
 illumine	$alt2
 imagery		ImIdZri
@@ -2716,6 +2717,7 @@ nonsense	n0ns@ns
 nonetheless	nVnD@l'Es
 nosedive	noUzdaIv
 nosir		noUs3:
+?5 nosir	noUsIR
 not		noUt          // for noted, notable, etc 
 nots		n0ts
 (nôtre dame)	noUtr@'dA:m
@@ -3420,7 +3422,7 @@ sincerest	sIns'i@r@st
 sinus		saIn@s
 siphon		$alt2
 sir		s,3: $only
-?5 sir		s,VR $only
+?5 sir		s,IR $only
 siren		saIr@n
 site		saIt          // for sited
 ski		ski:
@@ -3455,12 +3457,13 @@ sommelier	s0m'Eli@
 son		sVn
 sonar		soUnA@
 sonny		sVnI
+sooth		su:T	$only
+sopapilla	soUp@p'i:@
 sope		soUpeI
+sorbet		sO@beI
 souffle		su:fl'eI
 soundbite	saUndbaIt
 souvenir	su:v@n'i@3
-sopapilla	soUp@p'i:@
-sorbet		sO@beI
 soyabean	sOI@bi:n
 specific	sp@sIfIk
 specimen	spEsI2m@n
@@ -3568,7 +3571,6 @@ tallyho		talI'hoU
 tamale		ta#mA:li
 tampon		tamp0n
 tangerine	tandZ@r'i:n
-taoiseach	ti:S@x
 tapestry	tapI#stri
 tarantula	t@rantS@l@
 tardis		$alt1
@@ -3913,6 +3915,7 @@ yer		j3	$u+
 ye		ji:	$u+
 yea		jeI
 yessir		jEss3:
+?5 yessir	jEssIR
 yoghurt		j0g3t
 ?3 yoghurt	joUg3t
 ?3 yogurt	joUg3t
@@ -4042,6 +4045,7 @@ Assam		A:s'A:m
 Assamese	A:sA:m'i:z
 Audubon		O:d@b0n
 Augusta		$2
+Austen		O2stI2n
 Baghdad		$2
 Bahawalpur	$alt3
 Bahia		ba'i:@
@@ -4546,8 +4550,6 @@ Annise		a#ni:s
 ?!3 Anthony	ant@ni
 Anton		ant0n
 Anya		anj@
-Aoife		i:f@
-Aoiffe		i:f@
 Aphrodite	afr@d'aIti
 Archibald	A@tSIbO:ld
 Archie		A@tSi
@@ -4898,7 +4900,6 @@ Sabine		sa#b'i:n
 Salman		sa#lmA:n
 Samantha	sa#manT@
 (Santa claus)	s'ant@||kl'O:z
-Saoirse		si@S@
 Sarah		se@r@
 Sarisa		$alt3
 Seamus		SeIm@s
@@ -4912,8 +4913,8 @@ Sheila		Si:l@
 Simon		saIm@n
 Sinead		SI2neId
 Sinéad		SI2neId
-Siobhan		S@vO:n
-Siobhán		S@vO:n
+Siobhan		SI2vO:n
+Siobhán		SI2vO:n
 Sonia		s0nj@
 Sophia		soUf'i@
 Sophie		soUfi

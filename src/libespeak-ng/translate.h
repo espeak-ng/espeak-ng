@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015 Reece H. Dunn
+ * Copyright (C) 2015-2017 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -706,10 +706,15 @@ extern void SetLengthMods(Translator *tr, int value);
 
 void LoadConfig(void);
 int TransposeAlphabet(Translator *tr, char *text);
+
+#define LEADING_2_BITS 0xC0 // 0b11000000
+#define UTF8_TAIL_BITS 0x80 // 0b10000000
+
 ESPEAK_NG_API int utf8_in(int *c, const char *buf);
 int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int utf8_nbytes(const char *buf);
+
 int lookupwchar(const unsigned short *list, int c);
 int lookupwchar2(const unsigned short *list, int c);
 int Eof(void);
@@ -747,6 +752,10 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
 
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
+int HashDictionary(const char *string);
+
+void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
+char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);

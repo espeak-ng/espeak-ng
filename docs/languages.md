@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The supported languages are:
+The 100 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -75,6 +75,7 @@ The supported languages are:
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova          |                        |
 | `bat`       | `lt`              | Baltic                | Lithuanian                  |                        |
 | `art`       | `jbo`             | Constructed           | Lojban                      |                        |
+| `poz`       | `mi`              | Malayo-Polynesian     | Māori                       |                        |
 | `zls`       | `mk`              | South Slavic          | Macedonian                  |                        |
 | `poz`       | `ms`              | Malayo-Polynesian     | Malay                       |                        |
 | `dra`       | `ml`              | Dravidian             | Malayalam                   |                        |

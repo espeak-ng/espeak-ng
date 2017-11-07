@@ -165,13 +165,16 @@
 
 
 .group q
-          q          k
-          qq         k:
+          q          q
+          qq         q:
 
 
 .group r
           r          r
-
+      CA) rg (_      Rj // follow swedish pronunciation 
+     _CA) rg (C     Rj  // follow swedish pronunciation 
+          ruoan      ru:an      // Pronounce ruoan as ruuan. Include all inflections and compound words.
+                               // eg. ruoanlaitto, ruoankin, arkiruoan
 
 .group s
           s          s
@@ -197,9 +200,9 @@
 .group u
           u          u
           uu         u:
-          ui         wi
-       _) ui         ui   
-      _j) ui         ui   // [ui] sounds better than [wi] when stressed. Especially <jui> at the beginning of the word sounds bad if pronounced [jwi]
+          ui         ui
+//       _) ui         ui   
+//      _j) ui         ui   // [ui] sounds better than [wi] when stressed. Especially <jui> at the beginning of the word sounds bad if pronounced [jwi]
           uii        u|i:
           uo         uo
           uoo        u|o:

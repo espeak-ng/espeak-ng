@@ -251,11 +251,12 @@ $	duulaar
 كغم		kiluu||gHraam 
 طن		t[un
 كم		kiiluu||mitar
-سا 		saaAa 
-م		mitar
-س		su?aal
-ج		dZawaab	
-ص		s[afHah
+سا 		saaAa
+// Units below conflict with single letter name
+// م		mitar 
+// س		su?aal
+// ج		dZawaab	
+// ص		s[afHah
 // العملات
 د.ج     diinaar||dZazaa?irij
 $	    duulaar

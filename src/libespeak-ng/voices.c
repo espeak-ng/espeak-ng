@@ -40,8 +40,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 
 MNEM_TAB genders[] = {
@@ -474,18 +474,6 @@ static int Read8Numbers(char *data_in, int *data)
 	              &data[0], &data[1], &data[2], &data[3], &data[4], &data[5], &data[6], &data[7]);
 }
 
-static unsigned int StringToWord2(const char *string)
-{
-	// Convert a language name string to a word such as L('e','n')
-	int ix;
-	int c;
-	unsigned int value = 0;
-
-	for (ix = 0; (ix < 4) && ((c = string[ix]) != 0); ix++)
-		value = (value << 8) | (c & 0xff);
-	return value;
-}
-
 voice_t *LoadVoice(const char *vname, int control)
 {
 	// control, bit 0  1= no_default
@@ -544,7 +532,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			return NULL;
 	} else {
 		if (voicename[0] == 0)
-			strcpy(voicename, "en");
+			strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
 		sprintf(path_voices, "%s%cvoices%c", path_home, PATHSEP, PATHSEP);
 		sprintf(buf, "%s%s", path_voices, voicename); // look in the main voices directory
@@ -705,47 +693,57 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 		case V_INTONATION: // intonation
 			sscanf(p, "%d %d", &option_tone_flags, &option_tone2);
-			if ((option_tone_flags & 0xff) != 0)
-				langopts->intonation_group = option_tone_flags & 0xff;
+			if ((option_tone_flags & 0xff) != 0) {
+				if (langopts)
+					langopts->intonation_group = option_tone_flags & 0xff;
+				else
+					fprintf(stderr, "Cannot set intonation: language not set, or is invalid.\n");
+			}
 			break;
 		case V_TUNES:
 			n = sscanf(p, "%s %s %s %s %s %s", names[0], names[1], names[2], names[3], names[4], names[5]);
-			langopts->intonation_group = 0;
-			for (ix = 0; ix < n; ix++) {
-				if (strcmp(names[ix], "NULL") == 0)
-					continue;
+			if (langopts) {
+				langopts->intonation_group = 0;
+				for (ix = 0; ix < n; ix++) {
+					if (strcmp(names[ix], "NULL") == 0)
+						continue;
 
-				if ((value = LookupTune(names[ix])) < 0)
-					fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
-				else
-					langopts->tunes[ix] = value;
-			}
+					if ((value = LookupTune(names[ix])) < 0)
+						fprintf(stderr, "Unknown tune '%s'\n", names[ix]);
+					else
+						langopts->tunes[ix] = value;
+				}
+			} else
+				fprintf(stderr, "Cannot set tunes: language not set, or is invalid.\n");
 			break;
 		case V_DICTRULES: // conditional dictionary rules and list entries
 		case V_NUMBERS:
 		case V_STRESSOPT:
-			// expect a list of numbers
-			while (*p != 0) {
-				while (isspace(*p)) p++;
-				if ((n = atoi(p)) > 0) {
-					p++;
-					if (n < 32) {
-						if (key == V_DICTRULES)
-							conditional_rules |= (1 << n);
-						else if (key == V_NUMBERS)
-							langopts->numbers |= (1 << n);
-						else if (key == V_STRESSOPT)
-							langopts->stress_flags |= (1 << n);
-					} else {
-						if ((key == V_NUMBERS) && (n < 64))
-							langopts->numbers2 |= (1 << (n-32));
-						else
-							fprintf(stderr, "Bad option number %d\n", n);
+			if (langopts) {
+				// expect a list of numbers
+				while (*p != 0) {
+					while (isspace(*p)) p++;
+					if ((n = atoi(p)) > 0) {
+						p++;
+						if (n < 32) {
+							if (key == V_DICTRULES)
+								conditional_rules |= (1 << n);
+							else if (key == V_NUMBERS)
+								langopts->numbers |= (1 << n);
+							else if (key == V_STRESSOPT)
+								langopts->stress_flags |= (1 << n);
+						} else {
+							if ((key == V_NUMBERS) && (n < 64))
+								langopts->numbers2 |= (1 << (n-32));
+							else
+								fprintf(stderr, "Bad option number %d\n", n);
+						}
 					}
+					while (isalnum(*p)) p++;
 				}
-				while (isalnum(*p)) p++;
-			}
-			ProcessLanguageOptions(langopts);
+				ProcessLanguageOptions(langopts);
+			} else
+				fprintf(stderr, "Cannot set stressopt: language not set, or is invalid.\n");
 			break;
 		case V_REPLACE:
 			if (phonemes_set == 0) {
@@ -756,22 +754,31 @@ voice_t *LoadVoice(const char *vname, int control)
 			PhonemeReplacement(p);
 			break;
 		case V_WORDGAP: // words
-			sscanf(p, "%d %d", &langopts->word_gap, &langopts->vowel_pause);
+			if (langopts)
+				sscanf(p, "%d %d", &langopts->word_gap, &langopts->vowel_pause);
+			else
+				fprintf(stderr, "Cannot set wordgap: language not set, or is invalid.\n");
 			break;
 		case V_STRESSRULE:
-			sscanf(p, "%d %d %d %d", &langopts->stress_rule,
-			       &langopts->stress_flags,
-			       &langopts->unstressed_wd1,
-			       &langopts->unstressed_wd2);
+			if (langopts)
+				sscanf(p, "%d %d %d %d", &langopts->stress_rule,
+				       &langopts->stress_flags,
+				       &langopts->unstressed_wd1,
+				       &langopts->unstressed_wd2);
+			else
+				fprintf(stderr, "Cannot set stressrule: language not set, or is invalid.\n");
 			break;
 		case V_OPTION:
-			value2 = 0;
-			if (((sscanf(p, "%s %d %d", option_name, &value, &value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0)) ||
-			    ((sscanf(p, "%d %d %d", &ix, &value, &value2) >= 2) && (ix < N_LOPTS))) {
-				langopts->param[ix] = value;
-				langopts->param2[ix] = value2;
+			if (langopts) {
+				value2 = 0;
+				if (((sscanf(p, "%s %d %d", option_name, &value, &value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0)) ||
+				    ((sscanf(p, "%d %d %d", &ix, &value, &value2) >= 2) && (ix < N_LOPTS))) {
+					langopts->param[ix] = value;
+					langopts->param2[ix] = value2;
+				} else
+					fprintf(stderr, "Bad voice option: %s %s\n", buf, p);
 			} else
-				fprintf(stderr, "Bad voice option: %s %s\n", buf, p);
+				fprintf(stderr, "Cannot set option: language not set, or is invalid.\n");
 			break;
 		case V_ECHO:
 			// echo.  suggest: 135mS  11%
@@ -852,9 +859,12 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_STATUS:
 			break;
 		default:
-			if ((key & 0xff00) == 0x100)
-				sscanf(p, "%d", &langopts->param[key &0xff]);
-			else
+			if ((key & 0xff00) == 0x100) {
+				if (langopts)
+					sscanf(p, "%d", &langopts->param[key &0xff]);
+				else
+					fprintf(stderr, "Cannot set voice attribute: language not set, or is invalid.\n");
+			} else
 				fprintf(stderr, "Bad voice attribute: %s\n", buf);
 			break;
 		}
@@ -1272,7 +1282,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 		if (voice_select2.name == NULL) {
 			if ((voice_select2.name = voice_select2.identifier) == NULL)
-				voice_select2.name = "default";
+				voice_select2.name = ESPEAKNG_DEFAULT_VOICE;
 		}
 
 		strncpy0(buf, voice_select2.name, sizeof(buf));
@@ -1299,7 +1309,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	if (nv == 0) {
 		// no matching voice, choose the default
 		*found = 0;
-		if ((voices[0] = SelectVoiceByName(voices_list, "default")) != NULL)
+		if ((voices[0] = SelectVoiceByName(voices_list, ESPEAKNG_DEFAULT_VOICE)) != NULL)
 			nv = 1;
 	}
 

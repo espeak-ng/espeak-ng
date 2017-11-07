@@ -50,8 +50,8 @@
 
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "translate.h"
 #include "espeak_command.h"
 #include "fifo.h"
@@ -400,7 +400,7 @@ static espeak_ng_STATUS Synthesize(unsigned int unique_identifier, const void *t
 
 	espeak_ng_STATUS status;
 	if (translator == NULL) {
-		status = espeak_SetVoiceByName("en");
+		status = espeak_ng_SetVoiceByName("en");
 		if (status != ENS_OK)
 			return status;
 	}
@@ -875,9 +875,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Synchronize(void)
 	err = ENS_OK;
 	return berr;
 }
-
-extern void FreePhData(void);
-extern void FreeVoiceList(void);
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 {

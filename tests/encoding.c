@@ -26,7 +26,7 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
 
-void
+static void
 test_unbound_text_decoder()
 {
 	printf("testing unbound text decoder\n");
@@ -39,7 +39,7 @@ test_unbound_text_decoder()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_unknown_encoding()
 {
 	printf("testing unknown encodings\n");
@@ -57,7 +57,7 @@ test_unknown_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_us_ascii_encoding()
 {
 	printf("testing US-ASCII encoding\n");
@@ -91,7 +91,7 @@ test_us_ascii_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_koi8_r_encoding()
 {
 	printf("testing KOI8-R encoding\n");
@@ -117,7 +117,7 @@ test_koi8_r_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iscii_encoding()
 {
 	printf("testing ISCII encoding\n");
@@ -142,7 +142,7 @@ test_iscii_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_1_encoding()
 {
 	printf("testing ISO-8859-1 encoding\n");
@@ -175,7 +175,7 @@ test_iso_8859_1_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_2_encoding()
 {
 	printf("testing ISO-8859-2 encoding\n");
@@ -206,7 +206,7 @@ test_iso_8859_2_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_3_encoding()
 {
 	printf("testing ISO-8859-3 encoding\n");
@@ -237,7 +237,7 @@ test_iso_8859_3_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_4_encoding()
 {
 	printf("testing ISO-8859-4 encoding\n");
@@ -268,7 +268,7 @@ test_iso_8859_4_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_5_encoding()
 {
 	printf("testing ISO-8859-5 encoding\n");
@@ -298,7 +298,7 @@ test_iso_8859_5_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_6_encoding()
 {
 	printf("testing ISO-8859-6 encoding\n");
@@ -330,7 +330,7 @@ test_iso_8859_6_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_7_encoding()
 {
 	printf("testing ISO-8859-7 encoding\n");
@@ -363,7 +363,7 @@ test_iso_8859_7_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_8_encoding()
 {
 	printf("testing ISO-8859-8 encoding\n");
@@ -393,7 +393,7 @@ test_iso_8859_8_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_9_encoding()
 {
 	printf("testing ISO-8859-9 encoding\n");
@@ -424,7 +424,7 @@ test_iso_8859_9_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_10_encoding()
 {
 	printf("testing ISO-8859-10 encoding\n");
@@ -455,7 +455,7 @@ test_iso_8859_10_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_11_encoding()
 {
 	printf("testing ISO-8859-11 encoding\n");
@@ -482,7 +482,7 @@ test_iso_8859_11_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_13_encoding()
 {
 	printf("testing ISO-8859-13 encoding\n");
@@ -508,7 +508,7 @@ test_iso_8859_13_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_14_encoding()
 {
 	printf("testing ISO-8859-14 encoding\n");
@@ -540,7 +540,7 @@ test_iso_8859_14_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_15_encoding()
 {
 	printf("testing ISO-8859-15 encoding\n");
@@ -568,7 +568,7 @@ test_iso_8859_15_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_8859_16_encoding()
 {
 	printf("testing ISO-8859-16 encoding\n");
@@ -599,7 +599,7 @@ test_iso_8859_16_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_utf_8_encoding()
 {
 	printf("testing UTF-8 encoding\n");
@@ -702,7 +702,7 @@ test_utf_8_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_iso_10646_ucs_2_encoding()
 {
 	printf("testing ISO-10646-UCS-2 encoding\n");
@@ -728,7 +728,7 @@ test_iso_10646_ucs_2_encoding()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_char_decoder()
 {
 	printf("testing char decoder\n");
@@ -754,7 +754,7 @@ test_char_decoder()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_wchar_decoder()
 {
 	printf("testing wchar_t decoder\n");
@@ -796,7 +796,7 @@ test_wchar_decoder()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_auto_decoder()
 {
 	printf("testing auto decoder (UTF-8 + codepage-based fallback)\n");
@@ -846,7 +846,7 @@ test_auto_decoder()
 	destroy_text_decoder(decoder);
 }
 
-void
+static void
 test_peekc()
 {
 	printf("testing peekc\n");
@@ -876,6 +876,9 @@ test_peekc()
 int
 main(int argc, char **argv)
 {
+	(void)argc; // unused parameter
+	(void)argv; // unused parameter
+
 	test_unbound_text_decoder();
 	test_unknown_encoding();
 

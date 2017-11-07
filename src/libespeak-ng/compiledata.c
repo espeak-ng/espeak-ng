@@ -33,13 +33,15 @@
 
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
+#include <espeak-ng/encoding.h>
 
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "synthesize.h"
 #include "voice.h"
+#include "synthesize.h"
 #include "spect.h"
+#include "translate.h"
 
 typedef struct {
 	unsigned int value;
@@ -49,9 +51,6 @@ typedef struct {
 NAMETAB *manifest = NULL;
 int n_manifest;
 char phsrc[sizeof(path_home)+40]; // Source: path to the 'phonemes' source file.
-
-extern ESPEAK_NG_API int utf8_in(int *c, const char *buf);
-extern int utf8_out(unsigned int c, char *buf);
 
 typedef struct {
 	const char *mnem;
@@ -722,7 +721,7 @@ static void unget_char(unsigned int c)
 		linenum--;
 }
 
-int CheckNextChar()
+static int CheckNextChar()
 {
 	int c;
 	while (((c = get_char()) == ' ') || (c == '\t'))
@@ -893,7 +892,7 @@ static int Range(int value, int divide, int min, int max)
 	return value - min;
 }
 
-int CompileVowelTransition(int which)
+static int CompileVowelTransition(int which)
 {
 	// Compile a vowel transition
 	int key;
@@ -999,7 +998,7 @@ int CompileVowelTransition(int which)
 	return 0;
 }
 
-espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
+static espeak_ng_STATUS LoadSpect(const char *path, int control, int *addr)
 {
 	SpectSeq *spectseq;
 	int peak;
@@ -1401,15 +1400,17 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 			n_points++;
 		}
 	}
-	env_x[n_points] = env_x[n_points-1];
-	env_y[n_points] = env_y[n_points-1];
+	if (n_points > 0) {
+		env_x[n_points] = env_x[n_points-1];
+		env_y[n_points] = env_y[n_points-1];
+	}
 
 	ix = -1;
 	ix2 = 0;
-	for (x = 0; x < ENV_LEN; x++) {
-		if (x > env_x[ix+4])
+	if (n_points > 0) for (x = 0; x < ENV_LEN; x++) {
+		if (n_points > 3 && x > env_x[ix+4])
 			ix++;
-		if (x >= env_x[ix2+1])
+		if (n_points > 2 && x >= env_x[ix2+1])
 			ix2++;
 
 		if (env_lin[ix2] > 0) {
@@ -1612,7 +1613,7 @@ static void CompileSound(int keyword, int isvowel)
    =8         data = stress bitmap
    =9         special tests
  */
-int CompileIf(int elif)
+static int CompileIf(int elif)
 {
 	int key;
 	int finish = 0;
@@ -1721,7 +1722,7 @@ int CompileIf(int elif)
 	return 0;
 }
 
-void FillThen(int add)
+static void FillThen(int add)
 {
 	USHORT *p;
 	int offset;
@@ -1749,7 +1750,7 @@ void FillThen(int add)
 	then_count = 0;
 }
 
-int CompileElse(void)
+static int CompileElse(void)
 {
 	USHORT *ref;
 	USHORT *p;
@@ -1776,7 +1777,7 @@ int CompileElse(void)
 	return 0;
 }
 
-int CompileElif(void)
+static int CompileElif(void)
 {
 	if (if_level < 1) {
 		error("ELIF not expected");
@@ -1788,7 +1789,7 @@ int CompileElif(void)
 	return 0;
 }
 
-int CompileEndif(void)
+static int CompileEndif(void)
 {
 	USHORT *p;
 	int chain;
@@ -1951,7 +1952,7 @@ static void DecThenCount()
 		then_count--;
 }
 
-int CompilePhoneme(int compile_phoneme)
+static int CompilePhoneme(int compile_phoneme)
 {
 	int endphoneme = 0;
 	int keyword;
@@ -2231,11 +2232,11 @@ int CompilePhoneme(int compile_phoneme)
 				CompileToneSpec();
 				break;
 			case kCONTINUE:
-				*prog_out++ = OPCODE_CONTINUE;
+				*prog_out++ = INSTN_CONTINUE;
 				DecThenCount();
 				break;
 			case kRETURN:
-				*prog_out++ = OPCODE_RETURN;
+				*prog_out++ = INSTN_RETURN;
 				DecThenCount();
 				break;
 			case kINCLUDE:
@@ -2248,7 +2249,7 @@ int CompilePhoneme(int compile_phoneme)
 				if (if_level > 0)
 					error("Missing ENDIF");
 				if ((prog_out > prog_buf) && (if_stack[0].returned == 0))
-					*prog_out++ = OPCODE_RETURN;
+					*prog_out++ = INSTN_RETURN;
 				break;
 			}
 			break;
@@ -2357,8 +2358,6 @@ static void WritePhonemeTables()
 static void EndPhonemeTable()
 {
 	int ix;
-	int *pw;
-	int length;
 
 	if (n_phoneme_tabs == 0)
 		return;
@@ -2697,7 +2696,7 @@ MNEM_TAB envelope_names[] = {
 	{ NULL, -1 }
 };
 
-int LookupEnvelopeName(const char *name)
+static int LookupEnvelopeName(const char *name)
 {
 	return LookupMnem(envelope_names, name);
 }
@@ -2717,7 +2716,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 	int done_onset = 0;
 	int done_last = 0;
 	int n_preset_tunes = 0;
-	int found;
+	int found = 0;
 	int tune_number = 0;
 	FILE *f_out;
 	TUNE *tune_data;
@@ -2825,6 +2824,7 @@ espeak_ng_STATUS espeak_ng_CompileIntonation(FILE *log, espeak_ng_ERROR_CONTEXT 
 				error("Bad tune name: '%s;", new_tune.name);
 			break;
 		case kENDTUNE:
+			if (!found) continue;
 			if (done_onset == 0) {
 				new_tune.unstr_start[0] = new_tune.unstr_start[1];
 				new_tune.unstr_end[0] = new_tune.unstr_end[1];

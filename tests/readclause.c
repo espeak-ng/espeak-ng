@@ -31,6 +31,7 @@
 
 #include "speech.h"
 #include "phoneme.h"
+#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
@@ -41,7 +42,6 @@ static short charix[N_TR_SOURCE+4];
 static int charix_top = 0;
 static int tone2;
 static char voice_change_name[40];
-static int terminator;
 
 static espeak_ng_STATUS
 set_text(const char *text, const char *voicename)
@@ -57,7 +57,7 @@ set_text(const char *text, const char *voicename)
 	return text_decoder_decode_string(p_decoder, text, -1, ESPEAKNG_ENCODING_UTF_8);
 }
 
-void
+static void
 test_latin()
 {
 	printf("testing Latin (Latn)\n");
@@ -76,7 +76,7 @@ test_latin()
 	assert(clause_type_from_codepoint(0x2026) == (CLAUSE_SEMICOLON | CLAUSE_SPEAK_PUNCTUATION_NAME | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_latin_sentence()
 {
 	printf("testing Latin (Latn) ... sentence\n");
@@ -108,7 +108,7 @@ test_latin_sentence()
 	assert(charix_top == 0);
 }
 
-void
+static void
 test_greek()
 {
 	printf("testing Greek (Grek)\n");
@@ -117,7 +117,7 @@ test_greek()
 	assert(clause_type_from_codepoint(0x0387) == CLAUSE_SEMICOLON);
 }
 
-void
+static void
 test_armenian()
 {
 	printf("testing Armenian (Armn)\n");
@@ -129,7 +129,7 @@ test_armenian()
 	assert(clause_type_from_codepoint(0x0589) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_arabic()
 {
 	printf("testing Arabic (Arab)\n");
@@ -140,7 +140,7 @@ test_arabic()
 	assert(clause_type_from_codepoint(0x06D4) == CLAUSE_PERIOD);
 }
 
-void
+static void
 test_devanagari()
 {
 	printf("testing Devanagari (Deva)\n");
@@ -148,7 +148,7 @@ test_devanagari()
 	assert(clause_type_from_codepoint(0x0964) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_tibetan()
 {
 	printf("testing Tibetan (Tibt)\n");
@@ -157,7 +157,7 @@ test_tibetan()
 	assert(clause_type_from_codepoint(0x0F0E) == CLAUSE_PARAGRAPH);
 }
 
-void
+static void
 test_sinhala()
 {
 	printf("testing Sinhala (Sinh)\n");
@@ -165,7 +165,7 @@ test_sinhala()
 	assert(clause_type_from_codepoint(0x0DF4) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_georgian()
 {
 	printf("testing Georgian (Geor)\n");
@@ -173,7 +173,7 @@ test_georgian()
 	assert(clause_type_from_codepoint(0x10FB) == CLAUSE_PARAGRAPH);
 }
 
-void
+static void
 test_ethiopic()
 {
 	printf("testing Ethiopic (Ethi)\n");
@@ -187,7 +187,7 @@ test_ethiopic()
 	assert(clause_type_from_codepoint(0x1368) == CLAUSE_PARAGRAPH);
 }
 
-void
+static void
 test_ideographic()
 {
 	printf("testing Ideographic (Hani)\n");
@@ -196,7 +196,7 @@ test_ideographic()
 	assert(clause_type_from_codepoint(0x3002) == (CLAUSE_PERIOD | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_fullwidth()
 {
 	printf("testing Full Width\n");
@@ -209,7 +209,7 @@ test_fullwidth()
 	assert(clause_type_from_codepoint(0xFF1F) == (CLAUSE_QUESTION | CLAUSE_OPTIONAL_SPACE_AFTER));
 }
 
-void
+static void
 test_uts51_emoji_character()
 {
 	printf("testing Emoji ... UTS-51 ED-3. emoji character\n");
@@ -245,7 +245,7 @@ test_uts51_emoji_character()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_text_presentation_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-8a. text presentation sequence\n");
@@ -278,7 +278,7 @@ test_uts51_text_presentation_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_presentation_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-9a. emoji presentation sequence\n");
@@ -311,7 +311,7 @@ test_uts51_emoji_presentation_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_modifier_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-13. emoji modifier sequence\n");
@@ -341,7 +341,7 @@ test_uts51_emoji_modifier_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_flag_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-14. emoji flag sequence\n");
@@ -374,7 +374,7 @@ test_uts51_emoji_flag_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_tag_sequence_emoji_character()
 {
 	printf("testing Emoji ... UTS-51 ED-14a. emoji tag sequence (emoji character)\n");
@@ -450,7 +450,7 @@ test_uts51_emoji_tag_sequence_emoji_character()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_combining_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-14b. emoji combining sequence\n");
@@ -480,7 +480,7 @@ test_uts51_emoji_combining_sequence()
 	assert(voice_change_name[0] == 0);
 }
 
-void
+static void
 test_uts51_emoji_keycap_sequence()
 {
 	printf("testing Emoji ... UTS-51 ED-14c. emoji keycap sequence\n");
@@ -513,6 +513,9 @@ test_uts51_emoji_keycap_sequence()
 int
 main(int argc, char **argv)
 {
+	(void)argc; // unused parameter
+	(void)argv; // unused parameter
+
 	assert(espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT) == 22050);
 
 	test_latin();
