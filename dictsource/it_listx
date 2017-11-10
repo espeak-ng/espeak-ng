@@ -19,6 +19,7 @@ acari $1
 accademia	ak:ad'Emia
 accademie	$3
 accadia $3
+accavallio	ak:aval:'io
 accegli  $alt
 accenn  $alt2
 accett  $alt2
@@ -100,6 +101,7 @@ ailoche  $alt
 airol $2
 airole  $alt
 alabastron $2
+albatr	$1
 albed  $alt
 alber $1
 albignaseg $3
@@ -381,6 +383,7 @@ ateo $1
 atlet	$alt
 atom	$1
 aton	$1
+atonia	aton'ia
 atrii	$1
 atrofia $3
 atrofie	at@-*of'i:e
@@ -439,6 +442,7 @@ bajazet $3  $alt2
 baka $2
 balaam $1
 balaustr	$3
+balbettio	balbet:'io
 balen	$alt2
 balenotter	$alt
 bali $2
@@ -1189,6 +1193,7 @@ diametr $1
 diapason $1
 diarchia $2
 diaspor $2
+diaspora	$1
 diatesi $2
 diavolio	$3
 dibattit $2
@@ -1395,6 +1400,7 @@ endecasillab $4
 endocrin $2
 endoscheletr $3
 eneg $1  $alt
+energumen	$3
 enfasi $1  $alt
 enfisem  $alt
 enfiteusi $3
@@ -1909,18 +1915,19 @@ imenofor $3
 imenotteri  $alt
 immemor	$2
 imol $1
-imperfett  $alt
+imperfett	$alt
 imperi	$2
 impet $1
 impieg  $alt
 implicit $2
-incazzati	inka_ts'ati
-incentr  $alt
+improperi	imp@-*'op,eRi $only
+incazzati	ink,a_ts'ati
 incerti	$2 $alt
 incipit	$1 $only
 incivil	intSiv'il
 incognit $2  $alt
 incolum	$2
+incomod	$2
 incomplet  $alt
 inconsci  $alt
 inconsuet  $alt
@@ -2091,6 +2098,7 @@ legazia $3
 legge  $alt2
 leggi		l'edZ:,i
 leggii	ledZ'i:I
+leggio	ledZ:'io
 lemn  $alt
 lemure $1  $alt
 lemuri $1  $alt
@@ -2162,6 +2170,7 @@ loreggia  $alt
 lot  $alt
 lucciolio	$3
 lucifug $2
+lugubra	$1
 lugubre $1
 lugubri	$1
 lumac $2
@@ -2217,6 +2226,7 @@ mammut $2
 mancine	$2
 mandibol $2
 mandorl $1
+mandragora	$2
 mangan $1
 mangiaformiche	mandZa||fo@-*m'ike
 mangiatoia  $alt2
@@ -2260,6 +2270,7 @@ mascali $1
 mascalucia  maskalutS'i:a
 maser $2
 masovia  $alt
+massaggini	$3
 massaros  $alt
 massenzi  $alt
 matapan $3
@@ -2313,6 +2324,7 @@ mesenchim  $alt
 meser $1
 mesia $1  $alt
 mesol $1
+messaggera	$3
 messaggini	$3
 messe  $alt
 messenia  $alt
@@ -2345,6 +2357,7 @@ mezzosangue	medz:os'aNgwe
 miagolio	$3
 miastenia $3
 micenei	$3
+miceneo	$3
 michiel $2
 microcefalia $5
 microcircuit	mik@-*o||tSi@-*k'u:It
@@ -2735,6 +2748,7 @@ palmanov  $alt
 palmares $3  $alt
 palpebr $1
 pamir $2
+panacea	$3
 pancett  $alt2
 pancreas $1
 pandar $1
@@ -2850,9 +2864,11 @@ perier $1  $alt2
 perifrasi $2
 perim $2
 perimetr $2
+perineo	$3
 period $2
 peripl $1
 peristasi $2
+peritoneo	$4
 perizom	pe*idz'Om
 perlomen  $alt2
 permaflex	$1
@@ -2992,6 +3008,7 @@ polis  $alt2
 polisten $2
 polistirol $4
 politecnic  $alt
+politene	$3
 polizia $3
 polizie	p,OlIts'ie/
 polizz	p'O:li|ts
@@ -3114,6 +3131,7 @@ pros  $alt
 prosceni  $alt
 prosecc  $alt2
 proselit $2
+prosencefal	$3
 proserpin $2
 prosieguo  $alt
 prosindaci	p@-*,o||s'indatSI
@@ -3139,6 +3157,7 @@ prov  $alt
 prozi $2
 prozia	p@-*odz'i;a
 prozie	p@-*odz'i;e
+psicanalisi	$3
 psicoanalisi $4
 psicocinesi  $alt
 psicosintesi $3
@@ -3205,8 +3224,8 @@ razzi	@-*'adz:I
 razzia $2
 razzie	@-*a/ts2:'ie
 razzo	@-*'a|dz:o
-re	@-*'E
 re	@-*'e	$capital
+re	@-*'E
 rebbi  $alt2
 recapit $2
 recared  $alt
@@ -3422,6 +3441,7 @@ sbambagia	$2
 sbattezzare	zbat:edz:'aRe
 sbocc  $alt2
 scaliger $2
+scalpitio	skalpit'io
 scampanellio	$4
 scandal $1
 scansafatiche	$4
@@ -3460,6 +3480,7 @@ scogliere	$2  $alt
 scol  $alt2
 scolopendrio	$4
 scopa	$alt2
+scoppiettio	skop:iet:'io
 scorci  $alt2
 scorciatoia  $alt2
 scorpor $1
@@ -3639,6 +3660,7 @@ solfuree	$2
 solfureo	$2
 solit $1
 solletic  $alt2
+solletichio	sol:etik'io
 solopac $3
 som  $alt
 somal $1
@@ -3712,6 +3734,7 @@ sporofit $2
 spotorn  $alt2
 sprec	$alt
 sprechi	$alt
+squittio	skuit:'io
 staffor $1
 stambecc  $alt2
 stantio	stant'io
@@ -3743,6 +3766,7 @@ stravizz	st@-*av'its2:
 strenuo  $alt
 stres  $alt
 strettoia  $alt2
+stridio	st@-*id'io
 strimpellio	$3
 strizzati	st@-*its2:'ati
 strof	$alt
@@ -3896,6 +3920,7 @@ tetti  $alt
 tettoia  $alt2
 teucr $1
 teut $1
+teutone	$1
 teutoni $1
 thet  $alt
 thiesi  $alt
@@ -3907,6 +3932,7 @@ timoria	$3
 timpan $1
 tindari $1
 tinian $2
+tintinnio	tintin:'io
 tintoria $3
 tintorie	$3
 tiramisù	tiRami_s'u
@@ -4022,16 +4048,13 @@ trivenet $2  $alt
 troade $1  $alt
 troclea	$1
 trombocitopenia $6
-trot  $alt
-trov  $alt
+trot	$alt
+trov	$alt
 truffaldine	$3
 tuber $1
 turan $2
 turboalber $3
 turbofan $3
-turbogett  $alt
-turboventol  $alt
-turgovia  $alt
 turold  $alt
 tuttor  $alt2
 ubbia	,ub:'ia
@@ -4042,13 +4065,13 @@ ubriac $3
 ucronia $3
 ulcer $1
 ultrasottil	ult@-*a||sot:'il
-ultraterren  $alt2
+ultrasuon	ult@-*,a||su'On
+ultraterreno  $alt2
 unanime $2
 undicesim  $alt
 unison $2
-univoc $2
-uom  $alt
-uop  $alt
+univoc	$2
+uom	$alt
 uov  $alt
 upup $1
 uretere $3
@@ -4153,6 +4176,7 @@ vinov  $alt
 viper $1
 viril	$2
 viscera	$1
+visceri	$1
 viscontei	$2 $alt
 visigoti  $alt
 visir $2
