@@ -14,7 +14,7 @@ endphoneme
 
 phoneme a:
   vwl starttype #a endtype #a
-  length 300
+  length 310
   lng
   FMT(vwl_lv/aa, 90)
 endphoneme
@@ -101,7 +101,7 @@ endphoneme
 
 phoneme au
   vwl starttype #a endtype #u
-  length 290
+  length 300
   lng
   FMT(vdiph/aau, 100)
 endphoneme
@@ -169,25 +169,6 @@ phoneme tS
   lengthmod 2
   length 80
   WAV(ustop/tsh,40)
-endphoneme
-
-phoneme h     // more quiet version of standard h
-  vls glt apr
-  lengthmod 3
-  ipa h
-
-  IF nextPh(#a) THEN
-    WAV(h/ha, 20)
-  ELIF nextPh(#e) THEN
-    WAV(h/he, 20)
-  ELIF nextPh(#i) THEN
-    WAV(h/hi, 20)
-  ELIF nextPh(#o) THEN
-    WAV(h/ho, 20)
-  ELIF nextPh(#u) THEN
-    WAV(h/hu, 20)
-  ENDIF
-  WAV(h/h_, 30)  // no vowel following
 endphoneme
 
 phoneme n- // more voiced variant of n

@@ -147,6 +147,7 @@
 
 .group b
            b               b
+        l) b               >b
 
 .group c
            c               ts
@@ -686,11 +687,13 @@ L46L45L45) o (<<           uo
      orat) o               o:
       ort) o (@            o
       osm) o               o:
+           o (šanL04_+     uo
      pant) o               o
     paran) o               o
      pērk) o (L80+         uo
      pils) o (L80          uo        // pilson
       pir) o               o
+     plēs) o (L80          uo
     pneim) o               o:
         p) o (L51          o
        _p) o (L77L02_+     uo        // polis
@@ -1450,20 +1453,22 @@ L46L45L45) o (<<           uo
         k) ot (an          ot
         k) ot (L51         ot
         k) ot (l           ot
-    _L10pr) ot (L13_       uot       // (ne|sa..)prot(i|u)
+   _L10pr) ot (L13_        uot       // (ne|sa..)prot(i|u)
       lin) ot (ip          ot
+        l) ot (er          ot
        _l) ot (iņL04       ot        // Lotiņa
         l) ot (L05_        ot        // ..lote
        _l) oto (sL01_      oto       // lotoss
       mel) ot              uot
         m) ot (L52         ot
         m) oto             oto:
+        m) otō             oto:
      nepr) ot              uot
        _n) ot (L04_        ot        // nota
         n) ot (L50r        ot
            ot (āj          uot
            ot (k           ot
-        m) otō             oto:
+           ot (L01_+       uot
         _) oto (C<         oto
       pil) ot              ot
        _p) ot (ašL04       ot        // potaša
@@ -1588,6 +1593,7 @@ L46L45L45) o (<<           uo
 
 .group t
            t               t
+        l) t               >t
 
 .group u
            u               u
