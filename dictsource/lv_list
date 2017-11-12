@@ -285,6 +285,7 @@ tiklab    $u $brk
 tomēr     $u $pause
 turpretim $u $2 $pause
 turpretī  $u $2 $pause
+tur       $u+
 un        $u
 uz        $u
 vai       $u+ $brk
@@ -615,6 +616,7 @@ porto        $alt
 positivus    $alt
 protežē      $alt $3
 puertoriko   $alt $4
+radio        $alt
 raivo        $alt
 rančo        $alt
 retro        $alt
@@ -669,6 +671,7 @@ heksadecimālo $alt2
 humāno        $alt2
 informatīvo   $alt2
 mehānisko     $alt2
+nekompetento  $alt2
 neoficiālo    $alt2
 oficiālo      $alt2
 psiho         $alt2

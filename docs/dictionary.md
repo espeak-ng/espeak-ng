@@ -379,8 +379,8 @@ instead of, or as well as, the phonetic translation.
 | `$hasdot`            | Use this pronunciation if the word is followed by a dot. (This attribute also implies `$dot`). |
 | `$max3`              | Limit to 3 repetitions in pronunciation.|
 | `$text`              | Word translates to replacement text, not phonemes.|
-| `$verbf`             | The following word is probably is a verb. |
-| `$verbsf`            | The following word is probably is a if it has an "s" suffix. |
+| `$verbf`             | The following word is probably a verb. |
+| `$verbsf`            | The following word is probably a verb if it has an "s" suffix. |
 | `$nounf`             | The following word is probably not a verb. |
 | `$pastf`             | The following word is probably past tense. |
 | `$verb`              | Use this pronunciation if it's a verb, i.e. previously processed word had `$verbf` or `$verbsf` set.|

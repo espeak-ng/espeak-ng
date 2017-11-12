@@ -1980,7 +1980,7 @@ phonemetable om base1
 include ph_oromo
 
 phonemetable my base1
-include ph_burmese
+include ph_myanmar
 
 phonemetable gn base1
 include ph_guarani

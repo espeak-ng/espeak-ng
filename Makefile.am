@@ -275,7 +275,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
-	phsource/ph_burmese \
+	phsource/ph_myanmar \
 	phsource/ph_catalan \
 	phsource/ph_consonants \
 	phsource/ph_croatian \

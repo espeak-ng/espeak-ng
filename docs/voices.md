@@ -379,16 +379,17 @@ listed in [Phonemes](phonemes.md).
 Eight integer parameters. These control the relative lengths of the
 vowels in stressed and unstressed syllables.
 
-* 0  unstressed
+* 0  unstressed. Unstressed syllable in word
+  (syllable with `%` mark or without any stress mark).
 * 1 diminished. Its use depends on the language. In English it's used for
-  unstressed syllables within multisyllabic words. In Spanish it's used
-  for unstressed final syllables.
-* 2 secondary stress
-* 3 words marked as "unstressed" in the dictionary
+  unstressed syllables (marked with `%%`) within multisyllabic words.
+  In other languages it is final unstressed syllable.
+* 2 secondary stress (syllable with marked with `,`).
+* 3 words marked as "unstressed" in the dictionary.
 * 4   not currently used
 * 5   not currently used
-* 6 stressed syllable (the main syllable in stressed words)
-* 7 tonic syllable (by default, the last stressed syllable in the clause) 
+* 6 stressed syllable (the main syllable in stressed words marked with `'`).
+* 7 tonic syllable (by default, the last stressed syllable in the clause).
 
 ### stressAdd
 

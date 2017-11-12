@@ -8,13 +8,13 @@
 
 phoneme a
   vwl starttype #a endtype #a
-  length 120
+  length 130
   FMT(vwl_lv/a, 100)           // adjusted from aa_3
 endphoneme
 
 phoneme a:
   vwl starttype #a endtype #a
-  length 300
+  length 310
   lng
   FMT(vwl_lv/aa, 90)
 endphoneme
@@ -51,7 +51,7 @@ endphoneme
 
 phoneme i:
   vwl starttype #i endtype #i
-  length 300
+  length 280
   FMT(vwl_lv/ii, 90) // was i_7
 endphoneme
 
@@ -59,13 +59,13 @@ endphoneme
 phoneme y   // English y, short Latgalian "hard i"
   vwl starttype #i endtype #i
   length 120
-  FMT(vowel/y_2)
+  FMT(vwl_lv/y)
 endphoneme
 
 phoneme y:   // Long Latgalian "hard i"
   vwl starttype #i endtype #i
   length 300
-  FMT(vowel/y_2)
+  FMT(vwl_lv/yy)
 endphoneme
 
 phoneme o
@@ -94,21 +94,21 @@ endphoneme
 
 phoneme ai
   vwl starttype #a endtype #i
-  length 250
+  length 280
   lng
   FMT(vdiph/aai, 100)
 endphoneme
 
 phoneme au
   vwl starttype #a endtype #u
-  length 275
+  length 300
   lng
   FMT(vdiph/aau, 100)
 endphoneme
 
 phoneme ei
   vwl starttype #e endtype #i
-  length 250
+  length 280
   lng
   FMT(vdiph/eei_2, 100)
 endphoneme
@@ -141,9 +141,9 @@ phoneme uo
   FMT(vdiph2/uaa, 100)
 endphoneme
 
-phoneme o`       // shorter version of uo
+phoneme uo`     // shorter version of uo
   vwl starttype #u endtype #a
-  length 180
+  length 150
   lng
   FMT(vdiph2/uaa, 100)
 endphoneme
@@ -368,12 +368,49 @@ phoneme j // **y**es
   ENDIF
 endphoneme
 
-// TODO should use this with correct lengthening
-//phoneme l
-//  liquid
-//  unstressed
-//  dnt
-//  length 150
-//  FMT(vwl_hi/l-voc)
-//endphoneme
+phoneme l
+  liquid
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/)
+  ENDIF
+
+  IF nextPh(isNotVowel) THEN
+    PrevVowelEndings
+      VowelEnding(l/L1_@L)
+      VowelEnding(l/L1_aL)
+      VowelEnding(l/L1_eL)
+      VowelEnding(l/L1_iL)
+      VowelEnding(l/L1_oL)
+      VowelEnding(l/L1_uL)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(a) OR prevPh(a:) THEN
+    VowelEnding(l/xl, 30) // FIXME
+  ELSEIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, 10)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+
 

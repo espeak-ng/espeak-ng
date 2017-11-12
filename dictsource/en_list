@@ -584,6 +584,8 @@ awol	eIw0l
 bsod	$abbrev
 bvld	bUl@vA@d
 byod	$abbrev
+c       $abbrev $allcaps
+c#      $abbrev $allcaps
 ceo     $abbrev
 ces	$abbrev
 cet	$abbrev
