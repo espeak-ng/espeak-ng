@@ -59,13 +59,13 @@ endphoneme
 phoneme y   // English y, short Latgalian "hard i"
   vwl starttype #i endtype #i
   length 120
-  FMT(vowel/y_2)
+  FMT(vwl_lv/y)
 endphoneme
 
 phoneme y:   // Long Latgalian "hard i"
   vwl starttype #i endtype #i
   length 300
-  FMT(vowel/y_2)
+  FMT(vwl_lv/yy)
 endphoneme
 
 phoneme o

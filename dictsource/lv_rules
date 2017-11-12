@@ -136,7 +136,7 @@
 
 .group a
            a               a
-           a (a            a_!
+           a (A            a_|
            ai              ai
            aie             a_!ie    // a-ie is more frequent than ai-e
            au              au
@@ -400,6 +400,7 @@
         t) ē (L90              e:
         t) ē (mL04_            e:    // ..tēma
         t) ērē                 e:Re:
+        t) ē (tL02_            e:
         t) ē (zL05_            e:    // ..tēze
         v) ē (L90L02_          e:    // vēzis
        _v) ē (l_               e:    // vēl
@@ -422,7 +423,7 @@
 
 .group i
            i               i
-           i (A            i_!
+           i (A            i_|
            ie              ie
         _) i (kkat         %i       // ikkatrs
         _) i (kkuL82       %i       // ikkurš
@@ -1598,8 +1599,8 @@ L46L45L45) o (<<           uo
 .group u
            u               u
            ui              ui
-           u (u            u_!
-     L41J) uo              u_!o
+           u (u            u_|
+     L41J) uo              u_|o
            uo              uo
 .group ū
            ū               u:
