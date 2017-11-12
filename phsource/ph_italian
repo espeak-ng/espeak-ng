@@ -294,7 +294,7 @@ endphoneme
 // Consonant weakening [ITA] (Spirantizzazione delle occlusive)
 
 phoneme k~
-  vls vel stop
+  vls vel stp
   lengthmod 2
   voicingswitch g
   IF prevPh(isVowel) AND nextPhW(isVowel) THEN
@@ -349,7 +349,7 @@ phoneme dZ~
 endphoneme
 
 phoneme g~
-  vcd vel stop
+  vcd vel stp
   voicingswitch k
   lengthmod 5
   IF prevPh(isVowel) AND nextPhW(isVowel) THEN
