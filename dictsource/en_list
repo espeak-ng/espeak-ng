@@ -716,6 +716,7 @@ url	$abbrev
 usa	$abbrev
 usaf	$abbrev
 usb	$abbrev
+usd     $abbrev $allcaps
 usda	$abbrev
 ussr	$abbrev
 utc	$abbrev
