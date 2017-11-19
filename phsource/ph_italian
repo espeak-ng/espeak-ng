@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update February 4 2017 by Chris <llajta2012@gmail.com>
+//  Italian, last update november 10 2017 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -288,5 +288,111 @@ phoneme z
     FMT(voc/z) addWav(ufric/s!, 60)
   ENDIF
   FMT(voc/z) addWav(ufric/s_, 85)
+endphoneme
+
+
+// Consonant weakening [ITA] (Spirantizzazione delle occlusive)
+
+phoneme k~
+  vls vel stp
+  lengthmod 2
+  voicingswitch g
+  IF prevPh(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(h)
+  ENDIF
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(isRhotic) THEN
+    WAV(ustop/kr)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_unasp, 70)
+endphoneme
+
+phoneme tS~
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  IF prevPh(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(S)
+  ENDIF
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
+
+phoneme dZ~
+  vcd pla afr sib
+  voicingswitch S
+  lengthmod 5
+  IF prevPh(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(Z)
+  ENDIF
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
+  FMT(dzh/dzh) addWav(x/dzh)
+endphoneme
+
+phoneme g~
+  vcd vel stp
+  voicingswitch k
+  lengthmod 5
+  IF prevPh(isVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(Q~)
+  ENDIF
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2, 130)
+endphoneme
+
+phoneme Q~
+  vcd vel frc
+  voicingswitch x
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/qqh_) addWav(vocw/Q_)
+    ENDIF
+    FMT(klatt/qqh) addWav(vocw/Q)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_) addWav(vocw/Q_)
+  ENDIF
+  FMT(voc/Q) addWav(vocw/Q2, 70)
+endphoneme
+
+phoneme S~
+  vls pla frc sib
+  voicingswitch Z
+  lengthmod 3
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(s)
+  ENDIF
+  WAV(ufric/sh, 85)
 endphoneme
 

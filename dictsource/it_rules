@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 october 3 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2017 november 2 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -251,6 +251,7 @@
 	godi (L04_	g'Odi
 	@) glier (L04_	=l^E@-*
 	@) guer (L04_	=gUe@-*
+	grida (L07_	g@-*'ida
 	guono (_	=gw2ono   // verbs
 	o) gnano (_	=n^ano
 	A) gnano (_	n^'ano   // exceptions
@@ -499,9 +500,11 @@
 	a) pprova (L07_	p:@-*'Ova
 	_) posa (L07_	p'oza
 	pro) posto (L07_	p'osto
+	passa (L07_	p'a:ss,a
 	pie (galA_	pI'e
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
+	pensa (L07_	p'Ensa
 
 .group q
 	q	k
@@ -572,6 +575,7 @@
 	_)segnala (L07_	sen^'ala
 	specifica (L07_	spetS'ifika
 	stringi (L04_	st@-*'indZi/
+	stra (ppaL07_	st@-*'a:
 	A) scano (_	=skano  // verbs
 	sciano (_	=Sano
 	A) schiano (_	=skiano
@@ -606,6 +610,7 @@
 	a) ttiva (L07_	t:'iva
 	taglia (L07_	t'al^a
 	tira (L07_	t'iRa
+	telefona (L07_	tel'Ef,ona
 	L02) tre (_	t@-*'e
 	_) tutt' (P5t	tut:
 
@@ -711,10 +716,19 @@
 	amma) zziamo (L04_	_tsi'a:mo
 	sbara) zz (arL04_	ts:
 
+.group ç
+
+	ç	s
+	A) ç (A	T
+	C) ç(A	s
+
 .group
 
 	ñ	n^
 	ć (_	tS
+	ș	S
+	ş	S
+
 	_L16_)	: (_L17D_	_%%E_	// Say time
 
 	á	''a
