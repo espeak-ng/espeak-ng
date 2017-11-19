@@ -66,7 +66,7 @@
 
 // Default rules for o with succeeding consonants
 .L40  č ģ ķ ļ ņ ŗ š ž                  // uo indicators — o is spelled as uo in words with Latvian soft consonants
-.L41  eo f h ḩ io iē y q w x           // o indicators — o is spelled as ȯ in words with Latin letters, also narrowers of e/ē
+.L41  eo f h ḩ ia io iē y q w x        // o indicators — o is spelled as ȯ in words with Latin letters, also narrowers of e/ē
 .L42  e i o ng                         // o prefixes (no a, because of sao.., pao... where o is uo)
 .L43  lg ng rb zn ļš ss                // o postfixes
 .L44  gļ kļ šņ jā                      // uo postfixes
@@ -144,6 +144,7 @@
 .group ā
            ā               a:
            ā (A            a:_!
+        C) ā (k            a::
 
 .group b
            b               b
@@ -174,8 +175,7 @@
                                      // international consonants
            e (JL41+            e
            e (L41+++           e
-      L41) e (@                e     // narrow only if there is another syllable for ending
-     L41J) e (@+               e
+     L41J) e (+                e
 
                                      // narrowing vowels follow
            e (Cinā             e
@@ -223,7 +223,7 @@
     // specific words ----------------------------------------------------------------- //
         b) e (dL82L05_         e         // bedre
        _b) e (t_               e
-       _b) e (z                e
+       _b) e (z+               e
        _b) e (z_               e
        _C) e (_                e         // re, te, ve
         c) e (tur              e
@@ -232,6 +232,7 @@
         d) ebe (t              ebe
        _d) e (c                e
        _d) e (poz              e
+        d) e (taļ              e
       _dr) e (nL04_            e
         _) e (dgarL01_         e         // Edgars
            elem                elem
@@ -251,6 +252,8 @@
       int) ere (L83            eRe
        _j) e (b_               e
        _j) e (l_               e
+           e (soš              e
+           e (sot              e
      _L20) e (sam_+          _!e         // esam
      _L20) e (sat_+          _!e         // esat
      _L20) e (si_            _!e         // esi
@@ -263,6 +266,7 @@
        _n) e (@+               e
        _n) ere (tL04_          ERE       // Nereta
         n) e (rv               E
+       ns) e (r                e
         p) e (rs               e
        pr) e (cL52z            e
        pr) e (L71L05_          e         // prece
@@ -305,11 +309,8 @@
 
     // narrow ē ---------------------------------------------------------------------- //
                                      // narrowing international consonants
-              ē (L41+          e:
               ē (JL41+         e:
-              ē (L41+          e:
-         L41) ē (@+            e:    // narrow only if there is another syllable for ending
-        L41J) ē (@             e:
+        L41J) ē (++            e:
                                      // narrowing vowels follow
            ē (CCCCL21          e:
            ē (CCCL21           e:
@@ -369,6 +370,7 @@
         dz) ē (t               e:
            ēcē                 e:tse:
            ēdē                 e:de:
+      L10) ē (du_              e:
            ē (kL04_+           E:    // ēka
            ē (L86L13_          e:    // ēst
            ē (rkšķ             e:
@@ -377,11 +379,15 @@
        gr) ē (kL01_            E:
       izp) ē (t                e:
      _kāp) ē (c_               e:    // kāpēc
+       kr) ē (t+               e:
+        ķ) ē (dL05_            e:    // ķēde
        _l) ē (L83+             e:    // lēst
+        m) ē (L77L05           e:
         m) ēne (L83            e:ne
         m) ē (rķ               e:
        _m) ē (s_               e:    // mēs
        _n) ē (_                e:
+       ot) ē (k+               e:
        _p) ē (c+               e:
        _p) ē (rL01_            e:    // pērs
         p) ēte (r              e:te  // Pēter..
@@ -461,7 +467,7 @@
 .group m
            m               m
         C) m (C            m-        // more voiced variant between consonants
-           mm             >m:
+           mm             >m>
 
 .group n
            n               n
@@ -580,7 +586,7 @@ L46L45L45) o (<<           uo
       dil) o (L80          uo
     dinam) o               o:
      disp) o               o
-       eg) o               o>
+      _eg) o               o>
       eir) o               o
       _ek) o               o
       eks) o               o
@@ -809,7 +815,7 @@ L46L45L45) o (<<           uo
         j) odo             odo
       _kl) od (L01_        o:d       // Klods
         k) od (L01_        o:d       // ..kods
-       _k) od (L05_        uod       // kode
+       _k) od (L05_        uo`d      // kode
         k) od (L51         od
         k) odol            uoduol
      _kum) od (L05_        uod       // kumode
@@ -1230,6 +1236,7 @@ L46L45L45) o (<<           uo
         k) op (ē_          op        // ..kopē
         k) op (ij          op        // ..kopij..
         k) op (j           uop       // ..kopj..
+        k) op (L65+        uop       // ..kuop..
         k) op (L04_+       uop       // ..kopa
         k) opo             uopuo
         k) op (pr          uop       // ..koppr..
@@ -1246,7 +1253,7 @@ L46L45L45) o (<<           uo
         _) op (erL04_++++  o:p       // opera
            op (er++++      op
            op (iā          op
-        @) op (L01_+       o:p       // ..ops
+        @) op (L01_        o:p       // ..ops
            op (o           op
            op (tiL67       op
            op (tim         op
@@ -1506,6 +1513,7 @@ L46L45L45) o (<<           uo
 .group ov
        _k) ov (ārnL02_     uov       // kovārnis
         k) ov              ov
+        n) ov (ad          uov
         n) ov (at          ov
         n) ov (āci         ov
         n) ov (elL05_      ov        // novele
@@ -1537,6 +1545,7 @@ L46L45L45) o (<<           uo
        _j) oz (a_          uoz       // joza
        kl) oz (et          oz
         k) ozlov           ozlov
+        l) oz (ung         oz
        _m) oz (L03_        o:z       // Mozus
        _n) oz              uoz
            oz (L01_        o:z       // ..ozs
@@ -1622,7 +1631,7 @@ L46L45L45) o (<<           uo
         _) vi (stk         v'i         // vistk..
         _) vi (stL04_      v'i         // vista
         _) vi (sum         v'i         // visum
-        _) vi (sur_        v'i         // visur
+        _) vi (sur         v'i         // visur
         _) vi (sval        v'i         // Visval..
         _) vi (svar        v'i         // Visvar..
         _) vis             v%is (P3
@@ -1639,6 +1648,7 @@ L46L45L45) o (<<           uo
 
 .group y
            y               y            // y is used instead of simple "i", to distinguish them in writing
+           y (A            y_|
 
 .group z
            z               z
