@@ -147,16 +147,25 @@ Each rule is on separate line, and has the syntax:
 
 	[<pre>)] <match> [(<post>] <phoneme string>
 
-e.g.
+* characters in `<pre>)` group are already spelled and "consumed"
+* characters in `<match>` group are ones which will be spelled and "consumed"
+by best matching rule
+* characters in `(<post>` group will not be spelled and produced, but can be
+used as reference to choose matching rule
 
+Note that `<match>` group can be longer than name of character group, but cannot
+be shorter.
+
+Example:
 
 	.group o
-	       o        0    // "o" is pronounced as [0]
-	       oo       u:   // but "oo" is pronounced as [u:]
-	    b) oo (k    U
+	       o      0   // "o" is pronounced as [0], one letter consumed
+	       oo     u:  // but "oo" is pronounced as [u:], two letters consumed
+	    b) oo (k  U   // pronounced as [U], two letters consumed
+
 
 `oo` is pronounced as `[u:]`, but when also preceded by `b` and followed
-by `k`, it is pronounced `[U]`.
+by `k`, it is pronounced `[U]`. If 
 
 In the case of a single-letter group, the first character of `<match>`
 much be the group letter. In the case of a 2-letter group, the first two
