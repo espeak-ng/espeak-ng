@@ -1,33 +1,37 @@
 // This file is UTF8 encoded
 // Spelling to phoneme rules for Burmese
 
-//.replace
-//၀ 0 // Convert numbers
-//၁ 1
-//၂ 2
-//၃ 3
-//၄ 4
-//၅ 5
-//၆ 6
-//၇ 7
-//၈ 8
-//၉ 9
+.replace
+// Convert numbers
+၀ 0
+၁ 1
+၂ 2
+၃ 3
+၄ 4
+၅ 5
+၆ 6
+၇ 7
+၈ 8
+၉ 9
 
-.group    က
-         က   k
-         က (်   ɛ
-//   _)  က (_    kə3
-//         က  (ျ    tɕ
+// punctuation
+// ၊  , seems not necessary
+// ။  .
+
+.group က
+      က      k
+      က်      @  //vv ɛ
+  _)  က  (_  ke //vv kə3
+      ကျ      t@ //vv tɕ
 
 .group    ျ
-      ျ     tɕ
+      ျ     j@ //vvɕ
 
 .group    ွ
-        ွ    w
+        ွ    wa
 
-//.group    ကျ
-//         ကျ    tɕ
-//         က (ျ    tɕ
+.group    ကျ
+       ကျ    te //vv tɕ
 
 .group    ခ
          ခ   kh
@@ -39,7 +43,7 @@
          ဃ   g
 
 .group င
-    င    ŋ
+    င    N //vv ŋ
     င်    n
 
 .group    စ
@@ -55,10 +59,10 @@
          ဈ   z
 
 .group    ည
-         ည   ɲ
+          ည   N //vv ɲ
 
 .group    ဉ
-         ဉ   ɲ
+          ဉ   N //vv ɲ
 
 .group    ဋ
          ဋ   t
@@ -118,7 +122,7 @@
          ဝ   w
 
 .group    သ
-         သ   θ
+         သ   D //vv θ
 
 .group    ဟ
          ဟ   h
@@ -127,14 +131,12 @@
          ဠ   l
 
 .group    အ
-         အ   ə3
+         အ   @ // vv ə3
 
-////
-
-.group ေ
-      ေ    e3
-//    က) ေ    e3
-//    @)    ေ    ke3
+.group  ေ
+       ေ    e3
+    က) ေ    e3
+    @) ေ    ke3
 
 .group ိ
     ိ    i
@@ -151,25 +153,75 @@
     ို    o
 
 .group ာ
-    ာ    ə
-   ါ    ə    
+   ာ  ts
+   ာ    e // vv ə
+
+.group ါ
+   ါ    e // vv ə
 
 .group း
     း    2
 
-.group ော
-    ော   ɔ2
-    ော  (်    ɔ1
-    ော  (့    ɔ3
-    ောင်    ɔɴ4
-    ောက်    ɔ4
+.group  ော
+    ော       au2
+    ော်       o1
+    ော့       o3
+    ောင်     on4
+    ောက်    on4
+    ော်      au1
+    ော့      au3
+    ောင်     aun4
 
-//.group ော
-//    ော   au2
-//    ော  (်    au1
-//    ော  (့    au3
-//    ောင်    aun4
 
-//.group ်
-//    ်    n
+// TODO following should be added as additional characters
+// after "normal letters" in letter groups and consumed
+// together with them
+
+.group ်
+    ်    _|
+
+.group  ့
+     ့    _|
+
+.group ဢ
+    ဢ    a
+.group  ံ
+     ံ    a
+
+.group ဪ
+    ဪ    au
+
+.group ဧ
+    ဧ    e
+
+.group ဨ
+    ဨ    e
+
+.group  ဵ
+     ဵ    e
+.group  ှ
+     ှ    ha
+
+.group ဤ
+    ဤ    i
+.group ဩ
+    ဩ    o
+
+.group ဣ
+    ဣ    i
+
+.group  ြ
+     ြ    r
+
+.group ဿ
+    ဿ    s
+
+.group ဦ
+    ဦ    u
+
+.group ဥ
+    ဥ    u:
+
+.group  ဲ
+    ဲ   a
 
