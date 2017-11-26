@@ -198,10 +198,10 @@ translation rules and spoken with English phonemes.
 |-------------|-------------|
 | `_`         | Beginning or end of a word (or a hyphen). |
 | `-`         | Hyphen. |
-| `A`         | Any vowel (the set of vowel characters may be defined for a particular language). |
-| `C`         | Any consonant. |
-| `B H F G Y` | These may indicate other sets of characters (defined for a particular language). |
-| `L<nn>`     | Any of the sequence of characters defined as a letter group (see above). |
+| `A`         | Any vowel<sup>1</sup>. |
+| `C`         | Any consonant <sup>2</sup>. |
+| `B H F G Y` | These may indicate other sets of characters<sup>3</sup>. |
+| `L<nn>`     | Any of the sequence of characters defined as a letter grup. |
 | `D`         | Any digit. |
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
 | `X`         | There is no vowel until the word boundary. |
@@ -211,8 +211,17 @@ translation rules and spoken with English phonemes.
 | `\xxx`      | Character is written as by 3 digit octal value of `xxx`|
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
 
-The sets of letters indicated by `A`, `B`, `C`, `E`, `F` and `G` may be defined
+
+1. The set of these vowel characters may be redefined for a particular language.
+2. The set of these consonant characters may be redefined for a particular language.
+3. The sets of letters indicated by `A`, `B`, `C`, `E`, `F` and `G` may be defined
 differently for each language.
+
+* (Re)definition of letter groups is done [in tr_languages.c](../src/libespeak-ng/tr_languages.c),
+calling `SetLetterBits()` function from (usually) `NewTranslator()` function.
+Note, that letters should be stored as array of chars, thus multibyte
+unicode letters should be transposed using `transpose_min` and `transpose_max` parameters
+of particular Translator instance.
 
 Examples of rules:
 ```
