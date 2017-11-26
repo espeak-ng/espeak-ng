@@ -40,7 +40,8 @@
 #define L_jbo  0x6a626f // jbo  Lojban
 #define L_mni  0x627079 // bpy  Manipuri
 #define L_pap  0x706170 // pap  Papiamento]
-#define L_zhy  0x7a6879 // zhy
+#define L_zhy  0x7a6879 // zhy  Chinese (Cantonese)
+#define L_cmn  0x636D6E // cmn  Chinese (Mandarin)
 
 // start of unicode pages for character sets
 #define OFFSET_GREEK    0x380
@@ -1522,8 +1523,13 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS;
 		break;
-	case L('z', 'h'):
-	case L_zhy:
+
+	case L_cmn: // no break, just go to 'zh' case
+
+	case L_zhy: // just go to 'zh' case
+
+
+	case L('z','h'):
 	{
 		static const short stress_lengths_zh[8] = { 230, 150, 230, 230, 230, 0, 240, 250 }; // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
 		static const unsigned char stress_amps_zh[] = { 22, 16, 22, 22, 22, 22, 22, 22 };
@@ -1539,15 +1545,15 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.ideographs = 1;
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
-		if (name2 == L('z', 'h')) {
+		if (name2 == L_zhy) {
 			tr->langopts.textmode = 1;
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = 1;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
 			tr->langopts.break_numbers = 0x00018;
 		}
-	}
 		break;
+	}
 	default:
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		break;
