@@ -19,6 +19,7 @@
   - [Letter Names](#letter-names)
   - [Numbers](#numbers)
 - [Character Substitution](#character-substitution)
+- [(Re)definition of charater groups](#redefinition-of-charater-groups)
 
 ----------
 
@@ -198,9 +199,9 @@ translation rules and spoken with English phonemes.
 |-------------|-------------|
 | `_`         | Beginning or end of a word (or a hyphen). |
 | `-`         | Hyphen. |
-| `A`         | Any vowel<sup>1</sup>. |
-| `C`         | Any consonant <sup>2</sup>. |
-| `B H F G Y` | These may indicate other sets of characters<sup>3</sup>. |
+| `A`         | Any vowel[<sup>1</sup>](#redefinition-of-charater-groups). |
+| `C`         | Any consonant [<sup>1</sup>](#redefinition-of-charater-groups). |
+| `B H F G Y` | These may indicate other sets of characters[<sup>1</sup>](#redefinition-of-charater-groups). |
 | `L<nn>`     | Any of the sequence of characters defined as a letter grup. |
 | `D`         | Any digit. |
 | `K`         | Not a vowel (i.e. a consonant or word boundary or non-alphabetic character). |
@@ -212,16 +213,6 @@ translation rules and spoken with English phonemes.
 | `@`         | One syllable (i.e. at least one vowel or diphthong) |
 
 
-1. The set of these vowel characters may be redefined for a particular language.
-2. The set of these consonant characters may be redefined for a particular language.
-3. The sets of letters indicated by `A`, `B`, `C`, `E`, `F` and `G` may be defined
-differently for each language.
-
-* (Re)definition of letter groups is done [in tr_languages.c](../src/libespeak-ng/tr_languages.c),
-calling `SetLetterBits()` function from (usually) `NewTranslator()` function.
-Note, that letters should be stored as array of chars, thus multibyte
-unicode letters should be transposed using `transpose_min` and `transpose_max` parameters
-of particular Translator instance.
 
 Examples of rules:
 ```
@@ -522,3 +513,16 @@ version of the characters needs to be specified. e.g.
 	   û   ű
 	   cx  ĉ   // (Esperanto) allow "cx" as an alternative to c-circumflex
 	   ﬁ   fi  // replace a single character ligature by two characters
+
+## (Re)definition of charater groups
+
+The set of these vowel characters in `A` group and consonants in `C` group may be
+redefined for a particular language. Other sets of letters indicated by `B`, `E`, `F` and `G`
+usually have specific meaning for each particular language.
+
+(Re)definition of letter groups is done in [tr_languages.c](../src/libespeak-ng/tr_languages.c)
+file by calling `SetLetterBits()` function from (usually) `NewTranslator()` function.
+Note, that letters should be stored as array of chars, thus multibyte
+unicode letters should be transposed using `transpose_min` and `transpose_max` parameters
+of particular `Translator` structure.
+
