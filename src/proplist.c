@@ -1835,6 +1835,59 @@ static ucd_property properties_So_002600(codepoint_t c)
 	return 0;
 }
 
+static ucd_property properties_So_002700(codepoint_t c)
+{
+	switch (c & 0xFFFFFFF0)
+	{
+	case 0x2700:
+		if (c == 0x2702)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2705)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c >= 0x270A && c <= 0x270B) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
+		if (c >= 0x270C && c <= 0x270D) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
+		if (c >= 0x2708 && c <= 0x270D) return UCD_PROPERTY_EMOJI;
+		if (c == 0x270F)                return UCD_PROPERTY_EMOJI;
+		break;
+	case 0x2710:
+		if (c == 0x2712)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2714)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2716)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x271D)                return UCD_PROPERTY_EMOJI;
+		break;
+	case 0x2720:
+		if (c == 0x2721)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2728)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		break;
+	case 0x2730:
+		if (c == 0x2733)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2734)                return UCD_PROPERTY_EMOJI;
+		break;
+	case 0x2740:
+		if (c == 0x2744)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x2747)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x274C)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c == 0x274E)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		break;
+	case 0x2750:
+		if (c >= 0x2753 && c <= 0x2755) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c == 0x2757)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		break;
+	case 0x2760:
+		if (c >= 0x2763 && c <= 0x2764) return UCD_PROPERTY_EMOJI;
+		break;
+	case 0x2790:
+		if (c >= 0x2795 && c <= 0x2797) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		break;
+	case 0x27A0:
+		if (c == 0x27A1)                return UCD_PROPERTY_EMOJI;
+		break;
+	case 0x27B0:
+		if (c == 0x27B0)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c == 0x27BF)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		break;
+	}
+	return 0;
+}
+
 static ucd_property properties_So(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
@@ -1907,31 +1960,7 @@ static ucd_property properties_So(codepoint_t c)
 	case 0x2600:
 		return properties_So_002600(c) | UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2700:
-		if (c == 0x2702)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2705)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x270A && c <= 0x270B) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
-		if (c >= 0x270C && c <= 0x270D) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
-		if (c >= 0x2708 && c <= 0x270D) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x270F)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2712)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2714)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2716)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x271D)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2721)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2728)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x2733 && c <= 0x2734) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2744)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x2747)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x274C)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x274E)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x2753 && c <= 0x2755) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x2757)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x2763 && c <= 0x2764) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c >= 0x2795 && c <= 0x2797) return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x27A1)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI;
-		if (c == 0x27B0)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x27BF)                return UCD_PROPERTY_PATTERN_SYNTAX | UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		return UCD_PROPERTY_PATTERN_SYNTAX;
+		return properties_So_002700(c) | UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2800:
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x2B00:
