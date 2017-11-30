@@ -21,13 +21,13 @@ phoneme Z // arabic ZAH .Todo
 endphoneme
 
 phoneme A	// arabic Ain
-  vls phr frc
+  vcd frc
   ipa ʕ
   voicingswitch a  
   length 160  
-   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
-    Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
-  WAV(vwl_ar/ain) 
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
+  FMT(r/rr) addWav(ufric/x_) // TODO actual voiced part should be adjusted
 endphoneme
 
 phoneme gH    // arabic ghain, 
@@ -35,22 +35,28 @@ phoneme gH    // arabic ghain,
   vcd vel frc
   voicingswitch R2
   ipa ɣ
-  lengthmod 6
-  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  FMT(voc/Q) //addWav(vocw/Q)
+  FMT(g/g) addWav(vwl_ar/dhad)
 endphoneme
 
 
-phoneme dH	//arabic Dhad
-  alv vls stp
+phoneme dH	//arabic Dhad TODO this probably should be simple d from standard phonemes
+  vcd alv stp
   ipa dˤ
-  voicingswitch d[
-  lengthmod 7
-  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
-  WAV(vwl_ar/dhad)
-//FMT(vwl_ar/d_dnt)
+
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ENDIF
+
+  FMT(d/d) addWav(x/d)
 endphoneme
 
 phoneme s[
