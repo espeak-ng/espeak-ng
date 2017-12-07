@@ -312,6 +312,7 @@ static PHONEME_TAB *phoneme_out;
 static int n_phcodes_list[N_PHONEME_TABS];
 static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
+static int phoneme_flags;
 
 #define N_PROCS 50
 int n_procs;
@@ -1939,6 +1940,8 @@ static void CallPhoneme(void)
 			phoneme_out->end_type = ph->end_type;
 			phoneme_out->std_length = ph->std_length;
 			phoneme_out->length_mod = ph->length_mod;
+
+			phoneme_flags = ph->phflags & ~phARTICULATION;
 		}
 	}
 
@@ -1975,7 +1978,7 @@ static int CompilePhoneme(int compile_phoneme)
 	if_level = 0;
 	if_stack[0].returned = 0;
 	after_if = 0;
-	int phoneme_flags = 0;
+	phoneme_flags = 0;
 
 	NextItem(tSTRING);
 	if (compile_phoneme) {
