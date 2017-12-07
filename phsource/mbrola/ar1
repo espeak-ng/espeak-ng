@@ -1,6 +1,6 @@
 
 volume 50
-0	b	b 20  b  b
+0	B	b 20  b  b
 0   b   NULL   0   b   
 0   t   NULL   0   t   
 0   T   NULL   0   T   
@@ -11,8 +11,11 @@ volume 50
 1   H  i	40   X   i  
 0   H   NULL   0   X   
 
-0   X   NULL   0   x   
-0   d   NULL   0   d   
+0   X   NULL   0   x  
+
+0	d	d  20  d  d
+0   d   NULL   0   d  
+ 
 0   D   NULL   0   D
 0   r/ NULL 0   r   
 0   r   NULL   0   r
@@ -26,15 +29,15 @@ volume 50
 1   s[ i   40     s. i.
 0   s[   NULL   0   s.
 
-0   dH dH  30  d. d.
-1  dH a   40   d. a.
-1  dH i   40   d. i.
-1  dH u   40   d. u.
-0   dH   NULL   0   d.
+1  dH  dH  40   d. d.  
+1  dH  a   40   d.  a.
+1  dH  i   40   d.  i.
+1  dH  u   40   d.  u.
+0  dH    NULL   0   d.
 
-0   t[ a   90     t. a.
-0   t[ u   90      t. u.
-0   t[ i   90       t. i.
+0   t[  a   90     t.  a.
+0   t[  u   90     t.  u.
+0   t[  i   90     t.  i.
 0   t[   NULL   0   t.
 
 
