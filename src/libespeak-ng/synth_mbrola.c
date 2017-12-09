@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <math.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -303,7 +304,7 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	return output;
 }
 
-int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola)
+int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mbrola)
 {
 	// Generate a mbrola pho file
 	unsigned int name;
@@ -317,7 +318,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	PHONEME_DATA phdata;
 	FMT_PARAMS fmtp;
 	int pause = 0;
-	int released;
+	bool released;
 	int name2;
 	int control;
 	int done;
@@ -418,11 +419,11 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 			done = 1;
 			break;
 		case phSTOP:
-			released = 0;
-			if (next->type == phVOWEL) released = 1;
-			if (next->type == phLIQUID && !next->newword) released = 1;
+			released = false;
+			if (next->type == phVOWEL) released = true;
+			if (next->type == phLIQUID && !next->newword) released = true;
 
-			if (released == 0)
+			if (released == false)
 				p->synthflags |= SFLAG_NEXT_PAUSE;
 			InterpretPhoneme(NULL, 0, p, &phdata, NULL);
 			len = DoSample3(&phdata, 0, -1);
@@ -505,7 +506,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	return 0;
 }
 
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 {
 	FILE *f_mbrola = NULL;
 
@@ -517,13 +518,13 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		f_mbrola = f_trans;
 	}
 
-	int again = MbrolaTranslate(phoneme_list, *n_ph, resume, f_mbrola);
+	int  again = MbrolaTranslate(phoneme_list, *n_ph, resume, f_mbrola);
 	if (!again)
 		*n_ph = 0;
 	return again;
 }
 
-int MbrolaFill(int length, int resume, int amplitude)
+int MbrolaFill(int length, bool resume, int amplitude)
 {
 	// Read audio data from Mbrola (length is in millisecs)
 
@@ -578,7 +579,7 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 	return ENS_NOT_SUPPORTED;
 }
 
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 {
 	(void)phoneme_list; // unused parameter
 	(void)n_ph; // unused parameter
@@ -586,7 +587,7 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	return 0;
 }
 
-int MbrolaFill(int length, int resume, int amplitude)
+int MbrolaFill(int length, bool resume, int amplitude)
 {
 	(void)length; // unused parameter
 	(void)resume; // unused parameter

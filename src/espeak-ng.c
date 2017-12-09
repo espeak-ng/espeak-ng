@@ -116,7 +116,7 @@ static const char *help_text =
     "-h, --help Show this help.\n";
 
 int samplerate;
-int quiet = 0;
+bool quiet = false;
 unsigned int samples_total = 0;
 unsigned int samples_split = 0;
 unsigned int samples_split_seconds = 0;
@@ -405,7 +405,7 @@ int main(int argc, char **argv)
 			pitch = atoi(optarg2);
 			break;
 		case 'q':
-			quiet = 1;
+			quiet = true;
 			break;
 		case 'f':
 			strncpy0(filename, optarg2, sizeof(filename));
@@ -443,7 +443,7 @@ int main(int argc, char **argv)
 		case 0x102: // --compile
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			flag_compile = c;
-			quiet = 1;
+			quiet = true;
 			break;
 		case 0x103: // --punct
 			option_punctuation = 1;

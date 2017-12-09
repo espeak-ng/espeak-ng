@@ -23,6 +23,7 @@
 #include "config.h"
 
 #include <math.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -892,7 +893,7 @@ static int Wavegen()
 	}
 }
 
-static int PlaySilence(int length, int resume)
+static int PlaySilence(int length, bool resume)
 {
 	static int n_samples;
 	int value = 0;
@@ -904,7 +905,7 @@ static int PlaySilence(int length, int resume)
 	if (length == 0)
 		return 0;
 
-	if (resume == 0)
+	if (resume == false)
 		n_samples = length;
 
 	while (n_samples-- > 0) {
@@ -926,14 +927,14 @@ static int PlaySilence(int length, int resume)
 	return 0;
 }
 
-static int PlayWave(int length, int resume, unsigned char *data, int scale, int amp)
+static int PlayWave(int length, bool resume, unsigned char *data, int scale, int amp)
 {
 	static int n_samples;
 	static int ix = 0;
 	int value;
 	signed char c;
 
-	if (resume == 0) {
+	if (resume == false) {
 		n_samples = length;
 		ix = 0;
 	}
@@ -1231,9 +1232,9 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	}
 }
 
-static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
+static int Wavegen2(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2)
 {
-	if (resume == 0)
+	if (resume == false)
 		SetSynth(length, modulation, fr1, fr2, wvoice);
 
 	return Wavegen();
@@ -1259,7 +1260,7 @@ static int WavegenFill2()
 	int length;
 	int result;
 	int marker_type;
-	static int resume = 0;
+	static bool resume = false;
 	static int echo_complete = 0;
 
 	while (out_ptr < out_end) {
@@ -1267,7 +1268,7 @@ static int WavegenFill2()
 			if (echo_complete > 0) {
 				// continue to play silence until echo is completed
 				resume = PlaySilence(echo_complete, resume);
-				if (resume == 1)
+				if (resume == true)
 					return 0; // not yet finished
 			}
 			return 1; // queue empty, close sound channel
@@ -1283,7 +1284,7 @@ static int WavegenFill2()
 			SetPitch(length, (unsigned char *)q[2], q[3] >> 16, q[3] & 0xffff);
 			break;
 		case WCMD_PAUSE:
-			if (resume == 0)
+			if (resume == false)
 				echo_complete -= length;
 			wdata.n_mix_wavefile = 0;
 			wdata.amplitude_fmt = 100;
@@ -1361,9 +1362,9 @@ static int WavegenFill2()
 
 		if (result == 0) {
 			WcmdqIncHead();
-			resume = 0;
+			resume = false;
 		} else
-			resume = 1;
+			resume = true;
 	}
 
 	return 0;

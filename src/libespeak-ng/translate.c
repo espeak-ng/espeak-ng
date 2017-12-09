@@ -20,6 +20,7 @@
 #include "config.h"
 
 #include <ctype.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -549,7 +550,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	char word_copy2[N_WORD_BYTES];
 	int word_copy_length;
 	char prefix_chars[0x3f + 2];
-	int found = 0;
+	bool found = false;
 	int end_flags;
 	int c_temp; // save a character byte while we temporarily replace it with space
 	int first_char;
@@ -650,7 +651,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 				strcpy(word_out, word1);
 
 			return dictionary_flags[0];
-		} else if ((found == 0) && (dictionary_flags[0] & FLAG_SKIPWORDS) && !(dictionary_flags[0] & FLAG_ABBREV)) {
+		} else if ((found == false) && (dictionary_flags[0] & FLAG_SKIPWORDS) && !(dictionary_flags[0] & FLAG_ABBREV)) {
 			// grouped words, but no translation.  Join the words with hyphens.
 			wordx = word1;
 			ix = 0;
@@ -741,7 +742,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		if (wflags & FLAG_TRANSLATOR2)
 			return 0;
 		return dictionary_flags[0] & FLAG_SKIPWORDS; // for "b.c.d"
-	} else if (found == 0) {
+	} else if (found == false) {
 		// word's pronunciation is not given in the dictionary list, although
 		// dictionary_flags may have ben set there
 
@@ -812,7 +813,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 
 			c_temp = wordx[-1];
 
-			found = 0;
+			found = false;
 			confirm_prefix = 1;
 			for (loopcount = 0; (loopcount < 50) && (end_type & SUFX_P); loopcount++) {
 				// Found a standard prefix, remove it and retranslate
@@ -903,7 +904,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 					dictionary_flags[1] = dictionary_flags2[1];
 				} else
 					prefix_flags = 1;
-				if (found == 0) {
+				if (found == false) {
 					end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags & (FLAG_HYPHEN_AFTER | FLAG_PREFIX_REMOVED), dictionary_flags);
 
 					if (phonemes[0] == phonSWITCH) {
@@ -945,10 +946,10 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 						if (found)
 							prefix_phonemes[0] = 0; // matched whole word, don't need prefix now
 
-						if ((found == 0) && (dictionary_flags2[0] != 0))
+						if ((found == false) && (dictionary_flags2[0] != 0))
 							prefix_flags = 1;
 					}
-					if (found == 0) {
+					if (found == false) {
 						found = LookupDictList(tr, &wordx, phonemes, dictionary_flags2, end_flags, wtab);  // without prefix and suffix
 						if (phonemes[0] == phonSWITCH) {
 							// change to another language in order to translate this word
@@ -962,7 +963,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 							dictionary_flags[1] = dictionary_flags2[1];
 						}
 					}
-					if (found == 0) {
+					if (found == false) {
 						if (end_type & SUFX_Q) {
 							// don't retranslate, use the original lookup result
 							strcpy(phonemes, phonemes2);

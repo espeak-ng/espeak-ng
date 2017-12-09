@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include <errno.h>
 #include <math.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -1127,7 +1128,7 @@ void DoEmbedded(int *embix, int sourceix)
 	} while ((word & 0x80) == 0);
 }
 
-int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 {
 	static int ix;
 	static int embedded_ix;
@@ -1136,10 +1137,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	PHONEME_LIST *next;
 	PHONEME_LIST *next2;
 	PHONEME_LIST *p;
-	int released;
+	bool released;
 	int stress;
 	int modulation;
-	int pre_voiced;
+	bool  pre_voiced;
 	int free_min;
 	int value;
 	unsigned char *pitch_env = NULL;
@@ -1164,7 +1165,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	if (mbrola_name[0] != 0)
 		return MbrolaGenerate(phoneme_list, n_ph, resume);
 
-	if (resume == 0) {
+	if (resume == false) {
 		ix = 1;
 		embedded_ix = 0;
 		word_count = 0;
@@ -1239,14 +1240,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			p->std_length = p->ph->std_length;
 			break;
 		case phSTOP:
-			released = 0;
+			released = false;
 			ph = p->ph;
 			if (next->type == phVOWEL)
-				released = 1;
+				released = true;
 			else if (!next->newword) {
-				if (next->type == phLIQUID) released = 1;
+				if (next->type == phLIQUID) released = true;
 			}
-			if (released == 0)
+			if (released == false)
 				p->synthflags |= SFLAG_NEXT_PAUSE;
 
 			if (ph->phflags & phPREVOICE) {
@@ -1280,15 +1281,15 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			memset(&fmtp, 0, sizeof(fmtp));
 			fmtp.fmt_control = pd_DONTLENGTHEN;
 
-			pre_voiced = 0;
+			pre_voiced = false;
 			if (next->type == phVOWEL) {
 				DoAmplitude(p->amp, NULL);
 				DoPitch(envelope_data[p->env], p->pitch1, p->pitch2);
-				pre_voiced = 1;
+				pre_voiced = true;
 			} else if ((next->type == phLIQUID) && !next->newword) {
 				DoAmplitude(next->amp, NULL);
 				DoPitch(envelope_data[next->env], next->pitch1, next->pitch2);
-				pre_voiced = 1;
+				pre_voiced = true;
 			} else {
 				if (last_pitch_cmd < 0) {
 					DoAmplitude(next->amp, NULL);
