@@ -478,7 +478,6 @@ U+32f	n,0nsI#l'abI2k
 
 // numeric
 
-//_0    zero $text  // TEST
 _0	z'i@roU
 _1	w'02n
 _2	t'u:
@@ -513,7 +512,7 @@ _7X	s'Ev@nti||
 _8X	'eIti||
 _9X	n'aInti||
 
-_0C	h'Vndr@d
+_0C	h'VndrI2d
 _0M1	T'aUz@nd
 _0M2	m'Ili@n
 _0M3	b'Ili@n
@@ -542,8 +541,6 @@ _60o	s'Iksti@
 _70o	s'Ev@nti@
 _80o	'eIti@
 _90o	n'aInti@
-//_0Co	h'Vndr@dT
-//_0M1o	T'aUz@ndT
 
 
 // ABBREVIATIONS
@@ -2717,7 +2714,7 @@ nobody		'noUb0di
 nocturnal	$2
 nomenclature	n@mENkl@tS3
 nonsense	n0ns@ns
-nonetheless	nVnD@l'Es
+nonetheless	n02nD@l'Es
 nosedive	noUzdaIv
 nosir		noUs3:
 ?5 nosir	noUsIR
@@ -5442,7 +5439,7 @@ had              ,had		$atend
 (had been)       %ha#d%bIn	$pastf
 (had it)         h,adI2t
 (had them)       h,adDEm
-(had one)        hadwVn		$atend
+(had one)        hadw02n	$atend
 (had any)        h,ad||,Eni
 (had some)       h,ad||sVm
 having           ,havIN		$strend2 $pastf $only
@@ -5569,7 +5566,7 @@ your             jO@		$u $nounf $only
 their            De@		$u $nounf $only
 theirs           De@z
 
-none             nVn
+none             n02n
 noone            noUw02n
 anyone           EnIw02n
 everyone         EvrIw02n
