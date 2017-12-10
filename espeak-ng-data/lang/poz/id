@@ -3,5 +3,5 @@ language id
 
 stressLength 160 200  180 180  0 0  220 240
 stressAmp    16  18   18  18   0 0  22  21
-
+stressRule 2
 consonants 80 80

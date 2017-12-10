@@ -7,6 +7,7 @@ translator id
 
 stressLength 160 200  180 180  0 0  220 240
 stressAmp    16  18   18  18   0 0  22  21
+stressRule 2
 intonation	3	// Less intonation, and comma does not raise the pitch.
 
 // Nuance - Peninsula Malaysia
@@ -14,3 +15,4 @@ intonation	3	// Less intonation, and comma does not raise the pitch.
 				// (only the last phoneme of a word, only in unstressed syllables)
 				
 consonants 80 80
+

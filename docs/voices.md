@@ -384,8 +384,7 @@ Four integer parameters. These correspond to:
 3. langopts->unstressed_wd1 (stress for $u word of 1 syllable)
 4. langopts->unstressed_wd2 (stress for $u word of >1 syllable) 
 
-If a value is not given, it defaults to zero. For example:
-"stressRule 2" is equal to "stressRule 2 0 0 0"
+All parameters are not required. For example, "stressRule 2 1" is valid.
 
 ### stressLength
 

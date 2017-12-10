@@ -2,3 +2,4 @@ name Azerbaijani
 language az
 
 status testing
+stressRule 7

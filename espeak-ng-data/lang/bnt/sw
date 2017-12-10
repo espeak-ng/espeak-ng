@@ -2,3 +2,4 @@ name Swahili
 language sw
 
 status testing
+stressRule 2

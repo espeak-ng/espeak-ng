@@ -1,6 +1,6 @@
 name Albanian
 language sq
 letterVowel y
-
+stressRule 3
 // add this line to remove 'ë' at the end of words
 // replace 00  @/  NULL

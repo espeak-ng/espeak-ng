@@ -2,3 +2,5 @@ name Assamese
 language as
 
 status testing
+
+stressRule 0
