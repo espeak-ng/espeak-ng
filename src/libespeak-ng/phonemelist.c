@@ -19,6 +19,7 @@
 
 #include "config.h"
 
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -118,8 +119,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int alternative;
 	int delete_count;
 	int word_start;
-	int inserted;
-	int deleted;
+	bool inserted;
+	bool deleted;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -285,8 +286,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	for (j = 0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++) {
 		plist3 = &ph_list3[j];
 
-		inserted = 0;
-		deleted = 0;
+		inserted = false;
+		deleted = false;
 		if (insert_ph != 0) {
 			// we have a (linking) phoneme which we need to insert here
 			next = phoneme_tab[plist3->phcode];      // this phoneme, i.e. after the insert
@@ -311,7 +312,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			ph = phoneme_tab[insert_ph];
 			plist3->ph = ph;
 			insert_ph = 0;
-			inserted = 1; // don't insert the same phoneme repeatedly
+			inserted = true; // don't insert the same phoneme repeatedly
 		} else {
 			// otherwise get the next phoneme from the list
 			if (plist3->sourceix != 0)
@@ -339,7 +340,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			next = phoneme_tab[alternative];
 		}
 
-		if (((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0) && (inserted == 0)) {
+		if (((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0) && (inserted == false)) {
 			// PROBLEM: if we insert a phoneme before a vowel then we loose the stress.
 			PHONEME_TAB *ph2;
 			ph2 = ph;
@@ -369,7 +370,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			plist3->phcode = alternative;
 
 			if (alternative == 1)
-				deleted = 1; // NULL phoneme, discard
+				deleted = true; // NULL phoneme, discard
 			else {
 				if (ph->type == phVOWEL) {
 					plist3->synthflags |= SFLAG_SYLLABLE;
@@ -384,7 +385,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			}
 		}
 
-		if ((ph->type == phVOWEL) && (deleted == 0)) {
+		if ((ph->type == phVOWEL) && (deleted == false)) {
 			PHONEME_LIST *p;
 
 			// Check for consecutive unstressed syllables, even across word boundaries.
@@ -483,7 +484,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		if ((insert_ph == 0) && (phdata.pd_param[pd_APPENDPHONEME] != 0))
 			insert_ph = phdata.pd_param[pd_APPENDPHONEME];
 
-		if (deleted == 0) {
+		if (deleted == false) {
 			phlist[ix].ph = ph;
 			phlist[ix].type = ph->type;
 			phlist[ix].env = PITCHfall; // default, can be changed in the "intonation" module

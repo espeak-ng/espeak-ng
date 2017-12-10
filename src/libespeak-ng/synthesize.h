@@ -17,6 +17,8 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#include <stdbool.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -492,7 +494,7 @@ unsigned char *LookupEnvelope(int ix);
 espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
+int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
@@ -536,9 +538,9 @@ extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate);
 espeak_ng_STATUS SetParameter(int parameter, int value, int relative);
-int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola);
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
-int MbrolaFill(int length, int resume, int amplitude);
+int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mbrola);
+int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
+int MbrolaFill(int length, bool resume, int amplitude);
 void MbrolaReset(void);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
