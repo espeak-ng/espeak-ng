@@ -13,3 +13,6 @@ formant 5  97 102 100
 
 stressAdd 10 10 0 0 0 0 -30 -30
 dictrules 1
+letterVowel y
+letterVowel r
+stressRule 0

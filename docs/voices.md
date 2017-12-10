@@ -25,12 +25,13 @@
   - [dictionary](#dictionary)
   - [dictrules](#dictrules)
   - [replace](#replace)
+  - [stressRule](#stressrule)
   - [stressLength](#stresslength)
   - [stressAdd](#stressadd)
   - [stressAmp](#stressamp)
   - [intonation](#intonation)
   - [dictmin](#dictmin)
-
+  - [letterVowel](#letterVowel)
 ----------
 
 A Voice file specifies a language (and possibly a language variant or
@@ -372,6 +373,19 @@ e.g.
 The phoneme mnemonics can be defined for each language, but some are
 listed in [Phonemes](phonemes.md).
 
+### stressRule
+
+	stressRule <4 integer values>
+
+Four integer parameters. These correspond to:
+
+1. langopts->stress_rule (values in translate.h)
+2. langopts->stress_flags
+3. langopts->unstressed_wd1 (stress for $u word of 1 syllable)
+4. langopts->unstressed_wd2 (stress for $u word of >1 syllable) 
+
+All parameters are not required. For example, "stressRule 2 1" is valid.
+
 ### stressLength
 
 	stressLength <8 integer values>
@@ -425,3 +439,9 @@ Used for some languages to detect if additional language data is
 installed. If the size of the compiled dictionary data for the language
 (the file `espeak-ng-data/*_dict`) is less than this size then a
 warning is given.
+
+### letterVowel
+
+	letterVowel <letter>
+
+Used for some languages to handle a certain letter as a vowel instead of consonant.

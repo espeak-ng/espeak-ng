@@ -2,3 +2,4 @@ name Gujarati
 language gu
 
 status testing
+stressRule 2

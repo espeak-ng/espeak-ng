@@ -2,3 +2,4 @@ name Amharic
 language am
 
 status testing
+stressRule 0
