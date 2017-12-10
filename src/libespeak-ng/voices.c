@@ -109,7 +109,11 @@ enum {
 
 	// these need a phoneme table to have been specified
 	V_REPLACE,
-	V_CONSONANTS
+	V_CONSONANTS,
+
+	// these are alpha features that need to be tested and categorized
+	V_LETTER_VOWEL
+
 };
 
 static MNEM_TAB options_tab[] = {
@@ -168,6 +172,8 @@ static MNEM_TAB keyword_tab[] = {
 	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
 
+	// these are alpha features that need to be tested and categorized
+	{ "letterVowel", V_LETTER_VOWEL },
 	{ NULL, 0 }
 };
 
@@ -858,6 +864,27 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_MAINTAINER:
 		case V_STATUS:
 			break;
+
+		case V_LETTER_VOWEL: {
+			char str[5] = "";
+			char c = '0';
+			char *endptr = NULL;
+			sscanf(p, "%s", str);
+			// assume a hex value if string starts with "0x"
+			if (str[0] == '0' && str[1] == 'x') {
+				c = strtoul(str, &endptr, 16);
+				if (errno == ERANGE)
+					fprintf(stderr, "letterVowel out of range.\n");
+			}
+			else  {// otherwise, assume a single letter
+				c = str[0];
+				if (c < 97 || c > 122) // valid values are a-z, ascii 97-122
+					fprintf(stderr, "letterVowel out of range.\n");
+			}
+ 			new_translator->letter_bits[c] = (new_translator->letter_bits[c] & 0x40) | 0x81; // keep value for group 6 (front vowels e,i,y)
+			break;
+			}
+
 		default:
 			if ((key & 0xff00) == 0x100) {
 				if (langopts)

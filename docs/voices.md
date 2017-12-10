@@ -30,7 +30,7 @@
   - [stressAmp](#stressamp)
   - [intonation](#intonation)
   - [dictmin](#dictmin)
-
+  - [letterVowel](#letterVowel)
 ----------
 
 A Voice file specifies a language (and possibly a language variant or
@@ -425,3 +425,9 @@ Used for some languages to detect if additional language data is
 installed. If the size of the compiled dictionary data for the language
 (the file `espeak-ng-data/*_dict`) is less than this size then a
 warning is given.
+
+### letterVowel
+
+	letterVowel <letter>
+
+Used for some languages to handle a certain letter as a vowel instead of consonant.
