@@ -22,18 +22,18 @@ $textmode
 // 2100..214F : Letterlike Symbols
 
 ™	znak ochranné známky						// [2122] text|emoji
-ℹ	značka informace						// [2139] text|emoji
+ℹ	informace							// [2139] text|emoji
 
 // 2190..21FF : Arrows
 
-↔	šipka vlevo a vpravo						// [2194] text|emoji
+↔	šipka doleva a doprava						// [2194] text|emoji
 ↕	šipka nahoru a dolů						// [2195] text|emoji
-↖	šipka vlevo nahoru						// [2196] text|emoji
-↗	šipka vpravo nahoru						// [2197] text|emoji
-↘	šipka vpravo dolů						// [2198] text|emoji
-↙	šipka vlevo dolů						// [2199] text|emoji
-↩	šipka vpravo zatáčející doleva					// [21A9] text|emoji
-↪	šipka vlevo zatáčející doprava					// [21AA] text|emoji
+↖	šipka doleva nahoru						// [2196] text|emoji
+↗	šipka doprava nahoru						// [2197] text|emoji
+↘	šipka doprava dolů						// [2198] text|emoji
+↙	šipka doleva dolů						// [2199] text|emoji
+↩	šipka doprava stáčející se doleva				// [21A9] text|emoji
+↪	šipka doleva stáčející se doprava				// [21AA] text|emoji
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -50,26 +50,26 @@ $textmode
 ⏯	tlačítko přehrávání nebo pozastavení				// [23EF] text|emoji
 ⏰	budík								// [23F0]
 ⏱	stopky								// [23F1] text|emoji
-⏲	časovač								// [23F2] text|emoji
-⏳	přesýpací hodiny s pískem					// [23F3]
+⏲	minutka								// [23F2] text|emoji
+⏳	běžící přesýpací hodiny						// [23F3]
 ⏸	tlačítko pozastavení						// [23F8] text|emoji
 ⏹	tlačítko zastavení						// [23F9] text|emoji
 ⏺	tlačítko nahrávání						// [23FA] text|emoji
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	písmeno em v kruhu						// [24C2] text|emoji
+Ⓜ	M v kroužku							// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
-▪	malý černý čtverec						// [25AA] text|emoji
-▫	malý bílý čtverec						// [25AB] text|emoji
+▪	černý čtvereček							// [25AA] text|emoji
+▫	bílý čtvereček							// [25AB] text|emoji
 ▶	tlačítko přehrávání						// [25B6] text|emoji
-◀	tlačítko opačného přehrávání					// [25C0] text|emoji
+◀	tlačítko přehrávání pozpátku					// [25C0] text|emoji
 ◻	střední bílý čtverec						// [25FB] text|emoji
 ◼	střední černý čtverec						// [25FC] text|emoji
-◽	menší bílý čtverec						// [25FD]
-◾	menší černý čtverec						// [25FE]
+◽	větší bílý čtvereček						// [25FD]
+◾	větší černý čtvereček						// [25FE]
 
 // 2600..26FF : Miscellaneous Symbols
 
@@ -92,17 +92,17 @@ $textmode
 ☮	symbol míru							// [262E] text|emoji
 ☯	jin a jang							// [262F] text|emoji
 ☸	kolo dharmy							// [2638] text|emoji
-☹	výraz zamračení							// [2639] text|emoji
-☺	výraz úsměvu							// [263A] text|emoji
-♀	znak ženy							// [2640] text|emoji
-♂	znak muže							// [2642] text|emoji
+☹	zamračený obličej						// [2639] text|emoji
+☺	usmívající se obličej						// [263A] text|emoji
+♀	symbol ženského pohlaví						// [2640] text|emoji
+♂	symbol mužského pohlaví						// [2642] text|emoji
 ♈	skopec								// [2648]
 ♉	býk								// [2649]
 ♊	blíženci							// [264A]
 ♋	rak								// [264B]
 ♌	lev								// [264C]
 ♍	panna								// [264D]
-♎	znamení vah							// [264E]
+♎	váhy								// [264E]
 ♏	štír								// [264F]
 ♐	střelec								// [2650]
 ♑	kozoroh								// [2651]
@@ -114,20 +114,20 @@ $textmode
 ♦	káry								// [2666] text|emoji
 ♨	horké prameny							// [2668] text|emoji
 ♻	symbol recyklace						// [267B] text|emoji
-♿	invalidní vozík							// [267F]
+♿	symbol invalidního vozíku					// [267F]
 ⚒	kladivo a špičák						// [2692] text|emoji
 ⚓	kotva								// [2693]
 ⚔	zkřížené meče							// [2694] text|emoji
 ⚕	znak medicíny							// [2695] text|emoji
-⚖	váhy								// [2696] text|emoji
+⚖	miskové váhy							// [2696] text|emoji
 ⚗	křivule								// [2697] text|emoji
 ⚙	ozubené kolo							// [2699] text|emoji
 ⚛	symbol atomu							// [269B] text|emoji
 ⚜	heraldická lilie						// [269C] text|emoji
-⚠	upozornění							// [26A0] text|emoji
+⚠	varování							// [26A0] text|emoji
 ⚡	vysoké napětí							// [26A1]
-⚪	bílý kruh							// [26AA]
-⚫	černý kruh							// [26AB]
+⚪	bílý kroužek							// [26AA]
+⚫	černý kroužek							// [26AB]
 ⚰	rakev								// [26B0] text|emoji
 ⚱	pohřební urna							// [26B1] text|emoji
 ⚽	fotbalový míč							// [26BD]
@@ -137,20 +137,20 @@ $textmode
 ⛈	mrak s bleskem a deštěm						// [26C8] text|emoji
 ⛎	hadonoš								// [26CE]
 ⛏	krumpáč								// [26CF] text|emoji
-⛑	helma s křížem							// [26D1] text|emoji
+⛑	záchranářská helma						// [26D1] text|emoji
 ⛓	řetězy								// [26D3] text|emoji
-⛔	zákaz vstupu							// [26D4]
+⛔	zákaz vjezdu v jednom směru					// [26D4]
 ⛩	šintoistická svatyně						// [26E9] text|emoji
 ⛪	kostel								// [26EA]
 ⛰	hora								// [26F0] text|emoji
 ⛱	slunečník							// [26F1] text|emoji
 ⛲	fontána								// [26F2]
 ⛳	jamka s vlajkou							// [26F3]
-⛴	přívoz								// [26F4] text|emoji
+⛴	trajekt								// [26F4] text|emoji
 ⛵	plachetnice							// [26F5]
 ⛷	lyžař								// [26F7] text|emoji
 ⛸	brusle								// [26F8] text|emoji
-⛹	člověk s míčem							// [26F9] text|emoji
+⛹	osoba driblující s míčem					// [26F9] text|emoji
 ⛺	stan								// [26FA]
 ⛽	benzínová pumpa							// [26FD]
 
@@ -162,94 +162,94 @@ $textmode
 ✉	obálka								// [2709] text|emoji
 ✊	zvednutá pěst							// [270A]
 ✋	zvednutá ruka							// [270B]
-✌	znamení vítězství						// [270C] text|emoji
+✌	gesto vítězství							// [270C] text|emoji
 ✍	píšící ruka							// [270D] text|emoji
 ✏	tužka								// [270F] text|emoji
-✒	černé pero							// [2712] text|emoji
+✒	hrot černého pera						// [2712] text|emoji
 ✔	značka zaškrtnutí						// [2714] text|emoji
-✖	znak krát							// [2716] text|emoji
-✝	katolický kříž							// [271D] text|emoji
-✡	davidova hvězda							// [2721] text|emoji
+✖	znak násobení							// [2716] text|emoji
+✝	latinský kříž							// [271D] text|emoji
+✡	Davidova hvězda							// [2721] text|emoji
 ✨	jiskry								// [2728]
 ✳	osmicípá hvězdička						// [2733] text|emoji
-✴	čtyřcípá hvězda							// [2734] text|emoji
+✴	osmicípá hvězda							// [2734] text|emoji
 ❄	sněhová vločka							// [2744] text|emoji
 ❇	jiskra								// [2747] text|emoji
-❌	znak křížek							// [274C]
-❎	bílý znak křížek						// [274E]
+❌	křížek								// [274C]
+❎	bílý křížek							// [274E]
 ❓	otazník								// [2753]
 ❔	bílý otazník							// [2754]
 ❕	bílý vykřičník							// [2755]
 ❗	vykřičník							// [2757]
 ❣	srdce jako vykřičník						// [2763] text|emoji
 ❤	rudé srdce							// [2764] text|emoji
-➕	znak pus							// [2795]
+➕	znak plus							// [2795]
 ➖	znak minus							// [2796]
 ➗	znak dělení							// [2797]
-➡	šipka vpravo							// [27A1] text|emoji
+➡	šipka doprava							// [27A1] text|emoji
 ➰	smyčka								// [27B0]
 ➿	dvojitá smyčka							// [27BF]
 
 // 2900..297F : Supplemental Arrows-B
 
-⤴	šipka vpravo zatáčející nahoru					// [2934] text|emoji
-⤵	šipka vpravo zatáčející dolů					// [2935] text|emoji
+⤴	šipka doprava stáčející se nahoru				// [2934] text|emoji
+⤵	šipka doprava stáčející se dolů					// [2935] text|emoji
 
 // 2B00..2BFF : Miscellaneous Symbols and Arrows
 
-⬅	šipka vlevo							// [2B05] text|emoji
+⬅	šipka doleva							// [2B05] text|emoji
 ⬆	šipka nahoru							// [2B06] text|emoji
 ⬇	šipka dolů							// [2B07] text|emoji
 ⬛	velký černý čtverec						// [2B1B]
 ⬜	velký bílý čtverec						// [2B1C]
-⭐	bílá střední hvězda						// [2B50]
+⭐	bílá hvězda střední velikosti					// [2B50]
 ⭕	velký kruh							// [2B55]
 
 // 3000..303F : CJK Symbols and Punctuation
 
-〰	vlnitá čára							// [3030] text|emoji
-〽	značka střídání částí						// [303D] text|emoji
+〰	dlouhá vlnovka							// [3030] text|emoji
+〽	značka přechodu mezi částmi skladby				// [303D] text|emoji
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	čínský kruhový ideogram gratulace				// [3297] text|emoji
-㊙	čínský kruhový ideogram tajemství				// [3299] text|emoji
+㊗	štítek s japonským znakem blahopřání				// [3297] text|emoji
+㊙	štítek s japonským znakem tajné					// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	značka á							// [1F170] text|emoji
-🅱	značka bé							// [1F171] text|emoji
-🅾	značka ó							// [1F17E] text|emoji
-🅿	značka pé							// [1F17F] text|emoji
-🆎	značka á bé							// [1F18E]
-🆑	značka cé el							// [1F191]
-🆒	značka kůl							// [1F192]
-🆓	značka frí							// [1F193]
-🆔	značka í dé							// [1F194]
-🆕	značka ňů							// [1F195]
-🆖	značka en gé							// [1F196]
-🆗	značka óká							// [1F197]
-🆘	značka es ó es							// [1F198]
-🆙	značka ap							// [1F199]
-🆚	značka versus							// [1F19A]
+🅰	štítek A (krevní skupina)					// [1F170] text|emoji
+🅱	štítek B (krevní skupina)					// [1F171] text|emoji
+🅾	štítek 0 (krevní skupina)					// [1F17E] text|emoji
+🅿	štítek P							// [1F17F] text|emoji
+🆎	štítek AB (krevní skupina)					// [1F18E]
+🆑	štítek CL							// [1F191]
+🆒	štítek COOL							// [1F192]
+🆓	štítek FREE							// [1F193]
+🆔	štítek ID							// [1F194]
+🆕	štítek NEW							// [1F195]
+🆖	štítek NG							// [1F196]
+🆗	štítek OK							// [1F197]
+🆘	štítek SOS							// [1F198]
+🆙	štítek UP!							// [1F199]
+🆚	štítek VS							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	japonská značka katakana koko					// [1F201]
-🈂	japonská značka katakana sa					// [1F202] text|emoji
-🈚	japonský čtvercový ideogram negace				// [1F21A]
-🈯	japonský čtvercový ideogram prstu				// [1F22F]
-🈲	japonský čtvercový ideogram zákazu				// [1F232]
-🈳	čínský čtvercový ideogram neobsazenosti				// [1F233]
-🈴	čínský čtvercový ideogram jednoty				// [1F234]
-🈵	čínský čtvercový ideogram plnosti				// [1F235]
-🈶	japonský čtvercový ideogram existence				// [1F236]
-🈷	japonský čtvercový ideogram měsíce				// [1F237] text|emoji
-🈸	čínský čtvercový ideogram žádosti				// [1F238]
-🈹	japonský čtvercový ideogram dělení				// [1F239]
-🈺	čínský čtvercový ideogram provozu				// [1F23A]
-🉐	japonský kruhový ideogram výhodnosti				// [1F250]
-🉑	čínský kruhový ideogram přijetí					// [1F251]
+🈁	štítek s japonským znakem zde					// [1F201]
+🈂	štítek s japonským znakem pozornost podniku			// [1F202] text|emoji
+🈚	štítek s japonským znakem zdarma				// [1F21A]
+🈯	štítek s japonským znakem rezervováno				// [1F22F]
+🈲	štítek s japonským znakem zákaz					// [1F232]
+🈳	štítek s japonským znakem volno					// [1F233]
+🈴	štítek s japonským znakem prospěl				// [1F234]
+🈵	štítek s japonským znakem obsazeno				// [1F235]
+🈶	štítek s japonským znakem není zdarma				// [1F236]
+🈷	štítek s japonským znakem měsíc					// [1F237] text|emoji
+🈸	štítek s japonským znakem žádost”				// [1F238]
+🈹	štítek s japonským znakem sleva					// [1F239]
+🈺	štítek s japonským znakem otevřeno				// [1F23A]
+🉐	štítek s japonským znakem výhodná koupě				// [1F250]
+🉑	štítek s japonským znakem přijatelné				// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -261,12 +261,12 @@ $textmode
 
 // 1F300..1F5FF : Miscellaneous Symbols and Pictographs
 
-🌀	cyklón								// [1F300]
+🌀	cyklóna								// [1F300]
 🌁	mlha								// [1F301]
 🌂	zavřený deštník							// [1F302]
 🌃	hvězdná noc							// [1F303]
 🌄	svítání nad horami						// [1F304]
-🌅	svítání								// [1F305]
+🌅	východ slunce							// [1F305]
 🌆	město za soumraku						// [1F306]
 🌇	západ slunce							// [1F307]
 🌈	duha								// [1F308]
@@ -274,23 +274,23 @@ $textmode
 🌊	vodní vlna							// [1F30A]
 🌋	sopka								// [1F30B]
 🌌	mléčná dráha							// [1F30C]
-🌍	glóbus s evropou a afrikou					// [1F30D]
-🌎	glóbus se severní a jižní amerikou				// [1F30E]
-🌏	glóbus s asií a austrálií					// [1F30F]
-🌐	glóbus s poledníky						// [1F310]
-🌑	nov								// [1F311]
-🌒	dorůstající srpek měsíce					// [1F312]
+🌍	glóbus s Evropou a Afrikou					// [1F30D]
+🌎	glóbus se Severní a Jižní Amerikou				// [1F30E]
+🌏	glóbus s Asií a Austrálií					// [1F30F]
+🌐	glóbus s poledníky a rovnoběžkami				// [1F310]
+🌑	měsíc v novu							// [1F311]
+🌒	dorůstající měsíc po novoluní					// [1F312]
 🌓	měsíc v první čtvrti						// [1F313]
-🌔	dorůstající měsíc						// [1F314]
-🌕	úplněk								// [1F315]
-🌖	couvající měsíc							// [1F316]
+🌔	dorůstající měsíc před úplňkem					// [1F314]
+🌕	měsíc v úplňku							// [1F315]
+🌖	ubývající měsíc po úplňku					// [1F316]
 🌗	měsíc v poslední čtvrti						// [1F317]
-🌘	couvající srpek měsíce						// [1F318]
+🌘	ubývající měsíc před novoluním					// [1F318]
 🌙	srpek měsíce							// [1F319]
-🌚	nov s obličejem							// [1F31A]
+🌚	měsíc v novu s obličejem					// [1F31A]
 🌛	měsíc v první čtvrti s obličejem				// [1F31B]
 🌜	měsíc v poslední čtvrti s obličejem				// [1F31C]
-🌝	úplněk s obličejem						// [1F31D]
+🌝	měsíc v úplňku s obličejem					// [1F31D]
 🌞	slunce s obličejem						// [1F31E]
 🌟	zářící hvězda							// [1F31F]
 🌠	padající hvězda							// [1F320]
@@ -303,9 +303,9 @@ $textmode
 🌩	mrak s bleskem							// [1F329] text|emoji
 🌪	tornádo								// [1F32A] text|emoji
 🌫	mlhavé počasí							// [1F32B] text|emoji
-🌬	tvář větru							// [1F32C] text|emoji
-🌭	hot dog								// [1F32D]
-🌮	tako								// [1F32E]
+🌬	větrný obličej							// [1F32C] text|emoji
+🌭	párek v rohlíku							// [1F32D]
+🌮	taco								// [1F32E]
 🌯	burrito								// [1F32F]
 🌰	kaštan								// [1F330]
 🌱	výhonek								// [1F331]
@@ -315,23 +315,23 @@ $textmode
 🌵	kaktus								// [1F335]
 🌶	feferonka							// [1F336] text|emoji
 🌷	tulipán								// [1F337]
-🌸	květ třešně							// [1F338]
+🌸	třešňový květ							// [1F338]
 🌹	růže								// [1F339]
 🌺	ibišek								// [1F33A]
 🌻	slunečnice							// [1F33B]
 🌼	květ								// [1F33C]
-🌽	kukuřice							// [1F33D]
-🌾	rostlina rýže							// [1F33E]
+🌽	kukuřičný klas							// [1F33D]
+🌾	rýžové klasy							// [1F33E]
 🌿	bylina								// [1F33F]
 🍀	čtyřlístek							// [1F340]
 🍁	javorový list							// [1F341]
 🍂	spadlý list							// [1F342]
-🍃	padající třepotající se list					// [1F343]
+🍃	padající list ve větru						// [1F343]
 🍄	houba								// [1F344]
 🍅	rajče								// [1F345]
 🍆	lilek								// [1F346]
 🍇	hrozny								// [1F347]
-🍈	žlutý meloun							// [1F348]
+🍈	cukrový meloun							// [1F348]
 🍉	meloun								// [1F349]
 🍊	mandarinka							// [1F34A]
 🍋	citron								// [1F34B]
@@ -348,9 +348,9 @@ $textmode
 🍖	maso na kosti							// [1F356]
 🍗	kuřecí stehýnko							// [1F357]
 🍘	rýžová sušenka							// [1F358]
-🍙	onigiri								// [1F359]
+🍙	rýžová koule							// [1F359]
 🍚	vařená rýže							// [1F35A]
-🍛	rýže kari							// [1F35B]
+🍛	kari rýže							// [1F35B]
 🍜	miska nudlí							// [1F35C]
 🍝	špagety								// [1F35D]
 🍞	chleba								// [1F35E]
@@ -360,10 +360,10 @@ $textmode
 🍢	oden								// [1F362]
 🍣	suši								// [1F363]
 🍤	smažená kreveta							// [1F364]
-🍥	rybí koláček							// [1F365]
-🍦	krémová zmrzlina						// [1F366]
+🍥	rybí koláček se spirálkou					// [1F365]
+🍦	točená zmrzlina							// [1F366]
 🍧	ledová tříšť							// [1F367]
-🍨	zmrzlina							// [1F368]
+🍨	kopečková zmrzlina						// [1F368]
 🍩	donut								// [1F369]
 🍪	koláček								// [1F36A]
 🍫	tabulka čokolády						// [1F36B]
@@ -371,111 +371,111 @@ $textmode
 🍭	lízátko								// [1F36D]
 🍮	pudink								// [1F36E]
 🍯	sklenice medu							// [1F36F]
-🍰	kousek dortu							// [1F370]
-🍱	krabička bento							// [1F371]
+🍰	dortový řez							// [1F370]
+🍱	krabička bentó							// [1F371]
 🍲	hrnec jídla							// [1F372]
-🍳	vaření								// [1F373]
-🍴	příbor								// [1F374]
+🍳	vejce na pánvi							// [1F373]
+🍴	vidlička a nůž							// [1F374]
 🍵	šálek bez ouška							// [1F375]
 🍶	saké								// [1F376]
 🍷	sklenička vína							// [1F377]
 🍸	koktejlová sklenička						// [1F378]
-🍹	tropický nápoj							// [1F379]
-🍺	pivní půllitr							// [1F37A]
-🍻	přiťuknutí pivem						// [1F37B]
-🍼	kojenecká lahev							// [1F37C]
-🍽	talíř a příbor							// [1F37D] text|emoji
+🍹	tropický koktejl						// [1F379]
+🍺	půllitr piva							// [1F37A]
+🍻	cinkající půllitry piva						// [1F37B]
+🍼	kojenecká láhev							// [1F37C]
+🍽	talíř s vidličkou a nožem					// [1F37D] text|emoji
 🍾	láhev sektu							// [1F37E]
-🍿	popkorn								// [1F37F]
+🍿	popcorn								// [1F37F]
 🎀	mašle								// [1F380]
 🎁	zabalený dárek							// [1F381]
 🎂	narozeninový dort						// [1F382]
-🎃	dýně								// [1F383]
+🎃	dýňová lucerna							// [1F383]
 🎄	vánoční stromeček						// [1F384]
-🎅	santa klaus							// [1F385]
+🎅	Santa Claus							// [1F385]
 🎆	ohňostroj							// [1F386]
 🎇	prskavka							// [1F387]
 🎈	balónek								// [1F388]
-🎉	párty trubka							// [1F389]
-🎊	konfety								// [1F38A]
-🎋	strom tanabata							// [1F38B]
+🎉	vystřelovací konfety						// [1F389]
+🎊	konfetová koule							// [1F38A]
+🎋	strom přání							// [1F38B]
 🎌	zkřížené vlajky							// [1F38C]
 🎍	bambusové dekorace						// [1F38D]
 🎎	japonské panenky						// [1F38E]
 🎏	koinobori							// [1F38F]
-🎐	zvonkohra							// [1F390]
+🎐	větrný zvonek							// [1F390]
 🎑	slavnosti měsíce						// [1F391]
 🎒	školní batoh							// [1F392]
-🎓	univerzitní čapka						// [1F393]
+🎓	promoční čepice							// [1F393]
 🎖	vojenská medaile						// [1F396] text|emoji
-🎗	pamětní stuha							// [1F397] text|emoji
+🎗	symbolická stužka						// [1F397] text|emoji
 🎙	studiový mikrofon						// [1F399] text|emoji
-🎚	posuvník							// [1F39A] text|emoji
-🎛	knoflíky							// [1F39B] text|emoji
-🎞	okénka filmu							// [1F39E] text|emoji
+🎚	posuvný ovladač hlasitosti					// [1F39A] text|emoji
+🎛	ovládací knoflíky						// [1F39B] text|emoji
+🎞	filmová okénka							// [1F39E] text|emoji
 🎟	vstupenky							// [1F39F] text|emoji
-🎠	kůň na kolotoči							// [1F3A0]
+🎠	kolotočový kůň							// [1F3A0]
 🎡	ruské kolo							// [1F3A1]
 🎢	horská dráha							// [1F3A2]
 🎣	rybářský prut							// [1F3A3]
 🎤	mikrofon							// [1F3A4]
 🎥	filmová kamera							// [1F3A5]
-🎦	film								// [1F3A6]
+🎦	kino								// [1F3A6]
 🎧	sluchátka							// [1F3A7]
 🎨	malířská paleta							// [1F3A8]
 🎩	cylindr								// [1F3A9]
 🎪	cirkusový stan							// [1F3AA]
 🎫	lístek								// [1F3AB]
-🎬	klapka								// [1F3AC]
-🎭	divadlo								// [1F3AD]
+🎬	filmová klapka							// [1F3AC]
+🎭	múzická umění							// [1F3AD]
 🎮	videohra							// [1F3AE]
-🎯	přímý zásah do terče						// [1F3AF]
+🎯	přesný zásah do terče						// [1F3AF]
 🎰	výherní automat							// [1F3B0]
-🎱	koule na kulečník						// [1F3B1]
+🎱	kulečníková koule 8						// [1F3B1]
 🎲	hrací kostka							// [1F3B2]
-🎳	koule na bowling						// [1F3B3]
-🎴	herní karty s květinami						// [1F3B4]
+🎳	bowling								// [1F3B3]
+🎴	hrací karty s květinami						// [1F3B4]
 🎵	nota								// [1F3B5]
 🎶	noty								// [1F3B6]
 🎷	saxofon								// [1F3B7]
 🎸	kytara								// [1F3B8]
 🎹	klávesy								// [1F3B9]
-🎺	trumpeta							// [1F3BA]
+🎺	trubka								// [1F3BA]
 🎻	housle								// [1F3BB]
-🎼	partitura							// [1F3BC]
-🎽	tričko na běh							// [1F3BD]
-🎾	tenisový míček							// [1F3BE]
+🎼	notová osnova							// [1F3BC]
+🎽	běžecké tričko							// [1F3BD]
+🎾	tenis								// [1F3BE]
 🎿	lyže								// [1F3BF]
 🏀	basketbalový míč						// [1F3C0]
-🏁	kostkovaná vlajka						// [1F3C1]
+🏁	šachovnicová vlajka						// [1F3C1]
 🏂	snowboardista							// [1F3C2]
-🏃	běh								// [1F3C3]
-🏄	surfující člověk						// [1F3C4]
+🏃	běžící osoba							// [1F3C3]
+🏄	osoba na surfu							// [1F3C4]
 🏅	medaile								// [1F3C5]
-🏆	pohár								// [1F3C6]
-🏇	dostihy								// [1F3C7]
+🏆	trofejní pohár							// [1F3C6]
+🏇	žokej na koni							// [1F3C7]
 🏈	míč na americký fotbal						// [1F3C8]
 🏉	míč na rugby							// [1F3C9]
-🏊	plavající člověk						// [1F3CA]
-🏋	člověk zvedající činky						// [1F3CB] text|emoji
-🏌	člověk hrající golf						// [1F3CC] text|emoji
+🏊	plavající osoba							// [1F3CA]
+🏋	osoba vzpírající činku						// [1F3CB] text|emoji
+🏌	osoba hrající golf						// [1F3CC] text|emoji
 🏍	motorka								// [1F3CD] text|emoji
 🏎	formule								// [1F3CE] text|emoji
 🏏	kriket								// [1F3CF]
-🏐	míč na volejbal							// [1F3D0]
-🏑	florbal								// [1F3D1]
-🏒	hokejka a puk							// [1F3D2]
-🏓	ping pong							// [1F3D3]
+🏐	volejbalový míč							// [1F3D0]
+🏑	pozemní hokej							// [1F3D1]
+🏒	lední hokej							// [1F3D2]
+🏓	stolní tenis							// [1F3D3]
 🏔	zasněžená hora							// [1F3D4] text|emoji
 🏕	tábor								// [1F3D5] text|emoji
 🏖	pláž se slunečníkem						// [1F3D6] text|emoji
 🏗	staveniště							// [1F3D7] text|emoji
 🏘	domky								// [1F3D8] text|emoji
 🏙	městská zástavba						// [1F3D9] text|emoji
-🏚	opuštěná budova							// [1F3DA] text|emoji
+🏚	opuštěný dům							// [1F3DA] text|emoji
 🏛	antická budova							// [1F3DB] text|emoji
 🏜	poušť								// [1F3DC] text|emoji
-🏝	pouštní ostrov							// [1F3DD] text|emoji
+🏝	pustý ostrov							// [1F3DD] text|emoji
 🏞	národní park							// [1F3DE] text|emoji
 🏟	stadion								// [1F3DF] text|emoji
 🏠	domek								// [1F3E0]
@@ -485,28 +485,28 @@ $textmode
 🏤	pošta								// [1F3E4]
 🏥	nemocnice							// [1F3E5]
 🏦	banka								// [1F3E6]
-🏧	značka á té em							// [1F3E7]
+🏧	značka bankomatu						// [1F3E7]
 🏨	hotel								// [1F3E8]
 🏩	hodinový hotel							// [1F3E9]
 🏪	obchod								// [1F3EA]
 🏫	škola								// [1F3EB]
-🏬	nákupní centrum							// [1F3EC]
+🏬	obchodní dům							// [1F3EC]
 🏭	továrna								// [1F3ED]
-🏮	červená papírová lucerna					// [1F3EE]
+🏮	červený lampion							// [1F3EE]
 🏯	japonský hrad							// [1F3EF]
 🏰	hrad								// [1F3F0]
-🏳	vlající bílá vlajka						// [1F3F3] text|emoji
-🏴	vlající černá vlajka						// [1F3F4]
+🏳	bílá vlajka							// [1F3F3] text|emoji
+🏴	černá vlajka							// [1F3F4]
 🏵	rozeta								// [1F3F5] text|emoji
 🏷	visačka								// [1F3F7] text|emoji
 🏸	badminton							// [1F3F8]
 🏹	luk a šíp							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	barva kůže 1–2							// [1F3FB]
-🏼	barva kůže 3							// [1F3FC]
-🏽	barva kůže 4							// [1F3FD]
-🏾	barva kůže 5							// [1F3FE]
-🏿	barva kůže 6							// [1F3FF]
+🏻	světlý odstín pleti						// [1F3FB]
+🏼	středně světlý odstín pleti					// [1F3FC]
+🏽	střední odstín pleti						// [1F3FD]
+🏾	středně tmavý odstín pleti					// [1F3FE]
+🏿	tmavý odstín pleti						// [1F3FF]
 🐀	krysa								// [1F400]
 🐁	myš								// [1F401]
 🐂	vůl								// [1F402]
@@ -549,8 +549,8 @@ $textmode
 🐧	tučňák								// [1F427]
 🐨	koala								// [1F428]
 🐩	pudl								// [1F429]
-🐪	dromedár							// [1F42A]
-🐫	velbloud							// [1F42B]
+🐪	velbloud jednohrbý						// [1F42A]
+🐫	velbloud dvouhrbý						// [1F42B]
 🐬	delfín								// [1F42C]
 🐭	hlava myši							// [1F42D]
 🐮	hlava krávy							// [1F42E]
@@ -577,13 +577,13 @@ $textmode
 👃	nos								// [1F443]
 👄	ústa								// [1F444]
 👅	jazyk								// [1F445]
-👆	hřbet ruky ukazující nahoru					// [1F446]
-👇	hřbet ruky ukazující dolů					// [1F447]
-👈	hřbet ruky ukazující vlevo					// [1F448]
-👉	hřbet ruky ukazující vpravo					// [1F449]
+👆	ruka s prstem ukazujícím nahoru					// [1F446]
+👇	ruka s prstem ukazujícím dolů					// [1F447]
+👈	ruka s prstem ukazujícím vlevo					// [1F448]
+👉	ruka s prstem ukazujícím vpravo					// [1F449]
 👊	namířená pěst							// [1F44A]
 👋	mávající ruka							// [1F44B]
-👌	znamení ok							// [1F44C]
+👌	gesto OK							// [1F44C]
 👍	palec nahoru							// [1F44D]
 👎	palec dolů							// [1F44E]
 👏	tleskající ruce							// [1F44F]
@@ -597,36 +597,36 @@ $textmode
 👗	šaty								// [1F457]
 👘	kimono								// [1F458]
 👙	bikiny								// [1F459]
-👚	ženské šaty							// [1F45A]
+👚	dámská blůza							// [1F45A]
 👛	peněženka							// [1F45B]
 👜	kabelka								// [1F45C]
-👝	vak								// [1F45D]
+👝	kosmetická taška						// [1F45D]
 👞	pánská bota							// [1F45E]
 👟	běžecká bota							// [1F45F]
 👠	bota na podpatku						// [1F460]
 👡	dámský sandál							// [1F461]
 👢	dámská kozačka							// [1F462]
 👣	stopy								// [1F463]
-👤	silueta bysty							// [1F464]
-👥	siluety byst							// [1F465]
+👤	silueta busty							// [1F464]
+👥	silueta dvojice bust						// [1F465]
 👦	chlapec								// [1F466]
 👧	dívka								// [1F467]
 👨	muž								// [1F468]
 👩	žena								// [1F469]
 👪	rodina								// [1F46A]
-👫	muž a žena se drží za ruce					// [1F46B]
-👬	dva muži se drží za ruce					// [1F46C]
-👭	dvě ženy se drží za ruce					// [1F46D]
-👮	policajt							// [1F46E]
-👯	holky na párty							// [1F46F]
+👫	muž a žena držící se za ruce					// [1F46B]
+👬	dva muži držící se za ruce					// [1F46C]
+👭	dvě ženy držící se za ruce					// [1F46D]
+👮	strážník							// [1F46E]
+👯	osoby se zaječími oušky						// [1F46F]
 👰	nevěsta se závojem						// [1F470]
 👱	člověk s blond vlasy						// [1F471]
 👲	muž s čínskou čepicí						// [1F472]
 👳	člověk s turbanem						// [1F473]
 👴	starý muž							// [1F474]
 👵	stará žena							// [1F475]
-👶	dítě								// [1F476]
-👷	dělník								// [1F477]
+👶	nemluvně							// [1F476]
+👷	dělník na stavbě						// [1F477]
 👸	princezna							// [1F478]
 👹	zlobr								// [1F479]
 👺	šotek								// [1F47A]
@@ -634,30 +634,30 @@ $textmode
 👼	andílek								// [1F47C]
 👽	mimozemšťan							// [1F47D]
 👾	mimozemská příšera						// [1F47E]
-👿	skřet								// [1F47F]
+👿	rozzlobený obličej s rohy					// [1F47F]
 💀	lebka								// [1F480]
-💁	recepční							// [1F481]
+💁	osoba s dlaní vzhůru						// [1F481]
 💂	gardista							// [1F482]
-💃	tanec								// [1F483]
+💃	tanečnice							// [1F483]
 💄	rtěnka								// [1F484]
 💅	lak na nehty							// [1F485]
-💆	masáž tváře							// [1F486]
-💇	stříhání vlasů							// [1F487]
-💈	holičská tyč							// [1F488]
-💉	jehla								// [1F489]
-💊	prášek								// [1F48A]
+💆	osoba na masáži obličeje					// [1F486]
+💇	osoba u kadeřníka						// [1F487]
+💈	značka holičství						// [1F488]
+💉	injekční stříkačka						// [1F489]
+💊	pilulka								// [1F48A]
 💋	otisk rtů							// [1F48B]
 💌	milostný dopis							// [1F48C]
 💍	prsten								// [1F48D]
 💎	drahokam							// [1F48E]
-💏	líbání								// [1F48F]
+💏	polibek								// [1F48F]
 💐	kytice								// [1F490]
 💑	pár se srdcem							// [1F491]
 💒	svatba								// [1F492]
 💓	bušící srdce							// [1F493]
 💔	zlomené srdce							// [1F494]
 💕	dvě srdce							// [1F495]
-💖	zářící srdce							// [1F496]
+💖	jiskřící srdce							// [1F496]
 💗	rostoucí srdce							// [1F497]
 💘	srdce se šípem							// [1F498]
 💙	modré srdce							// [1F499]
@@ -665,26 +665,26 @@ $textmode
 💛	žluté srdce							// [1F49B]
 💜	fialové srdce							// [1F49C]
 💝	srdce s mašlí							// [1F49D]
-💞	otáčející se srdce						// [1F49E]
+💞	srdce vířící v kole						// [1F49E]
 💟	srdce jako ozdoba						// [1F49F]
 💠	kosočtverec s tečkou						// [1F4A0]
 💡	žárovka								// [1F4A1]
 💢	japonský symbol hněvu						// [1F4A2]
 💣	bomba								// [1F4A3]
 💤	zzz								// [1F4A4]
-💥	náraz								// [1F4A5]
+💥	srážka								// [1F4A5]
 💦	kapky potu							// [1F4A6]
 💧	kapka								// [1F4A7]
 💨	spěch								// [1F4A8]
 💩	hovínko								// [1F4A9]
-💪	nabouchaný biceps						// [1F4AA]
+💪	zatnutý biceps							// [1F4AA]
 💫	závrať								// [1F4AB]
-💬	bublina řeči							// [1F4AC]
+💬	řečová bublina							// [1F4AC]
 💭	myšlenková bublina						// [1F4AD]
 💮	bílá květina							// [1F4AE]
 💯	sto bodů							// [1F4AF]
-💰	pytel s penězi							// [1F4B0]
-💱	směna								// [1F4B1]
+💰	pytel peněz							// [1F4B0]
+💱	směna peněz							// [1F4B1]
 💲	znak dolaru							// [1F4B2]
 💳	platební karta							// [1F4B3]
 💴	jenová bankovka							// [1F4B4]
@@ -692,34 +692,34 @@ $textmode
 💶	eurobankovka							// [1F4B6]
 💷	librová bankovka						// [1F4B7]
 💸	okřídlené peníze						// [1F4B8]
-💹	vzestupný graf se znakem jenu					// [1F4B9]
+💹	rostoucí graf se znakem jenu					// [1F4B9]
 💺	sedadlo								// [1F4BA]
-💻	noutbůk								// [1F4BB]
+💻	notebook							// [1F4BB]
 💼	kufřík								// [1F4BC]
 💽	minidisk							// [1F4BD]
 💾	disketa								// [1F4BE]
-💿	cédé								// [1F4BF]
-📀	dévédé								// [1F4C0]
+💿	optický disk							// [1F4BF]
+📀	dvd								// [1F4C0]
 📁	složka								// [1F4C1]
 📂	otevřená složka							// [1F4C2]
 📃	zkroucená stránka						// [1F4C3]
-📄	stránka								// [1F4C4]
+📄	stránka lícem nahoru						// [1F4C4]
 📅	kalendář							// [1F4C5]
 📆	trhací kalendář							// [1F4C6]
-📇	osobní karta							// [1F4C7]
-📈	vzestupný graf							// [1F4C8]
-📉	sestupný graf							// [1F4C9]
+📇	vizitkovník							// [1F4C7]
+📈	rostoucí graf							// [1F4C8]
+📉	klesající graf							// [1F4C9]
 📊	sloupcový graf							// [1F4CA]
 📋	psací podložka							// [1F4CB]
 📌	připínáček							// [1F4CC]
 📍	kulatý připínáček						// [1F4CD]
-📎	sponka								// [1F4CE]
-📏	pravítko							// [1F4CF]
-📐	trojúhelník							// [1F4D0]
-📑	papíry s poznámkami						// [1F4D1]
+📎	kancelářská sponka						// [1F4CE]
+📏	rovné pravítko							// [1F4CF]
+📐	trojúhelníkové pravítko						// [1F4D0]
+📑	stránky se záložkami						// [1F4D1]
 📒	účetní kniha							// [1F4D2]
 📓	sešit								// [1F4D3]
-📔	ozdobný zápisník						// [1F4D4]
+📔	zápisník v ozdobných deskách					// [1F4D4]
 📕	zavřená kniha							// [1F4D5]
 📖	otevřená kniha							// [1F4D6]
 📗	zelená kniha							// [1F4D7]
@@ -728,72 +728,72 @@ $textmode
 📚	knihy								// [1F4DA]
 📛	jmenovka							// [1F4DB]
 📜	svitek								// [1F4DC]
-📝	poznámka							// [1F4DD]
-📞	sluchátko telefonu						// [1F4DE]
-📟	pejdžr								// [1F4DF]
+📝	lístek se vzkazem						// [1F4DD]
+📞	telefonní sluchátko						// [1F4DE]
+📟	pager								// [1F4DF]
 📠	fax								// [1F4E0]
 📡	satelitní anténa						// [1F4E1]
 📢	tlampač								// [1F4E2]
 📣	megafon								// [1F4E3]
-📤	přihrádka s odchozí poštou					// [1F4E4]
-📥	přihrádka s příchozí poštou					// [1F4E5]
+📤	přihrádka na odchozí poštu					// [1F4E4]
+📥	přihrádka na příchozí poštu					// [1F4E5]
 📦	balíček								// [1F4E6]
-📧	í-mejl								// [1F4E7]
+📧	e-mail								// [1F4E7]
 📨	příchozí obálka							// [1F4E8]
-📩	obálka s šipkou							// [1F4E9]
-📪	zavřená stránka se svěšenou vlajkou				// [1F4EA]
-📫	zavřená schránka se vztyčenou vlajkou				// [1F4EB]
-📬	otevřená schránka se vztyčenou vlajkou				// [1F4EC]
-📭	otevřená stránka se svěšenou vlajkou				// [1F4ED]
+📩	obálka se šipkou						// [1F4E9]
+📪	zavřená poštovní schránka s praporkem dole			// [1F4EA]
+📫	zavřená poštovní schránka s praporkem nahoře			// [1F4EB]
+📬	otevřená poštovní schránka s praporkem nahoře			// [1F4EC]
+📭	otevřená poštovní schránka s praporkem dole			// [1F4ED]
 📮	poštovní schránka						// [1F4EE]
 📯	poštovní roh							// [1F4EF]
 📰	noviny								// [1F4F0]
 📱	mobil								// [1F4F1]
 📲	mobil se šipkou							// [1F4F2]
-📳	režim vibrací							// [1F4F3]
+📳	vibrační režim							// [1F4F3]
 📴	vypnutý mobilní telefon						// [1F4F4]
-📵	zákaz mobilních telefonů					// [1F4F5]
-📶	síla signálu							// [1F4F6]
+📵	zákaz používání mobilních telefonů				// [1F4F5]
+📶	indikátor síly signálu						// [1F4F6]
 📷	fotoaparát							// [1F4F7]
 📸	fotoaparát s bleskem						// [1F4F8]
 📹	videokamera							// [1F4F9]
-📺	televize							// [1F4FA]
+📺	televizor							// [1F4FA]
 📻	rádio								// [1F4FB]
 📼	videokazeta							// [1F4FC]
-📽	projektor							// [1F4FD] text|emoji
+📽	filmový projektor						// [1F4FD] text|emoji
 📿	růženec								// [1F4FF]
-🔀	tlačítko promíchání						// [1F500]
+🔀	tlačítko náhodného přehrávání					// [1F500]
 🔁	tlačítko opakování						// [1F501]
-🔂	tlačítko jednoho opakování					// [1F502]
-🔃	vertikální šipky ve směru hodinových ručiček			// [1F503]
+🔂	tlačítko opakování jedné stopy					// [1F502]
+🔃	svislé šipky ve směru hodinových ručiček			// [1F503]
 🔄	šipky proti směru hodinových ručiček				// [1F504]
 🔅	tlačítko ztlumení jasu						// [1F505]
 🔆	tlačítko zvýšení jasu						// [1F506]
 🔇	vypnutý reproduktor						// [1F507]
-🔈	reproduktor							// [1F508]
-🔉	zapnutý reproduktor						// [1F509]
+🔈	tiše hrající reproduktor					// [1F508]
+🔉	středně hlasitý reproduktor					// [1F509]
 🔊	hlasitý reproduktor						// [1F50A]
 🔋	baterie								// [1F50B]
 🔌	zástrčka							// [1F50C]
-🔍	lupa směřující vlevo						// [1F50D]
-🔎	lupa směřující vpravo						// [1F50E]
-🔏	zámek a pero							// [1F50F]
+🔍	lupa nakloněná doleva						// [1F50D]
+🔎	lupa nakloněná doprava						// [1F50E]
+🔏	zamknutý zámek s plnicím perem					// [1F50F]
 🔐	zamknutý zámek s klíčem						// [1F510]
 🔑	klíč								// [1F511]
-🔒	zámek								// [1F512]
+🔒	zamknutý zámek							// [1F512]
 🔓	odemknutý zámek							// [1F513]
 🔔	zvonek								// [1F514]
 🔕	přeškrtnutý zvonek						// [1F515]
 🔖	záložka								// [1F516]
-🔗	článek řetězu							// [1F517]
-🔘	kulaté tlačítko							// [1F518]
+🔗	články řetězu							// [1F517]
+🔘	přepínač							// [1F518]
 🔙	šipka zpět							// [1F519]
-🔚	šipka konec							// [1F51A]
-🔛	šipka kupředu							// [1F51B]
-🔜	šipka brzy							// [1F51C]
-🔝	šipka směr nahoru						// [1F51D]
-🔞	zákaz pro mladší osmnácti let					// [1F51E]
-🔟	klávesa deset							// [1F51F]
+🔚	šipka s nápisem END						// [1F51A]
+🔛	šipky s nápisem ON!						// [1F51B]
+🔜	šipka s nápisem SOON						// [1F51C]
+🔝	šipka s nápisem TOP						// [1F51D]
+🔞	zákaz vstupu osobám mladším 18 let				// [1F51E]
+🔟	klávesy: 10							// [1F51F]
 🔠	zadávání v latince, velká písmena				// [1F520]
 🔡	zadávání v latince, malá písmena				// [1F521]
 🔢	zadávání čísel							// [1F522]
@@ -801,35 +801,35 @@ $textmode
 🔤	zadávání písmen v latince					// [1F524]
 🔥	oheň								// [1F525]
 🔦	baterka								// [1F526]
-🔧	hasák								// [1F527]
+🔧	maticový klíč							// [1F527]
 🔨	kladivo								// [1F528]
 🔩	šroub a matice							// [1F529]
 🔪	kuchyňský nůž							// [1F52A]
-🔫	revolver							// [1F52B]
+🔫	pistole								// [1F52B]
 🔬	mikroskop							// [1F52C]
 🔭	teleskop							// [1F52D]
 🔮	křišťálová koule						// [1F52E]
-🔯	šesticípá hvězda s bodem uprostřed				// [1F52F]
+🔯	šesticípá hvězda s tečkou uprostřed				// [1F52F]
 🔰	japonský symbol pro začátečníka					// [1F530]
 🔱	emblém trojzubce						// [1F531]
 🔲	černé čtvercové tlačítko					// [1F532]
 🔳	bílé čtvercové tlačítko						// [1F533]
-🔴	červený kruh							// [1F534]
-🔵	modrý kruh							// [1F535]
+🔴	červený kroužek							// [1F534]
+🔵	modrý kroužek							// [1F535]
 🔶	velký oranžový kosočtverec					// [1F536]
 🔷	velký modrý kosočtverec						// [1F537]
 🔸	malý oranžový kosočtverec					// [1F538]
 🔹	malý modrý kosočtverec						// [1F539]
-🔺	červený trojúhelník směřující nahoru				// [1F53A]
-🔻	červený trojúhelník směřující dolů				// [1F53B]
+🔺	červený trojúhelník mířící nahoru				// [1F53A]
+🔻	červený trojúhelník mířící dolů					// [1F53B]
 🔼	tlačítko nahoru							// [1F53C]
 🔽	tlačítko dolů							// [1F53D]
 🕉	óm								// [1F549] text|emoji
 🕊	holubice							// [1F54A] text|emoji
-🕋	kaaba								// [1F54B]
+🕋	Kába								// [1F54B]
 🕌	mešita								// [1F54C]
 🕍	synagoga							// [1F54D]
-🕎	menora								// [1F54E]
+🕎	sedmiramenný svícen						// [1F54E]
 🕐	jedna hodina							// [1F550]
 🕑	dvě hodiny							// [1F551]
 🕒	tři hodiny							// [1F552]
@@ -863,136 +863,136 @@ $textmode
 🕷	pavouk								// [1F577] text|emoji
 🕸	pavučina							// [1F578] text|emoji
 🕹	joystick							// [1F579] text|emoji
-🕺	tancující muž							// [1F57A]
-🖇	propojené sponky						// [1F587] text|emoji
-🖊	pero								// [1F58A] text|emoji
+🕺	tanečník							// [1F57A]
+🖇	spojené kancelářské sponky					// [1F587] text|emoji
+🖊	propiska							// [1F58A] text|emoji
 🖋	plnicí pero							// [1F58B] text|emoji
 🖌	štětec								// [1F58C] text|emoji
-🖍	fixa								// [1F58D] text|emoji
-🖐	zvednutá ruka s roztaženými prsty				// [1F590] text|emoji
+🖍	pastelka							// [1F58D] text|emoji
+🖐	ruka s roztaženými prsty					// [1F590] text|emoji
 🖕	prostředníček							// [1F595]
 🖖	vulkánský pozdrav						// [1F596]
 🖤	černé srdce							// [1F5A4]
 🖥	počítač								// [1F5A5] text|emoji
 🖨	tiskárna							// [1F5A8] text|emoji
 🖱	počítačová myš							// [1F5B1] text|emoji
-🖲	trekbol								// [1F5B2] text|emoji
-🖼	obraz s rámem							// [1F5BC] text|emoji
+🖲	trackball							// [1F5B2] text|emoji
+🖼	obraz v rámu							// [1F5BC] text|emoji
 🗂	kartotéka							// [1F5C2] text|emoji
 🗃	krabice s kartotékou						// [1F5C3] text|emoji
 🗄	skříň na spisy							// [1F5C4] text|emoji
-🗑	koš na papír							// [1F5D1] text|emoji
+🗑	odpadkový koš							// [1F5D1] text|emoji
 🗒	kroužkový zápisník						// [1F5D2] text|emoji
 🗓	kroužkový kalendář						// [1F5D3] text|emoji
-🗜	svěrák								// [1F5DC] text|emoji
-🗝	starodávný klíč							// [1F5DD] text|emoji
+🗜	svěrka								// [1F5DC] text|emoji
+🗝	starý klíč							// [1F5DD] text|emoji
 🗞	srolované noviny						// [1F5DE] text|emoji
 🗡	dýka								// [1F5E1] text|emoji
 🗣	mluvící hlava							// [1F5E3] text|emoji
-🗨	bublina řeči vlevo						// [1F5E8] text|emoji
-🗯	bublina naštvané řeči vpravo					// [1F5EF] text|emoji
-🗳	volební urna s volebním lístkem					// [1F5F3] text|emoji
+🗨	levá řečová bublina						// [1F5E8] text|emoji
+🗯	pravá rozzlobená bublina					// [1F5EF] text|emoji
+🗳	urna s volebním lístkem						// [1F5F3] text|emoji
 🗺	mapa světa							// [1F5FA] text|emoji
-🗻	hora fudži							// [1F5FB]
-🗼	věž v tokiu							// [1F5FC]
-🗽	socha svobody							// [1F5FD]
-🗾	mapa japonska							// [1F5FE]
-🗿	moai								// [1F5FF]
+🗻	hora Fudži							// [1F5FB]
+🗼	Tokijská věž							// [1F5FC]
+🗽	socha Svobody							// [1F5FD]
+🗾	mapa Japonska							// [1F5FE]
+🗿	socha moai							// [1F5FF]
 
 // 1F600..1F64F : Emoticons
 
-😀	výraz se širokým úsměvem					// [1F600]
-😁	výraz se širokým úsměvem s rozzářenýma očima			// [1F601]
-😂	výraz se slzami smíchu						// [1F602]
-😃	výraz s úsměvem s otevřenou pusou				// [1F603]
-😄	výraz s úsměvem s otevřenou pusou a rozzářenýma očima		// [1F604]
-😅	výraz s úsměvem s otevřenou pusou a studeným potem		// [1F605]
-😆	výraz s úsměvem s otevřenou pusou a zavřenýma očima		// [1F606]
-😇	výraz s úsměvem a svatozáří					// [1F607]
-😈	úsměv s rohy							// [1F608]
-😉	výraz mrknutí							// [1F609]
-😊	výraz s úsměvem se smějícíma se očima				// [1F60A]
-😋	olizující se tvář						// [1F60B]
-😌	výraz úlevy							// [1F60C]
-😍	úsmívající se tvář s očima ve tvaru srdíček			// [1F60D]
-😎	úsmívající se tvář s brýlemi					// [1F60E]
-😏	výraz drzého úsměvu						// [1F60F]
-😐	neutrální výraz							// [1F610]
-😑	tvář bez výrazu							// [1F611]
-😒	znuděný výraz							// [1F612]
-😓	tvář zalitá studeným potem					// [1F613]
-😔	zahloubaný výraz						// [1F614]
-😕	zmatený výraz							// [1F615]
-😖	výraz rozpaků							// [1F616]
-😗	výraz polibku							// [1F617]
-😘	tvář posílající láskyplný polibek				// [1F618]
-😙	výraz polibku s úsměvem						// [1F619]
-😚	výraz polibku se zavřenýma očima				// [1F61A]
-😛	tvář s vyplazeným jazykem					// [1F61B]
-😜	tvář s vyplazeným jazykem a mrkajícím okem			// [1F61C]
-😝	tvář s vyplazeným jazykem a zavřenýma očima			// [1F61D]
-😞	výraz zklamání							// [1F61E]
-😟	výraz obav							// [1F61F]
-😠	hněvivý výraz							// [1F620]
-😡	podrážděný výraz						// [1F621]
-😢	plačící výraz							// [1F622]
-😣	vytrvalý výraz							// [1F623]
-😤	tvář s párou z nozder						// [1F624]
-😥	výraz zklamání a úlevy						// [1F625]
-😦	výraz zamračení s otevřenou pusou				// [1F626]
-😧	výraz utrpení							// [1F627]
-😨	výraz strach							// [1F628]
-😩	výraz vyčerpání							// [1F629]
-😪	ospalý výraz							// [1F62A]
-😫	unavený výraz							// [1F62B]
-😬	tvář s krokodýlím úsměvem					// [1F62C]
-😭	zoufale plačící výraz						// [1F62D]
-😮	tvář s otevřenou pusou						// [1F62E]
-😯	výraz tváře beze slov						// [1F62F]
-😰	tvář s otevřenou pusou zalitá studeným potem			// [1F630]
-😱	výraz strachu							// [1F631]
-😲	výraz ohromení							// [1F632]
-😳	zrudnutá tvář							// [1F633]
-😴	spící výraz							// [1F634]
-😵	výraz závrati							// [1F635]
-😶	tvář bez úst							// [1F636]
-😷	tvář s doktorskou rouškou					// [1F637]
-😸	kočičí široký úsměv s rozzářenýma očima				// [1F638]
-😹	kočka se slzami radosti						// [1F639]
-😺	kočičí úsměv s otevřenou pusou					// [1F63A]
-😻	kočičí úsměv s očima ve tvaru srdíček				// [1F63B]
-😼	kočičí jízlivý úsměv						// [1F63C]
-😽	kočičí polibek se zavřenýma očima				// [1F63D]
-😾	podrážděná kočka						// [1F63E]
-😿	plačící kočka							// [1F63F]
-🙀	unavená kočka							// [1F640]
-🙁	výraz mírného zamračení						// [1F641]
-🙂	výraz mírného úsměvu						// [1F642]
-🙃	tvář vzhůru nohama						// [1F643]
-🙄	tvář s očima v sloup						// [1F644]
-🙅	gesto odmítnutí							// [1F645]
+😀	šklebící se obličej						// [1F600]
+😁	rozzářený obličej s usměvavýma očima				// [1F601]
+😂	obličej slzící smíchy						// [1F602]
+😃	šklebící se obličej s otevřenou pusou				// [1F603]
+😄	šklebící se obličej s usměvavýma očima				// [1F604]
+😅	šklebící se obličej se studeným potem				// [1F605]
+😆	šklebící se obličej s mžourajícíma očima			// [1F606]
+😇	usmívající se obličej se svatozáří				// [1F607]
+😈	usmívající se obličej s rohy					// [1F608]
+😉	mrkající obličej						// [1F609]
+😊	smějící se obličej s usměvavýma očima				// [1F60A]
+😋	olizující se obličej						// [1F60B]
+😌	obličej s výrazem úlevy						// [1F60C]
+😍	usmívající se obličej s očima ve tvaru srdíček			// [1F60D]
+😎	usmívající se obličej s brýlemi					// [1F60E]
+😏	ušklíbající se obličej						// [1F60F]
+😐	obličej s neutrálním výrazem					// [1F610]
+😑	obličej bez výrazu						// [1F611]
+😒	obličej se znuděným výrazem					// [1F612]
+😓	sklíčený obličej se studeným potem				// [1F613]
+😔	obličej se skleslým výrazem					// [1F614]
+😕	zmatený obličej							// [1F615]
+😖	obličej s pláčem na krajíčku					// [1F616]
+😗	líbající obličej						// [1F617]
+😘	obličej posílající polibek					// [1F618]
+😙	líbající obličej s usměvavýma očima				// [1F619]
+😚	líbající obličej se zavřenýma očima				// [1F61A]
+😛	obličej s vyplazeným jazykem					// [1F61B]
+😜	mrkající obličej s vypláznutým jazykem				// [1F61C]
+😝	mžourající obličej s vypláznutým jazykem			// [1F61D]
+😞	zklamaný obličej						// [1F61E]
+😟	ustaraný obličej						// [1F61F]
+😠	rozzlobený obličej						// [1F620]
+😡	obličej s podrážděným výrazem					// [1F621]
+😢	plačící obličej							// [1F622]
+😣	obličej s umíněným výrazem					// [1F623]
+😤	obličej pouštějící páru nosem					// [1F624]
+😥	smutný obličej s výrazem úlevy					// [1F625]
+😦	zamračený obličej s otevřenou pusou				// [1F626]
+😧	obličej s úzkostným výrazem					// [1F627]
+😨	ustrašený obličej						// [1F628]
+😩	vyčerpaný obličej						// [1F629]
+😪	ospalý obličej							// [1F62A]
+😫	unavený obličej							// [1F62B]
+😬	grimasa s vyceněnými zuby					// [1F62C]
+😭	zoufale plačící obličej						// [1F62D]
+😮	obličej s otevřenou pusou					// [1F62E]
+😯	obličej se zaraženým výrazem					// [1F62F]
+😰	úzkostný obličej se studeným potem				// [1F630]
+😱	obličej křičící hrůzou						// [1F631]
+😲	užaslý obličej							// [1F632]
+😳	červenající se obličej						// [1F633]
+😴	spící obličej							// [1F634]
+😵	obličej s výrazem závrati					// [1F635]
+😶	obličej bez úst							// [1F636]
+😷	obličej s lékařskou rouškou					// [1F637]
+😸	šklebící se kočičí obličej s usměvavýma očima			// [1F638]
+😹	kočičí obličej slzící smíchy					// [1F639]
+😺	šklebící se kočičí obličej					// [1F63A]
+😻	usmívající se kočičí obličej s očima ve tvaru srdíček		// [1F63B]
+😼	kočičí obličej s jízlivým úsměvem				// [1F63C]
+😽	líbající kočičí obličej						// [1F63D]
+😾	kočičí obličej s podrážděným výrazem				// [1F63E]
+😿	plačící kočičí obličej						// [1F63F]
+🙀	vyčerpaný kočičí obličej					// [1F640]
+🙁	mírně zamračený obličej						// [1F641]
+🙂	obličej s mírným úsměvem					// [1F642]
+🙃	převrácený obličej						// [1F643]
+🙄	obličej s očima v sloup						// [1F644]
+🙅	gesto nesouhlasu						// [1F645]
 🙆	gesto souhlasu							// [1F646]
-🙇	úklona								// [1F647]
-🙈	nevidím zlo							// [1F648]
-🙉	neslyším zlo							// [1F649]
-🙊	neříkám zlo							// [1F64A]
-🙋	šťastná osoba zvedá ruku					// [1F64B]
+🙇	uklánějící se osoba						// [1F647]
+🙈	opička nic nevidím						// [1F648]
+🙉	opička nic neslyším						// [1F649]
+🙊	opička nic nepovím						// [1F64A]
+🙋	osoba se zvednutou rukou					// [1F64B]
 🙌	zvednuté ruce							// [1F64C]
-🙍	mračící se osoba						// [1F64D]
+🙍	zamračená osoba							// [1F64D]
 🙎	podrážděná osoba						// [1F64E]
 🙏	sepjaté ruce							// [1F64F]
 
 // 1F680..1F6FF : Transport and Map Symbols
 
 🚀	raketa								// [1F680]
-🚁	helikoptéra							// [1F681]
+🚁	vrtulník							// [1F681]
 🚂	lokomotiva							// [1F682]
 🚃	vagón								// [1F683]
-🚄	rychlovlak							// [1F684]
-🚅	šinkansen							// [1F685]
+🚄	pendolino							// [1F684]
+🚅	japonský rychlovlak						// [1F685]
 🚆	vlak								// [1F686]
 🚇	metro								// [1F687]
-🚈	motorák								// [1F688]
+🚈	rychlodrážní tramvaj						// [1F688]
 🚉	stanice								// [1F689]
 🚊	tramvaj								// [1F68A]
 🚋	vagón tramvaje							// [1F68B]
@@ -1009,164 +1009,164 @@ $textmode
 🚖	přijíždějící taxík						// [1F696]
 🚗	auto								// [1F697]
 🚘	přijíždějící auto						// [1F698]
-🚙	malé auto							// [1F699]
+🚙	SUV								// [1F699]
 🚚	dodávka								// [1F69A]
 🚛	náklaďák							// [1F69B]
 🚜	traktor								// [1F69C]
 🚝	jednokolejka							// [1F69D]
-🚞	horský vlak							// [1F69E]
+🚞	horská železnice						// [1F69E]
 🚟	lanovka								// [1F69F]
 🚠	horská lanovka							// [1F6A0]
-🚡	lanová dráha							// [1F6A1]
+🚡	kabinová lanovka						// [1F6A1]
 🚢	loď								// [1F6A2]
-🚣	veslice								// [1F6A3]
-🚤	rychlý motorový člun						// [1F6A4]
+🚣	veslující osoba							// [1F6A3]
+🚤	motorový člun							// [1F6A4]
 🚥	vodorovný semafor						// [1F6A5]
 🚦	svislý semafor							// [1F6A6]
-🚧	stavba								// [1F6A7]
+🚧	stavební zábrana						// [1F6A7]
 🚨	policejní maják							// [1F6A8]
 🚩	trojúhelníková vlajka						// [1F6A9]
 🚪	dveře								// [1F6AA]
 🚫	zákaz								// [1F6AB]
-🚬	kouření								// [1F6AC]
+🚬	cigareta							// [1F6AC]
 🚭	zákaz kouření							// [1F6AD]
 🚮	značka odpadkového koše						// [1F6AE]
 🚯	zákaz odhazování odpadků					// [1F6AF]
-🚰	značka pitné vody						// [1F6B0]
+🚰	pitná voda							// [1F6B0]
 🚱	nepitná voda							// [1F6B1]
 🚲	kolo								// [1F6B2]
-🚳	zákaz kol							// [1F6B3]
-🚴	člověk na kole							// [1F6B4]
-🚵	člověk na horském kole						// [1F6B5]
-🚶	pěší chůze							// [1F6B6]
+🚳	zákaz vjezdu cyklistů						// [1F6B3]
+🚴	osoba na kole							// [1F6B4]
+🚵	osoba na horském kole						// [1F6B5]
+🚶	osoba v chůzi							// [1F6B6]
 🚷	zákaz vstupu chodců						// [1F6B7]
-🚸	přechod pro děti						// [1F6B8]
-🚹	pánská toaleta							// [1F6B9]
-🚺	dámská toaleta							// [1F6BA]
+🚸	pozor, děti							// [1F6B8]
+🚹	pánské toalety							// [1F6B9]
+🚺	dámské toalety							// [1F6BA]
 🚻	toalety								// [1F6BB]
-🚼	značka dítěte							// [1F6BC]
-🚽	toaleta								// [1F6BD]
+🚼	symbol dítěte							// [1F6BC]
+🚽	toaletní mísa							// [1F6BD]
 🚾	záchod								// [1F6BE]
 🚿	sprcha								// [1F6BF]
-🛀	člověk ve vaně							// [1F6C0]
+🛀	osoba ve vaně							// [1F6C0]
 🛁	vana								// [1F6C1]
 🛂	pasová kontrola							// [1F6C2]
 🛃	celnice								// [1F6C3]
 🛄	výdej zavazadel							// [1F6C4]
-🛅	zapomenutá zavazadla						// [1F6C5]
+🛅	úschovna zavazadel						// [1F6C5]
 🛋	gauč a lampa							// [1F6CB] text|emoji
-🛌	člověk v posteli						// [1F6CC]
+🛌	osoba v posteli							// [1F6CC]
 🛍	nákupní tašky							// [1F6CD] text|emoji
-🛎	zvonek v hotelu							// [1F6CE] text|emoji
+🛎	portýrský zvonek						// [1F6CE] text|emoji
 🛏	postel								// [1F6CF] text|emoji
-🛐	svatostánek							// [1F6D0]
+🛐	modlitebna							// [1F6D0]
 🛑	značka stop							// [1F6D1]
 🛒	nákupní vozík							// [1F6D2]
-🛠	kladivo a hasák							// [1F6E0] text|emoji
+🛠	kladivo a maticový klíč						// [1F6E0] text|emoji
 🛡	štít								// [1F6E1] text|emoji
 🛢	barel								// [1F6E2] text|emoji
 🛣	dálnice								// [1F6E3] text|emoji
-🛤	železnice							// [1F6E4] text|emoji
-🛥	motorový člun							// [1F6E5] text|emoji
+🛤	železniční trať							// [1F6E4] text|emoji
+🛥	motorová jachta							// [1F6E5] text|emoji
 🛩	malé letadlo							// [1F6E9] text|emoji
-🛫	odlet								// [1F6EB]
-🛬	přílet								// [1F6EC]
+🛫	vzlétající letadlo						// [1F6EB]
+🛬	přistávající letadlo						// [1F6EC]
 🛰	satelit								// [1F6F0] text|emoji
-🛳	trajekt								// [1F6F3] text|emoji
+🛳	zaoceánská loď							// [1F6F3] text|emoji
 🛴	koloběžka							// [1F6F4]
 🛵	skútr								// [1F6F5]
 🛶	kánoe								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	sáňky								// [1F6F7]
+🛸	létající talíř							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
-🤐	tvář s pusou na zip						// [1F910]
-🤑	tvář s penězi na jazyku						// [1F911]
-🤒	tvář s teploměrem v puse					// [1F912]
-🤓	tvář nerda							// [1F913]
-🤔	výraz zamyšlení							// [1F914]
-🤕	ofačovaná hlava							// [1F915]
-🤖	robot								// [1F916]
-🤗	výraz objetí							// [1F917]
-🤘	znamení rohů							// [1F918]
-🤙	ruka s gestem zavolej mi					// [1F919]
-🤚	zvednutá ruka v gestu stop					// [1F91A]
-🤛	zaťatá pěst směřující doleva					// [1F91B]
-🤜	zaťatá pěst směřující doprava					// [1F91C]
-🤝	potřesení rukama						// [1F91D]
-🤞	zkřížené prsty pro štěstí					// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	tvář s kovbojským kloboukem					// [1F920]
-🤡	tvář klauna							// [1F921]
-🤢	znechucený výraz						// [1F922]
-🤣	tvář válející se smíchem					// [1F923]
-🤤	slintající tvář							// [1F924]
-🤥	lživá tvář s dlouhým nosem					// [1F925]
-🤦	chycení za hlavu						// [1F926]
+🤐	obličej s pusou na zip						// [1F910]
+🤑	obličej s penězi na jazyku					// [1F911]
+🤒	obličej s teploměrem						// [1F912]
+🤓	obličej šprta							// [1F913]
+🤔	zamyšlený obličej						// [1F914]
+🤕	obličej s ovázanou hlavou					// [1F915]
+🤖	obličej robota							// [1F916]
+🤗	obličej s otevřenou náručí					// [1F917]
+🤘	gesto parohů							// [1F918]
+🤙	gesto zavolej mi						// [1F919]
+🤚	hřbet zvednuté ruky						// [1F91A]
+🤛	pěst mířící doleva						// [1F91B]
+🤜	pěst mířící doprava						// [1F91C]
+🤝	stisk rukou							// [1F91D]
+🤞	zkřížené prsty							// [1F91E]
+🤟	gesto miluji tě							// [1F91F]
+🤠	obličej s kovbojským kloboukem					// [1F920]
+🤡	klaunský obličej						// [1F921]
+🤢	obličej se znechuceným výrazem					// [1F922]
+🤣	obličej válející se smíchy					// [1F923]
+🤤	slintající obličej						// [1F924]
+🤥	obličej lháře							// [1F925]
+🤦	osoba chytající se za hlavu					// [1F926]
 🤧	kýchající obličej						// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	obličej se zvednutým obočím					// [1F928]
+🤩	obličej s hvězdami v očích					// [1F929]
+🤪	šílený obličej							// [1F92A]
+🤫	obličej s prstem na puse					// [1F92B]
+🤬	obličej se symboly na puse					// [1F92C]
+🤭	obličej s dlaní před pusou					// [1F92D]
+🤮	zvracející obličej						// [1F92E]
+🤯	explodující hlava						// [1F92F]
 🤰	těhotná žena							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
-🤳	selfíčko							// [1F933]
+🤱	kojení								// [1F931]
+🤲	zdvižené dlaně vedle sebe					// [1F932]
+🤳	selfie								// [1F933]
 🤴	princ								// [1F934]
 🤵	muž ve smokingu							// [1F935]
-🤶	babička								// [1F936]
-🤷	pokrčení rameny							// [1F937]
-🤸	gymnastická hvězda						// [1F938]
-🤹	žonglování							// [1F939]
+🤶	Santa Clausová							// [1F936]
+🤷	osoba krčící rameny						// [1F937]
+🤸	osoba dělající přemet stranou					// [1F938]
+🤹	žonglující osoba						// [1F939]
 🤺	šermíř								// [1F93A]
-🤼	zápasící lidé							// [1F93C]
-🤽	vodní pólo							// [1F93D]
-🤾	házená								// [1F93E]
-🥀	zvednutá květina						// [1F940]
+🤼	zápasící dvojice						// [1F93C]
+🤽	osoba hrající vodní pólo					// [1F93D]
+🤾	osoba hrající házenou						// [1F93E]
+🥀	zvadlá květina							// [1F940]
 🥁	buben								// [1F941]
 🥂	cinkající sklenice						// [1F942]
-🥃	sklenice na whisky						// [1F943]
+🥃	sklenice whisky							// [1F943]
 🥄	lžíce								// [1F944]
-🥅	branka								// [1F945]
+🥅	sportovní branka						// [1F945]
 🥇	medaile za 1. místo						// [1F947]
 🥈	medaile za 2. místo						// [1F948]
 🥉	medaile za 3. místo						// [1F949]
-🥊	boxérská rukavice						// [1F94A]
-🥋	kimono na bojové umění						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
-🥐	kroasant							// [1F950]
+🥊	boxerská rukavice						// [1F94A]
+🥋	sportovní kimono						// [1F94B]
+🥌	curlingový kámen						// [1F94C]
+🥐	croissant							// [1F950]
 🥑	avokádo								// [1F951]
 🥒	okurka								// [1F952]
 🥓	slanina								// [1F953]
-🥔	brambora							// [1F954]
+🥔	brambor								// [1F954]
 🥕	mrkev								// [1F955]
 🥖	bageta								// [1F956]
 🥗	salát								// [1F957]
-🥘	pánev s jídlem							// [1F958]
-🥙	plněný sendvič							// [1F959]
+🥘	mělký rendlík s jídlem						// [1F958]
+🥙	plněná pita							// [1F959]
 🥚	vejce								// [1F95A]
 🥛	sklenice mléka							// [1F95B]
-🥜	arašíd								// [1F95C]
-🥝	kivi								// [1F95D]
+🥜	arašídy								// [1F95C]
+🥝	kiwi								// [1F95D]
 🥞	palačinky							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	piroh								// [1F95F]
+🥠	čínský koláček štěstí						// [1F960]
+🥡	krabice na jídlo						// [1F961]
+🥢	jídelní hůlky							// [1F962]
+🥣	miska se lžící							// [1F963]
+🥤	pohárek s brčkem						// [1F964]
+🥥	kokos								// [1F965]
+🥦	brokolice							// [1F966]
+🥧	koláč								// [1F967]
+🥨	preclík								// [1F968]
+🥩	plátek masa							// [1F969]
+🥪	sendvič								// [1F96A]
+🥫	jídlo v plechovce						// [1F96B]
 🦀	krab								// [1F980]
 🦁	hlava lva							// [1F981]
 🦂	škorpion							// [1F982]
@@ -1179,42 +1179,42 @@ $textmode
 🦉	sova								// [1F989]
 🦊	hlava lišky							// [1F98A]
 🦋	motýl								// [1F98B]
-🦌	hlava jelena							// [1F98C]
-🦍	hlava gorily							// [1F98D]
+🦌	jelen								// [1F98C]
+🦍	gorila								// [1F98D]
 🦎	ještěrka							// [1F98E]
-🦏	hlava nosorožce							// [1F98F]
+🦏	nosorožec							// [1F98F]
 🦐	kreveta								// [1F990]
-🦑	kalamár								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
-🧀	kousek sýra							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🦑	oliheň								// [1F991]
+🦒	žirafa								// [1F992]
+🦓	zebra								// [1F993]
+🦔	ježek								// [1F994]
+🦕	brontosaurus							// [1F995]
+🦖	tyranosaurus rex						// [1F996]
+🦗	cvrček								// [1F997]
+🧀	klínek sýra							// [1F9C0]
+🧐	obličej s brýlovým monoklem					// [1F9D0]
+🧑	dospělý člověk							// [1F9D1]
+🧒	dítě								// [1F9D2]
+🧓	starší dospělý člověk						// [1F9D3]
+🧔	muž s plnovousem						// [1F9D4]
+🧕	žena v šátku							// [1F9D5]
+🧖	osoba v sauně							// [1F9D6]
+🧗	lezec								// [1F9D7]
+🧘	osoba v lotosovém sedu						// [1F9D8]
+🧙	mág								// [1F9D9]
+🧚	víla								// [1F9DA]
+🧛	obličej upíra							// [1F9DB]
+🧜	mořská bytost							// [1F9DC]
+🧝	obličej elfa							// [1F9DD]
+🧞	duch z lahve							// [1F9DE]
+🧟	zombie								// [1F9DF]
+🧠	mozek								// [1F9E0]
+🧡	oranžové srdce							// [1F9E1]
+🧢	kšiltovka							// [1F9E2]
+🧣	šála								// [1F9E3]
+🧤	rukavice							// [1F9E4]
+🧥	kabát								// [1F9E5]
+🧦	ponožky								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1457,7 +1457,7 @@ $textmode
 🇺🇦	Ukrajina							// [1F1FA 1F1E6] UA
 🇺🇬	Uganda								// [1F1FA 1F1EC] UG
 🇺🇲	Menší odlehlé ostrovy USA					// [1F1FA 1F1F2] UM
-🇺🇳	OSN								// [1F1FA 1F1F3] UN
+🇺🇳	Organizace spojených národů					// [1F1FA 1F1F3] UN
 🇺🇸	Spojené státy							// [1F1FA 1F1F8] US
 🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
 🇺🇿	Uzbekistán							// [1F1FA 1F1FF] UZ
@@ -1485,52 +1485,52 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	klávesa křížek							// [0023 FE0F 20E3]
-*️⃣	klávesa hvězdička						// [002A FE0F 20E3]
-0️⃣	klávesa nula							// [0030 FE0F 20E3]
-1️⃣	klávesa jedna							// [0031 FE0F 20E3]
-2️⃣	klávesa dva							// [0032 FE0F 20E3]
-3️⃣	klávesa tři							// [0033 FE0F 20E3]
-4️⃣	klávesa čtyři							// [0034 FE0F 20E3]
-5️⃣	klávesa pět							// [0035 FE0F 20E3]
-6️⃣	klávesa šest							// [0036 FE0F 20E3]
-7️⃣	klávesa sedm							// [0037 FE0F 20E3]
-8️⃣	klávesa osm							// [0038 FE0F 20E3]
-9️⃣	klávesa devět							// [0039 FE0F 20E3]
+#️⃣	klávesy: #							// [0023 FE0F 20E3]
+*️⃣	klávesy: *							// [002A FE0F 20E3]
+0️⃣	klávesy: 0							// [0030 FE0F 20E3]
+1️⃣	klávesy: 1							// [0031 FE0F 20E3]
+2️⃣	klávesy: 2							// [0032 FE0F 20E3]
+3️⃣	klávesy: 3							// [0033 FE0F 20E3]
+4️⃣	klávesy: 4							// [0034 FE0F 20E3]
+5️⃣	klávesy: 5							// [0035 FE0F 20E3]
+6️⃣	klávesy: 6							// [0036 FE0F 20E3]
+7️⃣	klávesy: 7							// [0037 FE0F 20E3]
+8️⃣	klávesy: 8							// [0038 FE0F 20E3]
+9️⃣	klávesy: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
-👩‍❤‍💋‍👨	polibek, žena a muž			// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	polibek, muž a muž			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	polibek, žena a žena			// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	pár se srdcem, žena a muž			// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	pár se srdcem, muž a muž			// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	pár se srdcem, žena a žena			// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	rodina, muž, žena a chlapec			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	rodina, muž, žena a dívka			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	rodina, muž, žena, chlapec a dívka	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	rodina, muž, žena a dva chlapci		// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	rodina, muž, žena a dvě dívky		// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	rodina, dva muži a chlapec			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	rodina, dva muži a dívka			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	rodina, dva muži, dívka a chlapec	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	rodina, dva muži a dva chlapci		// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	rodina, dva muži a dvě dívky		// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	rodina, dvě ženy a chlapec			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	rodina, dvě ženy a dívka			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	rodina, dvě ženy, dívka a chlapec	// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	rodina, dvě ženy a dva chlapci		// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	rodina, dvě ženy a dvě dívky		// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	rodina, muž a chlapec					// [1F468 200D 1F466]
-👨‍👦‍👦	rodina, muž a dva chlapci			// [1F468 200D 1F466 200D 1F466]
-👨‍👧	rodina, muž a dívka					// [1F468 200D 1F467]
-👨‍👧‍👦	rodina, muž, dívka a chlapec			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	rodina, muž a dvě dívky				// [1F468 200D 1F467 200D 1F467]
-👩‍👦	rodina, žena a chlapec					// [1F469 200D 1F466]
-👩‍👦‍👦	rodina, žena a dva chlapci			// [1F469 200D 1F466 200D 1F466]
-👩‍👧	rodina, žena a dívka					// [1F469 200D 1F467]
-👩‍👧‍👦	rodina, žena, dívka a chlapec			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	rodina, žena a dvě dívky			// [1F469 200D 1F467 200D 1F467]
+👩‍❤‍💋‍👨	polibek: žena, muž			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	polibek: muž, muž			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	polibek: žena, žena			// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	pár se srdcem: žena, muž			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	pár se srdcem: muž, muž				// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	pár se srdcem: žena, žena			// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	rodina: muž, žena, chlapec			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	rodina: muž, žena, dívka			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	rodina: muž, žena, dívka, chlapec	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	rodina: muž, žena, chlapec, chlapec	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	rodina: muž, žena, dívka, dívka		// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	rodina: muž, muž, chlapec			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	rodina: muž, muž, dívka				// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	rodina: muž, muž, dívka, chlapec	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	rodina: muž, muž, chlapec, chlapec	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	rodina: muž, muž, dívka, dívka		// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	rodina: žena, žena, chlapec			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	rodina: žena, žena, dívka			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	rodina: žena, žena, dívka, chlapec	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	rodina: žena, žena, chlapec, chlapec	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	rodina: žena, žena, dívka, dívka	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	rodina: muž, chlapec					// [1F468 200D 1F466]
+👨‍👦‍👦	rodina: muž, chlapec, chlapec			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	rodina: muž, dívka					// [1F468 200D 1F467]
+👨‍👧‍👦	rodina: muž, dívka, chlapec			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	rodina: muž, dívka, dívka			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	rodina: žena, chlapec					// [1F469 200D 1F466]
+👩‍👦‍👦	rodina: žena, chlapec, chlapec			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	rodina: žena, dívka					// [1F469 200D 1F467]
+👩‍👧‍👦	rodina: žena, dívka, chlapec			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	rodina: žena, dívka, dívka			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1548,8 +1548,8 @@ $textmode
 👩‍🎓	studentka						// [1F469 200D 1F393]
 👨‍🎤	zpěvák							// [1F468 200D 1F3A4]
 👩‍🎤	zpěvačka						// [1F469 200D 1F3A4]
-👨‍🎨	umělec							// [1F468 200D 1F3A8]
-👩‍🎨	umělkyně						// [1F469 200D 1F3A8]
+👨‍🎨	malíř							// [1F468 200D 1F3A8]
+👩‍🎨	malířka							// [1F469 200D 1F3A8]
 👨‍🏫	učitel							// [1F468 200D 1F3EB]
 👩‍🏫	učitelka						// [1F469 200D 1F3EB]
 👨‍🏭	dělník v továrně					// [1F468 200D 1F3ED]
@@ -1572,34 +1572,34 @@ $textmode
 👮‍♀	policistka						// [1F46E 200D 2640]
 👮‍♂	policista						// [1F46E 200D 2642]
 👱‍♀	blondýna						// [1F471 200D 2640]
-👱‍♂	blondýn							// [1F471 200D 2642]
+👱‍♂	blonďák							// [1F471 200D 2642]
 👳‍♀	žena s turbanem						// [1F473 200D 2640]
 👳‍♂	muž s turbanem						// [1F473 200D 2642]
 👷‍♀	stavební dělnice					// [1F477 200D 2640]
 👷‍♂	stavební dělník						// [1F477 200D 2642]
 💂‍♀	strážkyně						// [1F482 200D 2640]
 💂‍♂	strážce							// [1F482 200D 2642]
-🕵️‍♀	agentka							// [1F575 200D 2640]
-🕵️‍♂	agent							// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🕵️‍♀	kriminální inspektorka					// [1F575 200D 2640]
+🕵️‍♂	kriminální inspektor					// [1F575 200D 2642]
+🧙‍♀	čarodějka						// [1F9D9 200D 2640]
+🧙‍♂	čaroděj							// [1F9D9 200D 2642]
+🧚‍♀	okřídlená víla						// [1F9DA 200D 2640]
+🧚‍♂	okřídlený skřítek					// [1F9DA 200D 2642]
+🧛‍♀	upírka							// [1F9DB 200D 2640]
+🧛‍♂	upír							// [1F9DB 200D 2642]
+🧜‍♀	mořská panna						// [1F9DC 200D 2640]
+🧜‍♂	mořský muž						// [1F9DC 200D 2642]
+🧝‍♀	elfka							// [1F9DD 200D 2640]
+🧝‍♂	elf							// [1F9DD 200D 2642]
+🧞‍♀	džinka							// [1F9DE 200D 2640]
+🧞‍♂	džin							// [1F9DE 200D 2642]
+🧟‍♀	nemrtvá žena						// [1F9DF 200D 2640]
+🧟‍♂	nemrtvý muž						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
-⛹‍♀	žena s míčem						// [26F9 200D 2640]
-⛹‍♂	muž s míčem						// [26F9 200D 2642]
+⛹‍♀	žena driblující s míčem					// [26F9 200D 2640]
+⛹‍♂	muž driblující s míčem					// [26F9 200D 2642]
 🏃‍♀	běžící žena						// [1F3C3 200D 2640]
 🏃‍♂	běžící muž						// [1F3C3 200D 2642]
 🏄‍♀	surfařka						// [1F3C4 200D 2640]
@@ -1610,10 +1610,10 @@ $textmode
 🏋️‍♂	vzpěrač							// [1F3CB 200D 2642]
 🏌️‍♀	golfistka						// [1F3CC 200D 2640]
 🏌️‍♂	golfista						// [1F3CC 200D 2642]
-👯‍♀	ženy na párty						// [1F46F 200D 2640]
-👯‍♂	muži na párty						// [1F46F 200D 2642]
-💆‍♀	žena dostává masáž tváře				// [1F486 200D 2640]
-💆‍♂	muž dostává masáž tváře					// [1F486 200D 2642]
+👯‍♀	ženy se zaječími oušky					// [1F46F 200D 2640]
+👯‍♂	muži se zaječími oušky					// [1F46F 200D 2642]
+💆‍♀	žena na masáži obličeje					// [1F486 200D 2640]
+💆‍♂	muž na masáži obličeje					// [1F486 200D 2642]
 💇‍♀	žena u kadeřníka					// [1F487 200D 2640]
 💇‍♂	muž u kadeřníka						// [1F487 200D 2642]
 🚣‍♀	veslařka						// [1F6A3 200D 2640]
@@ -1622,50 +1622,50 @@ $textmode
 🚴‍♂	cyklista						// [1F6B4 200D 2642]
 🚵‍♀	horská cyklistka					// [1F6B5 200D 2640]
 🚵‍♂	horský cyklista						// [1F6B5 200D 2642]
-🚶‍♀	jdoucí žena						// [1F6B6 200D 2640]
-🚶‍♂	jdoucí muž						// [1F6B6 200D 2642]
-🤸‍♀	žena dělá přemet					// [1F938 200D 2640]
-🤸‍♂	muž dělá přemet						// [1F938 200D 2642]
+🚶‍♀	žena v chůzi						// [1F6B6 200D 2640]
+🚶‍♂	muž v chůzi						// [1F6B6 200D 2642]
+🤸‍♀	žena dělající přemet stranou				// [1F938 200D 2640]
+🤸‍♂	muž dělající přemet stranou				// [1F938 200D 2642]
 🤹‍♀	žonglérka						// [1F939 200D 2640]
 🤹‍♂	žonglér							// [1F939 200D 2642]
-🤼‍♀	zápasnice						// [1F93C 200D 2640]
-🤼‍♂	zápasníci						// [1F93C 200D 2642]
-🤽‍♀	hráčka póla						// [1F93D 200D 2640]
-🤽‍♂	hráč póla						// [1F93D 200D 2642]
+🤼‍♀	zápasící ženy						// [1F93C 200D 2640]
+🤼‍♂	zápasící muži						// [1F93C 200D 2642]
+🤽‍♀	hráčka vodního póla					// [1F93D 200D 2640]
+🤽‍♂	hráč vodního póla					// [1F93D 200D 2642]
 🤾‍♀	házenkářka						// [1F93E 200D 2640]
 🤾‍♂	házenkář						// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	žena v sauně						// [1F9D6 200D 2640]
+🧖‍♂	muž v sauně						// [1F9D6 200D 2642]
+🧗‍♀	horolezkyně						// [1F9D7 200D 2640]
+🧗‍♂	horolezec						// [1F9D7 200D 2642]
+🧘‍♀	žena v lotosovém sedu					// [1F9D8 200D 2640]
+🧘‍♂	muž v lotosovém sedu					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
-💁‍♀	žena ukazuje ruku					// [1F481 200D 2640]
-💁‍♂	muž ukazuje ruku					// [1F481 200D 2642]
-🙅‍♀	žena nesouhlasí						// [1F645 200D 2640]
-🙅‍♂	muž nesouhlasí						// [1F645 200D 2642]
-🙆‍♀	žena souhlasí						// [1F646 200D 2640]
-🙆‍♂	muž souhlasí						// [1F646 200D 2642]
-🙇‍♀	žena se klaní						// [1F647 200D 2640]
-🙇‍♂	muž se klaní						// [1F647 200D 2642]
-🙋‍♀	žena zvedá ruku						// [1F64B 200D 2640]
-🙋‍♂	muž zvedá ruku						// [1F64B 200D 2642]
+💁‍♀	žena s dlaní vzhůru					// [1F481 200D 2640]
+💁‍♂	muž s dlaní vzhůru					// [1F481 200D 2642]
+🙅‍♀	žena s gestem nesouhlasu				// [1F645 200D 2640]
+🙅‍♂	muž s gestem nesouhlasu					// [1F645 200D 2642]
+🙆‍♀	žena s gestem souhlasu					// [1F646 200D 2640]
+🙆‍♂	muž s gestem souhlasu					// [1F646 200D 2642]
+🙇‍♀	uklánějící se žena					// [1F647 200D 2640]
+🙇‍♂	uklánějící se muž					// [1F647 200D 2642]
+🙋‍♀	žena se zvednutou rukou					// [1F64B 200D 2640]
+🙋‍♂	muž se zvednutou rukou					// [1F64B 200D 2642]
 🙍‍♀	zamračená žena						// [1F64D 200D 2640]
 🙍‍♂	zamračený muž						// [1F64D 200D 2642]
 🙎‍♀	podrážděná žena						// [1F64E 200D 2640]
 🙎‍♂	podrážděný muž						// [1F64E 200D 2642]
-🤦‍♀	žena se chytá za hlavu					// [1F926 200D 2640]
-🤦‍♂	muž se chytá za hlavu					// [1F926 200D 2642]
-🤷‍♀	žena krčí rameny					// [1F937 200D 2640]
-🤷‍♂	muž krčí rameny						// [1F937 200D 2642]
+🤦‍♀	žena chytající se za hlavu				// [1F926 200D 2640]
+🤦‍♂	muž chytající se za hlavu				// [1F926 200D 2642]
+🤷‍♀	žena krčící rameny					// [1F937 200D 2640]
+🤷‍♂	muž krčící rameny					// [1F937 200D 2642]
 
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	duhová vlajka						// [1F3F3 200D 1F308]
-👁‍🗨	oko v bublině řeči					// [1F441 200D 1F5E8]
+👁‍🗨	oko v řečové bublině					// [1F441 200D 1F5E8]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]

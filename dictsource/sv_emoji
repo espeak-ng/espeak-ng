@@ -237,12 +237,12 @@ $textmode
 
 🈁	katakana för koko						// [1F201]
 🈂	katakana för sa							// [1F202] text|emoji
-🈚	ideogram för negation						// [1F21A]
+🈚	ideogram för gratis						// [1F21A]
 🈯	ideogram för finger						// [1F22F]
 🈲	ideogram för förbud						// [1F232]
-🈳	ideogram för tom						// [1F233]
-🈴	ideogram för tillsammans					// [1F234]
-🈵	ideogram för fullständighet					// [1F235]
+🈳	ideogram för ledig						// [1F233]
+🈴	ideogram för godkänt betyg					// [1F234]
+🈵	ideogram för inget ledigt					// [1F235]
 🈶	ideogram för finns						// [1F236]
 🈷	ideogram för månad						// [1F237] text|emoji
 🈸	ideogram för tillämpa						// [1F238]
@@ -279,17 +279,17 @@ $textmode
 🌏	jordglob Asien–Australien					// [1F30F]
 🌐	jordglob med meridianer						// [1F310]
 🌑	nymåne								// [1F311]
-🌒	vaxning månskära						// [1F312]
-🌓	måne i första kvarteret						// [1F313]
-🌔	mellan halvmåne–fullmåne					// [1F314]
+🌒	måne i första kvarteret						// [1F312]
+🌓	tilltagande halvmåne						// [1F313]
+🌔	måne i andra kvarteret						// [1F314]
 🌕	fullmåne							// [1F315]
-🌖	avtagande måne mellan halvmåne och fullmåne			// [1F316]
-🌗	måne i sista kvarteret						// [1F317]
-🌘	avtagande måne							// [1F318]
+🌖	måne i tredje kvarteret						// [1F316]
+🌗	avtagande halvmåne						// [1F317]
+🌘	måne i fjärde kvarteret						// [1F318]
 🌙	månskära							// [1F319]
 🌚	nymåne med ansikte						// [1F31A]
-🌛	måne med ansikte i första kvarteret				// [1F31B]
-🌜	måne med ansikte i sista kvarteret				// [1F31C]
+🌛	tilltagande halvmåne med ansikte				// [1F31B]
+🌜	avtagande halvmåne med ansikte					// [1F31C]
 🌝	fullmåne med ansikte						// [1F31D]
 🌞	sol med ansikte							// [1F31E]
 🌟	blänkande stjärna						// [1F31F]
@@ -495,8 +495,8 @@ $textmode
 🏮	röd lykta							// [1F3EE]
 🏯	japanskt slott							// [1F3EF]
 🏰	europeiskt slott						// [1F3F0]
-🏳	viftar vit flagga						// [1F3F3] text|emoji
-🏴	viftar svart flagga						// [1F3F4]
+🏳	vit flagga							// [1F3F3] text|emoji
+🏴	svart flagga							// [1F3F4]
 🏵	bandros								// [1F3F5] text|emoji
 🏷	etikett								// [1F3F7] text|emoji
 🏸	badminton							// [1F3F8]
@@ -618,7 +618,7 @@ $textmode
 👬	två män håller hand						// [1F46C]
 👭	två kvinnor håller hand						// [1F46D]
 👮	polis								// [1F46E]
-👯	tjej med kaninöron						// [1F46F]
+👯	personer med kaninöron						// [1F46F]
 👰	brud med slöja							// [1F470]
 👱	blond person							// [1F471]
 👲	man med mössa							// [1F472]
@@ -771,7 +771,7 @@ $textmode
 🔆	hög ljusstyrka							// [1F506]
 🔇	avstängd högtalare						// [1F507]
 🔈	högtalare							// [1F508]
-🔉	högtalare med låg volym						// [1F509]
+🔉	högtalare med medium volym					// [1F509]
 🔊	högtalare med hög volym						// [1F50A]
 🔋	batteri								// [1F50B]
 🔌	elkontakt							// [1F50C]
@@ -793,7 +793,7 @@ $textmode
 🔜	Soon med högerpil ovanför					// [1F51C]
 🔝	Top med uppåtpil						// [1F51D]
 🔞	ej för minderåriga						// [1F51E]
-🔟	siffran 10							// [1F51F]
+🔟	keycap: 10							// [1F51F]
 🔠	versaler							// [1F520]
 🔡	gemener								// [1F521]
 🔢	siffror								// [1F522]
@@ -904,18 +904,18 @@ $textmode
 😀	ansikte med stort leende					// [1F600]
 😁	leende ansikte med leende ögon					// [1F601]
 😂	ansikte med glädjetårar						// [1F602]
-😃	leende ansikte med öppen mun					// [1F603]
-😄	ansikte med leende ögon och mun					// [1F604]
-😅	leende ansikte med svettdroppe					// [1F605]
-😆	leende med öppen mun och hårt stängda ögon			// [1F606]
+😃	flinande ansikte med stora ögon					// [1F603]
+😄	flinande ansikte med leende ögon				// [1F604]
+😅	flinande ansikte med svettdroppe				// [1F605]
+😆	flinande ansikte med kisande ögon				// [1F606]
 😇	leende med gloria						// [1F607]
 😈	leende med horn							// [1F608]
 😉	blinkar med ögonen						// [1F609]
 😊	leende ansikte och ögon						// [1F60A]
 😋	smakar gott							// [1F60B]
 😌	lättat ansikte							// [1F60C]
-😍	leende med hjärtformade ögon					// [1F60D]
-😎	leende med solglasögon						// [1F60E]
+😍	leende ansikte med hjärtformade ögon				// [1F60D]
+😎	leende ansikte med solglasögon					// [1F60E]
 😏	flinande ansikte						// [1F60F]
 😐	neutralt ansikte						// [1F610]
 😑	uttryckslöst ansikte						// [1F611]
@@ -924,12 +924,12 @@ $textmode
 😔	funderande ansikte						// [1F614]
 😕	förbryllat ansikte						// [1F615]
 😖	förvirrat ansikte						// [1F616]
-😗	kyssande ansikte						// [1F617]
+😗	pussande ansikte						// [1F617]
 😘	slängkyss							// [1F618]
-😙	kyssande ansikte med glada ögon					// [1F619]
-😚	kyssande ansikte med stängda ögon				// [1F61A]
-😛	lipande ansikte							// [1F61B]
-😜	lipande/blinkande ansikte					// [1F61C]
+😙	pussande ansikte med leende ögon				// [1F619]
+😚	pussande ansikte med slutna ögon				// [1F61A]
+😛	räcker ut tungan						// [1F61B]
+😜	blinkande ansikte						// [1F61C]
 😝	räcker ut tungan med stängda ögon				// [1F61D]
 😞	besviket ansikte						// [1F61E]
 😟	bekymrat ansikte						// [1F61F]
@@ -967,16 +967,16 @@ $textmode
 😿	gråtande kattansikte						// [1F63F]
 🙀	bedrövat kattansikte						// [1F640]
 🙁	ansikte med lite sur mun					// [1F641]
-🙂	ansikte med litet leende					// [1F642]
+🙂	småleende ansikte						// [1F642]
 🙃	upp-och-nervänt ansikte						// [1F643]
 🙄	ansikte som himlar med ögonen					// [1F644]
 🙅	gest för inte bra						// [1F645]
 🙆	gest för OK							// [1F646]
-🙇	person som ber om ursäkt					// [1F647]
+🙇	djupt bugande person						// [1F647]
 🙈	apa ser inget							// [1F648]
 🙉	apa hör inget							// [1F649]
-🙊	apa tiger							// [1F64A]
-🙋	glad person räcker upp hand					// [1F64B]
+🙊	apa säger inget							// [1F64A]
+🙋	person som räcker upp handen					// [1F64B]
 🙌	båda händerna i luften						// [1F64C]
 🙍	bister uppsyn							// [1F64D]
 🙎	plutar								// [1F64E]
@@ -1076,8 +1076,8 @@ $textmode
 🛴	sparkcykel							// [1F6F4]
 🛵	skoter								// [1F6F5]
 🛶	kanot								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	kälke								// [1F6F7]
+🛸	flygande tefat							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1096,32 +1096,32 @@ $textmode
 🤜	högervänd näve							// [1F91C]
 🤝	handskakning							// [1F91D]
 🤞	korsade fingrar							// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	hjärtformade händer						// [1F91F]
 🤠	cowboyhatt ansikte						// [1F920]
 🤡	clownansikte							// [1F921]
 🤢	kräkande ansikte						// [1F922]
-🤣	rulla runt på golvet skrattande					// [1F923]
+🤣	rullar runt på golvet och skrattar				// [1F923]
 🤤	dräglande ansikte						// [1F924]
 🤥	ljugande ansikte						// [1F925]
-🤦	slå sig på pannan						// [1F926]
+🤦	slå sig för pannan						// [1F926]
 🤧	nysande ansikte							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	ansikte med höjt ögonbryn					// [1F928]
+🤩	stjärnögt ansikte						// [1F929]
+🤪	tokigt ansikte							// [1F92A]
+🤫	tigande ansikte							// [1F92B]
+🤬	ansikte med symboler på munnen					// [1F92C]
+🤭	handen över ansiktet						// [1F92D]
+🤮	kräker								// [1F92E]
+🤯	exploderande huvud						// [1F92F]
 🤰	gravid kvinna							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	amning								// [1F931]
+🤲	handflatorna upp						// [1F932]
 🤳	selfie								// [1F933]
 🤴	prins								// [1F934]
 🤵	man i smoking							// [1F935]
 🤶	tomtemor							// [1F936]
 🤷	axelryckning							// [1F937]
-🤸	slå hjul							// [1F938]
+🤸	hjula								// [1F938]
 🤹	jonglering							// [1F939]
 🤺	fäktare								// [1F93A]
 🤼	brottare							// [1F93C]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	bronsmedalj							// [1F949]
 🥊	boxningshandskar						// [1F94A]
 🥋	kampsportdräkt							// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	curlingsten							// [1F94C]
 🥐	croissant							// [1F950]
 🥑	avokado								// [1F951]
 🥒	gurka								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	jordnötter							// [1F95C]
 🥝	kiwifrukt							// [1F95D]
 🥞	pannkakor							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	dumpling							// [1F95F]
+🥠	lyckokaka							// [1F960]
+🥡	hämtmatkartong							// [1F961]
+🥢	ätpinnar							// [1F962]
+🥣	skål och sked							// [1F963]
+🥤	mugg med sugrör							// [1F964]
+🥥	kokosnöt							// [1F965]
+🥦	broccoli							// [1F966]
+🥧	paj								// [1F967]
+🥨	pretzel								// [1F968]
+🥩	charcuterie							// [1F969]
+🥪	macka								// [1F96A]
+🥫	burkmat								// [1F96B]
 🦀	krabba								// [1F980]
 🦁	lejonansikte							// [1F981]
 🦂	skorpion							// [1F982]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	noshörning							// [1F98F]
 🦐	räka								// [1F990]
 🦑	mindre bläckfisk						// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	giraff								// [1F992]
+🦓	zebra								// [1F993]
+🦔	igelkott							// [1F994]
+🦕	sauropod							// [1F995]
+🦖	T-rex								// [1F996]
+🦗	syrsa								// [1F997]
 🧀	ostbit								// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	ansikte med monokel						// [1F9D0]
+🧑	vuxen								// [1F9D1]
+🧒	barn								// [1F9D2]
+🧓	senior								// [1F9D3]
+🧔	person med skägg						// [1F9D4]
+🧕	kvinna i sjal							// [1F9D5]
+🧖	person i ångbastu						// [1F9D6]
+🧗	person klättrar							// [1F9D7]
+🧘	person i lotusposition						// [1F9D8]
+🧙	magiker								// [1F9D9]
+🧚	älva								// [1F9DA]
+🧛	vampyr								// [1F9DB]
+🧜	vattenväsen							// [1F9DC]
+🧝	tomte								// [1F9DD]
+🧞	ande								// [1F9DE]
+🧟	zombie								// [1F9DF]
+🧠	hjärna								// [1F9E0]
+🧡	hjärta i orange							// [1F9E1]
+🧢	keps								// [1F9E2]
+🧣	scarf								// [1F9E3]
+🧤	handske								// [1F9E4]
+🧥	jacka								// [1F9E5]
+🧦	sockor								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1317,7 +1317,7 @@ $textmode
 🇬🇺	Guam								// [1F1EC 1F1FA] GU
 🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
 🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hongkong, S.A.R. Kina						// [1F1ED 1F1F0] HK
+🇭🇰	Hongkong							// [1F1ED 1F1F0] HK
 🇭🇲	Heardön och McDonaldöarna					// [1F1ED 1F1F2] HM
 🇭🇳	Honduras							// [1F1ED 1F1F3] HN
 🇭🇷	Kroatien							// [1F1ED 1F1F7] HR
@@ -1371,7 +1371,7 @@ $textmode
 🇲🇱	Mali								// [1F1F2 1F1F1] ML
 🇲🇲	Myanmar (Burma)							// [1F1F2 1F1F2] MM
 🇲🇳	Mongoliet							// [1F1F2 1F1F3] MN
-🇲🇴	Macao, S.A.R. Kina						// [1F1F2 1F1F4] MO
+🇲🇴	Macao								// [1F1F2 1F1F4] MO
 🇲🇵	Nordmarianerna							// [1F1F2 1F1F5] MP
 🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
 🇲🇷	Mauretanien							// [1F1F2 1F1F7] MR
@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	tangent för fyrkant						// [0023 FE0F 20E3]
-*️⃣	tangent för asterisk						// [002A FE0F 20E3]
-0️⃣	tangent för siffran noll					// [0030 FE0F 20E3]
-1️⃣	tangent för siffran ett						// [0031 FE0F 20E3]
-2️⃣	tangent för siffran två						// [0032 FE0F 20E3]
-3️⃣	tangent för siffran tre						// [0033 FE0F 20E3]
-4️⃣	tangent för siffran fyra					// [0034 FE0F 20E3]
-5️⃣	tangent för siffran fem						// [0035 FE0F 20E3]
-6️⃣	tangent för siffran sex						// [0036 FE0F 20E3]
-7️⃣	tangent för siffran sju						// [0037 FE0F 20E3]
-8️⃣	tangent för siffran åtta					// [0038 FE0F 20E3]
-9️⃣	tangent för siffran nio						// [0039 FE0F 20E3]
+#️⃣	keycap: #							// [0023 FE0F 20E3]
+*️⃣	keycap: *							// [002A FE0F 20E3]
+0️⃣	keycap: 0							// [0030 FE0F 20E3]
+1️⃣	keycap: 1							// [0031 FE0F 20E3]
+2️⃣	keycap: 2							// [0032 FE0F 20E3]
+3️⃣	keycap: 3							// [0033 FE0F 20E3]
+4️⃣	keycap: 4							// [0034 FE0F 20E3]
+5️⃣	keycap: 5							// [0035 FE0F 20E3]
+6️⃣	keycap: 6							// [0036 FE0F 20E3]
+7️⃣	keycap: 7							// [0037 FE0F 20E3]
+8️⃣	keycap: 8							// [0038 FE0F 20E3]
+9️⃣	keycap: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	manlig vakt						// [1F482 200D 2642]
 🕵️‍♀	kvinnlig detektiv					// [1F575 200D 2640]
 🕵️‍♂	manlig detektiv						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	kvinnlig magiker					// [1F9D9 200D 2640]
+🧙‍♂	manlig magiker						// [1F9D9 200D 2642]
+🧚‍♀	kvinnlig fé						// [1F9DA 200D 2640]
+🧚‍♂	alv							// [1F9DA 200D 2642]
+🧛‍♀	kvinnlig vampyr						// [1F9DB 200D 2640]
+🧛‍♂	manlig vampyr						// [1F9DB 200D 2642]
+🧜‍♀	sjöjungfru						// [1F9DC 200D 2640]
+🧜‍♂	strömkarl						// [1F9DC 200D 2642]
+🧝‍♀	skogsrå							// [1F9DD 200D 2640]
+🧝‍♂	nisse							// [1F9DD 200D 2642]
+🧞‍♀	kvinnlig ande						// [1F9DE 200D 2640]
+🧞‍♂	manlig ande						// [1F9DE 200D 2642]
+🧟‍♀	kvinnlig zombie						// [1F9DF 200D 2640]
+🧟‍♂	manlig zombie						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1610,8 +1610,8 @@ $textmode
 🏋️‍♂	man lyfter tyngder					// [1F3CB 200D 2642]
 🏌️‍♀	kvinna spelar golf					// [1F3CC 200D 2640]
 🏌️‍♂	man spelar golf						// [1F3CC 200D 2642]
-👯‍♀	kvinnor festar						// [1F46F 200D 2640]
-👯‍♂	män festar						// [1F46F 200D 2642]
+👯‍♀	kvinnor med kaninöron					// [1F46F 200D 2640]
+👯‍♂	män med kaninöron					// [1F46F 200D 2642]
 💆‍♀	kvinna som får ansiktsmassage				// [1F486 200D 2640]
 💆‍♂	man som får ansiktsmassage				// [1F486 200D 2642]
 💇‍♀	kvinna som får håret klippt				// [1F487 200D 2640]
@@ -1624,8 +1624,8 @@ $textmode
 🚵‍♂	man åker mountainbike					// [1F6B5 200D 2642]
 🚶‍♀	kvinna går						// [1F6B6 200D 2640]
 🚶‍♂	man går							// [1F6B6 200D 2642]
-🤸‍♀	kvinna slår hjul					// [1F938 200D 2640]
-🤸‍♂	man slår hjul						// [1F938 200D 2642]
+🤸‍♀	kvinna som hjular					// [1F938 200D 2640]
+🤸‍♂	man som hjular						// [1F938 200D 2642]
 🤹‍♀	kvinna jonglerar					// [1F939 200D 2640]
 🤹‍♂	man jonglerar						// [1F939 200D 2642]
 🤼‍♀	brottande kvinnor					// [1F93C 200D 2640]
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	man spelar vattenpolo					// [1F93D 200D 2642]
 🤾‍♀	kvinna spelar handboll					// [1F93E 200D 2640]
 🤾‍♂	man spelar handboll					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	kvinna i ångbastu					// [1F9D6 200D 2640]
+🧖‍♂	man i ångbastu						// [1F9D6 200D 2642]
+🧗‍♀	kvinna klättrar						// [1F9D7 200D 2640]
+🧗‍♂	man klättrar						// [1F9D7 200D 2642]
+🧘‍♀	kvinna i lotusposition					// [1F9D8 200D 2640]
+🧘‍♂	man i lotusposition					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
@@ -1651,16 +1651,16 @@ $textmode
 🙆‍♂	man med händerna på huvudet				// [1F646 200D 2642]
 🙇‍♀	djupt bugande kvinna					// [1F647 200D 2640]
 🙇‍♂	djupt bugande man					// [1F647 200D 2642]
-🙋‍♀	kvinna med armen i vädret				// [1F64B 200D 2640]
-🙋‍♂	man med armen i vädret					// [1F64B 200D 2642]
+🙋‍♀	kvinna som räcker upp handen				// [1F64B 200D 2640]
+🙋‍♂	man som räcker upp handen				// [1F64B 200D 2642]
 🙍‍♀	skeptisk kvinna						// [1F64D 200D 2640]
 🙍‍♂	skeptisk man						// [1F64D 200D 2642]
 🙎‍♀	kvinna med plutmunn					// [1F64E 200D 2640]
 🙎‍♂	man med plutmunn					// [1F64E 200D 2642]
-🤦‍♀	besviken kvinna						// [1F926 200D 2640]
-🤦‍♂	besviken man						// [1F926 200D 2642]
-🤷‍♀	ovetande kvinna						// [1F937 200D 2640]
-🤷‍♂	ovetande man						// [1F937 200D 2642]
+🤦‍♀	kvinna som slår sig för pannan				// [1F926 200D 2640]
+🤦‍♂	man som slår sig för pannan				// [1F926 200D 2642]
+🤷‍♀	kvinna som rycker på axlarna				// [1F937 200D 2640]
+🤷‍♂	man som rycker på axlarna				// [1F937 200D 2642]
 
 // Emoji ZWJ Sequence: Other
 

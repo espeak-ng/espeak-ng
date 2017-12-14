@@ -22,7 +22,7 @@ $textmode
 // 2100..214F : Letterlike Symbols
 
 ™	تجارتی نشان							// [2122] text|emoji
-ℹ	معلومات کا ماخذ							// [2139] text|emoji
+ℹ	معلومات								// [2139] text|emoji
 
 // 2190..21FF : Arrows
 
@@ -58,7 +58,7 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	گول حرف m							// [24C2] text|emoji
+Ⓜ	گول M								// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
@@ -121,7 +121,7 @@ $textmode
 ⚕	طبی علامت							// [2695] text|emoji
 ⚖	برابر پلڑوں والا ترازو						// [2696] text|emoji
 ⚗	الیمبک								// [2697] text|emoji
-⚙	گراری								// [2699] text|emoji
+⚙	گیئر								// [2699] text|emoji
 ⚛	ایٹم کی علامت							// [269B] text|emoji
 ⚜	تین پتیوں والا للی						// [269C] text|emoji
 ⚠	انتباہ								// [26A0] text|emoji
@@ -212,44 +212,44 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	گول مبارکباردی تصویری علامت					// [3297] text|emoji
-㊙	گول خفیہ کی تصویری علامت					// [3299] text|emoji
+㊗	جاپانی مبارکباد بٹن						// [3297] text|emoji
+㊙	جاپانی خفیہ بٹن							// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	a بٹن								// [1F170] text|emoji
-🅱	b بٹن								// [1F171] text|emoji
-🅾	o بٹن								// [1F17E] text|emoji
-🅿	p بٹن								// [1F17F] text|emoji
-🆎	ab بٹن								// [1F18E]
-🆑	چوکور cl							// [1F191]
-🆒	چوکور کول							// [1F192]
-🆓	چوکور فری							// [1F193]
-🆔	چوکور id							// [1F194]
-🆕	چوکور نیا							// [1F195]
-🆖	چوکور ng							// [1F196]
-🆗	چوکور ok							// [1F197]
-🆘	چوکور sos							// [1F198]
+🅰	A بٹن (خون کی قسم)						// [1F170] text|emoji
+🅱	B بٹن (خون کی قسم)						// [1F171] text|emoji
+🅾	O بٹن (خون کی قسم)						// [1F17E] text|emoji
+🅿	P بٹن								// [1F17F] text|emoji
+🆎	AB بٹن (خون کی قسم)						// [1F18E]
+🆑	CL بٹن								// [1F191]
+🆒	کول بٹن								// [1F192]
+🆓	مفت بٹن								// [1F193]
+🆔	ID بٹن								// [1F194]
+🆕	نیا بٹن								// [1F195]
+🆖	NG بٹن								// [1F196]
+🆗	اوکے بٹن							// [1F197]
+🆘	SOS بٹن								// [1F198]
 🆙	اوپر! بٹن							// [1F199]
-🆚	چوکور vs							// [1F19A]
+🆚	VS بٹن								// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	چوکور کٹاکانا کوکو						// [1F201]
-🈂	چوکور کٹاکانا سا						// [1F202] text|emoji
-🈚	چوکور نفی کی تصویری علامت					// [1F21A]
-🈯	چوکور انگلی کی تصویری علامت					// [1F22F]
-🈲	چوکور منع کی تصویری علامت					// [1F232]
-🈳	چوکور خالی کی تصویری علامت					// [1F233]
-🈴	چوکور اکٹھے کی تصویری علامت					// [1F234]
-🈵	چوکور کاملیت کی تصویری علامت					// [1F235]
-🈶	چوکور موجودگی کی تصویری علامت					// [1F236]
-🈷	چوکور چاند کی تصویری علامت					// [1F237] text|emoji
-🈸	چوکور اپلائی کی تصویری علامت					// [1F238]
-🈹	چوکور تقسیم کی تصویری علامت					// [1F239]
-🈺	چوکور آپریشن کی تصویری علامت					// [1F23A]
-🉐	گول فائدہ کی تصویری علامت					// [1F250]
-🉑	گول منظور کی تصویری علامت					// [1F251]
+🈁	جاپانی یہاں بٹن							// [1F201]
+🈂	جاپانی سروس چارج بٹن						// [1F202] text|emoji
+🈚	جاپانی مفت بٹن							// [1F21A]
+🈯	جاپانی محفوظ بٹن						// [1F22F]
+🈲	جاپانی ممنوع بٹن						// [1F232]
+🈳	جاپانی خالی اسامی علامت						// [1F233]
+🈴	جاپانی پاس کرنے کا گریڈ بٹن					// [1F234]
+🈵	جاپانی کوئی اسامی نہیں علامت					// [1F235]
+🈶	جاپانی مفت نہیں بٹن						// [1F236]
+🈷	جاپانی ماہانہ رقم بٹن						// [1F237] text|emoji
+🈸	جاپانی اپلیکیشن بٹن						// [1F238]
+🈹	جاپانی رعایت بٹن						// [1F239]
+🈺	جاپانی کاروبار کے لیے کھلا بٹن					// [1F23A]
+🉐	جاپانی سودا بازی  بٹن						// [1F250]
+🉑	جاپانی قابل قبول بٹن						// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -502,11 +502,11 @@ $textmode
 🏸	بیڈمنٹن								// [1F3F8]
 🏹	تیر اور کمان							// [1F3F9]
 🏺	ایمفورا								// [1F3FA]
-🏻	اسکن ٹائپ-1-2							// [1F3FB]
-🏼	اسکن ٹائپ-3							// [1F3FC]
-🏽	اسکن ٹائپ-4							// [1F3FD]
-🏾	اسکن ٹائپ-5							// [1F3FE]
-🏿	اسکن ٹائپ-6							// [1F3FF]
+🏻	جلد کی ہلکی رنگت						// [1F3FB]
+🏼	جلد کی درمیانی -ہلکی رنگت					// [1F3FC]
+🏽	جلد کی درمیانی رنگت						// [1F3FD]
+🏾	جلد کی درمیانی سیاہ رنگت					// [1F3FE]
+🏿	جلد کی سیاہ رنگت						// [1F3FF]
 🐀	چوہا								// [1F400]
 🐁	سفید چوہا							// [1F401]
 🐂	بیل								// [1F402]
@@ -625,7 +625,7 @@ $textmode
 👳	پگڑی والا شخص							// [1F473]
 👴	بوڑھا آدمی							// [1F474]
 👵	بوڑھی عورت							// [1F475]
-👶	بچہ								// [1F476]
+👶	طفل								// [1F476]
 👷	بند آنکھوں والا مستری						// [1F477]
 👸	شہزادی								// [1F478]
 👹	شیطانی جن							// [1F479]
@@ -770,8 +770,8 @@ $textmode
 🔅	دھیما کا بٹن							// [1F505]
 🔆	روشن کا بٹن							// [1F506]
 🔇	اسپیکر بند							// [1F507]
-🔈	اسپیکر								// [1F508]
-🔉	اسپیکر آن							// [1F509]
+🔈	دھیمی آواز نکالتے اسپیکر					// [1F508]
+🔉	اوسط آواز نکالتے اسپیکر						// [1F509]
 🔊	بلند آواز نکالتے اسپیکر						// [1F50A]
 🔋	بیٹری								// [1F50B]
 🔌	الیکٹرک پلگ							// [1F50C]
@@ -793,7 +793,7 @@ $textmode
 🔜	جلد تیر								// [1F51C]
 🔝	بالا تیر							// [1F51D]
 🔞	اٹھارہ سے کم عمر کی اجازت نہیں					// [1F51E]
-🔟	کی کیپ عدد دس							// [1F51F]
+🔟	کی کیپ: 10							// [1F51F]
 🔠	ان پٹ لاطینی بڑے حروف						// [1F520]
 🔡	ان پٹ لاطینی چھوٹے حروف						// [1F521]
 🔢	ان پٹ اعداد							// [1F522]
@@ -1076,8 +1076,8 @@ $textmode
 🛴	کک سکوٹر							// [1F6F4]
 🛵	موٹر والا سکوٹر							// [1F6F5]
 🛶	چھوٹی کشتی							// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	برف گاڑی							// [1F6F7]
+🛸	اڑن تشتری							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1096,7 +1096,7 @@ $textmode
 🤜	دائیں سمت میں مکا						// [1F91C]
 🤝	ہاتھ ملانا							// [1F91D]
 🤞	کراس بناتی انگلیاں						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	آپ سے محبت کا اشارہ						// [1F91F]
 🤠	کاؤ بوائے ہیٹ کے ساتھ چہرہ					// [1F920]
 🤡	جوکر چہرہ							// [1F921]
 🤢	متلی کی کیفیت والا چہرہ						// [1F922]
@@ -1105,17 +1105,17 @@ $textmode
 🤥	جھوٹ بولتا چہرہ							// [1F925]
 🤦	پیشانی پر ہاتھ							// [1F926]
 🤧	چھینکیں مارتا چہرہ						// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	اٹھی ہوئی بھویں والا چہرہ					// [1F928]
+🤩	ستارہ زدہ							// [1F929]
+🤪	پاگل پن والا چہرہ						// [1F92A]
+🤫	خاموش رہنے کا اشارہ کرنے والہ چہرہ				// [1F92B]
+🤬	منہ پر علامات والا چہرہ						// [1F92C]
+🤭	منہ پر ہاتھ رکھا ہوا چہرہ					// [1F92D]
+🤮	قے کرتا چہرہ							// [1F92E]
+🤯	سر پھٹنا							// [1F92F]
 🤰	حاملہ عورت							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	دودھ پلانا							// [1F931]
+🤲	ایک ساتھ ہتھیلیاں اٹھانا					// [1F932]
 🤳	سیلفی								// [1F933]
 🤴	شہزادہ								// [1F934]
 🤵	سوٹڈ بوٹڈ آدمی							// [1F935]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	برونز میڈل							// [1F949]
 🥊	باکسنگ کے دستانے						// [1F94A]
 🥋	مارشل آرٹس کا یونیفارم						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	کرلنگ پتھر							// [1F94C]
 🥐	ہلال نما روٹی							// [1F950]
 🥑	ایوو کیڈو							// [1F951]
 🥒	کھیرا								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	مونگ پھلی							// [1F95C]
 🥝	کیوی فروٹ							// [1F95D]
 🥞	پین کیکس							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	پکوڑی								// [1F95F]
+🥠	قسمت والا بسکٹ							// [1F960]
+🥡	پارسل کا ڈبہ							// [1F961]
+🥢	چینی کانٹا							// [1F962]
+🥣	چمچ اور کٹورا							// [1F963]
+🥤	کپ اور اسٹرا							// [1F964]
+🥥	ناریل								// [1F965]
+🥦	شاخ گوبھی							// [1F966]
+🥧	پائي								// [1F967]
+🥨	گانٹھ کی شکل کی بسکٹ						// [1F968]
+🥩	گوشت کا ٹکڑا							// [1F969]
+🥪	سینڈوچ								// [1F96A]
+🥫	ڈبہ بند کھانا							// [1F96B]
 🦀	کیکڑا								// [1F980]
 🦁	شیر کا چہرہ							// [1F981]
 🦂	بچھو								// [1F982]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	گینڈا								// [1F98F]
 🦐	جھینگا								// [1F990]
 🦑	قیر ماہی							// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	زرافہ								// [1F992]
+🦓	زیبرا								// [1F993]
+🦔	خار پشت								// [1F994]
+🦕	سارپا								// [1F995]
+🦖	ٹی ریکس								// [1F996]
+🦗	گرگٹ								// [1F997]
 🧀	پنیر کا ٹکڑا							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	ایک چشمہ پہنا ہوا چہرہ						// [1F9D0]
+🧑	بالغ								// [1F9D1]
+🧒	بچہ								// [1F9D2]
+🧓	بوڑھا بالغ							// [1F9D3]
+🧔	داڑھی والا شخص							// [1F9D4]
+🧕	سر پر اسکارف پہنے عورت						// [1F9D5]
+🧖	ایک شخص بھاپ سے بھرے کمرے میں					// [1F9D6]
+🧗	چڑھتا ہوا شخص							// [1F9D7]
+🧘	پالتی مار کر بیٹھا شخص						// [1F9D8]
+🧙	جادوگر								// [1F9D9]
+🧚	پری								// [1F9DA]
+🧛	خون خوار							// [1F9DB]
+🧜	پانی کے جاندار							// [1F9DC]
+🧝	پریت								// [1F9DD]
+🧞	جن								// [1F9DE]
+🧟	زندہ مردہ							// [1F9DF]
+🧠	دماغ								// [1F9E0]
+🧡	نارنجی دل							// [1F9E1]
+🧢	بلڈ کیپ								// [1F9E2]
+🧣	اسکارف								// [1F9E3]
+🧤	دستانے								// [1F9E4]
+🧥	کوٹ								// [1F9E5]
+🧦	جرابیں								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1234,7 +1234,7 @@ $textmode
 🇦🇺	آسٹریلیا							// [1F1E6 1F1FA] AU
 🇦🇼	اروبا								// [1F1E6 1F1FC] AW
 🇦🇽	آلینڈ آئلینڈز							// [1F1E6 1F1FD] AX
-🇦🇿	آذر بائیجان							// [1F1E6 1F1FF] AZ
+🇦🇿	آذربائیجان							// [1F1E6 1F1FF] AZ
 🇧🇦	بوسنیا اور ہرزیگووینا						// [1F1E7 1F1E6] BA
 🇧🇧	بارباڈوس							// [1F1E7 1F1E7] BB
 🇧🇩	بنگلہ دیش							// [1F1E7 1F1E9] BD
@@ -1275,13 +1275,13 @@ $textmode
 🇨🇼	کیوراکاؤ							// [1F1E8 1F1FC] CW
 🇨🇽	جزیرہ کرسمس							// [1F1E8 1F1FD] CX
 🇨🇾	قبرص								// [1F1E8 1F1FE] CY
-🇨🇿	زکھیا								// [1F1E8 1F1FF] CZ
+🇨🇿	چیکیا								// [1F1E8 1F1FF] CZ
 🇩🇪	جرمنی								// [1F1E9 1F1EA] DE
 🇩🇬	ڈائجو گارسیا							// [1F1E9 1F1EC] DG
 🇩🇯	جبوتی								// [1F1E9 1F1EF] DJ
 🇩🇰	ڈنمارک								// [1F1E9 1F1F0] DK
 🇩🇲	ڈومنیکا								// [1F1E9 1F1F2] DM
-🇩🇴	ڈومنیکن جمہوریہ							// [1F1E9 1F1F4] DO
+🇩🇴	جمہوریہ ڈومينيکن						// [1F1E9 1F1F4] DO
 🇩🇿	الجیریا								// [1F1E9 1F1FF] DZ
 🇪🇦	سیئوٹا اور میلیلا						// [1F1EA 1F1E6] EA
 🇪🇨	ایکواڈور							// [1F1EA 1F1E8] EC
@@ -1348,7 +1348,7 @@ $textmode
 🇰🇷	جنوبی کوریا							// [1F1F0 1F1F7] KR
 🇰🇼	کویت								// [1F1F0 1F1FC] KW
 🇰🇾	کیمین آئلینڈز							// [1F1F0 1F1FE] KY
-🇰🇿	قازقستان							// [1F1F0 1F1FF] KZ
+🇰🇿	قزاخستان							// [1F1F0 1F1FF] KZ
 🇱🇦	لاؤس								// [1F1F1 1F1E6] LA
 🇱🇧	لبنان								// [1F1F1 1F1E7] LB
 🇱🇨	سینٹ لوسیا							// [1F1F1 1F1E8] LC
@@ -1426,7 +1426,7 @@ $textmode
 🇸🇮	سلووینیا							// [1F1F8 1F1EE] SI
 🇸🇯	سوالبرڈ اور جان ماین						// [1F1F8 1F1EF] SJ
 🇸🇰	سلوواکیہ							// [1F1F8 1F1F0] SK
-🇸🇱	سیئر لیون							// [1F1F8 1F1F1] SL
+🇸🇱	سیرالیون							// [1F1F8 1F1F1] SL
 🇸🇲	سان مارینو							// [1F1F8 1F1F2] SM
 🇸🇳	سینیگل								// [1F1F8 1F1F3] SN
 🇸🇴	صومالیہ								// [1F1F8 1F1F4] SO
@@ -1461,7 +1461,7 @@ $textmode
 🇺🇸	ریاستہائے متحدہ							// [1F1FA 1F1F8] US
 🇺🇾	یوروگوئے							// [1F1FA 1F1FE] UY
 🇺🇿	ازبکستان							// [1F1FA 1F1FF] UZ
-🇻🇦	واٹیکن سٹی							// [1F1FB 1F1E6] VA
+🇻🇦	ویٹیکن سٹی							// [1F1FB 1F1E6] VA
 🇻🇨	سینٹ ونسنٹ اور گرینیڈائنز					// [1F1FB 1F1E8] VC
 🇻🇪	وینزوئیلا							// [1F1FB 1F1EA] VE
 🇻🇬	برٹش ورجن آئلینڈز						// [1F1FB 1F1EC] VG
@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	کی کیپ نمبر							// [0023 FE0F 20E3]
-*️⃣	کی کیپ اسٹیرسک							// [002A FE0F 20E3]
-0️⃣	کی کیپ عدد صفر							// [0030 FE0F 20E3]
-1️⃣	کی کیپ عدد ایک							// [0031 FE0F 20E3]
-2️⃣	کی کیپ عدد دو							// [0032 FE0F 20E3]
-3️⃣	کی کیپ عدد تین							// [0033 FE0F 20E3]
-4️⃣	کی کیپ عدد چار							// [0034 FE0F 20E3]
-5️⃣	کی کیپ عدد پانچ							// [0035 FE0F 20E3]
-6️⃣	کی کیپ عدد چھ							// [0036 FE0F 20E3]
-7️⃣	کی کیپ عدد سات							// [0037 FE0F 20E3]
-8️⃣	کی کیپ عدد آٹھ							// [0038 FE0F 20E3]
-9️⃣	کی کیپ عدد نو							// [0039 FE0F 20E3]
+#️⃣	کی کیپ: #							// [0023 FE0F 20E3]
+*️⃣	کی کیپ: *							// [002A FE0F 20E3]
+0️⃣	کی کیپ: 0							// [0030 FE0F 20E3]
+1️⃣	کی کیپ: 1							// [0031 FE0F 20E3]
+2️⃣	کی کیپ: 2							// [0032 FE0F 20E3]
+3️⃣	کی کیپ: 3							// [0033 FE0F 20E3]
+4️⃣	کی کیپ: 4							// [0034 FE0F 20E3]
+5️⃣	کی کیپ: 5							// [0035 FE0F 20E3]
+6️⃣	کی کیپ: 6							// [0036 FE0F 20E3]
+7️⃣	کی کیپ: 7							// [0037 FE0F 20E3]
+8️⃣	کی کیپ: 8							// [0038 FE0F 20E3]
+9️⃣	کی کیپ: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	مرد گارڈ						// [1F482 200D 2642]
 🕵️‍♀	عورت جاسوس						// [1F575 200D 2640]
 🕵️‍♂	مرد جاسوس						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	جادوگر عورت						// [1F9D9 200D 2640]
+🧙‍♂	جادوگر آدمی						// [1F9D9 200D 2642]
+🧚‍♀	پری عورت						// [1F9DA 200D 2640]
+🧚‍♂	مرد پری							// [1F9DA 200D 2642]
+🧛‍♀	خون خوار عورت						// [1F9DB 200D 2640]
+🧛‍♂	خون خوار آدمی						// [1F9DB 200D 2642]
+🧜‍♀	جل پری							// [1F9DC 200D 2640]
+🧜‍♂	جل مانس							// [1F9DC 200D 2642]
+🧝‍♀	پریت عورت						// [1F9DD 200D 2640]
+🧝‍♂	پریت آدمی						// [1F9DD 200D 2642]
+🧞‍♀	عورت جن							// [1F9DE 200D 2640]
+🧞‍♂	مرد جن							// [1F9DE 200D 2642]
+🧟‍♀	زندہ مردہ عورت						// [1F9DF 200D 2640]
+🧟‍♂	زندہ مردہ مرد						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	واٹر پولو کھیلتا ہوا مرد				// [1F93D 200D 2642]
 🤾‍♀	ہینڈ بال کھیلتی ہوئی عورت				// [1F93E 200D 2640]
 🤾‍♂	ہینڈ بال کھیلتا ہوا مرد					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	ایک خاتون بھاپ سے بھرے کمرے میں				// [1F9D6 200D 2640]
+🧖‍♂	ایک مرد بھاپ سے بھرے کمرے میں				// [1F9D6 200D 2642]
+🧗‍♀	چڑھتی ہوئی عورت						// [1F9D7 200D 2640]
+🧗‍♂	چڑھتا ہوا آدمی						// [1F9D7 200D 2642]
+🧘‍♀	پالتی مار کر بیٹھی عورت					// [1F9D8 200D 2640]
+🧘‍♂	پالتی مار کر بیٹھا آدمی					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

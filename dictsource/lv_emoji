@@ -84,7 +84,7 @@ $textmode
 ☕	karsts dzēriens							// [2615]
 ☘	āboliņa lapa							// [2618] text|emoji
 ☝	augšup vērsts rādītājpirksts					// [261D] text|emoji
-☠	galvaskauss ar sakrustotiem kauliem				// [2620] text|emoji
+☠	miroņgalva							// [2620] text|emoji
 ☢	radioaktīvs							// [2622] text|emoji
 ☣	bioloģiskais apdraudējums					// [2623] text|emoji
 ☦	pareizticīgo krusts						// [2626] text|emoji
@@ -121,7 +121,7 @@ $textmode
 ⚕	medicīnas simbols						// [2695] text|emoji
 ⚖	svari								// [2696] text|emoji
 ⚗	mēģene								// [2697] text|emoji
-⚙	ierīce								// [2699] text|emoji
+⚙	zobrats								// [2699] text|emoji
 ⚛	atoma simbols							// [269B] text|emoji
 ⚜	lilijas simbols							// [269C] text|emoji
 ⚠	brīdinājums							// [26A0] text|emoji
@@ -137,7 +137,7 @@ $textmode
 ⛈	mākonis ar zibeni un lietu					// [26C8] text|emoji
 ⛎	zodiaka zīme Čūsknesis						// [26CE]
 ⛏	cirtnis								// [26CF] text|emoji
-⛑	ķivere ar baltu krustu						// [26D1] text|emoji
+⛑	glābēja ķivere							// [26D1] text|emoji
 ⛓	ķēdes								// [26D3] text|emoji
 ⛔	iebraukt aizliegts						// [26D4]
 ⛩	sintoistu svētnīca						// [26E9] text|emoji
@@ -150,7 +150,7 @@ $textmode
 ⛵	buru laiva							// [26F5]
 ⛷	slēpotājs							// [26F7] text|emoji
 ⛸	slida								// [26F8] text|emoji
-⛹	cilvēks ar bumbu						// [26F9] text|emoji
+⛹	cilvēks driblē bumbu						// [26F9] text|emoji
 ⛺	telts								// [26FA]
 ⛽	degvielas sūknis						// [26FD]
 
@@ -273,9 +273,9 @@ $textmode
 🌉	tilts naktī							// [1F309]
 🌊	vilnis								// [1F30A]
 🌋	vulkāns								// [1F30B]
-🌌	piena ceļš							// [1F30C]
+🌌	Piena ceļš							// [1F30C]
 🌍	globuss ar Eiropu un Āfriku					// [1F30D]
-🌎	globuss ar Ziemeļameriku un Dienvidameriku			// [1F30E]
+🌎	globuss ar Ameriku						// [1F30E]
 🌏	globuss ar Āziju un Austrāliju					// [1F30F]
 🌐	globuss ar meridiāniem						// [1F310]
 🌑	jauns mēness							// [1F311]
@@ -391,8 +391,8 @@ $textmode
 🎁	iesaiņota dāvana						// [1F381]
 🎂	dzimšanas dienas kūka						// [1F382]
 🎃	izgrebts ķirbis							// [1F383]
-🎄	ziemassvētku eglīte						// [1F384]
-🎅	ziemassvētku vecītis						// [1F385]
+🎄	Ziemassvētku eglīte						// [1F384]
+🎅	Ziemassvētku vecītis						// [1F385]
 🎆	salūts								// [1F386]
 🎇	brīnumsvecīte							// [1F387]
 🎈	balons								// [1F388]
@@ -427,7 +427,7 @@ $textmode
 🎪	cirka telts							// [1F3AA]
 🎫	biļete								// [1F3AB]
 🎬	klapīte								// [1F3AC]
-🎭	izpildītājmākslas						// [1F3AD]
+🎭	skatuves māksla							// [1F3AD]
 🎮	videospēle							// [1F3AE]
 🎯	šautriņa mērķī							// [1F3AF]
 🎰	spēļu automāts							// [1F3B0]
@@ -457,14 +457,14 @@ $textmode
 🏈	amerikāņu futbola bumba						// [1F3C8]
 🏉	regbija bumba							// [1F3C9]
 🏊	peldētājs							// [1F3CA]
-🏋	svarcēlājs							// [1F3CB] text|emoji
+🏋	cilvēks ar svaru stieni						// [1F3CB] text|emoji
 🏌	golfa spēlētājs							// [1F3CC] text|emoji
 🏍	motocikls							// [1F3CD] text|emoji
 🏎	sacīkšu automašīna						// [1F3CE] text|emoji
 🏏	krikets								// [1F3CF]
 🏐	volejbola bumba							// [1F3D0]
 🏑	lauka hokejs							// [1F3D1]
-🏒	hokeja ripa un nūja						// [1F3D2]
+🏒	hokejs uz ledus							// [1F3D2]
 🏓	galda teniss							// [1F3D3]
 🏔	sniegoti kalni							// [1F3D4] text|emoji
 🏕	kempings							// [1F3D5] text|emoji
@@ -479,7 +479,7 @@ $textmode
 🏞	nacionālais parks						// [1F3DE] text|emoji
 🏟	stadions							// [1F3DF] text|emoji
 🏠	ēka								// [1F3E0]
-🏡	ēka ar dārzu							// [1F3E1]
+🏡	māja ar dārzu							// [1F3E1]
 🏢	biroju ēka							// [1F3E2]
 🏣	japāņu pasta nodaļa						// [1F3E3]
 🏤	pasta nodaļa							// [1F3E4]
@@ -495,18 +495,18 @@ $textmode
 🏮	sarkana papīra laterna						// [1F3EE]
 🏯	japāņu pils							// [1F3EF]
 🏰	pils								// [1F3F0]
-🏳	plīvojošs balts karogs						// [1F3F3] text|emoji
-🏴	plīvojošs melns karogs						// [1F3F4]
+🏳	balts karogs							// [1F3F3] text|emoji
+🏴	melns karogs							// [1F3F4]
 🏵	rozete								// [1F3F5] text|emoji
 🏷	atzīme								// [1F3F7] text|emoji
 🏸	badmintons							// [1F3F8]
 🏹	loks un bulta							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	ādas tips 1–2							// [1F3FB]
+🏻	gaišs ādas tonis						// [1F3FB]
 🏼	ādas tips 3							// [1F3FC]
-🏽	ādas tips 4							// [1F3FD]
-🏾	ādas tips 5							// [1F3FE]
-🏿	ādas tips 6							// [1F3FF]
+🏽	vidējs ādas tonis						// [1F3FD]
+🏾	vidēji tumšs ādas tonis						// [1F3FE]
+🏿	tumšs ādas tonis						// [1F3FF]
 🐀	žurka								// [1F400]
 🐁	pele								// [1F401]
 🐂	vērsis								// [1F402]
@@ -555,7 +555,7 @@ $textmode
 🐭	peles galva							// [1F42D]
 🐮	govs galva							// [1F42E]
 🐯	tīģera galva							// [1F42F]
-🐰	truša seja							// [1F430]
+🐰	truša galva							// [1F430]
 🐱	kaķa galva							// [1F431]
 🐲	pūķa galva							// [1F432]
 🐳	valis šļāc ūdeni						// [1F433]
@@ -564,7 +564,7 @@ $textmode
 🐶	suņa galva							// [1F436]
 🐷	cūkas galva							// [1F437]
 🐸	vardes galva							// [1F438]
-🐹	kāmja seja							// [1F439]
+🐹	kāmja galva							// [1F439]
 🐺	vilka galva							// [1F43A]
 🐻	lāča galva							// [1F43B]
 🐼	pandas galva							// [1F43C]
@@ -584,8 +584,8 @@ $textmode
 👊	pretim vērsta dūre						// [1F44A]
 👋	mājoša roka							// [1F44B]
 👌	simbols OK							// [1F44C]
-👍	augšup vērsts īkšķis						// [1F44D]
-👎	lejup vērsts īkšķis						// [1F44E]
+👍	augšupvērsts īkšķis						// [1F44D]
+👎	lejupvērsts īkšķis						// [1F44E]
 👏	aplausi								// [1F44F]
 👐	atvērtas rokas							// [1F450]
 👑	kronis								// [1F451]
@@ -618,17 +618,17 @@ $textmode
 👬	divi vīrieši sadevušies rokās					// [1F46C]
 👭	divas sievietes sadevušās rokās					// [1F46D]
 👮	policists							// [1F46E]
-👯	sievietes izklaidējas						// [1F46F]
+👯	dejotāju šovs							// [1F46F]
 👰	līgava ar plīvuru						// [1F470]
 👱	blonds cilvēks							// [1F471]
 👲	vīrietis ar ķīniešu cepuri					// [1F472]
-👳	vīrietis ar turbānu						// [1F473]
+👳	persona ar turbānu						// [1F473]
 👴	vecs vīrietis							// [1F474]
 👵	veca sieviete							// [1F475]
 👶	zīdainis							// [1F476]
 👷	celtnieks							// [1F477]
 👸	princese							// [1F478]
-👹	briesmonis							// [1F479]
+👹	cilvēkēdājs							// [1F479]
 👺	goblins								// [1F47A]
 👻	spoks								// [1F47B]
 👼	mazs eņģelītis							// [1F47C]
@@ -705,7 +705,7 @@ $textmode
 📃	lapa ar atliektu malu						// [1F4C3]
 📄	papīra lapa							// [1F4C4]
 📅	kalendārs							// [1F4C5]
-📆	noplēšams kalendārs						// [1F4C6]
+📆	noplēšamais kalendārs						// [1F4C6]
 📇	kartīšu rādītājs						// [1F4C7]
 📈	augšupejoša diagrammas līkne					// [1F4C8]
 📉	lejupejoša diagrammas līkne					// [1F4C9]
@@ -786,14 +786,14 @@ $textmode
 🔕	pārsvītrots zvaniņš						// [1F515]
 🔖	grāmatzīme							// [1F516]
 🔗	ķēdes posms							// [1F517]
-🔘	opciju poga							// [1F518]
+🔘	radiopoga							// [1F518]
 🔙	bultiņa ar uzrakstu Back					// [1F519]
 🔚	bultiņa ar uzrakstu End						// [1F51A]
 🔛	bultiņa ar uzrakstu On!						// [1F51B]
 🔜	bultiņa ar uzrakstu Soon					// [1F51C]
 🔝	bultiņa ar uzrakstu Top						// [1F51D]
 🔞	tikai no 18 gadu vecuma						// [1F51E]
-🔟	desmit								// [1F51F]
+🔟	taustiņš: 10							// [1F51F]
 🔠	lielie latīņu burti						// [1F520]
 🔡	mazie latīņu burti						// [1F521]
 🔢	cipari								// [1F522]
@@ -863,7 +863,7 @@ $textmode
 🕷	zirneklis							// [1F577] text|emoji
 🕸	zirnekļa tīkls							// [1F578] text|emoji
 🕹	kursorsvira							// [1F579] text|emoji
-🕺	dejojošs vīrietis						// [1F57A]
+🕺	vīrietis dejo							// [1F57A]
 🖇	savienotas saspraudes						// [1F587] text|emoji
 🖊	pildspalva							// [1F58A] text|emoji
 🖋	tušas pildspalva						// [1F58B] text|emoji
@@ -902,11 +902,11 @@ $textmode
 // 1F600..1F64F : Emoticons
 
 😀	smiekli								// [1F600]
-😁	sakosti zobi un smaidošas acis					// [1F601]
+😁	plats smaids un smaidošas acis					// [1F601]
 😂	seja ar prieka asarām						// [1F602]
-😃	smaidoša seja ar atvērtu muti					// [1F603]
+😃	plats smaids un lielas acis					// [1F603]
 😄	smaidoša seja ar atvērtu muti un smaidošām acīm			// [1F604]
-😅	smaidoša seja ar atvērtu muti un aukstu sviedru lāsi		// [1F605]
+😅	plats smaids ar sviedru lāsi					// [1F605]
 😆	smaidoša seja ar atvērtu muti un aizmiegtām acīm		// [1F606]
 😇	smaidoša seja ar nimbu						// [1F607]
 😈	smaidoša seja ar ragiem						// [1F608]
@@ -923,7 +923,7 @@ $textmode
 😓	seja ar aukstu sviedru lāsi					// [1F613]
 😔	domās iegrimusi seja						// [1F614]
 😕	apjukusi seja							// [1F615]
-😖	apmulsināta seja						// [1F616]
+😖	apmulsusi seja							// [1F616]
 😗	seja sniedz skūpstu						// [1F617]
 😘	skūpstoša seja							// [1F618]
 😙	seja ar smaidošām acīm sniedz skūpstu				// [1F619]
@@ -970,15 +970,15 @@ $textmode
 🙂	seja ar vieglu smaidu						// [1F642]
 🙃	apgriezta seja							// [1F643]
 🙄	seja ar pārgrieztām acīm					// [1F644]
-🙅	noraidījums							// [1F645]
-🙆	apstiprinājums							// [1F646]
+🙅	cilvēks ar aizlieguma žestu					// [1F645]
+🙆	cilvēks ar apstiprinājuma žestu					// [1F646]
 🙇	cilvēks paklanās						// [1F647]
 🙈	neko neredzu							// [1F648]
 🙉	neko nedzirdu							// [1F649]
 🙊	neko nesaku							// [1F64A]
-🙋	laimīgs cilvēks ar paceltu roku					// [1F64B]
+🙋	cilvēks ar paceltu roku						// [1F64B]
 🙌	paceltas rokas							// [1F64C]
-🙍	bēdīgs cilvēks							// [1F64D]
+🙍	norūpējies cilvēks						// [1F64D]
 🙎	sabozies cilvēks						// [1F64E]
 🙏	lūgšanā saliktas rokas						// [1F64F]
 
@@ -993,22 +993,22 @@ $textmode
 🚆	vilciens							// [1F686]
 🚇	metro								// [1F687]
 🚈	piepilsētas vilciens						// [1F688]
-🚉	dzelzceļa stacija						// [1F689]
+🚉	stacija								// [1F689]
 🚊	tramvajs							// [1F68A]
 🚋	tramvaja vagons							// [1F68B]
 🚌	autobuss							// [1F68C]
-🚍	šurp braucošs autobuss						// [1F68D]
+🚍	pretī braucošs autobuss						// [1F68D]
 🚎	trolejbuss							// [1F68E]
 🚏	autobusa pietura						// [1F68F]
 🚐	mikroautobuss							// [1F690]
 🚑	ātrās palīdzības mašīna						// [1F691]
 🚒	ugunsdzēsēju mašīna						// [1F692]
 🚓	policijas mašīna						// [1F693]
-🚔	šurp braucoša policijas mašīna					// [1F694]
+🚔	pretī braucoša policijas mašīna					// [1F694]
 🚕	taksometrs							// [1F695]
-🚖	šurp braucošs taksometrs					// [1F696]
+🚖	pretī braucošs taksometrs					// [1F696]
 🚗	automašīna							// [1F697]
-🚘	šurp braucoša automašīna					// [1F698]
+🚘	pretī braucoša automašīna					// [1F698]
 🚙	kemperis							// [1F699]
 🚚	kravas automašīna						// [1F69A]
 🚛	smagā automašīna						// [1F69B]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	kalnu trošu vilciens						// [1F6A0]
 🚡	gaisa tramvajs							// [1F6A1]
 🚢	kuģis								// [1F6A2]
-🚣	airu laiva							// [1F6A3]
+🚣	cilvēks airē							// [1F6A3]
 🚤	ātrlaiva							// [1F6A4]
 🚥	horizontāls luksofors						// [1F6A5]
 🚦	vertikāls luksofors						// [1F6A6]
@@ -1053,7 +1053,7 @@ $textmode
 🛂	pasu kontrole							// [1F6C2]
 🛃	muitas								// [1F6C3]
 🛄	bagāžas saņemšana						// [1F6C4]
-🛅	bagāžas glabātuve						// [1F6C5]
+🛅	bagāžas glabātava						// [1F6C5]
 🛋	dīvāns un lampa							// [1F6CB] text|emoji
 🛌	cilvēks gultā							// [1F6CC]
 🛍	iepirkumu somas							// [1F6CD] text|emoji
@@ -1076,8 +1076,8 @@ $textmode
 🛴	skuteris							// [1F6F4]
 🛵	motorollers							// [1F6F5]
 🛶	kanoe								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	kamaniņas							// [1F6F7]
+🛸	lidojošais šķīvītis						// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1096,26 +1096,26 @@ $textmode
 🤜	dūre pa labi							// [1F91C]
 🤝	rokasspiediens							// [1F91D]
 🤞	sakrustoti pirksti						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	seja kovboja cepurē						// [1F920]
+🤟	žests mīlu							// [1F91F]
+🤠	seja ar kovboja cepuri						// [1F920]
 🤡	klauna seja							// [1F921]
 🤢	nelabums							// [1F922]
 🤣	vārtās smieklos pa grīdu					// [1F923]
-🤤	laiž siekalas							// [1F924]
+🤤	siekalojas							// [1F924]
 🤥	melojoša seja							// [1F925]
-🤦	trūkst vārdu							// [1F926]
+🤦	cilvēks ar saķertu galvu					// [1F926]
 🤧	šķauda								// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	seja ar paceltām uzacīm						// [1F928]
+🤩	zvaigžņu pārņemts						// [1F929]
+🤪	traka seja							// [1F92A]
+🤫	šušinoša seja							// [1F92B]
+🤬	seja ar simboliem uz mutes					// [1F92C]
+🤭	seja ar roku pār muti						// [1F92D]
+🤮	vemjoša seja							// [1F92E]
+🤯	eksplodējoša galva						// [1F92F]
 🤰	sieviete stāvoklī						// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	barošana ar krūti						// [1F931]
+🤲	plaukstas kopā							// [1F932]
 🤳	pašfoto								// [1F933]
 🤴	princis								// [1F934]
 🤵	vīrietis smokingā						// [1F935]
@@ -1125,7 +1125,7 @@ $textmode
 🤹	žonglēšana							// [1F939]
 🤺	paukotājs							// [1F93A]
 🤼	cīkstoņi							// [1F93C]
-🤽	ūdens polo							// [1F93D]
+🤽	ūdenspolo sportists						// [1F93D]
 🤾	rokasbumba							// [1F93E]
 🥀	novītusi puķe							// [1F940]
 🥁	bungas								// [1F941]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	medaļa par 3. vietu						// [1F949]
 🥊	boksa cimds							// [1F94A]
 🥋	cīņu sporta tērps						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	kērlinga akmens							// [1F94C]
 🥐	kruasāns							// [1F950]
 🥑	avokado								// [1F951]
 🥒	gurķis								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	zemesrieksti							// [1F95C]
 🥝	kivi auglis							// [1F95D]
 🥞	pankūkas							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	pelmeņi								// [1F95F]
+🥠	laimes cepumiņš							// [1F960]
+🥡	kastīte līdzņemšanai						// [1F961]
+🥢	irbulīši							// [1F962]
+🥣	bļoda ar karoti							// [1F963]
+🥤	dzēriens ar salmiņu						// [1F964]
+🥥	kokosrieksts							// [1F965]
+🥦	brokoļi								// [1F966]
+🥧	pīrāgs								// [1F967]
+🥨	kliņģeris							// [1F968]
+🥩	gaļas gabals							// [1F969]
+🥪	sendvičs							// [1F96A]
+🥫	konservi							// [1F96B]
 🦀	krabis								// [1F980]
 🦁	lauvas galva							// [1F981]
 🦂	skorpions							// [1F982]
@@ -1177,7 +1177,7 @@ $textmode
 🦇	sikspārnis							// [1F987]
 🦈	haizivs								// [1F988]
 🦉	pūce								// [1F989]
-🦊	lapsa								// [1F98A]
+🦊	lapsas galva							// [1F98A]
 🦋	taurenis							// [1F98B]
 🦌	briedis								// [1F98C]
 🦍	gorilla								// [1F98D]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	degunradzis							// [1F98F]
 🦐	garnele								// [1F990]
 🦑	kalmārs								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	žirafe								// [1F992]
+🦓	zebra								// [1F993]
+🦔	ezis								// [1F994]
+🦕	zauropods							// [1F995]
+🦖	tiranozaurs							// [1F996]
+🦗	circenis							// [1F997]
 🧀	siera šķēle							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	seja ar monokli							// [1F9D0]
+🧑	pieaugušais							// [1F9D1]
+🧒	bērns								// [1F9D2]
+🧓	vecāks pieaugušais						// [1F9D3]
+🧔	bārdaina persona						// [1F9D4]
+🧕	sieviete ar lakatu						// [1F9D5]
+🧖	cilvēks tvaika telpā						// [1F9D6]
+🧗	alpīnists							// [1F9D7]
+🧘	cilvēks lotosa pozā						// [1F9D8]
+🧙	mags								// [1F9D9]
+🧚	feja								// [1F9DA]
+🧛	vampīrs								// [1F9DB]
+🧜	nārveidīgs							// [1F9DC]
+🧝	elfs								// [1F9DD]
+🧞	džins								// [1F9DE]
+🧟	zombijs								// [1F9DF]
+🧠	smadzenes							// [1F9E0]
+🧡	oranža sirds							// [1F9E1]
+🧢	cepure ar nagu							// [1F9E2]
+🧣	šalle								// [1F9E3]
+🧤	cimdi								// [1F9E4]
+🧥	mētelis								// [1F9E5]
+🧦	zeķes								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	numura zīme							// [0023 FE0F 20E3]
+#️⃣	taustiņš: #							// [0023 FE0F 20E3]
 *️⃣	taustiņš: *							// [002A FE0F 20E3]
-0️⃣	nulle								// [0030 FE0F 20E3]
-1️⃣	viens								// [0031 FE0F 20E3]
-2️⃣	divi								// [0032 FE0F 20E3]
-3️⃣	trīs								// [0033 FE0F 20E3]
-4️⃣	četri								// [0034 FE0F 20E3]
-5️⃣	pieci								// [0035 FE0F 20E3]
-6️⃣	seši								// [0036 FE0F 20E3]
-7️⃣	septiņi								// [0037 FE0F 20E3]
-8️⃣	astoņi								// [0038 FE0F 20E3]
-9️⃣	deviņi								// [0039 FE0F 20E3]
+0️⃣	taustiņš: 0							// [0030 FE0F 20E3]
+1️⃣	taustiņš: 1							// [0031 FE0F 20E3]
+2️⃣	taustiņš: 2							// [0032 FE0F 20E3]
+3️⃣	taustiņš: 3							// [0033 FE0F 20E3]
+4️⃣	taustiņš: 4							// [0034 FE0F 20E3]
+5️⃣	taustiņš: 5							// [0035 FE0F 20E3]
+6️⃣	taustiņš: 6							// [0036 FE0F 20E3]
+7️⃣	taustiņš: 7							// [0037 FE0F 20E3]
+8️⃣	taustiņš: 8							// [0038 FE0F 20E3]
+9️⃣	taustiņš: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1574,27 +1574,27 @@ $textmode
 👱‍♀	blondīne						// [1F471 200D 2640]
 👱‍♂	blondīns						// [1F471 200D 2642]
 👳‍♀	sieviete ar turbānu					// [1F473 200D 2640]
-👳‍♂	persona ar turbānu					// [1F473 200D 2642]
+👳‍♂	vīrietis ar turbānu					// [1F473 200D 2642]
 👷‍♀	inženiere						// [1F477 200D 2640]
 👷‍♂	inženieris						// [1F477 200D 2642]
 💂‍♀	sardze							// [1F482 200D 2640]
 💂‍♂	apsargs							// [1F482 200D 2642]
 🕵️‍♀	detektīve						// [1F575 200D 2640]
 🕵️‍♂	vīrietis izmeklē					// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	zintniece						// [1F9D9 200D 2640]
+🧙‍♂	zintnieks						// [1F9D9 200D 2642]
+🧚‍♀	laumiņa							// [1F9DA 200D 2640]
+🧚‍♂	pasaku burvis						// [1F9DA 200D 2642]
+🧛‍♀	sieviete vampīrs					// [1F9DB 200D 2640]
+🧛‍♂	vīriešu kārtas vampīrs					// [1F9DB 200D 2642]
+🧜‍♀	nāra							// [1F9DC 200D 2640]
+🧜‍♂	vīrietis nāra						// [1F9DC 200D 2642]
+🧝‍♀	elfu sieviete						// [1F9DD 200D 2640]
+🧝‍♂	elfu vīrietis						// [1F9DD 200D 2642]
+🧞‍♀	sieviete džins						// [1F9DE 200D 2640]
+🧞‍♂	vīrietis džins						// [1F9DE 200D 2642]
+🧟‍♀	sieviete zombijs					// [1F9DF 200D 2640]
+🧟‍♂	vīrietis zombijs					// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1607,13 +1607,13 @@ $textmode
 🏊‍♀	peldētāja						// [1F3CA 200D 2640]
 🏊‍♂	vīrietis peld						// [1F3CA 200D 2642]
 🏋️‍♀	svarcēlāja						// [1F3CB 200D 2640]
-🏋️‍♂	vīrietis ceļ svaru					// [1F3CB 200D 2642]
+🏋️‍♂	svarcēlājs						// [1F3CB 200D 2642]
 🏌️‍♀	sieviete spēlē golfu					// [1F3CC 200D 2640]
 🏌️‍♂	vīrietis spēlē golfu					// [1F3CC 200D 2642]
-👯‍♀	sieviete izklaidējas					// [1F46F 200D 2640]
-👯‍♂	vīrietis izklaidējas					// [1F46F 200D 2642]
-💆‍♀	sieviete masē seju					// [1F486 200D 2640]
-💆‍♂	vīrietis masē seju					// [1F486 200D 2642]
+👯‍♀	dejotājas						// [1F46F 200D 2640]
+👯‍♂	dejotāji						// [1F46F 200D 2642]
+💆‍♀	sievietei masē seju					// [1F486 200D 2640]
+💆‍♂	vīrietim masē seju					// [1F486 200D 2642]
 💇‍♀	sieviete pie friziera					// [1F487 200D 2640]
 💇‍♂	vīrietis pie friziera					// [1F487 200D 2642]
 🚣‍♀	airētāja						// [1F6A3 200D 2640]
@@ -1634,31 +1634,31 @@ $textmode
 🤽‍♂	ūdenspolo spēlētājs					// [1F93D 200D 2642]
 🤾‍♀	rokasbumbas spēlētāja					// [1F93E 200D 2640]
 🤾‍♂	rokasbumbas spēlētājs					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	sieviete tvaika telpā					// [1F9D6 200D 2640]
+🧖‍♂	vīrietis tvaika telpā					// [1F9D6 200D 2642]
+🧗‍♀	alpīniste						// [1F9D7 200D 2640]
+🧗‍♂	kāpējs							// [1F9D7 200D 2642]
+🧘‍♀	sieviete lotosa pozā					// [1F9D8 200D 2640]
+🧘‍♂	vīrietis lotosa pozā					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
 💁‍♀	sieviete stiepj roku					// [1F481 200D 2640]
 💁‍♂	vīrietis stiepj roku					// [1F481 200D 2642]
-🙅‍♀	sieviete pret						// [1F645 200D 2640]
-🙅‍♂	vīrietis pret						// [1F645 200D 2642]
-🙆‍♀	sieviete par						// [1F646 200D 2640]
-🙆‍♂	vīrietis par						// [1F646 200D 2642]
-🙇‍♀	sieviete klanās						// [1F647 200D 2640]
-🙇‍♂	vīrietis klanās						// [1F647 200D 2642]
+🙅‍♀	sieviete ar aizlieguma žestu				// [1F645 200D 2640]
+🙅‍♂	vīrietis ar aizlieguma žestu				// [1F645 200D 2642]
+🙆‍♀	sieviete ar apstiprinājuma žestu			// [1F646 200D 2640]
+🙆‍♂	vīrietis ar apstiprinājuma žestu			// [1F646 200D 2642]
+🙇‍♀	sieviete paklanās					// [1F647 200D 2640]
+🙇‍♂	vīrietis paklanās					// [1F647 200D 2642]
 🙋‍♀	sieviete ar paceltu roku				// [1F64B 200D 2640]
 🙋‍♂	vīrietis ar paceltu roku				// [1F64B 200D 2642]
-🙍‍♀	dusmīga sieviete					// [1F64D 200D 2640]
-🙍‍♂	dusmīgs vīrietis					// [1F64D 200D 2642]
-🙎‍♀	bēdīga sieviete						// [1F64E 200D 2640]
-🙎‍♂	bēdīgs vīrietis						// [1F64E 200D 2642]
-🤦‍♀	sieviete bez runas spējām				// [1F926 200D 2640]
-🤦‍♂	vīrietis bez runas spējām				// [1F926 200D 2642]
+🙍‍♀	norūpējusies sieviete					// [1F64D 200D 2640]
+🙍‍♂	norūpējies vīrietis					// [1F64D 200D 2642]
+🙎‍♀	sabozusies sieviete					// [1F64E 200D 2640]
+🙎‍♂	sabozies vīrietis					// [1F64E 200D 2642]
+🤦‍♀	sieviete ar saķertu galvu				// [1F926 200D 2640]
+🤦‍♂	vīrietis ar saķertu galvu				// [1F926 200D 2642]
 🤷‍♀	sieviete rausta plecus					// [1F937 200D 2640]
 🤷‍♂	vīrietis rausta plecus					// [1F937 200D 2642]
 

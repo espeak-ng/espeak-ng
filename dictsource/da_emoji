@@ -38,13 +38,13 @@ $textmode
 // 2300..23FF : Miscellaneous Technical
 
 ⌚	ur								// [231A]
-⌛	timeglas							// [231B]
+⌛	udløbet timeglas						// [231B]
 ⌨	tastatur							// [2328] text|emoji
 ⏏	udskubningsknap							// [23CF] text|emoji
-⏩	spole frem							// [23E9]
-⏪	spole tilbage							// [23EA]
-⏫	pil op								// [23EB]
-⏬	pil ned								// [23EC]
+⏩	spol frem-knap							// [23E9]
+⏪	spol tilbage-knap						// [23EA]
+⏫	hurtigt op-knap							// [23EB]
+⏬	hurtigt ned-knap						// [23EC]
 ⏭	knap til næste nummer						// [23ED] text|emoji
 ⏮	knap til forrige nummer						// [23EE] text|emoji
 ⏯	knap til afspilning og pause					// [23EF] text|emoji
@@ -83,7 +83,7 @@ $textmode
 ☔	paraply med regndråber						// [2614]
 ☕	varm drik							// [2615]
 ☘	kløver								// [2618] text|emoji
-☝	opadvendt pegefinger						// [261D] text|emoji
+☝	rækker finger op						// [261D] text|emoji
 ☠	kranie og korslagte knogler					// [2620] text|emoji
 ☢	radioaktiv							// [2622] text|emoji
 ☣	biologisk fare							// [2623] text|emoji
@@ -114,7 +114,7 @@ $textmode
 ♦	ruder								// [2666] text|emoji
 ♨	varme kilder							// [2668] text|emoji
 ♻	genbrug								// [267B] text|emoji
-♿	rullestolsadgang						// [267F]
+♿	symbol for kørestol						// [267F]
 ⚒	hammer og hakke							// [2692] text|emoji
 ⚓	anker								// [2693]
 ⚔	korslagte sværd							// [2694] text|emoji
@@ -140,19 +140,19 @@ $textmode
 ⛑	hjelm med hvidt kors						// [26D1] text|emoji
 ⛓	kæder								// [26D3] text|emoji
 ⛔	adgang forbudt							// [26D4]
-⛩	shinto-alter							// [26E9] text|emoji
+⛩	Shinto-helligdom						// [26E9] text|emoji
 ⛪	kirke								// [26EA]
 ⛰	bjerg								// [26F0] text|emoji
 ⛱	parasol								// [26F1] text|emoji
 ⛲	springvand							// [26F2]
-⛳	golf flag							// [26F3]
+⛳	golfhul med flag						// [26F3]
 ⛴	færge								// [26F4] text|emoji
 ⛵	sejlbåd								// [26F5]
 ⛷	skiløber							// [26F7] text|emoji
 ⛸	skøjte								// [26F8] text|emoji
 ⛹	person med bold							// [26F9] text|emoji
 ⛺	telt								// [26FA]
-⛽	benzin								// [26FD]
+⛽	tankstation							// [26FD]
 
 // 2700..27BF : Dingbats
 
@@ -222,33 +222,33 @@ $textmode
 🅾	blodtype O							// [1F17E] text|emoji
 🅿	parkering							// [1F17F] text|emoji
 🆎	blodtype AB							// [1F18E]
-🆑	ryd								// [1F191]
-🆒	cool								// [1F192]
-🆓	gratis								// [1F193]
-🆔	id								// [1F194]
-🆕	nyt								// [1F195]
-🆖	ikke godt							// [1F196]
+🆑	CL-knap								// [1F191]
+🆒	COOL-knap							// [1F192]
+🆓	FREE-knap							// [1F193]
+🆔	ID-knap								// [1F194]
+🆕	NEW-knap							// [1F195]
+🆖	NG-knap								// [1F196]
 🆗	OK								// [1F197]
 🆘	SOS								// [1F198]
-🆙	OP!								// [1F199]
+🆙	UP!-knap							// [1F199]
 🆚	versus								// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	kvadratisk katakana koko					// [1F201]
-🈂	kvadratisk katakana sa						// [1F202] text|emoji
-🈚	kvadratisk ideogram for forhandling				// [1F21A]
+🈁	kvadratisk ideogram for her					// [1F201]
+🈂	kvadratisk ideogram for serviceafgift				// [1F202] text|emoji
+🈚	kvadratisk ideogram for gratis					// [1F21A]
 🈯	kvadratisk ideogram for finger					// [1F22F]
 🈲	kvadratisk ideogram for forbud					// [1F232]
-🈳	kvadratisk ideogram for tom					// [1F233]
-🈴	kvadratisk ideogram for sammen					// [1F234]
-🈵	kvadratisk ideogram for fuld					// [1F235]
-🈶	kvadratisk ideogram for eksistens				// [1F236]
-🈷	kvadratisk ideogram for måne					// [1F237] text|emoji
+🈳	kvadratisk ideogram for ledig					// [1F233]
+🈴	kvadratisk ideogram for bestået					// [1F234]
+🈵	kvadratisk ideogram for optaget					// [1F235]
+🈶	kvadratisk ideogram for ikke gratis				// [1F236]
+🈷	kvadratisk ideogram for månedligt beløb				// [1F237] text|emoji
 🈸	kvadratisk ideogram for anvendelse				// [1F238]
-🈹	kvadratisk ideogram for opdeling				// [1F239]
-🈺	kvadratisk ideogram for drift					// [1F23A]
-🉐	cirkulært ideogram for fordel					// [1F250]
+🈹	kvadratisk ideogram for rabat					// [1F239]
+🈺	kvadratisk ideogram for åben					// [1F23A]
+🉐	cirkulært ideogram for tilbud					// [1F250]
 🉑	cirkulært ideogram for accept					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
@@ -274,22 +274,22 @@ $textmode
 🌊	bølge								// [1F30A]
 🌋	vulkan								// [1F30B]
 🌌	mælkevejen							// [1F30C]
-🌍	globus med europa og afrika					// [1F30D]
-🌎	globus med nord- og sydamerika					// [1F30E]
-🌏	globus med asien og australien					// [1F30F]
+🌍	globus med Europa og Afrika					// [1F30D]
+🌎	globus med Nord- og Sydamerika					// [1F30E]
+🌏	globus med Asien og Australien					// [1F30F]
 🌐	globus med længdegrader						// [1F310]
 🌑	nymåne								// [1F311]
 🌒	tiltagende måne							// [1F312]
-🌓	halvmåne første kvarter						// [1F313]
+🌓	halvmåne 1. fjerdedel						// [1F313]
 🌔	tiltagende måne næsten fuld					// [1F314]
 🌕	fuldmåne							// [1F315]
 🌖	aftagende måne næsten fuld					// [1F316]
-🌗	halvmåne sidste kvarter						// [1F317]
+🌗	halvmåne 4. fjerdedel						// [1F317]
 🌘	aftagende måne							// [1F318]
 🌙	halvmåne							// [1F319]
 🌚	nymåne med ansigt						// [1F31A]
-🌛	måne med ansigt første kvarter					// [1F31B]
-🌜	måne med ansigt andet kvarter					// [1F31C]
+🌛	måne med ansigt 1. fjerdedel					// [1F31B]
+🌜	måne med ansigt 2. fjerdedel					// [1F31C]
 🌝	fuldmåneansigt							// [1F31D]
 🌞	sol med ansigt							// [1F31E]
 🌟	blinkende stjerne						// [1F31F]
@@ -309,8 +309,8 @@ $textmode
 🌯	burrito								// [1F32F]
 🌰	kastanje							// [1F330]
 🌱	spire								// [1F331]
-🌲	grantræ								// [1F332]
-🌳	træ								// [1F333]
+🌲	nåletræ								// [1F332]
+🌳	løvtræ								// [1F333]
 🌴	palme								// [1F334]
 🌵	kaktus								// [1F335]
 🌶	chili								// [1F336] text|emoji
@@ -324,9 +324,9 @@ $textmode
 🌾	risplante							// [1F33E]
 🌿	urt								// [1F33F]
 🍀	firkløver							// [1F340]
-🍁	blad								// [1F341]
+🍁	ahornblad							// [1F341]
 🍂	faldende blade							// [1F342]
-🍃	blad i vinden							// [1F343]
+🍃	blade i vinden							// [1F343]
 🍄	svamp								// [1F344]
 🍅	tomat								// [1F345]
 🍆	aubergine							// [1F346]
@@ -356,7 +356,7 @@ $textmode
 🍞	brød								// [1F35E]
 🍟	pomfritter							// [1F35F]
 🍠	sød kartoffel							// [1F360]
-🍡	iskugler på pind						// [1F361]
+🍡	dango								// [1F361]
 🍢	mad på spyd							// [1F362]
 🍣	sushi								// [1F363]
 🍤	dybstegt reje							// [1F364]
@@ -365,7 +365,7 @@ $textmode
 🍧	snedessert							// [1F367]
 🍨	is								// [1F368]
 🍩	donut								// [1F369]
-🍪	cookie								// [1F36A]
+🍪	småkage								// [1F36A]
 🍫	chokolade							// [1F36B]
 🍬	bolsje								// [1F36C]
 🍭	slikpind							// [1F36D]
@@ -376,9 +376,9 @@ $textmode
 🍲	gryde med mad							// [1F372]
 🍳	stegepande							// [1F373]
 🍴	kniv og gaffel							// [1F374]
-🍵	tekop								// [1F375]
+🍵	tekrus								// [1F375]
 🍶	sake								// [1F376]
-🍷	vin								// [1F377]
+🍷	vinglas								// [1F377]
 🍸	cocktailglas							// [1F378]
 🍹	tropisk drink							// [1F379]
 🍺	ølkrus								// [1F37A]
@@ -387,7 +387,7 @@ $textmode
 🍽	kniv og gaffel med tallerken					// [1F37D] text|emoji
 🍾	flaske med flyvende prop					// [1F37E]
 🍿	popcorn								// [1F37F]
-🎀	sløjfe								// [1F380]
+🎀	bånd								// [1F380]
 🎁	gave								// [1F381]
 🎂	fødselsdagskage							// [1F382]
 🎃	græskarlygte							// [1F383]
@@ -399,10 +399,10 @@ $textmode
 🎉	bordbombe							// [1F389]
 🎊	konfetti							// [1F38A]
 🎋	træ med papirpynt						// [1F38B]
-🎌	to flag								// [1F38C]
+🎌	to krydsede flag						// [1F38C]
 🎍	fyrtræsdekoration						// [1F38D]
-🎎	dukker								// [1F38E]
-🎏	banner								// [1F38F]
+🎎	japanske dukker							// [1F38E]
+🎏	karpevimpel							// [1F38F]
 🎐	vindspil							// [1F390]
 🎑	måneceremoni							// [1F391]
 🎒	rygsæk								// [1F392]
@@ -417,7 +417,7 @@ $textmode
 🎠	karrusel							// [1F3A0]
 🎡	pariserhjul							// [1F3A1]
 🎢	rutsjebane							// [1F3A2]
-🎣	fiske								// [1F3A3]
+🎣	fiskestang							// [1F3A3]
 🎤	mikrofon							// [1F3A4]
 🎥	filmkamera							// [1F3A5]
 🎦	film								// [1F3A6]
@@ -434,7 +434,7 @@ $textmode
 🎱	billard								// [1F3B1]
 🎲	terning								// [1F3B2]
 🎳	bowling								// [1F3B3]
-🎴	spillekort							// [1F3B4]
+🎴	spillekort med blomster						// [1F3B4]
 🎵	node								// [1F3B5]
 🎶	noder								// [1F3B6]
 🎷	saxofon								// [1F3B7]
@@ -469,7 +469,7 @@ $textmode
 🏔	sneklædt bjerg							// [1F3D4] text|emoji
 🏕	camping								// [1F3D5] text|emoji
 🏖	strand med parasol						// [1F3D6] text|emoji
-🏗	bygningskonstruktion						// [1F3D7] text|emoji
+🏗	byggeplads							// [1F3D7] text|emoji
 🏘	huse								// [1F3D8] text|emoji
 🏙	bylandskab							// [1F3D9] text|emoji
 🏚	faldefærdigt hus						// [1F3DA] text|emoji
@@ -485,28 +485,28 @@ $textmode
 🏤	posthus								// [1F3E4]
 🏥	hospital							// [1F3E5]
 🏦	bank								// [1F3E6]
-🏧	pengeautomat							// [1F3E7]
+🏧	hæveautomat							// [1F3E7]
 🏨	hotel								// [1F3E8]
 🏩	kærlighedshotel							// [1F3E9]
 🏪	døgnkiosk							// [1F3EA]
 🏫	skole								// [1F3EB]
 🏬	stormagasin							// [1F3EC]
 🏭	fabrik								// [1F3ED]
-🏮	lygte								// [1F3EE]
+🏮	papirlanterne							// [1F3EE]
 🏯	japansk slot							// [1F3EF]
 🏰	slot								// [1F3F0]
 🏳	hvidt flag							// [1F3F3] text|emoji
 🏴	sort flag							// [1F3F4]
 🏵	roset								// [1F3F5] text|emoji
-🏷	label								// [1F3F7] text|emoji
+🏷	mærkat								// [1F3F7] text|emoji
 🏸	badminton							// [1F3F8]
 🏹	bue og pil							// [1F3F9]
-🏺	amphora								// [1F3FA]
-🏻	hudtype 1–2							// [1F3FB]
-🏼	hudtype 3							// [1F3FC]
-🏽	hudtype 4							// [1F3FD]
-🏾	hudtype 5							// [1F3FE]
-🏿	hudtype 6							// [1F3FF]
+🏺	amfora								// [1F3FA]
+🏻	lys teint							// [1F3FB]
+🏼	medium til lys teint						// [1F3FC]
+🏽	medium teint							// [1F3FD]
+🏾	medium til mørk teint						// [1F3FE]
+🏿	mørk teint							// [1F3FF]
 🐀	rotte								// [1F400]
 🐁	mus								// [1F401]
 🐂	okse								// [1F402]
@@ -542,7 +542,7 @@ $textmode
 🐠	tropisk fisk							// [1F420]
 🐡	kuglefisk							// [1F421]
 🐢	skildpadde							// [1F422]
-🐣	ny udklækket kylling						// [1F423]
+🐣	nyudklækket kylling						// [1F423]
 🐤	kylling								// [1F424]
 🐥	kylling forfra							// [1F425]
 🐦	fugl								// [1F426]
@@ -552,22 +552,22 @@ $textmode
 🐪	dromedar							// [1F42A]
 🐫	kamel								// [1F42B]
 🐬	delfin								// [1F42C]
-🐭	museansigt							// [1F42D]
-🐮	koansigt							// [1F42E]
-🐯	tigeransigt							// [1F42F]
-🐰	kaninansigt							// [1F430]
-🐱	katteansigt							// [1F431]
-🐲	drageansigt							// [1F432]
+🐭	musehoved							// [1F42D]
+🐮	kohoved								// [1F42E]
+🐯	tigerhoved							// [1F42F]
+🐰	kaninhoved							// [1F430]
+🐱	kattehoved							// [1F431]
+🐲	dragehoved							// [1F432]
 🐳	hval med vandsprøjt						// [1F433]
 🐴	hestehoved							// [1F434]
-🐵	abeansigt							// [1F435]
-🐶	hundeansigt							// [1F436]
-🐷	griseansigt							// [1F437]
-🐸	frøansigt							// [1F438]
-🐹	hamsteransigt							// [1F439]
+🐵	abehoved							// [1F435]
+🐶	hundehoved							// [1F436]
+🐷	grisehoved							// [1F437]
+🐸	frøhoved							// [1F438]
+🐹	hamsterhoved							// [1F439]
 🐺	ulvehoved							// [1F43A]
-🐻	bjørneansigt							// [1F43B]
-🐼	pandaansigt							// [1F43C]
+🐻	bjørnehoved							// [1F43B]
+🐼	pandahoved							// [1F43C]
 🐽	grisetryne							// [1F43D]
 🐾	poteaftryk							// [1F43E]
 🐿	jordegern							// [1F43F] text|emoji
@@ -577,16 +577,16 @@ $textmode
 👃	næse								// [1F443]
 👄	mund								// [1F444]
 👅	tunge								// [1F445]
-👆	op								// [1F446]
-👇	ned								// [1F447]
-👈	venstre								// [1F448]
-👉	højre								// [1F449]
+👆	peger opad							// [1F446]
+👇	peger nedad							// [1F447]
+👈	peger mod venstre						// [1F448]
+👉	peger mod højre							// [1F449]
 👊	knytnæve							// [1F44A]
 👋	vinker								// [1F44B]
 👌	ok-tegn								// [1F44C]
 👍	tommelfinger op							// [1F44D]
 👎	tommelfinger ned						// [1F44E]
-👏	hænder klapper							// [1F44F]
+👏	klappende hænder						// [1F44F]
 👐	åbne hænder							// [1F450]
 👑	krone								// [1F451]
 👒	hat								// [1F452]
@@ -602,10 +602,10 @@ $textmode
 👜	håndtaske							// [1F45C]
 👝	taske								// [1F45D]
 👞	herresko							// [1F45E]
-👟	gummisko							// [1F45F]
+👟	løbesko								// [1F45F]
 👠	høje hæle							// [1F460]
-👡	damesandaler							// [1F461]
-👢	damestøvler							// [1F462]
+👡	damesandal							// [1F461]
+👢	damestøvle							// [1F462]
 👣	fodspor								// [1F463]
 👤	buste i silhuet							// [1F464]
 👥	buster i silhuet						// [1F465]
@@ -614,19 +614,19 @@ $textmode
 👨	mand								// [1F468]
 👩	kvinde								// [1F469]
 👪	familie								// [1F46A]
-👫	man og kvinde							// [1F46B]
-👬	to mænd								// [1F46C]
-👭	to kvinder							// [1F46D]
+👫	mand og kvinde hånd i hånd					// [1F46B]
+👬	to mænd hånd i hånd						// [1F46C]
+👭	to kvinder hånd i hånd						// [1F46D]
 👮	politibetjent							// [1F46E]
-👯	kvinder med kaninører						// [1F46F]
+👯	personer med kaninører						// [1F46F]
 👰	brud								// [1F470]
-👱	person								// [1F471]
+👱	blond person							// [1F471]
 👲	mand med kinesisk hat						// [1F472]
 👳	person med turban						// [1F473]
 👴	gammel mand							// [1F474]
 👵	gammel kvinde							// [1F475]
 👶	baby								// [1F476]
-👷	byggearbejder							// [1F477]
+👷	bygningsarbejder						// [1F477]
 👸	prinsesse							// [1F478]
 👹	trold								// [1F479]
 👺	ånd								// [1F47A]
@@ -636,20 +636,20 @@ $textmode
 👾	alien-monster							// [1F47E]
 👿	lilla djævel							// [1F47F]
 💀	kranium								// [1F480]
-💁	information							// [1F481]
+💁	person vender håndfladen op					// [1F481]
 💂	garder								// [1F482]
 💃	danser								// [1F483]
 💄	læbestift							// [1F484]
 💅	neglelak							// [1F485]
 💆	ansigtsmassage							// [1F486]
-💇	frisør								// [1F487]
+💇	bliver klippet							// [1F487]
 💈	barber								// [1F488]
 💉	sprøjte								// [1F489]
 💊	pille								// [1F48A]
 💋	læbeaftryk							// [1F48B]
 💌	kærlighedsbrev							// [1F48C]
 💍	ring								// [1F48D]
-💎	diamant								// [1F48E]
+💎	ædelsten							// [1F48E]
 💏	kys								// [1F48F]
 💐	blomsterbuket							// [1F490]
 💑	par med hjerte							// [1F491]
@@ -694,12 +694,12 @@ $textmode
 💸	flyvende penge							// [1F4B8]
 💹	stigende marked							// [1F4B9]
 💺	sæde								// [1F4BA]
-💻	computer							// [1F4BB]
+💻	bærbar computer							// [1F4BB]
 💼	attachémappe							// [1F4BC]
-💽	mini disk							// [1F4BD]
+💽	cd-rom								// [1F4BD]
 💾	diskette							// [1F4BE]
 💿	cd								// [1F4BF]
-📀	DVD								// [1F4C0]
+📀	dvd								// [1F4C0]
 📁	mappe								// [1F4C1]
 📂	åben mappe							// [1F4C2]
 📃	side med fold							// [1F4C3]
@@ -715,7 +715,7 @@ $textmode
 📍	rund tegnestift							// [1F4CD]
 📎	papirclips							// [1F4CE]
 📏	lineal								// [1F4CF]
-📐	trekant								// [1F4D0]
+📐	tegnetrekant							// [1F4D0]
 📑	faner								// [1F4D1]
 📒	regnskabsbog							// [1F4D2]
 📓	notesbog							// [1F4D3]
@@ -738,7 +738,7 @@ $textmode
 📤	udbakke								// [1F4E4]
 📥	indbakke							// [1F4E5]
 📦	pakke								// [1F4E6]
-📧	e-mail								// [1F4E7]
+📧	mail								// [1F4E7]
 📨	indgående post							// [1F4E8]
 📩	udgående post							// [1F4E9]
 📪	lukket postkasse med sænket flag				// [1F4EA]
@@ -765,35 +765,35 @@ $textmode
 🔀	krydsede pile							// [1F500]
 🔁	gentageknap							// [1F501]
 🔂	knap til én gentagelse						// [1F502]
-🔃	genindlæse							// [1F503]
+🔃	genindlæs							// [1F503]
 🔄	mod uret							// [1F504]
 🔅	lav lysstyrke							// [1F505]
 🔆	høj lysstyrke							// [1F506]
 🔇	højttaler fra							// [1F507]
-🔈	højttaler							// [1F508]
-🔉	højttaler til							// [1F509]
-🔊	højttaler høj							// [1F50A]
+🔈	højttaler lav volumen						// [1F508]
+🔉	højttaler medium volumen					// [1F509]
+🔊	højttaler høj volumen						// [1F50A]
 🔋	batteri								// [1F50B]
 🔌	stik								// [1F50C]
 🔍	forstørrelsesglas til venstre					// [1F50D]
 🔎	forstørrelsesglas til højre					// [1F50E]
-🔏	hængelås med pen						// [1F50F]
+🔏	lukket hængelås med pen						// [1F50F]
 🔐	lukket hængelås med nøgle					// [1F510]
 🔑	nøgle								// [1F511]
-🔒	hængelås							// [1F512]
+🔒	lukket hængelås							// [1F512]
 🔓	åben hængelås							// [1F513]
 🔔	klokke								// [1F514]
 🔕	ingen klokke							// [1F515]
 🔖	bogmærke							// [1F516]
 🔗	link								// [1F517]
-🔘	knap								// [1F518]
-🔙	tilbage								// [1F519]
-🔚	end								// [1F51A]
+🔘	alternativknap							// [1F518]
+🔙	BACK-pil							// [1F519]
+🔚	END-pil								// [1F51A]
 🔛	ON-pil								// [1F51B]
-🔜	snart								// [1F51C]
-🔝	top								// [1F51D]
+🔜	SOON-pil							// [1F51C]
+🔝	TOP-pil								// [1F51D]
 🔞	forbudt for under 18						// [1F51E]
-🔟	tast ti								// [1F51F]
+🔟	keycap: 10							// [1F51F]
 🔠	store bogstaver							// [1F520]
 🔡	små bogstaver							// [1F521]
 🔢	tal								// [1F522]
@@ -810,7 +810,7 @@ $textmode
 🔭	teleskop							// [1F52D]
 🔮	krystalkugle							// [1F52E]
 🔯	sekstakket stjerne med prik					// [1F52F]
-🔰	grønt og gult blad						// [1F530]
+🔰	japansk begyndersymbol						// [1F530]
 🔱	trefork								// [1F531]
 🔲	sort kvadratisk knap						// [1F532]
 🔳	hvid kvadratisk knap						// [1F533]
@@ -826,22 +826,22 @@ $textmode
 🔽	ned-knap							// [1F53D]
 🕉	om								// [1F549] text|emoji
 🕊	due								// [1F54A] text|emoji
-🕋	kaaba								// [1F54B]
+🕋	Kabaen								// [1F54B]
 🕌	moské								// [1F54C]
 🕍	synagoge							// [1F54D]
 🕎	syvarmet lysestage						// [1F54E]
-🕐	kl. 1								// [1F550]
-🕑	kl. 2								// [1F551]
-🕒	kl. 3								// [1F552]
-🕓	kl. 4								// [1F553]
-🕔	kl. 5								// [1F554]
-🕕	kl. 6								// [1F555]
-🕖	kl. 7								// [1F556]
-🕗	kl. 8								// [1F557]
-🕘	kl. 9								// [1F558]
-🕙	kl. 10								// [1F559]
-🕚	kl.11								// [1F55A]
-🕛	kl.12								// [1F55B]
+🕐	kl. et								// [1F550]
+🕑	kl. to								// [1F551]
+🕒	kl. tre								// [1F552]
+🕓	kl. fire							// [1F553]
+🕔	kl. fem								// [1F554]
+🕕	kl. seks							// [1F555]
+🕖	kl. syv								// [1F556]
+🕗	kl. otte							// [1F557]
+🕘	kl. ni								// [1F558]
+🕙	kl. ti								// [1F559]
+🕚	kl. elleve							// [1F55A]
+🕛	kl. tolv							// [1F55B]
 🕜	halv to								// [1F55C]
 🕝	halv tre							// [1F55D]
 🕞	halv fire							// [1F55E]
@@ -893,20 +893,20 @@ $textmode
 🗯	vred taleboble til højre					// [1F5EF] text|emoji
 🗳	valgurne med stemmeseddel					// [1F5F3] text|emoji
 🗺	verdenskort							// [1F5FA] text|emoji
-🗻	Mount Fuji							// [1F5FB]
+🗻	Fuji-bjerget							// [1F5FB]
 🗼	Tokyo Tower							// [1F5FC]
 🗽	Frihedsgudinden							// [1F5FD]
-🗾	Japan								// [1F5FE]
+🗾	kort over Japan							// [1F5FE]
 🗿	statue								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
 
 😀	grinende ansigt							// [1F600]
-😁	grinende ansigt med smilende øjne				// [1F601]
+😁	strålende ansigt med smilende øjne				// [1F601]
 😂	ansigt med glædestårer						// [1F602]
 😃	smilende ansigt med åben mund					// [1F603]
 😄	smilende ansigt med åben mund og smilende øjne			// [1F604]
-😅	smilende ansigt med åben mund og koldsved			// [1F605]
+😅	smilende ansigt med åben mund og sved				// [1F605]
 😆	smilende ansigt med åben mund og lukkede øjne			// [1F606]
 😇	smilende ansigt med glorie					// [1F607]
 😈	smilende ansigt med horn					// [1F608]
@@ -914,7 +914,7 @@ $textmode
 😊	smilende ansigt og øjne						// [1F60A]
 😋	nydende ansigt							// [1F60B]
 😌	lettet ansigt							// [1F60C]
-😍	smilende ansigt med hjertøjne					// [1F60D]
+😍	smilende ansigt med hjerteøjne					// [1F60D]
 😎	smilende ansigt med solbriller					// [1F60E]
 😏	ansigt med smørret grin						// [1F60F]
 😐	neutralt ansigt							// [1F610]
@@ -956,10 +956,10 @@ $textmode
 😴	sovende ansigt							// [1F634]
 😵	svimmelt ansigt							// [1F635]
 😶	ansigt uden mund						// [1F636]
-😷	ansigt med maske						// [1F637]
-😸	kat griner							// [1F638]
+😷	ansigt med mundbind						// [1F637]
+😸	grinende kat							// [1F638]
 😹	kat med glædestårer						// [1F639]
-😺	kat smiler							// [1F63A]
+😺	smilende kat							// [1F63A]
 😻	glad kat med hjerter						// [1F63B]
 😼	kat med ironisk smil						// [1F63C]
 😽	kyssende kat med lukkede øjne					// [1F63D]
@@ -976,7 +976,7 @@ $textmode
 🙈	ikke se								// [1F648]
 🙉	ikke høre							// [1F649]
 🙊	ikke tale							// [1F64A]
-🙋	glad person							// [1F64B]
+🙋	person med løftet hånd						// [1F64B]
 🙌	hurra								// [1F64C]
 🙍	rynkede bryn							// [1F64D]
 🙎	surmulende person						// [1F64E]
@@ -989,7 +989,7 @@ $textmode
 🚂	damplokomotiv							// [1F682]
 🚃	togvogn								// [1F683]
 🚄	lyntog								// [1F684]
-🚅	lyntog med projektilnæse					// [1F685]
+🚅	højhastighedstog						// [1F685]
 🚆	tog								// [1F686]
 🚇	metro								// [1F687]
 🚈	letbane								// [1F688]
@@ -1009,7 +1009,7 @@ $textmode
 🚖	taxa forfra							// [1F696]
 🚗	bil								// [1F697]
 🚘	bil forfra							// [1F698]
-🚙	firehjulstræk							// [1F699]
+🚙	firehjulstrækker						// [1F699]
 🚚	lastbil								// [1F69A]
 🚛	lastvogn							// [1F69B]
 🚜	traktor								// [1F69C]
@@ -1025,12 +1025,12 @@ $textmode
 🚦	trafiklys							// [1F6A6]
 🚧	byggeri								// [1F6A7]
 🚨	blinklys							// [1F6A8]
-🚩	flag								// [1F6A9]
+🚩	trekantet flag							// [1F6A9]
 🚪	dør								// [1F6AA]
 🚫	ingen adgang							// [1F6AB]
-🚬	rygeskilt							// [1F6AC]
+🚬	cigaret								// [1F6AC]
 🚭	rygning forbudt							// [1F6AD]
-🚮	smid i skraldespanden						// [1F6AE]
+🚮	brug affaldsspanden						// [1F6AE]
 🚯	smid ikke affald						// [1F6AF]
 🚰	drikkevand							// [1F6B0]
 🚱	ikke drikkevand							// [1F6B1]
@@ -1052,8 +1052,8 @@ $textmode
 🛁	badekar								// [1F6C1]
 🛂	paskontrol							// [1F6C2]
 🛃	told								// [1F6C3]
-🛄	baggageudlevering						// [1F6C4]
-🛅	hittegods							// [1F6C5]
+🛄	bagageudlevering						// [1F6C4]
+🛅	bagage								// [1F6C5]
 🛋	sofa og lampe							// [1F6CB] text|emoji
 🛌	person i seng							// [1F6CC]
 🛍	indkøbsposer							// [1F6CD] text|emoji
@@ -1069,15 +1069,15 @@ $textmode
 🛤	togspor								// [1F6E4] text|emoji
 🛥	motorbåd							// [1F6E5] text|emoji
 🛩	lille fly							// [1F6E9] text|emoji
-🛫	fly afgang							// [1F6EB]
-🛬	fly ankomst							// [1F6EC]
+🛫	flyafgang							// [1F6EB]
+🛬	flyankomst							// [1F6EC]
 🛰	satellit							// [1F6F0] text|emoji
 🛳	passagerskib							// [1F6F3] text|emoji
 🛴	løbehjul							// [1F6F4]
 🛵	scooter								// [1F6F5]
 🛶	kano								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	kælk								// [1F6F7]
+🛸	ufo								// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1096,30 +1096,30 @@ $textmode
 🤜	højrevendt knytnæve						// [1F91C]
 🤝	håndtryk							// [1F91D]
 🤞	krydsede fingre							// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	cowboyhat ansigt						// [1F920]
+🤟	elsker dig gestus						// [1F91F]
+🤠	ansigt med cowboyhat						// [1F920]
 🤡	klovneansigt							// [1F921]
 🤢	ansigt med kvalme						// [1F922]
 🤣	ruller rundt på gulvet af grin					// [1F923]
 🤤	savlende ansigt							// [1F924]
 🤥	løgneransigt							// [1F925]
-🤦	facepalm							// [1F926]
+🤦	slå sig for panden						// [1F926]
 🤧	nysende ansigt							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	ansigt med løftet øjenbryn					// [1F928]
+🤩	benovet								// [1F929]
+🤪	skørt ansigt							// [1F92A]
+🤫	tyssende ansigt							// [1F92B]
+🤬	ansigt med symboler på munden					// [1F92C]
+🤭	ansigt med hånd over munden					// [1F92D]
+🤮	ansigt, der kaster op						// [1F92E]
+🤯	hoved, der eksploderer						// [1F92F]
 🤰	gravid kvinde							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	kvinde, der ammer						// [1F931]
+🤲	håndflader samlet og løftet					// [1F932]
 🤳	selfie								// [1F933]
 🤴	prins								// [1F934]
 🤵	mand i smoking							// [1F935]
-🤶	juledame							// [1F936]
+🤶	julemandens kone						// [1F936]
 🤷	trækker på skuldrene						// [1F937]
 🤸	vejrmølle							// [1F938]
 🤹	jonglerer							// [1F939]
@@ -1137,8 +1137,8 @@ $textmode
 🥈	sølvmedalje							// [1F948]
 🥉	bronzemedalje							// [1F949]
 🥊	boksehandske							// [1F94A]
-🥋	kampsportsuniform						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥋	karatedragt							// [1F94B]
+🥌	curlingsten							// [1F94C]
 🥐	croissant							// [1F950]
 🥑	avokado								// [1F951]
 🥒	agurk								// [1F952]
@@ -1148,30 +1148,30 @@ $textmode
 🥖	flute								// [1F956]
 🥗	grøn salat							// [1F957]
 🥘	pande med mad							// [1F958]
-🥙	fladbrød med fyld						// [1F959]
+🥙	fyldt pitabrød							// [1F959]
 🥚	æg								// [1F95A]
 🥛	glas mælk							// [1F95B]
 🥜	peanuts								// [1F95C]
 🥝	kiwifrugt							// [1F95D]
 🥞	pandekager							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	dumpling							// [1F95F]
+🥠	lykkekage							// [1F960]
+🥡	china box							// [1F961]
+🥢	spisepinde							// [1F962]
+🥣	ske i skål							// [1F963]
+🥤	glas med sugerør						// [1F964]
+🥥	kokosnød							// [1F965]
+🥦	broccoli							// [1F966]
+🥧	tærte								// [1F967]
+🥨	kringle								// [1F968]
+🥩	kødudskæring							// [1F969]
+🥪	sandwich							// [1F96A]
+🥫	konserves							// [1F96B]
 🦀	krabbe								// [1F980]
 🦁	løvehoved							// [1F981]
 🦂	skorpion							// [1F982]
 🦃	kalkun								// [1F983]
-🦄	enhjørning							// [1F984]
+🦄	enhjørningehoved						// [1F984]
 🦅	ørn								// [1F985]
 🦆	and								// [1F986]
 🦇	flagermus							// [1F987]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	næsehorn							// [1F98F]
 🦐	reje								// [1F990]
 🦑	sprutte								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	giraf								// [1F992]
+🦓	zebra								// [1F993]
+🦔	pindsvin							// [1F994]
+🦕	sauropod							// [1F995]
+🦖	T-Rex								// [1F996]
+🦗	fårekylling							// [1F997]
 🧀	et stykke ost							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	ansigt med monokel						// [1F9D0]
+🧑	voksen								// [1F9D1]
+🧒	barn								// [1F9D2]
+🧓	gammel person							// [1F9D3]
+🧔	mand med skæg							// [1F9D4]
+🧕	kvinde med tørklæde						// [1F9D5]
+🧖	person i damptåge						// [1F9D6]
+🧗	bjergbestiger							// [1F9D7]
+🧘	lotusstilling							// [1F9D8]
+🧙	magiker								// [1F9D9]
+🧚	fe								// [1F9DA]
+🧛	vampyr								// [1F9DB]
+🧜	havvæsen							// [1F9DC]
+🧝	elver								// [1F9DD]
+🧞	magisk ånd							// [1F9DE]
+🧟	zombie								// [1F9DF]
+🧠	hjerne								// [1F9E0]
+🧡	orange hjerte							// [1F9E1]
+🧢	reklamekasket							// [1F9E2]
+🧣	halstørklæde							// [1F9E3]
+🧤	handsker							// [1F9E4]
+🧥	frakke								// [1F9E5]
+🧦	sokker								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1295,7 +1295,7 @@ $textmode
 🇫🇮	Finland								// [1F1EB 1F1EE] FI
 🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
 🇫🇰	Falklandsøerne							// [1F1EB 1F1F0] FI
-🇫🇲	Mikronesiens Forenede Stater					// [1F1EB 1F1F2] FM
+🇫🇲	Mikronesien							// [1F1EB 1F1F2] FM
 🇫🇴	Færøerne							// [1F1EB 1F1F4] FO
 🇫🇷	Frankrig							// [1F1EB 1F1F7] FR
 🇬🇦	Gabon								// [1F1EC 1F1E6] GA
@@ -1457,7 +1457,7 @@ $textmode
 🇺🇦	Ukraine								// [1F1FA 1F1E6] UA
 🇺🇬	Uganda								// [1F1FA 1F1EC] UG
 🇺🇲	Amerikanske oversøiske øer					// [1F1FA 1F1F2] UM
-🇺🇳	Forenede Nationer						// [1F1FA 1F1F3] UN
+🇺🇳	De Forenede Nationer						// [1F1FA 1F1F3] UN
 🇺🇸	USA								// [1F1FA 1F1F8] US
 🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
 🇺🇿	Usbekistan							// [1F1FA 1F1FF] UZ
@@ -1480,23 +1480,23 @@ $textmode
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	England							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	telefonknap firkant						// [0023 FE0F 20E3]
-*️⃣	telefonknap stjerne						// [002A FE0F 20E3]
-0️⃣	telefonknap nul							// [0030 FE0F 20E3]
-1️⃣	telefonknap et							// [0031 FE0F 20E3]
-2️⃣	telefonknap to							// [0032 FE0F 20E3]
-3️⃣	telefonknap tre							// [0033 FE0F 20E3]
-4️⃣	telefonknap fire						// [0034 FE0F 20E3]
-5️⃣	telefonknap fem							// [0035 FE0F 20E3]
-6️⃣	telefonknap seks						// [0036 FE0F 20E3]
-7️⃣	telefonknap syv							// [0037 FE0F 20E3]
-8️⃣	telefonknap otte						// [0038 FE0F 20E3]
-9️⃣	telefonknap ni							// [0039 FE0F 20E3]
+#️⃣	keycap: #							// [0023 FE0F 20E3]
+*️⃣	keycap: *							// [002A FE0F 20E3]
+0️⃣	keycap: 0							// [0030 FE0F 20E3]
+1️⃣	keycap: 1							// [0031 FE0F 20E3]
+2️⃣	keycap: 2							// [0032 FE0F 20E3]
+3️⃣	keycap: 3							// [0033 FE0F 20E3]
+4️⃣	keycap: 4							// [0034 FE0F 20E3]
+5️⃣	keycap: 5							// [0035 FE0F 20E3]
+6️⃣	keycap: 6							// [0036 FE0F 20E3]
+7️⃣	keycap: 7							// [0037 FE0F 20E3]
+8️⃣	keycap: 8							// [0038 FE0F 20E3]
+9️⃣	keycap: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1536,33 +1536,33 @@ $textmode
 
 👨‍⚕	mandlig sundhedsperson					// [1F468 200D 2695]
 👩‍⚕	kvindelig sundhedsperson				// [1F469 200D 2695]
-👨‍⚖	dommer							// [1F468 200D 2696]
+👨‍⚖	mandlig dommer						// [1F468 200D 2696]
 👩‍⚖	kvindelig dommer					// [1F469 200D 2696]
-👨‍✈	pilot							// [1F468 200D 2708]
+👨‍✈	mandlig pilot						// [1F468 200D 2708]
 👩‍✈	kvindelig pilot						// [1F469 200D 2708]
 👨‍🌾	landmand						// [1F468 200D 1F33E]
 👩‍🌾	kvindelig landmand					// [1F469 200D 1F33E]
-👨‍🍳	kok							// [1F468 200D 1F373]
+👨‍🍳	mandlig kok						// [1F468 200D 1F373]
 👩‍🍳	kvindelig kok						// [1F469 200D 1F373]
-👨‍🎓	studerende						// [1F468 200D 1F393]
+👨‍🎓	mandlig studerende					// [1F468 200D 1F393]
 👩‍🎓	kvindelig studerende					// [1F469 200D 1F393]
 👨‍🎤	sanger							// [1F468 200D 1F3A4]
 👩‍🎤	sangerinde						// [1F469 200D 1F3A4]
-👨‍🎨	kunstner						// [1F468 200D 1F3A8]
+👨‍🎨	mandlig kunstner					// [1F468 200D 1F3A8]
 👩‍🎨	kvindelig kunstner					// [1F469 200D 1F3A8]
-👨‍🏫	lærer							// [1F468 200D 1F3EB]
+👨‍🏫	mandlig lærer						// [1F468 200D 1F3EB]
 👩‍🏫	kvindelig lærer						// [1F469 200D 1F3EB]
-👨‍🏭	fabriksarbejder						// [1F468 200D 1F3ED]
+👨‍🏭	mandlig fabriksarbejder					// [1F468 200D 1F3ED]
 👩‍🏭	kvindelig fabriksarbejder				// [1F469 200D 1F3ED]
-👨‍💻	IT-medarbejder						// [1F468 200D 1F4BB]
+👨‍💻	mandlig IT-medarbejder					// [1F468 200D 1F4BB]
 👩‍💻	kvindelig IT-medarbejder				// [1F469 200D 1F4BB]
-👨‍💼	kontoransat						// [1F468 200D 1F4BC]
+👨‍💼	mandlig kontoransat					// [1F468 200D 1F4BC]
 👩‍💼	kvindelig kontoransat					// [1F469 200D 1F4BC]
-👨‍🔧	mekaniker						// [1F468 200D 1F527]
+👨‍🔧	mandlig mekaniker					// [1F468 200D 1F527]
 👩‍🔧	kvindelig mekaniker					// [1F469 200D 1F527]
-👨‍🔬	forsker							// [1F468 200D 1F52C]
+👨‍🔬	mandlig forsker						// [1F468 200D 1F52C]
 👩‍🔬	kvindelig forsker					// [1F469 200D 1F52C]
-👨‍🚀	astronaut						// [1F468 200D 1F680]
+👨‍🚀	mandlig astronaut					// [1F468 200D 1F680]
 👩‍🚀	kvindelig astronaut					// [1F469 200D 1F680]
 👨‍🚒	brandmand						// [1F468 200D 1F692]
 👩‍🚒	kvindelig brandmand					// [1F469 200D 1F692]
@@ -1576,25 +1576,25 @@ $textmode
 👳‍♀	kvinde med turban					// [1F473 200D 2640]
 👳‍♂	mand med turban						// [1F473 200D 2642]
 👷‍♀	kvindelig bygningsarbejder				// [1F477 200D 2640]
-👷‍♂	bygningsarbejder					// [1F477 200D 2642]
+👷‍♂	mandlig bygningsarbejder				// [1F477 200D 2642]
 💂‍♀	kvindelig garder					// [1F482 200D 2640]
 💂‍♂	mandlig garder						// [1F482 200D 2642]
 🕵️‍♀	kvindelig detektiv					// [1F575 200D 2640]
 🕵️‍♂	mandlig detektiv					// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	kvindelig magiker					// [1F9D9 200D 2640]
+🧙‍♂	mandlig magiker						// [1F9D9 200D 2642]
+🧚‍♀	kvindelig fe						// [1F9DA 200D 2640]
+🧚‍♂	mandlig fe						// [1F9DA 200D 2642]
+🧛‍♀	kvindelig vampyr					// [1F9DB 200D 2640]
+🧛‍♂	mandlig vampyr						// [1F9DB 200D 2642]
+🧜‍♀	havfrue							// [1F9DC 200D 2640]
+🧜‍♂	havmand							// [1F9DC 200D 2642]
+🧝‍♀	elverkvinde						// [1F9DD 200D 2640]
+🧝‍♂	elvermand						// [1F9DD 200D 2642]
+🧞‍♀	kvindelig magisk ånd					// [1F9DE 200D 2640]
+🧞‍♂	mandlig magisk ånd					// [1F9DE 200D 2642]
+🧟‍♀	kvindelig zombie					// [1F9DF 200D 2640]
+🧟‍♂	mandlig zombie						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1603,15 +1603,15 @@ $textmode
 🏃‍♀	kvinde løber						// [1F3C3 200D 2640]
 🏃‍♂	mand løber						// [1F3C3 200D 2642]
 🏄‍♀	kvindelig surfer					// [1F3C4 200D 2640]
-🏄‍♂	surfer							// [1F3C4 200D 2642]
+🏄‍♂	mandlig surfer						// [1F3C4 200D 2642]
 🏊‍♀	kvindelig svømmer					// [1F3CA 200D 2640]
 🏊‍♂	mandlig svømmer						// [1F3CA 200D 2642]
 🏋️‍♀	kvindelig vægtløfter					// [1F3CB 200D 2640]
 🏋️‍♂	mandlig vægtløfter					// [1F3CB 200D 2642]
 🏌️‍♀	kvindelig golfspiller					// [1F3CC 200D 2640]
 🏌️‍♂	mandlig golfspiller					// [1F3CC 200D 2642]
-👯‍♀	kvinder fester						// [1F46F 200D 2640]
-👯‍♂	mænd fester						// [1F46F 200D 2642]
+👯‍♀	kvinder med kaninører					// [1F46F 200D 2640]
+👯‍♂	mænd med kaninører					// [1F46F 200D 2642]
 💆‍♀	kvinde får ansigtsmassage				// [1F486 200D 2640]
 💆‍♂	mand får ansigtsmassage					// [1F486 200D 2642]
 💇‍♀	kvinde bliver klippet					// [1F487 200D 2640]
@@ -1627,19 +1627,19 @@ $textmode
 🤸‍♀	kvinde slår vejrmøller					// [1F938 200D 2640]
 🤸‍♂	mand slår vejrmøller					// [1F938 200D 2642]
 🤹‍♀	kvindelig jonglør					// [1F939 200D 2640]
-🤹‍♂	jonglør							// [1F939 200D 2642]
+🤹‍♂	mandlig jonglør						// [1F939 200D 2642]
 🤼‍♀	kvindelige brydere					// [1F93C 200D 2640]
 🤼‍♂	mandlige brydere					// [1F93C 200D 2642]
 🤽‍♀	kvindelig vandpolospiller				// [1F93D 200D 2640]
-🤽‍♂	vandpolospiller						// [1F93D 200D 2642]
+🤽‍♂	mandlig vandpolospiller					// [1F93D 200D 2642]
 🤾‍♀	kvindelig håndboldspiller				// [1F93E 200D 2640]
-🤾‍♂	håndboldspiller						// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🤾‍♂	mandlig håndboldspiller					// [1F93E 200D 2642]
+🧖‍♀	kvinde i damptåge					// [1F9D6 200D 2640]
+🧖‍♂	mand i damptåge						// [1F9D6 200D 2642]
+🧗‍♀	kvindelig bjergbestiger					// [1F9D7 200D 2640]
+🧗‍♂	mandlig bjergbestiger					// [1F9D7 200D 2642]
+🧘‍♀	kvinde i lotusstilling					// [1F9D8 200D 2640]
+🧘‍♂	mand i lotusstilling					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
@@ -1653,10 +1653,10 @@ $textmode
 🙇‍♂	mand bukker dybt					// [1F647 200D 2642]
 🙋‍♀	kvinde med løftet hånd					// [1F64B 200D 2640]
 🙋‍♂	mand med løftet hånd					// [1F64B 200D 2642]
-🙍‍♀	kvinde rynker panden					// [1F64D 200D 2640]
-🙍‍♂	mand rynker panden					// [1F64D 200D 2642]
-🙎‍♀	kvinde surmuler						// [1F64E 200D 2640]
-🙎‍♂	mand surmuler						// [1F64E 200D 2642]
+🙍‍♀	kvinde med rynkede bryn					// [1F64D 200D 2640]
+🙍‍♂	mand med rynkede bryn					// [1F64D 200D 2642]
+🙎‍♀	surmulende kvinde					// [1F64E 200D 2640]
+🙎‍♂	surmulende mand						// [1F64E 200D 2642]
 🤦‍♀	kvinde slår sig for panden				// [1F926 200D 2640]
 🤦‍♂	mand slår sig for panden				// [1F926 200D 2642]
 🤷‍♀	kvinde trækker på skuldrene				// [1F937 200D 2640]

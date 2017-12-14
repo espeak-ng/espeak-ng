@@ -68,8 +68,8 @@ $textmode
 ◀	gumb za predvajanje nazaj					// [25C0] text|emoji
 ◻	bel srednji kvadrat						// [25FB] text|emoji
 ◼	črn srednji kvadrat						// [25FC] text|emoji
-◽	bel srednje majhen kvadrat					// [25FD]
-◾	črne srednje majhen kvadrat					// [25FE]
+◽	srednje mali beli kvadrat					// [25FD]
+◾	črn srednje majhen kvadrat					// [25FE]
 
 // 2600..26FF : Miscellaneous Symbols
 
@@ -86,7 +86,7 @@ $textmode
 ☝	kazalec, ki kaže gor						// [261D] text|emoji
 ☠	mrtvaška glava s prekrižanima kostema				// [2620] text|emoji
 ☢	radioaktivno							// [2622] text|emoji
-☣	nevarno zaradi bioloških poskusov				// [2623] text|emoji
+☣	bionevarnost							// [2623] text|emoji
 ☦	pravoslavni križ						// [2626] text|emoji
 ☪	zvezda in polmesec						// [262A] text|emoji
 ☮	simbol za mir							// [262E] text|emoji
@@ -94,8 +94,8 @@ $textmode
 ☸	kolo darme							// [2638] text|emoji
 ☹	namrščen obraz							// [2639] text|emoji
 ☺	smejoči obraz							// [263A] text|emoji
-♀	moški znak							// [2640] text|emoji
-♂	ženski znak							// [2642] text|emoji
+♀	znak za ženski spol						// [2640] text|emoji
+♂	znak za moški spol						// [2642] text|emoji
 ♈	astrološki znak ovna						// [2648]
 ♉	bik								// [2649]
 ♊	dvojčka								// [264A]
@@ -104,7 +104,7 @@ $textmode
 ♍	devica								// [264D]
 ♎	tehnica								// [264E]
 ♏	astrološki znak škorpijona					// [264F]
-♐	lokostrelec							// [2650]
+♐	strelec								// [2650]
 ♑	kozorog								// [2651]
 ♒	vodnar								// [2652]
 ♓	ribi								// [2653]
@@ -217,39 +217,39 @@ $textmode
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	gumb s črko a							// [1F170] text|emoji
-🅱	gumb s črko b							// [1F171] text|emoji
-🅾	gumb s črko o							// [1F17E] text|emoji
+🅰	gumb s črko a (krvna skupina)					// [1F170] text|emoji
+🅱	gumb s črko b (krvna skupina)					// [1F171] text|emoji
+🅾	gumb s črko O (krvna skupina)					// [1F17E] text|emoji
 🅿	gumb s črko p							// [1F17F] text|emoji
-🆎	gumb s črkama ab						// [1F18E]
-🆑	črki cl v kvadratu						// [1F191]
-🆒	beseda cool v kvadratu						// [1F192]
-🆓	beseda free v kvadratu						// [1F193]
-🆔	črki id v kvadratu						// [1F194]
-🆕	beseda new v kvadratu						// [1F195]
-🆖	črki ng v kvadratu						// [1F196]
-🆗	beseda ok v kvadratu						// [1F197]
-🆘	beseda sos v kvadratu						// [1F198]
+🆎	gumb AB (krvna skupina)						// [1F18E]
+🆑	gumb CL								// [1F191]
+🆒	gumb COOL							// [1F192]
+🆓	gumb FREE							// [1F193]
+🆔	gumb ID								// [1F194]
+🆕	gumb NEW							// [1F195]
+🆖	gumb NG								// [1F196]
+🆗	gumb OK								// [1F197]
+🆘	gumb SOS							// [1F198]
 🆙	gumb z besedo up in klicajem					// [1F199]
-🆚	črki vs v kvadratu						// [1F19A]
+🆚	gumb VS								// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	znak za katakana koto v kvadratu				// [1F201]
-🈂	znak za katakana sa v kvadratu					// [1F202] text|emoji
-🈚	pojmovni znak za zanikanje v kvadratu				// [1F21A]
-🈯	pojmovni znak za prst v kvadratu				// [1F22F]
-🈲	pojmovni znak za prepoved v kvadratu				// [1F232]
-🈳	pojmovni znak za prazno v kvadratu				// [1F233]
+🈁	gumb za »tukaj« v japonščini					// [1F201]
+🈂	japonski znak za napitnino v kvadratu				// [1F202] text|emoji
+🈚	gumb za »brezplačno« v japonščini				// [1F21A]
+🈯	gumb za »rezervirano« v japonščini				// [1F22F]
+🈲	gumb za »prepovedano« v japonščini				// [1F232]
+🈳	gumb za »prosto« v japonščini					// [1F233]
 🈴	pojmovni znak za skupaj v kvadratu				// [1F234]
-🈵	pojmovni znak za polnost v kvadratu				// [1F235]
-🈶	pojmovni znak za obstoj v kvadratu				// [1F236]
-🈷	pojmovni znak za luno v kvadratu				// [1F237] text|emoji
-🈸	pojmovni znak za uporabo v kvadratu				// [1F238]
-🈹	pojmovni znak za delitev v kvadratu				// [1F239]
-🈺	pojmovni znak za delovanje v kvadratu				// [1F23A]
-🉐	pojmovni znak za prednost v krogu				// [1F250]
-🉑	pojmovni znak za sprejem v krogu				// [1F251]
+🈵	gumb za »ni prosto« v japonščini				// [1F235]
+🈶	gumb za »ni brezplačno« v japonščini				// [1F236]
+🈷	japonski znak za mesečni znesek v kvadratu			// [1F237] text|emoji
+🈸	gumb za »aplikacija« v japonščini				// [1F238]
+🈹	gumb za »popust« v japonščini					// [1F239]
+🈺	gumb za »odprto« v japonščini					// [1F23A]
+🉐	gumb za »ugodno« v japonščini					// [1F250]
+🉑	gumb za »sprejemljivo« v japonščini				// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -274,9 +274,9 @@ $textmode
 🌊	vodni val							// [1F30A]
 🌋	vulkan								// [1F30B]
 🌌	rimska cesta							// [1F30C]
-🌍	globus z evropo in afriko					// [1F30D]
-🌎	globus s severno in južno ameriko				// [1F30E]
-🌏	globus z azijo in avstralijo					// [1F30F]
+🌍	globus z Evropo in Afriko					// [1F30D]
+🌎	globus s Severno in Južno Ameriko				// [1F30E]
+🌏	globus z Azijo in Avstralijo					// [1F30F]
 🌐	globus s poldnevniki						// [1F310]
 🌑	mlada luna							// [1F311]
 🌒	prvi krajec							// [1F312]
@@ -306,7 +306,7 @@ $textmode
 🌬	obraz, ki piha veter						// [1F32C] text|emoji
 🌭	hot dog								// [1F32D]
 🌮	taco								// [1F32E]
-🌯	burrito								// [1F32F]
+🌯	burito								// [1F32F]
 🌰	kostanj								// [1F330]
 🌱	sadika								// [1F331]
 🌲	zimzeleno drevo							// [1F332]
@@ -329,7 +329,7 @@ $textmode
 🍃	listje, ki se vrtinči v vetru					// [1F343]
 🍄	goba								// [1F344]
 🍅	paradižnik							// [1F345]
-🍆	melancan							// [1F346]
+🍆	jajčevec							// [1F346]
 🍇	grozdje								// [1F347]
 🍈	melona								// [1F348]
 🍉	lubenica							// [1F349]
@@ -367,7 +367,7 @@ $textmode
 🍩	krof								// [1F369]
 🍪	piškot								// [1F36A]
 🍫	tablica čokolade						// [1F36B]
-🍬	sladkarija							// [1F36C]
+🍬	bonbon								// [1F36C]
 🍭	lizika								// [1F36D]
 🍮	vanilijev puding						// [1F36E]
 🍯	vrč medu							// [1F36F]
@@ -394,7 +394,7 @@ $textmode
 🎄	jelka								// [1F384]
 🎅	Božiček								// [1F385]
 🎆	ognjemet							// [1F386]
-🎇	prskalica							// [1F387]
+🎇	sibirska lučka							// [1F387]
 🎈	balon								// [1F388]
 🎉	pokalica za zabave						// [1F389]
 🎊	konfeti								// [1F38A]
@@ -496,17 +496,17 @@ $textmode
 🏯	japonski grad							// [1F3EF]
 🏰	grad								// [1F3F0]
 🏳	plapolajoča bela zastava					// [1F3F3] text|emoji
-🏴	plapolajoča črna zastava					// [1F3F4]
+🏴	črna zastava							// [1F3F4]
 🏵	rozeta								// [1F3F5] text|emoji
 🏷	etiketa								// [1F3F7] text|emoji
 🏸	badminton							// [1F3F8]
 🏹	lok in puščica							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	polt vrst 1 in 2						// [1F3FB]
-🏼	polt vrste 3							// [1F3FC]
-🏽	polt vrste 4							// [1F3FD]
-🏾	polt vrste 5							// [1F3FE]
-🏿	polt vrste 6							// [1F3FF]
+🏻	svetel ten kože polt vrst 1 in 2				// [1F3FB]
+🏼	srednje svetel ten kože polt vrste 3				// [1F3FC]
+🏽	srednji ten kože polt vrste 4					// [1F3FD]
+🏾	srednje temen ten kože polt vrste 5				// [1F3FE]
+🏿	temen ten kože polt vrste 6					// [1F3FF]
 🐀	podgana								// [1F400]
 🐁	miš								// [1F401]
 🐂	vol								// [1F402]
@@ -534,7 +534,7 @@ $textmode
 🐘	slon								// [1F418]
 🐙	hobotnica							// [1F419]
 🐚	spiralna školjka						// [1F41A]
-🐛	žužek								// [1F41B]
+🐛	žuželka								// [1F41B]
 🐜	mravlja								// [1F41C]
 🐝	čebela								// [1F41D]
 🐞	pikapolonica							// [1F41E]
@@ -544,7 +544,7 @@ $textmode
 🐢	želva								// [1F422]
 🐣	pišče, ki se izvali						// [1F423]
 🐤	piščanček							// [1F424]
-🐥	naprej usmerjen piščanček					// [1F425]
+🐥	piščanček, gleda naprej						// [1F425]
 🐦	ptica								// [1F426]
 🐧	pingvin								// [1F427]
 🐨	koala								// [1F428]
@@ -560,7 +560,7 @@ $textmode
 🐲	zmajski obraz							// [1F432]
 🐳	kit, ki brizga vodo						// [1F433]
 🐴	konjev obraz							// [1F434]
-🐵	opičin obraz							// [1F435]
+🐵	opičji obraz							// [1F435]
 🐶	pasji obraz							// [1F436]
 🐷	prašičji obraz							// [1F437]
 🐸	žabji obraz							// [1F438]
@@ -581,9 +581,9 @@ $textmode
 👇	hrbtna stran dlani s kazalcem, ki kaže dol			// [1F447]
 👈	hrbtna stran dlani s kazalcem, ki kaže levo			// [1F448]
 👉	hrbtna stran dlani s kazalcem, ki kaže desno			// [1F449]
-👊	bližajoča pest							// [1F44A]
+👊	bližajoča se pest						// [1F44A]
 👋	mahajoča dlan							// [1F44B]
-👌	dlan z znakom za v redu						// [1F44C]
+👌	roka, ki kaže V REDU						// [1F44C]
 👍	palec gor							// [1F44D]
 👎	palec dol							// [1F44E]
 👏	ploskajoči dlani						// [1F44F]
@@ -597,16 +597,16 @@ $textmode
 👗	ženska obleka							// [1F457]
 👘	kimono								// [1F458]
 👙	bikini								// [1F459]
-👚	žensko oblačilo							// [1F45A]
-👛	torbica								// [1F45B]
+👚	ženska oblačila							// [1F45A]
+👛	drobižnica							// [1F45B]
 👜	ročna torbica							// [1F45C]
-👝	manjša torbica							// [1F45D]
+👝	večerna torbica							// [1F45D]
 👞	moški čevelj							// [1F45E]
 👟	tekaški čevelj							// [1F45F]
 👠	čevelj z visoko peto						// [1F460]
-👡	ženski sandal							// [1F461]
+👡	ženski sandali							// [1F461]
 👢	ženski škorenj							// [1F462]
-👣	stopinji							// [1F463]
+👣	stopinje							// [1F463]
 👤	silhueta doprsja						// [1F464]
 👥	silhueti doprsja						// [1F465]
 👦	fant								// [1F466]
@@ -620,7 +620,7 @@ $textmode
 👮	policaj								// [1F46E]
 👯	žurerski ženski							// [1F46F]
 👰	nevesta s pajčolanom						// [1F470]
-👱	oseba s svetlimi lasmi						// [1F471]
+👱	svetlolasa oseba						// [1F471]
 👲	moški s kitajsko čepico						// [1F472]
 👳	oseba s turbanom						// [1F473]
 👴	starec								// [1F474]
@@ -672,7 +672,7 @@ $textmode
 💢	simbol jeze							// [1F4A2]
 💣	bomba								// [1F4A3]
 💤	spanec								// [1F4A4]
-💥	bum								// [1F4A5]
+💥	trk								// [1F4A5]
 💦	potne kapljice							// [1F4A6]
 💧	kapljica							// [1F4A7]
 💨	švigniti							// [1F4A8]
@@ -705,7 +705,7 @@ $textmode
 📃	zvita stran							// [1F4C3]
 📄	list s prikazano popisano stranjo				// [1F4C4]
 📅	koledar								// [1F4C5]
-📆	koledar s perforacijo						// [1F4C6]
+📆	koledar z odstranljivimi listi					// [1F4C6]
 📇	organizator vizitk						// [1F4C7]
 📈	grafikon rasti							// [1F4C8]
 📉	grafikon padca							// [1F4C9]
@@ -728,7 +728,7 @@ $textmode
 📚	knjige								// [1F4DA]
 📛	značka za ime							// [1F4DB]
 📜	zvitek								// [1F4DC]
-📝	zabeležka							// [1F4DD]
+📝	zapisek								// [1F4DD]
 📞	telefonska slušalka						// [1F4DE]
 📟	pozivnik							// [1F4DF]
 📠	telefaks							// [1F4E0]
@@ -756,7 +756,7 @@ $textmode
 📶	signal								// [1F4F6]
 📷	fotoaparat							// [1F4F7]
 📸	fotoaparat z bliskavico						// [1F4F8]
-📹	kamera								// [1F4F9]
+📹	videokamera							// [1F4F9]
 📺	televizija							// [1F4FA]
 📻	radio								// [1F4FB]
 📼	videokaseta							// [1F4FC]
@@ -770,8 +770,8 @@ $textmode
 🔅	gumb za zatemnitev						// [1F505]
 🔆	gumb za svetlost						// [1F506]
 🔇	ugasnjen zvočnik						// [1F507]
-🔈	zvočnik								// [1F508]
-🔉	vklopljen zvočnik						// [1F509]
+🔈	zvočnik pri nizki glasnosti					// [1F508]
+🔉	zvočnik pri zmerni glasnosti					// [1F509]
 🔊	zvočnik na glas							// [1F50A]
 🔋	baterija							// [1F50B]
 🔌	električni vtikač						// [1F50C]
@@ -781,7 +781,7 @@ $textmode
 🔐	zaprta ključavnica s ključem					// [1F510]
 🔑	ključ								// [1F511]
 🔒	ključavnica							// [1F512]
-🔓	odprta ključavnica						// [1F513]
+🔓	odklenjena ključavnica						// [1F513]
 🔔	zvonec								// [1F514]
 🔕	prečrtan zvonec							// [1F515]
 🔖	zaznamek							// [1F516]
@@ -789,11 +789,11 @@ $textmode
 🔘	izbirni gumb							// [1F518]
 🔙	puščica nazaj							// [1F519]
 🔚	puščica konec							// [1F51A]
-🔛	puščica vklopljeno						// [1F51B]
+🔛	puščica NAPREJ!							// [1F51B]
 🔜	puščica kmalu							// [1F51C]
 🔝	puščica na vrh							// [1F51D]
 🔞	prepovedano za mlajše od 18 let					// [1F51E]
-🔟	številka deset na številčnici					// [1F51F]
+🔟	keycap: 10							// [1F51F]
 🔠	vnos velikih črk latinice					// [1F520]
 🔡	vnos malih črk latinice						// [1F521]
 🔢	vnos številk							// [1F522]
@@ -841,19 +841,19 @@ $textmode
 🕘	ura je devet							// [1F558]
 🕙	ura je deset							// [1F559]
 🕚	ura je enajst							// [1F55A]
-🕛	ura je dvanajst							// [1F55B]
-🕜	ura je pol dveh							// [1F55C]
-🕝	ura je pol treh							// [1F55D]
-🕞	ura je pol štirih						// [1F55E]
-🕟	ura je pol petih						// [1F55F]
-🕠	ura je pol šestih						// [1F560]
-🕡	ura je pol sedmih						// [1F561]
-🕢	ura je pol osmih						// [1F562]
-🕣	ura je pol devetih						// [1F563]
-🕤	ura je pol desetih						// [1F564]
-🕥	ura je pol enajstih						// [1F565]
-🕦	ura je pol dvanajstih						// [1F566]
-🕧	ura je pol enih							// [1F567]
+🕛	poldne								// [1F55B]
+🕜	pol dveh							// [1F55C]
+🕝	pol treh							// [1F55D]
+🕞	pol štirih							// [1F55E]
+🕟	pol petih							// [1F55F]
+🕠	pol šestih							// [1F560]
+🕡	pol sedmih							// [1F561]
+🕢	pol osmih							// [1F562]
+🕣	pol devetih							// [1F563]
+🕤	pol desetih							// [1F564]
+🕥	pol enajstih							// [1F565]
+🕦	pol dvanajstih							// [1F566]
+🕧	pol enih							// [1F567]
 🕯	sveča								// [1F56F] text|emoji
 🕰	ura za na okvir kamina						// [1F570] text|emoji
 🕳	luknja								// [1F573] text|emoji
@@ -872,7 +872,7 @@ $textmode
 🖐	dvignjena dlan z razprtimi prsti				// [1F590] text|emoji
 🖕	sredinec							// [1F595]
 🖖	vulkanski pozdrav						// [1F596]
-🖤	zloba								// [1F5A4]
+🖤	črno srce							// [1F5A4]
 🖥	namizni računalnik						// [1F5A5] text|emoji
 🖨	tiskalnik							// [1F5A8] text|emoji
 🖱	računalniška miška						// [1F5B1] text|emoji
@@ -893,10 +893,10 @@ $textmode
 🗯	desni oblaček z jeznim govorom					// [1F5EF] text|emoji
 🗳	škatla za glasovanje z glasovnico				// [1F5F3] text|emoji
 🗺	zemljevid sveta							// [1F5FA] text|emoji
-🗻	gora fuji							// [1F5FB]
+🗻	gora Fuji							// [1F5FB]
 🗼	tokijski stolp							// [1F5FC]
 🗽	kip svobode							// [1F5FD]
-🗾	zemljevid japonske						// [1F5FE]
+🗾	zemljevid Japonske						// [1F5FE]
 🗿	moai								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
@@ -947,11 +947,11 @@ $textmode
 😫	utrujen obraz							// [1F62B]
 😬	spačen obraz							// [1F62C]
 😭	cmerajoči obraz							// [1F62D]
-😮	obraz z odprtimi očmi						// [1F62E]
+😮	obraz z odprtimi usti						// [1F62E]
 😯	osupljen obraz							// [1F62F]
 😰	obraz z odprtimi usti in mrzlim potom				// [1F630]
 😱	obraz, ki kriči od strahu					// [1F631]
-😲	frapiran obraz							// [1F632]
+😲	začuden obraz							// [1F632]
 😳	zardeli obraz							// [1F633]
 😴	speči obraz							// [1F634]
 😵	omotičen obraz							// [1F635]
@@ -959,7 +959,7 @@ $textmode
 😷	obraz z medicinsko masko					// [1F637]
 😸	režeči mačji obraz s smejočimi očmi				// [1F638]
 😹	mačji obraz s solzami sreče					// [1F639]
-😺	smejoči mačji obraz z odprtimi usti				// [1F63A]
+😺	režeči mačji obraz						// [1F63A]
 😻	smejoči mačji obraz z očmi v obliki srčka			// [1F63B]
 😼	mačji obraz s prifrknjenim nasmeškom				// [1F63C]
 😽	mačji obraz z zaprtimi očmi, ki poljublja			// [1F63D]
@@ -968,14 +968,14 @@ $textmode
 🙀	presenečen mačji obraz						// [1F640]
 🙁	nekoliko namrščen obraz						// [1F641]
 🙂	rahlo smejoči obraz						// [1F642]
-🙃	narobe obrnjen obraz						// [1F643]
+🙃	na glavo obrnjen obraz						// [1F643]
 🙄	obraz z zavijajočimi očmi					// [1F644]
-🙅	s kretnjo izražena prepoved					// [1F645]
-🙆	s kretnjo izraženo v redu					// [1F646]
+🙅	oseba, ki kaže NE						// [1F645]
+🙆	oseba, ki kaže V REDU						// [1F646]
 🙇	oseba, ki se prikloni						// [1F647]
-🙈	ničesar slabega ne vidim					// [1F648]
-🙉	ničesar slabega ne slišim					// [1F649]
-🙊	ničesar slabega ne govorim					// [1F64A]
+🙈	opica, ki ne vidi ničesar					// [1F648]
+🙉	opica, ki ne sliši ničesar					// [1F649]
+🙊	opica, ki ničesar ne govori					// [1F64A]
 🙋	vesela oseba, ki dvigne roko					// [1F64B]
 🙌	oseba, ki dvigne roke						// [1F64C]
 🙍	oseba, ki se mršči						// [1F64D]
@@ -1009,7 +1009,7 @@ $textmode
 🚖	prihajajoči taksi						// [1F696]
 🚗	avtomobil							// [1F697]
 🚘	prihajajoči avtomobil						// [1F698]
-🚙	avtodom								// [1F699]
+🚙	cestni terenec							// [1F699]
 🚚	dostavno vozilo							// [1F69A]
 🚛	tovornjak s prikolico						// [1F69B]
 🚜	traktor								// [1F69C]
@@ -1019,13 +1019,13 @@ $textmode
 🚠	nihalka								// [1F6A0]
 🚡	žičnica								// [1F6A1]
 🚢	ladja								// [1F6A2]
-🚣	čoln na vesla							// [1F6A3]
+🚣	oseba v čolnu na vesla						// [1F6A3]
 🚤	gliser								// [1F6A4]
 🚥	vodoravni semafor						// [1F6A5]
 🚦	navpični semafor						// [1F6A6]
 🚧	zaprto zaradi gradnje						// [1F6A7]
 🚨	policijska luč							// [1F6A8]
-🚩	trikotna zastavica						// [1F6A9]
+🚩	trikotna zastava						// [1F6A9]
 🚪	vrata								// [1F6AA]
 🚫	prepovedano							// [1F6AB]
 🚬	kajenje								// [1F6AC]
@@ -1041,9 +1041,9 @@ $textmode
 🚶	pešec								// [1F6B6]
 🚷	prepovedano za pešce						// [1F6B7]
 🚸	otroci prečkajo cesto						// [1F6B8]
-🚹	moško stranišče							// [1F6B9]
-🚺	žensko stranišče						// [1F6BA]
-🚻	stranišče							// [1F6BB]
+🚹	stranišče za moške						// [1F6B9]
+🚺	stranišče za ženske						// [1F6BA]
+🚻	javno stranišče							// [1F6BB]
 🚼	simbol dojenčka							// [1F6BC]
 🚽	straniščna školjka						// [1F6BD]
 🚾	wc								// [1F6BE]
@@ -1076,13 +1076,13 @@ $textmode
 🛴	skiro								// [1F6F4]
 🛵	skuter								// [1F6F5]
 🛶	kanu								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	sanke								// [1F6F7]
+🛸	leteči krožnik							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
 🤐	obraz z usti v obliki zadrge					// [1F910]
-🤑	obraz z denarjem v očeh						// [1F911]
+🤑	obraz z denarjem namesto ust					// [1F911]
 🤒	obraz s termometrom						// [1F912]
 🤓	piflarski obraz							// [1F913]
 🤔	razmišljujoči obraz						// [1F914]
@@ -1091,36 +1091,36 @@ $textmode
 🤗	obraz, ki objema						// [1F917]
 🤘	znak za rogove							// [1F918]
 🤙	pokliči me							// [1F919]
-🤚	dvignjena obrnjena dlan						// [1F91A]
-🤛	leva pest							// [1F91B]
-🤜	desna pest							// [1F91C]
+🤚	dvignjena hrbtna stran dlani					// [1F91A]
+🤛	pest, obrnjena levo						// [1F91B]
+🤜	pest, obrnjena desno						// [1F91C]
 🤝	rokovanje							// [1F91D]
 🤞	prekrižani prsti						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	kavbojski klobuk						// [1F920]
-🤡	klovn								// [1F921]
-🤢	slabost								// [1F922]
+🤟	znak za ljubim te						// [1F91F]
+🤠	obraz s kavbojskim klobukom					// [1F920]
+🤡	klovnovski obraz						// [1F921]
+🤢	obraz, ki se počuti slabo					// [1F922]
 🤣	krohotanje							// [1F923]
-🤤	slinjenje							// [1F924]
-🤥	lažnivec							// [1F925]
-🤦	dvom								// [1F926]
-🤧	kihanje								// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤤	obraz, ki se slini						// [1F924]
+🤥	lažnivi obraz							// [1F925]
+🤦	oseba z dlanjo na obrazu					// [1F926]
+🤧	obraz, ki kiha							// [1F927]
+🤨	obraz z dvignjenimi obrvmi					// [1F928]
+🤩	obraz z očmi v obliki zvezdic					// [1F929]
+🤪	nor obraz							// [1F92A]
+🤫	obraz s prstom čez usta						// [1F92B]
+🤬	obraz, ki kolne							// [1F92C]
+🤭	obraz z roko čez usta						// [1F92D]
+🤮	obraz, ki bruha							// [1F92E]
+🤯	eksplozija v glavi						// [1F92F]
 🤰	nosečnica							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	dojenje								// [1F931]
+🤲	dvignjeni odprti dlani						// [1F932]
 🤳	selfi								// [1F933]
 🤴	princ								// [1F934]
 🤵	moški v smokingu						// [1F935]
 🤶	gospa Božiček							// [1F936]
-🤷	skomigniti							// [1F937]
+🤷	oseba, ki skomiga						// [1F937]
 🤸	oseba izvaja kolo						// [1F938]
 🤹	žongliranje							// [1F939]
 🤺	sabljanje							// [1F93A]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	bronasta medalja						// [1F949]
 🥊	boksarska rokavica						// [1F94A]
 🥋	kimono za borilne športe					// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	curling								// [1F94C]
 🥐	rogljič								// [1F950]
 🥑	avokado								// [1F951]
 🥒	kumara								// [1F952]
@@ -1146,7 +1146,7 @@ $textmode
 🥔	krompir								// [1F954]
 🥕	korenje								// [1F955]
 🥖	bageta								// [1F956]
-🥗	solata								// [1F957]
+🥗	zelena solata							// [1F957]
 🥘	kozica s hrano							// [1F958]
 🥙	kebab								// [1F959]
 🥚	jajce								// [1F95A]
@@ -1154,21 +1154,21 @@ $textmode
 🥜	arašidi								// [1F95C]
 🥝	kivi								// [1F95D]
 🥞	palačinke							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	cmok								// [1F95F]
+🥠	piškotek sreče							// [1F960]
+🥡	embalaža za hrano						// [1F961]
+🥢	jedilne paličice						// [1F962]
+🥣	skodelica z žlico						// [1F963]
+🥤	kozarec s slamico						// [1F964]
+🥥	kokos								// [1F965]
+🥦	brokoli								// [1F966]
+🥧	pita								// [1F967]
+🥨	presta								// [1F968]
+🥩	kos mesa							// [1F969]
+🥪	sendvič								// [1F96A]
+🥫	konzervirana hrana						// [1F96B]
 🦀	rakovica							// [1F980]
-🦁	levov obraz							// [1F981]
+🦁	levji obraz							// [1F981]
 🦂	škorpijon							// [1F982]
 🦃	puran								// [1F983]
 🦄	samorogov obraz							// [1F984]
@@ -1177,44 +1177,44 @@ $textmode
 🦇	netopir								// [1F987]
 🦈	morski pes							// [1F988]
 🦉	sova								// [1F989]
-🦊	lisica								// [1F98A]
+🦊	lisičji obraz							// [1F98A]
 🦋	metulj								// [1F98B]
 🦌	jelen								// [1F98C]
 🦍	gorila								// [1F98D]
 🦎	kuščar								// [1F98E]
 🦏	nosorog								// [1F98F]
-🦐	škamp								// [1F990]
+🦐	morski rakec							// [1F990]
 🦑	ligenj								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	žirafa								// [1F992]
+🦓	zebra								// [1F993]
+🦔	jež								// [1F994]
+🦕	zavropod							// [1F995]
+🦖	tiranozaver							// [1F996]
+🦗	muren								// [1F997]
 🧀	kos sira							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	obraz z monoklom						// [1F9D0]
+🧑	odrasla oseba							// [1F9D1]
+🧒	otrok								// [1F9D2]
+🧓	starejši odrasli						// [1F9D3]
+🧔	bradat moški							// [1F9D4]
+🧕	ženska z naglavno ruto						// [1F9D5]
+🧖	oseba v parni savni						// [1F9D6]
+🧗	oseba, ki pleza							// [1F9D7]
+🧘	oseba v lotusovem položaju					// [1F9D8]
+🧙	oseba, ki čara							// [1F9D9]
+🧚	vilinsko bitje							// [1F9DA]
+🧛	vampirji							// [1F9DB]
+🧜	morska oseba							// [1F9DC]
+🧝	škrati								// [1F9DD]
+🧞	duh iz steklenice						// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	možgani								// [1F9E0]
+🧡	oranžno srce							// [1F9E1]
+🧢	kapa s ščitom							// [1F9E2]
+🧣	šal								// [1F9E3]
+🧤	rokavice							// [1F9E4]
+🧥	plašč								// [1F9E5]
+🧦	nogavice							// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1309,7 +1309,7 @@ $textmode
 🇬🇱	Grenlandija							// [1F1EC 1F1F1] GL
 🇬🇲	Gambija								// [1F1EC 1F1F2] GM
 🇬🇳	Gvineja								// [1F1EC 1F1F3] GN
-🇬🇵	Gvadalupe							// [1F1EC 1F1F5] GP
+🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
 🇬🇶	Ekvatorialna Gvineja						// [1F1EC 1F1F6] GQ
 🇬🇷	Grčija								// [1F1EC 1F1F7] GR
 🇬🇸	Južna Georgia in Južni Sandwichevi otoki			// [1F1EC 1F1F8] GS
@@ -1485,52 +1485,52 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	lojtra na številčnici						// [0023 FE0F 20E3]
-*️⃣	zvezdica na številčnici						// [002A FE0F 20E3]
-0️⃣	številka nič na številčnici					// [0030 FE0F 20E3]
-1️⃣	številka ena na številčnici					// [0031 FE0F 20E3]
-2️⃣	številka dve na številčnici					// [0032 FE0F 20E3]
-3️⃣	številka tri na številčnici					// [0033 FE0F 20E3]
-4️⃣	številka štiri na številčnici					// [0034 FE0F 20E3]
-5️⃣	številka pet na številčnici					// [0035 FE0F 20E3]
-6️⃣	številka šest na številčnici					// [0036 FE0F 20E3]
-7️⃣	številka sedem na številčnici					// [0037 FE0F 20E3]
-8️⃣	številka osem na številčnici					// [0038 FE0F 20E3]
-9️⃣	številka devet na številčnici					// [0039 FE0F 20E3]
+#️⃣	keycap: #							// [0023 FE0F 20E3]
+*️⃣	keycap: *							// [002A FE0F 20E3]
+0️⃣	keycap: 0							// [0030 FE0F 20E3]
+1️⃣	keycap: 1							// [0031 FE0F 20E3]
+2️⃣	keycap: 2							// [0032 FE0F 20E3]
+3️⃣	keycap: 3							// [0033 FE0F 20E3]
+4️⃣	keycap: 4							// [0034 FE0F 20E3]
+5️⃣	keycap: 5							// [0035 FE0F 20E3]
+6️⃣	keycap: 6							// [0036 FE0F 20E3]
+7️⃣	keycap: 7							// [0037 FE0F 20E3]
+8️⃣	keycap: 8							// [0038 FE0F 20E3]
+9️⃣	keycap: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
-👩‍❤‍💋‍👨	poljub, ženska, moški			// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	poljub, moški, moški			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	poljub, ženska, ženska			// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	zaljubljen par, ženska, moški			// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	zaljubljen par, moški, moški			// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	zaljubljen par, ženska, ženska			// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	družina, moški, ženska, fant			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	družina, moški, ženska, dekle			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	družina, moški, ženska, dekle, fant	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	družina, moški, ženska, fant, fant	// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	družina, moški, ženska, dekle, dekle	// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	družina, moški, moški, fant			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	družina, moški, moški, dekle			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	družina, moški, moški, dekle, fant	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	družina, moški, moški, fant, fant	// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	družina, moški, moški, dekle, dekle	// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	družina, ženska, ženska, fant			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	družina, ženska, ženska, dekle			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	družina, ženska, ženska, dekle, fant	// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	družina, ženska, ženska, fant, fant	// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	družina, ženska, ženska, dekle, dekle	// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	družina, moški, fant					// [1F468 200D 1F466]
-👨‍👦‍👦	družina, moški, fant, fant			// [1F468 200D 1F466 200D 1F466]
-👨‍👧	družina, moški, dekle					// [1F468 200D 1F467]
-👨‍👧‍👦	družina, moški, dekle, fant			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	družina, moški, dekle, dekle			// [1F468 200D 1F467 200D 1F467]
-👩‍👦	družina, ženska, fant					// [1F469 200D 1F466]
-👩‍👦‍👦	družina, ženska, fant, fant			// [1F469 200D 1F466 200D 1F466]
-👩‍👧	družina, ženska, dekle					// [1F469 200D 1F467]
-👩‍👧‍👦	družina, ženska, dekle, fant			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	družina, ženska, dekle, dekle			// [1F469 200D 1F467 200D 1F467]
+👩‍❤‍💋‍👨	poljub: ženska in moški			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	poljub: moški in moški			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	poljub: ženska in ženska		// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	par s srčkom: ženska in moški			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	par s srčkom: moški in moški			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	par s srčkom: ženska in ženska			// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	družina: moški in ženska in fant		// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	družina: moški in ženska in dekle		// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	družina: moški in ženska in dekle in fant// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	družina: moški in ženska in fant in fant// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	družina: moški in ženska in dekle in dekle// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	družina: moški in moški in fant			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	družina: moški in moški in dekle		// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	družina: moški in moški in dekle in fant// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	družina: moški in moški in fant in fant	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	družina: moški in moški in dekle in dekle// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	družina: ženska in ženska in fant		// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	družina: ženska in ženska in dekle		// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	družina: ženska in ženska in dekle in fant// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	družina: ženska in ženska in fant in fant// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	družina: ženska in ženska in dekle in dekle// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	družina: moški in fant					// [1F468 200D 1F466]
+👨‍👦‍👦	družina: moški in fant in fant			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	družina: moški in dekle					// [1F468 200D 1F467]
+👨‍👧‍👦	družina: moški in dekle in fant			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	družina: moški in dekle in dekle		// [1F468 200D 1F467 200D 1F467]
+👩‍👦	družina: ženska in fant					// [1F469 200D 1F466]
+👩‍👦‍👦	družina: ženska in fant in fant			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	družina: ženska in dekle				// [1F469 200D 1F467]
+👩‍👧‍👦	družina: ženska in dekle in fant		// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	družina: ženska in dekle in dekle		// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	varnostnik						// [1F482 200D 2642]
 🕵️‍♀	detektivka						// [1F575 200D 2640]
 🕵️‍♂	detektiv						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	čarovnica						// [1F9D9 200D 2640]
+🧙‍♂	čarovnik						// [1F9D9 200D 2642]
+🧚‍♀	vila							// [1F9DA 200D 2640]
+🧚‍♂	vilinec							// [1F9DA 200D 2642]
+🧛‍♀	vampirka						// [1F9DB 200D 2640]
+🧛‍♂	vampir							// [1F9DB 200D 2642]
+🧜‍♀	morska deklica						// [1F9DC 200D 2640]
+🧜‍♂	morski mož						// [1F9DC 200D 2642]
+🧝‍♀	škratovka						// [1F9DD 200D 2640]
+🧝‍♂	škrat							// [1F9DD 200D 2642]
+🧞‍♀	ženski duh iz steklenice				// [1F9DE 200D 2640]
+🧞‍♂	moški duh iz steklenice					// [1F9DE 200D 2642]
+🧟‍♀	zombi ženska						// [1F9DF 200D 2640]
+🧟‍♂	zombi moški						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	moški vaterpolo						// [1F93D 200D 2642]
 🤾‍♀	rokometašica						// [1F93E 200D 2640]
 🤾‍♂	rokometaš						// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	ženska v parni savni					// [1F9D6 200D 2640]
+🧖‍♂	moški v parni savni					// [1F9D6 200D 2642]
+🧗‍♀	plezalka						// [1F9D7 200D 2640]
+🧗‍♂	plezalec						// [1F9D7 200D 2642]
+🧘‍♀	ženska v lotusovem položaju				// [1F9D8 200D 2640]
+🧘‍♂	moški v lotusovem položaju				// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

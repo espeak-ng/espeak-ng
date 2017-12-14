@@ -58,7 +58,7 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	“m” hizkia zirkulu batean					// [24C2] text|emoji
+Ⓜ	m” hizkia zirkulu batean					// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
@@ -82,7 +82,7 @@ $textmode
 ☑	tileta duen koadroa						// [2611] text|emoji
 ☔	aterkia euri-tantekin						// [2614]
 ☕	edari beroa							// [2615]
-☘	shamrock							// [2618] text|emoji (no translation)
+☘	hirusta								// [2618] text|emoji
 ☝	gora seinalatzen ari den hatz erakuslea				// [261D] text|emoji
 ☠	buru-hezurra eta hezur gurutzatuak				// [2620] text|emoji
 ☢	erradioaktiboa							// [2622] text|emoji
@@ -92,7 +92,7 @@ $textmode
 ☮	bakearen ikurra							// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
 ☸	dharmaren gurpila						// [2638] text|emoji
-☹	frowning face							// [2639] text|emoji (no translation)
+☹	kopeta ilunduta duen aurpegi					// [2639] text|emoji
 ☺	irribarre egiten ari den aurpegia				// [263A] text|emoji
 ♀	emakumeen ikurra						// [2640] text|emoji
 ♂	gizonen ikurra							// [2642] text|emoji
@@ -109,9 +109,9 @@ $textmode
 ♒	aquarius							// [2652]
 ♓	pisces								// [2653]
 ♠	pika								// [2660] text|emoji
-♣	club suit							// [2663] text|emoji (no translation)
+♣	hirustak							// [2663] text|emoji
 ♥	bihotza								// [2665] text|emoji
-♦	diamond suit							// [2666] text|emoji (no translation)
+♦	diamanteak							// [2666] text|emoji
 ♨	iturri termalak							// [2668] text|emoji
 ♻	birziklatzeko ikurra						// [267B] text|emoji
 ♿	gurpil-aulkia							// [267F]
@@ -219,19 +219,19 @@ $textmode
 
 🅰	a botoia							// [1F170] text|emoji
 🅱	b botoia							// [1F171] text|emoji
-🅾	“o” botoia							// [1F17E] text|emoji
-🅿	“p” botoia							// [1F17F] text|emoji
+🅾	o” botoia							// [1F17E] text|emoji
+🅿	p” botoia							// [1F17F] text|emoji
 🆎	ab botoia							// [1F18E]
-🆑	“cl” testua karratu batean					// [1F191]
-🆒	“cool” hitza karratu batean					// [1F192]
-🆓	“free” hitza karratu batean					// [1F193]
-🆔	“id” testua karratu batean					// [1F194]
-🆕	“new” hitza zirkulu batean					// [1F195]
-🆖	“ng” testua karratu batean					// [1F196]
-🆗	“ok” testua karratu batean					// [1F197]
-🆘	“sos” hitza karratu batean					// [1F198]
-🆙	“up!” botoia							// [1F199]
-🆚	“vs” testua karratu batean					// [1F19A]
+🆑	cl” testua karratu batean					// [1F191]
+🆒	cool” hitza karratu batean					// [1F192]
+🆓	free” hitza karratu batean					// [1F193]
+🆔	id” testua karratu batean					// [1F194]
+🆕	new” hitza zirkulu batean					// [1F195]
+🆖	ng” testua karratu batean					// [1F196]
+🆗	ok” testua karratu batean					// [1F197]
+🆘	sos” hitza karratu batean					// [1F198]
+🆙	up!” botoia							// [1F199]
+🆚	vs” testua karratu batean					// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
@@ -279,14 +279,14 @@ $textmode
 🌏	asia eta australia ikusgai dituen lur-globoa			// [1F30F]
 🌐	globoa eta meridianoak						// [1F310]
 🌑	ilargi berria							// [1F311]
-🌒	waxing crescent moon						// [1F312] (no translation)
-🌓	first quarter moon						// [1F313] (no translation)
-🌔	waxing gibbous moon						// [1F314] (no translation)
+🌒	ilgora								// [1F312]
+🌓	ilgora-erdia							// [1F313]
+🌔	ilgora-bukaera							// [1F314]
 🌕	ilargi betea							// [1F315]
-🌖	waning gibbous moon						// [1F316] (no translation)
-🌗	last quarter moon						// [1F317] (no translation)
-🌘	waning crescent moon						// [1F318] (no translation)
-🌙	crescent moon							// [1F319] (no translation)
+🌖	ilbehera-hasiera						// [1F316]
+🌗	ilbehera-erdia							// [1F317]
+🌘	ilbehera-bukaera						// [1F318]
+🌙	ilargi-adarra							// [1F319]
 🌚	ilargi berriaren aurpegia					// [1F31A]
 🌛	ilargi-laurdena ezkerrera begira				// [1F31B]
 🌜	ilargi-laurdena eskuinera begira				// [1F31C]
@@ -459,7 +459,7 @@ $textmode
 🏊	igerilaria							// [1F3CA]
 🏋	pisuak altxatzen ari den pertsona				// [1F3CB] text|emoji
 🏌	golflaria							// [1F3CC] text|emoji
-🏍	motorcycle							// [1F3CD] text|emoji (no translation)
+🏍	motozikleta							// [1F3CD] text|emoji
 🏎	lasterketa-autoa						// [1F3CE] text|emoji
 🏏	kriketa								// [1F3CF]
 🏐	boleibola							// [1F3D0]
@@ -504,7 +504,7 @@ $textmode
 🏺	anfora								// [1F3FA]
 🏻	1–2. mota							// [1F3FB]
 🏼	3. mota								// [1F3FC]
-🏽	4. mota								// [1F3FD]
+🏽	bitarteko azal-tonua						// [1F3FD]
 🏾	5. mota								// [1F3FE]
 🏿	6. mota								// [1F3FF]
 🐀	arratoia							// [1F400]
@@ -649,7 +649,7 @@ $textmode
 💋	musu-aztarna							// [1F48B]
 💌	maitasun-gutuna							// [1F48C]
 💍	eraztuna							// [1F48D]
-💎	gem stone							// [1F48E] (no translation)
+💎	harribitxia							// [1F48E]
 💏	musu								// [1F48F]
 💐	lore sorta							// [1F490]
 💑	bihotza erdian duen bikotea					// [1F491]
@@ -699,7 +699,7 @@ $textmode
 💽	minidisc-a							// [1F4BD]
 💾	disketea							// [1F4BE]
 💿	disko optikoa							// [1F4BF]
-📀	dvd								// [1F4C0]
+📀	DVD								// [1F4C0]
 📁	fitxategi-sailkatzailea						// [1F4C1]
 📂	fitxategi-sailkatzaile irekia					// [1F4C2]
 📃	orri tolestua							// [1F4C3]
@@ -733,7 +733,7 @@ $textmode
 📟	bilagailua							// [1F4DF]
 📠	faxa								// [1F4E0]
 📡	satelite bidezko antena						// [1F4E1]
-📢	loudspeaker							// [1F4E2] (no translation)
+📢	bozgorailu							// [1F4E2]
 📣	megafonoa							// [1F4E3]
 📤	irteerako erretilua						// [1F4E4]
 📥	sarrerako erretilua						// [1F4E5]
@@ -770,7 +770,7 @@ $textmode
 🔅	argitasuna ahultzeko botoia					// [1F505]
 🔆	argitasuna igotzeko botoia					// [1F506]
 🔇	bozgorailua itzalita						// [1F507]
-🔈	speaker low volume						// [1F508] (no translation)
+🔈	bozgorailua bolumen txikian					// [1F508]
 🔉	bozgorailua piztuta						// [1F509]
 🔊	bozgorailua ozen						// [1F50A]
 🔋	bateria								// [1F50B]
@@ -789,11 +789,11 @@ $textmode
 🔘	kontrol-laukia							// [1F518]
 🔙	atzera gezia							// [1F519]
 🔚	amaiera gezia							// [1F51A]
-🔛	“on” testua duen gezia						// [1F51B]
-🔜	“soon” testua duen gezia					// [1F51C]
-🔝	“top” testua duen gezia						// [1F51D]
+🔛	on” testua duen gezia						// [1F51B]
+🔜	soon” testua duen gezia						// [1F51C]
+🔝	top” testua duen gezia						// [1F51D]
 🔞	adingaberik ez							// [1F51E]
-🔟	keycap 10							// [1F51F] (no translation)
+🔟	tekla: 10							// [1F51F]
 🔠	alfabeto latindarra maiuskulaz					// [1F520]
 🔡	alfabeto latindarra minuskulaz					// [1F521]
 🔢	zenbakiak							// [1F522]
@@ -939,7 +939,7 @@ $textmode
 😣	aurpegi nekaezina						// [1F623]
 😤	sudurretik kea darion aurpegia					// [1F624]
 😥	desengainatuta baina lasaiago					// [1F625]
-😦	frowning face with open mouth					// [1F626] (no translation)
+😦	kopeta ilunduta eta ahoa irekita duen aurpegi			// [1F626]
 😧	estutasun-aurpegia						// [1F627]
 😨	ikara-aurpegia							// [1F628]
 😩	neke-aurpegia							// [1F629]
@@ -951,10 +951,10 @@ $textmode
 😯	harridura-aurpegia						// [1F62F]
 😰	ahoa irekita eta izerdi hotza duen aurpegia			// [1F630]
 😱	beldurrez oihuka ari den aurpegia				// [1F631]
-😲	astonished face							// [1F632] (no translation)
+😲	harritu-aurpegia						// [1F632]
 😳	aurpegi gorritua						// [1F633]
 😴	lo dagoen aurpegia						// [1F634]
-😵	dizzy face							// [1F635] (no translation)
+😵	zorabio-aurpegia						// [1F635]
 😶	ahorik gabeko aurpegia						// [1F636]
 😷	mediku-maskara daraman aurpegia					// [1F637]
 😸	begiez barre egiten ari den katu-aurpegia			// [1F638]
@@ -1043,10 +1043,10 @@ $textmode
 🚸	haurrek zeharkatzen duten errepidea				// [1F6B8]
 🚹	gizonen komuna							// [1F6B9]
 🚺	emakumeen komuna						// [1F6BA]
-🚻	restroom							// [1F6BB] (no translation)
+🚻	komuna								// [1F6BB]
 🚼	haurtxoen aldagela						// [1F6BC]
-🚽	toilet								// [1F6BD] (no translation)
-🚾	water closet							// [1F6BE] (no translation)
+🚽	bainugela							// [1F6BD]
+🚾	komunak								// [1F6BE]
 🚿	dutxa								// [1F6BF]
 🛀	pertsona bat bainatzen						// [1F6C0]
 🛁	bainuontzia							// [1F6C1]
@@ -1076,8 +1076,8 @@ $textmode
 🛴	patinetea							// [1F6F4]
 🛵	motoa								// [1F6F5]
 🛶	kanoa								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	lera								// [1F6F7]
+🛸	plater hegalari							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1096,7 +1096,7 @@ $textmode
 🤜	ukabila eskuinera begira					// [1F91C]
 🤝	esku-ematea							// [1F91D]
 🤞	hatz gurutzatuak						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	adarren keinua							// [1F91F]
 🤠	behizain txanodunaren aurpegia					// [1F920]
 🤡	pailazo-aurpegia						// [1F921]
 🤢	aurpegi zorabiatua						// [1F922]
@@ -1105,17 +1105,17 @@ $textmode
 🤥	aurpegi gezurtia						// [1F925]
 🤦	esku-azpia aurpegian						// [1F926]
 🤧	aurpegia mukiak kentzen						// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	bekaina jasota duen aurpegia					// [1F928]
+🤩	izar								// [1F929]
+🤪	ero-aurpegia							// [1F92A]
+🤫	isiltasuna eskatzen ari den aurpegia				// [1F92B]
+🤬	ahoan ikurrak dituen aurpegia					// [1F92C]
+🤭	eskuaz ahoa estaltzen ari den aurpegia				// [1F92D]
+🤮	goitika ari den aurpegi						// [1F92E]
+🤯	lehertzear den burua						// [1F92F]
 🤰	emakumea haurdun						// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	bularra ematea							// [1F931]
+🤲	esku-azpiak elkartuta						// [1F932]
 🤳	autoargazkia							// [1F933]
 🤴	printzea							// [1F934]
 🤵	gizona esmokinean						// [1F935]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	3. postuaren domina						// [1F949]
 🥊	boxeoko eskularrua						// [1F94A]
 🥋	arte martzialetako kimonoa					// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	curling-eko harri						// [1F94C]
 🥐	croissanta							// [1F950]
 🥑	ahuakatea							// [1F951]
 🥒	pepinoa								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	kakahuetea							// [1F95C]
 🥝	kiwia								// [1F95D]
 🥞	opil txikiak							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	dumpling							// [1F95F]
+🥠	zortearen gaileta						// [1F960]
+🥡	eramateko kaxa							// [1F961]
+🥢	zotzak								// [1F962]
+🥣	katilua eta koilara						// [1F963]
+🥤	kopa eta lastotxoa						// [1F964]
+🥥	koko								// [1F965]
+🥦	brokoli								// [1F966]
+🥧	tarta								// [1F967]
+🥨	pretzel								// [1F968]
+🥩	haragi-mozketa							// [1F969]
+🥪	ogitartekoa							// [1F96A]
+🥫	janaria latetan							// [1F96B]
 🦀	karramarroa							// [1F980]
 🦁	lehoi-aurpegia							// [1F981]
 🦂	eskorpioia							// [1F982]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	errinozeroa							// [1F98F]
 🦐	ganba								// [1F990]
 🦑	txibia								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	jirafa								// [1F992]
+🦓	zebra								// [1F993]
+🦔	triku								// [1F994]
+🦕	sauropodo							// [1F995]
+🦖	T-Rex								// [1F996]
+🦗	kilker								// [1F997]
 🧀	gazta zatia							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	monokulo bat duen aurpegia					// [1F9D0]
+🧑	heldu								// [1F9D1]
+🧒	haur								// [1F9D2]
+🧓	agure								// [1F9D3]
+🧔	pertsona bizarduna						// [1F9D4]
+🧕	buruan zapi bat daraman emakumea				// [1F9D5]
+🧖	pertsona bat lurrun-gelan					// [1F9D6]
+🧗	pertsona bat eskalatzen						// [1F9D7]
+🧘	pertsona bat loto-posizioan					// [1F9D8]
+🧙	mago								// [1F9D9]
+🧚	maitagarri							// [1F9DA]
+🧛	banpiro								// [1F9DB]
+🧜	itsas izaki							// [1F9DC]
+🧝	elfo								// [1F9DD]
+🧞	iratxo								// [1F9DE]
+🧟	zonbi								// [1F9DF]
+🧠	burmuina							// [1F9E0]
+🧡	bihotz laranja							// [1F9E1]
+🧢	bixera								// [1F9E2]
+🧣	zapi								// [1F9E3]
+🧤	eskularruak							// [1F9E4]
+🧥	berokia								// [1F9E5]
+🧦	galtzerdiak							// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1223,13 +1223,13 @@ $textmode
 🇦🇪	Arabiar Emirerri Batuak						// [1F1E6 1F1EA] AE
 🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
 🇦🇬	Antigua eta Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Angila								// [1F1E6 1F1EE] AI
+🇦🇮	Aingira								// [1F1E6 1F1EE] AI
 🇦🇱	Albania								// [1F1E6 1F1F1] AL
 🇦🇲	Armenia								// [1F1E6 1F1F2] AM
 🇦🇴	Angola								// [1F1E6 1F1F4] AO
 🇦🇶	Antartika							// [1F1E6 1F1F6] AQ
 🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Amerikar Samoa							// [1F1E6 1F1F8] AS
+🇦🇸	Samoa Estatubatuarra						// [1F1E6 1F1F8] AS
 🇦🇹	Austria								// [1F1E6 1F1F9] AT
 🇦🇺	Australia							// [1F1E6 1F1FA] AU
 🇦🇼	Aruba								// [1F1E6 1F1FC] AW
@@ -1260,7 +1260,7 @@ $textmode
 🇨🇨	Cocos uharteak							// [1F1E8 1F1E8] CC
 🇨🇩	Kongoko Errepublika Demokratikoa				// [1F1E8 1F1E9] CD
 🇨🇫	Afrika Erdiko Errepublika					// [1F1E8 1F1EB] CF
-🇨🇬	Kongo (Brazzaville)						// [1F1E8 1F1EC] CG
+🇨🇬	Kongo								// [1F1E8 1F1EC] CG
 🇨🇭	Suitza								// [1F1E8 1F1ED] CH
 🇨🇮	Boli Kosta							// [1F1E8 1F1EE] CI
 🇨🇰	Cook uharteak							// [1F1E8 1F1F0] CK
@@ -1277,7 +1277,7 @@ $textmode
 🇨🇾	Zipre								// [1F1E8 1F1FE] CY
 🇨🇿	Txekia								// [1F1E8 1F1FF] CZ
 🇩🇪	Alemania							// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
+🇩🇬	Diego García							// [1F1E9 1F1EC] DG
 🇩🇯	Djibuti								// [1F1E9 1F1EF] DJ
 🇩🇰	Danimarka							// [1F1E9 1F1F0] DK
 🇩🇲	Dominika							// [1F1E9 1F1F2] DM
@@ -1315,9 +1315,9 @@ $textmode
 🇬🇸	Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak		// [1F1EC 1F1F8] GS
 🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
 🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Ginea-Bissau							// [1F1EC 1F1FC] GW
+🇬🇼	Ginea Bissau							// [1F1EC 1F1FC] GW
 🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hong Kong AEB Txina						// [1F1ED 1F1F0] HK
+🇭🇰	Hong Kong Txinako AEB						// [1F1ED 1F1F0] HK
 🇭🇲	Heard eta McDonald uharteak					// [1F1ED 1F1F2] HM
 🇭🇳	Honduras							// [1F1ED 1F1F3] HN
 🇭🇷	Kroazia								// [1F1ED 1F1F7] HR
@@ -1366,13 +1366,13 @@ $textmode
 🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
 🇲🇫	San Martin							// [1F1F2 1F1EB] MF
 🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
-🇲🇭	Marshall uharteak						// [1F1F2 1F1ED] MH
+🇲🇭	Marshall Uharteak						// [1F1F2 1F1ED] MH
 🇲🇰	Mazedonia							// [1F1F2 1F1F0] MK
 🇲🇱	Mali								// [1F1F2 1F1F1] ML
 🇲🇲	Myanmar (Birmania)						// [1F1F2 1F1F2] MM
 🇲🇳	Mongolia							// [1F1F2 1F1F3] MN
-🇲🇴	Macau AEB Txina							// [1F1F2 1F1F4] MO
-🇲🇵	Iparraldeko Mariana uharteak					// [1F1F2 1F1F5] MP
+🇲🇴	Macau Txinako AEB						// [1F1F2 1F1F4] MO
+🇲🇵	Ipar Mariana uharteak						// [1F1F2 1F1F5] MP
 🇲🇶	Martinika							// [1F1F2 1F1F6] MQ
 🇲🇷	Mauritania							// [1F1F2 1F1F7] MR
 🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
@@ -1417,7 +1417,7 @@ $textmode
 🇷🇺	Errusia								// [1F1F7 1F1FA] RU
 🇷🇼	Ruanda								// [1F1F7 1F1FC] RW
 🇸🇦	Saudi Arabia							// [1F1F8 1F1E6] SA
-🇸🇧	Salomon uharteak						// [1F1F8 1F1E7] SB
+🇸🇧	Salomon Uharteak						// [1F1F8 1F1E7] SB
 🇸🇨	Seychelleak							// [1F1F8 1F1E8] SC
 🇸🇩	Sudan								// [1F1F8 1F1E9] SD
 🇸🇪	Suedia								// [1F1F8 1F1EA] SE
@@ -1457,7 +1457,7 @@ $textmode
 🇺🇦	Ukraina								// [1F1FA 1F1E6] UA
 🇺🇬	Uganda								// [1F1FA 1F1EC] UG
 🇺🇲	Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak		// [1F1FA 1F1F2] UM
-🇺🇳	united nations							// [1F1FA 1F1F3] UN (no translation)
+🇺🇳	Nazio Batuak							// [1F1FA 1F1F3] UN
 🇺🇸	Ameriketako Estatu Batuak					// [1F1FA 1F1F8] US
 🇺🇾	Uruguai								// [1F1FA 1F1FE] UY
 🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	gizon zaindaria						// [1F482 200D 2642]
 🕵️‍♀	emakume detektibea					// [1F575 200D 2640]
 🕵️‍♂	gizon detektibea					// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	emakume mago						// [1F9D9 200D 2640]
+🧙‍♂	gizon mago						// [1F9D9 200D 2642]
+🧚‍♀	(emakume) maitagarri					// [1F9DA 200D 2640]
+🧚‍♂	(gizon) maitagarri					// [1F9DA 200D 2642]
+🧛‍♀	emakume banpiro						// [1F9DB 200D 2640]
+🧛‍♂	gizon banpiro						// [1F9DB 200D 2642]
+🧜‍♀	lamina							// [1F9DC 200D 2640]
+🧜‍♂	gizon-itxurako itsas izaki				// [1F9DC 200D 2642]
+🧝‍♀	emakume elfo						// [1F9DD 200D 2640]
+🧝‍♂	gizon elfo						// [1F9DD 200D 2642]
+🧞‍♀	emakume iratxo						// [1F9DE 200D 2640]
+🧞‍♂	gizon iratxo						// [1F9DE 200D 2642]
+🧟‍♀	emakume zonbi						// [1F9DF 200D 2640]
+🧟‍♂	gizon zonbi						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	gizona waterpoloan jolasten				// [1F93D 200D 2642]
 🤾‍♀	emakumea eskubaloian jolasten				// [1F93E 200D 2640]
 🤾‍♂	gizona eskubaloian jolasten				// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	emakume bat lurrun-gelan				// [1F9D6 200D 2640]
+🧖‍♂	gizon bat lurrun-gelan					// [1F9D6 200D 2642]
+🧗‍♀	emakume eskalatzaile					// [1F9D7 200D 2640]
+🧗‍♂	gizon eskalatzaile					// [1F9D7 200D 2642]
+🧘‍♀	emakume bat loto-posizioan				// [1F9D8 200D 2640]
+🧘‍♂	gizon bat loto-posizioan				// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

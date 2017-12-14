@@ -123,15 +123,15 @@ $textmode
 ⚗	lombik								// [2697] text|emoji
 ⚙	fogaskerék							// [2699] text|emoji
 ⚛	atom szimbólum							// [269B] text|emoji
-⚜	anjou-liliom							// [269C] text|emoji
+⚜	Anjou-liliom							// [269C] text|emoji
 ⚠	figyelmeztetés							// [26A0] text|emoji
 ⚡	magasfeszültség							// [26A1]
 ⚪	fehér kör							// [26AA]
 ⚫	fekete kör							// [26AB]
 ⚰	koporsó								// [26B0] text|emoji
 ⚱	halotti urna							// [26B1] text|emoji
-⚽	focilabda							// [26BD]
-⚾	baseball-labda							// [26BE]
+⚽	foci								// [26BD]
+⚾	baseball							// [26BE]
 ⛄	hóember hó nélkül						// [26C4]
 ⛅	nap egy felhő mögött						// [26C5]
 ⛈	felhő villámmal és esővel					// [26C8] text|emoji
@@ -169,7 +169,7 @@ $textmode
 ✔	vastag pipa							// [2714] text|emoji
 ✖	vastag szorzásjel						// [2716] text|emoji
 ✝	latin kereszt							// [271D] text|emoji
-✡	dávid-csillag							// [2721] text|emoji
+✡	Dávid-csillag							// [2721] text|emoji
 ✨	szikrák								// [2728]
 ✳	nyolcágú csillag						// [2733] text|emoji
 ✴	nyolcas csillag							// [2734] text|emoji
@@ -212,8 +212,8 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	bekarikázott „gratuláció” képírásjel				// [3297] text|emoji
-㊙	bekarikázott „titok” képírásjel					// [3299] text|emoji
+㊗	bekarikázott gratuláció” képírásjel				// [3297] text|emoji
+㊙	bekarikázott titok” képírásjel					// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
@@ -222,34 +222,34 @@ $textmode
 🅾	0 gomb								// [1F17E] text|emoji
 🅿	p gomb								// [1F17F] text|emoji
 🆎	ab gomb								// [1F18E]
-🆑	bekeretezett „cl” rövidítés					// [1F191]
-🆒	bekeretezett „cool” szó						// [1F192]
-🆓	bekeretezett „free” szó						// [1F193]
-🆔	bekeretezett „id” rövidítés					// [1F194]
-🆕	bekeretezett „new” szó						// [1F195]
-🆖	bekeretezett „ng” rövidítés					// [1F196]
-🆗	bekeretezett „ok” szó						// [1F197]
-🆘	bekeretezett „sos” rövidítés					// [1F198]
-🆙	„up!” gomb							// [1F199]
-🆚	bekeretezett „vs” rövidítés					// [1F19A]
+🆑	bekeretezett cl” rövidítés					// [1F191]
+🆒	bekeretezett cool” szó						// [1F192]
+🆓	bekeretezett free” szó						// [1F193]
+🆔	bekeretezett id” rövidítés					// [1F194]
+🆕	bekeretezett new” szó						// [1F195]
+🆖	bekeretezett ng” rövidítés					// [1F196]
+🆗	bekeretezett ok” szó						// [1F197]
+🆘	bekeretezett sos” rövidítés					// [1F198]
+🆙	up!” gomb							// [1F199]
+🆚	bekeretezett vs” rövidítés					// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	bekeretezett „koko” katakana					// [1F201]
-🈂	bekeretezett „sa” katakana					// [1F202] text|emoji
-🈚	bekeretezett „kivonás” képírásjel				// [1F21A]
-🈯	bekeretezett „ujj” képírásjel					// [1F22F]
-🈲	bekeretezett „tiltás” képírásjel				// [1F232]
-🈳	bekeretezett „üres” képírásjel					// [1F233]
-🈴	bekeretezett „együtt” képírásjel				// [1F234]
-🈵	bekeretezett „teli” képírásjel					// [1F235]
-🈶	bekeretezett „létezik” képírásjel				// [1F236]
-🈷	bekeretezett „hold” képírásjel					// [1F237] text|emoji
-🈸	bekeretezett „alkalmazás” képírásjel				// [1F238]
-🈹	bekeretezett „osztás” képírásjel				// [1F239]
-🈺	bekeretezett „működik” képírásjel				// [1F23A]
-🉐	bekarikázott „előny” képírásjel					// [1F250]
-🉑	bekarikázott „elfogadás” képírásjel				// [1F251]
+🈁	bekeretezett koko” katakana					// [1F201]
+🈂	bekeretezett sa” katakana					// [1F202] text|emoji
+🈚	bekeretezett kivonás” képírásjel				// [1F21A]
+🈯	bekeretezett ujj” képírásjel					// [1F22F]
+🈲	bekeretezett tiltás” képírásjel					// [1F232]
+🈳	bekeretezett üres” képírásjel					// [1F233]
+🈴	bekeretezett együtt” képírásjel					// [1F234]
+🈵	bekeretezett teli” képírásjel					// [1F235]
+🈶	bekeretezett létezik” képírásjel				// [1F236]
+🈷	bekeretezett hold” képírásjel					// [1F237] text|emoji
+🈸	bekeretezett alkalmazás” képírásjel				// [1F238]
+🈹	bekeretezett osztás” képírásjel					// [1F239]
+🈺	bekeretezett működik” képírásjel				// [1F23A]
+🉐	bekarikázott előny” képírásjel					// [1F250]
+🉑	bekarikázott elfogadás” képírásjel				// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -274,9 +274,9 @@ $textmode
 🌊	hullám a vízen							// [1F30A]
 🌋	vulkán								// [1F30B]
 🌌	tejút								// [1F30C]
-🌍	európát és afrikát mutató földgömb				// [1F30D]
-🌎	amerikát mutató földgömb					// [1F30E]
-🌏	ázsiát és ausztráliát mutató földgömb				// [1F30F]
+🌍	Európát és Afrikát mutató földgömb				// [1F30D]
+🌎	Amerikát mutató földgömb					// [1F30E]
+🌏	Ázsiát és Ausztráliát mutató földgömb				// [1F30F]
 🌐	földgömb délkörökkel						// [1F310]
 🌑	újhold								// [1F311]
 🌒	növő, kifli alakú hold						// [1F312]
@@ -287,7 +287,7 @@ $textmode
 🌗	utolsó negyedben lévő hold					// [1F317]
 🌘	fogyó, kifli alakú hold						// [1F318]
 🌙	kifli alakú hold						// [1F319]
-🌚	új hold arccal							// [1F31A]
+🌚	újhold arccal							// [1F31A]
 🌛	első negyedben lévő hold arccal					// [1F31B]
 🌜	utolsó negyedben lévő hold arccal				// [1F31C]
 🌝	telihold arccal							// [1F31D]
@@ -454,8 +454,8 @@ $textmode
 🏅	sportérem							// [1F3C5]
 🏆	kupa								// [1F3C6]
 🏇	lóverseny							// [1F3C7]
-🏈	amerikaifoci-labda						// [1F3C8]
-🏉	rögbilabda							// [1F3C9]
+🏈	amerikai foci							// [1F3C8]
+🏉	rögbi								// [1F3C9]
 🏊	úszó								// [1F3CA]
 🏋	súlyemelő							// [1F3CB] text|emoji
 🏌	golfozó								// [1F3CC] text|emoji
@@ -502,11 +502,11 @@ $textmode
 🏸	tollaslabda							// [1F3F8]
 🏹	íj és nyíl							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	1-es és 2-es bőrtípus						// [1F3FB]
-🏼	3-as bőrtípus							// [1F3FC]
-🏽	4-es bőrtípus							// [1F3FD]
-🏾	5-ös bőrtípus							// [1F3FE]
-🏿	6-os bőrtípus							// [1F3FF]
+🏻	világos bőrtónus						// [1F3FB]
+🏼	közepesen világos bőrtónus					// [1F3FC]
+🏽	közepes bőrtónus						// [1F3FD]
+🏾	közepesen sötét bőrtónus					// [1F3FE]
+🏿	sötét bőrtónus							// [1F3FF]
 🐀	patkány								// [1F400]
 🐁	egér								// [1F401]
 🐂	ökör								// [1F402]
@@ -536,7 +536,7 @@ $textmode
 🐚	tengeri csiga							// [1F41A]
 🐛	bogár								// [1F41B]
 🐜	hangya								// [1F41C]
-🐝	dongó								// [1F41D]
+🐝	méh								// [1F41D]
 🐞	katica								// [1F41E]
 🐟	hal								// [1F41F]
 🐠	trópusi hal							// [1F420]
@@ -667,7 +667,7 @@ $textmode
 💝	szív szalaggal							// [1F49D]
 💞	forgó szívek							// [1F49E]
 💟	szív formájú dekoráció						// [1F49F]
-💠	gyémánt ponttal							// [1F4A0]
+💠	rombusz ponttal							// [1F4A0]
 💡	villanykörte							// [1F4A1]
 💢	a düh szimbóluma						// [1F4A2]
 💣	bomba								// [1F4A3]
@@ -726,7 +726,7 @@ $textmode
 📘	kék könyv							// [1F4D8]
 📙	narancssárga könyv						// [1F4D9]
 📚	könyvek								// [1F4DA]
-📛	névjegytábla							// [1F4DB]
+📛	kitűző								// [1F4DB]
 📜	tekercs								// [1F4DC]
 📝	feljegyzés							// [1F4DD]
 📞	telefonkagyló							// [1F4DE]
@@ -791,9 +791,9 @@ $textmode
 🔚	vége nyíl							// [1F51A]
 🔛	bekapcsolva nyíl						// [1F51B]
 🔜	hamarosan nyíl							// [1F51C]
-🔝	felfelé nyíl							// [1F51D]
+🔝	csúcsra nyíl							// [1F51D]
 🔞	18 év alatt tilos						// [1F51E]
-🔟	tízes számbillentyű						// [1F51F]
+🔟	gombfej: 10							// [1F51F]
 🔠	latin nagybetűs bevitel						// [1F520]
 🔡	latin kisbetűs bevitel						// [1F521]
 🔢	számbevitel							// [1F522]
@@ -893,9 +893,9 @@ $textmode
 🗯	jobbra nyíló dühös szövegbuborék				// [1F5EF] text|emoji
 🗳	urna szavazólappal						// [1F5F3] text|emoji
 🗺	világtérkép							// [1F5FA] text|emoji
-🗻	fudzsi hegy							// [1F5FB]
+🗻	Fudzsi-hegy							// [1F5FB]
 🗼	tokiói torony							// [1F5FC]
-🗽	szabadság-szobor						// [1F5FD]
+🗽	Szabadság-szobor						// [1F5FD]
 🗾	japán térképe							// [1F5FE]
 🗿	moai								// [1F5FF]
 
@@ -906,7 +906,7 @@ $textmode
 😂	arc örömkönnyekkel						// [1F602]
 😃	nyitott szájjal mosolygó arc					// [1F603]
 😄	nyitott szájjal mosolygó arc mosolygó szemmel			// [1F604]
-😅	nyitott szájjal mosolygó arc hideg verejtékkel			// [1F605]
+😅	nyitott szájjal mosolygó arc verejtékkel			// [1F605]
 😆	nyitott szájjal és lehunyt szemmel mosolygó arc			// [1F606]
 😇	mosolygó arc glóriával						// [1F607]
 😈	mosolygó arc szarvakkal						// [1F608]
@@ -920,7 +920,7 @@ $textmode
 😐	semleges arc							// [1F610]
 😑	kifejezéstelen arc						// [1F611]
 😒	szomorú arc							// [1F612]
-😓	arc hideg verejtékkel						// [1F613]
+😓	arc verejtékkel							// [1F613]
 😔	elgondolkodó arc						// [1F614]
 😕	zavart arc							// [1F615]
 😖	összezavarodott arc						// [1F616]
@@ -949,7 +949,7 @@ $textmode
 😭	zokogó arc							// [1F62D]
 😮	arc nyitott szájjal						// [1F62E]
 😯	meglepődött arc							// [1F62F]
-😰	arc nyitott szájjal és hideg verejtékkel			// [1F630]
+😰	aggódó arc nyitott szájjal és verejtékkel			// [1F630]
 😱	félelemtől sikoltó arc						// [1F631]
 😲	lenyűgözött arc							// [1F632]
 😳	elpirult arc							// [1F633]
@@ -1009,7 +1009,7 @@ $textmode
 🚖	érkező taxi							// [1F696]
 🚗	autó								// [1F697]
 🚘	érkező autó							// [1F698]
-🚙	lakóautó							// [1F699]
+🚙	szabadidőautó							// [1F699]
 🚚	teherautó							// [1F69A]
 🚛	billenős teherautó						// [1F69B]
 🚜	traktor								// [1F69C]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	hegyi felvonó							// [1F6A0]
 🚡	kötélpályás felvonó						// [1F6A1]
 🚢	hajó								// [1F6A2]
-🚣	csónak								// [1F6A3]
+🚣	evező ember							// [1F6A3]
 🚤	motoros siklócsónak						// [1F6A4]
 🚥	vízszintes közlekedési lámpa					// [1F6A5]
 🚦	függőleges közlekedési lámpa					// [1F6A6]
@@ -1076,8 +1076,8 @@ $textmode
 🛴	roller								// [1F6F4]
 🛵	robogó								// [1F6F5]
 🛶	kenu								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	szán								// [1F6F7]
+🛸	repülő csészealj						// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1090,13 +1090,13 @@ $textmode
 🤖	robotarc							// [1F916]
 🤗	ölelés								// [1F917]
 🤘	metálvilla							// [1F918]
-🤙	„hívj fel” kézjel						// [1F919]
+🤙	hívj fel” kézjel						// [1F919]
 🤚	kézfej								// [1F91A]
 🤛	balra néző ököl							// [1F91B]
 🤜	jobbra néző ököl						// [1F91C]
 🤝	kézfogás							// [1F91D]
 🤞	keresztezett ujjak						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	szeretlek kézmozdulat						// [1F91F]
 🤠	cowboy kalapos fej						// [1F920]
 🤡	bohócfej							// [1F921]
 🤢	émelygő fej							// [1F922]
@@ -1105,17 +1105,17 @@ $textmode
 🤥	hazudó fej							// [1F925]
 🤦	kézbe temetett arc						// [1F926]
 🤧	tüsszentő fej							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	felhúzott szemöldökű arc					// [1F928]
+🤩	csillagszemű							// [1F929]
+🤪	őrült fej							// [1F92A]
+🤫	csitító fej							// [1F92B]
+🤬	arc jelekkel a száján						// [1F92C]
+🤭	fej szájra tett kézzel						// [1F92D]
+🤮	hányó arc							// [1F92E]
+🤯	felrobbanó fej							// [1F92F]
 🤰	terhes nő							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	szoptatás							// [1F931]
+🤲	felfelé fordított tenyerek					// [1F932]
 🤳	szelfi								// [1F933]
 🤴	herceg								// [1F934]
 🤵	szmokingos férfi						// [1F935]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	bronzérem							// [1F949]
 🥊	boxkesztyű							// [1F94A]
 🥋	karateruha							// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	curlingkő							// [1F94C]
 🥐	croissant							// [1F950]
 🥑	avokádó								// [1F951]
 🥒	uborka								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	földimogyoró							// [1F95C]
 🥝	kivi								// [1F95D]
 🥞	palacsinta							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	gombóc								// [1F95F]
+🥠	szerencsesüti							// [1F960]
+🥡	elviteles doboz							// [1F961]
+🥢	evőpálcikák							// [1F962]
+🥣	tál kanállal							// [1F963]
+🥤	pohár szívószállal						// [1F964]
+🥥	kókuszdió							// [1F965]
+🥦	brokkoli							// [1F966]
+🥧	pite								// [1F967]
+🥨	perec								// [1F968]
+🥩	húsdarab							// [1F969]
+🥪	szendvics							// [1F96A]
+🥫	konzerv								// [1F96B]
 🦀	rák								// [1F980]
 🦁	oroszlánfej							// [1F981]
 🦂	skorpió								// [1F982]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	orrszarvú							// [1F98F]
 🦐	garnélarák							// [1F990]
 🦑	tintahal							// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	zsiráf								// [1F992]
+🦓	zebra								// [1F993]
+🦔	sün								// [1F994]
+🦕	sauropoda							// [1F995]
+🦖	T. rex								// [1F996]
+🦗	tücsök								// [1F997]
 🧀	sajtdarab							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	fej monoklival							// [1F9D0]
+🧑	felnőtt								// [1F9D1]
+🧒	gyerek								// [1F9D2]
+🧓	idősebb felnőtt							// [1F9D3]
+🧔	szakállas ember							// [1F9D4]
+🧕	nő fejkendővel							// [1F9D5]
+🧖	ember a gőzfürdőben						// [1F9D6]
+🧗	mászó ember							// [1F9D7]
+🧘	ember lótuszülésben						// [1F9D8]
+🧙	varázsló							// [1F9D9]
+🧚	tündér								// [1F9DA]
+🧛	vámpír								// [1F9DB]
+🧜	sellő								// [1F9DC]
+🧝	tünde								// [1F9DD]
+🧞	dzsinn								// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	agy								// [1F9E0]
+🧡	narancssárga szív						// [1F9E1]
+🧢	sildes sapka							// [1F9E2]
+🧣	sál								// [1F9E3]
+🧤	kesztyű								// [1F9E4]
+🧥	kabát								// [1F9E5]
+🧦	zokni								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1432,7 +1432,7 @@ $textmode
 🇸🇴	Szomália							// [1F1F8 1F1F4] SO
 🇸🇷	Suriname							// [1F1F8 1F1F7] SR
 🇸🇸	Dél-Szudán							// [1F1F8 1F1F8] SS
-🇸🇹	Sao Tomé és Príncipe						// [1F1F8 1F1F9] ST
+🇸🇹	São Tomé és Príncipe						// [1F1F8 1F1F9] ST
 🇸🇻	Salvador							// [1F1F8 1F1FB] SV
 🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
 🇸🇾	Szíria								// [1F1F8 1F1FE] SY
@@ -1456,8 +1456,8 @@ $textmode
 🇹🇿	Tanzánia							// [1F1F9 1F1FF] TZ
 🇺🇦	Ukrajna								// [1F1FA 1F1E6] UA
 🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Az Amerikai Egyesült Államok lakatlan külbirtokai		// [1F1FA 1F1F2] UM
-🇺🇳	ENSZ								// [1F1FA 1F1F3] UN
+🇺🇲	Az USA lakatlan külbirtokai					// [1F1FA 1F1F2] UM
+🇺🇳	Egyesült Nemzetek Szervezete					// [1F1FA 1F1F3] UN
 🇺🇸	Egyesült Államok						// [1F1FA 1F1F8] US
 🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
 🇺🇿	Üzbegisztán							// [1F1FA 1F1FF] UZ
@@ -1485,52 +1485,52 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	sorszám billentyű						// [0023 FE0F 20E3]
-*️⃣	csillag billentyű						// [002A FE0F 20E3]
-0️⃣	nulla számbillentyű						// [0030 FE0F 20E3]
-1️⃣	egyes számbillentyű						// [0031 FE0F 20E3]
-2️⃣	kettes számbillentyű						// [0032 FE0F 20E3]
-3️⃣	hármas számbillentyű						// [0033 FE0F 20E3]
-4️⃣	négyes számbillentyű						// [0034 FE0F 20E3]
-5️⃣	ötös számbillentyű						// [0035 FE0F 20E3]
-6️⃣	hatos számbillentyű						// [0036 FE0F 20E3]
-7️⃣	hetes számbillentyű						// [0037 FE0F 20E3]
-8️⃣	nyolcas számbillentyű						// [0038 FE0F 20E3]
-9️⃣	kilences számbillentyű						// [0039 FE0F 20E3]
+#️⃣	gombfej: #							// [0023 FE0F 20E3]
+*️⃣	gombfej: *							// [002A FE0F 20E3]
+0️⃣	gombfej: 0							// [0030 FE0F 20E3]
+1️⃣	gombfej: 1							// [0031 FE0F 20E3]
+2️⃣	gombfej: 2							// [0032 FE0F 20E3]
+3️⃣	gombfej: 3							// [0033 FE0F 20E3]
+4️⃣	gombfej: 4							// [0034 FE0F 20E3]
+5️⃣	gombfej: 5							// [0035 FE0F 20E3]
+6️⃣	gombfej: 6							// [0036 FE0F 20E3]
+7️⃣	gombfej: 7							// [0037 FE0F 20E3]
+8️⃣	gombfej: 8							// [0038 FE0F 20E3]
+9️⃣	gombfej: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
-👩‍❤‍💋‍👨	csók, nő, férfi				// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	csók, férfi, férfi			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	csők, nő, nő				// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	pár szívvel, nő, férfi				// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	pár szívvel, férfi, férfi			// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	pár szívvel, nő, nő				// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	család, férfi, nő, fiú				// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	család, férfi, nő, lány				// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	család, férfi, nő, lány, fiú		// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	család, férfi, nő, fiú, fiú		// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	család, férfi, nő, lány, lány		// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	család, férfi, férfi, fiú			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	család, férfi, férfi, lány			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	család, férfi, férfi, lány, fiú		// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	család, férfi, férfi, fiú, fiú		// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	család, férfi, férfi, lány, lány	// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	család, nő, nő, fiú				// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	család, nő, nő, lány				// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	család, nő, nő, lány, fiú		// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	család, nő, nő, fiú, fiú		// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	család, nő, nő, lány, lány		// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	család, férfi, fiú					// [1F468 200D 1F466]
-👨‍👦‍👦	család, férfi, fiú, fiú				// [1F468 200D 1F466 200D 1F466]
-👨‍👧	család, férfi, lány					// [1F468 200D 1F467]
-👨‍👧‍👦	család, férfi, lány, fiú			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	család, férfi, lány, lány			// [1F468 200D 1F467 200D 1F467]
-👩‍👦	család, nő, fiú						// [1F469 200D 1F466]
-👩‍👦‍👦	család, nő, fiú, fiú				// [1F469 200D 1F466 200D 1F466]
-👩‍👧	család, nő, lány					// [1F469 200D 1F467]
-👩‍👧‍👦	család, nő, lány, fiú				// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	család, nő, lány, lány				// [1F469 200D 1F467 200D 1F467]
+👩‍❤‍💋‍👨	csók: nő és férfi			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	csók: férfi és férfi			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	csók: nő és nő				// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	pár szívvel: nő és férfi			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	pár szívvel: férfi és férfi			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	pár szívvel: nő és nő				// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	család: férfi és nő és fiú			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	család: férfi és nő és lány			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	család: férfi és nő és lány és fiú	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	család: férfi és nő és fiú és fiú	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	család: férfi és nő és lány és lány	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	család: férfi és férfi és fiú			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	család: férfi és férfi és lány			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	család: férfi és férfi és lány és fiú	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	család: férfi és férfi és fiú és fiú	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	család: férfi és férfi és lány és lány	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	család: nő és nő és fiú				// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	család: nő és nő és lány			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	család: nő és nő és lány és fiú		// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	család: nő és nő és fiú és fiú		// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	család: nő és nő és lány és lány	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	család: férfi és fiú					// [1F468 200D 1F466]
+👨‍👦‍👦	család: férfi és fiú és fiú			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	család: férfi és lány					// [1F468 200D 1F467]
+👨‍👧‍👦	család: férfi és lány és fiú			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	család: férfi és lány és lány			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	család: nő és fiú					// [1F469 200D 1F466]
+👩‍👦‍👦	család: nő és fiú és fiú			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	család: nő és lány					// [1F469 200D 1F467]
+👩‍👧‍👦	család: nő és lány és fiú			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	család: nő és lány és lány			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	őr							// [1F482 200D 2642]
 🕵️‍♀	nyomozónő						// [1F575 200D 2640]
 🕵️‍♂	nyomozó							// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	varázslónő						// [1F9D9 200D 2640]
+🧙‍♂	férfi varázsló						// [1F9D9 200D 2642]
+🧚‍♀	női tündér						// [1F9DA 200D 2640]
+🧚‍♂	férfi tündér						// [1F9DA 200D 2642]
+🧛‍♀	női vámpír						// [1F9DB 200D 2640]
+🧛‍♂	férfi vámpír						// [1F9DB 200D 2642]
+🧜‍♀	sellőlány						// [1F9DC 200D 2640]
+🧜‍♂	férfi sellő						// [1F9DC 200D 2642]
+🧝‍♀	női tünde						// [1F9DD 200D 2640]
+🧝‍♂	férfi tünde						// [1F9DD 200D 2642]
+🧞‍♀	női dzsinn						// [1F9DE 200D 2640]
+🧞‍♂	férfi dzsinn						// [1F9DE 200D 2642]
+🧟‍♀	női zombi						// [1F9DF 200D 2640]
+🧟‍♂	férfi zombi						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	vízilabdázó férfi					// [1F93D 200D 2642]
 🤾‍♀	kézilabdázó nő						// [1F93E 200D 2640]
 🤾‍♂	kézilabdázó férfi					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	nő a gőzfürdőben					// [1F9D6 200D 2640]
+🧖‍♂	férfi a gőzfürdőben					// [1F9D6 200D 2642]
+🧗‍♀	mászó nő						// [1F9D7 200D 2640]
+🧗‍♂	mászó férfi						// [1F9D7 200D 2642]
+🧘‍♀	nő lótuszülésben					// [1F9D8 200D 2640]
+🧘‍♂	férfi lótuszülésben					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

@@ -58,7 +58,7 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	M cerchiata							// [24C2] text|emoji
+Ⓜ	pulsante M cerchiata						// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
@@ -92,7 +92,7 @@ $textmode
 ☮	pace								// [262E] text|emoji
 ☯	Yin e Yang							// [262F] text|emoji
 ☸	ruota del Dharma						// [2638] text|emoji
-☹	molto imbronciato						// [2639] text|emoji
+☹	faccina imbronciata						// [2639] text|emoji
 ☺	faccina sorridente						// [263A] text|emoji
 ♀	simbolo di femmina						// [2640] text|emoji
 ♂	simbolo di maschio						// [2642] text|emoji
@@ -103,7 +103,7 @@ $textmode
 ♌	Leone								// [264C]
 ♍	Vergine								// [264D]
 ♎	Bilancia							// [264E]
-♏	Scorpione							// [264F]
+♏	segno dello Scorpione						// [264F]
 ♐	Sagittario							// [2650]
 ♑	Capricorno							// [2651]
 ♒	Acquario							// [2652]
@@ -126,8 +126,8 @@ $textmode
 ⚜	giglio								// [269C] text|emoji
 ⚠	attenzione							// [26A0] text|emoji
 ⚡	alta tensione							// [26A1]
-⚪	cerchio bianco grande						// [26AA]
-⚫	cerchio nero grande						// [26AB]
+⚪	cerchio bianco							// [26AA]
+⚫	cerchio nero							// [26AB]
 ⚰	bara								// [26B0] text|emoji
 ⚱	urna cineraria							// [26B1] text|emoji
 ⚽	pallone da calcio						// [26BD]
@@ -140,7 +140,7 @@ $textmode
 ⛑	elmetto con croce bianca					// [26D1] text|emoji
 ⛓	catene								// [26D3] text|emoji
 ⛔	divieto di accesso						// [26D4]
-⛩	Jinja								// [26E9] text|emoji
+⛩	jinja								// [26E9] text|emoji
 ⛪	chiesa								// [26EA]
 ⛰	montagna							// [26F0] text|emoji
 ⛱	ombrellone							// [26F1] text|emoji
@@ -150,7 +150,7 @@ $textmode
 ⛵	barca a vela							// [26F5]
 ⛷	sciatore							// [26F7] text|emoji
 ⛸	pattinaggio su ghiaccio						// [26F8] text|emoji
-⛹	omino con la palla						// [26F9] text|emoji
+⛹	persona che fa rimbalzare una palla				// [26F9] text|emoji
 ⛺	tenda								// [26FA]
 ⛽	stazione di servizio						// [26FD]
 
@@ -179,10 +179,10 @@ $textmode
 ❎	croce con quadrato						// [274E]
 ❓	punto di domanda pieno						// [2753]
 ❔	punto di domanda vuoto						// [2754]
-❕	punto esclamativo						// [2755]
+❕	punto esclamativo vuoto						// [2755]
 ❗	punto esclamativo pieno						// [2757]
 ❣	punto esclamativo a cuore					// [2763] text|emoji
-❤	cuore								// [2764] text|emoji
+❤	cuore rosso							// [2764] text|emoji
 ➕	più								// [2795]
 ➖	meno								// [2796]
 ➗	diviso								// [2797]
@@ -220,18 +220,18 @@ $textmode
 🅰	gruppo sanguigno A						// [1F170] text|emoji
 🅱	gruppo sanguigno B						// [1F171] text|emoji
 🅾	gruppo sanguigno O						// [1F17E] text|emoji
-🅿	parcheggio							// [1F17F] text|emoji
+🅿	pulsante P							// [1F17F] text|emoji
 🆎	gruppo sanguigno AB						// [1F18E]
-🆑	CL								// [1F191]
-🆒	cool								// [1F192]
-🆓	free								// [1F193]
-🆔	ID								// [1F194]
-🆕	new								// [1F195]
-🆖	NG								// [1F196]
-🆗	OK								// [1F197]
-🆘	SOS								// [1F198]
-🆙	UP!								// [1F199]
-🆚	contro								// [1F19A]
+🆑	pulsante CL							// [1F191]
+🆒	pulsante COOL							// [1F192]
+🆓	pulsante FREE							// [1F193]
+🆔	pulsante ID							// [1F194]
+🆕	pulsante NEW							// [1F195]
+🆖	pulsante NG							// [1F196]
+🆗	pulsante OK							// [1F197]
+🆘	pulsante SOS							// [1F198]
+🆙	pulsante UP!							// [1F199]
+🆚	pulsante VS							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
@@ -257,7 +257,7 @@ $textmode
 
 // 1F0A0..1F0FF : Playing Cards
 
-🃏	Joker								// [1F0CF]
+🃏	jolly								// [1F0CF]
 
 // 1F300..1F5FF : Miscellaneous Symbols and Pictographs
 
@@ -307,7 +307,7 @@ $textmode
 🌭	hot dog								// [1F32D]
 🌮	taco								// [1F32E]
 🌯	burrito								// [1F32F]
-🌰	nocciola							// [1F330]
+🌰	castagna							// [1F330]
 🌱	germoglio							// [1F331]
 🌲	albero sempreverde						// [1F332]
 🌳	albero deciduo							// [1F333]
@@ -325,7 +325,7 @@ $textmode
 🌿	pianta								// [1F33F]
 🍀	quadrifoglio							// [1F340]
 🍁	foglia d’acero							// [1F341]
-🍂	foglie che cadono						// [1F342]
+🍂	foglia caduta							// [1F342]
 🍃	foglia al vento							// [1F343]
 🍄	fungo								// [1F344]
 🍅	pomodoro							// [1F345]
@@ -344,7 +344,7 @@ $textmode
 🍒	ciliegia							// [1F352]
 🍓	fragola								// [1F353]
 🍔	hamburger							// [1F354]
-🍕	fetta di pizza							// [1F355]
+🍕	pizza								// [1F355]
 🍖	carne								// [1F356]
 🍗	coscia di pollo							// [1F357]
 🍘	galletta di riso						// [1F358]
@@ -372,17 +372,17 @@ $textmode
 🍮	budino								// [1F36E]
 🍯	vaso di miele							// [1F36F]
 🍰	fetta di torta							// [1F370]
-🍱	piatto pronto							// [1F371]
+🍱	bento box							// [1F371]
 🍲	ciotola di cibo							// [1F372]
-🍳	padella								// [1F373]
+🍳	cucinare							// [1F373]
 🍴	forchetta e coltello						// [1F374]
 🍵	tazza								// [1F375]
 🍶	sake								// [1F376]
-🍷	vino								// [1F377]
+🍷	bicchiere di vino						// [1F377]
 🍸	cocktail							// [1F378]
 🍹	cocktail tropicale						// [1F379]
-🍺	birra								// [1F37A]
-🍻	boccali di birra						// [1F37B]
+🍺	boccale di birra						// [1F37A]
+🍻	boccali di birra che brindano					// [1F37B]
 🍼	biberon								// [1F37C]
 🍽	piatto e posate							// [1F37D] text|emoji
 🍾	bottiglia stappata						// [1F37E]
@@ -405,7 +405,7 @@ $textmode
 🎏	aquilone a forma di carpa					// [1F38F]
 🎐	campana al vento						// [1F390]
 🎑	contemplazione della luna					// [1F391]
-🎒	zaino di scuola							// [1F392]
+🎒	zaino per la scuola						// [1F392]
 🎓	cappello da laureato						// [1F393]
 🎖	medaglia							// [1F396] text|emoji
 🎗	nastro								// [1F397] text|emoji
@@ -428,7 +428,7 @@ $textmode
 🎫	biglietto							// [1F3AB]
 🎬	ciak								// [1F3AC]
 🎭	maschere							// [1F3AD]
-🎮	videogioco							// [1F3AE]
+🎮	gamepad								// [1F3AE]
 🎯	bersaglio							// [1F3AF]
 🎰	slot machine							// [1F3B0]
 🎱	biliardo							// [1F3B1]
@@ -446,18 +446,18 @@ $textmode
 🎽	maglia da corsa							// [1F3BD]
 🎾	tennis								// [1F3BE]
 🎿	sci								// [1F3BF]
-🏀	pallone da basket						// [1F3C0]
+🏀	palla da pallacanestro						// [1F3C0]
 🏁	bandiera a scacchi						// [1F3C1]
-🏂	omino in snowboard						// [1F3C2]
-🏃	omino che corre							// [1F3C3]
-🏄	surf								// [1F3C4]
+🏂	uomo sullo snowboard						// [1F3C2]
+🏃	persona che corre						// [1F3C3]
+🏄	persona che fa surf						// [1F3C4]
 🏅	medaglia sportiva						// [1F3C5]
 🏆	coppa								// [1F3C6]
 🏇	ippica								// [1F3C7]
 🏈	football americano						// [1F3C8]
 🏉	pallone da rugby						// [1F3C9]
-🏊	omino che nuota							// [1F3CA]
-🏋	sollevatore di pesi						// [1F3CB] text|emoji
+🏊	persona che nuota						// [1F3CA]
+🏋	persona che solleva pesi					// [1F3CB] text|emoji
 🏌	giocatore di golf						// [1F3CC] text|emoji
 🏍	motocicletta							// [1F3CD] text|emoji
 🏎	auto da corsa							// [1F3CE] text|emoji
@@ -482,35 +482,35 @@ $textmode
 🏡	casa con giardino						// [1F3E1]
 🏢	edifico di uffici						// [1F3E2]
 🏣	ufficio postale giapponese					// [1F3E3]
-🏤	ufficio postale europeo						// [1F3E4]
+🏤	ufficio postale							// [1F3E4]
 🏥	ospedale							// [1F3E5]
 🏦	banca								// [1F3E6]
 🏧	bancomat							// [1F3E7]
 🏨	hotel								// [1F3E8]
 🏩	motel								// [1F3E9]
-🏪	autogrill							// [1F3EA]
+🏪	minimarket							// [1F3EA]
 🏫	scuola								// [1F3EB]
-🏬	centro commerciale						// [1F3EC]
+🏬	grande magazzino						// [1F3EC]
 🏭	fabbrica							// [1F3ED]
 🏮	lanterna rossa							// [1F3EE]
 🏯	casa giapponese							// [1F3EF]
 🏰	castello							// [1F3F0]
 🏳	bandiera bianca							// [1F3F3] text|emoji
 🏴	bandiera nera							// [1F3F4]
-🏵	coccarda							// [1F3F5] text|emoji
+🏵	rosetta								// [1F3F5] text|emoji
 🏷	etichetta							// [1F3F7] text|emoji
 🏸	badminton							// [1F3F8]
 🏹	arco e freccia							// [1F3F9]
 🏺	anfora								// [1F3FA]
-🏻	colore pelle 1–2						// [1F3FB]
-🏼	colore pelle 3							// [1F3FC]
-🏽	colore pelle 4							// [1F3FD]
-🏾	colore pelle 5							// [1F3FE]
-🏿	colore pelle 6							// [1F3FF]
-🐀	Ratto								// [1F400]
-🐁	Topo								// [1F401]
+🏻	fototipo 1–2							// [1F3FB]
+🏼	fototipo 3							// [1F3FC]
+🏽	fototipo 4							// [1F3FD]
+🏾	fototipo 5							// [1F3FE]
+🏿	fototipo 6							// [1F3FF]
+🐀	ratto								// [1F400]
+🐁	topo								// [1F401]
 🐂	bue								// [1F402]
-🐃	bufalo								// [1F403]
+🐃	bufalo d’acqua							// [1F403]
 🐄	mucca								// [1F404]
 🐅	tigre								// [1F405]
 🐆	leopardo							// [1F406]
@@ -527,10 +527,10 @@ $textmode
 🐑	pecora								// [1F411]
 🐒	scimmia								// [1F412]
 🐓	gallo								// [1F413]
-🐔	faccina gallina							// [1F414]
+🐔	gallina								// [1F414]
 🐕	cane								// [1F415]
 🐖	maiale								// [1F416]
-🐗	faccina cinghiale						// [1F417]
+🐗	cinghiale							// [1F417]
 🐘	elefante							// [1F418]
 🐙	polpo								// [1F419]
 🐚	conchiglia							// [1F41A]
@@ -542,12 +542,12 @@ $textmode
 🐠	pesce tropicale							// [1F420]
 🐡	pesce palla							// [1F421]
 🐢	tartaruga							// [1F422]
-🐣	pulcino appena nato						// [1F423]
-🐤	faccina pulcino							// [1F424]
+🐣	pulcino che nasce						// [1F423]
+🐤	pulcino								// [1F424]
 🐥	pulcino visto di fronte						// [1F425]
-🐦	faccina uccellino						// [1F426]
-🐧	faccina pinguino						// [1F427]
-🐨	faccina koala							// [1F428]
+🐦	uccello								// [1F426]
+🐧	pinguino							// [1F427]
+🐨	koala								// [1F428]
 🐩	barboncino							// [1F429]
 🐪	dromedario							// [1F42A]
 🐫	cammello							// [1F42B]
@@ -584,23 +584,23 @@ $textmode
 👊	pugno chiuso							// [1F44A]
 👋	mano che saluta							// [1F44B]
 👌	mano che fa OK							// [1F44C]
-👍	pollice alzato							// [1F44D]
-👎	pollice abbassato						// [1F44E]
+👍	pollice in su							// [1F44D]
+👎	pollice verso							// [1F44E]
 👏	mani che applaudono						// [1F44F]
 👐	mani aperte							// [1F450]
 👑	corona								// [1F451]
 👒	cappello da donna						// [1F452]
 👓	occhiali da vista						// [1F453]
 👔	cravatta							// [1F454]
-👕	T-shirt								// [1F455]
-👖	pantaloni							// [1F456]
+👕	t-shirt								// [1F455]
+👖	jeans								// [1F456]
 👗	vestito								// [1F457]
 👘	kimono								// [1F458]
 👙	bikini								// [1F459]
-👚	vestiti da donna						// [1F45A]
+👚	maglietta da donna						// [1F45A]
 👛	borsellino							// [1F45B]
 👜	borsa								// [1F45C]
-👝	borsetta							// [1F45D]
+👝	pochette							// [1F45D]
 👞	scarpa da uomo							// [1F45E]
 👟	scarpa sportiva							// [1F45F]
 👠	scarpa con il tacco						// [1F460]
@@ -614,11 +614,11 @@ $textmode
 👨	uomo								// [1F468]
 👩	donna								// [1F469]
 👪	famiglia							// [1F46A]
-👫	uomo e donna							// [1F46B]
-👬	due uomini							// [1F46C]
-👭	due donne							// [1F46D]
+👫	uomo e donna che si tengono per mano				// [1F46B]
+👬	due uomini che si tengono per mano				// [1F46C]
+👭	due donne che si tengono per mano				// [1F46D]
 👮	poliziotto							// [1F46E]
-👯	coniglietta							// [1F46F]
+👯	persone con orecchie da coniglio				// [1F46F]
 👰	sposa								// [1F470]
 👱	persona bionda							// [1F471]
 👲	uomo con zucchetto cinese					// [1F472]
@@ -629,18 +629,18 @@ $textmode
 👷	operaio edile							// [1F477]
 👸	principessa							// [1F478]
 👹	orco								// [1F479]
-👺	elfo malefico							// [1F47A]
+👺	goblin								// [1F47A]
 👻	fantasma							// [1F47B]
 👼	angioletto							// [1F47C]
 👽	alieno								// [1F47D]
 👾	mostro alieno							// [1F47E]
-👿	diavoletto							// [1F47F]
+👿	faccina arrabbiata con corna					// [1F47F]
 💀	teschio								// [1F480]
 💁	persona al punto informazioni					// [1F481]
 💂	guardia								// [1F482]
-💃	ballerina							// [1F483]
+💃	donna che balla							// [1F483]
 💄	rossetto							// [1F484]
-💅	unghie con smalto						// [1F485]
+💅	smalto per unghie						// [1F485]
 💆	massaggio facciale						// [1F486]
 💇	taglio di capelli						// [1F487]
 💈	barbiere							// [1F488]
@@ -652,7 +652,7 @@ $textmode
 💎	gemma								// [1F48E]
 💏	bacio tra coppia						// [1F48F]
 💐	mazzo di fiori							// [1F490]
-💑	coppia								// [1F491]
+💑	coppia con cuore						// [1F491]
 💒	chiesa per matrimonio						// [1F492]
 💓	cuore che batte							// [1F493]
 💔	cuore infranto							// [1F494]
@@ -681,9 +681,9 @@ $textmode
 💫	vorticoso							// [1F4AB]
 💬	fumetto								// [1F4AC]
 💭	nuvoletta							// [1F4AD]
-💮	fiorellino							// [1F4AE]
+💮	fiore bianco							// [1F4AE]
 💯	100 punti							// [1F4AF]
-💰	sacco per soldi							// [1F4B0]
+💰	sacco di soldi							// [1F4B0]
 💱	cambio di valuta						// [1F4B1]
 💲	Dollaro								// [1F4B2]
 💳	carta di credito						// [1F4B3]
@@ -732,7 +732,7 @@ $textmode
 📞	cornetta							// [1F4DE]
 📟	cercapersone							// [1F4DF]
 📠	fax								// [1F4E0]
-📡	antenna								// [1F4E1]
+📡	antenna satellitare						// [1F4E1]
 📢	altoparlante							// [1F4E2]
 📣	megafono							// [1F4E3]
 📤	posta inviata							// [1F4E4]
@@ -757,7 +757,7 @@ $textmode
 📷	fotocamera							// [1F4F7]
 📸	fotocamera con flash						// [1F4F8]
 📹	videocamera							// [1F4F9]
-📺	TV								// [1F4FA]
+📺	televisore							// [1F4FA]
 📻	radio								// [1F4FB]
 📼	videocassetta							// [1F4FC]
 📽	proiettore							// [1F4FD] text|emoji
@@ -787,13 +787,13 @@ $textmode
 🔖	segnalibro							// [1F516]
 🔗	link								// [1F517]
 🔘	pulsante opzione						// [1F518]
-🔙	back								// [1F519]
-🔚	end								// [1F51A]
+🔙	freccia BACK							// [1F519]
+🔚	freccia END							// [1F51A]
 🔛	freccia ON							// [1F51B]
-🔜	soon								// [1F51C]
-🔝	Top								// [1F51D]
-🔞	vietato ai minori di 18						// [1F51E]
-🔟	tasto dieci							// [1F51F]
+🔜	freccia SOON							// [1F51C]
+🔝	freccia TOP							// [1F51D]
+🔞	vietato ai minori di 18 anni					// [1F51E]
+🔟	tasto: 10							// [1F51F]
 🔠	lettere maiuscole						// [1F520]
 🔡	lettere minuscole						// [1F521]
 🔢	numeri								// [1F522]
@@ -814,8 +814,8 @@ $textmode
 🔱	tridente							// [1F531]
 🔲	pulsante quadrato pieno						// [1F532]
 🔳	pulsante quadrato con contorno					// [1F533]
-🔴	cerchio rosso grande						// [1F534]
-🔵	cerchio blu grande						// [1F535]
+🔴	cerchio rosso							// [1F534]
+🔵	cerchio blu							// [1F535]
 🔶	rombo arancione grande						// [1F536]
 🔷	rombo blu grande						// [1F537]
 🔸	rombo arancione piccolo						// [1F538]
@@ -865,10 +865,10 @@ $textmode
 🕹	joystick							// [1F579] text|emoji
 🕺	uomo che balla							// [1F57A]
 🖇	graffette attaccate						// [1F587] text|emoji
-🖊	penna								// [1F58A] text|emoji
+🖊	penna a sfera							// [1F58A] text|emoji
 🖋	penna stilografica						// [1F58B] text|emoji
 🖌	pennello							// [1F58C] text|emoji
-🖍	pastello							// [1F58D] text|emoji
+🖍	pastello a cera							// [1F58D] text|emoji
 🖐	mano aperta							// [1F590] text|emoji
 🖕	dito medio							// [1F595]
 🖖	saluto vulcaniano						// [1F596]
@@ -896,27 +896,27 @@ $textmode
 🗻	Monte Fuji							// [1F5FB]
 🗼	Torre di Tokyo							// [1F5FC]
 🗽	Statua della Libertà						// [1F5FD]
-🗾	Mappa del Giappone						// [1F5FE]
-🗿	Statua Moyai							// [1F5FF]
+🗾	mappa del Giappone						// [1F5FE]
+🗿	Moai								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
 
-😀	sogghigno							// [1F600]
-😁	sogghigno con occhi felici					// [1F601]
-😂	lacrime di gioia						// [1F602]
-😃	sorriso a bocca aperta						// [1F603]
-😄	sorriso a bocca aperta con occhi felici				// [1F604]
-😅	sorriso con goccia di sudore					// [1F605]
+😀	faccina con un gran sorriso					// [1F600]
+😁	faccina raggiante con occhi felici				// [1F601]
+😂	faccina con lacrime di gioia					// [1F602]
+😃	faccina con un gran sorriso e occhi spalancati			// [1F603]
+😄	faccina con un gran sorriso e occhi sorridenti			// [1F604]
+😅	faccina con un gran sorriso e goccia di sudore			// [1F605]
 😆	sorriso a bocca aperta con occhi chiusi				// [1F606]
-😇	sorriso con aureola						// [1F607]
-😈	sorriso con corna						// [1F608]
-😉	occhiolino							// [1F609]
+😇	faccina con sorriso e aureola					// [1F607]
+😈	faccina con sorriso e corna					// [1F608]
+😉	faccina che fa l’occhiolino					// [1F609]
 😊	faccina con occhi sorridenti					// [1F60A]
-😋	leccarsi i baffi						// [1F60B]
-😌	sollievo							// [1F60C]
-😍	sorriso con occhi a cuore					// [1F60D]
-😎	faccina con occhiali da sole					// [1F60E]
-😏	sorrisetto							// [1F60F]
+😋	faccina che si lecca i baffi					// [1F60B]
+😌	faccina sollevata						// [1F60C]
+😍	faccina con sorriso e occhi a cuore				// [1F60D]
+😎	faccina con sorriso e occhiali da sole				// [1F60E]
+😏	faccina con sorrisetto						// [1F60F]
 😐	faccina neutra							// [1F610]
 😑	faccina inespressiva						// [1F611]
 😒	faccina contrariata						// [1F612]
@@ -924,13 +924,13 @@ $textmode
 😔	faccina pensierosa						// [1F614]
 😕	faccina confusa							// [1F615]
 😖	faccina frustrata						// [1F616]
-😗	bacio								// [1F617]
-😘	mandare baci							// [1F618]
-😙	bacio e sorriso							// [1F619]
-😚	bacio a occhi chiusi						// [1F61A]
-😛	lingua fuori							// [1F61B]
-😜	lingua fuori con occhiolino					// [1F61C]
-😝	linguaccia con occhi chiusi					// [1F61D]
+😗	faccina che bacia						// [1F617]
+😘	faccina che manda un bacio					// [1F618]
+😙	faccina che bacia con occhi sorridenti				// [1F619]
+😚	faccina che bacia con occhi chiusi				// [1F61A]
+😛	faccina che mostra la lingua					// [1F61B]
+😜	faccina che fa l’occhiolino e mostra la lingua			// [1F61C]
+😝	faccina con un gran sorriso che mostra la lingua		// [1F61D]
 😞	faccina delusa							// [1F61E]
 😟	faccina preoccupata						// [1F61F]
 😠	faccina arrabbiata						// [1F620]
@@ -938,23 +938,23 @@ $textmode
 😢	faccina che piange						// [1F622]
 😣	faccina perseverante						// [1F623]
 😤	faccina che sbuffa						// [1F624]
-😥	deluso ma sollevato						// [1F625]
-😦	faccina corrucciata						// [1F626]
+😥	faccina delusa ma sollevata					// [1F625]
+😦	faccina imbronciata con bocca aperta				// [1F626]
 😧	faccina angosciata						// [1F627]
 😨	faccina impaurita						// [1F628]
 😩	faccina esausta							// [1F629]
 😪	faccina assonnata						// [1F62A]
 😫	faccina stanca							// [1F62B]
-😬	smorfia								// [1F62C]
+😬	faccina con smorfia						// [1F62C]
 😭	faccina disperata						// [1F62D]
-😮	bocca aperta							// [1F62E]
-😯	faccina silenziosa						// [1F62F]
+😮	faccina con bocca aperta					// [1F62E]
+😯	faccina sorpresa						// [1F62F]
 😰	faccina blu sudata						// [1F630]
 😱	faccina terrorizzata						// [1F631]
 😲	faccina stupita							// [1F632]
-😳	guance rosse							// [1F633]
+😳	faccina imbarazzata						// [1F633]
 😴	faccina che dorme						// [1F634]
-😵	frastornato							// [1F635]
+😵	faccina frastornata						// [1F635]
 😶	faccina senza bocca						// [1F636]
 😷	faccina con mascherina						// [1F637]
 😸	gatto che sogghigna						// [1F638]
@@ -966,17 +966,17 @@ $textmode
 😾	gatto imbronciato						// [1F63E]
 😿	gatto che piange						// [1F63F]
 🙀	gatto esterrefatto						// [1F640]
-🙁	un po’ imbronciato						// [1F641]
-🙂	sorriso accennato						// [1F642]
+🙁	faccina leggermente imbronciata					// [1F641]
+🙂	faccina con sorriso accennato					// [1F642]
 🙃	faccina sottosopra						// [1F643]
-🙄	occhi al cielo							// [1F644]
+🙄	faccina con occhi al cielo					// [1F644]
 🙅	rifiuto								// [1F645]
 🙆	gesto OK							// [1F646]
-🙇	inchino								// [1F647]
+🙇	persona che fa un inchino profondo				// [1F647]
 🙈	non vedo							// [1F648]
 🙉	non sento							// [1F649]
 🙊	non parlo							// [1F64A]
-🙋	persona felice							// [1F64B]
+🙋	persona con mano alzata						// [1F64B]
 🙌	urrà								// [1F64C]
 🙍	persona corrucciata						// [1F64D]
 🙎	persona imbronciata						// [1F64E]
@@ -1000,7 +1000,7 @@ $textmode
 🚍	bus in arrivo							// [1F68D]
 🚎	filobus								// [1F68E]
 🚏	fermata dell’autobus						// [1F68F]
-🚐	minibus								// [1F690]
+🚐	pulmino								// [1F690]
 🚑	ambulanza							// [1F691]
 🚒	camion dei pompieri						// [1F692]
 🚓	macchina della polizia						// [1F693]
@@ -1009,7 +1009,7 @@ $textmode
 🚖	taxi in arrivo							// [1F696]
 🚗	auto								// [1F697]
 🚘	auto in arrivo							// [1F698]
-🚙	utilitaria							// [1F699]
+🚙	SUV								// [1F699]
 🚚	camion								// [1F69A]
 🚛	autoarticolato							// [1F69B]
 🚜	trattore							// [1F69C]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	funicolare							// [1F6A0]
 🚡	funivia aerea							// [1F6A1]
 🚢	nave								// [1F6A2]
-🚣	barca a remi							// [1F6A3]
+🚣	persona in barca a remi						// [1F6A3]
 🚤	motoscafo							// [1F6A4]
 🚥	semaforo orizzontale						// [1F6A5]
 🚦	semaforo verticale						// [1F6A6]
@@ -1034,10 +1034,10 @@ $textmode
 🚯	vietato gettare rifiuti						// [1F6AF]
 🚰	acqua potabile							// [1F6B0]
 🚱	acqua non potabile						// [1F6B1]
-🚲	bici								// [1F6B2]
+🚲	bicicletta							// [1F6B2]
 🚳	divieto transito biciclette					// [1F6B3]
 🚴	ciclista							// [1F6B4]
-🚵	ciclista mountain bike						// [1F6B5]
+🚵	ciclista di mountain bike					// [1F6B5]
 🚶	pedone								// [1F6B6]
 🚷	divieto transito pedoni						// [1F6B7]
 🚸	attraversamento bambini						// [1F6B8]
@@ -1048,7 +1048,7 @@ $textmode
 🚽	toilette							// [1F6BD]
 🚾	WC								// [1F6BE]
 🚿	doccia								// [1F6BF]
-🛀	bagno								// [1F6C0]
+🛀	persona che fa il bagno						// [1F6C0]
 🛁	vasca								// [1F6C1]
 🛂	controllo passaporto						// [1F6C2]
 🛃	dogana								// [1F6C3]
@@ -1057,7 +1057,7 @@ $textmode
 🛋	divano e lampada						// [1F6CB] text|emoji
 🛌	persona a letto							// [1F6CC]
 🛍	borse della spesa						// [1F6CD] text|emoji
-🛎	campanello d’hotel						// [1F6CE] text|emoji
+🛎	campanello da hotel						// [1F6CE] text|emoji
 🛏	letto								// [1F6CF] text|emoji
 🛐	luogo di preghiera						// [1F6D0]
 🛑	segnale di stop							// [1F6D1]
@@ -1076,13 +1076,13 @@ $textmode
 🛴	monopattino							// [1F6F4]
 🛵	scooter								// [1F6F5]
 🛶	canoa								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	slitta								// [1F6F7]
+🛸	disco volante							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
-🤐	bocca a zip							// [1F910]
-🤑	avidità di denaro						// [1F911]
+🤐	faccina con bocca con cerniera					// [1F910]
+🤑	faccina avida di denaro						// [1F911]
 🤒	faccina con termometro						// [1F912]
 🤓	faccina nerd							// [1F913]
 🤔	faccina concentrata						// [1F914]
@@ -1096,57 +1096,57 @@ $textmode
 🤜	pugno a destra							// [1F91C]
 🤝	stretta di mano							// [1F91D]
 🤞	dita incrociate							// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	cappello da cowboy						// [1F920]
-🤡	pagliaccio							// [1F921]
-🤢	nauseato							// [1F922]
+🤟	gesto ti amo							// [1F91F]
+🤠	faccina con cappello da cowboy					// [1F920]
+🤡	faccina pagliaccio						// [1F921]
+🤢	faccina nauseata						// [1F922]
 🤣	ridere a crepapelle						// [1F923]
-🤤	sbavare								// [1F924]
-🤥	bugiardo							// [1F925]
-🤦	mano in fronte							// [1F926]
-🤧	starnuto							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤤	faccina che sbava						// [1F924]
+🤥	faccina bugiarda						// [1F925]
+🤦	persona esasperata						// [1F926]
+🤧	faccina che starnutisce						// [1F927]
+🤨	faccia con sopracciglia alzate					// [1F928]
+🤩	colpo di fulmine						// [1F929]
+🤪	faccina impazzita						// [1F92A]
+🤫	faccina che zittisce						// [1F92B]
+🤬	faccina con simboli sulla bocca					// [1F92C]
+🤭	faccina con mano sulla bocca					// [1F92D]
+🤮	faccina che vomita						// [1F92E]
+🤯	testa che esplode						// [1F92F]
 🤰	donna incinta							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	allattare							// [1F931]
+🤲	mani unite in alto						// [1F932]
 🤳	selfie								// [1F933]
 🤴	principe							// [1F934]
 🤵	uomo in smoking							// [1F935]
-🤶	mamma natale							// [1F936]
-🤷	alzata di spalle						// [1F937]
-🤸	ruota								// [1F938]
+🤶	Mamma Natale							// [1F936]
+🤷	persona che scrolla le spalle					// [1F937]
+🤸	persona che fa la ruota						// [1F938]
 🤹	giocoliere							// [1F939]
 🤺	schermidore							// [1F93A]
-🤼	wrestler							// [1F93C]
-🤽	pallanuoto							// [1F93D]
-🤾	pallamano							// [1F93E]
+🤼	persone che fanno la lotta					// [1F93C]
+🤽	persona che gioca a pallanuoto					// [1F93D]
+🤾	persona che gioca a pallamano					// [1F93E]
 🥀	fiore appassito							// [1F940]
 🥁	tamburo								// [1F941]
 🥂	cin cin								// [1F942]
 🥃	bicchiere tumbler						// [1F943]
 🥄	cucchiaio							// [1F944]
-🥅	porta di calcio							// [1F945]
-🥇	medaglia oro							// [1F947]
-🥈	medaglia argento						// [1F948]
-🥉	medaglia bronzo							// [1F949]
+🥅	porta da calcio							// [1F945]
+🥇	medaglia d’oro							// [1F947]
+🥈	medaglia d’argento						// [1F948]
+🥉	medaglia di bronzo						// [1F949]
 🥊	guantone da pugilato						// [1F94A]
 🥋	kimono per arti marziali					// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	stone da curling						// [1F94C]
 🥐	croissant							// [1F950]
 🥑	avocado								// [1F951]
 🥒	cetriolo							// [1F952]
-🥓	bacon								// [1F953]
+🥓	pancetta							// [1F953]
 🥔	patata								// [1F954]
 🥕	carota								// [1F955]
 🥖	baguette							// [1F956]
-🥗	insalata mista							// [1F957]
+🥗	insalata verde							// [1F957]
 🥘	padella con cibo						// [1F958]
 🥙	kebab								// [1F959]
 🥚	uovo								// [1F95A]
@@ -1154,22 +1154,22 @@ $textmode
 🥜	noccioline							// [1F95C]
 🥝	kiwi								// [1F95D]
 🥞	pancake								// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	ravioli								// [1F95F]
+🥠	biscotto della fortuna						// [1F960]
+🥡	confezione da asporto						// [1F961]
+🥢	bacchette							// [1F962]
+🥣	ciotola con cucchiaio						// [1F963]
+🥤	tazza con cannuccia						// [1F964]
+🥥	cocco								// [1F965]
+🥦	broccoli							// [1F966]
+🥧	torta								// [1F967]
+🥨	pretzel								// [1F968]
+🥩	taglio di carne							// [1F969]
+🥪	sandwich							// [1F96A]
+🥫	cibo in scatola							// [1F96B]
 🦀	granchio							// [1F980]
 🦁	faccina leone							// [1F981]
-🦂	animale scorpione						// [1F982]
+🦂	scorpione							// [1F982]
 🦃	tacchino							// [1F983]
 🦄	faccina unicorno						// [1F984]
 🦅	aquila								// [1F985]
@@ -1177,7 +1177,7 @@ $textmode
 🦇	pipistrello							// [1F987]
 🦈	squalo								// [1F988]
 🦉	gufo								// [1F989]
-🦊	volpe								// [1F98A]
+🦊	faccina volpe							// [1F98A]
 🦋	farfalla							// [1F98B]
 🦌	cervo								// [1F98C]
 🦍	gorilla								// [1F98D]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	rinoceronte							// [1F98F]
 🦐	gambero								// [1F990]
 🦑	calamaro							// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	giraffa								// [1F992]
+🦓	zebra								// [1F993]
+🦔	riccio								// [1F994]
+🦕	sauropode							// [1F995]
+🦖	T-Rex								// [1F996]
+🦗	grillo								// [1F997]
 🧀	fetta di formaggio						// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	faccina con monocolo						// [1F9D0]
+🧑	adulto								// [1F9D1]
+🧒	bimbo								// [1F9D2]
+🧓	adulto anziano							// [1F9D3]
+🧔	persona con la barba						// [1F9D4]
+🧕	donna con foulard						// [1F9D5]
+🧖	persona in sauna						// [1F9D6]
+🧗	persona che scala						// [1F9D7]
+🧘	persona in posizione del loto					// [1F9D8]
+🧙	mago								// [1F9D9]
+🧚	fata								// [1F9DA]
+🧛	vampiro								// [1F9DB]
+🧜	sirena								// [1F9DC]
+🧝	elfo								// [1F9DD]
+🧞	genio								// [1F9DE]
+🧟	zombie								// [1F9DF]
+🧠	cervello							// [1F9E0]
+🧡	cuore arancione							// [1F9E1]
+🧢	cappello con visiera						// [1F9E2]
+🧣	sciarpa								// [1F9E3]
+🧤	guanti								// [1F9E4]
+🧥	cappotto							// [1F9E5]
+🧦	calzini								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1275,7 +1275,7 @@ $textmode
 🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
 🇨🇽	Isola Christmas							// [1F1E8 1F1FD] CX
 🇨🇾	Cipro								// [1F1E8 1F1FE] CY
-🇨🇿	Cèchia								// [1F1E8 1F1FF] CZ
+🇨🇿	Cechia								// [1F1E8 1F1FF] CZ
 🇩🇪	Germania							// [1F1E9 1F1EA] DE
 🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
 🇩🇯	Gibuti								// [1F1E9 1F1EF] DJ
@@ -1403,7 +1403,7 @@ $textmode
 🇵🇭	Filippine							// [1F1F5 1F1ED] PH
 🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
 🇵🇱	Polonia								// [1F1F5 1F1F1] PL
-🇵🇲	Saint Pierre e Miquelon						// [1F1F5 1F1F2] PM
+🇵🇲	Saint-Pierre e Miquelon						// [1F1F5 1F1F2] PM
 🇵🇳	Isole Pitcairn							// [1F1F5 1F1F3] PN
 🇵🇷	Portorico							// [1F1F5 1F1F7] PR
 🇵🇸	Territori palestinesi						// [1F1F5 1F1F8] PS
@@ -1457,12 +1457,12 @@ $textmode
 🇺🇦	Ucraina								// [1F1FA 1F1E6] UA
 🇺🇬	Uganda								// [1F1FA 1F1EC] UG
 🇺🇲	Altre isole americane del Pacifico				// [1F1FA 1F1F2] UM
-🇺🇳	nazioni unite							// [1F1FA 1F1F3] UN
+🇺🇳	Nazioni Unite							// [1F1FA 1F1F3] UN
 🇺🇸	Stati Uniti							// [1F1FA 1F1F8] US
 🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
 🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
 🇻🇦	Città del Vaticano						// [1F1FB 1F1E6] VA
-🇻🇨	Saint Vincent e Grenadines					// [1F1FB 1F1E8] VC
+🇻🇨	Saint Vincent e Grenadine					// [1F1FB 1F1E8] VC
 🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
 🇻🇬	Isole Vergini Britanniche					// [1F1FB 1F1EC] VG
 🇻🇮	Isole Vergini Americane						// [1F1FB 1F1EE] VI
@@ -1485,27 +1485,27 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	tasto cancelletto						// [0023 FE0F 20E3]
-*️⃣	tasto asterisco							// [002A FE0F 20E3]
-0️⃣	tasto zero							// [0030 FE0F 20E3]
-1️⃣	testo uno							// [0031 FE0F 20E3]
-2️⃣	tasto due							// [0032 FE0F 20E3]
-3️⃣	tasto tre							// [0033 FE0F 20E3]
-4️⃣	tasto quattro							// [0034 FE0F 20E3]
-5️⃣	tasto cinque							// [0035 FE0F 20E3]
-6️⃣	tasto sei							// [0036 FE0F 20E3]
-7️⃣	tasto sette							// [0037 FE0F 20E3]
-8️⃣	tasto otto							// [0038 FE0F 20E3]
-9️⃣	tasto nove							// [0039 FE0F 20E3]
+#️⃣	tasto: #							// [0023 FE0F 20E3]
+*️⃣	tasto: *							// [002A FE0F 20E3]
+0️⃣	tasto: 0							// [0030 FE0F 20E3]
+1️⃣	tasto: 1							// [0031 FE0F 20E3]
+2️⃣	tasto: 2							// [0032 FE0F 20E3]
+3️⃣	tasto: 3							// [0033 FE0F 20E3]
+4️⃣	tasto: 4							// [0034 FE0F 20E3]
+5️⃣	tasto: 5							// [0035 FE0F 20E3]
+6️⃣	tasto: 6							// [0036 FE0F 20E3]
+7️⃣	tasto: 7							// [0037 FE0F 20E3]
+8️⃣	tasto: 8							// [0038 FE0F 20E3]
+9️⃣	tasto: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
 👩‍❤‍💋‍👨	bacio tra coppia: donna e uomo		// [1F469 200D 2764 200D 1F48B 200D 1F468]
 👨‍❤‍💋‍👨	bacio tra coppia: uomo e uomo		// [1F468 200D 2764 200D 1F48B 200D 1F468]
 👩‍❤‍💋‍👩	bacio tra coppia: donna e donna		// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	coppia: donna e uomo				// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	coppia: uomo e uomo				// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	coppia: donna e donna				// [1F469 200D 2764 200D 1F469]
+👩‍❤‍👨	coppia con cuore: donna e uomo			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	coppia con cuore: uomo e uomo			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	coppia con cuore: donna e donna			// [1F469 200D 2764 200D 1F469]
 👨‍👩‍👦	famiglia: uomo e donna e bambino		// [1F468 200D 1F469 200D 1F466]
 👨‍👩‍👧	famiglia: uomo e donna e bambina		// [1F468 200D 1F469 200D 1F467]
 👨‍👩‍👧‍👦	famiglia: uomo e donna e bambina e bambino// [1F468 200D 1F469 200D 1F467 200D 1F466]
@@ -1536,20 +1536,20 @@ $textmode
 
 👨‍⚕	operatore sanitario					// [1F468 200D 2695]
 👩‍⚕	operatrice sanitaria					// [1F469 200D 2695]
-👨‍⚖	giudice maschio						// [1F468 200D 2696]
-👩‍⚖	giudice femmina						// [1F469 200D 2696]
-👨‍✈	pilota maschio						// [1F468 200D 2708]
-👩‍✈	pilota femmina						// [1F469 200D 2708]
+👨‍⚖	giudice uomo						// [1F468 200D 2696]
+👩‍⚖	giudice donna						// [1F469 200D 2696]
+👨‍✈	pilota uomo						// [1F468 200D 2708]
+👩‍✈	pilota donna						// [1F469 200D 2708]
 👨‍🌾	contadino						// [1F468 200D 1F33E]
 👩‍🌾	contadina						// [1F469 200D 1F33E]
 👨‍🍳	cuoco							// [1F468 200D 1F373]
 👩‍🍳	cuoca							// [1F469 200D 1F373]
 👨‍🎓	studente						// [1F468 200D 1F393]
 👩‍🎓	studentessa						// [1F469 200D 1F393]
-👨‍🎤	cantante maschio					// [1F468 200D 1F3A4]
-👩‍🎤	cantante femmina					// [1F469 200D 1F3A4]
-👨‍🎨	artista maschio						// [1F468 200D 1F3A8]
-👩‍🎨	artista femmina						// [1F469 200D 1F3A8]
+👨‍🎤	cantante uomo						// [1F468 200D 1F3A4]
+👩‍🎤	cantante donna						// [1F469 200D 1F3A4]
+👨‍🎨	artista uomo						// [1F468 200D 1F3A8]
+👩‍🎨	artista donna						// [1F469 200D 1F3A8]
 👨‍🏫	professore						// [1F468 200D 1F3EB]
 👩‍🏫	professoressa						// [1F469 200D 1F3EB]
 👨‍🏭	operaio							// [1F468 200D 1F3ED]
@@ -1558,88 +1558,88 @@ $textmode
 👩‍💻	tecnologa						// [1F469 200D 1F4BB]
 👨‍💼	impiegato						// [1F468 200D 1F4BC]
 👩‍💼	impiegata						// [1F469 200D 1F4BC]
-👨‍🔧	meccanico maschio					// [1F468 200D 1F527]
-👩‍🔧	meccanico femmina					// [1F469 200D 1F527]
+👨‍🔧	meccanico uomo						// [1F468 200D 1F527]
+👩‍🔧	meccanico donna						// [1F469 200D 1F527]
 👨‍🔬	scienziato						// [1F468 200D 1F52C]
 👩‍🔬	scienziata						// [1F469 200D 1F52C]
-👨‍🚀	astronauta maschio					// [1F468 200D 1F680]
-👩‍🚀	astronauta femmina					// [1F469 200D 1F680]
-👨‍🚒	pompiere maschio					// [1F468 200D 1F692]
-👩‍🚒	pompiere femmina					// [1F469 200D 1F692]
+👨‍🚀	astronauta uomo						// [1F468 200D 1F680]
+👩‍🚀	astronauta donna					// [1F469 200D 1F680]
+👨‍🚒	pompiere uomo						// [1F468 200D 1F692]
+👩‍🚒	pompiere donna						// [1F469 200D 1F692]
 
 // Emoji ZWJ Sequence: Gendered Role
 
 👮‍♀	poliziotta						// [1F46E 200D 2640]
-👮‍♂	uomo poliziotto						// [1F46E 200D 2642]
+👮‍♂	poliziotto uomo						// [1F46E 200D 2642]
 👱‍♀	bionda							// [1F471 200D 2640]
 👱‍♂	biondo							// [1F471 200D 2642]
 👳‍♀	donna con turbante					// [1F473 200D 2640]
 👳‍♂	uomo con turbante					// [1F473 200D 2642]
 👷‍♀	operaia edile						// [1F477 200D 2640]
 👷‍♂	operaio edile uomo					// [1F477 200D 2642]
-💂‍♀	guardia femmina						// [1F482 200D 2640]
-💂‍♂	guardia maschio						// [1F482 200D 2642]
+💂‍♀	guardia donna						// [1F482 200D 2640]
+💂‍♂	guardia uomo						// [1F482 200D 2642]
 🕵️‍♀	investigatrice						// [1F575 200D 2640]
 🕵️‍♂	investigatore						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	maga							// [1F9D9 200D 2640]
+🧙‍♂	mago uomo						// [1F9D9 200D 2642]
+🧚‍♀	fata donna						// [1F9DA 200D 2640]
+🧚‍♂	fata uomo						// [1F9DA 200D 2642]
+🧛‍♀	vampira							// [1F9DB 200D 2640]
+🧛‍♂	vampiro uomo						// [1F9DB 200D 2642]
+🧜‍♀	sirena donna						// [1F9DC 200D 2640]
+🧜‍♂	tritone							// [1F9DC 200D 2642]
+🧝‍♀	elfo donna						// [1F9DD 200D 2640]
+🧝‍♂	elfo uomo						// [1F9DD 200D 2642]
+🧞‍♀	genio donna						// [1F9DE 200D 2640]
+🧞‍♂	genio uomo						// [1F9DE 200D 2642]
+🧟‍♀	zombie donna						// [1F9DF 200D 2640]
+🧟‍♂	zombie uomo						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
-⛹‍♀	donna con palla						// [26F9 200D 2640]
-⛹‍♂	uomo con palla						// [26F9 200D 2642]
+⛹‍♀	donna che fa rimbalzare una palla			// [26F9 200D 2640]
+⛹‍♂	uomo che fa rimbalzare una palla			// [26F9 200D 2642]
 🏃‍♀	donna che corre						// [1F3C3 200D 2640]
 🏃‍♂	uomo che corre						// [1F3C3 200D 2642]
-🏄‍♀	surfista femmina					// [1F3C4 200D 2640]
-🏄‍♂	surfista maschio					// [1F3C4 200D 2642]
+🏄‍♀	surfista donna						// [1F3C4 200D 2640]
+🏄‍♂	surfista uomo						// [1F3C4 200D 2642]
 🏊‍♀	nuotatrice						// [1F3CA 200D 2640]
 🏊‍♂	nuotatore						// [1F3CA 200D 2642]
-🏋️‍♀	sollevatrice di pesi					// [1F3CB 200D 2640]
+🏋️‍♀	donna che solleva pesi					// [1F3CB 200D 2640]
 🏋️‍♂	uomo che solleva pesi					// [1F3CB 200D 2642]
-🏌️‍♀	golfista femmina					// [1F3CC 200D 2640]
-🏌️‍♂	golfista maschio					// [1F3CC 200D 2642]
-👯‍♀	ballerine						// [1F46F 200D 2640]
-👯‍♂	ballerini						// [1F46F 200D 2642]
+🏌️‍♀	golfista donna						// [1F3CC 200D 2640]
+🏌️‍♂	golfista uomo						// [1F3CC 200D 2642]
+👯‍♀	donne con orecchie da coniglio				// [1F46F 200D 2640]
+👯‍♂	uomini con orecchie da coniglio				// [1F46F 200D 2642]
 💆‍♀	massaggio al viso per donna				// [1F486 200D 2640]
 💆‍♂	massaggio al viso per uomo				// [1F486 200D 2642]
 💇‍♀	taglio di capelli per donna				// [1F487 200D 2640]
 💇‍♂	taglio di capelli per uomo				// [1F487 200D 2642]
 🚣‍♀	donna in barca a remi					// [1F6A3 200D 2640]
 🚣‍♂	uomo in barca a remi					// [1F6A3 200D 2642]
-🚴‍♀	ciclista femmina					// [1F6B4 200D 2640]
-🚴‍♂	ciclista maschio					// [1F6B4 200D 2642]
-🚵‍♀	ciclista femmina di mountain bike			// [1F6B5 200D 2640]
-🚵‍♂	ciclista maschio di mountain bike			// [1F6B5 200D 2642]
+🚴‍♀	ciclista donna						// [1F6B4 200D 2640]
+🚴‍♂	ciclista uomo						// [1F6B4 200D 2642]
+🚵‍♀	ciclista donna di mountain bike				// [1F6B5 200D 2640]
+🚵‍♂	ciclista uomo di mountain bike				// [1F6B5 200D 2642]
 🚶‍♀	donna che cammina					// [1F6B6 200D 2640]
 🚶‍♂	uomo che cammina					// [1F6B6 200D 2642]
 🤸‍♀	donna che fa la ruota					// [1F938 200D 2640]
 🤸‍♂	uomo che fa la ruota					// [1F938 200D 2642]
-🤹‍♀	giocoliere femmina					// [1F939 200D 2640]
-🤹‍♂	giocoliere maschio					// [1F939 200D 2642]
+🤹‍♀	giocoliere donna					// [1F939 200D 2640]
+🤹‍♂	giocoliere uomo						// [1F939 200D 2642]
 🤼‍♀	lottatrici						// [1F93C 200D 2640]
 🤼‍♂	lottatori						// [1F93C 200D 2642]
-🤽‍♀	pallanuotista femmina					// [1F93D 200D 2640]
-🤽‍♂	pallanuotista maschio					// [1F93D 200D 2642]
-🤾‍♀	pallamanista femmina					// [1F93E 200D 2640]
-🤾‍♂	pallamanista maschio					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🤽‍♀	pallanuotista donna					// [1F93D 200D 2640]
+🤽‍♂	pallanuotista uomo					// [1F93D 200D 2642]
+🤾‍♀	pallamanista donna					// [1F93E 200D 2640]
+🤾‍♂	pallamanista uomo					// [1F93E 200D 2642]
+🧖‍♀	donna in sauna						// [1F9D6 200D 2640]
+🧖‍♂	uomo in sauna						// [1F9D6 200D 2642]
+🧗‍♀	scalatrice						// [1F9D7 200D 2640]
+🧗‍♂	scalatore						// [1F9D7 200D 2642]
+🧘‍♀	donna in posizione del loto				// [1F9D8 200D 2640]
+🧘‍♂	uomo in posizione del loto				// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
@@ -1665,7 +1665,7 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	bandiera arcobaleno					// [1F3F3 200D 1F308]
-👁‍🗨	testimone						// [1F441 200D 1F5E8]
+👁‍🗨	occhio nel fumetto					// [1F441 200D 1F5E8]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]

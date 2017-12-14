@@ -81,7 +81,7 @@ $textmode
 ☎	telepon								// [260E] text|emoji
 ☑	kotak suara bercentang						// [2611] text|emoji
 ☔	payung dengan tetesan hujan					// [2614]
-☕	minuman panas							// [2615]
+☕	minuman hangat							// [2615]
 ☘	shamrock							// [2618] text|emoji
 ☝	menunjuk ke atas						// [261D] text|emoji
 ☠	tengkorak dan tulang						// [2620] text|emoji
@@ -131,8 +131,8 @@ $textmode
 ⚰	peti mati							// [26B0] text|emoji
 ⚱	guci abu							// [26B1] text|emoji
 ⚽	bola sepak							// [26BD]
-⚾	bola bisbol							// [26BE]
-⛄	boneka salju							// [26C4]
+⚾	bisbol								// [26BE]
+⛄	boneka salju tanpa salju					// [26C4]
 ⛅	matahari di balik awan						// [26C5]
 ⛈	awan dengan petir dan hujan					// [26C8] text|emoji
 ⛎	ophiuchus							// [26CE]
@@ -140,7 +140,7 @@ $textmode
 ⛑	helm dengan palang putih					// [26D1] text|emoji
 ⛓	rantai								// [26D3] text|emoji
 ⛔	dilarang masuk							// [26D4]
-⛩	kuil shinto							// [26E9] text|emoji
+⛩	kuil Shinto							// [26E9] text|emoji
 ⛪	gereja								// [26EA]
 ⛰	gunung								// [26F0] text|emoji
 ⛱	payung di tanah							// [26F1] text|emoji
@@ -150,7 +150,7 @@ $textmode
 ⛵	perahu layar							// [26F5]
 ⛷	pemain ski							// [26F7] text|emoji
 ⛸	seluncur es							// [26F8] text|emoji
-⛹	orang membawa bola						// [26F9] text|emoji
+⛹	orang memantulkan bola						// [26F9] text|emoji
 ⛺	tenda								// [26FA]
 ⛽	pompa bahan bakar						// [26FD]
 
@@ -170,10 +170,10 @@ $textmode
 ✖	tanda perkalian tebal						// [2716] text|emoji
 ✝	salib latin							// [271D] text|emoji
 ✡	bintang david							// [2721] text|emoji
-✨	percikan							// [2728]
+✨	berkilau							// [2728]
 ✳	bintang berujung lancip delapan					// [2733] text|emoji
 ✴	bintang berujung delapan					// [2734] text|emoji
-❄	keping salju							// [2744] text|emoji
+❄	serpihan salju							// [2744] text|emoji
 ❇	kilauan								// [2747] text|emoji
 ❌	tanda silang							// [274C]
 ❎	tombol tanda silang						// [274E]
@@ -274,9 +274,9 @@ $textmode
 🌊	ombak								// [1F30A]
 🌋	gunung berapi							// [1F30B]
 🌌	bima sakti							// [1F30C]
-🌍	bola dunia eropa-afrika						// [1F30D]
-🌎	bola dunia amerika						// [1F30E]
-🌏	bola dunia asia-australia					// [1F30F]
+🌍	bola dunia Eropa-Afrika						// [1F30D]
+🌎	bola dunia Amerika						// [1F30E]
+🌏	bola dunia Asia-Australia					// [1F30F]
 🌐	bola dunia dengan garis meridian				// [1F310]
 🌑	bulan baru							// [1F311]
 🌒	bulan sabit awal						// [1F312]
@@ -297,43 +297,43 @@ $textmode
 🌡	termometer							// [1F321] text|emoji
 🌤	matahari di balik awan kecil					// [1F324] text|emoji
 🌥	matahari di balik awan besar					// [1F325] text|emoji
-🌦	mahari di balik awan hujan					// [1F326] text|emoji
+🌦	matahari di balik awan hujan					// [1F326] text|emoji
 🌧	awan hujan							// [1F327] text|emoji
 🌨	awan salju							// [1F328] text|emoji
 🌩	awan petir							// [1F329] text|emoji
 🌪	tornado								// [1F32A] text|emoji
 🌫	kabut								// [1F32B] text|emoji
-🌬	angin berhembus							// [1F32C] text|emoji
+🌬	wajah tertiup angin						// [1F32C] text|emoji
 🌭	hot dog								// [1F32D]
 🌮	taco								// [1F32E]
 🌯	burrito								// [1F32F]
-🌰	chestnut							// [1F330]
-🌱	tunas								// [1F331]
-🌲	pohon pinus							// [1F332]
-🌳	pohon beringin							// [1F333]
+🌰	kastanye							// [1F330]
+🌱	semai								// [1F331]
+🌲	pohon hijau abadi						// [1F332]
+🌳	pohon meranggas							// [1F333]
 🌴	pohon palem							// [1F334]
 🌵	kaktus								// [1F335]
-🌶	cabe								// [1F336] text|emoji
-🌷	bunga tulip							// [1F337]
-🌸	bunga sakura							// [1F338]
-🌹	bunga mawar							// [1F339]
+🌶	cabai pedas							// [1F336] text|emoji
+🌷	tulip								// [1F337]
+🌸	sakura								// [1F338]
+🌹	mawar								// [1F339]
 🌺	kembang sepatu							// [1F33A]
 🌻	bunga matahari							// [1F33B]
-🌼	bunga sitrus							// [1F33C]
-🌽	jagung								// [1F33D]
-🌾	padi								// [1F33E]
-🌿	tanaman herbal							// [1F33F]
-🍀	daun semanggi							// [1F340]
+🌼	mekar								// [1F33C]
+🌽	bonggol jagung							// [1F33D]
+🌾	seikat padi							// [1F33E]
+🌿	herba								// [1F33F]
+🍀	empat daun semanggi						// [1F340]
 🍁	daun maple							// [1F341]
-🍂	daun gugur							// [1F342]
+🍂	daun berguguran							// [1F342]
 🍃	daun tertiup angin						// [1F343]
 🍄	jamur								// [1F344]
 🍅	tomat								// [1F345]
-🍆	terong								// [1F346]
+🍆	terung								// [1F346]
 🍇	anggur								// [1F347]
 🍈	melon								// [1F348]
 🍉	semangka							// [1F349]
-🍊	jeruk								// [1F34A]
+🍊	buah jeruk							// [1F34A]
 🍋	lemon								// [1F34B]
 🍌	pisang								// [1F34C]
 🍍	nanas								// [1F34D]
@@ -345,68 +345,68 @@ $textmode
 🍓	stroberi							// [1F353]
 🍔	hamburger							// [1F354]
 🍕	pizza								// [1F355]
-🍖	daging bertulang						// [1F356]
-🍗	daging paha unggas						// [1F357]
-🍘	keripik beras							// [1F358]
+🍖	daging pada tulang						// [1F356]
+🍗	kaki ayam							// [1F357]
+🍘	kerupuk beras							// [1F358]
 🍙	nasi kepal							// [1F359]
-🍚	nasi								// [1F35A]
+🍚	nasi matang							// [1F35A]
 🍛	nasi kari							// [1F35B]
-🍜	semangkuk mi							// [1F35C]
-🍝	spaghetti							// [1F35D]
+🍜	mangkuk mengepul						// [1F35C]
+🍝	spageti								// [1F35D]
 🍞	roti								// [1F35E]
 🍟	kentang goreng							// [1F35F]
-🍠	ubi bakar							// [1F360]
+🍠	ubi panggang							// [1F360]
 🍡	dango								// [1F361]
 🍢	oden								// [1F362]
 🍣	sushi								// [1F363]
 🍤	udang goreng							// [1F364]
-🍥	naruto								// [1F365]
-🍦	es krim kerucut							// [1F366]
+🍥	kue ikan dengan desain pusaran					// [1F365]
+🍦	es krim lembut							// [1F366]
 🍧	es serut							// [1F367]
-🍨	es krim mangkuk							// [1F368]
+🍨	es krim								// [1F368]
 🍩	donat								// [1F369]
 🍪	biskuit								// [1F36A]
-🍫	coklat batang							// [1F36B]
+🍫	sebatang cokelat						// [1F36B]
 🍬	permen								// [1F36C]
-🍭	permen loli							// [1F36D]
-🍮	puding								// [1F36E]
-🍯	kendi madu							// [1F36F]
-🍰	shortcake							// [1F370]
+🍭	permen lolipop							// [1F36D]
+🍮	puding susu							// [1F36E]
+🍯	toples madu							// [1F36F]
+🍰	kue								// [1F370]
 🍱	kotak bento							// [1F371]
-🍲	makanan rebus							// [1F372]
+🍲	panci makanan							// [1F372]
 🍳	memasak								// [1F373]
 🍴	garpu dan pisau							// [1F374]
-🍵	cawan teh							// [1F375]
+🍵	cangkir teh tanpa gagang					// [1F375]
 🍶	sake								// [1F376]
 🍷	gelas anggur							// [1F377]
 🍸	gelas cocktail							// [1F378]
 🍹	minuman tropis							// [1F379]
 🍺	mug bir								// [1F37A]
-🍻	mug bir berbenturan						// [1F37B]
+🍻	mug bir berdenting						// [1F37B]
 🍼	botol bayi							// [1F37C]
 🍽	garpu dan pisau dengan piring					// [1F37D] text|emoji
-🍾	botol anggur dibuka						// [1F37E]
-🍿	berondong							// [1F37F]
+🍾	botol dengan penyumbat terlepas					// [1F37E]
+🍿	popcorn								// [1F37F]
 🎀	pita								// [1F380]
 🎁	kado								// [1F381]
 🎂	kue ulang tahun							// [1F382]
 🎃	jack-o-lantern							// [1F383]
-🎄	pohon natal							// [1F384]
-🎅	sinterklas							// [1F385]
+🎄	pohon Natal							// [1F384]
+🎅	Sinterklas							// [1F385]
 🎆	kembang api							// [1F386]
 🎇	kembang api batang						// [1F387]
 🎈	balon								// [1F388]
-🎉	pesta								// [1F389]
-🎊	bola confetti							// [1F38A]
+🎉	party popper							// [1F389]
+🎊	bola konfeti							// [1F38A]
 🎋	pohon tanabata							// [1F38B]
 🎌	bendera menyilang						// [1F38C]
-🎍	dekorasi bambu							// [1F38D]
-🎎	boneka jepang							// [1F38E]
+🎍	dekorasi pinus							// [1F38D]
+🎎	boneka Jepang							// [1F38E]
 🎏	bendera ikan koi						// [1F38F]
 🎐	lonceng angin							// [1F390]
 🎑	perayaan bulan							// [1F391]
 🎒	tas sekolah							// [1F392]
-🎓	topi sarjana							// [1F393]
+🎓	topi wisuda							// [1F393]
 🎖	medali militer							// [1F396] text|emoji
 🎗	pita pengingat							// [1F397] text|emoji
 🎙	mikrofon studio							// [1F399] text|emoji
@@ -431,7 +431,7 @@ $textmode
 🎮	video game							// [1F3AE]
 🎯	dart								// [1F3AF]
 🎰	mesin slot							// [1F3B0]
-🎱	biliar								// [1F3B1]
+🎱	biliar 8 bola							// [1F3B1]
 🎲	dadu								// [1F3B2]
 🎳	bowling								// [1F3B3]
 🎴	kartu bunga							// [1F3B4]
@@ -448,23 +448,23 @@ $textmode
 🎿	ski								// [1F3BF]
 🏀	bola basket							// [1F3C0]
 🏁	bendera kotak-kotak						// [1F3C1]
-🏂	pemain papan seluncur salju					// [1F3C2]
-🏃	pelari								// [1F3C3]
-🏄	peselancar							// [1F3C4]
+🏂	peselancar salju						// [1F3C2]
+🏃	orang berlari							// [1F3C3]
+🏄	orang berselancar						// [1F3C4]
 🏅	medali olahraga							// [1F3C5]
 🏆	piala								// [1F3C6]
 🏇	balap kuda							// [1F3C7]
-🏈	bola sepak amerika						// [1F3C8]
-🏉	bola rugbi							// [1F3C9]
-🏊	perenang							// [1F3CA]
-🏋	atlit angkat beban						// [1F3CB] text|emoji
-🏌	pegolf								// [1F3CC] text|emoji
+🏈	American football						// [1F3C8]
+🏉	sepak bola rugbi						// [1F3C9]
+🏊	orang berenang							// [1F3CA]
+🏋	orang mengangkat beban						// [1F3CB] text|emoji
+🏌	orang bermain golf						// [1F3CC] text|emoji
 🏍	sepeda motor							// [1F3CD] text|emoji
 🏎	mobil balap							// [1F3CE] text|emoji
 🏏	kriket								// [1F3CF]
 🏐	bola voli							// [1F3D0]
 🏑	hoki lapangan							// [1F3D1]
-🏒	stik dan bola hoki es						// [1F3D2]
+🏒	hoki es								// [1F3D2]
 🏓	ping pong							// [1F3D3]
 🏔	gunung dengan puncak bersalju					// [1F3D4] text|emoji
 🏕	berkemah							// [1F3D5] text|emoji
@@ -479,9 +479,9 @@ $textmode
 🏞	taman nasional							// [1F3DE] text|emoji
 🏟	stadion								// [1F3DF] text|emoji
 🏠	rumah								// [1F3E0]
-🏡	rumah dan taman							// [1F3E1]
+🏡	rumah dengan taman						// [1F3E1]
 🏢	gedung perkantoran						// [1F3E2]
-🏣	kantor pos jepang						// [1F3E3]
+🏣	kantor pos Jepang						// [1F3E3]
 🏤	kantor pos							// [1F3E4]
 🏥	rumah sakit							// [1F3E5]
 🏦	bank								// [1F3E6]
@@ -493,15 +493,15 @@ $textmode
 🏬	toserba								// [1F3EC]
 🏭	pabrik								// [1F3ED]
 🏮	lentera kertas merah						// [1F3EE]
-🏯	kastel jepang							// [1F3EF]
+🏯	kastel Jepang							// [1F3EF]
 🏰	kastel								// [1F3F0]
 🏳	bendera putih berkibar						// [1F3F3] text|emoji
 🏴	bendera hitam berkibar						// [1F3F4]
-🏵	bros mawar							// [1F3F5] text|emoji
+🏵	hiasan mawar							// [1F3F5] text|emoji
 🏷	label								// [1F3F7] text|emoji
 🏸	bulu tangkis							// [1F3F8]
 🏹	busur dan panah							// [1F3F9]
-🏺	vas								// [1F3FA]
+🏺	amphora								// [1F3FA]
 🏻	warna kulit jenis 1–2						// [1F3FB]
 🏼	warna kulit jenis 3						// [1F3FC]
 🏽	warna kulit jenis 4						// [1F3FD]
@@ -509,7 +509,7 @@ $textmode
 🏿	warna kulit jenis 6						// [1F3FF]
 🐀	tikus								// [1F400]
 🐁	tikus putih							// [1F401]
-🐂	banteng								// [1F402]
+🐂	lembu								// [1F402]
 🐃	kerbau								// [1F403]
 🐄	sapi								// [1F404]
 🐅	harimau								// [1F405]
@@ -534,31 +534,31 @@ $textmode
 🐘	gajah								// [1F418]
 🐙	gurita								// [1F419]
 🐚	cangkang spiral							// [1F41A]
-🐛	ulat								// [1F41B]
+🐛	serangga kecil							// [1F41B]
 🐜	semut								// [1F41C]
 🐝	lebah madu							// [1F41D]
-🐞	kepik								// [1F41E]
+🐞	kumbang betina							// [1F41E]
 🐟	ikan								// [1F41F]
 🐠	ikan tropis							// [1F420]
 🐡	ikan gembung							// [1F421]
 🐢	kura-kura							// [1F422]
-🐣	bayi ayam menetas						// [1F423]
-🐤	bayi ayam							// [1F424]
-🐥	bayi ayam menghadap ke depan					// [1F425]
+🐣	itik menetas							// [1F423]
+🐤	itik bayi							// [1F424]
+🐥	itik bayi menghadap ke depan					// [1F425]
 🐦	burung								// [1F426]
 🐧	pinguin								// [1F427]
-🐨	wajah koala							// [1F428]
+🐨	koala								// [1F428]
 🐩	pudel								// [1F429]
 🐪	unta								// [1F42A]
 🐫	unta berpunuk dua						// [1F42B]
 🐬	lumba-lumba							// [1F42C]
 🐭	wajah tikus							// [1F42D]
 🐮	wajah sapi							// [1F42E]
-🐯	wajah macan							// [1F42F]
+🐯	wajah harimau							// [1F42F]
 🐰	wajah kelinci							// [1F430]
 🐱	wajah kucing							// [1F431]
 🐲	wajah naga							// [1F432]
-🐳	paus menyemburkan air						// [1F433]
+🐳	ikan paus menyembur						// [1F433]
 🐴	wajah kuda							// [1F434]
 🐵	wajah monyet							// [1F435]
 🐶	wajah anjing							// [1F436]
@@ -569,7 +569,7 @@ $textmode
 🐻	wajah beruang							// [1F43B]
 🐼	wajah panda							// [1F43C]
 🐽	hidung babi							// [1F43D]
-🐾	jejak hewan							// [1F43E]
+🐾	jejak kaki hewan						// [1F43E]
 🐿	tupai								// [1F43F] text|emoji
 👀	dua mata							// [1F440]
 👁	satu mata							// [1F441] text|emoji
@@ -604,13 +604,13 @@ $textmode
 👞	sepatu pria							// [1F45E]
 👟	sepatu lari							// [1F45F]
 👠	sepatu hak tinggi						// [1F460]
-👡	sanda wanita							// [1F461]
-👢	sepatu but wanita						// [1F462]
+👡	sandal wanita							// [1F461]
+👢	sepatu bot wanita						// [1F462]
 👣	jejak kaki							// [1F463]
-👤	siluet								// [1F464]
-👥	beberapa siluet							// [1F465]
-👦	laki-laki							// [1F466]
-👧	perempuan							// [1F467]
+👤	siluet foto setengah badan					// [1F464]
+👥	beberapa siluet foto setengah badan				// [1F465]
+👦	anak laki-laki							// [1F466]
+👧	anak perempuan							// [1F467]
 👨	pria								// [1F468]
 👩	wanita								// [1F469]
 👪	keluarga							// [1F46A]
@@ -618,11 +618,11 @@ $textmode
 👬	dua pria bergandengan						// [1F46C]
 👭	dua wanita bergandengan						// [1F46D]
 👮	polisi								// [1F46E]
-👯	gadis pesta							// [1F46F]
-👰	pengantin berkerudung						// [1F470]
+👯	orang dengan telinga kelinci					// [1F46F]
+👰	pengantin berpenutup kepala					// [1F470]
 👱	orang berambut pirang						// [1F471]
-👲	orang bertopi china						// [1F472]
-👳	orang bersurban							// [1F473]
+👲	orang dengan topi Tionghoa					// [1F472]
+👳	orang mengenakan serban						// [1F473]
 👴	pria tua							// [1F474]
 👵	wanita tua							// [1F475]
 👶	bayi								// [1F476]
@@ -634,15 +634,15 @@ $textmode
 👼	malaikat bayi							// [1F47C]
 👽	alien								// [1F47D]
 👾	monster alien							// [1F47E]
-👿	wajah cemberut bertanduk					// [1F47F]
+👿	wajah marah dengan tanduk					// [1F47F]
 💀	tengkorak							// [1F480]
-💁	petugas informasi						// [1F481]
+💁	orang menengadahkan tangan					// [1F481]
 💂	penjaga								// [1F482]
 💃	wanita menari							// [1F483]
 💄	lipstik								// [1F484]
-💅	cat kuku							// [1F485]
-💆	pijat wajah							// [1F486]
-💇	potong rambut							// [1F487]
+💅	poles kuku							// [1F485]
+💆	pria dipijat							// [1F486]
+💇	orang potong rambut						// [1F487]
 💈	tanda salon							// [1F488]
 💉	suntikan							// [1F489]
 💊	pil								// [1F48A]
@@ -651,11 +651,11 @@ $textmode
 💍	cincin								// [1F48D]
 💎	batu permata							// [1F48E]
 💏	berciuman							// [1F48F]
-💐	buket								// [1F490]
+💐	karangan bunga							// [1F490]
 💑	pasangan dengan hati						// [1F491]
 💒	pernikahan							// [1F492]
 💓	hati berdetak							// [1F493]
-💔	hati patah							// [1F494]
+💔	patah hati							// [1F494]
 💕	dua hati							// [1F495]
 💖	hati bersinar							// [1F496]
 💗	hati membesar							// [1F497]
@@ -793,7 +793,7 @@ $textmode
 🔜	tanda panah soon						// [1F51C]
 🔝	tanda panah top							// [1F51D]
 🔞	di bawah 18 tahun dilarang					// [1F51E]
-🔟	tombol angka sepuluh						// [1F51F]
+🔟	keycap: 10							// [1F51F]
 🔠	masukan huruf kapital latin					// [1F520]
 🔡	masukan huruf kecil latin					// [1F521]
 🔢	masukan angka							// [1F522]
@@ -857,7 +857,7 @@ $textmode
 🕯	lilin								// [1F56F] text|emoji
 🕰	jam perapian							// [1F570] text|emoji
 🕳	lubang								// [1F573] text|emoji
-🕴	pebisnis melayang						// [1F574] text|emoji
+🕴	pria melayang mengenakan jas					// [1F574] text|emoji
 🕵	detektif							// [1F575] text|emoji
 🕶	kacamata hitam							// [1F576] text|emoji
 🕷	laba-laba							// [1F577] text|emoji
@@ -872,7 +872,7 @@ $textmode
 🖐	telapak tangan terbuka						// [1F590] text|emoji
 🖕	jari tengah							// [1F595]
 🖖	salam vulcan							// [1F596]
-🖤	jahat								// [1F5A4]
+🖤	hati hitam							// [1F5A4]
 🖥	komputer desktop						// [1F5A5] text|emoji
 🖨	printer								// [1F5A8] text|emoji
 🖱	mouse komputer							// [1F5B1] text|emoji
@@ -893,10 +893,10 @@ $textmode
 🗯	gelembung marah kanan						// [1F5EF] text|emoji
 🗳	kotak dengan surat suara					// [1F5F3] text|emoji
 🗺	peta dunia							// [1F5FA] text|emoji
-🗻	gunung fuji							// [1F5FB]
-🗼	menara tokyo							// [1F5FC]
-🗽	patung liberty							// [1F5FD]
-🗾	peta jepang							// [1F5FE]
+🗻	gunung Fuji							// [1F5FB]
+🗼	menara Tokyo							// [1F5FC]
+🗽	Patung Liberty							// [1F5FD]
+🗾	peta Jepang							// [1F5FE]
 🗿	moai								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
@@ -923,30 +923,30 @@ $textmode
 😓	wajah berkeringat						// [1F613]
 😔	wajah merenung							// [1F614]
 😕	wajah bingung							// [1F615]
-😖	wajah gelisah							// [1F616]
+😖	wajah stres							// [1F616]
 😗	wajah memberikan ciuman						// [1F617]
 😘	wajah memberikan ciuman jauh					// [1F618]
 😙	wajah memberikan ciuman dengan mata bahagia			// [1F619]
 😚	wajah memberikan ciuman dengan mata tertutup			// [1F61A]
 😛	wajah menjulurkan lidah						// [1F61B]
-😜	wajah menjulurkan lidah dan mengedipkan mara			// [1F61C]
+😜	wajah menjulurkan lidah dan mengedipkan mata			// [1F61C]
 😝	wajah menjulurkan lidah dan memejamkan mata			// [1F61D]
 😞	wajah kecewa							// [1F61E]
-😟	wajah khawatir							// [1F61F]
+😟	wajah cemas							// [1F61F]
 😠	wajah marah							// [1F620]
 😡	wajah sangat marah						// [1F621]
 😢	wajah menangis							// [1F622]
 😣	wajah tidak setuju						// [1F623]
 😤	wajah bersungguh-sungguh					// [1F624]
 😥	wajah kecewa namun lega						// [1F625]
-😦	wajah, muka, mulut, terbuka, nganga, simpati			// [1F626]
+😦	wajah mengerutkan kening dengan mulut terbuka			// [1F626]
 😧	wajah menderita							// [1F627]
 😨	wajah ketakutan							// [1F628]
 😩	wajah terlalu lelah						// [1F629]
 😪	wajah mengantuk							// [1F62A]
 😫	wajah kelelahan							// [1F62B]
 😬	wajah menyeringai						// [1F62C]
-😭	wajah menangis tersedu-sedu					// [1F62D]
+😭	wajah menangis keras						// [1F62D]
 😮	wajah dengan mulut terbuka					// [1F62E]
 😯	wajah hening							// [1F62F]
 😰	wajah ketakutan berkeringat					// [1F630]
@@ -970,16 +970,16 @@ $textmode
 🙂	wajah agak tersenyum						// [1F642]
 🙃	wajah terbalik							// [1F643]
 🙄	wajah dengan mata ke atas					// [1F644]
-🙅	isyarat tidak							// [1F645]
-🙆	isyarat oke							// [1F646]
-🙇	orang menunduk							// [1F647]
+🙅	orang mengisyaratkan TIDAK					// [1F645]
+🙆	orang mengisyaratkan OKE					// [1F646]
+🙇	orang membungkuk						// [1F647]
 🙈	tidak melihat							// [1F648]
 🙉	tidak mendengar							// [1F649]
 🙊	tidak bicara							// [1F64A]
-🙋	orang gembira mengangkat tangan					// [1F64B]
+🙋	orang mengangkat tangan						// [1F64B]
 🙌	mengangkat tangan						// [1F64C]
 🙍	orang marah							// [1F64D]
-🙎	orang cemberut							// [1F64E]
+🙎	orang tidak senang						// [1F64E]
 🙏	melipat tangan							// [1F64F]
 
 // 1F680..1F6FF : Transport and Map Symbols
@@ -1001,7 +1001,7 @@ $textmode
 🚎	bus listrik							// [1F68E]
 🚏	halte bus							// [1F68F]
 🚐	minibus								// [1F690]
-🚑	ambulan								// [1F691]
+🚑	ambulans							// [1F691]
 🚒	mobil pemadam kebakaran						// [1F692]
 🚓	mobil polisi							// [1F693]
 🚔	mobil polisi datang						// [1F694]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	kereta gantung							// [1F6A0]
 🚡	trem gantung							// [1F6A1]
 🚢	kapal								// [1F6A2]
-🚣	perahu dayung							// [1F6A3]
+🚣	orang mendayung perahu						// [1F6A3]
 🚤	perahu cepat							// [1F6A4]
 🚥	lampu lalu lintas horizontal					// [1F6A5]
 🚦	lampu lalu lintas vertikal					// [1F6A6]
@@ -1036,9 +1036,9 @@ $textmode
 🚱	air tidak dapat diminum						// [1F6B1]
 🚲	sepeda								// [1F6B2]
 🚳	dilarang bersepeda						// [1F6B3]
-🚴	pesepeda							// [1F6B4]
-🚵	pesepeda gunung							// [1F6B5]
-🚶	pejalan kaki							// [1F6B6]
+🚴	orang bersepeda							// [1F6B4]
+🚵	orang bersepeda gunung						// [1F6B5]
+🚶	orang berjalan kaki						// [1F6B6]
 🚷	pejalan kaki dilarang masuk					// [1F6B7]
 🚸	anak-anak menyeberang						// [1F6B8]
 🚹	toilet pria							// [1F6B9]
@@ -1048,7 +1048,7 @@ $textmode
 🚽	toilet								// [1F6BD]
 🚾	kloset								// [1F6BE]
 🚿	shower								// [1F6BF]
-🛀	orang sedang mandi						// [1F6C0]
+🛀	orang di bak mandi						// [1F6C0]
 🛁	bathtub								// [1F6C1]
 🛂	kontrol paspor							// [1F6C2]
 🛃	pemeriksaan							// [1F6C3]
@@ -1057,27 +1057,27 @@ $textmode
 🛋	sofa dan lampu							// [1F6CB] text|emoji
 🛌	orang di tempat tidur						// [1F6CC]
 🛍	tas belanja							// [1F6CD] text|emoji
-🛎	bel hotel							// [1F6CE] text|emoji
+🛎	bel meja							// [1F6CE] text|emoji
 🛏	tempat tidur							// [1F6CF] text|emoji
 🛐	tempat ibadah							// [1F6D0]
-🛑	stop								// [1F6D1]
+🛑	rambu stop							// [1F6D1]
 🛒	troli belanja							// [1F6D2]
 🛠	palu dan kunci inggris						// [1F6E0] text|emoji
 🛡	perisai								// [1F6E1] text|emoji
 🛢	drum minyak							// [1F6E2] text|emoji
 🛣	jalan raya							// [1F6E3] text|emoji
 🛤	rel kereta							// [1F6E4] text|emoji
-🛥	kapal bermotor							// [1F6E5] text|emoji
+🛥	perahu bermotor							// [1F6E5] text|emoji
 🛩	pesawat kecil							// [1F6E9] text|emoji
 🛫	pesawat lepas landas						// [1F6EB]
 🛬	pesawat mendarat						// [1F6EC]
 🛰	satelit								// [1F6F0] text|emoji
-🛳	kapal pesiar							// [1F6F3] text|emoji
+🛳	kapal penumpang							// [1F6F3] text|emoji
 🛴	otoped								// [1F6F4]
 🛵	motor skuter							// [1F6F5]
-🛶	perahu								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛶	kano								// [1F6F6]
+🛷	kereta luncur							// [1F6F7]
+🛸	piring terbang							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1095,42 +1095,42 @@ $textmode
 🤛	tinju kiri							// [1F91B]
 🤜	tinju kanan							// [1F91C]
 🤝	jabat tangan							// [1F91D]
-🤞	semoga beruntung						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	koboi								// [1F920]
+🤞	jari menyilang							// [1F91E]
+🤟	gerakan sayang kamu						// [1F91F]
+🤠	wajah koboi							// [1F920]
 🤡	badut								// [1F921]
 🤢	mual								// [1F922]
 🤣	tertawa terbahak-bahak						// [1F923]
 🤤	ngiler								// [1F924]
 🤥	bohong								// [1F925]
-🤦	tepuk jidat							// [1F926]
+🤦	orang tepuk jidat						// [1F926]
 🤧	bersin								// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
-🤰	hamil								// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
-🤳	foto selfie							// [1F933]
+🤨	wajah dengan alis terangkat					// [1F928]
+🤩	wajah dengan mata berbentuk bintang				// [1F929]
+🤪	wajah konyol							// [1F92A]
+🤫	wajah menyuruh diam						// [1F92B]
+🤬	wajah dengan simbol pada mulut					// [1F92C]
+🤭	wajah dengan tangan menutup mulut				// [1F92D]
+🤮	wajah muntah							// [1F92E]
+🤯	kepala meledak							// [1F92F]
+🤰	wanita hamil							// [1F930]
+🤱	menyusui							// [1F931]
+🤲	tangan diangkat dan dirapatkan bersama				// [1F932]
+🤳	selfie								// [1F933]
 🤴	pangeran							// [1F934]
-🤵	pria ganteng							// [1F935]
-🤶	ibu								// [1F936]
-🤷	bingung								// [1F937]
-🤸	salto								// [1F938]
-🤹	sibuk								// [1F939]
-🤺	anggar								// [1F93A]
-🤼	gulat								// [1F93C]
-🤽	polo air							// [1F93D]
-🤾	bola tangan							// [1F93E]
+🤵	pria bertuksedo							// [1F935]
+🤶	Nyonya Claus							// [1F936]
+🤷	orang mengangkat bahu						// [1F937]
+🤸	orang melakukan gerakan meroda					// [1F938]
+🤹	orang melempar							// [1F939]
+🤺	orang berolahraga anggar					// [1F93A]
+🤼	orang bergulat							// [1F93C]
+🤽	orang bermain polo air						// [1F93D]
+🤾	orang bermain bola tangan					// [1F93E]
 🥀	bunga layu							// [1F940]
 🥁	drum								// [1F941]
-🥂	perayaan							// [1F942]
-🥃	minum alkohol							// [1F943]
+🥂	mendentingkan gelas						// [1F942]
+🥃	gelas tumbler							// [1F943]
 🥄	sendok								// [1F944]
 🥅	gawang								// [1F945]
 🥇	medali emas							// [1F947]
@@ -1138,35 +1138,35 @@ $textmode
 🥉	medali perunggu							// [1F949]
 🥊	sarung tinju							// [1F94A]
 🥋	seragam beladiri						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	batu curling							// [1F94C]
 🥐	croissant							// [1F950]
-🥑	avokad								// [1F951]
-🥒	timun								// [1F952]
-🥓	bacon								// [1F953]
+🥑	alpukat								// [1F951]
+🥒	ketimun								// [1F952]
+🥓	babi asap							// [1F953]
 🥔	kentang								// [1F954]
 🥕	wortel								// [1F955]
-🥖	roti prancis							// [1F956]
-🥗	salad								// [1F957]
-🥘	kaserol								// [1F958]
-🥙	kebab								// [1F959]
+🥖	roti baguette							// [1F956]
+🥗	salad hijau							// [1F957]
+🥘	wajan dangkal							// [1F958]
+🥙	roti tawar isi							// [1F959]
 🥚	telur								// [1F95A]
-🥛	segelas susu							// [1F95B]
-🥜	kacang								// [1F95C]
+🥛	gelas susu							// [1F95B]
+🥜	kacang tanah							// [1F95C]
 🥝	buah kiwi							// [1F95D]
-🥞	pancake								// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥞	panekuk								// [1F95E]
+🥟	dumpling							// [1F95F]
+🥠	kue keberuntungan						// [1F960]
+🥡	kotak makanan							// [1F961]
+🥢	sumpit								// [1F962]
+🥣	mangkuk dengan sendok						// [1F963]
+🥤	cangkir dengan sedotan						// [1F964]
+🥥	kelapa								// [1F965]
+🥦	brokoli								// [1F966]
+🥧	pai								// [1F967]
+🥨	pretzel								// [1F968]
+🥩	potongan daging							// [1F969]
+🥪	roti lapis							// [1F96A]
+🥫	makanan kaleng							// [1F96B]
 🦀	kepiting							// [1F980]
 🦁	wajah singa							// [1F981]
 🦂	kalajengking							// [1F982]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	badak								// [1F98F]
 🦐	udang								// [1F990]
 🦑	cumi-cumi							// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
-🧀	sepotong keju							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🦒	jerapah								// [1F992]
+🦓	zebra								// [1F993]
+🦔	landak								// [1F994]
+🦕	sauropod							// [1F995]
+🦖	T-Rex								// [1F996]
+🦗	jangkrik							// [1F997]
+🧀	irisan keju							// [1F9C0]
+🧐	wajah dengan monokel						// [1F9D0]
+🧑	dewasa								// [1F9D1]
+🧒	anak								// [1F9D2]
+🧓	lanjut usia							// [1F9D3]
+🧔	orang berjenggot						// [1F9D4]
+🧕	wanita dengan kerudung						// [1F9D5]
+🧖	orang di ruangan beruap						// [1F9D6]
+🧗	orang memanjat							// [1F9D7]
+🧘	orang dalam posisi teratai					// [1F9D8]
+🧙	magi								// [1F9D9]
+🧚	peri								// [1F9DA]
+🧛	vampir								// [1F9DB]
+🧜	orang duyung							// [1F9DC]
+🧝	kurcaci								// [1F9DD]
+🧞	jin								// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	otak								// [1F9E0]
+🧡	hati oranye							// [1F9E1]
+🧢	topi berlidah							// [1F9E2]
+🧣	syal								// [1F9E3]
+🧤	sarung tangan							// [1F9E4]
+🧥	mantel								// [1F9E5]
+🧦	kaus kaki							// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1248,7 +1248,7 @@ $textmode
 🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
 🇧🇳	Brunei								// [1F1E7 1F1F3] BN
 🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
-🇧🇶	Karibia Belanda							// [1F1E7 1F1F6] BQ
+🇧🇶	Belanda Karibia							// [1F1E7 1F1F6] BQ
 🇧🇷	Brasil								// [1F1E7 1F1F7] BR
 🇧🇸	Bahama								// [1F1E7 1F1F8] BS
 🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
@@ -1262,7 +1262,7 @@ $textmode
 🇨🇫	Republik Afrika Tengah						// [1F1E8 1F1EB] CF
 🇨🇬	Kongo - Brazzaville						// [1F1E8 1F1EC] CG
 🇨🇭	Swiss								// [1F1E8 1F1ED] CH
-🇨🇮	Cote d’Ivoire							// [1F1E8 1F1EE] CI
+🇨🇮	Pantai Gading							// [1F1E8 1F1EE] CI
 🇨🇰	Kepulauan Cook							// [1F1E8 1F1F0] CK
 🇨🇱	Cile								// [1F1E8 1F1F1] CL
 🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
@@ -1275,7 +1275,7 @@ $textmode
 🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
 🇨🇽	Pulau Christmas							// [1F1E8 1F1FD] CX
 🇨🇾	Siprus								// [1F1E8 1F1FE] CY
-🇨🇿	Cheska								// [1F1E8 1F1FF] CZ
+🇨🇿	Ceko								// [1F1E8 1F1FF] CZ
 🇩🇪	Jerman								// [1F1E9 1F1EA] DE
 🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
 🇩🇯	Jibuti								// [1F1E9 1F1EF] DJ
@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	tombol pagar							// [0023 FE0F 20E3]
-*️⃣	tombol bintang							// [002A FE0F 20E3]
-0️⃣	tombol angka nol						// [0030 FE0F 20E3]
-1️⃣	tombol angka satu						// [0031 FE0F 20E3]
-2️⃣	tombol angka dua						// [0032 FE0F 20E3]
-3️⃣	tombol angka tiga						// [0033 FE0F 20E3]
-4️⃣	tombol angka empat						// [0034 FE0F 20E3]
-5️⃣	tombol angka lima						// [0035 FE0F 20E3]
-6️⃣	tombol angka enam						// [0036 FE0F 20E3]
-7️⃣	tombol angka tujuh						// [0037 FE0F 20E3]
-8️⃣	tombol angka delapan						// [0038 FE0F 20E3]
-9️⃣	tombol angka sembilan						// [0039 FE0F 20E3]
+#️⃣	keycap: #							// [0023 FE0F 20E3]
+*️⃣	keycap: *							// [002A FE0F 20E3]
+0️⃣	keycap: 0							// [0030 FE0F 20E3]
+1️⃣	keycap: 1							// [0031 FE0F 20E3]
+2️⃣	keycap: 2							// [0032 FE0F 20E3]
+3️⃣	keycap: 3							// [0033 FE0F 20E3]
+4️⃣	keycap: 4							// [0034 FE0F 20E3]
+5️⃣	keycap: 5							// [0035 FE0F 20E3]
+6️⃣	keycap: 6							// [0036 FE0F 20E3]
+7️⃣	keycap: 7							// [0037 FE0F 20E3]
+8️⃣	keycap: 8							// [0038 FE0F 20E3]
+9️⃣	keycap: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1506,31 +1506,31 @@ $textmode
 👩‍❤‍👨	pasangan dengan hati: wanita, pria		// [1F469 200D 2764 200D 1F468]
 👨‍❤‍👨	pasangan dengan hati: pria, pria		// [1F468 200D 2764 200D 1F468]
 👩‍❤‍👩	pasangan dengan hati: wanita, wanita		// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	keluarga: pria, wanita, laki-laki		// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	keluarga: pria, wanita, perempuan		// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	keluarga: pria, wanita, perempuan, laki-laki// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	keluarga: pria, wanita, laki-laki, laki-laki// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	keluarga: pria, wanita, perempuan, perempuan// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	keluarga: pria, pria, laki-laki			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	keluarga: pria, pria, perempuan			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	keluarga: pria, pria, perempuan, laki-laki// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	keluarga: pria, pria, laki-laki, laki-laki// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	keluarga: pria, pria, perempuan, perempuan// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	keluarga: wanita, wanita, laki-laki		// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	keluarga: wanita, wanita, perempuan		// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	keluarga: wanita, wanita, perempuan, laki-laki// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	keluarga: wanita, wanita, laki-laki, laki-laki// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	keluarga: wanita, wanita, perempuan, perempuan// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	keluarga: pria, laki-laki				// [1F468 200D 1F466]
-👨‍👦‍👦	keluarga: pria, laki-laki, laki-laki		// [1F468 200D 1F466 200D 1F466]
-👨‍👧	keluarga: pria, perempuan				// [1F468 200D 1F467]
-👨‍👧‍👦	keluarga: pria, perempuan, laki-laki		// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	keluarga: pria, perempuan, perempuan		// [1F468 200D 1F467 200D 1F467]
-👩‍👦	keluarga: wanita, laki-laki				// [1F469 200D 1F466]
-👩‍👦‍👦	keluarga: wanita, laki-laki, laki-laki		// [1F469 200D 1F466 200D 1F466]
-👩‍👧	keluarga: wanita, perempuan				// [1F469 200D 1F467]
-👩‍👧‍👦	keluarga: wanita, perempuan, laki-laki		// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	keluarga: wanita, perempuan, perempuan		// [1F469 200D 1F467 200D 1F467]
+👨‍👩‍👦	keluarga: pria, wanita, anak laki-laki		// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	keluarga: pria, wanita, anak perempuan		// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	keluarga: pria, wanita, anak perempuan, anak laki-laki// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	keluarga: pria, wanita, anak laki-laki, anak laki-laki// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	keluarga: pria, wanita, anak perempuan, anak perempuan// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	keluarga: pria, pria, anak laki-laki		// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	keluarga: pria, pria, anak perempuan		// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	keluarga: pria, pria, anak perempuan, anak laki-laki// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	keluarga: pria, pria, anak laki-laki, anak laki-laki// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	keluarga: pria, pria, anak perempuan, anak perempuan// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	keluarga: wanita, wanita, anak laki-laki	// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	keluarga: wanita, wanita, anak perempuan	// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	keluarga: wanita, wanita, anak perempuan, anak laki-laki// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	keluarga: wanita, wanita, anak laki-laki, anak laki-laki// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	keluarga: wanita, wanita, anak perempuan, anak perempuan// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	keluarga: pria, anak laki-laki				// [1F468 200D 1F466]
+👨‍👦‍👦	keluarga: pria, anak laki-laki, anak laki-laki	// [1F468 200D 1F466 200D 1F466]
+👨‍👧	keluarga: pria, anak perempuan				// [1F468 200D 1F467]
+👨‍👧‍👦	keluarga: pria, anak perempuan, anak laki-laki	// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	keluarga: pria, anak perempuan, anak perempuan	// [1F468 200D 1F467 200D 1F467]
+👩‍👦	keluarga: wanita, anak laki-laki			// [1F469 200D 1F466]
+👩‍👦‍👦	keluarga: wanita, anak laki-laki, anak laki-laki// [1F469 200D 1F466 200D 1F466]
+👩‍👧	keluarga: wanita, anak perempuan			// [1F469 200D 1F467]
+👩‍👧‍👦	keluarga: wanita, anak perempuan, anak laki-laki// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	keluarga: wanita, anak perempuan, anak perempuan// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1556,14 +1556,14 @@ $textmode
 👩‍🏭	pekerja pabrik wanita					// [1F469 200D 1F3ED]
 👨‍💻	ahli teknologi pria					// [1F468 200D 1F4BB]
 👩‍💻	ahli teknologi wanita					// [1F469 200D 1F4BB]
-👨‍💼	karyawan kantor						// [1F468 200D 1F4BC]
-👩‍💼	karyawati kantor					// [1F469 200D 1F4BC]
-👨‍🔧	teknisi pria						// [1F468 200D 1F527]
-👩‍🔧	teknisi wanita						// [1F469 200D 1F527]
+👨‍💼	pekerja kantor pria					// [1F468 200D 1F4BC]
+👩‍💼	pekerja kantor wanita					// [1F469 200D 1F4BC]
+👨‍🔧	montir pria						// [1F468 200D 1F527]
+👩‍🔧	montir wanita						// [1F469 200D 1F527]
 👨‍🔬	ilmuwan pria						// [1F468 200D 1F52C]
 👩‍🔬	ilmuwan wanita						// [1F469 200D 1F52C]
-👨‍🚀	antariksawan						// [1F468 200D 1F680]
-👩‍🚀	antariksawati						// [1F469 200D 1F680]
+👨‍🚀	antariksawan pria					// [1F468 200D 1F680]
+👩‍🚀	antariksawan wanita					// [1F469 200D 1F680]
 👨‍🚒	pemadam kebakaran pria					// [1F468 200D 1F692]
 👩‍🚒	pemadam kebakaran wanita				// [1F469 200D 1F692]
 
@@ -1573,92 +1573,92 @@ $textmode
 👮‍♂	polisi pria						// [1F46E 200D 2642]
 👱‍♀	wanita berambut pirang					// [1F471 200D 2640]
 👱‍♂	pria berambut pirang					// [1F471 200D 2642]
-👳‍♀	wanita bersorban					// [1F473 200D 2640]
-👳‍♂	pria bersorban						// [1F473 200D 2642]
+👳‍♀	wanita mengenakan serban				// [1F473 200D 2640]
+👳‍♂	pria mengenakan serban					// [1F473 200D 2642]
 👷‍♀	pekerja konstruksi wanita				// [1F477 200D 2640]
 👷‍♂	pekerja konstruksi pria					// [1F477 200D 2642]
 💂‍♀	penjaga wanita						// [1F482 200D 2640]
 💂‍♂	penjaga pria						// [1F482 200D 2642]
 🕵️‍♀	detektif wanita						// [1F575 200D 2640]
 🕵️‍♂	detektif pria						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	magi wanita						// [1F9D9 200D 2640]
+🧙‍♂	magi pria						// [1F9D9 200D 2642]
+🧚‍♀	peri wanita						// [1F9DA 200D 2640]
+🧚‍♂	peri pria						// [1F9DA 200D 2642]
+🧛‍♀	vampir wanita						// [1F9DB 200D 2640]
+🧛‍♂	vampir pria						// [1F9DB 200D 2642]
+🧜‍♀	putri duyung						// [1F9DC 200D 2640]
+🧜‍♂	pria duyung						// [1F9DC 200D 2642]
+🧝‍♀	kurcaci wanita						// [1F9DD 200D 2640]
+🧝‍♂	kurcaci pria						// [1F9DD 200D 2642]
+🧞‍♀	jin wanita						// [1F9DE 200D 2640]
+🧞‍♂	jin pria						// [1F9DE 200D 2642]
+🧟‍♀	zombi wanita						// [1F9DF 200D 2640]
+🧟‍♂	zombi pria						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
-⛹‍♀	wanita membawa bola					// [26F9 200D 2640]
-⛹‍♂	pria membawa bola					// [26F9 200D 2642]
-🏃‍♀	wanita lari						// [1F3C3 200D 2640]
-🏃‍♂	pria lari						// [1F3C3 200D 2642]
+⛹‍♀	wanita memantulkan bola					// [26F9 200D 2640]
+⛹‍♂	pria memantulkan bola					// [26F9 200D 2642]
+🏃‍♀	wanita berlari						// [1F3C3 200D 2640]
+🏃‍♂	pria berlari						// [1F3C3 200D 2642]
 🏄‍♀	wanita berselancar					// [1F3C4 200D 2640]
 🏄‍♂	pria berselancar					// [1F3C4 200D 2642]
 🏊‍♀	wanita berenang						// [1F3CA 200D 2640]
 🏊‍♂	pria berenang						// [1F3CA 200D 2642]
-🏋️‍♀	wanita angkat beban					// [1F3CB 200D 2640]
-🏋️‍♂	pria angkat beban					// [1F3CB 200D 2642]
-🏌️‍♀	wanita main golf					// [1F3CC 200D 2640]
-🏌️‍♂	pria main golf						// [1F3CC 200D 2642]
-👯‍♀	wanita berpesta						// [1F46F 200D 2640]
-👯‍♂	pria berpesta						// [1F46F 200D 2642]
-💆‍♀	wanita dipijat kepalanya				// [1F486 200D 2640]
+🏋️‍♀	wanita mengangkat beban					// [1F3CB 200D 2640]
+🏋️‍♂	pria mengangkat beban					// [1F3CB 200D 2642]
+🏌️‍♀	wanita bermain golf					// [1F3CC 200D 2640]
+🏌️‍♂	pria bermain golf					// [1F3CC 200D 2642]
+👯‍♀	wanita dengan telinga kelinci				// [1F46F 200D 2640]
+👯‍♂	pria dengan telinga kelinci				// [1F46F 200D 2642]
+💆‍♀	wanita dipijat						// [1F486 200D 2640]
 💆‍♂	pria dipijat kepalanya					// [1F486 200D 2642]
 💇‍♀	wanita potong rambut					// [1F487 200D 2640]
 💇‍♂	pria potong rambut					// [1F487 200D 2642]
 🚣‍♀	wanita mendayung perahu					// [1F6A3 200D 2640]
 🚣‍♂	pria mendayung perahu					// [1F6A3 200D 2642]
-🚴‍♀	pesepeda wanita						// [1F6B4 200D 2640]
-🚴‍♂	pesepeda pria						// [1F6B4 200D 2642]
-🚵‍♀	pesepeda gunung wanita					// [1F6B5 200D 2640]
-🚵‍♂	pesepeda gunung pria					// [1F6B5 200D 2642]
-🚶‍♀	wanita berjalan						// [1F6B6 200D 2640]
-🚶‍♂	pria berjalan						// [1F6B6 200D 2642]
-🤸‍♀	wanita jungkir balik					// [1F938 200D 2640]
-🤸‍♂	pria jungkir balik					// [1F938 200D 2642]
-🤹‍♀	wanita melakukan atraksi				// [1F939 200D 2640]
-🤹‍♂	pria melakukan atraksi					// [1F939 200D 2642]
+🚴‍♀	wanita bersepeda					// [1F6B4 200D 2640]
+🚴‍♂	pria bersepeda						// [1F6B4 200D 2642]
+🚵‍♀	wanita bersepeda gunung					// [1F6B5 200D 2640]
+🚵‍♂	pria bersepeda gunung					// [1F6B5 200D 2642]
+🚶‍♀	wanita berjalan kaki					// [1F6B6 200D 2640]
+🚶‍♂	pria berjalan kaki					// [1F6B6 200D 2642]
+🤸‍♀	wanita melakukan gerakan meroda				// [1F938 200D 2640]
+🤸‍♂	pria melakukan gerakan meroda				// [1F938 200D 2642]
+🤹‍♀	wanita melempar						// [1F939 200D 2640]
+🤹‍♂	pria melempar						// [1F939 200D 2642]
 🤼‍♀	wanita bergulat						// [1F93C 200D 2640]
 🤼‍♂	pria bergulat						// [1F93C 200D 2642]
 🤽‍♀	wanita bermain polo air					// [1F93D 200D 2640]
 🤽‍♂	pria bermain polo air					// [1F93D 200D 2642]
 🤾‍♀	wanita bermain bola tangan				// [1F93E 200D 2640]
 🤾‍♂	pria bermain bola tangan				// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	wanita di ruangan beruap				// [1F9D6 200D 2640]
+🧖‍♂	pria di ruangan beruap					// [1F9D6 200D 2642]
+🧗‍♀	wanita memanjat						// [1F9D7 200D 2640]
+🧗‍♂	pria memanjat						// [1F9D7 200D 2642]
+🧘‍♀	wanita dalam posisi teratai				// [1F9D8 200D 2640]
+🧘‍♂	pria dalam posisi teratai				// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
 💁‍♀	wanita menengadahkan tangan				// [1F481 200D 2640]
 💁‍♂	pria menengadahkan tangan				// [1F481 200D 2642]
-🙅‍♀	wanita menyilangkan tangan				// [1F645 200D 2640]
-🙅‍♂	pria menyilangkan tangan				// [1F645 200D 2642]
-🙆‍♀	wanita melingkarkan tangan				// [1F646 200D 2640]
-🙆‍♂	pria melingkarkan tangan				// [1F646 200D 2642]
-🙇‍♀	wanita membungkuk-bungkuk				// [1F647 200D 2640]
-🙇‍♂	pria membungkuk-bungkuk					// [1F647 200D 2642]
+🙅‍♀	wanita mengisyaratkan TIDAK				// [1F645 200D 2640]
+🙅‍♂	pria mengisyaratkan TIDAK				// [1F645 200D 2642]
+🙆‍♀	wanita mengisyaratkan OKE				// [1F646 200D 2640]
+🙆‍♂	pria mengisyaratkan OKE					// [1F646 200D 2642]
+🙇‍♀	wanita membungkuk					// [1F647 200D 2640]
+🙇‍♂	pria membungkuk						// [1F647 200D 2642]
 🙋‍♀	wanita mengangkat tangan				// [1F64B 200D 2640]
 🙋‍♂	pria mengangkat tangan					// [1F64B 200D 2642]
 🙍‍♀	wanita muka tidak senang				// [1F64D 200D 2640]
 🙍‍♂	pria muka tidak senang					// [1F64D 200D 2642]
-🙎‍♀	wanita cemberut						// [1F64E 200D 2640]
-🙎‍♂	pria cemberut						// [1F64E 200D 2642]
-🤦‍♀	wanita menepuk jidat					// [1F926 200D 2640]
-🤦‍♂	pria menepuk jidat					// [1F926 200D 2642]
+🙎‍♀	wanita tidak senang					// [1F64E 200D 2640]
+🙎‍♂	pria tidak senang					// [1F64E 200D 2642]
+🤦‍♀	wanita tepuk jidat					// [1F926 200D 2640]
+🤦‍♂	pria tepuk jidat					// [1F926 200D 2642]
 🤷‍♀	wanita mengangkat bahu					// [1F937 200D 2640]
 🤷‍♂	pria mengangkat bahu					// [1F937 200D 2642]
 

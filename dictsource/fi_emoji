@@ -26,14 +26,14 @@ $textmode
 
 // 2190..21FF : Arrows
 
-↔	oikeaan-vasempaan-nuoli						// [2194] text|emoji
-↕	ylös-alas-nuoli							// [2195] text|emoji
-↖	ylävasemmalle-nuoli						// [2196] text|emoji
-↗	yläoikealle-nuoli						// [2197] text|emoji
-↘	alaoikealle-nuoli						// [2198] text|emoji
-↙	alavasemmalle-nuoli						// [2199] text|emoji
-↩	kääntyvä nuoli oikealle						// [21A9] text|emoji
-↪	kääntyvä nuoli vasemmalle					// [21AA] text|emoji
+↔	nuoli oikealle ja vasemmalle					// [2194] text|emoji
+↕	nuoli ylös ja alas						// [2195] text|emoji
+↖	nuoli ylävasemmalle						// [2196] text|emoji
+↗	nuoli yläoikealle						// [2197] text|emoji
+↘	nuoli alaoikealle						// [2198] text|emoji
+↙	nuoli alavasemmalle						// [2199] text|emoji
+↩	vasemmalle kääntyvä nuoli					// [21A9] text|emoji
+↪	oikealle kääntyvä nuoli						// [21AA] text|emoji
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -51,7 +51,7 @@ $textmode
 ⏰	herätyskello							// [23F0]
 ⏱	sekuntikello							// [23F1] text|emoji
 ⏲	ajastin								// [23F2] text|emoji
-⏳	hiekkaa tiimalasissa						// [23F3]
+⏳	valuva tiimalasi						// [23F3]
 ⏸	pysäytä								// [23F8] text|emoji
 ⏹	lopeta								// [23F9] text|emoji
 ⏺	tallenna							// [23FA] text|emoji
@@ -91,7 +91,7 @@ $textmode
 ☪	kuunsirppi ja tähti						// [262A] text|emoji
 ☮	rauhansymboli							// [262E] text|emoji
 ☯	jin ja jang							// [262F] text|emoji
-☸	dharman pyörä							// [2638] text|emoji
+☸	dharma-pyörä							// [2638] text|emoji
 ☹	surullinen							// [2639] text|emoji
 ☺	hymynaama							// [263A] text|emoji
 ♀	Venus-symboli							// [2640] text|emoji
@@ -120,7 +120,7 @@ $textmode
 ⚔	miekat ristissä							// [2694] text|emoji
 ⚕	lääketieteen symboli						// [2695] text|emoji
 ⚖	vaaka								// [2696] text|emoji
-⚗	tislauskattila							// [2697] text|emoji
+⚗	tislauskolvi							// [2697] text|emoji
 ⚙	hammasratas							// [2699] text|emoji
 ⚛	atomi								// [269B] text|emoji
 ⚜	lilja								// [269C] text|emoji
@@ -144,9 +144,9 @@ $textmode
 ⛪	kirkko								// [26EA]
 ⛰	vuori								// [26F0] text|emoji
 ⛱	aurinkovarjo							// [26F1] text|emoji
-⛲	vesilähde							// [26F2]
+⛲	suihkulähde							// [26F2]
 ⛳	lippu reiän päällä						// [26F3]
-⛴	risteilylaiva							// [26F4] text|emoji
+⛴	lautta								// [26F4] text|emoji
 ⛵	purjevene							// [26F5]
 ⛷	hiihtäjä							// [26F7] text|emoji
 ⛸	luistin								// [26F8] text|emoji
@@ -157,7 +157,7 @@ $textmode
 // 2700..27BF : Dingbats
 
 ✂	sakset								// [2702] text|emoji
-✅	valkoinen oikein-merkki						// [2705]
+✅	valkoinen valintamerkki						// [2705]
 ✈	lentokone							// [2708] text|emoji
 ✉	kirjekuori							// [2709] text|emoji
 ✊	nostettu nyrkki							// [270A]
@@ -165,41 +165,41 @@ $textmode
 ✌	voitonmerkki							// [270C] text|emoji
 ✍	kirjoittava käsi						// [270D] text|emoji
 ✏	lyijykynä							// [270F] text|emoji
-✒	musta teräskynä							// [2712] text|emoji
+✒	musta kynänkärki						// [2712] text|emoji
 ✔	paksu oikein-merkki						// [2714] text|emoji
-✖	paksu x-merkki							// [2716] text|emoji
+✖	paksu kertomerkki						// [2716] text|emoji
 ✝	latinalainen risti						// [271D] text|emoji
-✡	daavidin tähti							// [2721] text|emoji
+✡	Daavidin tähti							// [2721] text|emoji
 ✨	säihke								// [2728]
-✳	kahdeksanteräinen asteriski					// [2733] text|emoji
-✴	kahdeksanteräinen tähti						// [2734] text|emoji
+✳	kahdeksanpiikkinen tähtimerkki					// [2733] text|emoji
+✴	kahdeksankärkinen tähti						// [2734] text|emoji
 ❄	lumihiutale							// [2744] text|emoji
 ❇	kipinä								// [2747] text|emoji
-❌	punainen x-merkki						// [274C]
-❎	peruuta-nappi							// [274E]
+❌	punainen rastimerkki						// [274C]
+❎	rastimerkki							// [274E]
 ❓	kysymysmerkki							// [2753]
 ❔	valkoinen kysymysmerkki						// [2754]
 ❕	valkoinen huutomerkki						// [2755]
 ❗	huutomerkki							// [2757]
 ❣	sydänhuutomerkki						// [2763] text|emoji
 ❤	punainen sydän							// [2764] text|emoji
-➕	plus-merkki							// [2795]
-➖	miinus-merkki							// [2796]
+➕	plusmerkki							// [2795]
+➖	miinusmerkki							// [2796]
 ➗	jakomerkki							// [2797]
-➡	oikealle-nuoli							// [27A1] text|emoji
+➡	nuoli oikealle							// [27A1] text|emoji
 ➰	silmukka							// [27B0]
 ➿	kaksoissilmukka							// [27BF]
 
 // 2900..297F : Supplemental Arrows-B
 
-⤴	kääntyvä nuoli ylös						// [2934] text|emoji
-⤵	kääntyvä nuoli alas						// [2935] text|emoji
+⤴	ylös kääntyvä nuoli						// [2934] text|emoji
+⤵	alas kääntyvä nuoli						// [2935] text|emoji
 
 // 2B00..2BFF : Miscellaneous Symbols and Arrows
 
-⬅	vasemmalle-nuoli						// [2B05] text|emoji
-⬆	ylös-nuoli							// [2B06] text|emoji
-⬇	alas-nuoli							// [2B07] text|emoji
+⬅	nuoli vasemmalle						// [2B05] text|emoji
+⬆	nuoli ylös							// [2B06] text|emoji
+⬇	nuoli alas							// [2B07] text|emoji
 ⬛	iso musta neliö							// [2B1B]
 ⬜	iso valkoinen neliö						// [2B1C]
 ⭐	valkoinen tähti							// [2B50]
@@ -208,7 +208,7 @@ $textmode
 // 3000..303F : CJK Symbols and Punctuation
 
 〰	aaltoviiva							// [3030] text|emoji
-〽	japanilainen vuoronvaihtomerkki					// [303D] text|emoji
+〽	osanvaihtomerkki						// [303D] text|emoji
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
@@ -217,39 +217,39 @@ $textmode
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	a-näppäin							// [1F170] text|emoji
-🅱	b-näppäin							// [1F171] text|emoji
-🅾	o-näppäin							// [1F17E] text|emoji
-🅿	p-näppäin							// [1F17F] text|emoji
-🆎	ab-näppäin							// [1F18E]
+🅰	A-veriryhmä							// [1F170] text|emoji
+🅱	B-veriryhmä							// [1F171] text|emoji
+🅾	O-veriryhmä							// [1F17E] text|emoji
+🅿	P								// [1F17F] text|emoji
+🆎	AB-veriryhmä							// [1F18E]
 🆑	pyyhi-näppäin							// [1F191]
-🆒	cool								// [1F192]
-🆓	free								// [1F193]
-🆔	henkilöllisyys							// [1F194]
-🆕	new								// [1F195]
-🆖	no good								// [1F196]
-🆗	ok								// [1F197]
-🆘	sos								// [1F198]
-🆙	up!-näppäin							// [1F199]
-🆚	vastaan								// [1F19A]
+🆒	COOL								// [1F192]
+🆓	FREE								// [1F193]
+🆔	ID								// [1F194]
+🆕	NEW								// [1F195]
+🆖	NG								// [1F196]
+🆗	OK								// [1F197]
+🆘	SOS								// [1F198]
+🆙	UP!								// [1F199]
+🆚	VS								// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	katakana koko							// [1F201]
-🈂	katakana sa							// [1F202] text|emoji
-🈚	ei saatavilla-kirjoitusmerkki					// [1F21A]
-🈯	suunta-kirjoitusmerkki						// [1F22F]
-🈲	kielto-kirjoitusmerkki						// [1F232]
+🈁	täällä-kirjainmerkki						// [1F201]
+🈂	palvelumaksu-kirjainmerkki					// [1F202] text|emoji
+🈚	maksuton-kirjainmerkki						// [1F21A]
+🈯	varattu-kirjainmerkki						// [1F22F]
+🈲	kielletty-kirjoitusmerkki					// [1F232]
 🈳	tyhjä-kirjoitusmerkki						// [1F233]
-🈴	yhdessä-kirjoitusmerkki						// [1F234]
+🈴	hyväksytty arvosana -kirjoitusmerkki				// [1F234]
 🈵	täynnä-kirjoitusmerkki						// [1F235]
-🈶	olla-kirjoitusmerkki						// [1F236]
-🈷	kuu-kirjoitusmerkki						// [1F237] text|emoji
+🈶	maksullinen-kirjainmerkki					// [1F236]
+🈷	kuukausittainen määrä -kirjainmerkki				// [1F237] text|emoji
 🈸	hakemus-kirjoitusmerkki						// [1F238]
 🈹	alennus-kirjoitusmerkki						// [1F239]
 🈺	avoinna-kirjoitusmerkki						// [1F23A]
-🉐	sopimus-kirjoitusmerkki						// [1F250]
-🉑	hyväksyntä-kirjoitusmerkki					// [1F251]
+🉐	hyvä ostos -kirjainmerkki					// [1F250]
+🉑	hyväksyttävä-kirjoitusmerkki					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -274,9 +274,9 @@ $textmode
 🌊	aalto								// [1F30A]
 🌋	tulivuori							// [1F30B]
 🌌	linnunrata							// [1F30C]
-🌍	maapallo jossa näkyy eurooppa ja afrikka			// [1F30D]
-🌎	maapallo jossa näkyy amerikka					// [1F30E]
-🌏	maapallo jossa näkyy aasia ja australia				// [1F30F]
+🌍	maapallo jossa näkyy Eurooppa ja Afrikka			// [1F30D]
+🌎	maapallo jossa näkyy Amerikka					// [1F30E]
+🌏	maapallo jossa näkyy Aasia ja Australia				// [1F30F]
 🌐	maapallo jossa näkyy pituuspiirit				// [1F310]
 🌑	uusikuu								// [1F311]
 🌒	kasvava kuunsirppi						// [1F312]
@@ -287,7 +287,7 @@ $textmode
 🌗	viimeinen neljänneskuu						// [1F317]
 🌘	vähenevä kuunsirppi						// [1F318]
 🌙	kuunsirppi							// [1F319]
-🌚	uuden kuun kasvot						// [1F31A]
+🌚	uudenkuun kasvot						// [1F31A]
 🌛	kasvava puolikuu kasvoilla					// [1F31B]
 🌜	vähenevä puolikuu kasvoilla					// [1F31C]
 🌝	täysikuu kasvoilla						// [1F31D]
@@ -345,9 +345,9 @@ $textmode
 🍓	mansikka							// [1F353]
 🍔	hampurilainen							// [1F354]
 🍕	pizza								// [1F355]
-🍖	lihaa luussa							// [1F356]
+🍖	lihaa luineen							// [1F356]
 🍗	kanankoipi							// [1F357]
-🍘	onnenkeksi							// [1F358]
+🍘	riisikakku							// [1F358]
 🍙	riisipallo							// [1F359]
 🍚	keitetty riisi							// [1F35A]
 🍛	curry-riisi							// [1F35B]
@@ -362,27 +362,27 @@ $textmode
 🍤	paistettu katkarapu						// [1F364]
 🍥	kalakakku							// [1F365]
 🍦	pehmis								// [1F366]
-🍧	jäähileherkku							// [1F367]
+🍧	jäähilejälkiruoka						// [1F367]
 🍨	jäätelö								// [1F368]
 🍩	donitsi								// [1F369]
 🍪	keksi								// [1F36A]
 🍫	suklaapatukka							// [1F36B]
 🍬	karkki								// [1F36C]
 🍭	tikkari								// [1F36D]
-🍮	rahkatorttu							// [1F36E]
+🍮	vanukas								// [1F36E]
 🍯	hunaja								// [1F36F]
 🍰	kakkupala							// [1F370]
 🍱	bento-rasia							// [1F371]
 🍲	ruokakulho							// [1F372]
 🍳	kokkaus								// [1F373]
 🍴	haarukka ja veitsi						// [1F374]
-🍵	kahvaton teekuppi						// [1F375]
+🍵	korvaton teekuppi						// [1F375]
 🍶	sake								// [1F376]
 🍷	viinilasi							// [1F377]
 🍸	cocktaillasi							// [1F378]
 🍹	trooppinen drinkki						// [1F379]
 🍺	oluttuoppi							// [1F37A]
-🍻	kippistävät oluttuopit						// [1F37B]
+🍻	kilisevät oluttuopit						// [1F37B]
 🍼	tuttipullo							// [1F37C]
 🍽	haarukka, veitsi ja lautanen					// [1F37D] text|emoji
 🍾	pullo ja korkin poksautus					// [1F37E]
@@ -396,7 +396,7 @@ $textmode
 🎆	ilotulitus							// [1F386]
 🎇	tähtisadetikku							// [1F387]
 🎈	ilmapallo							// [1F388]
-🎉	paukkukarkki							// [1F389]
+🎉	paukkuserpentiini						// [1F389]
 🎊	konfettipallo							// [1F38A]
 🎋	tanabatapuu							// [1F38B]
 🎌	liput ristissä							// [1F38C]
@@ -410,7 +410,7 @@ $textmode
 🎖	kunniamerkki							// [1F396] text|emoji
 🎗	tietoisuusnauha							// [1F397] text|emoji
 🎙	studiomikrofoni							// [1F399] text|emoji
-🎚	liukuvalitsin							// [1F39A] text|emoji
+🎚	liukusäädin							// [1F39A] text|emoji
 🎛	säätimet							// [1F39B] text|emoji
 🎞	filminauha							// [1F39E] text|emoji
 🎟	pääsylippu							// [1F39F] text|emoji
@@ -470,9 +470,9 @@ $textmode
 🏕	telttailu							// [1F3D5] text|emoji
 🏖	ranta ja aurinkovarjo						// [1F3D6] text|emoji
 🏗	rakennustyömaa							// [1F3D7] text|emoji
-🏘	rakennuksia							// [1F3D8] text|emoji
+🏘	taloryhmä							// [1F3D8] text|emoji
 🏙	kaupunkimaisema							// [1F3D9] text|emoji
-🏚	hylätty talo							// [1F3DA] text|emoji
+🏚	autiotalo							// [1F3DA] text|emoji
 🏛	klassinen rakennus						// [1F3DB] text|emoji
 🏜	autiomaa							// [1F3DC] text|emoji
 🏝	autiosaari							// [1F3DD] text|emoji
@@ -487,8 +487,8 @@ $textmode
 🏦	pankki								// [1F3E6]
 🏧	pankkiautomaatti						// [1F3E7]
 🏨	hotelli								// [1F3E8]
-🏩	tuntiperusteinen hotelli					// [1F3E9]
-🏪	ruokakauppa							// [1F3EA]
+🏩	tuntihotelli							// [1F3E9]
+🏪	lähikauppa							// [1F3EA]
 🏫	koulu								// [1F3EB]
 🏬	tavaratalo							// [1F3EC]
 🏭	tehdas								// [1F3ED]
@@ -502,11 +502,11 @@ $textmode
 🏸	sulkapallo							// [1F3F8]
 🏹	jousi ja nuoli							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	ihotyyppi-1-2							// [1F3FB]
-🏼	ihotyyppi-3							// [1F3FC]
-🏽	ihotyyppi-4							// [1F3FD]
-🏾	ihotyyppi-5							// [1F3FE]
-🏿	ihotyyppi-6							// [1F3FF]
+🏻	vaalea iho							// [1F3FB]
+🏼	keskivaalea iho							// [1F3FC]
+🏽	keskisävyinen iho						// [1F3FD]
+🏾	keskitumma iho							// [1F3FE]
+🏿	tumma iho							// [1F3FF]
 🐀	rotta								// [1F400]
 🐁	hiiri								// [1F401]
 🐂	härkä								// [1F402]
@@ -514,7 +514,7 @@ $textmode
 🐄	lehmä								// [1F404]
 🐅	tiikeri								// [1F405]
 🐆	leopardi							// [1F406]
-🐇	jänis								// [1F407]
+🐇	kani								// [1F407]
 🐈	kissa								// [1F408]
 🐉	lohikäärme							// [1F409]
 🐊	krokotiili							// [1F40A]
@@ -549,7 +549,7 @@ $textmode
 🐧	pingviini							// [1F427]
 🐨	koala								// [1F428]
 🐩	villakoira							// [1F429]
-🐪	dromedaari							// [1F42A]
+🐪	kameli								// [1F42A]
 🐫	kaksikyttyräinen kameli						// [1F42B]
 🐬	delfiini							// [1F42C]
 🐭	hiiren naama							// [1F42D]
@@ -570,7 +570,7 @@ $textmode
 🐼	pandan naama							// [1F43C]
 🐽	sian kärsä							// [1F43D]
 🐾	tassunjäljet							// [1F43E]
-🐿	orava								// [1F43F] text|emoji
+🐿	maaorava							// [1F43F] text|emoji
 👀	silmät								// [1F440]
 👁	silmä								// [1F441] text|emoji
 👂	korva								// [1F442]
@@ -591,7 +591,7 @@ $textmode
 👑	kruunu								// [1F451]
 👒	naisen hattu							// [1F452]
 👓	silmälasit							// [1F453]
-👔	kravatti							// [1F454]
+👔	solmio								// [1F454]
 👕	t-paita								// [1F455]
 👖	farkut								// [1F456]
 👗	mekko								// [1F457]
@@ -619,10 +619,10 @@ $textmode
 👭	kaksi naista käsi kädessä					// [1F46D]
 👮	poliisi								// [1F46E]
 👯	puputytöt							// [1F46F]
-👰	morsian ja huntu						// [1F470]
-👱	blondi								// [1F471]
+👰	huntupäinen morsian						// [1F470]
+👱	vaaleahiuksinen henkilö						// [1F471]
 👲	mies ja kiinalainen hattu					// [1F472]
-👳	mies ja turbaani						// [1F473]
+👳	turbaanipäinen henkilö						// [1F473]
 👴	vanha mies							// [1F474]
 👵	vanha nainen							// [1F475]
 👶	vauva								// [1F476]
@@ -636,12 +636,12 @@ $textmode
 👾	avaruushirviö							// [1F47E]
 👿	pikkupaholainen							// [1F47F]
 💀	pääkallo							// [1F480]
-💁	infotiskin henkilö						// [1F481]
+💁	kämmentä ylöspäin näyttävä henkilö				// [1F481]
 💂	vartija								// [1F482]
 💃	tanssiva nainen							// [1F483]
 💄	huulipuna							// [1F484]
 💅	kynsilakka							// [1F485]
-💆	kasvohieronta							// [1F486]
+💆	hieronta							// [1F486]
 💇	hiustenleikkaus							// [1F487]
 💈	punasiniraitainen pylväs					// [1F488]
 💉	ruisku								// [1F489]
@@ -690,7 +690,7 @@ $textmode
 💴	yen-seteli							// [1F4B4]
 💵	dollariseteli							// [1F4B5]
 💶	euroseteli							// [1F4B6]
-💷	punnan seteli							// [1F4B7]
+💷	puntaseteli							// [1F4B7]
 💸	rahalla on siivet						// [1F4B8]
 💹	yen ja nouseva käyrä						// [1F4B9]
 💺	istuin								// [1F4BA]
@@ -698,8 +698,8 @@ $textmode
 💼	salkku								// [1F4BC]
 💽	minidisk							// [1F4BD]
 💾	disketti							// [1F4BE]
-💿	cd								// [1F4BF]
-📀	dvd								// [1F4C0]
+💿	CD								// [1F4BF]
+📀	DVD								// [1F4C0]
 📁	tiedostokansio							// [1F4C1]
 📂	avoin tiedostokansio						// [1F4C2]
 📃	käännetty sivu							// [1F4C3]
@@ -713,10 +713,10 @@ $textmode
 📋	leikepöytä							// [1F4CB]
 📌	nuppineula							// [1F4CC]
 📍	pyöreä nasta							// [1F4CD]
-📎	klemmari							// [1F4CE]
-📏	viivotin							// [1F4CF]
-📐	kolmioviivotin							// [1F4D0]
-📑	välilehdet kirjanmerkeiksi					// [1F4D1]
+📎	paperiliitin							// [1F4CE]
+📏	viivoitin							// [1F4CF]
+📐	kolmioviivain							// [1F4D0]
+📑	kirjanmerkkivälilehdet						// [1F4D1]
 📒	tilikirja							// [1F4D2]
 📓	muistikirja							// [1F4D3]
 📔	koristeellinen muistikirja					// [1F4D4]
@@ -752,7 +752,7 @@ $textmode
 📲	kännykkä ja nuoli						// [1F4F2]
 📳	värinätila							// [1F4F3]
 📴	matkapuhelin suljettava						// [1F4F4]
-📵	matkapuhelimet kielletty					// [1F4F5]
+📵	ei matkapuhelimia						// [1F4F5]
 📶	kuuluvuuspalkit							// [1F4F6]
 📷	kamera								// [1F4F7]
 📸	kamera ja salama						// [1F4F8]
@@ -763,37 +763,37 @@ $textmode
 📽	elokuvaprojektori						// [1F4FD] text|emoji
 📿	rukoushelmet							// [1F4FF]
 🔀	sekoitus							// [1F500]
-🔁	toista lista							// [1F501]
+🔁	toista uudelleen						// [1F501]
 🔂	toista kerran							// [1F502]
 🔃	pystynuolet myötäpäivään					// [1F503]
 🔄	nuolet vastapäivään						// [1F504]
 🔅	himmennä							// [1F505]
 🔆	kirkasta							// [1F506]
-🔇	kaiutin pois							// [1F507]
-🔈	kaiutin								// [1F508]
-🔉	kaiutin päälle							// [1F509]
-🔊	lisää ääntä							// [1F50A]
+🔇	mykistetty kaiutin						// [1F507]
+🔈	hiljainen kaiutin						// [1F508]
+🔉	kaiutin normaalilla äänenvoimakkuudella				// [1F509]
+🔊	äänekäs kaiutin							// [1F50A]
 🔋	akku								// [1F50B]
 🔌	pistoke								// [1F50C]
 🔍	suurennuslasi vasemmalle					// [1F50D]
-🔎	suurennuslasi oikeaan						// [1F50E]
+🔎	suurennuslasi oikealle						// [1F50E]
 🔏	lukko ja kynä							// [1F50F]
 🔐	avain ja lukko kiinni						// [1F510]
 🔑	avain								// [1F511]
 🔒	lukko								// [1F512]
 🔓	lukko auki							// [1F513]
 🔔	kirkonkello							// [1F514]
-🔕	yliviivattu kello						// [1F515]
+🔕	mykistetty kello						// [1F515]
 🔖	kirjanmerkki							// [1F516]
 🔗	lenkki								// [1F517]
 🔘	valintanappi							// [1F518]
-🔙	takaisin-nuoli							// [1F519]
-🔚	lopeta-nuoli							// [1F51A]
-🔛	päällä-nuoli							// [1F51B]
-🔜	tulossa-nuoli							// [1F51C]
-🔝	alkuun-nuoli							// [1F51D]
+🔙	BACK-nuoli							// [1F519]
+🔚	END-nuoli							// [1F51A]
+🔛	ON!-nuoli							// [1F51B]
+🔜	SOON-nuoli							// [1F51C]
+🔝	TOP-nuoli							// [1F51D]
 🔞	kielletty alaikäisiltä						// [1F51E]
-🔟	kymmenen							// [1F51F]
+🔟	näppäin: 10							// [1F51F]
 🔠	syötä isoja kirjaimia						// [1F520]
 🔡	syötä pieniä kirjaimia						// [1F521]
 🔢	syötä numeroja							// [1F522]
@@ -805,12 +805,12 @@ $textmode
 🔨	vasara								// [1F528]
 🔩	ruuvi ja mutteri						// [1F529]
 🔪	keittiöveitsi							// [1F52A]
-🔫	ase								// [1F52B]
+🔫	vesipyssy							// [1F52B]
 🔬	mikroskooppi							// [1F52C]
 🔭	kaukoputki							// [1F52D]
 🔮	kristallipallo							// [1F52E]
-🔯	kuusikärkinen tähti pisteillä					// [1F52F]
-🔰	japanilainen uusi kuljettaja					// [1F530]
+🔯	kuusisakarainen tähti pisteellä					// [1F52F]
+🔰	japanilainen symboli aloittelijalle				// [1F530]
 🔱	kolmikärki							// [1F531]
 🔲	musta neliöruutu						// [1F532]
 🔳	valkoinen neliöruutu						// [1F533]
@@ -824,9 +824,9 @@ $textmode
 🔻	punainen kolmio kärki alas					// [1F53B]
 🔼	ylös								// [1F53C]
 🔽	alas								// [1F53D]
-🕉	om								// [1F549] text|emoji
+🕉	om-tavu								// [1F549] text|emoji
 🕊	kyyhky								// [1F54A] text|emoji
-🕋	kaaba								// [1F54B]
+🕋	Kaaba								// [1F54B]
 🕌	moskeija							// [1F54C]
 🕍	synagoga							// [1F54D]
 🕎	menora								// [1F54E]
@@ -855,9 +855,9 @@ $textmode
 🕦	puoli kaksitoista						// [1F566]
 🕧	puoli yksi							// [1F567]
 🕯	kynttilä							// [1F56F] text|emoji
-🕰	takanreunuskello						// [1F570] text|emoji
+🕰	pöytäkello							// [1F570] text|emoji
 🕳	musta aukko							// [1F573] text|emoji
-🕴	levitoiva bisnesmies						// [1F574] text|emoji
+🕴	levitoiva mies puvussa						// [1F574] text|emoji
 🕵	etsivä								// [1F575] text|emoji
 🕶	aurinkolasit							// [1F576] text|emoji
 🕷	hämähäkki							// [1F577] text|emoji
@@ -865,9 +865,9 @@ $textmode
 🕹	joystick							// [1F579] text|emoji
 🕺	mies tanssii							// [1F57A]
 🖇	klemmarit yhdessä						// [1F587] text|emoji
-🖊	mustekynä							// [1F58A] text|emoji
+🖊	kuulakärkikynä							// [1F58A] text|emoji
 🖋	täytekynä							// [1F58B] text|emoji
-🖌	suti								// [1F58C] text|emoji
+🖌	sivellin							// [1F58C] text|emoji
 🖍	väriliitu							// [1F58D] text|emoji
 🖐	nostettu käsi ja sormet erillään				// [1F590] text|emoji
 🖕	keskisormi							// [1F595]
@@ -893,11 +893,11 @@ $textmode
 🗯	oikea vihainen puhekupla					// [1F5EF] text|emoji
 🗳	ääniuurna							// [1F5F3] text|emoji
 🗺	maailmankartta							// [1F5FA] text|emoji
-🗻	fujivuori							// [1F5FB]
-🗼	tokyo tower							// [1F5FC]
-🗽	vapaudenpatsas							// [1F5FD]
-🗾	japanin kartta							// [1F5FE]
-🗿	pääsiäissaaret							// [1F5FF]
+🗻	Fuji-vuori							// [1F5FB]
+🗼	Tokyo Tower							// [1F5FC]
+🗽	Vapaudenpatsas							// [1F5FD]
+🗾	Japanin kartta							// [1F5FE]
+🗿	moai								// [1F5FF]
 
 // 1F600..1F64F : Emoticons
 
@@ -946,7 +946,7 @@ $textmode
 😪	unelias								// [1F62A]
 😫	väsynyt								// [1F62B]
 😬	irvistävä							// [1F62C]
-😭	äänen itkevä							// [1F62D]
+😭	ääneen itkevä							// [1F62D]
 😮	yllättynyt							// [1F62E]
 😯	järkyttynyt							// [1F62F]
 😰	avoin suu ja kylmänhiki						// [1F630]
@@ -994,11 +994,11 @@ $textmode
 🚇	metro								// [1F687]
 🚈	kevytraidejuna							// [1F688]
 🚉	asema								// [1F689]
-🚊	raitiovaunuasema						// [1F68A]
+🚊	raitioliikenne							// [1F68A]
 🚋	raitiovaunu							// [1F68B]
 🚌	bussi								// [1F68C]
 🚍	saapuva bussi							// [1F68D]
-🚎	johdinauto							// [1F68E]
+🚎	johdinbussi							// [1F68E]
 🚏	bussipysäkki							// [1F68F]
 🚐	minibussi							// [1F690]
 🚑	ambulanssi							// [1F691]
@@ -1009,12 +1009,12 @@ $textmode
 🚖	saapuva taksi							// [1F696]
 🚗	auto								// [1F697]
 🚘	saapuva auto							// [1F698]
-🚙	hupiauto							// [1F699]
+🚙	katumaasturi							// [1F699]
 🚚	kuljetusauto							// [1F69A]
 🚛	rekka-auto							// [1F69B]
 🚜	traktori							// [1F69C]
-🚝	yksiraidejuna							// [1F69D]
-🚞	vuoriraidejuna							// [1F69E]
+🚝	monorail							// [1F69D]
+🚞	rinnerata							// [1F69E]
 🚟	riippurata							// [1F69F]
 🚠	gondolihissi							// [1F6A0]
 🚡	köysirata							// [1F6A1]
@@ -1028,14 +1028,14 @@ $textmode
 🚩	kolmiolippu							// [1F6A9]
 🚪	ovi								// [1F6AA]
 🚫	pääsy kielletty							// [1F6AB]
-🚬	tupakka								// [1F6AC]
+🚬	savuke								// [1F6AC]
 🚭	tupakointi kielletty						// [1F6AD]
 🚮	roskat-merkki							// [1F6AE]
 🚯	roskaaminen kielletty						// [1F6AF]
 🚰	juomakelpoista vettä						// [1F6B0]
 🚱	vesi ei juomakelpoista						// [1F6B1]
 🚲	polkupyörä							// [1F6B2]
-🚳	ei sallittu polkupyörille					// [1F6B3]
+🚳	ei polkupyörille						// [1F6B3]
 🚴	pyöräilijä							// [1F6B4]
 🚵	maastopyöräilijä						// [1F6B5]
 🚶	jalankulkija							// [1F6B6]
@@ -1045,7 +1045,7 @@ $textmode
 🚺	naisten wc							// [1F6BA]
 🚻	wc								// [1F6BB]
 🚼	vauva-merkki							// [1F6BC]
-🚽	pönttö								// [1F6BD]
+🚽	vessanpönttö							// [1F6BD]
 🚾	vessa								// [1F6BE]
 🚿	suihku								// [1F6BF]
 🛀	kylpijä								// [1F6C0]
@@ -1068,7 +1068,7 @@ $textmode
 🛣	moottoritie							// [1F6E3] text|emoji
 🛤	junaraide							// [1F6E4] text|emoji
 🛥	moottorivene							// [1F6E5] text|emoji
-🛩	pieni lentokone							// [1F6E9] text|emoji
+🛩	pienkone							// [1F6E9] text|emoji
 🛫	lähtevä lentokone						// [1F6EB]
 🛬	saapuva lentokone						// [1F6EC]
 🛰	satelliitti							// [1F6F0] text|emoji
@@ -1076,14 +1076,14 @@ $textmode
 🛴	potkulauta							// [1F6F4]
 🛵	skootteri							// [1F6F5]
 🛶	kanootti							// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	kelkka								// [1F6F7]
+🛸	lentävä lautanen						// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
 🤐	vetoketjusuu							// [1F910]
 🤑	dollarisilmät ja rahasuu					// [1F911]
-🤒	naama ja lämpömittari						// [1F912]
+🤒	naama ja kuumemittari						// [1F912]
 🤓	nörtti								// [1F913]
 🤔	mietteliäs							// [1F914]
 🤕	naama ja pääside						// [1F915]
@@ -1096,7 +1096,7 @@ $textmode
 🤜	nyrkki oikealle							// [1F91C]
 🤝	kädenpuristus							// [1F91D]
 🤞	sormet ristissä							// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	rakastan sinua -ele						// [1F91F]
 🤠	cowboy-hattu							// [1F920]
 🤡	pelle								// [1F921]
 🤢	pahoinvoiva							// [1F922]
@@ -1105,31 +1105,31 @@ $textmode
 🤥	valehtelija							// [1F925]
 🤦	peittää kasvot kädellä						// [1F926]
 🤧	aivastaa							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤨	kohotetut kulmakarvat						// [1F928]
+🤩	tähtisilmä							// [1F929]
+🤪	mielipuoli							// [1F92A]
+🤫	hyssyttää							// [1F92B]
+🤬	sensuroitu suu							// [1F92C]
+🤭	käsi suun edessä						// [1F92D]
+🤮	oksentaa							// [1F92E]
+🤯	räjähdys päässä							// [1F92F]
 🤰	raskaana oleva nainen						// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	imetys								// [1F931]
+🤲	kämmenet vierekkäin						// [1F932]
 🤳	selfie								// [1F933]
 🤴	prinssi								// [1F934]
-🤵	mies smokissa							// [1F935]
+🤵	smokkipukuinen mies						// [1F935]
 🤶	joulupukin muori						// [1F936]
 🤷	kohauttaa olkapäitään						// [1F937]
 🤸	kärrynpyörä							// [1F938]
-🤹	jongleeraus							// [1F939]
+🤹	jongleeraaja							// [1F939]
 🤺	miekkailija							// [1F93A]
 🤼	painijat							// [1F93C]
-🤽	vesipallo							// [1F93D]
-🤾	käsipallo							// [1F93E]
+🤽	vesipalloilija							// [1F93D]
+🤾	käsipalloilija							// [1F93E]
 🥀	nuutunut kukka							// [1F940]
 🥁	rumpu								// [1F941]
-🥂	lasien kilistys							// [1F942]
+🥂	kilisevät lasit							// [1F942]
 🥃	juomalasi							// [1F943]
 🥄	lusikka								// [1F944]
 🥅	maaliverkko							// [1F945]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	pronssimitali							// [1F949]
 🥊	nyrkkeilyhanska							// [1F94A]
 🥋	kamppailulajiasu						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	curling-kivi							// [1F94C]
 🥐	voisarvi							// [1F950]
 🥑	avokado								// [1F951]
 🥒	kurkku								// [1F952]
@@ -1147,26 +1147,26 @@ $textmode
 🥕	porkkana							// [1F955]
 🥖	patonki								// [1F956]
 🥗	vihreä salaatti							// [1F957]
-🥘	paellakulho							// [1F958]
+🥘	paellapannu							// [1F958]
 🥙	täytetty pita							// [1F959]
 🥚	kananmuna							// [1F95A]
 🥛	maitolasi							// [1F95B]
 🥜	maapähkinä							// [1F95C]
 🥝	kiivi								// [1F95D]
 🥞	letut								// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	taikinanyytti							// [1F95F]
+🥠	onnenkeksi							// [1F960]
+🥡	ateriarasia							// [1F961]
+🥢	syömäpuikot							// [1F962]
+🥣	kulho ja lusikka						// [1F963]
+🥤	lasi ja pilli							// [1F964]
+🥥	kookospähkinä							// [1F965]
+🥦	parsakaali							// [1F966]
+🥧	piirakka							// [1F967]
+🥨	rinkilä								// [1F968]
+🥩	lihanpala							// [1F969]
+🥪	voileipä							// [1F96A]
+🥫	säilyketölkki							// [1F96B]
 🦀	rapu								// [1F980]
 🦁	leijonan naama							// [1F981]
 🦂	skorpioni							// [1F982]
@@ -1179,42 +1179,42 @@ $textmode
 🦉	pöllö								// [1F989]
 🦊	kettu								// [1F98A]
 🦋	perhonen							// [1F98B]
-🦌	hirvi								// [1F98C]
+🦌	peura								// [1F98C]
 🦍	gorilla								// [1F98D]
 🦎	lisko								// [1F98E]
 🦏	sarvikuono							// [1F98F]
 🦐	katkarapu							// [1F990]
 🦑	kalmari								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	kirahvi								// [1F992]
+🦓	seepra								// [1F993]
+🦔	siili								// [1F994]
+🦕	sauropodi							// [1F995]
+🦖	tyrannosaurus rex						// [1F996]
+🦗	sirkka								// [1F997]
 🧀	juustopala							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	monokkeli silmässä						// [1F9D0]
+🧑	aikuinen							// [1F9D1]
+🧒	lapsi								// [1F9D2]
+🧓	vanhus								// [1F9D3]
+🧔	parrakas henkilö						// [1F9D4]
+🧕	huivipäinen nainen						// [1F9D5]
+🧖	henkilö saunassa						// [1F9D6]
+🧗	kiipeilijä							// [1F9D7]
+🧘	henkilö lootusasennossa						// [1F9D8]
+🧙	velho								// [1F9D9]
+🧚	keiju								// [1F9DA]
+🧛	vampyyri							// [1F9DB]
+🧜	merenväki							// [1F9DC]
+🧝	haltia								// [1F9DD]
+🧞	henki								// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	aivot								// [1F9E0]
+🧡	oranssi sydän							// [1F9E1]
+🧢	lippalakki							// [1F9E2]
+🧣	huivi								// [1F9E3]
+🧤	hansikkaat							// [1F9E4]
+🧥	takki								// [1F9E5]
+🧦	sukat								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1275,7 +1275,7 @@ $textmode
 🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
 🇨🇽	Joulusaari							// [1F1E8 1F1FD] CX
 🇨🇾	Kypros								// [1F1E8 1F1FE] CY
-🇨🇿	Tšekinmaa							// [1F1E8 1F1FF] CZ
+🇨🇿	Tšekki								// [1F1E8 1F1FF] CZ
 🇩🇪	Saksa								// [1F1E9 1F1EA] DE
 🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
 🇩🇯	Djibouti							// [1F1E9 1F1EF] DJ
@@ -1485,85 +1485,85 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	risuaita							// [0023 FE0F 20E3]
-*️⃣	asteriski							// [002A FE0F 20E3]
-0️⃣	nolla								// [0030 FE0F 20E3]
-1️⃣	yksi								// [0031 FE0F 20E3]
-2️⃣	kaksi								// [0032 FE0F 20E3]
-3️⃣	kolme								// [0033 FE0F 20E3]
-4️⃣	neljä								// [0034 FE0F 20E3]
-5️⃣	viisi								// [0035 FE0F 20E3]
-6️⃣	kuusi								// [0036 FE0F 20E3]
-7️⃣	seitsemän							// [0037 FE0F 20E3]
-8️⃣	kahdeksan							// [0038 FE0F 20E3]
-9️⃣	yhdeksän							// [0039 FE0F 20E3]
+#️⃣	näppäin: #							// [0023 FE0F 20E3]
+*️⃣	näppäin: *							// [002A FE0F 20E3]
+0️⃣	näppäin: 0							// [0030 FE0F 20E3]
+1️⃣	näppäin: 1							// [0031 FE0F 20E3]
+2️⃣	näppäin: 2							// [0032 FE0F 20E3]
+3️⃣	näppäin: 3							// [0033 FE0F 20E3]
+4️⃣	näppäin: 4							// [0034 FE0F 20E3]
+5️⃣	näppäin: 5							// [0035 FE0F 20E3]
+6️⃣	näppäin: 6							// [0036 FE0F 20E3]
+7️⃣	näppäin: 7							// [0037 FE0F 20E3]
+8️⃣	näppäin: 8							// [0038 FE0F 20E3]
+9️⃣	näppäin: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
-👩‍❤‍💋‍👨	pussaava pari				// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	pussaava poikapari			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	pussaava tyttöpari			// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	rakastunut pari					// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	rakastunut poikapari				// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	rakastunut tyttöpari				// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	perhe: mies, nainen ja poika			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	perhe: mies, nainen ja tyttö			// [1F468 200D 1F469 200D 1F467]
+👩‍❤‍💋‍👨	pusu: nainen, mies			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	pusu: mies, mies			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	pusu: nainen, nainen			// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	pariskunta ja sydän: nainen, mies		// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	pariskunta ja sydän: mies, mies			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	pariskunta ja sydän: nainen, nainen		// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	perhe: mies, nainen, poika			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	perhe: mies, nainen, tyttö			// [1F468 200D 1F469 200D 1F467]
 👨‍👩‍👧‍👦	perhe: mies, nainen, tyttö, poika	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	perhe: mies, nainen, kaksi poikaa	// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	perhe: mies, nainen, kaksi tyttöä	// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	perhe: kaksi miestä ja poika			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	perhe: kaksi miestä ja tyttö			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	perhe: kaksi miestä, tyttö ja poika	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	perhe: kaksi miestä ja kaksi poikaa	// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	perhe: kaksi miestä ja kaksi tyttöä	// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	perhe: kaksi naista ja poika			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	perhe: kaksi naista ja tyttö			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	perhe: kaksi naista , tyttö ja poika	// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	perhe: kaksi naista ja kaksi poikaa	// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	perhe: kaksi naista ja kaksi tyttöä	// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	perhe: mies ja poika					// [1F468 200D 1F466]
-👨‍👦‍👦	perhe: mies ja kaksi poikaa			// [1F468 200D 1F466 200D 1F466]
-👨‍👧	perhe: mies ja tyttö					// [1F468 200D 1F467]
-👨‍👧‍👦	perhe: mies, tyttö ja poika			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	perhe: mies ja kaksi tyttöä			// [1F468 200D 1F467 200D 1F467]
-👩‍👦	perhe: nainen ja poika					// [1F469 200D 1F466]
-👩‍👦‍👦	perhe: nainen ja kaksi poikaa			// [1F469 200D 1F466 200D 1F466]
-👩‍👧	perhe: nainen ja tyttö					// [1F469 200D 1F467]
-👩‍👧‍👦	perhe: nainen, tyttö ja poika			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	perhe: nainen ja kaksi tyttöä			// [1F469 200D 1F467 200D 1F467]
+👨‍👩‍👦‍👦	perhe: mies, nainen, poika, poika	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	perhe: mies, nainen, tyttö, tyttö	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	perhe: mies, mies, poika			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	perhe: mies, mies, tyttö			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	perhe: mies, mies, tyttö, poika		// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	perhe: mies, mies, poika, poika		// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	perhe: mies, mies, tyttö, tyttö		// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	perhe: nainen, nainen, poika			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	perhe: nainen, nainen, tyttö			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	perhe: nainen, nainen, tyttö, poika	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	perhe: nainen, nainen, poika, poika	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	perhe: nainen, nainen, tyttö, tyttö	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	perhe: mies, poika					// [1F468 200D 1F466]
+👨‍👦‍👦	perhe: mies, poika, poika			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	perhe: mies, tyttö					// [1F468 200D 1F467]
+👨‍👧‍👦	perhe: mies, tyttö, poika			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	perhe: mies, tyttö, tyttö			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	perhe: nainen, poika					// [1F469 200D 1F466]
+👩‍👦‍👦	perhe: nainen, poika, poika			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	perhe: nainen, tyttö					// [1F469 200D 1F467]
+👩‍👧‍👦	perhe: nainen, tyttö, poika			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	perhe: nainen, tyttö, tyttö			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
-👨‍⚕	sairaanhoitajamies					// [1F468 200D 2695]
-👩‍⚕	sairaanhoitajanainen					// [1F469 200D 2695]
-👨‍⚖	juristimies						// [1F468 200D 2696]
-👩‍⚖	juristinainen						// [1F469 200D 2696]
+👨‍⚕	terveydenhuollon miesammattilainen			// [1F468 200D 2695]
+👩‍⚕	terveydenhuollon naisammattilainen			// [1F469 200D 2695]
+👨‍⚖	miestuomari						// [1F468 200D 2696]
+👩‍⚖	naistuomari						// [1F469 200D 2696]
 👨‍✈	miespilotti						// [1F468 200D 2708]
 👩‍✈	naispilotti						// [1F469 200D 2708]
-👨‍🌾	maanviljelijämies					// [1F468 200D 1F33E]
-👩‍🌾	maanviljelijänainen					// [1F469 200D 1F33E]
-👨‍🍳	kokkimies						// [1F468 200D 1F373]
-👩‍🍳	kokkinainen						// [1F469 200D 1F373]
-👨‍🎓	opiskelijapoika						// [1F468 200D 1F393]
-👩‍🎓	opiskelijatyttö						// [1F469 200D 1F393]
+👨‍🌾	miesmaanviljelijä					// [1F468 200D 1F33E]
+👩‍🌾	naismaanviljelijä					// [1F469 200D 1F33E]
+👨‍🍳	mieskokki						// [1F468 200D 1F373]
+👩‍🍳	naiskokki						// [1F469 200D 1F373]
+👨‍🎓	miesopiskelija						// [1F468 200D 1F393]
+👩‍🎓	naisopiskelija						// [1F469 200D 1F393]
 👨‍🎤	mieslaulaja						// [1F468 200D 1F3A4]
 👩‍🎤	naislaulaja						// [1F469 200D 1F3A4]
 👨‍🎨	miesartisti						// [1F468 200D 1F3A8]
 👩‍🎨	naisartisti						// [1F469 200D 1F3A8]
-👨‍🏫	opettajamies						// [1F468 200D 1F3EB]
-👩‍🏫	opettajanainen						// [1F469 200D 1F3EB]
-👨‍🏭	tehdastyöntekijämies					// [1F468 200D 1F3ED]
-👩‍🏭	tehdastyöntekijänainen					// [1F469 200D 1F3ED]
+👨‍🏫	miesopettaja						// [1F468 200D 1F3EB]
+👩‍🏫	naisopettaja						// [1F469 200D 1F3EB]
+👨‍🏭	miestehdastyöntekijä					// [1F468 200D 1F3ED]
+👩‍🏭	naistehdastyöntekijä					// [1F469 200D 1F3ED]
 👨‍💻	IT-mies							// [1F468 200D 1F4BB]
 👩‍💻	IT-nainen						// [1F469 200D 1F4BB]
-👨‍💼	toimistotyöntekijämies					// [1F468 200D 1F4BC]
-👩‍💼	toimistotyöntekijänainen				// [1F469 200D 1F4BC]
-👨‍🔧	mekaanikkomies						// [1F468 200D 1F527]
-👩‍🔧	mekaanikkonainen					// [1F469 200D 1F527]
-👨‍🔬	tutkijamies						// [1F468 200D 1F52C]
-👩‍🔬	tutkijanainen						// [1F469 200D 1F52C]
-👨‍🚀	astronauttimies						// [1F468 200D 1F680]
-👩‍🚀	astronauttinainen					// [1F469 200D 1F680]
+👨‍💼	miestoimistotyöntekijä					// [1F468 200D 1F4BC]
+👩‍💼	naistoimistotyöntekijä					// [1F469 200D 1F4BC]
+👨‍🔧	miesmekaanikko						// [1F468 200D 1F527]
+👩‍🔧	naismekaanikko						// [1F469 200D 1F527]
+👨‍🔬	miestutkija						// [1F468 200D 1F52C]
+👩‍🔬	naistutkija						// [1F469 200D 1F52C]
+👨‍🚀	miesastronautti						// [1F468 200D 1F680]
+👩‍🚀	naisastronautti						// [1F469 200D 1F680]
 👨‍🚒	palomies						// [1F468 200D 1F692]
 👩‍🚒	palonainen						// [1F469 200D 1F692]
 
@@ -1571,30 +1571,30 @@ $textmode
 
 👮‍♀	naispoliisi						// [1F46E 200D 2640]
 👮‍♂	miespoliisi						// [1F46E 200D 2642]
-👱‍♀	blondityttö						// [1F471 200D 2640]
-👱‍♂	blondipoika						// [1F471 200D 2642]
+👱‍♀	vaaleahiuksinen nainen					// [1F471 200D 2640]
+👱‍♂	vaaleahiuksinen mies					// [1F471 200D 2642]
 👳‍♀	turbaanipäinen nainen					// [1F473 200D 2640]
 👳‍♂	turbaanipäinen mies					// [1F473 200D 2642]
 👷‍♀	rakennusnainen						// [1F477 200D 2640]
 👷‍♂	rakennusmies						// [1F477 200D 2642]
 💂‍♀	naisvartija						// [1F482 200D 2640]
 💂‍♂	miesvartija						// [1F482 200D 2642]
-🕵️‍♀	etsivänainen						// [1F575 200D 2640]
-🕵️‍♂	etsivämies						// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🕵️‍♀	naisetsivä						// [1F575 200D 2640]
+🕵️‍♂	miesetsivä						// [1F575 200D 2642]
+🧙‍♀	naisvelho						// [1F9D9 200D 2640]
+🧙‍♂	miesvelho						// [1F9D9 200D 2642]
+🧚‍♀	naiskeiju						// [1F9DA 200D 2640]
+🧚‍♂	mieskeiju						// [1F9DA 200D 2642]
+🧛‍♀	naisvampyyri						// [1F9DB 200D 2640]
+🧛‍♂	miesvampyyri						// [1F9DB 200D 2642]
+🧜‍♀	merenneito						// [1F9DC 200D 2640]
+🧜‍♂	merenmies						// [1F9DC 200D 2642]
+🧝‍♀	haltiatar						// [1F9DD 200D 2640]
+🧝‍♂	mieshaltia						// [1F9DD 200D 2642]
+🧞‍♀	naishenki						// [1F9DE 200D 2640]
+🧞‍♂	mieshenki						// [1F9DE 200D 2642]
+🧟‍♀	naiszombi						// [1F9DF 200D 2640]
+🧟‍♂	mieszombi						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1612,34 +1612,34 @@ $textmode
 🏌️‍♂	golfaajamies						// [1F3CC 200D 2642]
 👯‍♀	tanssivat puputytöt					// [1F46F 200D 2640]
 👯‍♂	tanssivat pupupojat					// [1F46F 200D 2642]
-💆‍♀	kasvohieronnassa oleva nainen				// [1F486 200D 2640]
-💆‍♂	kasvohieronnassa oleva mies				// [1F486 200D 2642]
+💆‍♀	hieronnassa oleva nainen				// [1F486 200D 2640]
+💆‍♂	hieronnassa oleva mies					// [1F486 200D 2642]
 💇‍♀	kampaajalla oleva nainen				// [1F487 200D 2640]
 💇‍♂	parturissa oleva mies					// [1F487 200D 2642]
 🚣‍♀	soutava nainen						// [1F6A3 200D 2640]
 🚣‍♂	soutava mies						// [1F6A3 200D 2642]
 🚴‍♀	pyöräileva nainen					// [1F6B4 200D 2640]
 🚴‍♂	pyöräilevä mies						// [1F6B4 200D 2642]
-🚵‍♀	vuoristossa pyöräilevä nainen				// [1F6B5 200D 2640]
-🚵‍♂	vuoristossa pyöräilevä mies				// [1F6B5 200D 2642]
+🚵‍♀	maastopyöräilevä nainen					// [1F6B5 200D 2640]
+🚵‍♂	maastopyöräilevä mies					// [1F6B5 200D 2642]
 🚶‍♀	kävelevä nainen						// [1F6B6 200D 2640]
 🚶‍♂	kävelevä mies						// [1F6B6 200D 2642]
 🤸‍♀	kärrynpyörää tekevä nainen				// [1F938 200D 2640]
 🤸‍♂	kärrynpyörää tekevä mies				// [1F938 200D 2642]
 🤹‍♀	jongleeraava nainen					// [1F939 200D 2640]
 🤹‍♂	jongleeraava mies					// [1F939 200D 2642]
-🤼‍♀	kamppailevat naiset					// [1F93C 200D 2640]
-🤼‍♂	kamppailevat miehet					// [1F93C 200D 2642]
+🤼‍♀	painivat naiset						// [1F93C 200D 2640]
+🤼‍♂	painivat miehet						// [1F93C 200D 2642]
 🤽‍♀	vesipalloa pelaava nainen				// [1F93D 200D 2640]
 🤽‍♂	vesipalloa pelaava mies					// [1F93D 200D 2642]
 🤾‍♀	käsipalloa pelaava nainen				// [1F93E 200D 2640]
 🤾‍♂	käsipalloa pelaava mies					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	nainen saunassa						// [1F9D6 200D 2640]
+🧖‍♂	mies saunassa						// [1F9D6 200D 2642]
+🧗‍♀	naiskiipeilijä						// [1F9D7 200D 2640]
+🧗‍♂	mieskiipeilijä						// [1F9D7 200D 2642]
+🧘‍♀	nainen lootusasennossa					// [1F9D8 200D 2640]
+🧘‍♂	mies lootusasennossa					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

@@ -114,7 +114,7 @@ $textmode
 ♦	pal de diamants							// [2666] text|emoji
 ♨	fonts termals							// [2668] text|emoji
 ♻	símbol de reciclatge						// [267B] text|emoji
-♿	cadira de rodes							// [267F]
+♿	símbol de cadira de rodes					// [267F]
 ⚒	martell i pic							// [2692] text|emoji
 ⚓	àncora								// [2693]
 ⚔	espases creuades						// [2694] text|emoji
@@ -125,7 +125,7 @@ $textmode
 ⚛	símbol d’àtom							// [269B] text|emoji
 ⚜	flor de lis							// [269C] text|emoji
 ⚠	advertència							// [26A0] text|emoji
-⚡	alt voltatge							// [26A1]
+⚡	alta tensió							// [26A1]
 ⚪	cercle blanc							// [26AA]
 ⚫	cercle negre							// [26AB]
 ⚰	taüt								// [26B0] text|emoji
@@ -157,7 +157,7 @@ $textmode
 // 2700..27BF : Dingbats
 
 ✂	tisores								// [2702] text|emoji
-✅	marca de verificació verda gran					// [2705]
+✅	marca de verificació blanca gran				// [2705]
 ✈	avió								// [2708] text|emoji
 ✉	sobre								// [2709] text|emoji
 ✊	puny alçat							// [270A]
@@ -221,35 +221,35 @@ $textmode
 🅱	botó B								// [1F171] text|emoji
 🅾	botó O								// [1F17E] text|emoji
 🅿	botó P								// [1F17F] text|emoji
-🆎	botó AB								// [1F18E]
-🆑	quadre amb CL							// [1F191]
-🆒	quadre amb la paraula Cool					// [1F192]
-🆓	quadre amb la paraula Free					// [1F193]
-🆔	quadre amb ID							// [1F194]
-🆕	quadre amb la paraula New					// [1F195]
-🆖	quadre amb NG							// [1F196]
-🆗	botó amb la paraula OK						// [1F197]
-🆘	quadre amb SOS							// [1F198]
+🆎	botó AB (grup sanguini)						// [1F18E]
+🆑	botó CL								// [1F191]
+🆒	botó COOL							// [1F192]
+🆓	botó FREE							// [1F193]
+🆔	botó ID								// [1F194]
+🆕	botó NEW							// [1F195]
+🆖	botó NG								// [1F196]
+🆗	botó OK								// [1F197]
+🆘	botó SOS							// [1F198]
 🆙	botó amb la paraula Up						// [1F199]
-🆚	quadre amb VS							// [1F19A]
+🆚	botó VS								// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	quadre amb katakana koko					// [1F201]
-🈂	quadre amb katakana sa						// [1F202] text|emoji
+🈁	botó japonès aquí.						// [1F201]
+🈂	botó japonès no gratuït						// [1F202] text|emoji
 🈚	quadre amb ideograma de negació					// [1F21A]
-🈯	quadre amb ideograma de dit					// [1F22F]
-🈲	quadre amb ideograma de prohibició				// [1F232]
-🈳	quadre amb ideograma de buit					// [1F233]
-🈴	quadre amb ideograma de junts					// [1F234]
-🈵	quadre amb ideograma de plenitud				// [1F235]
-🈶	quadre amb ideograma d’existir					// [1F236]
+🈯	botó japonès reservat						// [1F22F]
+🈲	botó japonès prohibit						// [1F232]
+🈳	botó japonès plaça lliure					// [1F233]
+🈴	botó japonès qualificació d’aprovat				// [1F234]
+🈵	botó japonès cap plaça lliure					// [1F235]
+🈶	botó japonès gratuït						// [1F236]
 🈷	quadre amb ideograma de lluna					// [1F237] text|emoji
-🈸	quadre amb ideograma d’aplicar					// [1F238]
-🈹	quadre amb ideograma de dividir					// [1F239]
-🈺	quadre amb ideograma d’operar					// [1F23A]
-🉐	cercle amb ideograma d’avantatge				// [1F250]
-🉑	cercle amb ideograma d’acceptació				// [1F251]
+🈸	botó japonès aplicació						// [1F238]
+🈹	botó japonès descompte						// [1F239]
+🈺	botó japonès negoci obert					// [1F23A]
+🉐	botó japonès ganga						// [1F250]
+🉑	botó japonès acceptable						// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -265,7 +265,7 @@ $textmode
 🌁	paisatge emboirat						// [1F301]
 🌂	paraigua tancat							// [1F302]
 🌃	nit estrellada							// [1F303]
-🌄	posta de sol sobre les muntanyes				// [1F304]
+🌄	alba sobre les muntanyes					// [1F304]
 🌅	alba								// [1F305]
 🌆	paisatge urbà al vespre						// [1F306]
 🌇	posta de sol							// [1F307]
@@ -351,7 +351,7 @@ $textmode
 🍙	bola d’arròs							// [1F359]
 🍚	arròs bullit							// [1F35A]
 🍛	arròs al curri							// [1F35B]
-🍜	plat fumejant							// [1F35C]
+🍜	bol fumejant							// [1F35C]
 🍝	espaguetis							// [1F35D]
 🍞	pa								// [1F35E]
 🍟	patates fregides						// [1F35F]
@@ -424,7 +424,7 @@ $textmode
 🎧	auricular							// [1F3A7]
 🎨	paleta d’artista						// [1F3A8]
 🎩	barret de copa							// [1F3A9]
-🎪	vela de circ							// [1F3AA]
+🎪	carpa de circ							// [1F3AA]
 🎫	tiquet								// [1F3AB]
 🎬	claqueta							// [1F3AC]
 🎭	arts interpretatives						// [1F3AD]
@@ -450,7 +450,7 @@ $textmode
 🏁	bandera de quadres						// [1F3C1]
 🏂	surfista de neu							// [1F3C2]
 🏃	persona que corre						// [1F3C3]
-🏄	persona fent surf						// [1F3C4]
+🏄	persona que fa surf						// [1F3C4]
 🏅	medalla esportiva						// [1F3C5]
 🏆	trofeu								// [1F3C6]
 🏇	curses de cavalls						// [1F3C7]
@@ -460,11 +460,11 @@ $textmode
 🏋	persona que aixeca peses					// [1F3CB] text|emoji
 🏌	golfista							// [1F3CC] text|emoji
 🏍	motocicleta							// [1F3CD] text|emoji
-🏎	cotxe de carreres						// [1F3CE] text|emoji
+🏎	cotxe de curses							// [1F3CE] text|emoji
 🏏	criquet								// [1F3CF]
-🏐	voleibol							// [1F3D0]
+🏐	pilota de voleibol						// [1F3D0]
 🏑	hoquei sobre herba						// [1F3D1]
-🏒	estic i disc d’hoquei sobre gel					// [1F3D2]
+🏒	hoquei sobre gel						// [1F3D2]
 🏓	tennis de taula							// [1F3D3]
 🏔	muntanya amb neu al cim						// [1F3D4] text|emoji
 🏕	acampada							// [1F3D5] text|emoji
@@ -495,8 +495,8 @@ $textmode
 🏮	fanal de paper vermell						// [1F3EE]
 🏯	castell japonès							// [1F3EF]
 🏰	castell								// [1F3F0]
-🏳	bandera blanca que oneja					// [1F3F3] text|emoji
-🏴	bandera negra que oneja						// [1F3F4]
+🏳	bandera blanca							// [1F3F3] text|emoji
+🏴	bandera negra							// [1F3F4]
 🏵	roseta								// [1F3F5] text|emoji
 🏷	etiqueta							// [1F3F7] text|emoji
 🏸	bàdminton							// [1F3F8]
@@ -527,7 +527,7 @@ $textmode
 🐑	ovella								// [1F411]
 🐒	mico								// [1F412]
 🐓	gall								// [1F413]
-🐔	gallina								// [1F414]
+🐔	pollastre							// [1F414]
 🐕	gos								// [1F415]
 🐖	porc								// [1F416]
 🐗	senglar								// [1F417]
@@ -542,7 +542,7 @@ $textmode
 🐠	peix tropical							// [1F420]
 🐡	peix globus							// [1F421]
 🐢	tortuga								// [1F422]
-🐣	pollet sortint de l’ou						// [1F423]
+🐣	pollet que surt de l’ou						// [1F423]
 🐤	cara de pollet							// [1F424]
 🐥	pollet								// [1F425]
 🐦	ocell								// [1F426]
@@ -581,7 +581,7 @@ $textmode
 👇	dit índex que apunta cap avall					// [1F447]
 👈	dit índex que apunta cap a l’esquerra				// [1F448]
 👉	dit índex que apunta cap a la dreta				// [1F449]
-👊	puny								// [1F44A]
+👊	cop de puny							// [1F44A]
 👋	mà que saluda							// [1F44B]
 👌	mà d’acceptació							// [1F44C]
 👍	polze cap amunt							// [1F44D]
@@ -617,11 +617,11 @@ $textmode
 👫	home i dona que s’agafen de la mà				// [1F46B]
 👬	homes que s’agafen de la mà					// [1F46C]
 👭	dones que s’agafen de la mà					// [1F46D]
-👮	oficial de policia						// [1F46E]
-👯	dones que ballen						// [1F46F]
+👮	agent de policia						// [1F46E]
+👯	persones que ballen disfressades				// [1F46F]
 👰	núvia amb vel							// [1F470]
 👱	persona amb els cabells rossos					// [1F471]
-👲	home amb gorra de xinès						// [1F472]
+👲	home amb barret xinès						// [1F472]
 👳	persona amb turbant						// [1F473]
 👴	home gran							// [1F474]
 👵	dona gran							// [1F475]
@@ -638,11 +638,11 @@ $textmode
 💀	crani								// [1F480]
 💁	persona amb mà inclinada cap amunt				// [1F481]
 💂	guarda								// [1F482]
-💃	dansaire							// [1F483]
+💃	dona que balla							// [1F483]
 💄	pintallavis							// [1F484]
 💅	esmalt d’ungles							// [1F485]
-💆	massatge facial a una persona					// [1F486]
-💇	tallat de cabells						// [1F487]
+💆	persona que rep un massatge facial				// [1F486]
+💇	persona a la perruqueria					// [1F487]
 💈	barberia							// [1F488]
 💉	xeringa								// [1F489]
 💊	píndola								// [1F48A]
@@ -732,7 +732,7 @@ $textmode
 📞	auricular de telèfon						// [1F4DE]
 📟	buscapersones							// [1F4DF]
 📠	fax								// [1F4E0]
-📡	antena de satèl·lit						// [1F4E1]
+📡	antena de satèl lit						// [1F4E1]
 📢	altaveu de megafonia						// [1F4E2]
 📣	megàfon								// [1F4E3]
 📤	safata de sortida						// [1F4E4]
@@ -770,9 +770,9 @@ $textmode
 🔅	botó d’atenuar la brillantor					// [1F505]
 🔆	botó d’augmentar la brillantor					// [1F506]
 🔇	altaveu desactivat						// [1F507]
-🔈	altaveu								// [1F508]
-🔉	altaveu activat							// [1F509]
-🔊	altaveu alt							// [1F50A]
+🔈	altaveu amb el volum baix					// [1F508]
+🔉	altaveu amb el volum mitjà					// [1F509]
+🔊	altaveu amb el volum alt					// [1F50A]
 🔋	bateria								// [1F50B]
 🔌	endoll								// [1F50C]
 🔍	lupa cap a l’esquerra						// [1F50D]
@@ -783,7 +783,7 @@ $textmode
 🔒	cadenat								// [1F512]
 🔓	cadenat obert							// [1F513]
 🔔	campana								// [1F514]
-🔕	campana tatxada							// [1F515]
+🔕	campana ratllada						// [1F515]
 🔖	punt de llibre							// [1F516]
 🔗	enllaç								// [1F517]
 🔘	botó d’opció							// [1F518]
@@ -793,7 +793,7 @@ $textmode
 🔜	fletxa amb la paraula Soon					// [1F51C]
 🔝	fletxa amb la paraula Top					// [1F51D]
 🔞	prohibit a menors d’edat					// [1F51E]
-🔟	tecla 10							// [1F51F]
+🔟	tecla: 10							// [1F51F]
 🔠	lletres llatines en majúscules					// [1F520]
 🔡	lletres llatines en minúscules					// [1F521]
 🔢	números d’entrada						// [1F522]
@@ -863,7 +863,7 @@ $textmode
 🕷	aranya								// [1F577] text|emoji
 🕸	teranyina							// [1F578] text|emoji
 🕹	palanca de control						// [1F579] text|emoji
-🕺	home ballant							// [1F57A]
+🕺	home que balla							// [1F57A]
 🖇	clips enganxats							// [1F587] text|emoji
 🖊	bolígraf							// [1F58A] text|emoji
 🖋	ploma estilogràfica						// [1F58B] text|emoji
@@ -882,8 +882,8 @@ $textmode
 🗃	arxiu								// [1F5C3] text|emoji
 🗄	arxivador							// [1F5C4] text|emoji
 🗑	paperera							// [1F5D1] text|emoji
-🗒	bloc de notes d’espirals					// [1F5D2] text|emoji
-🗓	calendari d’espirals						// [1F5D3] text|emoji
+🗒	bloc de notes d’espiral						// [1F5D2] text|emoji
+🗓	calendari d’espiral						// [1F5D3] text|emoji
 🗜	compressió							// [1F5DC] text|emoji
 🗝	clau antiga							// [1F5DD] text|emoji
 🗞	diari cargolat							// [1F5DE] text|emoji
@@ -904,28 +904,28 @@ $textmode
 😀	cara molt somrient						// [1F600]
 😁	cara molt somrient amb els ulls alegres				// [1F601]
 😂	cara amb llàgrimes d’alegria					// [1F602]
-😃	cara somrient amb la boca oberta				// [1F603]
+😃	cara molt somrient amb els ulls ben oberts			// [1F603]
 😄	cara somrient amb la boca oberta i els ulls alegres		// [1F604]
 😅	cara somrient amb la boca oberta i suor freda			// [1F605]
 😆	cara somrient amb la boca oberta i els ulls tancats fortament	// [1F606]
 😇	cara somrient amb aurèola					// [1F607]
 😈	cara somrient amb banyes					// [1F608]
-😉	cara picant l’ullet						// [1F609]
+😉	cara que pica l’ullet						// [1F609]
 😊	cara somrient amb els ulls alegres				// [1F60A]
 😋	cara d’assaborir un menjar deliciós				// [1F60B]
 😌	cara d’alleujament						// [1F60C]
 😍	cara somrient amb ulls en forma de cor				// [1F60D]
 😎	cara somrient amb ulleres de sol				// [1F60E]
 😏	cara somrient amb superioritat					// [1F60F]
-😐	cara neutral							// [1F610]
+😐	cara neutra							// [1F610]
 😑	cara inexpressiva						// [1F611]
 😒	cara de desaprovació						// [1F612]
 😓	cara amb suor freda						// [1F613]
-😔	cara entristida							// [1F614]
+😔	cara pensativa							// [1F614]
 😕	cara de confusió						// [1F615]
 😖	cara de frustració						// [1F616]
 😗	cara que fa un petó						// [1F617]
-😘	cara llançant un petó						// [1F618]
+😘	cara que llança un petó						// [1F618]
 😙	cara que fa un petó amb els ulls alegres			// [1F619]
 😚	cara que fa un petó amb els ulls tancats			// [1F61A]
 😛	cara que fa llengotes						// [1F61B]
@@ -953,7 +953,7 @@ $textmode
 😱	cara que crida de por						// [1F631]
 😲	cara estupefacta						// [1F632]
 😳	cara enrogida							// [1F633]
-😴	cara dormint							// [1F634]
+😴	cara de dormir							// [1F634]
 😵	cara marejada							// [1F635]
 😶	cara sense boca							// [1F636]
 😷	cara amb màscara						// [1F637]
@@ -968,16 +968,16 @@ $textmode
 🙀	cara de gat esgotada						// [1F640]
 🙁	cara una mica empipada						// [1F641]
 🙂	cara que somriu una mica					// [1F642]
-🙃	cara al revés							// [1F643]
-🙄	cara amb ulls en blanc						// [1F644]
+🙃	cara de cap per avall						// [1F643]
+🙄	cara amb els ulls en blanc					// [1F644]
 🙅	gest de negació							// [1F645]
 🙆	gest d’aprovació						// [1F646]
-🙇	persona que mostra agraïment					// [1F647]
+🙇	persona capcota							// [1F647]
 🙈	mona que no mira						// [1F648]
 🙉	mona que no escolta						// [1F649]
 🙊	mona que no parla						// [1F64A]
 🙋	persona contenta que aixeca la mà				// [1F64B]
-🙌	persona que aixeca les mans					// [1F64C]
+🙌	mans enlaire							// [1F64C]
 🙍	persona emmurriada						// [1F64D]
 🙎	persona enutjada						// [1F64E]
 🙏	mans en oració							// [1F64F]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	telefèric de muntanya						// [1F6A0]
 🚡	tramvia aeri							// [1F6A1]
 🚢	vaixell								// [1F6A2]
-🚣	bot de rems							// [1F6A3]
+🚣	persona que rema en una barca					// [1F6A3]
 🚤	llanxa ràpida							// [1F6A4]
 🚥	semàfor horitzontal						// [1F6A5]
 🚦	semàfor vertical						// [1F6A6]
@@ -1028,7 +1028,7 @@ $textmode
 🚩	bandera triangular						// [1F6A9]
 🚪	porta								// [1F6AA]
 🚫	prohibit							// [1F6AB]
-🚬	fumar								// [1F6AC]
+🚬	cigarreta							// [1F6AC]
 🚭	prohibit fumar							// [1F6AD]
 🚮	signe de paperera						// [1F6AE]
 🚯	prohibit llençar brossa						// [1F6AF]
@@ -1038,7 +1038,7 @@ $textmode
 🚳	bicicletes prohibides						// [1F6B3]
 🚴	ciclista							// [1F6B4]
 🚵	ciclista de muntanya						// [1F6B5]
-🚶	persona caminant						// [1F6B6]
+🚶	persona que camina						// [1F6B6]
 🚷	prohibits els vianants						// [1F6B7]
 🚸	nens que creuen							// [1F6B8]
 🚹	lavabo d’homes							// [1F6B9]
@@ -1050,7 +1050,7 @@ $textmode
 🚿	dutxa								// [1F6BF]
 🛀	persona a la banyera						// [1F6C0]
 🛁	banyera								// [1F6C1]
-🛂	control de passaport						// [1F6C2]
+🛂	control de passaports						// [1F6C2]
 🛃	duanes								// [1F6C3]
 🛄	recollida d’equipatges						// [1F6C4]
 🛅	consigna							// [1F6C5]
@@ -1071,62 +1071,62 @@ $textmode
 🛩	avioneta							// [1F6E9] text|emoji
 🛫	enlairament d’avió						// [1F6EB]
 🛬	aterratge d’avió						// [1F6EC]
-🛰	satèl·lit							// [1F6F0] text|emoji
+🛰	satèl lit							// [1F6F0] text|emoji
 🛳	vaixell de passatgers						// [1F6F3] text|emoji
 🛴	patinet								// [1F6F4]
 🛵	escúter								// [1F6F5]
 🛶	canoa								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	trineu								// [1F6F7]
+🛸	platet volant							// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
 🤐	cara amb la boca tancada amb cremallera				// [1F910]
 🤑	cara amb diners a la llengua					// [1F911]
 🤒	cara amb termòmetre						// [1F912]
-🤓	cara d’estudiós							// [1F913]
+🤓	cara de setciències						// [1F913]
 🤔	cara pensant							// [1F914]
 🤕	cara amb el cap embenat						// [1F915]
 🤖	cara de robot							// [1F916]
 🤗	cara amb abraçada						// [1F917]
 🤘	dits en forma de banyes						// [1F918]
-🤙	senyal de trucada						// [1F919]
+🤙	mà que representa una trucada					// [1F919]
 🤚	mà alçada							// [1F91A]
 🤛	puny dret							// [1F91B]
 🤜	puny esquerre							// [1F91C]
 🤝	encaixada de mans						// [1F91D]
 🤞	dits creuats							// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
-🤠	cara de vaquer							// [1F920]
+🤟	gest de t’estimo						// [1F91F]
+🤠	cara amb barret de vaquer					// [1F920]
 🤡	cara de pallasso						// [1F921]
-🤢	cara disgustada							// [1F922]
+🤢	cara de nàusees							// [1F922]
 🤣	cara riallera							// [1F923]
-🤤	cara bavejant							// [1F924]
+🤤	cara que baveja							// [1F924]
 🤥	cara de mentider						// [1F925]
-🤦	frustració							// [1F926]
-🤧	cara esternudant						// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤦	persona amb cara de frustració					// [1F926]
+🤧	cara que esternuda						// [1F927]
+🤨	cara amb una cella aixecada					// [1F928]
+🤩	cara amb estrelles als ulls					// [1F929]
+🤪	cara de bogeria							// [1F92A]
+🤫	cara que demana silenci						// [1F92B]
+🤬	cara amb símbols a la boca					// [1F92C]
+🤭	cara amb la mà sobre la boca					// [1F92D]
+🤮	cara que vomita							// [1F92E]
+🤯	cap que explota							// [1F92F]
 🤰	embarassada							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	dona que alleta							// [1F931]
+🤲	palmells de les mans junts					// [1F932]
 🤳	autofoto							// [1F933]
 🤴	príncep								// [1F934]
 🤵	home elegant							// [1F935]
 🤶	mare Noel							// [1F936]
-🤷	arronsar les espatlles						// [1F937]
-🤸	roda								// [1F938]
-🤹	malabarista							// [1F939]
-🤺	esgrimidor							// [1F93A]
-🤼	lluitadors							// [1F93C]
-🤽	waterpolo							// [1F93D]
-🤾	handbol								// [1F93E]
+🤷	persona que arronsa les espatlles				// [1F937]
+🤸	persona que fa una roda						// [1F938]
+🤹	persona que fa malabars						// [1F939]
+🤺	persona que fa esgrima						// [1F93A]
+🤼	persones que lluiten						// [1F93C]
+🤽	persona que juga a waterpolo					// [1F93D]
+🤾	persona que juga a handbol					// [1F93E]
 🥀	rosa pansida							// [1F940]
 🥁	tambor								// [1F941]
 🥂	brindis								// [1F942]
@@ -1138,35 +1138,35 @@ $textmode
 🥉	medalla de bronze						// [1F949]
 🥊	guant de boxa							// [1F94A]
 🥋	quimono d’arts marcials						// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	pedra de cúrling						// [1F94C]
 🥐	croissant							// [1F950]
 🥑	alvocat								// [1F951]
 🥒	cogombre							// [1F952]
 🥓	bacó								// [1F953]
 🥔	patata								// [1F954]
 🥕	pastanaga							// [1F955]
-🥖	baguets								// [1F956]
+🥖	baguet								// [1F956]
 🥗	amanida								// [1F957]
 🥘	paella								// [1F958]
 🥙	durum								// [1F959]
 🥚	ou								// [1F95A]
 🥛	got de llet							// [1F95B]
-🥜	cacauet								// [1F95C]
+🥜	cacauets							// [1F95C]
 🥝	kiwi								// [1F95D]
 🥞	creps americanes						// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	cresta xinesa							// [1F95F]
+🥠	galeta de la sort						// [1F960]
+🥡	menjar per emportar						// [1F961]
+🥢	bastonets xinesos						// [1F962]
+🥣	bol amb cullera							// [1F963]
+🥤	got amb palla							// [1F964]
+🥥	coco								// [1F965]
+🥦	bròcoli								// [1F966]
+🥧	coca								// [1F967]
+🥨	brètzel								// [1F968]
+🥩	tall de carn							// [1F969]
+🥪	entrepà								// [1F96A]
+🥫	llauna de conserva						// [1F96B]
 🦀	cranc								// [1F980]
 🦁	cara de lleó							// [1F981]
 🦂	escorpí (animal)						// [1F982]
@@ -1177,7 +1177,7 @@ $textmode
 🦇	ratpenat							// [1F987]
 🦈	tauró								// [1F988]
 🦉	mussol								// [1F989]
-🦊	guineu								// [1F98A]
+🦊	cara de guineu							// [1F98A]
 🦋	papallona							// [1F98B]
 🦌	cérvol								// [1F98C]
 🦍	goril la							// [1F98D]
@@ -1185,36 +1185,36 @@ $textmode
 🦏	rinoceront							// [1F98F]
 🦐	gamba								// [1F990]
 🦑	calamar								// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	girafa								// [1F992]
+🦓	zebra								// [1F993]
+🦔	eriçó								// [1F994]
+🦕	sauròpode							// [1F995]
+🦖	tiranosaure							// [1F996]
+🦗	grill								// [1F997]
 🧀	tall de formatge						// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	cara amb monocle						// [1F9D0]
+🧑	adult								// [1F9D1]
+🧒	criatura							// [1F9D2]
+🧓	persona gran							// [1F9D3]
+🧔	persona amb barba						// [1F9D4]
+🧕	dona amb el cap cobert						// [1F9D5]
+🧖	persona a la sauna						// [1F9D6]
+🧗	persona que escala						// [1F9D7]
+🧘	persona en la posició de lotus					// [1F9D8]
+🧙	mag								// [1F9D9]
+🧚	fada								// [1F9DA]
+🧛	vampir								// [1F9DB]
+🧜	persona sirena							// [1F9DC]
+🧝	elf								// [1F9DD]
+🧞	geni								// [1F9DE]
+🧟	zombi								// [1F9DF]
+🧠	cervell								// [1F9E0]
+🧡	cor taronja							// [1F9E1]
+🧢	gorra								// [1F9E2]
+🧣	bufanda								// [1F9E3]
+🧤	guants								// [1F9E4]
+🧥	abric								// [1F9E5]
+🧦	mitjons								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1440,7 +1440,7 @@ $textmode
 🇹🇦	Tristão da Cunha						// [1F1F9 1F1E6] TA
 🇹🇨	Illes Turks i Caicos						// [1F1F9 1F1E8] TC
 🇹🇩	Txad								// [1F1F9 1F1E9] TD
-🇹🇫	Territoris Francesos del Sud					// [1F1F9 1F1EB] TF
+🇹🇫	Territoris Australs Francesos					// [1F1F9 1F1EB] TF
 🇹🇬	Togo								// [1F1F9 1F1EC] TG
 🇹🇭	Tailàndia							// [1F1F9 1F1ED] TH
 🇹🇯	Tadjikistan							// [1F1F9 1F1EF] TJ
@@ -1481,56 +1481,56 @@ $textmode
 
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anglaterra						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	Escòcia							// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Gal·les							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Gal les							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	tecla de coixinet						// [0023 FE0F 20E3]
-*️⃣	tecla d’asterisc						// [002A FE0F 20E3]
-0️⃣	tecla 0								// [0030 FE0F 20E3]
-1️⃣	tecla 1								// [0031 FE0F 20E3]
-2️⃣	tecla 2								// [0032 FE0F 20E3]
-3️⃣	tecla 3								// [0033 FE0F 20E3]
-4️⃣	tecla 4								// [0034 FE0F 20E3]
-5️⃣	tecla 5								// [0035 FE0F 20E3]
-6️⃣	tecla 6								// [0036 FE0F 20E3]
-7️⃣	tecla 7								// [0037 FE0F 20E3]
-8️⃣	tecla 8								// [0038 FE0F 20E3]
-9️⃣	tecla 9								// [0039 FE0F 20E3]
+#️⃣	tecla: #							// [0023 FE0F 20E3]
+*️⃣	tecla: *							// [002A FE0F 20E3]
+0️⃣	tecla: 0							// [0030 FE0F 20E3]
+1️⃣	tecla: 1							// [0031 FE0F 20E3]
+2️⃣	tecla: 2							// [0032 FE0F 20E3]
+3️⃣	tecla: 3							// [0033 FE0F 20E3]
+4️⃣	tecla: 4							// [0034 FE0F 20E3]
+5️⃣	tecla: 5							// [0035 FE0F 20E3]
+6️⃣	tecla: 6							// [0036 FE0F 20E3]
+7️⃣	tecla: 7							// [0037 FE0F 20E3]
+8️⃣	tecla: 8							// [0038 FE0F 20E3]
+9️⃣	tecla: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
-👩‍❤‍💋‍👨	petó, dona, home			// [1F469 200D 2764 200D 1F48B 200D 1F468]
-👨‍❤‍💋‍👨	petó, home, home			// [1F468 200D 2764 200D 1F48B 200D 1F468]
-👩‍❤‍💋‍👩	petó, dona, dona			// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	parella amb un cor, dona, home			// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	parella amb un cor, home, home			// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	parella amb un cor, dona, dona			// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	família, home, dona, nen			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	família, home, dona, nena			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	família, home, dona, nena, nen		// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	família, home, dona, nen, nen		// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	família, home, dona, nena, nena		// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	família, home, home, nen			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	família, home, home, nena			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	família, home, home, nena, nen		// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	família, home, home, nen, nen		// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	família, home, home, nena, nena		// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	família, dona, dona, nen			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	família, dona, dona, nena			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	família, dona, dona, nena, nen		// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	família, dona, dona, nen, nen		// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	família, dona, dona, nena, nena		// [1F469 200D 1F469 200D 1F467 200D 1F467]
-👨‍👦	família, home, nen					// [1F468 200D 1F466]
-👨‍👦‍👦	família, home, nen, nen				// [1F468 200D 1F466 200D 1F466]
-👨‍👧	família, home, nena					// [1F468 200D 1F467]
-👨‍👧‍👦	família, home, nena, nen			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	família, home, nena, nena			// [1F468 200D 1F467 200D 1F467]
-👩‍👦	família, dona, nen					// [1F469 200D 1F466]
-👩‍👦‍👦	família, dona, nen, nen				// [1F469 200D 1F466 200D 1F466]
-👩‍👧	família, dona, nena					// [1F469 200D 1F467]
-👩‍👧‍👦	família, dona, nena, nen			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	família, dona, nena, nena			// [1F469 200D 1F467 200D 1F467]
+👩‍❤‍💋‍👨	petó: dona i home			// [1F469 200D 2764 200D 1F48B 200D 1F468]
+👨‍❤‍💋‍👨	petó: home i home			// [1F468 200D 2764 200D 1F48B 200D 1F468]
+👩‍❤‍💋‍👩	petó: dona i dona			// [1F469 200D 2764 200D 1F48B 200D 1F469]
+👩‍❤‍👨	parella amb un cor: dona i home			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	parella amb un cor: home i home			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	parella amb un cor: dona i dona			// [1F469 200D 2764 200D 1F469]
+👨‍👩‍👦	família: home i dona i noi			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	família: home i dona i noia			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	família: home i dona i noia i noi	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	família: home i dona i noi i noi	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	família: home i dona i noia i noia	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	família: home i home i noi			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	família: home i home i noia			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	família: home i home i noia i noi	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	família: home i home i noi i noi	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	família: home i home i noia i noia	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	família: dona i dona i noi			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	família: dona i dona i noia			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	família: dona i dona i noia i noi	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	família: dona i dona i noi i noi	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	família: dona i dona i noia i noia	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👦	família: home i noi					// [1F468 200D 1F466]
+👨‍👦‍👦	família: home i noi i noi			// [1F468 200D 1F466 200D 1F466]
+👨‍👧	família: home i noia					// [1F468 200D 1F467]
+👨‍👧‍👦	família: home i noia i noi			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	família: home i noia i noia			// [1F468 200D 1F467 200D 1F467]
+👩‍👦	família: dona i noi					// [1F469 200D 1F466]
+👩‍👦‍👦	família: dona i noi i noi			// [1F469 200D 1F466 200D 1F466]
+👩‍👧	família: dona i noia					// [1F469 200D 1F467]
+👩‍👧‍👦	família: dona i noia i noi			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	família: dona i noia i noia			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1538,8 +1538,8 @@ $textmode
 👩‍⚕	doctora							// [1F469 200D 2695]
 👨‍⚖	jutge							// [1F468 200D 2696]
 👩‍⚖	jutgessa						// [1F469 200D 2696]
-👨‍✈	pilot home						// [1F468 200D 2708]
-👩‍✈	pilot dona						// [1F469 200D 2708]
+👨‍✈	home pilot						// [1F468 200D 2708]
+👩‍✈	dona pilot						// [1F469 200D 2708]
 👨‍🌾	pagès							// [1F468 200D 1F33E]
 👩‍🌾	pagesa							// [1F469 200D 1F33E]
 👨‍🍳	cuiner							// [1F468 200D 1F373]
@@ -1562,8 +1562,8 @@ $textmode
 👩‍🔧	mecànica						// [1F469 200D 1F527]
 👨‍🔬	científic						// [1F468 200D 1F52C]
 👩‍🔬	científica						// [1F469 200D 1F52C]
-👨‍🚀	astronauta home						// [1F468 200D 1F680]
-👩‍🚀	astronauta dona						// [1F469 200D 1F680]
+👨‍🚀	home astronauta						// [1F468 200D 1F680]
+👩‍🚀	dona astronauta						// [1F469 200D 1F680]
 👨‍🚒	bomber							// [1F468 200D 1F692]
 👩‍🚒	bombera							// [1F469 200D 1F692]
 
@@ -1575,26 +1575,26 @@ $textmode
 👱‍♂	home ros						// [1F471 200D 2642]
 👳‍♀	dona amb turbant					// [1F473 200D 2640]
 👳‍♂	home amb turbant					// [1F473 200D 2642]
-👷‍♀	paleta dona						// [1F477 200D 2640]
-👷‍♂	paleta home						// [1F477 200D 2642]
-💂‍♀	guarda dona						// [1F482 200D 2640]
-💂‍♂	guarda home						// [1F482 200D 2642]
+👷‍♀	dona paleta						// [1F477 200D 2640]
+👷‍♂	home paleta						// [1F477 200D 2642]
+💂‍♀	dona guarda						// [1F482 200D 2640]
+💂‍♂	home guarda						// [1F482 200D 2642]
 🕵️‍♀	investigadora						// [1F575 200D 2640]
 🕵️‍♂	investigador home					// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	dona maga						// [1F9D9 200D 2640]
+🧙‍♂	home mag						// [1F9D9 200D 2642]
+🧚‍♀	dona fada						// [1F9DA 200D 2640]
+🧚‍♂	home fada						// [1F9DA 200D 2642]
+🧛‍♀	dona vampir						// [1F9DB 200D 2640]
+🧛‍♂	home vampir						// [1F9DB 200D 2642]
+🧜‍♀	sirena							// [1F9DC 200D 2640]
+🧜‍♂	home sirena						// [1F9DC 200D 2642]
+🧝‍♀	dona elfa						// [1F9DD 200D 2640]
+🧝‍♂	home elf						// [1F9DD 200D 2642]
+🧞‍♀	dona gènia						// [1F9DE 200D 2640]
+🧞‍♂	home geni						// [1F9DE 200D 2642]
+🧟‍♀	dona zombi						// [1F9DF 200D 2640]
+🧟‍♂	home zombi						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1634,12 +1634,12 @@ $textmode
 🤽‍♂	jugador de waterpolo					// [1F93D 200D 2642]
 🤾‍♀	jugadora d’handbol					// [1F93E 200D 2640]
 🤾‍♂	jugador d’handbol					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	dona a la sauna						// [1F9D6 200D 2640]
+🧖‍♂	home a la sauna						// [1F9D6 200D 2642]
+🧗‍♀	escaladora						// [1F9D7 200D 2640]
+🧗‍♂	escalador						// [1F9D7 200D 2642]
+🧘‍♀	dona en la posició de lotus				// [1F9D8 200D 2640]
+🧘‍♂	home en la posició de lotus				// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 

@@ -61,6 +61,15 @@ def find_langname(lang):
                     if line.startswith("name "):
                         return line.replace("name ", "")
 
+def normalize(text):
+    text = text.replace("„", "")
+    text = text.replace("“", "")
+    text = text.replace("\"", "")
+    text = text.replace("‘", "'")
+    text = text.replace("·", " ")
+    text = text.replace("| ", "") # alternatives, e.g. af "vonkstok | skitterstokkie"
+    return text
+
 emoji_dict = sys.argv[1]
 lang = sys.argv[2]
 cldr_path = sys.argv[3]
@@ -79,6 +88,7 @@ for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
         translation = annotations.get(entry.emoji.replace("\uFE0F", ""), None)
         if translation:
+            translation = normalize(translation)
             length = len(entry.pronunciation.strip())
             tabs = entry.pronunciation.count('\t') - 1
             first_tab = 8 - (length % 8)

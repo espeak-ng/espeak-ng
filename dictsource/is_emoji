@@ -40,7 +40,7 @@ $textmode
 ⌚	úr								// [231A]
 ⌛	stundaglas							// [231B]
 ⌨	lyklaborð							// [2328] text|emoji
-⏏	taka til að opna						// [23CF] text|emoji
+⏏	takki til að opna						// [23CF] text|emoji
 ⏩	spóla áfram							// [23E9]
 ⏪	spóla til baka							// [23EA]
 ⏫	uppör								// [23EB]
@@ -90,7 +90,7 @@ $textmode
 ☦	rétttrúnaðarkross						// [2626] text|emoji
 ☪	stjarna og skarður máni						// [262A] text|emoji
 ☮	friðartákn							// [262E] text|emoji
-☯	yin yang							// [262F] text|emoji
+☯	jin jang							// [262F] text|emoji
 ☸	dharmahjól							// [2638] text|emoji
 ☹	andlit með stóra skeifu						// [2639] text|emoji
 ☺	broskarl							// [263A] text|emoji
@@ -151,7 +151,7 @@ $textmode
 ⛷	skíðamaður							// [26F7] text|emoji
 ⛸	skauti								// [26F8] text|emoji
 ⛹	manneskja með bolta						// [26F9] text|emoji
-⛺	tjalda								// [26FA]
+⛺	tjald								// [26FA]
 ⛽	bensíndæla							// [26FD]
 
 // 2700..27BF : Dingbats
@@ -212,8 +212,8 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	til hamingju, hringur						// [3297] text|emoji
-㊙	leyndarmál, kassi						// [3299] text|emoji
+㊗	Til hamingju ´a japönsku					// [3297] text|emoji
+㊙	Leyndarmál á japönsku						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
@@ -237,19 +237,19 @@ $textmode
 
 🈁	katakana koko, kassi						// [1F201]
 🈂	katakana sa, kassi						// [1F202] text|emoji
-🈚	neitun, kassi							// [1F21A]
-🈯	fingur, kassi							// [1F22F]
-🈲	bannað, kassi							// [1F232]
-🈳	tómt, kassi							// [1F233]
-🈴	saman, kassi							// [1F234]
-🈵	fylli, kassi							// [1F235]
-🈶	tilvist, kassi							// [1F236]
-🈷	máni, kassi							// [1F237] text|emoji
-🈸	nota, kassi							// [1F238]
-🈹	deila, kassi							// [1F239]
-🈺	notkun, kassi							// [1F23A]
-🉐	kostur, hringur							// [1F250]
-🉑	samþykkja, hringur						// [1F251]
+🈚	Ókeypis á japönsku						// [1F21A]
+🈯	Frátekið á japönsku						// [1F22F]
+🈲	Bannað á japönsku						// [1F232]
+🈳	Laust pláss á japönsku						// [1F233]
+🈴	Viðunandi einkunn á japönsku					// [1F234]
+🈵	Allt fullt á japönsku						// [1F235]
+🈶	Ekki ókeypis á japönsku						// [1F236]
+🈷	mánaðarleg upphæð, kassi					// [1F237] text|emoji
+🈸	Umsókn á japönsku						// [1F238]
+🈹	Afsláttur á japönsku						// [1F239]
+🈺	Opið á japönsku							// [1F23A]
+🉐	Kjarakaup á japönsku						// [1F250]
+🉑	Viðunandi á japönsku						// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -313,7 +313,7 @@ $textmode
 🌳	sumargrænt tré							// [1F333]
 🌴	pálmatré							// [1F334]
 🌵	kaktus								// [1F335]
-🌶	sílípipar							// [1F336] text|emoji
+🌶	chilipipar							// [1F336] text|emoji
 🌷	túlípani							// [1F337]
 🌸	kirsuberjablóm							// [1F338]
 🌹	rós								// [1F339]
@@ -390,7 +390,7 @@ $textmode
 🎀	borði								// [1F380]
 🎁	gjöf								// [1F381]
 🎂	afmæliskaka							// [1F382]
-🎃	grasker								// [1F383]
+🎃	hrekkjavökugrasker						// [1F383]
 🎄	jólatré								// [1F384]
 🎅	jólasveinn							// [1F385]
 🎆	flugeldar							// [1F386]
@@ -454,7 +454,7 @@ $textmode
 🏅	íþróttamedalía							// [1F3C5]
 🏆	verðlaunabikar							// [1F3C6]
 🏇	veðreiðar							// [1F3C7]
-🏈	bandarískur fótbolti						// [1F3C8]
+🏈	amerískur fótbolti						// [1F3C8]
 🏉	rúgbíbolti							// [1F3C9]
 🏊	sund								// [1F3CA]
 🏋	kraftlyftingamaður						// [1F3CB] text|emoji
@@ -462,18 +462,18 @@ $textmode
 🏍	mótorhjól							// [1F3CD] text|emoji
 🏎	kappakstursbíll							// [1F3CE] text|emoji
 🏏	krikket								// [1F3CF]
-🏐	blakbolti							// [1F3D0]
-🏑	vallarhokkí							// [1F3D1]
-🏒	íshokkíkylfa og pökkur						// [1F3D2]
+🏐	blak								// [1F3D0]
+🏑	grashokkí							// [1F3D1]
+🏒	íshokkí								// [1F3D2]
 🏓	borðtennis							// [1F3D3]
-🏔	snjóhvítir fjallstindar						// [1F3D4] text|emoji
+🏔	snæviþakinn fjallstindur					// [1F3D4] text|emoji
 🏕	tjaldstæði							// [1F3D5] text|emoji
 🏖	strönd með sólhlíf						// [1F3D6] text|emoji
 🏗	mannvirki í byggingu						// [1F3D7] text|emoji
 🏘	húsaþyrping							// [1F3D8] text|emoji
 🏙	borgarlandslag							// [1F3D9] text|emoji
 🏚	niðurnítt hús							// [1F3DA] text|emoji
-🏛	sígilt fornbygging						// [1F3DB] text|emoji
+🏛	klassísk fornbygging						// [1F3DB] text|emoji
 🏜	eyðimörk							// [1F3DC] text|emoji
 🏝	eyðieyja							// [1F3DD] text|emoji
 🏞	þjóðgarður							// [1F3DE] text|emoji
@@ -511,9 +511,9 @@ $textmode
 🐁	mús								// [1F401]
 🐂	uxi								// [1F402]
 🐃	vatnabuffaló							// [1F403]
-🐄	kú								// [1F404]
+🐄	kýr								// [1F404]
 🐅	tígrisdýr							// [1F405]
-🐆	hlébarður							// [1F406]
+🐆	hlébarði							// [1F406]
 🐇	kanína								// [1F407]
 🐈	köttur								// [1F408]
 🐉	dreki								// [1F409]
@@ -524,10 +524,10 @@ $textmode
 🐎	hestur								// [1F40E]
 🐏	hrútur								// [1F40F]
 🐐	geit								// [1F410]
-🐑	kind								// [1F411]
+🐑	ær								// [1F411]
 🐒	api								// [1F412]
 🐓	hani								// [1F413]
-🐔	hæna								// [1F414]
+🐔	kjúklingur							// [1F414]
 🐕	hundur								// [1F415]
 🐖	svín								// [1F416]
 🐗	villisvín							// [1F417]
@@ -558,7 +558,7 @@ $textmode
 🐰	kanínuhöfuð							// [1F430]
 🐱	kattarhöfuð							// [1F431]
 🐲	drekahöfuð							// [1F432]
-🐳	hvalur að sprauta vatni						// [1F433]
+🐳	blásandi hvalur							// [1F433]
 🐴	hestshöfuð							// [1F434]
 🐵	apahöfuð							// [1F435]
 🐶	hundshöfuð							// [1F436]
@@ -572,7 +572,7 @@ $textmode
 🐾	loppa								// [1F43E]
 🐿	jarðíkorni							// [1F43F] text|emoji
 👀	augu								// [1F440]
-👁	augua								// [1F441] text|emoji
+👁	auga								// [1F441] text|emoji
 👂	eyru								// [1F442]
 👃	nef								// [1F443]
 👄	munnur								// [1F444]
@@ -595,7 +595,7 @@ $textmode
 👕	stuttermabolur							// [1F455]
 👖	buxur								// [1F456]
 👗	kjóll								// [1F457]
-👘	kimono								// [1F458]
+👘	kímónó								// [1F458]
 👙	bíkiní								// [1F459]
 👚	kvenföt								// [1F45A]
 👛	budda								// [1F45B]
@@ -625,7 +625,7 @@ $textmode
 👳	maður með túrban						// [1F473]
 👴	eldri maður							// [1F474]
 👵	eldri kona							// [1F475]
-👶	barn								// [1F476]
+👶	ungbarn								// [1F476]
 👷	verkamaður							// [1F477]
 👸	prinsessa							// [1F478]
 👹	tröll								// [1F479]
@@ -651,7 +651,7 @@ $textmode
 💍	hringur								// [1F48D]
 💎	gimsteinn							// [1F48E]
 💏	koss								// [1F48F]
-💐	blómavöndur							// [1F490]
+💐	blómvöndur							// [1F490]
 💑	par								// [1F491]
 💒	brúðkaup							// [1F492]
 💓	hjartsláttur							// [1F493]
@@ -681,7 +681,7 @@ $textmode
 💫	ringlaður							// [1F4AB]
 💬	talblaðra							// [1F4AC]
 💭	hugsanablaðra							// [1F4AD]
-💮	blómastimpill							// [1F4AE]
+💮	hvítt blóm							// [1F4AE]
 💯	fullt hús							// [1F4AF]
 💰	peningapoki							// [1F4B0]
 💱	gjaldmiðlar							// [1F4B1]
@@ -723,7 +723,7 @@ $textmode
 📕	lokuð bók							// [1F4D5]
 📖	opin bók							// [1F4D6]
 📗	græn bók							// [1F4D7]
-📘	bók								// [1F4D8]
+📘	blá bók								// [1F4D8]
 📙	appelsínugul bók						// [1F4D9]
 📚	bækur								// [1F4DA]
 📛	nafnspjald							// [1F4DB]
@@ -732,7 +732,7 @@ $textmode
 📞	símtól								// [1F4DE]
 📟	símboði								// [1F4DF]
 📠	fax								// [1F4E0]
-📡	gervihnattardiskur						// [1F4E1]
+📡	gervihnattaloftnet						// [1F4E1]
 📢	Almannavarnahátalari						// [1F4E2]
 📣	gjallarhorn							// [1F4E3]
 📤	sendur póstur							// [1F4E4]
@@ -793,7 +793,7 @@ $textmode
 🔜	bráðum-merki							// [1F51C]
 🔝	efst-ör								// [1F51D]
 🔞	enginn undir 18 ára						// [1F51E]
-🔟	reitur fyrir töluna tíu						// [1F51F]
+🔟	takki: 10							// [1F51F]
 🔠	hástafir							// [1F520]
 🔡	lágstafir							// [1F521]
 🔢	tölustafir							// [1F522]
@@ -872,7 +872,7 @@ $textmode
 🖐	upprétt hönd með glennta fingur					// [1F590] text|emoji
 🖕	langatöng							// [1F595]
 🖖	vulcan-kveðja							// [1F596]
-🖤	svar hjarta							// [1F5A4]
+🖤	svart hjarta							// [1F5A4]
 🖥	heimilistölva							// [1F5A5] text|emoji
 🖨	prentari							// [1F5A8] text|emoji
 🖱	tölvumús							// [1F5B1] text|emoji
@@ -896,7 +896,7 @@ $textmode
 🗻	fuji-fjall							// [1F5FB]
 🗼	tokyo-turninn							// [1F5FC]
 🗽	frelsisstyttan							// [1F5FD]
-🗾	kort af japan							// [1F5FE]
+🗾	kort af Japan							// [1F5FE]
 🗿	moyai-stytta							// [1F5FF]
 
 // 1F600..1F64F : Emoticons
@@ -908,15 +908,15 @@ $textmode
 😄	hlæjandi andlit							// [1F604]
 😅	bros og kaldur sviti						// [1F605]
 😆	brosandi andlit með opinn munn og lokuð augu			// [1F606]
-😇	broskarl með geislabaug						// [1F607]
+😇	brosandi andlit með geislabaug					// [1F607]
 😈	broskarl með horn						// [1F608]
 😉	blikkandi andlit						// [1F609]
 😊	bros								// [1F60A]
-😋	namm								// [1F60B]
+😋	andlit að njóta matar						// [1F60B]
 😌	andlit sem er létt						// [1F60C]
-😍	brosandi andlit							// [1F60D]
+😍	brosandi andlit með hjartalaga augu				// [1F60D]
 😎	brosandi andlit með sólgleraugu					// [1F60E]
-😏	glottand og montið andlit					// [1F60F]
+😏	sjálfsánægt andlit						// [1F60F]
 😐	hlutlaust andlit						// [1F610]
 😑	svipbrigðalaust andlit						// [1F611]
 😒	engin gleði							// [1F612]
@@ -978,7 +978,7 @@ $textmode
 🙊	api heldur fyrir munn						// [1F64A]
 🙋	gleði								// [1F64B]
 🙌	húrra								// [1F64C]
-🙍	manneskja með skeifa						// [1F64D]
+🙍	manneskja með ygglibrún						// [1F64D]
 🙎	manneskja í fýlu						// [1F64E]
 🙏	bæn								// [1F64F]
 
@@ -1028,7 +1028,7 @@ $textmode
 🚩	flagg								// [1F6A9]
 🚪	dyr								// [1F6AA]
 🚫	bannað								// [1F6AB]
-🚬	reykingar leyfðar						// [1F6AC]
+🚬	sígaretta							// [1F6AC]
 🚭	reykingar bannaðar						// [1F6AD]
 🚮	merki, rusl í ruslatunnu					// [1F6AE]
 🚯	ekkert rusl							// [1F6AF]
@@ -1060,30 +1060,30 @@ $textmode
 🛎	hótelbjalla							// [1F6CE] text|emoji
 🛏	rúm								// [1F6CF] text|emoji
 🛐	tilbeiðslustaður						// [1F6D0]
-🛑	stövðunarskylda							// [1F6D1]
+🛑	stöðvunarskylda							// [1F6D1]
 🛒	innkaupakerra							// [1F6D2]
-🛠	hammar og skiptilykill						// [1F6E0] text|emoji
+🛠	hamar og skiptilykill						// [1F6E0] text|emoji
 🛡	skjöldur							// [1F6E1] text|emoji
 🛢	olíutunna							// [1F6E2] text|emoji
 🛣	hraðbraut							// [1F6E3] text|emoji
 🛤	járnbrautarteinar						// [1F6E4] text|emoji
 🛥	mótorbátur							// [1F6E5] text|emoji
 🛩	lítil flugvél							// [1F6E9] text|emoji
-🛫	fliugvél í flugtaki						// [1F6EB]
+🛫	flugvél í flugtaki						// [1F6EB]
 🛬	flugvél í lendingu						// [1F6EC]
 🛰	gervihnöttur							// [1F6F0] text|emoji
 🛳	farþegaskip							// [1F6F3] text|emoji
 🛴	sparkhjól							// [1F6F4]
 🛵	vespa								// [1F6F5]
 🛶	kanó								// [1F6F6]
-🛷	sled								// [1F6F7] (no translation)
-🛸	flying saucer							// [1F6F8] (no translation)
+🛷	sleði								// [1F6F7]
+🛸	fljúgandi diskur						// [1F6F8]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
 🤐	andlit með rennilás fyrir munninum				// [1F910]
 🤑	andlit með peningaseðil í munninum				// [1F911]
-🤒	andlit hitamæli í munninum					// [1F912]
+🤒	andlit með hitamæli í munninum					// [1F912]
 🤓	nördaandlit							// [1F913]
 🤔	hugsandi andlit							// [1F914]
 🤕	andlit með sárabindi						// [1F915]
@@ -1096,7 +1096,7 @@ $textmode
 🤜	vinstri hnefi							// [1F91C]
 🤝	handaband							// [1F91D]
 🤞	krosslagðir fingur						// [1F91E]
-🤟	love you gesture						// [1F91F] (no translation)
+🤟	elska-þig merki							// [1F91F]
 🤠	kúreki								// [1F920]
 🤡	trúður								// [1F921]
 🤢	gubbukall							// [1F922]
@@ -1104,18 +1104,18 @@ $textmode
 🤤	slefandi							// [1F924]
 🤥	lygari								// [1F925]
 🤦	hönd fyrir andlit						// [1F926]
-🤧	kvefaður							// [1F927]
-🤨	face with raised eyebrow					// [1F928] (no translation)
-🤩	star struck							// [1F929] (no translation)
-🤪	crazy face							// [1F92A] (no translation)
-🤫	shushing face							// [1F92B] (no translation)
-🤬	face with symbols over mouth					// [1F92C] (no translation)
-🤭	face with hand over mouth					// [1F92D] (no translation)
-🤮	face vomiting							// [1F92E] (no translation)
-🤯	exploding head							// [1F92F] (no translation)
+🤧	hnerrandi andlit						// [1F927]
+🤨	andlit með yppta brún						// [1F928]
+🤩	stjörnustjarfur							// [1F929]
+🤪	sturlað andlit							// [1F92A]
+🤫	andilt að segja uss						// [1F92B]
+🤬	andlit með tákn fyrir munni					// [1F92C]
+🤭	andlit með hendi fyrir munn					// [1F92D]
+🤮	ælandi andlit							// [1F92E]
+🤯	splundrað höfuð							// [1F92F]
 🤰	ólétt kona							// [1F930]
-🤱	breast feeding							// [1F931] (no translation)
-🤲	palms up together						// [1F932] (no translation)
+🤱	brjóstagjöf							// [1F931]
+🤲	lófar saman							// [1F932]
 🤳	sjálfa								// [1F933]
 🤴	prins								// [1F934]
 🤵	smóking								// [1F935]
@@ -1125,7 +1125,7 @@ $textmode
 🤹	boltakast							// [1F939]
 🤺	skylmingar							// [1F93A]
 🤼	glíma								// [1F93C]
-🤽	vatnsboltií							// [1F93D]
+🤽	manneskja í vatnapóló						// [1F93D]
 🤾	handbolti							// [1F93E]
 🥀	sölnað blóm							// [1F940]
 🥁	tromma								// [1F941]
@@ -1138,7 +1138,7 @@ $textmode
 🥉	bronsverðlaun							// [1F949]
 🥊	boxhanski							// [1F94A]
 🥋	bardagabúningur							// [1F94B]
-🥌	curling stone							// [1F94C] (no translation)
+🥌	krulla steinn krullusteinn					// [1F94C]
 🥐	horn								// [1F950]
 🥑	avókadó								// [1F951]
 🥒	gúrka								// [1F952]
@@ -1154,19 +1154,19 @@ $textmode
 🥜	jarðhneta							// [1F95C]
 🥝	kíví								// [1F95D]
 🥞	pönnukökur							// [1F95E]
-🥟	dumpling							// [1F95F] (no translation)
-🥠	fortune cookie							// [1F960] (no translation)
-🥡	takeout box							// [1F961] (no translation)
-🥢	chopsticks							// [1F962] (no translation)
-🥣	bowl with spoon							// [1F963] (no translation)
-🥤	cup with straw							// [1F964] (no translation)
-🥥	coconut								// [1F965] (no translation)
-🥦	broccoli							// [1F966] (no translation)
-🥧	pie								// [1F967] (no translation)
-🥨	pretzel								// [1F968] (no translation)
-🥩	cut of meat							// [1F969] (no translation)
-🥪	sandwich							// [1F96A] (no translation)
-🥫	canned food							// [1F96B] (no translation)
+🥟	dumpling							// [1F95F]
+🥠	spádómskaka							// [1F960]
+🥡	takeaway-box							// [1F961]
+🥢	matprjónar							// [1F962]
+🥣	skál og skeið							// [1F963]
+🥤	glas og rör							// [1F964]
+🥥	kókoshneta							// [1F965]
+🥦	brokkólí							// [1F966]
+🥧	baka								// [1F967]
+🥨	saltkringla							// [1F968]
+🥩	kjötsneið							// [1F969]
+🥪	samloka								// [1F96A]
+🥫	dósamatur							// [1F96B]
 🦀	krabbi								// [1F980]
 🦁	ljónshöfuð							// [1F981]
 🦂	sporðdreki							// [1F982]
@@ -1177,44 +1177,44 @@ $textmode
 🦇	leðurblaka							// [1F987]
 🦈	hákarl								// [1F988]
 🦉	ugla								// [1F989]
-🦊	refur								// [1F98A]
+🦊	refshöfuð							// [1F98A]
 🦋	fiðrildi							// [1F98B]
-🦌	hreindýr							// [1F98C]
+🦌	´hjartardýr							// [1F98C]
 🦍	górilla								// [1F98D]
 🦎	eðla								// [1F98E]
 🦏	nashyrningur							// [1F98F]
 🦐	rækja								// [1F990]
 🦑	smokkfiskur							// [1F991]
-🦒	giraffe								// [1F992] (no translation)
-🦓	zebra								// [1F993] (no translation)
-🦔	hedgehog							// [1F994] (no translation)
-🦕	sauropod							// [1F995] (no translation)
-🦖	t rex								// [1F996] (no translation)
-🦗	cricket								// [1F997] (no translation)
+🦒	gíraffi								// [1F992]
+🦓	sebrahestur							// [1F993]
+🦔	broddgöltur							// [1F994]
+🦕	graseðla							// [1F995]
+🦖	Grameðla							// [1F996]
+🦗	krybba								// [1F997]
 🧀	götóttur ostur							// [1F9C0]
-🧐	face with monocle						// [1F9D0] (no translation)
-🧑	adult								// [1F9D1] (no translation)
-🧒	child								// [1F9D2] (no translation)
-🧓	older adult							// [1F9D3] (no translation)
-🧔	bearded person							// [1F9D4] (no translation)
-🧕	woman with headscarf						// [1F9D5] (no translation)
-🧖	person in steamy room						// [1F9D6] (no translation)
-🧗	person climbing							// [1F9D7] (no translation)
-🧘	person in lotus position					// [1F9D8] (no translation)
-🧙	mage								// [1F9D9] (no translation)
-🧚	fairy								// [1F9DA] (no translation)
-🧛	vampire								// [1F9DB] (no translation)
-🧜	merperson							// [1F9DC] (no translation)
-🧝	elf								// [1F9DD] (no translation)
-🧞	genie								// [1F9DE] (no translation)
-🧟	zombie								// [1F9DF] (no translation)
-🧠	brain								// [1F9E0] (no translation)
-🧡	orange heart							// [1F9E1] (no translation)
-🧢	billed cap							// [1F9E2] (no translation)
-🧣	scarf								// [1F9E3] (no translation)
-🧤	gloves								// [1F9E4] (no translation)
-🧥	coat								// [1F9E5] (no translation)
-🧦	socks								// [1F9E6] (no translation)
+🧐	andlit með einglyrni						// [1F9D0]
+🧑	fullorðinn							// [1F9D1]
+🧒	barn								// [1F9D2]
+🧓	eldri fullorðinn						// [1F9D3]
+🧔	maður með skegg							// [1F9D4]
+🧕	kona með höfuðklút						// [1F9D5]
+🧖	einstaklingur í gufubaði					// [1F9D6]
+🧗	maður í klettaklifri						// [1F9D7]
+🧘	maður í lótuspósu						// [1F9D8]
+🧙	galdramaður							// [1F9D9]
+🧚	álfur								// [1F9DA]
+🧛	vampíra								// [1F9DB]
+🧜	sæbúi								// [1F9DC]
+🧝	huldumaður							// [1F9DD]
+🧞	andi								// [1F9DE]
+🧟	uppvakningur							// [1F9DF]
+🧠	heili								// [1F9E0]
+🧡	appelsínugult hjarta						// [1F9E1]
+🧢	derhúfa								// [1F9E2]
+🧣	trefill								// [1F9E3]
+🧤	hanskar								// [1F9E4]
+🧥	kápa								// [1F9E5]
+🧦	sokkar								// [1F9E6]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1317,7 +1317,7 @@ $textmode
 🇬🇺	Gvam								// [1F1EC 1F1FA] GU
 🇬🇼	Gínea-Bissá							// [1F1EC 1F1FC] GW
 🇬🇾	Gvæjana								// [1F1EC 1F1FE] GY
-🇭🇰	Sjálfstjórnarsvæðið Hong Kong					// [1F1ED 1F1F0] HK
+🇭🇰	sérstjórnarsvæðið Hong Kong					// [1F1ED 1F1F0] HK
 🇭🇲	Heard og McDonaldseyjar						// [1F1ED 1F1F2] HM
 🇭🇳	Hondúras							// [1F1ED 1F1F3] HN
 🇭🇷	Króatía								// [1F1ED 1F1F7] HR
@@ -1371,7 +1371,7 @@ $textmode
 🇲🇱	Malí								// [1F1F2 1F1F1] ML
 🇲🇲	Mjanmar (Búrma)							// [1F1F2 1F1F2] MM
 🇲🇳	Mongólía							// [1F1F2 1F1F3] MN
-🇲🇴	Sjálfstjórnarsvæðið Makaó					// [1F1F2 1F1F4] MO
+🇲🇴	sérstjórnarsvæðið Makaó						// [1F1F2 1F1F4] MO
 🇲🇵	Norður-Maríanaeyjar						// [1F1F2 1F1F5] MP
 🇲🇶	Martiník							// [1F1F2 1F1F6] MQ
 🇲🇷	Máritanía							// [1F1F2 1F1F7] MR
@@ -1485,18 +1485,18 @@ $textmode
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
-#️⃣	reitur með myllumerki						// [0023 FE0F 20E3]
-*️⃣	reitur með stjörnumerki						// [002A FE0F 20E3]
-0️⃣	reitur fyrir núll						// [0030 FE0F 20E3]
-1️⃣	reitur fyrir töluna einn					// [0031 FE0F 20E3]
-2️⃣	reitur fyrir töluna tveir					// [0032 FE0F 20E3]
-3️⃣	reitur fyrir töluna þrír					// [0033 FE0F 20E3]
-4️⃣	reitur fyrir töluna fjórir					// [0034 FE0F 20E3]
-5️⃣	reitur fyrir töluna fimm					// [0035 FE0F 20E3]
-6️⃣	reitur fyrir töluna sex						// [0036 FE0F 20E3]
-7️⃣	reitur fyrir töluna sjö						// [0037 FE0F 20E3]
-8️⃣	reitur fyrir töluna átta					// [0038 FE0F 20E3]
-9️⃣	reitur fyrir töluna níu						// [0039 FE0F 20E3]
+#️⃣	takki: #							// [0023 FE0F 20E3]
+*️⃣	takki: *							// [002A FE0F 20E3]
+0️⃣	takki: 0							// [0030 FE0F 20E3]
+1️⃣	takki: 1							// [0031 FE0F 20E3]
+2️⃣	takki: 2							// [0032 FE0F 20E3]
+3️⃣	takki: 3							// [0033 FE0F 20E3]
+4️⃣	takki: 4							// [0034 FE0F 20E3]
+5️⃣	takki: 5							// [0035 FE0F 20E3]
+6️⃣	takki: 6							// [0036 FE0F 20E3]
+7️⃣	takki: 7							// [0037 FE0F 20E3]
+8️⃣	takki: 8							// [0038 FE0F 20E3]
+9️⃣	takki: 9							// [0039 FE0F 20E3]
 
 // Emoji ZWJ Sequence: Family
 
@@ -1581,20 +1581,20 @@ $textmode
 💂‍♂	karlkyns vörður						// [1F482 200D 2642]
 🕵️‍♀	kvenkyns spæjari					// [1F575 200D 2640]
 🕵️‍♂	karlkyns spæjari					// [1F575 200D 2642]
-🧙‍♀	woman mage						// [1F9D9 200D 2640] (no translation)
-🧙‍♂	man mage						// [1F9D9 200D 2642] (no translation)
-🧚‍♀	woman fairy						// [1F9DA 200D 2640] (no translation)
-🧚‍♂	man fairy						// [1F9DA 200D 2642] (no translation)
-🧛‍♀	woman vampire						// [1F9DB 200D 2640] (no translation)
-🧛‍♂	man vampire						// [1F9DB 200D 2642] (no translation)
-🧜‍♀	mermaid							// [1F9DC 200D 2640] (no translation)
-🧜‍♂	merman							// [1F9DC 200D 2642] (no translation)
-🧝‍♀	woman elf						// [1F9DD 200D 2640] (no translation)
-🧝‍♂	man elf							// [1F9DD 200D 2642] (no translation)
-🧞‍♀	woman genie						// [1F9DE 200D 2640] (no translation)
-🧞‍♂	man genie						// [1F9DE 200D 2642] (no translation)
-🧟‍♀	woman zombie						// [1F9DF 200D 2640] (no translation)
-🧟‍♂	man zombie						// [1F9DF 200D 2642] (no translation)
+🧙‍♀	galdrakona						// [1F9D9 200D 2640]
+🧙‍♂	galdrakarl						// [1F9D9 200D 2642]
+🧚‍♀	álfadís							// [1F9DA 200D 2640]
+🧚‍♂	álfakarl						// [1F9DA 200D 2642]
+🧛‍♀	kvenkyns vampíra					// [1F9DB 200D 2640]
+🧛‍♂	karlkyns vampíra					// [1F9DB 200D 2642]
+🧜‍♀	hafmeyja						// [1F9DC 200D 2640]
+🧜‍♂	marbendill						// [1F9DC 200D 2642]
+🧝‍♀	huldukona						// [1F9DD 200D 2640]
+🧝‍♂	huldukarl						// [1F9DD 200D 2642]
+🧞‍♀	kvenkyns andi						// [1F9DE 200D 2640]
+🧞‍♂	karlkyns andi						// [1F9DE 200D 2642]
+🧟‍♀	kvenkyns uppvakningur					// [1F9DF 200D 2640]
+🧟‍♂	karlkyns uppvakningur					// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1630,16 +1630,16 @@ $textmode
 🤹‍♂	maður kastar boltum					// [1F939 200D 2642]
 🤼‍♀	konur í glímu						// [1F93C 200D 2640]
 🤼‍♂	menn í glímu						// [1F93C 200D 2642]
-🤽‍♀	kona í vatnsbolta					// [1F93D 200D 2640]
-🤽‍♂	maður í vatnsbolta					// [1F93D 200D 2642]
+🤽‍♀	kona í vatnapóló					// [1F93D 200D 2640]
+🤽‍♂	maður í vatnapóló					// [1F93D 200D 2642]
 🤾‍♀	kona í handbolta					// [1F93E 200D 2640]
 🤾‍♂	maður í handbolta					// [1F93E 200D 2642]
-🧖‍♀	woman in steamy room					// [1F9D6 200D 2640] (no translation)
-🧖‍♂	man in steamy room					// [1F9D6 200D 2642] (no translation)
-🧗‍♀	woman climbing						// [1F9D7 200D 2640] (no translation)
-🧗‍♂	man climbing						// [1F9D7 200D 2642] (no translation)
-🧘‍♀	woman in lotus position					// [1F9D8 200D 2640] (no translation)
-🧘‍♂	man in lotus position					// [1F9D8 200D 2642] (no translation)
+🧖‍♀	kona í gufubaði						// [1F9D6 200D 2640]
+🧖‍♂	maður í gufubaði					// [1F9D6 200D 2642]
+🧗‍♀	kona í klettaklifri					// [1F9D7 200D 2640]
+🧗‍♂	karl í klettaklifri					// [1F9D7 200D 2642]
+🧘‍♀	kona í lótusp´ósu					// [1F9D8 200D 2640]
+🧘‍♂	karl í lótuspósu					// [1F9D8 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
