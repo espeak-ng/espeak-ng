@@ -3,6 +3,4 @@ language ar 1
 gender male
 
 pitch 82 117
-mbrola ar1
-ar1_phtrans
-
+mbrola ar1 ar1_phtrans
