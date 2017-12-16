@@ -3,4 +3,5 @@ language jbo
 
 speed 80   // speed adjustment, percentage
 letterVowel y
+stressLength 145 145 170 160 0 0 330 350 
 stressRule 2

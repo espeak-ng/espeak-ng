@@ -15,4 +15,6 @@ stressAdd 10 10 0 0 0 0 -30 -30
 dictrules 1
 letterVowel y
 letterVowel r
+stresAmp 17 17 20 20 20 22 22 21
+stressLength 180 160 200 200 0 0 220 230
 stressRule 0

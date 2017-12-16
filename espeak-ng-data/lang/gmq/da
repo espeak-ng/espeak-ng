@@ -3,4 +3,5 @@ language da
 
 tunes s2 c2 q2 e2
 letterVowel y
+stressLength 160 140 200 200 0 0 220 230
 stressRule 0

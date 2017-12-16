@@ -1,3 +1,5 @@
 name Georgian
 language ka
+stressAmp 18 18 18 18 20 20 22 22 
+stressLength 200 200 210 210 0 0 230 230
 stressRule 0

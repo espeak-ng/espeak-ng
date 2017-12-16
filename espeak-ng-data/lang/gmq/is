@@ -1,4 +1,5 @@
 name Icelandic
 language is
 letterVowel y
+stressLength 180 160 200 200 0 0 240 250
 stressRule 0

@@ -1,3 +1,5 @@
 name Punjabi
 language pa
+stressAmp 17 14 20 19 20 22 22 21
+stressLength 190 190 210 210 0 0 230 250
 stressRule 6

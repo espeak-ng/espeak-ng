@@ -6,6 +6,8 @@ language zh 8
 translator zhy
 phonemes zhy
 dictionary zhy
+stressAmp 22 16 22 22 22 22 22 22
+stressLength 230 150 230 230 230 0 240 250
 
 // interpret English letters as 1=English words, 2=jyutping
 dictrules 1

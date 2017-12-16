@@ -3,4 +3,6 @@ language ml
 
 intonation 2
 //consonants 80
+stressAmp 19 19 19 19 19 19 19 19
+stressLength 180 160 240 240 0 0 260 260
 stressRule 13

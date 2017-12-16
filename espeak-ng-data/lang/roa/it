@@ -6,4 +6,6 @@ status mature
 
 tunes s4 c4 q4 e4
 letterVowel y
+stressAmp 17 15 18 16 20 22 22 22 
+stressLength 160 140 150 165 0 0 218 305
 stressRule 2

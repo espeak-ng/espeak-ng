@@ -3,4 +3,6 @@ language hu
 option bracket 0 0
 pitch 81 117
 letterVowel y
+stressAmp 17 17 19 19 20 22 22 21
+stressLength 185 195 195 190 0 0 210 220
 stressRule 0

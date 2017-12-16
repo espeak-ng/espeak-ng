@@ -2,4 +2,6 @@ name Nepali
 language ne
 
 dictrules 1
+stressAmp 19 19 19 19 19 19 19 19 
+stressLength 230 230 230 230 0 0 230 230
 stressRule 6

@@ -5,4 +5,6 @@ language fr
 dictrules 1
 tunes s3 c3 q3 e3
 letterVowel y
+stressAmp 18 16 18 18 18 18 18 18
+stressLength 190 170 190 200 0 0 190 240
 stressRule 3

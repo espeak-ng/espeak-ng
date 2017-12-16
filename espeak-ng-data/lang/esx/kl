@@ -1,4 +1,6 @@
 name Greenlandic
 language kl
 
+stressAmp 19 19 19 19 19 19 19 19
+stressLength 230 230 230 230 0 0 230 230 
 stressRule 12

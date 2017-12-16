@@ -1,4 +1,5 @@
 name Dutch
 language nl
 letterVowel y
+stressLength 160 135 210 210  0 0 260 280
 stressRule 0

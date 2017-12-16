@@ -1,4 +1,6 @@
 name Swedish
 language sv
 letterVowel y
+stressAmp 16 16 20 20 20 22 22 21
+stressLength 160 135 220 220 0 0 250 280
 stressRule 0

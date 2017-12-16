@@ -2,4 +2,6 @@ name Swahili
 language sw
 
 status testing
+stressAmp 16 12 19 19 20 22 22 21
+stressLength 160 170 200 200 0 0 320 340
 stressRule 2

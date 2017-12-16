@@ -1,3 +1,5 @@
 name Macedonian
 language mk
+stressAmp 17 17 20 20 20 22 22 21
+stressLength 180 160 200 200 0 0 220 230
 stressRule 4

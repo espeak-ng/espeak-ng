@@ -4,4 +4,6 @@ language ru
 replace 03 a a#
 
 dict_min  20000
+stressAmp 16 16 18 18 20 24 24 22
+stressLength 150 140 220 220 0 0 260 280 
 stressRule 5

@@ -3,4 +3,6 @@ language kn
 
 intonation 2
 //consonants 80
+stressAmp 18 18 18 18 20 20 22 22
+stressLength 230 230 240 240 0 0 260 260
 stressRule 0

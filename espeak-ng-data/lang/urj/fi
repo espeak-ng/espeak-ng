@@ -1,4 +1,6 @@
 name Finnish
 language fi
 letterVowel y
+stressAmp 18 16 22 22 20 22 22 22
+stressLength 150 180 200 200 0 0 210 250
 stressRule 0

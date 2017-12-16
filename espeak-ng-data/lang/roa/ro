@@ -1,2 +1,4 @@
 name Romanian
 language ro
+stressAmp 15 13 18 18 20 22 22 21
+stressLength 170 170 180 180 0 0 240 260

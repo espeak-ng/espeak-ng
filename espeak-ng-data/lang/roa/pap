@@ -4,4 +4,6 @@ language pap
 status testing
 
 phonemes base2
+stressAmp 16 14 15 16 20 20 22 22
+stressLength 160 145 155 150 0 0 200 245
 stressRule 3

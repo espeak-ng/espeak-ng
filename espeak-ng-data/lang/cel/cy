@@ -4,4 +4,6 @@ language cy
 intonation 4
 letterVowel w
 letterVowel y
+stressAmp 17 15 18 18 0 0 22 20
+stressLength 170 220 180 180 0 0 250 270
 stressRule 2

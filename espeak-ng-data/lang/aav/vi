@@ -3,4 +3,6 @@ language vi
 
 words 1
 pitch 80 118
+stressAmp 16 16 16 16 22 22 22 22 
+stressLength 150 150 180 180 210 230 230 240 
 stressRule 0

@@ -1,4 +1,5 @@
 name Armenian (East Armenia)
 language hy
 language hy-arevela
+stressLength 250 200 250 250 0 0 250 250
 stressRule 3

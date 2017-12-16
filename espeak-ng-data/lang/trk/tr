@@ -1,3 +1,5 @@
 name Turkish
 language tr
+stressAmp 18 16 20 21 20 21 21 20
+stressLength 190 180 200 230 0 0 240 250
 stressRule 7

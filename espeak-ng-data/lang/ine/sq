@@ -1,6 +1,8 @@
 name Albanian
 language sq
 letterVowel y
+stressAmp 16 12 16 16 20 20 21 19
+stressLength 150 150 180 180 0 0 300 300
 stressRule 3
 // add this line to remove 'ë' at the end of words
 // replace 00  @/  NULL
