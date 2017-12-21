@@ -11,4 +11,3 @@ formant 0 95 100 100 -5
 tone 150 220 450 255 750 20 3500 255
 stressAmp 12 10 8 8 0 0 18 15
 stressLength 160 140 200 140 0 0 240 180
-stressRule 0
