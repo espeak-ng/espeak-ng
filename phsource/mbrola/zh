@@ -1,0 +1,182 @@
+// List below shows all Chinese phonememes from eSpeakNG
+// with some of syllables of Mbrola cn1 voice
+// from: http://www.tcts.fpms.ac.be/synthesis/mbrola/dba/cn1/cn1.zip
+// Note, that one eSpeakNG phoneme is written with several letters, e.g.
+// 'ai' is one phoneme. Look for details at `phonemes/ph_zh` file
+
+0  _     NULL   0    _
+0  @     NULL   0    a
+0  ai    NULL   0    ai
+1  a     n      0    an
+0  Au    NULL   50   ao
+0  ei    NULL   50   e i
+0  A     NULL   0    a
+0  a     NULL   0    a
+0  E     NULL   0    e
+0  f     NULL   0    f
+0  i.    NULL   0    i
+0  i[    NULL   0    i
+0  iA    NULL   50   i a
+0  iAu   NULL   50   i ao
+0  iE    NULL   0    ie
+0  i     NULL   0    i
+0  io    NULL   50   i o
+0  iou   NULL   50   j ou
+0  yE    NULL   50   y e
+0  yi    NULL   50   y i
+0  y     NULL   0    y
+0  y&    NULL   50   y a
+0  y@    NULL   50   y e
+0  yu    NULL   50   y u
+0  j     NULL   0    j
+0  kh    NULL   0    ch
+0  k     NULL   0    k
+0  l     NULL   0    l
+0  N     NULL   0    n
+0  N-    NULL   0    n
+0  n     NULL   0    n
+0  @     NULL   0    @
+0  ong   NULL   0    ong
+0  o     NULL   0    o
+0  o-    NULL   0    o
+0  ou    NULL   50   o u
+0  ph    NULL   50   p h
+0  p     NULL   0    p
+0  @r    NULL   0    r
+0  S;    NULL   0    x
+0  s.    NULL   0    x
+0  th    NULL   50   t _
+0  t     NULL   0    t
+0  tS;h  NULL   0    x
+0  ts.h  NULL   0    x
+0  tsh   NULL   50   sh
+0  tS;   NULL   0    x
+0  ts    NULL   0    x
+0  ts.   NULL   0    x
+0  uai   NULL   50   u ai
+0  uA    NULL   50   u a
+0  ua    NULL   50   u a
+0  uei   NULL   50   u ei
+0  u     NULL   0    u
+0  u@    NULL   50   u u
+0  uo    NULL   50   u o
+0  x     NULL   0    h
+1  i     e      0    ie
+1  iE    NULL   0    ie
+1  tS;   h      0    x
+8  A     NULL   0    a
+
+// TODO: To improve voice quality,
+// many eSpeakNG phoneme pairs should be translated into syllables of Mbrola cn1 voice
+// In general, additional lines should be in form:
+// 1 ph1 ph2 0 mb1
+// where 1 indicates that two successive eSpeakNG phonemes ph1 and ph2 should be checked,
+// but mb1 is one Mbrola syllable from list below.
+// Look for details at: https://github.com/espeak-ng/espeak-ng/blob/master/docs/mbrola.md
+// Full list of Mbrola cn1 voice syllable pairs is following:
+//
+//    _-_        _-en       j-iu       _-o        t-ao
+//    _-a        en-_       _-ju       o-_        t-e
+//    a-_        en-en      ju-an      _-ong      t-eng
+//    a-a        _-eng      j-ue       ong-_      _-ti
+//    _-ai       eng-_      j-un       ong-ong    t-i
+//    ai-_       eng-eng    j-v        o-o        ti-an
+//    ai-ai      _-er       _-k        _-ou       ti-ao
+//    _-an       er-_       k-a        ou-_       t-ie
+//    an-_       er-er      k-ai       ou-ou      t-ing
+//    an-an      _-f        k-an       _-p        t-ong
+//    _-ang      f-a        k-ang      p-a        t-ou
+//    ang-_      f-an       k-ao       p-ai       _-tu
+//    ang-ang    f-ang      k-e        p-an       t-u
+//    _-ao       f-ei       k-en       p-ang      tu-an
+//    ao-_       f-en       k-eng      p-ao       t-ui
+//    ao-ao      f-eng      k-ong      p-ei       t-un
+//    _-b        f-o        k-ou       p-en       tu-o
+//    b-a        f-ou       _-ku       p-eng      _-u
+//    b-ai       f-u        k-u        _-pi       u-_
+//    b-an       _-g        ku-a       p-i        _-ue
+//    b-ang      g-a        ku-ai      pi-an      ue-_
+//    b-ao       g-ai       ku-an      pi-ao      ue-ue
+//    b-ei       g-an       ku-ang     p-ie       ui-_
+//    b-en       g-ang      k-ui       p-in       ui-ui
+//    b-eng      g-ao       k-un       p-ing      _-un
+//    _-bi       g-e        ku-o       p-o        un-_
+//    b-i        g-ei       _-l        p-ou       un-un
+//    bi-an      g-en       l-a        p-u        u-u
+//    bi-ao      g-eng      l-ai       _-q        _-v
+//    b-ie       g-ong      l-an       _-qi       v-_
+//    b-in       g-ou       l-ang      q-i        v-v
+//    b-ing      _-gu       l-ao       qi-a       _-w
+//    b-o        g-u        l-e        qi-an      w-a
+//    b-u        gu-a       l-ei       qi-ang     w-ai
+//    _-c        gu-ai      l-eng      qi-ao      w-an
+//    c-a        gu-an      _-li       q-ie       w-ang
+//    c-ai       gu-ang     l-i        q-in       w-ei
+//    c-an       g-ui       li-a       q-ing      w-en
+//    c-ang      g-un       li-an      qi-ong     w-eng
+//    c-ao       gu-o       li-ang     q-iu       w-o
+//    c-e        _-h        li-ao      _-qu       w-u
+//    c-en       h-a        l-ie       qu-an      _-x
+//    c-eng      h-ai       l-in       q-ue       _-xi
+//    _-ch       h-an       l-ing      q-un       x-i
+//    ch-a       h-ang      l-iu       q-v        xi-a
+//    ch-ai      h-ao       ll-_       _-r        xi-an
+//    ch-an      h-e        ll-ll      r-an       xi-ang
+//    ch-ang     h-ei       l-ong      r-ang      xi-ao
+//    ch-ao      h-en       l-ou       r-ao       x-ie
+//    ch-e       h-eng      _-lu       r-e        x-in
+//    ch-en      h-ong      l-u        r-en       x-ing
+//    ch-eng     h-ou       lu-an      r-eng      xi-ong
+//    ch-ll      _-hu       l-ue       r-ll       x-iu
+//    ch-ong     h-u        l-un       r-ong      _-xu
+//    ch-ou      hu-a       lu-o       r-ou       xu-an
+//    _-chu      hu-ai      l-v        _-ru       x-ue
+//    ch-u       hu-an      _-m        r-u        x-un
+//    chu-a      hu-ang     m-a        ru-an      x-v
+//    chu-ai     h-ui       m-ai       r-ui       _-z
+//    chu-an     h-un       m-an       r-un       z-a
+//    chu-ang    hu-o       m-ang      ru-o       z-ai
+//    ch-ui      _-i        m-ao       _-s        z-an
+//    ch-un      i-_        m-e        s-a        z-ang
+//    chu-o      _-ie       m-ei       s-ai       z-ao
+//    c-ii       ie-_       m-en       s-an       z-e
+//    c-ong      ie-ie      m-eng      s-ang      z-ei
+//    c-ou       i-i        _-mi       s-ao       z-en
+//    _-cu       ii-_       m-i        s-e        z-eng
+//    c-u        ii-ii      mi-an      s-en       _-zh
+//    cu-an      _-in       mi-ao      s-eng      zh-a
+//    c-ui       in-_       m-ie       _-sh       zh-ai
+//    c-un       _-ing      m-in       sh-a       zh-an
+//    cu-o       ing-_      m-ing      sh-ai      zh-ang
+//    _-d        ing-ing    m-iu       sh-an      zh-ao
+//    d-a        in-in      m-o        sh-ang     zh-e
+//    d-ai       _-iu       m-ou       sh-ao      zh-ei
+//    d-an       iu-_       m-u        sh-e       zh-en
+//    d-ang      iu-iu      _-n        sh-ei      zh-eng
+//    d-ao       _-y        n-a        sh-en      zh-ll
+//    d-e        y-a        n-ai       sh-eng     zh-ong
+//    d-ei       y-an       n-an       sh-ll      zh-ou
+//    d-en       y-ang      n-ang      sh-ou      _-zhu
+//    d-eng      y-ao       n-ao       _-shu      zh-u
+//    _-di       y-e        n-e        sh-u       zhu-a
+//    d-i        y-i        n-ei       shu-a      zhu-ai
+//    di-a       y-in       n-en       shu-ai     zhu-an
+//    di-an      y-ing      n-eng      shu-an     zhu-ang
+//    di-ao      y-ong      _-ni       shu-ang    zh-ui
+//    d-ie       y-ou       n-i        sh-ui      zh-un
+//    d-ing      _-yu       ni-an      sh-un      zhu-o
+//    d-iu       yu-an      ni-ang     shu-o      z-ii
+//    d-ong      y-ue       ni-ao      s-ii       z-ong
+//    d-ou       y-un       n-ie       s-ong      z-ou
+//    _-du       y-v        n-in       s-ou       _-zu
+//    d-u        _-j        n-ing      _-su       z-u
+//    du-an      _-ji       n-iu       s-u        zu-an
+//    d-ui       j-i        n-ong      su-an      z-ui
+//    d-un       ji-a       n-ou       s-ui       z-un
+//    du-o       ji-an      _-nu       s-un       zu-o
+//    _-e        ji-ang     n-u        su-o
+//    e-_        ji-ao      nu-an      _-t
+//    e-e        j-ie       n-ue       t-a
+//    _-ei       j-in       n-un       t-ai
+//    ei-_       j-ing      nu-o       t-an
+//    ei-ei      ji-ong     n-v        t-ang
