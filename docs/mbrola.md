@@ -148,10 +148,13 @@ Each line in the mbrola phoneme translation file contains:
 	<control> <espeak ph1> <espeak ph2> <percent> <mbrola ph1> [<mbrola ph2>]
 
 * `<control>` \
-  bit 0   (+1) skip the next phoneme\
-  bit 1   (+2) match this and Previous phoneme\
-  bit 2   (+4) only at the start of a word\
-  bit 3   (+8) don't match two phonemes across a word boundary
+  bit 0 (+1)  skip the next phoneme \
+  bit 1 (+2)  match this and previous phoneme \
+  bit 2 (+4)  only at the start of a word \
+  bit 3 (+8)  don't match two phonemes across a word boundary \
+  bit 4 (+16) add this phoneme name as a prefix to the next phoneme name (used for de4 phoneme prefix '?') \
+  bit 5 (+32) only in stressed syllable \
+  bit 6 (+64) only at the end of a word
 
 * `<espeak ph1>` \
   The eSpeak NG phoneme which is to be translated to an mbrola phoneme.
@@ -161,8 +164,7 @@ Each line in the mbrola phoneme translation file contains:
   this field matches the next phoneme. If control bit `1` is set, then the
   _previous_ rather than the _next_ phoneme is matched. This field may
   also have the following values:
-
-* `VWL` \
+  `VWL` \
   matches any Vowel phoneme.
 
 * `<percent>` \
