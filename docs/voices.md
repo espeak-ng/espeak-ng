@@ -291,7 +291,7 @@ values will be used.
 
 	speed <value>
 
-Default value 10
+Default value 100
 
 Adjusts the speaking speed by a percentage of the default rate. This
 can be used if a language voice seems faster or slower compared to other
