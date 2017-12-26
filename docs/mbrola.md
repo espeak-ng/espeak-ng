@@ -120,7 +120,8 @@ sections.
 ### 1. Add Mbrola voice definition file
 
 eSpeak NG's voice files for Mbrola voices are in `espeak-ng-data/voices/mb` folder.
-They have to contain at least this line: `mbrola <voice> <translation>`, e.g.
+Voice definition file is in form `mb-xxN` and have to contain at least this line:
+`mbrola <voice> <translation>`, e.g.
 
 	mbrola en1 en1_phtrans
 
@@ -137,12 +138,16 @@ similar to eSpeakNG voices, which are described [Voices](voices.md) file.
 Mbrola phoneme translation files specify translations from eSpeak NG
 phoneme names to mbrola phoneme names.
 
-eSpeakNG phonemes are referenced from voice files in `phsource` folder of particular language e.g.
-`ph_english` and/or `phonemes` file.
+The source phoneme translation files are in `phsource/mbrola` folder and their name is in
+form `xxN` of referenced Mbrola voice.
 
-Mbrola phonemes are usualy listed in `xxN.txt` file of Mbrola voice.
+_Note:_
 
-The source phoneme translation files are in `phsource/mbrola`.
+* eSpeakNG phonemes are referenced from voice files in `phsource` folder of particular language e.g.
+`ph_english` and/or general `phonemes` file.
+
+* Mbrola phonemes are usualy listed in `xxN.txt` file of Mbrola voice.
+
 Each line in the mbrola phoneme translation file contains:
 
 	<control> <espeak ph1> <espeak ph2> <percent> <mbrola ph1> [<mbrola ph2>]
