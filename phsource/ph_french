@@ -580,7 +580,7 @@ endphoneme
 phoneme O~
   vwl  starttype #o  endtype #o
   length 190
-  FMT(vnasal/o_n4)
+  FMT(vnasal/o_n5)
 endphoneme
 
 
