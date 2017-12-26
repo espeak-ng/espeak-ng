@@ -1102,25 +1102,26 @@ _C)        oy (X      _^_en     // boy, toy
 
 
 .group q
-        q          k        // coq
-     _) qu' (AP3   k
-     _) qua (d     kwa       // quadrature
-     _) qua (tA    kwa       // quaternaire
-     _) quan (tA   kwA~      // quantique
-     _) qua (drill ka        // quadriller
+        q          k         // coq
     _a) qua        kwa       // aquarium
-    _a) qu (if     ku        // aquifère
-    _A) qui (dist  kyi      // équidistant
-    _A) qui (lat   kyi      // équilatéral
-    _C) qua        kwa       // squale square
     _A) qua        kwa       // équateur
+    _A) qui (dist  kyi       // équidistant
+    _a) qu (if     ku        // aquifère
+    _A) qui (lat   kyi       // équilatéral
+    _C) qua        kwa       // squale square
     dé) qua        kwa       // adequate
-     _) qua (rtz   kwa       // quartz
-        qu         k         // quatre
-     _) que (_     k@        // que
+     n) q (_cent_            // cinq cent
      n) q (_       k         // cinq
-     n) q (_mill                // cinq mille
-     n) q (_cent_                // cinq cent
+     n) q (_mill             // cinq mille
+     _) qua (d     kwa       // quadrature
+     _) qua (drill ka        // quadriller
+ _   _) quan (tA   kA~       // quantique, quantité, quantifié
+     _) qu' (AP3   k
+     _) qua (r     ka        // quarantain
+     _) qua (tA    kwa       // quaternaire
+     _) qua  (to   ka        // quatorze
+     _) que (_     k@        // que
+        qu         k         // quatre
 
 // group q: English section
         quick      _^_en     // quick, quickly

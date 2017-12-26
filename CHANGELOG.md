@@ -17,6 +17,7 @@ updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  fi (Finnish) -- Juho Hiltunen
+*  fr (French) -- Shallowmallow
 *  it (Italian) -- chrislm
 *  lv (Latvian) -- Valdis Vitolins
 *  my (Myanmar/Burmese) -- Min Maung
