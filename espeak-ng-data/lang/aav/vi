@@ -1,5 +1,8 @@
 name Vietnamese (Northern)
 language vi
 
+stressLength 150 150  180 180  210 230  230 240
+stressAmp 16 16 16 16 22 22 22 22
+
 words 1
 pitch 80 118

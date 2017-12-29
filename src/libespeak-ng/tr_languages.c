@@ -1324,8 +1324,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('v', 'i'): // Vietnamese
 	{
-		static const short stress_lengths_vi[8] = { 150, 150,  180, 180,  210, 230,  230, 240 };
-		static const unsigned char stress_amps_vi[] = { 16, 16, 16, 16, 22, 22, 22, 22 };
 		static wchar_t vowels_vi[] = {
 			 0x61,   0xe0,   0xe1, 0x1ea3,   0xe3, 0x1ea1, // a
 			0x103, 0x1eb1, 0x1eaf, 0x1eb3, 0x1eb5, 0x1eb7, // ă
@@ -1342,7 +1340,6 @@ Translator *SelectTranslator(const char *name)
 			0
 		};
 
-		SetupTranslator(tr, stress_lengths_vi, stress_amps_vi);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
