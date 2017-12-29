@@ -591,9 +591,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 'n'):
 	{
-		static const short stress_lengths_en[8] = { 182, 140, 220, 220, 0, 0, 248, 275 };
-		SetupTranslator(tr, stress_lengths_en, NULL);
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = 0x08;
 		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_ROMAN | NUM_1900;
