@@ -1,5 +1,6 @@
 name Lojban
 language jbo
 
-speed 80   // speed adjustment, percentage
+stressLength 145 145 170 160 0 0 330 350
+speed 80   // speed adjustment percentage
 letterVowel y

@@ -925,10 +925,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('j', 'b', 'o'): // Lojban
 	{
-		static const short stress_lengths_jbo[8] = { 145, 145, 170, 160, 0, 0, 330, 350 };
 		static const wchar_t jbo_punct_within_word[] = { '.', ',', '\'', 0x2c8, 0 }; // allow period and comma within a word, also stress marker (from LOPT_CAPS_IN_WORD)
-
-		SetupTranslator(tr, stress_lengths_jbo, NULL);
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.vowel_pause = 0x20c; // pause before a word which starts with a vowel, or after a word which ends in a consonant
 		tr->punct_within_word = jbo_punct_within_word;
