@@ -510,7 +510,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('b', 'n'): // Bengali
 	case L('a', 's'): // Assamese
-	case L3('m', 'n', 'i'): // Manipuri  (temporary placement - it's not indo-european)
+	case L3('b', 'p', 'y'): // Manipuri  (temporary placement - it's not indo-european)
 	{
 		static const short stress_lengths_bn[8] = { 180, 180,  210, 210,  0, 0,  230, 240 };
 		static const unsigned char stress_amps_bn[8] = { 18, 18, 18, 18, 20, 20, 22, 22 };
@@ -530,7 +530,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SWAP_TENS;
 		tr->langopts.break_numbers = 0x24924aa8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 
-		if (name2 == L3('m', 'n', 'i')) {
+		if (name2 == L3('b', 'p', 'y')) {
 			tr->langopts.numbers = 1;
 			tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 		}
