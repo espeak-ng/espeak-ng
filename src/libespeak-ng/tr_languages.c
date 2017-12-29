@@ -1101,11 +1101,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('p', 'l'): // Polish
 	{
-		static const short stress_lengths_pl[8] = { 160, 190,  175, 175,  0, 0,  200, 210 };
-		static const unsigned char stress_amps_pl[8] = { 17, 13, 19, 19, 20, 22, 22, 21 }; // 'diminished' is used to mark a quieter, final unstressed syllable
-
-		SetupTranslator(tr, stress_lengths_pl, stress_amps_pl);
-
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY; // mark unstressed final syllables as diminished

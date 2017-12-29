@@ -1,5 +1,8 @@
 name Polish
 language pl
 
+stressLength 160 190  175 175  0 0  200 210
+stressAmp 17 13 19 19 20 22 22 21
+
 intonation 2
 letterVowel y
