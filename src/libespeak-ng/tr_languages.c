@@ -427,14 +427,6 @@ static void SetIndicLetters(Translator *tr)
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d; // virama
 }
 
-static void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
-{
-	if (lengths != NULL)
-		memcpy(tr->stress_lengths, lengths, sizeof(tr->stress_lengths));
-	if (amps != NULL)
-		memcpy(tr->stress_amps, amps, sizeof(tr->stress_amps));
-}
-
 Translator *SelectTranslator(const char *name)
 {
 	int name2 = 0;
