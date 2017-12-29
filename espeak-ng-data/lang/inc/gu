@@ -1,4 +1,6 @@
 name Gujarati
 language gu
-
 status testing
+
+stressLength 230 230  230 230  0 0  230 230
+stressAmp 19 19 19 19 19 19 19 19

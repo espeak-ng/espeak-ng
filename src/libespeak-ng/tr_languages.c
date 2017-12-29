@@ -788,11 +788,9 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L('p', 'a'))
 			tr->letter_bits_offset = OFFSET_GURMUKHI;
 		else if (name2 == L('g', 'u')) {
-			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
 			tr->letter_bits_offset = OFFSET_GUJARATI;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 		} else if (name2 == L('n', 'e')) {
-			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
 			tr->langopts.break_numbers = 0x2aaaa8;
 			tr->langopts.max_digits = 22;
 			tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
