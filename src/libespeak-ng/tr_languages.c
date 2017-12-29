@@ -813,16 +813,8 @@ Translator *SelectTranslator(const char *name)
 	case L('b', 's'): // Bosnian
 	case L('s', 'r'): // Serbian
 	{
-		static const unsigned char stress_amps_hr[8] = { 17, 17, 20, 20, 20, 22, 22, 21 };
-		static const short stress_lengths_hr[8] = { 180, 160, 200, 200, 0, 0, 220, 230 };
-		static const short stress_lengths_sr[8] = { 160, 150, 200, 200, 0, 0, 250, 260 };
 
 		strcpy(tr->dictionary_name, "hbs");
-
-		if (name2 == L('s', 'r'))
-			SetupTranslator(tr, stress_lengths_sr, stress_amps_hr);
-		else
-			SetupTranslator(tr, stress_lengths_hr, stress_amps_hr);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
