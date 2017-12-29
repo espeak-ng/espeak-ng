@@ -443,10 +443,6 @@ Translator *SelectTranslator(const char *name)
 	static const short stress_lengths_equal[8] = { 230, 230,  230, 230,  0, 0,  230, 230 };
 	static const unsigned char stress_amps_equal[8] = { 19, 19, 19, 19, 19, 19, 19, 19 };
 
-    static const short stress_lengths_ta[8] = { 200, 200,  210, 210,  0, 0,  230, 230 };
-	static const short stress_lengths_ta2[8] = { 230, 230,  240, 240,  0, 0,  260, 260 };
-	static const unsigned char stress_amps_ta[8] = { 18, 18, 18, 18, 20, 20, 22, 22 };
-
 	tr = NewTranslator();
 	strcpy(tr->dictionary_name, name);
 
@@ -1255,7 +1251,6 @@ Translator *SelectTranslator(const char *name)
 	case L('m', 'l'): // Malayalam
 	case L('t', 'e'): // Telugu
 	{
-		SetupTranslator(tr, stress_lengths_ta2, stress_amps_ta);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
@@ -1264,7 +1259,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.break_numbers = 0x14a8; // 1000, 100,000  10,000,000
 
 		if (name2 == L('t', 'a')) {
-			SetupTranslator(tr, stress_lengths_ta, NULL);
 			tr->letter_bits_offset = OFFSET_TAMIL;
 			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND;
 			tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
