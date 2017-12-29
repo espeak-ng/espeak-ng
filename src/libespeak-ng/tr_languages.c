@@ -1213,10 +1213,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('s', 'v'): // Swedish
 	{
-		static const unsigned char stress_amps_sv[] = { 16, 16, 20, 20, 20, 22, 22, 21 };
-		static const short stress_lengths_sv[8] = { 160, 135, 220, 220, 0, 0, 250, 280 };
-		SetupTranslator(tr, stress_lengths_sv, stress_amps_sv);
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_1900;
 		tr->langopts.accents = 1;
