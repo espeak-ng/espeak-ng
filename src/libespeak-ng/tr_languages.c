@@ -432,9 +432,6 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
-	static const short stress_lengths_equal[8] = { 230, 230,  230, 230,  0, 0,  230, 230 };
-	static const unsigned char stress_amps_equal[8] = { 19, 19, 19, 19, 19, 19, 19, 19 };
-
 	tr = NewTranslator();
 	strcpy(tr->dictionary_name, name);
 
