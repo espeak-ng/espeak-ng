@@ -1,2 +1,5 @@
 name Greek
 language el
+
+stressLength 155 180  210 210  0 0  270 300
+stressAmp 15 12 20 20 20 22 22 21

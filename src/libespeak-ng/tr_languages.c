@@ -603,17 +603,12 @@ Translator *SelectTranslator(const char *name)
 	case L('e', 'l'): // Greek
 	case L3('g', 'r', 'c'): // Ancient Greek
 	{
-		static const short stress_lengths_el[8] = { 155, 180,  210, 210,  0, 0,  270, 300 };
-		static const unsigned char stress_amps_el[8] = { 15, 12, 20, 20, 20, 22, 22, 21 }; // 'diminished' is used to mark a quieter, final unstressed syllable
-
 		// character codes offset by 0x380
 		static const char el_vowels[] = { 0x10, 0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x35, 0x37, 0x39, 0x3f, 0x45, 0x49, 0x4a, 0x4b, 0x4c, 0x4d, 0x4e, 0x4f, 0 };
 		static const char el_fvowels[] = { 0x2d, 0x2e, 0x2f, 0x35, 0x37, 0x39, 0x45, 0x4d, 0 }; // ε η ι υ  έ ή ί ύ _
 		static const char el_voiceless[] = { 0x38, 0x3a, 0x3e, 0x40, 0x42, 0x43, 0x44, 0x46, 0x47, 0 }; // θ κ ξ π ς σ τ φ χ _
 		static const char el_consonants[] = { 0x32, 0x33, 0x34, 0x36, 0x38, 0x3a, 0x3b, 0x3c, 0x3d, 0x3e, 0x40, 0x41, 0x42, 0x43, 0x44, 0x46, 0x47, 0x48, 0 };
 		static const wchar_t el_char_apostrophe[] = { 0x3c3, 0 }; // σ _
-
-		SetupTranslator(tr, stress_lengths_el, stress_amps_el);
 
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_7;
 		tr->char_plus_apostrophe = el_char_apostrophe;
