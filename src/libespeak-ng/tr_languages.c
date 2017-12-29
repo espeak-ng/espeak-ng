@@ -475,7 +475,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('a', 'm'): // Amharic, Ethiopia
 	{
-		SetupTranslator(tr, stress_lengths_fr, stress_amps_fr);
 		tr->letter_bits_offset = OFFSET_ETHIOPIC;
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM; // don't use secondary stress

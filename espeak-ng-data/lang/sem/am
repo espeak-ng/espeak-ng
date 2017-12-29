@@ -1,4 +1,5 @@
 name Amharic
 language am
-
 status testing
+stressLength 190 170  190 200  0 0  190 240
+stressAmp    18 16 18 18 18 18 18 18
