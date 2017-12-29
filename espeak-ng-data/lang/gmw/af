@@ -4,6 +4,7 @@ language af
 maintainer Christo de Klerk <christodeklerk@gmail.com>
 status mature
 
+stressLength 170 140 220 220 0 0 250 270
 roughness 0
 pitch 63 120
 letterVowel y

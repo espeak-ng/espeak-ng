@@ -464,9 +464,6 @@ Translator *SelectTranslator(const char *name)
 	{
 	case L('a', 'f'):
 	{
-		static const short stress_lengths_af[8] = { 170, 140, 220, 220,  0, 0, 250, 270 };
-		SetupTranslator(tr, stress_lengths_af, NULL);
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.vowel_pause = 0x30;
 		tr->langopts.param[LOPT_DIERESES] = 1;
