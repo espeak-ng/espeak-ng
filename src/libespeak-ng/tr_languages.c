@@ -565,9 +565,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('d', 'e'):
 	{
-		static const short stress_lengths_de[8] = { 150, 130, 200, 200,  0, 0, 270, 270 };
-		static const unsigned char stress_amps_de[] = { 20, 20, 20, 20, 20, 22, 22, 20 };
-		SetupTranslator(tr, stress_lengths_de, stress_amps_de);
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.word_gap = 0x8; // don't use linking phonemes
 		tr->langopts.vowel_pause = 0x30;
