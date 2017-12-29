@@ -13,6 +13,10 @@ bug fixes:
 
 *  Fix several issues with the emoji support.
 
+new languages:
+
+*  hak (Hakka Chinese) -- Chen Chien-ting
+
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk

@@ -1,0 +1,278 @@
+// This file is UTF8 encoded
+.L01 p t k (rusheng
+.replace
+//replace tone mark with tone number
+â a1
+ê e1
+êr er1
+î i1
+ô o1
+û u1
+ṳ̂ ii1
+m̂ m1
+n̂ n1
+n̂g ng1
+à a2
+è e2
+èr er2
+ì i2
+ò o2
+ù u3
+ṳ̀ ii2
+m̀ m2
+ǹ n2
+ǹg ng2
+á a3 
+é e3
+ér er3
+í i3
+ó o3
+ú u3
+ṳ́ ii3
+ḿ m3
+ń n3
+ńg ng3
+a a4
+e e4
+i i4
+o o4
+u u4
+ṳ ii4
+_) m (_ m4
+_) n (_ n4
+_) ng (_ ng4
+a (L01 a5
+e (L01 e5
+er (L01 er5
+i (L01 i5
+o (L01 o5
+u (L01 u5
+ṳ (L01 ii5
+a̍ (L01 a6
+e̍ (L01 e6
+e̍r (L01 er6
+i̍ (L01 i6
+o̍ (L01 o6
+u̍ (L01 u6
+ṳ̍ (L01 ii6
+
+
+// Note:  ngK  matches "ng" if not followed by a vowel
+// (D  will match on a digit and also if no digit is present. (special for tone
+language).
+
+.group a
+       a        a
+       a1i	ai1
+       a2i	ai2
+       a3i	ai3
+       a4i	ai4
+       a5i	ai5
+       a6i	ai6
+
+       a1u	au1
+       a2u	au2
+       a3u	au3
+       a4u	au4
+       a5u	au5
+       a6u	au6
+       
+
+
+.group b
+    @) b (K	_^_EN
+
+.group c
+       ch        ts
+       chh	 tsh
+       ch (i	 tS;
+       chh (i    tS;h
+    @) c (K	_^_EN
+
+.group d
+    @) d (K	_^_EN
+
+.group e
+       er	o-
+       e	e
+
+.group f
+       f        f
+    @) f (K	_^_EN
+
+
+
+.group h
+       h        h
+    @) h (K	_^_EN
+
+.group i
+       ii	i.
+       i        i //i in ing
+       ia	ia
+       iau	iau
+       ia1u	iau1
+       ia2u	iau2
+       ia3u	iau3
+       ia4u	iau4
+       ia5u	iau5
+       ia6u	iau6
+       ie	ie
+       io	io
+       iu	iu
+       
+.group j
+    @) j (K	_^_EN
+
+.group k
+       k        k
+       kh	kh
+    @) k (K	_^_EN
+
+.group l
+       l        l
+    @) l (K	_^_EN
+
+.group m
+       m        m
+     _) m1 (_	m-1
+     _) m2 (_	m-2
+     _) m3 (_	m-3
+     _) m4 (_	m-4
+    @) m (K	_^_EN
+
+.group n
+       n        n
+      _) n1 (_	n-1
+     _) n2 (_	n-2
+     _) n3 (_	n-3
+     _) n4 (_	n-4
+    _) ng1 (_	N-1
+     _) ng2 (_	N-2
+     _) ng3 (_	N-3
+     _) ng4 (_	N-4
+       ng (i	n^    //ng(i)
+       ng       N
+
+.group g
+    @) g (K	_^_EN
+
+.group o
+       o        o
+       o1a	ua1
+       o2a	ua2
+       o3a	ua3
+       o4a	ua4
+       o5a	ua5
+       o6a	ua6
+       oa1	ua1
+       oa2	ua2
+       oa3	ua3
+       oa4	ua4
+       oa5	ua5
+       oa6	ua6
+       oa1i	uai1
+       oa2i	uai2
+       oa3i	uai3
+       oa4i	uai4
+       oa5i	uai5
+       oa6i	uai6
+       
+       o1e	ue1
+       o2e	ue2
+       o3e	ue3
+       o4e	ue4
+       o5e	ue5
+       o6e	ue6
+       oe1	ue1
+       oe2	ue2
+       oe3	ue3
+       oe4	ue4
+       oe5	ue5
+       oe6	ue6
+
+       o1i	oi1
+       o2i	oi2
+       o3i	oi3
+       o4i	oi4
+       o5i	oi5
+       o6i	oi6
+
+       o1ng (K	oN1
+       o2ng (K	oN2
+       o3ng (K	oN3
+       o4ng (K	oN4
+       
+       o1m (K	om1
+       o2m (K	om2
+       o3m (K	om3
+       o4m (K	om4
+
+       o1n (K	on1
+       o2n (K	on2
+       o3n (K	on3
+       o4n (K	on4
+
+.group p
+       p        p
+       ph	ph
+    @) p (K	_^_EN
+
+.group q
+    @) q (K	_^_EN
+
+.group r
+       r (K     _^_EN
+
+.group s
+       s        s
+       s (i    S;
+    @) s (K	_^_EN
+
+.group t
+       t        t
+       th	th
+    @) t (K	_^_EN
+
+.group u
+       u        u
+       ui	ui
+       u1ng (K	uN1
+       u2ng (K	uN2
+       u3ng (K	uN3
+       u4ng (K	uN4
+
+
+.group v
+       v	v 
+
+.group w
+    @) w (K	_^_EN
+
+.group x
+    @) x (K	_^_EN
+
+.group y
+       y	j //before a o e i
+       ya	ia
+       yau	iau
+       ye	ie
+       yi	i
+       yo	io
+       yu	iu
+       
+    @) y (K	_^_EN
+
+.group z
+    @) z (K	_^_EN
+
+//tone
+.group
+	1  1
+	2  2
+	3  3
+	4  4
+	5  5
+	6  6
+	|  _|
+

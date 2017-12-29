@@ -1737,6 +1737,9 @@ include ph_french
 phonemetable fr-ca fr
 include ph_french_ca
 
+phonemetable hak base1
+include ph_hakka
+
 phonemetable nl base1
 include ph_dutch
 

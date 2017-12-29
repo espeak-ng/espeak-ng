@@ -799,6 +799,14 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER | NUM_VIGESIMAL | NUM_DFRACTION_4;
 	}
 		break;
+    case L3('h','a', 'k'): // Hakka Chinese
+    {
+        tr->langopts.stress_flags = S_NO_DIM; // don't automatically set diminished stress (may be set in the intonation module)
+        tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+        tr->langopts.tone_numbers = 1; // a number after letters indicates a tone number (eg. pinyin or jyutping)
+        tr->langopts.ideographs = 1;
+    }
+        break;
 	case L('g', 'a'): // irish
 	case L('g', 'd'): // scots gaelic
 	{

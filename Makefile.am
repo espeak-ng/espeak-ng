@@ -304,6 +304,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_greenlandic \
 	phsource/ph_gujarati \
 	phsource/ph_haitian \
+	phsource/ph_hakka \
 	phsource/ph_hindi \
 	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
@@ -450,6 +451,7 @@ dictionaries: \
 	espeak-ng-data/gd_dict \
 	espeak-ng-data/grc_dict \
 	espeak-ng-data/gu_dict \
+	espeak-ng-data/hak_dict \
 	espeak-ng-data/hi_dict \
 	espeak-ng-data/hr_dict \
 	espeak-ng-data/hu_dict \
@@ -579,6 +581,9 @@ espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_ext
 
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
+
+hak: espeak-ng-data/hak_dict
+espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak_extra dictsource/hak_emoji
 
 ga: espeak-ng-data/ga_dict
 espeak-ng-data/ga_dict: dictsource/ga_list dictsource/ga_rules dictsource/ga_extra dictsource/ga_emoji
