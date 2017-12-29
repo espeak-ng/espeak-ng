@@ -1251,8 +1251,6 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
 			tr->langopts.param[LOPT_WORD_MERGE] = 1; // don't break vowels betwen words
 		} else if (name2 == L('m', 'l')) {
-			static const short stress_lengths_ml[8] = { 180, 160,  240, 240,  0, 0,  260, 260 };
-			SetupTranslator(tr, stress_lengths_ml, stress_amps_equal);
 			tr->letter_bits_offset = OFFSET_MALAYALAM;
 			tr->langopts.numbers = NUM_OMIT_1_THOUSAND | NUM_OMIT_1_HUNDRED;
 			tr->langopts.numbers2 = NUM2_OMIT_1_HUNDRED_ONLY;
