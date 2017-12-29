@@ -639,11 +639,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 'o'):
 	{
-		static const short stress_lengths_eo[8] = { 150, 140,  180, 180,    0,   0,  200, 200 };
-		static const unsigned char stress_amps_eo[] = { 16, 14, 20, 20, 20, 22, 22, 21 };
 		static const wchar_t eo_char_apostrophe[2] = { 'l', 0 };
-
-		SetupTranslator(tr, stress_lengths_eo, stress_amps_eo);
 
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
 		tr->char_plus_apostrophe = eo_char_apostrophe;
