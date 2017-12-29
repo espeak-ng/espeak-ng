@@ -889,10 +889,8 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('i', 's'): // Icelandic
 	{
-		static const short stress_lengths_is[8] = { 180, 160, 200, 200, 0, 0, 240, 250 };
 		static const wchar_t is_lettergroup_B[] = { 'c', 'f', 'h', 'k', 'p', 't', 'x', 0xfe, 0 }; // voiceless conants, including 'þ'  ?? 's'
 
-		SetupTranslator(tr, stress_lengths_is, NULL);
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = S_FINAL_NO_2;
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11; // remove lengthen indicator from unstressed vowels
