@@ -1205,11 +1205,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('s', 'q'): // Albanian
 	{
-		static const short stress_lengths_sq[8] = { 150, 150,  180, 180,  0, 0,  300, 300 };
-		static const unsigned char stress_amps_sq[8] = { 16, 12, 16, 16, 20, 20, 21, 19 };
-
-		SetupTranslator(tr, stress_lengths_sq, stress_amps_sq);
-
 		tr->langopts.stress_rule = STRESSPOSN_1R;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_FINAL_VOWEL_UNSTRESSED;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_4;
