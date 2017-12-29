@@ -558,9 +558,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('d', 'a'): // Danish
 	{
-		static const short stress_lengths_da[8] = { 160, 140, 200, 200, 0, 0, 220, 230 };
-		SetupTranslator(tr, stress_lengths_da, NULL);
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.param[LOPT_PREFIXES] = 1;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
