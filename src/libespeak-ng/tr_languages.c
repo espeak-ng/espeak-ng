@@ -1055,10 +1055,6 @@ Translator *SelectTranslator(const char *name)
 			0x440, 0x430, 0x435, 0x438, 0x439, 0x43e, 0x443, 0x44b, 0x44d,
 			0x44e, 0x44f, 0x450, 0x451, 0x456, 0x457, 0x45d, 0x45e, 0
 		};
-		static const unsigned char stress_amps_mk[8] = { 17, 17, 20, 20, 20, 22, 22, 21 };
-		static const short stress_lengths_mk[8] = { 180, 160, 200, 200, 0, 0, 220, 230 };
-
-		SetupTranslator(tr, stress_lengths_mk, stress_amps_mk);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_5;
 		tr->letter_groups[0] = tr->letter_groups[7] = vowels_cyrillic;
 		tr->letter_bits_offset = OFFSET_CYRILLIC;
