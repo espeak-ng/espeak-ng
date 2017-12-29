@@ -1074,8 +1074,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('n', 'l'): // Dutch
 	{
-		static const short stress_lengths_nl[8] = { 160, 135, 210, 210,  0, 0, 260, 280 };
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.vowel_pause = 0x30; // ??
 		tr->langopts.param[LOPT_DIERESES] = 1;
@@ -1085,7 +1083,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ALLOW_SPACE | NUM_1900 | NUM_ORDINAL_DOT;
 		tr->langopts.ordinal_indicator = "e";
 		tr->langopts.stress_flags = S_FIRST_PRIMARY;
-		memcpy(tr->stress_lengths, stress_lengths_nl, sizeof(tr->stress_lengths));
 	}
 		break;
 	case L('n', 'o'): // Norwegian
