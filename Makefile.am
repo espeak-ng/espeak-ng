@@ -583,7 +583,7 @@ fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
 
 hak: espeak-ng-data/hak_dict
-espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak_extra dictsource/hak_emoji
+espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak_extra
 
 ga: espeak-ng-data/ga_dict
 espeak-ng-data/ga_dict: dictsource/ga_list dictsource/ga_rules dictsource/ga_extra dictsource/ga_emoji
