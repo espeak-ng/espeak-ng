@@ -1397,7 +1397,6 @@ Translator *SelectTranslator(const char *name)
 	case L('t', 't'): // Tatar
 	{
 		SetCyrillicLetters(tr);
-		SetupTranslator(tr, stress_lengths_fr, stress_amps_fr);
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
 		tr->langopts.stress_flags = S_NO_AUTO_2; // no automatic secondary stress
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
