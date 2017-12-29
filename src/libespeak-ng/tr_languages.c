@@ -784,10 +784,6 @@ Translator *SelectTranslator(const char *name)
 	case L('g', 'u'): // Gujarati
 	case L('m', 'r'): // Marathi
 	{
-		static const short stress_lengths_hi[8] = { 190, 190,  210, 210,  0, 0,  230, 250 };
-		static const unsigned char stress_amps_hi[8] = { 17, 14, 20, 19, 20, 22, 22, 21 };
-
-		SetupTranslator(tr, stress_lengths_hi, stress_amps_hi);
 		tr->encoding = ESPEAKNG_ENCODING_ISCII;
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
