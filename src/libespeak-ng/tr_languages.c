@@ -508,11 +508,8 @@ Translator *SelectTranslator(const char *name)
 	case L('a', 's'): // Assamese
 	case L3('b', 'p', 'y'): // Manipuri  (temporary placement - it's not indo-european)
 	{
-		static const short stress_lengths_bn[8] = { 180, 180,  210, 210,  0, 0,  230, 240 };
-		static const unsigned char stress_amps_bn[8] = { 18, 18, 18, 18, 20, 20, 22, 22 };
 		static const char bn_consonants2[3] = { 0x70, 0x71, 0 };
 
-		SetupTranslator(tr, stress_lengths_bn, stress_amps_bn);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;

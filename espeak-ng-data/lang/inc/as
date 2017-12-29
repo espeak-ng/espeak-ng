@@ -2,3 +2,5 @@ name Assamese
 language as
 
 status testing
+stressLength 180 180  210 210  0 0  230 240
+stressAmp 18 18 18 18 20 20 22 22
