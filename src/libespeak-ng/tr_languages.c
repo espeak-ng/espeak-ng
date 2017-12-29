@@ -1359,11 +1359,6 @@ Translator *SelectTranslator(const char *name)
 	case L3('z', 'h', 'y'): // just go to 'zh' case
 	case L('z','h'):
 	{
-		static const short stress_lengths_zh[8] = { 230, 150, 230, 230, 230, 0, 240, 250 }; // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
-		static const unsigned char stress_amps_zh[] = { 22, 16, 22, 22, 22, 22, 22, 22 };
-
-		SetupTranslator(tr, stress_lengths_zh, stress_amps_zh);
-
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable of a "word"
 		tr->langopts.stress_flags = S_NO_DIM; // don't automatically set diminished stress (may be set in the intonation module)
 		tr->langopts.vowel_pause = 0;
