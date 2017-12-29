@@ -544,11 +544,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('c', 'y'): // Welsh
 	{
-		static const short stress_lengths_cy[8] = { 170, 220, 180, 180, 0, 0, 250, 270 };
-		static const unsigned char stress_amps_cy[8] = { 17, 15, 18, 18, 0, 0, 22, 20 }; // 'diminished' is used to mark a quieter, final unstressed syllable
-
-		SetupTranslator(tr, stress_lengths_cy, stress_amps_cy);
-
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_14;
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 
@@ -559,7 +554,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_SONORANT_MIN] = 120; // limit the shortening of sonorants before short vowels
 
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
-
 	}
 		break;
 	case L('d', 'a'): // Danish
