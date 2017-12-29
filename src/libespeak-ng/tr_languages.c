@@ -881,10 +881,6 @@ Translator *SelectTranslator(const char *name)
 	case L('i', 'd'): // Indonesian
 	case L('m', 's'): // Malay
 	{
-		static const short stress_lengths_id[8] = { 160, 200,  180, 180,  0, 0,  220, 240 };
-		static const unsigned char stress_amps_id[8] = { 16, 18, 18, 18, 20, 22, 22, 21 };
-
-		SetupTranslator(tr, stress_lengths_id, stress_amps_id);
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_ROMAN;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
