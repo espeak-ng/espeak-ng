@@ -270,14 +270,12 @@ such as:
 * Default rules for which syllable of a word has the main stress.
 * Relative lengths and amplitude of vowels in stressed and unstressed syllables.
 * Which intonation tunes to use.
-* Rules for speaking numbers. 
+* Rules for speaking numbers.
 
-The function `SetTranslator()` at the start of the source code file
-`tr_languages.c` recognizes the language code and sets the appropriate
-options. For a new language, you would add its language code and the
-required options in `SetTranslator()`. However, this may not be necessary
-during testing because most of the options can also be set in the voice
-file in espeak-ng-data/lang (see [Voices](voices.md)).
+Most of these options can be set in the voice file in espeak-ng-data/lang folder (see [Voices](voices.md)).
+However some advanced options may be needed to add in source code in the function `SelectTranslator()`
+of thee [tr_languages.c](https://github.com/espeak-ng/espeak-ng/blob/master/src/libespeak-ng/tr_languages.c)
+file.
 
 ## Compiling Rules File for Debugging
 
