@@ -443,10 +443,7 @@ Translator *SelectTranslator(const char *name)
 	static const short stress_lengths_equal[8] = { 230, 230,  230, 230,  0, 0,  230, 230 };
 	static const unsigned char stress_amps_equal[8] = { 19, 19, 19, 19, 19, 19, 19, 19 };
 
-	static const unsigned char stress_amps_sk[8] = { 17, 16, 20, 20, 20, 22, 22, 21 };
-	static const short stress_lengths_sk[8] = { 190, 190, 210, 210, 0, 0, 210, 210 };
-
-	static const short stress_lengths_ta[8] = { 200, 200,  210, 210,  0, 0,  230, 230 };
+    static const short stress_lengths_ta[8] = { 200, 200,  210, 210,  0, 0,  230, 230 };
 	static const short stress_lengths_ta2[8] = { 230, 230,  240, 240,  0, 0,  260, 260 };
 	static const unsigned char stress_amps_ta[8] = { 18, 18, 18, 18, 20, 20, 22, 22 };
 
@@ -1153,8 +1150,6 @@ Translator *SelectTranslator(const char *name)
 	case L('c', 's'): // Czech
 	{
 		static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
-
-		SetupTranslator(tr, stress_lengths_sk, stress_amps_sk);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
