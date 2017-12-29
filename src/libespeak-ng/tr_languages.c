@@ -1221,10 +1221,6 @@ Translator *SelectTranslator(const char *name)
 	case L('s', 'w'): // Swahili
 	case L('t', 'n'): // Setswana
 	{
-		static const short stress_lengths_sw[8] = { 160, 170,  200, 200,    0,   0,  320, 340 };
-		static const unsigned char stress_amps_sw[] = { 16, 12, 19, 19, 20, 22, 22, 21 };
-
-		SetupTranslator(tr, stress_lengths_sw, stress_amps_sw);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.vowel_pause = 1;
