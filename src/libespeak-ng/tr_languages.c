@@ -1172,7 +1172,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('s', 'i'): // Sinhala
 	{
-		SetupTranslator(tr, stress_lengths_ta, stress_amps_ta);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
