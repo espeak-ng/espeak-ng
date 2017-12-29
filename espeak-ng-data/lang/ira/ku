@@ -1,5 +1,8 @@
 name Kurdish
 language ku
 
+stressLength 180 180 190 180 0 0 230 240
+stressAmp 18 18 20 20 20 22 22 21
+
 //words 1 48
 

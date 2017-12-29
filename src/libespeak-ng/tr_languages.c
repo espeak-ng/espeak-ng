@@ -1003,10 +1003,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('k', 'u'): // Kurdish
 	{
-		static const unsigned char stress_amps_ku[8] = { 18, 18, 20, 20, 20, 22, 22, 21 };
-		static const short stress_lengths_ku[8] = { 180, 180, 190, 180, 0, 0, 230, 240 };
-
-		SetupTranslator(tr, stress_lengths_ku, stress_amps_ku);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_9;
 
 		tr->langopts.stress_rule = 7; // stress on the last syllable, before any explicitly unstressed syllable
