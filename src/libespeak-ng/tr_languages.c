@@ -695,9 +695,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('e', 'u'): // basque
 	{
-		static const short stress_lengths_eu[8] = { 200, 200,  200, 200,  0, 0,  210, 230 }; // very weak stress
-		static const unsigned char stress_amps_eu[8] = { 16, 16, 18, 18, 18, 18, 18, 18 };
-		SetupTranslator(tr, stress_lengths_eu, stress_amps_eu);
 		tr->langopts.stress_rule = STRESSPOSN_2L; // ?? second syllable, but not on a word-final vowel
 		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED;
 		tr->langopts.param[LOPT_SUFFIX] = 1;

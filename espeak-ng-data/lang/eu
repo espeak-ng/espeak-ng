@@ -1,4 +1,6 @@
 name Basque
 language eu
 
+stressLength 200 200  200 200  0 0  210 230
+stressAmp 16 16 18 18 18 18 18 18
 status testing
