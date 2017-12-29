@@ -1285,10 +1285,6 @@ Translator *SelectTranslator(const char *name)
 	case L('t', 'r'): // Turkish
 	case L('a', 'z'): // Azerbaijan
 	{
-		static const unsigned char stress_amps_tr[8] = { 18, 16, 20, 21, 20, 21, 21, 20 };
-		static const short stress_lengths_tr[8] = { 190, 180, 200, 230, 0, 0, 240, 250 };
-
-		SetupTranslator(tr, stress_lengths_tr, stress_amps_tr);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_9;
 
 		tr->langopts.stress_rule = 7; // stress on the last syllable, before any explicitly unstressed syllable
