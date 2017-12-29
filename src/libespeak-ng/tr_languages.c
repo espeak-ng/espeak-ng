@@ -1041,11 +1041,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('l', 'v'): // latvian
 	{
-		static const unsigned char stress_amps_lv[8] = { 14, 10, 10, 8, 0, 0, 20, 15 };
-		static const short stress_lengths_lv[8] = { 180, 180, 180, 160, 0, 0, 230, 180 };
-
-		SetupTranslator(tr, stress_lengths_lv, stress_amps_lv);
-
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.spelling_stress = 1;
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
