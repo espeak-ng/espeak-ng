@@ -274,7 +274,7 @@ such as:
 
 Most of these options can be set in the voice file in espeak-ng-data/lang folder (see [Voices](voices.md)).
 However some advanced options may be needed to add in source code in the function `SelectTranslator()`
-of thee [tr_languages.c](https://github.com/espeak-ng/espeak-ng/blob/master/src/libespeak-ng/tr_languages.c)
+of the [tr_languages.c](https://github.com/espeak-ng/espeak-ng/blob/master/src/libespeak-ng/tr_languages.c)
 file.
 
 ## Compiling Rules File for Debugging
