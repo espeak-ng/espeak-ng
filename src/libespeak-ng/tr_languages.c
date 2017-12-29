@@ -576,7 +576,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2; // use de_rules for unpronouncable rules
 	}
 		break;
-	case L('d', 'v'): // Divehi (Maldives)
+	case L('d', 'v'): // Divehi (Maldives) FIXME: this language code is actually never used
 	{
 		SetupTranslator(tr, stress_lengths_ta, stress_amps_ta);
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
