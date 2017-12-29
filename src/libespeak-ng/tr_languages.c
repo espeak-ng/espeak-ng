@@ -858,7 +858,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('h', 'y'): // Armenian
 	{
-		static const short stress_lengths_hy[8] = { 250, 200,  250, 250,  0, 0,  250, 250 };
 		static const char hy_vowels[] = { 0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0 };
 		static const char hy_consonants[] = {
 			0x32, 0x33, 0x34, 0x36, 0x39, 0x3a, 0x3c, 0x3d, 0x3e, 0x3f, 0x40, 0x41, 0x42, 0x43, 0x44,
@@ -866,7 +865,6 @@ Translator *SelectTranslator(const char *name)
 		};
 		static const char hy_consonants2[] = { 0x45, 0 };
 
-		SetupTranslator(tr, stress_lengths_hy, NULL);
 		tr->langopts.stress_rule = STRESSPOSN_1R; // default stress on final syllable
 
 		tr->letter_bits_offset = OFFSET_ARMENIAN;
