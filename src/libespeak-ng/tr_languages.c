@@ -1113,10 +1113,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('p', 't'): // Portuguese
 	{
-		static const short stress_lengths_pt[8] = { 170, 115,  210, 240,  0, 0,  260, 280 };
-		static const unsigned char stress_amps_pt[8] = { 16, 11, 19, 21, 20, 22, 22, 21 }; // 'diminished' is used to mark a quieter, final unstressed syllable
-
-		SetupTranslator(tr, stress_lengths_pt, stress_amps_pt);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
