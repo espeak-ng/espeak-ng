@@ -443,9 +443,6 @@ Translator *SelectTranslator(const char *name)
 	static const short stress_lengths_equal[8] = { 230, 230,  230, 230,  0, 0,  230, 230 };
 	static const unsigned char stress_amps_equal[8] = { 19, 19, 19, 19, 19, 19, 19, 19 };
 
-	static const short stress_lengths_fr[8] = { 190, 170,  190, 200,  0, 0,  190, 240 };
-	static const unsigned char stress_amps_fr[8] = { 18, 16, 18, 18, 18, 18, 18, 18 };
-
 	static const unsigned char stress_amps_sk[8] = { 17, 16, 20, 20, 20, 22, 22, 21 };
 	static const short stress_lengths_sk[8] = { 190, 190, 210, 210, 0, 0, 210, 210 };
 
@@ -746,7 +743,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('f', 'r'): // french
 	{
-		SetupTranslator(tr, stress_lengths_fr, stress_amps_fr);
 		tr->langopts.stress_rule = STRESSPOSN_1R; // stress on final syllable
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM; // don't use secondary stress
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 1; // remove lengthen indicator from unstressed syllables
