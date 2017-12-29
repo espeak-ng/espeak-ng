@@ -838,10 +838,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('h', 'u'): // Hungarian
 	{
-		static const unsigned char stress_amps_hu[8] = { 17, 17, 19, 19, 20, 22, 22, 21 };
-		static const short stress_lengths_hu[8] = { 185, 195, 195, 190, 0, 0, 210, 220 };
-
-		SetupTranslator(tr, stress_lengths_hu, stress_amps_hu);
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 
 		tr->langopts.vowel_pause = 0x20;
