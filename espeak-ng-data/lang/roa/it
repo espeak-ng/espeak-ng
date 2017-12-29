@@ -4,5 +4,8 @@ language it
 maintainer Christian Leo M <llajta2012@gmail.com>
 status mature
 
+stressLength 160 140 150 165 0 0 218 305
+stressAmp 17 15 18 16 20 22 22 22
+
 tunes s4 c4 q4 e4
 letterVowel y

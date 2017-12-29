@@ -906,9 +906,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('i', 't'): // Italian
 	{
-		static const short stress_lengths_it[8] = { 160, 140, 150, 165, 0, 0, 218, 305 };
-		static const unsigned char stress_amps_it[8] = { 17, 15, 18, 16, 20, 22, 22, 22 };
-		SetupTranslator(tr, stress_lengths_it, stress_amps_it);
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM_ONLY | S_PRIORITY_STRESS;
