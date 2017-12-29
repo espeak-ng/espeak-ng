@@ -1085,11 +1085,8 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FIRST_PRIMARY;
 	}
 		break;
-	case L('n', 'o'): // Norwegian
+	case L('n', 'o'): // Norwegian FIXME: this code is not actually used
 	{
-		static const short stress_lengths_no[8] = { 160, 140, 200, 200, 0, 0, 220, 230 };
-
-		SetupTranslator(tr, stress_lengths_no, NULL);
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_ALLOW_SPACE | NUM_1900 | NUM_ORDINAL_DOT;
 	}
