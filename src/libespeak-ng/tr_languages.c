@@ -1128,11 +1128,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('r', 'o'): // Romanian
 	{
-		static const short stress_lengths_ro[8] = { 170, 170,  180, 180,  0, 0,  240, 260 };
-		static const unsigned char stress_amps_ro[8] = { 15, 13, 18, 18, 20, 22, 22, 21 };
-
-		SetupTranslator(tr, stress_lengths_ro, stress_amps_ro);
-
 		tr->langopts.stress_rule = STRESSPOSN_1R;
 		tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY;
 
