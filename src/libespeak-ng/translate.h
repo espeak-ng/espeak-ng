@@ -23,6 +23,7 @@ extern "C"
 #endif
 
 #define L(c1, c2) (c1<<8)+c2 // combine two characters into an integer for translator name
+#define L3(c1, c2, c3) (c1<<16)+(c2<<8) + c3 // combine three characters into an integer for translator name
 
 #define CTRL_EMBEDDED    0x01 // control character at the start of an embedded command
 #define REPLACED_E       'E' // 'e' replaced by silent e

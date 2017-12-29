@@ -36,13 +36,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-#define L_grc  0x677263 // grc  Ancient Greek
-#define L_jbo  0x6a626f // jbo  Lojban
-#define L_mni  0x627079 // bpy  Manipuri
-#define L_pap  0x706170 // pap  Papiamento]
-#define L_zhy  0x7a6879 // zhy  Chinese (Cantonese)
-#define L_cmn  0x636D6E // cmn  Chinese (Mandarin)
-
 // start of unicode pages for character sets
 #define OFFSET_GREEK    0x380
 #define OFFSET_CYRILLIC 0x420
@@ -517,7 +510,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('b', 'n'): // Bengali
 	case L('a', 's'): // Assamese
-	case L_mni: // Manipuri  (temporary placement - it's not indo-european)
+	case L3('m', 'n', 'i'): // Manipuri  (temporary placement - it's not indo-european)
 	{
 		static const short stress_lengths_bn[8] = { 180, 180,  210, 210,  0, 0,  230, 240 };
 		static const unsigned char stress_amps_bn[8] = { 18, 18, 18, 18, 20, 20, 22, 22 };
@@ -537,7 +530,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SWAP_TENS;
 		tr->langopts.break_numbers = 0x24924aa8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 
-		if (name2 == L_mni) {
+		if (name2 == L3('m', 'n', 'i')) {
 			tr->langopts.numbers = 1;
 			tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 		}
@@ -630,7 +623,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('e', 'l'): // Greek
-	case L_grc: // Ancient Greek
+	case L3('g', 'r', 'c'): // Ancient Greek
 	{
 		static const short stress_lengths_el[8] = { 155, 180,  210, 210,  0, 0,  270, 300 };
 		static const unsigned char stress_amps_el[8] = { 15, 12, 20, 20, 20, 22, 22, 21 }; // 'diminished' is used to mark a quieter, final unstressed syllable
@@ -665,7 +658,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA;
 		tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND; // variant form of numbers before thousands
 
-		if (name2 == L_grc) {
+		if (name2 == L3('g', 'r', 'c')) {
 			// ancient greek
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;
 		}
@@ -694,7 +687,7 @@ Translator *SelectTranslator(const char *name)
 	case L('a', 'n'): // Aragonese
 	case L('c', 'a'): // Catalan
 	case L('i', 'a'): // Interlingua
-	case L_pap: // Papiamento
+	case L3('p', 'a', 'p'): // Papiamento
 	{
 		static const short stress_lengths_es[8] = { 160, 145,  155, 150,  0, 0,  200, 245 };
 		static const unsigned char stress_amps_es[8] = { 16, 14, 15, 16, 20, 20, 22, 22 }; // 'diminished' is used to mark a quieter, final unstressed syllable
@@ -727,7 +720,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_ORDINAL;
 			tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
 			tr->langopts.roman_suffix = utf8_ordinal;
-		} else if (name2 == L_pap) {
+		} else if (name2 == L3('p', 'a', 'p')) {
 			// stress last syllable unless word ends with a vowel
 			tr->langopts.stress_rule = STRESSPOSN_1R;
 			tr->langopts.stress_flags = S_FINAL_VOWEL_UNSTRESSED | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
@@ -996,7 +989,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.accents = 2; // Say "Capital" after the letter.
 	}
 		break;
-	case L_jbo: // Lojban
+	case L3('j', 'b', 'o'): // Lojban
 	{
 		static const short stress_lengths_jbo[8] = { 145, 145, 170, 160, 0, 0, 330, 350 };
 		static const wchar_t jbo_punct_within_word[] = { '.', ',', '\'', 0x2c8, 0 }; // allow period and comma within a word, also stress marker (from LOPT_CAPS_IN_WORD)
@@ -1496,8 +1489,8 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS;
 		break;
-	case L_cmn: // no break, just go to 'zh' case
-	case L_zhy: // just go to 'zh' case
+	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
+	case L3('z', 'h', 'y'): // just go to 'zh' case
 	case L('z','h'):
 	{
 		static const short stress_lengths_zh[8] = { 230, 150, 230, 230, 230, 0, 240, 250 }; // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
@@ -1514,7 +1507,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.ideographs = 1;
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
-		if (name2 == L_zhy) {
+		if (name2 == L3('z', 'h', 'y')) {
 			tr->langopts.textmode = 1;
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = 1;
