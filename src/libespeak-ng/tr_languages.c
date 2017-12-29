@@ -1093,10 +1093,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('o', 'm'): // Oromo
 	{
-		static const unsigned char stress_amps_om[] = { 18, 15, 20, 20, 20, 22, 22, 22 };
-		static const short stress_lengths_om[8] = { 200, 200, 200, 200, 0, 0, 200, 200 };
-
-		SetupTranslator(tr, stress_lengths_om, stress_amps_om);
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;

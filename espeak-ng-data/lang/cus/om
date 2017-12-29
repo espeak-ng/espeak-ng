@@ -1,4 +1,6 @@
 name Oromo
 language om
-
 status testing
+
+stressLength 200 200 200 200 0 0 200 200
+stressAmp 18 15 20 20 20 22 22 22
