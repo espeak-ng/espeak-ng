@@ -2,3 +2,5 @@ name czech-mbrola-1
 language cs 1
 gender female
 mbrola cz1 cs_phtrans
+stressLength 190 190 210 210 0 0 210 210
+stressAmp 17 16 20 20 20 22 22 21

@@ -6,3 +6,5 @@ pitch 140 220
 
 mbrola de1 de2_phtrans
 
+stressLength 150 130 200 200  0 0 270 270
+stressAmp 20 20 20 20 20 22 22 20

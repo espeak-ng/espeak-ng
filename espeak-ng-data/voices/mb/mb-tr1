@@ -5,3 +5,5 @@ gender male
 mbrola tr1 tr1_phtrans
 dictrules 1
 
+stressLength 190 180 200 230 0 0 240 250
+stressAmp 18 16 20 21 20 21 21 20

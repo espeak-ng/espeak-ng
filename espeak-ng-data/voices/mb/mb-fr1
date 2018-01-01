@@ -9,3 +9,5 @@ voicing 70
 
 mbrola fr1 fr1_phtrans
 
+stressLength 190 170  190 200  0 0  190 240
+stressAmp 18 16 18 18 18 18 18 18

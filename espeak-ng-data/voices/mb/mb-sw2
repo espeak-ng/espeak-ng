@@ -7,3 +7,5 @@ voicing 130
 
 mbrola sw2 sv2_phtrans
 
+stressLength 160 135 220 220 0 0 250 280
+stressAmp 16 16 20 20 20 22 22 21

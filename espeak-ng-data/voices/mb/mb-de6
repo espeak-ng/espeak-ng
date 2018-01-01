@@ -4,3 +4,5 @@ gender male
 
 mbrola de6 de6_phtrans 22050
 
+stressLength 150 130 200 200  0 0 270 270
+stressAmp 20 20 20 20 20 22 22 20

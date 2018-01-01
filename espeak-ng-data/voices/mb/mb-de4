@@ -6,3 +6,5 @@ voicing 130
 
 mbrola de4 de4_phtrans
 
+stressLength 150 130 200 200  0 0 270 270
+stressAmp 20 20 20 20 20 22 22 20
