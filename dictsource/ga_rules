@@ -501,6 +501,7 @@ f// translation rules for Irish Gaeilge
         r          r         // broad
    L01) r          R         // slender
         r (L01     R
+     _) r (L01     r
   L12i) r (e_      Z
   L12i) r (t_      Z
         rr         R
@@ -609,8 +610,10 @@ f// translation rules for Irish Gaeilge
         q          _^_EN
 
 .group v
-        v          _^_EN
-        véarsa     ve:rs@
+        v          v
+        v (L22     vj // slender
+   L22) v          vj // slender
+        véarsa     vje:rs@
 
 .group w
         w          _^_EN
