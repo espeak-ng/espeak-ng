@@ -844,13 +844,17 @@ static void CalcPitches_Tone(Translator *tr)
 		if (p->synthflags & SFLAG_SYLLABLE) {
 			tone_ph = p->tone_ph;
 			tph = phoneme_tab[tone_ph];
-			// Hakka
+			
+			/* Hakka
+			ref.:https://en.wikipedia.org/wiki/Sixian_dialect#Tone_sandhi */
 			if (tr->translator_name == L3('h','a','k')){
 				if (prev_tph->mnemonic == 0x31){ // [previous one is 1st tone]
 				  // [this one is 1st, 4th, or 6th tone]
 				  if (tph->mnemonic == 0x31 || tph->mnemonic == 0x34 ||
 					  tph->mnemonic == 0x36){
-					prev_p->tone_ph = PhonemeCode('2');
+					/* trigger the tone sandhi of the prev. syllable
+					   from 1st tone ->2nd tone */
+					prev_p->tone_ph = PhonemeCode('2'); 
 				  }
 				}
 			  }
