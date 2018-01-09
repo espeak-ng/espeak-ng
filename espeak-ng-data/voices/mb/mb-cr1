@@ -8,3 +8,6 @@ dictrules 1
 voicing 150
 pitch 82 117
 mbrola cr1 cr1_phtrans
+stressLength 180 160 200 200 0 0 220 230
+stressAmp 17 17 20 20 20 22 22 21
+stressAdd 10 10 0 0 0 0 -30 -30

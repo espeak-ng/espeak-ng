@@ -3,6 +3,9 @@ language pt
 language pt-pt
 phonemes pt-pt
 
+stressLength 170 115  210 240  0 0  260 280
+stressAmp 16 11 19 21 20 22 22 21
+
 dictrules 1
 intonation 2
 letterVowel y

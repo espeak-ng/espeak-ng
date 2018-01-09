@@ -1,4 +1,6 @@
 name Esperanto
 language eo
 
+stressLength 150 140  180 180    0   0  200 200
+stressAmp 16 14 20 20 20 22 22 21
 apostrophe 2

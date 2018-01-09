@@ -1,4 +1,7 @@
 name Marathi
 language mr
-
 status testing
+
+stressLength 190 190  210 210  0 0  230 250
+stressAmp  17 14 20 19 20 22 22 21
+

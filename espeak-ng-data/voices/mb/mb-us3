@@ -11,3 +11,5 @@ stressLength 170 135 205 205 0 0  245 275
 voicing 150
 pitch 82 117
 mbrola us3 us3_phtrans
+stressLength 140 120 190 170 0 0 255 300
+stressAmp  17 16  19 19  19 19  21 19

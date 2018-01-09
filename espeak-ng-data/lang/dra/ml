@@ -1,5 +1,7 @@
 name Malayalam
 language ml
 
+stressLength 180 160  240 240  0 0  260 260
+stressAmp 19 19 19 19 19 19 19 19
 intonation 2
 //consonants 80

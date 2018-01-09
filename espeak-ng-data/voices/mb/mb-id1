@@ -6,3 +6,5 @@ pitch 82 117
 voicing 120
 mbrola id1 id1_phtrans
 
+stressLength 160 200  180 180  0 0  220 240
+stressAmp    16  18   18  18   0 0  22  21

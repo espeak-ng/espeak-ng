@@ -7,3 +7,5 @@ voicing 60
 mbrola it4 it3_phtrans
 
 replace 03 i I       // final unstressed "i"
+stressLength 160 140 150 165 0 0 218 305
+stressAmp 17 15 18 16 20 22 22 22
