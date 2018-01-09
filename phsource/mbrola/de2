@@ -44,6 +44,11 @@
 0  A~ NULL   0  a~
 0  O~ NULL   0  o~
 
+// phonemes for Spanish words
+0  e   NULL  0  E
+0  **  NULL  0  R
+0  n^  NULL  40 n j
+
 // phonemes for English words
 0  @L  NULL  50 @ l
 0  @2  NULL  0  @
@@ -65,6 +70,7 @@
 0  U@  NULL  60 U  @
 0  aI@ NULL  70 aI @
 0  aU@ NULL  70 aU @
+0  3:  NULL  60 E: R
 
 0  dZ  NULL  0  tS
 0  w   NULL  0  v
