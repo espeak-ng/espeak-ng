@@ -26,12 +26,12 @@
 0  l- NULL   0  l
 0  w/ NULL   0  w
 0  j/ NULL   0  j
-0  ;  NULL   0  NULL
+0  ;  NULL   0  j
 0  g- NULL   0  NULL
 0  @- NULL   0  NULL
 0  *  NULL   0  R
-0  V# NULL   0  R
-0  UR NULL   60 U R
+0  V# NULL   0  6
+0  UR NULL   60 U 6
 
 0  E2 NULL   0  E
 0  y  NULL   0  Y
@@ -51,7 +51,9 @@
 0  O~ NULL   0  o~
 
 16  _| VWL    0  ?
-//16  _! VWL    0  ?
+16  _! VWL    0  ?
+16  ? VWL    0  ?
+16  _^_ VWL   0  NULL
 
 // phonemes for Spanish words
 0  e   NULL  0  E
