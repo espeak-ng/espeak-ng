@@ -46,7 +46,7 @@ test_lang() {
 # 3.  copy the correct hash onto the test line;
 # 4.  re-run the tests to ensure they pass.
 
-test_lang de 8f9bd0211a8d0d7a4f78970b8ac8ed7a50242bb0 "drucker lampe computer stern sterne"
+test_lang de 7398fed8c160ddd373418753474c907b7937b12e "drucker lampe computer stern sterne"
 
 test_lang en 13464f360acc31b7d266164245c15b11e2fb6145 "foot strut north force cure thought lot cloth trap bath"
 test_lang en-029 7587e73b30806a360d40088d4f00fa158472fbab "foot strut north force cure thought lot cloth trap bath"
