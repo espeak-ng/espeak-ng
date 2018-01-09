@@ -59,6 +59,6 @@ test_lang en-US 1653355ef008d67d315aa20e630e00614472a045 "foot strut north force
 test_lang ja a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
 
 # Languages with non-Latin characters fall back to en when speaking Latin characters.
-test_lang bg "bg (English text)" ad98e816727288c7f3c525a4b4c30e72c7ea0c00 "foot strut north force cure thought lot cloth trap bath"
-test_lang fa "fa (English text)" 9460f3dcd6cc7b4f3f45a9021f7706f1bdc7ae8f "foot strut north force cure thought lot cloth trap bath"
-test_lang ka "ka (English text)" 4995fdb0fbe16bd97061c762badea03c1c44ba63 "foot strut north force cure thought lot cloth trap bath"
+test_lang bg "bg (English text)" 2be95f9eb3cbba5a711de2106e244755b6b23cba "foot strut north force cure thought lot cloth trap bath"
+test_lang fa "fa (English text)" 1864801236b445e97d78dc62517e741ae24556ee "foot strut north force cure thought lot cloth trap bath"
+test_lang ka "ka (English text)" e9b574b1cc60d77ba980442bee897381ad834ca8 "foot strut north force cure thought lot cloth trap bath"
