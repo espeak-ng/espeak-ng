@@ -24,7 +24,7 @@ endphoneme
 
 
 phoneme A~
-  vowel  starttype #a endtype #a
+  vwl  starttype #a endtype #a
   length 260
   FMT(vnasal/aa_n4)
 endphoneme
@@ -42,7 +42,7 @@ phoneme b
   IF nextPh(l2) THEN
     ChangePhoneme(p)
   ENDIF
-  CALL base/b
+  CALL base1/b
 endphoneme
 
 
@@ -75,7 +75,7 @@ phoneme g
   IF nextPh(l2) THEN
     ChangePhoneme(k)
   ENDIF
-  CALL base/g
+  CALL base1/g
 endphoneme
 
 
