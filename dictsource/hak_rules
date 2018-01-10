@@ -41,7 +41,6 @@ n̂g ng1
 .group a
        a        a
        a (_   a4
-       a (L02   a4
        a1i	ai1
        a2i	ai2
        a3i	ai3
@@ -52,8 +51,21 @@ n̂g ng1
 	   a (L01 a5
        a̍ (L01 a6
        
-       a (L02	a4
-       
+       a1m	am1
+       a2m  am2
+       a3m  am3
+       am (_  am4
+
+       a1n	an1
+       a2n  an2
+       a3n  an3
+       an (_  an4
+
+       a1ng	aN1
+       a2ng  aN2
+       a3ng  aN3
+       ang (_  aN4 
+    
        a1u	au1
        a2u	au2
        a3u	au3
@@ -114,8 +126,8 @@ n̂g ng1
 .group i
        ii   i.
        iî   i.1
-       ií   i.3
        iì   i.2
+       ií   i.3
        ii (_  i.4
        ii (L02  i.4
        i (_   i4
@@ -125,13 +137,17 @@ n̂g ng1
        ii (L01      i.5
        i̍ (L01     i6
        ii̍ (L01    i.6
-       iîn      iin1
-       iìn	iin2
-       iín	iin3
-       iin	iin4
+       iîn      i.n1
+       iìn	i.n2
+       iín	i.n3
+       iin	i.n4
        ia	ia
        ia (_  ia4
        ia (L02 ia4
+       ia1i    jai1
+       ia2i    jai2
+       ia3i    jai3
+       iai     jai4
        iau	iau
        ia1u	iau1
        ia2u	iau2
@@ -308,21 +324,30 @@ n̂g ng1
        ya	ia
        ya (_	ia4
        ya (L01	ia5
+	   ya (L02	ia4
        ya̍ (L01	ia6
+       ya1i     jai1
+       ya2i     jai2
+       ya3i     jai3
+       yai     jai4
        yau	iau
        yau (_	iau4
        ye	ie
        ye (_	ie4
+	   ye (L02	ie4
        ye (L01  ie5
        ye̍ (L01  ie6
        yi	i
        yi (_	i4
+	   yi (L02	i4
        yi (L01  i5
        yi̍ (L01     i6
        yo	io
        yo (_	io4
+	   yo (L02	io4
        yu	iu
        yu (_	iu4
+	   yu (L02	iu4
        yu (L01  iu5
        yu̍ (L01  iu6
        
