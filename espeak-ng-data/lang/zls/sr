@@ -9,6 +9,8 @@ formant 3  97 102 100
 formant 4  97 102 100
 formant 5  97 102 100
 
+stressLength 160 150 200 200 0 0 250 260
+stressAmp 17 17 20 20 20 22 22 21
 stressAdd 10 10 0 0 0 0 -30 -30
 dictrules 2 4
 

@@ -1,5 +1,6 @@
 name Tamil
 language ta
 
+stressLength 200, 200,  210, 210,  0, 0,  230, 230
 intonation 2
 consonants 80

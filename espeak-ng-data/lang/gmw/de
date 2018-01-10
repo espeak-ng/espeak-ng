@@ -1,4 +1,6 @@
 name German
 language de
 
+stressLength 150 130 200 200  0 0 270 270
+stressAmp 20 20 20 20 20 22 22 20
 letterVowel y
