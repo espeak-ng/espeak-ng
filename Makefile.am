@@ -449,6 +449,7 @@ dictionaries: \
 	espeak-ng-data/fr_dict \
 	espeak-ng-data/ga_dict \
 	espeak-ng-data/gd_dict \
+	espeak-ng-data/gn_dict \
 	espeak-ng-data/grc_dict \
 	espeak-ng-data/gu_dict \
 	espeak-ng-data/hak_dict \
