@@ -51,6 +51,9 @@ n̂g ng1
        a6i	ai6
 	   a (L01 a5
        a̍ (L01 a6
+       
+       a (L02	a4
+       
        a1u	au1
        a2u	au2
        a3u	au3
@@ -85,6 +88,7 @@ n̂g ng1
        e (L02  e4
        er	o-
        e	e
+       e (L02	e4
        e1u     eu1
        e2u     eu2
        e3u      eu3
@@ -96,6 +100,7 @@ n̂g ng1
 	   e̍ (L01   e6
 	   e̍r (L01 er6
 	   e̍u (L01 eu6
+	   
 .group f
        f        f
     @) f (K	_^_EN
@@ -119,7 +124,11 @@ n̂g ng1
        i (L01    i5
        ii (L01      i.5
        i̍ (L01     i6
-       ii̍ (L01    i.6 
+       ii̍ (L01    i.6
+       iîn      iin1
+       iìn	iin2
+       iín	iin3
+       iin	iin4
        ia	ia
        ia (_  ia4
        ia (L02 ia4
@@ -143,6 +152,10 @@ n̂g ng1
        ieu (_	jeu4
        io	io
        io (L01 io5
+       io1ng	ioN1
+       io2ng	ioN2
+       io3ng	ioN3
+       io4ng	ioN4
        iu	iu
        iu (L01 iu5
        
