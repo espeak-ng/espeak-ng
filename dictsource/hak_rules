@@ -1,0 +1,368 @@
+// This file is UTF8 encoded
+.L01 p t k // (rusheng
+.L02 m n ng // (nosal coda consonant
+.L03 a e i ii o u // vowel
+.replace
+//replace tone mark with tone number
+a a
+e e
+i i
+o o
+u u
+ṳ ii
+â a1
+ê e1
+î i1
+ô o1
+û u1
+m̂ m1
+n̂ n1
+n̂g ng1
+à a2
+è e2
+ì i2
+ò o2
+ù u2
+ǹ n2
+á a3 
+é e3
+í i3
+ó o3
+ú u3
+ḿ m3
+ń n3
+ńg ng3
+
+
+// Note:  ngK  matches "ng" if not followed by a vowel
+// (D  will match on a digit and also if no digit is present. (special for tone
+// language).
+
+.group a
+       a        a
+       a (_   a4
+       a1i	ai1
+       a2i	ai2
+       a3i	ai3
+       ai (_	ai4
+       ai (L02   a4
+       a5i	ai5
+       a6i	ai6
+	   a (L01 a5
+       a̍ (L01 a6
+       
+       a1m	am1
+       a2m  am2
+       a3m  am3
+       am (_  am4
+
+       a1n	an1
+       a2n  an2
+       a3n  an3
+       an (_  an4
+
+       a1ng	aN1
+       a2ng  aN2
+       a3ng  aN3
+       ang (_  aN4 
+    
+       a1u	au1
+       a2u	au2
+       a3u	au3
+       au (_	au4
+       au (L02	au4
+       au (L01 au5
+       au̍ (L01 au6
+
+
+.group b
+    @) b (K	_^_EN
+
+.group c
+       ch        ts
+       chh	 tsh
+       ch (i	 tS;
+       chh (i    tS;h
+       ch (ii    ts
+       chh       tsh
+    @) c (K	_^_EN
+
+.group d
+    @) d (K	_^_EN
+
+.group e
+       er (_  o-4
+       e1r    o-1
+       e2r    o-2
+       e3r    o-3
+       er (L02  o-4
+       e (_  e4
+       e (L02  e4
+       er	o-
+       e	e
+       e (L02	e4
+       e1u     eu1
+       e2u     eu2
+       e3u      eu3
+       eu (_    eu4
+       eu (L02    eu4
+	   e (L01    e5
+       er (L01  er5
+       eu (L01  eu5
+	   e̍ (L01   e6
+	   e̍r (L01 er6
+	   e̍u (L01 eu6
+	   
+.group f
+       f        f
+    @) f (K	_^_EN
+
+
+
+.group h
+       h        h
+    @) h (K	_^_EN
+
+.group i
+       ii   i.
+       iî   i.1
+       iì   i.2
+       ií   i.3
+       ii (_  i.4
+       ii (L02  i.4
+       i (_   i4
+       i (L02   i4
+       i        i
+       i (L01    i5
+       ii (L01      i.5
+       i̍ (L01     i6
+       ii̍ (L01    i.6
+       iîn      i.n1
+       iìn	i.n2
+       iín	i.n3
+       iin	i.n4
+       ia	ia
+       ia (_  ia4
+       ia (L02 ia4
+       ia1i    jai1
+       ia2i    jai2
+       ia3i    jai3
+       iai     jai4
+       iau	iau
+       ia1u	iau1
+       ia2u	iau2
+       ia3u	iau3
+       iau (_	iau4
+       iau (L02	iau4
+       iau (L01	iau5
+       ia̍u (L01	iau6
+       ie (_     ie4
+       ie (L02   ie4
+	   ie1(L02  ie1
+	   ie2(L02  ie2
+	   ie3(L02  ie3
+       ie (L01 ie5
+       ie1u	jeu1
+       ie2u	jeu2
+       ie3u	jeu3
+       ieu (_	jeu4
+       io	io
+       io (L01 io5
+       io1ng	ioN1
+       io2ng	ioN2
+       io3ng	ioN3
+       io4ng	ioN4
+       iu	iu
+       iu (L01 iu5
+       
+.group j
+    @) j (K	_^_EN
+
+.group k
+       k        k
+       kh	kh
+
+.group l
+       l        l
+    @) l (K	_^_EN
+
+.group m
+       m        m
+     _) m1 (_	m-1
+     _) m̀  (_	m-2
+     _) m3 (_	m-3
+     _) m (_	m-4
+
+.group n
+       n        n
+      _) n1 (_	n-1
+     _) n2 (_  n-2
+     _) n3 (_	n-3
+     _) n (_	n-4
+    _) n1g (_	N-1
+     _) n2g (_	N-2
+     _) n3g(_	N-3
+     _) ng (_	N-4
+       ng (i	n^    //ng(i)
+       ng       N
+
+.group g
+    @) g (K	_^_EN
+
+.group o
+       o        o
+       o (_   o4
+       o (L02   o4
+       o (L01  o5
+       o̍ (L01  o6
+       o1a	ua1
+       o2a	ua2
+       o3a	ua3
+       oa (_	ua4
+       oa (L02	ua4
+       oa (L01	ua5
+       o̍a (L01	ua6
+       oa1	ua1
+       oa2	ua2
+       oa3	ua3
+       oa4	ua4
+       oa5	ua5
+       oa6	ua6
+       oa1i	uai1
+       oa2i	uai2
+       oa3i	uai3
+       oai (_	uai4
+       oai (L02	uai4
+       oai (L01	uai5
+       oa̍i	uai6
+       
+       o1e	ue1
+       o2e	ue2
+       o3e	ue3
+       oe (_	ue4
+       oe (L02	ue4
+       oe (L01	ue5
+       o̍e (L01	ue6
+       oe1	ue1
+       oe2	ue2
+       oe3	ue3
+       oe5	ue5
+       oe6	ue6
+
+       o1i	oi1
+       o2i	oi2
+       o3i	oi3
+       oi (_	oi4
+       oi (L02	oi4
+       oi (L01	oi5
+       o̍i (L01	oi6
+
+       o1ng (_	oN1
+       o2ng (_	oN2
+       o3ng (_	oN3
+       ong (_	oN4
+       
+       o1m (_	om1
+       o2m (_	om2
+       o3m (_	om3
+       om (_	om4
+
+       o1n (_	on1
+       o2n (_	on2
+       o3n (_	on3
+       on (_	on4
+
+.group p
+       p        p
+       ph	ph
+
+.group q
+    @) q (K	_^_EN
+
+.group r
+       r (K     _^_EN
+
+.group s
+       s        s
+       s (i    S;
+       s (ii    s
+    @) s (K	_^_EN
+
+.group t
+       t        t
+       th	th
+
+.group u
+       u        u
+       u (_   u4
+       u (L02   u4
+       ui	ui
+	   u1i  ui1
+	   u2i  ui2
+	   u3i  ui3
+       ui (_  ui4
+       ui (L02  ui4
+       u1ng (_	uN1
+       u2ng (_	uN2
+       u3ng (_	uN3
+       ung (_	uN4
+       u (L01  u5
+       u̍ (L01  u6
+       ui (L01 ui5
+       u̍i (L01 ui6
+.group v
+       v	v 
+
+.group w
+    @) w (K	_^_EN
+
+.group x
+    @) x (K	_^_EN
+
+.group y
+       y	j //before a o e i
+       ya	ia
+       ya (_	ia4
+       ya (L01	ia5
+	   ya (L02	ia4
+       ya̍ (L01	ia6
+       ya1i     jai1
+       ya2i     jai2
+       ya3i     jai3
+       yai     jai4
+       yau	iau
+       yau (_	iau4
+       ye	ie
+       ye (_	ie4
+	   ye (L02	ie4
+       ye (L01  ie5
+       ye̍ (L01  ie6
+       yi	i
+       yi (_	i4
+	   yi (L02	i4
+       yi (L01  i5
+       yi̍ (L01     i6
+       yo	io
+       yo (_	io4
+	   yo (L02	io4
+       yu	iu
+       yu (_	iu4
+	   yu (L02	iu4
+       yu (L01  iu5
+       yu̍ (L01  iu6
+       
+    @) y (K	_^_EN
+
+.group z
+    @) z (K	_^_EN
+
+//tone
+.group
+	1  1
+	2  2
+	3  3
+	4  4
+	5  5
+	6  6
+	|  _|
+
