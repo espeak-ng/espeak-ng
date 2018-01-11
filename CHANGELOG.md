@@ -23,6 +23,7 @@ updated languages:
 *  de (German) -- Karl Eick
 *  fi (Finnish) -- Juho Hiltunen
 *  fr (French) -- Shallowmallow
+*  hak (Hakka Chinese) -- Chen Chien-ting
 *  it (Italian) -- chrislm
 *  lv (Latvian) -- Valdis Vitolins
 *  my (Myanmar/Burmese) -- Min Maung
