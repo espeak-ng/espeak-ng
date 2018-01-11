@@ -271,6 +271,7 @@ protams   $u+
 pret      $u+
 priekš    $u
 starp     $u
+šeit      $u+
 šo        $u+
 taču      $u $pause
 tad       $u+
@@ -284,6 +285,7 @@ tikai     $u+
 tiklab    $u $brk
 tomēr     $u $pause
 turpretim $u $2 $pause
+turpat    $u+ $2
 turpretī  $u $2 $pause
 tur       $u+
 un        $u

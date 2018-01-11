@@ -128,7 +128,7 @@ endphoneme
 
 phoneme uo
   vwl starttype #u endtype #a
-  length 260
+  length 270
   lng
   FMT(vdiph2/uaa, 100)
 endphoneme
