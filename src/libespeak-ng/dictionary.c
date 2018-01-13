@@ -1028,13 +1028,11 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int v_stress;
 	int stressed_syllable; // position of stressed syllable
 	int max_stress_posn;
-	int unstressed_word = 0;
 	char *max_output;
 	int final_ph;
 	int final_ph2;
 	int mnem;
 	int opt_length;
-	int done;
 	int stressflags;
 	int dflags = 0;
 	int first_primary;
@@ -1074,12 +1072,14 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	max_output = output + (N_WORD_PHONEMES-3); // check for overrun
 
+
 	// any stress position marked in the xx_list dictionary ?
+	bool unstressed_word = false;
 	stressed_syllable = dflags & 0x7;
 	if (dflags & 0x8) {
 		// this indicates a word without a primary stress
 		stressed_syllable = dflags & 0x3;
-		unstressed_word = 1;
+		unstressed_word = true;
 	}
 
 	max_stress = max_stress_input = GetVowelStress(tr, phonetic, vowel_stress, &vowel_count, &stressed_syllable, 1);
@@ -1091,10 +1091,10 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	for (p = phonetic; *p != 0; p++) {
 		if ((phoneme_tab[p[0]]->type == phVOWEL) && !(phoneme_tab[p[0]]->phflags & phNONSYLLABIC)) {
 			int weight = 0;
-			int lengthened = 0;
+			bool lengthened = false;
 
 			if (phoneme_tab[p[1]]->code == phonLENGTHEN)
-				lengthened = 1;
+				lengthened = true;
 
 			if (lengthened || (phoneme_tab[p[0]]->phflags & phLONG)) {
 				// long vowel, increase syllable weight
@@ -1341,7 +1341,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	else
 		stress = 3;
 
-	if (unstressed_word == 0) {
+	if (unstressed_word == false) {
 		if ((stressflags & S_2_SYL_2) && (vowel_count == 3)) {
 			// Two syllable word, if one syllable has primary stress, then give the other secondary stress
 			if (vowel_stress[1] == 4)
@@ -1357,15 +1357,15 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		}
 	}
 
-	done = 0;
+	bool done = false;
 	first_primary = 0;
 	for (v = 1; v < vowel_count; v++) {
 		if (vowel_stress[v] < 0) {
 			if ((stressflags & S_FINAL_NO_2) && (stress < 4) && (v == vowel_count-1)) {
 				// flag: don't give secondary stress to final vowel
-			} else if ((stressflags & 0x8000) && (done == 0)) {
+			} else if ((stressflags & 0x8000) && (done == false)) {
 				vowel_stress[v] = (char)stress;
-				done = 1;
+				done = true;
 				stress = 3; // use secondary stress for remaining syllables
 			} else if ((vowel_stress[v-1] <= 1) && ((vowel_stress[v+1] <= 1) || ((stress == 4) && (vowel_stress[v+1] <= 2)))) {
 				// trochaic: give stress to vowel surrounded by unstressed vowels
@@ -1389,7 +1389,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 				// should start with secondary stress on the first syllable, or should it count back from
 				// the primary stress and put secondary stress on alternate syllables?
 				vowel_stress[v] = (char)stress;
-				done = 1;
+				done = true;
 				stress = 3; // use secondary stress for remaining syllables
 			}
 		}
@@ -1489,15 +1489,15 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 			if ((*p == phonLENGTHEN) && ((opt_length = tr->langopts.param[LOPT_IT_LENGTHEN]) & 1)) {
 				// remove lengthen indicator from non-stressed syllables
-				int shorten = 0;
+				bool shorten = false;
 
 				if (opt_length & 0x10) {
 					// only allow lengthen indicator on the highest stress syllable in the word
 					if (v != max_stress_posn)
-						shorten = 1;
+						shorten = true;
 				} else if (v_stress < 4) {
 					// only allow lengthen indicator if stress >= 4.
-					shorten = 1;
+					shorten = true;
 				}
 
 				if (shorten)
@@ -1523,7 +1523,6 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 
 	const char *p;
 	unsigned char c;
-	int unstress_mark;
 	int length;
 
 	length = strlen(ph) + strlen(string);
@@ -1531,21 +1530,21 @@ void AppendPhonemes(Translator *tr, char *string, int size, const char *ph)
 		return;
 
 	// any stressable vowel ?
-	unstress_mark = 0;
+	bool unstress_mark = false;
 	p = ph;
 	while ((c = *p++) != 0) {
 		if (c >= n_phoneme_tab) continue;
 
 		if (phoneme_tab[c]->type == phSTRESS) {
 			if (phoneme_tab[c]->std_length < 4)
-				unstress_mark = 1;
+				unstress_mark = true;
 		} else {
 			if (phoneme_tab[c]->type == phVOWEL) {
 				if (((phoneme_tab[c]->phflags & phUNSTRESSED) == 0) &&
-				    (unstress_mark == 0)) {
+				    (unstress_mark == false)) {
 					tr->word_stressed_count++;
 				}
-				unstress_mark = 0;
+				unstress_mark = false;
 				tr->word_vowel_count++;
 			}
 		}
