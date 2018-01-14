@@ -466,15 +466,15 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 
 		if ((tr->langopts.param[LOPT_REDUCE] & 0x2) && (stress_level >= pl->wordstress)) {
 			// treat the most stressed syllable in an unstressed word as stressed
-			stress_level = 4;
+			stress_level = STRESS_IS_PRIMARY;
 		}
 	}
 
-	if (condition == isMaxStress)
+	if (condition == STRESS_IS_PRIMARY)
 		return stress_level >= pl->wordstress;
 
-	if (condition == isStressed) {
-		if (stress_level > 3)
+	if (condition == STRESS_IS_SECONDARY) {
+		if (stress_level > STRESS_IS_SECONDARY)
 			return true;
 	} else {
 		if (stress_level < condition_level[condition])
@@ -633,11 +633,11 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		case CONDITION_IS_OTHER:
 			switch (data)
 			{
-			case isDiminished:
-			case isUnstressed:
-			case isNotStressed:
-			case isStressed:
-			case isMaxStress:
+			case STRESS_IS_DIMINISHED:
+			case STRESS_IS_UNSTRESSED:
+			case STRESS_IS_NOT_STRESSED:
+			case STRESS_IS_SECONDARY:
+			case STRESS_IS_PRIMARY:
 				return StressCondition(tr, plist, data, 0);
 			case isBreak:
 				return (ph->type == phPAUSE) || (plist_this->synthflags & SFLAG_NEXT_PAUSE);
