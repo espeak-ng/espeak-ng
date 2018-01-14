@@ -1366,7 +1366,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 				if ((stress == STRESS_IS_SECONDARY) && (stressflags & S_NO_AUTO_2))
 					continue; // don't use secondary stress
 
-				// don't put secondary stress on a light syllable if the rest of the word (excluding last syllable) contains a heavy syllable
+                                // don't put secondary stress on a light syllable if the rest of the word (excluding last syllable) contains a heavy syllable
 				if ((v > 1) && (stressflags & S_2_TO_HEAVY) && (syllable_weight[v] == 0)) {
 					bool skip = false;
 					for (int i = v; i < vowel_count - 1; i++) {
