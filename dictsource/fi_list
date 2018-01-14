@@ -109,23 +109,23 @@ _16      k'u:sitoista
 _17      s'eitsem&nt,oista
 _18      k'ahdeksant,oista
 _19      'yhdeks&nt,oista
-_2X      k'aksikymment&
-_3X      k'olmekymment&
-_4X      n'elj&kymment&
-_5X      v'i:sikymment&
-_6X      k'u:sikymment&
-_7X      s'eitsem&Nk,ymment&
-_8X      k'ahdeksaNk,ymment&
-_9X      'yhdeks&Nk,ymment&
-_0C      s'ata:_
+_2X      kaksik%ymm%ent%&
+_3X      kolmek%ymm%ent%&
+_4X      nelj&k%ymm%ent%&
+_5X      vi:sik%ymm%ent%&
+_6X      ku:sik%ymm%ent%&
+_7X      seitsem&Nk%ymm%ent%&
+_8X      kahdeksaNk%ymm%ent%&
+_9X      yhdeks&Nk%ymm%ent%&
+_0C      s,ata:_
 _1C      s'ata
-_0M1     t'uhat:a
+_0M1     t,uhat:a
 _1M1     t'uhat          // no '1' before thousand
-_0M2     m'iljo:na:
+_0M2     m,iljo:na:
 _1M2     m'iljo:na
-_0M3     m'iljardia
+_0M3     m,iljardia
 _1M3     m'iljardi
-_0M4     b'iljo:na:
+_0M4     b,iljo:na:
 _1M4     b'iljo:na
 _dpt     pilk:u        // comma
 
