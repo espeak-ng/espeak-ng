@@ -563,7 +563,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
-		tr->langopts.param[LOPT_SONORANT_MIN] = 120; // limit the shortening of sonorants before short vowels
 
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 
@@ -653,7 +652,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY; // mark unstressed final syllables as diminished
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
-		tr->langopts.param[LOPT_SONORANT_MIN] = 130; // limit the shortening of sonorants before short vowels
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA;
 		tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND; // variant form of numbers before thousands
@@ -703,7 +701,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
-		tr->langopts.param[LOPT_SONORANT_MIN] = 120; // limit the shortening of sonorants before short vowels
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER | NUM_DFRACTION_4;
 		tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;
@@ -988,7 +985,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.unstressed_wd2 = 2;
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 2; // remove lengthen indicator from unstressed or non-penultimate syllables
 		tr->langopts.param[LOPT_IT_DOUBLING] = 1; // double the first consonant if the previous word ends in a stressed vowel (changed to =1, 23.01.2014 - only use if prev.word has $double)
-		tr->langopts.param[LOPT_SONORANT_MIN] = 130; // limit the shortening of sonorants before short vowels
 		tr->langopts.param[LOPT_REDUCE] = 1; // reduce vowels even if phonemes are specified in it_list
 		tr->langopts.param[LOPT_ALT] = 2; // call ApplySpecialAttributes2() if a word has $alt or $alt2
 		tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_DFRACTION_1 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;

@@ -1,2 +1,4 @@
 name Aragonese
 language an
+
+sonorant_min 120  // limit the shortening of sonorants before short vowels

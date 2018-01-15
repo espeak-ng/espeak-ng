@@ -4,3 +4,4 @@ language cy
 intonation 4
 letterVowel w
 letterVowel y
+sonorant_min 120  // limit the shortening of sonorants before short vowels

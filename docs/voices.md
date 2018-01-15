@@ -25,6 +25,7 @@
   - [dictionary](#dictionary)
   - [dictrules](#dictrules)
   - [replace](#replace)
+  - [sonorant_min](#sonorant_min)
   - [stressRule](#stressrule)
   - [stressLength](#stresslength)
   - [stressAdd](#stressadd)
@@ -372,6 +373,12 @@ e.g.
 
 The phoneme mnemonics can be defined for each language, but some are
 listed in [Phonemes](phonemes.md).
+
+### sonorant_min
+
+	sonorant_min <value>
+
+increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 
 ### stressRule
 

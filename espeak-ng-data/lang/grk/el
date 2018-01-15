@@ -1,2 +1,4 @@
 name Greek
 language el
+
+sonorant_min 130  // limit the shortening of sonorants before short vowels

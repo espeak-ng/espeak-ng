@@ -4,4 +4,4 @@ language pap
 status testing
 
 phonemes base2
-
+sonorant_min 120  // limit the shortening of sonorants before short vowels

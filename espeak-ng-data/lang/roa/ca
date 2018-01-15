@@ -1,2 +1,4 @@
 name Catalan
 language ca
+
+sonorant_min 120  // limit the shortening of sonorants before short vowels

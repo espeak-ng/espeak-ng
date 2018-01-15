@@ -168,9 +168,9 @@ static MNEM_TAB keyword_tab[] = {
 	{ "l_prefix",         0x100+LOPT_PREFIXES },
 	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
 	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
-	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
 	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
+	{ "sonorant_min",   0x100+LOPT_SONORANT_MIN },
 
 	// these are alpha features that need to be tested and categorized
 	{ "letterVowel", V_LETTER_VOWEL },

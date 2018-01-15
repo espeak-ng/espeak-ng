@@ -1,2 +1,4 @@
 name Interlingua
 language ia
+
+sonorant_min 120  // limit the shortening of sonorants before short vowels
