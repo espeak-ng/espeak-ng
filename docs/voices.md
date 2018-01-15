@@ -24,6 +24,7 @@
   - [phonemes](#phonemes)
   - [dictionary](#dictionary)
   - [dictrules](#dictrules)
+  - [dieresis](#dieresis)
   - [replace](#replace)
   - [sonorant_min](#sonorant_min)
   - [stressRule](#stressrule)
@@ -352,6 +353,12 @@ voice. Rule numbers are in the range 0 to 31 and are specific to a
 language dictionary. They apply to rules in the language's `*_rules`
 dictionary file and also its `*_list` exceptions list. See
 [Text to Phoneme Translation](dictionary.md#conditional-rules).
+
+### dieresis
+
+	dieresis <value>
+
+If set to 1, pronounce accented characters as start of a new syllable
 
 ### replace
 

@@ -164,12 +164,12 @@ static MNEM_TAB keyword_tab[] = {
 	{ "dict_min",     V_DICTMIN },
 
 	// these just set a value in langopts.param[]
-	{ "l_dieresis",       0x100+LOPT_DIERESES },
 	{ "l_prefix",         0x100+LOPT_PREFIXES },
 	{ "l_regressive_v",   0x100+LOPT_REGRESSIVE_VOICING },
 	{ "l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE },
 	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
+	{ "dieresis",       0x100+LOPT_DIERESIS },
 	{ "sonorant_min",   0x100+LOPT_SONORANT_MIN },
 
 	// these are alpha features that need to be tested and categorized

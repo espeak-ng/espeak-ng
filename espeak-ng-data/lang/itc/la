@@ -1,5 +1,6 @@
 name Latin
 language la
+dieresis 1
 stressRule 2 33 0 2
 // rule=penultimate
 // flags=0100001 (no automatic secondary stress + don't stres monosyllables)
@@ -10,3 +11,4 @@ stressRule 2 33 0 2
 words 2
 
 // Note: The Latin voice needs long vowels to be marked with macrons
+

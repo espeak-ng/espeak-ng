@@ -469,7 +469,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.vowel_pause = 0x30;
-		tr->langopts.param[LOPT_DIERESES] = 1;
 		tr->langopts.param[LOPT_PREFIXES] = 1;
 
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_ROMAN | NUM_1900;
@@ -1104,7 +1103,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_NO_AUTO_2;
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
-		tr->langopts.param[LOPT_DIERESES] = 1;
 		tr->langopts.numbers = NUM_ROMAN;
 		tr->langopts.max_roman = 5000;
 	}
@@ -1116,7 +1114,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags = S_NO_AUTO_2;
 		tr->langopts.unstressed_wd1 = 0;
 		tr->langopts.unstressed_wd2 = 2;
-		tr->langopts.param[LOPT_DIERESES] = 1;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
 		tr->langopts.numbers2 = NUM2_THOUSANDS_VAR4;
 		tr->langopts.max_roman = 5000;
@@ -1170,7 +1167,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.vowel_pause = 0x30; // ??
-		tr->langopts.param[LOPT_DIERESES] = 1;
 		tr->langopts.param[LOPT_PREFIXES] = 1;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x100; // devoice at end of word
 

@@ -300,7 +300,7 @@ extern ALPHABET *current_alphabet;
 #define AL_NO_SYMBOL    0x10 // don't repeat "symbol" or "character"
 
 #define N_LOPTS       21
-#define LOPT_DIERESES  1
+#define LOPT_DIERESIS  1
 // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
 // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
 #define LOPT_IT_LENGTHEN 2

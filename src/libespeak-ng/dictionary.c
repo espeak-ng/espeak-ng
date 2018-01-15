@@ -2312,7 +2312,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 								while ((p[0] = p[n]) != ' ')  p++;
 								while (n-- > 0) *p++ = ' '; // replacement character must be no longer than original
 
-								if (tr->langopts.param[LOPT_DIERESES] && (lookupwchar(diereses_list, letter) > 0)) {
+								if (tr->langopts.param[LOPT_DIERESIS] && (lookupwchar(diereses_list, letter) > 0)) {
 									// vowel with dieresis, replace and continue from this point
 									p = p2;
 									continue;
