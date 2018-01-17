@@ -319,16 +319,15 @@ typedef struct {
 #define CONDITION_IS_OTHER 0x80
 
 // other conditions (stress)
-#define isDiminished   0
-#define isUnstressed   1
-#define isNotStressed  2
-#define isStressed     3
-#define isMaxStress    4
+#define STRESS_IS_DIMINISHED    0       // diminished, unstressed within a word
+#define STRESS_IS_UNSTRESSED    1       // unstressed, weak
+#define STRESS_IS_NOT_STRESSED  2       // default, not stressed
+#define STRESS_IS_SECONDARY     3       // secondary stress
+#define STRESS_IS_PRIMARY       4       // primary (main) stress
+#define STRESS_IS_PRIORITY      5       // replaces primary markers
+#define STRESS_IS_EMPHASIZED	6       // emphasized
 
 // other conditions
-#define isBreak        5 // pause phoneme or (stop/vstop/vfric not followed by vowel or (liquid in same word))
-#define isWordStart    6
-#define isWordEnd      8
 #define isAfterStress  9
 #define isNotVowel    10
 #define isFinalVowel  11
@@ -336,6 +335,9 @@ typedef struct {
 #define isFirstVowel  13
 #define isSecondVowel 14
 #define isTranslationGiven 16 // phoneme translation given in **_list or as [[...]]
+#define isBreak        17 // pause phoneme or (stop/vstop/vfric not followed by vowel or (liquid in same word))
+#define isWordStart    18
+#define isWordEnd      19
 
 #define i_StressLevel  0x800
 
