@@ -224,8 +224,8 @@ atkal     $u+
 bet       $u+ $pause
 bez       $u+
 bija      $u+
-būt       $u+
 būs       $u+
+būt       $u+
 caur      $u+
 cik       $u+
 dēļ       $u+
@@ -243,55 +243,56 @@ kam       $u
 kas       $u+
 ka        $u
 kā        $u+ $brk
-kur       $u+
 kopš      $u
 ko        $u+
+kur       $u+
 labad     $u
 lai       $u+
 līdz      $u+
 ļoti      $u+
 nav       $u+
-ne        $u+
 nedz      $u  $brk
-ne        $u+ $brk
+ne        $u+
 nevis     $u  $brk
+nez       $u
 no        $u+
 nu        $u+
 par       $u
 par       $u+
+pat       $u
 pa        $u
 pār       $u
 pēc       $u+
-pat       $u
+piemēram  $u $pause
+piem      $u $pause
 pie       $u
 pirms     $u+
-piem      $u $pause
-piemēram  $u $pause
-protams   $u+
 pret      $u+
 priekš    $u
+protams   $u+
 starp     $u
 šeit      $u+
 šo        $u+
 taču      $u $pause
 tad       $u+
-tas       $u+
 tagad     $u+
+tas       $u+
 te        $u+
-tikt      $u+
 tiek      $u+
-tika      $u+
 tikai     $u+
+tika      $u+
 tiklab    $u $brk
+tikt      $u+
 tomēr     $u $pause
-turpretim $u $2 $pause
+toties    $u
 turpat    $u+ $2
+turpretim $u $2 $pause
 turpretī  $u $2 $pause
 tur       $u+
 un        $u
 uz        $u
-vai       $u+ $brk
 vairs     $u
+vai       $u+ $brk
 var       $u+
 vien      $u+ $brk
 virs      $u
@@ -333,8 +334,6 @@ mums      $u+
 mūsos     $u+
 mūs       $u+
 mūsu      $u+
-nedz      $u
-nez       $u
 pašai     $u+
 pašam     $u+
 pašas     $u+
@@ -568,6 +567,7 @@ kanapē            $3
 kastro       $alt
 kazino       $alt
 kimono       $alt
+kino         $alt
 kioto        $alt $2
 kolombo      $alt $2
 kolorado     $alt $3
@@ -579,6 +579,7 @@ lego         $alt
 leo          $alt
 leporello    $alt
 lesoto       $alt
+logo         $alt
 loto         $alt
 lumbago      $alt
 maestoso     $alt

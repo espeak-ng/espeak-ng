@@ -130,14 +130,14 @@ phoneme uo
   vwl starttype #u endtype #a
   length 270
   lng
-  FMT(vdiph2/uaa, 100)
+  FMT(vdiph2/ua, 100)
 endphoneme
 
 phoneme uo`     // shorter version of uo
   vwl starttype #u endtype #a
   length 150
   lng
-  FMT(vdiph2/uaa, 100)
+  FMT(vdiph2/ua, 100)
 endphoneme
 
 phoneme oi
@@ -274,7 +274,7 @@ phoneme l
   CALL vowelstart_l
 
   IF prevPh(a) OR prevPh(a:) THEN
-    VowelEnding(l/xl, 30) // FIXME
+    VowelEnding(l/xl, 20) // FIXME
   ELSEIF prevPh(isVowel) THEN
     VowelEnding(l/xl, 10)
   ENDIF

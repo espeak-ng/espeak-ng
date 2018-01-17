@@ -258,9 +258,10 @@
      _L20) e (si_            _!e         // esi
      _L20) e (smu_           _!e         // esmu
      _L20) e (sot_           _!e         // esot
-        m) e (dī               e
        _m) e (dūzL04_          e
        _m) e (kL04_            e         // Meka
+        m) e (L86+             e
+        m) e (L87+             e
         m) e (lL88             E
         m) e (tr               e
        _n) e (@+               e
@@ -364,6 +365,7 @@
 
 
     // specific words ------------------------------------------------------------------- //
+       ap) ē (d+               e:
         b) ē (g@               e:
      cilv) ē (L75              E:
         d) ē (ļ_+              e:
@@ -384,7 +386,7 @@
   konstat) ē                   e:
        kr) ē (t+               e:
         ķ) ē (dL05_            e:    // ķēde
-      L10) ē (du_              e:
+      L10) ē (du_<             e:
       L76) ē (tu_              e:
        _l) ē (L83+             e:    // lēst
         m) ē (L77L05           e:
@@ -395,6 +397,7 @@
         ņ) ē (m++              e:
        ot) ē (k+               e:
        _p) ē (c+               e:
+        p) ē (dL04_            E:
        _p) ē (rL01_            e:    // pērs
         p) ēte (r              e:te  // Pēter..
      piem) ē (r                E:
@@ -661,6 +664,7 @@ L46L45L45) o (<<           uo
         l) o (L90L05_      uo        // ..loze
        _l) o (žL04_        o:        // loža
       lūk) o (++           uo
+    _ļaud) o (nL04_        uo        // Ļaudona
     maest) o               o
       maj) o               o
      makr) o               o:
@@ -871,7 +875,7 @@ L46L45L45) o (<<           uo
        kr) og              uog
         l) og (ar          og
        _l) og (L01_        uog       // logs
-        l) ogo             ogo
+        l) ogo (@          ogo
            ogo             uoguo
       osm) og              og
        pr) og (L68         og
