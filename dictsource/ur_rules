@@ -22,13 +22,22 @@
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
-.L01  َ ِ ُ و ی ع ا ے 
+.L01  َ ِ ُ و ی ع ا ے آ ٰ ٗ
 
 // Consonants
 .L02  ب بھ پ پھ ت تھ ٹ ٹھ ث ج جھ چ چھ ح خ د دھ ڈ ڈھ ذ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک کھ گ گھ ل م ن ہ ئ
 
-// Letter group - L03:  Most of the letters
-.L03  ا ب بھ پ پھ ت تھ ٹ ٹھ ث ج جھ چ چھ ح خ د دھ ڈ ڈھ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک کھ گ گھ ل م ن و ہ ئ ی ے ٰ
+// Letter group - L03
+.L03  آ ا ب بھ پ پھ ت تھ ٹ ٹھ ث ج جھ چ چھ ح خ د دھ ڈ ڈھ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک کھ گ گھ ل م ن و ہ ئ ی ے ٰ
+
+//  Letter group L04
+.L04  ب ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ل م ن
+
+//  Letter group L05
+.L05  ب ت ث ج ح خ د ذ ر ز س ش ص ض ع غ ف ق ک ل م ن و ہ
+
+//  Letter group L06
+.L06  آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ل م ن و ہ ی ٰ
 
 // VOWELS
 
@@ -69,7 +78,7 @@ _) او	o:
 _) ای	e:
 	ائ (L02	a:I
 	اہ(_	a:H
-	_) اتن	'Itn
+	_)اتن(L01	'Itn
 	_) اتر	Ut'aR
 	_) اتر (L01	UtR
 	_) الٹ	Ul'at.
@@ -85,7 +94,7 @@ _) ای	e:
 	افتتاح	,ItIt'a:H
 	اسلام	,Isl'a:m
 	_) انسان	Ins'a:n
-	_) انت (L02L01	'Int,a
+	_) انت (L02ا	'Int,a
 	_) امید	Um'i:d
 	اً(_S2	'an
 	_) امکان	,Imk'a:n
@@ -122,13 +131,13 @@ _) ای	e:
 	استعف	Ist'i:f
 	@) ات (_S2	'a:t
 	_) انتظ	'Int,Iz.
-	_) اخت (L02	,IxtI
-	_) اقت (L02	,IqtI
+	_)اخت(L02ا	,IxtI
+	_)اقت(L02ا	,IqtI
 	_) اح (L02	'EH
-	_) است (L02	,IstI
-	_) ارت (L02	,IRtI
+	_)است(L02ا	,IstI
+	_)ارت(L02ا	,IRtI
 	_) ادار	Ida:R
-	_)انک(L02L01	InkI
+	_)انک(L02ا	InkI
 	_)انہتر	UnHataR
 	_)او(ا	av
 	_)انہ(L02L01	InHI
@@ -137,7 +146,7 @@ _) ای	e:
 	_)اٹھتیس	at.#ti:s
 	_)اٹھلا	It.#la:
 	_)اٹھ(و	Ut.#
-	_)اکت(L02L01	IktI
+	_)اکت(L02ا	IktI
 	_)اکسا	Uksa:
 	_)اکٹھ(L01	Ikat.t.#
 	_)اکہر	IkEHR
@@ -150,9 +159,10 @@ _) ای	e:
 	_)اتار	Uta:R
 	_)اترو(L01	UtaRv
 	_)ابکائ	Ubka:
-	_)اجت(L02L01	IJtI
+	_)اجت(L02ا	IJtI
 	_)اجا(ر	IJa:
 	_)اجال	UJa:l
+	_)الیکٹ	Ile:kt.
 	_)اجاڑ	UJa:r.
 	_)اچھال	Uc#a:l
 	_)اداس	Uda:s
@@ -163,22 +173,28 @@ _) ای	e:
 	_)ارا(د	IRa:
 	_)اونچ	u:nc
 	اں	a~
-	_)انج(L02L01	InJI
-	_)امت(L02L01	ImtI
-	_)انح(L02L01	InHI
-	_)انخ(L02L01	InxI
+	_)انج(L02ا	InJI
+	_)امت(L02ا	ImtI
+	_)انح(L02ا	InHI
+	_)انخ(L02ا	InxI
 	_)انس(پ	Ins
-	_)انس(L02L01	InsI
+	_)انس(L02ا	InsI
 	_)انس(ٹ	Ins
 	_)انسٹھ	Unsat.#
 	_)انشا	InSa:
 	_)انش(L02L01	InSI
-	_)انص(L02L01	Ins.I
-	_)انض(L02L01	InzI
-	_)انق(L02L01	InqI
-	_)الت(L02L01	IltI
-	_)انف(L02L01	InfI
-	_)ال(L03L03L03P2	al
+	_)انص(L02ا	Ins.I
+	_)انض(L02ا	InzI
+	_)انق(L02ا	InqI
+	_)الت(L02ا	IltI
+	_)انف(L02ا	InfI
+	_)ال(L06L06L06P2	al
+	_L05)اب(L04_	a:bI
+	_L05)ات(L04_	a:tI
+	_L05)اغ(L04_	a:QI
+	_L05)ال(L04_	a:lI
+	_L05)اج(L04_	a:JI
+	_L05)اح(L04_	a:HI
 
 .group آ
 	آ	a:
@@ -226,7 +242,7 @@ _) ای	e:
 	یع(_	i:
 	@) ی	i:
 	@) یں (_	e~
-	یّ	jj
+	یّ	j:
 	@) یت (_S2	i:;'at
 	_) یو	jO
 	ی (و	e:
@@ -236,6 +252,7 @@ _) ای	e:
 	یں	e~
 	L03)یک(ٹ	e:k
 	L03L01)یا(_S2	ja:
+	L06L06L06L06)ی(_S1	i:
 
 .group ے		// yeh barree
 	ے	e:
@@ -503,13 +520,13 @@ _) ای	e:
 	@) س (ٹ	s
 	سندھ	s'Ind#
 	سیکھ	s'i:k#
-	@) س (ت	s
+	@)ست(_	st
 	_) سپرد	sUp'URd
 	_) سہ (L02	s'EH
 	سیدھ	s'i:d#
 	سیاست	sja:s'at
 	سرگرم	s,aRg'aRm
-	L02) ستان (_	Ist'a:n
+	L03L02) ستان (_	Ist'a:n
 	L02) ستانی (_	Ist'a:ni
 
 .group ش
@@ -521,7 +538,7 @@ _) ای	e:
 	شاعر	Sa:'a:IR
 	_) شعرا	S'ORa:
 	_) شعل	S'Ol
-	@) ش (ت	S
+	@)شت	St
 	_) شخص	S'axs.
 	_) شہ (L02	S'EH
 	شرمند	S,aRm'Ind
