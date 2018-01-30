@@ -1,4 +1,4 @@
-
+﻿
 
 //=========================================================
 // German
@@ -434,7 +434,7 @@ endphoneme
 
 phoneme r     
   liquid uvl
-  ipa ?
+  ipa ʀ
   lengthmod 6
   length 110
   IF nextPhW(isVowel) THEN
