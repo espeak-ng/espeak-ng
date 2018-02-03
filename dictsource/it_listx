@@ -198,6 +198,7 @@ anatroccol  $alt
 andine	$2
 androgin $2
 aneddot $2  $alt
+anelito	an'Elito/
 anemone  $alt
 anetol $3
 anfiarao $3
@@ -1923,7 +1924,7 @@ implicit $2
 improperi	imp@-*'op,eRi $only
 incazzati	ink,a_ts'ati
 incerti	$2 $alt
-incipit	$1 $only
+incipit	'intSipit
 incivil	intSiv'il
 incognit $2  $alt
 incolum	$2
@@ -1976,7 +1977,6 @@ insubre $1
 insubri $1
 insudici	$2
 integr $1
-intellighenzia  $alt
 intemperia	$3
 intemperie	$3
 interim $1
@@ -1988,7 +1988,7 @@ interossee	$3
 interossei	$3
 interosseo	$3
 interpol $3
-interprete $2
+interprete	int'E@-*p@-*ete
 intersind $3
 intonarumori  $alt2
 intorn  $alt2
@@ -3374,11 +3374,9 @@ rotor  $alt
 rott  $alt2
 rotulei	$2
 rotuleo $2
-rotz  $alt
-rovere  $alt2
 rovesci  $alt
 rovescia  $alt
-rozz  $alt2
+rozz	$alt2
 rubel $2
 rubric $2
 rufin $1
@@ -4064,6 +4062,7 @@ ubold  $alt
 ubriac $3
 ucronia $3
 ulcer $1
+ultralegger	$4
 ultrasottil	ult@-*a||sot:'il
 ultrasuon	ult@-*,a||su'On
 ultraterreno  $alt2
@@ -4251,5 +4250,5 @@ zozz	ts'O:ts2:
 zozzon	tsots2:'on
 zuccari $1
 zuccher	dz'uk:e*
-
+zulu	dz,ul'u: $only
 

@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2017  november 2 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 February 2 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -884,6 +884,7 @@ dance	d'Ens
 database	datab'Eiz
 deejay		_^_EN
 default	_^_EN
+delivery	$2
 desaparecido	d,EzapaReT'ido
 design	d,ez'aIn	$only
 designer	d,ez'aIne@-*
@@ -906,7 +907,7 @@ dropbox	d@-*'Op||b,O:ks
 ebook	'i:b,Uk
 edition	ed'iSon $onlys
 editor	'Edito@-*	$onlys
-eloquence		_^_EN
+eloquence	'El,Okw2ens
 emergency	em'e@-*dZensi
 emoji	em'o:dZi
 emule	,i||_mj'ul
@@ -1102,6 +1103,7 @@ pointer	$1
 poker	$1 $alt
 police	p,Ol'i:s	$onlys
 portacontainer	$4
+portable	p'O@-*t@b,Ol
 poster	$1	$onlys
 power	p'a:|we@-*
 premier	$1
@@ -1135,7 +1137,7 @@ rocker	$1
 round	@-*'awnd $onlys
 router	@-*'u:te@-*
 routine	@-*Ut'iN
-rover	$1	$only
+rover	$1
 rugby	@-*'a/gbi
 saver	_^_en $onlys
 scanner	$1
@@ -1165,6 +1167,7 @@ sitar	$1	$only
 sitter	$1	$onlys
 skipper	$1
 sky	sk'aI
+skyline	sk'aI||l'ain
 skype	sk'a/:ip
 slider	zl'aIde@-*
 smartphone	zm'a@-*tfon
@@ -1182,6 +1185,7 @@ spoiler	$1
 sponsor	$1
 stage	st'EidZ $onlys
 stalking	st'O:lkiN
+standalone	st'E:nd||,a/lon
 standby	st'End||b'aI
 standing	st'E:ndiN
 starter	$1
@@ -1717,6 +1721,7 @@ cos'altro	koz'a:lt@-*o/
 dov'è	dov'E
 dov'erano	dov'ERano
 qual'è	kwal''E
+gl'irti	l^'i@-*ti
 tant'è	taNt'E
 l'ancora	l'ankoRa
 un'ancora	un'a:nkoRa
@@ -2460,6 +2465,7 @@ luigi	lu'i:dZI
 luigia	lU'i:dZa
 manolo	ma/n'Olo
 manuel	$1 $only
+Marcel	ma@-*s'El
 marciano	$2 $capital
 marcon $2
 margaret	$1 $only
@@ -2469,6 +2475,7 @@ mariah	$2
 mariangel	$3
 mariapaola	maRIap'aola
 mariapia	$4
+mary	m'E:*i	$only
 marilyn	m'E:r*ilIN
 marylin	m'ERilin
 marzott	ma@-*dz'Ot:
@@ -2535,6 +2542,7 @@ potter	$1	$onlys
 presley	p@-*'e:zleI
 rafael	$3
 ray	@-*'eI
+reaper	@-*'i:pe@-*
 renault	@-*en'o
 rizzoli $2
 robinson	$1 $alt $onlys
@@ -2954,6 +2962,7 @@ benedic	$3
 benedicano	$3
 bestemmino	$2
 biasimano	bj'azim,ano
+biodegradano	$4
 bisticcino	$2
 boccino	$1
 boicottino	$3
@@ -3533,6 +3542,7 @@ impressionino	$3
 improvvisano	$3
 improvvisino	$3
 impugnano	$2
+impugnino	$2
 impuntano	$2
 impuntino	$2
 imput	$1
@@ -4698,6 +4708,7 @@ usano	$1
 uscii	uS'i:j
 usino	$1
 ustiono	$3 $alt
+usurano	$2
 usurpano	$2
 utilizzino	$3
 vaccinino	$2
@@ -4733,6 +4744,7 @@ versino	$1
 viaggiano	$1
 vibrano	$1
 videro	$1
+vidimano	$1
 vietano	$1
 vincolano	$1
 vincolino	$1
@@ -4807,6 +4819,7 @@ accertati	$2 $atstart
 affittasi	$2
 affrettati	$2 $atstart
 aggiornal	$2	$alt2
+aggiungiti	$2
 aiutaci	$2
 aiutal	aj'utal
 aiutami	$2

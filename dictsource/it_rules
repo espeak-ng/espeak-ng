@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2017 november 2 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2018 February 2 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -238,6 +238,7 @@
 	gl (ì	l^
 	gli (A	l^
 	_) gl	gl
+
 	gli (cA	gli
 	gli (chA	gli
 	gn	n^
