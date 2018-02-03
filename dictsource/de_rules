@@ -1,4 +1,4 @@
-﻿
+
 // ***************************************************************************
 // *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -26,14 +26,6 @@
 
 // This file is UTF-8 encoded
 
-
-// Hours
-.L05 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-
-// Minutes
-.L06 0 1 2 3 4 5
-
-
 .group a
      _) a (_       A:
         a          A
@@ -44,7 +36,7 @@
         ae (CC     E
 
         a (C%      a
-a        a (CC      a
+        a (CC      a
         a (sch     a
         a (x       a
         a (ph      A:
@@ -53,7 +45,6 @@ a        a (CC      a
         ai         aI
         ay         aI
         au         aU
-auer	aU3
         auh (_     aU
 
         ab (t_     A:p
@@ -85,7 +76,6 @@ auer	aU3
      _) an (a      %an
      _) a (natioP1 'A:
      _) anath      anat
-ein) ander	'and3
      _) an (der    an
      _) angli (C   aNgli:
      _) anglo (@   ,aNglo:
@@ -132,6 +122,8 @@ ein) ander	'and3
      g) al (_      'A:l
      k) al (_      'A:l
      n) al (_      'A:l
+  &kan) al (_      ,A:l
+ &sign) al (_      ,A:l
      r) al (_      'A:l
      t) al (_      'A:l
      _) aller (@P5 'al@r
@@ -188,6 +180,7 @@ ein) ander	'and3
      _) beige (_   be:S
      _) beige (@   baIg@
      _) be (inhP2  b@
+     _) beo (b     b,@o:
 
      _) ba (lA     b%a
      _) ba (ll@    b%a
@@ -202,10 +195,7 @@ ein) ander	'and3
      _) b (eet     b
      _) b (enzin   b
      _) b (erC     b
-        be (ding  b@
         be (reich  b@
-        be (recht  b@
-be (richt	b@
      _) b (esen    b
      _) b (ess     b
      _) b (esten   b
@@ -218,19 +208,16 @@ be (richt	b@
         baby       _^_EN
         beten      be:t@n
      _) bike       _^_EN
-binde	bInd@
      _) bis (hP3   b%Is
      _) blue       _^_EN
         board      _^_EN
      _) boom       _^_EN
         bo (sh     bo:
-buchstab	bu:xStA:b
      _) bundes     b'Und@s
-bücher	by:C3r
 
 
 .group c
-     _) c (_       tse:
+     _) c (_       se:
      _) c (L01A    k  // allow cl cr  at start of word
         c          k
      c) c 
@@ -271,7 +258,6 @@ bücher	by:C3r
      ü) chen (_    C@n
 
         chs        ks
-ei) chs	Cz
         chance     SA~s@
         chara (kt  k%ara
      _) ch (ic     S
@@ -304,7 +290,7 @@ ei) chs	Cz
   soun) d          d
 
      _) dabei (P5  dA:'baI
-     _) dafür (P5  dA:f'y:r
+     _) dafür (P5  dA:f'yr
      _) daher (P5  dA:h'Er
      _) dahin (P5  dA:h'In
      _) dahinter (P8 dA:h'Int3
@@ -332,7 +318,6 @@ ei) chs	Cz
         design (_  d%IzaIn
         dge (_     _^_EN
      _) dia        d,i:a
-dialogf	di:al'o:kf
      _) diver      d%i:vEr
      _) dort (C@P4 d'Ort
         drive      _^_EN
@@ -366,13 +351,13 @@ dialogf	di:al'o:kf
 
         ei         aI
         eu         OY
-        ey         i:
-        ey (_      aI
+        ey         aI
+        ey (_      e:
 
         eb (t_     e:p
         eg (t_     e:k
 
-        een (_     'e:n
+        een (_     'e:n-
         ell (_     'El
     ll) e (l       e:
      &) e (_S1     @
@@ -450,6 +435,7 @@ dialogf	di:al'o:kf
      _) eil (aP3   'aIl
      _) eil (fP3   'aIl
      _) ein (@P3   _!'aIn
+        ein (and   _|%aIn
      _) eine (r@   aIn@
      _) einig      aInIg
      m) eir (_     aI3
@@ -497,7 +483,7 @@ dialogf	di:al'o:kf
      @) ett (_     'Et
         eum (_     'e:Um
     @@) eum (_     =e:Um
-     _) eur (op    %OYr
+     _) eur (op    %OY
      @) eur (_     'Y:r
         euse (_    'Y:z@
         eusen (_   'Y:z@n
@@ -517,10 +503,8 @@ dialogf	di:al'o:kf
      _) farb (l@P4 f'arb
      _) farc       fars
      _) fein (@P4  f'aIn
-fenster	fEnst@r
-     _) fertig (C@P6 f'ErtIC
+     _) fertig (C@P6 f'ErtiC
      _) fest (@P4  f'Est
-festig	fEstIg#
      _) flug       fl'u:g
         foto       fo:to:
      _) free       _^_EN
@@ -530,7 +514,6 @@ festig	fEstIg#
      _) froh (@P4  fr'o:
      _) frohlock   fro:l'Ok
      _) fung (A    fUNg
-fügbar	fy:kbA:r
 
 
 .group g
@@ -543,8 +526,8 @@ fügbar	fy:kbA:r
         g (sA      g
         gd (_N     kt
      _) gh (A      g
-     _) g (nA      g  // allow _gn
-     B) gn (A      gn
+     _) g (nA      g@-  // allow _gn
+     B) gn (A      g@-n
 
      i) gt (_      Ct
     ei) gt (_      kt
@@ -554,13 +537,10 @@ fügbar	fy:kbA:r
      _) g (eHC     g         //  hC, lC, mC, nC, rC
 
  massa) g          Z
-gabe	gA:b@
-gehr		ge:r
      @) ght (_     _^_EN
         graph      grAf
         graph (_   gr'A:f
         green      _^_EN
-groß	gro:s
         guide      _^_EN
         gue (_     k
      _) güte (@P4  g'y:t@
@@ -589,13 +569,11 @@ groß	gro:s
         general (is ge:n@ral
      _) ge (ner    gE
      _) geo        g,e:o:
-       geo   (pf	g@_'O
      _) ge (orP2   g@
      _) ge (org    g%e:
         ge (rman   gE
         ge (rät    g@
         ge (strig  gE
-gestalt	g@Stalt
 
 
 .group h
@@ -812,10 +790,10 @@ formal) ie         =I@
      _) leb (C@@P3 'le:p
      _) leben (dig le:b'En
      _) lehr (C@P4 l'e:r
-     _) leit	laIt
+     _) leit (@P4  l'aIt
      _) lern (@@P4 l'Ern
      _) lexi (@    lEksi:
-     &) lich (_S4  l2IC   // [l] means devoice previous consonant
+     &) lich (_S4  l2IC   // [l2] means devoice previous consonant
      &) liche (_S5 l2IC@
      &) lichem (_S6 l2IC@m
      &) lichen (_S6 l2IC@n
@@ -841,11 +819,9 @@ formal) ie         =I@
         m          m
      m) m 
 
-        manager    mEnIdZ3r
+        manager    manEdZ3r
      _) manch      manC    // for 'manchen'
         marine     mA:r'i:n@
-maschin	maS'i:n
-meldung	m,EldUN
      _) meß (@P3   m'Es
      _) menag      m%e:nA:Z
      _) met (all   m%e:t
@@ -875,7 +851,10 @@ meldung	m,EldUN
      u) ng (i      Ng
         ng (r      Ng
         nk         Nk
+        nk (A      nk
+    fu) nk         Nk
 
+     _) natur (C@P5  nA:t'u:r
      _) na (tür    n%A:
         nce (_     _^_EN
         nces (_    _^_EN
@@ -886,12 +865,10 @@ meldung	m,EldUN
         neglig     ne:gli:Z
         neglige    ne:gli:Z
      &) ness (_N   _^_EN
-        new       _^_EN
-        nieder     ni:d@r
-nk		Nk
+        news       _^_EN
+        nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
-nummer	nUm@r
 
 .group o
      _) o (_       o:
@@ -931,7 +908,7 @@ nummer	nUm@r
     @A) o (n_      'o:
         one (_     'o:n@
         onen (_    'o:n@n
-  zitr) on         'o:n
+  zitr) on         'on
      @) oo (_      u:
      r) oo (m      u:
      z) oo (m      u:
@@ -962,7 +939,6 @@ nummer	nUm@r
      _) p (tol     p
 
         pake (t    p%ake:
-papier	pap'i:r
      _) para (@    p,ara
         passagie   pasaZ'i:
      _) peri       p,e:ri:
@@ -970,12 +946,10 @@ papier	pap'i:r
      _) periphe    p,e:ri:fe:
      _) personen (@P8 pErz'o:n@n
         person     p%Erzo:n
-        persön     p%ErzY:n
         philie     f'i:li:
      _) photo      f,o:to:
      _) pro (@     %pro:
      _) probe      pro:b@
-prüf	pry:f
 
         po (em     p%o:
         po (et     p%o:
@@ -1015,7 +989,6 @@ prüf	pry:f
 
         rangier    rA:NZ'i:r
      _) re (d      re:
-register	re:g'Ist@r
         ressourc   rEs'Urs
         revers     r%e:vErs
 
@@ -1038,7 +1011,6 @@ register	re:g'Ist@r
      _) sch (mA    S
      _) sch (nA    S
      _) sch (w     S
-ssch	sS
      _) sh (A      S
      _) sh (rA     S
      _) s (kA      s    // allow _sk
@@ -1054,14 +1026,11 @@ ssch	sS
      _) s (quA     s
      _) s (tA      S
      _) s (trA     S
-strich	StrIC
      _) s (ve      s
      _) s (wA      s
      _) s (zA      s
 
         sch        S
-seg (n	ze:g
- _) software(@P		s'OftwE:r
         sh (K      S
         sou (nd    saU
      p) s (a       s
@@ -1091,12 +1060,10 @@ seg (n	ze:g
         ste (ll    StE
      a) ste (ll    stE
         st (ah     St
-        st (art     St
         st (ä      St
         st (eh     St
         st (ö      St
         st (ü      St
-st (uf	St
         st (uh     St
         st (ung    st
 
@@ -1115,7 +1082,6 @@ st (uf	St
    täu) schen      S@n
 
         schein (lich S'aIn
-schreibung	Sr,aIbUN
      _) schul (@P5 S'u:l
      _) schul (d   S'Ul
 
@@ -1125,7 +1091,6 @@ schreibung	Sr,aIbUN
      _) selbst (@@P6 z'Elpst
         service (_S7 z%Ervi:s
         shop       _^_EN
-signal	zIgn'A:l
      _) sky        _^_EN
         soldat     z%OldA:t
      &) so (rt_    s_|O
@@ -1191,16 +1156,14 @@ signal	zIgn'A:l
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
-these	t'e:z@
-sprachsyn) these	t,e:z@
         tuerei (_  tu:@r'aI
         thrill     _^_EN
    _pa) th         t
         the (era   te:
      _) tief (@P4  t'i:f
-     @) tient (_   tsj'Ent
-     @) tion       tsj,o:n
-     @) tion (_    tsj'o:n
+     @) tient (_   tsI'Ent
+     @) tion       tsI,o:n
+     @) tion (_    tsI'o:n
      _) trail      _^_EN
      _) tranqu     _^_EN
         traver     tr%avEr
@@ -1227,7 +1190,7 @@ sprachsyn) these	t,e:z@
         ug (t_     u:k
 
      _) ueber (@P5 _|,y:b3
-     _) um (@P2    'Um
+     _) um (@P2    Um
      _) umbe (@P4  'Umb@
      _) umge (@P4  'Umg@
      _) umge (b    Umg'e:
@@ -1305,7 +1268,6 @@ sprachsyn) these	t,e:z@
      _) vehe       ve:he:
         velv (er   vElv
      _) ver (@P3   f%Er
-vergeb	fErg'e:b
         v (er      f
     _A) v (er      v
      a) v (er      v
@@ -1343,7 +1305,7 @@ vergeb	fErg'e:b
      _) voll (ko   f%Ol
      _) voll (stre f%Ol
      _) voll (z    f%Ol
-        vorder     fOrd@r
+        vorder     fOrd3
      -) vorha (nd  fo:rh'a
      _) vor (ne    'fo:r
      _) vor (n     fOr
@@ -1353,8 +1315,7 @@ vergeb	fErg'e:b
      _) voraus (P6 fo:r'aUs
      _) vorbei (P6 fo:r'baI
      _) vorher (P6 fo:rh'e:r
-vorhersag	fo:rh,e:rz,A:g
-     _) vorüber (P7 fo:r'y:b3
+     _) vorüber (P7 fo:r'yb3
 
 
 .group w
@@ -1372,9 +1333,7 @@ vorhersag	fo:rh,e:rz,A:g
      _) weg (C@P3  v'e:k
      _) weit (C@P4 v'aIt
      _) weiter (@P6 v'aIt@r
-weiterung	vaIt@rUN
      _) weither    vaIthe:r
-wetter	vEt3
      _) wieder (@P6 vi:d3
      _) wo (hin    v%o:
      _) wovor      vo:f'o:r
@@ -1413,7 +1372,6 @@ wetter	vEt3
         ziell      tsj'El
      _) zie (ge@P3 ts'i:
      _) zeit (@P4  ts'aIt
-zeitung	tsaItUN
      _) ziel (@P4  ts'i:l
      _) zier (@P4  ts'i:r
      _) zigaretten (@P10 tsi:gar'Et@n
@@ -1426,7 +1384,6 @@ zeitung	tsaItUN
      _) zu (nC     tsU
      _) zurück (@P6 tsu:r'yk
      _) zusammen (@P8  tsu:z'am@n
-zwinkern		tsvINk3n
      _) zyklo (@P5 ,tsy:klo:
         zylin      ts%i:lIn
 
@@ -1471,7 +1428,6 @@ zwinkern		tsvINk3n
      _) über (@P4  _|,y:b3
      _) über (be@P4 _!'y:b3
      _) über (gangs y:b3
-übrig	y:brIg#
 
 
 .group ß
@@ -1486,7 +1442,7 @@ zwinkern		tsvINk3n
         æ          E
         ø          W
         ç          s
-        ?          tS
+        č          tS
         š          S
         ž          Z
 
@@ -1496,8 +1452,4 @@ zwinkern		tsvINk3n
     __) - (_D      mi:nUs
     D_) - (_D      StrIC
      _) - (_D      _
-
-
-// symbols that are normally spoken when reading text
-_L05_)	: (_L06D_	%u:r	// Say time
 

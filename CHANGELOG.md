@@ -20,7 +20,6 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
-*  de (German) -- Karl Eick
 *  fi (Finnish) -- Juho Hiltunen
 *  fr (French) -- Shallowmallow, Karl Eick
 *  hak (Hakka Chinese) -- Chen Chien-ting
