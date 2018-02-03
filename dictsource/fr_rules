@@ -321,7 +321,10 @@ _eC)      e (CA++  E     // Evenement
      A) e (rA                // remerciera
    tch) e (rX      W
      @) em (me     a         // patiemment
-        em (L11      A~        // décembre
+        em (L11    A~        // décembre
+     _) em (m      A~         // j'emmène
+    _r) em (m      A~         // remmaillage
+
         em (mACC   A~        // emmancher
         em (mACAC  A~        // emmagasiner
         em (ma     E        // emmanuel
@@ -966,6 +969,8 @@ _re)	name		_^_en
 
         on (K      O~        // montre, vision
         on (n      O         // bonne, personne
+        //C) o (nn      O         // bonne, personne
+        //o (nnA      O         // bonne, personne
         on (t_     O~t2      // mont vont sont
     _m) ont (pAC   O~        // Montpellier
     _m) ont (m   O~
