@@ -5,7 +5,6 @@
 - [Phoneme Properties](#phoneme-properties)
   - [Type](#type)
   - [Properties](#properties)
-  - [Place of Articulation](#place-of-articulation)
   - [starttype](#starttype)
   - [endtype](#endtype)
   - [lengthmod](#lengthmod)
