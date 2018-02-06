@@ -5,6 +5,8 @@
 // NOTE: aii, auu, eii etc. are pronounced [a|i:], [a|u:] and [e|i],
 // but aaii, aauu and eeii must be pronounced [a:i:], [a:u:] and [e:i:].
 
+.L01 mei tei hei noi // pronouns for allative case + enclitics  doubling
+
 .group a
           a          a
           aa         a:
@@ -102,11 +104,25 @@
           k          k
           kk         k:
 
-
 .group l
           l          l
 
        @) lle (_     lle_X1    // double the initial consonant of the next word
+       @@) llekaan     llek:a:n    // after allative case -lle, double the k and p in enclitics -kaan, -k&&n, -ko, -kY, -kin, -pa and -p&. . Use @@ to exclude words two syllable words ending in -lle like nallekaan. Handles multiple enclitics, for example nallellekaankohan
+       @@) llekään     llek:&:n    
+       @@) llekin     llek:in    
+       @@) lleko     llek:o    
+       @@) llekö     llek:Y
+       @@) llepa     llep:a  
+       @@) llepä     llep:&
+       L01) llekaan     llek:a:n    // after allative case -lle, double the k in enclitics -kaan, -k&&n, -ko, -Ky and -kin. Use L01 to include one syllable pronouns meille, teille, heille, noille
+       L01) llekään     llek:&:n    
+       L01) llekin     llek:in    
+       L01) lleko     llek:o    
+       L01) llekö     llek:Y
+       L01) llepa     llep:a  
+       L01) llepä     llep:&
+
 
 
 .group m
