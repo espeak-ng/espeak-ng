@@ -3,13 +3,13 @@
 // This file is UTF8 encoded
 
 // Special characters:
-// A  vowel:   а о у ы э  е ё и ю я
-// B  soft consonant:  ь й ч щ
-// C  any consonant:
-// F  consonant, not hard: ??
-// G  voiced: б в г д ж з
-// H  hard consonant:  ъ ж ц ш
-// Y  iotated vowel, softsign:  ь е ё и ю я
+// A  vowel:			а е ё и о у ы э ю я ә ө ұ ү і
+// B  soft consonant:		ь й ч щ
+// C  any consonant:		б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь қ ң һ
+// F  consonant, not hard:	б в г д з й к л м н п р с т ф х ч щ ь
+// G  voiced:			б в г д ж з
+// H  hard consonant:		ъ ж ц ш
+// Y  iotated vowel, softsign:	ь ю я ё
 
 
 .group а
