@@ -13,14 +13,12 @@
 
 
 .group а
-	_) а (_   	a
 	_) а      	a
    	а (_   	a
 	B) а (_   	V
    	а      	V
 
 .group б
-	_) б (_   	bE
    	б (_   	p
    	б (кь  	p
    	б (кY  	p
@@ -59,7 +57,6 @@
    	б      	b
 
 .group в
-	_) в (_   	vE
    	в (_   	f
    	в (кь  	f
    	в (кY  	f
@@ -94,7 +91,6 @@
    	в      	v
 
 .group г
-	_) г (_   	gE
   _мно) г (о_ 	g
    	г (к   	x
    	
@@ -130,7 +126,6 @@ _твое) г (о_  	v
    	г      	g
 
 .group д
-	_) д (_   	dE
    	д (_   	t
 
    	д (кь  	t
@@ -164,7 +159,6 @@ _твое) г (о_  	v
    	д      	d
 
 .group е
-	_) е (_   	je
 	_) е      	jI3   	//second position
 	A) е (_   	jI3   	//second position
 	ъ) е (_   	jI3   	//second position
@@ -192,7 +186,6 @@ _твое) г (о_  	v
 
 
 .group ж
-	_) ж (_   	ZE
    	ж (_   	S
    	ж (кY  	S
    	ж (кь  	S
@@ -215,8 +208,6 @@ _твое) г (о_  	v
    	ж      	Z
 
 .group з
-	_) з (_   	zE
-
    	з (_   	s
 
    	з (кY  	s
@@ -267,7 +258,6 @@ _твое) г (о_  	v
    	з      	z
 
 .group и
-	_) и (_   	i
 	_) и      	I
    	и (_   	I
    	и      	i
@@ -277,11 +267,9 @@ _твое) г (о_  	v
 
 
 .group й
-	_) й (_   	,i'k@-*'AtkOjI
    	й      	j
 
 .group к
-	_) к (_   	kA
    	к (б   	g
    	к (бь  	g
    	к (бY  	g
@@ -303,12 +291,10 @@ _твое) г (о_  	v
    	к      	k
 
 .group л
-	_) л (_   	El^
    	л (Y   	l^
    	л      	l
 
 .group м
-	_) м (_   	Em
    	м (ь   	m;
    	м (Y   	m;
    	м (бь  	m;
@@ -325,7 +311,6 @@ _твое) г (о_  	v
    	м      	m
 
 .group н
-	_) н (_   	En_
   	// н (ь   	n# ?
  	//  н (Y   	n# ?
 //    	н (B   	n^
@@ -354,7 +339,6 @@ _твое) г (о_  	v
 //    	о (FY  	oj
 
 .group п
-	_) п (_   	pE
    	п (б   	b
    	п (г   	b
    	п (гY  	b
@@ -388,15 +372,12 @@ _твое) г (о_  	v
    	п      	p
 
 .group р
-	_) р (_ Er	
    	р (ь   	rI^
    	р (Y   	r;
    	р (B   	r;
    	р      	r
 
 .group с
-	_) с (_   	Es
-
    	с (б   	z
    	с (г   	z
    	с (д   	z
@@ -427,8 +408,6 @@ _твое) г (о_  	v
    	с      	s
 
 .group т
-	_) т (_   	tE
-
    	т (б   	d
    	т (г   	d
    	т (д   	d
@@ -457,12 +436,10 @@ _твое) г (о_  	v
    	т      	t
 
 .group у
-	_) у (_   	u
 	B) у      	u#
    	у      	u
 
 .group ф
-	_) ф (_   	Ef
    	ф (б   	v
    	ф (г   	v
    	ф (гь  	v
@@ -494,7 +471,6 @@ _твое) г (о_  	v
    	ф      	f
 
 .group х
-	_) х (_   	xA
    	х (б   	x
    	х (бь  	x
    	х (бY  	x
@@ -523,7 +499,6 @@ _твое) г (о_  	v
    	х      	x
 
 .group ц
-	_) ц (_   	tsE
    	ц (б   	dz
    	ц (бь  	dz
    	ц (бY  	dz
@@ -546,7 +521,6 @@ _твое) г (о_  	v
    	ц      	ts
 
 .group ч
-	_) ч (_   	tS;e
    	ч (б   	dZ;
    	ч (бь  	dZ;
    	ч (бY  	dZ;
@@ -586,7 +560,6 @@ _твое) г (о_  	v
    	ч      	tS;
 
 .group ш
-	_) ш (_   	SA
    	ш (б   	Z
    	ш (бь  	Z
    	ш (бY  	Z
@@ -609,7 +582,6 @@ _твое) г (о_  	v
    	ш      	S
 
 .group щ
-	_) щ (_   	S;ja
    	щ (б   	Z;
    	щ (бь  	Z;
    	щ (бY  	Z;
@@ -633,27 +605,20 @@ _твое) г (о_  	v
 
 
 .group ъ
-	_) ъ (_   	tv;'8@-*dyjzn'Ak
    	ъ (Y   	j
-ъ
 
 .group ы
-	_) ы (_   	y
    	ы      	y
 
 .group ь
-	_) ь (_   	m;'jak;I#jzn'Ak
-ь
    	ь (Y   	j
 
 .group э
-	_) э (_   	e
 	_) э      	E#
    	э (_   	E#
    	э      	E2
 
 .group ю
-	_) ю (_   	ju
    	ю      	u"
 	_) ю      	ju
 	ь) ю      	ju
@@ -664,8 +629,7 @@ _твое) г (о_  	v
 
 
 .group я
-.. TODO: in unstressed position it sometimes sounds more like [i] than like [V]
-	_) я (_   	ja
+// TODO: in unstressed position it sometimes sounds more like [i] than like [V]
 	_) я      	ja    	//second position
 	A) я (_   	ja    	//second position
 	ъ) я (_   	ja    	//second position
@@ -680,14 +644,10 @@ _твое) г (о_  	v
    	я      	V
 
 .group ё
-	_) ё (_   	j8
 	_) ё      	'j8
 	ж) ё      	'O
 	ш) ё      	'O
    	ё      	'8
-
-// If we find a Latin letter a-z, then translate as English
-// (This is now done automatically by the eSpeak program)
 
 .group
 	// other cyrillic letters

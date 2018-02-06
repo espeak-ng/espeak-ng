@@ -1,15 +1,39 @@
-
 // This file is UTF8 encoded
 
-// NOTE:  An additional file: ru_listx  contains a large collection of
-// Russian words which are marked with their correct stress position.
-//
-// To improve Russian pronunciation, download this from
-// http://espeak.sourceforge.net and put the ru_listx file in the same
-// directory as this ru_list file, and then do the command:
-//   speak --compile=ru 
-
-
+// Cyrillic letter names
+а	a
+б	bE
+в	vE
+г	gE
+д	dE
+е	je
+ё	j8
+ж	ZE
+з	zE
+и	i
+й	,i'k@-*'AtkOjI
+к	kA
+л	El^
+м	Em
+н	En_
+о	o
+п	pE
+р	Er	
+с	Es
+т	tE
+у	u
+ф	Ef
+х	xA
+ц	tsE
+ч	tS;e
+ш	SA
+щ	S;ja
+ъ	tv;'8@-*dyjzn'Ak
+ы	y
+ь	m;'jak;I#jzn'Ak
+э	e
+ю	ju
+я	ja
 
 // Numbers
 _0	n'ojl^
