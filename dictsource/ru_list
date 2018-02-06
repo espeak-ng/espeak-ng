@@ -1,40 +1,5 @@
 // This file is UTF8 encoded
 
-// Cyrillic letter names
-а	a
-б	bE
-в	vE
-г	gE
-д	dE
-е	je
-ё	j8
-ж	ZE
-з	zE
-и	i
-й	,i'k@-*'AtkOjI
-к	kA
-л	El^
-м	Em
-н	En_
-о	o
-п	pE
-р	Er	
-с	Es
-т	tE
-у	u
-ф	Ef
-х	xA
-ц	tsE
-ч	tS;e
-ш	SA
-щ	S;ja
-ъ	tv;'8@-*dyjzn'Ak
-ы	y
-ь	m;'jak;I#jzn'Ak
-э	e
-ю	ju
-я	ja
-
 // Numbers
 _0	n'ojl^
 _1	ojd;'in
@@ -209,14 +174,42 @@ _:	dvVet'otS;ie
 сможете	$u1
 смогут	$u1
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
+// Cyrillic letter names
+а	a
+б	bE
 _в	vE
 в	vE  $atend
+г	gE
+д	dE
+е	je
+ё	j8
+ж	ZE
+з	zE
+и	i
+й	,i'k@-*'AtkOjI
+к	kA
+л	El^
+м	Em
+н	En_
+о	o
+п	pE
+р	Er
 _с	Es
 с	Es  $atend
+т	tE
+у	u
+ф	Ef
+х	xA
+ц	tsE
+ч	tS;e
+ш	SA
+щ	S;ja
+ъ	tv;'8@-*dyjzn'Ak
+ы	y
+ь	m;'jak;I#jzn'Ak
+э	e
+ю	ju
+я	ja
 
 // exceptions
 радио	r'ad;Io
