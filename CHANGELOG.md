@@ -21,8 +21,7 @@ updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  fi (Finnish) -- Juho Hiltunen
-*  fr (French) -- Shallowmallow, Karl Eick
-*  hak (Hakka Chinese) -- Chen Chien-ting
+*  fr (French) -- Shallowmallow, Karl Eick, maiido
 *  it (Italian) -- chrislm
 *  lv (Latvian) -- Valdis Vitolins
 *  my (Myanmar/Burmese) -- Min Maung
