@@ -451,8 +451,8 @@ void CalcLengths(Translator *tr)
 	int stress;
 	int type;
 	static int more_syllables = 0;
-	int pre_sonorant = 0;
-	int pre_voiced = 0;
+	bool pre_sonorant = false;
+	bool pre_voiced = false;
 	int last_pitch = 0;
 	int pitch_start;
 	int length_mod;
@@ -536,7 +536,7 @@ void CalcLengths(Translator *tr)
 
 			if (type == phVFRICATIVE) {
 				if (next->type == phVOWEL)
-					pre_voiced = 1;
+					pre_voiced = true;
 				if ((prev->type == phVOWEL) || (prev->type == phLIQUID))
 					p->length = (255 + prev->length)/2;
 			}
@@ -547,7 +547,7 @@ void CalcLengths(Translator *tr)
 
 			if (next->type == phVOWEL || next->type == phLIQUID) {
 				if ((next->type == phVOWEL) || !next->newword)
-					pre_voiced = 1;
+					pre_voiced = true;
 
 				p->prepause = 40;
 
@@ -587,7 +587,7 @@ void CalcLengths(Translator *tr)
 			}
 
 			if (next->type == phVOWEL)
-				pre_sonorant = 1;
+				pre_sonorant = true;
 			else {
 				p->pitch2 = last_pitch;
 
@@ -614,7 +614,7 @@ void CalcLengths(Translator *tr)
 				if (p->pitch2 < 16)
 					p->pitch1 = 0;
 				p->env = PITCHfall;
-				pre_voiced = 0;
+				pre_voiced = false;
 			}
 			break;
 		case phVOWEL:
@@ -804,8 +804,8 @@ void CalcLengths(Translator *tr)
 			}
 
 			last_pitch = p->pitch1 + ((p->pitch2-p->pitch1)*envelope_data[p->env][127])/256;
-			pre_sonorant = 0;
-			pre_voiced = 0;
+			pre_sonorant = false;
+			pre_voiced = false;
 			break;
 		}
 	}

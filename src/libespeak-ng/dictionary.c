@@ -437,7 +437,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 	int c;
 	int mnem;
 	int len;
-	int first;
+	bool first;
 	int ix = 0;
 	char *p;
 	PHONEME_DATA phdata;
@@ -486,7 +486,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 		}
 	}
 
-	first = 1;
+	first = true;
 	for (mnem = ph->mnemonic; (c = mnem & 0xff) != 0; mnem = mnem >> 8) {
 		if ((c == '/') && (option_phoneme_variants == 0))
 			break; // discard phoneme variant indicator
@@ -509,7 +509,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 			ix += utf8_out(c, &phon_out[ix]);
 		} else
 			phon_out[ix++] = c;
-		first = 0;
+		first = false;
 	}
 
 	phon_out = &phon_out[ix];
@@ -1595,7 +1595,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	int n_bytes;
 	int add_points;
 	int command;
-	int check_atstart;
+	bool check_atstart;
 	unsigned int *flags;
 
 	MatchRecord match;
@@ -1632,7 +1632,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 		letter_w = 0;
 		distance_right = -6; // used to reduce points for matches further away the current letter
 		distance_left = -2;
-		check_atstart = 0;
+		check_atstart = false;
 
 		match.points = 1;
 		match.end_type = 0;
@@ -1666,7 +1666,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					failed = 2; // matched OK
 					break;
 				case RULE_PRE_ATSTART: // pre rule with implied 'start of word'
-					check_atstart = 1;
+					check_atstart = true;
 					unpron_ignore = 0;
 					match_type = RULE_PRE;
 					break;
@@ -2118,7 +2118,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 		if ((failed == 2) && (unpron_ignore == 0)) {
 			// do we also need to check for 'start of word' ?
-			if ((check_atstart == 0) || (pre_ptr[-1] == ' ')) {
+			if ((check_atstart == false) || (pre_ptr[-1] == ' ')) {
 				if (check_atstart)
 					match.points += 4;
 
@@ -2457,7 +2457,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 	const char *map;
 	char *p = text;
 	char *p2;
-	int all_alpha = 1;
+	bool all_alpha = true;
 	int bits;
 	int acc;
 	int pairs_start;
@@ -2484,12 +2484,12 @@ int TransposeAlphabet(Translator *tr, char *text)
 					if (map[c - min] > 0)
 						buf[bufix++] = map[c - min];
 					else {
-						all_alpha = 0;
+						all_alpha = false;
 						break;
 					}
 				}
 			} else {
-				all_alpha = 0;
+				all_alpha = false;
 				break;
 			}
 		}
@@ -2782,14 +2782,14 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 
 		if (option_phonemes & espeakPHONEMES_TRACE) {
 			char ph_decoded[N_WORD_PHONEMES];
-			int textmode;
+			bool textmode;
 
 			DecodePhonemes(phonetic, ph_decoded);
 
 			if ((dictionary_flags & FLAG_TEXTMODE) == 0)
-				textmode = 0;
+				textmode = false;
 			else
-				textmode = 1;
+				textmode = true;
 
 			if (textmode == translator->langopts.textmode) {
 				// only show this line if the word translates to phonemes, not replacement text

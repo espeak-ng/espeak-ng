@@ -521,7 +521,7 @@ espeak_ng_STATUS sync_espeak_Synth(unsigned int unique_identifier, const void *t
 
 	}
 	if (skip_characters || skip_words || skip_sentences)
-		skipping_text = 1;
+		skipping_text = true;
 
 	end_character_position = end_position;
 
@@ -550,7 +550,7 @@ espeak_ng_STATUS sync_espeak_Synth_Mark(unsigned int unique_identifier, const vo
 
 	if (index_mark != NULL) {
 		strncpy0(skip_marker, index_mark, sizeof(skip_marker));
-		skipping_text = 1;
+		skipping_text = true;
 	}
 
 	end_character_position = end_position;

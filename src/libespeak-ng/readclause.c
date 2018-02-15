@@ -56,9 +56,9 @@ espeak_ng_TEXT_DECODER *p_decoder = NULL;
 static int ungot_char;
 static const char *ungot_word = NULL;
 
-static int ignore_text = 0; // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
-static int audio_text = 0; // set during <audio> ... </audio>
-static int clear_skipping_text = 0; // next clause should clear the skipping_text flag
+static bool ignore_text = false; // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
+static bool audio_text = false; // set during <audio> ... </audio>
+static bool clear_skipping_text = false; // next clause should clear the skipping_text flag
 int count_characters = 0;
 static int sayas_mode;
 static int sayas_start;
@@ -1133,7 +1133,7 @@ static int ReplaceKeyName(char *outbuf, int index, int *outix)
 	return 0;
 }
 
-static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, int self_closing)
+static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
 	// returns a clause terminator value.
@@ -1344,16 +1344,16 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	case SSML_SUB:
 		if ((attr1 = GetSsmlAttribute(px, "alias")) != NULL) {
 			// use the alias  rather than the text
-			ignore_text = 1;
+			ignore_text = true;
 			*outix += attrcopy_utf8(&outbuf[*outix], attr1, n_outbuf-*outix);
 		}
 		break;
 	case SSML_IGNORE_TEXT:
-		ignore_text = 1;
+		ignore_text = true;
 		break;
 	case SSML_SUB + SSML_CLOSE:
 	case SSML_IGNORE_TEXT + SSML_CLOSE:
-		ignore_text = 0;
+		ignore_text = false;
 		break;
 	case SSML_MARK:
 		if ((attr1 = GetSsmlAttribute(px, "name")) != NULL) {
@@ -1362,7 +1362,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 
 			if (strcmp(skip_marker, buf) == 0) {
 				// This is the marker we are waiting for before starting to speak
-				clear_skipping_text = 1;
+				clear_skipping_text = true;
 				skip_marker[0] = 0;
 				return CLAUSE_NONE;
 			}
@@ -1410,11 +1410,11 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		if (self_closing)
 			PopParamStack(tag_type, outbuf, outix);
 		else
-			audio_text = 1;
+			audio_text = true;
 		return CLAUSE_NONE;
 	case SSML_AUDIO + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
-		audio_text = 0;
+		audio_text = false;
 		return CLAUSE_NONE;
 	case SSML_BREAK:
 		value = 21;
@@ -1563,12 +1563,12 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int n_xml_buf;
 	int terminator;
 	int found;
-	int any_alnum = 0;
-	int self_closing;
+	bool any_alnum = false;
+	bool self_closing;
 	int punct_data = 0;
-	int is_end_clause;
+	bool is_end_clause;
 	int announced_punctuation = 0;
-	int stressed_word = 0;
+	bool stressed_word = false;
 	int end_clause_after_tag = 0;
 	int end_clause_index = 0;
 	wchar_t xml_buf[N_XML_BUF+1];
@@ -1579,8 +1579,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	static int ungot_string_ix = -1;
 
 	if (clear_skipping_text) {
-		skipping_text = 0;
-		clear_skipping_text = 0;
+		skipping_text = false;
+		clear_skipping_text = false;
 	}
 
 	tr->phonemes_repeat_count = 0;
@@ -1609,7 +1609,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			if ((skip_characters > 0) && (count_characters >= skip_characters)) {
 				// reached the specified start position
 				// don't break a word
-				clear_skipping_text = 1;
+				clear_skipping_text = true;
 				skip_characters = 0;
 				UngetC(c2);
 				return CLAUSE_NONE;
@@ -1701,11 +1701,11 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					xml_buf[n_xml_buf] = 0;
 					c2 = ' ';
 
-					self_closing = 0;
+					self_closing = false;
 					if (xml_buf[n_xml_buf-1] == '/') {
 						// a self-closing tag
 						xml_buf[n_xml_buf-1] = ' ';
-						self_closing = 1;
+						self_closing = true;
 					}
 
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, self_closing);
@@ -1792,10 +1792,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		}
 
 		if (iswalnum(c1))
-			any_alnum = 1;
+			any_alnum = true;
 		else {
 			if (stressed_word) {
-				stressed_word = 0;
+				stressed_word = false;
 				c1 = CHAR_EMPHASIS; // indicate this word is stressed
 				UngetC(c2);
 				c2 = ' ';
@@ -1894,7 +1894,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		announced_punctuation = 0;
 
 		if ((phoneme_mode == 0) && (sayas_mode == 0)) {
-			is_end_clause = 0;
+			is_end_clause = false;
 
 			if (end_clause_after_tag) {
 				// Because of an xml tag, we are waiting for the
@@ -1929,20 +1929,20 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			if ((punct_data = clause_type_from_codepoint(c1)) != CLAUSE_NONE) {
 				if (punct_data & CLAUSE_PUNCTUATION_IN_WORD) {
 					// Armenian punctuation inside a word
-					stressed_word = 1;
+					stressed_word = true;
 					*tone_type = punct_data >> 12 & 0xf; // override the end-of-sentence type
 					continue;
 				}
 
 				if ((iswspace(c2) || (punct_data & CLAUSE_OPTIONAL_SPACE_AFTER) || IsBracket(c2) || (c2 == '?') || Eof() || (c2 == ctrl_embedded))) { // don't check for '-' because it prevents recognizing ':-)'
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
-					is_end_clause = 1;
+					is_end_clause = true;
 				}
 			}
 
 			// don't announce punctuation for the alternative text inside inside <audio> ... </audio>
 			if (c1 == 0xe000+'<')  c1 = '<';
-			if (option_punctuation && iswpunct(c1) && (audio_text == 0)) {
+			if (option_punctuation && iswpunct(c1) && (audio_text == false)) {
 				// option is set to explicitly speak punctuation characters
 				// if a list of allowed punctuation has been set up, check whether the character is in it
 				if ((option_punctuation == 1) || (wcschr(option_punctlist, c1) != NULL)) {
@@ -1985,7 +1985,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					if ((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h', 'u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next)))) {
 						// lang=hu, fix for ordinal numbers, eg:  "december 2., szerda", ignore ',' after ordinal number
 						c1 = CHAR_COMMA_BREAK;
-						is_end_clause = 0;
+						is_end_clause = false;
 					}
 
 					if (c1 == '.') {
@@ -1993,31 +1993,31 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						    (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2))))) { // lang=hu
 							// dot after a number indicates an ordinal number
 							if (!iswdigit(cprev))
-								is_end_clause = 0; // Roman number followed by dot
+								is_end_clause = false; // Roman number followed by dot
 							else if (iswlower(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
-								is_end_clause = 0; // only if followed by lower-case, (or if there is a XML tag)
+								is_end_clause = false; // only if followed by lower-case, (or if there is a XML tag)
 						} else if (c_next == '\'')
-							is_end_clause = 0;    // eg. u.s.a.'s
+							is_end_clause = false;    // eg. u.s.a.'s
 						if (iswlower(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
 							is_end_clause = 0;
 						}
-						if (any_alnum == 0) {
+						if (any_alnum == false) {
 							// no letters or digits yet, so probably not a sentence terminator
 							// Here, dot is followed by space or bracket
 							c1 = ' ';
-							is_end_clause = 0;
+							is_end_clause = false;
 						}
 					} else {
-						if (any_alnum == 0) {
+						if (any_alnum == false) {
 							// no letters or digits yet, so probably not a sentence terminator
-							is_end_clause = 0;
+							is_end_clause = false;
 						}
 					}
 
 					if (is_end_clause && (c1 == '.') && (c_next == '<') && option_ssml) {
 						// wait until after the end of the xml tag, then look for upper-case letter
-						is_end_clause = 0;
+						is_end_clause = false;
 						end_clause_index = ix;
 						end_clause_after_tag = punct_data;
 					}
@@ -2116,9 +2116,9 @@ void InitText2(void)
 
 	current_voice_id[0] = 0;
 
-	ignore_text = 0;
-	audio_text = 0;
-	clear_skipping_text = 0;
+	ignore_text = false;
+	audio_text = false;
+	clear_skipping_text = false;
 	count_characters = -1;
 	sayas_mode = 0;
 
