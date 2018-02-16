@@ -62,7 +62,7 @@ These language tags are used to specify the language, such as:
 The languages are grouped by the closest language family the language belongs.
 These language families are defined in
 [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5). See also Wikipedia's
-[List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
+[List of language families](https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
 for more details.
 
 For example, the Celtic languages (Welsh, Irish Gaelic, Scottish Gaelic, etc.)
