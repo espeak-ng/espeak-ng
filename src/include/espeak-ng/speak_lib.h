@@ -329,7 +329,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text,
 
       espeakSSML   Elements within < > are treated as SSML elements, or if not recognised are ignored.
 
-      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Hirshenbaum encoding).
+      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Kirshenbaum encoding).
 
       espeakENDPAUSE  If set then a sentence pause is added at the end of the text.  If not set then
          this pause is suppressed.
