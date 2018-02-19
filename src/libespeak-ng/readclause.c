@@ -1711,9 +1711,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, self_closing);
 
 					if (terminator != 0) {
-						if (end_clause_after_tag)
-							ix = end_clause_index;
-
 						buf[ix] = ' ';
 						buf[ix++] = 0;
 
