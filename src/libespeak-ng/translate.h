@@ -566,7 +566,7 @@ typedef struct {
 	char spelling_stress;   // 0=default, 1=stress first letter
 	char tone_numbers;
 	char ideographs;      // treat as separate words
-	char textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
+	bool textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
 	char dotless_i;         // uses letter U+0131
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
@@ -680,7 +680,7 @@ extern int count_sentences;
 extern int skip_characters;
 extern int skip_words;
 extern int skip_sentences;
-extern int skipping_text;
+extern bool skipping_text;
 extern int end_character_position;
 extern int clause_start_char;
 extern int clause_start_word;
@@ -758,7 +758,7 @@ int HashDictionary(const char *string);
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
-void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
+void MakePhonemeList(Translator *tr, int post_pause, bool new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);

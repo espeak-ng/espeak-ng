@@ -505,7 +505,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	unsigned int data;
 	int instn;
 	int instn2;
-	int check_endtype = 0;
+	bool check_endtype = false;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
 
@@ -552,7 +552,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		case 0: // prevPh
 		case 5: // prevPhW
 			plist--;
-			check_endtype = 1;
+			check_endtype = true;
 			break;
 		case 1: // thisPh
 			break;
@@ -579,7 +579,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			if ((worddata == NULL) || (worddata->prev_vowel.ph == NULL))
 				return false; // no previous vowel
 			plist = &(worddata->prev_vowel);
-			check_endtype = 1;
+			check_endtype = true;
 			break;
 		case 9: // next3PhW
 			for (ix = 1; ix <= 3; ix++) {
@@ -592,7 +592,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			if ((plist[0].sourceix) || (plist[-1].sourceix))
 				return false;
 			plist -= 2;
-			check_endtype = 1;
+			check_endtype = true;
 			break;
 		}
 

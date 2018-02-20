@@ -50,7 +50,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	int k;
 	int replace_flags;
 	int n_plist_out = 0;
-	int word_end;
+	bool word_end;
 	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *next = NULL;
 
@@ -62,16 +62,16 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 			if (ix < (n_ph_list2 -1))
 				next = phoneme_tab[ph_list2[ix+1].phcode];
 
-			word_end = 0;
+			word_end = false;
 			if ((plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
-				word_end = 1;        // this phoneme is the end of a word
+				word_end = true; // this phoneme is the end of a word
 
 			// check whether a Voice has specified that we should replace this phoneme
 			for (k = 0; k < n_replace_phonemes; k++) {
 				if (plist2->phcode == replace_phonemes[k].old_ph) {
 					replace_flags = replace_phonemes[k].type;
 
-					if ((replace_flags & 1) && (word_end == 0))
+					if ((replace_flags & 1) && (word_end == false))
 						continue; // this replacement only occurs at the end of a word
 
 					if ((replace_flags & 2) && ((plist2->stresslevel & 0x7) > 3))
@@ -101,7 +101,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	return n_plist_out;
 }
 
-void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
+void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 {
 	int ix = 0;
 	int j;
@@ -189,7 +189,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		// set consonant clusters to all voiced or all unvoiced
 		// Regressive
 		int type;
-		int stop_propagation = 0;
+		bool stop_propagation = false;
 		voicing = 0;
 
 		for (j = n_ph_list2-1; j >= 0; j--) {
@@ -198,7 +198,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				continue;
 
 			if (plist2[j].synthflags & SFLAG_SWITCHED_LANG) {
-				stop_propagation = 0;
+				stop_propagation = false;
 				voicing = 0;
 				if (regression & 0x100)
 					voicing = 1; // word-end devoicing
@@ -210,7 +210,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			if (regression & 0x2) {
 				// [v] amd [v;] don't cause regression, or [R^]
 				if (((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff) == 'R')) {
-					stop_propagation = 1;
+					stop_propagation = true;
 					if (regression & 0x10)
 						voicing = 0;
 				}
@@ -236,7 +236,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			}
 			if (stop_propagation) {
 				voicing = 0;
-				stop_propagation = 0;
+				stop_propagation = false;
 			}
 
 			if (plist2[j].sourceix) {
@@ -501,7 +501,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 				if (start_sentence) {
 					phlist[ix].newword = 5; // start of sentence + start of word
-					start_sentence = 0;
+					start_sentence = false;
 				}
 			} else
 				phlist[ix].newword = 0;

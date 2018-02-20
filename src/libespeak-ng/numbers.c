@@ -1140,15 +1140,15 @@ static const char *M_Variant(int value)
 {
 	// returns M, or perhaps MA or MB for some cases
 
-	int teens = 0;
+	bool teens = false;
 
 	if (((value % 100) > 10) && ((value % 100) < 20))
-		teens = 1;
+		teens = true;
 
 	switch ((translator->langopts.numbers2 >> 6) & 0x7)
 	{
 	case 1: // lang=ru  use singular for xx1 except for x11
-		if ((teens == 0) && ((value % 10) == 1))
+		if ((teens == false) && ((value % 10) == 1))
 			return "1M";
 		break;
 	case 2: // lang=cs,sk
@@ -1156,17 +1156,17 @@ static const char *M_Variant(int value)
 			return "0MA";
 		break;
 	case 3: // lang=pl
-		if ((teens == 0) && (((value % 10) >= 2) && ((value % 10) <= 4)))
+		if ((teens == false) && (((value % 10) >= 2) && ((value % 10) <= 4)))
 			return "0MA";
 		break;
 	case 4: // lang=lt
-		if ((teens == 1) || ((value % 10) == 0))
+		if ((teens == true) || ((value % 10) == 0))
 			return "0MB";
 		if ((value % 10) == 1)
 			return "0MA";
 		break;
 	case 5: // lang=bs,hr,sr
-		if (teens == 0) {
+		if (teens == false) {
 			if ((value % 10) == 1)
 				return "1M";
 			if (((value % 10) >= 2) && ((value % 10) <= 4))
@@ -1510,7 +1510,7 @@ static int LookupNum2(Translator *tr, int value, int thousandplex, const int con
 	return used_and;
 }
 
-static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null, int thousandplex, int control)
+static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_null, int thousandplex, int control)
 {
 	// Translate a 3 digit number
 	//  control  bit 0,  previous thousands
@@ -1526,8 +1526,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int exact;
 	int ordinal;
 	int tplex;
-	int say_zero_hundred = 0;
-	int say_one_hundred;
+	bool say_zero_hundred = false;
+	bool say_one_hundred;
 	char string[12]; // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
@@ -1547,7 +1547,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	ph_thousand_and[0] = 0;
 
 	if ((tr->langopts.numbers & NUM_ZERO_HUNDRED) && ((control & 1) || (hundreds >= 10)))
-		say_zero_hundred = 1; // lang=vi
+		say_zero_hundred = true; // lang=vi
 
 	if ((hundreds > 0) || say_zero_hundred) {
 		found = 0;
@@ -1592,9 +1592,9 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				sprintf(ph_thousands, "%s%c%s%c", ph_digits, phonEND_WORD, ph_10T, phonEND_WORD);
 
 			hundreds %= 10;
-			if ((hundreds == 0) && (say_zero_hundred == 0))
+			if ((hundreds == 0) && (say_zero_hundred == false))
 				ph_100[0] = 0;
-			suppress_null = 1;
+			suppress_null = true;
 			control |= 1;
 		}
 
@@ -1604,7 +1604,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			if ((tr->langopts.numbers & NUM_AND_HUNDRED) && ((control & 1) || (ph_thousands[0] != 0)))
 				Lookup(tr, "_0and", ph_thousand_and);
 
-			suppress_null = 1;
+			suppress_null = true;
 
 			found = 0;
 			if ((ordinal)
@@ -1641,13 +1641,13 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				if (found)
 					ph_100[0] = 0;
 				else {
-					say_one_hundred = 1;
+					say_one_hundred = true;
 					if (hundreds == 1) {
 						if ((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) != 0)
-							say_one_hundred = 0;
+							say_one_hundred = false;
 					}
 
-					if (say_one_hundred != 0)
+					if (say_one_hundred == true)
 						LookupNum2(tr, hundreds, thousandplex, 0, ph_digits);
 				}
 			}
@@ -1672,7 +1672,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 	buf2[0] = 0;
 
-	if ((tensunits != 0) || (suppress_null == 0)) {
+	if ((tensunits != 0) || (suppress_null == false)) {
 		x = 0;
 		if (thousandplex == 0) {
 			x = 2; // allow "eins" for 1 rather than "ein"
@@ -1737,7 +1737,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int ix;
 	int digix;
 	unsigned char c;
-	int suppress_null = 0;
+	bool suppress_null = false;
 	int decimal_point = 0;
 	int thousandplex = 0;
 	int thousands_exact = 1;
@@ -1883,7 +1883,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	}
 
 	if ((value == 0) && prev_thousands)
-		suppress_null = 1;
+		suppress_null = true;
 
 	if (tr->translator_name == L('h', 'u')) {
 		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt
@@ -1895,13 +1895,13 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		// this "word" ends with a decimal point
 		Lookup(tr, "_dpt", ph_append);
 		decimal_point = 0x100;
-	} else if (suppress_null == 0) {
+	} else if (suppress_null == false) {
 		if (thousands_inc > 0) {
 			if (thousandplex > 0) {
-				if ((suppress_null == 0) && (LookupThousands(tr, value, thousandplex, thousands_exact, ph_append))) {
+				if ((suppress_null == false) && (LookupThousands(tr, value, thousandplex, thousands_exact, ph_append))) {
 					// found an exact match for N thousand
 					value = 0;
-					suppress_null = 1;
+					suppress_null = true;
 				}
 			}
 		}
@@ -1987,7 +1987,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				n_digits++;
 			}
 			if ((decimal_count <= max_decimal_count) && IsDigit09(word[n_digits])) {
-				LookupNum3(tr, atoi(&word[n_digits]), buf1, 0, 0, 0);
+				LookupNum3(tr, atoi(&word[n_digits]), buf1, false, 0, 0);
 				strcat(ph_out, buf1);
 				n_digits += decimal_count;
 			}
@@ -1995,7 +1995,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		case NUM_DFRACTION_1: // italian, say "hundredths" if leading zero
 		case NUM_DFRACTION_5: // hungarian, always say "tenths" etc.
 		case NUM_DFRACTION_6: // kazakh, always say "tenths" etc, before the decimal fraction
-			LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0, 0, 0);
+			LookupNum3(tr, atoi(&word[n_digits]), ph_buf, false, 0, 0);
 			if ((word[n_digits] == '0') || (decimal_mode != NUM_DFRACTION_1)) {
 				// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
 				sprintf(string, "_0Z%d", decimal_count);
@@ -2013,7 +2013,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		case NUM_DFRACTION_3:
 			// Romanian decimal fractions
 			if ((decimal_count <= 4) && (word[n_digits] != '0')) {
-				LookupNum3(tr, atoi(&word[n_digits]), buf1, 0, 0, 0);
+				LookupNum3(tr, atoi(&word[n_digits]), buf1, false, 0, 0);
 				strcat(ph_out, buf1);
 				n_digits += decimal_count;
 			}

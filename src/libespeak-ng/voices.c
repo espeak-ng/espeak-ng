@@ -496,8 +496,8 @@ voice_t *LoadVoice(const char *vname, int control)
 	int value2;
 	int langix = 0;
 	int tone_only = control & 2;
-	int language_set = 0;
-	int phonemes_set = 0;
+	bool language_set = false;
+	bool phonemes_set = false;
 	int stress_amps_set = 0;
 	int stress_lengths_set = 0;
 	int stress_add_set = 0;
@@ -627,9 +627,9 @@ voice_t *LoadVoice(const char *vname, int control)
 			}
 
 			// only act on the first language line
-			if (language_set == 0) {
+			if (language_set == false) {
 				language_type = strtok(language_name, "-");
-				language_set = 1;
+				language_set = true;
 				strcpy(translator_name, language_type);
 				strcpy(new_dictionary, language_type);
 				strcpy(phonemes_name, language_type);
@@ -752,10 +752,10 @@ voice_t *LoadVoice(const char *vname, int control)
 				fprintf(stderr, "Cannot set stressopt: language not set, or is invalid.\n");
 			break;
 		case V_REPLACE:
-			if (phonemes_set == 0) {
+			if (phonemes_set == false) {
 				// must set up a phoneme table before we can lookup phoneme mnemonics
 				SelectPhonemeTableName(phonemes_name);
-				phonemes_set = 1;
+				phonemes_set = true;
 			}
 			PhonemeReplacement(p);
 			break;
