@@ -251,6 +251,7 @@ check:	tests/encoding.check \
 	tests/readclause.check \
 	tests/api.check \
 	tests/phoneme-output.check \
+	tests/phoneme-audio.check \
 	tests/languages.check
 
 ##### phoneme data:
