@@ -36,3 +36,4 @@ test_lang af c71ab424d045d9fa82d2a23b9be4542aee3ed15e "ma na Na pa ta ka tSa ba 
 test_lang am 4fcdb9bb68b72c06e4cadf91b2c1e244ea14ac21 "ma na Na pa ta ka ?a ba da ga p\`a t\`a k\`a tSa dZa tS\`a Ba sa za Sa Za xa ha la ja wa ra _:_ mi me my ma m@ mo mu"
 test_lang an 33304ad847d920652c74e1c51d12bbe6de9a182d "ma na Na pa ta tSa ka ba da ga fa Ta sa Sa ja wa la l^a ra Ra _:_ ma ma/ me me/ mi mo mo/ mu"
 test_lang ar a67110f62981c0668bdbeb44feec7b3268a38353 "ma na pa ta ka qa ?a ba da dHa fa va Ta Da s[a sa za Sa Za xa Xa gHa Ha Aa dZa ra la l/2a ja wa _:_ ma mi mu ma: mi: mu: maw maj"
+test_lang as 05d4cca91fc3447ae8b6acd7892790dd364e8e23 "ma na Na pa ta ka p#a t#a k#a ba da ga b#a d#a g#a sa xa Xa ha tSa tS#a za wa ra ja la _:_ ma mi mu me m& mo mO mV ma~ mi~ mu~ me~ m&~ mo~ mO~ moj mo~j mow mo~w mew maV m@"
