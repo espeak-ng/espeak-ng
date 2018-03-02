@@ -41,3 +41,4 @@ test_lang az 7bdb78c37433a47fb3b15808071b1a916202400c "ma na pa ba ta da tSa dZa
 test_lang bg 3020acb23ac0f93d5479de3b305b71fc07b5e738 "ma na n^a Na m;a pa ba ta da ka ga p;a b;a t;a d;a ca Ja tsa dza tSa dZa ts;a dz;a fa va sa za Sa Za xa Qa f;a v;a s;a z;a x;a Ra R;a wa ja l/2a la l^a _:_ mi me m@ ma mo mu"
 test_lang bn 7fc6c8c6b347677885c6e973ff4dc6b2b6fa6d59 "ma na Na pa ta t.a tSa ka p#a t#a t.#a tS#a k#a ba da d.a dZa ga b#a d#a d.#a g#a fa Ba sa za Sa Za ha Ha wa la ja ra *a Ra _:_ ma mE mO me mi mi mu m& mV"
 test_lang bpy 7fc6c8c6b347677885c6e973ff4dc6b2b6fa6d59 "ma na Na pa ta t.a tSa ka p#a t#a t.#a tS#a k#a ba da d.a dZa ga b#a d#a d.#a g#a fa Ba sa za Sa Za ha Ha wa la ja ra *a Ra _:_ ma mE mO me mi mi mu m& mV"
+test_lang bs f3b9ea69a52d9cabc18007c0bb49c16583acef1b "ma na Na pa ta ka ba da ga tsa tSa tS;a dZa dZ;a fa sa Sa xa va za Za ja la l^a Ra r*a _:_ m@ m@2 ma ma: me me: mo mo: mi mi: mu mu: mA m& mE mU maI"
