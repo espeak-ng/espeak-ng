@@ -1,0 +1,13 @@
+#!/bin/sh
+
+test_ssml() {
+	INPUT=$1
+	echo "testing ${INPUT}"
+	cp $(dirname $INPUT)/$(basename ${INPUT%.*}).expected expected.txt
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -m -v en-US --ipa=2 -f ${INPUT} > actual.txt
+	diff expected.txt actual.txt || exit 1
+}
+
+for i in `ls tests/ssml/*.ssml` ; do test_ssml $i ; done
+
