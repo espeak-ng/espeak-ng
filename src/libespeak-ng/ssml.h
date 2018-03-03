@@ -71,6 +71,7 @@ static MNEM_TAB ssmltags[] = {
 int attrcmp(const wchar_t *string1, const char *string2);
 int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab);
 int attrnumber(const wchar_t *pw, int default_value, int type);
+int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out);
 int attrcopy_utf8(char *buf, const wchar_t *pw, int len);
 int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[]);
 

@@ -738,55 +738,6 @@ wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 	return NULL;
 }
 
-static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
-{
-	int sign = 0;
-	wchar_t *tail;
-	double value;
-
-	while (iswspace(*pw)) pw++;
-	if (*pw == '+') {
-		pw++;
-		sign = 1;
-	}
-	if (*pw == '-') {
-		pw++;
-		sign = -1;
-	}
-	value = (double)wcstod(pw, &tail);
-	if (tail == pw) {
-		// failed to find a number, return 100%
-		*value_out = 100;
-		return 2;
-	}
-
-	if (*tail == '%') {
-		if (sign != 0)
-			value = 100 + (sign * value);
-		*value_out = (int)value;
-		return 2; // percentage
-	}
-
-	if ((tail[0] == 's') && (tail[1] == 't')) {
-		double x;
-		// convert from semitones to a  frequency percentage
-		x = pow((double)2.0, (double)((value*sign)/12)) * 100;
-		*value_out = (int)x;
-		return 2; // percentage
-	}
-
-	if (param_type == espeakRATE) {
-		if (sign == 0)
-			*value_out = (int)(value * 100);
-		else
-			*value_out = 100 + (int)(sign * value * 100);
-		return 2; // percentage
-	}
-
-	*value_out = (int)value;
-	return sign;   // -1, 0, or 1
-}
-
 static int AddNameData(const char *name, int wide)
 {
 	// Add the name to the namedata and return its position
