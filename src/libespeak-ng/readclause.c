@@ -807,31 +807,6 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 	return NULL;
 }
 
-static int attrcmp(const wchar_t *string1, const char *string2)
-{
-	int ix;
-
-	if (string1 == NULL)
-		return 1;
-
-	for (ix = 0; (string1[ix] == string2[ix]) && (string1[ix] != 0); ix++)
-		;
-	if (((string1[ix] == '"') || (string1[ix] == '\'')) && (string2[ix] == 0))
-		return 0;
-	return 1;
-}
-
-static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
-{
-	int ix;
-
-	for (ix = 0; mtab[ix].mnem != NULL; ix++) {
-		if (attrcmp(string1, mtab[ix].mnem) == 0)
-			return mtab[ix].value;
-	}
-	return mtab[ix].value;
-}
-
 static int attrnumber(const wchar_t *pw, int default_value, int type)
 {
 	int value = 0;

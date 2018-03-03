@@ -167,6 +167,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/setlengths.c \
 	src/libespeak-ng/spect.c \
 	src/libespeak-ng/speech.c \
+	src/libespeak-ng/ssml.c \
 	src/libespeak-ng/synthdata.c \
 	src/libespeak-ng/synthesize.c \
 	src/libespeak-ng/synth_mbrola.c \
