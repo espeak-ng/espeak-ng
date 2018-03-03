@@ -360,7 +360,7 @@ phoneme n- // more voiced variant of n
   vwl starttype #a endtype #a
   ipa nU+0329
   lengthmod 4
-  length 120
+  length 140
   FMT(n/n-syl)
 endphoneme
 
