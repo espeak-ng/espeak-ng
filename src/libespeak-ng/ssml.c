@@ -358,7 +358,7 @@ PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param
 
 	sp = &param_stack[*n_param_stack];
 	if (*n_param_stack < (N_PARAM_STACK-1))
-		*n_param_stack = *n_param_stack + 1;
+		(*n_param_stack)++;
 
 	sp->type = tag_type;
 	for (ix = 0; ix < N_SPEECH_PARAM; ix++)
@@ -848,12 +848,12 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, boo
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((*n_ssml_stack > 1) && (ssml_stack[*n_ssml_stack-1].tag_type != SSML_SPEAK))
-			*n_ssml_stack = *n_ssml_stack -1;
+			(*n_ssml_stack)--;
 		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((*n_ssml_stack > 1) && (ssml_stack[*n_ssml_stack-1].tag_type != SSML_VOICE))
-			*n_ssml_stack = *n_ssml_stack -1;
+			(*n_ssml_stack)--;
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
 		return terminator + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
