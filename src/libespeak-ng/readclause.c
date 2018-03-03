@@ -807,22 +807,6 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 	return NULL;
 }
 
-static int attrnumber(const wchar_t *pw, int default_value, int type)
-{
-	int value = 0;
-
-	if ((pw == NULL) || !IsDigit09(*pw))
-		return default_value;
-
-	while (IsDigit09(*pw))
-		value = value*10 + *pw++ - '0';
-	if ((type == 1) && (ucd_tolower(*pw) == 's')) {
-		// time: seconds rather than ms
-		value *= 1000;
-	}
-	return value;
-}
-
 static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 {
 	// Convert attribute string into utf8, write to buf, and return its utf8 length

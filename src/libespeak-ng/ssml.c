@@ -47,6 +47,7 @@
 
 int attrcmp(const wchar_t *string1, const char *string2);
 int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab);
+int attrnumber(const wchar_t *pw, int default_value, int type);
 
 int attrcmp(const wchar_t *string1, const char *string2)
 {
@@ -72,5 +73,21 @@ int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 			return mtab[ix].value;
 	}
 	return mtab[ix].value;
+}
+
+int attrnumber(const wchar_t *pw, int default_value, int type)
+{
+	int value = 0;
+
+	if ((pw == NULL) || !IsDigit09(*pw))
+		return default_value;
+
+	while (IsDigit09(*pw))
+		value = value*10 + *pw++ - '0';
+	if ((type == 1) && (ucd_tolower(*pw) == 's')) {
+		// time: seconds rather than ms
+		value *= 1000;
+	}
+	return value;
 }
 
