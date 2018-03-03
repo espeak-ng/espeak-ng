@@ -550,82 +550,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	return short_pause;
 }
 
-const char *VoiceFromStack()
-{
-	// Use the voice properties from the SSML stack to choose a voice, and switch
-	// to that voice if it's not the current voice
-
-	int ix;
-	const char *p;
-	SSML_STACK *sp;
-	const char *v_id;
-	int voice_name_specified;
-	int voice_found;
-	espeak_VOICE voice_select;
-	static char voice_name[40];
-	char language[40];
-	char buf[80];
-
-	strcpy(voice_name, ssml_stack[0].voice_name);
-	strcpy(language, ssml_stack[0].language);
-	voice_select.age = ssml_stack[0].voice_age;
-	voice_select.gender = ssml_stack[0].voice_gender;
-	voice_select.variant = ssml_stack[0].voice_variant_number;
-	voice_select.identifier = NULL;
-
-	for (ix = 0; ix < n_ssml_stack; ix++) {
-		sp = &ssml_stack[ix];
-		voice_name_specified = 0;
-
-		if ((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL, sp->voice_name) != NULL)) {
-			voice_name_specified = 1;
-			strcpy(voice_name, sp->voice_name);
-			language[0] = 0;
-			voice_select.gender = ENGENDER_UNKNOWN;
-			voice_select.age = 0;
-			voice_select.variant = 0;
-		}
-		if (sp->language[0] != 0) {
-			strcpy(language, sp->language);
-
-			// is this language provided by the base voice?
-			p = base_voice.languages;
-			while (*p++ != 0) {
-				if (strcmp(p, language) == 0) {
-					// yes, change the language to the main language of the base voice
-					strcpy(language, &base_voice.languages[1]);
-					break;
-				}
-				p += (strlen(p) + 1);
-			}
-
-			if (voice_name_specified == 0)
-				voice_name[0] = 0; // forget a previous voice name if a language is specified
-		}
-		if (sp->voice_gender != ENGENDER_UNKNOWN)
-			voice_select.gender = sp->voice_gender;
-
-		if (sp->voice_age != 0)
-			voice_select.age = sp->voice_age;
-		if (sp->voice_variant_number != 0)
-			voice_select.variant = sp->voice_variant_number;
-	}
-
-	voice_select.name = voice_name;
-	voice_select.languages = language;
-	v_id = SelectVoice(&voice_select, &voice_found);
-	if (v_id == NULL)
-		return "default";
-
-	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == ENGENDER_UNKNOWN) || (voice_select.gender == base_voice.gender)) && (base_voice_variant_name[0] != 0)) {
-		// a voice variant has not been selected, use the original voice variant
-		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
-		strncpy0(voice_name, buf, sizeof(voice_name));
-		return voice_name;
-	}
-	return v_id;
-}
-
 static void ProcessParamStack(char *outbuf, int *outix)
 {
 	// Set the speech parameters from the parameter stack
@@ -1210,57 +1134,57 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			if ((index = AddNameData(buf, 0)) >= 0)
 				xmlbase = &namedata[index];
 		}
-		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) == 0)
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name) == 0)
 			return 0; // no voice change
 		return CLAUSE_VOICE;
 	case SSML_VOICE:
-		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) == 0)
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name) == 0)
 			return 0; // no voice change
 		return CLAUSE_VOICE;
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK))
 			n_ssml_stack--;
-		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE))
 			n_ssml_stack--;
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
-		return terminator + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+		return terminator + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 	case HTML_BREAK:
 	case HTML_BREAK + SSML_CLOSE:
 		return CLAUSE_COLON;
 	case SSML_SENTENCE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new sentence implies end-of-sentence
-			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		}
-		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
 	case SSML_PARAGRAPH:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new paragraph implies end-of-sentence or end-of-paragraph
-			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		}
 		if (ssml_sp->tag_type == SSML_PARAGRAPH) {
 			// new paragraph implies end-of-sentence or end-of-paragraph
-			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		}
-		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
 	case SSML_SENTENCE + SSML_CLOSE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// end of a sentence which specified a language
-			voice_change_flag = GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
+			voice_change_flag = GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name);
 		}
 		return CLAUSE_PERIOD + voice_change_flag;
 	case SSML_PARAGRAPH + SSML_CLOSE:
 		if ((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH)) {
 			// End of a paragraph which specified a language.
 			// (End-of-paragraph also implies end-of-sentence)
-			return GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) + CLAUSE_PARAGRAPH;
+			return GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, current_voice_id, &base_voice, base_voice_variant_name) + CLAUSE_PARAGRAPH;
 		}
 		return CLAUSE_PARAGRAPH;
 	}

@@ -158,7 +158,7 @@ int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[])
+int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char base_voice_variant_name[40])
 {
 	// Determines whether voice attribute are specified in this tag, and if so, whether this means
 	// a voice change.
@@ -217,7 +217,7 @@ int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STAC
 		ssml_sp->tag_type = tag_type;
 	}
 
-	new_voice_id = VoiceFromStack();
+	new_voice_id = VoiceFromStack(ssml_stack, n_ssml_stack, base_voice, base_voice_variant_name);
 	if (strcmp(new_voice_id, current_voice_id) != 0) {
 		// add an embedded command to change the voice
 		strcpy(current_voice_id, new_voice_id);
@@ -226,3 +226,80 @@ int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STAC
 
 	return 0;
 }
+
+const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40])
+{
+	// Use the voice properties from the SSML stack to choose a voice, and switch
+	// to that voice if it's not the current voice
+
+	int ix;
+	const char *p;
+	SSML_STACK *sp;
+	const char *v_id;
+	int voice_name_specified;
+	int voice_found;
+	espeak_VOICE voice_select;
+	static char voice_name[40];
+	char language[40];
+	char buf[80];
+
+	strcpy(voice_name, ssml_stack[0].voice_name);
+	strcpy(language, ssml_stack[0].language);
+	voice_select.age = ssml_stack[0].voice_age;
+	voice_select.gender = ssml_stack[0].voice_gender;
+	voice_select.variant = ssml_stack[0].voice_variant_number;
+	voice_select.identifier = NULL;
+
+	for (ix = 0; ix < n_ssml_stack; ix++) {
+		sp = &ssml_stack[ix];
+		voice_name_specified = 0;
+
+		if ((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL, sp->voice_name) != NULL)) {
+			voice_name_specified = 1;
+			strcpy(voice_name, sp->voice_name);
+			language[0] = 0;
+			voice_select.gender = ENGENDER_UNKNOWN;
+			voice_select.age = 0;
+			voice_select.variant = 0;
+		}
+		if (sp->language[0] != 0) {
+			strcpy(language, sp->language);
+
+			// is this language provided by the base voice?
+			p = base_voice->languages;
+			while (*p++ != 0) {
+				if (strcmp(p, language) == 0) {
+					// yes, change the language to the main language of the base voice
+					strcpy(language, &base_voice->languages[1]);
+					break;
+				}
+				p += (strlen(p) + 1);
+			}
+
+			if (voice_name_specified == 0)
+				voice_name[0] = 0; // forget a previous voice name if a language is specified
+		}
+		if (sp->voice_gender != ENGENDER_UNKNOWN)
+			voice_select.gender = sp->voice_gender;
+
+		if (sp->voice_age != 0)
+			voice_select.age = sp->voice_age;
+		if (sp->voice_variant_number != 0)
+			voice_select.variant = sp->voice_variant_number;
+	}
+
+	voice_select.name = voice_name;
+	voice_select.languages = language;
+	v_id = SelectVoice(&voice_select, &voice_found);
+	if (v_id == NULL)
+		return "default";
+
+	if ((strchr(v_id, '+') == NULL) && ((voice_select.gender == ENGENDER_UNKNOWN) || (voice_select.gender == base_voice->gender)) && (base_voice_variant_name[0] != 0)) {
+		// a voice variant has not been selected, use the original voice variant
+		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
+		strncpy0(voice_name, buf, sizeof(voice_name));
+		return voice_name;
+	}
+	return v_id;
+}
+
