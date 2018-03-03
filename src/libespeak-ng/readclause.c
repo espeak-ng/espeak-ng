@@ -707,7 +707,7 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix)
 	ProcessParamStack(outbuf, outix);
 }
 
-static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
+wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 {
 	// Gets the value string for an attribute.
 	// Returns NULL if the attribute is not present
@@ -837,76 +837,6 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 		variant_name += 3; // strip variant directory name, !v plus PATHSEP
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
 	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
-}
-
-static int GetVoiceAttributes(wchar_t *pw, int tag_type)
-{
-	// Determines whether voice attribute are specified in this tag, and if so, whether this means
-	// a voice change.
-	// If it's a closing tag, delete the top frame of the stack and determine whether this implies
-	// a voice change.
-	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
-
-	wchar_t *lang;
-	wchar_t *gender;
-	wchar_t *name;
-	wchar_t *age;
-	wchar_t *variant;
-	int value;
-	const char *new_voice_id;
-	SSML_STACK *ssml_sp;
-
-	static const MNEM_TAB mnem_gender[] = {
-		{ "male", ENGENDER_MALE },
-		{ "female", ENGENDER_FEMALE },
-		{ "neutral", ENGENDER_NEUTRAL },
-		{ NULL, ENGENDER_UNKNOWN }
-	};
-
-	if (tag_type & SSML_CLOSE) {
-		// delete a stack frame
-		if (n_ssml_stack > 1)
-			n_ssml_stack--;
-	} else {
-		// add a stack frame if any voice details are specified
-		lang = GetSsmlAttribute(pw, "xml:lang");
-
-		if (tag_type != SSML_VOICE) {
-			// only expect an xml:lang attribute
-			name = NULL;
-			variant = NULL;
-			age = NULL;
-			gender = NULL;
-		} else {
-			name = GetSsmlAttribute(pw, "name");
-			variant = GetSsmlAttribute(pw, "variant");
-			age = GetSsmlAttribute(pw, "age");
-			gender = GetSsmlAttribute(pw, "gender");
-		}
-
-		if ((tag_type != SSML_VOICE) && (lang == NULL))
-			return 0; // <s> or <p> without language spec, nothing to do
-
-		ssml_sp = &ssml_stack[n_ssml_stack++];
-
-		attrcopy_utf8(ssml_sp->language, lang, sizeof(ssml_sp->language));
-		attrcopy_utf8(ssml_sp->voice_name, name, sizeof(ssml_sp->voice_name));
-		if ((value = attrnumber(variant, 1, 0)) > 0)
-			value--; // variant='0' and variant='1' the same
-		ssml_sp->voice_variant_number = value;
-		ssml_sp->voice_age = attrnumber(age, 0, 0);
-		ssml_sp->voice_gender = attrlookup(gender, mnem_gender);
-		ssml_sp->tag_type = tag_type;
-	}
-
-	new_voice_id = VoiceFromStack();
-	if (strcmp(new_voice_id, current_voice_id) != 0) {
-		// add an embedded command to change the voice
-		strcpy(current_voice_id, new_voice_id);
-		return CLAUSE_TYPE_VOICE_CHANGE;
-	}
-
-	return 0;
 }
 
 static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
@@ -1329,57 +1259,57 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			if ((index = AddNameData(buf, 0)) >= 0)
 				xmlbase = &namedata[index];
 		}
-		if (GetVoiceAttributes(px, tag_type) == 0)
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) == 0)
 			return 0; // no voice change
 		return CLAUSE_VOICE;
 	case SSML_VOICE:
-		if (GetVoiceAttributes(px, tag_type) == 0)
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) == 0)
 			return 0; // no voice change
 		return CLAUSE_VOICE;
 	case SSML_SPEAK + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK))
 			n_ssml_stack--;
-		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type);
+		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while ((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE))
 			n_ssml_stack--;
 
 		terminator = 0; // ??  Sentence intonation, but no pause ??
-		return terminator + GetVoiceAttributes(px, tag_type);
+		return terminator + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 	case HTML_BREAK:
 	case HTML_BREAK + SSML_CLOSE:
 		return CLAUSE_COLON;
 	case SSML_SENTENCE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new sentence implies end-of-sentence
-			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		}
-		voice_change_flag |= GetVoiceAttributes(px, tag_type);
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
 	case SSML_PARAGRAPH:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// new paragraph implies end-of-sentence or end-of-paragraph
-			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		}
 		if (ssml_sp->tag_type == SSML_PARAGRAPH) {
 			// new paragraph implies end-of-sentence or end-of-paragraph
-			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE);
+			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		}
-		voice_change_flag |= GetVoiceAttributes(px, tag_type);
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		return CLAUSE_PARAGRAPH + voice_change_flag;
 	case SSML_SENTENCE + SSML_CLOSE:
 		if (ssml_sp->tag_type == SSML_SENTENCE) {
 			// end of a sentence which specified a language
-			voice_change_flag = GetVoiceAttributes(px, tag_type);
+			voice_change_flag = GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id);
 		}
 		return CLAUSE_PERIOD + voice_change_flag;
 	case SSML_PARAGRAPH + SSML_CLOSE:
 		if ((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH)) {
 			// End of a paragraph which specified a language.
 			// (End-of-paragraph also implies end-of-sentence)
-			return GetVoiceAttributes(px, tag_type) + CLAUSE_PARAGRAPH;
+			return GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, n_ssml_stack, &current_voice_id) + CLAUSE_PARAGRAPH;
 		}
 		return CLAUSE_PARAGRAPH;
 	}
