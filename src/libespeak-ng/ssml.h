@@ -29,9 +29,6 @@ typedef struct {
 #define HTML_NOSPACE  16   // don't insert a space for this element, so it doesn't break a word
 #define SSML_CLOSE    0x20 // for a closing tag, OR this with the tag type
 
-// these tags have no effect if they are self-closing, eg. <voice />
-static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
-
 static MNEM_TAB ssmltags[] = {
 	{ "speak",     SSML_SPEAK },
 	{ "voice",     SSML_VOICE },
@@ -76,10 +73,12 @@ int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab);
 int attrnumber(const wchar_t *pw, int default_value, int type);
 int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out);
 wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name);
-int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char base_voice_variant_name[40]);
 void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters);
 PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack);
 const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40]);
 void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters);
 int ReplaceKeyName(char *outbuf, int index, int *outix);
 void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters);
+int LoadSoundFile2(const char *fname);
+int AddNameData(const char *name, int wide);
+int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters);

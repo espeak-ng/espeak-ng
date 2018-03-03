@@ -46,6 +46,7 @@
 #include "translate.h"
 #include "ssml.h"
 
+
 int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
@@ -158,7 +159,7 @@ int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char base_voice_variant_name[40])
+static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char *base_voice_variant_name)
 {
 	// Determines whether voice attribute are specified in this tag, and if so, whether this means
 	// a voice change.
@@ -507,3 +508,389 @@ void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp, PARAM_
 	}
 }
 
+int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
+{
+	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
+	// returns a clause terminator value.
+
+	unsigned int ix;
+	int index;
+	int c;
+	int tag_type;
+	int value;
+	int value2;
+	int value3;
+	int voice_change_flag;
+	wchar_t *px;
+	wchar_t *attr1;
+	wchar_t *attr2;
+	wchar_t *attr3;
+	int terminator;
+	char *uri;
+	int param_type;
+	char tag_name[40];
+	char buf[80];
+	PARAM_STACK *sp;
+	SSML_STACK *ssml_sp;
+
+	// these tags have no effect if they are self-closing, eg. <voice />
+	static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
+
+	static const MNEM_TAB mnem_phoneme_alphabet[] = {
+		{ "espeak", 1 },
+		{ NULL,    -1 }
+	};
+
+	static const MNEM_TAB mnem_punct[] = {
+		{ "none", 1 },
+		{ "all",  2 },
+		{ "some", 3 },
+		{ NULL,  -1 }
+	};
+
+	static const MNEM_TAB mnem_capitals[] = {
+		{ "no",        0 },
+		{ "icon",      1 },
+		{ "spelling",  2 },
+		{ "pitch",    20 },  // this is the amount by which to raise the pitch
+		{ NULL,       -1 }
+	};
+
+	static const MNEM_TAB mnem_interpret_as[] = {
+		{ "characters", SAYAS_CHARS },
+		{ "tts:char",   SAYAS_SINGLE_CHARS },
+		{ "tts:key",    SAYAS_KEY },
+		{ "tts:digits", SAYAS_DIGITS },
+		{ "telephone",  SAYAS_DIGITS1 },
+		{ NULL,         -1 }
+	};
+
+	static const MNEM_TAB mnem_sayas_format[] = {
+		{ "glyphs", 1 },
+		{ NULL,    -1 }
+	};
+
+	static const MNEM_TAB mnem_break[] = {
+		{ "none",     0 },
+		{ "x-weak",   1 },
+		{ "weak",     2 },
+		{ "medium",   3 },
+		{ "strong",   4 },
+		{ "x-strong", 5 },
+		{ NULL,      -1 }
+	};
+
+	static const MNEM_TAB mnem_emphasis[] = {
+		{ "none",     1 },
+		{ "reduced",  2 },
+		{ "moderate", 3 },
+		{ "strong",   4 },
+		{ "x-strong", 5 },
+		{ NULL,      -1 }
+	};
+
+	static const char *prosody_attr[5] = {
+		NULL, "rate", "volume", "pitch", "range"
+	};
+
+	for (ix = 0; ix < (sizeof(tag_name)-1); ix++) {
+		if (((c = xml_buf[ix]) == 0) || iswspace(c))
+			break;
+		tag_name[ix] = tolower((char)c);
+	}
+	tag_name[ix] = 0;
+
+	px = &xml_buf[ix]; // the tag's attributes
+
+	if (tag_name[0] == '/') {
+		// closing tag
+		if ((tag_type = LookupMnem(ssmltags, &tag_name[1])) != HTML_NOSPACE)
+			outbuf[(*outix)++] = ' ';
+		tag_type += SSML_CLOSE;
+	} else {
+		if ((tag_type = LookupMnem(ssmltags, tag_name)) != HTML_NOSPACE) {
+			// separate SSML tags from the previous word (but not HMTL tags such as <b> <font> which can occur inside a word)
+			outbuf[(*outix)++] = ' ';
+		}
+
+		if (self_closing && ignore_if_self_closing[tag_type])
+			return 0;
+	}
+
+	voice_change_flag = 0;
+	ssml_sp = &ssml_stack[*n_ssml_stack-1];
+
+	switch (tag_type)
+	{
+	case SSML_STYLE:
+		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *) param_stack);
+		attr1 = GetSsmlAttribute(px, "field");
+		attr2 = GetSsmlAttribute(px, "mode");
+
+
+		if (attrcmp(attr1, "punctuation") == 0) {
+			value = attrlookup(attr2, mnem_punct);
+			sp->parameter[espeakPUNCTUATION] = value;
+		} else if (attrcmp(attr1, "capital_letters") == 0) {
+			value = attrlookup(attr2, mnem_capitals);
+			sp->parameter[espeakCAPITALS] = value;
+		}
+		ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+		break;
+	case SSML_PROSODY:
+		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *) param_stack);
+
+		// look for attributes:  rate, volume, pitch, range
+		for (param_type = espeakRATE; param_type <= espeakRANGE; param_type++) {
+			if ((attr1 = GetSsmlAttribute(px, prosody_attr[param_type])) != NULL)
+				SetProsodyParameter(param_type, attr1, sp, param_stack, speech_parameters);
+		}
+
+		ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+		break;
+	case SSML_EMPHASIS:
+		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *) param_stack);
+		value = 3; // default is "moderate"
+		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL)
+			value = attrlookup(attr1, mnem_emphasis);
+
+		if (translator->langopts.tone_language == 1) {
+			static unsigned char emphasis_to_pitch_range[] = { 50, 50, 40, 70, 90, 100 };
+			static unsigned char emphasis_to_volume[] = { 100, 100, 70, 110, 135, 150 };
+			// tone language (eg.Chinese) do emphasis by increasing the pitch range.
+			sp->parameter[espeakRANGE] = emphasis_to_pitch_range[value];
+			sp->parameter[espeakVOLUME] = emphasis_to_volume[value];
+		} else {
+			static unsigned char emphasis_to_volume2[] = { 100, 100, 75, 100, 120, 150 };
+			sp->parameter[espeakVOLUME] = emphasis_to_volume2[value];
+			sp->parameter[espeakEMPHASIS] = value;
+		}
+		ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+		break;
+	case SSML_STYLE + SSML_CLOSE:
+	case SSML_PROSODY + SSML_CLOSE:
+	case SSML_EMPHASIS + SSML_CLOSE:
+		PopParamStack(tag_type, outbuf, outix, n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
+		break;
+	case SSML_PHONEME:
+		attr1 = GetSsmlAttribute(px, "alphabet");
+		attr2 = GetSsmlAttribute(px, "ph");
+		value = attrlookup(attr1, mnem_phoneme_alphabet);
+		if (value == 1) { // alphabet="espeak"
+			outbuf[(*outix)++] = '[';
+			outbuf[(*outix)++] = '[';
+			*outix += attrcopy_utf8(&outbuf[*outix], attr2, n_outbuf-*outix);
+			outbuf[(*outix)++] = ']';
+			outbuf[(*outix)++] = ']';
+		}
+		break;
+	case SSML_SAYAS:
+		attr1 = GetSsmlAttribute(px, "interpret-as");
+		attr2 = GetSsmlAttribute(px, "format");
+		attr3 = GetSsmlAttribute(px, "detail");
+		value = attrlookup(attr1, mnem_interpret_as);
+		value2 = attrlookup(attr2, mnem_sayas_format);
+		if (value2 == 1)
+			value = SAYAS_GLYPHS;
+
+		value3 = attrnumber(attr3, 0, 0);
+
+		if (value == SAYAS_DIGITS) {
+			if (value3 <= 1)
+				value = SAYAS_DIGITS1;
+			else
+				value = SAYAS_DIGITS + value3;
+		}
+
+		sprintf(buf, "%c%dY", CTRL_EMBEDDED, value);
+		strcpy(&outbuf[*outix], buf);
+		*outix += strlen(buf);
+
+		*sayas_start = *outix;
+		*sayas_mode = value; // punctuation doesn't end clause during SAY-AS
+		break;
+	case SSML_SAYAS + SSML_CLOSE:
+		if (*sayas_mode == SAYAS_KEY) {
+			outbuf[*outix] = 0;
+			ReplaceKeyName(outbuf, *sayas_start, outix);
+		}
+
+		outbuf[(*outix)++] = CTRL_EMBEDDED;
+		outbuf[(*outix)++] = 'Y';
+		*sayas_mode = 0;
+		break;
+	case SSML_SUB:
+		if ((attr1 = GetSsmlAttribute(px, "alias")) != NULL) {
+			// use the alias  rather than the text
+			*ignore_text = true;
+			*outix += attrcopy_utf8(&outbuf[*outix], attr1, n_outbuf-*outix);
+		}
+		break;
+	case SSML_IGNORE_TEXT:
+		*ignore_text = true;
+		break;
+	case SSML_SUB + SSML_CLOSE:
+	case SSML_IGNORE_TEXT + SSML_CLOSE:
+		*ignore_text = false;
+		break;
+	case SSML_MARK:
+		if ((attr1 = GetSsmlAttribute(px, "name")) != NULL) {
+			// add name to circular buffer of marker names
+			attrcopy_utf8(buf, attr1, sizeof(buf));
+
+			if (strcmp(skip_marker, buf) == 0) {
+				// This is the marker we are waiting for before starting to speak
+				*clear_skipping_text = true;
+				skip_marker[0] = 0;
+				return CLAUSE_NONE;
+			}
+
+			if ((index = AddNameData(buf, 0)) >= 0) {
+				sprintf(buf, "%c%dM", CTRL_EMBEDDED, index);
+				strcpy(&outbuf[*outix], buf);
+				*outix += strlen(buf);
+			}
+		}
+		break;
+	case SSML_AUDIO:
+		sp = PushParamStack(tag_type, n_param_stack, (PARAM_STACK *)param_stack);
+
+		if ((attr1 = GetSsmlAttribute(px, "src")) != NULL) {
+			char fname[256];
+			attrcopy_utf8(buf, attr1, sizeof(buf));
+
+			if (uri_callback == NULL) {
+				if ((xmlbase != NULL) && (buf[0] != '/')) {
+					sprintf(fname, "%s/%s", xmlbase, buf);
+					index = LoadSoundFile2(fname);
+				} else
+					index = LoadSoundFile2(buf);
+				if (index >= 0) {
+					sprintf(buf, "%c%dI", CTRL_EMBEDDED, index);
+					strcpy(&outbuf[*outix], buf);
+					*outix += strlen(buf);
+					sp->parameter[espeakSILENCE] = 1;
+				}
+			} else {
+				if ((index = AddNameData(buf, 0)) >= 0) {
+					uri = &namedata[index];
+					if (uri_callback(1, uri, xmlbase) == 0) {
+						sprintf(buf, "%c%dU", CTRL_EMBEDDED, index);
+						strcpy(&outbuf[*outix], buf);
+						*outix += strlen(buf);
+						sp->parameter[espeakSILENCE] = 1;
+					}
+				}
+			}
+		}
+		ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+
+		if (self_closing)
+			PopParamStack(tag_type, outbuf, outix, n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
+		else
+			*audio_text = true;
+		return CLAUSE_NONE;
+	case SSML_AUDIO + SSML_CLOSE:
+		PopParamStack(tag_type, outbuf, outix, n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
+		*audio_text = false;
+		return CLAUSE_NONE;
+	case SSML_BREAK:
+		value = 21;
+		terminator = CLAUSE_NONE;
+
+		if ((attr1 = GetSsmlAttribute(px, "strength")) != NULL) {
+			static int break_value[6] = { 0, 7, 14, 21, 40, 80 }; // *10mS
+			value = attrlookup(attr1, mnem_break);
+			if (value < 3) {
+				// adjust prepause on the following word
+				sprintf(&outbuf[*outix], "%c%dB", CTRL_EMBEDDED, value);
+				*outix += 3;
+				terminator = 0;
+			}
+			value = break_value[value];
+		}
+		if ((attr2 = GetSsmlAttribute(px, "time")) != NULL) {
+			value2 = attrnumber(attr2, 0, 1);   // pause in mS
+
+			// compensate for speaking speed to keep constant pause length, see function PauseLength()
+			// 'value' here is x 10mS
+			value = (value2 * 256) / (speed.clause_pause_factor * 10);
+			if (value < 200)
+				value = (value2 * 256) / (speed.pause_factor * 10);
+
+			if (terminator == 0)
+				terminator = CLAUSE_NONE;
+		}
+		if (terminator) {
+			if (value > 0xfff) {
+				// scale down the value and set a scaling indicator bit
+				value = value / 32;
+				if (value > 0xfff)
+					value = 0xfff;
+				terminator |= CLAUSE_PAUSE_LONG;
+			}
+			return terminator + value;
+		}
+		break;
+	case SSML_SPEAK:
+		if ((attr1 = GetSsmlAttribute(px, "xml:base")) != NULL) {
+			attrcopy_utf8(buf, attr1, sizeof(buf));
+			if ((index = AddNameData(buf, 0)) >= 0)
+				xmlbase = &namedata[index];
+		}
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name) == 0)
+			return 0; // no voice change
+		return CLAUSE_VOICE;
+	case SSML_VOICE:
+		if (GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name) == 0)
+			return 0; // no voice change
+		return CLAUSE_VOICE;
+	case SSML_SPEAK + SSML_CLOSE:
+		// unwind stack until the previous <voice> or <speak> tag
+		while ((*n_ssml_stack > 1) && (ssml_stack[*n_ssml_stack-1].tag_type != SSML_SPEAK))
+			*n_ssml_stack = *n_ssml_stack -1;
+		return CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+	case SSML_VOICE + SSML_CLOSE:
+		// unwind stack until the previous <voice> or <speak> tag
+		while ((*n_ssml_stack > 1) && (ssml_stack[*n_ssml_stack-1].tag_type != SSML_VOICE))
+			*n_ssml_stack = *n_ssml_stack -1;
+
+		terminator = 0; // ??  Sentence intonation, but no pause ??
+		return terminator + GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+	case HTML_BREAK:
+	case HTML_BREAK + SSML_CLOSE:
+		return CLAUSE_COLON;
+	case SSML_SENTENCE:
+		if (ssml_sp->tag_type == SSML_SENTENCE) {
+			// new sentence implies end-of-sentence
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		}
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		return CLAUSE_PARAGRAPH + voice_change_flag;
+	case SSML_PARAGRAPH:
+		if (ssml_sp->tag_type == SSML_SENTENCE) {
+			// new paragraph implies end-of-sentence or end-of-paragraph
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		}
+		if (ssml_sp->tag_type == SSML_PARAGRAPH) {
+			// new paragraph implies end-of-sentence or end-of-paragraph
+			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		}
+		voice_change_flag |= GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		return CLAUSE_PARAGRAPH + voice_change_flag;
+	case SSML_SENTENCE + SSML_CLOSE:
+		if (ssml_sp->tag_type == SSML_SENTENCE) {
+			// end of a sentence which specified a language
+			voice_change_flag = GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name);
+		}
+		return CLAUSE_PERIOD + voice_change_flag;
+	case SSML_PARAGRAPH + SSML_CLOSE:
+		if ((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH)) {
+			// End of a paragraph which specified a language.
+			// (End-of-paragraph also implies end-of-sentence)
+			return GetVoiceAttributes(px, tag_type, ssml_sp, ssml_stack, *n_ssml_stack, current_voice_id, base_voice, base_voice_variant_name) + CLAUSE_PARAGRAPH;
+		}
+		return CLAUSE_PARAGRAPH;
+	}
+	return 0;
+}
