@@ -48,6 +48,7 @@
 int attrcmp(const wchar_t *string1, const char *string2);
 int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab);
 int attrnumber(const wchar_t *pw, int default_value, int type);
+int attrcopy_utf8(char *buf, const wchar_t *pw, int len);
 
 int attrcmp(const wchar_t *string1, const char *string2)
 {
@@ -89,5 +90,26 @@ int attrnumber(const wchar_t *pw, int default_value, int type)
 		value *= 1000;
 	}
 	return value;
+}
+
+int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
+{
+	// Convert attribute string into utf8, write to buf, and return its utf8 length
+	unsigned int c;
+	int ix = 0;
+	int n;
+	int prev_c = 0;
+
+	if (pw != NULL) {
+		while ((ix < (len-4)) && ((c = *pw++) != 0)) {
+			if ((c == '"') && (prev_c != '\\'))
+				break; // " indicates end of attribute, unless preceded by backstroke
+			n = utf8_out(c, &buf[ix]);
+			ix += n;
+			prev_c = c;
+		}
+	}
+	buf[ix] = 0;
+	return ix;
 }
 
