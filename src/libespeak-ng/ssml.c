@@ -303,3 +303,50 @@ const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOIC
 	return v_id;
 }
 
+void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+{
+	// Set the speech parameters from the parameter stack
+	int param;
+	int ix;
+	int value;
+	char buf[20];
+	int new_parameters[N_SPEECH_PARAM];
+	static char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' }; // embedded command letters
+
+	for (param = 0; param < N_SPEECH_PARAM; param++)
+		new_parameters[param] = -1;
+
+	for (ix = 0; ix < n_param_stack; ix++) {
+		for (param = 0; param < N_SPEECH_PARAM; param++) {
+			if (param_stack[ix].parameter[param] >= 0)
+				new_parameters[param] = param_stack[ix].parameter[param];
+		}
+	}
+
+	for (param = 0; param < N_SPEECH_PARAM; param++) {
+		if ((value = new_parameters[param]) != speech_parameters[param]) {
+			buf[0] = 0;
+
+			switch (param)
+			{
+			case espeakPUNCTUATION:
+				option_punctuation = value-1;
+				break;
+			case espeakCAPITALS:
+				option_capitals = value;
+				break;
+			case espeakRATE:
+			case espeakVOLUME:
+			case espeakPITCH:
+			case espeakRANGE:
+			case espeakEMPHASIS:
+				sprintf(buf, "%c%d%c", CTRL_EMBEDDED, value, cmd_letter[param]);
+				break;
+			}
+
+			speech_parameters[param] = new_parameters[param];
+			strcpy(&outbuf[*outix], buf);
+			*outix += strlen(buf);
+		}
+	}
+}

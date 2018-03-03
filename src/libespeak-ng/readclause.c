@@ -73,7 +73,6 @@ static espeak_VOICE base_voice;
 static char base_voice_variant_name[40] = { 0 };
 static char current_voice_id[40] = { 0 };
 
-#define N_PARAM_STACK  20
 static int n_param_stack;
 PARAM_STACK param_stack[N_PARAM_STACK];
 
@@ -550,54 +549,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	return short_pause;
 }
 
-static void ProcessParamStack(char *outbuf, int *outix)
-{
-	// Set the speech parameters from the parameter stack
-	int param;
-	int ix;
-	int value;
-	char buf[20];
-	int new_parameters[N_SPEECH_PARAM];
-	static char cmd_letter[N_SPEECH_PARAM] = { 0, 'S', 'A', 'P', 'R', 0, 'C', 0, 0, 0, 0, 0, 'F' }; // embedded command letters
-
-	for (param = 0; param < N_SPEECH_PARAM; param++)
-		new_parameters[param] = -1;
-
-	for (ix = 0; ix < n_param_stack; ix++) {
-		for (param = 0; param < N_SPEECH_PARAM; param++) {
-			if (param_stack[ix].parameter[param] >= 0)
-				new_parameters[param] = param_stack[ix].parameter[param];
-		}
-	}
-
-	for (param = 0; param < N_SPEECH_PARAM; param++) {
-		if ((value = new_parameters[param]) != speech_parameters[param]) {
-			buf[0] = 0;
-
-			switch (param)
-			{
-			case espeakPUNCTUATION:
-				option_punctuation = value-1;
-				break;
-			case espeakCAPITALS:
-				option_capitals = value;
-				break;
-			case espeakRATE:
-			case espeakVOLUME:
-			case espeakPITCH:
-			case espeakRANGE:
-			case espeakEMPHASIS:
-				sprintf(buf, "%c%d%c", CTRL_EMBEDDED, value, cmd_letter[param]);
-				break;
-			}
-
-			speech_parameters[param] = new_parameters[param];
-			strcpy(&outbuf[*outix], buf);
-			*outix += strlen(buf);
-		}
-	}
-}
-
 static PARAM_STACK *PushParamStack(int tag_type)
 {
 	int ix;
@@ -628,7 +579,7 @@ static void PopParamStack(int tag_type, char *outbuf, int *outix)
 	}
 	if (top > 0)
 		n_param_stack = top;
-	ProcessParamStack(outbuf, outix);
+	ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 }
 
 wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
@@ -931,7 +882,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			value = attrlookup(attr2, mnem_capitals);
 			sp->parameter[espeakCAPITALS] = value;
 		}
-		ProcessParamStack(outbuf, outix);
+		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 		break;
 	case SSML_PROSODY:
 		sp = PushParamStack(tag_type);
@@ -942,7 +893,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 				SetProsodyParameter(param_type, attr1, sp);
 		}
 
-		ProcessParamStack(outbuf, outix);
+		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 		break;
 	case SSML_EMPHASIS:
 		sp = PushParamStack(tag_type);
@@ -961,7 +912,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 			sp->parameter[espeakVOLUME] = emphasis_to_volume2[value];
 			sp->parameter[espeakEMPHASIS] = value;
 		}
-		ProcessParamStack(outbuf, outix);
+		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 		break;
 	case SSML_STYLE + SSML_CLOSE:
 	case SSML_PROSODY + SSML_CLOSE:
@@ -1079,7 +1030,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 				}
 			}
 		}
-		ProcessParamStack(outbuf, outix);
+		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 
 		if (self_closing)
 			PopParamStack(tag_type, outbuf, outix);

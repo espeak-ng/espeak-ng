@@ -9,6 +9,8 @@ typedef struct {
         char language[20];
 } SSML_STACK;
 
+#define N_PARAM_STACK  20
+
 #define SSML_SPEAK     1
 #define SSML_VOICE     2
 #define SSML_PROSODY   3
@@ -74,4 +76,5 @@ int attrnumber(const wchar_t *pw, int default_value, int type);
 int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out);
 int attrcopy_utf8(char *buf, const wchar_t *pw, int len);
 int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char base_voice_variant_name[40]);
+void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters);
 const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40]);
