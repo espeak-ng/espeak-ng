@@ -549,37 +549,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	return short_pause;
 }
 
-wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
-{
-	// Gets the value string for an attribute.
-	// Returns NULL if the attribute is not present
-
-	int ix;
-	static wchar_t empty[1] = { 0 };
-
-	while (*pw != 0) {
-		if (iswspace(pw[-1])) {
-			ix = 0;
-			while (*pw == name[ix]) {
-				pw++;
-				ix++;
-			}
-			if (name[ix] == 0) {
-				// found the attribute, now get the value
-				while (iswspace(*pw)) pw++;
-				if (*pw == '=') pw++;
-				while (iswspace(*pw)) pw++;
-				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
-					return pw+1;
-				else
-					return empty;
-			}
-		}
-		pw++;
-	}
-	return NULL;
-}
-
 static int AddNameData(const char *name, int wide)
 {
 	// Add the name to the namedata and return its position

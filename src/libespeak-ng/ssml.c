@@ -383,3 +383,34 @@ void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, P
 	ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
 }
 
+wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
+{
+	// Gets the value string for an attribute.
+	// Returns NULL if the attribute is not present
+
+	int ix;
+	static wchar_t empty[1] = { 0 };
+
+	while (*pw != 0) {
+		if (iswspace(pw[-1])) {
+			ix = 0;
+			while (*pw == name[ix]) {
+				pw++;
+				ix++;
+			}
+			if (name[ix] == 0) {
+				// found the attribute, now get the value
+				while (iswspace(*pw)) pw++;
+				if (*pw == '=') pw++;
+				while (iswspace(*pw)) pw++;
+				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
+					return pw+1;
+				else
+					return empty;
+			}
+		}
+		pw++;
+	}
+	return NULL;
+}
+
