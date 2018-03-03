@@ -100,6 +100,7 @@ tests/*.test
 !tests/languages.test
 !tests/phoneme-output.test
 !tests/phoneme-audio.test
+!tests/ssml.test
 
 espeak-ng.pc
 

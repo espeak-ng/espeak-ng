@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Example from SSML 1.1 specification, Appendix E
+     https://www.w3.org/TR/speech-synthesis11/#AppE
+-->
+<speak version="1.1"
+       xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.w3.org/2001/10/synthesis
+                   http://www.w3.org/TR/speech-synthesis11/synthesis.xsd"
+       xml:lang="en-US">
+  <p>
+    <s>You have 4 new messages.</s>
+    <s>The first is from Stephanie Williams and arrived at <break/> 3:45pm.</s>
+    <s>
+      The subject is <prosody rate="-20%">ski trip</prosody>
+    </s>
+  </p>
+</speak>

