@@ -549,21 +549,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	return short_pause;
 }
 
-static PARAM_STACK *PushParamStack(int tag_type)
-{
-	int ix;
-	PARAM_STACK *sp;
-
-	sp = &param_stack[n_param_stack];
-	if (n_param_stack < (N_PARAM_STACK-1))
-		n_param_stack++;
-
-	sp->type = tag_type;
-	for (ix = 0; ix < N_SPEECH_PARAM; ix++)
-		sp->parameter[ix] = -1;
-	return sp;
-}
-
 static void PopParamStack(int tag_type, char *outbuf, int *outix)
 {
 	// unwind the stack up to and including the previous tag of this type
@@ -870,7 +855,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	switch (tag_type)
 	{
 	case SSML_STYLE:
-		sp = PushParamStack(tag_type);
+		sp = PushParamStack(tag_type, &n_param_stack, (PARAM_STACK *) param_stack);
 		attr1 = GetSsmlAttribute(px, "field");
 		attr2 = GetSsmlAttribute(px, "mode");
 
@@ -885,7 +870,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 		break;
 	case SSML_PROSODY:
-		sp = PushParamStack(tag_type);
+		sp = PushParamStack(tag_type, &n_param_stack, (PARAM_STACK *) param_stack);
 
 		// look for attributes:  rate, volume, pitch, range
 		for (param_type = espeakRATE; param_type <= espeakRANGE; param_type++) {
@@ -896,7 +881,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 		break;
 	case SSML_EMPHASIS:
-		sp = PushParamStack(tag_type);
+		sp = PushParamStack(tag_type, &n_param_stack, (PARAM_STACK *) param_stack);
 		value = 3; // default is "moderate"
 		if ((attr1 = GetSsmlAttribute(px, "level")) != NULL)
 			value = attrlookup(attr1, mnem_emphasis);
@@ -1000,7 +985,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		}
 		break;
 	case SSML_AUDIO:
-		sp = PushParamStack(tag_type);
+		sp = PushParamStack(tag_type, &n_param_stack, (PARAM_STACK *)param_stack);
 
 		if ((attr1 = GetSsmlAttribute(px, "src")) != NULL) {
 			char fname[256];

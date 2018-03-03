@@ -350,3 +350,17 @@ void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK 
 		}
 	}
 }
+PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack)
+{
+	int ix;
+	PARAM_STACK *sp;
+
+	sp = &param_stack[*n_param_stack];
+	if (*n_param_stack < (N_PARAM_STACK-1))
+		*n_param_stack = *n_param_stack + 1;
+
+	sp->type = tag_type;
+	for (ix = 0; ix < N_SPEECH_PARAM; ix++)
+		sp->parameter[ix] = -1;
+	return sp;
+}
