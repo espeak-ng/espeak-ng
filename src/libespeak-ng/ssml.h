@@ -81,3 +81,4 @@ void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK 
 PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack);
 const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40]);
 void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters);
+int ReplaceKeyName(char *outbuf, int index, int *outix);

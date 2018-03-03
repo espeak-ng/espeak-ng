@@ -669,31 +669,6 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 	}
 }
 
-static int ReplaceKeyName(char *outbuf, int index, int *outix)
-{
-	// Replace some key-names by single characters, so they can be pronounced in different languages
-	static MNEM_TAB keynames[] = {
-		{ "space ",        0xe020 },
-		{ "tab ",          0xe009 },
-		{ "underscore ",   0xe05f },
-		{ "double-quote ", '"' },
-		{ NULL,            0 }
-	};
-
-	int ix;
-	int letter;
-	char *p;
-
-	p = &outbuf[index];
-
-	if ((letter = LookupMnem(keynames, p)) != 0) {
-		ix = utf8_out(letter, p);
-		*outix = index + ix;
-		return letter;
-	}
-	return 0;
-}
-
 static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
