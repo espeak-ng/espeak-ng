@@ -271,6 +271,7 @@ pirms     $u+
 pret      $u+
 priekš    $u
 protams   $u+
+sauc      $u+
 starp     $u
 šeit      $u+
 šo        $u+
@@ -502,6 +503,7 @@ nr      $abbrev
 pctvl   $abbrev $pause
 prks    $abbrev
 psrs    $abbrev
+red     R'ed
 rpi     $abbrev
 sia     si:a: $pause
 st      $abbrev
