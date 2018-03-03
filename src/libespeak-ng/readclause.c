@@ -601,74 +601,6 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
 }
 
-static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
-{
-	int value;
-	int sign;
-
-	static const MNEM_TAB mnem_volume[] = {
-		{ "default", 100 },
-		{ "silent",    0 },
-		{ "x-soft",   30 },
-		{ "soft",     65 },
-		{ "medium",  100 },
-		{ "loud",    150 },
-		{ "x-loud",  230 },
-		{ NULL,       -1 }
-	};
-
-	static const MNEM_TAB mnem_rate[] = {
-		{ "default", 100 },
-		{ "x-slow",   60 },
-		{ "slow",     80 },
-		{ "medium",  100 },
-		{ "fast",    125 },
-		{ "x-fast",  160 },
-		{ NULL,       -1 }
-	};
-
-	static const MNEM_TAB mnem_pitch[] = {
-		{ "default", 100 },
-		{ "x-low",    70 },
-		{ "low",      85 },
-		{ "medium",  100 },
-		{ "high",    110 },
-		{ "x-high",  120 },
-		{ NULL,       -1 }
-	};
-
-	static const MNEM_TAB mnem_range[] = {
-		{ "default", 100 },
-		{ "x-low",    20 },
-		{ "low",      50 },
-		{ "medium",  100 },
-		{ "high",    140 },
-		{ "x-high",  180 },
-		{ NULL,       -1 }
-	};
-
-	static const MNEM_TAB *mnem_tabs[5] = {
-		NULL, mnem_rate, mnem_volume, mnem_pitch, mnem_range
-	};
-
-	if ((value = attrlookup(attr1, mnem_tabs[param_type])) >= 0) {
-		// mnemonic specifies a value as a percentage of the base pitch/range/rate/volume
-		sp->parameter[param_type] = (param_stack[0].parameter[param_type] * value)/100;
-	} else {
-		sign = attr_prosody_value(param_type, attr1, &value);
-
-		if (sign == 0)
-			sp->parameter[param_type] = value; // absolute value in Hz
-		else if (sign == 2) {
-			// change specified as percentage or in semitones
-			sp->parameter[param_type] = (speech_parameters[param_type] * value)/100;
-		} else {
-			// change specified as plus or minus Hz
-			sp->parameter[param_type] = speech_parameters[param_type] + (value*sign);
-		}
-	}
-}
-
 static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
@@ -801,7 +733,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		// look for attributes:  rate, volume, pitch, range
 		for (param_type = espeakRATE; param_type <= espeakRANGE; param_type++) {
 			if ((attr1 = GetSsmlAttribute(px, prosody_attr[param_type])) != NULL)
-				SetProsodyParameter(param_type, attr1, sp);
+				SetProsodyParameter(param_type, attr1, sp, &param_stack, &speech_parameters);
 		}
 
 		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
