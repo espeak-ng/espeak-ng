@@ -253,9 +253,9 @@ endphoneme
 phoneme l
   liquid
 
-  IF nextPh(isNotVowel) THEN
-    ChangePhoneme(l/)
-  ENDIF
+//  IF nextPh(isNotVowel) THEN
+//    ChangePhoneme(l/)
+//  ENDIF
 
   IF nextPh(isNotVowel) THEN
     PrevVowelEndings

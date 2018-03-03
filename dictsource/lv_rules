@@ -466,9 +466,11 @@
 .group l
            l               l
         C) l (C            l-        // more voiced variant between consonants
-           l (L61+         l>
+     _lie) l (@            l>
            l (L60+         l:
+           l (L61+         l>
            ll (++          ll
+
 
 .group ļ
            ļ               l^
@@ -482,6 +484,7 @@
 .group n
            n               n
         C) n (C            n-        // more voiced variant between consonants
+        l) n (C            n         // but not after (lengthened) l
       L59) n (@           :n
            n (d            N
            ne (vienl+      n'e       // nevienlīdzība
