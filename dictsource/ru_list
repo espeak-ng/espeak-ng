@@ -53,57 +53,57 @@ _dpt	_:'i_:        // start of decimal fraction
 _dpt2	_d;Is;'atYx   // end of decimal fraction
 
 // symbols
-@	sob'aka
-#	reS'Etka  $max3
-$	d'ollar
-%	prVts'Ent  $max3
-^	kr'ySka
-&	ampers'and
-*	zvezd'a  $max3
-+	pl'jus  $max3
-=	ravn'o  $max3
-/	sl'ES  $max3
-\	bEksl'ES  $max3
-_	def'is
-_	podtS;'8rk  $max3
-~	t'ilda
-№	n'omer
-_(	'otkrkrug
-_)	z'akrkrug
-_|	v'ert
-_{	'otkrfigur
-_}	z'akrfigur
-_[	'otkrkvadrat
-_]	z'akrkvadrat
-_>	b'ol;SE
-_<	m'en;SE
-_«	'otkr uglof
-_»	z'akr uglof
-_!	v'oskl;
-_?	vopr'os
-_.	t'otS;ka
-_,	zVpit'aja
 _`	akts'Ent
-_"	kVv'ytS;ka
+&	ampers'and
 _'	ap'ostrVf
-_;	t'otS;kzap
+\	bEksl'ES  $max3
+_>	b'ol;SE
+_	def'is
+$	d'ollar
 _:	dvVet'otS;ie
+^	kr'ySka
+_"	kVv'ytS;ka
+_<	m'en;SE
+№	n'omer
+_{	'otkrfigur
+_(	'otkrkrug
+_[	'otkrkvadrat
+_«	'otkr uglof
++	pl'jus  $max3
+_	podtS;'8rk  $max3
+%	prVts'Ent  $max3
+=	ravn'o  $max3
+#	reS'Etka  $max3
+/	sl'ES  $max3
+@	sob'aka
+~	t'ilda
+_.	t'otS;ka
+_;	t'otS;kzap
+_|	v'ert
+_?	vopr'os
+_!	v'oskl;
+_}	z'akrfigur
+_)	z'akrkrug
+_]	z'akrkvadrat
+_»	z'akr uglof
+*	zvezd'a  $max3
+_,	zVpit'aja
 
 // prepositions
 в	v $u         // to,in,at
+для	  $u         // for
+на        $u         // on
 от	  $u         // from
 с	s $u         // with,from,since
 у	u $u         // by
-на        $u         // on
-для	  $u         // for
 
 // conjunctions
-и	i $u $pause  // and
-а	  $u $pause  // and
 а	     $atend
-но	  $u $pause  // but
+а	  $u $pause  // and
+и	i $u $pause  // and
 ибо	  $u $pause  // for
 ибо	  $u $pause  // if
+но	  $u $pause  // but
 хотя	  $2 $pause  // although
 чтобы	     $pause  // in order that
 
@@ -117,62 +117,55 @@ _:	dvVet'otS;ie
 не	$u           // negative
 
 // auxillary verbs
-быть	$u1          // to be
-побыть	$u2
-
-есмь	$u1
-еси	$u2
-есть	$u1
-есмы	$u1
-есте	$u1
-суть	$u1
-
+будем	$u1
+будет	$u1
+будете	$u1
+будешь	$u1
+буду	$u1
+будут	$u1
 был	$u1
 были	$u1
 было	$u1
-побыл	$u1
-побыла	$u3
-побыло	$u2
-побыли	$u2
-
-буду	$u1
-будешь	$u1
-будет	$u1
-будем	$u1
-будете	$u1
-будут	$u1
-побуду	$u2
-побудешь $u2
-побудет	$u2
-побудем	$u2
-побудете $u2
-побудут	$u2
-
-мочь	$u         // can
-смочь	$u1
-
-могу	$u2
-можешь	$u1
-может	$u1
-можем	$u1
-можете	$u1
-могут	$u1
-
+быть	$u1          // to be
+еси	$u2
+есмы	$u1
+есмь	$u1
+есте	$u1
+есть	$u1
 мог	$u1
 могла	$u2
-могло	$u2
 могли	$u2
+могло	$u2
+могу	$u2
+могут	$u1
+можем	$u1
+может	$u1
+можете	$u1
+можешь	$u1
+мочь	$u         // can
+побудем	$u2
+побудет	$u2
+побудете $u2
+побудешь $u2
+побуду	$u2
+побудут	$u2
+побыл	$u1
+побыла	$u3
+побыли	$u2
+побыло	$u2
+побыть	$u2
 смог	$u1
 смогла	$u2
-смогло	$u2
 смогли	$u2
-
+смогло	$u2
 смогу	$u1
-сможешь	$u1
-сможет	$u1
-сможем	$u1
-сможете	$u1
 смогут	$u1
+сможем	$u1
+сможет	$u1
+сможете	$u1
+сможешь	$u1
+смочь	$u1
+суть	$u1
 
 // Cyrillic letter names
 а	a
