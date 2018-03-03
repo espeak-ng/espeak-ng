@@ -364,3 +364,22 @@ PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param
 		sp->parameter[ix] = -1;
 	return sp;
 }
+
+void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+{
+	// unwind the stack up to and including the previous tag of this type
+	int ix;
+	int top = 0;
+
+	if (tag_type >= SSML_CLOSE)
+		tag_type -= SSML_CLOSE;
+
+	for (ix = 0; ix < *n_param_stack; ix++) {
+		if (param_stack[ix].type == tag_type)
+			top = ix;
+	}
+	if (top > 0)
+		*n_param_stack = top;
+	ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
+}
+

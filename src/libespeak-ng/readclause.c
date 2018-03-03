@@ -549,24 +549,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	return short_pause;
 }
 
-static void PopParamStack(int tag_type, char *outbuf, int *outix)
-{
-	// unwind the stack up to and including the previous tag of this type
-	int ix;
-	int top = 0;
-
-	if (tag_type >= SSML_CLOSE)
-		tag_type -= SSML_CLOSE;
-
-	for (ix = 0; ix < n_param_stack; ix++) {
-		if (param_stack[ix].type == tag_type)
-			top = ix;
-	}
-	if (top > 0)
-		n_param_stack = top;
-	ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
-}
-
 wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 {
 	// Gets the value string for an attribute.
@@ -902,7 +884,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 	case SSML_STYLE + SSML_CLOSE:
 	case SSML_PROSODY + SSML_CLOSE:
 	case SSML_EMPHASIS + SSML_CLOSE:
-		PopParamStack(tag_type, outbuf, outix);
+		PopParamStack(tag_type, outbuf, outix, &n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
 		break;
 	case SSML_PHONEME:
 		attr1 = GetSsmlAttribute(px, "alphabet");
@@ -1018,12 +1000,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outb
 		ProcessParamStack(outbuf, outix, n_param_stack, param_stack, speech_parameters);
 
 		if (self_closing)
-			PopParamStack(tag_type, outbuf, outix);
+			PopParamStack(tag_type, outbuf, outix, &n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
 		else
 			audio_text = true;
 		return CLAUSE_NONE;
 	case SSML_AUDIO + SSML_CLOSE:
-		PopParamStack(tag_type, outbuf, outix);
+		PopParamStack(tag_type, outbuf, outix, &n_param_stack, (PARAM_STACK *) param_stack, (int *) speech_parameters);
 		audio_text = false;
 		return CLAUSE_NONE;
 	case SSML_BREAK:
