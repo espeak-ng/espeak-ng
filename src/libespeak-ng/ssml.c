@@ -46,8 +46,7 @@
 #include "translate.h"
 #include "ssml.h"
 
-
-int attrcmp(const wchar_t *string1, const char *string2)
+static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
 
@@ -62,7 +61,7 @@ int attrcmp(const wchar_t *string1, const char *string2)
 }
 
 
-int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
+static int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 {
 	int ix;
 
@@ -73,7 +72,7 @@ int attrlookup(const wchar_t *string1, const MNEM_TAB *mtab)
 	return mtab[ix].value;
 }
 
-int attrnumber(const wchar_t *pw, int default_value, int type)
+static int attrnumber(const wchar_t *pw, int default_value, int type)
 {
 	int value = 0;
 
@@ -89,7 +88,7 @@ int attrnumber(const wchar_t *pw, int default_value, int type)
 	return value;
 }
 
-int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
+static int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 {
 	// Convert attribute string into utf8, write to buf, and return its utf8 length
 	unsigned int c;
@@ -110,7 +109,7 @@ int attrcopy_utf8(char *buf, const wchar_t *pw, int len)
 	return ix;
 }
 
-int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
+static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 {
 	int sign = 0;
 	wchar_t *tail;
@@ -159,76 +158,7 @@ int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	return sign;   // -1, 0, or 1
 }
 
-static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char *base_voice_variant_name)
-{
-	// Determines whether voice attribute are specified in this tag, and if so, whether this means
-	// a voice change.
-	// If it's a closing tag, delete the top frame of the stack and determine whether this implies
-	// a voice change.
-	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
-
-	wchar_t *lang;
-	wchar_t *gender;
-	wchar_t *name;
-	wchar_t *age;
-	wchar_t *variant;
-	int value;
-	const char *new_voice_id;
-
-	static const MNEM_TAB mnem_gender[] = {
-		{ "male", ENGENDER_MALE },
-		{ "female", ENGENDER_FEMALE },
-		{ "neutral", ENGENDER_NEUTRAL },
-		{ NULL, ENGENDER_UNKNOWN }
-	};
-
-	if (tag_type & SSML_CLOSE) {
-		// delete a stack frame
-		if (n_ssml_stack > 1)
-			n_ssml_stack--;
-	} else {
-		// add a stack frame if any voice details are specified
-		lang = GetSsmlAttribute(pw, "xml:lang");
-
-		if (tag_type != SSML_VOICE) {
-			// only expect an xml:lang attribute
-			name = NULL;
-			variant = NULL;
-			age = NULL;
-			gender = NULL;
-		} else {
-			name = GetSsmlAttribute(pw, "name");
-			variant = GetSsmlAttribute(pw, "variant");
-			age = GetSsmlAttribute(pw, "age");
-			gender = GetSsmlAttribute(pw, "gender");
-		}
-
-		if ((tag_type != SSML_VOICE) && (lang == NULL))
-			return 0; // <s> or <p> without language spec, nothing to do
-
-		ssml_sp = &ssml_stack[n_ssml_stack++];
-
-		attrcopy_utf8(ssml_sp->language, lang, sizeof(ssml_sp->language));
-		attrcopy_utf8(ssml_sp->voice_name, name, sizeof(ssml_sp->voice_name));
-		if ((value = attrnumber(variant, 1, 0)) > 0)
-			value--; // variant='0' and variant='1' the same
-		ssml_sp->voice_variant_number = value;
-		ssml_sp->voice_age = attrnumber(age, 0, 0);
-		ssml_sp->voice_gender = attrlookup(gender, mnem_gender);
-		ssml_sp->tag_type = tag_type;
-	}
-
-	new_voice_id = VoiceFromStack(ssml_stack, n_ssml_stack, base_voice, base_voice_variant_name);
-	if (strcmp(new_voice_id, current_voice_id) != 0) {
-		// add an embedded command to change the voice
-		strcpy(current_voice_id, new_voice_id);
-		return CLAUSE_TYPE_VOICE_CHANGE;
-	}
-
-	return 0;
-}
-
-const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40])
+static const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOICE *base_voice, char base_voice_variant_name[40])
 {
 	// Use the voice properties from the SSML stack to choose a voice, and switch
 	// to that voice if it's not the current voice
@@ -304,7 +234,109 @@ const char *VoiceFromStack(SSML_STACK *ssml_stack, int n_ssml_stack, espeak_VOIC
 	return v_id;
 }
 
-void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+
+static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
+{
+	// Gets the value string for an attribute.
+	// Returns NULL if the attribute is not present
+
+	int ix;
+	static wchar_t empty[1] = { 0 };
+
+	while (*pw != 0) {
+		if (iswspace(pw[-1])) {
+			ix = 0;
+			while (*pw == name[ix]) {
+				pw++;
+				ix++;
+			}
+			if (name[ix] == 0) {
+				// found the attribute, now get the value
+				while (iswspace(*pw)) pw++;
+				if (*pw == '=') pw++;
+				while (iswspace(*pw)) pw++;
+				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
+					return pw+1;
+				else
+					return empty;
+			}
+		}
+		pw++;
+	}
+	return NULL;
+}
+
+
+static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SSML_STACK *ssml_stack, int n_ssml_stack, char current_voice_id[40], espeak_VOICE *base_voice, char *base_voice_variant_name)
+{
+	// Determines whether voice attribute are specified in this tag, and if so, whether this means
+	// a voice change.
+	// If it's a closing tag, delete the top frame of the stack and determine whether this implies
+	// a voice change.
+	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
+
+	wchar_t *lang;
+	wchar_t *gender;
+	wchar_t *name;
+	wchar_t *age;
+	wchar_t *variant;
+	int value;
+	const char *new_voice_id;
+
+	static const MNEM_TAB mnem_gender[] = {
+		{ "male", ENGENDER_MALE },
+		{ "female", ENGENDER_FEMALE },
+		{ "neutral", ENGENDER_NEUTRAL },
+		{ NULL, ENGENDER_UNKNOWN }
+	};
+
+	if (tag_type & SSML_CLOSE) {
+		// delete a stack frame
+		if (n_ssml_stack > 1)
+			n_ssml_stack--;
+	} else {
+		// add a stack frame if any voice details are specified
+		lang = GetSsmlAttribute(pw, "xml:lang");
+
+		if (tag_type != SSML_VOICE) {
+			// only expect an xml:lang attribute
+			name = NULL;
+			variant = NULL;
+			age = NULL;
+			gender = NULL;
+		} else {
+			name = GetSsmlAttribute(pw, "name");
+			variant = GetSsmlAttribute(pw, "variant");
+			age = GetSsmlAttribute(pw, "age");
+			gender = GetSsmlAttribute(pw, "gender");
+		}
+
+		if ((tag_type != SSML_VOICE) && (lang == NULL))
+			return 0; // <s> or <p> without language spec, nothing to do
+
+		ssml_sp = &ssml_stack[n_ssml_stack++];
+
+		attrcopy_utf8(ssml_sp->language, lang, sizeof(ssml_sp->language));
+		attrcopy_utf8(ssml_sp->voice_name, name, sizeof(ssml_sp->voice_name));
+		if ((value = attrnumber(variant, 1, 0)) > 0)
+			value--; // variant='0' and variant='1' the same
+		ssml_sp->voice_variant_number = value;
+		ssml_sp->voice_age = attrnumber(age, 0, 0);
+		ssml_sp->voice_gender = attrlookup(gender, mnem_gender);
+		ssml_sp->tag_type = tag_type;
+	}
+
+	new_voice_id = VoiceFromStack(ssml_stack, n_ssml_stack, base_voice, base_voice_variant_name);
+	if (strcmp(new_voice_id, current_voice_id) != 0) {
+		// add an embedded command to change the voice
+		strcpy(current_voice_id, new_voice_id);
+		return CLAUSE_TYPE_VOICE_CHANGE;
+	}
+
+	return 0;
+}
+
+static void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
 {
 	// Set the speech parameters from the parameter stack
 	int param;
@@ -351,7 +383,8 @@ void ProcessParamStack(char *outbuf, int *outix, int n_param_stack, PARAM_STACK 
 		}
 	}
 }
-PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack)
+
+static PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param_stack)
 {
 	int ix;
 	PARAM_STACK *sp;
@@ -366,7 +399,7 @@ PARAM_STACK *PushParamStack(int tag_type, int *n_param_stack, PARAM_STACK *param
 	return sp;
 }
 
-void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
+static void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, PARAM_STACK *param_stack, int *speech_parameters)
 {
 	// unwind the stack up to and including the previous tag of this type
 	int ix;
@@ -384,38 +417,7 @@ void PopParamStack(int tag_type, char *outbuf, int *outix, int *n_param_stack, P
 	ProcessParamStack(outbuf, outix, *n_param_stack, param_stack, speech_parameters);
 }
 
-wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
-{
-	// Gets the value string for an attribute.
-	// Returns NULL if the attribute is not present
-
-	int ix;
-	static wchar_t empty[1] = { 0 };
-
-	while (*pw != 0) {
-		if (iswspace(pw[-1])) {
-			ix = 0;
-			while (*pw == name[ix]) {
-				pw++;
-				ix++;
-			}
-			if (name[ix] == 0) {
-				// found the attribute, now get the value
-				while (iswspace(*pw)) pw++;
-				if (*pw == '=') pw++;
-				while (iswspace(*pw)) pw++;
-				if ((*pw == '"') || (*pw == '\'')) // allow single-quotes ?
-					return pw+1;
-				else
-					return empty;
-			}
-		}
-		pw++;
-	}
-	return NULL;
-}
-
-int ReplaceKeyName(char *outbuf, int index, int *outix)
+static int ReplaceKeyName(char *outbuf, int index, int *outix)
 {
 	// Replace some key-names by single characters, so they can be pronounced in different languages
 	static MNEM_TAB keynames[] = {
@@ -440,7 +442,7 @@ int ReplaceKeyName(char *outbuf, int index, int *outix)
 	return 0;
 }
 
-void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
+static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp, PARAM_STACK *param_stack, int *speech_parameters)
 {
 	int value;
 	int sign;
