@@ -1,216 +1,244 @@
 // This file is UTF8 encoded
 
 // Numbers
-_0	n'ojl^
-_1	ojd;'in
-_1f	odn'a
-_2	dv'A
-_2f	dv;'e
-_3	tR;'i
-_4	tS;It'yR;I
-_5	p;'jat;
-_6	S'Es;t;
-_7	s;'ejm
-_8	v'os;E2m
-_9	d;'evI3t;
-_10	d;'es;It;
-_11	Od;'innVttsVt;
-_12	dv;In'AttsVt;
-_13	tR;In'AttsVt;
-_14	tS;It'y@-*nVttsVt;
-_15	p;Itn'AttsVt;
-_16	SE#stn'AttsVt;
-_17	s;Imn'AttsVt;
-_18	vOs;Imn'AttsVt;
-_19	d;E2v;Itn'AttsVt;
-_2X	dv'AttsVt;
-_3X	tr;'ittsVt;
-_4X	s'o@-*Ok
-_5X	p;Vd;d;Is;'jat
-_6X	SE2z;d;d;Is;'jat
-_7X	s;'emd;E2s;Vt
-_8X	v'os;E2md;E2s;Vt
-_9X	d;E2v;In'ostO
-_0C	st'o
-_2C	dv;'es;t;I
-_3C	tr;'ista
-_4C	tS;It'yr;E2sta
-_5C	p;,It;s'ot
-_6C	S,E#s;t;s'ot
-_7C	s;,Ims'ot
-_8C	vOs;Ims'ot
-_9C	dev;Vts'ot
-_1MA1	t'ys;ItS;V     // no '1' before thousand
-_0MA1	t'ys;ItS;i
-_0M1	t'ys;VtS;
-_1MA2	m;,IlI;'on
-_0MA2	m;,IlI;'ona
-_0M2	m;,IlI;'onof
-_1MA3	m;,IlI;'art
-_0MA3	m;,IlI;'arda
-_0M3	m;,IlI;'ardof
-_dpt	_:'i_:        // start of decimal fraction
-_dpt2	_d;Is;'atYx   // end of decimal fraction
+_0      n'ojl^
+_1      od;'in
+_1f     odn'a
+_2      dv'A
+_2f     dv;'e
+_3      tr;'i
+_4      tS;It'yr;I
+_5      p;'jat;
+_6      S'Es;t;
+_7      s;'em;
+_8      v'os;E2m
+_9      d;'evI3t;
+_10     d;'es;It;
+_11     Od;'innVttsVt;
+_12     dv;In'AttsVt;
+_13     tr;In'AttsVt;
+_14     tS;It'y@-*nVttsVt;
+_15     p;Itn'AttsVt;
+_16     SE#stn'AttsVt;
+_17     s;Imn'AttsVt;
+_18     vOs;Imn'AttsVt;
+_19     d;E2v;Itn'AttsVt;
+_2X     dv'AttsVt;
+_3X     tr;'ittsVt;
+_4X     s'o@-*Ok
+_5X     p;Vd;d;Is;'jat
+_6X     SE2z;d;d;Is;'jat
+_7X     s;'emd;E2s;Vt
+_8X     v'os;E2md;E2s;Vt
+_9X     d;E2v;In'ostO
+_0C     st'o
+_2C     dv;'es;t;I
+_3C     tr;'ista
+_4C     tS;It'yr;E2sta
+_5C     p;,It;s'ot
+_6C     S,E#s;t;s'ot
+_7C     s;,Ims'ot
+_8C     vOs;Ims'ot
+_9C     dev;Vts'ot
+_1MA1   t'ys;ItS;V     // no '1' before thousand
+_0MA1   t'ys;ItS;i
+_0M1    t'ys;VtS;
+_1MA2   m;,IlI;'on
+_0MA2   m;,IlI;'ona
+_0M2    m;,IlI;'onof
+_1MA3   m;,IlI;'art
+_0MA3   m;,IlI;'arda
+_0M3    m;,IlI;'ardof
+_dpt    _:'i_:        // start of decimal fraction
+_dpt2   _d;Is;'atYx   // end of decimal fraction
 
 // symbols
-@	sob'aka
-#	reS'Etka  $max3
-$	d'ollar
-%	prVts'Ent  $max3
-^	kr'ySka
-&	ampers'and
-*	zvezd'a  $max3
-+	pl'jus  $max3
-=	ravn'o  $max3
-/	sl'ES  $max3
-\	bEksl'ES  $max3
-_	def'is
-_	podtS;'8rk  $max3
-~	t'ilda
-№	n'omer
-_(	'otkrkrug
-_)	z'akrkrug
-_|	v'ert
-_{	'otkrfigur
-_}	z'akrfigur
-_[	'otkrkvadrat
-_]	z'akrkvadrat
-_>	b'ol;SE
-_<	m'en;SE
-_«	'otkr uglof
-_»	z'akr uglof
-_!	v'oskl;
-_?	vopr'os
-_.	t'otS;ka
-_,	zVpit'aja
-_`	akts'Ent
-_"	kVv'ytS;ka
-_'	ap'ostrVf
-_;	t'otS;kzap
-_:	dvVet'otS;ie
+_`      akts'Ent
+&       ampers'and
+_'      ap'ostrVf
+\       bEksl'ES  $max3
+_>      b'ol;SE
+_       def'is
+$       d'ollar
+_:      dvVet'otS;ie
+^       kr'ySka
+_"      kVv'ytS;ka
+_<      m'en;SE
+№       n'omer
+_{      'otkrfigur
+_(      'otkrkrug
+_[      'otkrkvadrat
+_«      'otkr uglof
++       pl'jus  $max3
+_       podtS;'8rk  $max3
+%       prVts'Ent  $max3
+=       ravn'o  $max3
+#       reS'Etka  $max3
+/       sl'ES  $max3
+@       sob'aka
+~       t'ilda
+_.      t'otS;ka
+_;      t'otS;kzap
+_|      v'ert
+_?      vopr'os
+_!      v'oskl;
+_}      z'akrfigur
+_)      z'akrkrug
+_]      z'akrkvadrat
+_»      z'akr uglof
+*       zvezd'a  $max3
+_,      zVpit'aja
 
 // prepositions
-в	v $u         // to,in,at
-от	  $u         // from
-с	s $u         // with,from,since
-у	u $u         // by
+в       v $u         // to,in,at
+для       $u         // for
 на        $u         // on
-для	  $u         // for
+от        $u         // from
+с       s $u         // with,from,since
+у       u $u         // by
 
 // conjunctions
-и	i $u $pause  // and
-а	  $u $pause  // and
-а	     $atend
-но	  $u $pause  // but
-ибо	  $u $pause  // for
-ибо	  $u $pause  // if
-хотя	  $2 $pause  // although
-чтобы	     $pause  // in order that
+а         $u+ $pause // and
+и       i $u  $pause // and
+ибо       $u  $pause // if, for
+но        $u  $pause // but
+хотя      $2  $pause // although
+чтобы     $u  $pause // in order that
+уже       $u2+       // already
 
 // pronouns
-я	  $u         // I
+вам       $u+
+вами      $u+
+вас       $u+
+вы        $u+
+вы        $u+
+его       $u+
+её        $u+
+ей        $u+
+ему       $u+
+им        $u+
+ими       $u+
+их        $u+
+меня      $u+
+мне       $u+
+мной      $u+
+мы        $u+
+мы        $u+
+нам       $u+
+нами      $u+
+нас       $u+
+ней       $u+
+нём       $u+
+них       $u+
+о         $u+
+обо       $u+
+он        $u+
+он        $u+
+она       $u+
+она       $u+
+они       $u+
+тебе      $u+
+тебя      $u+
+тобой     $u+
+ты        $u+
+ты        $u+
+я         $u+
 
 // questions
-что	Sto $u $pause // what, that
+что     Sto $u+ $pause // what, that
 
 // misc.
-не	$u           // negative
+не      $u           // negative
 
 // auxillary verbs
-быть	$u1          // to be
-побыть	$u2
-
-есмь	$u1
-еси	$u2
-есть	$u1
-есмы	$u1
-есте	$u1
-суть	$u1
-
-был	$u1
-были	$u1
-было	$u1
-побыл	$u1
-побыла	$u3
-побыло	$u2
-побыли	$u2
-
-буду	$u1
-будешь	$u1
-будет	$u1
-будем	$u1
-будете	$u1
-будут	$u1
-побуду	$u2
-побудешь $u2
-побудет	$u2
-побудем	$u2
+будем   $u1
+будет   $u1
+будете  $u1
+будешь  $u1
+буду    $u1
+будут   $u1
+был     $u1
+были    $u1
+было    $u1
+быть    $u1          // to be
+еси     $u2
+есмы    $u1
+есмь    $u1
+есте    $u1
+есть    $u1
+мог     $u1
+могла   $u2
+могли   $u2
+могло   $u2
+могу    $u2
+могут   $u1
+можем   $u1
+может   $u1
+можете  $u1
+можешь  $u1
+мочь    $u         // can
+побудем $u2
+побудет $u2
 побудете $u2
-побудут	$u2
-
-мочь	$u         // can
-смочь	$u1
-
-могу	$u2
-можешь	$u1
-может	$u1
-можем	$u1
-можете	$u1
-могут	$u1
-
-мог	$u1
-могла	$u2
-могло	$u2
-могли	$u2
-смог	$u1
-смогла	$u2
-смогло	$u2
-смогли	$u2
-
-смогу	$u1
-сможешь	$u1
-сможет	$u1
-сможем	$u1
-сможете	$u1
-смогут	$u1
+побудешь $u2
+побуду  $u2
+побудут $u2
+побыл   $u1
+побыла  $u3
+побыли  $u2
+побыло  $u2
+побыть  $u2
+смог    $u1
+смогла  $u2
+смогли  $u2
+смогло  $u2
+смогу   $u1
+смогут  $u1
+сможем  $u1
+сможет  $u1
+сможете $u1
+сможешь $u1
+смочь   $u1
+суть    $u1
+что  Sto  $u $pause
 
 // Cyrillic letter names
-а	a
-б	bE
-_в	vE
-в	vE  $atend
-г	gE
-д	dE
-е	je
-ё	j8
-ж	ZE
-з	zE
-и	i
-й	,i'k@-*'AtkOjI
-к	kA
-л	El^
-м	Em
-н	En_
-о	o
-п	pE
-р	Er
-_с	Es
-с	Es  $atend
-т	tE
-у	u
-ф	Ef
-х	xA
-ц	tsE
-ч	tS;e
-ш	SA
-щ	S;ja
-ъ	tv;'8@-*dyjzn'Ak
-ы	y
-ь	m;'jak;I#jzn'Ak
-э	e
-ю	ju
-я	ja
+а       a
+б       bE
+_в      vE
+в       vE  $atend
+г       gE
+д       dE
+е       je
+ё       j8
+ж       ZE
+з       zE
+и       i
+й       ,i'k@-*'AtkOjI
+к       kA
+л       El^
+м       Em
+н       En_
+о       o
+п       pE
+р       Er
+_с      Es
+с       Es  $atend
+т       tE
+у       u
+ф       Ef
+х       xA
+ц       tsE
+ч       tS;e
+ш       SA
+щ       S;ja
+ъ       tv;'8@-*dyjzn'Ak
+ы       y
+ь       m;'jak;I#jzn'Ak
+э       e
+ю       ju
+я       ja
 
 // exceptions
-радио	r'ad;Io
+радио   r'ad;Io
 

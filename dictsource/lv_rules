@@ -128,7 +128,7 @@
 .L90  z ž       // vēzis - vēža, roze - rožu
 .L91  zl žļ     // zizlis - zižļa
 .L92  zn žņ     // zvaigzne - zvaigžņu
-
+.L93  s z
 
 // +---------------------------+
 // |   Pronunciation groups    |
@@ -229,8 +229,9 @@
         d) ebe (L83            ebe
         d) ebe (t              ebe
         d) e (c+               e
+       _d) e (lfL01_           e         // Delfi
        _d) e (poz              e
-        d) e (taļ              e
+        d) e (taL77            e
       _dr) e (nL04_            e
         _) e (dgarL01_         e         // Edgars
         _) e (dmundL01_        e         // Edmunds
@@ -241,7 +242,11 @@
            ene (r              ene
            e (nt+              e
         _) e (s_               e         // es
+           e (soš              e
+           e (sot              e
+           e (strāL72          e
            etno                etno
+        _) e (vL04_+           e         // Eva
         g) e (t                e
        gr) e (dz               E
        gr) e (z                E
@@ -251,8 +256,7 @@
       int) ere (L83            eRe
        _j) e (b_               e
        _j) e (l_               e
-           e (soš              e
-           e (sot              e
+       _ķ) eme (rL01_          eme       // Ķemeri
      _L20) e (sam_+          _!e         // esam
      _L20) e (sat_+          _!e         // esat
      _L20) e (si_            _!e         // esi
@@ -269,6 +273,7 @@
         n) e (rv               E
        ns) e (r                e
         ņ) e (m                e
+      orķ) e                   e
         p) e (rs               e
        pr) e (cL52z            e
        pr) e (L71L05_          e         // prece
@@ -278,11 +283,13 @@
         r) ecep (L88L05_       etsep     // recepte
         r) e (dz               e
         r) e (pub              e
+        r) e (put              e
         r) e (sp               e
         r) e (surs             e
         r) et (L18_            et        // reti
         r) e (z+               e
         r) eze (rL89L05_       eze       // rezerve
+        s) e (cA+              e
        _s) e (n_               e         // sen
        _s) e (p                e
        _s) evastopo (lL05_     evastopo: // Sevastopole
@@ -294,12 +301,14 @@
         t) ego                 ego:
        _t) e (klL04_           e         // Tekla
         t) e (km               e
+        t) ele                 ele
        _t) e (mp               e
         t) ermo                eRmo
         t) e (st               e
        _t) e (v_               e         // tev
        _t) e (vi_              e         // tevi
        _v) e (lgL04_           e         // Velga
+        v) e (ltī              e
        _v) e (ltL04_           e         // Velta
        _v) e (ntL04_           E         // Venta
        _v) e (ntsp             E         // Ventspils
@@ -389,13 +398,14 @@
       L10) ē (du_<             e:
       L76) ē (tu_              e:
        _l) ē (L83+             e:    // lēst
-        m) ē (L77L05           e:
+        m) ē (L77L05+          e:    // mēle
         m) ēne (L83            e:ne
         m) ē (rķ               e:
        _m) ē (s_               e:    // mēs
        _n) ē (_                e:
         ņ) ē (m++              e:
        ot) ē (k+               e:
+    paral) ē                   e:
        _p) ē (c+               e:
         p) ē (dL04_            E:
        _p) ē (rL01_            e:    // pērs
@@ -409,7 +419,7 @@
        sp) ē (k                E:
        sp) ē (kL01             E:    // ..spēks
        sp) ē (L65              e:    // spēt
-       sp) ē (L77              e:
+       sp) ē (L77+             e:    // ..spēl..
        sv) ē (tk               E:
        šķ) ē (L77L05_          e:    // šķēle
        šķ) ē (L82L05_          e:    // šķēre
@@ -466,9 +476,11 @@
 .group l
            l               l
         C) l (C            l-        // more voiced variant between consonants
-           l (L61+         l>
+     _lie) l (@            l>
            l (L60+         l:
+           l (L61+         l>
            ll (++          ll
+
 
 .group ļ
            ļ               l^
@@ -482,6 +494,7 @@
 .group n
            n               n
         C) n (C            n-        // more voiced variant between consonants
+        l) n (C            n         // but not after (lengthened) l
       L59) n (@           :n
            n (d            N
            ne (vienl+      n'e       // nevienlīdzība
@@ -578,6 +591,7 @@ L46L45L45) o (<<           uo
        _b) o (L90L05_++    uo        // boze
         b) o (līL65        uo
        br) o (š            o
+     bung) o               uo
      celm) o               uo
       cet) o               o
       cēl) o (L80          uo
@@ -638,6 +652,7 @@ L46L45L45) o (<<           uo
      kaif) o (L65          uo
      kain) o               o
      karb) o               o
+      kar) o (L65+         uo
      kart) o               o
    _kastr) o (L77L02_      uo        // kastrolis
       kin) o               o:
@@ -759,10 +774,10 @@ L46L45L45) o (<<           uo
       šan) o               uo
      _špr) o (L88L05_      o         // šprote
       tav) o               uo
-      tēl) o (L65          uo
+      tēl) o (L65+         uo
     _tikk) o (_            uo        // tikko
         t) o (č+           o
-        t) o (L80L02_      uo        // ..tonis (uo)
+        t) o (L80L02_++    uo        // ..tonis (uo)
        _t) o (+            uo
      trak) o               uo
        tr) o (L77L77       o         // trollis
@@ -843,6 +858,7 @@ L46L45L45) o (<<           uo
         m) od (uš          uod
         n) od (L05_        o:d       // ..node
         n) od              uod
+        n) odz             uo`dz
         _) od (ek          od
            od (erL51       uod
         _) od (esL04_      od        // Odesa
@@ -1019,6 +1035,7 @@ L46L45L45) o (<<           uo
        _p) ol (ied         ol
        _p) ol (ie          uol
        _p) ol (ijL04_+     uol       // Polija
+       _p) ol (kL04_       ol        // polka
         p) ol (L01_        o:l       // ..pols
         p) ol (L05_        o:l       // ..pole
         p) ol (L50         ol
@@ -1026,6 +1043,7 @@ L46L45L45) o (<<           uo
         p) ol (o           ol
         p) olo (_          o:lo:     // ..polo
         p) ol (st          ol
+        p) ol (šL01_       ol        // polšs
        pr) ol (e           ol
       ras) ol              ol
         r) ol              ol
@@ -1036,7 +1054,7 @@ L46L45L45) o (<<           uo
         s) ol (id          ol
         s) ol (ist         o:l
         s) ol (īdā         ol
-        s) ol (īdL01_      ol        // solīds
+      L93) ol (īd          ol        // (s/z)olīds
         s) ol (īL61        uol       // ..solīt../..solīd..
         s) ol (L01_        uol       // sols
         s) ol (L50r        ol
@@ -1384,7 +1402,7 @@ L46L45L45) o (<<           uo
        sp) or (t           oR
       _st) or (L05_        uoR       // store
       _šķ) or (L05_        uoR       // šķore
-      _šņ) or (L05_        uoR       // šņore
+      _šņ) or              uoR
        _š) or (tL07        oR        // šorti
         t) or (a           oR
        _t) or (ei          uoR
@@ -1555,12 +1573,14 @@ L46L45L45) o (<<           uo
        _d) oz (L04_        o:z       // doza
        _d) oz (L05_        uoz       // doze
         d) oz              oz
+      gar) oz              uoz
       _gr) oz (nij         oz        // from Russian
        gr) oz (+           uoz
        _j) oz (a_          uoz       // joza
        kl) oz (et          oz
         k) ozlov           ozlov
         l) oz (ung         oz
+        m) oz (aī          oz
        _m) oz (L03_        o:z       // Mozus
        _n) oz              uoz
            oz (L01_        o:z       // ..ozs
@@ -1663,6 +1683,7 @@ L46L45L45) o (<<           uo
 .group y
            y               y            // y is used instead of simple "i", to distinguish them in writing
            y (A            y_|
+           y (_            y:           // for international words
 
 .group z
            z               z

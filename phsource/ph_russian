@@ -204,6 +204,7 @@ phoneme m;
   vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
+  length 20
 
   IF KlattSynth THEN
 	Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80

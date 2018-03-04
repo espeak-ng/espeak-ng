@@ -237,6 +237,7 @@ iz        $u
 ja        $u+
 jau       $u+
 jeb       $u
+jel       $u
 jo        $u
 kad       $u+
 kam       $u
@@ -270,6 +271,7 @@ pirms     $u+
 pret      $u+
 priekš    $u
 protams   $u+
+sauc      $u+
 starp     $u
 šeit      $u+
 šo        $u+
@@ -285,11 +287,11 @@ tiklab    $u $brk
 tikt      $u+
 tomēr     $u $pause
 toties    $u
-turpat    $u+ $2
-turpretim $u $2 $pause
-turpretī  $u $2 $pause
+turpat    $u2+
+turpretim $u2 $pause
+turpretī  $u2 $pause
 tur       $u+
-un        $u
+un        $u+
 uz        $u
 vairs     $u
 vai       $u+ $brk
@@ -397,7 +399,7 @@ itnekur   $u3+
 itnemaz   $u3+
 joprojām  $2
 kautko    $2
-kāpēc     $2 $u+
+kāpēc     $u2+
 labdien   $2
 labrīt    $2
 labvakar  $2
@@ -429,40 +431,51 @@ vienalga  $2
 vismaz    $2
 
 // 1st word unstressed, 2nd word stressed
-(kaut cik)      $2 $u+
-(kaut kad)      $2 $u+
-(kaut kam)      $2 $u+
-(kaut kas)      $2 $u+
-(kaut kā)       $2 $u+
-(kaut kāda)     $2 $u+
-(kaut kādai)    $2 $u+
-(kaut kādam)    $2 $u+
-(kaut kādas)    $2 $u+
-(kaut kādā)     $2 $u+
-(kaut kāds)     $2 $u+
-(kaut kādu)     $2 $u+
-(kaut ko)       $2 $u+
-(kaut kur)      $2 $u+
-(nezin kad)     $3 $u+
-(nezin kur)     $3 $u+
-(nez kad)       $2 $u+
-(tai pašai)     $2 $u+
-(tai pašā)      $2 $u+
-(tai tur)       $2 $u+
-(tajā pašā)     $3 $u+
-(tajā tur)      $3 $u+
-(tam pašam)     $2 $u+
-(tam tur)       $2 $u+
-(tas pats)      $2 $u+
-(tas tur)       $2 $u+
-(tā paša)       $2 $u+
-(tā pati)       $2 $u+
-(tās pašas)     $2 $u+
-(tās tur)       $2 $u+
-(tā tur)        $2 $u+
-(tik pat)       $2 $u+
-(to pašu)       $2 $u+
-(to tur)        $2 $u+
+(it kā)         it||ka:        $u2+
+(it nemaz)      it||nemaz      $u3+
+(it sevišķi)    it||seviSci    $u2+
+(kaut arī)      kaut||aRi:     $u2+
+(kaut cik)      kaut||tsik     $u2+
+(kaut kad)      kaut||kad      $u2+
+(kaut kam)      kaut||kam      $u2+
+(kaut kas)      kaut||kas      $u2+
+(kaut kādai)    kaut||ka:dai   $u2+
+(kaut kāda)     kaut||ka:da    $u2+
+(kaut kādam)    kaut||ka:dam   $u2+
+(kaut kādas)    kaut||ka:das   $u2+
+(kaut kādā)     kaut||ka:da:   $u2+
+(kaut kādām)    kaut||ka:da:m  $u2+
+(kaut kādās)    kaut||ka:da:s  $u2+
+(kaut kādiem)   kaut||ka:diem  $u2+
+(kaut kādi)     kaut||ka:di    $u2+
+(kaut kādos)    kaut||ka:duos  $u2+
+(kaut kāds)     kaut||ka:ds    $u2+
+(kaut kādu)     kaut||ka:du    $u2+
+(kaut kādus)    kaut||ka:dus   $u2+
+(kaut kā)       kaut||ka:      $u2+
+(kaut ko)       kaut||kuo      $u2+
+(kaut kur)      kaut||kuR      $u2+
+(kaut vai)      kaut||vai      $u2+
+(nezin kad)     nezin||kad     $u3+
+(nezin kur)     nezin||kuR     $u3+
+(nez kad)       nez||kad       $u2+
+(tai pašai)     tai||paSai     $u2+
+(tai pašā)      tai||paSa:     $u2+
+(tai tur)       tai||tuR       $u2+
+(tajā pašā)     taja:||paSa:   $u3+
+(tajā tur)      taja:||tuR     $u3+
+(tam pašam)     tam||paSam     $u2+
+(tam tur)       tam||tuR       $u2+
+(tas pats)      tas||pats      $u2+
+(tas tur)       tas||tuR       $u2+
+(tā paša)       ta:||paSa      $u2+
+(tā pati)       ta:||pati      $u2+
+(tās pašas)     ta:s||paSas    $u2+
+(tās tur)       ta:s||tuR      $u2+
+(tā tur)        ta:||tuR       $u2+
+(tik pat)       tik||pat       $u2+
+(to pašu)       tuo||paSu      $u2+
+(to tur)        tuo||tuR       $u2+
 
 ///////////////////
 // Abbreviations //
@@ -490,6 +503,7 @@ nr      $abbrev
 pctvl   $abbrev $pause
 prks    $abbrev
 psrs    $abbrev
+red     R'ed
 rpi     $abbrev
 sia     si:a: $pause
 st      $abbrev
