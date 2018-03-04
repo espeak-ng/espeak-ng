@@ -166,6 +166,25 @@ phoneme tS;
 endphoneme
 
 
+phoneme Z // from phonemes Z, but without switching to S
+  vcd pla frc sib
+  lengthmod 6
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+
+  IF KlattSynth THEN
+    IF nextPh(isPause2) THEN
+      FMT(klatt/zh_, 60) addWav(vocw/zh, 70)
+    ENDIF
+    FMT(klatt/zh) addWav(vocw/zh, 130)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_, 60) addWav(vocw/zh, 70)
+  ENDIF
+  FMT(voc/zh) addWav(vocw/zh, 130)
+endphoneme
+
 // Palatalized versions of consonants
 
 phoneme t
