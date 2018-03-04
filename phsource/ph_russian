@@ -43,21 +43,41 @@ endphoneme
 
 
 phoneme l
-
  liquid rfx
  ipa ɭ
  lengthmod 7
- length 40
- FMT(l^/l_rfx)
+ length 80
+ IF nextPh(isPause) THEN
+  FMT(l/l_,120)
+ ELSE
+  FMT(l/l_,120)
+ ENDIF
 endphoneme
 
-phoneme l^
- liquid rfx pzd
- ipa ɭ
-// lengthmod 7
-length 80
-// FMT(l^/l^)
- FMT(l^/l_rfx)
+phoneme l^    // From Latvian ļ
+  liquid
+  ipa ʎ
+  lengthmod 7
+  Vowelout len=60 lenadd rate
+  length 80
+
+  NextVowelStarts
+    VowelStart(l^/j2@)
+    VowelStart(l^/j2a)
+    VowelStart(l^/j2e)
+    VowelStart(l^/j2i)
+    VowelStart(l^/j2o)
+    VowelStart(l^/j2u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(l^/_l^)
+  ELSEIF nextPh(isPause) THEN
+    FMT(l^/l^_,120)
+  ENDIF
+
+  FMT(l^/l^)
+
 endphoneme
 
 phoneme s
