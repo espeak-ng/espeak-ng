@@ -1,3 +1,30 @@
+/* SSML (Speech Synthesis Markup Language) processing APIs.
+ *
+ * Copyright (C) 2005 to 2015 by Jonathan Duddington
+ * email: jonsd@users.sourceforge.net
+ * Copyright (C) 2015-2017 Reece H. Dunn
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see: <http://www.gnu.org/licenses/>.
+ */
+#ifndef ESPEAK_NG_SSML_API
+#define ESPEAK_NG_SSML_API
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 // stack for language and voice properties
 // frame 0 is for the defaults, before any ssml tags.
 typedef struct {
@@ -32,3 +59,9 @@ typedef struct {
 int LoadSoundFile2(const char *fname);
 int AddNameData(const char *name, int wide);
 int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
