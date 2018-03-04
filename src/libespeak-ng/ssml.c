@@ -2,6 +2,7 @@
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
  * Copyright (C) 2015-2017 Reece H. Dunn
+ * Copyright (C) 2018 Juho Hiltunen
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
