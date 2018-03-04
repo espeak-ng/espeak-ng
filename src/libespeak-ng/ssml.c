@@ -46,6 +46,44 @@
 #include "translate.h"
 #include "ssml.h"
 
+static MNEM_TAB ssmltags[] = {
+	{ "speak",     SSML_SPEAK },
+	{ "voice",     SSML_VOICE },
+	{ "prosody",   SSML_PROSODY },
+	{ "say-as",    SSML_SAYAS },
+	{ "mark",      SSML_MARK },
+	{ "s",         SSML_SENTENCE },
+	{ "p",         SSML_PARAGRAPH },
+	{ "phoneme",   SSML_PHONEME },
+	{ "sub",       SSML_SUB },
+	{ "tts:style", SSML_STYLE },
+	{ "audio",     SSML_AUDIO },
+	{ "emphasis",  SSML_EMPHASIS },
+	{ "break",     SSML_BREAK },
+	{ "metadata",  SSML_IGNORE_TEXT },
+
+	{ "br",     HTML_BREAK },
+	{ "li",     HTML_BREAK },
+	{ "dd",     HTML_BREAK },
+	{ "img",    HTML_BREAK },
+	{ "td",     HTML_BREAK },
+	{ "h1",     SSML_PARAGRAPH },
+	{ "h2",     SSML_PARAGRAPH },
+	{ "h3",     SSML_PARAGRAPH },
+	{ "h4",     SSML_PARAGRAPH },
+	{ "hr",     SSML_PARAGRAPH },
+	{ "script", SSML_IGNORE_TEXT },
+	{ "style",  SSML_IGNORE_TEXT },
+	{ "font",   HTML_NOSPACE },
+	{ "b",      HTML_NOSPACE },
+	{ "i",      HTML_NOSPACE },
+	{ "strong", HTML_NOSPACE },
+	{ "em",     HTML_NOSPACE },
+	{ "code",   HTML_NOSPACE },
+
+	{ NULL, 0 }
+};
+
 static int attrcmp(const wchar_t *string1, const char *string2)
 {
 	int ix;
