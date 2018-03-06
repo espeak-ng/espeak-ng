@@ -2,12 +2,13 @@
 
 # Test a command for presence and ability to output the sha1 hash of a file.
 check_hashcmd() {
-	which $1 &>/dev/null &&
+	which $1 &&
 	$1 </dev/null 2>/dev/null |
 	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
 }
 
 # Test some common commands to find the correct one for the system being tested on.
+echo -n "checking for SHA1 hashing command ... "
 if check_hashcmd sha1sum; then
 	sha1sum=sha1sum
 elif check_hashcmd sha1; then
@@ -15,7 +16,7 @@ elif check_hashcmd sha1; then
 elif check_hashcmd shasum; then
 	sha1sum=shasum
 else
-	echo "No hashing commands found."
+	echo "no"
 	exit 1
 fi
 
