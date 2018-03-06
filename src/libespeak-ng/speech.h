@@ -17,8 +17,10 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SPEECH_H
-#define SPEECH_H
+#ifndef ESPEAK_NG_SPEECH_H
+#define ESPEAK_NG_SPEECH_H
+
+#include <espeak-ng/espeak_ng.h>
 
 #ifdef __cplusplus
 extern "C"

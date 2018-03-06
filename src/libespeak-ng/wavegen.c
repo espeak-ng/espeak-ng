@@ -32,10 +32,10 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
+#include "synthesize.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
-#include "synthesize.h"
 
 #ifdef INCLUDE_KLATT
 #include "klatt.h"

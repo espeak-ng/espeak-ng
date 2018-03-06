@@ -21,6 +21,11 @@
 #ifndef ESPEAK_NG_SSML_API
 #define ESPEAK_NG_SSML_API
 
+#include <stdbool.h>
+#include <wchar.h>
+
+#include <espeak-ng/speak_lib.h>
+
 #ifdef __cplusplus
 extern "C"
 {

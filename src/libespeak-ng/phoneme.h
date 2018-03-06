@@ -17,6 +17,11 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_PHONEME_H
+#define ESPEAK_NG_PHONEME_H
+
+#include <espeak-ng/espeak_ng.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -290,4 +295,6 @@ extern int phoneme_tab_number;
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

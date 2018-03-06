@@ -42,6 +42,7 @@
  * conversions, and accommodated conversions involving +/- infinity,
  * NaN's, and denormalized numbers.
  */
+
 #ifndef IEEE_H
 #define IEEE_H
 

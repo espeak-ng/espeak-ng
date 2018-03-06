@@ -17,6 +17,13 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_VOICE_H
+#define ESPEAK_NG_VOICE_H
+
+#include <espeak-ng/espeak_ng.h>
+
+#include "speech.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -92,4 +99,6 @@ void FreeVoiceList(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

@@ -17,6 +17,16 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_TRANSLATE_H
+#define ESPEAK_NG_TRANSLATE_H
+
+#include <stdbool.h>
+
+#include <espeak-ng/espeak_ng.h>
+#include <espeak-ng/encoding.h>
+
+#include "synthesize.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -783,4 +793,6 @@ extern FILE *f_trans; // for logging
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

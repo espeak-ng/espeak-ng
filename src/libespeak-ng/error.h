@@ -18,6 +18,8 @@
 #ifndef ESPEAK_NG_ERROR_API
 #define ESPEAK_NG_ERROR_API
 
+#include <espeak-ng/espeak_ng.h>
+
 #ifdef __cplusplus
 extern "C"
 {

@@ -17,6 +17,13 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_SPECT_H
+#define ESPEAK_NG_SPECT_H
+
+#include <espeak-ng/espeak_ng.h>
+#include "synthesize.h"
+#include "speech.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -132,4 +139,6 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

@@ -16,11 +16,14 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FIFO_H
-#define FIFO_H
-
 // Helps to add espeak commands in a first-in first-out queue
 // and run them asynchronously.
+
+#ifndef ESPEAK_NG_FIFO_H
+#define ESPEAK_NG_FIFO_H
+
+#include <espeak-ng/espeak_ng.h>
+#include "espeak_command.h"
 
 #ifdef __cplusplus
 extern "C"

@@ -21,6 +21,12 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_KLATT_H
+#define ESPEAK_NG_KLATT_H
+
+#include "speech.h"
+#include "synthesize.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -178,4 +184,6 @@ int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

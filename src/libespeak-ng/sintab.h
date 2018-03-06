@@ -17,6 +17,9 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_SINTAB_H
+#define ESPEAK_NG_SINTAB_H
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -283,4 +286,6 @@ short int sin_tab[2048] = {
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

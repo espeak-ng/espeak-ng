@@ -17,12 +17,21 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#include <stdbool.h>
+#ifndef ESPEAK_NG_SYNTHESIZE_H
+#define ESPEAK_NG_SYNTHESIZE_H
+
+#include "speech.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <espeak-ng/espeak_ng.h>
+#include "phoneme.h"
+#include "voice.h"
 
 #define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
 
@@ -558,4 +567,6 @@ void InitBreath(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
