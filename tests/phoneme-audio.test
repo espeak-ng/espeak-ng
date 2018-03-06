@@ -60,3 +60,4 @@ test_lang en-US 073f522a4a7c10e20a4385547f5b1243529ad6cb "ma na Na pa ta ka ba d
 test_lang eo cc2f7f352c6d299c81f6f95e730883f052dbc597 "ma na pa ta ka ba da ga fa sa Sa xa ha va za Za tsa tSa dza dZa la ja wa ra _:_ ma me mo mi mu maU meU maI meI moU muI"
 test_lang es 4758bff06486f6a37666f050ada0f04f0b762fad "ma na n^a pa ta ka ba da ga fa Ta sa Sa J^a xa Da tSa la l^a *a Ra ra v#a _:_ ma ma/ me me/ mE mi mo mo/ mu moI"
 test_lang es-419 7025e7baeb4b68cd856777a1173a07e06bfd900a "ma na n^a pa ta ka ba da ga fa Ta sa Sa J^a xa Da tSa la l^a *a Ra ra v#a _:_ ma ma/ me me/ mE mi mo mo/ mu moI"
+test_lang et 8ba1a1dedf0e531f6f06ce02cb54419ac0f88083 "ma na n^a pa ta t^a ka p:a t:a t^:a k:a fa va sa s^a Sa ha f:a s:a s^:a S:a h:a la l^a ja ra Ra _:_ ma ma: mA1 me me: mE1 mi mi: mI1 mi1 mo mo: mO1 mu mu: mU1 m8 m8: m& m&: mY mY: my my: m&i mYi myi"
