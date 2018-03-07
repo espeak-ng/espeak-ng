@@ -2074,7 +2074,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 	words[0].length = k;
 
-	while (!finished && (ix < (int)sizeof(sbuf)) && (n_ph_list2 < N_PHONEME_LIST-4)) {
+	while (!finished && (ix < (int)sizeof(sbuf) - 1) && (n_ph_list2 < N_PHONEME_LIST-4)) {
 		prev_out2 = prev_out;
 		utf8_in2(&prev_out, &sbuf[ix-1], 1);
 
