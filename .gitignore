@@ -126,6 +126,7 @@ src/pcaudiolib/
 *.ipdb
 *.log
 *.pdb
+*.tlog
 *.tlog/
 
 .vs/
@@ -140,6 +141,10 @@ src/pcaudiolib/
 *.cab
 
 *.tmp
+
+*.nativecodeanalysis.xml
+*.nativecodeanalysis.all.xml
+*.lastcodeanalysissucceeded
 
 !src/ucd-tools/data/*/*.txt
 
