@@ -43,6 +43,8 @@
 #include "spect.h"
 #include "translate.h"
 
+#define N_ITEM_STRING 256
+
 typedef struct {
 	unsigned int value;
 	char *name;
@@ -318,7 +320,7 @@ static int phoneme_flags;
 #define N_PROCS 50
 int n_procs;
 int proc_addr[N_PROCS];
-char proc_names[40][N_PROCS];
+char proc_names[N_ITEM_STRING+1][N_PROCS];
 
 #define MAX_PROG_BUF 2000
 USHORT *prog_out;
@@ -461,7 +463,6 @@ enum {
 
 int item_type;
 int item_terminator;
-#define N_ITEM_STRING 256
 char item_string[N_ITEM_STRING];
 
 static int ref_sorter(char **a, char **b)
