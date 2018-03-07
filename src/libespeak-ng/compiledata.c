@@ -1434,7 +1434,7 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 	}
 
 	displ = ftell(f_phdata);
-	fwrite(env, 1, 128, f_phdata);
+	fwrite(env, 1, ENV_LEN, f_phdata);
 
 	return displ;
 }
