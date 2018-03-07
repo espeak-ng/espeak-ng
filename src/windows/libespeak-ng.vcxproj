@@ -183,6 +183,7 @@
     <ClCompile Include="..\libespeak-ng\setlengths.c" />
     <ClCompile Include="..\libespeak-ng\spect.c" />
     <ClCompile Include="..\libespeak-ng\speech.c" />
+    <ClCompile Include="..\libespeak-ng\ssml.c" />
     <ClCompile Include="..\libespeak-ng\synthdata.c" />
     <ClCompile Include="..\libespeak-ng\synthesize.c" />
     <ClCompile Include="..\libespeak-ng\synth_mbrola.c" />
