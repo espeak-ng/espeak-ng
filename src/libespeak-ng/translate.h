@@ -267,13 +267,6 @@ int clause_type_from_codepoint(uint32_t c);
 
 typedef const char *constcharptr;
 
-typedef struct {
-	int points;
-	const char *phonemes;
-	int end_type;
-	char *del_fwd;
-} MatchRecord;
-
 // used to mark words with the source[] buffer
 typedef struct {
 	unsigned int flags;
