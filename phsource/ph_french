@@ -13,7 +13,7 @@ endphoneme
 
 phoneme : //  Lengthen previous vowel by "length"
   virtual
-  length 40      // shorter than for fr-ca
+  length 40
 endphoneme
 
 phoneme #cFR  virtual
@@ -589,27 +589,6 @@ phoneme W~
   length 190
   FMT(vnasal/W_n)
 endphoneme
-
-
-
-// These vowels map to others in fr-fr, but are distinct in fr-ca
-
-phoneme U  // same as [u]
-  import_phoneme fr/u
-endphoneme
-
-phoneme y"  // same as [y]
-  import_phoneme fr/y
-endphoneme
-
-phoneme E:  // slightly longer than [E]
-  import_phoneme E
-endphoneme
-
-phoneme A   // same as [a]
-  import_phoneme a
-endphoneme
-
 
 
 

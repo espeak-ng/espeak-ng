@@ -299,7 +299,6 @@ phsource/phonemes.stamp: \
 	phsource/ph_farsi \
 	phsource/ph_finnish \
 	phsource/ph_french \
-	phsource/ph_french_ca \
 	phsource/ph_georgian \
 	phsource/ph_german \
 	phsource/ph_greek \

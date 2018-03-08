@@ -1734,9 +1734,6 @@ include ph_estonian
 phonemetable fr base1
 include ph_french
 
-phonemetable fr-ca fr
-include ph_french_ca
-
 phonemetable hak base1
 include ph_hakka
 
