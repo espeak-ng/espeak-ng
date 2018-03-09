@@ -323,9 +323,9 @@ int proc_addr[N_PROCS];
 char proc_names[N_ITEM_STRING+1][N_PROCS];
 
 #define MAX_PROG_BUF 2000
-USHORT *prog_out;
-USHORT *prog_out_max;
-USHORT prog_buf[MAX_PROG_BUF+20];
+unsigned short *prog_out;
+unsigned short *prog_out_max;
+unsigned short prog_buf[MAX_PROG_BUF+20];
 
 static espeak_ng_STATUS ReadPhondataManifest(espeak_ng_ERROR_CONTEXT *context)
 {
@@ -442,8 +442,8 @@ STACK stack[N_STACK];
 #define N_IF_STACK 12
 int if_level;
 typedef struct {
-	USHORT *p_then;
-	USHORT *p_else;
+	unsigned short *p_then;
+	unsigned short *p_else;
 	bool returned;
 } IF_STACK;
 IF_STACK if_stack[N_IF_STACK];
@@ -1626,7 +1626,7 @@ static int CompileIf(int elif)
 	int bitmap;
 	int brackets;
 	bool not_flag;
-	USHORT *prog_last_if = NULL;
+	unsigned short *prog_last_if = NULL;
 
 	then_count = 2;
 	after_if = true;
@@ -1727,7 +1727,7 @@ static int CompileIf(int elif)
 
 static void FillThen(int add)
 {
-	USHORT *p;
+	unsigned short *p;
 	int offset;
 
 	p = if_stack[if_level].p_then;
@@ -1755,8 +1755,8 @@ static void FillThen(int add)
 
 static int CompileElse(void)
 {
-	USHORT *ref;
-	USHORT *p;
+	unsigned short *ref;
+	unsigned short *p;
 
 	if (if_level < 1) {
 		error("ELSE not expected");
@@ -1794,7 +1794,7 @@ static int CompileElif(void)
 
 static int CompileEndif(void)
 {
-	USHORT *p;
+	unsigned short *p;
 	int chain;
 	int offset;
 
@@ -2293,7 +2293,7 @@ static int CompilePhoneme(int compile_phoneme)
 	if (prog_out > prog_buf) {
 		// write out the program for this phoneme
 		fflush(f_phindex);
-		phoneme_out->program = ftell(f_phindex) / sizeof(USHORT);
+		phoneme_out->program = ftell(f_phindex) / sizeof(unsigned short);
 
 		if (f_prog_log != NULL) {
 			phoneme_prog_log.addr = phoneme_out->program;
@@ -2302,8 +2302,8 @@ static int CompilePhoneme(int compile_phoneme)
 		}
 
 		if (compile_phoneme == 0)
-			proc_addr[n_procs++] =  ftell(f_phindex) / sizeof(USHORT);
-		fwrite(prog_buf, sizeof(USHORT), prog_out - prog_buf, f_phindex);
+			proc_addr[n_procs++] =  ftell(f_phindex) / sizeof(unsigned short);
+		fwrite(prog_buf, sizeof(unsigned short), prog_out - prog_buf, f_phindex);
 	}
 
 	return 0;

@@ -30,7 +30,6 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
-#include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"
@@ -193,7 +192,7 @@ static espeak_ng_STATUS LoadFrame(SpectFrame *frame, FILE *stream, int file_form
 		}
 	}
 
-	spect_data = malloc(sizeof(USHORT) * frame->nx);
+	spect_data = malloc(sizeof(unsigned short) * frame->nx);
 
 	if (spect_data == NULL)
 		return ENOMEM;

@@ -57,10 +57,6 @@ extern "C"
    #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
 #endif
 
-typedef unsigned short USHORT;
-typedef unsigned char UCHAR;
-typedef double DOUBLEX;
-
 typedef struct {
 	const char *mnem;
 	int value;

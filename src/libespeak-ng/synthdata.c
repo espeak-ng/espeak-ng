@@ -47,7 +47,7 @@ int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
-USHORT *phoneme_index = NULL;
+unsigned short *phoneme_index = NULL;
 char *phondata_ptr = NULL;
 unsigned char *wavefile_data = NULL;
 static unsigned char *phoneme_tab_data = NULL;
@@ -498,7 +498,7 @@ static int CountVowelPosition(PHONEME_LIST *plist)
 	return count;
 }
 
-static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, USHORT *p_prog, WORD_PH_DATA *worddata)
+static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, unsigned short *p_prog, WORD_PH_DATA *worddata)
 {
 	int which;
 	int ix;
@@ -693,9 +693,9 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	return false;
 }
 
-static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT **p_prog, int instn_type)
+static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, unsigned short **p_prog, int instn_type)
 {
-	USHORT *prog;
+	unsigned short *prog;
 	int voweltype;
 	signed char x;
 
@@ -716,7 +716,7 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT 
 	*p_prog += 12;
 }
 
-int NumInstnWords(USHORT *prog)
+int NumInstnWords(unsigned short *prog)
 {
 	int instn;
 	int instn2;
@@ -769,8 +769,8 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 	// bit 8:  change phonemes
 
 	PHONEME_TAB *ph;
-	USHORT *prog;
-	USHORT instn;
+	unsigned short *prog;
+	unsigned short instn;
 	int instn2;
 	int or_flag;
 	bool truth;
@@ -782,7 +782,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 
 	#define N_RETURN 10
 	int n_return = 0;
-	USHORT *return_addr[N_RETURN]; // return address stack
+	unsigned short *return_addr[N_RETURN]; // return address stack
 
 	ph = plist->ph;
 

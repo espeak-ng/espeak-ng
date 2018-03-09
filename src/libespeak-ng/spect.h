@@ -105,7 +105,7 @@ typedef struct {
 	unsigned short nx;
 	short markers;
 	int max_y;
-	USHORT *spect; // sqrt of harmonic amplitudes,  1-nx at 'pitch'
+	unsigned short *spect; // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
 	short klatt_param[N_KLATTP2];
 

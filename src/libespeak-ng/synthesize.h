@@ -137,14 +137,14 @@ typedef struct {
 	int height;   // height<<15
 	int left;     // Hz<<16
 	int right;    // Hz<<16
-	DOUBLEX freq1; // floating point versions of the above
-	DOUBLEX height1;
-	DOUBLEX left1;
-	DOUBLEX right1;
-	DOUBLEX freq_inc; // increment by this every 64 samples
-	DOUBLEX height_inc;
-	DOUBLEX left_inc;
-	DOUBLEX right_inc;
+	double freq1; // floating point versions of the above
+	double height1;
+	double left1;
+	double right1;
+	double freq_inc; // increment by this every 64 samples
+	double height_inc;
+	double left_inc;
+	double right_inc;
 } wavegen_peaks_t;
 
 typedef struct {
@@ -561,7 +561,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
-int NumInstnWords(USHORT *prog);
+int NumInstnWords(unsigned short *prog);
 
 void InitBreath(void);
 

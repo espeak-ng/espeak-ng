@@ -1151,7 +1151,7 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 		return;
 
 	int ix;
-	DOUBLEX next;
+	double next;
 	int length2;
 	int length4;
 	int qix;
