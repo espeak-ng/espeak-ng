@@ -122,22 +122,22 @@ phoneme u
 endphoneme
 
 
-phoneme u-
-  vwl starttype #@ endtype #@
+phoneme u-:
+  vwl starttype #@ endtype #@ lng
   ipa ɯ
   length 240
   FMT(vowel/u_bck2)
 endphoneme
 
 phoneme u-
-  vwl starttype #@ endtype #@ lng
+  vwl starttype #@ endtype #@
   ipa ɯ
   length 130
   FMT(vowel/u_bck2)
 endphoneme
 
 
-phoneme o-
+phoneme o-:
   vwl starttype #@ endtype #@ lng
   ipa ɤ
   length 240
