@@ -17,6 +17,13 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_SPECT_H
+#define ESPEAK_NG_SPECT_H
+
+#include <espeak-ng/espeak_ng.h>
+#include "synthesize.h"
+#include "speech.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -98,7 +105,7 @@ typedef struct {
 	unsigned short nx;
 	short markers;
 	int max_y;
-	USHORT *spect; // sqrt of harmonic amplitudes,  1-nx at 'pitch'
+	unsigned short *spect; // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
 	short klatt_param[N_KLATTP2];
 
@@ -132,4 +139,6 @@ espeak_ng_STATUS LoadSpectSeq(SpectSeq *spect, const char *filename);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

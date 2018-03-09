@@ -17,8 +17,10 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SPEECH_H
-#define SPEECH_H
+#ifndef ESPEAK_NG_SPEECH_H
+#define ESPEAK_NG_SPEECH_H
+
+#include <espeak-ng/espeak_ng.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -54,10 +56,6 @@ extern "C"
 #ifndef PATH_ESPEAK_DATA
    #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
 #endif
-
-typedef unsigned short USHORT;
-typedef unsigned char UCHAR;
-typedef double DOUBLEX;
 
 typedef struct {
 	const char *mnem;

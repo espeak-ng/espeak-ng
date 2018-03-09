@@ -37,6 +37,14 @@
 #include "synthesize.h"
 #include "translate.h"
 
+typedef struct {
+	int points;
+	const char *phonemes;
+	int end_type;
+	char *del_fwd;
+} MatchRecord;
+
+
 int dictionary_skipwords;
 char dictionary_name[40];
 

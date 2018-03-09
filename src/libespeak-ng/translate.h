@@ -17,6 +17,16 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_TRANSLATE_H
+#define ESPEAK_NG_TRANSLATE_H
+
+#include <stdbool.h>
+
+#include <espeak-ng/espeak_ng.h>
+#include <espeak-ng/encoding.h>
+
+#include "synthesize.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -256,13 +266,6 @@ int clause_type_from_codepoint(uint32_t c);
 //     match 1 pre 2 post 3 0   - empty phoneme string
 
 typedef const char *constcharptr;
-
-typedef struct {
-	int points;
-	const char *phonemes;
-	int end_type;
-	char *del_fwd;
-} MatchRecord;
 
 // used to mark words with the source[] buffer
 typedef struct {
@@ -579,16 +582,6 @@ typedef struct {
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
 } LANGUAGE_OPTIONS;
 
-// a parameter of ChangePhonemes()
-typedef struct {
-	int flags;
-	unsigned char stress;          // stress level of this vowel
-	unsigned char stress_highest;  // the highest stress level of a vowel in this word
-	unsigned char n_vowels;        // number of vowels in the word
-	unsigned char vowel_this;      // syllable number of this vowel (counting from 1)
-	unsigned char vowel_stressed;  // syllable number of the highest stressed vowel
-} CHANGEPH;
-
 typedef struct {
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
@@ -759,7 +752,6 @@ void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 void MakePhonemeList(Translator *tr, int post_pause, bool new_sentence);
-int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
@@ -783,4 +775,6 @@ extern FILE *f_trans; // for logging
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

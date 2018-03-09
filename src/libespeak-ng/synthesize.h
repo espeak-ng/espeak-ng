@@ -17,12 +17,19 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#include <stdbool.h>
+#ifndef ESPEAK_NG_SYNTHESIZE_H
+#define ESPEAK_NG_SYNTHESIZE_H
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <espeak-ng/espeak_ng.h>
+#include "phoneme.h"
+#include "voice.h"
 
 #define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
 
@@ -128,14 +135,14 @@ typedef struct {
 	int height;   // height<<15
 	int left;     // Hz<<16
 	int right;    // Hz<<16
-	DOUBLEX freq1; // floating point versions of the above
-	DOUBLEX height1;
-	DOUBLEX left1;
-	DOUBLEX right1;
-	DOUBLEX freq_inc; // increment by this every 64 samples
-	DOUBLEX height_inc;
-	DOUBLEX left_inc;
-	DOUBLEX right_inc;
+	double freq1; // floating point versions of the above
+	double height1;
+	double left1;
+	double right1;
+	double freq_inc; // increment by this every 64 samples
+	double height_inc;
+	double left_inc;
+	double right_inc;
 } wavegen_peaks_t;
 
 typedef struct {
@@ -552,10 +559,12 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
-int NumInstnWords(USHORT *prog);
+int NumInstnWords(unsigned short *prog);
 
 void InitBreath(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

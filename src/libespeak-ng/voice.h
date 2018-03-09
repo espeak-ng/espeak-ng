@@ -17,6 +17,11 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
+#ifndef ESPEAK_NG_VOICE_H
+#define ESPEAK_NG_VOICE_H
+
+#include <espeak-ng/espeak_ng.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -73,7 +78,7 @@ typedef struct {
 } voice_t;
 
 // percentages shown to user, ix=N_PEAKS means ALL peaks
-extern USHORT voice_pcnt[N_PEAKS+1][3];
+extern unsigned short voice_pcnt[N_PEAKS+1][3];
 
 extern espeak_VOICE current_voice_selected;
 
@@ -92,4 +97,6 @@ void FreeVoiceList(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
