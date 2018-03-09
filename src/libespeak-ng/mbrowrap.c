@@ -82,7 +82,6 @@ void unload_MBR()
 #include <unistd.h>
 
 #include <espeak-ng/espeak_ng.h>
-#include "speech.h"
 
 /*
  * mbrola instance parameters

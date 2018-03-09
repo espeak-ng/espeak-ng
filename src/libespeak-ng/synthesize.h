@@ -20,8 +20,6 @@
 #ifndef ESPEAK_NG_SYNTHESIZE_H
 #define ESPEAK_NG_SYNTHESIZE_H
 
-#include "speech.h"
-
 #ifdef __cplusplus
 extern "C"
 {

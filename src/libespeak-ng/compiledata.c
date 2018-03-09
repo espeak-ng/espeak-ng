@@ -36,7 +36,6 @@
 #include <espeak-ng/encoding.h>
 
 #include "error.h"
-#include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"
