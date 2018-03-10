@@ -33,6 +33,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "dictionary.h"
 #include "readclause.h"
 
 #include "error.h"

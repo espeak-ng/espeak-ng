@@ -32,6 +32,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "dictionary.h"
 #include "intonation.h"
 #include "setlengths.h"
 #include "synthdata.h"

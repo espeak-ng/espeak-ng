@@ -32,9 +32,10 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "readclause.h"
-#include "phonemelist.h"
+#include "dictionary.h"
 #include "numbers.h"
+#include "phonemelist.h"
+#include "readclause.h"
 
 #include "speech.h"
 #include "phoneme.h"

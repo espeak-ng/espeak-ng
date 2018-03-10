@@ -285,9 +285,6 @@ typedef struct {
 int LookupPhonemeString(const char *string);
 int PhonemeCode(unsigned int mnem);
 
-const char *EncodePhonemes(const char *p, char *outptr, int *bad_phoneme);
-void DecodePhonemes(const char *inptr, char *outptr);
-
 extern const char *WordToString(unsigned int word);
 
 extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];

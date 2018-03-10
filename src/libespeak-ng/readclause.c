@@ -36,6 +36,7 @@
 #include <espeak-ng/encoding.h>
 #include <ucd/ucd.h>
 
+#include "dictionary.h"
 #include "readclause.h"
 
 #include "error.h"
