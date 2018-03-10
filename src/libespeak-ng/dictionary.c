@@ -33,6 +33,7 @@
 
 #include "readclause.h"
 #include "synthdata.h"
+#include "numbers.h"
 
 #include "speech.h"
 #include "phoneme.h"

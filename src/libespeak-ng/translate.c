@@ -34,6 +34,7 @@
 
 #include "readclause.h"
 #include "phonemelist.h"
+#include "numbers.h"
 
 #include "speech.h"
 #include "phoneme.h"

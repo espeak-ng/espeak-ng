@@ -710,7 +710,6 @@ int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
-int IsSuperscript(int letter);
 int isspace2(unsigned int c);
 const char *GetTranslatedPhonemeString(int phoneme_mode);
 ALPHABET *AlphabetFromChar(int c);
@@ -722,14 +721,7 @@ void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 int Lookup(Translator *tr, const char *word, char *ph_out);
 int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
 
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control);
-int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab);
-
 void ChangeWordStress(Translator *tr, char *word, int new_stress);
-void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);
-int TranslateLetter(Translator *tr, char *letter, char *phonemes, int control);
-void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf, int control);
-void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
 
 int LoadDictionary(Translator *tr, const char *name, int no_error);
 int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);

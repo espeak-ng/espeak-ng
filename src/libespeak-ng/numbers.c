@@ -32,6 +32,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "readclause.h"
+#include "numbers.h"
 
 #include "phoneme.h"
 #include "voice.h"
