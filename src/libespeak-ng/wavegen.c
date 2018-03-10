@@ -32,6 +32,8 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
+#include "wavegen.h"
+
 #include "synthesize.h"
 #include "speech.h"
 #include "phoneme.h"
@@ -80,6 +82,7 @@ static RESONATOR rbreath[N_PEAKS];
 static int harm_sqrt_n = 0;
 
 #define N_LOWHARM  30
+#define MAX_HARMONIC 400 // 400 * 50Hz = 20 kHz, more than enough
 static int harm_inc[N_LOWHARM]; // only for these harmonics do we interpolate amplitude between steps
 static int *harmspect;
 static int hswitch = 0;
@@ -1393,7 +1396,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 #endif
 
 // Call WavegenFill2, and then speed up the output samples.
-int WavegenFill()
+int WavegenFill(void)
 {
 	int finished;
 	unsigned char *p_start;

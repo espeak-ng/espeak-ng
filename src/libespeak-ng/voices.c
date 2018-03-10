@@ -41,6 +41,7 @@
 #include "dictionary.h"
 #include "readclause.h"
 #include "synthdata.h"
+#include "wavegen.h"
 
 #include "speech.h"
 #include "phoneme.h"

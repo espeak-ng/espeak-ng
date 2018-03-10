@@ -35,7 +35,6 @@ extern "C"
 
 #define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
 
-#define MAX_HARMONIC 400 // 400 * 50Hz = 20 kHz, more than enough
 #define N_SEQ_FRAMES  25 // max frames in a spectrum sequence (real max is ablut 8)
 #define STEPSIZE      64 // 2.9mS at 22 kHz sample rate
 
@@ -128,22 +127,6 @@ typedef struct { // 44 bytes
 	unsigned char bw[4];      // Klatt bandwidth BNZ /2, f1,f2,f3
 	unsigned char klattp[5];  // AV, FNZ, Tilt, Aspr, Skew
 } frame_t2; // without the extra Klatt parameters
-
-// formant data used by wavegen
-typedef struct {
-	int freq;     // Hz<<16
-	int height;   // height<<15
-	int left;     // Hz<<16
-	int right;    // Hz<<16
-	double freq1; // floating point versions of the above
-	double height1;
-	double left1;
-	double right1;
-	double freq_inc; // increment by this every 64 samples
-	double height_inc;
-	double left_inc;
-	double right_inc;
-} wavegen_peaks_t;
 
 typedef struct {
 	unsigned char *pitch_env;
@@ -462,17 +445,7 @@ extern intptr_t wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;
 extern int wcmdq_tail;
 
-// from Wavegen file
-int  WcmdqFree(void);
-void WcmdqStop(void);
-int  WcmdqUsed(void);
-void WcmdqInc(void);
-void WavegenInit(int rate, int wavemult_fact);
-int WavegenFill(void);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
-int GetAmplitude(void);
-void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
-int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
@@ -545,8 +518,6 @@ void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
-
-void InitBreath(void);
 
 #ifdef __cplusplus
 }

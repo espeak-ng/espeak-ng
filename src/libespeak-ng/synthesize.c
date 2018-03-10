@@ -36,6 +36,7 @@
 #include "intonation.h"
 #include "setlengths.h"
 #include "synthdata.h"
+#include "wavegen.h"
 
 #include "phoneme.h"
 #include "voice.h"

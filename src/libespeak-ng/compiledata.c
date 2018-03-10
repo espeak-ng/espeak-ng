@@ -37,6 +37,7 @@
 
 #include "readclause.h"
 #include "synthdata.h"
+#include "wavegen.h"
 
 #include "error.h"
 #include "phoneme.h"
