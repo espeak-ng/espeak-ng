@@ -31,6 +31,8 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "readclause.h"
+
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"

@@ -36,6 +36,8 @@
 #include <espeak-ng/encoding.h>
 #include <ucd/ucd.h>
 
+#include "readclause.h"
+
 #include "error.h"
 #include "speech.h"
 #include "phoneme.h"

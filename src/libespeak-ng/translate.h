@@ -246,8 +246,6 @@ extern "C"
 #define CLAUSE_COLON       (30 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_CLAUSE)
 #define CLAUSE_SEMICOLON   (30 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
 
-int clause_type_from_codepoint(uint32_t c);
-
 //@}
 
 #define SAYAS_CHARS        0x12
@@ -276,14 +274,6 @@ typedef struct {
 	unsigned short sourceix;
 	unsigned char length;
 } WORD_TAB;
-
-typedef struct {
-	int type;
-	int parameter[N_SPEECH_PARAM];
-} PARAM_STACK;
-
-extern PARAM_STACK param_stack[];
-extern const int param_defaults[N_SPEECH_PARAM];
 
 typedef struct {
 	const char *name;
@@ -711,7 +701,6 @@ int utf8_nbytes(const char *buf);
 
 int lookupwchar(const unsigned short *list, int c);
 int lookupwchar2(const unsigned short *list, int c);
-int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
 void InitNamedata(void);
@@ -723,9 +712,7 @@ int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
 int IsSuperscript(int letter);
 int isspace2(unsigned int c);
-int towlower2(unsigned int c); // Supports Turkish I
 const char *GetTranslatedPhonemeString(int phoneme_mode);
-const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
@@ -764,7 +751,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);
-int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
