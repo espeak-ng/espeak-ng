@@ -30,6 +30,7 @@
 
 #include "readclause.h"
 #include "setlengths.h"
+#include "synthdata.h"
 
 #include "phoneme.h"
 #include "voice.h"

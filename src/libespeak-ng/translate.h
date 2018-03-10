@@ -749,8 +749,6 @@ int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
-void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 
 extern FILE *f_trans; // for logging

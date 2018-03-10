@@ -30,6 +30,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "phonemelist.h"
+#include "synthdata.h"
 
 #include "phoneme.h"
 #include "voice.h"
