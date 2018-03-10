@@ -25,8 +25,6 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
 
-#include "synthesize.h"
-
 #ifdef __cplusplus
 extern "C"
 {

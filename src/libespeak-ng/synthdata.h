@@ -21,17 +21,13 @@
 #ifndef ESPEAK_NG_SYNTHDATA_H
 #define ESPEAK_NG_SYNTHDATA_H
 
+#include "synthesize.h"
 #include "translate.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-// forward declare these to avoid including the whole synthesize.h
-struct PHONEME_LIST;
-struct PHONEME_DATA;
-struct WORD_PH_DATA;
 
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
