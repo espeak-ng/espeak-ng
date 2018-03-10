@@ -715,7 +715,6 @@ void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
-char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 

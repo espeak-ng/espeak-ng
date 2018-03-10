@@ -21,6 +21,7 @@
 #ifndef ESPEAK_NG_DICTIONARY_H
 #define ESPEAK_NG_DICTIONARY_H
 
+#include "compiledict.h"
 #include "synthesize.h"
 #include "translate.h"
 

@@ -33,6 +33,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "compiledict.h"
 #include "dictionary.h"
 #include "readclause.h"
 
@@ -42,8 +43,6 @@
 #include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
-
-extern void Write4Bytes(FILE *f, int value);
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
