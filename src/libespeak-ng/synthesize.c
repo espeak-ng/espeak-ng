@@ -33,6 +33,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "intonation.h"
+#include "setlengths.h"
 
 #include "phoneme.h"
 #include "voice.h"

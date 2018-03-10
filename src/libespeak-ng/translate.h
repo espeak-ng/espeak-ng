@@ -742,8 +742,6 @@ void MakePhonemeList(Translator *tr, int post_pause, bool new_sentence);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
-void CalcLengths(Translator *tr);
-
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 int Unpronouncable(Translator *tr, char *word, int posn);
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress);

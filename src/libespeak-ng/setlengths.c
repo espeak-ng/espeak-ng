@@ -29,6 +29,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "readclause.h"
+#include "setlengths.h"
 
 #include "phoneme.h"
 #include "voice.h"
