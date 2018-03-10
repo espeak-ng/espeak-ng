@@ -33,6 +33,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "readclause.h"
+#include "phonemelist.h"
 
 #include "speech.h"
 #include "phoneme.h"

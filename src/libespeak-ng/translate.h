@@ -738,7 +738,6 @@ int HashDictionary(const char *string);
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
-void MakePhonemeList(Translator *tr, int post_pause, bool new_sentence);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
