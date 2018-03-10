@@ -34,6 +34,7 @@
 #include "dictionary.h"
 #include "numbers.h"
 #include "readclause.h"
+#include "synthdata.h"
 
 #include "phoneme.h"
 #include "voice.h"

@@ -686,8 +686,6 @@ extern int (*uri_callback)(int, const char *, const char *);
 extern int (*phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
-void LoadConfig(void);
-
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
 

@@ -29,6 +29,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "intonation.h"
+#include "synthdata.h"
 
 #include "phoneme.h"
 #include "voice.h"
