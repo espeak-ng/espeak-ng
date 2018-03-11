@@ -1618,6 +1618,10 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 		// Add the phonemes to the first stage phoneme list (ph_list2)
 		ph = phoneme_tab[ph_code];
+		if (ph == NULL) {
+			printf("Invalid phoneme code %d\n", ph_code);
+			continue;
+		}
 
 		if (ph_code == phonSWITCH) {
 			ph_list2[n_ph_list2].phcode = ph_code;
