@@ -98,9 +98,9 @@ src/speak-ng
 
 tests/*.test
 !tests/languages.test
-!tests/phoneme-output.test
 !tests/phoneme-audio.test
 !tests/ssml.test
+!tests/translate.test
 
 espeak-ng.pc
 
