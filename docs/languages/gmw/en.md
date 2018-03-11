@@ -62,9 +62,9 @@ when considering the root form of the word containing that vowel.
 | START       | `A@`  | ɑː    | ɑɹ    |
 | NORTH       | `O@`  | ɔː    | ɔɹ    |
 | FORCE       | `o@`  | ɔː    | oɹ    |
-| CURE        | `U@`  | ʊə̯     | ʊɹ    |
-| NEAR        | `i@3` | ɪə̯     | ɪɹ    |
-| SQUARE      | `e@`  | eə̯     | ɛɹ    |
+| CURE        | `U@`  | ʊə̯    | ʊɹ    |
+| NEAR        | `i@3` | ɪə̯    | ɪɹ    |
+| SQUARE      | `e@`  | eə̯    | ɛɹ    |
 
 __NOTE:__ `/i@3/` is used for the NEAR lexical set to differentiate it from
 `/i@/` used in words like `million`.
@@ -110,11 +110,11 @@ rhyme.
 
 | Lexical Set | en    | RP    | GenAm |
 |-------------|-------|-------|-------|
-| FACE        | `eI`  | eɪ̯     | eɪ̯     |
-| PRICE       | `aI`  | aɪ̯     | aɪ̯     |
-| CHOICE      | `OI`  | ɔɪ̯     | ɔɪ̯     |
-| GOAT        | `oU`  | əʊ̯     | oʊ̯     |
-| MOUTH       | `aU`  | aʊ̯     | aʊ̯     |
+| FACE        | `eI`  | eɪ̯    | eɪ̯    |
+| PRICE       | `aI`  | aɪ̯    | aɪ̯    |
+| CHOICE      | `OI`  | ɔɪ̯    | ɔɪ̯    |
+| GOAT        | `oU`  | əʊ̯    | oʊ̯    |
+| MOUTH       | `aU`  | aʊ̯    | aʊ̯    |
 
 ## Split Vowels
 
