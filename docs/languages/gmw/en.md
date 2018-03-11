@@ -61,26 +61,25 @@ by comparing the Received Pronunciation British (RP) and General American
 These are vowels that are followed by an `r` that is not part of the next syllable
 when considering the root form of the word containing that vowel.
 
-| Lexical Set | en    | RP    | GenAm |
-|-------------|-------|-------|-------|
-| NURSE       | `3:`  | ɜː    | ɝ     |
-| START       | `A@`  | ɑː    | ɑɹ    |
-| NORTH       | `O@`  | ɔː    | ɔɹ    |
-| FORCE       | `o@`  | ɔː    | oɹ    |
-| CURE        | `U@`  | ʊə̯    | ʊɹ    |
-| NEAR        | `i@3` | ɪə̯    | ɪɹ    |
-| SQUARE      | `e@`  | eə̯    | ɛɹ    |
+| Lexical Set | en    | en-GB-scotland | RP    | GenAm | ScE   |
+|-------------|-------|----------------|-------|-------|-------|
+| NURSE       | `3:`  | `VR`           | ɜː    | ɝ     | ʌɾ    |
+| START       | `A@`  | `A@`           | ɑː    | ɑɹ    | ɐ̟ɾ    |
+| NORTH       | `O@`  | `O@`           | ɔː    | ɔɹ    | ɔɾ    |
+| FORCE       | `o@`  | `o@`           | ɔː    | oɹ    | oɾ    |
+| CURE        | `U@`  | `U@`           | ʊə̯    | ʊɹ    | ʉɾ    |
+| NEAR        | `i@3` | `i@3`          | ɪə̯    | ɪɹ    | iɾ    |
+| SQUARE      | `e@`  | `e@`           | eə̯    | ɛɹ    | eɾ    |
 
 __NOTE:__ `/i@3/` is used for the NEAR lexical set to differentiate it from
 `/i@/` used in words like `million`.
 
 Additionally, espeak-ng has the following phonemes for different accents:
 
-| Lexical Set | en    | en-GB-scotland | RP    | ScE   |
-|-------------|-------|----------------|-------|-------|
-| NURSE       | `3:`  | `VR`           | ɜː    | ʌɾ    |
-| TERM        | `3:`  | `3:`           | ɜː    | ɛɾ    |
-| BIRD        | `3:`  | `IR`           | ɜː    | ɪɾ    |
+| Lexical Set | en    | en-GB-scotland | RP    | GenAm | ScE   |
+|-------------|-------|----------------|-------|-------|-------|
+| TERM        | `3:`  | `3:`           | ɜː    | ɝ     | ɛɾ    |
+| BIRD        | `3:`  | `IR`           | ɜː    | ɝ     | ɪɾ    |
 
 ### Reduced Vowels
 
