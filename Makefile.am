@@ -254,7 +254,7 @@ check:	tests/encoding.check \
 	tests/ssml.check \
 	tests/api.check \
 	tests/language-phonemes.check \
-	tests/languages.check
+	tests/language-pronunciation.check
 
 ##### phoneme data:
 

@@ -97,8 +97,8 @@ src/espeakedit
 src/speak-ng
 
 tests/*.test
-!tests/languages.test
 !tests/language-phonemes.test
+!tests/language-pronunciation.test
 !tests/ssml.test
 !tests/translate.test
 
