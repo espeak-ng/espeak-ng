@@ -1207,7 +1207,19 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			while (!isspace(*word_out)) ++word_out;
 			while (isspace(*word_out))  ++word_out;
 		}
-		snprintf(word_phonemes, sizeof(word_phonemes), "%s", words_phonemes);
+
+		// If the list file contains a text replacement to another
+		// entry in the list file, e.g.:
+		//     ripost     riposte $text
+		//     riposte    rI#p0st
+		// calling it from a prefix or suffix rule such as 'riposted'
+		// causes word_out[0] to be NULL, as TranslateWord3 has the
+		// information needed to perform the mapping. In this case,
+		// no phonemes have been written in this loop and the phonemes
+		// have been calculated, so don't override them.
+		if (phonemes != words_phonemes) {
+			snprintf(word_phonemes, sizeof(word_phonemes), "%s", words_phonemes);
+		}
 	}
 	return flags;
 }
