@@ -253,7 +253,7 @@ check:	tests/encoding.check \
 	tests/translate.check \
 	tests/ssml.check \
 	tests/api.check \
-	tests/phoneme-audio.check \
+	tests/language-phonemes.check \
 	tests/languages.check
 
 ##### phoneme data:

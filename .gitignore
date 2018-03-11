@@ -98,7 +98,7 @@ src/speak-ng
 
 tests/*.test
 !tests/languages.test
-!tests/phoneme-audio.test
+!tests/language-phonemes.test
 !tests/ssml.test
 !tests/translate.test
 
