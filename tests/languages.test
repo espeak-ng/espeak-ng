@@ -39,6 +39,9 @@ test_phonemes en-US \
 test_phonemes ja \
 	" k'a k'i k'u k'e k'o" \
 	"か き く け こ"
+test_phonemes lv \
+	" nev'ie:na nuo\`_ 'eiRo:pas v'al>sti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok}l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \
+	"Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no vispārējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
 
 # Languages with non-Latin characters fall back to en when speaking Latin characters.
 # TODO: Include words in their native script and move to the main tests above.
