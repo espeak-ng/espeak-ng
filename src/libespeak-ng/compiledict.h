@@ -31,13 +31,6 @@ char *DecodeRule(const char *group_chars,
 		char *rule,
 		int control);
 
-ESPEAK_NG_API espeak_ng_STATUS espeak_ng_CompileDictionary(const char *dsource,
-		const char *dict_name,
-		FILE *log,
-		int flags,
-		espeak_ng_ERROR_CONTEXT *context);
-
-
 void print_dictionary_flags(unsigned int *flags,
 		char *buf,
 		int buf_len);
