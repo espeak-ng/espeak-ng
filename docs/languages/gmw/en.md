@@ -13,10 +13,23 @@
 The English language support uses a vowel system based on John Wells' Lexical
 Sets<sup>\[<a href="#ref1">1</a>\]</sup>. These were created by Wells in 1982
 by comparing the Received Pronunciation British (RP) and General American
-(GenAm) accents in use at that time.
+(GenAm) accents in use at that time. The following accents are supported by
+eSpeak NG and are referenced in this document:
 
-The `en` transcriptions listed below are the phonemes used by eSpeak NG to
-transcribe the different lexical sets.
+| BCP47          | Abbreviation | Accent Name            |
+|----------------|--------------|------------------------|
+| en             |              | British English        |
+| en-029         |              | Caribbean              |
+| en-GB-scotland | ScE          | Scottish English       |
+| en-GB-x-gbclan |              | Lancastrian            |
+| en-GB-x-gbcwmd |              | West Midlands          |
+| en-GB-x-rp     | RP           | Received Pronunciation |
+| en-US          | GenAm        | General American       |
+
+The BCP47 name is the standard language identifier for the accent, used as the
+espeak language name. The Abbreviation is used in the lexical set tables below
+for the IPA transcriptions of that accent, and the BCP47 names are used for the
+eSpeak NG phoneme names.
 
 ## Short Vowels
 
@@ -55,6 +68,14 @@ when considering the root form of the word containing that vowel.
 
 __NOTE:__ `/i@3/` is used for the NEAR lexical set to differentiate it from
 `/i@/` used in words like `million`.
+
+Additionally, espeak-ng has the following phonemes for different accents:
+
+| Lexical Set | en    | en-GB-scotland | RP    | ScE   |
+|-------------|-------|----------------|-------|-------|
+| NURSE       | `3:`  | `VR`           | ɜː    | ʌɾ    |
+| TERM        | `3:`  | `3:`           | ɜː    | ɛɾ    |
+| BIRD        | `3:`  | `IR`           | ɜː    | ɪɾ    |
 
 ## Reduced Vowels
 
@@ -111,3 +132,7 @@ merged with the other.
 1. <a name="ref1"></a> Wikipedia.
    [Lexical set](https://en.wikipedia.org/wiki/Lexical_set). 2017.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+
+2. <a name="ref2"></a> Wikipedia.
+   [IPA chart for English dialects](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet_chart_for_English_dialects).
+   2018. Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
