@@ -1,65 +1,54 @@
 #!/bin/sh
 
-# Test a command for presence and ability to output the sha1 hash of a file.
-check_hashcmd() {
-	which $1 &&
-	$1 </dev/null 2>/dev/null |
-	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
-}
+test_phonemes() {
+	TEST_LANG=$1
+	EXPECTED=$2
+	TEST_TEXT=$3
 
-# Test some common commands to find the correct one for the system being tested on.
-echo -n "checking for SHA1 hashing command ... "
-if check_hashcmd sha1sum; then
-	sha1sum=sha1sum
-elif check_hashcmd sha1; then
-	sha1sum=sha1
-elif check_hashcmd shasum; then
-	sha1sum=shasum
-else
-	echo "no"
-	exit 1
-fi
-
-test_lang() {
-	if test "$#" -eq 3; then
-		TEST_LANG=$1
-		TEST_NAME=$1
-		EXPECTED=$2
-		TEST_TEXT=$3
-	else
-		TEST_LANG=$1
-		TEST_NAME=$2
-		EXPECTED=$3
-		TEST_TEXT=$4
-	fi
-
-	echo "testing ${TEST_NAME}"
+	echo "testing ${TEST_LANG}"
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng --stdout -v ${TEST_LANG} "${TEST_TEXT}" | \
-		$sha1sum | awk '{ print $1 }' > actual.txt
+		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
 	echo "${EXPECTED}" > expected.txt
 	diff expected.txt actual.txt || exit 1
 }
 
-# To add a new test:
-# 1.  add a test line for the language with an appropriate test string, using a placeholder hash;
-# 2.  run the tests to determine the correct hash;
-# 3.  copy the correct hash onto the test line;
-# 4.  re-run the tests to ensure they pass.
-
-test_lang de 8f9bd0211a8d0d7a4f78970b8ac8ed7a50242bb0 "drucker lampe computer stern sterne"
-
-test_lang en 13464f360acc31b7d266164245c15b11e2fb6145 "foot strut north force cure thought lot cloth trap bath"
-test_lang en-029 7587e73b30806a360d40088d4f00fa158472fbab "foot strut north force cure thought lot cloth trap bath"
-test_lang en-GB-scotland c2a65df79d0da41a4590a0ba6e231e13bc4439b3 "foot strut north force cure thought lot cloth trap bath"
-test_lang en-GB-x-gbclan da12c9fd6bfad8aed5644918fc97e683b01b2386 "foot strut north force cure thought lot cloth trap bath"
-test_lang en-GB-x-gbcwmd 480e4c024cc06224f1352618e57d0ec4bf223e9a "foot strut north force cure thought lot cloth trap bath"
-test_lang en-GB-x-rp 8f1f36267f10c88ca822355ecd9d4ee37faa8228 "foot strut north force cure thought lot cloth trap bath"
-test_lang en-US 1653355ef008d67d315aa20e630e00614472a045 "foot strut north force cure thought lot cloth trap bath"
-
-test_lang ja a3651d81da9158ee8b76bd6a31025220b4d84932 "か き く け こ"
+test_phonemes de \
+	" dr'Uk3 l'amp@ (en)k@mpj'u:t3(de) St'Ern St'Ern@" \
+	"drucker lampe computer stern sterne"
+test_phonemes en \
+	" f'Ut str'Vt n'O@T f'o@s kj'U@ T'O:t l'0t kl'0T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-029 \
+	" f'Ut str'Vt n'O@t[ f'o@s kj'o@ t['O:t l'0t kl'0t[ tr'ap b'aat[" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-GB-scotland \
+	" f'Ut str'Vt n'O@rT f'o@rs kj'U@ T'O:t l'0t kl'0T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-GB-x-gbclan \
+	" f'Ut str'Vt n'O@T f'o@s kj'U@ T'O:t l'0t kl'0T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-GB-x-gbcwmd \
+	" f'Ut str'Vt n'O@T f'O@s kj'U@ T'O:t l'0t kl'0T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-GB-x-rp \
+	" f'Ut str'Vt n'O@T f'O@s kj'U@ T'O:t l'0t kl'0T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes en-US \
+	" f'Ut str'Vt n'O@T f'o@s kj'U@ T'O:t l'0t kl'O2T tr'ap b'aaT" \
+	"foot strut north force cure thought lot cloth trap bath"
+test_phonemes ja \
+	" k'a k'i k'u k'e k'o" \
+	"か き く け こ"
 
 # Languages with non-Latin characters fall back to en when speaking Latin characters.
-test_lang bg "bg (English text)" ad98e816727288c7f3c525a4b4c30e72c7ea0c00 "foot strut north force cure thought lot cloth trap bath"
-test_lang fa "fa (English text)" 9460f3dcd6cc7b4f3f45a9021f7706f1bdc7ae8f "foot strut north force cure thought lot cloth trap bath"
-test_lang ka "ka (English text)" 4995fdb0fbe16bd97061c762badea03c1c44ba63 "foot strut north force cure thought lot cloth trap bath"
+# TODO: Include words in their native script and move to the main tests above.
+
+test_phonemes bg \
+	" (en)f'Ut str'Vt(bg)" \
+	"foot strut"
+test_phonemes fa \
+	" (en)f'Ut str'Vt(fa)" \
+	"foot strut"
+test_phonemes ka \
+	" (en)f'Ut str'Vt(ka)" \
+	"foot strut"
