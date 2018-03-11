@@ -32,6 +32,13 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "dictionary.h"
+#include "intonation.h"
+#include "mbrola.h"
+#include "setlengths.h"
+#include "synthdata.h"
+#include "wavegen.h"
+
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"
@@ -43,9 +50,6 @@ static void SmoothSpect(void);
 // list of phonemes in a clause
 int n_phoneme_list = 0;
 PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
-
-int mbrola_delay;
-char mbrola_name[20];
 
 SPEED_FACTORS speed;
 

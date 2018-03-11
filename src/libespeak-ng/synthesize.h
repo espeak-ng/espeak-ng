@@ -35,7 +35,6 @@ extern "C"
 
 #define N_PHONEME_LIST 1000 // enough for source[N_TR_SOURCE] full of text, else it will truncate
 
-#define MAX_HARMONIC 400 // 400 * 50Hz = 20 kHz, more than enough
 #define N_SEQ_FRAMES  25 // max frames in a spectrum sequence (real max is ablut 8)
 #define STEPSIZE      64 // 2.9mS at 22 kHz sample rate
 
@@ -128,22 +127,6 @@ typedef struct { // 44 bytes
 	unsigned char bw[4];      // Klatt bandwidth BNZ /2, f1,f2,f3
 	unsigned char klattp[5];  // AV, FNZ, Tilt, Aspr, Skew
 } frame_t2; // without the extra Klatt parameters
-
-// formant data used by wavegen
-typedef struct {
-	int freq;     // Hz<<16
-	int height;   // height<<15
-	int left;     // Hz<<16
-	int right;    // Hz<<16
-	double freq1; // floating point versions of the above
-	double height1;
-	double left1;
-	double right1;
-	double freq_inc; // increment by this every 64 samples
-	double height_inc;
-	double left_inc;
-	double right_inc;
-} wavegen_peaks_t;
 
 typedef struct {
 	unsigned char *pitch_env;
@@ -356,15 +339,6 @@ typedef struct {
 } SOUND_ICON;
 
 typedef struct {
-	int name;
-	unsigned int next_phoneme;
-	int mbr_name;
-	int mbr_name2;
-	int percent; // percentage length of first component
-	int control;
-} MBROLA_TAB;
-
-typedef struct {
 	int pause_factor;
 	int clause_pause_factor;
 	unsigned int min_pause;
@@ -462,17 +436,7 @@ extern intptr_t wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;
 extern int wcmdq_tail;
 
-// from Wavegen file
-int  WcmdqFree(void);
-void WcmdqStop(void);
-int  WcmdqUsed(void);
-void WcmdqInc(void);
-void WavegenInit(int rate, int wavemult_fact);
-int WavegenFill(void);
 void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
-int GetAmplitude(void);
-void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
-int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control);
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
@@ -491,30 +455,15 @@ extern int echo_tail;
 extern int echo_amp;
 extern short echo_buf[N_ECHO_BUF];
 
-extern int mbrola_delay;
-extern char mbrola_name[20];
-
-// from synthdata file
-unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
-frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
-void FreePhData(void);
-
-unsigned char *LookupEnvelope(int ix);
-espeak_ng_STATUS LoadPhData(int *srate, espeak_ng_ERROR_CONTEXT *context);
-
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);
-void SelectPhonemeTable(int number);
-int  SelectPhonemeTableName(const char *name);
 int FormantTransition2(frameref_t *seq, int *n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
 void Write4Bytes(FILE *f, int value);
-int Read4Bytes(FILE *f);
-int Reverse4Bytes(int word);
 
 #if HAVE_SONIC_H
 void DoSonicSpeed(int value);
@@ -545,23 +494,13 @@ extern double sonicSpeed;
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate);
 espeak_ng_STATUS SetParameter(int parameter, int value, int relative);
-int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mbrola);
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
-int MbrolaFill(int length, bool resume, int amplitude);
-void MbrolaReset(void);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
 void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
-int LookupPhonemeTable(const char *name);
-unsigned char *GetEnvelope(int index);
-int NumInstnWords(unsigned short *prog);
-
-void InitBreath(void);
 
 #ifdef __cplusplus
 }

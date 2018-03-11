@@ -25,8 +25,6 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
 
-#include "synthesize.h"
-
 #ifdef __cplusplus
 extern "C"
 {
@@ -246,8 +244,6 @@ extern "C"
 #define CLAUSE_COLON       (30 | CLAUSE_INTONATION_FULL_STOP   | CLAUSE_TYPE_CLAUSE)
 #define CLAUSE_SEMICOLON   (30 | CLAUSE_INTONATION_COMMA       | CLAUSE_TYPE_CLAUSE)
 
-int clause_type_from_codepoint(uint32_t c);
-
 //@}
 
 #define SAYAS_CHARS        0x12
@@ -276,14 +272,6 @@ typedef struct {
 	unsigned short sourceix;
 	unsigned char length;
 } WORD_TAB;
-
-typedef struct {
-	int type;
-	int parameter[N_SPEECH_PARAM];
-} PARAM_STACK;
-
-extern PARAM_STACK param_stack[];
-extern const int param_defaults[N_SPEECH_PARAM];
 
 typedef struct {
 	const char *name;
@@ -698,9 +686,6 @@ extern int (*uri_callback)(int, const char *, const char *);
 extern int (*phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
-void LoadConfig(void);
-int TransposeAlphabet(Translator *tr, char *text);
-
 #define LEADING_2_BITS 0xC0 // 0b11000000
 #define UTF8_TAIL_BITS 0x80 // 0b10000000
 
@@ -711,7 +696,6 @@ int utf8_nbytes(const char *buf);
 
 int lookupwchar(const unsigned short *list, int c);
 int lookupwchar2(const unsigned short *list, int c);
-int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
 void InitNamedata(void);
@@ -720,56 +704,22 @@ void InitText2(void);
 int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
-int IsVowel(Translator *tr, int c);
-int IsSuperscript(int letter);
 int isspace2(unsigned int c);
-int towlower2(unsigned int c); // Supports Turkish I
-const char *GetTranslatedPhonemeString(int phoneme_mode);
-const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
 void DeleteTranslator(Translator *tr);
 void ProcessLanguageOptions(LANGUAGE_OPTIONS *langopts);
-int Lookup(Translator *tr, const char *word, char *ph_out);
-int LookupFlags(Translator *tr, const char *word, unsigned int **flags_out);
-
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control);
-int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab);
-
-void ChangeWordStress(Translator *tr, char *word, int new_stress);
-void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);
-int TranslateLetter(Translator *tr, char *letter, char *phonemes, int control);
-void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf, int control);
-void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
-
-int LoadDictionary(Translator *tr, const char *name, int no_error);
-int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
-int HashDictionary(const char *string);
 
 void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
-char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
-void MakePhonemeList(Translator *tr, int post_pause, bool new_sentence);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
-void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
-void CalcLengths(Translator *tr);
-void CalcPitches(Translator *tr, int clause_tone);
-
-int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
-int Unpronouncable(Translator *tr, char *word, int posn);
-void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress);
-int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 int TranslateWord(Translator *tr, char *word1, WORD_TAB *wtab, char *word_out);
 void TranslateClause(Translator *tr, int *tone, char **voice_change);
-int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
-void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
-char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 
 extern FILE *f_trans; // for logging
 

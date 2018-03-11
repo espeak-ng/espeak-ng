@@ -28,6 +28,11 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "readclause.h"
+#include "setlengths.h"
+#include "synthdata.h"
+#include "wavegen.h"
+
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"

@@ -32,15 +32,25 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "dictionary.h"
+#include "mbrola.h"
+#include "readclause.h"
+#include "synthdata.h"
+#include "wavegen.h"
+
+
 #include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 
+// included here so tests can find these even without OPT_MBROLA set
+int mbrola_delay;
+char mbrola_name[20];
+
 #ifdef INCLUDE_MBROLA
 
-extern int Read4Bytes(FILE *f);
 extern unsigned char *outbuf;
 
 #if defined(_WIN32) || defined(_WIN64)

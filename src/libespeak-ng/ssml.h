@@ -62,11 +62,6 @@ typedef struct {
 #define HTML_NOSPACE     16   // don't insert a space for this element, so it doesn't break a word
 #define SSML_CLOSE       0x20 // for a closing tag, OR this with the tag type
 
-int LoadSoundFile2(const char *fname);
-
-int AddNameData(const char *name,
-                int wide);
-
 int ProcessSsmlTag(wchar_t *xml_buf,
                    char *outbuf,
                    int *outix,

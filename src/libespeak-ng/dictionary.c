@@ -31,6 +31,11 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
+#include "dictionary.h"
+#include "numbers.h"
+#include "readclause.h"
+#include "synthdata.h"
+
 #include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
@@ -94,7 +99,7 @@ void strncpy0(char *to, const char *from, int size)
 }
 #pragma GCC visibility pop
 
-int Reverse4Bytes(int word)
+static int Reverse4Bytes(int word)
 {
 	// reverse the order of bytes from little-endian to big-endian
 #ifdef ARCH_BIG

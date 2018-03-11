@@ -21,6 +21,9 @@
 #define ESPEAK_NG_SPECT_H
 
 #include <espeak-ng/espeak_ng.h>
+
+#include "wavegen.h"
+
 #include "synthesize.h"
 #include "speech.h"
 
