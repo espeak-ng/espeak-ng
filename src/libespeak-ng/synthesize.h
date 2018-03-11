@@ -339,15 +339,6 @@ typedef struct {
 } SOUND_ICON;
 
 typedef struct {
-	int name;
-	unsigned int next_phoneme;
-	int mbr_name;
-	int mbr_name2;
-	int percent; // percentage length of first component
-	int control;
-} MBROLA_TAB;
-
-typedef struct {
 	int pause_factor;
 	int clause_pause_factor;
 	unsigned int min_pause;
@@ -464,9 +455,6 @@ extern int echo_tail;
 extern int echo_amp;
 extern short echo_buf[N_ECHO_BUF];
 
-extern int mbrola_delay;
-extern char mbrola_name[20];
-
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
@@ -506,12 +494,7 @@ extern double sonicSpeed;
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int *srate);
 espeak_ng_STATUS SetParameter(int parameter, int value, int relative);
-int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mbrola);
-int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
-int MbrolaFill(int length, bool resume, int amplitude);
-void MbrolaReset(void);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
 void DoPhonemeMarker(int type, int char_posn, int length, char *name);

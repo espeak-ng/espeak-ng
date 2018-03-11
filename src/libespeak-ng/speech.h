@@ -22,6 +22,8 @@
 
 #include <espeak-ng/espeak_ng.h>
 
+#include "mbrola.h"
+
 #ifdef __cplusplus
 extern "C"
 {

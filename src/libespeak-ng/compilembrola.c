@@ -28,6 +28,8 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
+#include "mbrola.h"
+
 #include "error.h"
 #include "phoneme.h"
 #include "speech.h"

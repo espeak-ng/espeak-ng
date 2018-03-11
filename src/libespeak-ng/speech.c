@@ -49,6 +49,7 @@
 #include <espeak-ng/encoding.h>
 
 #include "dictionary.h"
+#include "mbrola.h"
 #include "readclause.h"
 #include "synthdata.h"
 #include "wavegen.h"
