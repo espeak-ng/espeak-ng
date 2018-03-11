@@ -97,10 +97,10 @@ src/espeakedit
 src/speak-ng
 
 tests/*.test
-!tests/languages.test
-!tests/phoneme-output.test
-!tests/phoneme-audio.test
+!tests/language-phonemes.test
+!tests/language-pronunciation.test
 !tests/ssml.test
+!tests/translate.test
 
 espeak-ng.pc
 
