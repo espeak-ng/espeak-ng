@@ -6,7 +6,6 @@
   - [Rhotic Vowels](#rhotic-vowels)
   - [Reduced Vowels](#reduced-vowels)
   - [Diphthongs](#diphthongs)
-  - [Split Vowels](#split-vowels)
 - [References](#references)
 
 ----------
@@ -46,6 +45,14 @@ by comparing the Received Pronunciation British (RP) and General American
 | LOT         | `0`   | ɒ     | ɑ     |
 | STRUT       | `V`   | ʌ     | ʌ     |
 | FOOT        | `U`   | ʊ     | ʊ     |
+
+Additionally, Wells defines the following lexical sets to describe vowels that
+are different in both RP and GenAm:
+
+| Lexical Set | en    | RP    | GenAm |
+|-------------|-------|-------|-------|
+| BATH        | `aa`  | ɑː    | æ     |
+| CLOTH       | `O2`  | ɒ     | ɔ     |
 
 ### Long Vowels
 
@@ -119,17 +126,6 @@ rhyme.
 | CHOICE      | `OI`  | ɔɪ̯    | ɔɪ̯    |
 | GOAT        | `oU`  | əʊ̯    | oʊ̯    |
 | MOUTH       | `aU`  | aʊ̯    | aʊ̯    |
-
-### Split Vowels
-
-These are lexical sets defined by John Wells that are merged with other lexical
-sets in both RP and GenAm, so have split from one of those lexical sets and
-merged with the other.
-
-| Lexical Set | en    | RP    | GenAm |
-|-------------|-------|-------|-------|
-| BATH        | `aa`  | ɑː    | æ     |
-| CLOTH       | `O2`  | ɒ     | ɔ     |
 
 ## References
 
