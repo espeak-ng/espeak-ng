@@ -1,20 +1,18 @@
 # English
 
-- [Short Vowels](#short-vowels)
-- [Long Vowels](#long-vowels)
-- [Rhotic Vowels](#rhotic-vowels)
-- [Reduced Vowels](#reduced-vowels)
-- [Diphthongs](#diphthongs)
-- [Split Vowels](#split-vowels)
+- [Vowels](#vowels)
+  - [Short Vowels](#short-vowels)
+  - [Long Vowels](#long-vowels)
+  - [Rhotic Vowels](#rhotic-vowels)
+  - [Reduced Vowels](#reduced-vowels)
+  - [Diphthongs](#diphthongs)
+  - [Split Vowels](#split-vowels)
 - [References](#references)
 
 ----------
 
-The English language support uses a vowel system based on John Wells' Lexical
-Sets<sup>\[<a href="#ref1">1</a>\]</sup>. These were created by Wells in 1982
-by comparing the Received Pronunciation British (RP) and General American
-(GenAm) accents in use at that time. The following accents are supported by
-eSpeak NG and are referenced in this document:
+The following English accents are supported by eSpeak NG and are referenced in
+this document:
 
 | BCP47          | Abbreviation | Accent Name            |
 |----------------|--------------|------------------------|
@@ -27,11 +25,18 @@ eSpeak NG and are referenced in this document:
 | en-US          | GenAm        | General American       |
 
 The BCP47 name is the standard language identifier for the accent, used as the
-espeak language name. The Abbreviation is used in the lexical set tables below
-for the IPA transcriptions of that accent, and the BCP47 names are used for the
-eSpeak NG phoneme names.
+espeak language name. The Abbreviation is used in the tables below for the IPA
+transcriptions of that accent, and the BCP47 names are used for the eSpeak NG
+phoneme names.
 
-## Short Vowels
+## Vowels
+
+The English language support uses a vowel system based on John Wells' Lexical
+Sets<sup>\[<a href="#ref1">1</a>\]</sup>. These were created by Wells in 1982
+by comparing the Received Pronunciation British (RP) and General American
+(GenAm) accents in use at that time.
+
+### Short Vowels
 
 | Lexical Set | en    | RP    | GenAm |
 |-------------|-------|-------|-------|
@@ -42,7 +47,7 @@ eSpeak NG phoneme names.
 | STRUT       | `V`   | ʌ     | ʌ     |
 | FOOT        | `U`   | ʊ     | ʊ     |
 
-## Long Vowels
+### Long Vowels
 
 | Lexical Set | en    | RP    | GenAm |
 |-------------|-------|-------|-------|
@@ -51,7 +56,7 @@ eSpeak NG phoneme names.
 | THOUGHT     | `O:`  | ɔː    | ɔ     |
 | GOOSE       | `u:`  | uː    | u     |
 
-## Rhotic Vowels
+### Rhotic Vowels
 
 These are vowels that are followed by an `r` that is not part of the next syllable
 when considering the root form of the word containing that vowel.
@@ -77,7 +82,7 @@ Additionally, espeak-ng has the following phonemes for different accents:
 | TERM        | `3:`  | `3:`           | ɜː    | ɛɾ    |
 | BIRD        | `3:`  | `IR`           | ɜː    | ɪɾ    |
 
-## Reduced Vowels
+### Reduced Vowels
 
 These are unstressed vowels that differ from the vowels in the main lexical sets.
 
@@ -106,7 +111,7 @@ The RABBIT lexical set is used for unstressed KIT vowels. Some American accents
 have merged this with the COMMA lexical set, such that `rabbit` and `abbot`
 rhyme.
 
-## Diphthongs
+### Diphthongs
 
 | Lexical Set | en    | RP    | GenAm |
 |-------------|-------|-------|-------|
@@ -116,7 +121,7 @@ rhyme.
 | GOAT        | `oU`  | əʊ̯    | oʊ̯    |
 | MOUTH       | `aU`  | aʊ̯    | aʊ̯    |
 
-## Split Vowels
+### Split Vowels
 
 These are lexical sets defined by John Wells that are merged with other lexical
 sets in both RP and GenAm, so have split from one of those lexical sets and
