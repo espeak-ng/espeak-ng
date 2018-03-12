@@ -66,6 +66,7 @@ install-exec-hook:
 clean-local:
 	cd src && rm -f *.o *~ && cd ..
 	cd src/libespeak-ng/ && rm -f *.o *.lo && cd ../..
+	cd tests && rm -f *.o *.lo && cd ..
 if HAVE_GRADLE
 	cd android && $(GRADLE) clean
 endif
@@ -252,9 +253,32 @@ check:	tests/encoding.check \
 	tests/readclause.check \
 	tests/translate.check \
 	tests/ssml.check \
+	tests/ssml-fuzzer.check \
 	tests/api.check \
 	tests/language-phonemes.check \
 	tests/language-pronunciation.check
+
+
+##### fuzzer:
+
+# When OSS-Fuzz [https://github.com/google/oss-fuzz] runs our fuzzer, it sets
+# LIB_FUZZING_ENGINE to libFuzzer [http://llvm.org/docs/LibFuzzer.html].
+# When running outside OSS-Fuzz, we link against our own stub fuzzrunner.
+LIB_FUZZING_ENGINE ?= tests/libfuzzrunner.la
+
+lib_LTLIBRARIES += tests/libfuzzrunner.la
+tests_libfuzzrunner_la_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
+tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
+
+noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
+tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la ${LIB_FUZZING_ENGINE}
+tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
+tests_ssml_fuzzer_test_DEPENDENCIES = src/libespeak-ng.la tests/libfuzzrunner.la
+
+tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
+	@echo "  TEST      $<"
+	@ESPEAK_DATA_PATH=$(PWD) $< tests/ssml/*.ssml tests/ssml-fuzzer/*.ssml && echo "  PASSED    $<"
+
 
 ##### phoneme data:
 

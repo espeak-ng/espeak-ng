@@ -85,6 +85,10 @@ libespeak-ng-test.a
 libespeak-ng-test.la
 libespeak-ng-test.so*
 
+tests/libfuzzrunner.a
+tests/libfuzzrunner.la
+tests/libfuzzrunner.so*
+
 # build output
 
 *.html
