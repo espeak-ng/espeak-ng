@@ -34,13 +34,13 @@ The 100 supported languages and accents are:
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
-| `gmw`       | `en-US`           | West Germanic         | English                     | American               |
-| `gmw`       | `en`              | West Germanic         | English                     | British                |
-| `gmw`       | `en-029`          | West Germanic         | English                     | Caribbean              |
-| `gmw`       | `en-GB-x-gbclan`  | West Germanic         | English                     | Lancastrian            |
-| `gmw`       | `en-GB-x-rp`      | West Germanic         | English                     | Received Pronunciation |
-| `gmw`       | `en-GB-scotland`  | West Germanic         | English                     | Scottish               |
-| `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
+| `gmw`       | `en-US`           | West Germanic         | [English](languages/gmw/en.md)  | American               |
+| `gmw`       | `en`              | West Germanic         | [English](languages/gmw/en.md)  | British                |
+| `gmw`       | `en-029`          | West Germanic         | [English](languages/gmw/en.md)  | Caribbean              |
+| `gmw`       | `en-GB-x-gbclan`  | West Germanic         | [English](languages/gmw/en.md)  | Lancastrian            |
+| `gmw`       | `en-GB-x-rp`      | West Germanic         | [English](languages/gmw/en.md)  | Received Pronunciation |
+| `gmw`       | `en-GB-scotland`  | West Germanic         | [English](languages/gmw/en.md)  | Scottish               |
+| `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | [English](languages/gmw/en.md)  | West Midlands          |
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
