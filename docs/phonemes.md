@@ -22,12 +22,7 @@
   - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
 - [Suprasegmentals](#suprasegmentals)
-  - [Stress](#stress)
   - [Length](#length)
-  - [Rhythm](#rhythm)
-  - [Intonation](#intonation)
-  - [Tone Stepping](#tone-stepping)
-  - [Tones](#tones)
 - [References](#references)
 
 ----------
