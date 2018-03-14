@@ -1,12 +1,13 @@
 # Phonemes
 
-- [Phoneme Transcriptions](#phoneme-transcriptions)
 - [Consonants](#consonants)
+  - [Other Symbols](#other-symbols)
+  - [Gemination](#gemination)
   - [Manner of Articulation](#manner-of-articulation)
   - [Place of Articulation](#place-of-articulation)
   - [Voice](#voice)
-  - [Gemination](#gemination)
 - [Vowels](#vowels)
+  - [Other Symbols](#other-symbols-1)
   - [Rounding](#rounding)
   - [Height](#height)
   - [Backness](#backness)
@@ -21,7 +22,12 @@
   - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
 - [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
   - [Length](#length)
+  - [Rhythm](#rhythm)
+  - [Intonation](#intonation)
+  - [Tone Stepping](#tone-stepping)
+  - [Tones](#tones)
 - [References](#references)
 
 ----------
@@ -42,41 +48,73 @@ Instead, it is designed to be a transcription guide for authors of espeak-ng
 languages and voices on how to specify phonemes so that the IPA and feature
 transcriptions are consistent.
 
-## Phoneme Transcriptions
-
-The following table lists phonetic transcription schemes based on the
-International Phonetic Alphabet (IPA):
-
-| BCP47 Variant Name              | Transcription Name                    | Encoding |
-|---------------------------------|---------------------------------------|----------|
-| foncxs                          | Conlang X-SAMPA (CXS)                 | ASCII    |
-| [fonipa](phonemes/fonipa.md)    | International Phonetic Alphabet (IPA) | Unicode  |
-| fonkirsh                        | Kirshenbaum (ASCII-IPA)               | ASCII    |
-| fonxsampa                       | X-SAMPA                               | ASCII    |
-
-__NOTE:__ The `foncxs` and `fonkirsh` variant names are not defined in the
-[IANA language subtag registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
-Instead, they are private use extensions defined in the
-[bcp47-data](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-project.
-
 ## Consonants
+
+|                             | `blb` |       | `lbd` |       | `dnt` |       | `alv` |       | `pla` |       | `rfx` |       | `alp` |       | `pal` |       | `vel` |       | `uvl` |       | `phr` |       | `glt` |       |
+|-----------------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|                             | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` |
+| `nas`                       | m̥     | m     |       | ɱ     |       |       | n̥     | n     |       |       | ɳ̊     | ɳ     | ɲ̟̊     | ɲ̟     | ɲ̊     | ɲ     | ŋ̊     | ŋ     | ɴ̥     | ɴ     |       |       |       |       |
+| `stp`                       | p     | b     | p̪     | b̪     | t̪     | d̪     | t     | d     |       |       | ʈ     | ɖ     |       |       | c     | ɟ     | k     | ɡ     | q     | ɢ     | ʡ     |       | ʔ     |       |
+| `sib`&#xA0;`afr`            |       |       |       |       |       |       | t͡s    | d͡z    | t͡ʃ    | d͡ʒ    | ʈ͡ʂ    | ɖ͡ʐ    | t͡ɕ    | d͡ʑ    |       |       |       |       |       |       |       |       |       |       |
+| `afr`                       | p͡ɸ    | b͡β    | p̪͡f    | b̪͡v    | t͡θ    | d͡ð    |       |       |       |       |       |       |       |       | c͡ç    | ɟ͡ʝ    | k͡x    | ɡ͡ɣ    | q͡χ    | ɢ͡ʁ    | ʡ͡ħ    | ʡ͡ʕ    | ʔ͡h    |       |
+| `lat`&#xA0;`afr`            |       |       |       |       |       |       | t͡ɬ    | d͡ɮ    |       |       | ʈ͡ɭ̊˔   |       |       |       | c͡ʎ̥˔   |       | k͡ʟ̝̊    | ɡ͡ʟ̝    |       |       |       |       |       |       |
+| `sib`&#xA0;`frc`            |       |       |       |       |       |       | s     | z     | ʃ     | ʒ     | ʂ     | ʐ     | ɕ     | ʑ     |       |       |       |       |       |       |       |       |       |       |
+| `frc`                       | ɸ     | β     | f     | v     | θ     | ð     |       |       |       |       |       |       |       |       | ç     | ʝ     | x     | ɣ     | χ     | ʁ     | ħ     | ʕ     | h     | ɦ     |
+| `lat`&#xA0;`frc`            |       |       |       |       |       |       | ɬ     | ɮ     |       |       | ɭ̊˔    |       |       |       | ʎ̥˔    | ʎ̝     | ʟ̝̊     | ʟ̝     |       |       |       |       |       |       |
+| `apr`                       |       |       | ʋ̥     | ʋ     |       |       | ɹ̥     | ɹ     |       |       | ɻ̊     | ɻ     |       |       | j̊     | j     | ɰ̊     | ɰ     |       |       |       |       |       |       |
+| `lat`&#xA0;`apr`            |       |       |       |       |       |       | l̥     | l     |       |       | ɭ̊     | ɭ     |       |       | ʎ̥     | ʎ     | ʟ̥     | ʟ     |       | ʟ̠     |       |       |       |       |
+| `flp`                       |       | ⱱ̟     |       | ⱱ     |       |       | ɾ̥     | ɾ     |       |       | ɽ̊     | ɽ     |       |       |       |       |       |       |       | ɢ̆     |       | ʡ̮     |       |       |
+| `lat`&#xA0;`flp`            |       |       |       |       |       |       |       | ɺ     |       |       |       | ɭ̆     |       |       |       | ʎ̮     |       | ʟ̆     |       |       |       |       |       |       |
+| `trl`                       |       | ʙ     |       |       |       |       | r̥     | r     |       |       | ɽ͡r̥    | ɽ͡r    |       |       |       |       |       |       | ʀ̥     | ʀ     | ʜ     | ʢ     |       |       |
+| `clk`                       | ʘ     |       |       |       | ǀ     |       | ǃ     |       |       |       |       |       | ǂ     |       |       |       |       |       |       |       |       |       |       |       |
+| `lat`&#xA0;`clk`            |       |       |       |       |       |       | ǁ     |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
+| `imp`                       |       | ɓ     |       |       |       |       |       | ɗ     |       |       |       |       |       |       |       | ʄ     |       | ɠ     |       | ʛ     |       |       |       |       |
+| `ejc`                       |       |       |       |       |       |       | tʼ    |       |       |       | ʈʼ    |       |       |       | cʼ    |       | kʼ    |       | qʼ    |       | ʡʼ    |       |       |       |
+| `ejc`&#xA0;`frc`            | pʼ    |       |       |       | θʼ    |       | sʼ    |       | ʃʼ    |       | ʂʼ    |       |       |       |       |       | xʼ    |       | χʼ    |       |       |       |       |       |
+| `lat`&#xA0;`ejc`&#xA0;`frc` | fʼ    |       |       |       |       |       | ɬʼ    |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
+
+### Other Symbols
+
+|                             | `bld` |       | `alv` |       | `pla` |       | `pal` |       | `lbv` |       | `vel` |       |
+|-----------------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|                             | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` | `vls` | `vcd` |
+| `nas`                       |       |       |       |       |       |       |       |       |       | ŋ͡m    |       |       |
+| `stp`                       |       |       |       |       |       |       |       |       | k͡p    | ɡ͡b    |       |       |
+| `afr`                       | p͡f    | b͡v    |       |       |       |       |       |       |       |       |       |       |
+| `vzd`&#xA0;`frc`            |       |       |       |       | ɧ     |       |       |       |       |       |       |       |
+| `ptr`&#xA0;`apr`            |       |       |       |       |       |       |       | ɥ     |       |       | ʍ     | w     |
+| `fzd`&#xA0;`lat`&#xA0;`apr` |       |       |       | ɫ     |       |       |       |       |       |       |       |       |
+
+### Gemination
+
+Gemination is found in several languages including Italian and Japanese.
+It is also present in the suprasegmental phonology between words such as
+"lamppost" and "evenness".
+
+Some linguists use the [long](#length) suprasegmental for geminate consonants.
+The eSpeak NG convention is to use consonant length for [phonation](#phonation)
+when consonant length is distinct without gemination occurring.
+
+The way gemination is represented in eSpeak NG is to duplicate the phonemes,
+with the first phoneme using the `unx` feature. For example, n̚.n for a
+geminated n. This describes how with the `stp` and `nas` consonants, the
+mouth remains closed (`unx`) for the first of the geminated consonants.
 
 ### Manner of Articulation
 
-| Feature   | Name           |
-|-----------|----------------|
-| `nas`     | nasal          |
-| `stp`     | plosive (stop) |
-| `afr`     | affricate      |
-| `frc`     | fricative      |
-| `flp`     | tap/flap       |
-| `trl`     | trill          |
-| `apr`     | approximant    |
-| `clk`     | click          |
-| `ejc`     | ejective       |
-| `imp`     | implosive      |
-| `vwl`     | vowel          |
+| Feature   | Symbol | Name           |
+|-----------|--------|----------------|
+| `nas`     |        | nasal          |
+| `stp`     |        | plosive (stop) |
+| `afr`     |        | affricate      |
+| `frc`     |        | fricative      |
+| `flp`     |        | tap/flap       |
+| `trl`     |        | trill          |
+| `apr`     |        | approximant    |
+| `clk`     |        | click          |
+| `ejc`     |        | ejective       |
+| `imp`     | ◌ʼ     | implosive      |
+| `vwl`     |        | vowel          |
 
 The `vwl` phonemes are described using vowel height and backness features,
 while consonants (the other manners of articulation) are described using
@@ -110,7 +148,7 @@ features:
 | `glt`   | glottal               |
 
 The `bld` place of articulation is used for `afr` consonants that have a `blb`
-onset and a `lbd` release, e.g. in the German `[p͡f]` consonant.
+onset and a `lbd` release, e.g. in the German p͡f consonant.
 
 __NOTE:__ The IPA charts make a distinction between pharyngeal and epiglottal
 consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
@@ -122,22 +160,29 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 | `vls`   | voiceless |
 | `vcd`   | voiced    |
 
-### Gemination
-
-Gemination is found in several languages including Italian and Japanese.
-It is also present in the suprasegmental phonology between words such as
-"lamppost" and "evenness".
-
-Some linguists use the [long](#length) suprasegmental for geminate consonants.
-The eSpeak NG convention is to use consonant length for [phonation](#phonation)
-when consonant length is distinct without gemination occurring.
-
-The way gemination is represented in eSpeak NG is to duplicate the phonemes,
-with the first phoneme using the `unx` feature. For example, `[n̚.n]` for a
-geminated `[n]`. This describes how with the `stp` and `nas` consonants, the
-mouth remains closed (`unx`) for the first of the geminated consonants.
-
 ## Vowels
+
+|        | `fnt` |       | `cnt` |       | `bck` |       |
+|--------|-------|-------|-------|-------|-------|-------|
+|        | `unr` | `rnd` | `unr` | `rnd` | `unr` | `rnd` |
+| `hgh`  | i     | y     | ɨ     | ʉ     | ɯ     | u     |
+| `smh`  | ɪ     | ʏ     |       |       |       | ʊ     |
+| `umd`  | e     | ø     | ɘ     | ɵ     | ɤ     | o     |
+| `mid`  |       |       | ə     |       |       |       |
+| `lmd`  | ɛ     | œ     | ɜ     | ɞ     | ʌ     | ɔ     |
+| `sml`  | æ     |       | ɐ     |       |       |       |
+| `low`  | a     | ɶ     |       |       | ɑ     | ɒ     |
+
+__NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
+distinction is not needed to classify these vowels, so is not included in the
+above table.
+
+### Other Symbols
+
+| Symbol | Features                      |
+|--------|-------------------------------|
+| ɚ      | `unr` `mid` `cnt` `rzd` `vwl` |
+| ɝ      | `unr` `lmd` `cnt` `rzd` `vwl` |
 
 ### Height
 
@@ -159,10 +204,6 @@ mouth remains closed (`unx`) for the first of the geminated consonants.
 | `cnt`   | center          |
 | `bck`   | back            |
 
-__NOTE:__ The `smh` vowels (`[ɪ]`, `[ʏ]`, `[ʊ]`) are more `cnt` than the
-other vowels. However, this distinction is not needed to classify these
-vowels, so is not included in the phoneme model described in this document.
-
 ### Rounding
 
 | Feature | Name      |
@@ -174,19 +215,19 @@ vowels, so is not included in the phoneme model described in this document.
 
 ### Articulation
 
-| Feature | Name            |
-|---------|-----------------|
-| `lgl`   | linguolabial    |
-| `idt`   | interdental     |
-|         | dental          |
-| `apc`   | apical          |
-| `lmn`   | laminal         |
-|         | advanced        |
-|         | retracted       |
-|         | centralized     |
-|         | mid-centralized |
-|         | raised          |
-|         | lowered         |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `lgl`   | ◌̼      | linguolabial    |
+| `idt`   | ◌̪͆      | interdental     |
+|         | ◌̪      | dental          |
+| `apc`   | ◌̺      | apical          |
+| `lmn`   | ◌̻      | laminal         |
+|         | ◌̟      | advanced        |
+|         | ◌̠      | retracted       |
+|         | ◌̈      | centralized     |
+|         | ◌̽      | mid-centralized |
+|         | ◌̝      | raised          |
+|         | ◌̞      | lowered         |
 
 The articulations that do not have a corresponding feature name are recorded
 using the features of their new location in the consonant or vowel charts, not
@@ -194,77 +235,85 @@ using the features of the base phoneme.
 
 ### Air Flow
 
-| Feature | Name       |
-|---------|------------|
-| `egs`   | egressive  |
-| `igs`   | ingressive |
+| Feature | Symbol | Name       |
+|---------|--------|------------|
+| `egs`   | ↑      | egressive  |
+| `igs`   | ↓      | ingressive |
+
+The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
+They only need to be used when the air flow is different to the base IPA
+phoneme (e.g. using ↓ on pulmonic consonants).
 
 ### Phonation
 
-| Feature | Name            |
-|---------|-----------------|
-| `brv`   | breathy voice   |
-| `slv`   | slack voice     |
-| `stv`   | stiff voice     |
-| `crv`   | creaky voice    |
-| `glc`   | glottal closure |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `brv`   | ◌̤      | breathy voice   |
+| `slv`   | ◌̥      | slack voice     |
+| `stv`   | ◌̬      | stiff voice     |
+| `crv`   | ◌̰      | creaky voice    |
+| `glc`   | ʔ͡◌    | glottal closure |
+
+The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
+charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
+equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
 ### Rounding and Labialization
 
-| Feature | Name       |
-|---------|------------|
-| `ptr`   | protruded  |
-| `cmp`   | compressed |
+| Feature | Symbol | Name       |
+|---------|--------|------------|
+| `ptr`   | ◌ʷ, ◌ᶣ | protruded  |
+| `cmp`   | ◌ᵝ     | compressed |
 
 The degree of rounding/labialization can be specified using the following
 features:
 
-| Feature | Name         |
-|---------|--------------|
-| `mrd`   | more rounded |
-| `lrd`   | less rounded |
+| Feature | Symbol | Name         |
+|---------|--------|--------------|
+| `mrd`   | ◌̹      | more rounded |
+| `lrd`   | ◌̜      | less rounded |
 
 ### Syllabicity
 
-| Feature | Name            |
-|---------|-----------------|
-| `syl`   | syllabic        |
-| `nsy`   | non-syllabic    |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `syl`   | ◌̩      | syllabic        |
+| `nsy`   | ◌̯      | non-syllabic    |
 
 ### Consonant Release
 
-| Feature | Name                            |
-|---------|---------------------------------|
-| `asp`   | aspirated                       |
-| `nrs`   | nasal release                   |
-| `lrs`   | lateral release                 |
-| `unx`   | no audible release (unexploded) |
+| Feature | Symbol | Name                            |
+|---------|--------|---------------------------------|
+| `asp`   | ◌ʰ     | aspirated                       |
+| `nrs`   | ◌ⁿ     | nasal release                   |
+| `lrs`   | ◌ˡ     | lateral release                 |
+| `unx`   | ◌̚      | no audible release (unexploded) |
 
 ### Co-articulation
 
-| Feature | Name           |
-|---------|----------------|
-| `pzd`   | palatalized    |
-| `vzd`   | velarized      |
-| `fzd`   | pharyngealized |
-| `nzd`   | nasalized      |
-| `rzd`   | rhoticized     |
+| Feature | Symbol | Name           |
+|---------|--------|----------------|
+| `pzd`   | ◌ʲ     | palatalized    |
+| `vzd`   | ◌ˠ     | velarized      |
+| `fzd`   | ◌ˤ     | pharyngealized |
+| `nzd`   | ◌̃      | nasalized      |
+| `rzd`   | ◌˞     | rhoticized     |
 
 ### Tongue Root
 
 The tongue root position can be specified using the following features:
 
-| Feature | Name                  |
-|---------|-----------------------|
-| `atr`   | advanced tongue root  |
-| `rtr`   | retracted tongue root |
+| Feature | Symbol | Name                  |
+|---------|--------|-----------------------|
+| `atr`   | ◌̘      | advanced tongue root  |
+| `rtr`   | ◌̙      | retracted tongue root |
 
 ### Fortis and Lenis
 
-| Feature | Name   |
-|---------|--------|
-| `fts`   | fortis |
-| `lns`   | lenis  |
+| Feature |Symbol | Name   |
+|---------|-------|--------|
+| `fts`   | ◌͈     | fortis |
+| `lns`   | ◌͉     | lenis  |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -279,12 +328,12 @@ the [length](#length) suprasegmentals are used instead.
 
 ### Length
 
-| Feature | Name            |
-|---------|-----------------|
-| `est`   | extra short     |
-| `hlg`   | half-long       |
-| `lng`   | long            |
-| `elg`   | extra long      |
+| Feature | Symbol | Name            |
+|---------|--------|-----------------|
+| `est`   | ◌̆      | extra short     |
+| `hlg`   | ◌ˑ     | half-long       |
+| `lng`   | ◌ː     | long            |
+| `elg`   | ◌ːː    | extra long      |
 
 ## References
 
