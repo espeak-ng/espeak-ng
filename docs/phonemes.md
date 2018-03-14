@@ -107,8 +107,8 @@ mouth remains closed (`unx`) for the first of the geminated consonants.
 | `trl`     |        | trill          |
 | `apr`     |        | approximant    |
 | `clk`     |        | click          |
-| `ejc`     |        | ejective       |
-| `imp`     | ◌ʼ     | implosive      |
+| `ejc`     | ◌ʼ     | ejective       |
+| `imp`     |        | implosive      |
 | `vwl`     |        | vowel          |
 
 The `vwl` phonemes are described using vowel height and backness features,
