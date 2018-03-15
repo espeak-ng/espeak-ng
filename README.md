@@ -7,7 +7,6 @@
   - [Dependencies](#dependencies)
   - [Building](#building-1)
     - [Cross Compilation](#cross-compilation)
-    - [Audio Output Configuration](#audio-output-configuration)
     - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Testing](#testing)
@@ -176,20 +175,6 @@ built it locally you can perform the cross compilation using:
 
 	./configure --build=... --host=... --target=...
 	make -B src/espeak-ng src/speak-ng
-
-#### Audio Output Configuration
-
-The following `configure` options control which audio interfaces to use:
-
-| Option              | Audio Interfaces | Default |
-|---------------------|------------------|---------|
-| `--with-pulseaudio` | PulseAudio       | yes     |
-| `--with-portaudio`  | PortAudio        | yes     |
-| `--with-sada`       | SADA (Solaris)   | no      |
-
-If pulseaudio and portaudio are both enabled and available, eSpeak NG will choose
-which one to use at runtime, trying pulseaudio first before falling back to
-portaudio.
 
 #### eSpeak NG Feature Configuration
 
