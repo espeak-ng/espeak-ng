@@ -353,10 +353,10 @@ specified using all three values.
 ## References
 
 1. <a name="ref1"></a> Kirshenbaum, Evan,
-   [Representing IPA phonetics in ASCII](http://www.kirshenbaum.net/IPA/faq.html) (HTML). 1993.
+   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/faq.html) (HTML). 1993.
 
 2. <a name="ref2"></a> Kirshenbaum, Evan,
-   [Representing IPA phonetics in ASCII](http://www.kirshenbaum.net/IPA/ascii-ipa.pdf) (PDF). 2001.
+   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/ascii-ipa.pdf) (PDF). 2001.
 
 3. <a name="ref3"></a> International Phonetic Association,
    [The International Phonetic Alphabet and the IPA Chart](https://www.internationalphoneticassociation.org/content/ipa-chart). 2015.

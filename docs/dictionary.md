@@ -66,7 +66,7 @@ default stress rule.
 The phonemes which are used to represent a language's sounds are based
 loosely on the Kirshenbaum ascii character representation of the
 International Phonetic Alphabet
-[www.kirshenbaum.net/IPA/ascii-ipa.pdf](http://www.kirshenbaum.net/IPA/ascii-ipa.pdf)
+[https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](http://www.kirshenbaum.net/IPA/ascii-ipa.pdf).
 
 Full list of commonly used phonemes can be found in the `phsource/phonemes`
 file.
