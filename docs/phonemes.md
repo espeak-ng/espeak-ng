@@ -217,23 +217,31 @@ above table.
 
 ### Articulation
 
+The following articulation features are used by eSpeak NG to describe place of
+articulation features not in the main consonant tables.
+
 | Feature | Symbol | Name            | Origin        |
 |---------|--------|-----------------|---------------|
 | `lgl`   | ◌̼      | linguolabial    | `cainteoir`   |
 | `idt`   | ◌̪͆      | interdental     | `espeak-ng`   |
-|         | ◌̪      | dental          |               |
 | `apc`   | ◌̺      | apical          | `espeak-ng`   |
 | `lmn`   | ◌̻      | laminal         | `cainteoir`   |
-|         | ◌̟      | advanced        |               |
-|         | ◌̠      | retracted       |               |
-|         | ◌̈      | centralized     |               |
-|         | ◌̽      | mid-centralized |               |
-|         | ◌̝      | raised          |               |
-|         | ◌̞      | lowered         |               |
 
-The articulations that do not have a corresponding feature name are recorded
-using the features of their new location in the consonant or vowel charts, not
-using the features of the base phoneme.
+The following articulation features control the location on the IPA chart. As
+such, the phonemes are described in their new location on the IPA chart after
+applying the articulation diacritic. These diacritics are recorded in the
+Cainteoir Text-to-Speech program to provide accurate round-tripping between
+different phoneme transcriptions.
+
+| Feature | Symbol | Name            | Origin        |
+|---------|--------|-----------------|---------------|
+| `dzd`   | ◌̪      | dental          | `cainteoir`   |
+| `adv`   | ◌̟      | advanced        | `cainteoir`   |
+| `ret`   | ◌̠      | retracted       | `cainteoir`   |
+| `czd`   | ◌̈      | centralized     | `cainteoir`   |
+| `mcz`   | ◌̽      | mid-centralized | `cainteoir`   |
+| `rsd`   | ◌̝      | raised          | `cainteoir`   |
+| `lwr`   | ◌̞      | lowered         | `cainteoir`   |
 
 ### Air Flow
 
