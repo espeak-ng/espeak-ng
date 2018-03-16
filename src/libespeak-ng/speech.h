@@ -70,8 +70,7 @@ void cancel_audio(void);
 
 extern char path_home[N_PATH_HOME];    // this is the espeak-ng-data directory
 
-extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
-extern ESPEAK_NG_API int  GetFileLength(const char *filename);
+extern ESPEAK_NG_API int GetFileLength(const char *filename);
 
 #ifdef __cplusplus
 }
