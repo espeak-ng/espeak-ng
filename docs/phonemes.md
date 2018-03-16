@@ -35,7 +35,14 @@ described as a sequence of features.
 
 This document extends Evan Kirshenbaum's feature set to be able to describe the
 different phonemes in the IPA and as are used in the various languages of the
-world.
+world. The origin column is used to describe where the feature originated from:
+1.  `kirshenbaum` -- The feature originated from Evan Kirshenbaum's ASCII-IPA
+     Feature Abbreviation table in Appendix A of his ASCII-IPA document
+     <sup>\[<a href="#ref1">1</a>\], \[<a href="#ref2">2</a>\]</sup>.
+1.   `cainteoir` -- The feature originated from the Cainteoir Text-to-Speech
+     phoneme features <sup>\[<a href="#ref5">5</a>\].
+1.   `espeak-ng` -- The features originate from the eSpeak NG Text-to-Speech
+     program, and are defined in this document.
 
 The goal of this document is not to provide a detailed guide on phonetics. Nor
 is it intended to be able to accurately record differences in IPA diacritics.
@@ -97,19 +104,19 @@ mouth remains closed (`unx`) for the first of the geminated consonants.
 
 ### Manner of Articulation
 
-| Feature   | Symbol | Name           |
-|-----------|--------|----------------|
-| `nas`     |        | nasal          |
-| `stp`     |        | plosive (stop) |
-| `afr`     |        | affricate      |
-| `frc`     |        | fricative      |
-| `flp`     |        | tap/flap       |
-| `trl`     |        | trill          |
-| `apr`     |        | approximant    |
-| `clk`     |        | click          |
-| `ejc`     | ◌ʼ     | ejective       |
-| `imp`     |        | implosive      |
-| `vwl`     |        | vowel          |
+| Feature   | Symbol | Name           | Origin        |
+|-----------|--------|----------------|---------------|
+| `nas`     |        | nasal          | `kirshenbaum` |
+| `stp`     |        | plosive (stop) | `kirshenbaum` |
+| `afr`     |        | affricate      | `espeak-ng`   |
+| `frc`     |        | fricative      | `kirshenbaum` |
+| `flp`     |        | tap/flap       | `kirshenbaum` |
+| `trl`     |        | trill          | `kirshenbaum` |
+| `apr`     |        | approximant    | `kirshenbaum` |
+| `clk`     |        | click          | `kirshenbaum` |
+| `ejc`     | ◌ʼ     | ejective       | `kirshenbaum` |
+| `imp`     |        | implosive      | `kirshenbaum` |
+| `vwl`     |        | vowel          | `kirshenbaum` |
 
 The `vwl` phonemes are described using vowel height and backness features,
 while consonants (the other manners of articulation) are described using
@@ -118,29 +125,29 @@ place of articulation features.
 Additionally, the manner of articulation can be refined using the following
 features:
 
-| Feature | Name     |
-|---------|----------|
-| `lat`   | lateral  |
-| `sib`   | sibilant |
+| Feature | Name     | Origin        |
+|---------|----------|---------------|
+| `lat`   | lateral  | `kirshenbaum` |
+| `sib`   | sibilant | `cainteoir`   |
 
 ### Place of Articulation
 
-| Feature | Name                  |
-|---------|-----------------------|
-| `blb`   | bilabial              |
-| `lbd`   | labiodental           |
-| `bld`   | bilabial-labiodental  |
-| `dnt`   | dental                |
-| `alv`   | alveolar              |
-| `pla`   | palato-alveolar       |
-| `rfx`   | retroflex             |
-| `alp`   | alveolo-palatal       |
-| `pal`   | palatal               |
-| `vel`   | velar                 |
-| `lbv`   | labio-velar           |
-| `uvl`   | uvular                |
-| `phr`   | pharyngeal            |
-| `glt`   | glottal               |
+| Feature | Name                  | Origin        |
+|---------|-----------------------|---------------|
+| `blb`   | bilabial              | `kirshenbaum` |
+| `lbd`   | labio-dental          | `kirshenbaum` |
+| `bld`   | bilabial-labio-dental | `espeak-ng`   |
+| `dnt`   | dental                | `kirshenbaum` |
+| `alv`   | alveolar              | `kirshenbaum` |
+| `pla`   | palato-alveolar       | `kirshenbaum` |
+| `rfx`   | retroflex             | `kirshenbaum` |
+| `alp`   | alveolo-palatal       | `cainteoir`   |
+| `pal`   | palatal               | `kirshenbaum` |
+| `vel`   | velar                 | `kirshenbaum` |
+| `lbv`   | labio-velar           | `kirshenbaum` |
+| `uvl`   | uvular                | `kirshenbaum` |
+| `phr`   | pharyngeal            | `kirshenbaum` |
+| `glt`   | glottal               | `kirshenbaum` |
 
 The `bld` place of articulation is used for `afr` consonants that have a `blb`
 onset and a `lbd` release, e.g. in the German p͡f consonant.
@@ -150,10 +157,10 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 
 ### Voice
 
-| Feature | Name      |
-|---------|-----------|
-| `vls`   | voiceless |
-| `vcd`   | voiced    |
+| Feature | Name      | Origin        |
+|---------|-----------|---------------|
+| `vls`   | voiceless | `kirshenbaum` |
+| `vcd`   | voiced    | `kirshenbaum` |
 
 ## Vowels
 
@@ -181,48 +188,48 @@ above table.
 
 ### Height
 
-| Feature | Name                   |
-|---------|------------------------|
-| `hgh`   | close (high)           |
-| `smh`   | near-close (semi-high) |
-| `umd`   | close-mid (upper-mid)  |
-| `mid`   | mid                    |
-| `lmd`   | open-mid (lower-mid)   |
-| `sml`   | near-open (semi-low)   |
-| `low`   | open (low)             |
+| Feature | Name                   | Origin        |
+|---------|------------------------|---------------|
+| `hgh`   | close (high)           | `kirshenbaum` |
+| `smh`   | near-close (semi-high) | `kirshenbaum` |
+| `umd`   | close-mid (upper-mid)  | `kirshenbaum` |
+| `mid`   | mid                    | `kirshenbaum` |
+| `lmd`   | open-mid (lower-mid)   | `kirshenbaum` |
+| `sml`   | near-open (semi-low)   | `cainteoir`   |
+| `low`   | open (low)             | `kirshenbaum` |
 
 ### Backness
 
-| Feature | Name            |
-|---------|-----------------|
-| `fnt`   | front           |
-| `cnt`   | center          |
-| `bck`   | back            |
+| Feature | Name            | Origin        |
+|---------|-----------------|---------------|
+| `fnt`   | front           | `kirshenbaum` |
+| `cnt`   | center          | `kirshenbaum` |
+| `bck`   | back            | `kirshenbaum` |
 
 ### Rounding
 
-| Feature | Name      |
-|---------|-----------|
-| `unr`   | unrounded |
-| `rnd`   | rounded   |
+| Feature | Name      | Origin        |
+|---------|-----------|---------------|
+| `unr`   | unrounded | `kirshenbaum` |
+| `rnd`   | rounded   | `kirshenbaum` |
 
 ## Diacritics
 
 ### Articulation
 
-| Feature | Symbol | Name            |
-|---------|--------|-----------------|
-| `lgl`   | ◌̼      | linguolabial    |
-| `idt`   | ◌̪͆      | interdental     |
-|         | ◌̪      | dental          |
-| `apc`   | ◌̺      | apical          |
-| `lmn`   | ◌̻      | laminal         |
-|         | ◌̟      | advanced        |
-|         | ◌̠      | retracted       |
-|         | ◌̈      | centralized     |
-|         | ◌̽      | mid-centralized |
-|         | ◌̝      | raised          |
-|         | ◌̞      | lowered         |
+| Feature | Symbol | Name            | Origin        |
+|---------|--------|-----------------|---------------|
+| `lgl`   | ◌̼      | linguolabial    | `cainteoir`   |
+| `idt`   | ◌̪͆      | interdental     | `espeak-ng`   |
+|         | ◌̪      | dental          |               |
+| `apc`   | ◌̺      | apical          | `espeak-ng`   |
+| `lmn`   | ◌̻      | laminal         | `cainteoir`   |
+|         | ◌̟      | advanced        |               |
+|         | ◌̠      | retracted       |               |
+|         | ◌̈      | centralized     |               |
+|         | ◌̽      | mid-centralized |               |
+|         | ◌̝      | raised          |               |
+|         | ◌̞      | lowered         |               |
 
 The articulations that do not have a corresponding feature name are recorded
 using the features of their new location in the consonant or vowel charts, not
@@ -230,10 +237,10 @@ using the features of the base phoneme.
 
 ### Air Flow
 
-| Feature | Symbol | Name       |
-|---------|--------|------------|
-| `egs`   | ↑      | egressive  |
-| `igs`   | ↓      | ingressive |
+| Feature | Symbol | Name       | Origin        |
+|---------|--------|------------|---------------|
+| `egs`   | ↑      | egressive  | `espeak-ng`   |
+| `igs`   | ↓      | ingressive | `espeak-ng`   |
 
 The ↑ and ↓ symbols are from the extended IPA<sup>\[<a href="#ref7">7</a>\]</sup>.
 They only need to be used when the air flow is different to the base IPA
@@ -241,13 +248,13 @@ phoneme (e.g. using ↓ on pulmonic consonants).
 
 ### Phonation
 
-| Feature | Symbol | Name            |
-|---------|--------|-----------------|
-| `brv`   | ◌̤      | breathy voice   |
-| `slv`   | ◌̥      | slack voice     |
-| `stv`   | ◌̬      | stiff voice     |
-| `crv`   | ◌̰      | creaky voice    |
-| `glc`   | ʔ͡◌    | glottal closure |
+| Feature | Symbol | Name            | Origin        |
+|---------|--------|-----------------|---------------|
+| `brv`   | ◌̤      | breathy voice   | `espeak-ng`   |
+| `slv`   | ◌̥      | slack voice     | `cainteoir`   |
+| `stv`   | ◌̬      | stiff voice     | `cainteoir`   |
+| `crv`   | ◌̰      | creaky voice    | `cainteoir`   |
+| `glc`   | ʔ͡◌     | glottal closure | `espeak-ng`   |
 
 The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consonant
 charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
@@ -255,60 +262,60 @@ equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
 ### Rounding and Labialization
 
-| Feature | Symbol | Name       |
-|---------|--------|------------|
-| `ptr`   | ◌ʷ, ◌ᶣ | protruded  |
-| `cmp`   | ◌ᵝ     | compressed |
+| Feature | Symbol | Name       | Origin        |
+|---------|--------|------------|---------------|
+| `ptr`   | ◌ʷ, ◌ᶣ | protruded  | `espeak-ng`   |
+| `cmp`   | ◌ᵝ     | compressed | `espeak-ng`   |
 
 The degree of rounding/labialization can be specified using the following
 features:
 
-| Feature | Symbol | Name         |
-|---------|--------|--------------|
-| `mrd`   | ◌̹      | more rounded |
-| `lrd`   | ◌̜      | less rounded |
+| Feature | Symbol | Name         | Origin        |
+|---------|--------|--------------|---------------|
+| `mrd`   | ◌̹      | more rounded | `cainteoir`   |
+| `lrd`   | ◌̜      | less rounded | `cainteoir`   |
 
 ### Syllabicity
 
-| Feature | Symbol | Name            |
-|---------|--------|-----------------|
-| `syl`   | ◌̩      | syllabic        |
-| `nsy`   | ◌̯      | non-syllabic    |
+| Feature | Symbol | Name            | Origin        |
+|---------|--------|-----------------|---------------|
+| `syl`   | ◌̩      | syllabic        | `kirshenbaum` |
+| `nsy`   | ◌̯      | non-syllabic    | `cainteoir`   |
 
 ### Consonant Release
 
-| Feature | Symbol | Name                            |
-|---------|--------|---------------------------------|
-| `asp`   | ◌ʰ     | aspirated                       |
-| `nrs`   | ◌ⁿ     | nasal release                   |
-| `lrs`   | ◌ˡ     | lateral release                 |
-| `unx`   | ◌̚      | no audible release (unexploded) |
+| Feature | Symbol | Name                            | Origin        |
+|---------|--------|---------------------------------|---------------|
+| `asp`   | ◌ʰ     | aspirated                       | `kirshenbaum` |
+| `nrs`   | ◌ⁿ     | nasal release                   | `espeak-ng`   |
+| `lrs`   | ◌ˡ     | lateral release                 | `espeak-ng`   |
+| `unx`   | ◌̚      | no audible release (unexploded) | `kirshenbaum` |
 
 ### Co-articulation
 
-| Feature | Symbol | Name           |
-|---------|--------|----------------|
-| `pzd`   | ◌ʲ     | palatalized    |
-| `vzd`   | ◌ˠ     | velarized      |
-| `fzd`   | ◌ˤ     | pharyngealized |
-| `nzd`   | ◌̃      | nasalized      |
-| `rzd`   | ◌˞     | rhoticized     |
+| Feature | Symbol | Name           | Origin        |
+|---------|--------|----------------|---------------|
+| `pzd`   | ◌ʲ     | palatalized    | `kirshenbaum` |
+| `vzd`   | ◌ˠ     | velarized      | `kirshenbaum` |
+| `fzd`   | ◌ˤ     | pharyngealized | `kirshenbaum` |
+| `nzd`   | ◌̃      | nasalized      | `kirshenbaum` |
+| `rzd`   | ◌˞     | rhoticized     | `kirshenbaum` |
 
 ### Tongue Root
 
 The tongue root position can be specified using the following features:
 
-| Feature | Symbol | Name                  |
-|---------|--------|-----------------------|
-| `atr`   | ◌̘      | advanced tongue root  |
-| `rtr`   | ◌̙      | retracted tongue root |
+| Feature | Symbol | Name                  | Origin        |
+|---------|--------|-----------------------|---------------|
+| `atr`   | ◌̘      | advanced tongue root  | `cainteoir`   |
+| `rtr`   | ◌̙      | retracted tongue root | `cainteoir`   |
 
 ### Fortis and Lenis
 
-| Feature |Symbol | Name   |
-|---------|-------|--------|
-| `fts`   | ◌͈     | fortis |
-| `lns`   | ◌͉     | lenis  |
+| Feature |Symbol | Name   | Origin        |
+|---------|-------|--------|---------------|
+| `fts`   | ◌͈     | fortis | `espeak-ng`   |
+| `lns`   | ◌͉     | lenis  | `espeak-ng`   |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -323,12 +330,12 @@ the [length](#length) suprasegmentals are used instead.
 
 ### Length
 
-| Feature | Symbol | Name            |
-|---------|--------|-----------------|
-| `est`   | ◌̆      | extra short     |
-| `hlg`   | ◌ˑ     | half-long       |
-| `lng`   | ◌ː     | long            |
-| `elg`   | ◌ːː    | extra long      |
+| Feature | Symbol | Name            | Origin        |
+|---------|--------|-----------------|---------------|
+| `est`   | ◌̆      | extra short     | `cainteoir`   |
+| `hlg`   | ◌ˑ     | half-long       | `cainteoir`   |
+| `lng`   | ◌ː     | long            | `kirshenbaum` |
+| `elg`   | ◌ːː    | extra long      | `espeak-ng`   |
 
 ## References
 
