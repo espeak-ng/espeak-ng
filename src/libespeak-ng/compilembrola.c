@@ -86,9 +86,8 @@ espeak_ng_STATUS espeak_ng_CompileMbrolaVoice(const char *filepath, FILE *log, e
 	int mbrola_ctrl = 20; // volume in 1/16 ths
 	MBROLA_TAB data[N_PHONEME_TAB];
 
-	strcpy(buf, filepath);
-	if ((f_in = fopen(buf, "r")) == NULL)
-		return create_file_error_context(context, errno, buf);
+	if ((f_in = fopen(filepath, "r")) == NULL)
+		return create_file_error_context(context, errno, filepath);
 
 	while (fgets(buf, sizeof(phoneme), f_in) != NULL) {
 		buf[sizeof(phoneme)-1] = 0;
