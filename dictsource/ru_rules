@@ -62,9 +62,9 @@
 
 .group в
         в       v
-     _) в (_    vE
         в (_    f
         в (Y    v;
+     _) в (_    vE
         в (бY   v;
         в (вY   v;
         в (вбY  v;
@@ -83,10 +83,10 @@
 
 .group г
         г       g
-     _) г (_    gE
     Cе) г (о_   v
     Cо) г (о_   v
   _все) г (о_   v
+     _) г (_    gE
         г (Y    g;
         г (_    k
         г (к    x
@@ -102,8 +102,8 @@
 
 .group д
         д       d
-     _) д (_    dE
         д (B    d;
+     _) д (_    dE
         д (Y    d;
         д (_    t
         д (дY   d;
@@ -120,8 +120,7 @@
         д (ь_   t;
 
 .group е
-        е          e
-        _) е (_    je
+           е       e
         A) е       je
 //      A) е       jE2
         A) е (_    jI3     //second position
@@ -131,6 +130,7 @@
      барт) е (р    E%
 //         е       E3
 //         е (_    I2
+        _) е (_    je
         _) е       jI3     //second position
       инт) е (р    E%      // интернет, интернационал, ... ??????????
   компьют) е (р    E%
@@ -158,9 +158,9 @@
 
 .group з
         з       z
-     _) з (_    zE
         з (Y    z;
         з (_    s
+     _) з (_    zE
         з (дY   z;
         з (е    z
         з (ж    Z
@@ -189,20 +189,21 @@
 
 .group и
         и       i
-     _) и (_    i
      H) и       y       // preceded by hard consonant
      ж) и       y
      _) и       I
         и (_    I
+     _) и (_    i
      ш) и       y
 
 .group й
         й       j
      _) й (_    ,i'k@-*'AtkOjI
+
 .group к
         к       k
-     _) к (_    kA
         к (Y    k;
+     _) к (_    kA
         к (б    g
         к (бY   g
         к (г    g
@@ -231,21 +232,19 @@
 
 .group н
         н       n
+   биз) не (с   nE%
      _) н (_    En_
         н (Y    n^
-   биз) не (с   nE%
         н (_    n_
 
 .group о
         о       o
      _) о (_    o
-//      о (B    oj
-//      о (FY   oj
 
 .group п
         п       p
-     _) п (_    pE
         п (Y    p;
+     _) п (_    pE
         п (б    b
         п (б'   b;
         п (г    b
@@ -265,8 +264,8 @@
 
 .group р
         р       r
-     _) р (_    Er
         р (B    r;
+     _) р (_    Er
         р (Y    r;
         р (ь    rI^
 
@@ -294,9 +293,9 @@
 
 .group т
         т       t
-     _) т (_    tE
         Y) тс   ts
         т (Y    t;
+     _) т (_    tE
         т (б    d
         т (г    d
         т (дB   d;
@@ -313,8 +312,8 @@
 
 .group у
         у       u
-     _) у (_    u
      B) у       u#
+     _) у (_    u
 
 .group ф
         ф       f
@@ -338,8 +337,8 @@
 
 .group х
         х       x
-     _) х (_    xA
         х (Y    x     //С
+     _) х (_    xA
         х (бY   x
         х (б    x
         х (бвY  x
@@ -373,8 +372,13 @@
 
 .group ч
         ч       tS;
+  деви) ч (н    S   //Варианты окончаний женских отчеств типа Никитична
+  коне) ч (но   S
+    лу) ч (ше   t
+ пустя) ч (н    S
+ скворе)ч (н    S
+   ску) ч (н    S
      _) ч (_    tS;e
-   лу) ч (ше    t
         ч (б    dZ;
         ч (бY   dZ;
         ч (бвY  dZ;
@@ -387,12 +391,6 @@
         ч (ж    dZ;
         ч (з    dZ;
         ч (зY   dZ;
-//Варианты окончаний женских отчеств типа Никитична
-  деви) ч (н    S
-  коне) ч (но   S
- пустя) ч (н    S
- скворе)ч (н    S
-   ску) ч (н    S
         ч (на_  S
         ч (не_  S
         ч (ной_ S
@@ -416,7 +414,6 @@
         ш (ж    Z
         ш (зY   Z
         ш (з    Z
-
 
 .group щ
         щ       StS;
@@ -448,37 +445,36 @@
 
 .group э
         э       E2
-     _) э (_    e
      _) э       E#
         э (_    E#
+     _) э (_    e
 
 .group ю
         ю       u"
-     _) ю (_    ju
      A) ю       ju
  следу) ю (щ    ju
      ъ) ю       ju
      ь) ю       ju
      _) ю       ju
+     _) ю (_    ju
 
 .group я
         я       V
-     _) я (_    ja
-// TODO: in unstressed position it sometimes sounds more like [i] than like [V]
      A) я       ja
      A) я (_    ja      //second position
-//   C) я       ja# ?
+//   C) я       ja# ?   // TODO: in unstressed position it sometimes sounds more like [i] than like [V]
      ъ) я       ja
      ъ) я (_    ja      //second position
      ь) я       ja
      ь) я (_    ja      //second position
+     _) я (_    ja
      _) я       ja      //second position
         я (_    V
 
 .group ё
         ё       '8
-     _) ё (_    j8
      _) ё       'j8
+     _) ё (_    j8
      ж) ё       'O
      ш) ё       'O
 
