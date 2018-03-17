@@ -198,43 +198,6 @@ _,      zVpit'aja
 суть    $u1
 что  Sto  $u $pause
 
-// Cyrillic letter names
-а       a
-б       bE
-_в      vE
-в       vE  $atend
-г       gE
-д       dE
-е       je
-ё       j8
-ж       ZE
-з       zE
-и       i
-й       ,i'k@-*'AtkOjI
-к       kA
-л       El^
-м       Em
-н       En_
-о       o
-п       pE
-р       Er
-_с      Es
-с       Es  $atend
-т       tE
-у       u
-ф       Ef
-х       xA
-ц       tsE
-ч       tS;e
-ш       SA
-щ       S;ja
-ъ       tv;'8@-*dyjzn'Ak
-ы       y
-ь       m;'jak;I#jzn'Ak
-э       e
-ю       ju
-я       ja
-
 // Common names where  'е' is written instead of 'ё'
 еще        jIStS;'8
 (не о чем) n^i||o||tS'im
