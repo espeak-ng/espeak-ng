@@ -47,6 +47,7 @@
 #include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "dictionary.h"
 #include "ssml.h"
 
 static MNEM_TAB ssmltags[] = {

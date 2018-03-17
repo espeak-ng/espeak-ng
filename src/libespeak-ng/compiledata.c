@@ -45,6 +45,7 @@
 #include "synthesize.h"
 #include "spect.h"
 #include "translate.h"
+#include "dictionary.h"
 
 #define N_ITEM_STRING 256
 
