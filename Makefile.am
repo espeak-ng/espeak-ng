@@ -274,6 +274,9 @@ noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
 tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la ${LIB_FUZZING_ENGINE}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
 tests_ssml_fuzzer_test_DEPENDENCIES = src/libespeak-ng.la tests/libfuzzrunner.la
+# Force C++ linker because LLVM libFuzzer needs the C++ standard library.
+nodist_EXTRA_tests_ssml_fuzzer_test_SOURCES = dummy.cpp
+
 
 tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
 	@echo "  TEST      $<"
