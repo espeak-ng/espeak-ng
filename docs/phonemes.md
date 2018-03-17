@@ -1,5 +1,6 @@
 # Phonemes
 
+- [Phoneme Transcription Schemes](#phoneme-transcription-schemes)
 - [Consonants](#consonants)
   - [Other Symbols](#other-symbols)
   - [Gemination](#gemination)
@@ -53,6 +54,20 @@ is it intended to be able to accurately record differences in IPA diacritics.
 Instead, it is designed to be a transcription guide for authors of espeak-ng
 languages and voices on how to specify phonemes so that the IPA and feature
 transcriptions are consistent.
+
+## Phoneme Transcription Schemes
+
+| BCP47 Variant                         | Abbreviation | Transcription Scheme                                 | Encoding |
+|---------------------------------------|--------------|------------------------------------------------------|----------|
+| `foncxs`                              | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| `fonipa`                              | IPA          | International Phonetic Alphabet                      | Unicode  |
+| [`fonkirsh`](phonemes/kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
+| `fonxsampa`                           | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| `fonzsampa`                           | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+
+1. `foncxs`, `fonkirsh`, and `fonzsampa` are private use extensions defined in
+   the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
+   file.
 
 ## Consonants
 
@@ -189,10 +204,6 @@ consonants, but Wikipedia does not. This model uses the Wikipedia descriptions.
 | `sml`  | æ     |       | ɐ     |       |       |       |
 | `low`  | a     | ɶ     |       |       | ɑ     | ɒ     |
 
-__NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
-distinction is not needed to classify these vowels, so is not included in the
-above table.
-
 ### Other Symbols
 
 | Symbol | Features                      |
@@ -219,6 +230,11 @@ above table.
 | `fnt`   | front           | `kirshenbaum` |
 | `cnt`   | center          | `kirshenbaum` |
 | `bck`   | back            | `kirshenbaum` |
+
+__NOTE:__ The `smh` vowels are more `cnt` than the other vowels. However, this
+distinction is not needed to classify these vowels so there are no features
+for front-central and back-central. The `fnt` and `bck` features are used
+instead.
 
 ### Rounding
 
