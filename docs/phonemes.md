@@ -44,6 +44,9 @@ world. The origin column is used to describe where the feature originated from:
 1.   `espeak-ng` -- The features originate from the eSpeak NG Text-to-Speech
      program, and are defined in this document.
 
+Not all the Cainteoir Text-to-Speech phoneme features are listed here, only
+the ones that are relevant to eSpeak NG.
+
 The goal of this document is not to provide a detailed guide on phonetics. Nor
 is it intended to be able to accurately record differences in IPA diacritics.
 Instead, it is designed to be a transcription guide for authors of espeak-ng
@@ -122,13 +125,23 @@ The `vwl` phonemes are described using vowel height and backness features,
 while consonants (the other manners of articulation) are described using
 place of articulation features.
 
-Additionally, the manner of articulation can be refined using the following
-features:
+__NOTE:__ Evan Kirshenbaum defines an `orl` (oral) feature which is not
+used. From context, it looks like `{orl,stp}` was indended to be used for
+plosives, and `{nas,stp}` for nasals. That feature is not defined in this
+document, but is defined in the [phoneme model](phoneme_model.md).
+
+The manner of articulation can be refined using the following features:
 
 | Feature | Name     | Origin        |
 |---------|----------|---------------|
 | `lat`   | lateral  | `kirshenbaum` |
 | `sib`   | sibilant | `cainteoir`   |
+
+__NOTE:__ Evan Kirshenbaum defines a `ctl` (central) feature which is not
+used. From context, it looks like it was intended to explicitly annotate
+consonants as having a central release, similar to how the `lat` feature
+is used for lateral release. As consonants are implicitly central, the
+`ctl` feature is not needed and as such is not defined in this document.
 
 ### Place of Articulation
 
@@ -260,12 +273,18 @@ The IPA ◌̥ diacritic is also used to fill the `vls` spaces in the IPA consona
 charts. Thus, when ◌̥ is used with a `vcd` consonant that does not have an
 equivalent `vls` consonant, the resulting consonant is `vls`, not `slv`.
 
+__NOTE:__ Evan Kirshenbaum uses the `mrm` (murmured) feature for breathy voice,
+using it for `[ɦ]` instead of `vcd`, following the way the phoneme is pronounced
+instead of how it is annotated on the IPA chart.
+
 ### Rounding and Labialization
 
 | Feature | Symbol | Name       | Origin        |
 |---------|--------|------------|---------------|
 | `ptr`   | ◌ʷ, ◌ᶣ | protruded  | `espeak-ng`   |
 | `cmp`   | ◌ᵝ     | compressed | `espeak-ng`   |
+
+__NOTE:__ Evan Kirshenbaum uses the `lzd` (labialized) feature for protruded.
 
 The degree of rounding/labialization can be specified using the following
 features:
