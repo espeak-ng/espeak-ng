@@ -36,11 +36,12 @@ described as a sequence of features.
 This document extends Evan Kirshenbaum's feature set to be able to describe the
 different phonemes in the IPA and as are used in the various languages of the
 world. The origin column is used to describe where the feature originated from:
+
 1.  `kirshenbaum` -- The feature originated from Evan Kirshenbaum's ASCII-IPA
      Feature Abbreviation table in Appendix A of his ASCII-IPA document
      <sup>\[<a href="#ref1">1</a>\], \[<a href="#ref2">2</a>\]</sup>.
 1.   `cainteoir` -- The feature originated from the Cainteoir Text-to-Speech
-     phoneme features <sup>\[<a href="#ref5">5</a>\].
+     phoneme features <sup>\[<a href="#ref5">5</a>\]</sup>.
 1.   `espeak-ng` -- The features originate from the eSpeak NG Text-to-Speech
      program, and are defined in this document.
 

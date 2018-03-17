@@ -44,7 +44,7 @@ The 100 supported languages and accents are:
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
-| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>[1]</sup>       |                        |
+| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[1\]</sup>     |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -64,7 +64,7 @@ The 100 supported languages and accents are:
 | `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `ja`              | Japanese              | Japanese<sup>[2]</sup>      |                        |
+| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[2\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
@@ -113,6 +113,6 @@ The 100 supported languages and accents are:
 | `aav`       | `vi-VN-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
-[1] Farsi/Persian written using English (Latin) characters.
+\[1\] Farsi/Persian written using English (Latin) characters.
 
-[2] Currently, only Hiragana and Katakana are supported.
+\[2\] Currently, only Hiragana and Katakana are supported.
