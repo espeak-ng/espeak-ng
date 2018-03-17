@@ -6,6 +6,9 @@
 - [Vowels](#vowels)
   - [Other Symbols](#other-symbols-1)
 - [Diacritics](#diacritics)
+- [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
+  - [Length](#length)
 - [References](#references)
 
 ----------
@@ -147,7 +150,6 @@ and `>` characters after the base phoneme (`p<dnt>`).
 
 | Symbol | Feature |
 |--------|---------|
-| `:`    | `{lng}` |
 | `!`    | `{clk}` |
 | `[`    | `{dnt}` |
 | `;`    | `{pzd}` |
@@ -184,6 +186,21 @@ meaning depending on the voicing of the base phoneme.
 | Symbol  | Voiceless | Voiced  |
 |---------|-----------|---------|
 | `` ` `` | `{ejc}`   | `{imp}` |
+
+## Suprasegmentals
+
+### Stress
+
+| Symbol | Name             |
+|--------|------------------|
+| `'`    | primary stress   |
+| `,`    | secondary stress |
+
+### Length
+
+| Symbol | Feature |
+|--------|---------|
+| `:`    | `{lng}` |
 
 ## References
 
