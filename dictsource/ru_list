@@ -90,16 +90,16 @@ _»      z'akr uglof
 _,      zVpit'aja
 
 // prepositions
-в       v $u         // to,in,at
+в         $u         // to,in,at
 для       $u         // for
 на        $u         // on
 от        $u         // from
-с       s $u         // with,from,since
-у       u $u         // by
+с         $u         // with,from,since
+у         $u         // by
 
 // conjunctions
 а         $u+ $pause // and
-и       i $u  $pause // and
+и         $u  $pause // and
 ибо       $u  $pause // if, for
 но        $u  $pause // but
 хотя      $2  $pause // although
@@ -196,7 +196,7 @@ _,      zVpit'aja
 сможешь $u1
 смочь   $u1
 суть    $u1
-что  Sto  $u $pause
+что     $u $pause
 
 // Common names where  'е' is written instead of 'ё'
 еще        jIStS;'8
