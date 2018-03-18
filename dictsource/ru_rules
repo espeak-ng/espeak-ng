@@ -31,6 +31,20 @@
 // Y  iotated vowel, softsign:  ь ю я ё
 
 
+.L11    а ы е ой ою ~ ам ами ах   // suffixes for 1. declination words ending а (e.g. страна, Юра)
+.L12    я и е ю ёй ею ь ям ями ях // suffixes for 1. declination words ending я (e.g. земля, дядя)
+.L13    я и ю ей ею й ям ями ях   // suffixes for 1. declination words ending Aя (e.g. ария) A means vowel
+
+.L21    ~ а у ом е ы ов ам ами ах // suffixes for 2. declination masculine words without ending (e.g. стол)
+.L22    ь я ю ем ём е и ей ями ях // suffixes for 2. declination masculine words without ending (e.g. конь)
+.L23    й я ю ем и ев ям ями ях   // suffixes for 2. declination masculine words with ending й (герой)
+.L24    о а у ом е ам ами ах      // suffixes for 2. declination neuter words with ending о (e.g. окно, note about ок_он_!)
+.L25    е я ю ем ей ям ями ях     // suffixes for 2. declination neuter words with ending е (e.g. поле)
+.L26    е я ю ем и й ям ями ях    // suffixes for 2. declination neuter words with ending Aе (e.g. здание)
+
+.L31    ь и ью ей ам ами ах       // suffixes for 2. declination feminine words without ending (e.g. ночь)
+
+
 .group а
         а       V
      B) а (_    V
