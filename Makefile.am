@@ -20,6 +20,12 @@ AM_CFLAGS = \
 	-Isrc/include -Isrc/include/compat -I src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L \
 	-Wno-endif-labels
+AM_LDFLAGS =
+
+if OPT_SANITIZE
+AM_CFLAGS += -fsanitize=$(SANITIZE)
+AM_LDFLAGS += -fsanitize=$(SANITIZE)
+endif
 
 EXTRA_DIST=
 
@@ -137,7 +143,7 @@ espeak_ng_include_HEADERS = \
 lib_LTLIBRARIES += src/libespeak-ng.la
 
 src_libespeak_ng_la_LDFLAGS = -version-info $(SHARED_VERSION) -lpthread -lm \
-	${PCAUDIOLIB_LIBS}
+	${PCAUDIOLIB_LIBS} ${AM_LDFLAGS}
 
 src_libespeak_ng_la_CFLAGS = \
 	-fPIC -fvisibility=hidden \
@@ -177,6 +183,8 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
 
+nodist_EXTRA_src_libespeak_ng_la_SOURCES =
+
 if OPT_KLATT
 src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
@@ -202,9 +210,10 @@ man1_MANS += src/speak-ng.1
 endif
 
 src_speak_ng_LDADD   = src/libespeak-ng.la
-src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
+src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS} ${AM_LDFLAGS}
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 src_speak_ng_SOURCES = src/speak-ng.c
+nodist_EXTRA_src_speak_ng_SOURCES =
 
 bin_PROGRAMS += src/espeak-ng
 
@@ -214,6 +223,13 @@ endif
 
 src_espeak_ng_LDADD   = src/libespeak-ng.la ${PCAUDIOLIB_LIBS}
 src_espeak_ng_SOURCES = src/espeak-ng.c
+
+if OPT_SANITIZE
+nodist_EXTRA_src_libespeak_ng_la_SOURCES += dummy_src_libespeak_ng_la.cpp
+nodist_EXTRA_src_speak_ng_SOURCES += dummy_src_speak_ng.cpp
+endif
+nodist_EXTRA_tests_ssml_fuzzer_test_SOURCES = dummy_tests_ssml_fuzer_test.cpp
+
 
 ##### tests:
 
