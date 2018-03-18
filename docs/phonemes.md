@@ -23,7 +23,11 @@
   - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
 - [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
   - [Length](#length)
+  - [Rhythm](#rhythm)
+  - [Tones](#tones)
+  - [Intonation](#intonation)
 - [References](#references)
 
 ----------
@@ -62,7 +66,7 @@ transcriptions are consistent.
 | `foncxs`                              | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | `fonipa`                              | IPA          | International Phonetic Alphabet                      | Unicode  |
 | [`fonkirsh`](phonemes/kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
-| `fonxsampa`                           | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| [`fonxsampa`](phonemes/xsampa.md)     | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
 | `fonzsampa`                           | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
 1. `foncxs`, `fonkirsh`, and `fonzsampa` are private use extensions defined in
@@ -90,9 +94,9 @@ transcriptions are consistent.
 | `clk`                       | ʘ     |       |       |       | ǀ     |       | ǃ     |       |       |       |       |       | ǂ     |       |       |       |       |       |       |       |       |       |       |       |
 | `lat`&#xA0;`clk`            |       |       |       |       |       |       | ǁ     |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
 | `imp`                       |       | ɓ     |       |       |       |       |       | ɗ     |       |       |       |       |       |       |       | ʄ     |       | ɠ     |       | ʛ     |       |       |       |       |
-| `ejc`                       |       |       |       |       |       |       | tʼ    |       |       |       | ʈʼ    |       |       |       | cʼ    |       | kʼ    |       | qʼ    |       | ʡʼ    |       |       |       |
-| `ejc`&#xA0;`frc`            | pʼ    |       |       |       | θʼ    |       | sʼ    |       | ʃʼ    |       | ʂʼ    |       |       |       |       |       | xʼ    |       | χʼ    |       |       |       |       |       |
-| `lat`&#xA0;`ejc`&#xA0;`frc` | fʼ    |       |       |       |       |       | ɬʼ    |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
+| `ejc`                       | pʼ    |       |       |       |       |       | tʼ    |       |       |       | ʈʼ    |       |       |       | cʼ    |       | kʼ    |       | qʼ    |       | ʡʼ    |       |       |       |
+| `ejc`&#xA0;`frc`            |       |       | fʼ    |       | θʼ    |       | sʼ    |       | ʃʼ    |       | ʂʼ    |       |       |       |       |       | xʼ    |       | χʼ    |       |       |       |       |       |
+| `lat`&#xA0;`ejc`&#xA0;`frc` |       |       |       |       |       |       | ɬʼ    |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |       |
 
 ### Other Symbols
 
@@ -332,10 +336,14 @@ features:
 | Feature | Symbol | Name           | Origin        |
 |---------|--------|----------------|---------------|
 | `pzd`   | ◌ʲ     | palatalized    | `kirshenbaum` |
-| `vzd`   | ◌ˠ     | velarized      | `kirshenbaum` |
-| `fzd`   | ◌ˤ     | pharyngealized | `kirshenbaum` |
+| `vzd`   | ◌ˠ, ◌̴  | velarized      | `kirshenbaum` |
+| `fzd`   | ◌ˤ, ◌̴  | pharyngealized | `kirshenbaum` |
 | `nzd`   | ◌̃      | nasalized      | `kirshenbaum` |
 | `rzd`   | ◌˞     | rhoticized     | `kirshenbaum` |
+
+The combining ◌̴ mark is used for velarized or pharyngealized consonants.
+Wikipedia recommends precomposed letters for this as this combining mark
+is deprecated, and the font may not render the composed form correctly.
 
 ### Tongue Root
 
@@ -348,10 +356,10 @@ The tongue root position can be specified using the following features:
 
 ### Fortis and Lenis
 
-| Feature |Symbol | Name   | Origin        |
-|---------|-------|--------|---------------|
-| `fts`   | ◌͈     | fortis | `espeak-ng`   |
-| `lns`   | ◌͉     | lenis  | `espeak-ng`   |
+| Feature | Symbol | Name   | Origin        |
+|---------|--------|--------|---------------|
+| `fts`   | ◌͈      | fortis | `espeak-ng`   |
+| `lns`   | ◌͉      | lenis  | `espeak-ng`   |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
@@ -364,6 +372,13 @@ the [length](#length) suprasegmentals are used instead.
 
 ## Suprasegmentals
 
+### Stress
+
+| Symbol | Name             |
+|--------|------------------|
+| `ˈ◌`   | primary stress   |
+| `ˌ◌`   | secondary stress |
+
 ### Length
 
 | Feature | Symbol | Name            | Origin        |
@@ -372,6 +387,34 @@ the [length](#length) suprasegmentals are used instead.
 | `hlg`   | ◌ˑ     | half-long       | `cainteoir`   |
 | `lng`   | ◌ː     | long            | `kirshenbaum` |
 | `elg`   | ◌ːː    | extra long      | `espeak-ng`   |
+
+### Rhythm
+
+| Symbol | Name               |
+|--------|--------------------|
+| `.`    | syllable break     |
+| `◌‿◌`  | linking (no break) |
+
+### Tones
+
+| Symbol | Name            |
+|--------|-----------------|
+| `◌˥`   | extra high tone |
+| `◌˦`   | high tone       |
+| `◌˧`   | mid tone        |
+| `◌˨`   | low tone        |
+| `◌˩`   | extra low tone  |
+| `ꜛ◌`   | upstep          |
+| `ꜜ◌`   | downstep        |
+
+### Intonation
+
+| Symbol | Name                     |
+|--------|--------------------------|
+| `|`    | minor (foot) break       |
+| `‖`    | major (intonation) break |
+| `↗︎`    | global rise              |
+| `↘︎`    | global fall              |
 
 ## References
 
