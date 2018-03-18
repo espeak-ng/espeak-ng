@@ -348,10 +348,10 @@ The tongue root position can be specified using the following features:
 
 ### Fortis and Lenis
 
-| Feature |Symbol | Name   | Origin        |
-|---------|-------|--------|---------------|
-| `fts`   | ◌͈     | fortis | `espeak-ng`   |
-| `lns`   | ◌͉     | lenis  | `espeak-ng`   |
+| Feature | Symbol | Name   | Origin        |
+|---------|--------|--------|---------------|
+| `fts`   | ◌͈      | fortis | `espeak-ng`   |
+| `lns`   | ◌͉      | lenis  | `espeak-ng`   |
 
 The extended IPA<sup>\[<a href="#ref7">7</a>\]</sup> ◌͈ and ◌͉ diacritics
 are used to specify lesser (`lns`) and greater (`fts`) oral pressure than
