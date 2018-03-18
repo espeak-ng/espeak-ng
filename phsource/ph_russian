@@ -523,8 +523,8 @@ endphoneme
 
 
 phoneme V
-  vwl  starttype #a  endtype #@
-  length 80
+  vwl  starttype #o  endtype #o
+  length 100
   unstressed
 
   IF nextVowel(isMaxStress) THEN
