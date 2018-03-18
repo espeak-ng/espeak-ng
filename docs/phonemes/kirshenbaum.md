@@ -35,13 +35,13 @@ and `>` characters after the base phoneme (`p<dnt>`).
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Variant              | Abbreviation | Transcription Scheme                                 | Encoding |
-|----------------------------|--------------|------------------------------------------------------|----------|
-| `foncxs`                   | CXS          | Conlang X-SAMPA                                      | ASCII    |
-| [`fonipa`](../phonemes.md) | IPA          | International Phonetic Alphabet                      | Unicode  |
-| `fonkirsh`                 |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
-| `fonxsampa`                | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonzsampa`                | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+| BCP47 Variant                     | Abbreviation | Transcription Scheme                                 | Encoding |
+|-----------------------------------|--------------|------------------------------------------------------|----------|
+| `foncxs`                          | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| [`fonipa`](../phonemes.md)        | IPA          | International Phonetic Alphabet                      | Unicode  |
+| `fonkirsh`                        |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
+| [`fonxsampa`](phonemes/xsampa.md) | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| `fonzsampa`                       | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
 1. `foncxs`, `fonkirsh`, and `fonzsampa` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
@@ -205,9 +205,9 @@ meaning depending on the voicing of the base phoneme.
 ## References
 
 1. <a name="ref1"></a> Kirshenbaum, Evan,
-   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/faq.html) (HTML). 04-01-1993.
-   Updated 30-04-2003.
+   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/faq.html) (HTML).
+   <time datetime="1993-01-04T00:00">1993</time>. Updated <time datetime="2003-04-30T00:00">2003</time>.
 
 2. <a name="ref2"></a> Kirshenbaum, Evan,
-   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/ascii-ipa.pdf) (PDF). 22-02-2001.
-   Updated 06-09-2011.
+   [Representing IPA phonetics in ASCII](https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/ascii-ipa.pdf) (PDF).
+   <time datetime="2001-02-22T00:00">2001</time>. Updated <time datetime="2011-09-06T00:00">2011</time>.
