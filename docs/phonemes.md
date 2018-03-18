@@ -23,7 +23,11 @@
   - [Tongue Root](#tongue-root)
   - [Fortis and Lenis](#fortis-and-lenis)
 - [Suprasegmentals](#suprasegmentals)
+  - [Stress](#stress)
   - [Length](#length)
+  - [Rhythm](#rhythm)
+  - [Tones](#tones)
+  - [Intonation](#intonation)
 - [References](#references)
 
 ----------
@@ -364,6 +368,13 @@ the [length](#length) suprasegmentals are used instead.
 
 ## Suprasegmentals
 
+### Stress
+
+| Symbol | Name             |
+|--------|------------------|
+| `ˈ◌`   | primary stress   |
+| `ˌ◌`   | secondary stress |
+
 ### Length
 
 | Feature | Symbol | Name            | Origin        |
@@ -372,6 +383,34 @@ the [length](#length) suprasegmentals are used instead.
 | `hlg`   | ◌ˑ     | half-long       | `cainteoir`   |
 | `lng`   | ◌ː     | long            | `kirshenbaum` |
 | `elg`   | ◌ːː    | extra long      | `espeak-ng`   |
+
+### Rhythm
+
+| Symbol | Name               |
+|--------|--------------------|
+| `.`    | syllable break     |
+| `◌‿◌`  | linking (no break) |
+
+### Tones
+
+| Symbol | Name            |
+|--------|-----------------|
+| `◌˥`   | extra high tone |
+| `◌˦`   | high tone       |
+| `◌˧`   | mid tone        |
+| `◌˨`   | low tone        |
+| `◌˩`   | extra low tone  |
+| `ꜛ◌`   | upstep          |
+| `ꜜ◌`   | downstep        |
+
+### Intonation
+
+| Symbol | Name                     |
+|--------|--------------------------|
+| `|`    | minor (foot) break       |
+| `‖`    | major (intonation) break |
+| `↗︎`    | global rise              |
+| `↘︎`    | global fall              |
 
 ## References
 
