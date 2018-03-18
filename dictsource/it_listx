@@ -128,6 +128,7 @@ algebric  $alt
 algenib  $alt
 algovia  $alt
 alibi	'alibI
+alici	$2
 aliquot $2
 alit	$1
 allegorie	$4
@@ -878,8 +879,8 @@ ciliegi  $alt
 ciliegia $3  $alt
 cimeg $1
 cimolais $3
+cincischio	$3
 cinebox $3  $alt
-cineclub $3
 cinem $1
 cinetec  $alt
 cinir $1
@@ -3168,8 +3169,8 @@ pueril	$3
 pulcheria $2
 puliga	$1
 pulizia $3
-pulpit $1
-puntasecc  $alt2
+pulpit	$1
+punzecchio	$3
 purpurea	$2
 purpuree	$2
 purpureo $2
@@ -4176,6 +4177,7 @@ viper $1
 viril	$2
 viscera	$1
 visceri	$1
+visconteo	$2 $alt
 viscontei	$2 $alt
 visigoti  $alt
 visir $2
