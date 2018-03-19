@@ -7,6 +7,7 @@
   - [Dependencies](#dependencies)
   - [Building](#building-1)
     - [Cross Compilation](#cross-compilation)
+    - [Sanitizer](#sanitizer)
     - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Testing](#testing)
@@ -175,6 +176,17 @@ built it locally you can perform the cross compilation using:
 
 	./configure --build=... --host=... --target=...
 	make -B src/espeak-ng src/speak-ng
+
+#### Sanitizer
+
+It is possible to build eSpeak NG with the gcc or clang sanitizer by passing
+the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
+
+	CFLAGS="-fsanitize=address,undefined -g" \
+		LDFLAGS="-fsanitize=address,undefined" \
+		CC=clang-6.0 ./configure
+	make
+	make check
 
 #### eSpeak NG Feature Configuration
 
