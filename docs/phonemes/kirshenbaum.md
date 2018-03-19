@@ -35,13 +35,13 @@ and `>` characters after the base phoneme (`p<dnt>`).
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Variant                     | Abbreviation | Transcription Scheme                                 | Encoding |
-|-----------------------------------|--------------|------------------------------------------------------|----------|
-| `foncxs`                          | CXS          | Conlang X-SAMPA                                      | ASCII    |
-| [`fonipa`](../phonemes.md)        | IPA          | International Phonetic Alphabet                      | Unicode  |
-| `fonkirsh`                        |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
-| [`fonxsampa`](phonemes/xsampa.md) | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonzsampa`                       | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+| BCP47 Variant              | Abbreviation | Transcription Scheme                                 | Encoding |
+|----------------------------|--------------|------------------------------------------------------|----------|
+| [`foncxs`](cxs.md)         | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| [`fonipa`](../phonemes.md) | IPA          | International Phonetic Alphabet                      | Unicode  |
+| `fonkirsh`                 |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
+| [`fonxsampa`](xsampa.md)   | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| `fonzsampa`                | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
 1. `foncxs`, `fonkirsh`, and `fonzsampa` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)

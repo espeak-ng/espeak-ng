@@ -63,7 +63,7 @@ transcriptions are consistent.
 
 | BCP47 Variant                         | Abbreviation | Transcription Scheme                                 | Encoding |
 |---------------------------------------|--------------|------------------------------------------------------|----------|
-| `foncxs`                              | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| [`foncxs`](phonemes/cxs.md)           | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | `fonipa`                              | IPA          | International Phonetic Alphabet                      | Unicode  |
 | [`fonkirsh`](phonemes/kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
 | [`fonxsampa`](phonemes/xsampa.md)     | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
