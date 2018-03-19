@@ -188,7 +188,7 @@ phoneme m;
   vcd blb nas
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   lengthmod 4
-  length 20
+  length 60
 
   IF KlattSynth THEN
     Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
@@ -197,7 +197,7 @@ phoneme m;
     ENDIF
     FMT(klatt/m)
   ENDIF
-  VowelStart(m/mi)
+  FMT(m/mj)
 endphoneme
 
 
@@ -523,8 +523,8 @@ endphoneme
 
 
 phoneme V
-  vwl  starttype #a  endtype #@
-  length 80
+  vwl  starttype #o  endtype #o
+  length 100
   unstressed
 
   IF nextVowel(isMaxStress) THEN

@@ -89,29 +89,97 @@ _»      z'akr uglof
 *       zvezd'a  $max3
 _,      zVpit'aja
 
-// prepositions
-в       v $u         // to,in,at
-для       $u         // for
-на        $u         // on
-от        $u         // from
-с       s $u         // with,from,since
-у       u $u         // by
-
-// conjunctions
+// particles
 а         $u+ $pause // and
-и       i $u  $pause // and
+без       $u
+будто     $u
+бы        $u
+в         $u         // to,in,at
+вдруг     $u
+ведь      $u
+весь      $u
+вместо    $u
+во        $u
+вовсе     $u
+вот       $u
+все       $u
+где       $u
+(где то)  $u
+даже      $u
+для       $u         // for
+до        $u
+едва      $u2
+если      $u  $pause
+ещё       $u2+
+ж         $u
+же        $u
+за        $u+
+и         $u  $pause // and
 ибо       $u  $pause // if, for
+из        $u
+(из за)   $u
+или       $u  $pause
+к         $u
+как       $u+
+какой     $u2+
+ко        $u
+когда     $u+
+кстати    $u
+(кто то)  $u
+ли        $u
+либо      $u
+лишь      $u
+на        $u         // on
+надо      $u
+не        $u         // negative
+нет       $u+
+ни        $u
+никак     $u2
+ничто     $u+
 но        $u  $pause // but
-хотя      $2  $pause // although
-чтобы     $u  $pause // in order that
+ну        $u+
+о         $u+
+об        $u
+однако    $u2
+от        $u         // from
+очень     $u
+по        $u
+под       $u
+пока      $u2+
+пора      $u2+
+после     $u
+потом     $u2+
+почти     $u2+
+прежде    $u
+при       $u
+про       $u
+пусть     $u+
+раз       $u+
+с         $u         // with,from,since
+сей       $u
+со        $u
+так       $u+
+также     $u $pause
+то        $u
+только    $u
+туда      $u2+
+тут       $u+
+у         $u         // by
+уж        $u
 уже       $u2+       // already
+хоть      $u
+хотя      $2  $pause // although
+что       $u+ $pause // what, that
+чтоб      $u
+чтобы     $u  $pause // in order that
 
 // pronouns
 вам       $u+
 вами      $u+
 вас       $u+
+ваш       $u+
 вы        $u+
-вы        $u+
+другой    $u+
 его       $u2+
 её        $u2+
 ей        $u+
@@ -119,32 +187,42 @@ _,      zVpit'aja
 им        $u+
 ими       $u+
 их        $u+
+который   $u2
+кто       $u+
 меня      $u2+
 мне       $u+
 мной      $u+
+мой       $u+
 мы        $u+
 нам       $u+
 нами      $u+
 нас       $u+
+наш       $u+
 ней       $u+
+некий     $u
 нём       $u+
+никто     $u2+
 них       $u+
-о         $u+
 обо       $u+
 он        $u+
 она       $u+
 они       $u+
+оно       $u+
+сам       $u+
+самый     $u+
+свой      $u+
+себя      $u2+
+такой     $u2+
+там       $u+
 тебе      $u2+
 тебя      $u2+
 тобой     $u2+
+тот       $u+
 ты        $u+
+чем       $u+
+это       $u+
+этот      $u+
 я         $u+
-
-// questions
-что     Sto $u+ $pause // what, that
-
-// misc.
-не      $u           // negative
 
 // auxillary verbs
 будем   $u1
@@ -162,6 +240,7 @@ _,      zVpit'aja
 есмь    $u1
 есте    $u1
 есть    $u1
+иметь   $u2
 мог     $u1
 могла   $u2
 могли   $u2
@@ -172,6 +251,7 @@ _,      zVpit'aja
 может   $u1
 можете  $u1
 можешь  $u1
+можно   $u
 мочь    $u         // can
 побудем $u2
 побудет $u2
@@ -195,45 +275,10 @@ _,      zVpit'aja
 сможете $u1
 сможешь $u1
 смочь   $u1
+стать   $u
 суть    $u1
-что  Sto  $u $pause
+хотеть  $u2
 
-// Cyrillic letter names
-а       a
-б       bE
-_в      vE
-в       vE  $atend
-г       gE
-д       dE
-е       je
-ё       j8
-ж       ZE
-з       zE
-и       i
-й       ,i'k@-*'AtkOjI
-к       kA
-л       El^
-м       Em
-н       En_
-о       o
-п       pE
-р       Er
-_с      Es
-с       Es  $atend
-т       tE
-у       u
-ф       Ef
-х       xA
-ц       tsE
-ч       tS;e
-ш       SA
-щ       S;ja
-ъ       tv;'8@-*dyjzn'Ak
-ы       y
-ь       m;'jak;I#jzn'Ak
-э       e
-ю       ju
-я       ja
 
 // Common names where  'е' is written instead of 'ё'
 еще        jIStS;'8
