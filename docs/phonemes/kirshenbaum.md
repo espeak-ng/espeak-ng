@@ -37,15 +37,15 @@ and `>` characters after the base phoneme (`p<dnt>`).
 
 | BCP47 Tag                  | Abbreviation | Transcription Scheme                                 | Encoding |
 |----------------------------|--------------|------------------------------------------------------|----------|
-| [`foncxs`](cxs.md)         | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | [`fonipa`](../phonemes.md) | IPA          | International Phonetic Alphabet                      | Unicode  |
-| `fonkirsh`                 |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
 | [`fonxsamp`](xsampa.md)    | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonzsamp`                 | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+| [`x-foncxs`](cxs.md)       | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| `x-fonkirsh`               |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
+| `x-fonzsamp`               | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
 1. `foncxs`, `fonkirsh`, and `fonzsamp` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-   file.
+   file, so have the `x-` private use specifier before their tag names.
 
 ## Consonants
 

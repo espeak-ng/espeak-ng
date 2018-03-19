@@ -61,17 +61,17 @@ transcriptions are consistent.
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Tag                             | Abbreviation | Transcription Scheme                                 | Encoding |
-|---------------------------------------|--------------|------------------------------------------------------|----------|
-| [`foncxs`](phonemes/cxs.md)           | CXS          | Conlang X-SAMPA                                      | ASCII    |
-| `fonipa`                              | IPA          | International Phonetic Alphabet                      | Unicode  |
-| [`fonkirsh`](phonemes/kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
-| [`fonxsamp`](phonemes/xsampa.md)      | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonzsamp`                            | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+| BCP47 Tag                               | Abbreviation | Transcription Scheme                                 | Encoding |
+|-----------------------------------------|--------------|------------------------------------------------------|----------|
+| `fonipa`                                | IPA          | International Phonetic Alphabet                      | Unicode  |
+| [`fonxsamp`](phonemes/xsampa.md)        | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| [`x-foncxs`](phonemes/cxs.md)           | CXS          | Conlang X-SAMPA                                      | ASCII    |
+| [`x-fonkirsh`](phonemes/kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
+| `x-fonzsamp`                            | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
 1. `foncxs`, `fonkirsh`, and `fonzsamp` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-   file.
+   file, so have the `x-` private use specifier before their tag names.
 
 ## Consonants
 
