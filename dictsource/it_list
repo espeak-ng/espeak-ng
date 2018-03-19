@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 February 2 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 march 18 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -826,6 +826,7 @@ bypass	b'aI||p'as
 byte	_^_EN
 cabaret	$3 $only
 camper	$1
+cancan	$2 $only
 carter	$1 $only
 casual	k'EZual $onlys
 caterpillar	$1
@@ -2283,6 +2284,7 @@ beccaria $3
 beethoven	be:t'o:ven
 benetton	$3
 bergomi	$1
+behringer	b'e:RiNg,E@-*
 bertold  $alt
 bettega	$1 $alt
 boeing	b'O:ing
@@ -2895,6 +2897,7 @@ associno	$2
 assomigliano	$3
 assommino	$2
 assumano	$2
+astato	ast'a:to
 attaccano	$2
 attacchino	$2
 attardano	$2
@@ -3374,6 +3377,7 @@ esultano	$2
 esultino	$2
 evacuano	$2
 evacuino	$2
+evapor	$2
 evaporano	$2
 evaporino	$2
 evidenziano	$3
@@ -4368,6 +4372,7 @@ seguitano	$1
 seguito	s'e:gwito	$noun
 sembrano	$1
 sembrino	$1
+sensibilizzino	$4
 separano	$2
 separino	$2
 sequestrano	$2
@@ -4609,6 +4614,7 @@ tallono	$2
 tambureggiano	$3
 tampono	$2
 tappano	$1
+tarano	$1
 tardano	$1
 tardino	$1
 tariffano	$2
@@ -4846,8 +4852,6 @@ cancellal	$2
 cancellami	$2
 carical	$1
 causatoci	$3
-cercal	$1
-cercasi	$1
 cliccaci	$1
 cliccal	$1
 compiersi	$1
@@ -4942,15 +4946,12 @@ mandal	$1
 mandatel	$2
 mangial	m'a:ndZal // $1
 mescolatisi	$3
-mettine	$1 $alt2
-mettiti	$1	$alt2
 morditi	$1
 mostravi	$2
 offertogli	$2
 orientaci	$3
 perdermici	$1
 perdonatel	$3
-permettigli	$2
 pizzical	$1
 pizzicami	$1
 portala	$1
@@ -4976,6 +4977,7 @@ riceverne	$2
 richiestomi	$2
 ricontal	$2	$alt2
 ricordati	$2 $atstart
+ricordal	$2
 rieccoci	$2
 rieccol	$2
 rieccomi	@-*i'e:k:Omi
@@ -4994,6 +4996,7 @@ scarical	$1
 scaricami	$1
 scegline	$1
 scommetterci	$2 $alt2
+scordal	$1
 scuotersi	$2 $alt
 scusami	$1
 selezionale	$4

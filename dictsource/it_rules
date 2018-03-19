@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2018 February 2 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2018 march 18 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -103,6 +103,7 @@
 	chiedi (L04_	kj'EdI
 	chiudi (L04_	kj'udI
 	canta (L07_	k'anta
+	cerca (L07_	tS'e@-*ka
 	conta (L07_	k'onta
 	ra) cconta (L07_	k:'Onta
 
@@ -379,6 +380,7 @@
 	_) m' (P2t	m
 	_) mezz' (P5t	mEdz:
 	metter (L04_	m'ette@-* // Pron.s Verbs
+	metti (L04_	m'e:t:i
 	mmetter (L04_	m:'et:e@-*
 	manda (L05_	m'anda
 	mostra (L07_	m'Ost@-*a
