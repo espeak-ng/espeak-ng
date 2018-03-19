@@ -56,11 +56,10 @@ articulations, and diphthongs such as `ts` and consonant clusters such as
 | `foncxs`                     | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | [`fonipa`](../phonemes.md)   | IPA          | International Phonetic Alphabet                      | Unicode  |
 | [`fonkirsh`](kirshenbaum.md) |              | Kirshenbaum (ASCII-IPA)                              | ASCII    |
-| [`fonxsampa`](xsampa.md)     | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonxsampa`                  | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
-| `fonzsampa`                  | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
+| [`fonxsamp`](xsampa.md)      | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
+| `fonzsamp`                   | Z-SAMPA      | Zompist Bulletin Board (ZBB) SAMPA                   | ASCII    |
 
-1. `foncxs`, `fonkirsh`, and `fonzsampa` are private use extensions defined in
+1. `foncxs`, `fonkirsh`, and `fonzsamp` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
    file.
 
