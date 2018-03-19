@@ -270,11 +270,12 @@ tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
 endif
 
 noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
-tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
+tests_ssml_fuzzer_test_CFLAGS  = ${AM_CFLAGS}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
+tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
 
 if HAVE_LIBFUZZER
-tests_ssml_fuzzer_test_CFLAGS  = -fsanitize=fuzzer
+tests_ssml_fuzzer_test_CFLAGS += -fsanitize=fuzzer
 tests_ssml_fuzzer_test_LDFLAGS = -fsanitize=fuzzer
 else
 tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
