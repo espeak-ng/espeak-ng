@@ -51,7 +51,7 @@ articulations, and diphthongs such as `ts` and consonant clusters such as
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Variant                | Abbreviation | Transcription Scheme                                 | Encoding |
+| BCP47 Tag                    | Abbreviation | Transcription Scheme                                 | Encoding |
 |------------------------------|--------------|------------------------------------------------------|----------|
 | `foncxs`                     | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | [`fonipa`](../phonemes.md)   | IPA          | International Phonetic Alphabet                      | Unicode  |

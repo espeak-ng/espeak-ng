@@ -48,7 +48,7 @@ consonant clusters such as `t-s`.
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Variant                | Abbreviation | Transcription Scheme                                 | Encoding |
+| BCP47 Tag                    | Abbreviation | Transcription Scheme                                 | Encoding |
 |------------------------------|--------------|------------------------------------------------------|----------|
 | [`foncxs`](cxs.md)           | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | [`fonipa`](../phonemes.md)   | IPA          | International Phonetic Alphabet                      | Unicode  |

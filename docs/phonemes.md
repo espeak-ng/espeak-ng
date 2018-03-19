@@ -61,7 +61,7 @@ transcriptions are consistent.
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Variant                         | Abbreviation | Transcription Scheme                                 | Encoding |
+| BCP47 Tag                             | Abbreviation | Transcription Scheme                                 | Encoding |
 |---------------------------------------|--------------|------------------------------------------------------|----------|
 | [`foncxs`](phonemes/cxs.md)           | CXS          | Conlang X-SAMPA                                      | ASCII    |
 | `fonipa`                              | IPA          | International Phonetic Alphabet                      | Unicode  |
