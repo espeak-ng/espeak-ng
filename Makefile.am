@@ -261,19 +261,24 @@ check:	tests/encoding.check \
 
 ##### fuzzer:
 
-# When OSS-Fuzz [https://github.com/google/oss-fuzz] runs our fuzzer, it sets
-# LIB_FUZZING_ENGINE to libFuzzer [http://llvm.org/docs/LibFuzzer.html].
-# When running outside OSS-Fuzz, we link against our own stub fuzzrunner.
-LIB_FUZZING_ENGINE ?= tests/libfuzzrunner.la
-
+if !HAVE_LIBFUZZER
+# libfuzzrunner is a stub implementation of libFuzzer that calls the
+# LLVMFuzzerTestOneInput with the files passed to the fuzzer program.
 lib_LTLIBRARIES += tests/libfuzzrunner.la
 tests_libfuzzrunner_la_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
+endif
 
 noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
-tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la ${LIB_FUZZING_ENGINE}
+tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
-tests_ssml_fuzzer_test_DEPENDENCIES = src/libespeak-ng.la tests/libfuzzrunner.la
+
+if HAVE_LIBFUZZER
+tests_ssml_fuzzer_test_CFLAGS  = -fsanitize=fuzzer
+tests_ssml_fuzzer_test_LDFLAGS = -fsanitize=fuzzer
+else
+tests_ssml_fuzzer_test_LDADD += tests/libfuzzrunner.la
+endif
 
 tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
 	@echo "  TEST      $<"

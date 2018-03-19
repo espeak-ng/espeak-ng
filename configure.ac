@@ -86,6 +86,7 @@ fi
 dnl ================================================================
 dnl FreeBSD check.
 dnl ================================================================
+
 AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
 		   #if ! defined(__FreeBSD__)
 		   #error macro not defined
@@ -281,6 +282,22 @@ AX_CHECK_COMPILE_FLAG([-Wreturn-type],           [CFLAGS="-Wreturn-type $CFLAGS"
 AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
+
+dnl ================================================================
+dnl libFuzzer checks.
+dnl ================================================================
+
+AC_ARG_WITH([libfuzzer],
+    [AS_HELP_STRING([--with-libfuzzer], [enable libFuzzer in the fuzzer tests @<:@default=no@:>@])],
+    [])
+
+if test "$with_libfuzzer" = "yes" ; then
+	have_libfuzzer=yes
+else
+	have_libfuzzer=no
+fi
+
+AM_CONDITIONAL(HAVE_LIBFUZZER, [test x"$have_libfuzzer" = xyes])
 
 dnl ================================================================
 dnl Generate output.

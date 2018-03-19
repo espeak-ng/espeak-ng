@@ -7,7 +7,8 @@
   - [Dependencies](#dependencies)
   - [Building](#building-1)
     - [Cross Compilation](#cross-compilation)
-    - [Sanitizer](#sanitizer)
+    - [Sanitizer Flag Configuration](#sanitizer-flag-configuration)
+    - [LLVM Fuzzer Support](#llvm-fuzzer-support)
     - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
     - [Extended Dictionary Configuration](#extended-dictionary-configuration)
   - [Testing](#testing)
@@ -177,7 +178,7 @@ built it locally you can perform the cross compilation using:
 	./configure --build=... --host=... --target=...
 	make -B src/espeak-ng src/speak-ng
 
-#### Sanitizer
+#### Sanitizer Flag Configuration
 
 It is possible to build eSpeak NG with the gcc or clang sanitizer by passing
 the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
@@ -185,6 +186,20 @@ the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
 	CFLAGS="-fsanitize=address,undefined -g" \
 		LDFLAGS="-fsanitize=address,undefined" \
 		CC=clang-6.0 ./configure
+	make
+	make check
+
+__NOTE:__ The `-fsanitize=fuzzer` option does not work when using the above
+configuration method. This is because `clang` will use the `libFuzzer` library
+which defines its own `main` and requires `LLVMFuzzerTestOneInput` to be
+defined. This breaks the autoconf check to see if the C compiler works.
+
+#### LLVM Fuzzer Support
+
+To enable libFuzzer support you need clang 6.0 or later. It is enabled with
+the following:
+
+	CC=clang-6.0 ./configure --with-libfuzzer=yes
 	make
 	make check
 
