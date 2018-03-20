@@ -61,7 +61,7 @@ transcriptions are consistent.
 
 ## Phoneme Transcription Schemes
 
-| BCP47 Tag                               | Abbreviation | Transcription Scheme                                 | Encoding |
+| BCP47 Subtag                            | Abbreviation | Transcription Scheme                                 | Encoding |
 |-----------------------------------------|--------------|------------------------------------------------------|----------|
 | `fonipa`                                | IPA          | International Phonetic Alphabet                      | Unicode  |
 | [`fonxsamp`](phonemes/xsampa.md)        | X-SAMPA      | Extended Speech Assessment Methods Phonetic Alphabet | ASCII    |
@@ -71,7 +71,7 @@ transcriptions are consistent.
 
 1. `foncxs`, `fonkirsh`, and `fonzsamp` are private use extensions defined in
    the [bcp47-extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-   file, so have the `x-` private use specifier before their tag names.
+   file, so have the `x-` private use specifier before their subtag names.
 
 ## Consonants
 
