@@ -1302,6 +1302,13 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	return 0;
 }
 
+static void free_rules(char **rules, int n_rules) {
+	for (int i = 0; i < n_rules; ++i) {
+		free(*rules);
+		*rules++ = NULL;
+	}
+}
+
 static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp, espeak_ng_ERROR_CONTEXT *context)
 {
 	char *prule;
@@ -1354,6 +1361,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 				n_rgroups++;
 
 				count += n_rules;
+				free_rules(rules, n_rules);
 			}
 			n_rules = 0;
 			err_n_rules = 0;
@@ -1473,8 +1481,10 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 
 	qsort((void *)rgroup, n_rgroups, sizeof(rgroup[0]), (int(__cdecl *)(const void *, const void *))rgroup_sorter);
 
-	if ((f_temp = fopen(fname_temp, "rb")) == NULL)
+	if ((f_temp = fopen(fname_temp, "rb")) == NULL) {
+		free_rules(rules, n_rules);
 		return create_file_error_context(context, errno, fname_temp);
+	}
 
 	prev_rgroup_name = "\n";
 
@@ -1508,6 +1518,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 	remove(fname_temp);
 
 	fprintf(f_log, "\t%d rules, %d groups (%d)\n\n", count, n_rgroups, n_groups3);
+	free_rules(rules, n_rules);
 	return ENS_OK;
 }
 
