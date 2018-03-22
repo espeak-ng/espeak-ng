@@ -284,6 +284,8 @@ int isspace2(unsigned int c)
 
 void DeleteTranslator(Translator *tr)
 {
+	if (!tr) return;
+
 	if (tr->data_dictlist != NULL)
 		free(tr->data_dictlist);
 	free(tr);
