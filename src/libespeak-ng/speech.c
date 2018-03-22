@@ -901,10 +901,14 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 
 	free(event_list);
 	event_list = NULL;
+
 	free(outbuf);
 	outbuf = NULL;
+
 	FreePhData();
 	FreeVoiceList();
+
+	DeleteTranslator(translator);
 	translator = NULL;
 
 	if (p_decoder != NULL) {
