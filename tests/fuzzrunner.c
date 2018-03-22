@@ -49,7 +49,9 @@ int main(int argc, char **argv) {
 		fread(text, 1, filesize, stream);
 		text[filesize] = 0;
 		fclose(stream);
+
 		LLVMFuzzerTestOneInput(text, filesize);
+		free(text);
 	}
 
 	return EXIT_SUCCESS;
