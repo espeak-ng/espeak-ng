@@ -1076,7 +1076,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	}
 	if (ix == 0) return;
 	final_ph = phonetic[ix-1];
-	final_ph2 =  phonetic[ix-2];
+	final_ph2 = phonetic[(ix > 1) ? ix-2 : ix-1];
 
 	max_output = output + (N_WORD_PHONEMES-3); // check for overrun
 
