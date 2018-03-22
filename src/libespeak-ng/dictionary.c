@@ -214,7 +214,8 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	if (dictionary_name != name)
 		strncpy(dictionary_name, name, 40); // currently loaded dictionary name
-	strncpy(tr->dictionary_name, name, 40);
+	if (tr->dictionary_name != name)
+		strncpy(tr->dictionary_name, name, 40);
 
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
