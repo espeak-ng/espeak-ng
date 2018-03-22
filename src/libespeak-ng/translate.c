@@ -2469,7 +2469,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				words[word_count].start = ix;
 				words[word_count].flags = 0;
 
-				for (j = source_index; charix[j] <= 0; j++) // skip blanks
+				for (j = source_index; j < charix_top && charix[j] <= 0; j++) // skip blanks
 					;
 				words[word_count].sourceix = charix[j];
 				k = 0;
