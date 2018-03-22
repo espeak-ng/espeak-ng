@@ -1302,7 +1302,8 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	return 0;
 }
 
-static void free_rules(char **rules, int n_rules) {
+static void free_rules(char **rules, int n_rules)
+{
 	for (int i = 0; i < n_rules; ++i) {
 		free(*rules);
 		*rules++ = NULL;
