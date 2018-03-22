@@ -441,7 +441,7 @@ endphoneme
 phoneme z`  // Shortened version of z for diphthong dz
   vcd alv frc sib
   voicingswitch s
-  length 10
+  length 8
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
