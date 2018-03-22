@@ -387,6 +387,7 @@ the 1.24.02 source commit.
 
 ## Feedback
 
+Test latest development version at [eSpeakNG online](https://odo.lv/Espeak).
 
 Report bugs to the [espeak-ng issues](https://github.com/espeak-ng/espeak-ng/issues)
 page on GitHub.
