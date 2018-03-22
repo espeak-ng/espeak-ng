@@ -716,6 +716,8 @@ int main(int argc, char **argv)
 				espeak_Synth(p_text, ix+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 			}
 		}
+
+		free(p_text);
 	} else if (f_text != NULL) {
 		if ((p_text = (char *)malloc(filesize+1)) == NULL) {
 			espeak_ng_PrintStatusCodeMessage(ENOMEM, stderr, NULL);
@@ -726,6 +728,8 @@ int main(int argc, char **argv)
 		p_text[filesize] = 0;
 		espeak_Synth(p_text, filesize+1, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
 		fclose(f_text);
+
+		free(p_text);
 	}
 
 	result = espeak_ng_Synchronize();
