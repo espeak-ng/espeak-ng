@@ -9,9 +9,24 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.49.3 - (In Development)
 
-bug fixes:
+*  Add more tests to check the various parts of espeak-ng.
+*  Various changes to clean up the codebase.
+*  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
+   and `-Wunused`).
 
-*  Fix several issues with the emoji support.
+security:
+
+*  Fix several crashes in the emoji support.
+*  Fix several static analysis issues detected by Coverity Scan.
+*  Fix several static analysis issues detected by Microsoft Visual C++ `/analyze`.
+*  `oss-fuzz` support for the SSML logic.
+*  Fix running `make check` with `-fsanitize=address` (LLVM AddressSanitizer).
+
+documentation:
+
+*  document the Kirshenbaum phoneme transcription scheme (used as the basis of espeak phonemes).
+*  document the X-SAMPA phoneme transcription scheme.
+*  document the Conlang X-SAMPA phoneme transcription scheme.
 
 new languages:
 
