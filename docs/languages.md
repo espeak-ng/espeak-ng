@@ -29,6 +29,7 @@ The 100 supported languages and accents are:
 | `sit`       | `my`              | Sino-Tibetan          | Burmese                     |                        |
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
+| `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian                    |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
