@@ -639,7 +639,6 @@ typedef struct {
 	int clause_terminator;
 } Translator;
 
-extern int option_tone2;
 #define OPTION_EMPHASIZE_ALLCAPS  0x100
 #define OPTION_EMPHASIZE_PENULTIMATE 0x200
 extern int option_tone_flags;

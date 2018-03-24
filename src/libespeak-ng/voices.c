@@ -703,7 +703,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			stress_add_set = Read8Numbers(p, stress_add);
 			break;
 		case V_INTONATION: // intonation
-			sscanf(p, "%d %d", &option_tone_flags, &option_tone2);
+			sscanf(p, "%d", &option_tone_flags);
 			if ((option_tone_flags & 0xff) != 0) {
 				if (langopts)
 					langopts->intonation_group = option_tone_flags & 0xff;
