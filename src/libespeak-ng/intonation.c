@@ -289,18 +289,6 @@ static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
 	{ PITCHfall,   70, 18, PITCHfall,   70, 24, NULL, 32, 20, 0 },      // 12 test
 };
 
-// index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized
-unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
-	{  0,  1,  2,  3, 0, 4 },
-	{  0,  1,  2,  3, 0, 4 },
-	{  5,  6,  2,  3, 0, 4 },
-	{  5,  7,  1,  3, 0, 4 },
-	{  8,  9, 10,  3, 0, 0 },
-	{  8,  8, 10,  3, 0, 0 },
-	{ 11, 11, 11, 11, 0, 0 }, // 6 test
-	{ 12, 12, 12, 12, 0, 0 }
-};
-
 int n_tunes = 0;
 TUNE *tunes = NULL;
 

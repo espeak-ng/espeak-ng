@@ -35,6 +35,7 @@
 #include "dictionary.h"
 #include "mbrola.h"
 #include "readclause.h"
+#include "setlengths.h"
 #include "synthdata.h"
 #include "wavegen.h"
 

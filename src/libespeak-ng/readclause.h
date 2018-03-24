@@ -33,7 +33,6 @@ typedef struct {
 } PARAM_STACK;
 
 extern PARAM_STACK param_stack[];
-extern const int param_defaults[N_SPEECH_PARAM];
 
  int clause_type_from_codepoint(uint32_t c);
 int towlower2(unsigned int c); // Supports Turkish I

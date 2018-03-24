@@ -333,6 +333,25 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 	strcpy(path_home, PATH_ESPEAK_DATA);
 }
 
+const int param_defaults[N_SPEECH_PARAM] = {
+	0,   // silence (internal use)
+	175, // rate wpm
+	100, // volume
+	50,  // pitch
+	50,  // range
+	0,   // punctuation
+	0,   // capital letters
+	0,   // wordgap
+	0,   // options
+	0,   // intonation
+	0,
+	0,
+	0,   // emphasis
+	0,   // line length
+	0,   // voice type
+};
+
+
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *context)
 {
 	int param;
@@ -919,6 +938,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Terminate(void)
 	return ENS_OK;
 }
 
+const char *version_string = PACKAGE_VERSION;
 ESPEAK_API const char *espeak_Info(const char **ptr)
 {
 	if (ptr != NULL)

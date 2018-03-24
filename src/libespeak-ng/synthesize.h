@@ -480,7 +480,6 @@ extern unsigned char *out_start;
 extern unsigned char *out_end;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback *synth_callback;
-extern const char *version_string;
 extern const int version_phdata;
 
 #define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
@@ -488,7 +487,6 @@ extern const int version_phdata;
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-espeak_ng_STATUS SetParameter(int parameter, int value, int relative);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
 void DoPhonemeMarker(int type, int char_posn, int length, char *name);

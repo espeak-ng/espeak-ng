@@ -669,7 +669,6 @@ extern char skip_marker[N_MARKER_LENGTH];
 
 #define N_PUNCTLIST  60
 extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters to announce
-extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 
 extern Translator *translator;
 extern Translator *translator2;

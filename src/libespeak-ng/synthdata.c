@@ -41,7 +41,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-const char *version_string = PACKAGE_VERSION;
 const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here

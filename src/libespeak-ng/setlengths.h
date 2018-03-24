@@ -30,6 +30,11 @@ extern "C"
 
 void CalcLengths(Translator *tr);
 
+espeak_ng_STATUS SetParameter(int parameter, 
+	int value,
+	int relative
+	);
+
 #ifdef __cplusplus
 }
 #endif

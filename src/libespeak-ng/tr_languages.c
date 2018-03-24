@@ -294,6 +294,18 @@ static Translator *NewTranslator(void)
 	tr->langopts.break_numbers = BREAK_THOUSANDS; // 1000, 1000,000  1,000,000 etc
 	tr->langopts.max_digits = 14;
 
+	// index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized
+	unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
+		{  0,  1,  2,  3, 0, 4 },
+		{  0,  1,  2,  3, 0, 4 },
+		{  5,  6,  2,  3, 0, 4 },
+		{  5,  7,  1,  3, 0, 4 },
+		{  8,  9, 10,  3, 0, 0 },
+		{  8,  8, 10,  3, 0, 0 },
+		{ 11, 11, 11, 11, 0, 0 }, // 6 test
+		{ 12, 12, 12, 12, 0, 0 }
+	};
+
 	memcpy(tr->punct_to_tone, punctuation_to_tone, sizeof(tr->punct_to_tone));
 
 	memcpy(tr->langopts.tunes, default_tunes, sizeof(tr->langopts.tunes));
