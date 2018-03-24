@@ -459,7 +459,7 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 		capitals |= 4; // speak charater code for unknown letters
 
 	while ((*word != ' ') && (*word != 0)) {
-		word += TranslateLetter(tr, word, phonemes, capitals | non_initial);
+		word += TranslateLetter(tr, word, phonemes, capitals | non_initial, current_alphabet);
 		posn++;
 		non_initial = true;
 		if (phonemes[0] == phonSWITCH) {
@@ -770,7 +770,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 			if (posn > 0)
 				non_initial = true;
 
-			wordx += TranslateLetter(tr, wordx, unpron_phonemes, non_initial);
+			wordx += TranslateLetter(tr, wordx, unpron_phonemes, non_initial, current_alphabet);
 			posn++;
 			if (unpron_phonemes[0] == phonSWITCH) {
 				// change to another language in order to translate this word

@@ -664,7 +664,7 @@ int IsSuperscript(int letter)
 	return 0;
 }
 
-int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
+int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALPHABET *current_alphabet)
 {
 	// get pronunciation for an isolated letter
 	// return number of bytes used by the letter
