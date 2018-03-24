@@ -444,10 +444,7 @@ extern int samplerate_native;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
-extern int wavefile_ix2;
-extern int wavefile_amp2;
 extern int vowel_transition[4];
-extern int vowel_transition0, vowel_transition1;
 
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
@@ -478,16 +475,13 @@ extern unsigned char *envelope_data[N_ENVELOPE_DATA];
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 
-extern long count_samples;
 extern unsigned char *out_ptr;
 extern unsigned char *out_start;
 extern unsigned char *out_end;
-extern int event_list_ix;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback *synth_callback;
 extern const char *version_string;
 extern const int version_phdata;
-extern double sonicSpeed;
 
 #define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
 #define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of audio files

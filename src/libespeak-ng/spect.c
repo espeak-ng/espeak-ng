@@ -36,12 +36,9 @@
 #include "spect.h"
 #include "ieee80.h"
 
-extern unsigned char pk_shape1[];
-extern int pk_select;
 extern char voice_name[];
 
 static int frame_width;
-int pk_select;
 
 static int default_freq[N_PEAKS] =
 { 200, 500, 1200, 3000, 3500, 4000, 6900, 7800, 9000 };
@@ -245,7 +242,6 @@ SpectSeq *SpectSeqCreate()
 	spect->frames = NULL;
 	spect->name = NULL;
 
-	pk_select = 1;
 	spect->grid = 1;
 	spect->duration = 0;
 	spect->pitch1 = 0;

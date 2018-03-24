@@ -224,8 +224,6 @@ phoneme_feature_t phoneme_feature_from_string(const char *feature);
 #define phonPAUSE_CLAUSE 27
 #define phonVOWELTYPES   28  // 28 to 33
 
-extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
-
 #define N_PHONEME_TABS     150     // number of phoneme tables
 #define N_PHONEME_TAB      256     // max phonemes in a phoneme table
 #define N_PHONEME_TAB_NAME  32     // must be multiple of 4

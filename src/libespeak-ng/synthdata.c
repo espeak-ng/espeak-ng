@@ -61,13 +61,9 @@ int phoneme_tab_number = 0;
 
 int wavefile_ix; // a wavefile to play along with the synthesis
 int wavefile_amp;
-int wavefile_ix2;
-int wavefile_amp2;
 
 int seq_len_adjust;
 int vowel_transition[4];
-int vowel_transition0;
-int vowel_transition1;
 
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {

@@ -527,8 +527,6 @@ static int CheckDottedAbbrev(char *word1)
 	return count;
 }
 
-extern char *phondata_ptr;
-
 static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
 	// word1 is terminated by space (0x20) character

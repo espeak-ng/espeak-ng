@@ -281,7 +281,6 @@ typedef struct {
 	int flags;
 } ALPHABET;
 
-extern ALPHABET alphabets[];
 extern ALPHABET *current_alphabet;
 // alphabet flags
 #define AL_DONT_NAME    0x01 // don't speak the alphabet name
@@ -654,7 +653,6 @@ extern int option_sayas;
 extern int option_wordgap;
 
 extern int count_characters;
-extern int count_words;
 extern int count_sentences;
 extern int skip_characters;
 extern int skip_words;

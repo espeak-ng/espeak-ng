@@ -127,8 +127,6 @@ static int embedded_max[N_EMBEDDED_VALUES] = { 0, 0x7fff, 750, 300, 99, 99, 99, 
 
 int current_source_index = 0;
 
-extern FILE *f_wave;
-
 #if HAVE_SONIC_H
 static sonicStream sonicSpeedupStream = NULL;
 double sonicSpeed = 1.0;

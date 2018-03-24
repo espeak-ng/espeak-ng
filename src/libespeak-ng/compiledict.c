@@ -45,7 +45,6 @@
 #include "translate.h"
 
 static FILE *f_log = NULL;
-extern char *dir_dictionary;
 
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
