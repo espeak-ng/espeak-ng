@@ -35,7 +35,7 @@ typedef struct {
 extern PARAM_STACK param_stack[];
 
  int clause_type_from_codepoint(uint32_t c);
-int towlower2(unsigned int c); // Supports Turkish I
+int towlower2(unsigned int c, Translator *translator); // Supports Turkish I
 int Eof(void);
 const char *WordToString2(unsigned int word);
 int Read4Bytes(FILE *f);

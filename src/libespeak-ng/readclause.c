@@ -132,7 +132,7 @@ int clause_type_from_codepoint(uint32_t c)
 	return CLAUSE_NONE;
 }
 
-int towlower2(unsigned int c)
+int towlower2(unsigned int c, Translator *translator)
 {
 	// check for non-standard upper to lower case conversions
 	if (c == 'I' && translator->langopts.dotless_i)

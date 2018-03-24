@@ -709,7 +709,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, ALP
 		if (iswupper(letter))
 			Lookup(tr, "_cap", capital);
 	}
-	letter = towlower2(letter);
+	letter = towlower2(letter, tr);
 	LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
 
 	if (ph_buf[0] == 0) {

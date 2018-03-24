@@ -1816,7 +1816,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	// there is a list of character codes to be substituted with alternative codes
 
 	if (iswupper(c_lower = c)) {
-		c_lower = towlower2(c);
+		c_lower = towlower2(c, tr);
 		upper_case = 1;
 	}
 
@@ -1827,7 +1827,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 				new_c = replace_chars[ix+1];
 				break;
 			}
-			if ((word >> 16) == (unsigned int)towlower2(next_in)) {
+			if ((word >> 16) == (unsigned int)towlower2(next_in, tr)) {
 				new_c = replace_chars[ix+1];
 				ignore_next = true;
 				break;
@@ -2146,7 +2146,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 		if ((option_sayas2 == SAYAS_KEY) && (c != ' ')) {
 			if ((prev_in == ' ') && (next_in == ' '))
 				option_sayas2 = SAYAS_SINGLE_CHARS; // single character, speak its name
-			c = towlower2(c);
+			c = towlower2(c, tr);
 		}
 
 
@@ -2284,7 +2284,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				}
 
 				if (iswupper(c)) {
-					c = towlower2(c);
+					c = towlower2(c, tr);
 
 					if ((j = tr->langopts.param[LOPT_CAPS_IN_WORD]) > 0) {
 						if ((j == 2) && (syllable_marked == false)) {
@@ -2297,7 +2297,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 							// lower case followed by upper case in a word
 							if (UpperCaseInWord(tr, &sbuf[ix], c) == 1) {
 								// convert to lower case and continue
-								c = towlower2(c);
+								c = towlower2(c, tr);
 							} else {
 								c = ' '; // lower case followed by upper case, treat as new word
 								space_inserted = true;

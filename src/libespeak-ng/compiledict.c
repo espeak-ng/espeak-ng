@@ -591,7 +591,7 @@ static int compile_line(char *linebuf, char *dict_line, int n_dict_line, int *ha
 			if (c2 == 0)
 				break;
 			if (iswupper(c2))
-				utf8_out(towlower2(c2), p);
+				utf8_out(towlower2(c2, translator), p);
 			else
 				all_upper_case = false;
 			p += ix;
