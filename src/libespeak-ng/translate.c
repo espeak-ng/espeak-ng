@@ -60,7 +60,6 @@ static int option_sayas2 = 0; // used in translate_clause()
 static int option_emphasis = 0; // 0=normal, 1=normal, 2=weak, 3=moderate, 4=strong
 int option_ssml = 0;
 int option_phoneme_input = 0; // allow [[phonemes]] in input
-int option_phoneme_variants = 0; // 0= don't display phoneme variant mnemonics
 int option_wordgap = 0;
 
 static int count_sayas_digits;

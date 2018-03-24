@@ -503,7 +503,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 
 	first = true;
 	for (mnem = ph->mnemonic; (c = mnem & 0xff) != 0; mnem = mnem >> 8) {
-		if ((c == '/') && (option_phoneme_variants == 0))
+		if (c == '/') // NOTE: this line used to be (c == '/') && (option_phoneme_variants == 0)) but always evaluated true
 			break; // discard phoneme variant indicator
 
 		if (use_ipa) {
