@@ -223,7 +223,7 @@ static void DoPause(int length, int control)
 	}
 }
 
-extern int seq_len_adjust; // temporary fix to advance the start point for playing the wav sample
+int seq_len_adjust; // temporary fix to advance the start point for playing the wav sample
 
 static int DoSample2(int index, int which, int std_length, int control, int length_mod, int amp)
 {
@@ -889,7 +889,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	}
 
 	modn_flags = 0;
-	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist);
+	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist, &seq_len_adjust);
 	if (frames == NULL)
 		return 0; // not found
 
