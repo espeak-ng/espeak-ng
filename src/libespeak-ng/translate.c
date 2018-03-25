@@ -2681,7 +2681,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	if (Eof() && ((word_count == 0) || (option_endpause == 0)))
 		clause_pause = 10;
 
-	MakePhonemeList(tr, clause_pause, new_sentence2);
+	MakePhonemeList(tr, clause_pause, new_sentence2, &n_ph_list2, ph_list2);
 	phoneme_list[N_PHONEME_LIST].ph = NULL; // recognize end of phoneme_list array, in Generate()
 	phoneme_list[N_PHONEME_LIST].sourceix = 1;
 

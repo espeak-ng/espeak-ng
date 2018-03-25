@@ -41,10 +41,7 @@ const unsigned char pause_phonemes[8] = {
 	0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG
 };
 
-extern int n_ph_list2;
-extern PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
-
-static int SubstitutePhonemes(PHONEME_LIST *plist_out)
+static int SubstitutePhonemes(PHONEME_LIST *plist_out, int n_ph_list2, PHONEME_LIST2 *ph_list2)
 {
 	// Copy the phonemes list and perform any substitutions that are required for the
 	// current voice
@@ -103,7 +100,7 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out)
 	return n_plist_out;
 }
 
-void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
+void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n_ph_list2, PHONEME_LIST2 *ph_list2)
 {
 	int ix = 0;
 	int j;
@@ -136,11 +133,11 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	memset(&worddata, 0, sizeof(worddata));
 	plist2 = ph_list2;
 	phlist = phoneme_list;
-	end_sourceix = plist2[n_ph_list2-1].sourceix;
+	end_sourceix = plist2[*n_ph_list2 - 1].sourceix;
 
 	// is the last word of the clause unstressed ?
 	max_stress = 0;
-	for (j = n_ph_list2-3; j >= 0; j--) {
+	for (j = *n_ph_list2 - 3; j >= 0; j--) {
 		// start with the last phoneme (before the terminating pauses) and move backwards
 		if ((plist2[j].stresslevel & 0x7f) > max_stress)
 			max_stress = plist2[j].stresslevel & 0x7f;
@@ -164,7 +161,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 	// look for switch of phoneme tables
 	delete_count = 0;
 	current_phoneme_tab = tr->phoneme_tab_ix;
-	for (j = 0; j < n_ph_list2; j++) {
+	for (j = 0; j < *n_ph_list2; j++) {
 		if (current_phoneme_tab != tr->phoneme_tab_ix)
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
 
@@ -185,7 +182,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 
 	}
-	n_ph_list2 -= delete_count;
+	*n_ph_list2 -= delete_count;
 
 	if ((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0) {
 		// set consonant clusters to all voiced or all unvoiced
@@ -194,7 +191,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		bool stop_propagation = false;
 		voicing = 0;
 
-		for (j = n_ph_list2-1; j >= 0; j--) {
+		for (j = *n_ph_list2 - 1; j >= 0; j--) {
 			ph = phoneme_tab[plist2[j].phcode];
 			if (ph == NULL)
 				continue;
@@ -255,7 +252,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence)
 		}
 	}
 
-	n_ph_list3 = SubstitutePhonemes(ph_list3) - 2;
+	n_ph_list3 = SubstitutePhonemes(ph_list3, (int) *n_ph_list2, ph_list2) - 2;
 
 	for (j = 0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);) {
 		if (ph_list3[j].sourceix) {
