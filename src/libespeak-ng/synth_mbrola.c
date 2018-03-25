@@ -52,8 +52,6 @@ char mbrola_name[20];
 
 #ifdef INCLUDE_MBROLA
 
-extern unsigned char *outbuf;
-
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #endif

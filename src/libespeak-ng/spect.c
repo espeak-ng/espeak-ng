@@ -36,8 +36,6 @@
 #include "spect.h"
 #include "ieee80.h"
 
-extern char voice_name[];
-
 static int frame_width;
 
 static int default_freq[N_PEAKS] =

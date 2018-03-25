@@ -77,9 +77,6 @@ typedef struct {
 
 } voice_t;
 
-// percentages shown to user, ix=N_PEAKS means ALL peaks
-extern unsigned short voice_pcnt[N_PEAKS+1][3];
-
 extern espeak_VOICE current_voice_selected;
 
 extern voice_t *voice;
