@@ -61,6 +61,7 @@ int phoneme_tab_number = 0;
 int wavefile_ix; // a wavefile to play along with the synthesis
 int wavefile_amp;
 
+int seq_len_adjust;
 int vowel_transition[4];
 
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
@@ -197,7 +198,7 @@ int LookupPhonemeString(const char *string)
 	return PhonemeCode(mnem);
 }
 
-frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist, int *seq_len_adjust)
+frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist)
 {
 	int ix;
 	int nf;
@@ -219,7 +220,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	if (nf >= N_SEQ_FRAMES)
 		nf = N_SEQ_FRAMES - 1;
 
-	*seq_len_adjust = fmt_params->fmt2_lenadj + fmt_params->fmt_length;
+	seq_len_adjust = fmt_params->fmt2_lenadj + fmt_params->fmt_length;
 	seq_break = 0;
 
 	for (ix = 0; ix < nf; ix++) {
@@ -246,7 +247,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 	// do we need to modify a frame for blending with a consonant?
 	if ((this_ph->type == phVOWEL) && (fmt_params->fmt2_addr == 0) && (fmt_params->use_vowelin))
-		*seq_len_adjust += FormantTransition2(frames, &nf, fmt_params->transition0, fmt_params->transition1, NULL, which);
+		seq_len_adjust += FormantTransition2(frames, &nf, fmt_params->transition0, fmt_params->transition1, NULL, which);
 
 	length1 = 0;
 	nf1 = nf - 1;
@@ -282,7 +283,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 			// adjust the length of the main part to match the standard length specified for the vowel
 			// less the front part of the vowel and any added suffix
 
-			length_std = fmt_params->std_length + (int) *seq_len_adjust - 45;
+			length_std = fmt_params->std_length + seq_len_adjust - 45;
 			if (length_std < 10)
 				length_std = 10;
 			if (plist->synthflags & SFLAG_LENGTHEN)
@@ -306,11 +307,11 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 			} else {
 				// not a vowel
 				if (fmt_params->std_length > 0)
-					*seq_len_adjust += (fmt_params->std_length - length1);
+					seq_len_adjust += (fmt_params->std_length - length1);
 			}
 
 			if (seq_len_adjust != 0) {
-				length_factor = ((length1 + (int) *seq_len_adjust) * 256)/length1;
+				length_factor = ((length1 + seq_len_adjust) * 256)/length1;
 				for (ix = 0; ix < nf1; ix++)
 					frames[ix].length = (frames[ix].length * length_factor)/256;
 			}

@@ -48,8 +48,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph,
 		int which,
 		FMT_PARAMS *fmt_params,
 		int *n_frames,
-		PHONEME_LIST *plist,
-		int *seq_len_adjust);
+		PHONEME_LIST *plist);
 
 int NumInstnWords(unsigned short *prog);
 int PhonemeCode(unsigned int mnem);
