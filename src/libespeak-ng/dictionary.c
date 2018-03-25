@@ -2607,7 +2607,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	// This corresponds to the last matching entry in the *_list file.
 
 	while (*p != 0) {
-		next = p + p[0];
+		next = p + (p[0] & 0xff);
 
 		if (((p[1] & 0x7f) != wlen) || (memcmp(word, &p[2], wlen & 0x3f) != 0)) {
 			// bit 6 of wlen indicates whether the word has been compressed; so we need to match on this also.

@@ -18,6 +18,9 @@ test_phonemes en " h@l'oU" "hello"
 # correct word stress
 test_phonemes en " s'VmTIN Imp'o@t@nt" "something important"
 
+# bug: https://github.com/nvaccess/nvda/issues/7740
+test_phonemes ta " 'il." "ள்"
+
 # bug: https://github.com/nvaccess/nvda/issues/7805
 test_phonemes hi " r'UcI" "रुचि"
 test_phonemes hi " dUk'a:n" "दुकान"
