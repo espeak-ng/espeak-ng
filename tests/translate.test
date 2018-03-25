@@ -20,6 +20,8 @@ test_phonemes en " s'VmTIN Imp'o@t@nt" "something important"
 
 # bug: https://github.com/nvaccess/nvda/issues/7740
 test_phonemes ta " 'il." "ள்"
+test_phonemes my " kon'i" "7"
+test_phonemes ka " s'ami Sv'idi" "3 7"
 
 # bug: https://github.com/nvaccess/nvda/issues/7805
 test_phonemes hi " r'UcI" "रुचि"
@@ -29,11 +31,13 @@ test_phonemes hi " ka:n'u:n" "कानून"
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character
-# TODO: Fix adjacent emoji without whitespace so the pronunciation is separated by a space.
 test_phonemes en " 'e@ri:z" "♈"
+test_phonemes my " pru3'a2nke3DN_|_| mj@@lu3'a2mj@2tsnh,a2N_|_| nm_|n'e3DN_|_| mj@@nh,ats" "😙"
+test_phonemes ka " k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
+test_phonemes ka " 'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
+# TODO: Fix adjacent emoji without whitespace so the pronunciation is separated by a space.
 test_phonemes en " 'e@ri:zr'eInboU" "♈🌈"
 test_phonemes en " 'e@ri:z r'eInboU" "♈ 🌈"
-
 # multi-word
 test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k" "⁉"
 test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
