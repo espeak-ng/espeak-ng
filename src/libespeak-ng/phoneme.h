@@ -281,8 +281,6 @@ typedef struct {
 #define PH3(c1, c2, c3) (c3<<16)+(c2<<8)+c1
 #define PhonemeCode2(c1, c2) PhonemeCode((c2<<8)+c1)
 
-extern const char *WordToString(unsigned int word);
-
 extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 extern int phoneme_tab_number;
 
