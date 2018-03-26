@@ -2389,6 +2389,7 @@ _it_separ) ate (_  @t
  debut) ed (_S2    d#
         edly (_S3m I#dl%i
     nt) edly (_S4m I#dl%i
+    gn) edly (_S4m I#dl%i
    tur) edly (_S3v d#l%i
      c) ed (e_     'i:d
      p) ed (e_     i:d
@@ -2885,6 +2886,7 @@ _it_separ) ate (_  @t
     &p) es (_S1    s
     &t) es (_S1    z#
     &c) es (_S1    %I#z
+ franc) es (_S1    %Is
     &g) es (_S1    %I#z
    &ch) es (_S1    %I#z
    &ph) es (_S1    z
@@ -4774,6 +4776,7 @@ multip) ly         laI
     dr) on (_      @n
     or) on (_      0n
     cr) on (_      0n
+    ck) on (_      @n
     &x) on (_      @n
   phot) on         @n
   pers) on         @n
@@ -5649,6 +5652,7 @@ multip) ly         laI
     &B) red (_     rI2d
     Cb) red (_+    rEd
     uv) re         @
+    uv) red (_     @d
         rer (_     r@
      &) re (_      3
      A) re (_      r@
@@ -5670,7 +5674,7 @@ multip) ly         laI
      _) re (aqP2   ri:
      _) re (arm    %ri:
      _) re (au@P2  ,ri:
-        re (ck     rE
+        re (ckA    rE
      _) re (clina  rE
      _) re (ct     rE
         reco (g    rEk@

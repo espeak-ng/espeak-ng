@@ -3029,7 +3029,9 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	};
 
 	static const char *add_e_additions[] = {
-		"c", "rs", "ir", "ur", "ath", "ns", "u", NULL
+		"c", "rs", "ir", "ur", "ath", "ns", "u",
+		"spong", // sponge
+		NULL
 	};
 
 	for (word_end = word; *word_end != ' '; word_end++) {
