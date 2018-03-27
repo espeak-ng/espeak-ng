@@ -35,6 +35,7 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  en (English) -- Reece Dunn
 *  fi (Finnish) -- Juho Hiltunen
 *  fr (French) -- Shallowmallow, Karl Eick, maiido, Reece Dunn
 *  it (Italian) -- chrislm
