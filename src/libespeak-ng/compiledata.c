@@ -499,7 +499,7 @@ static void CompileReport(void)
 	int procedure_num;
 	int prev_mnemonic;
 
-	if (f_report == NULL)
+	if (f_report == NULL || count_references == 0)
 		return;
 
 	// make a list of all the references and sort it

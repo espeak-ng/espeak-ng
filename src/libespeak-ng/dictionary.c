@@ -2822,7 +2822,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		}
 
 		ix = utf8_in(&c, word);
-		if ((word[ix] == 0) && !IsAlpha(c))
+		if (flags != NULL && (word[ix] == 0) && !IsAlpha(c))
 			flags[0] |= FLAG_MAX3;
 		return word_end;
 
