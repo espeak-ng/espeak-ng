@@ -72,12 +72,27 @@ phoneme I
   FMT(vowel/ii)
 endphoneme
 
+
 phoneme I2
   vwl  starttype #i  endtype #i
   unstressed
   length 130
   IfNextVowelAppend(;)
   FMT(vowel/ii)
+endphoneme
+
+
+phoneme I#   // used for [I] which may be [@] in some accents
+  vwl  starttype #i  endtype #i
+  unstressed
+  length 130
+
+  IF MbrolaSynth THEN
+    ChangePhoneme(I)
+  ENDIF
+
+  IfNextVowelAppend(;)
+  ChangePhoneme(I2)
 endphoneme
 
 
