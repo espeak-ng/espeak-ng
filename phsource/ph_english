@@ -111,7 +111,7 @@ endphoneme
 phoneme n
   vcd alv nas
   ipa n
-  IF nextPh(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
+  IF nextPhW(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
     ChangePhoneme(N)
   ENDIF
   CALL base1/n

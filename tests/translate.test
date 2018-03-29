@@ -39,8 +39,8 @@ test_phonemes ka " 'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "�
 test_phonemes en " 'e@ri:zr'eInboU" "♈🌈"
 test_phonemes en " 'e@ri:z r'eInboU" "♈ 🌈"
 # multi-word
-test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k" "⁉"
-test_phonemes en " Ekskla#m'eIS@N kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
+test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
+test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
 
 # A list entry that uses '$text' to map to another list entry crashes 1.49.2 multi-word support:
 test_phonemes en " d'eIbju:t@d" "débuted"
