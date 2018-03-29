@@ -1,51 +1,51 @@
-# Mbrola Voices
+# MBROLA Voices
 
 - [Voice Names](#voice-names)
 - [Windows Installation](#windows-installation)
 - [Linux Installation](#linux-installation)
   - [Installation of standard packages](#installation-of-standard-packages)
-  - [Installation of latest Mbrola packages](#installation-of-latest-mbrola-packages)
+  - [Installation of latest MBROLA packages](#installation-of-latest-mbrola-packages)
 - [Usage](#usage)
-- [Adding new Mbrola voice entry to eSpeak NG](#adding-new-mbrola-voice-entry-to-espeak-ng)
-  - [1. Add Mbrola voice definition file](#1-add-mbrola-voice-definition-file)
-  - [2. Add Mbrola phoneme translation file](#2-add-mbrola-phoneme-translation-file)
+- [Adding new MBROLA voice entry to eSpeak NG](#adding-new-mbrola-voice-entry-to-espeak-ng)
+  - [1. Add MBROLA voice definition file](#1-add-mbrola-voice-definition-file)
+  - [2. Add MBROLA phoneme translation file](#2-add-mbrola-phoneme-translation-file)
   - [3. Compile voice and update Makefile.am file](#3-compile-voice-and-update-makefileam-file)
 
 ----------
 
-The Mbrola project is a collection of diphone voices for speech
+The MBROLA project is a collection of diphone voices for speech
 synthesis. They do not include any text-to-phoneme translation, so this
-must be done by another program. The Mbrola voices are cost-free but are
+must be done by another program. The MBROLA voices are cost-free but are
 not open source. Voice files are available at
 [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
 
-eSpeak NG can be used as a front-end to Mbrola. It provides the
-spelling-to-phoneme translation and intonation, which Mbrola then uses
+eSpeak NG can be used as a front-end to MBROLA. It provides the
+spelling-to-phoneme translation and intonation, which MBROLA then uses
 to generate speech sound.
 
 ## Voice Names
 
-To use a Mbrola voice, eSpeak NG needs information to translate from its
-own phonemes to the equivalent Mbrola phonemes.
+To use a MBROLA voice, eSpeak NG needs information to translate from its
+own phonemes to the equivalent MBROLA phonemes.
 
-The eSpeak NG voices which use Mbrola are named as:
+The eSpeak NG voices which use MBROLA are named as:
 
 	mb-xxN
 
-where `xxN` is the name of a Mbrola voice (e.g. `mb-en1` for the Mbrola
+where `xxN` is the name of a MBROLA voice (e.g. `mb-en1` for the MBROLA
 `en1` English voice). These voice files are in eSpeak NG's folder
 `.../espeak-ng-data/voices/mb` (where `...` is usually `/usr/share`,
 but could be somewhere else).
 
-The installation instructions below use the Mbrola voice `en1` as an
+The installation instructions below use the MBROLA voice `en1` as an
 example. You can use other mbrola voices for which there is an
 equivalent eSpeak NG voice in `espeak-ng-data/voices/mb`.
 
-There are some additional eSpeak NG Mbrola voices, which speak English text
-using a Mbrola voice for a different language. These contain the name of
-the Mbrola voice with a suffix `-en`. For example, the voice
+There are some additional eSpeak NG MBROLA voices, which speak English text
+using a MBROLA voice for a different language. These contain the name of
+the MBROLA voice with a suffix `-en`. For example, the voice
 `mb-de4-en` will speak English text with a German accent by using the
-Mbrola `de4` voice.
+MBROLA `de4` voice.
 
 ## Windows Installation
 
@@ -54,7 +54,7 @@ The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
 1.  Install eSpeak NG. Include the voice `mb-en1` in the list of voices during
     the eSpeak NG installation.
 
-2.  Install the PC/Windows version of Mbrola (MbrolaTools35.exe) from:
+2.  Install the PC/Windows version of MBROLA (`MbrolaTools35.exe`) from:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe).
 
 3.  Get the `en1` voice from:
@@ -69,23 +69,23 @@ The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
 
 ### Installation of standard packages
 
-There are standard packages prepared for Mbrola binary and voices on different Linux distributions.
+There are standard packages prepared for MBROLA binary and voices on different Linux distributions.
 On Debian/Ubuntu-like Linux, you can install mbrola using `apt-get` package manager:
 
 	sudo apt-get install mbrola mbrola-en1
 
 where:
 
-* `mbrola` is package containing Mbrola executable,
-* `mbrola-en1` is mbrola data files for **en1** Mbrola voice.
+* `mbrola` is package containing MBROLA executable,
+* `mbrola-en1` is mbrola data files for **en1** MBROLA voice.
 
 You can check other available voices searching with command:
 
 	apt-cache search mbrola
 
-### Installation of latest Mbrola packages
+### Installation of latest MBROLA packages
 
-1.  To install the latest Mbrola binary for Linux, download:
+1.  To install the latest MBROLA binary for Linux, download:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip).
 
 2.  Unpack the archive, and copy and rename the file from: `mbrola-linux-i386` to `mbrola` somewhere in your executable path (eg. `/usr/bin/mbrola`).
@@ -116,55 +116,55 @@ or
 
 	espeak-ng -v mb-en1 -q --pho --phonout=out.pho "Hello world"
 
-If you have issues with sound system integration, you can pass Mbrola's output to standard output,
+If you have issues with sound system integration, you can pass MBROLA's output to standard output,
 which then can be played by ALSA (`aplay`) or PulseAudio (`paplay`) player throug the pipe:
 
         espeak-ng -vmb-en1 --stdout "Hello world"|aplay
 
-## Adding new Mbrola voice entry to eSpeak NG
+## Adding new MBROLA voice entry to eSpeak NG
 
-To add new Mbrola voice entry for eSpeak NG you have to:
+To add new MBROLA voice entry for eSpeak NG you have to:
 
-1. add Mbrola voice definition file,
-2. add Mbrola phoneme translation file,
+1. add MBROLA voice definition file,
+2. add MBROLA phoneme translation file,
 3. update Makefile.am file and compile voice.
 
 These steps are described in details in following sections.
 
-### 1. Add Mbrola voice definition file
+### 1. Add MBROLA voice definition file
 
-eSpeak NG's voice files for Mbrola voices are in `espeak-ng-data/voices/mb` folder.
+eSpeak NG's voice files for MBROLA voices are in `espeak-ng-data/voices/mb` folder.
 Voice definition file is in form `mb-xxN` and have to contain at least this line:
 `mbrola <voice> <translation>`, e.g.
 
 	mbrola en1 en1_phtrans
 
 Where:
-* `en1` is the name of the Mbrola voice.
+* `en1` is the name of the MBROLA voice.
 * `en1_phtrans` is a translation file to convert between eSpeak NG phonemes and
-  the equivalent Mbrola phonemes.
+  the equivalent MBROLA phonemes.
 
 Binary `xxN_phtrans` files are kept in `espeak-ng-data/mbrola_ph` folder
-and are generated from `phsource/mb/xxN` text files, during Mbrola
+and are generated from `phsource/mb/xxN` text files, during MBROLA
 voice compilation.
 
-Additionaly Mbrola voice definition file can have other optional parameters,
+Additionaly MBROLA voice definition file can have other optional parameters,
 similar to eSpeak NG voices, which are described [Voices](voices.md) file.
 
-### 2. Add Mbrola phoneme translation file
+### 2. Add MBROLA phoneme translation file
 
-Mbrola phoneme translation files specify translations from eSpeak NG
+MBROLA phoneme translation files specify translations from eSpeak NG
 phoneme names to mbrola phoneme names.
 
 The source phoneme translation files are in `.../phsource/mbrola` folder and
-their name is in form `xxN` of referenced Mbrola voice.
+their name is in form `xxN` of referenced MBROLA voice.
 
 _Note:_
 
 * eSpeak NG phonemes are referenced from voice files in `phsource` folder of particular language e.g.
 `ph_english` and/or general `phonemes` file.
 
-* Mbrola phonemes are usualy listed in `xxN.txt` file of Mbrola voice.
+* MBROLA phonemes are usualy listed in `xxN.txt` file of MBROLA voice.
 
 Each line in the mbrola phoneme translation file contains:
 
@@ -224,7 +224,7 @@ given in the mbrola phoneme translation file.
 If the language's `*_list` or `*_rules` files includes rules to speak
 words "as English" the mbrola phoneme translation file should include
 rules which translate English phonemes into near equivalents, so that
-they can spoken by the Mbrola voice.
+they can spoken by the MBROLA voice.
 
 For latest Linux verson of `mbrola` you can get list of diphones for particular
 language by entering command:
@@ -238,16 +238,16 @@ When phoneme translation source file is compiled (look at next section)
 
 ### 3. Compile voice and update Makefile.am file
 
-Separate Mbrola voice can be compiled using comand:
+Separate MBROLA voice can be compiled using comand:
 
 	espeak-ng --compile-mbrola=<xxN>
 
-where `xxN` is Mbrola voice name.
+where `xxN` is MBROLA voice name.
 
 `Makefile.am` is build configuration file which should be extended, to include automatic compilation
-of newly added Mbrola voice for eSpeak NG.
+of newly added MBROLA voice for eSpeak NG.
 
-Search for  `mbrola: \` line in `Makefile.am` and add additional line for newly created Mbrola voice, e.g.:
+Search for  `mbrola: \` line in `Makefile.am` and add additional line for newly created MBROLA voice, e.g.:
 
 	mbrola: \
 	...
@@ -261,5 +261,5 @@ Note that it could be that several voices share the same translation file. Then 
 is named just `xx`.
 
 When `Makefile.am` is update, when espek-ng will be compiled, e.g. by
-entering command `automake; make -B` newly added Mbrola voice will be compiled automatically.
+entering command `automake; make -B` newly added MBROLA voice will be compiled automatically.
 
