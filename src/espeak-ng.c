@@ -447,7 +447,7 @@ int main(int argc, char **argv)
 				quiet = true;
 				break;
 			} else {
-				fprintf(stderr, "Voice name not specified\n", optarg2);
+				fprintf(stderr, "Voice name to '%s' not specified.\n", c == 0x101 ? "--compile-debug" : "--compile");
 				exit(EXIT_FAILURE);
 			}
 		case 0x103: // --punct
