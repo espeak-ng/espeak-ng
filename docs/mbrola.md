@@ -47,6 +47,86 @@ the MBROLA voice with a suffix `-en`. For example, the voice
 `mb-de4-en` will speak English text with a German accent by using the
 MBROLA `de4` voice.
 
+The following MBROLA voices are available. Not all are supported by eSpeak NG.
+
+| MBROLA Voice | Language             | Gender | eSpeak   | Debian Package |
+|--------------|----------------------|--------|----------|----------------|
+| `af1`        | Afrikaans            | male   | `mb-af1` | `mbrola-af1`   |
+| `ar1`        | Arabic               | male   | `mb-ar1` |                |
+| `ar2`        | Arabic               | male   | `mb-ar2` |                |
+| `br1`        | Brazillian Portugues | male   | `mb-br1` | `mbrola-br1`   |
+| `br2`        | Brazillian Portugues | male   | `mb-br2` | `mbrola-br2`   |
+| `br3`        | Brazillian Portugues | male   | `mb-br3` | `mbrola-br3`   |
+| `br4`        | Brazillian Portugues | female | `mb-br4` | `mbrola-br4`   |
+| `bz1`        | Breton               | female |          |                |
+| `ca1`        | Canadian French      | male   |          |                |
+| `ca2`        | Canadian French      | male   |          |                |
+| `cn1`        | Mandarin Chinese     | female | `mb-cn1` |                |
+| `cr1`        | Croatian             | male   | `mb-cr1` | `mbrola-cr1`   |
+| `cz1`        | Czech                | female | `mb-cz1` |                |
+| `cz2`        | Czech                | male   | `mb-cz2` | `mbrola-cz2`   |
+| `de1`        | German               | female | `mb-de1` | `mbrola-de1`   |
+| `de2`        | German               | male   | `mb-de2` | `mbrola-de2`   |
+| `de3`        | German               | female | `mb-de3` | `mbrola-de3`   |
+| `de4`        | German               | male   | `mb-de4` | `mbrola-de4`   |
+| `de5`        | German               | female | `mb-de5` | `mbrola-de5`   |
+| `de6`        | German               | male   | `mb-de6` | `mbrola-de6`   |
+| `de7`        | German               | female | `mb-de7` | `mbrola-de7`   |
+| `de8`        | German-Bavarian      | male   |          |                |
+| `ee1`        | Estonian             | male   |          | `mbrola-ee1`   |
+| `en1`        | British English      | female | `mb-en1` | `mbrola-en1`   |
+| `es1`        | Spanish              | male   | `mb-es1` | `mbrola-es1`   |
+| `es2`        | Spanish              | male   | `mb-es2` | `mbrola-es2`   |
+| `es3`        | Spanish              | female |          |                |
+| `es4`        | Spanish              | male   |          |                |
+| `fr1`        | French               | male   | `mb-fr1` | `mbrola-fr1`   |
+| `fr2`        | French               | female |          |                |
+| `fr3`        | French               | male   |          |                |
+| `fr4`        | French               | female | `mb-fr4` | `mbrola-fr4`   |
+| `fr5`        | Belgian French       | male   |          |                |
+| `fr6`        | French               | male   |          |                |
+| `fr7`        | Belgian French       | male   |          |                |
+| `gr1`        | Greek                | male   |          | `mbrola-gr1`   |
+| `gr2`        | Greek                | male   | `mb-gr2` | `mbrola-gr2`   |
+| `hb1`        | Hebrew               | male   |          |                |
+| `hb2`        | Hebrew               | female |          |                |
+| `hn1`        | Korean               | male   |          |                |
+| `hu1`        | Hungarian            | female | `mb-hu1` | `mbrola-hu1`   |
+| `ic1`        | Icelandic            | male   | `mb-ic1` | `mbrola-ic1`   |
+| `in1`        | Hindi                | male   |          |                |
+| `in2`        | Hindi                | female |          |                |
+| `id1`        | Indonesian           | male   | `mb-id1` | `mbrola-id1`   |
+| `ir1`        | Iranian Persian      | male   | `mb-ir1` | `mbrola-ir1`   |
+| `it1`        | Italian              | male   | `mb-it1` |                |
+| `it2`        | Italian              | female | `mb-it2` |                |
+| `it3`        | Italian              | male   |          | `mbrola-it3`   |
+| `it4`        | Italian              | female |          | `mbrola-it4`   |
+| `jp1`        | Japanese             | male   |          |                |
+| `jp2`        | Japanese             | female |          |                |
+| `jp3`        | Japanese             | female |          |                |
+| `la1`        | Classical Latin      | male   | `mb-la1` | `mbrola-la1`   |
+| `lt1`        | Lithuanian           | male   | `mb-lt1` | `mbrola-lt1`   |
+| `lt2`        | Lithuanian           | male   | `mb-lt2` | `mbrola-lt2`   |
+| `ma1`        | Malay                | female |          |                |
+| `mx1`        | Mexican Spanish      | male   | `mb-mx1` | `mbrola-mx1`   |
+| `mx2`        | Mexican Spanish      | male   | `mb-mx2` | `mbrola-mx2`   |
+| `nl1`        | Dutch                | male   |          |                |
+| `nl2`        | Dutch                | male   | `mb-nl2` | `mbrola-nl2`   |
+| `nl3`        | Dutch                | female |          |                |
+| `nz1`        | Maori                | male   |          |                |
+| `pl1`        | Polish               | female | `mb-pl1` | `mbrola-pl1`   |
+| `pt1`        | Portuguese           | female | `mb-pt1` | `mbrola-pt1`   |
+| `ro1`        | Romanian             | male   | `mb-ro1` | `mbrola-ro1`   |
+| `sw1`        | Swedish              | male   | `mb-sw1` | `mbrola-sw1`   |
+| `sw2`        | Swedish              | female | `mb-sw2` | `mbrola-sw2`   |
+| `tl1`        | Telugu               | female |          |                |
+| `tr1`        | Turkish              | male   | `mb-tr1` | `mbrola-tr1`   |
+| `tr2`        | Turkish              | female | `mb-tr2` | `mbrola-tr2`   |
+| `us1`        | American English     | female | `mb-us1` | `mbrola-us1`   |
+| `us2`        | American English     | male   | `mb-us2` | `mbrola-us2`   |
+| `us3`        | American English     | male   | `mb-us3` | `mbrola-us3`   |
+| `vz1`        | Venezuelan Spanish   | male   | `mb-vz1` | `mbrola-vz1`   |
+
 ## Windows Installation
 
 The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
@@ -57,7 +137,7 @@ The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
 2.  Install the PC/Windows version of MBROLA (`MbrolaTools35.exe`) from:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe).
 
-3.  Get the `en1` voice from:
+3.  Get the `en1` or other voice from:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
 
 4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" folder) into
@@ -90,7 +170,7 @@ You can check other available voices searching with command:
 
 2.  Unpack the archive, and copy and rename the file from: `mbrola-linux-i386` to `mbrola` somewhere in your executable path (eg. `/usr/bin/mbrola`).
 
-3.  Get for example `en1` voice from:
+3.  Get the `en1` or other voice from:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
 
 4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" folder) to `/usr/share/mbrola/en1` folder.
