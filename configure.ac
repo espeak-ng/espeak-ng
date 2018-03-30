@@ -15,6 +15,7 @@ dnl Program checks.
 dnl ================================================================
 
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
@@ -100,6 +101,19 @@ if test "$FREEBSD_FOUND" = "yes" ; then
 else
 	AC_MSG_RESULT([no])
 fi
+
+
+dnl ================================================================
+dnl Sanitizer checks.
+dnl ================================================================
+
+AC_ARG_WITH([sanitize],
+    [AS_HELP_STRING([--with-sanitize=no|address|memory|undefined], [use the LLVM sanitizer @<:@default=no@:>@])],
+    [SANITIZE=$with_sanitize],
+    [SANITIZE=no])
+AM_CONDITIONAL(OPT_SANITIZE, [test ! x"$SANITIZE" = xno])
+AC_SUBST(SANITIZE)
+
 
 dnl ================================================================
 dnl library checks.
@@ -283,6 +297,7 @@ AX_CHECK_COMPILE_FLAG([-Wuninitialized],         [CFLAGS="-Wuninitialized $CFLAG
 AX_CHECK_COMPILE_FLAG([-Wunused],                [CFLAGS="-Wunused $CFLAGS"])
 AX_CHECK_COMPILE_FLAG([-Wunused-parameter],      [CFLAGS="-Wunused-parameter $CFLAGS"])
 
+
 dnl ================================================================
 dnl libFuzzer checks.
 dnl ================================================================
@@ -314,6 +329,7 @@ AC_MSG_NOTICE([
 
         C99 Compiler:                  ${CC}
         C99 Compiler flags:            ${CFLAGS}
+        Sanitize:                      ${SANITIZE}
 
         Sonic:                         ${have_sonic}
         PCAudioLib:                    ${have_pcaudiolib}
