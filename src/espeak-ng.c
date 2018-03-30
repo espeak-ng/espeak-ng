@@ -441,7 +441,7 @@ int main(int argc, char **argv)
 			break;
 		case 0x101: // --compile-debug
 		case 0x102: // --compile
-			if (optarg2 != NULL) {
+			if (optarg2 != NULL && *optarg2) {
 				strncpy0(voicename, optarg2, sizeof(voicename));
 				flag_compile = c;
 				quiet = true;
