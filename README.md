@@ -27,11 +27,9 @@
 ----------
 
 The eSpeak NG (Next Generation) Text-to-Speech program is an open source speech
-synthesizer that supports [101 languages and accents](docs/languages.md).
-It is based on the eSpeak engine created by Jonathan Duddington. It uses
-spectral formant synthesis by default which sounds robotic, but can be
-configured to use Klatt formant synthesis or MBROLA to give it a more natural
-sound.
+synthesizer that supports [101 languages and accents](docs/languages.md),
+based on the eSpeak engine created by Jonathan Duddington. It supports spectral
+and Klatt formant synthesis, and the ability to use MBROLA voices.
 
 See the [CHANGELOG](CHANGELOG.md) for a description of the changes in the
 various releases and with the eSpeak project.
@@ -344,16 +342,16 @@ options available to these commands with example usage.
 
 ## eSpeak Compatibility
 
-The *espeak-ng* binaries expose the same command-line options as *espeak*, with
-several additions to expose new functionality from *espeak-ng* such as specifying
+The *espeak-ng* binaries use the same command-line options as *espeak*, with
+several additions to provide new functionality from *espeak-ng* such as specifying
 the output audio device name to use. The build creates symlinks of `espeak` to
 `espeak-ng`, and `speak` to `speak-ng`.
 
-The espeak `speak_lib.h` include file is provided in `espeak-ng/speak_lib.h` with
-an optional symlink in `espeak/speak_lib.h`. This file contains the espeak API as
-of 1.48.15, with a change to the `ESPEAK_API` macro to fix building on Windows,
-and some minor changes to the documentation comments. Thus, the C API is API and
-ABI compatible with espeak.
+The espeak `speak_lib.h` include file is located in `espeak-ng/speak_lib.h` with
+an optional symlink in `espeak/speak_lib.h`. This file contains the espeak 1.48.15
+API, with a change to the `ESPEAK_API` macro to fix building on Windows
+and some minor changes to the documentation comments. This C API is API and ABI
+compatible with espeak.
 
 The `espeak-data` data has been moved to `espeak-ng-data` to avoid conflicts with
 espeak. There have been various changes to the voice, dictionary and phoneme files
