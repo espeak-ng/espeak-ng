@@ -77,7 +77,7 @@ distclean-local:
 
 ##### custom rules:
 
-SUFFIXES=.html .md .ronn .check .test _emoji _extra _dict
+SUFFIXES=.html .md .ronn .check .test
 
 .md.html: _layouts/webpage.html
 	cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
@@ -435,7 +435,7 @@ espeakdata: \
 
 ##### dictionaries:
 
-dictsource/_emoji:
+dictsource/%_emoji:
 	@echo "  EMOJI     $@"
 	@if test x"${CLDR_PATH}" = x ; then \
 		touch $@ ; \
@@ -446,10 +446,10 @@ dictsource/_emoji:
 			${CLDR_PATH} > $@ ; \
 	fi
 
-dictsource/_extra:
+dictsource/%_extra:
 	touch $@
 
-espeak-ng-data/_dict: src/espeak-ng phsource/phonemes.stamp
+espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
 	@cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
 		--compile=`echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'` && cd ..
