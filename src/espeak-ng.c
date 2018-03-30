@@ -441,10 +441,15 @@ int main(int argc, char **argv)
 			break;
 		case 0x101: // --compile-debug
 		case 0x102: // --compile
-			strncpy0(voicename, optarg2, sizeof(voicename));
-			flag_compile = c;
-			quiet = true;
-			break;
+			if (optarg2 != NULL) {
+				strncpy0(voicename, optarg2, sizeof(voicename));
+				flag_compile = c;
+				quiet = true;
+				break;
+			} else {
+				fprintf(stderr, "Voice name not specified\n", optarg2);
+				exit(EXIT_FAILURE);
+			}
 		case 0x103: // --punct
 			option_punctuation = 1;
 			if (optarg2 != NULL) {
