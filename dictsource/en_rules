@@ -2167,7 +2167,7 @@ _it_separ) ate (_  @t
    cel) e (bra     @
         e (bria    i:
      _) e (bulli   %I
-     m) e (chanic  I
+     m) e (chanic  I#
     sp) e (cial    E
     sp) e (cies    i:
      _) e (ccen    e#
@@ -2192,7 +2192,8 @@ _it_separ) ate (_  @t
         e (ffic    %I
         e (ffica   E
         efier (_   I#faI3
-        e (ful 
+        e (field   // e.g. forcefield
+        e (ful     // e.g. forceful
      _) e (ffu     %I
     @@) efy (_     I#faI
      l) e (gal     i:
@@ -4936,6 +4937,7 @@ multip) ly         laI
     _f) ore (kn    O@,
      f) or (k      O@
     _f) or (s@     %O@
+    _f) or (cL04   o@
     ch) or (d      O@
      l) or (d      O@
     _m) or         O@
@@ -5588,10 +5590,12 @@ multip) ly         laI
         quas (A    kweIz
         quasi      kweIzaI
      @) que (_     k
+   sin) que        k
      @) qu (erade  k
      @) qu (é_     k
      _) que (_     kwE
         qu (er_    k
+     @) qu (ez_    k
      _) ques (A    keIs
         quest      kwEst
         questio (n  kwEstS@
