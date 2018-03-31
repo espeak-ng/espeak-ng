@@ -27,11 +27,8 @@ bin_PROGRAMS =
 lib_LTLIBRARIES =
 man1_MANS =
 
-noinst_bin_PROGRAMS =
-noinst_bindir =
-
-noinst_lib_LTLIBRARIES =
-noinst_libdir =
+check_PROGRAMS =
+check_LTLIBRARIES =
 
 ##### ChangeLog:
 
@@ -220,7 +217,7 @@ src_espeak_ng_SOURCES = src/espeak-ng.c
 # Test version of libespeak-ng.so with access to the internal APIs, so they can
 # be accessed in the test code. This version should not be installed, as the
 # internal APIs are not guaranteed to be stable between releases.
-lib_LTLIBRARIES += src/libespeak-ng-test.la
+check_LTLIBRARIES += src/libespeak-ng-test.la
 
 src_libespeak_ng_test_la_LDFLAGS = $(src_libespeak_ng_la_LDFLAGS)
 src_libespeak_ng_test_la_CFLAGS  = \
@@ -228,18 +225,18 @@ src_libespeak_ng_test_la_CFLAGS  = \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
 
-noinst_bin_PROGRAMS += tests/encoding.test
+check_PROGRAMS += tests/encoding.test
 
 tests_encoding_test_LDADD   = src/libespeak-ng.la
 tests_encoding_test_SOURCES = tests/encoding.c
 
-noinst_bin_PROGRAMS += tests/readclause.test
+check_PROGRAMS += tests/readclause.test
 
 tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_readclause_test_LDADD   = src/libespeak-ng-test.la
 tests_readclause_test_SOURCES = tests/readclause.c
 
-noinst_bin_PROGRAMS += tests/api.test
+check_PROGRAMS += tests/api.test
 
 tests_api_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_api_test_LDADD   = src/libespeak-ng-test.la
@@ -264,12 +261,12 @@ check:	tests/encoding.check \
 if !HAVE_LIBFUZZER
 # libfuzzrunner is a stub implementation of libFuzzer that calls the
 # LLVMFuzzerTestOneInput with the files passed to the fuzzer program.
-lib_LTLIBRARIES += tests/libfuzzrunner.la
+check_LTLIBRARIES += tests/libfuzzrunner.la
 tests_libfuzzrunner_la_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
 endif
 
-noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
+check_PROGRAMS += tests/ssml-fuzzer.test
 tests_ssml_fuzzer_test_CFLAGS  = ${AM_CFLAGS}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
 tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
