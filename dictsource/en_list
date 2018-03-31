@@ -784,8 +784,8 @@ acclimate	akl@meIt
 accompli	a#k0mpl'i:
 accouchement	a#ku:SmO~
 accurate	$alt2
-accursed	a#k3:sI#d
-?5 accursed	a#kVRsI#d
+accursed	a#k3:sI2d	// adjective
+?5 accursed	a#kVRsI2d	// adjective
 accuses		a#kju:zI#z
 accusation	akju:z'eIS@n
 acer		eIs3
@@ -1738,7 +1738,7 @@ divan		dI#van
 doable		du:@b@L
 doctrine	d0ktrI2n
 doctrinal	$alt1
-dogged		d0gI#d
+dogged		d0gI2d	// adjective
 dogmatic	d0gm'atIk
 dogsled		$alt1
 doin		du:In
@@ -2333,7 +2333,7 @@ invalidity	I2nv@lIdI#ti
 
 jackrabbit	dZ'akr,abIt
 jacuzzi		dZ@ku:zi
-jagged		dZagI#d
+jagged		dZagI2d	// adjective
 jaguar		dZagwA@
 jalapeno	hA:l@p'eIn;oU
 jalopy		$alt3
@@ -2418,7 +2418,7 @@ leafy		li:fi
 (lean-to)	li:n||tu:
 leant		lEnt
 leapt		lEpt
-learned		l3:nI#d		$noun
+learned		l3:nI2d		$noun	// adjective
 legalese	li:g@l'i:z
 lego		lEgoU
 leisure		lEZ3
@@ -2676,7 +2676,7 @@ myspace		maIspeIs
 naif		naI'i:f
 naïve		naI'i:v
 naivete		naI'i:v@teI
-naked		neIkI#d
+naked		neIkI2d	// adjective
 narrative	nar@tIv
 ?3 narrator	nareIt3
 nasa		nasa#
@@ -3100,7 +3100,7 @@ rabbi		rabaI
 rabbis		rabaIz
 rabid		$alt6
 radish		radIS
-ragged		ragI#d
+ragged		ragI2d	// adjective
 raiment		reIm@nt
 rainforest	r'eInf,0rI2st
 (raison d'être)	reIz0n||d'Etr@-
@@ -3259,7 +3259,7 @@ routine		$2
 row		roU
 //row		raU	$noun
 royale		rOI'al
-rugged		rVgI#d
+rugged		rVgI2d	// adjective
 ruin		ru:I2n          // for ruining
 rumen		$alt2
 ruses		ru:zI#z
@@ -3331,8 +3331,8 @@ seabed		si:bEd
 sealion		si:laI@n
 seance		seI0ns
 secant		si:k@nt
-seconded	s@k0ndI#d
-secondment	s@k0ndm@nt
+seconded	sI#k0ndI#d
+secondment	sI#k0ndm@nt
 secrecy		si:krI#si
 secret		si:krI#t
 secrete		sI#kri:t
@@ -3866,7 +3866,7 @@ whoe're		hu:'e@
 whois		hu:'Iz
 whol		hoUl          // for wholly
 wholehearted	$2
-wicked		wIkI#d
+wicked		wIkI2d	// adjective
 width		wItT
 wilderness	wIld3n@s
 wifi		waIfaI
@@ -3897,7 +3897,7 @@ wound		waUnd         $past $only
 (wound down)	w,aUnd||'daUn
 (wound up)	w,aUnd||'Vp
 wounded		wu:ndI#d
-wretched	rEtSI#d
+wretched	rEtSI2d	// adjective
 writable	raIt@b@L
 writh		raID
 wrongdoing	r0Ndu:IN
