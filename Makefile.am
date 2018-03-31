@@ -27,11 +27,8 @@ bin_PROGRAMS =
 lib_LTLIBRARIES =
 man1_MANS =
 
-noinst_bin_PROGRAMS =
-noinst_bindir =
-
+check_PROGRAMS =
 check_LTLIBRARIES =
-noinst_libdir =
 
 ##### ChangeLog:
 
@@ -228,18 +225,18 @@ src_libespeak_ng_test_la_CFLAGS  = \
 	${PCAUDIOLIB_CFLAGS} ${AM_CFLAGS}
 src_libespeak_ng_test_la_SOURCES = $(src_libespeak_ng_la_SOURCES)
 
-noinst_bin_PROGRAMS += tests/encoding.test
+check_PROGRAMS += tests/encoding.test
 
 tests_encoding_test_LDADD   = src/libespeak-ng.la
 tests_encoding_test_SOURCES = tests/encoding.c
 
-noinst_bin_PROGRAMS += tests/readclause.test
+check_PROGRAMS += tests/readclause.test
 
 tests_readclause_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_readclause_test_LDADD   = src/libespeak-ng-test.la
 tests_readclause_test_SOURCES = tests/readclause.c
 
-noinst_bin_PROGRAMS += tests/api.test
+check_PROGRAMS += tests/api.test
 
 tests_api_test_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_api_test_LDADD   = src/libespeak-ng-test.la
@@ -269,7 +266,7 @@ tests_libfuzzrunner_la_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
 tests_libfuzzrunner_la_SOURCES = tests/fuzzrunner.c
 endif
 
-noinst_bin_PROGRAMS += tests/ssml-fuzzer.test
+check_PROGRAMS += tests/ssml-fuzzer.test
 tests_ssml_fuzzer_test_CFLAGS  = ${AM_CFLAGS}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
 tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
