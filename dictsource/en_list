@@ -784,8 +784,8 @@ acclimate	akl@meIt
 accompli	a#k0mpl'i:
 accouchement	a#ku:SmO~
 accurate	$alt2
-accursed	a#k3:sI2d	// adjective
-?5 accursed	a#kVRsI2d	// adjective
+accursed	a#k3:sI2#d	// adjective
+?5 accursed	a#kVRsI2#d	// adjective
 accuses		a#kju:zI#z
 accusation	akju:z'eIS@n
 acer		eIs3
@@ -1738,7 +1738,7 @@ divan		dI#van
 doable		du:@b@L
 doctrine	d0ktrI2n
 doctrinal	$alt1
-dogged		d0gI2d	// adjective
+dogged		d0gI2#d	// adjective
 dogmatic	d0gm'atIk
 dogsled		$alt1
 doin		du:In
@@ -2333,7 +2333,7 @@ invalidity	I2nv@lIdI#ti
 
 jackrabbit	dZ'akr,abIt
 jacuzzi		dZ@ku:zi
-jagged		dZagI2d	// adjective
+jagged		dZagI2#d	// adjective
 jaguar		dZagwA@
 jalapeno	hA:l@p'eIn;oU
 jalopy		$alt3
@@ -2418,7 +2418,7 @@ leafy		li:fi
 (lean-to)	li:n||tu:
 leant		lEnt
 leapt		lEpt
-learned		l3:nI2d		$noun	// adjective
+learned		l3:nI2#d		$noun	// adjective
 legalese	li:g@l'i:z
 lego		lEgoU
 leisure		lEZ3
@@ -2676,7 +2676,7 @@ myspace		maIspeIs
 naif		naI'i:f
 naïve		naI'i:v
 naivete		naI'i:v@teI
-naked		neIkI2d	// adjective
+naked		neIkI2#d	// adjective
 narrative	nar@tIv
 ?3 narrator	nareIt3
 nasa		nasa#
@@ -3100,7 +3100,7 @@ rabbi		rabaI
 rabbis		rabaIz
 rabid		$alt6
 radish		radIS
-ragged		ragI2d	// adjective
+ragged		ragI2#d	// adjective
 raiment		reIm@nt
 rainforest	r'eInf,0rI2st
 (raison d'être)	reIz0n||d'Etr@-
@@ -3259,7 +3259,7 @@ routine		$2
 row		roU
 //row		raU	$noun
 royale		rOI'al
-rugged		rVgI2d	// adjective
+rugged		rVgI2#d	// adjective
 ruin		ru:I2n          // for ruining
 rumen		$alt2
 ruses		ru:zI#z
@@ -3866,7 +3866,7 @@ whoe're		hu:'e@
 whois		hu:'Iz
 whol		hoUl          // for wholly
 wholehearted	$2
-wicked		wIkI2d	// adjective
+wicked		wIkI2#d	// adjective
 width		wItT
 wilderness	wIld3n@s
 wifi		waIfaI
@@ -3897,7 +3897,7 @@ wound		waUnd         $past $only
 (wound down)	w,aUnd||'daUn
 (wound up)	w,aUnd||'Vp
 wounded		wu:ndI#d
-wretched	rEtSI2d	// adjective
+wretched	rEtSI2#d	// adjective
 writable	raIt@b@L
 writh		raID
 wrongdoing	r0Ndu:IN

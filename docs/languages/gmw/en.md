@@ -15,8 +15,8 @@ this document:
 
 | BCP47          | Abbreviation | Accent Name            |
 |----------------|--------------|------------------------|
-| en             |              | British English        |
-| en-029         |              | Caribbean              |
+| en             | BrE          | British English        |
+| en-029         | JaE          | Caribbean              |
 | en-GB-scotland | ScE          | Scottish English       |
 | en-GB-x-gbclan |              | Lancastrian            |
 | en-GB-x-gbcwmd |              | West Midlands          |
@@ -100,11 +100,12 @@ These are unstressed vowels that differ from the vowels in the main lexical sets
 
 Additionally, espeak-ng has the following phonemes for unstressed vowels.
 
-| Lexical Set | en    |
-|-------------|-------|
-| EXPLORE     | `e#`  |
-| ROSES       | `I#`  |
-| RABBIT      | `I2`  |
+| Lexical Set | en    | BrE   | RP    | GenAm | JaE   |
+|-------------|-------|-------|-------|-------|-------|
+| EXPLORE     | `e#`  | ɛ     | ɪ     | ɛ     | ɛ     |
+| ROSES       | `I#`  | ə     | ɪ     | ᵻ     | ɪ     |
+| BLESSED     | `I2#` | ɪ     | ɪ     | ᵻ     | ɛ     |
+| RABBIT      | `I2`  | ɪ     | ɪ     | ɪ     | ɪ     |
 
 The EXPLORE lexical set is used to support unstressed KIT vowels that have split
 from the KIT vowel and merged with the DRESS vowel in some accents. This includes
@@ -112,6 +113,9 @@ from the KIT vowel and merged with the DRESS vowel in some accents. This include
 
 The ROSES lexical set is used for words that are KIT in some accents and COMMA
 in others. The degree to which this occurs varies between accents and speakers.
+
+The BLESSED lexical set is used for -ed based adjectives. These tend to preserve
+the KIT vowel in accents.
 
 The RABBIT lexical set is used for unstressed KIT vowels. Some American accents
 have merged this with the COMMA lexical set, such that `rabbit` and `abbot`

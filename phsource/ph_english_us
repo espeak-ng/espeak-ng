@@ -124,6 +124,13 @@ phoneme I#
 endphoneme
 
 
+phoneme I2#
+  vwl  starttype #i  endtype #i
+  unstressed
+  ChangePhoneme(I#)
+endphoneme
+
+
 phoneme 0
   vwl  starttype #a   endtype #a
   length 220
