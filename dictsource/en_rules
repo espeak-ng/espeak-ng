@@ -864,6 +864,8 @@
    &Cl) an (_      @n
     &m) an (_      @n
 ?8  &m) an (_      a#n
+    &m) ann (_     @n
+?8  &m) ann (_     a#n
     an) an (_S1    n
      p) an (_      an
     tr) an (_      an
@@ -1072,8 +1074,7 @@ calend) ar         3
     &w) ar (d_     %3
     aw) ar (d      O@
    eot) ar (d_     A@
-    &z) ar (d_     3
-        ar (dry    3
+    &z) ar (d      3
      h) ar (ass    @r
     _h) ar (ang    a#r
     &m) aran       @ran
@@ -6054,6 +6055,7 @@ multip) ly         laI
         t (ap_     t2
     ie) t (ary_    t2
      A) tch        tS
+     y) tch        tS
         tech       t2E2k
      @) tek (_S3   tEk
      _) tele       tElI#
@@ -6714,6 +6716,8 @@ contin) u          ju:
      c) y (lin     I
      c) y (r       I
      @) yr (d_     3:
+     w) yr (m      3:
+     w) yr (B      i@
     th) y (l_      aI
     fl) y          aI
     fl) y (n       I
