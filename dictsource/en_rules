@@ -2730,6 +2730,8 @@ _it_separ) ate (_  @t
 .group er
      &) er         3
    @@@) er (_S2de  3         // suffix
+   @ed) er (_S2d   3         // suffix, adjective
+   ied) er (_S2de  3         // suffix
     %C) er (_S3    3
     mm) er (_      3
     rn) er (_S2    3
@@ -2936,8 +2938,12 @@ _it_separ) ate (_  @t
    &tr) ess (_     @s
   dist) ess (_     Es
      &) es (y_     @s
-     &) es (t_     I2s
-    Cr) es (t      Es
+     &) est (_S3e  I2st
+   &ng) est (_S3   gI2st	// ng = /N/
+  &ang) est (_S3e  I2st		// ng = /dZ/
+  &eur) est (_S3   I2st
+ inter) est        Est
+    Cr) es (t+     Es
     gu) es (t_     Es
         es (tral_  'Es
      v) es (t+     Es
@@ -4184,6 +4190,7 @@ _it_separ) ate (_  @t
         l (E       l
         lle (_     l
     %C) l (eC_     l
+    %C) l (est_    l
   @@ba) lled (_S2v d
     @@) lled (_S3v d
      B) l (_       @L
@@ -4427,7 +4434,6 @@ multip) ly         laI
     gi) ng (er     ndZ
      o) ng (er     Ng
    you) ng (er     Ng
-        ng (est    Ng
     co) nge (st    ndZE
    cri) nging      ndZI2N
     hi) nging      ndZI2N
@@ -6134,7 +6140,7 @@ multip) ly         laI
         ther (er   D3
         th (erC    D
         there (_   D3        // thering
-        th (est    D
+        thest      DI2st     // farthest, furthest
     ea) th (er     D
      n) th (er+    T
         therap     TEr@p
