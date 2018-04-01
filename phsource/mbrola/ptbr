@@ -11,6 +11,7 @@ volume 15
 0   ;   NULL   0   NULL
 0   g-  NULL   0   NULL
 0   @-  NULL   0   NULL
+0   *   @-     0   r2
 8   *   j      0   r
 0   *   VWL    0   r
 0   *   NULL   0   r2
