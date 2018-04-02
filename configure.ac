@@ -14,6 +14,11 @@ dnl ================================================================
 dnl configure arguments
 dnl ================================================================
 
+AC_ARG_ENABLE([rpath],
+    [AS_HELP_STRING([--enable-rpath], [set hardcoded rpaths in the executable @<:@default=yes@:>@])],
+    [],
+    [enable_rpath=yes])
+
 AC_ARG_WITH([gradle],
     [AS_HELP_STRING([--with-gradle], [specify the gradle program to use @<:@default=gradle@:>@])],
     [GRADLE=$with_gradle],
@@ -309,6 +314,14 @@ dnl ================================================================
 
 AC_CONFIG_FILES([Makefile espeak-ng.pc])
 AC_OUTPUT
+
+if test "$enable_rpath" = "yes" ; then
+	true
+else
+	# See https://old-en.opensuse.org/openSUSE:Packaging_Guidelines#Removing_Rpath
+	sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+	sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+fi
 
 AC_MSG_NOTICE([
 
