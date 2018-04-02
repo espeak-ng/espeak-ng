@@ -9,6 +9,7 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.49.3 - (In Development)
 
+*  Add a `--disable-rpath` option to prevent libtool hardcoding rpaths in the executable.
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,

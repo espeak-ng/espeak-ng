@@ -11,6 +11,56 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 
 dnl ================================================================
+dnl configure arguments
+dnl ================================================================
+
+AC_ARG_ENABLE([rpath],
+    [AS_HELP_STRING([--enable-rpath], [set hardcoded rpaths in the executable @<:@default=yes@:>@])],
+    [],
+    [enable_rpath=yes])
+
+AC_ARG_WITH([gradle],
+    [AS_HELP_STRING([--with-gradle], [specify the gradle program to use @<:@default=gradle@:>@])],
+    [GRADLE=$with_gradle],
+    [GRADLE=gradle])
+
+AC_ARG_WITH([pcaudiolib],
+    [AS_HELP_STRING([--with-pcaudiolib], [use the pcaudiolib library for audio output @<:@default=yes@:>@])],
+    [])
+
+AC_ARG_WITH([klatt],
+    [AS_HELP_STRING([--with-klatt], [enable the Klatt formant synthesizer @<:@default=yes@:>@])],
+    [])
+
+AC_ARG_WITH([mbrola],
+    [AS_HELP_STRING([--with-mbrola], [enable the MBROLA speech synthesizer @<:@default=yes@:>@])],
+    [])
+
+AC_ARG_WITH([sonic],
+    [AS_HELP_STRING([--with-sonic], [enable the sonic library to speed up the audio @<:@default=yes@:>@])],
+    [])
+
+AC_ARG_WITH([async],
+    [AS_HELP_STRING([--with-async], [enable support for async command processing @<:@default=yes@:>@])],
+    [])
+
+AC_ARG_WITH([extdict-ru],
+    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=no@:>@])],
+    [])
+
+AC_ARG_WITH([extdict-zh],
+    [AS_HELP_STRING([--with-extdict-zh], [use the extended Mandarin Chinese Dictionary file @<:@default=no@:>@])],
+    [])
+
+AC_ARG_WITH([extdict-zhy],
+    [AS_HELP_STRING([--with-extdict-zhy], [use the extended Cantonese Chinese Dictionary file @<:@default=no@:>@])],
+    [])
+
+AC_ARG_WITH([libfuzzer],
+    [AS_HELP_STRING([--with-libfuzzer], [enable libFuzzer in the fuzzer tests @<:@default=no@:>@])],
+    [])
+
+dnl ================================================================
 dnl Program checks.
 dnl ================================================================
 
@@ -24,11 +74,6 @@ AC_CHECK_PROG(NDKBUILD_CHECK,[ndk-build],yes)
 dnl ================================================================
 dnl gradle checks.
 dnl ================================================================
-
-AC_ARG_WITH([gradle],
-    [AS_HELP_STRING([--with-gradle], [specify the gradle program to use @<:@default=gradle@:>@])],
-    [GRADLE=$with_gradle],
-    [GRADLE=gradle])
 
 AC_MSG_CHECKING([for gradle])
 if test -e ${GRADLE} ; then
@@ -149,10 +194,6 @@ dnl ================================================================
 dnl PCAudioLib checks.
 dnl ================================================================
 
-AC_ARG_WITH([pcaudiolib],
-    [AS_HELP_STRING([--with-pcaudiolib], [use the pcaudiolib library for audio output @<:@default=yes@:>@])],
-    [])
-
 if test "$with_pcaudiolib" = "no"; then
     echo "Disabling audio output support via pcaudiolib"
     have_pcaudiolib=no
@@ -174,29 +215,17 @@ dnl ================================================================
 dnl Optional compilation checks.
 dnl ================================================================
 
-AC_ARG_WITH([klatt],
-    [AS_HELP_STRING([--with-klatt], [enable the Klatt formant synthesizer @<:@default=yes@:>@])],
-    [])
-
 if test "$with_klatt" = "no" ; then
 	have_klatt=no
 else
 	have_klatt=yes
 fi
 
-AC_ARG_WITH([mbrola],
-    [AS_HELP_STRING([--with-mbrola], [enable the MBROLA speech synthesizer @<:@default=yes@:>@])],
-    [])
-
 if test "$with_mbrola" = "no" ; then
 	have_mbrola=no
 else
 	have_mbrola=yes
 fi
-
-AC_ARG_WITH([sonic],
-    [AS_HELP_STRING([--with-sonic], [enable the sonic library to speed up the audio @<:@default=yes@:>@])],
-    [])
 
 if test "$with_sonic" = "no" ; then
     have_sonic=no
@@ -209,10 +238,6 @@ else
             have_sonic=no
         ])
 fi
-
-AC_ARG_WITH([async],
-    [AS_HELP_STRING([--with-async], [enable support for async command processing @<:@default=yes@:>@])],
-    [])
 
 if test "$with_async" = "no" ; then
 	have_async=no
@@ -236,29 +261,17 @@ dnl ================================================================
 dnl Extended dictionary checks.
 dnl ================================================================
 
-AC_ARG_WITH([extdict-ru],
-    [AS_HELP_STRING([--with-extdict-ru], [use the extended Russian Dictionary file @<:@default=no@:>@])],
-    [])
-
 if test "$with_extdict_ru" = "yes" ; then
 	have_extdict_ru=yes
 else
 	have_extdict_ru=no
 fi
 
-AC_ARG_WITH([extdict-zh],
-    [AS_HELP_STRING([--with-extdict-zh], [use the extended Mandarin Chinese Dictionary file @<:@default=no@:>@])],
-    [])
-
 if test "$with_extdict_zh" = "yes" ; then
 	have_extdict_zh=yes
 else
 	have_extdict_zh=no
 fi
-
-AC_ARG_WITH([extdict-zhy],
-    [AS_HELP_STRING([--with-extdict-zhy], [use the extended Cantonese Chinese Dictionary file @<:@default=no@:>@])],
-    [])
 
 if test "$with_extdict_zhy" = "yes" ; then
 	have_extdict_zhy=yes
@@ -287,10 +300,6 @@ dnl ================================================================
 dnl libFuzzer checks.
 dnl ================================================================
 
-AC_ARG_WITH([libfuzzer],
-    [AS_HELP_STRING([--with-libfuzzer], [enable libFuzzer in the fuzzer tests @<:@default=no@:>@])],
-    [])
-
 if test "$with_libfuzzer" = "yes" ; then
 	have_libfuzzer=yes
 else
@@ -305,6 +314,14 @@ dnl ================================================================
 
 AC_CONFIG_FILES([Makefile espeak-ng.pc])
 AC_OUTPUT
+
+if test "$enable_rpath" = "yes" ; then
+	true
+else
+	# See https://old-en.opensuse.org/openSUSE:Packaging_Guidelines#Removing_Rpath
+	sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+	sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+fi
 
 AC_MSG_NOTICE([
 
