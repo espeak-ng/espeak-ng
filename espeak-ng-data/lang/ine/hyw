@@ -1,8 +1,12 @@
 name Armenian (West Armenia)
+language hyw
 language hy-arevmda
 language hy  8
 
+dictionary hy
 dictrules 1
+
+phonemes hy
 
 // change consonants for West Armenian pronunciation
 replace 00 b  p#
