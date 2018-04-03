@@ -18,7 +18,7 @@ The 100 supported languages and accents are:
 | `sem`       | `ar`              | Semitic               | Arabic                      |                        |
 | `roa`       | `an`              | Romance               | Aragonese                   |                        |
 | `ine`       | `hy`              | Indo-European         | Armenian                    | East Armenian          |
-| `ine`       | `hy-arevmda`      | Indo-European         | Armenian                    | West Armenian          |
+| `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
 | `inc`       | `as`              | Indic                 | Assamese                    |                        |
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
 |             | `eu`              |                       | Basque                      |                        |

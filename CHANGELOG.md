@@ -10,6 +10,10 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.49.3 - (In Development)
 
 *  Add a `--disable-rpath` option to prevent libtool hardcoding rpaths in the executable.
+*  Renamed the `hy-arevmda` language to `hyw`, following the 2018-03-30 change to the
+   BCP 47 language subtag registry making the newly registered `hyw` language code the
+   preferred value for `hy-arevmda`. This change keeps support for detecting the
+   `hy-arevela` and `hy-arevmda` language tags.
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
