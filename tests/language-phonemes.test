@@ -80,3 +80,4 @@ test_lang hu 3637d947f7276af48b229be67db79e814df8644b "mA nA n^A NA pA bA tA dA 
 test_lang hy d3fc6d3778f8669abed91b397f28c0e2ecf3c1cc "ma na Na pa p#a ba ta t#a da ka k#a ga tsa ts#a dza tSa tS#a dZa fa va sa za Sa Za Xa ha ja la ra r\"a Ra *a _:_ m@ mi my me ma mo mu mW maI meI mi@"
 test_lang hyw 72f392c05e74e2fce620b9e1b0dc440481f597e3 "ma na Na pa p#a ba ta t#a da ka k#a ga tsa ts#a dza tSa tS#a dZa fa va sa za Sa Za Xa ha ja la ra r\"a Ra *a _:_ m@ mi my me ma mo mu mW maI meI mi@"
 test_lang ia 1be09d2d915404d00aacb7895edeed5ff947345a "ma na pa ba ta da ka ga tsa tSa dZa fa va sa za Sa ha ja wa la Ra _:_ ma me mo mi mu maI maU meI meU moI"
+test_lang id 75a57a020af2b62e3448792d3f6a945a9b2c6b75 "ma na n^a Na pa ba ta da ka ga ?a tSa dZa fa va Ta Da sa za Sa xa Qa ha ja wa la Ra R2a _:_ ma mE mO m@ me mo mi mu maI meI mOI maU m@U"
