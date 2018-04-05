@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.132
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 04-22-2016
+// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.135
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 04-05-2018
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -32,7 +32,6 @@
 ﷼	RijAl
 
 //Farsi Alphabet
-ٴ	hamzeje_bAlA   //this character "ٔ" is defrent of "ء" and "ۀ" for example "دانشنامهٔ "
 آ	'A
 ا	'alef
 ب	'be:
@@ -78,7 +77,7 @@ _و	'vAv
 ٍ	'en
 ،	viRgul
 ؛	noqteviRgul
-ـ	keSi'dane,hoRuf
+ـ	'keSidane_hoRuf
 ئ	'je,hamze:
 ؤ	'vAv,hamze:
 ۀ	'hehamze:
@@ -87,6 +86,12 @@ _و	'vAv
 ء	'hamze:
 ة	'tAje-,ta?nis
 ي	'je_aRabi
+
+// symbols used in Standard Persian keybord layout
+٬	namAde_RAst_be_tSap
+٫	'viRgule_fArsije_estAndArd
+٪	darsade _fArsije_estAndArd
+ٔ	hamzeje_bAlA   //this character "ٔ" is defrent of "ء" and "ۀ" for example "دانشنامهٔ "
 
 
 // Urdu for Persian users added by users
@@ -188,26 +193,26 @@ _#th	om
 
 
 // character names.  (An underscore added before characters which should not spoken during normal reading of text)
-_÷	taqsimbaR
-_×	zaRbdaR
-_؟	alAmatesoAl
-_!	alAmate'ta?adZdZob
-_$	dolAR
-_%	daR'sad
-_[	beRAketbAz
-_]	beRAketbaste:
-_(	paRAntezbAz
+÷	taqsimbaR
+×	zaRbdaR
+؟	alAmatesoAl
+!	alAmate'ta?adZdZob
+$	dolAR
+%	daR'sad
+[	beRAketbAz
+]	beRAketbaste:
+(	paRAntezbAz
 _)	paRAntezbaste:
-_*	setARe:
+*	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
-_-	Xatte_fAsele:
-_.	noqte:
-_:	'donoqte:
-_<	alAmate'kutSektaR
-_=	:alAmate'mosAvi
-_>	alAmate'bozoRgtaR
-_{	g:ijumebAz
-_}	g:ijumebaste:
+	_-	nim_fAsele:
+.	noqte:
+:	'donoqte:
+<	alAmate'kutSektaR
+=	:alAmate'mosAvi
+>	alAmate'bozoRgtaR
+{	g:ijumebAz
+}	g:ijumebaste:
 
 
 //characters and numbers and words with English alphabet is translated by English phonemes
@@ -387,9 +392,11 @@ _}	g:ijumebaste:
 آخرالامر	AxaRolamR
 آخرالزمان	AxaRAzzamAn
 آخرالنهر	AxeRonnahR
+آخرت	AxeRat
 آخرسر	AxaRsaR
 آخرعمری	AxaReomRi
 آخرین	AxaRin
+آخور	AxoR
 آخوند	Axund
 آخیش	AxejS
 آدامس	AdAms
@@ -418,6 +425,7 @@ _}	g:ijumebaste:
 آرتروگرافی	ARteRogeRAfi
 آرترگرافی	ARteRogeRAfi
 آرتمیس	ARtemis
+آرتین	ARtin
 آرد	ARd
 آردبیز	ARdbiz
 آرزو	'ARezu
@@ -435,6 +443,7 @@ _}	g:ijumebaste:
 آرموند	ARmond
 آرمین	ARmin
 آرنج	ARendZ
+آرند	ARand
 آروغ	ARoq1
 آروماتیک	ARomAtik
 آرپژ	ARpeZ
@@ -447,7 +456,7 @@ _}	g:ijumebaste:
 آریل	ARijel
 آرین	ARijan
 آریو	ARijo
-آریوبرزن	ARjubaRza
+آریوبرزن	ARijobaRzan
 آزاددرخت	AzAddeRaxt
 آزادمجد	AzAdmadZd
 آزاربلندی	AzARbolandi
@@ -456,6 +465,7 @@ _}	g:ijumebaste:
 آزرده	AzoRde:
 آزرم	AzaRm
 آزرمگین	AzaRmgin
+آزماید	AzmAjad
 آزمایش	?AzmAjeS
 آسانسر	AsAnsoR
 آسایش	AsAjeS
@@ -471,7 +481,7 @@ _}	g:ijumebaste:
 آسودگی	Asudegi
 آسوشیتد	AsoSejted
 آسوشیتدپرس	AsoSejtedpeRes
-آسپرین	AspRin
+آسپرین	AspeRin
 آسیاسنگ	AsijAsang
 آسیاگشت	AsijAgaS
 آشتی	ASti
@@ -527,6 +537,7 @@ _}	g:ijumebaste:
 آلگوریسم	AlgoRism
 آلیوت	Aleut
 آما	AmA
+آماتور	AmAtoR
 آماریلیس	AmARilis
 آمازن	AmAzon
 آمازون	AmAzon
@@ -544,10 +555,11 @@ _}	g:ijumebaste:
 آمفوتر	AmfoteR
 آمفی	Amfi
 آمل	Amol
-آمنه	Amene:
+آمن	Amen
 آموخت	Amuxt
 آموزد	Amuzad
 آموزش	AmuzeS
+آمپر	AmpeR
 آمپرمتر	AmpeRmetR
 آمپلیفایر	AmpelifAjeR
 آمپیریسم	AmpiRism
@@ -647,6 +659,7 @@ _}	g:ijumebaste:
 آپولن	Apolon
 آپولون	Apolon
 آژاکس	AZAks
+آژند	AZand
 آژنگ	AZang
 آژیدهاک	AZidhAk
 آکادمی	AkAdemi
@@ -886,6 +899,7 @@ _}	g:ijumebaste:
 احداس	ehdAs
 احدالناس	ahadonnAs
 احراز	ehRAz
+احرام	ehRAm
 احساس	ehsAs
 احسان	ehsAn
 احسنت	ahsant
@@ -953,6 +967,7 @@ _}	g:ijumebaste:
 ادلۀ	adelleje
 ادموند	edmond
 ادهم	adham
+ادوات	adavAt
 ادوارد	edvARd
 ادواردو	edvARdo
 ادونیست	advenist
@@ -1001,6 +1016,7 @@ _}	g:ijumebaste:
 اردشیر	aRdaSiR
 اردن	oRdon
 اردنگ	oRdang
+اردنگی	oRdangi
 اردهال	aRdehAl
 اردو	oRdu
 اردوال	aRdavAl
@@ -1133,6 +1149,7 @@ _}	g:ijumebaste:
 استانید	estAnid
 استاژ	estAZ
 استبداد	estebdAd
+استبرا	estebRA
 استبرق	estabRaq1
 استبرک	estabRak
 استبل	establ
@@ -1276,6 +1293,7 @@ _}	g:ijumebaste:
 اسمایل	esmAil
 اسمبل	asembel
 اسموکینگ	esmoking
+اسنک	esnak
 اسهال	eshAl
 اسواران	asvARAn
 اسوه	osve:
@@ -1340,6 +1358,7 @@ _}	g:ijumebaste:
 اسکندرون	eskandaRun
 اسکنر	eskaneR
 اسکو	osku
+اسکوتر	eskuteR
 اسکودو	eskodo
 اسکورت	eskoRt
 اسکی	eski
@@ -1366,6 +1385,7 @@ _}	g:ijumebaste:
 اشتباه	eStebAh
 اشتباها	eStebAhan
 اشتداد	eStedAd
+اشتران	oStoRAn
 اشتعالزا	eSteAlzA
 اشتغالزا	eSteq1AlzA
 اشتها	eStehA
@@ -1399,6 +1419,7 @@ _}	g:ijumebaste:
 اصرار	esRAR
 اصراف	esRAf
 اصطبل	'establ
+اصطرلاب	ostoRlAb
 اصطلاح	estelAh
 اصطلاحا	estelAhan
 اصطکاک	_estekAk
@@ -1485,7 +1506,7 @@ _}	g:ijumebaste:
 افراشت	afRASt
 افراط	efRAt
 افروخت	afRuxt
-افروز	?afRuz
+افروز	afRuz
 افریقا	efRiq1A
 افزار	afzAR
 افزاید	afzAjad
@@ -1512,7 +1533,6 @@ _}	g:ijumebaste:
 افواها	afvAhan
 افول	oful
 افونت	ofunat
-افک	?efk
 افکت	efekt
 افکن	afkan
 افکند	afkand
@@ -1567,6 +1587,7 @@ _}	g:ijumebaste:
 الترجمۀ	oltaRdZomeje
 التزام	eltezAm
 التصاق	eltesAq1
+التفات	eltefAt
 التفاوت	ottafAvot
 التقا	elteq1A
 التقاط	elteq1At
@@ -1574,6 +1595,7 @@ _}	g:ijumebaste:
 التهاب	eltehAb
 التیام	eltijAm
 التیماتوم	oltimAtom
+الجیش	oldZejS
 الحاد	elhAd
 الحاق	elhAq1
 الحام	elhAm
@@ -1651,6 +1673,7 @@ _}	g:ijumebaste:
 الهدی	olhodA
 الهلال	alhelAl
 الهه	elAhe:
+الهویه	olhovijje:
 الهی	elAhi
 الهیه	elAhije:
 الهیون	elAhijun
@@ -1727,6 +1750,7 @@ _}	g:ijumebaste:
 امتداد	emtedAd
 امتنان	emtenAn
 امتیاز	emtijAz
+امحا	emhA
 امداد	emdAd
 امدادرسان	emdAdRasAn
 امرا	omaRA
@@ -1773,6 +1797,7 @@ _}	g:ijumebaste:
 امیه	omajje:
 اناالحق	analhaq1
 اناث	enAs
+اناط	enAt
 انباشت	anbASt
 انبر	anboR
 انبردست	anboRdast
@@ -1783,6 +1808,7 @@ _}	g:ijumebaste:
 انترناسیونالیست	anteRnAsijonAlist
 انترناسیونالیسم	anteRnAsijonAlism
 انتها	entehA
+انتهاست	entehAst
 انتهای	entehAje
 انتهایت	entehAjat
 انتهایتان	entehAjetAn
@@ -1790,6 +1816,7 @@ _}	g:ijumebaste:
 انتهایشان	entehAjeSAn
 انتهایم	entehAjam
 انتهایمان	entehAjemAn
+انتهایی	entehAi:
 انتگرال	an'tegRAl
 انجبین	andZabin
 انجم	andZom
@@ -1808,6 +1835,7 @@ _}	g:ijumebaste:
 اندلس	andolos
 انده	andoh
 اندوخت	anduxt
+اندوزد	anduzad
 اندونزی	andonezi
 اندونزیا	andonezijA
 اندوهزدا	anduhzodA
@@ -1898,6 +1926,7 @@ _}	g:ijumebaste:
 اوتیسم	'otism
 اوج	'o:dZ
 اوجا	udZA
+اوجب	_o:dZab
 اوحد	o:had
 اودکلن	odokolon
 اودیسه	odise
@@ -1908,6 +1937,7 @@ _}	g:ijumebaste:
 اورت	oveRt
 اورتور	oveRtuR
 اورتوپد	oRtoped
+اورجینال	oRdZinAl
 اورد	ovoRd
 اورست	eveRest
 اورنگ	o:Rang
@@ -1990,6 +2020,7 @@ _}	g:ijumebaste:
 اپیدمیولوژی	epidemijoloZi
 اپیدمیک	epidemik
 اپیزود	epizod
+اپیلاتور	epilAtoR
 اپیلاسیون	epilAsjon
 اپیکور	epikoR
 اپیکوریسم	epikuRism
@@ -1997,6 +2028,7 @@ _}	g:ijumebaste:
 اژدهاکش	eZdehAkoS
 اژه	eZe:
 اژیدهاک	eZidehAk
+اکابر	akAbeR
 اکازیون	okAzijon
 اکالیپتوس	okAliptus
 اکانت	akAnt
@@ -2200,6 +2232,7 @@ _}	g:ijumebaste:
 باریتون	bARiton
 باریم	bARijom
 باریون	bARijon
+باریکلا	bARikallA
 بازار	bAzAR
 بازارسیاه	bAzARsijAh
 بازجست	bAzdZost
@@ -2344,19 +2377,23 @@ _}	g:ijumebaste:
 بایقرا	bAjq1aRA
 بباسیل	babAsil
 ببخش	bebaxS
+ببخشای	bebaxSAj
 ببرد	bebaRad
 ببرها	babRhA
 ببرهای	babRhAje
 ببرهایی	babRhAi:
 ببری	bebaRi
 ببرید	bebaRid
+ببریده	bobRide:
+ببست	bebast
 ببعی	baba?i
 ببین	bebin
 ببینه	bebine:
 بت	bot
 بتا	betA
 بتاترون	betAteRon
-بتر	botR
+بتان	botAn
+بتر	bataR
 بترسان	betaRsAn
 بترساند	betaRsAnad
 بتهون	bethoven
@@ -2369,7 +2406,10 @@ _}	g:ijumebaste:
 بجد	bedZed
 بجرات	bedZoRat
 بجز	bedZoz
+بجنب	bejonb
 بجنورد	bodZnuRd
+بجنگی	bedZangi
+بجنگیم	bedZangim
 بجو	bedZu
 بحال	behAl
 بحبوحه	bohbuhe:
@@ -2396,6 +2436,7 @@ _}	g:ijumebaste:
 بخشا	baxSA
 بخشاند	baxSAnd
 بخشانید	baxSAnid
+بخشاید	baxSAjad
 بخشایش	baxSAjeS
 بخشاینده	baxSAjande
 بخشایید	baxSAid
@@ -2504,20 +2545,25 @@ _}	g:ijumebaste:
 بدهی	bedehi
 بدو	bodo
 بدوا	badvan
+بدواً	badvan
 بدوبدو	bodobodo
 بدوبیراه	badobiRAh
+بدوم	bedavam
 بدوی	badvi
 بدپیله	badpile
 بدپیلگی	badpilegi
 بدک	badak
+بدکاران	badkARAn
 بدکاره	badkARe
 بدکارگی	badkARegi
 بدکردار	badkeRdAR
 بدگل	badgel
+بدگمان	badgomAn
 بدگوشت	badguSt
 بدگوهر	badgo:haR
 بدیع	badi?
 بدیل	badil
+بدیم	bedim
 بدیمن	badjomn
 بدین	be'din
 بدینوسیل	bedinvasil
@@ -2532,6 +2578,7 @@ _}	g:ijumebaste:
 برابرنهاد	baRAbaRnahAd
 برابرنگر	baRAbaRnegaR
 برات	baRAt
+براتکش	baRAtkeS
 براحتی	beRAhati
 برادر	baRAdaR
 برادرخواند	baRAdaRxAnd
@@ -2572,6 +2619,7 @@ _}	g:ijumebaste:
 بربط	baRbat
 برت	baRat
 برتافت	baRtAft
+برتر	baRtaR
 برتراند	beRtRAnd
 برتری	baRtaRi
 برج	boRdZ
@@ -2616,6 +2664,7 @@ _}	g:ijumebaste:
 برشتار	beReStAR
 برشتوک	beReStuk
 برشتۀ	beReSteje
+برشده	baRSode:
 برشمر	baRSemoR
 برشمرد	baRSemoRd
 برشکست	baRSekast
@@ -2648,6 +2697,7 @@ _}	g:ijumebaste:
 برنامه	baR'nAme:
 برنت	beRent
 برنج	beRendZ
+برنجد	beRandZad
 برند	baRand
 برنده	baRande:
 برندگان	baRandegAn
@@ -2664,6 +2714,7 @@ _}	g:ijumebaste:
 برهه	boRhe:
 برهوت	baRahut
 برو	boRo
+بروات	baRavAt
 بروبر	beRRobeR
 بروبرو	boRoboRo
 بروبوم	baRobum
@@ -2761,6 +2812,8 @@ _}	g:ijumebaste:
 بستاب	bastAb
 بستان	bostAn
 بستانکار	bestAnkAR
+بستای	besetAj
+بستر	bastaR
 بستری	bastaRi
 بستنی	bastani
 بستو	bastu
@@ -2776,6 +2829,7 @@ _}	g:ijumebaste:
 بسفر	bosfoR
 بسم	besme:
 بسماللهالرحمنالرحیم	besmellAheRRahmAneRRahim
+بسنجد	besandZad
 بسنده	basande:
 بسوی	besuje
 بسپار	besepAR
@@ -2785,9 +2839,12 @@ _}	g:ijumebaste:
 بسیار	besijAR
 بسیاری	besjARi
 بسیج	basidZ
+بسیط	basit
 بش	beS
+بشارت	beSARat
 بشاش	baSSAS
 بشاورد	baSAvaRd
+بشد	beSod
 بشدت	beSeddat
 بشر	baSaR
 بشردوست	baSaRdust
@@ -2867,6 +2924,7 @@ _}	g:ijumebaste:
 بقه	boq1q1e
 بقچه	boq1tSe
 بقی	baq1i
+بقیش	baq1ijaS
 بقیه	baq1ije:
 بقیۀ	baq1ijeje
 بلا	balA
@@ -2901,6 +2959,7 @@ _}	g:ijumebaste:
 بلشویسم	bolSovism
 بلشویک	bolSovik
 بلعجب	boladZab
+بلعد	bal?ad
 بلعمی	balami
 بلعکس	belaks
 بلغا	bolq1A
@@ -3094,6 +3153,7 @@ _}	g:ijumebaste:
 بورز	bevaRz
 بورزد	bevaRzad
 بورس	buRs
+بوروکراتیک	buRukRAtik
 بورژوا	buRZuvA
 بورژوازی	buRZvAzi
 بوزد	bevazad
@@ -3116,6 +3176,7 @@ _}	g:ijumebaste:
 بومهن	bumehen
 بونصر	bunasR
 بوکس	boks
+بوکسور	boksoR
 بوکسیت	boksit
 بوکله	bukle
 بوگندو	bugandu
@@ -3129,6 +3190,7 @@ _}	g:ijumebaste:
 بپرداز	bepaRdAz
 بپرس	bepoRs
 بپز	bepaz
+بچش	betSeS
 بچشم	betSeSm
 بچه	ba'tStSe:
 بچّه	batStSe:
@@ -3168,7 +3230,7 @@ _}	g:ijumebaste:
 بگین	begin
 بیات	bajAt
 بیازماید	bijAzmAjad
-بیافکن	biafkans
+بیافکن	biafkan
 بیالای	bijAlAj
 بیالاید	bijAlAjad
 بیامرز	bijAmoRz
@@ -3234,6 +3296,7 @@ _}	g:ijumebaste:
 بیفروزد	bijafRuzad
 بیفروغ	bifuRuq1
 بیفزا	bijafzA
+بیفزود	bijafzud
 بیفکن	bijafkan
 بیلبورد	bilboRd
 بیلخ	bilax
@@ -3276,10 +3339,12 @@ _}	g:ijumebaste:
 بیوفا	bivafA
 بیوه	bive:
 بیوگرافی	bijogeRAfi
+بیوگی	bivegi
 بیپاسخ	bipAsox
 بیکباره	bejekbARe:
 بیکس	bikas
 بیکسان	bikasAn
+بیکن	bejken
 بیگ	bejg
 بیگم	bejgom
 بیگمان	bigamAn
@@ -3422,6 +3487,7 @@ _}	g:ijumebaste:
 تجلی	tadZalli
 تجن	tadZan
 تجیر	tadZiR
+تحاجم	tahAdZom
 تحت	tahte
 تحتانی	tahtAni
 تحرک	tahaRRok
@@ -3469,6 +3535,7 @@ _}	g:ijumebaste:
 تذکره	tazkaRe:
 تراب	toRAb
 ترابر	taRAbaR
+ترابرد	taRAboRd
 ترابری	taRAbaRi
 تراجم	taRAdZom
 تراخم	taRAxom
@@ -3479,6 +3546,7 @@ _}	g:ijumebaste:
 ترافل	teRAfel
 ترافیک	teRAfik
 تراموا	teRAmvA
+ترامپ	teRAmp
 ترانزیت	teRAnzit
 ترانزیستور	teRAnzistoR
 ترانس	teRAns
@@ -3587,6 +3655,7 @@ _}	g:ijumebaste:
 ترکان	toRkAn
 ترکاند	taRakAnd
 ترکتازی	toRktAzi
+ترکد	teRekad
 ترکستان	toRkestAn
 ترکش	taRkeS
 ترکمانچای	toRkamAntSAj
@@ -3595,6 +3664,7 @@ _}	g:ijumebaste:
 ترکید	teRekid
 ترکیدگی	taRkidegi
 ترکیه	toRkije:
+ترگل	taRgol
 تریا	teRijA
 تریبون	teRibun
 تریتیم	tiRitijom
@@ -3680,6 +3750,7 @@ _}	g:ijumebaste:
 تغیان	toq1ijAn
 تغیر	taq1ajjoR
 تف	tof
+تفأل	tafa??ol
 تفال	tofAl
 تفاهم	tafAhom
 تفاوت	ta'fAvot
@@ -3737,6 +3808,7 @@ _}	g:ijumebaste:
 تلوتلو	telo:telo:
 تلوریم	teloRijom
 تلوزیون	telvezijon
+تلوق	toluq1
 تلون	talavvon
 تلویحا	talvihan
 تلویزیون	telvizijon
@@ -3751,7 +3823,7 @@ _}	g:ijumebaste:
 تلیسه	talise
 تلیله	talile
 تم	tem
-تماشاگرپسند	tamASgaRpasand
+تماشاگرپسند	tamASAgaRpasand
 تماشاگه	tamASAgah
 تمام	tamAm
 تماما	tamAman
@@ -3785,6 +3857,7 @@ _}	g:ijumebaste:
 تمیز	tamiz
 تمیستوکلس	temistokels
 تمیم	tamim
+تناور	tanAvaR
 تنب	tonb
 تنبان	tonbAn
 تنبل	tanbal
@@ -3837,6 +3910,7 @@ _}	g:ijumebaste:
 تهرانپارس	tehRAnpARs
 تهمت	tohmat
 تهمورث	tahmuRes
+تهمورس	tahmuRes
 تهور	tahavvoR
 تهوع	tahavvo?
 تهویه	tahvije:
@@ -3958,6 +4032,7 @@ _}	g:ijumebaste:
 تویسرکان	tujseRkAn
 تویش	tujaS
 تویشنوند	tuje
+تویلت	tojlet
 تویم	tujam
 توییتر	tui:teR
 تپاند	tapAnd
@@ -3976,6 +4051,7 @@ _}	g:ijumebaste:
 تکرو	takRo:
 تکروان	takRoAn
 تکروند	takRavand
+تکروی	takRavi
 تکست	tekst
 تکش	takeS
 تکشکل	takSekl
@@ -4184,6 +4260,7 @@ _}	g:ijumebaste:
 جروبحث	dZaRRobahs
 جری	'dZaRi
 جریان	dZaRijAn
+جز	dZoz
 جزء	dZoz?
 جزئ	dZoz?
 جزئیات	dZoz?ijAt
@@ -4210,6 +4287,7 @@ _}	g:ijumebaste:
 جعبه	dZa?be:
 جعفر	dZa?faR
 جعفرنیا	dZafaRnijA
+جعلق	dZo?allaq1
 جغجغه	dZeq1dZeq1e
 جغد	dZoq1d
 جغراف	dZoq1RAf
@@ -4218,6 +4296,7 @@ _}	g:ijumebaste:
 جغرافیدان	dZoq1RAfidAn
 جغوربغور	dZaq1uRbaq1uR
 جفت	dZoft
+جفتمی	dZoftam
 جفر	dZafaR
 جفعر	dZafaR
 جفنگ	dZafang
@@ -4234,6 +4313,7 @@ _}	g:ijumebaste:
 جلوه	dZelve:
 جلگه	dZolge:
 جلیقه	dZeliq1e:
+جماش	dZammAS
 جمبوجت	dZembodZet
 جمجمه	dZomdZome
 جمع	dZam?
@@ -4254,6 +4334,7 @@ _}	g:ijumebaste:
 جناح	dZenAh
 جنازه	dZenAze:
 جناغ	dZenAq1
+جنان	dZenAn
 جنایات	dZenAjAt
 جنایت	dZenAjat
 جنبان	dZonbAn
@@ -4276,6 +4357,7 @@ _}	g:ijumebaste:
 جنگدیده	dZangdide
 جنگل	dZangal
 جنگی	dZangi
+جنید	dZonejd
 جنین	dZenin
 جهان	dZahAn
 جهت	dZahat
@@ -4292,8 +4374,8 @@ _}	g:ijumebaste:
 جورج	dZoRdZ
 جورجیا	dZoRdZijA
 جورهمسری	dZuRhamsaRi
-جوز	tSo:z
-جوزده	dZavzadd
+جوز	dZo:z
+جوزده	dZavzade:
 جوزدگی	dZavzadegi
 جوشد	dZuSad
 جوشش	dZuSeS
@@ -4304,8 +4386,9 @@ _}	g:ijumebaste:
 جوّی	dZavvi
 جوکار	dZo:kAR
 جوگندمی	dZovgandomi
+جوی	dZu:j
 جویان	dZujAn
-جویبار	dZujbAR
+جویند	dZujand
 جکوزی	dZakuzi
 جگر	dZegaR
 جگربند	dZegaRband
@@ -4323,6 +4406,8 @@ _}	g:ijumebaste:
 جیوب	dZujub
 حا	hA
 حاتم	hAtam
+حاجبان	hAdZebAn
+حاجت	hAdZat
 حاجز	hAdZez
 حاسه	hAsse
 حاشاوکلا	hASAvokallA
@@ -4333,6 +4418,7 @@ _}	g:ijumebaste:
 حاضردرصحنه	hAzeRdaRsahne
 حاضرغایب	hAzeRq1Ajeb
 حاضروناظر	hAzeRonAzeR
+حافظا	hAfezA
 حالا	hAlA
 حالب	hAleb
 حالت	hAlat
@@ -4392,6 +4478,7 @@ _}	g:ijumebaste:
 حرث	haRs
 حرج	haRadZ
 حردون	heRdovn
+حرز	heRz
 حرس	haRas
 حرص	heRs
 حرفام	haRfAm
@@ -4442,6 +4529,7 @@ _}	g:ijumebaste:
 حصین	hasin
 حضار	hozzAR
 حضانت	hezAnat
+حضرت	hazRat
 حضورا	hozuRan
 حطام	hotAm
 حطی	hotti
@@ -4452,6 +4540,7 @@ _}	g:ijumebaste:
 حفره	hofRe:
 حفرۀ	hofReje
 حفظ	hefz
+حقا	haq1q1A
 حقابه	haq1q1Abe
 حقارت	heq1ARat
 حقالزحم	haq1q1ozzahm
@@ -4459,6 +4548,7 @@ _}	g:ijumebaste:
 حقت	haq1q1at
 حقد	heq1d
 حقش	haq1q1aS
+حقم	haq1q1am
 حقنه	hoq1ne
 حقه	hoq1q1e:
 حقوقدان	hoq1uq1dAn
@@ -4493,7 +4583,7 @@ _}	g:ijumebaste:
 حنظل	hanzal
 حنظله	hanzale
 حنفی	hanafi
-حنین	honajAn
+حنین	honajn
 حوادث	havAdes
 حواله	ha'vAle:
 حوت	hut
@@ -4526,6 +4616,7 @@ _}	g:ijumebaste:
 حکه	hekke
 حکومتی	hokumati
 حکّام	hokkAm
+حکیمان	hakimAn
 حی	haj
 حیئت	hej?at
 حیا	hajA
@@ -4542,6 +4633,7 @@ _}	g:ijumebaste:
 حیز	hajjez
 حیض	hejz
 حیف	hejf
+حیلت	hilat
 حین	hejn
 حیه	haje
 حیوان	hejvAn
@@ -4566,6 +4658,7 @@ _}	g:ijumebaste:
 خاموش	xAmu:S
 خاندان	xAndAn
 خانقلی	xAnq1oli
+خانقه	xAneq1ah
 خانم	xAnom
 خانواد	xAnevAd
 خانواده	xAnevAde:
@@ -4638,6 +4731,7 @@ _}	g:ijumebaste:
 خردخرد	xoRdxoRd
 خردسازواره	xoRdsAzvARe
 خردسال	xoRdsAl
+خردل	xaRdal
 خرده	xoRde:
 خردوخاکشیر	xoRdoxAkSiR
 خردوخمیر	xoRdoxamiR
@@ -4660,7 +4754,7 @@ _}	g:ijumebaste:
 خرقان	xaRaq1An
 خرقه	xeRq1e:
 خرقۀ	xeRq1eje
-خرم	xoRRAm
+خرم	xoRRam
 خرما	xoRmA
 خرمالو	xoRmAlu
 خرماپزان	xoRmApazAn
@@ -4696,6 +4790,8 @@ _}	g:ijumebaste:
 خسارات	xesARAt
 خسارت	xesARat
 خساست	xesAsat
+خسب	xosb
+خسبان	xosbAn
 خسران	xosRAn
 خسرو	xosRo:
 خسروان	xosRavAn
@@ -4727,6 +4823,7 @@ _}	g:ijumebaste:
 خضراء	xazRA
 خضیراوی	xaziRAvi
 خطات	xattAt
+خطاط	xattAt
 خطبا	xotabA
 خطباء	xotabA
 خطبه	xotbe:
@@ -4769,6 +4866,7 @@ _}	g:ijumebaste:
 خمار	xomAR
 خمارآلود	xomARAlud
 خمبان	xombAn
+خمخانه	xomxAne:
 خمره	xomRe
 خمرۀ	xomReje
 خمش	xameS
@@ -4826,7 +4924,7 @@ _}	g:ijumebaste:
 خودسترونی	xodsetaRvani
 خودمو	xodamo
 خودکشی	xodkoSi
-خودگشانی	xodgoSni
+خودگشانی	xodgoSAni
 خورجین	xoRdZin
 خورخه	xoRxe:
 خورد	xoRd
@@ -4844,6 +4942,7 @@ _}	g:ijumebaste:
 خوشگل	xoSgel
 خوف	xovf
 خونبر	xunbaR
+خونبها	xunbahA
 خونتا	xontA
 خونسرد	xunsaRd
 خونواده	xunevAde:
@@ -4946,6 +5045,7 @@ _}	g:ijumebaste:
 دخترون	dox,ta'Run
 دخترکش	doxtaRkoS
 دختری	doxtaRi
+دخمل	doxmal
 ددر	dadaR
 در	daR
 دراج	doRRAdZ
@@ -4968,7 +5068,6 @@ _}	g:ijumebaste:
 درایه	deRAje
 درایو	deRAjv
 درایور	deRAjveR
-درباره	daR'bAReje:
 دربازکن	daRbAzkon
 دربدر	daRbedaR
 دربندکشیده	daRbandkeSide
@@ -4999,6 +5098,7 @@ _}	g:ijumebaste:
 درراه	daR_RAh
 دررو	daRRo:
 درزودوز	daRzoduz
+درسا	doRsA
 درست	doRost
 درسر	daRsaRe
 درش	daRaS
@@ -5018,6 +5118,7 @@ _}	g:ijumebaste:
 درندشت	daRandaSt
 درنهایت	daRnahAjat
 درنگ	deRang
+درنگی	deRangi
 دره	daRRe:
 درهم	daRham
 درهمکنش	daRhamkoneS
@@ -5059,6 +5160,7 @@ _}	g:ijumebaste:
 دزدید	dozdid
 دزفول	dezful
 دزمتر	dozmetR
+دزک	dozak
 دزیره	deziRe:
 دزیمتر	dozimetR
 دسامبر	desAmbR
@@ -5070,7 +5172,7 @@ _}	g:ijumebaste:
 دستبندی	'dastebandi
 دستجات	dastedZAt
 دستجرد	dastdZeRd
-دستخط	dastxatt
+دستخط	dastxat
 دستخوش	dastxoS
 دسترس	dastRas
 دسترسی	dast_Resi
@@ -5110,7 +5212,7 @@ _}	g:ijumebaste:
 دعوا	da?'vA
 دعوات	da?avAt
 دعوت	da?'vat
-دعوی	da?vi
+دعوی	da?vA
 دغسر	daq1saR
 دغل	daq1al
 دفاتر	dafAteR
@@ -5141,6 +5243,7 @@ _}	g:ijumebaste:
 دلر	deleR
 دلرحم	delRahm
 دلریش	delRiS
+دلستر	delesteR
 دلسخت	delsaxt
 دلش	delaS
 دلفگار	delfagAR
@@ -5222,6 +5325,7 @@ _}	g:ijumebaste:
 دهلران	dehloRAn
 دهلوی	dehlavi
 دهلی	dehli
+دهلیز	dehliz
 دهم	'dahom
 دهن	dahan
 دهناد	dehnAd
@@ -5271,6 +5375,7 @@ _}	g:ijumebaste:
 دوستم	dustam
 دوستمان	dustemAn
 دوستی	dusti
+دوسلدورف	doseldoRf
 دوشز	duSez
 دوشس	duSes
 دوشیزه	duSize:
@@ -5286,6 +5391,7 @@ _}	g:ijumebaste:
 دوم	do'vvom
 دوما	dovvoman
 دوماد	dumAd
+دونالد	donAld
 دوند	davan'd
 دونست	dunest
 دونستم	dunestam
@@ -5465,6 +5571,7 @@ _}	g:ijumebaste:
 رازنگهدار	RAznegahdAR
 راست	RAst
 راشد	RASed
+راشیتیسم	RASitism
 راضیم	RAzijam
 رافایل	RAfAel
 راقم	RAq1em
@@ -5512,7 +5619,7 @@ _}	g:ijumebaste:
 رباخوار	RebAxAR
 رباط	RobAt
 رباطکریم	RobAtkaRim
-رباعی	RobA_i
+رباع	RobA?
 ربانی	RabbAni
 رباید	RobAjad
 ربایش	RobAjeS
@@ -5682,6 +5789,7 @@ _}	g:ijumebaste:
 رنجر	RendZeR
 رنجش	RandZeS
 رند	Rend
+رندسوز	Rendsuz
 رنده	Rande:
 رندید	Randid
 رنسانس	RonesAns
@@ -5700,9 +5808,13 @@ _}	g:ijumebaste:
 رهام	RohAm
 رهبان	RohbAn
 رهبر	RahbaR
+رهت	Rahat
+رهد	Rahad
 رهرو	RahRo
 رهروان	RahRovAn
 رهسپار	RahsepAR
+رهش	RahaS
+رهم	Raham
 رهنما	RahnamA
 رهنمود	Rahnemud
 رهگذر	RahgozaR
@@ -5773,12 +5885,14 @@ _}	g:ijumebaste:
 رول	Rol
 رولت	Rolet
 رولحاف	RulahAf
+رولزرویس	RolzRojs
 رولور	RovelveR
 روم	Ravam
 روماتیسم	RomAtism
 روماریو	RomARijo
 رومان	RomAn
 رومولوس	Romolus
+رومی	Rumi
 رونالدو	RonAldo
 روند	Ravand
 رونق	Ro:naq1
@@ -5816,6 +5930,7 @@ _}	g:ijumebaste:
 رکاب	RekAb
 رکابزن	RekAbzan
 رکاکت	RekAkat
+رکب	Rakab
 رکتوم	Rektom
 رکسانا	RoksAnA
 رکسانه	RoksAne
@@ -5823,9 +5938,12 @@ _}	g:ijumebaste:
 رکن	Rokn
 رکورد	RekoRd
 رگبرگ	RagbaRg
+رگت	Ragat
+رگش	RagaS
 رگل	Regl
 رگلاتور	ReglAtoR
 رگلاژ	ReglAZ
+رگم	Ragam
 ری	Rej
 ریاحین	RajAhin
 ریاست	RijAsat
@@ -5987,6 +6105,7 @@ _}	g:ijumebaste:
 زندگان	zendegAn
 زندگانی	zendegAni
 زندگی	'zendegi
+زندگیم	zendegiam
 زندۀ	zendeje
 زندیه	zandije:
 زنش	zanaS
@@ -6044,6 +6163,7 @@ _}	g:ijumebaste:
 زیف	zajf
 زیلوفن	zilofon
 زیمبابوه	zimbAbve:
+زیمنس	zimens
 زینال	zejnAl
 زینب	zejnab
 زینت	zinat
@@ -6080,6 +6200,7 @@ _}	g:ijumebaste:
 سالمرگ	sAlmaRg
 سالمون	sAlmon
 سالن	sAlon
+سالک	sAlek
 سامرا	sAmeRRA
 سامسونت	sAmsonet
 سامسونگ	sAmsong
@@ -6125,6 +6246,7 @@ _}	g:ijumebaste:
 سبقت	sebq1at
 سبلان	sabalAn
 سبوس	sabus
+سبوکش	sabukeS
 سبک	sabok
 سبکبال	sabokbAl
 سبکتکین	saboktakin
@@ -6134,6 +6256,7 @@ _}	g:ijumebaste:
 سبکپا	sabokpA
 سبیل	sebil
 سبیلو	sebilu
+ستا	setA
 ستاد	setAd
 ستادکل	setAdekoll
 ستار	sattAR
@@ -6163,6 +6286,8 @@ _}	g:ijumebaste:
 سجن	sedZn
 سحرآسا	sehRAsA
 سحرخیز	sahaRxiz
+سحرگاه	sahaRgAh
+سحرگه	sahaRgah
 سحری	sahaRi
 سخاوت	sexAvat
 سختپا	saxtpA
@@ -6175,6 +6300,7 @@ _}	g:ijumebaste:
 سخنران	soxanRAn
 سخنور	soxanvaR
 سخنگو	soxangu
+سدان	sedAn
 سدر	sedR
 سدیم	sodjom
 سراج	seRAdZ
@@ -6185,8 +6311,12 @@ _}	g:ijumebaste:
 سرافرازانه	saRafRAzAne
 سرافکنده	saRafkande:
 سرامیک	seRAmik
+سرانجام	saRandZAm
 سرانگشت	saRangoSt
+سراپرده	saRApaRde:
+سراپردۀ	saRApaRdeje
 سرایت	seRAjat
+سراید	soRAjad
 سرایند	soRAjand
 سرب	soRb
 سربلند	saRboland
@@ -6246,7 +6376,9 @@ _}	g:ijumebaste:
 سرهم	saR_ham
 سرهنگی	saRhangi
 سرو	saRv
+سروبن	saRvbon
 سرور	saRvaR
+سروستان	saRvestAn
 سروصدا	saRosedA
 سروقت	saRevaq1t
 سروناز	saRvenAz
@@ -6260,6 +6392,7 @@ _}	g:ijumebaste:
 سرچ	seRtS
 سرچپق	saRtSopoq1
 سرک	saRak
+سرکشان	saRkeSAn
 سرکه	seRke:
 سرکوفت	saRkuft
 سرگران	saRgeRAn
@@ -6279,9 +6412,10 @@ _}	g:ijumebaste:
 سزار	sezAR
 سزارین	sezARijan
 سزاوار	sezAvAR
+سزد	sezad
 سس	sos
 سست	sost
-سشوار	seSoAR
+سشوار	seSuAR
 سعه	se?e
 سعود	so?ud
 سعی	sa?j
@@ -6298,7 +6432,7 @@ _}	g:ijumebaste:
 سفرکرده	safaRkaRde
 سفرۀ	sofReje
 سفسطه	safsate
-سفله	sofle:
+سفله	sefle:
 سفلگی	soflegi
 سفلی	soflA
 سفلیس	seflis
@@ -6362,6 +6496,7 @@ _}	g:ijumebaste:
 سمنو	samanu
 سمنگان	samangAn
 سمور	samuR
+سمپل	sampel
 سمک	samak
 سمیرم	semiRom
 سمینار	seminAR
@@ -6392,6 +6527,7 @@ _}	g:ijumebaste:
 سنفونی	samfoni
 سنن	sonan
 سنوات	sanavAt
+سنّت	sonnat
 سنّتی	sonnati
 سنگال	senegAl
 سنگر	sangaR
@@ -6412,6 +6548,7 @@ _}	g:ijumebaste:
 سهوا	sahvan
 سهوالقلم	sahvolq1alam
 سهواً	sahvan
+سهی	sahi
 سهیل	sohejl
 سهیلا	sohejlA
 سوء	su?e
@@ -6433,10 +6570,12 @@ _}	g:ijumebaste:
 سورتمۀ	suRtmeje
 سورریالیست	suReReAlist
 سورریالیسم	suReReAlim
+سورمه	suRme:
 سورنا	soRnA
 سورپرایز	suRpRAjz
 سورپریز	suRpRiz
 سوزد	suzad
+سوزن	suzan
 سوزنبان	suzanbAn
 سوسنگرد	susangeRd
 سوسک	susk
@@ -6444,6 +6583,7 @@ _}	g:ijumebaste:
 سوسیالیسم	susijAlism
 سوسیس	sosis
 سوشیانت	soSijAnt
+سوغات	so:q1At
 سوق	'soq1
 سولفژ	solfeZ
 سولماز	solmAz
@@ -6486,6 +6626,7 @@ _}	g:ijumebaste:
 سپرد	'sepoRd
 سپرز	sepoRz
 سپرغم	sepaRq1am
+سپرند	sepoRand
 سپس	sepas
 سپستان	sepestAn
 سپلشت	sepeleSt
@@ -6665,7 +6806,7 @@ _}	g:ijumebaste:
 شتل	Setel
 شتک	Satak
 شجاع	SodZA?
-شجاعت	SodZA:at
+شجاعت	SodZAAat
 شجر	SadZaR
 شجریان	SadZaRijAn
 شحنه	Sahne:
@@ -6693,6 +6834,7 @@ _}	g:ijumebaste:
 شرطه	SoRte:
 شرعا	SaR?an
 شرف	SaRaf
+شرفویه	SaRafuje:
 شرلوک	SeRluk
 شرلی	SeRli
 شره	SoRRe:
@@ -6706,9 +6848,9 @@ _}	g:ijumebaste:
 شرکت	SeRkat
 شریعت	SaRi?at
 شریعتمدار	SaRi?atmadAR
-شست	'Sost
+شست	'Sast
 شستشو	SosteSu
-شستم	'Sastom
+شستم	'Sostam
 شستن	Sostan
 شش	'SeS
 ششدر	SeSdaR
@@ -6790,6 +6932,7 @@ _}	g:ijumebaste:
 شناسایی	SenAsAi:
 شناسد	SenAsad
 شناسی	Sen'Asi
+شناور	SenAvaR
 شنبلیله	Sanbalile:
 شنفت	Senoft
 شنل	Senel
@@ -6850,6 +6993,7 @@ _}	g:ijumebaste:
 شکاعی	SokA_i
 شکاف	SekAf
 شکافت	SekAft
+شکافد	SekAfad
 شکان	SekAn
 شکاند	SekAnd
 شکاک	SakkAk
@@ -6860,10 +7004,12 @@ _}	g:ijumebaste:
 شکرالله	SokRollAh
 شکرانه	SokRAne:
 شکرانۀ	SokRAneje
+شکرخا	SekaRxA
 شکرخند	SekaRxand
 شکردان	SekaRdAn
 شکرسخن	SekaRsoxan
 شکرشکن	SekaRSekan
+شکرگزار	SokRgozAR
 شکریان	SokRijAn
 شکست	Sekast
 شکستنی	Sekastani
@@ -6919,7 +7065,7 @@ _}	g:ijumebaste:
 شیطان	SejtAn
 شیطنت	Sejtanat
 شیطون	Sejtun
-شیع	Sej?
+شیع	Si?
 شیعه	Si?e:
 شیعیان	Si?ajAn
 شیفت	Sift
@@ -6973,7 +7119,10 @@ _}	g:ijumebaste:
 صراحت	seRAhat
 صراحتا	seRAhatan
 صراحی	soRAhi
+صراط	seRAt
 صراف	saRRAf
+صرافت	seRAfat
+صرب	seRb
 صرد	soRad
 صردخزاعی	soRadexozAi
 صرصر	saRsaR
@@ -7026,9 +7175,11 @@ _}	g:ijumebaste:
 صندل	sandal
 صندلی	sandali
 صنع	son?
+صنعان	san?An
 صنعت	san?at
 صنف	senf
 صنم	sanam
+صنما	sanamA
 صنوبر	seno:baR
 صهیونیسم	sahjonism
 صوابدید	savAbdid
@@ -7041,7 +7192,7 @@ _}	g:ijumebaste:
 صومعه	so:me?e:
 صوّم	sevvom
 صیاد	sajjAd
-صیت	sit
+صیت	sejt
 صیحه	sejhe:
 صید	sejd
 صیدا	sejdA
@@ -7102,6 +7253,7 @@ _}	g:ijumebaste:
 طبقات	tabaq1At
 طبقه	tabaq1e:
 طبقۀ	tabaq1eje
+طبیبان	tabibAn
 طبیعتا	tabiatan
 طجریش	tadZRiS
 طرابلس	teRAblos
@@ -7136,6 +7288,7 @@ _}	g:ijumebaste:
 طلب	talab
 طلبان	talabAn
 طلبد	talabad
+طلبند	talaband
 طلسم	telesm
 طلق	telq1
 طمطراق	tamtaRAq1
@@ -7143,16 +7296,19 @@ _}	g:ijumebaste:
 طناز	tannAz
 طه	tAhA
 طهران	tehRAn
+طهرون	tehRun
 طهمورث	tahmuRes
 طهور	tahuR
 طوبی	tubA
 طور	'toR
 طوراب	toR'Ab
+طوق	to:q1
 طپش	tapeS
 طی	tejje
 طیار	tajAR
 طیب	tajjeb
 طیر	tejR
+طیران	tajaRAn
 طیره	tajRa
 طیف	tejf
 طیلسان	tejlasAn
@@ -7179,12 +7335,14 @@ _}	g:ijumebaste:
 عاریه	?ARije
 عازم	Azem
 عاشقتم	ASeq1etam
+عاقبت	?Aq1ebat
 عالما	?Aleman
 عالمیان	AlamijAn
 عالیجناب	AlidZenAb
 عالیرتبه	'AliRotbe
 عامدا	?Amedan
 عباد	ebAd
+عبادت	?ebAdat
 عبار	ebAR
 عبارت	ebARat
 عباس	abbAs
@@ -7198,12 +7356,14 @@ _}	g:ijumebaste:
 عبرت	'ebRat
 عبس	abas
 عبوس	?abus
+عتاب	?etAb
 عتبات	'atabAt
 عتش	ataS
 عثمان	osmAn
 عجب	adZab
 عجله	adZale:
 عجم	?adZam
+عجوز	?adZuz
 عجول	adZul
 عدالت	edAlat
 عداوت	edAvat
@@ -7214,6 +7374,7 @@ _}	g:ijumebaste:
 عدوان	?odvAn
 عدّه	edde:
 عدۀ	eddeje
+عذار	?ezAR
 عذر	o:zR
 عرب	aRab
 عرف	oRf
@@ -7227,6 +7388,7 @@ _}	g:ijumebaste:
 عزرائیل	ezRAi:l
 عزلت	?ozlat
 عزّت	ezzat
+عسر	?osR
 عسل	a:sal
 عسلویه	?asaluje
 عشا	eSA?
@@ -7260,6 +7422,7 @@ _}	g:ijumebaste:
 عفت	effat
 عفو	afv
 عفونت	?ofunat
+عفّت	?effat
 عقاب	oq1Ab
 عقاید	aq1Ajed
 عقب	a:q1ab
@@ -7268,6 +7431,7 @@ _}	g:ijumebaste:
 عقدۀ	?oq1deje
 عقرب	aq1Rab
 عقلا	oq1alA
+عقوبت	?oq1ubat
 علائم	alA?em
 علاف	?allAf
 علت	ellat
@@ -7285,7 +7449,7 @@ _}	g:ijumebaste:
 علیت	ellijat
 علیحده	?alAhedde
 علیرضا	aliRezA
-علیرغم	alARaq1m
+علیرغم	alARaq1me
 علیرقم	alARaq1m
 علیه	alajhe
 علیک	alejk
@@ -7317,7 +7481,9 @@ _}	g:ijumebaste:
 عمیقا	amiq1an
 عناد	enAd
 عناصر	anAsoR
+عنان	?enAn
 عنایت	enAjat
+عنب	_enab
 عنبیه	enabije:
 عندلیب	andalib
 عنصر	onsoR
@@ -7335,14 +7501,17 @@ _}	g:ijumebaste:
 عوض	avaz
 عیار	ajAR
 عیاش	'ajjAS
+عیان	?ajAn
 عیسا	isA
 عیسی	isA
 عینا	?ejnan
 عیوض	?ejvaz
 عیوق	?ajjuq1
+غارت	q1ARat
 غاصبان	q1AsebAn
 غالبا	q1Aleban
 غایبان	q1AjebAn
+غایت	q1Ajat
 غایط	q1Ajet
 غایله	q1A?ele
 غبار	q1obAR
@@ -7373,6 +7542,7 @@ _}	g:ijumebaste:
 غروی	q1aRavi
 غرّان	q1oRRAn
 غرّش	q1oRReS
+غریبان	q1aRibAn
 غرید	q1oRRid
 غزل	q1azal
 غزنوی	q1aznavi
@@ -7409,6 +7579,7 @@ _}	g:ijumebaste:
 غلغلک	q1elq1elak
 غلمان	q1elmAn
 غلمون	q1elmun
+غله	q1alle:
 غلو	q1olov
 غماز	q1ammAz
 غماض	q1ammAz
@@ -7423,17 +7594,20 @@ _}	g:ijumebaste:
 غوث	q1o:s
 غور	q1o:R
 غوررسی	q1o:RRasi
+غوره	q1uRe:
 غوص	q1o:s
 غوغا	q1o:q1A
 غیابا	q1ijAban
 غیب	q1ejb
 غیر	q1ejR
+غیرت	q1ejRat
 غیرممکن	q1ejRemomken
 غیظ	q1ejz
 غیمه	q1ejme:
 غین	q1ejn
 غیه	q1ije:
 غیور	q1ajuR
+فئودال	fe?odAl
 فاحش	fAheS
 فاخته	fAxte:
 فاختۀ	fAxteje
@@ -7463,7 +7637,7 @@ _}	g:ijumebaste:
 فایرفاکس	fAjeRfAks
 فایل	'fAjl
 فبها	fabahA
-فتاد	fetAd
+فتاد	fotAd
 فتر	fetR
 فتنه	fetne:
 فتوالکتریک	fotoelekteRik
@@ -7501,6 +7675,7 @@ _}	g:ijumebaste:
 فدک	fadak
 فدیه	fedje:
 فر	feR
+فرآورده	faRAvaRde:
 فرئون	feR?on
 فرات	foRAt
 فراخنا	faRAxnA
@@ -7512,6 +7687,7 @@ _}	g:ijumebaste:
 فراطبق	faRAtabaq1
 فراعنه	faRA?ene:
 فرافکنی	faRAfekani
+فراق	feRAq1
 فراموش	fa'RAmuS
 فرانس	feRAns
 فرانسس	feRAnses
@@ -7647,6 +7823,7 @@ _}	g:ijumebaste:
 فسفر	fosfoR
 فسفرتاب	fosfoRtAb
 فسفرسانس	fosfoResAns
+فسق	fesq1
 فسقلی	fesq1eli
 فسنجان	fesendZAn
 فسنجون	fesendZun
@@ -7665,6 +7842,7 @@ _}	g:ijumebaste:
 فضاحت	fezAhat
 فضلا	fozalA
 فضه	fezze
+فطان	fattAn
 فطر	fetR
 فطرتا	fetRatan
 فعال	fa:?_Al
@@ -7692,7 +7870,7 @@ _}	g:ijumebaste:
 فلافل	falAfel
 فلامینکو	felAminko
 فلامینگو	felAmingo
-فلان	felAn
+فلان	folAn
 فلانژ	felAnZ
 فلاورجان	falAvaRdZAn
 فلج	faladZ
@@ -7723,6 +7901,7 @@ _}	g:ijumebaste:
 فنجان	fendZAn
 فنجون	fendZun
 فنداسیون	fondAsijon
+فندرسکی	fendeReski
 فندق	fandoq1
 فنر	fanaR
 فنولیت	fonolit
@@ -7778,6 +7957,7 @@ _}	g:ijumebaste:
 فکور	fakuR
 فیاض	fajjAz
 فیبر	fibR
+فیتنس	fitnes
 فیتوپلاینکتون	fitopelAjnkton
 فیزیولوژی	fizijoloZi
 فیزیولوژیک	fizijoloZik
@@ -7908,6 +8088,7 @@ _}	g:ijumebaste:
 قریبا	q1aRiban
 قریش	q1oRajS
 قرین	q1aRin
+قریه	q1aRije:
 قزاق	q1azzAq1
 قزح	q1ozah
 قزل	q1ezel
@@ -7947,10 +8128,11 @@ _}	g:ijumebaste:
 قطاع	q1etA
 قطب	q1otb
 قطبین	q1otbejn
-قطر	q1ataR
+قطر	q1otR
 قطران	q1atRAn
 قطره	q1atRe:
 قطعا	q1at?'an
+قطعات	q1ata?At
 قطور	q1atuR
 قفس	q1afas
 قفل	q1ofl
@@ -7992,6 +8174,7 @@ _}	g:ijumebaste:
 قلک	q1ollak
 قلی	q1oli
 قلیان	q1aljAn
+قلیون	q1aljun
 قم	q1om
 قمار	q1omAR
 قماش	q1omAS
@@ -8062,6 +8245,7 @@ _}	g:ijumebaste:
 قیمومیت	q1ejmumijat
 قیه	q1ije
 قیود	q1ojud
+قیوم	q1ajjum
 قیومیت	q1ajjumijat
 قیچک	q1ejtSak
 قیچی	q1ejtSi
@@ -8125,6 +8309,7 @@ _}	g:ijumebaste:
 لبهات	labhAt
 لبک	labak
 لبیک	labbejk
+لتونی	letoni
 لثوی	lassavi
 لجاج	ledZAdZ
 لجاره	ladZdZARe:
@@ -8171,6 +8356,7 @@ _}	g:ijumebaste:
 لغزش	laq1zeS
 لغو	laq1v
 لغوش	laq1vaS
+لغوی	loq1avi
 لفاظ	laffAz
 لفافه	laffAfe:
 لفت	left
@@ -8206,6 +8392,7 @@ _}	g:ijumebaste:
 لندهور	landehuR
 لنز	lenz
 لنفوسیت	lanfosit
+لنوو	lenovo
 لنکران	lankaRAn
 لنگان	langAn
 لنگرود	langRud
@@ -8242,6 +8429,7 @@ _}	g:ijumebaste:
 لومومبا	lomombA
 لوناپارک	lonApARk
 لوند	lavand
+لوور	luvR
 لوپز	lopez
 لوژ	loZ
 لوژیک	loZik
@@ -8265,6 +8453,7 @@ _}	g:ijumebaste:
 لکنته	lakante:
 لکه	lakke:
 لکوموتیو	lokomotiv
+لکوموتیوران	lokomotivRAn
 لگاریتم	logARitm
 لگام	legAm
 لگد	lagad
@@ -8304,6 +8493,7 @@ _}	g:ijumebaste:
 مأیوس	ma?jus
 مؤثر	mo?asseR
 مؤخر	mo?axxaR
+مؤذن	mo?azzen
 مؤسس	mo?asses
 مؤسسان	mo?assesAn
 مؤسسه	mo?assese:
@@ -8311,6 +8501,7 @@ _}	g:ijumebaste:
 مؤلّف	mo?allef
 مؤمن	mo?men
 مؤنث	moannas
+مؤنّث	mo?annas
 مؤکد	moakkad
 مؤکدا	moakkadan
 مابعد	mAba?d
@@ -8387,6 +8578,7 @@ _}	g:ijumebaste:
 ماورا	mAvaRA
 ماوراءالطبیعه	mAvaRA?ottabi?e
 ماوقع	mAvaq1a?
+ماژور	mAZoR
 ماکت	mAket
 ماکرو	mAkRo
 ماکسی	mAksi
@@ -8446,6 +8638,7 @@ _}	g:ijumebaste:
 مبلغین	moballeq1in
 مبهم	mobham
 مبین	mobin
+مبینا	mobinA
 متألم	mote_allem
 متابعت	motAbe?at
 متابلیسم	metAbolism
@@ -8475,6 +8668,7 @@ _}	g:ijumebaste:
 متحرک	motehaRRek
 متحصن	motehassen
 متحقق	motehaq1q1eq1
+متحکم	motehakkem
 متخاصم	motaxAsem
 متخذ	mottaxez
 متخلخل	motexalxel
@@ -8490,6 +8684,7 @@ _}	g:ijumebaste:
 مترجم	motaRdZem
 مترجمان	motaRdZemAn
 متردد	moteRadded
+مترس	mataRs
 مترسک	mataRsak
 مترقی	moteRaq1q1i
 مترلینگ	meteRling
@@ -8772,6 +8967,7 @@ _}	g:ijumebaste:
 مخم	moxam
 مخمر	moxammeR
 مخنث	moxannas
+مخوان	maxAn
 مخواه	maxAh
 مخور	maxoR
 مخوف	maxuf
@@ -8829,6 +9025,8 @@ _}	g:ijumebaste:
 مدیون	'madjun
 مذاب	mozAb
 مذاکر	mozAkeR
+مذلت	mazellat
+مذلّت	mazellat
 مذمت	mazemmat
 مذکر	mozakkaR
 مراجعی	maRAdZei
@@ -8857,12 +9055,14 @@ _}	g:ijumebaste:
 مرتد	moRtad
 مرتضوی	moRtazavi
 مرتضی	moRtezA
+مرتعش	moRta?eS
 مرتفع	moRtafa?
 مرتکبان	moRtakebAn
 مرتکبین	moRtakebin
 مرتیکه	maRtike:
 مرجح	moRadZdZah
 مرجع	maRdZa?
+مرحبا	maRhabA
 مرخص	moRaxxas
 مرد	maRd
 مرداب	moRdAb
@@ -8894,12 +9094,17 @@ _}	g:ijumebaste:
 مرصع	moRassa?
 مرض	maRaz
 مرضع	moRze?
+مرضیه	maRzije:
+مرضیۀ	maRzijeje
+مرعی	maR?A
 مرغ	moRq1
 مرغابی	moRq1Abi
 مرفه	moRaffah
+مرقع	moRaq1q1a?
 مرلین	meRlin
 مرمت	maRemmat
 مرنج	maRandZ
+مرنجان	maRandZAn
 مرند	maRand
 مرهم	maRham
 مرو	maRo
@@ -8909,6 +9114,7 @@ _}	g:ijumebaste:
 مروج	moRavvedZ
 مرودشت	maRvdaSt
 مرور	moRuR
+مروه	maRve:
 مروّج	moRavvedZ
 مروی	maRavi
 مرّتب	moRattab
@@ -8935,8 +9141,10 @@ _}	g:ijumebaste:
 مزخرف	mozaxRaf
 مزد	mozd
 مزدا	mazdA
+مزدوج	mozdavadZ
 مزدور	mozduR
 مزدک	mazdak
+مزعفر	moza?faR
 مزغان	mezq1An
 مزقان	mezq1An
 مزلف	mozallaf
@@ -8967,8 +9175,10 @@ _}	g:ijumebaste:
 مسافر	mosAfeR
 مسافربر	mosAfeRbaR
 مسافرت	mosAfeRat
+مساقات	mosAq1At
 مسالمت	mosAlemat
 مسامح	mosAmeh
+مساهق	mosAheq1
 مساوات	mosAvAt
 مساوی	mosAvi
 مساکن	masAken
@@ -9035,6 +9245,7 @@ _}	g:ijumebaste:
 مستوفی	mosto:fi
 مستولی	mosto:li
 مستوی	mostavi
+مستیزید	masetizid
 مسج	masedZ
 مسجد	masdZed
 مسجدسلیمان	masdZedsolejmAn
@@ -9178,10 +9389,10 @@ _}	g:ijumebaste:
 مصممانه	mosammamAne
 مصنف	mosannef
 مصوب	mosavvab
-مصوت	mosavvat
+مصوت	mosavvet
 مصور	mosavvaR
 مصون	masun
-مصوّت	mosavvat
+مصوّت	mosavvet
 مصیبت	mosibat
 مضاربه	mozARebe:
 مضاعف	mozA?af
@@ -9213,6 +9424,7 @@ _}	g:ijumebaste:
 مطرب	motReb
 مطربان	motRebAn
 مطرح	matRah
+مطلا	motallA
 مطلب	'matlab
 مطلع	mottale:?
 مطلق	motlaq1
@@ -9310,6 +9522,7 @@ _}	g:ijumebaste:
 معمر	mo?ammaR
 معمم	mo?ammam
 معمولا	ma?mulan
+معنبر	mo?anbaR
 معنوی	ma?navi
 معنویات	ma?navijAt
 معنویت	ma?navijjat
@@ -9344,9 +9557,10 @@ _}	g:ijumebaste:
 مغول	moq1ol
 مغیلان	moq1ilAn
 مف	mof
+مفاتن	mafAten
 مفاد	mofAdd
 مفارق	mofAReq1
-مفارقت	mofARegat
+مفارقت	mofAReq1at
 مفاصا	mofAsA
 مفاصاحساب	mofAsAhesAb
 مفاعلن	mafA?elon
@@ -9393,6 +9607,7 @@ _}	g:ijumebaste:
 مقبرۀ	maq1baReje
 مقبل	moq1bel
 مقتدا	moq1tadA
+مقتدی	moq1tadA
 مقتضا	moq1tazA
 مقتضی	moq1tazi
 مقتنی	moq1tani
@@ -9404,11 +9619,13 @@ _}	g:ijumebaste:
 مقدم	moq1addam
 مقدمات	moq1addamAt
 مقدمتا	moq1addamatan
+مقدمند	moq1addamand
 مقدمه	moq1addame:
 مقدّم	moq1addam
 مقر	maq1aRR
 مقراض	meq1RAz
 مقرب	moq1aRRab
+مقربان	moq1aRRabAn
 مقرر	moq1aRRaR
 مقررتنهایی	moq1aRRaR
 مقرنس	moq1aRnas
@@ -9441,8 +9658,11 @@ _}	g:ijumebaste:
 ملائک	malA?ek
 ملاحظ	molAhez
 ملارد	malARd
+ملازم	molAzem
+ملازمان	molAzemAn
 ملاطفت	molAtefat
 ملاقات	molAq1At
+ملامت	malAmat
 ملاک	melAk
 ملایم	molAjem
 ملبس	molabbas
@@ -9496,6 +9716,7 @@ _}	g:ijumebaste:
 ممیز	momajjez
 منا	monA
 مناجات	monAdZAt
+منادی	monAdi
 منازع	monAze?
 مناسب	monAseb
 مناسبتی	monAsebati
@@ -9503,6 +9724,7 @@ _}	g:ijumebaste:
 مناظره	monAzeRe:
 منافات	monAfAt
 منافق	monAfeq1
+منافقون	monAfeq1un
 مناقش	monAq1eS
 مناقصه	monAq1ese:
 منبر	manbaR
@@ -9528,8 +9750,11 @@ _}	g:ijumebaste:
 منجر	mondZaR
 منجز	monadZdZaz
 منجلاب	mandZelAb
+منجم	monadZdZem
 منجمان	monadZdZemAn
+منجوق	mondZuq1
 منجی	mondZi
+منجیل	mandZil
 منحا	'menhA
 منحصرا	monhaseRan
 منحل	monhal
@@ -9547,6 +9772,7 @@ _}	g:ijumebaste:
 منشی	mo:n'Si
 منشین	manSin
 منصف	monsef
+منضم	monzam
 منطق	manteq1
 منطقا	manteq1an
 منطقه	mantaq1e:
@@ -9568,10 +9794,12 @@ _}	g:ijumebaste:
 منهدم	monhadem
 منو	meno
 منوال	menvAl
+منور	monavvaR
 منوط	manut
 منوچ	manutS
 منوچهر	manutSehR
 منوی	menoje
+منّت	mennat
 منچ	mentS
 منچستر	mantSesteR
 منچستریونایتد	mantSesteRjunAjted
@@ -9589,6 +9817,7 @@ _}	g:ijumebaste:
 مهاجمان	mohAdZemAn
 مهارت	mahARat
 مهبل	mahbel
+مهتر	mehtaR
 مهدوی	mahdavi
 مهدویت	mahdavijjat
 مهر	me:hR
@@ -9597,16 +9826,19 @@ _}	g:ijumebaste:
 مهربون	mehRabun
 مهرنوش	mehRnuS
 مهره	mohRe:
+مهریه	mahRije:
 مهسا	mahsA
 مهستی	mahasti
 مهشید	mahSid
 مهلت	mohlat
 مهلقا	mahlaq1A
 مهلک	mohlek
+مهلکه	mahlake:
 مهم	'mohem
 مهمان	mehmAn
 مهمانی	mehmAni
 مهمل	mohmal
+مهمند	mohemmand
 مهمون	mehmun
 مهندس	mo'handes
 مهندسان	mohandesAn
@@ -9632,6 +9864,7 @@ _}	g:ijumebaste:
 موثق	movassaq1
 موج	mo:dZ
 موجب	modZeb
+موجد	mudZed
 موجر	mudZeR
 موجه	movadZdZah
 موجود	modZu:d
@@ -9706,16 +9939,19 @@ _}	g:ijumebaste:
 مونسان	munesAn
 مونیتور	monitoR
 موهبت	muhebat
+موهم	mo:hem
 موهن	mo:hen
 موومان	muvmAn
 موژه	moZe:
 موکب	mo:keb
 موکت	moket
 موکل	movakkel
+موکّل	movakkel
 مویرگ	mujRag
 مّلاک	mallAk
 مّلت	mellat
 مّلیت	mellijat
+مپرس	mapoRs
 مپرسد	mapoRsad
 مپرسید	mapoRsid
 مپل	mopol
@@ -9735,6 +9971,8 @@ _}	g:ijumebaste:
 مکاران	makkARAn
 مکارم	makARem
 مکاشب	mokASef
+مکاشفات	mokASefAt
+مکاشفه	mokASefe:
 مکافات	mokAfAt
 مکالم	mokAlem
 مکالمه	mokAleme:
@@ -9769,11 +10007,13 @@ _}	g:ijumebaste:
 مگا	megA
 مگابایت	megAbAjt
 مگر	magaR
+مگرد	magaRd
 مگس	magas
 مگسکش	magaskoS
 میابد	mijAbad
 میادین	majAdin
 میامی	majAmej
+میامیز	majAmiz
 میان	miAn
 میانبر	mijAnboR
 میانجی	mi:An'dZi:
@@ -9792,7 +10032,9 @@ _}	g:ijumebaste:
 میتینگ	miting
 میثم	mejsam
 میجر	mejdZeR
+میخان	mejxAn
 میخرد	mixaRad
+میخوار	mejxAR
 میخواره	mejxARe
 میخوارگی	mejxARegi
 میخواری	mejxARi
@@ -9830,6 +10072,7 @@ _}	g:ijumebaste:
 میسترس	misteRes
 میسر	mojassaR
 میسور	majsuR
+میسوری	misuRi
 میسیونر	misijoneR
 میشل	miSel
 میشمرد	miSemoRd
@@ -9905,6 +10148,7 @@ _}	g:ijumebaste:
 میگرن	migRen
 میگسار	mejgosAR
 میگو	mejgu
+میگون	mejgun
 میگویم	migujam
 نابخرد	nAbexRad
 نابرادری	nAbaRAdaRi
@@ -9935,6 +10179,7 @@ _}	g:ijumebaste:
 نارگیل	nARgil
 نازبالش	nAzbAleS
 نازخاتون	nAzxAtun
+نازد	nAzad
 نازدید	nAzdid
 نازلی	nAzli
 نازنازی	nAznAzi
@@ -9979,6 +10224,7 @@ _}	g:ijumebaste:
 ناوبر	nAvbaR
 ناوبری	nAvbaRi
 ناودان	nAvdAn
+ناودون	nAvdun
 ناودیس	nAvdis
 ناوش	nAveS
 ناوپا	nAvpA
@@ -10023,6 +10269,7 @@ _}	g:ijumebaste:
 نجبا	nodZabA
 نجس	nadZes
 نجف	nadZaf
+نجنگیم	nadZangim
 نجوا	nadZvA
 نجواگر	nadZvAgaR
 نجوم	no'dZum
@@ -10043,6 +10290,7 @@ _}	g:ijumebaste:
 نخجیر	naxdZiR
 نخد	noxod
 نخر	naxaR
+نخرد	naxaRad
 نخریس	naxRis
 نخست	noxost
 نخستین	naxostin
@@ -10052,6 +10300,7 @@ _}	g:ijumebaste:
 نخیل	naxil
 ندا	nedA
 ندامت	nedAmat
+ندبه	nodbe:
 ندرت	nodRat
 ندرتا	nodRatan
 ندم	nadam
@@ -10090,6 +10339,7 @@ _}	g:ijumebaste:
 نزاجا	nezAdZA
 نزاع	nezA?
 نزاکت	nezAkat
+نزدند	nazadand
 نزده	nazade:
 نزدیک	'nazdik
 نزن	nazan
@@ -10120,7 +10370,7 @@ _}	g:ijumebaste:
 نسکافه	neskAfe:
 نسیان	nesjAn
 نسیم	nasim
-نسیه	nesije:
+نسیه	nesje:
 نشئت	naS?at
 نشا	neSA
 نشات	neSAt
@@ -10134,6 +10384,7 @@ _}	g:ijumebaste:
 نشتر	neStaR
 نشخوار	noSxAR
 نشد	naSod
+نشریات	naSRijjAt
 نشست	ne'Sast
 نشستم	neSastam
 نشستن	neSastan
@@ -10245,10 +10496,12 @@ _}	g:ijumebaste:
 نمو	nemovv
 نمود	nemud
 نمودار	nemudAR
+نمودم	nemudam
 نمونه	nemune:
 نمونک	nemunak
 نمونۀ	nemuneje
 نمک	namak
+نمکدان	namakdAn
 نمیای	nemijAj
 نمیبرم	nemibaRam
 نمیخرد	nemixaRad
@@ -10271,6 +10524,7 @@ _}	g:ijumebaste:
 نمیگه	nemige:
 ننت	nanat
 ننداز	nandAz
+ننر	nonoR
 ننش	nanaS
 ننم	nanam
 ننمود	nanemud
@@ -10348,9 +10602,11 @@ _}	g:ijumebaste:
 نوسنگی	no:sangi
 نوشاب	nuSAb
 نوشاند	nuSAnd
+نوشانید	nuSAnid
 نوشت	neveSt
 نوشتار	neveStAR
 نوشتجات	neveStedZAt
+نوشد	nuSad
 نوشدارو	nuSdARu
 نوشروان	nuSeRvAn
 نوشیدم	noSidam
@@ -10363,6 +10619,7 @@ _}	g:ijumebaste:
 نوع	no?
 نوعا	no:?an
 نولیست	novelist
+نومید	no:mid
 نونوار	no:navAR
 نوه	nave:
 نوول	novel
@@ -10394,6 +10651,7 @@ _}	g:ijumebaste:
 نکا	nekA
 نکات	nokAt
 نکاح	nekAh
+نکاه	nekAh
 نکبت	nekbat
 نکبتبار	nekbatbAR
 نکته	nok'te:
@@ -10432,12 +10690,15 @@ _}	g:ijumebaste:
 نگون	negun
 نگین	negin
 نی	nej
+نیاب	najAb
 نیابت	nijAbat
 نیابتا	nijAbatan
 نیات	nijjAt
 نیاز	nijAz
+نیازد	najAzad
 نیاسر	nijAsaR
 نیاسین	nijAsin
+نیافرید	najAfaRid
 نیامد	najAmad
 نیاموخت	najAmuxt
 نیاندرتال	neAndeRtAl
@@ -10474,6 +10735,7 @@ _}	g:ijumebaste:
 نیفت	najoft
 نیفتاد	najoftAd
 نیفتد	najoftad
+نیفزود	najafzud
 نیمکت	nimkat
 نیمکره	nimkoRe
 نینتندو	nintendo
@@ -10688,6 +10950,7 @@ _}	g:ijumebaste:
 هموژن	hemoZen
 هموژنیزه	hemoZenize
 هموگلوبین	hemogolobin
+همکلاسان	hamkelAsAn
 همگانی	hamegAni
 همگن	hamgen
 همگی	hamegi
@@ -10744,6 +11007,7 @@ _}	g:ijumebaste:
 هول	ho:l
 هولاکو	holAku
 هولاکوخان	holAkuxAn
+هولمز	holmz
 هولوکاست	holokAst
 هولوگراف	hologeRAf
 هولوگرام	hologeRAm
@@ -10864,6 +11128,7 @@ _}	g:ijumebaste:
 وانت	vAnet
 وانفسا	vAnafsA
 وانمود	vAnemud
+وانهاد	vAnahAd
 وانگه	vAngah
 واویلا	vAvejlA
 واپس	vApas
@@ -10921,6 +11186,7 @@ _}	g:ijumebaste:
 ورسک	veResk
 ورشو	vaRSo:
 ورشکست	vaRSe'kast
+ورع	vaRa?
 ورق	vaRaq1
 ورل	vaRal
 ورم	vaRam
@@ -10956,6 +11222,7 @@ _}	g:ijumebaste:
 وطن	vatan
 وعاظ	vo?Az
 وعدووعید	va?dova?id
+وعدگاه	va?degAh
 وفاق	vefAq1
 وفامهر	vafAmehR
 وفق	vefq1
@@ -11002,6 +11269,7 @@ _}	g:ijumebaste:
 ونک	vanak
 ونگوگ	vangog
 ونیز	veniz
+وه	vah
 وهب	vahab
 ووشو	voSo
 وکالت	vekAlat
@@ -11048,10 +11316,12 @@ _}	g:ijumebaste:
 پاتریوت	pAtRijot
 پاتوق	pAtoq1
 پادتن	pAdtan
+پادشه	pAdeSAh
 پادو	pAdo
 پادکست	pAdkast
 پارادوکس	pARAdoks
 پارادوکسیکال	pARAdoksikAl
+پارادکس	pARAdoks
 پارازیت	pARAzit
 پارالل	pARAlel
 پارامتر	pARAmetR
@@ -11081,6 +11351,7 @@ _}	g:ijumebaste:
 پالت	pAlet
 پالتو	pAlto
 پالس	pAls
+پاناسونیک	pAnAsonik
 پانتومیم	pAntomim
 پاند	pAnd
 پانز	pAnz
@@ -11104,6 +11375,7 @@ _}	g:ijumebaste:
 پترزبورگ	peteRzbuRg
 پتروسیان	petRosijAn
 پتروشیمی	petRoSimi
+پتنت	patent
 پتک	potk
 پخت	poxt
 پخش	paxS
@@ -11195,6 +11467,7 @@ _}	g:ijumebaste:
 پرزیدنت	peRezident
 پرست	paRast
 پرستار	paRastAR
+پرستان	paRastAn
 پرستش	paRasteS
 پرستشگر	paRasteSgaR
 پرستم	paRastam
@@ -11248,6 +11521,7 @@ _}	g:ijumebaste:
 پرمنفعت	poRmanfeat
 پرمنگنات	peRmangenAt
 پرمو	poRmu
+پرمی	poRmej
 پرند	paRand
 پرنده	paRande:
 پرندگان	paRandegAn
@@ -11278,6 +11552,7 @@ _}	g:ijumebaste:
 پروتکل	poRotokol
 پروتیین	poRote?in
 پرور	paRvaR
+پروراند	paRvaRAnd
 پرورد	paRvaRd
 پروردگارا	paRvaRdgARA
 پرورش	paRvaReS
@@ -11295,6 +11570,7 @@ _}	g:ijumebaste:
 پرونده	paRvande:
 پروندۀ	paRvandeje
 پروه	paZuh
+پروپوزال	poRopozAl
 پروژسترون	peRoZesteRon
 پروژه	poRoZe:
 پروژکتور	poRoZektoR
@@ -11351,6 +11627,7 @@ _}	g:ijumebaste:
 پسرا	pesaRA
 پسراندر	pesaRandaR
 پسرانه	pesaRAne
+پسرانی	pesaRAni
 پسربرادر	pesaRebaRAdaR
 پسربچه	pesaRbatStSe
 پسرخاله	pesaRxAle:
@@ -11386,6 +11663,9 @@ _}	g:ijumebaste:
 پطرس	petRos
 پطروسیان	petRosijAn
 پف	pof
+پفت	pofat
+پفش	pofaS
+پفم	pofam
 پفک	pofak
 پفیوز	pofijuz
 پل	pol
@@ -11543,6 +11823,8 @@ _}	g:ijumebaste:
 پپسی	pepsi
 پپسیکولا	pepsikolA
 پپیتر	popitR
+پچ	petS
+پچپچ	petSpetS
 پژمان	peZmAn
 پژمر	paZmoR
 پژمرد	paZmoRd
@@ -11640,6 +11922,7 @@ _}	g:ijumebaste:
 پیکاسو	pikAso
 پیکان	pejkAn
 پیکر	pejkaR
+پیکسل	piksel
 پیکلو	pikolo
 پیکولو	pikolo
 پیگیر	pejgiR
@@ -11654,7 +11937,6 @@ _}	g:ijumebaste:
 چادرشب	tSAdoRSab
 چادرنماز	tSAdoRnamAz
 چادرچاقچوری	tSAdoRtSAq1tSuRi
-چارآبششان	tSARAbSoSAn
 چارت	tSARt
 چارتر	tSARteR
 چارجینگ	tSARdZing
@@ -11695,6 +11977,7 @@ _}	g:ijumebaste:
 چرغ	tSaRq1
 چرغند	tSaRq1and
 چرغول	tSaRq1ul
+چرنوبیل	tSeRnobil
 چرون	tSaRun
 چروکاند	tSoRukAnd
 چرچر	tSaRtSaR
@@ -11726,7 +12009,7 @@ _}	g:ijumebaste:
 چشانید	tSeSAnid
 چشته	tSeSte
 چشد	tSeSad
-چشم	tSaSm
+چشم	tSeSm
 چشمان	tSaSmAn
 چشمبند	tSeSmband
 چشمرس	tSeSmRas
@@ -11870,6 +12153,7 @@ _}	g:ijumebaste:
 چگال	tSegAl
 چگالش	tSegAleS
 چگالنده	tSegAlande
+چگل	tSegel
 چگن	tSegen
 چگون	tSegun
 چگونگی	tSegunegi
@@ -11898,6 +12182,7 @@ _}	g:ijumebaste:
 ژتون	Zeton
 ژرفانگر	ZaRfAnegaR
 ژرفنا	ZaRfnA
+ژرمن	ZeRman
 ژرژ	ZoRZ
 ژست	Zest
 ژل	Zel
@@ -11924,12 +12209,14 @@ _}	g:ijumebaste:
 ژیومرفولژی	ZeomoRfoloZi
 کابشن	kAbSen
 کابل	kAbl
+کابلستان	kAbolestAn
 کابوی	kAboj
 کابینت	kAbinet
 کاتابولیسم	kAtAbolism
 کاتالوگ	kAtAlog
 کاتالپسی	kAtAlepsi
 کاتالیزور	kAtAlizoR
+کاتبین	kAtebin
 کاترپیلار	kAteRpilAR
 کاترین	kAtRin
 کاتولیسیسم	kAtolisism
@@ -11951,6 +12238,7 @@ _}	g:ijumebaste:
 کارتریج	kARtRidZ
 کارتل	kARtel
 کارتون	kARton
+کارتکس	kARteks
 کارخانجات	kARxAnedZAt
 کارد	kARd
 کاردان	kARdAn
@@ -12004,6 +12292,7 @@ _}	g:ijumebaste:
 کانبرا	kAnbRA
 کانت	kAnt
 کانتینر	kAntineR
+کاندر	kandaR
 کاندم	kAndom
 کاندوم	kAndom
 کاندید	kAndid
@@ -12024,6 +12313,7 @@ _}	g:ijumebaste:
 کاکل	kAkol
 کاکول	kAkol
 کایت	kAjt
+کاین	kin
 کبد	kabed
 کبر	kebR
 کبرا	'kobRA
@@ -12034,6 +12324,7 @@ _}	g:ijumebaste:
 کبودرآهنگ	kabudaRAhang
 کت	kot
 کتاب	ketAb
+کتابند	ketAband
 کتب	kotob
 کتبا	katban
 کتباً	katban
@@ -12056,6 +12347,7 @@ _}	g:ijumebaste:
 کجا	kodZA
 کجروی	kadZRavi
 کجکی	kadZaki
+کحل	kohl
 کد	kod
 کدام	kodAm
 کدامند	kodAmand
@@ -12073,6 +12365,7 @@ _}	g:ijumebaste:
 کراتین	keRAtin
 کرال	koRAl
 کرام	keRAm
+کراهت	keRAhat
 کراوات	keRAvAt
 کرایه	keRAje:
 کرایۀ	keRAjeje
@@ -12250,6 +12543,7 @@ _}	g:ijumebaste:
 کلنجار	kalandZAR
 کلنل	kolonel
 کلنگ	kolang
+کلنگر	kolnegaR
 کله	kalle:
 کلهر	kalhoR
 کلوپاترا	kelopAtRA
@@ -12388,7 +12682,9 @@ _}	g:ijumebaste:
 کنیاک	konjAk
 کنید	konid
 کنیم	konim
+کهتر	kehtaR
 کهربا	kahRobA
+کهسار	kohsAR
 کهن	kohan
 کهنه	kohne:
 کهنگان	kohnegAn
@@ -12444,6 +12740,7 @@ _}	g:ijumebaste:
 کپر	kapaR
 کپرنیک	kopeRnik
 کپل	kopol
+کپلر	kepleR
 کپنهاک	kopenhAk
 کپنهاگ	kopenhAg
 کپه	koppe:
@@ -12516,9 +12813,11 @@ _}	g:ijumebaste:
 گداخت	godAxt
 گدار	godAR
 گداز	godAz
+گدازد	godAzad
 گذار	gozAR
 گذارد	gozARad
 گذارده	gozARde:
+گذاردیم	gozARdim
 گذاشت	'gozASt
 گذر	gozaR
 گذرا	gozaRA
@@ -12547,6 +12846,7 @@ _}	g:ijumebaste:
 گرانول	geRAnul
 گرانیت	geRAnit
 گراهام	geRAhAm
+گراید	geRAjad
 گرایش	geRAjeS
 گراینده	gaRAjAnde
 گرایید	geRAid
@@ -12674,6 +12974,7 @@ _}	g:ijumebaste:
 گفتا	goftA
 گفتار	goftAR
 گفتاردرمانی	goftARdaRmAni
+گفتم	goftam
 گفتنی	goftani
 گفتوگو	goft'ogu
 گفتگو	goftogu
@@ -12734,6 +13035,8 @@ _}	g:ijumebaste:
 گلۀ	galleje
 گلیسیرین	gelisiRin
 گلیم	gelim
+گلیمش	gelimaS
+گلیمم	gelimam
 گلیکوژن	gelikoZen
 گلیکژن	gelikoZen
 گم	gom
@@ -12743,8 +13046,10 @@ _}	g:ijumebaste:
 گماشد	gomASd
 گمبد	gombad
 گمبرون	gombeRon
+گمت	gomat
 گمراه	gomRAh
 گمرک	gomRok
+گمش	gomaS
 گمشو	gom_So
 گمنام	gomnAm
 گمیشان	gomiSAn
@@ -12781,6 +13086,7 @@ _}	g:ijumebaste:
 گنه	gonah
 گنوستیک	genostik
 گنوسی	genosi
+گنگ	gong
 گه	gah
 گهر	gohaR
 گهررود	gohaRRud
@@ -12851,6 +13157,7 @@ _}	g:ijumebaste:
 یادمه	jAdame:
 یارد	jARd
 یارویاور	jARojAvaR
+یازد	jAzad
 یازده	'jAzdah
 یازدهم	jAzdahom
 یاسمن	jAsaman
@@ -12861,6 +13168,7 @@ _}	g:ijumebaste:
 یبس	jobs
 یبوست	jobusat
 یتان	jetAn
+یتیمان	jatimAn
 یثرب	jasReb
 یحتمل	jahtamel
 یحود	jahud
@@ -12878,6 +13186,7 @@ _}	g:ijumebaste:
 یشان	jeSAn
 یعقوب	ja?q1ub
 یغر	joq1oR
+یغما	jaq1mA
 یغور	joq1oR
 یقر	joq1oR
 یقور	joq1oR
@@ -12913,6 +13222,7 @@ _}	g:ijumebaste:
 یونیت	junit
 یونیزه	jonize
 یونیسف	junisef
+یونیفرم	junifoRm
 یونیورسال	juniveRsAl
 یونیورسیتی	juniveRsiti
 یونیکس	juniks
@@ -12929,6 +13239,7 @@ _}	g:ijumebaste:
 یکدگر	jekdegaR
 یکدیگر	jekdigaR
 یکراست	jekRAst
+یکرنگ	jekRang
 یکسر	jeksaR
 یکصد	jeksad
 یکم	'jekom
