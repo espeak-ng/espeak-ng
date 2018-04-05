@@ -86,3 +86,4 @@ test_lang it 8780284c48a97327b120f554adb3c2dd5ffbc283 "ma na n^a pa ba ta da ka 
 test_lang ja 602ba8d6db3e45b0966f72d6404eadb0e0837930 "ma na n^a Na N\\a pa ba ta da ka ga t_sa d_za t_s\\a d_z\\a p\\a sa za s\\a z\\a Ca ha r\`a ja wa _:_ mi mu me mo ma mi~ mu~"
 test_lang jbo 77a00420ef9c1b40f87800f5ffee921e68a48a32 "ma na Na pa ba ta da ka ga ?a fa va xa ha tSa dZa sa za Sa Za wa ja la Ra n-a r-a l-a _:_ ma me mi mo mu m@ maI maU meI moI"
 test_lang ka 74a6f31909bdc9470e203a658614b6d2c961d7c3 "ma na p#a pa ba t#a ta da k#a ka ga qa ?a ts#a tsa tSa dza dZa va sa za Sa Za ca xa qa Qa ha ra la _:_ ma me mi mo mu m@ mo:"
+test_lang kl 9b97b1ba5f35bb41a4be67e0a329cff9f494b2b1 "ma na Na pa ta ka qa tsa va sa Sa Qa ra la l#a ja tl#a _:_ ma me mi my mo mu m& mE mV mO mW m3 m@ maI"
