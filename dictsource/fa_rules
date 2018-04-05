@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.132
-// *   This file writen by Shadyar Khodayari 04-22-2016
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.135
+// *   This file writen by Shadyar Khodayari 04-05-2018
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -228,6 +228,11 @@
 // all Farsi characters without short vowels
 .L09  ض ص ث ق ف غ ع ه خ ح ج چ ش س ی ب ل ا ت ن م ک گ ۀ آ ظ ط ز ر ذ د ئ و ة ي ژ پ ؤ إ أ ء ؟ ّ
 
+// Special Characters 1
+.L10  ا
+
+// Special Character 2
+.L11  ش
 
 // (ZWNJ) U+200c character (half space) is recognized as Hyphen and this simbole "-" has been definded for this character in the rules.
 
@@ -277,6 +282,9 @@
 	اٍ	en
 	اٌ	on
 	ا (ٓ	A
+	// Exceptional Rules
+		_رL10ید) ا (L11_	A
+		_ر) ا (یدL10L11_	A
 
 	// Prefixes ا
 		_) ال (L09L09L09P2@	al
@@ -300,6 +308,7 @@
 		L09L04) اٌ (_NSm2	an
 		L09L04) اٍ (_NSm2	an
 		L09L09L04) ان (_Sm2	An
+		یاب) ان (_Sm2	An
 		//l09l09l04) انی (_NSm3	Ani
 		// Plural possessive pronouns for ان eg. "مردانت"
 			l09l09l04) انم (_NSm3	Anam
@@ -1820,6 +1829,8 @@ L09L04) السّادات (_Sm8	ossAdAt
 			_L03L09L03) د (L03L09L09_	da
 		// Analyzing 5th Consonant of 9 Consonants (left to right)
 			L09L09L09L09) د (L03L09L09L09_	da
+	// Exceptional Rules
+		_رL10ی) د (L10L11_	j
 
 	// Prefixes د
 		_) دو (L04L09L09$noprefixP2@	do
@@ -2165,6 +2176,8 @@ L09L04) السّادات (_Sm8	ossAdAt
 			_L03L09L03) ر (L03L09L09_	Ra
 		// Analyzing 5th Consonant of 9 Consonants (left to right)
 			L09L09L09L09) ر (L03L09L09L09_	Ra
+	// Exceptional Rules
+		_) ر (L10یدL10L11_	S
 
 	// Prefixes ر
 		_) رضا (L04L09L09P3@	RezA
@@ -2179,7 +2192,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 	// suffixes ر
 		//L09L09L09) ران (_Sm3	RAn
 		//L09L09L09) رانی (_Sm4	RAni
-		L09L09L09) رانها (_Sm5	RAnha
+		L09L09L09) رانها (_Sm5	RAnhA
 		L09L09L09) رانهای (_Sm6	RAnhAje
 		L09L09L09) رانهایی (_Sm7	RAnhAi:
 		L09L09L09) رانان (_Sm5	RAnAn
@@ -2844,6 +2857,8 @@ L09L04) السّادات (_Sm8	ossAdAt
 			_L03L09L03) ش (L03L09L09_	Sa
 		// Analyzing 5th Consonant of 9 Consonants (left to right)
 			L09L09L09L09) ش (L03L09L09L09_	Sa
+	// Exceptional Rules
+		_رL10یدL10) ش (_	R
 
 	// Prefixes ش
 		_) شاد (L04L09L09P3@	S'Ad
@@ -3593,7 +3608,9 @@ L09L04) السّادات (_Sm8	ossAdAt
 	// ع as first letter in bondary of the words
 		_) ع (L03	a:
 		_) ع (ا	
-		_) ع (و	a
+		_) ع (وL01	a
+		_) ع (وL03	
+		_) ع (و_	a
 		_) ع (ی	e
 	// ع in end of the words
 		L09) ع (_	'?
@@ -4473,6 +4490,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09L03) گی (_Sm2	egi
 		L09L01ی) گی (_Sm2	egi
 		L09L01و) گی (_Sm2	egi
+
 		// Possessive pronouns for گی eg. "زندگیتان"
 			L09L09L03) گیم (_NSm3	egijam
 			L09L09L03) گییم (_NSm4	egijam
@@ -4825,6 +4843,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 			L09L09L09L09) م (L03L09L09L09_	ma
 
 	// Prefixes م
+		_) م (L03L04L03_$noprefixP1@	ma
 		_) می (L03L09+$noprefixP2@	mi
 		_) می (آL09L09$noprefixP2@	mi
 		_) می (وL09L09$noprefixP2@	mi
@@ -5106,6 +5125,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09) نقی (_Sm3	naq1i
 		// Subjective pronouns
 			L09L09L03) ند (_NSm2	and
+			L09L03ی) ند (_NSm2	nad
 		L09L09) نوشت (_Sm4	neveSt
 		L09L09) نشین (_Sm4	neSin
 		L09L09) نکردن (_Sm5	nakaRdan
@@ -5534,6 +5554,8 @@ L09L04) السّادات (_Sm8	ossAdAt
 
 .group یی
 	یی	i:
+	// Exceptional Rules
+		_رL10) ی (دL10L11_	d
 
 	// Prefixes یی
 		
@@ -5875,7 +5897,6 @@ L09L04) السّادات (_Sm8	ossAdAt
 	إ (ِ	
 
 
-
 // rules for Farsi written by English characters (Pinglish)
 // Sometimes, Farsi speakers write Farsi words using English characters, particularly in Chat and SMS (texte messages).), called Pinglish
 
@@ -6072,8 +6093,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 
 // Others mathematics characters
 .group
-    D_) : (_DD_                         // omit colon in time, eg: 2:30
-	. (D	noq1te:
+	. (D     	noq1te:
 	±	m'osbat||jA:||m'anfi
 	>=	boz'oRgtaR||jA:||m,osAvi
 	<=	kutS'ektaR||jA:||m,osAvi
