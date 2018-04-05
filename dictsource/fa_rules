@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.134
-// *   This file writen by Shadyar Khodayari 06-24-2017
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.135
+// *   This file writen by Shadyar Khodayari 04-05-2018
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -4490,7 +4490,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09L03) گی (_Sm2	egi
 		L09L01ی) گی (_Sm2	egi
 		L09L01و) گی (_Sm2	egi
-		L09L09) گه (_NSm2	gah
+
 		// Possessive pronouns for گی eg. "زندگیتان"
 			L09L09L03) گیم (_NSm3	egijam
 			L09L09L03) گییم (_NSm4	egijam
@@ -5125,7 +5125,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09) نقی (_Sm3	naq1i
 		// Subjective pronouns
 			L09L09L03) ند (_NSm2	and
-			L09L03ی) ند (_NSm2	and
+			L09L03ی) ند (_NSm2	nad
 		L09L09) نوشت (_Sm4	neveSt
 		L09L09) نشین (_Sm4	neSin
 		L09L09) نکردن (_Sm5	nakaRdan
