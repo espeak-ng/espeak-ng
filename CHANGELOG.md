@@ -41,6 +41,7 @@ updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  en (English) -- Reece Dunn
+*  fa (Farsi/Persian) -- Shadyar Khodayari
 *  fi (Finnish) -- Juho Hiltunen
 *  fr (French) -- Shallowmallow, Karl Eick, maiido, Reece Dunn
 *  it (Italian) -- chrislm
