@@ -93,3 +93,4 @@ test_lang kok 91e9bf35df942daecaa3e260807e24fb93470a55 "ma na n.a n^a Na pa ta t
 test_lang ku 632d99289a4dae9e3f03111e04b282de3450950a "ma na Na pa ba ta da ka ga qa ?a tSa dZa fa va sa za Sa Za xa ca Ja ha ja *a Ra la _:_ mi my mu mI mU me mo mE mE# ma m8 mV meI meU"
 test_lang ky bee9e683218b0c53c29a89709501f8a2486b71b2 "ma na Na pa ba ta da ka ga tsa tSa dZa fa va sa za Sa xa Xa la La ja *a ra _:_ ma me mi mo mu mI my mO ma: me: mi: mo: mu: mI: my: mO:"
 test_lang la d5efd2087cc6227313fd14f00a95f278c27f4fa0 "ma na Na pa p<h>a ba ta t<h>a da ka k<h> ga fa sa za ha Ra la ja wa _:_ ma mE mI mO mU ma: me: mi: mo: mu: my my: maU maI meI mEU mOI"
+test_lang lfn 044e27a5100528760a185e0773dccaca504b5bd4 "ma na Na pa ba ta da ka ga fa va sa za Sa Za ha la ja R2a **a wa _:_ ma me mi mo mu maI maU meU moI"
