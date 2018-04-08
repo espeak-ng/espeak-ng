@@ -2390,6 +2390,7 @@ _it_separ) ate (_  @t
     @x) ed (_S2vi  d#
      y) ed (_S2v   d#
  debut) ed (_S2    d#
+   cup) ed (_S2    d# // hiccuped
         edly (_S4me I#dl%i
    tur) edly (_S3v d#l%i // naturedly
      c) ed (e_     'i:d
@@ -3689,6 +3690,7 @@ _it_separ) ate (_  @t
     er) ingment (_S7v %INm@nt
    Aur) ing (_S3v  %IN
    &Br) ing (_     %IN
+hiccup) ing (_S3   %IN
 
 ?7   &) in (_      @n
      _) in (@P2    %In
@@ -4634,6 +4636,7 @@ multip) ly         laI
      t) o (ngu     V
         o (que_    oU
         o (shA_    oU
+   tar) ot (_      oU
     _C) o (ti      oU
         o (tion    oU
      m) o (x       @
@@ -5165,6 +5168,7 @@ multip) ly         laI
      b) ough       aU
      b) ough (t    O:
      c) ough       O2f
+  hicc) ough       Vp
      d) ough       oU
      d) ough (t    aU
      h) ough       oU
@@ -5176,6 +5180,7 @@ multip) ly         laI
      n) ough       Vf
      n) ough (t    O:
      r) ough       Vf
+    rr) ough (s    oU
     br) ough (_    @
     br) ough (t    O:
     dr) ough       aU
@@ -5979,6 +5984,7 @@ multip) ly         laI
    @ce) s (_S1     I#z
    &er) s (_S1m    z
      f) s (_       s
+    gh) s (_       z# // [s] if 'gh' is [f], otherwise [z]
     ng) s (_S1m    z
      k) s (_       s
      n) s (_S1m    z
