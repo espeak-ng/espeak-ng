@@ -2166,6 +2166,7 @@ _it_separ) ate (_  @t
   vert) e (b       I
     @@) eble (_    @b@L
    cel) e (bra     @
+        e (brea    // cursebreaker
         e (bria    i:
      _) e (bulli   %I
      m) e (chanic  I#
@@ -2833,6 +2834,7 @@ _it_separ) ate (_  @t
      &) eriz (a    @raIz
      @) er (Cal_   '3:
      @) er (Cic_   '3:
+ weath) erman (_   3man
      p) ermea (b   3:mi@
     _f) erme (nt   %3:mE
         er (nal_   '3:
@@ -3103,7 +3105,10 @@ _it_separ) ate (_  @t
      _) eye        aI
         eye        eI
      @) eye (_S3   aI
-        eyed (_S2  d
+        eyed (_S2  d	// conveyed, journeyed, etc.
+    ug) eyed (_S1  d	// bugeyed
+    ck) eyed (_S1  d	// cockeyed
+    ll) eyed (_S1  d	// walleyed
     @m) eyer (_    aI3
         eyor (_    'eI3
 
@@ -4419,6 +4424,7 @@ multip) ly         laI
     mA) ng (y      ndZ
      u) ng (y      ndZ
         nged       ndZd
+   %Ci) nged       Nd
      a) nged       Nd
     li) nged       Nd
      o) nged       Nd
@@ -4801,6 +4807,7 @@ multip) ly         laI
     &C) oned (_S2v d
     &C) oning (_S3v I2N
      _) one        w02n
+     _) on (ess    %0n
      _) once (_    wVns
      g) on (e      0n
      &) on (er_    @n
@@ -5769,9 +5776,9 @@ multip) ly         laI
         re (stro   rE
         res (ult   rI2z
         ret (ail   ri:t2
-        re (ti     rE
-     _) re (tir    rI#
-        re (trib   rE
+        re (ti+    rE
+     _) re (tir+   rI#
+        re (trib+  rE
         retro (P5  r,EtroU   // prefix
      _) re (vel    rE
         reve (nA   rEv@
@@ -6309,6 +6316,7 @@ contin) u          ju:
      f) u (gal     'ju:
         ug (er_    u:g
     pl) ug (A      Vg
+     b) ug (eye    Vg
      s) ugge (st   @dZE
      h) ugh        ju:
     mp) ug (n      ju:
