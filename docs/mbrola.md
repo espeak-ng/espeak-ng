@@ -59,8 +59,8 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `br3`        | Brazillian Portugues | male   | `mb-br3` | `mbrola-br3`   |
 | `br4`        | Brazillian Portugues | female | `mb-br4` | `mbrola-br4`   |
 | `bz1`        | Breton               | female |          |                |
-| `ca1`        | Canadian French      | male   |          |                |
-| `ca2`        | Canadian French      | male   |          |                |
+| `ca1`        | Canadian French      | male   | `mb-ca1` |                |
+| `ca2`        | Canadian French      | male   | `mb-ca2` |                |
 | `cn1`        | Mandarin Chinese     | female | `mb-cn1` |                |
 | `cr1`        | Croatian             | male   | `mb-cr1` | `mbrola-cr1`   |
 | `cz1`        | Czech                | female | `mb-cz1` |                |
