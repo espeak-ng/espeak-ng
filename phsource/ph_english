@@ -110,6 +110,7 @@ endphoneme
 
 phoneme n
   vcd alv nas
+  lengthmod 4
   ipa n
   IF nextPhW(isVelar) THEN // /n/ is velarized to /N/ when before velar stops
     ChangePhoneme(N)
