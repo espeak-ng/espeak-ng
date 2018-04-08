@@ -80,12 +80,12 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `es3`        | Spanish              | female |          |                |
 | `es4`        | Spanish              | male   |          |                |
 | `fr1`        | French               | male   | `mb-fr1` | `mbrola-fr1`   |
-| `fr2`        | French               | female |          |                |
-| `fr3`        | French               | male   |          |                |
+| `fr2`        | French               | female | `mb-fr2` |                |
+| `fr3`        | French               | male   | `mb-fr3` |                |
 | `fr4`        | French               | female | `mb-fr4` | `mbrola-fr4`   |
-| `fr5`        | Belgian French       | male   |          |                |
-| `fr6`        | French               | male   |          |                |
-| `fr7`        | Belgian French       | male   |          |                |
+| `fr5`        | Belgian French       | male   | `mb-fr5` |                |
+| `fr6`        | French               | male   | `mb-fr6` |                |
+| `fr7`        | Belgian French       | male   | `mb-fr7` |                |
 | `gr1`        | Greek                | male   |          | `mbrola-gr1`   |
 | `gr2`        | Greek                | male   | `mb-gr2` | `mbrola-gr2`   |
 | `hb1`        | Hebrew               | male   |          |                |
