@@ -59,8 +59,8 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `br3`        | Brazillian Portugues | male   | `mb-br3` | `mbrola-br3`   |
 | `br4`        | Brazillian Portugues | female | `mb-br4` | `mbrola-br4`   |
 | `bz1`        | Breton               | female |          |                |
-| `ca1`        | Canadian French      | male   |          |                |
-| `ca2`        | Canadian French      | male   |          |                |
+| `ca1`        | Canadian French      | male   | `mb-ca1` |                |
+| `ca2`        | Canadian French      | male   | `mb-ca2` |                |
 | `cn1`        | Mandarin Chinese     | female | `mb-cn1` |                |
 | `cr1`        | Croatian             | male   | `mb-cr1` | `mbrola-cr1`   |
 | `cz1`        | Czech                | female | `mb-cz1` |                |
@@ -73,19 +73,19 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `de6`        | German               | male   | `mb-de6` | `mbrola-de6`   |
 | `de7`        | German               | female | `mb-de7` | `mbrola-de7`   |
 | `de8`        | German-Bavarian      | male   |          |                |
-| `ee1`        | Estonian             | male   |          | `mbrola-ee1`   |
+| `ee1`        | Estonian             | male   | `mb-ee1` | `mbrola-ee1`   |
 | `en1`        | British English      | female | `mb-en1` | `mbrola-en1`   |
 | `es1`        | Spanish              | male   | `mb-es1` | `mbrola-es1`   |
 | `es2`        | Spanish              | male   | `mb-es2` | `mbrola-es2`   |
 | `es3`        | Spanish              | female |          |                |
 | `es4`        | Spanish              | male   |          |                |
 | `fr1`        | French               | male   | `mb-fr1` | `mbrola-fr1`   |
-| `fr2`        | French               | female |          |                |
-| `fr3`        | French               | male   |          |                |
+| `fr2`        | French               | female | `mb-fr2` |                |
+| `fr3`        | French               | male   | `mb-fr3` |                |
 | `fr4`        | French               | female | `mb-fr4` | `mbrola-fr4`   |
-| `fr5`        | Belgian French       | male   |          |                |
-| `fr6`        | French               | male   |          |                |
-| `fr7`        | Belgian French       | male   |          |                |
+| `fr5`        | Belgian French       | male   | `mb-fr5` |                |
+| `fr6`        | French               | male   | `mb-fr6` |                |
+| `fr7`        | Belgian French       | male   | `mb-fr7` |                |
 | `gr1`        | Greek                | male   |          | `mbrola-gr1`   |
 | `gr2`        | Greek                | male   | `mb-gr2` | `mbrola-gr2`   |
 | `hb1`        | Hebrew               | male   |          |                |
@@ -99,8 +99,8 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `ir1`        | Iranian Persian      | male   | `mb-ir1` | `mbrola-ir1`   |
 | `it1`        | Italian              | male   | `mb-it1` |                |
 | `it2`        | Italian              | female | `mb-it2` |                |
-| `it3`        | Italian              | male   |          | `mbrola-it3`   |
-| `it4`        | Italian              | female |          | `mbrola-it4`   |
+| `it3`        | Italian              | male   | `mb-it3` | `mbrola-it3`   |
+| `it4`        | Italian              | female | `mb-it4` | `mbrola-it4`   |
 | `jp1`        | Japanese             | male   |          |                |
 | `jp2`        | Japanese             | female |          |                |
 | `jp3`        | Japanese             | female |          |                |
@@ -126,6 +126,9 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `us2`        | American English     | male   | `mb-us2` | `mbrola-us2`   |
 | `us3`        | American English     | male   | `mb-us3` | `mbrola-us3`   |
 | `vz1`        | Venezuelan Spanish   | male   | `mb-vz1` | `mbrola-vz1`   |
+
+* If some MBROLA voice is not available as Debian package, you can download data files
+  from [here](https://github.com/mbrola/mbrola-voices).
 
 ## Windows Installation
 

@@ -1,0 +1,58 @@
+// for voices "it1" "it2"
+volume 20
+
+0  aI  NULL  60  A I
+0  a   NULL  0   A
+0  a/  NULL  0   A2
+0  aU  NULL  60  A U
+0  b   :     50  B B
+0  b   NULL  0   B
+0  c   NULL  0   ts
+0  d   :     50  D D
+0  d   NULL  0   D
+0  e   NULL  0   E
+0  E   NULL  0   E1
+0  e/  NULL  0   E2
+0  f   NULL  0   F
+0  g   :     50  G G
+0  g   NULL  0   G
+0  h   NULL  0   H
+0  i   NULL  0   I
+0  i/  NULL  0   I
+0  I   NULL  0   I2
+0  j/  NULL  0   I
+0  k   :     50  K K
+0  k   NULL  0   K
+0  l   NULL  0   L
+0  l   NULL  0   L
+0  l/  NULL  0   L
+0  l^  NULL  0   L
+0  m   NULL  0   M
+0  n^  NULL  0   J
+0  n   NULL  0   N
+0  N   NULL  0   ng
+0  _|  NULL  0   _
+0  ;   NULL  0   NULL
+0  [   NULL  0   NULL
+0  @-  NULL  0   NULL
+0  *   NULL  0   R
+0  oI  NULL  60  O I
+0  O   NULL  0   O1
+0  o   NULL  0   O1
+0  o/  NULL  0   O2
+0  p   :     50  P P
+0  p   NULL  0   P
+0  r   NULL  0   R
+0  R   NULL  0   RR
+0  s   NULL  0   S
+0  t   :     50  T T
+0  t   NULL  0   T
+0  U   NULL  0   U
+0  u   NULL  0   U1
+0  v   NULL  0   V
+0  w2  NULL  0   VV
+0  w/  NULL  0   V
+0  w   NULL  0   W
+0  z   NULL  0   Z
+1  d   z     0   dz
+

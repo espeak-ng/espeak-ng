@@ -1,0 +1,88 @@
+volume 17
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  l2 NULL   0  l
+0  r/ NULL   0  R
+0  r/2 NULL   0  R
+0  r- NULL   0  R
+0  l- NULL   0  l
+0  w/ NULL   0  w
+0  j/ NULL   0  j
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @3 NULL   0  NULL
+0  *  NULL   0  R
+0  :  NULL   0  NULL
+
+0  Y  NULL   0  2
+0  W  NULL   0  9
+0  W2 NULL   0  9
+0  E2 NULL   0  E
+0  o2 NULL   0  o
+0  A~ NULL   0  a~
+0  E~ NULL   0  e~
+0  O~ NULL   0  o~
+0  W~ NULL   0  9~
+0  w^i NULL  50 H i
+0  wA NULL  50 w a
+0  r  NULL   0  R
+0  n^ NULL   75 n j
+0  c  NULL   0  k
+
+0  I  NULL   0  i
+0  U  NULL   0  u
+0  y" NULL   0  y
+0  E  NULL   0  e
+0  E: NULL   0  E
+0  h  NULL   0  NULL
+0  n2 NULL   0  n
+0  p2 NULL   0  p
+0  r2 NULL   0  R
+0  t2 NULL   0  t
+0  t3 NULL   0  t
+0  z2 NULL   0  z
+0  z3 NULL   0  z
+
+0  @-  NULL  0  @
+0  a-  NULL  0  a
+0  e-  NULL  0  e
+0  y-  NULL  0  y
+0  i:  NULL  0  i
+0  i-  NULL  0  i
+0  u:  NULL  0  u
+0  eI  NULL  60 E j
+0  aU  NULL  60 a w
+0  oU  NULL  0  o
+0  o3  NULL  0  o
+0  o-  NULL  0  o
+0  @L  NULL  40 @ l
+0  @2  NULL  0  @
+0  @5  NULL  0  @
+0  3   NULL  0  @
+0  a#  NULL  0  a
+0  I2  NULL  0  i
+0  aa  NULL  0  a
+0  V   NULL  0  @
+0  0   NULL  0  O
+0  3:  NULL  0  9
+0  aI  NULL  60 a  j
+0  OI  NULL  60 O  j
+0  e@  NULL  0  E
+0  i@  NULL  60 i  @
+0  i@3 NULL  60 i  @
+0  e@  NULL  60 E  @
+0  o@  NULL  70 o  @
+0  O@  NULL  70 O  @
+0  O:  NULL  0  O
+0  O2  NULL  0  O
+0  A:  NULL  0  a
+0  A@  NULL  70 a  @
+0  U@  NULL  60 u  @
+0  aI@ NULL  70 a  @
+0  aU@ NULL  0  a
+
+0  dZ  NULL  40 d  Z
+0  tS  NULL  40 t  S
+0  T   NULL  0  t
+0  D   NULL  0  z
