@@ -99,8 +99,8 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `ir1`        | Iranian Persian      | male   | `mb-ir1` | `mbrola-ir1`   |
 | `it1`        | Italian              | male   | `mb-it1` |                |
 | `it2`        | Italian              | female | `mb-it2` |                |
-| `it3`        | Italian              | male   |          | `mbrola-it3`   |
-| `it4`        | Italian              | female |          | `mbrola-it4`   |
+| `it3`        | Italian              | male   | `mb-it3` | `mbrola-it3`   |
+| `it4`        | Italian              | female | `mb-it4` | `mbrola-it4`   |
 | `jp1`        | Japanese             | male   |          |                |
 | `jp2`        | Japanese             | female |          |                |
 | `jp3`        | Japanese             | female |          |                |
