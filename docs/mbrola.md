@@ -127,6 +127,9 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `us3`        | American English     | male   | `mb-us3` | `mbrola-us3`   |
 | `vz1`        | Venezuelan Spanish   | male   | `mb-vz1` | `mbrola-vz1`   |
 
+* If some MBROLA voice is not available as Debian package, you can download data files
+  from [here](https://github.com/mbrola/mbrola-voices).
+
 ## Windows Installation
 
 The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
