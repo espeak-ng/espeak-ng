@@ -1580,6 +1580,7 @@ _it_separ) ate (_  @t
         cc         k
         ck         k
         c (e       s
+        c (epost_S4 poUst // fencepost
         c (é       s
      s) c (e 
         c (E       s
@@ -5868,8 +5869,6 @@ multip) ly         laI
     ai) s (e       z
     ui) se (_      z
   _Coi) s (e       z
-     o) se (_      z
-    do) se (_      z
     oo) se (_      s
   choo) se         z
     to) se (_      z
@@ -5966,16 +5965,12 @@ multip) ly         laI
   &sse) s (_S2     I#z
         ss (_      s
         sse (_     s
-     c) s (_       s
+        s (_       s
    @ce) s (_S1     I#z
    &er) s (_S1m    z
-     f) s (_       s
     gh) s (_       z# // [s] if 'gh' is [f], otherwise [z]
     ng) s (_S1m    z
-     k) s (_       s
      n) s (_S1m    z
-     p) s (_       s
-    th) s (_       s
      t) s (_S1m    s
     te) s (_S1m    s
     &c) s (_S1m    s
