@@ -1,39 +1,39 @@
 // This file is UTF-8 encoded
-// The first symbol(s) is/are the orthography
-// The second symbol(s) is/are the name of the phoneme
-
 // Māori
+
+// vowels
 
 .group a
              a            a
 
 .group ā
-             ā            aa
+             ā            a:
 
 .group e
              e            e
 
 .group ē
-             ē            ee
+             ē            e:
 
 .group i
              i            i
 
 .group ī
-             ī            ii
+             ī            i:
 
 .group o
              o            o
 
 .group ō
-             ō            oo
+             ō            o:
 
 .group u
              u            u
 
 .group ū
-             ū            uu
+             ū            u:
 
+// consonants
 
 .group h
              h            h
@@ -46,7 +46,7 @@
 
 .group n
              n            n
-			 ng			  ng
+             ng           N
 
 .group p
              p            p
@@ -59,4 +59,4 @@
 
 .group w
              w            w
-			 wh			  f
+             wh           f
