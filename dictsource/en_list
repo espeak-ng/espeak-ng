@@ -1942,7 +1942,7 @@ feisty		faIsti
 fellate		$2
 feline		fi:laIn
 felon		$alt2
-feminine	fEm@nIn
+feminine	fEmI#nIn
 ferrari		$alt3
 fete		feIt
 fetus		fi:t@s
@@ -3643,6 +3643,7 @@ tonage		tVnIdZ
 tone		toUn
 tonight		t@naIt
 tonne		tVn
+topaz		toUpaz
 tophat		$alt4
 toreador	t0rI@dO@
 torment		$1
@@ -3841,10 +3842,15 @@ webpage		wEbpeIdZ
 wehrmacht	ve@maxt
 website		wEbsaIt
 ?!3 weekend	$2
+weres		we@z
 whaddaya	wVd@j@   // what do you
+?2 whaddaya	w#Vd@j@  // what do you
 whatcha		w02tS@
+?2 whatcha	w#02tS@
 whate're	w02t'e@
+?2 whate're	w#02t'e@
 whatsoe're	w02tsoU'e@
+?2 whatsoe're	w#02tsoU'e@
 wheelbarrow	w'i:l_b,aroU
 ?2 wheelbarrow	w#'i:l_b,aroU
 whereas		we@az
