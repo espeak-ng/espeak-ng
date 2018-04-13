@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 march 18 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 april 13 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -780,6 +780,7 @@ autority	awt'ORiti
 avances	av'ans
 baby	b'EbI
 backup	bek'ap
+baguette	bag'et[
 bancomat	$1
 banner	$1	$onlys
 barbecue	_^_FR
@@ -1016,6 +1017,7 @@ juve	j'uve
 juventus	juv'Entus
 kalashnikov	$2
 kashmir	$1
+kebab	k,e_b'ab
 killer	$1
 l'editor	l'Edito@-* $only
 lady	l'E:dI
@@ -1086,6 +1088,7 @@ pacemaker	peIsm'eIkE@-*
 page	p'EidZ $onlys
 palace	_^_en $only
 papillon	papiJ^'on $onlys
+pancake	pan_k'eIk
 partner	$1
 passepartout	pas_pa@-*t'u
 paternoster	$3
@@ -1140,6 +1143,7 @@ router	@-*'u:te@-*
 routine	@-*Ut'iN
 rover	$1
 rugby	@-*'a/gbi
+sandwich	s'E:ndw,ItS
 saver	_^_en $onlys
 scanner	$1
 schiller	$1
@@ -1207,7 +1211,7 @@ team		_^_EN
 teamviewer	t'i:m||_vju:Er
 teenager	tin'EIdZe@-*
 telemarketing	$3
-terminator	te@-*min'etO@-*
+terminator	te@-*min'EtO@-*	$onlys
 tester	$1	$onlys
 therapy	$1
 thriller	$1 $onlys
@@ -1852,10 +1856,11 @@ cazzano	$2
 ceca	$alt
 chambery	Samber'i
 champs	S'amps
-chernobyl	tS'E@-*nobil
+chernobyl	tS'e@-*nobil
 chianciano	$2
 chicago	tSikago
 chorzow	x'OZuf
+ciad	tS;'a:d	$only
 cicciano	$2
 cilentano	$3
 ciociaria $3
@@ -3977,6 +3982,7 @@ pregia	$1
 premiano	$1
 premurano	$2
 prendano	$1
+prenotano	$2
 prenotino	$2
 preoccup	$2
 preoccupano	$2
