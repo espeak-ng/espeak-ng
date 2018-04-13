@@ -43,5 +43,5 @@ test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
 
 # A list entry that uses '$text' to map to another list entry crashes 1.49.2 multi-word support:
-test_phonemes en " d'eIbju:t@d" "débuted"
+test_phonemes en " d'eIbju:tI2d" "débuted"
 test_phonemes en-US " d'eIbju:t#I#d" "débuted"

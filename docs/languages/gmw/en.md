@@ -103,7 +103,7 @@ Additionally, espeak-ng has the following phonemes for unstressed vowels.
 | Lexical Set | en    | BrE   | RP    | GenAm | JaE   |
 |-------------|-------|-------|-------|-------|-------|
 | EXPLORE     | `e#`  | ɛ     | ɪ     | ɛ     | ɛ     |
-| ROSES       | `I#`  | ə     | ɪ     | ᵻ     | ɪ     |
+| ROSES       | `I#`  | ɪ     | ɪ     | ᵻ     | ɪ     |
 | BLESSED     | `I2#` | ɪ     | ɪ     | ᵻ     | ɛ     |
 | RABBIT      | `I2`  | ɪ     | ɪ     | ɪ     | ɪ     |
 

@@ -59,20 +59,6 @@ phoneme I2
 endphoneme
 
 
-phoneme I#   // used for [I] which may be [@] in some accents
-  vwl  starttype #i  endtype #i
-  unstressed
-  length 130
-
-  IF MbrolaSynth THEN
-    ChangePhoneme(I)
-  ENDIF
-
-  IfNextVowelAppend(;)
-  ChangePhoneme(I2)
-endphoneme
-
-
 phoneme i   //  optional variant of [I] for end of words
   vwl  starttype #i  endtype #i
   length 150
