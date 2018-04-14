@@ -26,7 +26,7 @@ phoneme x
   lengthmod 3
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-  WAV(ufric/x_hr, 5)
+  WAV(ufric/x_hr, 30)
 endphoneme
 
 
