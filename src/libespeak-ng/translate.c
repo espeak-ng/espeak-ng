@@ -2294,12 +2294,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 						}
 					} else {
 						if (iswlower(prev_in)) {
-							// lower case followed by upper case in a word
-							if (UpperCaseInWord(tr, &sbuf[ix], c) == 1) {
-								// convert to lower case and continue
-								c = towlower2(c, tr);
-							} else {
-								c = ' '; // lower case followed by upper case, treat as new word
+							// lower case followed by upper case, possibly CamelCase
+							if (UpperCaseInWord(tr, &sbuf[ix], c) == 0) { // start a new word
+								c = ' ';
 								space_inserted = true;
 								prev_in_save = c;
 							}
