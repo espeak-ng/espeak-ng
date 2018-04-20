@@ -247,7 +247,7 @@ _Note:_
 * eSpeak NG phonemes are referenced from voice files in `phsource` folder of particular language e.g.
 `ph_english` and/or general `phonemes` file.
 
-* MBROLA phonemes are usualy listed in `xxN.txt` file of MBROLA voice.
+* MBROLA phonemes are usualy listed in `README.txt` file of MBROLA voice.
 
 Each line in the mbrola phoneme translation file contains:
 
