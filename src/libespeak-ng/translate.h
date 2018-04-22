@@ -268,7 +268,6 @@ typedef struct {
 	unsigned int flags;
 	unsigned short start;
 	unsigned char pre_pause;
-	unsigned char wmark;
 	unsigned short sourceix;
 	unsigned char length;
 } WORD_TAB;

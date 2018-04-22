@@ -565,7 +565,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	int spell_word;
 	int emphasize_allcaps = 0;
 	int wflags;
-	int wmark;
 	int was_unpronouncable = 0;
 	int loopcount;
 	int add_suffix_phonemes = 0;
@@ -582,7 +581,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		wtab = wtab_null;
 	}
 	wflags = wtab->flags;
-	wmark = wtab->wmark;
 
 	dictionary_flags[0] = 0;
 	dictionary_flags[1] = 0;
@@ -683,11 +681,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 			// change to another language in order to translate this word
 			strcpy(word_phonemes, phonemes);
 			return 0;
-		}
-
-		if ((wmark > 0) && (wmark < 8)) {
-			// the stressed syllable has been specified in the text  (TESTING)
-			dictionary_flags[0] = (dictionary_flags[0] & ~0xf) | wmark;
 		}
 
 		if (!found && (dictionary_flags[0] & FLAG_ABBREV)) {
@@ -1965,7 +1958,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	int char_inserted = 0;
 	int clause_pause;
 	int pre_pause_add = 0;
-	int word_mark = 0;
 	int all_upper_case = FLAG_ALL_UPPER;
 	bool finished = false;
 	bool single_quoted = false;
@@ -2447,7 +2439,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				}
 				words[word_count].pre_pause = pre_pause;
 				words[word_count].flags |= (all_upper_case | word_flags | word_emphasis);
-				words[word_count].wmark = word_mark;
 
 				if (pre_pause > 0) {
 					// insert an extra space before the word, to prevent influence from previous word across the pause
@@ -2476,7 +2467,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				word_flags = next_word_flags;
 				next_word_flags = 0;
 				pre_pause = 0;
-				word_mark = 0;
 				all_upper_case = FLAG_ALL_UPPER;
 				syllable_marked = false;
 			}
