@@ -549,14 +549,12 @@ typedef struct {
 	int intonation_group;
 	unsigned char tunes[6];
 	int long_stop;          // extra mS pause for a lengthened stop
-	int phoneme_change;     // TEST, change phonemes, after translation
 	char max_initial_consonants;
 	char spelling_stress;   // 0=default, 1=stress first letter
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	bool textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
 	char dotless_i;         // uses letter U+0131
-	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 	int our_alphabet;           // offset for main alphabet (if not set in letter_bits_offset)

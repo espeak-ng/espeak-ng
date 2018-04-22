@@ -1579,6 +1579,4 @@ static void Translator_Russian(Translator *tr)
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
-	tr->langopts.phoneme_change = 1;
-	tr->langopts.testing = 2;
 }
