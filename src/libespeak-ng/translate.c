@@ -1994,7 +1994,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	int terminator;
 	int tone;
-	int tone2;
 
 	if (tr == NULL)
 		return;
@@ -2010,7 +2009,14 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 
 	for (ix = 0; ix < N_TR_SOURCE; ix++)
 		charix[ix] = 0;
-	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name);
+	terminator = ReadClause(tr, source, charix, &charix_top, N_TR_SOURCE, &tone, voice_change_name);
+
+	if (tone_out != NULL) {
+		if (tone == 0)
+			*tone_out = (terminator & CLAUSE_INTONATION_TYPE) >> 12; // tone type not overridden in ReadClause, use default
+		else
+			*tone_out = tone; // override tone type
+	}
 
 	charix[charix_top+1] = 0;
 	charix[charix_top+2] = 0x7fff;
@@ -2019,12 +2025,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	clause_pause = (terminator & CLAUSE_PAUSE) * 10; // mS
 	if (terminator & CLAUSE_PAUSE_LONG)
 		clause_pause = clause_pause * 32; // pause value is *320mS not *10mS
-
-	tone = (terminator & CLAUSE_INTONATION_TYPE) >> 12;
-	if (tone2 != 0) {
-		// override the tone type
-		tone = tone2;
-	}
 
 	for (p = source; *p != 0; p++) {
 		if (!isspace2(*p))
@@ -2644,7 +2644,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			if ((dict_flags & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (ix == word_count - 1 - dictionary_skipwords) && (terminator & CLAUSE_DOT_AFTER_LAST_WORD)) {
 				// probably an abbreviation such as Mr. or B. rather than end of sentence
 				clause_pause = 10;
-				tone = 4;
+				if (tone_out != NULL)
+					*tone_out = 4;
 			}
 		}
 
@@ -2689,9 +2690,6 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	}
 
 	prev_clause_pause = clause_pause;
-
-	if (tone_out != NULL)
-		*tone_out = tone;
 
 	new_sentence = false;
 	if (terminator & CLAUSE_TYPE_SENTENCE)
