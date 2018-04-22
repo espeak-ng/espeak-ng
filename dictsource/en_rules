@@ -254,6 +254,7 @@
      _) ab (ide    a#b
     _l) ab (i      eIb
     st) ab (il     eIb
+    st) ab (ilit   @b
      h) ab (ilim   @b
         ab (ject   ab
         ab (lativ  ab
@@ -830,6 +831,7 @@
      p) an (c      an
     ch) an (dra    Vn
     @m) an (d      aan
+    @m) an (dy     @n
    _sl) an (d      aan
      m) an (ge     eIn
      _) anecdo     anIkdoU
@@ -938,6 +940,8 @@ propag) an (d      'an
     fl) ang (e     andZ
     fl) anging     andZIN
      m) angel      aNg@L
+    or) ang (e     IndZ
+    or) ang (in    IndZ
      r) ang (e     eIndZ
      r) anging     eIndZIN
      r) anged (S1  d
@@ -1937,6 +1941,7 @@ _it_separ) ate (_  @t
         debu (g    di:b,V
      _) de (ba     dI#
      _) de (bil    dI#
+     _) de (bonL04P2  d,i:
      _) de (c@     dI#
      _) deca (A    dEk@
      _) deca ((ff   d%i:ka
@@ -2275,6 +2280,7 @@ _it_separ) ate (_  @t
         ea         i:
      @) ea (_      i@
     Cs) ea (_      i:
+    th) ea (_      i@
      r) ea (_      'i@
      &) ea (bl     @
      &) eably      @bl%I
@@ -2438,6 +2444,7 @@ _it_separ) ate (_  @t
         eig (er_   aIg
     _n) ei         i:
         eille (_   'eI
+        eilles (_  'eI
         ei (m_     aI
      @) ei (n_     i:
     Cl) ei (n_     aI
@@ -3387,7 +3394,8 @@ _it_separ) ate (_  @t
         ii (_      IaI
         ij (C      eI        // Dutch
      f) i (j       i:
-     h) i (j       aI
+     h) i (jack    aI
+     h) i (jink    aI
         i (o       I2
      _) i (o       aI
 ?7      i (o       i:
@@ -3809,7 +3817,8 @@ hiccup) ing (_S3   %IN
         in (al_$w_alt1 'aIn
     &m) in (al_    =In
      f) in (a      aIn
-    @g) in (a_     aIn
+    @g) in (a_     'i:n
+  _ang) in (a_     'aIn
     ch) in (a      aIn
     ph) in (a_     'i:n
      b) in (a_     'i:n
@@ -4288,6 +4297,7 @@ multip) ly         laI
      _) mal (trP3  m,al
 ?!3     mayor      me@
         mb (_      m
+        mb (nail   m
         mbly       mbl%I
         mb (d      m
      o) mb (e      m
@@ -4419,6 +4429,7 @@ multip) ly         laI
         ng (l      Ng
         ng (r      Ng
         ng (A      Ng
+        ng (ina    ndZ
         ng (ie_    ndZ
         ng (iti    ndZ
         ng (e      ndZ
@@ -4935,6 +4946,7 @@ multip) ly         laI
         or (t      O@
     em) ort (_     O@
      p) or (t      o@
+        or (ang    O2r
         or (A      o@r
   _mem) or (a      3
      &) or (al_    @r
@@ -5051,6 +5063,7 @@ multip) ly         laI
      w) or (e      o@
         or (um_    'o@r
      &) ory (_     @ri
+     &) ory (sc    @ri
 ?3 @@At) ory (_     ,o@ri
     ct) ory (_     =@ri
     ct) orily (_   =@r@li
@@ -6404,6 +6417,7 @@ contin) u          ju:
         usurp      j%u:z3:p
 ?5      usurp      j%u:zVRp
      b) us (y      Iz
+     @) utan (_    @tan
    _sh) u (tC      V
    _sh) u (to      V
      b) u (tch     U
