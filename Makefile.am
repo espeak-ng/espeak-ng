@@ -105,18 +105,13 @@ src/espeak-ng.1: src/espeak-ng.1.ronn
 src/speak-ng.1: src/speak-ng.1.ronn
 	ronn --roff $<
 
-docs:	docs/index.html \
-	docs/add_language.html \
-	docs/dictionary.html \
-	docs/intonation.html \
-	docs/languages.html \
-	docs/markup.html \
-	docs/mbrola.html \
-	docs/phonemes.html \
-	docs/phontab.html \
-	docs/voices.html \
+docs_MARKDOWN != ls docs/*.md docs/*/*.md docs/*/*/*.md docs/*/*/*/*.md
+docs_HTML = ${docs_MARKDOWN:.md=.html}
+
+docs:	$(docs_HTML) \
 	src/espeak-ng.1.html \
 	src/speak-ng.1.html \
+	CHANGELOG.html \
 	README.html
 
 ##### build targets:
