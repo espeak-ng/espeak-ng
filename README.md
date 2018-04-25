@@ -333,7 +333,7 @@ To enable eSpeak, you need to:
 
 ## Documentation
 
-The [documentation](docs/index.md) for eSpeak NG provides:
+The [documentation](docs/README.md) for eSpeak NG provides:
 
 1.  a user guide;
 2.  a guide for language and voice authors; and
