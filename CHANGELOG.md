@@ -36,6 +36,7 @@ documentation:
 new languages:
 
 *  hak (Hakka Chinese) -- Chen Chien-ting
+*  ht (Haitian Creole) -- Valdis Vitolins
 
 updated languages:
 
