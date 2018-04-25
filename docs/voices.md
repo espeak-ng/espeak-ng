@@ -32,6 +32,7 @@
   - [intonation](#intonation)
   - [dictmin](#dictmin)
   - [letterVowel](#letterVowel)
+
 ----------
 
 A Voice file specifies a language (and possibly a language variant or
@@ -42,7 +43,7 @@ Voice files are located in the `espeak-ng-data/voices` directory, and are
 grouped by the [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5)
 language family of the language being specified in the voice files.
 See also Wikipedia's
-[List of language families] (https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
+[List of language families](https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
 for more details.
 
 The `default` voice is used if none is specified in the speak command. You

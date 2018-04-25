@@ -2,13 +2,13 @@
 
 - [Features](#features)
 - [History](#history)
-- [Adding a Language](add_language.md)
+- [Adding or Improving a Language](add_language.md)
   - [Text to Phoneme Translation](dictionary.md)
 - [Voice Files](voices.md)
   - [MBROLA Voices](mbrola.md)
   - [Phoneme Tables](phontab.md)
 - [Intonation](intonation.md)
-- [Markup Tags](markup.md)
+- [Text Markup](markup.md)
 - [License](../COPYING)
 
 ----------
@@ -67,5 +67,5 @@ was designed to make it easier to build eSpeak on POSIX systems, porting the
 build system to autotools in 2012. In late 2015, this project was officially
 forked to a new __eSpeak NG__ project. The new eSpeak NG project is a significant
 departure from the eSpeak project, with the intention of cleaning up the
-existing codebase, adding new features and adding and improving to the
+existing codebase, adding new features, and adding to and improving the
 supported languages.
