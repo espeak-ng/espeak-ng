@@ -105,7 +105,7 @@ src/espeak-ng.1: src/espeak-ng.1.ronn
 src/speak-ng.1: src/speak-ng.1.ronn
 	ronn --roff $<
 
-docs_MARKDOWN != ls docs/*.md docs/*/*.md docs/*/*/*.md docs/*/*/*/*.md
+docs_MARKDOWN != ls docs/*.md docs/*/*.md docs/*/*/*.md
 docs_HTML = ${docs_MARKDOWN:.md=.html}
 
 docs:	$(docs_HTML) \
