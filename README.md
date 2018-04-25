@@ -333,8 +333,11 @@ To enable eSpeak, you need to:
 
 ## Documentation
 
-The [main documentation](docs/index.md) for eSpeak NG provides more information
-on using and creating voices/languages for eSpeak NG.
+The [documentation](docs/index.md) for eSpeak NG provides:
+
+1.  a user guide;
+2.  a guide for language and voice authors; and
+3.  details for developers.
 
 The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
 command-line documentation provide a reference of the different command-line
