@@ -64,9 +64,8 @@ markers are only needed in order to change the effect of the language's
 default stress rule.
 
 The phonemes which are used to represent a language's sounds are based
-loosely on the Kirshenbaum ascii character representation of the
-International Phonetic Alphabet
-[https://web.archive.org/web/20160419125856/http://www.kirshenbaum.net/IPA/ascii-ipa.pdf](http://www.kirshenbaum.net/IPA/ascii-ipa.pdf).
+loosely on the [Kirshenbaum (ASCII-IPA)](phonemes/kirshenbaum.md)
+representation of the International Phonetic Alphabet.
 
 Full list of commonly used phonemes can be found in the `phsource/phonemes`
 file.
