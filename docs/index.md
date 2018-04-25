@@ -8,7 +8,7 @@
   - [MBROLA Voices](mbrola.md)
   - [Phoneme Tables](phontab.md)
 - [Intonation](intonation.md)
-- [Text Markup](markup.md)
+- [SSML and HTML Support](markup.md)
 - [License](../COPYING)
 
 ----------

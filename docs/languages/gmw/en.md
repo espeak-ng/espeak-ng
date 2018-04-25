@@ -138,5 +138,5 @@ rhyme.
    Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
 
 2. <a name="ref2"></a> Wikipedia.
-   [IPA chart for English dialects](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet_chart_for_English_dialects).
-   2018. Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
+   [IPA chart for English dialects](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet_chart_for_English_dialects). 2018.
+   Creative Commons Attribution-Sharealike 3.0 Unported License (CC-BY-SA).
