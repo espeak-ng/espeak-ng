@@ -32,8 +32,8 @@ $textmode
 ↗	flecha hacia la esquina superior derecha			// [2197] text|emoji
 ↘	flecha hacia la esquina inferior derecha			// [2198] text|emoji
 ↙	flecha hacia la esquina inferior izquierda			// [2199] text|emoji
-↩	flecha derecha curvándose hacia la izquierda			// [21A9] text|emoji
-↪	flecha izquierda curvándose hacia la derecha			// [21AA] text|emoji
+↩	flecha derecha curvándose a la izquierda			// [21A9] text|emoji
+↪	flecha izquierda curvándose a la derecha			// [21AA] text|emoji
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -88,7 +88,7 @@ $textmode
 ☢	radiactivo							// [2622] text|emoji
 ☣	riesgo biológico						// [2623] text|emoji
 ☦	cruz ortodoxa							// [2626] text|emoji
-☪	luna creciente y estrella					// [262A] text|emoji
+☪	media luna y estrella						// [262A] text|emoji
 ☮	símbolo de la paz						// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
 ☸	rueda del dharma						// [2638] text|emoji
@@ -108,10 +108,10 @@ $textmode
 ♑	Capricornio							// [2651]
 ♒	Acuario								// [2652]
 ♓	Piscis								// [2653]
-♠	palo de pica							// [2660] text|emoji
-♣	palo de trébol							// [2663] text|emoji
-♥	palo de corazón							// [2665] text|emoji
-♦	palo de diamante						// [2666] text|emoji
+♠	palo de picas							// [2660] text|emoji
+♣	palo de tréboles						// [2663] text|emoji
+♥	palo de corazones						// [2665] text|emoji
+♦	palo de diamantes						// [2666] text|emoji
 ♨	aguas termales							// [2668] text|emoji
 ♻	símbolo de reciclaje						// [267B] text|emoji
 ♿	símbolo de silla de ruedas					// [267F]
@@ -577,10 +577,10 @@ $textmode
 👃	nariz								// [1F443]
 👄	boca								// [1F444]
 👅	lengua								// [1F445]
-👆	dorso de mano con dedo índice hacia arriba			// [1F446]
-👇	dorso de mano con dedo índice hacia abajo			// [1F447]
-👈	dorso de mano con dedo ´´indice hacia la izquierda		// [1F448]
-👉	dorso de mano con dedo índice hacia la derecha			// [1F449]
+👆	dorso de mano con índice hacia arriba				// [1F446]
+👇	dorso de mano con índice hacia abajo				// [1F447]
+👈	dorso de mano con índice a la izquierda				// [1F448]
+👉	dorso de mano con índice a la derecha				// [1F449]
 👊	puño cerrado							// [1F44A]
 👋	mano saludando							// [1F44B]
 👌	señal de aprobación con la mano					// [1F44C]
@@ -677,7 +677,7 @@ $textmode
 💧	gota								// [1F4A7]
 💨	salir corriendo							// [1F4A8]
 💩	caca con ojos							// [1F4A9]
-💪	b´íceps flexionado						// [1F4AA]
+💪	bíceps flexionado						// [1F4AA]
 💫	símbolo de mareo						// [1F4AB]
 💬	bocadillo de diálogo						// [1F4AC]
 💭	bocadillo de pensamiento					// [1F4AD]
@@ -766,7 +766,7 @@ $textmode
 🔁	repetir								// [1F501]
 🔂	repetir una vez							// [1F502]
 🔃	flechas verticales en sentido horario				// [1F503]
-🔄	señal de recarga flechas verticales sentido antihorario		// [1F504]
+🔄	flechas en sentido antihorario					// [1F504]
 🔅	brillo bajo							// [1F505]
 🔆	brillo alto							// [1F506]
 🔇	altavoz silenciado						// [1F507]
@@ -795,7 +795,7 @@ $textmode
 🔞	prohibido para menos de 18 años					// [1F51E]
 🔟	Teclas: 10							// [1F51F]
 🔠	letras latinas mayúsculas					// [1F520]
-🔡	letras minúsculas latinas					// [1F521]
+🔡	letras latinas minúsculas					// [1F521]
 🔢	números								// [1F522]
 🔣	símbolos							// [1F523]
 🔤	alfabeto latino							// [1F524]
@@ -893,7 +893,7 @@ $textmode
 🗯	bocadillo de enfado por la derecha				// [1F5EF] text|emoji
 🗳	urna con papeleta						// [1F5F3] text|emoji
 🗺	mapa mundial							// [1F5FA] text|emoji
-🗻	Monte Fuji							// [1F5FB]
+🗻	monte Fuji							// [1F5FB]
 🗼	Torre de Tokio							// [1F5FC]
 🗽	Estatua de la Libertad						// [1F5FD]
 🗾	mapa de Japón							// [1F5FE]
@@ -930,13 +930,13 @@ $textmode
 😚	cara besando con los ojos cerrados				// [1F61A]
 😛	cara sacando la lengua						// [1F61B]
 😜	cara sacando la lengua y guiñando un ojo			// [1F61C]
-😝	cara con los ojos bien cerrados y sacando la lengua		// [1F61D]
+😝	cara con ojos cerrados y lengua fuera				// [1F61D]
 😞	cara decepcionada						// [1F61E]
 😟	cara preocupada							// [1F61F]
 😠	cara enfadada							// [1F620]
 😡	cara cabreada							// [1F621]
 😢	cara llorando							// [1F622]
-😣	cara de insistencia						// [1F623]
+😣	cara desesperada						// [1F623]
 😤	cara resoplando							// [1F624]
 😥	cara triste pero aliviada					// [1F625]
 😦	cara con el ceño fruncido y la boca abierta			// [1F626]
@@ -960,7 +960,7 @@ $textmode
 😸	cara de gato sonriendo con ojos sonrientes			// [1F638]
 😹	cara de gato llorando de risa					// [1F639]
 😺	cara de gato sonriendo						// [1F63A]
-😻	cara de gato sonriendo con ojos de corazón			// [1F63B]
+😻	cara de gato sonriendo y ojos de corazón			// [1F63B]
 😼	cara de gato con sonrisa irónica				// [1F63C]
 😽	cara de gato besando						// [1F63D]
 😾	cara de gato enfadado						// [1F63E]
@@ -1189,7 +1189,7 @@ $textmode
 🦓	cebra								// [1F993]
 🦔	erizo								// [1F994]
 🦕	saurópodo							// [1F995]
-🦖	T-Rex								// [1F996]
+🦖	t-rex								// [1F996]
 🦗	grillo								// [1F997]
 🧀	cuña de queso							// [1F9C0]
 🧐	cara con monóculo						// [1F9D0]
@@ -1197,7 +1197,7 @@ $textmode
 🧒	pequeño								// [1F9D2]
 🧓	adulto maduro							// [1F9D3]
 🧔	persona con barba						// [1F9D4]
-🧕	mujer con velo							// [1F9D5]
+🧕	mujer con hiyab							// [1F9D5]
 🧖	persona en una sauna						// [1F9D6]
 🧗	persona escalando						// [1F9D7]
 🧘	persona en posición de loto					// [1F9D8]
@@ -1583,8 +1583,8 @@ $textmode
 🕵️‍♂	detective hombre					// [1F575 200D 2642]
 🧙‍♀	maga							// [1F9D9 200D 2640]
 🧙‍♂	mago							// [1F9D9 200D 2642]
-🧚‍♀	hada hembra						// [1F9DA 200D 2640]
-🧚‍♂	hada macho						// [1F9DA 200D 2642]
+🧚‍♀	hada mujer						// [1F9DA 200D 2640]
+🧚‍♂	hada hombre						// [1F9DA 200D 2642]
 🧛‍♀	vampiresa						// [1F9DB 200D 2640]
 🧛‍♂	vampiro hombre						// [1F9DB 200D 2642]
 🧜‍♀	sirena							// [1F9DC 200D 2640]
@@ -1665,7 +1665,7 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	bandera del arcoíris					// [1F3F3 200D 1F308]
-👁‍🗨	ojo dentro de un bocadillo de texto			// [1F441 200D 1F5E8]
+👁‍🗨	ojo en bocadillo de texto				// [1F441 200D 1F5E8]
 
 // References:
 //   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]

@@ -355,7 +355,7 @@ $textmode
 🍝	spagetti							// [1F35D]
 🍞	leipä								// [1F35E]
 🍟	ranskalaiset							// [1F35F]
-🍠	paistettu bataatti						// [1F360]
+🍠	paahdettu bataatti						// [1F360]
 🍡	dango								// [1F361]
 🍢	oden								// [1F362]
 🍣	sushi								// [1F363]
@@ -577,10 +577,10 @@ $textmode
 👃	nenä								// [1F443]
 👄	suu								// [1F444]
 👅	kieli								// [1F445]
-👆	ylös osoittava etusormi kämmenselkä edellä			// [1F446]
-👇	alas osoittava etusormi kämmenselkä edellä			// [1F447]
-👈	vasemmalle osoittava etusormi kämmenselkä edellä		// [1F448]
-👉	oikealle osoittava etusormi kämmenselkä edellä			// [1F449]
+👆	ylös osoittava etusormi kämmenselkä katsojaan päin		// [1F446]
+👇	alas osoittava etusormi kämmenselkä katsojaan päin		// [1F447]
+👈	vasemmalle osoittava etusormi kämmenselkä katsojaan päin	// [1F448]
+👉	oikealle osoittava etusormi kämmenselkä katsojaan päin		// [1F449]
 👊	kohti tuleva nyrkki						// [1F44A]
 👋	käden heilautus							// [1F44B]
 👌	ok-sormiele							// [1F44C]
@@ -727,7 +727,7 @@ $textmode
 📙	oranssi kirja							// [1F4D9]
 📚	kirjoja								// [1F4DA]
 📛	nimikyltti							// [1F4DB]
-📜	käärö								// [1F4DC]
+📜	kirjakäärö							// [1F4DC]
 📝	muistio								// [1F4DD]
 📞	luuri								// [1F4DE]
 📟	hakulaite							// [1F4DF]
@@ -863,7 +863,7 @@ $textmode
 🕷	hämähäkki							// [1F577] text|emoji
 🕸	hämähäkin seitti						// [1F578] text|emoji
 🕹	joystick							// [1F579] text|emoji
-🕺	mies tanssii							// [1F57A]
+🕺	tanssiva mies							// [1F57A]
 🖇	klemmarit yhdessä						// [1F587] text|emoji
 🖊	kuulakärkikynä							// [1F58A] text|emoji
 🖋	täytekynä							// [1F58B] text|emoji
@@ -888,7 +888,7 @@ $textmode
 🗝	vanha avain							// [1F5DD] text|emoji
 🗞	sanomalehti rullalla						// [1F5DE] text|emoji
 🗡	tikari								// [1F5E1] text|emoji
-🗣	puhuvä pää							// [1F5E3] text|emoji
+🗣	puhuva pää							// [1F5E3] text|emoji
 🗨	vasen puhekupla							// [1F5E8] text|emoji
 🗯	oikea vihainen puhekupla					// [1F5EF] text|emoji
 🗳	ääniuurna							// [1F5F3] text|emoji
@@ -903,7 +903,7 @@ $textmode
 
 😀	leveä hymy							// [1F600]
 😁	virnistys ja hymyilevät silmät					// [1F601]
-😂	naurunkyyneleet							// [1F602]
+😂	kasvot naurunkyynelissä						// [1F602]
 😃	hymy suu auki							// [1F603]
 😄	hymyilevät silmät ja suu					// [1F604]
 😅	hymy ja kylmänhiki						// [1F605]
@@ -969,7 +969,7 @@ $textmode
 🙁	hieman surullinen						// [1F641]
 🙂	pieni hymy							// [1F642]
 🙃	ylösalainen naama						// [1F643]
-🙄	silmienpyöritys							// [1F644]
+🙄	silmien pyöritys						// [1F644]
 🙅	ei-ele								// [1F645]
 🙆	ok-ele								// [1F646]
 🙇	kumartava henkilö						// [1F647]
@@ -1019,7 +1019,7 @@ $textmode
 🚠	gondolihissi							// [1F6A0]
 🚡	köysirata							// [1F6A1]
 🚢	laiva								// [1F6A2]
-🚣	soutuvene							// [1F6A3]
+🚣	soutaja								// [1F6A3]
 🚤	pikavene							// [1F6A4]
 🚥	vaakasuuntaiset liikennevalot					// [1F6A5]
 🚦	pystysuuntaiset liikennevalot					// [1F6A6]
@@ -1091,7 +1091,7 @@ $textmode
 🤗	halaava naama							// [1F917]
 🤘	sarviele							// [1F918]
 🤙	soita minulle							// [1F919]
-🤚	kädenselkä koholla						// [1F91A]
+🤚	kämmenselkä koholla						// [1F91A]
 🤛	nyrkki vasemmalle						// [1F91B]
 🤜	nyrkki oikealle							// [1F91C]
 🤝	kädenpuristus							// [1F91D]
@@ -1102,16 +1102,16 @@ $textmode
 🤢	pahoinvoiva							// [1F922]
 🤣	nauraa kippurassa						// [1F923]
 🤤	kuolaava							// [1F924]
-🤥	valehtelija							// [1F925]
+🤥	valehteleva							// [1F925]
 🤦	peittää kasvot kädellä						// [1F926]
-🤧	aivastaa							// [1F927]
+🤧	aivastava							// [1F927]
 🤨	kohotetut kulmakarvat						// [1F928]
 🤩	tähtisilmä							// [1F929]
 🤪	mielipuoli							// [1F92A]
-🤫	hyssyttää							// [1F92B]
+🤫	hyssyttelevä							// [1F92B]
 🤬	sensuroitu suu							// [1F92C]
 🤭	käsi suun edessä						// [1F92D]
-🤮	oksentaa							// [1F92E]
+🤮	oksentava							// [1F92E]
 🤯	räjähdys päässä							// [1F92F]
 🤰	raskaana oleva nainen						// [1F930]
 🤱	imetys								// [1F931]
@@ -1120,7 +1120,7 @@ $textmode
 🤴	prinssi								// [1F934]
 🤵	smokkipukuinen mies						// [1F935]
 🤶	joulupukin muori						// [1F936]
-🤷	kohauttaa olkapäitään						// [1F937]
+🤷	olkapäitään kohauttava henkilö					// [1F937]
 🤸	kärrynpyörä							// [1F938]
 🤹	jongleeraaja							// [1F939]
 🤺	miekkailija							// [1F93A]
@@ -1177,7 +1177,7 @@ $textmode
 🦇	lepakko								// [1F987]
 🦈	hai								// [1F988]
 🦉	pöllö								// [1F989]
-🦊	kettu								// [1F98A]
+🦊	ketun naama							// [1F98A]
 🦋	perhonen							// [1F98B]
 🦌	peura								// [1F98C]
 🦍	gorilla								// [1F98D]

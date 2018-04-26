@@ -223,8 +223,8 @@ $textmode
 🅿	butoni «P»							// [1F17F] text|emoji
 🆎	butoni «AB»							// [1F18E]
 🆑	butoni «CL»							// [1F191]
-🆒	butoni i freskisë «COOL»					// [1F192]
-🆓	butoni i lirimit «FREE»						// [1F193]
+🆒	butoni «COOL»							// [1F192]
+🆓	butoni «FREE»							// [1F193]
 🆔	butoni «ID»							// [1F194]
 🆕	butoni «NEW»							// [1F195]
 🆖	butoni «NG»							// [1F196]
@@ -369,7 +369,7 @@ $textmode
 🍫	çokollatë							// [1F36B]
 🍬	ëmbëlsirë							// [1F36C]
 🍭	lëpirëse							// [1F36D]
-🍮	krem karamel							// [1F36E]
+🍮	krem-karamel							// [1F36E]
 🍯	vazo me mjaltë							// [1F36F]
 🍰	kek i shkrifët							// [1F370]
 🍱	kuti bento							// [1F371]
@@ -1244,7 +1244,7 @@ $textmode
 🇧🇭	Bahrejn								// [1F1E7 1F1ED] BH
 🇧🇮	Burundi								// [1F1E7 1F1EE] BI
 🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Shën Bartolomeu							// [1F1E7 1F1F1] BL
+🇧🇱	Shën-Bartolome							// [1F1E7 1F1F1] BL
 🇧🇲	Bermudë								// [1F1E7 1F1F2] BM
 🇧🇳	Brunei								// [1F1E7 1F1F3] BN
 🇧🇴	Bolivi								// [1F1E7 1F1F4] BO
@@ -1318,7 +1318,7 @@ $textmode
 🇬🇼	Guine-Bisau							// [1F1EC 1F1FC] GW
 🇬🇾	Guajanë								// [1F1EC 1F1FE] GY
 🇭🇰	RPA i Hong-Kongut						// [1F1ED 1F1F0] HK
-🇭🇲	Ishulli Hërd dhe Ishujt Mekdonald				// [1F1ED 1F1F2] HM
+🇭🇲	Ishujt Hërd e Mekdonald						// [1F1ED 1F1F2] HM
 🇭🇳	Honduras							// [1F1ED 1F1F3] HN
 🇭🇷	Kroaci								// [1F1ED 1F1F7] HR
 🇭🇹	Haiti								// [1F1ED 1F1F9] HT
@@ -1403,7 +1403,7 @@ $textmode
 🇵🇭	Filipine							// [1F1F5 1F1ED] PH
 🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
 🇵🇱	Poloni								// [1F1F5 1F1F1] PL
-🇵🇲	Shën Pier dhe Mikelon						// [1F1F5 1F1F2] PM
+🇵🇲	Shën-Pier dhe Mikelon						// [1F1F5 1F1F2] PM
 🇵🇳	Ishujt Pitkern							// [1F1F5 1F1F3] PN
 🇵🇷	Porto-Riko							// [1F1F5 1F1F7] PR
 🇵🇸	Territoret Palestineze						// [1F1F5 1F1F8] PS
@@ -1424,7 +1424,7 @@ $textmode
 🇸🇬	Singapor							// [1F1F8 1F1EC] SG
 🇸🇭	Shën-Helenë							// [1F1F8 1F1ED] SH
 🇸🇮	Slloveni							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard dhe Jan-Majen						// [1F1F8 1F1EF] SJ
+🇸🇯	Svalbard e Jan-Majen						// [1F1F8 1F1EF] SJ
 🇸🇰	Sllovaki							// [1F1F8 1F1F0] SK
 🇸🇱	Siera-Leone							// [1F1F8 1F1F1] SL
 🇸🇲	San-Marino							// [1F1F8 1F1F2] SM
@@ -1432,7 +1432,7 @@ $textmode
 🇸🇴	Somali								// [1F1F8 1F1F4] SO
 🇸🇷	Surinami							// [1F1F8 1F1F7] SR
 🇸🇸	Sudani i Jugut							// [1F1F8 1F1F8] SS
-🇸🇹	Sao Tome dhe Principe						// [1F1F8 1F1F9] ST
+🇸🇹	Sao-Tome e Principe						// [1F1F8 1F1F9] ST
 🇸🇻	Salvador							// [1F1F8 1F1FB] SV
 🇸🇽	Sint-Marten							// [1F1F8 1F1FD] SX
 🇸🇾	Siri								// [1F1F8 1F1FE] SY

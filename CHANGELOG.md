@@ -18,6 +18,7 @@ The espeak-ng project is a fork of the espeak project.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
    and `-Wunused`).
+*  Update the emoji translations to CLDR 33.
 
 security:
 

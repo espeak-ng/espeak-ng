@@ -47,7 +47,7 @@ $textmode
 ⏬	dugme brzo dolje						// [23EC]
 ⏭	dugme za sljedeći zapis						// [23ED] text|emoji
 ⏮	dugme za vraćanje						// [23EE] text|emoji
-⏯	dugme za pauziranje ili nastavak reprodukcije			// [23EF] text|emoji
+⏯	dugme za pauziranje ili nastavak				// [23EF] text|emoji
 ⏰	budilnik							// [23F0]
 ⏱	štoperica							// [23F1] text|emoji
 ⏲	tajmer								// [23F2] text|emoji
@@ -212,8 +212,8 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	Dugme sa tekstom čestitamo na japanskom				// [3297] text|emoji
-㊙	Dugme sa tekstom tajna na japanskom				// [3299] text|emoji
+㊗	Dugme čestitamo na jap.						// [3297] text|emoji
+㊙	Dugme tajna na jap.						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
@@ -235,21 +235,21 @@ $textmode
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	Dugme sa tekstom ovdje na japanskom				// [1F201]
-🈂	Dugme sa tekstom usluga se naplaćuje na japanskom		// [1F202] text|emoji
-🈚	Dugme sa tekstom besplatno na japanskom				// [1F21A]
-🈯	Dugme sa tekstom rezervirano na japanskom			// [1F22F]
-🈲	Dugme sa tekstom zabranjeno na japanskom			// [1F232]
-🈳	Dugme sa tekstom upražnjeno mjesto na japanskom			// [1F233]
-🈴	Dugme sa tekstom prolazna ocjena na japanskom			// [1F234]
-🈵	Dugme sa tekstom nema upražnjenih mjesta na japanskom		// [1F235]
-🈶	Dugme sa tekstom nije besplatno na japanskom			// [1F236]
-🈷	Dugme sa tekstom mjesečni iznos na japanskom			// [1F237] text|emoji
-🈸	Dugme sa tekstom prijava na japanskom				// [1F238]
-🈹	Dugme sa tekstom popust na japanskom				// [1F239]
-🈺	Dugme sa tekstom otvoreno na japanskom				// [1F23A]
-🉐	Dugme sa tekstom vrlo povoljno na japanskom			// [1F250]
-🉑	Dugme sa tekstom prihvatljivo na japanskom			// [1F251]
+🈁	Dugme ovdje na jap.						// [1F201]
+🈂	Dugme usluga se naplaćuje na jap.				// [1F202] text|emoji
+🈚	Dugme besplatno na jap.						// [1F21A]
+🈯	Dugme rezervirano na jap.					// [1F22F]
+🈲	Dugme zabranjeno na jap.					// [1F232]
+🈳	Dugme upražnjeno mjesto na jap.					// [1F233]
+🈴	Dugme prolazna ocjena na jap.					// [1F234]
+🈵	Dugme nema upražnjenih mjesta na jap.				// [1F235]
+🈶	Dugme nije besplatno na jap.					// [1F236]
+🈷	Dugme mjesečni iznos na jap.					// [1F237] text|emoji
+🈸	Dugme prijava na jap.						// [1F238]
+🈹	Dugme popust na jap.						// [1F239]
+🈺	Dugme otvoreno na jap.						// [1F23A]
+🉐	Dugme vrlo povoljno na jap.					// [1F250]
+🉑	Dugme prihvatljivo na jap.					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -742,8 +742,8 @@ $textmode
 📨	pristigla koverta						// [1F4E8]
 📩	koverta sa strjelicom						// [1F4E9]
 📪	zatvoren sandučić sa spuštenom zastavicom			// [1F4EA]
-📫	zatvoren sandučić sa podignutom zastavicom			// [1F4EB]
-📬	otvoren sandučić sa podignutom zastavicom			// [1F4EC]
+📫	zatvoren sandučić sa podignutom zast.				// [1F4EB]
+📬	otvoren sandučić sa podignutom zast.				// [1F4EC]
 📭	otvoren sandučić sa spuštenom zastavicom			// [1F4ED]
 📮	poštansko sanduče						// [1F4EE]
 📯	poštanski rog							// [1F4EF]
@@ -766,7 +766,7 @@ $textmode
 🔁	dugme za ponavljanje						// [1F501]
 🔂	dugme za ponavljanje jednog zapisa				// [1F502]
 🔃	strjelice vertikalno kretanje kazaljki na satu			// [1F503]
-🔄	strjelice dugme suprotno kretanju kazaljki na satu		// [1F504]
+🔄	strjelice suprotno od smjera kretanja sata			// [1F504]
 🔅	dugme zatamni							// [1F505]
 🔆	dugme posvijetli						// [1F506]
 🔇	zvuk isključen							// [1F507]

@@ -42,7 +42,7 @@ $textmode
 ⌨	Tastatur							// [2328] text|emoji
 ⏏	Auswurftaste							// [23CF] text|emoji
 ⏩	Doppelpfeile nach rechts					// [23E9]
-⏪	Doppelpfeile nach links						// [23EA]
+⏪	Zurückspulen							// [23EA]
 ⏫	Doppelpfeile nach oben						// [23EB]
 ⏬	Doppelpfeile nach unten						// [23EC]
 ⏭	Nächster Titel							// [23ED] text|emoji
@@ -96,18 +96,18 @@ $textmode
 ☺	lächelndes Gesicht						// [263A] text|emoji
 ♀	Frauensymbol							// [2640] text|emoji
 ♂	Männersymbol							// [2642] text|emoji
-♈	Sternzeichen Widder						// [2648]
-♉	Sternzeichen Stier						// [2649]
-♊	Sternzeichen Zwilling						// [264A]
-♋	Sternzeichen Krebs						// [264B]
-♌	Sternzeichen Löwe						// [264C]
-♍	Sternzeichen Jungfrau						// [264D]
-♎	Sternzeichen Waage						// [264E]
-♏	Sternzeichen Skorpion						// [264F]
+♈	Widder (Sternzeichen)						// [2648]
+♉	Stier (Sternzeichen)						// [2649]
+♊	Zwilling (Sternzeichen)						// [264A]
+♋	Krebs (Sternzeichen)						// [264B]
+♌	Löwe (Sternzeichen)						// [264C]
+♍	Jungfrau (Sternzeichen)						// [264D]
+♎	Waage (Sternzeichen)						// [264E]
+♏	Skorpion (Sternzeichen)						// [264F]
 ♐	Sternzeichen Schütze						// [2650]
-♑	Sternzeichen Steinbock						// [2651]
-♒	Sternzeichen Wassermann						// [2652]
-♓	Sternzeichen Fische						// [2653]
+♑	Steinbock (Sternzeichen)					// [2651]
+♒	Wassermann (Sternzeichen)					// [2652]
+♓	Fische (Sternzeichen)						// [2653]
 ♠	Pik								// [2660] text|emoji
 ♣	Kreuz								// [2663] text|emoji
 ♥	Herz								// [2665] text|emoji
@@ -118,7 +118,7 @@ $textmode
 ⚒	Hammer und Pickel						// [2692] text|emoji
 ⚓	Anker								// [2693]
 ⚔	gekreuzte Schwerter						// [2694] text|emoji
-⚕	Asklepiosstab							// [2695] text|emoji
+⚕	Äskulapstab							// [2695] text|emoji
 ⚖	Waage								// [2696] text|emoji
 ⚗	Destillierapparat						// [2697] text|emoji
 ⚙	Zahnrad								// [2699] text|emoji
@@ -137,7 +137,7 @@ $textmode
 ⛈	Wolke mit Blitz und Regen					// [26C8] text|emoji
 ⛎	Schlangenträger							// [26CE]
 ⛏	Pickel								// [26CF] text|emoji
-⛑	Helm mit weißem Kreuz						// [26D1] text|emoji
+⛑	Rettungshelm							// [26D1] text|emoji
 ⛓	Ketten								// [26D3] text|emoji
 ⛔	Zutritt verboten						// [26D4]
 ⛩	Shinto-Schrein							// [26E9] text|emoji
@@ -359,7 +359,7 @@ $textmode
 🍡	Dango								// [1F361]
 🍢	Oden								// [1F362]
 🍣	Sushi								// [1F363]
-🍤	Frittierte Garnele						// [1F364]
+🍤	frittierte Garnele						// [1F364]
 🍥	Fischfrikadelle							// [1F365]
 🍦	Softeis								// [1F366]
 🍧	Wassereis							// [1F367]
@@ -387,7 +387,7 @@ $textmode
 🍽	Teller mit Messer und Gabel					// [1F37D] text|emoji
 🍾	Flasche mit knallendem Korken					// [1F37E]
 🍿	Popcorn								// [1F37F]
-🎀	Pinke Schleife							// [1F380]
+🎀	pinke Schleife							// [1F380]
 🎁	Geschenk							// [1F381]
 🎂	Geburtstagskuchen						// [1F382]
 🎃	Halloweenkürbis							// [1F383]
@@ -423,7 +423,7 @@ $textmode
 🎦	Filmkamera in blauem Quadrat					// [1F3A6]
 🎧	Kopfhörer							// [1F3A7]
 🎨	Mischpalette							// [1F3A8]
-🎩	Zylinderhut							// [1F3A9]
+🎩	Zylinder							// [1F3A9]
 🎪	Zirkuszelt							// [1F3AA]
 🎫	Ticket								// [1F3AB]
 🎬	Filmklappe							// [1F3AC]
@@ -453,7 +453,7 @@ $textmode
 🏄	Surfer(in)							// [1F3C4]
 🏅	Sportmedaille							// [1F3C5]
 🏆	Pokal								// [1F3C6]
-🏇	Jockey auf Pferd						// [1F3C7]
+🏇	Pferderennen							// [1F3C7]
 🏈	Football							// [1F3C8]
 🏉	Rugbyball							// [1F3C9]
 🏊	Schwimmer(in)							// [1F3CA]
@@ -544,7 +544,7 @@ $textmode
 🐢	Schildkröte							// [1F422]
 🐣	schlüpfendes Küken						// [1F423]
 🐤	Küken								// [1F424]
-🐥	Küken in Frontansicht						// [1F425]
+🐥	Küken von vorne							// [1F425]
 🐦	Vogel								// [1F426]
 🐧	Pinguin								// [1F427]
 🐨	Koala								// [1F428]
@@ -552,7 +552,7 @@ $textmode
 🐪	Dromedar							// [1F42A]
 🐫	Kamel								// [1F42B]
 🐬	Delfin								// [1F42C]
-🐭	Mausgesicht							// [1F42D]
+🐭	Mäusegesicht							// [1F42D]
 🐮	Kuhgesicht							// [1F42E]
 🐯	Tigergesicht							// [1F42F]
 🐰	Hasengesicht							// [1F430]
@@ -589,7 +589,7 @@ $textmode
 👏	klatschende Hände						// [1F44F]
 👐	offene Hände							// [1F450]
 👑	Krone								// [1F451]
-👒	Damenhut mit Schleife						// [1F452]
+👒	Damenhut							// [1F452]
 👓	Brille								// [1F453]
 👔	Hemd mit Krawatte						// [1F454]
 👕	T-Shirt								// [1F455]
@@ -603,7 +603,7 @@ $textmode
 👝	Clutch								// [1F45D]
 👞	Herrenschuh							// [1F45E]
 👟	Sportschuh							// [1F45F]
-👠	Absatzschuh							// [1F460]
+👠	Stöckelschuh							// [1F460]
 👡	Damensandale							// [1F461]
 👢	Damenstiefel							// [1F462]
 👣	Fußabdrücke							// [1F463]
@@ -678,7 +678,7 @@ $textmode
 💨	Staubwolke							// [1F4A8]
 💩	Kothaufen							// [1F4A9]
 💪	angespannter Bizeps						// [1F4AA]
-💫	Benommenheit							// [1F4AB]
+💫	schwindlig							// [1F4AB]
 💬	Sprechblase mit drei Punkten					// [1F4AC]
 💭	Gedankenblase							// [1F4AD]
 💮	Blumenstempel							// [1F4AE]
@@ -694,7 +694,7 @@ $textmode
 💸	Geldschein mit Flügeln						// [1F4B8]
 💹	steigender Trend mit Yen-Zeichen				// [1F4B9]
 💺	Sitzplatz							// [1F4BA]
-💻	Computermonitor							// [1F4BB]
+💻	Laptop								// [1F4BB]
 💼	Aktentasche							// [1F4BC]
 💽	Minidisk							// [1F4BD]
 💾	Diskette							// [1F4BE]
@@ -715,7 +715,7 @@ $textmode
 📍	runde Reißzwecke						// [1F4CD]
 📎	Büroklammer							// [1F4CE]
 📏	Lineal								// [1F4CF]
-📐	Dreieckiges Lineal						// [1F4D0]
+📐	dreieckiges Lineal						// [1F4D0]
 📑	Pagemarker							// [1F4D1]
 📒	Spiralblock							// [1F4D2]
 📓	Notizbuch							// [1F4D3]
@@ -738,7 +738,7 @@ $textmode
 📤	Postausgang							// [1F4E4]
 📥	Posteingang							// [1F4E5]
 📦	Paket								// [1F4E6]
-📧	E-Mail-Symbol							// [1F4E7]
+📧	E-Mail								// [1F4E7]
 📨	eingehender Briefumschlag					// [1F4E8]
 📩	Umschlag mit Pfeil						// [1F4E9]
 📪	geschlossener Briefkasten ohne Post				// [1F4EA]
@@ -753,7 +753,7 @@ $textmode
 📳	Vibrationsmodus							// [1F4F3]
 📴	Mobiltelefon aus						// [1F4F4]
 📵	Mobiltelefone verboten						// [1F4F5]
-📶	Balkenförmige Signalstärkenanzeige				// [1F4F6]
+📶	balkenförmige Signalstärkenanzeige				// [1F4F6]
 📷	Fotoapparat							// [1F4F7]
 📸	Fotoapparat mit Blitz						// [1F4F8]
 📹	Videokamera							// [1F4F9]
@@ -764,15 +764,15 @@ $textmode
 📿	Gebetskette							// [1F4FF]
 🔀	verschlungene Pfeile nach rechts				// [1F500]
 🔁	Wiederholen							// [1F501]
-🔂	Einmal Wiederholen						// [1F502]
+🔂	Titel wiederholen						// [1F502]
 🔃	kreisförmige Pfeile im Uhrzeigersinn				// [1F503]
 🔄	kreisförmige Pfeile gegen den Uhrzeigersinn			// [1F504]
-🔅	Schwache Helligkeit						// [1F505]
-🔆	Starke Helligkeit						// [1F506]
+🔅	Taste Dimmen							// [1F505]
+🔆	Taste Heller							// [1F506]
 🔇	durchgestrichener Lautsprecher					// [1F507]
 🔈	Lautsprecher mit geringer Lautstärke				// [1F508]
-🔉	Lautsprecher mit einer Schallwelle				// [1F509]
-🔊	Lautsprecher mit drei Schallwellen				// [1F50A]
+🔉	Lautsprecher mit mittlerer Lautstärke				// [1F509]
+🔊	Lautsprecher mit hoher Lautstärke				// [1F50A]
 🔋	Batterie							// [1F50B]
 🔌	Stromstecker							// [1F50C]
 🔍	Lupe nach links							// [1F50D]
@@ -834,22 +834,22 @@ $textmode
 🕑	Ziffernblatt 2:00 Uhr						// [1F551]
 🕒	Ziffernblatt 3:00 Uhr						// [1F552]
 🕓	Ziffernblatt 4:00 Uhr						// [1F553]
-🕔	Ziffernblatt 5:00 Uhr						// [1F554]
-🕕	Ziffernblatt 6:00 Uhr						// [1F555]
+🕔	5:00 Uhr							// [1F554]
+🕕	6:00 Uhr							// [1F555]
 🕖	Ziffernblatt 7:00 Uhr						// [1F556]
 🕗	Ziffernblatt 8:00 Uhr						// [1F557]
-🕘	Ziffernblatt 9:00 Uhr						// [1F558]
+🕘	9:00 Uhr							// [1F558]
 🕙	Ziffernblatt 10:00 Uhr						// [1F559]
 🕚	Ziffernblatt 11:00 Uhr						// [1F55A]
 🕛	Ziffernblatt 12:00 Uhr						// [1F55B]
 🕜	Ziffernblatt 1:30 Uhr						// [1F55C]
 🕝	Ziffernblatt 2:30 Uhr						// [1F55D]
 🕞	Ziffernblatt 3:30 Uhr						// [1F55E]
-🕟	Ziffernblatt 4:30 Uhr						// [1F55F]
-🕠	Ziffernblatt 5:30 Uhr						// [1F560]
-🕡	Ziffernblatt 6:30 Uhr						// [1F561]
+🕟	4:30 Uhr							// [1F55F]
+🕠	5:30 Uhr							// [1F560]
+🕡	6:30 Uhr							// [1F561]
 🕢	Ziffernblatt 7:30 Uhr						// [1F562]
-🕣	Ziffernblatt 8:30 Uhr						// [1F563]
+🕣	8:30 Uhr							// [1F563]
 🕤	Ziffernblatt 9:30 Uhr						// [1F564]
 🕥	Ziffernblatt 10:30 Uhr						// [1F565]
 🕦	Ziffernblatt 11:30 Uhr						// [1F566]
@@ -864,14 +864,14 @@ $textmode
 🕸	Spinnennetz							// [1F578] text|emoji
 🕹	Joystick							// [1F579] text|emoji
 🕺	tanzender Mann							// [1F57A]
-🖇	Verhakte Büroklammern						// [1F587] text|emoji
+🖇	verhakte Büroklammern						// [1F587] text|emoji
 🖊	Kugelschreiber							// [1F58A] text|emoji
 🖋	Füllhalter							// [1F58B] text|emoji
 🖌	Pinsel								// [1F58C] text|emoji
 🖍	Wachsmalstift							// [1F58D] text|emoji
 🖐	Hand mit gespreizten Fingern					// [1F590] text|emoji
 🖕	Mittelfinger							// [1F595]
-🖖	Vulkanischer Gruß						// [1F596]
+🖖	vulkanischer Gruß						// [1F596]
 🖤	schwarzes Herz							// [1F5A4]
 🖥	Desktopcomputer							// [1F5A5] text|emoji
 🖨	Drucker								// [1F5A8] text|emoji
@@ -920,10 +920,10 @@ $textmode
 😐	neutrales Gesicht						// [1F610]
 😑	ausdrucksloses Gesicht						// [1F611]
 😒	verstimmtes Gesicht						// [1F612]
-😓	Smiley mit kaltem Schweiß					// [1F613]
+😓	bedrücktes Gesicht mit Schweiß					// [1F613]
 😔	nachdenkliches Gesicht						// [1F614]
 😕	verwundertes Gesicht						// [1F615]
-😖	bestürztes Gesicht						// [1F616]
+😖	verwirrtes Gesicht						// [1F616]
 😗	küssendes Gesicht						// [1F617]
 😘	Kuss zuwerfendes Gesicht					// [1F618]
 😙	küssendes Gesicht mit lächelnden Augen				// [1F619]
@@ -980,7 +980,7 @@ $textmode
 🙌	zwei erhobene Handflächen					// [1F64C]
 🙍	missmutige Person						// [1F64D]
 🙎	schmollende Person						// [1F64E]
-🙏	gefaltete Hände							// [1F64F]
+🙏	betende Hände							// [1F64F]
 
 // 1F680..1F6FF : Transport and Map Symbols
 
@@ -1069,7 +1069,7 @@ $textmode
 🛤	Bahngleis							// [1F6E4] text|emoji
 🛥	Motorboot							// [1F6E5] text|emoji
 🛩	kleines Flugzeug						// [1F6E9] text|emoji
-🛫	Start eines Flugzeugs						// [1F6EB]
+🛫	Abflug								// [1F6EB]
 🛬	Landung eines Flugzeugs						// [1F6EC]
 🛰	Satellit							// [1F6F0] text|emoji
 🛳	Passagierschiff							// [1F6F3] text|emoji
@@ -1091,7 +1091,7 @@ $textmode
 🤗	Gesicht mit umarmenden Händen					// [1F917]
 🤘	Teufelsgruß							// [1F918]
 🤙	ruf-mich-an-Handzeichen						// [1F919]
-🤚	erhobener Handrücken						// [1F91A]
+🤚	erhobene Hand von hinten					// [1F91A]
 🤛	Faust nach links						// [1F91B]
 🤜	Faust nach rechts						// [1F91C]
 🤝	Handschlag							// [1F91D]
@@ -1133,9 +1133,9 @@ $textmode
 🥃	Trinkglas							// [1F943]
 🥄	Löffel								// [1F944]
 🥅	Tor								// [1F945]
-🥇	Medaille 1. Platz						// [1F947]
-🥈	Medaille 2. Platz						// [1F948]
-🥉	Medaille 3. Platz						// [1F949]
+🥇	Goldmedaille							// [1F947]
+🥈	Silbermedaille							// [1F948]
+🥉	Bronzemedaille							// [1F949]
 🥊	Boxhandschuh							// [1F94A]
 🥋	Kampfsportanzug							// [1F94B]
 🥌	Curlingstein							// [1F94C]
@@ -1210,7 +1210,7 @@ $textmode
 🧟	Zombie								// [1F9DF]
 🧠	Gehirn								// [1F9E0]
 🧡	oranges Herz							// [1F9E1]
-🧢	Schirmkappe							// [1F9E2]
+🧢	Baseballmütze							// [1F9E2]
 🧣	Schal								// [1F9E3]
 🧤	Handschuhe							// [1F9E4]
 🧥	Mantel								// [1F9E5]

@@ -92,7 +92,7 @@ $textmode
 ☮	bakearen ikurra							// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
 ☸	dharmaren gurpila						// [2638] text|emoji
-☹	kopeta ilunduta duen aurpegi					// [2639] text|emoji
+☹	kopeta ilunduta duen aurpegia					// [2639] text|emoji
 ☺	irribarre egiten ari den aurpegia				// [263A] text|emoji
 ♀	emakumeen ikurra						// [2640] text|emoji
 ♂	gizonen ikurra							// [2642] text|emoji
@@ -903,9 +903,9 @@ $textmode
 
 😀	barre egiten ari den aurpegia					// [1F600]
 😁	begiez barre egiten ari den aurpegia				// [1F601]
-😂	pozez negar ari den aurpegia					// [1F602]
+😂	pozez negar egiten ari den aurpegia				// [1F602]
 😃	irribarre egiten ari den aurpegia, ahoa irekita			// [1F603]
-😄	begiekin irribarre egiten ari den aurpegia, ahoa irekita	// [1F604]
+😄	begiez irribarre egiten ari den aurpegia, ahoa irekita		// [1F604]
 😅	irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita// [1F605]
 😆	irribarre egiten ari den aurpegia, begiak itxita		// [1F606]
 😇	irribarre egiten ari den aurpegia argi-koroarekin		// [1F607]
@@ -919,7 +919,7 @@ $textmode
 😏	handitasun-aurpegia						// [1F60F]
 😐	aurpegi neutrala						// [1F610]
 😑	espresiorik gabeko aurpegia					// [1F611]
-😒	aspertu aurpegia						// [1F612]
+😒	aspertu-aurpegia						// [1F612]
 😓	izerdi hotza duen aurpegia					// [1F613]
 😔	aurpegi pentsakorra						// [1F614]
 😕	nahasketa-aurpegia						// [1F615]
@@ -939,12 +939,12 @@ $textmode
 😣	aurpegi nekaezina						// [1F623]
 😤	sudurretik kea darion aurpegia					// [1F624]
 😥	desengainatuta baina lasaiago					// [1F625]
-😦	kopeta ilunduta eta ahoa irekita duen aurpegi			// [1F626]
+😦	kopeta ilunduta eta ahoa irekita duen aurpegia			// [1F626]
 😧	estutasun-aurpegia						// [1F627]
 😨	ikara-aurpegia							// [1F628]
 😩	neke-aurpegia							// [1F629]
 😪	logura-aurpegia							// [1F62A]
-😫	nekatu aurpegia							// [1F62B]
+😫	nekatu-aurpegia							// [1F62B]
 😬	imintzio-aurpegia						// [1F62C]
 😭	negar eta negar ari den aurpegia				// [1F62D]
 😮	ahoa irekita duen aurpegia					// [1F62E]
@@ -959,7 +959,7 @@ $textmode
 😷	mediku-maskara daraman aurpegia					// [1F637]
 😸	begiez barre egiten ari den katu-aurpegia			// [1F638]
 😹	pozez negar ari den katu-aurpegia				// [1F639]
-😺	ahora irekita duen eta irribarre egiten ari den katu-aurpegia	// [1F63A]
+😺	ahoa irekita duen eta irribarre egiten ari den katu-aurpegia	// [1F63A]
 😻	bihotz-itxurako begiak dituen eta irribarre egiten ari den katu-aurpegia// [1F63B]
 😼	irribarre maltzurra duen katu-aurpegia				// [1F63C]
 😽	begiak itxita dituen eta musuka ari den katu-aurpegia		// [1F63D]
@@ -1084,7 +1084,7 @@ $textmode
 🤐	kremaileradun ahoa duen aurpegia				// [1F910]
 🤑	diru-itxurako mingaina duen aurpegia				// [1F911]
 🤒	termometroa duen aurpegia					// [1F912]
-🤓	arraro aurpegia							// [1F913]
+🤓	arraro-aurpegia							// [1F913]
 🤔	pentsatzen ari den aurpegia					// [1F914]
 🤕	buruan benda daraman aurpegia					// [1F915]
 🤖	robot-aurpegia							// [1F916]

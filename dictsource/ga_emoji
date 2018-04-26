@@ -11,18 +11,18 @@ $textmode
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
-©	Cóipcheart							// [00A9] text|emoji
-®	Cláraithe							// [00AE] text|emoji
+©	cóipcheart							// [00A9] text|emoji
+®	cláraithe							// [00AE] text|emoji
 
 // 2000..203C : General Punctuation
 
-‼	dhá comhartha uaillbhreasa					// [203C] text|emoji
-⁉	comhartha ceist agus uaillbhreasa				// [2049] text|emoji
+‼	comhartha uaillbhreasa dúbailte					// [203C] text|emoji
+⁉	comhartha ceiste agus uaillbhreasa				// [2049] text|emoji
 
 // 2100..214F : Letterlike Symbols
 
 ™	comhartha trádmhairc						// [2122] text|emoji
-ℹ	foinse eolas							// [2139] text|emoji
+ℹ	foinse eolais							// [2139] text|emoji
 
 // 2190..21FF : Arrows
 
@@ -38,154 +38,154 @@ $textmode
 // 2300..23FF : Miscellaneous Technical
 
 ⌚	uaireadóir							// [231A]
-⌛	orláiste							// [231B]
+⌛	orláiste críochnaithe						// [231B]
 ⌨	méarchlár							// [2328] text|emoji
 ⏏	cnaipe díchuir							// [23CF] text|emoji
-⏩	mearchasadh							// [23E9]
-⏪	siar								// [23EA]
-⏫	saighead suas tapaigh						// [23EB]
-⏬	saighead síos tapaigh						// [23EC]
+⏩	cnaipe mearchasaidh						// [23E9]
+⏪	cnaipe siar ar luas						// [23EA]
+⏫	cnaipe suas ar luas						// [23EB]
+⏬	cnaipe síos ar luas						// [23EC]
 ⏭	cnaipe don chéad amhrán eile					// [23ED] text|emoji
 ⏮	cnaipe don amhrán deireanach					// [23EE] text|emoji
 ⏯	cnaipe seinnte nó sosa						// [23EF] text|emoji
 ⏰	clog aláraim							// [23F0]
 ⏱	stopuaireadóir							// [23F1] text|emoji
 ⏲	clog ama							// [23F2] text|emoji
-⏳	uaineadóir gainimh						// [23F3]
+⏳	orláiste lán							// [23F3]
 ⏸	cnaipe sosa							// [23F8] text|emoji
 ⏹	cnaipe stop							// [23F9] text|emoji
 ⏺	cnaipe taifeadta						// [23FA] text|emoji
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	litir m le ciorcal thart timpeall				// [24C2] text|emoji
+Ⓜ	litir M le ciorcal timpeall air					// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
-▪	cearnóg dubh beag						// [25AA] text|emoji
-▫	cearnóg bán beag						// [25AB] text|emoji
+▪	cearnóg dhubh bheag						// [25AA] text|emoji
+▫	cearnóg bhán bheag						// [25AB] text|emoji
 ▶	cnaipe seinnte							// [25B6] text|emoji
-◀	cnaipe aisiompaigh						// [25C0] text|emoji
-◻	meáncearnóg bán							// [25FB] text|emoji
-◼	meáncearnóg dubh						// [25FC] text|emoji
-◽	cearnóg bán meán-bheag						// [25FD]
-◾	cearnóg dubh meán-bheag						// [25FE]
+◀	cnaipe siar							// [25C0] text|emoji
+◻	meánchearnóg bhán						// [25FB] text|emoji
+◼	meánchearnóg dhubh						// [25FC] text|emoji
+◽	meánchearnóg bheag bhán						// [25FD]
+◾	meánchearnóg bheag dhubh					// [25FE]
 
 // 2600..26FF : Miscellaneous Symbols
 
 ☀	grian								// [2600] text|emoji
 ☁	scamall								// [2601] text|emoji
-☂	scáth								// [2602] text|emoji
+☂	scáth báistí							// [2602] text|emoji
 ☃	fear sneachta							// [2603] text|emoji
 ☄	cóiméad								// [2604] text|emoji
 ☎	teileafón							// [260E] text|emoji
 ☑	bosca ballóide le tic						// [2611] text|emoji
-☔	scáth le braon baistí						// [2614]
+☔	scáth báistí le braonta báistí					// [2614]
 ☕	deoch the							// [2615]
 ☘	seamróg								// [2618] text|emoji
-☝	cormhéar ag pointeáil suas					// [261D] text|emoji
-☠	cloigeann agus croschnámha					// [2620] text|emoji
+☝	corrmhéar ag díriú suas						// [261D] text|emoji
+☠	blaosc agus croschnámah						// [2620] text|emoji
 ☢	radaighníomhach							// [2622] text|emoji
 ☣	bithghuais							// [2623] text|emoji
 ☦	cros ortadocsach						// [2626] text|emoji
 ☪	réalta agus corrán						// [262A] text|emoji
-☮	siombal síocháin						// [262E] text|emoji
+☮	siombail síochána						// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
-☸	roth an dharma							// [2638] text|emoji
-☹	aghaidh ghrainceach						// [2639] text|emoji
+☸	roth dharma							// [2638] text|emoji
+☹	straoiseog le grainc uirthi					// [2639] text|emoji
 ☺	straoiseog ag miongháire					// [263A] text|emoji
 ♀	comhartha baineann						// [2640] text|emoji
-♂	comhartha fearann						// [2642] text|emoji
-♈	Aries								// [2648]
-♉	Taurus								// [2649]
-♊	Gemini								// [264A]
-♋	Cancer								// [264B]
-♌	Leo								// [264C]
-♍	Virgo								// [264D]
-♎	Libra								// [264E]
-♏	Scorpion							// [264F]
-♐	Sagittarius							// [2650]
-♑	Capricorn							// [2651]
-♒	Aquarius							// [2652]
-♓	Pisces								// [2653]
+♂	comhartha fireann						// [2642] text|emoji
+♈	an Reithe							// [2648]
+♉	an Tarbh							// [2649]
+♊	an Cúpla							// [264A]
+♋	an Portán							// [264B]
+♌	an Leon								// [264C]
+♍	an Mhaighdean							// [264D]
+♎	an Mheá								// [264E]
+♏	an Scairp							// [264F]
+♐	an Saighdeoir							// [2650]
+♑	an Gabhar							// [2651]
+♒	Iompróir an Uisce						// [2652]
+♓	na hÉisc							// [2653]
 ♠	dath spéireata							// [2660] text|emoji
-♣	dath club							// [2663] text|emoji
-♥	dath hart							// [2665] text|emoji
+♣	dath truif							// [2663] text|emoji
+♥	dath hairt							// [2665] text|emoji
 ♦	dath muileata							// [2666] text|emoji
 ♨	foinse the							// [2668] text|emoji
-♻	siombal athchúrsála						// [267B] text|emoji
+♻	siombail athchúrsála						// [267B] text|emoji
 ♿	bealach isteach do chathaoireacha rothaí			// [267F]
-⚒	casúr agus grafán						// [2692] text|emoji
+⚒	casúr agus piocóid						// [2692] text|emoji
 ⚓	ancaire								// [2693]
 ⚔	claimhte crosáilte						// [2694] text|emoji
-⚕	siombal leighis							// [2695] text|emoji
-⚖	meá								// [2696] text|emoji
+⚕	siombail leighis						// [2695] text|emoji
+⚖	scála								// [2696] text|emoji
 ⚗	leamóg								// [2697] text|emoji
 ⚙	giar								// [2699] text|emoji
-⚛	siombal adamh							// [269B] text|emoji
+⚛	siombail adaimh							// [269B] text|emoji
 ⚜	fleur-de-lis							// [269C] text|emoji
 ⚠	comhartha rabhaidh						// [26A0] text|emoji
 ⚡	ardvoltas							// [26A1]
 ⚪	ciorcal bán							// [26AA]
 ⚫	ciorcal dubh							// [26AB]
 ⚰	cónra								// [26B0] text|emoji
-⚱	síothal								// [26B1] text|emoji
+⚱	próca								// [26B1] text|emoji
 ⚽	liathróid sacair						// [26BD]
 ⚾	daorchluiche							// [26BE]
 ⛄	fear sneachta gan sneachta					// [26C4]
 ⛅	grian taobh thiar de na scamaill				// [26C5]
 ⛈	scamall le tintreach agus fearthainn				// [26C8] text|emoji
 ⛎	Ophiuchus							// [26CE]
-⛏	grafán								// [26CF] text|emoji
+⛏	piocóid								// [26CF] text|emoji
 ⛑	clogad tarrthálaí						// [26D1] text|emoji
 ⛓	slabhraí							// [26D3] text|emoji
 ⛔	níl cead dul isteach						// [26D4]
-⛩	scrín sinteocha							// [26E9] text|emoji
+⛩	scrín Sinteochais						// [26E9] text|emoji
 ⛪	séipéal								// [26EA]
 ⛰	sliabh								// [26F0] text|emoji
-⛱	scáth ar talamh							// [26F1] text|emoji
-⛲	scardán								// [26F2]
+⛱	scáth báistí ar an talamh					// [26F1] text|emoji
+⛲	scairdeán							// [26F2]
 ⛳	brat i bpoll							// [26F3]
-⛴	bád fartha							// [26F4] text|emoji
-⛵	bás seoil							// [26F5]
+⛴	bád farantóireachta						// [26F4] text|emoji
+⛵	bád seoil							// [26F5]
 ⛷	sciálaí								// [26F7] text|emoji
 ⛸	scátáil oighir							// [26F8] text|emoji
 ⛹	duine le liathróid						// [26F9] text|emoji
-⛺	campa								// [26FA]
-⛽	stáisiún peitril						// [26FD]
+⛺	puball								// [26FA]
+⛽	pumpa breosla							// [26FD]
 
 // 2700..27BF : Dingbats
 
 ✂	siosúr								// [2702] text|emoji
-✅	ticmharc							// [2705]
+✅	ticmharc bán trom						// [2705]
 ✈	eitleán								// [2708] text|emoji
 ✉	clúdach litreach						// [2709] text|emoji
-✊	carraig								// [270A]
-✋	páipéar								// [270B]
-✌	lámh síocháin							// [270C] text|emoji
-✍	lámha scríbhneoireachta						// [270D] text|emoji
+✊	dorn ardaithe							// [270A]
+✋	lámh ardaithe							// [270B]
+✌	lámh síochána							// [270C] text|emoji
+✍	lámh scríbhneoireachta						// [270D] text|emoji
 ✏	peann luaidhe							// [270F] text|emoji
 ✒	gob dubh							// [2712] text|emoji
 ✔	ticmharc trom							// [2714] text|emoji
-✖	x iolrúchán trom						// [2716] text|emoji
+✖	iolrúchán x trom						// [2716] text|emoji
 ✝	cros laidineach							// [271D] text|emoji
 ✡	Réalta Dháiví							// [2721] text|emoji
 ✨	drithlí								// [2728]
-✳	réiltín le hocht spócaí						// [2733] text|emoji
-✴	réalta le hocht pointí						// [2734] text|emoji
-❄	calóg sneachta							// [2744] text|emoji
+✳	réiltín le hocht spóca						// [2733] text|emoji
+✴	réalta le hocht bpointe						// [2734] text|emoji
+❄	calóg shneachta							// [2744] text|emoji
 ❇	gealán								// [2747] text|emoji
 ❌	crosmharc							// [274C]
-❎	cnáipe crosmharc						// [274E]
+❎	cnaipe crosmhairc						// [274E]
 ❓	comhartha ceiste						// [2753]
 ❔	comhartha ceiste bán						// [2754]
-❕	comhartha uaillbhreasa bháin					// [2755]
+❕	comhartha uailbhresa bán					// [2755]
 ❗	comhartha uaillbhreasa						// [2757]
-❣	uaillbhreas croí trom						// [2763] text|emoji
+❣	comhartha uaillbhreasa croí throim				// [2763] text|emoji
 ❤	croí dearg							// [2764] text|emoji
-➕	móide								// [2795]
-➖	lúide								// [2796]
-➗	roinnt								// [2797]
+➕	comhartha móide trom						// [2795]
+➖	comhartha lúide trom						// [2796]
+➗	comhartha roinnte trom						// [2797]
 ➡	saighead ar dheis						// [27A1] text|emoji
 ➰	lúb chatach							// [27B0]
 ➿	lúb dhúbailte chatach						// [27BF]
@@ -200,78 +200,78 @@ $textmode
 ⬅	saighead ar chlé						// [2B05] text|emoji
 ⬆	saighead suas							// [2B06] text|emoji
 ⬇	saighead síos							// [2B07] text|emoji
-⬛	cearnóg dubh mór						// [2B1B]
-⬜	cearnóg bán mór							// [2B1C]
+⬛	cearnóg mhór dhubh						// [2B1B]
+⬜	cearnóg mhór bhán						// [2B1C]
 ⭐	meánréalta bhán							// [2B50]
 ⭕	ciorcal mór trom						// [2B55]
 
 // 3000..303F : CJK Symbols and Punctuation
 
 〰	dais chorrach							// [3030] text|emoji
-〽	cuid de marc ailtéarnú						// [303D] text|emoji
+〽	cuid de mharc ailtéarnaithe					// [303D] text|emoji
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	idéagraf comhghairdeas le ciorcal thart timpeall		// [3297] text|emoji
-㊙	idéagraf rún le ciorcal thart timpeall				// [3299] text|emoji
+㊗	cnaipe Seapáinise comhghairdeas					// [3297] text|emoji
+㊙	cnaipe Seapáinise rún						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
 🅰	fuilghrúpa A							// [1F170] text|emoji
 🅱	fuilghrúpa B							// [1F171] text|emoji
 🅾	fuilghrúpa O							// [1F17E] text|emoji
-🅿	páirceáil							// [1F17F] text|emoji
+🅿	cnaipe P							// [1F17F] text|emoji
 🆎	fuilghrúpa AB							// [1F18E]
 🆑	CL								// [1F191]
-🆒	díobhálaí							// [1F192]
-🆓	saor								// [1F193]
-🆔	aitheantas							// [1F194]
-🆕	nua								// [1F195]
+🆒	cnaipe CÚLÁITE							// [1F192]
+🆓	cnaipe SAOR IN AISCE						// [1F193]
+🆔	cnaipe aitheantais						// [1F194]
+🆕	cnaipe NUA							// [1F195]
 🆖	NG								// [1F196]
-🆗	cnáipe OK							// [1F197]
+🆗	cnaipe OK							// [1F197]
 🆘	SOS								// [1F198]
-🆙	UP!								// [1F199]
-🆚	versus								// [1F19A]
+🆙	cnaipe THUAS!							// [1F199]
+🆚	cnaipe VS							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	cnáipe Seapáinis anseo						// [1F201]
-🈂	cnáipe Seapáinis táille seirbhíse				// [1F202] text|emoji
-🈚	cnáipe Seapáinis saor in aisce					// [1F21A]
-🈯	cnáipe Seapáinis coinnithe					// [1F22F]
-🈲	cnáipe Seapáinis cosc						// [1F232]
-🈳	cnáipe Seapáinis folúntas					// [1F233]
-🈴	cnáipe Seapáinis pasmharc					// [1F234]
-🈵	cnáipe Seapáinis níl aon folúntas				// [1F235]
-🈶	cnáipe Seapáinis nach bhfuil saor in aisce			// [1F236]
-🈷	cnáipe Seapáinis méid míosúil					// [1F237] text|emoji
-🈸	cnáipe Seapáinis iarratas					// [1F238]
-🈹	cnáipe Seapáinis lascaine					// [1F239]
-🈺	cnáipe Seapáinis oscail le hagaidh gnó				// [1F23A]
-🉐	cnáipe Seapáinis sladmhargadh					// [1F250]
-🉑	cnáipe Seapáinis inghlactha					// [1F251]
+🈁	cnaipe Seapáinise anseo						// [1F201]
+🈂	cnaipe Seapáinise táille seirbhíse				// [1F202] text|emoji
+🈚	cnáipe Seapáinise saor in aisce					// [1F21A]
+🈯	cnaipe Seapáinise coinnithe					// [1F22F]
+🈲	cnaipe Seapáinise cosc						// [1F232]
+🈳	cnaipe Seapáinise folúntas					// [1F233]
+🈴	cnaipe Seapáinise pasmharc					// [1F234]
+🈵	cnaipe Seapáinise níl aon fholúntas				// [1F235]
+🈶	cnaipe Seapáinise nach bhfuil saor in aisce			// [1F236]
+🈷	cnaipe Seapáinise méid míosúil					// [1F237] text|emoji
+🈸	cnaipe Seapáinise iarratas					// [1F238]
+🈹	cnaipe Seapáinise lascaine					// [1F239]
+🈺	cnaipe Seapáinise oscailte le haghaidh gnó			// [1F23A]
+🉐	cnaipe Seapáinise sladmhargadh					// [1F250]
+🉑	cnaipe Seapáinise inghlactha					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
-🀄	Tíl mah-jongg							// [1F004]
+🀄	Dragan rua mah-jongg						// [1F004]
 
 // 1F0A0..1F0FF : Playing Cards
 
-🃏	Fear na gcrúb							// [1F0CF]
+🃏	fear na gcrúb							// [1F0CF]
 
 // 1F300..1F5FF : Miscellaneous Symbols and Pictographs
 
 🌀	cioclón								// [1F300]
 🌁	ceomhar								// [1F301]
-🌂	scáth báistí							// [1F302]
-🌃	réaltaí								// [1F303]
+🌂	scáth báistí dúnta						// [1F302]
+🌃	oíche le réaltaí						// [1F303]
 🌄	éirí na gréine thar na sléibhte					// [1F304]
 🌅	éirí na gréine							// [1F305]
-🌆	cathair								// [1F306]
+🌆	dreach cathrach i dtitim na hoíche				// [1F306]
 🌇	dul faoi na gréine						// [1F307]
-🌈	tuar ceatha							// [1F308]
-🌉	droichead							// [1F309]
-🌊	tonn								// [1F30A]
+🌈	bogha báistí							// [1F308]
+🌉	droichead istoíche						// [1F309]
+🌊	tonn san uisce							// [1F30A]
 🌋	bolcán								// [1F30B]
 🌌	Bealach na Bó Finne						// [1F30C]
 🌍	cruinneog ag taispeáint na hEorpa agus na hAfraice		// [1F30D]
@@ -279,19 +279,19 @@ $textmode
 🌏	cruinneog ag taispeáint na hÁsie agus na hAstráile		// [1F30F]
 🌐	cruinneog le fadlínte						// [1F310]
 🌑	gealach úr							// [1F311]
-🌒	corrán gealaí ag dul ar gcúl					// [1F312]
-🌓	ceathrú gealaí							// [1F313]
-🌔	gealach scothlán ag ag dul ar gcúl				// [1F314]
+🌒	corrán gealaí atá ag líonadh					// [1F312]
+🌓	céad cheathrú na gealí						// [1F313]
+🌔	gealach scothlán atá ag líonadh					// [1F314]
 🌕	gealach lán							// [1F315]
-🌖	gealach ag caitheamh						// [1F316]
-🌗	gealach ina ceathrú dheireanach					// [1F317]
-🌘	corrán gealaí ag caitheamh					// [1F318]
+🌖	gealach scothlán atá ag caitheamh				// [1F316]
+🌗	ceathrú deireanach na gealaí					// [1F317]
+🌘	corrán gealaí atá ag caitheamh					// [1F318]
 🌙	corrán gealaí							// [1F319]
 🌚	gealach úr le haghaidh						// [1F31A]
-🌛	aghaidh ghealaí							// [1F31B]
-🌜	aghaidh ghealaí ina ceathrú dheireanach				// [1F31C]
-🌝	aghaidh ghealaí láine						// [1F31D]
-🌞	aghaidh ar ghrian						// [1F31E]
+🌛	céad cheathrú na gealaí le haghaidh				// [1F31B]
+🌜	ceathrú deireanach na gealaí le haghaidh			// [1F31C]
+🌝	aghaidh na gealaí láine						// [1F31D]
+🌞	an ghrian le haghaidh						// [1F31E]
 🌟	réalta ag lonrú							// [1F31F]
 🌠	réalta reatha							// [1F320]
 🌡	teirmiméadar							// [1F321] text|emoji
@@ -303,17 +303,17 @@ $textmode
 🌩	scamall le tintreach						// [1F329] text|emoji
 🌪	tornádó								// [1F32A] text|emoji
 🌫	ceo								// [1F32B] text|emoji
-🌬	aghaidh gaothach						// [1F32C] text|emoji
-🌭	brocaire							// [1F32D]
+🌬	aghaidh na gaoithe						// [1F32C] text|emoji
+🌭	brocaire te							// [1F32D]
 🌮	taco								// [1F32E]
 🌯	burrito								// [1F32F]
 🌰	cnó capaill							// [1F330]
 🌱	síolphlanda							// [1F331]
 🌲	crann síorghlas							// [1F332]
 🌳	crann duillsilteach						// [1F333]
-🌴	pailm								// [1F334]
+🌴	crann pailme							// [1F334]
 🌵	cachtas								// [1F335]
-🌶	píobar te							// [1F336] text|emoji
+🌶	piobar te							// [1F336] text|emoji
 🌷	tiúilip								// [1F337]
 🌸	bláth silíní							// [1F338]
 🌹	rós								// [1F339]
@@ -330,7 +330,7 @@ $textmode
 🍄	beacán								// [1F344]
 🍅	tráta								// [1F345]
 🍆	ubhthoradh							// [1F346]
-🍇	caora fíniúna							// [1F347]
+🍇	fíonchaora							// [1F347]
 🍈	mealbhacán							// [1F348]
 🍉	mealbhacán uisce						// [1F349]
 🍊	táinséirín							// [1F34A]
@@ -345,22 +345,22 @@ $textmode
 🍓	sú talún							// [1F353]
 🍔	burgar								// [1F354]
 🍕	píotsa								// [1F355]
-🍖	feoil le cnámh							// [1F356]
+🍖	feoil ar an gcnámh						// [1F356]
 🍗	cos sicín							// [1F357]
 🍘	craicear ríse							// [1F358]
 🍙	liathróid ríse							// [1F359]
-🍚	rís cócaráilte							// [1F35A]
+🍚	rís chócaráilte							// [1F35A]
 🍛	curaí agus rís							// [1F35B]
 🍜	ramen								// [1F35C]
 🍝	spaigití							// [1F35D]
 🍞	arán								// [1F35E]
 🍟	sceallóga							// [1F35F]
 🍠	práta milis							// [1F360]
-🍡	mochi								// [1F361]
+🍡	dango								// [1F361]
 🍢	bia mara							// [1F362]
 🍣	sushi								// [1F363]
-🍤	séacla								// [1F364]
-🍥	cáca éisc							// [1F365]
+🍤	séacla friochta							// [1F364]
+🍥	cáca éisc le guairneán						// [1F365]
 🍦	uachtar reoite coipthe						// [1F366]
 🍧	oighear bearrtha						// [1F367]
 🍨	uachtar reoite							// [1F368]
@@ -369,19 +369,19 @@ $textmode
 🍫	seacláid							// [1F36B]
 🍬	milseán								// [1F36C]
 🍭	líreacán							// [1F36D]
-🍮	milseog								// [1F36E]
-🍯	mil								// [1F36F]
-🍰	cáca								// [1F370]
-🍱	bento								// [1F371]
-🍲	stobhach							// [1F372]
-🍳	friochtán							// [1F373]
+🍮	custard								// [1F36E]
+🍯	pota meala							// [1F36F]
+🍰	brioscarán							// [1F370]
+🍱	bosca bento							// [1F371]
+🍲	pota le bia							// [1F372]
+🍳	cócaireacht							// [1F373]
 🍴	scian agus forc							// [1F374]
-🍵	cupán								// [1F375]
+🍵	cupán gan chluas						// [1F375]
 🍶	sake								// [1F376]
-🍷	fíon								// [1F377]
-🍸	manglam								// [1F378]
-🍹	puins								// [1F379]
-🍺	beoir								// [1F37A]
+🍷	gloine fíona							// [1F377]
+🍸	gloine mhanglaim						// [1F378]
+🍹	deoch thrópaiceach						// [1F379]
+🍺	pionta beorach							// [1F37A]
 🍻	gloiní beorach							// [1F37B]
 🍼	buidéal babaí							// [1F37C]
 🍽	forc agus scian le pláta					// [1F37D] text|emoji
@@ -401,8 +401,8 @@ $textmode
 🎋	stiallacha páipéir						// [1F38B]
 🎌	bratacha trasnaithe						// [1F38C]
 🎍	maisiúchán							// [1F38D]
-🎎	babóga								// [1F38E]
-🎏	sraoilleán							// [1F38F]
+🎎	babóga Seapánacha						// [1F38E]
+🎏	sraoilleán éisc							// [1F38F]
 🎐	clingíní gaoithe						// [1F390]
 🎑	gealach								// [1F391]
 🎒	mála scoile							// [1F392]
@@ -410,31 +410,31 @@ $textmode
 🎖	bonn míleata							// [1F396] text|emoji
 🎗	ribín cuimhneacháin						// [1F397] text|emoji
 🎙	micreafón stiúideo						// [1F399] text|emoji
-🎚	sleamhnáin leibhéil						// [1F39A] text|emoji
+🎚	sleamhnán leibhéil						// [1F39A] text|emoji
 🎛	cnaipí rialaithe						// [1F39B] text|emoji
-🎞	frámaí scannán							// [1F39E] text|emoji
+🎞	frámaí scánnáin							// [1F39E] text|emoji
 🎟	ticéid cead isteach						// [1F39F] text|emoji
-🎠	roithleagán ró							// [1F3A0]
-🎡	roth mór							// [1F3A1]
+🎠	capall an roithleagáin ró					// [1F3A0]
+🎡	roth Ferris							// [1F3A1]
 🎢	rollchóstóir							// [1F3A2]
-🎣	iascaireacht							// [1F3A3]
+🎣	slat iascaireachta						// [1F3A3]
 🎤	micreafón							// [1F3A4]
-🎥	ceamara scannán							// [1F3A5]
-🎦	scannán								// [1F3A6]
+🎥	ceamara scannáin						// [1F3A5]
+🎦	pictiúrlann							// [1F3A6]
 🎧	cluasáin							// [1F3A7]
-🎨	péint								// [1F3A8]
+🎨	pailéad dathanna						// [1F3A8]
 🎩	hata ard							// [1F3A9]
 🎪	sorcas								// [1F3AA]
 🎫	ticéad								// [1F3AB]
 🎬	clabaire							// [1F3AC]
-🎭	aghaidhmhasc							// [1F3AD]
+🎭	na taibhealaíona						// [1F3AD]
 🎮	cluiche ríomhaire						// [1F3AE]
 🎯	súil sprice							// [1F3AF]
 🎰	meaisín sliotáin						// [1F3B0]
-🎱	snúcar								// [1F3B1]
+🎱	liathróid 8 púil						// [1F3B1]
 🎲	dísle								// [1F3B2]
 🎳	babhláil							// [1F3B3]
-🎴	cárta imeartha							// [1F3B4]
+🎴	cártaí imeartha bláthanna					// [1F3B4]
 🎵	nóta ceoil							// [1F3B5]
 🎶	nótaí ceoil							// [1F3B6]
 🎷	sacsafón							// [1F3B7]
@@ -445,30 +445,30 @@ $textmode
 🎼	scór ceoil							// [1F3BC]
 🎽	léine reatha							// [1F3BD]
 🎾	leadóg								// [1F3BE]
-🎿	scí								// [1F3BF]
+🎿	scíonna								// [1F3BF]
 🏀	cispheil							// [1F3C0]
 🏁	bratach chríche							// [1F3C1]
-🏂	clár sneachta							// [1F3C2]
+🏂	clárscimeálaí sneachta						// [1F3C2]
 🏃	reathaí								// [1F3C3]
-🏄	surfáil								// [1F3C4]
+🏄	duine ag surfáil						// [1F3C4]
 🏅	bonn spóirt							// [1F3C5]
 🏆	corn								// [1F3C6]
-🏇	rásaíocht chapall						// [1F3C7]
+🏇	rásaíocht capall						// [1F3C7]
 🏈	peil Mheiriceánach						// [1F3C8]
-🏉	sacar								// [1F3C9]
+🏉	rugbaí								// [1F3C9]
 🏊	snámhaí								// [1F3CA]
-🏋	duine ag tógáil mheáchan					// [1F3CB] text|emoji
+🏋	duine ag tógáil meachán						// [1F3CB] text|emoji
 🏌	duine ag imirt gailf						// [1F3CC] text|emoji
 🏍	gluaisrothar							// [1F3CD] text|emoji
 🏎	carr rása							// [1F3CE] text|emoji
 🏏	cruicéad							// [1F3CF]
 🏐	eitpheil							// [1F3D0]
 🏑	haca								// [1F3D1]
-🏒	bata agus cnag haca oighir					// [1F3D2]
+🏒	haca oighir							// [1F3D2]
 🏓	ping pang							// [1F3D3]
 🏔	sliabh le sneachta						// [1F3D4] text|emoji
 🏕	ag campáil							// [1F3D5] text|emoji
-🏖	trá le scáth							// [1F3D6] text|emoji
+🏖	trá le scáth gréine						// [1F3D6] text|emoji
 🏗	foirgníocht							// [1F3D7] text|emoji
 🏘	tithe								// [1F3D8] text|emoji
 🏙	dreach cathrach							// [1F3D9] text|emoji
@@ -479,9 +479,9 @@ $textmode
 🏞	páirc náisiúnta							// [1F3DE] text|emoji
 🏟	staidiam							// [1F3DF] text|emoji
 🏠	teach								// [1F3E0]
-🏡	teach le ghairdín						// [1F3E1]
+🏡	teach le gairdín						// [1F3E1]
 🏢	foirgneamh oifigí						// [1F3E2]
-🏣	oifig an phoist Seapánach					// [1F3E3]
+🏣	oifig an phoist de chuid na Seapáine				// [1F3E3]
 🏤	oifig an phoist							// [1F3E4]
 🏥	ospidéal							// [1F3E5]
 🏦	banc								// [1F3E6]
@@ -502,11 +502,11 @@ $textmode
 🏸	badmantan							// [1F3F8]
 🏹	saighead is bogha						// [1F3F9]
 🏺	amfara								// [1F3FA]
-🏻	ton cnis gheal							// [1F3FB]
-🏼	ton cnis mheánach-gheal						// [1F3FC]
-🏽	ton cnis mheánach						// [1F3FD]
-🏾	ton cnis mheánach-dhorcha					// [1F3FE]
-🏿	ton cnis dhorcha						// [1F3FF]
+🏻	ton cnis geal							// [1F3FB]
+🏼	ton cnis meánach-gheal						// [1F3FC]
+🏽	ton cnis meánach						// [1F3FD]
+🏾	ton cnis meánach-dhorcha					// [1F3FE]
+🏿	ton cnis dorcha							// [1F3FF]
 🐀	francach							// [1F400]
 🐁	luch								// [1F401]
 🐂	damh								// [1F402]
@@ -539,12 +539,12 @@ $textmode
 🐝	beach mheala							// [1F41D]
 🐞	bóín								// [1F41E]
 🐟	iasc								// [1F41F]
-🐠	iasc teochreasa							// [1F420]
+🐠	iasc trópaiceach						// [1F420]
 🐡	iasc torcánach							// [1F421]
 🐢	turtar								// [1F422]
 🐣	éan ag teacht as an ubh						// [1F423]
-🐤	gearrshicín							// [1F424]
-🐥	gearrshicín éadain						// [1F425]
+🐤	sicín óg							// [1F424]
+🐥	sicín óg éadain							// [1F425]
 🐦	éan								// [1F426]
 🐧	piongain							// [1F427]
 🐨	cóála								// [1F428]
@@ -566,7 +566,7 @@ $textmode
 🐸	aghaidh froig							// [1F438]
 🐹	aghaidh hamstair						// [1F439]
 🐺	aghaidh mic tíre						// [1F43A]
-🐻	aghaidh béair							// [1F43B]
+🐻	aghaidh béir							// [1F43B]
 🐼	aghaidh panda							// [1F43C]
 🐽	srón muice							// [1F43D]
 🐾	lorg lapaí							// [1F43E]
@@ -577,17 +577,17 @@ $textmode
 👃	srón								// [1F443]
 👄	béal								// [1F444]
 👅	teanga amach							// [1F445]
-👆	cúl cormhéar ag pointeáil suas					// [1F446]
-👇	cúl cormhéar ag pointeáil síos					// [1F447]
-👈	cúl cormhéar ag pointeáil ar chlé				// [1F448]
-👉	cúl cormhéar ag pointeáil ar dheis				// [1F449]
-👊	dorn								// [1F44A]
-👋	lámh								// [1F44B]
+👆	cúl corrmhéire ag díriú suas					// [1F446]
+👇	cúl corrmhéire ag díriú síos					// [1F447]
+👈	cúl corrmhéire ag díriú ar chlé					// [1F448]
+👉	cúl corrmhéire ag díriú ar dheis				// [1F449]
+👊	dorn atá chugat							// [1F44A]
+👋	lámh ag croitheadh						// [1F44B]
 👌	lámh OK								// [1F44C]
 👍	ordóg suas							// [1F44D]
 👎	ordóg síos							// [1F44E]
 👏	bualadh bos							// [1F44F]
-👐	lámha								// [1F450]
+👐	lámha ar oscailt						// [1F450]
 👑	coróin								// [1F451]
 👒	hata mná							// [1F452]
 👓	spéaclaí							// [1F453]
@@ -595,8 +595,8 @@ $textmode
 👕	t-léine								// [1F455]
 👖	brístí géine							// [1F456]
 👗	gúna								// [1F457]
-👘	kimono								// [1F458]
-👙	bikini								// [1F459]
+👘	cimeonó								// [1F458]
+👙	bicíní								// [1F459]
 👚	éadaí mná							// [1F45A]
 👛	sparán								// [1F45B]
 👜	mála láimhe							// [1F45C]
@@ -606,23 +606,23 @@ $textmode
 👠	sáil ard							// [1F460]
 👡	cuarán mná							// [1F461]
 👢	buataisí mná							// [1F462]
-👣	lorg coise							// [1F463]
-👤	corp								// [1F464]
-👥	coirp								// [1F465]
+👣	loirg choise							// [1F463]
+👤	scáthchruth cinn						// [1F464]
+👥	scáthchruth ceann						// [1F465]
 👦	buachaill							// [1F466]
 👧	cailín								// [1F467]
 👨	fear								// [1F468]
 👩	bean								// [1F469]
 👪	teaghlach							// [1F46A]
-👫	fear agus bean							// [1F46B]
-👬	beirt fhear							// [1F46C]
-👭	beirt bhan							// [1F46D]
+👫	fear agus bean a bhfuil greim láimhe acu ar a chéile		// [1F46B]
+👬	beirt fhear a bhfuil greim láimhe acu ar a chéile		// [1F46C]
+👭	beirt bhan a bhfuil greim láimhe acu ar a chéile		// [1F46D]
 👮	póilín								// [1F46E]
-👯	daoine le chluasa coiníní ag ceiliúradh				// [1F46F]
-👰	brídeach							// [1F470]
+👯	daoine le cluasa coiníní orthu					// [1F46F]
+👰	brídeog le caille uirthi					// [1F470]
 👱	duine fionn							// [1F471]
 👲	fear le gua pi mao air						// [1F472]
-👳	fear le turban air						// [1F473]
+👳	duine le turban air						// [1F473]
 👴	seanfhear							// [1F474]
 👵	seanbhean							// [1F475]
 👶	babaí								// [1F476]
@@ -633,26 +633,26 @@ $textmode
 👻	taibhse								// [1F47B]
 👼	aingeal óg							// [1F47C]
 👽	eachtrán							// [1F47D]
-👾	eachtrán arrachtaigh						// [1F47E]
-👿	diaibhlín							// [1F47F]
+👾	arracht eachtráin						// [1F47E]
+👿	straoiseog fheargach le hadharca				// [1F47F]
 💀	blaosc								// [1F480]
-💁	deasc faisnéise							// [1F481]
+💁	duine lena lámh amach						// [1F481]
 💂	garda an rí							// [1F482]
-💃	damhsóir							// [1F483]
+💃	bean ag damhsa							// [1F483]
 💄	béaldath							// [1F484]
 💅	vearnais ingne							// [1F485]
-💆	suathaireacht							// [1F486]
+💆	duine ag fáil suathaireachta					// [1F486]
 💇	duine ag fáil bearradh gruaige					// [1F487]
-💈	pol an bhearbóra						// [1F488]
+💈	cuaille bearbóra						// [1F488]
 💉	instealladh							// [1F489]
 💊	piolla								// [1F48A]
-💋	marc póg							// [1F48B]
+💋	marc póige							// [1F48B]
 💌	litir ghrá							// [1F48C]
 💍	fáinne								// [1F48D]
-💎	cloch lómhar							// [1F48E]
+💎	geamchloch							// [1F48E]
 💏	póg								// [1F48F]
 💐	crobhaing bláthanna						// [1F490]
-💑	lánúin								// [1F491]
+💑	lanúin le croí							// [1F491]
 💒	bainis								// [1F492]
 💓	croí ag preabadh						// [1F493]
 💔	croíbhriste							// [1F494]
@@ -667,56 +667,56 @@ $textmode
 💝	croí le ribín							// [1F49D]
 💞	croíthe ag rothlú						// [1F49E]
 💟	maisiúchán croí							// [1F49F]
-💠	muileata							// [1F4A0]
-💡	solas								// [1F4A1]
-💢	siombal fearg							// [1F4A2]
+💠	muileata le ponc						// [1F4A0]
+💡	bolgán solais							// [1F4A1]
+💢	siombail feirge							// [1F4A2]
 💣	buama								// [1F4A3]
 💤	codladh								// [1F4A4]
 💥	pléasc								// [1F4A5]
-💦	uisce								// [1F4A6]
-💧	braon								// [1F4A7]
+💦	broainíní allais						// [1F4A6]
+💧	braoinín							// [1F4A7]
 💨	rith								// [1F4A8]
-💩	cac								// [1F4A9]
-💪	matáin								// [1F4AA]
+💩	carn caca							// [1F4A9]
+💪	bícéips lúbtha							// [1F4AA]
 💫	meadhrán							// [1F4AB]
 💬	bolgán cainte							// [1F4AC]
 💭	bolgán smaointe							// [1F4AD]
 💮	bláth bán							// [1F4AE]
 💯	scór iomlán							// [1F4AF]
-💰	airgead								// [1F4B0]
+💰	mála airgead							// [1F4B0]
 💱	malartán airgeadra						// [1F4B1]
-💲	comhartha dollair						// [1F4B2]
+💲	comhartha dollair trom						// [1F4B2]
 💳	cárta creidmheasa						// [1F4B3]
-💴	nóta yen							// [1F4B4]
-💵	nóta dollair							// [1F4B5]
-💶	nóta Euro							// [1F4B6]
-💷	nóta puint							// [1F4B7]
+💴	nóta bainc yen							// [1F4B4]
+💵	nóta bainc dollair						// [1F4B5]
+💶	nóta bainc euro							// [1F4B6]
+💷	nóta bainc puint						// [1F4B7]
 💸	airgead ag eitilt						// [1F4B8]
-💹	margadh ag éirí							// [1F4B9]
+💹	margadh ag méadú le yen						// [1F4B9]
 💺	suíochán							// [1F4BA]
-💻	ríomhaire							// [1F4BB]
-💼	cás								// [1F4BC]
-💽	MD								// [1F4BD]
+💻	ríomhaire glúine						// [1F4BB]
+💼	mála cáipéisí							// [1F4BC]
+💽	diosca ríomhaire						// [1F4BD]
 💾	diosca bog							// [1F4BE]
-💿	blu-ray								// [1F4BF]
+💿	diosca optúil							// [1F4BF]
 📀	DVD								// [1F4C0]
 📁	fillteán comhad							// [1F4C1]
 📂	fillteán oscailte						// [1F4C2]
-📃	leathanach le choirnín						// [1F4C3]
-📄	leathanach le aghaidh aníos					// [1F4C4]
+📃	leathanach le coirnín						// [1F4C3]
+📄	leathanach iompaithe suas					// [1F4C4]
 📅	féilire								// [1F4C5]
-📆	féilire le stróiceadh						// [1F4C6]
+📆	féilire instróicthe						// [1F4C6]
 📇	innéacs cártaí							// [1F4C7]
-📈	treocht mhéadaitheach						// [1F4C8]
-📉	treocht síos							// [1F4C9]
-📊	barraghraf							// [1F4CA]
+📈	cairt mhéadaitheach						// [1F4C8]
+📉	cairt íslitheach						// [1F4C9]
+📊	barrachairt							// [1F4CA]
 📋	gearrthaisce							// [1F4CB]
 📌	tacóid ordóige							// [1F4CC]
 📍	tacóid chruinn							// [1F4CD]
 📎	fáiscín páipéir							// [1F4CE]
 📏	rialóir díreach							// [1F4CF]
 📐	rialóir triantánach						// [1F4D0]
-📑	táib leabharmharc						// [1F4D1]
+📑	clibeanna leabharmhairc						// [1F4D1]
 📒	mórleabhar							// [1F4D2]
 📓	leabhar nótaí							// [1F4D3]
 📔	leabhar nótaí maisithe						// [1F4D4]
@@ -731,25 +731,25 @@ $textmode
 📝	meabhrán							// [1F4DD]
 📞	fón								// [1F4DE]
 📟	glaoire								// [1F4DF]
-📠	facs								// [1F4E0]
-📡	mias satailíte							// [1F4E1]
+📠	meaisín facsála							// [1F4E0]
+📡	aeróg satailíte							// [1F4E1]
 📢	callaire							// [1F4E2]
 📣	meigeafón							// [1F4E3]
 📤	trae an bhosca amach						// [1F4E4]
-📥	bosca isteach							// [1F4E5]
+📥	trae an bhosca isteach						// [1F4E5]
 📦	pacáiste							// [1F4E6]
 📧	ríomhphost							// [1F4E7]
 📨	post isteach							// [1F4E8]
-📩	imchlúdach le saighead						// [1F4E9]
-📪	bosca poist dúnta le bhratach íslithe				// [1F4EA]
-📫	bosca poist dúnta le bhratach ardaithe				// [1F4EB]
-📬	bosca poist oscailte le bhratach ardaithe			// [1F4EC]
-📭	bosca poist oscailte le bhratach íslithe			// [1F4ED]
+📩	clúdach litreach le saighead					// [1F4E9]
+📪	bosca poist dúnta le bratach íslithe				// [1F4EA]
+📫	bosca poist dúnta le bratach ardaithe				// [1F4EB]
+📬	bosca poist oscailte le bratach ardaithe			// [1F4EC]
+📭	bosca poist oscailte le bratach íslithe				// [1F4ED]
 📮	bosca poist							// [1F4EE]
 📯	corn poist							// [1F4EF]
 📰	nuachtán							// [1F4F0]
-📱	fón póca							// [1F4F1]
-📲	fón póca le saighead						// [1F4F2]
+📱	guthán								// [1F4F1]
+📲	guthán le saighead						// [1F4F2]
 📳	mód creatha							// [1F4F3]
 📴	fón casta as							// [1F4F4]
 📵	cosc ar fhóin phóca						// [1F4F5]
@@ -757,19 +757,19 @@ $textmode
 📷	ceamara								// [1F4F7]
 📸	ceamara le splanc						// [1F4F8]
 📹	físcheamara							// [1F4F9]
-📺	TV								// [1F4FA]
+📺	teilifís							// [1F4FA]
 📻	raidió								// [1F4FB]
 📼	fístéip								// [1F4FC]
 📽	teilgeoir scannáin						// [1F4FD] text|emoji
 📿	paidrín urnaí							// [1F4FF]
-🔀	saigheada trasnaithe						// [1F500]
-🔁	cnáipe athdhéan							// [1F501]
-🔂	cnáipe athdhéan amháin						// [1F502]
-🔃	ciorcal saighead						// [1F503]
-🔄	saigheada tuathail						// [1F504]
-🔅	gile íseal							// [1F505]
-🔆	gile ard							// [1F506]
-🔇	callaire maothaithe						// [1F507]
+🔀	saighead traiceanna ar suaitheadh				// [1F500]
+🔁	cnaipe athsheanma						// [1F501]
+🔂	cnaipe athsheanma uair amháin					// [1F502]
+🔃	saigheada ingéaracha ar deiseal					// [1F503]
+🔄	cnaipe saighead tuathail					// [1F504]
+🔅	cnaipe íslithe							// [1F505]
+🔆	cnaipe gile							// [1F506]
+🔇	callaire balbhaithe						// [1F507]
 🔈	callaire íslithe						// [1F508]
 🔉	callaire fuaime ísle						// [1F509]
 🔊	callaire fuaime airde						// [1F50A]
@@ -777,41 +777,41 @@ $textmode
 🔌	pluga leictreach						// [1F50C]
 🔍	gloine formhéadúcháin ar chlé					// [1F50D]
 🔎	gloine formhéadúcháin ar dheis					// [1F50E]
-🔏	glas agus peann							// [1F50F]
-🔐	glas dúnta agus peann						// [1F510]
+🔏	glasáilte le peann						// [1F50F]
+🔐	glasáilte le heochair						// [1F510]
 🔑	eochair								// [1F511]
-🔒	glas								// [1F512]
-🔓	glas oscailte							// [1F513]
+🔒	glasáilte							// [1F512]
+🔓	neamhghlasáilte							// [1F513]
 🔔	cloigín								// [1F514]
 🔕	cloigín ar ceal							// [1F515]
 🔖	leabharmharc							// [1F516]
 🔗	nasc								// [1F517]
 🔘	cnaipe raidió							// [1F518]
-🔙	siar agus saighead ar chlé					// [1F519]
-🔚	deireadh agus saighead ar chlé					// [1F51A]
-🔛	ar siúl agus comhartha uaillbhreasa agus saighead ar dheis/ar chlé lastuas// [1F51B]
-🔜	go luath agus saighead ar dheis					// [1F51C]
-🔝	barr agus saighead thuas					// [1F51D]
+🔙	saighead SIAR							// [1F519]
+🔚	saighead DEIRIDH						// [1F51A]
+🔛	saighead AR SIÚL!						// [1F51B]
+🔜	saighead GO LUATH						// [1F51C]
+🔝	saighead BHAIRR							// [1F51D]
 🔞	os cionn 18							// [1F51E]
 🔟	caipín eochrach: 10						// [1F51F]
-🔠	ceannlitreacha Laidineacha					// [1F520]
-🔡	mionlitreacha Laidineacha					// [1F521]
-🔢	uimhreacha							// [1F522]
-🔣	comharthaí							// [1F523]
-🔤	litreacha Laidineacha						// [1F524]
+🔠	ceannlitreacha Laidineacha ionchuir				// [1F520]
+🔡	mionlitreacha Laidineacha ionchuir				// [1F521]
+🔢	uimhreacha ionchuir						// [1F522]
+🔣	siombailí ionchuir						// [1F523]
+🔤	litreacha Laidineacha ionchuir					// [1F524]
 🔥	tine								// [1F525]
-🔦	lampa leictreach						// [1F526]
+🔦	tóirse								// [1F526]
 🔧	rinse								// [1F527]
 🔨	casúr								// [1F528]
 🔩	cnó agus bolta							// [1F529]
 🔪	scian								// [1F52A]
-🔫	gunna								// [1F52B]
+🔫	piostal								// [1F52B]
 🔬	micreascóp							// [1F52C]
 🔭	teileascóp							// [1F52D]
 🔮	cruinneog chriostail						// [1F52E]
-🔯	réalta sé-rinneach agus ponc sa lár				// [1F52F]
-🔰	tosaitheoir							// [1F530]
-🔱	trírinn								// [1F531]
+🔯	réalta shé-rinneach le ponc sa lár				// [1F52F]
+🔰	siombal Sheapánach le haghaidh tosaitheoirí			// [1F530]
+🔱	comhartha trírinne						// [1F531]
 🔲	cearnóg dhubh							// [1F532]
 🔳	cearnóg bhán							// [1F533]
 🔴	ciorcal dearg							// [1F534]
@@ -822,26 +822,26 @@ $textmode
 🔹	muileata beag gorm						// [1F539]
 🔺	triantán dearg suas						// [1F53A]
 🔻	triantán dearg síos						// [1F53B]
-🔼	triantán beag dearg suas					// [1F53C]
-🔽	triantán beag dearg síos					// [1F53D]
+🔼	cnaipe suas							// [1F53C]
+🔽	cnaipe síos							// [1F53D]
 🕉	om								// [1F549] text|emoji
 🕊	colm								// [1F54A] text|emoji
 🕋	cába								// [1F54B]
 🕌	mosc								// [1F54C]
 🕍	sionagóg							// [1F54D]
 🕎	meanóra								// [1F54E]
-🕐	1 a chlog							// [1F550]
-🕑	2 a chlog							// [1F551]
-🕒	3 a chlog							// [1F552]
-🕓	4 a chlog							// [1F553]
-🕔	5 a chlog							// [1F554]
-🕕	6 a chlog							// [1F555]
-🕖	7 a chlog							// [1F556]
-🕗	8 a chlog							// [1F557]
-🕘	9 a chlog							// [1F558]
-🕙	10 a chlog							// [1F559]
-🕚	11 a chlog							// [1F55A]
-🕛	12 a chlog							// [1F55B]
+🕐	1 an chloig							// [1F550]
+🕑	2 an chloig							// [1F551]
+🕒	3 an chloig							// [1F552]
+🕓	4 an chloig							// [1F553]
+🕔	5 an chloig							// [1F554]
+🕕	6 an chloig							// [1F555]
+🕖	7 an chloig							// [1F556]
+🕗	8 an chloig							// [1F557]
+🕘	9 an chloig							// [1F558]
+🕙	10 an chloig							// [1F559]
+🕚	11 an chloig							// [1F55A]
+🕛	12 an chloig							// [1F55B]
 🕜	leathuair tar éis a haon					// [1F55C]
 🕝	leathuair tar éis a dó						// [1F55D]
 🕞	leathuair tar éis a trí						// [1F55E]
@@ -869,134 +869,134 @@ $textmode
 🖋	peann tobair							// [1F58B] text|emoji
 🖌	scuab phéinteála						// [1F58C] text|emoji
 🖍	crián								// [1F58D] text|emoji
-🖐	lámha suas lena mhéara ar leathadh				// [1F590] text|emoji
+🖐	lámh le méara spréite						// [1F590] text|emoji
 🖕	méar láir							// [1F595]
-🖖	cúirtéis vulcan							// [1F596]
+🖖	cuirtéis Bholcáin						// [1F596]
 🖤	croí dubh							// [1F5A4]
 🖥	ríomhaire deisce						// [1F5A5] text|emoji
 🖨	printéir							// [1F5A8] text|emoji
 🖱	luchóg ríomhaire						// [1F5B1] text|emoji
 🖲	rianliathróid							// [1F5B2] text|emoji
-🖼	fráma le phictiúr						// [1F5BC] text|emoji
+🖼	pictiúr i bhfráma						// [1F5BC] text|emoji
 🗂	roinnteoirí innéacs cárta					// [1F5C2] text|emoji
-🗃	bosca comhaid cárta						// [1F5C3] text|emoji
+🗃	bosca comhad cárta						// [1F5C3] text|emoji
 🗄	caibinéad comhad						// [1F5C4] text|emoji
-🗑	bosca bruscar							// [1F5D1] text|emoji
+🗑	bosca bruscair							// [1F5D1] text|emoji
 🗒	ceap nótaí bíseach						// [1F5D2] text|emoji
 🗓	féilire bíseach							// [1F5D3] text|emoji
-🗜	comhbhrú							// [1F5DC] text|emoji
-🗝	sean eochair							// [1F5DD] text|emoji
-🗞	páipéar nuachta rollaithe suas					// [1F5DE] text|emoji
+🗜	clampa								// [1F5DC] text|emoji
+🗝	sean-eochair							// [1F5DD] text|emoji
+🗞	nuachtán rollaithe suas						// [1F5DE] text|emoji
 🗡	miodóg								// [1F5E1] text|emoji
 🗣	ceann ag caint							// [1F5E3] text|emoji
-🗨	bolgán cainte chlé						// [1F5E8] text|emoji
-🗯	bolgán feirge dheis						// [1F5EF] text|emoji
+🗨	bolgán cainte ar chlé						// [1F5E8] text|emoji
+🗯	bolgán feirge ar dheis						// [1F5EF] text|emoji
 🗳	bosca ballóide le ballóid					// [1F5F3] text|emoji
 🗺	léarscáil an domhain						// [1F5FA] text|emoji
 🗻	Sliabh Fuji							// [1F5FB]
 🗼	Túr Thóiceo							// [1F5FC]
 🗽	Dealbh na Saoirse						// [1F5FD]
 🗾	léarscáil na Seapáine						// [1F5FE]
-🗿	Moyai								// [1F5FF]
+🗿	dealbh Oileán na Cásca						// [1F5FF]
 
 // 1F600..1F64F : Emoticons
 
-😀	straoiseag gáire						// [1F600]
-😁	straoiseag gáire le súile ag déanamh miongháire			// [1F601]
+😀	straoiseog ghealgháireach					// [1F600]
+😁	straoiseog gháire le súile ag déanamh miongháire		// [1F601]
 😂	straoiseog le deora áthais					// [1F602]
 😃	straoiseog ag gáire le súile móra				// [1F603]
-😄	straoiseog ag gáire le bhéal oscailte agus súile ag déanamh miongháire// [1F604]
+😄	straoiseog ag gáire le súile ag déanamh miongháire		// [1F604]
 😅	straoiseog ag gáire le fuarallas				// [1F605]
 😆	straoiseog ag gáire le súile dúnta				// [1F606]
 😇	straoiseog ag gáire le luan					// [1F607]
 😈	straoiseog ag gáire le hadharca					// [1F608]
-😉	caochadh							// [1F609]
-😊	straoiseog ag gáire le súile ag déanamh miongháire		// [1F60A]
-😋	aghaidh ag baint taitnimh as bia blasta				// [1F60B]
-😌	faoiseamh ar straoiseog						// [1F60C]
-😍	straoiseog ag gáire le croíthe ina shúile			// [1F60D]
+😉	straoiseog ag caochadh						// [1F609]
+😊	straoiseog aoibhiúil le súile ag déanamh miongháire		// [1F60A]
+😋	straoiseog ag baint taitneamh as bia blasta			// [1F60B]
+😌	straoiseog a bhfuil faoiseamh uirthi				// [1F60C]
+😍	staoiseog ag gáire le croíthe ina súile				// [1F60D]
 😎	straoiseog ag gáire le spéaclaí gréine				// [1F60E]
-😏	siotgháire							// [1F60F]
+😏	straoiseog ag déanamh seitgháire				// [1F60F]
 😐	straoiseog neodrach						// [1F610]
-😑	féachaint fholamh						// [1F611]
+😑	straoiseog le haghaidh fholamh					// [1F611]
 😒	straoiseog mhíshásta						// [1F612]
 😓	straoiseog in ísle brí le fuarallas				// [1F613]
 😔	straoiseog mhachnamhach						// [1F614]
 😕	straoiseog mhearaithe						// [1F615]
 😖	straoiseog le mearbhall uirthi					// [1F616]
 😗	straoiseog ag pógadh						// [1F617]
-😘	straoiseog ag caitheamh póg					// [1F618]
+😘	straoiseog ag séideadh póige					// [1F618]
 😙	straoiseog ag pógadh le súile ag déanamh miongháire		// [1F619]
 😚	straoiseog ag pógadh le súile dúnta				// [1F61A]
 😛	straoiseog le teanga amach					// [1F61B]
-😜	straoiseog le teanga amach agus súil á caochadh			// [1F61C]
+😜	straoiseog ag caochadh le teanga amach				// [1F61C]
 😝	straoiseog le teanga amach agus súile dúnta			// [1F61D]
 😞	straoiseog dhíomách						// [1F61E]
 😟	straoiseog imníoch						// [1F61F]
 😠	straoiseog fheargach						// [1F620]
-😡	straoiseog pus							// [1F621]
+😡	straoiseog le puisín uirthi					// [1F621]
 😢	straoiseog chaointeach						// [1F622]
-😣	straoiseog dhíocasach						// [1F623]
+😣	straoiseog bhuanseasmhachta					// [1F623]
 😤	straoiseog le gal ón tsrón					// [1F624]
-😥	straoiseog dhíomá						// [1F625]
+😥	straoiseog a bhfuil díoma agus faoiseamh uirthi			// [1F625]
 😦	straoiseag ghruama le béal oscailte				// [1F626]
 😧	straoiseog chráite						// [1F627]
 😨	straoiseog eaglach						// [1F628]
 😩	straoiseog thraochta						// [1F629]
 😪	straoiseog chodlatach						// [1F62A]
 😫	straoiseog thuirseach						// [1F62B]
-😬	straoiseog ghrainceach						// [1F62C]
-😭	straoiseog chaointeach os ard					// [1F62D]
-😮	béal ar oscailt							// [1F62E]
-😯	straoiseog thostach						// [1F62F]
+😬	straoiseog le cár uirthi					// [1F62C]
+😭	straoiseog ag caoineadh os ard					// [1F62D]
+😮	straoiseog le béal oscailte					// [1F62E]
+😯	straoiseog ina tost						// [1F62F]
 😰	straoiseog fhaiteach le hallas					// [1F630]
 😱	straoiseog ag béiceach amach le heagla				// [1F631]
 😲	straoiseog iontais						// [1F632]
 😳	straoiseog dhearg						// [1F633]
 😴	straoiseog ina codladh						// [1F634]
 😵	straoiseog mheadhránach						// [1F635]
-😶	aghaidh gan bhéal						// [1F636]
-😷	masc								// [1F637]
-😸	straoiseog chait le shúile ag déanamh miongháire		// [1F638]
-😹	straoiseog chait le deora áthais				// [1F639]
-😺	straoiseog chait le bhéal oscailte				// [1F63A]
-😻	straoiseog chait le chroíthe ina shúile				// [1F63B]
-😼	gáire beag searbh						// [1F63C]
-😽	cat ag pógadh							// [1F63D]
-😾	cat agus pus air						// [1F63E]
-😿	cat ag caoineadh						// [1F63F]
-🙀	cat tuirseach							// [1F640]
-🙁	aghaidh mhearghrainceach					// [1F641]
-🙂	straoiseog ag meargháire					// [1F642]
-🙃	aghaidh bonn os cionn						// [1F643]
-🙄	aghaidh le súile suas chun na bhflaitheas			// [1F644]
-🙅	níl cead							// [1F645]
-🙆	duine à dhéanamh OK						// [1F646]
-🙇	tá brón orm							// [1F647]
-🙈	ná feic aon olc							// [1F648]
-🙉	ná clois aon olc						// [1F649]
-🙊	ná labhair faoin olc						// [1F64A]
-🙋	duine sona							// [1F64B]
-🙌	hurá								// [1F64C]
-🙍	duine gruama							// [1F64D]
-🙎	duine le phus orthu						// [1F64E]
+😶	straoiseog gan bhéal						// [1F636]
+😷	straoiseog le masc leighis					// [1F637]
+😸	straoiseog cait le súile ag déanamh miongháire			// [1F638]
+😹	straoiseog cait le deora áthais					// [1F639]
+😺	straoiseog cait le béal oscailte				// [1F63A]
+😻	straoiseog cait le croíthe ina súile				// [1F63B]
+😼	straoiseog cait le miongháire dóite				// [1F63C]
+😽	straoiseog cait ag pógadh					// [1F63D]
+😾	straoiseog cait le puisín uirthi				// [1F63E]
+😿	straoiseog cait ag gol						// [1F63F]
+🙀	straoiseog cait thuirseach					// [1F640]
+🙁	straoiseog le mionghrainc uirthi				// [1F641]
+🙂	straoiseog ag miongháire de bheagán				// [1F642]
+🙃	straoiseog bun os cionn						// [1F643]
+🙄	straoiseog le súile ag casadh					// [1F644]
+🙅	duine ag comharthú NÍL						// [1F645]
+🙆	duine ag comharthú OK						// [1F646]
+🙇	duine ag umhlú							// [1F647]
+🙈	moncaí nach bhfeiceann aon olc					// [1F648]
+🙉	moncaí nach gcloiseann aon olc					// [1F649]
+🙊	moncaí nach ndeir aon olc					// [1F64A]
+🙋	duine lena lámh suas						// [1F64B]
+🙌	lámha ardaithe							// [1F64C]
+🙍	duine le púic air						// [1F64D]
+🙎	duine le puisín air						// [1F64E]
 🙏	lámha le chéile							// [1F64F]
 
 // 1F680..1F6FF : Transport and Map Symbols
 
 🚀	roicéad								// [1F680]
-🚁	héileacoptar							// [1F681]
-🚂	galinneall							// [1F682]
-🚃	carr ráille							// [1F683]
+🚁	héileacaptar							// [1F681]
+🚂	inneall traenach						// [1F682]
+🚃	carráiste iarnróid						// [1F683]
 🚄	traein ardluais							// [1F684]
-🚅	traein philéir ardluais						// [1F685]
+🚅	traein philéir							// [1F685]
 🚆	traein								// [1F686]
 🚇	traein faoi thalamh						// [1F687]
 🚈	iarnród éadrom							// [1F688]
 🚉	stáisiún traenach						// [1F689]
 🚊	tram								// [1F68A]
-🚋	carr tram							// [1F68B]
-🚌	bus buí								// [1F68C]
+🚋	carráiste tram							// [1F68B]
+🚌	bus								// [1F68C]
 🚍	bus atá ag teacht						// [1F68D]
 🚎	bus tralaí							// [1F68E]
 🚏	stad bus							// [1F68F]
@@ -1007,35 +1007,35 @@ $textmode
 🚔	carr gardaí ag teacht						// [1F694]
 🚕	tacsaí								// [1F695]
 🚖	tacsaí ag teacht						// [1F696]
-🚗	carr								// [1F697]
-🚘	carr ag teacht							// [1F698]
-🚙	feithicil áineasa						// [1F699]
+🚗	gluaisteán							// [1F697]
+🚘	gluaisteán atá ag teacht					// [1F698]
+🚙	SUV								// [1F699]
 🚚	trucail seachadta						// [1F69A]
 🚛	leoraí								// [1F69B]
 🚜	tarracóir							// [1F69C]
 🚝	aonráille							// [1F69D]
 🚞	iarnród sléibhe							// [1F69E]
 🚟	iarnród crochta							// [1F69F]
-🚠	cábla-bhealach sléibhe						// [1F6A0]
-🚡	carr cábla							// [1F6A1]
+🚠	cáblabhealach sléibhe						// [1F6A0]
+🚡	trambhealach aerga						// [1F6A1]
 🚢	long								// [1F6A2]
-🚣	bád rámhaíochta							// [1F6A3]
+🚣	duine ag rámhaíocht báid					// [1F6A3]
 🚤	luasbhád							// [1F6A4]
-🚥	soilse tráchta cothrománach					// [1F6A5]
-🚦	soilse tráchta ceartingearach					// [1F6A6]
-🚧	á thógáil							// [1F6A7]
+🚥	soilse tráchta cothrománacha					// [1F6A5]
+🚦	soilse tráchta ceartingearacha					// [1F6A6]
+🚧	suíomh tógála							// [1F6A7]
 🚨	solas rothlach							// [1F6A8]
 🚩	bratach thriantánach						// [1F6A9]
 🚪	doras								// [1F6AA]
-🚫	cosc ar dul isteach						// [1F6AB]
-🚬	cead tobac a chaitheamh						// [1F6AC]
+🚫	cosc ar dhul isteach						// [1F6AB]
+🚬	toitín								// [1F6AC]
 🚭	cosc ar thobac							// [1F6AD]
 🚮	comhartha bosca bruscair					// [1F6AE]
 🚯	ná caitear bruscar						// [1F6AF]
 🚰	uisce inólta							// [1F6B0]
 🚱	uisce nach bhfuil le hól					// [1F6B1]
-🚲	rothar glas							// [1F6B2]
-🚳	cosc ar rothar							// [1F6B3]
+🚲	rothar								// [1F6B2]
+🚳	cosc ar rothair							// [1F6B3]
 🚴	rothaí								// [1F6B4]
 🚵	rothaí sléibhe							// [1F6B5]
 🚶	coisí								// [1F6B6]
@@ -1048,7 +1048,7 @@ $textmode
 🚽	leithreas							// [1F6BD]
 🚾	na leithris							// [1F6BE]
 🚿	cithfholcadán							// [1F6BF]
-🛀	folcadh								// [1F6C0]
+🛀	duine ag folcadh						// [1F6C0]
 🛁	folcadán							// [1F6C1]
 🛂	rialú pasanna							// [1F6C2]
 🛃	custaim								// [1F6C3]
@@ -1060,19 +1060,19 @@ $textmode
 🛎	clog óstáin							// [1F6CE] text|emoji
 🛏	leaba								// [1F6CF] text|emoji
 🛐	teach adhartha							// [1F6D0]
-🛑	stop								// [1F6D1]
+🛑	comhartha stop							// [1F6D1]
 🛒	tralaí								// [1F6D2]
 🛠	casúr agus rinse						// [1F6E0] text|emoji
 🛡	sciath								// [1F6E1] text|emoji
 🛢	druma ola							// [1F6E2] text|emoji
 🛣	mótarbhealach							// [1F6E3] text|emoji
-🛤	ráillrian							// [1F6E4] text|emoji
+🛤	iarnród								// [1F6E4] text|emoji
 🛥	mótarbhád							// [1F6E5] text|emoji
 🛩	eitleán beag							// [1F6E9] text|emoji
 🛫	imeacht eitleáin						// [1F6EB]
 🛬	teacht eitleáin							// [1F6EC]
 🛰	satailít							// [1F6F0] text|emoji
-🛳	long phaisinéirí						// [1F6F3] text|emoji
+🛳	long paisinéirí							// [1F6F3] text|emoji
 🛴	scútar gan inneall						// [1F6F4]
 🛵	scútar								// [1F6F5]
 🛶	canú								// [1F6F6]
@@ -1081,52 +1081,52 @@ $textmode
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
-🤐	aghaidh le béal sipeáilte					// [1F910]
-🤑	aghaidh le hairgead sa bhéal					// [1F911]
-🤒	aghaidh le teirmiméadar						// [1F912]
-🤓	aghaidh saoithíneach						// [1F913]
-🤔	aghaidh ag smaoineamh						// [1F914]
-🤕	aghaidh le bindealán ar a cheann				// [1F915]
-🤖	aghaidh róbócha							// [1F916]
-🤗	straoiseog ag beir barróg					// [1F917]
-🤘	lámh na binne							// [1F918]
-🤙	glaoigh orm							// [1F919]
-🤚	lámh in airde							// [1F91A]
+🤐	straoiseog le béal zipeáilte					// [1F910]
+🤑	straoiseog le hairgead ina béal					// [1F911]
+🤒	straoiseog le teirmiméadar					// [1F912]
+🤓	straoiseog shaoithíneach					// [1F913]
+🤔	straoiseog ag smaoineamh					// [1F914]
+🤕	straoiseog le bindealán ar a ceann				// [1F915]
+🤖	straoiseog róbait						// [1F916]
+🤗	straoiseog ag tabhairt barróige					// [1F917]
+🤘	siombail na n-adharc						// [1F918]
+🤙	an lámh cur glao orm						// [1F919]
+🤚	cúl láimhe in airde						// [1F91A]
 🤛	dorn ar chlé							// [1F91B]
 🤜	dorn ar dheis							// [1F91C]
 🤝	croitheadh lámh							// [1F91D]
-🤞	méara crosach ar a chéile					// [1F91E]
-🤟	comhartha ghrá							// [1F91F]
-🤠	hata buachaill bó						// [1F920]
+🤞	méarsa trasna							// [1F91E]
+🤟	comhartha grá							// [1F91F]
+🤠	straoiseog le hata buachaill bó					// [1F920]
 🤡	fearr grinn							// [1F921]
-🤢	tinn								// [1F922]
-🤣	sna tríthí gáire						// [1F923]
-🤤	straoiseog phrislíneachta					// [1F924]
-🤥	bréaga								// [1F925]
-🤦	ní chreidim							// [1F926]
-🤧	sraoth								// [1F927]
-🤨	aghaidh le mala ardaithe					// [1F928]
-🤩	aghaidh faoi gheasa						// [1F929]
+🤢	straoiseog bhreoite						// [1F922]
+🤣	sna trithí gáire						// [1F923]
+🤤	straoiseog ag prislíneacht					// [1F924]
+🤥	straoiseog ag insint bréag					// [1F925]
+🤦	duine lena aghaidh ina bhos					// [1F926]
+🤧	straoiseog ag sraotharthach					// [1F927]
+🤨	straoiseog le mala ardaithe					// [1F928]
+🤩	straoiseog faoi gheasa						// [1F929]
 🤪	straoiseog chraiceáilte						// [1F92A]
-🤫	ciúnas								// [1F92B]
+🤫	straoiseog chiúin						// [1F92B]
 🤬	straoiseog le siombailí ar an mbéal				// [1F92C]
-🤭	aghaidh le lámha ar an mbéal					// [1F92D]
-🤮	aghaidh ag cur amach						// [1F92E]
-🤯	ceann ag pléascadh						// [1F92F]
-🤰	ag iompar clainne						// [1F930]
+🤭	straoiseog lena lámh ar a béal					// [1F92D]
+🤮	straoiseog ag cur amach						// [1F92E]
+🤯	straoiseog lena ceann ag pléasadh				// [1F92F]
+🤰	bean ag iompar clainne						// [1F930]
 🤱	cothú cíche							// [1F931]
-🤲	bos na láimhe ardaithe le chéile				// [1F932]
+🤲	bosa le chéile							// [1F932]
 🤳	féinphic							// [1F933]
 🤴	prionsa								// [1F934]
-🤵	culaith								// [1F935]
-🤶	hata nollag							// [1F936]
-🤷	croith								// [1F937]
-🤸	rothchasadh							// [1F938]
-🤹	lámhchleasaíocht						// [1F939]
-🤺	pionsóireacht							// [1F93A]
-🤼	coraíocht							// [1F93C]
-🤽	póló uisce							// [1F93D]
-🤾	liathróid láimhe						// [1F93E]
+🤵	fear le culaith air						// [1F935]
+🤶	Bean Uí Claus							// [1F936]
+🤷	duine ag croitheadh						// [1F937]
+🤸	duine ag rothchasadh						// [1F938]
+🤹	duine ag déanamh lámhchleasaíochta				// [1F939]
+🤺	duine ag pionsóireacht						// [1F93A]
+🤼	daoine ag coraíocht						// [1F93C]
+🤽	duine ag imirt póló uisce					// [1F93D]
+🤾	duine ag imirt liathróid láimhe					// [1F93E]
 🥀	bláth sleabhctha						// [1F940]
 🥁	druma								// [1F941]
 🥂	gloiní								// [1F942]
@@ -1136,7 +1136,7 @@ $textmode
 🥇	bonn óir							// [1F947]
 🥈	bonn airgid							// [1F948]
 🥉	bonn cré-umha							// [1F949]
-🥊	dornálaíocht							// [1F94A]
+🥊	lámhainn dornálaíochta						// [1F94A]
 🥋	karate								// [1F94B]
 🥌	cloch churlála							// [1F94C]
 🥐	croissant							// [1F950]
@@ -1147,17 +1147,17 @@ $textmode
 🥕	meacan dearg							// [1F955]
 🥖	baguette							// [1F956]
 🥗	sailéad								// [1F957]
-🥘	pota								// [1F958]
-🥙	fillteog							// [1F959]
+🥘	panna tanaí le bia						// [1F958]
+🥙	arán leathan stuáilte						// [1F959]
 🥚	ubh								// [1F95A]
-🥛	bainne								// [1F95B]
+🥛	gloine bainne							// [1F95B]
 🥜	pis talún							// [1F95C]
 🥝	cíobhaí								// [1F95D]
 🥞	pancóga								// [1F95E]
 🥟	domplagán							// [1F95F]
 🥠	brioscán feasa							// [1F960]
-🥡	bosca greim gasta						// [1F961]
-🥢	cipín itheacháin						// [1F962]
+🥡	bosca beir leat							// [1F961]
+🥢	cipíní itheacháin						// [1F962]
 🥣	babhla le spúnóg						// [1F963]
 🥤	cupán le sop							// [1F964]
 🥥	cnó cócó							// [1F965]
@@ -1166,7 +1166,7 @@ $textmode
 🥨	preatsal							// [1F968]
 🥩	gearradh feola							// [1F969]
 🥪	ceapaire							// [1F96A]
-🥫	bia canna							// [1F96B]
+🥫	bia stánaithe							// [1F96B]
 🦀	portán								// [1F980]
 🦁	aghaidh leoin							// [1F981]
 🦂	scairp								// [1F982]
@@ -1181,7 +1181,7 @@ $textmode
 🦋	féileacán							// [1F98B]
 🦌	fia								// [1F98C]
 🦍	goraille							// [1F98D]
-🦎	earc luachra							// [1F98E]
+🦎	laghairt							// [1F98E]
 🦏	srónbheannach							// [1F98F]
 🦐	ribe róibéis							// [1F990]
 🦑	scuid								// [1F991]
@@ -1192,7 +1192,7 @@ $textmode
 🦖	T-Rex								// [1F996]
 🦗	criogar								// [1F997]
 🧀	ding cháise							// [1F9C0]
-🧐	aghaidh le leathspéacla						// [1F9D0]
+🧐	straoiseog le leathspéacla					// [1F9D0]
 🧑	aosach								// [1F9D1]
 🧒	leanbh								// [1F9D2]
 🧓	seanduine							// [1F9D3]
@@ -1503,9 +1503,9 @@ $textmode
 👩‍❤‍💋‍👨	póg: bean, fear				// [1F469 200D 2764 200D 1F48B 200D 1F468]
 👨‍❤‍💋‍👨	póg: fear, fear				// [1F468 200D 2764 200D 1F48B 200D 1F468]
 👩‍❤‍💋‍👩	póg: bean, bean				// [1F469 200D 2764 200D 1F48B 200D 1F469]
-👩‍❤‍👨	lánúin: bean, fear				// [1F469 200D 2764 200D 1F468]
-👨‍❤‍👨	lánúin: fear, fear				// [1F468 200D 2764 200D 1F468]
-👩‍❤‍👩	lánúin: bean, bean				// [1F469 200D 2764 200D 1F469]
+👩‍❤‍👨	lanúin le croí: bean, fear			// [1F469 200D 2764 200D 1F468]
+👨‍❤‍👨	lanúin le croí: fear, fear			// [1F468 200D 2764 200D 1F468]
+👩‍❤‍👩	lanúin le croí: bean, bean			// [1F469 200D 2764 200D 1F469]
 👨‍👩‍👦	teaghlach: fear, bean, buachaill		// [1F468 200D 1F469 200D 1F466]
 👨‍👩‍👧	teaghlach: fear, bean, cailín			// [1F468 200D 1F469 200D 1F467]
 👨‍👩‍👧‍👦	teaghlach: fear, bean, cailín, buachaill// [1F468 200D 1F469 200D 1F467 200D 1F466]
@@ -1538,13 +1538,13 @@ $textmode
 👩‍⚕	oibrí sláinte baineann					// [1F469 200D 2695]
 👨‍⚖	breitheamh fireann					// [1F468 200D 2696]
 👩‍⚖	breitheamh baineann					// [1F469 200D 2696]
-👨‍✈	píolóta fearann						// [1F468 200D 2708]
+👨‍✈	píolóta fireann						// [1F468 200D 2708]
 👩‍✈	píolóta baineann					// [1F469 200D 2708]
 👨‍🌾	feirmeoir fireann					// [1F468 200D 1F33E]
 👩‍🌾	feirmeoir baineann					// [1F469 200D 1F33E]
 👨‍🍳	cócaire fireann						// [1F468 200D 1F373]
 👩‍🍳	cócaire baineann					// [1F469 200D 1F373]
-👨‍🎓	scoláire fir						// [1F468 200D 1F393]
+👨‍🎓	scoláire fireann					// [1F468 200D 1F393]
 👩‍🎓	scoláire baineann					// [1F469 200D 1F393]
 👨‍🎤	amhránaí fireann					// [1F468 200D 1F3A4]
 👩‍🎤	amhránaí baineann					// [1F469 200D 1F3A4]
@@ -1562,7 +1562,7 @@ $textmode
 👩‍🔧	meicneoir baineann					// [1F469 200D 1F527]
 👨‍🔬	eolaí fireann						// [1F468 200D 1F52C]
 👩‍🔬	eolaí baineann						// [1F469 200D 1F52C]
-👨‍🚀	spásaire fearann					// [1F468 200D 1F680]
+👨‍🚀	spásaire fireann					// [1F468 200D 1F680]
 👩‍🚀	spásaire baineann					// [1F469 200D 1F680]
 👨‍🚒	fear múchta dóiteán					// [1F468 200D 1F692]
 👩‍🚒	bean mhúchta dóiteán					// [1F469 200D 1F692]
@@ -1571,30 +1571,30 @@ $textmode
 
 👮‍♀	bangharda						// [1F46E 200D 2640]
 👮‍♂	garda							// [1F46E 200D 2642]
-👱‍♀	bean fionn						// [1F471 200D 2640]
+👱‍♀	bean fhionn						// [1F471 200D 2640]
 👱‍♂	fear fionn						// [1F471 200D 2642]
-👳‍♀	bean le turban						// [1F473 200D 2640]
-👳‍♂	fear le turban						// [1F473 200D 2642]
-👷‍♀	oibrí foirgníochta baineann				// [1F477 200D 2640]
-👷‍♂	oibrí foirgníochta fearann				// [1F477 200D 2642]
+👳‍♀	bean le turban uirthi					// [1F473 200D 2640]
+👳‍♂	fear le turban air					// [1F473 200D 2642]
+👷‍♀	tógálaí baineann					// [1F477 200D 2640]
+👷‍♂	tógálaí fireann						// [1F477 200D 2642]
 💂‍♀	bangharda oifigeach					// [1F482 200D 2640]
 💂‍♂	garda oifigeach						// [1F482 200D 2642]
-🕵️‍♀	lorgaire baineann					// [1F575 200D 2640]
-🕵️‍♂	lorgaire fearann					// [1F575 200D 2642]
+🕵️‍♀	bleachtaire baineann					// [1F575 200D 2640]
+🕵️‍♂	bleachtaire fireann					// [1F575 200D 2642]
 🧙‍♀	bean dhraíochta						// [1F9D9 200D 2640]
 🧙‍♂	fear draíochta						// [1F9D9 200D 2642]
-🧚‍♀	sióga baineann						// [1F9DA 200D 2640]
-🧚‍♂	sióg fearann						// [1F9DA 200D 2642]
-🧛‍♀	vaimpír baineann					// [1F9DB 200D 2640]
-🧛‍♂	fear|vaimpír						// [1F9DB 200D 2642]
+🧚‍♀	sióg bhaineann						// [1F9DA 200D 2640]
+🧚‍♂	sióg fhireann						// [1F9DA 200D 2642]
+🧛‍♀	vaimpír bhaineann					// [1F9DB 200D 2640]
+🧛‍♂	vaimpír fhireann					// [1F9DB 200D 2642]
 🧜‍♀	murúch							// [1F9DC 200D 2640]
 🧜‍♂	murúch fir						// [1F9DC 200D 2642]
-🧝‍♀	síofróg							// [1F9DD 200D 2640]
-🧝‍♂	síogaí							// [1F9DD 200D 2642]
-🧞‍♀	ginid baineann						// [1F9DE 200D 2640]
-🧞‍♂	ginid fearann						// [1F9DE 200D 2642]
+🧝‍♀	síofra baineann						// [1F9DD 200D 2640]
+🧝‍♂	síofra fireann						// [1F9DD 200D 2642]
+🧞‍♀	ginid bhaineann						// [1F9DE 200D 2640]
+🧞‍♂	ginid fhireann						// [1F9DE 200D 2642]
 🧟‍♀	zombaí baineann						// [1F9DF 200D 2640]
-🧟‍♂	zombaí fearann						// [1F9DF 200D 2642]
+🧟‍♂	zombaí fireann						// [1F9DF 200D 2642]
 
 // Emoji ZWJ Sequence: Gendered Activity
 
@@ -1606,18 +1606,18 @@ $textmode
 🏄‍♂	fear ag surfáil						// [1F3C4 200D 2642]
 🏊‍♀	bean ag snámh						// [1F3CA 200D 2640]
 🏊‍♂	fear ag snámh						// [1F3CA 200D 2642]
-🏋️‍♀	bean ag tógáil mheáchan					// [1F3CB 200D 2640]
-🏋️‍♂	fear ag tógáil mheáchan					// [1F3CB 200D 2642]
+🏋️‍♀	bean ag tógáil meachán					// [1F3CB 200D 2640]
+🏋️‍♂	fear ag tógáil meachán					// [1F3CB 200D 2642]
 🏌️‍♀	bean ag imirt gailf					// [1F3CC 200D 2640]
 🏌️‍♂	fear ag imirt gailf					// [1F3CC 200D 2642]
-👯‍♀	mná ag ceiliúradh					// [1F46F 200D 2640]
-👯‍♂	fir ag ceiliúradh					// [1F46F 200D 2642]
-💆‍♀	bean ag fáil suathaireacht ina haghaidh			// [1F486 200D 2640]
-💆‍♂	fear ag fáil suathaireacht ina aghaidh			// [1F486 200D 2642]
+👯‍♀	mná le cluasa coiníní orthu				// [1F46F 200D 2640]
+👯‍♂	fir le cluasa coiníní orthu				// [1F46F 200D 2642]
+💆‍♀	bean ag fáil suathaireachta				// [1F486 200D 2640]
+💆‍♂	fear ag fáil suathaireachta				// [1F486 200D 2642]
 💇‍♀	bean ag fáil bearradh gruaige				// [1F487 200D 2640]
 💇‍♂	fear ag fáil bearradh gruaige				// [1F487 200D 2642]
-🚣‍♀	bean ag iomair báid					// [1F6A3 200D 2640]
-🚣‍♂	fear ag iomair báid					// [1F6A3 200D 2642]
+🚣‍♀	bean ag rámhaíocht báid					// [1F6A3 200D 2640]
+🚣‍♂	fear ag rámhaíocht báid					// [1F6A3 200D 2642]
 🚴‍♀	bean ag rothaíocht					// [1F6B4 200D 2640]
 🚴‍♂	fear ag rothaíocht					// [1F6B4 200D 2642]
 🚵‍♀	bean ag rothaíocht sléibhe				// [1F6B5 200D 2640]
@@ -1625,11 +1625,11 @@ $textmode
 🚶‍♀	bean ag siúl						// [1F6B6 200D 2640]
 🚶‍♂	fear ag siúl						// [1F6B6 200D 2642]
 🤸‍♀	bean ag rothchasadh					// [1F938 200D 2640]
-🤸‍♂	fear ag déanamh rothchasaidh				// [1F938 200D 2642]
-🤹‍♀	bean ag déanamh lámhchleasaíocht			// [1F939 200D 2640]
-🤹‍♂	fear ag déanamh lámhchleasaíocht			// [1F939 200D 2642]
+🤸‍♂	fear ag rothchasadh					// [1F938 200D 2642]
+🤹‍♀	bean ag déanamh lámhchleasaíochta			// [1F939 200D 2640]
+🤹‍♂	fear ag déanamh lámhchleasaíochta			// [1F939 200D 2642]
 🤼‍♀	mná ag coraíocht					// [1F93C 200D 2640]
-🤼‍♂	fear ag coraíocht					// [1F93C 200D 2642]
+🤼‍♂	fir ag coraíocht					// [1F93C 200D 2642]
 🤽‍♀	bean ag imirt póló uisce				// [1F93D 200D 2640]
 🤽‍♂	fear ag imirt póló uisce				// [1F93D 200D 2642]
 🤾‍♀	bean ag imirt liathróid láimhe				// [1F93E 200D 2640]
@@ -1643,28 +1643,28 @@ $textmode
 
 // Emoji ZWJ Sequence: Gendered Gestures
 
-💁‍♀	bean le lámh amach					// [1F481 200D 2640]
-💁‍♂	fear le lámh amach					// [1F481 200D 2642]
-🙅‍♀	bean nach aontaíonn					// [1F645 200D 2640]
-🙅‍♂	fear nach aontaíonn					// [1F645 200D 2642]
-🙆‍♀	bean a aontaíonn					// [1F646 200D 2640]
-🙆‍♂	fear a aontaíonn					// [1F646 200D 2642]
-🙇‍♀	bean ag cromadh a ceann					// [1F647 200D 2640]
-🙇‍♂	fear ag cromadh a cheann				// [1F647 200D 2642]
-🙋‍♀	bean le lámha suas					// [1F64B 200D 2640]
-🙋‍♂	fear le lámha suas					// [1F64B 200D 2642]
-🙍‍♀	bean ag cur grainc					// [1F64D 200D 2640]
-🙍‍♂	fear ag cur grainc					// [1F64D 200D 2642]
-🙎‍♀	bean le pus						// [1F64E 200D 2640]
-🙎‍♂	fear le pus						// [1F64E 200D 2642]
-🤦‍♀	bean lena haghaidh i mbos				// [1F926 200D 2640]
-🤦‍♂	fear lena aghaidh i mbos				// [1F926 200D 2642]
-🤷‍♀	bean ag searradh					// [1F937 200D 2640]
-🤷‍♂	fear ag searradh					// [1F937 200D 2642]
+💁‍♀	bean lena lámh amach					// [1F481 200D 2640]
+💁‍♂	fear lena lámh amach					// [1F481 200D 2642]
+🙅‍♀	bean ag comharthú NÍL					// [1F645 200D 2640]
+🙅‍♂	fear ag comharthú NÍL					// [1F645 200D 2642]
+🙆‍♀	bean ag comharthú OK					// [1F646 200D 2640]
+🙆‍♂	fear ag comharthú OK					// [1F646 200D 2642]
+🙇‍♀	bean ag umhlú						// [1F647 200D 2640]
+🙇‍♂	fear ag umhlú						// [1F647 200D 2642]
+🙋‍♀	bean lena lámh suas					// [1F64B 200D 2640]
+🙋‍♂	fear lena lámh suas					// [1F64B 200D 2642]
+🙍‍♀	bean le púic uirthi					// [1F64D 200D 2640]
+🙍‍♂	fear le púic air					// [1F64D 200D 2642]
+🙎‍♀	bean le puisín uirthi					// [1F64E 200D 2640]
+🙎‍♂	fear le puisín air					// [1F64E 200D 2642]
+🤦‍♀	bean lena haghaidh ina bos				// [1F926 200D 2640]
+🤦‍♂	fear lena aghaidh ina bhos				// [1F926 200D 2642]
+🤷‍♀	bean ag croitheadh					// [1F937 200D 2640]
+🤷‍♂	fear ag croitheadh					// [1F937 200D 2642]
 
 // Emoji ZWJ Sequence: Other
 
-🏳‍🌈	bratach ildaite						// [1F3F3 200D 1F308]
+🏳‍🌈	bratach bogha báistí					// [1F3F3 200D 1F308]
 👁‍🗨	súil i mbolgán cainte					// [1F441 200D 1F5E8]
 
 // References:
