@@ -817,11 +817,19 @@ zhy: espeak-ng-data/zhy_dict
 dictsource/zhy_list:
 	ln -svf extra/zhy_list dictsource/
 if HAVE_ZHY_EXTENDED_DICTIONARY
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list
+espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list dictsource/zhy_emoji
 else
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra
+espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
+
+dictsource/zhy_emoji:
+	@echo "  EMOJI     $@"
+	@if test x"${CLDR_PATH}" = x ; then \
+		touch $@ ; \
+	else \
+		tools/emoji dictsource/en_emoji yue ${CLDR_PATH} > $@ ; \
+	fi
 
 ##### mbrola:
 
