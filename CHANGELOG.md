@@ -40,6 +40,7 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  de (German) -- Reece Dunn, Karl Eick
 *  en (English) -- Reece Dunn
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  fi (Finnish) -- Juho Hiltunen

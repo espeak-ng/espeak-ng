@@ -401,7 +401,7 @@ phoneme l2  // as [l] but devoice previous phoneme
 endphoneme
 
 phoneme b
-  vcd alv frc sib
+  vcd blb stp
   voicingswitch p
   IF nextPh(l2) THEN
     ChangePhoneme(p)
