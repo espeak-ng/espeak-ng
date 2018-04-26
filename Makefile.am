@@ -752,7 +752,7 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 endif
 
 sd: espeak-ng-data/sd_dict
-espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra
+espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
 
 si: espeak-ng-data/si_dict
 espeak-ng-data/si_dict: dictsource/si_list dictsource/si_rules dictsource/si_extra dictsource/si_emoji

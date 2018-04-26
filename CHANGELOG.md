@@ -37,6 +37,7 @@ emoji:
 
 *  Update the emoji translations to CLDR 33.
 *  gd (Scottish Gaelic)
+*  sd (Sindhi)
 
 new languages:
 
