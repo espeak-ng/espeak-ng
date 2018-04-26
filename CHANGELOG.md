@@ -18,7 +18,6 @@ The espeak-ng project is a fork of the espeak project.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
    and `-Wunused`).
-*  Update the emoji translations to CLDR 33.
 
 security:
 
@@ -33,6 +32,11 @@ documentation:
 *  document the Kirshenbaum phoneme transcription scheme (used as the basis of espeak phonemes).
 *  document the X-SAMPA phoneme transcription scheme.
 *  document the Conlang X-SAMPA phoneme transcription scheme.
+
+emoji:
+
+*  Update the emoji translations to CLDR 33.
+*  gd (Scottish Gaelic)
 
 new languages:
 
