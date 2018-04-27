@@ -100,6 +100,7 @@ for entry in read_emoji(emoji_dict):
             entry.pronunciation = "\t{0}{1}".format(translation, "\t"*int(new_tabs))
         else:
             entry.comment += " (no translation)"
+            entry = "//{0}".format(entry)
     elif entry == "// Emoji and Other Symbol pronunciations for English":
         langname = find_langname(lang)
         entry = "// Emoji and Other Symbol pronunciations for {0}".format(langname)
