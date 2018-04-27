@@ -1,4 +1,4 @@
-// This file is UTF-8 encoded
+﻿// This file is UTF-8 encoded
 // all words lower case
 
 // Uses of $alt:
@@ -742,6 +742,8 @@ hausier         haUz'i:r
 heimat           $1
 herberg         hErbErg
 hi              haI
+hinweg	hInv'Ek
+hinweg	h'Inve:g	$capital
 historie         $alt
 hm              h@m
 horsam          hO3zA:m
@@ -920,6 +922,7 @@ vorig           fo:rIg#
 wahrscheinlich   $2
 warum		vA:r'Um
 wasserung	vas@rUN    // because -ung isn't marked as a suffix
+weg	v'Ek
 Weg	v'e:g		$capital
 weither		vaIth'Er
 weitum		vaIt_|'Um
