@@ -23,10 +23,7 @@ endphoneme
 phoneme 3   //  open Schwa+r
   vwl starttype #@ endtype #@
   unstressed flag1
-  length 160
-  IF thisPh(isFinalVowel) THEN
-    length 210
-  ENDIF
+  length 140
   FMT(vowel/a#_3)   // in eSpeak 1.44, this used vowel/V_3 at end-of-word
 endphoneme
 
@@ -166,9 +163,7 @@ endphoneme
 
 
 phoneme EI
-  vwl  starttype #e  endtype #i
-  length 210
-  FMT(vdiph/eei)
+import_phoneme en-us/eI
 endphoneme
 
 
@@ -439,4 +434,46 @@ phoneme g
     ChangePhoneme(k)
   ENDIF
   CALL base1/g
+endphoneme
+
+
+phoneme k
+  vls vel stp
+  voicingswitch g
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300  f3=-200 80  rms=20
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(r) THEN
+    WAV(ustop/k, 70)
+ELIF nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/k_)
+  ELIF nextPh(i:) OR nextPh(;) THEN
+    WAV(ustop/ki)
+  ELIF nextPh(l) THEN
+    WAV(ustop/kl)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/k_unasp)
+  ENDIF
+  WAV(ustop/k)
+endphoneme
+
+
+phoneme x
+  vls vel frc
+  voicingswitch Q
+  lengthmod 3
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/x2, 60)
+  ENDIF
+  WAV(ufric/x_hr, 20)
 endphoneme
