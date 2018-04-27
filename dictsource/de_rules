@@ -1,4 +1,4 @@
-
+﻿
 // ***************************************************************************
 // *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -871,10 +871,11 @@ formal) ie         =I@
         neglig     ne:gli:Z
         neglige    ne:gli:Z
      &) ness (_N   _^_EN
-        news       _^_EN
+        new       _^_EN
         nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
+        nuance	ny:'A~s@
 
 .group o
      _) o (_       o:
