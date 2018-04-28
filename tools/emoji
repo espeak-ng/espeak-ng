@@ -76,13 +76,15 @@ cldr_path = sys.argv[3]
 
 filenames = [
     os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang)),
-    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang))
+    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang)),
+    os.path.join("data", "annotationsEspeak", "{0}.xml".format(lang))
 ]
 
 annotations = {}
 for filename in filenames:
-    for cp, name in read_annotations(filename):
-        annotations[cp] = name
+    if os.path.exists(filename):
+        for cp, name in read_annotations(filename):
+            annotations[cp] = name
 
 for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
