@@ -4,28 +4,75 @@
 // can be followed by [FE0E] to select the text style, and [FE0F] to select
 // the emoji style.
 //
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
 // NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
 // in interpreting ZWJ emoji sequences.
 
 $textmode
 
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
 ©	కాపీరైట్ చిహ్నం							// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
 ®	రిజిస్టర్డ్ ట్రేడ్ మార్క్					// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 02B0..02FF : Spacing Modifier Letters
+
+//˙	dot								// [02D9] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
 
 // 2000..203C : General Punctuation
 
 ‼	ఆశ్చర్యార్థకం గుర్తులు						// [203C] text|emoji
 ⁉	ఆశ్చర్యార్థకం ప్రశ్నార్థకం గుర్తు				// [2049] text|emoji
 
+// 20A0..20CF : Currency Symbols
+
+//₨	rupee								// [20A8] other (no translation)
+//€	euros								// [20AC] other (no translation)
+//₹	rupee								// [20B9] other (no translation)
+
 // 2100..214F : Letterlike Symbols
 
+//№	numero								// [2116] other (no translation)
 ™	ట్రేడ్ మార్క్ చిహ్నం						// [2122] text|emoji
 ℹ	సమాచారం								// [2139] text|emoji
 
+// 2150..218F : Number Forms
+
+//⅓	one third							// [2153] other (no translation)
+//⅔	two thirds							// [2154] other (no translation)
+
 // 2190..21FF : Arrows
 
+//←	left arrow							// [2190] other (no translation)
+//↑	up arrow							// [2191] other (no translation)
+//→	right arrow							// [2192] other (no translation)
+//↓	down arrow							// [2193] other (no translation)
 ↔	ఎడమ మరియు కుడి బాణం						// [2194] text|emoji
 ↕	ఎగువ మరియు దిగువ బాణం						// [2195] text|emoji
 ↖	ఎగువ ఎడమ బాణం							// [2196] text|emoji
@@ -34,6 +81,26 @@ $textmode
 ↙	దిగువ ఎడమ బాణం							// [2199] text|emoji
 ↩	ఎడమవైపు వంపు తిరిగిన కుడి బాణం					// [21A9] text|emoji
 ↪	కుడివైపు వంపు తిరిగిన ఎడమ బాణం					// [21AA] text|emoji
+
+// 2200..22FF : Mathematical Operators
+
+//∂	delta								// [2202] other (no translation)
+//∑	sum sign							// [2211] other (no translation)
+//−	minus								// [2212] other (no translation)
+//∗	asterisk							// [2217] other (no translation)
+//√	square root							// [221A] other (no translation)
+//∛	cube root							// [221B] other (no translation)
+//∝	proportional to							// [221D] other (no translation)
+//∞	infinity							// [221E] other (no translation)
+//∫	integral							// [222B] other (no translation)
+//∬	double integral							// [222C] other (no translation)
+//∴	therefore							// [2234] other (no translation)
+//∵	because								// [2235] other (no translation)
+//≈	approximately							// [2248] other (no translation)
+//≠	not equal to							// [2260] other (no translation)
+//≡	identical to							// [2261] other (no translation)
+//≤	less or equal to						// [2264] other (no translation)
+//≥	greater or equal to						// [2265] other (no translation)
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -62,10 +129,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
+//■	black square							// [25A0] other (no translation)
 ▪	చిన్న నలుపు రంగు చతురస్రం					// [25AA] text|emoji
 ▫	చిన్న తెలుపు రంగు చతురస్రం					// [25AB] text|emoji
 ▶	ప్లే చేయి బటన్							// [25B6] text|emoji
 ◀	వెనక్కి వెళ్లే బటన్						// [25C0] text|emoji
+//●	black circle							// [25CF] other (no translation)
 ◻	మధ్యస్థ తెలుపు రంగు చతురస్రం					// [25FB] text|emoji
 ◼	మధ్యస్థ నలుపు రంగు చతురస్రం					// [25FC] text|emoji
 ◽	మధ్యస్థ చిన్న తెలుపు రంగు చతురస్రం				// [25FD]
@@ -113,6 +182,8 @@ $textmode
 ♥	హార్ట్ సూట్							// [2665] text|emoji
 ♦	పేకాటలో డైమండ్							// [2666] text|emoji
 ♨	వేడి నీటికొలనులు						// [2668] text|emoji
+//♭	flat								// [266D] other (no translation)
+//♯	sharp								// [266F] other (no translation)
 ♻	రీసైక్లింగ్							// [267B] text|emoji
 ♿	చక్రాల కుర్చీ							// [267F]
 ⚒	సుత్తి మరియు గడ్డపార						// [2692] text|emoji
@@ -1668,9 +1739,9 @@ $textmode
 👁‍🗨	ప్రసంగ బుడుగలో కన్ను					// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
 //   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)
