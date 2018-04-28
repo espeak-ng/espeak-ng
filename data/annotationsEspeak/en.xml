@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright © 2018 Reece H. Dunn
+
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+These espeak-ng data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="2"/>
+		<language type="en"/>
+	</identity>
+	<annotations>
+		<annotation cp="+" type="tts">plus</annotation> <!-- U+002B -->
+		<annotation cp="¢" type="tts">cents</annotation> <!-- U+00A2 -->
+		<annotation cp="£" type="tts">pound</annotation> <!-- U+00A3 -->
+		<annotation cp="¤" type="tts">currency sign</annotation> <!-- U+00A4 -->
+		<annotation cp="¥" type="tts">yen</annotation> <!-- U+00A5 -->
+		<annotation cp="§" type="tts">section</annotation> <!-- U+00A7 -->
+		<annotation cp="¨" type="tts">double dot</annotation> <!-- U+00A8 -->
+		<annotation cp="¬" type="tts">not sign</annotation> <!-- U+00AC -->
+		<annotation cp="°" type="tts">degrees</annotation> <!-- U+00B0 -->
+		<annotation cp="±" type="tts">plus or minus</annotation> <!-- U+00B1 -->
+		<annotation cp="µ" type="tts">micro</annotation> <!-- U+00B5 -->
+		<annotation cp="¶" type="tts">paragraph</annotation> <!-- U+00B6 -->
+		<annotation cp="¼" type="tts">a quarter</annotation> <!-- U+00BC -->
+		<annotation cp="½" type="tts">a half</annotation> <!-- U+00BD -->
+		<annotation cp="¾" type="tts">three quarters</annotation> <!-- U+00BE -->
+		<annotation cp="×" type="tts">times</annotation> <!-- U+00D7 -->
+		<annotation cp="÷" type="tts">divided by</annotation> <!-- U+00F7 -->
+		<annotation cp="˙" type="tts">dot</annotation> <!-- U+02D9 -->
+		<annotation cp="।" type="tts">danda</annotation> <!-- U+0964 -->
+		<annotation cp="₨" type="tts">rupee</annotation> <!-- U+20A8 -->
+		<annotation cp="€" type="tts">euros</annotation> <!-- U+20AC -->
+		<annotation cp="₹" type="tts">rupee</annotation> <!-- U+20B9 -->
+		<annotation cp="№" type="tts">numero</annotation> <!-- U+2116 -->
+		<annotation cp="℞" type="tts">prescription</annotation> <!-- U+211E -->
+		<annotation cp="⅓" type="tts">one third</annotation> <!-- U+2153 -->
+		<annotation cp="⅔" type="tts">two thirds</annotation> <!-- U+2154 -->
+		<annotation cp="←" type="tts">left arrow</annotation> <!-- U+2190 -->
+		<annotation cp="↑" type="tts">up arrow</annotation> <!-- U+2191 -->
+		<annotation cp="→" type="tts">right arrow</annotation> <!-- U+2192 -->
+		<annotation cp="↓" type="tts">down arrow</annotation> <!-- U+2193 -->
+		<annotation cp="∂" type="tts">delta</annotation> <!-- U+2202 -->
+		<annotation cp="∑" type="tts">sum sign</annotation> <!-- U+2211 -->
+		<annotation cp="−" type="tts">minus</annotation> <!-- U+2212 -->
+		<annotation cp="∗" type="tts">asterisk</annotation> <!-- U+2217 -->
+		<annotation cp="√" type="tts">square root</annotation> <!-- U+221A -->
+		<annotation cp="∛" type="tts">cube root</annotation> <!-- U+221B -->
+		<annotation cp="∝" type="tts">proportional to</annotation> <!-- U+221D -->
+		<annotation cp="∞" type="tts">infinity</annotation> <!-- U+221E -->
+		<annotation cp="∫" type="tts">integral</annotation> <!-- U+222B -->
+		<annotation cp="∬" type="tts">double integral</annotation> <!-- U+222C -->
+		<annotation cp="∴" type="tts">therefore</annotation> <!-- U+2234 -->
+		<annotation cp="∵" type="tts">because</annotation> <!-- U+2235 -->
+		<annotation cp="≈" type="tts">approximately</annotation> <!-- U+2248 -->
+		<annotation cp="≠" type="tts">not equal to</annotation> <!-- U+2260 -->
+		<annotation cp="≡" type="tts">identical to</annotation> <!-- U+2261 -->
+		<annotation cp="≤" type="tts">less or equal to</annotation> <!-- U+2264 -->
+		<annotation cp="≥" type="tts">greater or equal to</annotation> <!-- U+2265 -->
+		<annotation cp="■" type="tts">black square</annotation> <!-- U+25A0 -->
+		<annotation cp="●" type="tts">black circle</annotation> <!-- U+25CF -->
+		<annotation cp="♭" type="tts">flat</annotation> <!-- U+266D -->
+		<annotation cp="♯" type="tts">sharp</annotation> <!-- U+266F -->
+	</annotations>
+</ldml>

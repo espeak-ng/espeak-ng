@@ -4,28 +4,76 @@
 // can be followed by [FE0E] to select the text style, and [FE0F] to select
 // the emoji style.
 //
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
 // NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
 // in interpreting ZWJ emoji sequences.
 
 $textmode
 
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
 ©	symbole Copyright						// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
 ®	marque déposée							// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 02B0..02FF : Spacing Modifier Letters
+
+//˙	dot								// [02D9] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
 
 // 2000..203C : General Punctuation
 
 ‼	double point d’exclamation					// [203C] text|emoji
 ⁉	point d’exclamation et d’interrogation				// [2049] text|emoji
 
+// 20A0..20CF : Currency Symbols
+
+//₨	rupee								// [20A8] other (no translation)
+//€	euros								// [20AC] other (no translation)
+//₹	rupee								// [20B9] other (no translation)
+
 // 2100..214F : Letterlike Symbols
 
+//№	numero								// [2116] other (no translation)
+//℞	prescription							// [211E] other (no translation)
 ™	marque commerciale déposée					// [2122] text|emoji
 ℹ	source d’informations						// [2139] text|emoji
 
+// 2150..218F : Number Forms
+
+//⅓	one third							// [2153] other (no translation)
+//⅔	two thirds							// [2154] other (no translation)
+
 // 2190..21FF : Arrows
 
+//←	left arrow							// [2190] other (no translation)
+//↑	up arrow							// [2191] other (no translation)
+//→	right arrow							// [2192] other (no translation)
+//↓	down arrow							// [2193] other (no translation)
 ↔	flèche gauche droite						// [2194] text|emoji
 ↕	flèche haut bas							// [2195] text|emoji
 ↖	flèche haut gauche						// [2196] text|emoji
@@ -34,6 +82,26 @@ $textmode
 ↙	flèche bas gauche						// [2199] text|emoji
 ↩	flèche courbe gauche						// [21A9] text|emoji
 ↪	flèche courbe droite						// [21AA] text|emoji
+
+// 2200..22FF : Mathematical Operators
+
+//∂	delta								// [2202] other (no translation)
+//∑	sum sign							// [2211] other (no translation)
+//−	minus								// [2212] other (no translation)
+//∗	asterisk							// [2217] other (no translation)
+//√	square root							// [221A] other (no translation)
+//∛	cube root							// [221B] other (no translation)
+//∝	proportional to							// [221D] other (no translation)
+//∞	infinity							// [221E] other (no translation)
+//∫	integral							// [222B] other (no translation)
+//∬	double integral							// [222C] other (no translation)
+//∴	therefore							// [2234] other (no translation)
+//∵	because								// [2235] other (no translation)
+//≈	approximately							// [2248] other (no translation)
+//≠	not equal to							// [2260] other (no translation)
+//≡	identical to							// [2261] other (no translation)
+//≤	less or equal to						// [2264] other (no translation)
+//≥	greater or equal to						// [2265] other (no translation)
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -62,10 +130,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
+//■	black square							// [25A0] other (no translation)
 ▪	petit carré noir						// [25AA] text|emoji
 ▫	petit carré blanc						// [25AB] text|emoji
 ▶	bouton lecture							// [25B6] text|emoji
 ◀	bouton marche arrière						// [25C0] text|emoji
+//●	black circle							// [25CF] other (no translation)
 ◻	carré moyen blanc						// [25FB] text|emoji
 ◼	carré moyen noir						// [25FC] text|emoji
 ◽	carré petit moyen blanc						// [25FD]
@@ -113,6 +183,8 @@ $textmode
 ♥	cœur cartes							// [2665] text|emoji
 ♦	carreau								// [2666] text|emoji
 ♨	sources chaudes							// [2668] text|emoji
+//♭	flat								// [266D] other (no translation)
+//♯	sharp								// [266F] other (no translation)
 ♻	symbole Recyclage						// [267B] text|emoji
 ♿	symbole Accès handicapés					// [267F]
 ⚒	marteau et burin						// [2692] text|emoji
@@ -1668,9 +1740,9 @@ $textmode
 👁‍🗨	œil dans une bulle de BD				// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
 //   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)
