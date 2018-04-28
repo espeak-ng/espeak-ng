@@ -19,7 +19,7 @@ $textmode
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
 //¢	cents								// [00A2] other (no translation)
-//£	pound								// [00A3] other (no translation)
+£	Pfund								// [00A3] other
 //¤	currency sign							// [00A4] other (no translation)
 //¥	yen								// [00A5] other (no translation)
 //§	section								// [00A7] other (no translation)
@@ -27,8 +27,8 @@ $textmode
 ©	Copyright							// [00A9] text|emoji
 //¬	not sign							// [00AC] other (no translation)
 ®	Registered-Trademark						// [00AE] text|emoji
-//°	degrees								// [00B0] other (no translation)
-//±	plus or minus							// [00B1] other (no translation)
+°	Grad								// [00B0] other
+±	plus minus							// [00B1] other
 //µ	micro								// [00B5] other (no translation)
 //¶	paragraph							// [00B6] other (no translation)
 //¼	a quarter							// [00BC] other (no translation)
@@ -53,7 +53,7 @@ $textmode
 // 20A0..20CF : Currency Symbols
 
 //₨	rupee								// [20A8] other (no translation)
-//€	euros								// [20AC] other (no translation)
+€	Euro								// [20AC] other
 //₹	rupee								// [20B9] other (no translation)
 
 // 2100..214F : Letterlike Symbols
