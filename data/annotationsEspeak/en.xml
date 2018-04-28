@@ -7,7 +7,7 @@ These espeak-ng data files are interpreted according to the LDML specification (
 -->
 <ldml>
 	<identity>
-		<version number="1"/>
+		<version number="2"/>
 		<language type="en"/>
 	</identity>
 	<annotations>
@@ -34,6 +34,7 @@ These espeak-ng data files are interpreted according to the LDML specification (
 		<annotation cp="€" type="tts">euros</annotation> <!-- U+20AC -->
 		<annotation cp="₹" type="tts">rupee</annotation> <!-- U+20B9 -->
 		<annotation cp="№" type="tts">numero</annotation> <!-- U+2116 -->
+		<annotation cp="℞" type="tts">prescription</annotation> <!-- U+211E -->
 		<annotation cp="⅓" type="tts">one third</annotation> <!-- U+2153 -->
 		<annotation cp="⅔" type="tts">two thirds</annotation> <!-- U+2154 -->
 		<annotation cp="←" type="tts">left arrow</annotation> <!-- U+2190 -->

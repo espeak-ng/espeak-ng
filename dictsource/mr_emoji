@@ -59,6 +59,7 @@ $textmode
 // 2100..214F : Letterlike Symbols
 
 //№	numero								// [2116] other (no translation)
+//℞	prescription							// [211E] other (no translation)
 ™	ट्रेडमार्क							// [2122] text|emoji
 ℹ	माहिती स्त्रोत							// [2139] text|emoji
 
