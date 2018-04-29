@@ -204,6 +204,7 @@
      _) b (esen    b
      _) b (ess     b
      _) b (esten   b
+        bestem	bEst@m
         bestia     bEsti:'A:
      _) b (eug     b
      _) b (eul     b
@@ -213,6 +214,7 @@
         baby       _^_EN
         beten      be:t@n
      _) bike       _^_EN
+        binde	bInd@ // for compound words, EG. Bindestrich
      _) bis (hP3   b%Is
      _) blue       _^_EN
         board      _^_EN
@@ -1068,9 +1070,11 @@ formal) ie         =I@
         ste (ll    StE
      a) ste (ll    stE
         st (ah     St
+        st (art     St
         st (ä      St
         st (eh     St
         st (ö      St
+        st (rich	St
         st (ü      St
         st (uh     St
         st (ung    st
