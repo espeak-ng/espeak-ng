@@ -390,6 +390,13 @@ phoneme A~
 endphoneme
 
 
+phoneme W~
+  vowel starttype #@ endtype #@
+length 200
+FMT(vnasal/W_n)
+endphoneme
+
+
 phoneme l2  // as [l] but devoice previous phoneme
   liquid lengthmod 7
   ChangePhoneme (l)
