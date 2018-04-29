@@ -186,7 +186,6 @@
      _) beige (_   be:S
      _) beige (@   baIg@
      _) be (inhP2  b@
-     _) beo (b     b,@o:
 
      _) ba (lA     b%a
      _) ba (ll@    b%a
@@ -363,7 +362,7 @@
         eb (t_     e:p
         eg (t_     e:k
 
-        een (_     'e:n-
+        een (_     'e:@n
         ell (_     'El
     ll) e (l       e:
      &) e (_S1     @
@@ -532,8 +531,8 @@
         g (sA      g
         gd (_N     kt
      _) gh (A      g
-     _) g (nA      g@-  // allow _gn
-     B) gn (A      g@-n
+     _) g (nA      g  // allow _gn
+     B) gn (A      gn
 
      i) gt (_      Ct
     ei) gt (_      kt
@@ -571,10 +570,11 @@
      _) ge (nK     gE
      _) ge (L01K   gE
         ge (tr     g@
-        general    ge:nEr'al
+        general    ge:n@r'A:l
         general (is ge:n@ral
      _) ge (ner    gE
      _) geo        g,e:o:
+     _) geo (pf	g@'O
      _) ge (orP2   g@
      _) ge (org    g%e:
         ge (rman   gE
@@ -659,6 +659,7 @@
 
         i (i       i:_!
 
+ik _(	Ik
      s) ik (_      'i:k
     @r) ik (_      Ik
     br) ik (_      'i:k
@@ -1092,6 +1093,7 @@ formal) ie         =I@
      _) schul (d   S'Ul
 
         schwer     Sve:r
+screen	_^_EN
      _) sechs (P5  z'Eks
         seku (nden ze:k'U
      _) selbst (@@P6 z'Elpst
@@ -1162,6 +1164,7 @@ formal) ie         =I@
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
+        touch	_^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
    _pa) th         t
