@@ -1,4 +1,4 @@
-
+﻿
 
 //=========================================================
 // German
@@ -391,7 +391,7 @@ endphoneme
 
 
 phoneme W~
-  vowel starttype #@ endtype #@
+  vwl starttype #@ endtype #@
 length 200
 FMT(vnasal/W_n)
 endphoneme
