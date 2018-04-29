@@ -857,7 +857,7 @@ privatisier	pri:vA:ti:z'i:r
 problematisier  $5
 protokoll	$3
 
-refrain	rEfr'W
+refrain	rEfr'W~
 reliquie         $alt
 rendezvous	rA~de:v'u:
 restaurant	rEsto:r'A~
@@ -894,7 +894,7 @@ subjekt		$1
 tag             tA:g
 telegen         te:le:g'e:n
 temporär	$3
-terrain	tEr'W
+terrain	tEr'W~
 the             D@         // English
 theater         te:'A:t3
 tja		tjA:
