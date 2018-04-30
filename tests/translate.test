@@ -47,4 +47,4 @@ test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phonemes sk " sm'eju:tsa s'a tv'a:R" "☺"
-test_phonemes sk " bl'ax sm'eju:tsa 'es,a: tv'a:R" "blah ☺"
+test_phonemes sk " bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
