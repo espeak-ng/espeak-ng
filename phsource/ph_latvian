@@ -414,10 +414,34 @@ phoneme t
   WAV(ustop/t_dnt, 50)
 endphoneme
 
+phoneme v        // from v# in standard phonemes
+  vcd lbd frc
+  ipa ʋ
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF nextPh(isPause2) THEN
+    FMT(voc/v#_)
+  ENDIF
+  FMT(voc/v#)
+endphoneme
+
+phoneme v`        // shortened v
+  vcd lbd frc
+  ipa ʋ
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  length 8
+  FMT(voc/v#_)
+endphoneme
+
 phoneme z`  // Shortened version of z for diphthong dz
   vcd alv frc sib
   voicingswitch s
-  length 10
+  length 8
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
