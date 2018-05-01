@@ -1959,6 +1959,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 	int clause_pause;
 	int pre_pause_add = 0;
 	int all_upper_case = FLAG_ALL_UPPER;
+	int alpha_count = 0;
 	bool finished = false;
 	bool single_quoted = false;
 	bool phoneme_mode = false;
@@ -2233,6 +2234,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			}
 
 			if (IsAlpha(c)) {
+				alpha_count++;
 				if (!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040)))) {
 					if (wcschr(tr->punct_within_word, prev_out) == 0)
 						letter_count = 0; // don't reset count for an apostrophy within a word
@@ -2437,6 +2439,9 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 					words[word_count].flags |= FLAG_EMBEDDED;
 					embedded_count = 0;
 				}
+				if (alpha_count == 0) {
+					all_upper_case &= ~FLAG_ALL_UPPER;
+				}
 				words[word_count].pre_pause = pre_pause;
 				words[word_count].flags |= (all_upper_case | word_flags | word_emphasis);
 
@@ -2468,6 +2473,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				next_word_flags = 0;
 				pre_pause = 0;
 				all_upper_case = FLAG_ALL_UPPER;
+				alpha_count = 0;
 				syllable_marked = false;
 			}
 

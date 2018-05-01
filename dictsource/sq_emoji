@@ -4,28 +4,76 @@
 // can be followed by [FE0E] to select the text style, and [FE0F] to select
 // the emoji style.
 //
+// Entries with 'other' in the comments are not defined as emoji, but are other
+// Unicode characters.
+//
 // NOTE: See `src/ucd-tools/data/espeak-ng/emoji-data.txt` for additional data
 // in interpreting ZWJ emoji sequences.
 
 $textmode
 
+// 0000..007F : C0 Controls and Basic Latin
+
+//+	plus								// [002B] other (no translation)
+
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
+//¢	cents								// [00A2] other (no translation)
+//£	pound								// [00A3] other (no translation)
+//¤	currency sign							// [00A4] other (no translation)
+//¥	yen								// [00A5] other (no translation)
+//§	section								// [00A7] other (no translation)
+//¨	double dot							// [00A8] other (no translation)
 ©	të drejtat e autorit						// [00A9] text|emoji
+//¬	not sign							// [00AC] other (no translation)
 ®	i regjistruar							// [00AE] text|emoji
+//°	degrees								// [00B0] other (no translation)
+//±	plus or minus							// [00B1] other (no translation)
+//µ	micro								// [00B5] other (no translation)
+//¶	paragraph							// [00B6] other (no translation)
+//¼	a quarter							// [00BC] other (no translation)
+//½	a half								// [00BD] other (no translation)
+//¾	three quarters							// [00BE] other (no translation)
+//×	times								// [00D7] other (no translation)
+//÷	divided by							// [00F7] other (no translation)
+
+// 02B0..02FF : Spacing Modifier Letters
+
+//˙	dot								// [02D9] other (no translation)
+
+// 0900..097F : Devanagari
+
+//।	danda								// [0964] other (no translation)
 
 // 2000..203C : General Punctuation
 
 ‼	dy pikëçuditje							// [203C] text|emoji
 ⁉	shenja e pikëpyetjes dhe pikëçuditjes				// [2049] text|emoji
 
+// 20A0..20CF : Currency Symbols
+
+//₨	rupee								// [20A8] other (no translation)
+//€	euros								// [20AC] other (no translation)
+//₹	rupee								// [20B9] other (no translation)
+
 // 2100..214F : Letterlike Symbols
 
+//№	numero								// [2116] other (no translation)
+//℞	prescription							// [211E] other (no translation)
 ™	markë tregtare							// [2122] text|emoji
 ℹ	informacion							// [2139] text|emoji
 
+// 2150..218F : Number Forms
+
+//⅓	one third							// [2153] other (no translation)
+//⅔	two thirds							// [2154] other (no translation)
+
 // 2190..21FF : Arrows
 
+//←	left arrow							// [2190] other (no translation)
+//↑	up arrow							// [2191] other (no translation)
+//→	right arrow							// [2192] other (no translation)
+//↓	down arrow							// [2193] other (no translation)
 ↔	shigjetë majtas-djathtas					// [2194] text|emoji
 ↕	shigjeta lart-poshtë						// [2195] text|emoji
 ↖	shigjeta lart-majtas						// [2196] text|emoji
@@ -34,6 +82,26 @@ $textmode
 ↙	shigjetë poshtë majtas						// [2199] text|emoji
 ↩	shigjetë djathtas e përkulur majtas				// [21A9] text|emoji
 ↪	shigjeta majtas me hark djathtas				// [21AA] text|emoji
+
+// 2200..22FF : Mathematical Operators
+
+//∂	delta								// [2202] other (no translation)
+//∑	sum sign							// [2211] other (no translation)
+//−	minus								// [2212] other (no translation)
+//∗	asterisk							// [2217] other (no translation)
+//√	square root							// [221A] other (no translation)
+//∛	cube root							// [221B] other (no translation)
+//∝	proportional to							// [221D] other (no translation)
+//∞	infinity							// [221E] other (no translation)
+//∫	integral							// [222B] other (no translation)
+//∬	double integral							// [222C] other (no translation)
+//∴	therefore							// [2234] other (no translation)
+//∵	because								// [2235] other (no translation)
+//≈	approximately							// [2248] other (no translation)
+//≠	not equal to							// [2260] other (no translation)
+//≡	identical to							// [2261] other (no translation)
+//≤	less or equal to						// [2264] other (no translation)
+//≥	greater or equal to						// [2265] other (no translation)
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -62,10 +130,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
+//■	black square							// [25A0] other (no translation)
 ▪	katror i vogël i zi						// [25AA] text|emoji
 ▫	katror i vogël i bardhë						// [25AB] text|emoji
 ▶	butoni i luajtjes						// [25B6] text|emoji
 ◀	butoni i kthimit prapa						// [25C0] text|emoji
+//●	black circle							// [25CF] other (no translation)
 ◻	katror mesatar i bardhë						// [25FB] text|emoji
 ◼	katror mesatar i zi						// [25FC] text|emoji
 ◽	katror mesatarisht i vogël i bardhë				// [25FD]
@@ -113,6 +183,8 @@ $textmode
 ♥	figurë kupë							// [2665] text|emoji
 ♦	figurë karo							// [2666] text|emoji
 ♨	llixhë								// [2668] text|emoji
+//♭	flat								// [266D] other (no translation)
+//♯	sharp								// [266F] other (no translation)
 ♻	simboli i riciklimit						// [267B] text|emoji
 ♿	karrocë me rrota						// [267F]
 ⚒	çekiç dhe kazmë							// [2692] text|emoji
@@ -223,8 +295,8 @@ $textmode
 🅿	butoni «P»							// [1F17F] text|emoji
 🆎	butoni «AB»							// [1F18E]
 🆑	butoni «CL»							// [1F191]
-🆒	butoni i freskisë «COOL»					// [1F192]
-🆓	butoni i lirimit «FREE»						// [1F193]
+🆒	butoni «COOL»							// [1F192]
+🆓	butoni «FREE»							// [1F193]
 🆔	butoni «ID»							// [1F194]
 🆕	butoni «NEW»							// [1F195]
 🆖	butoni «NG»							// [1F196]
@@ -369,7 +441,7 @@ $textmode
 🍫	çokollatë							// [1F36B]
 🍬	ëmbëlsirë							// [1F36C]
 🍭	lëpirëse							// [1F36D]
-🍮	krem karamel							// [1F36E]
+🍮	krem-karamel							// [1F36E]
 🍯	vazo me mjaltë							// [1F36F]
 🍰	kek i shkrifët							// [1F370]
 🍱	kuti bento							// [1F371]
@@ -1244,7 +1316,7 @@ $textmode
 🇧🇭	Bahrejn								// [1F1E7 1F1ED] BH
 🇧🇮	Burundi								// [1F1E7 1F1EE] BI
 🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Shën Bartolomeu							// [1F1E7 1F1F1] BL
+🇧🇱	Shën-Bartolome							// [1F1E7 1F1F1] BL
 🇧🇲	Bermudë								// [1F1E7 1F1F2] BM
 🇧🇳	Brunei								// [1F1E7 1F1F3] BN
 🇧🇴	Bolivi								// [1F1E7 1F1F4] BO
@@ -1318,7 +1390,7 @@ $textmode
 🇬🇼	Guine-Bisau							// [1F1EC 1F1FC] GW
 🇬🇾	Guajanë								// [1F1EC 1F1FE] GY
 🇭🇰	RPA i Hong-Kongut						// [1F1ED 1F1F0] HK
-🇭🇲	Ishulli Hërd dhe Ishujt Mekdonald				// [1F1ED 1F1F2] HM
+🇭🇲	Ishujt Hërd e Mekdonald						// [1F1ED 1F1F2] HM
 🇭🇳	Honduras							// [1F1ED 1F1F3] HN
 🇭🇷	Kroaci								// [1F1ED 1F1F7] HR
 🇭🇹	Haiti								// [1F1ED 1F1F9] HT
@@ -1403,7 +1475,7 @@ $textmode
 🇵🇭	Filipine							// [1F1F5 1F1ED] PH
 🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
 🇵🇱	Poloni								// [1F1F5 1F1F1] PL
-🇵🇲	Shën Pier dhe Mikelon						// [1F1F5 1F1F2] PM
+🇵🇲	Shën-Pier dhe Mikelon						// [1F1F5 1F1F2] PM
 🇵🇳	Ishujt Pitkern							// [1F1F5 1F1F3] PN
 🇵🇷	Porto-Riko							// [1F1F5 1F1F7] PR
 🇵🇸	Territoret Palestineze						// [1F1F5 1F1F8] PS
@@ -1424,7 +1496,7 @@ $textmode
 🇸🇬	Singapor							// [1F1F8 1F1EC] SG
 🇸🇭	Shën-Helenë							// [1F1F8 1F1ED] SH
 🇸🇮	Slloveni							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard dhe Jan-Majen						// [1F1F8 1F1EF] SJ
+🇸🇯	Svalbard e Jan-Majen						// [1F1F8 1F1EF] SJ
 🇸🇰	Sllovaki							// [1F1F8 1F1F0] SK
 🇸🇱	Siera-Leone							// [1F1F8 1F1F1] SL
 🇸🇲	San-Marino							// [1F1F8 1F1F2] SM
@@ -1432,7 +1504,7 @@ $textmode
 🇸🇴	Somali								// [1F1F8 1F1F4] SO
 🇸🇷	Surinami							// [1F1F8 1F1F7] SR
 🇸🇸	Sudani i Jugut							// [1F1F8 1F1F8] SS
-🇸🇹	Sao Tome dhe Principe						// [1F1F8 1F1F9] ST
+🇸🇹	Sao-Tome e Principe						// [1F1F8 1F1F9] ST
 🇸🇻	Salvador							// [1F1F8 1F1FB] SV
 🇸🇽	Sint-Marten							// [1F1F8 1F1FD] SX
 🇸🇾	Siri								// [1F1F8 1F1FE] SY
@@ -1479,9 +1551,9 @@ $textmode
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F] (no translation)
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F] (no translation)
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F] (no translation)
+//🏴󠁧󠁢󠁥󠁮󠁧󠁿	england							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F] (no translation)
+//🏴󠁧󠁢󠁳󠁣󠁴󠁿	scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F] (no translation)
+//🏴󠁧󠁢󠁷󠁬󠁳󠁿	wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F] (no translation)
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1668,9 +1740,9 @@ $textmode
 👁‍🗨	sy në flluskën e të folurit				// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 9.0.0 [http://www.unicode.org/Public/9.0.0/ucd/]
+//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
 //   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 31.0.1 [http://cldr.unicode.org/index/downloads/cldr-31]
+//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

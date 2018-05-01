@@ -33,6 +33,13 @@ documentation:
 *  document the X-SAMPA phoneme transcription scheme.
 *  document the Conlang X-SAMPA phoneme transcription scheme.
 
+emoji:
+
+*  Update the emoji translations to CLDR 33.
+*  gd (Scottish Gaelic)
+*  sd (Sindhi)
+*  yue (Chinese (Cantonese))
+
 new languages:
 
 *  hak (Hakka Chinese) -- Chen Chien-ting
@@ -41,6 +48,7 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  de (German) -- Reece Dunn, Karl Eick
 *  en (English) -- Reece Dunn
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  fi (Finnish) -- Juho Hiltunen

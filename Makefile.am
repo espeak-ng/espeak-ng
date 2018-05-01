@@ -618,7 +618,7 @@ ga: espeak-ng-data/ga_dict
 espeak-ng-data/ga_dict: dictsource/ga_list dictsource/ga_rules dictsource/ga_extra dictsource/ga_emoji
 
 gd: espeak-ng-data/gd_dict
-espeak-ng-data/gd_dict: dictsource/gd_list dictsource/gd_rules dictsource/gd_extra
+espeak-ng-data/gd_dict: dictsource/gd_list dictsource/gd_rules dictsource/gd_extra dictsource/gd_emoji
 
 gn: espeak-ng-data/gn_dict
 espeak-ng-data/gn_dict: dictsource/gn_list dictsource/gn_rules dictsource/gn_extra
@@ -756,7 +756,7 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 endif
 
 sd: espeak-ng-data/sd_dict
-espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra
+espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
 
 si: espeak-ng-data/si_dict
 espeak-ng-data/si_dict: dictsource/si_list dictsource/si_rules dictsource/si_extra dictsource/si_emoji
@@ -821,11 +821,19 @@ zhy: espeak-ng-data/zhy_dict
 dictsource/zhy_list:
 	ln -svf extra/zhy_list dictsource/
 if HAVE_ZHY_EXTENDED_DICTIONARY
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list
+espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list dictsource/zhy_emoji
 else
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra
+espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
+
+dictsource/zhy_emoji:
+	@echo "  EMOJI     $@"
+	@if test x"${CLDR_PATH}" = x ; then \
+		touch $@ ; \
+	else \
+		tools/emoji dictsource/en_emoji yue ${CLDR_PATH} > $@ ; \
+	fi
 
 ##### mbrola:
 

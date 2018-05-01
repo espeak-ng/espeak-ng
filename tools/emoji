@@ -76,13 +76,15 @@ cldr_path = sys.argv[3]
 
 filenames = [
     os.path.join(cldr_path, "common", "annotations", "{0}.xml".format(lang)),
-    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang))
+    os.path.join(cldr_path, "common", "annotationsDerived", "{0}.xml".format(lang)),
+    os.path.join("data", "annotationsEspeak", "{0}.xml".format(lang))
 ]
 
 annotations = {}
 for filename in filenames:
-    for cp, name in read_annotations(filename):
-        annotations[cp] = name
+    if os.path.exists(filename):
+        for cp, name in read_annotations(filename):
+            annotations[cp] = name
 
 for entry in read_emoji(emoji_dict):
     if isinstance(entry, Emoji):
@@ -100,6 +102,7 @@ for entry in read_emoji(emoji_dict):
             entry.pronunciation = "\t{0}{1}".format(translation, "\t"*int(new_tabs))
         else:
             entry.comment += " (no translation)"
+            entry = "//{0}".format(entry)
     elif entry == "// Emoji and Other Symbol pronunciations for English":
         langname = find_langname(lang)
         entry = "// Emoji and Other Symbol pronunciations for {0}".format(langname)

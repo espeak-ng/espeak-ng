@@ -1,4 +1,4 @@
-
+﻿
 // ***************************************************************************
 // *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -22,6 +22,12 @@
 .L02 c f h k p q s t z // unvoiced, except s+vowel
 .L03 a ä
 .L04 o ö
+
+// Hours
+.L05 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+
+// Minutes
+.L06 0 1 2 3 4 5
 
 
 // This file is UTF-8 encoded
@@ -180,7 +186,6 @@
      _) beige (_   be:S
      _) beige (@   baIg@
      _) be (inhP2  b@
-     _) beo (b     b,@o:
 
      _) ba (lA     b%a
      _) ba (ll@    b%a
@@ -199,6 +204,7 @@
      _) b (esen    b
      _) b (ess     b
      _) b (esten   b
+        bestem	bEst@m
         bestia     bEsti:'A:
      _) b (eug     b
      _) b (eul     b
@@ -208,16 +214,18 @@
         baby       _^_EN
         beten      be:t@n
      _) bike       _^_EN
+        binde	bInd@ // for compound words, EG. Bindestrich
      _) bis (hP3   b%Is
      _) blue       _^_EN
         board      _^_EN
      _) boom       _^_EN
         bo (sh     bo:
+        buchstab	bu:xStA:b
      _) bundes     b'Und@s
 
 
 .group c
-     _) c (_       se:
+     _) c (_       tse:
      _) c (L01A    k  // allow cl cr  at start of word
         c          k
      c) c 
@@ -357,7 +365,7 @@
         eb (t_     e:p
         eg (t_     e:k
 
-        een (_     'e:n-
+        een (_     'e:@n
         ell (_     'El
     ll) e (l       e:
      &) e (_S1     @
@@ -503,7 +511,7 @@
      _) farb (l@P4 f'arb
      _) farc       fars
      _) fein (@P4  f'aIn
-     _) fertig (C@P6 f'ErtiC
+     _) fertig (C@P6 f'ErtIC
      _) fest (@P4  f'Est
      _) flug       fl'u:g
         foto       fo:to:
@@ -552,6 +560,7 @@
      _) ge (beX    ge:
         geben      ge:b@n
         gebirge (_S7  g@bIrg@
+        gedulds    %g@dUlts
      _) gegen (@P5 ge:g@n
         gegen      ge:g@n
         gegn       ge:gn
@@ -565,10 +574,11 @@
      _) ge (nK     gE
      _) ge (L01K   gE
         ge (tr     g@
-        general    ge:nEr'al
+        general    ge:n@r'A:l
         general (is ge:n@ral
      _) ge (ner    gE
      _) geo        g,e:o:
+     _) geo (pf    g@'O
      _) ge (orP2   g@
      _) ge (org    g%e:
         ge (rman   gE
@@ -606,7 +616,6 @@
      _) hinüber (P7 hIn'y:b3
      _) hinum (P5  hIn'Um
      _) hinunter (P8 hIn'Unt3
-     _) hinweg (P6 hInv'e:g
      _) hinzu (P5  hInts'u:
 
      _) hinge (@P5 h'Ing@
@@ -654,8 +663,8 @@
 
         i (i       i:_!
 
+        ik (_      Ik
      s) ik (_      'i:k
-    @r) ik (_      Ik
     br) ik (_      'i:k
     @t) ik (_      =i:k
  polit) ik         'i:k
@@ -865,10 +874,11 @@ formal) ie         =I@
         neglig     ne:gli:Z
         neglige    ne:gli:Z
      &) ness (_N   _^_EN
-        news       _^_EN
+        new        _^_EN
         nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
+        nuance     ny:'A~s@
 
 .group o
      _) o (_       o:
@@ -908,7 +918,7 @@ formal) ie         =I@
     @A) o (n_      'o:
         one (_     'o:n@
         onen (_    'o:n@n
-  zitr) on         'on
+  zitr) on         'o:n
      @) oo (_      u:
      r) oo (m      u:
      z) oo (m      u:
@@ -1060,9 +1070,11 @@ formal) ie         =I@
         ste (ll    StE
      a) ste (ll    stE
         st (ah     St
+        st (art    St
         st (ä      St
         st (eh     St
         st (ö      St
+        st (rich   St
         st (ü      St
         st (uh     St
         st (ung    st
@@ -1086,6 +1098,7 @@ formal) ie         =I@
      _) schul (d   S'Ul
 
         schwer     Sve:r
+        screen     _^_EN
      _) sechs (P5  z'Eks
         seku (nden ze:k'U
      _) selbst (@@P6 z'Elpst
@@ -1094,6 +1107,7 @@ formal) ie         =I@
      _) sky        _^_EN
         soldat     z%OldA:t
      &) so (rt_    s_|O
+        summe      zUm@
 
         speed      _^_EN
   stau) ss         s
@@ -1156,14 +1170,15 @@ formal) ie         =I@
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
+        touch      _^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
    _pa) th         t
         the (era   te:
      _) tief (@P4  t'i:f
-     @) tient (_   tsI'Ent
-     @) tion       tsI,o:n
-     @) tion (_    tsI'o:n
+     @) tient (_   tsj'Ent
+     @) tion       tsj,o:n
+     @) tion (_    tsj'o:n
      _) trail      _^_EN
      _) tranqu     _^_EN
         traver     tr%avEr
@@ -1315,7 +1330,7 @@ formal) ie         =I@
      _) voraus (P6 fo:r'aUs
      _) vorbei (P6 fo:r'baI
      _) vorher (P6 fo:rh'e:r
-     _) vorüber (P7 fo:r'yb3
+     _) vorüber (P7 fo:r'y:b3
 
 
 .group w
@@ -1330,7 +1345,6 @@ formal) ie         =I@
      &) ware (_    _^_EN
      _) wasch (@P5 v'aS
      _) wasser (@P6 v'as@r
-     _) weg (C@P3  v'e:k
      _) weit (C@P4 v'aIt
      _) weiter (@P6 v'aIt@r
      _) weither    vaIthe:r
@@ -1371,6 +1385,7 @@ formal) ie         =I@
      _) zere (m    tse:re:
         ziell      tsj'El
      _) zie (ge@P3 ts'i:
+        zitat      tsi:t'A:t
      _) zeit (@P4  ts'aIt
      _) ziel (@P4  ts'i:l
      _) zier (@P4  ts'i:r
@@ -1428,6 +1443,7 @@ formal) ie         =I@
      _) über (@P4  _|,y:b3
      _) über (be@P4 _!'y:b3
      _) über (gangs y:b3
+        übrig      y:brIg#
 
 
 .group ß
@@ -1453,3 +1469,4 @@ formal) ie         =I@
     D_) - (_D      StrIC
      _) - (_D      _
 
+ _L05_) : (_L06D_  %u:r // Say time

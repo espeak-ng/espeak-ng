@@ -2216,7 +2216,7 @@ _it_separ) ate (_  @t
      _) ego        i:goU
      _) ego (t     Eg@
      n) e (got     I#
-   int) e (gra     I
+   int) e (gra     I#
      n) e (gro     i:
      &) eg (y      @dZ
         egy (pt    i:dZI
@@ -2784,6 +2784,7 @@ _it_separ) ate (_  @t
 ?!3 _d) er (b      A@
      &) er (A      3r
      @) er (o_     'e@r
+   num) er (o_     @
    osp) er (o_     %3r
         eri (A     'i@3r%i
         eria (_$w_alt1 @r'i@
@@ -4047,9 +4048,9 @@ hiccup) ing (_S3   %IN
    CAt) it (_      'i:t      //apetite
      v) it (al     aIt
      t) it (l      aIt
-     &) ity (_     =I2t%i
-    &d) ity (_S3   =I2t%i
-   Xud) ity (_     =I2t%i
+     &) ity (_     =I#t%i
+    &d) ity (_S3   =I#t%i
+   Xud) ity (_     =I#t%i
    orb) it         It
     @@) it (an_    =It
 ?3   &) itary (_   @tEr%i    // military

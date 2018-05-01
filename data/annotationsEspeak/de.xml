@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright © 2018 Reece H. Dunn
+
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+These espeak-ng data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="1"/>
+		<language type="de"/>
+	</identity>
+	<annotations>
+		<annotation cp="£" type="tts">Pfund</annotation> <!-- U+00A3 -->
+		<annotation cp="°" type="tts">Grad</annotation> <!-- U+00B0 -->
+		<annotation cp="±" type="tts">plus minus</annotation> <!-- U+00B1 -->
+		<annotation cp="€" type="tts">Euro</annotation> <!-- U+20AC -->
+	</annotations>
+</ldml>
