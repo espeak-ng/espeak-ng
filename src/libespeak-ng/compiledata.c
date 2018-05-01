@@ -1395,16 +1395,17 @@ static int LoadEnvelope2(FILE *f, const char *fname)
 	unsigned char env[ENV_LEN];
 
 	n_points = 0;
-	fgets(line_buf, sizeof(line_buf), f); // skip first line
-	while (!feof(f)) {
-		if (fgets(line_buf, sizeof(line_buf), f) == NULL)
-			break;
+	if (fgets(line_buf, sizeof(line_buf), f) != NULL) { ; // skip first line, then loop
+		while (!feof(f)) {
+			if (fgets(line_buf, sizeof(line_buf), f) == NULL)
+				break;
 
-		env_lin[n_points] = 0;
-		n = sscanf(line_buf, "%f %f %d", &env_x[n_points], &env_y[n_points], &env_lin[n_points]);
-		if (n >= 2) {
-			env_x[n_points] *= (float)1.28; // convert range 0-100 to 0-128
-			n_points++;
+			env_lin[n_points] = 0;
+			n = sscanf(line_buf, "%f %f %d", &env_x[n_points], &env_y[n_points], &env_lin[n_points]);
+			if (n >= 2) {
+				env_x[n_points] *= (float)1.28; // convert range 0-100 to 0-128
+				n_points++;
+			}
 		}
 	}
 	if (n_points > 0) {
