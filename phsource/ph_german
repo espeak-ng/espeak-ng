@@ -163,7 +163,7 @@ endphoneme
 
 
 phoneme EI
-import_phoneme en-us/eI
+  import_phoneme en-us/eI
 endphoneme
 
 
@@ -392,8 +392,8 @@ endphoneme
 
 phoneme W~
   vwl starttype #@ endtype #@
-length 200
-FMT(vnasal/W_n)
+  length 200
+  FMT(vnasal/W_n)
 endphoneme
 
 
@@ -459,7 +459,7 @@ phoneme k
     WAV(ustop/k_)
   ELIF nextPh(r) THEN
     WAV(ustop/k, 70)
-ELIF nextPh(R) OR nextPh(R2) THEN
+  ELIF nextPh(R) OR nextPh(R2) THEN
     WAV(ustop/k_)
   ELIF nextPh(i:) OR nextPh(;) THEN
     WAV(ustop/ki)

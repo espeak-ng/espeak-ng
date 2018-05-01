@@ -560,7 +560,7 @@
      _) ge (beX    ge:
         geben      ge:b@n
         gebirge (_S7  g@bIrg@
-        gedulds	%g@dUlts
+        gedulds    %g@dUlts
      _) gegen (@P5 ge:g@n
         gegen      ge:g@n
         gegn       ge:gn
@@ -578,7 +578,7 @@
         general (is ge:n@ral
      _) ge (ner    gE
      _) geo        g,e:o:
-     _) geo (pf	g@'O
+     _) geo (pf    g@'O
      _) ge (orP2   g@
      _) ge (org    g%e:
         ge (rman   gE
@@ -663,9 +663,8 @@
 
         i (i       i:_!
 
-ik (_	Ik
+        ik (_      Ik
      s) ik (_      'i:k
-    @r) ik (_      Ik
     br) ik (_      'i:k
     @t) ik (_      =i:k
  polit) ik         'i:k
@@ -875,11 +874,11 @@ formal) ie         =I@
         neglig     ne:gli:Z
         neglige    ne:gli:Z
      &) ness (_N   _^_EN
-        new       _^_EN
+        new        _^_EN
         nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
-        nuance	ny:'A~s@
+        nuance     ny:'A~s@
 
 .group o
      _) o (_       o:
@@ -1071,11 +1070,11 @@ formal) ie         =I@
         ste (ll    StE
      a) ste (ll    stE
         st (ah     St
-        st (art     St
+        st (art    St
         st (ä      St
         st (eh     St
         st (ö      St
-        st (rich	St
+        st (rich   St
         st (ü      St
         st (uh     St
         st (ung    st
@@ -1099,7 +1098,7 @@ formal) ie         =I@
      _) schul (d   S'Ul
 
         schwer     Sve:r
-screen	_^_EN
+        screen     _^_EN
      _) sechs (P5  z'Eks
         seku (nden ze:k'U
      _) selbst (@@P6 z'Elpst
@@ -1108,7 +1107,7 @@ screen	_^_EN
      _) sky        _^_EN
         soldat     z%OldA:t
      &) so (rt_    s_|O
-        summe	zUm@
+        summe      zUm@
 
         speed      _^_EN
   stau) ss         s
@@ -1171,7 +1170,7 @@ screen	_^_EN
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
-        touch	_^_EN
+        touch      _^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
    _pa) th         t
@@ -1386,7 +1385,7 @@ screen	_^_EN
      _) zere (m    tse:re:
         ziell      tsj'El
      _) zie (ge@P3 ts'i:
-        zitat	tsi:t'A:t
+        zitat      tsi:t'A:t
      _) zeit (@P4  ts'aIt
      _) ziel (@P4  ts'i:l
      _) zier (@P4  ts'i:r
@@ -1444,7 +1443,7 @@ screen	_^_EN
      _) über (@P4  _|,y:b3
      _) über (be@P4 _!'y:b3
      _) über (gangs y:b3
-        übrig	y:brIg#
+        übrig      y:brIg#
 
 
 .group ß
@@ -1470,4 +1469,4 @@ screen	_^_EN
     D_) - (_D      StrIC
      _) - (_D      _
 
-_L05_)	: (_L06D_	%u:r	// Say time
+ _L05_) : (_L06D_  %u:r // Say time
