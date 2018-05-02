@@ -1,0 +1,60 @@
+﻿// This file in UTF8 encoded
+
+// numbers
+_0      zero
+_1      youn
+_2      de
+_3      twa
+_4      kat
+_5      senk
+_6      sis
+_7      set
+_8      uit
+_9      nef
+_10     dis
+_11 	onz
+_12 	douz
+_13 	trez
+_14 	katoz
+_15 	kenz
+_16 	sez
+_17 	diset
+_18 	dizuit
+_19 	diznef
+_20 	ven
+_21 	venteyen
+_22 	vennde
+_23 	venntwa
+_24 	vennkat
+_25 	vennsenk
+_26 	vennsis
+_27 	vennset
+_28 	ventuit
+_29 	ventnef
+_30 	trant
+_40 	karan
+_50 	senkant
+_60 	swasant
+_70 	swasanndis
+// TODO proper names for following numbers should be set
+_80     katr@vE~z2
+_0C     sA~
+_1C0    sA~t2
+_0M1    mil
+_1M1    mil
+_0M2    miljO~
+_0M3    miljar
+_0and   e
+_dpt    virgyl
+_roman  rom'E~
+
+// Unstressed words
+
+// Pronouns
+mwen   $u
+ou     $u
+li     $u
+nou    $u
+yo     $u
+
+// TODO other unstressed words should be added here

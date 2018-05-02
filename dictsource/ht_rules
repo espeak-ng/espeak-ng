@@ -1,0 +1,103 @@
+// Haitian Creole rules for Espeak
+// This file is UTF-8 encoded
+
+.group a
+         a         a
+
+.group ã
+         ã         a
+
+.group b
+         b         b
+
+.group c
+         c         s
+         c (h      S
+
+.group d
+         d         d
+
+.group e
+         e         e
+
+.group è
+         è         e
+
+.group ɛ̃
+         ɛ̃         e
+
+.group f
+         f         f
+
+.group g
+         g         g
+
+.group h
+         h         h
+
+.group i
+         i         i
+
+.group j
+         j         j
+      d) j         dZ
+
+.group k
+         k         k
+
+.group l
+         l         l
+
+.group m
+         m         m
+
+.group n
+         n         n
+         n (g      N
+
+.group o
+         o         o
+         o (u      ou
+
+.group ò
+         ò         o
+
+.group õ
+         õ         o
+
+.group p
+         p         p
+
+.group q
+         q         k
+
+.group r
+         r         h
+
+.group s
+         s         s
+
+.group t
+         t         t
+
+.group u
+         u         u
+
+.group ũ
+         ũ         u
+
+.group v
+         v         v
+
+.group w
+         w         w
+
+.group x
+         x         ks
+
+.group y
+         y         j
+
+.group z
+         z         z
+
