@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 100 supported languages and accents are:
+The 102 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -59,6 +59,7 @@ The 100 supported languages and accents are:
 | `esx`       | `kl`              | Eskimo-Aleut          | Greenlandic                 |                        |
 | `sai`       | `gn`              | South American Indian | Guarani                     |                        |
 | `inc`       | `gu`              | Indic                 | Gujarati                    |                        |
+| `roa`       | `ht`              | Romance               | Hatian Creole               |                        |
 | `inc`       | `hi`              | Indic                 | Hindi                       |                        |
 | `urj`       | `hu`              | Uralic                | Hungarian                   |                        |
 | `gmq`       | `is`              | North Germanic        | Icelandic                   |                        |
