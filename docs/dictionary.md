@@ -119,27 +119,35 @@ and then the single-letter group. The highest scoring rule in either of
 those two groups is used.
 
 `~` Letter in letter group means, that there can be no letter in this group 
-    at the beginning or end of the word.
+    in the pre- or post- rule.
 
-_For example:_
+_Example with prerule group:_
 
 ```
 .L01 ~ b c
-
 .group a
   L01) a      i  // A
-       a (L01 u  // B
 ```
 following rules will match for words:
 
-|Word |Match|Spelling|
-|-----|-----|--------|
-|base |A    |bise    |
-|case |A    |cise    |
-|ace  |A    |ice     |
-|tab  |B    |tub     |
-|mac  |B    |tuc     |
-|tea  |B    |teu     |
+|Word |Phonetic spelling|
+|-----|-----------------|
+|base |bice             |
+|case |cice             |
+|ace  |ice              |
+
+_Example with postrule group:_
+
+```
+.L01 ~ b c
+.group a
+       a (L01 u
+```
+|Word |Phonetic spelling|
+|-----|-----------------|
+|tab  |tub              |
+|mac  |muc              |
+|tea  |teu              |
 
 ### Rules
 
