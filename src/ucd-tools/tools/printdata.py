@@ -79,10 +79,7 @@ def isblank(data): # word separator
 		return 0
 
 def ispunct(data):
-	if data.get('GeneralCategory', 'Cn')[0] in 'P':
-		return 1
-	else:
-		return 0
+	return 1 if isgraph(data) and not isalnum(data) else 0
 
 def isprint(data):
 	if data.get('GeneralCategory', 'Cn')[0] in 'LMNPSZ': # not in 'CI'

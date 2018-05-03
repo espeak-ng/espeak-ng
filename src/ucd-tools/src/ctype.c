@@ -1,6 +1,6 @@
 /* ctype-style APIs.
  *
- * Copyright (C) 2012-2017 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -151,19 +151,7 @@ int ucd_isprint(codepoint_t c)
 
 int ucd_ispunct(codepoint_t c)
 {
-	switch (ucd_lookup_category(c))
-	{
-	case UCD_CATEGORY_Pc:
-	case UCD_CATEGORY_Pd:
-	case UCD_CATEGORY_Pe:
-	case UCD_CATEGORY_Pf:
-	case UCD_CATEGORY_Pi:
-	case UCD_CATEGORY_Po:
-	case UCD_CATEGORY_Ps:
-		return 1;
-	default:
-		return 0;
-	}
+	return ucd_isgraph(c) && !ucd_isalnum(c);
 }
 
 int ucd_isspace(codepoint_t c)
