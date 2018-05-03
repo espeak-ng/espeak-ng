@@ -421,7 +421,7 @@ static int parwave(klatt_frame_ptr frame)
 			echo_head = 0;
 
 		sample_count++;
-		if (out_ptr >= out_end)
+		if (out_ptr + 2 > out_end)
 			return 1;
 	}
 	return 0;

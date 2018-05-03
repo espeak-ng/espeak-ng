@@ -889,7 +889,7 @@ static int Wavegen()
 		if (echo_head >= N_ECHO_BUF)
 			echo_head = 0;
 
-		if (out_ptr >= out_end)
+		if (out_ptr + 2 > out_end)
 			return 1;
 	}
 }
@@ -922,7 +922,7 @@ static int PlaySilence(int length, bool resume)
 		if (echo_head >= N_ECHO_BUF)
 			echo_head = 0;
 
-		if (out_ptr >= out_end)
+		if (out_ptr + 2 > out_end)
 			return 1;
 	}
 	return 0;
@@ -975,7 +975,7 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 		if (echo_head >= N_ECHO_BUF)
 			echo_head = 0;
 
-		if (out_ptr >= out_end)
+		if (out_ptr + 2 > out_end)
 			return 1;
 	}
 	return 0;
