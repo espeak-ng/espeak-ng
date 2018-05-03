@@ -1,5 +1,9 @@
 # Change Log
 
+## (In Development)
+
+*  Make the ispunct ctype compatibility implementation conformant.
+
 ## 10.0.0 - 2017-06-25
 
 *  Add `iswblank` and `iswxdigit` compatibility.
