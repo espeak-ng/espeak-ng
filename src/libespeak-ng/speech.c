@@ -123,12 +123,12 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 				if (out_samplerate != 0) {
 					// sound was previously open with a different sample rate
 					audio_object_close(my_audio);
+					out_samplerate = 0;
 #ifdef HAVE_SLEEP
 					sleep(1);
 #endif
 				}
 #endif
-				out_samplerate = voice_samplerate;
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 				int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
 				if (error != 0) {
@@ -137,12 +137,25 @@ static int dispatch_audio(short *outbuf, int length, espeak_EVENT *event)
 					return -1;
 				}
 #endif
+				out_samplerate = voice_samplerate;
 #ifdef USE_ASYNC
 				if ((my_mode & ENOUTPUT_MODE_SYNCHRONOUS) == 0)
 					event_init();
 #endif
 			}
 		}
+
+#ifdef HAVE_PCAUDIOLIB_AUDIO_H
+		if (out_samplerate == 0) {
+			int error = audio_object_open(my_audio, AUDIO_OBJECT_FORMAT_S16LE, voice_samplerate, 1);
+			if (error != 0) {
+				fprintf(stderr, "error: %s\n", audio_object_strerror(my_audio, error));
+				err = ENS_AUDIO_ERROR;
+				return -1;
+			}
+			out_samplerate = voice_samplerate;
+		}
+#endif
 
 #ifdef HAVE_PCAUDIOLIB_AUDIO_H
 		if (outbuf && length && a_wave_can_be_played) {
