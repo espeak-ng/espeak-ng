@@ -200,7 +200,9 @@
      _) b (eet     b
      _) b (enzin   b
      _) b (erC     b
+        be (recht  b@
         be (reich  b@
+        be (richt	b@
      _) b (esen    b
      _) b (ess     b
      _) b (esten   b
@@ -326,6 +328,7 @@
         design (_  d%IzaIn
         dge (_     _^_EN
      _) dia        d,i:a
+        dialog	di:al'o:k
      _) diver      d%i:vEr
      _) dort (C@P4 d'Ort
         drive      _^_EN
@@ -360,10 +363,10 @@
         ei         aI
         eu         OY
         ey         aI
-        ey (_      e:
 
         eb (t_     e:p
         eg (t_     e:k
+        eth	e:t
 
         een (_     'e:@n
         ell (_     'El
@@ -545,10 +548,13 @@
      _) g (eHC     g         //  hC, lC, mC, nC, rC
 
  massa) g          Z
+        gabe	gA:b@
+        gehr	ge:r
      @) ght (_     _^_EN
         graph      grAf
         graph (_   gr'A:f
         green      _^_EN
+        groß	gro:s
         guide      _^_EN
         gue (_     k
      _) güte (@P4  g'y:t@
@@ -864,7 +870,6 @@ formal) ie         =I@
         nk (A      nk
     fu) nk         Nk
 
-     _) natur (C@P5  nA:t'u:r
      _) na (tür    n%A:
         nce (_     _^_EN
         nces (_    _^_EN
@@ -874,6 +879,7 @@ formal) ie         =I@
      _) ne (g      ne:
         neglig     ne:gli:Z
         neglige    ne:gli:Z
+        nese (_	n'e:z@
      &) ness (_N   _^_EN
         new       _^_EN
         nieder     ni:d3
@@ -950,6 +956,7 @@ formal) ie         =I@
      _) p (tol     p
 
         pake (t    p%ake:
+        papier	pap'i:r
      _) para (@    p,ara
         passagie   pasaZ'i:
      _) peri       p,e:ri:
@@ -957,10 +964,12 @@ formal) ie         =I@
      _) periphe    p,e:ri:fe:
      _) personen (@P8 pErz'o:n@n
         person     p%Erzo:n
+        persön     p%ErzY:n
         philie     f'i:li:
      _) photo      f,o:to:
      _) pro (@     %pro:
      _) probe      pro:b@
+        prüf	pry:f
 
         po (em     p%o:
         po (et     p%o:
@@ -1077,6 +1086,7 @@ formal) ie         =I@
         st (ö      St
         st (rich	St
         st (ü      St
+        st (uf	St
         st (uh     St
         st (ung    st
 
@@ -1171,6 +1181,8 @@ screen	_^_EN
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
+        these	t'e:z@
+        sprachsyn) these	t,e:z@
         touch	_^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
@@ -1204,6 +1216,7 @@ screen	_^_EN
 
         ub (t_     u:p
         ug (t_     u:k
+        ur (_	'u:r
 
      _) ueber (@P5 _|,y:b3
      _) um (@P2    Um
