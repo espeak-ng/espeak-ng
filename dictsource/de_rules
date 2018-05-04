@@ -537,7 +537,7 @@
         g (sA      g
         gd (_N     kt
      _) gh (A      g
-     _) g (nA      g  // allow _gn
+     _) g (nA      g@-  // allow _gn
      B) gn (A      gn
 
      i) gt (_      Ct
