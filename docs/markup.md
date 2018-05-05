@@ -22,6 +22,8 @@
 
 ## SSML (Speech Synthesis Markup Language)
 
+SSML consists of XML-like tags, for example: `Did you mean the <emphasis level="strong"><prosody pitch="75">green</prosody></emphasis> beans?`
+
 The following markup tags and attributes are recognised:
 
 ### speak
@@ -39,10 +41,10 @@ The following markup tags and attributes are recognised:
 
 ### prosody
 
-*   rate
-*   volume
-*   pitch
-*   range
+*   rate (`x-slow`, `slow`, `medium`, `fast`, `x-fast` or a percentage such as `125%`)
+*   volume (`silent`, `x-soft`, `soft`, `medium`, `loud`, `x-loud`, `+1dB` or `-1dB`)
+*   pitch (a number, for example "75")
+*   range (`default`, `x-low`, `low`, `medium`, `high`, `x-high`)
 
 ### say-as
 
@@ -79,7 +81,7 @@ The following markup tags and attributes are recognised:
 
 ### emphasis
 
-*   level
+*   level (`none`, `reduced`, `moderate`, `strong` or `x-strong`)
 
 ### break
 
