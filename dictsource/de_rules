@@ -128,8 +128,8 @@
      g) al (_      'A:l
      k) al (_      'A:l
      n) al (_      'A:l
-  &kan) al (_      ,A:l
- &sign) al (_      ,A:l
+   kan) al (_      ,A:l
+  sign) al (_      'A:l
      r) al (_      'A:l
      t) al (_      'A:l
      _) aller (@P5 'al@r
@@ -1009,6 +1009,7 @@ formal) ie         =I@
 
         rangier    rA:NZ'i:r
      _) re (d      re:
+        register	re:g'Ist@r
         ressourc   rEs'Urs
         revers     r%e:vErs
 
@@ -1214,7 +1215,7 @@ formal) ie         =I@
 
         ub (t_     u:p
         ug (t_     u:k
-
+        ur (_	'u:r
      _) ueber (@P5 _|,y:b3
      _) um (@P2    Um
      _) umbe (@P4  'Umb@
