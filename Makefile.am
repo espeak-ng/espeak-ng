@@ -77,7 +77,8 @@ distclean-local:
 SUFFIXES=.html .md .ronn .check .test
 
 .md.html: _layouts/webpage.html
-	cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
+	@echo "  MD        $@"
+	@cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
 		kramdown --template _layouts/webpage.html > $@
 
 .ronn.html:
