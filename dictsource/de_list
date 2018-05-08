@@ -270,7 +270,7 @@ nach		nA:x	$u+ $brk
 neben			$u+ $brk
 ob		,Ob	$pause $strend $only
 per		pEr	$u+ $brk
-pro		,pro:	$pause
+pro		pro:
 von		fOn	$u+ $brk
 //(von dem)	%fOn%de:m	$brk
 vom		fOm	$u+ $brk
@@ -288,7 +288,7 @@ während		$pause
 // misc
 so		zo:	$u+
 doch		dOx	$u+
-noch			$pause
+noch	$u
 (noch nicht)	n'Ox||n'ICt	$brk
 (nicht mehr)	n'ICt||,me:r
 (nicht mehr)	n,ICt||m'e:r	$atend
@@ -585,6 +585,7 @@ thunderbird		_^_EN
 time		_^_EN
 timer	_^_EN
 to	_^_EN	$only
+tool	_^_EN
 trip		_^_EN
 tuner		_^_EN
 unix		_^_EN
@@ -620,6 +621,7 @@ aneinander	an1aIn'and3
 anomalie         $2
 antik           ant'i:k
 archaik         arC'A:Ik
+archiv	$2
 arie             $alt
 arpeggier       arpEdZ'i:r
 arrangier       araNZ'i:r
