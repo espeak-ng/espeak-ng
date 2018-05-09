@@ -1982,6 +1982,9 @@ include ph_oromo
 phonemetable my base1
 include ph_myanmar
 
+phonemetable sh base1
+include ph_shan
+
 phonemetable gn base1
 include ph_guarani
 

@@ -1,0 +1,42 @@
+//sh_list
+// Shan - ABC
+b	be
+c	se
+d	de
+đ	d@:
+f	E3p
+g	D'e7
+h	ha3t
+j	gi
+k	ka:
+l	El@:2
+m	Em@:2
+n	En@:2
+p	pe
+q	kwi
+r	Ez.@:2
+s	E3s
+t	te
+v	ve
+w	v'ek,E3p
+x	i3c
+z	zE3t
+
+// số - numbers
+_0	suO@n	        // သုၼ်
+_1	n,VN		// ၼိုင်ႈ
+_2	s0N		// သွင်
+_3	s|||A@m		// သၢမ်
+_4	s'i:		// သီႇ
+_5	h,A:		// ႁႃႈ
+_6	hoUk:		// ႁူၵ်း
+_7	sIz:		// ၸိတ်း
+_8	b'Ed:		// ပႅတ်ႇ
+_9	g,aU=		// ၵဝ်ႈ
+_10	siIp:		// သိပ်း
+_11	siIp:_:eIt	// သိပ်းဢႅတ်း
+_20    siIp:_:s0N      // သိပ်းသွင်
+
+
+// từ gốc nước ngoài -common foreign language words
+မ်ႂႇသုင်ၶႃႈ  maI s%uN k,A:

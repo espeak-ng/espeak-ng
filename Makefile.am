@@ -368,6 +368,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_romanian \
 	phsource/ph_russian \
 	phsource/ph_s_gaelic \
+	phsource/ph_shan \
 	phsource/ph_serbian \
 	phsource/ph_setswana \
 	phsource/ph_sinhala \
@@ -520,6 +521,7 @@ dictionaries: \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
+	espeak-ng-data/sh_dict \
 	espeak-ng-data/si_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
@@ -755,6 +757,9 @@ espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_ext
 else
 espeak-ng-data/ru_dict: dictsource/ru_list dictsource/ru_rules dictsource/ru_extra dictsource/ru_emoji
 endif
+
+sd: espeak-ng-data/sd_dict
+espeak-ng-data/sh_dict: dictsource/sh_list dictsource/sh_rules dictsource/sh_extra dictsource/sh_emoji
 
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
