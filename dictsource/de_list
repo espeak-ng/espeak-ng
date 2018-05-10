@@ -270,7 +270,7 @@ nach		nA:x	$u+ $brk
 neben			$u+ $brk
 ob		,Ob	$pause $strend $only
 per		pEr	$u+ $brk
-pro		pro:
+pro		pro:	$u
 von		fOn	$u+ $brk
 //(von dem)	%fOn%de:m	$brk
 vom		fOm	$u+ $brk
@@ -922,6 +922,7 @@ warum		vA:r'Um
 wasserung	vas@rUN    // because -ung isn't marked as a suffix
 weg	v'Ek
 Weg	v'e:g		$capital
+wegen	ve:g@n	$u+
 weither		vaIth'Er
 weitum		vaIt_|'Um
 willkommen	$2
