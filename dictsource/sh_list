@@ -1,5 +1,5 @@
 //sh_list
-// Shan - ABC
+// - ABC
 b	be
 c	se
 d	de
@@ -22,7 +22,7 @@ w	v'ek,E3p
 x	i3c
 z	zE3t
 
-// số - numbers
+// numbers
 _0	suO@n	        // သုၼ်
 _1	n,VN		// ၼိုင်ႈ
 _2	s0N		// သွင်
@@ -34,9 +34,33 @@ _7	sIz:		// ၸိတ်း
 _8	b'Ed:		// ပႅတ်ႇ
 _9	g,aU=		// ၵဝ်ႈ
 _10	siIp:		// သိပ်း
+
+// larger numbers
 _11	siIp:_:eIt	// သိပ်းဢႅတ်း
-_20    siIp:_:s0N      // သိပ်းသွင်
+_12    siIp:_:s0N      // သိပ်းသွင်
+
+// Character names
+ၵ    g’A:
+ၶ    k’A:
+င    @-Ng’A:  // no sound in Eng
+ၸ    j’A:    // no sound in Eng
+သ    s’A:
+ၺ    ny’A:   // no sound in Eng
+တ    d’A:    // no sound in Eng
+ထ    t’A:
+ၼ    n’A:   
+ပ     p’A:    // no sound in Eng
+ၽ    ph’A:   
+ၾ    f’A:
+မ     m’A:
+ယ    y’A:    // no sound in Eng
+ရ     hr’A:   // no sound in Eng - rarely use
+လ    l’A:    
+ဝ     w’A:
+ႁ     h’A:
+ဢ    a’a:
 
 
-// từ gốc nước ngoài -common foreign language words
+// common phrases
 မ်ႂႇသုင်ၶႃႈ  maI s%uN k,A:
+ယူႇတီႈလ်ႂ  ju% d,i: lae
