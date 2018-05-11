@@ -214,6 +214,7 @@
     _o) b (C       p
         baby       _^_EN
         beten      be:t@n
+        bestimm	%b@StIm
      _) bike       _^_EN
         binde	bInd@ // for compound words, EG. Bindestrich
      _) bis (hP3   b%Is
@@ -301,7 +302,7 @@
   soun) d          d
 
      _) dabei (P5  dA:'baI
-     _) dafür (P5  dA:f'yr
+     _) dafür (P5  dA:f'y:r
      _) daher (P5  dA:h'Er
      _) dahin (P5  dA:h'In
      _) dahinter (P8 dA:h'Int3
@@ -318,7 +319,7 @@
      _) davor (P5  dA:f'o:r
      _) dazu (P4   dA:ts'u:
 
-     _) daten (@P5 d'at@n
+     _) daten (@P5 d'A:t@n
      _) deal       _^_EN
      _) de (if     de:
      _) de (ikP2   d%e:
@@ -600,6 +601,7 @@
      h) h 
     ch) h          h
 
+        handbuch	hantbu:x
      _) herab (P5  hEr'ab
      _) heran (P5  hEr'an
      _) herauf (P6 hEr'aUf
@@ -808,6 +810,7 @@ formal) ie         =I@
      _) leben (dig le:b'En
      _) lehr (C@P4 l'e:r
      _) leit (@P4  l'aIt
+        leitung	laItUN
      _) lern (@@P4 l'Ern
      _) lexi (@    lEksi:
      &) lich (_S4  l2IC   // [l2] means devoice previous consonant
@@ -1359,7 +1362,8 @@ formal) ie         =I@
      _) wasch (@P5 v'aS
      _) wasser (@P6 v'as@r
      _) weit (C@P4 v'aIt
-        weiter  v'aIt@r
+     _) weiter (@P6 v'aIt@r
+        weiterung	vaIt@rUN
      _) weither    vaIthe:r
         welch	vElC
         wetter	vEt3
