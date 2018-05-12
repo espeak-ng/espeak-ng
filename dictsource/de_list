@@ -420,8 +420,8 @@ willst		%vIlst $only
 wollen		%vOl@n $only
 wollt		%vOlt
 
-werden		v,Erd@n $strend2
-werde		v,Erd@
+werden		v,Erd@n $strend2	$u
+werde		v,Erd@	$u
 wirst		v,Irst
 wird		v,Ird
 werdet		v,Erd@t
