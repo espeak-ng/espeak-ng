@@ -44,8 +44,6 @@ The 102 supported languages and accents are:
 | `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
-| `ira`       | `fa`              | Iranian               | Persian                     |                        |
-| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[1\]</sup>     |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -77,11 +75,11 @@ The 102 supported languages and accents are:
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova          |                        |
 | `bat`       | `lt`              | Baltic                | Lithuanian                  |                        |
 | `art`       | `jbo`             | Constructed           | Lojban                      |                        |
-| `poz`       | `mi`              | Malayo-Polynesian     | Māori                       |                        |
 | `zls`       | `mk`              | South Slavic          | Macedonian                  |                        |
 | `poz`       | `ms`              | Malayo-Polynesian     | Malay                       |                        |
 | `dra`       | `ml`              | Dravidian             | Malayalam                   |                        |
 | `sem`       | `mt`              | Semitic               | Maltese                     |                        |
+| `poz`       | `mi`              | Malayo-Polynesian     | Māori                       |                        |
 | `inc`       | `mr`              | Indic                 | Marathi                     |                        |
 | `azc`       | `nci`             | Uto-Aztecan           | Nahuatl                     | Classical              |
 | `inc`       | `ne`              | Indic                 | Nepali                      |                        |
@@ -89,6 +87,8 @@ The 102 supported languages and accents are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
+| `ira`       | `fa`              | Iranian               | Persian                     |                        |
+| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[1\]</sup>     |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |

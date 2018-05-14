@@ -138,9 +138,12 @@ static void InitGroups(Translator *tr)
 	memset(tr->groups3, 0, sizeof(tr->groups3));
 
 	p = tr->data_dictrules;
-	while (*p != 0) {
+	// If there are no rules in the dictionary, compile_dictrules will not
+	// write a RULE_GROUP_START (written in the for loop), but will write
+	// a RULE_GROUP_END.
+	if (*p != RULE_GROUP_END) while (*p != 0) {
 		if (*p != RULE_GROUP_START) {
-			fprintf(stderr, "Bad rules data in '%s_dict' at 0x%x\n", dictionary_name, (unsigned int)(p - tr->data_dictrules));
+			fprintf(stderr, "Bad rules data in '%s_dict' at 0x%x (%c)\n", dictionary_name, (unsigned int)(p - tr->data_dictrules), p);
 			break;
 		}
 		p++;

@@ -1512,6 +1512,11 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS;
 		break;
+	case L3('s', 'h', 'n'):
+		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
+		tr->langopts.numbers = 1;
+		break;
 	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
 	case L3('z', 'h', 'y'): // just go to 'zh' case
 	case L('z','h'):
