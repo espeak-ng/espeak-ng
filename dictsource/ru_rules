@@ -122,23 +122,16 @@
 .group е
         е          e
         A) е       je
-//      A) е       jE2
         A) е (_    jI3     //second position
-//      H) е (_    E#
-//      H) е       E2
      бакт) е (р    E%      // бактериальный, антибактериальный, ...
      барт) е (р    E%
-//         е       E3
-//         е (_    I2
         _) е       jI3     //second position
       инт) е (р    E%      // интернет, интернационал, ... ??????????
   компьют) е (р    E%
         т) е (ст   E%
         ъ) е       je
-//      ъ) е       jE2
         ъ) е (_    jI3     //second position
         ь) е       je
-//      ь) е       jE2
         ь) е (_    jI3     //second position
 
 .group ж
@@ -229,8 +222,6 @@
 
 .group о
         о       o
-//      о (B    oj
-//      о (FY   oj
 
 .group п
         п       p
@@ -368,7 +359,6 @@
         ч (ж    dZ;
         ч (з    dZ;
         ч (зY   dZ;
-//Варианты окончаний женских отчеств типа Никитична
   деви) ч (н    S
   коне) ч (но   S
  пустя) ч (н    S
@@ -436,11 +426,9 @@
      _) ю       ju
 
 .group я
-        я       V
-// TODO: in unstressed position it sometimes sounds more like [i] than like [V]
+        я       V       // TODO: in unstressed position it sometimes sounds more like [i] than like [V]
      A) я       ja
      A) я (_    ja      //second position
-//   C) я       ja# ?
      ъ) я       ja
      ъ) я (_    ja      //second position
      ь) я       ja
