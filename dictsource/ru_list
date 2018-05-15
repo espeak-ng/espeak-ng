@@ -91,6 +91,7 @@ _,      zVpit'aja
 
 // particle
 б       by $u         // shortened form of 'бы'
+ж       ZE $u         // same as the particle form
 
 // prepositions
 в       v8 $u         // to,in,at -- TODO: 'f8' before voiceless consonants.
@@ -180,7 +181,8 @@ _в      vE
 д       dE
 е       je
 ё       j8
-ж       ZE // same as the particle form
+_ж      ZE
+ж       ZE  $atend
 з       zE
 и       i
 й       ,i'k@-*'AtkOjI
