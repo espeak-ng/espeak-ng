@@ -89,13 +89,16 @@ _»      z'akr uglof
 *       zvezd'a  $max3
 _,      zVpit'aja
 
+// particle
+б       by $u         // shortened form of 'бы'
+
 // prepositions
-в       v $u         // to,in,at
-для       $u         // for
-на        $u         // on
-от        $u         // from
-с       s $u         // with,from,since
-у       u $u         // by
+в       v8 $u         // to,in,at -- TODO: 'f8' before voiceless consonants.
+для        $u         // for
+на         $u         // on
+от         $u         // from
+с       s8 $u         // with,from,since
+у       u  $u         // by
 
 // conjunctions
 а            $atend
@@ -169,14 +172,15 @@ _,      zVpit'aja
 
 // Cyrillic letter names
 а       a
-б       bE
+_б      bE
+б       bE  $atend
 _в      vE
 в       vE  $atend
 г       gE
 д       dE
 е       je
 ё       j8
-ж       ZE
+ж       ZE // same as the particle form
 з       zE
 и       i
 й       ,i'k@-*'AtkOjI
