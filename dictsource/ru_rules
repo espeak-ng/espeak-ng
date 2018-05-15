@@ -31,30 +31,14 @@
 // Y  iotated vowel, softsign:  ь ю я ё
 
 
-.L11    а ы е ой ою ~ ам ами ах   // suffixes for 1. declination words ending а (e.g. страна, Юра)
-.L12    я и е ю ёй ею ь ям ями ях // suffixes for 1. declination words ending я (e.g. земля, дядя)
-.L13    я и ю ей ею й ям ями ях   // suffixes for 1. declination words ending Aя (e.g. ария) A means vowel
-
-.L21    ~ а у ом е ы ов ам ами ах // suffixes for 2. declination masculine words without ending (e.g. стол)
-.L22    ь я ю ем ём е и ей ями ях // suffixes for 2. declination masculine words without ending (e.g. конь)
-.L23    й я ю ем и ев ям ями ях   // suffixes for 2. declination masculine words with ending й (герой)
-.L24    о а у ом е ам ами ах      // suffixes for 2. declination neuter words with ending о (e.g. окно, note about ок_он_!)
-.L25    е я ю ем ей ям ями ях     // suffixes for 2. declination neuter words with ending е (e.g. поле)
-.L26    е я ю ем и й ям ями ях    // suffixes for 2. declination neuter words with ending Aе (e.g. здание)
-
-.L31    ь и ью ей ам ами ах       // suffixes for 2. declination feminine words without ending (e.g. ночь)
-
-
 .group а
         а       V
      B) а (_    V
      _) а       a
-     _) а (_    a
         а (_    a
 
 .group б
         б       b
-     _) б (_    b@-        // бы/б
         б (Y    b;
         б (_    p
         б (бY   b;
@@ -78,7 +62,6 @@
         в       v
         в (_    f
         в (Y    v;
-     _) в (_    v@-
         в (бY   v;
         в (вY   v;
         в (вбY  v;
@@ -100,7 +83,6 @@
     Cе) г (о_   v
     Cо) г (о_   v
   _все) г (о_   v
-     _) г (_    gE
         г (Y    g;
         г (_    k
         г (к    x
@@ -111,13 +93,17 @@
         г (ффY  k
         г (хY   k
         г (хкY  k
-     е) г (о_   v
+    _е) г (о_   v
+     е) г (ося_ v
   _мно) г (о_   g
+  _мое) г (о_   v
+   _не) г (о_   v
+   _се) г (о    v
+ _твое) г (о_   v
 
 .group д
         д       d
         д (B    d;
-     _) д (_    dE
         д (Y    d;
         д (_    t
         д (дY   d;
@@ -134,26 +120,30 @@
         д (ь_   t;
 
 .group е
-           е       e
+        е          e
         A) е       je
-        A) е (_    jI3     // second position
+//      A) е       jE2
+        A) е (_    jI3     //second position
+//      H) е (_    E#
+//      H) е       E2
      бакт) е (р    E%      // бактериальный, антибактериальный, ...
      барт) е (р    E%
-      реб) е (н    j8
-        _) е (_    je
+//         е       E3
+//         е (_    I2
         _) е       jI3     //second position
       инт) е (р    E%      // интернет, интернационал, ... ??????????
   компьют) е (р    E%
         т) е (ст   E%
         ъ) е       je
+//      ъ) е       jE2
         ъ) е (_    jI3     //second position
         ь) е       je
+//      ь) е       jE2
         ь) е (_    jI3     //second position
 
 .group ж
         ж       Z
         ж (_    S
-     _) ж (_    Z@-        // же/ж
         ж (кY   S
         ж (пY   S
         ж (сY   S
@@ -162,15 +152,13 @@
         ж (ффY  S
         ж (хY   S
         ж (хкY  S
-        ж (ч    S;
+        жч      S;
 
 .group з
         з       z
         з (Y    z;
         з (_    s
-     _) з (_    zE
         з (дY   z;
-        з (е    z
         з (ж    Z
         з (зY_  s;
         з (зY   z;
@@ -190,7 +178,7 @@
         з (ффY  s
         з (хY   s
         з (хкY  s
-        з (ч    S;
+        зч      S;
         з (ш    S
         зщ      S;
         з (щ    s
@@ -201,17 +189,14 @@
      ж) и       y
      _) и       I
         и (_    I
-     _) и (_    i
      ш) и       y
 
 .group й
         й       j
-     _) й (_    ,i'k@-*'AtkOjI
 
 .group к
         к       k
         к (Y    k;
-     _) к (_    k@-
         к (б    g
         к (бY   g
         к (г    g
@@ -225,12 +210,10 @@
 
 .group л
         л       l
-     _) л (_    El^
-        л (Y    l;
+        л (Y    l^
 
 .group м
         м       m
-     _) м (_    Em
         м (Y    m;
         м (бY   m;
         м (вY   m;
@@ -241,18 +224,25 @@
 .group н
         н       n
    биз) не (с   nE%
-     _) н (_    En_
-        н (Y    n;
+//      н (B    n^
+//      н (Y    n# ?
         н (_    n_
+//      н (дB   n^
+//      н (дY   n^
+//      н (зY   n^
+//      н (нB   n^
+//      н (нY   n^
+//      н (сY   n^
+//      н (тY   n^
 
 .group о
         о       o
-     _) о (_    o
+//      о (B    oj
+//      о (FY   oj
 
 .group п
         п       p
         п (Y    p;
-     _) п (_    pE
         п (б    b
         п (б'   b;
         п (г    b
@@ -273,13 +263,11 @@
 .group р
         р       r
         р (B    r;
-     _) р (_    Er
         р (Y    r;
         р (ь    rI^
 
 .group с
         с       s
-     _) с (_    s@-
         с (Y    s;
         с (б    z
         с (г    z
@@ -295,15 +283,14 @@
         с (сY   s;
         с (тY   s;
         с (ть   s
-        с (ч    S;
+        сч      S;
         с (ш    S
         с (щ    s;s;
 
 .group т
         т       t
-        Y) тс   ts
+        Y) тс           ts
         т (Y    t;
-     _) т (_    tE
         т (б    d
         т (г    d
         т (дB   d;
@@ -320,12 +307,10 @@
 
 .group у
         у       u
-     B) у       u#
-     _) у (_    u
+        B) у            u#
 
 .group ф
         ф       f
-     _) ф (_    Ef
         ф (Y    f;
         ф (б    v
         ф (б'   v;
@@ -346,7 +331,6 @@
 .group х
         х       x
         х (Y    x     //С
-     _) х (_    xA
         х (бY   x
         х (б    x
         х (бвY  x
@@ -364,7 +348,6 @@
 
 .group ц
         ц       ts
-     _) ц (_    tsE
         ц (б    dz
         ц (бY   dz
         ц (бвY  dz
@@ -380,13 +363,7 @@
 
 .group ч
         ч       tS;
-  деви) ч (н    S   //Варианты окончаний женских отчеств типа Никитична
-  коне) ч (но   S
-    лу) ч (ше   t
- пустя) ч (н    S
- скворе)ч (н    S
-   ску) ч (н    S
-     _) ч (_    tS;e
+   лу) ч (ше    t
         ч (б    dZ;
         ч (бY   dZ;
         ч (бвY  dZ;
@@ -399,17 +376,22 @@
         ч (ж    dZ;
         ч (з    dZ;
         ч (зY   dZ;
-        ч (на_  S
-        ч (не_  S
-        ч (ной_ S
-        ч (ну_  S
-        ч (ны_  S
-     _) ч (то   S
-    яи) ч (ни   S
+//Варианты окончаний женских отчеств типа Никитична
+  деви) ч (н     S
+  коне) ч (но    S
+ пустя) ч (н     S
+ скворе)ч (н     S
+   ску) ч (н     S
+        ч (на_   S
+        ч (не_   S
+        ч (ной_  S
+        ч (ну_   S
+        ч (ны_   S
+     _) ч (то    S
+    яи) ч (ни    S
 
 .group ш
         ш       S
-     _) ш (_    SA
         ш (бY   Z
         ш (б    Z
         ш (бвY  Z
@@ -423,9 +405,9 @@
         ш (зY   Z
         ш (з    Z
 
+
 .group щ
         щ       S;
-     _) щ (_    S;ja
         щ (бY   Z;
         щ (б    Z;
         щ (бвY  Z;
@@ -440,22 +422,18 @@
         щ (з    Z;
 
 .group ъ
-        ъ (Y    _|
-     _) ъ (_    tv;'8@-*dyjzn'Ak
+        ъ (Y    j
 
 .group ы
         ы       y
-     _) ы (_    y
 
 .group ь
-        ь (Y    // no pronunciation (i.e. silent)
-     _) ь (_    m;'jak;I#jzn'Ak
+        ь (Y    j
 
 .group э
         э       E2
      _) э       E#
         э (_    E#
-     _) э (_    e
 
 .group ю
         ю       u"
@@ -464,25 +442,23 @@
      ъ) ю       ju
      ь) ю       ju
      _) ю       ju
-     _) ю (_    ju
 
 .group я
         я       V
+// TODO: in unstressed position it sometimes sounds more like [i] than like [V]
      A) я       ja
      A) я (_    ja      //second position
-//   C) я       ja# ?   // TODO: in unstressed position it sometimes sounds more like [i] than like [V]
+//   C) я       ja# ?
      ъ) я       ja
      ъ) я (_    ja      //second position
      ь) я       ja
      ь) я (_    ja      //second position
-     _) я (_    ja
      _) я       ja      //second position
         я (_    V
 
 .group ё
         ё       '8
      _) ё       'j8
-     _) ё (_    j8
      ж) ё       'O
      ш) ё       'O
 
