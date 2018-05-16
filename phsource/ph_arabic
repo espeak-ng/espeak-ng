@@ -15,9 +15,7 @@ phoneme Z // arabic ZAH .Todo
   ipa ðˤ
   lengthmod 5 
   voicingswitch z  
-  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
-  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate
-  WAV(vwl_ar/zah) 
+  ChangePhoneme (D) // FIXME: vwl_ar/zah wav file is wrong, therefore English D is used
 endphoneme
 
 phoneme A	// arabic Ain
