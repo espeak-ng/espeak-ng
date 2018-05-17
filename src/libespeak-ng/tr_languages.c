@@ -1565,11 +1565,11 @@ static void Translator_Russian(Translator *tr)
 {
 	static const unsigned char stress_amps_ru[] = { 16, 16, 18, 18, 20, 24, 24, 22 };
 	static const short stress_lengths_ru[8] = { 150, 140, 220, 220, 0, 0, 260, 280 };
-	static const char ru_ivowels2[] = { 0x2c, 0x15, 0x18, 0x2e, 0x2f, 0 }; // add more vowels to letter group Y  (iotated vowels & soft-sign)
+	static const char ru_ivowels2[] = { 0x18, 0 }; // add и to Y lettergroup (iotated vowels & soft-sign)
 
 	SetupTranslator(tr, stress_lengths_ru, stress_amps_ru);
 	SetCyrillicLetters(tr);
-	SetLetterBits(tr, 6, ru_ivowels2);
+	SetLetterBits(tr, LETTERGP_Y, ru_ivowels2);
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
 	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
