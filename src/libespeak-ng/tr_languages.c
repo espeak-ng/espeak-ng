@@ -398,7 +398,7 @@ static void SetCyrillicLetters(Translator *tr)
 	static const char ru_hard[] = { 0x2a, 0x16, 0x26, 0x28, 0 }; // letter group H  [S Z ts] -- ъ ж ц ш
 	static const char ru_nothard[] = { 0x11, 0x12, 0x13, 0x14, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x27, 0x29, 0x2c, 0 }; // б в г д з й к л м н п р с т ф х ч щ ь
 	static const char ru_voiced[] = { 0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0 };    // letter group G  (voiced obstruents) -- б в г д ж з
-	static const char ru_ivowels[] = { 0x2c, 0x2e, 0x2f, 0x31, 0 };   // letter group Y  (iotated vowels & soft-sign) -- ь ю я ё
+	static const char ru_ivowels[] = { 0x15, 0x2c, 0x2e, 0x2f, 0x31,  0x34, 0x37, 0 };   // letter group Y  (iotated vowels & soft-sign) -- е ь ю я ё є ї
 	tr->encoding = ESPEAKNG_ENCODING_KOI8_R;
 	tr->transpose_min = 0x430;  // convert cyrillic from unicode into range 0x01 to 0x22
 	tr->transpose_max = 0x451;
