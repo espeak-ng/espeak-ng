@@ -1,0 +1,75 @@
+// Shan (Tai Yay) pronunciation rules (Burmese script)
+
+.group င // U+1004
+         င         N
+
+.group တ // U+1010
+         တ         t
+
+.group ထ // U+1011
+         ထ         t_h
+
+.group ပ // U+1015
+         ပ         p
+
+.group မ // U+1019
+         မ         m
+
+.group ယ // U+101A
+         ယ         j
+
+.group ရ // U+101B
+         ရ         R
+
+.group လ // U+101C
+         လ         l
+
+.group ဝ // U+101D
+         ဝ         w
+
+.group သ // U+101E
+         သ         s
+
+.group ဢ // U+1022
+         ဢ         ?
+
+.group ၵ // U+1075
+         ၵ         k
+
+.group ၶ // U+1076
+         ၶ         k_h
+
+.group ၷ // U+1077: rare, used for sounds in other languages
+         ၷ         g
+
+.group ၸ // U+1078
+         ၸ         tS;
+
+.group ၹ // U+1079: rare, used for sounds in other languages
+         ၹ         z
+
+.group ၺ // U+107A
+         ၺ         J
+
+.group ၻ // U+107B: rare, used for sounds in other languages
+         ၻ         d
+
+.group ၼ // U+107C
+         ၼ         n
+
+.group ၽ // U+107D
+         ၽ         p_h
+
+.group ၾ // U+107E
+      _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
+         ၾ         f
+
+.group ႀ // U+107F: rare, used for sounds in other languages
+         ႀ         T
+
+.group ၿ // U+1080: rare, used for sounds in other languages
+         ၿ         b
+
+.group ႁ // U+1081
+         ႁ         h
+
