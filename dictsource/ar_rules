@@ -99,6 +99,12 @@
       _) ال (نP2     ?an
      _ب) ا (ل        i
 
+.group أ
+         أ           a
+
+.group إ
+         إ           ?i
+
 .group ب
          ب           b
          بّ           Bb
@@ -352,10 +358,6 @@
 .group  ٍ  // kasratan
           ٍ (_S1      in
           ٍ           '
-.group أ
-         أ           a
-.group إ
-         إ           ?i
 
 .group ـ
          ـ           '
