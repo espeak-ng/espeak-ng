@@ -27,57 +27,110 @@
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
 
-//arabic alphabet
-_آ      alif mamduudah
-_ا      alif
-ب       baa?
-پ       pi
-ت       taa?
-ث       Taa?
-ج       dZim
-ح       Haa?
-خ       Xaa?
-د       daal
-ذ       Daal
-ر       raa?
-ز       zaaj
-س       siin
-ش       Siin
-ص       s[aad
-ض       dHaad
-ط       t[aa?
-ظ       Zaa?
-ع       Aajn
-غ       gHajn
-ف       faa?
-ق       qaaf
-ك       kaaf
-گ       gaaf
-ل       laam
-م       miim
-ن       nuun
-و       waaw
-ه       haa?
-ي       jaa?
-َ       fatHah
-ُ       dhammah
-ِ       kasrah
-ّ       Saddah
-ْ       sukuun
-ً       fatHataan
-ٌ       dhammataan
-ٍ       kasrataan
-،       faas[ilah
-؛       nuqt[atah||faas[lah
-ـ       tat[wiil
-ئ       hamzah||Ala||?aljaa?
-ؤ       hamzah||Ala||?alwaa?
-إ       hamzah||taHta||?alwaa?
-أ       ?alif
-ء       hamzah
-ة       taa?||marbuut[ah
-ى       ?alif||maqs[uurah
-ةً       tan
+// Arabic alphabet
+_آ       alif mamduudah
+_ا       alif
+_ب       baa?
+_پ       pi
+_ت       taa?
+_ث       Taa?
+_ج       dZim
+_ح       Haa?
+_خ       Xaa?
+_د       daal
+_ذ       Daal
+_ر       raa?
+_ز       zaaj
+_س       siin
+_ش       Siin
+_ص       s[aad
+_ض       dHaad
+_ط       t[aa?
+_ظ       Zaa?
+_ع       Aajn
+_غ       gHajn
+_ف       faa?
+_ق       qaaf
+_ك       kaaf
+_گ       gaaf
+_ل       laam
+_م       miim
+_ن       nuun
+_و       waaw
+_ه       haa?
+_ي       jaa?
+_َ       fatHah
+_ُ       dhammah
+_ِ       kasrah
+_ّ       Saddah
+_ْ       sukuun
+_ً       fatHataan
+_ٌ       dhammataan
+_ٍ       kasrataan
+_،       faas[ilah
+_؛       nuqt[atah||faas[lah
+_ـ       tat[wiil
+_ئ       hamzah||Ala||?aljaa?
+_ؤ       hamzah||Ala||?alwaa?
+_إ       hamzah||taHta||?alwaa?
+_أ       ?alif
+_ء       hamzah
+_ة       taa?||marbuut[ah
+_ى       ?alif||maqs[uurah
+_ةً       tan
+_
+
+// When letters entered one by one
+آ       alif mamduudah              $atend
+ا       alif                        $atend
+ب       baa?                        $atend
+پ       pi                          $atend
+ت       taa?                        $atend
+ث       Taa?                        $atend
+ج       dZim                        $atend
+ح       Haa?                        $atend
+خ       Xaa?                        $atend
+د       daal                        $atend
+ذ       Daal                        $atend
+ر       raa?                        $atend
+ز       zaaj                        $atend
+س       siin                        $atend
+ش       Siin                        $atend
+ص       s[aad                       $atend
+ض       dHaad                       $atend
+ط       t[aa?                       $atend
+ظ       Zaa?                        $atend
+ع       Aajn                        $atend
+غ       gHajn                       $atend
+ف       faa?                        $atend
+ق       qaaf                        $atend
+ك       kaaf                        $atend
+گ       gaaf                        $atend
+ل       laam                        $atend
+م       miim                        $atend
+ن       nuun                        $atend
+و       waaw                        $atend
+ه       haa?                        $atend
+ي       jaa?                        $atend
+َ       fatHah                      $atend
+ُ       dhammah                     $atend
+ِ       kasrah                      $atend
+ّ       Saddah                      $atend
+ْ       sukuun                      $atend
+ً       fatHataan                   $atend
+ٌ       dhammataan                  $atend
+ٍ       kasrataan                   $atend
+،       faas[ilah                   $atend
+؛       nuqt[atah||faas[lah         $atend
+ـ       tat[wiil                    $atend
+ئ       hamzah||Ala||?aljaa?        $atend
+ؤ       hamzah||Ala||?alwaa?        $atend
+إ       hamzah||taHta||?alwaa?      $atend
+أ       ?alif                       $atend
+ء       hamzah                      $atend
+ة       taa?||marbuut[ah            $atend
+ى       ?alif||maqs[uurah           $atend
+ةً       tan                         $atend
 
 // numeric
 _0      s[ifr
