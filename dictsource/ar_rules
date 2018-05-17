@@ -307,6 +307,7 @@
 .group ي
     L03) ي           ii        // ياء بعد صامت دون تشكيل
       ا) ي           j         // ياء بعد ألف
+         يِ           jii
        ْ) ي           j         //ياء بعد سكون
        ُ) ي           j         //ياء بعد ضمّة
        َ) ي           j         // ياء بعد فتحة
@@ -338,33 +339,26 @@
          ة           t
          ةً           tan
 
+// Other diacritics
 .group
-        َ             %a
-//                (ا      aa        // make the previous fatha long
+          ٍ (_S1      in  // kasratan at the end of word
+          ٌ (_S1      un  // dammatan at the end of word
+          ُ           u   // damma
+          ُو          uu
+          َا          aa
+          َى          aa
+          ٰ           aa  // superscript alef
+          ِ           i   // kasra
+          َ           %a  // fatha
 
-.group
-        ِ             i
-//                (ي      ii       // make the previous kassra long
+// Following are default rules for other diacritics and they are just silence.
+// Diacritics should be consumed together with leading letters in rules above.
 
-.group
-        ُ             u
-//                (و      uu       // make the previous kassra long
-
-.group  ٌ // dammatan
-          ٌ (_S1      un
-          ٌ           '
-
-.group  ً  // fatahatan
-          ًا (S1      an
-
-.group  ٍ  // kasratan
-          ٍ (_S1      in
-          ٍ           '
-
-.group ـ
-         ـ           '
-
-.group
+          ٌ  // dammatan
+          ً  // fathatan
+          ٍ  // kasratan
+         ـ  // tatweel
+          ۡ  // small high dotless head of khan
 
 // non-ascii characters with specified pronunciations
 // List the accented characters in en_list with the $accent attribute
