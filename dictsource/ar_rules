@@ -107,7 +107,7 @@
 
 .group ب
          ب           b
-         ب (ّ         Bb
+         بّ           Bb
       _) بال (L10P3  bi        //بالشمس
       _) بال (L11P3  bil       //بالقمر
       _) بال (تP3    bit
@@ -134,14 +134,14 @@
       _) ت (P1       ta        //تسأل
       _َ) ت (P2       t
          ت (_S1      at        //سألت
-         ت (ّ         tt
+         تّ           tt
 
 .group ث
          ث           T
 
 .group ج
          ج           dZ
-         ج (ّ         dZdZ
+         جّ           dZdZ
 
 .group ح
          ح           H
@@ -151,7 +151,7 @@
 
 .group د
          د           d
-         د (ّ         dd
+         دّ           dd
 
 .group ذ
          ذ           D
@@ -164,15 +164,15 @@
 
 .group س
          س           s
-         س (ّ         ss
+         سّ           ss
 
 .group ش
          ش           S
-         ش (ّ         SS
+         شّ           SS
 
 .group ص
          ص           s[
-         ص (ّ         s[s[
+         صّ           s[s[
 
 .group ض
          ض           dH
@@ -250,7 +250,7 @@
     _بِا) ل (L10      '         // Sun letters
     _فَا) ل (L10      '         // Sun letters
     _كَا) ل (L10      '         // Sun letters
-         ل (ّ         ll
+         لّ           ll
      _لِ) ل (L10      '         // Sun letters
     _وَا) ل (L10      '         // Sun letters
 
