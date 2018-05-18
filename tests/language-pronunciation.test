@@ -43,6 +43,10 @@ test_phonemes lv \
 	" nev'ie:na nuo\`_ 'eiRo:pas v'al>sti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok}l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \
 	"Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no vispārējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
 
+test_phonemes ru \
+        " 'Ab;i ab;'8 'AbjE 'Ab;I 'Abji 'Ap; 'Ab;u\" 'Ab;V" \
+        "абе абё абє аби абї абь абю абя"
+
 # Languages with non-Latin characters fall back to en when speaking Latin characters.
 # TODO: Include words in their native script and move to the main tests above.
 
