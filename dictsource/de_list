@@ -358,7 +358,7 @@ unser		Unz3	$u
 unserm		Unz3m	$u
 unserem		Unz@r@m	$u
 unseren		Unz@r@n	$u
-
+unserer	$u
 
 ihre		i:r@	$u
 ihrem		i:r@m	$u
@@ -416,11 +416,12 @@ willst		%vIlst $only
 wollen		%vOl@n $only
 wollt		%vOlt
 
-werden		v,Erd@n $strend2
-werde		v,Erd@
+werden		v,Erd@n $strend2	$u
+werde		v,Erd@	$u
 wirst		v,Irst
 wird		v,Ird
 werdet		v,Erd@t
+worden	$u
 wurden		v,Urd@n
 wurde		v,Urd@
 wurdest		v,Urd@st
@@ -535,6 +536,7 @@ overwrite	_^_EN
 pair		_^_EN
 penthouse	_^_EN
 pidgin		_^_EN
+player	_^_EN
 plot		_^_EN
 poster		_^_EN
 receiver	_^_EN
@@ -708,11 +710,11 @@ erst            e:rst
 ersten          e:rst@n
 erstmal         e:rstmA:l
 erzgebirg       Ertsg@bIrg
+europä	$3
 expedient       Ekspe:dI'Ent
 extravagant      $1
 extrem          Ekstr'e:m
 
-fenster	f'Enst3
 foyer		fOj'e:
 friedvoll       fr'i:tf,Ol
 furchen         fUrC@n
@@ -856,6 +858,7 @@ problematisier  $5
 protokoll	$3
 
 refrain	rEfr'W~
+relevanz	$3
 reliquie         $alt
 rendezvous	rA~de:v'u:
 restaurant	rEsto:r'A~
@@ -866,6 +869,7 @@ sabbat          zabat
 sagt            zA:gt
 salopp           $2
 schieberegler	S'i:b@re:gl3
+schokolad	$3
 schreibung	Sr'aIbUN
 schult          Su:lt
 schulter	S'Ult3

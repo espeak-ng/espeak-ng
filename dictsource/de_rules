@@ -52,6 +52,7 @@
         ay         aI
         au         aU
         auh (_     aU
+        auer	aU3
 
         ab (t_     A:p
         ag (t_     A:k
@@ -123,13 +124,13 @@
     tr) ain        En
         air (_     E:r
         akqu       %akv
-    @A) al       'A:l
-     b) al       'A:l
-     g) al       'A:l
-     k) al       'A:l
+    @A) al (_   'A:l
+     b) al   (_  'A:l
+     g) al   (_  'A:l
+     k) al    (_ 'A:l
      n) al       'A:l
-     r) al       'A:l
-     t) al       'A:l
+     r) al   (_  'A:l
+     t) al   (_  'A:l
      _) aller (@P5 'al@r
      m) a (lt_     A:l
    ker) am (ik     'A:m
@@ -161,7 +162,7 @@
      _) authen     aUtEn
         ay (_N     EI
      m) ayr (_     aI3
-     p) ay         EI
+r     p) ay         EI
 
 
 .group b
@@ -202,6 +203,7 @@
         be (recht  b@
         be (reich  b@
         be (richt	b@
+        be (tracht	b@
      _) b (esen    b
      _) b (ess     b
      _) b (esten   b
@@ -214,6 +216,7 @@
     _o) b (C       p
         baby       _^_EN
         beten      be:t@n
+        bestimm	%b@StIm
      _) bike       _^_EN
         binde	bInd@ // for compound words, EG. Bindestrich
      _) bis (hP3   b%Is
@@ -301,7 +304,7 @@
   soun) d          d
 
      _) dabei (P5  dA:'baI
-     _) dafür (P5  dA:f'yr
+     _) dafür (P5  dA:f'y:r
      _) daher (P5  dA:h'Er
      _) dahin (P5  dA:h'In
      _) dahinter (P8 dA:h'Int3
@@ -318,7 +321,7 @@
      _) davor (P5  dA:f'o:r
      _) dazu (P4   dA:ts'u:
 
-     _) daten (@P5 d'at@n
+     _) daten (@P5 d'A:t@n
      _) deal       _^_EN
      _) de (if     de:
      _) de (ikP2   d%e:
@@ -495,7 +498,7 @@
      @) ett (_     'Et
         eum (_     'e:Um
     @@) eum (_     =e:Um
-     _) eur (op    %OY
+     _) eur (op    %OYr
      @) eur (_     'Y:r
         euse (_    'Y:z@
         eusen (_   'Y:z@n
@@ -515,6 +518,7 @@
      _) farb (l@P4 f'arb
      _) farc       fars
      _) fein (@P4  f'aIn
+        fenster	fEnst3
      _) fertig (C@P6 f'ErtIC
      _) fest (@P4  f'Est
      _) flug       fl'u:g
@@ -600,6 +604,7 @@
      h) h 
     ch) h          h
 
+        handbuch	hantbu:x
      _) herab (P5  hEr'ab
      _) heran (P5  hEr'an
      _) herauf (P6 hEr'aUf
@@ -808,6 +813,7 @@ formal) ie         =I@
      _) leben (dig le:b'En
      _) lehr (C@P4 l'e:r
      _) leit (@P4  l'aIt
+        leitung	laItUN
      _) lern (@@P4 l'Ern
      _) lexi (@    lEksi:
      &) lich (_S4  l2IC   // [l2] means devoice previous consonant
@@ -836,7 +842,7 @@ formal) ie         =I@
         m          m
      m) m 
 
-        manager    manEdZ3r
+        manager    mEnIdZ3r
      _) manch      manC    // for 'manchen'
         marine     mA:r'i:n@
      _) meß (@P3   m'Es
@@ -1359,7 +1365,8 @@ formal) ie         =I@
      _) wasch (@P5 v'aS
      _) wasser (@P6 v'as@r
      _) weit (C@P4 v'aIt
-        weiter  v'aIt@r
+     _) weiter (@P6 v'aIt@r
+        weiterung	vaIt@rUN
      _) weither    vaIthe:r
         welch	vElC
         wetter	vEt3
