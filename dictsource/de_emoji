@@ -1,4 +1,4 @@
-// Emoji and Other Symbol pronunciations for German
+﻿// Emoji and Other Symbol pronunciations for German
 //
 // Entries with `text|emoji` in the comments have text and emoji forms. They
 // can be followed by [FE0E] to select the text style, and [FE0F] to select
@@ -18,28 +18,28 @@ $textmode
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
-//¢	cents								// [00A2] other (no translation)
+¢	cent								// [00A2] other
 £	Pfund								// [00A3] other
-//¤	currency sign							// [00A4] other (no translation)
-//¥	yen								// [00A5] other (no translation)
-//§	section								// [00A7] other (no translation)
-//¨	double dot							// [00A8] other (no translation)
+¤	Währungszeichen							// [00A4] other
+¥	yen								// [00A5] other
+§	Paragraf								// [00A7] other
+¨	Trema							// [00A8] other
 ©	Copyright							// [00A9] text|emoji
-//¬	not sign							// [00AC] other (no translation)
-®	Registered-Trademark						// [00AE] text|emoji
+¬	Nicht-Sortier-Zeichen							// [00AC] other
+®	Registriertes Warenzeichen						// [00AE] text|emoji
 °	Grad								// [00B0] other
 ±	plus minus							// [00B1] other
 //µ	micro								// [00B5] other (no translation)
-//¶	paragraph							// [00B6] other (no translation)
-//¼	a quarter							// [00BC] other (no translation)
-//½	a half								// [00BD] other (no translation)
-//¾	three quarters							// [00BE] other (no translation)
-//×	times								// [00D7] other (no translation)
-//÷	divided by							// [00F7] other (no translation)
+¶	Abschnitt							// [00B6] other (no translation)
+¼	ein Viertel							// [00BC] other
+½	ein Halb								// [00BD] other
+¾	drei Viertel							// [00BE] other (no translation)
+×	mal								// [00D7] other
+÷	geteilt durch							// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
-//˙	dot								// [02D9] other (no translation)
+˙	Punkt								// [02D9] other (no translation)
 
 // 0900..097F : Devanagari
 
@@ -52,28 +52,28 @@ $textmode
 
 // 20A0..20CF : Currency Symbols
 
-//₨	rupee								// [20A8] other (no translation)
+₨	rupie								// [20A8] other
 €	Euro								// [20AC] other
-//₹	rupee								// [20B9] other (no translation)
+₹	rupie								// [20B9] other
 
 // 2100..214F : Letterlike Symbols
 
-//№	numero								// [2116] other (no translation)
+№	numero								// [2116] other
 //℞	prescription							// [211E] other (no translation)
 ™	Markenzeichen							// [2122] text|emoji
 ℹ	Buchstabe i in blauem Quadrat					// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
-//⅓	one third							// [2153] other (no translation)
-//⅔	two thirds							// [2154] other (no translation)
+⅓	ein Drittel							// [2153] other
+⅔	zwei Drittel							// [2154] other
 
 // 2190..21FF : Arrows
 
-//←	left arrow							// [2190] other (no translation)
-//↑	up arrow							// [2191] other (no translation)
-//→	right arrow							// [2192] other (no translation)
-//↓	down arrow							// [2193] other (no translation)
+←	Linkspfeil							// [2190] other (no translation)
+↑	Pfeil hoch							// [2191] other (no translation)
+→	Rechtspfeil							// [2192] other (no translation)
+↓	Pfeil runter							// [2193] other (no translation)
 ↔	Pfeil nach links und rechts					// [2194] text|emoji
 ↕	Pfeil nach oben und unten					// [2195] text|emoji
 ↖	Pfeil nach links oben						// [2196] text|emoji
@@ -86,22 +86,22 @@ $textmode
 // 2200..22FF : Mathematical Operators
 
 //∂	delta								// [2202] other (no translation)
-//∑	sum sign							// [2211] other (no translation)
-//−	minus								// [2212] other (no translation)
-//∗	asterisk							// [2217] other (no translation)
-//√	square root							// [221A] other (no translation)
-//∛	cube root							// [221B] other (no translation)
-//∝	proportional to							// [221D] other (no translation)
-//∞	infinity							// [221E] other (no translation)
-//∫	integral							// [222B] other (no translation)
-//∬	double integral							// [222C] other (no translation)
-//∴	therefore							// [2234] other (no translation)
-//∵	because								// [2235] other (no translation)
-//≈	approximately							// [2248] other (no translation)
-//≠	not equal to							// [2260] other (no translation)
-//≡	identical to							// [2261] other (no translation)
-//≤	less or equal to						// [2264] other (no translation)
-//≥	greater or equal to						// [2265] other (no translation)
+∑	Summenzeichen							// [2211] other
+−	minus								// [2212] other
+∗	Stern							// [2217] other
+√	Quadratwurzel							// [221A] other (no translation)
+//∛	Kubikwurzel							// [221B] other (no translation)
+∝	proportional zu							// [221D] other
+∞	Unendlich							// [221E] other
+∫	integral							// [222B] other
+∬	doppelt integral							// [222C] other (no translation)
+∴	folglich							// [2234] other (no translation)
+∵	weil								// [2235] other
+≈	ungefähr							// [2248] other (no translation)
+≠	ist nicht gleich							// [2260] other
+≡	identisch mit							// [2261] other
+≤	kleiner oder gleich						// [2264] other (no translation)
+//≥	größer oder gleich						// [2265] other (no translation)
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -130,12 +130,12 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
-//■	black square							// [25A0] other (no translation)
+■	schwarzes Quadrat							// [25A0] other
 ▪	kleines schwarzes Quadrat					// [25AA] text|emoji
 ▫	kleines weißes Quadrat						// [25AB] text|emoji
 ▶	Wiedergabe							// [25B6] text|emoji
 ◀	Pfeil zurück							// [25C0] text|emoji
-//●	black circle							// [25CF] other (no translation)
+●	schwarzer Kreis							// [25CF] other
 ◻	mittelgroßes weißes Quadrat					// [25FB] text|emoji
 ◼	mittelgroßes schwarzes Quadrat					// [25FC] text|emoji
 ◽	mittelkleines weißes Quadrat					// [25FD]
@@ -183,8 +183,8 @@ $textmode
 ♥	Herz								// [2665] text|emoji
 ♦	Karo								// [2666] text|emoji
 ♨	heiße Quellen							// [2668] text|emoji
-//♭	flat								// [266D] other (no translation)
-//♯	sharp								// [266F] other (no translation)
+♭	tief								// [266D] other
+♯	hoch								// [266F] other
 ♻	Recycling-Symbol						// [267B] text|emoji
 ♿	Symbol Rollstuhl						// [267F]
 ⚒	Hammer und Pickel						// [2692] text|emoji
@@ -234,7 +234,7 @@ $textmode
 ✉	Briefumschlag							// [2709] text|emoji
 ✊	erhobene Faust							// [270A]
 ✋	erhobene Hand							// [270B]
-✌	Victory-Geste							// [270C] text|emoji
+✌	Siegesgeste							// [270C] text|emoji
 ✍	schreibende Hand						// [270D] text|emoji
 ✏	Bleistift							// [270F] text|emoji
 ✒	schwarzer Federhalter						// [2712] text|emoji

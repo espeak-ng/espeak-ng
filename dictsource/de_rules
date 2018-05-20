@@ -332,7 +332,6 @@ r     p) ay         EI
         design (_  d%IzaIn
         dge (_     _^_EN
      _) dia        d,i:a
-        dialog	di:al'o:k
      _) diver      d%i:vEr
      _) dort (C@P4 d'Ort
         drive      _^_EN
@@ -835,6 +834,7 @@ formal) ie         =I@
      &) lichkeit (_S8 l2ICkaIt
      &) lichung (_S7 l2IC%UN
      @) lo (gisch  l'o:
+        dia) log	lo:g
      _) luft (CP4  l'Uft
 
 .group m
@@ -1224,7 +1224,7 @@ formal) ie         =I@
         ug (t_     u:k
         ur (_	'u:r
      _) ueber (@P5 _|,y:b3
-     _) um (@P2    Um
+     _) um (@P2    'Um
      _) umbe (@P4  'Umb@
      _) umge (@P4  'Umg@
      _) umge (b    Umg'e:
@@ -1371,6 +1371,7 @@ formal) ie         =I@
         welch	vElC
         wetter	vEt3
      _) wieder (@P6 vi:d3
+        willkommen	v%IlkOm@n
      _) wo (hin    v%o:
      _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
@@ -1492,3 +1493,13 @@ formal) ie         =I@
      _) - (_D      _
 
  _L05_) : (_L06D_  %u:r // Say time
+
+// pronounce every word Polish containing Polish diacritics
+ą	_^_pl
+ć	_^_pl
+ę	_^_pl
+ł	_^_pl
+ń	_^_pl
+ś	_^_pl
+ż	_^_pl
+ź	_^_pl

@@ -36,7 +36,7 @@ _!	'aUs_|r,u:f@ts,aIC@n
 _?	fr'Ag@ts,aIC@n
 _'	,apo:str'Of
 _"	tsi:t'A:t
-_/	Sr'e:gStrIC
+_/	Sr'E:kStrIC
 _(	kl'am3||_|'aUf
 _)	kl'am3||ts'u:
 _{	g@Sv'aIft@kl'am3||_|'aUf
@@ -77,7 +77,7 @@ _hac	h'atSEk
 _mcn	m'A:krOn
 _ogo	'o:gOn,Ek
 _rng	kr'o:wZEk
-_stk	Sr'e:gstrIC
+_stk	Sr'E:kStrIC
 _tld	t'Ild@
 
 æ	$accent
@@ -92,9 +92,11 @@ v	faU
 x	Iks
 
 // Alphabets
-_ar	aR'AbIS
-_cyr	ky:R'IlIS
+_ar	ar'AbIS
+_cyr	ky:r'IlIS
 _he	hEbr'E:IS
+_ja	jap'A:nIS
+_ka	ge:'OrgIS
 _zh	Ci:n'e:zIS
 
 
@@ -233,7 +235,8 @@ aber		A:b3	$u+ $pause
 oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
-weil			$pause
+wegen	ve:g@n	$u+
+weil	v,aIl		$pause
 als		als	$u+ $brk
 bevor		b@fo:r	$2 $pause
 also			$pause
@@ -416,7 +419,7 @@ willst		%vIlst $only
 wollen		%vOl@n $only
 wollt		%vOlt
 
-werden		v,Erd@n $strend2	$u
+werden		v,Erd@n	$u
 werde		v,Erd@	$u
 wirst		v,Irst
 wird		v,Ird
@@ -926,7 +929,6 @@ warum		vA:r'Um
 wasserung	vas@rUN    // because -ung isn't marked as a suffix
 weg	v'Ek
 Weg	v'e:g		$capital
-wegen	ve:g@n	$u+
 weither		vaIth'Er
 weitum		vaIt_|'Um
 willkommen	$2
