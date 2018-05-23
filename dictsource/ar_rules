@@ -135,6 +135,8 @@
 
 .group ت
          ت           t
+         ت (ّ         t:
+         ت (L20ّ      t:
       _) ت (َP1       t
       _) ت (P1       ta        //تسأل
       _َ) ت (P2       t
@@ -156,7 +158,8 @@
 
 .group د
          د           d
-         دّ           d:
+         د (ّ         d:
+         د (L20ّ      d:
 
 .group ذ
          ذ           D
@@ -169,11 +172,13 @@
 
 .group س
          س           s
-         سّ           s:
+         س (ّ         s:
+         س (L20ّ      s:
 
 .group ش
          ش           S
-         شّ           S:
+         ش (ّ         S:
+         ش (L20ّ      S:
 
 .group ص
          ص           s[
@@ -223,6 +228,8 @@
 .group ك
          ك           k
          ك   (_S1    ka        // الضمير المتصل
+         ك   (ّ       k:
+         ك   (L20ّ    k:
       _) كال (L10P3  ka        //كالشمس
       _) كَال (L10P4  ka
       _) كَالْ (L10P4  ka
@@ -255,7 +262,8 @@
     _بِا) ل (L10      '         // Sun letters
     _فَا) ل (L10      '         // Sun letters
     _كَا) ل (L10      '         // Sun letters
-         لّ           l:
+         ل (ّ         l:
+         ل (L20ّ      l:
      _لِ) ل (L10      '         // Sun letters
     _وَا) ل (L10      '         // Sun letters
 
@@ -364,6 +372,7 @@
          ـ  // tatweel
           ۡ  // small high dotless head of khan
           ْ  // sukun
+          ّ  // shadda
 
 // non-ascii characters with specified pronunciations
 // List the accented characters in en_list with the $accent attribute
