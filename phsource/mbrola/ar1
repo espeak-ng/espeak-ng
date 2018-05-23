@@ -2,6 +2,7 @@ volume 50
 
 0   B   b     20   b    b
 0   b   NULL  0    b
+0   t   :     50   t    t
 0   t   NULL  0    t
 0   T   NULL  0    T
 0   dZ  NULL  0    Z
@@ -13,7 +14,7 @@ volume 50
 
 0   X   NULL  0    x
 
-0   d   d     20   d    d
+0   d   :     50   d    d
 0   d   NULL  0    d
 
 0   D   NULL  0    D
@@ -21,7 +22,9 @@ volume 50
 0   r   NULL  0    r
 
 0   z   NULL  0    z
+0   s   :     50   s    s
 0   s   NULL  0    s
+0   S   :     50   S    S
 0   S   NULL  0    S
 
 1   s[  a     40   s.   a.
@@ -59,13 +62,14 @@ volume 50
 0   n   NULL  0    n
 0   h   NULL  0    h
 0   w   NULL  0    w
+0   j   :     50   j    j
 0   j   NULL  0    j
 0   ?   NULL  0    ?
 0   p   NULL  0    NULL
 0   g   NULL  0    NULL
-0   a   a     150  a    a
-0   u   u     150  u    u
-0   i   i     150  i    i
+0   a   :     50   a    a
 0   a   NULL  0    a
+0   u   :     50   u    u
 0   u   NULL  0    u
+0   i   :     50   i    i
 0   i   NULL  0    i
