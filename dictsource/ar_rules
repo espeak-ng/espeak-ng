@@ -73,6 +73,9 @@
 // Arabic Moon characters
 .L11  ق ف غ ع ه خ ح ج ي ب م ك  و  إ أ ء
 
+// Arabic diacritics
+.L20  ۡ ـ  ً  ٌ  ٍ  َ  ُ  ِ  ّ  ْ
+
 .group آ
          آ           ?aa
 
