@@ -14,7 +14,7 @@ $textmode
 
 // 0000..007F : C0 Controls and Basic Latin
 
-//+	plus								// [002B] other (no translation)
++	plus								// [002B] other
 
 // 0080..00FF : C1 Controls and Latin-1 Supplement
 
@@ -29,17 +29,17 @@ $textmode
 ®	Registriertes Warenzeichen						// [00AE] text|emoji
 °	Grad								// [00B0] other
 ±	plus minus							// [00B1] other
-//µ	micro								// [00B5] other (no translation)
-¶	Abschnitt							// [00B6] other (no translation)
+µ	micro								// [00B5] other
+¶	Absatz							// [00B6] other
 ¼	ein Viertel							// [00BC] other
 ½	ein Halb								// [00BD] other
-¾	drei Viertel							// [00BE] other (no translation)
+¾	drei Viertel							// [00BE] other
 ×	mal								// [00D7] other
 ÷	geteilt durch							// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
-˙	Punkt								// [02D9] other (no translation)
+˙	Punkt								// [02D9] other (
 
 // 0900..097F : Devanagari
 
@@ -70,10 +70,10 @@ $textmode
 
 // 2190..21FF : Arrows
 
-←	Linkspfeil							// [2190] other (no translation)
-↑	Pfeil hoch							// [2191] other (no translation)
-→	Rechtspfeil							// [2192] other (no translation)
-↓	Pfeil runter							// [2193] other (no translation)
+←	Linkspfeil							// [2190] other
+↑	Pfeil hoch							// [2191] other
+→	Rechtspfeil							// [2192] other
+↓	Pfeil runter							// [2193] other
 ↔	Pfeil nach links und rechts					// [2194] text|emoji
 ↕	Pfeil nach oben und unten					// [2195] text|emoji
 ↖	Pfeil nach links oben						// [2196] text|emoji
@@ -85,23 +85,23 @@ $textmode
 
 // 2200..22FF : Mathematical Operators
 
-//∂	delta								// [2202] other (no translation)
+∂	partielles Differential								// [2202] other
 ∑	Summenzeichen							// [2211] other
 −	minus								// [2212] other
 ∗	Stern							// [2217] other
-√	Quadratwurzel							// [221A] other (no translation)
-//∛	Kubikwurzel							// [221B] other (no translation)
+√	Quadratwurzel							// [221A] other
+//∛	Kubikwurzel							// [221B] other
 ∝	proportional zu							// [221D] other
 ∞	Unendlich							// [221E] other
 ∫	integral							// [222B] other
-∬	doppelt integral							// [222C] other (no translation)
-∴	folglich							// [2234] other (no translation)
+∬	doppelt integral							// [222C] other
+∴	folglich							// [2234] other
 ∵	weil								// [2235] other
-≈	ungefähr							// [2248] other (no translation)
+≈	ungefähr							// [2248] other
 ≠	ist nicht gleich							// [2260] other
 ≡	identisch mit							// [2261] other
-≤	kleiner oder gleich						// [2264] other (no translation)
-//≥	größer oder gleich						// [2265] other (no translation)
+≤	kleiner oder gleich						// [2264] other
+//≥	größer oder gleich						// [2265] other
 
 // 2300..23FF : Miscellaneous Technical
 
