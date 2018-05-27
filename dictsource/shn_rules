@@ -92,7 +92,9 @@
              
 .group    ိ 
               ိ       i 
-             
+
+.group    ဵ
+              ဵ          e
              
 .group    ႅ 
          _)   ႅ (_      E  
@@ -113,40 +115,42 @@
 .group    ႆ
               ႆ         ai
 
- // .group   ၢ             //  -  Wrong initial letters
- //          _) ၢ        a:i
+.group   ၢ          
+           _) ၢ        a:
  
  
- // .group   ၢႆ         //  U+1062   -  Wrong initial letters
- //           _) ၢႆ         a:j
-// .group    ႆၢ
-//            _)  ႆၢ        a:j    // prevent wrong typing
+.group   ၢႆ         //  U+1062   
+           _) ၢႆ        a:i
 
-// .group   ွ                // Wrong initial letters
-//         _)  ွ(_      O
 
-.group   ႂ
-        _)  ႂ(_      O
+
+.group   ွႆ              
+        _)  ွႆ      oi
+
+
+.group   ႂၢႆ
+         _) ႂၢႆ     Oi
+
 
 
 .group  ြ
             ြ          ra
             
  
- // .group   ျ             //      -  Wrong initial letters
- //             _) ျ       ja
+.group   ျ          
+             _) ျ      ja
               
  
 .group  ဝ်
-            _)ဝ်     w   //  ipa = w ( temporary word )
+            _)ဝ်     w   
             
 
 .group    ႂ်
-          _)  ႂ်       aj
+          _)  ႂ်       @i
 
 
 .group ၺ်
-           _)ၺ်      Wi   
+         _)ၺ်      Wi   
            
 
 .group  မ် 
@@ -167,15 +171,8 @@
           
             
 .group တ်
-         _) တ်     d
+         _) တ်      t
            
            
 .group  ၵ်
          _) ၵ်      k   // temporary word        
-          
-        
-
-
-
-
-   
