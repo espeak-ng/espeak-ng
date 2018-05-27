@@ -73,3 +73,109 @@
 .group ႁ // U+1081
          ႁ         h
 
+
+
+// Vowels in groups 
+
+// All vowels below are suffixs 
+
+.group ႃ 
+          ႃ         a 
+
+
+.group ေႃ                  // This is still wrong, it pronouces every single vowel  -  ei ( ေ ) and a ( ႃ )
+         _) ေႃ        O      //   It should sound like this  ( e.g  ဢေႃး-သမ်း =  awe-some ) 
+                      
+          
+.group   ီ 
+             ီ        i
+             
+.group    ိ 
+              ိ       i 
+             
+             
+.group    ႅ 
+         _)   ႅ (_      E  
+              
+.group  ူ
+            ူ        u
+
+.group  ု
+            ု        u 
+            
+
+.group  ေ      
+            ေ     ei
+       
+.group  ႄ
+            ႄ      E
+             
+.group    ႆ
+              ႆ         ai
+
+ // .group   ၢ             //  -  Wrong initial letters
+ //          _) ၢ        a:i
+ 
+ 
+ // .group   ၢႆ         //  U+1062   -  Wrong initial letters
+ //           _) ၢႆ         a:j
+// .group    ႆၢ
+//            _)  ႆၢ        a:j    // prevent wrong typing
+
+// .group   ွ                // Wrong initial letters
+//         _)  ွ(_      O
+
+.group   ႂ
+        _)  ႂ(_      O
+
+
+.group  ြ
+            ြ          ra
+            
+ 
+ // .group   ျ             //      -  Wrong initial letters
+ //             _) ျ       ja
+              
+ 
+.group  ဝ်
+            _)ဝ်     w   //  ipa = w ( temporary word )
+            
+
+.group    ႂ်
+          _)  ႂ်       aj
+
+
+.group ၺ်
+           _)ၺ်      Wi   
+           
+
+.group  မ် 
+           _)မ်       m
+           
+            
+.group  ၼ်
+          _)ၼ်      n   
+          
+
+.group  င်
+           _)င်       g  //  ipa = ɳ  ( temporary word )
+            
+      
+// very short sounds
+.group  ပ်
+          _) ပ်       p
+          
+            
+.group တ်
+         _) တ်     d
+           
+           
+.group  ၵ်
+         _) ၵ်      k   // temporary word        
+          
+        
+
+
+
+
+   
