@@ -1990,3 +1990,6 @@ include ph_kyrgyz
 
 phonemetable mi base1
 include ph_maori
+
+phonemetable shn base1
+include ph_shan

@@ -1,0 +1,295 @@
+//*******************************************************************
+// TONES
+//*******************************************************************
+
+phoneme 1 // rising tone (contour: 24)
+  stress
+  Tone(20, 40, envelope/p_rise, NULL)
+endphoneme
+
+phoneme 2 // low tone (contour: 11)
+  stress
+  Tone(10, 10, envelope/i_risefall, NULL)
+endphoneme
+
+phoneme 3 // mid(-falling) tone (contour: 32)
+  stress
+  Tone(30, 20, envelope/p_fall, NULL)
+endphoneme
+
+phoneme 4 // high tone (contour: 55)
+  stress
+  Tone(50, 50, envelope/i_risefall, NULL)
+endphoneme
+
+phoneme 5 // falling (creaky) tone (contour: 42)
+  stress
+  Tone(40, 20, envelope/p_fall, NULL)
+endphoneme
+
+phoneme 6 // emphatic (contour: 343)
+  stress
+  Tone(30, 40, envelope/i_risefall, NULL)
+endphoneme
+
+//*******************************************************************
+// CONSONANTS (PLOSIVES/STOPS)
+//*******************************************************************
+
+phoneme p // unaspirated
+  vls blb stp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000  -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_)
+  ENDIF
+  WAV(ustop/p_unasp)
+endphoneme
+
+phoneme p_h // aspirated
+  vls blb stp
+  lengthmod 2
+  Vowelin  f1=0  f2=1000  -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+
+  WAV(ustop/p_asp)
+endphoneme
+
+phoneme t // unaspirated
+  vls alv stp
+  lengthmod 2
+  Vowelin  f1=0 f2=1700 -300 300 f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250 f3=-100 80 rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_unasp)
+endphoneme
+
+phoneme t_h // aspirated
+  vls alv stp
+  lengthmod 2
+  Vowelin  f1=0 f2=1700 -300 300 f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250 f3=-100 80 rms=20
+
+  WAV(ustop/t) // TODO: This should be aspirated.
+endphoneme
+
+phoneme k // unaspirated
+  vls vel stp
+  lengthmod 2
+  Vowelin  f1=0 f2=2300 200 300 f3=-200 80
+  Vowelout f1=0 f2=2300 300 400 f3=-200 80 rms=20
+
+  IF KlattSynth THEN
+    Vowelout f1=0 f2=2300 200 300 f3=-200 80 rms=20
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ENDIF
+  WAV(ustop/k_unasp)
+endphoneme
+
+phoneme k_h
+  vls vel stp
+  lengthmod 2
+  Vowelin  f1=0 f2=2300 200 300 f3=-150 80
+  Vowelout f1=0 f2=2300 300 400 f3=-150 80 rms=20
+
+  WAV(ustop/k_asp)
+endphoneme
+
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 200
+
+  FMT(vowel/i)
+endphoneme
+
+phoneme i.
+  vwl starttype #i endtype #i
+  length 200
+  ipa ɨ
+
+  FMT(vowel/i#_6)
+endphoneme
+
+phoneme W
+  vwl starttype #a endtype #u
+  length 200
+  ipa ɯ
+
+  FMT(vowel/8_2)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 200
+
+  FMT(vowel/e_2)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  length 200
+  ipa ə
+
+  FMT(vowel/3_2)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 220
+
+  FMT(vowel/o)
+endphoneme
+
+phoneme E
+  vwl starttype #e endtype #e
+  length 200
+  ipa ɛ
+
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 200
+
+  FMT(vowel/a)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  length 250
+  ipa aː
+
+  FMT(vowel/a)
+endphoneme
+
+phoneme O
+  vwl starttype #o endtype #o
+  length 260
+  ipa ɔ
+
+  FMT(vwl_it/o_open)
+endphoneme
+
+
+//*******************************************************************
+// DIPHTHONGS
+//*******************************************************************
+
+phoneme iu
+  vwl starttype #i endtype #u
+  length 200
+
+  FMT(vdiph2/iu)
+endphoneme
+
+phoneme eu
+  vwl starttype #e endtype #u
+  length 200
+
+  FMT(vdiph/eu)
+endphoneme
+
+phoneme Eu
+  vwl starttype #e endtype #u
+  length 200
+  ipa ɛu
+
+  FMT(vdiph/eeu)
+endphoneme
+
+phoneme au
+  vwl starttype #a endtype #u
+  length 200
+
+  FMT(vdiph/au_2)
+endphoneme
+
+phoneme a:u
+  vwl starttype #a endtype #u
+  length 250
+  ipa aːu
+
+  FMT(vdiph/au_2)
+endphoneme
+
+phoneme Wi
+  vwl starttype #i endtype #i
+  length 200
+  ipa ɯi
+
+  FMT(vdiph/ui_3)
+endphoneme
+
+phoneme ui
+  vwl starttype #u endtype #i
+  length 200
+
+  FMT(vdiph/ui)
+endphoneme
+
+phoneme @i
+  vwl starttype #@ endtype #i
+  length 200
+  ipa əi          //   ႂ် 
+
+  FMT(vdiph/@i)
+endphoneme
+
+phoneme oi
+  vwl starttype #o endtype #i
+  length 200
+
+  FMT(vdiph/ooi)
+endphoneme
+
+phoneme ai
+  vwl starttype #a endtype #i
+  length 200
+
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme a:i
+  vwl starttype #a endtype #i
+  length 250
+  ipa aːi
+
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme Oi
+  vwl starttype #o endtype #i
+  length 200
+  ipa ɔi
+
+  FMT(vdiph/ooi_3)
+endphoneme
+
+phoneme aW
+  vwl starttype #a endtype #u
+  length 200
+  ipa aɯ
+
+  FMT(vdiph/aau_4)
+endphoneme
+
