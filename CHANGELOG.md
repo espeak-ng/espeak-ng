@@ -44,6 +44,7 @@ new languages:
 
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
+*  shn (Shan Tay Yai) -- ronaldaug
 
 updated languages:
 
