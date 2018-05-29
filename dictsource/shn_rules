@@ -80,12 +80,9 @@
 // All vowels below are suffixs 
 
 .group ႃ 
-          ႃ         a 
-
-
-.group ေႃ                  // This is still wrong, it pronouces every single vowel  -  ei ( ေ ) and a ( ႃ )
-         _) ေႃ        O      //   It should sound like this  ( e.g  ဢေႃး-သမ်း =  awe-some ) 
-                      
+       ႃ      a 
+      ေ)ႃ     O
+      
           
 .group   ီ 
              ီ        i
@@ -106,8 +103,10 @@
             ု        u 
             
 
-.group  ေ      
-            ေ     ei
+.group  ေ
+        ေ    ei   // default rule without other characters
+    _)  ေႃ    O   // in group with other characters if necessary
+    
        
 .group  ႄ
             ႄ      E
