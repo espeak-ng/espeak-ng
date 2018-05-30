@@ -1845,6 +1845,19 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		new_c = ucd_toupper(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
+	if (option_phonemes & espeakPHONEMES_TRACE) {
+		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
+		char *index = &msg;
+		index +=9;
+        index += utf8_out(c, index);
+		*index++ = ' ';
+		*index++ = '>';
+		*index++ = ' ';
+		index += utf8_out(new_c, index);
+		index += utf8_out(c2, index);
+		*index = 0;
+		fprintf(f_trans, "%s\n", msg);
+	}
 	return new_c;
 }
 
