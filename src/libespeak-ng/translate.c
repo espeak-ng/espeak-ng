@@ -382,7 +382,7 @@ int utf8_in(int *c, const char *buf)
 	/* Read a unicode characater from a UTF8 string
 	 * Returns the number of UTF8 bytes used.
 	 * buf: position of buffer is moved, if character is read
-	 * c: holds integer representation of multibyte character by
+	 * c: holds UTF-16 representation of multibyte character by
 	 * skipping UTF-8 header bits of bytes in following way:
 	 * 2-byte character "ā":
 	 * hex            binary
@@ -395,7 +395,7 @@ int utf8_in(int *c, const char *buf)
 	 *            1010  011001  000101
 	 *    |       +  +--.\   \  |    |
 	 *    V        `--.  \`.  `.|    |
-	 *   A645         0001001101000101
+	 *   A645         1010011001000101
 	 * 4-byte character "𠜎":
 	 * f0a09c8e 11110000101000001001110010001110
 	 *    V          000  100000  011100  001110
@@ -407,7 +407,7 @@ int utf8_in(int *c, const char *buf)
 
 int utf8_out(unsigned int c, char *buf)
 {
-	// write a unicode character into a buffer as utf8
+	// write a UTF-16 character into a buffer as UTF-8
 	// returns the number of bytes written
 
 	int n_bytes;
