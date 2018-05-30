@@ -1788,6 +1788,7 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
+// handle .replace rule in xx_rules file
 static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
 	int ix;
@@ -1927,6 +1928,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		}
 		break;
 	}
+	// handle .replace rule in xx_rules file
 	return SubstituteChar(tr, c, next_in, insert, wordflags);
 }
 
@@ -2201,8 +2203,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				c = ' ';
 				word_flags |= FLAG_COMMA_AFTER;
 			}
-
-			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);  // optional language specific function
+			// language specific character translations
+			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);
 			if (c == 8)
 				continue; // ignore this character
 
