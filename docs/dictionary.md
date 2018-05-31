@@ -56,8 +56,8 @@ The utility 'phonemes' are:
 | `=`    | put the primary stress on the preceding syllable |
 | `_:`   | short pause |
 | `_`    | a shorter pause |
-| <code>&#124;</code>  | indicates a word boundary within a phoneme string |
-| <code>&#124;&#124;</code>    | can be used to separate two adjacent characters, to prevent them from being considered as a multi-character phoneme mnemonic |
+| <code>&#124;</code> | use to separate two adjacent characters, to prevent them from being considered as a single multi-character phoneme |
+| <code>&#124;&#124;</code> | indicates a word boundary within a phonetic string |
 
 It is not necessary to specify the stress of every syllable. Stress
 markers are only needed in order to change the effect of the language's
@@ -509,11 +509,11 @@ each language. The number fragments are given in the `*_list` file.
 ## Character Substitution
 
 Character substitutions can be specified by using a `.replace` section
-at the start of the `*_rules` file. Each line specified either one or
-two alphabetic characters to be replaced by another one or two
-alphabetic characters. This substitution is done to a word before word is searched
+at the start of the `*_rules` file. In each line one character can be
+replaced by one or two characters. (Source and target of replacement can consume
+up to four bytes.) This substitution is done to a word _before_ word is searched
 in `*_list` or `*_listx` file and translated using the spelling-to-phoneme rules.
-Only the lower-case version of the characters needs to be specified. e.g.
+Only the lower-case version of the characters needs to be specified. e.g.:
 
 	.replace
 	   ô   ő   // (Hungarian) allow the use of o-circumflex instead of o-double-accute

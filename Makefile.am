@@ -370,6 +370,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_s_gaelic \
 	phsource/ph_serbian \
 	phsource/ph_setswana \
+	phsource/ph_shan \
 	phsource/ph_sinhala \
 	phsource/ph_slovak \
 	phsource/ph_slovenian \
@@ -520,6 +521,7 @@ dictionaries: \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
+	espeak-ng-data/shn_dict \
 	espeak-ng-data/si_dict \
 	espeak-ng-data/sk_dict \
 	espeak-ng-data/sl_dict \
@@ -759,6 +761,9 @@ endif
 sd: espeak-ng-data/sd_dict
 espeak-ng-data/sd_dict: dictsource/sd_list dictsource/sd_rules dictsource/sd_extra dictsource/sd_emoji
 
+shn: espeak-ng-data/shn_dict
+espeak-ng-data/shn_dict: dictsource/shn_list dictsource/shn_rules dictsource/shn_extra
+
 si: espeak-ng-data/si_dict
 espeak-ng-data/si_dict: dictsource/si_list dictsource/si_rules dictsource/si_extra dictsource/si_emoji
 
@@ -841,7 +846,6 @@ dictsource/zhy_emoji:
 mbrola: \
 	espeak-ng-data/mbrola_ph/af1_phtrans \
 	espeak-ng-data/mbrola_ph/ar1_phtrans \
-	espeak-ng-data/mbrola_ph/ar2_phtrans \
 	espeak-ng-data/mbrola_ph/ca_phtrans \
 	espeak-ng-data/mbrola_ph/cr1_phtrans \
 	espeak-ng-data/mbrola_ph/cs_phtrans \
@@ -887,10 +891,6 @@ espeak-ng-data/mbrola_ph/af1_phtrans: phsource/mbrola/af1 src/espeak-ng
 espeak-ng-data/mbrola_ph/ar1_phtrans: phsource/mbrola/ar1 src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph
 	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar1
-
-espeak-ng-data/mbrola_ph/ar2_phtrans: phsource/mbrola/ar2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar2
 
 espeak-ng-data/mbrola_ph/ca_phtrans: phsource/mbrola/ca src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph

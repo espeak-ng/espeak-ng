@@ -250,6 +250,7 @@ kur       $u+
 labad     $u
 lai       $u+
 līdz      $u+
+lūk       $u+
 ļoti      $u+
 nav       $u+
 nedz      $u  $brk
@@ -270,6 +271,8 @@ pie       $u
 pirms     $u+
 pret      $u+
 priekš    $u
+projām    $u+
+prom      $u+
 protams   $u+
 sauc      $u+
 starp     $u
@@ -279,6 +282,7 @@ taču      $u $pause
 tad       $u+
 tagad     $u+
 tas       $u+
+tātad     $u+ $pause
 te        $u+
 tiek      $u+
 tikai     $u+
@@ -436,6 +440,7 @@ vismaz    $2
 (it sevišķi)    it||seviSci    $u2+
 (kaut arī)      kaut||aRi:     $u2+
 (kaut cik)      kaut||tsik     $u2+
+(kaut gan)      kaut||gan      $u2+
 (kaut kad)      kaut||kad      $u2+
 (kaut kam)      kaut||kam      $u2+
 (kaut kas)      kaut||kas      $u2+

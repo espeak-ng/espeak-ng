@@ -382,7 +382,7 @@ int utf8_in(int *c, const char *buf)
 	/* Read a unicode characater from a UTF8 string
 	 * Returns the number of UTF8 bytes used.
 	 * buf: position of buffer is moved, if character is read
-	 * c: holds integer representation of multibyte character by
+	 * c: holds UTF-16 representation of multibyte character by
 	 * skipping UTF-8 header bits of bytes in following way:
 	 * 2-byte character "ā":
 	 * hex            binary
@@ -395,7 +395,7 @@ int utf8_in(int *c, const char *buf)
 	 *            1010  011001  000101
 	 *    |       +  +--.\   \  |    |
 	 *    V        `--.  \`.  `.|    |
-	 *   A645         0001001101000101
+	 *   A645         1010011001000101
 	 * 4-byte character "𠜎":
 	 * f0a09c8e 11110000101000001001110010001110
 	 *    V          000  100000  011100  001110
@@ -407,7 +407,7 @@ int utf8_in(int *c, const char *buf)
 
 int utf8_out(unsigned int c, char *buf)
 {
-	// write a unicode character into a buffer as utf8
+	// write a UTF-16 character into a buffer as UTF-8
 	// returns the number of bytes written
 
 	int n_bytes;
@@ -1788,6 +1788,7 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
+// handle .replace rule in xx_rules file
 static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
 	int ix;
@@ -1845,6 +1846,19 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		new_c = ucd_toupper(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
+	if (option_phonemes & espeakPHONEMES_TRACE) {
+		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
+		char *index = &msg;
+		index +=9;
+        index += utf8_out(c, index);
+		*index++ = ' ';
+		*index++ = '>';
+		*index++ = ' ';
+		index += utf8_out(new_c, index);
+		index += utf8_out(c2, index);
+		*index = 0;
+		fprintf(f_trans, "%s\n", msg);
+	}
 	return new_c;
 }
 
@@ -1914,6 +1928,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		}
 		break;
 	}
+	// handle .replace rule in xx_rules file
 	return SubstituteChar(tr, c, next_in, insert, wordflags);
 }
 
@@ -2188,8 +2203,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				c = ' ';
 				word_flags |= FLAG_COMMA_AFTER;
 			}
-
-			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);  // optional language specific function
+			// language specific character translations
+			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);
 			if (c == 8)
 				continue; // ignore this character
 
