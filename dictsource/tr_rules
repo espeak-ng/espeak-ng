@@ -19,7 +19,6 @@
 
 .group a
         a        a
-
      @) a (_S1   a
 
      @) acak (_S4  adZak
@@ -29,6 +28,10 @@
      @) asın (_S4  as@n
 
      @) avru (pa avr'u
+
+.group â
+	â	 a
+
 
 .group b
         b        b
@@ -210,6 +213,9 @@
 .group ö
         ö        W
 
+.group ô
+	ô	o
+
 .group p
         p        p
         pp       _:_!p
@@ -289,6 +295,10 @@
      @) üyor (_S4  yj%oR
      @) ün (_S2  yn
 
+
+
+.group û
+	û	u  
 
 .group v
         v        v
