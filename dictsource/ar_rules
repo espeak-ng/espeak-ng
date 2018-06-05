@@ -49,9 +49,6 @@
 //all vowels
 .L01   ا ي و   َ ُ ِ ً ٌ ٍ ّ ى
 
-//short vowels (commonly unwritten )
-.L02
-
 //list of consonants
 .L03   ب پ ت ة ث ج ح خ د ذ ر ز  س ش ص ض ط  ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
 
