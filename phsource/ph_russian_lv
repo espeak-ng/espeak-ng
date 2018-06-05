@@ -1,0 +1,97 @@
+phoneme l
+  liquid
+
+  IF nextPh(isNotVowel) THEN
+    PrevVowelEndings
+      VowelEnding(l/L1_@L)
+      VowelEnding(l/L1_aL)
+      VowelEnding(l/L1_eL)
+      VowelEnding(l/L1_iL)
+      VowelEnding(l/L1_oL)
+      VowelEnding(l/L1_uL)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(l/xl, 10)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)    // double l, make it longer
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+phoneme l^    // Latvian ļ, customized from standard l^
+  liquid
+  ipa ʎ
+  lengthmod 7
+  Vowelout len=60 lenadd rate
+  length 100
+
+  NextVowelStarts
+    VowelStart(l^/j2@)
+    VowelStart(l^/j2a)
+    VowelStart(l^/j2e)
+    VowelStart(l^/j2i)
+    VowelStart(l^/j2o)
+    VowelStart(l^/j2u)
+  EndSwitch
+
+  IF prevPh(isPause) THEN
+    FMT(l^/_l^)
+  ELSEIF nextPh(isPause) THEN
+    FMT(l^/l^_)
+  ENDIF
+
+  FMT(l^/l^)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 100
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/aa_7)
+  ENDIF
+  FMT(vwl_ru/o)
+endphoneme
+
+phoneme 8
+  vwl starttype #o endtype #o
+  length 120
+  ChangeIfNotStressed(V)
+  FMT(vwl_ru/8)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 100
+  IF prevPh(Z) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(S) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  IF prevPh(ts) THEN
+    ChangeIfNotStressed(y)
+    ChangePhoneme(E)
+  ENDIF
+  FMT(vwl_ru/ee)
+endphoneme
+
