@@ -1847,17 +1847,13 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	if (option_phonemes & espeakPHONEMES_TRACE) {
-		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
-		char *index = &msg;
-		index +=9;
-        index += utf8_out(c, index);
-		*index++ = ' ';
-		*index++ = '>';
-		*index++ = ' ';
+		char from[5] = { };
+		char to[5] = { };
+		utf8_out(c, &from);
+		char *index = &to;
 		index += utf8_out(new_c, index);
 		index += utf8_out(c2, index);
-		*index = 0;
-		fprintf(f_trans, "%s\n", msg);
+		fprintf(f_trans, "Replace   %s > %s\n", from, to);
 	}
 	return new_c;
 }
