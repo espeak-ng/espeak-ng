@@ -513,7 +513,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('a', 'r'): // Arabic
-		tr->transpose_min = 0x620; // for ar_list, use 6-bit character codes
+		tr->transpose_min = OFFSET_ARABIC; // for ar_list, use 6-bit character codes
 		tr->transpose_max = 0x65f;
 		tr->transpose_map = NULL;
 		tr->letter_bits_offset = OFFSET_ARABIC;
