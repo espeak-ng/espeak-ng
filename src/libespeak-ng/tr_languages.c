@@ -393,6 +393,13 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 	0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2c, 0x73, 0x7b, 0x83, 0x9b, 0
 };
 
+static void SetArabicLetters(Translator *tr)
+{
+	static const unsigned char ar_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
+	static const char ar_consonant_codes[35];
+	PrepareLetters(&ar_consonant_letters, &ar_consonant_codes, 35, OFFSET_ARABIC);
+	SetLetterBits(tr, LETTERGP_C, (char *) ar_consonant_codes);
+}
 
 static void SetCyrillicLetters(Translator *tr)
 {
@@ -513,6 +520,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
+		SetArabicLetters(tr);
 		break;
 	case L('b', 'g'): // Bulgarian
 	{
