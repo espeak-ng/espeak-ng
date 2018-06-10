@@ -364,6 +364,7 @@
           ٰ           a:  // superscript alef
           ِ           i   // kasra
           َ           %a  // fatha
+      C)  ٓ           ?   // madda after consonant
 
 // Following are default rules for other diacritics and they are just silence.
 // Diacritics should be consumed together with leading letters in rules above.
