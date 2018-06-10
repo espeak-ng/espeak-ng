@@ -395,8 +395,8 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 
 static void SetArabicLetters(Translator *tr)
 {
-	static const unsigned char ar_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
-	static const char ar_consonant_codes[35];
+	static const char ar_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
+	static char ar_consonant_codes[35];
 	PrepareLetters(&ar_consonant_letters, &ar_consonant_codes, 35, OFFSET_ARABIC);
 	SetLetterBits(tr, LETTERGP_C, (char *) ar_consonant_codes);
 }
