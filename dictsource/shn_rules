@@ -188,10 +188,25 @@
 .group  ၵ်
          _) ၵ်      k   // temporary word        
 
-.group       း
+.group  း
              း      1 // FIXME there should be more proper rules for this
 
-.group       ႉ
+.group  ႇ
+             ႇ      2
+
+.group  ႈ
+             ႈ      3
+
+.group  ႉ
              ႉ      5 // FIXME there should be more proper rules for this
+
+.group  ႊ
+             ႊ      5
+
+.group  ႋ
+             ႋ      i2
+
+.group  ႌ
+             ႌ      i3
 
 .group  // all other symbols, if necessary
