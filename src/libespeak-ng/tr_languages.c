@@ -113,6 +113,8 @@ ALPHABET *AlphabetFromChar(int c)
 
 static void Translator_Russian(Translator *tr);
 
+static void PrepareLetters(char *, char *, int, int);
+
 static void ResetLetterBits(Translator *tr, int groups)
 {
 	// Clear all the specified groups
@@ -390,6 +392,7 @@ static const unsigned char ru_vowels[] = { // (also kazakh) offset by 0x420 -- �
 static const unsigned char ru_consonants[] = { // б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь қ ң һ
 	0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2c, 0x73, 0x7b, 0x83, 0x9b, 0
 };
+
 
 static void SetCyrillicLetters(Translator *tr)
 {
@@ -1584,4 +1587,33 @@ static void Translator_Russian(Translator *tr)
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
+}
+
+static void PrepareLetters(char *letters, char *codes, int size, int shift)
+{
+	/* Prepare array of shifted letter codes for letter groups from passed string.
+	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
+	 * codes: pointer to array of letter codes.
+	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
+	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
+	 */
+	unsigned char *p = letters;
+	int bytes = 0;
+	int code = -1;
+	int count = 0;
+	while (code != 0) {
+		bytes = utf8_in(&code, p);
+		if (code > 0x20) {
+			*codes = code - shift;
+			codes++;
+			count++;
+		}
+		p += bytes;
+	}
+	codes++;
+	*codes = 0;
+	if (size != count + 1)
+		fprintf(stderr,
+				"PrepareLetters() error: different sizes of letter arrays reserved: %d, used:%d.\n",
+				size, count + 1);
 }
