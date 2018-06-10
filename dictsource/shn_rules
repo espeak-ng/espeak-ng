@@ -1,5 +1,17 @@
 // Shan (Tai Yay) pronunciation rules (Burmese script)
 
+.replace
+       ႐    0
+       ႑    1
+       ႒    2
+       ႓    3
+       ႔    4
+       ႕    5
+       ႖    6
+       ႗    7
+       ႘    8
+       ႙    9
+
 .group င // U+1004
          င         N
 
