@@ -6,8 +6,8 @@ endphoneme
 phoneme H	// arabic Hah
   vls phr frc
   ipa ħ
-  lengthmod 5 
-  WAV(vwl_ar/hah) 
+  lengthmod 5
+  WAV(vwl_ar/hah,80)
 endphoneme
 
 phoneme Z // arabic ZAH .Todo
