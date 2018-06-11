@@ -50,11 +50,20 @@
 //list of consonants
 //C: ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
 
-//all vowels
-.L01   ا ي و   َ ُ ِ ً ٌ ٍ ّ ى
+// all vowels/diphthongs in vocalized text
+// (fatha, damma, kasra, fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
+.L01  َ  ُ  ِ  َا  َى  ُو  ِي يَ وَ  ٰ
 
-// all Arabic characters without ا آ
-.L04  ض ص ث ق ف غ ع ه خ ح ج  ً ٌ ٍ ، ؛ ش س ي ب ل ت ن م ك  َ ُ ِ ّ  ـ « » ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
+// Short vowels in vocalized text
+// (fatha, damma, kasra)
+.L02  َ  ُ  ِ
+
+// Long vowels and diphthongs in vocalized text
+// (fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
+.L03  َا  َى  ُو  ِي يَ وَ  ٰ
+
+// Implicit long vowels in UNvocalized text (alef, alef maksura, waw, yeh)
+.L04 ا ى و ي
 
 // all Arabic characters without short vowels and A
 .L05  ض ص ث ق ف غ ع ه خ ح ج  ش س ي ب ل ت ن م ك  ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
