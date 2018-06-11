@@ -86,7 +86,7 @@ phoneme a
   IF nextPhW(a) THEN
   length 200
   ENDIF
-  FMT(vowel/a)
+  FMT(vowel/a_2)
 endphoneme
 
 
