@@ -289,6 +289,7 @@
          هن (_S2     hun:a     //الضمير المتصل
 
 .group و
+         و           w
       C) و           u:        //واو بعد صامت دون تشكيل
       ا) و           w         //واو بعد الألف
          و (L01      w         //واو بعدها حرف علة
@@ -360,18 +361,21 @@
 
 // Other diacritics
 .group
+          َ           %a  // fatha
+      C)  ٓ           ?   // madda after consonant
+          ِ           i   // kasra
           ٍ (_S1      in  // kasratan at the end of word
           ٌ (_S1      un  // dammatan at the end of word
           ُ           u   // damma
-          ُو          u:
-          َا          a:
-          ًا (_S2     an
-          َى          a:
           ٰ           a:  // superscript alef
-          ِ           i   // kasra
+          َا          a:  // fatha+alef
+          ًا (_S2     an  // fathatan+alef at the end of word
+          َو          au  // fatha+waw
+          ُو          u:  // damma+waw
+          َى          a:  // fatha+alef maksura
+          َي          ai  // fatha+yeh
+          ِي          i:  // kasra+yeh
          ِي           i:  // kasra+yeh
-          َ           %a  // fatha
-      C)  ٓ           ?   // madda after consonant
 
 // Following are default rules for other diacritics and they are just silence.
 // Diacritics should be consumed together with leading letters in rules above.
