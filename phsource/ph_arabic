@@ -25,7 +25,7 @@ phoneme A	// arabic Ain
   length 160  
   Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
   Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
-  FMT(r/rr) addWav(ufric/x_) // TODO actual voiced part should be adjusted
+  FMT(r/xr,25) addWav(h/h_,30)
 endphoneme
 
 phoneme gH    // arabic ghain, 
