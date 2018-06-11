@@ -380,7 +380,6 @@
           َى          a:  // fatha+alef maksura
           َي          ai  // fatha+yeh
           ِي          i:  // kasra+yeh
-         ِي           i:  // kasra+yeh
 
 // Following are default rules for other diacritics and they are just silence.
 // Diacritics should be consumed together with leading letters in rules above.
