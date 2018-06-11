@@ -154,7 +154,7 @@
 
 .group ج
          ج           dZ
-         جّ           dZdZ
+         جّ           dZ:
 
 .group ح
          ح           H
@@ -188,7 +188,7 @@
 
 .group ص
          ص           s[
-         صّ           s[s[
+         صّ           s[:
 
 .group ض
          ض           dH
