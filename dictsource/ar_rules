@@ -55,7 +55,12 @@
 //B: ا و ي
 // "Thick" letters
 //F: ص ض ط ظ ق
-
+// Shadda
+//G:  ّ
+// Hamza
+//H: ء
+// Sukun
+//Y:  ْ
 // all vowels/diphthongs in vocalized text
 // (fatha, damma, kasra, fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
 .L01  َ  ُ  ِ  َا  َى  ُو  ِي يَ وَ  ٰ
