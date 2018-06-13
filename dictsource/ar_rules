@@ -46,28 +46,25 @@
      ،       ,
      ؛       ;
 
-// Letter groups
+// Named letter groups:
 // list of short vowels
-//A:  َ  ُ  ِ
-//list of consonants
-//C: ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
+// A:  َ  ُ  ِ
+// list of consonants
+// C: ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
 // Consonant/vowel letters
-//B: ا و ي
+// B: ا و ي
 // "Thick" letters
-//F: ص ض ط ظ ق
+// F: ص ض ط ظ ق
 // Shadda
-//G:  ّ
+// G:  ّ
 // Hamza
-//H: ء
+// H: ء
 // Sukun
-//Y:  ْ
+// Y:  ْ
+
 // all vowels/diphthongs in vocalized text
 // (fatha, damma, kasra, fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
 .L01  َ  ُ  ِ  َا  َى  ُو  ِي يَ وَ  ٰ
-
-// Short vowels in vocalized text
-// (fatha, damma, kasra)
-.L02  َ  ُ  ِ
 
 // Long vowels and diphthongs in vocalized text
 // (fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
