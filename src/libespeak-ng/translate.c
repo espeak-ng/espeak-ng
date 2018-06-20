@@ -1831,7 +1831,7 @@ static void ReplaceMatchingChars(char **matchstart, int *from, int *to, int uppe
 	memcpy(&tmpsource, *matchstart, N_TR_SOURCE + 40);
 
 	// prepare from part
-	char charfrom[N_TR_SOURCE + 1] = { };
+	char charfrom[N_WORD_BYTES + 1] = { };
 	int usedfrom = 0;
 	int *pintfrom = from;
 	char *pcharfrom = &charfrom;
@@ -1841,7 +1841,7 @@ static void ReplaceMatchingChars(char **matchstart, int *from, int *to, int uppe
 	}
 
 	// prepare to part
-	char charto[N_TR_SOURCE + 1] = { };
+	char charto[N_WORD_BYTES + 1] = { };
 	int usedto = 0;
 	int *pintto = to;
 	char *pcharto = &charto;
