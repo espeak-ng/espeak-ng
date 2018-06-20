@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 june 9 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 june 20 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -557,7 +557,7 @@ sue	$u+
 nostre	$u+
 vostre	$u+
 
-quest	$u+	$nounf
+quest	$u+	$alt2	$nounf
 (questa è)	kw'esta||'E
 (questo è)	kw'esto/||,E
 quel	$u+
@@ -2821,6 +2821,7 @@ ammacchino	$2
 ammalano	$2
 ammalino	$2
 ammazzino	$2
+amministrano	$3
 ammirano	$2
 ammirino	$2
 ammontino	$2
