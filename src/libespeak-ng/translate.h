@@ -37,7 +37,7 @@ extern "C"
 #define REPLACED_E       'E' // 'e' replaced by silent e
 
 #define N_WORD_PHONEMES  200 // max phonemes in a word
-#define N_WORD_BYTES     160 // max bytes for the UTF8 characters in a word
+#define N_WORD_BYTES     160 // max bytes for the UTF8 characters in a word, also limit for from > to in .replace group
 #define N_CLAUSE_WORDS   300 // max words in a clause
 #define N_TR_SOURCE      800 // the source text of a single clause (UTF8 bytes)
 
