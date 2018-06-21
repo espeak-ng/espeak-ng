@@ -46,6 +46,12 @@
      ،       ,
      ؛       ;
 
+// Reorder diacritics in "canonical order"
+
+      َّ        َّ   // Fatha Shadda > Shadda Fatha
+      ِّ        ِّ   // Kasra Shadda > Shadda Kasra
+      ّْ        ّْ   // Sukun Shadda > Shadda Sukun
+
 // Named letter groups:
 // list of short vowels
 // A:  َ  ُ  ِ
