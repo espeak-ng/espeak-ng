@@ -1,6 +1,6 @@
 ﻿
 //====================================================
-//  Italian, last update november 10 2017 by Chris <llajta2012@gmail.com>
+//  Italian, last update may 31 2018 by Chris <llajta2012@gmail.com>
 //====================================================
 
 phoneme : //  Lengthen previous vowel by "length"
@@ -72,6 +72,9 @@ phoneme i
     ChangePhoneme(I)
   ENDIF
   IF thisPh(isNotStressed) AND prevPhW(isNotVowel) AND nextPhW(isVowel) THEN
+    ChangePhoneme(i/) 
+  ENDIF
+  IF thisPh(isNotStressed) AND prevPhW(isNotVowel) AND nextPhW(isNotVowel) THEN
     ChangePhoneme(i/) 
   ENDIF
   FMT(vwl_it/i)
