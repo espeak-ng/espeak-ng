@@ -1788,78 +1788,156 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
-// handle .replace rule in xx_rules file
-static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
+static bool GetNextTranslateChars(int **from, int **to, bool next_step)
 {
-	int ix;
-	unsigned int word;
-	unsigned int new_c, c2, c_lower;
-	int upper_case = 0;
-	static bool ignore_next = false;
-	const unsigned int *replace_chars;
-
-	if (ignore_next) {
-		ignore_next = false;
-		return 8;
+	// Set pointers to next 'from' and 'to' part for replacement
+	// next_step indicates non-first replacement group
+	// Return true if got data, false, if reached end
+	int *idx = *from;
+	if (next_step) {                      // first 'from' is pointed already
+		int spaces = 0;
+		while (*idx != 0 && spaces < 2) { // Get next 'from' position skipping to part
+			idx++;
+			if (*idx == ' ')
+				spaces++;
+		}
+		while (*idx == ' ') // skip remaining spaces, if exists
+			idx++;
+		//idx++;
 	}
-	if (c == 0) return 0;
+	*from = idx;
+	if (**from == 0)
+		return false;
 
-	if ((replace_chars = tr->langopts.replace_chars) == NULL)
-		return c;
+	while (*idx != 0 && *idx != ' ') {   // get next 'to' position
+		idx++;
+	}
+	while (*idx == ' ') // skip remaining spaces, if exists
+		idx++;
+	//*to = ++idx;
+	*to = idx;
+	if (**to == 0)
+		return false;
+	return true;
+}
 
-	// there is a list of character codes to be substituted with alternative codes
+static void ReplaceMatchingChars(char **matchstart, int *from, int *to, int upper_case)
+{
+	// Replace characters from 'from' to 'to' group in source clause, starting
+	// with place indicated in matchstart.
+	// Rewrites remaining part of source, if length of 'from' and 'to' groups differs.
 
-	if (iswupper(c_lower = c)) {
-		c_lower = towlower2(c, tr);
-		upper_case = 1;
+	char tmpsource[N_TR_SOURCE + 40]; // Prepare working copy of source
+	memcpy(&tmpsource, *matchstart, N_TR_SOURCE + 40);
+
+	// prepare from part
+	char charfrom[N_WORD_BYTES + 1] = { };
+	int usedfrom = 0;
+	int *pintfrom = from;
+	char *pcharfrom = &charfrom;
+	while (*pintfrom != ' ') {
+		usedfrom += utf8_out(*pintfrom, pcharfrom + usedfrom);
+		pintfrom++;
 	}
 
-	new_c = 0;
-	for (ix = 0; (word = replace_chars[ix]) != 0; ix += 2) {
-		if (c_lower == (word & 0xffff)) {
-			if ((word >> 16) == 0) {
-				new_c = replace_chars[ix+1];
-				break;
-			}
-			if ((word >> 16) == (unsigned int)towlower2(next_in, tr)) {
-				new_c = replace_chars[ix+1];
-				ignore_next = true;
-				break;
-			}
+	// prepare to part
+	char charto[N_WORD_BYTES + 1] = { };
+	int usedto = 0;
+	int *pintto = to;
+	char *pcharto = &charto;
+	while (*pintto != 0 && *pintto != ' ') {
+		usedto += utf8_out(*pintto, pcharto + usedto);
+		pintto++;
+	}
+
+	// Set up replacement in temporary buffer
+	char *psource = *matchstart;
+	char *ptmpsource = &tmpsource;
+	pcharto = &charto;
+	int replace = 0;
+
+	// Do replacement writing 'to' part in buffer
+	while (*pcharto != 0 ) {
+		*ptmpsource = *pcharto;
+		pcharto++;
+		ptmpsource++;
+	}
+
+	// If 'to' part is different than 'from' part, fix remaining part of the buffer.
+	// (Read after 'from' in source, write after 'to' in buffer.
+	// Don't touch last 40 bytes of source, which could contain control data.
+	if (usedfrom != usedto) {
+		psource = *matchstart + usedfrom;
+		while (ptmpsource < &tmpsource[N_TR_SOURCE]
+				&& psource < &source[N_TR_SOURCE]) {
+			*ptmpsource = *psource;
+			ptmpsource++;
+			psource++;
 		}
 	}
 
-	if (new_c == 0)
-		return c; // no substitution
-
-	if (new_c & 0xffe00000) {
-		// there is a second character to be inserted
-		// don't convert the case of the second character unless the next letter is also upper case
-		c2 = new_c >> 16;
-		if (upper_case && iswupper(next_in))
-			c2 = ucd_toupper(c2);
-		*insert = c2;
-		new_c &= 0xffff;
+	// Write temporary buffer back to source
+	psource = *matchstart;
+	ptmpsource = &tmpsource;
+	while (*ptmpsource < &tmpsource[N_TR_SOURCE]
+			&& psource < &source[N_TR_SOURCE]) {
+		*psource = *ptmpsource;
+		ptmpsource++;
+		psource++;
 	}
 
-	if (upper_case)
-		new_c = ucd_toupper(new_c);
-
-	*wordflags |= FLAG_CHAR_REPLACED;
+	// if requested, print trace
 	if (option_phonemes & espeakPHONEMES_TRACE) {
-		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
-		char *index = &msg;
-		index +=9;
-        index += utf8_out(c, index);
-		*index++ = ' ';
-		*index++ = '>';
-		*index++ = ' ';
-		index += utf8_out(new_c, index);
-		index += utf8_out(c2, index);
-		*index = 0;
-		fprintf(f_trans, "%s\n", msg);
+		fprintf(f_trans, "Replace   %s > %s\n", charfrom, charto);
 	}
-	return new_c;
+}
+
+static void TranslateChars(Translator *tr, char *source)
+{
+	// Replace characters using Translator.replace_chars in passed source buffer
+	int *replace_chars = tr->langopts.replace_chars;
+	char *mysource = source;
+	char *startmatch;
+	int *from;
+	int *to;
+	bool upper_case = false;
+
+	if ((from = tr->langopts.replace_chars) == NULL)
+		return;
+
+	char *curchar = source; // pointer to the source clause
+	int curint;             // current UTF-16 character
+	int used;               // bytes used in buffer
+	int *curfrom;           // pointer to current 'from'
+	bool next_step = false; // signal to jumping to next 'from' part in dictionary
+	while (GetNextTranslateChars(&from, &to, next_step)) {
+		next_step = true;
+		curfrom = from;
+		curchar = source;
+		startmatch = 0;
+		curint = 0;
+		do {
+			used = utf8_in(&curint, curchar);
+			if (curint < ' ') { // skip control characters
+				curchar += used;
+				continue;
+			}
+			if ((upper_case = iswupper(curint)) == true) { // remember, if uppercase
+				curint = ucd_tolower(curint);
+			};
+			if (curint == *curfrom) {
+				if (startmatch == 0)
+					startmatch = curchar;
+				curfrom++; // move check to next character
+				if (*curfrom == ' ') {
+					ReplaceMatchingChars(&startmatch, from, to, upper_case);
+					curfrom = from;
+				}
+			} else
+				startmatch = 0;
+			curchar += used;
+		} while (curint > 0);
+	}
 }
 
 static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
@@ -1928,8 +2006,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		}
 		break;
 	}
-	// handle .replace rule in xx_rules file
-	return SubstituteChar(tr, c, next_in, insert, wordflags);
+	return c;
 }
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
@@ -2101,6 +2178,10 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			k++;
 	}
 	words[0].length = k;
+
+	// handle .replace rule of xx_rules file
+	TranslateChars(tr, &source);
+
 
 	while (!finished && (ix < (int)sizeof(sbuf) - 1) && (n_ph_list2 < N_PHONEME_LIST-4)) {
 		prev_out2 = prev_out;

@@ -46,17 +46,32 @@
      ،       ,
      ؛       ;
 
-//all vowels
-.L01   ا ي و   َ ُ ِ ً ٌ ٍ ّ ى
+// Named letter groups:
+// list of short vowels
+// A:  َ  ُ  ِ
+// list of consonants
+// C: ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
+// Consonant/vowel letters
+// B: ا و ي
+// "Thick" letters
+// F: ص ض ط ظ ق
+// Shadda
+// G:  ّ
+// Hamza
+// H: ء
+// Sukun
+// Y:  ْ
 
-//short vowels (commonly unwritten )
-.L02
+// all vowels/diphthongs in vocalized text
+// (fatha, damma, kasra, fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
+.L01  َ  ُ  ِ  َا  َى  ُو  ِي يَ وَ  ٰ
 
-//list of consonants
-.L03   ب پ ت ة ث ج ح خ د ذ ر ز  س ش ص ض ط  ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه
+// Long vowels and diphthongs in vocalized text
+// (fatha+alef, fatha+alef_maksura, damma+waw, kasra+yeh, yeh+fatha, waw+fatha, superscript alef)
+.L03  َا  َى  ُو  ِي يَ وَ  ٰ
 
-// all Arabic characters without ا آ
-.L04  ض ص ث ق ف غ ع ه خ ح ج  ً ٌ ٍ ، ؛ ش س ي ب ل ت ن م ك  َ ُ ِ ّ  ـ « » ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
+// Implicit long vowels in UNvocalized text (alef, alef maksura, waw, yeh)
+.L04 ا ى و ي
 
 // all Arabic characters without short vowels and A
 .L05  ض ص ث ق ف غ ع ه خ ح ج  ش س ي ب ل ت ن م ك  ظ ط ز ر ذ د ئ و ة ي  ؤ إ أ ء  پ گ
@@ -77,11 +92,11 @@
 .L20  ۡ ـ  ً  ٌ  ٍ  َ  ُ  ِ  ّ  ْ
 
 .group آ
-         آ           ?aa
+         آ           ?a:
 
 .group ا
-    L03) ا           aa      // if a consonant is before it, make the fatha long
-    L03) ا (L03      aa
+      C) ا           a:      // if a consonant is before it, make the fatha long
+      C) ا (C        a:
          ا (َ         ?
          ا (ُ         ?
          ا (ِ         ?
@@ -112,7 +127,9 @@
 
 .group ب
          ب           b
-         بّ           Bb
+         ب (_        b
+         بّ           b:
+         بْ           b
       _) بال (L10P3  bi        //بالشمس
       _) بال (L11P3  bil       //بالقمر
       _) بال (تP3    bit
@@ -135,20 +152,17 @@
 
 .group ت
          ت           t
-         ت (ّ         t:
+         ت (_        t
          ت (L20ّ      t:
       _) ت (َP1       t
-      _) ت (P1       ta        //تسأل
-      _َ) ت (P2       t
-         ت (_S1      at        //سألت
-         تّ           t:
+         ت (ّ         t:
 
 .group ث
          ث           T
 
 .group ج
          ج           dZ
-         جّ           dZdZ
+         جّ           dZ:
 
 .group ح
          ح           H
@@ -182,7 +196,7 @@
 
 .group ص
          ص           s[
-         صّ           s[s[
+         صّ           s[:
 
 .group ض
          ض           dH
@@ -201,6 +215,8 @@
 
 .group ف
          ف           f
+         ف (_        f
+         فْ           f
       _) فال (L10P3  fa        //فالشمس
       _) فَال (L10P4  fa
       _) فَالْ (L10P4  fa
@@ -221,15 +237,17 @@
       _) فال (ظP3    faZ
       _) فال (لP3    fal
       _) فال (نP3    fan
- 
+
 .group ق
          ق           q
 
 .group ك
          ك           k
-         ك   (_S1    ka        // الضمير المتصل
+         ك   (_      k
          ك   (ّ       k:
+         كْ           k
          ك   (L20ّ    k:
+         ك   (_S1    ka        // الضمير المتصل
       _) كال (L10P3  ka        //كالشمس
       _) كَال (L10P4  ka
       _) كَالْ (L10P4  ka
@@ -249,7 +267,6 @@
       _) كال (ظP3    kaZ
       _) كال (لP3    kal
       _) كال (نP3    kan
-         كم  (_S2    kum       //الضمير المتصل
          كما (_S3    kuma:     //الضمير المتصل
          كن  (_S2    kun:a     //الضمير المتصل
 
@@ -273,10 +290,11 @@
 .group ن
          ن           n
          ن (ب        m
-         ن (ْب        m
+         نْ (ب        m
 
 .group ه
          ه           h
+         هْ           h
          ه (_S1      h         // الضمير المتصل
          ها (_S2     ha:       //الضمير المتصل
          هم (_S2     hum       //الضمير المتصل
@@ -284,9 +302,11 @@
          هن (_S2     hun:a     //الضمير المتصل
 
 .group و
-    L03) و           u:        //واو بعد صامت دون تشكيل
+         و           w
+      C) و           u:        //واو بعد صامت دون تشكيل
       ا) و           w         //واو بعد الألف
          و (L01      w         //واو بعدها حرف علة
+         وْ           w
        ْ) و           w         // واو بعد سكون
        َ) و           w         //واو بعد فتحة
        ِ) و           w         //واو بعد كسرة
@@ -316,7 +336,7 @@
          ون (_S2     u:na      //جمع مذكر سالم فلاحون
 
 .group ي
-    L03) ي           i:        // ياء بعد صامت دون تشكيل
+      C) ي           i:        // ياء بعد صامت دون تشكيل
       ا) ي           j         // ياء بعد ألف
          يِ           ji:
        ْ) ي           j         //ياء بعد سكون
@@ -325,7 +345,7 @@
       _) ي           j         // ياء في أول الكلمة
          ي (L01      j         //يا بعدها حروف علة
          ي (_S1      i
-         يات (_S3    ij:aat    //يّة النسبة في جمع المؤنث جزائريات
+         يات (_S3    ij:a:t    //يّة النسبة في جمع المؤنث جزائريات
          ية (_S2     ij:ah     //يّة النسبة
          ين (_S2     i:na      //جمع مذكر سالم منصوب أو مجرور
          يون (_S3    ij:u:n    //kجمع مذكر سالم منسوب جزائريون
@@ -333,7 +353,7 @@
 
 .group ى                      //ألف مقصورة
          ى           a
-    L03) ى (_        a:
+      C) ى (_        a:
 
 .group ء
          ء           ?
@@ -349,24 +369,30 @@
 
 .group ة
          ة           t
+         ةْ           t
          ةً           tan
 
 // Other diacritics
 .group
+          َ           %a  // fatha
+      C)  ٓ           ?   // madda after consonant
+          ِ           i   // kasra
           ٍ (_S1      in  // kasratan at the end of word
           ٌ (_S1      un  // dammatan at the end of word
           ُ           u   // damma
-          ُو          u:
-          َا          a:
-          ًا (_S2     an
-          َى          a:
           ٰ           a:  // superscript alef
-          ِ           i   // kasra
-          َ           %a  // fatha
+          َا          a:  // fatha+alef
+          ًا (_S2     an  // fathatan+alef at the end of word
+          َو          au  // fatha+waw
+          ُو          u:  // damma+waw
+          َى          a:  // fatha+alef maksura
+          َي          ai  // fatha+yeh
+          ِي          i:  // kasra+yeh
 
 // Following are default rules for other diacritics and they are just silence.
 // Diacritics should be consumed together with leading letters in rules above.
 
+         ٱ  // alef wasla
           ٌ  // dammatan
           ً  // fathatan
           ٍ  // kasratan

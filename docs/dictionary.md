@@ -509,9 +509,9 @@ each language. The number fragments are given in the `*_list` file.
 ## Character Substitution
 
 Character substitutions can be specified by using a `.replace` section
-at the start of the `*_rules` file. In each line one character can be
-replaced by one or two characters. (Source and target of replacement can consume
-up to four bytes.) This substitution is done to a word _before_ word is searched
+at the start of the `*_rules` file. In each line several characters can be
+replaced by several other characters. (Source and target of replacement can consume
+up to 40 bytes.) This substitution is done to a word _before_ word is searched
 in `*_list` or `*_listx` file and translated using the spelling-to-phoneme rules.
 Only the lower-case version of the characters needs to be specified. e.g.:
 

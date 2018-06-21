@@ -1448,30 +1448,53 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			break;
 		case 2: //  .replace
 		{
-			int replace1;
-			int replace2;
+			int from[N_WORD_BYTES + 1] = { }; // Size of N_WORD_BYTES + null byte
+			int to[N_WORD_BYTES + 1] = { };
 			char *p;
 
 			p = buf;
-			replace1 = 0;
-			replace2 = 0;
-			while (isspace2(*p)) p++;
+
+			while (isspace2(*p)) // skip spaces in xx_rules file
+				p++;
+
 			ix = 0;
-			while ((unsigned char)(*p) > 0x20) { // not space or zero-byte
-				p += utf8_in(&c, p);
-				replace1 += (c << ix);
-				ix += 16;
+			while ((unsigned char) (*p) > ' ') { // prepare 'from' characters
+				p += utf8_in(&from[ix], p);
+				ix++;
 			}
-			while (isspace2(*p)) p++;
+			while (isspace2(*p)) // skip spaces again
+				p++;
 			ix = 0;
-			while ((unsigned char)(*p) > 0x20) {
-				p += utf8_in(&c, p);
-				replace2 += (c << ix);
-				ix += 16;
+			while ((unsigned char) (*p) > ' ') {  // prepare 'to' characters
+				p += utf8_in(&to[ix], p);
+				ix++;
 			}
-			if (replace1 != 0) {
-				Write4Bytes(f_out, replace1); // write as little-endian
-				Write4Bytes(f_out, replace2); // if big-endian, reverse the bytes in LoadDictionary()
+			// save into file
+			if (from[0] != 0) {
+				ix = 0;
+				while (from[ix] != 0) {
+					Write4Bytes(f_out, from[ix]);
+					ix++;
+					if (ix > N_WORD_BYTES / 4) {
+						fprintf(stderr,
+								"Too long .replace 'from' part (limit is: %d characters)\n",
+								N_WORD_BYTES / 4);
+						break;
+					}
+				}
+				Write4Bytes(f_out, ' '); // end of 'from'
+				ix = 0;
+				while (to[ix] != 0) {
+					Write4Bytes(f_out, to[ix]);
+					ix++;
+					if (ix > N_WORD_BYTES / 4) {
+						fprintf(stderr,
+								"Too long .replace 'to' part (limit is: %d characters)\n",
+								N_WORD_BYTES / 4);
+						break;
+					}
+				}
+				Write4Bytes(f_out, ' '); // end of 'to'
 			}
 		}
 			break;

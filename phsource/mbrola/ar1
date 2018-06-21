@@ -65,11 +65,12 @@ volume 50
 0   j   :     50   j    j
 0   j   NULL  0    j
 0   ?   NULL  0    ?
-0   p   NULL  0    NULL
-0   g   NULL  0    NULL
+0   p   NULL  0    p
+0   g   NULL  0    g
 0   a   :     50   a    a
 0   a   NULL  0    a
 0   u   :     50   u    u
 0   u   NULL  0    u
 0   i   :     50   i    i
 0   i   NULL  0    i
+0   y   NULL  0    y

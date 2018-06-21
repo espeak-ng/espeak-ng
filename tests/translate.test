@@ -44,7 +44,8 @@ test_phonemes en " 'e@ri:zr'eInboU" "♈🌈"
 test_phonemes en " 'e@ri:z r'eInboU" "♈ 🌈"
 test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉" # multi-word
 test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
-
+# Test replacement rules
+test_phonemes en " 'i:T@ d'i:m@n Ens,aIkl@p'oUdi@r- ,0n@m,at@p'oUIk a#m'i:b@ f'i:t@s 'El 'oU l,Et3_|'Ef_|b'i:_|z'i@roU_|f'aIv_: 'eItS 'aI l,Et3_|'Ef_|b'i:_|z'i@roU_|f'aIv_: 'oU 'A@ w'aI" "æther dæmon encyclopœdia onomatopœic amœba fœtus loﬅ hiﬅory"
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phonemes sk " sm'eju:tsa s'a tv'a:R" "☺"
 test_phonemes sk " bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
