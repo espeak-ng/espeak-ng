@@ -159,9 +159,8 @@
 .group ت
          ت           t
          ت (_        t
-         ت (L20ّ      t:
+         تّ           t:
       _) ت (َP1       t
-         ت (ّ         t:
 
 .group ث
          ث           T
@@ -178,8 +177,7 @@
 
 .group د
          د           d
-         د (ّ         d:
-         د (L20ّ      d:
+         دّ           d:
 
 .group ذ
          ذ           D
@@ -192,13 +190,11 @@
 
 .group س
          س           s
-         س (ّ         s:
-         س (L20ّ      s:
+         سّ           s:
 
 .group ش
          ش           S
-         ش (ّ         S:
-         ش (L20ّ      S:
+         شّ           S:
 
 .group ص
          ص           s[
@@ -250,9 +246,8 @@
 .group ك
          ك           k
          ك   (_      k
-         ك   (ّ       k:
+         كّ           k:
          كْ           k
-         ك   (L20ّ    k:
          ك   (_S1    ka        // الضمير المتصل
       _) كال (L10P3  ka        //كالشمس
       _) كَال (L10P4  ka
@@ -285,8 +280,7 @@
     _بِا) ل (L10      '         // Sun letters
     _فَا) ل (L10      '         // Sun letters
     _كَا) ل (L10      '         // Sun letters
-         ل (ّ         l:
-         ل (L20ّ      l:
+         لّ           l:
      _لِ) ل (L10      '         // Sun letters
     _وَا) ل (L10      '         // Sun letters
 
@@ -394,6 +388,7 @@
           َى          a:  // fatha+alef maksura
           َي          ai  // fatha+yeh
           ِي          i:  // kasra+yeh
+          ّ           :   // shadda
 
 // Following are default rules for other diacritics and they are just silence.
 // Diacritics should be consumed together with leading letters in rules above.
@@ -405,7 +400,6 @@
          ـ  // tatweel
           ۡ  // small high dotless head of khan
           ْ  // sukun
-          ّ  // shadda
 
 // non-ascii characters with specified pronunciations
 // List the accented characters in en_list with the $accent attribute
