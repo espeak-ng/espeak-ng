@@ -1739,3 +1739,39 @@ L46L45L45) o (<<           uo
            <=              maza:ks||,vai||v'iena:ds
            !=              nav||viena:ds
 
+// If Cyrillic is found, translate as Russian
+
+           а   _^_ru
+           б   _^_ru
+           в   _^_ru
+           г   _^_ru
+           д   _^_ru
+           е   _^_ru
+           ё   _^_ru
+           ж   _^_ru
+           з   _^_ru
+           и   _^_ru
+           й   _^_ru
+           к   _^_ru
+           л   _^_ru
+           м   _^_ru
+           н   _^_ru
+           о   _^_ru
+           п   _^_ru
+           р   _^_ru
+           с   _^_ru
+           т   _^_ru
+           у   _^_ru
+           ф   _^_ru
+           х   _^_ru
+           ц   _^_ru
+           ч   _^_ru
+           ш   _^_ru
+           щ   _^_ru
+           ъ   _^_ru
+           ы   _^_ru
+           ь   _^_ru
+           э   _^_ru
+           ю   _^_ru
+           я   _^_ru
+
