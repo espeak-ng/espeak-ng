@@ -75,9 +75,6 @@ phoneme a
   ELSE
     length 140
   ENDIF
-  IF nextPhW(a) THEN
-    length 200
-  ENDIF
   FMT(vowel/a_2)
 endphoneme
 
@@ -87,9 +84,6 @@ phoneme i
     length 80
   ELSE
     length 140
-  ENDIF
-  IF nextPhW(i) THEN
-    length 200
   ENDIF
   FMT(vowel/i)
 endphoneme
@@ -101,8 +95,11 @@ phoneme u
   ELSE
     length 140
   ENDIF
-  IF nextPhW(u) THEN
-    length 200
-  ENDIF
   FMT(vowel/u)
 endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 180
+endphoneme
+
