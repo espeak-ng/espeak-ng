@@ -75,7 +75,11 @@ phoneme a
   ELSE
     length 140
   ENDIF
-  FMT(vowel/a_2)
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/aa_7)
+  ELSE
+    FMT(vowel/a_2)
+  ENDIF
 endphoneme
 
 phoneme i
@@ -85,7 +89,11 @@ phoneme i
   ELSE
     length 140
   ENDIF
-  FMT(vowel/i)
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/ii_5)
+  ELSE
+    FMT(vowel/i)
+  ENDIF
 endphoneme
 
 phoneme u
@@ -95,7 +103,11 @@ phoneme u
   ELSE
     length 140
   ENDIF
-  FMT(vowel/u)
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/u_7)
+  ELSE
+    FMT(vowel/u)
+  ENDIF
 endphoneme
 
 phoneme : //  lengthen previous vowel by "length"
