@@ -310,7 +310,6 @@
          وْ           w
        ْ) و           w         // واو بعد سكون
        َ) و           w         //واو بعد فتحة
-       ِ) و           w         //واو بعد كسرة
       _) و           w         //واو في أول الكلمة
          وا (_S2     u
          وا (_S2     u:        // فعل مع ضمائر الجمع المذكرة درسوا
@@ -344,7 +343,6 @@
          يء          ?         // Carried Hamza
          يء (_                 // Carried Hamza at the end of word
        ْ) ي           j         //ياء بعد سكون
-       ُ) ي           j         //ياء بعد ضمّة
        َ) ي           j         // ياء بعد فتحة
       _) ي           j         // ياء في أول الكلمة
          ي (L01      j         //يا بعدها حروف علة
@@ -386,10 +384,12 @@
           َا          a:  // fatha+alef
           ًا (_S2     an  // fathatan+alef at the end of word
           َو          au  // fatha+waw
+          ِو          iw  // kasra+waw
           ُو          u:  // damma+waw
           َى          a:  // fatha+alef maksura
           َي          ai  // fatha+yeh
           ِي          i:  // kasra+yeh
+          ُي          ui  // damma+yeh
           ّ           :   // shadda
 
 // Following are default rules for other diacritics and they are just silence.
