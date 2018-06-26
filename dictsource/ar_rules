@@ -101,13 +101,14 @@
          آ           ?a:
 
 .group ا
+         ا           a:
       C) ا           a:      // if a consonant is before it, make the fatha long
       C) ا (C        a:
          ا (َ         ?
          ا (ُ         ?
          ا (ِ         ?
-         اء          ?       // Carried Hamza
       _) ا           a       // make the previous fatha long
+         اء          ?       // Carried Hamza
       _) ال (L10P2   ?a      //الشمس
       _) ال (L11P2   ?al     //القمر
       _) ال (تP2     ?at
@@ -136,6 +137,7 @@
          ب           b
          ب (_        b
          بّ           b:
+         بّْ           b:
          بْ           b
       _) بال (L10P3  bi        //بالشمس
       _) بال (L11P3  bil       //بالقمر
@@ -156,69 +158,135 @@
 
 .group پ
          پ           p
+         پ (_        p
+         پّْ           p:
+         پْ           p
 
 .group ت
          ت           t
+      _) ت (َP1       t
          ت (_        t
          تّ           t:
-      _) ت (َP1       t
+         تّْ           t:
+         تْ           t
 
 .group ث
          ث           T
+         ث (_        T
+         ثّ           T:
+         ثّْ           T:
+         ثْ           T
 
 .group ج
          ج           dZ
+         ج (_        dZ
          جّ           dZ:
+         جّْ           dZ:
+         جْ           dZ
 
 .group ح
          ح           H
+         ح (_        H
+         حّ           H:
+         حّْ           H:
+         حْ           H
 
 .group خ
          خ           X
+         خ (_        X
+         خّ           X:
+         خّْ           X:
+         خْ           X
 
 .group د
          د           d
+         د (_        d
          دّ           d:
+         دّْ           d:
+         دْ           d
 
 .group ذ
          ذ           D
+         ذ (_        D
+         ذّ           D:
+         ذّْ           D:
+         ذْ           D
 
 .group ر
          ر           r
+         ر (_        r
+         رّ           r:
+         رّْ           r:
+         رْ           r
 
 .group ز
          ز           z
+         ز (_        z
+         زّ           z:
+         زّْ           z:
+         زْ           z
 
 .group س
          س           s
+         س (_        s
          سّ           s:
+         سّْ           s:
+         سْ           s
 
 .group ش
          ش           S
+         ش (_        S
          شّ           S:
+         شّْ           S:
+         شْ           S
 
 .group ص
          ص           s[
+         ص (_        s[
          صّ           s[:
+         صّْ           s[:
+         صْ           s[
 
 .group ض
          ض           dH
+         ض (_        dH
+         ضّ           dH:
+         ضّْ           dH:
+         ضْ           dH
 
 .group ط
          ط           t[
+         ط (_        t[
+         طّ           t[:
+         طّْ           t[:
+         طْ           t[
 
 .group ظ
          ظ           Z
+         ظ (_        Z
+         ظّ           Z:
+         ظّْ           Z:
+         ظْ           Z
 
 .group ع
          ع           A
+         ع (_        A
+         عّ           A:
+         عّْ           A:
+         عْ           A
 
 .group غ
          غ           gH
+         غ (_        gH
+         غّ           gH:
+         غّْ           gH:
+         غْ           gH
 
 .group ف
          ف           f
          ف (_        f
+         فّ           f:
+         فّْ           f:
          فْ           f
       _) فال (L10P3  fa        //فالشمس
       _) فَال (L10P4  fa
@@ -243,11 +311,16 @@
 
 .group ق
          ق           q
+         ق (_        q
+         قّ           q:
+         قّْ           q:
+         قْ           q
 
 .group ك
          ك           k
          ك   (_      k
          كّ           k:
+         كّْ           k:
          كْ           k
          ك   (_S1    ka        // الضمير المتصل
       _) كال (L10P3  ka        //كالشمس
@@ -274,6 +347,10 @@
 
 .group گ
          گ           g
+         گ (_        g
+         گّ           g:
+         گّْ           g:
+         گْ           g
 
 .group ل
          ل           l
@@ -281,20 +358,34 @@
     _بِا) ل (L10      '         // Sun letters
     _فَا) ل (L10      '         // Sun letters
     _كَا) ل (L10      '         // Sun letters
+         ل (_        l
          لّ           l:
+         لّْ           l:
+         لْ           l
      _لِ) ل (L10      '         // Sun letters
     _وَا) ل (L10      '         // Sun letters
 
 .group م
          م           m
+         م (_        m
+         مّ           m:
+         مّْ           m:
+         مْ           m
 
 .group ن
          ن           n
+         ن (_        n
+         نّ           n:
+         نّْ           n:
+         نْ           n
          ن (ب        m
          نْ (ب        m
 
 .group ه
          ه           h
+         ه (_        h
+         هّ           h:
+         هّْ           h:
          هْ           h
          ه (_S1      h         // الضمير المتصل
          ها (_S2     ha:       //الضمير المتصل
@@ -306,14 +397,17 @@
          و           w
       C) و           u:        //واو بعد صامت دون تشكيل
       ا) و           w         //واو بعد الألف
-         و (L01      w         //واو بعدها حرف علة
+         و (A        w         //واو بعدها حرف علة
+         و (_        w
+         وّ           w:
+         وّْ           w
          وْ           w
        ْ) و           w         // واو بعد سكون
        َ) و           w         //واو بعد فتحة
       _) و           w         //واو في أول الكلمة
+         وء          ?         // Carried Hamza
          وا (_S2     u
          وا (_S2     u:        // فعل مع ضمائر الجمع المذكرة درسوا
-         وء          ?         // Carried Hamza
       _) وال (L10P3  wa        //والشمس
       _) وَال (L10P4  wa
       _) وَالْ (L10P4  wa
@@ -337,16 +431,18 @@
          ون (_S2     u:na      //جمع مذكر سالم فلاحون
 
 .group ي
+         ي           i
       C) ي           i:        // ياء بعد صامت دون تشكيل
       ا) ي           j         // ياء بعد ألف
+         يّ           i:
+         يْ           j
          يِ           ji:
-         يء          ?         // Carried Hamza
-         يء (_                 // Carried Hamza at the end of word
        ْ) ي           j         //ياء بعد سكون
        َ) ي           j         // ياء بعد فتحة
       _) ي           j         // ياء في أول الكلمة
          ي (L01      j         //يا بعدها حروف علة
          ي (_S1      i
+         يء          ?         // Carried Hamza
          يات (_S3    ij:a:t    //يّة النسبة في جمع المؤنث جزائريات
          ية (_S2     ij:ah     //يّة النسبة
          ين (_S2     i:na      //جمع مذكر سالم منصوب أو مجرور
@@ -356,6 +452,8 @@
 .group ى                      //ألف مقصورة
          ى           a
       C) ى (_        a:
+         ىّ           a:
+         ىْ           a
 
 .group ء
          ء           ?
@@ -369,6 +467,8 @@
 
 .group ة
          ة           t
+         ة (_        t
+         ةّ           t:
          ةْ           t
          ةً           tan
 
