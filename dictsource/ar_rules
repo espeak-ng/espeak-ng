@@ -46,11 +46,19 @@
      ،       ,
      ؛       ;
 
+// Multicharacters into single characters
+
+      ٰٔ       أ   // Superscript alef with Hamza above > Alef with hamza above
+
 // Reorder diacritics in "canonical order"
 
       َّ        َّ   // Fatha Shadda > Shadda Fatha
       ِّ        ِّ   // Kasra Shadda > Shadda Kasra
       ّْ        ّْ   // Sukun Shadda > Shadda Sukun
+
+// Specific glyphs into standard symbols
+      ٔ       ء   // Hamza above > Hamza
+      ٕ       ء   // Hamza below > Hamza
 
 // Named letter groups:
 // list of short vowels
