@@ -42,8 +42,11 @@ test_phonemes ka " 'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "�
 # TODO: Fix adjacent emoji without whitespace so the pronunciation is separated by a space.
 test_phonemes en " 'e@ri:zr'eInboU" "♈🌈"
 test_phonemes en " 'e@ri:z r'eInboU" "♈ 🌈"
-test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉" # multi-word
+
+# multi-word emoji
+test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
 test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
+test_phonemes en " r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phonemes sk " sm'eju:tsa s'a tv'a:R" "☺"
