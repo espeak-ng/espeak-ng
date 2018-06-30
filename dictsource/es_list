@@ -241,7 +241,7 @@ tras          $u+
 ante	$u+	$only
 para         $u+     // for,in order,by
 entre        $u+ 
-sobre	$u+
+sobre	$u+	$only
 bajo	$u+	$only
 desde        $u+       // from,since
 hasta         $u+
@@ -381,7 +381,6 @@ speech	sp'itS
 thunderbird	t'anderbird
 twit	tw'it
 twitter	tw'iter
-voice	bois   $text
 window	w'indow
 
 (e speak) 'isp'ik
