@@ -1795,7 +1795,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 {
 	int ix;
 	unsigned int word;
-	unsigned int new_c, c2, c_lower;
+	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
 	static bool ignore_next = false;
 	const unsigned int *replace_chars;
@@ -1850,9 +1850,9 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	if (option_phonemes & espeakPHONEMES_TRACE) {
 		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
-		char *index = &msg;
-		index +=9;
-        index += utf8_out(c, index);
+		char *index = msg;
+		index += 9;
+		index += utf8_out(c, index);
 		*index++ = ' ';
 		*index++ = '>';
 		*index++ = ' ';
