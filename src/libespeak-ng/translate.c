@@ -1194,9 +1194,11 @@ int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_o
 			available -= n;
 			phonemes += n;
 
-			// skip to the next word in a multi-word replacement
-			while (!isspace(*word_out)) ++word_out;
-			while (isspace(*word_out))  ++word_out;
+			// skip to the next word in a multi-word replacement. Always skip at least one word.
+			for (dictionary_skipwords++; dictionary_skipwords > 0; dictionary_skipwords--) {
+				while (!isspace(*word_out)) ++word_out;
+				while (isspace(*word_out))  ++word_out;
+			}
 		}
 
 		// If the list file contains a text replacement to another
