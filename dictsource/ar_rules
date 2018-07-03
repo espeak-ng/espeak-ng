@@ -350,8 +350,8 @@
       _) كال (ظP3    kaZ
       _) كال (لP3    kal
       _) كال (نP3    kan
-         كما (_S3    kuma:     //الضمير المتصل
-         كن  (_S2    kun:a     //الضمير المتصل
+         كما (_S3    k'uma:     //الضمير المتصل
+         كن  (_S2    k'un:a     //الضمير المتصل
 
 .group گ
          گ           g
@@ -398,8 +398,8 @@
          ه (_S1      h         // الضمير المتصل
          ها (_S2     ha:       //الضمير المتصل
          هم (_S2     hum       //الضمير المتصل
-         هما (_S3    huma:     //الضمير المتصل
-         هن (_S2     hun:a     //الضمير المتصل
+         هما (_S3    h'uma:     //الضمير المتصل
+         هن (_S2     h'un:a     //الضمير المتصل
 
 .group و
          و           w
@@ -436,7 +436,7 @@
       _) وال (ظP3    waZ
       _) وال (لP3    wal
       _) وال (نP3    wan
-         ون (_S2     u:na      //جمع مذكر سالم فلاحون
+         ون (_S2     'u:na     //جمع مذكر سالم فلاحون
 
 .group ي
          ي           i
@@ -451,11 +451,11 @@
          ي (L01      j         //يا بعدها حروف علة
          ي (_S1      i
          يء          ?         // Carried Hamza
-         يات (_S3    ij:a:t    //يّة النسبة في جمع المؤنث جزائريات
-         ية (_S2     ij:ah     //يّة النسبة
-         ين (_S2     i:na      //جمع مذكر سالم منصوب أو مجرور
-         يون (_S3    ij:u:n    //kجمع مذكر سالم منسوب جزائريون
-         يين (_S3    ij:i:n    //kجمع مذكر سالم منسوب جزائريين
+         يات (_S3    'ij:a:t   //يّة النسبة في جمع المؤنث جزائريات
+         ية (_S2     'ij:ah    //يّة النسبة
+         ين (_S2     'i:na     //جمع مذكر سالم منصوب أو مجرور
+         يون (_S3    'ij:u:n   //kجمع مذكر سالم منسوب جزائريون
+         يين (_S3    'ij:i:n   //kجمع مذكر سالم منسوب جزائريين
 
 .group ى                      //ألف مقصورة
          ى           a
@@ -482,12 +482,18 @@
 
 // Other diacritics
 .group
-          َ           %a  // fatha
+          َ           a   // fatha
+          َ (C_       =a  // fatha in closed syllable
+          َ (CC_      =a  // ..
       C)  ٓ           ?   // madda after consonant
           ِ           i   // kasra
+          ِ (C_       =i  // kasra in closed syllable
+          ِ (CC_      =i  // ..
           ٍ (_S1      in  // kasratan at the end of word
           ٌ (_S1      un  // dammatan at the end of word
           ُ           u   // damma
+          ُ (C_       =u  // damma in closed syllable
+          ُ (CC_      =u  // ..
           ٰ           a:  // superscript alef
           َا          a:  // fatha+alef
           ًا (_S2     an  // fathatan+alef at the end of word
