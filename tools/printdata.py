@@ -164,6 +164,7 @@ def properties(data):
 	props += (2 ** 36) * data.get('Emoji_Modifier_Base', 0) # emoji-data
 	props += (2 ** 37) * data.get('Regional_Indicator', 0) # PropList 10.0.0
 	props += (2 ** 38) * data.get('Emoji_Component', 0) # emoji-data 5.0
+	props += (2 ** 39) * data.get('Extended_Pictographic', 0) # emoji-data 11.0
 	return props
 
 if __name__ == '__main__':

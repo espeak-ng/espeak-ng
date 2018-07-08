@@ -378,6 +378,7 @@ typedef uint64_t ucd_property;
 #define UCD_PROPERTY_EMOJI_MODIFIER_BASE                0x0000001000000000ull /**< @brief Emoji_Modifier_Base */
 #define UCD_PROPERTY_REGIONAL_INDICATOR                 0x0000002000000000ull /**< @brief Regional_Indicator */
 #define UCD_PROPERTY_EMOJI_COMPONENT                    0x0000004000000000ull /**< @brief Emoji_Component */
+#define UCD_PROPERTY_EXTENDED_PICTOGRAPHIC              0x0000008000000000ull /**< @brief Extended_Pictographic */
 
 /** @brief Return the properties of the specified codepoint.
  *
@@ -886,6 +887,7 @@ namespace ucd
 		Emoji_Modifier_Base = UCD_PROPERTY_EMOJI_MODIFIER_BASE, /**< @brief Emoji_Modifier_Base */
 		Regional_Indicator = UCD_PROPERTY_REGIONAL_INDICATOR, /**< @brief Regional_Indicator */
 		Emoji_Component = UCD_PROPERTY_EMOJI_COMPONENT, /**< @brief Emoji_Component */
+		Extended_Pictographic = UCD_PROPERTY_EXTENDED_PICTOGRAPHIC, /**< @brief Extended_Pictographic */
 	};
 
 	/** @brief Return the properties of the specified codepoint.
