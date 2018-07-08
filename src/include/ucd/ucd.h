@@ -1,6 +1,6 @@
 /* Unicode Character Database API
  *
- * Copyright (C) 2012-2017 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -166,6 +166,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Cyrl, /**< @brief Cyrillic Script */
 	UCD_SCRIPT_Cyrs, /**< @brief Cyrillic (Old Church Slavonic variant) Script */
 	UCD_SCRIPT_Deva, /**< @brief Devanagari Script */
+	UCD_SCRIPT_Dogr, /**< @brief Dogra Script */
 	UCD_SCRIPT_Dsrt, /**< @brief Deseret Script */
 	UCD_SCRIPT_Dupl, /**< @brief Duployan Shorthand Script */
 	UCD_SCRIPT_Egyd, /**< @brief Egyptian Demotic Script */
@@ -176,6 +177,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 	UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 	UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+	UCD_SCRIPT_Gong, /**< @brief Gunjala Gondi */
 	UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 	UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 	UCD_SCRIPT_Gran, /**< @brief Grantha Script */
@@ -222,10 +224,12 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Lyci, /**< @brief Lycian Script */
 	UCD_SCRIPT_Lydi, /**< @brief Lydian Script */
 	UCD_SCRIPT_Mahj, /**< @brief Mahajani Script */
+	UCD_SCRIPT_Maka, /**< @brief Makasar Script */
 	UCD_SCRIPT_Mand, /**< @brief Mandaic Script */
 	UCD_SCRIPT_Mani, /**< @brief Manichaean Script */
 	UCD_SCRIPT_Marc, /**< @brief Marchen Script */
 	UCD_SCRIPT_Maya, /**< @brief Mayan Hieroglyphs */
+	UCD_SCRIPT_Medf, /**< @brief Medefaidrin (Oberi Okaime) Script */
 	UCD_SCRIPT_Mend, /**< @brief Mende Kikakui Script */
 	UCD_SCRIPT_Merc, /**< @brief Meroitic Cursive Script */
 	UCD_SCRIPT_Mero, /**< @brief Meroitic Hieroglyphs */
@@ -261,6 +265,7 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Prti, /**< @brief Inscriptional Parthian Script */
 	UCD_SCRIPT_Qaak, /**< @brief Klingon Script (Private Use) */
 	UCD_SCRIPT_Rjng, /**< @brief Rejang Script */
+	UCD_SCRIPT_Rohg, /**< @brief Hanifi Rohingya Script */
 	UCD_SCRIPT_Roro, /**< @brief Rongorongo Script */
 	UCD_SCRIPT_Runr, /**< @brief Runic Script */
 	UCD_SCRIPT_Samr, /**< @brief Samaritan Script */
@@ -273,6 +278,8 @@ typedef enum ucd_script_
 	UCD_SCRIPT_Sidd, /**< @brief Siddham Script */
 	UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 	UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
+	UCD_SCRIPT_Sogd, /**< @brief Sogdian Script */
+	UCD_SCRIPT_Sogo, /**< @brief Old Sogdian Script */
 	UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
 	UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 	UCD_SCRIPT_Sund, /**< @brief Sundanese Script */
@@ -660,6 +667,7 @@ namespace ucd
 		Cyrl = UCD_SCRIPT_Cyrl, /**< @brief Cyrillic Script */
 		Cyrs = UCD_SCRIPT_Cyrs, /**< @brief Cyrillic (Old Church Slavonic variant) Script */
 		Deva = UCD_SCRIPT_Deva, /**< @brief Devanagari Script */
+		Dogr = UCD_SCRIPT_Dogr, /**< @brief Dogra Script */
 		Dsrt = UCD_SCRIPT_Dsrt, /**< @brief Deseret Script */
 		Dupl = UCD_SCRIPT_Dupl, /**< @brief Duployan Shorthand Script */
 		Egyd = UCD_SCRIPT_Egyd, /**< @brief Egyptian Demotic Script */
@@ -670,6 +678,7 @@ namespace ucd
 		Geok = UCD_SCRIPT_Geok, /**< @brief Khutsuri Script */
 		Geor = UCD_SCRIPT_Geor, /**< @brief Geirgian Script */
 		Glag = UCD_SCRIPT_Glag, /**< @brief Glagolitic Script */
+		Gong = UCD_SCRIPT_Gong, /**< @brief Gunjala Gondi */
 		Gonm = UCD_SCRIPT_Gonm, /**< @brief Masaram Gondi */
 		Goth = UCD_SCRIPT_Goth, /**< @brief Gothic Script */
 		Gran = UCD_SCRIPT_Gran, /**< @brief Grantha Script */
@@ -716,10 +725,12 @@ namespace ucd
 		Lyci = UCD_SCRIPT_Lyci, /**< @brief Lycian Script */
 		Lydi = UCD_SCRIPT_Lydi, /**< @brief Lydian Script */
 		Mahj = UCD_SCRIPT_Mahj, /**< @brief Mahajani Script */
+		Maka = UCD_SCRIPT_Maka, /**< @brief Mahajani Script */
 		Mand = UCD_SCRIPT_Mand, /**< @brief Mandaic Script */
 		Mani = UCD_SCRIPT_Mani, /**< @brief Manichaean Script */
 		Marc = UCD_SCRIPT_Marc, /**< @brief Marchen Script */
 		Maya = UCD_SCRIPT_Maya, /**< @brief Mayan Hieroglyphs */
+		Medf = UCD_SCRIPT_Medf, /**< @brief Medefaidrin (Oberi Okaime) Script */
 		Mend = UCD_SCRIPT_Mend, /**< @brief Mende Kikakui Script */
 		Merc = UCD_SCRIPT_Merc, /**< @brief Meroitic Cursive Script */
 		Mero = UCD_SCRIPT_Mero, /**< @brief Meroitic Hieroglyphs */
@@ -755,6 +766,7 @@ namespace ucd
 		Prti = UCD_SCRIPT_Prti, /**< @brief Inscriptional Parthian Script */
 		Qaak = UCD_SCRIPT_Qaak, /**< @brief Klingon Script (Private Use) */
 		Rjng = UCD_SCRIPT_Rjng, /**< @brief Rejang Script */
+		Rohg = UCD_SCRIPT_Rohg, /**< @brief Hanifi Rohingya Script */
 		Roro = UCD_SCRIPT_Roro, /**< @brief Rongorongo Script */
 		Runr = UCD_SCRIPT_Runr, /**< @brief Runic Script */
 		Samr = UCD_SCRIPT_Samr, /**< @brief Samaritan Script */
@@ -767,6 +779,8 @@ namespace ucd
 		Sidd = UCD_SCRIPT_Sidd, /**< @brief Siddham Script */
 		Sind = UCD_SCRIPT_Sind, /**< @brief Sindhi Script */
 		Sinh = UCD_SCRIPT_Sinh, /**< @brief Sinhala Script */
+		Sogd = UCD_SCRIPT_Sogd, /**< @brief Sogdian Script */
+		Sogo = UCD_SCRIPT_Sogo, /**< @brief Old Sogdian Script */
 		Sora = UCD_SCRIPT_Sora, /**< @brief Sora Sompeng Script */
 		Soyo = UCD_SCRIPT_Soyo, /**< @brief Soyombo */
 		Sund = UCD_SCRIPT_Sund, /**< @brief Sundanese Script */

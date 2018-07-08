@@ -1,6 +1,6 @@
 /* PropList APIs.
  *
- * Copyright (C) 2017 Reece H. Dunn
+ * Copyright (C) 2017-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -56,6 +56,7 @@ static ucd_property properties_Cf(codepoint_t c)
 		break;
 	case 0x011000:
 		if (c == 0x0110BD)                  return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
+		if (c == 0x0110CD)                  return UCD_PROPERTY_PREPENDED_CONCATENATION_MARK;
 		break;
 	case 0x0E0000:
 		if (c == 0x0E0001)                  return UCD_PROPERTY_DEPRECATED;
@@ -382,8 +383,15 @@ static ucd_property properties_Lo(codepoint_t c)
 	case 0xFF00:
 		if (c == 0xFFA0)                return UCD_PROPERTY_OTHER_DEFAULT_IGNORABLE_CODE_POINT;
 		break;
+	case 0x10D00:
+		if (c == 0x10D22)               return UCD_PROPERTY_DIACRITIC;
+		if (c == 0x10D23)               return UCD_PROPERTY_DIACRITIC;
+		break;
+	case 0x18700:
+		if (c >= 0x187ED && c <= 0x187F1) return UCD_PROPERTY_IDEOGRAPHIC;
+		break;
 	case 0x11300:
-		if (c == 0x01135D)                  return UCD_PROPERTY_EXTENDER;
+		if (c == 0x1135D)               return UCD_PROPERTY_EXTENDER;
 		break;
 	case 0x1EE00:
 		return UCD_PROPERTY_OTHER_MATH;
@@ -397,7 +405,7 @@ static ucd_property properties_Lo_ideographic(codepoint_t c)
 	{
 	case 0x000000:
 		if (c >= 0x3400 && c <= 0x4DB5) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
-		if (c >= 0x4E00 && c <= 0x9FEA) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
+		if (c >= 0x4E00 && c <= 0x9FEF) return UCD_PROPERTY_IDEOGRAPHIC | UCD_PROPERTY_UNIFIED_IDEOGRAPH;
 		if (c >= 0xF900 && c <= 0xFA6D) return UCD_PROPERTY_IDEOGRAPHIC;
 		if (c >= 0xFA70 && c <= 0xFAD9) return UCD_PROPERTY_IDEOGRAPHIC;
 		break;
@@ -649,6 +657,8 @@ static ucd_property properties_Mc(codepoint_t c)
 		if (c >= 0x0110B7 && c <= 0x0110B8) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x011100:
+		if (c == 0x011145)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011146)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x01112C)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011182)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x0111B3 && c <= 0x0111B5) return UCD_PROPERTY_OTHER_ALPHABETIC;
@@ -702,6 +712,10 @@ static ucd_property properties_Mc(codepoint_t c)
 		if (c >= 0x011720 && c <= 0x011721) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011726)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
+	case 0x011800:
+		if (c >= 0x01182C && c <= 0x01182E) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011838)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
 	case 0x011A00:
 		if (c >= 0x011A07 && c <= 0x011A08) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011A39)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
@@ -715,6 +729,9 @@ static ucd_property properties_Mc(codepoint_t c)
 		if (c == 0x011CB1)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011CB4)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
+	case 0x011D00:
+	case 0x011E00:
+		return UCD_PROPERTY_OTHER_ALPHABETIC;
 	case 0x01D100:
 		if (c == 0x01D165)                  return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
 		if (c == 0x01D16D)                  return UCD_PROPERTY_DIACRITIC;
@@ -1048,6 +1065,12 @@ static ucd_property properties_Mn(codepoint_t c)
 		if (c >= 0x010A0C && c <= 0x010A0F) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x010AE5 && c <= 0x010AE6) return UCD_PROPERTY_DIACRITIC;
 		break;
+	case 0x010D00:
+		if (c >= 0x010D24 && c <= 0x010D27) return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ALPHABETIC;
+		break;
+	case 0x010F00:
+		if (c >= 0x010F46 && c <= 0x010F50) return UCD_PROPERTY_DIACRITIC;
+		break;
 	case 0x011000:
 		if (c == 0x011001)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x011038 && c <= 0x011045) return UCD_PROPERTY_OTHER_ALPHABETIC;
@@ -1113,6 +1136,10 @@ static ucd_property properties_Mn(codepoint_t c)
 		if (c >= 0x011727 && c <= 0x01172A) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x01172B)                  return UCD_PROPERTY_DIACRITIC;
 		break;
+	case 0x011800:
+		if (c >= 0x01182F && c <= 0x011838) return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c >= 0x011839 && c <= 0x01183A) return UCD_PROPERTY_DIACRITIC;
+		break;
 	case 0x011A00:
 		if (c >= 0x011A01 && c <= 0x011A0A) return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c == 0x011A34)                  return UCD_PROPERTY_DIACRITIC;
@@ -1141,6 +1168,14 @@ static ucd_property properties_Mn(codepoint_t c)
 		if (c == 0x011D43)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		if (c >= 0x011D44 && c <= 0x011D45) return UCD_PROPERTY_DIACRITIC;
 		if (c == 0x011D47)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011D90)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011D91)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011D95)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011D97)                  return UCD_PROPERTY_DIACRITIC;
+		break;
+	case 0x011E00:
+		if (c == 0x011EF3)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
+		if (c == 0x011EF4)                  return UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0x016A00:
 		if (c >= 0x016AF0 && c <= 0x016AF4) return UCD_PROPERTY_DIACRITIC;
@@ -1369,6 +1404,7 @@ static ucd_property properties_Po(codepoint_t c)
 	case 0x0600:
 		if (c == 0x060C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x061B)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x061E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		if (c == 0x061F)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		if (c == 0x06D4)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		break;
@@ -1380,6 +1416,10 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c == 0x07F9)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		break;
 	case 0x0800:
+		if (c == 0x0837)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		if (c == 0x0839)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		if (c == 0x083D)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		if (c == 0x083E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		if (c >= 0x0830 && c <= 0x083E) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x085E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
@@ -1456,6 +1496,8 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c == 0x2E2E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x2E3C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL | UCD_PROPERTY_PATTERN_SYNTAX;
 		if (c == 0x2E41)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2E4C)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
+		if (c == 0x2E4E)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
 		return UCD_PROPERTY_PATTERN_SYNTAX;
 	case 0x3000:
 		if (c == 0x3001)                return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_PATTERN_SYNTAX;
@@ -1533,6 +1575,9 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c >= 0x010B3A && c <= 0x010B3F) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c >= 0x010B99 && c <= 0x010B9C) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
+	case 0x10F00:
+		if (c >= 0x10F55 && c <= 0x10F59)   return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		break;
 	case 0x11000:
 		if (c >= 0x011047 && c <= 0x011048) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		if (c >= 0x011049 && c <= 0x01104D) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
@@ -1576,8 +1621,15 @@ static ucd_property properties_Po(codepoint_t c)
 		if (c == 0x011C43)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		if (c == 0x011C71)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION;
 		break;
+	case 0x11E00:
+		if (c >= 0x11EF7 && c <= 0x11EF8)   return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
+		break;
 	case 0x12400:
 		if (c >= 0x012470 && c <= 0x012474) return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		break;
+	case 0x16E00:
+		if (c == 0x016E97)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION;
+		if (c == 0x016E98)                  return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
 		break;
 	case 0x16A00:
 		if (c >= 0x016A6E && c <= 0x016A6F) return UCD_PROPERTY_TERMINAL_PUNCTUATION | UCD_PROPERTY_SENTENCE_TERMINAL;
@@ -2097,7 +2149,6 @@ static ucd_property properties_So(codepoint_t c)
 		if (c >= 0x01F6F4 && c <= 0x01F6F8) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		break;
 	case 0x01F900:
-		if (c <= 0x01F90B)                  return 0;
 		if (c >= 0x01F918 && c <= 0x01F91C) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c >= 0x01F910 && c <= 0x01F91D) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		if (c >= 0x01F91E && c <= 0x01F91F) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
@@ -2117,7 +2168,7 @@ static ucd_property properties_So(codepoint_t c)
 		if (c == 0x01F9C0)                  return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		if (c >= 0x01F9D1 && c <= 0x01F9DD) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c >= 0x01F9D0 && c <= 0x01F9E6) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		return UCD_PROPERTY_EMOJI;
+		return 0;
 	}
 	return 0;
 }

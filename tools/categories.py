@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012-2016 Reece H. Dunn
+# Copyright (C) 2012-2018 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -92,7 +92,7 @@ for codepoints, category, comment in category_sets:
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode General Categories
  *
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *

@@ -1,6 +1,6 @@
 /* Enumeration types to string.
  *
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -110,6 +110,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Cyrl",
 		"Cyrs",
 		"Deva",
+		"Dogr",
 		"Dsrt",
 		"Dupl",
 		"Egyd",
@@ -120,6 +121,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Geok",
 		"Geor",
 		"Glag",
+		"Gong",
 		"Gonm",
 		"Goth",
 		"Gran",
@@ -166,10 +168,12 @@ const char *ucd_get_script_string(ucd_script s)
 		"Lyci",
 		"Lydi",
 		"Mahj",
+		"Maka",
 		"Mand",
 		"Mani",
 		"Marc",
 		"Maya",
+		"Medf",
 		"Mend",
 		"Merc",
 		"Mero",
@@ -205,6 +209,7 @@ const char *ucd_get_script_string(ucd_script s)
 		"Prti",
 		"Qaak",
 		"Rjng",
+		"Rohg",
 		"Roro",
 		"Runr",
 		"Samr",
@@ -217,6 +222,8 @@ const char *ucd_get_script_string(ucd_script s)
 		"Sidd",
 		"Sind",
 		"Sinh",
+		"Sogd",
+		"Sogo",
 		"Sora",
 		"Soyo",
 		"Sund",

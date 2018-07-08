@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012-2016 Reece H. Dunn
+# Copyright (C) 2012-2018 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -33,7 +33,7 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode Case Conversion
  *
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
