@@ -3,6 +3,8 @@
 ## (In Development)
 
 *  Make the ispunct ctype compatibility implementation conformant.
+*  Update to Unicode Character Data 11.0.0.
+*  Update to Unicode Emoji 11.0.
 
 ## 10.0.0 - 2017-06-25
 

@@ -42,10 +42,10 @@ AC_ARG_WITH([unicode-version],
 AC_SUBST(UCD_VERSION)
 
 AC_ARG_WITH([emoji-version],
-    [AS_HELP_STRING([--with-emoji-version], [Unicode emoji version to support @<:@default=5.0@:>@])],
+    [AS_HELP_STRING([--with-emoji-version], [Unicode emoji version to support @<:@default=11.0@:>@])],
     [AS_IF([test x"$withval" != x],
            [EMOJI_VERSION="$withval"])],
-    [EMOJI_VERSION="5.0"])
+    [EMOJI_VERSION="11.0"])
 
 AC_SUBST(EMOJI_VERSION)
 

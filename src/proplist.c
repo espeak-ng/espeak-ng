@@ -47,7 +47,7 @@ static ucd_property properties_Cf(codepoint_t c)
 		break;
 	case 0x2000:
 		if (c == 0x200C)                return UCD_PROPERTY_JOIN_CONTROL | UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
-		if (c == 0x200D)                return UCD_PROPERTY_JOIN_CONTROL;
+		if (c == 0x200D)                return UCD_PROPERTY_JOIN_CONTROL | UCD_PROPERTY_EMOJI_COMPONENT;
 		if (c >= 0x200E && c <= 0x200F) return UCD_PROPERTY_BIDI_CONTROL | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 		if (c >= 0x202A && c <= 0x202E) return UCD_PROPERTY_BIDI_CONTROL;
 		if (c >= 0x2061 && c <= 0x2064) return UCD_PROPERTY_OTHER_MATH;
@@ -60,7 +60,7 @@ static ucd_property properties_Cf(codepoint_t c)
 		break;
 	case 0x0E0000:
 		if (c == 0x0E0001)                  return UCD_PROPERTY_DEPRECATED;
-		if (c >= 0x0E0020 && c <= 0x0E007F) return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND;
+		if (c >= 0x0E0020 && c <= 0x0E007F) return UCD_PROPERTY_OTHER_GRAPHEME_EXTEND | UCD_PROPERTY_EMOJI_COMPONENT;
 		break;
 	}
 	return 0;
@@ -596,6 +596,12 @@ static ucd_property properties_Mc(codepoint_t c)
 	return UCD_PROPERTY_OTHER_ALPHABETIC;
 }
 
+static ucd_property properties_Me(codepoint_t c)
+{
+	if (c == 0x20E3) return UCD_PROPERTY_EMOJI_COMPONENT;
+	return 0;
+}
+
 static ucd_property properties_Mn(codepoint_t c)
 {
 	switch (c & 0xFFFFFF00)
@@ -902,7 +908,8 @@ static ucd_property properties_Mn(codepoint_t c)
 		if (c == 0xFB1E)                return UCD_PROPERTY_DIACRITIC | UCD_PROPERTY_OTHER_ALPHABETIC;
 		break;
 	case 0xFE00:
-		if (c >= 0xFE00 && c <= 0xFE0F) return UCD_PROPERTY_VARIATION_SELECTOR;
+		if (c >= 0xFE00 && c <= 0xFE0E) return UCD_PROPERTY_VARIATION_SELECTOR;
+		if (c == 0xFE0F)                return UCD_PROPERTY_VARIATION_SELECTOR | UCD_PROPERTY_EMOJI_COMPONENT;
 		if (c >= 0xFE20 && c <= 0xFE2F) return UCD_PROPERTY_DIACRITIC;
 		break;
 	case 0x010200:
@@ -1682,6 +1689,7 @@ static ucd_property properties_So_002600(codepoint_t c)
 		break;
 	case 0x2650:
 		if (c <= 0x2653)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c == 0x265F)                return UCD_PROPERTY_EMOJI;
 		break;
 	case 0x2660:
 		if (c == 0x2606)                return UCD_PROPERTY_OTHER_MATH;
@@ -1694,6 +1702,7 @@ static ucd_property properties_So_002600(codepoint_t c)
 		break;
 	case 0x2670:
 		if (c == 0x267B)                return UCD_PROPERTY_EMOJI;
+		if (c == 0x267E)                return UCD_PROPERTY_EMOJI;
 		if (c == 0x267F)                return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		break;
 	case 0x2690:
@@ -1998,29 +2007,22 @@ static ucd_property properties_So(codepoint_t c)
 		if (c >= 0x01F6EB && c <= 0x01F6EC) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		if (c == 0x01F6F0)                  return UCD_PROPERTY_EMOJI;
 		if (c == 0x01F6F3)                  return UCD_PROPERTY_EMOJI;
-		if (c >= 0x01F6F4 && c <= 0x01F6F8) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c >= 0x01F6F4 && c <= 0x01F6F9) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		break;
 	case 0x01F900:
+		if (c <= 0x01F90B)                  return 0;
 		if (c >= 0x01F918 && c <= 0x01F91C) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
-		if (c >= 0x01F910 && c <= 0x01F91D) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 		if (c >= 0x01F91E && c <= 0x01F91F) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c == 0x01F926)                  return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
-		if (c >= 0x01F920 && c <= 0x01F92F) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F930 && c <= 0x01F932) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
+		if (c >= 0x01F930 && c <= 0x01F939) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c == 0x01F93B)                  return 0;
-		if (c >= 0x01F93A && c <= 0x01F93C) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F933 && c <= 0x01F93E) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
+		if (c >= 0x01F93D && c <= 0x01F93E) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c == 0x01F946)                  return 0;
-		if (c >= 0x01F940 && c <= 0x01F94B) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x01F94C)                  return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F950 && c <= 0x01F95E) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F95F && c <= 0x01F96B) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F980 && c <= 0x01F991) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c >= 0x01F992 && c <= 0x01F997) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		if (c == 0x01F9C0)                  return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
+		if (c >= 0x01F9B0 && c <= 0x01F9B3) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_COMPONENT;
+		if (c >= 0x01F9B5 && c <= 0x01F9B6) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
+		if (c >= 0x01F9B8 && c <= 0x01F9B9) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
 		if (c >= 0x01F9D1 && c <= 0x01F9DD) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION | UCD_PROPERTY_EMOJI_MODIFIER_BASE;
-		if (c >= 0x01F9D0 && c <= 0x01F9E6) return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
-		return 0;
+		return UCD_PROPERTY_EMOJI | UCD_PROPERTY_EMOJI_PRESENTATION;
 	}
 	return 0;
 }
@@ -2043,6 +2045,7 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Lo: return properties_Lo(c) | properties_Lo_ideographic(c);
 	case UCD_CATEGORY_Lu: return properties_Lu(c);
 	case UCD_CATEGORY_Mc: return properties_Mc(c);
+	case UCD_CATEGORY_Me: return properties_Me(c);
 	case UCD_CATEGORY_Mn: return properties_Mn(c);
 	case UCD_CATEGORY_Nd: return properties_Nd(c);
 	case UCD_CATEGORY_Nl: return properties_Nl(c);
@@ -2061,6 +2064,6 @@ ucd_property ucd_properties(codepoint_t c, ucd_category category)
 	case UCD_CATEGORY_Zl: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zp: return UCD_PROPERTY_WHITE_SPACE | UCD_PROPERTY_PATTERN_WHITE_SPACE;
 	case UCD_CATEGORY_Zs: return properties_Zs(c);
-	default:              return 0; /* Co Cs Ii Lt Me */
+	default:              return 0; /* Co Cs Ii Lt */
 	};
 }
