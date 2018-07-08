@@ -41,6 +41,14 @@ AC_ARG_WITH([unicode-version],
 
 AC_SUBST(UCD_VERSION)
 
+AC_ARG_WITH([emoji-version],
+    [AS_HELP_STRING([--with-emoji-version], [Unicode emoji version to support @<:@default=5.0@:>@])],
+    [AS_IF([test x"$withval" != x],
+           [EMOJI_VERSION="$withval"])],
+    [EMOJI_VERSION="5.0"])
+
+AC_SUBST(EMOJI_VERSION)
+
 dnl ================================================================
 dnl Compiler warnings.
 dnl
@@ -70,4 +78,5 @@ AC_MSG_NOTICE([
         C++ Compiler flags:            ${CXXFLAGS}
 
         Unicode version:               ${UCD_VERSION}
+        Emoji version:                 ${EMOJI_VERSION}
 ])
