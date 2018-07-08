@@ -1,6 +1,6 @@
 # Change Log
 
-## (In Development)
+## 11.0.0 - 2018-07-08
 
 *  Make the ispunct ctype compatibility implementation conformant.
 *  Update to Unicode Character Data 11.0.0.
