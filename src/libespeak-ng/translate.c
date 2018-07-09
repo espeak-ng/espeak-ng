@@ -1854,7 +1854,7 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 
 	// Do replacement writing 'to' part in buffer
 	while (*pcharto != 0 ) {
-		if(upper_case) {        // TODO: should check for capital letter from source
+		if(upper_case) {        // TODO: should check for capital letter from source (maybe using word_flags)
 			*ptmpsource = toupper(*pcharto);
 			upper_case = 0;     // capitalize only first character if necessary (will work in most cases)
 		}
@@ -1941,7 +1941,7 @@ static void TranslateChars(Translator *tr, char *source)
 	}
 }
 
-static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
+static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
 {
 	// To allow language specific examination and replacement of characters
 
@@ -2285,7 +2285,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				word_flags |= FLAG_COMMA_AFTER;
 			}
 			// language specific character translations
-			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted, &word_flags);
+			c = TranslateChar(tr, &source[source_index], prev_in, c, next_in, &char_inserted);
 			if (c == 8)
 				continue; // ignore this character
 
