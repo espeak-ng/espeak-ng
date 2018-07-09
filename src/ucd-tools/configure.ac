@@ -1,5 +1,5 @@
 AC_PREREQ([2.65])
-AC_INIT([Unicode Character Database Tools], [10.0.0], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
+AC_INIT([Unicode Character Database Tools], [11.0.0], [https://github.com/rhdunn/ucd-tools/issues], [ucd-tools], [https://github.com/rhdunn/ucd-tools])
 AM_INIT_AUTOMAKE()
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES])
@@ -34,12 +34,20 @@ dnl UCD data configuration.
 dnl ================================================================
 
 AC_ARG_WITH([unicode-version],
-    [AS_HELP_STRING([--with-unicode-version], [Unicode version to support @<:@default=10.0.0@:>@])],
+    [AS_HELP_STRING([--with-unicode-version], [Unicode version to support @<:@default=11.0.0@:>@])],
     [AS_IF([test x"$withval" != x],
            [UCD_VERSION="$withval"])],
-    [UCD_VERSION="10.0.0"])
+    [UCD_VERSION="11.0.0"])
 
 AC_SUBST(UCD_VERSION)
+
+AC_ARG_WITH([emoji-version],
+    [AS_HELP_STRING([--with-emoji-version], [Unicode emoji version to support @<:@default=11.0@:>@])],
+    [AS_IF([test x"$withval" != x],
+           [EMOJI_VERSION="$withval"])],
+    [EMOJI_VERSION="11.0"])
+
+AC_SUBST(EMOJI_VERSION)
 
 dnl ================================================================
 dnl Compiler warnings.
@@ -70,4 +78,5 @@ AC_MSG_NOTICE([
         C++ Compiler flags:            ${CXXFLAGS}
 
         Unicode version:               ${UCD_VERSION}
+        Emoji version:                 ${EMOJI_VERSION}
 ])

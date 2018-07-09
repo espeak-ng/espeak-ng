@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Copyright (C) 2012-2016 Reece H. Dunn
+# Copyright (C) 2012-2018 Reece H. Dunn
 #
 # This file is part of ucd-tools.
 #
@@ -86,7 +86,7 @@ for codepoints, script, comment in script_sets:
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode Scripts
  *
- * Copyright (C) 2012-2016 Reece H. Dunn
+ * Copyright (C) 2012-2018 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -143,6 +143,7 @@ if __name__ == '__main__':
 #define Cyrl UCD_SCRIPT_Cyrl
 #define Cyrs UCD_SCRIPT_Cyrs
 #define Deva UCD_SCRIPT_Deva
+#define Dogr UCD_SCRIPT_Dogr
 #define Dsrt UCD_SCRIPT_Dsrt
 #define Dupl UCD_SCRIPT_Dupl
 #define Egyd UCD_SCRIPT_Egyd
@@ -153,6 +154,7 @@ if __name__ == '__main__':
 #define Geok UCD_SCRIPT_Geok
 #define Geor UCD_SCRIPT_Geor
 #define Glag UCD_SCRIPT_Glag
+#define Gong UCD_SCRIPT_Gong
 #define Gonm UCD_SCRIPT_Gonm
 #define Goth UCD_SCRIPT_Goth
 #define Gran UCD_SCRIPT_Gran
@@ -199,10 +201,12 @@ if __name__ == '__main__':
 #define Lyci UCD_SCRIPT_Lyci
 #define Lydi UCD_SCRIPT_Lydi
 #define Mahj UCD_SCRIPT_Mahj
+#define Maka UCD_SCRIPT_Maka
 #define Mand UCD_SCRIPT_Mand
 #define Mani UCD_SCRIPT_Mani
 #define Marc UCD_SCRIPT_Marc
 #define Maya UCD_SCRIPT_Maya
+#define Medf UCD_SCRIPT_Medf
 #define Mend UCD_SCRIPT_Mend
 #define Merc UCD_SCRIPT_Merc
 #define Mero UCD_SCRIPT_Mero
@@ -238,6 +242,7 @@ if __name__ == '__main__':
 #define Prti UCD_SCRIPT_Prti
 #define Qaak UCD_SCRIPT_Qaak
 #define Rjng UCD_SCRIPT_Rjng
+#define Rohg UCD_SCRIPT_Rohg
 #define Roro UCD_SCRIPT_Roro
 #define Runr UCD_SCRIPT_Runr
 #define Samr UCD_SCRIPT_Samr
@@ -250,6 +255,8 @@ if __name__ == '__main__':
 #define Sidd UCD_SCRIPT_Sidd
 #define Sind UCD_SCRIPT_Sind
 #define Sinh UCD_SCRIPT_Sinh
+#define Sogd UCD_SCRIPT_Sogd
+#define Sogo UCD_SCRIPT_Sogo
 #define Sora UCD_SCRIPT_Sora
 #define Soyo UCD_SCRIPT_Soyo
 #define Sund UCD_SCRIPT_Sund
