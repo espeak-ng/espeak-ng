@@ -106,7 +106,7 @@ $textmode
 // 2300..23FF : Miscellaneous Technical
 
 ⌚	watch								// [231A]
-⌛	hourglass							// [231B]
+⌛	hourglass done							// [231B]
 ⌨	keyboard							// [2328] text|emoji
 ⏏	eject button							// [23CF] text|emoji
 ⏩	fast forward button						// [23E9]
@@ -119,7 +119,7 @@ $textmode
 ⏰	alarm clock							// [23F0]
 ⏱	stopwatch							// [23F1] text|emoji
 ⏲	timer clock							// [23F2] text|emoji
-⏳	hourglass with flowing sand					// [23F3]
+⏳	hourglass not done						// [23F3]
 ⏸	pause button							// [23F8] text|emoji
 ⏹	stop button							// [23F9] text|emoji
 ⏺	record button							// [23FA] text|emoji
@@ -173,11 +173,12 @@ $textmode
 ♌	leo								// [264C]
 ♍	virgo								// [264D]
 ♎	libra								// [264E]
-♏	scorpius							// [264F]
+♏	scorpio								// [264F]
 ♐	sagittarius							// [2650]
 ♑	capricorn							// [2651]
 ♒	aquarius							// [2652]
 ♓	pisces								// [2653]
+♟	chess pawn							// [265F] text|emoji
 ♠	spade suit							// [2660] text|emoji
 ♣	club suit							// [2663] text|emoji
 ♥	heart suit							// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 ♭	flat								// [266D] other
 ♯	sharp								// [266F] other
 ♻	recycling symbol						// [267B] text|emoji
+♾	infinity							// [267E] text|emoji
 ♿	wheelchair symbol						// [267F]
 ⚒	hammer and pick							// [2692] text|emoji
 ⚓	anchor								// [2693]
@@ -274,7 +276,7 @@ $textmode
 ⬇	down arrow							// [2B07] text|emoji
 ⬛	black large square						// [2B1B]
 ⬜	white large square						// [2B1C]
-⭐	white medium star						// [2B50]
+⭐	star								// [2B50]
 ⭕	heavy large circle						// [2B55]
 
 // 3000..303F : CJK Symbols and Punctuation
@@ -360,9 +362,9 @@ $textmode
 🌘	waning crescent moon						// [1F318]
 🌙	crescent moon							// [1F319]
 🌚	new moon face							// [1F31A]
-🌛	first quarter moon with face					// [1F31B]
-🌜	last quarter moon with face					// [1F31C]
-🌝	full moon with face						// [1F31D]
+🌛	first quarter moon face						// [1F31B]
+🌜	last quarter moon face						// [1F31C]
+🌝	full moon face							// [1F31D]
 🌞	sun with face							// [1F31E]
 🌟	glowing star							// [1F31F]
 🌠	shooting star							// [1F320]
@@ -533,7 +535,7 @@ $textmode
 🏌	person golfing							// [1F3CC] text|emoji
 🏍	motorcycle							// [1F3CD] text|emoji
 🏎	racing car							// [1F3CE] text|emoji
-🏏	cricket								// [1F3CF]
+🏏	cricket game							// [1F3CF]
 🏐	volleyball							// [1F3D0]
 🏑	field hockey							// [1F3D1]
 🏒	ice hockey							// [1F3D2]
@@ -550,7 +552,7 @@ $textmode
 🏝	desert island							// [1F3DD] text|emoji
 🏞	national park							// [1F3DE] text|emoji
 🏟	stadium								// [1F3DF] text|emoji
-🏠	house								// [1F3E0]
+🏠	houses								// [1F3E0]
 🏡	house with garden						// [1F3E1]
 🏢	office building							// [1F3E2]
 🏣	japanese post office						// [1F3E3]
@@ -690,7 +692,7 @@ $textmode
 👬	two men holding hands						// [1F46C]
 👭	two women holding hands						// [1F46D]
 👮	police officer							// [1F46E]
-👯	people with bunny ears partying					// [1F46F]
+👯	people with bunny ears						// [1F46F]
 👰	bride with veil							// [1F470]
 👱	blond haired person						// [1F471]
 👲	man with chinese cap						// [1F472]
@@ -838,7 +840,7 @@ $textmode
 🔁	repeat button							// [1F501]
 🔂	repeat single button						// [1F502]
 🔃	clockwise vertical arrows					// [1F503]
-🔄	anticlockwise arrows button					// [1F504]
+🔄	counterclockwise arrows button					// [1F504]
 🔅	dim button							// [1F505]
 🔆	bright button							// [1F506]
 🔇	muted speaker							// [1F507]
@@ -847,8 +849,8 @@ $textmode
 🔊	speaker high volume						// [1F50A]
 🔋	battery								// [1F50B]
 🔌	electric plug							// [1F50C]
-🔍	left pointing magnifying glass					// [1F50D]
-🔎	right pointing magnifying glass					// [1F50E]
+🔍	magnifying glass tilted left					// [1F50D]
+🔎	magnifying glass tilted right					// [1F50E]
 🔏	locked with pen							// [1F50F]
 🔐	locked with key							// [1F510]
 🔑	key								// [1F511]
@@ -894,8 +896,8 @@ $textmode
 🔹	small blue diamond						// [1F539]
 🔺	red triangle pointed up						// [1F53A]
 🔻	red triangle pointed down					// [1F53B]
-🔼	up button							// [1F53C]
-🔽	down button							// [1F53D]
+🔼	upwards button							// [1F53C]
+🔽	downwards button						// [1F53D]
 🕉	om								// [1F549] text|emoji
 🕊	dove								// [1F54A] text|emoji
 🕋	kaaba								// [1F54B]
@@ -929,7 +931,7 @@ $textmode
 🕯	candle								// [1F56F] text|emoji
 🕰	mantelpiece clock						// [1F570] text|emoji
 🕳	hole								// [1F573] text|emoji
-🕴	man in business suit levitating					// [1F574] text|emoji
+🕴	man in suit levitating						// [1F574] text|emoji
 🕵	detective							// [1F575] text|emoji
 🕶	sunglasses							// [1F576] text|emoji
 🕷	spider								// [1F577] text|emoji
@@ -941,7 +943,7 @@ $textmode
 🖋	fountain pen							// [1F58B] text|emoji
 🖌	paintbrush							// [1F58C] text|emoji
 🖍	crayon								// [1F58D] text|emoji
-🖐	raised hand with fingers splayed				// [1F590] text|emoji
+🖐	hand with fingers splayed					// [1F590] text|emoji
 🖕	middle finger							// [1F595]
 🖖	vulcan salute							// [1F596]
 🖤	black heart							// [1F5A4]
@@ -974,17 +976,17 @@ $textmode
 // 1F600..1F64F : Emoticons
 
 😀	grinning face							// [1F600]
-😁	grinning face with smiling eyes					// [1F601]
+😁	beaming face with smiling eyes					// [1F601]
 😂	face with tears of joy						// [1F602]
-😃	smiling face with open mouth					// [1F603]
-😄	smiling face with open mouth and smiling eyes			// [1F604]
-😅	smiling face with open mouth and cold sweat			// [1F605]
-😆	smiling face with open mouth and closed eyes			// [1F606]
+😃	grinning face with big eyes					// [1F603]
+😄	grinning face with smiling eyes					// [1F604]
+😅	grinning face with sweat					// [1F605]
+😆	grinning squinting face						// [1F606]
 😇	smiling face with halo						// [1F607]
 😈	smiling face with horns						// [1F608]
 😉	winking face							// [1F609]
 😊	smiling face with smiling eyes					// [1F60A]
-😋	face savouring delicious food					// [1F60B]
+😋	face savoring food						// [1F60B]
 😌	relieved face							// [1F60C]
 😍	smiling face with heart eyes					// [1F60D]
 😎	smiling face with sunglasses					// [1F60E]
@@ -992,7 +994,7 @@ $textmode
 😐	neutral face							// [1F610]
 😑	expressionless face						// [1F611]
 😒	unamused face							// [1F612]
-😓	face with cold sweat						// [1F613]
+😓	downcast face with sweat					// [1F613]
 😔	pensive face							// [1F614]
 😕	confused face							// [1F615]
 😖	confounded face							// [1F616]
@@ -1000,9 +1002,9 @@ $textmode
 😘	face blowing a kiss						// [1F618]
 😙	kissing face with smiling eyes					// [1F619]
 😚	kissing face with closed eyes					// [1F61A]
-😛	face with stuck out tongue					// [1F61B]
-😜	face with stuck out tongue and winking eye			// [1F61C]
-😝	face with stuck out tongue and closed eyes			// [1F61D]
+😛	face with tongue						// [1F61B]
+😜	winking face with tongue					// [1F61C]
+😝	squinting face with tongue					// [1F61D]
 😞	disappointed face						// [1F61E]
 😟	worried face							// [1F61F]
 😠	angry face							// [1F620]
@@ -1010,7 +1012,7 @@ $textmode
 😢	crying face							// [1F622]
 😣	persevering face						// [1F623]
 😤	face with steam from nose					// [1F624]
-😥	disappointed but relieved face					// [1F625]
+😥	sad but relieved face						// [1F625]
 😦	frowning face with open mouth					// [1F626]
 😧	anguished face							// [1F627]
 😨	fearful face							// [1F628]
@@ -1021,7 +1023,7 @@ $textmode
 😭	loudly crying face						// [1F62D]
 😮	face with open mouth						// [1F62E]
 😯	hushed face							// [1F62F]
-😰	face with open mouth and cold sweat				// [1F630]
+😰	anxious face with sweat						// [1F630]
 😱	face screaming in fear						// [1F631]
 😲	astonished face							// [1F632]
 😳	flushed face							// [1F633]
@@ -1031,10 +1033,10 @@ $textmode
 😷	face with medical mask						// [1F637]
 😸	grinning cat face with smiling eyes				// [1F638]
 😹	cat face with tears of joy					// [1F639]
-😺	smiling cat face with open mouth				// [1F63A]
+😺	grinning cat face						// [1F63A]
 😻	smiling cat face with heart eyes				// [1F63B]
 😼	cat face with wry smile						// [1F63C]
-😽	kissing cat face with closed eyes				// [1F63D]
+😽	kissing cat face						// [1F63D]
 😾	pouting cat face						// [1F63E]
 😿	crying cat face							// [1F63F]
 🙀	weary cat face							// [1F640]
@@ -1061,7 +1063,7 @@ $textmode
 🚂	locomotive							// [1F682]
 🚃	railway car							// [1F683]
 🚄	high speed train						// [1F684]
-🚅	high speed train with bullet nose				// [1F685]
+🚅	bullet train							// [1F685]
 🚆	train								// [1F686]
 🚇	metro								// [1F687]
 🚈	light rail							// [1F688]
@@ -1150,6 +1152,7 @@ $textmode
 🛶	canoe								// [1F6F6]
 🛷	sled								// [1F6F7]
 🛸	flying saucer							// [1F6F8]
+🛹	skateboard							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1179,9 +1182,9 @@ $textmode
 🤧	sneezing face							// [1F927]
 🤨	face with raised eyebrow					// [1F928]
 🤩	star struck							// [1F929]
-🤪	crazy face							// [1F92A]
+🤪	zany face							// [1F92A]
 🤫	shushing face							// [1F92B]
-🤬	face with symbols over mouth					// [1F92C]
+🤬	face with symbols on mouth					// [1F92C]
 🤭	face with hand over mouth					// [1F92D]
 🤮	face vomiting							// [1F92E]
 🤯	exploding head							// [1F92F]
@@ -1211,6 +1214,8 @@ $textmode
 🥊	boxing glove							// [1F94A]
 🥋	martial arts uniform						// [1F94B]
 🥌	curling stone							// [1F94C]
+🥎	softball							// [1F94E]
+🥏	flying disc							// [1F94F]
 🥐	croissant							// [1F950]
 🥑	avocado								// [1F951]
 🥒	cucumber							// [1F952]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	cut of meat							// [1F969]
 🥪	sandwich							// [1F96A]
 🥫	canned food							// [1F96B]
+🥬	leafy green							// [1F96C]
+🥭	mango								// [1F96D]
+🥮	moon cake							// [1F96E]
+🥯	bagel								// [1F96F]
+🥰	smiling face with 3 hearts					// [1F970]
+🥳	partying face							// [1F973]
+🥴	woozy face							// [1F974]
+🥵	hot face							// [1F975]
+🥶	cold face							// [1F976]
+🥺	pleading face							// [1F97A]
+🥼	lab coat							// [1F97C]
+🥽	goggles								// [1F97D]
+🥾	hiking boot							// [1F97E]
+🥿	woman’s flat shoe						// [1F97F]
 🦀	crab								// [1F980]
 🦁	lion face							// [1F981]
 🦂	scorpion							// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	sauropod							// [1F995]
 🦖	t rex								// [1F996]
 🦗	cricket								// [1F997]
+🦘	kangaroo							// [1F998]
+🦙	llama								// [1F999]
+🦚	peacock								// [1F99A]
+🦛	hippopotamus							// [1F99B]
+🦜	parrot								// [1F99C]
+🦝	raccoon								// [1F99D]
+🦞	lobster								// [1F99E]
+🦟	mosquito							// [1F99F]
+🦠	microbe								// [1F9A0]
+🦡	badger								// [1F9A1]
+🦢	swan								// [1F9A2]
+🦰	red haired							// [1F9B0]
+🦱	curly haired							// [1F9B1]
+🦲	bald								// [1F9B2]
+🦳	white haired							// [1F9B3]
+🦴	bone								// [1F9B4]
+🦵	leg								// [1F9B5]
+🦶	foot								// [1F9B6]
+🦷	tooth								// [1F9B7]
+🦸	superhero							// [1F9B8]
+🦹	supervillain							// [1F9B9]
 🧀	cheese wedge							// [1F9C0]
+🧁	cupcake								// [1F9C1]
+🧂	salt								// [1F9C2]
 🧐	face with monocle						// [1F9D0]
 🧑	adult								// [1F9D1]
 🧒	child								// [1F9D2]
@@ -1287,6 +1329,30 @@ $textmode
 🧤	gloves								// [1F9E4]
 🧥	coat								// [1F9E5]
 🧦	socks								// [1F9E6]
+🧧	red envelope							// [1F9E7]
+🧨	firecracker							// [1F9E8]
+🧩	jigsaw								// [1F9E9]
+🧪	test tube							// [1F9EA]
+🧫	petri dish							// [1F9EB]
+🧬	dna								// [1F9EC]
+🧭	compass								// [1F9ED]
+🧮	abacus								// [1F9EE]
+🧰	toolbox								// [1F9F0]
+🧱	bricks								// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	luggage								// [1F9F3]
+🧴	lotion bottle							// [1F9F4]
+🧵	thread								// [1F9F5]
+🧶	yarn								// [1F9F6]
+🧷	safety pin							// [1F9F7]
+🧸	teddy bear							// [1F9F8]
+🧹	broom								// [1F9F9]
+🧺	basket								// [1F9FA]
+🧻	roll of paper							// [1F9FB]
+🧼	soap								// [1F9FC]
+🧽	sponge								// [1F9FD]
+🧾	receipt								// [1F9FE]
+🧿	nazar amulet							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	man guard						// [1F482 200D 2642]
 🕵️‍♀	woman detective						// [1F575 200D 2640]
 🕵️‍♂	man detective						// [1F575 200D 2642]
+🦸‍♀	woman superhero						// [1F9B8 200D 2640]
+🦸‍♂	man superhero						// [1F9B8 200D 2642]
+🦹‍♀	woman supervillain					// [1F9B9 200D 2640]
+🦹‍♂	man supervillain					// [1F9B9 200D 2642]
 🧙‍♀	woman mage						// [1F9D9 200D 2640]
 🧙‍♂	man mage						// [1F9D9 200D 2642]
 🧚‍♀	woman fairy						// [1F9DA 200D 2640]
@@ -1682,8 +1752,8 @@ $textmode
 🏋️‍♂	man lifting weights					// [1F3CB 200D 2642]
 🏌️‍♀	woman golfing						// [1F3CC 200D 2640]
 🏌️‍♂	man golfing						// [1F3CC 200D 2642]
-👯‍♀	woman with bunny ears partying				// [1F46F 200D 2640]
-👯‍♂	man with bunny ears partying				// [1F46F 200D 2642]
+👯‍♀	woman with bunny ears					// [1F46F 200D 2640]
+👯‍♂	man with bunny ears					// [1F46F 200D 2642]
 💆‍♀	woman getting massage					// [1F486 200D 2640]
 💆‍♂	man getting massage					// [1F486 200D 2642]
 💇‍♀	woman getting haircut					// [1F487 200D 2640]
@@ -1737,6 +1807,7 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	rainbow flag						// [1F3F3 200D 1F308]
+🏴‍☠	pirate flag						// [1F3F4 200D 2620]
 👁‍🗨	eye in speech bubble					// [1F441 200D 1F5E8]
 
 // References:

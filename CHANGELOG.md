@@ -35,6 +35,7 @@ documentation:
 
 emoji:
 
+*  Update the emoji to Unicode 11.0.
 *  Update the emoji translations to CLDR 33.
 *  gd (Scottish Gaelic)
 *  sd (Sindhi)
