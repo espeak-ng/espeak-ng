@@ -178,6 +178,7 @@ $textmode
 ♑	an Gabhar							// [2651]
 ♒	Iompróir an Uisce						// [2652]
 ♓	na hÉisc							// [2653]
+♟	fichillín							// [265F] text|emoji
 ♠	dath spéireata							// [2660] text|emoji
 ♣	dath truif							// [2663] text|emoji
 ♥	dath hairt							// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	siombail athchúrsála						// [267B] text|emoji
+♾	éigríoch							// [267E] text|emoji
 ♿	bealach isteach do chathaoireacha rothaí			// [267F]
 ⚒	casúr agus piocóid						// [2692] text|emoji
 ⚓	ancaire								// [2693]
@@ -686,9 +688,9 @@ $textmode
 👨	fear								// [1F468]
 👩	bean								// [1F469]
 👪	teaghlach							// [1F46A]
-👫	fear agus bean a bhfuil greim láimhe acu ar a chéile		// [1F46B]
-👬	beirt fhear a bhfuil greim láimhe acu ar a chéile		// [1F46C]
-👭	beirt bhan a bhfuil greim láimhe acu ar a chéile		// [1F46D]
+👫	fear agus bean le chéile					// [1F46B]
+👬	beirt fhear le chéile						// [1F46C]
+👭	beirt bhan le chéile						// [1F46D]
 👮	póilín								// [1F46E]
 👯	daoine le cluasa coiníní orthu					// [1F46F]
 👰	brídeog le caille uirthi					// [1F470]
@@ -974,16 +976,16 @@ $textmode
 // 1F600..1F64F : Emoticons
 
 😀	straoiseog ghealgháireach					// [1F600]
-😁	straoiseog gháire le súile ag déanamh miongháire		// [1F601]
+😁	straoiseog gháire le súile & miongháire				// [1F601]
 😂	straoiseog le deora áthais					// [1F602]
 😃	straoiseog ag gáire le súile móra				// [1F603]
-😄	straoiseog ag gáire le súile ag déanamh miongháire		// [1F604]
+😄	straoiseog ag gáire le súile le miongháire			// [1F604]
 😅	straoiseog ag gáire le fuarallas				// [1F605]
 😆	straoiseog ag gáire le súile dúnta				// [1F606]
 😇	straoiseog ag gáire le luan					// [1F607]
 😈	straoiseog ag gáire le hadharca					// [1F608]
 😉	straoiseog ag caochadh						// [1F609]
-😊	straoiseog aoibhiúil le súile ag déanamh miongháire		// [1F60A]
+😊	straoiseog aoibhiúil le súile le miongháire			// [1F60A]
 😋	straoiseog ag baint taitneamh as bia blasta			// [1F60B]
 😌	straoiseog a bhfuil faoiseamh uirthi				// [1F60C]
 😍	staoiseog ag gáire le croíthe ina súile				// [1F60D]
@@ -998,7 +1000,7 @@ $textmode
 😖	straoiseog le mearbhall uirthi					// [1F616]
 😗	straoiseog ag pógadh						// [1F617]
 😘	straoiseog ag séideadh póige					// [1F618]
-😙	straoiseog ag pógadh le súile ag déanamh miongháire		// [1F619]
+😙	straoiseog ag pógadh le súile le miongháire			// [1F619]
 😚	straoiseog ag pógadh le súile dúnta				// [1F61A]
 😛	straoiseog le teanga amach					// [1F61B]
 😜	straoiseog ag caochadh le teanga amach				// [1F61C]
@@ -1010,7 +1012,7 @@ $textmode
 😢	straoiseog chaointeach						// [1F622]
 😣	straoiseog bhuanseasmhachta					// [1F623]
 😤	straoiseog le gal ón tsrón					// [1F624]
-😥	straoiseog a bhfuil díoma agus faoiseamh uirthi			// [1F625]
+😥	straoiseog a bhfuil díoma ach le faoiseamh			// [1F625]
 😦	straoiseag ghruama le béal oscailte				// [1F626]
 😧	straoiseog chráite						// [1F627]
 😨	straoiseog eaglach						// [1F628]
@@ -1029,7 +1031,7 @@ $textmode
 😵	straoiseog mheadhránach						// [1F635]
 😶	straoiseog gan bhéal						// [1F636]
 😷	straoiseog le masc leighis					// [1F637]
-😸	straoiseog cait le súile ag déanamh miongháire			// [1F638]
+😸	straoiseog cait le súile le miongháire				// [1F638]
 😹	straoiseog cait le deora áthais					// [1F639]
 😺	straoiseog cait le béal oscailte				// [1F63A]
 😻	straoiseog cait le croíthe ina súile				// [1F63B]
@@ -1150,6 +1152,7 @@ $textmode
 🛶	canú								// [1F6F6]
 🛷	sleamhnán							// [1F6F7]
 🛸	sásar eitilte							// [1F6F8]
+🛹	clár scátála							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1211,6 +1214,8 @@ $textmode
 🥊	lámhainn dornálaíochta						// [1F94A]
 🥋	karate								// [1F94B]
 🥌	cloch churlála							// [1F94C]
+🥎	bogliathróid							// [1F94E]
+🥏	diosca eitilte							// [1F94F]
 🥐	croissant							// [1F950]
 🥑	abhacád								// [1F951]
 🥒	cúcamar								// [1F952]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	gearradh feola							// [1F969]
 🥪	ceapaire							// [1F96A]
 🥫	bia stánaithe							// [1F96B]
+🥬	glas duilleach							// [1F96C]
+🥭	mangó								// [1F96D]
+🥮	cáca gealaí							// [1F96E]
+🥯	béigeal								// [1F96F]
+🥰	straoiseog le trí chroí						// [1F970]
+🥳	straoiseog chóisireachta					// [1F973]
+🥴	straoiseog trína chéile						// [1F974]
+🥵	straoiseog the							// [1F975]
+🥶	straoiseog fhuar						// [1F976]
+🥺	straoiseog impíoch						// [1F97A]
+🥼	cóta saotharlainne						// [1F97C]
+🥽	spéaclaí cosanta						// [1F97D]
+🥾	buatais siúlóireachta						// [1F97E]
+🥿	bróg chothrom							// [1F97F]
 🦀	portán								// [1F980]
 🦁	aghaidh leoin							// [1F981]
 🦂	scairp								// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	sárapód								// [1F995]
 🦖	T-Rex								// [1F996]
 🦗	criogar								// [1F997]
+🦘	cangarú								// [1F998]
+🦙	láma								// [1F999]
+🦚	péacóg								// [1F99A]
+🦛	dobhareach							// [1F99B]
+🦜	pearóid								// [1F99C]
+🦝	racún								// [1F99D]
+🦞	gliomach							// [1F99E]
+🦟	muiscít								// [1F99F]
+🦠	miocrób								// [1F9A0]
+🦡	broc								// [1F9A1]
+🦢	eala								// [1F9A2]
+🦰	gruaig rua							// [1F9B0]
+🦱	gruaig chatach							// [1F9B1]
+🦲	maol								// [1F9B2]
+🦳	gruaig bhán							// [1F9B3]
+🦴	cnámh								// [1F9B4]
+🦵	cos								// [1F9B5]
+🦶	troigh								// [1F9B6]
+🦷	fiacal								// [1F9B7]
+🦸	sárlaoch							// [1F9B8]
+🦹	an-drochdhuine							// [1F9B9]
 🧀	ding cháise							// [1F9C0]
+🧁	cístín cupa							// [1F9C1]
+🧂	salann								// [1F9C2]
 🧐	straoiseog le leathspéacla					// [1F9D0]
 🧑	aosach								// [1F9D1]
 🧒	leanbh								// [1F9D2]
@@ -1287,267 +1329,291 @@ $textmode
 🧤	lámhainní							// [1F9E4]
 🧥	cóta								// [1F9E5]
 🧦	stocaí								// [1F9E6]
+🧧	clúdach litreach dearg						// [1F9E7]
+🧨	pléascóg thine							// [1F9E8]
+🧩	míreanna mearaí							// [1F9E9]
+🧪	triaileadán							// [1F9EA]
+🧫	mias Petri							// [1F9EB]
+🧬	ADN								// [1F9EC]
+🧭	compás								// [1F9ED]
+🧮	abacas								// [1F9EE]
+🧰	bosca uirlisí							// [1F9F0]
+🧱	bríce								// [1F9F1]
+🧲	maighnéad							// [1F9F2]
+🧳	málaí								// [1F9F3]
+🧴	buidéal lóise							// [1F9F4]
+🧵	snáth								// [1F9F5]
+🧶	abhras								// [1F9F6]
+🧷	biorán dúnta							// [1F9F7]
+🧸	béirín								// [1F9F8]
+🧹	scruab								// [1F9F9]
+🧺	ciseán								// [1F9FA]
+🧻	rolla páipéir							// [1F9FB]
+🧼	sópa								// [1F9FC]
+🧽	spúinse								// [1F9FD]
+🧾	admháil								// [1F9FE]
+🧿	briocht nazar							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Oileán na Deascabhála						// [1F1E6 1F1E8] AC
-🇦🇩	Andóra								// [1F1E6 1F1E9] AD
-🇦🇪	Aontas na nÉimíríochtaí Arabacha				// [1F1E6 1F1EA] AE
-🇦🇫	an Afganastáin							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua agus Barbúda						// [1F1E6 1F1EC] AG
-🇦🇮	Angaíle								// [1F1E6 1F1EE] AI
-🇦🇱	an Albáin							// [1F1E6 1F1F1] AL
-🇦🇲	an Airméin							// [1F1E6 1F1F2] AM
-🇦🇴	Angóla								// [1F1E6 1F1F4] AO
-🇦🇶	an Antartaice							// [1F1E6 1F1F6] AQ
-🇦🇷	an Airgintín							// [1F1E6 1F1F7] AR
-🇦🇸	Samó Mheiriceá							// [1F1E6 1F1F8] AS
-🇦🇹	an Ostair							// [1F1E6 1F1F9] AT
-🇦🇺	an Astráil							// [1F1E6 1F1FA] AU
-🇦🇼	Arúba								// [1F1E6 1F1FC] AW
-🇦🇽	Oileáin Åland							// [1F1E6 1F1FD] AX
-🇦🇿	an Asarbaiseáin							// [1F1E6 1F1FF] AZ
-🇧🇦	an Bhoisnia agus an Heirseagaivéin				// [1F1E7 1F1E6] BA
-🇧🇧	Barbadós							// [1F1E7 1F1E7] BB
-🇧🇩	an Bhanglaidéis							// [1F1E7 1F1E9] BD
-🇧🇪	an Bheilg							// [1F1E7 1F1EA] BE
-🇧🇫	Buircíne Fasó							// [1F1E7 1F1EB] BF
-🇧🇬	an Bhulgáir							// [1F1E7 1F1EC] BG
-🇧🇭	Bairéin								// [1F1E7 1F1ED] BH
-🇧🇮	an Bhurúin							// [1F1E7 1F1EE] BI
-🇧🇯	Beinin								// [1F1E7 1F1EF] BJ
-🇧🇱	Saint Barthélemy						// [1F1E7 1F1F1] BL
-🇧🇲	Beirmiúda							// [1F1E7 1F1F2] BM
-🇧🇳	Brúiné								// [1F1E7 1F1F3] BN
-🇧🇴	an Bholaiv							// [1F1E7 1F1F4] BO
-🇧🇶	an Ísiltír Chairibeach						// [1F1E7 1F1F6] BQ
-🇧🇷	an Bhrasaíl							// [1F1E7 1F1F7] BR
-🇧🇸	na Bahámaí							// [1F1E7 1F1F8] BS
-🇧🇹	an Bhútáin							// [1F1E7 1F1F9] BT
-🇧🇻	Oileán Bouvet							// [1F1E7 1F1FB] BV
-🇧🇼	an Bhotsuáin							// [1F1E7 1F1FC] BW
-🇧🇾	an Bhealarúis							// [1F1E7 1F1FE] BY
-🇧🇿	an Bheilís							// [1F1E7 1F1FF] BZ
-🇨🇦	Ceanada								// [1F1E8 1F1E6] CA
-🇨🇨	Oileáin Cocos (Keeling)						// [1F1E8 1F1E8] CC
-🇨🇩	Poblacht Dhaonlathach an Chongó					// [1F1E8 1F1E9] CD
-🇨🇫	Poblacht na hAfraice Láir					// [1F1E8 1F1EB] CF
-🇨🇬	an Congó							// [1F1E8 1F1EC] CG
-🇨🇭	an Eilvéis							// [1F1E8 1F1ED] CH
-🇨🇮	an Cósta Eabhair						// [1F1E8 1F1EE] CI
-🇨🇰	Oileáin Cook							// [1F1E8 1F1F0] CK
-🇨🇱	an tSile							// [1F1E8 1F1F1] CL
-🇨🇲	Camarún								// [1F1E8 1F1F2] CM
-🇨🇳	an tSín								// [1F1E8 1F1F3] CN
-🇨🇴	an Cholóim							// [1F1E8 1F1F4] CO
-🇨🇵	Oileán Clipperton						// [1F1E8 1F1F5] CP
-🇨🇷	Cósta Ríce							// [1F1E8 1F1F7] CR
-🇨🇺	Cúba								// [1F1E8 1F1FA] CU
-🇨🇻	Rinn Verde							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Oileán na Nollag						// [1F1E8 1F1FD] CX
-🇨🇾	an Chipir							// [1F1E8 1F1FE] CY
-🇨🇿	An tSeicia							// [1F1E8 1F1FF] CZ
-🇩🇪	an Ghearmáin							// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
-🇩🇯	Djibouti							// [1F1E9 1F1EF] DJ
-🇩🇰	an Danmhairg							// [1F1E9 1F1F0] DK
-🇩🇲	Doiminice							// [1F1E9 1F1F2] DM
-🇩🇴	an Phoblacht Dhoiminiceach					// [1F1E9 1F1F4] DO
-🇩🇿	an Ailgéir							// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta agus Melilla						// [1F1EA 1F1E6] EA
-🇪🇨	Eacuadór							// [1F1EA 1F1E8] EC
-🇪🇪	an Eastóin							// [1F1EA 1F1EA] EE
-🇪🇬	an Éigipt							// [1F1EA 1F1EC] EG
-🇪🇭	an Sahára Thiar							// [1F1EA 1F1ED] EH
-🇪🇷	an Eiritré							// [1F1EA 1F1F7] ER
-🇪🇸	an Spáinn							// [1F1EA 1F1F8] ES
-🇪🇹	an Aetóip							// [1F1EA 1F1F9] ET
-🇪🇺	an tAontas Eorpach						// [1F1EA 1F1FA] EU
-🇫🇮	an Fhionlainn							// [1F1EB 1F1EE] FI
-🇫🇯	Fidsí								// [1F1EB 1F1EF] FJ
-🇫🇰	Oileáin Fháclainne						// [1F1EB 1F1F0] FI
-🇫🇲	an Mhicrinéis							// [1F1EB 1F1F2] FM
-🇫🇴	Oileáin Fharó							// [1F1EB 1F1F4] FO
-🇫🇷	an Fhrainc							// [1F1EB 1F1F7] FR
-🇬🇦	an Ghabúin							// [1F1EC 1F1E6] GA
-🇬🇧	an Ríocht Aontaithe						// [1F1EC 1F1E7] GB
-🇬🇩	Greanáda							// [1F1EC 1F1E9] GD
-🇬🇪	an tSeoirsia							// [1F1EC 1F1EA] GE
-🇬🇫	Guáin na Fraince						// [1F1EC 1F1EB] GF
-🇬🇬	Geansaí								// [1F1EC 1F1EC] GG
-🇬🇭	Gána								// [1F1EC 1F1ED] GH
-🇬🇮	Giobráltar							// [1F1EC 1F1EE] GI
-🇬🇱	an Ghraonlainn							// [1F1EC 1F1F1] GL
-🇬🇲	an Ghaimbia							// [1F1EC 1F1F2] GM
-🇬🇳	an Ghuine							// [1F1EC 1F1F3] GN
-🇬🇵	Guadalúip							// [1F1EC 1F1F5] GP
-🇬🇶	an Ghuine Mheánchiorclach					// [1F1EC 1F1F6] GQ
-🇬🇷	an Ghréig							// [1F1EC 1F1F7] GR
-🇬🇸	an tSeoirsia Theas agus Oileáin Sandwich Theas			// [1F1EC 1F1F8] GS
-🇬🇹	Guatamala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guine Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	an Ghuáin							// [1F1EC 1F1FE] GY
-🇭🇰	S.R.R. na Síne Hong Cong					// [1F1ED 1F1F0] HK
-🇭🇲	Oileán Heard agus Oileáin McDonald				// [1F1ED 1F1F2] HM
-🇭🇳	Hondúras							// [1F1ED 1F1F3] HN
-🇭🇷	an Chróit							// [1F1ED 1F1F7] HR
-🇭🇹	Háítí								// [1F1ED 1F1F9] HT
-🇭🇺	an Ungáir							// [1F1ED 1F1FA] HU
-🇮🇨	na hOileáin Chanáracha						// [1F1EE 1F1E8] IC
-🇮🇩	an Indinéis							// [1F1EE 1F1E9] ID
-🇮🇪	Éire								// [1F1EE 1F1EA] IE
-🇮🇱	Iosrael								// [1F1EE 1F1F1] IL
-🇮🇲	Oileán Mhanann							// [1F1EE 1F1F2] IM
-🇮🇳	an India							// [1F1EE 1F1F3] IN
-🇮🇴	Críoch Aigéan Indiach na Breataine				// [1F1EE 1F1F4] IO
-🇮🇶	an Iaráic							// [1F1EE 1F1F6] IQ
-🇮🇷	an Iaráin							// [1F1EE 1F1F7] IR
-🇮🇸	an Íoslainn							// [1F1EE 1F1F8] IS
-🇮🇹	an Iodáil							// [1F1EE 1F1F9] IT
-🇯🇪	Geirsí								// [1F1EF 1F1EA] JE
-🇯🇲	Iamáice								// [1F1EF 1F1F2] JM
-🇯🇴	an Iordáin							// [1F1EF 1F1F4] JO
-🇯🇵	an tSeapáin							// [1F1EF 1F1F5] JP
-🇰🇪	an Chéinia							// [1F1F0 1F1EA] KE
-🇰🇬	an Chirgeastáin							// [1F1F0 1F1EC] KG
-🇰🇭	an Chambóid							// [1F1F0 1F1ED] KH
-🇰🇮	Cireabaití							// [1F1F0 1F1EE] KI
-🇰🇲	Oileáin Chomóra							// [1F1F0 1F1F2] KM
-🇰🇳	San Críostóir-Nimheas						// [1F1F0 1F1F3] KN
-🇰🇵	an Chóiré Thuaidh						// [1F1F0 1F1F5] KP
-🇰🇷	an Chóiré Theas							// [1F1F0 1F1F7] KR
-🇰🇼	Cuáit								// [1F1F0 1F1FC] KW
-🇰🇾	Oileáin Cayman							// [1F1F0 1F1FE] KY
-🇰🇿	an Chasacstáin							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	an Liobáin							// [1F1F1 1F1E7] LB
-🇱🇨	Saint Lucia							// [1F1F1 1F1E8] LC
-🇱🇮	Lichtinstéin							// [1F1F1 1F1EE] LI
-🇱🇰	Srí Lanca							// [1F1F1 1F1F0] LK
-🇱🇷	an Libéir							// [1F1F1 1F1F7] LR
-🇱🇸	Leosóta								// [1F1F1 1F1F8] LS
-🇱🇹	an Liotuáin							// [1F1F1 1F1F9] LT
-🇱🇺	Lucsamburg							// [1F1F1 1F1FA] LU
-🇱🇻	an Laitvia							// [1F1F1 1F1FB] LV
-🇱🇾	an Libia							// [1F1F1 1F1FE] LY
-🇲🇦	Maracó								// [1F1F2 1F1E6] MA
-🇲🇨	Monacó								// [1F1F2 1F1E8] MC
-🇲🇩	an Mholdóiv							// [1F1F2 1F1E9] MD
-🇲🇪	Montainéagró							// [1F1F2 1F1EA] ME
-🇲🇫	Saint-Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagascar							// [1F1F2 1F1EC] MG
-🇲🇭	Oileáin Marshall						// [1F1F2 1F1ED] MH
-🇲🇰	an Mhacadóin							// [1F1F2 1F1F0] MK
-🇲🇱	Mailí								// [1F1F2 1F1F1] ML
-🇲🇲	Maenmar (Burma)							// [1F1F2 1F1F2] MM
-🇲🇳	an Mhongóil							// [1F1F2 1F1F3] MN
-🇲🇴	S.R.R. na Síne Macao						// [1F1F2 1F1F4] MO
-🇲🇵	na hOileáin Mháirianacha Thuaidh				// [1F1F2 1F1F5] MP
-🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
-🇲🇷	an Mháratáin							// [1F1F2 1F1F7] MR
-🇲🇸	Montsarat							// [1F1F2 1F1F8] MS
-🇲🇹	Málta								// [1F1F2 1F1F9] MT
-🇲🇺	Oileán Mhuirís							// [1F1F2 1F1FA] MU
-🇲🇻	Oileáin Mhaildíve						// [1F1F2 1F1FB] MV
-🇲🇼	an Mhaláiv							// [1F1F2 1F1FC] MW
-🇲🇽	Meicsiceo							// [1F1F2 1F1FD] MX
-🇲🇾	an Mhalaeisia							// [1F1F2 1F1FE] MY
-🇲🇿	Mósaimbíc							// [1F1F2 1F1FF] MZ
-🇳🇦	an Namaib							// [1F1F3 1F1E6] NA
-🇳🇨	an Nua-Chaladóin						// [1F1F3 1F1E8] NC
-🇳🇪	an Nígir							// [1F1F3 1F1EA] NE
-🇳🇫	Oileán Norfolk							// [1F1F3 1F1EB] NF
-🇳🇬	an Nigéir							// [1F1F3 1F1EC] NG
-🇳🇮	Nicearagua							// [1F1F3 1F1EE] NI
-🇳🇱	an Ísiltír							// [1F1F3 1F1F1] NL
-🇳🇴	an Iorua							// [1F1F3 1F1F4] NO
-🇳🇵	Neipeal								// [1F1F3 1F1F5] NP
-🇳🇷	Nárú								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	an Nua-Shéalainn						// [1F1F3 1F1FF] NZ
-🇴🇲	Óman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peiriú								// [1F1F5 1F1EA] PE
-🇵🇫	Polainéis na Fraince						// [1F1F5 1F1EB] PF
-🇵🇬	Nua-Ghuine Phapua						// [1F1F5 1F1EC] PG
-🇵🇭	na hOileáin Fhilipíneacha					// [1F1F5 1F1ED] PH
-🇵🇰	an Phacastáin							// [1F1F5 1F1F0] PK
-🇵🇱	an Pholainn							// [1F1F5 1F1F1] PL
-🇵🇲	San Pierre agus Miquelon					// [1F1F5 1F1F2] PM
-🇵🇳	Oileáin Pitcairn						// [1F1F5 1F1F3] PN
-🇵🇷	Pórtó Ríce							// [1F1F5 1F1F7] PR
-🇵🇸	na Críocha Palaistíneacha					// [1F1F5 1F1F8] PS
-🇵🇹	an Phortaingéil							// [1F1F5 1F1F9] PT
-🇵🇼	Oileáin Palau							// [1F1F5 1F1FC] PW
-🇵🇾	Paragua								// [1F1F5 1F1FE] PY
-🇶🇦	Catar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	an Rómáin							// [1F1F7 1F1F4] RO
-🇷🇸	an tSeirbia							// [1F1F7 1F1F8] RS
-🇷🇺	an Rúis								// [1F1F7 1F1FA] RU
-🇷🇼	Ruanda								// [1F1F7 1F1FC] RW
-🇸🇦	an Araib Shádach						// [1F1F8 1F1E6] SA
-🇸🇧	Oileáin Sholomón						// [1F1F8 1F1E7] SB
-🇸🇨	na Séiséil							// [1F1F8 1F1E8] SC
-🇸🇩	an tSúdáin							// [1F1F8 1F1E9] SD
-🇸🇪	an tSualainn							// [1F1F8 1F1EA] SE
-🇸🇬	Singeapór							// [1F1F8 1F1EC] SG
-🇸🇭	San Héilin							// [1F1F8 1F1ED] SH
-🇸🇮	an tSlóivéin							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard agus Jan Mayen						// [1F1F8 1F1EF] SJ
-🇸🇰	an tSlóvaic							// [1F1F8 1F1F0] SK
-🇸🇱	Siarra Leon							// [1F1F8 1F1F1] SL
-🇸🇲	San Mairíne							// [1F1F8 1F1F2] SM
-🇸🇳	an tSeineagáil							// [1F1F8 1F1F3] SN
-🇸🇴	an tSomáil							// [1F1F8 1F1F4] SO
-🇸🇷	Suranam								// [1F1F8 1F1F7] SR
-🇸🇸	an tSúdáin Theas						// [1F1F8 1F1F8] SS
-🇸🇹	São Tomé agus Príncipe						// [1F1F8 1F1F9] ST
-🇸🇻	an tSalvadóir							// [1F1F8 1F1FB] SV
-🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
-🇸🇾	an tSiria							// [1F1F8 1F1FE] SY
-🇸🇿	an tSuasalainn							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Oileáin na dTurcach agus Caicos					// [1F1F9 1F1E8] TC
-🇹🇩	Sead								// [1F1F9 1F1E9] TD
-🇹🇫	Críocha Francacha Dheisceart an Domhain				// [1F1F9 1F1EB] TF
-🇹🇬	Tóga								// [1F1F9 1F1EC] TG
-🇹🇭	an Téalainn							// [1F1F9 1F1ED] TH
-🇹🇯	an Táidsíceastáin						// [1F1F9 1F1EF] TJ
-🇹🇰	Tócalá								// [1F1F9 1F1F0] TK
-🇹🇱	Tíomór Thoir							// [1F1F9 1F1F1] TL
-🇹🇲	an Tuircméanastáin						// [1F1F9 1F1F2] TM
-🇹🇳	an Túinéis							// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	an Tuirc							// [1F1F9 1F1F7] TR
-🇹🇹	Oileán na Tríonóide agus Tobága					// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	an Téaváin							// [1F1F9 1F1FC] TW
-🇹🇿	an Tansáin							// [1F1F9 1F1FF] TZ
-🇺🇦	an Úcráin							// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Oileáin Imeallacha S.A.M.					// [1F1FA 1F1F2] UM
-🇺🇳	na Náisiúin Aontaiteh						// [1F1FA 1F1F3] UN
-🇺🇸	Stáit Aontaithe Mheiriceá					// [1F1FA 1F1F8] US
-🇺🇾	Uragua								// [1F1FA 1F1FE] UY
-🇺🇿	an Úisbéiceastáin						// [1F1FA 1F1FF] UZ
-🇻🇦	Cathair na Vatacáine						// [1F1FB 1F1E6] VA
-🇻🇨	San Uinseann agus na Greanáidíní				// [1F1FB 1F1E8] VC
-🇻🇪	Veiniséala							// [1F1FB 1F1EA] VE
-🇻🇬	Oileáin Bhriotanacha na Maighdean				// [1F1FB 1F1EC] VG
-🇻🇮	Oileáin Mheiriceánacha na Maighdean				// [1F1FB 1F1EE] VI
-🇻🇳	Vítneam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatú								// [1F1FB 1F1FA] VU
-🇼🇫	Vailís agus Futúna						// [1F1FC 1F1EB] WF
-🇼🇸	Samó								// [1F1FC 1F1F8] WS
-🇽🇰	an Chosaiv							// [1F1FD 1F1F0] XK
-🇾🇪	Éimin								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	an Afraic Theas							// [1F1FF 1F1E6] ZA
-🇿🇲	an tSaimbia							// [1F1FF 1F1F2] ZM
-🇿🇼	an tSiombáib							// [1F1FF 1F1FC] ZW
+🇦🇨	bratach: Oileán na Deascabhála					// [1F1E6 1F1E8] AC
+🇦🇩	bratach: Andóra							// [1F1E6 1F1E9] AD
+🇦🇪	bratach: Aontas na nÉimíríochtaí Arabacha			// [1F1E6 1F1EA] AE
+🇦🇫	bratach: an Afganastáin						// [1F1E6 1F1EB] AF
+🇦🇬	bratach: Antigua agus Barbúda					// [1F1E6 1F1EC] AG
+🇦🇮	bratach: Angaíle						// [1F1E6 1F1EE] AI
+🇦🇱	bratach: an Albáin						// [1F1E6 1F1F1] AL
+🇦🇲	bratach: an Airméin						// [1F1E6 1F1F2] AM
+🇦🇴	bratach: Angóla							// [1F1E6 1F1F4] AO
+🇦🇶	bratach: an Antartaice						// [1F1E6 1F1F6] AQ
+🇦🇷	bratach: an Airgintín						// [1F1E6 1F1F7] AR
+🇦🇸	bratach: Samó Mheiriceá						// [1F1E6 1F1F8] AS
+🇦🇹	bratach: an Ostair						// [1F1E6 1F1F9] AT
+🇦🇺	bratach: an Astráil						// [1F1E6 1F1FA] AU
+🇦🇼	bratach: Arúba							// [1F1E6 1F1FC] AW
+🇦🇽	bratach: Oileáin Åland						// [1F1E6 1F1FD] AX
+🇦🇿	bratach: an Asarbaiseáin					// [1F1E6 1F1FF] AZ
+🇧🇦	bratach: an Bhoisnia agus an Heirseagaivéin			// [1F1E7 1F1E6] BA
+🇧🇧	bratach: Barbadós						// [1F1E7 1F1E7] BB
+🇧🇩	bratach: an Bhanglaidéis					// [1F1E7 1F1E9] BD
+🇧🇪	bratach: an Bheilg						// [1F1E7 1F1EA] BE
+🇧🇫	bratach: Buircíne Fasó						// [1F1E7 1F1EB] BF
+🇧🇬	bratach: an Bhulgáir						// [1F1E7 1F1EC] BG
+🇧🇭	bratach: Bairéin						// [1F1E7 1F1ED] BH
+🇧🇮	bratach: an Bhurúin						// [1F1E7 1F1EE] BI
+🇧🇯	bratach: Beinin							// [1F1E7 1F1EF] BJ
+🇧🇱	bratach: Saint Barthélemy					// [1F1E7 1F1F1] BL
+🇧🇲	bratach: Beirmiúda						// [1F1E7 1F1F2] BM
+🇧🇳	bratach: Brúiné							// [1F1E7 1F1F3] BN
+🇧🇴	bratach: an Bholaiv						// [1F1E7 1F1F4] BO
+🇧🇶	bratach: an Ísiltír Chairibeach					// [1F1E7 1F1F6] BQ
+🇧🇷	bratach: an Bhrasaíl						// [1F1E7 1F1F7] BR
+🇧🇸	bratach: na Bahámaí						// [1F1E7 1F1F8] BS
+🇧🇹	bratach: an Bhútáin						// [1F1E7 1F1F9] BT
+🇧🇻	bratach: Oileán Bouvet						// [1F1E7 1F1FB] BV
+🇧🇼	bratach: an Bhotsuáin						// [1F1E7 1F1FC] BW
+🇧🇾	bratach: an Bhealarúis						// [1F1E7 1F1FE] BY
+🇧🇿	bratach: an Bheilís						// [1F1E7 1F1FF] BZ
+🇨🇦	bratach: Ceanada						// [1F1E8 1F1E6] CA
+🇨🇨	bratach: Oileáin Cocos (Keeling)				// [1F1E8 1F1E8] CC
+🇨🇩	bratach: Poblacht Dhaonlathach an Chongó			// [1F1E8 1F1E9] CD
+🇨🇫	bratach: Poblacht na hAfraice Láir				// [1F1E8 1F1EB] CF
+🇨🇬	bratach: an Congó						// [1F1E8 1F1EC] CG
+🇨🇭	bratach: an Eilvéis						// [1F1E8 1F1ED] CH
+🇨🇮	bratach: an Cósta Eabhair					// [1F1E8 1F1EE] CI
+🇨🇰	bratach: Oileáin Cook						// [1F1E8 1F1F0] CK
+🇨🇱	bratach: an tSile						// [1F1E8 1F1F1] CL
+🇨🇲	bratach: Camarún						// [1F1E8 1F1F2] CM
+🇨🇳	bratach: an tSín						// [1F1E8 1F1F3] CN
+🇨🇴	bratach: an Cholóim						// [1F1E8 1F1F4] CO
+🇨🇵	bratach: Oileán Clipperton					// [1F1E8 1F1F5] CP
+🇨🇷	bratach: Cósta Ríce						// [1F1E8 1F1F7] CR
+🇨🇺	bratach: Cúba							// [1F1E8 1F1FA] CU
+🇨🇻	bratach: Rinn Verde						// [1F1E8 1F1FB] CV
+🇨🇼	bratach: Curaçao						// [1F1E8 1F1FC] CW
+🇨🇽	bratach: Oileán na Nollag					// [1F1E8 1F1FD] CX
+🇨🇾	bratach: an Chipir						// [1F1E8 1F1FE] CY
+🇨🇿	bratach: An tSeicia						// [1F1E8 1F1FF] CZ
+🇩🇪	bratach: an Ghearmáin						// [1F1E9 1F1EA] DE
+🇩🇬	bratach: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	bratach: Djibouti						// [1F1E9 1F1EF] DJ
+🇩🇰	bratach: an Danmhairg						// [1F1E9 1F1F0] DK
+🇩🇲	bratach: Doiminice						// [1F1E9 1F1F2] DM
+🇩🇴	bratach: an Phoblacht Dhoiminiceach				// [1F1E9 1F1F4] DO
+🇩🇿	bratach: an Ailgéir						// [1F1E9 1F1FF] DZ
+🇪🇦	bratach: Ceuta agus Melilla					// [1F1EA 1F1E6] EA
+🇪🇨	bratach: Eacuadór						// [1F1EA 1F1E8] EC
+🇪🇪	bratach: an Eastóin						// [1F1EA 1F1EA] EE
+🇪🇬	bratach: an Éigipt						// [1F1EA 1F1EC] EG
+🇪🇭	bratach: an Sahára Thiar					// [1F1EA 1F1ED] EH
+🇪🇷	bratach: an Eiritré						// [1F1EA 1F1F7] ER
+🇪🇸	bratach: an Spáinn						// [1F1EA 1F1F8] ES
+🇪🇹	bratach: an Aetóip						// [1F1EA 1F1F9] ET
+🇪🇺	bratach: an tAontas Eorpach					// [1F1EA 1F1FA] EU
+🇫🇮	bratach: an Fhionlainn						// [1F1EB 1F1EE] FI
+🇫🇯	bratach: Fidsí							// [1F1EB 1F1EF] FJ
+🇫🇰	bratach: Oileáin Fháclainne					// [1F1EB 1F1F0] FI
+🇫🇲	bratach: an Mhicrinéis						// [1F1EB 1F1F2] FM
+🇫🇴	bratach: Oileáin Fharó						// [1F1EB 1F1F4] FO
+🇫🇷	bratach: an Fhrainc						// [1F1EB 1F1F7] FR
+🇬🇦	bratach: an Ghabúin						// [1F1EC 1F1E6] GA
+🇬🇧	bratach: an Ríocht Aontaithe					// [1F1EC 1F1E7] GB
+🇬🇩	bratach: Greanáda						// [1F1EC 1F1E9] GD
+🇬🇪	bratach: an tSeoirsia						// [1F1EC 1F1EA] GE
+🇬🇫	bratach: Guáin na Fraince					// [1F1EC 1F1EB] GF
+🇬🇬	bratach: Geansaí						// [1F1EC 1F1EC] GG
+🇬🇭	bratach: Gána							// [1F1EC 1F1ED] GH
+🇬🇮	bratach: Giobráltar						// [1F1EC 1F1EE] GI
+🇬🇱	bratach: an Ghraonlainn						// [1F1EC 1F1F1] GL
+🇬🇲	bratach: an Ghaimbia						// [1F1EC 1F1F2] GM
+🇬🇳	bratach: an Ghuine						// [1F1EC 1F1F3] GN
+🇬🇵	bratach: Guadalúip						// [1F1EC 1F1F5] GP
+🇬🇶	bratach: an Ghuine Mheánchiorclach				// [1F1EC 1F1F6] GQ
+🇬🇷	bratach: an Ghréig						// [1F1EC 1F1F7] GR
+🇬🇸	bratach: an tSeoirsia Theas agus Oileáin Sandwich Theas		// [1F1EC 1F1F8] GS
+🇬🇹	bratach: Guatamala						// [1F1EC 1F1F9] GT
+🇬🇺	bratach: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	bratach: Guine Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	bratach: an Ghuáin						// [1F1EC 1F1FE] GY
+🇭🇰	bratach: S.R.R. na Síne Hong Cong				// [1F1ED 1F1F0] HK
+🇭🇲	bratach: Oileán Heard agus Oileáin McDonald			// [1F1ED 1F1F2] HM
+🇭🇳	bratach: Hondúras						// [1F1ED 1F1F3] HN
+🇭🇷	bratach: an Chróit						// [1F1ED 1F1F7] HR
+🇭🇹	bratach: Háítí							// [1F1ED 1F1F9] HT
+🇭🇺	bratach: an Ungáir						// [1F1ED 1F1FA] HU
+🇮🇨	bratach: na hOileáin Chanáracha					// [1F1EE 1F1E8] IC
+🇮🇩	bratach: an Indinéis						// [1F1EE 1F1E9] ID
+🇮🇪	bratach: Éire							// [1F1EE 1F1EA] IE
+🇮🇱	bratach: Iosrael						// [1F1EE 1F1F1] IL
+🇮🇲	bratach: Oileán Mhanann						// [1F1EE 1F1F2] IM
+🇮🇳	bratach: an India						// [1F1EE 1F1F3] IN
+🇮🇴	bratach: Críoch Aigéan Indiach na Breataine			// [1F1EE 1F1F4] IO
+🇮🇶	bratach: an Iaráic						// [1F1EE 1F1F6] IQ
+🇮🇷	bratach: an Iaráin						// [1F1EE 1F1F7] IR
+🇮🇸	bratach: an Íoslainn						// [1F1EE 1F1F8] IS
+🇮🇹	bratach: an Iodáil						// [1F1EE 1F1F9] IT
+🇯🇪	bratach: Geirsí							// [1F1EF 1F1EA] JE
+🇯🇲	bratach: Iamáice						// [1F1EF 1F1F2] JM
+🇯🇴	bratach: an Iordáin						// [1F1EF 1F1F4] JO
+🇯🇵	bratach: an tSeapáin						// [1F1EF 1F1F5] JP
+🇰🇪	bratach: an Chéinia						// [1F1F0 1F1EA] KE
+🇰🇬	bratach: an Chirgeastáin					// [1F1F0 1F1EC] KG
+🇰🇭	bratach: an Chambóid						// [1F1F0 1F1ED] KH
+🇰🇮	bratach: Cireabaití						// [1F1F0 1F1EE] KI
+🇰🇲	bratach: Oileáin Chomóra					// [1F1F0 1F1F2] KM
+🇰🇳	bratach: San Críostóir-Nimheas					// [1F1F0 1F1F3] KN
+🇰🇵	bratach: an Chóiré Thuaidh					// [1F1F0 1F1F5] KP
+🇰🇷	bratach: an Chóiré Theas					// [1F1F0 1F1F7] KR
+🇰🇼	bratach: Cuáit							// [1F1F0 1F1FC] KW
+🇰🇾	bratach: Oileáin Cayman						// [1F1F0 1F1FE] KY
+🇰🇿	bratach: an Chasacstáin						// [1F1F0 1F1FF] KZ
+🇱🇦	bratach: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	bratach: an Liobáin						// [1F1F1 1F1E7] LB
+🇱🇨	bratach: Saint Lucia						// [1F1F1 1F1E8] LC
+🇱🇮	bratach: Lichtinstéin						// [1F1F1 1F1EE] LI
+🇱🇰	bratach: Srí Lanca						// [1F1F1 1F1F0] LK
+🇱🇷	bratach: an Libéir						// [1F1F1 1F1F7] LR
+🇱🇸	bratach: Leosóta						// [1F1F1 1F1F8] LS
+🇱🇹	bratach: an Liotuáin						// [1F1F1 1F1F9] LT
+🇱🇺	bratach: Lucsamburg						// [1F1F1 1F1FA] LU
+🇱🇻	bratach: an Laitvia						// [1F1F1 1F1FB] LV
+🇱🇾	bratach: an Libia						// [1F1F1 1F1FE] LY
+🇲🇦	bratach: Maracó							// [1F1F2 1F1E6] MA
+🇲🇨	bratach: Monacó							// [1F1F2 1F1E8] MC
+🇲🇩	bratach: an Mholdóiv						// [1F1F2 1F1E9] MD
+🇲🇪	bratach: Montainéagró						// [1F1F2 1F1EA] ME
+🇲🇫	bratach: Saint-Martin						// [1F1F2 1F1EB] MF
+🇲🇬	bratach: Madagascar						// [1F1F2 1F1EC] MG
+🇲🇭	bratach: Oileáin Marshall					// [1F1F2 1F1ED] MH
+🇲🇰	bratach: an Mhacadóin						// [1F1F2 1F1F0] MK
+🇲🇱	bratach: Mailí							// [1F1F2 1F1F1] ML
+🇲🇲	bratach: Maenmar (Burma)					// [1F1F2 1F1F2] MM
+🇲🇳	bratach: an Mhongóil						// [1F1F2 1F1F3] MN
+🇲🇴	bratach: S.R.R. na Síne Macao					// [1F1F2 1F1F4] MO
+🇲🇵	bratach: na hOileáin Mháirianacha Thuaidh			// [1F1F2 1F1F5] MP
+🇲🇶	bratach: Martinique						// [1F1F2 1F1F6] MQ
+🇲🇷	bratach: an Mháratáin						// [1F1F2 1F1F7] MR
+🇲🇸	bratach: Montsarat						// [1F1F2 1F1F8] MS
+🇲🇹	bratach: Málta							// [1F1F2 1F1F9] MT
+🇲🇺	bratach: Oileán Mhuirís						// [1F1F2 1F1FA] MU
+🇲🇻	bratach: Oileáin Mhaildíve					// [1F1F2 1F1FB] MV
+🇲🇼	bratach: an Mhaláiv						// [1F1F2 1F1FC] MW
+🇲🇽	bratach: Meicsiceo						// [1F1F2 1F1FD] MX
+🇲🇾	bratach: an Mhalaeisia						// [1F1F2 1F1FE] MY
+🇲🇿	bratach: Mósaimbíc						// [1F1F2 1F1FF] MZ
+🇳🇦	bratach: an Namaib						// [1F1F3 1F1E6] NA
+🇳🇨	bratach: an Nua-Chaladóin					// [1F1F3 1F1E8] NC
+🇳🇪	bratach: an Nígir						// [1F1F3 1F1EA] NE
+🇳🇫	bratach: Oileán Norfolk						// [1F1F3 1F1EB] NF
+🇳🇬	bratach: an Nigéir						// [1F1F3 1F1EC] NG
+🇳🇮	bratach: Nicearagua						// [1F1F3 1F1EE] NI
+🇳🇱	bratach: an Ísiltír						// [1F1F3 1F1F1] NL
+🇳🇴	bratach: an Iorua						// [1F1F3 1F1F4] NO
+🇳🇵	bratach: Neipeal						// [1F1F3 1F1F5] NP
+🇳🇷	bratach: Nárú							// [1F1F3 1F1F7] NR
+🇳🇺	bratach: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	bratach: an Nua-Shéalainn					// [1F1F3 1F1FF] NZ
+🇴🇲	bratach: Óman							// [1F1F4 1F1F2] OM
+🇵🇦	bratach: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	bratach: Peiriú							// [1F1F5 1F1EA] PE
+🇵🇫	bratach: Polainéis na Fraince					// [1F1F5 1F1EB] PF
+🇵🇬	bratach: Nua-Ghuine Phapua					// [1F1F5 1F1EC] PG
+🇵🇭	bratach: na hOileáin Fhilipíneacha				// [1F1F5 1F1ED] PH
+🇵🇰	bratach: an Phacastáin						// [1F1F5 1F1F0] PK
+🇵🇱	bratach: an Pholainn						// [1F1F5 1F1F1] PL
+🇵🇲	bratach: San Pierre agus Miquelon				// [1F1F5 1F1F2] PM
+🇵🇳	bratach: Oileáin Pitcairn					// [1F1F5 1F1F3] PN
+🇵🇷	bratach: Pórtó Ríce						// [1F1F5 1F1F7] PR
+🇵🇸	bratach: na Críocha Palaistíneacha				// [1F1F5 1F1F8] PS
+🇵🇹	bratach: an Phortaingéil					// [1F1F5 1F1F9] PT
+🇵🇼	bratach: Oileáin Palau						// [1F1F5 1F1FC] PW
+🇵🇾	bratach: Paragua						// [1F1F5 1F1FE] PY
+🇶🇦	bratach: Catar							// [1F1F6 1F1E6] QA
+🇷🇪	bratach: Réunion						// [1F1F7 1F1EA] RE
+🇷🇴	bratach: an Rómáin						// [1F1F7 1F1F4] RO
+🇷🇸	bratach: an tSeirbia						// [1F1F7 1F1F8] RS
+🇷🇺	bratach: an Rúis						// [1F1F7 1F1FA] RU
+🇷🇼	bratach: Ruanda							// [1F1F7 1F1FC] RW
+🇸🇦	bratach: an Araib Shádach					// [1F1F8 1F1E6] SA
+🇸🇧	bratach: Oileáin Sholomón					// [1F1F8 1F1E7] SB
+🇸🇨	bratach: na Séiséil						// [1F1F8 1F1E8] SC
+🇸🇩	bratach: an tSúdáin						// [1F1F8 1F1E9] SD
+🇸🇪	bratach: an tSualainn						// [1F1F8 1F1EA] SE
+🇸🇬	bratach: Singeapór						// [1F1F8 1F1EC] SG
+🇸🇭	bratach: San Héilin						// [1F1F8 1F1ED] SH
+🇸🇮	bratach: an tSlóivéin						// [1F1F8 1F1EE] SI
+🇸🇯	bratach: Svalbard agus Jan Mayen				// [1F1F8 1F1EF] SJ
+🇸🇰	bratach: an tSlóvaic						// [1F1F8 1F1F0] SK
+🇸🇱	bratach: Siarra Leon						// [1F1F8 1F1F1] SL
+🇸🇲	bratach: San Mairíne						// [1F1F8 1F1F2] SM
+🇸🇳	bratach: an tSeineagáil						// [1F1F8 1F1F3] SN
+🇸🇴	bratach: an tSomáil						// [1F1F8 1F1F4] SO
+🇸🇷	bratach: Suranam						// [1F1F8 1F1F7] SR
+🇸🇸	bratach: an tSúdáin Theas					// [1F1F8 1F1F8] SS
+🇸🇹	bratach: São Tomé agus Príncipe					// [1F1F8 1F1F9] ST
+🇸🇻	bratach: an tSalvadóir						// [1F1F8 1F1FB] SV
+🇸🇽	bratach: Sint Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	bratach: an tSiria						// [1F1F8 1F1FE] SY
+🇸🇿	bratach: an tSuasalainn						// [1F1F8 1F1FF] SZ
+🇹🇦	bratach: Tristan da Cunha					// [1F1F9 1F1E6] TA
+🇹🇨	bratach: Oileáin na dTurcach agus Caicos			// [1F1F9 1F1E8] TC
+🇹🇩	bratach: Sead							// [1F1F9 1F1E9] TD
+🇹🇫	bratach: Críocha Francacha Dheisceart an Domhain		// [1F1F9 1F1EB] TF
+🇹🇬	bratach: Tóga							// [1F1F9 1F1EC] TG
+🇹🇭	bratach: an Téalainn						// [1F1F9 1F1ED] TH
+🇹🇯	bratach: an Táidsíceastáin					// [1F1F9 1F1EF] TJ
+🇹🇰	bratach: Tócalá							// [1F1F9 1F1F0] TK
+🇹🇱	bratach: Tíomór Thoir						// [1F1F9 1F1F1] TL
+🇹🇲	bratach: an Tuircméanastáin					// [1F1F9 1F1F2] TM
+🇹🇳	bratach: an Túinéis						// [1F1F9 1F1F3] TN
+🇹🇴	bratach: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	bratach: an Tuirc						// [1F1F9 1F1F7] TR
+🇹🇹	bratach: Oileán na Tríonóide agus Tobága			// [1F1F9 1F1F9] TT
+🇹🇻	bratach: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	bratach: an Téaváin						// [1F1F9 1F1FC] TW
+🇹🇿	bratach: an Tansáin						// [1F1F9 1F1FF] TZ
+🇺🇦	bratach: an Úcráin						// [1F1FA 1F1E6] UA
+🇺🇬	bratach: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	bratach: Oileáin Imeallacha S.A.M.				// [1F1FA 1F1F2] UM
+🇺🇳	bratach: na Náisiúin Aontaiteh					// [1F1FA 1F1F3] UN
+🇺🇸	bratach: Stáit Aontaithe Mheiriceá				// [1F1FA 1F1F8] US
+🇺🇾	bratach: Uragua							// [1F1FA 1F1FE] UY
+🇺🇿	bratach: an Úisbéiceastáin					// [1F1FA 1F1FF] UZ
+🇻🇦	bratach: Cathair na Vatacáine					// [1F1FB 1F1E6] VA
+🇻🇨	bratach: San Uinseann agus na Greanáidíní			// [1F1FB 1F1E8] VC
+🇻🇪	bratach: Veiniséala						// [1F1FB 1F1EA] VE
+🇻🇬	bratach: Oileáin Bhriotanacha na Maighdean			// [1F1FB 1F1EC] VG
+🇻🇮	bratach: Oileáin Mheiriceánacha na Maighdean			// [1F1FB 1F1EE] VI
+🇻🇳	bratach: Vítneam						// [1F1FB 1F1F3] VN
+🇻🇺	bratach: Vanuatú						// [1F1FB 1F1FA] VU
+🇼🇫	bratach: Vailís agus Futúna					// [1F1FC 1F1EB] WF
+🇼🇸	bratach: Samó							// [1F1FC 1F1F8] WS
+🇽🇰	bratach: an Chosaiv						// [1F1FD 1F1F0] XK
+🇾🇪	bratach: Éimin							// [1F1FE 1F1EA] YE
+🇾🇹	bratach: Mayotte						// [1F1FE 1F1F9] YT
+🇿🇦	bratach: an Afraic Theas					// [1F1FF 1F1E6] ZA
+🇿🇲	bratach: an tSaimbia						// [1F1FF 1F1F2] ZM
+🇿🇼	bratach: an tSiombáib						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	garda oifigeach						// [1F482 200D 2642]
 🕵️‍♀	bleachtaire baineann					// [1F575 200D 2640]
 🕵️‍♂	bleachtaire fireann					// [1F575 200D 2642]
+🦸‍♀	ban-sárlaoch						// [1F9B8 200D 2640]
+🦸‍♂	fear-sárlaoch						// [1F9B8 200D 2642]
+🦹‍♀	ban-drochdhuine						// [1F9B9 200D 2640]
+🦹‍♂	fear-dhrochdhuine					// [1F9B9 200D 2642]
 🧙‍♀	bean dhraíochta						// [1F9D9 200D 2640]
 🧙‍♂	fear draíochta						// [1F9D9 200D 2642]
 🧚‍♀	sióg bhaineann						// [1F9DA 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	bratach bogha báistí					// [1F3F3 200D 1F308]
+🏴‍☠	bratach foghlaithe					// [1F3F4 200D 2620]
 👁‍🗨	súil i mbolgán cainte					// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

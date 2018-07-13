@@ -61,7 +61,7 @@ $textmode
 //№	numero								// [2116] other (no translation)
 //℞	prescription							// [211E] other (no translation)
 ™	skyddat varumärke						// [2122] text|emoji
-ℹ	informationskälla						// [2139] text|emoji
+ℹ	information							// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
@@ -106,10 +106,10 @@ $textmode
 // 2300..23FF : Miscellaneous Technical
 
 ⌚	armbandsur							// [231A]
-⌛	timglas								// [231B]
+⌛	utrunnet timglas						// [231B]
 ⌨	tangentbord							// [2328] text|emoji
-⏏	knapp för mata ut						// [23CF] text|emoji
-⏩	knapp för snabbspola framåt					// [23E9]
+⏏	utmatningsknapp							// [23CF] text|emoji
+⏩	framåtspolningsknapp						// [23E9]
 ⏪	knapp för snabbspola tillbaka					// [23EA]
 ⏫	dubbla uppåtpilar						// [23EB]
 ⏬	dubbla nedåtpilar						// [23EC]
@@ -120,9 +120,9 @@ $textmode
 ⏱	stoppur								// [23F1] text|emoji
 ⏲	timer								// [23F2] text|emoji
 ⏳	timglas med rinnande sand					// [23F3]
-⏸	knapp för pausa							// [23F8] text|emoji
-⏹	knapp för stoppa						// [23F9] text|emoji
-⏺	knapp för spela in						// [23FA] text|emoji
+⏸	pausknapp							// [23F8] text|emoji
+⏹	stoppknapp							// [23F9] text|emoji
+⏺	inspelningsknapp						// [23FA] text|emoji
 
 // 2460..24FF : Enclosed Alphanumerics
 
@@ -133,8 +133,8 @@ $textmode
 //■	black square							// [25A0] other (no translation)
 ▪	liten svart ruta						// [25AA] text|emoji
 ▫	liten vit ruta							// [25AB] text|emoji
-▶	knapp för spela							// [25B6] text|emoji
-◀	knapp för spola tillbaka					// [25C0] text|emoji
+▶	uppspelningsknapp						// [25B6] text|emoji
+◀	bakåtspolningsknapp						// [25C0] text|emoji
 //●	black circle							// [25CF] other (no translation)
 ◻	mellanstor vit ruta						// [25FB] text|emoji
 ◼	mellanstor svart ruta						// [25FC] text|emoji
@@ -149,7 +149,7 @@ $textmode
 ☃	snögubbe							// [2603] text|emoji
 ☄	komet								// [2604] text|emoji
 ☎	telefon								// [260E] text|emoji
-☑	kryssruta med bock						// [2611] text|emoji
+☑	kryssruta med bockmarkering					// [2611] text|emoji
 ☔	paraply med regndroppar						// [2614]
 ☕	kaffe								// [2615]
 ☘	treklöver							// [2618] text|emoji
@@ -178,6 +178,7 @@ $textmode
 ♑	Stenbocken							// [2651]
 ♒	Vattumannen							// [2652]
 ♓	Fiskarna							// [2653]
+♟	schackbonde							// [265F] text|emoji
 ♠	spader								// [2660] text|emoji
 ♣	klöver								// [2663] text|emoji
 ♥	hjärter								// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	återvinningssymbol						// [267B] text|emoji
+♾	oändlighet							// [267E] text|emoji
 ♿	rullstolssymbol							// [267F]
 ⚒	hammare och hacka						// [2692] text|emoji
 ⚓	ankare								// [2693]
@@ -195,9 +197,9 @@ $textmode
 ⚗	retort								// [2697] text|emoji
 ⚙	kugghjul							// [2699] text|emoji
 ⚛	symbol för atom							// [269B] text|emoji
-⚜	franska liljan							// [269C] text|emoji
+⚜	fransk lilja							// [269C] text|emoji
 ⚠	varningstecken							// [26A0] text|emoji
-⚡	hög spänning							// [26A1]
+⚡	högspänning							// [26A1]
 ⚪	vit cirkel							// [26AA]
 ⚫	svart cirkel							// [26AB]
 ⚰	kista								// [26B0] text|emoji
@@ -209,9 +211,9 @@ $textmode
 ⛈	moln med regn och blixtar					// [26C8] text|emoji
 ⛎	Ormbäraren							// [26CE]
 ⛏	hacka								// [26CF] text|emoji
-⛑	hjälm med vitt kors						// [26D1] text|emoji
+⛑	räddningsarbetarhjälm						// [26D1] text|emoji
 ⛓	kedjor								// [26D3] text|emoji
-⛔	Förbjuden ingång						// [26D4]
+⛔	förbjuden ingång						// [26D4]
 ⛩	shintohelgedom							// [26E9] text|emoji
 ⛪	kyrka								// [26EA]
 ⛰	berg								// [26F0] text|emoji
@@ -229,7 +231,7 @@ $textmode
 // 2700..27BF : Dingbats
 
 ✂	sax								// [2702] text|emoji
-✅	vit bock							// [2705]
+✅	vit bockmarkering						// [2705]
 ✈	flygplan							// [2708] text|emoji
 ✉	kuvert								// [2709] text|emoji
 ✊	knytnäve i luften						// [270A]
@@ -238,7 +240,7 @@ $textmode
 ✍	hand som skriver						// [270D] text|emoji
 ✏	blyertspenna							// [270F] text|emoji
 ✒	stiftpenna							// [2712] text|emoji
-✔	bock								// [2714] text|emoji
+✔	bockmarkering							// [2714] text|emoji
 ✖	multiplikationstecken						// [2716] text|emoji
 ✝	latinskt kors							// [271D] text|emoji
 ✡	davidsstjärna							// [2721] text|emoji
@@ -274,7 +276,7 @@ $textmode
 ⬇	nedåtpil							// [2B07] text|emoji
 ⬛	stor svart ruta							// [2B1B]
 ⬜	stor vit ruta							// [2B1C]
-⭐	vit medelstor stjärna						// [2B50]
+⭐	stjärna								// [2B50]
 ⭕	tung stor cirkel						// [2B55]
 
 // 3000..303F : CJK Symbols and Punctuation
@@ -292,18 +294,18 @@ $textmode
 🅰	blodgrupp A							// [1F170] text|emoji
 🅱	blodgrupp B							// [1F171] text|emoji
 🅾	blodgrupp 0							// [1F17E] text|emoji
-🅿	parkering							// [1F17F] text|emoji
+🅿	P-knapp								// [1F17F] text|emoji
 🆎	blodgrupp AB							// [1F18E]
 🆑	rensa-symbol							// [1F191]
-🆒	cool								// [1F192]
-🆓	gratis								// [1F193]
-🆔	ID								// [1F194]
-🆕	Nyhet								// [1F195]
-🆖	inte bra							// [1F196]
-🆗	OK								// [1F197]
-🆘	SOS								// [1F198]
-🆙	UPP!								// [1F199]
-🆚	mot								// [1F19A]
+🆒	COOL-knapp							// [1F192]
+🆓	FREE-knapp							// [1F193]
+🆔	ID-knapp							// [1F194]
+🆕	NEW-knapp							// [1F195]
+🆖	NG-knapp							// [1F196]
+🆗	OK-knapp							// [1F197]
+🆘	SOS-knapp							// [1F198]
+🆙	UP!-knapp							// [1F199]
+🆚	VS-knapp							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
@@ -325,29 +327,29 @@ $textmode
 
 // 1F000..1F02F : Mahjong Tiles
 
-🀄	Mahjong-bricka							// [1F004]
+🀄	mahjong-bricka							// [1F004]
 
 // 1F0A0..1F0FF : Playing Cards
 
-🃏	Joker-kort							// [1F0CF]
+🃏	joker								// [1F0CF]
 
 // 1F300..1F5FF : Miscellaneous Symbols and Pictographs
 
 🌀	cyklon								// [1F300]
-🌁	dimma								// [1F301]
+🌁	dimmigt								// [1F301]
 🌂	hopfällt paraply						// [1F302]
 🌃	stjärnklar natt							// [1F303]
-🌄	soluppgång vid berg						// [1F304]
+🌄	soluppgång över berg						// [1F304]
 🌅	soluppgång							// [1F305]
 🌆	stad i skymning							// [1F306]
-🌇	solnedgång över stad						// [1F307]
+🌇	solnedgång							// [1F307]
 🌈	regnbåge							// [1F308]
 🌉	bro på natten							// [1F309]
 🌊	våg								// [1F30A]
 🌋	vulkan								// [1F30B]
 🌌	Vintergatan							// [1F30C]
 🌍	jordglob Europa–Afrika						// [1F30D]
-🌎	jordglob Amerika						// [1F30E]
+🌎	jordglob nord- och sydamerika					// [1F30E]
 🌏	jordglob Asien–Australien					// [1F30F]
 🌐	jordglob med meridianer						// [1F310]
 🌑	nymåne								// [1F311]
@@ -374,13 +376,13 @@ $textmode
 🌨	moln med snö							// [1F328] text|emoji
 🌩	moln med blixt							// [1F329] text|emoji
 🌪	tornado								// [1F32A] text|emoji
-🌫	dimmigt								// [1F32B] text|emoji
+🌫	dimma								// [1F32B] text|emoji
 🌬	blåser vind							// [1F32C] text|emoji
 🌭	varmkorv							// [1F32D]
 🌮	taco								// [1F32E]
 🌯	burrito								// [1F32F]
 🌰	kastanj								// [1F330]
-🌱	grodd								// [1F331]
+🌱	skott								// [1F331]
 🌲	barrträd							// [1F332]
 🌳	lövträd								// [1F333]
 🌴	palm								// [1F334]
@@ -405,7 +407,7 @@ $textmode
 🍇	vindruvor							// [1F347]
 🍈	melon								// [1F348]
 🍉	vattenmelon							// [1F349]
-🍊	apelsin								// [1F34A]
+🍊	mandarin							// [1F34A]
 🍋	citron								// [1F34B]
 🍌	banan								// [1F34C]
 🍍	ananas								// [1F34D]
@@ -427,7 +429,7 @@ $textmode
 🍝	spagetti							// [1F35D]
 🍞	bröd								// [1F35E]
 🍟	pommes frites							// [1F35F]
-🍠	rostad potatis							// [1F360]
+🍠	rostad sötpotatis						// [1F360]
 🍡	dango								// [1F361]
 🍢	skaldjursspett							// [1F362]
 🍣	sushi								// [1F363]
@@ -437,7 +439,7 @@ $textmode
 🍧	sorbet								// [1F367]
 🍨	glass								// [1F368]
 🍩	munk								// [1F369]
-🍪	småbröd								// [1F36A]
+🍪	kaka								// [1F36A]
 🍫	chokladkaka							// [1F36B]
 🍬	godis								// [1F36C]
 🍭	klubba								// [1F36D]
@@ -446,15 +448,15 @@ $textmode
 🍰	tårtbit								// [1F370]
 🍱	bentolåda							// [1F371]
 🍲	gryta								// [1F372]
-🍳	laga mat							// [1F373]
-🍴	gaffel och kniv							// [1F374]
+🍳	matlagning							// [1F373]
+🍴	kniv och gaffel							// [1F374]
 🍵	tekopp								// [1F375]
-🍶	flaska och kopp med saké					// [1F376]
+🍶	saké								// [1F376]
 🍷	vinglas								// [1F377]
 🍸	cocktailglas							// [1F378]
 🍹	tropisk drink							// [1F379]
-🍺	ölglas								// [1F37A]
-🍻	skålande ölglas							// [1F37B]
+🍺	ölstop								// [1F37A]
+🍻	skålande ölstop							// [1F37B]
 🍼	nappflaska							// [1F37C]
 🍽	tallrik, kniv och gaffel					// [1F37D] text|emoji
 🍾	champagne							// [1F37E]
@@ -462,34 +464,34 @@ $textmode
 🎀	rosett								// [1F380]
 🎁	inslagen present						// [1F381]
 🎂	födelsedagstårta						// [1F382]
-🎃	pumpa								// [1F383]
+🎃	lyktgubbe							// [1F383]
 🎄	julgran								// [1F384]
 🎅	jultomte							// [1F385]
 🎆	fyrverkerier							// [1F386]
 🎇	glittrande fyrverkeri						// [1F387]
 🎈	ballong								// [1F388]
-🎉	partypopper							// [1F389]
+🎉	konfettismällare						// [1F389]
 🎊	konfetti							// [1F38A]
-🎋	träd med pappersremsor						// [1F38B]
+🎋	tanabataträd							// [1F38B]
 🎌	korsade flaggor							// [1F38C]
 🎍	pinjedekoration							// [1F38D]
 🎎	japanska dockor							// [1F38E]
-🎏	vindstrut							// [1F38F]
+🎏	karpvindstrut							// [1F38F]
 🎐	vindspel							// [1F390]
 🎑	månskådning							// [1F391]
-🎒	skolväska							// [1F392]
+🎒	ryggsäck							// [1F392]
 🎓	examenshatt							// [1F393]
 🎖	militär medalj							// [1F396] text|emoji
-🎗	gult band							// [1F397] text|emoji
+🎗	påminnelseband							// [1F397] text|emoji
 🎙	studiomikrofon							// [1F399] text|emoji
 🎚	nivåreglage							// [1F39A] text|emoji
 🎛	kontrollknappar							// [1F39B] text|emoji
 🎞	filmnegativ							// [1F39E] text|emoji
-🎟	inträdesbiljett							// [1F39F] text|emoji
+🎟	inträdesbiljetter						// [1F39F] text|emoji
 🎠	karusellhäst							// [1F3A0]
 🎡	pariserhjul							// [1F3A1]
 🎢	berg- och dalbana						// [1F3A2]
-🎣	fiskespö och fisk						// [1F3A3]
+🎣	fiskespö							// [1F3A3]
 🎤	mikrofon							// [1F3A4]
 🎥	filmkamera							// [1F3A5]
 🎦	bio								// [1F3A6]
@@ -499,10 +501,10 @@ $textmode
 🎪	cirkustält							// [1F3AA]
 🎫	biljett								// [1F3AB]
 🎬	filmklappa							// [1F3AC]
-🎭	ansiktsmasker							// [1F3AD]
-🎮	tv-spelskontroll						// [1F3AE]
+🎭	dans och teater							// [1F3AD]
+🎮	tv-spel								// [1F3AE]
 🎯	mitt i prick							// [1F3AF]
-🎰	spelmaskin							// [1F3B0]
+🎰	enarmad bandit							// [1F3B0]
 🎱	biljardboll							// [1F3B1]
 🎲	speltärning							// [1F3B2]
 🎳	bowling								// [1F3B3]
@@ -516,35 +518,35 @@ $textmode
 🎻	fiol								// [1F3BB]
 🎼	g-klav								// [1F3BC]
 🎽	löparlinne							// [1F3BD]
-🎾	tennisboll							// [1F3BE]
-🎿	skidor och stavar						// [1F3BF]
+🎾	tennis								// [1F3BE]
+🎿	skidor								// [1F3BF]
 🏀	basketboll							// [1F3C0]
 🏁	schackrutig flagga						// [1F3C1]
 🏂	snowboardåkare							// [1F3C2]
-🏃	löpare								// [1F3C3]
-🏄	surfare								// [1F3C4]
+🏃	person som springer						// [1F3C3]
+🏄	person som surfar						// [1F3C4]
 🏅	sportmedalj							// [1F3C5]
 🏆	pokal								// [1F3C6]
 🏇	hästkapplöpning							// [1F3C7]
 🏈	amerikansk fotboll						// [1F3C8]
 🏉	rugbyboll							// [1F3C9]
-🏊	simmare								// [1F3CA]
-🏋	tyngdlyftare							// [1F3CB] text|emoji
-🏌	golfspelare							// [1F3CC] text|emoji
+🏊	person som simmar						// [1F3CA]
+🏋	person som lyfter tyngder					// [1F3CB] text|emoji
+🏌	person som spelar golf						// [1F3CC] text|emoji
 🏍	motorcykel							// [1F3CD] text|emoji
 🏎	racerbil							// [1F3CE] text|emoji
 🏏	cricket								// [1F3CF]
 🏐	volleyboll							// [1F3D0]
-🏑	landhockeyklubba						// [1F3D1]
-🏒	ishockeyklubba och puck						// [1F3D2]
+🏑	landhockey							// [1F3D1]
+🏒	ishockey							// [1F3D2]
 🏓	bordtennis							// [1F3D3]
-🏔	snöklädda berg							// [1F3D4] text|emoji
+🏔	snöklätt berg							// [1F3D4] text|emoji
 🏕	camping								// [1F3D5] text|emoji
 🏖	strand med parasoll						// [1F3D6] text|emoji
 🏗	byggarbetsplats							// [1F3D7] text|emoji
 🏘	flera hus							// [1F3D8] text|emoji
-🏙	skyskrapa							// [1F3D9] text|emoji
-🏚	ödehus								// [1F3DA] text|emoji
+🏙	stadsbild							// [1F3D9] text|emoji
+🏚	fallfärdigt hus							// [1F3DA] text|emoji
 🏛	klassisk byggnad						// [1F3DB] text|emoji
 🏜	öken								// [1F3DC] text|emoji
 🏝	öde ö								// [1F3DD] text|emoji
@@ -554,19 +556,19 @@ $textmode
 🏡	hus med trädgård						// [1F3E1]
 🏢	kontorsbyggnad							// [1F3E2]
 🏣	japanskt postkontor						// [1F3E3]
-🏤	europeiskt postkontor						// [1F3E4]
+🏤	postkontor							// [1F3E4]
 🏥	sjukhus								// [1F3E5]
 🏦	bank								// [1F3E6]
-🏧	uttagsautomat							// [1F3E7]
+🏧	bankomat							// [1F3E7]
 🏨	hotell								// [1F3E8]
-🏩	hotell med hjärta						// [1F3E9]
-🏪	butik								// [1F3EA]
+🏩	kärlekshotell							// [1F3E9]
+🏪	jourbutik							// [1F3EA]
 🏫	skola								// [1F3EB]
 🏬	varuhus								// [1F3EC]
 🏭	fabrik								// [1F3ED]
 🏮	röd lykta							// [1F3EE]
 🏯	japanskt slott							// [1F3EF]
-🏰	europeiskt slott						// [1F3F0]
+🏰	slott								// [1F3F0]
 🏳	vit flagga							// [1F3F3] text|emoji
 🏴	svart flagga							// [1F3F4]
 🏵	bandros								// [1F3F5] text|emoji
@@ -574,14 +576,14 @@ $textmode
 🏸	badminton							// [1F3F8]
 🏹	pil och båge							// [1F3F9]
 🏺	amfora								// [1F3FA]
-🏻	hudton 1–2							// [1F3FB]
-🏼	hudton 3							// [1F3FC]
-🏽	hudton 4							// [1F3FD]
-🏾	hudton 5							// [1F3FE]
-🏿	hudton 6							// [1F3FF]
+🏻	ljus hy								// [1F3FB]
+🏼	mellanljus hy							// [1F3FC]
+🏽	mellanfärgad hy							// [1F3FD]
+🏾	mellanmörk hy							// [1F3FE]
+🏿	mörk hy								// [1F3FF]
 🐀	råtta								// [1F400]
 🐁	mus								// [1F401]
-🐂	tjur								// [1F402]
+🐂	oxe								// [1F402]
 🐃	vattenbuffel							// [1F403]
 🐄	ko								// [1F404]
 🐅	tiger								// [1F405]
@@ -596,7 +598,7 @@ $textmode
 🐎	häst								// [1F40E]
 🐏	vädur								// [1F40F]
 🐐	get								// [1F410]
-🐑	får								// [1F411]
+🐑	tacka								// [1F411]
 🐒	apa								// [1F412]
 🐓	tupp								// [1F413]
 🐔	höna								// [1F414]
@@ -665,7 +667,7 @@ $textmode
 👓	glasögon							// [1F453]
 👔	skjorta med slips						// [1F454]
 👕	t-shirt								// [1F455]
-👖	byxor								// [1F456]
+👖	jeans								// [1F456]
 👗	klänning							// [1F457]
 👘	kimono								// [1F458]
 👙	bikini								// [1F459]
@@ -705,15 +707,15 @@ $textmode
 👻	spöke								// [1F47B]
 👼	bebisängel							// [1F47C]
 👽	alien								// [1F47D]
-👾	alienmonster							// [1F47E]
-👿	liten djävul							// [1F47F]
+👾	utomjordiskt monster						// [1F47E]
+👿	argt ansikte med horn						// [1F47F]
 💀	dödskalle							// [1F480]
 💁	receptionist							// [1F481]
 💂	vakt								// [1F482]
 💃	dansande kvinna							// [1F483]
 💄	läppstift							// [1F484]
 💅	nagellack							// [1F485]
-💆	ansiktsmassage							// [1F486]
+💆	person som blir masserad					// [1F486]
 💇	hårklippning							// [1F487]
 💈	barberare							// [1F488]
 💉	spruta								// [1F489]
@@ -721,7 +723,7 @@ $textmode
 💋	läppavtryck							// [1F48B]
 💌	kärleksbrev							// [1F48C]
 💍	ring								// [1F48D]
-💎	diamant								// [1F48E]
+💎	ädelsten							// [1F48E]
 💏	puss								// [1F48F]
 💐	blombukett							// [1F490]
 💑	par med hjärta							// [1F491]
@@ -739,18 +741,18 @@ $textmode
 💝	hjärta med rosett						// [1F49D]
 💞	snurrande hjärtan						// [1F49E]
 💟	hjärtdekoration							// [1F49F]
-💠	diamantform							// [1F4A0]
+💠	diamantform med en prick					// [1F4A0]
 💡	glödlampa							// [1F4A1]
 💢	symbol för ilska						// [1F4A2]
 💣	bomb								// [1F4A3]
 💤	snarkningar							// [1F4A4]
 💥	explosion							// [1F4A5]
 💦	stänkande svett							// [1F4A6]
-💧	svettdroppe							// [1F4A7]
+💧	droppe								// [1F4A7]
 💨	fartsymbol							// [1F4A8]
 💩	bajs								// [1F4A9]
 💪	spänd biceps							// [1F4AA]
-💫	ser stjärnor							// [1F4AB]
+💫	omtumlad							// [1F4AB]
 💬	pratbubbla							// [1F4AC]
 💭	tankebubbla							// [1F4AD]
 💮	vit blomma							// [1F4AE]
@@ -837,7 +839,7 @@ $textmode
 🔀	blanda låtar							// [1F500]
 🔁	upprepning							// [1F501]
 🔂	upprepa en låt							// [1F502]
-🔃	pilar medurs							// [1F503]
+🔃	vertikala pilar medurs						// [1F503]
 🔄	pilar moturs							// [1F504]
 🔅	låg ljusstyrka							// [1F505]
 🔆	hög ljusstyrka							// [1F506]
@@ -861,7 +863,7 @@ $textmode
 🔘	alternativknapp							// [1F518]
 🔙	Back med vänsterpil						// [1F519]
 🔚	End med högerpil						// [1F51A]
-🔛	ON! med vänsterpil ovanför					// [1F51B]
+🔛	ON! med pil höger och vänster ovanför				// [1F51B]
 🔜	Soon med högerpil ovanför					// [1F51C]
 🔝	Top med uppåtpil						// [1F51D]
 🔞	ej för minderåriga						// [1F51E]
@@ -881,21 +883,21 @@ $textmode
 🔬	mikroskop							// [1F52C]
 🔭	teleskop							// [1F52D]
 🔮	kristallkula							// [1F52E]
-🔯	stjärna med prick						// [1F52F]
+🔯	sexuddig stjärna med prick					// [1F52F]
 🔰	japansk symbol för nybörjare					// [1F530]
 🔱	treudd								// [1F531]
-🔲	knapp med vit ruta						// [1F532]
-🔳	knapp med svart ruta						// [1F533]
-🔴	stor röd cirkel							// [1F534]
-🔵	stor blå cirkel							// [1F535]
+🔲	svart fyrkantig knapp						// [1F532]
+🔳	vit fyrkantig knapp						// [1F533]
+🔴	röd cirkel							// [1F534]
+🔵	blå cirkel							// [1F535]
 🔶	stor orange diamantform						// [1F536]
 🔷	stor blå diamantform						// [1F537]
 🔸	liten orange diamantform					// [1F538]
-🔹	liten blå diamantform						// [1F539]
+🔹	liten blå romb							// [1F539]
 🔺	uppåtpekande röd triangel					// [1F53A]
 🔻	nedåtpekande röd triangel					// [1F53B]
-🔼	uppåtpekande liten triangel					// [1F53C]
-🔽	nedåtpekande liten triangel					// [1F53D]
+🔼	uppåtknapp							// [1F53C]
+🔽	nedåtknapp							// [1F53D]
 🕉	ohm-tecken							// [1F549] text|emoji
 🕊	duva								// [1F54A] text|emoji
 🕋	kaba								// [1F54B]
@@ -927,7 +929,7 @@ $textmode
 🕦	halv tolv							// [1F566]
 🕧	halv ett							// [1F567]
 🕯	stearinljus							// [1F56F] text|emoji
-🕰	klocka								// [1F570] text|emoji
+🕰	mantelklocka							// [1F570] text|emoji
 🕳	hål								// [1F573] text|emoji
 🕴	svävande man i kostym						// [1F574] text|emoji
 🕵	detektiv							// [1F575] text|emoji
@@ -949,7 +951,7 @@ $textmode
 🖨	skrivare							// [1F5A8] text|emoji
 🖱	datormus							// [1F5B1] text|emoji
 🖲	styrplatta							// [1F5B2] text|emoji
-🖼	bild i ram							// [1F5BC] text|emoji
+🖼	tavla								// [1F5BC] text|emoji
 🗂	pärmflikar							// [1F5C2] text|emoji
 🗃	kartotek							// [1F5C3] text|emoji
 🗄	dokumentskåp							// [1F5C4] text|emoji
@@ -966,7 +968,7 @@ $textmode
 🗳	valurna med röstsedel						// [1F5F3] text|emoji
 🗺	världskarta							// [1F5FA] text|emoji
 🗻	Fuji								// [1F5FB]
-🗼	torn i Tokyo							// [1F5FC]
+🗼	Tokyo Tower							// [1F5FC]
 🗽	Frihetsgudinnan							// [1F5FD]
 🗾	karta över Japan						// [1F5FE]
 🗿	staty								// [1F5FF]
@@ -974,85 +976,85 @@ $textmode
 // 1F600..1F64F : Emoticons
 
 😀	ansikte med stort leende					// [1F600]
-😁	leende ansikte med leende ögon					// [1F601]
+😁	strålande ansikte med leende ögon				// [1F601]
 😂	ansikte med glädjetårar						// [1F602]
 😃	flinande ansikte med stora ögon					// [1F603]
 😄	flinande ansikte med leende ögon				// [1F604]
 😅	flinande ansikte med svettdroppe				// [1F605]
 😆	flinande ansikte med kisande ögon				// [1F606]
-😇	leende med gloria						// [1F607]
-😈	leende med horn							// [1F608]
-😉	blinkar med ögonen						// [1F609]
+😇	leende ansikte med gloria					// [1F607]
+😈	leende ansikte med horn						// [1F608]
+😉	ansikte som blinkar med ögonen					// [1F609]
 😊	leende ansikte och ögon						// [1F60A]
-😋	smakar gott							// [1F60B]
+😋	ansikte som njuter av god mat					// [1F60B]
 😌	lättat ansikte							// [1F60C]
 😍	leende ansikte med hjärtformade ögon				// [1F60D]
 😎	leende ansikte med solglasögon					// [1F60E]
-😏	flinande ansikte						// [1F60F]
+😏	halvleende ansikte						// [1F60F]
 😐	neutralt ansikte						// [1F610]
 😑	uttryckslöst ansikte						// [1F611]
 😒	missnöjt ansikte						// [1F612]
-😓	kallsvettigt ansikte						// [1F613]
+😓	nedslaget kallsvettigt ansikte					// [1F613]
 😔	funderande ansikte						// [1F614]
 😕	förbryllat ansikte						// [1F615]
 😖	förvirrat ansikte						// [1F616]
 😗	pussande ansikte						// [1F617]
-😘	slängkyss							// [1F618]
+😘	ansikte ger en slängkyss					// [1F618]
 😙	pussande ansikte med leende ögon				// [1F619]
 😚	pussande ansikte med slutna ögon				// [1F61A]
-😛	räcker ut tungan						// [1F61B]
-😜	blinkande ansikte						// [1F61C]
-😝	räcker ut tungan med stängda ögon				// [1F61D]
+😛	ansikte räcker ut tungan					// [1F61B]
+😜	blinkande ansikte räcker ut tungan				// [1F61C]
+😝	ansikte räcker ut tungan med stängda ögon			// [1F61D]
 😞	besviket ansikte						// [1F61E]
 😟	bekymrat ansikte						// [1F61F]
 😠	argt ansikte							// [1F620]
-😡	rasande								// [1F621]
+😡	plutande ansikte						// [1F621]
 😢	gråtande ansikte						// [1F622]
 😣	uthålligt ansikte						// [1F623]
-😤	lättad								// [1F624]
-😥	besviken men lättad						// [1F625]
+😤	ansikte med ånga ur näsan					// [1F624]
+😥	besviket men lättat ansikte					// [1F625]
 😦	ogillande ansikte med öppen mun					// [1F626]
-😧	ångerfullt ansikte						// [1F627]
+😧	plågat ansikte							// [1F627]
 😨	skräckinjagat ansikte						// [1F628]
-😩	bedrövat ansikte						// [1F629]
+😩	uttröttat ansikte						// [1F629]
 😪	sömnigt ansikte							// [1F62A]
 😫	trött ansikte							// [1F62B]
 😬	grimaserande ansikte						// [1F62C]
 😭	storgråtande ansikte						// [1F62D]
 😮	förvånat ansikte						// [1F62E]
-😯	tyst ansikte							// [1F62F]
-😰	kallsvettigt ansikte med öppen mun				// [1F630]
-😱	livrädd								// [1F631]
+😯	hyssjat ansikte							// [1F62F]
+😰	oroligt svettigt ansikte					// [1F630]
+😱	ansikte som skriker av fasa					// [1F631]
 😲	chockat ansikte							// [1F632]
-😳	generat ansikte							// [1F633]
+😳	rodnande ansikte						// [1F633]
 😴	sovande ansikte							// [1F634]
-😵	yr								// [1F635]
+😵	omtumlat ansikte						// [1F635]
 😶	ansikte utan mun						// [1F636]
-😷	ansikte med mask över mun					// [1F637]
-😸	leende katt							// [1F638]
+😷	ansikte med munskydd						// [1F637]
+😸	flinande kattansikte med leende ögon				// [1F638]
 😹	katt med glädjetårar						// [1F639]
-😺	leende katt med öppen mun					// [1F63A]
-😻	leende katt med hjärtformade ögon				// [1F63B]
-😼	katt med snett leende						// [1F63C]
-😽	kyssande katt med stängda ögon					// [1F63D]
-😾	katt som plutar med munnen					// [1F63E]
+😺	flinande kattansikte						// [1F63A]
+😻	leende kattansikte med hjärtformade ögon			// [1F63B]
+😼	kattansikte med snett leende					// [1F63C]
+😽	kyssande kattansikte						// [1F63D]
+😾	plutande kattansikte						// [1F63E]
 😿	gråtande kattansikte						// [1F63F]
-🙀	bedrövat kattansikte						// [1F640]
+🙀	uttröttat kattansikte						// [1F640]
 🙁	ansikte med lite sur mun					// [1F641]
 🙂	småleende ansikte						// [1F642]
 🙃	upp-och-nervänt ansikte						// [1F643]
 🙄	ansikte som himlar med ögonen					// [1F644]
-🙅	gest för inte bra						// [1F645]
-🙆	gest för OK							// [1F646]
-🙇	djupt bugande person						// [1F647]
+🙅	person gestikulerar NEJ						// [1F645]
+🙆	person gestikulerar OK						// [1F646]
+🙇	bugande person							// [1F647]
 🙈	apa ser inget							// [1F648]
 🙉	apa hör inget							// [1F649]
 🙊	apa säger inget							// [1F64A]
 🙋	person som räcker upp handen					// [1F64B]
 🙌	båda händerna i luften						// [1F64C]
-🙍	bister uppsyn							// [1F64D]
-🙎	plutar								// [1F64E]
-🙏	knäppta händer							// [1F64F]
+🙍	sur person							// [1F64D]
+🙎	plutande person							// [1F64E]
+🙏	beende händer							// [1F64F]
 
 // 1F680..1F6FF : Transport and Map Symbols
 
@@ -1081,46 +1083,46 @@ $textmode
 🚖	mötande taxi							// [1F696]
 🚗	bil								// [1F697]
 🚘	mötande bil							// [1F698]
-🚙	husbil								// [1F699]
+🚙	SUV								// [1F699]
 🚚	budbil								// [1F69A]
 🚛	lastbil								// [1F69B]
 🚜	traktor								// [1F69C]
-🚝	balkbana							// [1F69D]
+🚝	monorail							// [1F69D]
 🚞	bergsbana							// [1F69E]
 🚟	hängbana							// [1F69F]
 🚠	linbana								// [1F6A0]
 🚡	kabinbana							// [1F6A1]
 🚢	fartyg								// [1F6A2]
-🚣	eka								// [1F6A3]
+🚣	person som ror en båt						// [1F6A3]
 🚤	racerbåt							// [1F6A4]
 🚥	vågräta trafikljus						// [1F6A5]
 🚦	lodräta trafikljus						// [1F6A6]
 🚧	skylt för byggområde						// [1F6A7]
 🚨	polissiren							// [1F6A8]
-🚩	trekantig platsflagga						// [1F6A9]
+🚩	trekantig flagga						// [1F6A9]
 🚪	dörr								// [1F6AA]
-🚫	förbud								// [1F6AB]
+🚫	förbjudet							// [1F6AB]
 🚬	rökning tillåtet						// [1F6AC]
-🚭	rökning förbjudet						// [1F6AD]
+🚭	rökning förbjuden						// [1F6AD]
 🚮	soptunna							// [1F6AE]
 🚯	släng inte skräp här						// [1F6AF]
 🚰	dricksvatten							// [1F6B0]
 🚱	ej dricksvatten							// [1F6B1]
 🚲	cykel								// [1F6B2]
 🚳	cyklar förbjudna						// [1F6B3]
-🚴	cyklist								// [1F6B4]
-🚵	mountainbikeåkare						// [1F6B5]
+🚴	person som cyklar						// [1F6B4]
+🚵	person som cyklar på en mountainbike				// [1F6B5]
 🚶	fotgängare							// [1F6B6]
 🚷	inga fotgängare							// [1F6B7]
 🚸	passerande barn							// [1F6B8]
-🚹	symbol för män							// [1F6B9]
-🚺	symbol för kvinnor						// [1F6BA]
+🚹	herrtoalett							// [1F6B9]
+🚺	damtoalett							// [1F6BA]
 🚻	wc-skylt							// [1F6BB]
 🚼	bebissymbol							// [1F6BC]
 🚽	toalett								// [1F6BD]
 🚾	WC								// [1F6BE]
 🚿	dusch								// [1F6BF]
-🛀	bad								// [1F6C0]
+🛀	person som badar						// [1F6C0]
 🛁	badkar								// [1F6C1]
 🛂	passkontroll							// [1F6C2]
 🛃	tull								// [1F6C3]
@@ -1150,39 +1152,40 @@ $textmode
 🛶	kanot								// [1F6F6]
 🛷	kälke								// [1F6F7]
 🛸	flygande tefat							// [1F6F8]
+🛹	skateboard							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
 🤐	ansikte som tiger						// [1F910]
 🤑	ansikte med dollarögon						// [1F911]
 🤒	ansikte med termometer						// [1F912]
-🤓	nörd								// [1F913]
+🤓	nördansikte							// [1F913]
 🤔	ansikte som tänker						// [1F914]
 🤕	ansikte med bandage						// [1F915]
 🤖	robotansikte							// [1F916]
 🤗	ansikte som kramas						// [1F917]
 🤘	djävulstecknet							// [1F918]
-🤙	ring mig hand							// [1F919]
+🤙	ring mig-hand							// [1F919]
 🤚	lyft hand							// [1F91A]
 🤛	vänstervänd näve						// [1F91B]
 🤜	högervänd näve							// [1F91C]
 🤝	handskakning							// [1F91D]
 🤞	korsade fingrar							// [1F91E]
-🤟	hjärtformade händer						// [1F91F]
-🤠	cowboyhatt ansikte						// [1F920]
+🤟	jag älskar dig-gest						// [1F91F]
+🤠	ansikte med cowboyhatt						// [1F920]
 🤡	clownansikte							// [1F921]
-🤢	kräkande ansikte						// [1F922]
+🤢	äcklat ansikte							// [1F922]
 🤣	rullar runt på golvet och skrattar				// [1F923]
-🤤	dräglande ansikte						// [1F924]
+🤤	dreglande ansikte						// [1F924]
 🤥	ljugande ansikte						// [1F925]
-🤦	slå sig för pannan						// [1F926]
+🤦	person som slår sig för pannan					// [1F926]
 🤧	nysande ansikte							// [1F927]
 🤨	ansikte med höjt ögonbryn					// [1F928]
 🤩	stjärnögt ansikte						// [1F929]
 🤪	tokigt ansikte							// [1F92A]
-🤫	tigande ansikte							// [1F92B]
+🤫	hyssjande ansikte						// [1F92B]
 🤬	ansikte med symboler på munnen					// [1F92C]
-🤭	handen över ansiktet						// [1F92D]
+🤭	ansikte med handen för munnen					// [1F92D]
 🤮	kräker								// [1F92E]
 🤯	exploderande huvud						// [1F92F]
 🤰	gravid kvinna							// [1F930]
@@ -1192,14 +1195,14 @@ $textmode
 🤴	prins								// [1F934]
 🤵	man i smoking							// [1F935]
 🤶	tomtemor							// [1F936]
-🤷	axelryckning							// [1F937]
-🤸	hjula								// [1F938]
-🤹	jonglering							// [1F939]
-🤺	fäktare								// [1F93A]
-🤼	brottare							// [1F93C]
-🤽	vattenpolo							// [1F93D]
-🤾	handboll							// [1F93E]
-🥀	torkad blomma							// [1F940]
+🤷	person som rycker på axlarna					// [1F937]
+🤸	person som hjular						// [1F938]
+🤹	person som jonglerar						// [1F939]
+🤺	person som fäktas						// [1F93A]
+🤼	brottande personer						// [1F93C]
+🤽	person som spelar vattenpolo					// [1F93D]
+🤾	person som spelar handboll					// [1F93E]
+🥀	vissnad blomma							// [1F940]
 🥁	trumma								// [1F941]
 🥂	skålande glas							// [1F942]
 🥃	whiskyglas							// [1F943]
@@ -1208,9 +1211,11 @@ $textmode
 🥇	guldmedalj							// [1F947]
 🥈	silvermedalj							// [1F948]
 🥉	bronsmedalj							// [1F949]
-🥊	boxningshandskar						// [1F94A]
+🥊	boxningshandske							// [1F94A]
 🥋	kampsportdräkt							// [1F94B]
 🥌	curlingsten							// [1F94C]
+🥎	softboll							// [1F94E]
+🥏	frisbee								// [1F94F]
 🥐	croissant							// [1F950]
 🥑	avokado								// [1F951]
 🥒	gurka								// [1F952]
@@ -1236,9 +1241,23 @@ $textmode
 🥦	broccoli							// [1F966]
 🥧	paj								// [1F967]
 🥨	pretzel								// [1F968]
-🥩	charcuterie							// [1F969]
+🥩	styckdel							// [1F969]
 🥪	macka								// [1F96A]
 🥫	burkmat								// [1F96B]
+🥬	sallad								// [1F96C]
+🥭	mango								// [1F96D]
+🥮	månkaka								// [1F96E]
+🥯	bagel								// [1F96F]
+🥰	leende ansikte med tre hjärtan					// [1F970]
+🥳	festande ansikte						// [1F973]
+🥴	yrt ansikte							// [1F974]
+🥵	hett ansikte							// [1F975]
+🥶	kallt ansikte							// [1F976]
+🥺	bönfallande ansikte						// [1F97A]
+🥼	labbrock							// [1F97C]
+🥽	simglasögon							// [1F97D]
+🥾	vandringskänga							// [1F97E]
+🥿	ballerinasko							// [1F97F]
 🦀	krabba								// [1F980]
 🦁	lejonansikte							// [1F981]
 🦂	skorpion							// [1F982]
@@ -1263,297 +1282,344 @@ $textmode
 🦕	sauropod							// [1F995]
 🦖	T-rex								// [1F996]
 🦗	syrsa								// [1F997]
+🦘	känguru								// [1F998]
+🦙	lama								// [1F999]
+🦚	påfågel								// [1F99A]
+🦛	flodhäst							// [1F99B]
+🦜	papegoja							// [1F99C]
+🦝	tvättbjörn							// [1F99D]
+🦞	hummer								// [1F99E]
+🦟	mygga								// [1F99F]
+🦠	mikrob								// [1F9A0]
+🦡	grävling							// [1F9A1]
+🦢	svan								// [1F9A2]
+🦰	rödhårig							// [1F9B0]
+🦱	lockigt hår							// [1F9B1]
+🦲	skallig								// [1F9B2]
+🦳	vithårig							// [1F9B3]
+🦴	skelettben							// [1F9B4]
+🦵	ben								// [1F9B5]
+🦶	fot								// [1F9B6]
+🦷	tand								// [1F9B7]
+🦸	superhjälte							// [1F9B8]
+🦹	superskurk							// [1F9B9]
 🧀	ostbit								// [1F9C0]
+🧁	muffin								// [1F9C1]
+🧂	salt								// [1F9C2]
 🧐	ansikte med monokel						// [1F9D0]
-🧑	vuxen								// [1F9D1]
+🧑	person								// [1F9D1]
 🧒	barn								// [1F9D2]
-🧓	senior								// [1F9D3]
-🧔	person med skägg						// [1F9D4]
+🧓	äldre person							// [1F9D3]
+🧔	man med skägg							// [1F9D4]
 🧕	kvinna i sjal							// [1F9D5]
 🧖	person i ångbastu						// [1F9D6]
-🧗	person klättrar							// [1F9D7]
+🧗	person som klättrar						// [1F9D7]
 🧘	person i lotusposition						// [1F9D8]
 🧙	magiker								// [1F9D9]
 🧚	älva								// [1F9DA]
 🧛	vampyr								// [1F9DB]
 🧜	vattenväsen							// [1F9DC]
-🧝	tomte								// [1F9DD]
+🧝	alv								// [1F9DD]
 🧞	ande								// [1F9DE]
 🧟	zombie								// [1F9DF]
 🧠	hjärna								// [1F9E0]
 🧡	hjärta i orange							// [1F9E1]
 🧢	keps								// [1F9E2]
-🧣	scarf								// [1F9E3]
+🧣	halsduk								// [1F9E3]
 🧤	handske								// [1F9E4]
 🧥	jacka								// [1F9E5]
 🧦	sockor								// [1F9E6]
+🧧	rött kuvert							// [1F9E7]
+🧨	smällare							// [1F9E8]
+🧩	pussel								// [1F9E9]
+🧪	provrör								// [1F9EA]
+🧫	petriskål							// [1F9EB]
+🧬	DNA								// [1F9EC]
+🧭	kompass								// [1F9ED]
+🧮	kulram								// [1F9EE]
+🧰	verktygslåda							// [1F9F0]
+🧱	tegelsten							// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	bagage								// [1F9F3]
+🧴	krämflaska							// [1F9F4]
+🧵	tråd								// [1F9F5]
+🧶	garn								// [1F9F6]
+🧷	säkerhetsnål							// [1F9F7]
+🧸	nallebjörn							// [1F9F8]
+🧹	kvast								// [1F9F9]
+🧺	korg								// [1F9FA]
+🧻	toarulle							// [1F9FB]
+🧼	tvål								// [1F9FC]
+🧽	tvättsvamp							// [1F9FD]
+🧾	kvitto								// [1F9FE]
+🧿	onda ögat-sten							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Ascension							// [1F1E6 1F1E8] AC
-🇦🇩	Andorra								// [1F1E6 1F1E9] AD
-🇦🇪	Förenade Arabemiraten						// [1F1E6 1F1EA] AE
-🇦🇫	Afghanistan							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua och Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
-🇦🇱	Albanien							// [1F1E6 1F1F1] AL
-🇦🇲	Armenien							// [1F1E6 1F1F2] AM
-🇦🇴	Angola								// [1F1E6 1F1F4] AO
-🇦🇶	Antarktis							// [1F1E6 1F1F6] AQ
-🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Amerikanska Samoa						// [1F1E6 1F1F8] AS
-🇦🇹	Österrike							// [1F1E6 1F1F9] AT
-🇦🇺	Australien							// [1F1E6 1F1FA] AU
-🇦🇼	Aruba								// [1F1E6 1F1FC] AW
-🇦🇽	Åland								// [1F1E6 1F1FD] AX
-🇦🇿	Azerbajdzjan							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosnien och Hercegovina						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
-🇧🇪	Belgien								// [1F1E7 1F1EA] BE
-🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bulgarien							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	S:t Barthélemy							// [1F1E7 1F1F1] BL
-🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
-🇧🇳	Brunei								// [1F1E7 1F1F3] BN
-🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
-🇧🇶	Karibiska Nederländerna						// [1F1E7 1F1F6] BQ
-🇧🇷	Brasilien							// [1F1E7 1F1F7] BR
-🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
-🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
-🇧🇻	Bouvetön							// [1F1E7 1F1FB] BV
-🇧🇼	Botswana							// [1F1E7 1F1FC] BW
-🇧🇾	Vitryssland							// [1F1E7 1F1FE] BY
-🇧🇿	Belize								// [1F1E7 1F1FF] BZ
-🇨🇦	Kanada								// [1F1E8 1F1E6] CA
-🇨🇨	Kokosöarna							// [1F1E8 1F1E8] CC
-🇨🇩	Kongo-Kinshasa							// [1F1E8 1F1E9] CD
-🇨🇫	Centralafrikanska republiken					// [1F1E8 1F1EB] CF
-🇨🇬	Kongo-Brazzaville						// [1F1E8 1F1EC] CG
-🇨🇭	Schweiz								// [1F1E8 1F1ED] CH
-🇨🇮	Elfenbenskusten							// [1F1E8 1F1EE] CI
-🇨🇰	Cooköarna							// [1F1E8 1F1F0] CK
-🇨🇱	Chile								// [1F1E8 1F1F1] CL
-🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
-🇨🇳	Kina								// [1F1E8 1F1F3] CN
-🇨🇴	Colombia							// [1F1E8 1F1F4] CO
-🇨🇵	Clippertonön							// [1F1E8 1F1F5] CP
-🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
-🇨🇺	Kuba								// [1F1E8 1F1FA] CU
-🇨🇻	Kap Verde							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Julön								// [1F1E8 1F1FD] CX
-🇨🇾	Cypern								// [1F1E8 1F1FE] CY
-🇨🇿	Tjeckien							// [1F1E8 1F1FF] CZ
-🇩🇪	Tyskland							// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
-🇩🇯	Djibouti							// [1F1E9 1F1EF] DJ
-🇩🇰	Danmark								// [1F1E9 1F1F0] DK
-🇩🇲	Dominica							// [1F1E9 1F1F2] DM
-🇩🇴	Dominikanska republiken						// [1F1E9 1F1F4] DO
-🇩🇿	Algeriet							// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta och Melilla						// [1F1EA 1F1E6] EA
-🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
-🇪🇪	Estland								// [1F1EA 1F1EA] EE
-🇪🇬	Egypten								// [1F1EA 1F1EC] EG
-🇪🇭	Västsahara							// [1F1EA 1F1ED] EH
-🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
-🇪🇸	Spanien								// [1F1EA 1F1F8] ES
-🇪🇹	Etiopien							// [1F1EA 1F1F9] ET
-🇪🇺	Europeiska unionen						// [1F1EA 1F1FA] EU
-🇫🇮	Finland								// [1F1EB 1F1EE] FI
-🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
-🇫🇰	Falklandsöarna							// [1F1EB 1F1F0] FI
-🇫🇲	Mikronesien							// [1F1EB 1F1F2] FM
-🇫🇴	Färöarna							// [1F1EB 1F1F4] FO
-🇫🇷	Frankrike							// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Storbritannien							// [1F1EC 1F1E7] GB
-🇬🇩	Grenada								// [1F1EC 1F1E9] GD
-🇬🇪	Georgien							// [1F1EC 1F1EA] GE
-🇬🇫	Franska Guyana							// [1F1EC 1F1EB] GF
-🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
-🇬🇭	Ghana								// [1F1EC 1F1ED] GH
-🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Grönland							// [1F1EC 1F1F1] GL
-🇬🇲	Gambia								// [1F1EC 1F1F2] GM
-🇬🇳	Guinea								// [1F1EC 1F1F3] GN
-🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
-🇬🇶	Ekvatorialguinea						// [1F1EC 1F1F6] GQ
-🇬🇷	Grekland							// [1F1EC 1F1F7] GR
-🇬🇸	Sydgeorgien och Sydsandwichöarna				// [1F1EC 1F1F8] GS
-🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hongkong							// [1F1ED 1F1F0] HK
-🇭🇲	Heardön och McDonaldöarna					// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Kroatien							// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Ungern								// [1F1ED 1F1FA] HU
-🇮🇨	Kanarieöarna							// [1F1EE 1F1E8] IC
-🇮🇩	Indonesien							// [1F1EE 1F1E9] ID
-🇮🇪	Irland								// [1F1EE 1F1EA] IE
-🇮🇱	Israel								// [1F1EE 1F1F1] IL
-🇮🇲	Isle of Man							// [1F1EE 1F1F2] IM
-🇮🇳	Indien								// [1F1EE 1F1F3] IN
-🇮🇴	Brittiska territoriet i Indiska oceanen				// [1F1EE 1F1F4] IO
-🇮🇶	Irak								// [1F1EE 1F1F6] IQ
-🇮🇷	Iran								// [1F1EE 1F1F7] IR
-🇮🇸	Island								// [1F1EE 1F1F8] IS
-🇮🇹	Italien								// [1F1EE 1F1F9] IT
-🇯🇪	Jersey								// [1F1EF 1F1EA] JE
-🇯🇲	Jamaica								// [1F1EF 1F1F2] JM
-🇯🇴	Jordanien							// [1F1EF 1F1F4] JO
-🇯🇵	Japan								// [1F1EF 1F1F5] JP
-🇰🇪	Kenya								// [1F1F0 1F1EA] KE
-🇰🇬	Kirgizistan							// [1F1F0 1F1EC] KG
-🇰🇭	Kambodja							// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Komorerna							// [1F1F0 1F1F2] KM
-🇰🇳	S:t Kitts och Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Nordkorea							// [1F1F0 1F1F5] KP
-🇰🇷	Sydkorea							// [1F1F0 1F1F7] KR
-🇰🇼	Kuwait								// [1F1F0 1F1FC] KW
-🇰🇾	Caymanöarna							// [1F1F0 1F1FE] KY
-🇰🇿	Kazakstan							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	Libanon								// [1F1F1 1F1E7] LB
-🇱🇨	S:t Lucia							// [1F1F1 1F1E8] LC
-🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
-🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
-🇱🇷	Liberia								// [1F1F1 1F1F7] LR
-🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
-🇱🇹	Litauen								// [1F1F1 1F1F9] LT
-🇱🇺	Luxemburg							// [1F1F1 1F1FA] LU
-🇱🇻	Lettland							// [1F1F1 1F1FB] LV
-🇱🇾	Libyen								// [1F1F1 1F1FE] LY
-🇲🇦	Marocko								// [1F1F2 1F1E6] MA
-🇲🇨	Monaco								// [1F1F2 1F1E8] MC
-🇲🇩	Moldavien							// [1F1F2 1F1E9] MD
-🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
-🇲🇫	Saint-Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
-🇲🇭	Marshallöarna							// [1F1F2 1F1ED] MH
-🇲🇰	Makedonien							// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Myanmar (Burma)							// [1F1F2 1F1F2] MM
-🇲🇳	Mongoliet							// [1F1F2 1F1F3] MN
-🇲🇴	Macao								// [1F1F2 1F1F4] MO
-🇲🇵	Nordmarianerna							// [1F1F2 1F1F5] MP
-🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauretanien							// [1F1F2 1F1F7] MR
-🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
-🇲🇹	Malta								// [1F1F2 1F1F9] MT
-🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
-🇲🇻	Maldiverna							// [1F1F2 1F1FB] MV
-🇲🇼	Malawi								// [1F1F2 1F1FC] MW
-🇲🇽	Mexiko								// [1F1F2 1F1FD] MX
-🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
-🇲🇿	Moçambique							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibia								// [1F1F3 1F1E6] NA
-🇳🇨	Nya Kaledonien							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Norfolkön							// [1F1F3 1F1EB] NF
-🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
-🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Nederländerna							// [1F1F3 1F1F1] NL
-🇳🇴	Norge								// [1F1F3 1F1F4] NO
-🇳🇵	Nepal								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	Nya Zeeland							// [1F1F3 1F1FF] NZ
-🇴🇲	Oman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Franska Polynesien						// [1F1F5 1F1EB] PF
-🇵🇬	Papua Nya Guinea						// [1F1F5 1F1EC] PG
-🇵🇭	Filippinerna							// [1F1F5 1F1ED] PH
-🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
-🇵🇱	Polen								// [1F1F5 1F1F1] PL
-🇵🇲	S:t Pierre och Miquelon						// [1F1F5 1F1F2] PM
-🇵🇳	Pitcairnöarna							// [1F1F5 1F1F3] PN
-🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
-🇵🇸	Palestinska territorierna					// [1F1F5 1F1F8] PS
-🇵🇹	Portugal							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
-🇶🇦	Qatar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	Rumänien							// [1F1F7 1F1F4] RO
-🇷🇸	Serbien								// [1F1F7 1F1F8] RS
-🇷🇺	Ryssland							// [1F1F7 1F1FA] RU
-🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
-🇸🇦	Saudiarabien							// [1F1F8 1F1E6] SA
-🇸🇧	Salomonöarna							// [1F1F8 1F1E7] SB
-🇸🇨	Seychellerna							// [1F1F8 1F1E8] SC
-🇸🇩	Sudan								// [1F1F8 1F1E9] SD
-🇸🇪	Sverige								// [1F1F8 1F1EA] SE
-🇸🇬	Singapore							// [1F1F8 1F1EC] SG
-🇸🇭	S:t Helena							// [1F1F8 1F1ED] SH
-🇸🇮	Slovenien							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard och Jan Mayen						// [1F1F8 1F1EF] SJ
-🇸🇰	Slovakien							// [1F1F8 1F1F0] SK
-🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somalia								// [1F1F8 1F1F4] SO
-🇸🇷	Surinam								// [1F1F8 1F1F7] SR
-🇸🇸	Sydsudan							// [1F1F8 1F1F8] SS
-🇸🇹	São Tomé och Príncipe						// [1F1F8 1F1F9] ST
-🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
-🇸🇾	Syrien								// [1F1F8 1F1FE] SY
-🇸🇿	Swaziland							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Turks- och Caicosöarna						// [1F1F9 1F1E8] TC
-🇹🇩	Tchad								// [1F1F9 1F1E9] TD
-🇹🇫	Franska sydterritorierna					// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Thailand							// [1F1F9 1F1ED] TH
-🇹🇯	Tadzjikistan							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Östtimor							// [1F1F9 1F1F1] TL
-🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
-🇹🇳	Tunisien							// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Turkiet								// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad och Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
-🇹🇿	Tanzania							// [1F1F9 1F1FF] TZ
-🇺🇦	Ukraina								// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	USA:s yttre öar							// [1F1FA 1F1F2] UM
-🇺🇳	Förenta Nationerna						// [1F1FA 1F1F3] UN
-🇺🇸	USA								// [1F1FA 1F1F8] US
-🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
-🇻🇦	Vatikanstaten							// [1F1FB 1F1E6] VA
-🇻🇨	S:t Vincent och Grenadinerna					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
-🇻🇬	Brittiska Jungfruöarna						// [1F1FB 1F1EC] VG
-🇻🇮	Amerikanska Jungfruöarna					// [1F1FB 1F1EE] VI
-🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Wallis- och Futunaöarna						// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
-🇾🇪	Jemen								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	Sydafrika							// [1F1FF 1F1E6] ZA
-🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+🇦🇨	flagga: Ascension						// [1F1E6 1F1E8] AC
+🇦🇩	flagga: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	flagga: Förenade Arabemiraten					// [1F1E6 1F1EA] AE
+🇦🇫	flagga: Afghanistan						// [1F1E6 1F1EB] AF
+🇦🇬	flagga: Antigua och Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	flagga: Anguilla						// [1F1E6 1F1EE] AI
+🇦🇱	flagga: Albanien						// [1F1E6 1F1F1] AL
+🇦🇲	flagga: Armenien						// [1F1E6 1F1F2] AM
+🇦🇴	flagga: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	flagga: Antarktis						// [1F1E6 1F1F6] AQ
+🇦🇷	flagga: Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	flagga: Amerikanska Samoa					// [1F1E6 1F1F8] AS
+🇦🇹	flagga: Österrike						// [1F1E6 1F1F9] AT
+🇦🇺	flagga: Australien						// [1F1E6 1F1FA] AU
+🇦🇼	flagga: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	flagga: Åland							// [1F1E6 1F1FD] AX
+🇦🇿	flagga: Azerbajdzjan						// [1F1E6 1F1FF] AZ
+🇧🇦	flagga: Bosnien och Hercegovina					// [1F1E7 1F1E6] BA
+🇧🇧	flagga: Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	flagga: Bangladesh						// [1F1E7 1F1E9] BD
+🇧🇪	flagga: Belgien							// [1F1E7 1F1EA] BE
+🇧🇫	flagga: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	flagga: Bulgarien						// [1F1E7 1F1EC] BG
+🇧🇭	flagga: Bahrain							// [1F1E7 1F1ED] BH
+🇧🇮	flagga: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	flagga: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	flagga: S:t Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	flagga: Bermuda							// [1F1E7 1F1F2] BM
+🇧🇳	flagga: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	flagga: Bolivia							// [1F1E7 1F1F4] BO
+🇧🇶	flagga: Karibiska Nederländerna					// [1F1E7 1F1F6] BQ
+🇧🇷	flagga: Brasilien						// [1F1E7 1F1F7] BR
+🇧🇸	flagga: Bahamas							// [1F1E7 1F1F8] BS
+🇧🇹	flagga: Bhutan							// [1F1E7 1F1F9] BT
+🇧🇻	flagga: Bouvetön						// [1F1E7 1F1FB] BV
+🇧🇼	flagga: Botswana						// [1F1E7 1F1FC] BW
+🇧🇾	flagga: Vitryssland						// [1F1E7 1F1FE] BY
+🇧🇿	flagga: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	flagga: Kanada							// [1F1E8 1F1E6] CA
+🇨🇨	flagga: Kokosöarna						// [1F1E8 1F1E8] CC
+🇨🇩	flagga: Kongo-Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	flagga: Centralafrikanska republiken				// [1F1E8 1F1EB] CF
+🇨🇬	flagga: Kongo-Brazzaville					// [1F1E8 1F1EC] CG
+🇨🇭	flagga: Schweiz							// [1F1E8 1F1ED] CH
+🇨🇮	flagga: Elfenbenskusten						// [1F1E8 1F1EE] CI
+🇨🇰	flagga: Cooköarna						// [1F1E8 1F1F0] CK
+🇨🇱	flagga: Chile							// [1F1E8 1F1F1] CL
+🇨🇲	flagga: Kamerun							// [1F1E8 1F1F2] CM
+🇨🇳	flagga: Kina							// [1F1E8 1F1F3] CN
+🇨🇴	flagga: Colombia						// [1F1E8 1F1F4] CO
+🇨🇵	flagga: Clippertonön						// [1F1E8 1F1F5] CP
+🇨🇷	flagga: Costa Rica						// [1F1E8 1F1F7] CR
+🇨🇺	flagga: Kuba							// [1F1E8 1F1FA] CU
+🇨🇻	flagga: Kap Verde						// [1F1E8 1F1FB] CV
+🇨🇼	flagga: Curaçao							// [1F1E8 1F1FC] CW
+🇨🇽	flagga: Julön							// [1F1E8 1F1FD] CX
+🇨🇾	flagga: Cypern							// [1F1E8 1F1FE] CY
+🇨🇿	flagga: Tjeckien						// [1F1E8 1F1FF] CZ
+🇩🇪	flagga: Tyskland						// [1F1E9 1F1EA] DE
+🇩🇬	flagga: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	flagga: Djibouti						// [1F1E9 1F1EF] DJ
+🇩🇰	flagga: Danmark							// [1F1E9 1F1F0] DK
+🇩🇲	flagga: Dominica						// [1F1E9 1F1F2] DM
+🇩🇴	flagga: Dominikanska republiken					// [1F1E9 1F1F4] DO
+🇩🇿	flagga: Algeriet						// [1F1E9 1F1FF] DZ
+🇪🇦	flagga: Ceuta och Melilla					// [1F1EA 1F1E6] EA
+🇪🇨	flagga: Ecuador							// [1F1EA 1F1E8] EC
+🇪🇪	flagga: Estland							// [1F1EA 1F1EA] EE
+🇪🇬	flagga: Egypten							// [1F1EA 1F1EC] EG
+🇪🇭	flagga: Västsahara						// [1F1EA 1F1ED] EH
+🇪🇷	flagga: Eritrea							// [1F1EA 1F1F7] ER
+🇪🇸	flagga: Spanien							// [1F1EA 1F1F8] ES
+🇪🇹	flagga: Etiopien						// [1F1EA 1F1F9] ET
+🇪🇺	flagga: Europeiska unionen					// [1F1EA 1F1FA] EU
+🇫🇮	flagga: Finland							// [1F1EB 1F1EE] FI
+🇫🇯	flagga: Fiji							// [1F1EB 1F1EF] FJ
+🇫🇰	flagga: Falklandsöarna						// [1F1EB 1F1F0] FI
+🇫🇲	flagga: Mikronesien						// [1F1EB 1F1F2] FM
+🇫🇴	flagga: Färöarna						// [1F1EB 1F1F4] FO
+🇫🇷	flagga: Frankrike						// [1F1EB 1F1F7] FR
+🇬🇦	flagga: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	flagga: Storbritannien						// [1F1EC 1F1E7] GB
+🇬🇩	flagga: Grenada							// [1F1EC 1F1E9] GD
+🇬🇪	flagga: Georgien						// [1F1EC 1F1EA] GE
+🇬🇫	flagga: Franska Guyana						// [1F1EC 1F1EB] GF
+🇬🇬	flagga: Guernsey						// [1F1EC 1F1EC] GG
+🇬🇭	flagga: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	flagga: Gibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	flagga: Grönland						// [1F1EC 1F1F1] GL
+🇬🇲	flagga: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	flagga: Guinea							// [1F1EC 1F1F3] GN
+🇬🇵	flagga: Guadeloupe						// [1F1EC 1F1F5] GP
+🇬🇶	flagga: Ekvatorialguinea					// [1F1EC 1F1F6] GQ
+🇬🇷	flagga: Grekland						// [1F1EC 1F1F7] GR
+🇬🇸	flagga: Sydgeorgien och Sydsandwichöarna			// [1F1EC 1F1F8] GS
+🇬🇹	flagga: Guatemala						// [1F1EC 1F1F9] GT
+🇬🇺	flagga: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	flagga: Guinea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	flagga: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	flagga: Hongkong						// [1F1ED 1F1F0] HK
+🇭🇲	flagga: Heardön och McDonaldöarna				// [1F1ED 1F1F2] HM
+🇭🇳	flagga: Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	flagga: Kroatien						// [1F1ED 1F1F7] HR
+🇭🇹	flagga: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	flagga: Ungern							// [1F1ED 1F1FA] HU
+🇮🇨	flagga: Kanarieöarna						// [1F1EE 1F1E8] IC
+🇮🇩	flagga: Indonesien						// [1F1EE 1F1E9] ID
+🇮🇪	flagga: Irland							// [1F1EE 1F1EA] IE
+🇮🇱	flagga: Israel							// [1F1EE 1F1F1] IL
+🇮🇲	flagga: Isle of Man						// [1F1EE 1F1F2] IM
+🇮🇳	flagga: Indien							// [1F1EE 1F1F3] IN
+🇮🇴	flagga: Brittiska territoriet i Indiska oceanen			// [1F1EE 1F1F4] IO
+🇮🇶	flagga: Irak							// [1F1EE 1F1F6] IQ
+🇮🇷	flagga: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	flagga: Island							// [1F1EE 1F1F8] IS
+🇮🇹	flagga: Italien							// [1F1EE 1F1F9] IT
+🇯🇪	flagga: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	flagga: Jamaica							// [1F1EF 1F1F2] JM
+🇯🇴	flagga: Jordanien						// [1F1EF 1F1F4] JO
+🇯🇵	flagga: Japan							// [1F1EF 1F1F5] JP
+🇰🇪	flagga: Kenya							// [1F1F0 1F1EA] KE
+🇰🇬	flagga: Kirgizistan						// [1F1F0 1F1EC] KG
+🇰🇭	flagga: Kambodja						// [1F1F0 1F1ED] KH
+🇰🇮	flagga: Kiribati						// [1F1F0 1F1EE] KI
+🇰🇲	flagga: Komorerna						// [1F1F0 1F1F2] KM
+🇰🇳	flagga: S:t Kitts och Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	flagga: Nordkorea						// [1F1F0 1F1F5] KP
+🇰🇷	flagga: Sydkorea						// [1F1F0 1F1F7] KR
+🇰🇼	flagga: Kuwait							// [1F1F0 1F1FC] KW
+🇰🇾	flagga: Caymanöarna						// [1F1F0 1F1FE] KY
+🇰🇿	flagga: Kazakstan						// [1F1F0 1F1FF] KZ
+🇱🇦	flagga: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	flagga: Libanon							// [1F1F1 1F1E7] LB
+🇱🇨	flagga: S:t Lucia						// [1F1F1 1F1E8] LC
+🇱🇮	flagga: Liechtenstein						// [1F1F1 1F1EE] LI
+🇱🇰	flagga: Sri Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	flagga: Liberia							// [1F1F1 1F1F7] LR
+🇱🇸	flagga: Lesotho							// [1F1F1 1F1F8] LS
+🇱🇹	flagga: Litauen							// [1F1F1 1F1F9] LT
+🇱🇺	flagga: Luxemburg						// [1F1F1 1F1FA] LU
+🇱🇻	flagga: Lettland						// [1F1F1 1F1FB] LV
+🇱🇾	flagga: Libyen							// [1F1F1 1F1FE] LY
+🇲🇦	flagga: Marocko							// [1F1F2 1F1E6] MA
+🇲🇨	flagga: Monaco							// [1F1F2 1F1E8] MC
+🇲🇩	flagga: Moldavien						// [1F1F2 1F1E9] MD
+🇲🇪	flagga: Montenegro						// [1F1F2 1F1EA] ME
+🇲🇫	flagga: Saint-Martin						// [1F1F2 1F1EB] MF
+🇲🇬	flagga: Madagaskar						// [1F1F2 1F1EC] MG
+🇲🇭	flagga: Marshallöarna						// [1F1F2 1F1ED] MH
+🇲🇰	flagga: Makedonien						// [1F1F2 1F1F0] MK
+🇲🇱	flagga: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	flagga: Myanmar (Burma)						// [1F1F2 1F1F2] MM
+🇲🇳	flagga: Mongoliet						// [1F1F2 1F1F3] MN
+🇲🇴	flagga: Macao							// [1F1F2 1F1F4] MO
+🇲🇵	flagga: Nordmarianerna						// [1F1F2 1F1F5] MP
+🇲🇶	flagga: Martinique						// [1F1F2 1F1F6] MQ
+🇲🇷	flagga: Mauretanien						// [1F1F2 1F1F7] MR
+🇲🇸	flagga: Montserrat						// [1F1F2 1F1F8] MS
+🇲🇹	flagga: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	flagga: Mauritius						// [1F1F2 1F1FA] MU
+🇲🇻	flagga: Maldiverna						// [1F1F2 1F1FB] MV
+🇲🇼	flagga: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	flagga: Mexiko							// [1F1F2 1F1FD] MX
+🇲🇾	flagga: Malaysia						// [1F1F2 1F1FE] MY
+🇲🇿	flagga: Moçambique						// [1F1F2 1F1FF] MZ
+🇳🇦	flagga: Namibia							// [1F1F3 1F1E6] NA
+🇳🇨	flagga: Nya Kaledonien						// [1F1F3 1F1E8] NC
+🇳🇪	flagga: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	flagga: Norfolkön						// [1F1F3 1F1EB] NF
+🇳🇬	flagga: Nigeria							// [1F1F3 1F1EC] NG
+🇳🇮	flagga: Nicaragua						// [1F1F3 1F1EE] NI
+🇳🇱	flagga: Nederländerna						// [1F1F3 1F1F1] NL
+🇳🇴	flagga: Norge							// [1F1F3 1F1F4] NO
+🇳🇵	flagga: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	flagga: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	flagga: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	flagga: Nya Zeeland						// [1F1F3 1F1FF] NZ
+🇴🇲	flagga: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	flagga: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	flagga: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	flagga: Franska Polynesien					// [1F1F5 1F1EB] PF
+🇵🇬	flagga: Papua Nya Guinea					// [1F1F5 1F1EC] PG
+🇵🇭	flagga: Filippinerna						// [1F1F5 1F1ED] PH
+🇵🇰	flagga: Pakistan						// [1F1F5 1F1F0] PK
+🇵🇱	flagga: Polen							// [1F1F5 1F1F1] PL
+🇵🇲	flagga: S:t Pierre och Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	flagga: Pitcairnöarna						// [1F1F5 1F1F3] PN
+🇵🇷	flagga: Puerto Rico						// [1F1F5 1F1F7] PR
+🇵🇸	flagga: Palestinska territorierna				// [1F1F5 1F1F8] PS
+🇵🇹	flagga: Portugal						// [1F1F5 1F1F9] PT
+🇵🇼	flagga: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	flagga: Paraguay						// [1F1F5 1F1FE] PY
+🇶🇦	flagga: Qatar							// [1F1F6 1F1E6] QA
+🇷🇪	flagga: Réunion							// [1F1F7 1F1EA] RE
+🇷🇴	flagga: Rumänien						// [1F1F7 1F1F4] RO
+🇷🇸	flagga: Serbien							// [1F1F7 1F1F8] RS
+🇷🇺	flagga: Ryssland						// [1F1F7 1F1FA] RU
+🇷🇼	flagga: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	flagga: Saudiarabien						// [1F1F8 1F1E6] SA
+🇸🇧	flagga: Salomonöarna						// [1F1F8 1F1E7] SB
+🇸🇨	flagga: Seychellerna						// [1F1F8 1F1E8] SC
+🇸🇩	flagga: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	flagga: Sverige							// [1F1F8 1F1EA] SE
+🇸🇬	flagga: Singapore						// [1F1F8 1F1EC] SG
+🇸🇭	flagga: S:t Helena						// [1F1F8 1F1ED] SH
+🇸🇮	flagga: Slovenien						// [1F1F8 1F1EE] SI
+🇸🇯	flagga: Svalbard och Jan Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	flagga: Slovakien						// [1F1F8 1F1F0] SK
+🇸🇱	flagga: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	flagga: San Marino						// [1F1F8 1F1F2] SM
+🇸🇳	flagga: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	flagga: Somalia							// [1F1F8 1F1F4] SO
+🇸🇷	flagga: Surinam							// [1F1F8 1F1F7] SR
+🇸🇸	flagga: Sydsudan						// [1F1F8 1F1F8] SS
+🇸🇹	flagga: São Tomé och Príncipe					// [1F1F8 1F1F9] ST
+🇸🇻	flagga: El Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	flagga: Sint Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	flagga: Syrien							// [1F1F8 1F1FE] SY
+🇸🇿	flagga: Swaziland						// [1F1F8 1F1FF] SZ
+🇹🇦	flagga: Tristan da Cunha					// [1F1F9 1F1E6] TA
+🇹🇨	flagga: Turks- och Caicosöarna					// [1F1F9 1F1E8] TC
+🇹🇩	flagga: Tchad							// [1F1F9 1F1E9] TD
+🇹🇫	flagga: Franska sydterritorierna				// [1F1F9 1F1EB] TF
+🇹🇬	flagga: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	flagga: Thailand						// [1F1F9 1F1ED] TH
+🇹🇯	flagga: Tadzjikistan						// [1F1F9 1F1EF] TJ
+🇹🇰	flagga: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	flagga: Östtimor						// [1F1F9 1F1F1] TL
+🇹🇲	flagga: Turkmenistan						// [1F1F9 1F1F2] TM
+🇹🇳	flagga: Tunisien						// [1F1F9 1F1F3] TN
+🇹🇴	flagga: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	flagga: Turkiet							// [1F1F9 1F1F7] TR
+🇹🇹	flagga: Trinidad och Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	flagga: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	flagga: Taiwan							// [1F1F9 1F1FC] TW
+🇹🇿	flagga: Tanzania						// [1F1F9 1F1FF] TZ
+🇺🇦	flagga: Ukraina							// [1F1FA 1F1E6] UA
+🇺🇬	flagga: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	flagga: USA:s yttre öar						// [1F1FA 1F1F2] UM
+🇺🇳	flagga: Förenta Nationerna					// [1F1FA 1F1F3] UN
+🇺🇸	flagga: USA							// [1F1FA 1F1F8] US
+🇺🇾	flagga: Uruguay							// [1F1FA 1F1FE] UY
+🇺🇿	flagga: Uzbekistan						// [1F1FA 1F1FF] UZ
+🇻🇦	flagga: Vatikanstaten						// [1F1FB 1F1E6] VA
+🇻🇨	flagga: S:t Vincent och Grenadinerna				// [1F1FB 1F1E8] VC
+🇻🇪	flagga: Venezuela						// [1F1FB 1F1EA] VE
+🇻🇬	flagga: Brittiska Jungfruöarna					// [1F1FB 1F1EC] VG
+🇻🇮	flagga: Amerikanska Jungfruöarna				// [1F1FB 1F1EE] VI
+🇻🇳	flagga: Vietnam							// [1F1FB 1F1F3] VN
+🇻🇺	flagga: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	flagga: Wallis- och Futunaöarna					// [1F1FC 1F1EB] WF
+🇼🇸	flagga: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	flagga: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	flagga: Jemen							// [1F1FE 1F1EA] YE
+🇾🇹	flagga: Mayotte							// [1F1FE 1F1F9] YT
+🇿🇦	flagga: Sydafrika						// [1F1FF 1F1E6] ZA
+🇿🇲	flagga: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	flagga: Zimbabwe						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	England							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skottland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	flagga: England						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	flagga: Skottland					// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	flagga: Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1653,10 +1719,14 @@ $textmode
 💂‍♂	manlig vakt						// [1F482 200D 2642]
 🕵️‍♀	kvinnlig detektiv					// [1F575 200D 2640]
 🕵️‍♂	manlig detektiv						// [1F575 200D 2642]
+🦸‍♀	kvinnlig superhjälte					// [1F9B8 200D 2640]
+🦸‍♂	manlig superhjälte					// [1F9B8 200D 2642]
+🦹‍♀	kvinnlig superskurk					// [1F9B9 200D 2640]
+🦹‍♂	manlig superskurk					// [1F9B9 200D 2642]
 🧙‍♀	kvinnlig magiker					// [1F9D9 200D 2640]
 🧙‍♂	manlig magiker						// [1F9D9 200D 2642]
 🧚‍♀	kvinnlig fé						// [1F9DA 200D 2640]
-🧚‍♂	alv							// [1F9DA 200D 2642]
+🧚‍♂	manlig älva						// [1F9DA 200D 2642]
 🧛‍♀	kvinnlig vampyr						// [1F9DB 200D 2640]
 🧛‍♂	manlig vampyr						// [1F9DB 200D 2642]
 🧜‍♀	sjöjungfru						// [1F9DC 200D 2640]
@@ -1672,44 +1742,44 @@ $textmode
 
 ⛹‍♀	kvinna med boll						// [26F9 200D 2640]
 ⛹‍♂	man med boll						// [26F9 200D 2642]
-🏃‍♀	kvinna springer						// [1F3C3 200D 2640]
-🏃‍♂	man springer						// [1F3C3 200D 2642]
-🏄‍♀	kvinna surfar						// [1F3C4 200D 2640]
-🏄‍♂	man surfar						// [1F3C4 200D 2642]
-🏊‍♀	kvinna badar						// [1F3CA 200D 2640]
-🏊‍♂	man badar						// [1F3CA 200D 2642]
-🏋️‍♀	kvinna lyfter tyngder					// [1F3CB 200D 2640]
-🏋️‍♂	man lyfter tyngder					// [1F3CB 200D 2642]
-🏌️‍♀	kvinna spelar golf					// [1F3CC 200D 2640]
-🏌️‍♂	man spelar golf						// [1F3CC 200D 2642]
+🏃‍♀	kvinna som springer					// [1F3C3 200D 2640]
+🏃‍♂	man som springer					// [1F3C3 200D 2642]
+🏄‍♀	kvinna som surfar					// [1F3C4 200D 2640]
+🏄‍♂	man som surfar						// [1F3C4 200D 2642]
+🏊‍♀	kvinna som simmar					// [1F3CA 200D 2640]
+🏊‍♂	man som simmar						// [1F3CA 200D 2642]
+🏋️‍♀	kvinna som lyfter tyngder				// [1F3CB 200D 2640]
+🏋️‍♂	man som lyfter tyngder					// [1F3CB 200D 2642]
+🏌️‍♀	kvinna som spelar golf					// [1F3CC 200D 2640]
+🏌️‍♂	man som spelar golf					// [1F3CC 200D 2642]
 👯‍♀	kvinnor med kaninöron					// [1F46F 200D 2640]
 👯‍♂	män med kaninöron					// [1F46F 200D 2642]
-💆‍♀	kvinna som får ansiktsmassage				// [1F486 200D 2640]
-💆‍♂	man som får ansiktsmassage				// [1F486 200D 2642]
+💆‍♀	kvinna som blir masserad				// [1F486 200D 2640]
+💆‍♂	man som blir masserad					// [1F486 200D 2642]
 💇‍♀	kvinna som får håret klippt				// [1F487 200D 2640]
 💇‍♂	man som får håret klippt				// [1F487 200D 2642]
-🚣‍♀	kvinna ror						// [1F6A3 200D 2640]
-🚣‍♂	man ror							// [1F6A3 200D 2642]
-🚴‍♀	kvinna cyklar						// [1F6B4 200D 2640]
-🚴‍♂	man cyklar						// [1F6B4 200D 2642]
-🚵‍♀	kvinna åker mountainbike				// [1F6B5 200D 2640]
-🚵‍♂	man åker mountainbike					// [1F6B5 200D 2642]
-🚶‍♀	kvinna går						// [1F6B6 200D 2640]
-🚶‍♂	man går							// [1F6B6 200D 2642]
+🚣‍♀	kvinna som ror en båt					// [1F6A3 200D 2640]
+🚣‍♂	man som ror en båt					// [1F6A3 200D 2642]
+🚴‍♀	kvinna som cyklar					// [1F6B4 200D 2640]
+🚴‍♂	man som cyklar						// [1F6B4 200D 2642]
+🚵‍♀	kvinna som cyklar på en mountainbike			// [1F6B5 200D 2640]
+🚵‍♂	man som cyklar på en mountainbike			// [1F6B5 200D 2642]
+🚶‍♀	kvinna som går						// [1F6B6 200D 2640]
+🚶‍♂	man som går						// [1F6B6 200D 2642]
 🤸‍♀	kvinna som hjular					// [1F938 200D 2640]
 🤸‍♂	man som hjular						// [1F938 200D 2642]
-🤹‍♀	kvinna jonglerar					// [1F939 200D 2640]
-🤹‍♂	man jonglerar						// [1F939 200D 2642]
+🤹‍♀	kvinna som jonglerar					// [1F939 200D 2640]
+🤹‍♂	man som jonglerar					// [1F939 200D 2642]
 🤼‍♀	brottande kvinnor					// [1F93C 200D 2640]
 🤼‍♂	brottande män						// [1F93C 200D 2642]
-🤽‍♀	kvinna spelar vattenpolo				// [1F93D 200D 2640]
-🤽‍♂	man spelar vattenpolo					// [1F93D 200D 2642]
-🤾‍♀	kvinna spelar handboll					// [1F93E 200D 2640]
-🤾‍♂	man spelar handboll					// [1F93E 200D 2642]
+🤽‍♀	kvinna som spelar vattenpolo				// [1F93D 200D 2640]
+🤽‍♂	man som spelar vattenpolo				// [1F93D 200D 2642]
+🤾‍♀	kvinna som spelar handboll				// [1F93E 200D 2640]
+🤾‍♂	man som spelar handboll					// [1F93E 200D 2642]
 🧖‍♀	kvinna i ångbastu					// [1F9D6 200D 2640]
 🧖‍♂	man i ångbastu						// [1F9D6 200D 2642]
-🧗‍♀	kvinna klättrar						// [1F9D7 200D 2640]
-🧗‍♂	man klättrar						// [1F9D7 200D 2642]
+🧗‍♀	kvinna som klättrar					// [1F9D7 200D 2640]
+🧗‍♂	man som klättrar					// [1F9D7 200D 2642]
 🧘‍♀	kvinna i lotusposition					// [1F9D8 200D 2640]
 🧘‍♂	man i lotusposition					// [1F9D8 200D 2642]
 
@@ -1717,18 +1787,18 @@ $textmode
 
 💁‍♀	hjälpande kvinna					// [1F481 200D 2640]
 💁‍♂	hjälpande man						// [1F481 200D 2642]
-🙅‍♀	kvinna med korsade armar				// [1F645 200D 2640]
-🙅‍♂	man med korsade armar					// [1F645 200D 2642]
-🙆‍♀	kvinna med händerna på huvudet				// [1F646 200D 2640]
-🙆‍♂	man med händerna på huvudet				// [1F646 200D 2642]
-🙇‍♀	djupt bugande kvinna					// [1F647 200D 2640]
-🙇‍♂	djupt bugande man					// [1F647 200D 2642]
+🙅‍♀	kvinna gestikulerar NEJ					// [1F645 200D 2640]
+🙅‍♂	man gestikulerar NEJ					// [1F645 200D 2642]
+🙆‍♀	kvinna gestikulerar OK					// [1F646 200D 2640]
+🙆‍♂	man gestikulerar OK					// [1F646 200D 2642]
+🙇‍♀	bugande kvinna						// [1F647 200D 2640]
+🙇‍♂	bugande man						// [1F647 200D 2642]
 🙋‍♀	kvinna som räcker upp handen				// [1F64B 200D 2640]
 🙋‍♂	man som räcker upp handen				// [1F64B 200D 2642]
-🙍‍♀	skeptisk kvinna						// [1F64D 200D 2640]
-🙍‍♂	skeptisk man						// [1F64D 200D 2642]
-🙎‍♀	kvinna med plutmunn					// [1F64E 200D 2640]
-🙎‍♂	man med plutmunn					// [1F64E 200D 2642]
+🙍‍♀	sur kvinna						// [1F64D 200D 2640]
+🙍‍♂	sur man							// [1F64D 200D 2642]
+🙎‍♀	plutande kvinna						// [1F64E 200D 2640]
+🙎‍♂	plutande man						// [1F64E 200D 2642]
 🤦‍♀	kvinna som slår sig för pannan				// [1F926 200D 2640]
 🤦‍♂	man som slår sig för pannan				// [1F926 200D 2642]
 🤷‍♀	kvinna som rycker på axlarna				// [1F937 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	regnbågsflagga						// [1F3F3 200D 1F308]
+🏴‍☠	sjörövarflagga						// [1F3F4 200D 2620]
 👁‍🗨	öga i pratbubbla					// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

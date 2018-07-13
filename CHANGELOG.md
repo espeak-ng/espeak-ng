@@ -36,7 +36,7 @@ documentation:
 emoji:
 
 *  Update the emoji to Unicode 11.0.
-*  Update the emoji translations to CLDR 33.
+*  Update the emoji translations to CLDR 33.1.
 *  gd (Scottish Gaelic)
 *  sd (Sindhi)
 *  yue (Chinese (Cantonese))
