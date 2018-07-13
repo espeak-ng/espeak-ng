@@ -11,9 +11,54 @@ These espeak-ng data files are interpreted according to the LDML specification (
 		<language type="de"/>
 	</identity>
 	<annotations>
+		<annotation cp="+" type="tts">plus</annotation> <!-- U+002B -->
+		<annotation cp="¢" type="tts">cent</annotation> <!-- U+00A2 -->
 		<annotation cp="£" type="tts">Pfund</annotation> <!-- U+00A3 -->
+		<annotation cp="¤" type="tts">Währungszeichen</annotation> <!-- U+00A4 -->
+		<annotation cp="¥" type="tts">yen</annotation> <!-- U+00A5 -->
+		<annotation cp="§" type="tts">Paragraf</annotation> <!-- U+00A7 -->
+		<annotation cp="¨" type="tts">Trema</annotation> <!-- U+00A8 -->
+		<annotation cp="¬" type="tts">Nicht-Sortier-Zeichen</annotation> <!-- U+00AC -->
 		<annotation cp="°" type="tts">Grad</annotation> <!-- U+00B0 -->
 		<annotation cp="±" type="tts">plus minus</annotation> <!-- U+00B1 -->
+		<annotation cp="µ" type="tts">micro</annotation> <!-- U+00B5 -->
+		<annotation cp="¶" type="tts">Absatz</annotation> <!-- U+00B6 -->
+		<annotation cp="¼" type="tts">ein Viertel</annotation> <!-- U+00BC -->
+		<annotation cp="½" type="tts">ein Halb</annotation> <!-- U+00BD -->
+		<annotation cp="¾" type="tts">drei Viertel</annotation> <!-- U+00BE -->
+		<annotation cp="×" type="tts">mal</annotation> <!-- U+00D7 -->
+		<annotation cp="÷" type="tts">geteilt durch</annotation> <!-- U+00F7 -->
+		<annotation cp="˙" type="tts">Punkt</annotation> <!-- U+02D9 -->
+		<annotation cp="₨" type="tts">rupie</annotation> <!-- U+20A8 -->
 		<annotation cp="€" type="tts">Euro</annotation> <!-- U+20AC -->
+		<annotation cp="₹" type="tts">rupie</annotation> <!-- U+20B9 -->
+		<annotation cp="№" type="tts">numero</annotation> <!-- U+2116 -->
+		<annotation cp="⅓" type="tts">ein Drittel</annotation> <!-- U+2153 -->
+		<annotation cp="⅔" type="tts">zwei Drittel</annotation> <!-- U+2154 -->
+		<annotation cp="←" type="tts">Linkspfeil</annotation> <!-- U+2190 -->
+		<annotation cp="↑" type="tts">Pfeil hoch</annotation> <!-- U+2191 -->
+		<annotation cp="→" type="tts">Rechtspfeil</annotation> <!-- U+2192 -->
+		<annotation cp="↓" type="tts">Pfeil runter</annotation> <!-- U+2193 -->
+		<annotation cp="∂" type="tts">partielles Differential</annotation> <!-- U+2202 -->
+		<annotation cp="∑" type="tts">Summenzeichen</annotation> <!-- U+2211 -->
+		<annotation cp="−" type="tts">minus</annotation> <!-- U+2212 -->
+		<annotation cp="∗" type="tts">Stern</annotation> <!-- U+2217 -->
+		<annotation cp="√" type="tts">Quadratwurzel</annotation> <!-- U+221A -->
+		<annotation cp="∛" type="tts">Kubikwurzel</annotation> <!-- U+221B -->
+		<annotation cp="∝" type="tts">proportional zu</annotation> <!-- U+221D -->
+		<annotation cp="∞" type="tts">Unendlich</annotation> <!-- U+221E -->
+		<annotation cp="∫" type="tts">integral</annotation> <!-- U+222B -->
+		<annotation cp="∬" type="tts">doppelt integral</annotation> <!-- U+222C -->
+		<annotation cp="∴" type="tts">folglich</annotation> <!-- U+2234 -->
+		<annotation cp="∵" type="tts">weil</annotation> <!-- U+2235 -->
+		<annotation cp="≈" type="tts">ungefähr</annotation> <!-- U+2248 -->
+		<annotation cp="≠" type="tts">ist nicht gleich</annotation> <!-- U+2260 -->
+		<annotation cp="≡" type="tts">identisch mit</annotation> <!-- U+2261 -->
+		<annotation cp="≤" type="tts">kleiner oder gleich</annotation> <!-- U+2264 -->
+		<annotation cp="≥" type="tts">größer oder gleich</annotation> <!-- U+2265 -->
+		<annotation cp="■" type="tts">schwarzes Quadrat</annotation> <!-- U+25A0 -->
+		<annotation cp="●" type="tts">schwarzer Kreis</annotation> <!-- U+25CF -->
+		<annotation cp="♭" type="tts">b (musik)</annotation> <!-- U+266D -->
+		<annotation cp="♯" type="tts">Kreuz (musik)</annotation> <!-- U+266F -->
 	</annotations>
 </ldml>

@@ -1,4 +1,4 @@
-﻿// Emoji and Other Symbol pronunciations for German
+// Emoji and Other Symbol pronunciations for German
 //
 // Entries with `text|emoji` in the comments have text and emoji forms. They
 // can be followed by [FE0E] to select the text style, and [FE0F] to select
@@ -22,24 +22,24 @@ $textmode
 £	Pfund								// [00A3] other
 ¤	Währungszeichen							// [00A4] other
 ¥	yen								// [00A5] other
-§	Paragraf								// [00A7] other
-¨	Trema							// [00A8] other
+§	Paragraf							// [00A7] other
+¨	Trema								// [00A8] other
 ©	Copyright							// [00A9] text|emoji
-¬	Nicht-Sortier-Zeichen							// [00AC] other
-®	Registriertes Warenzeichen						// [00AE] text|emoji
+¬	Nicht-Sortier-Zeichen						// [00AC] other
+®	Registered-Trademark						// [00AE] text|emoji
 °	Grad								// [00B0] other
 ±	plus minus							// [00B1] other
 µ	micro								// [00B5] other
-¶	Absatz							// [00B6] other
+¶	Absatz								// [00B6] other
 ¼	ein Viertel							// [00BC] other
-½	ein Halb								// [00BD] other
+½	ein Halb							// [00BD] other
 ¾	drei Viertel							// [00BE] other
 ×	mal								// [00D7] other
 ÷	geteilt durch							// [00F7] other
 
 // 02B0..02FF : Spacing Modifier Letters
 
-˙	Punkt								// [02D9] other (
+˙	Punkt								// [02D9] other
 
 // 0900..097F : Devanagari
 
@@ -85,23 +85,23 @@ $textmode
 
 // 2200..22FF : Mathematical Operators
 
-∂	partielles Differential								// [2202] other
+∂	partielles Differential						// [2202] other
 ∑	Summenzeichen							// [2211] other
 −	minus								// [2212] other
-∗	Stern							// [2217] other
+∗	Stern								// [2217] other
 √	Quadratwurzel							// [221A] other
-//∛	Kubikwurzel							// [221B] other
+∛	Kubikwurzel							// [221B] other
 ∝	proportional zu							// [221D] other
 ∞	Unendlich							// [221E] other
 ∫	integral							// [222B] other
-∬	doppelt integral							// [222C] other
+∬	doppelt integral						// [222C] other
 ∴	folglich							// [2234] other
 ∵	weil								// [2235] other
 ≈	ungefähr							// [2248] other
-≠	ist nicht gleich							// [2260] other
+≠	ist nicht gleich						// [2260] other
 ≡	identisch mit							// [2261] other
 ≤	kleiner oder gleich						// [2264] other
-//≥	größer oder gleich						// [2265] other
+≥	größer oder gleich						// [2265] other
 
 // 2300..23FF : Miscellaneous Technical
 
@@ -130,7 +130,7 @@ $textmode
 
 // 25A0..25FF : Geometric Shapes
 
-■	schwarzes Quadrat							// [25A0] other
+■	schwarzes Quadrat						// [25A0] other
 ▪	kleines schwarzes Quadrat					// [25AA] text|emoji
 ▫	kleines weißes Quadrat						// [25AB] text|emoji
 ▶	Wiedergabe							// [25B6] text|emoji
@@ -183,8 +183,8 @@ $textmode
 ♥	Herz								// [2665] text|emoji
 ♦	Karo								// [2666] text|emoji
 ♨	heiße Quellen							// [2668] text|emoji
-♭	b (musik)								// [266D] other
-♯	Kreuz (musik)								// [266F] other
+♭	b (musik)							// [266D] other
+♯	Kreuz (musik)							// [266F] other
 ♻	Recycling-Symbol						// [267B] text|emoji
 ♿	Symbol Rollstuhl						// [267F]
 ⚒	Hammer und Pickel						// [2692] text|emoji
@@ -234,7 +234,7 @@ $textmode
 ✉	Briefumschlag							// [2709] text|emoji
 ✊	erhobene Faust							// [270A]
 ✋	erhobene Hand							// [270B]
-✌	Siegesgeste							// [270C] text|emoji
+✌	Victory-Geste							// [270C] text|emoji
 ✍	schreibende Hand						// [270D] text|emoji
 ✏	Bleistift							// [270F] text|emoji
 ✒	schwarzer Federhalter						// [2712] text|emoji
