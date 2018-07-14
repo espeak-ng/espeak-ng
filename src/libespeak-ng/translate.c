@@ -1900,7 +1900,7 @@ static void TranslateChars(Translator *tr, char *source)
 	const int *to;
 	bool upper_case = false;
 
-	if ((from = tr->langopts.replace_chars) == NULL)
+	if ((from = (const int *)tr->langopts.replace_chars) == NULL)
 		return;
 
 	char *curchar = source; // pointer to the source clause
