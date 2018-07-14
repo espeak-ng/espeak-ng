@@ -152,7 +152,7 @@ static void InitGroups(Translator *tr)
 			pw = (unsigned int *)(((intptr_t)p+4) & ~3); // advance to next word boundary
 			tr->langopts.replace_chars = pw;
 			while (pw[0] != 0)
-				pw += 2; // find the end of the replacement list, each entry is 2 words.
+				pw ++; // find the end of the replacement list
 			p = (char *)(pw+1);
 
 #ifdef ARCH_BIG
