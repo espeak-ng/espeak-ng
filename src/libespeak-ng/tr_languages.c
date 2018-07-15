@@ -113,6 +113,8 @@ ALPHABET *AlphabetFromChar(int c)
 
 static void Translator_Russian(Translator *tr);
 
+static void PrepareLetters(char *, char *, int, int);
+
 static void ResetLetterBits(Translator *tr, int groups)
 {
 	// Clear all the specified groups
@@ -391,6 +393,38 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 	0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2c, 0x73, 0x7b, 0x83, 0x9b, 0
 };
 
+static void SetArabicLetters(Translator *tr)
+{
+	const char ar_vowel_letters[] = {"َ  ُ  ِ"};
+	const char ar_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
+	const char ar_consonant_vowel_letters[] = {"ا و ي"};
+	const char ar_thick_letters[] = {"ص ض ط ظ ق"};
+	const char ar_shadda_letter[] = {" ّ "};
+	const char ar_hamza_letter[] = {" ّ "};
+	const char ar_sukun_letter[] = {" ّ "};
+	static char ar_vowel_codes[4];
+	static char ar_consonant_codes[34];
+	static char ar_consonant_vowel_codes[4];
+	static char ar_thick_codes[6];
+	static char ar_shadda_code[2];
+	static char ar_hamza_code[2];
+	static char ar_sukun_code[2];
+	PrepareLetters(&ar_vowel_letters, &ar_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(&ar_consonant_letters, &ar_consonant_codes, 34, OFFSET_ARABIC);
+	PrepareLetters(&ar_consonant_vowel_letters, &ar_consonant_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(&ar_thick_letters, &ar_thick_codes, 6, OFFSET_ARABIC);
+	PrepareLetters(&ar_shadda_letter, &ar_shadda_code, 2, OFFSET_ARABIC);
+	PrepareLetters(&ar_hamza_letter, &ar_hamza_code, 2, OFFSET_ARABIC);
+	PrepareLetters(&ar_sukun_letter, &ar_sukun_code, 2, OFFSET_ARABIC);
+	SetLetterBits(tr, LETTERGP_A, (char *) ar_vowel_codes);
+	SetLetterBits(tr, LETTERGP_B, (char *) ar_consonant_vowel_codes);
+	SetLetterBits(tr, LETTERGP_C, (char *) ar_consonant_codes);
+	SetLetterBits(tr, LETTERGP_F, (char *) ar_thick_codes);
+	SetLetterBits(tr, LETTERGP_G, (char *) ar_shadda_code);
+	SetLetterBits(tr, LETTERGP_H, (char *) ar_hamza_code);
+	SetLetterBits(tr, LETTERGP_Y, (char *) ar_sukun_code);
+}
+
 static void SetCyrillicLetters(Translator *tr)
 {
 	// character codes offset by 0x420
@@ -510,6 +544,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
+		SetArabicLetters(tr);
 		break;
 	case L('b', 'g'): // Bulgarian
 	{
@@ -1584,4 +1619,33 @@ static void Translator_Russian(Translator *tr)
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
+}
+
+static void PrepareLetters(char *letters, char *codes, int size, int shift)
+{
+	/* Prepare array of shifted letter codes for letter groups from passed string.
+	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
+	 * codes: pointer to array of letter codes.
+	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
+	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
+	 */
+	unsigned char *p = letters;
+	int bytes = 0;
+	int code = -1;
+	int count = 0;
+	while (code != 0) {
+		bytes = utf8_in(&code, p);
+		if (code > 0x20) {
+			*codes = code - shift;
+			codes++;
+			count++;
+		}
+		p += bytes;
+	}
+	codes++;
+	*codes = 0;
+	if (size != count + 1)
+		fprintf(stderr,
+				"PrepareLetters() error: different sizes of letter arrays reserved: %d, used:%d.\n",
+				size, count + 1);
 }
