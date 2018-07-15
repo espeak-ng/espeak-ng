@@ -51,6 +51,7 @@ new languages:
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  ar (Arabic) -- Valdis Vitolins, Mark Readdie, Hesham Assabahi
 *  de (German) -- Reece Dunn, Karl Eick
 *  en (English) -- Reece Dunn
 *  fa (Farsi/Persian) -- Shadyar Khodayari
