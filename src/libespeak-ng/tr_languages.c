@@ -113,7 +113,7 @@ ALPHABET *AlphabetFromChar(int c)
 
 static void Translator_Russian(Translator *tr);
 
-static void PrepareLetters(char *, char *, int, int);
+static void PrepareLetters(const char *, char *, int, int);
 
 static void ResetLetterBits(Translator *tr, int groups)
 {
@@ -409,13 +409,13 @@ static void SetArabicLetters(Translator *tr)
 	static char ar_shadda_code[2];
 	static char ar_hamza_code[2];
 	static char ar_sukun_code[2];
-	PrepareLetters(&ar_vowel_letters, &ar_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(&ar_consonant_letters, &ar_consonant_codes, 34, OFFSET_ARABIC);
-	PrepareLetters(&ar_consonant_vowel_letters, &ar_consonant_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(&ar_thick_letters, &ar_thick_codes, 6, OFFSET_ARABIC);
-	PrepareLetters(&ar_shadda_letter, &ar_shadda_code, 2, OFFSET_ARABIC);
-	PrepareLetters(&ar_hamza_letter, &ar_hamza_code, 2, OFFSET_ARABIC);
-	PrepareLetters(&ar_sukun_letter, &ar_sukun_code, 2, OFFSET_ARABIC);
+	PrepareLetters(ar_vowel_letters, ar_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(ar_consonant_letters, ar_consonant_codes, 34, OFFSET_ARABIC);
+	PrepareLetters(ar_consonant_vowel_letters, ar_consonant_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(ar_thick_letters, ar_thick_codes, 6, OFFSET_ARABIC);
+	PrepareLetters(ar_shadda_letter, ar_shadda_code, 2, OFFSET_ARABIC);
+	PrepareLetters(ar_hamza_letter, ar_hamza_code, 2, OFFSET_ARABIC);
+	PrepareLetters(ar_sukun_letter, ar_sukun_code, 2, OFFSET_ARABIC);
 	SetLetterBits(tr, LETTERGP_A, (char *) ar_vowel_codes);
 	SetLetterBits(tr, LETTERGP_B, (char *) ar_consonant_vowel_codes);
 	SetLetterBits(tr, LETTERGP_C, (char *) ar_consonant_codes);
@@ -1622,7 +1622,7 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
 }
 
-static void PrepareLetters(char *letters, char *codes, int size, int shift)
+static void PrepareLetters(const char *letters, char *codes, int size, int shift)
 {
 	/* Prepare array of shifted letter codes for letter groups from passed string.
 	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
@@ -1630,7 +1630,7 @@ static void PrepareLetters(char *letters, char *codes, int size, int shift)
 	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
 	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
 	 */
-	unsigned char *p = letters;
+	const char *p = letters;
 	int bytes = 0;
 	int code = -1;
 	int count = 0;
