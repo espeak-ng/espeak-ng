@@ -145,33 +145,17 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 		tr->letter_bits[ix] |= bits;
 }
 
-static void PrepareLetters(const char *letters, char *codes, int size, int shift)
+static void SetLetterBitsUTF8(Translator *tr, int group, const char *letters, int offset)
 {
-	/* Prepare array of shifted letter codes for letter groups from passed string.
-	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
-	 * codes: pointer to array of letter codes.
-	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
-	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
-	 */
+	// Add the letters to the specified letter group.
 	const char *p = letters;
-	int bytes = 0;
 	int code = -1;
-	int count = 0;
 	while (code != 0) {
-		bytes = utf8_in(&code, p);
-		if (code > 0x20) {
-			*codes = code - shift;
-			codes++;
-			count++;
-		}
+		int bytes = utf8_in(&code, p);
+		if (code > 0x20)
+			tr->letter_bits[code - offset] |= (1L << group);
 		p += bytes;
 	}
-	codes++;
-	*codes = 0;
-	if (size != count + 1)
-		fprintf(stderr,
-				"PrepareLetters() error: different sizes of letter arrays reserved: %d, used:%d.\n",
-				size, count + 1);
 }
 
 // ignore these characters
@@ -423,33 +407,20 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 static void SetArabicLetters(Translator *tr)
 {
 	const char arab_vowel_letters[] = {"َ  ُ  ِ"};
-	const char arab_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
 	const char arab_consonant_vowel_letters[] = {"ا و ي"};
+	const char arab_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
 	const char arab_thick_letters[] = {"ص ض ط ظ ق"};
 	const char arab_shadda_letter[] = {" ّ "};
 	const char arab_hamza_letter[] = {" ّ "};
 	const char arab_sukun_letter[] = {" ّ "};
-	static char arab_vowel_codes[4];
-	static char arab_consonant_codes[34];
-	static char arab_consonant_vowel_codes[4];
-	static char arab_thick_codes[6];
-	static char arab_shadda_code[2];
-	static char arab_hamza_code[2];
-	static char arab_sukun_code[2];
-	PrepareLetters(arab_vowel_letters, arab_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(arab_consonant_letters, arab_consonant_codes, 34, OFFSET_ARABIC);
-	PrepareLetters(arab_consonant_vowel_letters, arab_consonant_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(arab_thick_letters, arab_thick_codes, 6, OFFSET_ARABIC);
-	PrepareLetters(arab_shadda_letter, arab_shadda_code, 2, OFFSET_ARABIC);
-	PrepareLetters(arab_hamza_letter, arab_hamza_code, 2, OFFSET_ARABIC);
-	PrepareLetters(arab_sukun_letter, arab_sukun_code, 2, OFFSET_ARABIC);
-	SetLetterBits(tr, LETTERGP_A, (char *) arab_vowel_codes);
-	SetLetterBits(tr, LETTERGP_B, (char *) arab_consonant_vowel_codes);
-	SetLetterBits(tr, LETTERGP_C, (char *) arab_consonant_codes);
-	SetLetterBits(tr, LETTERGP_F, (char *) arab_thick_codes);
-	SetLetterBits(tr, LETTERGP_G, (char *) arab_shadda_code);
-	SetLetterBits(tr, LETTERGP_H, (char *) arab_hamza_code);
-	SetLetterBits(tr, LETTERGP_Y, (char *) arab_sukun_code);
+
+	SetLetterBitsUTF8(tr, LETTERGP_A, arab_vowel_letters, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_B, arab_consonant_vowel_letters, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_C, arab_consonant_letters, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_F, arab_thick_letters, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_G, arab_shadda_letter, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_H, arab_hamza_letter, OFFSET_ARABIC);
+	SetLetterBitsUTF8(tr, LETTERGP_Y, arab_sukun_letter, OFFSET_ARABIC);
 }
 
 static void SetCyrillicLetters(Translator *tr)
