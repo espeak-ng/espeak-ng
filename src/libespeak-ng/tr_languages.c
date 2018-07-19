@@ -406,13 +406,13 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 
 static void SetArabicLetters(Translator *tr)
 {
-	const char arab_vowel_letters[] = {"َ  ُ  ِ"};
-	const char arab_consonant_vowel_letters[] = {"ا و ي"};
-	const char arab_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
-	const char arab_thick_letters[] = {"ص ض ط ظ ق"};
-	const char arab_shadda_letter[] = {" ّ "};
-	const char arab_hamza_letter[] = {" ّ "};
-	const char arab_sukun_letter[] = {" ّ "};
+	const char *arab_vowel_letters = "َ  ُ  ِ";
+	const char *arab_consonant_vowel_letters = "ا و ي";
+	const char *arab_consonant_letters = "ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه";
+	const char *arab_thick_letters = "ص ض ط ظ ق";
+	const char *arab_shadda_letter = " ّ ";
+	const char *arab_hamza_letter = " ّ ";
+	const char *arab_sukun_letter = " ّ ";
 
 	SetLetterBitsUTF8(tr, LETTERGP_A, arab_vowel_letters, OFFSET_ARABIC);
 	SetLetterBitsUTF8(tr, LETTERGP_B, arab_consonant_vowel_letters, OFFSET_ARABIC);
