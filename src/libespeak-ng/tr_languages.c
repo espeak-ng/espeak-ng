@@ -395,45 +395,46 @@ static const unsigned char ru_consonants[] = { // б в г д ж з й к л м 
 
 static void SetArabicLetters(Translator *tr)
 {
-	const char ar_vowel_letters[] = {"َ  ُ  ِ"};
-	const char ar_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
-	const char ar_consonant_vowel_letters[] = {"ا و ي"};
-	const char ar_thick_letters[] = {"ص ض ط ظ ق"};
-	const char ar_shadda_letter[] = {" ّ "};
-	const char ar_hamza_letter[] = {" ّ "};
-	const char ar_sukun_letter[] = {" ّ "};
-	static char ar_vowel_codes[4];
-	static char ar_consonant_codes[34];
-	static char ar_consonant_vowel_codes[4];
-	static char ar_thick_codes[6];
-	static char ar_shadda_code[2];
-	static char ar_hamza_code[2];
-	static char ar_sukun_code[2];
-	PrepareLetters(ar_vowel_letters, ar_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(ar_consonant_letters, ar_consonant_codes, 34, OFFSET_ARABIC);
-	PrepareLetters(ar_consonant_vowel_letters, ar_consonant_vowel_codes, 4, OFFSET_ARABIC);
-	PrepareLetters(ar_thick_letters, ar_thick_codes, 6, OFFSET_ARABIC);
-	PrepareLetters(ar_shadda_letter, ar_shadda_code, 2, OFFSET_ARABIC);
-	PrepareLetters(ar_hamza_letter, ar_hamza_code, 2, OFFSET_ARABIC);
-	PrepareLetters(ar_sukun_letter, ar_sukun_code, 2, OFFSET_ARABIC);
-	SetLetterBits(tr, LETTERGP_A, (char *) ar_vowel_codes);
-	SetLetterBits(tr, LETTERGP_B, (char *) ar_consonant_vowel_codes);
-	SetLetterBits(tr, LETTERGP_C, (char *) ar_consonant_codes);
-	SetLetterBits(tr, LETTERGP_F, (char *) ar_thick_codes);
-	SetLetterBits(tr, LETTERGP_G, (char *) ar_shadda_code);
-	SetLetterBits(tr, LETTERGP_H, (char *) ar_hamza_code);
-	SetLetterBits(tr, LETTERGP_Y, (char *) ar_sukun_code);
+	const char arab_vowel_letters[] = {"َ  ُ  ِ"};
+	const char arab_consonant_letters[] = {"ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه"};
+	const char arab_consonant_vowel_letters[] = {"ا و ي"};
+	const char arab_thick_letters[] = {"ص ض ط ظ ق"};
+	const char arab_shadda_letter[] = {" ّ "};
+	const char arab_hamza_letter[] = {" ّ "};
+	const char arab_sukun_letter[] = {" ّ "};
+	static char arab_vowel_codes[4];
+	static char arab_consonant_codes[34];
+	static char arab_consonant_vowel_codes[4];
+	static char arab_thick_codes[6];
+	static char arab_shadda_code[2];
+	static char arab_hamza_code[2];
+	static char arab_sukun_code[2];
+	PrepareLetters(arab_vowel_letters, arab_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(arab_consonant_letters, arab_consonant_codes, 34, OFFSET_ARABIC);
+	PrepareLetters(arab_consonant_vowel_letters, arab_consonant_vowel_codes, 4, OFFSET_ARABIC);
+	PrepareLetters(arab_thick_letters, arab_thick_codes, 6, OFFSET_ARABIC);
+	PrepareLetters(arab_shadda_letter, arab_shadda_code, 2, OFFSET_ARABIC);
+	PrepareLetters(arab_hamza_letter, arab_hamza_code, 2, OFFSET_ARABIC);
+	PrepareLetters(arab_sukun_letter, arab_sukun_code, 2, OFFSET_ARABIC);
+	SetLetterBits(tr, LETTERGP_A, (char *) arab_vowel_codes);
+	SetLetterBits(tr, LETTERGP_B, (char *) arab_consonant_vowel_codes);
+	SetLetterBits(tr, LETTERGP_C, (char *) arab_consonant_codes);
+	SetLetterBits(tr, LETTERGP_F, (char *) arab_thick_codes);
+	SetLetterBits(tr, LETTERGP_G, (char *) arab_shadda_code);
+	SetLetterBits(tr, LETTERGP_H, (char *) arab_hamza_code);
+	SetLetterBits(tr, LETTERGP_Y, (char *) arab_sukun_code);
 }
 
-// Setup Cyrillic language letter groups: bg (Bulgarian), ru (Russian), tt (Tatar), uk (Ukranian).
 static void SetCyrillicLetters(Translator *tr)
 {
+	// Set letter types for Cyrillic script languages: bg (Bulgarian), ru (Russian), tt (Tatar), uk (Ukranian).
+
 	// character codes offset by 0x420
-	static const char ru_soft[] = { 0x2c, 0x19, 0x27, 0x29, 0 }; // letter group B  [k ts; s;] -- ь й ч щ
-	static const char ru_hard[] = { 0x2a, 0x16, 0x26, 0x28, 0 }; // letter group H  [S Z ts] -- ъ ж ц ш
-	static const char ru_nothard[] = { 0x11, 0x12, 0x13, 0x14, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x27, 0x29, 0x2c, 0 }; // б в г д з й к л м н п р с т ф х ч щ ь
-	static const char ru_voiced[] = { 0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0 };    // letter group G  (voiced obstruents) -- б в г д ж з
-	static const char ru_ivowels[] = { 0x2c, 0x2e, 0x2f, 0x31, 0 };   // letter group Y  (iotated vowels & soft-sign) -- ь ю я ё
+	static const char cyrl_soft[] = { 0x2c, 0x19, 0x27, 0x29, 0 }; // letter group B  [k ts; s;] -- ь й ч щ
+	static const char cyrl_hard[] = { 0x2a, 0x16, 0x26, 0x28, 0 }; // letter group H  [S Z ts] -- ъ ж ц ш
+	static const char cyrl_nothard[] = { 0x11, 0x12, 0x13, 0x14, 0x17, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1f, 0x20, 0x21, 0x22, 0x24, 0x25, 0x27, 0x29, 0x2c, 0 }; // б в г д з й к л м н п р с т ф х ч щ ь
+	static const char cyrl_voiced[] = { 0x11, 0x12, 0x13, 0x14, 0x16, 0x17, 0 };    // letter group G  (voiced obstruents) -- б в г д ж з
+	static const char cyrl_ivowels[] = { 0x2c, 0x2e, 0x2f, 0x31, 0 };   // letter group Y  (iotated vowels & soft-sign) -- ь ю я ё
 	tr->encoding = ESPEAKNG_ENCODING_KOI8_R;
 	tr->transpose_min = 0x430;  // convert cyrillic from unicode into range 0x01 to 0x22
 	tr->transpose_max = 0x451;
@@ -443,35 +444,36 @@ static void SetCyrillicLetters(Translator *tr)
 	tr->letter_bits_offset = OFFSET_CYRILLIC;
 	memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
 	SetLetterBits(tr, LETTERGP_A, (char *)ru_vowels);
-	SetLetterBits(tr, LETTERGP_B, ru_soft);
+	SetLetterBits(tr, LETTERGP_B, cyrl_soft);
 	SetLetterBits(tr, LETTERGP_C, (char *)ru_consonants);
-	SetLetterBits(tr, LETTERGP_H, ru_hard);
-	SetLetterBits(tr, LETTERGP_F, ru_nothard);
-	SetLetterBits(tr, LETTERGP_G, ru_voiced);
-	SetLetterBits(tr, LETTERGP_Y, ru_ivowels);
+	SetLetterBits(tr, LETTERGP_H, cyrl_hard);
+	SetLetterBits(tr, LETTERGP_F, cyrl_nothard);
+	SetLetterBits(tr, LETTERGP_G, cyrl_voiced);
+	SetLetterBits(tr, LETTERGP_Y, cyrl_ivowels);
 	SetLetterBits(tr, LETTERGP_VOWEL2, (char *)ru_vowels);
 }
 
 static void SetIndicLetters(Translator *tr)
 {
-	// Set letter types for Indic scripts, Devanagari, Tamill, etc
-	static const char dev_consonants2[] = { 0x02, 0x03, 0x58, 0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e, 0x5f, 0x7b, 0x7c, 0x7e, 0x7f, 0 };
-	static const char dev_vowels2[] = { 0x60, 0x61, 0x55, 0x56, 0x57, 0x62, 0x63, 0 };  // non-consecutive vowels and vowel-signs
+	// Set letter types for Devanagari (Indic) script languages: Devanagari, Tamill, etc.
+
+	static const char deva_consonants2[] = { 0x02, 0x03, 0x58, 0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e, 0x5f, 0x7b, 0x7c, 0x7e, 0x7f, 0 };
+	static const char deva_vowels2[] = { 0x60, 0x61, 0x55, 0x56, 0x57, 0x62, 0x63, 0 };  // non-consecutive vowels and vowel-signs
 
 	memset(tr->letter_bits, 0, sizeof(tr->letter_bits));
 	SetLetterBitsRange(tr, LETTERGP_A, 0x04, 0x14); // vowel letters
 	SetLetterBitsRange(tr, LETTERGP_A, 0x3e, 0x4d); // + vowel signs, and virama
-	SetLetterBits(tr, LETTERGP_A, dev_vowels2);     // + extra vowels and vowel signs
+	SetLetterBits(tr, LETTERGP_A, deva_vowels2);     // + extra vowels and vowel signs
 
 	SetLetterBitsRange(tr, LETTERGP_B, 0x3e, 0x4d); // vowel signs, and virama
-	SetLetterBits(tr, LETTERGP_B, dev_vowels2);     // + extra vowels and vowel signs
+	SetLetterBits(tr, LETTERGP_B, deva_vowels2);     // + extra vowels and vowel signs
 
 	SetLetterBitsRange(tr, LETTERGP_C, 0x15, 0x39); // the main consonant range
-	SetLetterBits(tr, LETTERGP_C, dev_consonants2); // + additional consonants
+	SetLetterBits(tr, LETTERGP_C, deva_consonants2); // + additional consonants
 
 	SetLetterBitsRange(tr, LETTERGP_Y, 0x04, 0x14); // vowel letters
 	SetLetterBitsRange(tr, LETTERGP_Y, 0x3e, 0x4c); // + vowel signs
-	SetLetterBits(tr, LETTERGP_Y, dev_vowels2);     // + extra vowels and vowel signs
+	SetLetterBits(tr, LETTERGP_Y, deva_vowels2);     // + extra vowels and vowel signs
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;    // disable check for unpronouncable words
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d; // virama
