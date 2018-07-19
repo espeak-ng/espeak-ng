@@ -425,6 +425,7 @@ static void SetArabicLetters(Translator *tr)
 	SetLetterBits(tr, LETTERGP_Y, (char *) ar_sukun_code);
 }
 
+// Setup Cyrillic language letter groups: bg (Bulgarian), ru (Russian), tt (Tatar), uk (Ukranian).
 static void SetCyrillicLetters(Translator *tr)
 {
 	// character codes offset by 0x420
