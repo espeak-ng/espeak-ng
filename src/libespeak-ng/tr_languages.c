@@ -113,8 +113,6 @@ ALPHABET *AlphabetFromChar(int c)
 
 static void Translator_Russian(Translator *tr);
 
-static void PrepareLetters(const char *, char *, int, int);
-
 static void ResetLetterBits(Translator *tr, int groups)
 {
 	// Clear all the specified groups
@@ -145,6 +143,35 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 	bits = (1L << group);
 	for (ix = first; ix <= last; ix++)
 		tr->letter_bits[ix] |= bits;
+}
+
+static void PrepareLetters(const char *letters, char *codes, int size, int shift)
+{
+	/* Prepare array of shifted letter codes for letter groups from passed string.
+	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
+	 * codes: pointer to array of letter codes.
+	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
+	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
+	 */
+	const char *p = letters;
+	int bytes = 0;
+	int code = -1;
+	int count = 0;
+	while (code != 0) {
+		bytes = utf8_in(&code, p);
+		if (code > 0x20) {
+			*codes = code - shift;
+			codes++;
+			count++;
+		}
+		p += bytes;
+	}
+	codes++;
+	*codes = 0;
+	if (size != count + 1)
+		fprintf(stderr,
+				"PrepareLetters() error: different sizes of letter arrays reserved: %d, used:%d.\n",
+				size, count + 1);
 }
 
 // ignore these characters
@@ -1623,33 +1650,4 @@ static void Translator_Russian(Translator *tr)
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
-}
-
-static void PrepareLetters(const char *letters, char *codes, int size, int shift)
-{
-	/* Prepare array of shifted letter codes for letter groups from passed string.
-	 * letters: pointer to string of UTF-8 encoded letters (can be space delimited).
-	 * codes: pointer to array of letter codes.
-	 * size: size of reserved cells in codes array, (last cell in codes should be leaved for null value).
-	 * shift: value of downshift, to fit UTF-16 letters into ANSII (char) range.
-	 */
-	const char *p = letters;
-	int bytes = 0;
-	int code = -1;
-	int count = 0;
-	while (code != 0) {
-		bytes = utf8_in(&code, p);
-		if (code > 0x20) {
-			*codes = code - shift;
-			codes++;
-			count++;
-		}
-		p += bytes;
-	}
-	codes++;
-	*codes = 0;
-	if (size != count + 1)
-		fprintf(stderr,
-				"PrepareLetters() error: different sizes of letter arrays reserved: %d, used:%d.\n",
-				size, count + 1);
 }
