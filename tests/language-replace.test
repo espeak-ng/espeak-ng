@@ -10,7 +10,7 @@ test_replace() {
 	diff expected.txt actual.txt || exit 1
 }
 
-##### English
+##### en: English
 
 cat > expected.txt <<EOF
 Translate 'aeon'
@@ -19,4 +19,47 @@ Translate 'oeconomy'
 Found: 'phoenix'
 EOF
 test_replace en "Æon mediæval. Œconomy phœnix."
+
+##### sr: Serbian
+
+# Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
+cat > expected.txt <<EOF
+Translate 'ljubazni'
+Translate 'feѥrѩijaa'
+Found: 'f'
+Translate 'e'
+Translate 'ѥ'
+Found: '_?A'
+Found: '_4'
+Found: '_6'
+Found: '_5'
+Found: 'r'
+Translate 'ѩ'
+Found: '_?A'
+Found: '_4'
+Found: '_6'
+Found: '_9'
+Translate 'i'
+Found: 'j'
+Translate 'a'
+Translate 'a'
+Translate 'čaѡvčg'
+Found: 'č'
+Translate 'a'
+Translate 'ѡ'
+Found: '_?A'
+Found: '_4'
+Found: '_6'
+Found: '_1'
+Found: 'v'
+Found: 'č'
+Found: 'g'
+Translate 'lica'
+Translate 'hoće'
+Translate 'da'
+Translate 'mi'
+Translate 'pokaže'
+Translate 'štos'
+EOF
+test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 
