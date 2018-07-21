@@ -38,8 +38,10 @@ Translate 'aeon'
 Found: 'mediaeval'
 Translate 'oeconomy'
 Found: 'phoenix'
+Translate 'loft'
+Translate 'history'
 EOF
-test_replace en "Æon mediæval. Œconomy phœnix."
+test_replace en "Æon mediæval. Œconomy phœnix. Loﬅ hiﬆory."
 
 ##### hr: Croatian
 
