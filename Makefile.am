@@ -249,6 +249,7 @@ check:	tests/encoding.check \
 	tests/ssml-fuzzer.check \
 	tests/api.check \
 	tests/language-phonemes.check \
+	tests/language-replace.check \
 	tests/language-pronunciation.check
 
 
