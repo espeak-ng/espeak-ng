@@ -3,11 +3,16 @@
 test_replace() {
 	TEST_LANG=$1
 	TEST_TEXT=$2
+	TEST_BROKEN=${3:-false}
 
 	echo "testing ${TEST_LANG}"
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
 		src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -P "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
-	diff expected.txt actual.txt || exit 1
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
 }
 
 ##### bs: Bosnian
@@ -15,35 +20,8 @@ test_replace() {
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
 cat > expected.txt <<EOF
 Translate 'ljubazni'
-Translate 'feѥrѩijaa'
-Found: 'f'
-Translate 'e'
-Translate 'ѥ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_5'
-Found: 'r'
-Translate 'ѩ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_9'
-Translate 'i'
-Found: 'j'
-Translate 'a'
-Translate 'a'
-Translate 'čaѡvčg'
-Found: 'č'
-Translate 'a'
-Translate 'ѡ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_1'
-Found: 'v'
-Found: 'č'
-Found: 'g'
+Translate 'fenjerdžija'
+Translate 'čađavog'
 Translate 'lica'
 Translate 'hoće'
 Translate 'da'
@@ -51,7 +29,7 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-#test_replace bs "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_replace bs "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 
 ##### en: English
 
@@ -68,35 +46,8 @@ test_replace en "Æon mediæval. Œconomy phœnix."
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
 cat > expected.txt <<EOF
 Translate 'ljubazni'
-Translate 'feѥrѩijaa'
-Found: 'f'
-Translate 'e'
-Translate 'ѥ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_5'
-Found: 'r'
-Translate 'ѩ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_9'
-Translate 'i'
-Found: 'j'
-Translate 'a'
-Translate 'a'
-Translate 'čaѡvčg'
-Found: 'č'
-Translate 'a'
-Translate 'ѡ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_1'
-Found: 'v'
-Found: 'č'
-Found: 'g'
+Translate 'fenjerdžija'
+Translate 'čađavog'
 Translate 'lica'
 Translate 'hoće'
 Translate 'da'
@@ -104,42 +55,15 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-#test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 
 ##### sr: Serbian
 
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
 cat > expected.txt <<EOF
 Translate 'ljubazni'
-Translate 'feѥrѩijaa'
-Found: 'f'
-Translate 'e'
-Translate 'ѥ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_5'
-Found: 'r'
-Translate 'ѩ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_9'
-Translate 'i'
-Found: 'j'
-Translate 'a'
-Translate 'a'
-Translate 'čaѡvčg'
-Found: 'č'
-Translate 'a'
-Translate 'ѡ'
-Found: '_?A'
-Found: '_4'
-Found: '_6'
-Found: '_1'
-Found: 'v'
-Found: 'č'
-Found: 'g'
+Translate 'fenjerdžija'
+Translate 'čađavog'
 Translate 'lica'
 Translate 'hoće'
 Translate 'da'
@@ -147,5 +71,5 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-#test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 

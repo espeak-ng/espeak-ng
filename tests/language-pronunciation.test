@@ -5,6 +5,7 @@ test_phonemes() {
 	MESSAGE=$2
 	EXPECTED=$3
 	TEST_TEXT=$4
+	TEST_BROKEN=${5:-false}
 
 	if [ "x$MESSAGE" = x- ] ; then
 		echo "testing ${TEST_LANG}"
@@ -14,7 +15,11 @@ test_phonemes() {
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
 		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
 	echo "${EXPECTED}" > expected.txt
-	diff expected.txt actual.txt || exit 1
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
 }
 
 test_phonemes bg "Latin characters spoken in English" \
@@ -23,8 +28,8 @@ test_phonemes bg "Latin characters spoken in English" \
 
 # This uses a pangram for Cyrillic letter coverage.
 test_phonemes bs "Cyrillic" \
-	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 test_phonemes bs "Latin" \
 	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
 	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
@@ -63,8 +68,8 @@ test_phonemes fa "Latin characters spoken in English" \
 
 # This uses a pangram for Cyrillic letter coverage.
 test_phonemes hr "Cyrillic" \
-	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 test_phonemes hr "Latin" \
 	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
 	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
@@ -92,8 +97,8 @@ test_phonemes sl - \
 
 # This uses a pangram for Cyrillic letter coverage.
 test_phonemes sr "Cyrillic" \
-	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 test_phonemes sr "Latin" \
 	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
 	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
