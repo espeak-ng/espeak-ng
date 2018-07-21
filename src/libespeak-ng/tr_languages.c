@@ -361,42 +361,6 @@ static const short pairs_ru[] = {
 	0x7fff
 };
 
-static const unsigned int replace_cyrillic_latin[] =
-{ 0x430, 'a',
-  0x431, 'b',
-  0x446, 'c',
-  0x45b, 0x107,
-  0x447, 0x10d,
-  0x45f, 'd'+(0x17e<<16),
-  0x455, 'd'+('z'<<16),
-  0x434, 'd',
-  0x452, 0x111,
-  0x435, 'e',
-  0x444, 'f',
-  0x433, 'g',
-  0x445, 'h',
-  0x438, 'i',
-  0x458, 'j',
-  0x43a, 'k',
-  0x459, 'l'+('j'<<16),
-  0x43b, 'l',
-  0x43c, 'm',
-  0x45a, 'n'+('j'<<16),
-  0x43d, 'n',
-  0x43e, 'o',
-  0x43f, 'p',
-  0x440, 'r',
-  0x441, 's',
-  0x448, 0x161,
-  0x442, 't',
-  0x443, 'u',
-  0x432, 'v',
-  0x437, 'z',
-  0x436, 0x17e,
-  0x453, 0x111,
-  0x45c, 0x107,
-  0 }; // ѓ  ѕ  ќ
-
 static const unsigned char ru_vowels[] = { // (also kazakh) offset by 0x420 -- а е ё и о у ы э ю я ә ө ұ ү і
 	0x10, 0x15, 0x31, 0x18, 0x1e, 0x23, 0x2b, 0x2d, 0x2e, 0x2f,  0xb9, 0xc9, 0x91, 0x8f, 0x36, 0
 };
@@ -937,7 +901,6 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
 		tr->langopts.numbers2 = 0xa + NUM2_THOUSANDS_VAR5; // variant numbers before thousands,milliards
-		tr->langopts.replace_chars = replace_cyrillic_latin;
 		tr->langopts.our_alphabet = OFFSET_CYRILLIC; // don't say "cyrillic" before letter names
 
 	}
@@ -1385,7 +1348,6 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
 		tr->langopts.numbers2 = 0x100; // plural forms of millions etc
 		tr->langopts.thousands_sep = ' '; // don't allow dot as thousands separator
-		tr->langopts.replace_chars = replace_cyrillic_latin;
 		break;
 	case L('s', 'q'): // Albanian
 	{

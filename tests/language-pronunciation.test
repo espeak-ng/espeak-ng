@@ -21,10 +21,20 @@ test_phonemes bg "Latin characters spoken in English" \
 	" (en)f'Ut str'Vt(bg)" \
 	"foot strut"
 
+# This uses a pangram for Cyrillic letter coverage.
+test_phonemes bs "Cyrillic" \
+	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_phonemes bs "Latin" \
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
+
 test_phonemes de - \
 	" dr'Uk3 l'amp@ kOmpj'u:t3 St'Ern St'Ern@" \
 	"drucker lampe computer stern sterne"
 
+# This word list is an extended version of Wells' Lexical Sets, used to cover
+# different accent pronunciation.
 test_phonemes en - \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
@@ -51,6 +61,14 @@ test_phonemes fa "Latin characters spoken in English" \
 	" (en)f'Ut str'Vt(fa)" \
 	"foot strut"
 
+# This uses a pangram for Cyrillic letter coverage.
+test_phonemes hr "Cyrillic" \
+	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_phonemes hr "Latin" \
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
+
 test_phonemes ja "Hiragana" \
 	" k'a k'i k'u k'e k'o" \
 	"か き く け こ"
@@ -66,3 +84,19 @@ test_phonemes lv - \
 test_phonemes ru "Cyrillic" \
         " 'Ab;i ab;'8 'AbjE 'Ab;I 'Abji 'Ap; 'Ab;u\" 'Ab;V" \
         "абе абё абє аби абї абь абю абя"
+
+# This uses a pangram for Cyrillic letter coverage.
+test_phonemes sl "Cyrillic" \
+	" w k O Z'@ 'u: S'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|b'@_: 'u: k O Z'@ 'u: S'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|b'@_: 'u: xudObn'e:ga f'@ a n'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|'E:na_: stOp'i:tslja m'i:zaR" \
+	"В кожушчку худобнега фанта стопицља мизар."
+test_phonemes sl "Latin" \
+	" ukOZ'u:StSku xudObn'e:ga f'a:nta stOp'i:tslja m'i:zaR" \
+	"V kožuščku hudobnega fanta stopiclja mizar."
+
+# This uses a pangram for Cyrillic letter coverage.
+test_phonemes sr "Cyrillic" \
+	" l^'ub&znI f'@ 'E slovo_|tS'EtIRI_|S'Est_|p'Et_: R'@ slovo_|tS'EtIRI_|S'Est_|d'EvEt_: I j'@2 & & tS'@_:_: & slovo_|tS'EtIRI_|S'Est_|j'ed&n_: v'@ tS'@ g'@ l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+test_phonemes sr "Latin" \
+	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
+	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
