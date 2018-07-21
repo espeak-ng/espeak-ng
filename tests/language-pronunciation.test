@@ -85,11 +85,8 @@ test_phonemes ru "Cyrillic" \
         " 'Ab;i ab;'8 'AbjE 'Ab;I 'Abji 'Ap; 'Ab;u\" 'Ab;V" \
         "абе абё абє аби абї абь абю абя"
 
-# This uses a pangram for Cyrillic letter coverage.
-test_phonemes sl "Cyrillic" \
-	" w k O Z'@ 'u: S'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|b'@_: 'u: k O Z'@ 'u: S'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|b'@_: 'u: xudObn'e:ga f'@ a n'@ tsiR'i:litSnil'et@_|St'i:Ri_|S'e:st_|'E:na_: stOp'i:tslja m'i:zaR" \
-	"В кожушчку худобнега фанта стопицља мизар."
-test_phonemes sl "Latin" \
+# This uses a pangram for Latin letter coverage.
+test_phonemes sl - \
 	" ukOZ'u:StSku xudObn'e:ga f'a:nta stOp'i:tslja m'i:zaR" \
 	"V kožuščku hudobnega fanta stopiclja mizar."
 
