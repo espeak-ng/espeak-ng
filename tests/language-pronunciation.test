@@ -22,16 +22,19 @@ test_phonemes() {
 	fi
 }
 
-##### Primary language script, using pangrams to cover all letters in the script.
+##### Script coverage
 
 test_phonemes ar - " ?'us[bur A'ala: H'ifDi X'udHar,in wa:'istaS,ir f'at[unn,an\n w'azudZ:,a h'ammik,a f'i: bgHd'a:D mnTml'a:" "اُصْبُرْ عَلَى حِفْظِ خُضَرٍ وَاِسْتَشِرْ فَطُنًّا، وَزُجَّ هَمِّكَ فِي بغداذ منثملَا"
 test_phonemes bg - " 'ax tS'udna b@Lg'arska z'em;o\n pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита."
+test_phonemes bs "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes bs "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes ca - " d'ona# a#m'o* k'E s@**,as f'Elis\n a#jS;'O\n ill'us k'ompa#n^ Q@nj'ut\n Z;'a es Un l^w'it *R'EtUl Bla#B'is D'onz@_:_: k'e v#,e D,oBl@'ak" "Dóna amor que seràs feliç. Això, il·lús company geniüt, ja és un lluït rètol blavís d’onze kWh."
 test_phonemes cs - " n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu\n t'aNga_! a kv'itskstepu\n pR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy."
 test_phonemes cy - " p'arkjaIs vY dZ'ak k'o:dI b'aU h'y:d l#'aUn d'u:r g'Er t'y: m'A:bOn" "Parciais fy jac codi baw hud llawn dŵr ger tŷ Mabon."
 test_phonemes da - " kv'isd?elt,?&jVn@-_! sp'?isd@-_! j'?orb?E3- m?ED fl'WD@-_!\n m'?Ens s'?i3-k?uskl,?0wn@-n w'Olth?V_! sp'?el@-D@-_! p?O s,?yl?of'?on\n '?ER?W,?Ol" "Quizdeltagerne spiste jordbær med fløde, mens cirkusklovnen Walther spillede på xylofon. Ærøål."
 test_phonemes de - " v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC\n h'aItsWl@-r,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung."
 test_phonemes el - " ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία."
+test_phonemes en - " D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog"
 test_phonemes eo - " ,eble tS'i;u kv'azaUd'etsa f,uSxoR'aZo dZoI'igos homt'ipon\n ,exoS'andZo tS,i;uZ'aUde\n p@-*'eskaU f@-*'eSa tS'exa mandZ'aZo" "Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon. Eĥoŝanĝo ĉiuĵaŭde, preskaŭ freŝa ĉeĥa manĝaĵo."
 test_phonemes es - " b,eNxam'im piDj'o 'una BeB'iDa De k'iwi; i f**'esa\n no'e\n sim b,erQu'EnTa\n la m'as ,ekskis'ita tSamp'an^a Del men'u" "Benjamín pidió una bebida de kiwi y fresa; Noé, sin vergüenza, la más exquisita champaña del menú."
 test_phonemes et - " p'8dU1r z'agrebi tS'ellom,&Ngijaf'Yl^jetonist ts'iko k'ylmetas k'ehvas kar'a:Zis" "Põdur Zagrebi tšellomängija-följetonist Ciqo külmetas kehvas garaažis."
@@ -40,7 +43,8 @@ test_phonemes fr - " byv'e d@- s@- (en)w'Iski(fr) k@ l@- patr'O~ Z'yZ fam'Y\n sa
 test_phonemes ga - " d'u@skIl; 'i:@s@ 'u:rva#k n@ h'o:iQ\"@ b'anIh@ p'o:r 'e:v@ ,0g@s 'A:a#v" "D’fhuascail Íosa Úrmhac na hÓighe Beannaithe pór Éava agus Ádhaimh"
 test_phonemes gd - " m'us d'a:g_:_: k;'E:d;'u:n@ R'O:b 'i: l^'e 'ob" "Mus d’fhàg Cèit-Ùna ròp Ì le ob."
 test_phonemes hi - " r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m\n Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।"
-test_phonemes hr - " g'oj&znI dZ;'atSItS;_! s_ b'itsIklom dR2Z'i xm'El^_:_: I f'inU v'atU_! U dZ'EpU n'oSn^e" "Gojazni đačić s biciklom drži hmelj i finu vatu u džepu nošnje."
+test_phonemes hr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes hr "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes hu - " j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t\n _!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép."
 test_phonemes id - " muh'aRdZo s@'OR2aN z,Enofob'ia _|,univ'ERsal jaN t'akut p,ada w'aRga dZaz'iR2ah\n tSont'ohn^a k'ataR" "Muharjo seorang xenofobia universal yang takut pada warga jazirah, contohnya Qatar."
 test_phonemes is - " c'aI:mI n'i:; 'WksI hj'E:_|R\n 'I:JIsd Tj'oU:vym n'u: b'aI:DI v'i:l#_:_: O:x 'aUd@-RE:ba\n s'aI:vW_|R g@-Rj'E:d 'aU:Dan_:_: Tvi:; 'ulban va:_|R 'oU:nid" "Kæmi ný öxi hér, ykist þjófum nú bæði víl og ádrepa. Sævör grét áðan því úlpan var ónýt."
@@ -60,88 +64,46 @@ test_phonemes ro - " m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila\n p@-*'ets
 test_phonemes ru - " Syr'okVja E#l;ikt@-r;if;'ikVtsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;ilsk'ovV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства."
 test_phonemes sk - " k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso\n p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní."
 test_phonemes sl - " xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom."
-test_phonemes sr - " g'oj&znI dZ;'atSItS;_! s_ b'itsIklom dR2Z'i xm'El^_:_: I f'inU v'atU_! U dZ'EpU n'oSn^e" "Gojazni đačić s biciklom drži hmelj i finu vatu u džepu nošnje."
+test_phonemes sr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes sr "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes sv - " fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R\n RE:ksm'WRgo:s" "Flygande bäckasiner söka hwila på mjuka tuvor. Räksmörgås."
 test_phonemes tr - " piZ'amaL@ hast'a j'a:@z SofW*'E tSabudZ'ak Jyv&nd'I\n SISlid'E byj'Yk tS'Wp j@:@nLa*'@" "Pijamalı hasta yağız şoföre çabucak güvendi. Şişli’de büyük çöp yığınları."
 test_phonemes ur - " t.#'Vnd. m'e~\n 'e:k q'VH@t z'Vda ga:'o:n se: g'Vz@Rte: v'aqt 'e:k c'Vr.@cr.e:\n b'a:s@R 'o: f'a:R@Q S'axs. k'o: b'a:z J'Vl p'VRi n'Uma: 'aZ@dHe: naz.'aR 'a:e:" "ٹھنڈ میں، ایک قحط زدہ گاؤں سے گذرتے وقت ایک چڑچڑے، باأثر و فارغ شخص کو بعض جل پری نما اژدہے نظر آئے۔"
 
-test_phonemes bg "Latin characters spoken in English" \
-	" (en)f'Ut str'Vt(bg)" \
-	"foot strut"
+##### Fallback to other languages in different scripts (language switch).
 
-# This uses a pangram for Cyrillic letter coverage.
-test_phonemes bs "Cyrillic" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
-test_phonemes bs "Latin" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
+test_phonemes bg "Latn as English" " (en)f'Ut str'Vt(bg)" "foot strut"
+test_phonemes fa "Latn as English" " (en)f'Ut str'Vt(fa)" "foot strut"
+test_phonemes ka "Latn as English" " (en)f'Ut str'Vt(ka)" "foot strut"
 
-test_phonemes de - \
-	" dr'Uk3 l'amp@ kOmpj'u:t3 St'Ern St'Ern@" \
-	"drucker lampe computer stern sterne"
+##### Lexical Set tests (phoneme coverage).
 
-# This word list is an extended version of Wells' Lexical Sets, used to cover
-# different accent pronunciation.
-test_phonemes en - \
+test_phonemes de "Lexical Sets" " dr'Uk3 l'amp@ kOmpj'u:t3 St'Ern St'Ern@" "drucker lampe computer stern sterne"
+
+test_phonemes en "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-029 - \
+
+test_phonemes en-029 "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m t['O:t g'u:s n'3:s st'A@t n'O@t[ f'o@s kj'o@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta# Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUt[ b'aat[ kl'0t[ m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-GB-scotland - \
+
+test_phonemes en-GB-scotland "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'VRs st'A@rt n'O@rT f'o@rs kj'U@ n,i@3r skw'e@r t'3:m b'IRd h'api k'0mV l'Et@r- Ekspl'o@r r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n d'I2vaId,I2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-GB-x-gbclan - \
+
+test_phonemes en-GB-x-gbclan "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'apI2 k'0m@ l'Et3r- Ekspl'o@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-GB-x-gbcwmd - \
+
+test_phonemes en-GB-x-gbcwmd "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d'api k'0m@ l'Et3r- Ekspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-GB-x-rp - \
+
+test_phonemes en-GB-x-rp "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0ma# l'Eta#r- Ikspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-test_phonemes en-US - \
+
+test_phonemes en-US "Lexical Sets" \
 	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'o@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d h'api k'0m@ l'Et#3r- Ekspl'o@ r'oUzI#z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'O2T m'Ili@n dI#v'aIdI#d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
-
-test_phonemes fa "Latin characters spoken in English" \
-	" (en)f'Ut str'Vt(fa)" \
-	"foot strut"
-
-# This uses a pangram for Cyrillic letter coverage.
-test_phonemes hr "Cyrillic" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
-test_phonemes hr "Latin" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
-
-test_phonemes ja "Hiragana" \
-	" k'a k'i k'u k'e k'o" \
-	"か き く け こ"
-
-test_phonemes ka "Latin characters spoken in English" \
-	" (en)f'Ut str'Vt(ka)" \
-	"foot strut"
-
-test_phonemes lv - \
-	" nev'ie:na nuo\`_ 'eiRo:pas v'al>sti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok}l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \
-	"Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no vispārējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
-
-test_phonemes ru "Cyrillic" \
-        " 'Ab;i ab;'8 'AbjE 'Ab;I 'Abji 'Ap; 'Ab;u\" 'Ab;V" \
-        "абе абё абє аби абї абь абю абя"
-
-# This uses a pangram for Latin letter coverage.
-test_phonemes sl - \
-	" ukOZ'u:StSku xudObn'e:ga f'a:nta stOp'i:tslja m'i:zaR" \
-	"V kožuščku hudobnega fanta stopiclja mizar."
-
-# This uses a pangram for Cyrillic letter coverage.
-test_phonemes sr "Cyrillic" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
-test_phonemes sr "Latin" \
-	" l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" \
-	"Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
