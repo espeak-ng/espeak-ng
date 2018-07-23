@@ -1790,11 +1790,18 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
-static const char *
-FindReplacementChars(Translator *tr, unsigned int c, unsigned int nextc, bool *ignore_next) {
+static const char * FindReplacementChars(
+	Translator *tr,
+	const char **pfrom,
+	unsigned int c,
+	unsigned int nextc,
+	bool *ignore_next
+) {
 	unsigned int uc = 0;
-	const char *from = (const char *)tr->langopts.replace_chars;
+	const char *from = *pfrom;
 	while (*(unsigned int *)from != 0) {
+		*pfrom = from;
+
 		from += utf8_in((int *)&uc, from);
 		if (c == uc) {
 			if (*from == 0) return from + 1;
@@ -1829,7 +1836,8 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	}
 	if (c == 0) return 0;
 
-	if (tr->langopts.replace_chars == NULL)
+	const char *from = (const char *)tr->langopts.replace_chars;
+	if (from == NULL)
 		return c;
 
 	// there is a list of character codes to be substituted with alternative codes
@@ -1839,9 +1847,12 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	const char *to = FindReplacementChars(tr, c_lower, next_in, &ignore_next);
+	const char *to = FindReplacementChars(tr, &from, c_lower, next_in, &ignore_next);
 	if (to == NULL)
 		return c; // no substitution
+
+	if (option_phonemes & espeakPHONEMES_TRACE)
+		fprintf(f_trans, "Replace: %s > %s\n", from, to);
 
 	to += utf8_in((int *)&new_c, to);
 	if (*to != 0) {
@@ -1857,19 +1868,6 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		new_c = ucd_toupper(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
-	if (option_phonemes & espeakPHONEMES_TRACE) {
-		char msg[21] = {'R','e','p','l','a','c','e',':',' '};
-		char *index = msg;
-		index += 9;
-		index += utf8_out(c, index);
-		*index++ = ' ';
-		*index++ = '>';
-		*index++ = ' ';
-		index += utf8_out(new_c, index);
-		index += utf8_out(c2, index);
-		*index = 0;
-		fprintf(f_trans, "%s\n", msg);
-	}
 	return new_c;
 }
 
