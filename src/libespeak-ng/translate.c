@@ -1818,7 +1818,8 @@ static bool GetNextTranslateChars(const int **from, const int **to, bool next_st
 	return **to != 0;
 }
 
-static void ReplaceMatchingChars(char **matchstart, const int *from, const int *to, int upper_case)
+static void ReplaceMatchingChars(char **matchstart, char *charto, int usedfrom,
+		int usedto)
 {
 	// Replace characters from 'from' to 'to' group in source clause, starting
 	// with place indicated in matchstart.
@@ -1827,37 +1828,16 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 	char tmpsource[N_TR_SOURCE + 40]; // Prepare working copy of source
 	memcpy(&tmpsource, *matchstart, N_TR_SOURCE + 40);
 
-	// prepare from part
-	char charfrom[N_WORD_BYTES + 1] = { 0 };
-	int usedfrom = 0;
-	int const *pintfrom = from;
-	char *pcharfrom = charfrom;
-	while (*pintfrom != ' ') {
-		usedfrom += utf8_out(*pintfrom, pcharfrom + usedfrom);
-		pintfrom++;
-	}
-
-	// prepare to part
-	char charto[N_WORD_BYTES + 1] = { 0 };
-	int usedto = 0;
-	int const *pintto = to;
-	char *pcharto = charto;
-	while (*pintto != 0 && *pintto != ' ') {
-		usedto += utf8_out(*pintto, pcharto + usedto);
-		pintto++;
-	}
-
 	// Set up replacement in temporary buffer
 	char *psource = *matchstart;
 	char *ptmpsource = tmpsource;
+	char *pcharto = charto;
 	pcharto = charto;
 
 	// Do replacement writing 'to' part in buffer
-	while (*pcharto != 0 ) {
-		if(upper_case) {        // TODO: should check for capital letter from source (maybe using word_flags)
+	while (*pcharto != 0) {
+		if (isupper(*ptmpsource))
 			*ptmpsource = toupper(*pcharto);
-			upper_case = 0;     // capitalize only first character if necessary (will work in most cases)
-		}
 		else
 			*ptmpsource = *pcharto;
 		pcharto++;
@@ -1869,9 +1849,11 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 	// Don't touch last 40 bytes of source, which could contain control data.
 	if (usedfrom != usedto) {
 		psource = *matchstart + usedfrom;
-		while (*psource != 0 && psource < &source[N_TR_SOURCE]
+		while (psource < &source[N_TR_SOURCE]
 				&& ptmpsource < &tmpsource[N_TR_SOURCE]) {
 			*ptmpsource = *psource;
+			if (*psource == 0)
+				break;
 			ptmpsource++;
 			psource++;
 		}
@@ -1880,16 +1862,14 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 	// Write temporary buffer back to source
 	psource = *matchstart;
 	ptmpsource = tmpsource;
-	while (*ptmpsource != 0 && ptmpsource < &tmpsource[N_TR_SOURCE]
+	while (ptmpsource < &tmpsource[N_TR_SOURCE]
 			&& psource < &source[N_TR_SOURCE]) {
 		*psource = *ptmpsource;
+		if (*ptmpsource == 0)
+			break;
 		ptmpsource++;
 		psource++;
 	}
-
-	// if requested, print trace
-	if (option_phonemes & espeakPHONEMES_TRACE)
-		fprintf(f_trans, "Replace   %s > %s\n", charfrom, charto);
 }
 
 static void TranslateChars(Translator *tr, char *source)
@@ -1898,37 +1878,64 @@ static void TranslateChars(Translator *tr, char *source)
 	char *startmatch;
 	const int *from;
 	const int *to;
-	bool upper_case = false;
 
-	if ((from = (const int *)tr->langopts.replace_chars) == NULL)
+	if ((from = (const int *) tr->langopts.replace_chars) == NULL)
 		return;
 
-	char *curchar = source; // pointer to the source clause
+	char *curchar; // pointer to the source clause
 	int curint;    // current UTF-16 character
 	int used;               // bytes used in buffer
+	bool replaced;          // bytes replaced in buffer
 	const int *curfrom;     // pointer to current 'from'
 	bool next_step = false; // signal to jumping to next 'from' part in dictionary
+	char charfrom[N_WORD_BYTES + 1];
+	char charto[N_WORD_BYTES + 1];
 	while (GetNextTranslateChars(&from, &to, next_step)) {
+		replaced = false;
+		used = 0;
 		next_step = true;
 		curfrom = from;
 		curchar = source;
 		startmatch = 0;
 		curint = 0;
+
+		// prepare 'from' part
+		memset(charfrom, 0, sizeof charfrom);
+		int usedfrom = 0;
+		int const *pintfrom = from;
+		char *pcharfrom = charfrom;
+		while (*pintfrom != ' ') {
+			usedfrom += utf8_out(*pintfrom, pcharfrom + usedfrom);
+			pintfrom++;
+		}
+
+		// prepare 'to' part
+		memset(charto, 0, sizeof charto);
+		int usedto = 0;
+		int const *pintto = to;
+		char *pcharto = charto;
+		while (*pintto != 0 && *pintto != ' ') {
+			usedto += utf8_out(*pintto, pcharto + usedto);
+			pintto++;
+		}
+
 		do {
 			used = utf8_in(&curint, curchar);
 			if (curint < ' ') {        // skip control characters
 				curchar += used;
 				continue;
 			}
-			if ((upper_case = iswupper(curint)) == true) // remember, if uppercase
-				curint = ucd_tolower(curint);
+			if (iswupper(curint) == true)     // convert to lowercase,
+				curint = ucd_tolower(curint); // because in rules only lowercase is used
 
 			if (curint == *curfrom) {  // if matches
 				if (startmatch == 0)
 					startmatch = curchar;
 				curfrom++;             // move check to next character
 				if (*curfrom == ' ') { // if full match, replace
-					ReplaceMatchingChars(&startmatch, from, to, upper_case);
+					ReplaceMatchingChars(&startmatch, charto, usedfrom, usedto);
+					replaced = true;
+					used = usedto;
 					startmatch = 0;    // reset match to start of 'from'
 					curfrom = from;
 				}
@@ -1938,6 +1945,10 @@ static void TranslateChars(Translator *tr, char *source)
 			}
 			curchar += used;
 		} while (curint > 0);
+
+		// if requested, print trace
+		if (replaced && option_phonemes & espeakPHONEMES_TRACE)
+			fprintf(f_trans, "Replace   %s > %s\n", charfrom, charto);
 	}
 }
 

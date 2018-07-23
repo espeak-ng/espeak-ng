@@ -56,3 +56,25 @@ test_phonemes en " r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
 test_phonemes sk " sm'eju:tsa s'a tv'a:R" "☺"
 test_phonemes sk " bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
+
+# bug: https://github.com/espeak-ng/espeak-ng/issues/523
+# replaced string is longer:
+#test_phonemes mk " b'ab'ab'ab'ab'ab'ab'ab'a\n b'@" "Bа-ba-ba-ba-ba-ba-ba-ba. B"
+# replaced string is shorter (Cyrillic to Latin for Croatian):
+test_phonemes hr " d'@d,@d,@d,@" "дддд"
+# replaced string is longer (Latin to Cyrillic for Macedonian)
+test_phonemes mk " b,@b,@b,@b'@" "bbbb"
+# Check null delimiters for for rewrittten buffer
+## when replaced to shorter string (Cyrillic to Latin for Croatian)
+test_phonemes hr " d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad&\n 'EtEd\n d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad&\n d'EtE" "dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada.
+eteд.
+dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada dada.
+дete."
+## when replaced to longer string
+test_phonemes mk " d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad&\n b'ete\n d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad& d'ad&\n d'ete\n 'eteb" "дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада.
+bете.
+дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада дада.
+дete.
+етеb."
+
+
