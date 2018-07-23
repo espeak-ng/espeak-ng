@@ -1869,9 +1869,11 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 	// Don't touch last 40 bytes of source, which could contain control data.
 	if (usedfrom != usedto) {
 		psource = *matchstart + usedfrom;
-		while (*psource != 0 && psource < &source[N_TR_SOURCE]
+		while (psource < &source[N_TR_SOURCE]
 				&& ptmpsource < &tmpsource[N_TR_SOURCE]) {
 			*ptmpsource = *psource;
+			if(*psource == 0)
+				break;
 			ptmpsource++;
 			psource++;
 		}
@@ -1880,9 +1882,11 @@ static void ReplaceMatchingChars(char **matchstart, const int *from, const int *
 	// Write temporary buffer back to source
 	psource = *matchstart;
 	ptmpsource = tmpsource;
-	while (*ptmpsource != 0 && ptmpsource < &tmpsource[N_TR_SOURCE]
+	while ( ptmpsource < &tmpsource[N_TR_SOURCE]
 			&& psource < &source[N_TR_SOURCE]) {
 		*psource = *ptmpsource;
+		if(*ptmpsource == 0)
+			break;
 		ptmpsource++;
 		psource++;
 	}
