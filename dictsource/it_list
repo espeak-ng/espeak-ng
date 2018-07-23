@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 june 20 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 july 22 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -450,6 +450,7 @@ abc	a||bi||tS'i
 acdc	$abbrev
 adsl	a||di||esse||'El:e
 ascii	'askIi
+asio	'a:zi/o
 atp	a||ti||p'i
 avg	$abbrev
 cia	tS'ia
@@ -801,6 +802,7 @@ blogger	bl'Oge@-*
 blues	bl'u:z
 bluff	bl'ef:	$only
 boiler	$1
+bomber	$1	$onlys
 bonjour	b,O:_Z'u:r
 boogie	b'ugi
 boom	bum
@@ -1028,6 +1030,7 @@ leader	lidE@-*
 leadership	l'idE@-*Sip
 league	_^_en
 leasing	l'i:ziN
+light	l'aIt
 like	l'aIk
 line	l'aIn	$only
 lingerie	liNZeR'i
@@ -1206,7 +1209,8 @@ strike	st@-*'aIk
 subwoofer	sub||v'u:fe@-*
 superbike	supe@-*||b'aIk
 supporter	$2
-suspense	s@sp'a/:ns $only
+suspense	s@sp'a:ns $only
+surplus	$2 $only
 synthesizer	$3
 tailleur	_^_FR
 team		_^_EN
@@ -2494,6 +2498,7 @@ mazzin $2
 mazzol $2
 meola	$1
 mercury	$1 $alt2 $only
+merola	$1
 michael	m'aIkOl
 michel	mik'e/l
 michelangel	$3
@@ -5028,8 +5033,9 @@ suggeritomi	$3
 svegliati	$1 $atstart
 svelaci	$1
 svoltasi	$1 $alt
-svoltesi	$1
+svoltesi	$1 $alt
 svoltosi	$1 $alt
+svoltisi	$1 $alt
 svuotal	$2 $alt2
 tastal	$1
 tenutasi	$2
