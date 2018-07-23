@@ -1790,15 +1790,38 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
+static const char *
+FindReplacementChars(Translator *tr, unsigned int c, unsigned int nextc, bool *ignore_next) {
+	unsigned int uc = 0;
+	const char *from = (const char *)tr->langopts.replace_chars;
+	while (*(unsigned int *)from != 0) {
+		from += utf8_in((int *)&uc, from);
+		if (c == uc) {
+			if (*from == 0) return from + 1;
+			from += utf8_in((int *)&uc, from);
+			if (*from == 0 && uc == (unsigned int)towlower2(nextc, tr)) {
+				*ignore_next = true;
+				return from + 1;
+			}
+		}
+
+		// replacement 'from' string (skip the remaining part, if any)
+		while (*from != '\0') from++;
+		from++;
+
+		// replacement 'to' string
+		while (*from != '\0') from++;
+		from++;
+	}
+	return NULL;
+}
+
 // handle .replace rule in xx_rules file
 static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
 {
-	int ix;
-	unsigned int word;
 	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
 	static bool ignore_next = false;
-	const unsigned int *replace_chars;
 
 	if (ignore_next) {
 		ignore_next = false;
@@ -1806,7 +1829,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 	}
 	if (c == 0) return 0;
 
-	if ((replace_chars = tr->langopts.replace_chars) == NULL)
+	if (tr->langopts.replace_chars == NULL)
 		return c;
 
 	// there is a list of character codes to be substituted with alternative codes
@@ -1816,32 +1839,18 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	new_c = 0;
-	for (ix = 0; (word = replace_chars[ix]) != 0; ix += 2) {
-		if (c_lower == (word & 0xffff)) {
-			if ((word >> 16) == 0) {
-				new_c = replace_chars[ix+1];
-				break;
-			}
-			if ((word >> 16) == (unsigned int)towlower2(next_in, tr)) {
-				new_c = replace_chars[ix+1];
-				ignore_next = true;
-				break;
-			}
-		}
-	}
-
-	if (new_c == 0)
+	const char *to = FindReplacementChars(tr, c_lower, next_in, &ignore_next);
+	if (to == NULL)
 		return c; // no substitution
 
-	if (new_c & 0xffe00000) {
+	to += utf8_in((int *)&new_c, to);
+	if (*to != 0) {
 		// there is a second character to be inserted
 		// don't convert the case of the second character unless the next letter is also upper case
-		c2 = new_c >> 16;
+		to += utf8_in((int *)&c2, to);
 		if (upper_case && iswupper(next_in))
 			c2 = ucd_toupper(c2);
 		*insert = c2;
-		new_c &= 0xffff;
 	}
 
 	if (upper_case)

@@ -556,7 +556,7 @@ typedef struct {
 	bool textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
 	char dotless_i;         // uses letter U+0131
 	int listx;    // compile *_listx after *list
-	const unsigned int *replace_chars;      // characters to be substitutes
+	const unsigned char *replace_chars;      // characters to be substitutes
 	int our_alphabet;           // offset for main alphabet (if not set in letter_bits_offset)
 	int alt_alphabet;       // offset for another language to recognize
 	int alt_alphabet_lang;  // language for the alt_alphabet

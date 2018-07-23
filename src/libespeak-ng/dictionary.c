@@ -149,20 +149,11 @@ static void InitGroups(Translator *tr)
 
 		if (p[0] == RULE_REPLACEMENTS) {
 			p = (char *)(((intptr_t)p+4) & ~3); // advance to next word boundary
-			tr->langopts.replace_chars = (unsigned int *)p;
+			tr->langopts.replace_chars = (unsigned char *)p;
 			while (*(unsigned int *)p != 0)
-				p += 8; // find the end of the replacement list, each entry is 2 words.
-			p += 4;
-
-#ifdef ARCH_BIG
-			pw = (unsigned int *)(tr->langopts.replace_chars);
-			while (*pw != 0) {
-				*pw = Reverse4Bytes(*pw);
-				pw++;
-				*pw = Reverse4Bytes(*pw);
-				pw++;
-			}
-#endif
+				p++;
+			while (*p != RULE_GROUP_END) p++;
+			p++;
 			continue;
 		}
 
