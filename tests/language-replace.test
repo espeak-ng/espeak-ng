@@ -92,7 +92,7 @@ Translate 'на'
 Translate 'туѓ'
 Translate 'цех'
 EOF
-test_replace mk "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh." broken
+test_replace mk "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh."
 
 ##### sr: Serbian
 

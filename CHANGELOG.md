@@ -104,6 +104,7 @@ updated languages:
 *  it (Italian) -- chrislm
 *  ky (Kyrgyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins
+*  mk (Macedonian) -- Reece Dunn. Don't map đ and ć to Serbian ђ and ћ (use Macedonian ѓ and ќ instead).
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah
