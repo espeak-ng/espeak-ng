@@ -59,6 +59,26 @@ Translate 'štos'
 EOF
 test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 
+##### mk: Macedonian
+
+# Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех.
+cat > expected.txt <<EOF
+Translate 'ѕидарски'
+Translate 'пејзаж'
+Translate 'шугав'
+Translate 'билмез'
+Found: 'со' [s_]   \$brk
+Translate 'чудење'
+Translate 'џвака'
+Translate 'ќофте'
+Found: 'и' [i_:]  \$u \$pause
+Translate 'кељ'
+Translate 'на'
+Translate 'туѓ'
+Translate 'цех'
+EOF
+test_replace mk "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh." broken
+
 ##### sr: Serbian
 
 # Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
