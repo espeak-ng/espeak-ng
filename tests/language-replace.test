@@ -59,6 +59,21 @@ Translate 'štos'
 EOF
 test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
 
+##### ja: Japanese
+
+# いろはにほへと.  ちりぬるを.  わかよたれそ.  つねならむ.  うゐのおくやま.  けふこえて.  あさきゆめみし.  ゑひもせすん.
+cat > expected.txt <<EOF
+Translate 'いろはにほへと'
+Translate 'ちりぬるを'
+Translate 'わかよたれそ'
+Translate 'つねならむ'
+Translate 'うゐのおくやま'
+Translate 'けふこえて'
+Translate 'あさきゆめみし'
+Translate 'ゑひもせすん'
+EOF
+test_replace ja "イロハニホヘト. チリヌルヲ. ワカヨタレソ. ツネナラム. ウヰノオクヤマ. ケフコエテ. アサキユメミシ. ヱヒモセスン."
+
 ##### mk: Macedonian
 
 # Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех.
