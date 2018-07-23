@@ -29,7 +29,7 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-test_replace bs "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_replace bs "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 
 ##### en: English
 
@@ -57,7 +57,7 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 
 ##### ja: Japanese
 
@@ -108,5 +108,5 @@ Translate 'mi'
 Translate 'pokaže'
 Translate 'štos'
 EOF
-test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 

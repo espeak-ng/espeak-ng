@@ -26,7 +26,7 @@ test_phonemes() {
 
 test_phonemes ar - " ?'us[bur A'ala: H'ifDi X'udHar,in wa:'istaS,ir f'at[unn,an\n w'azudZ:,a h'ammik,a f'i: bgHd'a:D mnTml'a:" "اُصْبُرْ عَلَى حِفْظِ خُضَرٍ وَاِسْتَشِرْ فَطُنًّا، وَزُجَّ هَمِّكَ فِي بغداذ منثملَا"
 test_phonemes bg - " 'ax tS'udna b@Lg'arska z'em;o\n pol'uSvaj ts@ft;'aSti: Z'ita" "Ах чудна българска земьо, полюшвай цъфтящи жита."
-test_phonemes bs "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes bs "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 test_phonemes bs "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes ca - " d'ona# a#m'o* k'E s@**,as f'Elis\n a#jS;'O\n ill'us k'ompa#n^ Q@nj'ut\n Z;'a es Un l^w'it *R'EtUl Bla#B'is D'onz@_:_: k'e v#,e D,oBl@'ak" "Dóna amor que seràs feliç. Això, il·lús company geniüt, ja és un lluït rètol blavís d’onze kWh."
 test_phonemes cs - " n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu\n t'aNga_! a kv'itskstepu\n pR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy."
@@ -43,7 +43,7 @@ test_phonemes fr - " byv'e d@- s@- (en)w'Iski(fr) k@ l@- patr'O~ Z'yZ fam'Y\n sa
 test_phonemes ga - " d'u@skIl; 'i:@s@ 'u:rva#k n@ h'o:iQ\"@ b'anIh@ p'o:r 'e:v@ ,0g@s 'A:a#v" "D’fhuascail Íosa Úrmhac na hÓighe Beannaithe pór Éava agus Ádhaimh"
 test_phonemes gd - " m'us d'a:g_:_: k;'E:d;'u:n@ R'O:b 'i: l^'e 'ob" "Mus d’fhàg Cèit-Ùna ròp Ì le ob."
 test_phonemes hi - " r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m\n Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।"
-test_phonemes hr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes hr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 test_phonemes hr "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes hu - " j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t\n _!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép."
 test_phonemes id - " muh'aRdZo s@'OR2aN z,Enofob'ia _|,univ'ERsal jaN t'akut p,ada w'aRga dZaz'iR2ah\n tSont'ohn^a k'ataR" "Muharjo seorang xenofobia universal yang takut pada warga jazirah, contohnya Qatar."
@@ -66,7 +66,7 @@ test_phonemes ro - " m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila\n p@-*'ets
 test_phonemes ru - " Syr'okVja E#l;ikt@-r;if;'ikVtsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;ilsk'ovV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства."
 test_phonemes sk - " k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso\n p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní."
 test_phonemes sl - " xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom."
-test_phonemes sr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос." broken
+test_phonemes sr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 test_phonemes sr "Latn" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes sv - " fl'y:gandE- b,Ek:as'i:nE-R s'Y:ka hv'i:la po: mj'u-ka t'u-vu:R\n RE:ksm'WRgo:s" "Flygande bäckasiner söka hwila på mjuka tuvor. Räksmörgås."
 test_phonemes tr - " piZ'amaL@ hast'a j'a:@z SofW*'E tSabudZ'ak Jyv&nd'I\n SISlid'E byj'Yk tS'Wp j@:@nLa*'@" "Pijamalı hasta yağız şoföre çabucak güvendi. Şişli’de büyük çöp yığınları."
