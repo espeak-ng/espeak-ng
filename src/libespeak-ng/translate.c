@@ -1795,15 +1795,19 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 	const char *from = *pfrom;
 	while (*(unsigned int *)from != 0) {
 		unsigned int fc = 0; // from character
+		unsigned int nc = c; // next character
 
 		*pfrom = from;
 
 		from += utf8_in((int *)&fc, from);
-		if (c == fc) {
+		if (nc == fc) {
 			if (*from == 0) return from + 1;
 
 			from += utf8_in((int *)&fc, from);
-			if (*from == 0 && fc == (unsigned int)towlower2(nextc, tr)) {
+			nc = nextc;
+
+			nc = towlower2(nextc, tr);
+			if (*from == 0 && nc == fc) {
 				*ignore_next_n = 1;
 				return from + 1;
 			}
