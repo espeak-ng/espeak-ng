@@ -104,7 +104,9 @@ updated languages:
 *  it (Italian) -- chrislm
 *  ky (Kyrgyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins
-*  mk (Macedonian) -- Reece Dunn. Don't map đ and ć to Serbian ђ and ћ (use Macedonian ѓ and ќ instead).
+*  mk (Macedonian) -- Reece Dunn. Updated the romanization support:
+   *  Don't map đ and ć to Serbian ђ and ћ (use Macedonian ѓ and ќ instead).
+   *  Support additional romanizations: ISO 9, BGN/PCGN, Cadastre, and MJMS/SSO.
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah

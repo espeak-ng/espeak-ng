@@ -1,39 +1,53 @@
 // translation rules for Macedonian
 // This file is UTF-8 encoded
 
+// Reference: https://en.wikipedia.org/wiki/Romanization_of_Macedonian
 .replace
-//	Latn	Cyrl
-	a	а
-	b	б
-	c	ц
+//	Latn	Cyrl	Basic Latin (2 letters)
+	gj	ѓ
+	zh	ж
+	dz	ѕ
+	lj	љ
+	nj	њ
+	kj	ќ
+	ts	ц
+//	Latn	Cyrl	Extended Latin
+	ǵ	ѓ
+	đ	ѓ
+	ž	ж
+	ẑ	ѕ
+	ǰ	ј
+	l̂	љ
+	n̂	њ
+	ḱ	ќ
 	ć	ќ
 	č	ч
 	dž	џ
-	dz	ѕ
-	d	д
-	đ	ѓ
-	e	е
-	f	ф
+	d̂	џ
+	š	ш
+//	Latn	Cyrl	Basic Latin (Common)
+	a	а
+	b	б
+	v	в
 	g	г
-	h	х
+	d	д
+	e	е
+	z	з
 	i	и
 	j	ј
 	k	к
-	lj	љ
 	l	л
 	m	м
-	nj	њ
 	n	н
 	o	о
 	p	п
 	r	р
 	s	с
-	š	ш
 	t	т
 	u	у
-	v	в
-	z	з
-	ž	ж
+	f	ф
+	h	х
+	c	ц
 
 .group а
           а        a
