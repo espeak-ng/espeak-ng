@@ -1792,17 +1792,18 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 
 static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsigned int c, unsigned int nextc, int *ignore_next_n)
 {
-	unsigned int uc = 0;
 	const char *from = *pfrom;
 	while (*(unsigned int *)from != 0) {
+		unsigned int fc = 0; // from character
+
 		*pfrom = from;
 
-		from += utf8_in((int *)&uc, from);
-		if (c == uc) {
+		from += utf8_in((int *)&fc, from);
+		if (c == fc) {
 			if (*from == 0) return from + 1;
 
-			from += utf8_in((int *)&uc, from);
-			if (*from == 0 && uc == (unsigned int)towlower2(nextc, tr)) {
+			from += utf8_in((int *)&fc, from);
+			if (*from == 0 && fc == (unsigned int)towlower2(nextc, tr)) {
 				*ignore_next_n = 1;
 				return from + 1;
 			}
