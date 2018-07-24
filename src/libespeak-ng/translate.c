@@ -1804,12 +1804,22 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 		if (nc == fc) {
 			if (*from == 0) return from + 1;
 
-			from += utf8_in((int *)&fc, from);
-			match_next += utf8_in((int *)&nc, match_next);
+			bool matched = true;
+			int nmatched = 0;
+			while (*from != 0) {
+				from += utf8_in((int *)&fc, from);
 
-			nc = towlower2(nc, tr);
-			if (*from == 0 && nc == fc) {
-				*ignore_next_n = 1;
+				match_next += utf8_in((int *)&nc, match_next);
+				nc = towlower2(nc, tr);
+
+				if (nc != fc)
+					matched = false;
+				else
+					nmatched++;
+			}
+
+			if (*from == 0 && matched) {
+				*ignore_next_n = nmatched;
 				return from + 1;
 			}
 		}

@@ -14,6 +14,8 @@ The espeak-ng project is a fork of the espeak project.
    BCP 47 language subtag registry making the newly registered `hyw` language code the
    preferred value for `hy-arevmda`. This change keeps support for detecting the
    `hy-arevela` and `hy-arevmda` language tags.
+*  Support any length replacement rule strings for the source part of the rule (replacing
+   from the 'source' string to the 'target' string).
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
