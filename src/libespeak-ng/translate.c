@@ -1790,13 +1790,8 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
-static const char * FindReplacementChars(
-	Translator *tr,
-	const char **pfrom,
-	unsigned int c,
-	unsigned int nextc,
-	bool *ignore_next
-) {
+static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsigned int c, unsigned int nextc, int *ignore_next_n)
+{
 	unsigned int uc = 0;
 	const char *from = *pfrom;
 	while (*(unsigned int *)from != 0) {
@@ -1805,9 +1800,10 @@ static const char * FindReplacementChars(
 		from += utf8_in((int *)&uc, from);
 		if (c == uc) {
 			if (*from == 0) return from + 1;
+
 			from += utf8_in((int *)&uc, from);
 			if (*from == 0 && uc == (unsigned int)towlower2(nextc, tr)) {
-				*ignore_next = true;
+				*ignore_next_n = 1;
 				return from + 1;
 			}
 		}
@@ -1828,12 +1824,13 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 {
 	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
-	static bool ignore_next = false;
 
-	if (ignore_next) {
-		ignore_next = false;
+	static int ignore_next_n = 0;
+	if (ignore_next_n > 0) {
+		ignore_next_n--;
 		return 8;
 	}
+
 	if (c == 0) return 0;
 
 	const char *from = (const char *)tr->langopts.replace_chars;
@@ -1847,7 +1844,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	const char *to = FindReplacementChars(tr, &from, c_lower, next_in, &ignore_next);
+	const char *to = FindReplacementChars(tr, &from, c_lower, next_in, &ignore_next_n);
 	if (to == NULL)
 		return c; // no substitution
 
