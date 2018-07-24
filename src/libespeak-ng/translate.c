@@ -1790,12 +1790,13 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 	return 1;
 }
 
-static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsigned int c, unsigned int nextc, int *ignore_next_n)
+static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsigned int c, const char *next, int *ignore_next_n)
 {
 	const char *from = *pfrom;
 	while (*(unsigned int *)from != 0) {
 		unsigned int fc = 0; // from character
 		unsigned int nc = c; // next character
+		const char *match_next = next;
 
 		*pfrom = from;
 
@@ -1804,9 +1805,9 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 			if (*from == 0) return from + 1;
 
 			from += utf8_in((int *)&fc, from);
-			nc = nextc;
+			match_next += utf8_in((int *)&nc, match_next);
 
-			nc = towlower2(nextc, tr);
+			nc = towlower2(nc, tr);
 			if (*from == 0 && nc == fc) {
 				*ignore_next_n = 1;
 				return from + 1;
@@ -1825,7 +1826,7 @@ static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsi
 }
 
 // handle .replace rule in xx_rules file
-static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert, int *wordflags)
+static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, const char *next, int *insert, int *wordflags)
 {
 	unsigned int new_c, c2 = ' ', c_lower;
 	int upper_case = 0;
@@ -1849,7 +1850,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		upper_case = 1;
 	}
 
-	const char *to = FindReplacementChars(tr, &from, c_lower, next_in, &ignore_next_n);
+	const char *to = FindReplacementChars(tr, &from, c_lower, next, &ignore_next_n);
 	if (to == NULL)
 		return c; // no substitution
 
@@ -1940,7 +1941,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		break;
 	}
 	// handle .replace rule in xx_rules file
-	return SubstituteChar(tr, c, next_in, insert, wordflags);
+	return SubstituteChar(tr, c, next_in, ptr, insert, wordflags);
 }
 
 static const char *UCase_ga[] = { "bp", "bhf", "dt", "gc", "hA", "mb", "nd", "ng", "ts", "tA", "nA", NULL };
