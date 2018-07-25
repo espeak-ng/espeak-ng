@@ -1,38 +1,39 @@
 ﻿// translation rules for lingua franca nova
 // This file is UTF-8 encoded
 
-.replace а	a
-.replace б	b
-.replace к	c
-.replace д	d
-.replace е	e
-.replace ф	f
-.replace г	g
-.replace х	h
-.replace и	i
-.replace ж	j
-.replace л	l
-.replace м	m	
-.replace н	n
-.replace о	o
-.replace п	p
-.replace р	r
-.replace с	s
-.replace т	t
-.replace у	u
-.replace в	v
-.replace ш	x
-.replace з	z
+.replace
+        а	a
+        б	b
+        к	c
+        д	d
+        е	e
+        ф	f
+        г	g
+        х	h
+        и	i
+        ж	j
+        л	l
+        м	m	
+        н	n
+        о	o
+        п	p
+        р	r
+        с	s
+        т	t
+        у	u
+        в	v
+        ш	x
+        з	z
 
-.replace ё	io
-.replace й	i
-.replace ц	ts
-.replace ч	tx
-.replace щ	xtx
-.replace ы	i
-.replace э	e
-.replace ю	iu
-.replace я	ia
+        ё	io
+        й	i
+        ц	ts
+        ч	tx
+        щ	xtx
+        ы	i
+        э	e
+        ю	iu
+        я	ia
 
 
 .group a
