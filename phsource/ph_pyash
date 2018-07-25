@@ -1,0 +1,9 @@
+// Phonemes for Pyash (an artificial constructed language)
+// Inherits phonemes from Esperanto
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 170
+  FMT(vowel/e_mid2)
+endphoneme
+

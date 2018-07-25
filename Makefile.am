@@ -366,6 +366,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_portugal \
 	phsource/ph_pt_brazil \
 	phsource/ph_punjabi \
+	phsource/ph_pyash \
 	phsource/ph_romanian \
 	phsource/ph_russian \
 	phsource/ph_russian_lv \
@@ -492,6 +493,7 @@ dictionaries: \
 	espeak-ng-data/it_dict \
 	espeak-ng-data/ja_dict \
 	espeak-ng-data/jbo_dict \
+	espeak-ng-data/pyac_dict \
 	espeak-ng-data/ka_dict \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
@@ -660,6 +662,9 @@ espeak-ng-data/it_dict: dictsource/it_list dictsource/it_listx dictsource/it_rul
 
 jbo: espeak-ng-data/jbo_dict
 espeak-ng-data/jbo_dict: dictsource/jbo_list dictsource/jbo_rules dictsource/jbo_extra
+
+pyac: espeak-ng-data/pyac_dict
+espeak-ng-data/pyac_dict: dictsource/pyac_list dictsource/pyac_rules dictsource/pyac_extra
 
 ja: espeak-ng-data/ja_dict
 espeak-ng-data/ja_dict: dictsource/ja_list dictsource/ja_rules dictsource/ja_extra dictsource/ja_emoji
