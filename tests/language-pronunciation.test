@@ -63,7 +63,7 @@ test_phonemes nb - " vo:R s'a:Ra# s'u-:lu-:_:_: fRA b,ade:'YyA sp'Ilta# j'u: vh'
 test_phonemes pl - " m'E~Zny b'On^ts;\n xR'On^ p'uwk tf'uj_! i S'ES;ts; fl'ak\n z'aZuwdz; g'En^S;lO~_ j'aZ;n^" "Mężny bądź, chroń pułk twój i sześć flag. Zażółć gęślą jaźń."
 test_phonemes pt - " lw'iz ,&*@-gu'i; ,a: Z'ulj& ky_:_: bR&s'o~js#\n f'E\n S'a\n 'OksidU\n p'or-\n z'&~Ng&U~_:_: ,E*&U~ p,&l'avR&Z dU p,u*@-tug'es#" "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português."
 test_phonemes ro - " m,uzikol'og@_! yn b'eZ v'ynd wh'iski Si tekw'ila\n p@-*'ets f'iks" "Muzicologă în bej vând whisky și tequila, preț fix."
-test_phonemes ru - " Syr'okVja E#l;ikt@-r;if;'ikVtsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;ilsk'ovV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства."
+test_phonemes ru - " Syr'okVja E#l;ikt@-r;if;ik'Atsyja 'juZnyx gub;'ern;ij d'Ast m'oS;nyj tVltS;'ok pVdj'8mu s;'elskVvV xVz;'Ajstva#" "Широкая электрификация южных губерний даст мощный толчок подъёму сельского хозяйства."
 test_phonemes sk - " k'r:d;el^ St;'astni:Q d;'atl^ow 'utSi: pR'i;u:st;i: v'a:hu m'l:kveho k'on^a 'ophRi:zat; k'uoRu_:_: a ZR'at; tS'eRstve: m'eso\n p'et;ti:Zdn^,ove: v'l:tSata: n'eRvo:zn^e St;'ekaju: n'amu,ojho d;'atl^a_! v_ t'r:n^i:" "Kŕdeľ šťastných ďatľov učí pri ústí Váhu mĺkveho koňa obhrýzať kôru a žrať čerstvé mäso. Päťtýždňové vĺčatá nervózne štekajú na môjho ďatľa v tŕní."
 test_phonemes sl - " xiSn'i:tSin bR'a:tEts uzg'a:ja p'o:wZE p'o:t fik'u:sOm" "Hišničin bratec vzgaja polže pod fikusom."
 test_phonemes sr "Cyrl" " l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
