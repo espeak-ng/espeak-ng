@@ -1,0 +1,5 @@
+name Pyash
+language pyac
+
+speed 80   // speed adjustment, percentage
+//letterVowel y
