@@ -2,4 +2,5 @@ name pyash
 language pyac
 
 speed 80   // speed adjustment, percentage
+stressRule 0
 //letterVowel y

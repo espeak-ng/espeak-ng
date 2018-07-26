@@ -6,17 +6,23 @@
 
 
 // How Number ASCII is pronounced
-//_0	no
-//_1	pa
-//_2	Re
-//_3	Si
-//_4	vo
-//_5	mu
-//_6	xa
-//_7	ze
-//_8	bi
-//_9	so
-//_dpt	pi_
+_0	zRon
+_1	hjik
+_2	tjut
+_3	tjin
+_4	ksas
+_5	hfak
+_6	hlis
+_7	hsip
+_8	hwap
+_9	twun
+_A	htip
+_B	slen
+_C	tfat
+_D	tses
+_E	hses
+_F	hpet
+_dpt	fjih
 
 
 // how letters are pronounced individually
@@ -121,6 +127,7 @@ n6      n@_::	$u
 gyih    gjih_::	$u
 //pi7     pi55_::	$u
 //si2     si22_::	$u
+
 
 // case terminators (short pause after)
 na    na_:	$u
