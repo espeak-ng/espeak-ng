@@ -247,6 +247,9 @@
       <Feature Id="lang_pa" Title="Punjabi" Level="1">
         <ComponentGroupRef Id="LangPunjabi"/>
       </Feature>
+      <Feature Id="lang_pyac" Title="Pyash" Level="1">
+        <ComponentGroupRef Id="LangPyash"/>
+      </Feature>
       <Feature Id="lang_ro" Title="Romanian" Level="1">
         <ComponentGroupRef Id="LangRomanian"/>
       </Feature>
@@ -1250,6 +1253,10 @@
     <ComponentGroup Id="LangPunjabi">
       <ComponentRef Id="pa"/>
       <ComponentRef Id="pa_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangPyash">
+      <ComponentRef Id="pyac"/>
+      <ComponentRef Id="pyac_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangRomanian">
       <ComponentRef Id="ro"/>

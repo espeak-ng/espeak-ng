@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 102 supported languages and accents are:
+The 103 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -93,6 +93,7 @@ The 102 supported languages and accents are:
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
+[ `art`       | `pyac`            | Constructed           | Pyash                       |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
