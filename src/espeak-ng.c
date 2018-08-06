@@ -91,6 +91,8 @@ static const char *help_text =
     "\t   Compile the intonation data\n"
     "--compile-phonemes=<phsource-dir>\n"
     "\t   Compile the phoneme data using <phsource-dir> or the default phsource directory\n"
+    "--fflush-stdout\n"
+    "\t   Flush STDOUT after writing, so espeak-ng can be used as a subprocess through pipes\n"
     "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
     "--path=\"<path>\"\n"
     "\t   Specifies the directory containing the espeak-ng-data directory\n"
@@ -121,6 +123,7 @@ unsigned int samples_total = 0;
 unsigned int samples_split = 0;
 unsigned int samples_split_seconds = 0;
 unsigned int wavefile_count = 0;
+bool fflush_stdout = 0;
 
 FILE *f_wavfile = NULL;
 char filetype[5];
@@ -321,6 +324,7 @@ int main(int argc, char **argv)
 		{ "compile-mbrola", optional_argument, 0, 0x10e },
 		{ "compile-intonations", no_argument, 0, 0x10f },
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
+		{ "fflush-stdout", no_argument, 0, 0x111 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -562,6 +566,11 @@ int main(int argc, char **argv)
 			}
 			return EXIT_SUCCESS;
 		}
+		case 0x111: // --fflush-stdout
+		{
+			fflush_stdout = true;
+			break;
+		}
 		default:
 			exit(0);
 		}
@@ -691,6 +700,7 @@ int main(int argc, char **argv)
 			while (fgets(p_text, max, f_text) != NULL) {
 				p_text[max-1] = 0;
 				espeak_Synth(p_text, max, 0, POS_CHARACTER, 0, synth_flags, NULL, NULL);
+				if(fflush_stdout) fflush(stdout);
 			}
 			if (f_text != stdin) {
 				fclose(f_text);
