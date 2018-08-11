@@ -34,7 +34,7 @@
 .L04  ب ث ج ح خ د ذ ر ز س ش ص ض ط ظ غ ف ق ک ل م ن
 
 //  Letter group L05
-.L05  ب ت ث ج ح خ د ذ ر ز س ش ص ض ع غ ف ق ک ل م ن و ہ
+.L05  ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ل م ن و ہ
 
 //  Letter group L06
 .L06  آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک ل م ن و ہ ی ٰ
@@ -94,7 +94,8 @@ _) ای	e:
 	افتتاح	,ItIt'a:H
 	اسلام	,Isl'a:m
 	_) انسان	Ins'a:n
-	_) انت (L02ا	'Int,a
+	_)اندیش	ande:S
+	_)انت(L02ا	IntI
 	_) امید	Um'i:d
 	اً(_S2	'an
 	_) امکان	,Imk'a:n
@@ -133,11 +134,13 @@ _) ای	e:
 	_) انتظ	'Int,Iz.
 	_)اخت(L02ا	,IxtI
 	_)اقت(L02ا	,IqtI
-	_) اح (L02	'EH
+	_)اح(L02L06	EH
 	_)است(L02ا	,IstI
+	_)اشت(L02ا	IStI
 	_)ارت(L02ا	,IRtI
-	_) ادار	Ida:R
+	_)ادا(ر	Ida:
 	_)انک(L02ا	InkI
+	_)انط(L02ا	IntI
 	_)انہتر	UnHataR
 	_)او(ا	av
 	_)انہ(L02L01	InHI
@@ -177,6 +180,7 @@ _) ای	e:
 	_)امت(L02ا	ImtI
 	_)انح(L02ا	InHI
 	_)انخ(L02ا	InxI
+	_)ابت(L02ا	IbtI
 	_)انس(پ	Ins
 	_)انس(L02ا	InsI
 	_)انس(ٹ	Ins
@@ -188,13 +192,24 @@ _) ای	e:
 	_)انق(L02ا	InqI
 	_)الت(L02ا	IltI
 	_)انف(L02ا	InfI
+	_)احت(L02ا	EHtI
+	_)اند(L02ا	IndI
+	_)انع(L02ا	InI
+	_)انب(L02ا	InbI
+	_)انٹر	Int.aR
+	_)انک(L01	Ink
 	_)ال(L06L06L06P2	al
-	_L05)اب(L04_	a:bI
-	_L05)ات(L04_	a:tI
-	_L05)اغ(L04_	a:QI
-	_L05)ال(L04_	a:lI
-	_L05)اج(L04_	a:JI
-	_L05)اح(L04_	a:HI
+	L05)اب(L04_	a:bI
+	L05)ات(L04_	a:tI
+	L05)اق(L04_	a:qI
+	L05)ال(L04_	a:lI
+	L05)اج(L04_	a:JI
+	L05)اح(L04_	a:HI
+	L05)ام(L04_	a:mI
+	L05)اط(L04_	a:tI
+	_)اولوال(L06L06L06P6	UlUl
+	_)استاد	Usta:d
+	ائ(L02	aI
 
 .group آ
 	آ	a:
@@ -225,13 +240,12 @@ _) ای	e:
 	و (L01	v
 	_) و	vV
 	 وع (_	u:
-	وّ	vv
-	L02L02L02) و (L02	u:
+	وّ	v:
+	_L02L06L02)و(L02	u:
 	L02) ونکہ (_	u:nk'e:H
 	_L02)و(L01	av
 	L01)و(L01	v
 	وؤ	u:o:
-	L03L03L03L03)وں(S2	o:n
 	_L02L01)و(L02_	vV
 
 .group ی
@@ -248,11 +262,10 @@ _) ای	e:
 	ی (و	e:
 	L02)یوں	i;o:n
 	L03)یکشن	e:kSan
-	L03L03L03L03)یں(S2	e~
 	یں	e~
 	L03)یک(ٹ	e:k
 	L03L01)یا(_S2	ja:
-	L06L06L06L06)ی(_S1	i:
+	L03)یشنل(_	e:Snal
 
 .group ے		// yeh barree
 	ے	e:
@@ -278,8 +291,8 @@ _) ای	e:
 	بھ	b#V
 	بھ (L01	b#
 	ب (L01	b	
-	بّ	bbV
-	بّ (L01	bb
+	بّ	b:V
+	بّ (L01	b:
 	_) بگڑ	bIg'ar.
 	_) بگڑ (L01	b'Igr.
 	_) بکھر	bIkh'aR
@@ -303,7 +316,7 @@ _) ای	e:
 	بزرگ	b'UzUR,g
 	_) بدل (L02	bad'al
 	بوڑھ	b'u:r.h
-	_) بے (P2	b'e:
+	_)بے(P2	be:
 	بحران	b,OHR'a:n
 	_)بپھر(L01	bIp#R
 	_)بچھ	bIc#
@@ -311,6 +324,7 @@ _) ای	e:
 	_)برائی	bURa:i
 	_)بوا(ئ	boa:
 	_)بزدل	bUzdIl
+	_)بال(L06L06L06P3	bIl
 
 
 .group پ
@@ -318,8 +332,8 @@ _) ای	e:
 	پھ	p#V
 	پ (L01	p
 	پھ (L01	p#
-	پّ	ppV
-	پّ (L01	pp
+	پّ	p:V
+	پّ(L01	p:
 	_) پھر	ph'IR
 	پھول	ph'u:l
 	_) پہ (L02	p'EH
@@ -351,6 +365,7 @@ _) ای	e:
 	L03L03) تے (_S2	te:
 	_) توا	t'ava:
 	تہ(_	ta
+	_)تصور	tas.av:UR
 
 .group ٹ
 	ٹ	t.V
@@ -378,8 +393,8 @@ _) ای	e:
 	جھ	J#V
 	ج (L01	J
 	جھ (L01	J#
-	جّ	JJV
-	جّ (L01	JJ
+	جّ	J:V
+	جّ (L01	J:
 	_) جیت	J'i:t
 	_) جوا	J'ava:
 	جانب	J'a:nIb
@@ -395,8 +410,8 @@ _) ای	e:
 	چھ	c#V
 	چ (L01	c
 	چھ (L01	c#
-	چّ	ccV
-	چّ (L01	cc
+	چّ	c:V
+	چّ (L01	c:
 	_) چکا	c'Uka:
 	_) چہ (L02	c'EH
 	_) چیز	c'i:z
@@ -412,18 +427,19 @@ _) ای	e:
 	_) حوال	Hav'a:l
 
 
-	حّ	HHV
-	حّ (L01	HH
+	حّ	H:V
+	حّ(L01	H:
 	_)حیا	Haja:
+	_)حرکت	HaRkat
 
 .group خ
 	خ	xV
 	خ (L01	x
 	@) خ (ت	x
-	خّ	xxV
-	خّ (L01	xx
+	خّ	x:V
+	خّ(L01	x:
 	_) خوش	x'US
-	_) خود	x'Ud
+	_)خود	x'Ud
 	_) خواہش	xv'a:HIS
 	_) خیا	x'aja:
 	_)خوا	xva:
@@ -435,15 +451,15 @@ _) ای	e:
 	دھ	d#V
 	د (L01	d
 	دھ (L01	d#
-	دّ	ddV
-	دّ (L01	dd
+	دّ	d:V
+	دّ(L01	d:
 	درخواست	d,aRxv'a:st
 	دیا(_	d'i:;a:
 	درج	d'aRJ
 	دیوا	d'i:va:
 	دفاع	d'Ifa:
 	_) دہ (L02	d'EH
-	دنیا	dUn'i:;a:
+	_)دنیا	dUn'i:;a:
 	دہشت	d'EHS'at
 	دلچسپ	d,Ilc'asp
 	دھیم	d#'i:m
@@ -451,6 +467,7 @@ _) ای	e:
 	_) دین	de:n
 	_) دیت	de:t
 	دہ(_	da
+	_)دشمن	dUSman
 
 .group ڈ
 	ڈ	d.V
@@ -471,8 +488,8 @@ _) ای	e:
 .group ر
 	ر	RV
 	ر (L01	R
-	رّ	RRV
-	رّ (l01	RR
+	رّ	R:V
+	رّ (l01	R:
 	@) ر (ٹ	R
 	@) ر (ڈ	R
 	@) ردہ (_	Rd,a
@@ -481,7 +498,7 @@ _) ای	e:
 	_) رخ	R'Ux
 	_) رکن	R'Ukn
 	@) ر (د	R
-	_) رفت	R'af@t
+	_)رفت	Raft
 
 .group ڑ
 	ڑ	r.V
@@ -528,6 +545,7 @@ _) ای	e:
 	سرگرم	s,aRg'aRm
 	L03L02) ستان (_	Ist'a:n
 	L02) ستانی (_	Ist'a:ni
+	_)س(ٹL01L03	s
 
 .group ش
 	ش	SV
@@ -543,6 +561,8 @@ _) ای	e:
 	_) شہ (L02	S'EH
 	شرمند	S,aRm'Ind
 	_)شمار	SUma:R
+	L03)شنز(_	Sanz
+	شعور	Sau:R
 
 .group ص
 	ص	s.V
@@ -554,8 +574,8 @@ _) ای	e:
 .group ض
 	ض	zV
 	ض (L01	z
-	ضّ	zzv
-	ضّ (L01	zz
+	ضّ	z:v
+	ضّ (L01	z:
 	ضرور	zaRu:R
 
 .group ط
@@ -586,6 +606,7 @@ _) ای	e:
 	_) فکر	f'IkR
 	_) فہ (L02	f'EH
 	فلم	f'Ilm
+	_)فریب	faRe:b
 
 .group ق
 	ق	qV
@@ -607,7 +628,8 @@ _) ای	e:
 	کتاب	kIt'a:b
 	کوشش	k'o:SIS
 	_) کہ (L02	k'EH
-	کارکن	k'a:Rk,UUn
+	کارکن	k'a:Rk,Un
+	_)کردار	kIRda:R
 
 .group گ
 	گ	gV
@@ -641,8 +663,8 @@ _) ای	e:
 .group م
 	م	mV
 	م (L01	m
-	مّ	mmV
-	مّ (L01	mm
+	مّ	m:V
+	مّ (L01	m:
 	_) مشکل	m'USk,Il
 	محکم	me:He:km
 	مظاہر	mUz.'a:HIR
@@ -675,7 +697,21 @@ _) ای	e:
 	متصل	mUt'as.Il
 	مخبر	m'Uxb,IR
 	ملحق	m'UlH,Iq
-	مذہب	m,aDH'ab
+	مذہب	mazHab
+	مقابل	mUqa:bIl
+	_)مقتدر	mUqtadIR
+	_)مقت(L02L06	mUqta
+	_)مقدار	mIqda:R
+	_)مقدر	mUqad:aR
+	_)مقرب	mUqaR:Ib
+	_)مصور	mUs.av:IR
+	_)محرک	mUHaRIk
+	_)محنت	mEHnat
+	_)محور	mEHvaR
+	_)منت(L02L02	mUnta
+	_)منصب	mans.ab
+	_)منصف	mUns.If
+	_)منطق	mantIq
 
 .group ن
 	ن	nV
@@ -694,7 +730,7 @@ _) ای	e:
 	_) نمٹ	nIm'at.
 	_) نمٹ (L01	nImt.
 	@) ن (پ	n
-	_) نچل	n'Icl
+	_)نچل	nIcl
 	نشان	nIS'a:n
 	@) ن (ڈ	n
 	_) نظر	naz.'aR
@@ -708,7 +744,8 @@ _) ای	e:
 	_) نماز	nam'a:z
 	L03L03) نا (_S2	na:
 	L03L03) نی (_S2	ni:
-	L03L03) نے (_S2	ne:
+	L03L03)نے(_S2	ne:
+	_)نیند	ni:nd
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -719,6 +756,7 @@ _) ای	e:
 .group ئ
 	ئ	
 	L01) ئ (L02	'I
+	L01)ئ(ر	'a
 
 .group ہ 
 	ہ	H
