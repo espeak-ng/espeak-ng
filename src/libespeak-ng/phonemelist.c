@@ -128,6 +128,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 	bool inserted;
 	bool deleted;
 	PHONEME_DATA phdata;
+	bool start_of_clause = true;
 
 	int n_ph_list3;
 	PHONEME_LIST *plist3;
@@ -517,6 +518,11 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 					phlist[ix].newword |= PHLIST_START_OF_SENTENCE;
 					start_sentence = false;
 				}
+
+				if (start_of_clause) {
+					phlist[ix].newword |= PHLIST_START_OF_CLAUSE;
+					start_of_clause = false;
+				}
 			} else
 				phlist[ix].newword = 0;
 
@@ -538,6 +544,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 			ix++;
 		}
 	}
+
 	phlist[ix].newword = PHLIST_END_OF_CLAUSE;
 
 	phlist[ix].phcode = phonPAUSE;

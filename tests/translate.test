@@ -13,52 +13,54 @@ test_phonemes() {
 }
 
 # word lookup
-test_phonemes en " h@l'oU" "hello"
+test_phonemes en "h@l'oU" "hello"
 
 # correct word stress
-test_phonemes en " s'VmTIN Imp'o@t@nt" "something important"
+test_phonemes en "s'VmTIN Imp'o@t@nt" "something important"
 
 # suffix rules
 test_phonemes lv \
-	" nev'ie:na nuo\`_ 'eiRo:pas v'al>sti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok}l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \
+	"nev'ie:na nuo\`_ 'eiRo:pas v'al>sti:m nek,ad nav p'a:Rga:jusi nuo\`_ 'univERsa:la:s_:_: nuo\` v'ispa:Re:jiem n'uoduok}l^iem f'inanse:tas_:_: s'iste:mas uz 'obliga:ta:s 'apdRuoSina:Sanas s'iste:mu b'eigas" \
 	"Neviena no Eiropas valstīm nekad nav pārgājusi no universālās (no vispārējiem nodokļiem finansētas) sistēmas uz obligātās apdrošināšanas sistēmu Beigas."
 
 # A list entry that uses '$text' to map to another list entry crashes 1.49.2 multi-word support:
-test_phonemes en " d'eIbju:tI2d" "débuted"
-test_phonemes en-US " d'eIbju:t#I#d" "débuted"
+test_phonemes en "d'eIbju:tI2d" "débuted"
+test_phonemes en-US "d'eIbju:t#I#d" "débuted"
 
 # bug: https://github.com/nvaccess/nvda/issues/7740
-test_phonemes ta " 'il." "ள்"
-test_phonemes my " kon'i" "7"
-test_phonemes ka " s'ami Sv'idi" "3 7"
+test_phonemes ta "'il." "ள்"
+test_phonemes my "kon'i" "7"
+test_phonemes ka "s'ami Sv'idi" "3 7"
 
 # bug: https://github.com/nvaccess/nvda/issues/7805
-test_phonemes hi " r'UcI" "रुचि"
-test_phonemes hi " dUk'a:n" "दुकान"
-test_phonemes hi " ka:n'u:n" "कानून"
+test_phonemes hi "r'UcI" "रुचि"
+test_phonemes hi "dUk'a:n" "दुकान"
+test_phonemes hi "ka:n'u:n" "कानून"
 
 # A deleted phoneme at the start of a word should preserve the sourceix property.
-test_phonemes en-GB-x-gbcwmd " aI 'av" "I have"
+test_phonemes en-GB-x-gbcwmd "aI 'av" "I have"
 
 # A deleted phonSWITCH should preserve the sourceix property of the deleted phoneme.
-test_phonemes hyw " 'a g@rn'am" "A Կրնամ"
+test_phonemes hyw "'a g@rn'am" "A Կրնամ"
+
+test_phonemes en "'eI\nb'i: s'i:\nd'i:\n'i:\n'Ef" "A. B C, D. E: F."
 
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character
-test_phonemes en " 'e@ri:z" "♈"
-test_phonemes my " pru3'a2nke3DN_|_| mj@@lu3'a2mj@2tsnh,a2N_|_| nm_|n'e3DN_|_| mj@@nh,ats" "😙"
-test_phonemes ka " k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
-test_phonemes ka " 'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
+test_phonemes en "'e@ri:z" "♈"
+test_phonemes my "pru3'a2nke3DN_|_| mj@@lu3'a2mj@2tsnh,a2N_|_| nm_|n'e3DN_|_| mj@@nh,ats" "😙"
+test_phonemes ka "k'ots#nis g'amomx,atveli s'axe m'omQim,are t#v'alebit#" "😙"
+test_phonemes ka "'imedg,ats#ru,ebuli m'agram Sv'ebis g'amomx,atveli s'axe" "😥"
 # TODO: Fix adjacent emoji without whitespace so the pronunciation is separated by a space.
-test_phonemes en " 'e@ri:zr'eInboU" "♈🌈"
-test_phonemes en " 'e@ri:z r'eInboU" "♈ 🌈"
+test_phonemes en "'e@ri:zr'eInboU" "♈🌈"
+test_phonemes en "'e@ri:z r'eInboU" "♈ 🌈"
 
 # multi-word emoji
-test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
-test_phonemes en " Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
-test_phonemes en " r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
+test_phonemes en "Ekskla#m'eIS@n kw'EstS@n m'A@k" "⁉"
+test_phonemes en "Ekskla#m'eIS@n kw'EstS@n m'A@k r'eInboU" "⁉ 🌈"
+test_phonemes en "r'oUlIN 0nD@ fl'o@ l'aafIN" "🤣" # skip words
 
 # bug: https://github.com/espeak-ng/espeak-ng/issues/471
-test_phonemes sk " sm'eju:tsa s'a tv'a:R" "☺"
-test_phonemes sk " bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"
+test_phonemes sk "sm'eju:tsa s'a tv'a:R" "☺"
+test_phonemes sk "bl'ax sm'eju:tsa s'a tv'a:R" "blah ☺"

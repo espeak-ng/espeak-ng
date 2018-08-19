@@ -578,7 +578,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		plist = &phoneme_list[ix];
 
 		WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
-		if (plist->newword)
+		if (plist->newword & PHLIST_START_OF_WORD && !(plist->newword & (PHLIST_START_OF_SENTENCE | PHLIST_START_OF_CLAUSE)))
 			*buf++ = ' ';
 
 		if ((!plist->newword) || (separate_phonemes == ' ')) {
