@@ -1301,7 +1301,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ROMAN;
 		tr->langopts.numbers2 = NUM2_THOUSANDS_VAR2;
-		tr->langopts.thousands_sep = STRESSPOSN_1L; // no thousands separator
+		tr->langopts.thousands_sep = 0; // no thousands separator
 		tr->langopts.decimal_sep = ',';
 
 		if (name2 == L('c', 's'))
