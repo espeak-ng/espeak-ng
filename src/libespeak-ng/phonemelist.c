@@ -52,9 +52,14 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out, int n_ph_list2, PHONEME_L
 	bool word_end;
 	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *next = NULL;
+	int deleted_sourceix = -1;
 
 	for (ix = 0; (ix < n_ph_list2) && (n_plist_out < N_PHONEME_LIST); ix++) {
 		plist2 = &ph_list2[ix];
+		if (deleted_sourceix != -1) {
+			plist2->sourceix = deleted_sourceix;
+			deleted_sourceix = -1;
+		}
 
 		// don't do any substitution if the language has been temporarily changed
 		if (!(plist2->synthflags & SFLAG_SWITCHED_LANG)) {
@@ -87,8 +92,10 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out, int n_ph_list2, PHONEME_L
 				}
 			}
 
-			if (plist2->phcode == 0)
+			if (plist2->phcode == 0) {
+				deleted_sourceix = plist2->sourceix;
 				continue; // phoneme has been replaced by NULL, so don't copy it
+			}
 		}
 
 		// copy phoneme into the output list

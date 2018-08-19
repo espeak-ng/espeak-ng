@@ -37,6 +37,9 @@ test_phonemes hi " r'UcI" "रुचि"
 test_phonemes hi " dUk'a:n" "दुकान"
 test_phonemes hi " ka:n'u:n" "कानून"
 
+# A deleted phoneme at the start of a word should preserve the sourceix property.
+test_phonemes en-GB-x-gbcwmd " 'av" "have"
+
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character

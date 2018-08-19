@@ -140,7 +140,7 @@ test_phonemes en-GB-x-gbclan "Lexical Sets" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
 
 test_phonemes en-GB-x-gbcwmd "Lexical Sets" \
-	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d'api k'0m@ l'Et3r- Ekspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
+	" k'It dr'Es tr'ap l'0t str'Vt f'Ut fl'i:s p'A:m T'O:t g'u:s n'3:s st'A@t n'O@T f'O@s kj'U@ n,i@3 skw'e@ t'3:m b'3:d 'api k'0m@ l'Et3r- Ekspl'O@ r'oUzI2z r'abIt f'eIs pr'aIs tS'OIs g'oUt m'aUT b'aaT kl'0T m'Ili@n dI2v'aIdI2d" \
 	"kit dress trap lot strut foot fleece palm thought goose nurse start north force cure near square term bird happy comma letter explore roses rabbit face price choice goat mouth bath cloth million divided"
 
 test_phonemes en-GB-x-rp "Lexical Sets" \
