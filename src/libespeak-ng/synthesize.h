@@ -187,6 +187,10 @@ typedef struct {
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
 } PHONEME_LIST2;
 
+#define PHLIST_START_OF_WORD     1
+#define PHLIST_END_OF_CLAUSE     2
+#define PHLIST_START_OF_SENTENCE 4
+
 typedef struct {
 	// The first section is a copy of PHONEME_LIST2
 	unsigned short synthflags;
@@ -203,7 +207,7 @@ typedef struct {
 	unsigned char prepause;
 	unsigned char postpause;
 	unsigned char amp;
-	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
+	unsigned char newword;   // bit flags, see PHLIST_(START|END)_OF_*
 	unsigned char pitch1;
 	unsigned char pitch2;
 	unsigned char std_length;

@@ -1213,10 +1213,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 			sourceix = (p->sourceix & 0x7ff) + clause_start_char;
 
-			if (p->newword & 4)
+			if (p->newword & PHLIST_START_OF_SENTENCE)
 				DoMarker(espeakEVENT_SENTENCE, sourceix, 0, count_sentences); // start of sentence
 
-			if (p->newword & 1)
+			if (p->newword & PHLIST_START_OF_WORD)
 				DoMarker(espeakEVENT_WORD, sourceix, p->sourceix >> 11, clause_start_word + word_count++); // NOTE, this count doesn't include multiple-word pronunciations in *_list. eg (of a)
 		}
 

@@ -496,10 +496,10 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 
 			if (plist3->sourceix != 0) {
 				phlist[ix].sourceix = plist3->sourceix;
-				phlist[ix].newword = 1; // this phoneme is the start of a word
+				phlist[ix].newword = PHLIST_START_OF_WORD;
 
 				if (start_sentence) {
-					phlist[ix].newword = 5; // start of sentence + start of word
+					phlist[ix].newword |= PHLIST_START_OF_SENTENCE;
 					start_sentence = false;
 				}
 			} else
@@ -523,7 +523,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 			ix++;
 		}
 	}
-	phlist[ix].newword = 2; // end of clause
+	phlist[ix].newword = PHLIST_END_OF_CLAUSE;
 
 	phlist[ix].phcode = phonPAUSE;
 	phlist[ix].type = phPAUSE; // terminate with 2 Pause phonemes

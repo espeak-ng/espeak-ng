@@ -361,9 +361,9 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, bool resume, FILE *f_mb
 		if (p->synthflags & SFLAG_EMBEDDED)
 			DoEmbedded(&embedded_ix, p->sourceix);
 
-		if (p->newword & 4)
+		if (p->newword & PHLIST_START_OF_SENTENCE)
 			DoMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);
-		if (p->newword & 1)
+		if (p->newword & PHLIST_START_OF_SENTENCE)
 			DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 
 		name = GetMbrName(p, ph, ph_prev, ph_next, &name2, &len_percent, &control);
