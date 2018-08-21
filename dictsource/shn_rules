@@ -1,4 +1,4 @@
-// Shan (Tai Yay) pronunciation rules (Burmese script)
+// Shan (Tai Yai) pronunciation rules (Shan script)
 
 .group င // U+1004
          င         N
@@ -78,12 +78,10 @@
 // Vowels in groups 
 
 // All vowels below are suffixs 
-
 .group ႃ 
        ႃ      a 
-      ေ)ႃ     O
-      
-          
+
+
 .group   ီ 
              ီ        i
              
@@ -101,13 +99,23 @@
 
 .group  ု
             ု        u 
-            
+              
+.group   ေႃ 
+	    _) ေႃ     O    
+		
+		  
+.group     ို
+            _)  ို(_    W
+		  
+		  
+.group      ိူ
+           _)   ိူ (_    @
+
+
 
 .group  ေ
-        ေ    ei   // default rule without other characters
-    _)  ေႃ    O   // in group with other characters if necessary
-    
-       
+            ေ    ei   // default rule without other characters
+         
 .group  ႄ
             ႄ      E
              
@@ -139,7 +147,8 @@
 .group   ျ          
              _) ျ      ja
               
- 
+			  
+ //  open sounds
 .group  ဝ်
             _)ဝ်     w   
             
@@ -164,7 +173,7 @@
            _)င်       g  //  ipa = ɳ  ( temporary word )
             
       
-// very short sounds
+//  short sounds
 .group  ပ်
           _) ပ်       p
           
@@ -175,3 +184,22 @@
            
 .group  ၵ်
          _) ၵ်      k   // temporary word        
+		 
+		 
+
+// 6 tones  -  tone 1 need a way to detect
+
+.group  ႇ
+            _)ႇ      2
+
+.group  ႈ
+            _)ႈ      3
+           
+.group  း
+            _)း     4
+        
+.group  ႉ
+            _)ႉ      5
+           
+.group  ႊ     
+           _)ႊ     6

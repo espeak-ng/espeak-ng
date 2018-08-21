@@ -146,7 +146,7 @@ endphoneme
 
 phoneme @
   vwl starttype #@ endtype #@
-  length 200
+  length 250
   ipa ə
 
   FMT(vowel/3_2)
@@ -182,7 +182,7 @@ phoneme a:
   FMT(vowel/a)
 endphoneme
 
-phoneme O
+phoneme O       
   vwl starttype #o endtype #o
   length 260
   ipa ɔ
@@ -195,21 +195,21 @@ endphoneme
 // DIPHTHONGS
 //*******************************************************************
 
-phoneme iu
+phoneme iu           //   ိဝ်
   vwl starttype #i endtype #u
   length 200
 
   FMT(vdiph2/iu)
 endphoneme
 
-phoneme eu
+phoneme eu   //   ဵဝ်
   vwl starttype #e endtype #u
   length 200
 
   FMT(vdiph/eu)
 endphoneme
 
-phoneme Eu
+phoneme Eu      //   ႅဝ်
   vwl starttype #e endtype #u
   length 200
   ipa ɛu
@@ -217,14 +217,14 @@ phoneme Eu
   FMT(vdiph/eeu)
 endphoneme
 
-phoneme au
+phoneme au     //  ေႃ
   vwl starttype #a endtype #u
   length 200
 
   FMT(vdiph/au_2)
 endphoneme
 
-phoneme a:u
+phoneme a:u      //  ေႃ
   vwl starttype #a endtype #u
   length 250
   ipa aːu
@@ -232,7 +232,7 @@ phoneme a:u
   FMT(vdiph/au_2)
 endphoneme
 
-phoneme Wi
+phoneme Wi     //  ုၺ် 
   vwl starttype #i endtype #i
   length 200
   ipa ɯi
@@ -240,7 +240,7 @@ phoneme Wi
   FMT(vdiph/ui_3)
 endphoneme
 
-phoneme ui
+phoneme ui       //  ုၺ်
   vwl starttype #u endtype #i
   length 200
 
@@ -250,29 +250,29 @@ endphoneme
 phoneme @i
   vwl starttype #@ endtype #i
   length 200
-  ipa əi          //   ႂ် 
+  ipa əi          //    ႂ် 
 
   FMT(vdiph/@i)
 endphoneme
 
-phoneme oi
+phoneme oi         //    ူၺ်
   vwl starttype #o endtype #i
   length 200
 
   FMT(vdiph/ooi)
 endphoneme
 
-phoneme ai
+phoneme ai         //    ႆ
   vwl starttype #a endtype #i
   length 200
 
-  FMT(vdiph/ai)
+  FMT(vdiph/ai)    
 endphoneme
 
 phoneme a:i
   vwl starttype #a endtype #i
   length 250
-  ipa aːi
+  ipa aːi   //  ၢႆ
 
   FMT(vdiph/ai)
 endphoneme
@@ -280,7 +280,7 @@ endphoneme
 phoneme Oi
   vwl starttype #o endtype #i
   length 200
-  ipa ɔi
+  ipa ɔi   //     ွႆ
 
   FMT(vdiph/ooi_3)
 endphoneme
@@ -288,7 +288,7 @@ endphoneme
 phoneme aW
   vwl starttype #a endtype #u
   length 200
-  ipa aɯ
+  ipa aɯ     //  ေႃ
 
   FMT(vdiph/aau_4)
 endphoneme
