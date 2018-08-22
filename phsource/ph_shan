@@ -250,7 +250,7 @@ endphoneme
 phoneme @i
   vwl starttype #@ endtype #i
   length 200
-  ipa əi          //    ႂ် 
+  ipa əi          
 
   FMT(vdiph/@i)
 endphoneme
@@ -288,7 +288,7 @@ endphoneme
 phoneme aW
   vwl starttype #a endtype #u
   length 200
-  ipa aɯ     //  ေႃ
+  ipa aɯ     //    ႂ် 
 
   FMT(vdiph/aau_4)
 endphoneme

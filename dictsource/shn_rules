@@ -1,5 +1,17 @@
 // Shan (Tai Yai) pronunciation rules (Shan script)
 
+.replace
+       ႐    0
+       ႑    1
+       ႒    2
+       ႓    3
+       ႔    4
+       ႕    5
+       ႖    6
+       ႗    7
+       ႘    8
+       ႙    9
+
 .group င // U+1004
          င         N
 
@@ -101,7 +113,7 @@
             ု        u 
               
 .group   ေႃ 
-	    _) ေႃ     O    
+	     ေႃ     O    
 		
 		  
 .group     ို
@@ -154,52 +166,52 @@
             
 
 .group    ႂ်
-          _)  ႂ်       @i
+              ႂ်       aW
 
 
 .group ၺ်
-         _)ၺ်      Wi   
+         ၺ်      Wi   
            
 
 .group  မ် 
-           _)မ်       m
+            မ်       m
            
             
 .group  ၼ်
-          _)ၼ်      n   
+            ၼ်      n   
           
 
 .group  င်
-           _)င်       g  //  ipa = ɳ  ( temporary word )
+            င်       g  //  ipa = ɳ  ( temporary word )
             
       
 //  short sounds
 .group  ပ်
-          _) ပ်       p
+            ပ်       p
           
             
 .group တ်
-         _) တ်      t
+           တ်      t
            
            
 .group  ၵ်
-         _) ၵ်      k   // temporary word        
+            ၵ်      k   // temporary word        
 		 
 		 
 
 // 6 tones  -  tone 1 need a way to detect
 
 .group  ႇ
-            _)ႇ      2
+            ႇ      2
 
 .group  ႈ
-            _)ႈ      3
+            ႈ      3
            
 .group  း
-            _)း     4
+            း     4
         
 .group  ႉ
-            _)ႉ      5
+            ႉ      5
            
 .group  ႊ     
-           _)ႊ     6
+            ႊ    6
