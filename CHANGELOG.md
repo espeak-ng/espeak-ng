@@ -14,6 +14,8 @@ The espeak-ng project is a fork of the espeak project.
    BCP 47 language subtag registry making the newly registered `hyw` language code the
    preferred value for `hy-arevmda`. This change keeps support for detecting the
    `hy-arevela` and `hy-arevmda` language tags.
+*  Support any length replacement rule strings for the source part of the rule (replacing
+   from the 'source' string to the 'target' string).
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase.
 *  Fix various compiler warnings (`-Winitialized`, `-Wmissing-prototypes`, `-Wreturn-type`,
@@ -35,7 +37,8 @@ documentation:
 
 emoji:
 
-*  Update the emoji translations to CLDR 33.
+*  Update the emoji to Unicode 11.0.
+*  Update the emoji translations to CLDR 33.1.
 *  gd (Scottish Gaelic)
 *  sd (Sindhi)
 *  yue (Chinese (Cantonese))
@@ -44,11 +47,13 @@ new languages:
 
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
+*  ru-lv (Russian Latvia) -- Valdis Vitolins
 *  shn (Shan Tay Yai) -- ronaldaug
 
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
+*  ar (Arabic) -- Valdis Vitolins, Mark Readdie, Hesham Assabahi
 *  de (German) -- Reece Dunn, Karl Eick
 *  en (English) -- Reece Dunn
 *  fa (Farsi/Persian) -- Shadyar Khodayari
@@ -101,6 +106,9 @@ updated languages:
 *  it (Italian) -- chrislm
 *  ky (Kyrgyz) -- JRMeyer
 *  lv (Latvian) -- Valdis Vitolins
+*  mk (Macedonian) -- Reece Dunn. Updated the romanization support:
+   *  Don't map đ and ć to Serbian ђ and ћ (use Macedonian ѓ and ќ instead).
+   *  Support additional romanizations: ISO 9, BGN/PCGN, Cadastre, and MJMS/SSO.
 *  mr (Marathi) -- Vardhan
 *  or (Oriya) -- Vardhan
 *  ur (Urdu) -- Ejaz Shah

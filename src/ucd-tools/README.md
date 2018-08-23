@@ -17,8 +17,8 @@ this information within a C or C++ program.
 
 The project uses and supports the following sources of Unicode codepoint data:
 
-*  [Unicode Character Database](http://www.unicode.org/Public/10.0.0/ucd/) 10.0.0
-*  [Unicode Emoji](http://www.unicode.org/Public/emoji/5.0/) 5.0 (UTR #51)
+*  [Unicode Character Database](http://www.unicode.org/Public/11.0.0/ucd/) 11.0.0
+*  [Unicode Emoji](http://www.unicode.org/Public/emoji/11.0/) 11.0 (UTR #51)
 *  [ConScript Unicode Registry](http://www.evertype.com/standards/csur/)
 
 ## Build Dependencies

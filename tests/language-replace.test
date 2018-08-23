@@ -1,0 +1,112 @@
+#!/bin/sh
+
+test_replace() {
+	TEST_LANG=$1
+	TEST_TEXT=$2
+	TEST_BROKEN=${3:-false}
+
+	echo "testing ${TEST_LANG}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -P "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
+}
+
+##### bs: Bosnian
+
+# Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
+cat > expected.txt <<EOF
+Translate 'ljubazni'
+Translate 'fenjerdžija'
+Translate 'čađavog'
+Translate 'lica'
+Translate 'hoće'
+Translate 'da'
+Translate 'mi'
+Translate 'pokaže'
+Translate 'štos'
+EOF
+test_replace bs "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+
+##### en: English
+
+cat > expected.txt <<EOF
+Translate 'aeon'
+Found: 'mediaeval'
+Translate 'oeconomy'
+Found: 'phoenix'
+Translate 'loft'
+Translate 'history'
+EOF
+test_replace en "Æon mediæval. Œconomy phœnix. Loﬅ hiﬆory."
+
+##### hr: Croatian
+
+# Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
+cat > expected.txt <<EOF
+Translate 'ljubazni'
+Translate 'fenjerdžija'
+Translate 'čađavog'
+Translate 'lica'
+Translate 'hoće'
+Translate 'da'
+Translate 'mi'
+Translate 'pokaže'
+Translate 'štos'
+EOF
+test_replace hr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+
+##### ja: Japanese
+
+# いろはにほへと.  ちりぬるを.  わかよたれそ.  つねならむ.  うゐのおくやま.  けふこえて.  あさきゆめみし.  ゑひもせすん.
+cat > expected.txt <<EOF
+Translate 'いろはにほへと'
+Translate 'ちりぬるを'
+Translate 'わかよたれそ'
+Translate 'つねならむ'
+Translate 'うゐのおくやま'
+Translate 'けふこえて'
+Translate 'あさきゆめみし'
+Translate 'ゑひもせすん'
+EOF
+test_replace ja "イロハニホヘト. チリヌルヲ. ワカヨタレソ. ツネナラム. ウヰノオクヤマ. ケフコエテ. アサキユメミシ. ヱヒモセスン."
+
+##### mk: Macedonian
+
+# Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех.
+cat > expected.txt <<EOF
+Translate 'ѕидарски'
+Translate 'пејзаж'
+Translate 'шугав'
+Translate 'билмез'
+Found: 'со' [s_]   \$brk
+Translate 'чудење'
+Translate 'џвака'
+Translate 'ќофте'
+Found: 'и' [i_:]  \$u \$pause
+Translate 'кељ'
+Translate 'на'
+Translate 'туѓ'
+Translate 'цех'
+EOF
+test_replace mk "Dzidarski pejzaž: šugav bilmez so čudenje džvaka ćofte i kelj na tuđ ceh."
+
+##### sr: Serbian
+
+# Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos.
+cat > expected.txt <<EOF
+Translate 'ljubazni'
+Translate 'fenjerdžija'
+Translate 'čađavog'
+Translate 'lica'
+Translate 'hoće'
+Translate 'da'
+Translate 'mi'
+Translate 'pokaže'
+Translate 'štos'
+EOF
+test_replace sr "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
+

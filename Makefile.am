@@ -249,6 +249,7 @@ check:	tests/encoding.check \
 	tests/ssml-fuzzer.check \
 	tests/api.check \
 	tests/language-phonemes.check \
+	tests/language-replace.check \
 	tests/language-pronunciation.check
 
 
@@ -367,6 +368,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_punjabi \
 	phsource/ph_romanian \
 	phsource/ph_russian \
+	phsource/ph_russian_lv \
 	phsource/ph_s_gaelic \
 	phsource/ph_serbian \
 	phsource/ph_setswana \

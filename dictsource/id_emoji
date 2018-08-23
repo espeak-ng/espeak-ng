@@ -61,7 +61,7 @@ $textmode
 //№	numero								// [2116] other (no translation)
 //℞	prescription							// [211E] other (no translation)
 ™	merek dagang							// [2122] text|emoji
-ℹ	sumber informasi						// [2139] text|emoji
+ℹ	informasi							// [2139] text|emoji
 
 // 2150..218F : Number Forms
 
@@ -126,20 +126,20 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	huruf m dalam lingkaran						// [24C2] text|emoji
+Ⓜ	huruf M dalam lingkaran						// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
 //■	black square							// [25A0] other (no translation)
-▪	kotak kecil hitam						// [25AA] text|emoji
-▫	kotak kecil putih						// [25AB] text|emoji
+▪	persegi kecil hitam						// [25AA] text|emoji
+▫	persegi kecil putih						// [25AB] text|emoji
 ▶	tombol putar							// [25B6] text|emoji
 ◀	tombol mundur							// [25C0] text|emoji
 //●	black circle							// [25CF] other (no translation)
-◻	kotak medium putih						// [25FB] text|emoji
-◼	kotak medium hitam						// [25FC] text|emoji
-◽	kotak kecil medium putih					// [25FD]
-◾	kotak kecil medium hitam					// [25FE]
+◻	persegi medium putih						// [25FB] text|emoji
+◼	persegi medium hitam						// [25FC] text|emoji
+◽	persegi kecil medium putih					// [25FD]
+◾	persegi kecil medium hitam					// [25FE]
 
 // 2600..26FF : Miscellaneous Symbols
 
@@ -161,23 +161,24 @@ $textmode
 ☪	bintang dan bulan						// [262A] text|emoji
 ☮	simbol damai							// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
-☸	roda darma							// [2638] text|emoji
+☸	roda dharma							// [2638] text|emoji
 ☹	wajah cemberut							// [2639] text|emoji
 ☺	wajah tersenyum							// [263A] text|emoji
 ♀	simbol wanita							// [2640] text|emoji
 ♂	simbol pria							// [2642] text|emoji
-♈	aries								// [2648]
-♉	taurus								// [2649]
-♊	gemini								// [264A]
-♋	cancer								// [264B]
-♌	leo								// [264C]
-♍	virgo								// [264D]
-♎	libra								// [264E]
-♏	scorpio								// [264F]
-♐	sagittarius							// [2650]
-♑	capricorn							// [2651]
-♒	aquarius							// [2652]
-♓	pisces								// [2653]
+♈	Aries								// [2648]
+♉	Taurus								// [2649]
+♊	Gemini								// [264A]
+♋	Cancer								// [264B]
+♌	Leo								// [264C]
+♍	Virgo								// [264D]
+♎	Libra								// [264E]
+♏	Scorpio								// [264F]
+♐	Sagitarius							// [2650]
+♑	Capricorn							// [2651]
+♒	Aquarius							// [2652]
+♓	Pisces								// [2653]
+♟	pion catur							// [265F] text|emoji
 ♠	sekop								// [2660] text|emoji
 ♣	keriting							// [2663] text|emoji
 ♥	hati								// [2665] text|emoji
@@ -186,7 +187,8 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	simbol daur ulang						// [267B] text|emoji
-♿	kursi roda							// [267F]
+♾	tak terhingga							// [267E] text|emoji
+♿	simbol kursi roda						// [267F]
 ⚒	palu dan beliung						// [2692] text|emoji
 ⚓	jangkar								// [2693]
 ⚔	pedang bersilang						// [2694] text|emoji
@@ -207,7 +209,7 @@ $textmode
 ⛄	boneka salju tanpa salju					// [26C4]
 ⛅	matahari di balik awan						// [26C5]
 ⛈	awan dengan petir dan hujan					// [26C8] text|emoji
-⛎	ophiuchus							// [26CE]
+⛎	Ophiuchus							// [26CE]
 ⛏	beliung								// [26CF] text|emoji
 ⛑	helm dengan palang putih					// [26D1] text|emoji
 ⛓	rantai								// [26D3] text|emoji
@@ -241,7 +243,7 @@ $textmode
 ✔	tanda centang tebal						// [2714] text|emoji
 ✖	tanda perkalian tebal						// [2716] text|emoji
 ✝	salib latin							// [271D] text|emoji
-✡	bintang david							// [2721] text|emoji
+✡	bintang Daud							// [2721] text|emoji
 ✨	berkilau							// [2728]
 ✳	bintang berujung lancip delapan					// [2733] text|emoji
 ✴	bintang berujung delapan					// [2734] text|emoji
@@ -272,8 +274,8 @@ $textmode
 ⬅	tanda panah kiri						// [2B05] text|emoji
 ⬆	tanda panah atas						// [2B06] text|emoji
 ⬇	tanda panah bawah						// [2B07] text|emoji
-⬛	kotak besar hitam						// [2B1B]
-⬜	kotak besar putih						// [2B1C]
+⬛	persegi besar hitam						// [2B1B]
+⬜	persegi besar putih						// [2B1C]
 ⭐	bintang medium putih						// [2B50]
 ⭕	lingkaran besar tebal						// [2B55]
 
@@ -284,44 +286,44 @@ $textmode
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	karakter selamat dalam lingkaran				// [3297] text|emoji
-㊙	karakter rahasia dalam lingkaran				// [3299] text|emoji
+㊗	tombol Jepang selamat						// [3297] text|emoji
+㊙	tombol Jepang rahasia						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
-🅰	tombol a							// [1F170] text|emoji
-🅱	tombol b							// [1F171] text|emoji
-🅾	tombol o							// [1F17E] text|emoji
-🅿	tombol p							// [1F17F] text|emoji
-🆎	tombol ab							// [1F18E]
-🆑	tombol cl							// [1F191]
-🆒	cool dalam kotak						// [1F192]
-🆓	free dalam kotak						// [1F193]
-🆔	id dalam kotak							// [1F194]
-🆕	new dalam kotak							// [1F195]
-🆖	ng dalam kotak							// [1F196]
-🆗	ok dalam kotak							// [1F197]
-🆘	sos dalam kotak							// [1F198]
-🆙	tombol up!							// [1F199]
-🆚	vs dalam kotak							// [1F19A]
+🅰	tombol A (golongan darah)					// [1F170] text|emoji
+🅱	tombol B (golongan darah)					// [1F171] text|emoji
+🅾	tombol O (golongan darah)					// [1F17E] text|emoji
+🅿	tombol P							// [1F17F] text|emoji
+🆎	tombol AB (golongan darah)					// [1F18E]
+🆑	tombol CL							// [1F191]
+🆒	tombol COOL							// [1F192]
+🆓	tombol FREE							// [1F193]
+🆔	tombol ID							// [1F194]
+🆕	tombol NEW							// [1F195]
+🆖	tombol NG							// [1F196]
+🆗	tombol OK							// [1F197]
+🆘	tombol SOS							// [1F198]
+🆙	tombol UP!							// [1F199]
+🆚	tombol VS							// [1F19A]
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	katakana koko dalam kotak					// [1F201]
-🈂	katakana sa dalam kotak						// [1F202] text|emoji
-🈚	karakter negasi dalam kotak					// [1F21A]
-🈯	karakter jari dalam kotak					// [1F22F]
-🈲	karakter melarang dalam kotak					// [1F232]
-🈳	karakter kosong dalam kotak					// [1F233]
-🈴	karakter bersama dalam kotak					// [1F234]
-🈵	karakter keseluruhan dalam kotak				// [1F235]
-🈶	karakter ada dalam kotak					// [1F236]
-🈷	karakter bulan dalam kotak					// [1F237] text|emoji
-🈸	karakter terapkan dalam kotak					// [1F238]
-🈹	karakter bagi dalam kotak					// [1F239]
-🈺	karakter beoperasi dalam kotak					// [1F23A]
+🈁	tombol Jepang di sini						// [1F201]
+🈂	tombol Jepang biaya layanan					// [1F202] text|emoji
+🈚	tombol Jepang gratis						// [1F21A]
+🈯	tombol Jepang sudah dipesan					// [1F22F]
+🈲	tombol Jepang dilarang						// [1F232]
+🈳	tombol Jepang ada lowongan					// [1F233]
+🈴	tombol Jepang nilai kelulusan					// [1F234]
+🈵	tombol Jepang tidak ada lowongan				// [1F235]
+🈶	tombol Jepang tidak gratis					// [1F236]
+🈷	tombol Jepang jumlah bulanan					// [1F237] text|emoji
+🈸	tombol Jepang lamaran kerja					// [1F238]
+🈹	tombol Jepang diskon						// [1F239]
+🈺	tombol Jepang siap berbisnis					// [1F23A]
 🉐	karakter keunggulan dalam lingkaran				// [1F250]
-🉑	karakter terima dalam lingkaran					// [1F251]
+🉑	tombol Jepang dapat diterima					// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -483,7 +485,7 @@ $textmode
 🎗	pita pengingat							// [1F397] text|emoji
 🎙	mikrofon studio							// [1F399] text|emoji
 🎚	penggeser tingkat						// [1F39A] text|emoji
-🎛	tombol kontrol							// [1F39B] text|emoji
+🎛	kenop kontrol							// [1F39B] text|emoji
 🎞	frame film							// [1F39E] text|emoji
 🎟	tiket masuk							// [1F39F] text|emoji
 🎠	komidi putar							// [1F3A0]
@@ -564,21 +566,21 @@ $textmode
 🏫	sekolah								// [1F3EB]
 🏬	toserba								// [1F3EC]
 🏭	pabrik								// [1F3ED]
-🏮	lentera kertas merah						// [1F3EE]
+🏮	lampion merah							// [1F3EE]
 🏯	kastel Jepang							// [1F3EF]
 🏰	kastel								// [1F3F0]
-🏳	bendera putih berkibar						// [1F3F3] text|emoji
-🏴	bendera hitam berkibar						// [1F3F4]
+🏳	bendera putih							// [1F3F3] text|emoji
+🏴	bendera hitam							// [1F3F4]
 🏵	hiasan mawar							// [1F3F5] text|emoji
 🏷	label								// [1F3F7] text|emoji
 🏸	bulu tangkis							// [1F3F8]
 🏹	busur dan panah							// [1F3F9]
 🏺	amphora								// [1F3FA]
-🏻	warna kulit jenis 1–2						// [1F3FB]
-🏼	warna kulit jenis 3						// [1F3FC]
-🏽	warna kulit jenis 4						// [1F3FD]
-🏾	warna kulit jenis 5						// [1F3FE]
-🏿	warna kulit jenis 6						// [1F3FF]
+🏻	warna kulit cerah						// [1F3FB]
+🏼	warna kulit cerah-sedang					// [1F3FC]
+🏽	warna kulit sedang						// [1F3FD]
+🏾	warna kulit gelap-sedang					// [1F3FE]
+🏿	warna kulit gelap						// [1F3FF]
 🐀	tikus								// [1F400]
 🐁	tikus putih							// [1F401]
 🐂	lembu								// [1F402]
@@ -757,18 +759,18 @@ $textmode
 💯	nilai seratus							// [1F4AF]
 💰	kantung uang							// [1F4B0]
 💱	kurs								// [1F4B1]
-💲	tanda dollar tebal						// [1F4B2]
+💲	tanda dolar tebal						// [1F4B2]
 💳	kartu kredit							// [1F4B3]
 💴	uang kertas yen							// [1F4B4]
-💵	uang kertas dollar						// [1F4B5]
+💵	uang kertas dolar						// [1F4B5]
 💶	uang kertas euro						// [1F4B6]
 💷	uang kertas pound						// [1F4B7]
 💸	uang bersayap							// [1F4B8]
-💹	bagan peningkatan yen						// [1F4B9]
+💹	bagan meningkat dengan yen					// [1F4B9]
 💺	kursi								// [1F4BA]
 💻	komputer laptop							// [1F4BB]
 💼	tas kantor							// [1F4BC]
-💽	disk mini							// [1F4BD]
+💽	disk komputer							// [1F4BD]
 💾	disket								// [1F4BE]
 💿	disk optik							// [1F4BF]
 📀	dvd								// [1F4C0]
@@ -782,7 +784,7 @@ $textmode
 📈	bagan meningkat							// [1F4C8]
 📉	bagan menurun							// [1F4C9]
 📊	diagram batang							// [1F4CA]
-📋	alas tulis							// [1F4CB]
+📋	papan klip							// [1F4CB]
 📌	paku penanda							// [1F4CC]
 📍	paku penanda bulat						// [1F4CD]
 📎	klip kertas							// [1F4CE]
@@ -812,7 +814,7 @@ $textmode
 📦	paket								// [1F4E6]
 📧	email								// [1F4E7]
 📨	amplop datang							// [1F4E8]
-📩	amplop dengan tanda panah					// [1F4E9]
+📩	amplop dengan panah						// [1F4E9]
 📪	kotak surat tertutup dengan bendera turun			// [1F4EA]
 📫	kotak surat tertutup dengan bendera terangkat			// [1F4EB]
 📬	kotak surat terbuka dengan bendera terangkat			// [1F4EC]
@@ -827,7 +829,7 @@ $textmode
 📵	dilarang menggunakan ponsel					// [1F4F5]
 📶	batang antena							// [1F4F6]
 📷	kamera								// [1F4F7]
-📸	kamera flash							// [1F4F8]
+📸	kamera dengan flash						// [1F4F8]
 📹	kamera video							// [1F4F9]
 📺	televisi							// [1F4FA]
 📻	radio								// [1F4FB]
@@ -842,14 +844,14 @@ $textmode
 🔅	tombol redupkan							// [1F505]
 🔆	tombol cerahkan							// [1F506]
 🔇	speaker mati							// [1F507]
-🔈	speaker								// [1F508]
-🔉	speaker nyala							// [1F509]
-🔊	speaker keras							// [1F50A]
+🔈	volume speaker rendah						// [1F508]
+🔉	volume speaker medium						// [1F509]
+🔊	volume speaker tinggi						// [1F50A]
 🔋	baterai								// [1F50B]
 🔌	steker								// [1F50C]
 🔍	kaca pembesar arah kiri						// [1F50D]
 🔎	kaca pembesar arah kanan					// [1F50E]
-🔏	gembok dengan pena						// [1F50F]
+🔏	gembok terkunci dengan pena					// [1F50F]
 🔐	gembok terkunci dengan kunci					// [1F510]
 🔑	kunci								// [1F511]
 🔒	gembok								// [1F512]
@@ -857,13 +859,13 @@ $textmode
 🔔	lonceng								// [1F514]
 🔕	lonceng dicoret							// [1F515]
 🔖	pembatas buku							// [1F516]
-🔗	rangkaian							// [1F517]
+🔗	tautan								// [1F517]
 🔘	tombol radio							// [1F518]
-🔙	tanda panah back						// [1F519]
-🔚	tanda panah end							// [1F51A]
-🔛	tanda panah on!							// [1F51B]
-🔜	tanda panah soon						// [1F51C]
-🔝	tanda panah top							// [1F51D]
+🔙	tanda panah BACK						// [1F519]
+🔚	tanda panah END							// [1F51A]
+🔛	tanda panah ON!							// [1F51B]
+🔜	tanda panah SOON						// [1F51C]
+🔝	tanda panah TOP							// [1F51D]
 🔞	di bawah 18 tahun dilarang					// [1F51E]
 🔟	keycap: 10							// [1F51F]
 🔠	masukan huruf kapital latin					// [1F520]
@@ -883,9 +885,9 @@ $textmode
 🔮	bola kristal							// [1F52E]
 🔯	bintang sudut enam bertitik					// [1F52F]
 🔰	simbol jepang untuk pemula					// [1F530]
-🔱	lencana trisula							// [1F531]
-🔲	tombol kotak hitam						// [1F532]
-🔳	tombol kotak putih						// [1F533]
+🔱	emblem trisula							// [1F531]
+🔲	tombol persegi hitam						// [1F532]
+🔳	tombol persegi putih						// [1F533]
 🔴	lingkaran merah							// [1F534]
 🔵	lingkaran biru							// [1F535]
 🔶	wajik oranye besar						// [1F536]
@@ -937,8 +939,8 @@ $textmode
 🕹	joystick							// [1F579] text|emoji
 🕺	pria menari							// [1F57A]
 🖇	klip kertas tertaut						// [1F587] text|emoji
-🖊	bolpoin								// [1F58A] text|emoji
-🖋	pen tinta							// [1F58B] text|emoji
+🖊	pena								// [1F58A] text|emoji
+🖋	pena tinta							// [1F58B] text|emoji
 🖌	kuas								// [1F58C] text|emoji
 🖍	krayon								// [1F58D] text|emoji
 🖐	telapak tangan terbuka						// [1F590] text|emoji
@@ -952,11 +954,11 @@ $textmode
 🖼	bingkai bergambar						// [1F5BC] text|emoji
 🗂	pembagi indeks kartu						// [1F5C2] text|emoji
 🗃	kotak file kartu						// [1F5C3] text|emoji
-🗄	lemari kartu							// [1F5C4] text|emoji
+🗄	lemari file							// [1F5C4] text|emoji
 🗑	keranjang sampah						// [1F5D1] text|emoji
 🗒	catatan spiral							// [1F5D2] text|emoji
 🗓	kalender spiral							// [1F5D3] text|emoji
-🗜	pengompres							// [1F5DC] text|emoji
+🗜	klem								// [1F5DC] text|emoji
 🗝	kunci antik							// [1F5DD] text|emoji
 🗞	gulungan koran							// [1F5DE] text|emoji
 🗡	belati								// [1F5E1] text|emoji
@@ -1100,7 +1102,7 @@ $textmode
 🚩	bendera segitiga						// [1F6A9]
 🚪	pintu								// [1F6AA]
 🚫	dilarang							// [1F6AB]
-🚬	merokok								// [1F6AC]
+🚬	rokok								// [1F6AC]
 🚭	dilarang merokok						// [1F6AD]
 🚮	tanda membuang sampah						// [1F6AE]
 🚯	dilarang membuang sampah sembarangan				// [1F6AF]
@@ -1115,17 +1117,17 @@ $textmode
 🚸	anak-anak menyeberang						// [1F6B8]
 🚹	toilet pria							// [1F6B9]
 🚺	toilet wanita							// [1F6BA]
-🚻	wc								// [1F6BB]
+🚻	kamar kecil							// [1F6BB]
 🚼	simbol bayi							// [1F6BC]
 🚽	toilet								// [1F6BD]
-🚾	kloset								// [1F6BE]
+🚾	kloset air							// [1F6BE]
 🚿	shower								// [1F6BF]
 🛀	orang di bak mandi						// [1F6C0]
 🛁	bathtub								// [1F6C1]
 🛂	kontrol paspor							// [1F6C2]
-🛃	pemeriksaan							// [1F6C3]
-🛄	pengambilan barang						// [1F6C4]
-🛅	barang tertinggal						// [1F6C5]
+🛃	bea cukai							// [1F6C3]
+🛄	pengambilan bagasi						// [1F6C4]
+🛅	koper tertinggal						// [1F6C5]
 🛋	sofa dan lampu							// [1F6CB] text|emoji
 🛌	orang di tempat tidur						// [1F6CC]
 🛍	tas belanja							// [1F6CD] text|emoji
@@ -1150,6 +1152,7 @@ $textmode
 🛶	kano								// [1F6F6]
 🛷	kereta luncur							// [1F6F7]
 🛸	piring terbang							// [1F6F8]
+🛹	papan luncur							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1191,7 +1194,7 @@ $textmode
 🤳	selfie								// [1F933]
 🤴	pangeran							// [1F934]
 🤵	pria bertuksedo							// [1F935]
-🤶	Nyonya Claus							// [1F936]
+🤶	Nyonya Sinterklas						// [1F936]
 🤷	orang mengangkat bahu						// [1F937]
 🤸	orang melakukan gerakan meroda					// [1F938]
 🤹	orang melempar							// [1F939]
@@ -1211,6 +1214,8 @@ $textmode
 🥊	sarung tinju							// [1F94A]
 🥋	seragam beladiri						// [1F94B]
 🥌	batu curling							// [1F94C]
+🥎	sofbol								// [1F94E]
+🥏	lempar cakram							// [1F94F]
 🥐	croissant							// [1F950]
 🥑	alpukat								// [1F951]
 🥒	ketimun								// [1F952]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	potongan daging							// [1F969]
 🥪	roti lapis							// [1F96A]
 🥫	makanan kaleng							// [1F96B]
+🥬	selada hijau							// [1F96C]
+🥭	mangga								// [1F96D]
+🥮	kue bulan							// [1F96E]
+🥯	bagel								// [1F96F]
+🥰	wajah tersenyum dengan 3 hati					// [1F970]
+🥳	wajah pesta							// [1F973]
+🥴	wajah pusing karena mabuk					// [1F974]
+🥵	wajah kepanasan							// [1F975]
+🥶	wajah kedinginan						// [1F976]
+🥺	wajah memelas							// [1F97A]
+🥼	jas laboratorium						// [1F97C]
+🥽	kacamata renang							// [1F97D]
+🥾	sepatu boot untuk mendaki					// [1F97E]
+🥿	sepatu flat							// [1F97F]
 🦀	kepiting							// [1F980]
 🦁	wajah singa							// [1F981]
 🦂	kalajengking							// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	sauropod							// [1F995]
 🦖	T-Rex								// [1F996]
 🦗	jangkrik							// [1F997]
+🦘	kanguru								// [1F998]
+🦙	llama								// [1F999]
+🦚	merak								// [1F99A]
+🦛	kuda nil							// [1F99B]
+🦜	nuri								// [1F99C]
+🦝	rakun								// [1F99D]
+🦞	lobster								// [1F99E]
+🦟	nyamuk								// [1F99F]
+🦠	mikroba								// [1F9A0]
+🦡	musang								// [1F9A1]
+🦢	angsa								// [1F9A2]
+🦰	rambut merah							// [1F9B0]
+🦱	rambut keriting							// [1F9B1]
+🦲	gundul								// [1F9B2]
+🦳	rambut putih							// [1F9B3]
+🦴	tulang								// [1F9B4]
+🦵	tungkai								// [1F9B5]
+🦶	telapak kaki							// [1F9B6]
+🦷	gigi								// [1F9B7]
+🦸	pahlawan super							// [1F9B8]
+🦹	penjahat super							// [1F9B9]
 🧀	irisan keju							// [1F9C0]
+🧁	kue mangkuk							// [1F9C1]
+🧂	garam								// [1F9C2]
 🧐	wajah dengan monokel						// [1F9D0]
 🧑	dewasa								// [1F9D1]
 🧒	anak								// [1F9D2]
@@ -1287,273 +1329,297 @@ $textmode
 🧤	sarung tangan							// [1F9E4]
 🧥	mantel								// [1F9E5]
 🧦	kaus kaki							// [1F9E6]
+🧧	amplop merah							// [1F9E7]
+🧨	petasan								// [1F9E8]
+🧩	keping puzzle							// [1F9E9]
+🧪	tabung uji							// [1F9EA]
+🧫	cawan petri							// [1F9EB]
+🧬	dna								// [1F9EC]
+🧭	kompas								// [1F9ED]
+🧮	sempoa								// [1F9EE]
+🧰	kotak perkakas							// [1F9F0]
+🧱	batu bata							// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	koper								// [1F9F3]
+🧴	botol losion							// [1F9F4]
+🧵	benang								// [1F9F5]
+🧶	gulungan benang							// [1F9F6]
+🧷	peniti								// [1F9F7]
+🧸	boneka beruang							// [1F9F8]
+🧹	sapu								// [1F9F9]
+🧺	keranjang							// [1F9FA]
+🧻	gulungan kertas							// [1F9FB]
+🧼	sabun								// [1F9FC]
+🧽	spons								// [1F9FD]
+🧾	kuitansi							// [1F9FE]
+🧿	jimat nazar							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Pulau Ascension							// [1F1E6 1F1E8] AC
-🇦🇩	Andorra								// [1F1E6 1F1E9] AD
-🇦🇪	Uni Emirat Arab							// [1F1E6 1F1EA] AE
-🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua dan Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
-🇦🇱	Albania								// [1F1E6 1F1F1] AL
-🇦🇲	Armenia								// [1F1E6 1F1F2] AM
-🇦🇴	Angola								// [1F1E6 1F1F4] AO
-🇦🇶	Antartika							// [1F1E6 1F1F6] AQ
-🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Samoa Amerika							// [1F1E6 1F1F8] AS
-🇦🇹	Austria								// [1F1E6 1F1F9] AT
-🇦🇺	Australia							// [1F1E6 1F1FA] AU
-🇦🇼	Aruba								// [1F1E6 1F1FC] AW
-🇦🇽	Kepulauan Aland							// [1F1E6 1F1FD] AX
-🇦🇿	Azerbaijan							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosnia dan Herzegovina						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
-🇧🇪	Belgia								// [1F1E7 1F1EA] BE
-🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bulgaria							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Saint Barthélemy						// [1F1E7 1F1F1] BL
-🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
-🇧🇳	Brunei								// [1F1E7 1F1F3] BN
-🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
-🇧🇶	Belanda Karibia							// [1F1E7 1F1F6] BQ
-🇧🇷	Brasil								// [1F1E7 1F1F7] BR
-🇧🇸	Bahama								// [1F1E7 1F1F8] BS
-🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
-🇧🇻	Pulau Bouvet							// [1F1E7 1F1FB] BV
-🇧🇼	Botswana							// [1F1E7 1F1FC] BW
-🇧🇾	Belarus								// [1F1E7 1F1FE] BY
-🇧🇿	Belize								// [1F1E7 1F1FF] BZ
-🇨🇦	Kanada								// [1F1E8 1F1E6] CA
-🇨🇨	Kepulauan Cocos (Keeling)					// [1F1E8 1F1E8] CC
-🇨🇩	Kongo - Kinshasa						// [1F1E8 1F1E9] CD
-🇨🇫	Republik Afrika Tengah						// [1F1E8 1F1EB] CF
-🇨🇬	Kongo - Brazzaville						// [1F1E8 1F1EC] CG
-🇨🇭	Swiss								// [1F1E8 1F1ED] CH
-🇨🇮	Pantai Gading							// [1F1E8 1F1EE] CI
-🇨🇰	Kepulauan Cook							// [1F1E8 1F1F0] CK
-🇨🇱	Cile								// [1F1E8 1F1F1] CL
-🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
-🇨🇳	Tiongkok							// [1F1E8 1F1F3] CN
-🇨🇴	Kolombia							// [1F1E8 1F1F4] CO
-🇨🇵	Pulau Clipperton						// [1F1E8 1F1F5] CP
-🇨🇷	Kosta Rika							// [1F1E8 1F1F7] CR
-🇨🇺	Kuba								// [1F1E8 1F1FA] CU
-🇨🇻	Tanjung Verde							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Pulau Christmas							// [1F1E8 1F1FD] CX
-🇨🇾	Siprus								// [1F1E8 1F1FE] CY
-🇨🇿	Ceko								// [1F1E8 1F1FF] CZ
-🇩🇪	Jerman								// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
-🇩🇯	Jibuti								// [1F1E9 1F1EF] DJ
-🇩🇰	Denmark								// [1F1E9 1F1F0] DK
-🇩🇲	Dominika							// [1F1E9 1F1F2] DM
-🇩🇴	Republik Dominika						// [1F1E9 1F1F4] DO
-🇩🇿	Aljazair							// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta dan Melilla						// [1F1EA 1F1E6] EA
-🇪🇨	Ekuador								// [1F1EA 1F1E8] EC
-🇪🇪	Estonia								// [1F1EA 1F1EA] EE
-🇪🇬	Mesir								// [1F1EA 1F1EC] EG
-🇪🇭	Sahara Barat							// [1F1EA 1F1ED] EH
-🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
-🇪🇸	Spanyol								// [1F1EA 1F1F8] ES
-🇪🇹	Etiopia								// [1F1EA 1F1F9] ET
-🇪🇺	Uni Eropa							// [1F1EA 1F1FA] EU
-🇫🇮	Finlandia							// [1F1EB 1F1EE] FI
-🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
-🇫🇰	Kepulauan Malvinas						// [1F1EB 1F1F0] FI
-🇫🇲	Mikronesia							// [1F1EB 1F1F2] FM
-🇫🇴	Kepulauan Faroe							// [1F1EB 1F1F4] FO
-🇫🇷	Prancis								// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Inggris Raya							// [1F1EC 1F1E7] GB
-🇬🇩	Grenada								// [1F1EC 1F1E9] GD
-🇬🇪	Georgia								// [1F1EC 1F1EA] GE
-🇬🇫	Guyana Prancis							// [1F1EC 1F1EB] GF
-🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
-🇬🇭	Ghana								// [1F1EC 1F1ED] GH
-🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Grinlandia							// [1F1EC 1F1F1] GL
-🇬🇲	Gambia								// [1F1EC 1F1F2] GM
-🇬🇳	Guinea								// [1F1EC 1F1F3] GN
-🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
-🇬🇶	Guinea Ekuatorial						// [1F1EC 1F1F6] GQ
-🇬🇷	Yunani								// [1F1EC 1F1F7] GR
-🇬🇸	Georgia Selatan & Kep. Sandwich Selatan				// [1F1EC 1F1F8] GS
-🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hong Kong SAR Tiongkok						// [1F1ED 1F1F0] HK
-🇭🇲	Pulau Heard dan Kepulauan McDonald				// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Kroasia								// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Hungaria							// [1F1ED 1F1FA] HU
-🇮🇨	Kepulauan Canary						// [1F1EE 1F1E8] IC
-🇮🇩	Indonesia							// [1F1EE 1F1E9] ID
-🇮🇪	Irlandia							// [1F1EE 1F1EA] IE
-🇮🇱	Israel								// [1F1EE 1F1F1] IL
-🇮🇲	Pulau Man							// [1F1EE 1F1F2] IM
-🇮🇳	India								// [1F1EE 1F1F3] IN
-🇮🇴	Wilayah Inggris di Samudra Hindia				// [1F1EE 1F1F4] IO
-🇮🇶	Irak								// [1F1EE 1F1F6] IQ
-🇮🇷	Iran								// [1F1EE 1F1F7] IR
-🇮🇸	Islandia							// [1F1EE 1F1F8] IS
-🇮🇹	Italia								// [1F1EE 1F1F9] IT
-🇯🇪	Jersey								// [1F1EF 1F1EA] JE
-🇯🇲	Jamaika								// [1F1EF 1F1F2] JM
-🇯🇴	Yordania							// [1F1EF 1F1F4] JO
-🇯🇵	Jepang								// [1F1EF 1F1F5] JP
-🇰🇪	Kenya								// [1F1F0 1F1EA] KE
-🇰🇬	Kirgistan							// [1F1F0 1F1EC] KG
-🇰🇭	Kamboja								// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Komoro								// [1F1F0 1F1F2] KM
-🇰🇳	Saint Kitts dan Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Korea Utara							// [1F1F0 1F1F5] KP
-🇰🇷	Korea Selatan							// [1F1F0 1F1F7] KR
-🇰🇼	Kuwait								// [1F1F0 1F1FC] KW
-🇰🇾	Kepulauan Cayman						// [1F1F0 1F1FE] KY
-🇰🇿	Kazakstan							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	Lebanon								// [1F1F1 1F1E7] LB
-🇱🇨	Saint Lucia							// [1F1F1 1F1E8] LC
-🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
-🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
-🇱🇷	Liberia								// [1F1F1 1F1F7] LR
-🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
-🇱🇹	Lituania							// [1F1F1 1F1F9] LT
-🇱🇺	Luksemburg							// [1F1F1 1F1FA] LU
-🇱🇻	Latvia								// [1F1F1 1F1FB] LV
-🇱🇾	Libia								// [1F1F1 1F1FE] LY
-🇲🇦	Maroko								// [1F1F2 1F1E6] MA
-🇲🇨	Monako								// [1F1F2 1F1E8] MC
-🇲🇩	Moldova								// [1F1F2 1F1E9] MD
-🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
-🇲🇫	Saint Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
-🇲🇭	Kepulauan Marshall						// [1F1F2 1F1ED] MH
-🇲🇰	Makedonia							// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Myanmar (Burma)							// [1F1F2 1F1F2] MM
-🇲🇳	Mongolia							// [1F1F2 1F1F3] MN
-🇲🇴	Makau SAR Tiongkok						// [1F1F2 1F1F4] MO
-🇲🇵	Kepulauan Mariana Utara						// [1F1F2 1F1F5] MP
-🇲🇶	Martinik							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauritania							// [1F1F2 1F1F7] MR
-🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
-🇲🇹	Malta								// [1F1F2 1F1F9] MT
-🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
-🇲🇻	Maladewa							// [1F1F2 1F1FB] MV
-🇲🇼	Malawi								// [1F1F2 1F1FC] MW
-🇲🇽	Meksiko								// [1F1F2 1F1FD] MX
-🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
-🇲🇿	Mozambik							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibia								// [1F1F3 1F1E6] NA
-🇳🇨	Kaledonia Baru							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Kepulauan Norfolk						// [1F1F3 1F1EB] NF
-🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
-🇳🇮	Nikaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Belanda								// [1F1F3 1F1F1] NL
-🇳🇴	Norwegia							// [1F1F3 1F1F4] NO
-🇳🇵	Nepal								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	Selandia Baru							// [1F1F3 1F1FF] NZ
-🇴🇲	Oman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Polinesia Prancis						// [1F1F5 1F1EB] PF
-🇵🇬	Papua Nugini							// [1F1F5 1F1EC] PG
-🇵🇭	Filipina							// [1F1F5 1F1ED] PH
-🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
-🇵🇱	Polandia							// [1F1F5 1F1F1] PL
-🇵🇲	Saint Pierre dan Miquelon					// [1F1F5 1F1F2] PM
-🇵🇳	Kepulauan Pitcairn						// [1F1F5 1F1F3] PN
-🇵🇷	Puerto Riko							// [1F1F5 1F1F7] PR
-🇵🇸	Wilayah Palestina						// [1F1F5 1F1F8] PS
-🇵🇹	Portugal							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
-🇶🇦	Qatar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	Rumania								// [1F1F7 1F1F4] RO
-🇷🇸	Serbia								// [1F1F7 1F1F8] RS
-🇷🇺	Rusia								// [1F1F7 1F1FA] RU
-🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
-🇸🇦	Arab Saudi							// [1F1F8 1F1E6] SA
-🇸🇧	Kepulauan Solomon						// [1F1F8 1F1E7] SB
-🇸🇨	Seychelles							// [1F1F8 1F1E8] SC
-🇸🇩	Sudan								// [1F1F8 1F1E9] SD
-🇸🇪	Swedia								// [1F1F8 1F1EA] SE
-🇸🇬	Singapura							// [1F1F8 1F1EC] SG
-🇸🇭	Saint Helena							// [1F1F8 1F1ED] SH
-🇸🇮	Slovenia							// [1F1F8 1F1EE] SI
-🇸🇯	Kepulauan Svalbard dan Jan Mayen				// [1F1F8 1F1EF] SJ
-🇸🇰	Slovakia							// [1F1F8 1F1F0] SK
-🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somalia								// [1F1F8 1F1F4] SO
-🇸🇷	Suriname							// [1F1F8 1F1F7] SR
-🇸🇸	Sudan Selatan							// [1F1F8 1F1F8] SS
-🇸🇹	Sao Tome dan Principe						// [1F1F8 1F1F9] ST
-🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
-🇸🇾	Suriah								// [1F1F8 1F1FE] SY
-🇸🇿	Swaziland							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Kepulauan Turks dan Caicos					// [1F1F9 1F1E8] TC
-🇹🇩	Cad								// [1F1F9 1F1E9] TD
-🇹🇫	Wilayah Kutub Selatan Prancis					// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Thailand							// [1F1F9 1F1ED] TH
-🇹🇯	Tajikistan							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Timor Leste							// [1F1F9 1F1F1] TL
-🇹🇲	Turkimenistan							// [1F1F9 1F1F2] TM
-🇹🇳	Tunisia								// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Turki								// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad dan Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
-🇹🇿	Tanzania							// [1F1F9 1F1FF] TZ
-🇺🇦	Ukraina								// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Kepulauan Terluar A.S.						// [1F1FA 1F1F2] UM
-🇺🇳	Perserikatan Bangsa-Bangsa					// [1F1FA 1F1F3] UN
-🇺🇸	Amerika Serikat							// [1F1FA 1F1F8] US
-🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
-🇻🇦	Vatikan								// [1F1FB 1F1E6] VA
-🇻🇨	Saint Vincent dan Grenadines					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
-🇻🇬	Kepulauan Virgin Inggris					// [1F1FB 1F1EC] VG
-🇻🇮	Kepulauan Virgin A.S.						// [1F1FB 1F1EE] VI
-🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Kepulauan Wallis dan Futuna					// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
-🇾🇪	Yaman								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	Afrika Selatan							// [1F1FF 1F1E6] ZA
-🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+🇦🇨	bendera: Pulau Ascension					// [1F1E6 1F1E8] AC
+🇦🇩	bendera: Andorra						// [1F1E6 1F1E9] AD
+🇦🇪	bendera: Uni Emirat Arab					// [1F1E6 1F1EA] AE
+🇦🇫	bendera: Afganistan						// [1F1E6 1F1EB] AF
+🇦🇬	bendera: Antigua dan Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	bendera: Anguilla						// [1F1E6 1F1EE] AI
+🇦🇱	bendera: Albania						// [1F1E6 1F1F1] AL
+🇦🇲	bendera: Armenia						// [1F1E6 1F1F2] AM
+🇦🇴	bendera: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	bendera: Antartika						// [1F1E6 1F1F6] AQ
+🇦🇷	bendera: Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	bendera: Samoa Amerika						// [1F1E6 1F1F8] AS
+🇦🇹	bendera: Austria						// [1F1E6 1F1F9] AT
+🇦🇺	bendera: Australia						// [1F1E6 1F1FA] AU
+🇦🇼	bendera: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	bendera: Kepulauan Aland					// [1F1E6 1F1FD] AX
+🇦🇿	bendera: Azerbaijan						// [1F1E6 1F1FF] AZ
+🇧🇦	bendera: Bosnia dan Herzegovina					// [1F1E7 1F1E6] BA
+🇧🇧	bendera: Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	bendera: Bangladesh						// [1F1E7 1F1E9] BD
+🇧🇪	bendera: Belgia							// [1F1E7 1F1EA] BE
+🇧🇫	bendera: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	bendera: Bulgaria						// [1F1E7 1F1EC] BG
+🇧🇭	bendera: Bahrain						// [1F1E7 1F1ED] BH
+🇧🇮	bendera: Burundi						// [1F1E7 1F1EE] BI
+🇧🇯	bendera: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	bendera: Saint Barthélemy					// [1F1E7 1F1F1] BL
+🇧🇲	bendera: Bermuda						// [1F1E7 1F1F2] BM
+🇧🇳	bendera: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	bendera: Bolivia						// [1F1E7 1F1F4] BO
+🇧🇶	bendera: Belanda Karibia					// [1F1E7 1F1F6] BQ
+🇧🇷	bendera: Brasil							// [1F1E7 1F1F7] BR
+🇧🇸	bendera: Bahama							// [1F1E7 1F1F8] BS
+🇧🇹	bendera: Bhutan							// [1F1E7 1F1F9] BT
+🇧🇻	bendera: Pulau Bouvet						// [1F1E7 1F1FB] BV
+🇧🇼	bendera: Botswana						// [1F1E7 1F1FC] BW
+🇧🇾	bendera: Belarus						// [1F1E7 1F1FE] BY
+🇧🇿	bendera: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	bendera: Kanada							// [1F1E8 1F1E6] CA
+🇨🇨	bendera: Kepulauan Cocos (Keeling)				// [1F1E8 1F1E8] CC
+🇨🇩	bendera: Kongo - Kinshasa					// [1F1E8 1F1E9] CD
+🇨🇫	bendera: Republik Afrika Tengah					// [1F1E8 1F1EB] CF
+🇨🇬	bendera: Kongo - Brazzaville					// [1F1E8 1F1EC] CG
+🇨🇭	bendera: Swiss							// [1F1E8 1F1ED] CH
+🇨🇮	bendera: Pantai Gading						// [1F1E8 1F1EE] CI
+🇨🇰	bendera: Kepulauan Cook						// [1F1E8 1F1F0] CK
+🇨🇱	bendera: Cile							// [1F1E8 1F1F1] CL
+🇨🇲	bendera: Kamerun						// [1F1E8 1F1F2] CM
+🇨🇳	bendera: Tiongkok						// [1F1E8 1F1F3] CN
+🇨🇴	bendera: Kolombia						// [1F1E8 1F1F4] CO
+🇨🇵	bendera: Pulau Clipperton					// [1F1E8 1F1F5] CP
+🇨🇷	bendera: Kosta Rika						// [1F1E8 1F1F7] CR
+🇨🇺	bendera: Kuba							// [1F1E8 1F1FA] CU
+🇨🇻	bendera: Tanjung Verde						// [1F1E8 1F1FB] CV
+🇨🇼	bendera: Curaçao						// [1F1E8 1F1FC] CW
+🇨🇽	bendera: Pulau Christmas					// [1F1E8 1F1FD] CX
+🇨🇾	bendera: Siprus							// [1F1E8 1F1FE] CY
+🇨🇿	bendera: Ceko							// [1F1E8 1F1FF] CZ
+🇩🇪	bendera: Jerman							// [1F1E9 1F1EA] DE
+🇩🇬	bendera: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	bendera: Jibuti							// [1F1E9 1F1EF] DJ
+🇩🇰	bendera: Denmark						// [1F1E9 1F1F0] DK
+🇩🇲	bendera: Dominika						// [1F1E9 1F1F2] DM
+🇩🇴	bendera: Republik Dominika					// [1F1E9 1F1F4] DO
+🇩🇿	bendera: Aljazair						// [1F1E9 1F1FF] DZ
+🇪🇦	bendera: Ceuta dan Melilla					// [1F1EA 1F1E6] EA
+🇪🇨	bendera: Ekuador						// [1F1EA 1F1E8] EC
+🇪🇪	bendera: Estonia						// [1F1EA 1F1EA] EE
+🇪🇬	bendera: Mesir							// [1F1EA 1F1EC] EG
+🇪🇭	bendera: Sahara Barat						// [1F1EA 1F1ED] EH
+🇪🇷	bendera: Eritrea						// [1F1EA 1F1F7] ER
+🇪🇸	bendera: Spanyol						// [1F1EA 1F1F8] ES
+🇪🇹	bendera: Etiopia						// [1F1EA 1F1F9] ET
+🇪🇺	bendera: Uni Eropa						// [1F1EA 1F1FA] EU
+🇫🇮	bendera: Finlandia						// [1F1EB 1F1EE] FI
+🇫🇯	bendera: Fiji							// [1F1EB 1F1EF] FJ
+🇫🇰	bendera: Kepulauan Malvinas					// [1F1EB 1F1F0] FI
+🇫🇲	bendera: Mikronesia						// [1F1EB 1F1F2] FM
+🇫🇴	bendera: Kepulauan Faroe					// [1F1EB 1F1F4] FO
+🇫🇷	bendera: Prancis						// [1F1EB 1F1F7] FR
+🇬🇦	bendera: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	bendera: Inggris Raya						// [1F1EC 1F1E7] GB
+🇬🇩	bendera: Grenada						// [1F1EC 1F1E9] GD
+🇬🇪	bendera: Georgia						// [1F1EC 1F1EA] GE
+🇬🇫	bendera: Guyana Prancis						// [1F1EC 1F1EB] GF
+🇬🇬	bendera: Guernsey						// [1F1EC 1F1EC] GG
+🇬🇭	bendera: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	bendera: Gibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	bendera: Grinlandia						// [1F1EC 1F1F1] GL
+🇬🇲	bendera: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	bendera: Guinea							// [1F1EC 1F1F3] GN
+🇬🇵	bendera: Guadeloupe						// [1F1EC 1F1F5] GP
+🇬🇶	bendera: Guinea Ekuatorial					// [1F1EC 1F1F6] GQ
+🇬🇷	bendera: Yunani							// [1F1EC 1F1F7] GR
+🇬🇸	bendera: Georgia Selatan & Kep. Sandwich Selatan		// [1F1EC 1F1F8] GS
+🇬🇹	bendera: Guatemala						// [1F1EC 1F1F9] GT
+🇬🇺	bendera: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	bendera: Guinea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	bendera: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	bendera: Hong Kong SAR Tiongkok					// [1F1ED 1F1F0] HK
+🇭🇲	bendera: Pulau Heard dan Kepulauan McDonald			// [1F1ED 1F1F2] HM
+🇭🇳	bendera: Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	bendera: Kroasia						// [1F1ED 1F1F7] HR
+🇭🇹	bendera: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	bendera: Hungaria						// [1F1ED 1F1FA] HU
+🇮🇨	bendera: Kepulauan Canary					// [1F1EE 1F1E8] IC
+🇮🇩	bendera: Indonesia						// [1F1EE 1F1E9] ID
+🇮🇪	bendera: Irlandia						// [1F1EE 1F1EA] IE
+🇮🇱	bendera: Israel							// [1F1EE 1F1F1] IL
+🇮🇲	bendera: Pulau Man						// [1F1EE 1F1F2] IM
+🇮🇳	bendera: India							// [1F1EE 1F1F3] IN
+🇮🇴	bendera: Wilayah Inggris di Samudra Hindia			// [1F1EE 1F1F4] IO
+🇮🇶	bendera: Irak							// [1F1EE 1F1F6] IQ
+🇮🇷	bendera: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	bendera: Islandia						// [1F1EE 1F1F8] IS
+🇮🇹	bendera: Italia							// [1F1EE 1F1F9] IT
+🇯🇪	bendera: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	bendera: Jamaika						// [1F1EF 1F1F2] JM
+🇯🇴	bendera: Yordania						// [1F1EF 1F1F4] JO
+🇯🇵	bendera: Jepang							// [1F1EF 1F1F5] JP
+🇰🇪	bendera: Kenya							// [1F1F0 1F1EA] KE
+🇰🇬	bendera: Kirgistan						// [1F1F0 1F1EC] KG
+🇰🇭	bendera: Kamboja						// [1F1F0 1F1ED] KH
+🇰🇮	bendera: Kiribati						// [1F1F0 1F1EE] KI
+🇰🇲	bendera: Komoro							// [1F1F0 1F1F2] KM
+🇰🇳	bendera: Saint Kitts dan Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	bendera: Korea Utara						// [1F1F0 1F1F5] KP
+🇰🇷	bendera: Korea Selatan						// [1F1F0 1F1F7] KR
+🇰🇼	bendera: Kuwait							// [1F1F0 1F1FC] KW
+🇰🇾	bendera: Kepulauan Cayman					// [1F1F0 1F1FE] KY
+🇰🇿	bendera: Kazakstan						// [1F1F0 1F1FF] KZ
+🇱🇦	bendera: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	bendera: Lebanon						// [1F1F1 1F1E7] LB
+🇱🇨	bendera: Saint Lucia						// [1F1F1 1F1E8] LC
+🇱🇮	bendera: Liechtenstein						// [1F1F1 1F1EE] LI
+🇱🇰	bendera: Sri Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	bendera: Liberia						// [1F1F1 1F1F7] LR
+🇱🇸	bendera: Lesotho						// [1F1F1 1F1F8] LS
+🇱🇹	bendera: Lituania						// [1F1F1 1F1F9] LT
+🇱🇺	bendera: Luksemburg						// [1F1F1 1F1FA] LU
+🇱🇻	bendera: Latvia							// [1F1F1 1F1FB] LV
+🇱🇾	bendera: Libia							// [1F1F1 1F1FE] LY
+🇲🇦	bendera: Maroko							// [1F1F2 1F1E6] MA
+🇲🇨	bendera: Monako							// [1F1F2 1F1E8] MC
+🇲🇩	bendera: Moldova						// [1F1F2 1F1E9] MD
+🇲🇪	bendera: Montenegro						// [1F1F2 1F1EA] ME
+🇲🇫	bendera: Saint Martin						// [1F1F2 1F1EB] MF
+🇲🇬	bendera: Madagaskar						// [1F1F2 1F1EC] MG
+🇲🇭	bendera: Kepulauan Marshall					// [1F1F2 1F1ED] MH
+🇲🇰	bendera: Makedonia						// [1F1F2 1F1F0] MK
+🇲🇱	bendera: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	bendera: Myanmar (Burma)					// [1F1F2 1F1F2] MM
+🇲🇳	bendera: Mongolia						// [1F1F2 1F1F3] MN
+🇲🇴	bendera: Makau SAR Tiongkok					// [1F1F2 1F1F4] MO
+🇲🇵	bendera: Kepulauan Mariana Utara				// [1F1F2 1F1F5] MP
+🇲🇶	bendera: Martinik						// [1F1F2 1F1F6] MQ
+🇲🇷	bendera: Mauritania						// [1F1F2 1F1F7] MR
+🇲🇸	bendera: Montserrat						// [1F1F2 1F1F8] MS
+🇲🇹	bendera: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	bendera: Mauritius						// [1F1F2 1F1FA] MU
+🇲🇻	bendera: Maladewa						// [1F1F2 1F1FB] MV
+🇲🇼	bendera: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	bendera: Meksiko						// [1F1F2 1F1FD] MX
+🇲🇾	bendera: Malaysia						// [1F1F2 1F1FE] MY
+🇲🇿	bendera: Mozambik						// [1F1F2 1F1FF] MZ
+🇳🇦	bendera: Namibia						// [1F1F3 1F1E6] NA
+🇳🇨	bendera: Kaledonia Baru						// [1F1F3 1F1E8] NC
+🇳🇪	bendera: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	bendera: Kepulauan Norfolk					// [1F1F3 1F1EB] NF
+🇳🇬	bendera: Nigeria						// [1F1F3 1F1EC] NG
+🇳🇮	bendera: Nikaragua						// [1F1F3 1F1EE] NI
+🇳🇱	bendera: Belanda						// [1F1F3 1F1F1] NL
+🇳🇴	bendera: Norwegia						// [1F1F3 1F1F4] NO
+🇳🇵	bendera: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	bendera: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	bendera: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	bendera: Selandia Baru						// [1F1F3 1F1FF] NZ
+🇴🇲	bendera: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	bendera: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	bendera: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	bendera: Polinesia Prancis					// [1F1F5 1F1EB] PF
+🇵🇬	bendera: Papua Nugini						// [1F1F5 1F1EC] PG
+🇵🇭	bendera: Filipina						// [1F1F5 1F1ED] PH
+🇵🇰	bendera: Pakistan						// [1F1F5 1F1F0] PK
+🇵🇱	bendera: Polandia						// [1F1F5 1F1F1] PL
+🇵🇲	bendera: Saint Pierre dan Miquelon				// [1F1F5 1F1F2] PM
+🇵🇳	bendera: Kepulauan Pitcairn					// [1F1F5 1F1F3] PN
+🇵🇷	bendera: Puerto Riko						// [1F1F5 1F1F7] PR
+🇵🇸	bendera: Wilayah Palestina					// [1F1F5 1F1F8] PS
+🇵🇹	bendera: Portugal						// [1F1F5 1F1F9] PT
+🇵🇼	bendera: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	bendera: Paraguay						// [1F1F5 1F1FE] PY
+🇶🇦	bendera: Qatar							// [1F1F6 1F1E6] QA
+🇷🇪	bendera: Réunion						// [1F1F7 1F1EA] RE
+🇷🇴	bendera: Rumania						// [1F1F7 1F1F4] RO
+🇷🇸	bendera: Serbia							// [1F1F7 1F1F8] RS
+🇷🇺	bendera: Rusia							// [1F1F7 1F1FA] RU
+🇷🇼	bendera: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	bendera: Arab Saudi						// [1F1F8 1F1E6] SA
+🇸🇧	bendera: Kepulauan Solomon					// [1F1F8 1F1E7] SB
+🇸🇨	bendera: Seychelles						// [1F1F8 1F1E8] SC
+🇸🇩	bendera: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	bendera: Swedia							// [1F1F8 1F1EA] SE
+🇸🇬	bendera: Singapura						// [1F1F8 1F1EC] SG
+🇸🇭	bendera: Saint Helena						// [1F1F8 1F1ED] SH
+🇸🇮	bendera: Slovenia						// [1F1F8 1F1EE] SI
+🇸🇯	bendera: Kepulauan Svalbard dan Jan Mayen			// [1F1F8 1F1EF] SJ
+🇸🇰	bendera: Slovakia						// [1F1F8 1F1F0] SK
+🇸🇱	bendera: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	bendera: San Marino						// [1F1F8 1F1F2] SM
+🇸🇳	bendera: Senegal						// [1F1F8 1F1F3] SN
+🇸🇴	bendera: Somalia						// [1F1F8 1F1F4] SO
+🇸🇷	bendera: Suriname						// [1F1F8 1F1F7] SR
+🇸🇸	bendera: Sudan Selatan						// [1F1F8 1F1F8] SS
+🇸🇹	bendera: Sao Tome dan Principe					// [1F1F8 1F1F9] ST
+🇸🇻	bendera: El Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	bendera: Sint Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	bendera: Suriah							// [1F1F8 1F1FE] SY
+🇸🇿	bendera: Swaziland						// [1F1F8 1F1FF] SZ
+🇹🇦	bendera: Tristan da Cunha					// [1F1F9 1F1E6] TA
+🇹🇨	bendera: Kepulauan Turks dan Caicos				// [1F1F9 1F1E8] TC
+🇹🇩	bendera: Cad							// [1F1F9 1F1E9] TD
+🇹🇫	bendera: Wilayah Kutub Selatan Prancis				// [1F1F9 1F1EB] TF
+🇹🇬	bendera: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	bendera: Thailand						// [1F1F9 1F1ED] TH
+🇹🇯	bendera: Tajikistan						// [1F1F9 1F1EF] TJ
+🇹🇰	bendera: Tokelau						// [1F1F9 1F1F0] TK
+🇹🇱	bendera: Timor Leste						// [1F1F9 1F1F1] TL
+🇹🇲	bendera: Turkimenistan						// [1F1F9 1F1F2] TM
+🇹🇳	bendera: Tunisia						// [1F1F9 1F1F3] TN
+🇹🇴	bendera: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	bendera: Turki							// [1F1F9 1F1F7] TR
+🇹🇹	bendera: Trinidad dan Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	bendera: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	bendera: Taiwan							// [1F1F9 1F1FC] TW
+🇹🇿	bendera: Tanzania						// [1F1F9 1F1FF] TZ
+🇺🇦	bendera: Ukraina						// [1F1FA 1F1E6] UA
+🇺🇬	bendera: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	bendera: Kepulauan Terluar A.S.					// [1F1FA 1F1F2] UM
+🇺🇳	bendera: Perserikatan Bangsa-Bangsa				// [1F1FA 1F1F3] UN
+🇺🇸	bendera: Amerika Serikat					// [1F1FA 1F1F8] US
+🇺🇾	bendera: Uruguay						// [1F1FA 1F1FE] UY
+🇺🇿	bendera: Uzbekistan						// [1F1FA 1F1FF] UZ
+🇻🇦	bendera: Vatikan						// [1F1FB 1F1E6] VA
+🇻🇨	bendera: Saint Vincent dan Grenadines				// [1F1FB 1F1E8] VC
+🇻🇪	bendera: Venezuela						// [1F1FB 1F1EA] VE
+🇻🇬	bendera: Kepulauan Virgin Inggris				// [1F1FB 1F1EC] VG
+🇻🇮	bendera: Kepulauan Virgin A.S.					// [1F1FB 1F1EE] VI
+🇻🇳	bendera: Vietnam						// [1F1FB 1F1F3] VN
+🇻🇺	bendera: Vanuatu						// [1F1FB 1F1FA] VU
+🇼🇫	bendera: Kepulauan Wallis dan Futuna				// [1F1FC 1F1EB] WF
+🇼🇸	bendera: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	bendera: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	bendera: Yaman							// [1F1FE 1F1EA] YE
+🇾🇹	bendera: Mayotte						// [1F1FE 1F1F9] YT
+🇿🇦	bendera: Afrika Selatan						// [1F1FF 1F1E6] ZA
+🇿🇲	bendera: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	bendera: Zimbabwe						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	Inggris							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skotlandia						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	bendera: Inggris					// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	bendera: Skotlandia					// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	bendera: Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	penjaga pria						// [1F482 200D 2642]
 🕵️‍♀	detektif wanita						// [1F575 200D 2640]
 🕵️‍♂	detektif pria						// [1F575 200D 2642]
+🦸‍♀	pahlawan super wanita					// [1F9B8 200D 2640]
+🦸‍♂	pahlawan super pria					// [1F9B8 200D 2642]
+🦹‍♀	penjahat super wanita					// [1F9B9 200D 2640]
+🦹‍♂	penjahat super pria					// [1F9B9 200D 2642]
 🧙‍♀	magi wanita						// [1F9D9 200D 2640]
 🧙‍♂	magi pria						// [1F9D9 200D 2642]
 🧚‍♀	peri wanita						// [1F9DA 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	bendera pelangi						// [1F3F3 200D 1F308]
+🏴‍☠	bendera bajak laut					// [1F3F4 200D 2620]
 👁‍🗨	mata di dalam gelembung ucapan				// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

@@ -11,6 +11,42 @@
 // ?3  Bosnian (Bosna and Hercegovina)
 // ?4  Serbian & Bosnian
 
+.replace
+//	Cyrl	Latn	-- Cyrillic to Latin
+	а	a	// U+0430
+	б	b	// U+0431
+	в	v	// U+0432
+	г	g	// U+0433
+	д	d	// U+0434
+	е	e	// U+0435
+	ж	ž	// U+0436
+	з	z	// U+0437
+	и	i	// U+0438
+	к	k	// U+043A
+	л	l	// U+043B
+	м	m	// U+043C
+	н	n	// U+043D
+	о	o	// U+043E
+	п	p	// U+043F
+	р	r	// U+0440
+	с	s	// U+0441
+	т	t	// U+0442
+	у	u	// U+0443
+	ф	f	// U+0444
+	х	h	// U+0445
+	ц	c	// U+0446
+	ч	č	// U+0447
+	ш	š	// U+0161
+	ђ	đ	// U+0452
+	ѓ	đ	// U+0453
+	ѕ	dz	// U+0455
+	ј	j	// U+0458
+	љ	lj	// U+0459
+	њ	nj	// U+045A
+	ћ	ć	// U+045B
+	ќ	ć	// U+045C
+	џ	dž	// U+045F
+
 .group a
         a        a
      X) a ($w_alt1 a:

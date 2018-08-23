@@ -1,41 +1,53 @@
 // translation rules for Macedonian
 // This file is UTF-8 encoded
 
+// Reference: https://en.wikipedia.org/wiki/Romanization_of_Macedonian
 .replace
- a	а
- b	б
- c	ц
- ć	ћ
- č	ч
- dž	џ
- dz	ѕ
- d	д
- đ	ђ
- e	е
- f	ф
- g	г
- h	х
- i	и
- j	ј
- k	к
- lj	љ
- l	л
- m	м
- nj	њ
- n	н
- o	о
- p	п
- r	р
- s	с
- š	ш
- t	т
- u	у
- v	в
- z	з
- ž	ж
- đ	ѓ
- ć	ќ
-
+//	Latn	Cyrl	Basic Latin (2 letters)
+	gj	ѓ
+	zh	ж
+	dz	ѕ
+	lj	љ
+	nj	њ
+	kj	ќ
+	ts	ц
+//	Latn	Cyrl	Extended Latin
+	ǵ	ѓ
+	đ	ѓ
+	ž	ж
+	ẑ	ѕ
+	ǰ	ј
+	l̂	љ
+	n̂	њ
+	ḱ	ќ
+	ć	ќ
+	č	ч
+	dž	џ
+	d̂	џ
+	š	ш
+//	Latn	Cyrl	Basic Latin (Common)
+	a	а
+	b	б
+	v	в
+	g	г
+	d	д
+	e	е
+	z	з
+	i	и
+	j	ј
+	k	к
+	l	л
+	m	м
+	n	н
+	o	о
+	p	п
+	r	р
+	s	с
+	t	т
+	u	у
+	f	ф
+	h	х
+	c	ц
 
 .group а
           а        a
@@ -141,126 +153,6 @@
 .group ш
           ш       S
 
-.group a
-        a        a
-        a (j     A
-        a (r     A        // don't reduce to [&]
-
-.group b
-        b        b
-
-.group c
-        c        ts
-
-.group č
-        č        tS
-
-.group ć
-        ć        tS;
-
-.group d
-        d        d
-        dz       dz
-        dž       dZ
-
-.group đ
-        đ        dZ;
-
-.group e
-        e        E
-     j) e        e
-        e (j     e
-    ._) exe      %ekse        // filetype
-
-.group f
-        f        f
-
-.group g
-        g        g
-
-.group h
-        h        h
-     _) h        x
-
-.group i
-        i        i
-    ._) ini      %ini         // filetype
-
-.group j
-        j        j
-    XA) j (_     j_      // short pause after final [j] in one-syllable words
-
-.group k
-        k        k
-
-.group l
-        l        l
-     K) l (K     l-
-        lj (+    l^
-
-.group m
-        m        m
-
-.group n
-        n        n
-        n (g     N
-        n (k     N
-
-        nj       n^
-
-.group o
-        o        o
-        ou       oU
-
-.group p
-        p        p
-
-.group q
-        q        k
-        qu       kv
-
-.group r
-        r        R
-     A) r (A     R
-     K) r (A     @-*
-        rr       R
-        r (_     R
-
-     K) r (K     'r-
-
-
-.group s
-        s        s
-
-.group š
-        š        S
-
-.group t
-        t        t
-
-.group u
-        u        u
-
-.group v
-        v        v
-
-.group w
-        w        v
-
-.group x
-        x        ks
-
-.group y
-        y        j
-     K) y (K     i
-
-
-.group z
-        z        z
-
-.group ž
-        ž        Z
-                  
 .group
         á        a:
         é        e:

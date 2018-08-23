@@ -44,9 +44,9 @@ _و	va:O
 ء	HamzaH
 ی	c#o:t.i:||je:
 ے	bar.i:||je:
-ئ	HamzaHje:
+ئ	Hamzaje:
 ۂ	He:h'amza
-_ؤ	va:Oh'amza
+ؤ	va:Oh'amza
 
 َ	z@b@R
 ِ	ze:R
@@ -197,6 +197,7 @@ _dpt	_ISaRI'Ia_
 انھیں	,UnH'e:n	$u
 انھی	UnHi	$u
 انہی	UnHi:	$u
+کن	kIn
 
 // unstressed prepositions
 کا	$u
@@ -205,7 +206,7 @@ _dpt	_ISaRI'Ia_
 سے 	$u
 
 اور 	aUR	$u $brk
-کہ	ke	$u
+کہ	ke	$only	$u
 نے	$u
 
 // unstressed verbs
@@ -225,7 +226,7 @@ _dpt	_ISaRI'Ia_
 پبلک	p'abl,Ik
 آئرش	'a:IR,IS
 برگ	b'aRg
-(آئیس کریم)	a:'i:s||kR'i:m
+(آئس کریم)	a:'Is||kR'i:m
 آئیسنگ	,a:is'Ing
 آئدیلسٹ	'a:Id.,i:;al,Ist.
 آئڈیلزم	'a:Id.,i:;al,Izam
@@ -310,7 +311,7 @@ _dpt	_ISaRI'Ia_
 مطابق	mUt'a:bIq
 حاصل	H'a:s.Il
 شدہ	S'Ud,a
-بغیر	baQ'e:R
+بغیر	baQE:R
 الیکشن	,Ile:kS'an
 ووٹنگ	vo:t.'Ing
 شواہد	Sav'a:HId
@@ -490,7 +491,7 @@ _dpt	_ISaRI'Ia_
 ہفتہ	H'afta
 مکرر	m,UkaR'aR
 چینی	c'i:ni:
-خیرمقدم	x,e:Rm,aqd'am
+خیرمقدم	xE:Rmaqdam
 محترمہ	m,UHt'aRma
 محترم	m,UHtaR'am
 ورزش	v'aRz,IS
@@ -714,9 +715,7 @@ _dpt	_ISaRI'Ia_
 نیو	nju:
 نیوز	nju:z
 مہلت	mUHlat
-ملوث	mUlavvas
-اٹرویو	Int.aRvi;u:
-انٹرویوز	Int.aRvi;u:z
+ملوث	mUlav:as
 لیکس	li:ks
 نصرت	nUs.Rat
 خاتون	xa:tu:n
@@ -729,7 +728,6 @@ _dpt	_ISaRI'Ia_
 اوپر	u:paR	$1
 دودھ	du:d#
 اورئینٹل	o:Ri;e:nt.al
-انکار	Inka:R
 انیک	ane:k
 اونگ	u:ng
 اوک	u:k
@@ -759,9 +757,7 @@ _dpt	_ISaRI'Ia_
 اکھاڑ	Uk#a:r.
 اکے	Ike:
 آمیزش	a:me:zIS
-واحد	va:HId
 آنت	a:nt
-آنچل	a:ncal
 حجاب	HIJa:b
 حلقہ	Halqa
 لحاظ	lIHa:z.
@@ -825,7 +821,6 @@ _dpt	_ISaRI'Ia_
 اچھوتی	ac#u:ti
 اچھوتے	ac#u:te:
 پرسی	pURsi:
-بالغیب	bIlQEb	$2
 نگار	nIga:R
 کاغذ	ka:Qaz
 اخذ	axaz
@@ -849,14 +844,13 @@ _dpt	_ISaRI'Ia_
 ادھم	Ud#am
 اذالہ	IDa:la
 ارتھ	aRt#
-معلیٰ	mUalla:
+معلیٰ	mUal:a:
 ارسال	IRsa:l
 ملیں	mIle:n
 ارشاد	IRSa:d
 ارض	aRz
 سلطنت	saltanat
-استاد	Usta:d
-استر	staR
+استر	astaR
 بخدا	baxUda:
 بندش	bandIS
 خرد	xURd
@@ -871,29 +865,10 @@ _dpt	_ISaRI'Ia_
 خصوص	xUs.u:s.
 زمرد	zamaRUd
 جبلت	JIbIl:at	$2
-بالآخر	bIla:xIR
 شعاع	SUa:
 حصار	HIs.a:R
 شدگی	SUdgi:
-بالاتفاق	bIlItIfa:q
-بالاجماع	bIlIJma:
-بالاجمال	bIlIJma:l
-بالاشتراک	bIlIStIRa:k
-بالاعلان	bIle:la:n
-بالجبر	bIlJabR
-بالعوض	bIlIvaz
-بالغرض	bIlQaRaz
-مرکزی	maRkazi
-بالفرض	bIlfaRz
 حکمت	HIkmat
-بالفعل	bIlfe:l
-بالمثل	bIlmIsl
-بالمختصر	bIlmUxtas.aR
-بالمشافہ	bIlmUSa:fa
-بالمعنی	bIlma:ni
-بالمقابل	bIlmUqa:bIl
-بالواسطہ	bIlva:sta
-نیند	ni:nd
 باوجودیکہ	ba:vUJu:de:ke:
 کتا	kUt:a:	$2
 دکھاؤ	dIk#a:o:
@@ -990,3 +965,37 @@ _dpt	_ISaRI'Ia_
 اگ	Ug
 اگا	Uga:
 تہہ	tEH
+لپٹ	lIpat.
+مرکزی	maRkazi
+فرض	faRz
+عوض	Ivaz
+جبر	JabR
+غیب	QE:b
+واسطہ	va:sta
+افق	Ufaq
+افقی	Ufaqi
+الجھنیں	UlJ#ane~
+الجھنوں	UlJ#ano:n
+ابتر	abtaR
+فراق	fIRa:q
+مبلغ	mUbal:IQ
+مقدم	mUqad:am
+اندوہ	ando:H	$2
+گیں	gi:n
+زیست	zi:st
+تاثر	ta:sUR
+مقننہ	mUqan:Ina
+کہہ	kEH
+محو	mEHEv
+مستحکم	mUstEHkam
+مستند	mUstanad
+خوشامد	xUSa:mad
+ناحق	na:Haq
+انکم	Inkam
+مروجہ	mURav:IJa
+ملکیت	mIlki;at
+تمبیہ	tamb'iH
+(حیران کن)	He:Ra:n||kUn
+(فیصلہ کن)	fE:s.la||kUn
+لائیو	la:i:v
+گر	gIR

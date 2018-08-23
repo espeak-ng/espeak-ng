@@ -658,7 +658,7 @@ void CalcLengths(Translator *tr)
 			if (p2->ph->code == phonPAUSE_CLAUSE)
 				end_of_clause = 2;
 
-			if ((p2->newword & 2) && (more_syllables == 0))
+			if ((p2->newword & PHLIST_END_OF_CLAUSE) && (more_syllables == 0))
 				end_of_clause = 2;
 
 			// calc length modifier

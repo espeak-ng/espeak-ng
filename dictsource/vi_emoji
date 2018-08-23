@@ -47,7 +47,7 @@ $textmode
 
 // 2000..203C : General Punctuation
 
-‼	dấu chấm than kép						// [203C] text|emoji
+‼	hai dấu chấm than						// [203C] text|emoji
 ⁉	dấu chấm than và dấu chấm hỏi					// [2049] text|emoji
 
 // 20A0..20CF : Currency Symbols
@@ -76,10 +76,10 @@ $textmode
 //↓	down arrow							// [2193] other (no translation)
 ↔	mũi tên trái phải						// [2194] text|emoji
 ↕	mũi tên lên xuống						// [2195] text|emoji
-↖	mũi tên lên sang trái						// [2196] text|emoji
-↗	mũi tên lên sang phải						// [2197] text|emoji
-↘	mũi tên xuống sang phải						// [2198] text|emoji
-↙	mũi tên xuống sang trái						// [2199] text|emoji
+↖	mũi tên lên bên trái						// [2196] text|emoji
+↗	mũi tên lên bên phải						// [2197] text|emoji
+↘	mũi tên xuống bên phải						// [2198] text|emoji
+↙	mũi tên xuống bên trái						// [2199] text|emoji
 ↩	mũi tên phải cong sang trái					// [21A9] text|emoji
 ↪	mũi tên trái cong sang phải					// [21AA] text|emoji
 
@@ -108,13 +108,13 @@ $textmode
 ⌚	đồng hồ								// [231A]
 ⌛	đồng hồ cát đã chảy hết						// [231B]
 ⌨	bàn phím							// [2328] text|emoji
-⏏	nút đẩy ra							// [23CF] text|emoji
+⏏	nút tháo							// [23CF] text|emoji
 ⏩	nút tua đi nhanh						// [23E9]
-⏪	nút đảo ngược nhanh						// [23EA]
+⏪	nút tua lại nhanh						// [23EA]
 ⏫	nút lên nhanh							// [23EB]
 ⏬	nút xuống nhanh							// [23EC]
 ⏭	nút bài tiếp theo						// [23ED] text|emoji
-⏮	nút bài cuối							// [23EE] text|emoji
+⏮	nút bài trước							// [23EE] text|emoji
 ⏯	nút phát hoặc tạm dừng						// [23EF] text|emoji
 ⏰	đồng hồ báo thức						// [23F0]
 ⏱	đồng hồ bấm giờ							// [23F1] text|emoji
@@ -126,7 +126,7 @@ $textmode
 
 // 2460..24FF : Enclosed Alphanumerics
 
-Ⓜ	chữ M trong hình tròn						// [24C2] text|emoji
+Ⓜ	chữ M trong vòng tròn						// [24C2] text|emoji
 
 // 25A0..25FF : Geometric Shapes
 
@@ -134,7 +134,7 @@ $textmode
 ▪	hình vuông nhỏ màu đen						// [25AA] text|emoji
 ▫	hình vuông nhỏ màu trắng					// [25AB] text|emoji
 ▶	nút phát							// [25B6] text|emoji
-◀	nút đảo ngược							// [25C0] text|emoji
+◀	nút tua lại							// [25C0] text|emoji
 //●	black circle							// [25CF] other (no translation)
 ◻	hình vuông trung bình màu trắng					// [25FB] text|emoji
 ◼	hình vuông trung bình màu đen					// [25FC] text|emoji
@@ -148,16 +148,16 @@ $textmode
 ☂	cái ô								// [2602] text|emoji
 ☃	người tuyết							// [2603] text|emoji
 ☄	sao chổi							// [2604] text|emoji
-☎	điện thoại							// [260E] text|emoji
-☑	hộp kiểm có dấu kiểm						// [2611] text|emoji
+☎	điện thoại bàn							// [260E] text|emoji
+☑	hộp kiểm có dấu chọn						// [2611] text|emoji
 ☔	cái ô với những giọt nước mưa					// [2614]
 ☕	đồ uống nóng							// [2615]
 ☘	cỏ ba lá							// [2618] text|emoji
 ☝	ngón trỏ chỉ lên trên						// [261D] text|emoji
 ☠	đầu lâu xương chéo						// [2620] text|emoji
 ☢	phóng xạ							// [2622] text|emoji
-☣	chất độc sinh học						// [2623] text|emoji
-☦	thánh giá chính thống giáo					// [2626] text|emoji
+☣	nguy hiểm sinh học						// [2623] text|emoji
+☦	thập giá chính thống giáo					// [2626] text|emoji
 ☪	sao và trăng lưỡi liềm						// [262A] text|emoji
 ☮	biểu tượng hòa bình						// [262E] text|emoji
 ☯	âm dương							// [262F] text|emoji
@@ -178,6 +178,7 @@ $textmode
 ♑	Ma Kết								// [2651]
 ♒	Bảo Bình							// [2652]
 ♓	song ngư							// [2653]
+♟	tốt								// [265F] text|emoji
 ♠	bộ bích								// [2660] text|emoji
 ♣	bộ nhép								// [2663] text|emoji
 ♥	bộ cơ								// [2665] text|emoji
@@ -186,16 +187,17 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	biểu tượng tái chế						// [267B] text|emoji
+♾	vô cực								// [267E] text|emoji
 ♿	biểu tượng xe lăn						// [267F]
-⚒	búa và cuốc							// [2692] text|emoji
+⚒	búa và búa chim							// [2692] text|emoji
 ⚓	mỏ neo								// [2693]
 ⚔	kiếm bắt chéo							// [2694] text|emoji
 ⚕	biểu tượng y tế							// [2695] text|emoji
 ⚖	cân thăng bằng							// [2696] text|emoji
-⚗	nồi chưng							// [2697] text|emoji
+⚗	bình chưng cất							// [2697] text|emoji
 ⚙	bánh răng							// [2699] text|emoji
 ⚛	biểu tượng nguyên tử						// [269B] text|emoji
-⚜	hoa bách hợp							// [269C] text|emoji
+⚜	hoa diên vĩ							// [269C] text|emoji
 ⚠	cảnh báo							// [26A0] text|emoji
 ⚡	điện cao thế							// [26A1]
 ⚪	hình tròn màu trắng						// [26AA]
@@ -208,10 +210,10 @@ $textmode
 ⛅	mặt trời sau đám mây						// [26C5]
 ⛈	đám mây với tia chớp và mưa					// [26C8] text|emoji
 ⛎	Xà Phu								// [26CE]
-⛏	cuốc								// [26CF] text|emoji
+⛏	búa chim							// [26CF] text|emoji
 ⛑	mũ bảo hiểm của lính cứu hộ					// [26D1] text|emoji
 ⛓	dây xích							// [26D3] text|emoji
-⛔	miễn vào							// [26D4]
+⛔	cấm vào								// [26D4]
 ⛩	đền thờ shinto							// [26E9] text|emoji
 ⛪	nhà thờ								// [26EA]
 ⛰	núi								// [26F0] text|emoji
@@ -229,7 +231,7 @@ $textmode
 // 2700..27BF : Dingbats
 
 ✂	kéo								// [2702] text|emoji
-✅	dầu kiểm đậm màu trắng						// [2705]
+✅	dấu chọn đậm màu trắng						// [2705]
 ✈	máy bay								// [2708] text|emoji
 ✉	phong bì							// [2709] text|emoji
 ✊	nắm đấm giơ lên							// [270A]
@@ -238,15 +240,15 @@ $textmode
 ✍	bàn tay đang viết						// [270D] text|emoji
 ✏	bút chì								// [270F] text|emoji
 ✒	ngòi bút đen							// [2712] text|emoji
-✔	dấu kiểm đậm							// [2714] text|emoji
-✖	dấu nhân đậm							// [2716] text|emoji
+✔	dấu chọn đậm							// [2714] text|emoji
+✖	dấu nhân x đậm							// [2716] text|emoji
 ✝	thánh giá la-tinh						// [271D] text|emoji
 ✡	ngôi sao sáu cánh						// [2721] text|emoji
 ✨	ánh lấp lánh							// [2728]
-✳	hoa thị tám cánh						// [2733] text|emoji
-✴	sao tám cánh							// [2734] text|emoji
+✳	dấu hoa thị tám cánh						// [2733] text|emoji
+✴	ngôi sao tám cánh						// [2734] text|emoji
 ❄	bông tuyết							// [2744] text|emoji
-❇	tia lửa								// [2747] text|emoji
+❇	lấp lánh							// [2747] text|emoji
 ❌	dấu gạch chéo							// [274C]
 ❎	nút dấu gạch chéo						// [274E]
 ❓	dấu chấm hỏi							// [2753]
@@ -260,7 +262,7 @@ $textmode
 ➗	dấu chia đậm							// [2797]
 ➡	mũi tên phải							// [27A1] text|emoji
 ➰	vòng lặp							// [27B0]
-➿	vòng lặp kép							// [27BF]
+➿	vòng lặp đôi							// [27BF]
 
 // 2900..297F : Supplemental Arrows-B
 
@@ -280,12 +282,12 @@ $textmode
 // 3000..303F : CJK Symbols and Punctuation
 
 〰	dấu gạch ngang lượn sóng					// [3030] text|emoji
-〽	dấu thay đổi luân phiên riêng					// [303D] text|emoji
+〽	ký hiệu thay đổi luân phiên					// [303D] text|emoji
 
 // 3200..32FF : Enclosed CJK Letters and Months
 
-㊗	chữ tượng hình chúc mừng trong hình tròn			// [3297] text|emoji
-㊙	chữ tượng hình bí mật trong hình tròn				// [3299] text|emoji
+㊗	nút Tiếng Nhật chúc mừng”					// [3297] text|emoji
+㊙	nút Tiếng Nhật bí mật”						// [3299] text|emoji
 
 // 1F100..1F1FF : Enclosed Alphanumeric Supplement
 
@@ -307,21 +309,21 @@ $textmode
 
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
-🈁	chữ kolo katakana trong hình vuông				// [1F201]
-🈂	chữ sa katakana trong hình vuông				// [1F202] text|emoji
-🈚	chữ tượng hình phủ định trong hình vuông			// [1F21A]
-🈯	chữ tượng hình ngón tay trong hình vuông			// [1F22F]
-🈲	chữ tượng hình cấm trong hình vuông				// [1F232]
-🈳	chữ tượng hình trống trong hình vuông				// [1F233]
-🈴	chữ tượng hình cùng nhau trong hình vuông			// [1F234]
+🈁	nút Tiếng Nhật tại đây”						// [1F201]
+🈂	nút Tiếng Nhật phí dịch vụ”					// [1F202] text|emoji
+🈚	nút Tiếng Nhật miễn phí”					// [1F21A]
+🈯	nút Tiếng Nhật đặt trước”					// [1F22F]
+🈲	nút Tiếng Nhật bị cấm”						// [1F232]
+🈳	nút Tiếng Nhật còn trống”					// [1F233]
+🈴	nút Tiếng Nhật vượt cấp”					// [1F234]
 🈵	chữ tượng hình đầy đủ trong hình vuông				// [1F235]
-🈶	chữ tượng hình tồn tại trong hình vuông				// [1F236]
-🈷	chữ tượng hình trăng trong hình vuông				// [1F237] text|emoji
-🈸	chữ tượng hình áp dụng trong hình vuông				// [1F238]
-🈹	chữ tượng hình chia trong hình vuông				// [1F239]
-🈺	chữ tượng hình điều hành trông hình vuông			// [1F23A]
-🉐	chữ tượng hình lợi thế trong hình tròn				// [1F250]
-🉑	chữ tượng hình chấp nhận trong hình tròn			// [1F251]
+🈶	nút Tiếng Nhật không miễn phí”					// [1F236]
+🈷	nút Tiếng Nhật số tiền hàng tháng”				// [1F237] text|emoji
+🈸	nút Tiếng Nhật đơn xin”						// [1F238]
+🈹	nút Tiếng Nhật giảm giá”					// [1F239]
+🈺	nút Tiếng Nhật mở cửa kinh doanh”				// [1F23A]
+🉐	nút Tiếng Nhật mặc cả”						// [1F250]
+🉑	nút Tiếng Nhật có thể chấp nhận”				// [1F251]
 
 // 1F000..1F02F : Mahjong Tiles
 
@@ -482,7 +484,7 @@ $textmode
 🎖	huân chương quân đội						// [1F396] text|emoji
 🎗	ruy băng nhắc nhở						// [1F397] text|emoji
 🎙	micrô phòng thu âm						// [1F399] text|emoji
-🎚	thanh trượt cấp độ						// [1F39A] text|emoji
+🎚	thanh trượt mức							// [1F39A] text|emoji
 🎛	núm điều khiển							// [1F39B] text|emoji
 🎞	khung hình phim							// [1F39E] text|emoji
 🎟	vé vào cửa							// [1F39F] text|emoji
@@ -513,7 +515,7 @@ $textmode
 🎸	đàn ghi-ta							// [1F3B8]
 🎹	phím đàn							// [1F3B9]
 🎺	kèn trumpet							// [1F3BA]
-🎻	đàn viôlông							// [1F3BB]
+🎻	đàn violin							// [1F3BB]
 🎼	khuông nhạc							// [1F3BC]
 🎽	áo chạy bộ							// [1F3BD]
 🎾	quần vợt							// [1F3BE]
@@ -557,14 +559,14 @@ $textmode
 🏤	bưu điện							// [1F3E4]
 🏥	bệnh viện							// [1F3E5]
 🏦	ngân hàng							// [1F3E6]
-🏧	biển báo ATM							// [1F3E7]
+🏧	ký hiệu ATM							// [1F3E7]
 🏨	khách sạn							// [1F3E8]
 🏩	khách sạn tình yêu						// [1F3E9]
 🏪	cửa hàng tiện dụng						// [1F3EA]
 🏫	trường học							// [1F3EB]
 🏬	cửa hàng bách hóa						// [1F3EC]
 🏭	nhà máy								// [1F3ED]
-🏮	đèn lồng đỏ							// [1F3EE]
+🏮	đèn lồng giấy màu đỏ						// [1F3EE]
 🏯	lâu đài Nhật Bản						// [1F3EF]
 🏰	lâu đài								// [1F3F0]
 🏳	cờ trắng							// [1F3F3] text|emoji
@@ -739,7 +741,7 @@ $textmode
 💝	trái tim với ruy băng						// [1F49D]
 💞	trái tim xoay vòng						// [1F49E]
 💟	hình trang trí trái tim						// [1F49F]
-💠	hình thoi có chấm						// [1F4A0]
+💠	hình thoi có dấu chấm						// [1F4A0]
 💡	bóng đèn							// [1F4A1]
 💢	biểu tượng giận giữ						// [1F4A2]
 💣	bom								// [1F4A3]
@@ -756,13 +758,13 @@ $textmode
 💮	hoa trắng							// [1F4AE]
 💯	100 điểm							// [1F4AF]
 💰	túi tiền							// [1F4B0]
-💱	trao đổi tiền tệ						// [1F4B1]
+💱	đổi tiền							// [1F4B1]
 💲	ký hiệu đô la đậm						// [1F4B2]
 💳	thẻ tín dụng							// [1F4B3]
-💴	tiền yên							// [1F4B4]
-💵	tiền đô la							// [1F4B5]
-💶	tiền châu âu							// [1F4B6]
-💷	tiền bảng							// [1F4B7]
+💴	tiền giấy yên							// [1F4B4]
+💵	tiền giấy đô la							// [1F4B5]
+💶	tiền giấy euro							// [1F4B6]
+💷	tiền giấy bảng							// [1F4B7]
 💸	tiền có cánh							// [1F4B8]
 💹	biểu đồ đồng yên tăng						// [1F4B9]
 💺	cái ghế								// [1F4BA]
@@ -777,64 +779,64 @@ $textmode
 📃	trang bị quăn							// [1F4C3]
 📄	trang hướng lên trên						// [1F4C4]
 📅	lịch								// [1F4C5]
-📆	lịch xé								// [1F4C6]
+📆	quyển lịch bloc							// [1F4C6]
 📇	chỉ mục thẻ							// [1F4C7]
 📈	biểu đồ tăng							// [1F4C8]
 📉	biểu đồ giảm							// [1F4C9]
-📊	biểu đồ cột							// [1F4CA]
-📋	bìa kẹp hồ sơ							// [1F4CB]
+📊	biểu đồ thanh							// [1F4CA]
+📋	bảng ghi nhớ							// [1F4CB]
 📌	đinh ghim							// [1F4CC]
-📍	đinh ghim tròn							// [1F4CD]
+📍	đinh ghim hình tròn						// [1F4CD]
 📎	kẹp giấy							// [1F4CE]
 📏	thước thẳng							// [1F4CF]
 📐	thước tam giác							// [1F4D0]
-📑	nhãn dấu trang							// [1F4D1]
+📑	tab dấu trang							// [1F4D1]
 📒	sổ cái								// [1F4D2]
-📓	sổ tay								// [1F4D3]
-📔	sổ tay với bìa trang trí					// [1F4D4]
+📓	sổ ghi chép							// [1F4D3]
+📔	sổ ghi chép có bìa trang trí					// [1F4D4]
 📕	sách đóng							// [1F4D5]
-📖	sách mở								// [1F4D6]
+📖	sách đang mở							// [1F4D6]
 📗	sách màu lục							// [1F4D7]
 📘	sách màu lam							// [1F4D8]
 📙	sách màu cam							// [1F4D9]
 📚	sách								// [1F4DA]
-📛	huy hiệu tên							// [1F4DB]
-📜	cuộn giấy							// [1F4DC]
-📝	giấy nhớ							// [1F4DD]
-📞	ống nghe điện thoại						// [1F4DE]
+📛	thẻ tên								// [1F4DB]
+📜	cuộn sách							// [1F4DC]
+📝	sổ ghi nhớ							// [1F4DD]
+📞	ống nghe điện thoại bàn						// [1F4DE]
 📟	máy nhắn tin							// [1F4DF]
 📠	máy fax								// [1F4E0]
 📡	ăng-ten vệ tinh							// [1F4E1]
-📢	loa phóng thanh							// [1F4E2]
-📣	máy phóng thanh							// [1F4E3]
+📢	loa phát thanh							// [1F4E2]
+📣	loa phóng thanh							// [1F4E3]
 📤	khay thư đi							// [1F4E4]
 📥	khay thư đến							// [1F4E5]
 📦	gói								// [1F4E6]
-📧	e-mail								// [1F4E7]
+📧	email								// [1F4E7]
 📨	phong bì thư đến						// [1F4E8]
-📩	phong bì có mũi tên						// [1F4E9]
-📪	hộp thư đóng với cờ thấp					// [1F4EA]
-📫	hộp thư đóng với cờ cao						// [1F4EB]
-📬	hộp thư mở với cờ cao						// [1F4EC]
-📭	hộp thư mở với cờ thấp						// [1F4ED]
+📩	phong bì với mũi tên						// [1F4E9]
+📪	hộp thư được đóng với lá cờ nằm ngang				// [1F4EA]
+📫	hộp thư được đóng với lá cờ đứng				// [1F4EB]
+📬	hộp thư được mở với lá cờ đứng					// [1F4EC]
+📭	hộp thư được mở với lá cờ nằm ngang				// [1F4ED]
 📮	hòm thư								// [1F4EE]
-📯	kèn cor								// [1F4EF]
+📯	kèn bưu chính							// [1F4EF]
 📰	báo								// [1F4F0]
 📱	điện thoại di động						// [1F4F1]
 📲	điện thoại di động có mũi tên					// [1F4F2]
 📳	chế độ rung							// [1F4F3]
-📴	điện thoại di đọng tắt						// [1F4F4]
+📴	tắt điện thoại di động						// [1F4F4]
 📵	cấm điện thoại di động						// [1F4F5]
-📶	thanh ăng-ten							// [1F4F6]
+📶	vạch ăng-ten							// [1F4F6]
 📷	máy ảnh								// [1F4F7]
-📸	máy ảnh có đèn nháy						// [1F4F8]
+📸	máy ảnh có đèn flash						// [1F4F8]
 📹	máy quay video							// [1F4F9]
 📺	tivi								// [1F4FA]
-📻	đài								// [1F4FB]
-📼	băng hình							// [1F4FC]
+📻	radio								// [1F4FB]
+📼	băng video							// [1F4FC]
 📽	máy chiếu phim							// [1F4FD] text|emoji
 📿	tràng hạt							// [1F4FF]
-🔀	nút trộn bài							// [1F500]
+🔀	nút xáo trộn bài						// [1F500]
 🔁	nút lặp lại							// [1F501]
 🔂	nút lặp lại một lần						// [1F502]
 🔃	mũi tên thẳng đứng theo chiều kim đồng hồ			// [1F503]
@@ -843,20 +845,20 @@ $textmode
 🔆	nút sáng							// [1F506]
 🔇	tắt loa								// [1F507]
 🔈	âm lượng loa thấp						// [1F508]
-🔉	bật loa								// [1F509]
+🔉	âm lượng loa trung bình						// [1F509]
 🔊	âm lượng loa cao						// [1F50A]
 🔋	pin								// [1F50B]
-🔌	ổ cắm điện							// [1F50C]
-🔍	kính lúp trỏ sang trái						// [1F50D]
-🔎	kính lúp trỏ sang phải						// [1F50E]
+🔌	phích cắm điện							// [1F50C]
+🔍	kính phóng đại nghiêng sang trái				// [1F50D]
+🔎	kính lúp nghiêng sang phải					// [1F50E]
 🔏	khóa với bút							// [1F50F]
-🔐	khóa đóng với chìa						// [1F510]
+🔐	khóa với chìa							// [1F510]
 🔑	chìa khóa							// [1F511]
 🔒	khóa								// [1F512]
 🔓	mở khóa								// [1F513]
 🔔	cái chuông							// [1F514]
 🔕	chuông với dấu gạch chéo					// [1F515]
-🔖	đánh dấu							// [1F516]
+🔖	đánh dấu trang							// [1F516]
 🔗	mắt xích							// [1F517]
 🔘	nút radio							// [1F518]
 🔙	mũi tên BACK							// [1F519]
@@ -866,11 +868,11 @@ $textmode
 🔝	mũi tên TOP							// [1F51D]
 🔞	cấm người dưới 18 tuổi						// [1F51E]
 🔟	mũ phím: 10							// [1F51F]
-🔠	viết hoa la tinh						// [1F520]
-🔡	viết thường la tinh						// [1F521]
-🔢	số nhập								// [1F522]
-🔣	ký hiệu đầu vào							// [1F523]
-🔤	chữ la tinh							// [1F524]
+🔠	nhập chữ hoa la tinh						// [1F520]
+🔡	nhập chữ thường la tinh						// [1F521]
+🔢	nhập số								// [1F522]
+🔣	nhập biểu tượng							// [1F523]
+🔤	nhập chữ cái la tinh						// [1F524]
 🔥	lửa								// [1F525]
 🔦	đèn pin								// [1F526]
 🔧	cờ lê								// [1F527]
@@ -881,8 +883,8 @@ $textmode
 🔬	kính hiển vi							// [1F52C]
 🔭	kính viễn vọng							// [1F52D]
 🔮	quả cầu pha lê							// [1F52E]
-🔯	ngôi sao sáu cánh có chấm					// [1F52F]
-🔰	biểu tượng của nhật cho người bắt đầu				// [1F530]
+🔯	ngôi sao sáu cánh có dấu chấm					// [1F52F]
+🔰	ký hiệu của Nhật cho người mới bắt đầu				// [1F530]
 🔱	biểu tượng đinh ba						// [1F531]
 🔲	nút hình vuông màu đen						// [1F532]
 🔳	nút hình vuông màu trắng					// [1F533]
@@ -894,14 +896,14 @@ $textmode
 🔹	hình thoi nhỏ màu lam						// [1F539]
 🔺	tam giác màu đỏ trỏ lên trên					// [1F53A]
 🔻	tam giác màu đỏ trỏ xuống dưới					// [1F53B]
-🔼	nút lên								// [1F53C]
-🔽	nút xuống							// [1F53D]
+🔼	nút đi lên							// [1F53C]
+🔽	nút đi xuống							// [1F53D]
 🕉	om								// [1F549] text|emoji
 🕊	bồ câu								// [1F54A] text|emoji
 🕋	kaaba								// [1F54B]
 🕌	nhà thờ hồi giáo						// [1F54C]
 🕍	giáo đường Do thái						// [1F54D]
-🕎	cây đàn nhiều nhánh						// [1F54E]
+🕎	cây đèn menorah							// [1F54E]
 🕐	một giờ								// [1F550]
 🕑	hai giờ								// [1F551]
 🕒	ba giờ								// [1F552]
@@ -936,10 +938,10 @@ $textmode
 🕸	mạng nhện							// [1F578] text|emoji
 🕹	cần điều khiển							// [1F579] text|emoji
 🕺	người đàn ông đang khiêu vũ					// [1F57A]
-🖇	kẹp giấy nối liền						// [1F587] text|emoji
+🖇	kẹp giấy được nối						// [1F587] text|emoji
 🖊	bút								// [1F58A] text|emoji
 🖋	bút máy								// [1F58B] text|emoji
-🖌	bút vẽ								// [1F58C] text|emoji
+🖌	cọ vẽ tranh							// [1F58C] text|emoji
 🖍	bút sáp màu							// [1F58D] text|emoji
 🖐	tay xòe ngón giơ lên						// [1F590] text|emoji
 🖕	ngón giữa							// [1F595]
@@ -950,7 +952,7 @@ $textmode
 🖱	chuột máy tính							// [1F5B1] text|emoji
 🖲	bi xoay								// [1F5B2] text|emoji
 🖼	tranh trong khung						// [1F5BC] text|emoji
-🗂	ngăn chỉ mục thẻ						// [1F5C2] text|emoji
+🗂	dụng cụ chia chỉ mục thẻ					// [1F5C2] text|emoji
 🗃	hộp đựng hồ sơ							// [1F5C3] text|emoji
 🗄	tủ hồ sơ							// [1F5C4] text|emoji
 🗑	sọt rác								// [1F5D1] text|emoji
@@ -1099,11 +1101,11 @@ $textmode
 🚨	đèn xe cảnh sát							// [1F6A8]
 🚩	cờ tam giác							// [1F6A9]
 🚪	cửa								// [1F6AA]
-🚫	cấm xâm phạm							// [1F6AB]
+🚫	bị cấm								// [1F6AB]
 🚬	thuốc lá							// [1F6AC]
 🚭	cấm hút thuốc							// [1F6AD]
-🚮	ký hiệu đổ rác vào thùng					// [1F6AE]
-🚯	cấm đổ rác							// [1F6AF]
+🚮	ký hiệu bỏ rác vào thùng					// [1F6AE]
+🚯	cấm xả rác							// [1F6AF]
 🚰	nước uống							// [1F6B0]
 🚱	nước không uống được						// [1F6B1]
 🚲	xe đạp								// [1F6B2]
@@ -1116,16 +1118,16 @@ $textmode
 🚹	nhà vệ sinh nam							// [1F6B9]
 🚺	nhà vệ sinh nữ							// [1F6BA]
 🚻	nhà vệ sinh							// [1F6BB]
-🚼	biểu tượng trẻ con						// [1F6BC]
+🚼	biểu tượng trẻ em						// [1F6BC]
 🚽	bồn cầu								// [1F6BD]
 🚾	WC								// [1F6BE]
 🚿	vòi hoa sen							// [1F6BF]
 🛀	người đang tắm bồn						// [1F6C0]
 🛁	bồn tắm								// [1F6C1]
-🛂	kiểm tra hộ chiếu						// [1F6C2]
+🛂	kiểm soát hộ chiếu						// [1F6C2]
 🛃	hải quan							// [1F6C3]
-🛄	nhận hành lý							// [1F6C4]
-🛅	hành lý gửi							// [1F6C5]
+🛄	nơi nhận hành lý						// [1F6C4]
+🛅	hành lý bỏ quên							// [1F6C5]
 🛋	ghế dài và đèn							// [1F6CB] text|emoji
 🛌	người trên giường						// [1F6CC]
 🛍	túi mua sắm							// [1F6CD] text|emoji
@@ -1133,7 +1135,7 @@ $textmode
 🛏	giường								// [1F6CF] text|emoji
 🛐	nơi thờ phụng							// [1F6D0]
 🛑	ký hiệu dừng							// [1F6D1]
-🛒	giỏ mua hàng							// [1F6D2]
+🛒	xe mua hàng							// [1F6D2]
 🛠	búa và cờ lê							// [1F6E0] text|emoji
 🛡	cái khiên							// [1F6E1] text|emoji
 🛢	thùng dầu							// [1F6E2] text|emoji
@@ -1150,6 +1152,7 @@ $textmode
 🛶	xuồng								// [1F6F6]
 🛷	xe trượt tuyết							// [1F6F7]
 🛸	đĩa bay								// [1F6F8]
+🛹	ván trượt							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1211,6 +1214,8 @@ $textmode
 🥊	găng tay quyền anh						// [1F94A]
 🥋	đồng phục võ thuật						// [1F94B]
 🥌	bi đá trên băng							// [1F94C]
+🥎	bóng mềm							// [1F94E]
+🥏	đĩa bay trò chơi						// [1F94F]
 🥐	bánh sừng bò							// [1F950]
 🥑	quả bơ								// [1F951]
 🥒	dưa chuột							// [1F952]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	tảng thịt							// [1F969]
 🥪	bánh mỳ kẹp							// [1F96A]
 🥫	đồ hộp								// [1F96B]
+🥬	xanh lá								// [1F96C]
+🥭	xoài								// [1F96D]
+🥮	bánh trung thu							// [1F96E]
+🥯	bánh mỳ vòng							// [1F96F]
+🥰	mặt cười với 3 trái tim						// [1F970]
+🥳	mặt tiệc tùng							// [1F973]
+🥴	mặt choáng váng							// [1F974]
+🥵	mặt nóng							// [1F975]
+🥶	mặt lạnh							// [1F976]
+🥺	mặt cầu xin							// [1F97A]
+🥼	áo phòng thí nghiệm						// [1F97C]
+🥽	kính bảo hộ							// [1F97D]
+🥾	giày leo núi							// [1F97E]
+🥿	giày bệt							// [1F97F]
 🦀	cua								// [1F980]
 🦁	mặt sư tử							// [1F981]
 🦂	bọ cạp								// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	khủng long chân thằn lằn					// [1F995]
 🦖	khủng long bạo chúa						// [1F996]
 🦗	dế								// [1F997]
+🦘	chuột túi							// [1F998]
+🦙	lạc đà không bướu						// [1F999]
+🦚	con công							// [1F99A]
+🦛	hà mã								// [1F99B]
+🦜	con vẹt								// [1F99C]
+🦝	gấu trúc							// [1F99D]
+🦞	tôm hùm								// [1F99E]
+🦟	con muỗi							// [1F99F]
+🦠	vi trùng							// [1F9A0]
+🦡	con lửng							// [1F9A1]
+🦢	thiên nga							// [1F9A2]
+🦰	tóc đỏ								// [1F9B0]
+🦱	tóc xoăn							// [1F9B1]
+🦲	hói								// [1F9B2]
+🦳	tóc trắng							// [1F9B3]
+🦴	xương								// [1F9B4]
+🦵	Chân								// [1F9B5]
+🦶	bàn chân							// [1F9B6]
+🦷	răng								// [1F9B7]
+🦸	siêu anh hùng							// [1F9B8]
+🦹	nhân vật siêu phản diện						// [1F9B9]
 🧀	miếng pho mát							// [1F9C0]
+🧁	bánh nướng nhỏ							// [1F9C1]
+🧂	muối								// [1F9C2]
 🧐	mặt có mắt chột							// [1F9D0]
 🧑	người lớn							// [1F9D1]
 🧒	trẻ em								// [1F9D2]
@@ -1287,273 +1329,297 @@ $textmode
 🧤	găng tay							// [1F9E4]
 🧥	áo khoác							// [1F9E5]
 🧦	tất								// [1F9E6]
+🧧	bao lì xì							// [1F9E7]
+🧨	pháo								// [1F9E8]
+🧩	ghép hình							// [1F9E9]
+🧪	ống nghiệm							// [1F9EA]
+🧫	đĩa petri							// [1F9EB]
+🧬	adn								// [1F9EC]
+🧭	la bàn								// [1F9ED]
+🧮	bàn tính							// [1F9EE]
+🧰	hộp dụng cụ							// [1F9F0]
+🧱	gạch								// [1F9F1]
+🧲	nam châm							// [1F9F2]
+🧳	hành lý								// [1F9F3]
+🧴	chai sữa dưỡng da						// [1F9F4]
+🧵	sợi chỉ								// [1F9F5]
+🧶	sợi								// [1F9F6]
+🧷	ghim băng							// [1F9F7]
+🧸	gấu bông							// [1F9F8]
+🧹	cây chổi							// [1F9F9]
+🧺	cái giỏ								// [1F9FA]
+🧻	cuộn giấy							// [1F9FB]
+🧼	xà phòng							// [1F9FC]
+🧽	bọt biển							// [1F9FD]
+🧾	biên nhận							// [1F9FE]
+🧿	bùa may mắn nazar						// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Đảo Ascension							// [1F1E6 1F1E8] AC
-🇦🇩	Andorra								// [1F1E6 1F1E9] AD
-🇦🇪	Các Tiểu Vương quốc Ả Rập Thống nhất				// [1F1E6 1F1EA] AE
-🇦🇫	Afghanistan							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua và Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
-🇦🇱	Albania								// [1F1E6 1F1F1] AL
-🇦🇲	Armenia								// [1F1E6 1F1F2] AM
-🇦🇴	Angola								// [1F1E6 1F1F4] AO
-🇦🇶	Nam Cực								// [1F1E6 1F1F6] AQ
-🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Samoa thuộc Mỹ							// [1F1E6 1F1F8] AS
-🇦🇹	Áo								// [1F1E6 1F1F9] AT
-🇦🇺	Australia							// [1F1E6 1F1FA] AU
-🇦🇼	Aruba								// [1F1E6 1F1FC] AW
-🇦🇽	Quần đảo Åland							// [1F1E6 1F1FD] AX
-🇦🇿	Azerbaijan							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosnia và Herzegovina						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
-🇧🇪	Bỉ								// [1F1E7 1F1EA] BE
-🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bulgaria							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	St. Barthélemy							// [1F1E7 1F1F1] BL
-🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
-🇧🇳	Brunei								// [1F1E7 1F1F3] BN
-🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
-🇧🇶	Ca-ri-bê Hà Lan							// [1F1E7 1F1F6] BQ
-🇧🇷	Brazil								// [1F1E7 1F1F7] BR
-🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
-🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
-🇧🇻	Đảo Bouvet							// [1F1E7 1F1FB] BV
-🇧🇼	Botswana							// [1F1E7 1F1FC] BW
-🇧🇾	Belarus								// [1F1E7 1F1FE] BY
-🇧🇿	Belize								// [1F1E7 1F1FF] BZ
-🇨🇦	Canada								// [1F1E8 1F1E6] CA
-🇨🇨	Quần đảo Cocos (Keeling)					// [1F1E8 1F1E8] CC
-🇨🇩	Congo - Kinshasa						// [1F1E8 1F1E9] CD
-🇨🇫	Cộng hòa Trung Phi						// [1F1E8 1F1EB] CF
-🇨🇬	Congo - Brazzaville						// [1F1E8 1F1EC] CG
-🇨🇭	Thụy Sĩ								// [1F1E8 1F1ED] CH
-🇨🇮	Côte d’Ivoire							// [1F1E8 1F1EE] CI
-🇨🇰	Quần đảo Cook							// [1F1E8 1F1F0] CK
-🇨🇱	Chile								// [1F1E8 1F1F1] CL
-🇨🇲	Cameroon							// [1F1E8 1F1F2] CM
-🇨🇳	Trung Quốc							// [1F1E8 1F1F3] CN
-🇨🇴	Colombia							// [1F1E8 1F1F4] CO
-🇨🇵	Đảo Clipperton							// [1F1E8 1F1F5] CP
-🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
-🇨🇺	Cuba								// [1F1E8 1F1FA] CU
-🇨🇻	Cape Verde							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Đảo Giáng Sinh							// [1F1E8 1F1FD] CX
-🇨🇾	Síp								// [1F1E8 1F1FE] CY
-🇨🇿	Séc								// [1F1E8 1F1FF] CZ
-🇩🇪	Đức								// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
-🇩🇯	Djibouti							// [1F1E9 1F1EF] DJ
-🇩🇰	Đan Mạch							// [1F1E9 1F1F0] DK
-🇩🇲	Dominica							// [1F1E9 1F1F2] DM
-🇩🇴	Cộng hòa Dominica						// [1F1E9 1F1F4] DO
-🇩🇿	Algeria								// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta và Melilla						// [1F1EA 1F1E6] EA
-🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
-🇪🇪	Estonia								// [1F1EA 1F1EA] EE
-🇪🇬	Ai Cập								// [1F1EA 1F1EC] EG
-🇪🇭	Tây Sahara							// [1F1EA 1F1ED] EH
-🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
-🇪🇸	Tây Ban Nha							// [1F1EA 1F1F8] ES
-🇪🇹	Ethiopia							// [1F1EA 1F1F9] ET
-🇪🇺	Liên Minh Châu Âu						// [1F1EA 1F1FA] EU
-🇫🇮	Phần Lan							// [1F1EB 1F1EE] FI
-🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
-🇫🇰	Quần đảo Falkland						// [1F1EB 1F1F0] FI
-🇫🇲	Micronesia							// [1F1EB 1F1F2] FM
-🇫🇴	Quần đảo Faroe							// [1F1EB 1F1F4] FO
-🇫🇷	Pháp								// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Vương quốc Anh							// [1F1EC 1F1E7] GB
-🇬🇩	Grenada								// [1F1EC 1F1E9] GD
-🇬🇪	Gruzia								// [1F1EC 1F1EA] GE
-🇬🇫	Guiana thuộc Pháp						// [1F1EC 1F1EB] GF
-🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
-🇬🇭	Ghana								// [1F1EC 1F1ED] GH
-🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Greenland							// [1F1EC 1F1F1] GL
-🇬🇲	Gambia								// [1F1EC 1F1F2] GM
-🇬🇳	Guinea								// [1F1EC 1F1F3] GN
-🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
-🇬🇶	Guinea Xích Đạo							// [1F1EC 1F1F6] GQ
-🇬🇷	Hy Lạp								// [1F1EC 1F1F7] GR
-🇬🇸	Nam Georgia & Quần đảo Nam Sandwich				// [1F1EC 1F1F8] GS
-🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hồng Kông, Trung Quốc						// [1F1ED 1F1F0] HK
-🇭🇲	Quần đảo Heard và McDonald					// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Croatia								// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Hungary								// [1F1ED 1F1FA] HU
-🇮🇨	Quần đảo Canary							// [1F1EE 1F1E8] IC
-🇮🇩	Indonesia							// [1F1EE 1F1E9] ID
-🇮🇪	Ireland								// [1F1EE 1F1EA] IE
-🇮🇱	Israel								// [1F1EE 1F1F1] IL
-🇮🇲	Đảo Man								// [1F1EE 1F1F2] IM
-🇮🇳	Ấn Độ								// [1F1EE 1F1F3] IN
-🇮🇴	Lãnh thổ Ấn độ dương thuộc Anh					// [1F1EE 1F1F4] IO
-🇮🇶	Iraq								// [1F1EE 1F1F6] IQ
-🇮🇷	Iran								// [1F1EE 1F1F7] IR
-🇮🇸	Iceland								// [1F1EE 1F1F8] IS
-🇮🇹	Italy								// [1F1EE 1F1F9] IT
-🇯🇪	Jersey								// [1F1EF 1F1EA] JE
-🇯🇲	Jamaica								// [1F1EF 1F1F2] JM
-🇯🇴	Jordan								// [1F1EF 1F1F4] JO
-🇯🇵	Nhật Bản							// [1F1EF 1F1F5] JP
-🇰🇪	Kenya								// [1F1F0 1F1EA] KE
-🇰🇬	Kyrgyzstan							// [1F1F0 1F1EC] KG
-🇰🇭	Campuchia							// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Comoros								// [1F1F0 1F1F2] KM
-🇰🇳	St. Kitts và Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Triều Tiên							// [1F1F0 1F1F5] KP
-🇰🇷	Hàn Quốc							// [1F1F0 1F1F7] KR
-🇰🇼	Kuwait								// [1F1F0 1F1FC] KW
-🇰🇾	Quần đảo Cayman							// [1F1F0 1F1FE] KY
-🇰🇿	Kazakhstan							// [1F1F0 1F1FF] KZ
-🇱🇦	Lào								// [1F1F1 1F1E6] LA
-🇱🇧	Li-băng								// [1F1F1 1F1E7] LB
-🇱🇨	St. Lucia							// [1F1F1 1F1E8] LC
-🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
-🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
-🇱🇷	Liberia								// [1F1F1 1F1F7] LR
-🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
-🇱🇹	Litva								// [1F1F1 1F1F9] LT
-🇱🇺	Luxembourg							// [1F1F1 1F1FA] LU
-🇱🇻	Latvia								// [1F1F1 1F1FB] LV
-🇱🇾	Libya								// [1F1F1 1F1FE] LY
-🇲🇦	Ma-rốc								// [1F1F2 1F1E6] MA
-🇲🇨	Monaco								// [1F1F2 1F1E8] MC
-🇲🇩	Moldova								// [1F1F2 1F1E9] MD
-🇲🇪	Montenegro							// [1F1F2 1F1EA] ME
-🇲🇫	St. Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagascar							// [1F1F2 1F1EC] MG
-🇲🇭	Quần đảo Marshall						// [1F1F2 1F1ED] MH
-🇲🇰	Macedonia							// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Myanmar (Miến Điện)						// [1F1F2 1F1F2] MM
-🇲🇳	Mông Cổ								// [1F1F2 1F1F3] MN
-🇲🇴	Macao, Trung Quốc						// [1F1F2 1F1F4] MO
-🇲🇵	Quần đảo Bắc Mariana						// [1F1F2 1F1F5] MP
-🇲🇶	Martinique							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauritania							// [1F1F2 1F1F7] MR
-🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
-🇲🇹	Malta								// [1F1F2 1F1F9] MT
-🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
-🇲🇻	Maldives							// [1F1F2 1F1FB] MV
-🇲🇼	Malawi								// [1F1F2 1F1FC] MW
-🇲🇽	Mexico								// [1F1F2 1F1FD] MX
-🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
-🇲🇿	Mozambique							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibia								// [1F1F3 1F1E6] NA
-🇳🇨	New Caledonia							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Đảo Norfolk							// [1F1F3 1F1EB] NF
-🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
-🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Hà Lan								// [1F1F3 1F1F1] NL
-🇳🇴	Na Uy								// [1F1F3 1F1F4] NO
-🇳🇵	Nepal								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	New Zealand							// [1F1F3 1F1FF] NZ
-🇴🇲	Oman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Polynesia thuộc Pháp						// [1F1F5 1F1EB] PF
-🇵🇬	Papua New Guinea						// [1F1F5 1F1EC] PG
-🇵🇭	Philippines							// [1F1F5 1F1ED] PH
-🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
-🇵🇱	Ba Lan								// [1F1F5 1F1F1] PL
-🇵🇲	Saint Pierre và Miquelon					// [1F1F5 1F1F2] PM
-🇵🇳	Quần đảo Pitcairn						// [1F1F5 1F1F3] PN
-🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
-🇵🇸	Lãnh thổ Palestine						// [1F1F5 1F1F8] PS
-🇵🇹	Bồ Đào Nha							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
-🇶🇦	Qatar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	Romania								// [1F1F7 1F1F4] RO
-🇷🇸	Serbia								// [1F1F7 1F1F8] RS
-🇷🇺	Nga								// [1F1F7 1F1FA] RU
-🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
-🇸🇦	Ả Rập Xê-út							// [1F1F8 1F1E6] SA
-🇸🇧	Quần đảo Solomon						// [1F1F8 1F1E7] SB
-🇸🇨	Seychelles							// [1F1F8 1F1E8] SC
-🇸🇩	Sudan								// [1F1F8 1F1E9] SD
-🇸🇪	Thụy Điển							// [1F1F8 1F1EA] SE
-🇸🇬	Singapore							// [1F1F8 1F1EC] SG
-🇸🇭	St. Helena							// [1F1F8 1F1ED] SH
-🇸🇮	Slovenia							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard và Jan Mayen						// [1F1F8 1F1EF] SJ
-🇸🇰	Slovakia							// [1F1F8 1F1F0] SK
-🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somalia								// [1F1F8 1F1F4] SO
-🇸🇷	Suriname							// [1F1F8 1F1F7] SR
-🇸🇸	Nam Sudan							// [1F1F8 1F1F8] SS
-🇸🇹	São Tomé và Príncipe						// [1F1F8 1F1F9] ST
-🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Sint Maarten							// [1F1F8 1F1FD] SX
-🇸🇾	Syria								// [1F1F8 1F1FE] SY
-🇸🇿	Swaziland							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Quần đảo Turks và Caicos					// [1F1F9 1F1E8] TC
-🇹🇩	Chad								// [1F1F9 1F1E9] TD
-🇹🇫	Lãnh thổ phía Nam Thuộc Pháp					// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Thái Lan							// [1F1F9 1F1ED] TH
-🇹🇯	Tajikistan							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Timor-Leste							// [1F1F9 1F1F1] TL
-🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
-🇹🇳	Tunisia								// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Thổ Nhĩ Kỳ							// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad và Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Đài Loan							// [1F1F9 1F1FC] TW
-🇹🇿	Tanzania							// [1F1F9 1F1FF] TZ
-🇺🇦	Ukraina								// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Các tiểu đảo xa của Hoa Kỳ					// [1F1FA 1F1F2] UM
-🇺🇳	Liên hiệp quốc							// [1F1FA 1F1F3] UN
-🇺🇸	Hoa Kỳ								// [1F1FA 1F1F8] US
-🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
-🇻🇦	Thành Vatican							// [1F1FB 1F1E6] VA
-🇻🇨	St. Vincent và Grenadines					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
-🇻🇬	Quần đảo Virgin thuộc Anh					// [1F1FB 1F1EC] VG
-🇻🇮	Quần đảo Virgin thuộc Mỹ					// [1F1FB 1F1EE] VI
-🇻🇳	Việt Nam							// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Wallis và Futuna						// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
-🇾🇪	Yemen								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	Nam Phi								// [1F1FF 1F1E6] ZA
-🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+🇦🇨	cờ: Đảo Ascension						// [1F1E6 1F1E8] AC
+🇦🇩	cờ: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	cờ: Các Tiểu Vương quốc Ả Rập Thống nhất			// [1F1E6 1F1EA] AE
+🇦🇫	cờ: Afghanistan							// [1F1E6 1F1EB] AF
+🇦🇬	cờ: Antigua và Barbuda						// [1F1E6 1F1EC] AG
+🇦🇮	cờ: Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	cờ: Albania							// [1F1E6 1F1F1] AL
+🇦🇲	cờ: Armenia							// [1F1E6 1F1F2] AM
+🇦🇴	cờ: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	cờ: Nam Cực							// [1F1E6 1F1F6] AQ
+🇦🇷	cờ: Argentina							// [1F1E6 1F1F7] AR
+🇦🇸	cờ: Samoa thuộc Mỹ						// [1F1E6 1F1F8] AS
+🇦🇹	cờ: Áo								// [1F1E6 1F1F9] AT
+🇦🇺	cờ: Australia							// [1F1E6 1F1FA] AU
+🇦🇼	cờ: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	cờ: Quần đảo Åland						// [1F1E6 1F1FD] AX
+🇦🇿	cờ: Azerbaijan							// [1F1E6 1F1FF] AZ
+🇧🇦	cờ: Bosnia và Herzegovina					// [1F1E7 1F1E6] BA
+🇧🇧	cờ: Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	cờ: Bangladesh							// [1F1E7 1F1E9] BD
+🇧🇪	cờ: Bỉ								// [1F1E7 1F1EA] BE
+🇧🇫	cờ: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	cờ: Bulgaria							// [1F1E7 1F1EC] BG
+🇧🇭	cờ: Bahrain							// [1F1E7 1F1ED] BH
+🇧🇮	cờ: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	cờ: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	cờ: St. Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	cờ: Bermuda							// [1F1E7 1F1F2] BM
+🇧🇳	cờ: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	cờ: Bolivia							// [1F1E7 1F1F4] BO
+🇧🇶	cờ: Ca-ri-bê Hà Lan						// [1F1E7 1F1F6] BQ
+🇧🇷	cờ: Brazil							// [1F1E7 1F1F7] BR
+🇧🇸	cờ: Bahamas							// [1F1E7 1F1F8] BS
+🇧🇹	cờ: Bhutan							// [1F1E7 1F1F9] BT
+🇧🇻	cờ: Đảo Bouvet							// [1F1E7 1F1FB] BV
+🇧🇼	cờ: Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	cờ: Belarus							// [1F1E7 1F1FE] BY
+🇧🇿	cờ: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	cờ: Canada							// [1F1E8 1F1E6] CA
+🇨🇨	cờ: Quần đảo Cocos (Keeling)					// [1F1E8 1F1E8] CC
+🇨🇩	cờ: Congo - Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	cờ: Cộng hòa Trung Phi						// [1F1E8 1F1EB] CF
+🇨🇬	cờ: Congo - Brazzaville						// [1F1E8 1F1EC] CG
+🇨🇭	cờ: Thụy Sĩ							// [1F1E8 1F1ED] CH
+🇨🇮	cờ: Côte d’Ivoire						// [1F1E8 1F1EE] CI
+🇨🇰	cờ: Quần đảo Cook						// [1F1E8 1F1F0] CK
+🇨🇱	cờ: Chile							// [1F1E8 1F1F1] CL
+🇨🇲	cờ: Cameroon							// [1F1E8 1F1F2] CM
+🇨🇳	cờ: Trung Quốc							// [1F1E8 1F1F3] CN
+🇨🇴	cờ: Colombia							// [1F1E8 1F1F4] CO
+🇨🇵	cờ: Đảo Clipperton						// [1F1E8 1F1F5] CP
+🇨🇷	cờ: Costa Rica							// [1F1E8 1F1F7] CR
+🇨🇺	cờ: Cuba							// [1F1E8 1F1FA] CU
+🇨🇻	cờ: Cape Verde							// [1F1E8 1F1FB] CV
+🇨🇼	cờ: Curaçao							// [1F1E8 1F1FC] CW
+🇨🇽	cờ: Đảo Giáng Sinh						// [1F1E8 1F1FD] CX
+🇨🇾	cờ: Síp								// [1F1E8 1F1FE] CY
+🇨🇿	cờ: Séc								// [1F1E8 1F1FF] CZ
+🇩🇪	cờ: Đức								// [1F1E9 1F1EA] DE
+🇩🇬	cờ: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	cờ: Djibouti							// [1F1E9 1F1EF] DJ
+🇩🇰	cờ: Đan Mạch							// [1F1E9 1F1F0] DK
+🇩🇲	cờ: Dominica							// [1F1E9 1F1F2] DM
+🇩🇴	cờ: Cộng hòa Dominica						// [1F1E9 1F1F4] DO
+🇩🇿	cờ: Algeria							// [1F1E9 1F1FF] DZ
+🇪🇦	cờ: Ceuta và Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	cờ: Ecuador							// [1F1EA 1F1E8] EC
+🇪🇪	cờ: Estonia							// [1F1EA 1F1EA] EE
+🇪🇬	cờ: Ai Cập							// [1F1EA 1F1EC] EG
+🇪🇭	cờ: Tây Sahara							// [1F1EA 1F1ED] EH
+🇪🇷	cờ: Eritrea							// [1F1EA 1F1F7] ER
+🇪🇸	cờ: Tây Ban Nha							// [1F1EA 1F1F8] ES
+🇪🇹	cờ: Ethiopia							// [1F1EA 1F1F9] ET
+🇪🇺	cờ: Liên Minh Châu Âu						// [1F1EA 1F1FA] EU
+🇫🇮	cờ: Phần Lan							// [1F1EB 1F1EE] FI
+🇫🇯	cờ: Fiji							// [1F1EB 1F1EF] FJ
+🇫🇰	cờ: Quần đảo Falkland						// [1F1EB 1F1F0] FI
+🇫🇲	cờ: Micronesia							// [1F1EB 1F1F2] FM
+🇫🇴	cờ: Quần đảo Faroe						// [1F1EB 1F1F4] FO
+🇫🇷	cờ: Pháp							// [1F1EB 1F1F7] FR
+🇬🇦	cờ: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	cờ: Vương quốc Anh						// [1F1EC 1F1E7] GB
+🇬🇩	cờ: Grenada							// [1F1EC 1F1E9] GD
+🇬🇪	cờ: Gruzia							// [1F1EC 1F1EA] GE
+🇬🇫	cờ: Guiana thuộc Pháp						// [1F1EC 1F1EB] GF
+🇬🇬	cờ: Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	cờ: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	cờ: Gibraltar							// [1F1EC 1F1EE] GI
+🇬🇱	cờ: Greenland							// [1F1EC 1F1F1] GL
+🇬🇲	cờ: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	cờ: Guinea							// [1F1EC 1F1F3] GN
+🇬🇵	cờ: Guadeloupe							// [1F1EC 1F1F5] GP
+🇬🇶	cờ: Guinea Xích Đạo						// [1F1EC 1F1F6] GQ
+🇬🇷	cờ: Hy Lạp							// [1F1EC 1F1F7] GR
+🇬🇸	cờ: Nam Georgia & Quần đảo Nam Sandwich				// [1F1EC 1F1F8] GS
+🇬🇹	cờ: Guatemala							// [1F1EC 1F1F9] GT
+🇬🇺	cờ: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	cờ: Guinea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	cờ: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	cờ: Hồng Kông, Trung Quốc					// [1F1ED 1F1F0] HK
+🇭🇲	cờ: Quần đảo Heard và McDonald					// [1F1ED 1F1F2] HM
+🇭🇳	cờ: Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	cờ: Croatia							// [1F1ED 1F1F7] HR
+🇭🇹	cờ: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	cờ: Hungary							// [1F1ED 1F1FA] HU
+🇮🇨	cờ: Quần đảo Canary						// [1F1EE 1F1E8] IC
+🇮🇩	cờ: Indonesia							// [1F1EE 1F1E9] ID
+🇮🇪	cờ: Ireland							// [1F1EE 1F1EA] IE
+🇮🇱	cờ: Israel							// [1F1EE 1F1F1] IL
+🇮🇲	cờ: Đảo Man							// [1F1EE 1F1F2] IM
+🇮🇳	cờ: Ấn Độ							// [1F1EE 1F1F3] IN
+🇮🇴	cờ: Lãnh thổ Ấn độ dương thuộc Anh				// [1F1EE 1F1F4] IO
+🇮🇶	cờ: Iraq							// [1F1EE 1F1F6] IQ
+🇮🇷	cờ: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	cờ: Iceland							// [1F1EE 1F1F8] IS
+🇮🇹	cờ: Italy							// [1F1EE 1F1F9] IT
+🇯🇪	cờ: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	cờ: Jamaica							// [1F1EF 1F1F2] JM
+🇯🇴	cờ: Jordan							// [1F1EF 1F1F4] JO
+🇯🇵	cờ: Nhật Bản							// [1F1EF 1F1F5] JP
+🇰🇪	cờ: Kenya							// [1F1F0 1F1EA] KE
+🇰🇬	cờ: Kyrgyzstan							// [1F1F0 1F1EC] KG
+🇰🇭	cờ: Campuchia							// [1F1F0 1F1ED] KH
+🇰🇮	cờ: Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	cờ: Comoros							// [1F1F0 1F1F2] KM
+🇰🇳	cờ: St. Kitts và Nevis						// [1F1F0 1F1F3] KN
+🇰🇵	cờ: Triều Tiên							// [1F1F0 1F1F5] KP
+🇰🇷	cờ: Hàn Quốc							// [1F1F0 1F1F7] KR
+🇰🇼	cờ: Kuwait							// [1F1F0 1F1FC] KW
+🇰🇾	cờ: Quần đảo Cayman						// [1F1F0 1F1FE] KY
+🇰🇿	cờ: Kazakhstan							// [1F1F0 1F1FF] KZ
+🇱🇦	cờ: Lào								// [1F1F1 1F1E6] LA
+🇱🇧	cờ: Li-băng							// [1F1F1 1F1E7] LB
+🇱🇨	cờ: St. Lucia							// [1F1F1 1F1E8] LC
+🇱🇮	cờ: Liechtenstein						// [1F1F1 1F1EE] LI
+🇱🇰	cờ: Sri Lanka							// [1F1F1 1F1F0] LK
+🇱🇷	cờ: Liberia							// [1F1F1 1F1F7] LR
+🇱🇸	cờ: Lesotho							// [1F1F1 1F1F8] LS
+🇱🇹	cờ: Litva							// [1F1F1 1F1F9] LT
+🇱🇺	cờ: Luxembourg							// [1F1F1 1F1FA] LU
+🇱🇻	cờ: Latvia							// [1F1F1 1F1FB] LV
+🇱🇾	cờ: Libya							// [1F1F1 1F1FE] LY
+🇲🇦	cờ: Ma-rốc							// [1F1F2 1F1E6] MA
+🇲🇨	cờ: Monaco							// [1F1F2 1F1E8] MC
+🇲🇩	cờ: Moldova							// [1F1F2 1F1E9] MD
+🇲🇪	cờ: Montenegro							// [1F1F2 1F1EA] ME
+🇲🇫	cờ: St. Martin							// [1F1F2 1F1EB] MF
+🇲🇬	cờ: Madagascar							// [1F1F2 1F1EC] MG
+🇲🇭	cờ: Quần đảo Marshall						// [1F1F2 1F1ED] MH
+🇲🇰	cờ: Macedonia							// [1F1F2 1F1F0] MK
+🇲🇱	cờ: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	cờ: Myanmar (Miến Điện)						// [1F1F2 1F1F2] MM
+🇲🇳	cờ: Mông Cổ							// [1F1F2 1F1F3] MN
+🇲🇴	cờ: Macao, Trung Quốc						// [1F1F2 1F1F4] MO
+🇲🇵	cờ: Quần đảo Bắc Mariana					// [1F1F2 1F1F5] MP
+🇲🇶	cờ: Martinique							// [1F1F2 1F1F6] MQ
+🇲🇷	cờ: Mauritania							// [1F1F2 1F1F7] MR
+🇲🇸	cờ: Montserrat							// [1F1F2 1F1F8] MS
+🇲🇹	cờ: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	cờ: Mauritius							// [1F1F2 1F1FA] MU
+🇲🇻	cờ: Maldives							// [1F1F2 1F1FB] MV
+🇲🇼	cờ: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	cờ: Mexico							// [1F1F2 1F1FD] MX
+🇲🇾	cờ: Malaysia							// [1F1F2 1F1FE] MY
+🇲🇿	cờ: Mozambique							// [1F1F2 1F1FF] MZ
+🇳🇦	cờ: Namibia							// [1F1F3 1F1E6] NA
+🇳🇨	cờ: New Caledonia						// [1F1F3 1F1E8] NC
+🇳🇪	cờ: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	cờ: Đảo Norfolk							// [1F1F3 1F1EB] NF
+🇳🇬	cờ: Nigeria							// [1F1F3 1F1EC] NG
+🇳🇮	cờ: Nicaragua							// [1F1F3 1F1EE] NI
+🇳🇱	cờ: Hà Lan							// [1F1F3 1F1F1] NL
+🇳🇴	cờ: Na Uy							// [1F1F3 1F1F4] NO
+🇳🇵	cờ: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	cờ: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	cờ: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	cờ: New Zealand							// [1F1F3 1F1FF] NZ
+🇴🇲	cờ: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	cờ: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	cờ: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	cờ: Polynesia thuộc Pháp					// [1F1F5 1F1EB] PF
+🇵🇬	cờ: Papua New Guinea						// [1F1F5 1F1EC] PG
+🇵🇭	cờ: Philippines							// [1F1F5 1F1ED] PH
+🇵🇰	cờ: Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	cờ: Ba Lan							// [1F1F5 1F1F1] PL
+🇵🇲	cờ: Saint Pierre và Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	cờ: Quần đảo Pitcairn						// [1F1F5 1F1F3] PN
+🇵🇷	cờ: Puerto Rico							// [1F1F5 1F1F7] PR
+🇵🇸	cờ: Lãnh thổ Palestine						// [1F1F5 1F1F8] PS
+🇵🇹	cờ: Bồ Đào Nha							// [1F1F5 1F1F9] PT
+🇵🇼	cờ: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	cờ: Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	cờ: Qatar							// [1F1F6 1F1E6] QA
+🇷🇪	cờ: Réunion							// [1F1F7 1F1EA] RE
+🇷🇴	cờ: Romania							// [1F1F7 1F1F4] RO
+🇷🇸	cờ: Serbia							// [1F1F7 1F1F8] RS
+🇷🇺	cờ: Nga								// [1F1F7 1F1FA] RU
+🇷🇼	cờ: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	cờ: Ả Rập Xê-út							// [1F1F8 1F1E6] SA
+🇸🇧	cờ: Quần đảo Solomon						// [1F1F8 1F1E7] SB
+🇸🇨	cờ: Seychelles							// [1F1F8 1F1E8] SC
+🇸🇩	cờ: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	cờ: Thụy Điển							// [1F1F8 1F1EA] SE
+🇸🇬	cờ: Singapore							// [1F1F8 1F1EC] SG
+🇸🇭	cờ: St. Helena							// [1F1F8 1F1ED] SH
+🇸🇮	cờ: Slovenia							// [1F1F8 1F1EE] SI
+🇸🇯	cờ: Svalbard và Jan Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	cờ: Slovakia							// [1F1F8 1F1F0] SK
+🇸🇱	cờ: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	cờ: San Marino							// [1F1F8 1F1F2] SM
+🇸🇳	cờ: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	cờ: Somalia							// [1F1F8 1F1F4] SO
+🇸🇷	cờ: Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	cờ: Nam Sudan							// [1F1F8 1F1F8] SS
+🇸🇹	cờ: São Tomé và Príncipe					// [1F1F8 1F1F9] ST
+🇸🇻	cờ: El Salvador							// [1F1F8 1F1FB] SV
+🇸🇽	cờ: Sint Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	cờ: Syria							// [1F1F8 1F1FE] SY
+🇸🇿	cờ: Swaziland							// [1F1F8 1F1FF] SZ
+🇹🇦	cờ: Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	cờ: Quần đảo Turks và Caicos					// [1F1F9 1F1E8] TC
+🇹🇩	cờ: Chad							// [1F1F9 1F1E9] TD
+🇹🇫	cờ: Lãnh thổ phía Nam Thuộc Pháp				// [1F1F9 1F1EB] TF
+🇹🇬	cờ: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	cờ: Thái Lan							// [1F1F9 1F1ED] TH
+🇹🇯	cờ: Tajikistan							// [1F1F9 1F1EF] TJ
+🇹🇰	cờ: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	cờ: Timor-Leste							// [1F1F9 1F1F1] TL
+🇹🇲	cờ: Turkmenistan						// [1F1F9 1F1F2] TM
+🇹🇳	cờ: Tunisia							// [1F1F9 1F1F3] TN
+🇹🇴	cờ: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	cờ: Thổ Nhĩ Kỳ							// [1F1F9 1F1F7] TR
+🇹🇹	cờ: Trinidad và Tobago						// [1F1F9 1F1F9] TT
+🇹🇻	cờ: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	cờ: Đài Loan							// [1F1F9 1F1FC] TW
+🇹🇿	cờ: Tanzania							// [1F1F9 1F1FF] TZ
+🇺🇦	cờ: Ukraina							// [1F1FA 1F1E6] UA
+🇺🇬	cờ: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	cờ: Các tiểu đảo xa của Hoa Kỳ					// [1F1FA 1F1F2] UM
+🇺🇳	cờ: Liên hiệp quốc						// [1F1FA 1F1F3] UN
+🇺🇸	cờ: Hoa Kỳ							// [1F1FA 1F1F8] US
+🇺🇾	cờ: Uruguay							// [1F1FA 1F1FE] UY
+🇺🇿	cờ: Uzbekistan							// [1F1FA 1F1FF] UZ
+🇻🇦	cờ: Thành Vatican						// [1F1FB 1F1E6] VA
+🇻🇨	cờ: St. Vincent và Grenadines					// [1F1FB 1F1E8] VC
+🇻🇪	cờ: Venezuela							// [1F1FB 1F1EA] VE
+🇻🇬	cờ: Quần đảo Virgin thuộc Anh					// [1F1FB 1F1EC] VG
+🇻🇮	cờ: Quần đảo Virgin thuộc Mỹ					// [1F1FB 1F1EE] VI
+🇻🇳	cờ: Việt Nam							// [1F1FB 1F1F3] VN
+🇻🇺	cờ: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	cờ: Wallis và Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	cờ: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	cờ: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	cờ: Yemen							// [1F1FE 1F1EA] YE
+🇾🇹	cờ: Mayotte							// [1F1FE 1F1F9] YT
+🇿🇦	cờ: Nam Phi							// [1F1FF 1F1E6] ZA
+🇿🇲	cờ: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	cờ: Zimbabwe							// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anh Quốc						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Xứ Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	cờ: Anh Quốc						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	cờ: Scotland						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	cờ: Xứ Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	bảo vệ nam						// [1F482 200D 2642]
 🕵️‍♀	thám tử nữ						// [1F575 200D 2640]
 🕵️‍♂	thám tử nam						// [1F575 200D 2642]
+🦸‍♀	nữ siêu anh hùng					// [1F9B8 200D 2640]
+🦸‍♂	nam siêu anh hùng					// [1F9B8 200D 2642]
+🦹‍♀	nữ siêu phản diện					// [1F9B9 200D 2640]
+🦹‍♂	nam siêu phản diện					// [1F9B9 200D 2642]
 🧙‍♀	pháp sư nữ						// [1F9D9 200D 2640]
 🧙‍♂	pháp sư nam						// [1F9D9 200D 2642]
 🧚‍♀	bà tiên							// [1F9DA 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	cờ cầu vồng						// [1F3F3 200D 1F308]
+🏴‍☠	cờ cướp biển						// [1F3F4 200D 2620]
 👁‍🗨	mắt trong bong bóng lời nói				// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

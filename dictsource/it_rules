@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2018 march 18 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2018 july 22 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -76,6 +76,7 @@
 	ch (a	tS
 	ch (o	tS
 	ch (u	tS
+	ch (_	tS
 	ci (A	tS
 	cci (A	tS:
 	@) co (lA_	=ko
@@ -122,6 +123,7 @@
 	@) dinano (_	=dina/no   // verbs
 	i) dano (_	=dano  // verbs
 	i) dino (_	=dino
+	_) data (L07_	d'ata
 	due (_	d'ue   // numbers
 	dieci (_	dj'EtSi
 	day (_	d'eI   // foreign
@@ -206,7 +208,8 @@
 .group f
 	f	f
 	ff	f:
-	@A)	f (ilo_  =f
+	@A) fi (lo_	=fi
+	filia (_	fil'ia
 	i)	f (erA_	=f
 	fobi (A_	fob'i;
 	fob (A_	=fob
@@ -277,7 +280,7 @@
 	l) i (A	%i
 	r)	i (A	%i
 	_C) ie (_	'ie
-	i (o	i
+	C) i (o_	i
 	@) ia (_	=i%a
 	@) ià (_	j'a
 	X) ia (_	'ia
@@ -293,7 +296,7 @@
 	metr) ie (_	'ie
 	t) ia (_	'ia
 	t) ie (_	'ie
-        @)      io (_S1q   =i%o // ?
+	@) io (_S1q	=i%o // ?
 	a) i (+	j
 	à) i (+	j
 	o)	i (+	j
@@ -353,6 +356,7 @@
 	j            dZ
 	@) j (_	j
 	A) j (A	j
+	_) ju (ve	ju // latin
 
 .group k
 	k	k
@@ -540,6 +544,7 @@
 	rrai (_	R*'a:I
 	@) rvano (_	=@-*v,ano
 	CA) rcano (_	=@-*k,ano   // verbs
+	riserva (taL07_	@-*iz,e@-*v'a
 
 .group s
 	s	s
@@ -552,6 +557,7 @@
 	scii	Sij
 	sci (ì	S%i
 	sch (Y	sk
+	A) sio	zio
 	sh	S   // foreign words
 	@A)	sia (_	z'ia
 	@A) sie (_	z'ie

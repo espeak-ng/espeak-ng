@@ -30,6 +30,8 @@
 // H  hard consonant:           ъ ж ц ш
 // Y  iotated vowel, softsign:  ь ю я ё
 
+// Conditional rules
+// ?2 Russian (Latvia)
 
 .group а
         а       V
@@ -39,6 +41,7 @@
 
 .group б
         б       b
+?2      б (_    b
         б (Y    b;
         б (_    p
         б (бY   b;
@@ -60,6 +63,7 @@
 
 .group в
         в       v
+?2      в (_    v-
         в (_    f
         в (Y    v;
         в (бY   v;
@@ -121,6 +125,7 @@
 
 .group е
         е          e
+?2      A) е (_    ;e
         A) е       je
         A) е (_    jI3     //second position
      бакт) е (р    E%      // бактериальный, антибактериальный, ...
@@ -146,9 +151,12 @@
         ж (хY   S
         ж (хкY  S
         жч      S;
+?2      жч      SS
 
 .group з
         з       z
+?2      з (е    z
+?2      зч     SS
         з (Y    z;
         з (_    s
         з (дY   z;
@@ -203,10 +211,12 @@
 
 .group л
         л       l
+?2      л (Y    l^
         л (Y    l;
 
 .group м
         м       m
+?2      м (Y    m
         м (Y    m;
         м (бY   m;
         м (вY   m;
@@ -216,6 +226,7 @@
 
 .group н
         н       n
+?2      н (Y    n^
         н (Y    n;
    биз) не (с   nE%
         н (_    n_
@@ -251,6 +262,7 @@
 
 .group с
         с       s
+?2      сч      S
         с (Y    s;
         с (б    z
         с (г    z
@@ -390,6 +402,7 @@
 
 .group щ
         щ       S;
+?2      щ       SS
         щ (бY   Z;
         щ (б    Z;
         щ (бвY  Z;
@@ -405,12 +418,14 @@
 
 .group ъ
         ъ (Y    j
+?2      ъ (Y    _|
 
 .group ы
         ы       y
 
 .group ь
         ь (Y    j
+?2      ь (Y    _|
 
 .group э
         э       E2
@@ -438,6 +453,7 @@
 
 .group ё
         ё       '8
+?2   A) ё       'j8
      _) ё       'j8
      ж) ё       'O
      ш) ё       'O

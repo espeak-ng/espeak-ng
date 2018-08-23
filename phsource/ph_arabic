@@ -2,34 +2,32 @@ phoneme #r  virtual
 // Used for "r" sounds
 endphoneme
 
-
-phoneme H	// arabic Hah
+phoneme H       // arabic Hah
   vls phr frc
   ipa ħ
-  lengthmod 5 
-  WAV(vwl_ar/hah) 
+  lengthmod 5
+  WAV(vwl_ar/hah,80)
 endphoneme
 
-phoneme Z // arabic ZAH .Todo
+phoneme Z      // arabic ZAH
   vls phr frc
   ipa ðˤ
-  lengthmod 5 
-  voicingswitch z  
+  lengthmod 5
+  voicingswitch z
   ChangePhoneme (D) // FIXME: vwl_ar/zah wav file is wrong, therefore English D is used
 endphoneme
 
-phoneme A	// arabic Ain
+phoneme A       // arabic Ain
   vcd frc
   ipa ʕ
-  voicingswitch a  
-  length 160  
-  Vowelin  f1=2  f2=2300 -400 500  f3=300 80 
-  Vowelout f1=2  f2=2300 -300 450  f3=-100 10  
-  FMT(r/rr) addWav(ufric/x_) // TODO actual voiced part should be adjusted
+  voicingswitch a
+  length 160
+  Vowelin  f1=2  f2=2300 -400 500  f3=300 80
+  Vowelout f1=2  f2=2300 -300 450  f3=-100 10
+  FMT(r/xr,25) addWav(h/h_,30)
 endphoneme
 
-phoneme gH    // arabic ghain, 
-// the phoneme is derived from Q
+phoneme gH      // arabic Ghain, the phoneme is derived from Q
   vcd vel frc
   voicingswitch R2
   ipa ɣ
@@ -38,22 +36,17 @@ phoneme gH    // arabic ghain,
   FMT(g/g) addWav(vwl_ar/dhad)
 endphoneme
 
-
-phoneme dH	//arabic Dhad TODO this probably should be simple d from standard phonemes
+phoneme dH      //arabic Dhad TODO this probably should be simple d from standard phonemes
   vcd alv stp
   ipa dˤ
-
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
-
   IF PreVoicing THEN
     FMT(d/xd)
   ENDIF
-
   IF nextPh(isPause2) THEN
     FMT(d/d_)  addWav(x/d_)
   ENDIF
-
   FMT(d/d) addWav(x/d)
 endphoneme
 
@@ -69,50 +62,56 @@ phoneme X
   vls uvl frc
   voicingswitch Q
   lengthmod 7
-   Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-    WAV(ufric/xx, 70)
-
+  WAV(ufric/xx, 70)
 endphoneme
 
 // vowels
 phoneme a
   vwl starttype #a endtype #a
-  IF nextPhW(isPause) THEN 
-	length 80
-  ELSE  
-	length 140
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
   ENDIF
-  IF nextPhW(a) THEN
-  length 200
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/aa_7)
+  ELSE
+    FMT(vowel/a_2)
   ENDIF
-  FMT(vowel/a)
 endphoneme
-
 
 phoneme i
   vwl starttype #i endtype #i
- IF nextPhW(isPause) THEN 
-	length 80
-  ELSE  
-	length 140
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
   ENDIF
-    IF nextPhW(i) THEN
-  length 200
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/ii_5)
+  ELSE
+    FMT(vowel/i)
   ENDIF
-  FMT(vowel/i)
 endphoneme
-
 
 phoneme u
   vwl starttype #u endtype #u
-  IF nextPhW(isPause) THEN 
-	length 80
-  ELSE  
-	length 140
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
   ENDIF
-    IF nextPhW(u) THEN
-  length 200
+  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
+    FMT(vowel/u_7)
+  ELSE
+    FMT(vowel/u)
   ENDIF
-  FMT(vowel/u)
 endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 180
+endphoneme
+

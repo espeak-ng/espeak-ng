@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 april 13 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 july 22 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -450,6 +450,7 @@ abc	a||bi||tS'i
 acdc	$abbrev
 adsl	a||di||esse||'El:e
 ascii	'askIi
+asio	'a:zi/o
 atp	a||ti||p'i
 avg	$abbrev
 cia	tS'ia
@@ -509,7 +510,7 @@ una	$u+
 gli	$u	$nounf $only
 
 // pronouns
-io	$u+ $only
+io	'io
 tu	$u+ $verbf $only
 lui	$u+ $only
 lei	$u+ $only
@@ -557,7 +558,7 @@ sue	$u+
 nostre	$u+
 vostre	$u+
 
-quest	$u+	$nounf
+quest	$u+	$alt2	$nounf
 (questa è)	kw'esta||'E
 (questo è)	kw'esto/||,E
 quel	$u+
@@ -784,6 +785,7 @@ baguette	bag'et[
 bancomat	$1
 banner	$1	$onlys
 barbecue	_^_FR
+baseball	b'eIzbO:l
 beat	_^_en $only
 beep	_^_en
 beige b'E:Z
@@ -800,6 +802,7 @@ blogger	bl'Oge@-*
 blues	bl'u:z
 bluff	bl'ef:	$only
 boiler	$1
+bomber	$1	$onlys
 bonjour	b,O:_Z'u:r
 boogie	b'ugi
 boom	bum
@@ -939,6 +942,7 @@ flipper	$1
 folder	$1	$onlys
 follower	$1 $alt
 following	f'O:l:ow2iN
+foobar	f,u_b'a@-*
 food	f'u:d
 forfait	fo@-*f'e
 fotocolor	$3	$alt $onlys
@@ -1013,8 +1017,6 @@ jockey	dZ'OkeI
 jukebox	dZ'u:kboks
 junior	j'unio@-*
 juniores	j'uni,o@-*s
-juve	j'uve
-juventus	juv'Entus
 kalashnikov	$2
 kashmir	$1
 kebab	k,e_b'ab
@@ -1028,6 +1030,7 @@ leader	lidE@-*
 leadership	l'idE@-*Sip
 league	_^_en
 leasing	l'i:ziN
+light	l'aIt
 like	l'aIk
 line	l'aIn	$only
 lingerie	liNZeR'i
@@ -1133,6 +1136,7 @@ reporter	$2	$onlys
 residence	@-*'Ezidens	$onlys
 retriever	@-*et@-*'i:ve@-*
 retweet	@-*,I||tw'i:t[
+review	@-*,e_vj'u
 revolver	$2 $onlys
 rhapsody	$1
 richter	$1 $only
@@ -1181,6 +1185,7 @@ smiley	_^_EN
 snack	sn'E:k
 software	s'Oft[_we@-*
 sonar	$1	$alt $only
+Spotify	sp,otif'aI
 souvenir	suvEn'i@-*
 spanish		_^_EN
 speaker		_^_EN
@@ -1204,7 +1209,8 @@ strike	st@-*'aIk
 subwoofer	sub||v'u:fe@-*
 superbike	supe@-*||b'aIk
 supporter	$2
-suspense	s@sp'a/:ns $only
+suspense	s@sp'a:ns $only
+surplus	$2 $only
 synthesizer	$3
 tailleur	_^_FR
 team		_^_EN
@@ -1326,7 +1332,7 @@ attimi	$1
 auspici	$3
 austere	$3
 autocrat	$3
-autoironia	aUto,iRon'i;a
+autoironia	auto,iRon'i;a
 autonom	$3
 autostim	$4
 avarie	$3
@@ -1357,13 +1363,13 @@ cannol	$2
 capitol	kap'itol
 cardiache	ka@-*d'iake
 cardini	$1
-carestie	ka@-*est'ie
+carestie	kaRest'ie
 castano	$2
 caspita	k'asp,ita
 categorie	$4
 celsius		tsElsj'us
 ceneri	$1
-cespite	$1 $alt
+cespit	$1 $alt
 chiacchiere	kj'ak:i,eRe
 chimere	$2
 chimono	$2
@@ -1450,7 +1456,7 @@ gladiol	$2
 guaiscono	gua'iskono
 hinterland	$1
 icono	$2
-idiozia	$4
+idiozia	idiots'ia
 idiozie	idiots'i#e
 idoli	$1
 idroplano	id@-*opl'ano
@@ -1569,7 +1575,7 @@ petonciano	$3
 petroli	$2
 pettin	$1
 pignol	$2
-pioviggin	$3
+pioviggin	$2
 piroman	$2	$alt2
 pluriomicid	$5
 polveri	$1
@@ -1598,8 +1604,6 @@ putiferi	$3
 quia		kw'ia
 quietistici	kujed'i:stitSi
 radic	$2
-radiofarmaceutici	$6
-radioterapeutici	$6
 ragnatel	$3
 randagia	$2
 reciproche	$2
@@ -1646,7 +1650,7 @@ scie	S'i%e
 scientifici	$2
 scintillio	$3
 scomod	$1
-scricchiolio	$4
+scricchiolio	$3
 scrupol	$1
 scuolabus	$4
 scurril	$2
@@ -1860,7 +1864,7 @@ chernobyl	tS'e@-*nobil
 chianciano	$2
 chicago	tSikago
 chorzow	x'OZuf
-ciad	tS;'a:d	$only
+ciad	tS'a:d	$only
 cicciano	$2
 cilentano	$3
 ciociaria $3
@@ -1879,6 +1883,7 @@ corchiano	$3
 corciano	$2
 cormano	$2
 corzano	$2
+costarica	$3
 coverciano	$3
 cremona	$2
 cremosano	$3
@@ -2030,6 +2035,7 @@ morrison	$1 $only
 moscazzano	$3
 moschiano	$3
 mossano	$2
+mozambico	modzamb'iko/
 mulazzano	$3
 murazzano	$3
 muzzano	$2
@@ -2092,7 +2098,7 @@ pescolanciano	$4
 pescopagano	$4
 pescorocchiano	$5
 picciano	$2
-piozzano	$3
+piozzano	$2
 pirenei $3
 pognano	$2
 polinesia $3  $alt
@@ -2154,7 +2160,7 @@ sormano	$2
 sossano	$2
 sovrano	$2
 spagnol $2
-spazioplano	$4
+spazioplano	$3
 spezzano	$2 $capital
 spongano	$2
 stazzano	$2
@@ -2292,6 +2298,7 @@ bergomi	$1
 behringer	b'e:RiNg,E@-*
 bertold  $alt
 bettega	$1 $alt
+biagini	$2
 boeing	b'O:ing
 brandon	b@-*'Endon
 brian	b@-*'aian
@@ -2341,8 +2348,7 @@ delrio	del||@-*'io/
 dessolis	$2 $onlys
 diaz	d'iats $only
 Dickinson	$1
-diocle $1
-diomede  $alt
+diocle	d'iokle
 distefano	$2
 duddington	d'a/dINt@n
 eddie	'Ed:I
@@ -2367,7 +2373,7 @@ eutichiano	ewdiki'ano
 everett	$1 $only
 exupery	$4
 fabiol $2
-fabiola	$3
+fabiola	$2
 fahrenheit	f'aRenaIt
 federic	$3
 felicita	$2
@@ -2492,6 +2498,7 @@ mazzin $2
 mazzol $2
 meola	$1
 mercury	$1 $alt2 $only
+merola	$1
 michael	m'aIkOl
 michel	mik'e/l
 michelangel	$3
@@ -2761,7 +2768,7 @@ afferrano	$2
 affiancano	$2
 affid	$2
 affil	$2
-affiorano	$3
+affiorano	$2
 affittino	$2
 affoghino	$2
 affondino	$2
@@ -2819,6 +2826,7 @@ ammacchino	$2
 ammalano	$2
 ammalino	$2
 ammazzino	$2
+amministrano	$3
 ammirano	$2
 ammirino	$2
 ammontino	$2
@@ -2970,7 +2978,7 @@ benedic	$3
 benedicano	$3
 bestemmino	$2
 biasimano	bj'azim,ano
-biodegradano	$4
+biodegradano	$3
 bisticcino	$2
 boccino	$1
 boicottino	$3
@@ -3444,7 +3452,7 @@ fucilano	$2
 fucilino	$2
 fulmin	$1
 fumano	$1
-funzionino	$3
+funzionino	$2
 galoppano	ga/l'op:ano
 garbano	$1
 garbino	$1
@@ -4329,7 +4337,7 @@ schiantano	$1
 schiantino	$1
 schierano	$1
 schiod	sk'jOd
-schiodano	$2
+schiodano	$1
 schizzano	sk'its2:ano
 sciacquano	$1
 sciando	Si'andO
@@ -4393,8 +4401,8 @@ sfiancano	$1
 sfiatino	$1
 sfigurano	$2
 sfilano	$1
-sfiorano	$2
-sfiorino	$2
+sfiorano	$1
+sfiorino	$1
 sfoder	$1
 sfoggiano	$1
 sfoghino	$1
@@ -4458,6 +4466,7 @@ sogghignano	$2
 soggiacere	$3
 sognino	$1 $alt
 solchino	$1
+solere	sol'eRe
 sollecit	$2
 sollecitano	$2
 sollecitino	$2
@@ -4583,7 +4592,7 @@ subito	sub'i:to	$verb
 succedano	$2
 sudano	$1
 sudino	$1
-suggestiono	$4
+suggestiono	sudZ:estj'ono
 suicid	$3
 suonano	sw'O:nano
 suonino	sw'Onino
@@ -4760,8 +4769,8 @@ vidimano	$1
 vietano	$1
 vincolano	$1
 vincolino	$1
-violano	$2
-violentino	$3
+violano	v'iolano
+violentino	$2
 violi	v'iOlI
 virano	$1
 visitano	$1
@@ -5024,8 +5033,9 @@ suggeritomi	$3
 svegliati	$1 $atstart
 svelaci	$1
 svoltasi	$1 $alt
-svoltesi	$1
+svoltesi	$1 $alt
 svoltosi	$1 $alt
+svoltisi	$1 $alt
 svuotal	$2 $alt2
 tastal	$1
 tenutasi	$2

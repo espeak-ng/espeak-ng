@@ -178,6 +178,7 @@ $textmode
 ♑	kozoroh								// [2651]
 ♒	vodnář								// [2652]
 ♓	ryby								// [2653]
+♟	pěšec								// [265F] text|emoji
 ♠	piky								// [2660] text|emoji
 ♣	kříže								// [2663] text|emoji
 ♥	srdce								// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	symbol recyklace						// [267B] text|emoji
+♾	nekonečno							// [267E] text|emoji
 ♿	symbol invalidního vozíku					// [267F]
 ⚒	kladivo a špičák						// [2692] text|emoji
 ⚓	kotva								// [2693]
@@ -308,7 +310,7 @@ $textmode
 // 1F200..1F2FF : Enclosed Ideographic Supplement
 
 🈁	štítek s japonským znakem zde					// [1F201]
-🈂	štítek s japonským znakem pozornost podniku			// [1F202] text|emoji
+🈂	štítek – japonský znak pozornost podniku			// [1F202] text|emoji
 🈚	štítek s japonským znakem zdarma				// [1F21A]
 🈯	štítek s japonským znakem rezervováno				// [1F22F]
 🈲	štítek s japonským znakem zákaz					// [1F232]
@@ -582,7 +584,7 @@ $textmode
 🐀	krysa								// [1F400]
 🐁	myš								// [1F401]
 🐂	vůl								// [1F402]
-🐃	vodní buvol							// [1F403]
+🐃	buvol domácí							// [1F403]
 🐄	kráva								// [1F404]
 🐅	tygr								// [1F405]
 🐆	leopard								// [1F406]
@@ -813,10 +815,10 @@ $textmode
 📧	e-mail								// [1F4E7]
 📨	příchozí obálka							// [1F4E8]
 📩	obálka se šipkou						// [1F4E9]
-📪	zavřená poštovní schránka s praporkem dole			// [1F4EA]
-📫	zavřená poštovní schránka s praporkem nahoře			// [1F4EB]
-📬	otevřená poštovní schránka s praporkem nahoře			// [1F4EC]
-📭	otevřená poštovní schránka s praporkem dole			// [1F4ED]
+📪	zavřená schránka s praporkem dole				// [1F4EA]
+📫	zavřená schránka s praporkem nahoře				// [1F4EB]
+📬	otevřená schránka s praporkem nahoře				// [1F4EC]
+📭	otevřená schránka s praporkem dole				// [1F4ED]
 📮	poštovní schránka						// [1F4EE]
 📯	poštovní roh							// [1F4EF]
 📰	noviny								// [1F4F0]
@@ -986,7 +988,7 @@ $textmode
 😊	smějící se obličej s usměvavýma očima				// [1F60A]
 😋	olizující se obličej						// [1F60B]
 😌	obličej s výrazem úlevy						// [1F60C]
-😍	usmívající se obličej s očima ve tvaru srdíček			// [1F60D]
+😍	usmívající se obličej se srdíčky místo očí			// [1F60D]
 😎	usmívající se obličej s brýlemi					// [1F60E]
 😏	ušklíbající se obličej						// [1F60F]
 😐	obličej s neutrálním výrazem					// [1F610]
@@ -1029,10 +1031,10 @@ $textmode
 😵	obličej s výrazem závrati					// [1F635]
 😶	obličej bez úst							// [1F636]
 😷	obličej s lékařskou rouškou					// [1F637]
-😸	šklebící se kočičí obličej s usměvavýma očima			// [1F638]
+😸	šklebící se kočka s usměvavýma očima				// [1F638]
 😹	kočičí obličej slzící smíchy					// [1F639]
 😺	šklebící se kočičí obličej					// [1F63A]
-😻	usmívající se kočičí obličej s očima ve tvaru srdíček		// [1F63B]
+😻	usmívající se kočka se srdíčky místo očí			// [1F63B]
 😼	kočičí obličej s jízlivým úsměvem				// [1F63C]
 😽	líbající kočičí obličej						// [1F63D]
 😾	kočičí obličej s podrážděným výrazem				// [1F63E]
@@ -1083,7 +1085,7 @@ $textmode
 🚘	přijíždějící auto						// [1F698]
 🚙	SUV								// [1F699]
 🚚	dodávka								// [1F69A]
-🚛	náklaďák							// [1F69B]
+🚛	kamion								// [1F69B]
 🚜	traktor								// [1F69C]
 🚝	jednokolejka							// [1F69D]
 🚞	horská železnice						// [1F69E]
@@ -1150,6 +1152,7 @@ $textmode
 🛶	kánoe								// [1F6F6]
 🛷	sáňky								// [1F6F7]
 🛸	létající talíř							// [1F6F8]
+🛹	skateboard							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1211,6 +1214,8 @@ $textmode
 🥊	boxerská rukavice						// [1F94A]
 🥋	sportovní kimono						// [1F94B]
 🥌	curlingový kámen						// [1F94C]
+🥎	softballový míček						// [1F94E]
+🥏	frisbee								// [1F94F]
 🥐	croissant							// [1F950]
 🥑	avokádo								// [1F951]
 🥒	okurka								// [1F952]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	plátek masa							// [1F969]
 🥪	sendvič								// [1F96A]
 🥫	jídlo v plechovce						// [1F96B]
+🥬	salátové listy							// [1F96C]
+🥭	mango								// [1F96D]
+🥮	měsíční koláč							// [1F96E]
+🥯	bagel								// [1F96F]
+🥰	usmívající se obličej se třemi srdíčky				// [1F970]
+🥳	oslavující obličej						// [1F973]
+🥴	zpitomělý obličej						// [1F974]
+🥵	rozpálený obličej						// [1F975]
+🥶	zmrzlý obličej							// [1F976]
+🥺	prosebný obličej						// [1F97A]
+🥼	laboratorní plášť						// [1F97C]
+🥽	ochranné brýle							// [1F97D]
+🥾	pohorka								// [1F97E]
+🥿	střevíček bez podpatku						// [1F97F]
 🦀	krab								// [1F980]
 🦁	hlava lva							// [1F981]
 🦂	škorpion							// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	brontosaurus							// [1F995]
 🦖	tyranosaurus rex						// [1F996]
 🦗	cvrček								// [1F997]
+🦘	klokan								// [1F998]
+🦙	lama								// [1F999]
+🦚	páv								// [1F99A]
+🦛	hroch								// [1F99B]
+🦜	papoušek							// [1F99C]
+🦝	mýval								// [1F99D]
+🦞	humr								// [1F99E]
+🦟	komár								// [1F99F]
+🦠	mikrob								// [1F9A0]
+🦡	jezevec								// [1F9A1]
+🦢	labuť								// [1F9A2]
+🦰	zrzavé vlasy							// [1F9B0]
+🦱	kudrnaté vlasy							// [1F9B1]
+🦲	bez vlasů							// [1F9B2]
+🦳	bílé vlasy							// [1F9B3]
+🦴	kost								// [1F9B4]
+🦵	noha								// [1F9B5]
+🦶	chodidlo							// [1F9B6]
+🦷	zub								// [1F9B7]
+🦸	superhrdinská postava						// [1F9B8]
+🦹	superzločinec							// [1F9B9]
 🧀	klínek sýra							// [1F9C0]
+🧁	košíček								// [1F9C1]
+🧂	sůl								// [1F9C2]
 🧐	obličej s brýlovým monoklem					// [1F9D0]
 🧑	dospělý člověk							// [1F9D1]
 🧒	dítě								// [1F9D2]
@@ -1287,273 +1329,297 @@ $textmode
 🧤	rukavice							// [1F9E4]
 🧥	kabát								// [1F9E5]
 🧦	ponožky								// [1F9E6]
+🧧	červená obálka							// [1F9E7]
+🧨	petarda								// [1F9E8]
+🧩	puzzle								// [1F9E9]
+🧪	zkumavka							// [1F9EA]
+🧫	Petriho miska							// [1F9EB]
+🧬	DNA								// [1F9EC]
+🧭	kompas								// [1F9ED]
+🧮	počitadlo							// [1F9EE]
+🧰	box na nářadí							// [1F9F0]
+🧱	cihly								// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	cestovní kufr							// [1F9F3]
+🧴	láhev na kosmetiku						// [1F9F4]
+🧵	cívka nití							// [1F9F5]
+🧶	klubíčko							// [1F9F6]
+🧷	spínací špendlík						// [1F9F7]
+🧸	medvídek							// [1F9F8]
+🧹	koště								// [1F9F9]
+🧺	koš								// [1F9FA]
+🧻	role papíru							// [1F9FB]
+🧼	mýdlo								// [1F9FC]
+🧽	mycí houba							// [1F9FD]
+🧾	účtenka								// [1F9FE]
+🧿	amulet nazar							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Ascension							// [1F1E6 1F1E8] AC
-🇦🇩	Andorra								// [1F1E6 1F1E9] AD
-🇦🇪	Spojené arabské emiráty						// [1F1E6 1F1EA] AE
-🇦🇫	Afghánistán							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua a Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
-🇦🇱	Albánie								// [1F1E6 1F1F1] AL
-🇦🇲	Arménie								// [1F1E6 1F1F2] AM
-🇦🇴	Angola								// [1F1E6 1F1F4] AO
-🇦🇶	Antarktida							// [1F1E6 1F1F6] AQ
-🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Americká Samoa							// [1F1E6 1F1F8] AS
-🇦🇹	Rakousko							// [1F1E6 1F1F9] AT
-🇦🇺	Austrálie							// [1F1E6 1F1FA] AU
-🇦🇼	Aruba								// [1F1E6 1F1FC] AW
-🇦🇽	Ålandy								// [1F1E6 1F1FD] AX
-🇦🇿	Ázerbájdžán							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosna a Hercegovina						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladéš							// [1F1E7 1F1E9] BD
-🇧🇪	Belgie								// [1F1E7 1F1EA] BE
-🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bulharsko							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrajn								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Svatý Bartoloměj						// [1F1E7 1F1F1] BL
-🇧🇲	Bermudy								// [1F1E7 1F1F2] BM
-🇧🇳	Brunej								// [1F1E7 1F1F3] BN
-🇧🇴	Bolívie								// [1F1E7 1F1F4] BO
-🇧🇶	Karibské Nizozemsko						// [1F1E7 1F1F6] BQ
-🇧🇷	Brazílie							// [1F1E7 1F1F7] BR
-🇧🇸	Bahamy								// [1F1E7 1F1F8] BS
-🇧🇹	Bhútán								// [1F1E7 1F1F9] BT
-🇧🇻	Bouvetův ostrov							// [1F1E7 1F1FB] BV
-🇧🇼	Botswana							// [1F1E7 1F1FC] BW
-🇧🇾	Bělorusko							// [1F1E7 1F1FE] BY
-🇧🇿	Belize								// [1F1E7 1F1FF] BZ
-🇨🇦	Kanada								// [1F1E8 1F1E6] CA
-🇨🇨	Kokosové ostrovy						// [1F1E8 1F1E8] CC
-🇨🇩	Kongo – Kinshasa						// [1F1E8 1F1E9] CD
-🇨🇫	Středoafrická republika						// [1F1E8 1F1EB] CF
-🇨🇬	Kongo – Brazzaville						// [1F1E8 1F1EC] CG
-🇨🇭	Švýcarsko							// [1F1E8 1F1ED] CH
-🇨🇮	Pobřeží slonoviny						// [1F1E8 1F1EE] CI
-🇨🇰	Cookovy ostrovy							// [1F1E8 1F1F0] CK
-🇨🇱	Chile								// [1F1E8 1F1F1] CL
-🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
-🇨🇳	Čína								// [1F1E8 1F1F3] CN
-🇨🇴	Kolumbie							// [1F1E8 1F1F4] CO
-🇨🇵	Clippertonův ostrov						// [1F1E8 1F1F5] CP
-🇨🇷	Kostarika							// [1F1E8 1F1F7] CR
-🇨🇺	Kuba								// [1F1E8 1F1FA] CU
-🇨🇻	Kapverdy							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Vánoční ostrov							// [1F1E8 1F1FD] CX
-🇨🇾	Kypr								// [1F1E8 1F1FE] CY
-🇨🇿	Česko								// [1F1E8 1F1FF] CZ
-🇩🇪	Německo								// [1F1E9 1F1EA] DE
-🇩🇬	Diego García							// [1F1E9 1F1EC] DG
-🇩🇯	Džibutsko							// [1F1E9 1F1EF] DJ
-🇩🇰	Dánsko								// [1F1E9 1F1F0] DK
-🇩🇲	Dominika							// [1F1E9 1F1F2] DM
-🇩🇴	Dominikánská republika						// [1F1E9 1F1F4] DO
-🇩🇿	Alžírsko							// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta a Melilla							// [1F1EA 1F1E6] EA
-🇪🇨	Ekvádor								// [1F1EA 1F1E8] EC
-🇪🇪	Estonsko							// [1F1EA 1F1EA] EE
-🇪🇬	Egypt								// [1F1EA 1F1EC] EG
-🇪🇭	Západní Sahara							// [1F1EA 1F1ED] EH
-🇪🇷	Eritrea								// [1F1EA 1F1F7] ER
-🇪🇸	Španělsko							// [1F1EA 1F1F8] ES
-🇪🇹	Etiopie								// [1F1EA 1F1F9] ET
-🇪🇺	Evropská unie							// [1F1EA 1F1FA] EU
-🇫🇮	Finsko								// [1F1EB 1F1EE] FI
-🇫🇯	Fidži								// [1F1EB 1F1EF] FJ
-🇫🇰	Falklandské ostrovy						// [1F1EB 1F1F0] FI
-🇫🇲	Mikronésie							// [1F1EB 1F1F2] FM
-🇫🇴	Faerské ostrovy							// [1F1EB 1F1F4] FO
-🇫🇷	Francie								// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Spojené království						// [1F1EC 1F1E7] GB
-🇬🇩	Grenada								// [1F1EC 1F1E9] GD
-🇬🇪	Gruzie								// [1F1EC 1F1EA] GE
-🇬🇫	Francouzská Guyana						// [1F1EC 1F1EB] GF
-🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
-🇬🇭	Ghana								// [1F1EC 1F1ED] GH
-🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Grónsko								// [1F1EC 1F1F1] GL
-🇬🇲	Gambie								// [1F1EC 1F1F2] GM
-🇬🇳	Guinea								// [1F1EC 1F1F3] GN
-🇬🇵	Guadeloupe							// [1F1EC 1F1F5] GP
-🇬🇶	Rovníková Guinea						// [1F1EC 1F1F6] GQ
-🇬🇷	Řecko								// [1F1EC 1F1F7] GR
-🇬🇸	Jižní Georgie a Jižní Sandwichovy ostrovy			// [1F1EC 1F1F8] GS
-🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guinea-Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	Hongkong – ZAO Číny						// [1F1ED 1F1F0] HK
-🇭🇲	Heardův ostrov a McDonaldovy ostrovy				// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Chorvatsko							// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Maďarsko							// [1F1ED 1F1FA] HU
-🇮🇨	Kanárské ostrovy						// [1F1EE 1F1E8] IC
-🇮🇩	Indonésie							// [1F1EE 1F1E9] ID
-🇮🇪	Irsko								// [1F1EE 1F1EA] IE
-🇮🇱	Izrael								// [1F1EE 1F1F1] IL
-🇮🇲	Ostrov Man							// [1F1EE 1F1F2] IM
-🇮🇳	Indie								// [1F1EE 1F1F3] IN
-🇮🇴	Britské indickooceánské území					// [1F1EE 1F1F4] IO
-🇮🇶	Irák								// [1F1EE 1F1F6] IQ
-🇮🇷	Írán								// [1F1EE 1F1F7] IR
-🇮🇸	Island								// [1F1EE 1F1F8] IS
-🇮🇹	Itálie								// [1F1EE 1F1F9] IT
-🇯🇪	Jersey								// [1F1EF 1F1EA] JE
-🇯🇲	Jamajka								// [1F1EF 1F1F2] JM
-🇯🇴	Jordánsko							// [1F1EF 1F1F4] JO
-🇯🇵	Japonsko							// [1F1EF 1F1F5] JP
-🇰🇪	Keňa								// [1F1F0 1F1EA] KE
-🇰🇬	Kyrgyzstán							// [1F1F0 1F1EC] KG
-🇰🇭	Kambodža							// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Komory								// [1F1F0 1F1F2] KM
-🇰🇳	Svatý Kryštof a Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Severní Korea							// [1F1F0 1F1F5] KP
-🇰🇷	Jižní Korea							// [1F1F0 1F1F7] KR
-🇰🇼	Kuvajt								// [1F1F0 1F1FC] KW
-🇰🇾	Kajmanské ostrovy						// [1F1F0 1F1FE] KY
-🇰🇿	Kazachstán							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	Libanon								// [1F1F1 1F1E7] LB
-🇱🇨	Svatá Lucie							// [1F1F1 1F1E8] LC
-🇱🇮	Lichtenštejnsko							// [1F1F1 1F1EE] LI
-🇱🇰	Srí Lanka							// [1F1F1 1F1F0] LK
-🇱🇷	Libérie								// [1F1F1 1F1F7] LR
-🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
-🇱🇹	Litva								// [1F1F1 1F1F9] LT
-🇱🇺	Lucembursko							// [1F1F1 1F1FA] LU
-🇱🇻	Lotyšsko							// [1F1F1 1F1FB] LV
-🇱🇾	Libye								// [1F1F1 1F1FE] LY
-🇲🇦	Maroko								// [1F1F2 1F1E6] MA
-🇲🇨	Monako								// [1F1F2 1F1E8] MC
-🇲🇩	Moldavsko							// [1F1F2 1F1E9] MD
-🇲🇪	Černá Hora							// [1F1F2 1F1EA] ME
-🇲🇫	Svatý Martin (Francie)						// [1F1F2 1F1EB] MF
-🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
-🇲🇭	Marshallovy ostrovy						// [1F1F2 1F1ED] MH
-🇲🇰	Makedonie							// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Myanmar (Barma)							// [1F1F2 1F1F2] MM
-🇲🇳	Mongolsko							// [1F1F2 1F1F3] MN
-🇲🇴	Macao – ZAO Číny						// [1F1F2 1F1F4] MO
-🇲🇵	Severní Mariany							// [1F1F2 1F1F5] MP
-🇲🇶	Martinik							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauritánie							// [1F1F2 1F1F7] MR
-🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
-🇲🇹	Malta								// [1F1F2 1F1F9] MT
-🇲🇺	Mauricius							// [1F1F2 1F1FA] MU
-🇲🇻	Maledivy							// [1F1F2 1F1FB] MV
-🇲🇼	Malawi								// [1F1F2 1F1FC] MW
-🇲🇽	Mexiko								// [1F1F2 1F1FD] MX
-🇲🇾	Malajsie							// [1F1F2 1F1FE] MY
-🇲🇿	Mosambik							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibie								// [1F1F3 1F1E6] NA
-🇳🇨	Nová Kaledonie							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Norfolk								// [1F1F3 1F1EB] NF
-🇳🇬	Nigérie								// [1F1F3 1F1EC] NG
-🇳🇮	Nikaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Nizozemsko							// [1F1F3 1F1F1] NL
-🇳🇴	Norsko								// [1F1F3 1F1F4] NO
-🇳🇵	Nepál								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	Nový Zéland							// [1F1F3 1F1FF] NZ
-🇴🇲	Omán								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Francouzská Polynésie						// [1F1F5 1F1EB] PF
-🇵🇬	Papua-Nová Guinea						// [1F1F5 1F1EC] PG
-🇵🇭	Filipíny							// [1F1F5 1F1ED] PH
-🇵🇰	Pákistán							// [1F1F5 1F1F0] PK
-🇵🇱	Polsko								// [1F1F5 1F1F1] PL
-🇵🇲	Saint-Pierre a Miquelon						// [1F1F5 1F1F2] PM
-🇵🇳	Pitcairnovy ostrovy						// [1F1F5 1F1F3] PN
-🇵🇷	Portoriko							// [1F1F5 1F1F7] PR
-🇵🇸	Palestinská území						// [1F1F5 1F1F8] PS
-🇵🇹	Portugalsko							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
-🇶🇦	Katar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	Rumunsko							// [1F1F7 1F1F4] RO
-🇷🇸	Srbsko								// [1F1F7 1F1F8] RS
-🇷🇺	Rusko								// [1F1F7 1F1FA] RU
-🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
-🇸🇦	Saúdská Arábie							// [1F1F8 1F1E6] SA
-🇸🇧	Šalamounovy ostrovy						// [1F1F8 1F1E7] SB
-🇸🇨	Seychely							// [1F1F8 1F1E8] SC
-🇸🇩	Súdán								// [1F1F8 1F1E9] SD
-🇸🇪	Švédsko								// [1F1F8 1F1EA] SE
-🇸🇬	Singapur							// [1F1F8 1F1EC] SG
-🇸🇭	Svatá Helena							// [1F1F8 1F1ED] SH
-🇸🇮	Slovinsko							// [1F1F8 1F1EE] SI
-🇸🇯	Špicberky a Jan Mayen						// [1F1F8 1F1EF] SJ
-🇸🇰	Slovensko							// [1F1F8 1F1F0] SK
-🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somálsko							// [1F1F8 1F1F4] SO
-🇸🇷	Surinam								// [1F1F8 1F1F7] SR
-🇸🇸	Jižní Súdán							// [1F1F8 1F1F8] SS
-🇸🇹	Svatý Tomáš a Princův ostrov					// [1F1F8 1F1F9] ST
-🇸🇻	Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Svatý Martin (Nizozemsko)					// [1F1F8 1F1FD] SX
-🇸🇾	Sýrie								// [1F1F8 1F1FE] SY
-🇸🇿	Svazijsko							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Turks a Caicos							// [1F1F9 1F1E8] TC
-🇹🇩	Čad								// [1F1F9 1F1E9] TD
-🇹🇫	Francouzská jižní území						// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Thajsko								// [1F1F9 1F1ED] TH
-🇹🇯	Tádžikistán							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Východní Timor							// [1F1F9 1F1F1] TL
-🇹🇲	Turkmenistán							// [1F1F9 1F1F2] TM
-🇹🇳	Tunisko								// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Turecko								// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad a Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Tchaj-wan							// [1F1F9 1F1FC] TW
-🇹🇿	Tanzanie							// [1F1F9 1F1FF] TZ
-🇺🇦	Ukrajina							// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Menší odlehlé ostrovy USA					// [1F1FA 1F1F2] UM
-🇺🇳	Organizace spojených národů					// [1F1FA 1F1F3] UN
-🇺🇸	Spojené státy							// [1F1FA 1F1F8] US
-🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistán							// [1F1FA 1F1FF] UZ
-🇻🇦	Vatikán								// [1F1FB 1F1E6] VA
-🇻🇨	Svatý Vincenc a Grenadiny					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
-🇻🇬	Britské Panenské ostrovy					// [1F1FB 1F1EC] VG
-🇻🇮	Americké Panenské ostrovy					// [1F1FB 1F1EE] VI
-🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Wallis a Futuna							// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
-🇾🇪	Jemen								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	Jihoafrická republika						// [1F1FF 1F1E6] ZA
-🇿🇲	Zambie								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+🇦🇨	vlajka: Ascension						// [1F1E6 1F1E8] AC
+🇦🇩	vlajka: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	vlajka: Spojené arabské emiráty					// [1F1E6 1F1EA] AE
+🇦🇫	vlajka: Afghánistán						// [1F1E6 1F1EB] AF
+🇦🇬	vlajka: Antigua a Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	vlajka: Anguilla						// [1F1E6 1F1EE] AI
+🇦🇱	vlajka: Albánie							// [1F1E6 1F1F1] AL
+🇦🇲	vlajka: Arménie							// [1F1E6 1F1F2] AM
+🇦🇴	vlajka: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	vlajka: Antarktida						// [1F1E6 1F1F6] AQ
+🇦🇷	vlajka: Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	vlajka: Americká Samoa						// [1F1E6 1F1F8] AS
+🇦🇹	vlajka: Rakousko						// [1F1E6 1F1F9] AT
+🇦🇺	vlajka: Austrálie						// [1F1E6 1F1FA] AU
+🇦🇼	vlajka: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	vlajka: Ålandy							// [1F1E6 1F1FD] AX
+🇦🇿	vlajka: Ázerbájdžán						// [1F1E6 1F1FF] AZ
+🇧🇦	vlajka: Bosna a Hercegovina					// [1F1E7 1F1E6] BA
+🇧🇧	vlajka: Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	vlajka: Bangladéš						// [1F1E7 1F1E9] BD
+🇧🇪	vlajka: Belgie							// [1F1E7 1F1EA] BE
+🇧🇫	vlajka: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	vlajka: Bulharsko						// [1F1E7 1F1EC] BG
+🇧🇭	vlajka: Bahrajn							// [1F1E7 1F1ED] BH
+🇧🇮	vlajka: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	vlajka: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	vlajka: Svatý Bartoloměj					// [1F1E7 1F1F1] BL
+🇧🇲	vlajka: Bermudy							// [1F1E7 1F1F2] BM
+🇧🇳	vlajka: Brunej							// [1F1E7 1F1F3] BN
+🇧🇴	vlajka: Bolívie							// [1F1E7 1F1F4] BO
+🇧🇶	vlajka: Karibské Nizozemsko					// [1F1E7 1F1F6] BQ
+🇧🇷	vlajka: Brazílie						// [1F1E7 1F1F7] BR
+🇧🇸	vlajka: Bahamy							// [1F1E7 1F1F8] BS
+🇧🇹	vlajka: Bhútán							// [1F1E7 1F1F9] BT
+🇧🇻	vlajka: Bouvetův ostrov						// [1F1E7 1F1FB] BV
+🇧🇼	vlajka: Botswana						// [1F1E7 1F1FC] BW
+🇧🇾	vlajka: Bělorusko						// [1F1E7 1F1FE] BY
+🇧🇿	vlajka: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	vlajka: Kanada							// [1F1E8 1F1E6] CA
+🇨🇨	vlajka: Kokosové ostrovy					// [1F1E8 1F1E8] CC
+🇨🇩	vlajka: Kongo – Kinshasa					// [1F1E8 1F1E9] CD
+🇨🇫	vlajka: Středoafrická republika					// [1F1E8 1F1EB] CF
+🇨🇬	vlajka: Kongo – Brazzaville					// [1F1E8 1F1EC] CG
+🇨🇭	vlajka: Švýcarsko						// [1F1E8 1F1ED] CH
+🇨🇮	vlajka: Pobřeží slonoviny					// [1F1E8 1F1EE] CI
+🇨🇰	vlajka: Cookovy ostrovy						// [1F1E8 1F1F0] CK
+🇨🇱	vlajka: Chile							// [1F1E8 1F1F1] CL
+🇨🇲	vlajka: Kamerun							// [1F1E8 1F1F2] CM
+🇨🇳	vlajka: Čína							// [1F1E8 1F1F3] CN
+🇨🇴	vlajka: Kolumbie						// [1F1E8 1F1F4] CO
+🇨🇵	vlajka: Clippertonův ostrov					// [1F1E8 1F1F5] CP
+🇨🇷	vlajka: Kostarika						// [1F1E8 1F1F7] CR
+🇨🇺	vlajka: Kuba							// [1F1E8 1F1FA] CU
+🇨🇻	vlajka: Kapverdy						// [1F1E8 1F1FB] CV
+🇨🇼	vlajka: Curaçao							// [1F1E8 1F1FC] CW
+🇨🇽	vlajka: Vánoční ostrov						// [1F1E8 1F1FD] CX
+🇨🇾	vlajka: Kypr							// [1F1E8 1F1FE] CY
+🇨🇿	vlajka: Česko							// [1F1E8 1F1FF] CZ
+🇩🇪	vlajka: Německo							// [1F1E9 1F1EA] DE
+🇩🇬	vlajka: Diego García						// [1F1E9 1F1EC] DG
+🇩🇯	vlajka: Džibutsko						// [1F1E9 1F1EF] DJ
+🇩🇰	vlajka: Dánsko							// [1F1E9 1F1F0] DK
+🇩🇲	vlajka: Dominika						// [1F1E9 1F1F2] DM
+🇩🇴	vlajka: Dominikánská republika					// [1F1E9 1F1F4] DO
+🇩🇿	vlajka: Alžírsko						// [1F1E9 1F1FF] DZ
+🇪🇦	vlajka: Ceuta a Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	vlajka: Ekvádor							// [1F1EA 1F1E8] EC
+🇪🇪	vlajka: Estonsko						// [1F1EA 1F1EA] EE
+🇪🇬	vlajka: Egypt							// [1F1EA 1F1EC] EG
+🇪🇭	vlajka: Západní Sahara						// [1F1EA 1F1ED] EH
+🇪🇷	vlajka: Eritrea							// [1F1EA 1F1F7] ER
+🇪🇸	vlajka: Španělsko						// [1F1EA 1F1F8] ES
+🇪🇹	vlajka: Etiopie							// [1F1EA 1F1F9] ET
+🇪🇺	vlajka: Evropská unie						// [1F1EA 1F1FA] EU
+🇫🇮	vlajka: Finsko							// [1F1EB 1F1EE] FI
+🇫🇯	vlajka: Fidži							// [1F1EB 1F1EF] FJ
+🇫🇰	vlajka: Falklandské ostrovy					// [1F1EB 1F1F0] FI
+🇫🇲	vlajka: Mikronésie						// [1F1EB 1F1F2] FM
+🇫🇴	vlajka: Faerské ostrovy						// [1F1EB 1F1F4] FO
+🇫🇷	vlajka: Francie							// [1F1EB 1F1F7] FR
+🇬🇦	vlajka: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	vlajka: Spojené království					// [1F1EC 1F1E7] GB
+🇬🇩	vlajka: Grenada							// [1F1EC 1F1E9] GD
+🇬🇪	vlajka: Gruzie							// [1F1EC 1F1EA] GE
+🇬🇫	vlajka: Francouzská Guyana					// [1F1EC 1F1EB] GF
+🇬🇬	vlajka: Guernsey						// [1F1EC 1F1EC] GG
+🇬🇭	vlajka: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	vlajka: Gibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	vlajka: Grónsko							// [1F1EC 1F1F1] GL
+🇬🇲	vlajka: Gambie							// [1F1EC 1F1F2] GM
+🇬🇳	vlajka: Guinea							// [1F1EC 1F1F3] GN
+🇬🇵	vlajka: Guadeloupe						// [1F1EC 1F1F5] GP
+🇬🇶	vlajka: Rovníková Guinea					// [1F1EC 1F1F6] GQ
+🇬🇷	vlajka: Řecko							// [1F1EC 1F1F7] GR
+🇬🇸	vlajka: Jižní Georgie a Jižní Sandwichovy ostrovy		// [1F1EC 1F1F8] GS
+🇬🇹	vlajka: Guatemala						// [1F1EC 1F1F9] GT
+🇬🇺	vlajka: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	vlajka: Guinea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	vlajka: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	vlajka: Hongkong – ZAO Číny					// [1F1ED 1F1F0] HK
+🇭🇲	vlajka: Heardův ostrov a McDonaldovy ostrovy			// [1F1ED 1F1F2] HM
+🇭🇳	vlajka: Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	vlajka: Chorvatsko						// [1F1ED 1F1F7] HR
+🇭🇹	vlajka: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	vlajka: Maďarsko						// [1F1ED 1F1FA] HU
+🇮🇨	vlajka: Kanárské ostrovy					// [1F1EE 1F1E8] IC
+🇮🇩	vlajka: Indonésie						// [1F1EE 1F1E9] ID
+🇮🇪	vlajka: Irsko							// [1F1EE 1F1EA] IE
+🇮🇱	vlajka: Izrael							// [1F1EE 1F1F1] IL
+🇮🇲	vlajka: Ostrov Man						// [1F1EE 1F1F2] IM
+🇮🇳	vlajka: Indie							// [1F1EE 1F1F3] IN
+🇮🇴	vlajka: Britské indickooceánské území				// [1F1EE 1F1F4] IO
+🇮🇶	vlajka: Irák							// [1F1EE 1F1F6] IQ
+🇮🇷	vlajka: Írán							// [1F1EE 1F1F7] IR
+🇮🇸	vlajka: Island							// [1F1EE 1F1F8] IS
+🇮🇹	vlajka: Itálie							// [1F1EE 1F1F9] IT
+🇯🇪	vlajka: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	vlajka: Jamajka							// [1F1EF 1F1F2] JM
+🇯🇴	vlajka: Jordánsko						// [1F1EF 1F1F4] JO
+🇯🇵	vlajka: Japonsko						// [1F1EF 1F1F5] JP
+🇰🇪	vlajka: Keňa							// [1F1F0 1F1EA] KE
+🇰🇬	vlajka: Kyrgyzstán						// [1F1F0 1F1EC] KG
+🇰🇭	vlajka: Kambodža						// [1F1F0 1F1ED] KH
+🇰🇮	vlajka: Kiribati						// [1F1F0 1F1EE] KI
+🇰🇲	vlajka: Komory							// [1F1F0 1F1F2] KM
+🇰🇳	vlajka: Svatý Kryštof a Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	vlajka: Severní Korea						// [1F1F0 1F1F5] KP
+🇰🇷	vlajka: Jižní Korea						// [1F1F0 1F1F7] KR
+🇰🇼	vlajka: Kuvajt							// [1F1F0 1F1FC] KW
+🇰🇾	vlajka: Kajmanské ostrovy					// [1F1F0 1F1FE] KY
+🇰🇿	vlajka: Kazachstán						// [1F1F0 1F1FF] KZ
+🇱🇦	vlajka: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	vlajka: Libanon							// [1F1F1 1F1E7] LB
+🇱🇨	vlajka: Svatá Lucie						// [1F1F1 1F1E8] LC
+🇱🇮	vlajka: Lichtenštejnsko						// [1F1F1 1F1EE] LI
+🇱🇰	vlajka: Srí Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	vlajka: Libérie							// [1F1F1 1F1F7] LR
+🇱🇸	vlajka: Lesotho							// [1F1F1 1F1F8] LS
+🇱🇹	vlajka: Litva							// [1F1F1 1F1F9] LT
+🇱🇺	vlajka: Lucembursko						// [1F1F1 1F1FA] LU
+🇱🇻	vlajka: Lotyšsko						// [1F1F1 1F1FB] LV
+🇱🇾	vlajka: Libye							// [1F1F1 1F1FE] LY
+🇲🇦	vlajka: Maroko							// [1F1F2 1F1E6] MA
+🇲🇨	vlajka: Monako							// [1F1F2 1F1E8] MC
+🇲🇩	vlajka: Moldavsko						// [1F1F2 1F1E9] MD
+🇲🇪	vlajka: Černá Hora						// [1F1F2 1F1EA] ME
+🇲🇫	vlajka: Svatý Martin (Francie)					// [1F1F2 1F1EB] MF
+🇲🇬	vlajka: Madagaskar						// [1F1F2 1F1EC] MG
+🇲🇭	vlajka: Marshallovy ostrovy					// [1F1F2 1F1ED] MH
+🇲🇰	vlajka: Makedonie						// [1F1F2 1F1F0] MK
+🇲🇱	vlajka: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	vlajka: Myanmar (Barma)						// [1F1F2 1F1F2] MM
+🇲🇳	vlajka: Mongolsko						// [1F1F2 1F1F3] MN
+🇲🇴	vlajka: Macao – ZAO Číny					// [1F1F2 1F1F4] MO
+🇲🇵	vlajka: Severní Mariany						// [1F1F2 1F1F5] MP
+🇲🇶	vlajka: Martinik						// [1F1F2 1F1F6] MQ
+🇲🇷	vlajka: Mauritánie						// [1F1F2 1F1F7] MR
+🇲🇸	vlajka: Montserrat						// [1F1F2 1F1F8] MS
+🇲🇹	vlajka: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	vlajka: Mauricius						// [1F1F2 1F1FA] MU
+🇲🇻	vlajka: Maledivy						// [1F1F2 1F1FB] MV
+🇲🇼	vlajka: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	vlajka: Mexiko							// [1F1F2 1F1FD] MX
+🇲🇾	vlajka: Malajsie						// [1F1F2 1F1FE] MY
+🇲🇿	vlajka: Mosambik						// [1F1F2 1F1FF] MZ
+🇳🇦	vlajka: Namibie							// [1F1F3 1F1E6] NA
+🇳🇨	vlajka: Nová Kaledonie						// [1F1F3 1F1E8] NC
+🇳🇪	vlajka: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	vlajka: Norfolk							// [1F1F3 1F1EB] NF
+🇳🇬	vlajka: Nigérie							// [1F1F3 1F1EC] NG
+🇳🇮	vlajka: Nikaragua						// [1F1F3 1F1EE] NI
+🇳🇱	vlajka: Nizozemsko						// [1F1F3 1F1F1] NL
+🇳🇴	vlajka: Norsko							// [1F1F3 1F1F4] NO
+🇳🇵	vlajka: Nepál							// [1F1F3 1F1F5] NP
+🇳🇷	vlajka: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	vlajka: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	vlajka: Nový Zéland						// [1F1F3 1F1FF] NZ
+🇴🇲	vlajka: Omán							// [1F1F4 1F1F2] OM
+🇵🇦	vlajka: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	vlajka: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	vlajka: Francouzská Polynésie					// [1F1F5 1F1EB] PF
+🇵🇬	vlajka: Papua-Nová Guinea					// [1F1F5 1F1EC] PG
+🇵🇭	vlajka: Filipíny						// [1F1F5 1F1ED] PH
+🇵🇰	vlajka: Pákistán						// [1F1F5 1F1F0] PK
+🇵🇱	vlajka: Polsko							// [1F1F5 1F1F1] PL
+🇵🇲	vlajka: Saint-Pierre a Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	vlajka: Pitcairnovy ostrovy					// [1F1F5 1F1F3] PN
+🇵🇷	vlajka: Portoriko						// [1F1F5 1F1F7] PR
+🇵🇸	vlajka: Palestinská území					// [1F1F5 1F1F8] PS
+🇵🇹	vlajka: Portugalsko						// [1F1F5 1F1F9] PT
+🇵🇼	vlajka: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	vlajka: Paraguay						// [1F1F5 1F1FE] PY
+🇶🇦	vlajka: Katar							// [1F1F6 1F1E6] QA
+🇷🇪	vlajka: Réunion							// [1F1F7 1F1EA] RE
+🇷🇴	vlajka: Rumunsko						// [1F1F7 1F1F4] RO
+🇷🇸	vlajka: Srbsko							// [1F1F7 1F1F8] RS
+🇷🇺	vlajka: Rusko							// [1F1F7 1F1FA] RU
+🇷🇼	vlajka: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	vlajka: Saúdská Arábie						// [1F1F8 1F1E6] SA
+🇸🇧	vlajka: Šalamounovy ostrovy					// [1F1F8 1F1E7] SB
+🇸🇨	vlajka: Seychely						// [1F1F8 1F1E8] SC
+🇸🇩	vlajka: Súdán							// [1F1F8 1F1E9] SD
+🇸🇪	vlajka: Švédsko							// [1F1F8 1F1EA] SE
+🇸🇬	vlajka: Singapur						// [1F1F8 1F1EC] SG
+🇸🇭	vlajka: Svatá Helena						// [1F1F8 1F1ED] SH
+🇸🇮	vlajka: Slovinsko						// [1F1F8 1F1EE] SI
+🇸🇯	vlajka: Špicberky a Jan Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	vlajka: Slovensko						// [1F1F8 1F1F0] SK
+🇸🇱	vlajka: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	vlajka: San Marino						// [1F1F8 1F1F2] SM
+🇸🇳	vlajka: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	vlajka: Somálsko						// [1F1F8 1F1F4] SO
+🇸🇷	vlajka: Surinam							// [1F1F8 1F1F7] SR
+🇸🇸	vlajka: Jižní Súdán						// [1F1F8 1F1F8] SS
+🇸🇹	vlajka: Svatý Tomáš a Princův ostrov				// [1F1F8 1F1F9] ST
+🇸🇻	vlajka: Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	vlajka: Svatý Martin (Nizozemsko)				// [1F1F8 1F1FD] SX
+🇸🇾	vlajka: Sýrie							// [1F1F8 1F1FE] SY
+🇸🇿	vlajka: Svazijsko						// [1F1F8 1F1FF] SZ
+🇹🇦	vlajka: Tristan da Cunha					// [1F1F9 1F1E6] TA
+🇹🇨	vlajka: Turks a Caicos						// [1F1F9 1F1E8] TC
+🇹🇩	vlajka: Čad							// [1F1F9 1F1E9] TD
+🇹🇫	vlajka: Francouzská jižní území					// [1F1F9 1F1EB] TF
+🇹🇬	vlajka: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	vlajka: Thajsko							// [1F1F9 1F1ED] TH
+🇹🇯	vlajka: Tádžikistán						// [1F1F9 1F1EF] TJ
+🇹🇰	vlajka: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	vlajka: Východní Timor						// [1F1F9 1F1F1] TL
+🇹🇲	vlajka: Turkmenistán						// [1F1F9 1F1F2] TM
+🇹🇳	vlajka: Tunisko							// [1F1F9 1F1F3] TN
+🇹🇴	vlajka: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	vlajka: Turecko							// [1F1F9 1F1F7] TR
+🇹🇹	vlajka: Trinidad a Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	vlajka: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	vlajka: Tchaj-wan						// [1F1F9 1F1FC] TW
+🇹🇿	vlajka: Tanzanie						// [1F1F9 1F1FF] TZ
+🇺🇦	vlajka: Ukrajina						// [1F1FA 1F1E6] UA
+🇺🇬	vlajka: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	vlajka: Menší odlehlé ostrovy USA				// [1F1FA 1F1F2] UM
+🇺🇳	vlajka: Organizace spojených národů				// [1F1FA 1F1F3] UN
+🇺🇸	vlajka: Spojené státy						// [1F1FA 1F1F8] US
+🇺🇾	vlajka: Uruguay							// [1F1FA 1F1FE] UY
+🇺🇿	vlajka: Uzbekistán						// [1F1FA 1F1FF] UZ
+🇻🇦	vlajka: Vatikán							// [1F1FB 1F1E6] VA
+🇻🇨	vlajka: Svatý Vincenc a Grenadiny				// [1F1FB 1F1E8] VC
+🇻🇪	vlajka: Venezuela						// [1F1FB 1F1EA] VE
+🇻🇬	vlajka: Britské Panenské ostrovy				// [1F1FB 1F1EC] VG
+🇻🇮	vlajka: Americké Panenské ostrovy				// [1F1FB 1F1EE] VI
+🇻🇳	vlajka: Vietnam							// [1F1FB 1F1F3] VN
+🇻🇺	vlajka: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	vlajka: Wallis a Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	vlajka: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	vlajka: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	vlajka: Jemen							// [1F1FE 1F1EA] YE
+🇾🇹	vlajka: Mayotte							// [1F1FE 1F1F9] YT
+🇿🇦	vlajka: Jihoafrická republika					// [1F1FF 1F1E6] ZA
+🇿🇲	vlajka: Zambie							// [1F1FF 1F1F2] ZM
+🇿🇼	vlajka: Zimbabwe						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anglie							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Skotsko							// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Wales							// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	vlajka: Anglie						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	vlajka: Skotsko						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	vlajka: Wales						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1578,31 +1644,31 @@ $textmode
 👩‍❤‍👨	pár se srdcem: žena, muž			// [1F469 200D 2764 200D 1F468]
 👨‍❤‍👨	pár se srdcem: muž, muž				// [1F468 200D 2764 200D 1F468]
 👩‍❤‍👩	pár se srdcem: žena, žena			// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	rodina: muž, žena, chlapec			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	rodina: muž, žena, dívka			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	rodina: muž, žena, dívka, chlapec	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	rodina: muž, žena, chlapec, chlapec	// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	rodina: muž, žena, dívka, dívka		// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	rodina: muž, muž, chlapec			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	rodina: muž, muž, dívka				// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	rodina: muž, muž, dívka, chlapec	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	rodina: muž, muž, chlapec, chlapec	// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	rodina: muž, muž, dívka, dívka		// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	rodina: žena, žena, chlapec			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	rodina: žena, žena, dívka			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	rodina: žena, žena, dívka, chlapec	// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	rodina: žena, žena, chlapec, chlapec	// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	rodina: žena, žena, dívka, dívka	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👩‍👦	rodina: muž, žena a chlapec			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	rodina: muž, žena a dívka			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	rodina: muž, žena, dívka a chlapec	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	rodina: muž, žena, chlapec a chlapec	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	rodina: muž, žena, dívka a dívka	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	rodina: muž, muž a chlapec			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	rodina: muž, muž a dívka			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	rodina: muž, muž, dívka a chlapec	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	rodina: muž, muž, chlapec a chlapec	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	rodina: muž, muž, dívka a dívka		// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	rodina: žena, žena a chlapec			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	rodina: žena, žena a dívka			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	rodina: žena, žena, dívka a chlapec	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	rodina: žena, žena, chlapec a chlapec	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	rodina: žena, žena, dívka a dívka	// [1F469 200D 1F469 200D 1F467 200D 1F467]
 👨‍👦	rodina: muž, chlapec					// [1F468 200D 1F466]
-👨‍👦‍👦	rodina: muž, chlapec, chlapec			// [1F468 200D 1F466 200D 1F466]
+👨‍👦‍👦	rodina: muž, chlapec a chlapec			// [1F468 200D 1F466 200D 1F466]
 👨‍👧	rodina: muž, dívka					// [1F468 200D 1F467]
-👨‍👧‍👦	rodina: muž, dívka, chlapec			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	rodina: muž, dívka, dívka			// [1F468 200D 1F467 200D 1F467]
+👨‍👧‍👦	rodina: muž, dívka a chlapec			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	rodina: muž, dívka a dívka			// [1F468 200D 1F467 200D 1F467]
 👩‍👦	rodina: žena, chlapec					// [1F469 200D 1F466]
-👩‍👦‍👦	rodina: žena, chlapec, chlapec			// [1F469 200D 1F466 200D 1F466]
+👩‍👦‍👦	rodina: žena, chlapec a chlapec			// [1F469 200D 1F466 200D 1F466]
 👩‍👧	rodina: žena, dívka					// [1F469 200D 1F467]
-👩‍👧‍👦	rodina: žena, dívka, chlapec			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	rodina: žena, dívka, dívka			// [1F469 200D 1F467 200D 1F467]
+👩‍👧‍👦	rodina: žena, dívka a chlapec			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	rodina: žena, dívka a dívka			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	strážce							// [1F482 200D 2642]
 🕵️‍♀	kriminální inspektorka					// [1F575 200D 2640]
 🕵️‍♂	kriminální inspektor					// [1F575 200D 2642]
+🦸‍♀	superhrdinka						// [1F9B8 200D 2640]
+🦸‍♂	superhrdina						// [1F9B8 200D 2642]
+🦹‍♀	superpadouška						// [1F9B9 200D 2640]
+🦹‍♂	superpadouch						// [1F9B9 200D 2642]
 🧙‍♀	čarodějka						// [1F9D9 200D 2640]
 🧙‍♂	čaroděj							// [1F9D9 200D 2642]
 🧚‍♀	okřídlená víla						// [1F9DA 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	duhová vlajka						// [1F3F3 200D 1F308]
+🏴‍☠	pirátská vlajka						// [1F3F4 200D 2620]
 👁‍🗨	oko v řečové bublině					// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

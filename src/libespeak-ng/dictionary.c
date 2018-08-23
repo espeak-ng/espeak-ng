@@ -124,7 +124,6 @@ static void InitGroups(Translator *tr)
 	int ix;
 	char *p;
 	char *p_name;
-	unsigned int *pw;
 	unsigned char c, c2;
 	int len;
 
@@ -149,21 +148,12 @@ static void InitGroups(Translator *tr)
 		p++;
 
 		if (p[0] == RULE_REPLACEMENTS) {
-			pw = (unsigned int *)(((intptr_t)p+4) & ~3); // advance to next word boundary
-			tr->langopts.replace_chars = pw;
-			while (pw[0] != 0)
-				pw += 2; // find the end of the replacement list, each entry is 2 words.
-			p = (char *)(pw+1);
-
-#ifdef ARCH_BIG
-			pw = (unsigned int *)(tr->langopts.replace_chars);
-			while (*pw != 0) {
-				*pw = Reverse4Bytes(*pw);
-				pw++;
-				*pw = Reverse4Bytes(*pw);
-				pw++;
-			}
-#endif
+			p = (char *)(((intptr_t)p+4) & ~3); // advance to next word boundary
+			tr->langopts.replace_chars = (unsigned char *)p;
+			while (*(unsigned int *)p != 0)
+				p++;
+			while (*p != RULE_GROUP_END) p++;
+			p++;
 			continue;
 		}
 
@@ -588,7 +578,7 @@ const char *GetTranslatedPhonemeString(int phoneme_mode)
 		plist = &phoneme_list[ix];
 
 		WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
-		if (plist->newword)
+		if (plist->newword & PHLIST_START_OF_WORD && !(plist->newword & (PHLIST_START_OF_SENTENCE | PHLIST_START_OF_CLAUSE)))
 			*buf++ = ' ';
 
 		if ((!plist->newword) || (separate_phonemes == ' ')) {

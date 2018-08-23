@@ -178,6 +178,7 @@ $textmode
 ♑	bricjapi							// [2651]
 ♒	ujori								// [2652]
 ♓	peshqit								// [2653]
+♟	gur shahu							// [265F] text|emoji
 ♠	figurë maç							// [2660] text|emoji
 ♣	figura spathi							// [2663] text|emoji
 ♥	figurë kupë							// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	simboli i riciklimit						// [267B] text|emoji
+♾	pafundësi							// [267E] text|emoji
 ♿	karrocë me rrota						// [267F]
 ⚒	çekiç dhe kazmë							// [2692] text|emoji
 ⚓	spirancë							// [2693]
@@ -977,9 +979,9 @@ $textmode
 😁	fytyrë e zgërdheshur me sy të qeshur				// [1F601]
 😂	fytyrë me lot gëzimi						// [1F602]
 😃	fytyrë e qeshur me gojën e hapur				// [1F603]
-😄	fytyrë e qeshur me gojën e hapur dhe sy të qeshur		// [1F604]
-😅	fytyrë e qeshur me gojën e hapur dhe djersë të ftohta		// [1F605]
-😆	fytyrë e qeshur me gojën e hapur dhe sy të mbyllur fort		// [1F606]
+😄	fytyrë me gojë të hapur dhe sy të qeshur			// [1F604]
+😅	fytyrë e qeshur me djersë të ftohta				// [1F605]
+😆	fytyrë e qeshur me sy të mbyllur fort				// [1F606]
 😇	fytyrë e qeshur me aureolë					// [1F607]
 😈	fytyrë e qeshur me brirë					// [1F608]
 😉	fytyrë që shkel syrin						// [1F609]
@@ -1029,10 +1031,10 @@ $textmode
 😵	fytyrë e trullosur						// [1F635]
 😶	fytyrë pa gojë							// [1F636]
 😷	fytyrë me maskë mjekësore					// [1F637]
-😸	fytyrë maceje e ngërdheshur me sy të qeshur			// [1F638]
+😸	fytyrë maceje me sy të qeshur					// [1F638]
 😹	fytyrë maceje me lot gëzimi					// [1F639]
 😺	fytyrë maceje e qeshur me gojën e hapur				// [1F63A]
-😻	fytyrë maceje e qeshur me sy në formë zemre			// [1F63B]
+😻	fytyrë maceje me sy në formë zemre				// [1F63B]
 😼	fytyrë maceje me buzëqeshje të sforcuar				// [1F63C]
 😽	fytyrë maceje që puth me sy të mbyllur				// [1F63D]
 😾	fytyrë maceje me buzë të varura					// [1F63E]
@@ -1061,7 +1063,7 @@ $textmode
 🚂	lokomotivë							// [1F682]
 🚃	vagon								// [1F683]
 🚄	tren me shpejtësi të madhe					// [1F684]
-🚅	tren me shpejtësi të madhe me formë plumbi			// [1F685]
+🚅	tren-plumb							// [1F685]
 🚆	tren								// [1F686]
 🚇	metro								// [1F687]
 🚈	metro e lehtë							// [1F688]
@@ -1150,6 +1152,7 @@ $textmode
 🛶	kaike								// [1F6F6]
 🛷	sajë								// [1F6F7]
 🛸	disk fluturues							// [1F6F8]
+🛹	dërrasë rrëshqitëse						// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1211,6 +1214,8 @@ $textmode
 🥊	dorezë boksi							// [1F94A]
 🥋	uniformë artesh ushtarake					// [1F94B]
 🥌	gur kurlingu							// [1F94C]
+🥎	top softbolli							// [1F94E]
+🥏	hedhje disku							// [1F94F]
 🥐	kroasant							// [1F950]
 🥑	avokado								// [1F951]
 🥒	kastravec							// [1F952]
@@ -1235,10 +1240,24 @@ $textmode
 🥥	arrë kokosi							// [1F965]
 🥦	brokoli								// [1F966]
 🥧	byrek								// [1F967]
-🥨	gjevrek								// [1F968]
+🥨	gjevrek i përdredhur						// [1F968]
 🥩	mish tul							// [1F969]
 🥪	sandviç								// [1F96A]
 🥫	ushqim i konservuar						// [1F96B]
+🥬	sallatë								// [1F96C]
+🥭	mango								// [1F96D]
+🥮	kek-hënë							// [1F96E]
+🥯	gjevrek								// [1F96F]
+🥰	fytyrë e qeshur me 3 zemra					// [1F970]
+🥳	fytyrë festive							// [1F973]
+🥴	fytyrë e mjegulluar						// [1F974]
+🥵	fytyrëkuq							// [1F975]
+🥶	fytyrë e ngrirë							// [1F976]
+🥺	fytyrë qaramane							// [1F97A]
+🥼	pardesy laboratori						// [1F97C]
+🥽	syze mbrojtëse							// [1F97D]
+🥾	këpucë ekskursioni						// [1F97E]
+🥿	këpucë e sheshtë						// [1F97F]
 🦀	gaforre								// [1F980]
 🦁	fytyrë luani							// [1F981]
 🦂	akrep								// [1F982]
@@ -1263,7 +1282,30 @@ $textmode
 🦕	sauropod							// [1F995]
 🦖	tiranozaur-reks							// [1F996]
 🦗	karkalec							// [1F997]
+🦘	kangur								// [1F998]
+🦙	lamë								// [1F999]
+🦚	pallua								// [1F99A]
+🦛	hipopotam							// [1F99B]
+🦜	papagall							// [1F99C]
+🦝	rakun								// [1F99D]
+🦞	karavidhe							// [1F99E]
+🦟	mushkonjë							// [1F99F]
+🦠	mikrob								// [1F9A0]
+🦡	vjedull								// [1F9A1]
+🦢	mjellmë								// [1F9A2]
+🦰	flokë të kuqe							// [1F9B0]
+🦱	flokë kaçurrele							// [1F9B1]
+🦲	qeros								// [1F9B2]
+🦳	flokë të bardha							// [1F9B3]
+🦴	eshtër								// [1F9B4]
+🦵	këmbë								// [1F9B5]
+🦶	shputë								// [1F9B6]
+🦷	dhëmb								// [1F9B7]
+🦸	superhero							// [1F9B8]
+🦹	superzuzar							// [1F9B9]
 🧀	copë djathi							// [1F9C0]
+🧁	kek i vogël							// [1F9C1]
+🧂	kripë								// [1F9C2]
 🧐	fytyrë me monokël						// [1F9D0]
 🧑	fëmijë i rritur							// [1F9D1]
 🧒	fëmijë								// [1F9D2]
@@ -1287,267 +1329,291 @@ $textmode
 🧤	dorashka							// [1F9E4]
 🧥	pallto								// [1F9E5]
 🧦	çorape								// [1F9E6]
+🧧	zarf i kuq							// [1F9E7]
+🧨	fishekzjarr							// [1F9E8]
+🧩	lojë me bashkim pjesësh figure					// [1F9E9]
+🧪	epruvetë							// [1F9EA]
+🧫	lamelë								// [1F9EB]
+🧬	ADN								// [1F9EC]
+🧭	busull								// [1F9ED]
+🧮	abak								// [1F9EE]
+🧰	kuti veglash							// [1F9F0]
+🧱	tullë								// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	bagazh								// [1F9F3]
+🧴	shishe solucioni						// [1F9F4]
+🧵	fije								// [1F9F5]
+🧶	fill								// [1F9F6]
+🧷	paramane							// [1F9F7]
+🧸	arushë pelushi							// [1F9F8]
+🧹	fshesë								// [1F9F9]
+🧺	shportë								// [1F9FA]
+🧻	rrotë letre							// [1F9FB]
+🧼	sapun								// [1F9FC]
+🧽	sfungjer							// [1F9FD]
+🧾	faturë								// [1F9FE]
+🧿	hajmali kundër syrit të keq					// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Ishulli Asenshion						// [1F1E6 1F1E8] AC
-🇦🇩	Andorrë								// [1F1E6 1F1E9] AD
-🇦🇪	Emiratet e Bashkuara Arabe					// [1F1E6 1F1EA] AE
-🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua e Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilë								// [1F1E6 1F1EE] AI
-🇦🇱	Shqipëri							// [1F1E6 1F1F1] AL
-🇦🇲	Armeni								// [1F1E6 1F1F2] AM
-🇦🇴	Angolë								// [1F1E6 1F1F4] AO
-🇦🇶	Antarktikë							// [1F1E6 1F1F6] AQ
-🇦🇷	Argjentinë							// [1F1E6 1F1F7] AR
-🇦🇸	Samoa Amerikane							// [1F1E6 1F1F8] AS
-🇦🇹	Austri								// [1F1E6 1F1F9] AT
-🇦🇺	Australi							// [1F1E6 1F1FA] AU
-🇦🇼	Arubë								// [1F1E6 1F1FC] AW
-🇦🇽	Ishujt Alandë							// [1F1E6 1F1FD] AX
-🇦🇿	Azerbajxhan							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosnjë-Hercegovinë						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
-🇧🇪	Belgjikë							// [1F1E7 1F1EA] BE
-🇧🇫	Burkina-Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bullgari							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrejn								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Shën-Bartolome							// [1F1E7 1F1F1] BL
-🇧🇲	Bermudë								// [1F1E7 1F1F2] BM
-🇧🇳	Brunei								// [1F1E7 1F1F3] BN
-🇧🇴	Bolivi								// [1F1E7 1F1F4] BO
-🇧🇶	Karaibet holandeze						// [1F1E7 1F1F6] BQ
-🇧🇷	Brazil								// [1F1E7 1F1F7] BR
-🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
-🇧🇹	Butan								// [1F1E7 1F1F9] BT
-🇧🇻	Ishulli Bove							// [1F1E7 1F1FB] BV
-🇧🇼	Botsvanë							// [1F1E7 1F1FC] BW
-🇧🇾	Bjellorusi							// [1F1E7 1F1FE] BY
-🇧🇿	Belizë								// [1F1E7 1F1FF] BZ
-🇨🇦	Kanada								// [1F1E8 1F1E6] CA
-🇨🇨	Ishujt Kokos							// [1F1E8 1F1E8] CC
-🇨🇩	Kongo-Kinshasa							// [1F1E8 1F1E9] CD
-🇨🇫	Republika e Afrikës Qendrore					// [1F1E8 1F1EB] CF
-🇨🇬	Kongo-Brazavilë							// [1F1E8 1F1EC] CG
-🇨🇭	Zvicër								// [1F1E8 1F1ED] CH
-🇨🇮	Côte d’Ivoire							// [1F1E8 1F1EE] CI
-🇨🇰	Ishujt Kuk							// [1F1E8 1F1F0] CK
-🇨🇱	Kili								// [1F1E8 1F1F1] CL
-🇨🇲	Kamerun								// [1F1E8 1F1F2] CM
-🇨🇳	Kinë								// [1F1E8 1F1F3] CN
-🇨🇴	Kolumbi								// [1F1E8 1F1F4] CO
-🇨🇵	Ishulli Klipërton						// [1F1E8 1F1F5] CP
-🇨🇷	Kosta-Rikë							// [1F1E8 1F1F7] CR
-🇨🇺	Kubë								// [1F1E8 1F1FA] CU
-🇨🇻	Kepi i Gjelbër							// [1F1E8 1F1FB] CV
-🇨🇼	Kuraçao								// [1F1E8 1F1FC] CW
-🇨🇽	Ishulli i Krishtlindjes						// [1F1E8 1F1FD] CX
-🇨🇾	Qipro								// [1F1E8 1F1FE] CY
-🇨🇿	Çeki								// [1F1E8 1F1FF] CZ
-🇩🇪	Gjermani							// [1F1E9 1F1EA] DE
-🇩🇬	Diego-Garsia							// [1F1E9 1F1EC] DG
-🇩🇯	Xhibuti								// [1F1E9 1F1EF] DJ
-🇩🇰	Danimarkë							// [1F1E9 1F1F0] DK
-🇩🇲	Dominikë							// [1F1E9 1F1F2] DM
-🇩🇴	Republika Dominikane						// [1F1E9 1F1F4] DO
-🇩🇿	Algjeri								// [1F1E9 1F1FF] DZ
-🇪🇦	Theuta e Melila							// [1F1EA 1F1E6] EA
-🇪🇨	Ekuador								// [1F1EA 1F1E8] EC
-🇪🇪	Estoni								// [1F1EA 1F1EA] EE
-🇪🇬	Egjipt								// [1F1EA 1F1EC] EG
-🇪🇭	Saharaja Perëndimore						// [1F1EA 1F1ED] EH
-🇪🇷	Eritre								// [1F1EA 1F1F7] ER
-🇪🇸	Spanjë								// [1F1EA 1F1F8] ES
-🇪🇹	Etiopi								// [1F1EA 1F1F9] ET
-🇪🇺	Bashkimi Europian						// [1F1EA 1F1FA] EU
-🇫🇮	Finlandë							// [1F1EB 1F1EE] FI
-🇫🇯	Fixhi								// [1F1EB 1F1EF] FJ
-🇫🇰	Ishujt Falkland							// [1F1EB 1F1F0] FI
-🇫🇲	Mikronezi							// [1F1EB 1F1F2] FM
-🇫🇴	Ishujt Faroe							// [1F1EB 1F1F4] FO
-🇫🇷	Francë								// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Mbretëria e Bashkuar						// [1F1EC 1F1E7] GB
-🇬🇩	Grenadë								// [1F1EC 1F1E9] GD
-🇬🇪	Gjeorgji							// [1F1EC 1F1EA] GE
-🇬🇫	Guajana Franceze						// [1F1EC 1F1EB] GF
-🇬🇬	Gernsej								// [1F1EC 1F1EC] GG
-🇬🇭	Ganë								// [1F1EC 1F1ED] GH
-🇬🇮	Gjibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Grenlandë							// [1F1EC 1F1F1] GL
-🇬🇲	Gambia								// [1F1EC 1F1F2] GM
-🇬🇳	Guine								// [1F1EC 1F1F3] GN
-🇬🇵	Guadalupe							// [1F1EC 1F1F5] GP
-🇬🇶	Guineja Ekuatoriale						// [1F1EC 1F1F6] GQ
-🇬🇷	Greqi								// [1F1EC 1F1F7] GR
-🇬🇸	Xhorxha Jugore dhe Ishujt Senduiçë të Jugut			// [1F1EC 1F1F8] GS
-🇬🇹	Guatemalë							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guine-Bisau							// [1F1EC 1F1FC] GW
-🇬🇾	Guajanë								// [1F1EC 1F1FE] GY
-🇭🇰	RPA i Hong-Kongut						// [1F1ED 1F1F0] HK
-🇭🇲	Ishujt Hërd e Mekdonald						// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Kroaci								// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Hungari								// [1F1ED 1F1FA] HU
-🇮🇨	Ishujt Kanarie							// [1F1EE 1F1E8] IC
-🇮🇩	Indonezi							// [1F1EE 1F1E9] ID
-🇮🇪	Irlandë								// [1F1EE 1F1EA] IE
-🇮🇱	Izrael								// [1F1EE 1F1F1] IL
-🇮🇲	Ishulli i Manit							// [1F1EE 1F1F2] IM
-🇮🇳	Indi								// [1F1EE 1F1F3] IN
-🇮🇴	Territori Britanik i Oqeanit Indian				// [1F1EE 1F1F4] IO
-🇮🇶	Irak								// [1F1EE 1F1F6] IQ
-🇮🇷	Iran								// [1F1EE 1F1F7] IR
-🇮🇸	Islandë								// [1F1EE 1F1F8] IS
-🇮🇹	Itali								// [1F1EE 1F1F9] IT
-🇯🇪	Xhersej								// [1F1EF 1F1EA] JE
-🇯🇲	Xhamajkë							// [1F1EF 1F1F2] JM
-🇯🇴	Jordani								// [1F1EF 1F1F4] JO
-🇯🇵	Japoni								// [1F1EF 1F1F5] JP
-🇰🇪	Kenia								// [1F1F0 1F1EA] KE
-🇰🇬	Kirgistan							// [1F1F0 1F1EC] KG
-🇰🇭	Kamboxhia							// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Komore								// [1F1F0 1F1F2] KM
-🇰🇳	Shën-Kits dhe Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Koreja e Veriut							// [1F1F0 1F1F5] KP
-🇰🇷	Koreja e Jugut							// [1F1F0 1F1F7] KR
-🇰🇼	Kuvajt								// [1F1F0 1F1FC] KW
-🇰🇾	Ishujt Kajman							// [1F1F0 1F1FE] KY
-🇰🇿	Kazakistan							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	Liban								// [1F1F1 1F1E7] LB
-🇱🇨	Shën-Luçia							// [1F1F1 1F1E8] LC
-🇱🇮	Lihtenshtajn							// [1F1F1 1F1EE] LI
-🇱🇰	Sri-Lankë							// [1F1F1 1F1F0] LK
-🇱🇷	Liberi								// [1F1F1 1F1F7] LR
-🇱🇸	Lesoto								// [1F1F1 1F1F8] LS
-🇱🇹	Lituani								// [1F1F1 1F1F9] LT
-🇱🇺	Luksemburg							// [1F1F1 1F1FA] LU
-🇱🇻	Letoni								// [1F1F1 1F1FB] LV
-🇱🇾	Libi								// [1F1F1 1F1FE] LY
-🇲🇦	Marok								// [1F1F2 1F1E6] MA
-🇲🇨	Monako								// [1F1F2 1F1E8] MC
-🇲🇩	Moldavi								// [1F1F2 1F1E9] MD
-🇲🇪	Mal i Zi							// [1F1F2 1F1EA] ME
-🇲🇫	Shën-Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagaskar							// [1F1F2 1F1EC] MG
-🇲🇭	Ishujt Marshall							// [1F1F2 1F1ED] MH
-🇲🇰	Maqedoni							// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Mianmar (Burma)							// [1F1F2 1F1F2] MM
-🇲🇳	Mongoli								// [1F1F2 1F1F3] MN
-🇲🇴	RPA i Makaos							// [1F1F2 1F1F4] MO
-🇲🇵	Ishujt e Marianës Veriore					// [1F1F2 1F1F5] MP
-🇲🇶	Martinikë							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauritani							// [1F1F2 1F1F7] MR
-🇲🇸	Montserat							// [1F1F2 1F1F8] MS
-🇲🇹	Maltë								// [1F1F2 1F1F9] MT
-🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
-🇲🇻	Maldive								// [1F1F2 1F1FB] MV
-🇲🇼	Malavi								// [1F1F2 1F1FC] MW
-🇲🇽	Meksikë								// [1F1F2 1F1FD] MX
-🇲🇾	Malajzi								// [1F1F2 1F1FE] MY
-🇲🇿	Mozambik							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibi								// [1F1F3 1F1E6] NA
-🇳🇨	Kaledonia e Re							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Ishulli Norfolk							// [1F1F3 1F1EB] NF
-🇳🇬	Nigeri								// [1F1F3 1F1EC] NG
-🇳🇮	Nikaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Holandë								// [1F1F3 1F1F1] NL
-🇳🇴	Norvegji							// [1F1F3 1F1F4] NO
-🇳🇵	Nepal								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	Zelandë e Re							// [1F1F3 1F1FF] NZ
-🇴🇲	Oman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Polinezia Franceze						// [1F1F5 1F1EB] PF
-🇵🇬	Guineja e Re-Papua						// [1F1F5 1F1EC] PG
-🇵🇭	Filipine							// [1F1F5 1F1ED] PH
-🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
-🇵🇱	Poloni								// [1F1F5 1F1F1] PL
-🇵🇲	Shën-Pier dhe Mikelon						// [1F1F5 1F1F2] PM
-🇵🇳	Ishujt Pitkern							// [1F1F5 1F1F3] PN
-🇵🇷	Porto-Riko							// [1F1F5 1F1F7] PR
-🇵🇸	Territoret Palestineze						// [1F1F5 1F1F8] PS
-🇵🇹	Portugali							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguai							// [1F1F5 1F1FE] PY
-🇶🇦	Katar								// [1F1F6 1F1E6] QA
-🇷🇪	Reunion								// [1F1F7 1F1EA] RE
-🇷🇴	Rumani								// [1F1F7 1F1F4] RO
-🇷🇸	Serbi								// [1F1F7 1F1F8] RS
-🇷🇺	Rusi								// [1F1F7 1F1FA] RU
-🇷🇼	Ruandë								// [1F1F7 1F1FC] RW
-🇸🇦	Arabia Saudite							// [1F1F8 1F1E6] SA
-🇸🇧	Ishujt Solomon							// [1F1F8 1F1E7] SB
-🇸🇨	Sejshelle							// [1F1F8 1F1E8] SC
-🇸🇩	Sudan								// [1F1F8 1F1E9] SD
-🇸🇪	Suedi								// [1F1F8 1F1EA] SE
-🇸🇬	Singapor							// [1F1F8 1F1EC] SG
-🇸🇭	Shën-Helenë							// [1F1F8 1F1ED] SH
-🇸🇮	Slloveni							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard e Jan-Majen						// [1F1F8 1F1EF] SJ
-🇸🇰	Sllovaki							// [1F1F8 1F1F0] SK
-🇸🇱	Siera-Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San-Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somali								// [1F1F8 1F1F4] SO
-🇸🇷	Surinami							// [1F1F8 1F1F7] SR
-🇸🇸	Sudani i Jugut							// [1F1F8 1F1F8] SS
-🇸🇹	Sao-Tome e Principe						// [1F1F8 1F1F9] ST
-🇸🇻	Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Sint-Marten							// [1F1F8 1F1FD] SX
-🇸🇾	Siri								// [1F1F8 1F1FE] SY
-🇸🇿	Svazilandë							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan-da-Kuna							// [1F1F9 1F1E6] TA
-🇹🇨	Ishujt Turks dhe Kaikos						// [1F1F9 1F1E8] TC
-🇹🇩	Çad								// [1F1F9 1F1E9] TD
-🇹🇫	Territoret Jugore Franceze					// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Tajlandë							// [1F1F9 1F1ED] TH
-🇹🇯	Taxhikistan							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Timor-Leste							// [1F1F9 1F1F1] TL
-🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
-🇹🇳	Tunizi								// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Turqi								// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad e Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Tajvan								// [1F1F9 1F1FC] TW
-🇹🇿	Tanzani								// [1F1F9 1F1FF] TZ
-🇺🇦	Ukrainë								// [1F1FA 1F1E6] UA
-🇺🇬	Ugandë								// [1F1FA 1F1EC] UG
-🇺🇲	Ishujt Periferikë të SHBA-së					// [1F1FA 1F1F2] UM
-🇺🇳	Kombet e Bashkuara						// [1F1FA 1F1F3] UN
-🇺🇸	Shtetet e Bashkuara të Amerikës					// [1F1FA 1F1F8] US
-🇺🇾	Uruguai								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
-🇻🇦	Vatikan								// [1F1FB 1F1E6] VA
-🇻🇨	Shën-Vincent dhe Grenadine					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuelë							// [1F1FB 1F1EA] VE
-🇻🇬	Ishujt e Virgjër Britanikë					// [1F1FB 1F1EC] VG
-🇻🇮	Ishujt e Virgjër të SHBA-së					// [1F1FB 1F1EE] VI
-🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Uollis e Futuna							// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovë								// [1F1FD 1F1F0] XK
-🇾🇪	Jemen								// [1F1FE 1F1EA] YE
-🇾🇹	Majotë								// [1F1FE 1F1F9] YT
-🇿🇦	Afrika e Jugut							// [1F1FF 1F1E6] ZA
-🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabve							// [1F1FF 1F1FC] ZW
+🇦🇨	flamur: Ishulli Asenshion					// [1F1E6 1F1E8] AC
+🇦🇩	flamur: Andorrë							// [1F1E6 1F1E9] AD
+🇦🇪	flamur: Emiratet e Bashkuara Arabe				// [1F1E6 1F1EA] AE
+🇦🇫	flamur: Afganistan						// [1F1E6 1F1EB] AF
+🇦🇬	flamur: Antigua e Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	flamur: Anguilë							// [1F1E6 1F1EE] AI
+🇦🇱	flamur: Shqipëri						// [1F1E6 1F1F1] AL
+🇦🇲	flamur: Armeni							// [1F1E6 1F1F2] AM
+🇦🇴	flamur: Angolë							// [1F1E6 1F1F4] AO
+🇦🇶	flamur: Antarktikë						// [1F1E6 1F1F6] AQ
+🇦🇷	flamur: Argjentinë						// [1F1E6 1F1F7] AR
+🇦🇸	flamur: Samoa Amerikane						// [1F1E6 1F1F8] AS
+🇦🇹	flamur: Austri							// [1F1E6 1F1F9] AT
+🇦🇺	flamur: Australi						// [1F1E6 1F1FA] AU
+🇦🇼	flamur: Arubë							// [1F1E6 1F1FC] AW
+🇦🇽	flamur: Ishujt Alandë						// [1F1E6 1F1FD] AX
+🇦🇿	flamur: Azerbajxhan						// [1F1E6 1F1FF] AZ
+🇧🇦	flamur: Bosnjë-Hercegovinë					// [1F1E7 1F1E6] BA
+🇧🇧	flamur: Barbados						// [1F1E7 1F1E7] BB
+🇧🇩	flamur: Bangladesh						// [1F1E7 1F1E9] BD
+🇧🇪	flamur: Belgjikë						// [1F1E7 1F1EA] BE
+🇧🇫	flamur: Burkina-Faso						// [1F1E7 1F1EB] BF
+🇧🇬	flamur: Bullgari						// [1F1E7 1F1EC] BG
+🇧🇭	flamur: Bahrejn							// [1F1E7 1F1ED] BH
+🇧🇮	flamur: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	flamur: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	flamur: Shën-Bartolome						// [1F1E7 1F1F1] BL
+🇧🇲	flamur: Bermudë							// [1F1E7 1F1F2] BM
+🇧🇳	flamur: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	flamur: Bolivi							// [1F1E7 1F1F4] BO
+🇧🇶	flamur: Karaibet holandeze					// [1F1E7 1F1F6] BQ
+🇧🇷	flamur: Brazil							// [1F1E7 1F1F7] BR
+🇧🇸	flamur: Bahamas							// [1F1E7 1F1F8] BS
+🇧🇹	flamur: Butan							// [1F1E7 1F1F9] BT
+🇧🇻	flamur: Ishulli Bove						// [1F1E7 1F1FB] BV
+🇧🇼	flamur: Botsvanë						// [1F1E7 1F1FC] BW
+🇧🇾	flamur: Bjellorusi						// [1F1E7 1F1FE] BY
+🇧🇿	flamur: Belizë							// [1F1E7 1F1FF] BZ
+🇨🇦	flamur: Kanada							// [1F1E8 1F1E6] CA
+🇨🇨	flamur: Ishujt Kokos						// [1F1E8 1F1E8] CC
+🇨🇩	flamur: Kongo-Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	flamur: Republika e Afrikës Qendrore				// [1F1E8 1F1EB] CF
+🇨🇬	flamur: Kongo-Brazavilë						// [1F1E8 1F1EC] CG
+🇨🇭	flamur: Zvicër							// [1F1E8 1F1ED] CH
+🇨🇮	flamur: Côte d’Ivoire						// [1F1E8 1F1EE] CI
+🇨🇰	flamur: Ishujt Kuk						// [1F1E8 1F1F0] CK
+🇨🇱	flamur: Kili							// [1F1E8 1F1F1] CL
+🇨🇲	flamur: Kamerun							// [1F1E8 1F1F2] CM
+🇨🇳	flamur: Kinë							// [1F1E8 1F1F3] CN
+🇨🇴	flamur: Kolumbi							// [1F1E8 1F1F4] CO
+🇨🇵	flamur: Ishulli Klipërton					// [1F1E8 1F1F5] CP
+🇨🇷	flamur: Kosta-Rikë						// [1F1E8 1F1F7] CR
+🇨🇺	flamur: Kubë							// [1F1E8 1F1FA] CU
+🇨🇻	flamur: Kepi i Gjelbër						// [1F1E8 1F1FB] CV
+🇨🇼	flamur: Kuraçao							// [1F1E8 1F1FC] CW
+🇨🇽	flamur: Ishulli i Krishtlindjes					// [1F1E8 1F1FD] CX
+🇨🇾	flamur: Qipro							// [1F1E8 1F1FE] CY
+🇨🇿	flamur: Çeki							// [1F1E8 1F1FF] CZ
+🇩🇪	flamur: Gjermani						// [1F1E9 1F1EA] DE
+🇩🇬	flamur: Diego-Garsia						// [1F1E9 1F1EC] DG
+🇩🇯	flamur: Xhibuti							// [1F1E9 1F1EF] DJ
+🇩🇰	flamur: Danimarkë						// [1F1E9 1F1F0] DK
+🇩🇲	flamur: Dominikë						// [1F1E9 1F1F2] DM
+🇩🇴	flamur: Republika Dominikane					// [1F1E9 1F1F4] DO
+🇩🇿	flamur: Algjeri							// [1F1E9 1F1FF] DZ
+🇪🇦	flamur: Theuta e Melila						// [1F1EA 1F1E6] EA
+🇪🇨	flamur: Ekuador							// [1F1EA 1F1E8] EC
+🇪🇪	flamur: Estoni							// [1F1EA 1F1EA] EE
+🇪🇬	flamur: Egjipt							// [1F1EA 1F1EC] EG
+🇪🇭	flamur: Saharaja Perëndimore					// [1F1EA 1F1ED] EH
+🇪🇷	flamur: Eritre							// [1F1EA 1F1F7] ER
+🇪🇸	flamur: Spanjë							// [1F1EA 1F1F8] ES
+🇪🇹	flamur: Etiopi							// [1F1EA 1F1F9] ET
+🇪🇺	flamur: Bashkimi Europian					// [1F1EA 1F1FA] EU
+🇫🇮	flamur: Finlandë						// [1F1EB 1F1EE] FI
+🇫🇯	flamur: Fixhi							// [1F1EB 1F1EF] FJ
+🇫🇰	flamur: Ishujt Falkland						// [1F1EB 1F1F0] FI
+🇫🇲	flamur: Mikronezi						// [1F1EB 1F1F2] FM
+🇫🇴	flamur: Ishujt Faroe						// [1F1EB 1F1F4] FO
+🇫🇷	flamur: Francë							// [1F1EB 1F1F7] FR
+🇬🇦	flamur: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	flamur: Mbretëria e Bashkuar					// [1F1EC 1F1E7] GB
+🇬🇩	flamur: Grenadë							// [1F1EC 1F1E9] GD
+🇬🇪	flamur: Gjeorgji						// [1F1EC 1F1EA] GE
+🇬🇫	flamur: Guajana Franceze					// [1F1EC 1F1EB] GF
+🇬🇬	flamur: Gernsej							// [1F1EC 1F1EC] GG
+🇬🇭	flamur: Ganë							// [1F1EC 1F1ED] GH
+🇬🇮	flamur: Gjibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	flamur: Grenlandë						// [1F1EC 1F1F1] GL
+🇬🇲	flamur: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	flamur: Guine							// [1F1EC 1F1F3] GN
+🇬🇵	flamur: Guadalupe						// [1F1EC 1F1F5] GP
+🇬🇶	flamur: Guineja Ekuatoriale					// [1F1EC 1F1F6] GQ
+🇬🇷	flamur: Greqi							// [1F1EC 1F1F7] GR
+🇬🇸	flamur: Xhorxha Jugore dhe Ishujt Senduiçë të Jugut		// [1F1EC 1F1F8] GS
+🇬🇹	flamur: Guatemalë						// [1F1EC 1F1F9] GT
+🇬🇺	flamur: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	flamur: Guine-Bisau						// [1F1EC 1F1FC] GW
+🇬🇾	flamur: Guajanë							// [1F1EC 1F1FE] GY
+🇭🇰	flamur: RPA i Hong-Kongut					// [1F1ED 1F1F0] HK
+🇭🇲	flamur: Ishujt Hërd e Mekdonald					// [1F1ED 1F1F2] HM
+🇭🇳	flamur: Honduras						// [1F1ED 1F1F3] HN
+🇭🇷	flamur: Kroaci							// [1F1ED 1F1F7] HR
+🇭🇹	flamur: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	flamur: Hungari							// [1F1ED 1F1FA] HU
+🇮🇨	flamur: Ishujt Kanarie						// [1F1EE 1F1E8] IC
+🇮🇩	flamur: Indonezi						// [1F1EE 1F1E9] ID
+🇮🇪	flamur: Irlandë							// [1F1EE 1F1EA] IE
+🇮🇱	flamur: Izrael							// [1F1EE 1F1F1] IL
+🇮🇲	flamur: Ishulli i Manit						// [1F1EE 1F1F2] IM
+🇮🇳	flamur: Indi							// [1F1EE 1F1F3] IN
+🇮🇴	flamur: Territori Britanik i Oqeanit Indian			// [1F1EE 1F1F4] IO
+🇮🇶	flamur: Irak							// [1F1EE 1F1F6] IQ
+🇮🇷	flamur: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	flamur: Islandë							// [1F1EE 1F1F8] IS
+🇮🇹	flamur: Itali							// [1F1EE 1F1F9] IT
+🇯🇪	flamur: Xhersej							// [1F1EF 1F1EA] JE
+🇯🇲	flamur: Xhamajkë						// [1F1EF 1F1F2] JM
+🇯🇴	flamur: Jordani							// [1F1EF 1F1F4] JO
+🇯🇵	flamur: Japoni							// [1F1EF 1F1F5] JP
+🇰🇪	flamur: Kenia							// [1F1F0 1F1EA] KE
+🇰🇬	flamur: Kirgistan						// [1F1F0 1F1EC] KG
+🇰🇭	flamur: Kamboxhia						// [1F1F0 1F1ED] KH
+🇰🇮	flamur: Kiribati						// [1F1F0 1F1EE] KI
+🇰🇲	flamur: Komore							// [1F1F0 1F1F2] KM
+🇰🇳	flamur: Shën-Kits dhe Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	flamur: Koreja e Veriut						// [1F1F0 1F1F5] KP
+🇰🇷	flamur: Koreja e Jugut						// [1F1F0 1F1F7] KR
+🇰🇼	flamur: Kuvajt							// [1F1F0 1F1FC] KW
+🇰🇾	flamur: Ishujt Kajman						// [1F1F0 1F1FE] KY
+🇰🇿	flamur: Kazakistan						// [1F1F0 1F1FF] KZ
+🇱🇦	flamur: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	flamur: Liban							// [1F1F1 1F1E7] LB
+🇱🇨	flamur: Shën-Luçia						// [1F1F1 1F1E8] LC
+🇱🇮	flamur: Lihtenshtajn						// [1F1F1 1F1EE] LI
+🇱🇰	flamur: Sri-Lankë						// [1F1F1 1F1F0] LK
+🇱🇷	flamur: Liberi							// [1F1F1 1F1F7] LR
+🇱🇸	flamur: Lesoto							// [1F1F1 1F1F8] LS
+🇱🇹	flamur: Lituani							// [1F1F1 1F1F9] LT
+🇱🇺	flamur: Luksemburg						// [1F1F1 1F1FA] LU
+🇱🇻	flamur: Letoni							// [1F1F1 1F1FB] LV
+🇱🇾	flamur: Libi							// [1F1F1 1F1FE] LY
+🇲🇦	flamur: Marok							// [1F1F2 1F1E6] MA
+🇲🇨	flamur: Monako							// [1F1F2 1F1E8] MC
+🇲🇩	flamur: Moldavi							// [1F1F2 1F1E9] MD
+🇲🇪	flamur: Mal i Zi						// [1F1F2 1F1EA] ME
+🇲🇫	flamur: Shën-Martin						// [1F1F2 1F1EB] MF
+🇲🇬	flamur: Madagaskar						// [1F1F2 1F1EC] MG
+🇲🇭	flamur: Ishujt Marshall						// [1F1F2 1F1ED] MH
+🇲🇰	flamur: Maqedoni						// [1F1F2 1F1F0] MK
+🇲🇱	flamur: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	flamur: Mianmar (Burma)						// [1F1F2 1F1F2] MM
+🇲🇳	flamur: Mongoli							// [1F1F2 1F1F3] MN
+🇲🇴	flamur: RPA i Makaos						// [1F1F2 1F1F4] MO
+🇲🇵	flamur: Ishujt e Marianës Veriore				// [1F1F2 1F1F5] MP
+🇲🇶	flamur: Martinikë						// [1F1F2 1F1F6] MQ
+🇲🇷	flamur: Mauritani						// [1F1F2 1F1F7] MR
+🇲🇸	flamur: Montserat						// [1F1F2 1F1F8] MS
+🇲🇹	flamur: Maltë							// [1F1F2 1F1F9] MT
+🇲🇺	flamur: Mauritius						// [1F1F2 1F1FA] MU
+🇲🇻	flamur: Maldive							// [1F1F2 1F1FB] MV
+🇲🇼	flamur: Malavi							// [1F1F2 1F1FC] MW
+🇲🇽	flamur: Meksikë							// [1F1F2 1F1FD] MX
+🇲🇾	flamur: Malajzi							// [1F1F2 1F1FE] MY
+🇲🇿	flamur: Mozambik						// [1F1F2 1F1FF] MZ
+🇳🇦	flamur: Namibi							// [1F1F3 1F1E6] NA
+🇳🇨	flamur: Kaledonia e Re						// [1F1F3 1F1E8] NC
+🇳🇪	flamur: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	flamur: Ishulli Norfolk						// [1F1F3 1F1EB] NF
+🇳🇬	flamur: Nigeri							// [1F1F3 1F1EC] NG
+🇳🇮	flamur: Nikaragua						// [1F1F3 1F1EE] NI
+🇳🇱	flamur: Holandë							// [1F1F3 1F1F1] NL
+🇳🇴	flamur: Norvegji						// [1F1F3 1F1F4] NO
+🇳🇵	flamur: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	flamur: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	flamur: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	flamur: Zelandë e Re						// [1F1F3 1F1FF] NZ
+🇴🇲	flamur: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	flamur: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	flamur: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	flamur: Polinezia Franceze					// [1F1F5 1F1EB] PF
+🇵🇬	flamur: Guineja e Re-Papua					// [1F1F5 1F1EC] PG
+🇵🇭	flamur: Filipine						// [1F1F5 1F1ED] PH
+🇵🇰	flamur: Pakistan						// [1F1F5 1F1F0] PK
+🇵🇱	flamur: Poloni							// [1F1F5 1F1F1] PL
+🇵🇲	flamur: Shën-Pier dhe Mikelon					// [1F1F5 1F1F2] PM
+🇵🇳	flamur: Ishujt Pitkern						// [1F1F5 1F1F3] PN
+🇵🇷	flamur: Porto-Riko						// [1F1F5 1F1F7] PR
+🇵🇸	flamur: Territoret Palestineze					// [1F1F5 1F1F8] PS
+🇵🇹	flamur: Portugali						// [1F1F5 1F1F9] PT
+🇵🇼	flamur: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	flamur: Paraguai						// [1F1F5 1F1FE] PY
+🇶🇦	flamur: Katar							// [1F1F6 1F1E6] QA
+🇷🇪	flamur: Reunion							// [1F1F7 1F1EA] RE
+🇷🇴	flamur: Rumani							// [1F1F7 1F1F4] RO
+🇷🇸	flamur: Serbi							// [1F1F7 1F1F8] RS
+🇷🇺	flamur: Rusi							// [1F1F7 1F1FA] RU
+🇷🇼	flamur: Ruandë							// [1F1F7 1F1FC] RW
+🇸🇦	flamur: Arabia Saudite						// [1F1F8 1F1E6] SA
+🇸🇧	flamur: Ishujt Solomon						// [1F1F8 1F1E7] SB
+🇸🇨	flamur: Sejshelle						// [1F1F8 1F1E8] SC
+🇸🇩	flamur: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	flamur: Suedi							// [1F1F8 1F1EA] SE
+🇸🇬	flamur: Singapor						// [1F1F8 1F1EC] SG
+🇸🇭	flamur: Shën-Helenë						// [1F1F8 1F1ED] SH
+🇸🇮	flamur: Slloveni						// [1F1F8 1F1EE] SI
+🇸🇯	flamur: Svalbard e Jan-Majen					// [1F1F8 1F1EF] SJ
+🇸🇰	flamur: Sllovaki						// [1F1F8 1F1F0] SK
+🇸🇱	flamur: Siera-Leone						// [1F1F8 1F1F1] SL
+🇸🇲	flamur: San-Marino						// [1F1F8 1F1F2] SM
+🇸🇳	flamur: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	flamur: Somali							// [1F1F8 1F1F4] SO
+🇸🇷	flamur: Surinami						// [1F1F8 1F1F7] SR
+🇸🇸	flamur: Sudani i Jugut						// [1F1F8 1F1F8] SS
+🇸🇹	flamur: Sao-Tome e Principe					// [1F1F8 1F1F9] ST
+🇸🇻	flamur: Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	flamur: Sint-Marten						// [1F1F8 1F1FD] SX
+🇸🇾	flamur: Siri							// [1F1F8 1F1FE] SY
+🇸🇿	flamur: Svazilandë						// [1F1F8 1F1FF] SZ
+🇹🇦	flamur: Tristan-da-Kuna						// [1F1F9 1F1E6] TA
+🇹🇨	flamur: Ishujt Turks dhe Kaikos					// [1F1F9 1F1E8] TC
+🇹🇩	flamur: Çad							// [1F1F9 1F1E9] TD
+🇹🇫	flamur: Territoret Jugore Franceze				// [1F1F9 1F1EB] TF
+🇹🇬	flamur: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	flamur: Tajlandë						// [1F1F9 1F1ED] TH
+🇹🇯	flamur: Taxhikistan						// [1F1F9 1F1EF] TJ
+🇹🇰	flamur: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	flamur: Timor-Leste						// [1F1F9 1F1F1] TL
+🇹🇲	flamur: Turkmenistan						// [1F1F9 1F1F2] TM
+🇹🇳	flamur: Tunizi							// [1F1F9 1F1F3] TN
+🇹🇴	flamur: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	flamur: Turqi							// [1F1F9 1F1F7] TR
+🇹🇹	flamur: Trinidad e Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	flamur: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	flamur: Tajvan							// [1F1F9 1F1FC] TW
+🇹🇿	flamur: Tanzani							// [1F1F9 1F1FF] TZ
+🇺🇦	flamur: Ukrainë							// [1F1FA 1F1E6] UA
+🇺🇬	flamur: Ugandë							// [1F1FA 1F1EC] UG
+🇺🇲	flamur: Ishujt Periferikë të SHBA-së				// [1F1FA 1F1F2] UM
+🇺🇳	flamur: Kombet e Bashkuara					// [1F1FA 1F1F3] UN
+🇺🇸	flamur: Shtetet e Bashkuara të Amerikës				// [1F1FA 1F1F8] US
+🇺🇾	flamur: Uruguai							// [1F1FA 1F1FE] UY
+🇺🇿	flamur: Uzbekistan						// [1F1FA 1F1FF] UZ
+🇻🇦	flamur: Vatikan							// [1F1FB 1F1E6] VA
+🇻🇨	flamur: Shën-Vincent dhe Grenadine				// [1F1FB 1F1E8] VC
+🇻🇪	flamur: Venezuelë						// [1F1FB 1F1EA] VE
+🇻🇬	flamur: Ishujt e Virgjër Britanikë				// [1F1FB 1F1EC] VG
+🇻🇮	flamur: Ishujt e Virgjër të SHBA-së				// [1F1FB 1F1EE] VI
+🇻🇳	flamur: Vietnam							// [1F1FB 1F1F3] VN
+🇻🇺	flamur: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	flamur: Uollis e Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	flamur: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	flamur: Kosovë							// [1F1FD 1F1F0] XK
+🇾🇪	flamur: Jemen							// [1F1FE 1F1EA] YE
+🇾🇹	flamur: Majotë							// [1F1FE 1F1F9] YT
+🇿🇦	flamur: Afrika e Jugut						// [1F1FF 1F1E6] ZA
+🇿🇲	flamur: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	flamur: Zimbabve						// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
@@ -1578,31 +1644,31 @@ $textmode
 👩‍❤‍👨	çift me zemër: grua e burrë			// [1F469 200D 2764 200D 1F468]
 👨‍❤‍👨	çift me zemër: burrë e burrë			// [1F468 200D 2764 200D 1F468]
 👩‍❤‍👩	çift me zemër: grua e grua			// [1F469 200D 2764 200D 1F469]
-👨‍👩‍👦	familje: burrë e grua e djalë			// [1F468 200D 1F469 200D 1F466]
-👨‍👩‍👧	familje: burrë e grua e vajzë			// [1F468 200D 1F469 200D 1F467]
-👨‍👩‍👧‍👦	familje: burrë e grua e vajzë e djalë	// [1F468 200D 1F469 200D 1F467 200D 1F466]
-👨‍👩‍👦‍👦	familje: burrë e grua e djalë e djalë	// [1F468 200D 1F469 200D 1F466 200D 1F466]
-👨‍👩‍👧‍👧	familje: burrë e grua e vajzë e vajzë	// [1F468 200D 1F469 200D 1F467 200D 1F467]
-👨‍👨‍👦	familje: burrë e burrë e djalë			// [1F468 200D 1F468 200D 1F466]
-👨‍👨‍👧	familje: burrë e burrë e vajzë			// [1F468 200D 1F468 200D 1F467]
-👨‍👨‍👧‍👦	familje: burrë e burrë e vajzë e djalë	// [1F468 200D 1F468 200D 1F467 200D 1F466]
-👨‍👨‍👦‍👦	familje: burrë e burrë e djalë e djalë	// [1F468 200D 1F468 200D 1F466 200D 1F466]
-👨‍👨‍👧‍👧	familje: burrë e burrë e vajzë e vajzë	// [1F468 200D 1F468 200D 1F467 200D 1F467]
-👩‍👩‍👦	familje: grua e grua e djalë			// [1F469 200D 1F469 200D 1F466]
-👩‍👩‍👧	familje: grua e grua e vajzë			// [1F469 200D 1F469 200D 1F467]
-👩‍👩‍👧‍👦	familje: grua e grua e vajzë e djalë	// [1F469 200D 1F469 200D 1F467 200D 1F466]
-👩‍👩‍👦‍👦	familje: grua e grua e djalë e djalë	// [1F469 200D 1F469 200D 1F466 200D 1F466]
-👩‍👩‍👧‍👧	familje: grua e grua e vajzë e vajzë	// [1F469 200D 1F469 200D 1F467 200D 1F467]
+👨‍👩‍👦	familje: burrë, grua e djalë			// [1F468 200D 1F469 200D 1F466]
+👨‍👩‍👧	familje: burrë, grua e vajzë			// [1F468 200D 1F469 200D 1F467]
+👨‍👩‍👧‍👦	familje: burrë, grua, vajzë e djalë	// [1F468 200D 1F469 200D 1F467 200D 1F466]
+👨‍👩‍👦‍👦	familje: burrë, grua, djalë e djalë	// [1F468 200D 1F469 200D 1F466 200D 1F466]
+👨‍👩‍👧‍👧	familje: burrë, grua, vajzë e vajzë	// [1F468 200D 1F469 200D 1F467 200D 1F467]
+👨‍👨‍👦	familje: burrë, burrë e djalë			// [1F468 200D 1F468 200D 1F466]
+👨‍👨‍👧	familje: burrë, burrë e vajzë			// [1F468 200D 1F468 200D 1F467]
+👨‍👨‍👧‍👦	familje: burrë, burrë, vajzë e djalë	// [1F468 200D 1F468 200D 1F467 200D 1F466]
+👨‍👨‍👦‍👦	familje: burrë, burrë, djalë e djalë	// [1F468 200D 1F468 200D 1F466 200D 1F466]
+👨‍👨‍👧‍👧	familje: burrë, burrë, vajzë e vajzë	// [1F468 200D 1F468 200D 1F467 200D 1F467]
+👩‍👩‍👦	familje: grua, grua e djalë			// [1F469 200D 1F469 200D 1F466]
+👩‍👩‍👧	familje: grua, grua e vajzë			// [1F469 200D 1F469 200D 1F467]
+👩‍👩‍👧‍👦	familje: grua, grua, vajzë e djalë	// [1F469 200D 1F469 200D 1F467 200D 1F466]
+👩‍👩‍👦‍👦	familje: grua, grua, djalë e djalë	// [1F469 200D 1F469 200D 1F466 200D 1F466]
+👩‍👩‍👧‍👧	familje: grua, grua, vajzë e vajzë	// [1F469 200D 1F469 200D 1F467 200D 1F467]
 👨‍👦	familje: burrë e djalë					// [1F468 200D 1F466]
-👨‍👦‍👦	familje: burrë e djalë e djalë			// [1F468 200D 1F466 200D 1F466]
+👨‍👦‍👦	familje: burrë, djalë e djalë			// [1F468 200D 1F466 200D 1F466]
 👨‍👧	familje: burrë e vajzë					// [1F468 200D 1F467]
-👨‍👧‍👦	familje: burrë e vajzë e djalë			// [1F468 200D 1F467 200D 1F466]
-👨‍👧‍👧	familje: burrë e vajzë e vajzë			// [1F468 200D 1F467 200D 1F467]
+👨‍👧‍👦	familje: burrë, vajzë e djalë			// [1F468 200D 1F467 200D 1F466]
+👨‍👧‍👧	familje: burrë, vajzë e vajzë			// [1F468 200D 1F467 200D 1F467]
 👩‍👦	familje: grua e djalë					// [1F469 200D 1F466]
-👩‍👦‍👦	familje: grua e djalë e djalë			// [1F469 200D 1F466 200D 1F466]
+👩‍👦‍👦	familje: grua, djalë e djalë			// [1F469 200D 1F466 200D 1F466]
 👩‍👧	familje: grua e vajzë					// [1F469 200D 1F467]
-👩‍👧‍👦	familje: grua e vajzë e djalë			// [1F469 200D 1F467 200D 1F466]
-👩‍👧‍👧	familje: grua e vajzë e vajzë			// [1F469 200D 1F467 200D 1F467]
+👩‍👧‍👦	familje: grua, vajzë e djalë			// [1F469 200D 1F467 200D 1F466]
+👩‍👧‍👧	familje: grua, vajzë e vajzë			// [1F469 200D 1F467 200D 1F467]
 
 // Emoji ZWJ Sequence: Gendered Role, with object
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	gardist							// [1F482 200D 2642]
 🕵️‍♀	hetuese							// [1F575 200D 2640]
 🕵️‍♂	hetues							// [1F575 200D 2642]
+🦸‍♀	superheroinë						// [1F9B8 200D 2640]
+🦸‍♂	burrë superhero						// [1F9B8 200D 2642]
+🦹‍♀	superzuzare						// [1F9B9 200D 2640]
+🦹‍♂	burrë superzuzar					// [1F9B9 200D 2642]
 🧙‍♀	magjistare						// [1F9D9 200D 2640]
 🧙‍♂	burrë magjistar						// [1F9D9 200D 2642]
 🧚‍♀	grua zanë						// [1F9DA 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	flamur i ylbertë					// [1F3F3 200D 1F308]
+🏴‍☠	flamur piratësh						// [1F3F4 200D 2620]
 👁‍🗨	sy në flluskën e të folurit				// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

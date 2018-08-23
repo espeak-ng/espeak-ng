@@ -78,7 +78,10 @@
 // Minutes
 .L17 0 1 2 3 4 5
 
-
+// Plurals and other that shouldn't pronounce s at the end
+.L18 continu courbatu discontinu dodu imbu promu tribu camu détritu rébu
+// Words that should pronounce the s
+.L19 clausu consensu cursu typhu diplodocu eucalyptu cirru
 
 .group a
         ae (_      e         // reggae vitae
@@ -1189,6 +1192,8 @@ _C)        oy (X      _^_en     // boy, toy
 
     _u) s (_       s
     Cu) s (_
+   L18) s (_+++			// list of words not caught by other rules. Force increase in score
+   L19) s (_+++    s		// list of words not caught by other rules. Force increase in score
    Abu) s (_       s
   _Abu) s (_
    mbu) s (_       s

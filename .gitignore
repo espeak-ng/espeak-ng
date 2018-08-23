@@ -103,6 +103,7 @@ src/speak-ng
 tests/*.test
 !tests/language-phonemes.test
 !tests/language-pronunciation.test
+!tests/language-replace.test
 !tests/ssml.test
 !tests/translate.test
 

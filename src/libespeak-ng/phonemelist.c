@@ -52,9 +52,14 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out, int n_ph_list2, PHONEME_L
 	bool word_end;
 	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *next = NULL;
+	int deleted_sourceix = -1;
 
 	for (ix = 0; (ix < n_ph_list2) && (n_plist_out < N_PHONEME_LIST); ix++) {
 		plist2 = &ph_list2[ix];
+		if (deleted_sourceix != -1) {
+			plist2->sourceix = deleted_sourceix;
+			deleted_sourceix = -1;
+		}
 
 		// don't do any substitution if the language has been temporarily changed
 		if (!(plist2->synthflags & SFLAG_SWITCHED_LANG)) {
@@ -87,8 +92,10 @@ static int SubstitutePhonemes(PHONEME_LIST *plist_out, int n_ph_list2, PHONEME_L
 				}
 			}
 
-			if (plist2->phcode == 0)
+			if (plist2->phcode == 0) {
+				deleted_sourceix = plist2->sourceix;
 				continue; // phoneme has been replaced by NULL, so don't copy it
+			}
 		}
 
 		// copy phoneme into the output list
@@ -121,6 +128,7 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 	bool inserted;
 	bool deleted;
 	PHONEME_DATA phdata;
+	bool start_of_clause = true;
 
 	int n_ph_list3;
 	PHONEME_LIST *plist3;
@@ -161,12 +169,18 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 	// look for switch of phoneme tables
 	delete_count = 0;
 	current_phoneme_tab = tr->phoneme_tab_ix;
+	int deleted_sourceix = -1;
 	for (j = 0; j < *n_ph_list2; j++) {
 		if (current_phoneme_tab != tr->phoneme_tab_ix)
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
 
-		if (delete_count > 0)
+		if (delete_count > 0) {
 			memcpy(&plist2[j-delete_count], &plist2[j], sizeof(plist2[0]));
+			if (deleted_sourceix != -1) {
+				plist2[j-delete_count].sourceix = deleted_sourceix;
+				deleted_sourceix = -1;
+			}
+		}
 
 		if (plist2[j].phcode == phonSWITCH) {
 			if ((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
@@ -176,6 +190,8 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 			        )) {
 				// delete this phonSWITCH if it's switching to the current phoneme table, or
 				// delete this phonSWITCH if its followed by another phonSWITCH
+				if (deleted_sourceix == -1 && plist2[j].sourceix != 0)
+					deleted_sourceix = plist2[j].sourceix;
 				delete_count++;
 			} else
 				current_phoneme_tab = plist2[j].tone_ph;
@@ -496,11 +512,16 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 
 			if (plist3->sourceix != 0) {
 				phlist[ix].sourceix = plist3->sourceix;
-				phlist[ix].newword = 1; // this phoneme is the start of a word
+				phlist[ix].newword = PHLIST_START_OF_WORD;
 
 				if (start_sentence) {
-					phlist[ix].newword = 5; // start of sentence + start of word
+					phlist[ix].newword |= PHLIST_START_OF_SENTENCE;
 					start_sentence = false;
+				}
+
+				if (start_of_clause) {
+					phlist[ix].newword |= PHLIST_START_OF_CLAUSE;
+					start_of_clause = false;
 				}
 			} else
 				phlist[ix].newword = 0;
@@ -523,7 +544,8 @@ void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence, int *n
 			ix++;
 		}
 	}
-	phlist[ix].newword = 2; // end of clause
+
+	phlist[ix].newword = PHLIST_END_OF_CLAUSE;
 
 	phlist[ix].phcode = phonPAUSE;
 	phlist[ix].type = phPAUSE; // terminate with 2 Pause phonemes

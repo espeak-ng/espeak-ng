@@ -15,7 +15,7 @@ The 102 supported languages and accents are:
 | `gmw`       | `af`              | West Germanic         | Afrikaans                   |                        |
 | `ine`       | `sq`              | Indo-European         | Albanian                    |                        |
 | `sem`       | `am`              | Semitic               | Amharic                     |                        |
-| `sem`       | `ar`              | Semitic               | Arabic                      |                        |
+| `sem`       | `ar`              | Semitic               | Arabic<sup>\[1\]</sup>      |                        |
 | `roa`       | `an`              | Romance               | Aragonese                   |                        |
 | `ine`       | `hy`              | Indo-European         | Armenian                    | East Armenian          |
 | `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
@@ -45,7 +45,7 @@ The 102 supported languages and accents are:
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
-| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[1\]</sup>     |                        |
+| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[2\]</sup>     |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -66,7 +66,7 @@ The 102 supported languages and accents are:
 | `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
-| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[2\]</sup>    |                        |
+| `jpx`       | `ja`              | Japanese              | Japanese<sup>\[3\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
@@ -115,6 +115,8 @@ The 102 supported languages and accents are:
 | `aav`       | `vi-VN-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
-\[1\] Farsi/Persian written using English (Latin) characters.
+\[1\] Currently, only fully diacritized Arabic is supported.
 
-\[2\] Currently, only Hiragana and Katakana are supported.
+\[2\] Farsi/Persian written using English (Latin) characters.
+
+\[3\] Currently, only Hiragana and Katakana are supported.

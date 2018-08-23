@@ -81,7 +81,7 @@ $textmode
 ↘	săgeată orientată în dreapta-jos				// [2198] text|emoji
 ↙	săgeată orientată în stânga jos					// [2199] text|emoji
 ↩	săgeată dreapta curbată spre stânga				// [21A9] text|emoji
-↪	săgeată stănga curbată spre dreapta				// [21AA] text|emoji
+↪	săgeată stânga curbată spre dreapta				// [21AA] text|emoji
 
 // 2200..22FF : Mathematical Operators
 
@@ -106,7 +106,7 @@ $textmode
 // 2300..23FF : Miscellaneous Technical
 
 ⌚	ceas de mână							// [231A]
-⌛	clepsidră							// [231B]
+⌛	clepsidră cu nisipul scurs					// [231B]
 ⌨	tastatură							// [2328] text|emoji
 ⏏	buton de ejectare						// [23CF] text|emoji
 ⏩	buton de derulare rapidă înainte				// [23E9]
@@ -119,7 +119,7 @@ $textmode
 ⏰	ceas deșteptător						// [23F0]
 ⏱	cronometru							// [23F1] text|emoji
 ⏲	temporizator							// [23F2] text|emoji
-⏳	clepsidră în care curge nisipul					// [23F3]
+⏳	clepsidră cu nisip care se scurge				// [23F3]
 ⏸	buton de suspendare						// [23F8] text|emoji
 ⏹	buton de oprire							// [23F9] text|emoji
 ⏺	buton de înregistrare						// [23FA] text|emoji
@@ -161,23 +161,24 @@ $textmode
 ☪	stea și semilună						// [262A] text|emoji
 ☮	semnul păcii							// [262E] text|emoji
 ☯	yin yang							// [262F] text|emoji
-☸	roata dharma							// [2638] text|emoji
-☹	față încruntată							// [2639] text|emoji
+☸	roata dharmei							// [2638] text|emoji
+☹	față tristă							// [2639] text|emoji
 ☺	față zâmbitoare							// [263A] text|emoji
 ♀	semn feminin							// [2640] text|emoji
 ♂	semn masculin							// [2642] text|emoji
-♈	zodia berbec							// [2648]
-♉	zodia taur							// [2649]
-♊	zodia gemeni							// [264A]
-♋	zodia rac							// [264B]
-♌	zodia leu							// [264C]
-♍	zodia fecioară							// [264D]
-♎	zodia balanță							// [264E]
-♏	zodia scorpion							// [264F]
-♐	zodia săgetător							// [2650]
-♑	zodia capricorn							// [2651]
-♒	zodia vărsător							// [2652]
-♓	zodia pești							// [2653]
+♈	zodia Berbec							// [2648]
+♉	zodia Taur							// [2649]
+♊	zodia Gemeni							// [264A]
+♋	zodia Rac							// [264B]
+♌	zodia Leu							// [264C]
+♍	zodia Fecioară							// [264D]
+♎	zodia Balanță							// [264E]
+♏	zodia Scorpion							// [264F]
+♐	zodia Săgetător							// [2650]
+♑	zodia Capricorn							// [2651]
+♒	zodia Vărsător							// [2652]
+♓	zodia Pești							// [2653]
+♟	pion de șah							// [265F] text|emoji
 ♠	pică								// [2660] text|emoji
 ♣	treflă								// [2663] text|emoji
 ♥	cupă								// [2665] text|emoji
@@ -186,6 +187,7 @@ $textmode
 //♭	flat								// [266D] other (no translation)
 //♯	sharp								// [266F] other (no translation)
 ♻	simbolul pentru reciclare					// [267B] text|emoji
+♾	infinit								// [267E] text|emoji
 ♿	simbol pentru scaun cu rotile					// [267F]
 ⚒	ciocan și daltă							// [2692] text|emoji
 ⚓	ancoră								// [2693]
@@ -194,7 +196,7 @@ $textmode
 ⚖	balanță								// [2696] text|emoji
 ⚗	alambic								// [2697] text|emoji
 ⚙	rotiță zimțată							// [2699] text|emoji
-⚛	simbol de atom							// [269B] text|emoji
+⚛	simbol pentru atom						// [269B] text|emoji
 ⚜	floare de crin stilizată					// [269C] text|emoji
 ⚠	avertisment							// [26A0] text|emoji
 ⚡	înaltă tensiune							// [26A1]
@@ -207,7 +209,7 @@ $textmode
 ⛄	om de zăpadă fără zăpadă					// [26C4]
 ⛅	soare în nori							// [26C5]
 ⛈	nor cu fulger și ploaie						// [26C8] text|emoji
-⛎	Ofiucus								// [26CE]
+⛎	zodia Ofiucus							// [26CE]
 ⛏	târnăcop							// [26CF] text|emoji
 ⛑	cască de pompier salvator					// [26D1] text|emoji
 ⛓	lanț								// [26D3] text|emoji
@@ -220,7 +222,7 @@ $textmode
 ⛳	steag în gaură la golf						// [26F3]
 ⛴	feribot								// [26F4] text|emoji
 ⛵	barcă cu pânze							// [26F5]
-⛷	schior								// [26F7] text|emoji
+⛷	persoană care schiază						// [26F7] text|emoji
 ⛸	patină de gheață						// [26F8] text|emoji
 ⛹	persoană care bate mingea					// [26F9] text|emoji
 ⛺	cort								// [26FA]
@@ -259,8 +261,8 @@ $textmode
 ➖	semn minus îngroșat						// [2796]
 ➗	semnul împărțirii îngroșat					// [2797]
 ➡	săgeată orientată în dreapta					// [27A1] text|emoji
-➰	buclă								// [27B0]
-➿	buclă dublă							// [27BF]
+➰	buclă ondulată							// [27B0]
+➿	buclă ondulată dublă						// [27BF]
 
 // 2900..297F : Supplemental Arrows-B
 
@@ -274,7 +276,7 @@ $textmode
 ⬇	săgeată orientată în jos					// [2B07] text|emoji
 ⬛	pătrat negru mare						// [2B1B]
 ⬜	pătrat alb mare							// [2B1C]
-⭐	stea medie albă							// [2B50]
+⭐	stea								// [2B50]
 ⭕	cerc mare îngroșat						// [2B55]
 
 // 3000..303F : CJK Symbols and Punctuation
@@ -292,7 +294,7 @@ $textmode
 🅰	buton A (grupă sanguină)					// [1F170] text|emoji
 🅱	buton B (grupă sanguină)					// [1F171] text|emoji
 🅾	buton 0 (grupă sanguină)					// [1F17E] text|emoji
-🅿	buton p								// [1F17F] text|emoji
+🅿	buton P								// [1F17F] text|emoji
 🆎	buton AB (grupă sanguină)					// [1F18E]
 🆑	buton CL							// [1F191]
 🆒	buton cu textul COOL						// [1F192]
@@ -315,7 +317,7 @@ $textmode
 🈳	buton cu semnificația locuri libere” în japoneză		// [1F233]
 🈴	buton cu semnificația notă de trecere” în japoneză		// [1F234]
 🈵	buton cu semnificația fără locuri libere” în japoneză		// [1F235]
-🈶	buton cu semnificația contra cost” în japoneză			// [1F236]
+🈶	buton cu semnificația contra cost” japoneză			// [1F236]
 🈷	buton cu semnificația valoare lunară” în japoneză		// [1F237] text|emoji
 🈸	buton cu semnificația aplicare” în japoneză			// [1F238]
 🈹	buton cu semnificația reducere” în japoneză			// [1F239]
@@ -477,7 +479,7 @@ $textmode
 🎏	crap decorativ în vânt						// [1F38F]
 🎐	clopoței de vânt						// [1F390]
 🎑	ceremonia lunii							// [1F391]
-🎒	ghiozdan							// [1F392]
+🎒	rucsac								// [1F392]
 🎓	tichie de absolvent						// [1F393]
 🎖	medalie militară						// [1F396] text|emoji
 🎗	panglică in memoriam”						// [1F397] text|emoji
@@ -491,7 +493,7 @@ $textmode
 🎢	montagne russe							// [1F3A2]
 🎣	undiță								// [1F3A3]
 🎤	microfon							// [1F3A4]
-🎥	cameră video profesională					// [1F3A5]
+🎥	aparat de filmat						// [1F3A5]
 🎦	cinema								// [1F3A6]
 🎧	cască audio							// [1F3A7]
 🎨	paletă de pictor						// [1F3A8]
@@ -520,17 +522,17 @@ $textmode
 🎿	schiuri								// [1F3BF]
 🏀	baschet								// [1F3C0]
 🏁	steag cu pătrățele						// [1F3C1]
-🏂	practicant de snow-board					// [1F3C2]
-🏃	alergător							// [1F3C3]
-🏄	practicant de surfing						// [1F3C4]
+🏂	persoană care practică snow-board				// [1F3C2]
+🏃	persoană care aleargă						// [1F3C3]
+🏄	persoană care practică surfing					// [1F3C4]
 🏅	medalie sportivă						// [1F3C5]
 🏆	trofeu								// [1F3C6]
 🏇	curse de cai							// [1F3C7]
 🏈	fotbal american							// [1F3C8]
 🏉	rugby								// [1F3C9]
 🏊	persoană care înoată						// [1F3CA]
-🏋	halterofil							// [1F3CB] text|emoji
-🏌	jucător de golf							// [1F3CC] text|emoji
+🏋	persoană care ridică greutăți					// [1F3CB] text|emoji
+🏌	persoană care joacă golf					// [1F3CC] text|emoji
 🏍	motocicletă							// [1F3CD] text|emoji
 🏎	mașină de curse							// [1F3CE] text|emoji
 🏏	crichet								// [1F3CF]
@@ -560,7 +562,7 @@ $textmode
 🏧	simbol pentru bancomat						// [1F3E7]
 🏨	hotel								// [1F3E8]
 🏩	hotel de dragoste						// [1F3E9]
-🏪	mic magazin de cartier						// [1F3EA]
+🏪	magazin non-stop						// [1F3EA]
 🏫	școală								// [1F3EB]
 🏬	magazin universal						// [1F3EC]
 🏭	fabrică								// [1F3ED]
@@ -612,7 +614,7 @@ $textmode
 🐞	buburuză							// [1F41E]
 🐟	pește								// [1F41F]
 🐠	pește tropical							// [1F420]
-🐡	pește țepos							// [1F421]
+🐡	pește balon							// [1F421]
 🐢	broască țestoasă						// [1F422]
 🐣	pui în găoace							// [1F423]
 🐤	pui de găină							// [1F424]
@@ -649,17 +651,17 @@ $textmode
 👃	nas								// [1F443]
 👄	gură								// [1F444]
 👅	limbă								// [1F445]
-👆	dos de mână cu degetul arătător îndreptat în sus		// [1F446]
-👇	dos de mână cu degetul arătător îndreptat în jos		// [1F447]
-👈	dos de mână cu degetul arătător îndreptat spre stânga		// [1F448]
-👉	dos de mână cu degetul arătător îndreptat spre dreapta		// [1F449]
+👆	dos de mână cu arătătorul în sus				// [1F446]
+👇	dos de mână cu arătătorul în jos				// [1F447]
+👈	dos de mână cu arătătorul spre stânga				// [1F448]
+👉	dos de mână cu arătătorul spre dreapta				// [1F449]
 👊	lovitură de pumn						// [1F44A]
 👋	mână fluturată							// [1F44B]
 👌	semnul ok							// [1F44C]
-👍	așa da								// [1F44D]
-👎	așa nu								// [1F44E]
+👍	semn de aprobare						// [1F44D]
+👎	semn de dezaprobare						// [1F44E]
 👏	mâini care aplaudă						// [1F44F]
-👐	cu mâinile curate						// [1F450]
+👐	palme deschise							// [1F450]
 👑	coroană								// [1F451]
 👒	pălărie de damă							// [1F452]
 👓	ochelari							// [1F453]
@@ -667,7 +669,7 @@ $textmode
 👕	tricou								// [1F455]
 👖	blugi								// [1F456]
 👗	rochie								// [1F457]
-👘	kimono								// [1F458]
+👘	chimono								// [1F458]
 👙	costum de baie							// [1F459]
 👚	haine de damă							// [1F45A]
 👛	poșetă								// [1F45B]
@@ -706,15 +708,15 @@ $textmode
 👼	bebeluș îngeraș							// [1F47C]
 👽	extraterestru							// [1F47D]
 👾	monstru extraterestru						// [1F47E]
-👿	față supărată încornorată					// [1F47F]
+👿	față mânioasă încornorată					// [1F47F]
 💀	craniu								// [1F480]
 💁	persoană care explică						// [1F481]
 💂	gardian								// [1F482]
 💃	dansatoare							// [1F483]
 💄	ruj								// [1F484]
 💅	ojă pe unghii							// [1F485]
-💆	masaj facial							// [1F486]
-💇	tunsoare							// [1F487]
+💆	persoană care primește un masaj facial				// [1F486]
+💇	persoană care de tunde						// [1F487]
 💈	stâlp de bărbier						// [1F488]
 💉	seringă								// [1F489]
 💊	pastilă								// [1F48A]
@@ -747,7 +749,7 @@ $textmode
 💥	coliziune							// [1F4A5]
 💦	picături de transpirație					// [1F4A6]
 💧	picătură							// [1F4A7]
-💨	nor de praf în urmă						// [1F4A8]
+💨	ștergând-o rapid						// [1F4A8]
 💩	răhățel								// [1F4A9]
 💪	biceps flexat							// [1F4AA]
 💫	amețit								// [1F4AB]
@@ -766,25 +768,25 @@ $textmode
 💸	bani înaripați							// [1F4B8]
 💹	grafic ascendent cu yen						// [1F4B9]
 💺	loc în mijloc de transport					// [1F4BA]
-💻	laptop								// [1F4BB]
+💻	computer laptop							// [1F4BB]
 💼	servietă							// [1F4BC]
 💽	disc de computer						// [1F4BD]
 💾	dischetă							// [1F4BE]
 💿	cd								// [1F4BF]
 📀	dvd								// [1F4C0]
-📁	dosar cu fișiere						// [1F4C1]
-📂	dosar cu fișiere deschis					// [1F4C2]
+📁	dosar de arhivare						// [1F4C1]
+📂	dosar de arhivare deschis					// [1F4C2]
 📃	pagină rulată							// [1F4C3]
 📄	pagină cu fața în sus						// [1F4C4]
 📅	calendar							// [1F4C5]
 📆	calendar cu file detașabile					// [1F4C6]
-📇	index de carduri						// [1F4C7]
+📇	repertoriu							// [1F4C7]
 📈	grafic ascendent						// [1F4C8]
 📉	grafic descendent						// [1F4C9]
 📊	diagramă cu bare						// [1F4CA]
 📋	planșetă							// [1F4CB]
 📌	piuneză								// [1F4CC]
-📍	bold cu gămălie colorată					// [1F4CD]
+📍	ac cu gămălie							// [1F4CD]
 📎	agrafă de hârtie						// [1F4CE]
 📏	riglă								// [1F4CF]
 📐	echer								// [1F4D0]
@@ -803,7 +805,7 @@ $textmode
 📝	notă								// [1F4DD]
 📞	receptor de telefon						// [1F4DE]
 📟	pager								// [1F4DF]
-📠	fax								// [1F4E0]
+📠	echipament fax							// [1F4E0]
 📡	antenă satelit							// [1F4E1]
 📢	portavoce							// [1F4E2]
 📣	megafon								// [1F4E3]
@@ -832,7 +834,7 @@ $textmode
 📺	televizor							// [1F4FA]
 📻	radio								// [1F4FB]
 📼	casetă video							// [1F4FC]
-📽	proiector de filme						// [1F4FD] text|emoji
+📽	proiector de film						// [1F4FD] text|emoji
 📿	mătănii								// [1F4FF]
 🔀	buton de redare aleatorie					// [1F500]
 🔁	buton de repetare						// [1F501]
@@ -847,8 +849,8 @@ $textmode
 🔊	volum ridicat al difuzorului					// [1F50A]
 🔋	baterie								// [1F50B]
 🔌	fișă electrică							// [1F50C]
-🔍	lupă orientată spre stânga					// [1F50D]
-🔎	lupă orientată spre dreapta					// [1F50E]
+🔍	lupă înclinată spre stânga					// [1F50D]
+🔎	lupă înclinată spre dreapta					// [1F50E]
 🔏	lacăt cu stilou							// [1F50F]
 🔐	lacăt închis cu cheie						// [1F510]
 🔑	cheie								// [1F511]
@@ -884,8 +886,8 @@ $textmode
 🔯	stea cu șase colțuri și punct în centru				// [1F52F]
 🔰	simbol japonez pentru începător					// [1F530]
 🔱	emblemă trident							// [1F531]
-🔲	buton cadru negru						// [1F532]
-🔳	buton cadru alb							// [1F533]
+🔲	butin pătrat negru						// [1F532]
+🔳	buton pătrat alb						// [1F533]
 🔴	cerc roșu							// [1F534]
 🔵	cerc albastru							// [1F535]
 🔶	romb portocaliu mare						// [1F536]
@@ -901,19 +903,19 @@ $textmode
 🕋	lăcaș de cult islamic kaaba					// [1F54B]
 🕌	moschee								// [1F54C]
 🕍	sinagogă							// [1F54D]
-🕎	sfeșnic menorah							// [1F54E]
-🕐	ora unu								// [1F550]
-🕑	ora două							// [1F551]
-🕒	ora trei							// [1F552]
-🕓	ora patru							// [1F553]
-🕔	ora cinci							// [1F554]
-🕕	ora șase							// [1F555]
-🕖	ora șapte							// [1F556]
-🕗	ora opt								// [1F557]
-🕘	ora nouă							// [1F558]
-🕙	ora zece							// [1F559]
-🕚	ora unsprezece							// [1F55A]
-🕛	ora douăsprezece						// [1F55B]
+🕎	menorah								// [1F54E]
+🕐	ora unu fix							// [1F550]
+🕑	ora două fix							// [1F551]
+🕒	ora trei fix							// [1F552]
+🕓	ora patru fix							// [1F553]
+🕔	ora cinci fix							// [1F554]
+🕕	ora șase fix							// [1F555]
+🕖	ora șapte fix							// [1F556]
+🕗	ora opt fix							// [1F557]
+🕘	ora nouă fix							// [1F558]
+🕙	ora zece fix							// [1F559]
+🕚	ora unsprezece fix						// [1F55A]
+🕛	ora douăsprezece fix						// [1F55B]
 🕜	ora unu și jumătate						// [1F55C]
 🕝	ora două și jumătate						// [1F55D]
 🕞	ora trei și jumătate						// [1F55E]
@@ -940,7 +942,7 @@ $textmode
 🖊	pix								// [1F58A] text|emoji
 🖋	stilou								// [1F58B] text|emoji
 🖌	pensulă								// [1F58C] text|emoji
-🖍	creion colorat cu vârful în stânga jos				// [1F58D] text|emoji
+🖍	creion colorat							// [1F58D] text|emoji
 🖐	mână ridicată cu degetele depărtate				// [1F590] text|emoji
 🖕	degetul mijlociu						// [1F595]
 🖖	salut vulcanian							// [1F596]
@@ -949,8 +951,8 @@ $textmode
 🖨	imprimantă							// [1F5A8] text|emoji
 🖱	maus								// [1F5B1] text|emoji
 🖲	trackball							// [1F5B2] text|emoji
-🖼	tablou cu ramă							// [1F5BC] text|emoji
-🗂	separatoare							// [1F5C2] text|emoji
+🖼	tablou înrămat							// [1F5BC] text|emoji
+🗂	separatoare de dosare						// [1F5C2] text|emoji
 🗃	cutie de îndosariere						// [1F5C3] text|emoji
 🗄	fișet								// [1F5C4] text|emoji
 🗑	coș de gunoi							// [1F5D1] text|emoji
@@ -960,7 +962,7 @@ $textmode
 🗝	cheie veche							// [1F5DD] text|emoji
 🗞	ziar rulat							// [1F5DE] text|emoji
 🗡	pumnal								// [1F5E1] text|emoji
-🗣	vorbitor							// [1F5E3] text|emoji
+🗣	cap vorbitor							// [1F5E3] text|emoji
 🗨	balon de dialog la stânga					// [1F5E8] text|emoji
 🗯	balon de dialog furios la dreapta				// [1F5EF] text|emoji
 🗳	urnă de votare cu vot						// [1F5F3] text|emoji
@@ -1008,10 +1010,10 @@ $textmode
 😠	față furioasă							// [1F620]
 😡	față îmbufnată							// [1F621]
 😢	față plângând							// [1F622]
-😣	față perseverentă						// [1F623]
+😣	față neajutorată						// [1F623]
 😤	față care scoate fum pe nări					// [1F624]
 😥	față dezamăgită, dar ușurată					// [1F625]
-😦	față încruntată cu gura deschisă				// [1F626]
+😦	față tristă cu gura deschisă					// [1F626]
 😧	față angoasată							// [1F627]
 😨	față înfricoșată						// [1F628]
 😩	față extenuată							// [1F629]
@@ -1037,8 +1039,8 @@ $textmode
 😽	față de pisică pupăcioasă					// [1F63D]
 😾	față de pisică îmbufnată					// [1F63E]
 😿	față de pisică plângând						// [1F63F]
-🙀	față de pisică extenuată					// [1F640]
-🙁	față ușor încruntată						// [1F641]
+🙀	față de pisică surprinsă					// [1F640]
+🙁	față ușor tristă						// [1F641]
 🙂	față ușor zâmbitoare						// [1F642]
 🙃	față cu susul în jos						// [1F643]
 🙄	față care dă ochii peste cap					// [1F644]
@@ -1050,7 +1052,7 @@ $textmode
 🙊	nu spun nimic rău						// [1F64A]
 🙋	persoană care ridică mâna					// [1F64B]
 🙌	mâini ridicate							// [1F64C]
-🙍	persoană încruntată						// [1F64D]
+🙍	persoană întristată						// [1F64D]
 🙎	persoană bosumflată						// [1F64E]
 🙏	mâini unite							// [1F64F]
 
@@ -1102,15 +1104,15 @@ $textmode
 🚫	interzis							// [1F6AB]
 🚬	țigară								// [1F6AC]
 🚭	fumatul interzis						// [1F6AD]
-🚮	folosiți coșul de gunoi						// [1F6AE]
+🚮	simbol pentru folosiți coșul de gunoi				// [1F6AE]
 🚯	nu aruncați gunoi pe jos					// [1F6AF]
 🚰	apă potabilă							// [1F6B0]
 🚱	apă nepotabilă							// [1F6B1]
 🚲	bicicletă							// [1F6B2]
 🚳	interzis accesul cu bicicleta					// [1F6B3]
 🚴	persoană pe bicicletă						// [1F6B4]
-🚵	ciclist montan							// [1F6B5]
-🚶	pieton								// [1F6B6]
+🚵	persoană pe bicicletă montană					// [1F6B5]
+🚶	persoană care merge						// [1F6B6]
 🚷	interzis accesul pietonilor					// [1F6B7]
 🚸	trecere copii							// [1F6B8]
 🚹	toaletă bărbați							// [1F6B9]
@@ -1141,8 +1143,8 @@ $textmode
 🛤	cale ferată							// [1F6E4] text|emoji
 🛥	barcă cu motor							// [1F6E5] text|emoji
 🛩	aeronavă mică							// [1F6E9] text|emoji
-🛫	decolare avion							// [1F6EB]
-🛬	aterizare avion							// [1F6EC]
+🛫	plecare avion							// [1F6EB]
+🛬	sosire avion							// [1F6EC]
 🛰	satelit								// [1F6F0] text|emoji
 🛳	vas de pasageri							// [1F6F3] text|emoji
 🛴	trotinetă							// [1F6F4]
@@ -1150,6 +1152,7 @@ $textmode
 🛶	canoe								// [1F6F6]
 🛷	sanie								// [1F6F7]
 🛸	farfurie zburătoare						// [1F6F8]
+🛹	skateboard							// [1F6F9]
 
 // 1F900..1F9FF : Supplemental Symbols and Pictographs
 
@@ -1194,14 +1197,14 @@ $textmode
 🤶	Doamna Crăciun							// [1F936]
 🤷	persoană care ridică din umeri					// [1F937]
 🤸	persoană care face roata					// [1F938]
-🤹	persoană care jongleză						// [1F939]
-🤺	scrimer								// [1F93A]
+🤹	persoană care jonglează						// [1F939]
+🤺	persoană care practică scrima					// [1F93A]
 🤼	persoane care practică wrestling				// [1F93C]
 🤽	persoană care joacă polo pe apă					// [1F93D]
 🤾	persoană care joacă handbal					// [1F93E]
 🥀	floare ofilită							// [1F940]
 🥁	tobă								// [1F941]
-🥂	ciocnit de pahare						// [1F942]
+🥂	pahare ciocnite							// [1F942]
 🥃	pahar de whisky							// [1F943]
 🥄	lingură								// [1F944]
 🥅	plasa porții							// [1F945]
@@ -1211,6 +1214,8 @@ $textmode
 🥊	mănușă de box							// [1F94A]
 🥋	costum arte marțiale						// [1F94B]
 🥌	piatră de curling						// [1F94C]
+🥎	softball							// [1F94E]
+🥏	disc zburător							// [1F94F]
 🥐	croasant							// [1F950]
 🥑	avocado								// [1F951]
 🥒	castravete							// [1F952]
@@ -1219,7 +1224,7 @@ $textmode
 🥕	morcov								// [1F955]
 🥖	baghetă de pâine						// [1F956]
 🥗	salată verde							// [1F957]
-🥘	tigaie cu mâncare						// [1F958]
+🥘	cratiță cu mâncare						// [1F958]
 🥙	lipie umplută							// [1F959]
 🥚	ou								// [1F95A]
 🥛	pahar cu lapte							// [1F95B]
@@ -1239,6 +1244,20 @@ $textmode
 🥩	bucată de carne							// [1F969]
 🥪	sandvici							// [1F96A]
 🥫	mâncare la conservă						// [1F96B]
+🥬	verdețuri							// [1F96C]
+🥭	mango								// [1F96D]
+🥮	prăjitura lunii							// [1F96E]
+🥯	bagel								// [1F96F]
+🥰	față zâmbitoare cu 3 inimioare					// [1F970]
+🥳	față de petrecere						// [1F973]
+🥴	față cherchelită						// [1F974]
+🥵	față fierbinte							// [1F975]
+🥶	față înghețată							// [1F976]
+🥺	față rugătoare							// [1F97A]
+🥼	halat de laborator						// [1F97C]
+🥽	ochelari de protecție						// [1F97D]
+🥾	bocanc								// [1F97E]
+🥿	pantof fără toc							// [1F97F]
 🦀	rac								// [1F980]
 🦁	față de leu							// [1F981]
 🦂	scorpion							// [1F982]
@@ -1263,11 +1282,34 @@ $textmode
 🦕	sauropod							// [1F995]
 🦖	T-Rex								// [1F996]
 🦗	greier								// [1F997]
+🦘	cangur								// [1F998]
+🦙	lamă								// [1F999]
+🦚	păun								// [1F99A]
+🦛	hipopotam							// [1F99B]
+🦜	papagal mare							// [1F99C]
+🦝	raton								// [1F99D]
+🦞	homar								// [1F99E]
+🦟	țânțar								// [1F99F]
+🦠	microb								// [1F9A0]
+🦡	bursuc								// [1F9A1]
+🦢	lebădă								// [1F9A2]
+🦰	păr roșcat							// [1F9B0]
+🦱	păr creț							// [1F9B1]
+🦲	chelie								// [1F9B2]
+🦳	păr alb								// [1F9B3]
+🦴	os								// [1F9B4]
+🦵	picior								// [1F9B5]
+🦶	laba piciorului							// [1F9B6]
+🦷	dinte								// [1F9B7]
+🦸	supererou							// [1F9B8]
+🦹	super-ticălos							// [1F9B9]
 🧀	bucată de brânză						// [1F9C0]
+🧁	brioșă								// [1F9C1]
+🧂	sare								// [1F9C2]
 🧐	față cu monoclu							// [1F9D0]
 🧑	adult								// [1F9D1]
 🧒	copil								// [1F9D2]
-🧓	vârstnic							// [1F9D3]
+🧓	persoană în vârstă						// [1F9D3]
 🧔	persoană cu barbă						// [1F9D4]
 🧕	femeie cu năframă						// [1F9D5]
 🧖	persoană în saună						// [1F9D6]
@@ -1287,273 +1329,297 @@ $textmode
 🧤	mănuși								// [1F9E4]
 🧥	palton								// [1F9E5]
 🧦	șosete								// [1F9E6]
+🧧	plic roșu							// [1F9E7]
+🧨	petardă								// [1F9E8]
+🧩	joc de puzzle							// [1F9E9]
+🧪	eprubetă							// [1F9EA]
+🧫	vas Petri							// [1F9EB]
+🧬	ADN								// [1F9EC]
+🧭	busolă								// [1F9ED]
+🧮	abac								// [1F9EE]
+🧰	trusă de scule							// [1F9F0]
+🧱	cărămidă							// [1F9F1]
+🧲	magnet								// [1F9F2]
+🧳	bagaj								// [1F9F3]
+🧴	flacon de loțiune						// [1F9F4]
+🧵	ață								// [1F9F5]
+🧶	fir textil							// [1F9F6]
+🧷	ac de siguranță							// [1F9F7]
+🧸	ursuleț de pluș							// [1F9F8]
+🧹	mătură								// [1F9F9]
+🧺	coș								// [1F9FA]
+🧻	sul de hârtie							// [1F9FB]
+🧼	săpun								// [1F9FC]
+🧽	burete								// [1F9FD]
+🧾	chitanță							// [1F9FE]
+🧿	amuletă nazar							// [1F9FF]
 
 // Country Flags (Regional Indicator Symbols) -- ISO 3166-1 Country Codes
 
-🇦🇨	Insula Ascension						// [1F1E6 1F1E8] AC
-🇦🇩	Andorra								// [1F1E6 1F1E9] AD
-🇦🇪	Emiratele Arabe Unite						// [1F1E6 1F1EA] AE
-🇦🇫	Afganistan							// [1F1E6 1F1EB] AF
-🇦🇬	Antigua și Barbuda						// [1F1E6 1F1EC] AG
-🇦🇮	Anguilla							// [1F1E6 1F1EE] AI
-🇦🇱	Albania								// [1F1E6 1F1F1] AL
-🇦🇲	Armenia								// [1F1E6 1F1F2] AM
-🇦🇴	Angola								// [1F1E6 1F1F4] AO
-🇦🇶	Antarctica							// [1F1E6 1F1F6] AQ
-🇦🇷	Argentina							// [1F1E6 1F1F7] AR
-🇦🇸	Samoa Americană							// [1F1E6 1F1F8] AS
-🇦🇹	Austria								// [1F1E6 1F1F9] AT
-🇦🇺	Australia							// [1F1E6 1F1FA] AU
-🇦🇼	Aruba								// [1F1E6 1F1FC] AW
-🇦🇽	Insulele Åland							// [1F1E6 1F1FD] AX
-🇦🇿	Azerbaidjan							// [1F1E6 1F1FF] AZ
-🇧🇦	Bosnia și Herțegovina						// [1F1E7 1F1E6] BA
-🇧🇧	Barbados							// [1F1E7 1F1E7] BB
-🇧🇩	Bangladesh							// [1F1E7 1F1E9] BD
-🇧🇪	Belgia								// [1F1E7 1F1EA] BE
-🇧🇫	Burkina Faso							// [1F1E7 1F1EB] BF
-🇧🇬	Bulgaria							// [1F1E7 1F1EC] BG
-🇧🇭	Bahrain								// [1F1E7 1F1ED] BH
-🇧🇮	Burundi								// [1F1E7 1F1EE] BI
-🇧🇯	Benin								// [1F1E7 1F1EF] BJ
-🇧🇱	Saint-Barthélemy						// [1F1E7 1F1F1] BL
-🇧🇲	Bermuda								// [1F1E7 1F1F2] BM
-🇧🇳	Brunei								// [1F1E7 1F1F3] BN
-🇧🇴	Bolivia								// [1F1E7 1F1F4] BO
-🇧🇶	Insulele Caraibe Olandeze					// [1F1E7 1F1F6] BQ
-🇧🇷	Brazilia							// [1F1E7 1F1F7] BR
-🇧🇸	Bahamas								// [1F1E7 1F1F8] BS
-🇧🇹	Bhutan								// [1F1E7 1F1F9] BT
-🇧🇻	Insula Bouvet							// [1F1E7 1F1FB] BV
-🇧🇼	Botswana							// [1F1E7 1F1FC] BW
-🇧🇾	Belarus								// [1F1E7 1F1FE] BY
-🇧🇿	Belize								// [1F1E7 1F1FF] BZ
-🇨🇦	Canada								// [1F1E8 1F1E6] CA
-🇨🇨	Insulele Cocos (Keeling)					// [1F1E8 1F1E8] CC
-🇨🇩	Congo - Kinshasa						// [1F1E8 1F1E9] CD
-🇨🇫	Republica Centrafricană						// [1F1E8 1F1EB] CF
-🇨🇬	Congo - Brazzaville						// [1F1E8 1F1EC] CG
-🇨🇭	Elveția								// [1F1E8 1F1ED] CH
-🇨🇮	Côte d’Ivoire							// [1F1E8 1F1EE] CI
-🇨🇰	Insulele Cook							// [1F1E8 1F1F0] CK
-🇨🇱	Chile								// [1F1E8 1F1F1] CL
-🇨🇲	Camerun								// [1F1E8 1F1F2] CM
-🇨🇳	China								// [1F1E8 1F1F3] CN
-🇨🇴	Columbia							// [1F1E8 1F1F4] CO
-🇨🇵	Insula Clipperton						// [1F1E8 1F1F5] CP
-🇨🇷	Costa Rica							// [1F1E8 1F1F7] CR
-🇨🇺	Cuba								// [1F1E8 1F1FA] CU
-🇨🇻	Capul Verde							// [1F1E8 1F1FB] CV
-🇨🇼	Curaçao								// [1F1E8 1F1FC] CW
-🇨🇽	Insula Christmas						// [1F1E8 1F1FD] CX
-🇨🇾	Cipru								// [1F1E8 1F1FE] CY
-🇨🇿	Cehia								// [1F1E8 1F1FF] CZ
-🇩🇪	Germania							// [1F1E9 1F1EA] DE
-🇩🇬	Diego Garcia							// [1F1E9 1F1EC] DG
-🇩🇯	Djibouti							// [1F1E9 1F1EF] DJ
-🇩🇰	Danemarca							// [1F1E9 1F1F0] DK
-🇩🇲	Dominica							// [1F1E9 1F1F2] DM
-🇩🇴	Republica Dominicană						// [1F1E9 1F1F4] DO
-🇩🇿	Algeria								// [1F1E9 1F1FF] DZ
-🇪🇦	Ceuta și Melilla						// [1F1EA 1F1E6] EA
-🇪🇨	Ecuador								// [1F1EA 1F1E8] EC
-🇪🇪	Estonia								// [1F1EA 1F1EA] EE
-🇪🇬	Egipt								// [1F1EA 1F1EC] EG
-🇪🇭	Sahara Occidentală						// [1F1EA 1F1ED] EH
-🇪🇷	Eritreea							// [1F1EA 1F1F7] ER
-🇪🇸	Spania								// [1F1EA 1F1F8] ES
-🇪🇹	Etiopia								// [1F1EA 1F1F9] ET
-🇪🇺	Uniunea Europeană						// [1F1EA 1F1FA] EU
-🇫🇮	Finlanda							// [1F1EB 1F1EE] FI
-🇫🇯	Fiji								// [1F1EB 1F1EF] FJ
-🇫🇰	Insulele Falkland						// [1F1EB 1F1F0] FI
-🇫🇲	Micronezia							// [1F1EB 1F1F2] FM
-🇫🇴	Insulele Feroe							// [1F1EB 1F1F4] FO
-🇫🇷	Franța								// [1F1EB 1F1F7] FR
-🇬🇦	Gabon								// [1F1EC 1F1E6] GA
-🇬🇧	Regatul Unit							// [1F1EC 1F1E7] GB
-🇬🇩	Grenada								// [1F1EC 1F1E9] GD
-🇬🇪	Georgia								// [1F1EC 1F1EA] GE
-🇬🇫	Guyana Franceză							// [1F1EC 1F1EB] GF
-🇬🇬	Guernsey							// [1F1EC 1F1EC] GG
-🇬🇭	Ghana								// [1F1EC 1F1ED] GH
-🇬🇮	Gibraltar							// [1F1EC 1F1EE] GI
-🇬🇱	Groenlanda							// [1F1EC 1F1F1] GL
-🇬🇲	Gambia								// [1F1EC 1F1F2] GM
-🇬🇳	Guineea								// [1F1EC 1F1F3] GN
-🇬🇵	Guadelupa							// [1F1EC 1F1F5] GP
-🇬🇶	Guineea Ecuatorială						// [1F1EC 1F1F6] GQ
-🇬🇷	Grecia								// [1F1EC 1F1F7] GR
-🇬🇸	Georgia de Sud și Insulele Sandwich de Sud			// [1F1EC 1F1F8] GS
-🇬🇹	Guatemala							// [1F1EC 1F1F9] GT
-🇬🇺	Guam								// [1F1EC 1F1FA] GU
-🇬🇼	Guineea-Bissau							// [1F1EC 1F1FC] GW
-🇬🇾	Guyana								// [1F1EC 1F1FE] GY
-🇭🇰	R.A.S. Hong Kong a Chinei					// [1F1ED 1F1F0] HK
-🇭🇲	Insula Heard și Insulele McDonald				// [1F1ED 1F1F2] HM
-🇭🇳	Honduras							// [1F1ED 1F1F3] HN
-🇭🇷	Croația								// [1F1ED 1F1F7] HR
-🇭🇹	Haiti								// [1F1ED 1F1F9] HT
-🇭🇺	Ungaria								// [1F1ED 1F1FA] HU
-🇮🇨	Insulele Canare							// [1F1EE 1F1E8] IC
-🇮🇩	Indonezia							// [1F1EE 1F1E9] ID
-🇮🇪	Irlanda								// [1F1EE 1F1EA] IE
-🇮🇱	Israel								// [1F1EE 1F1F1] IL
-🇮🇲	Insula Man							// [1F1EE 1F1F2] IM
-🇮🇳	India								// [1F1EE 1F1F3] IN
-🇮🇴	Teritoriul Britanic din Oceanul Indian				// [1F1EE 1F1F4] IO
-🇮🇶	Irak								// [1F1EE 1F1F6] IQ
-🇮🇷	Iran								// [1F1EE 1F1F7] IR
-🇮🇸	Islanda								// [1F1EE 1F1F8] IS
-🇮🇹	Italia								// [1F1EE 1F1F9] IT
-🇯🇪	Jersey								// [1F1EF 1F1EA] JE
-🇯🇲	Jamaica								// [1F1EF 1F1F2] JM
-🇯🇴	Iordania							// [1F1EF 1F1F4] JO
-🇯🇵	Japonia								// [1F1EF 1F1F5] JP
-🇰🇪	Kenya								// [1F1F0 1F1EA] KE
-🇰🇬	Kârgâzstan							// [1F1F0 1F1EC] KG
-🇰🇭	Cambodgia							// [1F1F0 1F1ED] KH
-🇰🇮	Kiribati							// [1F1F0 1F1EE] KI
-🇰🇲	Comore								// [1F1F0 1F1F2] KM
-🇰🇳	Saint Kitts și Nevis						// [1F1F0 1F1F3] KN
-🇰🇵	Coreea de Nord							// [1F1F0 1F1F5] KP
-🇰🇷	Coreea de Sud							// [1F1F0 1F1F7] KR
-🇰🇼	Kuweit								// [1F1F0 1F1FC] KW
-🇰🇾	Insulele Cayman							// [1F1F0 1F1FE] KY
-🇰🇿	Kazahstan							// [1F1F0 1F1FF] KZ
-🇱🇦	Laos								// [1F1F1 1F1E6] LA
-🇱🇧	Liban								// [1F1F1 1F1E7] LB
-🇱🇨	Sfânta Lucia							// [1F1F1 1F1E8] LC
-🇱🇮	Liechtenstein							// [1F1F1 1F1EE] LI
-🇱🇰	Sri Lanka							// [1F1F1 1F1F0] LK
-🇱🇷	Liberia								// [1F1F1 1F1F7] LR
-🇱🇸	Lesotho								// [1F1F1 1F1F8] LS
-🇱🇹	Lituania							// [1F1F1 1F1F9] LT
-🇱🇺	Luxemburg							// [1F1F1 1F1FA] LU
-🇱🇻	Letonia								// [1F1F1 1F1FB] LV
-🇱🇾	Libia								// [1F1F1 1F1FE] LY
-🇲🇦	Maroc								// [1F1F2 1F1E6] MA
-🇲🇨	Monaco								// [1F1F2 1F1E8] MC
-🇲🇩	Republica Moldova						// [1F1F2 1F1E9] MD
-🇲🇪	Muntenegru							// [1F1F2 1F1EA] ME
-🇲🇫	Sfântul Martin							// [1F1F2 1F1EB] MF
-🇲🇬	Madagascar							// [1F1F2 1F1EC] MG
-🇲🇭	Insulele Marshall						// [1F1F2 1F1ED] MH
-🇲🇰	Republica Macedonia						// [1F1F2 1F1F0] MK
-🇲🇱	Mali								// [1F1F2 1F1F1] ML
-🇲🇲	Myanmar (Birmania)						// [1F1F2 1F1F2] MM
-🇲🇳	Mongolia							// [1F1F2 1F1F3] MN
-🇲🇴	R.A.S. Macao a Chinei						// [1F1F2 1F1F4] MO
-🇲🇵	Insulele Mariane de Nord					// [1F1F2 1F1F5] MP
-🇲🇶	Martinica							// [1F1F2 1F1F6] MQ
-🇲🇷	Mauritania							// [1F1F2 1F1F7] MR
-🇲🇸	Montserrat							// [1F1F2 1F1F8] MS
-🇲🇹	Malta								// [1F1F2 1F1F9] MT
-🇲🇺	Mauritius							// [1F1F2 1F1FA] MU
-🇲🇻	Maldive								// [1F1F2 1F1FB] MV
-🇲🇼	Malawi								// [1F1F2 1F1FC] MW
-🇲🇽	Mexic								// [1F1F2 1F1FD] MX
-🇲🇾	Malaysia							// [1F1F2 1F1FE] MY
-🇲🇿	Mozambic							// [1F1F2 1F1FF] MZ
-🇳🇦	Namibia								// [1F1F3 1F1E6] NA
-🇳🇨	Noua Caledonie							// [1F1F3 1F1E8] NC
-🇳🇪	Niger								// [1F1F3 1F1EA] NE
-🇳🇫	Insula Norfolk							// [1F1F3 1F1EB] NF
-🇳🇬	Nigeria								// [1F1F3 1F1EC] NG
-🇳🇮	Nicaragua							// [1F1F3 1F1EE] NI
-🇳🇱	Țările de Jos							// [1F1F3 1F1F1] NL
-🇳🇴	Norvegia							// [1F1F3 1F1F4] NO
-🇳🇵	Nepal								// [1F1F3 1F1F5] NP
-🇳🇷	Nauru								// [1F1F3 1F1F7] NR
-🇳🇺	Niue								// [1F1F3 1F1FA] NU
-🇳🇿	Noua Zeelandă							// [1F1F3 1F1FF] NZ
-🇴🇲	Oman								// [1F1F4 1F1F2] OM
-🇵🇦	Panama								// [1F1F5 1F1E6] PA
-🇵🇪	Peru								// [1F1F5 1F1EA] PE
-🇵🇫	Polinezia Franceză						// [1F1F5 1F1EB] PF
-🇵🇬	Papua-Noua Guinee						// [1F1F5 1F1EC] PG
-🇵🇭	Filipine							// [1F1F5 1F1ED] PH
-🇵🇰	Pakistan							// [1F1F5 1F1F0] PK
-🇵🇱	Polonia								// [1F1F5 1F1F1] PL
-🇵🇲	Saint-Pierre și Miquelon					// [1F1F5 1F1F2] PM
-🇵🇳	Insulele Pitcairn						// [1F1F5 1F1F3] PN
-🇵🇷	Puerto Rico							// [1F1F5 1F1F7] PR
-🇵🇸	Teritoriile Palestiniene					// [1F1F5 1F1F8] PS
-🇵🇹	Portugalia							// [1F1F5 1F1F9] PT
-🇵🇼	Palau								// [1F1F5 1F1FC] PW
-🇵🇾	Paraguay							// [1F1F5 1F1FE] PY
-🇶🇦	Qatar								// [1F1F6 1F1E6] QA
-🇷🇪	Réunion								// [1F1F7 1F1EA] RE
-🇷🇴	România								// [1F1F7 1F1F4] RO
-🇷🇸	Serbia								// [1F1F7 1F1F8] RS
-🇷🇺	Rusia								// [1F1F7 1F1FA] RU
-🇷🇼	Rwanda								// [1F1F7 1F1FC] RW
-🇸🇦	Arabia Saudită							// [1F1F8 1F1E6] SA
-🇸🇧	Insulele Solomon						// [1F1F8 1F1E7] SB
-🇸🇨	Seychelles							// [1F1F8 1F1E8] SC
-🇸🇩	Sudan								// [1F1F8 1F1E9] SD
-🇸🇪	Suedia								// [1F1F8 1F1EA] SE
-🇸🇬	Singapore							// [1F1F8 1F1EC] SG
-🇸🇭	Sfânta Elena							// [1F1F8 1F1ED] SH
-🇸🇮	Slovenia							// [1F1F8 1F1EE] SI
-🇸🇯	Svalbard și Jan Mayen						// [1F1F8 1F1EF] SJ
-🇸🇰	Slovacia							// [1F1F8 1F1F0] SK
-🇸🇱	Sierra Leone							// [1F1F8 1F1F1] SL
-🇸🇲	San Marino							// [1F1F8 1F1F2] SM
-🇸🇳	Senegal								// [1F1F8 1F1F3] SN
-🇸🇴	Somalia								// [1F1F8 1F1F4] SO
-🇸🇷	Suriname							// [1F1F8 1F1F7] SR
-🇸🇸	Sudanul de Sud							// [1F1F8 1F1F8] SS
-🇸🇹	Sao Tome și Principe						// [1F1F8 1F1F9] ST
-🇸🇻	El Salvador							// [1F1F8 1F1FB] SV
-🇸🇽	Sint-Maarten							// [1F1F8 1F1FD] SX
-🇸🇾	Siria								// [1F1F8 1F1FE] SY
-🇸🇿	Swaziland							// [1F1F8 1F1FF] SZ
-🇹🇦	Tristan da Cunha						// [1F1F9 1F1E6] TA
-🇹🇨	Insulele Turks și Caicos					// [1F1F9 1F1E8] TC
-🇹🇩	Ciad								// [1F1F9 1F1E9] TD
-🇹🇫	Teritoriile Australe și Antarctice Franceze			// [1F1F9 1F1EB] TF
-🇹🇬	Togo								// [1F1F9 1F1EC] TG
-🇹🇭	Thailanda							// [1F1F9 1F1ED] TH
-🇹🇯	Tadjikistan							// [1F1F9 1F1EF] TJ
-🇹🇰	Tokelau								// [1F1F9 1F1F0] TK
-🇹🇱	Timorul de Est							// [1F1F9 1F1F1] TL
-🇹🇲	Turkmenistan							// [1F1F9 1F1F2] TM
-🇹🇳	Tunisia								// [1F1F9 1F1F3] TN
-🇹🇴	Tonga								// [1F1F9 1F1F4] TO
-🇹🇷	Turcia								// [1F1F9 1F1F7] TR
-🇹🇹	Trinidad și Tobago						// [1F1F9 1F1F9] TT
-🇹🇻	Tuvalu								// [1F1F9 1F1FB] TV
-🇹🇼	Taiwan								// [1F1F9 1F1FC] TW
-🇹🇿	Tanzania							// [1F1F9 1F1FF] TZ
-🇺🇦	Ucraina								// [1F1FA 1F1E6] UA
-🇺🇬	Uganda								// [1F1FA 1F1EC] UG
-🇺🇲	Insulele Îndepărtate ale S.U.A.					// [1F1FA 1F1F2] UM
-🇺🇳	Națiunile Unite							// [1F1FA 1F1F3] UN
-🇺🇸	Statele Unite ale Americii					// [1F1FA 1F1F8] US
-🇺🇾	Uruguay								// [1F1FA 1F1FE] UY
-🇺🇿	Uzbekistan							// [1F1FA 1F1FF] UZ
-🇻🇦	Statul Cetății Vaticanului					// [1F1FB 1F1E6] VA
-🇻🇨	Saint Vincent și Grenadinele					// [1F1FB 1F1E8] VC
-🇻🇪	Venezuela							// [1F1FB 1F1EA] VE
-🇻🇬	Insulele Virgine Britanice					// [1F1FB 1F1EC] VG
-🇻🇮	Insulele Virgine Americane					// [1F1FB 1F1EE] VI
-🇻🇳	Vietnam								// [1F1FB 1F1F3] VN
-🇻🇺	Vanuatu								// [1F1FB 1F1FA] VU
-🇼🇫	Wallis și Futuna						// [1F1FC 1F1EB] WF
-🇼🇸	Samoa								// [1F1FC 1F1F8] WS
-🇽🇰	Kosovo								// [1F1FD 1F1F0] XK
-🇾🇪	Yemen								// [1F1FE 1F1EA] YE
-🇾🇹	Mayotte								// [1F1FE 1F1F9] YT
-🇿🇦	Africa de Sud							// [1F1FF 1F1E6] ZA
-🇿🇲	Zambia								// [1F1FF 1F1F2] ZM
-🇿🇼	Zimbabwe							// [1F1FF 1F1FC] ZW
+🇦🇨	steag: Insula Ascension						// [1F1E6 1F1E8] AC
+🇦🇩	steag: Andorra							// [1F1E6 1F1E9] AD
+🇦🇪	steag: Emiratele Arabe Unite					// [1F1E6 1F1EA] AE
+🇦🇫	steag: Afganistan						// [1F1E6 1F1EB] AF
+🇦🇬	steag: Antigua și Barbuda					// [1F1E6 1F1EC] AG
+🇦🇮	steag: Anguilla							// [1F1E6 1F1EE] AI
+🇦🇱	steag: Albania							// [1F1E6 1F1F1] AL
+🇦🇲	steag: Armenia							// [1F1E6 1F1F2] AM
+🇦🇴	steag: Angola							// [1F1E6 1F1F4] AO
+🇦🇶	steag: Antarctica						// [1F1E6 1F1F6] AQ
+🇦🇷	steag: Argentina						// [1F1E6 1F1F7] AR
+🇦🇸	steag: Samoa Americană						// [1F1E6 1F1F8] AS
+🇦🇹	steag: Austria							// [1F1E6 1F1F9] AT
+🇦🇺	steag: Australia						// [1F1E6 1F1FA] AU
+🇦🇼	steag: Aruba							// [1F1E6 1F1FC] AW
+🇦🇽	steag: Insulele Åland						// [1F1E6 1F1FD] AX
+🇦🇿	steag: Azerbaidjan						// [1F1E6 1F1FF] AZ
+🇧🇦	steag: Bosnia și Herțegovina					// [1F1E7 1F1E6] BA
+🇧🇧	steag: Barbados							// [1F1E7 1F1E7] BB
+🇧🇩	steag: Bangladesh						// [1F1E7 1F1E9] BD
+🇧🇪	steag: Belgia							// [1F1E7 1F1EA] BE
+🇧🇫	steag: Burkina Faso						// [1F1E7 1F1EB] BF
+🇧🇬	steag: Bulgaria							// [1F1E7 1F1EC] BG
+🇧🇭	steag: Bahrain							// [1F1E7 1F1ED] BH
+🇧🇮	steag: Burundi							// [1F1E7 1F1EE] BI
+🇧🇯	steag: Benin							// [1F1E7 1F1EF] BJ
+🇧🇱	steag: Saint-Barthélemy						// [1F1E7 1F1F1] BL
+🇧🇲	steag: Bermuda							// [1F1E7 1F1F2] BM
+🇧🇳	steag: Brunei							// [1F1E7 1F1F3] BN
+🇧🇴	steag: Bolivia							// [1F1E7 1F1F4] BO
+🇧🇶	steag: Insulele Caraibe Olandeze				// [1F1E7 1F1F6] BQ
+🇧🇷	steag: Brazilia							// [1F1E7 1F1F7] BR
+🇧🇸	steag: Bahamas							// [1F1E7 1F1F8] BS
+🇧🇹	steag: Bhutan							// [1F1E7 1F1F9] BT
+🇧🇻	steag: Insula Bouvet						// [1F1E7 1F1FB] BV
+🇧🇼	steag: Botswana							// [1F1E7 1F1FC] BW
+🇧🇾	steag: Belarus							// [1F1E7 1F1FE] BY
+🇧🇿	steag: Belize							// [1F1E7 1F1FF] BZ
+🇨🇦	steag: Canada							// [1F1E8 1F1E6] CA
+🇨🇨	steag: Insulele Cocos (Keeling)					// [1F1E8 1F1E8] CC
+🇨🇩	steag: Congo - Kinshasa						// [1F1E8 1F1E9] CD
+🇨🇫	steag: Republica Centrafricană					// [1F1E8 1F1EB] CF
+🇨🇬	steag: Congo - Brazzaville					// [1F1E8 1F1EC] CG
+🇨🇭	steag: Elveția							// [1F1E8 1F1ED] CH
+🇨🇮	steag: Côte d’Ivoire						// [1F1E8 1F1EE] CI
+🇨🇰	steag: Insulele Cook						// [1F1E8 1F1F0] CK
+🇨🇱	steag: Chile							// [1F1E8 1F1F1] CL
+🇨🇲	steag: Camerun							// [1F1E8 1F1F2] CM
+🇨🇳	steag: China							// [1F1E8 1F1F3] CN
+🇨🇴	steag: Columbia							// [1F1E8 1F1F4] CO
+🇨🇵	steag: Insula Clipperton					// [1F1E8 1F1F5] CP
+🇨🇷	steag: Costa Rica						// [1F1E8 1F1F7] CR
+🇨🇺	steag: Cuba							// [1F1E8 1F1FA] CU
+🇨🇻	steag: Capul Verde						// [1F1E8 1F1FB] CV
+🇨🇼	steag: Curaçao							// [1F1E8 1F1FC] CW
+🇨🇽	steag: Insula Christmas						// [1F1E8 1F1FD] CX
+🇨🇾	steag: Cipru							// [1F1E8 1F1FE] CY
+🇨🇿	steag: Cehia							// [1F1E8 1F1FF] CZ
+🇩🇪	steag: Germania							// [1F1E9 1F1EA] DE
+🇩🇬	steag: Diego Garcia						// [1F1E9 1F1EC] DG
+🇩🇯	steag: Djibouti							// [1F1E9 1F1EF] DJ
+🇩🇰	steag: Danemarca						// [1F1E9 1F1F0] DK
+🇩🇲	steag: Dominica							// [1F1E9 1F1F2] DM
+🇩🇴	steag: Republica Dominicană					// [1F1E9 1F1F4] DO
+🇩🇿	steag: Algeria							// [1F1E9 1F1FF] DZ
+🇪🇦	steag: Ceuta și Melilla						// [1F1EA 1F1E6] EA
+🇪🇨	steag: Ecuador							// [1F1EA 1F1E8] EC
+🇪🇪	steag: Estonia							// [1F1EA 1F1EA] EE
+🇪🇬	steag: Egipt							// [1F1EA 1F1EC] EG
+🇪🇭	steag: Sahara Occidentală					// [1F1EA 1F1ED] EH
+🇪🇷	steag: Eritreea							// [1F1EA 1F1F7] ER
+🇪🇸	steag: Spania							// [1F1EA 1F1F8] ES
+🇪🇹	steag: Etiopia							// [1F1EA 1F1F9] ET
+🇪🇺	steag: Uniunea Europeană					// [1F1EA 1F1FA] EU
+🇫🇮	steag: Finlanda							// [1F1EB 1F1EE] FI
+🇫🇯	steag: Fiji							// [1F1EB 1F1EF] FJ
+🇫🇰	steag: Insulele Falkland					// [1F1EB 1F1F0] FI
+🇫🇲	steag: Micronezia						// [1F1EB 1F1F2] FM
+🇫🇴	steag: Insulele Feroe						// [1F1EB 1F1F4] FO
+🇫🇷	steag: Franța							// [1F1EB 1F1F7] FR
+🇬🇦	steag: Gabon							// [1F1EC 1F1E6] GA
+🇬🇧	steag: Regatul Unit						// [1F1EC 1F1E7] GB
+🇬🇩	steag: Grenada							// [1F1EC 1F1E9] GD
+🇬🇪	steag: Georgia							// [1F1EC 1F1EA] GE
+🇬🇫	steag: Guyana Franceză						// [1F1EC 1F1EB] GF
+🇬🇬	steag: Guernsey							// [1F1EC 1F1EC] GG
+🇬🇭	steag: Ghana							// [1F1EC 1F1ED] GH
+🇬🇮	steag: Gibraltar						// [1F1EC 1F1EE] GI
+🇬🇱	steag: Groenlanda						// [1F1EC 1F1F1] GL
+🇬🇲	steag: Gambia							// [1F1EC 1F1F2] GM
+🇬🇳	steag: Guineea							// [1F1EC 1F1F3] GN
+🇬🇵	steag: Guadelupa						// [1F1EC 1F1F5] GP
+🇬🇶	steag: Guineea Ecuatorială					// [1F1EC 1F1F6] GQ
+🇬🇷	steag: Grecia							// [1F1EC 1F1F7] GR
+🇬🇸	steag: Georgia de Sud și Insulele Sandwich de Sud		// [1F1EC 1F1F8] GS
+🇬🇹	steag: Guatemala						// [1F1EC 1F1F9] GT
+🇬🇺	steag: Guam							// [1F1EC 1F1FA] GU
+🇬🇼	steag: Guineea-Bissau						// [1F1EC 1F1FC] GW
+🇬🇾	steag: Guyana							// [1F1EC 1F1FE] GY
+🇭🇰	steag: R.A.S. Hong Kong a Chinei				// [1F1ED 1F1F0] HK
+🇭🇲	steag: Insula Heard și Insulele McDonald			// [1F1ED 1F1F2] HM
+🇭🇳	steag: Honduras							// [1F1ED 1F1F3] HN
+🇭🇷	steag: Croația							// [1F1ED 1F1F7] HR
+🇭🇹	steag: Haiti							// [1F1ED 1F1F9] HT
+🇭🇺	steag: Ungaria							// [1F1ED 1F1FA] HU
+🇮🇨	steag: Insulele Canare						// [1F1EE 1F1E8] IC
+🇮🇩	steag: Indonezia						// [1F1EE 1F1E9] ID
+🇮🇪	steag: Irlanda							// [1F1EE 1F1EA] IE
+🇮🇱	steag: Israel							// [1F1EE 1F1F1] IL
+🇮🇲	steag: Insula Man						// [1F1EE 1F1F2] IM
+🇮🇳	steag: India							// [1F1EE 1F1F3] IN
+🇮🇴	steag: Teritoriul Britanic din Oceanul Indian			// [1F1EE 1F1F4] IO
+🇮🇶	steag: Irak							// [1F1EE 1F1F6] IQ
+🇮🇷	steag: Iran							// [1F1EE 1F1F7] IR
+🇮🇸	steag: Islanda							// [1F1EE 1F1F8] IS
+🇮🇹	steag: Italia							// [1F1EE 1F1F9] IT
+🇯🇪	steag: Jersey							// [1F1EF 1F1EA] JE
+🇯🇲	steag: Jamaica							// [1F1EF 1F1F2] JM
+🇯🇴	steag: Iordania							// [1F1EF 1F1F4] JO
+🇯🇵	steag: Japonia							// [1F1EF 1F1F5] JP
+🇰🇪	steag: Kenya							// [1F1F0 1F1EA] KE
+🇰🇬	steag: Kârgâzstan						// [1F1F0 1F1EC] KG
+🇰🇭	steag: Cambodgia						// [1F1F0 1F1ED] KH
+🇰🇮	steag: Kiribati							// [1F1F0 1F1EE] KI
+🇰🇲	steag: Comore							// [1F1F0 1F1F2] KM
+🇰🇳	steag: Saint Kitts și Nevis					// [1F1F0 1F1F3] KN
+🇰🇵	steag: Coreea de Nord						// [1F1F0 1F1F5] KP
+🇰🇷	steag: Coreea de Sud						// [1F1F0 1F1F7] KR
+🇰🇼	steag: Kuweit							// [1F1F0 1F1FC] KW
+🇰🇾	steag: Insulele Cayman						// [1F1F0 1F1FE] KY
+🇰🇿	steag: Kazahstan						// [1F1F0 1F1FF] KZ
+🇱🇦	steag: Laos							// [1F1F1 1F1E6] LA
+🇱🇧	steag: Liban							// [1F1F1 1F1E7] LB
+🇱🇨	steag: Sfânta Lucia						// [1F1F1 1F1E8] LC
+🇱🇮	steag: Liechtenstein						// [1F1F1 1F1EE] LI
+🇱🇰	steag: Sri Lanka						// [1F1F1 1F1F0] LK
+🇱🇷	steag: Liberia							// [1F1F1 1F1F7] LR
+🇱🇸	steag: Lesotho							// [1F1F1 1F1F8] LS
+🇱🇹	steag: Lituania							// [1F1F1 1F1F9] LT
+🇱🇺	steag: Luxemburg						// [1F1F1 1F1FA] LU
+🇱🇻	steag: Letonia							// [1F1F1 1F1FB] LV
+🇱🇾	steag: Libia							// [1F1F1 1F1FE] LY
+🇲🇦	steag: Maroc							// [1F1F2 1F1E6] MA
+🇲🇨	steag: Monaco							// [1F1F2 1F1E8] MC
+🇲🇩	steag: Republica Moldova					// [1F1F2 1F1E9] MD
+🇲🇪	steag: Muntenegru						// [1F1F2 1F1EA] ME
+🇲🇫	steag: Sfântul Martin						// [1F1F2 1F1EB] MF
+🇲🇬	steag: Madagascar						// [1F1F2 1F1EC] MG
+🇲🇭	steag: Insulele Marshall					// [1F1F2 1F1ED] MH
+🇲🇰	steag: Republica Macedonia					// [1F1F2 1F1F0] MK
+🇲🇱	steag: Mali							// [1F1F2 1F1F1] ML
+🇲🇲	steag: Myanmar (Birmania)					// [1F1F2 1F1F2] MM
+🇲🇳	steag: Mongolia							// [1F1F2 1F1F3] MN
+🇲🇴	steag: R.A.S. Macao a Chinei					// [1F1F2 1F1F4] MO
+🇲🇵	steag: Insulele Mariane de Nord					// [1F1F2 1F1F5] MP
+🇲🇶	steag: Martinica						// [1F1F2 1F1F6] MQ
+🇲🇷	steag: Mauritania						// [1F1F2 1F1F7] MR
+🇲🇸	steag: Montserrat						// [1F1F2 1F1F8] MS
+🇲🇹	steag: Malta							// [1F1F2 1F1F9] MT
+🇲🇺	steag: Mauritius						// [1F1F2 1F1FA] MU
+🇲🇻	steag: Maldive							// [1F1F2 1F1FB] MV
+🇲🇼	steag: Malawi							// [1F1F2 1F1FC] MW
+🇲🇽	steag: Mexic							// [1F1F2 1F1FD] MX
+🇲🇾	steag: Malaysia							// [1F1F2 1F1FE] MY
+🇲🇿	steag: Mozambic							// [1F1F2 1F1FF] MZ
+🇳🇦	steag: Namibia							// [1F1F3 1F1E6] NA
+🇳🇨	steag: Noua Caledonie						// [1F1F3 1F1E8] NC
+🇳🇪	steag: Niger							// [1F1F3 1F1EA] NE
+🇳🇫	steag: Insula Norfolk						// [1F1F3 1F1EB] NF
+🇳🇬	steag: Nigeria							// [1F1F3 1F1EC] NG
+🇳🇮	steag: Nicaragua						// [1F1F3 1F1EE] NI
+🇳🇱	steag: Țările de Jos						// [1F1F3 1F1F1] NL
+🇳🇴	steag: Norvegia							// [1F1F3 1F1F4] NO
+🇳🇵	steag: Nepal							// [1F1F3 1F1F5] NP
+🇳🇷	steag: Nauru							// [1F1F3 1F1F7] NR
+🇳🇺	steag: Niue							// [1F1F3 1F1FA] NU
+🇳🇿	steag: Noua Zeelandă						// [1F1F3 1F1FF] NZ
+🇴🇲	steag: Oman							// [1F1F4 1F1F2] OM
+🇵🇦	steag: Panama							// [1F1F5 1F1E6] PA
+🇵🇪	steag: Peru							// [1F1F5 1F1EA] PE
+🇵🇫	steag: Polinezia Franceză					// [1F1F5 1F1EB] PF
+🇵🇬	steag: Papua-Noua Guinee					// [1F1F5 1F1EC] PG
+🇵🇭	steag: Filipine							// [1F1F5 1F1ED] PH
+🇵🇰	steag: Pakistan							// [1F1F5 1F1F0] PK
+🇵🇱	steag: Polonia							// [1F1F5 1F1F1] PL
+🇵🇲	steag: Saint-Pierre și Miquelon					// [1F1F5 1F1F2] PM
+🇵🇳	steag: Insulele Pitcairn					// [1F1F5 1F1F3] PN
+🇵🇷	steag: Puerto Rico						// [1F1F5 1F1F7] PR
+🇵🇸	steag: Teritoriile Palestiniene					// [1F1F5 1F1F8] PS
+🇵🇹	steag: Portugalia						// [1F1F5 1F1F9] PT
+🇵🇼	steag: Palau							// [1F1F5 1F1FC] PW
+🇵🇾	steag: Paraguay							// [1F1F5 1F1FE] PY
+🇶🇦	steag: Qatar							// [1F1F6 1F1E6] QA
+🇷🇪	steag: Réunion							// [1F1F7 1F1EA] RE
+🇷🇴	steag: România							// [1F1F7 1F1F4] RO
+🇷🇸	steag: Serbia							// [1F1F7 1F1F8] RS
+🇷🇺	steag: Rusia							// [1F1F7 1F1FA] RU
+🇷🇼	steag: Rwanda							// [1F1F7 1F1FC] RW
+🇸🇦	steag: Arabia Saudită						// [1F1F8 1F1E6] SA
+🇸🇧	steag: Insulele Solomon						// [1F1F8 1F1E7] SB
+🇸🇨	steag: Seychelles						// [1F1F8 1F1E8] SC
+🇸🇩	steag: Sudan							// [1F1F8 1F1E9] SD
+🇸🇪	steag: Suedia							// [1F1F8 1F1EA] SE
+🇸🇬	steag: Singapore						// [1F1F8 1F1EC] SG
+🇸🇭	steag: Sfânta Elena						// [1F1F8 1F1ED] SH
+🇸🇮	steag: Slovenia							// [1F1F8 1F1EE] SI
+🇸🇯	steag: Svalbard și Jan Mayen					// [1F1F8 1F1EF] SJ
+🇸🇰	steag: Slovacia							// [1F1F8 1F1F0] SK
+🇸🇱	steag: Sierra Leone						// [1F1F8 1F1F1] SL
+🇸🇲	steag: San Marino						// [1F1F8 1F1F2] SM
+🇸🇳	steag: Senegal							// [1F1F8 1F1F3] SN
+🇸🇴	steag: Somalia							// [1F1F8 1F1F4] SO
+🇸🇷	steag: Suriname							// [1F1F8 1F1F7] SR
+🇸🇸	steag: Sudanul de Sud						// [1F1F8 1F1F8] SS
+🇸🇹	steag: Sao Tome și Principe					// [1F1F8 1F1F9] ST
+🇸🇻	steag: El Salvador						// [1F1F8 1F1FB] SV
+🇸🇽	steag: Sint-Maarten						// [1F1F8 1F1FD] SX
+🇸🇾	steag: Siria							// [1F1F8 1F1FE] SY
+🇸🇿	steag: Swaziland						// [1F1F8 1F1FF] SZ
+🇹🇦	steag: Tristan da Cunha						// [1F1F9 1F1E6] TA
+🇹🇨	steag: Insulele Turks și Caicos					// [1F1F9 1F1E8] TC
+🇹🇩	steag: Ciad							// [1F1F9 1F1E9] TD
+🇹🇫	steag: Teritoriile Australe și Antarctice Franceze		// [1F1F9 1F1EB] TF
+🇹🇬	steag: Togo							// [1F1F9 1F1EC] TG
+🇹🇭	steag: Thailanda						// [1F1F9 1F1ED] TH
+🇹🇯	steag: Tadjikistan						// [1F1F9 1F1EF] TJ
+🇹🇰	steag: Tokelau							// [1F1F9 1F1F0] TK
+🇹🇱	steag: Timorul de Est						// [1F1F9 1F1F1] TL
+🇹🇲	steag: Turkmenistan						// [1F1F9 1F1F2] TM
+🇹🇳	steag: Tunisia							// [1F1F9 1F1F3] TN
+🇹🇴	steag: Tonga							// [1F1F9 1F1F4] TO
+🇹🇷	steag: Turcia							// [1F1F9 1F1F7] TR
+🇹🇹	steag: Trinidad și Tobago					// [1F1F9 1F1F9] TT
+🇹🇻	steag: Tuvalu							// [1F1F9 1F1FB] TV
+🇹🇼	steag: Taiwan							// [1F1F9 1F1FC] TW
+🇹🇿	steag: Tanzania							// [1F1F9 1F1FF] TZ
+🇺🇦	steag: Ucraina							// [1F1FA 1F1E6] UA
+🇺🇬	steag: Uganda							// [1F1FA 1F1EC] UG
+🇺🇲	steag: Insulele Îndepărtate ale S.U.A.				// [1F1FA 1F1F2] UM
+🇺🇳	steag: Națiunile Unite						// [1F1FA 1F1F3] UN
+🇺🇸	steag: Statele Unite ale Americii				// [1F1FA 1F1F8] US
+🇺🇾	steag: Uruguay							// [1F1FA 1F1FE] UY
+🇺🇿	steag: Uzbekistan						// [1F1FA 1F1FF] UZ
+🇻🇦	steag: Statul Cetății Vaticanului				// [1F1FB 1F1E6] VA
+🇻🇨	steag: Saint Vincent și Grenadinele				// [1F1FB 1F1E8] VC
+🇻🇪	steag: Venezuela						// [1F1FB 1F1EA] VE
+🇻🇬	steag: Insulele Virgine Britanice				// [1F1FB 1F1EC] VG
+🇻🇮	steag: Insulele Virgine Americane				// [1F1FB 1F1EE] VI
+🇻🇳	steag: Vietnam							// [1F1FB 1F1F3] VN
+🇻🇺	steag: Vanuatu							// [1F1FB 1F1FA] VU
+🇼🇫	steag: Wallis și Futuna						// [1F1FC 1F1EB] WF
+🇼🇸	steag: Samoa							// [1F1FC 1F1F8] WS
+🇽🇰	steag: Kosovo							// [1F1FD 1F1F0] XK
+🇾🇪	steag: Yemen							// [1F1FE 1F1EA] YE
+🇾🇹	steag: Mayotte							// [1F1FE 1F1F9] YT
+🇿🇦	steag: Africa de Sud						// [1F1FF 1F1E6] ZA
+🇿🇲	steag: Zambia							// [1F1FF 1F1F2] ZM
+🇿🇼	steag: Zimbabwe							// [1F1FF 1F1FC] ZW
 
 // Subdivision Flags -- ISO 3166-2 Subdivision Codes
 
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	Anglia							// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Scoția							// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Țara Galilor						// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	steag: Anglia						// [1F3F4 E0067 E0062 E0065 E006E E0067 E007F]
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	steag: Scoția						// [1F3F4 E0067 E0062 E0073 E0063 E0074 E007F]
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	steag: Țara Galilor					// [1F3F4 E0067 E0062 E0077 E006C E0073 E007F]
 
 // Keycaps (NOTE: keycap 10 is a single Unicode codepoint)
 
@@ -1653,6 +1719,10 @@ $textmode
 💂‍♂	bărbat gardian						// [1F482 200D 2642]
 🕵️‍♀	femeie detectiv						// [1F575 200D 2640]
 🕵️‍♂	detectiv bărbat						// [1F575 200D 2642]
+🦸‍♀	supererou femeie					// [1F9B8 200D 2640]
+🦸‍♂	supererou bărbat					// [1F9B8 200D 2642]
+🦹‍♀	super-ticălos femeie					// [1F9B9 200D 2640]
+🦹‍♂	super-ticălos bărbat					// [1F9B9 200D 2642]
 🧙‍♀	femeie mag						// [1F9D9 200D 2640]
 🧙‍♂	bărbat mag						// [1F9D9 200D 2642]
 🧚‍♀	femeie zână						// [1F9DA 200D 2640]
@@ -1672,14 +1742,14 @@ $textmode
 
 ⛹‍♀	femeie care bate mingea					// [26F9 200D 2640]
 ⛹‍♂	bărbat care bate mingea					// [26F9 200D 2642]
-🏃‍♀	femeie alergând						// [1F3C3 200D 2640]
-🏃‍♂	bărbat alergând						// [1F3C3 200D 2642]
-🏄‍♀	femeie la surfing					// [1F3C4 200D 2640]
-🏄‍♂	bărbat la surfing					// [1F3C4 200D 2642]
+🏃‍♀	femeie care aleargă					// [1F3C3 200D 2640]
+🏃‍♂	bărbat care aleargă					// [1F3C3 200D 2642]
+🏄‍♀	femeie care practică surfing				// [1F3C4 200D 2640]
+🏄‍♂	bărbat care practică surfing				// [1F3C4 200D 2642]
 🏊‍♀	femeie care înoată					// [1F3CA 200D 2640]
 🏊‍♂	bărbat care înoată					// [1F3CA 200D 2642]
-🏋️‍♀	femeie care ridică haltere				// [1F3CB 200D 2640]
-🏋️‍♂	bărbat care ridică haltere				// [1F3CB 200D 2642]
+🏋️‍♀	femeie care ridică greutăți				// [1F3CB 200D 2640]
+🏋️‍♂	bărbat care ridică greutăți				// [1F3CB 200D 2642]
 🏌️‍♀	femeie care joacă golf					// [1F3CC 200D 2640]
 🏌️‍♂	bărbat care joacă golf					// [1F3CC 200D 2642]
 👯‍♀	femei care poartă urechi de iepuraș			// [1F46F 200D 2640]
@@ -1725,8 +1795,8 @@ $textmode
 🙇‍♂	bărbat care se înclină					// [1F647 200D 2642]
 🙋‍♀	femeie care ridică mâna					// [1F64B 200D 2640]
 🙋‍♂	bărbat care ridică mâna					// [1F64B 200D 2642]
-🙍‍♀	femeie încruntată					// [1F64D 200D 2640]
-🙍‍♂	bărbat încruntat					// [1F64D 200D 2642]
+🙍‍♀	femeie întristată					// [1F64D 200D 2640]
+🙍‍♂	bărbat întristat					// [1F64D 200D 2642]
 🙎‍♀	femeie bosumflată					// [1F64E 200D 2640]
 🙎‍♂	bărbat bosumflat					// [1F64E 200D 2642]
 🤦‍♀	femeie care își acoperă fața cu o palmă			// [1F926 200D 2640]
@@ -1737,12 +1807,13 @@ $textmode
 // Emoji ZWJ Sequence: Other
 
 🏳‍🌈	steag curcubeu						// [1F3F3 200D 1F308]
+🏴‍☠	steagul piraților					// [1F3F4 200D 2620]
 👁‍🗨	ochi în balon de dialog					// [1F441 200D 1F5E8]
 
 // References:
-//   [UCD]	Unicode Character Database 10.0.0 [http://www.unicode.org/Public/10.0.0/ucd/]
-//   [Emoji]	Unicode Emoji 5.0 [http://www.unicode.org/Public/emoji/5.0/]
-//   [CLDR]	Unicode Common Locale Data Repository 33 [http://cldr.unicode.org/index/downloads/cldr-33]
+//   [UCD]	Unicode Character Database 11.0.0 [http://www.unicode.org/Public/11.0.0/ucd/]
+//   [Emoji]	Unicode Emoji 11.0 [http://www.unicode.org/Public/emoji/11.0/]
+//   [CLDR]	Unicode Common Locale Data Repository 33.1 [http://cldr.unicode.org/index/downloads/cldr-33.1]
 //
 // Sources:
 //   1.  emoji-test.txt (Emoji)

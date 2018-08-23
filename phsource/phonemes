@@ -1809,6 +1809,9 @@ include ph_serbian
 phonemetable ru base1
 include ph_russian
 
+phonemetable ru-lv ru
+include ph_russian_lv
+
 phonemetable bg pl
 include ph_bulgarian
 

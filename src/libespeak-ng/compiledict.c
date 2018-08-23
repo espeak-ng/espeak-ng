@@ -1369,6 +1369,7 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			if (compile_mode == 2) {
 				// end of the character replacements section
 				fwrite(&n_rules, 1, 4, f_out); // write a zero word to terminate the replacemenmt list
+				fputc(RULE_GROUP_END, f_out);
 				compile_mode = 0;
 			}
 
@@ -1447,33 +1448,23 @@ static espeak_ng_STATUS compile_dictrules(FILE *f_in, FILE *f_out, char *fname_t
 			}
 			break;
 		case 2: //  .replace
-		{
-			int replace1;
-			int replace2;
-			char *p;
+			p = (unsigned char *)buf;
 
-			p = buf;
-			replace1 = 0;
-			replace2 = 0;
 			while (isspace2(*p)) p++;
-			ix = 0;
-			while ((unsigned char)(*p) > 0x20) { // not space or zero-byte
-				p += utf8_in(&c, p);
-				replace1 += (c << ix);
-				ix += 16;
+			if ((unsigned char)(*p) > 0x20) {
+				while ((unsigned char)(*p) > 0x20) { // not space or zero-byte
+					fputc(*p, f_out);
+					p++;
+				}
+				fputc(0, f_out);
+
+				while (isspace2(*p)) p++;
+				while ((unsigned char)(*p) > 0x20) {
+					fputc(*p, f_out);
+					p++;
+				}
+				fputc(0, f_out);
 			}
-			while (isspace2(*p)) p++;
-			ix = 0;
-			while ((unsigned char)(*p) > 0x20) {
-				p += utf8_in(&c, p);
-				replace2 += (c << ix);
-				ix += 16;
-			}
-			if (replace1 != 0) {
-				Write4Bytes(f_out, replace1); // write as little-endian
-				Write4Bytes(f_out, replace2); // if big-endian, reverse the bytes in LoadDictionary()
-			}
-		}
 			break;
 		}
 	}
