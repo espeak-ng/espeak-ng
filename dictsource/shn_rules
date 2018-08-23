@@ -1,4 +1,16 @@
-// Shan (Tai Yay) pronunciation rules (Burmese script)
+// Shan (Tai Yai) pronunciation rules (Shan script)
+
+.replace
+       ႐    0
+       ႑    1
+       ႒    2
+       ႓    3
+       ႔    4
+       ႕    5
+       ႖    6
+       ႗    7
+       ႘    8
+       ႙    9
 
 .group င // U+1004
          င         N
@@ -78,12 +90,10 @@
 // Vowels in groups 
 
 // All vowels below are suffixs 
-
 .group ႃ 
        ႃ      a 
-      ေ)ႃ     O
-      
-          
+
+
 .group   ီ 
              ီ        i
              
@@ -101,13 +111,23 @@
 
 .group  ု
             ု        u 
-            
+              
+.group   ေႃ 
+	     ေႃ     O    
+		
+		  
+.group     ို
+            _)  ို(_    W
+		  
+		  
+.group      ိူ
+           _)   ိူ (_    @
+
+
 
 .group  ေ
-        ေ    ei   // default rule without other characters
-    _)  ေႃ    O   // in group with other characters if necessary
-    
-       
+            ေ    ei   // default rule without other characters
+         
 .group  ႄ
             ႄ      E
              
@@ -139,39 +159,59 @@
 .group   ျ          
              _) ျ      ja
               
- 
+			  
+ //  open sounds
 .group  ဝ်
             _)ဝ်     w   
             
 
 .group    ႂ်
-          _)  ႂ်       @i
+              ႂ်       aW
 
 
 .group ၺ်
-         _)ၺ်      Wi   
+         ၺ်      Wi   
            
 
 .group  မ် 
-           _)မ်       m
+            မ်       m
            
             
 .group  ၼ်
-          _)ၼ်      n   
+            ၼ်      n   
           
 
 .group  င်
-           _)င်       g  //  ipa = ɳ  ( temporary word )
+            င်       g  //  ipa = ɳ  ( temporary word )
             
       
-// very short sounds
+//  short sounds
 .group  ပ်
-          _) ပ်       p
+            ပ်       p
           
             
 .group တ်
-         _) တ်      t
+           တ်      t
            
            
 .group  ၵ်
-         _) ၵ်      k   // temporary word        
+            ၵ်      k   // temporary word        
+		 
+		 
+
+// 6 tones  -  tone 1 need a way to detect
+
+.group  ႇ
+            ႇ      2
+
+.group  ႈ
+            ႈ      3
+           
+.group  း
+            း     4
+        
+.group  ႉ
+            ႉ      5
+           
+.group  ႊ     
+            ႊ    6
