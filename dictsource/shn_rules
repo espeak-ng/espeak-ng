@@ -90,10 +90,11 @@
 // Vowels in groups 
 
 // All vowels below are suffixs 
+
 .group ႃ 
        ႃ      a 
-
-
+      
+          
 .group   ီ 
              ီ        i
              
@@ -101,7 +102,7 @@
               ိ       i 
 
 .group    ဵ
-              ဵ          e
+         _)   ဵ (_      e
              
 .group    ႅ 
          _)   ႅ (_      E  
@@ -111,23 +112,20 @@
 
 .group  ု
             ု        u 
-              
-.group   ေႃ 
-	     ေႃ     O    
-		
-		  
-.group     ို
-            _)  ို(_    W
-		  
-		  
-.group      ိူ
-           _)   ိူ (_    @
-
-
+            
 
 .group  ေ
-            ေ    ei   // default rule without other characters
-         
+        ေ    ei   // default rule without other characters
+
+.group  ေႃ
+            ေႃ    O   // in group with other characters if necessary
+    
+.group     ို
+            _)  ို(_    W
+		  	  
+.group      ိူ
+           _)   ိူ (_    @ 
+       
 .group  ႄ
             ႄ      E
              
@@ -159,59 +157,64 @@
 .group   ျ          
              _) ျ      ja
               
-			  
- //  open sounds
+ 
 .group  ဝ်
             _)ဝ်     w   
             
 
 .group    ႂ်
-              ႂ်       aW
+          _)  ႂ်       @i
 
 
 .group ၺ်
-         ၺ်      Wi   
+         _)ၺ်      Wi   
            
 
 .group  မ် 
-            မ်       m
+           _)မ်       m
            
             
 .group  ၼ်
-            ၼ်      n   
+          _)ၼ်      n   
           
 
 .group  င်
-            င်       g  //  ipa = ɳ  ( temporary word )
+           _)င်       g  //  ipa = ɳ  ( temporary word )
             
       
-//  short sounds
+// very short sounds
 .group  ပ်
-            ပ်       p
+          _) ပ်       p
           
             
 .group တ်
-           တ်      t
+         _) တ်      t
            
            
 .group  ၵ်
-            ၵ်      k   // temporary word        
-		 
-		 
+         _) ၵ်      k   // temporary word        
 
-// 6 tones  -  tone 1 need a way to detect
+// Six tone marks ( 1 is empty )
 
 .group  ႇ
-            ႇ      2
+             ႇ      2
 
 .group  ႈ
-            ႈ      3
-           
+             ႈ      3
+		 
 .group  း
-            း     4
-        
+             း      4 // FIXME there should be more proper rules for this
+
 .group  ႉ
-            ႉ      5
-           
-.group  ႊ     
-            ႊ    6
+             ႉ      5 // FIXME there should be more proper rules for this
+			 
+.group  ႊ
+             ႊ      6
+	
+.group  ႋ
+             ႋ      i2
+
+.group  ႌ
+             ႌ      i3
+
+.group  // all other symbols, if necessary
