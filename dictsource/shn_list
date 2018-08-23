@@ -21,4 +21,23 @@ _6X      hok4||sip4||        // ႁူၵ်းသိပ်း
 _7X      tS;et4||sip4||      // ၸဵတ်းသိပ်း
 _8X      pEt2||sip4||        // ပႅတ်ႇသိပ်း
 _9X      kaw3||sip4||        // ၵဝ်ႈသိပ်း
-
+_1XX     nEN3||pa:k         //  ၼိုင်ႈပၢၵ်ႇ
+_2XX     sON||pa:k         //  သွင်ပၢၵ်ႇ
+_3XX     sa:m||pa:k       
+_4XX     si:2||pa:k 
+_5XX     ha:3||pa:k 
+_6XX     hok4||pa:k 
+_7XX     tS;et4||pa:k 
+_8XX     pEt2||pa:k 
+_9XX      kaw3||pa:k 
+_1XXX   nEN3||heg         //  ၼိုင်ႈႁဵင်
+_2XXX    sON||heg
+_3XXX      sa:m||heg 
+_4XXX      si:2||heg
+_5XXX      ha:3||heg
+_6XXX      hok4||heg
+_7XXX      tS;et4||heg
+_8XXX      pEt2||heg
+_9XXX      kaw3||heg
+_1XXXX    nEN3||mWn      // ၼိုင်ႈမိုၼ်ႇ 
+_1XXXXX  nEN3||sEn      // ၼိုင်ႈသႅၼ်
