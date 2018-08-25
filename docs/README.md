@@ -10,6 +10,7 @@
 - Creating and Editing Languages and Voices
   - [Adding or Improving a Language](add_language.md)
     - [Text to Phoneme Translation](dictionary.md)
+    - [Numbers](numbers.md)
   - [Voice Files](voices.md)
     - [MBROLA Voices](mbrola.md)
     - [Phoneme Tables](phontab.md)
