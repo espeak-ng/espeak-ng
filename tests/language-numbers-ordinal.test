@@ -1,0 +1,32 @@
+#!/bin/sh
+
+test_phonemes() {
+	TEST_LANG=$1
+	MESSAGE=$2
+	EXPECTED=$3
+	TEST_TEXT=$4
+	TEST_BROKEN=${5:-false}
+
+	echo "testing ${TEST_LANG} ... $MESSAGE"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
+}
+
+# European Style (hundred, thousand, -illion/-illiard)
+
+##### en (English) -- short scale
+
+echo "~~~~~ en (English) ~~~~~"
+test_phonemes en "units" "z'i@roUT f'3:st s'Ek@nd T'3:d f'o@T f'IfT s'IksT s'Ev@nT 'eItT n'aInT" "0th 1st 2nd 3rd 4th 5th 6th 7th 8th 9th"
+test_phonemes en "teens" "t'EnT Il'Ev@nT tw'ElfT T'3:ti:nT f'o@ti:nT f'Ifti:nT s'Iksti:nT s'Ev@nt,i:nT 'eIti:nT n'aInti:nT" "10th 11th 12th 13th 14th 15th 16th 17th 18th 19th"
+test_phonemes en "tens" "t'EnT tw'Enti@T T'3:ti@T f'o@ti@T f'Ifti@T s'Iksti@T s'Ev@nt,i@T 'eIti@T n'aInti@T" "10th 20th 30th 40th 50th 60th 70th 80th 90th"
+test_phonemes en-GB "hundreds" "Tr'i:h'VndrI2d@n s'Iksti f'IfT" "365th"
+test_phonemes en-US "hundreds" "Tr'i:h'VndrI2d s'Iksti f'IfT" "365th"
+test_phonemes en "large" "w'0nh'VndrI2d T w'0n T'aUz@nd T w'0n m'Ili@n T w'0n b'Ili@n T w'0n tr'Ili@n T" "100th 1000th 1000000th 1000000000th 1000000000000th" # 10^2 10^3 10^6 10^9 10^12
+test_phonemes en "mixed" "f'IfT s'Iksti f'o@T w'0nh'VndrI2d@n tw'Enti T'3:d f'o@ T'aUz@nd Tr'i:h'VndrI2d@n f'Ifti s'Ev@nT f'o@ti:n T'aUz@nd_! s'Iksh'VndrI2d@n 'eIti T'3:d s'Ev@nh'VndrI2d@n f'o@ti t'u: T'aUz@nd_! Tr'i:h'VndrI2d@n f'Ifti n'aInT s'Iks m'Ili@n_! f'o@h'VndrI2d@n s'Ev@nti f'aIv T'aUz@nd_! Tr'i:h'VndrI2d@n tw'Enti; 'eItT" "5th 64th 123rd 4357th 14683rd 742359th 6475328th"

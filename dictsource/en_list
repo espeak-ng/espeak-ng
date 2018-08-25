@@ -451,6 +451,7 @@ _17	s'Ev@nti:n
 ?7 _17  s'@v@nti:n
 _18	'eIti:n
 _19	n'aInti:n
+
 _2X	tw'Ent2i||
 _3X	T'3:ti||
 ?5 _3X	T'IRti||
@@ -462,11 +463,13 @@ _7X	s'Ev@nti||
 _8X	'eIti||
 _9X	n'aInti||
 
+// large numbers, short scale
 _0C	h'VndrI2d
 _0M1	T'aUz@nd
 _0M2	m'Ili@n
 _0M3	b'Ili@n
 _0M4	tr'Ili@n
+
 ?!3 _0and	@n
 _dpt	pOInt
 _roman	roUm@n_
@@ -476,12 +479,15 @@ _#nd	@nd
 _#rd	d
 _#th	T
 _ord	T	// default ending
+
 _1o	f'3:
 ?5 _1o  f'IR
 _2o	s'Ek
 _3o	T'3:
 ?5 _3o  T'IR
 _5o	f'If
+_12o	tw'Elf
+
 _20o	tw'Enti@
 _30o	T'3:ti@
 ?5 _30o T'IRti@
@@ -491,7 +497,6 @@ _60o	s'Iksti@
 _70o	s'Ev@nti@
 _80o	'eIti@
 _90o	n'aInti@
-
 
 // ABBREVIATIONS
 //**************

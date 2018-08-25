@@ -250,8 +250,9 @@ check:	tests/encoding.check \
 	tests/api.check \
 	tests/language-phonemes.check \
 	tests/language-replace.check \
-	tests/language-pronunciation.check
-
+	tests/language-pronunciation.check \
+	tests/language-numbers-cardinal.check \
+	tests/language-numbers-ordinal.check
 
 ##### fuzzer:
 

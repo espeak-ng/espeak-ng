@@ -1,0 +1,31 @@
+#!/bin/sh
+
+test_phonemes() {
+	TEST_LANG=$1
+	MESSAGE=$2
+	EXPECTED=$3
+	TEST_TEXT=$4
+	TEST_BROKEN=${5:-false}
+
+	echo "testing ${TEST_LANG} ... $MESSAGE"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
+}
+
+# European Style (hundred, thousand, -illion/-illiard)
+
+echo "... en (English)" # short scale
+
+test_phonemes en "units" "z'i@roU w'0n t'u: Tr'i: f'o@ f'aIv s'Iks s'Ev@n 'eIt n'aIn" "0 1 2 3 4 5 6 7 8 9"
+test_phonemes en "teens" "t'En Il'Ev@n tw'Elv T'3:ti:n f'o@ti:n f'Ifti:n s'Iksti:n s'Ev@nt,i:n 'eIti:n n'aInti:n" "10 11 12 13 14 15 16 17 18 19"
+test_phonemes en "tens" "t'En tw'Enti T'3:ti f'o@ti f'Ifti s'Iksti s'Ev@nti; 'eIti n'aInti" "10 20 30 40 50 60 70 80 90"
+test_phonemes en-GB "hundreds" "Tr'i:h'VndrI2d@n s'Iksti f'aIv" "365"
+test_phonemes en-US "hundreds" "Tr'i:h'VndrI2d s'Iksti f'aIv" "365"
+test_phonemes en "large" "w'0nh'VndrI2d w'0n T'aUz@nd w'0n m'Ili@n w'0n b'Ili@n w'0n tr'Ili@n" "100 1000 1000000 1000000000 1000000000000" # 10^2 10^3 10^6 10^9 10^12
+test_phonemes en "mixed" "f'aIv s'Iksti f'o@ w'0nh'VndrI2d@n tw'Enti Tr'i: f'o@ T'aUz@nd Tr'i:h'VndrI2d@n f'Ifti s'Ev@n f'o@ti:n T'aUz@nd_! s'Iksh'VndrI2d@n 'eIti Tr'i: s'Ev@nh'VndrI2d@n f'o@ti t'u: T'aUz@nd_! Tr'i:h'VndrI2d@n f'Ifti n'aIn s'Iks m'Ili@n_! f'o@h'VndrI2d@n s'Ev@nti f'aIv T'aUz@nd_! Tr'i:h'VndrI2d@n tw'Enti; 'eIt" "5 64 123 4357 14683 742359 6475328"
