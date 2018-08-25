@@ -632,6 +632,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags = 0x08;
 		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_ROMAN | NUM_1900;
+		tr->langopts.max_digits = 33;
 		tr->langopts.param[LOPT_COMBINE_WORDS] = 2; // allow "mc" to cmbine with the following word
 		tr->langopts.suffix_add_e = 'e';
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2; // use en_rules for unpronouncable rules
