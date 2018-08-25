@@ -1515,6 +1515,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 		tr->langopts.numbers = 1;
+		tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		break;
 	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
 	case L3('z', 'h', 'y'): // just go to 'zh' case
