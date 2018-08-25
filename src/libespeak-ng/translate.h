@@ -532,7 +532,18 @@ typedef struct {
 	// bit20=(LANG=zh)  say zero tens
 	int numbers2;
 
-#define BREAK_THOUSANDS   0x49249248
+// Bit 2^n is set if 10^n separates a number grouping (max n=31).
+//                                      0         1         2         3
+//                                  n = 01234567890123456789012345678901
+#define BREAK_THOUSANDS   0x49249248 // b  b  b  b  b  b  b  b  b  b  b  // 10,000,000,000,000,000,000,000,000,000,000
+#define BREAK_MYRIADS     0x11111110 // b   b   b   b   b   b   b   b    // 1000,0000,0000,0000,0000,0000,0000,0000
+#define BREAK_LAKH        0xaaaaaaa8 // b  b b b b b b b b b b b b b b b // 10,00,00,00,00,00,00,00,00,00,00,00,00,00,00,000
+#define BREAK_LAKH_BN     0x24924aa8 // b  b b b b b  b  b  b  b  b  b   // 100,000,000,000,000,000,000,00,00,00,00,000
+#define BREAK_LAKH_DV     0x000014a8 // b  b b b  b b                    // 100,00,000,00,00,000
+#define BREAK_LAKH_HI     0x00014aa8 // b  b b b b b  b b                // 100,00,000,00,00,00,00,000
+#define BREAK_LAKH_UR     0x000052a8 // b  b b b b  b b                  // 100,00,000,00,00,00,000
+#define BREAK_INDIVIDUAL  0x00000018 // b  bb                            // 100,0,000
+
 	int break_numbers;  // which digits to break the number into thousands, millions, etc (Hindi has 100,000 not 1,000,000)
 	int max_roman;
 	int min_roman;

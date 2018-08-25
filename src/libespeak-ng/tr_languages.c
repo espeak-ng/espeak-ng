@@ -304,7 +304,7 @@ static Translator *NewTranslator(void)
 	tr->langopts.min_roman = 2;
 	tr->langopts.thousands_sep = ',';
 	tr->langopts.decimal_sep = '.';
-	tr->langopts.break_numbers = BREAK_THOUSANDS; // 1000, 1000,000  1,000,000 etc
+	tr->langopts.break_numbers = BREAK_THOUSANDS;
 	tr->langopts.max_digits = 14;
 
 	// index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized
@@ -544,7 +544,7 @@ Translator *SelectTranslator(const char *name)
 		SetLetterBits(tr, LETTERGP_C, bn_consonants2);
 
 		tr->langopts.numbers = NUM_SWAP_TENS;
-		tr->langopts.break_numbers = 0x24924aa8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+		tr->langopts.break_numbers = BREAK_LAKH_BN;
 
 		if (name2 == L3('b', 'p', 'y')) {
 			tr->langopts.numbers = 1;
@@ -620,7 +620,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM; // use 'diminished' for unstressed final syllable
 		SetLetterBitsRange(tr, LETTERGP_B, 0x26, 0x30); // vowel signs, and virama
-		tr->langopts.break_numbers = 0x14a8; // 1000, 100,000  10,000,000
+		tr->langopts.break_numbers = BREAK_LAKH_DV;
 		tr->langopts.numbers = 1;
 	}
 		break;
@@ -858,7 +858,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = 6; // stress on last heaviest syllable, excluding final syllable
 		tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM; // use 'diminished' for unstressed final syllable
 		tr->langopts.numbers = NUM_SWAP_TENS;
-		tr->langopts.break_numbers = 0x14aa8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+		tr->langopts.break_numbers = BREAK_LAKH_HI;
 		tr->letter_bits_offset = OFFSET_DEVANAGARI;
 
 		if (name2 == L('p', 'a'))
@@ -869,7 +869,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 		} else if (name2 == L('n', 'e')) {
 			SetupTranslator(tr, stress_lengths_equal, stress_amps_equal);
-			tr->langopts.break_numbers = 0x2aaaa8;
+			tr->langopts.break_numbers = BREAK_LAKH;
 			tr->langopts.max_digits = 22;
 			tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
 		} else if (name2 == L('o', 'r'))
@@ -1096,7 +1096,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 		tr->langopts.numbers2 = NUM2_MYRIADS;
-		tr->langopts.break_numbers = 0x1111110;
+		tr->langopts.break_numbers = BREAK_MYRIADS;
 		tr->langopts.max_digits = 20;
 	}
 		break;
@@ -1334,7 +1334,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4a; // virama
 		tr->langopts.numbers =  NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS_L | NUM_DFRACTION_7;
 		tr->langopts.numbers2 =  NUM2_PERCENT_BEFORE;
-		tr->langopts.break_numbers = 0x14aa8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+		tr->langopts.break_numbers = BREAK_LAKH_HI;
 	}
 		break;
 	case L('s', 'l'): // Slovenian
@@ -1390,7 +1390,6 @@ Translator *SelectTranslator(const char *name)
 
 
 		tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
-		tr->langopts.break_numbers = 0x49249268; // for languages which have numbers for 100,000 and 1,000,000
 	}
 		break;
 	case L('t', 'a'): // Tamil
@@ -1404,7 +1403,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2; // use 'diminished' for unstressed final syllable
 		tr->langopts.spelling_stress = 1;
-		tr->langopts.break_numbers = 0x14a8; // 1000, 100,000  10,000,000
+		tr->langopts.break_numbers = BREAK_LAKH_DV;
 
 		if (name2 == L('t', 'a')) {
 			SetupTranslator(tr, stress_lengths_ta, NULL);
@@ -1473,7 +1472,7 @@ Translator *SelectTranslator(const char *name)
 		tr->letter_bits_offset = OFFSET_ARABIC;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->langopts.numbers = NUM_SWAP_TENS;
-		tr->langopts.break_numbers = 0x52a8; // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+		tr->langopts.break_numbers = BREAK_LAKH_UR;
 	}
 		break;
 	case L('v', 'i'): // Vietnamese
@@ -1540,7 +1539,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = 1;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
-			tr->langopts.break_numbers = 0x00018;
+			tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		}
 		break;
 	}
