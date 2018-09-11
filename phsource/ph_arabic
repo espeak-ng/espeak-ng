@@ -78,7 +78,7 @@ phoneme a
   IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
     FMT(vowel/aa_7)
   ELSE
-    FMT(vowel/a_2)
+  FMT(vowel/a_2)
   ENDIF
 endphoneme
 
@@ -92,7 +92,7 @@ phoneme i
   IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
     FMT(vowel/ii_5)
   ELSE
-    FMT(vowel/i)
+  FMT(vowel/i)
   ENDIF
 endphoneme
 
@@ -108,6 +108,37 @@ phoneme u
   ELSE
     FMT(vowel/u)
   ENDIF
+endphoneme
+
+// "dark" vowels after "thick" consonants
+phoneme a.
+  vwl starttype #a endtype #a
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/aa_7)
+endphoneme
+
+phoneme i.
+  vwl starttype #i endtype #i
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme u.
+  vwl starttype #u endtype #u
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/u_7)
 endphoneme
 
 phoneme : //  lengthen previous vowel by "length"
