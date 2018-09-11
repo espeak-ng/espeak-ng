@@ -1,3 +1,5 @@
 name Arabic
 language ar
 phonemes ar
+
+stressRule 4

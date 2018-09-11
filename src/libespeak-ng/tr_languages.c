@@ -506,7 +506,6 @@ Translator *SelectTranslator(const char *name)
 		tr->transpose_max = 0x65f;
 		tr->transpose_map = NULL;
 		tr->letter_bits_offset = OFFSET_ARABIC;
-		tr->langopts.stress_rule = STRESSPOSN_3R;
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;
