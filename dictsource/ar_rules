@@ -105,6 +105,9 @@
 // Arabic diacritics
 .L20  ۡ ـ  ً  ٌ  ٍ  َ  ُ  ِ  ّ  ْ
 
+// Non-thick consonants
+.L30 ب پ ت ة ث ج ح خ د ذ ر ز س ش ع غ ف ك ل م ن ئ ؤ ء أ آ إ ه
+
 .group آ
          آ           ?a:
 
