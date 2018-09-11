@@ -10,11 +10,18 @@ phoneme H       // arabic Hah
 endphoneme
 
 phoneme Z      // arabic ZAH
-  vls phr frc
-  ipa ðˤ
-  lengthmod 5
-  voicingswitch z
-  ChangePhoneme (D) // FIXME: vwl_ar/zah wav file is wrong, therefore English D is used
+  vcd dnt frc
+  ipa ð
+  // following definition is taken from English D
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1290 -300 300 f3=0 0
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh)
+  ENDIF
+  FMT(voc/dh) addWav(vocw/dh)
 endphoneme
 
 phoneme A       // arabic Ain
