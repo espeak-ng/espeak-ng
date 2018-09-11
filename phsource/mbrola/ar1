@@ -27,25 +27,13 @@ volume 50
 0   S   :     50   S    S
 0   S   NULL  0    S
 
-1   s[  a     40   s.   a.
-1   s[  u     40   s.   u.
-1   s[  i     40   s.   i.
 0   s[  NULL  0    s.
 
 1   dH  dH    40   d.   d.
-1   dH  a     40   d.   a.
-1   dH  i     40   d.   i.
-1   dH  u     40   d.   u.
 0   dH  NULL  0    d.
 
-0   t[  a     90   t.   a.
-0   t[  u     90   t.   u.
-0   t[  i     90   t.   i.
 0   t[  NULL  0    t.
 
-1   Z   a     20   z.   a.
-1   Z   u     20   z.   u.
-1   Z   i     20   z.   i.
 0   Z   NULL  0    z.
 
 0   A   NULL  0    H
