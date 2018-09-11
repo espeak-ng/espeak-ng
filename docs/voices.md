@@ -380,7 +380,7 @@ listed in [Phonemes](phonemes.md).
 
 Four integer parameters. These correspond to:
 
-1. langopts->stress_rule (values in translate.h)
+1. langopts->stress_rule (values in [translate.h](../src/libespeak-ng/translate.h))
 2. langopts->stress_flags
 3. langopts->unstressed_wd1 (stress for $u word of 1 syllable)
 4. langopts->unstressed_wd2 (stress for $u word of >1 syllable) 
