@@ -1127,6 +1127,7 @@ custodia  $alt
 dafni $2
 dagherrotip $3
 dagherrotipia $5
+dajece	d'a:jetSe/
 dalmat $1
 damar $1
 damocle $1
@@ -2424,6 +2425,7 @@ molluschicidi	$4
 moloch  $alt
 molochi  $alt
 molotr $1  $alt
+molotov	$1 $only
 molten  $alt2
 molv  $alt
 mombarocci  $alt
@@ -3350,7 +3352,7 @@ romboedr  $alt
 rompiscatole $3
 rondini	$1
 rondone	$2
-ronsio	@-*ondz'io
+ronzio	@-*ondz'io
 ropaloceri $3
 rore  $alt
 ros  $alt

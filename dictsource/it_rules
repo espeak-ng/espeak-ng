@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2018 july 22 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2018 september 13 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -557,6 +557,7 @@
 	scii	Sij
 	sci (ì	S%i
 	sch (Y	sk
+	A) sio (_	zi/o
 	A) sio	zio
 	sh	S   // foreign words
 	@A)	sia (_	z'ia

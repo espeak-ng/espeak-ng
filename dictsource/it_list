@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 july 22 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2018 september  13 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -2850,6 +2850,7 @@ annullino	$2
 annuncino	$2
 annunziano	$2
 annusino	$2
+annusano	$2
 anticipano	$2
 anticipino	$2
 apostrofano	$2
@@ -4015,6 +4016,7 @@ procurino	$2
 prodigano	$1
 producano	$2
 profilano	$2
+programmano	$2
 proiettino	$3
 pronuncino	$2
 propinino	$2
@@ -4900,6 +4902,7 @@ digliel	$1
 digliene	$1
 dimenticatene	$2
 dimmelo	$1
+dimostratoti	$3
 diramal	$2
 dirigerl	$2
 dirigersi	$2
