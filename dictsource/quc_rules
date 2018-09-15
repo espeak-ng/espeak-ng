@@ -1,0 +1,102 @@
+.replace
+        // replace to standard writing
+        ’       '
+        á       a
+        ä       a
+        é       e
+        ë       e
+        í       i
+        ï       i
+        ó       o
+        ö       o
+        ú       u
+        ü       u
+
+.group a
+        a       a
+
+.group ä
+        ä       a
+
+.group b
+        b       b
+        b'      ?b
+
+.group ch
+        ch      tS
+        ch'     ?tS
+
+.group e
+        e       e
+
+.group ë
+        ë       e
+
+.group i
+        i       i
+
+.group ï
+        ï       i
+
+.group j
+        j       h
+
+.group k
+        k       k
+        k'      ?k
+
+.group l
+        l       l
+
+.group m
+        m       m
+
+.group n
+        n       n
+
+.group o
+        o       ou
+
+.group ö
+        ö       ou
+
+.group p
+        p       p
+
+.group q
+        q       q
+        q'      ?q
+
+.group r
+        r       R
+
+.group s
+        s       s
+
+.group t
+        t       t
+        t'      ?t
+
+.group tz
+        tz      ts
+        tz'     ?tz
+
+.group u
+        u       u:
+
+.group ü
+        ü       u
+
+.group w
+        w       v
+
+.group x
+        x       S
+
+.group y
+        y (A    j
+        y (C    i
+        y (_    i
+
+.group '
+        '       ?

@@ -521,6 +521,7 @@ dictionaries: \
 	espeak-ng-data/pap_dict \
 	espeak-ng-data/pl_dict \
 	espeak-ng-data/pt_dict \
+	espeak-ng-data/quc_dict \
 	espeak-ng-data/ro_dict \
 	espeak-ng-data/ru_dict \
 	espeak-ng-data/sd_dict \
@@ -748,6 +749,9 @@ espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_ext
 
 pt: espeak-ng-data/pt_dict
 espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_extra dictsource/pt_emoji
+
+quc: espeak-ng-data/quc_dict
+espeak-ng-data/quc_dict: dictsource/quc_list dictsource/quc_rules dictsource/quc_extra dictsource/quc_emoji
 
 ro: espeak-ng-data/ro_dict
 espeak-ng-data/ro_dict: dictsource/ro_list dictsource/ro_rules dictsource/ro_extra dictsource/ro_emoji
