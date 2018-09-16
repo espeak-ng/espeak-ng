@@ -494,6 +494,7 @@ dictionaries: \
 	espeak-ng-data/ja_dict \
 	espeak-ng-data/jbo_dict \
 	espeak-ng-data/ka_dict \
+	espeak-ng-data/kk_dict \
 	espeak-ng-data/kl_dict \
 	espeak-ng-data/kn_dict \
 	espeak-ng-data/ko_dict \
@@ -667,6 +668,9 @@ espeak-ng-data/ja_dict: dictsource/ja_list dictsource/ja_rules dictsource/ja_ext
 
 ka: espeak-ng-data/ka_dict
 espeak-ng-data/ka_dict: dictsource/ka_list dictsource/ka_rules dictsource/ka_extra dictsource/ka_emoji
+
+kk: espeak-ng-data/kk_dict
+espeak-ng-data/kk_dict: dictsource/kk_list dictsource/kk_rules dictsource/kk_extra dictsource/kk_emoji
 
 kl: espeak-ng-data/kl_dict
 espeak-ng-data/kl_dict: dictsource/kl_list dictsource/kl_rules dictsource/kl_extra
