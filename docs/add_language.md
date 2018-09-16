@@ -10,6 +10,7 @@
   - [Language File](#language-file)
   - [Phoneme Definition File](#phoneme-definition-file)
   - [Dictionary Files](#dictionary-files)
+  - [Building Phonemes](#building-phonemes)
 - [Program Code](#program-code)
 - [Compiling Rules File for Debugging](#compiling-rules-file-for-debugging)
 - [Improving a Language](#improving-a-language)
@@ -100,7 +101,7 @@ To add new language, you have to create or edit following files:
 |------------------------------|--------|
 | Makefile.am                  |edit    |
 | phsource/phonemes            |edit    |
-| phsource/ph_french           |create  |
+| phsource/ph_french           |create (optional) |
 | dictsource/fr_list           |create  |
 | dictsource/fr_rules          |create  |
 | dictsource/fr_extra          |create (optional) |
@@ -121,34 +122,66 @@ Search for configuration of existing languages (e.g. English)
 and add similar lines for your language in following sections.
 E.g. for French:
 
-	phsource/phonemes.stamp: \
-	...
-	  phsource/ph_french \
-	...
-	
 	dictionaries: \
 	...
-	  espeak-ng-data/fr_dict \
-	...
-	
-	fr: espeak-ng-data/fr_dict
-	dictsource/fr_extra:
-	  touch dictsource/fr_extra
-	espeak-ng-data/fr_dict: src/espeak-ng phsource/phonemes.stamp dictsource/fr_list dictsource/fr_rules dictsource/fr_extra
-	  cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=fr && cd ..
+	espeak-ng-data/fr_dict \
 	...
 
-Note, that you don't need to add `fr_extra` reference in the last group, if your language doesn't have this file.
+	fr: espeak-ng-data/fr_dict
+	espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
+	...
+
+Note, that you don't need to add `fr_extra` or `fr_emoji` reference in the last group, if your language doesn't have this file.
+
+Optionally, if you have [phoneme definition file](#phoneme-definition-file), following line also should be added:
+
+	phsource/phonemes.stamp: \
+	...
+	phsource/ph_french \
+	...
 
 ### Phonemes File
 
-Open file `phsource/phonemes` and add following lines into it,
-to make it call your new, e.g. `ph_french` file:
+Open file `phsource/phonemes` and add following lines
 
+1. Set of standard (already defined) phonemes for languge
+
+```
 	...
 	phonemetable fr base
+	...
+```
+  where:
+        _..._ means other existing lines of the configuration file and
+        _base_ is usually is `base1` or code of other (already defined) language:
+
+  * `base` phoneme table contains only definitions of some "control" phonemes
+    such as stress marks and pauses defined in top of the `phonemes` file.
+
+  * `base1` includes `base` and also has basic set of vowels and consonants
+    defined under `phonemetable base1` section in `phonemes` file.
+
+  * `base2` has additional phonemes (mostly diphones) included from `ph_base2` file.
+
+  * Other language e.g. `en` has all phonemes defined in its corresponding phoneme
+    definition file e.g. `phsourc/ph_english` for English language.
+
+2. Optionally, if you have customized phonemes in  [Phoneme Definition File](#phoneme-definition-file),
+   add additional line: to include it:
+
+```
+	...
 	include ph_french
 	...
+```
+For example, if `phsource/phonemes` has following lines:
+
+	phonemetable fr base
+	include ph_french
+
+it defines a phoneme table `fr` which inherits phoneme definitions from
+`base` table and adds new definitions or overrides existing
+definitions of `base` phonemes from the `phonemes/ph_french` file.
 
 ### Language File
 
@@ -178,37 +211,22 @@ Details of the contents of language files are given in [Voices](voices.md).
 
 ### Phoneme Definition File
 
-E.g. `phsource/ph_french` is the phoneme definition file for French.
-This contains phoneme definitions for the vowels and consonants which the language uses.
-Usually it will contain mostly vowels. Most consonants will be inherited from the
-common phoneme definitions in the _master phoneme file_: `phsource/phonemes`.
-
-You must first decide on the set of phonemes (vowel and consonant
-sounds) for the language. These should be defined in a phoneme
-definition file `ph_french`, where `ph_french` is the name of your
-language. A reference to this file is then included at the end of the
-master phoneme file, `phsource/phonemes`, e.g.:
-
-	phonemetable fr base
-	include ph_french
-
-This example defines a phoneme table `fr` which inherits the
-contents of phoneme table `base`. Its contents are found in the file
-`ph_french`.
-
-The `base` phoneme table contains definitions of a basic set of
-consonants, and also some "control" phonemes such as stress marks and
-pauses. These are defined in `phsource/phonemes`. The phoneme table
-for a language will inherit these, or alternatively it may inherit the
-phoneme table of another language which in turn inherits the `base`
-phoneme table.
+If you decide to customize definitions of phonemes (vowel and consonant
+sounds) for the language, then you have to create e.g. `phsource/ph_french`
+phoneme definition file for French.
 
 The phonemes file for the language defines those additional phonemes
 which are not inherited (generally the vowels and diphthongs, plus any
 additional consonants that are needed), or phonemes whose definitions
 differ from the inherited version (eg. the redefinition of a consonant).
 
+Usually it will contain mostly vowels. Most consonants will be inherited from the
+common phoneme definitions in the _master phoneme file_: `phsource/phonemes` as
+described in [Phonemes File](#phonemes-file) section above.
+
 Details of phonemes files are given in [Phoneme Tables](phontab.md).
+
+### Building Phonemes
 
 To build the phoneme files, run:
 
