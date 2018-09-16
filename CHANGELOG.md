@@ -48,6 +48,7 @@ new languages:
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
 *  kk (Kazakh) -- boracasli14, Valdis Vitolins
+*  quc (K'iche') -- Valdis Vitolins
 *  ru-lv (Russian Latvia) -- Valdis Vitolins
 *  shn (Shan Tay Yai) -- ronaldaug
 

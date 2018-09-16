@@ -1913,6 +1913,8 @@ include ph_kinyarwanda
 phonemetable prs base1
 include ph_dari
 
+phonemetable quc base1
+
 phonemetable sl pl
 include ph_slovenian
 
