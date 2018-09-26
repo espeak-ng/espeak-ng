@@ -211,10 +211,9 @@ _с      Es
 я       ja
 
 // exceptions
-радио   r'ad;Io
-на      na $atend
-
-// Words for unit test pangram
-электрификация    $5
-сельского         $1
+электрификация    $5 // for the unit test pangram
+интернет          IntE#rn'Et // интэрнэ́т -- "internet"
+на                na $atend
+радио             r'ad;Io
+сельского         $1 // for the unit test pangram
 
