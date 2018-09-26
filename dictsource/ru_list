@@ -96,7 +96,7 @@ _,      zVpit'aja
 // prepositions
 в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
 для        $u         // for
-на         $u         // on
+на      n@ $u         // on
 от         $u         // from
 с       s  $u         // with,from,since
 у       u  $u         // by
@@ -212,6 +212,7 @@ _с      Es
 
 // exceptions
 радио   r'ad;Io
+на      na $atend
 
 // Words for unit test pangram
 электрификация    $5
