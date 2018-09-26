@@ -94,11 +94,11 @@ _,      zVpit'aja
 ж       ZE $u         // same as the particle form
 
 // prepositions
-в       v8 $u         // to,in,at -- TODO: 'f8' before voiceless consonants.
+в       v  $u         // to,in,at -- TODO: 'f' before voiceless consonants.
 для        $u         // for
 на         $u         // on
 от         $u         // from
-с       s8 $u         // with,from,since
+с       s  $u         // with,from,since
 у       u  $u         // by
 
 // conjunctions
