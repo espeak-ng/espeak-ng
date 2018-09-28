@@ -1,0 +1,103 @@
+volume 15
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/  r     5  r  _
+2  r   p     0  R
+2  r   b     0  R
+2  r   t     0  R
+2  r   d     0  R
+2  r   k     0  R
+2  r   g     0  R
+2  r   m     0  R
+2  r   n     0  R
+2  r   l/2   0  R
+2  r   f     0  R
+2  r   v     0  R
+2  r   T     0  R
+2  r   s     0  R
+2  r   z     0  R
+
+0  r   3     5  r  _
+0  r/ NULL   0  r
+2  R   z     0  R
+0  R  NULL   0  r
+0  r- NULL   0  r
+0  l- NULL   0  l
+0  w/ NULL   0  w
+0  j/ NULL   0  j
+2  ;   i     0  NULL
+0  ;  NULL   0  j
+0  -  NULL   0  NULL
+0  g- NULL   0  NULL
+
+1  @- *      0  R
+0  @- NULL   0  NULL
+0  *  NULL   0  r
+
+0  N   g     0  V
+0  N   J     0  V
+0  N  NULL   0  n
+0  J   NULL  0  q
+0  Q   NULL  0  G
+1  m   ;     0  M
+0  n^  NULL  0  N
+0  l^  NULL  0  L
+0  ts  NULL  0  S
+0  dz  NULL  0  Z
+1  d   z     0  Z
+1  k   s     0  k
+1  p   s     0  Y
+0  s;  NULL  0  s
+0  z;  NULL  0  z
+
+0  aI  NULL 60  a  i
+0  oI  NULL 60  o  i
+0  a/  NULL  0  a
+
+
+// map English phonemes to Greek
+0  3   NULL  60 e  r
+0  @   NULL  0  a
+0  eI  NULL  60 e  i
+0  aU  NULL  60 a  u
+0  oU  NULL  0  o
+0  @L  NULL  40 e  l
+0  @2  NULL  0  e    // @
+0  @5  NULL  0  e    // @
+0  3   NULL  0  r    // @
+0  a#  NULL  0  a    // @
+0  I2  NULL  0  i
+0  I   NULL  0  i
+0  a   NULL  0  a
+0  aa  NULL  0  a
+0  V   NULL  0  a    // @
+0  U   NULL  0  u
+0  0   NULL  0  o
+0  i:  NULL  0  i
+0  u:  NULL  0  u
+0  A:  NULL  0  a
+0  3:  NULL  60 e  r    // @
+//0  aI  NULL  60 a  j
+0  OI  NULL  60 o  j
+0  i@  NULL  60 i  r    // @
+0  i@3 NULL  60 i  r    // @
+0  e@  NULL  70 e  r
+0  o@  NULL  70 o  r    // @
+0  O@  NULL  70 o  r    // @
+0  O   NULL  0  o
+0  O:  NULL  0  a
+0  A:  NULL  0  a
+0  A@  NULL  70 a  r
+0  U@  NULL  60 u  r    // @
+0  aI@ NULL  70 a  r    // @
+0  aU@ NULL  0  a
+
+0  E   NULL  0  e
+0  w   NULL  0  v
+0  h   NULL  0  x
+0  tS  VWL   0  c
+0  tS  NULL  0  S
+0  dZ  VWL   0  q
+0  dZ  NULL  0  Z
+

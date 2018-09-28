@@ -86,7 +86,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `fr5`        | Belgian French       | male   | `mb-fr5` |                |
 | `fr6`        | French               | male   | `mb-fr6` |                |
 | `fr7`        | Belgian French       | male   | `mb-fr7` |                |
-| `gr1`        | Greek                | male   |          | `mbrola-gr1`   |
+| `gr1`        | Greek                | male   | `mb-gr1` | `mbrola-gr1`   |
 | `gr2`        | Greek                | male   | `mb-gr2` | `mbrola-gr2`   |
 | `hb1`        | Hebrew               | male   |          |                |
 | `hb2`        | Hebrew               | female |          |                |
