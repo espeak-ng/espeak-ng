@@ -72,7 +72,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `de5`        | German               | female | `mb-de5` | `mbrola-de5`   |
 | `de6`        | German               | male   | `mb-de6` | `mbrola-de6`   |
 | `de7`        | German               | female | `mb-de7` | `mbrola-de7`   |
-| `de8`        | German-Bavarian      | male   |          |                |
+| `de8`        | German-Bavarian      | male   | `mb-de8` |                |
 | `ee1`        | Estonian             | male   | `mb-ee1` | `mbrola-ee1`   |
 | `en1`        | British English      | female | `mb-en1` | `mbrola-en1`   |
 | `es1`        | Spanish              | male   | `mb-es1` | `mbrola-es1`   |

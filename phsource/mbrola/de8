@@ -1,0 +1,48 @@
+volume 12
+0  3   NULL  0  e
+0  3:  NULL  50 e  e
+0  aI  NULL  0  aI
+0  A   NULL  0  A
+0  A~  NULL  0  A
+0  a   NULL  0  a
+0  A:  NULL  50 A  A
+0  a   NULL  50 a  a
+0  aU  NULL  0  aU
+0  b   NULL  0  b
+0  d   NULL  0  d
+0  E   NULL  0  E
+0  e   NULL  0  e
+0  E:  NULL  50 E  E
+0  e:  NULL  50 e  e
+0  f   NULL  0  f
+0  g   NULL  0  g
+0  h   NULL  0  h
+0  i   NULL  0  i
+0  i:  NULL  50 i  i
+0  y   NULL  0  Y
+0  y:  NULL  50 Y  Y
+0  j   A     50 j  a
+0  j   NULL  0  j
+0  k   NULL  0  k
+0  l   NULL  0  l
+0  l/  NULL  0  l
+0  m   b     50 m  b
+0  m   NULL  0  m
+0  n   NULL  0  n
+0  @   NULL  0  e
+0  @-  NULL  0  e
+0  O   NULL  0  O
+0  o   NULL  0  o
+0  o:  NULL  0  o:
+0  O:  NULL  50 O  O
+0  p   NULL  0  b
+0  r   NULL  0  R
+0  ts  NULL  0  C
+0  u   NULL  0  U
+0  u:  NULL  50 U  U
+0  V   NULL  0  v
+0  v   NULL  0  v
+0  W   NULL  0  v
+0  x   NULL  0  x
+0  x   NULL  0  x
+0  z   NULL  0  Z
