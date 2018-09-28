@@ -78,7 +78,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `es1`        | Spanish              | male   | `mb-es1` | `mbrola-es1`   |
 | `es2`        | Spanish              | male   | `mb-es2` | `mbrola-es2`   |
 | `es3`        | Spanish              | female | `mb-es3` |                |
-| `es4`        | Spanish              | male   |          |                |
+| `es4`        | Spanish              | male   | `mb-es4` |                |
 | `fr1`        | French               | male   | `mb-fr1` | `mbrola-fr1`   |
 | `fr2`        | French               | female | `mb-fr2` |                |
 | `fr3`        | French               | male   | `mb-fr3` |                |
