@@ -113,7 +113,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `nl1`        | Dutch                | male   | `mb-nl1` <sup>[1](#footnote1)</sup> |   |
 | `nl2`        | Dutch                | male   | `mb-nl2` | `mbrola-nl2`   |
 | `nl3`        | Dutch                | female | `mb-nl3` |                |
-| `nz1`        | Maori                | male   |          |                |
+| `nz1`        | Maori                | male   | `mb-nz1` |                |
 | `pl1`        | Polish               | female | `mb-pl1` | `mbrola-pl1`   |
 | `pt1`        | Portuguese           | female | `mb-pt1` | `mbrola-pt1`   |
 | `ro1`        | Romanian             | male   | `mb-ro1` | `mbrola-ro1`   |
