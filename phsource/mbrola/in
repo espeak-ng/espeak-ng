@@ -1,3 +1,5 @@
+volume 15
+
 0  l/2 NULL  0  l
 0  l/ NULL  0  l
 0  r/ NULL   0  r
@@ -35,9 +37,9 @@
 0  aI NULL   0  ai
 0  aU NULL   0  au
 
-0  o~ NULL   60  o  n
-0  O~ NULL   60  au n
-0  u~ NULL   60  uu n
+0  o~ NULL   0  o
+0  O~ NULL   0  au
+0  u~ NULL   0  uu
 
 0  H  NULL   0  h
 0  p# NULL   0  ph

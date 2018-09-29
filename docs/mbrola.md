@@ -93,8 +93,8 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `hn1`        | Korean               | male   |          |                |
 | `hu1`        | Hungarian            | female | `mb-hu1` | `mbrola-hu1`   |
 | `ic1`        | Icelandic            | male   | `mb-ic1` | `mbrola-ic1`   |
-| `in1`        | Hindi                | male   |          |                |
-| `in2`        | Hindi                | female |          |                |
+| `in1`        | Hindi                | male   | `mb-in1` |                |
+| `in2`        | Hindi                | female | `mb-in2` |                |
 | `id1`        | Indonesian           | male   | `mb-id1` | `mbrola-id1`   |
 | `ir1`        | Iranian Persian      | male   | `mb-ir1` | `mbrola-ir1`   |
 | `it1`        | Italian              | male   | `mb-it1` |                |
