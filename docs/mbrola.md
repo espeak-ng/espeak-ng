@@ -107,7 +107,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `la1`        | Classical Latin      | male   | `mb-la1` | `mbrola-la1`   |
 | `lt1`        | Lithuanian           | male   | `mb-lt1` | `mbrola-lt1`   |
 | `lt2`        | Lithuanian           | male   | `mb-lt2` | `mbrola-lt2`   |
-| `ma1`        | Malay                | female |          |                |
+| `ma1`        | Malay                | female | `mb-ma1` |                |
 | `mx1`        | Mexican Spanish      | male   | `mb-mx1` | `mbrola-mx1`   |
 | `mx2`        | Mexican Spanish      | male   | `mb-mx2` | `mbrola-mx2`   |
 | `nl1`        | Dutch                | male   |          |                |
