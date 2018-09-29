@@ -101,9 +101,9 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `it2`        | Italian              | female | `mb-it2` |                |
 | `it3`        | Italian              | male   | `mb-it3` | `mbrola-it3`   |
 | `it4`        | Italian              | female | `mb-it4` | `mbrola-it4`   |
-| `jp1`        | Japanese             | male   |          |                |
-| `jp2`        | Japanese             | female |          |                |
-| `jp3`        | Japanese             | female |          |                |
+| `jp1`        | Japanese             | male   | `mb-jp1` |                |
+| `jp2`        | Japanese             | female | `mb-jp2` |                |
+| `jp3`        | Japanese             | female | `mb-jp3` |                |
 | `la1`        | Classical Latin      | male   | `mb-la1` | `mbrola-la1`   |
 | `lt1`        | Lithuanian           | male   | `mb-lt1` | `mbrola-lt1`   |
 | `lt2`        | Lithuanian           | male   | `mb-lt2` | `mbrola-lt2`   |
