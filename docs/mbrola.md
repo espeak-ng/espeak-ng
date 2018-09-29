@@ -227,11 +227,18 @@ Where:
 * `en1_phtrans` is a translation file to convert between eSpeak NG phonemes and
   the equivalent MBROLA phonemes.
 
+If language code differs between MBROLA voice and eSpeak NG language,
+then additional line is necessary:
+
+        language xx
+
+where `xx` is code of the language in eSpeak NG.
+
 Binary `xxN_phtrans` files are kept in `espeak-ng-data/mbrola_ph` folder
 and are generated from `phsource/mb/xxN` text files, during MBROLA
 voice compilation.
 
-Additionaly MBROLA voice definition file can have other optional parameters,
+Additionally MBROLA voice definition file can have other optional parameters,
 similar to eSpeak NG voices, which are described [Voices](voices.md) file.
 
 ### 2. Add MBROLA phoneme translation file
