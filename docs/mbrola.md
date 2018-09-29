@@ -110,9 +110,9 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `ma1`        | Malay                | female | `mb-ma1` |                |
 | `mx1`        | Mexican Spanish      | male   | `mb-mx1` | `mbrola-mx1`   |
 | `mx2`        | Mexican Spanish      | male   | `mb-mx2` | `mbrola-mx2`   |
-| `nl1`        | Dutch                | male   |          |                |
+| `nl1`        | Dutch                | male   | `mb-nl1` <sup>[1](#footnote1)</sup> |   |
 | `nl2`        | Dutch                | male   | `mb-nl2` | `mbrola-nl2`   |
-| `nl3`        | Dutch                | female |          |                |
+| `nl3`        | Dutch                | female | `mb-nl3` |                |
 | `nz1`        | Maori                | male   |          |                |
 | `pl1`        | Polish               | female | `mb-pl1` | `mbrola-pl1`   |
 | `pt1`        | Portuguese           | female | `mb-pt1` | `mbrola-pt1`   |
@@ -345,4 +345,6 @@ is named just `xx`.
 
 When `Makefile.am` is update, when espek-ng will be compiled, e.g. by
 entering command `automake; make -B` newly added MBROLA voice will be compiled automatically.
+
+<a name="footnote1">1</a>: This voice has very limited set of diphones and is usable only for reading numbers.
 
