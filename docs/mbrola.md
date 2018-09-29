@@ -119,7 +119,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `ro1`        | Romanian             | male   | `mb-ro1` | `mbrola-ro1`   |
 | `sw1`        | Swedish              | male   | `mb-sw1` | `mbrola-sw1`   |
 | `sw2`        | Swedish              | female | `mb-sw2` | `mbrola-sw2`   |
-| `tl1`        | Telugu               | female |          |                |
+| `tl1`        | Telugu               | female | `mb-tl1` |                |
 | `tr1`        | Turkish              | male   | `mb-tr1` | `mbrola-tr1`   |
 | `tr2`        | Turkish              | female | `mb-tr2` | `mbrola-tr2`   |
 | `us1`        | American English     | female | `mb-us1` | `mbrola-us1`   |
