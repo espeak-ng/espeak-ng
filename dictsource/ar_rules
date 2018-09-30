@@ -115,8 +115,10 @@
          ا           a:
     L30) ا           a:
       F) ا           a.:
+     FG) ا           a.:
     L30) ا (C        a:
       F) ا (C        a.:
+     FG) ا (C        a.:
          ا (َ         ?
          ا (ُ         ?
          ا (ِ         ?
@@ -416,6 +418,7 @@
          و           w
     L30) و           u:
       F) و           u.:
+     FG) و           u.:
       ا) و           w         //واو بعد الألف
          و (A        w         //واو بعدها حرف علة
          و (_        w
@@ -455,6 +458,7 @@
          ي           i
     L30) ي           i:
       F) ي           i.:
+     FG) ي           i.:
       ا) ي           j         // ياء بعد ألف
          يّ           i:
          يْ           j
@@ -475,6 +479,7 @@
          ى           a
     L30) ى (_        a:
       F) ى (_        a.:
+     FG) ى (_        a.:
          ىّ           a:
          ىْ           a
 
@@ -499,45 +504,63 @@
 .group
           َ           a   // fatha
       F)  َ           a.  // fatha after thick consonant
+     FG)  َ           a.  // fatha after thick consonant and shadda
           َ (C_       =a  // fatha in closed syllable
       F)  َ (C_       =a.
+     FG)  َ (C_       =a.
           َ (CC_      =a
       F)  َ (CC_      =a.
+     FG)  َ (CC_      =a.
       C)  ٓ           ?   // madda after consonant
           ِ           i   // kasra
       F)  ِ           i.  // kasra after thick consonant
+     FG)  ِ           i.  // kasra after thick consonant and shadda
           ِ (C_       =i  // kasra in closed syllable
       F)  ِ (C_       =i.
+     FG)  ِ (C_       =i.
           ِ (CC_      =i
       F)  ِ (CC_      =i.
+     FG)  ِ (CC_      =i.
           ٍ (_S1      in  // kasratan at the end of word
           ٌ (_S1      un  // dammatan at the end of word
           ُ           u   // damma
       F)  ُ           u.  // damma after thick consonant
+     FG)  ُ           u.  // damma after thick consonant and shadda
           ُ (C_       =u  // damma in closed syllable
       F)  ُ (C_       =u.
+     FG)  ُ (C_       =u.
           ُ (CC_      =u
       F)  ُ (CC_      =u.
+     FG)  ُ (CC_      =u.
           ٰ           a:  // superscript alef
       F)  ٰ           a.: // superscript alef after thick consonant
+     FG)  ٰ           a.: // superscript alef after thick consonant and shadda
           َا          a:  // fatha+alef
       F)  َا          a.: // fatha+alef after thick consonant
+     FG)  َا          a.: // fatha+alef after thick consonant and shadda
           ًا (_S2     an  // fathatan+alef at the end of word
       F)  ًا (_S2     a.n // fathatan+alef at the end of word after thick consonant
           َو          au  // fatha+waw
-      F)  َو          a.u // fatha+waw after thick consonant
+      F)  َو          a.u. // fatha+waw after thick consonant
+     FG)  َو          a.u. // fatha+waw after thick consonant and shadda
           ِو          iw  // kasra+waw
       F)  ِو          i.w // kasra+waw after thick consonant
+     FG)  ِو          i.w // kasra+waw after thick consonant and shadda
           ُو          u:  // damma+waw
       F)  ُو          u.: // damma+waw after thick consonant
+     FG)  ُو          u.: // damma+waw after thick consonant and shadda
           َى          a:  // fatha+alef maksura
       F)  َى          a.: // fatha+alef maksura after thick consonant
+     FG)  َى          a.: // fatha+alef maksura after thick consonant and shadda
           َي          ai  // fatha+yeh
-      F)  َي          a.i // fatha+yeh after thick consonant
+      F)  َي          a.i. // fatha+yeh after thick consonant
+     FG)  َي          a.i. // fatha+yeh after thick consonant and shadda
           ِي          i:  // kasra+yeh
       F)  ِي          i.: // kasra+yeh after thick consonant
+     FG)  ِي          i.: // kasra+yeh after thick consonant and shadda
           ُي          ui  // damma+yeh
-      F)  ُي          u.i // damma+yeh after thick consonant
+      F)  ُي          u.i. // damma+yeh after thick consonant
+     FG)  ُي          u.i. // damma+yeh after thick consonant and shadda
           ّ           :   // shadda
 
 // Following are default rules for other diacritics and they are just silence.
