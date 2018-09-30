@@ -39,10 +39,12 @@ volume 50
 0   s   :     50   s    s
 0   S   NULL  0    S
 0   s[  NULL  0    s.
+0   s[  :     0    s.   s.
 0   s   NULL  0    s
 0   t   :     50   t    t
 0   T   NULL  0    T
 0   t[  NULL  0    t.
+0   t[  :     0    t.   t.
 0   t   NULL  0    t
 0   u   :     50   u    u
 0   u   NULL  0    u
