@@ -60,7 +60,11 @@ endphoneme
 phoneme s[
   vls dnt stp
   voicingswitch s
-  length 160
+  IF nextPh(s[) THEN
+    length 50
+  ELSE
+    length 160
+  ENDIF
   lengthmod 7
   WAV(vwl_ar/shin)
 endphoneme
