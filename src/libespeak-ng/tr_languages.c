@@ -373,7 +373,7 @@ static void SetArabicLetters(Translator *tr)
 	const char *arab_vowel_letters = "َ  ُ  ِ";
 	const char *arab_consonant_vowel_letters = "ا و ي";
 	const char *arab_consonant_letters = "ب پ ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ئ ؤ ء أ آ إ ه";
-	const char *arab_thick_letters = "ص ض ط ظ ق";
+	const char *arab_thick_letters = "ص ض ط ظ";
 	const char *arab_shadda_letter = " ّ ";
 	const char *arab_hamza_letter = " ّ ";
 	const char *arab_sukun_letter = " ّ ";
@@ -506,7 +506,6 @@ Translator *SelectTranslator(const char *name)
 		tr->transpose_max = 0x65f;
 		tr->transpose_map = NULL;
 		tr->letter_bits_offset = OFFSET_ARABIC;
-		tr->langopts.stress_rule = STRESSPOSN_3R;
 		tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_6;

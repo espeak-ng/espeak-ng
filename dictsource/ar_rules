@@ -68,7 +68,7 @@
 // Consonant/vowel letters
 // B: ا و ي
 // "Thick" letters
-// F: ص ض ط ظ ق
+// F: ص ض ط ظ
 // Shadda
 // G:  ّ
 // Hamza
@@ -105,16 +105,22 @@
 // Arabic diacritics
 .L20  ۡ ـ  ً  ٌ  ٍ  َ  ُ  ِ  ّ  ْ
 
+// Non-thick consonants
+.L30 ب پ ت ة ث ج ح خ د ذ ر ز س ش ع غ ف ك ل م ن ئ ؤ ء أ آ إ ه
+
 .group آ
          آ           ?a:
 
 .group ا
          ا           a:
-      C) ا           a:      // if a consonant is before it, make the fatha long
-      C) ا (C        a:
+    L30) ا           a:
+      F) ا           a.:
+    L30) ا (C        a:
+      F) ا (C        a.:
          ا (َ         ?
          ا (ُ         ?
          ا (ِ         ?
+      _) ال (P2      %al
       _) ا           a       // make the previous fatha long
          اء          ?       // Carried Hamza
       _) ال (L10P2   ?a      //الشمس
@@ -147,6 +153,7 @@
          بّ           b:
          بّْ           b:
          بْ           b
+      _) ب           b%
       _) بال (L10P3  bi        //بالشمس
       _) بال (L11P3  bil       //بالقمر
       _) بال (تP3    bit
@@ -236,6 +243,7 @@
 
 .group س
          س           s
+      _) س           s%
          س (_        s
          سّ           s:
          سّْ           s:
@@ -296,6 +304,7 @@
          فّ           f:
          فّْ           f:
          فْ           f
+      _) ف           f%
       _) فال (L10P3  fa        //فالشمس
       _) فَال (L10P4  fa
       _) فَالْ (L10P4  fa
@@ -331,6 +340,7 @@
          كّْ           k:
          كْ           k
          ك   (_S1    ka        // الضمير المتصل
+      _) ك           k%
       _) كال (L10P3  ka        //كالشمس
       _) كَال (L10P4  ka
       _) كَالْ (L10P4  ka
@@ -362,6 +372,7 @@
 
 .group ل
          ل           l
+      _) ل           l%
      _ا) ل (L10      '         // Sun letters
     _بِا) ل (L10      '         // Sun letters
     _فَا) ل (L10      '         // Sun letters
@@ -403,7 +414,8 @@
 
 .group و
          و           w
-      C) و           u:        //واو بعد صامت دون تشكيل
+    L30) و           u:
+      F) و           u.:
       ا) و           w         //واو بعد الألف
          و (A        w         //واو بعدها حرف علة
          و (_        w
@@ -412,6 +424,7 @@
          وْ           w
        ْ) و           w         // واو بعد سكون
        َ) و           w         //واو بعد فتحة
+      _) و           w%
       _) و           w         //واو في أول الكلمة
          وء          ?         // Carried Hamza
          وا (_S2     u
@@ -440,7 +453,8 @@
 
 .group ي
          ي           i
-      C) ي           i:        // ياء بعد صامت دون تشكيل
+    L30) ي           i:
+      F) ي           i.:
       ا) ي           j         // ياء بعد ألف
          يّ           i:
          يْ           j
@@ -459,7 +473,8 @@
 
 .group ى                      //ألف مقصورة
          ى           a
-      C) ى (_        a:
+    L30) ى (_        a:
+      F) ى (_        a.:
          ىّ           a:
          ىْ           a
 
@@ -483,27 +498,46 @@
 // Other diacritics
 .group
           َ           a   // fatha
+      F)  َ           a.  // fatha after thick consonant
           َ (C_       =a  // fatha in closed syllable
-          َ (CC_      =a  // ..
+      F)  َ (C_       =a.
+          َ (CC_      =a
+      F)  َ (CC_      =a.
       C)  ٓ           ?   // madda after consonant
           ِ           i   // kasra
+      F)  ِ           i.  // kasra after thick consonant
           ِ (C_       =i  // kasra in closed syllable
-          ِ (CC_      =i  // ..
+      F)  ِ (C_       =i.
+          ِ (CC_      =i
+      F)  ِ (CC_      =i.
           ٍ (_S1      in  // kasratan at the end of word
           ٌ (_S1      un  // dammatan at the end of word
           ُ           u   // damma
+      F)  ُ           u.  // damma after thick consonant
           ُ (C_       =u  // damma in closed syllable
-          ُ (CC_      =u  // ..
+      F)  ُ (C_       =u.
+          ُ (CC_      =u
+      F)  ُ (CC_      =u.
           ٰ           a:  // superscript alef
+      F)  ٰ           a.: // superscript alef after thick consonant
           َا          a:  // fatha+alef
+      F)  َا          a.: // fatha+alef after thick consonant
           ًا (_S2     an  // fathatan+alef at the end of word
+      F)  ًا (_S2     a.n // fathatan+alef at the end of word after thick consonant
           َو          au  // fatha+waw
+      F)  َو          a.u // fatha+waw after thick consonant
           ِو          iw  // kasra+waw
+      F)  ِو          i.w // kasra+waw after thick consonant
           ُو          u:  // damma+waw
+      F)  ُو          u.: // damma+waw after thick consonant
           َى          a:  // fatha+alef maksura
+      F)  َى          a.: // fatha+alef maksura after thick consonant
           َي          ai  // fatha+yeh
+      F)  َي          a.i // fatha+yeh after thick consonant
           ِي          i:  // kasra+yeh
+      F)  ِي          i.: // kasra+yeh after thick consonant
           ُي          ui  // damma+yeh
+      F)  ُي          u.i // damma+yeh after thick consonant
           ّ           :   // shadda
 
 // Following are default rules for other diacritics and they are just silence.

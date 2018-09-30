@@ -1,4 +1,6 @@
-volume 50
+// This is complete duplicate of ar1 file except volume
+// which is lower here to avoid saturation
+volume 14
 
 0   a   :     50   a    a
 0   a   NULL  0    a

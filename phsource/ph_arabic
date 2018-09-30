@@ -10,11 +10,18 @@ phoneme H       // arabic Hah
 endphoneme
 
 phoneme Z      // arabic ZAH
-  vls phr frc
-  ipa ðˤ
-  lengthmod 5
-  voicingswitch z
-  ChangePhoneme (D) // FIXME: vwl_ar/zah wav file is wrong, therefore English D is used
+  vcd dnt frc
+  ipa ð
+  // following definition is taken from English D
+  lengthmod 6
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1290 -300 300 f3=0 0
+  ENDIF
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh)
+  ENDIF
+  FMT(voc/dh) addWav(vocw/dh)
 endphoneme
 
 phoneme A       // arabic Ain
@@ -75,11 +82,7 @@ phoneme a
   ELSE
     length 140
   ENDIF
-  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
-    FMT(vowel/aa_7)
-  ELSE
-    FMT(vowel/a_2)
-  ENDIF
+  FMT(vowel/a_2)
 endphoneme
 
 phoneme i
@@ -89,11 +92,7 @@ phoneme i
   ELSE
     length 140
   ENDIF
-  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
-    FMT(vowel/ii_5)
-  ELSE
-    FMT(vowel/i)
-  ENDIF
+  FMT(vowel/i)
 endphoneme
 
 phoneme u
@@ -103,11 +102,38 @@ phoneme u
   ELSE
     length 140
   ENDIF
-  IF prevPhW  (s[) OR prevPhW (dH) OR prevPhW(t[) OR prevPhW(Z) OR prevPhW(q) THEN
-    FMT(vowel/u_7)
+  FMT(vowel/u)
+endphoneme
+
+// "dark" vowels after "thick" consonants
+phoneme a.
+  vwl starttype #a endtype #a
+  IF nextPhW(isPause) THEN
+    length 80
   ELSE
-    FMT(vowel/u)
+    length 140
   ENDIF
+  FMT(vowel/aa_7)
+endphoneme
+
+phoneme i.
+  vwl starttype #i endtype #i
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme u.
+  vwl starttype #u endtype #u
+  IF nextPhW(isPause) THEN
+    length 80
+  ELSE
+    length 140
+  ENDIF
+  FMT(vowel/u_7)
 endphoneme
 
 phoneme : //  lengthen previous vowel by "length"
