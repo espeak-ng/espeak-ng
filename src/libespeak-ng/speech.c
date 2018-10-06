@@ -348,7 +348,7 @@ ESPEAK_NG_API void espeak_ng_InitializePath(const char *path)
 
 const int param_defaults[N_SPEECH_PARAM] = {
 	0,   // silence (internal use)
-	175, // rate wpm
+	espeakRATE_NORMAL, // rate wpm
 	100, // volume
 	50,  // pitch
 	50,  // range
@@ -397,7 +397,7 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_Initialize(espeak_ng_ERROR_CONTEXT *con
 	for (param = 0; param < N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
 
-	SetParameter(espeakRATE, 175, 0);
+	SetParameter(espeakRATE, espeakRATE_NORMAL, 0);
 	SetParameter(espeakVOLUME, 100, 0);
 	SetParameter(espeakCAPITALS, option_capitals, 0);
 	SetParameter(espeakPUNCTUATION, option_punctuation, 0);

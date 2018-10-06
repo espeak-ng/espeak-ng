@@ -52,7 +52,7 @@ words are provided then text is spoken from stdin a line at a time.
     Pitch adjustment, 0 to 99, default is 50.
 
   * `-s <integer>`:
-    Speed in words per minute, default is 160.
+    Speed in words per minute, default is 175.
 
   * `-v <voice name>`:
     Use voice file of this name from espeak-ng-data/voices. A variant can be
