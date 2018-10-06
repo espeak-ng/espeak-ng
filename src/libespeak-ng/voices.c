@@ -395,9 +395,9 @@ void VoiceReset(int tone_only)
 	voice->samplerate = samplerate_native;
 	memset(voice->klattv, 0, sizeof(voice->klattv));
 
-	speed.fast_settings[0] = 450;
+	speed.fast_settings[0] = espeakRATE_MAXIMUM;
 	speed.fast_settings[1] = 800;
-	speed.fast_settings[2] = 175;
+	speed.fast_settings[2] = espeakRATE_NORMAL;
 
 	voice->roughness = 2;
 
