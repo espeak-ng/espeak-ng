@@ -1,4 +1,8 @@
 #!/bin/sh
+# RMS amplitude limit
+max_rms=0.000015
+# folder for wav files
+wav_folder=tests/wav
 
 # Test a command for presence and ability to output the sha1 hash of a file.
 check_hashcmd() {
@@ -7,6 +11,9 @@ check_hashcmd() {
 	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
 }
 
+# Check for sox and bc
+sox=$(which sox)
+bc=$(which bc)
 # Test some common commands to find the correct one for the system being tested on.
 echo -n "checking for SHA1 hashing command ... "
 if check_hashcmd sha1sum; then
@@ -20,17 +27,38 @@ else
 	exit 1
 fi
 
+if [ -n "$sox" ] && [ -n "$bc" ]; then
+        echo "will use sox and bc"
+else
+        echo "will use $sha1sum"
+fi
+
 test_lang() {
 	TEST_LANG=$1
 	EXPECTED=$2
 	TEST_TEXT=$3
 
 	echo "testing ${TEST_LANG}"
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng --stdout -v ${TEST_LANG} "[[${TEST_TEXT}]]" | \
-		$sha1sum | awk '{ print $1 }' > actual.txt
-	echo "${EXPECTED}" > expected.txt
-	diff expected.txt actual.txt || exit 1
+	if [ -n "$sox" ] && [ -n "$bc" ]; then
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng -v ${TEST_LANG} "[[${TEST_TEXT}]]" -w $wav_folder/.${TEST_LANG}.wav
+		# prepare wav files with inverted amplitude with following line:
+		#$sox -v -1 $wav_folder/$TEST_LANG.wav $wav_folder/$TEST_LANG.inv.wav
+		$sox -m $wav_folder/.$TEST_LANG.wav $wav_folder/$TEST_LANG.inv.wav $wav_folder/.mix.wav
+		rms=$($sox $wav_folder/.mix.wav -n stat 2>&1|grep "RMS     amplitude:"|awk -F":" '{print $2}')
+		if [ $(echo "$rms > $max_rms" |$bc -l) -ne "0" ]; then
+		echo "Please compare $wav_folder/.$TEST_LANG.wav, $wav_folder/$TEST_LANG.inv.wav and $wav_folder/.mix.wav files"
+		exit 1
+		fi
+	else
+		ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+			src/espeak-ng --stdout -v ${TEST_LANG} "[[${TEST_TEXT}]]" | \
+			$sha1sum | awk '{ print $1 }' > actual.txt
+		echo "${EXPECTED}" > expected.txt
+		diff expected.txt actual.txt || exit 1
+	fi
+
+
 }
 
 test_lang af c71ab424d045d9fa82d2a23b9be4542aee3ed15e "ma na Na pa ta ka tSa ba da ga dZa fa sa x2a Sa va za Za ca la ja ra r/a _:_ m@ ma mE mI mO mW mu m& m&: m@L mA: me@ mi mo@ my miu m@U maI mAI meI mOI moI muI mYy mY@ maU me: mO: m3: mA~ me~ mo~"

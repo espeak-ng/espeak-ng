@@ -88,6 +88,7 @@ libespeak-ng-test.so*
 tests/libfuzzrunner.a
 tests/libfuzzrunner.la
 tests/libfuzzrunner.so*
+tests/wav/.*
 
 # build output
 
