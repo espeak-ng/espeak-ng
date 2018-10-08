@@ -2,4 +2,3 @@ name Lojban
 language jbo
 
 speed 80   // speed adjustment, percentage
-letterVowel y
