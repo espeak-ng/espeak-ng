@@ -43,6 +43,7 @@ static pthread_cond_t my_cond_stop_is_required;
 static bool my_stop_is_required = false;
 static pthread_cond_t my_cond_stop_is_acknowledged;
 static bool my_stop_is_acknowledged = false;
+static bool my_terminate_is_required = 0;
 // my_thread: polls the audio duration and compares it to the duration of the first event.
 static pthread_t my_thread;
 static bool thread_inited;
@@ -253,13 +254,13 @@ static void *polling_thread(void *p)
 {
 	(void)p; // unused
 
-	while (1) {
+	while (my_terminate_is_required) {
 		bool a_stop_is_required = false;
 
 		(void)pthread_mutex_lock(&my_mutex);
 		my_event_is_running = false;
 
-		while (my_start_is_required == false) {
+		while (my_start_is_required == false && my_terminate_is_required == false) {
 			while ((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
 				continue; // Restart when interrupted by handler
 		}
@@ -271,7 +272,7 @@ static void *polling_thread(void *p)
 		pthread_mutex_unlock(&my_mutex);
 
 		// In this loop, my_event_is_running = true
-		while (head && (a_stop_is_required == false)) {
+		while (head && (a_stop_is_required == false) && (my_terminate_is_required == false)) {
 			espeak_EVENT *event = (espeak_EVENT *)(head->data);
 			assert(event);
 
@@ -304,7 +305,7 @@ static void *polling_thread(void *p)
 
 		(void)pthread_mutex_unlock(&my_mutex);
 
-		if (a_stop_is_required == true) {
+		if (a_stop_is_required == true || my_terminate_is_required == true) {
 			// no mutex required since the stop command is synchronous
 			// and waiting for my_cond_stop_is_acknowledged
 			init();
@@ -384,8 +385,12 @@ static void init()
 void event_terminate()
 {
 	if (thread_inited) {
-		pthread_cancel(my_thread);
+		my_terminate_is_required = true;
+		pthread_cond_signal(&my_cond_start_is_required);
+		pthread_cond_signal(&my_cond_stop_is_required);
 		pthread_join(my_thread, NULL);
+		my_terminate_is_required = false;
+
 		pthread_mutex_destroy(&my_mutex);
 		pthread_cond_destroy(&my_cond_start_is_required);
 		pthread_cond_destroy(&my_cond_stop_is_required);

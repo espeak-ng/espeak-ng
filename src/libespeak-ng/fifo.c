@@ -46,6 +46,7 @@ static pthread_mutex_t my_mutex;
 static bool my_command_is_running = false;
 static pthread_cond_t my_cond_command_is_running;
 static bool my_stop_is_required = false;
+static bool my_terminate_is_required = 0;
 
 // my_thread: reads commands from the fifo, and runs them.
 static pthread_t my_thread;
@@ -290,7 +291,7 @@ static void *say_thread(void *p)
 
 	bool look_for_inactivity = false;
 
-	while (1) {
+	while (!my_terminate_is_required) {
 		bool a_start_is_required = false;
 		if (look_for_inactivity) {
 			a_start_is_required = sleep_until_start_request_or_inactivity();
@@ -303,7 +304,7 @@ static void *say_thread(void *p)
 		assert(!a_status);
 
 		if (!a_start_is_required) {
-			while (my_start_is_required == false) {
+			while (my_start_is_required == false && my_terminate_is_required == false) {
 				while ((pthread_cond_wait(&my_cond_start_is_required, &my_mutex) == -1) && errno == EINTR)
 					continue; // Restart when interrupted by handler
 			}
@@ -315,7 +316,7 @@ static void *say_thread(void *p)
 		assert(-1 != pthread_cond_broadcast(&my_cond_command_is_running));
 		assert(-1 != pthread_mutex_unlock(&my_mutex));
 
-		while (my_command_is_running) {
+		while (my_command_is_running && !my_terminate_is_required) {
 			int a_status = pthread_mutex_lock(&my_mutex);
 			assert(!a_status);
 			t_espeak_command *a_command = (t_espeak_command *)pop();
@@ -336,7 +337,7 @@ static void *say_thread(void *p)
 			}
 		}
 
-		if (my_stop_is_required) {
+		if (my_stop_is_required || my_terminate_is_required) {
 			// no mutex required since the stop command is synchronous
 			// and waiting for my_cond_stop_is_acknowledged
 			init(1);
@@ -437,8 +438,11 @@ static void init(int process_parameters)
 
 void fifo_terminate()
 {
-	pthread_cancel(my_thread);
+	my_terminate_is_required = true;
+	pthread_cond_signal(&my_cond_start_is_required);
 	pthread_join(my_thread, NULL);
+	my_terminate_is_required = false;
+
 	pthread_mutex_destroy(&my_mutex);
 	pthread_cond_destroy(&my_cond_start_is_required);
 	pthread_cond_destroy(&my_cond_stop_is_acknowledged);
