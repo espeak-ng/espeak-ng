@@ -276,9 +276,9 @@ branch when the repository tracked eSpeak releases.
 
 In order to build the Android APK file, you need:
 
-1.  the [Android SDK](http://developer.android.com/sdk/index.html) with API 21 support;
+1.  the [Android Studio](https://developer.android.com/studio/) with API 26 support;
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 2.1 or later.
+3.  Gradle 3.2.1 or later.
 
 In order to use Android Studio, you will also need:
 
@@ -289,10 +289,25 @@ In order to use Android Studio, you will also need:
 1.  Set the location of the Android SDK:
 
         $ export ANDROID_HOME=<path-to-the-android-sdk>
-2.  Build the project:
+(where `<path-to-the-android-sdk>` is your actual path of SDK folder e.g. `/home/user/Android/Sdk`)
+2.  Add location of NDK to the PATH variable:
+
+        $ export PATH=$PATH:<path-to-the-android-ndk>
+(where `<path-to-the-android-ndk>` is your actual path of NDK folder, e.g. `/home/user/Android/Ndk`)
+3. Configure the project:
 
         $ ./autogen.sh
         $ ./configure --with-gradle=<path-to-gradle>
+
+Check that log shows following lines:
+
+        ...
+        gradle (Android):              gradle
+        ndk-build (Android):           yes
+        ...
+`<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
+4. Build the project:
+
         $ make apk-release
 
 This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
