@@ -17,12 +17,14 @@
   - [Dependencies](#dependencies-1)
   - [Building with Gradle](#building-with-gradle)
   - [Signing the APK](#signing-the-apk)
+  - [Opening project in Android Studio](#opening-project-in-android-studio)
   - [Installing](#installing-1)
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [Historical Versions](#historical-versions)
 - [Feedback](#feedback)
 - [License Information](#license-information)
+
 
 ----------
 
@@ -329,6 +331,15 @@ this by:
 
         $ zipalign 4 android/build/outputs/apk/espeak-release-unsigned.apk \
           android/build/outputs/apk/espeak-release-signed.apk
+
+
+### Opening project in Android Studio
+
+To open project in **Android Studio** select **Import project (Gradle, Eclipse ADT, etc)**
+and  select `android` folder of the `espeak-ng` project.
+
+Then select menu **File — Project Structure...**, tab **SDK Location**, field **Android NDK location**
+and set your location of NDK, e.g. `/home/user/Android/Ndk`.
 
 ### Installing
 
