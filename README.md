@@ -321,16 +321,16 @@ this by:
 
 1.  Creating a certificate, if you do not already have one:
 
-        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS]
+        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS] -keyalg RSA -storetype PKCS12
 2. Sign the package using your certificate:
 
         $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
           -keystore [YOUR_CERTIFICATE] \
-          android/build/outputs/apk/espeak-release-unsigned.apk [ALIAS]
+          android/build/outputs/apk/release/espeak-release-unsigned.apk [ALIAS]
 3. Align the apk using the zipalign tool.
 
-        $ zipalign 4 android/build/outputs/apk/espeak-release-unsigned.apk \
-          android/build/outputs/apk/espeak-release-signed.apk
+        $ zipalign 4 android/build/outputs/apk/release/espeak-release-unsigned.apk \
+          android/build/outputs/apk/release/espeak-release-signed.apk
 
 
 ### Opening project in Android Studio
@@ -345,7 +345,7 @@ and set your location of NDK, e.g. `/home/user/Android/Ndk`.
 
 Now, you can install the APK using the `adb` tool:
 
-    $ adb install -r android/build/outputs/apk/espeak-release-signed.apk
+    $ adb install -r android/build/outputs/apk/release/espeak-release-signed.apk
 
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
