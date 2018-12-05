@@ -835,12 +835,12 @@ espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_ext
 endif
 
 zhy: espeak-ng-data/zhy_dict
-dictsource/zhy_list:
-	ln -svf extra/zhy_list dictsource/
+dictsource/zhy_listx:
+	ln -svf extra/zhy_listx dictsource/
 if HAVE_ZHY_EXTENDED_DICTIONARY
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_list dictsource/zhy_emoji
+espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_listx dictsource/zhy_emoji
 else
-espeak-ng-data/zhy_dict: dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
+espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
 endif
 	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
