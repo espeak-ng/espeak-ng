@@ -17,12 +17,14 @@
   - [Dependencies](#dependencies-1)
   - [Building with Gradle](#building-with-gradle)
   - [Signing the APK](#signing-the-apk)
+  - [Opening project in Android Studio](#opening-project-in-android-studio)
   - [Installing](#installing-1)
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [Historical Versions](#historical-versions)
 - [Feedback](#feedback)
 - [License Information](#license-information)
+
 
 ----------
 
@@ -276,9 +278,9 @@ branch when the repository tracked eSpeak releases.
 
 In order to build the Android APK file, you need:
 
-1.  the [Android SDK](http://developer.android.com/sdk/index.html) with API 21 support;
+1.  the [Android Studio](https://developer.android.com/studio/) with API 26 support;
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
-3.  Gradle 2.1 or later.
+3.  Gradle 3.2.1 or later.
 
 In order to use Android Studio, you will also need:
 
@@ -289,10 +291,25 @@ In order to use Android Studio, you will also need:
 1.  Set the location of the Android SDK:
 
         $ export ANDROID_HOME=<path-to-the-android-sdk>
-2.  Build the project:
+(where `<path-to-the-android-sdk>` is your actual path of SDK folder e.g. `/home/user/Android/Sdk`)
+2.  Add location of NDK to the PATH variable:
+
+        $ export PATH=$PATH:<path-to-the-android-ndk>
+(where `<path-to-the-android-ndk>` is your actual path of NDK folder, e.g. `/home/user/Android/Ndk`)
+3. Configure the project:
 
         $ ./autogen.sh
         $ ./configure --with-gradle=<path-to-gradle>
+
+Check that log shows following lines:
+
+        ...
+        gradle (Android):              gradle
+        ndk-build (Android):           yes
+        ...
+`<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
+4. Build the project:
+
         $ make apk-release
 
 This will create an `android/build/outputs/apk/espeak-release-unsigned.apk` file.
@@ -304,22 +321,31 @@ this by:
 
 1.  Creating a certificate, if you do not already have one:
 
-        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS]
+        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS] -keyalg RSA -storetype PKCS12
 2. Sign the package using your certificate:
 
         $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
           -keystore [YOUR_CERTIFICATE] \
-          android/build/outputs/apk/espeak-release-unsigned.apk [ALIAS]
+          android/build/outputs/apk/release/espeak-release-unsigned.apk [ALIAS]
 3. Align the apk using the zipalign tool.
 
-        $ zipalign 4 android/build/outputs/apk/espeak-release-unsigned.apk \
-          android/build/outputs/apk/espeak-release-signed.apk
+        $ zipalign 4 android/build/outputs/apk/release/espeak-release-unsigned.apk \
+          android/build/outputs/apk/release/espeak-release-signed.apk
+
+
+### Opening project in Android Studio
+
+To open project in **Android Studio** select **Import project (Gradle, Eclipse ADT, etc)**
+and  select `android` folder of the `espeak-ng` project.
+
+Then select menu **File — Project Structure...**, tab **SDK Location**, field **Android NDK location**
+and set your location of NDK, e.g. `/home/user/Android/Ndk`.
 
 ### Installing
 
 Now, you can install the APK using the `adb` tool:
 
-    $ adb install -r android/build/outputs/apk/espeak-release-signed.apk
+    $ adb install -r android/build/outputs/apk/release/espeak-release-signed.apk
 
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.

@@ -2,9 +2,10 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.2.1'
     }
 }
 
@@ -12,14 +13,17 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
+    jcenter()
+    google()
 }
 
 dependencies {
-    androidTestCompile 'org.hamcrest:hamcrest-all:1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'org.hamcrest:hamcrest-all:1.3'
 }
 
 android {
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '28.0.3'
     compileSdkVersion 26
 
     defaultConfig {
