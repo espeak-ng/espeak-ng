@@ -254,7 +254,7 @@ static void *polling_thread(void *p)
 {
 	(void)p; // unused
 
-	while (my_terminate_is_required) {
+	while (!my_terminate_is_required) {
 		bool a_stop_is_required = false;
 
 		(void)pthread_mutex_lock(&my_mutex);
