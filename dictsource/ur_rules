@@ -1,4 +1,4 @@
-﻿
+
 // This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal) and Ejaz Shah (Pakistan).
 // This file is UTF8 encoded 
 //  phoneme rules for Urdu
@@ -18,7 +18,6 @@
 ي	ی
 یٰ	ا
 ٰی	ا
-آ	آ
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
@@ -76,7 +75,7 @@
 _) ا	a
 _) او	o:
 _) ای	e:
-	ائ (L02	a:I
+	ائ(L02	'a:I
 	اہ(_	a:H
 	_)اتن(L01	'Itn
 	_) اتر	Ut'aR
@@ -129,8 +128,8 @@ _) ای	e:
 	انقلاب	,InqIl'a:b
 	اصلاح	,Is.l'a:H
 	امداد	,Imd'a:d
-	استعف	Ist'i:f
-	@) ات (_S2	'a:t
+استعف	Ist'i:f
+	L03L03) ات (_S2	'a:t
 	_) انتظ	'Int,Iz.
 	_)اخت(L02ا	,IxtI
 	_)اقت(L02ا	,IqtI
@@ -175,7 +174,7 @@ _) ای	e:
 	_)ادھیڑ	Ud#e:r.
 	_)ارا(د	IRa:
 	_)اونچ	u:nc
-	اں	a~
+	اں	a~:
 	_)انج(L02ا	InJI
 	_)امت(L02ا	ImtI
 	_)انح(L02ا	InHI
@@ -207,9 +206,25 @@ _) ای	e:
 	L05)اح(L04_	a:HI
 	L05)ام(L04_	a:mI
 	L05)اط(L04_	a:tI
+	L05)اس(L04_	a:sI
+	L05)ار(L04_	a:RI
+	L05)اظ(L04_	a:z.I
+	L05)اص(L04_	a:s.I
 	_)اولوال(L06L06L06P6	UlUl
 	_)استاد	Usta:d
 	ائ(L02	aI
+	اٖ	O
+	_)اصطL02ا	Is.tI
+	_)اجرت	UJRat
+	_)اما(م	Ima:
+	_)افتاد	Ufta:d
+	_)افت(L02ا	IftI
+	_)اضط(L02ا	IztI
+	_)امتیاز	Imtja:z
+	_)اسماعیل	Isma:i:l
+	_)اسکندر	IskandaR
+	_)اسکول	Isku:l
+	آ	a:
 
 .group آ
 	آ	a:
@@ -232,6 +247,11 @@ _) ای	e:
 	علیحد	'alEHd
 	عُ	'U
 	عِ	I
+	_)عبادت	Ib'a:dat
+	L03L01L02)ع(_	e:
+	_)عسکر	askaR
+	_)عما(ر	Ima:
+	_)علاق	Ila:q
 
 .group و
 	و	o:
@@ -247,15 +267,17 @@ _) ای	e:
 	L01)و(L01	v
 	وؤ	u:o:
 	_L02L01)و(L02_	vV
+	_)وک(ٹL03	vIk
+	وں	o~:
 
 .group ی
 	ی	e:
 	ی (L01	j
 	ی (_	i:
 	_) ی	jV
-	یع(_	i:
+	L03L02)یع(_	i:
 	@) ی	i:
-	@) یں (_	e~
+	@) یں (_	e~:
 	یّ	j:
 	@) یت (_S2	i:;'at
 	_) یو	jO
@@ -266,6 +288,7 @@ _) ای	e:
 	L03)یک(ٹ	e:k
 	L03L01)یا(_S2	ja:
 	L03)یشنل(_	e:Snal
+	_L02)یاIa:
 
 .group ے		// yeh barree
 	ے	e:
@@ -325,6 +348,11 @@ _) ای	e:
 	_)بوا(ئ	boa:
 	_)بزدل	bUzdIl
 	_)بال(L06L06L06P3	bIl
+	_)بنیاد	bUni;a:d
+	_)بیم	bi:m
+	_)بیوقوف	be:vaqu:f
+	_)بلند	bUland
+	_)بہشت	baHISt
 
 
 .group پ
@@ -343,6 +371,9 @@ _) ای	e:
 	پھونک	p#'u:nk
 	_) پور (L01	p'u:R
 	_)پچھل(L01	pIc#l
+	_)پہن(L01	pEHn
+	_)پہ(L02_	pEHE
+	_)پران(L01	pURa:n
 
 .group ت
 	ت	tV
@@ -366,6 +397,7 @@ _) ای	e:
 	_) توا	t'ava:
 	تہ(_	ta
 	_)تصور	tas.av:UR
+	_)تحریر	tEHRi:R
 
 .group ٹ
 	ٹ	t.V
@@ -404,6 +436,11 @@ _) ای	e:
 	_) جہ (L02	J'EH
 	_) جدا	J'Uda:
 	_)جذب	JaDb
+	_)جھک	J#Uk
+	_)جنگجو	JangJu:
+	_)جھلمل	J#IlmIl
+	_)جماعت	Jama:t
+	_)جسم	JIsm
 
 .group چ
 	چ	cV
@@ -425,6 +462,7 @@ _) ای	e:
 	حکومت	H,Uku:m'at
 	حکمران	H,UkmaR'a:n
 	_) حوال	Hav'a:l
+	_)حمایت	HIm'a:jat
 
 
 	حّ	H:V
@@ -444,6 +482,9 @@ _) ای	e:
 	_) خیا	x'aja:
 	_)خوا	xva:
 	_)خدا	xUda:
+	_)خوب	xu:b
+	خبردار	xabaRda:R
+	_)خاموش	xa:mo:S
 
 
 .group د
@@ -468,6 +509,10 @@ _) ای	e:
 	_) دیت	de:t
 	دہ(_	da
 	_)دشمن	dUSman
+	_)دلکش	dIlkaS
+	دریافت	daRja:ft
+	_)دعا	dUa:
+	_)دودھ	du:d#
 
 .group ڈ
 	ڈ	d.V
@@ -499,6 +544,8 @@ _) ای	e:
 	_) رکن	R'Ukn
 	@) ر (د	R
 	_)رفت	Raft
+	_)روی(L03	Ravai
+	_)رشوت	RISvat
 
 .group ڑ
 	ڑ	r.V
@@ -511,8 +558,8 @@ _) ای	e:
 .group ز
 	ز	zV
 	ز (L01	z
-	زّ	zzV
-	زّ (L01	zz
+	زّ	z:V
+	زّ (L01	z:
 	_) زند	z'Ind
 	_) زہ (L02	z'EH
 	_) زلزل	z,alz'al
@@ -543,9 +590,10 @@ _) ای	e:
 	سیدھ	s'i:d#
 	سیاست	sja:s'at
 	سرگرم	s,aRg'aRm
-	L03L02) ستان (_	Ist'a:n
+	L03L02)ستان(_	Ista:n
 	L02) ستانی (_	Ist'a:ni
 	_)س(ٹL01L03	s
+	_)
 
 .group ش
 	ش	SV
@@ -563,6 +611,7 @@ _) ای	e:
 	_)شمار	SUma:R
 	L03)شنز(_	Sanz
 	شعور	Sau:R
+	_)ششدر	SaSdaR
 
 .group ص
 	ص	s.V
@@ -570,6 +619,8 @@ _) ای	e:
 	صّ	ssV
 	صّ (L01	ss
 	صوب	s.'u:b
+	_)صنف	s.Inf
+	_)صفت	s.Ifat
 
 .group ض
 	ض	zV
@@ -616,6 +667,7 @@ _) ای	e:
 	قاعد	q'a:jd
 	_) قسط	q'Ist
 	_) قیا	q'aja:
+	_)قصور	qUs.u:R
 
 .group ک
 	ک	kV
@@ -630,14 +682,22 @@ _) ای	e:
 	_) کہ (L02	k'EH
 	کارکن	k'a:Rk,Un
 	_)کردار	kIRda:R
+	_)کہن(L01	kEHn
+	_)کہت(L01	kEHt
+	_)کمزور	kamzo:R
+	_)کرسک	kaRsak
+	_)کھج	k#UJ
+	_)کھجور	k#aJu:R
+	_)کھچ	k#Ic
+	_)کھد(L01	k#Ud
 
 .group گ
 	گ	gV
 	گھ	g#V
 	گ (L01	g
 	گھ (L01	g#
-	گّ	ggV
-	گّ (L01	gg
+	گّ	g:V
+	گّ (L01	g:
 	_) گرفت	g'IRIft
 	_) گزر	gUz'aR
 	_) گزر (L01	gUzR
@@ -649,6 +709,11 @@ _) ای	e:
 	گزارش	gUz'a:RIS
 	_) گیت	g'i:t
 	_)گزار	gUza:R
+	_)گورنر	gavaRnaR
+	_)گورنمنٹ	gavaRnmant.
+	_)گروپ	gRu:p
+	_)گفت	gUft
+	_)گریڈ	gRe:d.
 
 .group ل
 	ل	lV
@@ -659,6 +724,8 @@ _) ای	e:
 	_) لہ (L02	l'EH
 	_) لیت	le:t
 	_) لین	le:n
+	@)لڈ(_	ld.
+	_)لاہور	la:Ho:R
 
 .group م
 	م	mV
@@ -712,6 +779,23 @@ _) ای	e:
 	_)منصب	mans.ab
 	_)منصف	mUns.If
 	_)منطق	mantIq
+	_)مثال	mIsa:l
+	_)مرغ	mURQ
+	_)مایوس	m'a:ju:s
+	_)مرت(L02L03	mURta
+	_)مبتلا	mUbtIla:
+	_)مقبر	maqbaR
+	_)ماحول	ma:Ho:l
+	_)ملاز(م	mUla:zI
+	_)مذاکر	mUza:kIR
+	_)مجلس	maJlIs
+	_)مست(L02L03	mUsta
+	_)مطلق	mUtlaq
+	_)معاون	mUa:vIn
+	_)معاہد	mUa:HId
+	_)مح(L02L01	mEH
+	_)میٹھ	mi:t.#
+	_)مت(L02L03	mUta
 
 .group ن
 	ن	nV
@@ -720,8 +804,8 @@ _) ای	e:
 	@) ن (د	n
 	@) ن (ب	n
 	@) ن (س	n
-	نّ	nnV
-	نّ (L01	nn
+	نّ	n:V
+	نّ (L01	n:
 	_) نکل	nIk'al
 	_) نکل (L01	nIkl
 	@) ن (چ	n
@@ -746,6 +830,10 @@ _) ای	e:
 	L03L03) نی (_S2	ni:
 	L03L03)نے(_S2	ne:
 	_)نیند	ni:nd
+	_)نقط	nUqt
+	_)نقص	nUqs.
+	@)نٹ(_	nt.
+	@)ن(ج	n
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -770,6 +858,17 @@ _) ای	e:
 	ہ (L02	HV
 	@) ہ (L02L01	H
 	_) ہم (L02L02L02P2	H'am
+	_)ہیر(L01	Hi:R
+	_)ہدایت	HId'a:jat
+
+.group ۃ
+	ۃ	t
+
+.group ٌ
+	ٌ	Un
+
+.group ۓ
+	ۓ	e:
 
 .group ّ
 	ّ	:
@@ -790,6 +889,11 @@ _) ای	e:
 	%	f'i:sVd	//Fisad 	فیصد
 	۔	xatma	//Khatma 	ختمہ
 	؟	sava:li:;a:||nISa:n	//Sawalya Nishan 	سوالیہ نشان
+	؛	vaqfa	//waqfa	وقفہ
+	،	sakta	// 	Sakta سکتہ
+	؏	mIs.Ra:	// 	misra مصرع
+	؎	naz.m||nISa:n	// 	nazm nishan نظم نشان
+
 
 
 .group 0xe0a4  // devanagari
