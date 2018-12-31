@@ -63,11 +63,11 @@ _)اي	e:
 	اً(_S2	'an
 	_) افسر	,afs'aR
 	_) اتفاق	,ItIf'a:q
-	_) ابتدا	'Ibt,Ida:
+	_)ابت(L02ا	IbtI
 	_) اعت	'e:tI
 	_) اضاف	Iz'a:f
 	استثن	,Ist'asn
-	اجتماع	,IJtIm'a:
+	_)اجت(L02ا	IJtI
 	استحصال	,Ist,e:S:'a:l
 	_) امنگ	Um'ang
 	انعام	In'a:m
@@ -87,6 +87,7 @@ _)اي	e:
 	_) اح (L02	'Eh
 	_) است (L02	,IstI
 	_) ارت (L02	,IRtI
+	_)ان(ڊ	In
 
 .group آ
 	آ	a:
@@ -100,7 +101,6 @@ _)اي	e:
 	عنوان	Unv'a:n
 	_) عمر	'UmR
 	L02) عی (_	'ai:
-	علیحد	'alEhd
 	عِ	I
 	عُ	U
 
@@ -122,6 +122,7 @@ _)اي	e:
 	@)ي	i:
 	يٰ	a:
 	ي(_ٿ	e:
+	@)يل(_	jal
 
 .group ے		// yeh barree
 	ے	e:
@@ -164,6 +165,7 @@ _)اي	e:
 .group پ
 	پ	pV
 	پ (L01	p
+	_)پنهنج	pV~HnJ
 
 .group ت
 	ت	t[V
@@ -235,11 +237,10 @@ _)اي	e:
 	خ	xV
 	خ (L01	x
 	@) خ (ت	x
-	خّ	xxV
-	خّ (L01	xx
+	خّ	x:V
+	خّ (L01	x:
 	_) خوش	x'US
 	_) خود	x'Ud
-	_) خیا	x'aja:
 
 
 .group د
@@ -249,7 +250,6 @@ _)اي	e:
 	درخواست	d,aRxv'a:st
 	دیا(_	d'i:;a:
 	درج	d'aRJ
-	دیوا	d'i:va:
 	دفاع	d'Ifa:
 	_) دہ (L02	d'Eh
 	دلچسپ	d,Ilc'asp
@@ -456,9 +456,8 @@ _)اي	e:
 .group م
 	م	mV
 	م (L01	m
-	مّ	mmV
-	مّ (L01	mm
-	مظاہر	mUz.'a:hIR
+	مّ	m:V
+	مّ(L01	m:
 	مسجد	m'asJ,Id
 	مشرق	m'aSR,Iq
 	مقدم	mUq'adm
@@ -484,7 +483,6 @@ _)اي	e:
 	متصل	mUt'as.Il
 	مخبر	m'Uxb,IR
 	ملحق	m'Ulh,Iq
-	مذہب	m,aDh'ab
 
 .group ن
 	ن	nV
@@ -492,20 +490,17 @@ _)اي	e:
 	@) ن (گ	n
 	@) ن (د	n
 	@)ن(ڌ	n
-	@)ن(ڍ	n
+	@)ن(ڊ	n
 	@) ن (ب	n
 	@) ن (س	n
 	نّ	nnV
 	نّ (L01	nn
 	@) ن (چ	n
 	@) ن (پ	n
-	@) نچل	n'Icl
 	نشان	nIS'a:n
-	@) ن (ڈ	n
 	_) نظر	naz.'aR
 	_) نظام	nIz.'a:m
 	_) نہ (L02	n'h
-	L01) نٹ	n't:
 	نھ	nh
 	_) نوا	n'ava:
 	_) نما	n'Uma:

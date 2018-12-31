@@ -65,6 +65,7 @@ updated languages:
 *  lv (Latvian) -- Valdis Vitolins
 *  my (Myanmar/Burmese) -- Min Maung
 *  ru (Russian) -- Valdis Vitolins, Reece Dunn
+*  sd (Sindhi) -- Ejaz Shah
 *  ur (Urdu) -- Ejaz Shah
 
 ### 1.49.2 - 2017-09-24
