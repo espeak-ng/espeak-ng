@@ -1,4 +1,4 @@
-﻿// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal) and Ejaz Shah (Pakistan)
+// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal) and Ejaz Shah (Pakistan)
 // This file is UTF8 encoded 
 // Letter Names, Numbers and  exceptional pronounciation of  Urdu
 
@@ -38,7 +38,7 @@
  ن	nu:n
 _و	va:O
 ہ	He:
-ں	g#Unna
+ں	nu:n||QUn:a
 ﮨ	c#o:ti:||He:
 ھ	dO||caSmi:||He:
 ء	HamzaH
@@ -47,16 +47,42 @@ _و	va:O
 ئ	Hamzaje:
 ۂ	He:h'amza
 ؤ	va:Oh'amza
+ۃ	go:l||te:
+ٌ	do||pe:S
+ۓ	Hamza||bar.i:||je:
+٘	QUn:a||arbi:
+ؐ	salal:a:HU||ale:HI||va||a:lIHi||va||salam
+ﷲ	al:a:H
+ﷺ	dURu:d||salal:a:HU||ale:HI||va||a:lIHi||va||salam
+ٖ	sab||alIf
+ؓ	RaDi:||al:a:HU||anHU
+ؔ	taxal:Us.
+ؒ	RaHmatUl:a:H||alaIH
+ﷻ	JalaJala:laHU:
+٪	fi:||s.ad
+؁	san
+ٔ	Hamza||u:paR
+ؑ	alaIHI||sala:m
+؏	mIs.Ra:
+؎	naz.m||nISa:n
+؃	s.afHa
+﷽	bIsmIl:a:HIR:aHma:nIR:aHi:m
 
+// character names
 َ	z@b@R
 ِ	ze:R
 ُ	pe:S
 ٰ	,alIfmaqs'u:R,a
 ّ	t,aSd'i:d
 ً	d'o:zab'aR
-ْ	sUk'u:n
+ْ	Jazam
 ٗ	Ult.a:||pe:S
 ٓ	mada
+_؛	vaqfa
+_:	Ra:bta
+_،	sakta
+_۔	xatma
+_؟	sava:li:;a:
 
 
 // The numbers
@@ -205,7 +231,7 @@ _dpt	_ISaRI'Ia_
 کے  	$u
 سے 	$u
 
-اور 	aUR	$u $brk
+اور	OR	$u	$pause
 کہ	ke	$only	$u
 نے	$u
 
@@ -215,7 +241,7 @@ _dpt	_ISaRI'Ia_
 تھا 	$u
 تھی 	$u
 تھے 	$u
-تھیں	t#'i:n	$u
+تھیں	t#i~:	$u
 گا	ga:	$u
 گی	gi:	$u
 گے	ge:	$u
@@ -347,7 +373,7 @@ _dpt	_ISaRI'Ia_
 اندسٹری	,Ind.'ast.Ri:
 بخود	b'axUd
 تعین	t'a:jUn
-باعث	b'a:jIs
+باعث	b'a:Is
 کتب	k'UtUb
 بحث	bEHEs
 قسمت	q,Ism'at
@@ -423,7 +449,7 @@ _dpt	_ISaRI'Ia_
 خلاف	xIl'a:f
 برخلاف	b,aRxIl'a:f
 کرکٹر	kRIkIt.'aR
-ذمہ	 D'Im,a
+ذمہ	zIma
 دستخط	d,astx'at
 اجاگر	,UJa:g'aR
 فطرت	f,ItR'at
@@ -999,3 +1025,412 @@ _dpt	_ISaRI'Ia_
 (فیصلہ کن)	fE:s.la||kUn
 لائیو	la:i:v
 گر	gIR
+نصف	nIs.f
+مسرت	mUsaR:at
+سپریم	sUpRi:m
+پختونخوا	paxtu:nxva:
+ایکسپریس	EkspREs
+خواتین	xava:ti:n
+سورج	su:RaJ	$1
+مضر	mUz'IR
+سنہ	san
+برابر	baRa:baR
+کارکردگی	ka:RkaRd@gi:
+زینت	zinat
+فروری	faRvaRi:
+رضوی	RIzvi
+اطلاع	Itla:
+نرگس	naRgIs
+ضائع	za:e:
+کالم	k'a:lam
+دسمبر	dIsambaR
+کلو	kIlo:
+(بات چیت)	ba:t||ci:t
+توقف	tavaq:Uf
+تربیت	taRbi;at
+تربیتی	taRbi;ati
+لباس	lIba:s
+جنھوں	JInHo:n	$u
+کانفرنس	ka:nfRans
+سرکردہ	saRkaRda
+نازک	na:zUk
+وکٹ	vIkIt.
+مابین	ma:bE:n
+نقوش	nUqu:S
+اولمپکس	o:lampIks
+فارمیٹ	fO:RmEt.
+مہوش	mEHvIS
+دیجیے	diJi:;e:
+وڈ	vUd.
+سکیورٹی	sIke:o:RIt.i:
+ذریعے	zaRi:;e:
+درپیش	daRpe:S
+رقص	Raqs.
+میمز	mi:mz
+عروج	URu:J
+غیر	QE:R
+اکاؤنٹس	aka:u:nt.s
+اکاؤنٹ	aka:u:nt.
+ہاؤسنگ	Ha:u:sIng
+(تباہ کن)	taba:H||kUn
+انفراسٹرکچر	InfRa:st.RakcaR
+(مایوس کن)	ma:ju:s||kUn
+(براہ راست)	baRa:He:||Ra:st
+(محمد بن)	mUHam:ad||bIn
+اوپننگ	o:panIng
+بیٹسمین	bEt.smEn
+سکور	sko:R
+لفٹر	lIft.aR	$1
+یونس	ju:nUs
+ملین	mIli;an
+بزنس	bIznIs
+فیچر	f'icaR
+مشتعل	mUStaIl
+ہجوم	HUJu:m
+واقعہ	va:qja
+سرزمین	saRzami:n
+ٹیچنگ	t.'icIng
+سبقت	sabqat
+ورژن	v'aRZan
+(قسم کی)	qIsm||ki
+(قسم کے)	qIsm||ke:
+(قسم کا)	qIsm||ka:
+اظہر	az.HaR
+شروعات	SURu:a:t
+باوجود	ba:vUJu:d
+قابو	qa:bu:
+آصف	a:s.If
+پریس	pRe:s
+ہوا	Hu:a:	$atend
+مقصد	maqs.ad
+بہن	bEHEn
+فرینڈ	fREnd.
+ففتھ	fIft#
+جرمن	J'aRman
+ٹویٹس	t.vi:t.s
+سپیڈ	spi:d.
+سمگلنگ	smaglIng
+ہیلتھ	HElt#
+لاعلم	la:Ilm
+ثابت	sa:bIt
+مرتضیٰ	mURtaza:
+کابل	ka:bUl
+(ملتی جلتی)	mIlti:||JUlti
+پلاسٹک	pla:st.Ik
+شاید	S'a:jad
+وجود	vUJu:d
+لاپتہ	la:pata
+(طالب علم)	ta:lIbe:||Ilm
+غفور	Qafu:R
+تعاقب	ta:qUb
+کاوش	ka:vIS
+پریکٹس	pREkt.Is
+(ملتے جلتے)	mIlte:||JUlte
+(ملتا جلتا)	mIlta:||JUlta:
+مینیجمنٹ	mEnEJmant.
+بھگو	b#Igo:
+مشن	mISan
+روبوٹک	Ro:bo:t.Ik
+جنوری	JanvaRi:
+پیرس	pERIs
+ہیرو	Hi:Ro:
+برٹش	bRIt.IS
+مائیکروسافٹ	ma:ikRo:sOft.
+ہلچل	Halcal
+معیشت	maiSat
+قتل	qatl
+ترکی	tURki:
+میلز	me:lz
+(ہیرا پھیری)	He:Ra||p#e:Ri
+بدبخت	badbaxt
+بدبختوں	badbaxto:n
+سکواش	skva:S
+شہرۂ	SOHRae:
+ٹائٹلز	t.a:It.alz
+(بری طرح)	bURi||taRa:H
+فرانس	fRa:ns
+(رد عمل)	Rade:||amal
+افراط	IfRa:t
+افراطی	IfRa:ti
+(افراط زر)	IfRa:te:||zaR
+بدترین	badtaRi:n
+بدتر	badtaR
+واضح	va:zEH
+ہنر	HUnaR
+ہنرمند	HUnaRmand
+ہنرمندی	HUnaRmandi
+عزم	azm
+سرفراز	saRfaRa:z
+فارم	fa:Rm
+کیسز	ke:sIz
+کرسمس	kRIsmas
+ہیکنگ	He:kIng
+واقعات	va:qe:a:t
+کینیڈین	kEne:d.i;an
+برہنہ	baRHana
+آرٹسٹس	a:Rt.Ist.s
+آرٹسٹک	a:Rt.Ist.Ik
+ایڈیٹنگ	e:d.it.Ing
+حکام	HUka:m
+کانگریس	ka:ngRe:s
+جشن	JaSn
+سکینڈل	ske:nd.al
+وننگ	v'InIng
+مشورہ	maSvaRa
+قدر	qadR
+کیے	ki:;e:
+لیے	li:;e:
+لیا	li:;a:
+صنعت	s.anat
+چھڑ	c#Ir.
+مخل	mUxIl
+خطہ	xIta
+قبل	qabl
+کنگ	kIng
+مشق	maSq
+دہ	dEH
+سکول	sku:l
+نسل	nasl
+فریقین	faRi:q'E:n
+سکولوں	sk'u:lo:n
+(حزب اختلاف)	Hizbe:||IxtIla:f
+خدشات	xadSa:t
+(اقوام متحدہ)	aqva:me:||mUtaHIda
+پولیو	p'o:li:;o:
+شمس	Sams
+قبضہ	qabza
+وہیں	vaHi:n
+مصنوعات	mas.nu:a:t
+مندر	mandIR
+مطلب	matlab
+مطلبی	matlabi:
+فورسز	fo:RsIz
+سرگزشتوں	saRgUzaSto:n
+سرگم	saRgam
+مہیا	mUHai:;a:
+چرخ	caRx
+حرف	HaRf
+حشر	HaSR
+فرش	faRS
+ضمن	zImn
+ضمنی	zImni:
+پولیس	pUli:s
+(خیر مقدم)	xER||maqdam
+پرفضا	pURfaza:
+امن	amn
+مسٹر	mIst.aR
+اطلاعات	Itla:t
+نفاذ	nIfa:z
+اشتعال	IStIa:l
+متواتر	mUtava:tIR
+ذریعہ	zaRi:;a
+اساتذہ	asa:tza
+رحم	REHEm
+وسعت	vUsat
+چہرہ	cEhRa
+ہمیشہ	Hame:Sa
+(ارد گرد)	IRd||gIRd
+سرتوڑ	saRto:r.
+سرجوڑ	saRJo:r.
+سرپھرے	saRp#IRe:
+مرتب	mURat:ab	$only
+(زیر انتظام)	ze:Re:||IntIz.a:m
+تصادم	tas.a:dUm
+میڈیا	m'i:d.i:;a:
+گروہ	gIRo:H
+لہذا	lIHa:za:
+بدتمیز	badtami:z
+عقل	aql
+شہد	SEHEd
+مذمت	mazam:at
+اطمینان	Itmina:n
+اطمینانی	Itmina:ni:
+اطہر	atHaR
+وغیرہ	vaQE:Ra
+کرن	kIRan
+ممتحن	mUmtaHIn
+گیر	gi:R
+گیروں	gi:Ro:n
+گیری	gi:Ri:
+چیرہ	ci:Ra
+بلی	bIl:i:
+آسٹریلیا	a:st.Re:li:;a:
+(چکی ہے)	cUki:||HE
+غصہ	QUs.:a
+غصے	QUs.e:
+اعجاز	IJa:z
+تنوع	tanavo
+(گمراہ کن)	gUmRa:H||kUn
+شائع	Sa:ja
+شایع	Sa:ja
+لہر	lEHER
+کمرشل	kamaRSal
+ترک	taRk
+ہدیٰ	HUda:
+کتابت	kIta:bat
+مڑ	mUr.
+عمیر	Ume:R
+عمیرہ	Ume:Ra
+نشر	naSR
+دلت	dalIt
+(فرد جرم)	farde:||JURm
+منعقدہ	mUnaqIda
+دیدار	di:da:R
+رخشندگی	RaxSIndagi:
+رخشندہ	RaxSInda
+مارکیٹنگ	maRkit.Ing
+پلیٹ	ple:t.
+پلیٹوں	ple:t.o:n
+پلیٹیں	ple:t.e~
+ارتعاش	IRtIa:S
+ارتعاشی	IRtIa:Si:
+نقش	naqS
+نقشہ	naqSa
+(فی اللہ)	fIl:a:H
+(فی الوقت)	fIlvaqt
+(فی الفور)	fIlfO:R
+(فی کس)	fi:||kas
+منشیات	mUnaSi:;a:t
+یونیورسٹی	ju:ni:vaRsIt.i:
+موقعے	mo:qe:
+(قابل ذکر)	qa:bIle:||zIkR
+روپ	Ru:p
+فضول	fUzu:l
+(بلا مقابلہ)	bIla:||mUqa:bIla
+سہیل	sUHe:l
+الیون	Ile:van
+خنکی	xUnki:
+یونین	ju:ni:an
+تبصم	tabas.:Um
+جزو	JUzv
+جزوی	JUzvi:
+طلوع	tUlu:
+لمحہ	lamHa
+طور	tO:R
+ٹرانسپورٹ	t.Ra:nspo:Rt.
+امور	Umu:R
+دلی	dIli:
+پہلو	pEHlu:
+کرنل	kaRnal
+کرنٹ	kaRant.
+ترازو	taRa:zu:
+امجد	amJad
+عضو	Uzv
+قبر	qabR
+قواعد	qava:Id
+ہندو	HIndu:
+جنتا	Janta:
+کرپشن	kaRapSan
+کشکول	kaSko:l
+طلوعِ	tUlu:e:
+کینہ	ki:na
+پروری	paRvaRi:
+پروروں	paRvaRo:n
+چرخہ	caRxa
+کھد	k#Ud
+بازو	b'a:zu:
+(بازی گر)	ba:zi:||gaR
+مردہ	mURda
+تکلم	takal:Um
+دلوں	dIlo:n
+دلیں	dIle~
+وصل	vas.l
+دماغ	dIma:Q
+دماغی	dIma:Qi:
+دلہن	dUlHan
+چاندنی	ca:ndni:
+ٹکٹ	t.IkIt.
+قطبی	qUtbi:
+دانت	da:nt
+(دور دورہ)	dO:R||dO:Ra
+(دوران خون)	dORa:ne:||xu:n
+موومنٹ	mu:vmant.
+دمشق	damISq
+اسرائیل	IsRa:i:l
+اسرائیلی	IsRa:i:li:
+اسلحہ	aslaHa
+اسلحے	aslaHe:
+آتشیں	a:tISi~
+اسم	Ism
+استرے	UstRe:
+ادرک	adRak
+تحفہ	tO:fa
+گدھ	gId#
+شطرنج	SatRanJ
+شطرنجی	SatRanJi:
+بابر	ba:baR
+توازن	tava:zUn
+متوازن	mUtava:zIn
+پہ	pe:
+محیط	mUHi:t
+محیطی	mUHi:ti:
+کینو	ki:nu:
+جادو	Ja:du:
+عدت	Id:at
+معاونت	mUa:vInat
+عرف	URf
+اسلم	aslam
+بحیثیت	baH'Esi:;at
+چیئرمین	ce:aRmEn
+جھجوڑ	J#anJo:r.
+متنازع	mUtana:ze:
+دفعہ	dafa:
+عاطف	a:tIf
+جنون	JUnu:n
+جنونی	JUnu:ni:
+ذمے	zIme:
+ذو	zu:
+فنون	fUnu:n
+فنونی	fUnu:ni:
+(فنون لطیفہ)	fUnu:ne:||lati:fa
+فوقتاً	favaqtan
+عظمت	az.mat
+(ذمہ دار)	zIme:||da:R
+(ذمہ دارانہ)	zIme:||da:Ra:na
+(ذمہ داری)	zIme:||da:Ri:
+اجر	aJR
+ذمی	zImi:
+بدقسمت	badqIsmat
+بدگمان	badgUma:n
+(حسن اتفاق)	HUsne:||ItIfa:q
+(حسن اخلاق)	HUsne:||axla:q
+(حسن ادا)	HUsne:||ada:
+(حسن اظہار)	HUsne:||Iz.Ha:R
+لہٰذا	lIHa:za:
+رجحان	RUJHa:n
+دھول	d#u:l
+لپسٹک	lIpst.Ik
+(نعم البدل)	ne:mUlbadal
+نعم	ne:m
+آخرت	a:xIRat
+بہل	bEHEl
+بہم	baHam
+بہک	bEHEk
+بیج	bi:J
+بیجوں	bi:Jo~:
+چشم	caSm
+رابطہ	Ra:bta
+لمحات	lamHa:t
+ہوتیں	Ho:ti~:
+انڈسٹری	Ind.ast.Ri:
+کفایت	kIfa:jat
+شعار	SIa:R
+ورکر	vaRkaR
+واشنگٹن	va:SIngt.an
+مرض	maRz
+سٹی	sIt.i:
+قرض	qaRz
+نفرت	nafRat
+(ہوا کہ)	Hu:a:||ke:
+قلعوں	qIlo~:
+پلوٹو	plu:t.o:
+پسندیدہ	pasandi:da
+سیکس	se:ks
+برتری	baRtaRi:
+اہل	EHEl
+(پریشان کن)	paRe:Sa:n||kUn
+کسان	kIsa:n
+کسانوں	kIsa:no~:
+دھواں	d#u:a~:
+گوگل	gu:gUl
+متنوع	mUtanave:
