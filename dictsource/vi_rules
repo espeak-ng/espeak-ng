@@ -81,7 +81,7 @@ ỵ	ỵ
 //================================
 .L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve ge r
 .L02 n a
-.L03 t ch nh
+.L03 ch nh
 .L04 a u ă â o ô á à ả ã ạ ù ú ủ ũ ụ ắ ằ ẳ ẵ ặ ấ ầ ẩ ẫ ậ ó ò ỏ õ ọ ố ồ ổ ỗ ộ ư ứ ừ ử ữ ự ơ ớ ờ ở ỡ ợ
 .group b
         b          b
@@ -93,8 +93,8 @@ ỵ	ỵ
 .group c
         c          g         //k
         c (C       _^_EN
-        c (_       kh
-     _) ch         tS;       // try [tS;] [tS] [c] c     
+        c (_       c
+     _) ch         tS       // try [tS;] [tS] [c] c     
 ?2   _) ch         c
 ?1   _) ch         c         
         ch (_      c         
@@ -209,7 +209,7 @@ ỵ	ỵ
  
 
 .group k
-     _) k          k
+     _) k          g
      _) kh         x
         //kh         x
         k (_       _^_EN
@@ -266,9 +266,9 @@ ỵ	ỵ
  
 
 .group q
-        q          k
+        q          g
         q (_       kh
-        qu         w         //kw
+        qu         gw         //kw
         
  
         
@@ -286,7 +286,7 @@ ỵ	ỵ
  
 
 .group s
-        s          s.        // try [s.] [s] [S]
+        s          s       // try [s.] [s] [S]
         
  
      _) sh         _^_EN
@@ -390,7 +390,7 @@ ỵ	ỵ
         a (L01     _^_EN
         ai (L02    _^_EN
         a (@       _^_EN
-        
+        a (L03     a
  
 
 .group à
@@ -470,7 +470,7 @@ ỵ	ỵ
 
 .group ắ
         ắ          a3
-        
+        ắk          a3c
  
         
  
@@ -777,7 +777,7 @@ ỵ	ỵ
         oả         o@4
         oã         o@5
         oạ         o@6
-        oo         o@
+        oo         O
         oi         OI
         oì         OI2
         oí         OI3
@@ -799,6 +799,7 @@ ỵ	ỵ
         oẳ         o@4
         oẵ         o@5
         oặ         o@6
+		oc		   O#c
 
 .group ò
         ò          O2
@@ -819,7 +820,7 @@ ỵ	ỵ
         óa         o@3       //ó (A       w3
         óng        O#3
         óe         o&3
-        
+        óc		   O#3c
  
         
  
@@ -858,7 +859,7 @@ ỵ	ỵ
         ọa         o@6       //ọ (A       w6
         ọng        O#6
         ọe         o&6
-        
+        ọc		   O#6c
  
         
  
