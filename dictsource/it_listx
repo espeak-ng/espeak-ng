@@ -1277,7 +1277,8 @@ doma	$alt
 domandone	$3
 domenic	$alt2
 domicili	$3
-domin $1
+domini	$2
+domino	$1
 domusnovas  $alt
 don  $alt2
 dondolio	$3
@@ -1578,6 +1579,7 @@ feltr  $alt2
 feltre  $alt2
 femin $1  $alt2
 femmin $1
+femminicidi	$4
 femminile $3
 femore $1  $alt
 fenicotter  $alt
@@ -2714,7 +2716,6 @@ ot  $alt
 otre  $alt2
 ottaedr  $alt
 ottagon $2
-ottenere $3  $alt2
 ottic  $alt
 ottim  $alt
 ottoboni  $alt
@@ -2827,6 +2828,8 @@ pelot  $alt
 pemfig  $1 $alt
 pena	$alt2
 pend  $alt2
+pendice	$2
+pendici	$2
 pendio $2
 pendol  $alt
 pendul  $alt

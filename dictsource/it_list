@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2018 september  13 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2019 febbruary  3 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -13,7 +13,7 @@ _a	a:
 b	bi
 c	tSi
 d	d['i:
-_e	E:
+_e	e:
 f	'Effe
 g	dZi
 h	ak:a
@@ -723,7 +723,7 @@ avemmo	$u2+ $verbf
 aveste	$u2+
 ebbero	$u1+
 
-avevo	$u2+   $alt $verbf
+avevo	$u2+	$verbf
 avevi	$u2+	$verbf
 aveva	$u2+	$verbf
 avevamo	$3	$verbf
@@ -983,6 +983,7 @@ hardware	'a:*d[||we@-*
 hi	h'aI	$only
 highlander	aIl'a/Nde@-*
 hitler	$1
+hola	'O:la
 home	hO:m
 homepage	h'Om||p'EjdZ $onlys
 hooligan	'u:ligan $onlys
@@ -1671,7 +1672,7 @@ sottopotere	$4
 sottotono	$3
 sovratono	$3
 specifici	$2
-spie	sp'ie
+spie	sp'i:e
 sproposit	$2
 stasera	st,a||s'eRa
 steatosi	$3 $alt
@@ -2277,6 +2278,7 @@ aristofane $3
 ariston	$1
 aristotele $3
 arlene	a@-*l'E:n
+armeli	$2
 armida	$2
 asdrubale	$2
 asimov	'azim,ov
@@ -2284,6 +2286,7 @@ asterix	$1
 audacity	awd'asiti
 augias	a'u:dZas
 avirex	$1
+bach	b'a:k	$only
 bardot	ba@-*d'o
 bartali	$1
 basile	$2
@@ -2567,6 +2570,7 @@ Rosemarie	@-*'ozm,a*i
 ryanair	@-*'aIaneR
 sànchez	s'antSets
 sánchez	s'antSets
+santamaria	s,anta||maR'ia
 saša	s'aSa/
 saddam	$2
 salemi  $alt
@@ -3437,6 +3441,7 @@ formino	$1 $alt2
 formulano	$1
 forviano	$1 $alt2
 forzino	$1
+fottiti	$1
 fotografano	$2
 franino	$1
 frantumano	$2
@@ -3904,6 +3909,7 @@ ossidano	$1
 ossigenano	$2
 ostacolano	$2
 ostacolino	$2
+ottenere	ot:en'eRe
 ovviano	$1
 ovvino	$1
 paghino	$1
@@ -4388,6 +4394,7 @@ seguitano	$1
 seguito	s'e:gwito	$noun
 sembrano	$1
 sembrino	$1
+sent	s'ent
 sensibilizzino	$4
 separano	$2
 separino	$2
@@ -4453,6 +4460,7 @@ smercino	$1
 sniffano	$1
 snocciolano	$1
 snodano	$1
+so	s'O	$only
 socializzino	$3
 soddisfano	$2
 soddisfino	$2
@@ -4798,6 +4806,7 @@ zuccherano	$1
 (chi capita)	ki||k'a:pita
 (dove capita)	dove||k'apita
 (non capita)	non||k'a:pita
+(questo capita)	kw,esto||k'apita
 (volte capita)	v,Olte||k'a:p,ita
 (quando capita)	kw'ando||k'apita
 (se capita)	se||k'a:pita
@@ -4830,6 +4839,7 @@ zuccherano	$1
 (quando desideri)	kwando||_|dez'i:deRi
 (quale desideri)	kw2ale||dez'i:deRi
 (quindi desideri)	kw,indi||_dez'i:deRi
+(tutto quanto)	t,ut:okw'anto
 ch'era	k'E*a
 ch'erano	k'E*ano
 
@@ -5086,4 +5096,3 @@ suol	sU'Ol
 saran	$2	$only
 tender	$1
 tener	$2	$alt2 $only
-
