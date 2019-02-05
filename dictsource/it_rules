@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2018 september 13 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2019 febbruary 3 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -48,7 +48,7 @@
 	abb) assa (L07_	'assa
 	_L04Z) auguri (_	'awguRI
 	astano (_	'astano   // verbs
-
+	ass) aggia (L07_	'adZ:a/
 .group à
 	à	''a
 	ài (K	''aI
@@ -177,8 +177,8 @@
 	e (ssa_	e
 	e (tr	E
 	e (ti	E
-	e (vi_	E
-	e (vo_	E
+	e (vA_	E
+	av) ev (A_+	ev
 	@) e (volA_	'e
 	e (zA	E
 	CC) eggia (no_	'EdZ:a
@@ -369,6 +369,7 @@
 	@A) lo (gA_	=lo
 	@A) lo (ghY_	=lo
 	_) l' (P2t	l
+	scu) laccia (L07_	l'atS:a/
 	lasciati (_	l,a/S'atI
 		lascia (L07_	l'aSa
 	_) lecca (L07_	l'ek:a
@@ -512,6 +513,7 @@
 	tera) pi (A_	p'i
 	tro) pi (A_	p'i
 	pensa (L07_	p'Ensa
+	premer (L04_	p@-*'Eme@-*
 
 .group q
 	q	k
@@ -758,4 +760,5 @@
         A_)  - (_D        _
 	C_)  - (_D        _
 	's (_S2t	s
+
 
