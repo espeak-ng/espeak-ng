@@ -59,7 +59,11 @@ phoneme a
 	ELSE
 	length 140
 	ENDIF
-	  FMT(vowel/a_4)  //a_4)
+	IF nextPh(N) OR nextPh(c) THEN
+	FMT(vnasal/a_n)
+	ELSE
+	FMT(vowel/a_4)  //a_4)
+	ENDIF
 endphoneme
 
 phoneme a:
