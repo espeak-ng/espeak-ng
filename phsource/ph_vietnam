@@ -72,6 +72,8 @@ phoneme a:
 	length 240
 	ELIF nextPh(n^) OR nextPh(c) THEN
   length 100
+  ELIF nextPh(N) THEN
+  length 200
   ELSE
   length 140 //200
   ENDIF
@@ -215,7 +217,7 @@ phoneme aI
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/&i_2)
 endphoneme
@@ -247,7 +249,7 @@ phoneme eI
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/ei)
 endphoneme
@@ -258,7 +260,7 @@ phoneme EI
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/eei)
 endphoneme
@@ -298,7 +300,7 @@ phoneme aU
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/aau_4)
 endphoneme
@@ -309,7 +311,7 @@ phoneme a:U
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/au)
 endphoneme
@@ -320,7 +322,7 @@ phoneme eU
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/eu)
 endphoneme
@@ -331,7 +333,7 @@ phoneme EU
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/eeu)
 endphoneme
@@ -341,7 +343,7 @@ phoneme iU
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph2/iu)
 endphoneme
@@ -351,7 +353,7 @@ phoneme @U
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/@u_3)
 endphoneme
@@ -361,7 +363,7 @@ phoneme @:U
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/@u)
 endphoneme
@@ -373,7 +375,7 @@ phoneme i@
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph2/ii@_3)
 endphoneme
@@ -383,7 +385,7 @@ phoneme y@
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph2/y-y#)
 endphoneme
@@ -393,7 +395,7 @@ phoneme u@
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph2/uu@)
 endphoneme
@@ -405,7 +407,7 @@ phoneme o# // ông
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vnasal/a#u_n)
 endphoneme
@@ -415,7 +417,7 @@ phoneme O# // ong
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vnasal/&u_n)
 endphoneme
@@ -426,7 +428,7 @@ phoneme o@
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph2/oa)
 endphoneme
@@ -436,7 +438,7 @@ phoneme o&
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vietnam/oe)
 endphoneme
@@ -446,7 +448,7 @@ phoneme iE // iê : viết, giệc
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vietnam/ie_2)
 endphoneme
@@ -456,7 +458,7 @@ phoneme Oi // oai sound
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 200
 	ENDIF
   FMT(vdiph/ooi_3)
 endphoneme
