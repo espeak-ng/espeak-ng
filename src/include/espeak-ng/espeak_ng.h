@@ -120,6 +120,9 @@ ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetVoiceByName(const char *name);
 
 ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetVoiceByFile(const char *filename);
+
+ESPEAK_NG_API espeak_ng_STATUS
 espeak_ng_SetVoiceByProperties(espeak_VOICE *voice_selector);
 
 ESPEAK_NG_API espeak_ng_STATUS
