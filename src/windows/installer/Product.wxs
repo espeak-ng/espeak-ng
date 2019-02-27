@@ -30,11 +30,20 @@
       <Feature Id="lang_af" Title="Afrikaans" Level="1">
         <ComponentGroupRef Id="LangAfrikaans"/>
       </Feature>
+      <Feature Id="lang_sq" Title="Albanian" Level="1">
+        <ComponentGroupRef Id="LangAlbanian"/>
+      </Feature>
       <Feature Id="lang_am" Title="Amharic" Level="1">
         <ComponentGroupRef Id="LangAmharic"/>
       </Feature>
       <Feature Id="lang_an" Title="Aragonese" Level="1">
         <ComponentGroupRef Id="LangAragonese"/>
+      </Feature>
+      <Feature Id="lang_hy" Title="Armenian" Level="1">
+        <ComponentGroupRef Id="LangArmenian"/>
+      </Feature>
+      <Feature Id="lang_hy_arevmda" Title="Armenian (West)" Level="1">
+        <ComponentGroupRef Id="LangArmenianWest"/>
       </Feature>
       <Feature Id="lang_as" Title="Assamese" Level="1">
         <ComponentGroupRef Id="LangAssamese"/>
@@ -432,6 +441,9 @@
             <Component Id="hu_dict" Win64="$(var.Win64)" Guid="550541C4-3773-4645-AFF5-6882AFA17447">
               <File Name="hu_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hu_dict" KeyPath="yes"/>
             </Component>
+            <Component Id="hy_dict" Win64="$(var.Win64)" Guid="7E08F7D6-810F-419B-A51D-E4ACF700BB65">
+              <File Name="hy_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\hy_dict" KeyPath="yes"/>
+            </Component>
             <Component Id="ia_dict" Win64="$(var.Win64)" Guid="04878221-9088-41E4-B1A2-9F86C5587A24">
               <File Name="ia_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ia_dict" KeyPath="yes"/>
             </Component>
@@ -539,6 +551,9 @@
             </Component>
             <Component Id="sl_dict" Win64="$(var.Win64)" Guid="7675BC74-41F9-420E-88F8-C49A1FF84807">
               <File Name="sl_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sl_dict" KeyPath="yes"/>
+            </Component>
+            <Component Id="sq_dict" Win64="$(var.Win64)" Guid="A68FC90B-0AF4-4AC5-A56A-D189D9782137">
+              <File Name="sq_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sq_dict" KeyPath="yes"/>
             </Component>
             <Component Id="sr_dict" Win64="$(var.Win64)" Guid="84838B7C-8222-4A8B-96C0-3C1D41876847">
               <File Name="sr_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\sr_dict" KeyPath="yes"/>
@@ -752,6 +767,17 @@
                   <File Name="ur" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\inc\ur" KeyPath="yes"/>
                 </Component>
               </Directory>
+              <Directory Id="INE" Name="ine">
+                <Component Id="hy" Win64="$(var.Win64)" Guid="8AC34F47-61FD-4918-AEC9-4FBDC9E90AD1">
+                  <File Name="hy" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ine\hy" KeyPath="yes"/>
+                </Component>
+                <Component Id="hy_arevmda" Win64="$(var.Win64)" Guid="E7510729-A886-4BCD-A616-9B4D74D8BA43">
+                  <File Name="hy-arevmda" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ine\hy-arevmda" KeyPath="yes"/>
+                </Component>
+                <Component Id="sq" Win64="$(var.Win64)" Guid="80790CCF-4B20-4AC3-A19F-72890470D4F5">
+                  <File Name="sq" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ine\sq" KeyPath="yes"/>
+                </Component>
+              </Directory>
               <Directory Id="IRA" Name="ira">
                 <Component Id="fa" Win64="$(var.Win64)" Guid="14E33743-FDEF-40BD-9CE2-E5EDFA4C4887">
                   <File Name="fa" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ira\fa" KeyPath="yes"/>
@@ -921,6 +947,10 @@
       <ComponentRef Id="af"/>
       <ComponentRef Id="af_dict"/>
     </ComponentGroup>
+    <ComponentGroup Id="LangAlbanian">
+      <ComponentRef Id="sq"/>
+      <ComponentRef Id="sq_dict"/>
+    </ComponentGroup>
     <ComponentGroup Id="LangAmharic">
       <ComponentRef Id="am"/>
       <ComponentRef Id="am_dict"/>
@@ -928,6 +958,14 @@
     <ComponentGroup Id="LangAragonese">
       <ComponentRef Id="an"/>
       <ComponentRef Id="an_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangArmenian">
+      <ComponentRef Id="hy"/>
+      <ComponentRef Id="hy_dict"/>
+    </ComponentGroup>
+    <ComponentGroup Id="LangArmenianWest">
+      <ComponentRef Id="hy_arevmda"/>
+      <ComponentRef Id="hy_dict"/>
     </ComponentGroup>
     <ComponentGroup Id="LangAssamese">
       <ComponentRef Id="as"/>

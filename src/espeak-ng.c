@@ -327,7 +327,7 @@ int main(int argc, char **argv)
 	FILE *f_text = NULL;
 	char *p_text = NULL;
 	FILE *f_phonemes_out = stdout;
-	char *data_path = "E:\\Programming\\espeak-ng\\espeak-ng-data"; // use default path for espeak-ng-data
+	char *data_path = NULL; // use default path for espeak-ng-data
 
 	int option_index = 0;
 	int c;
@@ -340,7 +340,7 @@ int main(int argc, char **argv)
 	int synth_flags = espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE;
 
 	int volume = -1;
-	int speed = 160;
+	int speed = -1;
 	int pitch = -1;
 	int wordgap = -1;
 	int option_capitals = -1;
@@ -352,12 +352,12 @@ int main(int argc, char **argv)
 
 	espeak_VOICE voice_select;
 	char filename[200];
-	char voicename[40] = "vi";
+	char voicename[40];
 	char devicename[200];
 	#define N_PUNCTLIST 100
 	wchar_t option_punctlist[N_PUNCTLIST];
 
-	//voicename[0] = 0;
+	voicename[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
 	devicename[0] = 0;
@@ -371,7 +371,7 @@ int main(int argc, char **argv)
 		if (c == -1)
 			break;
 		optarg2 = optarg;
-		
+
 		switch (c)
 		{
 		case 'b':

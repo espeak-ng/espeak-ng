@@ -135,9 +135,6 @@
     <ClCompile Include="..\libespeak-ng\phoneme.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\libespeak-ng\ssml.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
