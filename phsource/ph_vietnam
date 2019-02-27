@@ -57,7 +57,7 @@ phoneme a
   	IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
 	IF nextPh(N) OR nextPh(c) THEN
 	FMT(vnasal/a_n)
@@ -75,7 +75,7 @@ phoneme a:
   ELIF nextPh(N) THEN
   length 200
   ELSE
-  length 140 //200
+  length 180 //200
   ENDIF
     FMT(vowel/a_8)
 endphoneme
@@ -86,7 +86,7 @@ phoneme E
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/e_e)   //ee_3)
 endphoneme
@@ -96,7 +96,7 @@ phoneme e
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/e)
 endphoneme
@@ -115,7 +115,7 @@ phoneme i
   length 100
   FMT(vnasal/ii_n)
   ELSE
-  length 140
+  length 180
 FMT(vowel/i_4)
 ENDIF
 endphoneme
@@ -128,7 +128,7 @@ phoneme O
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
     FMT(vdiph2/o_oo) //vowel/oo)
 endphoneme
@@ -140,7 +140,7 @@ phoneme O+
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
     FMT(vowel/o) //vowel/oo)
 endphoneme
@@ -152,7 +152,7 @@ phoneme o
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/o)  // o_2)
 endphoneme
@@ -165,7 +165,7 @@ phoneme u
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vnasal/u_n,60) //vowel/u_5)
 endphoneme
@@ -177,7 +177,7 @@ phoneme y
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/u#_5)
 endphoneme
@@ -191,7 +191,7 @@ phoneme @
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/V)   //vowel/@_2)
 endphoneme
@@ -202,7 +202,7 @@ phoneme @:
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/@_2)
 endphoneme
@@ -470,7 +470,7 @@ phoneme O- // ôi southern sound
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vnasal/oi_n)
 endphoneme
@@ -480,7 +480,7 @@ phoneme @- // ơi southern sound
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vdiph/@i_3)
 endphoneme
@@ -490,7 +490,7 @@ phoneme u- // u southern sound
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 140
+	length 180
 	ENDIF
   FMT(vowel/u_3,70)
 endphoneme
