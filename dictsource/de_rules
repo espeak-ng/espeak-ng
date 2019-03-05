@@ -898,6 +898,7 @@ formal) ie         =I@
         nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
+        notwend	no:tvEnd
         nuance     ny:'A~s@
 
 .group o
@@ -1099,6 +1100,7 @@ schenk	SENk
         st (art    St
         st (ä      St
         st (eh     St
+        st (off	St
         st (ö      St
         st (rich   St
         st (ü      St
@@ -1136,6 +1138,7 @@ schenk	SENk
         soldat     z%OldA:t
      &) so (rt_    s_|O
         summe      zUm@
+        synaps	zy:n'aps
 
         speed      _^_EN
   stau) ss         s
