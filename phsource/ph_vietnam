@@ -511,6 +511,13 @@ phoneme k
     WAV(ustop/c)
 endphoneme
 
+phoneme N // si**ng** 
+  vcd vel nas
+  Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  lengthmod 8            // longer than 'n'
+  FMT(n/nr_)
+endphoneme
+
 phoneme l
   liquid
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80 len=15
