@@ -92,7 +92,7 @@ ỵ	ỵ
  
 
 .group c
-        c          g         //k
+        c          k         //k
         c (C       _^_EN
         c (_       c
      _) ch         tS       // try [tS;] [tS] [c] c     
@@ -101,7 +101,7 @@ ỵ	ỵ
         ch (_      c         
         ce (_      _^_EN
      _) cl         _^_EN
-	    c (L05			kh
+	    // c (L05			kh
     		
  
  
@@ -208,7 +208,7 @@ ỵ	ỵ
  
 
 .group k
-     _) k          g
+     _) k          k
      _) kh         x
         //kh         x
         k (_       _^_EN
@@ -265,9 +265,9 @@ ỵ	ỵ
  
 
 .group q
-        q          g
-        q (_       kh
-        qu         khw         //kw
+        q          k
+        q (_       k
+        qu         kw         //kw
         
  
         
@@ -1317,8 +1317,8 @@ ỵ	ỵ
  
 
 .group
-        %          f'@2n||cr'am
-        !          _:c'@3m_|t'a:7n_:
+        %          f'@2n||tS'am
+        !          _:tS'@3m_|t'a:7n_:
         ! (\!      
 //            :            koUl@n
     D_) h (_DD_    D'@:2     // omit colon in time, eg: 2:30
@@ -1330,12 +1330,12 @@ ỵ	ỵ
  
         
  
-    __) - (_D      cr'y2
+    __) - (_D      tS'y2
     A_) - (_D      _
     C_) - (_D      _
         
  
-        .          c'@3m_
+        .          tS'@3m_
         . (.       _:
     \.) .          
         
