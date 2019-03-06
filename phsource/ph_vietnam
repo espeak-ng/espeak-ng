@@ -514,7 +514,10 @@ endphoneme
 phoneme N // si**ng** 
   vcd vel nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
-  lengthmod 8            // longer than 'n'
+  lengthmod 12            // longer than 'n'
+  IF prevPhW(isVowel) AND prev2PhW(isVowel) THEN
+	length 160
+  ENDIF
   FMT(n/nr_)
 endphoneme
 
