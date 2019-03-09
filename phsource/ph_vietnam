@@ -416,6 +416,8 @@ phoneme O# // ong
   vwl  starttype #o  endtype #o
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
+	ELIF nextPh(k) THEN
+	length 140
 	ELSE
 	length 200
 	ENDIF
