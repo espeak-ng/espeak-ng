@@ -25,7 +25,8 @@ _.	pUNkt
 @	'Et
 ~	tIld@
 \ 	bEkslES
-
+€	OYro:
+°	grA:d
 _,	kOmA:
 _|	St'A:b
 _:	d'Op@lp,UNkt
@@ -611,11 +612,13 @@ word		_^_EN
 //=====================
 abort           ab'Ort
 absentier       apzEnt'i:r
+absolut	$3
 abstinent        $3
 accessoire	asEsw'A:r
 achso           axz'o:
 adress	$2
 akazie           $alt
+akkord	$2
 alarm	$2
 allein           $2
 allgemein	'alg@maIn
@@ -643,6 +646,7 @@ bebung	b'e:bUN
 baguette	bag'Et
 balkan           $1
 balkon           $2
+balance	bal'A~s
 bandagier       bandaZ'i:r
 beben           be:b@n
 beere           be:r@
@@ -655,6 +659,7 @@ bibliothek	bi:bli:o:t'e:k
 bisschen	b'IsC@n
 bizarr           $2
 blamage		$alt
+bourgeoisie	bUrZwAz'i:
 braille	braIj
 bronchie         $alt
 buch            b'u:x
@@ -689,6 +694,7 @@ dragier         draZ'i:r
 dritte          drIt@
 dschungel	dZ'UN@l
 duett           du:'Et
+düst	dy:st
 
 ebendaher       e:b@ndah'e:r
 ebendahin       e:b@ndah'In
@@ -870,6 +876,7 @@ rupie            $alt
 sabbat          zabat
 sagt            zA:gt
 salopp           $2
+sarkasmus	$2
 schieberegler	S'i:b@re:gl3
 schokolad	$3
 schreibung	Sr'aIbUN
@@ -896,8 +903,8 @@ stalagmit       stalagm'It
 subjekt		$1
 
 tag             tA:g
+teint	t'W~
 telegen         te:le:g'e:n
-temporär	$3
 terrain	tEr'W~
 the             D@         // English
 theater         te:'A:t3
@@ -905,6 +912,7 @@ tja		tjA:
 tonnage		$alt
 tragödie	$alt
 train           tre:n
+trapez	$2
 trolley	tr'Oli:
 trost	tr'o:st
 tsunami		tsu:n'A:mi:
@@ -945,6 +953,7 @@ zymbal		$1
 
 // Names
 Armin	$1
+chopin	SOp'W~
 Djakarta	dZak'artA:
 Djibouti	dZi:b'u:ti:
 Fruecht	fr'yCt
