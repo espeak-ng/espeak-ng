@@ -77,7 +77,8 @@ phoneme a:
   ELSE
   length 180 //200
   ENDIF
-    FMT(vowel/a_8)
+    // FMT(vowel/a_8)
+	FMT(vietnam/a_2)
 endphoneme
 
 
