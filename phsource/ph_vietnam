@@ -62,7 +62,8 @@ phoneme a
 	IF nextPh(N) OR nextPh(c) THEN
 	FMT(vnasal/a_n)
 	ELSE
-	FMT(vietnam/a)  //a_4)
+	//FMT(vietnam/a)  //a_4)
+	FMT(vietnam/a_x)
 	ENDIF
 endphoneme
 
