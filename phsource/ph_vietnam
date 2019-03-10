@@ -100,7 +100,8 @@ phoneme e
 	ELSE
 	length 180
 	ENDIF
-  FMT(vowel/e)
+//  FMT(vowel/e)
+	FMT(vietnam/e)
 endphoneme
 
 
