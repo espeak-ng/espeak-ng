@@ -81,8 +81,9 @@ ỵ	ỵ
 //================================
 .L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve ge r
 .L02 n a
-.L03 t ch nh
+.L03 ch nh
 .L04 a u ă â o ô á à ả ã ạ ù ú ủ ũ ụ ắ ằ ẳ ẵ ặ ấ ầ ẩ ẫ ậ ó ò ỏ õ ọ ố ồ ổ ỗ ộ ư ứ ừ ử ữ ự ơ ớ ờ ở ỡ ợ
+.L05 o ó ò ỏ õ ọ ô ố ồ ộ ỗ ổ
 .group b
         b          b
      _) b          _b
@@ -91,20 +92,18 @@ ỵ	ỵ
  
 
 .group c
-        c          g         //k
+        c          k         //k
         c (C       _^_EN
-        c (_       kh
-     _) ch         tS;       // try [tS;] [tS] [c] c     
+        c (_       c
+     _) ch         tS       // try [tS;] [tS] [c] c     
 ?2   _) ch         c
 ?1   _) ch         c         
         ch (_      c         
         ce (_      _^_EN
      _) cl         _^_EN
-        
+	    // c (L05			kh
+    		
  
-        
- 
-        
  
 
 .group d
@@ -267,8 +266,8 @@ ỵ	ỵ
 
 .group q
         q          k
-        q (_       kh
-        qu         w         //kw
+        q (_       k
+        qu         kw         //kw
         
  
         
@@ -286,7 +285,7 @@ ỵ	ỵ
  
 
 .group s
-        s          s.        // try [s.] [s] [S]
+        s          s       // try [s.] [s] [S]
         
  
      _) sh         _^_EN
@@ -390,7 +389,7 @@ ỵ	ỵ
         a (L01     _^_EN
         ai (L02    _^_EN
         a (@       _^_EN
-        
+        a (L03     a
  
 
 .group à
@@ -470,7 +469,7 @@ ỵ	ỵ
 
 .group ắ
         ắ          a3
-        
+        ắk          a3c
  
         
  
@@ -777,7 +776,7 @@ ỵ	ỵ
         oả         o@4
         oã         o@5
         oạ         o@6
-        oo         o@
+        oo         O
         oi         OI
         oì         OI2
         oí         OI3
@@ -799,6 +798,7 @@ ỵ	ỵ
         oẳ         o@4
         oẵ         o@5
         oặ         o@6
+		oc		   O#k
 
 .group ò
         ò          O2
@@ -819,7 +819,7 @@ ỵ	ỵ
         óa         o@3       //ó (A       w3
         óng        O#3
         óe         o&3
-        
+        óc		   O#3k
  
         
  
@@ -858,7 +858,7 @@ ỵ	ỵ
         ọa         o@6       //ọ (A       w6
         ọng        O#6
         ọe         o&6
-        
+        ọc		   O#6k
  
         
  
@@ -994,7 +994,7 @@ ỵ	ỵ
 
 .group u
         u          u
-        u (A       w
+        u (A       u
      A) u          w
         ui         uI
         uì         uI2
@@ -1030,7 +1030,8 @@ ỵ	ỵ
 
 .group ù
         ù          u2
-        ù (A       w2
+        ù (A       u2
+		ùy         ui2
         ùi         uI2
         ùa         u@2
 		//ùng        u#2
@@ -1042,7 +1043,8 @@ ỵ	ỵ
 
 .group ú
         ú          u3
-        ú (A       w3
+        ú (A       u3
+		úy		   ui3
         úi         uI3
         úa         u@3
 		//úng        u#3
@@ -1054,7 +1056,8 @@ ỵ	ỵ
 
 .group ủ
         ủ          u4
-        ủ (A       w4
+        ủ (A       u4
+		ủy  	   ui4
         ủi         uI4
         ủa         u@4
 		//ủng        u#4
@@ -1066,7 +1069,8 @@ ỵ	ỵ
 
 .group ũ
         ũ          u5
-        ũ (A       w5
+        ũ (A       u5
+		ũy         ui5
         ũi         uI5
         ũa         u@5
 		//ũng        u#5
@@ -1078,7 +1082,8 @@ ỵ	ỵ
 
 .group ụ
         ụ          u6
-        ụ (A       w6
+        ụ (A       u6
+		ụy         ui6
         ụi         uI6
         ụa         u@6
 		//ụng        u#6
@@ -1317,8 +1322,8 @@ ỵ	ỵ
  
 
 .group
-        %          f'@2n||cr'am
-        !          _:c'@3m_|t'a:7n_:
+        %          f'@2n||tS'am
+        !          _:tS'@3m_|t'a:7n_:
         ! (\!      
 //            :            koUl@n
     D_) h (_DD_    D'@:2     // omit colon in time, eg: 2:30
@@ -1330,12 +1335,12 @@ ỵ	ỵ
  
         
  
-    __) - (_D      cr'y2
+    __) - (_D      tS'y2
     A_) - (_D      _
     C_) - (_D      _
         
  
-        .          c'@3m_
+        .          tS'@3m_
         . (.       _:
     \.) .          
         

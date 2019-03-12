@@ -252,6 +252,7 @@ _) ای	e:
 	_)عسکر	askaR
 	_)عما(ر	Ima:
 	_)علاق	Ila:q
+	_)عموم	Umu:m
 
 .group و
 	و	o:
@@ -260,7 +261,8 @@ _) ای	e:
 	و (L01	v
 	_) و	vV
 	 وع (_	u:
-	وّ	v:
+	وّ	v:V
+	وّ(L01	v:
 	_L02L06L02)و(L02	u:
 	L02) ونکہ (_	u:nk'e:H
 	_L02)و(L01	av
@@ -353,6 +355,7 @@ _) ای	e:
 	_)بیوقوف	be:vaqu:f
 	_)بلند	bUland
 	_)بہشت	baHISt
+	بْ	b
 
 
 .group پ
@@ -374,6 +377,8 @@ _) ای	e:
 	_)پہن(L01	pEHn
 	_)پہ(L02_	pEHE
 	_)پران(L01	pURa:n
+	پْ	p
+	_)پرند	paRInd
 
 .group ت
 	ت	tV
@@ -398,6 +403,7 @@ _) ای	e:
 	تہ(_	ta
 	_)تصور	tas.av:UR
 	_)تحریر	tEHRi:R
+	تْ	t
 
 .group ٹ
 	ٹ	t.V
@@ -411,13 +417,15 @@ _) ای	e:
 	_) ٹہ (L02	t.'EH
 	_) ٹرین	t.R'e:n
 	_) ٹیم	t.i:m
+	ٹْ	t.
 
 
 .group ث
 	ث	sV
 	ث (L01	s
-	ثّ	ssV
-ثّ (L01	ss
+	ثّ	s:V
+	ثّ(L01	s:
+	ثْ	s
 
 
 .group ج
@@ -441,6 +449,8 @@ _) ای	e:
 	_)جھلمل	J#IlmIl
 	_)جماعت	Jama:t
 	_)جسم	JIsm
+	جْ	J
+	_)جتن(L01	JItn
 
 .group چ
 	چ	cV
@@ -453,6 +463,7 @@ _) ای	e:
 	_) چہ (L02	c'EH
 	_) چیز	c'i:z
 	_) چوم	c'u:m
+	چْ	c
 
 .group ح
 	ح	HV
@@ -463,6 +474,7 @@ _) ای	e:
 	حکمران	H,UkmaR'a:n
 	_) حوال	Hav'a:l
 	_)حمایت	HIm'a:jat
+	حْ	H
 
 
 	حّ	H:V
@@ -485,6 +497,7 @@ _) ای	e:
 	_)خوب	xu:b
 	خبردار	xabaRda:R
 	_)خاموش	xa:mo:S
+	خْ	x
 
 
 .group د
@@ -513,22 +526,25 @@ _) ای	e:
 	دریافت	daRja:ft
 	_)دعا	dUa:
 	_)دودھ	du:d#
+	دْ	d
 
 .group ڈ
 	ڈ	d.V
 	ڈھ	d.#V
 	ڈ (L01	d.
 	ڈھ (L01	d.#
-	ڈّ	d.d.V
-	ڈّ (L01	d.d.
+	ڈّ	d.:V
+	ڈّ(L01	d.:
 	ڈھونڈ	d.#'u:nd.
 	@) ڈز (_	d.z
 	ڈرائیور	d.R'a:jvaR
+	ڈْ	d.
 
 .group ذ
 	ذ	zV
 	ذ (L01	z
 	_) ذہ (L02	z'EH
+	ذْ	z
 
 .group ر
 	ر	RV
@@ -546,6 +562,7 @@ _) ای	e:
 	_)رفت	Raft
 	_)روی(L03	Ravai
 	_)رشوت	RISvat
+	رْ	R
 
 .group ڑ
 	ڑ	r.V
@@ -554,6 +571,7 @@ _) ای	e:
 	ڑّ (L01	r.r.
 	ڑھ	r.hV
 	ڑھ (L01	r.h
+	ڑْ	r.
 
 .group ز
 	ز	zV
@@ -563,10 +581,12 @@ _) ای	e:
 	_) زند	z'Ind
 	_) زہ (L02	z'EH
 	_) زلزل	z,alz'al
+	زْ	z
 
 .group ژ
 	ژ	ZV
 	ژ (L01	Z
+	ژْ	Z
 
 .group س
 	س	sV
@@ -593,7 +613,7 @@ _) ای	e:
 	L03L02)ستان(_	Ista:n
 	L02) ستانی (_	Ist'a:ni
 	_)س(ٹL01L03	s
-	_)
+	سْ	s
 
 .group ش
 	ش	SV
@@ -604,7 +624,7 @@ _) ای	e:
 	شاعر	Sa:'a:IR
 	_) شعرا	S'ORa:
 	_) شعل	S'Ol
-	@)شت	St
+	@)ش(ت	S
 	_) شخص	S'axs.
 	_) شہ (L02	S'EH
 	شرمند	S,aRm'Ind
@@ -612,15 +632,17 @@ _) ای	e:
 	L03)شنز(_	Sanz
 	شعور	Sau:R
 	_)ششدر	SaSdaR
+	شْ	S
 
 .group ص
 	ص	s.V
 	ص (L01	s.
-	صّ	ssV
-	صّ (L01	ss
+	صّ	s.:V
+	صّ (L01	s.:
 	صوب	s.'u:b
 	_)صنف	s.Inf
 	_)صفت	s.Ifat
+	صْ	s.
 
 .group ض
 	ض	zV
@@ -628,26 +650,31 @@ _) ای	e:
 	ضّ	z:v
 	ضّ (L01	z:
 	ضرور	zaRu:R
+	ضْ	z
 
 .group ط
 	ط	tV
 	طھ	t#V
 		ط (L01	t
 	طھ (L01	t#
-	طّ	ttV
-	طّ (L01	tt
+	طّ	t:V
+	طّ (L01	t:
+	طْ	t
 
 .group ظ
 	ظ	z.V
 	ظ (L01	z.
-	ظّ	z.z.V
-	ظّ (L01	z.z.
+	ظّ	z.:V
+	ظّ (L01	z.:
+	ظْ	z.
 
 .group غ
 	غ	QV
 	غ (L01	Q
-	غّ	QQV
-	غّ (L01	QQ
+	غّ	Q:V
+	غّ (L01	Q:
+	غْ	Q
+	_)غذا	QIza:
 
 .group ف
 	ف	fV
@@ -658,16 +685,18 @@ _) ای	e:
 	_) فہ (L02	f'EH
 	فلم	f'Ilm
 	_)فریب	faRe:b
+	فْ	f
 
 .group ق
 	ق	qV
 	ق (L01	q
-	قّ	qqV
-	قّ (L01	qq
+	قّ	q:V
+	قّ (L01	q:
 	قاعد	q'a:jd
 	_) قسط	q'Ist
 	_) قیا	q'aja:
 	_)قصور	qUs.u:R
+	قْ	q
 
 .group ک
 	ک	kV
@@ -690,6 +719,8 @@ _) ای	e:
 	_)کھجور	k#aJu:R
 	_)کھچ	k#Ic
 	_)کھد(L01	k#Ud
+	کْ	k
+	_)کیڑ	ki:r.
 
 .group گ
 	گ	gV
@@ -714,6 +745,7 @@ _) ای	e:
 	_)گروپ	gRu:p
 	_)گفت	gUft
 	_)گریڈ	gRe:d.
+	گْ	g
 
 .group ل
 	ل	lV
@@ -726,6 +758,7 @@ _) ای	e:
 	_) لین	le:n
 	@)لڈ(_	ld.
 	_)لاہور	la:Ho:R
+	لْ	l
 
 .group م
 	م	mV
@@ -796,6 +829,8 @@ _) ای	e:
 	_)مح(L02L01	mEH
 	_)میٹھ	mi:t.#
 	_)مت(L02L03	mUta
+	مْ	m
+	_)مراد	mURa:d
 
 .group ن
 	ن	nV
@@ -834,6 +869,8 @@ _) ای	e:
 	_)نقص	nUqs.
 	@)نٹ(_	nt.
 	@)ن(ج	n
+	نْ	n
+	_)نثار	nIsa:R
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -860,6 +897,8 @@ _) ای	e:
 	_) ہم (L02L02L02P2	H'am
 	_)ہیر(L01	Hi:R
 	_)ہدایت	HId'a:jat
+	ہْ	H
+	_)ہجرت	HIJRat
 
 .group ۃ
 	ۃ	t
@@ -872,6 +911,15 @@ _) ای	e:
 
 .group ّ
 	ّ	:
+
+.group ْ
+	ْ	
+
+.group ٖ
+	ٖ	a
+
+.group ٔ
+	ٔ	
 
 .group ً
 	ً	an

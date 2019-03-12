@@ -67,6 +67,7 @@ updated languages:
 *  ru (Russian) -- Valdis Vitolins, Reece Dunn
 *  sd (Sindhi) -- Ejaz Shah
 *  ur (Urdu) -- Ejaz Shah
+*  vi (Vietnamese) -- Anh Hoang Nguyen
 
 ### 1.49.2 - 2017-09-24
 
