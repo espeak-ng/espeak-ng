@@ -524,7 +524,7 @@ phoneme N // si**ng**
   IF prevPhW(isVowel) AND prev2PhW(isVowel) THEN
 	length 160
   ENDIF
-  FMT(n/nr_)
+  FMT(n/nm)
 endphoneme
 
 phoneme l
@@ -606,3 +606,12 @@ phoneme t[        // dental variant of /t/
   WAV(ustop/t_hi, 70)
 endphoneme
 
+phoneme w
+  liquid
+  lengthmod 3
+  starttype #u
+  
+  IF nextPh(isVowel) THEN
+    FMT(vnasal/u_n, 60)
+  ENDIF
+endphoneme
