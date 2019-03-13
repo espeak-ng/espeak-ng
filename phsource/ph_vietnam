@@ -62,8 +62,8 @@ phoneme a
 	IF nextPh(N) OR nextPh(c) THEN
 	FMT(vnasal/a_n)
 	ELSE
-	//FMT(vietnam/a)  //a_4)
-	FMT(vietnam/a_x)
+	FMT(vietnam/a)  //a_4)
+	//FMT(vietnam/a_x)
 	ENDIF
 endphoneme
 
@@ -78,8 +78,8 @@ phoneme a:
   ELSE
   length 180 //200
   ENDIF
-    // FMT(vowel/a_8)
-	FMT(vietnam/a_2)
+    FMT(vowel/a_8)
+	//FMT(vietnam/a_2)
 endphoneme
 
 
@@ -524,7 +524,7 @@ phoneme N // si**ng**
   IF prevPhW(isVowel) AND prev2PhW(isVowel) THEN
 	length 160
   ENDIF
-  FMT(n/nm)
+  FMT(n/nr_)
 endphoneme
 
 phoneme l
