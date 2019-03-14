@@ -2,7 +2,7 @@ name Vietnamese (Northern)
 language vi
 
 words 1
-pitch 80 160
+pitch 90 170
 
 formant 1 87 82 76
 formant 2 94 56 42
@@ -13,4 +13,4 @@ formant 6  40 50 50
 formant 7 60 50 60
 formant 8 100 50 40
 
-tone 900 125  1600 100 2400 80
+tone 900 225  1600 200 2400 150
