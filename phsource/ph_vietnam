@@ -593,17 +593,27 @@ phoneme p
 endphoneme
 
 phoneme t[        // dental variant of /t/
-  vls dnt stp
-  voicingswitch d[
-  lengthmod 2
-  length 5
-  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
-  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
+  IF thisPh(isWordEnd) THEN
+	vls alv stp
+	voicingswitch d
+	lengthmod 2
+	length 5
+	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
+	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
+	WAV(ustop/t, 50)
+  ELSE
+	vls dnt stp
+	voicingswitch d[
+	lengthmod 2
+	length 5
+	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
+	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
 
-  IF nextPh(isPause2) THEN
-    WAV(ustop/t_unasp2, 5)
+	IF nextPh(isPause2) THEN
+	WAV(ustop/t_unasp2, 5)
+	ENDIF
+	WAV(ustop/t_hi, 70)
   ENDIF
-  WAV(ustop/t_hi, 70)
 endphoneme
 
 phoneme w
