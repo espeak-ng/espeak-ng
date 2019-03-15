@@ -84,6 +84,7 @@ ỵ	ỵ
 .L03 ch nh
 .L04 a u ă â o ô á à ả ã ạ ù ú ủ ũ ụ ắ ằ ẳ ẵ ặ ấ ầ ẩ ẫ ậ ó ò ỏ õ ọ ố ồ ổ ỗ ộ ư ứ ừ ử ữ ự ơ ớ ờ ở ỡ ợ
 .L05 o ó ò ỏ õ ọ ô ố ồ ộ ỗ ổ
+
 .group b
         b          b
      _) b          _b
@@ -267,7 +268,13 @@ ỵ	ỵ
 .group q
         q          k
         q (_       k
-        qu         kw         //kw
+		qu         kw         //kw
+		quô         ku@
+        quồ         ku@2
+        quố         ku@3
+        quổ         ku@4
+        quỗ         ku@5
+        quộ         ku@6
         
  
         
@@ -1025,7 +1032,6 @@ ỵ	ỵ
         u (@       _^_EN
        // ua (L01    _^_EN
 ?2      u          u-        
-     t) u (A       u
  
 
 .group ù
