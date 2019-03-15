@@ -110,13 +110,32 @@ endphoneme
 
 phoneme e
   vwl starttype #e endtype #e
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 114
+  ELIF nextPhW(t) THEN
+	length 126
+  ELIF nextPhW(c) THEN
+	length 140
+  ELIF nextPhW(n^) THEN
+	length 120
+  ELIF nextPhW(m) THEN
+	length 148
+  ELIF nextPhW(n) THEN
+	length 163
+  ELIF nextPhW(N) THEN
+	length 115
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
-//  FMT(vowel/e)
+  ENDIF
+  IF nextPh(n^) THEN
+	FMT(vowel/e)
+  ELSE
 	FMT(vietnam/e)
+  ENDIF	
 endphoneme
 
 
