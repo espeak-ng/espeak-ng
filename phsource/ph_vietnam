@@ -111,15 +111,29 @@ phoneme i
   IF prevPhW(w) THEN
     VowelStart(w/wi)
   ENDIF
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 131
+  ELIF nextPhW(t) THEN
+	length 113
+  ELIF nextPhW(c) OR nextPhW(n^) THEN
+	length 72
+  ELIF nextPhW(m) THEN
+	length 120
+  ELIF nextPhW(n) THEN
+	length 128
+  ELIF nextPhW(N) THEN
+	length 97
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
+	length 180
   ENDIF
   IF nextPh(n^) OR nextPh(c) THEN
-  length 100
   FMT(vnasal/ii_n)
   ELSE
-  length 180
-FMT(vowel/i_4)
+	FMT(vowel/i_4)
 ENDIF
 endphoneme
 
