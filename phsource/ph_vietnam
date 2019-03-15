@@ -163,13 +163,20 @@ endphoneme
 
 phoneme u
   vwl starttype #u endtype #u
-  IF nextPh(kh) OR nextPh(N) THEN // hear as ung sound
-	length 120
-	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  
+  IF nextPhW(N) OR nextPhW(k) OR nextPhW(t[) THEN
+	length 80
+  ELIF nextPhW(m) THEN
+	length 177
+  ELIF nextPhW(n) THEN
+	length 141
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
-	length 180
-	ENDIF
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) AND NOT nextPhW(N) AND NOT nextPhW(k) AND NOT nextPhW(t[) THEN
+	length 240
+  ELSE
+	length 120
+  ENDIF
   FMT(vnasal/u_n) //vowel/u_5)
 endphoneme
 
@@ -521,8 +528,8 @@ phoneme N // si**ng**
   vcd lbv nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 12            // longer than 'n'
-  IF prevPhW(isVowel) AND prev2PhW(isVowel) THEN
-	length 160
+  IF thisPh(isWordEnd) THEN
+	length 163
   ENDIF
   FMT(n/nm)
 endphoneme
