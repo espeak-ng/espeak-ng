@@ -573,7 +573,7 @@ WAV(vietnam/dd)
   vls pal stp pzd
   //voicingswitch J
   lengthmod 2
-  length 2
+  length 50
     Vowelin f1=0  f2=2700 400 600  f3=300 80 len=15 brk
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=15 colr=1
 
