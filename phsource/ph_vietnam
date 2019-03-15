@@ -85,11 +85,26 @@ endphoneme
 
 phoneme E
   vwl starttype #e endtype #e
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  
+  IF nextPhW(p) THEN
+	length 143
+  ELIF nextPhW(t) THEN
+	length 107
+  ELIF nextPhW(c) THEN
+	length 141
+  ELIF nextPhW(m) THEN
+	length 128
+  ELIF nextPhW(n) THEN
+	length 160
+  ELIF nextPhW(N) THEN
+	length 187
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
+  ENDIF
   FMT(vowel/e_e)   //ee_3)
 endphoneme
 
@@ -542,9 +557,7 @@ phoneme N // si**ng**
   vcd lbv nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 12            // longer than 'n'
-  IF thisPh(isWordEnd) THEN
-	length 163
-  ENDIF
+  
   FMT(n/nm)
 endphoneme
 
