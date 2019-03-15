@@ -164,7 +164,7 @@ endphoneme
 phoneme u
   vwl starttype #u endtype #u
   
-  IF nextPhW(N) OR nextPhW(k) OR nextPhW(t[) THEN
+  IF nextPhW(N) OR nextPhW(c) OR nextPhW(t[) THEN
 	length 80
   ELIF nextPhW(m) THEN
 	length 177
@@ -172,7 +172,7 @@ phoneme u
 	length 141
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) AND NOT nextPhW(N) AND NOT nextPhW(k) AND NOT nextPhW(t[) THEN
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) AND NOT nextPhW(N) AND NOT nextPhW(c) AND NOT nextPhW(t[) THEN
 	length 240
   ELSE
 	length 120
