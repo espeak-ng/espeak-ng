@@ -88,7 +88,7 @@ phoneme E
   
   IF nextPhW(p) THEN
 	length 143
-  ELIF nextPhW(t) THEN
+  ELIF nextPhW(t[) THEN
 	length 107
   ELIF nextPhW(c) THEN
 	length 141
@@ -112,7 +112,7 @@ phoneme e
   vwl starttype #e endtype #e
   IF nextPhW(p) THEN
 	length 114
-  ELIF nextPhW(t) THEN
+  ELIF nextPhW(t[) THEN
 	length 126
   ELIF nextPhW(c) THEN
 	length 140
@@ -147,7 +147,7 @@ phoneme i
   ENDIF
   IF nextPhW(p) THEN
 	length 131
-  ELIF nextPhW(t) THEN
+  ELIF nextPhW(t[) THEN
 	length 113
   ELIF nextPhW(c) OR nextPhW(n^) THEN
 	length 72
@@ -230,13 +230,25 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
-  IF nextPh(kh) OR nextPh(N) THEN
-	length 120
-	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 102
+  ELIF nextPhW(t[) THEN
+	length 76
+  ELIF nextPhW(c) THEN
+	length 70
+  ELIF nextPhW(m) THEN
+	length 143
+  ELIF nextPhW(n) THEN
+	length 136
+  ELIF nextPhW(N) THEN
+	length 101
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
+  ENDIF
   FMT(vowel/u#_5)
 endphoneme
 
