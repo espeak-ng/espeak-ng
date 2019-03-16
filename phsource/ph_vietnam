@@ -194,13 +194,25 @@ endphoneme
 
 phoneme O
   vwl starttype #o endtype #o
-    IF nextPh(kh) OR nextPh(N) THEN 
+    IF nextPhW(p) THEN
+	length 129
+  ELIF nextPhW(t[) THEN
+	length 125
+  ELIF nextPhW(c) THEN
 	length 80
-	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  ELIF nextPhW(m) THEN
+	length 133
+  ELIF nextPhW(n) THEN
+	length 158
+  ELIF nextPhW(N) THEN
+	length 102
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
+  ENDIF
     FMT(vdiph2/o_oo) //vowel/oo)
 endphoneme
 
