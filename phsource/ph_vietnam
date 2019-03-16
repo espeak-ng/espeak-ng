@@ -63,20 +63,30 @@ phoneme a
 	FMT(vnasal/a_n)
 	ELSE
 	FMT(vietnam/a, 60)  //a_4)
-	//FMT(vietnam/a_x)
+	
 	ENDIF
 endphoneme
 
 phoneme a:
   vwl starttype #a endtype #a
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd)THEN
+  IF nextPhW(p) THEN
+	length 142
+  ELIF nextPhW(t[) THEN
+	length 126
+  ELIF nextPhW(c) THEN
+	length 136
+  ELIF nextPhW(m) THEN
+	length 155
+  ELIF nextPhW(n) THEN
+	length 185
+  ELIF nextPhW(N) THEN
+	length 173
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELIF nextPh(n^) OR nextPh(c) THEN
-  length 100
-  ELIF nextPh(N) THEN
-  length 200
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
   ELSE
-  length 180 //200
+	length 180
   ENDIF
     FMT(vowel/a_8)
 	//FMT(vietnam/a_2)
