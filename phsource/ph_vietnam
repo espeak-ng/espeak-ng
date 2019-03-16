@@ -565,7 +565,9 @@ endphoneme
 
 phoneme o# // ông
   vwl  starttype #o  endtype #o
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(k) THEN
+	length 120
+	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
 	length 200
