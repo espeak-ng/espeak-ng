@@ -232,18 +232,24 @@ endphoneme
 phoneme u
   vwl starttype #u endtype #u
   
-  IF nextPhW(N) OR nextPhW(c) OR nextPhW(t[) THEN
-	length 80
+  IF nextPhW(p) THEN
+	length 110
+  ELIF nextPhW(t[) THEN
+	length 94
+  ELIF nextPhW(c) THEN
+	length 83
   ELIF nextPhW(m) THEN
-	length 177
-  ELIF nextPhW(n) THEN
 	length 141
+  ELIF nextPhW(n) THEN
+	length 177
+  ELIF nextPhW(N) THEN
+	length 80
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) AND NOT nextPhW(N) AND NOT nextPhW(c) AND NOT nextPhW(t[) THEN
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELSE
-	length 120
+	length 180
   ENDIF
   FMT(vnasal/u_n) //vowel/u_5)
 endphoneme
