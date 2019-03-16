@@ -320,13 +320,25 @@ endphoneme
 
 phoneme @
   vwl  starttype #@  endtype #a
- IF nextPh(kh) OR nextPh(N) OR nextPh(n^) OR nextPh(c) THEN
-	length 120
-	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+	IF nextPhW(p) THEN
+	length 123
+  ELIF nextPhW(t[) THEN
+	length 123
+  ELIF nextPhW(c) THEN
+	length 139
+  ELIF nextPhW(m) THEN
+	length 127
+  ELIF nextPhW(n) THEN
+	length 160
+  ELIF nextPhW(N) THEN
+	length 156
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
+  ENDIF
   // FMT(vowel/V)   //vowel/@_2)
   FMT(vietnam/V)
 endphoneme
