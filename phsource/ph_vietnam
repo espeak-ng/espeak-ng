@@ -775,7 +775,7 @@ endphoneme
 
 phoneme w
   liquid
-  lengthmod 7
+  length 20
   starttype #u
   
   IF nextPh(isVowel) THEN
