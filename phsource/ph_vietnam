@@ -149,6 +149,16 @@ phoneme e
 endphoneme
 
 
+phoneme e-
+   vwl starttype #e endtype #a
+   IF nextPhW(c) THEN
+	length 70
+   ELIF nextPhW(n^) THEN
+	length 100
+	ENDIF
+   FMT(vietnam/e_short_2)
+endphoneme
+
 phoneme i
   vwl  starttype #i  endtype #i
     IfNextVowelAppend(;)
