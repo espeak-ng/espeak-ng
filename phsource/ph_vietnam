@@ -54,11 +54,25 @@ endphoneme
 
 phoneme a
   vwl starttype #@ endtype #@
-  	IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  	IF nextPhW(p) THEN
+	length 142
+  ELIF nextPhW(t[) THEN
+	length 126
+  ELIF nextPhW(c) THEN
+	length 136
+  ELIF nextPhW(m) THEN
+	length 155
+  ELIF nextPhW(n) THEN
+	length 185
+  ELIF nextPhW(N) THEN
+	length 173
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 180
-	ENDIF
+  ENDIF
 	IF nextPh(N) OR nextPh(c) THEN
 	FMT(vnasal/a_n)
 	ELSE
