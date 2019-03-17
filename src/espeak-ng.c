@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 #include <time.h>
 
 #include <espeak-ng/espeak_ng.h>
@@ -113,6 +114,7 @@ static const char *help_text =
     "--voices=<language>\n"
     "\t   List the available voices for the specified language.\n"
     "\t   If <language> is omitted, then list all voices.\n"
+    "--load     Load voice from a file in current directory by name.\n"
     "-h, --help Show this help.\n";
 
 int samplerate;
@@ -321,6 +323,7 @@ int main(int argc, char **argv)
 		{ "compile-mbrola", optional_argument, 0, 0x10e },
 		{ "compile-intonations", no_argument, 0, 0x10f },
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
+		{ "load",    no_argument,       0, 0x111 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -336,6 +339,7 @@ int main(int argc, char **argv)
 	int value;
 	int flag_stdin = 0;
 	int flag_compile = 0;
+	int flag_load = 0;
 	int filesize = 0;
 	int synth_flags = espeakCHARS_AUTO | espeakPHONEMES | espeakENDPAUSE;
 
@@ -349,7 +353,7 @@ int main(int argc, char **argv)
 	int phoneme_options = 0;
 	int option_linelength = 0;
 	int option_waveout = 0;
-
+	
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
@@ -562,6 +566,9 @@ int main(int argc, char **argv)
 			}
 			return EXIT_SUCCESS;
 		}
+		case 0x111: // --load
+			flag_load = 1;
+			break;
 		default:
 			exit(0);
 		}
@@ -605,7 +612,10 @@ int main(int argc, char **argv)
 	if (voicename[0] == 0)
 		strcpy(voicename, ESPEAKNG_DEFAULT_VOICE);
 
-	result = espeak_ng_SetVoiceByName(voicename);
+	if(flag_load)
+		result = espeak_ng_SetVoiceByFile(voicename);
+	else
+		result = espeak_ng_SetVoiceByName(voicename);
 	if (result != ENS_OK) {
 		memset(&voice_select, 0, sizeof(voice_select));
 		voice_select.languages = voicename;
