@@ -96,7 +96,7 @@ phoneme a:
   ELIF nextPhW(N) THEN
 	length 173
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 280
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -125,7 +125,7 @@ phoneme E
   ELIF nextPhW(N) THEN
 	length 187
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -153,7 +153,7 @@ phoneme e
   ELIF nextPhW(N) THEN
 	length 115
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 270
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -198,7 +198,7 @@ phoneme i
   ELIF nextPhW(N) THEN
 	length 97
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 310
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -229,7 +229,7 @@ phoneme O
   ELIF nextPhW(N) THEN
 	length 102
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 280
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -267,7 +267,7 @@ phoneme o
   ELIF nextPhW(N) THEN
 	length 99
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 310
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -295,7 +295,7 @@ phoneme u
   ELIF nextPhW(N) THEN
 	length 80
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 280
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -321,7 +321,7 @@ phoneme y
   ELIF nextPhW(N) THEN
 	length 101
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 270
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -375,7 +375,7 @@ phoneme @:
   ELIF nextPhW(N) THEN
 	length 156
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 280
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
