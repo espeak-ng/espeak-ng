@@ -237,7 +237,7 @@ oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
 wegen	ve:g@n	$u+
-weil	v,aIl		$pause
+weil	v,aIl		$pause	$only
 als		als	$u+ $brk
 bevor		b@fo:r	$2 $pause
 also			$pause
@@ -646,6 +646,7 @@ bebung	b'e:bUN
 baguette	bag'Et
 balkan           $1
 balkon           $2
+balance	bal'A~s
 bandagier       bandaZ'i:r
 beben           be:b@n
 beere           be:r@
@@ -902,6 +903,7 @@ stalagmit       stalagm'It
 subjekt		$1
 
 tag             tA:g
+tarif	$2
 teint	t'W~
 telegen         te:le:g'e:n
 terrain	tEr'W~
