@@ -2,4 +2,6 @@ name Vietnamese (Northern)
 language vi
 
 words 1
-pitch 90 170
+pitch 100 180
+
+tone 100 225 800 100 2000 50 5400 75 8000 200
