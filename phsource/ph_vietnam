@@ -598,7 +598,8 @@ phoneme o# // ông
 	ELSE
 	length 200
 	ENDIF
-  FMT(vnasal/a#u_n)
+  //FMT(vnasal/a#u_n)
+    FMT(vietnam/o#)
 endphoneme
 
 phoneme O# // ong

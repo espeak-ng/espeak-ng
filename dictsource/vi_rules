@@ -892,7 +892,7 @@ ỵ	ỵ
 .group ô
         ô          o
         ôi         oI
-        ông        o#        // ông sound
+        ông        o#N        // ông sound
 ?2      ôi         O-        //south dialect 
         ôc		   o#k
  
@@ -900,7 +900,7 @@ ỵ	ỵ
 .group ồ
         ồ          o2
         ồi         oI2
-        ồng        o#2
+        ồng        o#N2
 ?2      ồi         O-2       
         
  
@@ -910,7 +910,7 @@ ỵ	ỵ
 .group ố
         ố          o3
         ối         oI3
-        ống        o#3
+        ống        o#N3
 ?2      ối         O-3       
         ốc		   o#3k
  
@@ -920,7 +920,7 @@ ỵ	ỵ
 .group ổ
         ổ          o4
         ổi         oI4
-        ổng        o#4
+        ổng        o#N4
 ?2      ổi         O-4       
         
  
@@ -930,7 +930,7 @@ ỵ	ỵ
 .group ỗ
         ỗ          o5
         ỗi         oI5
-        ỗng        o#5
+        ỗng        o#N5
         
  
 ?2      ỗi         O-5
@@ -940,7 +940,7 @@ ỵ	ỵ
 .group ộ
         ộ          o6
         ội         oI6
-   //     ộng        o#6
+        ộng        o#N6
 ?2      ội         O-6       
         ộc         o#6k
  
