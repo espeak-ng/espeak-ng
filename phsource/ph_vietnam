@@ -18,7 +18,7 @@ endphoneme
 
 phoneme 3   //  sắc Tone(rising
   stress
-  Tone(30, 55, envelope/p_rise, NULL) // 30 60
+  Tone(20, 50, envelope/p_rise, NULL) // 30 60
 endphoneme
 
 
