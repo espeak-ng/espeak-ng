@@ -240,8 +240,8 @@ phoneme O
   ELSE
 	length 180
   ENDIF
-    //FMT(vdiph2/o_oo) //vowel/oo)
-	FMT(vietnam/O)
+    FMT(vdiph2/o_oo) //vowel/oo)
+	//FMT(vietnam/O)
 endphoneme
 
 phoneme O+
