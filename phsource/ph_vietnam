@@ -177,7 +177,7 @@ phoneme e-
    ELIF nextPhW(n^) THEN
 	length 100
 	ENDIF
-   FMT(vietnam/e_short_2)
+   FMT(vietnam/e_short_1)
 endphoneme
 
 phoneme i
