@@ -212,7 +212,7 @@ phoneme i
   FMT(vietnam/i)
   ELSE
 	//FMT(vowel/i_4)
-	FMT(vietnam/i)
+	FMT(vietnam/i_2)
 ENDIF
 endphoneme
 
