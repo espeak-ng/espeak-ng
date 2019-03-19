@@ -768,6 +768,7 @@ endphoneme
 phoneme p
   vls blb stp
     lengthmod 2
+	length 15
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
 
@@ -780,7 +781,7 @@ phoneme t[        // dental variant of /t/
 	vls alv stp
 	voicingswitch d
 	lengthmod 2
-	length 5
+	length 15
 	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
 	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
 	WAV(ustop/t, 50)
@@ -788,7 +789,7 @@ phoneme t[        // dental variant of /t/
 	vls dnt stp
 	voicingswitch d[
 	lengthmod 2
-	length 5
+	length 15
 	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
 	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
 
