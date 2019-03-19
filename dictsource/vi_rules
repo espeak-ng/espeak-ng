@@ -386,13 +386,13 @@ ỵ	ỵ
         aỏ         a:w4
         aõ         a:w5
         aọ         a:w6
-        au         aU
+        au         aw
 ?2      au         a:U
-        aù         aU2
-        aú         aU3
-        aủ         aU4
-        aũ         aU5
-        aụ         aU6
+        aù         aw2
+        aú         aw3
+        aủ         aw4
+        aũ         aw5
+        aụ         aw6
         a (L01     _^_EN
         ai (L02    _^_EN
         a (@       _^_EN
@@ -413,7 +413,7 @@ ỵ	ỵ
         
  
         ào         a:w2
-        àu         aU2
+        àu         aw2
 ?2      àu         a:U2
         
  
@@ -423,7 +423,7 @@ ỵ	ỵ
         ái         a:j3
         áy         aI3
         áo         a:w3
-        áu         aU3
+        áu         aw3
 ?2      áu         a:U3      
 ?2      áy         a:I3
 		á (L03     e-3
@@ -433,7 +433,7 @@ ỵ	ỵ
         ải         a:j4
         ảy         aI4
         ảo         a:w4
-        ảu         aU4
+        ảu         aw4
 ?2      ảu         a:U4      
 ?2      ảy         a:I4      
 		ả (L03     e-4
@@ -443,7 +443,7 @@ ỵ	ỵ
         ãi         a:j5
         ãy         aI5
         ão         a:w5
-        ãu         aU5
+        ãu         aw5
 ?2      ãu         a:U5      
 ?2      ãy         a:I5
 		ã (L03     e-5
@@ -453,7 +453,7 @@ ỵ	ỵ
         ại         a:j6
         ạy         aI6
         ạo         a:w6
-        ạu         aU6
+        ạu         aw6
 ?2      ạu         a:U6      
 ?2      ạy         a:I6      
 		ạ (L03     e-6
