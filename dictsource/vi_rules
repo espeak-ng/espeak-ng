@@ -370,16 +370,16 @@ ỵ	ỵ
         aỉ         a:j4
         aĩ         a:j5
         aị         a:j6
-        ay         aI
+        ay         aj
 ?2      ay         a:I       
         
  
         
  
-        aý         aI3
-        aỷ         aI4
-        aỹ         aI5
-        aỵ         aI6
+        aý         aj3
+        aỷ         aj4
+        aỹ         aj5
+        aỵ         aj6
         ao         a:w
         aò         a:w2
         aó         a:w3
@@ -402,7 +402,7 @@ ỵ	ỵ
 .group à
         à          a:2
         ài         a:j2
-        ày         aI2
+        ày         aj2
 ?2      ày         a:I2
         à (L03     e-2
  
@@ -421,7 +421,7 @@ ỵ	ỵ
 .group á
         á          a:3
         ái         a:j3
-        áy         aI3
+        áy         aj3
         áo         a:w3
         áu         aw3
 ?2      áu         a:U3      
@@ -431,7 +431,7 @@ ỵ	ỵ
 .group ả
         ả          a:4
         ải         a:j4
-        ảy         aI4
+        ảy         aj4
         ảo         a:w4
         ảu         aw4
 ?2      ảu         a:U4      
@@ -441,7 +441,7 @@ ỵ	ỵ
 .group ã
         ã          a:5
         ãi         a:j5
-        ãy         aI5
+        ãy         aj5
         ão         a:w5
         ãu         aw5
 ?2      ãu         a:U5      
@@ -451,7 +451,7 @@ ỵ	ỵ
 .group ạ
         ạ          a:6
         ại         a:j6
-        ạy         aI6
+        ạy         aj6
         ạo         a:w6
         ạu         aw6
 ?2      ạu         a:U6      
@@ -793,6 +793,12 @@ ỵ	ỵ
         oảo         wa:w4
         oão         wa:w5
         oạo         wa:w6
+		oay         waj        // modify oa sound  example: hoa,khoa // o (A       w
+        oày         waj2
+        oáy         waj3
+        oảy         waj4
+        oãy         waj5
+        oạy         waj6
         oo         O
         oi         OI
         oì         OI2
