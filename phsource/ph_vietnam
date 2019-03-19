@@ -610,7 +610,8 @@ phoneme O# // ong
 	ELSE
 	length 200
 	ENDIF
-  FMT(vnasal/&u_n)
+  //FMT(vnasal/&u_n)
+  FMT(vietnam/O_short)
 endphoneme
 
 
