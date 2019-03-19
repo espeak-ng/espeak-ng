@@ -363,7 +363,7 @@ phoneme @
 	length 180
   ENDIF
   // FMT(vowel/V)   //vowel/@_2)
-  FMT(vietnam/V)
+  FMT(vietnam/V_2)
 endphoneme
 
 
