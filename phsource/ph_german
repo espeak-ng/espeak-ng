@@ -344,7 +344,7 @@ phoneme r   // note, following consonant must be 'ustop/t_' not 'ustop/tr' etc.
         ELSEIF prevPhW(d) OR prevPhW(b) OR prevPhW(g) OR prevPhW(k) OR prevPhW(p) THEN
           PauseBefore 15
         ELSE
-          InsertPhoneme(@-)
+          FMT(r3/r_, 40) addWav(r3/rx, 150)
         ENDIF
       ENDIF
    ENDIF
