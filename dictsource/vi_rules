@@ -980,12 +980,12 @@ ỵ	ỵ
         u (A       w
      A) u          w
 	 gi) u 			u
-        ui         uI
-        uì         uI2
-        uí         uI3
-        uỉ         uI4
-        uĩ         uI5
-        uị         uI6
+        ui         uj
+        uì         uj2
+        uí         uj3
+        uỉ         uj4
+        uĩ         uj5
+        uị         uj6
         ua         u@
         uà         u@2
         uá         u@3
@@ -1013,9 +1013,9 @@ ỵ	ỵ
 
 .group ù
         ù          u2
-        ù (A       u2
-		ùy         ui2
-        ùi         uI2
+        ù (A       w2
+		ùy         wi2
+        ùi         uj2
         ùa         u@2
 		//ùng        u#2
         
@@ -1026,9 +1026,9 @@ ỵ	ỵ
 
 .group ú
         ú          u3
-        ú (A       u3
-		úy		   ui3
-        úi         uI3
+        ú (A       w3
+		úy		   wi3
+        úi         uj3
         úa         u@3
 		//úng        u#3
 ?2      ú          u-3       
@@ -1039,9 +1039,9 @@ ỵ	ỵ
 
 .group ủ
         ủ          u4
-        ủ (A       u4
-		ủy  	   ui4
-        ủi         uI4
+        ủ (A       w4
+		ủy  	   wi4
+        ủi         uj4
         ủa         u@4
 		//ủng        u#4
         
@@ -1052,9 +1052,9 @@ ỵ	ỵ
 
 .group ũ
         ũ          u5
-        ũ (A       u5
-		ũy         ui5
-        ũi         uI5
+        ũ (A       w5
+		ũy         wi5
+        ũi         uj5
         ũa         u@5
 		//ũng        u#5
 ?2      ũ          u-5       
@@ -1065,9 +1065,9 @@ ỵ	ỵ
 
 .group ụ
         ụ          u6
-        ụ (A       u6
-		ụy         ui6
-        ụi         uI6
+        ụ (A       w6
+		ụy         wi6
+        ụi         uj6
         ụa         u@6
 		//ụng        u#6
 ?2      ụ          u-6       
