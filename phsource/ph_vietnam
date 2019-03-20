@@ -640,7 +640,7 @@ phoneme iE // iê : viết, giệc
 	ELSE
 	length 200
 	ENDIF
-  FMT(vietnam/ie_2)
+  FMT(vietnam/ie, 150)
 endphoneme
 
 phoneme Oi // oai sound
