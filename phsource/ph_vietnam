@@ -609,7 +609,7 @@ phoneme O# // ong
 	length 200
 	ENDIF
   //FMT(vnasal/&u_n)
-  FMT(vietnam/O_short)
+  FMT(vietnam/O_short_2)
 endphoneme
 
 
