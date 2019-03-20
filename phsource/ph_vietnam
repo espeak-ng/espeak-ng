@@ -580,9 +580,10 @@ phoneme u@
   IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
 	ELSE
-	length 200
+	length 140
 	ENDIF
-  FMT(vdiph2/uu@)
+  //FMT(vdiph2/uu@)-
+  FMT(vietnam/u@)
 endphoneme
 
 // Addition Dipthongs
