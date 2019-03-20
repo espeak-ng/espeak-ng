@@ -333,7 +333,7 @@ phoneme y
 	length 180
   ENDIF
   //FMT(vowel/u#_5)
-  FMT(vietnam/y, 80)
+  FMT(vietnam/y_2, 60)
 endphoneme
 
 
