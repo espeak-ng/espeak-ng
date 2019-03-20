@@ -134,7 +134,7 @@ phoneme E
 	length 180
   ENDIF
   //FMT(vowel/e_e)   //ee_3)
-  FMT(vietnam/e_e)
+  FMT(vietnam/e_e_2)
 endphoneme
 
 phoneme e
