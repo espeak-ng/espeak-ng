@@ -466,7 +466,7 @@ phoneme k
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
   ELIF nextPh(@-) THEN
-    WAV(ustop/k_unasp)
+    WAV(ustop/k, 70)
   ENDIF
   WAV(ustop/k)
 endphoneme
