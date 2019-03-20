@@ -9,7 +9,7 @@
 phoneme @   //  Schwa
   vwl starttype #@ endtype #@
   unstressed
-  length 120
+  length 40
   IF nextPh(r) THEN
     IF next2Ph(isVowel) THEN
     ELSE
