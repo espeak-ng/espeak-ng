@@ -73,12 +73,9 @@ phoneme a
   ELSE
 	length 180
   ENDIF
-	IF nextPh(N) OR nextPh(c) THEN
-	FMT(vnasal/a_n)
-	ELSE
+	
 	FMT(vietnam/a_2)  //a_4)
 	
-	ENDIF
 endphoneme
 
 phoneme a:
@@ -820,14 +817,13 @@ phoneme w
 
     VowelEnding(w/xw, -30)
 	IF nextPh(isVowel) AND prevPhW(t[) THEN
-		FMT(vnasal/u_n, 60)
-	ENDIF
-    IF prevPhW(isNasal) THEN
+		FMT(vnasal/u_n, 60)  addWav(vietnam/w)
+	ELIF prevPhW(isNasal) THEN
       FMT(w/w)
     ELSEIF prevPhW(h) THEN
       // none,  [hw]
     ELSE
-      FMT(w/_w)
+      FMT(w/_w) addWav(vietnam/w)
     ENDIF
   ELSE
     // no vowel follows
