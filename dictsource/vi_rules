@@ -578,12 +578,12 @@ ỵ	ỵ
 //===========================
 .group e
         e          E
-        eo         EU
-        eò         EU2
-        eó         EU3
-        eỏ         EU4
-        eỗ         EU5
-        eọ         EU6
+        eo         Ew
+        eò         Ew2
+        eó         Ew3
+        eỏ         Ew4
+        eỗ         Ew5
+        eọ         Ew6
         e (L01     _^_EN
         ey (_      _^_EN
         e (@       _^_EN     
@@ -592,7 +592,7 @@ ỵ	ỵ
 
 .group è
         è          E2
-        èo         EU2
+        èo         Ew2
         
  
         
@@ -602,7 +602,7 @@ ỵ	ỵ
 
 .group é
         é          E3
-        éo         EU3
+        éo         Ew3
         
  
         
@@ -612,7 +612,7 @@ ỵ	ỵ
 
 .group ẻ
         ẻ          E4
-        ẻo         EU4
+        ẻo         Ew4
         
  
         
@@ -622,7 +622,7 @@ ỵ	ỵ
 
 .group ẽ
         ẽ          E5
-        ẽo         EU5
+        ẽo         Ew5
         
  
         
@@ -632,7 +632,7 @@ ỵ	ỵ
 
 .group ẹ
         ẹ          E6
-        ẹo         EU6
+        ẹo         Ew6
         
  
         
