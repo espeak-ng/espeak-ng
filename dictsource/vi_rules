@@ -707,12 +707,12 @@ ỵ	ỵ
         iể         iE4
         iễ         iE5
         iệ         iE6
-        iu         iU
-        iù         iU2
-        iú         iU3
-        iủ         iU4
-        iũ         iU5
-        iụ         iU6
+        iu         iw
+        iù         iw2
+        iú         iw3
+        iủ         iw4
+        iũ         iw5
+        iụ         iw6
         iêu        iEw
         iều        iEw2
         iếu        iEw3
@@ -729,7 +729,7 @@ ỵ	ỵ
         ì          i2
         ì (A       j2
         ìa         i@2
-        ìu         iU2
+        ìu         iw2
 ?2      ì (L03     @2        
 ?1      ì (L03     @2        
 ?2      ì (L02     @2
@@ -738,7 +738,7 @@ ỵ	ỵ
         í          i3
         í (A       j3
         ía         i@3
-        íu         iU3
+        íu         iw3
 ?2      í (L03     @3        
 ?1      í (L03     @3
 ?2      í (L02     @3
@@ -747,7 +747,7 @@ ỵ	ỵ
         ỉ          i4
         ỉ (A       j4
         ỉa         i@4
-        ỉu         iU4
+        ỉu         iw4
 ?2      ỉ (L03     @4        
 ?1      ỉ (L03     @4
 ?2      ỉ (L02     @4        
@@ -758,7 +758,7 @@ ỵ	ỵ
         ĩ          i5
         ĩ (A       j5
         ĩa         i@5
-        ĩu         iU5
+        ĩu         iw5
 ?2      ĩ (L03     @5        
 ?1      ĩ (L03     @5
 ?2      ĩ (L02     @5        
@@ -769,7 +769,7 @@ ỵ	ỵ
         ị          i6
         ị (A       j6
         ịa         i@6
-        ịu         iU6
+        ịu         iw6
 ?2      ị (L03     @6        
 ?1      ị (L03     @6
 ?2      ị (L02     @6
@@ -1008,8 +1008,13 @@ ỵ	ỵ
         u (L01     _^_EN
         u (@       _^_EN
        // ua (L01    _^_EN
-?2      u          u-        
- 
+?2      u          u-
+		uyu			wiw
+		uỳu			wiw2
+		uýu			wiw3
+		uỷu			wiw4
+		uỹu			wiw5
+		uỵu			wiw6
 
 .group ù
         ù          u2
