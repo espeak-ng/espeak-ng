@@ -705,7 +705,9 @@ phoneme N // si**ng**
   vcd lbv nas
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   lengthmod 12            // longer than 'n'
-  length 163
+  IF thisPh(isWordEnd) THEN 
+	length 163
+  ENDIF
   FMT(n/nm)
 endphoneme
 
