@@ -172,12 +172,9 @@ endphoneme
 
 phoneme e-
    vwl starttype #e endtype #a
-   IF nextPhW(c) THEN
-	length 70
-   ELIF nextPhW(n^) THEN
-	length 100
-	ENDIF
-   FMT(vietnam/e_short_1)
+   length 140
+   //FMT(vietnam/e_short_2)
+   FMT(vdiph/aai_3)
 endphoneme
 
 phoneme i
