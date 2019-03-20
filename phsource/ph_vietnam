@@ -165,7 +165,7 @@ phoneme e
   IF nextPh(n^) THEN
 	FMT(vowel/e)
   ELSE
-	FMT(vietnam/e_2)
+	FMT(vietnam/e, 150)
   ENDIF	
 endphoneme
 
@@ -173,8 +173,8 @@ endphoneme
 phoneme e-
    vwl starttype #e endtype #a
    length 140
-   //FMT(vietnam/e_short_2)
-   FMT(vdiph/aai_3)
+   FMT(vietnam/e_short_1)
+   //FMT(vdiph/aai_3)
 endphoneme
 
 phoneme i
@@ -333,7 +333,7 @@ phoneme y
 	length 180
   ENDIF
   //FMT(vowel/u#_5)
-  FMT(vietnam/y)
+  FMT(vietnam/y, 80)
 endphoneme
 
 
