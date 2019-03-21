@@ -206,7 +206,7 @@ phoneme i
   FMT(vietnam/i)
   ELSE
 	//FMT(vowel/i_4)
-	FMT(vietnam/i)
+	FMT(vietnam/i_2)
 ENDIF
 endphoneme
 
@@ -591,6 +591,10 @@ phoneme o# // ông
 	length 120
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 360
+	ELIF nextPhW(N) THEN
+	length 99
+	ELIF nextPhW(k) THEN
+	length 88
 	ELSE
 	length 200
 	ENDIF
@@ -604,6 +608,8 @@ phoneme O# // ong
 	length 240
 	ELIF nextPh(k) THEN
 	length 140
+	ELIF nextPh(N) THEN
+	length 102
 	ELSE
 	length 200
 	ENDIF
@@ -639,7 +645,7 @@ phoneme iE // iê : viết, giệc
 	ELSE
 	length 200
 	ENDIF
-  FMT(vietnam/ie, 150)
+  FMT(vietnam/ie)
 endphoneme
 
 phoneme Oi // oai sound
@@ -802,10 +808,11 @@ endphoneme
 
 phoneme w
   liquid
-  length 20
+  
   starttype #u
   
   IF nextPh(isVowel) THEN
+    length 20
     NextVowelStarts
       VowelStart(w/w@)
       VowelStart(w/wa)
@@ -827,10 +834,10 @@ phoneme w
     ENDIF
   ELSE
     // no vowel follows
+	length 80
     Vowelout len=50
-    IF prevPh(#i) THEN
-      FMT(w/iw_)
-    ENDIF
-    FMT(w/w_)
+    
+    //FMT(w/w_)
+	FMT(vietnam/w_)
   ENDIF
 endphoneme
