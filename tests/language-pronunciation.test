@@ -24,10 +24,7 @@ test_phonemes() {
 
 ##### Script coverage
 
-test_phonemes af "Latn" "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI mEt x2@l'eIk@ v'A:rdIx2,eIt_:_: _|En r'&x2t@
-> x2@b'o@r@
-> h,Wl@ hEt r'e@d@_:_: _|En x2@v'e@t@ _|En b@h'o@rt _|In di x2'e@s fan br'ud@rsk,ap t'e@no
-@r m@k'A:r _|Op t@ tr'e@" "Alle menslike wesens word vry, met gelyke waardigheid en regte, gebore. Hulle het rede en gewete en behoort in die gees van broederskap teenoor mekaar op te tree."
+test_phonemes af "Latn" "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI mEt x2@l'eIk@ v'A:rdIx2,eIt_:_: _|En r'&x2t@ x2@b'o@r@ h,Wl@ hEt r'e@d@_:_: _|En x2@v'e@t@ _|En b@h'o@rt _|In di x2'e@s fan br'ud@rsk,ap t'e@no @r m@k'A:r _|Op t@ tr'e@" "Alle menslike wesens word vry, met gelyke waardigheid en regte, gebore. Hulle het rede en gewete en behoort in die gees van broederskap teenoor mekaar op te tree."
 test_phonemes am "Ethi" "m'@riwotSu k'@?alyga w'@raSu l'y?ul S'ek m'@ham@d b'in z'@jyd g'ar b'@hul@tyjoS s'ymymyn@totSyna b'@k\`@t\`@naw g'udaj m'@w@jaj@tatS@wyn ?'ynydihum j'@hul@tu h'ag@rat m'@riwotS b'@m@kak@latS@w s'@lam ?'ynydiw@ryd b'@madyr@gatS@w l'y?ulu j'@hag@ratS@wyn k'@fyt@n^a m'edalyja ?'ynyd@s@t\`watS@w j'@t\`@k\`ylaj m'inisytyru ts'yhyf@t b'et h'alafi ?'ato f'ytsum ?'ar@ga b'@tywit@r g'@tsatS@w ?'asyfyr@wal" " መሪዎቹ ከአልጋ ወራሹ ልዑል ሼክ መሃመድ ቢን ዘይድ ጋር በሁለትዮሽ ስምምነቶችና በቀጠናው ጉዳይ መወያየታቸውን እንዲሁም የሁለቱ ሃገራት መሪዎች በመካከላቸው ሰላም እንዲወርድ በማድረጋቸው ልዑሉ የሃገራቸውን ከፍተኛ ሜዳልያ እንደሰጧቸው የጠቅላይ ሚኒስትሩ ፅህፈት ቤት ኃላፊ አቶ ፍፁም አረጋ በትዊተር ገፃቸው አስፍረዋል።"
 test_phonemes an "Latn" "t'oT os 'omb**es n'aksen l'iB**es i; iQw'als_! en d,iniD'at# i_! en D**'eItos\n,aDot'atos De RaT'on i De konT'enTja\nd'eBen ,apatS'as'en 'unos kon 'at**os D'una man'e**a f**,etern'al" "Toz os ombres naxen libres y iguals en dinidat y en dreitos. Adotatos de razón y de conzenzia, deben apachar-sen unos con atros d'una manera freternal."
 test_phonemes ar "Arab" "?'us[bur A'ala: H'ifZi. X'udHa.r,in wa:'istaS,ir fat[,u.nna:\nw'azudZ: h'ammka fi: b'agHda:d mnTml'a:" "اُصْبُرْ عَلَى حِفْظِ خُضَرٍ وَاِسْتَشِرْ فَطُنًّا، وَزُجَّ هَمِّكَ فِي بغداد منثملَا"
