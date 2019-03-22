@@ -609,6 +609,19 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec);
 #ifdef __cplusplus
 extern "C"
 #endif
+ESPEAK_API espeak_ERROR espeak_SetVoiceByFile(const char *filename);
+/* Loads a voice given the file path.  Language is not considered.
+   "filename" is a UTF8 string.
+
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
+             you may try after a while to call the function again.
+	   EE_INTERNAL_ERROR.
+*/
+
+#ifdef __cplusplus
+extern "C"
+#endif
 ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name);
 /* Searches for a voice with a matching "name" field.  Language is not considered.
    "name" is a UTF8 string.

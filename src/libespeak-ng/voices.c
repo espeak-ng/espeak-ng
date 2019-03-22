@@ -1466,6 +1466,45 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 
 #pragma GCC visibility push(default)
 
+
+ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
+{
+	espeak_VOICE *v;
+	int ix;
+	espeak_VOICE voice_selector;
+	char *variant_name;
+	static char buf[60];
+
+	strncpy0(buf, filename, sizeof(buf));
+
+	variant_name = ExtractVoiceVariantName(buf, 0, 1);
+
+	for (ix = 0;; ix++) {
+		// convert voice name to lower case  (ascii)
+		if ((buf[ix] = tolower(buf[ix])) == 0)
+			break;
+	}
+
+	memset(&voice_selector, 0, sizeof(voice_selector));
+	voice_selector.name = (char *)filename; // include variant name in voice stack ??
+
+	// first check for a voice with this filename
+	// This may avoid the need to call espeak_ListVoices().
+
+	if (LoadVoice(buf, 0x10) != NULL) {
+		if (variant_name[0] != 0)
+			LoadVoice(variant_name, 2);
+
+		DoVoiceChange(voice);
+		voice_selector.languages = voice->language_name;
+		SetVoiceStack(&voice_selector, variant_name);
+		return ENS_OK;
+	}
+
+	return ENS_VOICE_NOT_FOUND;
+}
+
+
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 {
 	espeak_VOICE *v;
