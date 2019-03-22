@@ -830,7 +830,8 @@ phoneme w
     ELSEIF prevPhW(h) THEN
       // none,  [hw]
     ELSE
-      FMT(w/_w) addWav(vietnam/w)
+      //FMT(w/_w) addWav(vietnam/w)
+	  FMT(vietnam/_w)
     ENDIF
   ELSE
     // no vowel follows

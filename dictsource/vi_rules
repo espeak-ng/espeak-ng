@@ -515,7 +515,7 @@ ỵ	ỵ
 .group â
         â          @
         ây         @I
-        âu         @U1       
+        âu         @w1       
 ?2      â (L03     a         
 ?1      â (L03     a         
         
@@ -526,7 +526,7 @@ ỵ	ỵ
 .group ầ
         ầ          @2
         ầy         @I2
-        ầu         @U2
+        ầu         @w2
 ?2      ầ (L03     a2        
 ?1      ầ (L03     a2        
         
@@ -537,7 +537,7 @@ ỵ	ỵ
 .group ấ
         ấ          @3
         ấy         @I3
-        ấu         @U3
+        ấu         @w3
 ?2      ấ (L03     a3        
 ?1      ấ (L03     a3        
         
@@ -559,7 +559,7 @@ ỵ	ỵ
 .group ẫ
         ẫ          @5
         ẫy         @I5
-        ẫu         @U5
+        ẫu         @w5
         
  
         
@@ -570,7 +570,7 @@ ỵ	ỵ
 .group ậ
         ậ          @6
         ậy         @I6
-        ậu         @U6
+        ậu         @w6
 ?2      ậ (L03     a6        
 ?1      ậ (L03     a6        
         
@@ -790,7 +790,7 @@ ỵ	ỵ
 
 .group ò
         ò          O2
-        òa         o@2       //ò (A       w2
+        òa         wa:2       //ò (A       w2
         òng        O#N2
         òe         wE2
         
@@ -802,7 +802,7 @@ ỵ	ỵ
 
 .group ó
         ó          O3
-        óa         o@3       //ó (A       w3
+        óa         wa:3       //ó (A       w3
         óng        O#N3
         óe         wE3
         óc		   O#3k
@@ -814,7 +814,7 @@ ỵ	ỵ
 
 .group ỏ
         ỏ          O4
-        ỏa         o@4       //ỏ (A       w4
+        ỏa         wa:4       //ỏ (A       w4
         ỏng        O#N4
         ỏe         wE4
         
@@ -826,7 +826,7 @@ ỵ	ỵ
 
 .group õ
         õ          O5
-        õa         o@5       //õ (A       w5
+        õa         wa:5       //õ (A       w5
         õng        O#N5
         õe         wE5
         
@@ -838,7 +838,7 @@ ỵ	ỵ
 
 .group ọ
         ọ          O6
-        ọa         o@6       //ọ (A       w6
+        ọa         oa:6       //ọ (A       w6
         ọng        O#N6
         ọe         wE6
         ọc		   O#6k
