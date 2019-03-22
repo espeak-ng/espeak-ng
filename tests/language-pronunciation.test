@@ -24,8 +24,7 @@ test_phonemes() {
 
 ##### Script coverage
 
-test_phonemes af "Latn" "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI
-> mEt x2@l'eIk@ v'A:rdIx2,eIt_:_: _|En r'&x2t@
+test_phonemes af "Latn" "_!'al@ m'e~nsl@k@ v'e@s@ns vOrt fr'eI mEt x2@l'eIk@ v'A:rdIx2,eIt_:_: _|En r'&x2t@
 > x2@b'o@r@
 > h,Wl@ hEt r'e@d@_:_: _|En x2@v'e@t@ _|En b@h'o@rt _|In di x2'e@s fan br'ud@rsk,ap t'e@no
 @r m@k'A:r _|Op t@ tr'e@" "Alle menslike wesens word vry, met gelyke waardigheid en regte, gebore. Hulle het rede en gewete en behoort in die gees van broederskap teenoor mekaar op te tree."
