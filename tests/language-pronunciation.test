@@ -93,7 +93,7 @@ wIS'e:s. w,Ig#a:v,Is.@j'@k 'Vne: vj,@vs'a:ji SIkS'Vn. s,a:ma:nj'@t@H ,Up@l'Vbd# 
 test_phonemes hi "Deva" "r'Is.Ij,o~ ko: s@t'a:ne: v'a:le: d'Us.t. r'a:kS@s,o~ ke: r'a:Ja: r'a:v@n. ka: s,@rv@n'a:S k'Vrn,e: v'a:le: v,Is.n.Uvt'a:r b#,@gv'a:n Sri*'a:m
 Vj'o:d#ja: ke: m,aha:*'a:J d'VS@*,@t# ke: b'Vr.e: s@p'Utr@- t#e:" "ऋषियों को सताने वाले दुष्ट राक्षसों के राजा रावण का सर्वनाश करने वाले विष्णुवतार भगवान श्रीराम, अयोध्या के महाराज दशरथ के बड़े सपुत्र थे।"
 test_phonemes hy "Armn"  "k@rn'am ,apak'i ut'el j'ev ints'i ,anhang'ist tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։"
-test_phonemes hyw "Armn" "grn'am ab'agi ud'el j'ev indz'i ,anh'ank#isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։"
+test_phonemes hyw "Armn" "grn'am ab'agi 'udel j'ev 'indzi ,anh'ank#isd tS#@n'er" "Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։"
 test_phonemes hr "Cyrl" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Љубазни фењерџија чађавог лица хоће да ми покаже штос."
 test_phonemes hr "Latn" "l^'ub&znI f'En^eRdZ,Ij& tS'adZ;&vog l'its& x'otS;E d'a m'i p'ok&ZE St'os" "Ljubazni fenjerdžija čađavog lica hoće da mi pokaže štos."
 test_phonemes ht "Latn" "tou'ut mou'un f'et l'ib
