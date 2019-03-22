@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 
 test_phonemes() {
 	TEST_LANG=$1
@@ -38,7 +38,7 @@ test_phonemes ca "Latn" "d'ona# a#m'o* k'E s@**,as f'Elis\na#jS;'O\nill'us k'omp
 test_phonemes cs "Latn" "n'exc j'iS hR^'i:Sne: s'aksof,oni J'a:blu: R'ozezv,utSi: s'i:n^ 'u:Jesn,i:mi t'o:ni v'aldzu\nt'aNga_! a kv'itskstepu\npR^'i:liZ Zl'ucoUtSki: k'u:n^ 'u:pjel J'a:belske: 'o:di" "Nechť již hříšné saxofony ďáblů rozezvučí síň úděsnými tóny waltzu, tanga a quickstepu. Příliš žluťoučký kůň úpěl ďábelské ódy."
 test_phonemes cy "Latn" "p'arkjaIs vY dZ'ak k'o:dI b'aU h'y:d l#'aUn d'u:r g'Er t'y: m'A:bOn" "Parciais fy jac codi baw hud llawn dŵr ger tŷ Mabon."
 test_phonemes da "Latn" "kv'isd?elt,?&jVn@-_! sp'?isd@-_! j'?orb?E3- m?ED fl'WD@-_!\nm'?Ens s'?i3-k?uskl,?0wn@-n w'Olth?V_! sp'?el@-D@-_! p?O s,?yl?of'?on\n'?ER?W,?Ol" "Quizdeltagerne spiste jordbær med fløde, mens cirkusklovnen Walther spillede på xylofon. Ærøål."
-test_phonemes de "Latn" "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC\nh'aItsWl@-r,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung."
+test_phonemes de "Latn" "v'Ikto:r j'A:kt tsv'Wlf b'OkskEmpf3 kv'e:r_:_: _|,y:b3 de:n gr'o:s@n z'ylt3 d'aIC\nh'aItsWlr,yksto:s,abdEmpf,UN" "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Heizölrückstoßabdämpfung."
 test_phonemes el "Grek" "ks,escep'azo t'im bz,ixofT'ora vD,eliQm'i;a" "Ξεσκεπάζω τὴν ψυχοφθόρα βδελυγμία."
 test_phonemes en "Latn" "D@ kw'Ik br'aUn f'0ks dZ'Vmps ,oUv3 D@ l'eIzi d'0g" "The quick brown fox jumps over the lazy dog"
 test_phonemes eo "Latn" ",eble tS'i;u kv'azaUd'etsa f,uSxoR'aZo dZoI'igos homt'ipon\n,exoS'andZo tS,i;uZ'aUde\np@-*'eskaU f@-*'eSa tS'exa mandZ'aZo" "Eble ĉiu kvazaŭ-deca fuŝĥoraĵo ĝojigos homtipon. Eĥoŝanĝo ĉiuĵaŭde, preskaŭ freŝa ĉeĥa manĝaĵo."
