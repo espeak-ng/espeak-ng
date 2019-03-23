@@ -206,9 +206,9 @@ endphoneme
 phoneme y
   vwl starttype #u endtype #u
   ipa ʏ
-  length 110
+  length 80
   IF nextPh(*) THEN
-    length 115
+    length 90
   ENDIF
   FMT(vowel/yy_4)
 endphoneme
