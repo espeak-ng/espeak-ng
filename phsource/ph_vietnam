@@ -6,7 +6,7 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  Tone(30, 28, envelope/p_level, NULL) // 28 29
+  Tone(27, 25, envelope/p_level, NULL) // 28 29
 endphoneme
 
 
@@ -206,7 +206,7 @@ phoneme i
   FMT(vietnam/i)
   ELSE
 	//FMT(vowel/i_4)
-	FMT(vietnam/i_2)
+	FMT(vietnam/i_2, 150)
 ENDIF
 endphoneme
 
@@ -699,11 +699,12 @@ phoneme kh
 endphoneme
 
 phoneme k
-  vls vel frc
+  vls vel stp
   lengthmod 3
-  Vowelin f1=0  f2=2300 200 400  f3=200 80 len=30
+  Vowelin f1=1  f2=600 -200 -400  f3=-200 80 amp=200 len=30 rms=200
   Vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
-    WAV(ustop/c)
+  //WAV(ustop/c)
+  WAV(vietnam/c_2)
 endphoneme
 
 phoneme N // si**ng** 
@@ -755,7 +756,7 @@ phoneme d_
 	length 50
  Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=15
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
-WAV(vietnam/dd)
+WAV(vietnam/dd_2)
  endphoneme
  
  phoneme c
