@@ -701,10 +701,16 @@ endphoneme
 phoneme k
   vls vel stp
   lengthmod 3
+  IF nextPhW(#u) THEN
   Vowelin f1=1  f2=600 -200 -400  f3=-200 80 amp=200 len=30 rms=200
+  WAV(vietnam/c_2)
+  ELSE
+  Vowelin f1=0  f2=2300 200 400  f3=200 80 len=30
+  WAV(vietnam/c)
+  ENDIF
   Vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
   //WAV(ustop/c)
-  WAV(vietnam/c_2)
+  
 endphoneme
 
 phoneme N // si**ng** 
