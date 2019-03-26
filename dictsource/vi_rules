@@ -1091,7 +1091,7 @@ ỵ	ỵ
         ưở         y@4
         ưỡ         y@5
         ượ         y@6
-        ưu         yw
+        ưu         iw
         ươi        y@j
         ười        y@j2
         ưới        y@j3
@@ -1114,7 +1114,7 @@ ỵ	ỵ
 .group ừ
         ừ          y2
         ừa         y@2
-        ừu         y2w2
+        ừu         iw2
         
  
         
@@ -1125,7 +1125,7 @@ ỵ	ỵ
 .group ứ
         ứ          y3
         ứa         y@3
-        ứu         y3w3
+        ứu         iw3
         
  
         
@@ -1136,7 +1136,7 @@ ỵ	ỵ
 .group ử
         ử          y4
         ửa         y@4
-        ửu         y4w4
+        ửu         iw4
         
  
         
@@ -1147,7 +1147,7 @@ ỵ	ỵ
 .group ữ
         ữ          y5
         ữa         y@5
-        ữu         y5w5
+        ữu         iw5
         
  
         
@@ -1158,7 +1158,7 @@ ỵ	ỵ
 .group ự
         ự          y6
         ựa         y@6
-        ựu         y6w6
+        ựu         iw6
         
  
         

@@ -320,6 +320,8 @@ phoneme y
 	length 136
   ELIF nextPhW(N) THEN
 	length 101
+  ELIF nextPhW(w) OR nextPhW(j) THEN 
+    length 110
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
@@ -668,6 +670,8 @@ phoneme iE // iê : viết, giệc
 	length 163
   ELIF nextPhW(N) THEN
 	length 115
+  ELIF nextPhW(w) THEN
+    length 100
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
@@ -937,7 +941,7 @@ phoneme n^ // (a)nh
       length 100
     ENDIF
     FMT(vietnam/n^_)	
-  ElSE
+  ELSE
     FMT(n^/_n^)
   ENDIF
 endphoneme
