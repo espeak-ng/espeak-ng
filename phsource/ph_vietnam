@@ -907,10 +907,10 @@ phoneme w
   ELSE
     // no vowel follows
 	length 80
-    Vowelout len=50
+    Vowelout len=20 rms=20
     
     //FMT(w/w_)
-	FMT(vietnam/w_)
+	FMT(vietnam/w_, 150)
   ENDIF
 endphoneme
 
