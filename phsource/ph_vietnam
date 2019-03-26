@@ -55,23 +55,23 @@ endphoneme
 phoneme a
   vwl starttype #@ endtype #@
   	IF nextPhW(p) THEN
-	length 142
+	length 78
   ELIF nextPhW(t[) THEN
-	length 126
+	length 84
   ELIF nextPhW(c) THEN
-	length 136
+	length 82
   ELIF nextPhW(m) THEN
-	length 155
+	length 90
   ELIF nextPhW(n) THEN
-	length 185
+	length 100
   ELIF nextPhW(N) THEN
-	length 173
+	length 90
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
-	length 240
+	length 140
   ELSE
-	length 180
+	length 100
   ENDIF
 	
 	FMT(vietnam/a_2)  //a_4)
