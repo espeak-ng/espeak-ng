@@ -795,9 +795,30 @@ phoneme t[        // dental variant of /t/
 	voicingswitch d
 	lengthmod 2
 	length 15
-	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
-	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
-	WAV(ustop/t, 50)
+	IF prevPhW(#@) THEN 
+		Vowelout f1=0 f2=1200 -50 50 f3=50 80  rms=20 len=15
+	ELIF prevPhW(y@) THEN
+		Vowelout f1=2 f2=1200 -100 150 f3=150 80  rms=20 len=15
+	ELIF prevPhW(#i) THEN 
+		Vowelout f1=0 f2=2000 -300 250  f3=-50 80  rms=20 len=15
+	ELIF prevPhW(E) THEN 
+		Vowelout f1=0 f2=1900 -200 200  f3=-100 80  rms=20 len=15
+	ELIF prevPhW(e) OR prevPhW(iE) THEN 
+		Vowelout f1=2 f2=1800 -400 250  f3=-200 80  rms=20 len=15
+	ELIF prevPhW(u) THEN 
+		Vowelout f1=2 f2=1000 -1000 250  f3=-400 80  rms=20 len=15
+	ELIF prevPhW(y) THEN 
+		Vowelout f1=1 f2=1500 -300 250  f3=-400 80  rms=20 len=15
+	ELIF prevPhW(#a) THEN 
+		Vowelout f1=2 f2=1500 -300 250  f3=-500 80  rms=20 len=15
+	ELIF prevPhW(o) THEN 
+		Vowelout f1=2 f2=1000 -100 250  f3=-200 80  rms=20 len=15
+	ELIF prevPhW(O) THEN 
+		Vowelout f1=1 f2=1000 -300 200  f3=-100 80  rms=20 len=15
+	ELSE
+		Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
+	ENDIF
+	WAV(ustop/t_, 25)
   ELSE
 	vls dnt stp
 	voicingswitch d[
