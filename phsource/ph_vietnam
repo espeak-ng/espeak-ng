@@ -785,8 +785,11 @@ phoneme p
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
 
-    WAV(ustop/p)
-  
+	IF thisPh(isWordEnd) THEN
+		WAV(ustop/p_unasp_, 10)
+	ELSE
+		WAV(ustop/p)
+    ENDIF
 endphoneme
 
 phoneme t[        // dental variant of /t/
