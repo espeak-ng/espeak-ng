@@ -918,7 +918,7 @@ phoneme h
   ELIF nextPh(#e) THEN
     WAV(h/he)
   ELIF nextPh(#i) THEN
-    WAV(h/hi)
+    WAV(vietnam/hi)
   ELIF nextPh(#o) THEN
     WAV(h/ho)
   ELIF nextPh(#u) THEN
