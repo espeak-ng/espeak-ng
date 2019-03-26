@@ -905,3 +905,24 @@ phoneme n^ // (a)nh
     FMT(vietnam/n^_)	
   ENDIF
 endphoneme
+
+phoneme h
+  vls glt frc
+  lengthmod 3
+  ipa h
+   
+  IF nextPh(#@) THEN
+    WAV(h/h@)
+  ELIF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#i) THEN
+    WAV(h/hi)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho)
+  ELIF nextPh(#u) THEN
+    WAV(vietnam/hu, 25)
+  ENDIF
+  WAV(h/h_, 70)  // no vowel following
+endphoneme
