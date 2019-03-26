@@ -752,7 +752,11 @@ phoneme N // si**ng**
   IF thisPh(isWordEnd) THEN 
 	length 163
   ENDIF
-  FMT(n/nm)
+  IF thisPh(isWordEnd) THEN 
+	FMT(n/nm)
+  ELSE 
+	FMT(nn/_nn)
+  ENDIF
 endphoneme
 
 phoneme l
@@ -926,15 +930,15 @@ phoneme n^ // (a)nh
     VowelStart(n^/n^u)
   EndSwitch
 
-  IF prevPh(isPause) THEN
-    FMT(n^/_n^)
-  ELIF nextPh(isNotVowel) THEN
+  IF thisPh(isWordEnd) THEN
     IF nextPhW(n^) THEN
       length 75
     ELIF prevPhW(n^) THEN
       length 100
     ENDIF
     FMT(vietnam/n^_)	
+  ElSE
+    FMT(n^/_n^)
   ENDIF
 endphoneme
 
