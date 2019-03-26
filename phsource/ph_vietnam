@@ -590,11 +590,27 @@ endphoneme
 
 phoneme u@
   vwl  starttype #u  endtype #@
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 123
+  ELIF nextPhW(t[) THEN
+	length 123
+  ELIF nextPhW(c) THEN
+	length 139
+  ELIF nextPhW(m) THEN
+	length 127
+  ELIF nextPhW(n) THEN
+	length 160
+  ELIF nextPhW(N) THEN
+	length 156
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+	length 300
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
-	ELSE
-	length 140
-	ENDIF
+  ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
+     length 333
+  ELSE
+	length 240
+  ENDIF
   //FMT(vdiph2/uu@)-
   FMT(vietnam/u@)
 endphoneme
@@ -751,13 +767,17 @@ endphoneme
 
 phoneme N // si**ng** 
   vcd lbv nas
+  IF prevPhW(u@) THEN 
+  // do nothing
+  ELSE 
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  ENDIF
   lengthmod 12            // longer than 'n'
   IF thisPh(isWordEnd) THEN 
 	length 163
   ENDIF
   IF thisPh(isWordEnd) THEN 
-	FMT(n/nm)
+	FMT(n/nm, 50)
   ELSE 
 	FMT(nn/_nn)
   ENDIF
