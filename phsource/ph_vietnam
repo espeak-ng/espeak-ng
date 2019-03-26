@@ -91,7 +91,7 @@ phoneme a:
   ELIF nextPhW(n) THEN
 	length 185
   ELIF nextPhW(N) THEN
-	length 173
+	length 200
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
@@ -313,7 +313,7 @@ phoneme y
   ELIF nextPhW(t[) THEN
 	length 76
   ELIF nextPhW(c) THEN
-	length 70
+	length 90
   ELIF nextPhW(m) THEN
 	length 143
   ELIF nextPhW(n) THEN
@@ -654,11 +654,29 @@ endphoneme
 
 phoneme iE // iê : viết, giệc
   vwl  starttype #i  endtype #e
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 114
+  ELIF nextPhW(t[) THEN
+	length 126
+  ELIF nextPhW(c) THEN
+	length 140
+  ELIF nextPhW(n^) THEN
+	length 120
+  ELIF nextPhW(m) THEN
+	length 148
+  ELIF nextPhW(n) THEN
+	length 163
+  ELIF nextPhW(N) THEN
+	length 115
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+	length 300
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
-	ELSE
-	length 200
-	ENDIF
+  ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
+     length 324
+  ELSE
+	length 180
+  ENDIF
   FMT(vietnam/ie)
 endphoneme
 
@@ -869,7 +887,7 @@ phoneme w
 
     VowelEnding(w/xw, -30)
 	IF nextPh(isVowel) AND prevPhW(t[) THEN
-		FMT(vnasal/u_n, 60)  addWav(vietnam/w)
+		FMT(vnasal/u_n, 60)  addWav(vietnam/w, 50)
 	ELIF prevPhW(isNasal) THEN
       FMT(w/w)
     ELSEIF prevPhW(h) THEN
