@@ -886,8 +886,12 @@ phoneme t[        // dental variant of /t/
 	vls dnt stp
 	voicingswitch d[
 	lengthmod 2
-	length 15
-	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
+	IF nextPhW(#u) THEN 
+		length 30
+	ELSE
+		length 15
+	ENDIF
+	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=35
 	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
 
 	IF nextPh(isPause2) THEN
