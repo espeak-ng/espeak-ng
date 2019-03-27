@@ -819,10 +819,11 @@ phoneme d_
   vcd alv stp
     //	lengthmod 5
 	ipa ɗ
-	length 50
- Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=15
-  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
-WAV(vietnam/dd_2)
+	length 70
+	Vowelin f1=1  f2=1500 -300 300  f3=-100 80 len=15
+	Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
+	WAV(vietnam/dda_2, 200)
+	
  endphoneme
  
  phoneme c
