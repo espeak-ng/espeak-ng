@@ -206,7 +206,7 @@ endphoneme
 phoneme y
   vwl starttype #u endtype #u
   ipa ʏ
-  length 80
+  length 100
   IF nextPh(*) THEN
     length 90
   ENDIF
