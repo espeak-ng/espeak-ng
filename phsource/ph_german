@@ -1,4 +1,4 @@
-﻿
+
 
 //=========================================================
 // German
@@ -205,10 +205,10 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
-  ipa ʏ
-  length 90
+  ipa ?
+  length 100
   IF nextPh(*) THEN
-    length 100
+    length 110
   ENDIF
   FMT(vowel/u#_3)
 endphoneme
@@ -361,7 +361,7 @@ endphoneme
 
 phoneme iR  // TEST "vier" = [f'iR] not successful
   vwl starttype #i endtype #@
-  ipa iɐ
+  ipa i?
   flag1
   length 240
   FMT(vdiph2/i@_3)
@@ -370,7 +370,7 @@ endphoneme
 
 phoneme UR
   vwl starttype #u endtype #@
-  ipa ʊɐ
+  ipa ??
   flag1
   length 180
   FMT(vwl_de/uu_@)
