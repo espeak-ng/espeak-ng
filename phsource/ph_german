@@ -461,7 +461,7 @@ phoneme k
     WAV(ustop/k, 70)
   ELIF nextPh(R) OR nextPh(R2) THEN
     WAV(ustop/k_)
-  ELIF nextPh(i:) OR nextPh(;) THEN
+  ELIF nextPh(i:) OR nextPh(j) OR nextPh(;) THEN
     WAV(ustop/ki)
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
