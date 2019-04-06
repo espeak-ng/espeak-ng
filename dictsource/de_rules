@@ -53,6 +53,7 @@
         au         aU
         auh (_     aU
         auer	aU3
+    mold) auisch	aUIS
 
         ab (t_     A:p
         ag (t_     A:k
@@ -221,6 +222,8 @@ r     p) ay         EI
 
     _o) b (C       p
         baby       _^_EN
+        bela (rus	%bEl%a
+        bergisch	bErgIS
         beten      be:t@n
         bestimm	%b@StIm
      _) bike       _^_EN
@@ -424,7 +427,9 @@ r     p) ay         EI
      &) eres (_S4  @r@s
         er (d_     e:r
      &) er (r_     E
-     w) er (k_     Er
+        er (g     Er
+        erg  (_ Erg
+        erk (_     Erk
      &) erin (_    @rIn
      &) erisch (_  @rIS
    exp) er (t      Er
@@ -715,7 +720,7 @@ r     p) ay         EI
      @) io (n      Io:
         io         Io:
      @) is (_      Is
-     &) isch (_    IS
+     &) isch (_    =IS
         is (mus_   'Is
         istan	=IstA:n
         istisch (_	'IstIS
@@ -817,6 +822,7 @@ formal) ie         =I@
         lady       _^_EN
      _) land (C@P4 l'ant
      _) landes (@P6 l'and@s
+        ländisch	lEndIS
      _) lang (C@P4 l'aN
      _) lang (t@   l'aN
         langsam    l'aNzA:m
@@ -1033,6 +1039,7 @@ formal) ie         =I@
         rangier    rA:NZ'i:r
      _) re (d      re:
         register	re:g'Ist@r
+        reichisch	raICIS
         ressourc   rEs'Urs
         revers     r%e:vErs
 
@@ -1116,9 +1123,8 @@ formal) ie         =I@
         st (uh     St
         st (ung    st
 
-      _) sachs	zaks
-  nieder) sachs	zaks
-     &) sächs	zEks
+        sachse	zaks@
+     &) sächsisch	zEksIS
      _) safe       _^_EN
      &) schaft (_S6 Saft
 
@@ -1406,7 +1412,7 @@ formal) ie         =I@
      _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
         work       _^_EN
-        württemberg	vyrt@mbErg
+        württem (berg	vyrt@m
 
 
 .group x

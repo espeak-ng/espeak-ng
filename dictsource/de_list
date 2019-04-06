@@ -746,7 +746,6 @@ extravagant      $1
 extrem          Ekstr'e:m
 
 foyer		fOj'e:
-französisch	$2
 friedvoll       fr'i:tfOl
 furchen         fUrC@n
 furie            $alt
@@ -980,7 +979,7 @@ zymbal		$1
 // Names
 Albanien	$2
 adrian	A:dri:A:n
-afghanistan	$2
+Alditalk	aldi:tO:k
 Alea	$2
 amerika	$2
 Andorra	and'OrA:
@@ -1047,6 +1046,7 @@ michael	mICae:l
 michaela	mICa'e:lA:
 Montenegro	mOnt@n'e:gro:
 Moradi	$2
+münchen	mynC@n
 naomi	$2
 Neumexiko       $2
 Neuseeland	$2
@@ -1054,6 +1054,7 @@ nordrhein	nOrd||raIn
 portugal	pOrtu:gal
 Rumänien	$2
 Rwanda		rU'andA:
+san	%zan
 saarbrücken	$2
 schlesien	Sle:zI@n
 schleswig	Sle:svIg#
@@ -1067,6 +1068,7 @@ Tom		tOm	$only
 Tim		tIm	$only
 Turkmenistan	$2
 ukraine	UkrA'i:n@
+vatikanstadt	vA:ti:k'A:nStat
 vera	v'e:rA:
 verena	ve:r'e:nA:
 westfalen	$2
