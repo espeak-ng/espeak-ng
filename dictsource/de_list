@@ -648,7 +648,6 @@ akkord	$2
 alarm	$2
 allein           $2
 allgemein	'alg@maIn
-amerika	$2
 andre           andr@        // andere
 aneinander	an1aIn'and3
 anomalie         $2
@@ -747,7 +746,8 @@ extravagant      $1
 extrem          Ekstr'e:m
 
 foyer		fOj'e:
-friedvoll       fr'i:tf,Ol
+französisch	$2
+friedvoll       fr'i:tfOl
 furchen         fUrC@n
 furie            $alt
 
@@ -938,6 +938,7 @@ tja		tjA:
 tonnage		$alt
 tragödie	$alt
 train           tre:n
+trapez	$2
 trolley	tr'Oli:
 trost	tr'o:st
 tsunami		tsu:n'A:mi:
@@ -977,27 +978,95 @@ zymbal		$1
 
 
 // Names
+Albanien	$2
+adrian	A:dri:A:n
+afghanistan	$2
+Alea	$2
+amerika	$2
+Andorra	and'OrA:
+Andrea	andr'e:A:
+Andreas	andr'e:A:s
+Anika	ani:kA:
 Armin	$1
+aserbaidschan	A:z3baIdZ'A:n
+Asien	A:zI@n
+Bremerhaven	bre:m3h'Af@n
+Cathleen	katle:n
+Cedric	sEdrIk
+Chiara	kjA:rA:
+Chris	krIs
+Christian	$1
+Christina	$2
+Daniel	dA:nI@l
+Daniela	danj'e:lA:
 Djakarta	dZak'artA:
 Djibouti	dZi:b'u:ti:
+duisburg	dy:sbUrg
+Eric	e:rIk
+Erik	e:rIk
+florian	$1
 Fruecht	fr'yCt
 Georg		ge:Ork	$only
 George		dZO:rdZ
-ines	'i:n@s
-john		dZ'On
+gibraltar	$2
+Gina	dZi:nA:
+hannover	han'o:f3
+Herzegowina	hErtse:g'Ovi:nA
+Ines	i:n@s
+Italien	i:t'A:lI@n
+Johann	jo:han
+Johanna	jo:h'anA:
+Johannes	jo:h'an@s
+John	dZOn
+Jon	dZOn
+jonatan	$1
+jonathan	jonatan	$text
+jonny	dZOni:
 Josef	j'o:zEf
+Katharina	katar'i:nA:
+Kasachstan $1
+Kirgisien $2
 Klango	kl'aNgo:
 Khmer		kme:r
-liam		_^_EN
+kosovo	kOso:vo:
+kristina	$2
+kroatien	kro:'A:tsI@n
+Leon	le:On
+Leonie	$1
+Liam		_^_EN
+Lüneburg	ly:n@bUrg
+Maria	$2
+Marian	$1
+Marlene	marl'e:n@
+mathias	mat'i:A:s
+Matthias	mathias	$text
+Matias	mathias	$text
+Mattias	mathias	$text
 Mc		%mEk
+michael	mICae:l
+michaela	mICa'e:lA:
+Montenegro	mOnt@n'e:gro:
 Moradi	$2
+naomi	$2
 Neumexiko       $2
 Neuseeland	$2
+nordrhein	nOrd||raIn
+portugal	pOrtu:gal
+Rumänien	$2
 Rwanda		rU'andA:
+saarbrücken	$2
+schlesien	Sle:zI@n
+schleswig	Sle:svIg#
+Sebastian	$2
+slowenien	$2
 Sri		%sri:
 steve		_^_EN
+soest	zo:st
+sultan	$1
 Tom		tOm	$only
 Tim		tIm	$only
+Turkmenistan	$2
+ukraine	UkrA'i:n@
 vera	v'e:rA:
 verena	ve:r'e:nA:
-
+westfalen	$2

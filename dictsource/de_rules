@@ -79,6 +79,7 @@
      _) abzu (@P4  'aptsu:
      _) ac (et     ats
      _) ad (ju     at
+        afgh	afg
      _) an (@P2    'an
      _) an (a      %an
      _) a (natioP1 'A:
@@ -96,6 +97,7 @@
      _) an (nL03hP2 'an
      _) anti (@P4  ,antI
      _) an (tw     an
+        apo (thek	apo:
         ath (_	'A:t
         athie (_	at'i:
         athisch (_	'A:tIS
@@ -359,7 +361,7 @@ r     p) ay         EI
 .group e
      _) e (_       e:
         e          e:
-        eau (_	'o:
+     &) eau (_	'o:
         ee         e:
         eh (+      e:
 
@@ -561,6 +563,7 @@ r     p) ay         EI
  massa) g          Z
         gabe	gA:b@
      @) ght (_     _^_EN
+        gleich	glaIC
         graph      grAf
         graph (_   gr'A:f
         green      _^_EN
@@ -712,8 +715,10 @@ r     p) ay         EI
      @) io (n      Io:
         io         Io:
      @) is (_      Is
-     &) isch (_    =IS
+     &) isch (_    IS
         is (mus_   'Is
+        istan	=IstA:n
+        istisch (_	'IstIS
      @) ist (_     'Ist
      @) it (_N     'It
      @) ite (_     'i:t@
@@ -1070,6 +1075,7 @@ formal) ie         =I@
      _) s (zA      s
 
         sch        S
+        schenk	SENk
         sh (K      S
         sou (nd    saU
      p) s (a       s
@@ -1102,6 +1108,7 @@ formal) ie         =I@
         st (art    St
         st (ä      St
         st (eh     St
+        st (ein	St
         st (ö      St
         st (rich   St
         st (ü      St
@@ -1109,6 +1116,9 @@ formal) ie         =I@
         st (uh     St
         st (ung    st
 
+      _) sachs	zaks
+  nieder) sachs	zaks
+     &) sächs	zEks
      _) safe       _^_EN
      &) schaft (_S6 Saft
 
@@ -1202,8 +1212,12 @@ formal) ie         =I@
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
-        thek (_	t'e:k
+     &) thek	t'e:k
+             &) thekar	te:k'A:r
+      &) thekarin 	te:k'ArIn
+     &) thekerin 	t'e:k@rIn
        top	tOp
+        toph	tOf
         touch      _^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
@@ -1392,6 +1406,7 @@ formal) ie         =I@
      _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
         work       _^_EN
+        württemberg	vyrt@mbErg
 
 
 .group x
@@ -1466,6 +1481,7 @@ formal) ie         =I@
         ö (C%      W
         ö (CC      W
         ö (sch     W
+        öster	Y:st3r
 
 
 .group ü
