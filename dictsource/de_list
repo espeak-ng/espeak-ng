@@ -237,7 +237,7 @@ oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
 wegen	ve:g@n	$u+
-weil	v,aIl		$pause	$only
+weil	v,aIl		$pause
 als		als	$u+ $brk
 bevor		b@fo:r	$2 $pause
 also			$pause
@@ -646,7 +646,6 @@ bebung	b'e:bUN
 baguette	bag'Et
 balkan           $1
 balkon           $2
-balance	bal'A~s
 bandagier       bandaZ'i:r
 beben           be:b@n
 beere           be:r@
@@ -655,11 +654,9 @@ best            bEst
 bestem	b'Est@m
 beta	b'e:tA:
 beten           be:t@n
-bibliothek	bi:bli:o:t'e:k
 bisschen	b'IsC@n
 bizarr           $2
 blamage		$alt
-bourgeoisie	bUrZwAz'i:
 braille	braIj
 bronchie         $alt
 buch            b'u:x
@@ -694,7 +691,6 @@ dragier         draZ'i:r
 dritte          drIt@
 dschungel	dZ'UN@l
 duett           du:'Et
-düst	dy:st
 
 ebendaher       e:b@ndah'e:r
 ebendahin       e:b@ndah'In
@@ -735,6 +731,8 @@ gegenständ	$1
 gegenüber       ge:g@n_|'y:b3
 geglichen       g@glIC@n
 gemein          g@maIn
+gen	ge:n
+gene	ge:n@
 genial          ge:nj'A:l
 geranie         ge:r'A:nI@
 gessen          gEs@n
@@ -742,6 +740,8 @@ geste           ge:st@
 gestern         gEst3n
 gitarre		$2
 glorie           $alt
+grafem	grA:f'e:m
+graphem	grA:f'e:m
 grazie           $alt
 
 handy           hEndi:
@@ -857,26 +857,26 @@ pinie            $alt
 planet          plan'e:t
 pochier         pOS'i:r
 pochs           pOxs
+portemonnaie	pOrtmOn'e:
 präsident        $3
 prämie           $alt
 prinzip	$2
 prinzipien	prInts'i:pI@n
-privatisier	pri:vA:ti:z'i:r
-problematisier  $5
+protein	pro:te:_|'i:n
 protokoll	$3
 
+referendum	$3
 refrain	rEfr'W~
-relevanz	$3
 reliquie         $alt
 rendezvous	rA~de:v'u:
 restaurant	rEsto:r'A~
 risik           $1
+ruhezustand	ru:@ts,u:Stand
 rupie            $alt
 
 sabbat          zabat
 sagt            zA:gt
 salopp           $2
-sarkasmus	$2
 schieberegler	S'i:b@re:gl3
 schokolad	$3
 schreibung	Sr'aIbUN
@@ -903,8 +903,6 @@ stalagmit       stalagm'It
 subjekt		$1
 
 tag             tA:g
-tarif	$2
-teint	t'W~
 telegen         te:le:g'e:n
 terrain	tEr'W~
 the             D@         // English
@@ -913,7 +911,6 @@ tja		tjA:
 tonnage		$alt
 tragödie	$alt
 train           tre:n
-trapez	$2
 trolley	tr'Oli:
 trost	tr'o:st
 tsunami		tsu:n'A:mi:
@@ -954,7 +951,6 @@ zymbal		$1
 
 // Names
 Armin	$1
-chopin	SOp'W~
 Djakarta	dZak'artA:
 Djibouti	dZi:b'u:ti:
 Fruecht	fr'yCt
