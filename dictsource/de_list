@@ -452,13 +452,17 @@ kam		,kA:m
 // de_rules includes the words ending in "-ing"
 access		_^_EN
 account		_^_EN
-aid		_^_EN  // aids
+aid		_^_EN
+aids	_^_EN
+america	_^_EN
 appeal		_^_EN
 apple		_^_EN
 association	_^_EN
 baseball	_^_EN
 bbc		_^_EN
 beat		_^_EN
+britain	_^_EN
+british	_^_EN
 browser         _^_EN
 byte		_^_EN
 bytes		_^_EN
@@ -477,15 +481,14 @@ computer	kOmpj'u:t3
 cool		_^_EN
 copy		_^_EN
 couch		_^_EN
+cover	_^_EN
 cursor		_^_EN
 daisy	_^_EN
 date		_^_EN
 debugger	_^_EN
-desktop		d'EsktOp
 dj		d'i:dZEI
-download	_^_EN
-downloads		_^_EN
 email		_^_EN
+empire	_^_EN
 enterprise	_^_EN
 escape	_^_EN
 espeak		_^_EN
@@ -496,12 +499,13 @@ file		_^_EN
 firefox		_^_EN
 firewall	_^_EN
 foul		_^_EN
-foyer		_^_EN
 frame		_^_EN
 freak		_^_EN
 german	_^_EN
+germany	_^_EN
 gin		_^_EN
 google	_^_EN
+great	_^_EN
 groupie		_^_EN
 hip		_^_EN
 homepage	_^_EN
@@ -516,6 +520,7 @@ joint		_^_EN
 joke		_^_EN
 joystick	_^_EN
 junkie		_^_EN
+kingdom	_^_EN
 laptop		_^_EN
 laser		_^_EN
 level		_^_EN
@@ -526,6 +531,7 @@ macho		_^_EN
 mail		_^_EN
 mailbox	_^_EN
 message		_^_EN
+moodle	_^_EN
 move		_^_EN
 my		_^_EN
 mysql		_^_EN
@@ -533,6 +539,10 @@ notebook		_^_EN
 notepad	_^_EN
 nugget	_^_EN
 nvda	_^_EN
+nvaccess	_^_EN
+of	_^_EN
+office	_^_EN
+offices	_^_EN
 offline		_^_EN
 online		_^_EN
 out		_^_EN
@@ -543,15 +553,17 @@ pidgin		_^_EN
 player	_^_EN
 plot		_^_EN
 poster		_^_EN
+quiz		_^_EN
+reader	_^_EN
 receiver	_^_EN
+recovery	_^_EN
 registry	_^_EN
 release		_^_EN
 remake		_^_EN
 research	_^_EN
+return	_^_EN
 roadie		_^_EN
 roastbeef	_^_EN
-quiz		_^_EN
-reader	_^_EN
 run             _^_EN
 running	_^_EN
 save		_^_EN
@@ -571,13 +583,18 @@ slum		_^_EN
 small		_^_EN
 smiley		_^_EN
 snob		_^_EN
+solution	_^_EN
 song		_^_EN
 sorry		_^_EN
 source		_^_EN
+space	_^_EN
+spaces	_^_EN
 spam		_^_EN
 speak		_^_EN
 spirit          _^_EN
 squaw		_^_EN
+state	_^_EN
+states	_^_EN
 stream		_^_EN
 suite		_^_EN
 sweatshirt	_^_EN
@@ -586,6 +603,10 @@ team		_^_EN
 teaser		_^_EN
 tech		_^_EN
 terminal	_^_EN
+the	_^_EN
+their	_^_EN
+they	_^_EN
+this	_^_EN
 thunderbird		_^_EN
 time		_^_EN
 timer	_^_EN
@@ -593,11 +614,14 @@ to	_^_EN	$only
 tool	_^_EN
 trip		_^_EN
 tuner		_^_EN
+turn	_^_EN
+united	_^_EN
 unix		_^_EN
 update		_^_EN
 updates		_^_EN
 venture		_^_EN
 verify		_^_EN
+very	_^_EN
 voice		_^_EN
 voices		_^_EN
 weather		_^_EN
@@ -605,6 +629,7 @@ web	w'Eb $only
 website		_^_EN
 window		_^_EN
 wipe		_^_EN
+with	_^_EN
 word		_^_EN
 
 
@@ -671,6 +696,7 @@ bürostuhl	by:r'o:Stu:l
 
 changier        SaNZ'i:r
 cembalo	tS'Embalo:
+centre	center	$text
 champagner	Samp'anj3
 champignon	S'ampInjON
 ciao            tSaU
@@ -784,6 +810,7 @@ inzwischen	$2
 jahrhundert		$2
 januar		janu:A:r
 
+kalender	kal'End3
 Kamel	kam'e:l
 kamelie		$alt
 kanäl	$2
@@ -905,7 +932,6 @@ subjekt		$1
 tag             tA:g
 telegen         te:le:g'e:n
 terrain	tEr'W~
-the             D@         // English
 theater         te:'A:t3
 tja		tjA:
 tonnage		$alt
