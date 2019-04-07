@@ -386,7 +386,7 @@ nur			$brk
 jetzt		j,Etst	$strend2
 schon		S,o:n	$strend2
 einst		'aInst	// not 'ein' + st
-zwar		tsv,a:r
+zwar		$u
 wo		v,o:
 während		$u
 
