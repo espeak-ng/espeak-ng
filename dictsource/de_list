@@ -667,12 +667,12 @@ automatisch	$3
 aventurin       avEntu:r'i:n
 ave             A:vE
 
-bebung	b'e:bUN
 baguette	bag'Et
 balkan           $1
 balkon           $2
 bandagier       bandaZ'i:r
 beben           be:b@n
+bebung	b'e:bUN
 beere           be:r@
 bestie          bEstI@
 best            bEst
@@ -819,6 +819,7 @@ kartonage	$alt
 kastanie	$alt
 kid		kId
 klops	kl'Ops
+kognak	kOnjak
 kombinationsfeld		$4
 komödie		$alt
 kompass	$1

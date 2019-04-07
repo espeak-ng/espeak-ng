@@ -99,9 +99,7 @@
      _) anti (@P4  ,antI
      _) an (tw     an
         apo (thek	apo:
-        ath (_	'A:t
-        athie (_	at'i:
-        athisch (_	'A:tIS
+    emp) athisch	A:tIS
      _) auf (@P3   _!'aUf
      _) aus (@P3   _!'aUs
      _) aus (ku    aUs
@@ -988,6 +986,9 @@ formal) ie         =I@
         papier	pap'i:r
      _) para (@    p,ara
         passagie   pasaZ'i:
+        path (_	p'At
+        pathin (_	p'AtIn
+        pathisch (_	p'A:tIS
      _) peri       p,e:ri:
      _) perio      p,e:rIo:
      _) periphe    p,e:ri:fe:
@@ -1150,8 +1151,10 @@ formal) ie         =I@
         seku (nden ze:k'U
      _) selbst (@@P6 z'Elpst
         service (_S7 z%Ervi:s
+ share (ware	SE:r
         shop       _^_EN
      _) sky        _^_EN
+   soft (ware	sOft
         soldat     z%OldA:t
      &) so (rt_    s_|O
         summe      zUm@
@@ -1173,6 +1176,7 @@ formal) ie         =I@
      _) t (_       te:
         t          t
      t) t
+        th	t
      _) th (A      t   // allow _th
      _) th (rA     t   // allow _thr
         th (K      t
@@ -1397,7 +1401,7 @@ formal) ie         =I@
 
      @) wert (_    ve:rt
      _) wh         _^_EN
-     &) ware (_    _^_EN
+     &) ware (_    wE:r
      _) wasch (@P5 v'aS
      _) wasser (@P6 v'as@r
      _) weit (C@P4 v'aIt
