@@ -1722,6 +1722,9 @@ include ph_interlingua
 phonemetable jbo eo
 include ph_lojban
 
+phonemetable py eo
+include ph_pyash
+
 phonemetable nci base2
 include ph_nahuatl
 
