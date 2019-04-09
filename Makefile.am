@@ -446,18 +446,8 @@ dictsource/%_emoji:
 dictsource/%_extra:
 	touch $@
 
-if HAVE_ZH_EXTENDED_DICTIONARY
-dictsource/zh_extra: dictsource/extra/zh_listx
-	cat $^ >> $@
-endif
-
-
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
-	cd dictsource 
-	echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'
-	cd ..
-
 	@cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
 		--compile=`echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'` && cd ..
 
@@ -836,13 +826,13 @@ vi: espeak-ng-data/vi_dict
 espeak-ng-data/vi_dict: dictsource/vi_list dictsource/vi_rules dictsource/vi_extra dictsource/vi_emoji
 
 zh: espeak-ng-data/zh_dict
-# dictsource/zh_listx:
-# 	ln -svf extra/zh_listx dictsource/
-# if HAVE_ZH_EXTENDED_DICTIONARY
-# espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_listx dictsource/zh_emoji
-# else
+dictsource/zh_listx:
+	ln -svf extra/zh_listx dictsource/
+if HAVE_ZH_EXTENDED_DICTIONARY
+espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_listx dictsource/zh_emoji
+else
 espeak-ng-data/zh_dict: dictsource/zh_list dictsource/zh_rules dictsource/zh_extra dictsource/zh_emoji
-# endif
+endif
 
 zhy: espeak-ng-data/zhy_dict
 dictsource/zhy_list:
