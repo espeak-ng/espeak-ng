@@ -437,7 +437,7 @@ endphoneme
 
 phoneme uai
   vwl starttype #u endtype #i
-  length 250
+  length 511
   FMT(vwl_zh/uai)
 endphoneme
 
