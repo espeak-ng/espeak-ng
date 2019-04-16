@@ -16,8 +16,7 @@
 The MBROLA project is a collection of diphone voices for speech
 synthesis. They do not include any text-to-phoneme translation, so this
 must be done by another program. The MBROLA voices are cost-free but are
-not open source. Voice files are available at
-[http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
+not open source.
 
 eSpeak NG can be used as a front-end to MBROLA. It provides the
 spelling-to-phoneme translation and intonation, which MBROLA then uses
@@ -128,7 +127,7 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `vz1`        | Venezuelan Spanish   | male   | `mb-vz1` | `mbrola-vz1`   |
 
 * If some MBROLA voice is not available as Debian package, you can download data files
-  from [here](https://github.com/mbrola/mbrola-voices).
+  from [https://github.com/numediart/MBROLA-voices](https://github.com/numediart/MBROLA-voices).
 
 ## Windows Installation
 
@@ -141,7 +140,7 @@ The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe).
 
 3.  Get the `en1` or other voice from:
-    [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
+    [https://github.com/numediart/MBROLA-voices](https://github.com/numediart/MBROLA-voices)
 
 4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" folder) into
     `C:/Program Files/eSpeak/espeak-ng-data/mbrola`.
