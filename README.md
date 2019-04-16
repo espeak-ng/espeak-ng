@@ -125,6 +125,7 @@ be installed using the following commands:
 | sonic         | `sudo apt-get install libsonic-dev`                              |
 | ronn          | `sudo apt-get install ruby-ronn`                                 |
 | kramdown      | `sudo apt-get install ruby-kramdown`                             |
+| pcaudiolib    | `sudo apt-get install libpcaudio-dev`                            |
 
 ### Building
 
