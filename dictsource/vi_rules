@@ -364,35 +364,35 @@ ỵ	ỵ
 
 .group a
         a          a:
-        ai         a:I
-        aì         a:I2
-        aí         a:I3
-        aỉ         a:I4
-        aĩ         a:I5
-        aị         a:I6
-        ay         aI
+        ai         a:j
+        aì         a:j2
+        aí         a:j3
+        aỉ         a:j4
+        aĩ         a:j5
+        aị         a:j6
+        ay         aj
 ?2      ay         a:I       
         
  
         
  
-        aý         aI3
-        aỷ         aI4
-        aỹ         aI5
-        aỵ         aI6
-        ao         a:U
-        aò         a:U2
-        aó         a:U3
-        aỏ         a:U4
-        aõ         a:U5
-        aọ         a:U6
-        au         aU
+        aý         aj3
+        aỷ         aj4
+        aỹ         aj5
+        aỵ         aj6
+        ao         a:w
+        aò         a:w2
+        aó         a:w3
+        aỏ         a:w4
+        aõ         a:w5
+        aọ         a:w6
+        au         aw
 ?2      au         a:U
-        aù         aU2
-        aú         aU3
-        aủ         aU4
-        aũ         aU5
-        aụ         aU6
+        aù         aw2
+        aú         aw3
+        aủ         aw4
+        aũ         aw5
+        aụ         aw6
         a (L01     _^_EN
         ai (L02    _^_EN
         a (@       _^_EN
@@ -401,8 +401,8 @@ ỵ	ỵ
 
 .group à
         à          a:2
-        ài         a:I2
-        ày         aI2
+        ài         a:j2
+        ày         aj2
 ?2      ày         a:I2
         à (L03     e-2
  
@@ -412,48 +412,48 @@ ỵ	ỵ
  
         
  
-        ào         a:U2
-        àu         aU2
+        ào         a:w2
+        àu         aw2
 ?2      àu         a:U2
         
  
 
 .group á
         á          a:3
-        ái         a:I3
-        áy         aI3
-        áo         a:U3
-        áu         aU3
+        ái         a:j3
+        áy         aj3
+        áo         a:w3
+        áu         aw3
 ?2      áu         a:U3      
 ?2      áy         a:I3
 		á (L03     e-3
 		
 .group ả
         ả          a:4
-        ải         a:I4
-        ảy         aI4
-        ảo         a:U4
-        ảu         aU4
+        ải         a:j4
+        ảy         aj4
+        ảo         a:w4
+        ảu         aw4
 ?2      ảu         a:U4      
 ?2      ảy         a:I4      
 		ả (L03     e-4
 
 .group ã
         ã          a:5
-        ãi         a:I5
-        ãy         aI5
-        ão         a:U5
-        ãu         aU5
+        ãi         a:j5
+        ãy         aj5
+        ão         a:w5
+        ãu         aw5
 ?2      ãu         a:U5      
 ?2      ãy         a:I5
 		ã (L03     e-5
 
 .group ạ
         ạ          a:6
-        ại         a:I6
-        ạy         aI6
-        ạo         a:U6
-        ạu         aU6
+        ại         a:j6
+        ạy         aj6
+        ạo         a:w6
+        ạu         aw6
 ?2      ạu         a:U6      
 ?2      ạy         a:I6      
 		ạ (L03     e-6
@@ -515,7 +515,7 @@ ỵ	ỵ
 .group â
         â          @
         ây         @I
-        âu         @U1       
+        âu         @w1       
 ?2      â (L03     a         
 ?1      â (L03     a         
         
@@ -526,7 +526,7 @@ ỵ	ỵ
 .group ầ
         ầ          @2
         ầy         @I2
-        ầu         @U2
+        ầu         @w2
 ?2      ầ (L03     a2        
 ?1      ầ (L03     a2        
         
@@ -537,7 +537,7 @@ ỵ	ỵ
 .group ấ
         ấ          @3
         ấy         @I3
-        ấu         @U3
+        ấu         @w3
 ?2      ấ (L03     a3        
 ?1      ấ (L03     a3        
         
@@ -548,7 +548,7 @@ ỵ	ỵ
 .group ẩ
         ẩ          @4
         ẩy         @I4
-        ẩu         @U4
+        ẩu         @w4
         
  
         
@@ -559,7 +559,7 @@ ỵ	ỵ
 .group ẫ
         ẫ          @5
         ẫy         @I5
-        ẫu         @U5
+        ẫu         @w5
         
  
         
@@ -570,7 +570,7 @@ ỵ	ỵ
 .group ậ
         ậ          @6
         ậy         @I6
-        ậu         @U6
+        ậu         @w6
 ?2      ậ (L03     a6        
 ?1      ậ (L03     a6        
         
@@ -578,12 +578,12 @@ ỵ	ỵ
 //===========================
 .group e
         e          E
-        eo         EU
-        eò         EU2
-        eó         EU3
-        eỏ         EU4
-        eỗ         EU5
-        eọ         EU6
+        eo         Ew
+        eò         Ew2
+        eó         Ew3
+        eỏ         Ew4
+        eỗ         Ew5
+        eọ         Ew6
         e (L01     _^_EN
         ey (_      _^_EN
         e (@       _^_EN     
@@ -592,7 +592,7 @@ ỵ	ỵ
 
 .group è
         è          E2
-        èo         EU2
+        èo         Ew2
         
  
         
@@ -602,7 +602,7 @@ ỵ	ỵ
 
 .group é
         é          E3
-        éo         EU3
+        éo         Ew3
         
  
         
@@ -612,7 +612,7 @@ ỵ	ỵ
 
 .group ẻ
         ẻ          E4
-        ẻo         EU4
+        ẻo         Ew4
         
  
         
@@ -622,7 +622,7 @@ ỵ	ỵ
 
 .group ẽ
         ẽ          E5
-        ẽo         EU5
+        ẽo         Ew5
         
  
         
@@ -632,7 +632,7 @@ ỵ	ỵ
 
 .group ẹ
         ẹ          E6
-        ẹo         EU6
+        ẹo         Ew6
         
  
         
@@ -643,7 +643,7 @@ ỵ	ỵ
 
 .group ê
         ê          e
-        êu         eU1
+        êu         ew1
 ?2      ê (L03     @:        
 ?2      ê (L02     @:        
         
@@ -651,7 +651,7 @@ ỵ	ỵ
 
 .group ề
         ề          e2
-        ều         eU2
+        ều         ew2
 ?2      ề (L03     @:2       
 ?2      ề (L02     @:2
         
@@ -659,7 +659,7 @@ ỵ	ỵ
 
 .group ế
         ế          e3
-        ếu         eU3
+        ếu         ew3
         
  
 ?2      ế (L03     @:3
@@ -667,7 +667,7 @@ ỵ	ỵ
 
 .group ể
         ể          e4
-        ểu         eU4
+        ểu         ew4
 ?2      ể (L03     @:4       
 ?2      ể (L02     @:4       
         
@@ -675,7 +675,7 @@ ỵ	ỵ
 
 .group ễ
         ễ          e5
-        ễu         eU5
+        ễu         ew5
 ?2      ễ (L03     @:5       
 ?2      ễ (L02     @:5
         
@@ -683,7 +683,7 @@ ỵ	ỵ
 
 .group ệ
         ệ          e6
-        ệu         eU6
+        ệu         ew6
 ?2      ệ (L03     @:6
 ?2      ệ (L02     @:6
         
@@ -694,7 +694,7 @@ ỵ	ỵ
 
 .group i
         i          i
-        //i (A       j
+       A) i        j
         ia         i@
         ià         i@2
         iá         i@3
@@ -707,18 +707,18 @@ ỵ	ỵ
         iể         iE4
         iễ         iE5
         iệ         iE6
-        iu         iU
-        iù         iU2
-        iú         iU3
-        iủ         iU4
-        iũ         iU5
-        iụ         iU6
-        iêu        iU
-        iều        iU2
-        iếu        iU3
-        iểu        iU4
-        iễu        iU5
-        iệu        iU6
+        iu         iw
+        iù         iw2
+        iú         iw3
+        iủ         iw4
+        iũ         iw5
+        iụ         iw6
+        iêu        iEw
+        iều        iEw2
+        iếu        iEw3
+        iểu        iEw4
+        iễu        iEw5
+        iệu        iEw6
         i (L01     _^_EN
         i (@       _^_EN
 ?2      i (L03     @         
@@ -729,7 +729,7 @@ ỵ	ỵ
         ì          i2
         ì (A       j2
         ìa         i@2
-        ìu         iU2
+        ìu         iw2
 ?2      ì (L03     @2        
 ?1      ì (L03     @2        
 ?2      ì (L02     @2
@@ -738,7 +738,7 @@ ỵ	ỵ
         í          i3
         í (A       j3
         ía         i@3
-        íu         iU3
+        íu         iw3
 ?2      í (L03     @3        
 ?1      í (L03     @3
 ?2      í (L02     @3
@@ -747,7 +747,7 @@ ỵ	ỵ
         ỉ          i4
         ỉ (A       j4
         ỉa         i@4
-        ỉu         iU4
+        ỉu         iw4
 ?2      ỉ (L03     @4        
 ?1      ỉ (L03     @4
 ?2      ỉ (L02     @4        
@@ -758,7 +758,7 @@ ỵ	ỵ
         ĩ          i5
         ĩ (A       j5
         ĩa         i@5
-        ĩu         iU5
+        ĩu         iw5
 ?2      ĩ (L03     @5        
 ?1      ĩ (L03     @5
 ?2      ĩ (L02     @5        
@@ -769,7 +769,7 @@ ỵ	ỵ
         ị          i6
         ị (A       j6
         ịa         i@6
-        ịu         iU6
+        ịu         iw6
 ?2      ị (L03     @6        
 ?1      ị (L03     @6
 ?2      ị (L02     @6
@@ -781,47 +781,17 @@ ỵ	ỵ
 
 .group o
         o          O
-        oa         o@        // modify oa sound  example: hoa,khoa // o (A       w
-        oà         o@2
-        oá         o@3
-        oả         o@4
-        oã         o@5
-        oạ         o@6
+		o (A       w
+		oi			Oj
         oo         O
-        oi         OI
-        oì         OI2
-        oí         OI3
-        oỉ         OI4
-        oĩ         OI5
-        oị         OI6
-        ong        O#
-        oe         wE        // Adding  oe sound  example: lóe sáng,toét mắt
-		oai        wa:I        // oai sound
-        o (@       _^_EN
-        oại        wa:I6
-        oài        wa:I2
-        oái        wa:I3
-        oải        wa:I4
-        oãi        wa:I5
-        oă         o@1
-        oằ         o@2
-        oắ         o@3
-        oẳ         o@4
-        oẵ         o@5
-        oặ         o@6
-		oc		   O#k
-		oanh	   we-n^
-		oành       we-n^2
-        oánh       we-n^3
-        oảnh       we-n^4
-        oãnh       we-n^5
-        oạnh       we-n^6
+        ong        O#N
+        oc		   O#k
+		
 
 .group ò
         ò          O2
-        òi         OI2
-        òa         o@2       //ò (A       w2
-        òng        O#2
+        òa         wa:2       //ò (A       w2
+        òng        O#N2
         òe         wE2
         
  
@@ -832,9 +802,8 @@ ỵ	ỵ
 
 .group ó
         ó          O3
-        ói         OI3
-        óa         o@3       //ó (A       w3
-        óng        O#3
+        óa         wa:3       //ó (A       w3
+        óng        O#N3
         óe         wE3
         óc		   O#3k
  
@@ -845,9 +814,8 @@ ỵ	ỵ
 
 .group ỏ
         ỏ          O4
-        ỏi         OI4
-        ỏa         o@4       //ỏ (A       w4
-        ỏng        O#4
+        ỏa         wa:4       //ỏ (A       w4
+        ỏng        O#N4
         ỏe         wE4
         
  
@@ -858,9 +826,8 @@ ỵ	ỵ
 
 .group õ
         õ          O5
-        õi         OI5
-        õa         o@5       //õ (A       w5
-        õng        O#5
+        õa         wa:5       //õ (A       w5
+        õng        O#N5
         õe         wE5
         
  
@@ -871,9 +838,8 @@ ỵ	ỵ
 
 .group ọ
         ọ          O6
-        ọi         OI6
-        ọa         o@6       //ọ (A       w6
-        ọng        O#6
+        ọa         oa:6       //ọ (A       w6
+        ọng        O#N6
         ọe         wE6
         ọc		   O#6k
  
@@ -887,16 +853,16 @@ ỵ	ỵ
 
 .group ô
         ô          o
-        ôi         oI
-        ông        o#        // ông sound
+        ôi         oj
+        ông        o#N        // ông sound
 ?2      ôi         O-        //south dialect 
         ôc		   o#k
  
 
 .group ồ
         ồ          o2
-        ồi         oI2
-        ồng        o#2
+        ồi         oj2
+        ồng        o#N2
 ?2      ồi         O-2       
         
  
@@ -905,8 +871,8 @@ ỵ	ỵ
 
 .group ố
         ố          o3
-        ối         oI3
-        ống        o#3
+        ối         oj3
+        ống        o#N3
 ?2      ối         O-3       
         ốc		   o#3k
  
@@ -915,8 +881,8 @@ ỵ	ỵ
 
 .group ổ
         ổ          o4
-        ổi         oI4
-        ổng        o#4
+        ổi         oj4
+        ổng        o#N4
 ?2      ổi         O-4       
         
  
@@ -925,8 +891,8 @@ ỵ	ỵ
 
 .group ỗ
         ỗ          o5
-        ỗi         oI5
-        ỗng        o#5
+        ỗi         oj5
+        ỗng        o#N5
         
  
 ?2      ỗi         O-5
@@ -935,8 +901,8 @@ ỵ	ỵ
 
 .group ộ
         ộ          o6
-        ội         oI6
-   //     ộng        o#6
+        ội         oj6
+        ộng        o#N6
 ?2      ội         O-6       
         ộc         o#6k
  
@@ -948,7 +914,7 @@ ỵ	ỵ
 
 .group ơ
         ơ          @:
-        ơi         @:I
+        ơi         @:j
         ơu         @:U
 ?2      ơi         @-        //south dialect 
         
@@ -958,7 +924,7 @@ ỵ	ỵ
 
 .group ờ
         ờ          @:2
-        ời         @:I2
+        ời         @:j2
         ờu         @:U2
 ?2      ời         @-2       
         
@@ -968,7 +934,7 @@ ỵ	ỵ
 
 .group ớ
         ớ          @:3
-        ới         @:I3
+        ới         @:j3
         ớu         @:U3
 ?2      ới         @-3       
         
@@ -978,7 +944,7 @@ ỵ	ỵ
 
 .group ở
         ở          @:4
-        ởi         @:I4
+        ởi         @:j4
         ởu         @:U4
 ?2      ởi         @-4       
         
@@ -988,7 +954,7 @@ ỵ	ỵ
 
 .group ỡ
         ỡ          @:5
-        ỡi         @:I5
+        ỡi         @:j5
         ỡu         @:U5
 ?2      ỡi         @-5       
         
@@ -998,7 +964,7 @@ ỵ	ỵ
 
 .group ợ
         ợ          @:6
-        ợi         @:I6
+        ợi         @:j6
         ợu         @:U6
 ?2      ợi         @-6       
         
@@ -1014,12 +980,12 @@ ỵ	ỵ
         u (A       w
      A) u          w
 	 gi) u 			u
-        ui         uI
-        uì         uI2
-        uí         uI3
-        uỉ         uI4
-        uĩ         uI5
-        uị         uI6
+        ui         uj
+        uì         uj2
+        uí         uj3
+        uỉ         uj4
+        uĩ         uj5
+        uị         uj6
         ua         u@
         uà         u@2
         uá         u@3
@@ -1042,14 +1008,19 @@ ỵ	ỵ
         u (L01     _^_EN
         u (@       _^_EN
        // ua (L01    _^_EN
-?2      u          u-        
- 
+?2      u          u-
+		uyu			wiw
+		uỳu			wiw2
+		uýu			wiw3
+		uỷu			wiw4
+		uỹu			wiw5
+		uỵu			wiw6
 
 .group ù
         ù          u2
-        ù (A       u2
-		ùy         ui2
-        ùi         uI2
+        ù (A       w2
+		ùy         wi2
+        ùi         uj2
         ùa         u@2
 		//ùng        u#2
         
@@ -1060,9 +1031,9 @@ ỵ	ỵ
 
 .group ú
         ú          u3
-        ú (A       u3
-		úy		   ui3
-        úi         uI3
+        ú (A       w3
+		úy		   wi3
+        úi         uj3
         úa         u@3
 		//úng        u#3
 ?2      ú          u-3       
@@ -1073,9 +1044,9 @@ ỵ	ỵ
 
 .group ủ
         ủ          u4
-        ủ (A       u4
-		ủy  	   ui4
-        ủi         uI4
+        ủ (A       w4
+		ủy  	   wi4
+        ủi         uj4
         ủa         u@4
 		//ủng        u#4
         
@@ -1086,9 +1057,9 @@ ỵ	ỵ
 
 .group ũ
         ũ          u5
-        ũ (A       u5
-		ũy         ui5
-        ũi         uI5
+        ũ (A       w5
+		ũy         wi5
+        ũi         uj5
         ũa         u@5
 		//ũng        u#5
 ?2      ũ          u-5       
@@ -1099,9 +1070,9 @@ ỵ	ỵ
 
 .group ụ
         ụ          u6
-        ụ (A       u6
-		ụy         ui6
-        ụi         uI6
+        ụ (A       w6
+		ụy         wi6
+        ụi         uj6
         ụa         u@6
 		//ụng        u#6
 ?2      ụ          u-6       
@@ -1113,7 +1084,6 @@ ỵ	ỵ
 
 .group ư
         ư          y
-        ưi         yI
         ưa         y@
         ươ         y@
         ườ         y@2
@@ -1121,7 +1091,7 @@ ỵ	ỵ
         ưở         y@4
         ưỡ         y@5
         ượ         y@6
-        ưu         yw
+        ưu         iw
         ươi        y@j
         ười        y@j2
         ưới        y@j3
@@ -1143,9 +1113,8 @@ ỵ	ỵ
 
 .group ừ
         ừ          y2
-        ừi         yI2
         ừa         y@2
-        ừu         y2w2
+        ừu         iw2
         
  
         
@@ -1155,9 +1124,8 @@ ỵ	ỵ
 
 .group ứ
         ứ          y3
-        ứi         yI3
         ứa         y@3
-        ứu         y3w3
+        ứu         iw3
         
  
         
@@ -1167,9 +1135,8 @@ ỵ	ỵ
 
 .group ử
         ử          y4
-        ửi         yI4
         ửa         y@4
-        ửu         y4w4
+        ửu         iw4
         
  
         
@@ -1179,9 +1146,8 @@ ỵ	ỵ
 
 .group ữ
         ữ          y5
-        ữi         yI5
         ữa         y@5
-        ữu         y5w5
+        ữu         iw5
         
  
         
@@ -1191,9 +1157,8 @@ ỵ	ỵ
 
 .group ự
         ự          y6
-        ựi         yI6
         ựa         y@6
-        ựu         y6w6
+        ựu         iw6
         
  
         
@@ -1211,12 +1176,12 @@ ỵ	ỵ
         yả         i@4
         yã         i@5
         yạ         i@6
-        yê         i@
-        yề         i@2
-        yế         i@3
-        yể         i@4
-        yễ         i@5
-        yệ         i@6
+        yê         iE
+        yề         iE2
+        yế         iE3
+        yể         iE4
+        yễ         iE5
+        yệ         iE6
       //  yêu        i@U        
         y (L01     _^_EN
     bu) y          _^_EN
