@@ -294,10 +294,12 @@ In order to build the Android APK file, you need:
 
         $ export ANDROID_HOME=<path-to-the-android-sdk>
 (where `<path-to-the-android-sdk>` is your actual path of SDK folder e.g. `/home/user/Android/Sdk`)
+
 2.  Add location of NDK to the PATH variable:
 
         $ export PATH=$PATH:<path-to-the-android-ndk>
 (where `<path-to-the-android-ndk>` is your actual path of NDK folder, e.g. `/home/user/Android/Ndk`)
+
 3. Configure the project:
 
         $ ./autogen.sh
@@ -310,6 +312,7 @@ Check that log shows following lines:
         ndk-build (Android):           yes
         ...
 `<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
+
 4. Build the project:
 
         $ make apk-release
