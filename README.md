@@ -288,10 +288,6 @@ In order to build the Android APK file, you need:
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
 3.  Gradle 3.2.1 or later.
 
-In order to use Android Studio, you will also need:
-
-1.  [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-
 ### Building with Gradle
 
 1.  Set the location of the Android SDK:
