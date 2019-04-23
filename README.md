@@ -29,7 +29,7 @@
 ----------
 
 The eSpeak NG (Next Generation) Text-to-Speech program is an open source speech
-synthesizer that supports [102 languages and accents](docs/languages.md),
+synthesizer that supports [107 languages and accents](docs/languages.md),
 based on the eSpeak engine created by Jonathan Duddington. It supports spectral
 and Klatt formant synthesis, and the ability to use MBROLA voices.
 

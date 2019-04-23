@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 102 supported languages and accents are:
+The 107 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -71,6 +71,7 @@ The 102 supported languages and accents are:
 | `inc`       | `kok`             | Indic                 | Konkani                     |                        |
 |             | `ko`              |                       | Korean                      |                        |
 | `ira`       | `ku`              | Iranian               | Kurdish                     |                        |
+| `trk`       | `kk`              | Turkic                | Kazakh                      |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
 | `itc`       | `la`              | Italic                | Latin                       |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
@@ -89,15 +90,19 @@ The 102 supported languages and accents are:
 | `inc`       | `or`              | Indic                 | Oriya                       |                        |
 | `cus`       | `om`              | Cushitic              | Oromo                       |                        |
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
+| `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
+| `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
+| `zle`       | `ru-LV`           | East Slavic           | Russian                     | Latvia                 |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
+| `tai`       | `shn`             | Tai                   | Shan (Tai Yai)              |                        |
 | `inc`       | `si`              | Indic                 | Sinhala                     |                        |
 | `zlw`       | `sk`              | West Slavic           | Slovak                      |                        |
 | `zls`       | `sl`              | South Slavic          | Slovenian                   |                        |
