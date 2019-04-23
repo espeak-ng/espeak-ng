@@ -125,6 +125,11 @@ be installed using the following commands:
 | sonic         | `sudo apt-get install libsonic-dev`                              |
 | ronn          | `sudo apt-get install ruby-ronn`                                 |
 | kramdown      | `sudo apt-get install ruby-kramdown`                             |
+
+For recent Debian or Ubuntu >= 18.04 you should also install:
+
+| Dependency    | Install                                                          |
+|---------------|------------------------------------------------------------------|
 | pcaudiolib    | `sudo apt-get install libpcaudio-dev`                            |
 
 ### Building
