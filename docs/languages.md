@@ -35,21 +35,21 @@ The 107 supported languages and accents are:
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
-| `gmw`       | `en-US`           | West Germanic         | English                     | American               |
+| `gmw`       | `en-us`           | West Germanic         | English                     | American               |
 | `gmw`       | `en`              | West Germanic         | English                     | British                |
 | `gmw`       | `en-029`          | West Germanic         | English                     | Caribbean              |
-| `gmw`       | `en-GB-x-gbclan`  | West Germanic         | English                     | Lancastrian            |
-| `gmw`       | `en-GB-x-rp`      | West Germanic         | English                     | Received Pronunciation |
-| `gmw`       | `en-GB-scotland`  | West Germanic         | English                     | Scottish               |
-| `gmw`       | `en-GB-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
+| `gmw`       | `en-gb-x-gbclan`  | West Germanic         | English                     | Lancastrian            |
+| `gmw`       | `en-gb-x-rp`      | West Germanic         | English                     | Received Pronunciation |
+| `gmw`       | `en-gb-scotland`  | West Germanic         | English                     | Scottish               |
+| `gmw`       | `en-gb-x-gbcwmd`  | West Germanic         | English                     | West Midlands          |
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
-| `ira`       | `fa-Latn`         | Iranian               | Persian<sup>\[2\]</sup>     |                        |
+| `ira`       | `fa-latn`         | Iranian               | Persian<sup>\[2\]</sup>     |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
-| `roa`       | `fr-BE`           | Romance               | French                      | Belgium                |
+| `roa`       | `fr-be`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
-| `roa`       | `fr-CH`           | Romance               | French                      | Switzerland            |
+| `roa`       | `fr-ch`           | Romance               | French                      | Switzerland            |
 | `cel`       | `ga`              | Celtic                | Gaelic                      | Irish                  |
 | `cel`       | `gd`              | Celtic                | Gaelic                      | Scottish               |
 | `ccs`       | `ka`              | South Caucasian       | Georgian                    |                        |
@@ -92,13 +92,13 @@ The 107 supported languages and accents are:
 | `roa`       | `pap`             | Romance               | Papiamento                  |                        |
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
-| `roa`       | `pt-BR`           | Romance               | Portuguese                  | Brazillian             |
+| `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazillian             |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
-| `zle`       | `ru-LV`           | East Slavic           | Russian                     | Latvia                 |
+| `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
@@ -115,9 +115,9 @@ The 107 supported languages and accents are:
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |
 | `trk`       | `tr`              | Turkic                | Turkish                     |                        |
 | `inc`       | `ur`              | Indic                 | Urdu                        |                        |
-| `aav`       | `vi-VN-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
+| `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
 | `aav`       | `vi`              | Austroasiatic         | Vietnamese                  | Northern Vietnam       |
-| `aav`       | `vi-VN-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
+| `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
 \[1\] Currently, only fully diacritized Arabic is supported.
