@@ -364,15 +364,9 @@ To enable eSpeak, you need to:
 
 ## Documentation
 
-The [documentation](docs/README.md) for eSpeak NG provides:
-
-1.  a user guide;
-2.  a guide for language and voice authors; and
-3.  details for developers.
-
-The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
-command-line documentation provide a reference of the different command-line
-options available to these commands with example usage.
+1.  [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
+2.  [Language guide](docs/add_language.md) provides step-by-step instructions, how to add/improve support for language.
+3.  [Readme](docs/README.md) provides entries to more detailed information for contributors and developers.
 
 ## eSpeak Compatibility
 
