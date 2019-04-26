@@ -259,6 +259,7 @@ antinoe $2
 antiope	ant'iope
 antipatr $2
 antisepsi  $alt
+antirollio	$4
 antisom $3  $alt
 antitesi $2
 antiuomo	anti||U'Omo
@@ -2169,6 +2170,7 @@ lonicer $2
 lord  $alt2
 loreggia  $alt
 lot  $alt
+luccichio	$3
 lucciolio	$3
 lucifug $2
 lugubra	$1
@@ -2820,7 +2822,6 @@ peggi  $alt
 pel  $alt2
 pelag $1
 pelaverg  $alt2
-pell  $alt2
 pelope $1
 peloponnes  $alt
 pelos$alt2
@@ -4146,6 +4147,7 @@ vescic $2
 vescov $1
 vescovil	$3
 vesp  $alt
+vesper	$1
 vespasian $3
 vespr  $alt
 vestenanov  $alt

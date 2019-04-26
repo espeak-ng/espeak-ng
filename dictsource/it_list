@@ -1,6 +1,6 @@
 ﻿
 // This file is UTF-8 encoded
-// Updated 2019 febbruary  3 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2019 april  26 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -477,7 +477,7 @@ ko	$abbrev $only
 mr	mIster	$hasdot $dot
 nvda	$abbrev
 ocr	o||tSi||'ER*e $onlys
-ok	ok'eI $only
+ok	ok'Ei $only
 olp	o||el:e||p'i
 omg	o||em:e||dZ'i
 prof	$hasdot $dot
@@ -1015,6 +1015,7 @@ jeans		dZi:ns
 jihad	ZI'a:d
 jocker	dZ'Oke@-*
 jockey	dZ'OkeI
+jogging	dZ'OgiN
 jukebox	dZ'u:kboks
 junior	j'unio@-*
 juniores	j'uni,o@-*s
@@ -1141,6 +1142,7 @@ review	@-*,e_vj'u
 revolver	$2 $onlys
 rhapsody	$1
 richter	$1 $only
+Rocher	@-*oS'e	$only
 rockefeller	@-*Okf'el:e@-*
 rocker	$1
 round	@-*'awnd $onlys
@@ -1166,6 +1168,7 @@ server	$1	$onlys
 service	s'E@-*vis	$onlys
 setter	$1	$onlys
 setup	s'Et||,a/p
+screening	sk@-*i:niN
 shaker	$1
 shampoo	S'a:mpo
 sharia	SaR'ia/
@@ -2309,6 +2312,7 @@ brigitte	b@-*iZ'it[
 brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
+cacciol	katS:'ol
 caino	ka'i:no/
 caligola	$2
 camilleri	$3
@@ -2479,6 +2483,7 @@ ludovic	$3
 ludwig	l'u:dvIc
 luigi	lu'i:dZI
 luigia	lU'i:dZa
+luther	$1 $only
 manolo	ma/n'Olo
 manuel	$1 $only
 Marcel	ma@-*s'El
@@ -3111,6 +3116,7 @@ configurino	$3
 confrontino	$2
 congelino	$2
 conglobano	$2	$alt2
+congratulano	$2
 coniuga	k'onjuga
 connetter	$2
 consacrano	$2
@@ -4575,6 +4581,7 @@ stimolino	$1
 stipendiano	$2
 stipulano	$1
 stirano	$1
+sto	st'O $only
 strangolano	$1
 strangolino	$1
 strappano	$1
@@ -4864,6 +4871,7 @@ aprigli	$1
 aprimel	$1
 aprimi	$1
 aprine	$1
+appuntal	$2
 arrampicarcisi	$4
 arrivatoci	$3
 ascoltaci	$2
@@ -4978,6 +4986,7 @@ morditi	$1
 mostravi	$2
 offertogli	$2
 orientaci	$3
+orientarvisi	$4
 perdermici	$1
 perdonatel	$3
 pizzical	$1
