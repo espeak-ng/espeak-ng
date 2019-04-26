@@ -4,7 +4,7 @@
 - [Windows Installation](#windows-installation)
 - [Linux Installation](#linux-installation)
   - [Installation of standard packages](#installation-of-standard-packages)
-  - [Installation of latest MBROLA packages](#installation-of-latest-mbrola-packages)
+  - [Installation of MBROLA package from source](#installation-of-mbrola-package-from-source)
 - [Usage](#usage)
 - [Adding new MBROLA voice entry to eSpeak NG](#adding-new-mbrola-voice-entry-to-espeak-ng)
   - [1. Add MBROLA voice definition file](#1-add-mbrola-voice-definition-file)
@@ -13,14 +13,13 @@
 
 ----------
 
-The MBROLA project is a collection of diphone voices for speech
-synthesis. They do not include any text-to-phoneme translation, so this
-must be done by another program. The MBROLA voices are cost-free but are
-not open source. Voice files are available at
-[http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
+The [MBROLA](https://github.com/numediart/MBROLA) is an open source speech engine
+with collection of diphone voices for speech synthesis. Voices are cost-free for
+non-commerical purposes, but are not open source.
 
-eSpeak NG can be used as a front-end to MBROLA. It provides the
-spelling-to-phoneme translation and intonation, which MBROLA then uses
+MBROLA does not include any text-to-phoneme translation, so this
+must be done by another program. eSpeak NG can be used as a front-end to MBROLA,
+to provide spelling-to-phoneme translation and intonation, which MBROLA then uses
 to generate speech sound.
 
 ## Voice Names
@@ -37,17 +36,13 @@ where `xxN` is the name of a MBROLA voice (e.g. `mb-en1` for the MBROLA
 `.../espeak-ng-data/voices/mb` (where `...` is usually `/usr/share`,
 but could be somewhere else).
 
-The installation instructions below use the MBROLA voice `en1` as an
-example. You can use other mbrola voices for which there is an
-equivalent eSpeak NG voice in `espeak-ng-data/voices/mb`.
-
 There are some additional eSpeak NG MBROLA voices, which speak English text
 using a MBROLA voice for a different language. These contain the name of
 the MBROLA voice with a suffix `-en`. For example, the voice
 `mb-de4-en` will speak English text with a German accent by using the
 MBROLA `de4` voice.
 
-The following MBROLA voices are available. Not all are supported by eSpeak NG.
+The following MBROLA voices are available in eSpeak NG.
 
 | MBROLA Voice | Language             | Gender | eSpeak   | Debian Package |
 |--------------|----------------------|--------|----------|----------------|
@@ -127,8 +122,11 @@ The following MBROLA voices are available. Not all are supported by eSpeak NG.
 | `us3`        | American English     | male   | `mb-us3` | `mbrola-us3`   |
 | `vz1`        | Venezuelan Spanish   | male   | `mb-vz1` | `mbrola-vz1`   |
 
-* If some MBROLA voice is not available as Debian package, you can download data files
-  from [here](https://github.com/mbrola/mbrola-voices).
+eSpeak NG will look for mbrola voices firstly in `espeak-ng-data/mbrola` and then in `/usr/share/mbrola`.
+
+The installation instructions below use the MBROLA voice `en1` as an
+example. You can use other mbrola voices for which there is an
+equivalent eSpeak NG voice in `espeak-ng-data/voices/mb`.
 
 ## Windows Installation
 
@@ -140,11 +138,10 @@ The SAPI5 version of eSpeak NG uses the `mbrola.dll`.
 2.  Install the PC/Windows version of MBROLA (`MbrolaTools35.exe`) from:
     [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe).
 
-3.  Get the `en1` or other voice from:
-    [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
+3.  Download the `en1` or other voice from:
+    [https://github.com/numediart/MBROLA-voices](https://github.com/numediart/MBROLA-voices)
 
-4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" folder) into
-    `C:/Program Files/eSpeak/espeak-ng-data/mbrola`.
+4.  Save downloaded `en1` data file into `C:/Program Files/eSpeak/espeak-ng-data/mbrola`.
 
 4.  Use the voice `espeak-MB-EN1` from the list of SAPI5 voices.
 
@@ -166,24 +163,37 @@ You can check other available voices searching with command:
 
 	apt-cache search mbrola
 
-### Installation of latest MBROLA packages
+If some MBROLA voice is not available as Debian package, you can download data files
+from [https://github.com/numediart/MBROLA-voices](https://github.com/numediart/MBROLA-voices)
+and save them in `/usr/share/mbrola/xxN/xxN` file, where `xxN` is code and number of language file.
 
-1.  To install the latest MBROLA binary for Linux, download:
-    [http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip](http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip).
+### Installation of MBROLA package from source
 
-2.  Unpack the archive, and copy and rename the file from: `mbrola-linux-i386` to `mbrola` somewhere in your executable path (eg. `/usr/bin/mbrola`).
+1. Install necessary packages:
+```
+sudo apt-get install git make gcc
+```
 
-3.  Get the `en1` or other voice from:
-    [http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html](http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html).
+2.  Clone MBROLA git repository:
+```
+git clone https://github.com/numediart/MBROLA.git
+cd MBROLA
+```
 
-4.  Unpack the archive, and copy the `en1` data file (not the whole "en1" folder) to `/usr/share/mbrola/en1` folder.
+3. Compile MBROLA:
+```
+make
+```
 
-5.  Remember to make `mbrola` file executable.
+4. Install MBROLA:
+```
+sudo cp Bin/mbrola /usr/bin/mbrola
+```
 
-__Notes:__
+5.  Download the `en1` or other voice from
+[https://github.com/numediart/MBROLA-voices](https://github.com/numediart/MBROLA-voices)
 
-* eSpeak NG will look for mbrola voices firstly in `espeak-ng-data/mbrola` and then in `/usr/share/mbrola`.
-* You can download latest development versions of MBROLA binaries from [https://github.com/mbrola/mbrola-bin/](https://github.com/mbrola/mbrola-bin/)
+6.  Copy the `en1` data file to `/usr/share/mbrola/en1` folder.
 
 ## Usage
 

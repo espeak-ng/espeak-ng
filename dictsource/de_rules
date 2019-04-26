@@ -53,6 +53,7 @@
         au         aU
         auh (_     aU
         auer	aU3
+    mold) auisch	aUIS
 
         ab (t_     A:p
         ag (t_     A:k
@@ -79,6 +80,7 @@
      _) abzu (@P4  'aptsu:
      _) ac (et     ats
      _) ad (ju     at
+        afgh	afg
      _) an (@P2    'an
      _) an (a      %an
      _) a (natioP1 'A:
@@ -96,6 +98,8 @@
      _) an (nL03hP2 'an
      _) anti (@P4  ,antI
      _) an (tw     an
+        apo (thek	apo:
+    emp) athisch	A:tIS
      _) auf (@P3   _!'aUf
      _) aus (@P3   _!'aUs
      _) aus (ku    aUs
@@ -153,7 +157,7 @@
         a (rch_    'A:
      @) at (_      'A:t
      @) atisch (_S6 'A:tIS
-     @) atisieren (_S9 A:tIs'i:r@n
+     @) atisieren (_S9 A:ti:z'i:r@n
         a (tion    a
      _) ato (m     %ato:
      _) au (Ceinand aU
@@ -185,6 +189,7 @@ r     p) ay         EI
      _) beige (_   be:S
      _) beige (@   baIg@
      _) be (inhP2  b@
+        bet (_	b'e:t
 
      _) ba (lA     b%a
      _) ba (ll@    b%a
@@ -215,6 +220,8 @@ r     p) ay         EI
 
     _o) b (C       p
         baby       _^_EN
+        bela (rus	%bEl%a
+        bergisch	bErgIS
         beten      be:t@n
         bestimm	%b@StIm
      _) bike       _^_EN
@@ -241,7 +248,7 @@ r     p) ay         EI
     fa) c (et      ts
      _) cey        tsaI
         chef (_    SEf
-     _) c (ent     ts
+     _) c (ent     s
         c (ie      s
    pla) c (ie      ts
         coat (_    _^_EN
@@ -355,6 +362,7 @@ r     p) ay         EI
 .group e
      _) e (_       e:
         e          e:
+     &) eau (_	'o:
         ee         e:
         eh (+      e:
 
@@ -370,7 +378,6 @@ r     p) ay         EI
 
         eb (t_     e:p
         eg (t_     e:k
-        enz (_	'Ents
         eth	e:t
 
         een (_     'e:@n
@@ -418,7 +425,9 @@ r     p) ay         EI
      &) eres (_S4  @r@s
         er (d_     e:r
      &) er (r_     E
-     w) er (k_     Er
+        er (g     Er
+        erg  (_ Erg
+        erk (_     Erk
      &) erin (_    @rIn
      &) erisch (_  @rIS
    exp) er (t      Er
@@ -461,7 +470,7 @@ r     p) ay         EI
      _) elen       e:lEn
    mod) e (l@      E
      s) e (lig     e:
-     _) emp (@P3   _|%Emp
+     _) emp (@   %Emp
      _) emph (@    %Emf
      _) emp (ir    %Emp
     br) ems        Ems       // brems-t, not brem-st
@@ -676,7 +685,7 @@ r     p) ay         EI
      @) ig (+      Ig#       // [ig] or [iC]
         igh (K     _^_EN
         ine (_	'i:n@
-        inen (_	'i:n@n
+        inen (_	i:n@n
 
         i (i       i:_!
 
@@ -711,6 +720,8 @@ r     p) ay         EI
      @) is (_      Is
      &) isch (_    =IS
         is (mus_   'Is
+        istan	=IstA:n
+        istisch (_	'IstIS
      @) ist (_     'Ist
      @) it (_N     'It
      @) ite (_     'i:t@
@@ -809,6 +820,7 @@ formal) ie         =I@
         lady       _^_EN
      _) land (C@P4 l'ant
      _) landes (@P6 l'and@s
+     &) ländisch	l,EndIS
      _) lang (C@P4 l'aN
      _) lang (t@   l'aN
         langsam    l'aNzA:m
@@ -838,6 +850,7 @@ formal) ie         =I@
      &) lichstes (_S8 l2ICst@s
      &) lichkeit (_S8 l2ICkaIt
      &) lichung (_S7 l2IC%UN
+        load	_^_EN
      @) lo (gisch  l'o:
         dia) log	lo:g
      _) luft (CP4  l'Uft
@@ -973,6 +986,9 @@ formal) ie         =I@
         papier	pap'i:r
      _) para (@    p,ara
         passagie   pasaZ'i:
+        path (_	p'At
+        pathin (_	p'AtIn
+        pathisch (_	p'A:tIS
      _) peri       p,e:ri:
      _) perio      p,e:rIo:
      _) periphe    p,e:ri:fe:
@@ -1024,6 +1040,7 @@ formal) ie         =I@
         rangier    rA:NZ'i:r
      _) re (d      re:
         register	re:g'Ist@r
+        reichisch	raICIS
         ressourc   rEs'Urs
         revers     r%e:vErs
 
@@ -1046,7 +1063,6 @@ formal) ie         =I@
      _) sch (mA    S
      _) sch (nA    S
      _) sch (w     S
-schenk	SENk
      _) sh (A      S
      _) sh (rA     S
      _) s (kA      s    // allow _sk
@@ -1059,7 +1075,6 @@ schenk	SENk
      _) s (plA     S
      _) s (plend   s
      _) s (prA     S
-        spräch	SprE:C
      _) s (quA     s
      _) s (tA      S
      _) s (trA     S
@@ -1068,6 +1083,7 @@ schenk	SENk
      _) s (zA      s
 
         sch        S
+        schenk	SENk
         sh (K      S
         sou (nd    saU
      p) s (a       s
@@ -1100,7 +1116,7 @@ schenk	SENk
         st (art    St
         st (ä      St
         st (eh     St
-        st (off	St
+        stein (_	StaIn
         st (ö      St
         st (rich   St
         st (ü      St
@@ -1108,6 +1124,8 @@ schenk	SENk
         st (uh     St
         st (ung    st
 
+        sachse	zaks@
+     &) sächsisch	zEksIS
      _) safe       _^_EN
      &) schaft (_S6 Saft
 
@@ -1133,12 +1151,13 @@ schenk	SENk
         seku (nden ze:k'U
      _) selbst (@@P6 z'Elpst
         service (_S7 z%Ervi:s
+ share (ware	SE:r
         shop       _^_EN
      _) sky        _^_EN
+   soft (ware	sOft
         soldat     z%OldA:t
      &) so (rt_    s_|O
         summe      zUm@
-        synaps	zy:n'aps
 
         speed      _^_EN
   stau) ss         s
@@ -1157,6 +1176,7 @@ schenk	SENk
      _) t (_       te:
         t          t
      t) t
+        th	t
      _) th (A      t   // allow _th
      _) th (rA     t   // allow _thr
         th (K      t
@@ -1202,6 +1222,12 @@ schenk	SENk
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
+     &) thek	t'e:k
+             &) thekar	te:k'A:r
+      &) thekarin 	te:k'ArIn
+     &) thekerin 	t'e:k@rIn
+       top	tOp
+        toph	tOf
         touch      _^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
@@ -1213,6 +1239,7 @@ schenk	SENk
      @) tion (_    tsj'o:n
      _) trail      _^_EN
      _) tranqu     _^_EN
+        translat	_^_EN
         traver     tr%avEr
      _) tw         _^_EN
 
@@ -1303,7 +1330,6 @@ schenk	SENk
         väter      fE:t3
      _) v (ati_    f
      _) v (ät      f
-        vers (_	v'Erz
      _) v (ie      f
      _) v (iet     v
      _) v (iz      f
@@ -1375,7 +1401,7 @@ schenk	SENk
 
      @) wert (_    ve:rt
      _) wh         _^_EN
-     &) ware (_    _^_EN
+     &) ware (_    wE:r
      _) wasch (@P5 v'aS
      _) wasser (@P6 v'as@r
      _) weit (C@P4 v'aIt
@@ -1390,6 +1416,7 @@ schenk	SENk
      _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
         work       _^_EN
+        württem (berg	vyrt@m
 
 
 .group x
@@ -1420,6 +1447,7 @@ schenk	SENk
      _) zer (@P3   tsEr
      _) zere (b    tse:re:
      _) zere (m    tse:re:
+    kon) zert	ts'Ert
         ziell      tsj'El
      _) zie (ge@P3 ts'i:
         zitat      tsi:t'A:t
@@ -1464,6 +1492,7 @@ schenk	SENk
         ö (C%      W
         ö (CC      W
         ö (sch     W
+        öster	Y:st3r
 
 
 .group ü

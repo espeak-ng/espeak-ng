@@ -32,7 +32,8 @@ _|	St'A:b
 _:	d'Op@lp,UNkt
 _;	Str'ICpUNkt
 __	,Unt3Str'IC
-_-	b'Ind@str,IC
+_-	b'Ind@str,IC	
+−	mi:nUs
 _!	'aUs_|r,u:f@ts,aIC@n
 _?	fr'Ag@ts,aIC@n
 _'	,apo:str'Of
@@ -363,7 +364,7 @@ unserm		Unz3m	$u
 unserem		Unz@r@m	$u
 unseren		Unz@r@n	$u
 unserer	$u
-
+unseres	$u
 ihre		i:r@	$u
 ihrem		i:r@m	$u
 ihrer		i:r3	$u
@@ -385,7 +386,7 @@ nur			$brk
 jetzt		j,Etst	$strend2
 schon		S,o:n	$strend2
 einst		'aInst	// not 'ein' + st
-zwar		tsv,a:r
+zwar		$u
 wo		v,o:
 während		$u
 
@@ -452,13 +453,17 @@ kam		,kA:m
 // de_rules includes the words ending in "-ing"
 access		_^_EN
 account		_^_EN
-aid		_^_EN  // aids
+aid		_^_EN
+aids	_^_EN
+america	_^_EN
 appeal		_^_EN
 apple		_^_EN
 association	_^_EN
 baseball	_^_EN
 bbc		_^_EN
 beat		_^_EN
+britain	_^_EN
+british	_^_EN
 browser         _^_EN
 byte		_^_EN
 bytes		_^_EN
@@ -477,15 +482,14 @@ computer	kOmpj'u:t3
 cool		_^_EN
 copy		_^_EN
 couch		_^_EN
+cover	_^_EN
 cursor		_^_EN
 daisy	_^_EN
 date		_^_EN
 debugger	_^_EN
-desktop		d'EsktOp
 dj		d'i:dZEI
-download	_^_EN
-downloads		_^_EN
 email		_^_EN
+empire	_^_EN
 enterprise	_^_EN
 escape	_^_EN
 espeak		_^_EN
@@ -496,12 +500,13 @@ file		_^_EN
 firefox		_^_EN
 firewall	_^_EN
 foul		_^_EN
-foyer		_^_EN
 frame		_^_EN
 freak		_^_EN
 german	_^_EN
+germany	_^_EN
 gin		_^_EN
 google	_^_EN
+great	_^_EN
 groupie		_^_EN
 hip		_^_EN
 homepage	_^_EN
@@ -516,6 +521,7 @@ joint		_^_EN
 joke		_^_EN
 joystick	_^_EN
 junkie		_^_EN
+kingdom	_^_EN
 laptop		_^_EN
 laser		_^_EN
 level		_^_EN
@@ -526,6 +532,7 @@ macho		_^_EN
 mail		_^_EN
 mailbox	_^_EN
 message		_^_EN
+moodle	_^_EN
 move		_^_EN
 my		_^_EN
 mysql		_^_EN
@@ -533,6 +540,10 @@ notebook		_^_EN
 notepad	_^_EN
 nugget	_^_EN
 nvda	_^_EN
+nvaccess	_^_EN
+of	_^_EN
+office	_^_EN
+offices	_^_EN
 offline		_^_EN
 online		_^_EN
 out		_^_EN
@@ -543,15 +554,17 @@ pidgin		_^_EN
 player	_^_EN
 plot		_^_EN
 poster		_^_EN
+quiz		_^_EN
+reader	_^_EN
 receiver	_^_EN
+recovery	_^_EN
 registry	_^_EN
 release		_^_EN
 remake		_^_EN
 research	_^_EN
+return	_^_EN
 roadie		_^_EN
 roastbeef	_^_EN
-quiz		_^_EN
-reader	_^_EN
 run             _^_EN
 running	_^_EN
 save		_^_EN
@@ -571,13 +584,18 @@ slum		_^_EN
 small		_^_EN
 smiley		_^_EN
 snob		_^_EN
+solution	_^_EN
 song		_^_EN
 sorry		_^_EN
 source		_^_EN
+space	_^_EN
+spaces	_^_EN
 spam		_^_EN
 speak		_^_EN
 spirit          _^_EN
 squaw		_^_EN
+state	_^_EN
+states	_^_EN
 stream		_^_EN
 suite		_^_EN
 sweatshirt	_^_EN
@@ -586,6 +604,10 @@ team		_^_EN
 teaser		_^_EN
 tech		_^_EN
 terminal	_^_EN
+the	_^_EN
+their	_^_EN
+they	_^_EN
+this	_^_EN
 thunderbird		_^_EN
 time		_^_EN
 timer	_^_EN
@@ -593,11 +615,14 @@ to	_^_EN	$only
 tool	_^_EN
 trip		_^_EN
 tuner		_^_EN
+turn	_^_EN
+united	_^_EN
 unix		_^_EN
 update		_^_EN
 updates		_^_EN
 venture		_^_EN
 verify		_^_EN
+very	_^_EN
 voice		_^_EN
 voices		_^_EN
 weather		_^_EN
@@ -605,6 +630,7 @@ web	w'Eb $only
 website		_^_EN
 window		_^_EN
 wipe		_^_EN
+with	_^_EN
 word		_^_EN
 
 
@@ -622,7 +648,6 @@ akkord	$2
 alarm	$2
 allein           $2
 allgemein	'alg@maIn
-amerika	$2
 andre           andr@        // andere
 aneinander	an1aIn'and3
 anomalie         $2
@@ -642,24 +667,21 @@ automatisch	$3
 aventurin       avEntu:r'i:n
 ave             A:vE
 
-bebung	b'e:bUN
 baguette	bag'Et
 balkan           $1
 balkon           $2
-balance	bal'A~s
 bandagier       bandaZ'i:r
 beben           be:b@n
+bebung	b'e:bUN
 beere           be:r@
 bestie          bEstI@
 best            bEst
 bestem	b'Est@m
 beta	b'e:tA:
 beten           be:t@n
-bibliothek	bi:bli:o:t'e:k
 bisschen	b'IsC@n
 bizarr           $2
 blamage		$alt
-bourgeoisie	bUrZwAz'i:
 braille	braIj
 bronchie         $alt
 buch            b'u:x
@@ -674,6 +696,7 @@ bürostuhl	by:r'o:Stu:l
 
 changier        SaNZ'i:r
 cembalo	tS'Embalo:
+centre	center	$text
 champagner	Samp'anj3
 champignon	S'ampInjON
 ciao            tSaU
@@ -694,7 +717,6 @@ dragier         draZ'i:r
 dritte          drIt@
 dschungel	dZ'UN@l
 duett           du:'Et
-düst	dy:st
 
 ebendaher       e:b@ndah'e:r
 ebendahin       e:b@ndah'In
@@ -724,7 +746,7 @@ extravagant      $1
 extrem          Ekstr'e:m
 
 foyer		fOj'e:
-friedvoll       fr'i:tf,Ol
+friedvoll       fr'i:tfOl
 furchen         fUrC@n
 furie            $alt
 
@@ -735,6 +757,8 @@ gegenständ	$1
 gegenüber       ge:g@n_|'y:b3
 geglichen       g@glIC@n
 gemein          g@maIn
+gen	ge:n
+gene	ge:n@
 genial          ge:nj'A:l
 geranie         ge:r'A:nI@
 gessen          gEs@n
@@ -742,6 +766,8 @@ geste           ge:st@
 gestern         gEst3n
 gitarre		$2
 glorie           $alt
+grafem	grA:f'e:m
+graphem	grA:f'e:m
 grazie           $alt
 
 handy           hEndi:
@@ -784,6 +810,7 @@ inzwischen	$2
 jahrhundert		$2
 januar		janu:A:r
 
+kalender	kal'End3
 Kamel	kam'e:l
 kamelie		$alt
 kanäl	$2
@@ -792,6 +819,7 @@ kartonage	$alt
 kastanie	$alt
 kid		kId
 klops	kl'Ops
+kognak	kOnjak
 kombinationsfeld		$4
 komödie		$alt
 kompass	$1
@@ -843,6 +871,7 @@ november	$2
 numero           $1
 
 oboe            o:b'o:@
+orchester	$2
 orgie            $alt
 ok              o:k'e:
 oktober	$2
@@ -857,26 +886,26 @@ pinie            $alt
 planet          plan'e:t
 pochier         pOS'i:r
 pochs           pOxs
+portemonnaie	pOrtmOn'e:
 präsident        $3
 prämie           $alt
 prinzip	$2
 prinzipien	prInts'i:pI@n
-privatisier	pri:vA:ti:z'i:r
-problematisier  $5
+protein	pro:te:_|'i:n
 protokoll	$3
 
+referendum	$3
 refrain	rEfr'W~
-relevanz	$3
 reliquie         $alt
 rendezvous	rA~de:v'u:
 restaurant	rEsto:r'A~
 risik           $1
+ruhezustand	ru:@ts,u:Stand
 rupie            $alt
 
 sabbat          zabat
 sagt            zA:gt
 salopp           $2
-sarkasmus	$2
 schieberegler	S'i:b@re:gl3
 schokolad	$3
 schreibung	Sr'aIbUN
@@ -903,10 +932,8 @@ stalagmit       stalagm'It
 subjekt		$1
 
 tag             tA:g
-teint	t'W~
 telegen         te:le:g'e:n
 terrain	tEr'W~
-the             D@         // English
 theater         te:'A:t3
 tja		tjA:
 tonnage		$alt
@@ -918,10 +945,12 @@ trost	tr'o:st
 tsunami		tsu:n'A:mi:
 turin            tu:r'i:n
 
+überschrift	$1
 umgehen	$2
 umrahmen	$2
 unten           Unt@n
 untermenü	'Unt3me:n,y:
+unterschrift	$1
 urin	u:r'i:n
 übrig	'y:brIg#
 
@@ -952,28 +981,98 @@ zymbal		$1
 
 
 // Names
+Albanien	$2
+adrian	A:dri:A:n
+Alditalk	aldi:tO:k
+Alea	$2
+amerika	$2
+Andorra	and'OrA:
+Andrea	andr'e:A:
+Andreas	andr'e:A:s
+Anika	ani:kA:
 Armin	$1
-chopin	SOp'W~
+aserbaidschan	A:z3baIdZ'A:n
+Asien	A:zI@n
+Bremerhaven	bre:m3h'Af@n
+Cathleen	katle:n
+Cedric	sEdrIk
+Chiara	kjA:rA:
+Chris	krIs
+Christian	$1
+Christina	$2
+Daniel	dA:nI@l
+Daniela	danj'e:lA:
 Djakarta	dZak'artA:
 Djibouti	dZi:b'u:ti:
+duisburg	dy:sbUrg
+Eric	e:rIk
+Erik	e:rIk
+florian	$1
 Fruecht	fr'yCt
 Georg		ge:Ork	$only
 George		dZO:rdZ
-ines	'i:n@s
-john		dZ'On
+gibraltar	$2
+Gina	dZi:nA:
+hannover	han'o:f3
+Herzegowina	hErtse:g'Ovi:nA
+Ines	i:n@s
+Italien	i:t'A:lI@n
+Johann	jo:han
+Johanna	jo:h'anA:
+Johannes	jo:h'an@s
+John	dZOn
+Jon	dZOn
+jonatan	$1
+jonathan	jonatan	$text
+jonny	dZOni:
 Josef	j'o:zEf
+Katharina	katar'i:nA:
+Kasachstan $1
+Kirgisien $2
 Klango	kl'aNgo:
 Khmer		kme:r
-liam		_^_EN
+kosovo	kOso:vo:
+kristina	$2
+kroatien	kro:'A:tsI@n
+Leon	le:On
+Leonie	$1
+Liam		_^_EN
+Lüneburg	ly:n@bUrg
+Maria	$2
+Marian	$1
+Marlene	marl'e:n@
+mathias	mat'i:A:s
+Matthias	mathias	$text
+Matias	mathias	$text
+Mattias	mathias	$text
 Mc		%mEk
+michael	mICae:l
+michaela	mICa'e:lA:
+Montenegro	mOnt@n'e:gro:
 Moradi	$2
+münchen	mynC@n
+naomi	$2
 Neumexiko       $2
 Neuseeland	$2
+nordrhein	nOrd||raIn
+portugal	pOrtu:gal
+Rumänien	$2
 Rwanda		rU'andA:
+san	%zan
+saarbrücken	$2
+schlesien	Sle:zI@n
+schleswig	Sle:svIg#
+Sebastian	$2
+slowenien	$2
 Sri		%sri:
 steve		_^_EN
+soest	zo:st
+sultan	$1
 Tom		tOm	$only
 Tim		tIm	$only
+Turkmenistan	$2
+ukraine	UkrA'i:n@
+vatikanstadt	vA:ti:k'A:nStat
 vera	v'e:rA:
 verena	ve:r'e:nA:
-
+westfalen	$2

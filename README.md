@@ -29,7 +29,7 @@
 ----------
 
 The eSpeak NG (Next Generation) Text-to-Speech program is an open source speech
-synthesizer that supports [102 languages and accents](docs/languages.md),
+synthesizer that supports [107 languages and accents](docs/languages.md),
 based on the eSpeak engine created by Jonathan Duddington. It supports spectral
 and Klatt formant synthesis, and the ability to use MBROLA voices.
 
@@ -125,6 +125,12 @@ be installed using the following commands:
 | sonic         | `sudo apt-get install libsonic-dev`                              |
 | ronn          | `sudo apt-get install ruby-ronn`                                 |
 | kramdown      | `sudo apt-get install ruby-kramdown`                             |
+
+For recent Debian or Ubuntu >= 18.04 you should also install:
+
+| Dependency    | Install                                                          |
+|---------------|------------------------------------------------------------------|
+| pcaudiolib    | `sudo apt-get install libpcaudio-dev`                            |
 
 ### Building
 
@@ -282,20 +288,18 @@ In order to build the Android APK file, you need:
 2.  the [Android NDK](http://developer.android.com/tools/sdk/ndk/index.html);
 3.  Gradle 3.2.1 or later.
 
-In order to use Android Studio, you will also need:
-
-1.  [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-
 ### Building with Gradle
 
 1.  Set the location of the Android SDK:
 
         $ export ANDROID_HOME=<path-to-the-android-sdk>
 (where `<path-to-the-android-sdk>` is your actual path of SDK folder e.g. `/home/user/Android/Sdk`)
+
 2.  Add location of NDK to the PATH variable:
 
         $ export PATH=$PATH:<path-to-the-android-ndk>
 (where `<path-to-the-android-ndk>` is your actual path of NDK folder, e.g. `/home/user/Android/Ndk`)
+
 3. Configure the project:
 
         $ ./autogen.sh
@@ -308,6 +312,7 @@ Check that log shows following lines:
         ndk-build (Android):           yes
         ...
 `<path-to-gradle>` may be just `gradle` if it is found in your path by simple name.
+
 4. Build the project:
 
         $ make apk-release
@@ -359,15 +364,9 @@ To enable eSpeak, you need to:
 
 ## Documentation
 
-The [documentation](docs/README.md) for eSpeak NG provides:
-
-1.  a user guide;
-2.  a guide for language and voice authors; and
-3.  details for developers.
-
-The [espeak-ng](src/espeak-ng.1.ronn) and [speak-ng](src/speak-ng.1.ronn)
-command-line documentation provide a reference of the different command-line
-options available to these commands with example usage.
+1.  [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
+2.  [Language guide](docs/add_language.md) provides step-by-step instructions, how to add/improve support for language.
+3.  [Readme](docs/README.md) provides entries to more detailed information for contributors and developers.
 
 ## eSpeak Compatibility
 
