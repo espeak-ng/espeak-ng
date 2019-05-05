@@ -69,9 +69,6 @@ phoneme U
     length 135
   ENDIF
 
-  IF nextPh(r) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(UR)
-  ENDIF
   FMT(vowel/uu_2)
 endphoneme
 
