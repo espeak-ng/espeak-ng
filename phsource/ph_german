@@ -210,7 +210,7 @@ phoneme y
   IF nextPh(*) THEN
     length 110
   ENDIF
-  FMT(vowel/u#_3)
+  FMT(vowel/yy_5)
 endphoneme
 
 
