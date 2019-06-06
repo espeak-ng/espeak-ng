@@ -171,7 +171,7 @@ endphoneme
 phoneme OY
   vwl starttype #o endtype #i
   length 220
-  FMT(vdiv/oi)
+  FMT(vdiph/oi)
 endphoneme
 
 
