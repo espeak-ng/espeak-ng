@@ -189,33 +189,6 @@ _7o	z'i:bt@
 _8o	_'axt@
 _0Co	'hUnd3tst@
 
-// Abbreviations
-//==============
-(a . a . o .)	 A:||A:||_o:
-allg     'alg@maIn
-abb      'abb,IldUN
-anm      'anm,ErkUN
-bd       band	$capital
-bde      bEnd@	$capital
-bzw      b@tsi:UNsvaIz@
-chr      krIstUs
-dr       d'Okto:r
-evtl     e:vEntu:'El
-od       o:d3  $only
-fr       fraU
-frl      frOYlaIn
-hr       hEr
-hrsg     hEr'aUsge:b3
-inkl     Inklu:z'i:v@
-km       ki:lo:m'e:t3
-nr       nUm3
-strg       St'OY@rUN
-usf      %Untzo:f'Ort
-usw      %Untzo:v'aIt3   $pause
-vgl      fErgl'aIC@
-(z. b.)     tsUmb'aISpi:l
-
-
 // definite article
 der             %dEr
 die             %di:
