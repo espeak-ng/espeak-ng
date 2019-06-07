@@ -484,3 +484,10 @@ phoneme x
   ENDIF
   WAV(ufric/x_hr, 20)
 endphoneme
+
+
+phoneme O~ // saison, Pardon, Fond
+  vwl  starttype #o  endtype #o
+  length 190
+  FMT(vnasal/o_n5)
+endphoneme
