@@ -189,33 +189,6 @@ _7o	z'i:bt@
 _8o	_'axt@
 _0Co	'hUnd3tst@
 
-// Abbreviations
-//==============
-(a . a . o .)	 A:||A:||_o:
-allg     'alg@maIn
-abb      'abb,IldUN
-anm      'anm,ErkUN
-bd       band	$capital
-bde      bEnd@	$capital
-bzw      b@tsi:UNsvaIz@
-chr      krIstUs
-dr       d'Okto:r
-evtl     e:vEntu:'El
-od       o:d3  $only
-fr       fraU
-frl      frOYlaIn
-hr       hEr
-hrsg     hEr'aUsge:b3
-inkl     Inklu:z'i:v@
-km       ki:lo:m'e:t3
-nr       nUm3
-strg       St'OY@rUN
-usf      %Untzo:f'Ort
-usw      %Untzo:v'aIt3   $pause
-vgl      fErgl'aIC@
-(z. b.)     tsUmb'aISpi:l
-
-
 // definite article
 der             %dEr
 die             %di:
@@ -745,6 +718,7 @@ expedient       Ekspe:dI'Ent
 extravagant      $1
 extrem          Ekstr'e:m
 
+fond	fO~
 foyer		fOj'e:
 friedvoll       fr'i:tfOl
 furchen         fUrC@n
@@ -878,6 +852,7 @@ oktober	$2
 optimal	$3
 ödem		Y:d'e:m
 
+pardon	pard'O~
 paradies         $3
 passage	$alt
 perplex          $2
@@ -905,6 +880,7 @@ rupie            $alt
 
 sabbat          zabat
 sagt            zA:gt
+saison	zE:z'O~
 salopp           $2
 schieberegler	S'i:b@re:gl3
 schokolad	$3
@@ -932,6 +908,7 @@ stalagmit       stalagm'It
 subjekt		$1
 
 tag             tA:g
+teint	tW~
 telegen         te:le:g'e:n
 terrain	tEr'W~
 theater         te:'A:t3
