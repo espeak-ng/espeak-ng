@@ -13,12 +13,14 @@ endphoneme
 
 phoneme E
   vwl starttype #e endtype #e
+  ipa æ
   length 120
   FMT(vwl_lv/e2, 100)
 endphoneme
 
 phoneme E:
   vwl starttype #e endtype #e
+  ipa æː
   length 300
   FMT(vwl_lv/ee2, 100)
 endphoneme
@@ -135,6 +137,7 @@ endphoneme
 
 phoneme uo`     // shorter version of uo
   vwl starttype #u endtype #a
+  ipa uo
   length 150
   lng
   FMT(vdiph2/ua, 100)
@@ -149,6 +152,7 @@ endphoneme
 
 phoneme ts
   vls alv afr nolink
+  ipa t͡s
   voicingswitch J
   length 55
   lengthmod 1
@@ -157,6 +161,7 @@ endphoneme
 
 phoneme tS
   vls pla afr sib
+  ipa t͡ʃ
   voicingswitch dZ
   lengthmod 2
   length 80
@@ -165,6 +170,7 @@ endphoneme
 
 phoneme D   // louder and shorter version of d
   vcd alv stp
+  ipa d
   voicingswitch t
   length 10
   lengthmod 5
@@ -358,7 +364,7 @@ endphoneme
 
 phoneme n- // more voiced variant of n
   vwl starttype #a endtype #a
-  ipa nU+0329
+  ipa ŋ
   lengthmod 4
   length 140
   FMT(n/n-syl)
@@ -381,6 +387,7 @@ endphoneme
 
 phoneme R // Latvian hard r
   liquid trl
+  ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -389,6 +396,7 @@ endphoneme
 
 phoneme r // Latvian soft r
   liquid trl
+  ipa r̝
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -440,6 +448,7 @@ endphoneme
 
 phoneme z`  // Shortened version of z for diphthong dz
   vcd alv frc sib
+  ipa z
   voicingswitch s
   length 8
   lengthmod 6
@@ -459,6 +468,7 @@ endphoneme
 
 phoneme Z` // Shortened version of Z for diphthong dZ
   vcd pla frc sib
+  ipa ʐ
   voicingswitch S
   length 30
   lengthmod 6
@@ -479,11 +489,13 @@ phoneme Z` // Shortened version of Z for diphthong dZ
 endphoneme
 
 phoneme >  // lengthen previous vowel less than using ":"
+  ipa ː
   virtual
   length 20 // it actually seems working shorter, but anyway...
 endphoneme
 
 phoneme } // Tiny, 5ms non-linked pause (used between phonemes in word)
+  ipa ʔ
   pause
   nolink
   length 5
