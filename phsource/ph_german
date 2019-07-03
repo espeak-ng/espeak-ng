@@ -16,6 +16,9 @@ phoneme @   //  Schwa
       ChangePhoneme(3)
     ENDIF
   ENDIF
+IF thisPh (isWordEnd) THEN
+length 120
+ENDIF
   FMT(vowel/@_4)
 endphoneme
 
