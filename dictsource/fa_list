@@ -28,7 +28,7 @@
 
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
-// Special Persian Simbles.
+// Special Persian Symbls.
 ﷼	RijAl
 
 //Farsi Alphabet
@@ -219,7 +219,9 @@ $	dolAR
 )	paRAntezbaste:
 *	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
-	-	nim_fAsele:
+U+200C	nim_fAsele:
+//this code is recognized as Space
+U+20	fAsele_
 .	noqte:
 :	'donoqte:
 <	alAmate'kutSektaR

@@ -200,7 +200,7 @@
 			ۓ	ی
 
 
-			// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this simbole "-" have been definded for this character in the rules.
+			// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this symbol "-" have been definded for this character in the rules.
 
 // the groups of letters
 // Long vowels
@@ -236,16 +236,18 @@
 // Special Character 2
 .L11  ش
 
-// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this simbole "-" has been definded for this character in the rules.
+// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this symbol "-" has been definded for this character in the rules.
+.group 0x200C
+	0x200C	
 
 
 .group +
-		+ (.D	mosbate-
-		__) + (_D	mosbate-
+	_) + (D	mosbate-
 
 
-.group -
-		__) - (_D	manfije-
+// 0x2D is the same Minus symbol "-"
+.group 0x2D
+	_) 0x2D (D	manfije
 
 
 .group آ
