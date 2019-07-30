@@ -186,7 +186,7 @@ function speak() {
   tts.synthesize(
     user_text,
     function cb(samples, events) {
-      //console.log('  Inside synt cb');
+      console.log('  Receiving synthesis samples...');
       if (!samples) {
         if (pusher) {
           pusher.close();
@@ -207,7 +207,6 @@ function speak() {
   ); // end of tts.synthesize()
   console.log('  Calling synthesize... done');  
   console.log('Leaving speak()');
-
 } // end of speak()
 
 function ipa() {
