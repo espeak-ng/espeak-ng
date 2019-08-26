@@ -84,7 +84,7 @@ The following platforms are supported:
 
 1.  [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
 2.  [Language guide](docs/add_language.md) provides step-by-step instructions, how to add/improve support for language.
-3.  [Readme](docs/README.md) provides entries to more detailed information for contributors and developers.
+3.  [Index](docs/index.md) provides entries to more detailed information for contributors and developers.
 
 ## eSpeak Compatibility
 
