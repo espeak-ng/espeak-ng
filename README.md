@@ -1,31 +1,10 @@
 # eSpeak NG Text-to-Speech
 
 - [Features](#features)
-- [Windows](#windows)
-  - [Binaries](#binaries)
-  - [Building](#building)
-- [Linux, Mac, BSD](#linux-mac-bsd)
-  - [Dependencies](#dependencies)
-  - [Building](#building-1)
-    - [Cross Compilation](#cross-compilation)
-    - [Sanitizer Flag Configuration](#sanitizer-flag-configuration)
-    - [LLVM Fuzzer Support](#llvm-fuzzer-support)
-    - [eSpeak NG Feature Configuration](#espeak-ng-feature-configuration)
-    - [Extended Dictionary Configuration](#extended-dictionary-configuration)
-  - [Testing](#testing)
-  - [Installing](#installing)
-- [Android](#android)
-  - [Dependencies](#dependencies-1)
-  - [Building with Gradle](#building-with-gradle)
-  - [Signing the APK](#signing-the-apk)
-  - [Opening project in Android Studio](#opening-project-in-android-studio)
-  - [Installing](#installing-1)
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [History](#history)
-- [Feedback](#feedback)
 - [License Information](#license-information)
-
 ----------
 
 The eSpeak NG is a compact open source software text-to-speech synthesizer for 
@@ -82,9 +61,9 @@ The following platforms are supported:
 
 ## Documentation
 
-1.  [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
-2.  [Language guide](docs/add_language.md) provides step-by-step instructions, how to add/improve support for language.
-3.  [Index](docs/index.md) provides entries to more detailed information for contributors and developers.
+1. [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
+2. Look at [contribution guide](docs/contributing.md) to start your contribution.
+3. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
 
 ## eSpeak Compatibility
 
@@ -124,7 +103,6 @@ departure from the eSpeak project, with the intention of cleaning up the
 existing codebase, adding new features, and adding to and improving the
 supported languages.
 
-
 The *historical* branch contains the available older releases of the original
 eSpeak that are not contained in the subversion repository.
 
@@ -143,16 +121,6 @@ __NOTE:__ The source releases contain the `big_endian`, `espeak-edit`,
 do not appear in the source repository until later releases, so have
 been excluded from the historical commits to align them better with
 the 1.24.02 source commit.
-
-## Feedback
-
-Test latest development version at [eSpeakNG online](https://odo.lv/Espeak).
-
-Report bugs to the [espeak-ng issues](https://github.com/espeak-ng/espeak-ng/issues)
-page on GitHub.
-
-Look at and subscribe to [eSpeakNG mailing list](https://groups.io/g/espeak-ng)
-to view and discuss other related topics.
 
 ## License Information
 
