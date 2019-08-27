@@ -42,7 +42,7 @@ the MBROLA voice with a suffix `-en`. For example, the voice
 `mb-de4-en` will speak English text with a German accent by using the
 MBROLA `de4` voice.
 
-The following MBROLA voices are available in eSpeak NG.
+The following MBROLA voices are available in eSpeak NG<sup>[1](#footnote1)</sup>.
 
 | MBROLA Voice | Language             | Gender | eSpeak   | Debian Package |
 |--------------|----------------------|--------|----------|----------------|
@@ -105,7 +105,7 @@ The following MBROLA voices are available in eSpeak NG.
 | `ma1`        | Malay                | female | `mb-ma1` |                |
 | `mx1`        | Mexican Spanish      | male   | `mb-mx1` | `mbrola-mx1`   |
 | `mx2`        | Mexican Spanish      | male   | `mb-mx2` | `mbrola-mx2`   |
-| `nl1`        | Dutch                | male   | `mb-nl1` <sup>[1](#footnote1)</sup> |   |
+| `nl1`        | Dutch                | male   | `mb-nl1` <sup>[2](#footnote2)</sup> |   |
 | `nl2`        | Dutch                | male   | `mb-nl2` | `mbrola-nl2`   |
 | `nl3`        | Dutch                | female | `mb-nl3` |                |
 | `nz1`        | Maori                | male   | `mb-nz1` |                |
@@ -363,5 +363,10 @@ is named just `xx`.
 When `Makefile.am` is update, when espek-ng will be compiled, e.g. by
 entering command `automake; make -B` newly added MBROLA voice will be compiled automatically.
 
-<a name="footnote1">1</a>: This voice has very limited set of diphones and is usable only for reading numbers.
+<a name="footnote1">1</a>: You can get list of configured entries for MBROLA synthesizer with following command
+in espeak-ng project folder:
+```
+cd espeak-ng-data/voices/mb/; for i in $(ls); do printf "$i "; grep name $i|awk '{print $2}'; done
+```
+<a name="footnote2">2</a>: This voice has very limited set of diphones and is usable only for reading numbers.
 
