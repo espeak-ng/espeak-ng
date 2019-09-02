@@ -17,7 +17,7 @@ on existing issues. If necessary add new issue as described [here](https://help.
 to view and discuss other related topics.
 
 ## Steps for your contribution
-<a class="anchor" id="step1">1. Get familiar with [additive speech synthesis](https://en.wikipedia.org/wiki/Additive_synthesis).
+<a class="anchor" id="step1">1. Get familiar with [additive speech synthesis](https://en.wikipedia.org/wiki/Speech_synthesis#Formant_synthesis).
 
 <a class="anchor" id="step2">2. Create fork of [espeak-ng](https://github.com/espeak-ng/espeak-ng) repository as it is described [here](https://help.github.com/en/articles/fork-a-repo).
 
