@@ -1,4 +1,4 @@
-			##Pleas note the 2 number signs, or pound signs in this file are for comments to help you to understand what the settings are and how to set them.  
+##Pleas note the 2 number signs, or pound signs in this file are for comments to help you to understand what the settings are and how to set them.  
 ## Language sets the language of your voice.  This setting is required for every voice that you make.
 ##The next line is a setting you can change.  However if you don't know the language codes it may be best to leave the setting as it is.
 language variant
