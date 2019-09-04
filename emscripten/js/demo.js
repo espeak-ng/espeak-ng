@@ -148,6 +148,11 @@ function stop() {
 function speak() {
   console.log('Inside speak()');
 
+  if (ctx.state === 'suspended') {
+    console.log('Resuming AudioContext...');
+    ctx.resume();
+    console.log('Resuming AudioContext... done');
+  }
   console.log('  Stopping...');
   stop();
   console.log('  Stopping... done');
