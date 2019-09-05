@@ -1401,8 +1401,10 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		return;
 
 	do {
-		if (n_voices_list >= (N_VOICES_LIST-2))
+		if (n_voices_list >= (N_VOICES_LIST-2)) {
+			fprintf(stderr, "Warning: maximum number %d of (N_VOICES_LIST = %d - 1) reached\n", n_voices_list + 1, N_VOICES_LIST);
 			break; // voices list is full
+		}
 
 		if (FindFileData.cFileName[0] != '.') {
 			sprintf(fname, "%s%c%s", path, PATHSEP, FindFileData.cFileName);
@@ -1434,8 +1436,10 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		return;
 
 	while ((ent = readdir(dir)) != NULL) {
-		if (n_voices_list >= (N_VOICES_LIST-2))
+		if (n_voices_list >= (N_VOICES_LIST-2)) {
+			fprintf(stderr, "Warning: maximum number %d of (N_VOICES_LIST = %d - 1) reached\n", n_voices_list + 1, N_VOICES_LIST);
 			break; // voices list is full
+		}
 
 		if (ent->d_name[0] == '.')
 			continue;
