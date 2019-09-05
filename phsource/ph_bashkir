@@ -1,0 +1,163 @@
+
+
+// use 'flag1' for front vowels, 'flag2' for back vowels
+
+phoneme i
+  vwl flag1 starttype #i endtype #i
+  length 180
+  FMT(vowel/i)
+endphoneme
+
+phoneme y
+  vwl flag1 starttype #u endtype #u
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+phoneme u
+  vwl flag2 starttype #u endtype #u
+  length 180
+  FMT(vowel/u)
+endphoneme
+
+
+phoneme e
+  vwl flag1 starttype #@ endtype #@
+  length 110
+  FMT(vowel/ii#)
+endphoneme
+
+
+phoneme W
+  vwl flag1 starttype #@ endtype #@
+  length 110
+  FMT(vowel/oe)
+endphoneme
+
+phoneme o
+  vwl flag2 starttype #o endtype #o
+  length 110
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme V
+  vwl flag2 starttype #@ endtype #@
+  length 110
+  ipa ɯ
+  FMT(vowel/@_2)
+endphoneme
+
+
+phoneme &
+  vwl flag1 starttype #e endtype #e
+  length 180
+  FMT(vowel/ee)
+endphoneme
+
+phoneme A
+  vwl flag2 starttype #a endtype #a
+  length 180
+  IF NOT nextPhW(w) AND NOT thisPh(isTranslationGiven) THEN
+    IF thisPh(isFirstVowel) THEN
+      ChangePhoneme(0)
+    ENDIF
+    IF prevVowel(0) AND thisPh(isSecondVowel) THEN
+      ChangePhoneme(0)
+    ENDIF
+  ENDIF
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme 0
+  vwl flag2 starttype #o endtype #o
+  length 180
+  FMT(vowel/0_3)
+endphoneme
+
+
+phoneme e:
+  vwl flag1 starttype #e endtype #e
+  length 240
+  FMT(vowel/e_6)
+endphoneme
+
+phoneme I
+  vwl flag1 starttype #i endtype #i
+  length 110
+  FMT(vowel/ii)
+endphoneme
+
+phoneme a  // letter 'я'
+  vwl starttype #a endtype #a
+  length 180
+  IF prevVowel(isFlag1) OR nextVowel(isFlag1) THEN   // front vowels
+    ChangePhoneme(&)
+  ENDIF
+  ChangePhoneme(A)
+endphoneme
+
+phoneme u2   // letter 'ю'
+  vwl starttype #u endtype #u
+  length 180
+  IF prevVowel(isFlag1) OR nextVowel(isFlag1) THEN
+    ChangePhoneme(y)
+  ELSE
+    ChangePhoneme(u)
+  ENDIF
+endphoneme
+
+phoneme e2    // 'e' at start of word
+  vwl starttype #@ endtype #@
+  length 100
+  IF nextVowel(isFlag2) THEN
+    ChangePhoneme(V)
+  ELSE
+    ChangePhoneme(e)
+  ENDIF
+endphoneme
+
+
+
+// Consonants
+
+phoneme r
+  import_phoneme base1/R2
+endphoneme
+
+phoneme t
+  import_phoneme base2/t
+endphoneme
+
+phoneme d
+  import_phoneme base1/d[
+endphoneme
+
+phoneme k
+  vls vel stp
+  IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN   // back vowels
+    ChangePhoneme(q)
+  ENDIF
+  CALL base1/k
+endphoneme
+
+phoneme G
+  import_phoneme base1/Q"
+endphoneme
+
+phoneme g
+  vcd vel frc
+  IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN
+    ChangePhoneme(G)
+  ELSE
+    ChangePhoneme(Q)
+  ENDIF 
+endphoneme
+
+
+phoneme l
+  liquid
+  IF prevVowel(isFlag2) OR nextVowel(isFlag2) THEN
+    ChangePhoneme(L)
+  ENDIF
+  CALL base1/l
+endphoneme

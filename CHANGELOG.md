@@ -45,6 +45,7 @@ emoji:
 
 new languages:
 
+*  ba (Bashkir) -- tc-dl, Valdis Vitolins
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
 *  kk (Kazakh) -- boracasli14, Valdis Vitolins
