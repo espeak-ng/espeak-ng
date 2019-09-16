@@ -12,8 +12,24 @@
        ႘    8
        ႙    9
 
+// consonants 
+.group ၵ // U+1075
+         ၵ         k
+
+.group ၶ // U+1076
+         ၶ         k_h
+
 .group င // U+1004
          င         N
+
+.group ၸ // U+1078
+         ၸ         tS;
+
+.group သ // U+101E
+         သ         s
+
+.group ၺ // U+107A
+         ၺ         J
 
 .group တ // U+1010
          တ         t
@@ -21,8 +37,18 @@
 .group ထ // U+1011
          ထ         t_h
 
+.group ၼ // U+107C
+         ၼ         n
+
 .group ပ // U+1015
          ပ         p
+
+.group ၽ // U+107D
+         ၽ         p_h
+
+.group ၾ // U+107E
+      _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
+         ၾ         f
 
 .group မ // U+1019
          မ         m
@@ -39,42 +65,20 @@
 .group ဝ // U+101D
          ဝ         w
 
-.group သ // U+101E
-         သ         s
+.group ႁ // U+1081
+         ႁ         h
 
 .group ဢ // U+1022
          ဢ         ?
 
-.group ၵ // U+1075
-         ၵ         k
-
-.group ၶ // U+1076
-         ၶ         k_h
-
 .group ၷ // U+1077: rare, used for sounds in other languages
          ၷ         g
-
-.group ၸ // U+1078
-         ၸ         tS;
 
 .group ၹ // U+1079: rare, used for sounds in other languages
          ၹ         z
 
-.group ၺ // U+107A
-         ၺ         J
-
 .group ၻ // U+107B: rare, used for sounds in other languages
          ၻ         d
-
-.group ၼ // U+107C
-         ၼ         n
-
-.group ၽ // U+107D
-         ၽ         p_h
-
-.group ၾ // U+107E
-      _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
-         ၾ         f
 
 .group ႀ // U+107F: rare, used for sounds in other languages
          ႀ         T
@@ -82,19 +86,11 @@
 .group ၿ // U+1080: rare, used for sounds in other languages
          ၿ         b
 
-.group ႁ // U+1081
-         ႁ         h
 
-
-
-// Vowels in groups 
-
-// All vowels below are suffixs 
+// Vowels 
 
 .group ႃ 
-       ႃ      a 
-      ေ)ႃ     O
-      
+             ႃ      a       
           
 .group   ီ 
              ီ        i
@@ -103,10 +99,10 @@
               ိ       i 
 
 .group    ဵ
-              ဵ          e
+              ဵ       e
              
 .group    ႅ 
-         _)   ႅ (_      E  
+              ႅ     E  
               
 .group  ူ
             ူ        u
@@ -117,8 +113,7 @@
 
 .group  ေ
         ေ    ei   // default rule without other characters
-    _)  ေႃ    O   // in group with other characters if necessary
-    
+        ေႃ   O    
        
 .group  ႄ
             ႄ      E
@@ -127,20 +122,20 @@
               ႆ         ai
 
 .group   ၢ          
-           _) ၢ        a:
+              ၢ        a:
  
  
 .group   ၢႆ         //  U+1062   
-           _) ၢႆ        a:i
+             ၢႆ        a:i
 
 
 
 .group   ွႆ              
-        _)  ွႆ      oi
+           ွႆ      oi
 
 
 .group   ႂၢႆ
-         _) ႂၢႆ     Oi
+            ႂၢႆ     Oi
 
 
 
@@ -149,47 +144,49 @@
             
  
 .group   ျ          
-             _) ျ      ja
+             ျ      ja
               
  
 .group  ဝ်
-            _)ဝ်     w   
+            ဝ်     w   
             
 
-.group    ႂ်
-          _)  ႂ်       @i
+.group   ႂ်
+          ႂ်      @i
 
+.group   ်ႂ   
+          ်ႂ      @i
 
 .group ၺ်
-         _)ၺ်      Wi   
-           
+           ၺ်     i   
 
-.group  မ် 
-           _)မ်       m
            
-            
-.group  ၼ်
-          _)ၼ်      n   
-          
+// long sounds
 
 .group  င်
-           _)င်       g  //  ipa = ɳ  ( temporary word )
+           င်       g  
+
+.group  ၼ်
+           ၼ်     n   
             
+.group  မ် 
+           မ်       m
+           
+
       
-// very short sounds
-.group  ပ်
-          _) ပ်       p
-          
+// short sounds
+             
+.group  ၵ်
+            ၵ်      k     
             
 .group တ်
-         _) တ်      t
-           
-           
-.group  ၵ်
-         _) ၵ်      k   // temporary word        
+            တ်      t
 
-.group  း
-             း      1 // FIXME there should be more proper rules for this
+.group  ပ်
+            ပ်       p
+          
+
+// 6 tones , 1 is default
 
 .group  ႇ
              ႇ      2
@@ -197,16 +194,11 @@
 .group  ႈ
              ႈ      3
 
+.group  း
+             း      4 
+
 .group  ႉ
-             ႉ      5 // FIXME there should be more proper rules for this
+             ႉ      5
 
 .group  ႊ
-             ႊ      5
-
-.group  ႋ
-             ႋ      i2
-
-.group  ႌ
-             ႌ      i3
-
-.group  // all other symbols, if necessary
+             ႊ      6

@@ -107,14 +107,14 @@ endphoneme
 // VOWELS
 //*******************************************************************
 
-phoneme i
+phoneme i       // ဢီ
   vwl starttype #i endtype #i
   length 200
 
   FMT(vowel/i)
 endphoneme
 
-phoneme i.
+phoneme i.      //  ဢိုဝ်
   vwl starttype #i endtype #i
   length 200
   ipa ɨ
@@ -122,7 +122,7 @@ phoneme i.
   FMT(vowel/i#_6)
 endphoneme
 
-phoneme W
+phoneme W         // ဢိူဝ်
   vwl starttype #a endtype #u
   length 200
   ipa ɯ
@@ -130,21 +130,21 @@ phoneme W
   FMT(vowel/8_2)
 endphoneme
 
-phoneme u
+phoneme u         // ဢူ
   vwl starttype #u endtype #u
   length 200
 
   FMT(vowel/u_bck)
 endphoneme
 
-phoneme e
+phoneme e         //  ​ဢ​ေ
   vwl starttype #e endtype #e
   length 200
 
   FMT(vowel/e_2)
 endphoneme
 
-phoneme @
+phoneme @         // 
   vwl starttype #@ endtype #@
   length 200
   ipa ə
@@ -152,14 +152,14 @@ phoneme @
   FMT(vowel/3_2)
 endphoneme
 
-phoneme o
+phoneme o        //  ဢူဝ်
   vwl starttype #o endtype #o
   length 220
 
   FMT(vowel/o)
 endphoneme
 
-phoneme E
+phoneme E        // ဢ​ႄ
   vwl starttype #e endtype #e
   length 200
   ipa ɛ
@@ -167,14 +167,14 @@ phoneme E
   FMT(vowel/ee_2)
 endphoneme
 
-phoneme a
+phoneme a       //  ဢ
   vwl starttype #a endtype #a
   length 200
 
   FMT(vowel/a)
 endphoneme
 
-phoneme a:
+phoneme a:      // ဢၢ
   vwl starttype #a endtype #a
   length 250
   ipa aː
@@ -182,7 +182,7 @@ phoneme a:
   FMT(vowel/a)
 endphoneme
 
-phoneme O
+phoneme O       // ဢ​ေႃ
   vwl starttype #o endtype #o
   length 260
   ipa ɔ
@@ -195,21 +195,21 @@ endphoneme
 // DIPHTHONGS
 //*******************************************************************
 
-phoneme iu
+phoneme iu      // ဢိဝ်
   vwl starttype #i endtype #u
   length 200
 
   FMT(vdiph2/iu)
 endphoneme
 
-phoneme eu
+phoneme eu     // ဢဵဝ်
   vwl starttype #e endtype #u
   length 200
 
   FMT(vdiph/eu)
 endphoneme
 
-phoneme Eu
+phoneme Eu     //   ဢႅဝ်
   vwl starttype #e endtype #u
   length 200
   ipa ɛu
@@ -217,14 +217,14 @@ phoneme Eu
   FMT(vdiph/eeu)
 endphoneme
 
-phoneme au
+phoneme au     // ဢဝ်
   vwl starttype #a endtype #u
   length 200
 
   FMT(vdiph/au_2)
 endphoneme
 
-phoneme a:u
+phoneme a:u    //  ဢၢဝ်
   vwl starttype #a endtype #u
   length 250
   ipa aːu
@@ -232,7 +232,21 @@ phoneme a:u
   FMT(vdiph/au_2)
 endphoneme
 
-phoneme Wi
+phoneme ui   //  ဢုၺ်
+  vwl starttype #u endtype #i
+  length 200
+
+  FMT(vdiph/ui)
+endphoneme
+
+phoneme oi     // ဢူၺ်
+  vwl starttype #o endtype #i
+  length 200
+
+  FMT(vdiph/ooi)
+endphoneme
+
+phoneme Wi    // ဢိူၺ်
   vwl starttype #i endtype #i
   length 200
   ipa ɯi
@@ -240,36 +254,23 @@ phoneme Wi
   FMT(vdiph/ui_3)
 endphoneme
 
-phoneme ui
-  vwl starttype #u endtype #i
-  length 200
-
-  FMT(vdiph/ui)
-endphoneme
-
-phoneme @i
+phoneme @i     //   ႂ် 
   vwl starttype #@ endtype #i
   length 200
-  ipa əi          //   ႂ် 
+  ipa əi         
 
   FMT(vdiph/@i)
 endphoneme
 
-phoneme oi
-  vwl starttype #o endtype #i
-  length 200
 
-  FMT(vdiph/ooi)
-endphoneme
-
-phoneme ai
+phoneme ai   // ဢႆ
   vwl starttype #a endtype #i
   length 200
 
   FMT(vdiph/ai)
 endphoneme
 
-phoneme a:i
+phoneme a:i    // ဢၢႆ
   vwl starttype #a endtype #i
   length 250
   ipa aːi
@@ -277,7 +278,7 @@ phoneme a:i
   FMT(vdiph/ai)
 endphoneme
 
-phoneme Oi
+phoneme Oi     // ဢွႆ
   vwl starttype #o endtype #i
   length 200
   ipa ɔi
