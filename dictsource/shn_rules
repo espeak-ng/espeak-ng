@@ -12,21 +12,106 @@
        ႘    8
        ႙    9
 
-// consonants 
 .group ၵ // U+1075
          ၵ         k
 
+         ၵႃ        ka
+         ၵိ        ki5
+         ၵီ        ki
+         ၵ​ေ       ke
+         ၵ​ႄ       kE
+         ၵု        ku5
+         ၵူ        ku
+         ၵႆ        k@i
+         ၵႂ်       kaWi
+         ၵ်ႂ       kaWi  // for incorrect typing
+         ၵႂ        kO
+         ၵွ        kO
+
+         ၵူဝ်      ko
+         ၵ​ေႃ      kO
+         ၵိုဝ်     ki.
+         ၵိူဝ်     kɨ
+         ၵၢႆ       ka:i
+         ၵွႆ       kOi
+         ၵႂၢႆ      kOa:i
+         ၵုၺ်     kui
+         ၵူၺ်     koi
+         ၵဝ်       kaw
+         ၵၢဝ်      ka:w     
+         ၵိဝ်      kiu
+         ၵဵဝ်      kew
+         ၵႅဝ်      kEw     
+            
+
+
 .group ၶ // U+1076
          ၶ         k_h
+         ၶူဝ်      k_ho
+         ၶ​ေႃ      k_hO
+         ၶိုဝ်     k_hi.
+         ၶိူဝ်     k_hɨ
+         ၶၢႆ       k_ha:i
+         ၶွႆ       k_hOi
+         ၶႂၢႆ      k_hOa:i   // rare
+         ၶုၺ်     k_hui     // rare
+         ၶူၺ်     k_hoi    
+         ၶဝ်       k_haw
+         ၶၢဝ်      k_ha:w    
+         ၶိဝ်      k_hiu     // rare
+         ၶဵဝ်      k_hew      
+         ၶႅဝ်      k_hEw    
 
 .group င // U+1004
          င         N
+         ငူဝ်       No
+         င​ေႃ      NO
+         ငိုဝ်       Ni.
+         ငိူဝ်      Nɨ
+         ငၢႆ     Na:i
+         ငွႆ     NOi
+         ငႂၢႆ    NOa:i
+         ငုၺ်     Nui   // rare
+         ငူၺ်     Noi   // rare
+         ငဝ်       Naw
+         ငၢဝ်      Na:w     
+         ငိဝ်       Niu   // rare
+         ငဵဝ်      New   // rare
+         ငႅဝ်      NEw  
 
 .group ၸ // U+1078
          ၸ         tS;
+         ၸူဝ်      tS;o
+         ၸ​ေႃ      tS;O
+         ၸိုဝ်     tS;i.
+         ၸိူဝ်     tS;ɨ
+         ၸၢႆ       tS;a:i
+         ၸွႆ       tS;Oi
+         ၸႂၢႆ      tS;Oa:i  // rare
+         ၸုၺ်     tS;ui    // rare
+         ၸူၺ်     tS;oi    // rare
+         ၸဝ်       tS;aw
+         ၸၢဝ်      tS;a:w   // rare
+         ၸိဝ်      tS;iu    // rare
+         ၸဵဝ်      tS;ew    // rare
+         ၸႅဝ်      tS;Ew
 
 .group သ // U+101E
-         သ         s
+        သ         s
+        သူဝ်      so
+         သ​ေႃ      sO
+         သိုဝ်     si.
+         သိူဝ်     sɨ
+         သၢႆ       sa:i
+         သွႆ       sOi
+         သႂၢႆ      sOa:i
+         သုၺ်     sui       // rare
+         သူၺ်     soi     
+         သဝ်       saw       
+         သၢဝ်      sa:w     
+         သိဝ်      siu
+         သဵဝ်      sew      // rare
+         သႅဝ်      sEw  
 
 .group ၺ // U+107A
          ၺ         J
@@ -96,14 +181,8 @@
              ီ        i
              
 .group    ိ 
-              ိ       i 
+              ိ       i
 
-.group    ဵ
-              ဵ       e
-             
-.group    ႅ 
-              ႅ     E  
-              
 .group  ူ
             ူ        u
 
@@ -121,13 +200,21 @@
 .group    ႆ
               ႆ         ai
 
+
+// Not stand alone
+.group    ဵ
+              ဵ       e
+             
+.group    ႅ 
+              ႅ     E  
+              
 .group   ၢ          
               ၢ        a:
- 
+
+
  
 .group   ၢႆ         //  U+1062   
              ၢႆ        a:i
-
 
 
 .group   ွႆ              
@@ -146,20 +233,22 @@
 .group   ျ          
              ျ      ja
               
- 
-.group  ဝ်
-            ဝ်     w   
-            
 
 .group   ႂ်
           ႂ်      @i
 
+
+// For incorrect typing
 .group   ်ႂ   
           ်ႂ      @i
+
 
 .group ၺ်
            ၺ်     i   
 
+.group  ဝ်
+            ဝ်     w   
+      
            
 // long sounds
 
