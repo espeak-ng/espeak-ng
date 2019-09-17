@@ -129,15 +129,6 @@
        ႁွႆ       hOi    
        ႁူၺ်      hoi    
 
-.group ဢ // U+1022
-       ဢ         ?
-       ဢေႃ      ?O    
-       ဢၢႆ       ?a:i  
-       ဢွႆ       ?Oi    
-       ဢုၺ်     ?ui     
-       ဢူၺ်     ?oi    
-
-
 
 .group ၷ // U+1077: rare, used for sounds in other languages
          ၷ         g
@@ -161,10 +152,47 @@
               ႃ      a       
           
 .group   ိ 
-              ိ       i5
-         
+              ိ        i5
+              .L01) ိဝ်       iw
+              .L01) ိင်       ig
+              .L01) ိၼ်     in
+              .L01) ိမ်       im
+              .L01) ိၵ်      ik
+              .L01) ိတ်      it
+              .L01) ိပ်       ip
+              .L01) ိုင်      i.g
+              .L01) ိုၼ်    i.n
+              .L01) ိုမ်      i.m
+              .L01) ိုၵ်     i.k
+              .L01) ိုတ်     i.t
+              .L01) ိုပ်      i.p
+              .L01) ိူင်      ɨg
+              .L01) ိူၼ်    ɨn
+              .L01) ိူမ်      ɨm
+              .L01) ိူၵ်     ɨk
+              .L01) ိူတ်     ɨt
+              .L01) ိူပ်     ɨp
+
 .group   ီ 
               ီ        i
+
+.group   ဵ
+              ဵ            e
+              .L01) ဵင်     eg
+              .L01) ဵၼ်     en
+              .L01) ဵမ်     em
+              .L01) ဵၵ်     ek
+              .L01) ဵတ်    et
+              .L01) ဵပ်     ep
+
+.group   ႅ
+              ႅ          E
+              .L01) ႅင်      Eg
+              .L01) ႅၼ်     En
+              .L01) ႅမ်     Em
+              .L01) ႅၵ်     Ek
+              .L01) ႅတ်    Et
+              .L01) ႅပ်     Ep
 
 .group   ​ေ
              ​ေ       e
@@ -173,20 +201,42 @@
               ႄ       E
 
 .group   ု
-              ု        u5
+                 ု       u5
+          .L01) ုင်      ug
+          .L01) ုၼ်    un
+          .L01) ုမ်      um
+          .L01) ုၵ်     uk
+          .L01) ုတ်     ut
+          .L01) ုပ်      up
 
 .group   ူ
-              ူ        u
+            ူ           u
+           .L01) ူဝ်     o
+           .L01) ူင်     og
+           .L01) ူၼ်   on
+           .L01) ူမ်     om
+           .L01) ူၵ်    ok
+           .L01) ူတ်     ot
+           .L01) ူပ်     op
 
 .group   ႆ
               ႆ        @i
+
+.group   ၢ
+                ၢ       a:
+          .L01) ၢင်    a:g
+          .L01) ၢၼ်    a:n
+          .L01) ၢမ်    a:m
+          .L01) ၢၵ်     a:k
+          .L01) ၢတ်   a:t
+          .L01) ၢပ်   a:p
+
 
 .group   ွ   
               ွ        O
 
 .group   ႂ
               ႂ်       kaWi
-               ်ႂ      kaWi  // for incorrect typing
 
 .group  ြ
             ြ          ra
@@ -198,91 +248,30 @@
 .group  ဝ်
             ဝ်     w   
            .L01) ဝ်      aw
-           .L01) ူဝ်     o
-           .L01) ၢဝ်   a:w   
-           .L01) ိဝ်     iw
-           .L01) ဵဝ်    ew
-           .L01) ႅဝ်    Ew
-           .L01) ိုဝ်     i.w
-           .L01) ိူဝ်     ɨw
            
-// long sounds
-
 .group  င်
            င်            g  
           .L01) င်       ag
-          .L01) ုင်      ug
-          .L01) ူင်      og
-          .L01) ၢင်    a:g
-          .L01) ိင်      ig
-          .L01) ဵင်     eg
-          .L01) ႅင်     Eg
-          .L01) ိုင်      i.g
-          .L01) ိူင်      ɨg
-          
 
 .group  ၼ်
            ၼ်           n  
           .L01) ၼ်      an
-          .L01) ုၼ်     un
-          .L01) ူၼ်     on
-          .L01) ၢၼ်    a:n
-          .L01) ိၼ်     in
-          .L01) ဵၼ်     en
-          .L01) ႅၼ်     En
-          .L01) ိုၼ်     i.n
-          .L01) ိူၼ်     ɨn
 
 .group  မ် 
            မ်            m  
           .L01) မ်       am
-          .L01) ုမ်      um
-          .L01) ူမ်      om
-          .L01) ၢမ်    a:m
-          .L01) ိမ်      im
-          .L01) ဵမ်     em
-          .L01) ႅမ်     Em
-          .L01) ိုမ်     i.m
-          .L01) ိူမ်     ɨm
-
-      
-// short sounds
              
 .group  ၵ်
            ၵ်           k  
           .L01) ၵ်      ak
-          .L01) ုၵ်     uk
-          .L01) ူၵ်     ok
-          .L01) ၢၵ်     a:k
-          .L01) ိၵ်     ik
-          .L01) ဵၵ်     ek
-          .L01) ႅၵ်     Ek
-          .L01) ိုၵ်     i.k
-          .L01) ိူၵ်     ɨk
 
 .group တ်
            တ်           t  
           .L01) တ်      at
-          .L01) ုတ်     ut
-          .L01) ူတ်     ot
-          .L01) ၢတ်   a:t
-          .L01) ိတ်     it
-          .L01) ဵတ်    et
-          .L01) ႅတ်    Et
-          .L01) ိုတ်     i.t
-          .L01) ိူတ်     ɨt
 
 .group  ပ်
             ပ်           p  
           .L01) ပ်      ap
-          .L01) ုပ်     up
-          .L01) ူပ်     op
-          .L01) ၢပ်   a:p
-          .L01) ိပ်     ip
-          .L01) ဵပ်     ep
-          .L01) ႅပ်     Ep
-          .L01) ိုပ်     i.p
-          .L01) ိူပ်     ɨp
 
           
 // 6 tones , 1 is default
