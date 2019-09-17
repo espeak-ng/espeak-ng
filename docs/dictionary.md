@@ -4,6 +4,7 @@
 - [Phoneme names](#phoneme-names)
 - [Pronunciation Rules](#pronunciation-rules)
   - [Rule Groups](#rule-groups)
+  - [Letter Groups](#letter-groups)
   - [Rules](#rules)
   - [Special Characters in \<phoneme string\>](#special-characters-in-phoneme-string)
   - [Special Characters in Both \<pre\> and \<post\> ](#special-characters-in-both-pre-and-post)
@@ -97,11 +98,24 @@ The rules are organized in groups, each starting with a `.group` line:
   They would not be needed for a language which has regular spelling rules. The
   first character can only be an ascii character (less than 0x80).
 
+**notes about rule groups**
+
+When matching a word, firstly the 2-letter group for the two letters at
+the current position in the word (if such a group exists) is searched,
+and then the single-letter group. The highest scoring rule in either of
+those two groups is used.
+
 * `.group`
   A group for other characters which don't have their own group.
 
 * `.replace`
   See section [Character Substitution](#character-substitution).
+
+### Letter groups
+
+Specific group of rules is declaration of letter sequences with some common
+feature of letters for particular language. It may be used as a placeholder
+of prefixes/infixes of words (in prerules) or infixed/postfixes in (postrules).
 
 * `.L<nn>`
   Defines a group of letter sequences, any of which can match with `Lnn` in a
@@ -113,12 +127,11 @@ The rules are organized in groups, each starting with a `.group` line:
 
 There can be up to 200 items in one letter group.
 
-When matching a word, firstly the 2-letter group for the two letters at
-the current position in the word (if such a group exists) is searched,
-and then the single-letter group. The highest scoring rule in either of
-those two groups is used.
+When matching a word, firstly the group containing most letters is checked at
+the current position in the word (if such a group exists), then shorter ones
+till to the single-letter groups. The highest scoring rule of matching group is used.
 
-`~` Letter in letter group means, that there can be no letter in this group 
+`~` Letter in letter group means, that there can be no letter in this group
     in the pre- or post- rule.
 
 _Example with prerule group:_
@@ -531,5 +544,5 @@ usually have specific meaning for each particular language.
 file by calling `SetLetterBits()` function from (usually) `NewTranslator()` function.
 Note, that letters should be stored as array of chars, thus multibyte
 unicode letters should be transposed using `transpose_min` and `transpose_max` parameters
-of particular `Translator` structure.
+of particular `Translator` structure, or using `SetLetterBitsUTF8()` function.
 
