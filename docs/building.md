@@ -146,7 +146,7 @@ Specific languages can be compiled by running:
 	make LANG
 
 where `LANG` is the language code of the given language. More information can
-be found in the [Adding or Improving a Language](docs/add_language.md)
+be found in the [Adding or Improving a Language](add_language.md)
 documentation.
 
 #### Cross Compilation
