@@ -1,5 +1,8 @@
 // Shan (Tai Yay) pronunciation rules (Shan script)
 
+// Consonants 
+.L01 ၵ ၶ င ၸ သ ၺ တ ထ ၼ ပ ၽ ၾ မ ယ ရ လ ဝ ႁ ဢ
+
 .replace
        ႐    0
        ႑    1
@@ -12,64 +15,120 @@
        ႘    8
        ႙    9
 
-// consonants 
 .group ၵ // U+1075
          ၵ         k
+         ၵေႃ      kO
+         ၵၢႆ       ka:i  
+         ၵွႆ       kOi
+         ၵုၺ်     kui   
+         ၵူၺ်     koi              
+
 
 .group ၶ // U+1076
          ၶ         k_h
+         ၶေႃ      k_hO
+         ၶၢႆ       k_ha:i
+         ၶွႆ       k_hOi
+         ၶူၺ်     k_hoi    
 
 .group င // U+1004
          င         N
+         ငေႃ      NO
+         ငၢႆ     Na:i
+         ငွႆ     NOi
+         ငႂၢႆ    NOa:i
 
 .group ၸ // U+1078
          ၸ         tS;
+         ၸေႃ      tS;O
+         ၸၢႆ       tS;a:i
+         ၸွႆ       tS;Oi
 
 .group သ // U+101E
          သ         s
+         သေႃ      sO
+         သၢႆ       sa:i
+         သွႆ       sOi
+         သႂၢႆ      sOa:i
+         သူၺ်     soi     
 
 .group ၺ // U+107A
-         ၺ         J
+       ၺ         J
 
 .group တ // U+1010
-         တ         t
+       တ         t
+       တေႃ      tO       
+       တၢႆ       ta:i      
+       တွႆ       tOi      
+       တုၺ်     tui     
+       တူၺ်     toi     
 
 .group ထ // U+1011
-         ထ         t_h
+       ထ         t_h
+       ထွႆ       t_hOi      
+       ထုၺ်      t_hui      
 
 .group ၼ // U+107C
-         ၼ         n
+       ၼ         n
+       ၼေႃ      nO      
+       ၼၢႆ       na:i    
+       ၼွႆ       nOi      
 
 .group ပ // U+1015
-         ပ         p
+       ပ          p
+       ပေႃ       pO     
+       ပၢႆ       pa:i    
+       ပွႆ       pOi      
+       ပူၺ်      poi     
 
 .group ၽ // U+107D
-         ၽ         p_h
+       ၽ         p_h
+       ၽၢႆ       p_ha:i    
+       ၽွႆ       p_hOi      
+       ၽူၺ်      p_hoi     
 
 .group ၾ // U+107E
-      _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
-         ၾ         f
+       _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
+       ၾ         f
 
 .group မ // U+1019
-         မ         m
+       မ         m
+       မေႃ     mO    
+       မၢႆ       ma:i  
+       မွႆ       mOi  
+       မူၺ်      moi    
 
 .group ယ // U+101A
-         ယ         j
+       ယ         j
+       ယေႃ       jO    
+       ယၢႆ       ja:i  
+       ယွႆ       jOi  
+       ယုၺ်     jui     
 
 .group ရ // U+101B
          ရ         R
 
 .group လ // U+101C
-         လ         l
+       လ         l
+       လေႃ     lO    
+       လၢႆ       la:i  
+       လွႆ       lOi  
+       လုၺ်     lui     
+       လူၺ်      loi    
 
 .group ဝ // U+101D
-         ဝ         w
+       ဝ         w
+       ဝၢႆ       wa:i  
+       ဝုၺ်     wui      
+       ဝူၺ်      woi    
 
 .group ႁ // U+1081
-         ႁ         h
+       ႁ         h
+       ႁေႃ       hO    
+       ႁၢႆ       ha:i  
+       ႁွႆ       hOi    
+       ႁူၺ်      hoi    
 
-.group ဢ // U+1022
-         ဢ         ?
 
 .group ၷ // U+1077: rare, used for sounds in other languages
          ၷ         g
@@ -89,103 +148,132 @@
 
 // Vowels 
 
-.group ႃ 
-             ႃ      a       
+.group   ႃ 
+              ႃ      a       
           
+.group   ိ 
+              ိ        i5
+              .L01) ိဝ်       iw
+              .L01) ိင်       ig
+              .L01) ိၼ်     in
+              .L01) ိမ်       im
+              .L01) ိၵ်      ik
+              .L01) ိတ်      it
+              .L01) ိပ်       ip
+              .L01) ိုင်      i.g
+              .L01) ိုၼ်    i.n
+              .L01) ိုမ်      i.m
+              .L01) ိုၵ်     i.k
+              .L01) ိုတ်     i.t
+              .L01) ိုပ်      i.p
+              .L01) ိူင်      Wg
+              .L01) ိူၼ်    Wn
+              .L01) ိူမ်      Wm
+              .L01) ိူၵ်     Wk
+              .L01) ိူတ်     Wt
+              .L01) ိူပ်     Wp
+
 .group   ီ 
-             ီ        i
-             
-.group    ိ 
-              ိ       i 
+              ီ        i
 
-.group    ဵ
-              ဵ       e
-             
-.group    ႅ 
-              ႅ     E  
-              
-.group  ူ
-            ူ        u
+.group   ဵ
+              ဵ            e
+              .L01) ဵင်     eg
+              .L01) ဵၼ်     en
+              .L01) ဵမ်     em
+              .L01) ဵၵ်     ek
+              .L01) ဵတ်    et
+              .L01) ဵပ်     ep
 
-.group  ု
-            ု        u 
-            
+.group   ႅ
+              ႅ          E
+              .L01) ႅင်      Eg
+              .L01) ႅၼ်     En
+              .L01) ႅမ်     Em
+              .L01) ႅၵ်     Ek
+              .L01) ႅတ်    Et
+              .L01) ႅပ်     Ep
 
-.group  ေ
-        ေ    ei   // default rule without other characters
-        ေႃ   O    
-       
-.group  ႄ
-            ႄ      E
-             
-.group    ႆ
-              ႆ         ai
+.group   ​ေ
+             ​ေ       e
 
-.group   ၢ          
-              ၢ        a:
- 
- 
-.group   ၢႆ         //  U+1062   
-             ၢႆ        a:i
+.group   ႄ       
+              ႄ       E
+
+.group   ု
+                 ု       u5
+          .L01) ုင်      ug
+          .L01) ုၼ်    un
+          .L01) ုမ်      um
+          .L01) ုၵ်     uk
+          .L01) ုတ်     ut
+          .L01) ုပ်      up
+
+.group   ူ
+            ူ           u
+           .L01) ူဝ်     o
+           .L01) ူင်     og
+           .L01) ူၼ်   on
+           .L01) ူမ်     om
+           .L01) ူၵ်    ok
+           .L01) ူတ်     ot
+           .L01) ူပ်     op
+
+.group   ႆ
+              ႆ        @i
+
+.group   ၢ
+                ၢ       a:
+          .L01) ၢင်    a:g
+          .L01) ၢၼ်    a:n
+          .L01) ၢမ်    a:m
+          .L01) ၢၵ်     a:k
+          .L01) ၢတ်   a:t
+          .L01) ၢပ်   a:p
 
 
+.group   ွ   
+              ွ        O
 
-.group   ွႆ              
-           ွႆ      oi
-
-
-.group   ႂၢႆ
-            ႂၢႆ     Oi
-
-
+.group   ႂ
+              ႂ်       kaWi
 
 .group  ြ
             ြ          ra
             
- 
 .group   ျ          
              ျ      ja
               
- 
+
 .group  ဝ်
             ဝ်     w   
-            
-
-.group   ႂ်
-          ႂ်      @i
-
-.group   ်ႂ   
-          ်ႂ      @i
-
-.group ၺ်
-           ၺ်     i   
-
+           .L01) ဝ်      aw
            
-// long sounds
-
 .group  င်
-           င်       g  
+           င်            g  
+          .L01) င်       ag
 
 .group  ၼ်
-           ၼ်     n   
-            
-.group  မ် 
-           မ်       m
-           
+           ၼ်           n  
+          .L01) ၼ်      an
 
-      
-// short sounds
+.group  မ် 
+           မ်            m  
+          .L01) မ်       am
              
 .group  ၵ်
-            ၵ်      k     
-            
+           ၵ်           k  
+          .L01) ၵ်      ak
+
 .group တ်
-            တ်      t
+           တ်           t  
+          .L01) တ်      at
 
 .group  ပ်
-            ပ်       p
-          
+            ပ်           p  
+          .L01) ပ်      ap
 
+          
 // 6 tones , 1 is default
 
 .group  ႇ
