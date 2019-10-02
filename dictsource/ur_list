@@ -47,6 +47,7 @@ _و	va:O
 ئ	Hamzaje:
 ۂ	He:h'amza
 ؤ	va:Oh'amza
+ﺅ	va:O||Hamza
 ۃ	go:l||te:
 ٌ	do||pe:S
 ۓ	Hamza||bar.i:||je:
@@ -359,7 +360,7 @@ _dpt	_ISaRI'Ia_
 پرحجوم	p,URHUJ'u:m
 تحفظ	taH'afUz.
 حفاظت	H,Ifa:z.'at
-ہمت	HIm'at
+ہمت	HIm:at
 سمیت	sam'e:t
 اگرچہ	,agaRc'e:H	$pause
 بلکہ	b,alk'e:H
@@ -856,7 +857,6 @@ _dpt	_ISaRI'Ia_
 جرمنی	JaRmani
 خدمت	xIdmat
 شریعت	SaRi;at
-ادت	Id:at
 ادراک	IdRa:k
 تردد	taRad:Ud
 خدمات	xIdma:t
@@ -1024,7 +1024,7 @@ _dpt	_ISaRI'Ia_
 (حیران کن)	He:Ra:n||kUn
 (فیصلہ کن)	fE:s.la||kUn
 لائیو	la:i:v
-گر	gIR
+گر	gaR	$only
 نصف	nIs.f
 مسرت	mUsaR:at
 سپریم	sUpRi:m
@@ -1181,7 +1181,6 @@ _dpt	_ISaRI'Ia_
 کیے	ki:;e:
 لیے	li:;e:
 لیا	li:;a:
-صنعت	s.anat
 چھڑ	c#Ir.
 مخل	mUxIl
 خطہ	xIta
@@ -1711,8 +1710,6 @@ _dpt	_ISaRI'Ia_
 مرتبت	maRtabat
 رقت	RIqat
 رل	RUl
-وزرا	vUzaRa:
-وزراء	vUzaRa:
 وکلا	vUkala:
 منافع	mUna:fa
 معتدل	mOtadIl
@@ -1916,7 +1913,7 @@ _dpt	_ISaRI'Ia_
 (پر نور)	pUR||nu:R
 (پر کشش)	pUR||kaSIS
 کلنک	kalank
-کہنہ	kUHna
+کہنہ	kOHna
 آلوں	a:lo~:
 تخمی	tUxmi:
 رکشہ	RIkSa
@@ -1976,3 +1973,111 @@ _dpt	_ISaRI'Ia_
 چہارم	caHa:Rum
 زیریں	ze:Ri~:
 مراسم	maRa:sIm
+کود	ku:d
+باجوہ	ba:Jva
+نامناسب	na:mUna:sIb
+نامناسبت	na:mUna:sIbat
+ناموافق	na:mava:fIq
+ناموافقت	na:mava:fIqat
+ناموافقتی	na:mava:fIqati:
+ناموس	na:mu:s
+ملت	mIlat
+(نہ ہوں)	na||Ho~:
+دسترس	dastaRas
+مصدق	mUs.ad:Iq
+مصدقہ	mUs.ad:Iqa
+مصرع	mIs.Ra:
+رنجیت	RanJi:t
+برہم	baRHam	$only
+درہم	daRHam
+تدبر	tadab:UR
+تکبر	takab:Ur
+تقرب	taqaR:Ub
+تکمل	takam:Ul
+تقویت	taqvi:at
+(چکنا چور)	cakna||cu:R
+تقویتی	taqvi:ati:
+غربا	QURaba:
+صفات	s.Ifa:t
+صفدر	s.afdaR
+صلاحیتوں	s.ala:Hi:ato~:
+صلاحیتیں	s.ala:Hi:ate~:
+حرمین	HaRmE:n
+حسب	Hasb
+(حسن اتفاق)	HUsne:||ItIfa:q
+ہراساں	HIRa:sa~:
+عروجی	URu:Ji:
+(کان کن)	ka:n||kUn
+شق	SIq
+شقدار	SIqda:R
+شقداری	SIqda:Ri:
+شقیں	SIqe~:
+کینوس	kEnvas
+بروقت	baRvaqt
+بریکنگ	bre:kIng
+کلچر	kalcaR
+جرنل	JaRnal
+جرنلزم	JaRnalIzam
+جرنلسٹ	JaRnalIst.
+جز	JUz
+جگری	JIgRi:
+(مد نظر)	made:||naz.aR
+فیسٹیول	fEst.i:val
+کنویں	ku~:e~:
+کنواں	ku~:va~:
+کنووں	ku~:o~:
+کنکشن	kanIkSan
+کنیت	kUni:at
+مغز	maQz
+کورن	ko:Rn
+کوے	ku:e:
+کھاؤں	k#a:u~:
+کھاتیں	k#a:ti~:
+کھسک	k#Isak
+کھمبی	k#Umbi:
+سکہ	sIka
+فصل	fas.l
+کھیتی	k#e:ti:
+(کہیں سے)	kaHi~:||se:
+(کہیں سے کہیں)	kaHi~:||se:||kaHi~:
+کیونکر	kju~:kaR
+ہچک	HIcak
+ہدہد	HUdHUd
+ہل	HIl
+ربا	RUba:
+عصر	as.R
+ہمدم	Hamdam
+ہمدوش	Hamdo:S
+ہمزہ	Hamza
+محشر	mEHSaR
+ہنس	HV~s
+ہلاتیں	HIla:ti~:
+ہنسی	HV~si:
+ہنٹر	Hant.aR
+منسٹر	mInIst.aR
+دہم	daHUm
+یاور	ja:vaR
+یاوری	ja:vRi:
+یثرب	jasRab
+یعقوب	ja:qU:b
+یگانگت	jaga:nIgat
+یورینیم	ju:Re:ni;am
+یوسف	ju:sUf
+(یک بیک)	jak||bajak
+جہتی	JEHEt
+(یک سو)	jak||su:
+(ہم سری)	Ham||saRi:
+(ہو کا عالم)	Hu:||ka:||a:lam
+ہیرپھیر	He:Rp#e:R
+طرفہ	taRfa
+(آب و ہوا)	a:bo:hava:
+پتھر	pat#:aR
+سند	sanad
+آزمودہ	a:zmu:da
+کھلے	k#Ule:
+(ملا جلا)	mIla:||JUla:
+جاتیں	Ja:ti~:
+جادوگر	Ja:du:gaR
+جادوگری	Ja:du:gaRi:
+جاذب	Ja:zIb
+جارج	Ja:RJ
