@@ -29,20 +29,26 @@
          ၶေႃ      k_hO
          ၶၢႆ       k_ha:i
          ၶွႆ       k_hOi
-         ၶူၺ်     k_hoi    
+         ၶႂၢႆ       k_hOa:i
+         ၶုၺ်      k_hui  
+         ၶူၺ်      k_hoi    
 
 .group င // U+1004
-         င         N
+         င        N
          ငေႃ      NO
          ငၢႆ     Na:i
-         ငွႆ     NOi
-         ငႂၢႆ    NOa:i
+         ငွႆ      NOi
+         ငႂၢႆ     NOa:i
+         ငုၺ်    Nui
+         ငူၺ်    Noi    
 
 .group ၸ // U+1078
          ၸ         tS;
          ၸေႃ      tS;O
          ၸၢႆ       tS;a:i
-         ၸွႆ       tS;Oi
+         ၸွႆ        tS;Oi
+         ၸုၺ်      tS;ui
+         ၸူၺ်      tS;oi
 
 .group သ // U+101E
          သ         s
@@ -64,7 +70,8 @@
        တူၺ်     toi     
 
 .group ထ // U+1011
-       ထ         t_h
+       ထ        t_h
+       ထေႃ      t_hO       
        ထွႆ       t_hOi      
        ထုၺ်      t_hui      
 
@@ -72,24 +79,29 @@
        ၼ         n
        ၼေႃ      nO      
        ၼၢႆ       na:i    
-       ၼွႆ       nOi      
+       ၼွႆ       nOi
+       ၼူၺ်     noi
 
 .group ပ // U+1015
        ပ          p
        ပေႃ       pO     
        ပၢႆ       pa:i    
-       ပွႆ       pOi      
+       ပွႆ       pOi    
+       ပုၺ်      pui 
        ပူၺ်      poi     
 
 .group ၽ // U+107D
-       ၽ         p_h
+       ၽ        p_h
+       ၽေႃ      p_hO
        ၽၢႆ       p_ha:i    
-       ၽွႆ       p_hOi      
+       ၽွႆ       p_hOi  
+       ၽုၺ်      p_hui 
        ၽူၺ်      p_hoi     
 
 .group ၾ // U+107E
        _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
        ၾ         f
+       ၾၢႆ         fa:i
 
 .group မ // U+1019
        မ         m
@@ -103,7 +115,8 @@
        ယေႃ       jO    
        ယၢႆ       ja:i  
        ယွႆ       jOi  
-       ယုၺ်     jui     
+       ယုၺ်     jui  
+       ယူၺ်     joi
 
 .group ရ // U+101B
          ရ         R
@@ -119,6 +132,7 @@
 .group ဝ // U+101D
        ဝ         w
        ဝၢႆ       wa:i  
+       ဝွႆ       wOi
        ဝုၺ်     wui      
        ဝူၺ်      woi    
 
@@ -126,7 +140,8 @@
        ႁ         h
        ႁေႃ       hO    
        ႁၢႆ       ha:i  
-       ႁွႆ       hOi    
+       ႁွႆ       hOi  
+       ႁုၺ်     hui
        ႁူၺ်      hoi    
 
 
@@ -160,14 +175,16 @@
               .L01) ိၵ်      ik
               .L01) ိတ်      it
               .L01) ိပ်       ip
+              .L01) ိုဝ်      i.w
               .L01) ိုင်      i.g
-              .L01) ိုၼ်    i.n
-              .L01) ိုမ်      i.m
+              .L01) ိုၼ်     i.n
+              .L01) ိုမ်     i.m
               .L01) ိုၵ်     i.k
               .L01) ိုတ်     i.t
               .L01) ိုပ်      i.p
+              .L01) ိူဝ်      Ww
               .L01) ိူင်      Wg
-              .L01) ိူၼ်    Wn
+              .L01) ိူၼ်     Wn
               .L01) ိူမ်      Wm
               .L01) ိူၵ်     Wk
               .L01) ိူတ်     Wt
@@ -178,6 +195,7 @@
 
 .group   ဵ
               ဵ            e
+              .L01) ဵဵဵဵဝ်     ew
               .L01) ဵင်     eg
               .L01) ဵၼ်     en
               .L01) ဵမ်     em
@@ -187,8 +205,9 @@
 
 .group   ႅ
               ႅ          E
-              .L01) ႅင်      Eg
-              .L01) ႅၼ်     En
+              .L01) ႅႅႅဝ်     Ew
+              .L01) ႅင်     Eg
+              .L01) ႅၼ်    En
               .L01) ႅမ်     Em
               .L01) ႅၵ်     Ek
               .L01) ႅတ်    Et
@@ -224,12 +243,13 @@
 
 .group   ၢ
                 ၢ       a:
-          .L01) ၢင်    a:g
+          .L01) ၢဝ်     a:w
+          .L01) ၢင်     a:g
           .L01) ၢၼ်    a:n
-          .L01) ၢမ်    a:m
+          .L01) ၢမ်     a:m
           .L01) ၢၵ်     a:k
-          .L01) ၢတ်   a:t
-          .L01) ၢပ်   a:p
+          .L01) ၢတ်    a:t
+          .L01) ၢပ်    a:p
 
 
 .group   ွ   
