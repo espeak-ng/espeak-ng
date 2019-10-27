@@ -217,7 +217,7 @@ endphoneme
 
 
 phoneme Y:
-  vwl starttype #@ endtype #@
+  vwl starttype #@ endtype #u
   length 220
   FMT(vwl_de/y#)
 endphoneme
