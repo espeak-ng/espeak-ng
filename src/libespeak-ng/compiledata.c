@@ -796,8 +796,7 @@ static int NextItem(int type)
 
 	if ((c == ')') || (c == ','))
 		c = ' ';
-
-	if (!feof(f_in))
+	else if (!feof(f_in))
 		unget_char(c);
 
 	if (type == tSTRING)
