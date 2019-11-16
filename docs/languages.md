@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 107 supported languages and accents are:
+The 109 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -21,6 +21,7 @@ The 107 supported languages and accents are:
 | `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
 | `inc`       | `as`              | Indic                 | Assamese                    |                        |
 | `trk`       | `az`              | Turkic                | Azerbaijani                 |                        |
+| `trk`       | `ba`              |                       | Bashkir                     |                        |
 |             | `eu`              |                       | Basque                      |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
 | `inc`       | `bpy`             | Indic                 | Bishnupriya Manipuri        |                        |
@@ -115,6 +116,7 @@ The 107 supported languages and accents are:
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |
 | `trk`       | `tr`              | Turkic                | Turkish                     |                        |
 | `inc`       | `ur`              | Indic                 | Urdu                        |                        |
+| `trk`       | `uz`              | Turkic                | Uzbek                       |                        |
 | `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
 | `aav`       | `vi`              | Austroasiatic         | Vietnamese                  | Northern Vietnam       |
 | `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
