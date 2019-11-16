@@ -53,6 +53,7 @@ new languages:
 *  quc (K'iche') -- Valdis Vitolins
 *  ru-lv (Russian Latvia) -- Valdis Vitolins
 *  shn (Shan Tay Yai) -- ronaldaug
+*  uz (Uzbek) -- Valdis Vitolins
 
 updated languages:
 

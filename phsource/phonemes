@@ -1999,6 +1999,9 @@ include ph_russian_lv
 phonemetable az tr
 include ph_azerbaijani
 
+phonemetable uz tr
+include ph_uzbek
+
 phonemetable pt-pt pt
 include ph_portugal
 
