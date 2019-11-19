@@ -34,7 +34,10 @@ typedef struct {
 
 extern PARAM_STACK param_stack[];
 
- int clause_type_from_codepoint(uint32_t c);
+// Tests if all bytes of str up to size are null
+int is_str_totally_null(const char* str, int size);
+
+int clause_type_from_codepoint(uint32_t c);
 int towlower2(unsigned int c, Translator *translator); // Supports Turkish I
 int Eof(void);
 const char *WordToString2(unsigned int word);
@@ -49,6 +52,7 @@ int ReadClause(Translator *tr,
 		int n_buf,
 		int *tone_type,
 		char *voice_change);
+
 
 
 

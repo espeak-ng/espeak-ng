@@ -119,6 +119,8 @@ eSpeakNGWorker.prototype.synthesize_ipa = function (aText, aCallback) {
 
 if (typeof WorkerGlobalScope !== 'undefined') {
   var worker;
+  
+  Module.postRun = Module.postRun || [];
 
   Module.postRun.push(function () {
     worker = new eSpeakNGWorker();
