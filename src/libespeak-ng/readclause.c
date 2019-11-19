@@ -137,7 +137,7 @@ int is_str_totally_null(const char* str, int size) {
 	// This should never be reimplemented with integers, because
 	// this function has to work with unaligned char*
 	// (casting to int when unaligned may result in ungaranteed behaviors)
-	return *str || memcmp(str, str+1, size-1);
+	return (*str == 0 && memcmp(str, str+1, size-1) == 0);
 }
 
 int towlower2(unsigned int c, Translator *translator)
