@@ -151,8 +151,7 @@ static void InitGroups(Translator *tr)
 			p = (char *)(((intptr_t)p+4) & ~3); // advance to next word boundary
 			tr->langopts.replace_chars = (unsigned char *)p;
 
-			// Don't cast to (unsigned int), result may not be garanted depending on compiler
-			while ( !is_str_fully_empty(p, 4) ) {
+			while ( !is_str_totally_null(p, 4) ) {
 				p++;
 			}
 

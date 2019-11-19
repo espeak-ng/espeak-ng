@@ -132,8 +132,8 @@ int clause_type_from_codepoint(uint32_t c)
 	return CLAUSE_NONE;
 }
 
-int is_str_fully_empty(const char* str, int size) {
-	// Tests if all bytes of str are null uf to size
+int is_str_totally_null(const char* str, int size) {
+	// Tests if all bytes of str are null up to size
 	// This should never be reimplemented with integers, because
 	// this function has to work with unaligned char*
 	// (casting to int when unaligned may result in ungaranteed behaviors)

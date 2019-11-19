@@ -1793,7 +1793,7 @@ static int EmbeddedCommand(unsigned int *source_index_out)
 static const char *FindReplacementChars(Translator *tr, const char **pfrom, unsigned int c, const char *next, int *ignore_next_n)
 {
 	const char *from = *pfrom;
-	while ( !is_str_fully_empty(from, 4) ) {
+	while ( !is_str_totally_null(from, 4) ) {
 		unsigned int fc = 0; // from character
 		unsigned int nc = c; // next character
 		const char *match_next = next;
