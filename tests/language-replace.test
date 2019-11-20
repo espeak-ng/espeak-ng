@@ -6,6 +6,7 @@ test_replace() {
 	TEST_BROKEN=${3:-false}
 	
 	if [[ "$OSTYPE" == "darwin"* ]]; then
+		# Under MacOS, grep -P does not exist.
 		GREPX='grep -E'
 	else
 		GREPX='grep -P'
