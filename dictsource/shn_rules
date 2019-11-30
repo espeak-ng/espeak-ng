@@ -17,6 +17,7 @@
 
 .group ၵ // U+1075
          ၵ         k
+        _) ၵ (_     ka5
          ၵေႃ      kO
          ၵၢႆ       ka:i  
          ၵွႆ       kOi
@@ -26,6 +27,7 @@
 
 .group ၶ // U+1076
          ၶ         k_h
+         _) ၶ (_    k_ha5
          ၶေႃ      k_hO
          ၶၢႆ       k_ha:i
          ၶွႆ       k_hOi
@@ -35,6 +37,7 @@
 
 .group င // U+1004
          င        N
+        _) င (_    Na5
          ငေႃ      NO
          ငၢႆ     Na:i
          ငွႆ      NOi
@@ -44,6 +47,7 @@
 
 .group ၸ // U+1078
          ၸ         tS;
+         _) ၸ (_    tS;a5
          ၸေႃ      tS;O
          ၸၢႆ       tS;a:i
          ၸွႆ        tS;Oi
@@ -52,6 +56,7 @@
 
 .group သ // U+101E
          သ         s
+         _) သ (_   sa5
          သေႃ      sO
          သၢႆ       sa:i
          သွႆ       sOi
@@ -60,9 +65,11 @@
 
 .group ၺ // U+107A
        ၺ         J
+       _) ၺ (_   Ja5
 
 .group တ // U+1010
        တ         t
+       _) တ (_   ta5
        တေႃ      tO       
        တၢႆ       ta:i      
        တွႆ       tOi      
@@ -71,12 +78,14 @@
 
 .group ထ // U+1011
        ထ        t_h
+       _) ထ (_  t_ha5
        ထေႃ      t_hO       
        ထွႆ       t_hOi      
        ထုၺ်      t_hui      
 
 .group ၼ // U+107C
        ၼ         n
+       _) ၼ (_    na5
        ၼေႃ      nO      
        ၼၢႆ       na:i    
        ၼွႆ       nOi
@@ -84,6 +93,7 @@
 
 .group ပ // U+1015
        ပ          p
+       _) ပ (_    pa5
        ပေႃ       pO     
        ပၢႆ       pa:i    
        ပွႆ       pOi    
@@ -91,27 +101,31 @@
        ပူၺ်      poi     
 
 .group ၽ // U+107D
-       ၽ        p_h
-       ၽေႃ      p_hO
+       ၽ         p_h
+       _) ၽ (_   p_ha5
+       ၽေႃ     p_hO
        ၽၢႆ       p_ha:i    
        ၽွႆ       p_hOi  
        ၽုၺ်      p_hui 
        ၽူၺ်      p_hoi     
 
 .group ၾ // U+107E
-       _) ၾ         p_h       // Except for Eastern dialects, which use 'f'.
-       ၾ         f
-       ၾၢႆ         fa:i
+       _) ၾ       p_h       // Except for Eastern dialects, which use 'f'.
+      _) ၾ (_     p_ha5
+       ၾ          f
+       ၾၢႆ       fa:i
 
 .group မ // U+1019
        မ         m
-       မေႃ     mO    
+      _) မ (_    ma5
+       မေႃ       mO    
        မၢႆ       ma:i  
        မွႆ       mOi  
        မူၺ်      moi    
 
 .group ယ // U+101A
        ယ         j
+      _) ယ (_    ja5
        ယေႃ       jO    
        ယၢႆ       ja:i  
        ယွႆ       jOi  
@@ -120,9 +134,11 @@
 
 .group ရ // U+101B
          ရ         R
+      _) ရ (_    Ra5
 
 .group လ // U+101C
        လ         l
+      _) လ (_    la5
        လေႃ     lO    
        လၢႆ       la:i  
        လွႆ       lOi  
@@ -131,6 +147,7 @@
 
 .group ဝ // U+101D
        ဝ         w
+      _) ဝ (_    wa5
        ဝၢႆ       wa:i  
        ဝွႆ       wOi
        ဝုၺ်     wui      
@@ -138,12 +155,25 @@
 
 .group ႁ // U+1081
        ႁ         h
-       ႁေႃ       hO    
+      _) ႁ (_    ha5
+       ႁေႃ     hO    
        ႁၢႆ       ha:i  
        ႁွႆ       hOi  
        ႁုၺ်     hui
        ႁူၺ်      hoi    
 
+.group ဢ // U+1022
+       ဢ     ?
+       _) ဢ (_   ?a5
+         ဢေႃ     ?O
+         ဢၢႆ     ?a:i
+         ဢွႆ      ?Oi
+         ဢုၺ်    ?ui  
+         ဢူၺ်    ?oi    
+          
+.group // no character group
+  ၊  _
+  ။  _:
 
 .group ၷ // U+1077: rare, used for sounds in other languages
          ၷ         g
