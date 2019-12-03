@@ -352,10 +352,6 @@ Search for  `mbrola: \` line in `Makefile.am` and add additional line for newly 
 	mbrola: \
 	...
 	espeak-ng-data/mbrola_ph/xxN_phtrans \
-	...
-	espeak-ng-data/mbrola_ph/xxN_phtrans: phsource/mbrola/xxN src/espeak-ng
-		mkdir -p espeak-ng-data/mbrola_ph
-		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/xxN
 
 Note that it could be that several voices share the same translation file. Then translation file
 is named just `xx`.
