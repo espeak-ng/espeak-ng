@@ -252,7 +252,8 @@ check:	tests/encoding.check \
 	tests/language-replace.check \
 	tests/language-pronunciation.check \
 	tests/language-numbers-cardinal.check \
-	tests/language-numbers-ordinal.check
+	tests/language-numbers-ordinal.check \
+	tests/non-executable-files-with-executable-bit.check
 
 ##### fuzzer:
 
