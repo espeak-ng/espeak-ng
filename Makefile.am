@@ -170,6 +170,9 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/voices.c \
 	src/libespeak-ng/wavegen.c
 
+noinst_HEADERS = \
+	src/ucd-tools/src/include/ucd/ucd.h
+
 if OPT_KLATT
 src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
