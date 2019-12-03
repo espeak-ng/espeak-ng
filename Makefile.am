@@ -243,7 +243,7 @@ tests_api_test_SOURCES = tests/api.c
 
 .test.check:
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
+	@ESPEAK_DATA_PATH=$(CURDIR) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
 	tests/readclause.check \
@@ -282,7 +282,7 @@ endif
 
 tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(PWD) $< tests/ssml/*.ssml tests/ssml-fuzzer/*.ssml && echo "  PASSED    $<"
+	@ESPEAK_DATA_PATH=$(CURDIR) $< tests/ssml/*.ssml tests/ssml-fuzzer/*.ssml && echo "  PASSED    $<"
 
 
 ##### phoneme data:
@@ -402,8 +402,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_zh_yue \
 	phsource/phonemes \
 	src/espeak-ng
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-intonations && \
-		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-phonemes && \
+	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-intonations && \
+		ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-phonemes && \
 		touch $@
 
 ##### android targets:
@@ -453,7 +453,7 @@ dictsource/%_extra:
 
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
-	@cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
+	@cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
 		--compile=`echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'` && cd ..
 
 dictionaries: \
@@ -859,7 +859,7 @@ espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy
 else
 espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
 endif
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
+	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
 dictsource/zhy_emoji:
 	@echo "  EMOJI     $@"
@@ -923,4 +923,4 @@ mbrola: \
 
 espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
+	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
