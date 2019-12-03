@@ -87,15 +87,15 @@ SUFFIXES=.html .md .ronn .check .test
 ##### vim:
 
 vim_registrydir = $(VIMDIR)/registry
-vim_registry_DATA = vim/registry/*.yaml
+vim_registry_DATA = $(srcdir)/vim/registry/*.yaml
 EXTRA_DIST += $(vim_registry_DATA)
 
 vim_addons_ftdetectdir = $(VIMDIR)/addons/ftdetect
-vim_addons_ftdetect_DATA = vim/ftdetect/*.vim
+vim_addons_ftdetect_DATA = $(srcdir)/vim/ftdetect/*.vim
 EXTRA_DIST += $(vim_addons_ftdetect_DATA)
 
 vim_addons_syntaxdir = $(VIMDIR)/addons/syntax
-vim_addons_syntax_DATA = vim/syntax/*.vim
+vim_addons_syntax_DATA = $(srcdir)/vim/syntax/*.vim
 EXTRA_DIST += $(vim_addons_syntax_DATA)
 
 ##### documentation:
