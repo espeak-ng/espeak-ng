@@ -11,6 +11,7 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 
+*  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
 
 ### 1.50 - 2019-11-29
