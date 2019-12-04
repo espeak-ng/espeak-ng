@@ -243,7 +243,7 @@ tests_api_test_SOURCES = tests/api.c
 
 .test.check:
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(PWD) $< && echo "  PASSED    $<"
+	@ESPEAK_DATA_PATH=$(CURDIR) $< && echo "  PASSED    $<"
 
 check:	tests/encoding.check \
 	tests/readclause.check \
@@ -282,7 +282,7 @@ endif
 
 tests/ssml-fuzzer.check: tests/ssml-fuzzer.test
 	@echo "  TEST      $<"
-	@ESPEAK_DATA_PATH=$(PWD) $< tests/ssml/*.ssml tests/ssml-fuzzer/*.ssml && echo "  PASSED    $<"
+	@ESPEAK_DATA_PATH=$(CURDIR) $< tests/ssml/*.ssml tests/ssml-fuzzer/*.ssml && echo "  PASSED    $<"
 
 
 ##### phoneme data:
@@ -402,8 +402,8 @@ phsource/phonemes.stamp: \
 	phsource/ph_zh_yue \
 	phsource/phonemes \
 	src/espeak-ng
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-intonations && \
-		ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-phonemes && \
+	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-intonations && \
+		ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-phonemes && \
 		touch $@
 
 ##### android targets:
@@ -453,7 +453,7 @@ dictsource/%_extra:
 
 espeak-ng-data/%_dict: src/espeak-ng phsource/phonemes.stamp
 	@echo "  DICT      $@"
-	@cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
+	@cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng \
 		--compile=`echo $@ | sed -e 's,espeak-ng-data/,,g' -e 's,_dict,,g'` && cd ..
 
 dictionaries: \
@@ -859,7 +859,7 @@ espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy
 else
 espeak-ng-data/zhy_dict: dictsource/zhy_list dictsource/zhy_rules dictsource/zhy_extra dictsource/zhy_emoji
 endif
-	cd dictsource && ESPEAK_DATA_PATH=$(PWD) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
+	cd dictsource && ESPEAK_DATA_PATH=$(CURDIR) LD_LIBRARY_PATH=../src:${LD_LIBRARY_PATH} ../src/espeak-ng --compile=yue && cd ..
 
 dictsource/zhy_emoji:
 	@echo "  EMOJI     $@"
@@ -921,194 +921,6 @@ mbrola: \
 	espeak-ng-data/mbrola_ph/vz_phtrans \
 	espeak-ng-data/mbrola_ph/zh_phtrans
 
-espeak-ng-data/mbrola_ph/af1_phtrans: phsource/mbrola/af1 src/espeak-ng
+espeak-ng-data/mbrola_ph/%_phtrans: phsource/mbrola/% src/espeak-ng
 	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/af1
-
-espeak-ng-data/mbrola_ph/ar1_phtrans: phsource/mbrola/ar1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar1
-
-espeak-ng-data/mbrola_ph/ar2_phtrans: phsource/mbrola/ar2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ar2
-
-espeak-ng-data/mbrola_ph/ca_phtrans: phsource/mbrola/ca src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ca
-
-espeak-ng-data/mbrola_ph/cr1_phtrans: phsource/mbrola/cr1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/cr1
-
-espeak-ng-data/mbrola_ph/cs_phtrans: phsource/mbrola/cs src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/cs
-
-espeak-ng-data/mbrola_ph/de2_phtrans: phsource/mbrola/de2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/de2
-
-espeak-ng-data/mbrola_ph/de4_phtrans: phsource/mbrola/de4 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/de4
-
-espeak-ng-data/mbrola_ph/de6_phtrans: phsource/mbrola/de6 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/de6
-
-espeak-ng-data/mbrola_ph/de8_phtrans: phsource/mbrola/de8 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/de8
-
-espeak-ng-data/mbrola_ph/ee1_phtrans: phsource/mbrola/ee1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ee1
-
-espeak-ng-data/mbrola_ph/en1_phtrans: phsource/mbrola/en1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/en1
-
-espeak-ng-data/mbrola_ph/es_phtrans: phsource/mbrola/es src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/es
-
-espeak-ng-data/mbrola_ph/es3_phtrans: phsource/mbrola/es3 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/es3
-
-espeak-ng-data/mbrola_ph/es4_phtrans: phsource/mbrola/es4 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/es4
-
-espeak-ng-data/mbrola_ph/fr_phtrans: phsource/mbrola/fr src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/fr
-
-espeak-ng-data/mbrola_ph/gr1_phtrans: phsource/mbrola/gr1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/gr1
-
-espeak-ng-data/mbrola_ph/gr2_phtrans: phsource/mbrola/gr2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/gr2
-
-espeak-ng-data/mbrola_ph/grc-de6_phtrans: phsource/mbrola/grc-de6 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/grc-de6
-
-espeak-ng-data/mbrola_ph/hn1_phtrans: phsource/mbrola/hn1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/hn1
-
-espeak-ng-data/mbrola_ph/hu1_phtrans: phsource/mbrola/hu1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/hu1
-
-espeak-ng-data/mbrola_ph/ic1_phtrans: phsource/mbrola/ic1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ic1
-
-espeak-ng-data/mbrola_ph/id1_phtrans: phsource/mbrola/id1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/id1
-
-espeak-ng-data/mbrola_ph/in_phtrans: phsource/mbrola/in src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/in
-
-espeak-ng-data/mbrola_ph/ir1_phtrans: phsource/mbrola/ir1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ir1
-
-espeak-ng-data/mbrola_ph/it1_phtrans: phsource/mbrola/it1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/it1
-
-espeak-ng-data/mbrola_ph/it3_phtrans: phsource/mbrola/it3 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/it3
-
-espeak-ng-data/mbrola_ph/jp_phtrans: phsource/mbrola/jp src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/jp
-
-espeak-ng-data/mbrola_ph/la1_phtrans: phsource/mbrola/la1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/la1
-
-espeak-ng-data/mbrola_ph/lt_phtrans: phsource/mbrola/lt src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/lt
-
-espeak-ng-data/mbrola_ph/ma1_phtrans: phsource/mbrola/ma1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ma1
-
-espeak-ng-data/mbrola_ph/mx1_phtrans: phsource/mbrola/mx1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/mx1
-
-espeak-ng-data/mbrola_ph/mx2_phtrans: phsource/mbrola/mx2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/mx2
-
-espeak-ng-data/mbrola_ph/nl_phtrans: phsource/mbrola/nl src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/nl
-
-espeak-ng-data/mbrola_ph/nz1_phtrans: phsource/mbrola/nz1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/nz1
-
-espeak-ng-data/mbrola_ph/pl1_phtrans: phsource/mbrola/pl1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/pl1
-
-espeak-ng-data/mbrola_ph/pt1_phtrans: phsource/mbrola/pt1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/pt1
-
-espeak-ng-data/mbrola_ph/ptbr_phtrans: phsource/mbrola/ptbr src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ptbr
-
-espeak-ng-data/mbrola_ph/ptbr4_phtrans: phsource/mbrola/ptbr4 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ptbr4
-
-espeak-ng-data/mbrola_ph/ro1_phtrans: phsource/mbrola/ro1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/ro1
-
-espeak-ng-data/mbrola_ph/sv_phtrans: phsource/mbrola/sv src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/sv
-
-espeak-ng-data/mbrola_ph/sv2_phtrans: phsource/mbrola/sv2 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/sv2
-
-espeak-ng-data/mbrola_ph/tl1_phtrans: phsource/mbrola/tl1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/tl1
-
-espeak-ng-data/mbrola_ph/tr1_phtrans: phsource/mbrola/tr1 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/tr1
-
-espeak-ng-data/mbrola_ph/us_phtrans: phsource/mbrola/us src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/us
-
-espeak-ng-data/mbrola_ph/us3_phtrans: phsource/mbrola/us3 src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/us3
-
-espeak-ng-data/mbrola_ph/vz_phtrans: phsource/mbrola/vz src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/vz
-
-espeak-ng-data/mbrola_ph/zh_phtrans: phsource/mbrola/zh src/espeak-ng
-	mkdir -p espeak-ng-data/mbrola_ph
-	ESPEAK_DATA_PATH=$(PWD) src/espeak-ng --compile-mbrola=phsource/mbrola/zh
+	ESPEAK_DATA_PATH=$(CURDIR) src/espeak-ng --compile-mbrola=phsource/mbrola/$*
