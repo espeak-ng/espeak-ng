@@ -110,6 +110,7 @@ tests/*.check
 !tests/ssml.test
 !tests/translate.test
 !tests/non-executable-files-with-executable-bit.test
+!tests/bom.test
 
 espeak-ng.pc
 
