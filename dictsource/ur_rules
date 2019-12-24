@@ -132,7 +132,7 @@ _) ای	e:
 	اصلاح	,Is.l'a:H
 	امداد	,Imd'a:d
 استعف	Ist'i:f
-	L03L03) ات (_S2	'a:t
+	L03L03) ات (_S2	a:t
 	_) انتظ	'Int,Iz.
 	_)اخت(L02ا	,IxtI
 	_)اقت(L02ا	,IqtI
@@ -203,14 +203,14 @@ _) ای	e:
 	_)ال(L06L06L06P2	al
 	_L05)اب(L04_	a:bI
 	_L05)ات(L04_	a:tI
-	_L05)اق(L04_	a:qI
-	_L05)ال(L04_	a:lI
-	_L05)اج(L04_	a:JI
+	L05)اق(L04_	a:qI
+	L05)ال(L04_	a:lI
+	L05)اج(L04_	a:JI
 	L05)اح(L04_	a:HI
 	_L05)ام(L04_	a:mI
 	_L05)اط(L04_	a:tI
 	_L05)اس(L04_	a:sI
-	_L05)اف(L04_	a:fI
+	L05)اف(L04_	a:fI
 	_L05)ار(L04_	a:RI
 	L05)اظ(L04_	a:z.I
 	L05)اص(L04_	a:s.I
@@ -352,6 +352,9 @@ _) ای	e:
 	_)عجلت	UJlat
 	_)عجوب	aJu:b
 	_)عرو(س	URu:
+	_)علت	Il:at
+	L02)عی(L02	ai:
+	_)عقاب	Uqa:b
 
 .group و
 	و	o:
@@ -373,6 +376,7 @@ _) ای	e:
 	L07عL07)و(L07	u:
 	L03L03)واتیں	va:ti~:
 	_)وزرا	vUzaRa:
+	_)وقعت	vUqat
 
 .group ی
 	ی	e:
@@ -395,6 +399,7 @@ _) ای	e:
 	_L02)یاIa:
 	_)یاقوت	ja:qu:t
 	_)یہود	jaHu:d
+	L02)یجیے	i:Ji;e:
 
 .group ے		// yeh barree
 	ے	e:
@@ -531,6 +536,7 @@ _) ای	e:
 	_)تبصر	tabs.aR
 	_)تغیر	taQai:jUR
 	_)تفرق	tafaR:Uq
+	_)تذکر(L03	tazkIR
 
 .group ٹ
 	ٹ	t.V
@@ -558,6 +564,7 @@ _) ای	e:
 	ثّ(L01	s:
 	ثْ	s
 	ثبوت	sUbu:t
+	_)ثروت	saRvat
 
 
 .group ج
@@ -610,6 +617,7 @@ _) ای	e:
 	_)چکنا	cIkna:
 	_)چیخ	ci:x
 	_)چبھ	cUb#
+	_)چاکلیٹ	ca:kle:t.
 
 .group ح
 	ح	HV
@@ -692,6 +700,7 @@ _) ای	e:
 	_)دکان	dUka:n
 	_)دید	di:d
 	_)دستر	dastaR
+	_)دقت	dIq:at
 
 .group ڈ
 	ڈ	d.V
@@ -715,6 +724,8 @@ _) ای	e:
 	ذ (L01	z
 	_) ذہ (L02	z'EH
 	ذْ	z
+	_)ذوال(L03L03P4	zUl
+	_)ذلت	zIl:at
 
 .group ر
 	ر	RV
@@ -741,6 +752,9 @@ _) ای	e:
 	_)رفعت	RIfat
 	_)رتب	RUtb
 	_)رزق	RIzq
+	_)رخن(L03	Raxn
+	L03L03L03)رنگ(_	RIng
+	_)رکاوٹ	RUka:vat.
 
 .group ڑ
 	ڑ	r.V
@@ -802,6 +816,9 @@ _) ای	e:
 	_)سپاہ	sIpa:H
 	_)سہولت	saHu:lat
 	سیرت	si:Rat
+	_)سسک(L01	sIsk
+	_)سلائ(L02	sla:I
+	_)سلطان	sUlta:n
 
 .group ش
 	ش	SV
@@ -895,6 +912,7 @@ _) ای	e:
 	فْ	f
 	_)فلسف	falsaf
 	_)فقر(L03	fIqR
+	_)فیاض	fai;a:z
 
 .group ق
 	ق	qV
@@ -1114,6 +1132,22 @@ _) ای	e:
 	_)مدبر	mUdab:IR
 	_)محاف(ظ	mUHa:fI
 	_)مخا(L02L02	mUxa:
+	_)مسند	masnad
+	_)مسود	mUsav:Id
+	_)مسوڑ	masu:r.
+	_)مسکان	mUska:n
+	_)مشار(L02	mUSa:RI
+	_)مشاع(L02	mUSa:I
+	_)مشفق	mUSfIq
+	_)ملوا	mIlva:
+	_)معظم	mUaz.am
+	_)مضطرب	mUztaRIb
+	_)مطالع(L03	mUta:l
+	_)مسافر	mUsa:fIR
+	_)مساوات	masa:va:t
+	_)مسخر(L03	masxaR
+	_)متوکل	mUtavak:Il
+	_)متکلم	mUtakal:Im
 
 .group ن
 	ن	nV
@@ -1165,6 +1199,7 @@ _) ای	e:
 	_)نعمت	ne:mat
 	L03L02)ننگ	nIng
 	_)نرسر	naRsaR
+	_)نسخ(L03	nUsx
 
 .group ں
 	ں	n    // this should nasalize the vowel
