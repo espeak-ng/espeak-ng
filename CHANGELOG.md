@@ -11,9 +11,11 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 
+*  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
+*  ur (Urdu) -- Ejaz Shah
 
 ### 1.50 - 2019-11-29
 
