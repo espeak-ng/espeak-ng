@@ -43,7 +43,11 @@ test_phonemes en-GB-x-gbcwmd "aI 'av" "I have"
 # A deleted phonSWITCH should preserve the sourceix property of the deleted phoneme.
 test_phonemes hyw "'a g@rn'am" "A Կրնամ"
 
-test_phonemes en "'eI\nb'i: s'i:\nd'i:\n'i:\n'Ef" "A. B C, D. E: F."
+test_phonemes en "'eI
+b'i: s'i:
+d'i:
+'i:
+'Ef" "A. B C, D. E: F."
 
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
