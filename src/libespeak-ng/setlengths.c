@@ -377,7 +377,7 @@ espeak_ng_STATUS SetParameter(int parameter, int value, int relative)
 
 	int new_value = value;
 	int default_value;
-	extern const int *param_defaults;
+	extern const int param_defaults[N_SPEECH_PARAM];
 
 	if (relative) {
 		if (parameter < 5) {
