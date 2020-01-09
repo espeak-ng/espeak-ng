@@ -117,7 +117,7 @@ static const char *help_text =
     "--load     Load voice from a file in current directory by name.\n"
     "-h, --help Show this help.\n";
 
-int samplerate;
+static int samplerate;
 bool quiet = false;
 unsigned int samples_total = 0;
 unsigned int samples_split = 0;
