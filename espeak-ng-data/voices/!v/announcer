@@ -6,6 +6,6 @@ formant 2 96 100 100 0
 formant 3 84 100 100 0
 formant 4 105 100 100 0
 formant 5 76 100 100 0
-voicing 75
-consonants 75 75
+voicing 70
+consonants 70 70
 echo 198 32
