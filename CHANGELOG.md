@@ -7,7 +7,17 @@
 
 The espeak-ng project is a fork of the espeak project.
 
-### 1.49.3 - (In Development)
+### 1.51 (In Development)
+
+updated languages:
+
+*  de (German) -- Karl Eick
+*  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  shn (Shan Tay Yai) -- ronaldaug
+*  ur (Urdu) -- Ejaz Shah
+
+### 1.50 - 2019-11-29
 
 *  Add a `--disable-rpath` option to prevent libtool hardcoding rpaths in the executable.
 *  Renamed the `hy-arevmda` language to `hyw`, following the 2018-03-30 change to the
@@ -45,6 +55,7 @@ emoji:
 
 new languages:
 
+*  ba (Bashkir) -- tc-dl, Valdis Vitolins
 *  hak (Hakka Chinese) -- Chen Chien-ting
 *  ht (Haitian Creole) -- Valdis Vitolins
 *  kk (Kazakh) -- boracasli14, Valdis Vitolins
@@ -52,16 +63,19 @@ new languages:
 *  quc (K'iche') -- Valdis Vitolins
 *  ru-lv (Russian Latvia) -- Valdis Vitolins
 *  shn (Shan Tay Yai) -- ronaldaug
+*  uz (Uzbek) -- Valdis Vitolins
 
 updated languages:
 
 *  af (Afrikaans) -- Christo de Klerk
 *  ar (Arabic) -- Valdis Vitolins, Mark Readdie, Hesham Assabahi
+*  cmn (Chinese Mandarin) -- materia-cccp
 *  de (German) -- Reece Dunn, Karl Eick
 *  en (English) -- Reece Dunn
 *  fa (Farsi/Persian) -- Shadyar Khodayari
 *  fi (Finnish) -- Juho Hiltunen
 *  fr (French) -- Shallowmallow, Karl Eick, maiido, Reece Dunn
+*  ku (Kurdish) -- rojanu
 *  it (Italian) -- chrislm
 *  lv (Latvian) -- Valdis Vitolins
 *  my (Myanmar/Burmese) -- Min Maung

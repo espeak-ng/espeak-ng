@@ -101,6 +101,7 @@ src/espeakedit
 src/speak-ng
 
 tests/*.test
+tests/*.check
 !tests/language-phonemes.test
 !tests/language-pronunciation.test
 !tests/language-numbers-cardinal.test
@@ -108,6 +109,8 @@ tests/*.test
 !tests/language-replace.test
 !tests/ssml.test
 !tests/translate.test
+!tests/non-executable-files-with-executable-bit.test
+!tests/bom.test
 
 espeak-ng.pc
 
@@ -184,7 +187,7 @@ dictsource/dict_log
 dictsource/dict_phonemes
 dictsource/ru_listx
 dictsource/zh_listx
-dictsource/zhy_list
+dictsource/zhy_listx
 
 phsource/compile_prog_log
 phsource/compile_report

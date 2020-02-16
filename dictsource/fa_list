@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.135
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 04-05-2018
+// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.136
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 06-05-2019
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -28,7 +28,7 @@
 
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
-// Special Persian Simbles.
+// Special Persian Symbls.
 ﷼	RijAl
 
 //Farsi Alphabet
@@ -75,9 +75,9 @@ _و	'vAv
 ً	'an
 ٌ	'on
 ٍ	'en
-،	viRgul
+_،	viRgul
 ؛	noqteviRgul
-ـ	'keSidane_hoRuf
+ـ	'keSide_
 ئ	'je,hamze:
 ؤ	'vAv,hamze:
 ۀ	'hehamze:
@@ -88,10 +88,24 @@ _و	'vAv
 ي	'je_aRabi
 
 // symbols used in Standard Persian keybord layout
-٬	namAde_RAst_be_tSap
-٫	'viRgule_fArsije_estAndArd
-٪	darsade _fArsije_estAndArd
+٬	'dZodAkonandeje_hezArgAn
+٫	'momajez
+٪	'darsad
 ٔ	hamzeje_bAlA   //this character "ٔ" is defrent of "ء" and "ۀ" for example "دانشنامهٔ "
+×	'zaRbdaR
+‍	'taq1simbaR
+
+//Farsi Numbers used in Standard Persian keybord layout
+۰	'sefRe_fARsi
+۱	'jeke_fARsi
+۲	'doe_fARsi
+۳	'seje_fARsi
+۴	'tSAhARe_fARsi
+۵	'pandZe_fARsi
+۶	'SeSe_fARsi
+۷	'hafte_fARsi
+۸	'haSte_fARsi
+۹	'nohe_fARsi
 
 
 // Urdu for Persian users added by users
@@ -202,10 +216,12 @@ $	dolAR
 [	beRAketbAz
 ]	beRAketbaste:
 (	paRAntezbAz
-_)	paRAntezbaste:
+)	paRAntezbaste:
 *	setARe:
 //this code is recognized as (ZWNJ) U+200c (half space) at eSpeak 1.46.22 and later (ZWNJ) is recognized as hyphen
-	_-	nim_fAsele:
+U+200C	nim_fAsele:
+//this code is recognized as Space
+U+20	fAsele_
 .	noqte:
 :	'donoqte:
 <	alAmate'kutSektaR
@@ -221,16 +237,12 @@ _)	paRAntezbaste:
 
 		// ABBREVIATIONS
 //**************
-قظ	q::abl_az_:zohR	$only
 ق‌ظ	q::abl_az_:zohR	$only
 ق.ظ	q::abl_az_:zohR	$only
-بظ	ba:?d_az_:zohR	$only
 ب‌ظ	ba:?d_az_:zohR	$only
 ب.ظ	ba:?d_az_:zohR	$only
-هش	hedZRije_:Samsi	$only
 ه‌ش	hedZRije_:Samsi	$only
 ه.ش	hedZRije_:Samsi	$only
-هق	hedZRije_:qamaRi	$only
 ه‌ق	hedZRije_:qamaRi	$only
 ه.ق	hedZRije_:qamaRi	$only
 ق‌م	q::abl_az_:milAd	$only

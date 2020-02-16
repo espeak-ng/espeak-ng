@@ -527,6 +527,11 @@ static int init_mbrola(char *voice_path)
 	if (error)
 		return -1;
 
+	// Allow mbrola time to start when running on Windows Subsystem for
+	// Linux (WSL). Otherwise, the receive_from_mbrola call to read the
+	// wav header from mbrola will fail.
+	usleep(100);
+
 	result = send_to_mbrola("#\n");
 	if (result != 2) {
 		stop_mbrola();

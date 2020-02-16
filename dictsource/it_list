@@ -1,6 +1,6 @@
-﻿
+
 // This file is UTF-8 encoded
-// Updated 2019 febbruary  3 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2019 october  19 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -477,7 +477,7 @@ ko	$abbrev $only
 mr	mIster	$hasdot $dot
 nvda	$abbrev
 ocr	o||tSi||'ER*e $onlys
-ok	ok'eI $only
+ok	ok'Ei $only
 olp	o||el:e||p'i
 omg	o||em:e||dZ'i
 prof	$hasdot $dot
@@ -817,11 +817,13 @@ brandy	b@-*'E:ndI
 breakfast	b@-*'Ek||fast
 bricolage	b@-*ikol'aZ
 brioche	b@-*I'oS
+brochure	b@-*,OS'u@-*
 browser	b@-*'a:UzE@-*
 budget	b'a:dZet
 buffer	b'afe@-*
 buffet	buf:'E $only
 bulldozer	$2
+bungalow	b'ungalo
 bunker	$1
 business	_^_EN
 by	b'aI $only
@@ -887,6 +889,7 @@ croissant	k@-*uass'an
 cult	k'a/:lt	$onlys
 dance	d'Ens
 database	datab'Eiz
+decibel	$1
 deejay		_^_EN
 default	_^_EN
 delivery	$2
@@ -1015,6 +1018,7 @@ jeans		dZi:ns
 jihad	ZI'a:d
 jocker	dZ'Oke@-*
 jockey	dZ'OkeI
+jogging	dZ'OgiN
 jukebox	dZ'u:kboks
 junior	j'unio@-*
 juniores	j'uni,o@-*s
@@ -1055,6 +1059,7 @@ marketing	$1
 master	$1
 mediaworld	$1
 melody	m'E:l@di
+menorah	$3
 messenger	$1
 microchip	mik@-*o||tS'ip
 microsoft		m'aIk@-*Osoft
@@ -1100,6 +1105,7 @@ peluche	pel'uS $onlys
 performance	pe@-*f'O@-*mans $onlys
 performer	$2
 personal	$1 $only
+pickup	p,ik||'ap
 piercing	p'i@-*siN
 play	pl'EI
 player	pl'eIE@-*
@@ -1141,6 +1147,7 @@ review	@-*,e_vj'u
 revolver	$2 $onlys
 rhapsody	$1
 richter	$1 $only
+Rocher	@-*oS'e	$only
 rockefeller	@-*Okf'el:e@-*
 rocker	$1
 round	@-*'awnd $onlys
@@ -1166,6 +1173,7 @@ server	$1	$onlys
 service	s'E@-*vis	$onlys
 setter	$1	$onlys
 setup	s'Et||,a/p
+screening	sk@-*i:niN
 shaker	$1
 shampoo	S'a:mpo
 sharia	SaR'ia/
@@ -1858,6 +1866,7 @@ castelmezzano	kast,el||medz:'ano
 castelpagano	$4
 caucas $1
 cazzano	$2
+cecina	$1
 ceca	$alt
 chambery	Samber'i
 champs	S'amps
@@ -2105,6 +2114,7 @@ pognano	$2
 polinesia $3  $alt
 pomerano	$3
 pontassieve  $alt
+pontida	$2
 ponzano	$2
 portorico	$3
 prascorsano	$3
@@ -2141,6 +2151,7 @@ scampia	skamp'i:a
 scisciano	$2
 scorrano	$2 $capital
 seattle	_^_en
+senegal	$1 $only
 sedilo	$1
 segonzano	$3
 selvazzano	$3
@@ -2302,6 +2313,7 @@ behringer	b'e:RiNg,E@-*
 bertold  $alt
 bettega	$1 $alt
 biagini	$2
+björk	b,i'O@-*k
 boeing	b'O:ing
 brandon	b@-*'Endon
 brian	b@-*'aian
@@ -2309,9 +2321,12 @@ brigitte	b@-*iZ'it[
 brown	b@-*'a:w2n	$onlys
 bruce	b@-*'Us $only
 buffon	$2 $only
+cacciol	katS:'ol
 caino	ka'i:no/
 caligola	$2
+calogger	$2
 camilleri	$3
+canadair	k'anad,E@-*
 Cancelleri	$3 $only
 carey	_^_en
 carmel	$2
@@ -2382,12 +2397,14 @@ federic	$3
 felicita	$2
 fenice	$2
 ferrer	$2	$alt2
+fischer	f'iSE@-* $onlys
 florencio	fl,OR'ensIo
 françois	f@-*,a/NsU'a
 francisco	f@-*ans'isko
 frankenstein	f@-*'ankenst,ain
 frederic	$1
 freud	f@-*'Oid $only
+fujitsu	fudZ'itsu
 gandolfi  $alt
 garcía	_^_ES
 gargiul	$2
@@ -2467,6 +2484,7 @@ leonard	l'EonaRd	$onlys
 leopold  $alt
 lewis	l'uIs
 ligabue	$3
+lilliu	lil:'i:u
 lionel	l'aj,One@-*	$onlys
 loredan $3
 louise	lu'iz
@@ -2479,6 +2497,7 @@ ludovic	$3
 ludwig	l'u:dvIc
 luigi	lu'i:dZI
 luigia	lU'i:dZa
+luther	$1 $only
 manolo	ma/n'Olo
 manuel	$1 $only
 Marcel	ma@-*s'El
@@ -2557,6 +2576,7 @@ pooh	p'U:
 porsche	p'O@-*S
 potter	$1	$onlys
 presley	p@-*'e:zleI
+prestigiacomo	$3
 rafael	$3
 ray	@-*'eI
 reaper	@-*'i:pe@-*
@@ -3111,6 +3131,7 @@ configurino	$3
 confrontino	$2
 congelino	$2
 conglobano	$2	$alt2
+congratulano	$2
 coniuga	k'onjuga
 connetter	$2
 consacrano	$2
@@ -3547,6 +3568,7 @@ impegnino	$2
 impersono	$3
 imperterrit	$3
 imperversano	$3
+impiantano	$2
 impicchino	$2
 impiccino	$2
 impieghino	$2
@@ -4032,6 +4054,7 @@ prosciughino	$2
 proseguano	$2	$alt
 prosperano	$1
 protestino	$2
+(ci provino)	tSi||p@-*'ovino
 provoc	$1	$alt2
 provochi	$1
 provochino	$1
@@ -4575,6 +4598,7 @@ stimolino	$1
 stipendiano	$2
 stipulano	$1
 stirano	$1
+sto	st'O $only
 strangolano	$1
 strangolino	$1
 strappano	$1
@@ -4864,6 +4888,7 @@ aprigli	$1
 aprimel	$1
 aprimi	$1
 aprine	$1
+appuntal	$2
 arrampicarcisi	$4
 arrivatoci	$3
 ascoltaci	$2
@@ -4885,6 +4910,7 @@ compiersi	$1
 compil	$2
 comunicacel	$2
 comunical	$2
+conosciutisi	$3
 conclusasi	$2
 confrontal	$2
 connettiti	$2
@@ -4919,6 +4945,7 @@ dirigersi	$2
 disabilital	$3
 disconnettiti	$3
 disegnaci	$2
+distintasi	$2
 domandatel	$3
 domandati	$2
 drizzarsi	d@-*its2:'a@-*si
@@ -4978,6 +5005,7 @@ morditi	$1
 mostravi	$2
 offertogli	$2
 orientaci	$3
+orientarvisi	$4
 perdermici	$1
 perdonatel	$3
 pizzical	$1
@@ -5045,6 +5073,7 @@ stampal	$1
 suggeritomi	$3
 svegliati	$1 $atstart
 svelaci	$1
+sviluppatisi	$3
 svoltasi	$1 $alt
 svoltesi	$1 $alt
 svoltosi	$1 $alt

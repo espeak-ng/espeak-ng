@@ -161,6 +161,18 @@
 ῶ	ώ // U+1ff6
 ῷ	ώ // U+1ff7
 
+// replace variant letter forms with their standard equivalents
+ϐ	β    // U+03d0
+ϑ	θ    // U+03d1
+ϒ	υ    // U+03d2
+ϕ	φ    // U+03d5
+ϖ	π    // U+03d6
+ϰ	κ    // U+03f0
+ϱ	ρ    // U+03f1
+ϲ	ς    // U+03f2
+ϴ	θ    // U+03f4
+ϵ	ε    // U+03f5
+Ϲ	ς    // U+03f9
 
 .group α
            α        a

@@ -2,7 +2,7 @@
 <resources>
   <!--Source: Activity title.
         Description: Title for the Settings activity.-->
-  <string name="tts_settings_label">Config del sintetizador eSpeak</string>
+  <string name="tts_settings_label">Configuraciones del sintetizador eSpeak</string>
   <!--Source: Preference title.
         Description: Title for the preference that controls default voice pitch.-->
   <string name="setting_default_pitch">Tono</string>
@@ -17,22 +17,22 @@
   <string name="set_default_message">eSpeak no se ha establecido como el sintetizador por defecto.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that voice data installation failed.-->
-  <string name="voice_data_failed_message">eSpeak no instaló los datos de voz. Compruebe la tarjeta SD por favor.</string>
+  <string name="voice_data_failed_message">eSpeak no instaló los datos de voz. Compruebe su almacenamiento.</string>
   <!--Source: Dialog message.
         Description: Alert dialog telling the user that an unknown error has occurred.-->
-  <string name="error_message">Lo sentimos. eSpeak no se inició.</string>
+  <string name="error_message">Lo sentimos. Espeak falló al iniciarse correctamente.</string>
   <!--Source: Label text.
         Description: Label informing the user of the current text-to-speech language.-->
-  <string name="current_tts_locale">Voz por Defecto</string>
+  <string name="current_tts_locale">Idioma por Defecto</string>
   <!--Source: Label text.
         Description: Label informing the user of how many voices are installed.-->
   <string name="available_voices">Voces instaladas</string>
   <!--Source: Button label.
         Description: Button for launching general text-to-speech settings.-->
-  <string name="tts_settings">Config general del sintetizador</string>
+  <string name="tts_settings">Configuraciones generales de motores tts</string>
   <!--Source: Button label.
         Description: Button for launching eSpeak-specific settings.-->
-  <string name="engine_settings">Config del sintetizador eSpeak</string>
+  <string name="engine_settings">Configuraciones del motor tts eSpeak</string>
   <!--Source: Label text.
         Description: Label informing the user that eSpeak is loading resources.-->
   <string name="loading">Cargando. Espere por favor …</string>
@@ -50,4 +50,22 @@
   <string name="resetToDefault">Volver a config original</string>
   <string name="espeak_pitch_range">Variación de Tono</string>
   <string name="espeak_variant">Variante de Voz</string>
+  <string name="espeak_speak_punctuation">Verbalizar puntuación</string>
+  <string name="punctuation_all">Todo</string>
+  <string name="punctuation_custom">Personalizada</string>
+  <string name="punctuation_custom_fmt">Personalizada: %s</string>
+  <string name="punctuation_none">Nada</string>
+  <string name="punctuation_characters">Signos de puntuación</string>
+  <string name="category">Categoría</string>
+  <string name="variant">Variante</string>
+  <string name="variant_male">Masculino</string>
+  <string name="variant_female">Femenina</string>
+  <string name="variant_default">Por defecto</string>
+  <string name="variant_n">Variante %d</string>
+  <string name="variant_young">Joven</string>
+  <string name="variant_old">Antigua</string>
+  <string name="variant_croak">Croak</string>
+  <string name="variant_whisper">Susurro</string>
+  <string name="import_voice_title">Importar diccionario de Espeak</string>
+  <string name="import_voice_description">Importa un archivo de diccionario de voz desde el almacenamiento.</string>
 </resources>

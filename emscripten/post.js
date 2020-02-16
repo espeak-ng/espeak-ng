@@ -88,9 +88,9 @@ eSpeakNGWorker.prototype.synthesize = function (aText, aCallback) {
     return aCallback(data, events) ? 1 : 0;
   }
 
-  var fp = Runtime.addFunction(cb);
+  var fp = addFunction(cb);
   this.synth_(aText, fp);
-  Runtime.removeFunction(fp);
+  removeFunction(fp);
 };
 
 eSpeakNGWorker.prototype.synthesize_ipa = function (aText, aCallback) {
@@ -119,6 +119,8 @@ eSpeakNGWorker.prototype.synthesize_ipa = function (aText, aCallback) {
 
 if (typeof WorkerGlobalScope !== 'undefined') {
   var worker;
+  
+  Module.postRun = Module.postRun || [];
 
   Module.postRun.push(function () {
     worker = new eSpeakNGWorker();

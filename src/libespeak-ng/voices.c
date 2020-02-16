@@ -62,7 +62,7 @@ static int formant_rate_22050[9] = { 240, 170, 170, 170, 170, 170, 170, 170, 170
 int formant_rate[9]; // values adjusted for actual sample rate
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  250
+#define N_VOICES_LIST  300
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 
@@ -1401,8 +1401,10 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		return;
 
 	do {
-		if (n_voices_list >= (N_VOICES_LIST-2))
+		if (n_voices_list >= (N_VOICES_LIST-2)) {
+			fprintf(stderr, "Warning: maximum number %d of (N_VOICES_LIST = %d - 1) reached\n", n_voices_list + 1, N_VOICES_LIST);
 			break; // voices list is full
+		}
 
 		if (FindFileData.cFileName[0] != '.') {
 			sprintf(fname, "%s%c%s", path, PATHSEP, FindFileData.cFileName);
@@ -1434,8 +1436,10 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 		return;
 
 	while ((ent = readdir(dir)) != NULL) {
-		if (n_voices_list >= (N_VOICES_LIST-2))
+		if (n_voices_list >= (N_VOICES_LIST-2)) {
+			fprintf(stderr, "Warning: maximum number %d of (N_VOICES_LIST = %d - 1) reached\n", n_voices_list + 1, N_VOICES_LIST);
 			break; // voices list is full
+		}
 
 		if (ent->d_name[0] == '.')
 			continue;
@@ -1466,10 +1470,8 @@ static void GetVoices(const char *path, int len_path_voices, int is_language_fil
 
 #pragma GCC visibility push(default)
 
-
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
 {
-	espeak_VOICE *v;
 	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
@@ -1503,7 +1505,6 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByFile(const char *filename)
 
 	return ENS_VOICE_NOT_FOUND;
 }
-
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetVoiceByName(const char *name)
 {

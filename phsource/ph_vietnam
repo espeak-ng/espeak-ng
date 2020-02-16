@@ -6,7 +6,7 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  Tone(30, 28, envelope/p_level, NULL) // 28 29
+  Tone(27, 25, envelope/p_level, NULL) // 28 29
 endphoneme
 
 
@@ -18,7 +18,7 @@ endphoneme
 
 phoneme 3   //  sắc Tone(rising
   stress
-  Tone(30, 55, envelope/p_rise, NULL) // 30 60
+  Tone(20, 50, envelope/p_rise, NULL) // 30 60
 endphoneme
 
 
@@ -55,30 +55,27 @@ endphoneme
 phoneme a
   vwl starttype #@ endtype #@
   	IF nextPhW(p) THEN
-	length 142
+	length 78
   ELIF nextPhW(t[) THEN
-	length 126
+	length 84
   ELIF nextPhW(c) THEN
-	length 136
+	length 82
   ELIF nextPhW(m) THEN
-	length 155
+	length 90
   ELIF nextPhW(n) THEN
-	length 185
+	length 100
   ELIF nextPhW(N) THEN
-	length 173
+	length 90
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
-	length 240
+	length 140
   ELSE
-	length 180
+	length 100
   ENDIF
-	IF nextPh(N) OR nextPh(c) THEN
-	FMT(vnasal/a_n)
-	ELSE
-	FMT(vietnam/a, 60)  //a_4)
 	
-	ENDIF
+	FMT(vietnam/a_2)  //a_4)
+	
 endphoneme
 
 phoneme a:
@@ -94,9 +91,9 @@ phoneme a:
   ELIF nextPhW(n) THEN
 	length 185
   ELIF nextPhW(N) THEN
-	length 173
+	length 200
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 280
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -104,8 +101,8 @@ phoneme a:
   ELSE
 	length 180
   ENDIF
-    FMT(vowel/a_8)
-	//FMT(vietnam/a_2)
+    //FMT(vowel/a_8)
+	FMT(vietnam/aa)
 endphoneme
 
 
@@ -133,7 +130,8 @@ phoneme E
   ELSE
 	length 180
   ENDIF
-  FMT(vowel/e_e)   //ee_3)
+  //FMT(vowel/e_e)   //ee_3)
+  FMT(vietnam/e_e_2)
 endphoneme
 
 phoneme e
@@ -153,7 +151,7 @@ phoneme e
   ELIF nextPhW(N) THEN
 	length 115
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 270
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -164,19 +162,16 @@ phoneme e
   IF nextPh(n^) THEN
 	FMT(vowel/e)
   ELSE
-	FMT(vietnam/e)
+	FMT(vietnam/e, 150)
   ENDIF	
 endphoneme
 
 
 phoneme e-
    vwl starttype #e endtype #a
-   IF nextPhW(c) THEN
-	length 70
-   ELIF nextPhW(n^) THEN
-	length 100
-	ENDIF
-   FMT(vietnam/e_short_2)
+   length 140
+   FMT(vietnam/e_short_1)
+   //FMT(vdiph/aai_3)
 endphoneme
 
 phoneme i
@@ -207,9 +202,11 @@ phoneme i
 	length 180
   ENDIF
   IF nextPh(n^) OR nextPh(c) THEN
-  FMT(vnasal/ii_n)
+  //FMT(vnasal/ii_n)
+  FMT(vietnam/i)
   ELSE
-	FMT(vowel/i_4)
+	//FMT(vowel/i_4)
+	FMT(vietnam/i_2, 100)
 ENDIF
 endphoneme
 
@@ -229,7 +226,7 @@ phoneme O
   ELIF nextPhW(N) THEN
 	length 102
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 280
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -237,7 +234,8 @@ phoneme O
   ELSE
 	length 180
   ENDIF
-    FMT(vdiph2/o_oo) //vowel/oo)
+    //FMT(vdiph2/o_oo) //vowel/oo)
+	FMT(vietnam/oo)
 endphoneme
 
 phoneme O+
@@ -275,7 +273,8 @@ phoneme o
   ELSE
 	length 180
   ENDIF
-  FMT(vowel/o)  // o_2)
+  //FMT(vowel/o)  // o_2)
+  FMT(vietnam/o_2)
 endphoneme
 
 
@@ -295,7 +294,7 @@ phoneme u
   ELIF nextPhW(N) THEN
 	length 80
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 280
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -303,7 +302,8 @@ phoneme u
   ELSE
 	length 180
   ENDIF
-  FMT(vnasal/u_n) //vowel/u_5)
+  //FMT(vnasal/u_n) //vowel/u_5)
+  FMT(vietnam/u)
 endphoneme
 
 phoneme y
@@ -313,15 +313,17 @@ phoneme y
   ELIF nextPhW(t[) THEN
 	length 76
   ELIF nextPhW(c) THEN
-	length 70
+	length 90
   ELIF nextPhW(m) THEN
 	length 143
   ELIF nextPhW(n) THEN
 	length 136
   ELIF nextPhW(N) THEN
 	length 101
+  ELIF nextPhW(w) OR nextPhW(j) THEN 
+    length 110
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 270
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -329,7 +331,8 @@ phoneme y
   ELSE
 	length 180
   ENDIF
-  FMT(vowel/u#_5)
+  //FMT(vowel/u#_5)
+  FMT(vietnam/y_2, 60)
 endphoneme
 
 
@@ -356,7 +359,7 @@ phoneme @
 	length 180
   ENDIF
   // FMT(vowel/V)   //vowel/@_2)
-  FMT(vietnam/V)
+  FMT(vietnam/V_2)
 endphoneme
 
 
@@ -375,7 +378,7 @@ phoneme @:
   ELIF nextPhW(N) THEN
 	length 156
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 280
+	length 300
   ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
   ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
@@ -383,7 +386,8 @@ phoneme @:
   ELSE
 	length 180
   ENDIF
-  FMT(vowel/@_2)
+  //FMT(vowel/@_2)
+  FMT(vietnam/@_2)
 endphoneme
 
 
@@ -561,22 +565,54 @@ endphoneme
 
 phoneme y@
   vwl  starttype #i  endtype #@
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 123
+  ELIF nextPhW(t[) THEN
+	length 123
+  ELIF nextPhW(c) THEN
+	length 139
+  ELIF nextPhW(m) THEN
+	length 127
+  ELIF nextPhW(n) THEN
+	length 180
+  ELIF nextPhW(N) THEN
+	length 156
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
 	length 240
-	ELSE
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
+	length 240
+  ELSE
 	length 200
-	ENDIF
-  FMT(vdiph2/y-y#)
+  ENDIF
+  //FMT(vdiph2/y-y#)
+  FMT(vietnam/y@)
 endphoneme
 
 phoneme u@
   vwl  starttype #u  endtype #@
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 123
+  ELIF nextPhW(t[) THEN
+	length 123
+  ELIF nextPhW(c) THEN
+	length 139
+  ELIF nextPhW(m) THEN
+	length 127
+  ELIF nextPhW(n) THEN
+	length 160
+  ELIF nextPhW(N) THEN
+	length 156
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+	length 300
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
-	ELSE
-	length 200
-	ENDIF
-  FMT(vdiph2/uu@)
+  ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
+     length 333
+  ELSE
+	length 240
+  ENDIF
+  //FMT(vdiph2/uu@)-
+  FMT(vietnam/u@)
 endphoneme
 
 // Addition Dipthongs
@@ -586,11 +622,16 @@ phoneme o# // ông
   IF nextPhW(k) THEN
 	length 120
 	ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
-	length 240
+	length 360
+	ELIF nextPhW(N) THEN
+	length 99
+	ELIF nextPhW(k) THEN
+	length 88
 	ELSE
 	length 200
 	ENDIF
-  FMT(vnasal/a#u_n)
+  //FMT(vnasal/a#u_n)
+    FMT(vietnam/o#)
 endphoneme
 
 phoneme O# // ong
@@ -599,10 +640,13 @@ phoneme O# // ong
 	length 240
 	ELIF nextPh(k) THEN
 	length 140
+	ELIF nextPh(N) THEN
+	length 102
 	ELSE
 	length 200
 	ENDIF
-  FMT(vnasal/&u_n)
+  //FMT(vnasal/&u_n)
+  FMT(vietnam/O_short_2)
 endphoneme
 
 
@@ -628,12 +672,32 @@ endphoneme
 
 phoneme iE // iê : viết, giệc
   vwl  starttype #i  endtype #e
-  IF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+  IF nextPhW(p) THEN
+	length 114
+  ELIF nextPhW(t[) THEN
+	length 126
+  ELIF nextPhW(c) THEN
+	length 140
+  ELIF nextPhW(n^) THEN
+	length 120
+  ELIF nextPhW(m) THEN
+	length 148
+  ELIF nextPhW(n) THEN
+	length 163
+  ELIF nextPhW(N) THEN
+	length 115
+  ELIF nextPhW(w) THEN
+    length 100
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordEnd) THEN
+	length 300
+  ELIF thisPh(isFirstVowel) AND thisPh(isFinalVowel) AND thisPh(isWordStart) THEN
 	length 240
-	ELSE
-	length 200
-	ENDIF
-  FMT(vietnam/ie_2)
+  ELIF thisPh(isWordStart) AND thisPh(isWordEnd) THEN
+     length 324
+  ELSE
+	length 180
+  ENDIF
+  FMT(vietnam/ie)
 endphoneme
 
 phoneme Oi // oai sound
@@ -687,19 +751,36 @@ phoneme kh
 endphoneme
 
 phoneme k
-  vls vel frc
+  vls vel stp
   lengthmod 3
+  IF nextPhW(#u) THEN
+  Vowelin f1=1  f2=600 -200 -400  f3=-200 80 amp=200 len=30 rms=200
+  WAV(vietnam/c_2, 255)
+  ELSE
   Vowelin f1=0  f2=2300 200 400  f3=200 80 len=30
+  WAV(vietnam/c)
+  ENDIF
   Vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
-    WAV(ustop/c)
+  //WAV(ustop/c)
+  
 endphoneme
 
 phoneme N // si**ng** 
   vcd lbv nas
+  IF prevPhW(u@) THEN 
+  // do nothing
+  ELSE 
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  ENDIF
   lengthmod 12            // longer than 'n'
-  
-  FMT(n/nm)
+  IF thisPh(isWordEnd) THEN 
+	length 163
+  ENDIF
+  IF thisPh(isWordEnd) THEN 
+	FMT(n/nm, 50)
+  ELSE 
+	FMT(nn/_nn)
+  ENDIF
 endphoneme
 
 phoneme l
@@ -738,10 +819,11 @@ phoneme d_
   vcd alv stp
     //	lengthmod 5
 	ipa ɗ
-	length 50
- Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=15
-  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
-WAV(vietnam/dd)
+	length 70
+	Vowelin f1=1  f2=1500 -300 300  f3=-100 80 len=15
+	Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk len=30
+	WAV(vietnam/dda_2, 200)
+	
  endphoneme
  
  phoneme c
@@ -760,11 +842,15 @@ endphoneme
 phoneme p
   vls blb stp
     lengthmod 2
+	length 15
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
 
-    WAV(ustop/p_unasp_,10)
-  
+	IF thisPh(isWordEnd) THEN
+		WAV(ustop/p_unasp_, 10)
+	ELSE
+		WAV(ustop/p)
+    ENDIF
 endphoneme
 
 phoneme t[        // dental variant of /t/
@@ -772,16 +858,41 @@ phoneme t[        // dental variant of /t/
 	vls alv stp
 	voicingswitch d
 	lengthmod 2
-	length 5
-	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
-	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
-	WAV(ustop/t, 50)
+	length 15
+	IF prevPhW(#@) THEN 
+		Vowelout f1=0 f2=1200 -50 50 f3=50 80  rms=20 len=15
+	ELIF prevPhW(y@) THEN
+		Vowelout f1=2 f2=1200 -100 150 f3=150 80  rms=20 len=15
+	ELIF prevPhW(#i) THEN 
+		Vowelout f1=0 f2=2000 -300 250  f3=-50 80  rms=20 len=15
+	ELIF prevPhW(E) THEN 
+		Vowelout f1=0 f2=1900 -200 200  f3=-100 80  rms=20 len=15
+	ELIF prevPhW(e) OR prevPhW(iE) THEN 
+		Vowelout f1=2 f2=1800 -400 250  f3=-200 80  rms=20 len=15
+	ELIF prevPhW(u) THEN 
+		Vowelout f1=2 f2=1000 -1000 250  f3=-400 80  rms=20 len=15
+	ELIF prevPhW(y) THEN 
+		Vowelout f1=1 f2=1500 -300 250  f3=-400 80  rms=20 len=15
+	ELIF prevPhW(#a) THEN 
+		Vowelout f1=2 f2=1500 -300 250  f3=-500 80  rms=20 len=15
+	ELIF prevPhW(o) THEN 
+		Vowelout f1=2 f2=1000 -100 250  f3=-200 80  rms=20 len=15
+	ELIF prevPhW(O) THEN 
+		Vowelout f1=1 f2=1000 -300 200  f3=-100 80  rms=20 len=15
+	ELSE
+		Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
+	ENDIF
+	WAV(ustop/t_, 25)
   ELSE
 	vls dnt stp
 	voicingswitch d[
 	lengthmod 2
-	length 5
-	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=15
+	IF nextPhW(#u) THEN 
+		length 30
+	ELSE
+		length 15
+	ENDIF
+	Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16 len=35
 	Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20 len=15
 
 	IF nextPh(isPause2) THEN
@@ -793,10 +904,11 @@ endphoneme
 
 phoneme w
   liquid
-  length 20
+  
   starttype #u
   
   IF nextPh(isVowel) THEN
+    length 20
     NextVowelStarts
       VowelStart(w/w@)
       VowelStart(w/wa)
@@ -808,21 +920,74 @@ phoneme w
 
     VowelEnding(w/xw, -30)
 	IF nextPh(isVowel) AND prevPhW(t[) THEN
-		FMT(vnasal/u_n, 60)
-	ENDIF
-    IF prevPhW(isNasal) THEN
+		FMT(vnasal/u_n, 60)  addWav(vietnam/w, 50)
+	ELIF prevPhW(isNasal) THEN
       FMT(w/w)
     ELSEIF prevPhW(h) THEN
       // none,  [hw]
     ELSE
-      FMT(w/_w)
+      //FMT(w/_w) addWav(vietnam/w)
+	  FMT(vietnam/_w)
     ENDIF
   ELSE
     // no vowel follows
-    Vowelout len=50
-    IF prevPh(#i) THEN
-      FMT(w/iw_)
-    ENDIF
-    FMT(w/w_)
+	length 80
+    Vowelout len=20 rms=20
+    
+    //FMT(w/w_)
+	FMT(vietnam/w_, 150)
   ENDIF
+endphoneme
+
+phoneme n^ // (a)nh
+  vcd pal nas pzd
+  ipa ɲ
+  Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+  lengthmod 4
+
+  IF KlattSynth THEN
+    VowelStart(klatt/n^@)
+    FMT(klatt/n^)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n^/n^@)
+    VowelStart(n^/n^a)
+    VowelStart(n^/n^e)
+    VowelStart(n^/n^i)
+    VowelStart(n^/n^o)
+    VowelStart(n^/n^u)
+  EndSwitch
+
+  IF thisPh(isWordEnd) THEN
+    IF nextPhW(n^) THEN
+      length 75
+    ELIF prevPhW(n^) THEN
+      length 100
+    ENDIF
+    FMT(vietnam/n^_)	
+  ELSE
+    FMT(n^/_n^)
+  ENDIF
+endphoneme
+
+phoneme h
+  vls glt frc
+  lengthmod 3
+  ipa h
+   
+  IF nextPh(#@) THEN
+    WAV(h/h@)
+  ELIF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#i) THEN
+    WAV(vietnam/hi)
+  ELIF nextPh(#o) THEN
+    WAV(h/ho)
+  ELIF nextPh(#u) THEN
+    WAV(vietnam/hu, 25)
+  ENDIF
+  WAV(h/h_, 70)  // no vowel following
 endphoneme

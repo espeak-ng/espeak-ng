@@ -16,6 +16,9 @@ phoneme @   //  Schwa
       ChangePhoneme(3)
     ENDIF
   ENDIF
+IF thisPh (isWordEnd) THEN
+length 120
+ENDIF
   FMT(vowel/@_4)
 endphoneme
 
@@ -171,7 +174,7 @@ endphoneme
 phoneme OY
   vwl starttype #o endtype #i
   length 220
-  FMT(vwl_de/eu)
+  FMT(vdiph/oi)
 endphoneme
 
 
@@ -205,17 +208,16 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
-  ipa ?
   length 100
   IF nextPh(*) THEN
     length 110
   ENDIF
-  FMT(vowel/u#_3)
+  FMT(vowel/yy_4)
 endphoneme
 
 
 phoneme Y:
-  vwl starttype #@ endtype #@
+  vwl starttype #@ endtype #u
   length 220
   FMT(vwl_de/y#)
 endphoneme
@@ -461,7 +463,7 @@ phoneme k
     WAV(ustop/k, 70)
   ELIF nextPh(R) OR nextPh(R2) THEN
     WAV(ustop/k_)
-  ELIF nextPh(i:) OR nextPh(;) THEN
+  ELIF nextPh(i:) OR nextPh(j) OR nextPh(;) THEN
     WAV(ustop/ki)
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
@@ -483,4 +485,11 @@ phoneme x
     WAV(ufric/x2, 60)
   ENDIF
   WAV(ufric/x_hr, 20)
+endphoneme
+
+
+phoneme O~ // saison, Pardon, Fond
+  vwl  starttype #o  endtype #o
+  length 190
+  FMT(vnasal/o_n5)
 endphoneme
