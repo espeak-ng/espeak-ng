@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.136
-// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 06-05-2019
+// *   Farsi Language fa (or Parsi or Persian) fa_list Version 3.137
+// *   This file writen by Shadyar Khodayari and Ehsan Esmaili who has managed  collecting exceptional words. 02-19-2020
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -266,6 +266,11 @@ U+20	fAsele_
 //*********************
 
 // exceptional words with flags
+// exceptional words with flags
+// $only - The rule does not apply if a prefix or suffix has already been removed.
+// $stem - The rule only applies if a suffix has already been removed. 
+// $atend - Use this pronunciation if it's at the end of a clause.
+
 روی	Ruje	$only
 اف	ef	$only
 ایچ	ejtS	$only
@@ -301,6 +306,9 @@ U+20	fAsele_
 بده	bedah	$stem
 کند	konad	$only
 کند	kand	$stem
+شو	So:	$only
+شو	Su:	$stem
+گه	ge:	$stem
 
 
 // The list of unstressed words
@@ -6835,7 +6843,6 @@ U+20	fAsele_
 شدیدا	Sadidan
 شدیداللحن	Sadidollahn
 شدیم	Sodim
-شراادی	SA:_d:jA:_R
 شرافت	SeRAfat
 شراپنل	SeRApnel
 شراکت	SeRAkat
@@ -6978,7 +6985,6 @@ U+20	fAsele_
 شهوتران	SahvatRAn
 شهوی	Sahavi
 شهویه	Sahavije
-شو	tSo
 شوالیه	SovAlije:
 شوالیۀ	SovAlijeje
 شود	Sa'vad
