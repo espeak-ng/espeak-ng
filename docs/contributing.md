@@ -20,6 +20,8 @@ to view and discuss other related topics.
 1. example of text, which demonstrates and allows to reproduce spelling error;
 2. explanation, why produced spelling is wrong and how it should be corrected.
 
+<a class="anchor" id="simlestep5">5. Close issue when it is resolved.
+
 ## Steps for your contribution
 <a class="anchor" id="step1">1. Get familiar with [additive speech synthesis](https://en.wikipedia.org/wiki/Speech_synthesis#Formant_synthesis).
 
