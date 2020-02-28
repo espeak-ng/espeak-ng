@@ -347,7 +347,11 @@ static int mbrola_has_errors(void)
 			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
 				continue;
 			*lf = 0;
-			fprintf(stderr, "mbrola: %s\n", buf_ptr);
+			if (strstr(buf_ptr, "mbrola: No such file or directory") != NULL)
+				fprintf(stderr,
+						"mbrola executable was not found. Please install MBROLA!\n");
+			else
+				fprintf(stderr, "mbrola: %s\n", buf_ptr);
 			// is this the last line?
 			if (lf == &buf_ptr[result - 1]) {
 				snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
