@@ -16,6 +16,7 @@ updated languages:
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
 *  ur (Urdu) -- Ejaz Shah
+*  zh (Chinese) -- Silas S. Brown
 
 ### 1.50 - 2019-11-29
 
