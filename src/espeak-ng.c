@@ -49,9 +49,9 @@ extern ESPEAK_NG_API int GetFileLength(const char *filename);
 static const char *help_text =
     "\n" PROGRAM_NAME " [options] [\"<words>\"]\n\n"
     "-f <text file>   Text file to speak\n"
-    "--stdin    Read text input from stdin instead of a file\n\n"
-    "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
-    "is spoken from stdin, each line separately.\n\n"
+    "--stdin    Read text input from stdin at once till to the end of a stream.\n\n"
+    "If neither -f nor --stdin are provided, then <words> from arguments are spoken,\n"
+	"or text is spoken from stdin, read separately one line by line at a time.\n\n"
     "-a <integer>\n"
     "\t   Amplitude, 0 to 200, default is 100\n"
     "-d <device>\n"

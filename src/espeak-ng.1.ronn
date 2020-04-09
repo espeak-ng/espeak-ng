@@ -22,10 +22,10 @@ languages.
     Text file to speak.
 
   * `--stdin`:
-    Read text input from stdin instead of a file.
+    Read text input from stdin till to the end of a stream at once.
 
-If neither -f nor --stdin are provided, &lt;words&gt; are spoken, or if no
-words are provided then text is spoken from stdin a line at a time.
+If neither -f nor --stdin are provided, then &lt;words&gt; from parameter are spoken,
+or text is spoken from stdin, read separately one line by line at a time.
 
   * `-d <device>`:
     Use the specified device to speak the audio on. If not specified, the
