@@ -97,6 +97,19 @@ espeak_ng_STATUS LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, 
 
 			if (GetFileLength(path) <= 0)
 				sprintf(path, "/usr/share/mbrola/voices/%s", mbrola_voice);
+
+			// Show error message
+			if (GetFileLength(path) <= 0) {
+				fprintf(stderr, "Cannot find MBROLA voice file '%s' in neither of paths:\n"
+						" - /usr/share/mbrola/%s\n"
+						" - /usr/share/mbrola/%s/%s\n"
+						" - /usr/share/mbrola/voices/%s\n"
+						"Please install necessary MBROLA voice!\n",
+						mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice, mbrola_voice);
+				// Set path back to simple name, otherwise it shows misleading error only for
+				// last unsuccessfully searched path
+				sprintf(path, "%s", mbrola_voice);
+			}
 		}
 	}
 	close_MBR();
