@@ -13,6 +13,7 @@ updated languages:
 
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  en (English) -- Steven Presser
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
 *  ur (Urdu) -- Ejaz Shah
