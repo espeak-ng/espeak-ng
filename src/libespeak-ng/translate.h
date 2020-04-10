@@ -438,37 +438,37 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-#define NUM_THOUS_SPACE  0x4
-#define NUM_DECIMAL_COMMA 0x8
-#define NUM_SWAP_TENS    0x10
-#define NUM_AND_UNITS    0x20
-#define NUM_HUNDRED_AND  0x40
-#define NUM_SINGLE_AND   0x80
-#define NUM_SINGLE_STRESS 0x100
-#define NUM_SINGLE_VOWEL 0x200
-#define NUM_OMIT_1_HUNDRED 0x400
-#define NUM_1900         0x800
-#define NUM_ALLOW_SPACE  0x1000
-#define NUM_DFRACTION_1  0x2000
-#define NUM_DFRACTION_2  0x4000
-#define NUM_DFRACTION_3  0x6000
-#define NUM_DFRACTION_4  0x8000
-#define NUM_DFRACTION_5  0xa000
-#define NUM_DFRACTION_6  0xc000
-#define NUM_DFRACTION_7  0xe000    // lang=si, alternative form of number for decimal fraction digits (except the last)
-#define NUM_ORDINAL_DOT   0x10000
-#define NUM_NOPAUSE       0x20000
-#define NUM_AND_HUNDRED   0x40000
-#define NUM_THOUSAND_AND  0x80000
-#define NUM_VIGESIMAL       0x100000
-#define NUM_OMIT_1_THOUSAND 0x200000
-#define NUM_ZERO_HUNDRED    0x400000
-#define NUM_HUNDRED_AND_DIGIT   0x800000
-#define NUM_ROMAN          0x1000000
-#define NUM_ROMAN_CAPITALS 0x2000000
-#define NUM_ROMAN_AFTER    0x4000000
-#define NUM_ROMAN_ORDINAL  0x8000000
-#define NUM_SINGLE_STRESS_L  0x10000000
+#define NUM_THOUS_SPACE       0x00000004
+#define NUM_DECIMAL_COMMA     0x00000008
+#define NUM_SWAP_TENS         0x00000010
+#define NUM_AND_UNITS         0x00000020
+#define NUM_HUNDRED_AND       0x00000040
+#define NUM_SINGLE_AND        0x00000080
+#define NUM_SINGLE_STRESS     0x00000100
+#define NUM_SINGLE_VOWEL      0x00000200
+#define NUM_OMIT_1_HUNDRED    0x00000400
+#define NUM_1900              0x00000800
+#define NUM_ALLOW_SPACE       0x00001000
+#define NUM_DFRACTION_1       0x00002000
+#define NUM_DFRACTION_2       0x00004000
+#define NUM_DFRACTION_3       0x00006000
+#define NUM_DFRACTION_4       0x00008000
+#define NUM_DFRACTION_5       0x0000a000
+#define NUM_DFRACTION_6       0x0000c000
+#define NUM_DFRACTION_7       0x0000e000    // lang=si, alternative form of number for decimal fraction digits (except the last)
+#define NUM_ORDINAL_DOT       0x00010000
+#define NUM_NOPAUSE           0x00020000
+#define NUM_AND_HUNDRED       0x00040000
+#define NUM_THOUSAND_AND      0x00080000
+#define NUM_VIGESIMAL         0x00100000
+#define NUM_OMIT_1_THOUSAND   0x00200000
+#define NUM_ZERO_HUNDRED      0x00400000
+#define NUM_HUNDRED_AND_DIGIT 0x00800000
+#define NUM_ROMAN             0x01000000
+#define NUM_ROMAN_CAPITALS    0x02000000
+#define NUM_ROMAN_AFTER       0x04000000
+#define NUM_ROMAN_ORDINAL     0x08000000
+#define NUM_SINGLE_STRESS_L   0x10000000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
