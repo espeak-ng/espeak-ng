@@ -1977,7 +1977,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			decimal_count++;
 
 		max_decimal_count = 2;
-		switch (decimal_mode = (tr->langopts.numbers & 0xe000))
+		switch (decimal_mode = (tr->langopts.numbers & NUM_DFRACTION_BITS))
 		{
 		case NUM_DFRACTION_4:
 			max_decimal_count = 5;

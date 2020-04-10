@@ -449,13 +449,7 @@ typedef struct {
 #define NUM_OMIT_1_HUNDRED    0x00000400
 #define NUM_1900              0x00000800
 #define NUM_ALLOW_SPACE       0x00001000
-#define NUM_DFRACTION_1       0x00002000
-#define NUM_DFRACTION_2       0x00004000
-#define NUM_DFRACTION_3       0x00006000
-#define NUM_DFRACTION_4       0x00008000
-#define NUM_DFRACTION_5       0x0000a000
-#define NUM_DFRACTION_6       0x0000c000
-#define NUM_DFRACTION_7       0x0000e000    // lang=si, alternative form of number for decimal fraction digits (except the last)
+#define NUM_DFRACTION_BITS    0x0000e000
 #define NUM_ORDINAL_DOT       0x00010000
 #define NUM_NOPAUSE           0x00020000
 #define NUM_AND_HUNDRED       0x00040000
@@ -469,6 +463,14 @@ typedef struct {
 #define NUM_ROMAN_AFTER       0x04000000
 #define NUM_ROMAN_ORDINAL     0x08000000
 #define NUM_SINGLE_STRESS_L   0x10000000
+
+#define NUM_DFRACTION_1       0x00002000
+#define NUM_DFRACTION_2       0x00004000
+#define NUM_DFRACTION_3       0x00006000
+#define NUM_DFRACTION_4       0x00008000
+#define NUM_DFRACTION_5       0x0000a000
+#define NUM_DFRACTION_6       0x0000c000
+#define NUM_DFRACTION_7       0x0000e000    // lang=si, alternative form of number for decimal fraction digits (except the last)
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
