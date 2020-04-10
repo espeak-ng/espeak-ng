@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2014 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2017 Reece H. Dunn
+ * Copyright (C) 2015-2017, 2020 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -438,31 +438,32 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-#define NUM_THOUS_SPACE       0x00000004
-#define NUM_DECIMAL_COMMA     0x00000008
-#define NUM_SWAP_TENS         0x00000010
-#define NUM_AND_UNITS         0x00000020
-#define NUM_HUNDRED_AND       0x00000040
-#define NUM_SINGLE_AND        0x00000080
-#define NUM_SINGLE_STRESS     0x00000100
-#define NUM_SINGLE_VOWEL      0x00000200
-#define NUM_OMIT_1_HUNDRED    0x00000400
-#define NUM_1900              0x00000800
-#define NUM_ALLOW_SPACE       0x00001000
-#define NUM_DFRACTION_BITS    0x0000e000
-#define NUM_ORDINAL_DOT       0x00010000
-#define NUM_NOPAUSE           0x00020000
-#define NUM_AND_HUNDRED       0x00040000
-#define NUM_THOUSAND_AND      0x00080000
-#define NUM_VIGESIMAL         0x00100000
-#define NUM_OMIT_1_THOUSAND   0x00200000
-#define NUM_ZERO_HUNDRED      0x00400000
-#define NUM_HUNDRED_AND_DIGIT 0x00800000
-#define NUM_ROMAN             0x01000000
-#define NUM_ROMAN_CAPITALS    0x02000000
-#define NUM_ROMAN_AFTER       0x04000000
-#define NUM_ROMAN_ORDINAL     0x08000000
-#define NUM_SINGLE_STRESS_L   0x10000000
+#define NUM_ROUTINE_BITS      0x00000003 // which numbers routine to use.
+#define NUM_THOUS_SPACE       0x00000004 // thousands separator must be space
+#define NUM_DECIMAL_COMMA     0x00000008 // , decimal separator, not .
+#define NUM_SWAP_TENS         0x00000010 // use three-and-twenty rather than twenty-three
+#define NUM_AND_UNITS         0x00000020 // 'and' between tens and units
+#define NUM_HUNDRED_AND       0x00000040 // add "and" after hundred or thousand
+#define NUM_SINGLE_AND        0x00000080 // don't have "and" both after hundreds and also between tens and units
+#define NUM_SINGLE_STRESS     0x00000100 // only one primary stress in tens+units
+#define NUM_SINGLE_VOWEL      0x00000200 // only one vowel betwen tens and units
+#define NUM_OMIT_1_HUNDRED    0x00000400 // omit "one" before "hundred"
+#define NUM_1900              0x00000800 // say 19** as nineteen hundred
+#define NUM_ALLOW_SPACE       0x00001000 // allow space as thousands separator (in addition to langopts.thousands_sep)
+#define NUM_DFRACTION_BITS    0x0000e000 // post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
+#define NUM_ORDINAL_DOT       0x00010000 // dot after number indicates ordinal
+#define NUM_NOPAUSE           0x00020000 // don't add pause after a number
+#define NUM_AND_HUNDRED       0x00040000 // 'and' before hundreds
+#define NUM_THOUSAND_AND      0x00080000 // 'and' after thousands if there are no hundreds
+#define NUM_VIGESIMAL         0x00100000 // vigesimal number, if tens are not found
+#define NUM_OMIT_1_THOUSAND   0x00200000 // omit "one" before "thousand"
+#define NUM_ZERO_HUNDRED      0x00400000 // say "zero" before hundred
+#define NUM_HUNDRED_AND_DIGIT 0x00800000 // add "and" after hundreds and thousands, only if there are digits and no tens
+#define NUM_ROMAN             0x01000000 // recognize roman numbers
+#define NUM_ROMAN_CAPITALS    0x02000000 // Roman numbers only if upper case
+#define NUM_ROMAN_AFTER       0x04000000 // say "roman" after the number, not before
+#define NUM_ROMAN_ORDINAL     0x08000000 // Roman numbers are ordinal numbers
+#define NUM_SINGLE_STRESS_L   0x10000000 // only one primary stress in tens+units (on the tens)
 
 #define NUM_DFRACTION_1       0x00002000
 #define NUM_DFRACTION_2       0x00004000
@@ -472,34 +473,6 @@ typedef struct {
 #define NUM_DFRACTION_6       0x0000c000
 #define NUM_DFRACTION_7       0x0000e000    // lang=si, alternative form of number for decimal fraction digits (except the last)
 
-	// bits0-1=which numbers routine to use.
-	// bit2=  thousands separator must be space
-	// bit3=  , decimal separator, not .
-	// bit4=use three-and-twenty rather than twenty-three
-	// bit5='and' between tens and units
-	// bit6=add "and" after hundred or thousand
-	// bit7=don't have "and" both after hundreds and also between tens and units
-	// bit8=only one primary stress in tens+units
-	// bit9=only one vowel betwen tens and units
-	// bit10=omit "one" before "hundred"
-	// bit11=say 19** as nineteen hundred
-	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
-	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
-
-	// bit16= dot after number indicates ordinal
-	// bit17= don't add pause after a number
-	// bit18= 'and' before hundreds
-	// bit19= 'and' after thousands if there are no hundreds
-	// bit20= vigesimal number, if tens are not found
-	// bit21= omit "one" before "thousand"
-	// bit22= say "zero" before hundred
-	// bit23= add "and" after hundreds and thousands, only if there are digits and no tens
-
-	// bit24= recognize roman numbers
-	// bit25= Roman numbers only if upper case
-	// bit26= say "roman" after the number, not before
-	// bit27= Roman numbers are ordinal numbers
-	// bit28= only one primary stress in tens+units (on the tens)
 	int numbers;
 
 #define NUM2_THOUSANDS_VAR1     0x40
