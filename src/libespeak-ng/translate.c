@@ -570,12 +570,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	int add_suffix_phonemes = 0;
 	WORD_TAB wtab_null[8];
 
-	// translate these to get pronunciations of plural 's' suffix (different forms depending on
-	// the preceding letter
-	static char word_zz[4] = { 0, 'z', 'z', 0 };
-	static char word_iz[4] = { 0, 'i', 'z', 0 };
-	static char word_ss[4] = { 0, 's', 's', 0 };
-
 	if (wtab == NULL) {
 		memset(wtab_null, 0, sizeof(wtab_null));
 		wtab = wtab_null;
@@ -738,6 +732,8 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		strcpy(word_phonemes, phonemes);
 		if (wflags & FLAG_TRANSLATOR2)
 			return 0;
+
+		addPluralSuffixes(wflags, tr, last_char, &word_phonemes);
 		return dictionary_flags[0] & FLAG_SKIPWORDS; // for "b.c.d"
 	} else if (found == false) {
 		// word's pronunciation is not given in the dictionary list, although
@@ -1010,16 +1006,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		}
 	}
 
-	if (wflags & FLAG_HAS_PLURAL) {
-		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
-		if (last_char == 'f')
-			TranslateRules(tr, &word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
-		else if ((last_char == 0) || (strchr_w("hsx", last_char) == NULL))
-			TranslateRules(tr, &word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
-		else
-			TranslateRules(tr, &word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
-	}
-
+	addPluralSuffixes(wflags, tr, last_char, &word_phonemes);
 	wflags |= emphasize_allcaps;
 
 	// determine stress pattern for this word
@@ -1152,6 +1139,26 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	dictionary_flags[0] |= was_unpronouncable;
 	memcpy(word_start, word_copy2, word_copy_length);
 	return dictionary_flags[0];
+}
+
+// append plural suffixes depending on preceding letter
+void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
+{
+	char word_zz[4] = { 0, 'z', 'z', 0 };
+	char word_iz[4] = { 0, 'i', 'z', 0 };
+	char word_ss[4] = { 0, 's', 's', 0 };
+	if (flags & FLAG_HAS_PLURAL) {
+		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
+		if (last_char == 'f')
+			TranslateRules(tr, &word_ss[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+		else if ((last_char == 0) || (strchr_w("hsx", last_char) == NULL))
+			TranslateRules(tr, &word_zz[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+		else
+			TranslateRules(tr, &word_iz[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+	}
 }
 
 int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
@@ -2348,7 +2355,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 					}
 				} else {
 					if ((all_upper_case) && (letter_count > 2)) {
-						if ((c == 's') && (next_in == ' ')) {
+						// Flag as plural only English
+						if (tr->translator_name == L('e', 'n') && (c == 's') && (next_in == ' ')) {
 							c = ' ';
 							all_upper_case |= FLAG_HAS_PLURAL;
 
