@@ -1149,27 +1149,27 @@ static const char *M_Variant(int value)
 	if (((value % 100) > 10) && ((value % 100) < 20))
 		teens = true;
 
-	switch ((translator->langopts.numbers2 >> 6) & 0x7)
+	switch (translator->langopts.numbers2 & NUM2_THOUSANDS_VAR_BITS)
 	{
-	case 1: // lang=ru  use singular for xx1 except for x11
+	case NUM2_THOUSANDS_VAR1: // lang=ru  use singular for xx1 except for x11
 		if ((teens == false) && ((value % 10) == 1))
 			return "1M";
 		break;
-	case 2: // lang=cs,sk
+	case NUM2_THOUSANDS_VAR2: // lang=cs,sk
 		if ((value >= 2) && (value <= 4))
 			return "0MA";
 		break;
-	case 3: // lang=pl
+	case NUM2_THOUSANDS_VAR3: // lang=pl
 		if ((teens == false) && (((value % 10) >= 2) && ((value % 10) <= 4)))
 			return "0MA";
 		break;
-	case 4: // lang=lt
+	case NUM2_THOUSANDS_VAR4: // lang=lt
 		if ((teens == true) || ((value % 10) == 0))
 			return "0MB";
 		if ((value % 10) == 1)
 			return "0MA";
 		break;
-	case 5: // lang=bs,hr,sr
+	case NUM2_THOUSANDS_VAR5: // lang=bs,hr,sr
 		if (teens == false) {
 			if ((value % 10) == 1)
 				return "1M";

@@ -475,11 +475,7 @@ typedef struct {
 
 	int numbers;
 
-#define NUM2_THOUSANDS_VAR1        0x00000040
-#define NUM2_THOUSANDS_VAR2        0x00000080
-#define NUM2_THOUSANDS_VAR3        0x000000c0
-#define NUM2_THOUSANDS_VAR4        0x00000100
-#define NUM2_THOUSANDS_VAR5        0x00000140
+#define NUM2_THOUSANDS_VAR_BITS    0x000001c0
 #define NUM2_SWAP_THOUSANDS        0x00000200
 #define NUM2_ORDINAL_NO_AND        0x00000800
 #define NUM2_MULTIPLE_ORDINAL      0x00001000
@@ -491,6 +487,13 @@ typedef struct {
 #define NUM2_ORDINAL_AND_THOUSANDS 0x00040000
 #define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // currently only for tens and units
 #define NUM2_ZERO_TENS             0x00100000
+
+#define NUM2_THOUSANDS_VAR1        0x00000040
+#define NUM2_THOUSANDS_VAR2        0x00000080
+#define NUM2_THOUSANDS_VAR3        0x000000c0
+#define NUM2_THOUSANDS_VAR4        0x00000100
+#define NUM2_THOUSANDS_VAR5        0x00000140
+
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
