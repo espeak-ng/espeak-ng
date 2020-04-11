@@ -475,18 +475,19 @@ typedef struct {
 
 	int numbers;
 
-#define NUM2_THOUSANDS_VAR_BITS    0x000001c0
-#define NUM2_SWAP_THOUSANDS        0x00000200
-#define NUM2_ORDINAL_NO_AND        0x00000800
-#define NUM2_MULTIPLE_ORDINAL      0x00001000
-#define NUM2_NO_TEEN_ORDINALS      0x00002000
-#define NUM2_MYRIADS               0x00004000
-#define NUM2_ENGLISH_NUMERALS      0x00008000
-#define NUM2_PERCENT_BEFORE        0x00010000
-#define NUM2_OMIT_1_HUNDRED_ONLY   0x00020000
-#define NUM2_ORDINAL_AND_THOUSANDS 0x00040000
-#define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // currently only for tens and units
-#define NUM2_ZERO_TENS             0x00100000
+#define NUM2_GROUP_NUMBER_VAR_BITS 0x0000000f // use variant form of numbers before thousands,millions,etc.
+#define NUM2_THOUSANDS_VAR_BITS    0x000001c0 // use different forms of thousand, million, etc (M MA MB)
+#define NUM2_SWAP_THOUSANDS        0x00000200 // say "thousand" and "million" before its number, not after
+#define NUM2_ORDINAL_NO_AND        0x00000800 // don't say 'and' between tens and units for ordinal numbers
+#define NUM2_MULTIPLE_ORDINAL      0x00001000 // use ordinal form of hundreds and tens as well as units
+#define NUM2_NO_TEEN_ORDINALS      0x00002000 // don't use 11-19 numbers to make ordinals
+#define NUM2_MYRIADS               0x00004000 // use myriads (groups of 4 digits) not thousands (groups of 3)
+#define NUM2_ENGLISH_NUMERALS      0x00008000 // speak (non-replaced) English numerals in English
+#define NUM2_PERCENT_BEFORE        0x00010000 // say "%" before the number
+#define NUM2_OMIT_1_HUNDRED_ONLY   0x00020000 // omit "one" before hundred only if there are no previous digits
+#define NUM2_ORDINAL_AND_THOUSANDS 0x00040000 // same variant for ordinals and thousands (#o = #a)
+#define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // drop final vowel from cardial number before adding ordinal suffix (currently only tens and units)
+#define NUM2_ZERO_TENS             0x00100000 // say zero tens
 
 #define NUM2_THOUSANDS_VAR1        0x00000040
 #define NUM2_THOUSANDS_VAR2        0x00000080
@@ -494,19 +495,6 @@ typedef struct {
 #define NUM2_THOUSANDS_VAR4        0x00000100
 #define NUM2_THOUSANDS_VAR5        0x00000140
 
-	// bits 1-4  use variant form of numbers before thousands,millions,etc.
-	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
-	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
-	// bit11=(LANG=es,an) don't say 'and' between tens and units for ordinal numbers
-	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
-	// bit13=(LANG=pt) don't use 11-19 numbers to make ordinals
-	// bit14=(LANG=ko)  use myriads (groups of 4 digits) not thousands (groups of 3)
-	// bit15=(LANG=ne)  speak (non-replaced) English numerals in English
-	// bit16=(LANG=si)  say "%" before the number
-	// bit17=(LANG=ml)  omit "one" before hundred only if there are no previous digits
-	// bit18=(LANG=ta)  same variant for ordinals and thousands (#o = #a)
-	// bit19=(LANG=te)  drop final vowel from cardial number before adding ordinal suffix
-	// bit20=(LANG=zh)  say zero tens
 	int numbers2;
 
 // Bit 2^n is set if 10^n separates a number grouping (max n=31).
