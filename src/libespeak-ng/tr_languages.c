@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2016, 2020 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1238,7 +1238,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
-		tr->langopts.numbers2 = 0x200; // say "thousands" before its number
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
 		break;
 	case L('p', 'l'): // Polish
@@ -1304,7 +1304,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words.  Need to allow "bw'" prefix
 		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
-		tr->langopts.numbers2 = 0x200; // say "thousands" before its number
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
 		break;
 	case L('s', 'k'): // Slovak
