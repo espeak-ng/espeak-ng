@@ -1,0 +1,102 @@
+// Translation rules for Quechuan
+// This file is UTF-8 encoded
+
+
+.replace
+       ʼ       '     // replace modified apostrophe to simple apostrophe
+
+.group a
+       a       a
+
+.group b
+       b       b
+
+.group c
+       ch      tS
+       chh     tSh
+       ch'     tS`?
+
+.group c
+       c       ts
+
+.group d
+       d       d
+
+.group e
+       e       e
+
+.group f
+       f       f
+
+.group g
+       g       g
+
+.group h
+       h       h
+
+.group i
+       i       i
+
+.group y
+       y       j
+
+.group j
+       j       h
+
+.group k
+       k       k
+       kh      kh
+       k'      k`?
+
+.group l
+       l       l
+       ll      l^
+
+.group m
+       m       m
+
+.group n
+       n       n
+
+.group ñ
+       ñ       n^
+
+.group o
+       o       o
+
+.group p
+       p       p
+       ph      ph
+       p'      p`?
+
+.group q
+       q       q
+       qh      qh
+       q'      q`?
+
+.group r
+       r       R
+
+.group s
+       s       s
+
+.group t
+       t       t
+       th      th
+       t'      t`?
+
+.group u
+       u       u
+
+.group v
+       v       v
+
+.group w
+       w       w
+
+.group x
+       x       ks
+
+.group z
+       z       z
+

@@ -1,0 +1,85 @@
+// This file is UTF8 encoded
+// Spelling-to-phoneme words for Quechuan
+
+// names of letters
+a   a:
+b   ba:
+chh tSha:
+ch  tSa:
+ch' tS?a:
+c   tsa:
+d   da:
+e   e:
+f   fa:
+g   ga:
+h   ha:
+i   i:
+y   ja:
+j   xa:
+kh  kha:
+k   ka:
+k'  k`?a:
+l   la:
+ll  l^a:
+m   ma:
+n   na:
+ñ   n^a:
+o   o:
+ph  pha:
+p   pa:
+p'  p?a:
+qh  kha:
+q   ka:
+q'  k?a:
+r   RRa:
+s   sa:
+th  tha:
+t   ta:
+t'  t?a
+u   u:
+v   va:
+w   wa:
+x   ksa:
+z   za:
+
+// numbers
+_0   tS?usak
+_1   huk
+_2   iskaj
+_3   kimsa
+_4   tawa
+_5   pitSka
+_6   sukta
+_7   kantSis
+_8   pusak
+_9   iskun
+_10  tSunka
+_0C  patSak
+_0M1 waranka
+_0M2 hunu
+_0M3 l^una
+
+// unstressed words and/or with pause
+// pronouns
+hayk'a      $u
+ima         $u
+imahina     $u
+imapas      $u
+imayna      $u
+kay         $u
+kikin       $u
+llapan      $u
+machka      $u
+may         $u
+nuqa        $u
+pacha       $u
+pay         $u
+paykuna     $u
+pi          $u
+qam         $u
+qamkuna     $u
+sapay       $u
+tukuy       $u
+ñuqa        $u
+ñuqanchik   $u
+ñuqayku     $u

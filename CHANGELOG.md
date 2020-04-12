@@ -21,6 +21,7 @@ updated languages:
 
 new languages:
 *  uk (Ukrainian) -- Valdis Vitolins
+*  qu (Quechua) -- Valdis Vitolins
 
 ### 1.50 - 2019-11-29
 

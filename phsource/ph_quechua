@@ -1,0 +1,51 @@
+phoneme k`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(ustop/k_ejc, 60)
+endphoneme
+
+phoneme p`
+  vls blb stp
+  voicingswitch b
+  lengthmod 2
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  WAV(ustop/p_asp)
+endphoneme
+
+phoneme q`
+  vls vel stp
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -250 250  f3= -200 80 gpaus f4
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  WAV(vocw/Q2, 100)
+endphoneme
+
+
+phoneme t`
+  vls alv stp
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80 gpaus
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_hi, 70)
+endphoneme
+
+phoneme tS`
+  vls pla afr sib
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=1800 -200 200  f3=-100 80 gpaus
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp, 80)
+  ENDIF
+  WAV(ustop/tsh_asp, 80)
+endphoneme
+
+
