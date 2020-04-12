@@ -447,6 +447,26 @@ char *strchr_w(const char *s, int c)
 	return strchr((char *)s, c); // (char *) is needed for Borland compiler
 }
 
+// append plural suffixes depending on preceding letter
+void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
+{
+	char word_zz[4] = { 0, 'z', 'z', 0 };
+	char word_iz[4] = { 0, 'i', 'z', 0 };
+	char word_ss[4] = { 0, 's', 's', 0 };
+	if (flags & FLAG_HAS_PLURAL) {
+		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
+		if (last_char == 'f')
+			TranslateRules(tr, &word_ss[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+		else if ((last_char == 0) || (strchr_w("hsx", last_char) == NULL))
+			TranslateRules(tr, &word_zz[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+		else
+			TranslateRules(tr, &word_iz[1], word_phonemes, N_WORD_PHONEMES,
+			NULL, 0, NULL);
+	}
+}
+
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
 {
 	int posn = 0;
@@ -1141,25 +1161,6 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 	return dictionary_flags[0];
 }
 
-// append plural suffixes depending on preceding letter
-void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
-{
-	char word_zz[4] = { 0, 'z', 'z', 0 };
-	char word_iz[4] = { 0, 'i', 'z', 0 };
-	char word_ss[4] = { 0, 's', 's', 0 };
-	if (flags & FLAG_HAS_PLURAL) {
-		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
-		if (last_char == 'f')
-			TranslateRules(tr, &word_ss[1], word_phonemes, N_WORD_PHONEMES,
-			NULL, 0, NULL);
-		else if ((last_char == 0) || (strchr_w("hsx", last_char) == NULL))
-			TranslateRules(tr, &word_zz[1], word_phonemes, N_WORD_PHONEMES,
-			NULL, 0, NULL);
-		else
-			TranslateRules(tr, &word_iz[1], word_phonemes, N_WORD_PHONEMES,
-			NULL, 0, NULL);
-	}
-}
 
 int TranslateWord(Translator *tr, char *word_start, WORD_TAB *wtab, char *word_out)
 {
