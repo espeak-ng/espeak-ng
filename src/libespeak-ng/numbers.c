@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2016, 2020 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1149,27 +1149,27 @@ static const char *M_Variant(int value)
 	if (((value % 100) > 10) && ((value % 100) < 20))
 		teens = true;
 
-	switch ((translator->langopts.numbers2 >> 6) & 0x7)
+	switch (translator->langopts.numbers2 & NUM2_THOUSANDS_VAR_BITS)
 	{
-	case 1: // lang=ru  use singular for xx1 except for x11
+	case NUM2_THOUSANDS_VAR1: // lang=ru  use singular for xx1 except for x11
 		if ((teens == false) && ((value % 10) == 1))
 			return "1M";
 		break;
-	case 2: // lang=cs,sk
+	case NUM2_THOUSANDS_VAR2: // lang=cs,sk
 		if ((value >= 2) && (value <= 4))
 			return "0MA";
 		break;
-	case 3: // lang=pl
+	case NUM2_THOUSANDS_VAR3: // lang=pl
 		if ((teens == false) && (((value % 10) >= 2) && ((value % 10) <= 4)))
 			return "0MA";
 		break;
-	case 4: // lang=lt
+	case NUM2_THOUSANDS_VAR4: // lang=lt
 		if ((teens == true) || ((value % 10) == 0))
 			return "0MB";
 		if ((value % 10) == 1)
 			return "0MA";
 		break;
-	case 5: // lang=bs,hr,sr
+	case NUM2_THOUSANDS_VAR5: // lang=bs,hr,sr
 		if (teens == false) {
 			if ((value % 10) == 1)
 				return "1M";
@@ -1590,8 +1590,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 				LookupNum2(tr, hundreds/10, thousandplex, x, ph_digits);
 			}
 
-			if (tr->langopts.numbers2 & 0x200)
-				sprintf(ph_thousands, "%s%c%s%c", ph_10T, phonEND_WORD, ph_digits, phonEND_WORD); // say "thousands" before its number, not after
+			if (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS)
+				sprintf(ph_thousands, "%s%c%s%c", ph_10T, phonEND_WORD, ph_digits, phonEND_WORD);
 			else
 				sprintf(ph_thousands, "%s%c%s%c", ph_digits, phonEND_WORD, ph_10T, phonEND_WORD);
 
@@ -1963,8 +1963,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	}
 
 	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal | decimal_point);
-	if ((thousandplex > 0) && (tr->langopts.numbers2 & 0x200))
-		sprintf(ph_out, "%s%s%c%s%s", ph_zeros, ph_append, phonEND_WORD, ph_buf2, ph_buf); // say "thousands" before its number
+	if ((thousandplex > 0) && (tr->langopts.numbers2 & NUM2_SWAP_THOUSANDS))
+		sprintf(ph_out, "%s%s%c%s%s", ph_zeros, ph_append, phonEND_WORD, ph_buf2, ph_buf);
 	else
 		sprintf(ph_out, "%s%s%s%c%s", ph_zeros, ph_buf2, ph_buf, phonEND_WORD, ph_append);
 
@@ -1977,7 +1977,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			decimal_count++;
 
 		max_decimal_count = 2;
-		switch (decimal_mode = (tr->langopts.numbers & 0xe000))
+		switch (decimal_mode = (tr->langopts.numbers & NUM_DFRACTION_BITS))
 		{
 		case NUM_DFRACTION_4:
 			max_decimal_count = 5;

@@ -448,7 +448,7 @@ char *strchr_w(const char *s, int c)
 }
 
 // append plural suffixes depending on preceding letter
-void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
+static void addPluralSuffixes(int flags, Translator *tr, char last_char, char *word_phonemes)
 {
 	char word_zz[4] = { 0, 'z', 'z', 0 };
 	char word_iz[4] = { 0, 'i', 'z', 0 };
@@ -753,7 +753,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		if (wflags & FLAG_TRANSLATOR2)
 			return 0;
 
-		addPluralSuffixes(wflags, tr, last_char, &word_phonemes);
+		addPluralSuffixes(wflags, tr, last_char, word_phonemes);
 		return dictionary_flags[0] & FLAG_SKIPWORDS; // for "b.c.d"
 	} else if (found == false) {
 		// word's pronunciation is not given in the dictionary list, although
@@ -1026,7 +1026,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
 		}
 	}
 
-	addPluralSuffixes(wflags, tr, last_char, &word_phonemes);
+	addPluralSuffixes(wflags, tr, last_char, word_phonemes);
 	wflags |= emphasize_allcaps;
 
 	// determine stress pattern for this word
