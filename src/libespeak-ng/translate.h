@@ -475,7 +475,7 @@ typedef struct {
 
 	int numbers;
 
-#define NUM2_GROUP_NUMBER_VAR_BITS 0x0000000f // use variant form of numbers before thousands,millions,etc.
+#define NUM2_THOUSANDPLEX_VAR_BITS 0x0000001e // use variant form of numbers before thousands, millions, etc.
 #define NUM2_THOUSANDS_VAR_BITS    0x000001c0 // use different forms of thousand, million, etc (M MA MB)
 #define NUM2_SWAP_THOUSANDS        0x00000200 // say "thousand" and "million" before its number, not after
 #define NUM2_ORDINAL_NO_AND        0x00000800 // don't say 'and' between tens and units for ordinal numbers
@@ -489,10 +489,14 @@ typedef struct {
 #define NUM2_ORDINAL_DROP_VOWEL    0x00080000 // drop final vowel from cardial number before adding ordinal suffix (currently only tens and units)
 #define NUM2_ZERO_TENS             0x00100000 // say zero tens
 
+#define NUM2_THOUSANDPLEX_VAR_THOUSANDS 0x00000002
+#define NUM2_THOUSANDPLEX_VAR_MILLIARDS 0x00000008
+#define NUM2_THOUSANDPLEX_VAR_ALL       0x0000001e
+
 #define NUM2_THOUSANDS_VAR1        0x00000040
 #define NUM2_THOUSANDS_VAR2        0x00000080
 #define NUM2_THOUSANDS_VAR3        0x000000c0
-#define NUM2_THOUSANDS_VAR4        0x00000100
+#define NUM2_THOUSANDS_VAR4        0x00000100 // plural forms for millions, etc.
 #define NUM2_THOUSANDS_VAR5        0x00000140
 
 	int numbers2;
