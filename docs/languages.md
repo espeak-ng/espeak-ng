@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 109 supported languages and accents are:
+The 111 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -94,12 +94,14 @@ The 109 supported languages and accents are:
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazillian             |
+|             | `qu`              |                       | Quechua                     |                        |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
+| `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
