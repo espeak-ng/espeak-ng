@@ -438,7 +438,7 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-#define NUM_ROUTINE_BITS      0x00000003 // which numbers routine to use.
+#define NUM_DEFAULT           0x00000001 // enable number processing; use if no other NUM_ option is specified
 #define NUM_THOUS_SPACE       0x00000004 // thousands separator must be space
 #define NUM_DECIMAL_COMMA     0x00000008 // , decimal separator, not .
 #define NUM_SWAP_TENS         0x00000010 // use three-and-twenty rather than twenty-three

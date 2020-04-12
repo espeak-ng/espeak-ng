@@ -553,7 +553,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.break_numbers = BREAK_LAKH_BN;
 
 		if (name2 == L3('b', 'p', 'y')) {
-			tr->langopts.numbers = 1;
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 		}
 
@@ -568,7 +568,7 @@ Translator *SelectTranslator(const char *name)
 		SetLetterBitsRange(tr, LETTERGP_B, 0x90, 0xbc);
 		SetLetterBitsRange(tr, LETTERGP_C, 0x40, 0x6c); // consonant letters (not subjoined)
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;    // disable check for unpronouncable words
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('c', 'y'): // Welsh
@@ -631,7 +631,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM; // use 'diminished' for unstressed final syllable
 		SetLetterBitsRange(tr, LETTERGP_B, 0x26, 0x30); // vowel signs, and virama
 		tr->langopts.break_numbers = BREAK_LAKH_DV;
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('e', 'n'):
@@ -1133,7 +1133,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('k', 'y'): // Kyrgyx
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 		break;
 	case L('l', 'a'): // Latin
 	{
@@ -1199,7 +1199,7 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x100; // devoice at end of word
 		tr->langopts.stress_rule = STRESSPOSN_2R; // penultimate
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('n', 'l'): // Dutch
@@ -1446,10 +1446,10 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 13; // 1st syllable, unless 1st vowel is short and 2nd is long
 		} else if (name2 == L('k', 'n')) {
 			tr->letter_bits_offset = OFFSET_KANNADA;
-			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers = NUM_DEFAULT;
 		} else if (name2 == L('t', 'e')) {
 			tr->letter_bits_offset = OFFSET_TELUGU;
-			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ORDINAL_DROP_VOWEL;
 		}
 		SetIndicLetters(tr); // call this after setting OFFSET_
@@ -1540,7 +1540,7 @@ Translator *SelectTranslator(const char *name)
 	case L3('s', 'h', 'n'):
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 		tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		break;
 	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
@@ -1564,7 +1564,7 @@ Translator *SelectTranslator(const char *name)
 		if (name2 == L3('z', 'h', 'y')) {
 			tr->langopts.textmode = true;
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
-			tr->langopts.numbers = 1;
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
 			tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		}
