@@ -19,6 +19,9 @@ updated languages:
 *  ur (Urdu) -- Ejaz Shah
 *  zh (Chinese) -- Silas S. Brown
 
+new languages:
+*  uk (Ukrainian) -- Valdis Vitolins
+
 ### 1.50 - 2019-11-29
 
 *  Add a `--disable-rpath` option to prevent libtool hardcoding rpaths in the executable.

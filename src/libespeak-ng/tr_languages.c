@@ -1488,8 +1488,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('u', 'k'): // Ukrainian
 	{
-		SetCyrillicLetters(tr);
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
+		Translator_Russian(tr);
 	}
 		break;
 	case L('u', 'r'): // Urdu

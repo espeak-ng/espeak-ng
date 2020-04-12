@@ -1,0 +1,109 @@
+// This file is UTF8 encoded
+// Translation rules for Ukrainian
+
+// Special characters:
+// A  vowel:                   а е ё и о у ы э ю я ә ө ұ ү і
+// B  soft consonant:          ь й ч щ
+// C  any consonant:           б в г д ж з й к л м н п р с т ф х ц ч ш щ ъ ь қ ң һ
+// F  consonant, not hard:     б в г д з й к л м н п р с т ф х ч щ ь
+// G  voiced:                  б в г д ж з
+// H  hard consonant:          ъ ж ц ш
+// Y  iotated vowel, softsign: ь ю я ё
+
+.group а
+       а       a
+
+.group б
+       б       b
+
+.group в
+       в       v
+
+.group г
+       г       g
+
+.group д
+       д       d
+
+.group е
+       е       e
+
+.group є
+       є       e
+
+.group ж
+       ж       Z
+
+.group з
+       з       z
+
+.group и
+       и       i
+
+.group і
+       і       i
+
+.group ї
+       ї       i
+
+
+.group й
+       й       j
+
+.group к
+       к       k
+
+.group л
+       л       l
+
+.group м
+       м       m
+
+.group н
+       н       n
+
+.group о
+       о       o
+
+.group п
+       п       p
+
+.group р
+       р       r
+
+.group с
+       с       s
+
+.group т
+       т       t
+
+.group у
+       у       u
+
+.group ф
+       ф       f
+
+.group х
+       х       x
+
+.group ц
+       ц       ts
+
+.group ч
+       ч       tS;
+
+.group ш
+       ш       S
+
+.group щ
+       щ       S;
+
+.group ь
+       ь       ;
+
+.group ю
+       ю       ju
+
+.group я
+       я       ja
+

@@ -548,6 +548,7 @@ dictionaries: \
 	espeak-ng-data/tr_dict \
 	espeak-ng-data/tt_dict \
 	espeak-ng-data/ur_dict \
+	espeak-ng-data/uk_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
 	espeak-ng-data/zh_dict \
@@ -833,6 +834,9 @@ espeak-ng-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_ext
 
 tt: espeak-ng-data/tt_dict
 espeak-ng-data/tt_dict: dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
+
+uk: espeak-ng-data/uk_dict
+espeak-ng-data/uk_dict: dictsource/uk_list dictsource/uk_rules dictsource/uk_extra
 
 ur: espeak-ng-data/ur_dict
 espeak-ng-data/ur_dict: dictsource/ur_list dictsource/ur_rules dictsource/ur_extra dictsource/ur_emoji
