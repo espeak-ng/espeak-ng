@@ -304,7 +304,7 @@ if language is compiled with `--compile-debug` option.
 To do this, go to `espeak-ng` project root folder, then:
 
 	cd dictsource
-	../src/espeak-ng --compile-debug=en
+	espeak-ng --compile-debug=en
 
 When invoked in following way:
 
