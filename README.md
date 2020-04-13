@@ -17,7 +17,7 @@ eSpeak NG uses a "formant synthesis" method. This allows many languages to be
 provided in a small size. The speech is clear, and can be used at high speeds,
 but is not as natural or smooth as larger synthesizers which are based on human
 speech recordings. It also supports Klatt formant synthesis, and the ability
-to use [MBROLA](https://github.com/numediart/MBROLA) [voices](https://github.com/numediart/MBROLA-voices).
+to use MBROLA as backend speech synthesizer.
 
 eSpeak NG is available as:
 
