@@ -1,6 +1,7 @@
 # eSpeak NG Text-to-Speech
 
 - [Features](#features)
+- [Supported languages](docs/languages.md)
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [History](#history)
@@ -9,7 +10,7 @@
 
 The eSpeak NG is a compact open source software text-to-speech synthesizer for 
 Linux, Windows, Android and other operating systems. It supports 
-[107 languages and accents](docs/languages.md). It is based on the eSpeak engine
+[more than 100 languages and accents](docs/languages.md). It is based on the eSpeak engine
 created by Jonathan Duddington.
 
 eSpeak NG uses a "formant synthesis" method. This allows many languages to be
