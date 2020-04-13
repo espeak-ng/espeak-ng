@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 111 supported languages and accents are:
+The 112 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
