@@ -97,15 +97,15 @@ such as:
 
 To add new language, you have to create or edit following files:
 
-|path/file                     |action  |
-|------------------------------|--------|
-| Makefile.am                  |edit    |
-| phsource/phonemes            |edit    |
-| phsource/ph_french           |create (optional) |
-| dictsource/fr_list           |create  |
-| dictsource/fr_rules          |create  |
-| dictsource/fr_extra          |create (optional) |
-| espeak-ng-data/lang/roa/fr   |create  |
+|path/file                     |action                       |
+|------------------------------|-----------------------------|
+| Makefile.am                  |[edit](#makefileam-file)     |
+| phsource/phonemes            |[edit](#phonemes-file)       |
+| phsource/ph_french           |[create](#phoneme-definition-file) (optional) |
+| dictsource/fr_list           |[create](#dictionary-files)  |
+| dictsource/fr_rules          |[create](#dictionary-files)  |
+| dictsource/fr_extra          |create (optional)            |
+| espeak-ng-data/lang/roa/fr   |[create](#language-file)     |
 
 where:
 
