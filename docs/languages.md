@@ -31,6 +31,7 @@ The 111 supported languages and accents are:
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
 | `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
+| `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian                    |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |

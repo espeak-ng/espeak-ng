@@ -20,6 +20,7 @@ updated languages:
 *  zh (Chinese) -- Silas S. Brown
 
 new languages:
+*  haw (Hawaiian) -- Valdis Vitolins
 *  uk (Ukrainian) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 

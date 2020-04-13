@@ -1,0 +1,115 @@
+.replace
+       â        ā
+       ê        ē
+       î        ī
+       ô        ō
+       û        ū
+       `        '
+       ‘        '
+       ’        '
+       ʻ        '
+
+.L20   a o u
+.L40   i e
+
+.group a
+       a        a
+
+.group e
+       e        e
+
+.group i
+       i        i
+
+.group o
+       o        o
+
+.group u
+       u        u
+
+.group ā
+       ā        'a:
+
+.group ē
+       ē        'e:
+
+.group ī
+       ī        'i:
+
+.group ō
+       ō        'o:
+
+.group ū
+       ū        'u:
+
+.group ai
+       ai       ai
+
+.group ae
+       ae       ae
+
+.group ao
+       ao       ao
+
+.group au
+       au       au
+
+.group ei
+       ei       ei
+
+.group eu
+       eu       eu
+
+.group iu
+       iu       iu
+
+.group oi
+       oi       oi
+
+.group ou
+       ou       ou
+
+.group ui
+       ui       ui
+
+.group h
+       h        h
+
+.group k
+       k        k
+
+.group l
+       l        l
+
+.group m
+       m        m
+
+.group n
+       n        n
+
+.group p
+       p        p
+
+.group v
+       v        v
+
+.group w
+       w (L20   w
+       w (L40   v
+
+.group '
+       '        _! // short non-breking pause instead of standard ? glottal stop
+
+
+// other Latin letters, to not switch to standard English during pronunciation
+.group
+       b        b
+       c        ts
+       d        d
+       f        f
+       g        g
+       q        k
+       r        r
+       s        s
+       t        t
+       z        z

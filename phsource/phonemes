@@ -1722,6 +1722,9 @@ include ph_guarani
 phonemetable hak base1
 include ph_hakka
 
+phonemetable haw base1
+include ph_hawaiian
+
 phonemetable hi_base base1
 include ph_hindi_base
 

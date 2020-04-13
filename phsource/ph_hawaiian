@@ -1,0 +1,236 @@
+phoneme a
+  vwl starttype #a endtype #a
+  length 130
+  FMT(vwl_lv/a, 100)
+endphoneme
+
+phoneme a:
+  vwl starttype #a endtype #a
+  length 310
+  lng
+  FMT(vwl_lv/aa, 90)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 120
+  FMT(vwl_lv/e, 100)
+endphoneme
+
+phoneme e:
+  vwl starttype #e endtype #e
+  length 300
+  FMT(vwl_lv/ee, 100)
+endphoneme
+
+phoneme i
+  vwl starttype #i endtype #i
+  length 120
+  FMT(vwl_lv/i, 110)
+endphoneme
+
+phoneme i:
+  vwl starttype #i endtype #i
+  length 280
+  FMT(vwl_lv/ii, 90)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 120
+  FMT(vwl_lv/o, 90)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  length 300
+  FMT(vwl_lv/oo, 75)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 120
+  FMT(vwl_lv/u, 100)
+endphoneme
+
+phoneme u:
+  vwl starttype #u endtype #u
+  length 300
+  FMT(vwl_lv/uu, 90)
+endphoneme
+
+phoneme ai
+  vwl starttype #a endtype #i
+  length 280
+  lng
+  FMT(vdiph/aai, 100)
+endphoneme
+
+phoneme au
+  vwl starttype #a endtype #u
+  length 300
+  lng
+  FMT(vdiph/aau, 100)
+endphoneme
+
+phoneme ei
+  vwl starttype #e endtype #i
+  length 280
+  lng
+  FMT(vdiph/eei_2, 100)
+endphoneme
+
+phoneme ie
+  vwl starttype #i endtype #e
+  length 250
+  lng
+  FMT(vdiph2/ie_2, 100)
+endphoneme
+
+phoneme iu
+  vwl starttype #i endtype #u
+  length 250
+  lng
+  FMT(vdiph2/iu_2, 100)
+endphoneme
+
+phoneme ui
+  vwl starttype #u endtype #i
+  length 250
+  lng
+  FMT(vdiph/ui, 100)
+endphoneme
+
+phoneme uo
+  vwl starttype #u endtype #a
+  length 280
+  lng
+  FMT(vdiph2/ua, 110)
+endphoneme
+
+phoneme oi
+  vwl starttype #o endtype #i
+  length 250
+  lng
+  FMT(vdiph/ooi, 100)
+endphoneme
+
+phoneme k
+  vls vel stp
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_)
+  ENDIF
+  IF nextPh(#i) OR nextPh(l^) THEN
+    WAV(ustop/ki)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_unasp, 60)
+endphoneme
+
+phoneme l
+  liquid
+
+  IF nextPh(isNotVowel) THEN
+    PrevVowelEndings
+      VowelEnding(l/L1_@L)
+      VowelEnding(l/L1_aL)
+      VowelEnding(l/L1_eL)
+      VowelEnding(l/L1_iL)
+      VowelEnding(l/L1_oL)
+      VowelEnding(l/L1_uL)
+    EndSwitch
+
+    FMT(l/l_)
+    RETURN
+  ENDIF
+
+  CALL vowelstart_l
+
+  IF prevPh(a) OR prevPh(a:) THEN
+    VowelEnding(l/xl, 20)
+  ELSEIF prevPh(isVowel) THEN
+    VowelEnding(l/xl, 10)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(l/_l)
+  ENDIF
+
+  IF prevPh(t) THEN
+    FMT(l/tl)
+  ENDIF
+
+  IF prevPh(l/) THEN
+    FMT(l/l_long)
+  ENDIF
+
+  FMT(l/l)
+endphoneme
+
+phoneme m
+  vcd blb nas
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/m_)
+    ENDIF
+    FMT(klatt/m)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(m/m@)
+    VowelStart(m/ma)
+    VowelStart(m/me)
+    VowelStart(m/mi)
+    VowelStart(m/mo)
+    VowelStart(m/mu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(m/mj)
+  ELIF prevPh(isPause) THEN
+    FMT(m/_m)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(m/m_)
+  ELIF nextPh(m) THEN
+    FMT(m/mj)
+  ENDIF
+endphoneme
+
+phoneme p
+  vls blb stp
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_unasp_, 80)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/pl)
+  ENDIF
+  WAV(ustop/p_unasp, 120)
+endphoneme
+
+phoneme v
+  vcd lbd frc
+  ipa ʋ
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF nextPh(isPause2) THEN
+    FMT(voc/v#_)
+  ENDIF
+  FMT(voc/v#)
+endphoneme
+
