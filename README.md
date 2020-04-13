@@ -37,7 +37,7 @@ eSpeak NG is available as:
 *  SSML (Speech Synthesis Markup Language) is supported (not complete),
    and also HTML.
 *  Compact size.  The program and its data, including many languages,
-   totals about 1.4 Mbytes.
+   totals about few Mbytes.
 *  Can be used as a front-end to [MBROLA diphone voices](docs/mbrola.md).
    eSpeak NG converts text to phonemes with pitch and length information.
 *  Can translate text into phoneme codes, so it could be adapted as a
