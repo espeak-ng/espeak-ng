@@ -100,12 +100,12 @@ To add new language, you have to create or edit following files:
 |path/file                     |action                       |
 |------------------------------|-----------------------------|
 | Makefile.am                  |[edit](#makefileam-file)     |
+| espeak-ng-data/lang/roa/fr   |[create](#language-file)     |
 | phsource/phonemes            |[edit](#phonemes-file)       |
 | phsource/ph_french           |[create](#phoneme-definition-file) (optional) |
 | dictsource/fr_list           |[create](#dictionary-files)  |
 | dictsource/fr_rules          |[create](#dictionary-files)  |
 | dictsource/fr_extra          |create (optional)            |
-| espeak-ng-data/lang/roa/fr   |[create](#language-file)     |
 
 where:
 
@@ -139,6 +139,32 @@ Optionally, if you have [phoneme definition file](#phoneme-definition-file), fol
 	...
 	phsource/ph_french \
 	...
+
+### Language File
+
+E.g. `espeak-ng-data/lang/roa/fr` is the language file for French.
+This gives the language name and may set some options.
+
+Each language needs a language file in `espeak-ng-data/lang` grouped by the
+[language family](#language-family). The filename of the default voice for a
+language should be the same as the language code (e.g. `fr` for French).
+
+The simplest voice file would contain just 2 lines to give the language
+name (from the
+[IANA Language Subtag Registry](https://github.com/rhdunn/bcp47-data/blob/master/language-subtag-registry)
+and language code, e.g.:
+
+	name French
+	language fr
+
+This language code specifies which phoneme table and dictionary to use
+(i.e. `phonemetable fr` and `espeak-ng-data/fr_dict`) to be used. If
+needed, these can be overridden by `phonemes` and `dictionary`
+attributes in the voice file. For example you may want to start the
+implementation of a new language by using the phoneme table of an
+existing language.
+
+Details of the contents of language files are given in [Voices](voices.md).
 
 ### Phonemes File
 
@@ -182,32 +208,6 @@ For example, if `phsource/phonemes` has following lines:
 it defines a phoneme table `fr` which inherits phoneme definitions from
 `base` table and adds new definitions or overrides existing
 definitions of `base` phonemes from the `phonemes/ph_french` file.
-
-### Language File
-
-E.g. `espeak-ng-data/lang/roa/fr` is the language file for French.
-This gives the language name and may set some options.
-
-Each language needs a language file in `espeak-ng-data/lang` grouped by the
-[language family](#language-family). The filename of the default voice for a
-language should be the same as the language code (e.g. `fr` for French).
-
-The simplest voice file would contain just 2 lines to give the language
-name (from the
-[IANA Language Subtag Registry](https://github.com/rhdunn/bcp47-data/blob/master/language-subtag-registry)
-and language code, e.g.:
-
-	name French
-	language fr
-
-This language code specifies which phoneme table and dictionary to use
-(i.e. `phonemetable fr` and `espeak-ng-data/fr_dict`) to be used. If
-needed, these can be overridden by `phonemes` and `dictionary`
-attributes in the voice file. For example you may want to start the
-implementation of a new language by using the phoneme table of an
-existing language.
-
-Details of the contents of language files are given in [Voices](voices.md).
 
 ### Phoneme Definition File
 
