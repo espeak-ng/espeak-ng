@@ -308,7 +308,6 @@ phsource/phonemes.stamp: \
 	phsource/ph_basque \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
-	phsource/ph_myanmar \
 	phsource/ph_catalan \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
@@ -362,6 +361,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_manipuri \
 	phsource/ph_maori \
 	phsource/ph_marathi \
+	phsource/ph_myanmar \
 	phsource/ph_nahuatl \
 	phsource/ph_nepali \
 	phsource/ph_northern-sotho \
@@ -550,8 +550,8 @@ dictionaries: \
 	espeak-ng-data/tn_dict \
 	espeak-ng-data/tr_dict \
 	espeak-ng-data/tt_dict \
-	espeak-ng-data/ur_dict \
 	espeak-ng-data/uk_dict \
+	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
 	espeak-ng-data/zh_dict \
@@ -632,18 +632,6 @@ espeak-ng-data/fi_dict: dictsource/fi_list dictsource/fi_rules dictsource/fi_ext
 fr: espeak-ng-data/fr_dict
 espeak-ng-data/fr_dict: dictsource/fr_list dictsource/fr_rules dictsource/fr_extra dictsource/fr_emoji
 
-hak: espeak-ng-data/hak_dict
-espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak_extra
-
-haw: espeak-ng-data/haw_dict
-espeak-ng-data/haw_dict: dictsource/haw_list dictsource/haw_rules dictsource/haw_extra
-
-he: espeak-ng-data/he_dict
-espeak-ng-data/he_dict: dictsource/he_list dictsource/he_rules dictsource/he_extra
-
-ht: espeak-ng-data/ht_dict
-espeak-ng-data/ht_dict: dictsource/ht_list dictsource/ht_rules dictsource/ht_extra
-
 ga: espeak-ng-data/ga_dict
 espeak-ng-data/ga_dict: dictsource/ga_list dictsource/ga_rules dictsource/ga_extra dictsource/ga_emoji
 
@@ -659,11 +647,23 @@ espeak-ng-data/grc_dict: dictsource/grc_list dictsource/grc_rules dictsource/grc
 gu: espeak-ng-data/gu_dict
 espeak-ng-data/gu_dict: dictsource/gu_list dictsource/gu_rules dictsource/gu_extra dictsource/gu_emoji
 
+hak: espeak-ng-data/hak_dict
+espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak_extra
+
+haw: espeak-ng-data/haw_dict
+espeak-ng-data/haw_dict: dictsource/haw_list dictsource/haw_rules dictsource/haw_extra
+
+he: espeak-ng-data/he_dict
+espeak-ng-data/he_dict: dictsource/he_list dictsource/he_rules dictsource/he_extra
+
 hi: espeak-ng-data/hi_dict
 espeak-ng-data/hi_dict: dictsource/hi_list dictsource/hi_rules dictsource/hi_extra dictsource/hi_emoji
 
 hr: espeak-ng-data/hr_dict
 espeak-ng-data/hr_dict: dictsource/hr_list dictsource/hr_rules dictsource/hr_extra dictsource/hr_emoji
+
+ht: espeak-ng-data/ht_dict
+espeak-ng-data/ht_dict: dictsource/ht_list dictsource/ht_rules dictsource/ht_extra
 
 hu: espeak-ng-data/hu_dict
 espeak-ng-data/hu_dict: dictsource/hu_list dictsource/hu_rules dictsource/hu_extra dictsource/hu_emoji
@@ -683,11 +683,11 @@ espeak-ng-data/is_dict: dictsource/is_list dictsource/is_rules dictsource/is_ext
 it: espeak-ng-data/it_dict
 espeak-ng-data/it_dict: dictsource/it_list dictsource/it_listx dictsource/it_rules dictsource/it_extra dictsource/it_emoji
 
-jbo: espeak-ng-data/jbo_dict
-espeak-ng-data/jbo_dict: dictsource/jbo_list dictsource/jbo_rules dictsource/jbo_extra
-
 ja: espeak-ng-data/ja_dict
 espeak-ng-data/ja_dict: dictsource/ja_list dictsource/ja_rules dictsource/ja_extra dictsource/ja_emoji
+
+jbo: espeak-ng-data/jbo_dict
+espeak-ng-data/jbo_dict: dictsource/jbo_list dictsource/jbo_rules dictsource/jbo_extra
 
 ka: espeak-ng-data/ka_dict
 espeak-ng-data/ka_dict: dictsource/ka_list dictsource/ka_rules dictsource/ka_extra dictsource/ka_emoji
