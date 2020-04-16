@@ -15,7 +15,7 @@ h	hE
 ı	@
 i	i
 j	ZE
-k	ka
+k	kE
 l	lE
 m	mE
 n	nE
@@ -162,6 +162,7 @@ tihv	$abbrev
 tmmob	$abbrev
 tmo	$abbrev
 tpao	$abbrev
+trt	$abbrev
 tsi	$abbrev
 tsyd	$abbrev
 tse	$abbrev
@@ -205,94 +206,3 @@ ta	$u $only
 te	$u $only
 
 ile	$u $only
-
-
-// EXCEPTIONS
-merhaba		$1
-
-// If the word has a prefix for strengthening the meaning of the word, stress
-// is at the prefix:
-banka $1
-bembeyaz $1
-dosdoğru $1
-dümdüz $1
-kıpkırmızı $1
-kıskıvrak $1
-masmavi $1
-mosmor $1
-pespembe $1
-posta $1
-radyo $1
-sapsarı $1
-sımsıcak $1
-simsiyah $1
-
-// Names
-Hitler $1
-
-// Place Names
-// For place names with two syllables stress is at first syllable:
-// For Place names that has three or more syllables, generally stress is at
-// the syllable which has more letters or at the syllable which ends with a consonant:
-Afyon $1
-Ağrı $1
-Almanya $2
-Amasya $2
-Ankara $1
-Antalya $2
-Artvin $1
-Avrupa $1
-Aydın $1
-Bartın $1
-Batman $1
-Bayburt $1
-Bingöl $1
-Bitlis $1
-Bodrum $1
-Bolu $1
-Burdur $1
-Bursa $1
-Çanakkale $2
-Çankırı $1
-Çorum $1
-Denizli $2
-Düzce $1
-Edirne $2
-Hakkari $1
-Hatay $1
-ığdır $1
-ingiltere $3
-iskenderun $2 
-Isparta $2
-istanbul $2
-isveç $1
-izmir $1
-Kastamonu $1
-Kayseri $1
-Kilis $1
-Kırklareli $1
-Konya $1
-Kurtuluş $1
-Kütahya $2
-Malatya $2
-Mardin $1
-Mersin $1
-Mudanya $2
-Muğla $1
-Niğde $1
-Ordu $1
-Pütürge $2
-Rize $1
-Sakarya $2
-Samsun $1
-Siirt $1
-Sinop $1
-Şırnak $1
-Sivas $1
-Tekirdağ $2
-Tokat $1
-Tunceli $1
-Ukrayna $2
-Urfa $1
-Uşak $1
-Yozgat $1

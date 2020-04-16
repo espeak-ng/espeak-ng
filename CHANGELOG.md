@@ -16,6 +16,7 @@ updated languages:
 *  en (English) -- Steven Presser
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
+*  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
 *  zh (Chinese) -- Silas S. Brown
 
