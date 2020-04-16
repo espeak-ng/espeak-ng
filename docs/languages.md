@@ -62,6 +62,7 @@ The 112 supported languages and accents are:
 | `sai`       | `gn`              | South American Indian | Guarani                     |                        |
 | `inc`       | `gu`              | Indic                 | Gujarati                    |                        |
 | `roa`       | `ht`              | Romance               | Hatian Creole               |                        |
+| `sem`       | `he`              | Semitic               | Hebrew                      |                        |
 | `inc`       | `hi`              | Indic                 | Hindi                       |                        |
 | `urj`       | `hu`              | Uralic                | Hungarian                   |                        |
 | `gmq`       | `is`              | North Germanic        | Icelandic                   |                        |

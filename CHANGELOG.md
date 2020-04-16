@@ -21,6 +21,7 @@ updated languages:
 
 new languages:
 *  haw (Hawaiian) -- Valdis Vitolins
+*  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  uk (Ukrainian) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 

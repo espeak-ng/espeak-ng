@@ -490,6 +490,7 @@ dictionaries: \
 	espeak-ng-data/gu_dict \
 	espeak-ng-data/hak_dict \
 	espeak-ng-data/haw_dict \
+	espeak-ng-data/he_dict \
 	espeak-ng-data/hi_dict \
 	espeak-ng-data/hr_dict \
 	espeak-ng-data/ht_dict \
@@ -636,6 +637,9 @@ espeak-ng-data/hak_dict: dictsource/hak_list dictsource/hak_rules dictsource/hak
 
 haw: espeak-ng-data/haw_dict
 espeak-ng-data/haw_dict: dictsource/haw_list dictsource/haw_rules dictsource/haw_extra
+
+he: espeak-ng-data/he_dict
+espeak-ng-data/he_dict: dictsource/he_list dictsource/he_rules dictsource/he_extra
 
 ht: espeak-ng-data/ht_dict
 espeak-ng-data/ht_dict: dictsource/ht_list dictsource/ht_rules dictsource/ht_extra

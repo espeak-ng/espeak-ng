@@ -1,0 +1,438 @@
+.replace
+׳	'
+
+.group א
+       א        ?
+       אַ        a
+       אַי        ai
+       אֵ        e
+       אֶ        e
+       אֶי        ei
+       אְ        ?
+       אִ        i
+       אוֹ        o
+       אוֹי        oi
+       אי        i
+       אוּ        u
+       אוּי        ui
+       אָ        o
+       אָ        a
+
+.group ב
+       ב        v
+       בַ        va
+       בֵ        ve
+       בֶ        ve
+       בְ        v
+       בִ        vi
+       בוֹ        vo
+       בי        vi
+       בוּ        vu
+       בׇ        vo
+       בָ        va
+       בּ        b
+       בַּ        ba
+       בֵּ        be
+       בֶּ        be
+       בְּ        b
+       בִּ        bi
+       בּוֹ        bo
+       בּי        bi
+       בּוּ        bu
+       בׇּ        bo
+       בָּ        ba
+
+.group ג
+       ג        g
+       גַ        ga
+       גֵ        ge
+       גֶ        ge
+       גְ        g
+       גִ        gi
+       גוֹ        go
+       גי        gi
+       גוּ        gu
+       גׇ        go
+       גָ        ga
+       ג'        dZ
+       גַ'        dZa
+       גֵ'        dZe
+       גֶ'        dZe
+       גְ'        dZ
+       גִ'        dZi
+       ג'וֹ        dZo
+       ג'י        dZi
+       ג'וּ        dZu
+       גׇ'       dZo
+       גָ'       dZa
+
+.group ד
+       ד        d
+       דַ        da
+       דֵ        de
+       דֶ        de
+       דְ        d
+       דִ        di
+       דוֹ        do
+       די        di
+       דוּ        du
+       דׇ        do
+       דָ        da
+       דּ        d
+       ד'        D
+       דַ'        Da
+       דֵ'        De
+       דֶ'        De
+       דְ'        D
+       דִ'        Di
+       ד'וֹ        Do
+       ד'י        Di
+       ד'וּ        Du
+       דׇ'        Do
+       דָ'        Da
+
+.group ה
+       ה        ?
+       הַ        a
+       הֵ        e
+       הֶ        e
+       הְ        h
+       הִ        i
+       הוֹ        o
+       הי        i
+       הוּ        u
+       הׇ        o
+       הָ        a
+
+.group ו
+       ו        v
+       וּ        u
+       _)וּ        u
+       וֹ        o
+       _) וֹ        o
+       וו        w
+
+.group ז
+       ז        z
+       זַ        za
+       זֵ        ze
+       זֶ        ze
+       זְ        z
+       זִ        zi
+       זוֹ        zo
+       זי        zi
+       זוּ        zu
+       זׇ        zo
+       זָ        za
+       ז'        Z
+       זַ'        Za
+       זֵ'        Ze
+       זֶ'        Ze
+       זְ'        Z
+       זִ'        Zi
+       ז'וֹ        Zo
+       ז'י        Zi
+       ז'וּ        Zu
+       זׇ'        Zo
+       זָ'        Za
+
+.group ח
+       ח        X
+       חַ        aX
+       חֵ        Xe
+       חֶ        Xe
+       חְ        X
+       חִ        Xi
+       חוֹ        Xo
+       חי        Xi
+       חוּ        Xu
+       חׇ        Xo
+       חָ        Xa
+
+.group ט
+       ט        t
+       טַ        ta
+       טֵ        te
+       טֶ        te
+       טְ        t
+       טִ        ti
+       טוֹ        to
+       טי        ti
+       טוּ        tu
+       טׇ        to
+       טָ        ta
+
+.group י
+       י        j
+       יִ        i
+       יוּ        ju
+
+.group כ
+       כ        X
+       כַ        Xa
+       כֵ        Xe
+       כֶ        Xe
+       כְ        X
+       כִ        Xi
+       כוֹ        Xo
+       כי        Xi
+       כוּ        Xu
+       כׇ        Xo
+       כָ        Xa
+       כּ        k
+       כַּ        ka
+       כֵּ        ke
+       כֶּ        ke
+       כְּ        k
+       כִּ        ki
+       כּוֹ        ko
+       כּי        ki
+       כּוּ        ku
+       כׇּ        ko
+       כָּ        ka
+
+.group ך
+       ך        X
+
+.group ל
+       ל        l
+       לַ        la
+       לֵ        le
+       לֶ        le
+       לְ        l
+       לִ        li
+       לוֹ        lo
+       לי        li
+       לוּ        lu
+       לׇ        lo
+       לָ        la
+
+.group מ
+       מ        m
+       מַ        ma
+       מֵ        me
+       מֶ        me
+       מְ        m
+       מִ        mi
+       מוֹ        mo
+       מי        mi
+       מוּ        mu
+       מׇ        mo
+       מָ        ma
+
+.group ם
+       ם        m
+
+.group נ
+       נ        n
+       נַ        na
+       נֵ        ne
+       נֶ        ne
+       נְ        n
+       נִ        ni
+       נוֹ        no
+       ני        ni
+       נוּ        nu
+       נׇ        no
+       נָ        na
+       נג        N
+
+.group ן
+       ן        n
+
+.group ס
+       ס        s
+       סַ        sa
+       סֵ        se
+       סֶ        se
+       סְ        s
+       סִ        si
+       סוֹ        so
+       סי        si
+       סוּ        su
+       סׇ        so
+       סָ        sa
+
+.group ע
+       ע        ?
+       עַ        aa
+       עַי        ai
+       עֵ        e
+       עֶ        e
+       עֶי        ei
+       עְ        ?
+       עִ        i
+       עוֹ        o
+       עוֹי        oi
+       עי        i
+       עוּ        u
+       עוּי        ui
+       עָ        o
+       עָ        a
+
+.group פ
+       פ        f
+       פַ        fa
+       פֵ        fe
+       פֶ        fe
+       פְ        f
+       פִ        fi
+       פוֹ        fo
+       פי        fi
+       פוּ        fu
+       פׇ        fo
+       פָ        fa
+       פּ        p
+       פַּ        pa
+       פֵּ        pe
+       פֶּ        pe
+       פְּ        p
+       פִּ        pi
+       פּוֹ        po
+       פּי        pi
+       פּוּ        pu
+       פׇּ        po
+       פָּ        pa
+
+.group ף
+       ף        f
+
+.group צ
+       צ        ts
+       צַ        tsa
+       צֵ        tse
+       צֶ        tse
+       צְ        ts
+       צִ        tsi
+       צוֹ        tso
+       צי        tsi
+       צוּ        tsu
+       צׇ        tso
+       צָ        tsa
+       צ'        tS
+       צַ'        tSa
+       צֵ'        tSe
+       צֶ'        tSe
+       צְ'        tS
+       צִ'        tSi
+       צ'וֹ        tSo
+       צ'י        tSi
+       צ'וּ        tSu
+       צׇ'        tSo
+       צָ'        tSa
+
+.group ץ
+       ץ        ts
+       ץ'        tS
+
+.group ק
+       ק        k
+       קַ        ka
+       קֵ        ke
+       קֶ        ke
+       קְ        k
+       קִ        ki
+       קוֹ        ko
+       קי        ki
+       קוּ        ku
+       קׇ        ko
+       קָ        ka
+
+.group ר
+       ר        Q"
+       רַ        Q"a
+       רֵ        Q"e
+       רֶ        Q"e
+       רְ        Q"
+       רִ        Q"i
+       רוֹ        Q"o
+       רי        Q"i
+       רוּ        Q"u
+       רׇ        Q"o
+       רָ        Q"a
+
+.group ש
+       ש        S
+       שׁ        S
+       שַׁ        Sa
+       שֵׁ        Se
+       שֶׁ        Se
+       שְׁ        S
+       שִׁ        Si
+       שׁוֹ        So
+       שׁי        Si
+       שׁוּ        Su
+       שׇׁ        So
+       שָׁ        Sa
+       שׂ        s
+       שַׂ        sa
+       שֵׂ        se
+       שֶׂ        se
+       שְׂ        s
+       שִׂ        si
+       שׂוֹ        so
+       שׂי        si
+       שׂוּ        su
+       שׇׂ        so
+       שָׂ        sa
+
+.group ת
+       ת        t
+       תַ        ta
+       תֵ        te
+       תֶ        te
+       תְ        t
+       תִ        ti
+       תוֹ        to
+       תי        ti
+       תוּ        tu
+       תׇ        to
+       תָ        ta
+       תּ        t
+       ת'        T
+       תַ'        Ta
+       תֵ'        Te
+       תֶ'        Te
+       תְ'        T
+       תִ'        Ti
+       ת'וֹ        To
+       ת'י        Ti
+       ת'וּ        Tu
+       תׇ'        To
+       תָ'        Ta
+
+.group ׇ
+	ׇ	o
+
+
+.group ָ
+	ָ	a
+
+
+.group ַ
+	ַ	a
+
+
+.group ֵ
+	ֵ	e
+
+
+.group ֶ
+	ֶ	e
+
+
+.group ְ
+	ְ	
+
+
+.group ִ
+	ִ	i
+
+.group ֳ
+	ֳ	a
+
+.group ֲ
+	ֲ	a
+
+.group ֻ
+	ֻ	u
