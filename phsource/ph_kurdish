@@ -58,20 +58,19 @@ phoneme o
   FMT(vowel/o_7)
 endphoneme
 
+phoneme p#   // more aspiration
+  import_phoneme consonants/ph
+endphoneme
 
 phoneme U
   vwl starttype #u endtype #u
-  length 130
-  FMT(vowel/uu#)
+  length 120
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
+
+  FMT(vowel/uu_2)
 endphoneme
-
-
-phoneme u
-  vwl starttype #u endtype #u
-  length 200
-  FMT(vowel/u_6)
-endphoneme
-
 
 phoneme y
   vwl starttype #u endtype #u

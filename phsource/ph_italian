@@ -1,4 +1,4 @@
-﻿
+
 //====================================================
 //  Italian, last update may 31 2018 by Chris <llajta2012@gmail.com>
 //====================================================
@@ -242,11 +242,11 @@ endphoneme
 phoneme ss
   vls alv frc sib
   voicingswitch z
-  lengthmod 6
-  Vowelin  f1=2  f2=1700 -300 300  f3=-100 80
-  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-  length 170
-  WAV(ufric/s, 86)
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 90
+  Vowelout f1=2  f2=1700 -200 250  f3=-100 60  rms=20
+  length 140
+  WAV(ufric/s, 75)
 endphoneme
 
 phoneme v

@@ -1,4 +1,4 @@
-﻿
+
 // ***************************************************************************
 // *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -53,6 +53,7 @@
         au         aU
         auh (_     aU
         auer	aU3
+    mold) auisch	aUIS
 
         ab (t_     A:p
         ag (t_     A:k
@@ -79,6 +80,7 @@
      _) abzu (@P4  'aptsu:
      _) ac (et     ats
      _) ad (ju     at
+        afgh	afg
      _) an (@P2    'an
      _) an (a      %an
      _) a (natioP1 'A:
@@ -96,6 +98,8 @@
      _) an (nL03hP2 'an
      _) anti (@P4  ,antI
      _) an (tw     an
+        apo (thek	apo:
+    emp) athisch	A:tIS
      _) auf (@P3   _!'aUf
      _) aus (@P3   _!'aUs
      _) aus (ku    aUs
@@ -153,7 +157,7 @@
         a (rch_    'A:
      @) at (_      'A:t
      @) atisch (_S6 'A:tIS
-     @) atisieren (_S9 A:tIs'i:r@n
+     @) atisieren (_S9 A:ti:z'i:r@n
         a (tion    a
      _) ato (m     %ato:
      _) au (Ceinand aU
@@ -185,6 +189,7 @@ r     p) ay         EI
      _) beige (_   be:S
      _) beige (@   baIg@
      _) be (inhP2  b@
+        bet (_	b'e:t
 
      _) ba (lA     b%a
      _) ba (ll@    b%a
@@ -215,6 +220,8 @@ r     p) ay         EI
 
     _o) b (C       p
         baby       _^_EN
+        bela (rus	%bEl%a
+        bergisch	bErgIS
         beten      be:t@n
         bestimm	%b@StIm
      _) bike       _^_EN
@@ -241,7 +248,7 @@ r     p) ay         EI
     fa) c (et      ts
      _) cey        tsaI
         chef (_    SEf
-     _) c (ent     ts
+     _) c (ent     s
         c (ie      s
    pla) c (ie      ts
         coat (_    _^_EN
@@ -300,6 +307,7 @@ r     p) ay         EI
         d (L02     t
         d (sA      d
         ds (_      ts
+     _) dsch	dZ
         dt         t
         ddt        t
   soun) d          d
@@ -355,6 +363,7 @@ r     p) ay         EI
 .group e
      _) e (_       e:
         e          e:
+     &) eau (_	'o:
         ee         e:
         eh (+      e:
 
@@ -417,7 +426,9 @@ r     p) ay         EI
      &) eres (_S4  @r@s
         er (d_     e:r
      &) er (r_     E
-     w) er (k_     Er
+        er (g     Er
+        erg  (_ Erg
+        erk (_     Erk
      &) erin (_    @rIn
      &) erisch (_  @rIS
    exp) er (t      Er
@@ -460,7 +471,7 @@ r     p) ay         EI
      _) elen       e:lEn
    mod) e (l@      E
      s) e (lig     e:
-     _) emp (@P3   _|%Emp
+     _) emp (@   %Emp
      _) emph (@    %Emf
      _) emp (ir    %Emp
     br) ems        Ems       // brems-t, not brem-st
@@ -556,6 +567,7 @@ r     p) ay         EI
  massa) g          Z
         gabe	gA:b@
      @) ght (_     _^_EN
+        gleich	glaIC
         graph      grAf
         graph (_   gr'A:f
         green      _^_EN
@@ -673,6 +685,8 @@ r     p) ay         EI
         i (erin    =i:
      @) ig (+      Ig#       // [ig] or [iC]
         igh (K     _^_EN
+        ine (_	'i:n@
+        inen (_	i:n@n
 
         i (i       i:_!
 
@@ -707,6 +721,8 @@ r     p) ay         EI
      @) is (_      Is
      &) isch (_    =IS
         is (mus_   'Is
+        istan	=IstA:n
+        istisch (_	'IstIS
      @) ist (_     'Ist
      @) it (_N     'It
      @) ite (_     'i:t@
@@ -805,6 +821,7 @@ formal) ie         =I@
         lady       _^_EN
      _) land (C@P4 l'ant
      _) landes (@P6 l'and@s
+     &) ländisch	l,EndIS
      _) lang (C@P4 l'aN
      _) lang (t@   l'aN
         langsam    l'aNzA:m
@@ -834,6 +851,7 @@ formal) ie         =I@
      &) lichstes (_S8 l2ICst@s
      &) lichkeit (_S8 l2ICkaIt
      &) lichung (_S7 l2IC%UN
+        load	_^_EN
      @) lo (gisch  l'o:
         dia) log	lo:g
      _) luft (CP4  l'Uft
@@ -894,6 +912,7 @@ formal) ie         =I@
         nieder     ni:d3
         nord (L04st n%Ort
         nord (west n%Ort
+        notwend	no:tvEnd
         nuance     ny:'A~s@
 
 .group o
@@ -968,6 +987,9 @@ formal) ie         =I@
         papier	pap'i:r
      _) para (@    p,ara
         passagie   pasaZ'i:
+        path (_	p'At
+        pathin (_	p'AtIn
+        pathisch (_	p'A:tIS
      _) peri       p,e:ri:
      _) perio      p,e:rIo:
      _) periphe    p,e:ri:fe:
@@ -1019,6 +1041,7 @@ formal) ie         =I@
         rangier    rA:NZ'i:r
      _) re (d      re:
         register	re:g'Ist@r
+        reichisch	raICIS
         ressourc   rEs'Urs
         revers     r%e:vErs
 
@@ -1061,6 +1084,7 @@ formal) ie         =I@
      _) s (zA      s
 
         sch        S
+        schenk	SENk
         sh (K      S
         sou (nd    saU
      p) s (a       s
@@ -1093,6 +1117,7 @@ formal) ie         =I@
         st (art    St
         st (ä      St
         st (eh     St
+        stein (_	StaIn
         st (ö      St
         st (rich   St
         st (ü      St
@@ -1100,6 +1125,8 @@ formal) ie         =I@
         st (uh     St
         st (ung    st
 
+        sachse	zaks@
+     &) sächsisch	zEksIS
      _) safe       _^_EN
      &) schaft (_S6 Saft
 
@@ -1148,6 +1175,7 @@ formal) ie         =I@
      _) t (_       te:
         t          t
      t) t
+        th	t
      _) th (A      t   // allow _th
      _) th (rA     t   // allow _thr
         th (K      t
@@ -1193,6 +1221,12 @@ formal) ie         =I@
      _) teen       _^_EN
      _) tele (@    t,e:le:
      _) thermo     tErmo:
+     &) thek	t'e:k
+             &) thekar	te:k'A:r
+      &) thekarin 	te:k'ArIn
+     &) thekerin 	t'e:k@rIn
+       top	tOp
+        toph	tOf
         touch      _^_EN
         tuerei (_  tu:@r'aI
         thrill     _^_EN
@@ -1204,6 +1238,7 @@ formal) ie         =I@
      @) tion (_    tsj'o:n
      _) trail      _^_EN
      _) tranqu     _^_EN
+        translat	_^_EN
         traver     tr%avEr
      _) tw         _^_EN
 
@@ -1380,6 +1415,7 @@ formal) ie         =I@
      _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
         work       _^_EN
+        württem (berg	vyrt@m
 
 
 .group x
@@ -1410,6 +1446,7 @@ formal) ie         =I@
      _) zer (@P3   tsEr
      _) zere (b    tse:re:
      _) zere (m    tse:re:
+    kon) zert	ts'Ert
         ziell      tsj'El
      _) zie (ge@P3 ts'i:
         zitat      tsi:t'A:t
@@ -1441,6 +1478,7 @@ formal) ie         =I@
 
         äb (t_     E:p
         äg (t_     E:k
+        är (_	'E:r
      t) ät (_      'E:t
         ä (um_N    'E:
 
@@ -1453,6 +1491,7 @@ formal) ie         =I@
         ö (C%      W
         ö (CC      W
         ö (sch     W
+        öster	Y:st3r
 
 
 .group ü

@@ -10,12 +10,10 @@ _6       hok4                // ႁူၵ်း
 _7       tS;et4              // ၸဵတ်း
 _8       pEt2                // ပႅတ်ႇ
 _9       kaw3                // ၵဝ်ႈ
-
-_11      sip4||?et4          // သိပ်းဢဵတ်း
-_21      sa:w4||?et4         // သၢဝ်းဢဵတ်း
-
 _1X      sip4||              // သိပ်း
+_11      sip4||?et4          // သိပ်းဢဵတ်း
 _2X      sa:w4||             // သၢဝ်း
+_21      sa:w4||?et4         // သၢဝ်းဢဵတ်း
 _3X      sa:m||sip4||        // သၢမ်သိပ်း
 _4X      si:2||sip4||        // သီႇသိပ်း
 _5X      ha:3||sip4||        // ႁႃႈသိပ်း
@@ -23,8 +21,31 @@ _6X      hok4||sip4||        // ႁူၵ်းသိပ်း
 _7X      tS;et4||sip4||      // ၸဵတ်းသိပ်း
 _8X      pEt2||sip4||        // ပႅတ်ႇသိပ်း
 _9X      kaw3||sip4||        // ၵဝ်ႈသိပ်း
-
-_0C      ||pa:k              // 10^2
-_0M1     ||heg               // 10^3
-_0M2     ||mWn               // 10^4
-
+_1XX     nEN3||pa:k2         //  ၼိုင်ႈပၢၵ်ႇ
+_2XX     sON||pa:k2         //  သွင်ပၢၵ်ႇ
+_3XX     sa:m||pa:k2       
+_4XX     si:2||pa:k2 
+_5XX     ha:3||pa:k2 
+_6XX     hok4||pa:k2 
+_7XX     tS;et4||pa:k2 
+_8XX     pEt2||pa:k2 
+_9XX     kaw3||pa:k2 
+_1XXX    nEN3||heg         //  ၼိုင်ႈႁဵင်
+_2XXX    sON||heg
+_3XXX    sa:m||heg 
+_4XXX    si:2||heg
+_5XXX    ha:3||heg
+_6XXX    hok4||heg
+_7XXX    tS;et4||heg
+_8XXX    pEt2||heg
+_9XXX    kaw3||heg
+_1XXXX   nEN3||mWn2      // ၼိုင်ႈမိုၼ်ႇ 
+_2XXXX   sON||mWn2
+_3XXXX   sa:m||mWn2
+_4XXXX    si:2||mWn2
+_5XXXX    ha:3||mWn2
+_6XXXX    hok4||mWn2
+_7XXXX    tS;et4||mWn2
+_8XXXX    pEt2||mWn2
+_9XXXX    kaw3||mWn2
+_1XXXXX   nEN3||sEn      // ၼိုင်ႈသႅၼ် 

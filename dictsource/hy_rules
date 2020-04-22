@@ -1,5 +1,5 @@
 // translation rules for Armenian (East)
-//  (consonants are changed for Armenian-West in the voice file "hy-west")
+//  (consonants are changed for Armenian-West in the espeak-ng-data/lang/ine/hyw voice file)
 // This file is UTF-8 encoded
 
 // ?1  West Armenian

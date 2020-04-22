@@ -1,4 +1,4 @@
-﻿
+
 
 //=========================================================
 // German
@@ -9,13 +9,16 @@
 phoneme @   //  Schwa
   vwl starttype #@ endtype #@
   unstressed
-  length 120
+  length 40
   IF nextPh(r) THEN
     IF next2Ph(isVowel) THEN
     ELSE
       ChangePhoneme(3)
     ENDIF
   ENDIF
+IF thisPh (isWordEnd) THEN
+length 120
+ENDIF
   FMT(vowel/@_4)
 endphoneme
 
@@ -205,19 +208,18 @@ endphoneme
 
 phoneme y
   vwl starttype #u endtype #u
-  ipa ʏ
-  length 110
+  length 100
   IF nextPh(*) THEN
-    length 115
+    length 110
   ENDIF
   FMT(vowel/yy_4)
 endphoneme
 
 
 phoneme Y:
-  vwl starttype #@ endtype #@
-  length 180
-  FMT(vowel/y#)
+  vwl starttype #@ endtype #u
+  length 220
+  FMT(vwl_de/y#)
 endphoneme
 
 
@@ -344,7 +346,7 @@ phoneme r   // note, following consonant must be 'ustop/t_' not 'ustop/tr' etc.
         ELSEIF prevPhW(d) OR prevPhW(b) OR prevPhW(g) OR prevPhW(k) OR prevPhW(p) THEN
           PauseBefore 15
         ELSE
-          InsertPhoneme(@-)
+          FMT(r3/r_, 40) addWav(r3/rx, 150)
         ENDIF
       ENDIF
    ENDIF
@@ -361,7 +363,7 @@ endphoneme
 
 phoneme iR  // TEST "vier" = [f'iR] not successful
   vwl starttype #i endtype #@
-  ipa iɐ
+  ipa i?
   flag1
   length 240
   FMT(vdiph2/i@_3)
@@ -370,7 +372,7 @@ endphoneme
 
 phoneme UR
   vwl starttype #u endtype #@
-  ipa ʊɐ
+  ipa ??
   flag1
   length 180
   FMT(vwl_de/uu_@)
@@ -461,12 +463,12 @@ phoneme k
     WAV(ustop/k, 70)
   ELIF nextPh(R) OR nextPh(R2) THEN
     WAV(ustop/k_)
-  ELIF nextPh(i:) OR nextPh(;) THEN
+  ELIF nextPh(i:) OR nextPh(j) OR nextPh(;) THEN
     WAV(ustop/ki)
   ELIF nextPh(l) THEN
     WAV(ustop/kl)
   ELIF nextPh(@-) THEN
-    WAV(ustop/k_unasp)
+    WAV(ustop/k, 70)
   ENDIF
   WAV(ustop/k)
 endphoneme
@@ -483,4 +485,11 @@ phoneme x
     WAV(ufric/x2, 60)
   ENDIF
   WAV(ufric/x_hr, 20)
+endphoneme
+
+
+phoneme O~ // saison, Pardon, Fond
+  vwl  starttype #o  endtype #o
+  length 190
+  FMT(vnasal/o_n5)
 endphoneme

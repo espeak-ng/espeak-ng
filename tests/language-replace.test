@@ -7,7 +7,7 @@ test_replace() {
 
 	echo "testing ${TEST_LANG}"
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -P "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
+		src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
 	if [ x$TEST_BROKEN = xbroken ] ; then
 		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
 	else

@@ -1,0 +1,107 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Pyash (an artificial constructed language).
+
+// Note: initial/final "." has already been removed
+
+.group a
+	a	a
+
+.group b
+	b	b
+
+.group c
+	c	S
+
+.group d
+	d	d
+
+.group e
+	e	e
+
+.group f
+	f	f
+
+.group g
+	g	g
+
+.group h
+	h	h
+
+.group i
+	i	i
+
+.group j
+	j	Z
+
+.group k
+	k	k
+
+.group l
+	l       l
+
+.group m
+	m	m
+
+.group n
+        n     n
+
+.group o
+	o	o
+
+.group p
+	p	p
+
+.group q
+	q	N
+
+.group r
+        r	R
+
+
+.group s
+	s	s
+
+.group t
+	t	t
+
+.group u
+	u	u
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+.group x
+	x	x
+
+.group y
+	y 	j
+
+.group 6
+	6 	@
+
+.group h
+	h 	h
+
+.group z
+	z	z
+
+// low tone
+.group 2        22 
+// high tone
+.group 7        55
+
+.group
+	.	_!	// dot
+     _)	. (@P1	_!      // remove . prefix
+	. (_S1  _!	// remove . suffix
+
+
+	ˈ	'       // U+2c8  stress marker (from syllable capitalisation)
+// tones not working
+//.group
+//       1	55
+//       2	22

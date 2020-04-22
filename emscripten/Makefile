@@ -100,7 +100,7 @@ CXXFLAGS+=-I ./ -I ../ -I ../src/include/espeak-ng
 #CXXFLAGS+=-s USE_PTHREADS=1
 
 # NOTE: extra flags for emscripten
-EM_CXXFLAGS=-s RESERVED_FUNCTION_POINTERS=2 --memory-init-file 0
+EM_CXXFLAGS=-s RESERVED_FUNCTION_POINTERS=2 --memory-init-file 0 -s FORCE_FILESYSTEM=1 -s WASM=0 -s ERROR_ON_UNDEFINED_SYMBOLS=0
 
 
 

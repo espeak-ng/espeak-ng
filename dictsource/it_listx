@@ -1,4 +1,4 @@
-﻿
+
 abazia $3
 abbadia $3
 abbain	ab:a'i:n
@@ -259,6 +259,7 @@ antinoe $2
 antiope	ant'iope
 antipatr $2
 antisepsi  $alt
+antirollio	$4
 antisom $3  $alt
 antitesi $2
 antiuomo	anti||U'Omo
@@ -495,7 +496,7 @@ belv	$alt2
 belvedere $3  $alt2
 belzebù	beldz,Eb'u
 bemb  $alt
-benemerito	$3
+benemerit	$3
 benessere  $alt
 benevol  $alt
 benton  $alt
@@ -621,6 +622,7 @@ bronzin	b@-*ondz'in
 brufoli	$1
 brugol $1
 brusi $2
+brusio	b@-*uz'io
 buccari $1
 buccin $1
 buccine	$2
@@ -1277,7 +1279,8 @@ doma	$alt
 domandone	$3
 domenic	$alt2
 domicili	$3
-domin $1
+domini	$2
+domino	$1
 domusnovas  $alt
 don  $alt2
 dondolio	$3
@@ -1578,6 +1581,7 @@ feltr  $alt2
 feltre  $alt2
 femin $1  $alt2
 femmin $1
+femminicidi	$4
 femminile $3
 femore $1  $alt
 fenicotter  $alt
@@ -1802,6 +1806,7 @@ gipsotec  $alt
 girasol	dZiRas'ol
 girellio	$3
 girostat $2
+girovago	$2
 giuggiol $1
 giulianov  $alt
 giuria $2
@@ -2157,6 +2162,7 @@ lodol	$1
 log  $alt
 loggia  $alt
 logli  $alt
+logopedia	$4
 logorio	$3
 lol  $alt
 lombrichi	$2
@@ -2167,6 +2173,7 @@ lonicer $2
 lord  $alt2
 loreggia  $alt
 lot  $alt
+luccichio	$3
 lucciolio	$3
 lucifug $2
 lugubra	$1
@@ -2714,7 +2721,6 @@ ot  $alt
 otre  $alt2
 ottaedr  $alt
 ottagon $2
-ottenere $3  $alt2
 ottic  $alt
 ottim  $alt
 ottoboni  $alt
@@ -2812,6 +2818,7 @@ pecor $1  $alt
 ped  $alt
 pedagog  $alt
 pedaven  $alt2
+pediatrici	$2
 pedodonzia	$4
 pedogenesi $3
 pegaso	p'E:gazo
@@ -2819,7 +2826,6 @@ peggi  $alt
 pel  $alt2
 pelag $1
 pelaverg  $alt2
-pell  $alt2
 pelope $1
 peloponnes  $alt
 pelos$alt2
@@ -2827,6 +2833,8 @@ pelot  $alt
 pemfig  $1 $alt
 pena	$alt2
 pend  $alt2
+pendice	$2
+pendici	$2
 pendio $2
 pendol  $alt
 pendul  $alt
@@ -2991,6 +2999,7 @@ polesia $2  $alt
 polesine	$2 $alt2
 polia $2
 poliammine	$4
+poliandria	$4
 policrate $2
 policrom $2
 poliedr  $alt
@@ -3118,7 +3127,7 @@ profughi	$1 $alt
 progenie  $alt
 progett  $alt
 prognosi $1  $alt
-proiett  $alt
+programmini	$3
 pronao  $alt
 propanol $3
 propedeutic $3
@@ -4143,6 +4152,7 @@ vescic $2
 vescov $1
 vescovil	$3
 vesp  $alt
+vesper	$1
 vespasian $3
 vespr  $alt
 vestenanov  $alt

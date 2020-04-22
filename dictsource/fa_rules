@@ -1,5 +1,5 @@
-// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.135
-// *   This file writen by Shadyar Khodayari 04-05-2018
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version Test after 3.136
+// *   This file writen by Shadyar Khodayari 06-05-2019
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
 // *   it under the terms of the GNU General Public License as published by  *
@@ -44,9 +44,11 @@
 		۸	8
 		٩	9
 		۹	9
+		٬	،
 		٫	،
 		٪	%
-		ٔ	ٴ
+		ٴ	ٔ
+		ـ	
 		ي	ی	// this is "ي" Shift + x on the Persian Keyboard ("ye Arabi") that has been replaced with "ی" Standard for some programing reasones.
 		ﺁ	آ
 		ﺍ	ا
@@ -198,7 +200,7 @@
 			ۓ	ی
 
 
-			// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this simbole "-" have been definded for this character in the rules.
+			// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this symbol "-" have been definded for this character in the rules.
 
 // the groups of letters
 // Long vowels
@@ -234,16 +236,18 @@
 // Special Character 2
 .L11  ش
 
-// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this simbole "-" has been definded for this character in the rules.
+// (ZWNJ) U+200c character (half space) is recognized as Hyphen and this symbol "-" has been definded for this character in the rules.
+.group 0x200C
+	0x200C	
 
 
 .group +
-		+ (.D	mosbate-
-		__) + (_D	mosbate-
+	_) + (D	mosbate-
 
 
-.group -
-		__) - (_D	manfije-
+// 0x2D is the same Minus symbol "-"
+.group 0x2D
+	_) 0x2D (D	manfije
 
 
 .group آ
@@ -4490,7 +4494,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09L03) گی (_Sm2	egi
 		L09L01ی) گی (_Sm2	egi
 		L09L01و) گی (_Sm2	egi
-
+		L09L09) گه (_NSm2	gah
 		// Possessive pronouns for گی eg. "زندگیتان"
 			L09L09L03) گیم (_NSm3	egijam
 			L09L09L03) گییم (_NSm4	egijam
@@ -5125,7 +5129,7 @@ L09L04) السّادات (_Sm8	ossAdAt
 		L09L09) نقی (_Sm3	naq1i
 		// Subjective pronouns
 			L09L09L03) ند (_NSm2	and
-			L09L03ی) ند (_NSm2	nad
+			L09L03ی) ند (_NSm2	and
 		L09L09) نوشت (_Sm4	neveSt
 		L09L09) نشین (_Sm4	neSin
 		L09L09) نکردن (_Sm5	nakaRdan
@@ -5783,13 +5787,13 @@ L09L04) السّادات (_Sm8	ossAdAt
 //this character "ٔ" is defrent of "ء" and "ۀ" for example "دانشنامهٔ "
 
 
-.group ٴ
-	L04) ٴ	
-	ا) ٴ	a?
-	ٴ	
+.group ٔ
+	L04) ٔ	
+	ا) ٔ	a?
+	ٔ	
 
-	// suffixes ٴ
-		L09L03) ٴ (_NSm1	je
+	// suffixes ٔ
+		L09L03) ٔ (_NSm1	je
 
 
 .group ّ

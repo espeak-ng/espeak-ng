@@ -18,7 +18,7 @@
 ہ	ه
 
 // vowel signs, alif acts as consonants  at start of word if these follow
-.L01  َ ِ ُ و ي ع ا ے 
+.L01  َ ِ ُ و ي ع ا آ
 
 // Consonants
 .L02  ب ٻ ڀ پ ت ٿ ٺ ث ج جھ ڄ چ ڇ ح خ د ڌ ڊ ڏ ذ ر ڙ ڙھ ز س ش ص ض ط ظ غ ف ڦ ق ڪ ک گ ڳ گھ ل م ن ڻ ڃ ه ھ ء
@@ -57,41 +57,46 @@
 	_)او	u:
 _)اي	e:
 	ائ (L02	a:I
-	افتتاح	,ItIt'a:h
+	افت(L02ا	IftI
 	اسلام	,Isl'a:m
 	_) انسان	Ins'a:n
 	اً(_S2	'an
 	_) افسر	,afs'aR
 	_) اتفاق	,ItIf'a:q
-	_) ابتدا	'Ibt,Ida:
-	_) اعت	'e:tI
+	_)ابت(L02ا	IbtI
+	_)اعت	e:tI
 	_) اضاف	Iz'a:f
 	استثن	,Ist'asn
-	اجتماع	,IJtIm'a:
-	استحصال	,Ist,e:S:'a:l
+	_)اجت(L02ا	IJtI
+	_)استح(L02ا	IstEH
 	_) امنگ	Um'ang
 	انعام	In'a:m
 	امتحان	,ImtIh'a:n
 	الزام	,Ilz'a:m
-	اشتہار	,IStIh'a:R
-	اصول	Us.'u:l
+	_)اشت(L02ا	IStI
+	اصو(ل	Us.u:
 	اعلان	e:l'a:n
 	اعزاز	e:z'a:z
-	انقلاب	,InqIl'a:b
+	انق(L02ا	InqI
 	اصلاح	,Is.l'a:h
 	امداد	,Imd'a:d
 	@) ات (_S2	'a:t
-	_) انتظ	'Int,Iz.
-	_) اخت (L02	,IxtI
-	_) اقت (L02	,IqtI
-	_) اح (L02	'Eh
+	_)انت(L02ا	IntI
+	_)اخت(L02ا	IxtI
+	_)اقت(L02ا	IqtI
+	_)اح(L02	EH
 	_) است (L02	,IstI
 	_) ارت (L02	,IRtI
+	_)ان(ڊ	In
+	_)اصط(L02ا	Is.tI
+	_)انڊس	Ind.as
+	اع(_	a:
+	_L02)اب(L02_	a:bI
 
 .group آ
 	آ	a:
 	آتش	'a:tIS
-
+	آئ(L02	a:I
 
 .group ع
 	ع	a:
@@ -100,9 +105,9 @@ _)اي	e:
 	عنوان	Unv'a:n
 	_) عمر	'UmR
 	L02) عی (_	'ai:
-	علیحد	'alEhd
 	عِ	I
 	عُ	U
+	اL02)ع(_	e:
 
 .group و
 	و	o:
@@ -118,10 +123,11 @@ _)اي	e:
 	ي	e:
 	ي(L01	j
 	_)ي	jV
-	يع(_	i:
+	L02)يع	i:
 	@)ي	i:
 	يٰ	a:
 	ي(_ٿ	e:
+	@)يل(_	jal
 
 .group ے		// yeh barree
 	ے	e:
@@ -152,18 +158,18 @@ _)اي	e:
 	بّ (L01	bb
 	_) بگڑ	bIg'ar
 	_) بگڑ (L01	b'Igr
-	_) بجھ	b'UJh
 	بغاوت	b,aQa:v'at
 	بزرگ	b'UzUr,g
 	_) بدل (L02	bad'al
 
 .group ڀ
-	ڀ	bV
-	ڀ(L01	b
+	ڀ	b#V
+	ڀ(L01	b#
 
 .group پ
 	پ	pV
 	پ (L01	p
+	_)پنهن(ج	pV~Hn
 
 .group ت
 	ت	t[V
@@ -172,8 +178,9 @@ _)اي	e:
 	تّ(L01	t[:
 
 .group ٿ
-	ٿ	TV
-	ٿ(L01	T
+	ٿ	t.V
+	ٿ(L01	t#
+	_)ٿين(د	t#i~:
 
 .group ٽ
 	ٽ	t.V
@@ -235,11 +242,11 @@ _)اي	e:
 	خ	xV
 	خ (L01	x
 	@) خ (ت	x
-	خّ	xxV
-	خّ (L01	xx
+	خّ	x:V
+	خّ (L01	x:
 	_) خوش	x'US
 	_) خود	x'Ud
-	_) خیا	x'aja:
+	_)خورد	xUrd
 
 
 .group د
@@ -249,7 +256,6 @@ _)اي	e:
 	درخواست	d,aRxv'a:st
 	دیا(_	d'i:;a:
 	درج	d'aRJ
-	دیوا	d'i:va:
 	دفاع	d'Ifa:
 	_) دہ (L02	d'Eh
 	دلچسپ	d,Ilc'asp
@@ -261,6 +267,7 @@ _)اي	e:
 .group ڏ
 	ڏ	d.V
 	ڏ(L01	d.
+	_)ڏ(س	d.I
 
 .group ڊ
 	ڊ	d.V
@@ -269,16 +276,6 @@ _)اي	e:
 .group ڍ
 	ڍ	d.#V
 	ڍ(L01	d.#
-
-.group ڈ
-	ڈ	dV
-	ڈھ	dhV
-	ڈ (L01	d:
-	ڈھ (L01	d:h
-	ڈّ	d:d:V
-	ڈّ (L01	d:d
-	ڈھونڈ	d:h'u:nd
-	@) ڈز (_	d:z
 
 .group ذ
 	ذ	zV
@@ -326,6 +323,7 @@ _)اي	e:
 .group ٻ
 	ٻ	bV
 	ٻ(L01	b
+	_)ٻئي(_جL01_	bIe:
 
 .group س
 	س	sV
@@ -333,16 +331,16 @@ _)اي	e:
 	سّ	ssV
 	سّ (L01	ss
 	_) سرخ	s'URx
-	L02L02)ستان	Ista:n
+	L02)ستان	Ista:n
 	_) سلسل	s'Ils,Il
 	_) ستار	sIt'a:R
 	@) س (ٹ	s
-	سیکھ	s'i:kh
 	@) س (ت	s
 	_) سپرد	sUp'URd
 	_) سہ (L02	s'Eh
 	سرگرم	s,aRg'aRm
 	_)سنڌ	sIndh
+	_)سمجھ(L01	samJ#
 
 .group ش
 	ش	SV
@@ -363,13 +361,14 @@ _)اي	e:
 	ص (L01	s.
 	صّ	ssV
 	صّ (L01	ss
-	صو(ب	s.'u:
+	صو(ب	s.u:
 
 .group ض
 	ض	zV
 	ض (L01	z
 	ضّ	zzv
 	ضّ (L01	zz
+	ضرو(ر	zaRu:
 
 .group ط
 	ط	tV
@@ -419,6 +418,7 @@ _)اي	e:
 .group ڪ
 	ڪ	kV
 	ڪ(L01	k
+	_)ڪتا(ب	kIta:
 
 .group گ
 	گ	gV
@@ -456,9 +456,8 @@ _)اي	e:
 .group م
 	م	mV
 	م (L01	m
-	مّ	mmV
-	مّ (L01	mm
-	مظاہر	mUz.'a:hIR
+	مّ	m:V
+	مّ(L01	m:
 	مسجد	m'asJ,Id
 	مشرق	m'aSR,Iq
 	مقدم	mUq'adm
@@ -484,7 +483,6 @@ _)اي	e:
 	متصل	mUt'as.Il
 	مخبر	m'Uxb,IR
 	ملحق	m'Ulh,Iq
-	مذہب	m,aDh'ab
 
 .group ن
 	ن	nV
@@ -492,24 +490,22 @@ _)اي	e:
 	@) ن (گ	n
 	@) ن (د	n
 	@)ن(ڌ	n
-	@)ن(ڍ	n
+	@)ن(ڊ	n
 	@) ن (ب	n
 	@) ن (س	n
 	نّ	nnV
 	نّ (L01	nn
 	@) ن (چ	n
 	@) ن (پ	n
-	@) نچل	n'Icl
 	نشان	nIS'a:n
-	@) ن (ڈ	n
 	_) نظر	naz.'aR
 	_) نظام	nIz.'a:m
 	_) نہ (L02	n'h
-	L01) نٹ	n't:
 	نھ	nh
 	_) نوا	n'ava:
 	_) نما	n'Uma:
 	_) نماز	nam'a:z
+	_)نڪر	nIkR
 
 .group ڃ
 	ڃ	n^V
@@ -530,6 +526,7 @@ _)اي	e:
 	ه	HV
 	ه(L01	H
 	_)ه(ند	hI
+	_)هوند(L01	Hu~:d
 
 
 .group ّ
