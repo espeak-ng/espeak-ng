@@ -20,6 +20,8 @@ to view and discuss other related topics.
 1. example of text, which demonstrates and allows to reproduce spelling error;
 2. explanation, why produced spelling is wrong and how it should be corrected.
 
+<a class="anchor" id="simlestep5">5. Close issue when it is resolved.
+
 ## Steps for your contribution
 <a class="anchor" id="step1">1. Get familiar with [additive speech synthesis](https://en.wikipedia.org/wiki/Speech_synthesis#Formant_synthesis).
 
@@ -35,11 +37,13 @@ to view and discuss other related topics.
 
 <a class="anchor" id="step7">7. If you contribute to an existing language, find language maintainer in language configuration file located in `espeak-ng-data/lang` folder[<sup>1</sup>](#1) and ask him to review your changes. If you can't find language maintainer, you can review list of all contributors[<sup>2</sup>](#2) and contact them. You can also volunteer to become language maintainer just by updating [language configuration file](voices.md) and submitting your changes as it is described in [step 9](#9).
 
-<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), you may just issue pull requests as described in [step 9](#9). Note that `make check` must pass and there should not be merging conflicts (and for new/extended functionality new tests should be created). If you are ready to take responsibility, ask [current maintainers](https://github.com/espeak-ng/espeak-ng/people) to get promoted as a maintainer of the project.
+<a class="anchor" id="step8">8. If you contribute to the core of espeak-ng engine (i.e. source files of software), you may just issue pull requests as described in [step 9](#9). Note that `make check` must pass and there should not be merging conflicts (and for new/extended functionality new tests should be created).
 
 <a class="anchor" id="step9">9. [Push your changes to GitHub](https://help.github.com/en/articles/pushing-commits-to-a-remote-repository) and create [pull request](https://help.github.com/en/articles/creating-a-pull-request). You can also send changed files by email to [eSpeakNG mailing list](https://groups.io/g/espeak-ng), but then inlusion of them may take more time.
 
 <a class="anchor" id="step10">10. Wait for feedback of current espeak-ng maintainers[<sup>3</sup>](#3).
+
+<a class="anchor" id="step11">11. When you are ready to take responsibility, ask [current maintainers](https://github.com/espeak-ng/espeak-ng/people) to get promoted as a maintainer of the project.
 
 ----
 

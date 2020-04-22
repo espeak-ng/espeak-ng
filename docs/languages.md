@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 109 supported languages and accents are:
+The 112 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -31,6 +31,7 @@ The 109 supported languages and accents are:
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
 | `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
+| `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
 | `zls`       | `hr`              | South Slavic          | Croatian                    |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
@@ -61,6 +62,7 @@ The 109 supported languages and accents are:
 | `sai`       | `gn`              | South American Indian | Guarani                     |                        |
 | `inc`       | `gu`              | Indic                 | Gujarati                    |                        |
 | `roa`       | `ht`              | Romance               | Hatian Creole               |                        |
+| `sem`       | `he`              | Semitic               | Hebrew                      |                        |
 | `inc`       | `hi`              | Indic                 | Hindi                       |                        |
 | `urj`       | `hu`              | Uralic                | Hungarian                   |                        |
 | `gmq`       | `is`              | North Germanic        | Icelandic                   |                        |
@@ -94,12 +96,14 @@ The 109 supported languages and accents are:
 | `art`       | `py`              | Constructed           | Pyash                       |                        |
 | `zlw`       | `pl`              | West Slavic           | Polish                      |                        |
 | `roa`       | `pt-br`           | Romance               | Portuguese                  | Brazillian             |
+|             | `qu`              |                       | Quechua                     |                        |
 | `myn`       | `quc`             | Mayan                 | K'iche'                     |                        |
 | `roa`       | `pt`              | Romance               | Portuguese                  | Portugal               |
 | `inc`       | `pa`              | Indic                 | Punjabi                     |                        |
 | `roa`       | `ro`              | Romance               | Romanian                    |                        |
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
+| `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
 | `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |

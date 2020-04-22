@@ -13,9 +13,18 @@ updated languages:
 
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  en (English) -- Steven Presser
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  shn (Shan Tay Yai) -- ronaldaug
+*  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
+*  zh (Chinese) -- Silas S. Brown
+
+new languages:
+*  haw (Hawaiian) -- Valdis Vitolins
+*  he (Hebrew) -- boracasli98, Valdis Vitolins
+*  uk (Ukrainian) -- Valdis Vitolins
+*  qu (Quechua) -- Valdis Vitolins
 
 ### 1.50 - 2019-11-29
 

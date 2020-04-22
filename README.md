@@ -1,6 +1,7 @@
 # eSpeak NG Text-to-Speech
 
 - [Features](#features)
+- [Supported languages](docs/languages.md)
 - [Documentation](#documentation)
 - [eSpeak Compatibility](#espeak-compatibility)
 - [History](#history)
@@ -9,14 +10,14 @@
 
 The eSpeak NG is a compact open source software text-to-speech synthesizer for 
 Linux, Windows, Android and other operating systems. It supports 
-[107 languages and accents](docs/languages.md). It is based on the eSpeak engine
+[more than 100 languages and accents](docs/languages.md). It is based on the eSpeak engine
 created by Jonathan Duddington.
 
 eSpeak NG uses a "formant synthesis" method. This allows many languages to be
 provided in a small size. The speech is clear, and can be used at high speeds,
 but is not as natural or smooth as larger synthesizers which are based on human
 speech recordings. It also supports Klatt formant synthesis, and the ability
-to use [MBROLA](https://github.com/numediart/MBROLA) [voices](https://github.com/numediart/MBROLA-voices).
+to use MBROLA as backend speech synthesizer.
 
 eSpeak NG is available as:
 
@@ -36,8 +37,8 @@ eSpeak NG is available as:
 *  SSML (Speech Synthesis Markup Language) is supported (not complete),
    and also HTML.
 *  Compact size.  The program and its data, including many languages,
-   totals about 1.4 Mbytes.
-*  Can be used as a front-end to [MBROLA diphone voices](mbrola.md).
+   totals about few Mbytes.
+*  Can be used as a front-end to [MBROLA diphone voices](docs/mbrola.md).
    eSpeak NG converts text to phonemes with pitch and length information.
 *  Can translate text into phoneme codes, so it could be adapted as a
    front end for another speech synthesis engine.
@@ -62,8 +63,9 @@ The following platforms are supported:
 ## Documentation
 
 1. [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
-2. Look at [contribution guide](docs/contributing.md) to start your contribution.
+2. [Building guide](docs/building.md) provides info how to compile and build eSpeak NG from the source.
 3. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
+4. Look at [contribution guide](docs/contributing.md) to start your contribution.
 
 ## eSpeak Compatibility
 

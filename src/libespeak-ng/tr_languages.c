@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2015-2016 Reece H. Dunn
+ * Copyright (C) 2015-2016, 2020 Reece H. Dunn
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -553,7 +553,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.break_numbers = BREAK_LAKH_BN;
 
 		if (name2 == L3('b', 'p', 'y')) {
-			tr->langopts.numbers = 1;
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 		}
 
@@ -568,7 +568,7 @@ Translator *SelectTranslator(const char *name)
 		SetLetterBitsRange(tr, LETTERGP_B, 0x90, 0xbc);
 		SetLetterBitsRange(tr, LETTERGP_C, 0x40, 0x6c); // consonant letters (not subjoined)
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;    // disable check for unpronouncable words
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('c', 'y'): // Welsh
@@ -631,7 +631,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM; // use 'diminished' for unstressed final syllable
 		SetLetterBitsRange(tr, LETTERGP_B, 0x26, 0x30); // vowel signs, and virama
 		tr->langopts.break_numbers = BREAK_LAKH_DV;
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('e', 'n'):
@@ -683,7 +683,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_SONORANT_MIN] = 130; // limit the shortening of sonorants before short vowels
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA;
-		tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND; // variant form of numbers before thousands
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;
 
 		if (name2 == L3('g', 'r', 'c')) {
 			// ancient greek
@@ -913,7 +913,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.accents = 1;
 
 		tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
-		tr->langopts.numbers2 = 0xa + NUM2_THOUSANDS_VAR5; // variant numbers before thousands,milliards
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR5;
 		tr->langopts.our_alphabet = OFFSET_CYRILLIC; // don't say "cyrillic" before letter names
 
 		SetLetterVowel(tr, 'y');
@@ -1004,7 +1004,7 @@ Translator *SelectTranslator(const char *name)
 		tr->letter_groups[1] = is_lettergroup_B;
 		SetLetterVowel(tr, 'y');
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SINGLE_AND | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_1900;
-		tr->langopts.numbers2 = 0x2;
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS;
 	}
 		break;
 	case L('i', 't'): // Italian
@@ -1133,7 +1133,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('k', 'y'): // Kyrgyx
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 		break;
 	case L('l', 'a'): // Latin
 	{
@@ -1191,7 +1191,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->langopts.stress_rule = STRESSPOSN_3R; // antipenultimate
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
-		tr->langopts.numbers2 = 0x8a; // variant numbers before thousands,milliards
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR2;
 	}
 		break;
 	case L('m', 't'): // Maltese
@@ -1199,7 +1199,7 @@ Translator *SelectTranslator(const char *name)
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
 		tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x100; // devoice at end of word
 		tr->langopts.stress_rule = STRESSPOSN_2R; // penultimate
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
 	case L('n', 'l'): // Dutch
@@ -1238,7 +1238,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
 		tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND;
-		tr->langopts.numbers2 = 0x200; // say "thousands" before its number
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
 		break;
 	case L('p', 'l'): // Polish
@@ -1291,7 +1291,7 @@ Translator *SelectTranslator(const char *name)
 
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_2;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3 | NUM_AND_UNITS | NUM_ROMAN;
-		tr->langopts.numbers2 = 0x1e; // variant numbers before all thousandplex
+		tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_ALL;
 	}
 		break;
 	case L('r', 'u'): // Russian
@@ -1304,7 +1304,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
 		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words.  Need to allow "bw'" prefix
 		tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
-		tr->langopts.numbers2 = 0x200; // say "thousands" before its number
+		tr->langopts.numbers2 = NUM2_SWAP_THOUSANDS;
 	}
 		break;
 	case L('s', 'k'): // Slovak
@@ -1328,7 +1328,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.decimal_sep = ',';
 
 		if (name2 == L('c', 's'))
-			tr->langopts.numbers2 = 0x108; // variant numbers before milliards
+			tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_MILLIARDS | NUM2_THOUSANDS_VAR4;
 
 		SetLetterVowel(tr, 'y');
 		SetLetterVowel(tr, 'r');
@@ -1371,7 +1371,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_IT_LENGTHEN] = 1; // remove lengthen indicator from unstressed syllables
 		tr->letter_bits[(int)'r'] |= 0x80; // add 'r' to letter group 7, vowels for Unpronouncable test
 		tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
-		tr->langopts.numbers2 = 0x100; // plural forms of millions etc
+		tr->langopts.numbers2 = NUM2_THOUSANDS_VAR4;
 		tr->langopts.thousands_sep = ' '; // don't allow dot as thousands separator
 		break;
 	case L('s', 'q'): // Albanian
@@ -1446,10 +1446,10 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 13; // 1st syllable, unless 1st vowel is short and 2nd is long
 		} else if (name2 == L('k', 'n')) {
 			tr->letter_bits_offset = OFFSET_KANNADA;
-			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers = NUM_DEFAULT;
 		} else if (name2 == L('t', 'e')) {
 			tr->letter_bits_offset = OFFSET_TELUGU;
-			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ORDINAL_DROP_VOWEL;
 		}
 		SetIndicLetters(tr); // call this after setting OFFSET_
@@ -1488,8 +1488,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L('u', 'k'): // Ukrainian
 	{
-		SetCyrillicLetters(tr);
-		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432; // [v]  don't count this character at start of word
+		Translator_Russian(tr);
 	}
 		break;
 	case L('u', 'r'): // Urdu
@@ -1540,7 +1539,7 @@ Translator *SelectTranslator(const char *name)
 	case L3('s', 'h', 'n'):
 		tr->langopts.tone_language = 1; // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 		tr->langopts.length_mods0 = tr->langopts.length_mods; // don't lengthen vowels in the last syllable
-		tr->langopts.numbers = 1;
+		tr->langopts.numbers = NUM_DEFAULT;
 		tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		break;
 	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
@@ -1562,9 +1561,9 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 		if (name2 == L3('z', 'h', 'y')) {
-			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.textmode = true;
-			tr->langopts.numbers = 1;
+			tr->langopts.listx = 1; // compile zh_listx after zh_list
+			tr->langopts.numbers = NUM_DEFAULT;
 			tr->langopts.numbers2 = NUM2_ZERO_TENS;
 			tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		}
@@ -1609,5 +1608,5 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.stress_flags = S_NO_AUTO_2;
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
-	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1; // variant numbers before thousands
+	tr->langopts.numbers2 = NUM2_THOUSANDPLEX_VAR_THOUSANDS | NUM2_THOUSANDS_VAR1; // variant numbers before thousands
 }

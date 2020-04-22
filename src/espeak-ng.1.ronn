@@ -22,10 +22,10 @@ languages.
     Text file to speak.
 
   * `--stdin`:
-    Read text input from stdin instead of a file.
+    Read text input from stdin till to the end of a stream at once.
 
-If neither -f nor --stdin are provided, &lt;words&gt; are spoken, or if no
-words are provided then text is spoken from stdin a line at a time.
+If neither -f nor --stdin are provided, then &lt;words&gt; from parameter are spoken,
+or text is spoken from stdin, read separately one line by line at a time.
 
   * `-d <device>`:
     Use the specified device to speak the audio on. If not specified, the
@@ -122,6 +122,13 @@ words are provided then text is spoken from stdin a line at a time.
   * `--voices[=<language code>]`:
     Lists the available voices. If =&lt;language code&gt; is present then only
     those voices which are suitable for that language are listed.
+    If `xx-yy` language code is passed, then voices with `yy` of `xx` language variants
+    are shown with higher priority than just `xx`.
+    If `variant` is passed, then all voice variants are shown.
+    If `mb` or `mbrola` is passed, then all voices using the MBROLA voice synthesizer
+    are shown.
+    If `all` is passed, then all eSpeak NG voices, voice variants and MBROLA
+    voices are shown.
 
   * `--voices=<directory>`:
     Lists the voices in the specified subdirectory.
