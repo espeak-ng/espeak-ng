@@ -1689,6 +1689,9 @@ include ph_arabic
 phonemetable ba base1
 include ph_bashkir
 
+phonemetable chr base1
+include ph_cherokee
+
 phonemetable cy base1
 include ph_welsh
 

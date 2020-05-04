@@ -309,6 +309,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_bengali \
 	phsource/ph_bulgarian \
 	phsource/ph_catalan \
+	phsource/ph_cherokee \
 	phsource/ph_consonants \
 	phsource/ph_croatian \
 	phsource/ph_czech \
