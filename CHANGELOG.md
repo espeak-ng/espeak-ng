@@ -18,7 +18,7 @@ updated languages:
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
-*  zh (Chinese) -- Silas S. Brown
+*  zh (Chinese) -- Silas S. Brown, Rongcui Dong
 
 new languages:
 *  haw (Hawaiian) -- Valdis Vitolins
