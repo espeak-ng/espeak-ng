@@ -2,44 +2,44 @@
 // TONES
 //*******************************************************************
 
-phoneme 21 // low-fall (¹)
+phoneme 11 // low-fall (¹)
   stress
-  Tone(30, 20, envelope/p_fall, NULL)
+  Tone(20, 0, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 22 // normal (²)
   stress
-  Tone(30, 30, envelope/i_risefall, NULL)
+  Tone(20, 20, envelope/i_risefall, NULL)
 endphoneme
 
 phoneme 33 // high (³) 
   stress
-  Tone(40, 40, envelope/i_risefall, NULL)
+  Tone(30, 30, envelope/i_risefall, NULL)
 endphoneme
 
 phoneme 44 // very high tone (⁴)
   stress
-  Tone(50, 50, envelope/i_risefall, NULL)
+  Tone(40, 40, envelope/i_risefall, NULL)
 endphoneme
 
 phoneme 23 // rising tone (²³)
   stress
-  Tone(30, 40, envelope/p_fall, NULL)
+  Tone(20, 30, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 32 // falling tone (³²)
   stress
-  Tone(40, 30, envelope/p_fall, NULL)
+  Tone(30, 20, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 34 // high rising tone (³⁴)
   stress
-  Tone(40, 50, envelope/p_fall, NULL)
+  Tone(30, 40, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 43 // high falling tone (⁴³)
   stress
-  Tone(50, 40, envelope/p_fall, NULL)
+  Tone(40, 30, envelope/p_fall, NULL)
 endphoneme
 
 //*******************************************************************
