@@ -37,7 +37,7 @@ phoneme 34 // high rising tone (³⁴)
   Tone(40, 50, envelope/p_fall, NULL)
 endphoneme
 
-phoneme 32 // high falling tone (⁴³)
+phoneme 43 // high falling tone (⁴³)
   stress
   Tone(50, 40, envelope/p_fall, NULL)
 endphoneme
