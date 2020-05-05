@@ -1,76 +1,144 @@
+    
+.L01 ¹ ² ³ ⁴ ²³ ³² ³⁴ ⁴³
 
-.group d
-	d	d
-	
+.L02 a e i o u v ạ ẹ ị ọ ṿ
+
+.L03 c d g h j k l m n s t w y ɂ
+
+.L04 ~ ¹ ² ³ ⁴ ²³ ³² ³⁴ ⁴³
+
+.L99 c d g h j k l m n s t w y ɂ  a e i o u v ạ ẹ ị ọ ṿ
+
+.replace
+ah¹    a¹h
+eh¹    e¹h
+//ih¹    i¹h
+oh¹    o¹h
+uh¹    u¹h
+vh¹    v¹h
+
+ah²    a²h
+eh²    e²h
+//ih²    i²h
+oh²    o²h
+uh²    u²h
+vh²    v²h
+
 .group ɂ
-	ɂ	?
+    ɂ ?
 
 .group ¹
-	¹	11
+    ¹ 11
 
 .group ²
-	²	22
-	²³	23
+    ² 22
+    ²³ 23
 
 .group ³
-	³	33
-	³²	32
+    ³ 33
+    ³² 32
 
 .group ⁴
-	⁴	44
-	
-.group ⁴³
-	⁴³	43
-
-
+    ⁴ 44
+    ⁴³ 43
 
 .group a
-	a	a:
-	a	(_	a43
-	
+    a a:%
+    a (_ a%43
+    
 .group e
-	e	e:
-	e	(_	e43
+    e e:%
+    e (_ e%43
 
 .group i
-	i	i:
-	i	(_	i43
-	
+    i i:%
+    i (L04 i%
+    //ih i%h 
+    i (_ i%43
+    
 .group o
-	o	o:
-	o	(_	o43
-	
+    o o:%
+    o (_ o%43
+    
 .group u
-	u	u:
-	u	(_	u43
-	
+    u u:%
+    u (_ u%43
+    
 .group v
-	v	W~:
-	v	(_	W~43
+    v W~:%
+    v (_ W~%43
 
 .group ạ
-	ạ	a
-	ạ	(_	a43
-	
+    ạ a%
+    ạ (_ a%43
+    ạs a%hs
+    
 .group ẹ
-	ẹ	e
-	ẹ	(_	e43
-	
+    ẹ e%
+    ẹ (_ e%43
+    ẹs e%hs
+    
 .group ị
-	ị	i
-	ị	(_	i43
-	
+    ị i%
+    ị (_ i%43
+    ịs i%hs
+    
 .group ọ
-	ọ	o
-	ọ	(_	o43
-	
-.group ụ
-	ụ	u
-	ụ	(_	u43
-	
-.group ṿ
-	ṿ	W~
-	ṿ	W~43
+    ọ o%
+    ọ (_ o%43
+    ọs o%hs
+    
+.group ụ%
+    ụ u%
+    ụ (_ u%43
+    ụs u%hs
+    
+.group ṿ%
+    ṿ W~%
+    ṿ W~%43
+    ṿs W~%hs
 
+.group ch
+    ch tS
+    
+.group d
+    d d
+    
+.group g
+    g g
+
+.group h
+    h h
+    hn (_ nh
+    hy (_ jh
+    
+.group j
+     j dZ
+     
+.group k
+     k k
+     
+.group l
+     l l
+     ls hls
+     
+.group m
+     m m
+    
+.group n
+     n n
+     
+.group s
+     s s
+     
+.group t
+     t t
+     
+.group w
+     w w
+     
 .group y
-	y	j
+     y j
+     y j
+    
+    
