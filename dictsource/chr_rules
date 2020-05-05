@@ -1,0 +1,76 @@
+
+.group d
+	d	d
+	
+.group ɂ
+	ɂ	?
+
+.group ¹
+	¹	11
+
+.group ²
+	²	22
+	²³	23
+
+.group ³
+	³	33
+	³²	32
+
+.group ⁴
+	⁴	44
+	
+.group ⁴³
+	⁴³	43
+
+
+
+.group a
+	a	a:
+	a	(_	a43
+	
+.group e
+	e	e:
+	e	(_	e43
+
+.group i
+	i	i:
+	i	(_	i43
+	
+.group o
+	o	o:
+	o	(_	o43
+	
+.group u
+	u	u:
+	u	(_	u43
+	
+.group v
+	v	W~:
+	v	(_	W~43
+
+.group ạ
+	ạ	a
+	ạ	(_	a43
+	
+.group ẹ
+	ẹ	e
+	ẹ	(_	e43
+	
+.group ị
+	ị	i
+	ị	(_	i43
+	
+.group ọ
+	ọ	o
+	ọ	(_	o43
+	
+.group ụ
+	ụ	u
+	ụ	(_	u43
+	
+.group ṿ
+	ṿ	W~
+	ṿ	W~43
+
+.group y
+	y	j

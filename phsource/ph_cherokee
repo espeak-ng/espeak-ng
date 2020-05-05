@@ -2,55 +2,71 @@
 // TONES
 //*******************************************************************
 
-phoneme 11 // low-fall (¹)
+phoneme 11 // extra low fall (¹)
   stress
   Tone(20, 0, envelope/p_fall, NULL)
+  unstressed
 endphoneme
 
-phoneme 22 // normal (²)
+phoneme 22 // low (²)
   stress
-  Tone(20, 20, envelope/i_risefall, NULL)
+  Tone(20, 20, envelope/p_rise, NULL)
+  unstressed
 endphoneme
 
 phoneme 33 // high (³) 
   stress
-  Tone(30, 30, envelope/i_risefall, NULL)
+  Tone(30, 30, envelope/p_level, NULL)
+  unstressed
 endphoneme
 
-phoneme 44 // very high tone (⁴)
-  stress
-  Tone(40, 40, envelope/i_risefall, NULL)
-endphoneme
-
-phoneme 23 // rising tone (²³)
-  stress
-  Tone(20, 30, envelope/p_rise, NULL)
-endphoneme
-
-phoneme 32 // falling tone (³²)
-  stress
-  Tone(30, 20, envelope/p_fall, NULL)
-endphoneme
-
-phoneme 34 // high rising tone (³⁴)
+phoneme 44 // extra high rise (⁴)
   stress
   Tone(30, 40, envelope/p_rise, NULL)
+  unstressed
 endphoneme
 
-phoneme 43 // high falling tone (⁴³)
+phoneme 23 // rising (²³)
+  stress
+  Tone(20, 30, envelope/p_rise, NULL)
+  unstressed
+endphoneme
+
+phoneme 32 // falling (³²)
+  stress
+  Tone(30, 20, envelope/p_fall, NULL)
+  unstressed
+endphoneme
+
+phoneme 43 // extra high fall (⁴³)
   stress
   Tone(40, 30, envelope/p_fall, NULL)
+  unstressed
+endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 140
+  unstressed
 endphoneme
 
 //*******************************************************************
 // LANGUAGE SPECIFIC CONSONANTS (PLOSIVES/STOPS)
 //*******************************************************************
+//none.
 
 //*******************************************************************
 // LANGUAGE SPECIFIC VOWELS
 //*******************************************************************
 
+//from ph_french
+phoneme W~
+  vwl  starttype #@  endtype #@
+  length 190
+  FMT(vnasal/W_n)
+endphoneme
+
 //*******************************************************************
 // LANGUAGE SPECIFIC DIPHTHONGS
 //*******************************************************************
-
+//none.
