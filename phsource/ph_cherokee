@@ -81,6 +81,21 @@ phoneme I
   FMT(vowel/ii_2)
 endphoneme
 
+phoneme A:
+  vwl  starttype #a  endtype #a
+  length 230
+  //IfNextVowelAppend(r-)
+  FMT(vowel/aa_2)
+endphoneme
+
+phoneme V
+  vwl  starttype #a  endtype #@
+  length 140
+
+  ChangeIfDiminished(@)
+  FMT(vowel/V_2)
+endphoneme
+
 //*******************************************************************
 // LANGUAGE SPECIFIC DIPHTHONGS
 //*******************************************************************
