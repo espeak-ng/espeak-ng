@@ -9,7 +9,6 @@
 ³		xd
 ⁴		xf
 
-
 //CED pp xi-xii
 .group x
 	xb	21
@@ -29,6 +28,8 @@
 //CED page x
 .group ɂ
     ɂ ?
+    
+//CED - none of vowels are dipthongs, even though the pronunciation key uses dipthongs. pg ix - footnote
 
 //CED pg ix
 .group a
@@ -99,46 +100,46 @@
     is	(L03L03L03L01 Ihs
     
 .group o
-    o oU:
-    o (_ oU43
+    o o:
+    o (_ o43
     
-    o	(L03_	oU43
-    o	(L03L03_	oU43
-    o	(L03L03L03_	oU43
-    o	(L03L03L03L03_	oU43
+    o	(L03_	o43
+    o	(L03L03_	o43
+    o	(L03L03L03_	o43
+    o	(L03L03L03L03_	o43
     
-    o	(L01_	oU
+    o	(L01_	o
     
-    o	(L03L01 oU
-    o	(L03L03L01 oU
-    o	(L03L03L03L01 oU
-    o	(L03L03L03L03L01 oU
+    o	(L03L01 o
+    o	(L03L03L01 o
+    o	(L03L03L03L01 o
+    o	(L03L03L03L03L01 o
     
-    os	(L01 oUhs
-    os	(L03L01 oUhs
-    os	(L03L03L01 oUhs
-    os	(L03L03L03L01 oUhs
+    os	(L01 ohs
+    os	(L03L01 ohs
+    os	(L03L03L01 ohs
+    os	(L03L03L03L01 ohs
     
 .group u
-    u U:
-    u (_ U43
+    u u:
+    u (_ u43
     
-    u	(L03_	U43
-    u	(L03L03_	U43
-    u	(L03L03L03_	U43
-    u	(L03L03L03L03_	U43
+    u	(L03_	u43
+    u	(L03L03_	u43
+    u	(L03L03L03_	u43
+    u	(L03L03L03L03_	u43
     
-    u	(L01_	U
+    u	(L01_	u
     
-    u	(L03L01 U
-    u	(L03L03L01 U
-    u	(L03L03L03L01 U
-    u	(L03L03L03L03L01 U
+    u	(L03L01 u
+    u	(L03L03L01 u
+    u	(L03L03L03L01 u
+    u	(L03L03L03L03L01 u
     
-    us	(L01 Uhs
-    us	(L03L01 Uhs
-    us	(L03L03L01 Uhs
-    us	(L03L03L03L01 Uhs
+    us	(L01 uhs
+    us	(L03L01 uhs
+    us	(L03L03L01 uhs
+    us	(L03L03L03L01 uhs
     
 .group v
     v W~:
@@ -162,8 +163,8 @@
     vs	(L03L03L03L01 W~hs
 
 .group ạ
-    ạ A
-    ạ (_ A43
+    ạ A:
+    ạ (_ A:43
     ạs ahs
     
 .group ẹ
@@ -177,14 +178,14 @@
     ịs ihs
     
 .group ọ
-    ọ oU
-    ọ (_ oU43
-    ọs oUhs
+    ọ o
+    ọ (_ o43
+    ọs ohs
     
 .group ụ
-    ụ U
-    ụ (_ U43
-    ụs Uhs
+    ụ u
+    ụ (_ u43
+    ụs uhs
     
 .group ṿ
     ṿ W~

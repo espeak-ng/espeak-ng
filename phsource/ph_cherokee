@@ -46,7 +46,7 @@ endphoneme
 
 phoneme : //  lengthen previous vowel by "length"
   virtual
-  length 140
+  length 80
   unstressed
 endphoneme
 
