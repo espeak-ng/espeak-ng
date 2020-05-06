@@ -1,102 +1,159 @@
-    
-.L01 ¹ ² ³ ⁴ ²³ ³² ³⁴ ⁴³
 
-.L02 a e i o u v ạ ẹ ị ọ ṿ
-
-.L03 c d g h j k l m n s t w y ɂ
-
-.L04 ~ ¹ ² ³ ⁴ ²³ ³² ³⁴ ⁴³
-
-.L99 c d g h j k l m n s t w y ɂ  a e i o u v ạ ẹ ị ọ ṿ
+.L01	xb xc xcxd xdxc xd xdxf xfxd xfxg
+.L03	ch d g h j k l m n s t w y
 
 .replace
-ah¹    a¹h
-eh¹    e¹h
-//ih¹    i¹h
-oh¹    o¹h
-uh¹    u¹h
-vh¹    v¹h
 
-ah²    a²h
-eh²    e²h
-//ih²    i²h
-oh²    o²h
-uh²    u²h
-vh²    v²h
+¹		xb
+²		xc
+³		xd
+⁴		xf
+
+
+.group x
+	xb	21
+	
+	xc	2
+	
+	xcxd	23
+	xdxc	32
+	
+	xd	3
+	
+	xdxf	34
+	xfxd	43
+	
+	xf	4
 
 .group ɂ
     ɂ ?
 
-.group ¹
-    ¹ 11
-
-.group ²
-    ² 22
-    ²³ 23
-
-.group ³
-    ³ 33
-    ³² 32
-
-.group ⁴
-    ⁴ 44
-    ⁴³ 43
-
 .group a
-    a a:%
-    a (_ a%43
+    a a:
+    a (_ a43
+    
+    a	(L03_	a43
+    a	(L03L03_	a43
+    a	(L03L03L03_	a43
+    a	(L03L03L03L03_	a43
+    
+    a	(L01_	a
+    
+    a	(L03L01 a
+    a	(L03L03L01 a
+    a	(L03L03L03L01 a
+    a	(L03L03L03L03L01 a
     
 .group e
-    e e:%
-    e (_ e%43
+    e e:
+    e (_ e43
+    
+    e	(L03_	e43
+    e	(L03L03_	e43
+    e	(L03L03L03_	e43
+    e	(L03L03L03L03_	e43
+    
+    e	(L01_	e
+    
+    e	(L03L01 e
+    e	(L03L03L01 e
+    e	(L03L03L03L01 e
+    e	(L03L03L03L03L01 e
 
 .group i
-    i i:%
-    i (L04 i%
-    //ih i%h 
-    i (_ i%43
+    i	i:
+    
+    i	(_	i43
+    
+    i	(L03_	i43
+    i	(L03L03_	i43
+    i	(L03L03L03_	i43
+    i	(L03L03L03L03_	i43
+    
+    i	(L01_	i
+    
+    i	(L03L01 i
+    i	(L03L03L01 i
+    i	(L03L03L03L01 i
+    i	(L03L03L03L03L01 i
     
 .group o
-    o o:%
-    o (_ o%43
+    o o:
+    o (_ o43
+    
+    o	(L03_	o43
+    o	(L03L03_	o43
+    o	(L03L03L03_	o43
+    o	(L03L03L03L03_	o43
+    
+    o	(L01_	o
+    
+    o	(L03L01 o
+    o	(L03L03L01 o
+    o	(L03L03L03L01 o
+    o	(L03L03L03L03L01 o
     
 .group u
-    u u:%
-    u (_ u%43
+    u u:
+    u (_ u43
+    
+    u	(L03_	u43
+    u	(L03L03_	u43
+    u	(L03L03L03_	u43
+    u	(L03L03L03L03_	u43
+    
+    u	(L01_	u
+    
+    u	(L03L01 u
+    u	(L03L03L01 u
+    u	(L03L03L03L01 u
+    u	(L03L03L03L03L01 u
     
 .group v
-    v W~:%
-    v (_ W~%43
+    v W~:
+    v (_ W~43
+    
+    v	(L03_	W~43
+    v	(L03L03_	W~43
+    v	(L03L03L03_	W~43
+    v	(L03L03L03L03_	W~43
+    
+    v	(L01_	W~
+    
+    v	(L03L01 W~
+    v	(L03L03L01 W~
+    v	(L03L03L03L01 W~
+    v	(L03L03L03L03L01 W~
 
 .group ạ
-    ạ a%
-    ạ (_ a%43
-    ạs a%hs
+    ạ a
+    ạ (_ a43
+    ạs ahs
     
 .group ẹ
-    ẹ e%
-    ẹ (_ e%43
-    ẹs e%hs
+    ẹ e
+    ẹ (_ e43
+    ẹs ehs
     
 .group ị
-    ị i%
-    ị (_ i%43
-    ịs i%hs
+    ị i
+    ị (_ i43
+    ịs ihs
     
 .group ọ
-    ọ o%
-    ọ (_ o%43
-    ọs o%hs
+    ọ o
+    ọ (_ o43
+    ọs ohs
     
-.group ụ%
-    ụ u%
-    ụ (_ u%43
-    ụs u%hs
+.group ụ
+    ụ u
+    ụ (_ u43
+    ụs uhs
     
-.group ṿ%
-    ṿ W~%
-    ṿ W~%43
-    ṿs W~%hs
+.group ṿ
+    ṿ W~
+    ṿ W~43
+    ṿs W~hs
 
 .group ch
     ch tS

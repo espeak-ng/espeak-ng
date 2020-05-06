@@ -2,25 +2,25 @@
 // TONES
 //*******************************************************************
 
-phoneme 11 // extra low fall (¹)
+phoneme 1 // extra low fall (¹)
   stress
   Tone(20, 0, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
-phoneme 22 // low (²)
+phoneme 2 // low (²)
   stress
   Tone(20, 20, envelope/p_rise, NULL)
   unstressed
 endphoneme
 
-phoneme 33 // high (³) 
+phoneme 3 // high (³) 
   stress
   Tone(30, 30, envelope/p_level, NULL)
   unstressed
 endphoneme
 
-phoneme 44 // extra high rise (⁴)
+phoneme 4 // extra high rise (⁴)
   stress
   Tone(30, 40, envelope/p_rise, NULL)
   unstressed
@@ -59,11 +59,26 @@ endphoneme
 // LANGUAGE SPECIFIC VOWELS
 //*******************************************************************
 
+//from phonemes
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 100
+endphoneme
+
 //from ph_french
 phoneme W~
   vwl  starttype #@  endtype #@
   length 190
   FMT(vnasal/W_n)
+  unstressed
+endphoneme
+
+//from ph_en
+phoneme I
+  vwl  starttype #i  endtype #i
+  length 130
+  //IfNextVowelAppend(;)
+  FMT(vowel/ii_2)
 endphoneme
 
 //*******************************************************************
