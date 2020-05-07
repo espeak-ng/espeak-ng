@@ -4,13 +4,13 @@
 
 phoneme 1 // extra low fall (¹)
   stress
-  Tone(20, 0, envelope/p_fall, NULL)
+  Tone(20, 10, envelope/i_fall2, NULL)
   unstressed
 endphoneme
 
 phoneme 2 // low (²)
   stress
-  Tone(20, 20, envelope/p_rise, NULL)
+  Tone(20, 20, envelope/i_rise2, NULL)
   unstressed
 endphoneme
 
@@ -22,31 +22,25 @@ endphoneme
 
 phoneme 4 // extra high rise (⁴)
   stress
-  Tone(30, 40, envelope/p_rise, NULL)
+  Tone(20, 40, envelope/i_rise2, NULL)
   unstressed
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
-  Tone(20, 30, envelope/p_rise, NULL)
+  Tone(20, 30, envelope/i_rise2, NULL)
   unstressed
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
-  Tone(30, 20, envelope/p_fall, NULL)
+  Tone(30, 20, envelope/i_fall2, NULL)
   unstressed
 endphoneme
 
 phoneme 43 // extra high fall (⁴³)
   stress
-  Tone(40, 30, envelope/p_fall, NULL)
-  unstressed
-endphoneme
-
-phoneme : //  lengthen previous vowel by "length"
-  virtual
-  length 80
+  Tone(60, 50, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
