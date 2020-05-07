@@ -632,6 +632,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int cprev = ' '; // previous character
 	int cprev2 = ' ';
 	int c_next;
+	int c_next_2;
 	int parag;
 	int ix = 0;
 	int j;
@@ -1075,10 +1076,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 							// A special case to handle english acronym + genitive
 							// eg. u.s.a.'s
 							// But avoid breaking clause handling if anything else follows the apostrophe.
-							c_next = GetC();
-							if(c_next == 's')
+							c_next_2 = GetC();
+							if(c_next_2 == 's')
 								is_end_clause = false;
-							UngetC(c_next);
+							UngetC(c_next_2);
 						}
 						if (iswlower(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
