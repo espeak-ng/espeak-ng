@@ -1000,6 +1000,15 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					UngetC(c_next);
 			}
 
+			// Handling of sequences of ? and ! like ??!?, !!??!, ?!! etc
+			// Use only first char as determinant
+			if((c1 == '?') || (c1 == '!')) {
+				while((c2 == '?') || (c2 == '!')) {
+					c_next = GetC();
+					c2 = c_next;
+				}
+			}
+
 			punct_data = 0;
 			if ((punct_data = clause_type_from_codepoint(c1)) != CLAUSE_NONE) {
 				if (punct_data & CLAUSE_PUNCTUATION_IN_WORD) {
