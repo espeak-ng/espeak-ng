@@ -513,7 +513,7 @@ static int CheckDottedAbbrev(char *word1)
 			if (word[nbytes+1] == '.') {
 				if (word[nbytes+2] == ' ')
 					ok = 1;
-				else if (word[nbytes+2] == '\'') {
+				else if (word[nbytes+2] == '\'' && word[nbytes+3] == 's') {
 					nbytes += 2; // delete the final dot (eg. u.s.a.'s)
 					ok = 2;
 				}
@@ -2408,7 +2408,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 						c = ' '; // remove the dot if it's followed by a space or hyphen, so that it's not pronounced
 				}
 			} else if (c == '\'') {
-				if (((prev_in == '.') || iswalnum(prev_in)) && IsAlpha(next_in)) {
+				if (((prev_in == '.' && next_in == 's') || iswalnum(prev_in)) && IsAlpha(next_in)) {
 					// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
 					single_quoted = false;
 				} else if ((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
