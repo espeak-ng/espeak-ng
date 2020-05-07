@@ -55,6 +55,15 @@ d'i:
 'i:
 'Ef" "A. B C, D. E: F."
 
+# Handling of english acronym + genitive without breaking simple quote
+test_phonemes en "hi: s'Ed
+aI w0z b'O@n InD@ j,u:,Es'eI z_:_: and l'Eft" "He said : I was born in the u.s.a.'s and left."
+
+test_phonemes en "hi: s'Ed
+h@l'oU
+aIa#m b'ak
+and l'Eft" "He said : 'Hello, I am back.' and left."
+
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character

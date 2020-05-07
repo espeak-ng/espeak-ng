@@ -1071,8 +1071,15 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 								is_end_clause = false; // Roman number followed by dot
 							else if (iswlower(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
 								is_end_clause = false; // only if followed by lower-case, (or if there is a XML tag)
-						} else if (c_next == '\'')
-							is_end_clause = false;    // eg. u.s.a.'s
+						} else if (c_next == '\'') {
+							// A special case to handle english acronym + genitive
+							// eg. u.s.a.'s
+							// But avoid breaking clause handling if anything else follows the apostrophe.
+							c_next = GetC();
+							if(c_next == 's')
+								is_end_clause = false;
+							UngetC(c_next);
+						}
 						if (iswlower(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
 							is_end_clause = 0;
