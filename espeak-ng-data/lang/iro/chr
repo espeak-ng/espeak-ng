@@ -10,5 +10,5 @@ phonemes chr
 stressRule 9 
 intonation 3
 
-stressAmp 16 16 16 16 16 16 16 16  //stress all vowels the same
+//stressAmp 16 16 16 16 16 16 16 16  //stress all vowels the same
 stressLength 180 180 180 180 180 180 180 180 //stress all vowels the same
