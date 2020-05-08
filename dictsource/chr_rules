@@ -38,13 +38,17 @@
     
     //final word vowels are short and have a highfall tone
     a (_ A:43
+    //final word vowels are short, even if marked with a tone
+    axb (_	A:1x
+    axc (_	A:2x
+    axd (_	A:3x
+    axf (_	A:4x
+    
     a	(L03_	A:43
     a	(L03L03_	A:43
     a	(L03L03L03_	A:43
     a	(L03L03L03L03_	A:43
     
-    //final word vowels are short, even if marked with a tone
-    a	(L01_	A:    
     a	(L03L01 A:
     a	(L03L03L01 A:
     a	(L03L03L03L01 A:
@@ -65,7 +69,10 @@
     e	(L03L03L03_	E43
     e	(L03L03L03L03_	E43
     
-    e	(L01_	E
+    e	(xb_	Exb
+    e	(xc_	Exc
+    e	(xd_	Exd
+    e	(xf_	Exf
     
     e	(L03L01 E
     e	(L03L03L01 E
@@ -82,12 +89,15 @@
     
     i	(_	I43
     
+    ixb	(_	I1x
+    ixc	(_	I2x
+    ixd	(_	I3x
+    ixf	(_	I4x
+    
     i	(L03_	I43
     i	(L03L03_	I43
     i	(L03L03L03_	I43
     i	(L03L03L03L03_	I43
-    
-    i	(L01_	I
     
     i	(L03L01 I
     i	(L03L03L01 I
@@ -108,7 +118,10 @@
     o	(L03L03L03_	o43
     o	(L03L03L03L03_	o43
     
-    o	(L01_	o
+    o	(xb_	o1
+    o	(xc_	o2
+    o	(xd_	o3
+    o	(xf_	o4
     
     o	(L03L01 o
     o	(L03L03L01 o
@@ -129,7 +142,10 @@
     u	(L03L03L03_	u43
     u	(L03L03L03L03_	u43
     
-    u	(L01_	u
+    u	(xb_	u1
+    u	(xc_	u2
+    u	(xd_	u3
+    u	(xf_	u4
     
     u	(L03L01 u
     u	(L03L03L01 u
@@ -150,7 +166,10 @@
     v	(L03L03L03_	W~43
     v	(L03L03L03L03_	W~43
     
-    v	(L01_	W~
+    v	(xb_	W~1
+    v	(xc_	W~2
+    v	(xd_	W~3
+    v	(xf_	W~4
     
     v	(L03L01 W~
     v	(L03L03L01 W~
@@ -233,9 +252,12 @@
      
 .group w
      w w
+     wh (L01 w
+     wh (L03 w
      
 .group y
      y j
-     y j
+     yh (L01 j
+     yh (L03 j
     
     

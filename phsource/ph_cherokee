@@ -30,64 +30,94 @@
 // approximately twice as long to pronounce as its
 // short counterpart., pg 46
 
-
-
 //length 75  // reduces the length of the vowel (when used in a tone phoneme)
 //int pitch1 = 0;
 //int pitch2 = 0;
 //int pitch_env = 0;
 //int amp_env = 0;
-//if (pitch1 >= pitch2) the pitch values get swapped
-
+//IF (pitch1 >= pitch2) the pitch values get swapped
 
 phoneme 1 // low fall (¹)
   stress
+  ipa ˨˩
   //Tone(106, 88, envelope/p_fall, NULL)
   Tone(86, 68, envelope/p_fall, NULL)
-  unstressed
+endphoneme
+
+phoneme 1x // low fall (¹), shortened
+  stress
+  ipa ˨˩
+  length 150
+  //Tone(106, 88, envelope/p_fall, NULL)
+  Tone(86, 68, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 2 // low (²)
   stress
+  ipa ˨
   //Tone(104, 96, envelope/p_fall, NULL)
   Tone(84, 76, envelope/p_fall, NULL)
-  unstressed
+endphoneme
+
+phoneme 2x // low (²), shortened
+  stress
+  ipa ˨
+  length 150
+  //Tone(104, 96, envelope/p_fall, NULL)
+  Tone(84, 76, envelope/p_fall, NULL)
 endphoneme
 
 phoneme 3 // high (³) 
   stress
+  ipa ˧
   //Tone(108, 112, envelope/p_rise, NULL)
   Tone(88, 92, envelope/p_rise, NULL)
-  unstressed
+endphoneme
+
+phoneme 3x // high (³), shortened 
+  stress
+  ipa ˧
+  length 150
+  //Tone(108, 112, envelope/p_rise, NULL)
+  Tone(88, 92, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 4 // extra high rise (⁴)
   stress
+  ipa ˧˦
   //Tone(109, 127, envelope/p_rise, NULL)
   Tone(89, 107, envelope/p_rise, NULL)
-  unstressed
+endphoneme
+
+phoneme 4x // extra high rise (⁴), shortened
+  stress
+  ipa ˧˦
+  length 150
+  //Tone(109, 127, envelope/p_rise, NULL)
+  Tone(89, 107, envelope/p_rise, NULL)
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
+  ipa ˨˧
   //Tone(97, 109, envelope/p_rise, NULL)
   Tone(77, 89, envelope/p_rise, NULL)
-  unstressed
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
+  ipa ˧˨
   //Tone(122, 97, envelope/p_fall, NULL)
   Tone(102, 77, envelope/p_fall, NULL)
-  unstressed
 endphoneme
 
 phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
+  ipa ˦˧
   length 150
   //Tone(127, 75, envelope/p_fall, NULL)
-  Tone(107, 55, envelope/p_fall, NULL)
-  unstressed
+  //Tone(107, 55, envelope/p_fall, NULL)
+  Tone(107, 88, envelope/p_fall, NULL)
 endphoneme
 
 //*******************************************************************
@@ -106,35 +136,51 @@ phoneme : //  lengthen previous vowel by "length"
 endphoneme
 
 phoneme a
-  vwl starttype #a endtype #a
+  vwl
   length 175
   FMT(vowel/a_2)
 endphoneme
 
 //from ph_french
 phoneme W~
-  vwl  starttype #@  endtype #@
-  length 175
+  vwl
+  IF next2PhW(h) THEN
+  	length 50
+  ELSE
+  	length 175
+  ENDIF
   FMT(vnasal/W_n)
   unstressed
 endphoneme
 
 //from ph_en
 phoneme I
-  vwl  starttype #i  endtype #i
-  length 175
+  vwl
+  IF next2PhW(h) THEN
+  	length 50
+  ELSE
+  	length 175
+  ENDIF
   FMT(vowel/ii_2)
 endphoneme
 
 phoneme A:
-  vwl  starttype #a  endtype #a
-  length 175
+  vwl
+  IF next2PhW(h) THEN
+  	length 50
+  ELSE
+  	length 175
+  ENDIF
   FMT(vowel/aa_2)
 endphoneme
 
 phoneme V
-  vwl  starttype #a  endtype #@
-  length 175
+  vwl
+  IF next2PhW(h) THEN
+  	length 50
+  ELSE
+  	length 175
+  ENDIF
   FMT(vowel/V_2)
 endphoneme
 
