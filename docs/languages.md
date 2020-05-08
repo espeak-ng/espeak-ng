@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 112 supported languages and accents are:
+The 113 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -29,6 +29,7 @@ The 112 supported languages and accents are:
 | `zls`       | `bg`              | South Slavic          | Bulgarian                   |                        |
 | `sit`       | `my`              | Sino-Tibetan          | Burmese                     |                        |
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
+| `iro`       | `chr`             | Iroquoian             | Cherokee <sup>\[4\]</sup>   | Western/C.E.D.         |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
 | `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
@@ -131,3 +132,5 @@ The 112 supported languages and accents are:
 \[2\] Farsi/Persian written using English (Latin) characters.
 
 \[3\] Currently, only Hiragana and Katakana are supported.
+
+\[4\] Only Cherokee-English Dictionary fully annotated UTF-8 pronunciations are supported. Syllabary is not supported.

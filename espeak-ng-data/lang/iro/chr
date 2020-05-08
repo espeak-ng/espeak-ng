@@ -3,12 +3,12 @@ language chr
 maintainer Michael Conrad <m.conrad.202@gmail.com>
 status testing
 voicing 100
-speed 80
-words 2 2
+speed 70
+words 0 2
 phonemes chr
 //stress on all syllables to simulate stress on no syllables
 stressRule 9 
-intonation 3
+intonation 1
 
 //stressAmp 16 16 16 16 16 16 16 16  //stress all vowels the same
 stressLength 180 180 180 180 180 180 180 180 //stress all vowels the same

@@ -2,45 +2,91 @@
 // TONES
 //*******************************************************************
 
-phoneme 1 // extra low fall (¹)
+//*******************************************************************
+// REFERENCE MATERIALS
+//*******************************************************************
+// Collaborative Documentation and Revitalization of Cherokee Tone
+// https://scholarspace.manoa.hawaii.edu/bitstream/handle/10125/24630/herrick.pdf
+// Tones fall within a range of 80–140 H (pg 21, footnote)
+// the mid tone (2) starts at 104 Hz (P1) and falls approximately 2 Hz at of the next four points ending at 96 Hz at P5.
+//
+// Building Tone Resources for Second Language Learners from Phonetic Documentation
+// https://scholarspace.manoa.hawaii.edu/bitstream/10125/24737/hirata-edds_herrick.pdf
+//
+// Pitch contours taken from Pratt chart, pg 295 
+//
+// (¹) low fall: 106, 102, 97, 92, 88
+// (²) low/mid: 104, 100, 98, 97, 96
+// (³) high: 108, 109, 110, 111, 112
+// (⁴) super high: 109, 113, 118, 122, 127
+// (²³) rising: 97, 98, 101, 104, 109
+// (³²) falling: 122, 120, 115, 106, 97
+
+// A REFERENCE GRAMMAR OF OKLAHOMA CHEROKEE (2008)
+// Short vowels preceding /h/ are devoiced, pg 45
+// Word final vowels are nasalized
+// Vowels are nasalized after a nasal consonant
+// Vowels are either long or short; a long vowel takes
+// approximately twice as long to pronounce as its
+// short counterpart., pg 46
+
+
+
+//length 75  // reduces the length of the vowel (when used in a tone phoneme)
+//int pitch1 = 0;
+//int pitch2 = 0;
+//int pitch_env = 0;
+//int amp_env = 0;
+//if (pitch1 >= pitch2) the pitch values get swapped
+
+
+phoneme 1 // low fall (¹)
   stress
-  Tone(20, 10, envelope/i_fall2, NULL)
+  //Tone(106, 88, envelope/p_fall, NULL)
+  Tone(86, 68, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
 phoneme 2 // low (²)
   stress
-  Tone(20, 20, envelope/i_rise2, NULL)
+  //Tone(104, 96, envelope/p_fall, NULL)
+  Tone(84, 76, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
 phoneme 3 // high (³) 
   stress
-  Tone(30, 30, envelope/p_level, NULL)
+  //Tone(108, 112, envelope/p_rise, NULL)
+  Tone(88, 92, envelope/p_rise, NULL)
   unstressed
 endphoneme
 
 phoneme 4 // extra high rise (⁴)
   stress
-  Tone(20, 40, envelope/i_rise2, NULL)
+  //Tone(109, 127, envelope/p_rise, NULL)
+  Tone(89, 107, envelope/p_rise, NULL)
   unstressed
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
-  Tone(20, 30, envelope/i_rise2, NULL)
+  //Tone(97, 109, envelope/p_rise, NULL)
+  Tone(77, 89, envelope/p_rise, NULL)
   unstressed
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
-  Tone(30, 20, envelope/i_fall2, NULL)
+  //Tone(122, 97, envelope/p_fall, NULL)
+  Tone(102, 77, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
-phoneme 43 // extra high fall (⁴³)
+phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
-  Tone(60, 50, envelope/p_fall, NULL)
+  length 150
+  //Tone(127, 75, envelope/p_fall, NULL)
+  Tone(107, 55, envelope/p_fall, NULL)
   unstressed
 endphoneme
 
@@ -56,13 +102,19 @@ endphoneme
 //from phonemes
 phoneme : //  lengthen previous vowel by "length"
   virtual
-  length 100
+  length 175
+endphoneme
+
+phoneme a
+  vwl starttype #a endtype #a
+  length 175
+  FMT(vowel/a_2)
 endphoneme
 
 //from ph_french
 phoneme W~
   vwl  starttype #@  endtype #@
-  length 190
+  length 175
   FMT(vnasal/W_n)
   unstressed
 endphoneme
@@ -70,23 +122,19 @@ endphoneme
 //from ph_en
 phoneme I
   vwl  starttype #i  endtype #i
-  length 130
-  //IfNextVowelAppend(;)
+  length 175
   FMT(vowel/ii_2)
 endphoneme
 
 phoneme A:
   vwl  starttype #a  endtype #a
-  length 230
-  //IfNextVowelAppend(r-)
+  length 175
   FMT(vowel/aa_2)
 endphoneme
 
 phoneme V
   vwl  starttype #a  endtype #@
-  length 140
-
-  ChangeIfDiminished(@)
+  length 175
   FMT(vowel/V_2)
 endphoneme
 
