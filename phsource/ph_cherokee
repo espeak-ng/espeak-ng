@@ -76,7 +76,7 @@ phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
   ipa ˦˧
   //length 150
-  Tone(127, 75, envelope/p_fall, NULL)
+  Tone(130, 120, envelope/p_fall, NULL)
 endphoneme
 
 //*******************************************************************
