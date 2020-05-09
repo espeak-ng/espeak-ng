@@ -40,10 +40,10 @@
     a (_ A~43
     
     //final word vowels are short, nasal, even if marked with a tone
-    axb (_	A~1x
-    axc (_	A~2x
-    axd (_	A~3x
-    axf (_	A~4x
+    axb (_	A~1
+    axc (_	A~2
+    axd (_	A~3
+    axf (_	A~4
     
     a	(L03_	A:43
     a	(L03L03_	A:43
@@ -70,11 +70,11 @@
     e	(L03L03L03L03_	E43
 
 	//final word vowels are short, nasal, and have a highfall tone
-    e	(_ E~43
-    e	(xb_	E~xb
-    e	(xc_	E~xc
-    e	(xd_	E~xd
-    e	(xf_	E~xf
+    e	(_	E~43
+    exb	(_	E~1
+    exc	(_	E~2
+    exd	(_	E~3
+    exf	(_	E~4
     
     e	(L03L01 E
     e	(L03L03L01 E
@@ -91,10 +91,10 @@
     
 	//final word vowels are short, nasal, and have a highfall tone    
     i	(_	I~43
-    ixb	(_	I~1x
-    ixc	(_	I~2x
-    ixd	(_	I~3x
-    ixf	(_	I~4x
+    ixb	(_	I~1
+    ixc	(_	I~2
+    ixd	(_	I~3
+    ixf	(_	I~4
     
     
     i	(L03_	I43
@@ -122,10 +122,10 @@
 
 	//final word vowels are short, nasal, and have a highfall tone    
     o	(_ o~43
-    o	(xb_	o~1
-    o	(xc_	o~2
-    o	(xd_	o~3
-    o	(xf_	o~4
+    oxb	(_	o~1
+    oxc	(_	o~2
+    oxd	(_	o~3
+    oxf	(_	o~4
     
     o	(L03L01 o
     o	(L03L03L01 o
@@ -147,11 +147,11 @@
     u	(L03L03L03L03_	u43
     
 	//final word vowels are short, nasal, and have a highfall tone    
-    u	(_ u~43
-    u	(xb_	u~1
-    u	(xc_	u~2
-    u	(xd_	u~3
-    u	(xf_	u~4
+    u	(_	u~43
+    uxb	(_	u~1
+    uxc	(_	u~2
+    uxd	(_	u~3
+    uxf	(_	u~4
     
     u	(L03L01 u
     u	(L03L03L01 u
@@ -172,11 +172,11 @@
     v	(L03L03L03_	W~43
     v	(L03L03L03L03_	W~43
     
-    v	(_ W~43
-    v	(xb_	W~1
-    v	(xc_	W~2
-    v	(xd_	W~3
-    v	(xf_	W~4
+    v	(_	W~43
+    vxb	(_	W~1
+    vxc	(_	W~2
+    vxd	(_	W~3
+    vxf	(_	W~4
     
     v	(L03L01 W~
     v	(L03L03L01 W~

@@ -3,7 +3,7 @@ language chr
 maintainer Michael Conrad <m.conrad.202@gmail.com>
 status testing
 voicing 100
-speed 70
+speed 60
 words 0 2
 phonemes chr
 //stress on all syllables to simulate stress on no syllables
