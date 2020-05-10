@@ -1002,6 +1002,16 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 			punct_data = 0;
 			if ((punct_data = clause_type_from_codepoint(c1)) != CLAUSE_NONE) {
+
+				// Handling of sequences of ? and ! like ??!?, !!??!, ?!! etc
+				// Use only first char as determinant
+				if(punct_data & (CLAUSE_QUESTION | CLAUSE_EXCLAMATION)) {
+					while(clause_type_from_codepoint(c2) & (CLAUSE_QUESTION | CLAUSE_EXCLAMATION)) {
+						c_next = GetC();
+						c2 = c_next;
+					}
+				}
+
 				if (punct_data & CLAUSE_PUNCTUATION_IN_WORD) {
 					// Armenian punctuation inside a word
 					stressed_word = true;
