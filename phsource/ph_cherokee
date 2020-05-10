@@ -1,0 +1,210 @@
+//*******************************************************************
+// TONES
+//*******************************************************************
+
+//*******************************************************************
+// REFERENCE MATERIALS
+//*******************************************************************
+// Collaborative Documentation and Revitalization of Cherokee Tone
+// https://scholarspace.manoa.hawaii.edu/bitstream/handle/10125/24630/herrick.pdf
+// Tones fall within a range of 80–140 H (pg 21, footnote)
+// the mid tone (2) starts at 104 Hz (P1) and falls approximately 2 Hz at of the next four points ending at 96 Hz at P5.
+//
+// Building Tone Resources for Second Language Learners from Phonetic Documentation
+// https://scholarspace.manoa.hawaii.edu/bitstream/10125/24737/hirata-edds_herrick.pdf
+//
+// Pitch contours taken from Praat chart, pg 295 
+//
+// (¹) low fall: 106, 102, 97, 92, 88
+// (²) low/mid: 104, 100, 98, 97, 96
+// (³) high: 108, 109, 110, 111, 112
+// (⁴) super high: 109, 113, 118, 122, 127
+// (²³) rising: 97, 98, 101, 104, 109
+// (³²) falling: 122, 120, 115, 106, 97
+
+// A REFERENCE GRAMMAR OF OKLAHOMA CHEROKEE (2008)
+// Short vowels preceding /h/ are devoiced, pg 45 (how to do this espeak-ng?)
+// Word final vowels are nasalized
+// Vowels are nasalized after a nasal consonant
+// Vowels are either long or short; a long vowel takes
+// approximately twice as long to pronounce as its
+// short counterpart., pg 46
+
+//int pitch1 = 0;
+//int pitch2 = 0;
+//int pitch_env = 0;
+//int amp_env = 0;
+//IF (pitch1 >= pitch2) the pitch values get swapped (???)
+
+phoneme 1 // low fall (¹)
+  stress
+  ipa ˨˩
+  //Tone(106, 88, envelope/p_fall, NULL)
+  
+	Tone(106, 85, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
+endphoneme
+
+
+phoneme 2 // low (²)
+  stress
+  ipa ˨
+  //Tone(104, 96, envelope/p_fall, NULL)
+  //DF voice based
+  Tone(105, 93, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
+endphoneme
+
+phoneme 3 // high (³) 
+  stress
+  ipa ˧
+  //Tone(108, 112, envelope/p_rise, NULL)
+  Tone(109, 116, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
+endphoneme
+
+phoneme 4 // extra high rise (⁴)
+  stress
+  ipa ˧˦
+  Tone(112, 134, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
+endphoneme
+
+phoneme 23 // rising (²³)
+  stress
+  ipa ˨˧
+  Tone(96, 111, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
+endphoneme
+
+phoneme 32 // falling (³²)
+  stress
+  ipa ˧˨
+  Tone(128, 96, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+endphoneme
+
+phoneme 43 // extra high fall (⁴³) - end of word tone
+  stress
+  ipa ˦˧
+  //need a pitch contour of 122-75 for a~
+  //but can't seem to get espeak-ng to generate it when analysed via praat
+  Tone(127, 71, envelope/p_fall, NULL)
+  //length 150
+endphoneme
+
+//*******************************************************************
+// LANGUAGE SPECIFIC CONSONANTS (PLOSIVES/STOPS)
+//*******************************************************************
+//none.
+
+//*******************************************************************
+// LANGUAGE SPECIFIC VOWELS
+//*******************************************************************
+
+//from phonemes
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 175
+endphoneme
+
+// ạ, a
+//from ph_en
+phoneme A:
+  vwl
+  length 175
+  FMT(vowel/aa_2)
+endphoneme
+
+// ạ, a, end of word vowel
+//from ph_english
+phoneme A~
+  vwl
+  length 175
+  FMT(vnasal/aa_n2)
+endphoneme
+
+// e, ẹ
+//from ph_base2
+phoneme E
+  vwl
+  length 175
+  FMT(vowel/ee_1)
+endphoneme
+
+// e, ẹ, final word vowel
+//from ph_konkani
+phoneme E~
+  vwl
+  length 175
+  FMT(vnasal/ee_n2)
+endphoneme
+
+// i, ị
+//from ph_en
+phoneme I
+  vwl
+  length 175
+  FMT(vowel/ii_2)
+endphoneme
+
+// i, ị, final word vowel
+//from ph_konkani
+phoneme I~
+  vwl
+  length 175
+  FMT(vnasal/ii_n)
+endphoneme
+
+// o, ọ
+//from ph_base2
+phoneme o
+  vwl
+  length 175
+  FMT(vowel/o)
+endphoneme
+
+// o, ọ, final word vowel
+phoneme o~
+  vwl
+  length 175
+  FMT(vnasal/o_n)
+endphoneme
+
+// u, ụ
+//from ph_base2
+phoneme u
+  vwl
+  length 175
+  FMT(vowel/u_bck)
+endphoneme
+
+// u, ụ, final word vowel
+phoneme u~
+  vwl
+  length 175
+  FMT(vnasal/u_n)
+endphoneme
+
+//ṿ, v
+//from ph_french
+phoneme W~
+  vwl
+  length 175
+  FMT(vnasal/W_n)
+endphoneme
+
+// fix specific consonents to last long enough to be heard 
+phoneme l
+	import_phoneme base2/l
+	length 150
+endphoneme
+
+phoneme m
+	import_phoneme base2/m
+	length 400
+endphoneme
+
+phoneme n
+	import_phoneme base2/n
+	length 200
+endphoneme
+
+phoneme w
+	import_phoneme base2/w
+	length 100
+endphoneme
