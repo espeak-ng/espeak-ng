@@ -468,6 +468,9 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 	   EE_INTERNAL_ERROR.
 */
 
+ESPEAK_API void espeak_sg_SetUtauNote(int value);
+ESPEAK_API void espeak_sg_SetUtauNoteFreq(int value);
+
 #ifdef __cplusplus
 extern "C"
 #endif

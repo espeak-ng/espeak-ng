@@ -53,6 +53,8 @@
 
 voice_t *wvoice = NULL;
 
+int utau_pitch=0;
+
 FILE *f_log = NULL;
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
@@ -324,6 +326,18 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 
 static unsigned char *pk_shape;
 
+static void printUtauHeader()
+{
+    if(utau_pitch==0) return;
+    static int done=0;
+    if(done==0) {
+        printf("SG_SAMPLERATE %i\n",samplerate);
+        float period = samplerate*1.0/utau_pitch;
+        printf("SG_PERIOD %f\n",period);
+    }
+    done=1;
+}
+
 void WavegenInit(int rate, int wavemult_fact)
 {
 	int ix;
@@ -530,6 +544,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	return hmax; // highest harmonic number
 }
 
+
 static void AdvanceParameters()
 {
 	// Called every 64 samples to increment the formant freq, height, and widths
@@ -554,6 +569,12 @@ static void AdvanceParameters()
 	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * flutter_amp;
 	Flutter_ix += Flutter_inc;
 	wdata.pitch += x;
+    
+    if(utau_pitch)
+    {
+        wdata.pitch = (utau_pitch<<12) + x;
+    }
+    
 	if (wdata.pitch < 102400)
 		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
@@ -670,6 +691,8 @@ static int ApplyBreath(void)
 	}
 	return value;
 }
+
+
 
 static int Wavegen()
 {
@@ -788,7 +811,7 @@ static int Wavegen()
 					modn_period = modn_period >> 4;
 				}
 
-				if (modn_period != 0) {
+				if (modn_period != 0 && utau_pitch==0) {
 					if (modn_period == 0xf) {
 						// just once */
 						amplitude2 = (amplitude2 * modn_amp)/16;
@@ -826,6 +849,7 @@ static int Wavegen()
 		total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);  // call an assembler code routine
 #else
 		theta = waveph;
+        
 
 		for (h = 1; h <= h_switch_sign; h++) {
 			total += ((int)sin_tab[theta >> 5] * harmspect[h]);
@@ -863,12 +887,20 @@ static int Wavegen()
 				wdata.mix_wavefile_offset -= (wdata.mix_wavefile_max*3)/4;
 		}
 
-		z1 = z2 + (((total>>8) * amplitude2) >> 13);
+        int z3 = (((total>>8) * amplitude2) >> 13);
+        
+		z1 = z2 + z3;   //mixed = unvoiced + voiced
+       
+        
 
 		echo = (echo_buf[echo_tail++] * echo_amp);
 		z1 += echo >> 8;
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
+            
+        printUtauHeader();
+        if(utau_pitch) printf("SG_V %i %i\n",z3,z2); //we have more bits in text files
+        
 
 		z = (z1 * agc) >> 8;
 
@@ -884,6 +916,7 @@ static int Wavegen()
 		}
 		*out_ptr++ = z;
 		*out_ptr++ = z >> 8;
+        
 
 		echo_buf[echo_head++] = z;
 		if (echo_head >= N_ECHO_BUF)
@@ -915,6 +948,8 @@ static int PlaySilence(int length, bool resume)
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
+        printUtauHeader();
+        if(utau_pitch) printf("SG_S %i\n",value);
 		*out_ptr++ = value;
 		*out_ptr++ = value >> 8;
 
@@ -967,6 +1002,8 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 		if (echo_tail >= N_ECHO_BUF)
 			echo_tail = 0;
 
+        printUtauHeader();
+        if(utau_pitch) printf("SG_U %i\n",value);
 		out_ptr[0] = value;
 		out_ptr[1] = value >> 8;
 		out_ptr += 2;
@@ -1281,6 +1318,15 @@ static int WavegenFill2()
 
 		switch (q[0] & 0xff)
 		{
+        case WCMD_OTO:
+        {
+            char* data = (char*)q[1];
+            printUtauHeader();
+            char* ototypes[]= {"PAUSE","STRESS","VOWEL","LIQUID","STOP","VSTOP","FRICATIVE","VFRICATIVE","NASAL","VIRTUAL","DELETED","INVALID"};
+			printf("SG_OTO %s %s\n",data,ototypes[q[2]]);
+            free(data);
+        }
+        break;
 		case WCMD_PITCH:
 			SetPitch(length, (unsigned char *)q[2], q[3] >> 16, q[3] & 0xffff);
 			break;

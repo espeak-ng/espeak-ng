@@ -223,6 +223,15 @@ static void DoPause(int length, int control)
 	}
 }
 
+
+static void DoOto(char* oto, int type)
+{
+    wcmdq[wcmdq_tail][0] = WCMD_OTO;
+	wcmdq[wcmdq_tail][1] = oto;
+	wcmdq[wcmdq_tail][2] = type;
+	WcmdqInc();
+}
+
 extern int seq_len_adjust; // temporary fix to advance the start point for playing the wav sample
 
 static int DoSample2(int index, int which, int std_length, int control, int length_mod, int amp)
@@ -1131,6 +1140,8 @@ void DoEmbedded(int *embix, int sourceix)
 	} while ((word & 0x80) == 0);
 }
 
+extern int utau_pitch;
+
 int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 {
 	static int ix;
@@ -1187,6 +1198,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
 		p = &phoneme_list[ix];
+        
+        if(utau_pitch)
+		{
+			char ecantorix_debug_buf[30];
+			int ecantorix_debug_flags=0;
+			WritePhMnemonic(ecantorix_debug_buf, p->ph, p, 0, &ecantorix_debug_flags);
+			DoOto(strdup(ecantorix_debug_buf),p->type);
+		}
 
 		if (p->type == phPAUSE)
 			free_min = 10;
@@ -1236,6 +1255,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 			}
 		}
 
+        //emit oto here
+        
 		switch (p->type)
 		{
 		case phPAUSE:

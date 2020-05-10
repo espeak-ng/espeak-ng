@@ -796,6 +796,18 @@ ESPEAK_API int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 	return param_defaults[parameter];
 }
 
+extern int utau_pitch;
+
+ESPEAK_API void espeak_sg_SetUtauNote(int value)
+{
+    utau_pitch = pow(2.0, (value - 69) / 12.0) * 440;
+}
+
+ESPEAK_API void espeak_sg_SetUtauNoteFreq(int value)
+{
+    utau_pitch = value;
+}
+
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_SetParameter(espeak_PARAMETER parameter, int value, int relative)
 {
 #ifdef USE_ASYNC

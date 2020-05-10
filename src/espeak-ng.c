@@ -57,6 +57,8 @@ static const char *help_text =
     "-d <device>\n"
     "\t   Use the specified device to speak the audio on. If not specified, the\n"
     "\t   default audio device is used.\n"
+    "-e <integer>\n"
+    "\t   Singing synthesis pitch adjustment - frequency in Hz\n"
     "-g <integer>\n"
     "\t   Word gap. Pause between words, units of 10mS at the default speed\n"
     "-k <integer>\n"
@@ -69,6 +71,8 @@ static const char *help_text =
     "\t   Pitch adjustment, 0 to 99, default is 50\n"
     "-s <integer>\n"
     "\t   Speed in approximate words per minute. The default is 175\n"
+    "-u <integer>\n"
+    "\t   Singing synthesis pitch adjustment - midi note number\n"
     "-v <voice name>\n"
     "\t   Use voice file of this name from espeak-ng-data/voices\n"
     "-w <wave file name>\n"
@@ -324,6 +328,7 @@ int main(int argc, char **argv)
 		{ "compile-intonations", no_argument, 0, 0x10f },
 		{ "compile-phonemes", optional_argument, 0, 0x110 },
 		{ "load",    no_argument,       0, 0x111 },
+        { "utau-note", required_argument, 0, 0x112 },
 		{ 0, 0, 0, 0 }
 	};
 
@@ -368,7 +373,7 @@ int main(int argc, char **argv)
 	option_punctlist[0] = 0;
 
 	while (true) {
-		c = getopt_long(argc, argv, "a:b:d:f:g:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long(argc, argv, "a:b:d:e:f:g:hk:l:mp:qs:v:u:w:xXz",
 		                long_options, &option_index);
 
 		// Detect the end of the options.
@@ -426,6 +431,12 @@ int main(int argc, char **argv)
 		case 'g':
 			wordgap = atoi(optarg2);
 			break;
+        case 'e':
+            espeak_sg_SetUtauNoteFreq(atoi(optarg2));
+            break;
+        case 'u':
+            espeak_sg_SetUtauNote(atoi(optarg2));
+            break;
 		case 'v':
 			strncpy0(voicename, optarg2, sizeof(voicename));
 			break;

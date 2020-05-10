@@ -433,6 +433,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define WCMD_MBROLA_DATA 13
 #define WCMD_FMT_AMPLITUDE 14
 #define WCMD_SONIC_SPEED 15
+#define WCMD_OTO 16
 
 #define N_WCMDQ   170
 #define MIN_WCMDQ  25   // need this many free entries before adding new phoneme
