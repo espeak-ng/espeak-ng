@@ -191,20 +191,25 @@ endphoneme
 // fix specific consonents to last long enough to be heard 
 phoneme l
 	import_phoneme base2/l
-	length 150
+	length 75
 endphoneme
 
 phoneme m
 	import_phoneme base2/m
-	length 400
+	length 75
 endphoneme
 
 phoneme n
 	import_phoneme base2/n
-	length 200
+	length 75
 endphoneme
 
 phoneme w
 	import_phoneme base2/w
-	length 100
+	length 75
+endphoneme
+
+phoneme j
+	import_phoneme base1/j
+	length 75
 endphoneme
