@@ -1,0 +1,320 @@
+
+//tone place holders
+.L01	xb xc xcxd xdxc xd xdxf xfxd xf
+//nasal consonants
+.L02	m n
+//all consonants
+.L03	ch d g h j k l m n s t w y
+
+
+.replace
+
+¹		xb
+²		xc
+³		xd
+⁴		xf
+
+//CED pp xi-xii
+.group x
+	xb	21
+	
+	xc	2
+	
+	xcxd	23
+	xdxc	32
+	
+	xd	3
+	
+	xdxf	34
+	xfxd	43
+	
+	xf	4
+
+//CED page x
+.group ɂ
+    ɂ ?
+    
+//CED - none of vowels are dipthongs, even though the pronunciation key uses dipthongs. pg ix - footnote
+
+//CED pg ix
+.group a
+	//long
+    a A::
+    L02) a A~:
+    
+    //final word vowels are short, nasal, and have a highfall tone
+    a (_ A~43
+    L02) a (_ A~43
+    axb (_	A~1
+    axc (_	A~2
+    axd (_	A~3
+    axf (_	A~4
+    
+    a	(L03_	A~43
+    a	(L03L03_	A~43
+    a	(L03L03L03_	A~43
+    
+    a	(L03L01 A:
+    a	(L03L03L01 A:
+    a	(L03L03L03L01 A:
+    
+    L02)	a	(L03L01 A~
+    L02)	a	(L03L03L01 A~
+    L02)	a	(L03L03L03L01 A~
+    
+    //short followed by s has an h sound added, see CED pg x, footnote.
+    as	(L01 A:hs
+    as	(L03L01 A:hs
+    as	(L03L03L01 A:hs
+    as	(L03L03L03L01 A:hs    
+    
+    L02)	as	(L01 A~hs
+    L02)	as	(L03L01 A~hs
+    L02)	as	(L03L03L01 A~hs
+    L02)	as	(L03L03L03L01 A~hs
+    
+.group e
+    e	E:
+    L02)	e	E~:
+    
+    e	(L03_	E43
+    e	(L03L03_	E43
+    e	(L03L03L03_	E43
+    e	(L03L03L03L03_	E43
+
+	//final word vowels are short, nasal, and have a highfall tone
+    e	(_	E~43
+    L02)	e	(_	E~43
+    exb	(_	E~1
+    exc	(_	E~2
+    exd	(_	E~3
+    exf	(_	E~4
+    
+    e	(L03L01 E
+    e	(L03L03L01 E
+    e	(L03L03L03L01 E
+
+	L02)	e	(L03L01 E~
+    L02)	e	(L03L03L01 E~
+    L02)	e	(L03L03L03L01 E~
+    
+    es	(L01 Ehs
+    es	(L03L01 Ehs
+    es	(L03L03L01 Ehs
+    es	(L03L03L03L01 Ehs
+    
+    L02)	es	(L01 E~hs
+    L02)	es	(L03L01 E~hs
+    L02)	es	(L03L03L01 E~hs
+    L02)	es	(L03L03L03L01 E~hs
+
+.group i
+    i	I:
+    L02)	i	I~:
+    
+	//final word vowels are short, nasal, and have a highfall tone    
+    i	(_	I~43
+    L02)	i	(_	I~43
+    ixb	(_	I~1
+    ixc	(_	I~2
+    ixd	(_	I~3
+    ixf	(_	I~4
+    
+    
+    i	(L03_	I43
+    i	(L03L03_	I43
+    i	(L03L03L03_	I43
+    
+    i	(L03L01 I
+    i	(L03L03L01 I
+    i	(L03L03L03L01 I
+    
+    L02)	i	(L03L01 I~
+    L02)	i	(L03L03L01 I~
+    L02)	i	(L03L03L03L01 I~
+    
+    is	(L01 Ihs
+    is	(L03L01 Ihs
+    is	(L03L03L01 Ihs
+    is	(L03L03L03L01 Ihs
+    
+    L02)	is	(L01 I~hs
+    L02)	is	(L03L01 I~hs
+    L02)	is	(L03L03L01 I~hs
+    L02)	is	(L03L03L03L01 I~hs
+    
+.group o
+    o	o:
+    L02)	o	o~:
+    
+    o	(L03_	o43
+    o	(L03L03_	o43
+    o	(L03L03L03_	o43
+    o	(L03L03L03L03_	o43
+
+	//final word vowels are short, nasal, and have a highfall tone    
+    o	(_	o~43
+    L02)	o	(_	o~43
+    oxb	(_	o~1
+    oxc	(_	o~2
+    oxd	(_	o~3
+    oxf	(_	o~4
+    
+    o	(L03L01 o
+    o	(L03L03L01 o
+    o	(L03L03L03L01 o
+    
+    L02)	o	(L03L01 o~
+    L02)	o	(L03L03L01 o~
+    L02)	o	(L03L03L03L01 o~
+    
+    os	(L01 ohs
+    os	(L03L01 ohs
+    os	(L03L03L01 ohs
+    
+    L02)	os	(L01 o~hs
+    L02)	os	(L03L01 o~hs
+    L02)	os	(L03L03L01 o~hs
+    
+.group u
+    u	u:
+    L02)	u	u~:
+    
+    u	(L03_	u43
+    u	(L03L03_	u43
+    u	(L03L03L03_	u43
+    u	(L03L03L03L03_	u43
+    
+	//final word vowels are short, nasal, and have a highfall tone    
+    u	(_	u~43
+    L02)	u	(_	u~43
+    uxb	(_	u~1
+    uxc	(_	u~2
+    uxd	(_	u~3
+    uxf	(_	u~4
+    
+    u	(L03L01 u
+    u	(L03L03L01 u
+    u	(L03L03L03L01 u
+    
+    L02)	u	(L03L01 u~
+    L02)	u	(L03L03L01 u~
+    L02)	u	(L03L03L03L01 u~
+    
+    us	(L01 uhs
+    us	(L03L01 uhs
+    us	(L03L03L01 uhs
+    
+    L02)	us	(L01 u~hs
+    L02)	us	(L03L01 u~hs
+    L02)	us	(L03L03L01 u~hs
+    
+.group v
+    v	W~:
+    
+    v	(L03_	W~43
+    v	(L03L03_	W~43
+    v	(L03L03L03_	W~43
+    
+    v	(_	W~43
+    vxb	(_	W~1
+    vxc	(_	W~2
+    vxd	(_	W~3
+    vxf	(_	W~4
+    
+    v	(L03L01 W~
+    v	(L03L03L01 W~
+    v	(L03L03L03L01 W~
+    
+    vs	(L01 W~hs
+    vs	(L03L01 W~hs
+    vs	(L03L03L01 W~hs
+
+.group ạ
+    ạ A:
+    L02) ạ A~
+    ạ (_ A~43
+    ạs A~hs
+    L02) ạs A~hs
+
+.group ẹ
+    ẹ E
+    L02) ẹ E~
+    ẹ (_ E~43
+    ẹs Ehs
+    L02) ẹs E~hs
+    
+.group ị
+    ị I
+    L02) ị I~
+    ị (_ I~43
+    ịs Ihs
+    L02) ịs I~hs
+    
+.group ọ
+    ọ o
+    L02) ọ o~
+    ọ (_ o~43
+    ọs ohs
+    L02) ọs o~hs
+    
+.group ụ
+    ụ u
+    L02) ụ u~
+    ụ (_ u~43
+    ụs uhs
+    L02) ụs u~hs
+    
+.group ṿ
+    ṿ W~
+    ṿ W~43
+    ṿs W~hs
+
+.group ch
+    ch tS
+    
+.group d
+    d d
+    
+.group g
+    g g
+
+.group h
+    h h
+    //if word ends in hn or hy, transpose the last two sounds. CED pg x footnote.
+    hn (_ nh
+    hn (L01_ nh
+    hy (_ jh
+    hy (L01_ jh
+    
+.group j
+     j dZ
+     
+.group k
+     k k
+     
+.group l
+     l l
+     ls hls
+     
+.group m
+     m m
+    
+.group n
+     n n
+     
+.group s
+     s s
+     
+.group t
+     t t
+     
+.group w
+     w w
+     wh (L01 w
+     wh (L03 w
+     
+.group y
+     y j
+     yh (L01 j
+     yh (L03 j

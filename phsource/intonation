@@ -266,3 +266,47 @@ headextend 16 82 50 32 16
 nucleus0 fall  92 8
 nucleus fall  90 77 76 8
 endtune
+
+tune chrs
+prehead		0	0
+headenv		fall	0
+head		1	0	0	0	0
+headextend	0	0	0	0	0	0	0	0
+nucleus		fall	0	0	0	0
+nucleus0	fall	0	0
+onset		0	0	0
+headlast	0	0	0
+endtune
+
+tune chrc
+prehead		0	0
+headenv		fall	0
+head		1	0	0	0	0
+headextend	0	0	0	0	0	0	0	0
+nucleus		fall	0	0	0	0
+nucleus0	fall	0	0
+onset		0	0	0
+headlast	0	0	0
+endtune
+
+tune chrq
+prehead		0	0
+headenv		fall	0
+head		1	0	0	0	0
+headextend	0	0	0	0	0	0	0	0
+nucleus		fall	0	0	0	0
+nucleus0	fall	0	0
+onset		0	0	0
+headlast	0	0	0
+endtune
+
+tune chre
+prehead		0	0
+headenv		fall	0
+head		1	0	0	0	0
+headextend	0	0	0	0	0	0	0	0
+nucleus		fall	0	0	0	0
+nucleus0	fall	0	0
+onset		0	0	0
+headlast	0	0	0
+endtune
