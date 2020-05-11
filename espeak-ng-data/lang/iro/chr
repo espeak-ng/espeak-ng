@@ -8,7 +8,7 @@ words 0 2
 phonemes chr
 //stress on all syllables to simulate stress on no syllables
 stressRule 9 
-intonation 1 // Less intonation, and comma does not raise the pitch.
+intonation 1
 pitch 30 90
 
 tunes	chrs chrc chrq chre
