@@ -105,7 +105,7 @@ endphoneme
 // ạ, a
 //from ph_en
 phoneme A:
-  vwl
+  vwl starttype #a  endtype #a
   length 175
   FMT(vowel/aa_2)
 endphoneme
@@ -113,7 +113,7 @@ endphoneme
 // ạ, a, end of word vowel
 //from ph_english
 phoneme A~
-  vwl
+  vwl starttype #a  endtype #a
   length 175
   FMT(vnasal/aa_n2)
 endphoneme
@@ -121,7 +121,7 @@ endphoneme
 // e, ẹ
 //from ph_base2
 phoneme E
-  vwl
+  vwl starttype #e  endtype #e
   length 175
   FMT(vowel/ee_1)
 endphoneme
@@ -129,7 +129,7 @@ endphoneme
 // e, ẹ, final word vowel
 //from ph_konkani
 phoneme E~
-  vwl
+  vwl starttype #e  endtype #e
   length 175
   FMT(vnasal/ee_n2)
 endphoneme
@@ -137,7 +137,7 @@ endphoneme
 // i, ị
 //from ph_en
 phoneme I
-  vwl
+  vwl starttype #i  endtype #i
   length 175
   FMT(vowel/ii_2)
 endphoneme
@@ -145,7 +145,7 @@ endphoneme
 // i, ị, final word vowel
 //from ph_konkani
 phoneme I~
-  vwl
+  vwl starttype #i  endtype #i
   length 175
   FMT(vnasal/ii_n)
 endphoneme
@@ -153,14 +153,14 @@ endphoneme
 // o, ọ
 //from ph_base2
 phoneme o
-  vwl
+  vwl starttype #o  endtype #o
   length 175
   FMT(vowel/o)
 endphoneme
 
 // o, ọ, final word vowel
 phoneme o~
-  vwl
+  vwl starttype #o  endtype #o
   length 175
   FMT(vnasal/o_n)
 endphoneme
@@ -168,14 +168,14 @@ endphoneme
 // u, ụ
 //from ph_base2
 phoneme u
-  vwl
+  vwl starttype #u  endtype #u
   length 175
   FMT(vowel/u_bck)
 endphoneme
 
 // u, ụ, final word vowel
 phoneme u~
-  vwl
+  vwl starttype #u  endtype #u
   length 175
   FMT(vnasal/u_n)
 endphoneme
@@ -183,7 +183,7 @@ endphoneme
 //ṿ, v
 //from ph_french
 phoneme W~
-  vwl
+  vwl starttype #@  endtype #@
   length 175
   FMT(vnasal/W_n)
 endphoneme
