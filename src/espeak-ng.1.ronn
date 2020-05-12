@@ -92,9 +92,6 @@ or text is spoken from stdin, read separately one line by line at a time.
   * `-u`:
     Singing Synthesis: Set the frequency of a note as a midi note number. 
     Outputs commands for external singing synthesis engine to stdout. 
-    
-  * `-e`:
-    No final sentence pause at the end of the text.
 
   * `--stdout`:
     Write speech output to stdout.
