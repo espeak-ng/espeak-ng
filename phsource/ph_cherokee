@@ -213,3 +213,9 @@ phoneme j
 	import_phoneme base1/j
 	length 75
 endphoneme
+
+phoneme h
+	import_phoneme base1/h
+	length 5
+	//lengthmod 1
+endphoneme
