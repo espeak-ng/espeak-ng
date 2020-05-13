@@ -1,10 +1,11 @@
-name Cherokee
-language chr
+name Cherokee //https://github.com/espeak-ng/espeak-ng/blob/master/docs/voices.md
+language chr 5
+
 maintainer Michael Conrad <m.conrad.202@gmail.com>
 status testing
 voicing 100
 speed 73
-words 0 2
+words 0 1
 phonemes chr
 //stress on all syllables to simulate stress on no syllables
 stressRule 9 
@@ -15,3 +16,5 @@ tunes	chrs chrc chrq chre
 
 stressAmp 8 8 8 8 8 8 8 8  //stress all vowels the same
 stressLength 180 180 180 180 180 180 180 180 //stress all vowels the same
+
+consonants 150 150
