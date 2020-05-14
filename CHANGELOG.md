@@ -11,6 +11,7 @@ The espeak-ng project is a fork of the espeak project.
 
 updated languages:
 
+*  chr (Cherokee) -- Michael Conrad
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
