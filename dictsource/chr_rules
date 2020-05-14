@@ -1,34 +1,37 @@
 
-//tone place holders
+//tones
 .L01	xb xc xcxd xdxc xd xdxf xfxd xf
+
 //nasal consonants
 .L02	m n
+
 //all consonants
 .L03	ch d g h j k l m n s t w y
 
+//all vowels
+.L04 a e i o u v ạ ẹ ị ọ ụ ṿ
 
 .replace
-
-¹		xb
-²		xc
-³		xd
-⁴		xf
+	¹ xb
+	² xc
+	³ xd
+	⁴ xf
 
 //CED pp xi-xii
 .group x
-	xb	21
+	xb	1_|
 	
-	xc	2
+	xc	2_|
 	
-	xcxd	23
-	xdxc	32
+	xcxd	23_|
+	xdxc	32_|
 	
-	xd	3
+	xd	3_|
 	
-	xdxf	34
-	xfxd	43
+	xdxf	34_|
+	xfxd	43_|
 	
-	xf	4
+	xf	4_|
 
 //CED page x
 .group ɂ
@@ -318,3 +321,4 @@
      y j
      yh (L01 j
      yh (L03 j
+     
