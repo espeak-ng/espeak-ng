@@ -38,8 +38,11 @@
 .L17  ai ais am ā ām ās ie iem o os                // suffixes of certain adjectives finishing with ..ējais
 .L18  am āk i u ot ēt os                           // suffixes of adverbs (apstākļa vārdi)
 
-.L10  ~ at ie iz jā jā jāat jāie jāiz jāno jāsa ne no pa pār pie pie sa vis // optional verb prefixes
-.L20  ~ ne                                         // optional negation prefix
+.L30  ~ at ie iz jā jā jāat jāie jāiz jāno jāsa ne no pa pār pie sa vis // optional verb prefixes
+.L31  ~ ne                                         // optional negation prefix
+.L32  ~ ie ne sa vis visne                         // optional prefixes for adjectives
+.L33  ~ ār iekš civil ie eks komerc kop liel līdz nam pār pārpa pie privāt sa uz valsts māj // optional prefixes for nouns
+
 
 // +---------------------------+
 // | Pronunciation of e and ē  |
@@ -140,6 +143,9 @@
            ai              ai
            aie             a_!ie    // a-ie is more frequent than ai-e
            au              au
+    _L32v) aja             a`ja` 
+    _L33v) aja             a`ja` 
+       _v) aj              a`j
 
 .group ā
            ā               a:
@@ -159,7 +165,9 @@
 .group d
            d               d
            dz              Dz`
+           dz (L57         Dz`_|
            dž              DZ`
+           dž (L57         DZ`_|
            dž (L61         DZ
 
 .group e
@@ -220,11 +228,13 @@
 
     // specific words ----------------------------------------------------------------- //
         b) e (dL82L05_         e         // bedre
+        b) e (nzīnL01_         e         // benzīns
        _b) e (t_               e
        _b) e (z_               e
        _b) e (z+               e
        _C) e (_                e         // re, te, ve
         c) e (nL83+            e
+        c) e (nL88+            e
         c) e (tur              e
         č) e (tr               e
         d) ebe (L83            ebe
@@ -260,11 +270,11 @@
        _j) e (l_               e
       kur) e (n                e
        _ķ) eme (rL01_          eme       // Ķemeri
-     _L20) e (sam_+          _!e         // esam
-     _L20) e (sat_+          _!e         // esat
-     _L20) e (si_            _!e         // esi
-     _L20) e (smu_           _!e         // esmu
-     _L20) e (sot_           _!e         // esot
+     _L31) e (sam_+          _!e         // esam
+     _L31) e (sat_+          _!e         // esat
+     _L31) e (si_            _!e         // esi
+     _L31) e (smu_           _!e         // esmu
+     _L31) e (sot_           _!e         // esot
        _m) e (dūzL04_          e
        _m) e (kL04_            e         // Meka
         m) e (L86+             e
@@ -406,7 +416,7 @@
   konstat) ē                   e:
        kr) ē (t+               e:
         ķ) ē (dL05_            e:    // ķēde
-      L10) ē (du_<             e:
+      L30) ē (du_<             e:
       L76) ē (tu_              e:
        _l) ē (L83+             e:    // lēst
         m) ē (L77L05+          e:    // mēle
@@ -433,7 +443,9 @@
        sp) ē (kL01             E:    // ..spēks
        sp) ē (L65              e:    // spēt
        sp) ē (L77+             e:    // ..spēl..
+       sv) ē (t                e:
        sv) ē (tk               E:
+       sv) ē (tL01_            E:    // svēts
        šķ) ē (L77L05_          e:    // šķēle
        šķ) ē (L82L05_          e:    // šķēre
      _tāp) ē (c_               e:    // tāpēc
@@ -470,6 +482,7 @@
         _) i (kkuL82       %i       // ikkurš
         _) i (kvien        %i       // ikviens
            iu              iu
+        v) ientie (s       ientie:
 
 .group ī
            ī               i:
@@ -483,25 +496,24 @@
            k               k
         _) kaut (_         k,aut    // secondary stress as average between verb and particle
         _) klāt (_         kl,a:t   // ... and similarly
-           k (ļ            k}       // tiny pause between k and ļ
+           k (ļ            k_|      // tiny pause between k and ļ
 
 .group ķ
            ķ               c
-           ķ (L55          c}       // tiny pause for sharper sound before short vowels
+           ķ (L55          c_|      // tiny pause for sharper sound before short vowels
 
 .group l
            l               l
         C) l (C            l-        // more voiced variant between consonants
      _lie) l (@            l>
-           l (L60@+        l:
-           l (L60+         l>
-           l (L61@+        l>
+           l (L60A+        l:
            ll (++          ll
-
+           l (n            l:
+           l (zC++         l
 
 .group ļ
            ļ               l^
-           ļ (ķ            l^}
+           ļ (ķ            l^_|
 
 .group m
            m               m
@@ -683,6 +695,7 @@ L46L45L45) o (<<           uo
     kontr) o (JL56         o:
      konv) o               o
     kript) o               o
+       kr) o (L80L02_+     uo        // ..kronis
        kr) o (L80          uo
       _kr) o (nL04_        o:        // krona
       kum) o (L65          uo
@@ -708,6 +721,7 @@ L46L45L45) o (<<           uo
       mar) o               o
       maž) o               o
       mec) o               o
+    merit) o               o
       met) o (L72          o:
      metr) o (@            o
       mez) o               o
@@ -766,6 +780,7 @@ L46L45L45) o (<<           uo
      ring) o               o
       rip) o               uo
      rmat) o               o
+       _r) odže (r         oDZ`e
         r) o (L90L05_      uo        // roze
         r) o (z            o
       rtr) o               o
@@ -776,6 +791,7 @@ L46L45L45) o (<<           uo
      sink) o               o:
      skal) o  (+           uo
     skarb) o (_            uo
+    skart) o               uo
     skler) o               o:
      slav) o               o
      slog) o               uo
@@ -885,11 +901,15 @@ L46L45L45) o (<<           uo
         n) od (L05_        o:d       // ..node
         n) od              uod
         n) odz             uo`dz
+        _) od (ai_         o:d
+        _) od (as_         o:d
+        _) od (ām_         o:d
         _) od (ek          od
            od (erL51       uod
         _) od (esL04_      od        // Odesa
            od (ia          od
         _) odio            odio:
+        _) odo (@          odo
         _) odo (s_         uoduo     // odos
       par) od              od
         p) od (e           od
@@ -921,6 +941,7 @@ L46L45L45) o (<<           uo
            ogo             uoguo
       osm) og              og
        pr) og (L68         og
+       pr) ogno (L90L05_   ogno:     // ..prognoze
        sl) og (L01_        uog       // slogs
        sl) og (o           uog       // slogot
       _sm) og (L01_        o:g       // smogs
@@ -945,6 +966,7 @@ L46L45L45) o (<<           uo
         _) oj (ārL01_      oj        // Ojārs
            oj (is_         uoj
       _pr) oj (ām_         uoj
+       pr) oj (ek          o`j
        pr) oj (L42         oj
       _tr) oj (L04_        oj        // Troja
         z) oj (L01_+       oj        // ..zojs
@@ -996,7 +1018,7 @@ L46L45L45) o (<<           uo
         r) ok (L04_        uok       // ..roka
         r) ok (a_          uo`k      // _roka_
         r) ok (m           ok
-        r) okope           oko:p
+        r) okope           oko:pe
         r) ok (tu          uok
        sm) ok              uok
         s) ok (o           ok
@@ -1043,6 +1065,7 @@ L46L45L45) o (<<           uo
         k) ol (o           ol
         k) ol (p           ol
         k) ol (s           ol
+     L33p) ol (it          ol
        _l) ol (itL04_      ol        // Lolita
         l) oloj  (L13_     uoluoj
         l) olo (L12_       uoluo     // lolot
@@ -1066,6 +1089,7 @@ L46L45L45) o (<<           uo
        _p) ol (ie          uol
        _p) ol (ijL04_+     uol       // Polija
        _p) ol (kL04_       ol        // polka
+       _p) ol (L01_+       o:l       // pols
         p) ol (L01_        o:l       // ..pols
         p) ol (L05_        o:l       // ..pole
         p) ol (L50         ol
@@ -1124,6 +1148,8 @@ L46L45L45) o (<<           uo
         d) om (nL04_       om        // domna
        dr) om (L01_        o:m       // ..droms
        gl) om              om
+        k) om (iL67        o:m
+        k) om (isk         o:m
         k) om (L04_+       o:m       // koma
         k) om              om
         k) omo             omo
@@ -1150,8 +1176,10 @@ L46L45L45) o (<<           uo
         p) om (er          om
         p) om (p           om
       _pr) om (b           uom       // prombūtne
+      _pr) omejo           uomejuo
       _pr) om (es          uom       // promesošs
        pr) om              om
+      _pr) omo             omo:
       _pr) om (_           uom       // prom
        pt) om (L01_        o:m       // ..ptoms
        pt) om              o>m
@@ -1183,6 +1211,7 @@ L46L45L45) o (<<           uo
         b) on (us          on
        br) on              on
      cens) on              uon
+      cēl) on (L02         uon
      daig) on              uon
      dail) on              uon
      dalt) on              o:n
@@ -1195,12 +1224,14 @@ L46L45L45) o (<<           uo
       egl) on              uon
        ek) ono             ono:
        em) on              on
+        f) on (dL01_       oN>       // ..fonds
         f) on (i           o:n
      furg) on              o:n
         g) on              on
      harm) on              o:n
        hr) on              o:n
        hr) on (o           on
+       ik) on (L04_        o:n       // ikona
       ikr) on (+           o:n
        im) on              o>n
        ir) on (i<          o:n
@@ -1259,6 +1290,7 @@ L46L45L45) o (<<           uo
      _ram) on (L04_        o:n       // Ramona
       rez) on              on
       rib) on (uk          on
+       _r) on (aldL01_     on        // Ronalds
         s) on              on
        sp) on              on
         t) on (edēļ        uon
@@ -1296,9 +1328,11 @@ L46L45L45) o (<<           uo
         k) op (ējL04_      uop       // ..kopēja
        _k) op (ējo_        uop       // kopējo
         k) op (ē_          op        // ..kopē
+        k) op (fond        uop
         k) op (ij          op        // ..kopij..
         k) op (j           uop       // ..kopj..
         k) op (L04_+       uop       // ..kopa
+        k) op (L05_        uop       // ..kope
         k) op (L65+        uop       // ..kuop..
         k) opo             uopuo
         k) op (pr          uop       // ..koppr..
@@ -1429,6 +1463,7 @@ L46L45L45) o (<<           uo
         p) orno            oRno
         p) or (o           oR
         p) or (t           oR
+   profes) or (L05_        o:R       // profesore
         r) or              oR
         s) or (L01_+       o:R       // ..sors
         s) or              oR
@@ -1442,6 +1477,7 @@ L46L45L45) o (<<           uo
        _t) or (eiz_        uoR       // toreiz
        _t) or (e           oR        // toreadors
        _t) or (ijL01_      o:R       // torijs
+        t) or (ikL04_      o:R       // ..torika
         t) or (L05_+       o:R       // ..tore
         t) or (L80+        uoR
         t) or (o           oR
@@ -1529,7 +1565,7 @@ L46L45L45) o (<<           uo
         k) ot (L51         ot
         k) ot (l           ot
        kv) ot (L04         o:t
-   _L10pr) ot (L13_        uot       // (ne|sa..)prot(i|u)
+   _L30pr) ot (L13_        uot       // (ne|sa..)prot(i|u)
       lin) ot (ip          ot
         l) ot (er          ot
        _l) ot (iņL04       ot        // Lotiņa
@@ -1584,13 +1620,14 @@ L46L45L45) o (<<           uo
         n) ov (ad          uov
         n) ov (at          ov
         n) ov (āci         ov
+        n) ov (āc          uov
         n) ov (elL05_      ov        // novele
        _n) ov (emb         ov        // novembris
         n) ov (ēr          uov
         n) ov (it          ov
         n) ov (L04_        ov        // nova
         n) ov (o           ov
-        _) ov (āc          ov
+           ov (āc          ov
       _pl) ov (L01_        ov        // plovs
        pr) ov (an          ov
        pr) ov (in          ov
@@ -1643,7 +1680,7 @@ L46L45L45) o (<<           uo
 
 .group p
            p               p
-        _) pie (A          pie}
+        _) pie (A          pie_|
         _) pie (e+         pie_!
         _) pus (vien       p%us      // pus..number stress on next syllable
         _) pus (div        p%us
@@ -1729,6 +1766,7 @@ L46L45L45) o (<<           uo
 
 .group z
            z               z
+        i) z (v            z
            z (n            z-
            z (v            z-
 

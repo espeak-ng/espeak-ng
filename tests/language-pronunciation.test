@@ -149,7 +149,7 @@ los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un sp
 test_phonemes lfn "Latn" "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'etos
 los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Tota umanes nase libre e egal en dinia e diretos. Los es donada razona e consiensa e debe ata la un a la otra en un spirito de fratia."
 test_phonemes lt "Latn" "i:l;ingd'ama fext'Uoto:jo: Sp'aga subl;i:ktS;;o:j'us;i p@-rag@-r;'eAZee apv'alu: arb'u:za:" "Įlinkdama fechtuotojo špaga sublykčiojusi pragręžė apvalų arbūzą."
-test_phonemes lv "Latn" "gl'a:ZScu:n^a R'u:ci:Si Dz\`'E:Ruma: tS'iepj b'aha k'ontsERtfli:Jel^u v'a::kus" "Glāžšķūņa rūķīši dzērumā čiepj Baha koncertflīģeļu vākus."
+test_phonemes lv "Latn" "gl'a:ZScu:n^a R'u:ci:Si Dz\`_|'E:Ruma: tS'iepj b'aha k'ontsERtfli:Jel^u v'a::kus" "Glāžšķūņa rūķīši dzērumā čiepj Baha koncertflīģeļu vākus."
 test_phonemes mi "Latn" "k'o_| t'e_| kat'oa_ 'o_| N'a_| taN'ata_ 'i_| t'e_| f,ana,uNat'aNa_| m'ai_ 'e_| wat'ea_ 'ana_ 'i_| N'a_| h'ere_| kat'oa_|
 'e_| t,aur,iter'ite_ 'ana_| h'oki_| N'a_| m'ana_| m'e_| N'a_| t'ika_|
 'e_| f,akafif'ia_ 'ana_| h'oki_| k'i_ 'a_| rat'ou_| t'e_| Nak'au_| f'ai_| f,aka'aro_| m'e_| t'e_| h,ineN'aro_| moh'io_| k'i_| t'e_| t'ika_| m'e_| t'e_| h'e_|

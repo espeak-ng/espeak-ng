@@ -505,6 +505,7 @@ lvu     $abbrev
 na      $abbrev
 nra     $abbrev
 nr      $abbrev
+oecd    $abbrev $allcaps
 pctvl   $abbrev $pause
 prks    $abbrev
 psrs    $abbrev
@@ -549,6 +550,7 @@ bruno        $alt
 bruto        $alt
 bufalo       $alt
 burkinafaso  $alt $4
+covid        $alt
 čello        $alt
 dekoltē      $alt $3
 depo         $alt
@@ -581,6 +583,7 @@ info         $alt
 inkognito    $alt $3
 intermeco    $alt $3
 ivo          $alt
+(joko ono)   j'oko:||'ono:
 kakao        $alt $2
 kanapē            $3
 kastro       $alt
@@ -598,6 +601,7 @@ lego         $alt
 leo          $alt
 leporello    $alt
 lesoto       $alt
+limbo        $alt
 logo         $alt
 loto         $alt
 lumbago      $alt
@@ -613,6 +617,7 @@ mono         $alt
 montekarlo   $alt $3
 montevideo   $alt $3
 moto         $alt
+mož          $alt
 nato         $alt
 odo          $alt
 odoo         $alt
@@ -675,6 +680,7 @@ uno          $alt
 ūdenspolo    $alt
 veto         $alt
 video        $alt
+vienmēr      v'ienme::R
 vivo         $alt
 volvo        $alt
 žabo         $alt

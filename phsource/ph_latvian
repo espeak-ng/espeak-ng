@@ -4,6 +4,12 @@ phoneme a
   FMT(vwl_lv/a, 100)           // adjusted from aa_3
 endphoneme
 
+phoneme a`     // shorter variant of a
+  vwl starttype #a endtype #a
+  length 60
+  FMT(vwl_lv/a, 100)
+endphoneme
+
 phoneme a:
   vwl starttype #a endtype #a
   length 310
@@ -67,6 +73,12 @@ phoneme o
   FMT(vwl_lv/o, 90)
 endphoneme
 
+phoneme o` // shorter version of o
+  vwl starttype #o endtype #o
+  length 60
+  FMT(vwl_lv/o, 90)
+endphoneme
+
 phoneme o:
   vwl starttype #o endtype #o
   length 300
@@ -94,7 +106,7 @@ endphoneme
 
 phoneme au
   vwl starttype #a endtype #u
-  length 300
+  length 280
   lng
   FMT(vdiph/aau, 100)
 endphoneme
@@ -193,19 +205,19 @@ phoneme h // more quiet version of standard h
   ipa h
 
   IF nextPh(#a) THEN
-    WAV(h/h-lv, 10)
+    WAV(h/h-lv, 20)
   ELIF nextPh(#e) THEN
-    WAV(h/h-lv, 10)
+    WAV(h/h-lv, 20)
   ELIF nextPh(#i) THEN
-    WAV(h/h-lv, 10)
+    WAV(h/h-lv, 20)
   ELIF nextPh(#o) THEN
-    WAV(h/h-lv, 10)
+    WAV(h/h-lv, 20)
   ELIF nextPh(#u) THEN
-    WAV(h/h-lv, 10)
+    WAV(h/h-lv, 20)
   ELIF nextPh(isPause) THEN
     WAV(h/h-lv, 20)
   ENDIF
-  WAV(h/h-lv, 10)  // no vowel following
+  WAV(h/h-lv, 20)  // no vowel following
 endphoneme
 
 phoneme j // **y**es
@@ -299,7 +311,7 @@ phoneme l^    // Latvian ļ, customized from standard l^
   ipa ʎ
   lengthmod 7
   Vowelout len=60 lenadd rate
-  length 100
+  length 80
 
   NextVowelStarts
     VowelStart(l^/j2@)
@@ -313,6 +325,7 @@ phoneme l^    // Latvian ļ, customized from standard l^
   IF prevPh(isPause) THEN
     FMT(l^/_l^)
   ELSEIF nextPh(isPause) THEN
+    length 100
     FMT(l^/l^_)
   ENDIF
 
@@ -459,7 +472,7 @@ phoneme z`  // Shortest version of z for diphthong dz
   vcd alv frc sib
   ipa z
   voicingswitch s
-  length 8
+  length 10
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
   IF KlattSynth THEN
@@ -499,16 +512,6 @@ endphoneme
 phoneme >  // lengthen previous vowel less than using ":"
   ipa ː
   virtual
-  length 20 // it actually seems working shorter, but anyway...
+  length 30 // it actually seems working shorter, but anyway...
 endphoneme
-
-phoneme } // Tiny, 5ms non-linked pause (used between phonemes in word)
-  ipa ʔ
-  pause
-  nolink
-  length 5
-endphoneme
-
-
-
 
