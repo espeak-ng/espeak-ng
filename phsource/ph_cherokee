@@ -39,52 +39,50 @@
 phoneme 1 // low fall (¹)
   stress
   ipa ˨˩
-  //Tone(106, 88, envelope/p_fall, NULL)
-  
-	Tone(106, 85, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
+	//Tone(106, 85, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
+	Tone(49, 28, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
 endphoneme
 
 
 phoneme 2 // low (²)
   stress
   ipa ˨
-  //Tone(104, 96, envelope/p_fall, NULL)
-  //DF voice based
-  Tone(105, 93, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
-endphoneme
-
-phoneme 3 // high (³) 
-  stress
-  ipa ˧
-  //Tone(108, 112, envelope/p_rise, NULL)
-  Tone(109, 116, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
-endphoneme
-
-phoneme 4 // extra high rise (⁴)
-  stress
-  ipa ˧˦
-  Tone(112, 134, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
+  //Tone(105, 93, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
+  Tone(49, 36, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
   ipa ˨˧
-  Tone(96, 111, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
+  Tone(38, 52, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
   ipa ˧˨
-  Tone(128, 96, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+  //Tone(128, 96, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+  Tone(69, 37, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+endphoneme
+
+phoneme 3 // high (³) 
+  stress
+  ipa ˧
+  //Tone(109, 116, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
+  Tone(50, 55, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
+endphoneme
+
+phoneme 4 // extra high rise (⁴)
+  stress
+  ipa ˧˦
+  Tone(52, 73, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
 endphoneme
 
 phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
   ipa ˦˧
   //need a pitch contour of 122-75 for a~
-  //but can't seem to get espeak-ng to generate it when analysed via praat
-  Tone(127, 71, envelope/p_fall, NULL)
-  //length 150
+  //Tone(127, 71, envelope/p_fall, NULL)
+  Tone(67, 19, envelope/p_fall, NULL)
 endphoneme
 
 //*******************************************************************
@@ -189,33 +187,39 @@ phoneme W~
 endphoneme
 
 // fix specific consonents to last long enough to be heard 
-phoneme l
+phoneme lxx
 	import_phoneme base2/l
 	length 75
+	Tone(105, 93, envelope/p_fall, NULL)
 endphoneme
 
-phoneme m
+phoneme mxx
 	import_phoneme base2/m
 	length 75
+	Tone(105, 93, envelope/p_fall, NULL)
 endphoneme
 
-phoneme n
+phoneme nxx
 	import_phoneme base2/n
 	length 75
+	Tone(105, 93, envelope/p_fall, NULL)
 endphoneme
 
-phoneme w
+phoneme wxx
 	import_phoneme base2/w
-	length 75
+	length 175
+	Tone(105, 93, envelope/p_fall, NULL)
 endphoneme
 
-phoneme j
+phoneme jxx
 	import_phoneme base1/j
 	length 75
+	Tone(105, 93, envelope/p_fall, NULL)
 endphoneme
 
-phoneme h
+phoneme hxx
 	import_phoneme base1/h
-	length 5
+	length 75
+	Tone(105, 93, envelope/p_fall, NULL)
 	//lengthmod 1
 endphoneme
