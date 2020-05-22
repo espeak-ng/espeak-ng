@@ -101,49 +101,49 @@ phoneme ai
   vwl starttype #a endtype #i
   length 280
   lng
-  FMT(vdiph/aai, 100)
+  FMT(vwl_lv/ai, 100)
 endphoneme
 
 phoneme au
   vwl starttype #a endtype #u
   length 280
   lng
-  FMT(vdiph/aau, 100)
+  FMT(vwl_lv/au, 100)
 endphoneme
 
 phoneme ei
   vwl starttype #e endtype #i
   length 280
   lng
-  FMT(vdiph/eei_2, 100)
+  FMT(vwl_lv/ei, 100)
 endphoneme
 
 phoneme ie
   vwl starttype #i endtype #e
   length 250
   lng
-  FMT(vdiph2/ie_2, 100)
+  FMT(vwl_lv/ie, 100)
 endphoneme
 
 phoneme iu
   vwl starttype #i endtype #u
   length 250
   lng
-  FMT(vdiph2/iu_2, 100)
+  FMT(vwl_lv/iu, 100)
 endphoneme
 
 phoneme ui
   vwl starttype #u endtype #i
   length 250
   lng
-  FMT(vdiph/ui, 100)
+  FMT(vwl_lv/ui, 100)
 endphoneme
 
 phoneme uo
   vwl starttype #u endtype #a
   length 280
   lng
-  FMT(vdiph2/ua, 110)
+  FMT(vwl_lv/ua, 110)
 endphoneme
 
 phoneme uo`     // shorter version of uo
@@ -151,14 +151,14 @@ phoneme uo`     // shorter version of uo
   ipa uo
   length 150
   lng
-  FMT(vdiph2/ua, 90)
+  FMT(vwl_lv/ua, 90)
 endphoneme
 
 phoneme oi
   vwl starttype #o endtype #i
   length 250
   lng
-  FMT(vdiph/ooi, 100)
+  FMT(vwl_lv/oi, 100)
 endphoneme
 
 phoneme ts
