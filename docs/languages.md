@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 113 supported languages and accents are:
+The 114 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -78,6 +78,7 @@ The 113 supported languages and accents are:
 | `trk`       | `kk`              | Turkic                | Kazakh                      |                        |
 | `trk`       | `ky`              | Turkic                | Kyrgyz                      |                        |
 | `itc`       | `la`              | Italic                | Latin                       |                        |
+| `bat`       | `ltg`             | Baltic                | Latgalian                   |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
 | `art`       | `lfn`             | Constructed           | Lingua Franca Nova          |                        |
 | `bat`       | `lt`              | Baltic                | Lithuanian                  |                        |

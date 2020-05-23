@@ -1,8 +1,10 @@
 // This file is UTF8 encoded
-// Spelling-to-phoneme words for Latvian
+// Spelling-to-phoneme words for Latvian and Latgalian
+// ?2 — pronunciation rules for Latgalian
 
 // names of Latvian letters
 a   a>_:
+?2 a a_: $u
 ā   a::_!
 b   be:_:
 c   tse:_:
@@ -16,6 +18,7 @@ g   ga:_:
 h   ha:_:
 ḩ   he:_:
 i   i>_:
+?2 i  i_: $u
 ī   i::_!
 j   je:_:
 k   ka:_:
@@ -110,6 +113,44 @@ _0M2    m'iljo:ni
 _1M2    m'iljo:ns
 _dpt    k'omats_
 
+// Numbers in Latgalian
+?2 _0      n'ulle
+?2 _1      v'i:ns
+?2 _2      d'ivi
+?2 _3      tR'eis
+?2 _4      tS'etRi
+?2 _5      p'i:tsi
+?2 _6      s'eSi
+?2 _7      s'epteni
+?2 _8      'ostoni
+?2 _9      d'eveni
+?2 _10     d'esmit
+?2 _11     v'i:npadsmit
+?2 _12     d'ivpadsmit
+?2 _13     tR'eispadsmit
+?2 _14     tS'etRupadsmit
+?2 _15     p'i:tspadsmit
+?2 _16     s'eSpadsmit
+?2 _17     s'epten^padsmit
+?2 _18     'oston^padsmit
+?2 _19     d'even^padsmit
+?2 _2X     d'ivdesmit
+?2 _3X     tR'eisdesmit
+?2 _4X     tS'etRudesmit
+?2 _5X     p'i:tsd,esmit
+?2 _6X     s'eSdesmit
+?2 _7X     s'epten^desmit
+?2 _8X     'oston^desmit
+?2 _9X     d'even^desmit
+?2 _0C     s'ymti_
+?2 _1C     s'ymts
+?2 _0M1    t'yukstu:Si
+?2 _1M1    t'yukstu:tis
+?2 _0M2    m'il^jo:ni
+?2 _1M2    m'il^jo:ns
+?2 _dpt    k'omats_
+
+
 // ordinal numbers
 _ord    ais     // default ending
 _1o     p'iRmais
@@ -121,7 +162,22 @@ _6o     s'estais
 _7o     s'epti:tais
 _8o     'astuotais
 _9o     d'evi:tais
+_10o    d'esmitais
 _0Co    s'imtais
+
+// ordinal numbers in Latgalian
+?2 _ord ais     // default ending
+?2 _1o  p'yRmais
+?2 _2o  'u:tRais
+?2 _3o  tR'eSais
+?2 _4o  ts'atu:Rtais
+?2 _5o  p'i:ktais
+?2 _6o  s'astais
+?2 _7o  s'epteitais
+?2 _8o  'ostoitais
+?2 _9o  d'aveitais
+?2 _10o d'asmytais
+?2 _0Co s'ymtais
 
 
 // accent names
@@ -303,6 +359,18 @@ var       $u+
 vien      $u+ $brk
 virs      $u
 zem       $u
+// Latgalian
+juo       $u
+kuopš     $u
+kuo       $u+
+ļuoti     $u+
+nuo       $u+
+pruojām   $u+
+pruom     $u+
+pruotams  $u+
+šuo       $u+
+tuomēr    $u $pause
+tuoties   $u
 
 // pronouns
 es        $u+
@@ -395,6 +463,69 @@ viņos     $u+
 viņš      $u+
 viņus     $u+
 viņu      $u+
+// Latgalian
+cytakas   $u+
+cyta      $u+
+cyts      $u+
+itaida    $u+
+itaids    $u+
+itei      $u+
+itys      $u+
+jei       $u+
+jis       $u+
+jiusejais $u+
+jiusejuo  $u+
+jius      $u+
+jī        $u+
+juos      $u+
+kaida     $u+
+kaids     $u+
+kotra     $u+
+kotrys    $u+
+kurs      $u+
+mes       $u+
+myusejais $u+
+myusejuo  $u+
+muna      $u+
+munejais  $u+
+munejuo   $u+
+muns      $u+
+mūsūs     $u+
+obadiv    $u+
+obejis    $u+
+obeji     $u+
+obi       $u+
+pats      $u+
+poša      $u+
+sevkotra  $u+
+sevkotrys $u+
+sevkura   $u+
+sevkurs   $u+
+sova      $u+
+sovejais  $u+
+sovejuo   $u+
+sovs      $u+
+šei       $u+
+šys       $u+
+šytaida   $u+
+šytaids   $u+
+šytei     $u+
+šytys     $u+
+šuo       $u+
+taida     $u+
+taids     $u+
+tajūs     $u+
+tei       $u+
+tys       $u+
+tova      $u+
+tovejais  $u+
+tovejuo   $u+
+tovs      $u+
+tuos      $u+
+tuo       $u+
+vysakas   $u+
+vysa      $u+
+vyss      $u+
 
 // exception words with stress on 2nd syllable
 aizvien   $u2
@@ -433,6 +564,14 @@ turpretī  $u2
 uzreiz    $2
 vienalga  $2
 vismaz    $2
+// Latgalian
+nazkaids  $u+
+nazkas    $u+
+nazkurs   $u+
+nikaids   $u+
+nikas     $u+
+nivīna    $u+
+nivīns    $u+
 
 // 1st word unstressed, 2nd word stressed
 (it kā)         it||ka:        $u2+
@@ -471,7 +610,7 @@ vismaz    $2
 (tajā tur)      taja:||tuR     $u3+
 (tam pašam)     tam||paSam     $u2+
 (tam tur)       tam||tuR       $u2+
-(tas pats)      tas||pats      $u2+
+(tas pats)      tas||pat|s     $u2+
 (tas tur)       tas||tuR       $u2+
 (tā paša)       ta:||paSa      $u2+
 (tā pati)       ta:||pati      $u2+
@@ -481,11 +620,42 @@ vismaz    $2
 (tik pat)       tik||pat       $u2+
 (to pašu)       tuo||paSu      $u2+
 (to tur)        tuo||tuR       $u2+
+// Latgalian
+(kaids nabejs)  kaids||nabejs  $u2+
+(kaids naviņ)   kaids||navin^  $u2+
+(kas nabejs)    kas||nabejs    $u2+
+(kas naviņ)     kas||navin^    $u2+
+(kazyn kaids)   kazyn||kaids   $u2+
+(kazyn kas)     kazyn||kas     $u2+
+(kazyn kurs)    kazyn||kurs    $u2+
+(koč kaids)     kotS||kaids    $u2+
+(koč kas)       kotS||kas      $u2+
+(koč kurs)      kotS||kurs     $u2+
+(kura nakura)   kura||nakura   $u2+
+(kurs nabejs)   kurs||nabejs   $u2+
+(kurs nakurs)   kurs||nakurs   $u2+
+(kurs naviņ)    kurs||navin^   $u2+
+(nazyn kaids)   nazyn||kaids   $u2+
+(nazyn kas)     nazyn||kas     $u2+
+(nazyn kurs)    nazyn||kurs    $u2+
+(nazkas cyts)   nazyn||cyts    $u2+
+(šaida taida)   Saida||taida   $u2+
+(šaids taids)   Saids||taids   $u2+
+(taida pat)     taida||pat     $u2+
+(taida poša)    taida||poSa    $u2+
+(taids pat)     taids||pat     $u2+
+(taids pats)    taids||pat|s   $u2+
+(tei pat)       tei||pat       $u2+
+(tei poša)      tei||poSa      $u2+
+(tys pat)       tys||pat       $u2+
+(tys pats)      tys||pat|s     $u2+
+(vyss kas)      vyss||kas      $u2+
+
 
 ///////////////////
 // Abbreviations //
 ///////////////////
-as      $abbrev
+as      $abbrev $allcaps
 asv     ,a:_:,ess_!v'e:_: $allcaps
 ano     'ano:
 ba      $abbrev

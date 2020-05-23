@@ -1,6 +1,6 @@
-// Translation rules for Latvian
+// Translation rules for Latvian and Latgalian
 // This file is UTF-8 encoded
-
+// ?2 — pronunciation rules for Latgalian
 
 .replace
       ó    ȯ                    // replace o-acute with o-dot, as it is more logical for "short o"
@@ -542,6 +542,7 @@
 
 .group o
    //  default policy rules
+?2         o               o         // short o for Latgalian
        _C) o (_+           uo`       // shorter version of uo for particles
         o) o               o:        // in ..oo.. second o is spelled as ō
            o ($w_alt++     o         // $alt words in lv_list are spelled as o
@@ -1674,6 +1675,7 @@ L46L45L45) o (<<           uo
 
 .group ō
            ō               o:
+?2         ō               uo        // ō as uo for Latgalian
 
 .group ȯ
            ȯ               o         // short o
@@ -1761,6 +1763,7 @@ L46L45L45) o (<<           uo
 .group y
            y               y            // y is used instead of simple "i", to distinguish them in writing
            y (A            y_|
+?2         y (A            y            // no breaking pause for Latgalian e.g. myusu
            y (_            y:           // for international words
            y (outub        y
 
