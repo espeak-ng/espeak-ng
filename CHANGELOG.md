@@ -22,6 +22,7 @@ updated languages:
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong
 
 new languages:
+*  chr (Cherokee) -- Michael Conrad
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
