@@ -116,7 +116,10 @@ where:
 
 ### Makefile.am File
 
-`Makefile.am` is build configuration file.
+`Makefile.am` is build configuration file. It should be edited if you add
+new language text-to-phoneme translation rules or set of sounds (phonemes).
+Usually you have to add necessary entries for new language, but may not need if
+you add new dialect for existing language.
 
 Search for configuration of existing languages (e.g. English)
 and add similar lines for your language in following sections.
