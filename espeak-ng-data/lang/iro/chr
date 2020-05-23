@@ -9,8 +9,9 @@ words 0 1
 phonemes chr
 //stress on all syllables to simulate stress on no syllables
 stressRule 9 
-intonation 1
-pitch 30 90
+intonation 3
+//pitch 30 90
+pitch 70 140
 
 tunes	chrs chrc chrq chre
 
