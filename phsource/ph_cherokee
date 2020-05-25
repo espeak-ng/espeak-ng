@@ -36,53 +36,49 @@
 //int amp_env = 0;
 //IF (pitch1 >= pitch2) the pitch values get swapped (???)
 
-phoneme 1 // low fall (¹)
+phoneme 1 // low fall (¹), long vowels only
   stress
   ipa ˨˩
-	//Tone(106, 85, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
-	Tone(49, 28, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
+	Tone(28, 7, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
 endphoneme
 
 
 phoneme 2 // low (²)
   stress
   ipa ˨
-  //Tone(105, 93, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
-  Tone(49, 36, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
+  Tone(26, 16, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
   ipa ˨˧
-  Tone(38, 52, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
+  Tone(15, 29, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
   ipa ˧˨
-  //Tone(128, 96, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
-  Tone(69, 37, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+  Tone(46, 16, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
 endphoneme
 
 phoneme 3 // high (³) 
   stress
   ipa ˧
   //Tone(109, 116, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
-  Tone(50, 55, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
+  Tone(29, 34, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
 endphoneme
 
 phoneme 4 // extra high rise (⁴)
   stress
   ipa ˧˦
-  Tone(52, 73, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
+  Tone(29, 50, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
 endphoneme
 
 phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
   ipa ˦˧
   //need a pitch contour of 122-75 for a~
-  //Tone(127, 71, envelope/p_fall, NULL)
-  Tone(67, 19, envelope/p_fall, NULL)
+  Tone(45, 0, envelope/p_fall, NULL)
 endphoneme
 
 //*******************************************************************
