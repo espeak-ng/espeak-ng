@@ -19,19 +19,19 @@
 
 //CED pp xi-xii
 .group x
-	xb	1_|
+	xb	1
 	
-	xc	2_|
+	xc	2
 	
-	xcxd	23_|
-	xdxc	32_|
+	xcxd	23
+	xdxc	32
 	
-	xd	3_|
+	xd	3
 	
-	xdxf	34_|
-	xfxd	43_|
+	xdxf	34
+	xfxd	43
 	
-	xf	4_|
+	xf	4
 
 //CED page x
 .group ɂ
