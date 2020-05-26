@@ -19,6 +19,7 @@ updated languages:
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
+*  uz (Uzbek) -- boracasli98, Valdis Vitolins
 *  zh (Chinese) -- Silas S. Brown, Rongcui Dong
 
 new languages:

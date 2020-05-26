@@ -394,6 +394,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_tibetan \
 	phsource/ph_turkish \
 	phsource/ph_urdu \
+	phsource/ph_uzbek \
 	phsource/ph_vietnam \
 	phsource/ph_vietnam_hue \
 	phsource/ph_vietnam_sgn \

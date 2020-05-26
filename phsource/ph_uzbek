@@ -1,2 +1,19 @@
-// This file is currently empty and all phonemes are inherited from Turkish language
-// i.e. phsource/ph_turkish (and phsource/phonemes files)
+phoneme A
+  import_phoneme fa/A
+endphoneme
+
+phoneme u
+  import_phoneme base2/u
+endphoneme
+
+phoneme y
+  import_phoneme base2/y
+endphoneme
+
+phoneme tS
+  import_phoneme ky/tS
+endphoneme
+
+phoneme v
+  import_phoneme ky/v
+endphoneme

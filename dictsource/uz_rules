@@ -33,23 +33,22 @@
     ғ    ǵ
     ш    š
     ч    ç
-    ю    ju  
+    ю    ju
     я    ja
-    ь    ʼ   
-    ъ    ʼ 
-
-// Replace left single quotation mark to  modifier letter turned comma 
-    ‘    ʻ     
+    ь    ʼ
+    ъ    ʼ
+    ‘    ʻ  // Replace left single quotation mark to  modifier letter turned comma
+    '    ʻ  // apostrophe to modifier letter turned comma
 
 .group a
-    a    a
+    a    &
 
 .group b
     b    b
 
 .group c
-    c     ts
-    ch    tS
+    c    ts
+    ch   tS
 
 .group d
     d    d
@@ -58,19 +57,20 @@
     e    e
 
 .group f
-    f    f
+    f    f,
 
 .group g
     g    g
+    gʻ   Q"
 
 .group h
     h    h
 
 .group i
-    i    i
+    i    y
 
 .group j
-    j    j
+    j    dZ
 
 .group k
     k    k
@@ -86,7 +86,8 @@
     ng   N
 
 .group o
-    o    o
+    o    A
+    oʻ   o
 
 .group p
     p    p
@@ -95,20 +96,20 @@
     q    q
 
 .group r
-    r    r
+    r    *
 
 .group s
     s    s
-    sh    sh
+    sh   S
 
 .group t
     t    t
 
 .group u
-    u    u
+    u    U
 
 .group v
-    v    v
+    v    v#
 
 .group x
     x    X
@@ -119,21 +120,9 @@
 .group z
     z    z
 
-.group o
-    o     o
-    oʻ    o
-
-.group g
-    g     g
-    gʻ    g
-
-.group ʼ
-    ʼ     ?
-
 .group
-    '     ?
     ʻ     ?
     ó     o:
-    ǵ     J
+    ǵ     Q"
     ş     S
     ç     tS
