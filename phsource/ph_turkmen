@@ -1,0 +1,12 @@
+phoneme A
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  flag1
+  length 200
+  FMT(vowel/ee_2)
+endphoneme

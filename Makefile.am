@@ -393,6 +393,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_telugu \
 	phsource/ph_tibetan \
 	phsource/ph_turkish \
+	phsource/ph_turkmen \
 	phsource/ph_urdu \
 	phsource/ph_uzbek \
 	phsource/ph_vietnam \
@@ -843,6 +844,9 @@ espeak-ng-data/ta_dict: dictsource/ta_list dictsource/ta_rules dictsource/ta_ext
 
 te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji
+
+tk: espeak-ng-data/tk_dict
+espeak-ng-data/tk_dict: dictsource/tk_list dictsource/tk_listx dictsource/tk_rules dictsource/tk_extra
 
 tn: espeak-ng-data/tn_dict
 espeak-ng-data/tn_dict: dictsource/tn_list dictsource/tn_rules dictsource/tn_extra

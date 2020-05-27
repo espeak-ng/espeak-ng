@@ -232,6 +232,8 @@ test_phonemes te "Telu" "n'e:nu g'a:Ju t'inag,alanu m'ariju 'ala: c'e:sina: n'a:
 test_phonemes tn "Latn" "B'aTU B'oKl B'a ts'i:tswl B'a g,olUl,os-'igill_:_: ll g'o l,ekallk'ana k'a s-'iRiti_:_: ll d,itSwan'elU
 B'a_| aB'etswl g'o_| ak'an^a_:_: ll _|m,aik'ul#U
 ,m-ml B'a tSwan'ets-i g'o d,iRll'ana k'a _|m'owa_! wa B,okaul'eNgwl" "Batho botlhe ba tsetswe ba gololosegile le go lekalekana ka seriti le ditshwanelo. Ba abetswe go akanya le maikutlo, mme ba tshwanetse go direlana ka mowa wa bokaulengwe."
+test_phonemes tk "Latn" "tYRkm'&ntSE
+t'YRkm&n d'ilI" "Türkmençe, Türkmen dili"
 test_phonemes tr "Latn" "piZ'amaL@ hast'a j'a:@z SofW*'E tSabudZ'ak Jyv&nd'I
 SISlid'E byj'Yk tS'Wp j@:@nLa*'@" "Pijamalı hasta yağız şoföre çabucak güvendi. Şişli’de büyük çöp yığınları."
 test_phonemes tt "Cyrl" "b0rL'Vq keSel'&r d'& 0z'0t h'&m 'yz 0brujLAr'V h'&m xoquqLAr'V jAGVnn'An t'iN bup'Vp tuAp'Ar

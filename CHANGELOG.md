@@ -29,6 +29,7 @@ new languages:
 *  ltg (Latgalian) -- Valdis Vitolins
 *  uk (Ukrainian) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
+*  tk (Turkmen) -- boracasli98, Valdis Vitolins
 
 ### 1.50 - 2019-11-29
 

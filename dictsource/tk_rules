@@ -1,0 +1,119 @@
+// This file is UTF8 encoded
+// Spelling to phoneme rules for Turkmen language
+
+// Letter groups
+.L01 a o u y
+.L02 ä e i ö ü
+
+.replace
+// Replace non-standard letters
+    ñ    ň
+    ÿ    ý
+
+.group a
+    a    A
+
+.group ä
+    ä    &
+
+.group b
+    b     b
+
+.group ç
+    ç    tS
+
+.group d
+    d    d
+
+.group e
+    e    e
+
+.group f
+    f    f,
+
+.group g
+    g    g
+    g (L01     Q"
+    g (L02     g
+    L01) g     Q"
+    L02) g     g
+
+.group h
+    h    h
+    h (L01     x
+    h (L02     h
+    L01) h     x
+    L02) h     h
+
+.group i
+    i    i
+
+.group j
+    j    dZ
+
+.group k
+    k    k
+    k (L01     q
+    k (L02     k
+    L01) k     q
+    L02) k     k
+
+.group l
+    l    l
+    l (L01     L
+    l (L02     l
+    L01) l     L
+    L02) l     l
+
+.group m
+    m    m
+
+.group n
+    n    n
+
+.group ň
+    ň   N
+
+.group o
+    o    o
+
+.group ö
+    ö     W
+
+.group p
+    p    p
+
+.group r
+    r    R
+
+.group s
+    s    T
+
+.group ş
+    ş    S
+
+.group t
+    t    t
+    ts    ts
+
+.group u
+    u    U
+
+.group ü
+    ü    Y
+    üý    Y:
+
+.group w
+    w    B
+
+.group y
+    y    @
+
+.group ý
+    ý    j
+
+.group z
+    z    D
+
+.group ž
+    ž     Z
