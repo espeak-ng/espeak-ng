@@ -6,7 +6,6 @@
 
 .group ә
         ә        &
-        әе       e:  // 'әнкәен'
 
 .group б
         б        b
@@ -17,8 +16,14 @@
 .group г
         г        g  // changes to [Q] or [Q"]
 
+.group ғ
+        ғ        Q"
+
 .group д
         д        d
+
+.group ҙ
+        ҙ        D
 
 .group е
      _) е        je2  // changes to [je] or [jV]
@@ -46,6 +51,9 @@
 
 .group к
         к        k
+
+.group ҡ
+        ҡ        q
 
 .group л
         л        l
@@ -76,6 +84,9 @@
 
 .group с
         с        s
+
+.group ҫ
+        ҫ        T
 
 .group т
         т        t

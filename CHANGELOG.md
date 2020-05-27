@@ -10,7 +10,7 @@ The espeak-ng project is a fork of the espeak project.
 ### 1.51 (In Development)
 
 updated languages:
-
+*  ba (Bashkir) -- boracasli98, Valdis Vitolins
 *  chr (Cherokee) -- Michael Conrad
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
