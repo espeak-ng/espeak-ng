@@ -73,6 +73,8 @@ are listed under the `cel` language family code.
 
 If necessary, the language tags are also used to specify the accent or dialect of a language,
 such as:
+*  `th` (Thai) -- The 
+[ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)  
 
 *  `es-419` (Spanish (Latin America)) -- The
    [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) 3-number region codes.
