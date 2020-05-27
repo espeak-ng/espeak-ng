@@ -31,6 +31,7 @@
   - [Attributes](#attributes)
 - [Sound Specifications](#sound-specifications)
 - [Vowel Transitions](#vowel-transitions)
+- [Customization of sound source files](#customization-of-sound-source-files)
 
 ----------
 
@@ -48,10 +49,10 @@ table. For example, a phoneme table may redefine (or add) some of the
 vowels that it uses, but inherit most of its consonants from a standard
 set.
 
-The source files for the phoneme data are in the "phsource" directory in
-the espeakedit download package. "Vowel files", which are referenced in
-`FMT()`, `VowelStart()`, and `VowelEnding()` instructions are made using the
-espeakedit program.
+The source files for the phoneme data are in the "phsource" directory.
+"Vowel files", which are referenced in `FMT()`, `VowelStart()`, and `VowelEnding()`
+instructions are made using the `espeakedit` program which is not part of this project.
+See more in [Customization of sound source files](#customization-of-sound-source-files).
 
 ## Phoneme Files
 
@@ -579,3 +580,40 @@ Allow a greater maximum rate of change of formant frequencies.
 	glstop
 
 Indicates a glottal stop.
+
+
+## Customization of sound source files
+
+* You need [Espeakedit](http://espeak.sourceforge.net/editor.html) to change sound parameters of vowel definition files.
+
+On Debian/Ubuntu based systems you can install it with command:
+
+```
+sudo apt-get install espeakedit
+```
+
+If your 64-bit Linux system doesn't have this package, you can download just compiled binary file from
+[here](https://github.com/valdisvi/espeak-ng-espeakedit/blob/master/bin/espeakedit?raw=true).
+
+To edit *.wav files for sonorant/consonant phonemes you may also need:
+
+* [Audacity](https://www.audacityteam.org/) can be used as sound editor for consonant sounds (*.wav) files.
+Audacity may be also used to analyse [sound spectrum](https://manual.audacityteam.org/man/spectrogram_view.html)
+(use maximum window size to see harmonics clearly).
+
+On Debian/Ubuntu based systems you can install it with command:
+
+```
+sudo apt-get install audacity
+```
+
+* [Praat](http://www.fon.hum.uva.nl/praat/) can be used to do more detailed analysis of recorded voice files.
+
+On Debian/Ubuntu based systems you can install it with command:
+
+```
+sudo apt-get install praat
+```
+
+`Praat` can also provide initial settings for vowel definitions to `espeakedit`.
+
