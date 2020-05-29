@@ -2031,5 +2031,7 @@ include ph_vietnam_sgn
 phonemetable sd ur
 include ph_sindhi
 
+phonemetable nog kk
+
 phonemetable uz kk
 include ph_uzbek

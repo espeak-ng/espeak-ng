@@ -530,6 +530,7 @@ dictionaries: \
 	espeak-ng-data/ne_dict \
 	espeak-ng-data/nl_dict \
 	espeak-ng-data/no_dict \
+	espeak-ng-data/nog_dict \
 	espeak-ng-data/om_dict \
 	espeak-ng-data/or_dict \
 	espeak-ng-data/pa_dict \
@@ -766,6 +767,9 @@ espeak-ng-data/nl_dict: dictsource/nl_list dictsource/nl_rules dictsource/nl_ext
 
 no: espeak-ng-data/no_dict
 espeak-ng-data/no_dict: dictsource/no_list dictsource/no_rules dictsource/no_extra
+
+no: espeak-ng-data/nog_dict
+espeak-ng-data/nog_dict: dictsource/nog_list dictsource/nog_rules dictsource/nog_extra
 
 om: espeak-ng-data/om_dict
 espeak-ng-data/om_dict: dictsource/om_list dictsource/om_rules dictsource/om_extra

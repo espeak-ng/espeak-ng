@@ -1,0 +1,149 @@
+// This file is UTF8 encoded
+// Spelling to phoneme rules for Nogai
+
+// Vowels
+.L01 а ы о у
+.L02 е и аь оь уь э
+.L03 я ю ё
+
+
+.group а
+        а        A
+        аь       &
+
+.group б
+        б        b
+
+.group в
+        в        v
+   L01) в        w
+   L02) в        v
+   L03) в        w
+   L01) в (_     w
+   L02) в (_     v
+   L03) в (_     w
+
+.group г
+        г        g
+        г (L01   G
+        г (L02   g
+   L01) г        G
+   L01) г (_     G
+   L01) г (L02   g
+   L02) г        g
+   L03) г        G
+   L02) г (_     g
+   L03) г (_     G
+
+.group д
+        д        d
+        дж       dZ
+
+.group е
+        е        e
+   L01) е        je
+   L02) е        je
+   L03) е        je
+     _) е        je
+
+.group ё
+        ё        jo
+
+.group ж
+        ж        Z
+
+.group з
+        з        z
+
+.group и
+        и        I
+
+.group й
+        й        j
+
+.group к
+        к        k
+        к (L01   q
+        к (L02   k
+   L01) к        q
+   L01) к (_     q
+   L01) к (L02   k
+   L02) к        k
+   L02) к (_     k
+   L03) к        q
+   L03) к (_     q
+
+.group л
+        л        l
+        л (L01   L
+        л (L02   l
+   L01) л        L
+   L01) л (_     L
+   L01) л (L02   l
+   L02) л        l
+   L02) л (_     l
+   L03) л        L
+   L03) л (_     L
+
+.group м
+        м        m
+
+.group н
+        н        n
+        нъ       N
+
+.group о
+        о        o
+        оь       8
+
+.group п
+        п        p
+
+.group р
+        р        R
+
+.group с
+        с        s
+
+.group т
+        т        t
+
+.group у
+        у        U
+        уь       u#
+
+.group ф
+        ф        f
+
+.group х
+        х        x
+
+.group ц
+        ц        ts
+
+.group ч
+        ч        tS
+
+.group ш
+        ш        S
+
+.group щ
+        щ        S;
+
+.group ъ
+        ъ        ?
+
+.group ы
+        ы        @
+
+.group ь
+        ь        ?
+
+.group э
+        э        e
+
+.group ю
+        ю        ju
+
+.group я
+        я        ja
