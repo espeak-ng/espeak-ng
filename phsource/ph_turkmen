@@ -1,12 +1,99 @@
 phoneme A
   vwl starttype #a endtype #a
-  length 200
+  length 150
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme A:
+  vwl starttype #a endtype #a
+  length 300
   FMT(vowel/aa_9)
 endphoneme
 
 phoneme &
   vwl starttype #a endtype #a
   flag1
-  length 200
+  length 150
   FMT(vowel/ee_2)
+endphoneme
+
+phoneme &:
+  vwl starttype #a endtype #a
+  flag1
+  length 300
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme I
+  vwl starttype #i endtype #i
+  length 150
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme I:
+  vwl starttype #i endtype #i
+  length 300
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 150
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme o:
+  vwl starttype #o endtype #o
+  length 300
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 150
+  FMT(vowel/y#)
+endphoneme
+
+phoneme W:
+  vwl starttype #@ endtype #@
+  length 300
+  FMT(vowel/y#)
+endphoneme
+
+phoneme U
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme U:
+  vwl starttype #u endtype #u
+  length 300
+  FMT(vowel/uu_2)
+endphoneme
+
+phoneme Y
+  vwl starttype #u endtype #u
+  length 150
+  FMT(vowel/u#)
+endphoneme
+
+phoneme Y:
+  vwl starttype #u endtype #u
+  length 300
+  FMT(vowel/u#)
+endphoneme
+
+phoneme @
+  vwl starttype #@ endtype #@
+  ipa ɯ
+  length 150
+  FMT(vowel/u#_7)
+endphoneme
+
+phoneme @:
+  vwl starttype #@ endtype #@
+  ipa ɯ
+  length 300
+  FMT(vowel/u#_7)
 endphoneme

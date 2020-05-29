@@ -2,8 +2,11 @@
 // Spelling to phoneme rules for Turkmen language
 
 // Letter groups
-.L01 a o u y
-.L02 ä e i ö ü
+.L01 a y
+.L02 o u
+.L03 ä e i
+.L04 ö ü
+.L05 b ç d f g h j k l m n ň p r s ş t w ý z ž
 
 .replace
 // Replace non-standard letters
@@ -12,21 +15,111 @@
 
 .group a
     a    A
+    aa	A:
+    oL05) aa	A:
+    oL05L05) aa	A:
+    oL05aL05) aa	A:
+    uL05) aa	A:
+    uL05L05) aa	A:
+    a (w    o
+    _garl) a (waç_	a
+    awl) a	o
+    awlam) a	o
+    L02L05) a    o
+    L02L05L05aL05) a	o
+    L02L05L01L05L05) a	o
+    L02L05L05) a    o
+    L02L05aL05) a    o
+    L02L05aL05L05) a    o
+    oL05L05aL05L05) a	o
+    oL05aL05yL05L05) a	o
+    L02L05L01L05L01L05) a (_	o
+    L02L05L05L01L05L05) a (_	o
+    L05) abermek (_	a:BeRmek
+    L02L05) amok (_	o:mo:q
+    L02L05) aňok (_	o:No:q
+    L02L05) anok (_	o:no:q
+    L02L05) amzok (_	o:mDo:q
+    L02L05) aňzok (_	o:NDo:q
+    L02L05) anoklar (_	o:no:qlor
+    L02L05) ap (_	o:p
 
 .group ä
     ä    &
+    ää	&:
+    äp (_	&:p
+    L05) ämok (_	&:mo:q
+    L05) äbermek (_	&:BeRmek
 
 .group b
     b     b
+    m) b    m
+    m_) b    m
+    n) b    m
+    n_) b    m
+    ň) b    m
+    ň_) b    m
+    w_) b    B
+    L01) b	B
+    L02) b	B
+    L03) b B
+    L04) b	B
+    L05) b	B
+    @) baz (_	BA:D
+    @) bermek (_	BeRmek
 
 .group ç
     ç    tS
+    ç (_ş    S
 
 .group d
     d    d
-
+    k_) d (äl_    g    
+    L01l) d    L
+    L02l) d    L
+    L03l) d    l
+    L04l) d    l
+    L01l_) d    L
+    L02l_) d    L
+    L03l_) d    l
+    L04l_) d    l
+    m) d   n
+    n) d   n
+    n_) d   n
+    ň) d   N
+    ň_) d   N
+    s) d   T
+    s_) d   T
+    z) d   D
+    z_) d   D
+    L02L05L02) da	d'o
+    L02L05L02) dan	d'on
+    uL05yL05yn) dan	n'on
+    @) daky (_	dA:q@
+    @) däki (_	d&:kI
+    @) dar (_	dA:R
+    
 .group e
     e    e
+    ee	e:
+    e (w    W
+    ewl) e	W
+    ewlem) e	W
+    L04L05) e    W
+    L04L05L05) e    W
+    L04L05L05L03L05) e	W
+    L04L05L05L04L05) e	W
+    L04L05L03L05) e    W
+    L04L05L05L05) e    W
+    L04L05L03L05L05) e    W
+    L04L05L05L05eL05L05) e   W
+    L04L05L04L05L05iL05) e	W
+    L04L05L04L05L05iL05eL05) e	W
+    L04L05L05eL05L03L05) e	W
+    L03L05) emok (_	emo:q
+    L04L05) emok (_	Wmo:q
+    _düý) e (_    W
+    üL05eL05L05L05iL05L05) e	W
 
 .group f
     f    f,
@@ -34,86 +127,218 @@
 .group g
     g    g
     g (L01     Q"
-    g (L02     g
-    L01) g     Q"
-    L02) g     g
+    g (L02     Q"
+    L01) g (L01     Q"
+    L02) g (L02     Q"
+    L03) g (L03     Q"
+    L04) g (L04     Q"
+    ň) g    N
+    ň_) g    N
+    _) g (L01     g
+    _) g (L02     g
+    _) g (L03     g
+    _) g (L04     g
+    L01) g (_     Q"
+    L02) g (_     Q"
+    L03) g (_     Q"
+    L04) g (_     Q"
+    L05) g    Q"
+    g (L05	Q"
+    @) gär (_	g&:R
 
 .group h
     h    h
     h (L01     x
-    h (L02     h
+    h (L02     x
+    h (L03     h
+    h (L04     h
     L01) h     x
-    L02) h     h
+    L02) h     x
+    L03) h     h
+    L04) h     h
+    @) hana (_	xA:nA
 
 .group i
     i    i
+    ii	i:
+    üL05) ii	i:
+    L04L05) i    Y
+    L04L05s) i (z_	Y
+    L04L05L05) i    Y
+    L04L05L05L04ň) i    Y
+    L04L05L04L05L05) i	Y
+    L04L05L05L03L05) i	Y
+    L04L05L05L04L05L05) i	Y
+    L04L05L04L05L05iL05) i	Y
+    L04L05L05L03L05L05) i	Y
+    öL05eL05) i	Y
+    üL05eL05) i	Y
+    üL05L05L05) i	Y
+    üL05iL05L05eL05) i	Y
+    öL05eL05L05) i	Y
+    üL05eL05L05) i	Y
+    üL05iL05) i	Y
+    üL05eL05L05L05) i	Y
+    öL05L05eL05eL05) i	Y
+    üL05L05L05eL05) i	Y
 
 .group j
     j    dZ
+    ş) j    S
+    ş_) j    S
+    @) jagaz (_	dZAQ"AD
 
 .group k
     k    k
     k (L01     q
-    k (L02     k
+    k (L02     q
+    k (L03     k
+    k (L04     k
     L01) k     q
-    L02) k     k
+    L02) k     q
+    L03) k     k
+    L04) k     k
+    @) keş (_	keS
 
 .group l
     l    l
     l (L01     L
-    l (L02     l
+    l (L02     L
+    l (L03     l
+    l (L04     l
     L01) l     L
-    L02) l     l
+    L02) l     L
+    L03) l     l
+    L04) l     l
+    lap (_	lA:p
+    läp (_	l&:p
+    oL05L05L01n) lar (_ loR
+    o) lar (_ loR
+    ö) ler (_ lWR
+    öL05L05L03k) ler (_ lWR
 
 .group m
     m    m
+    mak (_	m'Aq
+    mek (_	m'ek
+    L02L05) mak (_	m'oq
+    L04L05) mek (_	m'Wk 
+    L02L05L01) mak (_	m'oq
+    oL05L05a) mak (_	m'oq
+    oL05L05aL05) mak (_	m'oq
+    oL05aL05) mak (_	m'oq
+    oL05L05L05aL05) mak (_	m'oq
+    oL05aL05L05aL05) mak (_	m'oq
+    uL05aL05) mak (_	m'oq
+    uL05L05L05aL05) mak (_	m'oq
+    uL05aL05L05aL05) mak (_	m'oq
+    uL05L05a) mak (_	m'oq
+    uL05L05aL05) mak (_	m'oq
+    öL05L05e) mek (_	m'Wk
+    öL05L05eL05) mek (_	m'Wk
+    öL05L05L05eL05) mek (_	m'Wk
+    öL05eL05) mek (_	m'Wk
+    öL05eL05L05eL05) mek (_	m'Wk
+    üL05L05e) mek (_	m'Wk
+    üL05L05L05eL05) mek (_	m'Wk
+    üL05eL05L05eL05) mek (_	m'Wk
+    üL05L05eL05) mek (_	m'Wk
+    üL05eL05) mek (_	m'Wk
+    L04L05L03) mek (_	m'Wk 
+    L02L05) mamak (_	momoq
+    L04L05) memek (_	mWmWk
+    L01L05) mazlyk (_	maDL'@q
+    L02L05) mazlyk (_	moDL'Uq
+    L03L05) mezlik (_	meDl'ik
+    L04L05) mezlik (_	mWDl'Yk
+    @) mäge (_	m&:ge
+    aw) my (_	mU
+    ew) mi (_	mY
+    otyrsyň) my (_	mU
+    örsüň) mi	(_	mY
+    L02L05) masammy (_	moTommU
+    L04L05) mesemmi (_	mWTWmmY
+    md    mn
 
 .group n
     n    n
-
+    nb    nm
+    @) nama (_	nA:mA
+    
 .group ň
     ň   N
+    ňb    Nm
+    ňg    N:
 
 .group o
     o    o
-
+    oo	o:
+    
 .group ö
     ö     W
+    öö	W:
 
 .group p
     p    p
+    L01) p (_g    q
+    L02) p (_g    q
+    L03) p (_g    k
+    L04) p (_g    k
 
 .group r
     r    R
+    @) rak (_	RA:q
+    @) räk (_	R&:k
 
 .group s
     s    T
-
+    
 .group ş
     ş    S
+    şç    S:
 
 .group t
     t    t
-    ts    ts
+    t (ç    tS
+    t (s    T
+    s) t    T
 
 .group u
     u    U
-
+    uu	U:
+    
 .group ü
     ü    Y
-    üý    Y:
+    üý    Y:j
+    üýe    YjW
 
 .group w
     w    B
 
 .group y
     y    @
-
+    yy	@:
+    us) y (z	U
+    L02L05) y	U
+    L02L05L05) y	U
+    L02L05L01L05) y	U
+    L02L05L05L01L05) y	U
+    L02L05L02L05) y	U
+    L02L05L01L05L05) y	U
+    L02L05L05L02L05) y	U
+    L02ňL01L05L05) y	U
+    L02L05L05L02L05L05) y	U
+    L02L05L05L01L05L05) y	U
+    L02L05L05L01L05yL05) y	U
+    oL05L05aL05L05aL05) y	U
+    
 .group ý
     ý    j
 
 .group z
     z    D
+    z (s    T
+    @) zar (_	DA:R
 
 .group ž
     ž     Z
