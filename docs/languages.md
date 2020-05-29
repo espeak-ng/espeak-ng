@@ -25,7 +25,7 @@ The 117 supported languages and accents are:
 |             | `eu`              |                       | Basque                      |                        |
 | `inc`       | `bn`              | Indic                 | Bengali                     |                        |
 | `inc`       | `bpy`             | Indic                 | Bishnupriya Manipuri        |                        |
-| `zls`       | `bs`              | South Slavic          | Bosnian                     |                        |
+| `zls`       | `bs`              | South Slavic          | Bosnian<sup>\[1,2\]</sup>   |                        |
 | `zls`       | `bg`              | South Slavic          | Bulgarian                   |                        |
 | `sit`       | `my`              | Sino-Tibetan          | Burmese                     |                        |
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
@@ -34,7 +34,7 @@ The 117 supported languages and accents are:
 | `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
 | `sit`       | `cmn`             | Sino-Tibetan          | Chinese                     | Mandarin               |
-| `zls`       | `hr`              | South Slavic          | Croatian                    |                        |
+| `zls`       | `hr`              | South Slavic          | Croatian<sup>\[1,2\]</sup>  |                        |
 | `zlw`       | `cs`              | West Slavic           | Czech                       |                        |
 | `gmq`       | `da`              | North Germanic        | Danish                      |                        |
 | `gmw`       | `nl`              | West Germanic         | Dutch                       |                        |
@@ -80,11 +80,11 @@ The 117 supported languages and accents are:
 | `itc`       | `la`              | Italic                | Latin                       |                        |
 | `bat`       | `ltg`             | Baltic                | Latgalian                   |                        |
 | `bat`       | `lv`              | Baltic                | Latvian                     |                        |
-| `art`       | `lfn`             | Constructed           | Lingua Franca Nova          |                        |
+| `art`       | `lfn`             | Constructed           | Lingua Franca Nova<sup>\[1,2\]</sup> |               |
 | `bat`       | `lt`              | Baltic                | Lithuanian                  |                        |
 | `art`       | `jbo`             | Constructed           | Lojban                      |                        |
 | `poz`       | `mi`              | Malayo-Polynesian     | Māori                       |                        |
-| `zls`       | `mk`              | South Slavic          | Macedonian                  |                        |
+| `zls`       | `mk`              | South Slavic          | Macedonian<sup>\[1,2\]</sup> |                       |
 | `poz`       | `ms`              | Malayo-Polynesian     | Malay                       |                        |
 | `dra`       | `ml`              | Dravidian             | Malayalam                   |                        |
 | `sem`       | `mt`              | Semitic               | Maltese                     |                        |
@@ -106,7 +106,7 @@ The 117 supported languages and accents are:
 | `zle`       | `ru`              | East Slavic           | Russian                     |                        |
 | `zle`       | `ru-lv`           | East Slavic           | Russian                     | Latvia                 |
 | `zle`       | `uk`              | East Slavic           | Ukrainian                   |                        |
-| `zls`       | `sr`              | South Slavic          | Serbian                     |                        |
+| `zls`       | `sr`              | South Slavic          | Serbian<sup>\[1,2\]</sup>   |                        |
 | `bnt`       | `tn`              | Bantu                 | Setswana                    |                        |
 | `inc`       | `sd`              | Indic                 | Sindhi                      |                        |
 | `tai`       | `shn`             | Tai                   | Shan (Tai Yai)              |                        |
@@ -122,9 +122,9 @@ The 117 supported languages and accents are:
 | `trk`       | `tt`              | Turkic                | Tatar                       |                        |
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |
 | `trk`       | `tr`              | Turkic                | Turkish                     |                        |
-| `trk`       | `ug`              | Turkic                | Uyghur<sup>\[1,6\]</sup>    |                        |
+| `trk`       | `ug`              | Turkic                | Uyghur<sup>\[1,3\]</sup>    |                        |
 | `inc`       | `ur`              | Indic                 | Urdu                        |                        |
-| `trk`       | `uz`              | Turkic                | Uzbek                       |                        |
+| `trk`       | `uz`              | Turkic                | Uzbek<sup>\[1,2\]</sup>     |                        |
 | `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
 | `aav`       | `vi`              | Austroasiatic         | Vietnamese                  | Northern Vietnam       |
 | `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
