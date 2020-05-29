@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 116 supported languages and accents are:
+The 117 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -122,6 +122,7 @@ The 116 supported languages and accents are:
 | `trk`       | `tt`              | Turkic                | Tatar                       |                        |
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |
 | `trk`       | `tr`              | Turkic                | Turkish                     |                        |
+| `trk`       | `ug`              | Turkic                | Uyghur<sup>\[5,6\]</sup>    |                        |
 | `inc`       | `ur`              | Indic                 | Urdu                        |                        |
 | `trk`       | `uz`              | Turkic                | Uzbek                       |                        |
 | `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
@@ -138,5 +139,7 @@ The 116 supported languages and accents are:
 \[4\] Only Cherokee-English Dictionary fully annotated UTF-8 pronunciations are supported. Syllabary is not supported.
 
 \[5\] With Latin alphabet.
+
+\[6\] With Arabic alphabet.
 
 

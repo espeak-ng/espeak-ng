@@ -30,6 +30,7 @@ new languages:
 *  uk (Ukrainian) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 *  tk (Turkmen) -- boracasli98, Valdis Vitolins
+*  ug (Uyghur) -- boracasli98, Valdis Vitolins
 
 ### 1.50 - 2019-11-29
 

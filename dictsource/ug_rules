@@ -1,0 +1,204 @@
+// Uyghur
+
+.group a
+        a        A
+
+.group b
+        b        b
+
+.group c
+        ch       tS
+
+.group d
+        d        d
+
+.group e
+        e        &
+
+.group é
+        é        e
+
+.group f
+        f        f
+
+.group g
+        g        g
+        g'h      gh
+        gh       Q"
+
+.group h
+        h        h
+
+.group i
+        i        I
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+
+.group l
+        l        l
+
+.group m
+        m        m
+
+.group n
+        n        n
+        n'g      ng
+        ng       N
+
+.group o
+        o        o
+
+.group ö
+        ö        W
+
+.group p
+        p        p
+
+.group q
+        q        q
+
+.group r
+        r        R
+
+.group s
+        s        s
+        s'h      sh
+        sh       S
+
+.group t
+        t        t
+
+.group u
+        u        u
+
+.group ü
+        ü        y
+
+.group w
+        w        w
+
+.group x
+        x        X
+
+.group y
+        y        j
+
+.group z
+        z        z
+        z'h      zh
+        zh       Z
+
+.group ئ
+        ئ
+        ئا       A
+        ئە       &
+        ئې       e
+        ئى       I
+        ئو       o
+        ئۆ       W
+        ئۇ       u
+        ئۈ       y
+
+.group ا
+        ا        A
+
+.group ب
+        ب        b
+
+.group چ
+        چ        tS
+
+.group د
+        د        d
+
+.group ە
+        ە        &
+
+.group ې
+        ې        e
+
+.group ف
+        ف        f
+
+.group گ
+        گ        g
+        گھ       gh
+
+.group غ
+        غ        Q"
+
+.group ھ
+        ھ        h
+
+.group ى
+        ى        I
+
+.group ج
+        ج        dZ
+
+.group ك
+        ك        k
+
+.group ل
+        ل        l
+
+.group م
+        م        m
+
+.group ن
+        ن        n
+        نگ       ng
+
+.group ڭ
+        ڭ        N
+
+.group و
+        و        o
+
+.group ۆ
+        ۆ        W
+
+.group پ
+        پ        p
+
+.group ق
+        ق        q
+
+.group ر
+        ر        R
+
+.group س
+        س        s
+        سھ       sh
+
+.group ش
+        ش        S
+
+.group ت
+        ت        t
+
+.group ۇ
+        ۇ        u
+
+.group ۈ
+        ۈ        y
+
+.group ۋ
+        ۋ        w
+
+.group خ
+        خ        X
+
+.group ي
+        ي        j
+
+.group ز
+        ز        z
+        زھ       zh
+
+.group ژ
+        ژ        Z

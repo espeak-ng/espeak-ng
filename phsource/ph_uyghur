@@ -1,0 +1,53 @@
+phoneme A
+  vwl starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_9)
+endphoneme
+
+phoneme &
+  vwl starttype #a endtype #a
+  flag1
+  length 200
+  FMT(vowel/ee_2)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 200
+  flag1
+  FMT(vdiph2/ii@_2)
+endphoneme
+
+phoneme I
+  vwl starttype #@ endtype #@
+  flag1
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/ii#)
+endphoneme
+
+phoneme o
+  vwl starttype #o endtype #o
+  length 200
+  FMT(vowel/o_3)
+endphoneme
+
+phoneme W
+  vwl starttype #@ endtype #@
+  length 200
+  FMT(vowel/y#)
+endphoneme
+
+phoneme u
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck3)
+endphoneme
+
+phoneme y
+  vwl starttype #u endtype #u
+  length 200
+  FMT(vowel/y_5)
+endphoneme

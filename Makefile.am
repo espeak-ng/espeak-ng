@@ -394,6 +394,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_tibetan \
 	phsource/ph_turkish \
 	phsource/ph_turkmen \
+	phsource/ph_uyghur \
 	phsource/ph_urdu \
 	phsource/ph_uzbek \
 	phsource/ph_vietnam \
@@ -555,6 +556,7 @@ dictionaries: \
 	espeak-ng-data/tr_dict \
 	espeak-ng-data/tt_dict \
 	espeak-ng-data/uk_dict \
+	espeak-ng-data/ug_dict \
 	espeak-ng-data/ur_dict \
 	espeak-ng-data/uz_dict \
 	espeak-ng-data/vi_dict \
@@ -856,6 +858,9 @@ espeak-ng-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_ext
 
 tt: espeak-ng-data/tt_dict
 espeak-ng-data/tt_dict: dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
+
+ug: espeak-ng-data/ug_dict
+espeak-ng-data/ug_dict: dictsource/ug_list dictsource/ug_rules dictsource/ug_extra
 
 uk: espeak-ng-data/uk_dict
 espeak-ng-data/uk_dict: dictsource/uk_list dictsource/uk_rules dictsource/uk_extra

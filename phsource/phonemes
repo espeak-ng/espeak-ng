@@ -2016,6 +2016,9 @@ include ph_azerbaijani
 phonemetable tk tr
 include ph_turkmen
 
+phonemetable ug tr
+include ph_uyghur
+
 phonemetable pt-pt pt
 include ph_portugal
 
