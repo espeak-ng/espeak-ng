@@ -1,0 +1,115 @@
+// This file is UTF8 encoded
+// Spelling-to-phoneme rules for Chuvash
+
+.group а
+        а        a
+
+.group ӑ
+        ӑ        @
+
+.group б
+        б        b
+
+.group в
+        в        v
+
+.group г
+        г        g
+
+.group д
+        д        d
+
+.group е
+     _) е        je
+        е        E
+
+.group ё
+        ё        jo
+
+.group ӗ
+        ӗ        8
+
+.group ж
+        ж        Z
+
+.group з
+        з        z
+
+.group и
+        и        i
+
+.group й
+        й        j
+
+.group к
+        к        k
+
+.group л
+        л        l
+
+.group м
+        м        m
+
+.group н
+        н        n
+
+.group о
+        о        o
+
+.group п
+        п        p
+
+.group р
+        р        R
+
+.group с
+        с        s
+
+.group ҫ
+        ҫ        C
+
+.group т
+        т        t
+        ть        t;
+
+.group у
+        у        u
+
+.group ӳ
+        ӳ        y
+
+.group ф
+        ф        f
+
+.group х
+        х        x
+
+.group ц
+        ц        ts
+
+.group ч
+        ч        tS
+
+.group ш
+        ш        S
+
+.group щ
+        щ        C:
+
+.group ъ
+        ъ        ?
+
+.group ы
+        ы        V
+
+.group ь
+        ь        ;
+
+.group э
+        э        e
+
+.group ю
+        ю        ju
+        
+.group я
+        я        ja 

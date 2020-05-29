@@ -1,0 +1,23 @@
+phoneme V
+  vwl flag2 starttype #@ endtype #@
+  length 110
+  ipa ɯ
+  FMT(vowel/@_2)
+endphoneme
+
+phoneme 8
+  vwl starttype #@ endtype #@
+  length 100
+  IF thisPh(isWordEnd) THEN
+    length 140
+  ENDIF
+  FMT(vowel/8)
+endphoneme
+
+phoneme E
+  import_phoneme tr/E
+endphoneme
+
+phoneme y
+  import_phoneme tr/y
+endphoneme

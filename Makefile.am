@@ -476,6 +476,7 @@ dictionaries: \
 	espeak-ng-data/ca_dict \
 	espeak-ng-data/chr_dict \
 	espeak-ng-data/cs_dict \
+	espeak-ng-data/cv_dict \
 	espeak-ng-data/cy_dict \
 	espeak-ng-data/da_dict \
 	espeak-ng-data/de_dict \
@@ -606,6 +607,9 @@ espeak-ng-data/chr_dict: dictsource/chr_list dictsource/chr_rules
 
 cs: espeak-ng-data/cs_dict
 espeak-ng-data/cs_dict: dictsource/cs_list dictsource/cs_rules dictsource/cs_extra dictsource/cs_emoji
+
+cv: espeak-ng-data/cv_dict
+espeak-ng-data/cv_dict: dictsource/cv_list dictsource/cv_rules dictsource/cv_extra
 
 cy: espeak-ng-data/cy_dict
 espeak-ng-data/cy_dict: dictsource/cy_list dictsource/cy_rules dictsource/cy_extra dictsource/cy_emoji
@@ -853,7 +857,7 @@ te: espeak-ng-data/te_dict
 espeak-ng-data/te_dict: dictsource/te_list dictsource/te_rules dictsource/te_extra dictsource/te_emoji
 
 tk: espeak-ng-data/tk_dict
-espeak-ng-data/tk_dict: dictsource/tk_list dictsource/tk_rules dictsource/tk_extra
+espeak-ng-data/tk_dict: dictsource/tk_list dictsource/tk_listx dictsource/tk_rules dictsource/tk_extra
 
 tn: espeak-ng-data/tn_dict
 espeak-ng-data/tn_dict: dictsource/tn_list dictsource/tn_rules dictsource/tn_extra

@@ -2013,6 +2013,9 @@ phonemetable uk ru
 phonemetable az tr
 include ph_azerbaijani
 
+phonemetable cv tr
+include ph_chuvash
+
 phonemetable tk tr
 include ph_turkmen
 
