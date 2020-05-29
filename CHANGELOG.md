@@ -28,10 +28,10 @@ new languages:
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
-*  uk (Ukrainian) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 *  tk (Turkmen) -- boracasli98, Valdis Vitolins
 *  ug (Uyghur) -- boracasli98, Valdis Vitolins
+*  uk (Ukrainian) -- Valdis Vitolins
 
 ### 1.50 - 2019-11-29
 
