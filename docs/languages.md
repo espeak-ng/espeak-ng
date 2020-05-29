@@ -15,7 +15,7 @@ The 117 supported languages and accents are:
 | `gmw`       | `af`              | West Germanic         | Afrikaans                   |                        |
 | `ine`       | `sq`              | Indo-European         | Albanian                    |                        |
 | `sem`       | `am`              | Semitic               | Amharic                     |                        |
-| `sem`       | `ar`              | Semitic               | Arabic<sup>\[1\]</sup>      |                        |
+| `sem`       | `ar`              | Semitic               | Arabic<sup>\[3,7\]</sup>    |                        |
 | `roa`       | `an`              | Romance               | Aragonese                   |                        |
 | `ine`       | `hy`              | Indo-European         | Armenian                    | East Armenian          |
 | `ine`       | `hyw`             | Indo-European         | Armenian                    | West Armenian          |
@@ -29,7 +29,7 @@ The 117 supported languages and accents are:
 | `zls`       | `bg`              | South Slavic          | Bulgarian                   |                        |
 | `sit`       | `my`              | Sino-Tibetan          | Burmese                     |                        |
 | `roa`       | `ca`              | Romance               | Catalan                     |                        |
-| `iro`       | `chr`             | Iroquoian             | Cherokee <sup>\[4\]</sup>   | Western/C.E.D.         |
+| `iro`       | `chr`             | Iroquoian             | Cherokee <sup>\[1,6\]</sup> | Western/C.E.D.         |
 | `sit`       | `yue`             | Sino-Tibetan          | Chinese                     | Cantonese              |
 | `sit`       | `hak`             | Sino-Tibetan          | Chinese                     | Hakka                  |
 | `map`       | `haw`             | Austronesian          | Hawaiian                    |                        |
@@ -48,7 +48,7 @@ The 117 supported languages and accents are:
 | `art`       | `eo`              | Constructed           | Esperanto                   |                        |
 | `urj`       | `et`              | Uralic                | Estonian                    |                        |
 | `ira`       | `fa`              | Iranian               | Persian                     |                        |
-| `ira`       | `fa-latn`         | Iranian               | Persian<sup>\[2\]</sup>     |                        |
+| `ira`       | `fa-latn`         | Iranian               | Persian<sup>\[1,5\]</sup>   |                        |
 | `urj`       | `fi`              | Uralic                | Finnish                     |                        |
 | `roa`       | `fr-be`           | Romance               | French                      | Belgium                |
 | `roa`       | `fr`              | Romance               | French                      | France                 |
@@ -118,11 +118,11 @@ The 117 supported languages and accents are:
 | `bnt`       | `sw`              | Bantu                 | Swahili                     |                        |
 | `gmq`       | `sv`              | North Germanic        | Swedish                     |                        |
 | `dra`       | `ta`              | Dravidian             | Tamil                       |                        |
-| `trk`       | `tk`              | Turkic                | Turkmen<sup>\[5\]</sup>     |                        |
+| `trk`       | `tk`              | Turkic                | Turkmen<sup>\[1\]</sup>     |                        |
 | `trk`       | `tt`              | Turkic                | Tatar                       |                        |
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |
 | `trk`       | `tr`              | Turkic                | Turkish                     |                        |
-| `trk`       | `ug`              | Turkic                | Uyghur<sup>\[5,6\]</sup>    |                        |
+| `trk`       | `ug`              | Turkic                | Uyghur<sup>\[1,6\]</sup>    |                        |
 | `inc`       | `ur`              | Indic                 | Urdu                        |                        |
 | `trk`       | `uz`              | Turkic                | Uzbek                       |                        |
 | `aav`       | `vi-vn-x-central` | Austroasiatic         | Vietnamese                  | Central Vietnam        |
@@ -130,16 +130,18 @@ The 117 supported languages and accents are:
 | `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
 
-\[1\] Currently, only fully diacritized Arabic is supported.
+\[1\] With Latin alphabet.
 
-\[2\] Farsi/Persian written using English (Latin) characters.
+\[2\] With Cyrillic alphabet.
 
-\[3\] Currently, only Hiragana and Katakana are supported.
+\[3\] With Arabic alphabet.
 
-\[4\] Only Cherokee-English Dictionary fully annotated UTF-8 pronunciations are supported. Syllabary is not supported.
+\[4\] With Hiragana and Katakana syllabary.
 
-\[5\] With Latin alphabet.
+\[5\] Only Farsi/Persian.
 
-\[6\] With Arabic alphabet.
+\[6\] Only Cherokee-English Dictionary fully annotated UTF-8 pronunciation.
+
+\[7\] Only fully diacritized Arabic.
 
 
