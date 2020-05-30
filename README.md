@@ -66,6 +66,7 @@ The following platforms are supported:
 2. [Building guide](docs/building.md) provides info how to compile and build eSpeak NG from the source.
 3. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
 4. Look at [contribution guide](docs/contributing.md) to start your contribution.
+5. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
 
 ## eSpeak Compatibility
 
