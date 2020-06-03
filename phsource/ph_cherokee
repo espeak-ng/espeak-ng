@@ -39,123 +39,153 @@
 phoneme 1 // low fall (¹), long vowels only
   stress
   ipa ˨˩
-	Tone(28, 7, envelope/p_fall, NULL) //need a pitch contour of 106-88 for a
+	Tone(28, 7, envelope/chr_fall21, NULL) //need a pitch contour of 106-88 for a
 endphoneme
-
 
 phoneme 2 // low (²)
   stress
   ipa ˨
-  Tone(26, 16, envelope/p_fall, NULL) //need a pitch contour of 104-96 for a
+  Tone(27, 16, envelope/chr_level2, NULL) //need a pitch contour of 104-96 for a
 endphoneme
 
 phoneme 23 // rising (²³)
   stress
   ipa ˨˧
-  Tone(15, 29, envelope/p_rise, NULL) //need a pitch contour of 97-109 for a
+  Tone(16, 30, envelope/chr_rise23, NULL) //need a pitch contour of 97-109 for a
 endphoneme
 
 phoneme 32 // falling (³²)
   stress
   ipa ˧˨
-  Tone(46, 16, envelope/p_fall, NULL) //need a pitch contour of 122-97 for a
+  Tone(45, 15, envelope/chr_fall32, NULL) //need a pitch contour of 122-97 for a
 endphoneme
 
 phoneme 3 // high (³) 
   stress
   ipa ˧
   //Tone(109, 116, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
-  Tone(29, 34, envelope/p_rise, NULL) //need a pitch contour of 108-112 for a
+  Tone(29, 35, envelope/chr_level3, NULL) //need a pitch contour of 108-112 for a
 endphoneme
 
 phoneme 4 // extra high rise (⁴)
   stress
   ipa ˧˦
-  Tone(29, 50, envelope/p_rise, NULL) //need a pitch contour of 109-127 for a
+  Tone(29, 52, envelope/chr_rise4, NULL) //need a pitch contour of 109-127 for a
 endphoneme
 
 phoneme 43 // extra high fall (⁴³) - end of word tone
   stress
   ipa ˦˧
   //need a pitch contour of 122-75 for a~
-  Tone(45, 0, envelope/p_fall, NULL)
+  Tone(44, 0, envelope/chr_fall43, NULL)
 endphoneme
-
-//*******************************************************************
-// LANGUAGE SPECIFIC CONSONANTS (PLOSIVES/STOPS)
-//*******************************************************************
-//none.
-
-//*******************************************************************
-// LANGUAGE SPECIFIC VOWELS
-//*******************************************************************
 
 //from phonemes
 phoneme : //  lengthen previous vowel by "length"
   virtual
-  length 175
+  length 300
 endphoneme
 
-// ạ, a
-//from ph_en
-phoneme A:
-  vwl starttype #a  endtype #a
-  length 175
-  FMT(vowel/aa_2)
+phoneme 0
+  vwl  starttype #o   endtype #o
+  length 300
+  FMT(vowel/0_3)
 endphoneme
 
-// ạ, a, end of word vowel
-//from ph_english
-phoneme A~
-  vwl starttype #a  endtype #a
-  length 175
-  FMT(vnasal/aa_n2)
+phoneme 0`
+  vwl  starttype #o   endtype #o
+  length 100
+  FMT(vowel/0_3)
 endphoneme
 
-// e, ẹ
-//from ph_base2
-phoneme E
-  vwl starttype #e  endtype #e
-  length 175
-  FMT(vowel/ee_1)
+phoneme 0~
+  vwl  starttype #o   endtype #o
+  length 300
+  FMT(vnasal/aa_n4)
 endphoneme
 
-// e, ẹ, final word vowel
-//from ph_konkani
-phoneme E~
-  vwl starttype #e  endtype #e
-  length 175
+phoneme 0~`
+  vwl  starttype #o   endtype #o
+  length 100
+  FMT(vnasal/aa_n4)
+endphoneme
+
+phoneme e
+  vwl starttype #e endtype #e
+  length 300
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme e`
+  vwl starttype #e endtype #e
+  length 100
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme e~
+  vwl starttype #e endtype #e
+  length 300
   FMT(vnasal/ee_n2)
 endphoneme
 
-// i, ị
-//from ph_en
-phoneme I
-  vwl starttype #i  endtype #i
-  length 175
-  FMT(vowel/ii_2)
+phoneme e~`
+  vwl starttype #e endtype #e
+  length 100
+  FMT(vnasal/ee_n2)
 endphoneme
 
-// i, ị, final word vowel
-//from ph_konkani
-phoneme I~
-  vwl starttype #i  endtype #i
-  length 175
-  FMT(vnasal/ii_n)
+phoneme i
+  vwl starttype #i endtype #i
+  length 300
+  //IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme i`
+  vwl starttype #i endtype #i
+  length 100
+  //IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme i~
+  vwl starttype #i endtype #i
+  length 300
+  //IfNextVowelAppend(;)
+  FMT(vnasal/i_n)
+endphoneme
+
+phoneme i~`
+  vwl starttype #i endtype #i
+  length 100
+  //IfNextVowelAppend(;)
+  FMT(vnasal/i_n)
 endphoneme
 
 // o, ọ
-//from ph_base2
 phoneme o
   vwl starttype #o  endtype #o
-  length 175
+  length 300
+  FMT(vowel/o)
+endphoneme
+
+phoneme o`
+  vwl starttype #o  endtype #o
+  length 100
   FMT(vowel/o)
 endphoneme
 
 // o, ọ, final word vowel
 phoneme o~
   vwl starttype #o  endtype #o
-  length 175
+  length 300
+  FMT(vnasal/o_n)
+endphoneme
+
+phoneme o~`
+  vwl starttype #o  endtype #o
+  
+  length 100
   FMT(vnasal/o_n)
 endphoneme
 
@@ -163,59 +193,210 @@ endphoneme
 //from ph_base2
 phoneme u
   vwl starttype #u  endtype #u
-  length 175
+  length 300
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u`
+  vwl starttype #u  endtype #u
+  length 100
   FMT(vowel/u_bck)
 endphoneme
 
 // u, ụ, final word vowel
 phoneme u~
   vwl starttype #u  endtype #u
-  length 175
+  length 300
+  FMT(vnasal/u_n)
+endphoneme
+
+phoneme u~`
+  vwl starttype #u  endtype #u
+  length 100
   FMT(vnasal/u_n)
 endphoneme
 
 //ṿ, v
-//from ph_french
-phoneme W~
-  vwl starttype #@  endtype #@
-  length 175
-  FMT(vnasal/W_n)
+phoneme V~
+  vwl lng starttype #@ endtype #@
+  length 300
+  FMT(vnasal/V_n, 100)
 endphoneme
 
-// fix specific consonents to last long enough to be heard 
-phoneme lxx
-	import_phoneme base2/l
-	length 75
-	Tone(105, 93, envelope/p_fall, NULL)
+phoneme V~`
+  vwl lng starttype #@ endtype #@
+  length 100
+  FMT(vnasal/V_n)
 endphoneme
 
-phoneme mxx
-	import_phoneme base2/m
-	length 75
-	Tone(105, 93, envelope/p_fall, NULL)
+phoneme h
+  vls glt apr
+  ipa h
+  
+  IF prevPhW(isVowel) AND nextPhW(isNotVowel) THEN
+  	length 25
+  	lengthmod 1
+  ENDIF
+   
+  IF nextPhW(#@) THEN
+    length 50
+    WAV(h/h@, 70)
+  ELIF nextPhW(#a) THEN
+    WAV(h/ha)
+  ELIF nextPhW(#e) THEN
+    length 60
+    WAV(h/he, 75)
+  ELIF nextPhW(#i) THEN
+    length 75
+    WAV(h/hi)
+  ELIF nextPhW(#o) THEN
+    length 75
+    WAV(h/ho)
+  ELIF nextPhW(#u) THEN
+  	length 80
+    WAV(h/hu)
+  ELSE
+    length 60
+    WAV(h/h_)  // no vowel following
+  ENDIF
 endphoneme
 
-phoneme nxx
-	import_phoneme base2/n
-	length 75
-	Tone(105, 93, envelope/p_fall, NULL)
+phoneme h`
+  vls glt apr
+  ipa h
+  length 10
+  WAV(h/h_)  // no vowel following
 endphoneme
 
-phoneme wxx
-	import_phoneme base2/w
-	length 175
-	Tone(105, 93, envelope/p_fall, NULL)
+phoneme s
+  vls alv frc sib
+  voicingswitch z
+  lengthmod 3
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_)
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s)
 endphoneme
 
-phoneme jxx
-	import_phoneme base1/j
-	length 75
-	Tone(105, 93, envelope/p_fall, NULL)
+phoneme g
+  vcd vel stp
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+ // IF PreVoicing THEN
+    //FMT(g/xg)
+  //ENDIF
+
+  IF nextPh(isPause2) THEN
+  	//addWav(ustop/k_)
+    FMT(g/g_) addWav(ustop/k_)
+    //addWav(x/g_)
+  ELSE
+  	//addWav(ustop/k_asp)
+  	FMT(g/g) addWav(ustop/k_asp)
+  	//addWav(x/g)
+  ENDIF
+  
 endphoneme
 
-phoneme hxx
-	import_phoneme base1/h
-	length 75
-	Tone(105, 93, envelope/p_fall, NULL)
-	//lengthmod 1
+phoneme t
+  vls alv stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/t_dnt, 50)
+  ELSE
+	  WAV(ustop/t_dnt, 100)
+  ENDIF
+endphoneme
+
+phoneme dZ // **j**udge
+  ipa dZ
+  vcd pla afr sib
+  voicingswitch tS
+  lengthmod 5
+  Vowelin f1=2  f2=2300 200 400  f3=100 80
+  Vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd, 250)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dz_pzd_, 250) addWav(x/dz_pzd_, 250)
+  ENDIF
+  FMT(dzh/dz_pzd, 250) addWav(x/dz_pzd, 250)
+endphoneme
+
+phoneme n
+  vcd alv nas
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
+  Vowelin rate
+  lengthmod 4
+  
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1500 -200 200 f3=0 80
+    FMT(klatt/n)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n/n@)
+    VowelStart(n/na)
+    VowelStart(n/ne)
+    VowelStart(n/ni)
+    VowelStart(n/no)
+    VowelStart(n/nu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(n/nj)
+  ELIF prevPh(isPause) OR prevPh(n) THEN
+    FMT(n/_n)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(n/n_)
+  ENDIF
+  
+endphoneme
+
+phoneme m
+  vcd blb nas
+  Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin  f1=0  f2=1000 -50 -200  f3=-200 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/m_)
+    ENDIF
+    FMT(klatt/m)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(m/m@)
+    VowelStart(m/ma)
+    VowelStart(m/me)
+    VowelStart(m/mi)
+    VowelStart(m/mo)
+    VowelStart(m/mu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(m/mj)
+  ELIF prevPh(isPause) THEN
+    FMT(m/_m)
+  ELIF nextPh(isNotVowel) THEN
+    FMT(m/m_)
+  ENDIF
 endphoneme
