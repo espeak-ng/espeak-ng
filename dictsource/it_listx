@@ -570,6 +570,7 @@ bonden  $alt2
 bonnanar $2
 bonos  $alt
 bontebok $1  $alt
+borbottio	$3
 bore  $alt
 borea $1
 borg  $alt2
@@ -634,7 +635,7 @@ buia  b'uja
 buio  b'u:jo
 buon	bw2,On	$only
 buona	bu'Ona
-buonasera	bw2,Ona_|s'eRa
+buonasera	bw2,Ona_||s'eRa
 buone	bu'One
 buoni	bu'Oni
 buono	bu'Ono
@@ -1188,6 +1189,7 @@ diacon $1
 diaconia $3
 diacronia	$3
 diadem  $alt
+diafisi	di'afizi
 diagnosi $1
 dialett  $alt
 dialisi	dI'a:lizi
@@ -1235,6 +1237,7 @@ diplomazie	diplomats'ie/
 dipol $2
 dipylon $1
 dirett  $alt
+disamina	$2
 disarmonia	$4
 disarmonie	diza@-*mon'ie
 disartrie	$3
@@ -2746,6 +2749,7 @@ palagonia $4
 palamede  $alt
 palemone  $alt
 palen  $alt2
+palindrom	$2
 palingenesi $3
 pallanuot  $alt
 pallare $1
@@ -4026,6 +4030,7 @@ trentenn	$alt
 treppied	$alt
 tres  $alt
 tresette	t@-*es'Et:e
+tremit	$1
 treveri $1  $alt
 treves  $alt
 treviri $1

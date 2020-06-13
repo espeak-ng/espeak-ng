@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2019 october  19 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2020 june  13 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -864,6 +864,7 @@ city	s'i:ti
 cleaner	_^_EN
 cliché		kli:S'e
 clochard	kloS'a@-*
+clown	kl'a:wn
 club	kl'a/:b $onlys
 cocker	$1
 cocktail	k'Ok_t,El
@@ -938,6 +939,7 @@ feed	_^_en
 feeling	f'i:lIN
 fender	$1 $alt
 fiction	f'ikS@n
+find	f'aInd $only
 firefox		_^_EN
 firewall	f'aIR||w,Ol:
 first	f'@:rst[
@@ -1042,6 +1044,7 @@ lingerie	liNZeR'i
 live	l'a:Iv
 logging	l'Oging
 login	l'Og||in
+logout	l,Og||'awt
 lord	$alt $only
 love	l'O:v $onlys
 lover	$1
@@ -1354,6 +1357,8 @@ banano	$2
 baritono	$3
 becer	$1
 beneficio	$3
+benefici	$3
+(effetti benefici)	ef:'Et:I_||_ben'EfitSI
 beneplacito	$3
 benzol	bendz'Ol
 bischer	b'Isk,e*
@@ -1507,7 +1512,7 @@ malleoli	$2
 malvagia	$2
 mantovano	$3
 maomettano	$4
-maschera	$1
+mascher	m'a:sk,ER
 maschil	$2
 medesim	$2 $alt2
 mediaset	m'Ediaset
@@ -1914,6 +1919,7 @@ federiciano	$4
 feliciano	$3
 felizzano	$3
 fenici	$2
+ferguson	$1
 ferragostano	$4
 ferrazzano	$3
 ferruzzano	$3
@@ -1951,6 +1957,7 @@ haiti	a'i:ti
 haitian	aiti'an
 hamas	$2
 hawaii	aw'a:i:
+hawaiʻi	aw'a:i:
 helsinki	$1
 hiroshima	$3
 hollywood	_^_EN
@@ -1962,7 +1969,9 @@ imperia	$2
 indianapolis	$3
 indonesia	$3
 indostano	$3
+iowa	'aj,owa
 janeiro	Zan'E:iRo
+jersey	dZ'E@-*si
 jerzu	j'E@-*tsu
 jonio	j'Onio
 jugoslav	jugozl'a:v
@@ -2004,6 +2013,7 @@ manchester	_^_EN
 manciano	$2
 mandragol	$2
 mantova	$1
+maryland	m'a:Ri||l,and
 marsciano	$2
 materano	$3
 matriciano	$3
@@ -2019,6 +2029,7 @@ michigan	m'itSigan
 minneapolis	$3
 minucciano	$3
 miscano	$2
+missouri	m,iss'u:Ri
 modena	$1
 moldovano	m,Oldov'ano
 molfettano	m,Olfet'ano
@@ -2062,6 +2073,7 @@ nizzano	nits2:'ano
 nocciano	$2
 normandia $3
 norvegia	no*v'e:dZa
+ohio	,O'ajo
 oltramondano	$4
 oltramontano	$4
 oltremondano	$4
@@ -2119,6 +2131,7 @@ ponzano	$2
 portorico	$3
 prascorsano	$3
 pratesi	$2
+queen	kwi:n $onlys
 regano	$2
 regini	$2
 resuttano	$3
@@ -2190,6 +2203,7 @@ taranto	$1
 tatari $1
 tavazzano	$3
 teheran	t,I_iR'a:n
+tennessee	t'en:,essi
 teramo	$1
 ternano	$2
 tertenia $3
@@ -2291,6 +2305,7 @@ aristotele $3
 arlene	a@-*l'E:n
 armeli	$2
 armida	$2
+artagnan	a@-*tan^'an
 asdrubale	$2
 asimov	'azim,ov
 asterix	$1
@@ -2472,6 +2487,7 @@ josé	_^_ES
 juan	_^_ES
 juri	j'uRI
 jurij	juRI 
+justin	dZ'a:stin
 kate	k'eIt[
 katia	k'a:tia
 kennedy	$1 $alt
@@ -2578,6 +2594,7 @@ potter	$1	$onlys
 presley	p@-*'e:zleI
 prestigiacomo	$3
 rafael	$3
+raymond	@-*'aIm,Ond
 ray	@-*'eI
 reaper	@-*'i:pe@-*
 renault	@-*en'o
@@ -2617,7 +2634,7 @@ sharazad	$3
 shaun	S'O:n $only
 simon	s'aImon	$onlys
 socrate	$1
-sofia	sof'ia	$capital
+sofia	sof'ia
 sonia	$1	$alt2
 sonja	s'O:nIa
 sophia	sOf'ia
@@ -2657,8 +2674,10 @@ waters	w'OTe@-*s $only
 wilde	w'aIld
 wojtyla	vojt'ila
 woody	v'udI
+yasmine	jazm'in
 zaccaria	$3
 zaira  dza'i:Ra
+zagaria	$3
 zoe  $alt
 
 (che guevara)	tS'E_||gev'a*a
@@ -2738,6 +2757,7 @@ acchiappino	$2
 acciecano	$2
 acclamano	$2
 acclamino	$2
+accod	$2
 accodano	$2
 accodino	$2
 accomoda	$2
@@ -3277,6 +3297,7 @@ dilatano	$2
 dileguino	$2
 dimenino	$2
 dimenticano	$2
+dimentichino	$2
 dimezzano	dim'edz:ano
 dimezzino	$2
 dimorano	$2
@@ -3318,6 +3339,8 @@ distillano	$2
 distinguano	$2
 distino	$1
 distintesi	$2
+distrano	$1
+distrino	$1
 disturbano	$2
 disturbino	$2
 divaghino	$2
@@ -3412,6 +3435,7 @@ estendano	$2
 estirpano	$2
 estrapol	$2
 esulano	$1
+esulino	'Ez,ulino
 esultano	$2
 esultino	$2
 evacuano	$2
@@ -3426,16 +3450,19 @@ evitino	$1
 evoc	$1
 evochi	$1
 evochino	$1
+evolutosi	$3
 fagocita	$2
 fai	f'a:i
 fantasticano	$2
 faticano	$2
+fatichi	$2
 fatichino	$2
 fatturano	$2
 favoreggiano	$3
 fecero	$1 $alt
 fecondino	$2
 fermano	$1
+fermarcisi	$2
 festeggino	$2
 fiatano	$1
 fidanzano	$2
@@ -3894,6 +3921,7 @@ necessitino	$2	$alt
 negal	$1
 neghino	$1
 neglige	negl'idZe
+noleggiano	$2 $alt
 notano	$1
 notino	$1
 noverano	$2
@@ -3908,6 +3936,7 @@ occupano	$1
 occupino	$1
 odiano	$1	$alt
 odino	$1
+odorano	$2
 offendano	$2
 offrano	$1
 oltraggiano	$2
@@ -3971,6 +4000,7 @@ perlustrano	$2
 permanere	$3
 perseguita	$2
 perseguitano	$2
+pervaderti	$2
 pesano	$1
 pettegol	$2
 pettinano	$1
@@ -4151,6 +4181,7 @@ riabituino	$3
 riaccadere	$4 $alt2
 riaccompagnano	$4
 riacquistino	$3
+riaccredit	$3 $alt
 riadagia	$3
 riaddormentino	$4
 riaffermano	$3
@@ -4272,7 +4303,6 @@ riserbano	$2
 riservino	$2	$alt2
 risiedano	$2
 risolsero	$alt
-risolverl	$2	$alt
 risparmiano	$2
 rispecchino	$2
 rispettino	$2
@@ -4412,6 +4442,7 @@ seccano	$1
 seducano	$2
 segnalano	$2
 segnano	$1 $alt
+seguano	$1
 seguit	segw'it $verb
 seguitano	$1
 seguito	s'e:gwito	$noun
@@ -4857,6 +4888,7 @@ zuccherano	$1
 (cui desideri)	k'u:|I||dez'ide**I
 (invece desideri)	inv'etSe||dez'ide**I
 (la desideri)	ladez'i:deRi
+(le desideri)	l,Edez'i:deRi
 (lo desideri)	lodez'ideRi
 (mi desideri)	mI||dez'i:deRI
 (desideri che)	dez'ideRi||k'e
@@ -4933,6 +4965,7 @@ deciditi	$2
 dedical	$1
 deposital	$2
 dicasi	$1
+degener	$2
 digitalo	$1
 digliel	$1
 digliene	$1

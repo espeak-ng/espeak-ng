@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2019 october 19 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2020 june 13 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -50,6 +50,7 @@
 	astano (_	'astano   // verbs
 	ass) aggia (L07_	'adZ:a/
 	acchi) appa (L07_	'ap:a
+	accord) ata (L04_	'ata
 
 .group à
 	à	''a
@@ -109,6 +110,8 @@
 	cerca (L07_	tS'e@-*ka
 	conta (L07_	k'onta
 	ra) cconta (L07_	k:'Onta
+	asse) conda (L04_	k'onda
+	compier (L04_	k'ompie@-*
 
 .group d
 	d	d
@@ -198,6 +201,8 @@
 	AC) erano (_	=eR,ano
 	@s) ero (_	=ERO
 	e (lano_	'e
+	_) entra (L07_	'Ent@-*a
+	ri) entra (L07_	'Ent@-*a
 
 .group è
 	_) è (_	,E
@@ -347,6 +352,7 @@
 	ass) ister (L04_	'iste@-*
 	r) ider (L04_	'ide@-*
 	cons) idera (L07_	'ide@-*a
+	reg) istra (L07_	'i:st@-*a
 	ivano (_	'ivano   // verbs
 	i (ficano_	'i
 	ifichino (_	'ifikino
@@ -486,11 +492,14 @@
 	l) oqui (A	Okwj
 	C) orda (L05_	'O@-*da   // pron. verbs
 	r) omper (L04_	'ompe@-*
-		C) onder (L04_	'ondE@-*
-		over (L04_	'ovE@-*
+	C) onder (L04_	'ondE@-*
+	over (L04_	'ovE@-*
 	d) over (L04_	Ov'E@-*
 	m) order (L04_	'O:@-*de@-*
 	s) ogna (L07_	'on^a
+	ign) ora (L07_	'ORa
+	inc) olla (L07_	'ol:a
+	ris) olver (L04_	'Olve@-*
 	ovano (_ 'ovano   // verbs
 	osano (_	'ozano
 	o (CCano_	'O
@@ -653,6 +662,7 @@
 	C) uo (tano_	U'O
 	uomini (_	w2'Omini
 	fanc) u (lA_	'u:
+	f) uma (L07_	'u:ma
 
 .group v
 	v	v
@@ -671,6 +681,7 @@
 	s) veglia (L07_	v'el^a
 	volta (L07_	v'Olta
 	venut (AL04_	ven'ut
+	in) viata (L04_	vi'a:ta
 	_) v' (P2t	v
 
 .group w
