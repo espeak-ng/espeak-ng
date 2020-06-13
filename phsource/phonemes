@@ -1993,6 +1993,8 @@ include ph_bulgarian
 phonemetable sl pl
 include ph_slovenian
 
+phonemetable th shn
+
 phonemetable cs sk
 include ph_czech
 

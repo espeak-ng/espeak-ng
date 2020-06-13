@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 119 supported languages and accents are:
+The 120 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -120,6 +120,7 @@ The 119 supported languages and accents are:
 | `bnt`       | `sw`              | Bantu                 | Swahili                     |                        |
 | `gmq`       | `sv`              | North Germanic        | Swedish                     |                        |
 | `dra`       | `ta`              | Dravidian             | Tamil                       |                        |
+| `tai`       | `th`              | Tai                   | Thai                        |                        |
 | `trk`       | `tk`              | Turkic                | Turkmen<sup>\[1\]</sup>     |                        |
 | `trk`       | `tt`              | Turkic                | Tatar                       |                        |
 | `dra`       | `te`              | Dravidian             | Telugu                      |                        |

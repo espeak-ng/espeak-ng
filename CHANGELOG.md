@@ -31,6 +31,7 @@ new languages:
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
+*  th (Thai) -- Valdis Vitolins
 *  tk (Turkmen) -- boracasli98, Valdis Vitolins
 *  ug (Uyghur) -- boracasli98, Valdis Vitolins
 *  uk (Ukrainian) -- Valdis Vitolins

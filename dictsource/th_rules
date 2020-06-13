@@ -1,0 +1,298 @@
+// Thai pronunciation rules
+
+.replace
+// Alternative full stop
+        ๏     .
+
+// Numbers
+        ๐     0
+        ๑     1
+        ๒     2
+        ๓     3
+        ๔     4
+        ๕     5
+        ๖     6
+        ๗     7
+        ๘     8
+        ๙     9
+        ๑๐    10
+
+
+// Letter groups
+// Look for phoneme tones at phonemes/ph_shan file
+
+// Consonants
+.L10 ก ข ฃ ค ฅ ฆ ง จ ฉ ช ซ ฌ ญ ฎ ฏ ฐ ฑ ฒ ณ ด ต ถ ท ธ น บ ป ผ ฝ พ ฟ ภ ม ย ร ฤ ล ว ศ ษ ส ห ฬ อ ฮ ะ า ำ
+
+// Vowels (note that some of them are zero width characters with negative offset)
+.L20  ิ  ี  ึ  ื  ุ เ แ โ ใ ไ ๅ
+
+.group ก
+        ก         k3   // default pronunciation
+        ก (L10    k3a  // add vowel, if next is consonant
+        ก (L20    k3   // but not add, if next is vowel
+
+.group ข
+        ข         kh55
+        ข (L10    kh55a
+
+.group ฃ
+        ฃ         kh55
+        ฃ (L10    kh55a
+
+.group ค
+        ค         kh2
+        ค (L10    kh2a
+
+.group ฅ
+        ฅ         kh2
+        ฅ (L10    kh2a
+
+.group ฆ
+        ฆ         kh2
+        ฆ (L10    kh2a
+
+.group ง
+        ง         ng2
+        ง (L10    ng2a
+
+.group จ
+        จ         ch3
+        จ (L10    ch3a
+
+.group ฉ
+        ฉ         ch55
+        ฉ (L10    ch55a
+
+.group ช
+        ช         ch2
+        ช (L10    ch2a
+
+.group ซ
+        ซ         s2
+        ซ (L10    s2a
+
+.group ฌ
+        ฌ         ch2
+        ฌ (L10    ch2a
+
+.group ญ
+        ญ         j2
+        ญ (L10    j2a
+
+.group ฎ
+        ฎ         d3
+        ฎ (L10    d3a
+
+.group ฏ
+        ฏ         t3
+        ฏ (L10    t3a
+
+.group ฐ
+        ฐ         th55
+        ฐ (L10    th55a
+
+.group ฑ
+        ฑ         th
+        ฑ (L10    tha
+
+.group ฒ
+        ฒ         th2
+        ฒ (L10    th2a
+
+.group ณ
+        ณ         n2
+        ณ (L10    n2a
+
+.group ด
+        ด         d3
+        ด (L10    d3a
+
+.group ต
+        ต         t3
+        ต (L10    t3a
+
+.group ถ
+        ถ         th55
+        ถ (L10    th55a
+
+.group ท
+        ท         th2
+        ท (L10    th2a
+
+.group ธ
+        ธ         th2
+        ธ (L10    th2a
+
+.group น
+        น         n2
+        น (L10    n2a
+
+.group บ
+        บ         b3
+        บ (L10    b3a
+
+.group ป
+        ป         p3
+        ป (L10    p3a
+
+.group ผ
+        ผ         ph55
+        ผ (L10    ph55a
+
+.group ฝ
+        ฝ         f55
+        ฝ (L10    f55a
+
+.group พ
+        พ         ph2
+        พ (L10    ph2a
+
+.group ฟ
+        ฟ         f2
+        ฟ (L10    f2a
+
+.group ภ
+        ภ         ph2
+        ภ (L10    ph2a
+
+.group ม
+        ม         m2
+        ม (L10    m2a
+
+.group ย
+        ย         j2
+        ย (L10    j2a
+
+.group ร
+        ร         r2
+        ร (L10    r2a
+
+.group ฤ
+        ฤ         r
+        ฤ (L10    ra
+
+.group ล
+        ล         l2
+        ล (L10    l2a
+
+.group ว
+        ว         w2
+        ว (L10    w2a
+
+.group ศ
+        ศ         s55
+        ศ (L10    s55a
+
+.group ษ
+        ษ         s55
+        ษ (L10    s55a
+
+.group ส
+        ส         s55
+        ส (L10    s55a
+
+.group ห
+        ห         h55
+        ห (L10    h55a
+
+.group ฬ
+        ฬ         l2
+        ฬ (L10    l2a
+
+.group อ
+        อ         ?
+        อ (L10    ?a
+
+.group ฮ
+        ฮ         h2
+        ฮ (L10    h2a
+
+.group ะ
+        ะ         a
+
+.group ะ
+        ะ         s
+        ะ         s
+
+.group า
+        า         s
+        า         s
+
+.group ำ
+        ำ         s
+        ำ         s
+
+.group  ิ
+         ิ         i
+
+.group  ึ
+         ึ         ue
+
+.group  ุ
+        ุ          u
+
+.group เ
+        เ         e
+
+.group แ
+        แ         ae
+
+.group โ
+        โ         o
+
+.group ใ
+        ใ         ai
+
+.group ไ
+        ไ         ai
+
+.group ๅ
+        ๅ         u
+
+.group ๆ
+        ๆ         m
+
+.group  ี
+         ี         s
+
+.group ั
+         ั         m
+         ั         m
+
+.group ู
+         ู         u:
+
+.group  ื
+         ื         ue:
+
+.group // all other characters
+
+
+// Switch to English for Latin characters
+        a _^_en
+        b _^_en
+        c _^_en
+        d _^_en
+        e _^_en
+        f _^_en
+        g _^_en
+        h _^_en
+        i _^_en
+        j _^_en
+        k _^_en
+        l _^_en
+        m _^_en
+        n _^_en
+        o _^_en
+        p _^_en
+        q _^_en
+        r _^_en
+        s _^_en
+        t _^_en
+        u _^_en
+        v _^_en
+        w _^_en
+        x _^_en
+        y _^_en
+        z _^_en
