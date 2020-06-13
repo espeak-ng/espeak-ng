@@ -97,8 +97,8 @@ be installed using the following commands:
 | autotools     | `sudo apt-get install make autoconf automake libtool pkg-config` |
 | c99 compiler  | `sudo apt-get install gcc`                                       |
 | sonic         | `sudo apt-get install libsonic-dev`                              |
-| ronn          | `sudo apt-get install ruby-ronn`                                 |
-| kramdown      | `sudo apt-get install ruby-kramdown`                             |
+| ronn          | `sudo apt-get install ronn`                                      |
+| kramdown      | `sudo apt-get install kramdown`                                  |
 
 For recent Debian or Ubuntu >= 18.04 you should also install:
 
