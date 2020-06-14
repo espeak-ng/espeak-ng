@@ -80,6 +80,7 @@ static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
+static int min_buffer_length = 60; // minimum buffer length in ms
 static espeak_ng_STATUS err = ENS_OK;
 
 t_espeak_callback *synth_callback = NULL;
@@ -276,10 +277,12 @@ ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE 
 		my_audio = create_audio_device_object(device, "eSpeak", "Text-to-Speech");
 #endif
 
-	// buffer_length is in mS, allocate 2 bytes per sample
-	if (buffer_length == 0)
-		buffer_length = 60;
 
+	// Don't allow buffer be smaller than safe minimum
+	if (buffer_length < min_buffer_length)
+		buffer_length = min_buffer_length;
+
+	// allocate 2 bytes per sample
 	outbuf_size = (buffer_length * samplerate)/500;
 	out_start = (unsigned char *)realloc(outbuf, outbuf_size);
 	if (out_start == NULL)
