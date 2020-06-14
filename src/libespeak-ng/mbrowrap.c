@@ -50,6 +50,7 @@ BOOL load_MBR()
 	init_MBR = (void *)GetProcAddress(hinstDllMBR, "init_MBR");
 	write_MBR = (void *)GetProcAddress(hinstDllMBR, "write_MBR");
 	flush_MBR = (void *)GetProcAddress(hinstDllMBR, "flush_MBR");
+	getFreq_MBR = (void *)GetProcAddress(hinstDllMBR, "getFreq_MBR");
 	read_MBR = (void *)GetProcAddress(hinstDllMBR, "read_MBR");
 	close_MBR = (void *)GetProcAddress(hinstDllMBR, "close_MBR");
 	reset_MBR = (void *)GetProcAddress(hinstDllMBR, "reset_MBR");
