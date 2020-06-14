@@ -257,6 +257,7 @@ check:	tests/encoding.check \
 	tests/language-numbers-cardinal.check \
 	tests/language-numbers-ordinal.check \
 	tests/non-executable-files-with-executable-bit.check \
+	tests/mbrola.check \
 	tests/bom.check
 
 ##### fuzzer:
