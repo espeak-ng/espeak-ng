@@ -213,25 +213,25 @@
     L02)	us	(L03L03L01 u~h`s
     
 .group v
-    v	V~:
+    v	&~:
     
-    v	(L03_	V~43
-    v	(L03L03_	V~43
-    v	(L03L03L03_	V~43
+    v	(L03_	&~43
+    v	(L03L03_	&~43
+    v	(L03L03L03_	&~43
     
-    v	(_	V~43
-    vxb	(_	V~1
-    vxc	(_	V~2
-    vxd	(_	V~3
-    vxf	(_	V~4
+    v	(_	&~43
+    vxb	(_	&~1
+    vxc	(_	&~2
+    vxd	(_	&~3
+    vxf	(_	&~4
     
-    v	(L03L01 V~
-    v	(L03L03L01 V~
-    v	(L03L03L03L01 V~
+    v	(L03L01 &~
+    v	(L03L03L01 &~
+    v	(L03L03L03L01 &~
     
-    vs	(L01 V~h`s
-    vs	(L03L01 V~h`s
-    vs	(L03L03L01 V~h`s
+    vs	(L01 &~h`s
+    vs	(L03L01 &~h`s
+    vs	(L03L03L01 &~h`s
 
 .group ạ
     ạ 0
@@ -269,9 +269,9 @@
     L02) ụs u~h`s
     
 .group ṿ
-    ṿ V~
-    ṿ V~43
-    ṿs V~h`s
+    ṿ &~
+    ṿ (_ &~43
+    ṿs &~h`s
 
 .group ch
     ch tS

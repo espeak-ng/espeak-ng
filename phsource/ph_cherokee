@@ -218,9 +218,22 @@ endphoneme
 
 //ṿ, v
 phoneme V~
-  vwl lng starttype #@ endtype #@
-  length 300
-  FMT(vnasal/V_n, 100)
+	vwl lng starttype #@ endtype #@
+//  vwl lng starttype #@ endtype #@
+//  length 300
+//  FMT(vnasal/V_n, 100)
+	ChangePhoneme(&~)
+endphoneme
+
+phoneme &~
+  vwl  starttype #@ endtype #@
+  ipa ɐU+0303
+  length 180
+  IF thisPh(isFinalVowel) THEN
+    FMT(vnasal/a#_n2)
+  ELSE
+    FMT(vnasal/a#_n)
+  ENDIF
 endphoneme
 
 phoneme V~`
@@ -315,11 +328,32 @@ phoneme t
 
   IF nextPh(isPause2) THEN
     WAV(ustop/t_)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/tr)
   ELIF nextPh(@-) THEN
     WAV(ustop/t_dnt, 50)
-  ELSE
-	  WAV(ustop/t_dnt, 100)
   ENDIF
+  WAV(ustop/t, 90)
+endphoneme
+
+phoneme d
+  vcd alv stp
+  voicingswitch t
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80 brk
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+//  ELIF nextPh(r) THEN
+//    FMT(d/dr) addWav(x/d)
+  ENDIF
+
+  FMT(d/d) addWav(x/d)
 endphoneme
 
 phoneme dZ // **j**udge
@@ -400,3 +434,40 @@ phoneme m
     FMT(m/m_)
   ENDIF
 endphoneme
+
+phoneme w
+  liquid
+  lengthmod 7
+  starttype #u
+  
+  IF nextPh(isVowel) THEN
+  
+    NextVowelStarts
+      VowelStart(w/w2)
+      VowelStart(w/wa)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+
+    VowelEnding(w/xw, -30)
+
+    IF prevPhW(isNasal) THEN
+      FMT(w/w2)
+    ELSEIF prevPhW(h) THEN
+      // none,  [hw]
+    ELSE
+    	FMT(w/w2)
+      //FMT(w/_w)
+    ENDIF
+  ELSE
+    // no vowel follows
+    Vowelout len=50
+    IF prevPh(#i) THEN
+      FMT(w/iw_)
+    ENDIF
+    FMT(w/w_)
+  ENDIF
+endphoneme
+
