@@ -14,7 +14,6 @@ pkgconfig_DATA = espeak-ng.pc
 SHARED_VERSION=2:51:1 # = *.so.1.1.51
 
 MKDIR=mkdir -p
-RONN=ronn
 KRAMDOWN=kramdown
 
 # -Wno-endif-labels : Needed to prevent warnings in ieee80.c.
