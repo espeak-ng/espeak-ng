@@ -79,10 +79,10 @@ SUFFIXES=.html .md .ronn .check .test
 .md.html: _layouts/webpage.html
 	@echo "  MD        $@"
 	@cat $< | sed -e 's/\.md)/.html)/g' -e 's/\.ronn/.html/g' | \
-		kramdown --template _layouts/webpage.html > $@
+		$(KRAMDOWN) --template _layouts/webpage.html > $@
 
 .ronn.html:
-	ronn --html $<
+	$(RONN) --html $<
 
 ##### vim:
 
@@ -101,10 +101,10 @@ EXTRA_DIST += $(vim_addons_syntax_DATA)
 ##### documentation:
 
 src/espeak-ng.1: src/espeak-ng.1.ronn
-	ronn --roff $<
+	$(RONN) --roff $<
 
 src/speak-ng.1: src/speak-ng.1.ronn
-	ronn --roff $<
+	$(RONN) --roff $<
 
 docs_MARKDOWN != ls docs/*.md docs/*/*.md docs/*/*/*.md
 docs_HTML = ${docs_MARKDOWN:.md=.html}

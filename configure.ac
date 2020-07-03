@@ -257,6 +257,8 @@ AC_CHECK_PROG(RONN, ronn, ronn, no)
 
 AM_CONDITIONAL(HAVE_RONN, [test ! x"$RONN" = xno])
 
+AC_CHECK_PROG(KRAMDOWN, kramdown, kramdown, no)
+
 dnl ================================================================
 dnl Extended dictionary checks.
 dnl ================================================================
