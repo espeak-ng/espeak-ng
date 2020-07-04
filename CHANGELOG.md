@@ -21,7 +21,7 @@ updated languages:
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins
-*  zh (Chinese) -- Silas S. Brown, Rongcui Dong
+*  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng
 
 new languages:
 *  chr (Cherokee) -- Michael Conrad
