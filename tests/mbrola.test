@@ -55,7 +55,7 @@ if [ "`which mbrola`" != "" ]; then
         echo "yes"
 else
         echo "no"
-        exit 1
+        exit
 fi
 
 test_voice mb-fr4 31fae066f45d4a9dc56289344f28dd00bce77875 "Bonjour"
