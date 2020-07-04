@@ -407,7 +407,7 @@ endphoneme
 phoneme b
   vcd blb stp
   voicingswitch p
-  IF nextPh(l2) THEN
+  IF nextPh(l2) OR nextPh(isPause) THEN
     ChangePhoneme(p)
   ENDIF
   CALL base1/b
@@ -416,7 +416,7 @@ endphoneme
 phoneme d
   vcd alv stp
   voicingswitch t
-  IF nextPh(l2) THEN
+  IF nextPh(l2) OR nextPh(isPause) THEN
     ChangePhoneme(t)
   ENDIF
   lengthmod 5
@@ -439,7 +439,7 @@ endphoneme
 phoneme g
   vcd vel stp
   voicingswitch k
-  IF nextPh(l2) THEN
+  IF nextPh(l2) OR nextPh(isPause) THEN
     ChangePhoneme(k)
   ENDIF
   CALL base1/g
@@ -473,6 +473,23 @@ phoneme k
   WAV(ustop/k)
 endphoneme
 
+phoneme v
+  vcd lbd frc
+  voicingswitch f
+  IF nextPh(isPause) THEN
+    ChangePhoneme(f)
+  ENDIF
+  CALL base1/v
+endphoneme
+
+phoneme z
+  vcd alv frc sib
+  voicingswitch s
+  IF nextPh(isPause) THEN
+    ChangePhoneme(s)
+  ENDIF
+  CALL base1/z
+endphoneme
 
 phoneme x
   vls vel frc
