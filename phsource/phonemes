@@ -1861,6 +1861,9 @@ include ph_romanian
 phonemetable rw base2
 include ph_kinyarwanda
 
+phonemetable tk base2
+include ph_turkmen
+
 phonemetable tr base2
 include ph_turkish
 
@@ -2017,9 +2020,6 @@ include ph_azerbaijani
 
 phonemetable cv tr
 include ph_chuvash
-
-phonemetable tk tr
-include ph_turkmen
 
 phonemetable ug tr
 include ph_uyghur
