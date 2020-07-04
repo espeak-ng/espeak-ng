@@ -63,6 +63,7 @@
    ϋ   υ
    ΰ   υ
    ώ   ω
+   ʻ   '     // Replace Hawaiian okina to apostrophe FIXME — that should be done globally for all languages
 
 .group a
         a          a

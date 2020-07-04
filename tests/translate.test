@@ -64,6 +64,9 @@ h@l'oU
 aIa#m b'ak
 and l'Eft" "He said : 'Hello, I am back.' and left."
 
+# Hawaiian okina to apostrophe
+test_phonemes en "h@w'aIi:" "Hawaiʻi"
+
 #----- Emoji [http://www.unicode.org/reports/tr51/tr51-12.html] -----
 
 # ED-3 - emoji_character
