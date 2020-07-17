@@ -571,6 +571,11 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DEFAULT;
 	}
 		break;
+	case L3('c', 'h', 'r'): // Cherokee
+	{
+		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
+	}
+		break;
 	case L('c', 'y'): // Welsh
 	{
 		static const short stress_lengths_cy[8] = { 170, 220, 180, 180, 0, 0, 250, 270 };
