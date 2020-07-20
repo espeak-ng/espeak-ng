@@ -63,6 +63,7 @@ static double gen_noise(double);
 static double DBtoLIN(long);
 static void frame_init(klatt_frame_ptr);
 static void setabc(long, long, resonator_ptr);
+static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
 static void setzeroabc(long, long, resonator_ptr);
 
 static klatt_frame_t kt_frame;
@@ -845,8 +846,11 @@ static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
 
-static int Wavegen_Klatt(int resume)
+int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
 {
+	if (resume == 0)
+		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
+
 	int pk;
 	int x;
 	int ix;
@@ -1048,14 +1052,6 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, i
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
 		}
 	}
-}
-
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2)
-{
-	if (resume == 0)
-		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
-
-	return Wavegen_Klatt(resume);
 }
 
 void KlattInit()
