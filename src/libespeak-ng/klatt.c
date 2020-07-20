@@ -42,7 +42,6 @@
 extern unsigned char *out_ptr;
 extern unsigned char *out_start;
 extern unsigned char *out_end;
-extern WGEN_DATA wdata;
 static int nsamples;
 static int sample_count;
 
@@ -243,7 +242,7 @@ static double sampled_source(int source_num)
    Converts synthesis parameters to a waveform.
  */
 
-static int parwave(klatt_frame_ptr frame)
+static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 {
 	double temp;
 	int value;
@@ -377,24 +376,24 @@ static int parwave(klatt_frame_ptr frame)
 		out = outbypas - out;
 
 		out = resonator(&(kt_globals.rsn[Rout]), out);
-		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0); // Convert back to integer
+		temp = (int)(out * wdata->amplitude * kt_globals.amp_gain0); // Convert back to integer
 
 		// mix with a recorded WAV if required for this phoneme
 		signed char c;
 		int sample;
 
-		if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {
-			if (wdata.mix_wave_scale == 0) {
+		if (wdata->mix_wavefile_ix < wdata->n_mix_wavefile) {
+			if (wdata->mix_wave_scale == 0) {
 				// a 16 bit sample
-				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
-				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
-				wdata.mix_wavefile_ix += 2;
+				c = wdata->mix_wavefile[wdata->mix_wavefile_ix+1];
+				sample = wdata->mix_wavefile[wdata->mix_wavefile_ix] + (c * 256);
+				wdata->mix_wavefile_ix += 2;
 			} else {
 				// a 8 bit sample, scaled
-				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
+				sample = (signed char)wdata->mix_wavefile[wdata->mix_wavefile_ix++] * wdata->mix_wave_scale;
 			}
-			int z2 = sample * wdata.amplitude_v / 1024;
-			z2 = (z2 * wdata.mix_wave_amp)/40;
+			int z2 = sample * wdata->amplitude_v / 1024;
+			z2 = (z2 * wdata->mix_wave_amp)/40;
 			temp += z2;
 		}
 
@@ -846,7 +845,7 @@ static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
 
-int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
+int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata)
 {
 	if (resume == 0)
 		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
@@ -860,7 +859,7 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
 		sample_count = 0;
 
 	while (sample_count < nsamples) {
-		kt_frame.F0hz10 = (wdata.pitch * 10) / 4096;
+		kt_frame.F0hz10 = (wdata->pitch * 10) / 4096;
 
 		// formants F6,F7,F8 are fixed values for cascade resonators, set in KlattInit()
 		// but F6 is used for parallel resonator
@@ -908,10 +907,10 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
 		}
 
 		// advance the pitch
-		wdata.pitch_ix += wdata.pitch_inc;
-		if ((ix = wdata.pitch_ix>>8) > 127) ix = 127;
-		x = wdata.pitch_env[ix] * wdata.pitch_range;
-		wdata.pitch = (x>>8) + wdata.pitch_base;
+		wdata->pitch_ix += wdata->pitch_inc;
+		if ((ix = wdata->pitch_ix>>8) > 127) ix = 127;
+		x = wdata->pitch_env[ix] * wdata->pitch_range;
+		wdata->pitch = (x>>8) + wdata->pitch_base;
 
 		kt_globals.nspfr = (nsamples - sample_count);
 		if (kt_globals.nspfr > STEPSIZE)
@@ -919,7 +918,7 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
 
 		frame_init(&kt_frame); // get parameters for next frame of speech
 
-		if (parwave(&kt_frame) == 1)
+		if (parwave(&kt_frame, wdata) == 1)
 			return 1; // output buffer is full
 	}
 
@@ -931,7 +930,7 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2)
 		end_wave = 0;
 		sample_count -= fade;
 		kt_globals.nspfr = fade;
-		if (parwave(&kt_frame) == 1)
+		if (parwave(&kt_frame, wdata) == 1)
 			return 1; // output buffer is full
 	}
 
