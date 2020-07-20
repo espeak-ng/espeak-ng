@@ -1346,7 +1346,7 @@ static int WavegenFill2()
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
 			echo_complete = echo_length;
-			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata);
+			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);
 			break;
 #endif
 		case WCMD_MARKER:

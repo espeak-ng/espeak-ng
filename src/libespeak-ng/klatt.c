@@ -838,14 +838,13 @@ static double DBtoLIN(long dB)
 	return (double)(amptable[dB]) * 0.001;
 }
 
-extern voice_t *wvoice;
 static klatt_peaks_t peaks[N_PEAKS];
 static int end_wave;
 static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
 
-int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata)
+int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice)
 {
 	if (resume == 0)
 		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
@@ -937,7 +936,7 @@ int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA 
 	return 0;
 }
 
-static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
+static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoice, int control)
 {
 	int ix;
 	double next;
@@ -1007,9 +1006,9 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, i
 	nsamples = length;
 
 	for (ix = 1; ix < 6; ix++) {
-		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
+		peaks[ix].freq1 = (fr1->ffreq[ix] * wvoice->freq[ix] / 256.0) + wvoice->freqadd[ix];
 		peaks[ix].freq = (int)peaks[ix].freq1;
-		next = (fr2->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
+		next = (fr2->ffreq[ix] * wvoice->freq[ix] / 256.0) + wvoice->freqadd[ix];
 		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length;
 
 		if (ix < 4) {
