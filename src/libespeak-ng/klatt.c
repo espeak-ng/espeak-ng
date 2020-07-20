@@ -40,7 +40,6 @@
 #include "klatt.h"
 
 extern unsigned char *out_ptr;
-extern unsigned char *out_start;
 extern unsigned char *out_end;
 static int nsamples;
 static int sample_count;

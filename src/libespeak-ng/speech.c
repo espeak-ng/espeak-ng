@@ -65,6 +65,7 @@
 
 unsigned char *outbuf = NULL;
 int outbuf_size = 0;
+unsigned char *out_start;
 
 espeak_EVENT *event_list = NULL;
 int event_list_ix = 0;

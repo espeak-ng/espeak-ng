@@ -113,7 +113,6 @@ static double minus_pi_t;
 static double two_pi_t;
 
 unsigned char *out_ptr;
-unsigned char *out_start;
 unsigned char *out_end;
 
 espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
