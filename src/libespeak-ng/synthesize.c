@@ -146,6 +146,14 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 	WcmdqInc();
 }
 
+static void DoPhonemeAlignment(char* pho, int type)
+{
+	wcmdq[wcmdq_tail][0] = WCMD_PHONEME_ALIGNMENT;
+	wcmdq[wcmdq_tail][1] = pho;
+	wcmdq[wcmdq_tail][2] = type;
+	WcmdqInc();
+}
+
 static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 {
 	intptr_t *q;
@@ -1131,6 +1139,8 @@ void DoEmbedded(int *embix, int sourceix)
 	} while ((word & 0x80) == 0);
 }
 
+extern espeak_ng_OUTPUT_HOOKS* output_hooks;
+
 int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 {
 	static int ix;
@@ -1187,6 +1197,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 
 	while ((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2)) {
 		p = &phoneme_list[ix];
+		
+		if(output_hooks && output_hooks->outputPhoSymbol)
+		{
+			char buf[30];
+			int dummy=0;
+			WritePhMnemonic(buf, p->ph, p, 0, &dummy);
+			DoPhonemeAlignment(strdup(buf),p->type);
+		}
 
 		if (p->type == phPAUSE)
 			free_min = 10;

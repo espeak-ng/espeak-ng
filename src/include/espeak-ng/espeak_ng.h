@@ -77,6 +77,14 @@ typedef enum {
 	ENGENDER_NEUTRAL = 3,
 } espeak_ng_VOICE_GENDER;
 
+typedef struct
+{
+  void (*outputPhoSymbol)(char* pho_code,int pho_type);
+  void (*outputSilence)(short echo_tail);
+  void (*outputVoiced)(short sample);
+  void (*outputUnvoiced)(short sample);
+} espeak_ng_OUTPUT_HOOKS;
+
 /* eSpeak NG 1.49.0 */
 
 typedef struct espeak_ng_ERROR_CONTEXT_ *espeak_ng_ERROR_CONTEXT;
@@ -188,6 +196,12 @@ espeak_ng_CompilePhonemeDataPath(long rate,
                                  const char *destination_path,
                                  FILE *log,
                                  espeak_ng_ERROR_CONTEXT *context);
+                                 
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetOutputHooks(espeak_ng_OUTPUT_HOOKS* hooks);
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetConstF0(int f0);
+
 
 #ifdef __cplusplus
 }
