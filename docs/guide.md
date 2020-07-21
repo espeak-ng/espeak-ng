@@ -7,7 +7,7 @@
   - [espeak-ng Command Line](../src/espeak-ng.1.ronn)
   - [speak-ng Command Line](../src/speak-ng.1.ronn)
 - Library usage
-  - [Integration guide](docs/integration.md)
+  - [Integration guide](integration.md)
 - [Error solutions](#error-solutions)
   - [Problems with pcaudiolib](#problems-with-pcaudiolib)
   - [Problems with pulseaudio](#problems-with-pulseaudio)
