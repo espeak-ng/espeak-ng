@@ -126,7 +126,6 @@ static void EndPitch(int voice_break)
 		syllable_end = wcmdq_tail;
 		SmoothSpect();
 		syllable_centre = -1;
-		memset(vowel_transition, 0, sizeof(vowel_transition));
 	}
 }
 
@@ -1189,7 +1188,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		syllable_end = wcmdq_tail;
 		syllable_centre = -1;
 		last_pitch_cmd = -1;
-		memset(vowel_transition, 0, sizeof(vowel_transition));
 		memset(&worddata, 0, sizeof(worddata));
 		DoPause(0, 0); // isolate from the previous clause
 	}

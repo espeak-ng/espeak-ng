@@ -60,7 +60,6 @@ int wavefile_ix; // a wavefile to play along with the synthesis
 int wavefile_amp;
 
 int seq_len_adjust;
-int vowel_transition[4];
 
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {

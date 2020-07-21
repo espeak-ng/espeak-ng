@@ -450,7 +450,6 @@ extern int samplerate_native;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
-extern int vowel_transition[4];
 
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
