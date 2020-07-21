@@ -1,10 +1,10 @@
 # Building eSpeak NG
 
 - [Windows](#windows)
-  - [Binaries](#binaries)
+  - [Dependencies](#dependencies)
   - [Building](#building)
 - [Linux, Mac, BSD](#linux-mac-bsd)
-  - [Dependencies](#dependencies)
+  - [Dependencies](#dependencies-1)
   - [Building](#building-1)
     - [Cross Compilation](#cross-compilation)
     - [Sanitizer Flag Configuration](#sanitizer-flag-configuration)
@@ -22,30 +22,21 @@
 
 ## Windows
 
-### Binaries
+### Dependencies
 
-The Windows version of eSpeak NG 1.49.2 is available as:
+To build eSpeak NG on Windows, you will need:
 
-*  [espeak-ng-x64.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x64.msi) --
-   64-bit Windows installer
-*  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x86.msi) --
-   32-bit Windows installer
-
-You also need to install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
+1. a copy of [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145) or later, such as the Community Edition;
+2. the Windows 8.1 SDK;
+3. the [WiX installer](http://wixtoolset.org) plugin;
+4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
+   `src` (as `src/pcaudiolib`).
 
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
 
 ### Building
-
-To build eSpeak NG on Windows, you will need:
-
-1. a copy of Visual Studio 2013 or later, such as the Community Edition;
-2. the Windows 8.1 SDK;
-3. the [WiX installer](http://wixtoolset.org) plugin;
-4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
-   `src` (as `src/pcaudiolib`).
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
