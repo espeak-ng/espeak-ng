@@ -329,7 +329,7 @@ unsigned char *GetEnvelope(int index)
 	return (unsigned char *)&phondata_ptr[index];
 }
 
-static void SetUpPhonemeTable(int number, bool recursing)
+static void SetUpPhonemeTable(int number)
 {
 	int ix;
 	int includes;
@@ -338,7 +338,7 @@ static void SetUpPhonemeTable(int number, bool recursing)
 
 	if ((includes = phoneme_tab_list[number].includes) > 0) {
 		// recursively include base phoneme tables
-		SetUpPhonemeTable(includes-1, true);
+		SetUpPhonemeTable(includes - 1);
 	}
 
 	// now add the phonemes from this table
@@ -354,7 +354,7 @@ static void SetUpPhonemeTable(int number, bool recursing)
 int SelectPhonemeTable(int number)
 {
 	n_phoneme_tab = 0;
-	SetUpPhonemeTable(number, false); // recursively for included phoneme tables
+	SetUpPhonemeTable(number); // recursively for included phoneme tables
 	n_phoneme_tab++;
 	return number;
 }
