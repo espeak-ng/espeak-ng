@@ -681,7 +681,7 @@ static int ApplyBreath(void)
 	return value;
 }
 
-static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2)
+static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2, voice_t *wvoice)
 {
 	if (resume == false)
 		SetSynth(length, modulation, fr1, fr2, wvoice);
@@ -1335,7 +1335,7 @@ static int WavegenFill2()
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
-			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3]);
+			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
 #ifdef INCLUDE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
