@@ -250,7 +250,6 @@ phoneme_add_feature(PHONEME_TAB *phoneme,
 // one for the current voice
 extern int n_phoneme_tab;
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
-extern unsigned char phoneme_tab_flags[N_PHONEME_TAB];  // bit 0: not inherited
 
 typedef struct {
 	char name[N_PHONEME_TAB_NAME];

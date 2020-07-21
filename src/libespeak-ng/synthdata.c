@@ -46,7 +46,6 @@ const int version_phdata  = 0x014801;
 // copy the current phoneme table into here
 int n_phoneme_tab;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
-unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
 unsigned short *phoneme_index = NULL;
 char *phondata_ptr = NULL;
@@ -337,9 +336,6 @@ static void SetUpPhonemeTable(int number, bool recursing)
 	int ph_code;
 	PHONEME_TAB *phtab;
 
-	if (recursing == false)
-		memset(phoneme_tab_flags, 0, sizeof(phoneme_tab_flags));
-
 	if ((includes = phoneme_tab_list[number].includes) > 0) {
 		// recursively include base phoneme tables
 		SetUpPhonemeTable(includes-1, true);
@@ -352,9 +348,6 @@ static void SetUpPhonemeTable(int number, bool recursing)
 		phoneme_tab[ph_code] = &phtab[ix];
 		if (ph_code > n_phoneme_tab)
 			n_phoneme_tab = ph_code;
-
-		if (recursing == 0)
-			phoneme_tab_flags[ph_code] |= 1; // not inherited
 	}
 }
 
