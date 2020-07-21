@@ -7,6 +7,7 @@
   - [SSML and HTML Support](markup.md)
 - [Contributor Guide](contributing.md)
   - [Building eSpeak NG](building.md)
+  - [Using eSpeak NG as a C library](integration.md)
 - Creating and Editing Languages and Voices
     - [Adding or Improving a Language](add_language.md)
     - [Text to Phoneme Translation](dictionary.md)
