@@ -62,7 +62,7 @@ The following platforms are supported:
 
 ## Documentation
 
-1. [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
+1. [User guide](docs/guide.md) explains how to set up and use eSpeak NG from command line or as a library.
 2. [Building guide](docs/building.md) provides info how to compile and build eSpeak NG from the source.
 3. [Integration guide](docs/integration.md) provides samples how to use eSpeak NG as a library.
 4. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.

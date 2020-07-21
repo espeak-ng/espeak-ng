@@ -1,13 +1,13 @@
 # eSpeak NG online documentation
 
-- User Guide
+- [User Guide](guide.md)
   - [espeak-ng Command Line](../src/espeak-ng.1.ronn)
   - [speak-ng Command Line](../src/speak-ng.1.ronn)
   - [Supported Languages](languages.md)
   - [SSML and HTML Support](markup.md)
+  - [Using eSpeak NG as a C library](integration.md)
 - [Contributor Guide](contributing.md)
   - [Building eSpeak NG](building.md)
-  - [Using eSpeak NG as a C library](integration.md)
 - Creating and Editing Languages and Voices
     - [Adding or Improving a Language](add_language.md)
     - [Text to Phoneme Translation](dictionary.md)
