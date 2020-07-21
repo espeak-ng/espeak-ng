@@ -44,7 +44,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-extern FILE *f_log;
 static void SmoothSpect(void);
 
 // list of phonemes in a clause

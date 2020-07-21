@@ -55,7 +55,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 
 voice_t *wvoice = NULL;
 
-FILE *f_log = NULL;
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
 
