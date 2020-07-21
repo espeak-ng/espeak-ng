@@ -45,7 +45,6 @@ const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
-int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
@@ -359,12 +358,12 @@ static void SetUpPhonemeTable(int number, bool recursing)
 	}
 }
 
-void SelectPhonemeTable(int number)
+int SelectPhonemeTable(int number)
 {
 	n_phoneme_tab = 0;
 	SetUpPhonemeTable(number, false); // recursively for included phoneme tables
 	n_phoneme_tab++;
-	current_phoneme_table = number;
+	return number;
 }
 
 int LookupPhonemeTable(const char *name)

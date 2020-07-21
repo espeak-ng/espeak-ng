@@ -1549,6 +1549,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	return 0; // finished the phoneme list
 }
 
+static int current_phoneme_table;
 int SpeakNextClause(int control)
 {
 	// Speak text from memory (text_in)
@@ -1577,7 +1578,7 @@ int SpeakNextClause(int control)
 	}
 
 	if (current_phoneme_table != voice->phoneme_tab_ix)
-		SelectPhonemeTable(voice->phoneme_tab_ix);
+		current_phoneme_table = SelectPhonemeTable(voice->phoneme_tab_ix);
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
