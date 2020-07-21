@@ -11,7 +11,7 @@
 - [Error solutions](#error-solutions)
   - [Problems with pcaudiolib](#problems-with-pcaudiolib)
   - [Problems with pulseaudio](#problems-with-pulseaudio)
-- [Index](docs/index.md)
+- [Full list of documents](index.md)
 
 ## Installation
 ### Linux
