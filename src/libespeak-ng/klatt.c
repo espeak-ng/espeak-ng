@@ -40,9 +40,7 @@
 #include "klatt.h"
 
 extern unsigned char *out_ptr;
-extern unsigned char *out_start;
 extern unsigned char *out_end;
-extern WGEN_DATA wdata;
 static int nsamples;
 static int sample_count;
 
@@ -63,6 +61,7 @@ static double gen_noise(double);
 static double DBtoLIN(long);
 static void frame_init(klatt_frame_ptr);
 static void setabc(long, long, resonator_ptr);
+static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
 static void setzeroabc(long, long, resonator_ptr);
 
 static klatt_frame_t kt_frame;
@@ -242,7 +241,7 @@ static double sampled_source(int source_num)
    Converts synthesis parameters to a waveform.
  */
 
-static int parwave(klatt_frame_ptr frame)
+static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 {
 	double temp;
 	int value;
@@ -376,24 +375,24 @@ static int parwave(klatt_frame_ptr frame)
 		out = outbypas - out;
 
 		out = resonator(&(kt_globals.rsn[Rout]), out);
-		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0); // Convert back to integer
+		temp = (int)(out * wdata->amplitude * kt_globals.amp_gain0); // Convert back to integer
 
 		// mix with a recorded WAV if required for this phoneme
 		signed char c;
 		int sample;
 
-		if (wdata.mix_wavefile_ix < wdata.n_mix_wavefile) {
-			if (wdata.mix_wave_scale == 0) {
+		if (wdata->mix_wavefile_ix < wdata->n_mix_wavefile) {
+			if (wdata->mix_wave_scale == 0) {
 				// a 16 bit sample
-				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
-				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
-				wdata.mix_wavefile_ix += 2;
+				c = wdata->mix_wavefile[wdata->mix_wavefile_ix+1];
+				sample = wdata->mix_wavefile[wdata->mix_wavefile_ix] + (c * 256);
+				wdata->mix_wavefile_ix += 2;
 			} else {
 				// a 8 bit sample, scaled
-				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
+				sample = (signed char)wdata->mix_wavefile[wdata->mix_wavefile_ix++] * wdata->mix_wave_scale;
 			}
-			int z2 = sample * wdata.amplitude_v / 1024;
-			z2 = (z2 * wdata.mix_wave_amp)/40;
+			int z2 = sample * wdata->amplitude_v / 1024;
+			z2 = (z2 * wdata->mix_wave_amp)/40;
 			temp += z2;
 		}
 
@@ -838,15 +837,17 @@ static double DBtoLIN(long dB)
 	return (double)(amptable[dB]) * 0.001;
 }
 
-extern voice_t *wvoice;
 static klatt_peaks_t peaks[N_PEAKS];
 static int end_wave;
 static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
 static double klattp_inc[N_KLATTP];
 
-static int Wavegen_Klatt(int resume)
+int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice)
 {
+	if (resume == 0)
+		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
+
 	int pk;
 	int x;
 	int ix;
@@ -856,7 +857,7 @@ static int Wavegen_Klatt(int resume)
 		sample_count = 0;
 
 	while (sample_count < nsamples) {
-		kt_frame.F0hz10 = (wdata.pitch * 10) / 4096;
+		kt_frame.F0hz10 = (wdata->pitch * 10) / 4096;
 
 		// formants F6,F7,F8 are fixed values for cascade resonators, set in KlattInit()
 		// but F6 is used for parallel resonator
@@ -904,10 +905,10 @@ static int Wavegen_Klatt(int resume)
 		}
 
 		// advance the pitch
-		wdata.pitch_ix += wdata.pitch_inc;
-		if ((ix = wdata.pitch_ix>>8) > 127) ix = 127;
-		x = wdata.pitch_env[ix] * wdata.pitch_range;
-		wdata.pitch = (x>>8) + wdata.pitch_base;
+		wdata->pitch_ix += wdata->pitch_inc;
+		if ((ix = wdata->pitch_ix>>8) > 127) ix = 127;
+		x = wdata->pitch_env[ix] * wdata->pitch_range;
+		wdata->pitch = (x>>8) + wdata->pitch_base;
 
 		kt_globals.nspfr = (nsamples - sample_count);
 		if (kt_globals.nspfr > STEPSIZE)
@@ -915,7 +916,7 @@ static int Wavegen_Klatt(int resume)
 
 		frame_init(&kt_frame); // get parameters for next frame of speech
 
-		if (parwave(&kt_frame) == 1)
+		if (parwave(&kt_frame, wdata) == 1)
 			return 1; // output buffer is full
 	}
 
@@ -927,14 +928,14 @@ static int Wavegen_Klatt(int resume)
 		end_wave = 0;
 		sample_count -= fade;
 		kt_globals.nspfr = fade;
-		if (parwave(&kt_frame) == 1)
+		if (parwave(&kt_frame, wdata) == 1)
 			return 1; // output buffer is full
 	}
 
 	return 0;
 }
 
-static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, int control)
+static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoice, int control)
 {
 	int ix;
 	double next;
@@ -1004,9 +1005,9 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, i
 	nsamples = length;
 
 	for (ix = 1; ix < 6; ix++) {
-		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
+		peaks[ix].freq1 = (fr1->ffreq[ix] * wvoice->freq[ix] / 256.0) + wvoice->freqadd[ix];
 		peaks[ix].freq = (int)peaks[ix].freq1;
-		next = (fr2->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
+		next = (fr2->ffreq[ix] * wvoice->freq[ix] / 256.0) + wvoice->freqadd[ix];
 		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length;
 
 		if (ix < 4) {
@@ -1048,14 +1049,6 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *v, i
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
 		}
 	}
-}
-
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2)
-{
-	if (resume == 0)
-		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
-
-	return Wavegen_Klatt(resume);
 }
 
 void KlattInit()

@@ -51,9 +51,10 @@
 
 #define N_WAV_BUF   10
 
+static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
+
 voice_t *wvoice = NULL;
 
-FILE *f_log = NULL;
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
 
@@ -113,7 +114,6 @@ static double minus_pi_t;
 static double two_pi_t;
 
 unsigned char *out_ptr;
-unsigned char *out_start;
 unsigned char *out_end;
 
 espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
@@ -680,8 +680,11 @@ static int ApplyBreath(void)
 	return value;
 }
 
-static int Wavegen()
+static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2, voice_t *wvoice)
 {
+	if (resume == false)
+		SetSynth(length, modulation, fr1, fr2, wvoice);
+
 	if (wvoice == NULL)
 		return 0;
 
@@ -1245,14 +1248,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	}
 }
 
-static int Wavegen2(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2)
-{
-	if (resume == false)
-		SetSynth(length, modulation, fr1, fr2, wvoice);
-
-	return Wavegen();
-}
-
 void Write4Bytes(FILE *f, int value)
 {
 	// Write 4 bytes to a file, least significant first
@@ -1339,14 +1334,14 @@ static int WavegenFill2()
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
-			result = Wavegen2(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3]);
+			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
 #ifdef INCLUDE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
 			echo_complete = echo_length;
-			result = Wavegen_Klatt2(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3]);
+			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);
 			break;
 #endif
 		case WCMD_MARKER:

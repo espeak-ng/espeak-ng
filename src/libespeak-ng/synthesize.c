@@ -44,7 +44,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-extern FILE *f_log;
 static void SmoothSpect(void);
 
 // list of phonemes in a clause
@@ -127,7 +126,6 @@ static void EndPitch(int voice_break)
 		syllable_end = wcmdq_tail;
 		SmoothSpect();
 		syllable_centre = -1;
-		memset(vowel_transition, 0, sizeof(vowel_transition));
 	}
 }
 
@@ -1190,7 +1188,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 		syllable_end = wcmdq_tail;
 		syllable_centre = -1;
 		last_pitch_cmd = -1;
-		memset(vowel_transition, 0, sizeof(vowel_transition));
 		memset(&worddata, 0, sizeof(worddata));
 		DoPause(0, 0); // isolate from the previous clause
 	}
@@ -1549,6 +1546,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume)
 	return 0; // finished the phoneme list
 }
 
+static int current_phoneme_table;
 int SpeakNextClause(int control)
 {
 	// Speak text from memory (text_in)
@@ -1577,7 +1575,7 @@ int SpeakNextClause(int control)
 	}
 
 	if (current_phoneme_table != voice->phoneme_tab_ix)
-		SelectPhonemeTable(voice->phoneme_tab_ix);
+		current_phoneme_table = SelectPhonemeTable(voice->phoneme_tab_ix);
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue

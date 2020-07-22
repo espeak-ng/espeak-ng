@@ -450,7 +450,6 @@ extern int samplerate_native;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
-extern int vowel_transition[4];
 
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
@@ -482,7 +481,6 @@ extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 
 extern unsigned char *out_ptr;
-extern unsigned char *out_start;
 extern unsigned char *out_end;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback *synth_callback;
