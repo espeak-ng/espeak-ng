@@ -111,6 +111,7 @@ tests/*.check
 !tests/translate.test
 !tests/non-executable-files-with-executable-bit.test
 !tests/bom.test
+!tests/klatt.test
 !tests/mbrola.test
 
 espeak-ng.pc
