@@ -73,7 +73,6 @@ long count_samples;
 struct audio_object *my_audio = NULL;
 #endif
 
-static const char *option_device = NULL;
 static unsigned int my_unique_identifier = 0;
 static void *my_user_data = NULL;
 static espeak_ng_OUTPUT_MODE my_mode = ENOUTPUT_MODE_SYNCHRONOUS;
@@ -267,7 +266,6 @@ static int check_data_path(const char *path, int allow_directory)
 
 ESPEAK_NG_API espeak_ng_STATUS espeak_ng_InitializeOutput(espeak_ng_OUTPUT_MODE output_mode, int buffer_length, const char *device)
 {
-	option_device = device;
 	my_mode = output_mode;
 	out_samplerate = 0;
 

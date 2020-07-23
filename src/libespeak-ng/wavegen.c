@@ -46,8 +46,6 @@
 
 #include "sintab.h"
 
-#define N_WAV_BUF   10
-
 static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
 voice_t *wvoice = NULL;
@@ -77,15 +75,12 @@ static int echo_length = 0; // period (in sample\) to ensure completion of echo 
 static int voicing;
 static RESONATOR rbreath[N_PEAKS];
 
-static int harm_sqrt_n = 0;
-
 #define N_LOWHARM  30
 #define MAX_HARMONIC 400 // 400 * 50Hz = 20 kHz, more than enough
 static int harm_inc[N_LOWHARM]; // only for these harmonics do we interpolate amplitude between steps
 static int *harmspect;
 static int hswitch = 0;
 static int hspect[2][MAX_HARMONIC]; // 2 copies, we interpolate between then
-static int max_hval = 0;
 
 static int nsamples = 0; // number to do
 static int modulation_type = 0;
@@ -339,7 +334,6 @@ void WavegenInit(int rate, int wavemult_fact)
 	samplecount = 0;
 	nsamples = 0;
 	wavephase = 0x7fffffff;
-	max_hval = 0;
 
 	wdata.amplitude = 32;
 	wdata.amplitude_fmt = 100;
@@ -1172,7 +1166,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	static int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
 	static int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
-	harm_sqrt_n = 0;
 	end_wave = 1;
 
 	// any additional information in the param1 ?

@@ -421,8 +421,6 @@ void LoadConfig(void)
 	fclose(f);
 }
 
-PHONEME_DATA this_ph_data;
-
 static void InvalidInstn(PHONEME_TAB *ph, int instn)
 {
 	fprintf(stderr, "Invalid instruction %.4x for phoneme '%s'\n", instn, WordToString(ph->mnemonic));

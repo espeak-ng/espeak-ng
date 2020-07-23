@@ -71,11 +71,7 @@ SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
 #define RMS_START 28  // 28
-
 #define VOWEL_FRONT_LENGTH  50
-
-// a dummy phoneme_list entry which looks like a pause
-static PHONEME_LIST next_pause;
 
 const char *WordToString(unsigned int word)
 {
@@ -95,10 +91,6 @@ void SynthesizeInit()
 	last_amp_cmd = 0;
 	last_frame = NULL;
 	syllable_centre = -1;
-
-	// initialise next_pause, a dummy phoneme_list entry
-	next_pause.type = phPAUSE;
-	next_pause.newword = 0;
 }
 
 static void EndAmplitude(void)
