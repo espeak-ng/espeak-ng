@@ -52,7 +52,6 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph,
 		int *n_frames,
 		PHONEME_LIST *plist);
 
-int NumInstnWords(unsigned short *prog);
 int PhonemeCode(unsigned int mnem);
 int SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);

@@ -704,7 +704,7 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, unsigne
 	*p_prog += 12;
 }
 
-int NumInstnWords(unsigned short *prog)
+static int NumInstnWords(unsigned short *prog)
 {
 	int instn;
 	int instn2;
