@@ -21,9 +21,10 @@
 #ifndef ESPEAK_NG_DICTIONARY_H
 #define ESPEAK_NG_DICTIONARY_H
 
-#include "compiledict.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "espeak-ng/espeak_ng.h"       // for ESPEAK_NG_API
+#include "phoneme.h"                   // for PHONEME_TAB
+#include "synthesize.h"                // for PHONEME_LIST
+#include "translate.h"                 // for Translator, WORD_TAB
 
 #ifdef __cplusplus
 extern "C"

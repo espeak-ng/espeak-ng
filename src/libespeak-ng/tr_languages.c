@@ -30,10 +30,7 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "translate.h"           // for Translator, LANGUAGE_OPTIONS, L, NUM...
 
 // start of unicode pages for character sets
 #define OFFSET_GREEK    0x380

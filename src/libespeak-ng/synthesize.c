@@ -32,17 +32,16 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"
-#include "intonation.h"
-#include "mbrola.h"
-#include "setlengths.h"
-#include "synthdata.h"
-#include "wavegen.h"
-
-#include "phoneme.h"
-#include "voice.h"
 #include "synthesize.h"
-#include "translate.h"
+#include "dictionary.h"           // for WritePhMnemonic, GetTranslatedPhone...
+#include "intonation.h"           // for CalcPitches
+#include "mbrola.h"               // for MbrolaGenerate, mbrola_name
+#include "phoneme.h"              // for PHONEME_TAB, phVOWEL, phLIQUID, phN...
+#include "setlengths.h"           // for CalcLengths
+#include "synthdata.h"            // for InterpretPhoneme, GetEnvelope, Inte...
+#include "translate.h"            // for translator, LANGUAGE_OPTIONS, Trans...
+#include "voice.h"                // for voice_t, voice, LoadVoiceVariant
+#include "wavegen.h"              // for WcmdqInc, WcmdqFree, WcmdqStop
 
 static void SmoothSpect(void);
 

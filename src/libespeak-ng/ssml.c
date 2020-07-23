@@ -39,16 +39,13 @@
 #include <espeak-ng/encoding.h>
 #include <ucd/ucd.h>
 
-#include "readclause.h"
-
-#include "error.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
-#include "dictionary.h"
 #include "ssml.h"
+#include "dictionary.h"           // for strncpy0
+#include "readclause.h"           // for PARAM_STACK, param_stack, AddNameData
+#include "speech.h"               // for MNEM_TAB, LookupMnem
+#include "synthesize.h"           // for SPEED_FACTORS, speed
+#include "translate.h"            // for CTRL_EMBEDDED, IsDigit09, utf8_out
+#include "voice.h"                // for SelectVoice, SelectVoiceByName
 
 static MNEM_TAB ssmltags[] = {
 	{ "speak",     SSML_SPEAK },

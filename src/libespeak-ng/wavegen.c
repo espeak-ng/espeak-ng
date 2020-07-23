@@ -33,11 +33,8 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "wavegen.h"
-
-#include "synthesize.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
+#include "synthesize.h"               // for WGEN_DATA, RESONATOR, frame_t
+#include "mbrola.h"                  // for MbrolaFill, MbrolaReset, mbrola...
 
 #ifdef INCLUDE_KLATT
 #include "klatt.h"

@@ -21,13 +21,15 @@
 #ifndef ESPEAK_NG_SYNTHDATA_H
 #define ESPEAK_NG_SYNTHDATA_H
 
-#include "synthesize.h"
-#include "translate.h"
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include "espeak-ng/espeak_ng.h"       // for espeak_ng_ERROR_CONTEXT, espea...
+#include "phoneme.h"                   // for PHONEME_TAB
+#include "synthesize.h"                // for PHONEME_DATA, PHONEME_LIST
+#include "translate.h"                 // for Translator
 
 void InterpretPhoneme(Translator *tr,
 		int control,

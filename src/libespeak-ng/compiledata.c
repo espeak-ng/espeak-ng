@@ -35,17 +35,17 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "readclause.h"
-#include "synthdata.h"
-#include "wavegen.h"
-
-#include "error.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "spect.h"
-#include "translate.h"
-#include "dictionary.h"
+#include "dictionary.h"               // for strncpy0
+#include "error.h"                    // for create_file_error_context
+#include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
+#include "readclause.h"               // for Read4Bytes
+#include "spect.h"                    // for SpectFrame, peak_t, SpectSeq
+#include "speech.h"  // for path_home, MNEM_TAB, GetFileLength
+#include "synthdata.h"                // for LoadPhData
+#include "synthesize.h"               // for TUNE, frame_t, CONDITION_IS_OTHER
+#include "translate.h"                // for utf8_out, utf8_in
+#include "voice.h"                    // for LoadVoice, voice
+#include "wavegen.h"                  // for WavegenInit, WavegenSetVoice
 
 #define N_ITEM_STRING 256
 

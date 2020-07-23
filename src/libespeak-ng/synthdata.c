@@ -31,15 +31,14 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "readclause.h"
 #include "synthdata.h"
-
-#include "error.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "error.h"                    // for create_file_error_context, crea...
+#include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
+#include "speech.h"                   // for path_home, GetFileLength, PATHSEP
+#include "mbrola.h"                   // for mbrola_name
+#include "synthesize.h"               // for PHONEME_LIST, frameref_t, PHONE...
+#include "translate.h"                // for Translator, LANGUAGE_OPTIONS
+#include "voice.h"                    // for ReadTonePoints, tone_points, voice
 
 const int version_phdata  = 0x014801;
 

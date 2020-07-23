@@ -25,11 +25,10 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/encoding.h>
 
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include <espeak-ng/encoding.h>   // for espeak_ng_TEXT_DECODER, ESPEAKNG_EN...
+#include "espeak-ng/speak_lib.h"  // for espeakCHARS_16BIT, espeakCHARS_8BIT
+#include "speech.h"               // for LookupMnem, MNEM_TAB
+#include "translate.h"            // for LEADING_2_BITS, UTF8_TAIL_BITS
 
 // http://www.iana.org/assignments/character-sets/character-sets.xhtml
 MNEM_TAB mnem_encoding[] = {

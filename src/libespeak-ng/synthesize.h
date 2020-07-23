@@ -28,8 +28,7 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 #include <espeak-ng/espeak_ng.h>
-#include "phoneme.h"
-#include "voice.h"
+#include "phoneme.h"              // for PHONEME_TAB, N_PHONEME_TAB
 
 #define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
 

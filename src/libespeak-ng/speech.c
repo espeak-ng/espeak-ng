@@ -48,20 +48,18 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"
-#include "mbrola.h"
-#include "readclause.h"
-#include "synthdata.h"
-#include "wavegen.h"
-
 #include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
-#include "espeak_command.h"
-#include "fifo.h"
-#include "event.h"
+#include "dictionary.h"           // for GetTranslatedPhonemeString, strncpy0
+#include "espeak_command.h"       // for delete_espeak_command, SetParameter
+#include "event.h"                // for event_declare, event_clear_all, eve...
+#include "fifo.h"                 // for fifo_add_command, fifo_add_commands
+#include "mbrola.h"               // for mbrola_delay
+#include "readclause.h"           // for PARAM_STACK, param_stack
+#include "synthdata.h"            // for FreePhData, LoadConfig, LoadPhData
+#include "synthesize.h"           // for SpeakNextClause, Generate, Synthesi...
+#include "translate.h"            // for p_decoder, InitText, translator
+#include "voice.h"                // for FreeVoiceList, VoiceReset, current_...
+#include "wavegen.h"              // for WavegenFill, WavegenInit, WcmdqUsed
 
 unsigned char *outbuf = NULL;
 int outbuf_size = 0;

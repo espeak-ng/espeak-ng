@@ -29,11 +29,8 @@
 
 #include "compiledict.h"
 
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
-#include "event.h"
+#include "synthesize.h"           // for espeakINITIALIZE_PHONEME_IPA
+#include "translate.h"            // for dictionary_name, option_phoneme_events
 
 static espeak_ERROR status_to_espeak_error(espeak_ng_STATUS status)
 {

@@ -34,10 +34,9 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
 #include "klatt.h"
+#include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
+#include "voice.h"       // for voice_t, N_PEAKS
 
 extern unsigned char *out_ptr;
 extern unsigned char *out_end;

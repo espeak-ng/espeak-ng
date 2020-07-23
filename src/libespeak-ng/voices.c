@@ -38,16 +38,15 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"
-#include "readclause.h"
-#include "synthdata.h"
-#include "wavegen.h"
-
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
+#include "dictionary.h"               // for strncpy0, LoadDictionary
+#include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
+#include "speech.h"                   // for LookupMnem, GetFileLength, PATHSEP
+#include "mbrola.h"                   // for LoadMbrolaTable
+#include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
+#include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
+#include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
+#include "wavegen.h"                  // for InitBreath
 
 MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
