@@ -821,8 +821,8 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 			return terminator;
 		}
 
-		if ((c1 == CTRL_EMBEDDED) || (c1 == ctrl_embedded)) {
-			// an embedded command. If it's a voice change, end the clause
+		if (c1 == CTRL_EMBEDDED) {
+ 			// an embedded command. If it's a voice change, end the clause
 			if (c2 == 'V') {
 				buf[ix++] = 0; // end the clause at this point
 				while (!iswspace(c1 = GetC()) && !Eof() && (ix < (n_buf-1)))
@@ -1020,7 +1020,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					continue;
 				}
 
-				if ((iswspace(c2) || (punct_data & CLAUSE_OPTIONAL_SPACE_AFTER) || IsBracket(c2) || (c2 == '?') || Eof() || (c2 == ctrl_embedded))) { // don't check for '-' because it prevents recognizing ':-)'
+				if (iswspace(c2) || (punct_data & CLAUSE_OPTIONAL_SPACE_AFTER) || IsBracket(c2) || (c2 == '?') || Eof() || c2 == CTRL_EMBEDDED) { // don't check for '-' because it prevents recognizing ':-)'
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
 					is_end_clause = true;
 				}

@@ -88,7 +88,6 @@ int n_ph_list2;
 PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
-char ctrl_embedded = '\001'; // to allow an alternative CTRL for embedded commands
 
 // these are overridden by defaults set in the "speak" file
 int option_linelength = 0;
@@ -2162,7 +2161,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			c = ' ';
 		}
 
-		if ((c == CTRL_EMBEDDED) || (c == ctrl_embedded)) {
+		if (c == CTRL_EMBEDDED) {
 			// start of embedded command in the text
 			int srcix = source_index-1;
 
