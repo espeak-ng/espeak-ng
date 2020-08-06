@@ -261,8 +261,6 @@ extern "C"
 //     match 1 pre 2 post 0     - use common phoneme string
 //     match 1 pre 2 post 3 0   - empty phoneme string
 
-typedef const char *constcharptr;
-
 // used to mark words with the source[] buffer
 typedef struct {
 	unsigned int flags;
