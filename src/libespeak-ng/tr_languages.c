@@ -976,6 +976,27 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED;
 	}
 		break;
+			
+	case L('i', 'o'): // Ido International Auxiliary Language 
+	{
+		static const short stress_lengths_eo[8] = { 150, 140,  180, 180,    0,   0,  200, 200 };
+		static const unsigned char stress_amps_eo[] = { 16, 14, 20, 20, 20, 22, 22, 21 };
+		static const wchar_t eo_char_apostrophe[2] = { 'l', 0 };
+
+		SetupTranslator(tr, stress_lengths_eo, stress_amps_eo);
+
+		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_3;
+		tr->char_plus_apostrophe = eo_char_apostrophe;
+
+		tr->langopts.vowel_pause = 2;
+		tr->langopts.stress_rule = STRESSPOSN_2R;
+		tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+		tr->langopts.unstressed_wd2 = 2;
+
+		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_AND_UNITS| NUM_HUNDRED_AND | NUM_ROMAN;
+	}
+	break;
+			
 	case L('i', 'd'): // Indonesian
 	case L('m', 's'): // Malay
 	{
