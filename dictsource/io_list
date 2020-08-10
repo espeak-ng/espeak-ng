@@ -1,0 +1,83 @@
+// ***************************************************************************
+// *   Copyright (C) 2020 by José Miguel López (LaMashino)                   *
+// *   email: lamashino <at> hotmail <dot> com                               *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// This file is UTF-8 encoded
+
+// Numbers
+_0		zero
+_1		'un
+_2		d'u
+_3		t@-r'i
+_4		ku'aR
+_5		k'in
+_6		s'is
+_7		s'ep
+_8		'ok
+_9		n'on
+_1X		d'ek
+_2X		d'uadek
+_3X		t@-r'iadek
+_4X		ku'ar_adek
+_5X		k'inadek
+_6X		s'isadek
+_7X		s'epadek
+_8X		'okadek
+_9X		n'onadek
+_1C		ts'ent
+_0C		atsent
+_1M1		m'il_
+_0M1		a_m,il_
+_0M2		mi'lion
+_0M3		mili'ard
+_0M4		bi'lion
+_0and	_e_
+_dpt		_komo_
+
+
+
+_.	punto
+_:	bipunto
+_;	komopunto
+_,	komo
+_?	kuestionopunto
+_!	klamopunto
+
+
+
+
+
+Jan	dZanu'aRo	// monati
+Feb	febRu'aRo
+Mar	m'aRto
+Apr	apR'ilo
+Maj	m'ajo
+Jun	dZ'unio
+Jul	dZ'ulio
+Ago	ag'osto
+Sept	sept'embRo
+Okt	okt'obRo
+Nov	nov'embRo 
+Dec	dets'embRo
+
+// unstressed words
+
+la              %la
+ne              $u+     // negative
+ka              $u $brk  // interogative particle and conjunction
+kad             $u $brk  // interogative particle and conjunction
