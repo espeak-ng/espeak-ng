@@ -549,7 +549,7 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp,
 	}
 }
 
-int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
+int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
 	// returns a clause terminator value.
@@ -576,6 +576,15 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, boo
 
 	// these tags have no effect if they are self-closing, eg. <voice />
 	static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
+
+	bool self_closing = false;
+	int len;
+	len = wcslen(xml_buf);
+	if (xml_buf[len - 1] == '/') {
+		// a self-closing tag
+		xml_buf[len - 1] = ' ';
+		self_closing = true;
+	}
 
 	static const MNEM_TAB mnem_phoneme_alphabet[] = {
 		{ "espeak", 1 },

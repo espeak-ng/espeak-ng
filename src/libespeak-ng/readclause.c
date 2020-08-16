@@ -643,7 +643,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int terminator;
 	int found;
 	bool any_alnum = false;
-	bool self_closing;
 	int punct_data = 0;
 	bool is_end_clause;
 	int announced_punctuation = 0;
@@ -780,14 +779,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					xml_buf[n_xml_buf] = 0;
 					c2 = ' ';
 
-					self_closing = false;
-					if (xml_buf[n_xml_buf-1] == '/') {
-						// a self-closing tag
-						xml_buf[n_xml_buf-1] = ' ';
-						self_closing = true;
-					}
-
-					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, self_closing, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
+					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
 						buf[ix] = ' ';
