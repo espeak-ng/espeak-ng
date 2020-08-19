@@ -29,6 +29,7 @@ new languages:
 *  cu (Chuvash) -- boracasli98, Valdis Vitolins
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
+*  io (Ido) -- José Miguel López, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins

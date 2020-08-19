@@ -8,7 +8,7 @@ and dialects,
 [private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
 have been used.
 
-The 120 supported languages and accents are:
+The 121 supported languages and accents are:
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -70,6 +70,7 @@ The 120 supported languages and accents are:
 | `gmq`       | `is`              | North Germanic        | Icelandic                   |                        |
 | `poz`       | `id`              | Malayo-Polynesian     | Indonesian                  |                        |
 | `art`       | `ia`              | Constructed           | Interlingua                 |                        |
+| `art`       | `io`              | Constructed           | Ido                         |                        |
 | `roa`       | `it`              | Romance               | Italian                     |                        |
 | `jpx`       | `ja`              | Japanese              | Japanese<sup>\[3\]</sup>    |                        |
 | `dra`       | `kn`              | Dravidian             | Kannada                     |                        |
