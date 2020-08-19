@@ -506,6 +506,7 @@ dictionaries: \
 	espeak-ng-data/hy_dict \
 	espeak-ng-data/ia_dict \
 	espeak-ng-data/id_dict \
+	espeak-ng-data/io_dict \
 	espeak-ng-data/is_dict \
 	espeak-ng-data/it_dict \
 	espeak-ng-data/ja_dict \
@@ -694,6 +695,9 @@ espeak-ng-data/ia_dict: dictsource/ia_list dictsource/ia_rules dictsource/ia_ext
 
 id: espeak-ng-data/id_dict
 espeak-ng-data/id_dict: dictsource/id_list dictsource/id_rules dictsource/id_extra dictsource/id_emoji
+
+io: espeak-ng-data/io_dict
+espeak-ng-data/io_dict: dictsource/io_list dictsource/io_rules dictsource/io_extra
 
 is: espeak-ng-data/is_dict
 espeak-ng-data/is_dict: dictsource/is_list dictsource/is_rules dictsource/is_extra dictsource/is_emoji
