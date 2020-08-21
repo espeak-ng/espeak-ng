@@ -570,6 +570,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 	case L3('c', 'h', 'r'): // Cherokee
 	{
+		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1; // disable check for unpronouncable words
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
 	}
 		break;
