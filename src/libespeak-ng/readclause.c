@@ -753,12 +753,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				if ((c1 <= 0x20) && ((sayas_mode == SAYAS_SINGLE_CHARS) || (sayas_mode == SAYAS_KEY)))
 					c1 += 0xe000; // move into unicode private usage area
 			} else if ((c1 == '<') && (ssml_ignore_l_angle != '<')) {
-				if ((c2 == '!') || (c2 == '?')) {
-					// a comment, ignore until closing '<'  (or <?xml tag )
-					while (!Eof() && (c1 != '>'))
-						c1 = GetC();
-					c2 = ' ';
-				} else if ((c2 == '/') || iswalpha(c2)) {
+				if ((c2 == '/') || iswalpha(c2) || c2 == '!' || c2 == '?') {
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
 						// Perhaps not enough room, end the clause before the SSML tag

@@ -574,6 +574,11 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	PARAM_STACK *sp;
 	SSML_STACK *ssml_sp;
 
+	// don't process comments and xml declarations
+	if (wcsncmp(xml_buf, (wchar_t *) "!--", 3) == 0 || wcsncmp(xml_buf, (wchar_t *) "?xml", 4) == 0) {
+		return 0;
+		}
+
 	// these tags have no effect if they are self-closing, eg. <voice />
 	static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
 
