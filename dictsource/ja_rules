@@ -360,6 +360,7 @@
 	ぐぅ	gu:		// gū
 	ぐー	gu:		// gū
 	くぁ	ka		// ka
+	くぁー	ka:		// kā
 	くぃ	kwi		// kwi
 	くぃー	kwi:		// kwī
 	くぇ	kwe		// kwe
@@ -367,6 +368,13 @@
 	くぉ	kwo		// kwo
 	くぉー	kwo:		// kwō
 	ぐぁ	ga		// ga
+	ぐぁー	ga:		// gā
+	ぐぃ	gwi		// gwi
+	ぐぃー	gwi:		// gwī
+	ぐぇ	gwe		// gwe
+	ぐぇー	gwe:		// gwē
+	ぐぉ	gwo		// gwo
+	ぐぉー	gwo:		// gwō
 
 .group け
 	け	ke		// ke
@@ -466,6 +474,9 @@
 	ぢー	d_z\\i:		// jī		(obsolete)
 	ぢ (L21	d_z\\		// j([auo]	(obsolete)
 	ちぇ	t_s\\e		// che
+	ちぇー	t_s\\e:		// chē
+	ぢぇ	d_z\\e		// je		(obsolete)
+	ぢぇー	d_z\\e:		// jē		(obsolete)
 
 .group つ
 	つ	t_su		// tsu
@@ -484,6 +495,14 @@
 	つぇー	t_se:		// tsē
 	つぉ	t_so		// tso
 	つぉー	t_so:		// tsō
+	づぁ	za		// za
+	づぁー	za:		// zā
+	づぃ	d_z\\i		// ji
+	づぃー	d_z\\i:		// jī
+	づぇ	ze		// ze
+	づぇー	ze:		// zē
+	づぉ	zo		// zo
+	づぉー	zo:		// zō
 
 .group て
 	て	te		// te
@@ -781,6 +800,9 @@
 	っ	(L08	t	// t.ch
 	っ	(L09	t	// t.ts
 	っ	(L10	d	// d.d
+	っ	(L11	n	// n.n
+	っ	(L12	h	// h.h
+	っ	(L13	p	// p.p
 	っ	(L14	b	// b.b
 	っ	(L15	p	// p.p
 	っ	(L16	m	// m.m
