@@ -262,21 +262,17 @@
 
 .group あ
 	あ	a		// a
-	ああ	a:		// ā
 	あぁ	a:		// ā
 	あー	a:		// ā
 	あ゙	va		// va (Katakana)
-	あ゙あ	va:		// vā (Katakana)
 	あ゙ぁ	va:		// vā (Katakana)
 	あ゙ー	va:		// vā (Katakana)
 
 .group い
 	い	i		// i
-	いい	i:		// ī
 	いぃ	i:		// ī
 	いー	i:		// ī
 	い゙	vi		// vi (Katakana)
-	い゙い	vi:		// vī (Katakana)
 	い゙ぃ	vi:		// vī (Katakana)
 	い゙ー	vi:		// vī (Katakana)
 	いぇ	je		// ye
@@ -284,11 +280,9 @@
 
 .group う
 	う	u		// u
-	うう	u:		// ū
 	うぅ	u:		// ū
 	うー	u:		// ū
 	ゔ	vu		// vu
-	ゔう	vu:		// vū
 	ゔぅ	vu:		// vū
 	ゔー	vu:		// vū
 	ゔぁ	va		// va
@@ -310,21 +304,17 @@
 
 .group え
 	え	e		// e
-	ええ	e:		// ē
 	えぇ	e:		// ē
 	えー	e:		// ē
 	え゙	ve		// ve (Katakana)
-	え゙え	ve:		// vē (Katakana)
 	え゙ぇ	ve:		// vē (Katakana)
 	え゙ー	ve:		// vē (Katakana)
 
 .group お
 	お	o		// o
-	おお	o:		// ō
 	おぉ	o:		// ō
 	おー	o:		// ō
 	お゙	vo		// vo (Katakana)
-	お゙お	vo:		// vō (Katakana)
 	お゙ぉ	vo:		// vō (Katakana)
 	お゙ー	vo:		// vō (Katakana)
 
