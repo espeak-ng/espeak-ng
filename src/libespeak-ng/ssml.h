@@ -80,6 +80,10 @@ int ProcessSsmlTag(wchar_t *xml_buf,
                    int *n_param_stack,
                    int *speech_parameters);
 
+int ParseSsmlReference(char *ref,
+                       int *c1,
+                       int *c2);
+
 #ifdef __cplusplus
 }
 #endif

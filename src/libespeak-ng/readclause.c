@@ -603,16 +603,6 @@ static void RemoveChar(char *p)
 	memset(p, ' ', utf8_in(&c, p));
 }
 
-static MNEM_TAB xml_char_mnemonics[] = {
-	{ "gt",   '>' },
-	{ "lt",   0xe000 + '<' },   // private usage area, to avoid confusion with XML tag
-	{ "amp",  '&' },
-	{ "quot", '"' },
-	{ "nbsp", ' ' },
-	{ "apos", '\'' },
-	{ NULL,   -1 }
-};
-
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 	/* Find the end of the current clause.
@@ -641,7 +631,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int phoneme_mode = 0;
 	int n_xml_buf;
 	int terminator;
-	int found;
 	bool any_alnum = false;
 	int punct_data = 0;
 	bool is_end_clause;
@@ -727,22 +716,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				c2 = GetC();
 				sprintf(ungot_string, "%s%c%c", &xml_buf2[0], c1, c2);
 
+				int found = -1;
 				if (c1 == ';') {
-					if (xml_buf2[0] == '#') {
-						// character code number
-						if (xml_buf2[1] == 'x')
-							found = sscanf(&xml_buf2[2], "%x", (unsigned int *)(&c1));
-						else
-							found = sscanf(&xml_buf2[1], "%d", &c1);
-					} else {
-						if ((found = LookupMnem(xml_char_mnemonics, xml_buf2)) != -1) {
-							c1 = found;
-							if (c2 == 0)
-								c2 = ' ';
-						}
-					}
-				} else
-					found = -1;
+					found = ParseSsmlReference(xml_buf2, &c1, &c2);
+				}
 
 				if (found <= 0) {
 					ungot_string_ix = 0;

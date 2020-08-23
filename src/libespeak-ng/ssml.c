@@ -949,3 +949,38 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, con
 	}
 	return 0;
 }
+
+static MNEM_TAB xml_entity_mnemonics[] = {
+	{ "gt",   '>' },
+	{ "lt",   0xe000 + '<' },   // private usage area, to avoid confusion with XML tag
+	{ "amp",  '&' },
+	{ "quot", '"' },
+	{ "nbsp", ' ' },
+	{ "apos", '\'' },
+	{ NULL,   -1 }
+};
+
+int ParseSsmlReference(char *ref, int *c1, int *c2) {
+	// Check if buffer *ref contains an XML character or entity reference
+	// if found, set *c1 to the replacement char
+	// change *c2 for entity references
+	// returns >= 0 on success
+
+	if (ref[0] == '#') {
+		// character reference
+		if (ref[1] == 'x')
+			return sscanf(&ref[2], "%x", c1);
+		else
+			return sscanf(&ref[1], "%d", c1);
+	} else { 
+		// entity reference
+		int found;
+		if ((found = LookupMnem(xml_entity_mnemonics, ref)) != -1) {
+			*c1 = found;
+			if (*c2 == 0)
+				*c2 = ' ';
+			return found;
+		}
+	}
+	return -1;
+}
