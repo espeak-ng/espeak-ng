@@ -2,12 +2,21 @@
 
 test_ssml() {
 	INPUT=$1
+
+	if [ "$2" = "punct" ]
+	then
+	PARAMETERS="--punct -x"
+	else
+	PARAMETERS="-v en-US --ipa=2"
+	fi
+
 	echo "testing ${INPUT}"
 	cp $(dirname $INPUT)/$(basename ${INPUT%.*}).expected expected.txt
 	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng -m -q -v en-US --ipa=2 -f ${INPUT} > actual.txt
+		src/espeak-ng -m -q $PARAMETERS -f ${INPUT} > actual.txt
 	diff expected.txt actual.txt || exit 1
 }
 
-for i in `ls tests/ssml/*.ssml` ; do test_ssml $i ; done
+for i in `ls tests/ssml/*.ssml` ; do test_ssml $i; done
+for i in `ls tests/ssml/*.ssml2` ; do test_ssml $i punct; done
 
