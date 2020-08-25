@@ -691,7 +691,7 @@ hy: espeak-ng-data/hy_dict
 espeak-ng-data/hy_dict: dictsource/hy_list dictsource/hy_rules dictsource/hy_extra dictsource/hy_emoji
 
 ia: espeak-ng-data/ia_dict
-espeak-ng-data/ia_dict: dictsource/ia_list dictsource/ia_rules dictsource/ia_extra
+espeak-ng-data/ia_dict: dictsource/ia_list dictsource/ia_listx dictsource/ia_rules dictsource/ia_extra
 
 id: espeak-ng-data/id_dict
 espeak-ng-data/id_dict: dictsource/id_list dictsource/id_rules dictsource/id_extra dictsource/id_emoji

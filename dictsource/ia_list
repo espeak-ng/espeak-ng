@@ -26,40 +26,54 @@ z	zeta
 
 // numbers
 _0	z'ero
-_1	'un
-_2	dw'o
-_3	tr'es
-_4	kw'atro
-_5	ts'iNkwe
-_6	s'eks
+_1	un
+_2	duo
+_3	tRes
+_4	kw'atRo
+_5	ts'inkwe
+_6	seks
 _7	s'epte
-_8	'okto
-_9	n'ove
+_8	'octo
+_9	n'ovem
 _1X	d'etse
-_2X	v'inti
-_3X	tr'enta
-_4X	kwar'anta
-_5X	tsiNkw'anta
-_6X	seks'anta
-_7X	sept'anta
-_8X	okt'anta
-_9X	nov'anta
+_20	v'inti
+_2X	vinti
+_30	tR'ente
+_3X	tRente
+_40	kwaR'anta
+_4X	kwaRanta
+_50	tsinkw'anta
+_5X	tsinkwanta
+_60	seks'anta
+_6X	seksanta
+_70	sept'anta
+_7X	septanta
+_80	okt'anta
+_8X	oktanta
+_90	nov'anta
+_9X	novanta
 _0C	ts'ento
-_0M1	m'ile
-_0M2	milj'on
-_0M3	milj'ardo
-_0M4	bilj'on
-_0M5	bilj'ardo
-
-
-
-
-
+_2C	d'uo||ts'entos
+_3C	tRes||ts'entos
+_4C	kw'atRo||ts'entos
+_5C	ts'inkwe||ts'entos
+_6C	seks||ts'entos
+_7C	s'epte||ts'entos
+_8C	'octo||ts'entos
+_9C	n'ovem||ts'entos
+_0M1	m'ille
+_2M	d'uo||m'illes
+_3M	tRes||m'illes
+_4M	kw'atRo||m'illes
+_5M	ts'inkwe||m'illes
+_6M	seks||m'illes
+_7M	s'epte||m'illes
+_8M	'octo||m'illes
+_9M	n'ovem||m'illes
 
 // unstressed words
-le	$u+
-un	$u+
-
+le	$nounf $u+
+un	$nounf $u+
 e	$u+ $brk  // and
 
 // pronouns

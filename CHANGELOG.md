@@ -16,6 +16,7 @@ updated languages:
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
 *  ja (Japanese) -- fukuen
 *  shn (Shan Tay Yai) -- ronaldaug
