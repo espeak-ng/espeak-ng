@@ -603,16 +603,6 @@ static void RemoveChar(char *p)
 	memset(p, ' ', utf8_in(&c, p));
 }
 
-static MNEM_TAB xml_char_mnemonics[] = {
-	{ "gt",   '>' },
-	{ "lt",   0xe000 + '<' },   // private usage area, to avoid confusion with XML tag
-	{ "amp",  '&' },
-	{ "quot", '"' },
-	{ "nbsp", ' ' },
-	{ "apos", '\'' },
-	{ NULL,   -1 }
-};
-
 int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
 {
 	/* Find the end of the current clause.
@@ -641,9 +631,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int phoneme_mode = 0;
 	int n_xml_buf;
 	int terminator;
-	int found;
 	bool any_alnum = false;
-	bool self_closing;
 	int punct_data = 0;
 	bool is_end_clause;
 	int announced_punctuation = 0;
@@ -728,22 +716,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				c2 = GetC();
 				sprintf(ungot_string, "%s%c%c", &xml_buf2[0], c1, c2);
 
+				int found = -1;
 				if (c1 == ';') {
-					if (xml_buf2[0] == '#') {
-						// character code number
-						if (xml_buf2[1] == 'x')
-							found = sscanf(&xml_buf2[2], "%x", (unsigned int *)(&c1));
-						else
-							found = sscanf(&xml_buf2[1], "%d", &c1);
-					} else {
-						if ((found = LookupMnem(xml_char_mnemonics, xml_buf2)) != -1) {
-							c1 = found;
-							if (c2 == 0)
-								c2 = ' ';
-						}
-					}
-				} else
-					found = -1;
+					found = ParseSsmlReference(xml_buf2, &c1, &c2);
+				}
 
 				if (found <= 0) {
 					ungot_string_ix = 0;
@@ -754,12 +730,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				if ((c1 <= 0x20) && ((sayas_mode == SAYAS_SINGLE_CHARS) || (sayas_mode == SAYAS_KEY)))
 					c1 += 0xe000; // move into unicode private usage area
 			} else if ((c1 == '<') && (ssml_ignore_l_angle != '<')) {
-				if ((c2 == '!') || (c2 == '?')) {
-					// a comment, ignore until closing '<'  (or <?xml tag )
-					while (!Eof() && (c1 != '>'))
-						c1 = GetC();
-					c2 = ' ';
-				} else if ((c2 == '/') || iswalpha(c2)) {
+				if ((c2 == '/') || iswalpha(c2) || c2 == '!' || c2 == '?') {
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
 						// Perhaps not enough room, end the clause before the SSML tag
@@ -780,14 +751,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 					xml_buf[n_xml_buf] = 0;
 					c2 = ' ';
 
-					self_closing = false;
-					if (xml_buf[n_xml_buf-1] == '/') {
-						// a self-closing tag
-						xml_buf[n_xml_buf-1] = ' ';
-						self_closing = true;
-					}
-
-					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, self_closing, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
+					terminator = ProcessSsmlTag(xml_buf, buf, &ix, n_buf, xmlbase, &audio_text, current_voice_id, &base_voice, base_voice_variant_name, &ignore_text, &clear_skipping_text, &sayas_mode, &sayas_start, ssml_stack, &n_ssml_stack, &n_param_stack, (int *)speech_parameters);
 
 					if (terminator != 0) {
 						buf[ix] = ' ';
