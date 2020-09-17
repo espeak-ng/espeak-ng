@@ -93,7 +93,7 @@ C API.
 ## History
 
 The program was originally known as __speak__ and originally written
-for Acorn/RISC\_OS computers starting in 1995 by Jonathan Duddington. This was
+for Acorn RISC OS computers starting in 1995 by Jonathan Duddington. This was
 enhanced and re-written in 2007 as __eSpeak__, including a relaxation of the
 original memory and processing power constraints, and with support for additional
 languages.
