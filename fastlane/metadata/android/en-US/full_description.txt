@@ -1,0 +1,21 @@
+<p>The eSpeak NG is a compact open source software text-to-speech synthesizer for Linux, Windows, Android and other operating systems. It supports <a href="https://github.com/espeak-ng/espeak-ng/blob/master/docs/languages.md">more than 100 languages and accents</a>. It is based on the eSpeak engine created by Jonathan Duddington.</p>
+
+<p>eSpeak NG uses a "formant synthesis" method. This allows many languages to be provided in a small size. The speech is clear, and can be used at high speeds, but is not as natural or smooth as larger synthesizers which are based on human speech recordings. It also supports Klatt formant synthesis, and the ability to use MBROLA as backend speech synthesizer.</p>
+
+<p>Features:</p>
+
+<ol>
+<li>Includes different Voices, whose characteristics can be altered.</li>
+<li>Can produce speech output as a WAV file.</li>
+<li>SSML (Speech Synthesis Markup Language) is supported (not complete),
+   and also HTML.</li>
+<li>Compact size.  The program and its data, including many languages,
+   totals about few Mbytes.</li>
+<li>Can be used as a front-end to <a href="https://github.com/espeak-ng/espeak-ng/blob/master/docs/mbrola.md">MBROLA diphone voices</a>.
+   eSpeak NG converts text to phonemes with pitch and length information.</li>
+<li>Can translate text into phoneme codes, so it could be adapted as a
+   front end for another speech synthesis engine.</li>
+<li>Potential for other languages. Several are included in varying stages
+   of progress. Help from native speakers for these or other languages is
+   welcome.</li>
+</ol>
