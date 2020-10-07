@@ -115,7 +115,7 @@ you can run:
 To use a different compiler, or compiler flags, you can specify these before
 the `configure` command. For example:
 
-	CC=clang-3.5 CFLAGS=-Wextra ./configure --prefix=/usr
+	CC=clang CFLAGS=-Wextra ./configure --prefix=/usr
 
 The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 then be built with:
@@ -156,7 +156,7 @@ the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
 
 	CFLAGS="-fsanitize=address,undefined -g" \
 		LDFLAGS="-fsanitize=address,undefined" \
-		CC=clang-6.0 ./configure
+		CC=clang ./configure
 	make
 	make check
 
@@ -170,7 +170,7 @@ defined. This breaks the autoconf check to see if the C compiler works.
 To enable libFuzzer support you need clang 6.0 or later. It is enabled with
 the following:
 
-	CC=clang-6.0 ./configure --with-libfuzzer=yes
+	CC=clang ./configure --with-libfuzzer=yes
 	make
 	make check
 
