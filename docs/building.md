@@ -140,6 +140,11 @@ where `LANG` is the language code of the given language. More information can
 be found in the [Adding or Improving a Language](add_language.md)
 documentation.
 
+If project settings are changed, you may need to force rebuilding all project,
+including already built files. To do this execute command:
+
+	make -B
+
 #### Cross Compilation
 
 Because the eSpeak NG build process uses the built program to compile the
