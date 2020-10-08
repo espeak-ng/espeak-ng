@@ -86,7 +86,7 @@ The following MBROLA voices are available in eSpeak NG<sup>[1](#footnote1)</sup>
 | `hb1`        | Hebrew               | male   |          |                |
 | `hb2`        | Hebrew               | female |          |                |
 | `hn1`        | Korean               | male   |          |                |
-| `hu1`        | Hungarian            | female | `mb-hu1` | `mbrola-hu1`   |
+| `hu1`        | Hungarian            | male   | `mb-hu1` | `mbrola-hu1`   |
 | `ic1`        | Icelandic            | male   | `mb-ic1` | `mbrola-ic1`   |
 | `in1`        | Hindi                | male   | `mb-in1` |                |
 | `in2`        | Hindi                | female | `mb-in2` |                |
