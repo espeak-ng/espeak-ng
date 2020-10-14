@@ -1,14 +1,9 @@
 # Languages
 
-The languages in espeak-ng are grouped by their
-[ISO 639-5](https://en.wikipedia.org/wiki/List_of_ISO_639-5_codes) language
-family code. They are identified by their
-[BCP 47](https://en.wikipedia.org/wiki/BCP47) identifier. For several accents
-and dialects,
-[private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
-have been used.
+Development version of eSpeak NG supports 121 languages and accents,
+which are listed in table below.
 
-The 121 supported languages and accents are:
+To check, what languages are supported by distributed version, run `espeak-ng --voices` command.
 
 | Family Code | Identifier        | Language Family       | Language                    | Accent/Dialect         |
 |-------------|-------------------|-----------------------|-----------------------------|------------------------|
@@ -133,6 +128,14 @@ The 121 supported languages and accents are:
 | `aav`       | `vi`              | Austroasiatic         | Vietnamese                  | Northern Vietnam       |
 | `aav`       | `vi-vn-x-south`   | Austroasiatic         | Vietnamese                  | Southern Vietnam       |
 | `cel`       | `cy`              | Celtic                | Welsh                       |                        |
+
+The languages in espeak-ng are grouped by their
+[ISO 639-5](https://en.wikipedia.org/wiki/List_of_ISO_639-5_codes) language
+family code. They are identified by their
+[BCP 47](https://en.wikipedia.org/wiki/BCP47) identifier. For several accents
+and dialects,
+[private-use extensions](https://raw.githubusercontent.com/espeak-ng/bcp47-data/master/bcp47-extensions)
+have been used.
 
 \[1\] With Latin alphabet.
 
