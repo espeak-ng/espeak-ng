@@ -1194,6 +1194,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_1L;
 		tr->langopts.spelling_stress = 1;
 		tr->encoding = ESPEAKNG_ENCODING_ISO_8859_4;
+		tr->langopts.max_digits = 33;
 		tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
 		tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM | S_FINAL_DIM_ONLY | S_EO_CLAUSE1;
 	}
