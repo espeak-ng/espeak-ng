@@ -153,7 +153,7 @@ _dpt	_sto**ak'el_
 // function words
 ես	$u+  // pronouns
 դու	$u+
-եք	$u+
+եք	'ek# $u+
 Դուք	$u+
 նա	$u+
 այն	$u+
@@ -161,8 +161,8 @@ _dpt	_sto**ak'el_
 նրանք	$u+
 
 դուք	$u+
-ենք	$u+
-են	$u+
+ենք	'enk# $u+
+են	'en $u+
 
 այդ	$u+
 այս	$u+
@@ -189,3 +189,18 @@ _dpt	_sto**ak'el_
 // exceptions
 ով	ov
 ովքեր	ovk#er
+եմ	'em
+
+?1 հայ	h'aI
+?1 բայ	b'aI
+?1 վայ	v'aI
+?1 Նոյ	n'oj
+?1 խոյ	X'oj
+?1 ճայ	tS'aI
+?1 գոյ	g'oj
+?1 բոյ	b'oj
+?1 փայ	p#'aI
+?1 թայ	t#'aI
+?1 այ	'aI
+?1 հոբոյ	hob'oj
+?1 կովբոյ	kovb'oj
