@@ -92,6 +92,7 @@ typedef struct {
 	short *natural_samples; /* pointer to an array of glottal samples */
 	long original_f0; /* original value of f0 not modified by flutter */
 
+	int fadein;
 	int fadeout;       // set to 64 to cause fadeout over 64 samples
 	int scale_wav;     // depends on the voicing source
 

@@ -68,7 +68,7 @@ static klatt_global_t kt_globals;
 
 #define NUMBER_OF_SAMPLES 100
 
-static int scale_wav_tab[] = { 45, 38, 45, 45, 55 }; // scale output from different voicing sources
+static int scale_wav_tab[] = { 45, 38, 45, 45, 55, 45 }; // scale output from different voicing sources
 
 // For testing, this can be overwritten in KlattInit()
 static short natural_samples2[256] = {
@@ -133,29 +133,20 @@ static double resonator(resonator_ptr r, double input)
 	return (double)x;
 }
 
-static double resonator2(resonator_ptr r, double input)
-{
-	double x;
+/*
+function ANTIRESONATOR
 
-	x = (double)((double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2);
-	r->p2 = (double)r->p1;
-	r->p1 = (double)x;
+This is a generic anti-resonator function. The code is the same as resonator
+except that a,b,c need to be set with setzeroabc() and we save inputs in
+p1/p2 rather than outputs. There is currently only one of these - "rnz"
+Output = (rnz.a * input) + (rnz.b * oldin1) + (rnz.c * oldin2)
+*/
 
-	r->a += r->a_inc;
-	r->b += r->b_inc;
-	r->c += r->c_inc;
-	return (double)x;
-}
-
-static double antiresonator2(resonator_ptr r, double input)
+static double antiresonator(resonator_ptr r, double input)
 {
 	register double x = (double)r->a * (double)input + (double)r->b * (double)r->p1 + (double)r->c * (double)r->p2;
 	r->p2 = (double)r->p1;
 	r->p1 = (double)input;
-
-	r->a += r->a_inc;
-	r->b += r->b_inc;
-	r->c += r->c_inc;
 	return (double)x;
 }
 
@@ -312,6 +303,12 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 			kt_globals.nper++;
 		}
 
+		if(kt_globals.glsource==5) {
+			double v=(kt_globals.nper/(double)kt_globals.T0);
+			v=(v*2)-1;
+			voice=v*6000;
+		}
+
 		// Tilt spectrum of voicing source down by soft low-pass filtering, amount
 		// of tilt determined by TLTdb
 
@@ -340,16 +337,16 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 
 		out = 0;
 		if (kt_globals.synthesis_model != ALL_PARALLEL) {
-			casc_next_in = antiresonator2(&(kt_globals.rsn[Rnz]), glotout);
+			casc_next_in = antiresonator(&(kt_globals.rsn[Rnz]), glotout);
 			casc_next_in = resonator(&(kt_globals.rsn[Rnpc]), casc_next_in);
 			casc_next_in = resonator(&(kt_globals.rsn[R8c]), casc_next_in);
 			casc_next_in = resonator(&(kt_globals.rsn[R7c]), casc_next_in);
 			casc_next_in = resonator(&(kt_globals.rsn[R6c]), casc_next_in);
-			casc_next_in = resonator2(&(kt_globals.rsn[R5c]), casc_next_in);
-			casc_next_in = resonator2(&(kt_globals.rsn[R4c]), casc_next_in);
-			casc_next_in = resonator2(&(kt_globals.rsn[R3c]), casc_next_in);
-			casc_next_in = resonator2(&(kt_globals.rsn[R2c]), casc_next_in);
-			out = resonator2(&(kt_globals.rsn[R1c]), casc_next_in);
+			casc_next_in = resonator(&(kt_globals.rsn[R5c]), casc_next_in);
+			casc_next_in = resonator(&(kt_globals.rsn[R4c]), casc_next_in);
+			casc_next_in = resonator(&(kt_globals.rsn[R3c]), casc_next_in);
+			casc_next_in = resonator(&(kt_globals.rsn[R2c]), casc_next_in);
+			out = resonator(&(kt_globals.rsn[R1c]), casc_next_in);
 		}
 
 		// Excite parallel F1 and FNP by voicing waveform
@@ -395,10 +392,17 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 			temp += z2;
 		}
 
+		if (kt_globals.fadein < 64) {
+			temp = (temp * kt_globals.fadein) / 64;
+			++kt_globals.fadein;
+		}
+
 		// if fadeout is set, fade to zero over 64 samples, to avoid clicks at end of synthesis
 		if (kt_globals.fadeout > 0) {
 			kt_globals.fadeout--;
 			temp = (temp * kt_globals.fadeout) / 64;
+			if (kt_globals.fadeout == 0)
+				kt_globals.fadein = 0;
 		}
 
 		value = (int)temp + ((echo_buf[echo_tail++]*echo_amp) >> 8);
@@ -944,7 +948,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 	static frame_t prev_fr;
 
 	if (wvoice != NULL) {
-		if ((wvoice->klattv[0] > 0) && (wvoice->klattv[0] <= 4 )) {
+		if ((wvoice->klattv[0] > 0) && (wvoice->klattv[0] <= 5 )) {
 			kt_globals.glsource = wvoice->klattv[0];
 			kt_globals.scale_wav = scale_wav_tab[kt_globals.glsource];
 		}
@@ -1011,7 +1015,7 @@ static void SetSynth_Klatt(int length, frame_t *fr1, frame_t *fr2, voice_t *wvoi
 
 		if (ix < 4) {
 			// klatt bandwidth for f1, f2, f3 (others are fixed)
-			peaks[ix].bw1 = fr1->bw[ix] * 2;
+			peaks[ix].bw1 = fr1->bw[ix] * 2  * (wvoice->width[ix] / 256.0);
 			peaks[ix].bw = (int)peaks[ix].bw1;
 			next = fr2->bw[ix] * 2;
 			peaks[ix].bw_inc =  ((next - peaks[ix].bw1) * STEPSIZE) / length;
