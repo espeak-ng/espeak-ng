@@ -1,7 +1,7 @@
 
 // Italian translation rules
 // This file is UTF-8 encoded
-// Last update: 2020 june 13 by Christian Leo Mameli <llajta2012@gmail.com>
+// Last update: 2020 november 20 by Christian Leo Mameli <llajta2012@gmail.com>
 // letter groups
 // A  any vowel
 // C  any consonant
@@ -74,7 +74,7 @@
 	c (Y	tS
 	cc (Y	tS:
 	ch (Y	k
-		cch (Y	k:
+	cch (Y	k:
 	s) ch (A	k
 	ch (a	tS
 	ch (o	tS
@@ -112,6 +112,8 @@
 	ra) cconta (L07_	k:'Onta
 	asse) conda (L04_	k'onda
 	compier (L04_	k'ompie@-*
+	compila (L07_	komp'ila
+	consulta (L07_	kons'ulta
 
 .group d
 	d	d
@@ -129,6 +131,7 @@
 	i) dano (_	=dano  // verbs
 	i) dino (_	=dino
 	_) data (L07_	d'ata
+	diriger (L04_	diR'idZe@-*
 	due (_	d'ue   // numbers
 	dieci (_	dj'EtSi
 	day (_	d'eI   // foreign
@@ -224,6 +227,7 @@
 	ferma (L07_	f'e@-*ma/
 	_) fatt (AL04_	f'at:
 	_ri) fatt (AL04_	f'at:
+	_) firma (L07_	f'i@-*ma
 
 .group g
 	g	g
@@ -682,6 +686,7 @@
 	volta (L07_	v'Olta
 	venut (AL04_	ven'ut
 	in) viata (L04_	vi'a:ta
+	a) vvinghia (L07_	v:'ingja
 	_) v' (P2t	v
 
 .group w

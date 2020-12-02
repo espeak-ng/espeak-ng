@@ -65,6 +65,7 @@ adit	$1
 admet  $alt
 adorn  $alt2
 adultere	$2
+adulter	$2
 aed  $alt
 aerea	a'E:Rea
 aeree	$2
@@ -534,6 +535,7 @@ biond	bj'ond
 biondine	$2
 biosintesi $2
 biotop $2
+bipartisan	$2
 bipede $1
 bipol $2
 bipost  $alt2
@@ -1006,8 +1008,8 @@ coniug	k'oniudZ
 conn  $alt2
 cons  $alt
 consci  $alt
-console  $alt
-conson $1  $alt
+console	k'Onsole
+consoli	k'Onsoli
 consuet  $alt
 contadine	$3
 contafili	$3
@@ -2708,6 +2710,7 @@ ossa		$alt2
 ossea	$1
 ossee	$1
 osseo $1
+ossei	$1
 ossequi  $alt
 osset  $alt
 ossia $2
@@ -3969,7 +3972,7 @@ tolf  $alt
 tolmezz  $alt
 toltechi  $alt
 tolve  $alt
-tomi  $alt
+tom	$alt
 ton  $alt
 toni  $alt
 tonn  $alt2

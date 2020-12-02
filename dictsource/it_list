@@ -1,6 +1,6 @@
 
 // This file is UTF-8 encoded
-// Updated 2020 june  13 by Christian Leo M, <llajta2012@gmail.com>
+// Updated 2020 november  20 by Christian Leo M, <llajta2012@gmail.com>
 
 //  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
 //  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
@@ -888,11 +888,13 @@ cowboy	k'aw||b'oI
 cracker	$1
 croissant	k@-*uass'an
 cult	k'a/:lt	$onlys
+cyclette	sikl'Et:
 dance	d'Ens
 database	datab'Eiz
 decibel	$1
 deejay		_^_EN
 default	_^_EN
+défaillance	d,efaj'aN
 delivery	$2
 desaparecido	d,EzapaReT'ido
 design	d,ez'aIn	$only
@@ -974,6 +976,7 @@ google		_^_EN
 green	g@-*i:n $onlys
 greenpeace	g@-*,iN||p'i:s
 guinness	g'iness
+guardrail	g'a@-*d||@-*,Eil
 hacker	'ake@-*
 hackeraggio	akeR'adZ:o
 hackerare	ake*'a:Re
@@ -1079,6 +1082,7 @@ mouse	maus
 musical	m'juzikOl $onlys
 my	_^_EN
 myspace	m'aI||sp'Eis
+nation	n'ESon $onlys
 national	n'a/Sonal $onlys
 new	_^_EN
 newsletter	njuzl:'et:e@-*
@@ -1197,6 +1201,7 @@ smiley	_^_EN
 snack	sn'E:k
 software	s'Oft[_we@-*
 sonar	$1	$alt $only
+sound	s'awnd $onlys
 Spotify	sp,otif'aI
 souvenir	suvEn'i@-*
 spanish		_^_EN
@@ -1738,6 +1743,7 @@ vuot	vU'Ot
 
 com'è	kom'E
 com'era	kom'E:Ra
+com'erano	kom'E:Rano
 cos'hai	koz'a:i
 cos'è	koz'E
 cos'altro	koz'a:lt@-*o/
@@ -2223,6 +2229,7 @@ turchia $2
 uligano	$3
 ultramondano	$4
 ultramontano	$4
+ungar	$1
 uzzano	$2
 vajont	vaj'O:nt
 valdostano	$3
@@ -2281,6 +2288,7 @@ amelia	$2	$alt2
 amerigo	$2
 amicis	$2
 amilcare $2
+amplifon	$1
 anastacia	anast'azja
 anastasia $3
 anderson	$1
@@ -2312,6 +2320,7 @@ asterix	$1
 audacity	awd'asiti
 augias	a'u:dZas
 avirex	$1
+baccasara	$2
 bach	b'a:k	$only
 bardot	ba@-*d'o
 bartali	$1
@@ -2367,12 +2376,12 @@ chuck	tS'a/k
 churchill	_^_en
 cimabue  tSimab'u:e
 collodi		$2 $alt $only
-consoli	$1 $capital $only
 corine	k'ORIn $capital
 corrias	$2
 cristofor $2
 cupido	$2
 danilo	$2
+danny	d'En:I
 davidson	$1
 debor $1  $alt
 deborah	$1 $alt2
@@ -2396,7 +2405,9 @@ elia	el'ia
 elizabeth	el'izabet[
 emanuel	em,a:nU'El
 emmanuel	$2 $only
+ennia	'e:nnia
 enric	$2
+ericsson	$1 $alt
 erika	$1
 esposit	$2
 ettore $1  $alt
@@ -2539,6 +2550,7 @@ mercury	$1 $alt2 $only
 merola	$1
 michael	m'aIkOl
 michel	mik'e/l
+michielin	mik,el'in
 michelangel	$3
 michelle	m,iS'el	$only
 miguel	mig'E:l
@@ -2561,6 +2573,7 @@ newton	nj'utoN
 nichol	n'i:kol	$onlys
 nichola	n'ikola
 nicola	$2
+nicolodi	$3
 noe  $2 $alt
 olg  $alt
 oliver	'O:liv,e@-* $onlys
@@ -2662,6 +2675,7 @@ vainer	v'aIne@-*	$only
 valeria	$2 $alt2
 valter	$1 $onlys
 van	$u $capital $only
+vazquez	vask'Ets
 vedder	$1 $onlys
 vermouth	v'E@-*mut
 victor	$1 $only
@@ -2994,6 +3008,7 @@ avvicinino	$3
 avvid	$2
 avvidero	$2
 avviino	av:'ijno
+avvinghiano	$2
 avvisano	$2
 avvisino	$2
 azzardino	$2
@@ -3163,10 +3178,12 @@ consider	$2
 considerino	$2
 consigliano	$2
 consiglino	$2
-consol	$2
+consola	$2
+consolo	$2
 consolano	$2
 consolidano	$2
 consolino	$2
+conson	$1  $alt
 constatano	$2
 consultano	$2
 consumano	$2
@@ -3247,6 +3264,7 @@ deleghino	$1
 delimit	$2
 delimitano	$2
 delimitino	$2
+delineano	$2
 delinquere	$2
 deliziano	$2
 delizino	$2
@@ -3499,6 +3517,7 @@ frizzare	f@-*its2:'aRe
 frodano	$1
 frodino	$1
 frughino	$1
+frullano	$1
 frustrano	$1
 frustrino	$1
 fucil	$2
@@ -3618,6 +3637,7 @@ impugnino	$2
 impuntano	$2
 impuntino	$2
 imput	$1
+imputano	$1
 imputino	$1
 inabissino	$3
 inalber	$2
@@ -3969,6 +3989,7 @@ palpita	$1
 palpitano	$1
 paragono	$3 $alt2
 parano	$1
+pareggiano	$2
 parlano	$1
 parlino	$1
 partano	$1
@@ -4033,6 +4054,7 @@ pranzai	p@-*aNdz'aI
 pranzano	p@-*'andzano
 praticano	$1
 preannunziano	$3
+precedano	$2
 precipit	$2
 precipita	$2
 precipitano	$2
@@ -4964,8 +4986,9 @@ dammene	$1
 deciditi	$2
 dedical	$1
 deposital	$2
-dicasi	$1
 degener	$2
+dicasi	$1
+diffusosi	$2
 digitalo	$1
 digliel	$1
 digliene	$1
@@ -4973,8 +4996,7 @@ dimenticatene	$2
 dimmelo	$1
 dimostratoti	$3
 diramal	$2
-dirigerl	$2
-dirigersi	$2
+dirigiti	$2
 disabilital	$3
 disconnettiti	$3
 disegnaci	$2
@@ -5119,6 +5141,7 @@ tenutosi	$2
 tornaci	$1
 tornatene	$1
 trasferirvisi	$3
+trattieniti	$2
 trattasi	$1
 tuffati	$1 $atstart
 usal	'u:za/l
