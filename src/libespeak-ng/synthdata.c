@@ -31,23 +31,20 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "readclause.h"
 #include "synthdata.h"
-
-#include "error.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "error.h"                    // for create_file_error_context, crea...
+#include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
+#include "speech.h"                   // for path_home, GetFileLength, PATHSEP
+#include "mbrola.h"                   // for mbrola_name
+#include "synthesize.h"               // for PHONEME_LIST, frameref_t, PHONE...
+#include "translate.h"                // for Translator, LANGUAGE_OPTIONS
+#include "voice.h"                    // for ReadTonePoints, tone_points, voice
 
 const int version_phdata  = 0x014801;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
-int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
-unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
 unsigned short *phoneme_index = NULL;
 char *phondata_ptr = NULL;
@@ -62,7 +59,6 @@ int wavefile_ix; // a wavefile to play along with the synthesis
 int wavefile_amp;
 
 int seq_len_adjust;
-int vowel_transition[4];
 
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
 {
@@ -331,19 +327,16 @@ unsigned char *GetEnvelope(int index)
 	return (unsigned char *)&phondata_ptr[index];
 }
 
-static void SetUpPhonemeTable(int number, bool recursing)
+static void SetUpPhonemeTable(int number)
 {
 	int ix;
 	int includes;
 	int ph_code;
 	PHONEME_TAB *phtab;
 
-	if (recursing == false)
-		memset(phoneme_tab_flags, 0, sizeof(phoneme_tab_flags));
-
 	if ((includes = phoneme_tab_list[number].includes) > 0) {
 		// recursively include base phoneme tables
-		SetUpPhonemeTable(includes-1, true);
+		SetUpPhonemeTable(includes - 1);
 	}
 
 	// now add the phonemes from this table
@@ -353,18 +346,15 @@ static void SetUpPhonemeTable(int number, bool recursing)
 		phoneme_tab[ph_code] = &phtab[ix];
 		if (ph_code > n_phoneme_tab)
 			n_phoneme_tab = ph_code;
-
-		if (recursing == 0)
-			phoneme_tab_flags[ph_code] |= 1; // not inherited
 	}
 }
 
-void SelectPhonemeTable(int number)
+int SelectPhonemeTable(int number)
 {
 	n_phoneme_tab = 0;
-	SetUpPhonemeTable(number, false); // recursively for included phoneme tables
+	SetUpPhonemeTable(number); // recursively for included phoneme tables
 	n_phoneme_tab++;
-	current_phoneme_table = number;
+	return number;
 }
 
 int LookupPhonemeTable(const char *name)
@@ -430,8 +420,6 @@ void LoadConfig(void)
 	}
 	fclose(f);
 }
-
-PHONEME_DATA this_ph_data;
 
 static void InvalidInstn(PHONEME_TAB *ph, int instn)
 {
@@ -714,7 +702,7 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, unsigne
 	*p_prog += 12;
 }
 
-int NumInstnWords(unsigned short *prog)
+static int NumInstnWords(unsigned short *prog)
 {
 	int instn;
 	int instn2;

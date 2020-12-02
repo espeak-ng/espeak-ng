@@ -16,7 +16,10 @@ updated languages:
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  hy (Armenian) -- tigransimonyan
+*  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
+*  ja (Japanese) -- fukuen
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
@@ -28,6 +31,7 @@ new languages:
 *  cu (Chuvash) -- boracasli98, Valdis Vitolins
 *  haw (Hawaiian) -- Valdis Vitolins
 *  he (Hebrew) -- boracasli98, Valdis Vitolins
+*  io (Ido) -- José Miguel López, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins

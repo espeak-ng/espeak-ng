@@ -1,0 +1,163 @@
+
+// ***************************************************************************
+// *   Copyright (C) 2020 by José Miguel López (LaMashino)                   *
+// *   email: lamashino <at> hotmail <dot> com                                    *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+// Translation rules for Ido
+// Version 1.0: 8-8-2020
+
+// This file is UTF-8 encoded
+
+
+.group a
+     _) a (_       a
+	    ar (_      'aR  // Infinitives are stressed on the last syllable
+        a          a
+        au         aU  // laute: "u" sound must be shorter and quicker
+
+
+
+.group b
+     _) b (_       be   // In Ido, the name of a letter is the letter plus vowel "e"
+        b          b
+
+.group c
+     _) c (_       tse
+     _) ch (_      tSe       
+        c          ts
+        ch         tS 
+
+
+.group d
+     _) d (_       de
+        d          d
+
+.group e
+     _) e (_       e
+        e          e
+        eu         eU // Europa, "u" sound should be shorter and quicker
+
+.group f
+     _) f (_       fe
+        f          f
+
+.group g
+     _) g (_       ge
+        g          g
+
+.group h
+     _) h (_       he
+        h          h
+
+.group i
+     _) i (_       i
+        i          i
+        ir (_      'iR  // Infinitives are stressed on the last syllable
+		ia (_      =ia  // En plursilaba radiki, i e u nemediate avan vokalo ne darfas recevas l'acento,
+		ia (C_     =ia  // ma en la prelasta silabo
+		ie (_      =ie
+		ie (C_     =ie
+		ii (_      =ii
+		ii (C_     =ii
+		io (_      =io
+		io (C_     =io
+		
+
+.group j
+     _) j (_       dZe
+        j          dZ
+
+.group k
+     _) k (_       ke
+        k          k
+
+
+.group l
+     _) l (_       le
+        l          l
+
+.group m
+     _) m (_       me
+        m          m
+
+.group n
+     _) n (_       ne
+        n          n
+
+
+.group o
+     _) o (_       o
+        o          o
+        or (_      'oR  // Infinitives are stressed on the last syllable
+
+
+.group p
+     _) p (_       pe
+        p          p
+
+.group q
+     _) q (_       kwe
+        q          k
+        qu         ku
+
+.group r
+     _) r (_       Re
+        r          R
+
+.group s
+     _) s (_       se
+     _) sh (_      Se
+        s          s
+        sh         S         
+
+.group t
+     _) t (_       te
+        t          t
+
+.group u
+     _) u (_       u
+        u          u
+		ua (_      =ua  // En plursilaba radiki, i e u nemediate avan vokalo ne darfas recevas l'acento,
+		ua (C_     =ua  // ma en la prelasta silabo
+		ue (_      =ue
+		ue (C_     =ue
+		ui (_      =ui
+		ui (C_     =ui
+		uo (_      =uo
+		uo (C_     =uo
+
+.group v
+     _) v (_       ve
+        v          v
+
+.group w
+     _) w (_       we
+        w          w
+
+.group x
+     _) x (_       kse
+        x          ks
+
+.group y
+     _) y (_       je
+        y          j
+
+
+.group z
+     _) z (_       ze
+        z          z

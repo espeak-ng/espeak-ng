@@ -20,12 +20,9 @@
 #ifndef ESPEAK_NG_SPECT_H
 #define ESPEAK_NG_SPECT_H
 
-#include <espeak-ng/espeak_ng.h>
-
-#include "wavegen.h"
-
-#include "synthesize.h"
-#include "speech.h"
+#include <espeak-ng/espeak_ng.h>     // for espeak_ng_STATUS
+#include "voice.h"                   // for N_PEAKS
+#include "synthesize.h"              // for N_KLATTP2
 
 #ifdef __cplusplus
 extern "C"

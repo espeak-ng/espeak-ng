@@ -32,17 +32,16 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"
-#include "numbers.h"
-#include "phonemelist.h"
-#include "readclause.h"
-#include "synthdata.h"
-
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
 #include "translate.h"
+#include "dictionary.h"           // for TranslateRules, LookupDictList, Cha...
+#include "numbers.h"              // for SetSpellingStress, TranslateLetter
+#include "phoneme.h"              // for phonSWITCH, PHONEME_TAB, phonPAUSE_...
+#include "phonemelist.h"          // for MakePhonemeList
+#include "readclause.h"           // for towlower2, Eof, ReadClause, is_str_...
+#include "synthdata.h"            // for SelectPhonemeTable, LookupPhonemeTable
+#include "synthesize.h"           // for PHONEME_LIST2, N_PHONEME_LIST, PHON...
+#include "ucd/ucd.h"              // for ucd_toupper
+#include "voice.h"                // for voice, voice_t
 
 Translator *translator = NULL; // the main translator
 Translator *translator2 = NULL; // secondary translator for certain words
@@ -89,7 +88,6 @@ int n_ph_list2;
 PHONEME_LIST2 ph_list2[N_PHONEME_LIST]; // first stage of text->phonemes
 
 wchar_t option_punctlist[N_PUNCTLIST] = { 0 };
-char ctrl_embedded = '\001'; // to allow an alternative CTRL for embedded commands
 
 // these are overridden by defaults set in the "speak" file
 int option_linelength = 0;
@@ -2163,7 +2161,7 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 			c = ' ';
 		}
 
-		if ((c == CTRL_EMBEDDED) || (c == ctrl_embedded)) {
+		if (c == CTRL_EMBEDDED) {
 			// start of embedded command in the text
 			int srcix = source_index-1;
 

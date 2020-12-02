@@ -102,8 +102,8 @@ eg'al eg'o pou'u dijit'e kou'u w'e dw'a
 nou,u g'en l'a hez'on 'ak l'a konsj'ans ep'i nou,u f'et pou'u nou,u aj'i jou'un 'ak l'ot 'ak j'on lesph'i fwatenit'e" "Tout moun fèt lib, egal ego pou diyite kou wè dwa. Nou gen la rezon ak la konsyans epi nou fèt pou nou aji youn ak lot ak yon lespri fwatènite."
 test_phonemes hu "Latn" "j'o: f'oksim _|,e:S d'on kv'ijotE h'u:svAt:oS l'a:mpa:na:l _!'ylvE _!'EJ p'a:R2 b'y:vYS ts'ipY:t k,e:si:t
 _!'a:R2vi:zty:R2Y: t'ykYR2fu:R2o:ge:p" "Jó foxim és don Quijote húszwattos lámpánál ülve egy pár bűvös cipőt készít. Árvíztűrő tükörfúrógép."
-test_phonemes ia "Latn" "t'ote le es'eRes hum'an n'astse lib'eRe_! e ekw'al 'in d,ignit'ate_! e 'in deR'ektos
-'iles es dot'ate de Ratj'on_! e de konstsj'entja_! e d'ebe ag'eR le 'unes v'eRso le alt'eRes 'in un spiR'ito de fR,ateRnit'ate" "Tote le esseres human nasce libere e equal in dignitate e in derectos. Illes es dotate de ration e de conscientia e debe ager le unes verso le alteres in un spirito de fraternitate."
+test_phonemes ia "Latn" "t'ote le es'eRes hum'an n'astse l'ibeRe_! e ekw'al 'in d,ignit'ate_! e 'in deR'ektos
+'iles es dot'ate de Ratj'on_! e de konstsj'entja_! e d'ebe ag'eR le 'unes v'eRso le 'alteRes 'in un sp'iRito de fR,ateRnit'ate" "Tote le esseres human nasce libere e equal in dignitate e in derectos. Illes es dotate de ration e de conscientia e debe ager le unes verso le alteres in un spirito de fraternitate."
 test_phonemes id "Latn" "muh'aRdZo s@'OR2aN z,Enofob'ia _|,univ'ERsal jaN t'akut p,ada w'aRga dZaz'iR2ah
 tSont'ohn^a k'ataR" "Muharjo seorang xenofobia universal yang takut pada warga jazirah, contohnya Qatar."
 test_phonemes is "Latn" "c'aI:mI n'i:; 'WksI hj'E:_|R

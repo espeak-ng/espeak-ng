@@ -512,9 +512,10 @@ each language. The number fragments are given in the `*_list` file.
 | `_1C` `_2C`   | Special pronunciation for one hundred, two hundred, etc., if needed. |
 | `_1C0`        | Special pronunciation (if needed) for 100 exactly. |
 | `_0M1`        | The word for `thousand`. |
+| `_1M1` `_2M1` | Special pronunciation for `1` thousand, `2` thousand, etc, if needed. |
 | `_0M2`        | The word for `million`. |
 | `_0M3`        | The word for 1,000,000,000. |
-| `_1M1` `_2M1` | Special pronunciation for one thousand, two thousand, etc, if needed. |
+| `_0MX`        | The word for `10^3X` of number<sup>[1](#footnote1)</sup>. |
 | `_0and`       | Word for `and` when speaking numbers (e.g. `two hundred and twenty`). |
 | `_dpt`        | Word spoken for the decimal point/comma. |
 | `_dpt2`       | Word spoken (if any) at the end of all the digits after a decimal point. |
@@ -546,3 +547,6 @@ Note, that letters should be stored as array of chars, thus multibyte
 unicode letters should be transposed using `transpose_min` and `transpose_max` parameters
 of particular `Translator` structure, or using `SetLetterBitsUTF8()` function.
 
+----
+
+<a name="footnote1"></a>1. Default length, to switch between named orders and just spelled digits in number, is 14 digits and is set in `tr->langopts.max_digits` field of `NewTranslator` function of [tr_languages.c](../src/libespeak-ng/tr_languages.c) file. To change it, update `SelectTranslator` function for particular language.

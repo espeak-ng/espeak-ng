@@ -32,15 +32,14 @@
 #include <espeak-ng/encoding.h>
 
 #include "dictionary.h"
-#include "numbers.h"
-#include "readclause.h"
-#include "synthdata.h"
-
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "numbers.h"                       // for LookupAccentedLetter, Look...
+#include "phoneme.h"                       // for PHONEME_TAB, phVOWEL, phon...
+#include "readclause.h"                    // for WordToString2, is_str_tota...
+#include "speech.h"                        // for GetFileLength, path_home
+#include "compiledict.h"                   // for DecodeRule
+#include "synthdata.h"                     // for PhonemeCode, InterpretPhoneme
+#include "synthesize.h"                    // for STRESS_IS_PRIMARY, phoneme...
+#include "translate.h"                     // for Translator, utf8_in, LANGU...
 
 typedef struct {
 	int points;

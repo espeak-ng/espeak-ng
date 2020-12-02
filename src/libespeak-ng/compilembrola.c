@@ -30,11 +30,11 @@
 
 #include "mbrola.h"
 
-#include "error.h"
-#include "phoneme.h"
-#include "speech.h"
-#include "voice.h"
-#include "synthesize.h"
+#include "error.h"                // for create_file_error_context
+#include "mbrola.h"               // for MBROLA_TAB
+#include "phoneme.h"              // for N_PHONEME_TAB
+#include "speech.h"               // for path_home
+#include "synthesize.h"           // for Write4Bytes
 
 static const char *basename(const char *filename)
 {

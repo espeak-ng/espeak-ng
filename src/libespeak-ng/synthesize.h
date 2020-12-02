@@ -28,8 +28,7 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 #include <espeak-ng/espeak_ng.h>
-#include "phoneme.h"
-#include "voice.h"
+#include "phoneme.h"              // for PHONEME_TAB, N_PHONEME_TAB
 
 #define espeakINITIALIZE_PHONEME_IPA 0x0002 // move this to speak_lib.h, after eSpeak version 1.46.02
 
@@ -433,6 +432,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define WCMD_MBROLA_DATA 13
 #define WCMD_FMT_AMPLITUDE 14
 #define WCMD_SONIC_SPEED 15
+#define WCMD_PHONEME_ALIGNMENT 16
 
 #define N_WCMDQ   170
 #define MIN_WCMDQ  25   // need this many free entries before adding new phoneme
@@ -449,7 +449,6 @@ extern int samplerate_native;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
-extern int vowel_transition[4];
 
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
@@ -459,7 +458,6 @@ extern short echo_buf[N_ECHO_BUF];
 
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, bool resume);
-void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SpeakNextClause(int control);
 void SetSpeed(int control);
 void SetEmbedded(int control, int value);
@@ -481,7 +479,6 @@ extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 
 extern unsigned char *out_ptr;
-extern unsigned char *out_start;
 extern unsigned char *out_end;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback *synth_callback;

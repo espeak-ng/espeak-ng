@@ -37,12 +37,13 @@
 #include "dictionary.h"
 #include "readclause.h"
 
-#include "error.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "dictionary.h"           // for EncodePhonemes, strncpy0, HashDicti...
+#include "error.h"                // for create_file_error_context
+#include "phoneme.h"              // for PHONEME_TAB_LIST, phonSWITCH, phone...
+#include "readclause.h"           // for towlower2
+#include "speech.h"               // for LookupMnemName, MNEM_TAB, path_home
+#include "synthesize.h"           // for Write4Bytes
+#include "translate.h"            // for isspace2, IsDigit09, utf8_in, utf8_out
 
 static FILE *f_log = NULL;
 

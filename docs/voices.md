@@ -34,12 +34,16 @@
 
 ----------
 
-A Voice file specifies a language (and possibly a language variant or
-dialect) together with various attributes that affect the
+A voice file specifies a language (and possibly a language variant or
+dialect or just voice) together with various attributes that affect the
 characteristics of the voice quality and how the language is spoken.
 
-Voice files are located in the `espeak-ng-data/voices` directory, and are
-grouped by the [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5)
+Voice files are located in the `espeak-ng-data/` folder, and:
+
+1. if it describes voice with language or dialect, in [lang](../../../tree/master/espeak-ng-data/lang) subfolder;
+2. if it describes just voice, in [voices/!v](../../../tree/master/espeak-ng-data/voices/!v) subfolder.
+
+Languages are grouped by the [ISO 639-5](https://en.wikipedia.org/wiki/ISO_639-5)
 language family of the language being specified in the voice files.
 See also Wikipedia's
 [List of language families](https://en.wiktionary.org/wiki/Wiktionary:List_of_families)
@@ -55,11 +59,18 @@ without the need to specify a voice.
 
 	name <name>
 
-A name given to this voice.
+A mandatory name given to this voice.
 
 ### language
 
+A mandatory identifier of the language or the voice. It can have one of
+two options:
+
 	language <language code> [<priority>]
+
+_or_
+
+	language variant
 
 __NOTE:__ This attribute is mandatory and should appear before the other
 attributes which are listed below.
@@ -68,7 +79,11 @@ It selects the default behaviour and characteristics for the language,
 and sets default values for "phonemes", "dictionary" and other
 attributes.
 
-The \<language code\> is a valid
+If value for `lanuguage` field is `variant`, then file describes only
+phonetic features of the voice and it can be used as a [...+variant](../src/espeak-ng.1.ronn)
+option for any language.
+
+If `language` identifies actual language, then \<language code\> should be a valid
 [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag. The
 list of valid tags originate from various standards and have been combined
 into the

@@ -261,8 +261,6 @@ extern "C"
 //     match 1 pre 2 post 0     - use common phoneme string
 //     match 1 pre 2 post 3 0   - empty phoneme string
 
-typedef const char *constcharptr;
-
 // used to mark words with the source[] buffer
 typedef struct {
 	unsigned int flags;
@@ -649,7 +647,6 @@ extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters t
 extern Translator *translator;
 extern Translator *translator2;
 extern char dictionary_name[40];
-extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
 extern espeak_ng_TEXT_DECODER *p_decoder;
 extern int dictionary_skipwords;
 
