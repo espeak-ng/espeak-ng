@@ -38,16 +38,15 @@
 #include <espeak-ng/speak_lib.h>
 #include <espeak-ng/encoding.h>
 
-#include "dictionary.h"
-#include "readclause.h"
-#include "synthdata.h"
-#include "wavegen.h"
-
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
+#include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
+#include "dictionary.h"               // for strncpy0, LoadDictionary
+#include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
+#include "speech.h"                   // for LookupMnem, GetFileLength, PATHSEP
+#include "mbrola.h"                   // for LoadMbrolaTable
+#include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
+#include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
+#include "translate.h"                // for LANGUAGE_OPTIONS, DeleteTranslator
+#include "wavegen.h"                  // for InitBreath
 
 MNEM_TAB genders[] = {
 	{ "male", ENGENDER_MALE },
@@ -62,7 +61,7 @@ static int formant_rate_22050[9] = { 240, 170, 170, 170, 170, 170, 170, 170, 170
 int formant_rate[9]; // values adjusted for actual sample rate
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  300
+#define N_VOICES_LIST  350
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 

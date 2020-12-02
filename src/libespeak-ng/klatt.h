@@ -24,8 +24,8 @@
 #ifndef ESPEAK_NG_KLATT_H
 #define ESPEAK_NG_KLATT_H
 
-#include "speech.h"
-#include "synthesize.h"
+#include "voice.h"                    // for voice_t
+#include "synthesize.h"              // for frame_t, WGEN_DATA
 
 #ifdef __cplusplus
 extern "C"
@@ -92,6 +92,7 @@ typedef struct {
 	short *natural_samples; /* pointer to an array of glottal samples */
 	long original_f0; /* original value of f0 not modified by flutter */
 
+	int fadein;
 	int fadeout;       // set to 64 to cause fadeout over 64 samples
 	int scale_wav;     // depends on the voicing source
 
@@ -179,8 +180,7 @@ typedef struct {
 
 void KlattInit(void);
 void KlattReset(int control);
-int Wavegen_Klatt2(int length, int resume, frame_t *fr1, frame_t *fr2);
-
+int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice);
 
 #ifdef __cplusplus
 }

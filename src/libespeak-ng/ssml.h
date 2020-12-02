@@ -66,7 +66,6 @@ int ProcessSsmlTag(wchar_t *xml_buf,
                    char *outbuf,
                    int *outix,
                    int n_outbuf,
-                   bool self_closing,
                    const char *xmlbase,
                    bool *audio_text,
                    char *current_voice_id,
@@ -80,6 +79,10 @@ int ProcessSsmlTag(wchar_t *xml_buf,
                    int *n_ssml_stack,
                    int *n_param_stack,
                    int *speech_parameters);
+
+int ParseSsmlReference(char *ref,
+                       int *c1,
+                       int *c2);
 
 #ifdef __cplusplus
 }

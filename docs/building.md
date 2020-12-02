@@ -1,10 +1,10 @@
 # Building eSpeak NG
 
 - [Windows](#windows)
-  - [Binaries](#binaries)
+  - [Dependencies](#dependencies)
   - [Building](#building)
 - [Linux, Mac, BSD](#linux-mac-bsd)
-  - [Dependencies](#dependencies)
+  - [Dependencies](#dependencies-1)
   - [Building](#building-1)
     - [Cross Compilation](#cross-compilation)
     - [Sanitizer Flag Configuration](#sanitizer-flag-configuration)
@@ -22,30 +22,21 @@
 
 ## Windows
 
-### Binaries
+### Dependencies
 
-The Windows version of eSpeak NG 1.49.2 is available as:
+To build eSpeak NG on Windows, you will need:
 
-*  [espeak-ng-x64.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x64.msi) --
-   64-bit Windows installer
-*  [espeak-ng-x86.msi](https://github.com/espeak-ng/espeak-ng/releases/download/1.49.2/espeak-ng-x86.msi) --
-   32-bit Windows installer
-
-You also need to install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145).
+1. a copy of [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145) or later, such as the Community Edition;
+2. the Windows 8.1 SDK;
+3. the [WiX installer](http://wixtoolset.org) plugin;
+4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
+   `src` (as `src/pcaudiolib`).
 
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
 
 ### Building
-
-To build eSpeak NG on Windows, you will need:
-
-1. a copy of Visual Studio 2013 or later, such as the Community Edition;
-2. the Windows 8.1 SDK;
-3. the [WiX installer](http://wixtoolset.org) plugin;
-4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
-   `src` (as `src/pcaudiolib`).
 
 You can then open and build the `src/windows/espeak-ng.sln` solution in Visual
 Studio.
@@ -124,7 +115,7 @@ you can run:
 To use a different compiler, or compiler flags, you can specify these before
 the `configure` command. For example:
 
-	CC=clang-3.5 CFLAGS=-Wextra ./configure --prefix=/usr
+	CC=clang CFLAGS=-Wextra ./configure --prefix=/usr
 
 The `espeak-ng` and `speak-ng` programs, along with the espeak-ng voices, can
 then be built with:
@@ -149,6 +140,11 @@ where `LANG` is the language code of the given language. More information can
 be found in the [Adding or Improving a Language](add_language.md)
 documentation.
 
+If project settings are changed, you may need to force rebuilding all project,
+including already built files. To do this execute command:
+
+	make -B
+
 #### Cross Compilation
 
 Because the eSpeak NG build process uses the built program to compile the
@@ -165,7 +161,7 @@ the appropriate `CFLAGS` and `LDFLAGS` options to `configure`. For example:
 
 	CFLAGS="-fsanitize=address,undefined -g" \
 		LDFLAGS="-fsanitize=address,undefined" \
-		CC=clang-6.0 ./configure
+		CC=clang ./configure
 	make
 	make check
 
@@ -179,7 +175,7 @@ defined. This breaks the autoconf check to see if the C compiler works.
 To enable libFuzzer support you need clang 6.0 or later. It is enabled with
 the following:
 
-	CC=clang-6.0 ./configure --with-libfuzzer=yes
+	CC=clang ./configure --with-libfuzzer=yes
 	make
 	make check
 

@@ -30,11 +30,11 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
 #include "spect.h"
-#include "ieee80.h"
+#include "ieee80.h"                    // for ConvertFromIeeeExtended
+#include "wavegen.h"                   // for wavegen_peaks_t, PeaksToHarmspect
+#include "synthesize.h"                // for KLATT_AV, KLATT_Kopen, N_KLATTP2
+#include "voice.h"                     // for N_PEAKS
 
 static int frame_width;
 

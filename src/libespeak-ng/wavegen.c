@@ -33,11 +33,8 @@
 #include <espeak-ng/speak_lib.h>
 
 #include "wavegen.h"
-
-#include "synthesize.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
+#include "synthesize.h"               // for WGEN_DATA, RESONATOR, frame_t
+#include "mbrola.h"                  // for MbrolaFill, MbrolaReset, mbrola...
 
 #ifdef INCLUDE_KLATT
 #include "klatt.h"
@@ -49,11 +46,10 @@
 
 #include "sintab.h"
 
-#define N_WAV_BUF   10
+static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 
 voice_t *wvoice = NULL;
 
-FILE *f_log = NULL;
 static int option_harmonic1 = 10;
 static int flutter_amp = 64;
 
@@ -79,15 +75,12 @@ static int echo_length = 0; // period (in sample\) to ensure completion of echo 
 static int voicing;
 static RESONATOR rbreath[N_PEAKS];
 
-static int harm_sqrt_n = 0;
-
 #define N_LOWHARM  30
 #define MAX_HARMONIC 400 // 400 * 50Hz = 20 kHz, more than enough
 static int harm_inc[N_LOWHARM]; // only for these harmonics do we interpolate amplitude between steps
 static int *harmspect;
 static int hswitch = 0;
 static int hspect[2][MAX_HARMONIC]; // 2 copies, we interpolate between then
-static int max_hval = 0;
 
 static int nsamples = 0; // number to do
 static int modulation_type = 0;
@@ -113,8 +106,10 @@ static double minus_pi_t;
 static double two_pi_t;
 
 unsigned char *out_ptr;
-unsigned char *out_start;
 unsigned char *out_end;
+
+espeak_ng_OUTPUT_HOOKS* output_hooks = NULL;
+int const_f0 = 0;
 
 // the queue of operations passed to wavegen from sythesize
 intptr_t wcmdq[N_WCMDQ][4];
@@ -339,7 +334,6 @@ void WavegenInit(int rate, int wavemult_fact)
 	samplecount = 0;
 	nsamples = 0;
 	wavephase = 0x7fffffff;
-	max_hval = 0;
 
 	wdata.amplitude = 32;
 	wdata.amplitude_fmt = 100;
@@ -545,6 +539,8 @@ static void AdvanceParameters()
 	if ((ix = wdata.pitch_ix>>8) > 127) ix = 127;
 	x = wdata.pitch_env[ix] * wdata.pitch_range;
 	wdata.pitch = (x>>8) + wdata.pitch_base;
+	
+	
 
 	amp_ix += amp_inc;
 
@@ -554,6 +550,10 @@ static void AdvanceParameters()
 	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * flutter_amp;
 	Flutter_ix += Flutter_inc;
 	wdata.pitch += x;
+	
+	if(const_f0)
+		wdata.pitch = (const_f0<<12);
+	
 	if (wdata.pitch < 102400)
 		wdata.pitch = 102400; // min pitch, 25 Hz  (25 << 12)
 
@@ -671,8 +671,11 @@ static int ApplyBreath(void)
 	return value;
 }
 
-static int Wavegen()
+static int Wavegen(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2, voice_t *wvoice)
 {
+	if (resume == false)
+		SetSynth(length, modulation, fr1, fr2, wvoice);
+
 	if (wvoice == NULL)
 		return 0;
 
@@ -884,6 +887,7 @@ static int Wavegen()
 		}
 		*out_ptr++ = z;
 		*out_ptr++ = z >> 8;
+		if(output_hooks && output_hooks->outputVoiced) output_hooks->outputVoiced(z);
 
 		echo_buf[echo_head++] = z;
 		if (echo_head >= N_ECHO_BUF)
@@ -917,6 +921,7 @@ static int PlaySilence(int length, bool resume)
 
 		*out_ptr++ = value;
 		*out_ptr++ = value >> 8;
+		if(output_hooks && output_hooks->outputSilence) output_hooks->outputSilence(value);
 
 		echo_buf[echo_head++] = value;
 		if (echo_head >= N_ECHO_BUF)
@@ -969,6 +974,7 @@ static int PlayWave(int length, bool resume, unsigned char *data, int scale, int
 
 		out_ptr[0] = value;
 		out_ptr[1] = value >> 8;
+		if(output_hooks && output_hooks->outputUnvoiced) output_hooks->outputUnvoiced(value);
 		out_ptr += 2;
 
 		echo_buf[echo_head++] = (value*3)/4;
@@ -1160,7 +1166,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	static int glottal_reduce_tab1[4] = { 0x30, 0x30, 0x40, 0x50 }; // vowel before [?], amp * 1/256
 	static int glottal_reduce_tab2[4] = { 0x90, 0xa0, 0xb0, 0xc0 }; // vowel after [?], amp * 1/256
 
-	harm_sqrt_n = 0;
 	end_wave = 1;
 
 	// any additional information in the param1 ?
@@ -1233,14 +1238,6 @@ static void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *
 	}
 }
 
-static int Wavegen2(int length, int modulation, bool resume, frame_t *fr1, frame_t *fr2)
-{
-	if (resume == false)
-		SetSynth(length, modulation, fr1, fr2, wvoice);
-
-	return Wavegen();
-}
-
 void Write4Bytes(FILE *f, int value)
 {
 	// Write 4 bytes to a file, least significant first
@@ -1284,6 +1281,13 @@ static int WavegenFill2()
 		case WCMD_PITCH:
 			SetPitch(length, (unsigned char *)q[2], q[3] >> 16, q[3] & 0xffff);
 			break;
+		case WCMD_PHONEME_ALIGNMENT:
+		{
+			char* data = (char*)q[1];
+			output_hooks->outputPhoSymbol(data,q[2]);
+			free(data);
+		}
+			break;
 		case WCMD_PAUSE:
 			if (resume == false)
 				echo_complete -= length;
@@ -1320,14 +1324,14 @@ static int WavegenFill2()
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
-			result = Wavegen2(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3]);
+			result = Wavegen(length & 0xffff, q[1] >> 16, resume, (frame_t *)q[2], (frame_t *)q[3], wvoice);
 			break;
 #ifdef INCLUDE_KLATT
 		case WCMD_KLATT2: // as WCMD_SPECT but stop any concurrent wave file
 			wdata.n_mix_wavefile = 0; // ... and drop through to WCMD_SPECT case
 		case WCMD_KLATT:
 			echo_complete = echo_length;
-			result = Wavegen_Klatt2(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3]);
+			result = Wavegen_Klatt(length & 0xffff, resume, (frame_t *)q[2], (frame_t *)q[3], &wdata, wvoice);
 			break;
 #endif
 		case WCMD_MARKER:
@@ -1418,3 +1422,20 @@ int WavegenFill(void)
 #endif
 	return finished;
 }
+
+#pragma GCC visibility push(default)
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetOutputHooks(espeak_ng_OUTPUT_HOOKS* hooks)
+{
+	output_hooks = hooks;
+	return 0;
+}
+
+ESPEAK_NG_API espeak_ng_STATUS
+espeak_ng_SetConstF0(int f0)
+{
+	const_f0 = f0;
+}
+
+#pragma GCC visibility pop

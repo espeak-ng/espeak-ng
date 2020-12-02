@@ -39,16 +39,13 @@
 #include <espeak-ng/encoding.h>
 #include <ucd/ucd.h>
 
-#include "readclause.h"
-
-#include "error.h"
-#include "speech.h"
-#include "phoneme.h"
-#include "voice.h"
-#include "synthesize.h"
-#include "translate.h"
-#include "dictionary.h"
 #include "ssml.h"
+#include "dictionary.h"           // for strncpy0
+#include "readclause.h"           // for PARAM_STACK, param_stack, AddNameData
+#include "speech.h"               // for MNEM_TAB, LookupMnem
+#include "synthesize.h"           // for SPEED_FACTORS, speed
+#include "translate.h"            // for CTRL_EMBEDDED, IsDigit09, utf8_out
+#include "voice.h"                // for SelectVoice, SelectVoiceByName
 
 static MNEM_TAB ssmltags[] = {
 	{ "speak",     SSML_SPEAK },
@@ -552,7 +549,7 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp,
 	}
 }
 
-int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, bool self_closing, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
+int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, const char *xmlbase, bool *audio_text, char *current_voice_id, espeak_VOICE *base_voice, char *base_voice_variant_name, bool *ignore_text, bool *clear_skipping_text, int *sayas_mode, int *sayas_start, SSML_STACK *ssml_stack, int *n_ssml_stack, int *n_param_stack, int *speech_parameters)
 {
 	// xml_buf is the tag and attributes with a zero terminator in place of the original '>'
 	// returns a clause terminator value.
@@ -577,8 +574,22 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, boo
 	PARAM_STACK *sp;
 	SSML_STACK *ssml_sp;
 
+	// don't process comments and xml declarations
+	if (wcsncmp(xml_buf, (wchar_t *) "!--", 3) == 0 || wcsncmp(xml_buf, (wchar_t *) "?xml", 4) == 0) {
+		return 0;
+		}
+
 	// these tags have no effect if they are self-closing, eg. <voice />
 	static char ignore_if_self_closing[] = { 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0 };
+
+	bool self_closing = false;
+	int len;
+	len = wcslen(xml_buf);
+	if (xml_buf[len - 1] == '/') {
+		// a self-closing tag
+		xml_buf[len - 1] = ' ';
+		self_closing = true;
+	}
 
 	static const MNEM_TAB mnem_phoneme_alphabet[] = {
 		{ "espeak", 1 },
@@ -937,4 +948,39 @@ int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int *outix, int n_outbuf, boo
 		return CLAUSE_PARAGRAPH;
 	}
 	return 0;
+}
+
+static MNEM_TAB xml_entity_mnemonics[] = {
+	{ "gt",   '>' },
+	{ "lt",   0xe000 + '<' },   // private usage area, to avoid confusion with XML tag
+	{ "amp",  '&' },
+	{ "quot", '"' },
+	{ "nbsp", ' ' },
+	{ "apos", '\'' },
+	{ NULL,   -1 }
+};
+
+int ParseSsmlReference(char *ref, int *c1, int *c2) {
+	// Check if buffer *ref contains an XML character or entity reference
+	// if found, set *c1 to the replacement char
+	// change *c2 for entity references
+	// returns >= 0 on success
+
+	if (ref[0] == '#') {
+		// character reference
+		if (ref[1] == 'x')
+			return sscanf(&ref[2], "%x", c1);
+		else
+			return sscanf(&ref[1], "%d", c1);
+	} else { 
+		// entity reference
+		int found;
+		if ((found = LookupMnem(xml_entity_mnemonics, ref)) != -1) {
+			*c1 = found;
+			if (*c2 == 0)
+				*c2 = ' ';
+			return found;
+		}
+	}
+	return -1;
 }

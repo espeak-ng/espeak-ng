@@ -1,0 +1,1 @@
+Motor de síntesis de voz para Android. Basado en el motor eSpeak creado por Jonathan Duddington.

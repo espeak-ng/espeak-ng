@@ -30,10 +30,12 @@
 #include <espeak-ng/encoding.h>
 
 #include "phonemelist.h"
-#include "synthdata.h"
+#include "phoneme.h"     // for PHONEME_TAB, phVOWEL, REPLACE_PHONEMES, phPAUSE
+#include "synthdata.h"   // for InterpretPhoneme, SelectPhonemeTable
+#include "synthesize.h"  // for PHONEME_LIST, PHONEME_LIST2, phoneme_tab
+#include "translate.h"   // for Translator, LANGUAGE_OPTIONS, option_wordgap
 
 #include "phoneme.h"
-#include "voice.h"
 #include "synthesize.h"
 #include "translate.h"
 

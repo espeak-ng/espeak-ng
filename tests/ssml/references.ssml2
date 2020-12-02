@@ -1,0 +1,9 @@
+<!-- SSML reference test
+Entity references &lt; &gt; &amp; &apos; and &quot; should be replaced in the buffer
+Character references like &#65; are translated to Unicode (65 = 'A')
+
+See https://www.tutorialspoint.com/xml/xml_syntax.htm for example
+-->
+<speak>&lt; &gt; &amp; &apos; &quot;</speak>
+<speak>B &#66;</speak>
+<speak>z &#x7A;</speak>

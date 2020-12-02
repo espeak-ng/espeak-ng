@@ -21,9 +21,9 @@ to use MBROLA as backend speech synthesizer.
 
 eSpeak NG is available as:
 
-*  A command line program (Linux and Windows) to speak text from a file or
+*  A [command line](src/espeak-ng.1.ronn) program (Linux and Windows) to speak text from a file or
    from stdin.
-*  A shared library version for use by other programs. (On Windows this is
+*  A [shared library](docs/integration.md) version for use by other programs. (On Windows this is
    a DLL).
 *  A SAPI5 version for Windows, so it can be used with screen-readers and
    other programs that support the Windows SAPI5 interface.
@@ -62,11 +62,11 @@ The following platforms are supported:
 
 ## Documentation
 
-1. [User guide](src/espeak-ng.1.ronn) provides reference and examples for command-line options.
+1. [User guide](docs/guide.md) explains how to set up and use eSpeak NG from command line or as a library.
 2. [Building guide](docs/building.md) provides info how to compile and build eSpeak NG from the source.
-3. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
-4. Look at [contribution guide](docs/contributing.md) to start your contribution.
-5. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
+4. [Index](docs/index.md) provides full list of more detailed information for contributors and developers.
+5. Look at [contribution guide](docs/contributing.md) to start your contribution.
+6. Look at [eSpeak NG roadmap](https://github.com/espeak-ng/espeak-ng/wiki/eSpeak-NG-roadmap) to participate in development of eSpeak NG.
 
 ## eSpeak Compatibility
 
