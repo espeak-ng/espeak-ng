@@ -5,6 +5,10 @@
 
 .group a
              a            a
+             ae	aI
+             ai	aI
+             ao	aU
+             au	au"
 
 .group ā
              ā            a:
@@ -22,16 +26,19 @@
              ī            i:
 
 .group o
-             o            o
+             o            O
+             oe	we
+             oi	oI
+             ou	ou"
 
 .group ō
-             ō            o:
+             ō            O:
 
 .group u
-             u            u
+             u            u"
 
 .group ū
-             ū            u:
+             ū            u":
 
 // consonants
 
@@ -52,7 +59,7 @@
              p            p
 
 .group r
-             r            r
+             r            R
 
 .group t
              t            t

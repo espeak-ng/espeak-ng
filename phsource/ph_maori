@@ -52,16 +52,16 @@ phoneme o:
   FMT(vowel/o)
 endphoneme
 
-phoneme u
+phoneme u"
   vwl starttype #u endtype #u
   length 140
-  FMT(vowel/u) // working hypothesis
+  FMT(vwl_ru/u#u)
 endphoneme
 
-phoneme u:
+phoneme u":
   vwl starttype #u endtype #u
   length 280
-  FMT(vowel/u)
+  FMT(vwl_ru/u#u)
 endphoneme
 
 //===========

@@ -20,6 +20,7 @@ updated languages:
 *  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
 *  ja (Japanese) -- fukuen
+*  mi (Māori) -- boracasli98
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah

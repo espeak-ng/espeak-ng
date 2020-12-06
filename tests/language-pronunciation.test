@@ -151,11 +151,11 @@ test_phonemes lfn "Latn" "t'ota um'anes n'ase l'ib**e e eg'al en d'inja e di**'e
 los es don'ada **az'ona e k,onsi;'ensa e d'ebe 'ata la 'un a la 'ot**a en 'un spi**'ito de f**'ati;,a" "Tota umanes nase libre e egal en dinia e diretos. Los es donada razona e consiensa e debe ata la un a la otra en un spirito de fratia."
 test_phonemes lt "Latn" "i:l;ingd'ama fext'Uoto:jo: Sp'aga subl;i:ktS;;o:j'us;i p@-rag@-r;'eAZee apv'alu: arb'u:za:" "Įlinkdama fechtuotojo špaga sublykčiojusi pragręžė apvalų arbūzą."
 test_phonemes lv "Latn" "gl'a:ZScu:n^a R'u:ci:Si Dz\`_|'E:Ruma: tS'iepj b'aha k'ontsERtfli:Jel^u v'a::kus" "Glāžšķūņa rūķīši dzērumā čiepj Baha koncertflīģeļu vākus."
-test_phonemes mi "Latn" "k'o_| t'e_| kat'oa_ 'o_| N'a_| taN'ata_ 'i_| t'e_| f,ana,uNat'aNa_| m'ai_ 'e_| wat'ea_ 'ana_ 'i_| N'a_| h'ere_| kat'oa_|
-'e_| t,aur,iter'ite_ 'ana_| h'oki_| N'a_| m'ana_| m'e_| N'a_| t'ika_|
-'e_| f,akafif'ia_ 'ana_| h'oki_| k'i_ 'a_| rat'ou_| t'e_| Nak'au_| f'ai_| f,aka'aro_| m'e_| t'e_| h,ineN'aro_| moh'io_| k'i_| t'e_| t'ika_| m'e_| t'e_| h'e_|
-'a_ 'e_| t'ika_ 'ana_| k'ia_| me'iNa_| t'e_| m'ahi_ 'a_| tet'ahi_| k'i_| tet'ahi_| m'e_| m'a_| r'oto_ 'atu_ 'i_| t'e_| w,air'ua_ 'o_| t'e_| n'oho_| t'ahi_|
-'ano_| h'e_| te'ina_| h'e_| t,uak'ana_ 'i_| r'iNa_ 'i_| t'e_| f,aka'aro_| kot'ahi_|" "Ko te katoa o nga tangata i te whanaungatanga mai e watea ana i nga here katoa; e tauriterite ana hoki nga mana me nga tika. E whakawhiwhia ana hoki ki a ratou te ngakau whai whakaaro me te hinengaro mohio ki te tika me te he, a e tika ana kia meinga te mahi a tetahi ki tetahi me ma roto atu i te wairua o te noho tahi, ano he teina he tuakana i ringa i te whakaaro kotahi."
+test_phonemes mi "Latn" "k'O_| t'e_| kat'Oa_ 'O_| N'a_| taN'ata_ 'i_| t'e_| f,ana,u\"Nat'aNa_| m'aI_ 'e_| wat'ea_ 'ana_ 'i_| N'a_| h'eRe_| kat'Oa_|
+'e_| t,au\"R,iteR'ite_ 'ana_| h'Oki_| N'a_| m'ana_| m'e_| N'a_| t'ika_|
+'e_| f,akafif'ia_ 'ana_| h'Oki_| k'i_ 'a_| Rat'ou\"_| t'e_| Nak'au\"_| f'aI_| f,aka'aRO_| m'e_| t'e_| h,ineN'aRO_| mOh'iO_| k'i_| t'e_| t'ika_| m'e_| t'e_| h'e_|
+'a_ 'e_| t'ika_ 'ana_| k'ia_| me'iNa_| t'e_| m'ahi_ 'a_| tet'ahi_| k'i_| tet'ahi_| m'e_| m'a_| R'OtO_ 'atu\"_ 'i_| t'e_| waIR'u\"a_ 'O_| t'e_| n'OhO_| t'ahi_|
+'anO_| h'e_| te'ina_| h'e_| t,u\"ak'ana_ 'i_| R'iNa_ 'i_| t'e_| f,aka'aRO_| kOt'ahi_|" "Ko te katoa o nga tangata i te whanaungatanga mai e watea ana i nga here katoa; e tauriterite ana hoki nga mana me nga tika. E whakawhiwhia ana hoki ki a ratou te ngakau whai whakaaro me te hinengaro mohio ki te tika me te he, a e tika ana kia meinga te mahi a tetahi ki tetahi me ma roto atu i te wairua o te noho tahi, ano he teina he tuakana i ringa i te whakaaro kotahi."
 test_phonemes mk "Cyrl" "dz'id&Rsk,I p'ejz&Z
 S'ug&f b'ilmez_! s_ tS;'uden^,e dZv'ak& k^'ofte_:_: i_: k'el^ n'a t'udZ; ts'eh" "Ѕидарски пејзаж: шугав билмез со чудење џвака ќофте и кељ на туѓ цех."
 test_phonemes mk "Latn" "dz'id&Rsk,I p'ejz&Z

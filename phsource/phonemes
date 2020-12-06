@@ -1763,9 +1763,6 @@ include ph_lithuanian
 phonemetable lv base1
 include ph_latvian
 
-phonemetable mi base1
-include ph_maori
-
 phonemetable my base1
 include ph_myanmar
 
@@ -1847,6 +1844,9 @@ include ph_italian
 
 phonemetable ku base2
 include ph_kurdish
+
+phonemetable mi base2
+include ph_maori
 
 phonemetable nci base2
 include ph_nahuatl
