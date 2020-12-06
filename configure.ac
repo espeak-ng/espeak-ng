@@ -32,6 +32,10 @@ AC_ARG_WITH([klatt],
     [AS_HELP_STRING([--with-klatt], [enable the Klatt formant synthesizer @<:@default=yes@:>@])],
     [])
 
+AC_ARG_WITH([speechplayer],
+    [AS_HELP_STRING([--with-speechplayer], [enable the speechPlayer Klatt implementation @<:@default=yes@:>@])],
+    [])
+
 AC_ARG_WITH([mbrola],
     [AS_HELP_STRING([--with-mbrola], [enable the MBROLA speech synthesizer @<:@default=yes@:>@])],
     [])
@@ -65,6 +69,7 @@ dnl Program checks.
 dnl ================================================================
 
 AC_PROG_CC
+AC_PROG_CXX
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 AC_PROG_LN_S
@@ -221,6 +226,12 @@ else
 	have_klatt=yes
 fi
 
+if test "$with_speechplayer" = "no" ; then
+	have_speechplayer=no
+else
+	have_speechplayer=yes
+fi
+
 if test "$with_mbrola" = "no" ; then
 	have_mbrola=no
 else
@@ -246,6 +257,7 @@ else
 fi
 
 AM_CONDITIONAL(OPT_KLATT,  [test x"$have_klatt"  = xyes])
+AM_CONDITIONAL(OPT_SPEECHPLAYER,  [test x"$have_speechplayer"  = xyes])
 AM_CONDITIONAL(OPT_MBROLA, [test x"$have_mbrola" = xyes])
 AM_CONDITIONAL(OPT_ASYNC,  [test x"$have_async"  = xyes])
 
@@ -341,6 +353,7 @@ AC_MSG_NOTICE([
         ndk-build (Android):           ${NDKBUILD_CHECK}
 
         Klatt:                         ${have_klatt}
+        speechPlayer:                         ${have_speechplayer}
         MBROLA:                        ${have_mbrola}
         Async:                         ${have_async}
 
