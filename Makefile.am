@@ -17,7 +17,7 @@ MKDIR=mkdir -p
 
 # -Wno-endif-labels : Needed to prevent warnings in ieee80.c.
 AM_CFLAGS = \
-	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/ucd-tools/src/include \
+	-Isrc/include -Isrc/include/compat -I$(srcdir)/src/speechPlayer/include -I$(srcdir)/src/ucd-tools/src/include \
 	-D_BSD_SOURCE -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=200112L \
 	-Wno-endif-labels
 
@@ -171,11 +171,23 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/wavegen.c
 
 noinst_HEADERS = \
+	src/speechPlayer/include/speechPlayer.h
 	src/ucd-tools/src/include/ucd/ucd.h
 
 if OPT_KLATT
 src_libespeak_ng_la_CFLAGS  += -DINCLUDE_KLATT
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/klatt.c
+endif
+
+if OPT_SPEECHPLAYER
+src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
+src_libespeak_ng_la_SOURCES += src/libespeak-ng/sPlayer.c
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/frame.cpp
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechPlayer.cpp
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechWaveGenerator.cpp
+src_speak_ng_SOURCES = src/speak-ng.cpp
+else
+src_speak_ng_SOURCES = src/speak-ng.c
 endif
 
 if OPT_MBROLA
@@ -200,7 +212,6 @@ endif
 src_speak_ng_LDADD   = src/libespeak-ng.la
 src_speak_ng_LDFLAGS = -static -lm ${PCAUDIOLIB_LIBS}
 src_speak_ng_CFLAGS  = -Isrc/libespeak-ng ${AM_CFLAGS}
-src_speak_ng_SOURCES = src/speak-ng.c
 
 bin_PROGRAMS += src/espeak-ng
 
@@ -275,6 +286,13 @@ check_PROGRAMS += tests/ssml-fuzzer.test
 tests_ssml_fuzzer_test_CFLAGS  = ${AM_CFLAGS}
 tests_ssml_fuzzer_test_SOURCES = tests/ssml-fuzzer.c
 tests_ssml_fuzzer_test_LDADD   = src/libespeak-ng.la
+
+if OPT_SPEECHPLAYER
+tests_api_test_SOURCES += tests/dummy.cpp
+tests_encoding_test_SOURCES += tests/dummy.cpp
+tests_readclause_test_SOURCES += tests/dummy.cpp
+tests_ssml_fuzzer_test_SOURCES += tests/dummy.cpp
+endif
 
 if HAVE_LIBFUZZER
 tests_ssml_fuzzer_test_CFLAGS += -fsanitize=fuzzer

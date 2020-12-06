@@ -66,12 +66,14 @@ In order to build eSpeak NG, you need:
 
 1.  a functional autotools system (`make`, `autoconf`, `automake`, `libtool`
     and `pkg-config`);
-2.  a functional c compiler that supports C99 (e.g. gcc or clang).
+2.  a functional c compiler that supports C99 (e.g. gcc or clang). Note: if building with speechPlayer, a C++ compiler is required.
 
 Optionally, you need:
 
 1.  the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) development library
     to enable audio output;
+2.  the speechPlayer development library to
+    enable the speechPlayer Klatt implementation;
 3.  the [sonic](https://github.com/espeak-ng/sonic) development library to
     enable sonic audio speed up support;
 4.  the `ronn` man-page markdown processor to build the man pages.
@@ -186,6 +188,7 @@ The following `configure` options control which eSpeak NG features are enabled:
 | Option          | Description                                  | Default |
 |-----------------|----------------------------------------------|---------|
 | `--with-klatt`  | Enable Klatt formant synthesis.              | yes     |
+| `--with-speechplayer`  | Enable the speechPlayer Klatt implementation.              | yes     |
 | `--with-mbrola` | Enable MBROLA voice support.                 | yes     |
 | `--with-sonic`  | Use the sonic library to support higher WPM. | yes     |
 | `--with-async`  | Enable asynchronous commands.                | yes     |

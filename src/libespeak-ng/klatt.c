@@ -37,6 +37,9 @@
 #include "klatt.h"
 #include "synthesize.h"  // for frame_t, WGEN_DATA, STEPSIZE, N_KLATTP, echo...
 #include "voice.h"       // for voice_t, N_PEAKS
+#ifdef INCLUDE_SPEECHPLAYER
+#include "sPlayer.h"
+#endif
 
 extern unsigned char *out_ptr;
 extern unsigned char *out_end;
@@ -432,6 +435,10 @@ static int parwave(klatt_frame_ptr frame, WGEN_DATA *wdata)
 void KlattReset(int control)
 {
 	int r_ix;
+
+#ifdef INCLUDE_SPEECHPLAYER
+	KlattResetSP();
+#endif
 
 	if (control == 2) {
 		// Full reset
@@ -848,6 +855,11 @@ static double klattp_inc[N_KLATTP];
 
 int Wavegen_Klatt(int length, int resume, frame_t *fr1, frame_t *fr2, WGEN_DATA *wdata, voice_t *wvoice)
 {
+#ifdef INCLUDE_SPEECHPLAYER
+	if(wvoice->klattv[0] == 6)
+	return Wavegen_KlattSP(wdata, wvoice, length, resume, fr1, fr2);
+#endif
+
 	if (resume == 0)
 		SetSynth_Klatt(length, fr1, fr2, wvoice, 1);
 
@@ -1063,6 +1075,10 @@ void KlattInit()
 	static short parallel_bw[10] = { 59, 59, 89, 149, 200, 200, 500, 0, 0, 0 };
 
 	int ix;
+
+#ifdef INCLUDE_SPEECHPLAYER
+	KlattInitSP();
+#endif
 
 	sample_count = 0;
 
