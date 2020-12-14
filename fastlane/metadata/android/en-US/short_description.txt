@@ -1,1 +1,1 @@
-Text-to-speech engine for Android. Based on the eSpeak engine created by Jonathan Duddington.
+Text-to-speech engine for Android. Based on the eSpeak engine.
