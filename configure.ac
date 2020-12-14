@@ -353,7 +353,7 @@ AC_MSG_NOTICE([
         ndk-build (Android):           ${NDKBUILD_CHECK}
 
         Klatt:                         ${have_klatt}
-        speechPlayer:                         ${have_speechplayer}
+        speechPlayer:                  ${have_speechplayer}
         MBROLA:                        ${have_mbrola}
         Async:                         ${have_async}
 
