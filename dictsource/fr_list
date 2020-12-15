@@ -640,9 +640,9 @@ rien	ri'E~n2 $u+
 // Letters which can be words
 //===========================
 a	a $atend $only
-à	$atend $accent $only
+à	a $atend $only
 y       _|igr'Ek $atend $only
-ô	$atend $accent
+ô	$atend
 
 
 // pronunciation exceptions
