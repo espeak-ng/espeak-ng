@@ -1,0 +1,186 @@
+// This file is UTF8 encoded 
+// Spelling to phoneme words for 'lang belta'(conlang from The Expanse).
+
+_0      nada
+_1      waN
+_2      tu:
+_3      se:'ri:
+_4      fu:
+_5      faf
+_6      si:ke:S
+_7      se:N
+_8      et
+_9      naN
+_10     te:N
+_11     waNu:nj@-te:N
+_12     tu:nj@te:N
+_13     se:'ri?u:nj@-te:N
+_14     fu:nj@-te:N
+_15     fafu:nj@-te:N
+_16     si:ke:Su:nj@-te:N
+_17     se:Nu:nj@-te:N
+_18     etu:nj@-te:N
+_19     naNu:nj@-te:N
+_2X     'tu:te:N
+_3X     se:'ri:te:N
+_4X     'fu:te:N
+_5X     'fave:te:N
+_6X     'si:ke:se:te:N
+_7X     'se:Nete:N
+_8X     'e:te:te:N
+_9X     'naNe:te:N
+_0C     xanja
+_1C     xanja
+_0M1    t0se:N
+_1M1    t0se:N
+_0and   u:nj@-
+_dpt    ko:ma
+
+// individual letters (not canon!)
+
+ã       ale:fa%'0ta
+a       'ale:fa
+b       'beravo:
+ch      'tS0li
+c       'tS0li_i:nja
+d       'de:lta
+dzh     'dzu:S
+e       'eko:
+f       'fo:S
+g       'g0f
+i       'i:ndi:%ja
+j       'i:ndi:%ja_i:nja
+k       'ki:lo:
+l       'li:ma
+m       'ma%ji:k
+n       'no:ve:mb0
+o       'o:xo:
+ow      '0Se:ka
+p       'papa
+q       'ki:lo:_i:nja
+r       'ro:me:%jo:
+s       'si%je:ra
+sh      'Sapu:
+t       'Tane:ko:
+u       'u:ni:%f0m
+v       'vi:ke:t0
+w       'wi:se:ki:
+x       'xo:m
+y       'ja%Ne:%ki:
+z       'ze:be:ra
+
+// irregular stress patterns or phonotactics
+
+amawala         $1
+amolof          $1
+anyimal         $1
+bekedabush      $4
+bekpelesh       be:k@-pe:'le:S
+belang          $2
+belek           $2
+belowt          $2
+belu            $2
+bosmang         'bo:s@-maN
+bukipelesh      $4
+dedawang        $1
+dedeya          $1
+depelesh        $3
+ekepesh         $1
+entediye        $1
+ereluf          $1
+etera           $1
+feradiye        $2
+gerowsh         $2
+gutegow         $1
+gutemang        $1
+idzhifobek      $4
+kedawang        $1
+kena            ke:%na
+kepelesh        $3
+keya            ke:%ja
+kometing        $1
+kowpelesh       $3
+langemang       $1
+liperi          $1
+malimang        $1
+mamamang        $1
+metexeng        $1
+nakangego       $2
+nakangikeng     $2
+naterash        $1
+owala           $1
+paxari          $1
+paxoniseki      $3
+pelesh          $2
+peyeting        $1
+polisi          $1
+redzherosh      $1
+rembera         $1
+ruserux         $1
+saviting        $1
+sefesowng       $1
+semowt          $2
+sempere         $1
+seping          $2
+sesata          $1
+seterax         $3
+setop           $2
+setoriye        $2
+shelaf          $2
+sheru           $2
+shetexeting     $2
+soya            $2
+tekidok         $1
+tekimang        $1
+tekiting        $1
+terash          $2
+tungeting       $1
+uzilik          $1
+vediting        $1
+wamotim         $1
+xelixup         $1
+xidawang        $1
+xunyampelesh    $1
+yaterash        $1
+zakomang        $1
+
+// conjunctions
+
+un              u:N
+unte            u:nte: $pause
+amash           amaS $pause
+o               o: $pause
+
+// prepositions
+
+efa             e:fa $brk
+ere             e:re: $brk
+erefo           e:re:fo: $brk
+fing            fi:N $brk
+fingi           fi:Ni: $brk
+fo              fo: $brk
+fode            fo:de: $brk
+fong            fo:N $brk
+nawit           nawi:t $brk
+wit             wi:t $brk
+
+// pronouns
+
+mi              $u $only
+milowda         $u $only
+//beltalowda    $u $only
+to              $u $only
+tolowda         $u $only
+//inyalowda     $u $only
+im              $u $only
+imalowda        $u $only
+imim            $u $only
+sif             $u $only
+
+da              $u $only
+wa              $u $only
+
+de              $u $only
+xi              $u $only
+xiya            $u $only
+deya            $u $only

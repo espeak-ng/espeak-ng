@@ -1,0 +1,100 @@
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for 'lang belta' (conlang from The Expanse)
+
+.replace
+	á	'a
+	é	'e
+	í	'i
+	ó	'o
+	ú	'u
+	à	'a
+	è	'e
+	ì	'i
+	ò	'o
+	ù	'u
+
+.group '
+	'	'
+
+.group a
+	a	a
+	a (_	a?
+
+.group b
+	b	b
+
+.group c
+	ch	tS
+
+.group d
+	dzh	dZ
+	d	d
+
+.group e
+	e	e:
+	e (_	e:?
+
+.group f
+	f	f
+
+.group g
+	g	g
+
+.group i
+	i	i:
+	i (_	i:?
+
+.group k
+	k	k
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	ng	N
+	ny	n^
+	n	n
+
+.group o
+	ow	0
+	ow (_	0?
+	o	o:
+	o (_	o:?
+
+.group p
+	p	p
+
+.group r
+	r	r
+
+.group s
+	sh	S
+	s	s
+
+.group t
+	t	t
+
+.group u
+	u	u:
+	u (_	u:?
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+.group x
+	x	x
+
+.group y
+	y 	%j
+
+.group z
+	z	z
+
+.group
+	ã	A~	// we don't yet know if other nasalized vowels exist
