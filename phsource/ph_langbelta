@@ -1,0 +1,40 @@
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+phoneme a
+  vwl  starttype #e  endtype #@
+  ipa æ
+  length 210
+  FMT(vwl_en_us/a)
+endphoneme
+
+phoneme 0
+  vwl  starttype #o   endtype #o
+  ipa ɒ
+  length 140
+  FMT(vowel/0_3)
+endphoneme
+
+//*******************************************************************
+// CONSONANTS
+//*******************************************************************
+
+phoneme r
+  liquid rfx
+  ipa ɽ
+  lengthmod 3
+  Vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15 colr=2
+  Vowelin  f1=2 f2=1400 -400 300  f3=-400 80 len=20
+
+  FMT(r3/@tap_rfx)
+endphoneme
+
+phoneme ?  // glottal stp
+  vls glt stp
+  lengthmod 1
+  nolink
+  Vowelin  glstop
+  Vowelout glstop
+  WAV(ustop/null)
+endphoneme

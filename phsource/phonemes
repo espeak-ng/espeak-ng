@@ -2040,3 +2040,6 @@ phonemetable nog kk
 
 phonemetable uz kk
 include ph_uzbek
+
+phonemetable qdb en
+include ph_langbelta
