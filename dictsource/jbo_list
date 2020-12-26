@@ -18,28 +18,18 @@ _9	so
 _dpt	pi_
 
 
-_a	abu
 b	b@
 c	S@
 d	d@
-_e	ebu
 f	f@
 g	g@
-_i	ibu
 j	Z@
 k	k@
-l	l@
-m	m@	// should "words" l,m,n,r say the syllable consonant?
-n	n@
-_o	obu
 p	p@
-r	R@
 s	s@
 t	t@
-_u	ubu
 v	v@
 x	x@
-y	'@bu
 z	z@
 
 h	@h'@bu
@@ -48,23 +38,33 @@ w	v'@bu
 
 
 // stressed cmavo
-cai	S'aI_!
+cai	S'aI__!
 cu'i	S'uhi_!
-pei	p'eI_!
+pei	p'eI__!
 ru'e	R'uhe_!
-sai	s'aI_!
-nai	n'aI_!
-na	n'a_!
+sai	s'aI__!
+nai	n'aI__!
+na	n'a__!
 ja'a	Z'aha_!
+
+// question cmavo
+ma	m'a__ // a longer pause to avoid resegmentation
+mo	m'o__
+xo	x'o__
+cu'e	S'uhe_!
+
+// emphasizing prefixes
+ba'e $u+
+za'e $u+
 
 
 // unstressed words. Note single-syllable cmavo are all unstressed in jbo_rules
-e'o	$u+	// request
 po'e	$u+	// of
 zo'e	$u+	// pronoun
+jo'u	$u+ $brk	// and
+ce'u	$u+ $brk	// lambda-it
+ke'a	$u+ $brk	// relative-it
 
-
-i	i_:	$u	// sentence break (recognised by eSpeak program). Try a short pause after ".i"
 
 // end-of-clause [_;_] before these
 noi	_;_noI	$u
@@ -73,21 +73,50 @@ no'u	_;_nohu	$u
 po'u	_;_pohu	$u
 goi	_;_goI	$u
 
-ija	_;_iZa		// should this series be unstressed?
-ijanai	_;_iZan'aI
-ije	_;_iZe
-ije'i	_;_iZehi
-ijenai	_;_iZenaI
-ijo	_;_iZo
-ijonai	_;_iZon'aI
-inaja	_;_inaZa
+
+// sentence connectives
+i	__;__i
+ija	_;__iZa
+ijanai	_;__iZan'aI
+ije	_;__iZe
+ije'i	_;__iZehi
+ijenai	_;__iZenaI
+ijo	_;__iZo
+ijonai	_;__iZon'aI
+inaja	_;__inaZa
+
+
+// connectives
+a	$brk
+e	$brk
+o	$brk
+u	$brk
+ja	$brk
+je	$brk
+ji	$brk
+jo	$brk
+ju	$brk
+joi	$brk
+
+
+// terminators and openers
+cu	$brk
+gi	$pause
 
 to	_::to	$u	// start parenthesis, pause but don't raise intonation
+lu	lu_:	$u $brk
+tu'e t,uhe_:	$u $brk
 
-// terminators (include a pause after)
-ku	ku_::	$u
-boi	boI_::	$u
+ku	ku_:	$u
+boi	boI_:	$u
+
+ge'u	g,ehu_:	$u $brk
+lu'u	l,uhu_:	$u $brk
+
+li'u	l,ihu_::	$u $brk
+tu'u	t,uhu_::	$u $brk
 vau	vaU_::	$u
 kei	keI_::	$u
+ku'o	k,uho_::	$u
 toi	toI_::	$u
 
