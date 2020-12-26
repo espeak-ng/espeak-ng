@@ -22,6 +22,7 @@ updated languages:
 *  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
 *  ja (Japanese) -- fukuen
+*  jbo (Lojban) -- Juho Hiltunen, xunsku
 *  mi (Māori) -- boracasli98
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
