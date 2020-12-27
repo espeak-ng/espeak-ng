@@ -271,7 +271,8 @@ check:	tests/encoding.check \
 	tests/non-executable-files-with-executable-bit.check \
 	tests/klatt.check \
 	tests/mbrola.check \
-	tests/bom.check
+	tests/bom.check \
+	tests/cmd_options.check
 
 ##### fuzzer:
 

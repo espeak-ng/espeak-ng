@@ -114,6 +114,7 @@ tests/*.check
 !tests/klatt.test
 !tests/mbrola.test
 !tests/dictionary.test
+!tests/cmd_options.test
 
 espeak-ng.pc
 

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+test_commandlineoptions() {
+	TEST_LANG=$1
+	MESSAGE=$2
+	OPTIONS=$3
+	EXPECTED=$4
+	TEST_TEXT=$5
+	TEST_BROKEN=${6:-false}
+
+	if [ "x$MESSAGE" = x- ] ; then
+		echo "testing ${TEST_LANG}"
+	else
+		echo "testing ${TEST_LANG} ($MESSAGE)"
+	fi
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng ${OPTIONS} -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	if [ x$TEST_BROKEN = xbroken ] ; then
+		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+	else
+		diff expected.txt actual.txt || exit 1
+	fi
+}
+
+##### Script coverage
+
+# missing tests: -k 10, -a, -d, -g, -p, -s, -w, -b, -z,  -pho, -phonout, --punct,  --split, --tie, -load
+
+# tested in other tests: --ipa, -x, -X, -v, -m, -f, -q, --compile, --compile-debug, --compile-mbrola, --compile-intonations, --compile-phonemes
+
+test_commandlineoptions en "Capitals (sound)" "-k 1" "_#X1T'aI _#X1'Es Iz a# _#X1t'Es _#X1t'i: fO@ _#X1k'apIt@Lz"  "ThiS is a TesT for Capitals"
+test_commandlineoptions en "Capitals (word)" "-k 2" "k,ap@-t@L T'aI k,ap@-t@L 'Es Iz a# k,ap@-t@L t'Es k,ap@-t@L t'i: fO@ k,ap@-t@L k'apIt@Lz"  "ThiS is a TesT for Capitals"
+test_commandlineoptions en "Separator" "--sep=q" "hq@qlq'oU wq'3:qlqd" "hello world"
+test_commandlineoptions en "Linelength" "-l 15" "wi:; 'A@
+wi:; A@ t'EstIN
+wi:; A@ t'EstIN l'aInlENT wi:; A@ t'EstIN l'aInlENT l'aIk D'Is" "We are
+We are testing
+We are testing linelength
+We are testing linelength like this"
