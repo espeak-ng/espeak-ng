@@ -372,6 +372,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
 	phsource/ph_kyrgyz \
+	phsource/ph_langbelta \
 	phsource/ph_latin \
 	phsource/ph_latvian \
 	phsource/ph_lithuanian \
@@ -560,6 +561,7 @@ dictionaries: \
 	espeak-ng-data/pl_dict \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/py_dict \
+	espeak-ng-data/qdb_dict \
 	espeak-ng-data/qu_dict \
 	espeak-ng-data/quc_dict \
 	espeak-ng-data/ro_dict \
@@ -821,6 +823,9 @@ espeak-ng-data/pt_dict: dictsource/pt_list dictsource/pt_rules dictsource/pt_ext
 
 py: espeak-ng-data/py_dict
 espeak-ng-data/py_dict: dictsource/py_list dictsource/py_rules dictsource/py_extra
+
+qdb: espeak-ng-data/qdb_dict
+espeak-ng-data/qdb_dict: dictsource/qdb_list dictsource/qdb_rules
 
 qu: espeak-ng-data/qu_dict
 espeak-ng-data/qu_dict: dictsource/qu_list dictsource/qu_rules dictsource/qu_extra
