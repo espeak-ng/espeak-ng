@@ -331,8 +331,7 @@ typedef struct {
 // change [t] when followed by unstressed vowel
 #define LOPT_REDUCE_T 12
 
-// 1 = allow capitals inside a word
-// 2 = stressed syllable is indicated by capitals
+// 1 = stressed syllable is indicated by capitals
 #define LOPT_CAPS_IN_WORD 13
 
 // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute

@@ -59,7 +59,6 @@ char *namedata = NULL;
 static int ungot_char2 = 0;
 espeak_ng_TEXT_DECODER *p_decoder = NULL;
 static int ungot_char;
-static const char *ungot_word = NULL;
 
 static bool ignore_text = false; // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
 static bool audio_text = false; // set during <audio> ... </audio>
@@ -656,12 +655,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	*tone_type = 0;
 	*voice_change = 0;
 
-	if (ungot_word != NULL) {
-		strcpy(buf, ungot_word);
-		ix += strlen(ungot_word);
-		ungot_word = NULL;
-	}
-
 	if (ungot_char2 != 0)
 		c2 = ungot_char2;
 	else
@@ -843,26 +836,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 			if (c1 == 0xf0b)
 				c1 = ' '; // Tibet inter-syllabic mark, ?? replace by space ??
-
-			if (iswspace(c1)) {
-				char *p_word;
-
-				if (tr->translator_name == 0x6a626f) {
-					// language jbo : lojban
-					// treat "i" or ".i" as end-of-sentence
-					p_word = &buf[ix-1];
-					if (p_word[0] == 'i') {
-						if (p_word[-1] == '.')
-							p_word--;
-						if (p_word[-1] == ' ') {
-							ungot_word = "i ";
-							UngetC(c2);
-							p_word[0] = 0;
-							return CLAUSE_PERIOD;
-						}
-					}
-				}
-			}
 
 			if (c1 == 0xd4d) {
 				// Malayalam virama, check if next character is Zero-width-joiner

@@ -2323,8 +2323,8 @@ void TranslateClause(Translator *tr, int *tone_out, char **voice_change)
 				if (iswupper(c)) {
 					c = towlower2(c, tr);
 
-					if ((j = tr->langopts.param[LOPT_CAPS_IN_WORD]) > 0) {
-						if ((j == 2) && (syllable_marked == false)) {
+					if (tr->langopts.param[LOPT_CAPS_IN_WORD]) {
+						if (syllable_marked == false) {
 							char_inserted = c;
 							c = 0x2c8; // stress marker
 							syllable_marked = true;

@@ -119,6 +119,7 @@
 	'	h
      _) ' (_    '@h@
 
+	D) . (D	||p%i||,	// decimal point
 	.	_!	// dot
      _)	. (@P1	_!      // remove . prefix
 	. (_S1  _!	// remove . suffix
