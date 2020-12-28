@@ -59,7 +59,7 @@ without the need to specify a voice.
 
 	name <name>
 
-A mandatory name given to this voice.
+A mandatory name given to this voice. Should be single word.
 
 ### language
 
