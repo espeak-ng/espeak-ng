@@ -1063,7 +1063,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.stress_rule = STRESSPOSN_2R;
 		tr->langopts.vowel_pause = 0x20c; // pause before a word which starts with a vowel, or after a word which ends in a consonant
 		tr->punct_within_word = jbo_punct_within_word;
-		tr->langopts.param[LOPT_CAPS_IN_WORD] = 2; // capitals indicate stressed syllables
+		tr->langopts.param[LOPT_CAPS_IN_WORD] = 1; // capitals indicate stressed syllables
 		SetLetterVowel(tr, 'y');
 		tr->langopts.max_lengthmod = 368;
 	}
