@@ -262,6 +262,7 @@ check:	tests/encoding.check \
 	tests/ssml.check \
 	tests/ssml-fuzzer.check \
 	tests/api.check \
+	tests/dictionary.check \
 	tests/language-phonemes.check \
 	tests/language-replace.check \
 	tests/language-pronunciation.check \
