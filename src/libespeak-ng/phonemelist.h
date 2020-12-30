@@ -21,7 +21,6 @@
 #ifndef ESPEAK_NG_PHONEMELIST_H
 #define ESPEAK_NG_PHONEMELIST_H
 
-#include "synthesize.h"
 #include "translate.h"
 
 #ifdef __cplusplus
@@ -33,11 +32,7 @@ extern "C"
 }
 #endif
 
-void MakePhonemeList(Translator *tr,
-	int post_pause,
-	bool start_sentence,
-	int *n_ph_list2,
-	PHONEME_LIST2 *ph_list2);
+void MakePhonemeList(Translator *tr, int post_pause, bool start_sentence);
 
 #endif
 
