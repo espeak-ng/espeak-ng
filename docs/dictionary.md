@@ -392,8 +392,8 @@ instead of, or as well as, the phonetic translation.
 | `$u2`                | The word is unstressed, with a slight stress on its 2nd syllable. |
 | `$u3`                | The word is unstressed, with a slight stress on its 3rd syllable. |
 | `$u+ $u1+ $u2+ $u3+` | As above, but the word has full stress if it's at the end of a clause. |
-| `$pause`             | Ensure a short pause before this word (eg. for conjunctions such as "and", some prepositions, etc). |
-| `$brk`               | Ensure a very short pause before this word, shorter than $pause (eg. for some prepositions, etc). |
+| `$pause`             | Ensure a short pause before this word (eg. for conjunctions such as "and", some prepositions, etc). Does not apply for 1st, 2nd or last word of a sentence. |
+| `$brk`               | Ensure a very short pause before this word, shorter than $pause (eg. for some prepositions, etc). Does not apply for the last word of a sentence. |
 | `$only`              | The rule does not apply if a prefix or suffix has already been removed. |
 | `$onlys`             | As `$only`, except that a standard  plural ending is allowed. |
 | `$stem`              | The rule only applies if a suffix has already been removed (i.e. word had to have suffix before). |
@@ -410,12 +410,12 @@ instead of, or as well as, the phonetic translation.
 | `$text`              | Word translates to replacement text, not phonemes.|
 | `$verbf`             | The following word is probably a verb. |
 | `$verbsf`            | The following word is probably a verb if it has an "s" suffix. |
-| `$nounf`             | The following word is probably not a verb. |
+| `$nounf`             | The following word is probably a noun. |
 | `$pastf`             | The following word is probably past tense. |
 | `$verb`              | Use this pronunciation if it's a verb, i.e. previously processed word had `$verbf` or `$verbsf` set.|
 | `$noun`              | Use this pronunciation if it's a noun, i.e. previously processed word had `$nounf` set.|
 | `$past`              | Use this pronunciation if it's past tense, i.e. previously processed word had `$pastf` set.|
-| `$verbextend`        | Extend the influence of `$verbf` and `$verbsf`. |
+| `$verbextend`        | Extend the influence of `$verbf` and `$verbsf` until  a word with $verb or $nounf is encountered. |
 | `$capital`           | Use this pronunciation if the word has initial capital letter (eg. polish v Polish). |
 | `$allcaps`           | Use this pronunciation if the word is all capitals. |
 | `$accent`            | Used for the pronunciation of a single alphabetic character. The character name is spoken as the base-letter name plus the accent (diacritic) name. e.g. It can be used to specify that "â" is spoken as "a" "circumflex". |
