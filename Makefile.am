@@ -171,7 +171,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/wavegen.c
 
 noinst_HEADERS = \
-	src/speechPlayer/include/speechPlayer.h
+	src/speechPlayer/include/speechPlayer.h \
 	src/ucd-tools/src/include/ucd/ucd.h
 
 if OPT_KLATT
