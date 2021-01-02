@@ -1854,6 +1854,8 @@ include ph_nahuatl
 phonemetable pt base2
 include ph_pt_brazil
 
+phonemetable piqd base2
+include ph_klingon
 
 phonemetable ro base2
 include ph_romanian

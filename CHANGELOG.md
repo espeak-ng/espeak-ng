@@ -38,6 +38,7 @@ new languages:
 *  io (Ido) -- José Miguel López, Valdis Vitolins
 *  ltg (Latgalian) -- Valdis Vitolins
 *  nog (Nogai) -- boracasli98, Valdis Vitolins
+*  piqd (Klingon) -- Valdis Vitolins
 *  qu (Quechua) -- Valdis Vitolins
 *  qdb (Lang Belta) -- Da Def, Valdis Vitolins
 *  th (Thai) -- Valdis Vitolins

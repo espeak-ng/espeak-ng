@@ -369,6 +369,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_kannada \
 	phsource/ph_kazakh \
 	phsource/ph_kinyarwanda \
+	phsource/ph_klingon \
 	phsource/ph_korean \
 	phsource/ph_kurdish \
 	phsource/ph_kyrgyz \
@@ -558,6 +559,7 @@ dictionaries: \
 	espeak-ng-data/or_dict \
 	espeak-ng-data/pa_dict \
 	espeak-ng-data/pap_dict \
+	espeak-ng-data/piqd_dict \
 	espeak-ng-data/pl_dict \
 	espeak-ng-data/pt_dict \
 	espeak-ng-data/py_dict \
@@ -814,6 +816,9 @@ espeak-ng-data/pa_dict: dictsource/pa_list dictsource/pa_rules dictsource/pa_ext
 
 pap: espeak-ng-data/pap_dict
 espeak-ng-data/pap_dict: dictsource/pap_list dictsource/pap_rules dictsource/pap_extra
+
+piqd: espeak-ng-data/piqd_dict
+espeak-ng-data/piqd_dict: dictsource/piqd_list dictsource/piqd_rules
 
 pl: espeak-ng-data/pl_dict
 espeak-ng-data/pl_dict: dictsource/pl_list dictsource/pl_rules dictsource/pl_extra dictsource/pl_emoji
