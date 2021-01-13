@@ -857,7 +857,7 @@ static int NextItemMax(int max)
 
 static int NextItemBrackets(int type, int control)
 {
-	// Expect a parameter inside parantheses
+	// Expect a parameter inside parentheses
 	// control: bit 0  0= need (
 	//          bit 1  1= allow comma
 

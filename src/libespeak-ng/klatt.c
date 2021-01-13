@@ -721,7 +721,7 @@ static void pitch_synch_par_reset(klatt_frame_ptr frame)
 /*
    function SETABC
 
-   Convert formant freqencies and bandwidth into resonator difference
+   Convert formant frequencies and bandwidth into resonator difference
    equation constants.
  */
 
@@ -748,7 +748,7 @@ static void setabc(long int f, long int bw, resonator_ptr rp)
 /*
    function SETZEROABC
 
-   Convert formant freqencies and bandwidth into anti-resonator difference
+   Convert formant frequencies and bandwidth into anti-resonator difference
    equation constants.
  */
 

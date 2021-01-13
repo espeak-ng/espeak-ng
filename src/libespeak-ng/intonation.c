@@ -431,7 +431,7 @@ static int SetHeadIntonation(SYLLABLE *syllable_tab, TUNE *tune, int syl_ix, int
 
 	pitch_range = (tune->head_end - tune->head_start) << 8;
 	pitch_range_abs = abs(pitch_range);
-	drops = drops_0; // this should be controled by tune->head_drops
+	drops = drops_0; // this should be controlled by tune->head_drops
 	initial = true;
 
 	stage = 0;
@@ -784,7 +784,7 @@ static void CalcPitches_Tone(Translator *tr)
 	PHONEME_TAB *prevw_tph; // remember across word boundary
 	PHONEME_LIST *prev_p;
 
-	int pitch_adjust = 0;    // pitch gradient through the clause - inital value
+	int pitch_adjust = 0;    // pitch gradient through the clause - initial value
 	int pitch_decrement = 0; // decrease by this for each stressed syllable
 	int pitch_low = 0;       // until it drops to this
 	int pitch_high = 0;      // then reset to this

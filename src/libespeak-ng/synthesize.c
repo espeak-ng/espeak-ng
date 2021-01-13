@@ -104,7 +104,7 @@ static void EndAmplitude(void)
 
 static void EndPitch(int voice_break)
 {
-	// posssible end of pitch envelope, fill in the length
+	// possible end of pitch envelope, fill in the length
 	if ((pitch_length > 0) && (last_pitch_cmd >= 0)) {
 		if (wcmdq[last_pitch_cmd][1] == 0)
 			wcmdq[last_pitch_cmd][1] = pitch_length;

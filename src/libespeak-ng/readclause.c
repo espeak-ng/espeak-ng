@@ -394,7 +394,7 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 
 static int LookupSoundicon(int c)
 {
-	// Find the sound icon number for a punctuation chatacter
+	// Find the sound icon number for a punctuation character
 	int ix;
 
 	for (ix = N_SOUNDICON_SLOTS; ix < n_soundicon_tab; ix++) {

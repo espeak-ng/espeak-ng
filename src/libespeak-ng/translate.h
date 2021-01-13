@@ -115,7 +115,7 @@ extern "C"
 #define FLAG_LAST_WORD     0x10  // last word in clause
 #define FLAG_EMBEDDED      0x40  // word is preceded by embedded commands
 #define FLAG_HYPHEN        0x80
-#define FLAG_NOSPACE       0x100 // word is not seperated from previous word by a space
+#define FLAG_NOSPACE       0x100 // word is not separated from previous word by a space
 #define FLAG_FIRST_WORD    0x200 // first word in clause
 #define FLAG_FOCUS         0x400 // the focus word of a clause
 #define FLAG_EMPHASIZED    0x800
@@ -299,7 +299,7 @@ typedef struct {
 // bit 1=LANG=cz,bg  don't propagate over [v]
 // bit 2=don't propagate acress word boundaries
 // bit 3=LANG=pl,  propagate over liquids and nasals
-// bit 4=LANG=cz,sk  don't progagate to [v]
+// bit 4=LANG=cz,sk  don't propagate to [v]
 // bit 8=devoice word-final consonants
 #define LOPT_REGRESSIVE_VOICING 4
 
@@ -342,7 +342,7 @@ typedef struct {
 // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
 #define LOPT_ALT 15
 
-// pause for bracket (default=4), pause when annoucing bracket names (default=2)
+// pause for bracket (default=4), pause when announcing bracket names (default=2)
 #define LOPT_BRACKET_PAUSE 16
 
 // bit 1, don't break clause before annoucning . ? !
@@ -443,7 +443,7 @@ typedef struct {
 #define NUM_HUNDRED_AND       0x00000040 // add "and" after hundred or thousand
 #define NUM_SINGLE_AND        0x00000080 // don't have "and" both after hundreds and also between tens and units
 #define NUM_SINGLE_STRESS     0x00000100 // only one primary stress in tens+units
-#define NUM_SINGLE_VOWEL      0x00000200 // only one vowel betwen tens and units
+#define NUM_SINGLE_VOWEL      0x00000200 // only one vowel between tens and units
 #define NUM_OMIT_1_HUNDRED    0x00000400 // omit "one" before "hundred"
 #define NUM_1900              0x00000800 // say 19** as nineteen hundred
 #define NUM_ALLOW_SPACE       0x00001000 // allow space as thousands separator (in addition to langopts.thousands_sep)

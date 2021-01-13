@@ -49,7 +49,7 @@ extern "C"
 // Initialize the event component.
 // First function to be called.
 // the callback will be called when the event actually occurs.
-// The callback is detailled in speak_lib.h .
+// The callback is detailed in speak_lib.h .
 void event_init(void);
 void event_set_callback(t_espeak_callback *cb);
 
