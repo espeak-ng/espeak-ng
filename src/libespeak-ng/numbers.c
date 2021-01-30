@@ -1704,7 +1704,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, bool suppress_nul
 		if (ph_ordinal2[0] != 0) {
 			ix = strlen(buf1);
 			if ((ix > 0) && (buf1[ix-1] == phonPAUSE_SHORT))
-				buf1[ix-1] = 0; // remove pause before addding ordinal suffix
+				buf1[ix-1] = 0; // remove pause before adding ordinal suffix
 			strcpy(buf2, ph_ordinal2);
 		}
 	}

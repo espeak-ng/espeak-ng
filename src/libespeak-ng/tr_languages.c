@@ -391,7 +391,7 @@ static void SetArabicLetters(Translator *tr)
 
 static void SetCyrillicLetters(Translator *tr)
 {
-	// Set letter types for Cyrillic script languages: bg (Bulgarian), ru (Russian), tt (Tatar), uk (Ukranian).
+	// Set letter types for Cyrillic script languages: bg (Bulgarian), ru (Russian), tt (Tatar), uk (Ukrainian).
 
 	// character codes offset by 0x420
 	static const char cyrl_soft[] = { 0x2c, 0x19, 0x27, 0x29, 0 }; // letter group B  [k ts; s;] -- ь й ч щ
@@ -1461,7 +1461,7 @@ Translator *SelectTranslator(const char *name)
 			tr->letter_bits_offset = OFFSET_TAMIL;
 			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND;
 			tr->langopts.numbers2 = NUM2_ORDINAL_AND_THOUSANDS;
-			tr->langopts.param[LOPT_WORD_MERGE] = 1; // don't break vowels betwen words
+			tr->langopts.param[LOPT_WORD_MERGE] = 1; // don't break vowels between words
 		} else if (name2 == L('m', 'l')) {
 			static const short stress_lengths_ml[8] = { 180, 160,  240, 240,  0, 0,  260, 260 };
 			SetupTranslator(tr, stress_lengths_ml, stress_amps_equal);

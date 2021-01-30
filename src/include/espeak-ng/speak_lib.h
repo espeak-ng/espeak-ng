@@ -201,7 +201,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, cons
 
    buflength:  The length in mS of sound buffers passed to the SynthCallback function.
             Value=0 gives a default of 60mS.
-            This paramater is only used for AUDIO_OUTPUT_RETRIEVAL and AUDIO_OUTPUT_SYNCHRONOUS modes.
+            This parameter is only used for AUDIO_OUTPUT_RETRIEVAL and AUDIO_OUTPUT_SYNCHRONOUS modes.
 
    path: The directory which contains the espeak-ng-data directory, or NULL for the default location.
 
@@ -235,7 +235,7 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events);
       sometimes be zero (which does NOT indicate end of synthesis).
 
    events: an array of espeak_EVENT items which indicate word and sentence events, and
-      also the occurance if <mark> and <audio> elements within the text.  The list of
+      also the occurrence if <mark> and <audio> elements within the text.  The list of
       events is terminated by an event of type = 0.
 
 

@@ -16,7 +16,7 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-// This source file is only used for asynchronious modes
+// This source file is only used for asynchronous modes
 
 #include "config.h"
 

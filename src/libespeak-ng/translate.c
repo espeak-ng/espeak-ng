@@ -474,7 +474,7 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 	if (spell_word > 2)
 		capitals = 2; // speak 'capital'
 	if (spell_word > 1)
-		capitals |= 4; // speak charater code for unknown letters
+		capitals |= 4; // speak character code for unknown letters
 
 	while ((*word != ' ') && (*word != 0)) {
 		word += TranslateLetter(tr, word, phonemes, capitals | non_initial, current_alphabet);
@@ -1923,7 +1923,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 			if (final > 0)
 				*insert = final + 0x11a7;
 		} else {
-			// extact the initial and insert the remainder with a null initial
+			// extract the initial and insert the remainder with a null initial
 			c = initial + 0x1100;
 			*insert = (11*28*21) + (medial*28) + final + 0xac00;
 		}
