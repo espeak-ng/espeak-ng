@@ -277,7 +277,6 @@ static Translator *NewTranslator(void)
 
 	for (ix = 0; ix < 8; ix++) {
 		tr->stress_amps[ix] = stress_amps2[ix];
-		tr->stress_amps_r[ix] = stress_amps2[ix] - 1;
 		tr->stress_lengths[ix] = stress_lengths2[ix];
 	}
 	memset(&(tr->langopts), 0, sizeof(tr->langopts));

@@ -927,7 +927,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		translator->stress_lengths[ix] += stress_add[ix];
 	for (ix = 0; ix < stress_amps_set; ix++) {
 		translator->stress_amps[ix] = stress_amps[ix];
-		translator->stress_amps_r[ix] = stress_amps[ix] -1;
 	}
 
 	return voice;

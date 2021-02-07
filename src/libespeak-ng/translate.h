@@ -555,7 +555,6 @@ typedef struct {
 	int phoneme_tab_ix;
 
 	unsigned char stress_amps[8];
-	unsigned char stress_amps_r[8];
 	short stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 	int dict_min_size;
