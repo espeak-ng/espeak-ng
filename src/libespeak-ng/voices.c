@@ -117,7 +117,6 @@ enum {
 };
 
 static MNEM_TAB options_tab[] = {
-	{ "reduce_t", LOPT_REDUCE_T },
 	{ "bracket",  LOPT_BRACKET_PAUSE },
 	{ NULL,   -1 }
 };

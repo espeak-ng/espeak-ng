@@ -328,9 +328,6 @@ typedef struct {
 // bit 5=not if the second word is end-of-sentence
 #define LOPT_COMBINE_WORDS 11
 
-// change [t] when followed by unstressed vowel
-#define LOPT_REDUCE_T 12
-
 // 1 = stressed syllable is indicated by capitals
 #define LOPT_CAPS_IN_WORD 13
 
