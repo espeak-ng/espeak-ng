@@ -3,9 +3,9 @@
 
 _0      nada
 _1      waN
-_2      tu:
-_3      se:'ri:
-_4      fu:
+_2      tu:?
+_3      se:'ri:?
+_4      fu:?
 _5      faf
 _6      si:ke:S
 _7      se:N
@@ -29,12 +29,12 @@ _6X     'si:ke:se:te:N
 _7X     'se:Nete:N
 _8X     'e:te:te:N
 _9X     'naNe:te:N
-_0C     xanja
-_1C     xanja
+_0C     xanja?
+_1C     xanja?
 _0M1    t0se:N
 _1M1    t0se:N
 _0and   u:nj@-
-_dpt    ko:ma
+_dpt    ko:ma?
 
 // individual letters (not canon!)
 
@@ -88,6 +88,7 @@ depelesh        $3
 ekepesh         $1
 entediye        $1
 ereluf          $1
+erete		$1
 etera           $1
 feradiye        $2
 gerowsh         $2
@@ -95,9 +96,9 @@ gutegow         $1
 gutemang        $1
 idzhifobek      $4
 kedawang        $1
-kena            ke:%na
+kena            ke:'na?
 kepelesh        $3
-keya            ke:%ja
+keya            ke:'ja?
 kometing        $1
 kowpelesh       $3
 langemang       $1
@@ -108,9 +109,9 @@ metexeng        $1
 nakangego       $2
 nakangikeng     $2
 naterash        $1
-owala           $1
+owala           'o:wala
 paxari          $1
-paxoniseki      $3
+paxoniseki      p,axo:nj'i:se:k,i:?
 pelesh          $2
 peyeting        $1
 polisi          $1
@@ -119,9 +120,11 @@ rembera         $1
 ruserux         $1
 saviting        $1
 sefesowng       $1
+sekoch		$2
 semowt          $2
 sempere         $1
 seping          $2
+seri		$2
 sesata          $1
 seterax         $3
 setop           $2
@@ -129,11 +132,13 @@ setoriye        $2
 shelaf          $2
 sheru           $2
 shetexeting     $2
+shio		S'i:u
 soya            $2
 tekidok         $1
 tekimang        $1
 tekiting        $1
 terash          $2
+teristi		te:r'i:s@ti:?
 tungeting       $1
 uzilik          $1
 vediting        $1
@@ -147,22 +152,22 @@ zakomang        $1
 // conjunctions
 
 un              u:N
-unte            u:nte: $pause
-amash           amaS $pause
-o               o: $pause
+unte            $pause
+amash           $pause
+o               $pause
 
 // prepositions
 
-efa             e:fa $brk
-ere             e:re: $brk
-erefo           e:re:fo: $brk
-fing            fi:N $brk
-fingi           fi:Ni: $brk
-fo              fo: $brk
-fode            fo:de: $brk
-fong            fo:N $brk
-nawit           nawi:t $brk
-wit             wi:t $brk
+efa             $brk
+ere             $brk
+erefo           $brk
+fing            $brk
+fingi           $brk
+fo              $brk
+fode            $brk
+fong            $brk
+nawit           $brk
+wit             $brk
 
 // pronouns
 
