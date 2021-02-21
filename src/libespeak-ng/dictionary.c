@@ -2309,9 +2309,9 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 
 						// is it a bracket ?
 						if (letter == 0xe000+'(') {
-							if (pre_pause < tr->langopts.param2[LOPT_BRACKET_PAUSE])
-								pre_pause = tr->langopts.param2[LOPT_BRACKET_PAUSE]; // a bracket, already spoken by AnnouncePunctuation()
-						}
+							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED])
+								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE_ANNOUNCED]; // a bracket, already spoken by AnnouncePunctuation()
+						} 
 						if (IsBracket(letter)) {
 							if (pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE])
 								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE];

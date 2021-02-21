@@ -285,7 +285,7 @@ typedef struct {
 #define AL_NOT_CODE     0x08 // don't speak the character code
 #define AL_NO_SYMBOL    0x10 // don't repeat "symbol" or "character"
 
-#define N_LOPTS       21
+#define N_LOPTS       22
 #define LOPT_DIERESES  1
 // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
 // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -339,7 +339,7 @@ typedef struct {
 // bit 1: stressed syllable: $alt change [e],[o] to [E],[O],  $alt2 change [E],[O] to [e],[o]
 #define LOPT_ALT 15
 
-// pause for bracket (default=4), pause when announcing bracket names (default=2)
+// pause for bracket (default=4), also see LOPT_BRACKET_PAUSE_ANNOUNCED
 #define LOPT_BRACKET_PAUSE 16
 
 // bit 1, don't break clause before annoucning . ? !
@@ -354,6 +354,9 @@ typedef struct {
 // bit 0  Apostrophe at start of word is part of the word
 // bit 1  Apostrophe at end of word is part of the word
 #define LOPT_APOSTROPHE 20
+
+// pause when announcing bracket names (default=2), also see LOPT_BRACKET_PAUSE
+#define LOPT_BRACKET_PAUSE_ANNOUNCED 21
 
 // stress_rule
 #define STRESSPOSN_1L 0 // 1st syllable
@@ -428,7 +431,6 @@ typedef struct {
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
 	int param[N_LOPTS];
-	int param2[N_LOPTS];
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 

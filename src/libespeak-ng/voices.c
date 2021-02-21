@@ -102,7 +102,6 @@ enum {
 	V_STRESSRULE,
 	V_STRESSOPT,
 	V_NUMBERS,
-	V_OPTION,
 
 	V_MBROLA,
 	V_KLATT,
@@ -114,11 +113,6 @@ enum {
 	// these need a phoneme table to have been specified
 	V_REPLACE,
 	V_CONSONANTS
-};
-
-static MNEM_TAB options_tab[] = {
-	{ "bracket",  LOPT_BRACKET_PAUSE },
-	{ NULL,   -1 }
 };
 
 static MNEM_TAB keyword_tab[] = {
@@ -154,7 +148,6 @@ static MNEM_TAB keyword_tab[] = {
 	{ "breath",       V_BREATH },
 	{ "breathw",      V_BREATHW },
 	{ "numbers",      V_NUMBERS },
-	{ "option",       V_OPTION },
 	{ "mbrola",       V_MBROLA },
 	{ "consonants",   V_CONSONANTS },
 	{ "klatt",        V_KLATT },
@@ -170,6 +163,8 @@ static MNEM_TAB keyword_tab[] = {
 	{ "l_sonorant_min",   0x100+LOPT_SONORANT_MIN },
 	{ "l_length_mods",    0x100+LOPT_LENGTH_MODS },
 	{ "apostrophe",       0x100+LOPT_APOSTROPHE },
+	{ "brackets",       0x100+LOPT_BRACKET_PAUSE },
+	{ "bracketsAnnounced",       0x100+LOPT_BRACKET_PAUSE_ANNOUNCED },
 
 	{ NULL, 0 }
 };
@@ -490,7 +485,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	int ix;
 	int n;
 	int value;
-	int value2;
 	int langix = 0;
 	int tone_only = control & 2;
 	bool language_set = false;
@@ -508,7 +502,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	char translator_name[40];
 	char new_dictionary[40];
 	char phonemes_name[40];
-	char option_name[40];
 	const char *language_type;
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
@@ -770,18 +763,6 @@ voice_t *LoadVoice(const char *vname, int control)
 				       &langopts->unstressed_wd2);
 			else
 				fprintf(stderr, "Cannot set stressrule: language not set, or is invalid.\n");
-			break;
-		case V_OPTION:
-			if (langopts) {
-				value2 = 0;
-				if (((sscanf(p, "%s %d %d", option_name, &value, &value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0)) ||
-				    ((sscanf(p, "%d %d %d", &ix, &value, &value2) >= 2) && (ix < N_LOPTS))) {
-					langopts->param[ix] = value;
-					langopts->param2[ix] = value2;
-				} else
-					fprintf(stderr, "Bad voice option: %s %s\n", buf, p);
-			} else
-				fprintf(stderr, "Cannot set option: language not set, or is invalid.\n");
 			break;
 		case V_ECHO:
 			// echo.  suggest: 135mS  11%

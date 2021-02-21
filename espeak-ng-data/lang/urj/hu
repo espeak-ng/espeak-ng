@@ -1,6 +1,7 @@
 name Hungarian
 language hu
-option bracket 0 0
+brackets 0
+bracketsAnnounced 0
 pitch 81 117
 
 

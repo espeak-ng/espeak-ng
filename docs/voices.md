@@ -21,6 +21,8 @@
   - [speed](#speed)
   - [words](#words)
 - [Language Attributes](#language-attributes)
+  - [brackets](#brackets)
+  - [bracketsAnnounced](#bracketsAnnounced)
   - [phonemes](#phonemes)
   - [dictionary](#dictionary)
   - [dictrules](#dictrules)
@@ -334,6 +336,22 @@ will put a short pause between two words where the first word end with a
 vowel and the next start with a vowel.
 
 ## Language Attributes
+
+### brackets
+
+	brackets <value>
+
+Default value: 4
+
+Increases the pause when reading brackets. Example: "Pause (with brackets)".
+
+### bracketsAnnounced
+
+	bracketsAnnounced <value>
+
+Default value: 2
+
+Increases the pause when reading brackets when --punct is set to read bracket names. Example: "Pause (with brackets)".
 
 ### phonemes
 
