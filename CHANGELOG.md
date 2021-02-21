@@ -9,7 +9,15 @@ The espeak-ng project is a fork of the espeak project.
 
 ### 1.51 (In Development)
 
-* add support for speechPlayer
+*  Add support for speechPlayer.
+*  Add more tests to check the various parts of espeak-ng.
+*  Various changes to clean up the codebase.
+*  Restructure "option brackets" language option to "brackets" and "bracketsAnnounced".
+*  Added voice variants
+
+documentation:
+* Add documentation about voice and language options.
+* Add documentation about dictionary flags.
 
 updated languages:
 *  ba (Bashkir) -- boracasli98, Valdis Vitolins
@@ -17,12 +25,14 @@ updated languages:
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
+*  ga (Gaelic (Irish)) Chen, Chien-ting 
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  hy (Armenian) -- tigransimonyan
 *  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
 *  ja (Japanese) -- fukuen
 *  jbo (Lojban) -- Juho Hiltunen, xunsku
+*  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
 *  shn (Shan Tay Yai) -- ronaldaug
 *  tr (Turkish) -- boracasli98
