@@ -18,7 +18,8 @@
 
 .group a
 	a	a
-	a (_	a?
+	a (_A	a?
+        
 
 .group b
 	b	b
@@ -32,7 +33,7 @@
 
 .group e
 	e	e:
-	e (_	e:?
+	e (_A	e:?
 
 .group f
 	f	f
@@ -42,13 +43,14 @@
 
 .group i
 	i	i:
-	i (_	i:?
+	i (_A	i:?
 
 .group k
 	k	k
 
 .group l
 	l	l
+	l (_	u
 
 .group m
 	m	m
@@ -60,9 +62,9 @@
 
 .group o
 	ow	0
-	ow (_	0?
+	ow (_A	0?
 	o	o:
-	o (_	o:?
+	o (_A	o:?
 
 .group p
 	p	p
@@ -76,10 +78,11 @@
 
 .group t
 	t	t
+	t (_	?
 
 .group u
 	u	u:
-	u (_	u:?
+	u (_A	u:?
 
 .group v
 	v	v
@@ -88,7 +91,7 @@
 	w	w
 
 .group x
-	x	x
+	x	X
 
 .group y
 	y 	%j
