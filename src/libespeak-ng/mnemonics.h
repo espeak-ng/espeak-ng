@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2005 to 2014 by Jonathan Duddington
+ * Copyright (C) 2005 to 2007 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
- * Copyright (C) 2013-2017 Reece H. Dunn
+ * Copyright (C) 2013-2015 Reece H. Dunn
+ * Copyright (C) 2021 Juho Hiltunen
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +18,23 @@
  * along with this program; if not, see: <http://www.gnu.org/licenses/>.
  */
 
-#include "config.h"
+#ifndef ESPEAK_NG_MNEMONICS_H
+#define ESPEAK_NG_MNEMONICS_H
 
-#include <string.h>
-
-#include <espeak-ng/espeak_ng.h>
-
-#include "mnemonics.h"  // for MNEM_TAB, LookupMnem, LookupMnemName
-
-int LookupMnem(MNEM_TAB *table, const char *string)
+#ifdef __cplusplus
+extern "C"
 {
-	while (table->mnem != NULL) {
-		if (string && strcmp(string, table->mnem) == 0)
-			return table->value;
-		table++;
-	}
-	return table->value;
-}
+#endif
 
-const char *LookupMnemName(MNEM_TAB *table, const int value)
-{
-	while (table->mnem != NULL) {
-		if (table->value == value)
-			return table->mnem;
-		table++;
-	}
-	return ""; // not found
+typedef struct {
+	const char *mnem;
+	int value;
+} MNEM_TAB;
+int LookupMnem(MNEM_TAB *table, const char *string);
+const char *LookupMnemName(MNEM_TAB *table, const int value);
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif

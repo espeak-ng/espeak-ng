@@ -59,13 +59,6 @@ extern "C"
    #define PATH_ESPEAK_DATA  "/usr/share/espeak-ng-data"
 #endif
 
-typedef struct {
-	const char *mnem;
-	int value;
-} MNEM_TAB;
-int LookupMnem(MNEM_TAB *table, const char *string);
-const char *LookupMnemName(MNEM_TAB *table, const int value);
-
 void cancel_audio(void);
 
 extern char path_home[N_PATH_HOME];    // this is the espeak-ng-data directory

@@ -40,8 +40,9 @@
 
 #include "voice.h"                    // for voice_t, DoVoiceChange, N_PEAKS
 #include "dictionary.h"               // for strncpy0, LoadDictionary
+#include "mnemonics.h"               // for LookupMnemName, MNEM_TAB
 #include "phoneme.h"                  // for REPLACE_PHONEMES, n_replace_pho...
-#include "speech.h"                   // for LookupMnem, GetFileLength, PATHSEP
+#include "speech.h"                   // for GetFileLength, PATHSEP
 #include "mbrola.h"                   // for LoadMbrolaTable
 #include "synthdata.h"                // for SelectPhonemeTableName, LookupP...
 #include "synthesize.h"               // for SetSpeed, SPEED_FACTORS, speed
