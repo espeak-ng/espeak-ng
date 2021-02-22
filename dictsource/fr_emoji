@@ -24,7 +24,7 @@ $textmode
 //¥	yen								// [00A5] other (no translation)
 //§	section								// [00A7] other (no translation)
 //¨	double dot							// [00A8] other (no translation)
-©	symbole Copyright						// [00A9] text|emoji
+//©	symbole Copyright						// [00A9] text|emoji
 //¬	not sign							// [00AC] other (no translation)
 ®	marque déposée							// [00AE] text|emoji
 //°	degrees								// [00B0] other (no translation)
