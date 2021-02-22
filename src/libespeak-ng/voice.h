@@ -64,7 +64,6 @@ typedef struct {
 	// copies without temporary adjustments from embedded commands
 	short freq2[N_PEAKS];    // 100% = 256
 	short height2[N_PEAKS];  // 100% = 256
-	short width2[N_PEAKS];   // 100% = 256
 
 	int breath[N_PEAKS];  // amount of breath for each formant. breath[0] indicates whether any are set.
 	int breathw[N_PEAKS]; // width of each breath formant

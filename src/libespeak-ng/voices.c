@@ -867,7 +867,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	for (ix = 0; ix < N_PEAKS; ix++) {
 		voice->freq2[ix] = voice->freq[ix];
 		voice->height2[ix] = voice->height[ix];
-		voice->width2[ix] = voice->width[ix];
 	}
 
 	if (tone_only)
