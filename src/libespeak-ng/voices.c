@@ -109,7 +109,6 @@ enum {
 	V_FAST,
 	V_SPEED,
 	V_DICTMIN,
-	V_ALPHABET2,
 
 	// these need a phoneme table to have been specified
 	V_REPLACE,
@@ -890,9 +889,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		voice_languages[langix] = 0;
 	}
 
-	langopts = &new_translator->langopts;
-
-	if ((value = langopts->param[LOPT_LENGTH_MODS]) != 0)
+	if ((value = new_translator->langopts.param[LOPT_LENGTH_MODS]) != 0)
 		SetLengthMods(new_translator, value);
 
 	voice->width[0] = (voice->width[0] * 105)/100;
