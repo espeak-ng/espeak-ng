@@ -312,7 +312,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type, SSML_STACK *ssml_sp, SS
 	// a voice change.
 	// If it's a closing tag, delete the top frame of the stack and determine whether this implies
 	// a voice change.
-	// Returns  CLAUSE_TYPE_VOICE_CHANGE if there is a voice change
+	// if there is a voice change, sets current_voice_id and returns CLAUSE_TYPE_VOICE_CHANGE
 
 	wchar_t *lang;
 	wchar_t *gender;
