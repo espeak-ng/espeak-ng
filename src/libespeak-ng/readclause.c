@@ -621,7 +621,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 	int cprev = ' '; // previous character
 	int cprev2 = ' ';
 	int c_next;
-	int c_next_2;
 	int parag;
 	int ix = 0;
 	int j;
@@ -1010,6 +1009,12 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 						is_end_clause = false;
 					}
 
+					if (c1 == '.' && c_next == '\'' && text_decoder_peekc(p_decoder) == 's') {
+					 	// A special case to handle english acronym + genitive, eg. u.s.a.'s
+						// But avoid breaking clause handling if anything else follows the apostrophe.
+						is_end_clause = false;
+					}
+
 					if (c1 == '.') {
 						if ((tr->langopts.numbers & NUM_ORDINAL_DOT) &&
 						    (iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2))))) { // lang=hu
@@ -1018,15 +1023,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 								is_end_clause = false; // Roman number followed by dot
 							else if (iswlower(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
 								is_end_clause = false; // only if followed by lower-case, (or if there is a XML tag)
-						} else if (c_next == '\'') {
-							// A special case to handle english acronym + genitive
-							// eg. u.s.a.'s
-							// But avoid breaking clause handling if anything else follows the apostrophe.
-							c_next_2 = GetC();
-							if(c_next_2 == 's')
-								is_end_clause = false;
-							UngetC(c_next_2);
-						}
+						} 
 						if (iswlower(c_next)) {
 							// next word has no capital letter, this dot is probably from an abbreviation
 							is_end_clause = 0;
