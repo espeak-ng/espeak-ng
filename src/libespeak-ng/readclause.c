@@ -846,11 +846,10 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 		if (iswupper(c1)) {
 			tr->clause_upper_count++;
+
 			if ((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev)) {
-				char text_buf[40];
-				char text_buf2[30];
-				if (LookupSpecial(tr, "_cap", text_buf2) != NULL) {
-					sprintf(text_buf, "%s", text_buf2);
+				char text_buf[30];
+				if (LookupSpecial(tr, "_cap", text_buf) != NULL) {
 					j = strlen(text_buf);
 					if ((ix + j) < n_buf) {
 						strcpy(&buf[ix], text_buf);
