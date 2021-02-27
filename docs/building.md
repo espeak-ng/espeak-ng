@@ -32,6 +32,10 @@ To build eSpeak NG on Windows, you will need:
 4. the [pcaudiolib](https://github.com/espeak-ng/pcaudiolib) project checked out to
    `src` (as `src/pcaudiolib`).
 
+Optionally, you need:
+
+1. sox (http://sox.sourceforge.net/) to enable audio output for SSML <audio> tag
+
 __NOTE:__ SAPI 5 voices are not currently available in this release of eSpeak NG.
 There is an [issue](https://github.com/espeak-ng/espeak-ng/issues/7) to track
 support for this feature.
@@ -77,6 +81,7 @@ Optionally, you need:
 3.  the [sonic](https://github.com/espeak-ng/sonic) development library to
     enable sonic audio speed up support;
 4.  the `ronn` man-page markdown processor to build the man pages.
+5. sox (http://sox.sourceforge.net/) to enable audio output for SSML <audio> tag
 
 To build the documentation, you need:
 
