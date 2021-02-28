@@ -66,7 +66,6 @@ static bool clear_skipping_text = false; // next clause should clear the skippin
 int count_characters = 0;
 static int sayas_mode;
 static int sayas_start;
-static int ssml_ignore_l_angle = 0;
 
 #define N_SSML_STACK  20
 static int n_ssml_stack;
@@ -502,10 +501,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		} else {
 			// end the clause now and pick up the punctuation next time
 			UngetC(c2);
-			if (option_ssml) {
-				if ((c1 == '<') || (c1 == '&'))
-					ssml_ignore_l_angle = c1; // this was &lt; which was converted to <, don't pick it up again as <
-			}
 			ungot_char2 = c1;
 			buf[0] = ' ';
 			buf[1] = 0;
@@ -695,7 +690,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 		ungot_char2 = 0;
 
 		if ((option_ssml) && (phoneme_mode == 0)) {
-			if ((ssml_ignore_l_angle != '&') && (c1 == '&') && ((c2 == '#') || ((c2 >= 'a') && (c2 <= 'z')))) {
+			if ((c1 == '&') && ((c2 == '#') || ((c2 >= 'a') && (c2 <= 'z')))) {
 				n_xml_buf = 0;
 				c1 = c2;
 				while (!Eof() && (iswalnum(c1) || (c1 == '#')) && (n_xml_buf < N_XML_BUF2)) {
@@ -719,7 +714,7 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 
 				if ((c1 <= 0x20) && ((sayas_mode == SAYAS_SINGLE_CHARS) || (sayas_mode == SAYAS_KEY)))
 					c1 += 0xe000; // move into unicode private usage area
-			} else if ((c1 == '<') && (ssml_ignore_l_angle != '<')) {
+			} else if (c1 == '<') {
 				if ((c2 == '/') || iswalpha(c2) || c2 == '!' || c2 == '?') {
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if (ix > (n_buf - 20)) {
@@ -754,7 +749,6 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 				}
 			}
 		}
-		ssml_ignore_l_angle = 0;
 
 		if (ignore_text)
 			continue;
