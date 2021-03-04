@@ -1968,9 +1968,6 @@ include ph_marathi
 phonemetable kok hi_base
 include ph_konkani
 
-phonemetable dv hi_base
-include ph_divehi
-
 phonemetable te hi_base
 include ph_telugu
 

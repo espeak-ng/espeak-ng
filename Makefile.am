@@ -337,7 +337,6 @@ phsource/phonemes.stamp: \
 	phsource/ph_czech \
 	phsource/ph_danish \
 	phsource/ph_dari \
-	phsource/ph_divehi \
 	phsource/ph_dutch \
 	phsource/ph_english \
 	phsource/ph_english_n \

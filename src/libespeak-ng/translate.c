@@ -221,9 +221,6 @@ int IsAlpha(unsigned int c)
 	if ((c >= 0x300) && (c <= 0x36f))
 		return 1; // combining accents
 
-	if ((c >= 0x780) && (c <= 0x7b1))
-		return 1; // taani/divehi (maldives)
-
 	if ((c >= 0xf40) && (c <= 0xfbc))
 		return 1; // tibetan
 
