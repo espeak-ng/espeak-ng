@@ -1169,6 +1169,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('l', 'v'): // latvian
+	case L3('l', 't', 'g'): // latgalian
 	{
 		static const unsigned char stress_amps_lv[8] = { 14, 10, 10, 8, 0, 0, 20, 15 };
 		static const short stress_lengths_lv[8] = { 180, 180, 180, 160, 0, 0, 230, 180 };
