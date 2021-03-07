@@ -72,6 +72,7 @@ enum {
 	V_NAME = 1,
 	V_LANGUAGE,
 	V_GENDER,
+	V_TRANSLATOR,
 	V_PHONEMES,
 	V_DICTIONARY,
 	V_VARIANTS,
@@ -126,6 +127,7 @@ static MNEM_TAB keyword_tab[] = {
 	{ "formant",      V_FORMANT },
 	{ "pitch",        V_PITCH },
 	{ "phonemes",     V_PHONEMES },
+	{ "translator",   V_TRANSLATOR },
 	{ "dictionary",   V_DICTIONARY },
 	{ "stressLength", V_STRESSLENGTH },
 	{ "stressAmp",    V_STRESSAMP },
@@ -646,6 +648,17 @@ voice_t *LoadVoice(const char *vname, int control)
 			current_voice_selected.gender = LookupMnem(genders, vgender);
 			current_voice_selected.age = age;
 		}
+			break;
+		case V_TRANSLATOR:
+			if (tone_only) break;
+
+			sscanf(p, "%s", translator_name);
+
+			if (new_translator != NULL)
+				DeleteTranslator(new_translator);
+
+			new_translator = SelectTranslator(translator_name);
+			langopts = &new_translator->langopts;
 			break;
 		case V_DICTIONARY: // dictionary
 			sscanf(p, "%s", new_dictionary);
