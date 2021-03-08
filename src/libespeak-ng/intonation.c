@@ -847,7 +847,7 @@ static void CalcPitches_Tone(Translator *tr)
 				}
 			  }
 			// Mandarin
-			if (tr->translator_name == L('z', 'h')) {
+			if (tr->translator_name == L('z', 'h') || tr->translator_name == L3('c', 'm', 'n')) {
 				if (tone_ph == 0) {
 					if (pause || tone_promoted) {
 						tone_ph = PhonemeCode2('5', '5'); // no previous vowel, use tone 1

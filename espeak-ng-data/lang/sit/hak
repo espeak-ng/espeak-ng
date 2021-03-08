@@ -2,6 +2,5 @@ name Hakka Chinese
 language hak
 maintainer Chen Chien-ting <yoxem.tem98@nctu.edu.tw>
 status testing
-translator hak
 phonemes hak
 dictionary hak

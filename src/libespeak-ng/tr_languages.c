@@ -1169,6 +1169,7 @@ Translator *SelectTranslator(const char *name)
 	}
 		break;
 	case L('l', 'v'): // latvian
+	case L3('l', 't', 'g'): // latgalian
 	{
 		static const unsigned char stress_amps_lv[8] = { 14, 10, 10, 8, 0, 0, 20, 15 };
 		static const short stress_lengths_lv[8] = { 180, 180, 180, 160, 0, 0, 230, 180 };
@@ -1552,7 +1553,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.break_numbers = BREAK_INDIVIDUAL;
 		break;
 	case L3('c', 'm', 'n'): // no break, just go to 'zh' case
-	case L3('z', 'h', 'y'): // just go to 'zh' case
+	case L3('y', 'u', 'e'):
 	case L('z','h'):
 	{
 		static const short stress_lengths_zh[8] = { 230, 150, 230, 230, 230, 0, 240, 250 }; // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
@@ -1569,7 +1570,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.ideographs = 1;
 		tr->langopts.our_alphabet = 0x3100;
 		tr->langopts.word_gap = 0x21; // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
-		if (name2 == L3('z', 'h', 'y')) {
+		if (name2 == L3('y', 'u', 'e')) {
 			tr->langopts.textmode = true;
 			tr->langopts.listx = 1; // compile zh_listx after zh_list
 			tr->langopts.numbers = NUM_DEFAULT;

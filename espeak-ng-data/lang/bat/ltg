@@ -2,7 +2,6 @@ name Latgalian
 language ltg
 maintainer Valdis Vitolins <valdis.vitolins@odo.lv>
 status testing
-translator lv // Reuse pronunciation rules from Latvian
 phonemes lv
 dictionary lv
 dictrules 2   // Setting for Latgalian pronunciation
