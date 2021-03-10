@@ -109,6 +109,7 @@ tests/*.check
 !tests/language-replace.test
 !tests/ssml.test
 !tests/translate.test
+!tests/variants.test
 !tests/non-executable-files-with-executable-bit.test
 !tests/bom.test
 !tests/klatt.test

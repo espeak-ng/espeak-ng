@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Test a command for presence and ability to output the sha1 hash of a file.
+check_hashcmd() {
+	which $1 &&
+	$1 </dev/null 2>/dev/null |
+	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
+}
+
+# Test some common commands to find the correct one for the system being tested on.
+echo -n "checking for SHA1 hashing command ... "
+if check_hashcmd sha1sum; then
+	sha1sum=sha1sum
+elif check_hashcmd sha1; then
+	sha1sum=sha1
+elif check_hashcmd shasum; then
+	sha1sum=shasum
+else
+	echo "no"
+	exit 1
+fi
+
+test_variants() {
+	TEST_LANG=$1
+	EXPECTED=$2
+	TEST_TEXT=$3
+
+	echo "testing ${TEST_LANG}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng --stdout -v ${TEST_LANG} "${TEST_TEXT}" | \
+		$sha1sum | awk '{ print $1 }' > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	diff expected.txt actual.txt || exit 1
+}
+
+test_variants "en" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants"
+# variant doesn't exist, should be equal to en:
+test_variants "en+nonexisting" 029983e9084e04384af8a0816fb667e5c5e06389 "Testing variants" 
+test_variants "en+f1" dba359ac75ec33cc9cd4bd2af5031a3dbd84427c "Testing variants"
+test_variants "en+anikaRobot" d56012d8f4cfb4c36fdad31ad9ad7abda40ef474 "Testing variants"
