@@ -149,7 +149,6 @@ void SetSpeed(int control)
 	int wpm_value;
 	double sonic;
 
-	speed.loud_consonants = 0;
 	speed.min_sample_len = espeakRATE_MAXIMUM;
 	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
@@ -194,9 +193,6 @@ void SetSpeed(int control)
 
 	if (wpm > espeakRATE_MAXIMUM)
 		wpm = espeakRATE_MAXIMUM;
-
-	if (wpm > 360)
-		speed.loud_consonants = (wpm - 360) / 8;
 
 	wpm2 = wpm;
 	if (wpm > 359) wpm2 = 359;
@@ -281,7 +277,6 @@ void SetSpeed(int control)
 	int wpm;
 	int wpm2;
 
-	speed.loud_consonants = 0;
 	speed.min_sample_len = espeakRATE_MAXIMUM;
 	speed.lenmod_factor = 110; // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
@@ -294,9 +289,6 @@ void SetSpeed(int control)
 		wpm = (wpm * voice->speed_percent)/100;
 	if (wpm > espeakRATE_MAXIMUM)
 		wpm = espeakRATE_MAXIMUM;
-
-	if (wpm > 360)
-		speed.loud_consonants = (wpm - 360) / 8;
 
 	wpm2 = wpm;
 	if (wpm > 359) wpm2 = 359;

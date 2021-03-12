@@ -350,7 +350,6 @@ typedef struct {
 	int lenmod_factor;
 	int lenmod2_factor;
 	int min_sample_len;
-	int loud_consonants;
 	int fast_settings[8];
 } SPEED_FACTORS;
 
