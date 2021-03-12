@@ -20,17 +20,21 @@ documentation:
 * Add documentation about dictionary flags.
 
 updated languages:
-*  ba (Bashkir) -- boracasli98, Valdis Vitolins
-*  chr (Cherokee) -- Michael Conrad
+*  ba (Bashkir) -- boracasli98, Valdis Vitolins, Juho Hiltunen
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
 *  ga (Gaelic (Irish)) Chen, Chien-ting 
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
+*  hak (Hakka Chinese) -- Juho Hiltunen
+*  haw (Hawaiian) -- Juho Hiltunen
+*  kok (Konkani) -- Juho Hiltunen
+*  nb (Norwegian Bokmål) -- Juho Hiltunen
+*  nci (Classical Nahuatl) -- Juho Hiltunen
 *  hy (Armenian) -- tigransimonyan
 *  ia (Interlingua) -- nesrad
 *  it (Italian) -- Christian Leo
-*  ja (Japanese) -- fukuen
+*  ja (Japanese) -- fukuen, Juho Hiltunen
 *  jbo (Lojban) -- Juho Hiltunen, xunsku
 *  lv (Latvian) -- Valdis Vitolins
 *  mi (Māori) -- boracasli98
@@ -38,7 +42,7 @@ updated languages:
 *  tr (Turkish) -- boracasli98
 *  ur (Urdu) -- Ejaz Shah
 *  uz (Uzbek) -- boracasli98, Valdis Vitolins
-*  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng
+*  zh (Chinese) -- Silas S. Brown, Rongcui Dong, Icenowy Zheng, Juho Hiltunen
 
 new languages:
 *  chr (Cherokee) -- Michael Conrad

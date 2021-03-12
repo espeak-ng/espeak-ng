@@ -12,8 +12,10 @@ language:
 
 These controls how numbers are pronounced.
 
-If `numbers` is set to `0` (the default value), numbers will not be pronounced.
-Setting it to `1` will enable number pronunciation using the dictionary rules.
+If `numbers` is set to `0`, numbers will not be pronounced.
+Setting it to `1` (the default value) will enable number pronunciation using the dictionary rules.
+For more control over number pronunciation, see the flags in `translate.h`.
+
 
     tr->langopts.max_digits
 

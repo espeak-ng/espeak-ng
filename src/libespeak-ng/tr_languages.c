@@ -2,6 +2,7 @@
  * Copyright (C) 2005 to 2015 by Jonathan Duddington
  * email: jonsd@users.sourceforge.net
  * Copyright (C) 2015-2016, 2020 Reece H. Dunn
+ * Copyright (C) 2021 Juho Hiltunen
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -303,6 +304,7 @@ static Translator *NewTranslator(void)
 	tr->langopts.min_roman = 2;
 	tr->langopts.thousands_sep = ',';
 	tr->langopts.decimal_sep = '.';
+	tr->langopts.numbers = NUM_DEFAULT;
 	tr->langopts.break_numbers = BREAK_THOUSANDS;
 	tr->langopts.max_digits = 14;
 
@@ -475,6 +477,18 @@ Translator *SelectTranslator(const char *name)
 
 	switch (name2)
 	{
+	case L('m', 'i'):
+	case L('m', 'y'):
+	case L4('p', 'i', 'q', 'd'): // piqd
+	case L('p', 'y'):
+	case L('q', 'u'):
+	case L3('q', 'u', 'c'):
+	case L('t', 'h'):
+	case L('u', 'z'):
+	{
+		tr->langopts.numbers = 0; // disable numbers until the definition are complete in _list file
+	}
+		break;
 	case L('a', 'f'):
 	{
 		static const short stress_lengths_af[8] = { 170, 140, 220, 220,  0, 0, 250, 270 };
@@ -1050,6 +1064,7 @@ Translator *SelectTranslator(const char *name)
 		tr->langopts.param[LOPT_CAPS_IN_WORD] = 1; // capitals indicate stressed syllables
 		SetLetterVowel(tr, 'y');
 		tr->langopts.max_lengthmod = 368;
+		tr->langopts.numbers = 0; // disable numbers until the definition are complete in _list file
 	}
 		break;
 	case L('k', 'a'): // Georgian
