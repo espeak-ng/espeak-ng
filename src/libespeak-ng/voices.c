@@ -380,9 +380,7 @@ void VoiceReset(int tone_only)
 	voice->samplerate = samplerate_native;
 	memset(voice->klattv, 0, sizeof(voice->klattv));
 
-	speed.fast_settings[0] = espeakRATE_MAXIMUM;
-	speed.fast_settings[1] = 800;
-	speed.fast_settings[2] = espeakRATE_NORMAL;
+	speed.fast_settings = espeakRATE_MAXIMUM;
 
 	voice->roughness = 2;
 
@@ -820,7 +818,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			voice->klattv[KLATT_Kopen] -= 40;
 			break;
 		case V_FAST:
-			Read8Numbers(p, speed.fast_settings);
+			sscanf(p, "%d", &speed.fast_settings);
 			SetSpeed(3);
 			break;
 		case V_DICTMIN:

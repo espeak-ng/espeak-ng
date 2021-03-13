@@ -350,7 +350,7 @@ typedef struct {
 	int lenmod_factor;
 	int lenmod2_factor;
 	int min_sample_len;
-	int fast_settings[8];
+	int fast_settings;	// TODO: rename this variable to better explain the purpose, or delete if there is none
 } SPEED_FACTORS;
 
 typedef struct {
