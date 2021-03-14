@@ -2,7 +2,6 @@ language variant
 name anxiousAndy
 gender Male
 
-#echo 230 30
 pitch 115 110
 
 flutter 0

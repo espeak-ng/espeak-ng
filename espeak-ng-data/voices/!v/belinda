@@ -2,7 +2,6 @@ language variant
 name Belinda
 gender female
 
-;echo 130 15
 pitch 200 247  
 flutter 3
 

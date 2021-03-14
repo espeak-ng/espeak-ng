@@ -61,4 +61,5 @@ stressLength 0 1 2 3 4 5 6 7
 stressAdd 250 350 700 500 450 290 100 225
 stressAmp 16 16 24 24 16 16 20 24
 ##Este archivo no incluye todas las configuraciones que se pueden usar para modificar una voz E Speak. Su objetivo es familiarizarlo con lo que hace la configuración.
-##Sin envargo puedes visitar la página http://espeak.sourceforge.net/voices.html y consultar más información acerca de cómo agregar o cambiar otras configuraciones. Espero que te haya servido esta ayuda, y que te hayas divertido.
+##Sin envargo puedes visitar la página http://espeak.sourceforge.net/voices.html y consultar más información acerca de cómo agregar o cambiar otras configuraciones.
+## Espero que te haya servido esta ayuda, y que te hayas divertido.

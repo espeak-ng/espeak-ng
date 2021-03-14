@@ -36,13 +36,17 @@ formant 8 100 100 100
 intonation 3
 echo 30 30
 # Setting the pitch range.  The first number gives a base pitch to the voice (value in Hertz).  The second number controls the range of pitches used by the voice. Setting it equal
-to the first number will give a monotone sounding voice.  The default values are 82 and 118. 
+# to the first number will give a monotone sounding voice.  The default values are 82 and 118. 
 pitch 82 130
-## The tone setting.  The first number on the setting line, 600, is the frequency setting for the amount of bass in the voice.  The second number on the tone line is the volume of the bass frequency.  You can set it from 0 to 255, 0 being the least amount, 255 being the most.
-##The third number on the tone line, 1200, is the mid range frequency.  The fourth number on the line is the setting to change the volume of the mid range frequency.  0 being the least amount and 255 being the maximum.
+## The tone setting.  The first number on the setting line, 600, is the frequency setting for the amount of bass in the voice.
+## The second number on the tone line is the volume of the bass frequency.  You can set it from 0 to 255, 0 being the least amount, 255 being the most.
+##The third number on the tone line, 1200, is the mid range frequency.  The fourth number on the line is the setting to change the volume of the mid range frequency.
+## 0 being the least amount and 255 being the maximum.
 ## The fifth number on the tone line, 2000, is the treble frequency.  The sixth number is the volume of the treble frequency.  0 is the minimum and 255 is the maximum.
 ##  You will notice that all 3 frequencies are set to 255.
 ##The next line is a setting that you can change.
 tone 600 255  1200 200 2000 255
 
-##This file does not include all of the settings that can be used to modify an E Speak voice.  It is intended to get you familiar with what the settings do.  However, you can go to http://espeak.sourceforge.net/voices.html and read further information about other settings that can be added and changed.  I hope this helps, and Have fun.
+##This file does not include all of the settings that can be used to modify an E Speak voice.  It is intended to get you familiar with what the settings do.  
+#However, you can go to http://espeak.sourceforge.net/voices.html and read further information about other settings that can be added and changed.  I hope this helps, and Have fun.
+
