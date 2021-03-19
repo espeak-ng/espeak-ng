@@ -520,6 +520,14 @@ each language. The number fragments are given in the `*_list` file.
 | `_dpt`        | Word spoken for the decimal point/comma. |
 | `_dpt2`       | Word spoken (if any) at the end of all the digits after a decimal point. |
 
+
+**notes about ordinal numbers**
+To enable ordinal numbers:
+1. set `langopts.numbers` | NUM_ORDINAL_DOT in tr_languages.c
+2. for each number symbol explained above, add a line with suffix o. 
+For example: `_1o` for first, `_51o` for fifty first and so on.
+
+
 ## Character Substitution
 
 Character substitutions can be specified by using a `.replace` section
