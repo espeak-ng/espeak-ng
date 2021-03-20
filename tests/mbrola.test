@@ -7,7 +7,8 @@ check_hashcmd() {
 }
 
 check_voice_folder() {
-        voice_file=${1#mb-}
+        voice_file=${1#mb-} # remove mb- prefix
+        voice_file=${voice_file%+*} # remove variant suffix
         if [ -f "/usr/share/mbrola/$voice_file" ]; then
                 voice_file="/usr/share/mbrola/$voice_file"
         elif [ -f "/usr/share/mbrola/$voice_file/$voice_file" ]; then
@@ -59,5 +60,4 @@ else
 fi
 
 test_voice mb-fr4 31fae066f45d4a9dc56289344f28dd00bce77875 "Bonjour"
-
-
+test_voice mb-fr4+announcer f62c9cad15df194ac7cedfcfb36b6d9ccc70a634 "Bonjour" # mbrola + variant
