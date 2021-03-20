@@ -55,9 +55,6 @@ int n_phoneme_tables;
 PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 int phoneme_tab_number = 0;
 
-int wavefile_ix; // a wavefile to play along with the synthesis
-int wavefile_amp;
-
 int seq_len_adjust;
 
 static espeak_ng_STATUS ReadPhFile(void **ptr, const char *fname, int *size, espeak_ng_ERROR_CONTEXT *context)
@@ -271,7 +268,6 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 			}
 			nf++;
 		}
-		wavefile_ix = 0;
 	}
 
 	if (length1 > 0) {

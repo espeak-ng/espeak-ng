@@ -902,14 +902,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	if (voice->klattv[0])
 		wcmd_spect = WCMD_KLATT;
 
-	wavefile_ix = fmt_params->wav_addr;
-
-	if (fmt_params->wav_amp == 0)
-		wavefile_amp = 32;
-	else
-		wavefile_amp = (fmt_params->wav_amp * 32)/100;
-
-	if (wavefile_ix == 0) {
+	if (fmt_params->wav_addr == 0) {
 		if (wave_flag) {
 			// cancel any wavefile that was playing previously
 			wcmd_spect = WCMD_SPECT2;
@@ -976,9 +969,15 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 		if ((fmt_params->wav_addr != 0) && ((frame1->frflags & FRFLAG_DEFER_WAV) == 0)) {
 			// there is a wave file to play along with this synthesis
 			seq_len_adjust = 0;
+	
+			int wavefile_amp;
+			if (fmt_params->wav_amp == 0)
+				wavefile_amp = 32;
+			else
+				wavefile_amp = (fmt_params->wav_amp * 32)/100;
+
 			DoSample2(fmt_params->wav_addr, which+0x100, 0, fmt_params->fmt_control, 0, wavefile_amp);
 			wave_flag = 1;
-			wavefile_ix = 0;
 			fmt_params->wav_addr = 0;
 		}
 

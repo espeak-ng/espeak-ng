@@ -446,9 +446,6 @@ extern unsigned char *wavefile_data;
 extern int samplerate;
 extern int samplerate_native;
 
-extern int wavefile_ix;
-extern int wavefile_amp;
-
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 extern int echo_head;
 extern int echo_tail;
