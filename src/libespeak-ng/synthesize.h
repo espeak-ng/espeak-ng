@@ -205,7 +205,6 @@ typedef struct {
 	unsigned char env;    // pitch envelope number
 	unsigned char type;
 	unsigned char prepause;
-	unsigned char postpause;
 	unsigned char amp;
 	unsigned char newword;   // bit flags, see PHLIST_(START|END)_OF_*
 	unsigned char pitch1;
