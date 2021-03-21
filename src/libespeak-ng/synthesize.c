@@ -38,6 +38,7 @@
 #include "mbrola.h"               // for MbrolaGenerate, mbrola_name
 #include "phoneme.h"              // for PHONEME_TAB, phVOWEL, phLIQUID, phN...
 #include "setlengths.h"           // for CalcLengths
+#include "soundicon.h"               // for soundicon_tab, n_soundicon
 #include "synthdata.h"            // for InterpretPhoneme, GetEnvelope, Inte...
 #include "translate.h"            // for translator, LANGUAGE_OPTIONS, Trans...
 #include "voice.h"                // for voice_t, voice, LoadVoiceVariant
@@ -65,9 +66,6 @@ static int syllable_end;
 static int syllable_centre;
 
 static voice_t *new_voice = NULL;
-
-int n_soundicon_tab = N_SOUNDICON_SLOTS;
-SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
 #define RMS_START 28  // 28

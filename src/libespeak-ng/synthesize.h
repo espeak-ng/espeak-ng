@@ -335,13 +335,6 @@ typedef struct {
 #define i_StressLevel  0x800
 
 typedef struct {
-	int name;
-	int length;
-	char *data;
-	char *filename;
-} SOUND_ICON;
-
-typedef struct {
 	int pause_factor;
 	int clause_pause_factor;
 	unsigned int min_pause;
@@ -478,11 +471,6 @@ extern unsigned char *out_end;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback *synth_callback;
 extern const int version_phdata;
-
-#define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
-#define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of audio files
-extern int n_soundicon_tab;
-extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);

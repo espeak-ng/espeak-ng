@@ -42,7 +42,6 @@ int towlower2(unsigned int c, Translator *translator); // Supports Turkish I
 int Eof(void);
 const char *WordToString2(unsigned int word);
 int Read4Bytes(FILE *f);
-int LoadSoundFile2(const char *fname);
 int AddNameData(const char *name,
                 int wide);
 int ReadClause(Translator *tr,

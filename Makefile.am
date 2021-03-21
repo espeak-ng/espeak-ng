@@ -159,6 +159,7 @@ src_libespeak_ng_la_SOURCES = \
 	src/libespeak-ng/phoneme.c \
 	src/libespeak-ng/phonemelist.c \
 	src/libespeak-ng/setlengths.c \
+	src/libespeak-ng/soundicon.c \
 	src/libespeak-ng/spect.c \
 	src/libespeak-ng/speech.c \
 	src/libespeak-ng/ssml.c \

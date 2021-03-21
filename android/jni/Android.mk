@@ -28,6 +28,7 @@ ESPEAK_SOURCES := \
   src/libespeak-ng/phonemelist.c \
   src/libespeak-ng/readclause.c \
   src/libespeak-ng/setlengths.c \
+  src/libespeak-ng/soundicon.c \
   src/libespeak-ng/spect.c \
   src/libespeak-ng/speech.c \
   src/libespeak-ng/ssml.c \

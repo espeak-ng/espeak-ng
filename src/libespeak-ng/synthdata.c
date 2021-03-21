@@ -36,6 +36,7 @@
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
 #include "speech.h"                   // for path_home, GetFileLength, PATHSEP
 #include "mbrola.h"                   // for mbrola_name
+#include "soundicon.h"               // for N_SOUNDICON_SLOTS, soundicon_tab
 #include "synthesize.h"               // for PHONEME_LIST, frameref_t, PHONE...
 #include "translate.h"                // for Translator, LANGUAGE_OPTIONS
 #include "voice.h"                    // for ReadTonePoints, tone_points, voice

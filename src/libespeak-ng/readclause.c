@@ -41,10 +41,10 @@
 #include "dictionary.h"           // for LookupDictList, DecodePhonemes, Set...
 #include "error.h"                // for create_file_error_context
 #include "phoneme.h"              // for phonSWITCH
+#include "soundicon.h"               // for LookupSoundIcon
 #include "speech.h"               // for GetFileLength, LookupMnem, PATHSEP
 #include "ssml.h"                 // for SSML_STACK, ProcessSsmlTag, N_PARAM...
 #include "synthdata.h"            // for SelectPhonemeTable
-#include "synthesize.h"           // for SOUND_ICON, soundicon_tab, samplerate
 #include "translate.h"            // for Translator, utf8_out, CLAUSE_OPTION...
 #include "voice.h"                // for voice, voice_t, current_voice_selected
 
@@ -294,143 +294,6 @@ int Read4Bytes(FILE *f)
 		acc += (c << (ix*8));
 	}
 	return acc;
-}
-
-static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ERROR_CONTEXT *context)
-{
-	FILE *f;
-	char *p;
-	int *ip;
-	int length;
-	char fname_temp[100];
-	char fname2[sizeof(path_home)+13+40];
-
-	if (fname == NULL) {
-		// filename is already in the table
-		fname = soundicon_tab[index].filename;
-	}
-
-	if (fname == NULL)
-		return EINVAL;
-
-	if (fname[0] != '/') {
-		// a relative path, look in espeak-ng-data/soundicons
-		sprintf(fname2, "%s%csoundicons%c%s", path_home, PATHSEP, PATHSEP, fname);
-		fname = fname2;
-	}
-
-	f = NULL;
-	if ((f = fopen(fname, "rb")) != NULL) {
-		int ix;
-		int fd_temp;
-		int header[3];
-		char command[sizeof(fname2)+sizeof(fname2)+40];
-
-		if (fseek(f, 20, SEEK_SET) == -1) {
-			int error = errno;
-			fclose(f);
-			return create_file_error_context(context, error, fname);
-		}
-
-		for (ix = 0; ix < 3; ix++)
-			header[ix] = Read4Bytes(f);
-
-		// if the sound file is not mono, 16 bit signed, at the correct sample rate, then convert it
-		if ((header[0] != 0x10001) || (header[1] != samplerate) || (header[2] != samplerate*2)) {
-			fclose(f);
-			f = NULL;
-
-#ifdef HAVE_MKSTEMP
-			strcpy(fname_temp, "/tmp/espeakXXXXXX");
-			if ((fd_temp = mkstemp(fname_temp)) >= 0)
-				close(fd_temp);
-#else
-			strcpy(fname_temp, tmpnam(NULL));
-#endif
-
-			sprintf(command, "sox \"%s\" -r %d -c1 -b 16 -t wav %s\n", fname, samplerate, fname_temp);
-			if (system(command) == 0)
-				fname = fname_temp;
-		}
-	}
-
-	if (f == NULL) {
-		f = fopen(fname, "rb");
-		if (f == NULL)
-			return create_file_error_context(context, errno, fname);
-	}
-
-	length = GetFileLength(fname);
-	if (length < 0) { // length == -errno
-		fclose(f);
-		return create_file_error_context(context, -length, fname);
-	}
-	if (fseek(f, 0, SEEK_SET) == -1) {
-		int error = errno;
-		fclose(f);
-		return create_file_error_context(context, error, fname);
-	}
-	if ((p = (char *)realloc(soundicon_tab[index].data, length)) == NULL) {
-		fclose(f);
-		return ENOMEM;
-	}
-	if (fread(p, 1, length, f) != length) {
-		int error = errno;
-		fclose(f);
-		remove(fname_temp);
-		free(p);
-		return create_file_error_context(context, error, fname);
-	}
-	fclose(f);
-	remove(fname_temp);
-
-	ip = (int *)(&p[40]);
-	soundicon_tab[index].length = (*ip) / 2; // length in samples
-	soundicon_tab[index].data = p;
-	return ENS_OK;
-}
-
-static int LookupSoundicon(int c)
-{
-	// Find the sound icon number for a punctuation character
-	int ix;
-
-	for (ix = N_SOUNDICON_SLOTS; ix < n_soundicon_tab; ix++) {
-		if (soundicon_tab[ix].name == c) {
-			if (soundicon_tab[ix].length == 0) {
-				if (LoadSoundFile(NULL, ix, NULL) != ENS_OK)
-					return -1; // sound file is not available
-			}
-			return ix;
-		}
-	}
-	return -1;
-}
-
-int LoadSoundFile2(const char *fname)
-{
-	// Load a sound file into one of the reserved slots in the sound icon table
-	// (if it'snot already loaded)
-
-	int ix;
-	static int slot = -1;
-
-	for (ix = 0; ix < n_soundicon_tab; ix++) {
-		if (((soundicon_tab[ix].filename != NULL) && strcmp(fname, soundicon_tab[ix].filename) == 0))
-			return ix; // already loaded
-	}
-
-	// load the file into the next slot
-	slot++;
-	if (slot >= N_SOUNDICON_SLOTS)
-		slot = 0;
-
-	if (LoadSoundFile(fname, slot, NULL) != ENS_OK)
-		return -1;
-
-	soundicon_tab[slot].filename = (char *)realloc(soundicon_tab[ix].filename, strlen(fname)+1);
-	strcpy(soundicon_tab[slot].filename, fname);
-	return slot;
 }
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
