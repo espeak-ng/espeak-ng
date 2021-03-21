@@ -36,7 +36,7 @@
 #include "phoneme.h"                  // for PHONEME_TAB, PHONEME_TAB_LIST
 #include "speech.h"                   // for path_home, GetFileLength, PATHSEP
 #include "mbrola.h"                   // for mbrola_name
-#include "soundicon.h"               // for N_SOUNDICON_SLOTS, soundicon_tab
+#include "soundicon.h"               // for soundicon_tab
 #include "synthesize.h"               // for PHONEME_LIST, frameref_t, PHONE...
 #include "translate.h"                // for Translator, LANGUAGE_OPTIONS
 #include "voice.h"                    // for ReadTonePoints, tone_points, voice
@@ -392,11 +392,6 @@ void LoadConfig(void)
 	char c1;
 	char string[200];
 
-	for (ix = 0; ix < N_SOUNDICON_SLOTS; ix++) {
-		soundicon_tab[ix].filename = NULL;
-		soundicon_tab[ix].data = NULL;
-	}
-
 	sprintf(buf, "%s%c%s", path_home, PATHSEP, "config");
 	if ((f = fopen(buf, "r")) == NULL)
 		return;
@@ -409,6 +404,8 @@ void LoadConfig(void)
 		else if (memcmp(buf, "soundicon", 9) == 0) {
 			ix = sscanf(&buf[10], "_%c %s", &c1, string);
 			if (ix == 2) {
+				// add sound file information to soundicon array
+				// the file will be loaded to memory by LoadSoundFile2()
 				soundicon_tab[n_soundicon_tab].name = c1;
 				soundicon_tab[n_soundicon_tab].filename = strdup(string);
 				soundicon_tab[n_soundicon_tab++].length = 0;

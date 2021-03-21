@@ -41,7 +41,7 @@
 #include "speech.h"                   // for path_home, GetFileLength, PATHSEP
 #include "synthesize.h"                   // for samplerate
 
-int n_soundicon_tab = N_SOUNDICON_SLOTS;
+int n_soundicon_tab = 0;
 SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 
@@ -141,14 +141,15 @@ static espeak_ng_STATUS LoadSoundFile(const char *fname, int index, espeak_ng_ER
 
 int LookupSoundicon(int c)
 {
-	// Find the sound icon number for a punctuation character
+	// Find the sound icon number for a punctuation character and load the audio file if it's not yet loaded
 	int ix;
 
-	for (ix = N_SOUNDICON_SLOTS; ix < n_soundicon_tab; ix++) {
+	for (ix = 0; ix < n_soundicon_tab; ix++) {
 		if (soundicon_tab[ix].name == c) {
-			if (soundicon_tab[ix].length == 0) {
-				if (LoadSoundFile(NULL, ix, NULL) != ENS_OK)
+			if (soundicon_tab[ix].length == 0) { // not yet loaded, load now
+				if (LoadSoundFile(NULL, ix, NULL) != ENS_OK) {
 					return -1; // sound file is not available
+				}
 			}
 			return ix;
 		}
@@ -158,26 +159,28 @@ int LookupSoundicon(int c)
 
 int LoadSoundFile2(const char *fname)
 {
-	// Load a sound file into one of the reserved slots in the sound icon table
-	// (if it'snot already loaded)
+	// Load a sound file into the sound icon table and memory
+	// (if it's not already loaded)
+	// returns -1 on error or the index of loaded file on success
 
 	int ix;
-	static int slot = -1;
-
 	for (ix = 0; ix < n_soundicon_tab; ix++) {
-		if (((soundicon_tab[ix].filename != NULL) && strcmp(fname, soundicon_tab[ix].filename) == 0))
-			return ix; // already loaded
+		if (((soundicon_tab[ix].filename != NULL) && strcmp(fname, soundicon_tab[ix].filename) == 0)) {
+			// the file information is found. If length = 0 it needs to be loaded to memory
+			if (soundicon_tab[ix].length == 0) {
+				if (LoadSoundFile(NULL, ix, NULL) != ENS_OK)
+					return -1; // sound file is not available
+			}
+			return ix; // sound file already loaded to memory
+		}
 	}
 
-	// load the file into the next slot
-	slot++;
-	if (slot >= N_SOUNDICON_SLOTS)
-		slot = 0;
-
-	if (LoadSoundFile(fname, slot, NULL) != ENS_OK)
+	// load the file into the current slot and increase index
+	if (LoadSoundFile(fname, n_soundicon_tab, NULL) != ENS_OK)
 		return -1;
 
-	soundicon_tab[slot].filename = (char *)realloc(soundicon_tab[ix].filename, strlen(fname)+1);
-	strcpy(soundicon_tab[slot].filename, fname);
-	return slot;
+	soundicon_tab[n_soundicon_tab].filename = (char *)realloc(soundicon_tab[n_soundicon_tab].filename, strlen(fname)+1);
+	strcpy(soundicon_tab[n_soundicon_tab].filename, fname);
+	n_soundicon_tab++;
+	return n_soundicon_tab - 1;
 }

@@ -30,14 +30,13 @@ int LookupSoundicon(int c);
 int LoadSoundFile2(const char *fname);
 
 typedef struct {
-        int name;
+        int name; // used for detecting punctuation
         int length;
         char *data;
         char *filename;
 } SOUND_ICON;
 
-#define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
-#define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of audio files
+#define N_SOUNDICON_TAB  80   // total entries for dynamic loading of audio files
 
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
