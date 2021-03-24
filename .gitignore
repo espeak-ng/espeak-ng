@@ -116,6 +116,7 @@ tests/*.check
 !tests/mbrola.test
 !tests/dictionary.test
 !tests/cmd_options.test
+!tests/windows-installer.test
 
 espeak-ng.pc
 

@@ -13,7 +13,7 @@
 <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="3DA6DF03-E5CD-4A93-B06F-707484742BAB" Name="$(var.ProductDisplayName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="Cainteoir Technologies" UpgradeCode="B4F779EB-AC6C-49D2-A12D-4871E4520C0F">
+  <Product Id="3DA6DF03-E5CD-4A93-B06F-707484742BAB" Name="$(var.ProductDisplayName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="eSpeak Community" UpgradeCode="B4F779EB-AC6C-49D2-A12D-4871E4520C0F">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="$(var.Platform)" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -459,6 +459,9 @@
             <Component Id="it_dict" Win64="$(var.Win64)" Guid="A91D9D76-5BA7-45BB-B1B0-FF52EDA40141">
               <File Name="it_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\it_dict" KeyPath="yes"/>
             </Component>
+            <Component Id="ja_dict" Win64="$(var.Win64)" Guid="BC2849B8-3F19-4543-B698-D53F43DEF831">
+              <File Name="ja_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\ja_dict" KeyPath="yes"/>
+            </Component>
             <Component Id="jbo_dict" Win64="$(var.Win64)" Guid="C1A9EB60-2825-460B-8F4F-E31610697BCE">
               <File Name="jbo_dict" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\jbo_dict" KeyPath="yes"/>
             </Component>
@@ -800,6 +803,11 @@
               <Component Id="ko" Win64="$(var.Win64)" Guid="0F759436-12BD-4FC5-80C0-6E755E021E40">
                 <File Name="ko" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\ko" KeyPath="yes"/>
               </Component>
+              <Directory Id="JPX" Name="jpx">
+                <Component Id="ja" Win64="$(var.Win64)" Guid="00A542A4-48FD-450D-84F5-8035B0EB1FBB">
+                  <File Name="ja" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\jpx\ja" KeyPath="yes"/>
+                </Component>
+              </Directory>
               <Directory Id="POZ" Name="poz">
                 <Component Id="id" Win64="$(var.Win64)" Guid="C9BFD2A4-A105-4061-961A-DF6CB6C02854">
                   <File Name="id" Source="$(var.ProjectDir)..\..\..\espeak-ng-data\lang\poz\id" KeyPath="yes"/>

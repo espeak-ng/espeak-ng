@@ -273,6 +273,7 @@ check:	tests/encoding.check \
 	tests/klatt.check \
 	tests/mbrola.check \
 	tests/variants.check \
+	tests/windows-installer.check \
 	tests/bom.check \
 	tests/cmd_options.check
 

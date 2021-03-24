@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+
+import sys
+import xml.etree.ElementTree as etree
+
+passed = True
+
+def check_result(check, message):
+  global passed
+  if check:
+    print('passed')
+  elif message:
+    print('failed: ' + message)
+    passed = False
+  else:
+    print('failed')
+    passed = False
+
+def all_descendants(wix, name):
+  for e in wix.iter():
+    if e.tag == '{http://schemas.microsoft.com/wix/2006/wi}' + name:
+      yield e
+
+def children(e, name):
+  for c in e:
+    if not isinstance(c, str):
+      if c.tag == '{http://schemas.microsoft.com/wix/2006/wi}' + name:
+        yield c
+
+def element_map(wix, name):
+  print('testing for duplicate \'' + name + '\' ids ... ', end='')
+  items = {}
+  duplicates = []
+  for e in all_descendants(wix, name):
+    id = e.attrib.get("Id")
+    if id in items.keys():
+      duplicates.append(id)
+    else:
+      items[id] = e
+  check_result(len(duplicates) == 0 , ', '.join(duplicates))
+  return items
+
+def check_element_guids(wix, name):
+  print('testing for duplicate \'' + name + '\' guids ... ', end='')
+  guids = []
+  missing_guids = []
+  duplicates = []
+  for e in all_descendants(wix, name):
+    id = e.attrib.get("Id")
+    guid = e.attrib.get("Guid")
+    if not guid:
+      missing_guids.append(id)
+    elif guid in guids:
+      duplicates.append(guid)
+    else:
+      guids.append(guid)
+  check_result(len(duplicates) == 0 , ', '.join(duplicates))
+  return (guids, missing_guids)
+
+def check_references(nodes, node_name, name, item_name, items):
+  print('testing for missing \'' + item_name + '\' ids in \'' + node_name + '/' + name + '\' ... ', end='')
+  missing = []
+  for node in nodes.values():
+    for ref in children(node, name):
+      id = ref.attrib.get("Id")
+      if not id in items.keys():
+        missing.append(id)
+  check_result(len(missing) == 0 , ', '.join(missing))
+
+# 1. Check for missing/duplicate ids ###################################################################################
+
+wix = etree.parse('src/windows/installer/Product.wxs').getroot()
+features = element_map(wix, 'Feature')
+component_groups = element_map(wix, 'ComponentGroup')
+components = element_map(wix, 'Component')
+directories = element_map(wix, 'Directory')
+
+check_references(features, 'Feature', 'ComponentGroupRef', 'ComponentGroup', component_groups)
+check_references(component_groups, 'ComponentGroups', 'ComponentRef', 'Component', components)
+
+# 2. Check for missing/duplicate guids #################################################################################
+
+guids, missing_guids = check_element_guids(wix, 'Component')
+
+print('testing for missing \'Component\' guids ... ', end='')
+check_result(len(missing_guids) == 0 , ', '.join(missing_guids))
+
+########################################################################################################################
+
+if not passed:
+  sys.exit(-1)
