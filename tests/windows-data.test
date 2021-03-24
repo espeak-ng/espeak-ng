@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import xml.etree.ElementTree as etree
+
+passed = True
+
+def check_result(check, message):
+  global passed
+  if check:
+    print('passed')
+  elif message:
+    print('failed: ' + message)
+    passed = False
+  else:
+    print('failed')
+    passed = False
+
+def check_missing(items, target):
+  missing = []
+  for item in items:
+    if not item in target:
+      missing.append(item)
+  check_result(len(missing) == 0, ', '.join(missing))
+  return missing
+
+def all_descendants(proj, name):
+  for e in proj.iter():
+    if e.tag == '{http://schemas.microsoft.com/developer/msbuild/2003}' + name:
+      yield e
+
+def children(e, name):
+  for c in e:
+    if not isinstance(c, str):
+      if c.tag == '{http://schemas.microsoft.com/developer/msbuild/2003}' + name:
+        yield c
+
+def element_map(proj, name):
+  print('testing for duplicate \'' + name + '\' names ... ', end='')
+  items = {}
+  duplicates = []
+  for e in all_descendants(proj, name):
+    id = e.attrib.get("Name")
+    if id in items.keys():
+      duplicates.append(id)
+    else:
+      items[id] = e
+  check_result(len(duplicates) == 0 , ', '.join(duplicates))
+  return items
+
+def list_dictionaries():
+  for file in os.listdir('dictsource'):
+    if file.endswith('_rules'):
+      yield file.split('_')[0]
+
+# 1. Check for missing/duplicate names #################################################################################
+
+proj = etree.parse('src/windows/data.vcxproj').getroot()
+targets = element_map(proj, 'Target')
+
+# 2. Check for missing dictionaries ####################################################################################
+
+dictionaries = list(list_dictionaries())
+depends_on_dictionaries = targets['Dictionaries'].attrib.get('DependsOnTargets').split(';')
+
+print('testing for missing dictionary targets ... ', end='')
+check_missing(depends_on_dictionaries, targets.keys())
+
+print('testing for missing dependencies on dictionaries ... ', end='')
+check_missing(set.intersection(set(dictionaries), set(targets.keys())), depends_on_dictionaries)
+
+########################################################################################################################
+
+if not passed:
+  sys.exit(-1)
