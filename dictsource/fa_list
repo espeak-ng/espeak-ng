@@ -32,6 +32,7 @@
 ﷼	RijAl
 
 //Farsi Alphabet
+// character names  (An underscore added before characters means, if there is space after and before it which , should not spoken during normal reading of text)
 آ	'A
 ا	'alef
 ب	'be:
@@ -75,9 +76,6 @@ _و	'vAv
 ً	'an
 ٌ	'on
 ٍ	'en
-_،	viRgul
-؛	noqteviRgul
-ـ	'keSide_
 ئ	'je,hamze:
 ؤ	'vAv,hamze:
 ۀ	'hehamze:
@@ -86,6 +84,15 @@ _،	viRgul
 ء	'hamze:
 ة	'tAje-,ta?nis
 ي	'je_aRabi
+
+// Punctuations
+.	noqte:
+:	'donoqte:
+،	viRgul
+؛	noqteviRgul
+؟	alAmatesoAl
+!	alAmate'ta?adZdZob
+ـ	'keSide_
 
 // symbols used in Standard Persian keybord layout
 ٬	'dZodAkonandeje_hezArgAn
@@ -204,17 +211,14 @@ _#st	om
 _#nd	vom
 _#rd	om
 _#th	om
-
-
-// character names.  (An underscore added before characters which should not spoken during normal reading of text)
 ÷	taqsimbaR
 ×	zaRbdaR
-؟	alAmatesoAl
-!	alAmate'ta?adZdZob
 $	dolAR
 %	daR'sad
 [	beRAketbAz
 ]	beRAketbaste:
+{	AkulAdbAz
+}	AkulAdbaste:
 (	paRAntezbAz
 )	paRAntezbaste:
 *	setARe:
@@ -222,13 +226,11 @@ $	dolAR
 U+200C	nim_fAsele:
 //this code is recognized as Space
 U+20	fAsele_
-.	noqte:
-:	'donoqte:
 <	alAmate'kutSektaR
 =	:alAmate'mosAvi
 >	alAmate'bozoRgtaR
-{	g:ijumebAz
-}	g:ijumebaste:
+»	g:ijumebAz
+«	g:ijumebaste:
 
 
 //characters and numbers and words with English alphabet is translated by English phonemes
@@ -2408,6 +2410,7 @@ U+20	fAsele_
 ببست	bebast
 ببعی	baba?i
 ببین	bebin
+ببیند	bebinad
 ببینه	bebine:
 بت	bot
 بتا	betA
@@ -2426,7 +2429,7 @@ U+20	fAsele_
 بجد	bedZed
 بجرات	bedZoRat
 بجز	bedZoz
-بجنب	bejonb
+بجنب	bedZonb
 بجنورد	bodZnuRd
 بجنگی	bedZangi
 بجنگیم	bedZangim
@@ -2780,6 +2783,7 @@ U+20	fAsele_
 برکن	baRkan
 برکه	beRke:
 برگ	baRg
+برگه	baRge:
 برگر	beRgeR
 برگزید	baRgozid
 برگزیده	baRgozide:
@@ -2896,6 +2900,7 @@ U+20	fAsele_
 بشکند	beSekanad
 بشکه	boSke:
 بشکۀ	boSkeje
+بشیند	beSinad
 بشیر	baSiR
 بصر	basaR
 بصره	basRe
@@ -3094,7 +3099,7 @@ U+20	fAsele_
 بنکدار	bonakdAR
 بنگاب	bangAb
 بنگال	bangAl
-بنگاه	bongA:
+بنگاه	bongA:h
 بنگدانه	bangdAne
 بنگر	bengaR
 بنگرد	bengaRad
@@ -5529,6 +5534,7 @@ U+20	fAsele_
 دیکشنری	dikSeneRi
 دیکنز	dikenz
 دیگر	digaR
+دیگه	dige:
 دیگرآزار	digaRAzAR
 دیگربار	digaRbAR
 دیگری	'digaRi
@@ -10624,6 +10630,7 @@ U+20	fAsele_
 نوشاند	nuSAnd
 نوشانید	nuSAnid
 نوشت	neveSt
+نوشتنی	neveStani
 نوشتار	neveStAR
 نوشتجات	neveStedZAt
 نوشد	nuSad
@@ -11024,6 +11031,7 @@ U+20	fAsele_
 هوسران	havasRAn
 هوش	huS
 هوشنگ	huSang
+هوشنگی	huSangi
 هول	ho:l
 هولاکو	holAku
 هولاکوخان	holAkuxAn
@@ -12176,7 +12184,7 @@ U+20	fAsele_
 چگل	tSegel
 چگن	tSegen
 چگون	tSegun
-چگونگی	tSegunegi
+-چگونگی	tSegunegi
 چگین	tSegin
 چگینی	tSegini
 چیذر	tSizaR
