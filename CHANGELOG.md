@@ -24,6 +24,7 @@ updated languages:
 *  de (German) -- Karl Eick
 *  el (Modern Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  en (English) -- Steven Presser, Ben Talagan
+*  fa (Farsi/Persian) -- Shadyar Khodayari
 *  ga (Gaelic (Irish)) Chen, Chien-ting 
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  hak (Hakka Chinese) -- Juho Hiltunen
