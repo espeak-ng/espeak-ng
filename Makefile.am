@@ -232,10 +232,10 @@ endif
 if OPT_SPEECHPLAYER
 src_libespeak_ng_la_CFLAGS  += -DINCLUDE_SPEECHPLAYER
 src_libespeak_ng_la_SOURCES += src/libespeak-ng/sPlayer.c
-src_libespeak_ng_la_SOURCES += src/speechPlayer/src/frame.cpp
-src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechPlayer.cpp
-src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechWaveGenerator.cpp
-src_speak_ng_SOURCES = src/speak-ng.cpp
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/frame.c
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechPlayer.c
+src_libespeak_ng_la_SOURCES += src/speechPlayer/src/speechWaveGenerator.c
+src_speak_ng_SOURCES = src/speak-ng.c
 else
 src_speak_ng_SOURCES = src/speak-ng.c
 endif
