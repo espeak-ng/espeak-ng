@@ -198,9 +198,9 @@
     <ClCompile Include="..\pcaudiolib\src\audio.c" />
     <ClCompile Include="..\pcaudiolib\src\windows.c" />
     <ClCompile Include="..\pcaudiolib\src\xaudio2.cpp" />
-    <ClCompile Include="..\speechPlayer\src\frame.cpp" />
-    <ClCompile Include="..\speechPlayer\src\speechPlayer.cpp" />
-    <ClCompile Include="..\speechPlayer\src\speechWaveGenerator.cpp" />
+    <ClCompile Include="..\speechPlayer\src\frame.c" />
+    <ClCompile Include="..\speechPlayer\src\speechPlayer.c" />
+    <ClCompile Include="..\speechPlayer\src\speechWaveGenerator.c" />
     <ClCompile Include="com\comentrypoints.c" />
     <ClCompile Include="com\ttsengine.cpp" />
   </ItemGroup>
