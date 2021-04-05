@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # This script checks for Byte Order Marks in source files
 # which in some places may break compilation/runtime of eSpeak NG
 # Look for more at: https://en.wikipedia.org/wiki/Byte_order_mark
