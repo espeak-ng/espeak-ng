@@ -540,6 +540,7 @@ typedef struct {
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
+	bool lowercase_sentence;	// when true, a period . causes a sentence stop even if next character is lowercase
 } LANGUAGE_OPTIONS;
 
 typedef struct {
@@ -608,6 +609,7 @@ typedef struct {
 	int end_stressed_vowel;  // word ends with stressed vowel
 	int prev_dict_flags[2];     // dictionary flags from previous word
 	int clause_terminator;
+
 } Translator;
 
 #define OPTION_EMPHASIZE_ALLCAPS  0x100

@@ -295,6 +295,7 @@ static Translator *NewTranslator(void)
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.alt_alphabet_lang = L('e', 'n');
 	tr->langopts.roman_suffix = utf8_null;
+	tr->langopts.lowercase_sentence = false;
 
 	SetLengthMods(tr, 201);
 

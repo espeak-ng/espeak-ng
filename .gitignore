@@ -118,6 +118,7 @@ tests/*.check
 !tests/cmd_options.test
 !tests/windows-data.test
 !tests/windows-installer.test
+!tests/voices.test
 
 espeak-ng.pc
 

@@ -13,6 +13,7 @@ The espeak-ng project is a fork of the espeak project.
 *  Add more tests to check the various parts of espeak-ng.
 *  Various changes to clean up the codebase.
 *  Restructure "option brackets" language option to "brackets" and "bracketsAnnounced".
+*  New Language option: "lowercaseSentence" for ending a sentence if a period is followed by a lower case letter.
 *  Added voice variants
 
 documentation:
@@ -29,6 +30,7 @@ updated languages:
 *  grc (Ancient Greek) -- Reece Dunn (support for variant Greek letter forms)
 *  hak (Hakka Chinese) -- Juho Hiltunen
 *  haw (Hawaiian) -- Juho Hiltunen
+*  ka (Georgian) -- Juho Hiltunen
 *  kok (Konkani) -- Juho Hiltunen
 *  nb (Norwegian Bokmål) -- Juho Hiltunen
 *  nci (Classical Nahuatl) -- Juho Hiltunen

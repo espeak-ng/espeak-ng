@@ -876,9 +876,9 @@ int ReadClause(Translator *tr, char *buf, short *charix, int *charix_top, int n_
 							else if (iswlower(c_next) || (c_next == '-')) // hyphen is needed for lang-hu (eg. 2.-kal)
 								is_end_clause = false; // only if followed by lower-case, (or if there is a XML tag)
 						} 
-						if (iswlower(c_next)) {
+						if (iswlower(c_next) && tr->langopts.lowercase_sentence == false) {
 							// next word has no capital letter, this dot is probably from an abbreviation
-							is_end_clause = 0;
+							is_end_clause = false;
 						}
 						if (any_alnum == false) {
 							// no letters or digits yet, so probably not a sentence terminator

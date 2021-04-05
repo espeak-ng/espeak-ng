@@ -275,6 +275,7 @@ check:	tests/encoding.check \
 	tests/variants.check \
 	tests/windows-installer.check \
 	tests/bom.check \
+	tests/voices.check \
 	tests/cmd_options.check
 
 ##### fuzzer:

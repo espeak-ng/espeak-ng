@@ -26,6 +26,7 @@
   - [phonemes](#phonemes)
   - [dictionary](#dictionary)
   - [dictrules](#dictrules)
+  - [lowercaseSentence](#lowercaseSentence)
   - [replace](#replace)
   - [stressRule](#stressrule)
   - [stressLength](#stresslength)
@@ -384,6 +385,16 @@ voice. Rule numbers are in the range 0 to 31 and are specific to a
 language dictionary. They apply to rules in the language's `*_rules`
 dictionary file and also its `*_list` exceptions list. See
 [Text to Phoneme Translation](dictionary.md#conditional-rules).
+
+### lowercaseSentence
+
+	lowercaseSentence <no arguments>
+
+By default, a sentence end is detected if a period `.` is followed by an uppercase letter.
+When lowercaseSentence is set, a period followed by a lowercase letter is also handled as end of sentence.
+
+Note that other conditions, such as abbreviations, might override this setting.
+
 
 ### replace
 

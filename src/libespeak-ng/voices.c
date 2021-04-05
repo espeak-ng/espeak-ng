@@ -92,6 +92,7 @@ enum {
 	V_BREATHW,
 
 	// these override defaults set by the translator
+	V_LOWERCASE_SENTENCE,
 	V_WORDGAP,
 	V_INTONATION,
 	V_TUNES,
@@ -122,6 +123,8 @@ static MNEM_TAB keyword_tab[] = {
 	{ "maintainer",   V_MAINTAINER },
 	{ "status",       V_STATUS },
 
+
+	{ "lowercaseSentence",	V_LOWERCASE_SENTENCE },
 	{ "variants",     V_VARIANTS },
 	{ "formant",      V_FORMANT },
 	{ "pitch",        V_PITCH },
@@ -654,6 +657,14 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_FORMANT:
 			VoiceFormant(p);
 			break;
+		case V_LOWERCASE_SENTENCE: {
+			if (langopts)
+				langopts->lowercase_sentence = true;
+			else
+				fprintf(stderr, "Cannot set lowercaseSentence: language not set, or is invalid.\n");
+			break;
+			}
+
 		case V_PITCH:
 			// default is  pitch 82 118
 			if (sscanf(p, "%d %d", &pitch1, &pitch2) == 2) {
