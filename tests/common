@@ -1,0 +1,160 @@
+#!/bin/sh
+# Test a command for presence and ability to output the sha1 hash of a file
+is_hash() {
+   echo -n "checking for SHA1 hashing command ... "
+   if check_hash sha1sum; then
+       sha1sum=sha1sum
+   elif check_hash sha1; then
+       sha1sum=sha1
+   elif check_hash shasum; then
+       sha1sum=shasum
+   else
+       echo "no"
+       exit 1
+   fi
+}
+check_hash() {
+   which $1 &&
+   $1 </dev/null 2>/dev/null |
+   awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
+   # Test some common commands to find the correct one for the system being tested on.
+}
+
+# test if Klatt synthesizer is installed
+is_klatt() {
+    echo -n "checking if klatt is installed ... "
+    if [ "`which klatt`" != "" ]; then
+        echo "yes"
+    else
+        echo "no"
+        exit
+    fi
+}
+
+# test if MBROLA synthesizer is installed
+is_mbrola() {
+    echo -n "checking if MBROLA is installed ... "
+    if [ "`which mbrola`" != "" ]; then
+        echo "yes"
+    else
+        echo "no"
+        exit
+    fi
+}
+
+
+test_phonemes() {
+    TEST_LANG=$1
+    MESSAGE=$2
+    EXPECTED=$3
+    TEST_TEXT=$4
+    TEST_BROKEN=${5:-false}
+
+    echo "testing ${TEST_LANG} ... $MESSAGE"
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+    echo "${EXPECTED}" > expected.txt
+    if [ x$TEST_BROKEN = xbroken ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    else
+        diff expected.txt actual.txt || exit 1
+    fi
+}
+
+test_phonemes1() {
+    TEST_LANG=$1
+    EXPECTED=$2
+    TEST_TEXT=$3
+
+    echo "testing ${TEST_LANG} \"${TEST_TEXT}\""
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+    echo "${EXPECTED}" > expected.txt
+    diff expected.txt actual.txt || exit 1
+}
+
+test_voice () {
+        VOICE=$1
+        EXPECTED=$2
+        TEST_TEXT=$3
+        echo "testing ${VOICE} ... "
+        ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng --stdout -v ${VOICE} "${TEST_TEXT}" | \
+        $sha1sum | awk '{ print $1 }' > actual.txt
+        echo "${EXPECTED}" > expected.txt
+        diff expected.txt actual.txt || exit 1
+}
+
+test_lang() {
+	TEST_LANG=$1
+	EXPECTED=$2
+	TEST_TEXT=$3
+
+	echo "testing ${TEST_LANG}"
+	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+		src/espeak-ng --stdout -v ${TEST_LANG} "[[${TEST_TEXT}]]" | \
+		$sha1sum | awk '{ print $1 }' > actual.txt
+	echo "${EXPECTED}" > expected.txt
+	diff expected.txt actual.txt || exit 1
+}
+c
+test_dict() {
+    TEST_LANG=$1
+    MESSAGE=$2
+    EXPECTED=$3
+    TEST_TEXT=$4
+    TEST_BROKEN=${5:-false}
+
+    if [ "x$MESSAGE" = x- ] ; then
+        echo "testing ${TEST_LANG}"
+    else
+        echo "testing ${TEST_LANG} ($MESSAGE)"
+    fi
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng ${OPTIONS} -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+    echo "${EXPECTED}" > expected.txt
+    if [ x$TEST_BROKEN = xbroken ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    else
+        diff expected.txt actual.txt || exit 1
+    fi
+}
+
+test_replace() {
+    TEST_LANG=$1
+    TEST_TEXT=$2
+    TEST_BROKEN=${3:-false}
+
+    echo "testing ${TEST_LANG}"
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng -Xq -v ${TEST_LANG} "${TEST_TEXT}" | grep -E "(Translate|Found:) " | sed -e 's/ \[.*][ ]*$//g' > actual.txt
+    if [ x$TEST_BROKEN = xbroken ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    else
+        diff expected.txt actual.txt || exit 1
+    fi
+}
+
+test_commandlineoptions() {
+    TEST_LANG=$1
+    MESSAGE=$2
+    OPTIONS=$3
+    EXPECTED=$4
+    TEST_TEXT=$5
+    TEST_BROKEN=${6:-false}
+
+    if [ "x$MESSAGE" = x- ] ; then
+        echo "testing ${TEST_LANG}"
+    else
+        echo "testing ${TEST_LANG} ($MESSAGE)"
+    fi
+    ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
+        src/espeak-ng ${OPTIONS} -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
+    echo "${EXPECTED}" > expected.txt
+    if [ x$TEST_BROKEN = xbroken ] ; then
+        diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
+    else
+        diff expected.txt actual.txt || exit 1
+    fi
+}
+

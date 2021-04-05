@@ -1,10 +1,9 @@
 #!/bin/sh
-# Test a command for presence and ability to output the sha1 hash of a file.
-check_hashcmd() {
-        which $1 &&
-        $1 </dev/null 2>/dev/null |
-        awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
-}
+# include common script
+. "`dirname $0`/common"
+# and run needed checks before
+is_hash
+is_mbrola
 
 check_voice_folder() {
         voice_file=${1#mb-} # remove mb- prefix
@@ -37,27 +36,6 @@ test_voice () {
         fi
 }
 
-# Test some common commands to find the correct one for the system being tested on.
-echo -n "checking for SHA1 hashing command ... "
-if check_hashcmd sha1sum; then
-        sha1sum=sha1sum
-elif check_hashcmd sha1; then
-        sha1sum=sha1
-elif check_hashcmd shasum; then
-        sha1sum=shasum
-else
-        echo "no"
-        exit 1
-fi
-
-
-echo -n "checking if MBROLA is installed ... "
-if [ "`which mbrola`" != "" ]; then
-        echo "yes"
-else
-        echo "no"
-        exit
-fi
 
 test_voice mb-fr4 31fae066f45d4a9dc56289344f28dd00bce77875 "Bonjour"
 test_voice mb-fr4+announcer f62c9cad15df194ac7cedfcfb36b6d9ccc70a634 "Bonjour" # mbrola + variant

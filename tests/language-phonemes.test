@@ -1,37 +1,8 @@
 #!/bin/sh
-
-# Test a command for presence and ability to output the sha1 hash of a file.
-check_hashcmd() {
-	which $1 &&
-	$1 </dev/null 2>/dev/null |
-	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
-}
-
-# Test some common commands to find the correct one for the system being tested on.
-echo -n "checking for SHA1 hashing command ... "
-if check_hashcmd sha1sum; then
-	sha1sum=sha1sum
-elif check_hashcmd sha1; then
-	sha1sum=sha1
-elif check_hashcmd shasum; then
-	sha1sum=shasum
-else
-	echo "no"
-	exit 1
-fi
-
-test_lang() {
-	TEST_LANG=$1
-	EXPECTED=$2
-	TEST_TEXT=$3
-
-	echo "testing ${TEST_LANG}"
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng --stdout -v ${TEST_LANG} "[[${TEST_TEXT}]]" | \
-		$sha1sum | awk '{ print $1 }' > actual.txt
-	echo "${EXPECTED}" > expected.txt
-	diff expected.txt actual.txt || exit 1
-}
+# include common script
+. "`dirname $0`/common"
+# and run needed checks before
+is_hash
 
 test_lang af c71ab424d045d9fa82d2a23b9be4542aee3ed15e "ma na Na pa ta ka tSa ba da ga dZa fa sa x2a Sa va za Za ca la ja ra r/a _:_ m@ ma mE mI mO mW mu m& m&: m@L mA: me@ mi mo@ my miu m@U maI mAI meI mOI moI muI mYy mY@ maU me: mO: m3: mA~ me~ mo~"
 test_lang am 4fcdb9bb68b72c06e4cadf91b2c1e244ea14ac21 "ma na Na pa ta ka ?a ba da ga p\`a t\`a k\`a tSa dZa tS\`a Ba sa za Sa Za xa ha la ja wa ra _:_ mi me my ma m@ mo mu"

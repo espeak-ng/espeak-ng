@@ -1,26 +1,6 @@
 #!/bin/sh
-
-test_phonemes() {
-	TEST_LANG=$1
-	MESSAGE=$2
-	EXPECTED=$3
-	TEST_TEXT=$4
-	TEST_BROKEN=${5:-false}
-
-	if [ "x$MESSAGE" = x- ] ; then
-		echo "testing ${TEST_LANG}"
-	else
-		echo "testing ${TEST_LANG} ($MESSAGE)"
-	fi
-	ESPEAK_DATA_PATH=`pwd` LD_LIBRARY_PATH=src:${LD_LIBRARY_PATH} \
-		src/espeak-ng -xq -v ${TEST_LANG} "${TEST_TEXT}" > actual.txt
-	echo "${EXPECTED}" > expected.txt
-	if [ x$TEST_BROKEN = xbroken ] ; then
-		diff expected.txt actual.txt || (echo "... ignoring error (broken)" && true)
-	else
-		diff expected.txt actual.txt || exit 1
-	fi
-}
+# include common script
+. "`dirname $0`/common"
 
 ##### Script coverage
 

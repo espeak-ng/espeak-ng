@@ -1,24 +1,8 @@
 #!/bin/sh
-
-# Test a command for presence and ability to output the sha1 hash of a file.
-check_hashcmd() {
-	which $1 &&
-	$1 </dev/null 2>/dev/null |
-	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
-}
-
-# Test some common commands to find the correct one for the system being tested on.
-echo -n "checking for SHA1 hashing command ... "
-if check_hashcmd sha1sum; then
-	sha1sum=sha1sum
-elif check_hashcmd sha1; then
-	sha1sum=sha1
-elif check_hashcmd shasum; then
-	sha1sum=shasum
-else
-	echo "no"
-	exit 1
-fi
+# include common script
+. "`dirname $0`/common"
+# and run needed checks before
+is_hash
 
 test_ssml_audio() {
 	TEST_NAME=$1
